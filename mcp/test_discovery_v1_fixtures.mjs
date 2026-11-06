@@ -58,7 +58,7 @@ const LIMITS = Object.freeze({
   CURSOR_BYTES: 131072,
   REFUSAL_BYTES: 543,
   MEMBERSHIP_ENTRIES: 65536,
-  MEMBERSHIP_BYTES: 4194304,
+  MEMBERSHIP_BYTES: 2097152,
 });
 // §8, C1: a bad cause or log is echoed in the reason, cut to this many bytes.
 const ECHO_BYTES = 64;
@@ -1348,6 +1348,40 @@ const longestReason = (edge, mini) =>
     `its disputed words' readings collide on more than ${mini} line pairs`,
   ].reduce((a, b) => (Buffer.byteLength(b) > Buffer.byteLength(a) ? b : a));
 const cbytes = (v) => Buffer.byteLength(canonical(v));
+// One entry of exactly ENTRY_BYTES per load shape §10 measures (§6.11): long
+// strings, value-dense arrays, and arrays nested to the deepest an entry holds.
+// Each pads its first string to the exact size.
+const mib = (bytes) => `${bytes / 2 ** 20} MiB`;
+const LOAD_SHAPES = (() => {
+  const fit = (e) => {
+    e[0] += 'x'.repeat(LIMITS.ENTRY_BYTES - cbytes(e));
+    assert.equal(cbytes(e), LIMITS.ENTRY_BYTES);
+    return e;
+  };
+  const fill = (unit) => {
+    const e = ['0'];
+    while (cbytes([...e, unit]) <= LIMITS.ENTRY_BYTES) e.push(unit);
+    return fit(e);
+  };
+  const nest = (depth, leaf) => {
+    let u = leaf === null ? [] : [leaf];
+    for (let i = 1; i < depth; i++) u = [u];
+    return u;
+  };
+  return [
+    fit(['0', '']),
+    fit(['0', '\u3042'.repeat(1300)]),
+    fill(7),
+    fill([7]),
+    fill([]),
+    fill(''),
+    fill('\u0001'),
+    ...[2, 4, 8, 16, 64, 256, 1024].map((d) => fill(nest(d, null))),
+    fill(nest(2, 0)),
+    fill(nest(8, 0)),
+    fit(['0', nest(2040, null)]),
+  ];
+})();
 // The largest cursor outside discovery and continuation that §3.1's inputs
 // allow: every integer at 2^53 - 1, every method at its fullest with a refusal
 // of exactly REFUSAL_BYTES (inputs.refusal: search_stub_resolution's own text,
@@ -1450,6 +1484,23 @@ const cursorFrame = (rest) => ({
     continuation: {},
   },
 });
+// §3 lists the INVARIANT_FAILURE messages, one per bound (BB8 6688972927).
+// The worker model below builds its messages from those templates, so the
+// messages bad/cursor_over_bound.json pins hold the templates themselves.
+const INVARIANT_MESSAGES = (() => {
+  const s3 = CONTRACT.slice(CONTRACT.indexOf('\n## 3. Hard limits'), CONTRACT.indexOf('\n### 3.1'));
+  const out = {};
+  for (const m of s3.matchAll(/^- `(INVARIANT_FAILURE: [^`]+)`/gm)) {
+    const bound = m[1].match(/\b(REFUSAL_BYTES|CURSOR_BYTES|CONTINUATION_BYTES|WITNESS_FIELDS) \(/);
+    if (bound) out[bound[1]] = m[1];
+  }
+  return Object.freeze(out);
+})();
+const invariantMessage = (bound, fill) =>
+  Object.entries(fill).reduce(
+    (text, [slot, value]) => text.split(`<${slot}>`).join(String(value)),
+    INVARIANT_MESSAGES[bound]
+  );
 // The worker, before it emits: a refusal past REFUSAL_BYTES, then a cursor
 // past CURSOR_BYTES. Both are engine defects (§3.1, §3.2): no input can
 // lengthen a refusal, and only content no constant allows gets either there.
@@ -1459,12 +1510,12 @@ function workerCursorRefusal(rest) {
     if (counts.refusal && cbytes(counts.refusal) > LIMITS.REFUSAL_BYTES)
       return {
         code: 'INVARIANT_FAILURE',
-        message: `INVARIANT_FAILURE: the refusal of ${method} is ${cbytes(counts.refusal)} canonical bytes, past REFUSAL_BYTES (${LIMITS.REFUSAL_BYTES})`,
+        message: invariantMessage('REFUSAL_BYTES', { method, n: cbytes(counts.refusal) }),
       };
   if (cbytes(rest) > LIMITS.CURSOR_BYTES)
     return {
       code: 'INVARIANT_FAILURE',
-      message: `INVARIANT_FAILURE: the cursor without discovery and continuation is ${cbytes(rest)} canonical bytes, past CURSOR_BYTES (${LIMITS.CURSOR_BYTES})`,
+      message: invariantMessage('CURSOR_BYTES', { n: cbytes(rest) }),
     };
   return null;
 }
@@ -1678,6 +1729,20 @@ for e in data["vectors"]:
     out["vectors"].append([canonical_json(e),
         json.dumps(e, ensure_ascii=False, separators=(",", ":"), allow_nan=False)])
 out["chain"] = fold(hashlib.sha256(data["domain"].encode("utf-8")).hexdigest(), data["vectors"])
+# §2.1, §5.2: the worker's single pass keys by the bytes it hashes for F5; they
+# must equal canonical_json's for every entry it can load.
+one_pass = lambda e: json.dumps(e, ensure_ascii=False, separators=(",", ":"), allow_nan=False)
+out["single_pass"] = [one_pass(e) == canonical_json(e)
+                      for e in data["vectors"]
+                      + [e for t in data["segments"] for e in json.loads(t)["entries"]]]
+# On the load shapes canonical_json may not complete: json_safe recurses per
+# level, past Python's recursion limit on an entry nested about 1,000 deep.
+def shape_pass(e):
+    try:
+        return one_pass(e) == canonical_json(e)
+    except RecursionError:
+        return None
+out["shape_pass"] = [shape_pass(e) for e in data["shapes"]]
 for text in data["segments"]:
     seg = json.loads(text)
     again = json.dumps(seg, ensure_ascii=False, separators=(",", ":"))
@@ -2712,6 +2777,7 @@ test('canonical form and ordered digest: the vectors, recomputed in Node and in 
   const cursors = [...cfx.controls, ...cfx.mutants].map((c) => cursorCase(cfx.inputs, c.name));
   const py = python({
     vectors: entries,
+    shapes: LOAD_SHAPES,
     domain: fx.vector_chain.domain,
     segments: segments.map((b) => b.toString('utf8')),
     witness: {
@@ -2735,6 +2801,24 @@ test('canonical form and ordered digest: the vectors, recomputed in Node and in 
     assert.equal(viaDumps, fx.canonical_vectors[i].canonical, "Python's json.dumps");
   });
   assert.equal(py.chain, d, 'Python folds the same digest');
+  // §2.1, §5.2: the single pass's bytes are canonical_json's, on every vector,
+  // every load shape §10 measures and every entry of every good fixture's segments.
+  assert.ok(py.single_pass.length > entries.length);
+  assert.ok(
+    py.single_pass.every(Boolean),
+    "the worker's single-pass key equals canonical_json(entry)"
+  );
+  // On the load shapes it is equal wherever canonical_json completes, and
+  // canonical_json fails only past about 1,000 levels of nesting (§2.1).
+  const depth = (v) => (Array.isArray(v) ? 1 + Math.max(0, ...v.map(depth)) : 0);
+  LOAD_SHAPES.forEach((e, i) =>
+    assert.equal(
+      py.shape_pass[i],
+      depth(e) > 1000 ? null : true,
+      `load shape ${i} (depth ${depth(e)})`
+    )
+  );
+  assert.equal(py.shape_pass.filter((x) => x === null).length, 2);
   py.segments.forEach(([sameBytes, address, after], i) => {
     const node = JSON.parse(segments[i].toString('utf8'));
     assert.ok(sameBytes, `segment ${i}: json.dumps without sort_keys reproduces the bytes`);
@@ -4223,11 +4307,13 @@ test('§6.11: MEMBERSHIP_ENTRIES fits the first-commit budget by the contract fi
   // 4,096-byte entries (§10), scaled by the same factor, fitted into what the
   // margin leaves beside the per-entry term at its cap. The two terms
   // overcount each other's share, so their sum bounds any mix of entry sizes.
-  assert.ok(measured.includes('102.4 ns per entry byte at 4,096-byte entries'), '§10 measures it');
-  const byteRate = 102.4e-9 * factor;
+  assert.ok(measured.includes('251.4 ns per entry byte at 4,096-byte entries'), '§10 measures it');
+  const byteRate = 251.4e-9 * factor;
   const byteRoom = Math.floor((29 - fixed - atCap) / byteRate);
-  assert.equal(byteRoom, 7552364);
-  assert.equal(pow2(byteRoom), LIMITS.MEMBERSHIP_BYTES, 'rounded down to 4 MiB');
+  assert.equal(byteRoom, 3076221);
+  assert.equal(pow2(byteRoom), LIMITS.MEMBERSHIP_BYTES, 'rounded down to 2 MiB');
+  // The withdrawn 4 MiB, from the worst of five shapes, does not fit at this rate.
+  assert.ok(fixed + atCap + 4194304 * byteRate > 29, '4 MiB is withdrawn');
   const atBytes = LIMITS.MEMBERSHIP_BYTES * byteRate;
   const both = fixed + atCap + atBytes;
   assert.ok(both <= 29, 'both caps together hold the margin');
@@ -4265,7 +4351,7 @@ test('§6.11: MEMBERSHIP_ENTRIES fits the first-commit budget by the contract fi
     s(atCap),
     s(fixed + atCap),
     s(30 - fixed - atCap),
-    '307.2 ns',
+    '754.2 ns',
     s(29 - fixed - atCap),
     n(byteRoom),
     `\`MEMBERSHIP_BYTES = ${LIMITS.MEMBERSHIP_BYTES}\``,
@@ -4306,7 +4392,9 @@ test('§6.11: MEMBERSHIP_ENTRIES fits the first-commit budget by the contract fi
       assert.equal(Number(m[1]), value, `every \`${name} = …\` gives ${value}`);
   const flatText = text.replace(/\s+/g, ' ');
   assert.ok(
-    flatText.includes('rounded down to a power of two: `MEMBERSHIP_BYTES = 4194304` (4 MiB)')
+    flatText.includes(
+      `rounded down to a power of two: \`MEMBERSHIP_BYTES = ${LIMITS.MEMBERSHIP_BYTES}\` (${mib(LIMITS.MEMBERSHIP_BYTES)})`
+    )
   );
   assert.ok(flatText.includes(`${s(both)}, ${s(30 - both)} under it`), 'both caps: sum and margin');
   assert.ok(
@@ -4332,14 +4420,14 @@ function workerMembershipBytesRefusal(held, log, appended) {
     ? { code: 'RESOURCE_LIMIT', cause: `discovery_${log}` }
     : null;
 }
-test("§6.11: MEMBERSHIP_BYTES refuses one byte past 4 MiB with the appending log's cause", () => {
-  // 1,023 entries of exactly ENTRY_BYTES spread over the four logs, 4 MiB less
+test("§6.11: MEMBERSHIP_BYTES refuses one byte past 2 MiB with the appending log's cause", () => {
+  // 511 entries of exactly ENTRY_BYTES spread over the four logs, 2 MiB less
   // one entry; each log then appends the last 4,096 bytes (accepted, at the
   // cap), or 4,096 and one byte more (refused). Far under MEMBERSHIP_ENTRIES.
   const big = (i) => ['k' + i, 'x'.repeat(LIMITS.ENTRY_BYTES - cbytes(['k' + i, '']))];
   assert.equal(cbytes(big(7)), LIMITS.ENTRY_BYTES);
   const per = LIMITS.MEMBERSHIP_BYTES / LIMITS.ENTRY_BYTES;
-  assert.equal(per, 1024);
+  assert.equal(per, 512);
   const held = { seen: [], variants: [], row_seen: [], alt_seen: [] };
   for (let i = 0; i < per - 1; i++) held[MEMBERSHIP_LOGS[i % 4]].push(big(i));
   for (const log of MEMBERSHIP_LOGS) {
@@ -4425,6 +4513,213 @@ test('§1, §5, §6.2, §7.2, §8, §12: the completeness ruling is folded (BB8 
   // Item 29 stays open.
   assert.ok(
     flat(section('12. Rulings on the items added for confirmation')).includes('29. **Open**')
+  );
+});
+
+// The review of 465582a78: every statement the completeness ruling folded in
+// is pinned where it is made, with its figures computed rather than copied, so
+// an edit to any one of them fails here (BB8 6688972927).
+test('BB8 6688972927: each fold is pinned where it is stated, with computed figures', () => {
+  const flat = (t) => t.replace(/\s+/g, ' ');
+  const n = (x) => x.toLocaleString('en-US');
+  const s = (x) => `${x.toFixed(2)} s`;
+  const item = (k) => {
+    const all = section('12. Rulings on the items added for confirmation');
+    const m = all.match(new RegExp(`\\n${k}\\. [\\s\\S]*?(?=\\n${k + 1}\\. |\\n### |$)`));
+    assert.ok(m, `§12 has item ${k}`);
+    return flat(m[0]);
+  };
+  // The INVARIANT_FAILURE templates: one per bound, each naming the bound and
+  // its value, with its slots; §3.2 quotes §3's refusal template exactly.
+  assert.deepEqual(Object.keys(INVARIANT_MESSAGES).sort(), [
+    'CONTINUATION_BYTES',
+    'CURSOR_BYTES',
+    'REFUSAL_BYTES',
+    'WITNESS_FIELDS',
+  ]);
+  const slots = {
+    REFUSAL_BYTES: ['<method>', '<n>'],
+    CURSOR_BYTES: ['<n>'],
+    CONTINUATION_BYTES: ['<n>'],
+    WITNESS_FIELDS: ['<what>'],
+  };
+  for (const [bound, template] of Object.entries(INVARIANT_MESSAGES)) {
+    assert.ok(template.includes(`${bound} (${LIMITS[bound]})`), `${bound}: names its value`);
+    for (const slot of slots[bound]) assert.ok(template.includes(slot), `${bound}: ${slot}`);
+    if (bound !== 'WITNESS_FIELDS')
+      assert.ok(template.includes(' canonical bytes, past '), `${bound}: the size found`);
+  }
+  const s32 = CONTRACT.slice(CONTRACT.indexOf('\n### 3.2'), CONTRACT.indexOf('\n## 4.'));
+  const quoted = [...s32.matchAll(/`(INVARIANT_FAILURE: [^`]+)`/g)].map((m) => m[1]);
+  assert.deepEqual(quoted, [INVARIANT_MESSAGES.REFUSAL_BYTES], '§3.2 quotes §3 exactly');
+  // Item 4: a full read is the store's; the finish-time load is a complete
+  // verified load, which releases nothing on F6.
+  const terms = flat(section('1. Terms'));
+  assert.ok(
+    terms.includes(
+      'It is not a full read: on F6 it raises `STORAGE_CORRUPT` and releases nothing, like a lease-time load'
+    )
+  );
+  assert.ok(!/It is a full read/.test(terms));
+  const resume = flat(section('5. Resume path'));
+  const places = resume.slice(
+    resume.indexOf('1. reconciliation after'),
+    resume.indexOf('3. the worker')
+  );
+  assert.ok(
+    places.includes(
+      '1. reconciliation after any foreign writer, which includes startup (§7.4): a full read;'
+    )
+  );
+  assert.ok(places.includes('2. `resume()` of a paused or cancelled job: a full read.'));
+  assert.ok(
+    !places.includes('complete verified load'),
+    "§5.1: the store's two places are full reads"
+  );
+  assert.ok(
+    resume.includes(
+      "3. the worker's load of `alt_cells` when it builds the terminal record (§5.2), by its paths: a complete verified load, not a full read (§1). It releases nothing on F6"
+    )
+  );
+  const refusals = tableRows(section('8. Refusals'));
+  const row = (name) => refusals.find((r) => r[0] === name);
+  assert.ok(
+    flat(row('`STORAGE_CORRUPT`')[3]).includes(
+      "on a lease's walk or the worker's load, the finish-time complete verified load of `alt_cells` included (§5.2), which releases nothing"
+    )
+  );
+  assert.equal(row('`segment_corrupt`')[1], 'F6 at a full read');
+  assert.ok(
+    flat(row('`segment_corrupt`')[2]).includes(
+      "the store's full read only (reconciliation, `resume()`), logged at error level; never a worker, whose loads, the complete verified load of `alt_cells` included, raise `STORAGE_CORRUPT` on F6"
+    )
+  );
+  // §12 item 16 no longer counts a third or fourth full-read place, and the
+  // worker's chain_broken releases through the pause.
+  const i16 = item(16);
+  assert.ok(!i16.includes('Only a full read releases with `chain_broken`.'));
+  assert.ok(!/fourth/.test(i16), 'item 16 counts no fourth place');
+  assert.ok(
+    i16.includes(
+      "the worker's `chain_broken` at its load (F3 or R2) is a refusal whose `DISCOVERY_UNAVAILABLE` pause releases"
+    )
+  );
+  assert.ok(i16.includes("no further full-read place (the store's two, as item 14 amends them)"));
+  // Item 2: the byte cap is the worker's alone, and W7 says so.
+  const write = flat(section('4. Write path'));
+  assert.ok(
+    write.includes(
+      "W7 does not hold `MEMBERSHIP_BYTES`: the record keeps no byte count, so that cap is the worker's alone (§3)."
+    )
+  );
+  assert.ok(!/W7 holds `MEMBERSHIP_BYTES`/.test(flat(CONTRACT)));
+  for (const log of MEMBERSHIP_LOGS)
+    assert.equal(
+      row(`\`discovery_${log}\``)[1],
+      `\`MEMBERSHIP_ENTRIES\` or \`MEMBERSHIP_BYTES\`, by an append to \`${log}\``,
+      `§8: discovery_${log} is raised by an append to ${log}`
+    );
+  const worker = flat(section('6. Worker semantics'));
+  assert.ok(
+    worker.includes(
+      'until `MEMBERSHIP_ENTRIES` or `MEMBERSHIP_BYTES` stops it with `discovery_row_seen` (§3)'
+    ),
+    '§6.2: either cap stops a deferred compaction'
+  );
+  // The derivation's figures, computed (as the §6.11 test computes them).
+  const factor = 3;
+  const walk = 5 * LIMITS.CHAIN_SEGMENTS * (0.01 / 99) * factor;
+  const fixed = 15.2 + 2.4 + walk;
+  const rate = 30.4e-6 * factor;
+  const withMargin = Math.floor((29 - fixed) / rate);
+  const room = Math.floor((30 - fixed) / rate);
+  const atCap = LIMITS.MEMBERSHIP_ENTRIES * rate;
+  const measured = tableRows(section('10. Measured on #656, not bounds'));
+  const perByte = measured.find((r) => r[0] === 'load per byte')[1];
+  const median = Number(perByte.match(/^([\d.]+) ns per entry byte at 4,096-byte entries/)[1]);
+  const worst = Number(perByte.match(/the worst single load ([\d.]+) ns/)[1]);
+  assert.ok(worst >= median && worst <= factor * median, '§10: the factor covers the worst load');
+  const shapes = perByte.match(/over (\S+) entry shapes/)[1];
+  assert.equal(Number(shapes), LOAD_SHAPES.length, '§10 measures the shapes the validator keys');
+  for (const m of CONTRACT.matchAll(/worst of (\S+) (?:entry )?shapes/g))
+    if (!/five/.test(m[1]))
+      assert.equal(Number(m[1]), LOAD_SHAPES.length, `every "worst of ${m[1]} shapes"`);
+  assert.ok(/five loads of 8 MiB \(2,048 entries, 512 segments\)/.test(perByte));
+  assert.equal((8 * 2 ** 20) / LIMITS.ENTRY_BYTES, 2048);
+  const byteRate = median * 1e-9 * factor;
+  const byteRoom = Math.floor((29 - fixed - atCap) / byteRate);
+  const MB = LIMITS.MEMBERSHIP_BYTES;
+  const atBytes = MB * byteRate;
+  const both = fixed + atCap + atBytes;
+  const ownBytes = Math.round(19880 * 65.3 + 165 * 240);
+  const s611 = flat(section('6. Worker semantics').split('### 6.11')[1]);
+  for (const stated of [
+    `| load rate per byte | ${median} ns per entry byte × ${factor} = ${(median * factor).toFixed(1)} ns |`,
+    `b entry bytes × ${(median * factor).toFixed(1)} ns`,
+    `At ${(median * factor).toFixed(1)} ns per byte that is ${n(byteRoom)} bytes`,
+    `\`MEMBERSHIP_BYTES = ${MB}\` (${mib(MB)}), combined over the same four logs. Its term is ${s(atBytes)}.`,
+    `At 4,096-byte entries it holds ${n(MB / LIMITS.ENTRY_BYTES)} of them, ${n(MB / LIMITS.ENTRY_BYTES / 4)} segments.`,
+    `so the cap leaves ${n(MB - ownBytes)} bytes of headroom for the alternate phase, not a measured margin.`,
+    `${n(withMargin)} once the first step's 1 s deadline`,
+    `or ${n(room)} entries, and`,
+    'so on one path the per-entry term plus the per-byte term bounds a load of any mix of entry sizes',
+    "and the sum is a derivation over two paths, not a bound on the worker's load",
+    'nothing here explains the 8.7-fold gap',
+  ])
+    assert.ok(s611.includes(stated), `§6.11 states ${stated}`);
+  assert.ok(!/so their sum bounds|the per-byte term alone bounds|conservative here/.test(s611));
+  // §3's rows state the same derivation.
+  const limits = tableRows(section('3. Hard limits'));
+  const entriesRow = flat(limits.find((r) => r[0] === '`MEMBERSHIP_ENTRIES`')[1]);
+  assert.ok(
+    entriesRow.includes(
+      `${n(withMargin)} with the margin, rounded down to ${n(LIMITS.MEMBERSHIP_ENTRIES)}`
+    )
+  );
+  assert.ok(!entriesRow.includes(`${n(room)} with the margin`));
+  const bytesRow = flat(limits.find((r) => r[0] === '`MEMBERSHIP_BYTES`')[1]);
+  assert.ok(bytesRow.startsWith(`${MB} canonical entry bytes (${mib(MB)}) in the same four logs`));
+  // §12 items 13 and 25 and §11 row 40 carry the same figures.
+  const i13 = item(13);
+  assert.ok(i13.includes(`\`MEMBERSHIP_BYTES\` (${mib(MB)})`));
+  assert.ok(i13.includes(`The ${s(fixed + atCap)} and ${s(both)} at the caps are derivations`));
+  const i25 = item(25);
+  assert.ok(
+    i25.includes(`${n(withMargin)} entries fit in 29 s, the 30 s budget less the 1 s margin`)
+  );
+  assert.ok(i25.includes(`the sum ${s(fixed + atCap)}, a derivation`));
+  assert.ok(i25.includes(`\`MEMBERSHIP_BYTES = ${MB}\``));
+  assert.ok(i25.includes(`(${median} ns, the worst of ${LOAD_SHAPES.length} shapes, §10)`));
+  assert.ok(i25.includes(`both caps reached the sum is ${s(both)} (§6.11)`));
+  const rows = tableRows(section('11. Cross-reference'));
+  assert.ok(
+    flat(rows.find((r) => r[0] === '40')[2]).includes(
+      `${n(withMargin)} entries with the margin, rounded down to \`MEMBERSHIP_ENTRIES = ${LIMITS.MEMBERSHIP_ENTRIES}\``
+    )
+  );
+  assert.ok(flat(rows.find((r) => r[0] === '46')[2]).includes(`\`MEMBERSHIP_BYTES = ${MB}\``));
+  // Finding 1: the single-pass key is required, in §2.1 and §5.2.
+  const format = flat(section('2. Format'));
+  assert.ok(
+    format.includes(
+      "A Python implementation **must** key its sets by each entry's canonical form as the Python line above writes it, computed once per entry and shared with F5's digest (§5.2)."
+    )
+  );
+  assert.ok(
+    format.includes('It **must not** compute a key by calling `canonical_json` on an entry')
+  );
+  assert.ok(!format.includes('keys its sets by `canonical_json(entry)`'));
+  assert.ok(
+    resume.includes(
+      "**Required** (§2.1): the worker computes each loaded entry's canonical form once, hashes those bytes for F5, and keys its sets by the same bytes"
+    )
+  );
+  assert.ok(resume.includes('It never calls `canonical_json` on a loaded entry.'));
+  // Finding 5: the worker half measures its own load before the proof run.
+  assert.ok(
+    flat(section('9. Compatibility and release')).includes(
+      "the worker half measures its own load's per-entry and per-byte rates, and the caps are re-derived if either, scaled by 3, is above §6.11's"
+    )
   );
 });
 
