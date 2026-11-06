@@ -1,0 +1,57 @@
+.genre-similar {
+  color: var(--cm-text, CanvasText);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.genre-similar * {
+  box-sizing: border-box;
+}
+.genre-similar .genre-similar-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+.genre-similar .genre-similar-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--cm-border-subtle, GrayText);
+}
+.genre-similar .genre-similar-open {
+  flex: 1 1 14rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: left;
+  min-width: 0;
+}
+.genre-similar .genre-similar-open img {
+  flex: 0 0 24px;
+}
+.genre-similar .genre-similar-agreement {
+  flex: 2 1 20rem;
+  margin: 0;
+}
+.genre-similar button,
+.genre-similar a {
+  font: inherit;
+  color: var(--cm-link, LinkText);
+  background: var(--cm-surface, Canvas);
+  border: 1px solid var(--cm-border-subtle, GrayText);
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  min-height: 44px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.genre-similar a {
+  display: inline-flex;
+  align-items: center;
+}
+.genre-similar :focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
