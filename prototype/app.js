@@ -235,6 +235,9 @@ const discoveryLanes = [
     label: 'The genre categories',
     load: () => import('./features/genre-categories/categories.js'),
     unloaded: 'The genre categories did not load.',
+    // Not "check your connection": the discovery load also fails on the
+    // engine's page parse, which no connection fixes (Jony, #810 6673521152).
+    retryHint: 'Try again.',
     context: async () => {
       await discovery.start();
       if (discovery.categories.current().status !== 'ready') throw new Error('not ready');
@@ -253,6 +256,7 @@ const discoveryLanes = [
     label: 'Find a sound',
     load: () => import('./features/genre-targets/targets.js'),
     unloaded: 'Find a sound did not load.',
+    retryHint: 'Try again.',
     context: async () => {
       await discovery.start();
       if (discovery.targets.current().status !== 'ready') throw new Error('not ready');

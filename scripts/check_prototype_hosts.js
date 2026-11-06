@@ -2651,8 +2651,9 @@ async function closing(browser, srv) {
 // disclosure. The count line must head the results, as production's #gp-count
 // does: right after Find a sound's host and before the Genre detail's, so
 // focus after a branch doesn't land past the detail (Jony, #810 6673521152);
-// and when the discovery data doesn't load, the store's sentence must not
-// blame a connection (the engine's page parse fails there too).
+// and when the discovery data doesn't load, neither the store's sentence nor
+// the one each lane's host shows on the page may blame a connection (the
+// engine's page parse fails there too).
 function seededTargets(keys) {
   let s = 20261105;
   const rnd = () => (s = (s * 1103515245 + 12345) % 2147483648) / 2147483648;
@@ -2732,8 +2733,9 @@ async function discoveryChecks(browser, srv) {
     `discovery: production gave ${prod.roots.length} roots, ${prod.nodes.length} nodes`
   );
 
-  // Data that doesn't load: the store's own sentence says what failed and
-  // what to do, with no connection named.
+  // Data that doesn't load: the store's own sentence, and the sentence each
+  // lane's host shows on the page before its Retry, say what failed and what
+  // to do, with no connection named.
   {
     const { context, page } = await newPage(browser, srv, { fail: ['/api/browse_boot.json'] });
     await page.goto(`${srv.url}/prototype/#genre`);
@@ -2756,6 +2758,29 @@ async function discoveryChecks(browser, srv) {
         failed.code === 'LOAD_FAILED' &&
         failed.message === 'The genres couldn’t load. Try again.',
       `discovery: a load that failed said ${JSON.stringify(failed)}`
+    );
+    const shown = await page
+      .waitForFunction(
+        () => {
+          const notes = ['genrecategories', 'genretargets'].map((l) => {
+            const host = document.querySelector(`[data-feature-host="${l}"]`);
+            const n = host && host.querySelector('[data-host-note]');
+            return n && n.textContent;
+          });
+          return notes.every((n) => n && !/^Loading/.test(n)) && notes;
+        },
+        null,
+        { timeout: 15000 }
+      )
+      .then((h) => h.jsonValue())
+      .catch((e) => ({ error: String(e) }));
+    expect(
+      JSON.stringify(shown) ===
+        JSON.stringify([
+          'The genre categories did not load. Try again.',
+          'Find a sound did not load. Try again.',
+        ]),
+      `discovery: a load that failed showed ${JSON.stringify(shown)} on the page`
     );
     await context.close();
   }

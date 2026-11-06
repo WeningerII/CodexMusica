@@ -62,13 +62,15 @@ function explain(host, text, retry) {
 }
 
 // A lane's data that didn't load: what happened (the lane's own sentence),
-// then what to do.
+// then what to do. A lane whose data can fail for a reason other than the
+// connection says what to do itself, in retryHint.
 const RETRY_HINT = 'Check your connection, then try again.';
 
-// lane: { id, label, load, context, unloaded }. load returns the lane module
-// (app.js's registry, a literal dynamic import); context resolves the lane's
-// own ctx fields; unloaded is the sentence shown if context fails, which the
-// host follows with what to do and a Retry button.
+// lane: { id, label, load, context, unloaded, retryHint? }. load returns the
+// lane module (app.js's registry, a literal dynamic import); context resolves
+// the lane's own ctx fields; unloaded is the sentence shown if context fails,
+// which the host follows with what to do (retryHint, or RETRY_HINT) and a
+// Retry button.
 export function createHost(lane, panel) {
   let state = 'idle'; // idle | loading | mounted | unavailable
   let handle = null;
@@ -116,7 +118,7 @@ export function createHost(lane, panel) {
     } catch {
       if (host !== node) return;
       state = 'unavailable';
-      const sentence = `${lane.unloaded} ${RETRY_HINT}`;
+      const sentence = `${lane.unloaded} ${lane.retryHint || RETRY_HINT}`;
       explain(host, sentence, () => {
         state = 'loading';
         explain(host, `Loading ${lane.label}…`);
