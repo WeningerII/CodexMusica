@@ -438,9 +438,79 @@ test('#671 a preface pooled with a card of the same label is still not attributa
     );
     assert.deepEqual(prefaceCodes(r), [[second, 'EXPLICIT_PREFACE_NOT_ATTRIBUTABLE', 'raging']]);
     const w = r.render_warnings.find((x) => x.code === 'EXPLICIT_PREFACE_NOT_ATTRIBUTABLE');
-    assert.deepEqual(w.shared_with, [tack, first]);
+    // Only the other upright piano shares the part `raging` is printed in; the
+    // tack piano's head words are its own.
+    assert.deepEqual(w.shared_with, [first]);
     assert.match(w.meaning, /shares its label/);
+    assert.match(w.meaning, /\(upright_piano \(card_\d+\) with upright_piano \(card_\d+\)\)/);
+    assert.doesNotMatch(w.meaning, /tack_piano/);
   }
+});
+
+test('#671 shared_with names the cards that share the words a pinned word is printed in', () => {
+  // The same second upright piano, now also with a pinned keyboard technique.
+  // Its preface is in the part it pools with the first upright piano, so only
+  // that card shares it; the technique's word is printed only in the
+  // descriptors Rich pools from the whole merged chunk, so every other card of
+  // the chunk does.
+  const seeded = startRecipe({ traditions: ['honky_tonk'] });
+  const pianos = editRecipe({
+    workspace: seeded.workspace,
+    edits: [{ action: 'add_instrument', instrument: 'upright_piano' }],
+  });
+  const tack = pianos.cards.find((c) => c.instrument === 'tack_piano').card;
+  const [first, second] = pianos.cards
+    .filter((c) => c.instrument === 'upright_piano')
+    .map((c) => c.card);
+  const { workspace } = editRecipe({
+    workspace: pianos.workspace,
+    edits: [
+      { action: 'set_preface', card: second, preface: 'raging' },
+      {
+        action: 'set_variant',
+        card: second,
+        part: 'keyboard_technique',
+        variant: 'keyboard_gospel_chord_runs',
+      },
+    ],
+  });
+  const r = renderRecipe({ workspace, format: 'rich' });
+  assert.match(r.recipe, / tack piercing raging upright piano: gospel-runs /, 'fixture moved');
+  const of = (code) => r.render_warnings.find((x) => x.card === second && x.code === code);
+  const preface = of('EXPLICIT_PREFACE_NOT_ATTRIBUTABLE');
+  assert.deepEqual(preface.shared_with, [first]);
+  assert.match(
+    preface.meaning,
+    /where this card shares its label, and so its words, with another card/
+  );
+  const words = of('PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE');
+  assert.deepEqual(words.descriptors, ['gospel-runs']);
+  assert.deepEqual(words.shared_with, [tack, first]);
+  assert.match(words.meaning, /only in the words one segment shares among the cards it merges/);
+  assert.match(words.meaning, /not the part that holds this card's label/);
+  assert.match(words.meaning, /with tack_piano, upright_piano \(card_\d+\)\)/);
+  // Two voices pool into one chunk of their own label, so the descriptors they
+  // pool are theirs together: the other voice is the one card that shares them.
+  const voice = seeded.cards.find((c) => c.instrument === 'voice').card;
+  const two = editRecipe({
+    workspace: seeded.workspace,
+    edits: [{ action: 'add_instrument', instrument: 'voice' }],
+  });
+  const added = two.cards.find((c) => c.instrument === 'voice' && c.card !== voice).card;
+  const voices = editRecipe({
+    workspace: two.workspace,
+    edits: [{ action: 'set_variant', card: added, part: 'voice_register', variant: 'head_voice' }],
+  }).workspace;
+  const v = renderRecipe({ workspace: voices, format: 'rich' });
+  assert.match(
+    v.recipe,
+    /^Honky-tonk, eye-watering jaw-dropping voice: soaring light ringing /,
+    'fixture moved'
+  );
+  const w = v.render_warnings.find((x) => x.code === 'PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE');
+  assert.equal(w.card, added);
+  assert.deepEqual(w.shared_with, [voice]);
+  assert.match(w.meaning, /where this card shares its label, and so its words, with another card/);
 });
 
 test('#671 a preface shed from one card of a merged chunk is not printed on that card only', () => {

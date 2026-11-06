@@ -28,8 +28,10 @@ would have counted too. Gangsta rap Rich and Tags and Irish trad session Tags we
 - **`PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`** (new): the word is printed, but only where the
   output cannot say which card it describes: the part of a chunk Rich or Prose pools from
   cards with the same label, the trailing label or pooled descriptors a merged chunk's cards
-  share, or a render with no per-card segments. `shared_with` names the others, and the
-  `meaning` says which of the three it is.
+  share, or a render with no per-card segments. `shared_with` names the cards that share the
+  words it is printed in (in a same-label part, only that label's other cards; in the words a
+  merged chunk shares, every other card of the chunk), and the `meaning` says which of the
+  three it is.
 - **A pinned preface, by the same rule.** `EXPLICIT_PREFACE_NOT_LITERAL` tested
   `recipe.includes(preface)`, so the same preface pinned on another card (or a header word,
   or a longer word) hid that this card's was shed or that the card was hidden: Honky-tonk
