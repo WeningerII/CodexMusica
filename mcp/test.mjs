@@ -5450,6 +5450,16 @@ await check('validation: actionable errors', () => {
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/witness_mismatch.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/good/lease_incremental_walk.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/good/unavailable_pause_reason.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/alt_seen_over_cap.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/terminal_suffix_not_contiguous.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/verified_ahead_of_head.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/test_library_viewer_routes.mjs':
         'offline Library viewer route, cookie, isolation and limit regressions',
       'mcp/test_library_exports.mjs':

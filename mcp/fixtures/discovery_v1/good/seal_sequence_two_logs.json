@@ -41,6 +41,14 @@
               "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
             }
           },
+          "verified": {
+            "seen": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
+            }
+          },
           "unavailable": null
         },
         "segments": [],
@@ -225,6 +233,26 @@
               "digest": "3d776edd104fc89d5c3285e2ecc6bb2c9d882cd84ec9858b11dd88cbd1c6fbd1"
             }
           },
+          "verified": {
+            "seen": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
+            },
+            "alt_cells": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "9216001e76afe6aa1a120e7332ab77344f50c276cd781d3b2631ca8f6752d5ea"
+            },
+            "variants": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "3d776edd104fc89d5c3285e2ecc6bb2c9d882cd84ec9858b11dd88cbd1c6fbd1"
+            }
+          },
           "unavailable": null
         },
         "segments": [
@@ -344,6 +372,26 @@
               "segments": 2,
               "count": 2048,
               "digest": "c99010d7c9c9bf634f83b220d50267b6eab2ebea08641d175ebab2c293d019ae"
+            },
+            "variants": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "3d776edd104fc89d5c3285e2ecc6bb2c9d882cd84ec9858b11dd88cbd1c6fbd1"
+            }
+          },
+          "verified": {
+            "seen": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
+            },
+            "alt_cells": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "9216001e76afe6aa1a120e7332ab77344f50c276cd781d3b2631ca8f6752d5ea"
             },
             "variants": {
               "head": null,

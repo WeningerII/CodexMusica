@@ -1,0 +1,236 @@
+{
+  "fixture": "bad/terminal_suffix_not_contiguous.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "witness",
+  "exercises": "Mutants of the good witness fixture's durable history, each with the four contributions intact before the boundary, where the terminal suffix is not one contiguous run of this method's terminal records and their parts: a contribution between the terminal parent and its detail part, a contribution after a complete suffix, another method's terminal record, another method's detail part, a contribution's detail part after the boundary, the terminal's part before its parent, and its part after the next terminal record. Each alone is an inserted record and refuses as RESULT_EXPIRED. The controls, the complete suffix and a suffix of two terminal records, are accepted.",
+  "expect": { "accepted": false, "rule": "S2", "code": "RESULT_EXPIRED", "status": 410 },
+  "base": "good/witness_cursor_option2.json",
+  "mutants": [
+    {
+      "name": "contribution_between_parent_and_part",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        {
+          "id": "relation:e7",
+          "kind": "relation_instance",
+          "method_id": "schema:end_rhyme",
+          "basis": "engine",
+          "verdict": "true",
+          "a": { "token_ids": ["L8:token:2"] },
+          "b": { "token_ids": ["L9:token:2"] }
+        },
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:f836b100d456726acdef2b0ed13b801c",
+          "field": "domain",
+          "part": 0,
+          "total": 1,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        }
+      ]
+    },
+    {
+      "name": "contribution_after_suffix",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:f836b100d456726acdef2b0ed13b801c",
+          "field": "domain",
+          "part": 0,
+          "total": 1,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        },
+        {
+          "id": "relation:e8",
+          "kind": "relation_instance",
+          "method_id": "schema:end_rhyme",
+          "basis": "engine",
+          "verdict": "false",
+          "a": { "token_ids": ["L8:token:3"] },
+          "b": { "token_ids": ["L9:token:3"] }
+        }
+      ]
+    },
+    {
+      "name": "other_method_terminal",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:f836b100d456726acdef2b0ed13b801c",
+          "field": "domain",
+          "part": 0,
+          "total": 1,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        },
+        {
+          "id": "method_result:o1",
+          "kind": "method_result",
+          "method_id": "schema:internal_rhyme",
+          "basis": "measured",
+          "coverage": "answered"
+        }
+      ]
+    },
+    {
+      "name": "other_method_part",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:internal_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:f836b100d456726acdef2b0ed13b801c",
+          "field": "domain",
+          "part": 0,
+          "total": 1,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        }
+      ]
+    },
+    { "name": "contribution_part_after_boundary", "records": [0, 1, 2, 3, 4, 5, 2] },
+    {
+      "name": "part_before_its_parent",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:f836b100d456726acdef2b0ed13b801c",
+          "field": "domain",
+          "part": 0,
+          "total": 1,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        },
+        5
+      ]
+    },
+    {
+      "name": "part_after_next_terminal",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        {
+          "id": "method_result:t2",
+          "kind": "method_result",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "coverage": "answered"
+        },
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:f836b100d456726acdef2b0ed13b801c",
+          "field": "domain",
+          "part": 0,
+          "total": 1,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "name": "complete_suffix",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:f836b100d456726acdef2b0ed13b801c",
+          "field": "domain",
+          "part": 0,
+          "total": 1,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        }
+      ]
+    },
+    {
+      "name": "two_terminal_records",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:f836b100d456726acdef2b0ed13b801c",
+          "field": "domain",
+          "part": 0,
+          "total": 1,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        },
+        {
+          "id": "method_result:t2",
+          "kind": "method_result",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "coverage": "answered"
+        }
+      ]
+    }
+  ]
+}

@@ -10,6 +10,9 @@
 //   - evaluates every rule independently on each bad fixture and asserts that
 //     exactly the rule it is named for fails, with the refusal the contract
 //     names for that rule;
+//   - models the store's incremental walk over its verified heads (§5.1) and the
+//     release a DISCOVERY_UNAVAILABLE pause saves (U1), and recomputes the
+//     ALT_SEEN_ENTRIES derivation from the contract's own figures (§6.11);
 //   - checks Python's canonical_json (lyric-harness/library/contracts.py) and
 //     json.dumps against Node's bytes, so "identical for this subset" is run,
 //     not asserted;
@@ -41,6 +44,7 @@ const LIMITS = Object.freeze({
   WITNESS_FIELDS: 16,
   CONTINUATION_BYTES: 8192,
   CURSOR_BYTES: 65536,
+  ALT_SEEN_ENTRIES: 65536,
 });
 const LOGS = ['seen', 'row_seen', 'variants', 'alt_cells', 'alt_seen'];
 const RESETTABLE = new Set(['row_seen']);
@@ -71,6 +75,7 @@ const RESOURCE_CAUSES = [
   'discovery_entry_bytes',
   'discovery_frame_seals',
   'discovery_chain_segments',
+  'discovery_alt_seen',
 ];
 // §2.8: cursor v2 keeps none of a method's terminal inputs (analysis.py:2439).
 const TERMINAL_INPUTS = ['domain_true', 'domain_undecided', 'alt_cells'];
@@ -85,11 +90,20 @@ const PROTOCOL = { code: 'READER_PROTOCOL', status: 400 };
 const unavailable = (cause) => ({ code: 'DISCOVERY_UNAVAILABLE', status: 409, cause });
 const REFUSAL = {
   write: Object.fromEntries(
-    ['F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'W1', 'W2', 'W3', 'W4', 'W5', 'W6'].map((r) => [
+    ['F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7'].map((r) => [
       r,
       PROTOCOL,
     ])
   ),
+  // The frame a worker must not emit: it refuses first, naming the cause (§3).
+  limit: { W7: { code: 'RESOURCE_LIMIT', cause: 'discovery_alt_seen' } },
+  // The store's walk (§5.1), under the lock and after reconciliation.
+  walk: {
+    R2: unavailable('chain_broken'),
+    R5: unavailable('chain_broken'),
+    F3: unavailable('chain_broken'),
+    F6: { code: 'STORAGE_CORRUPT', status: 503 },
+  },
   resume: {
     R1: unavailable('segment_missing'),
     R2: unavailable('chain_broken'),
@@ -199,7 +213,8 @@ function readmeRows() {
   }
   return rows;
 }
-const refusalText = (r) => `${r.code} ${r.status}${r.cause ? ` ${r.cause}` : ''}`;
+// A worker's RESOURCE_LIMIT has no HTTP status: the job pauses (§8).
+const refusalText = (r) => [r.code, r.status, r.cause].filter((x) => x != null).join(' ');
 
 // ---------------------------------------------------------------- the cursor (§2.8)
 // Shape and bound checks Node makes on cursor.discovery, witness and
@@ -406,6 +421,20 @@ function evaluateFrame(job, record, frame) {
     (sealed[log] ??= []).push(...s.entries);
   });
   for (const log of Object.keys(cd.logs)) logs[log] ??= emptyLog(log);
+  // §4: a commit keeps each log's verified state unless the frame releases or
+  // resets the log, and a new log starts empty. Only the walk advances it (§5.1).
+  const verified = {};
+  for (const log of Object.keys(logs))
+    verified[log] =
+      sameEpoch && rd.verified?.[log] && !reset.has(log) ? clone(rd.verified[log]) : emptyLog(log);
+  // W7, the alt_seen cap: its count plus its new tail (§3, derived in §6.11)
+  const altSeen = cd.logs.alt_seen;
+  if (
+    altSeen &&
+    Array.isArray(altSeen.tail) &&
+    logs.alt_seen.count + altSeen.tail.length > LIMITS.ALT_SEEN_ENTRIES
+  )
+    bad('W7', `alt_seen would hold ${logs.alt_seen.count + altSeen.tail.length} entries`);
   // W6, append-only tails
   if (pc?.discovery && pc.discovery.epoch === epoch)
     for (const [log, st] of Object.entries(cd.logs)) {
@@ -446,12 +475,12 @@ function evaluateFrame(job, record, frame) {
     bad('W4', 'groups.through went backwards within its epoch');
   return {
     violations,
-    discovery: { version: 1, epoch, logs, unavailable: null },
+    discovery: { version: 1, epoch, logs, verified, unavailable: null },
     segments,
     released,
   };
 }
-const WRITE_RULES = ['F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'W1', 'W2', 'W3', 'W4', 'W5', 'W6'];
+const WRITE_RULES = ['F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7'];
 
 // Replays a write fixture's frames; returns the violations of every frame.
 function replay(fx) {
@@ -578,6 +607,160 @@ function evaluateResume(fx) {
   return { violations, skipped };
 }
 const RESUME_RULES = ['R1', 'R2', 'R3', 'R4', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6'];
+
+// ---------------------------------------------------------------- the store's walk (§5.1)
+// `addresses` is the store's in-memory address list: each live chain's
+// segments, oldest first. A lease stats the verified prefix and reads only the
+// segments appended since the verified head; a full read reads every segment.
+function evaluateWalk(fx, discovery, mode) {
+  const violations = [];
+  const bad = (rule, detail, log = null) => violations.push({ rule, detail, log });
+  const store = storeOf(fx.store.segments_from, fx.store.omit);
+  const rd = discovery;
+  const stat = [];
+  const read = [];
+  const verified = {};
+  const paths = {};
+  if (
+    !plainObject(rd.verified) ||
+    !same(Object.keys(rd.verified).sort(), Object.keys(rd.logs).sort())
+  )
+    bad('R5', 'verified names exactly the logs the record holds');
+  for (const [log, st] of Object.entries(rd.logs)) {
+    const list = fx.addresses[log] || [];
+    const v = rd.verified?.[log] ?? emptyLog(log);
+    if (list.length !== st.segments || (list.at(-1) ?? null) !== st.head)
+      bad('R2', `${log}: the address list does not end at the record's head`, log);
+    // R5, the verified prefix, from the record alone: never ahead of the head.
+    const prefix =
+      plainObject(v) &&
+      Number.isSafeInteger(v.segments) &&
+      v.segments >= 0 &&
+      v.segments <= st.segments &&
+      Number.isSafeInteger(v.count) &&
+      v.count <= st.count &&
+      (v.segments !== 0 || canonical(v) === canonical(emptyLog(log))) &&
+      (v.segments !== st.segments || canonical(v) === canonical(st)) &&
+      (v.segments === 0 || list[v.segments - 1] === v.head);
+    if (!prefix) {
+      bad('R5', `${log}: the verified state is not a prefix of its chain`, log);
+      continue;
+    }
+    const from = mode === 'lease' ? v.segments : 0;
+    stat.push(...list.slice(0, from));
+    // The state the next segment read must continue: the verified head, or d0.
+    let at = from ? v : emptyLog(log);
+    let junction = from > 0;
+    for (const address of list.slice(from)) {
+      const raw = store.get(address);
+      if (!raw) {
+        bad('missing', `${log}: ${address} is missing (STORAGE_CORRUPT here)`, log);
+        break;
+      }
+      if (sha(raw) !== address) bad('F6', `${address} does not match its address`, log);
+      const seg = JSON.parse(raw.toString('utf8'));
+      if (
+        !same(Object.keys(seg), SEGMENT_FIELDS) ||
+        seg.version !== 1 ||
+        seg.kind !== 'reader_discovery_segment' ||
+        seg.job_id !== fx.record.id ||
+        seg.identity_hash !== fx.record.identity_hash ||
+        seg.epoch !== rd.epoch ||
+        seg.log !== log ||
+        seg.count !== seg.entries.length
+      )
+        bad('F3', `${address} schema`, log);
+      if (
+        seg.previous_hash !== at.head ||
+        seg.first !== at.count ||
+        seg.digest_before !== at.digest
+      )
+        bad(junction ? 'R5' : 'R2', `${log}: ${address} does not continue ${at.head}`, log);
+      junction = false;
+      read.push(address);
+      at = {
+        head: address,
+        segments: at.segments + 1,
+        count: seg.first + seg.count,
+        digest: seg.digest_after,
+      };
+    }
+    if (canonical(at) !== canonical(st))
+      bad('R2', `${log}: the walk does not end at the head`, log);
+    verified[log] = clone(st);
+    paths[log] = list.map((a) => path.join(fx.directory, 'pages', `${a}.json`));
+  }
+  return {
+    violations,
+    stat,
+    read,
+    verified,
+    saved: canonical(verified) !== canonical(rd.verified ?? {}),
+    payload: { version: 1, summary: { epoch: rd.epoch, logs: clone(rd.logs) }, paths },
+  };
+}
+const WALK_RULES = ['R2', 'R5', 'F3', 'F6'];
+
+// ---------------------------------------------------------------- releases (§2.7, U1)
+// One save empties logs and verified and records each released log's head.
+const releaseOf = (rd, cause, log) => ({
+  version: 1,
+  epoch: rd.epoch,
+  logs: {},
+  verified: {},
+  unavailable: {
+    cause,
+    log,
+    released: Object.fromEntries(Object.entries(rd.logs).map(([l, st]) => [l, st.head])),
+  },
+});
+// §8's message for each DISCOVERY_UNAVAILABLE cause, as the contract states it.
+function causeMessages() {
+  const rows = tableRows(
+    section('8. Refusals').split('The causes:')[1].split('The `RESOURCE_LIMIT` causes')[0]
+  );
+  const text = Object.fromEntries(rows.map((r) => [r[0].replace(/`/g, ''), r[3]]));
+  return Object.fromEntries(
+    Object.entries(text).map(([cause, m]) => {
+      const ref = /^the `([a-z_]+)` message$/.exec(m);
+      return [cause, ref ? text[ref[1]] : m];
+    })
+  );
+}
+// A DISCOVERY_UNAVAILABLE pause: store.pause from the worker's reply, or the
+// store's own pause of a queued job in reconciliation (§7.4, §8).
+function pauseCase(record, kase) {
+  const ev = kase.event;
+  let cause;
+  let log;
+  let message = null;
+  if (ev.by === 'store.pause') {
+    assert.equal(ev.code, 'DISCOVERY_UNAVAILABLE');
+    assert.ok(CAUSES.includes(ev.error_cause), 'error_cause is from the closed set');
+    cause = ev.error_cause;
+    log = LOGS.includes(ev.error_log) ? ev.error_log : null;
+    message = causeMessages()[cause];
+  } else {
+    assert.equal(ev.by, 'reconciliation');
+    assert.equal(kase.state, 'queued', 'reconciliation pauses a queued job');
+    cause = ev.cause;
+    log = ev.log;
+  }
+  const discovery = releaseOf(record.discovery, cause, log);
+  const out = {
+    state: 'paused',
+    ...(ev.by === 'reconciliation' ? { deferred_requeue: false, fence: null } : {}),
+    discovery,
+    reason: {
+      code: 'DISCOVERY_UNAVAILABLE',
+      cause,
+      log,
+      released: discovery.unavailable.released,
+      ...(message ? { message } : {}),
+    },
+  };
+  return out;
+}
 
 // ---------------------------------------------------------------- groups (§6.4, S1)
 // Membership is equality of canonical bytes (§2.3), never value equality: in
@@ -749,11 +932,20 @@ function reconstruct(method, witness, stream) {
     folded.push(got.record);
     i = got.next;
   }
-  const parents = new Set();
+  // The suffix runs contiguously to the end and is this method's alone: its
+  // terminal records, each followed by its own detail parts (BB8 6678599629).
+  let parent = null;
   for (const r of stream.slice(i))
-    if (terminal(r)) parents.add(r.id);
-    else if (!(r?.kind === 'detail_part' && parents.has(r.parent_id))) {
-      bad('S2', `${r?.id} follows the boundary and is not the terminal suffix`);
+    if (terminal(r)) parent = r.id;
+    else if (
+      !(
+        r?.kind === 'detail_part' &&
+        r.method_id === method &&
+        parent !== null &&
+        r.parent_id === parent
+      )
+    ) {
+      bad('S2', `${r?.id} is an inserted record: it follows the boundary outside the suffix`);
       break;
     }
   for (const t of tuplesOf(folded, witness.fields)) if (!isEntry(t)) bad('F1', 'witness tuple');
@@ -788,26 +980,53 @@ for text in data["segments"]:
     out["segments"].append([again == text, hashlib.sha256(again.encode("utf-8")).hexdigest(),
                             fold(seg["digest_before"], seg["entries"])])
 # Option 2's witness: filter the terminal suffix, resolve, fold (contract §6.9).
+# The suffix runs contiguously to the end, this method's terminal records each
+# followed by its own detail parts; any other record after the boundary is inserted.
 from library.analysis import resolve_detail_records
 w = data["witness"]
 stream, method, wit = w["stream"], w["method"], w["witness"]
-k = next((i for i, r in enumerate(stream)
-          if r.get("kind") == "method_result" and r.get("method_id") == method), len(stream))
-parents = {r["id"] for r in stream[k:] if r.get("kind") == "method_result"}
-out["suffix_ok"] = all(r.get("kind") == "method_result" or r.get("parent_id") in parents
-                       for r in stream[k:])
+def split(stream):
+    term = lambda r: r.get("kind") == "method_result" and r.get("method_id") == method
+    k = next((i for i, r in enumerate(stream) if term(r)), len(stream))
+    parent = None
+    for r in stream[k:]:
+        if term(r):
+            parent = r["id"]
+        elif not (r.get("kind") == "detail_part" and r.get("method_id") == method
+                  and parent is not None and r.get("parent_id") == parent):
+            return k, False
+    return k, True
 def get(r, name):
     for part in name.split("."):
         r = r.get(part) if isinstance(r, dict) else None
     return r
-records = list(resolve_detail_records(stream[:k]))
-tuples = [[get(r, f) for f in wit["fields"]] for r in records]
-out["witness"] = [len(tuples), fold(hashlib.sha256(w["domain"].encode("utf-8")).hexdigest(), tuples)]
+def witness_of(stream):
+    k, ok = split(stream)
+    records = list(resolve_detail_records(stream[:k]))
+    tuples = [[get(r, f) for f in wit["fields"]] for r in records]
+    return ok, [len(tuples), fold(hashlib.sha256(w["domain"].encode("utf-8")).hexdigest(), tuples)]
+out["suffix_ok"], out["witness"] = witness_of(stream)
 try:
     list(resolve_detail_records(stream))
     out["whole_stream"] = "resolved"
 except ValueError as exc:
     out["whole_stream"] = str(exc).split(":", 1)[0]
+# The terminal suffix's mutants refuse; its controls are accepted, and resolve whole.
+out["suffix_cases"] = []
+for case in data["suffix_cases"]:
+    try:
+        ok, got = witness_of(case["stream"])
+        accepted = ok and got == [wit["count"], wit["digest"]]
+    except ValueError:
+        accepted = False
+    resolves = None
+    if accepted:
+        try:
+            list(resolve_detail_records(case["stream"]))
+            resolves = True
+        except ValueError:
+            resolves = False
+    out["suffix_cases"].append([case["name"], accepted, resolves])
 # The float fixture as a Python worker reads it: 1.0 is a float, not an entry.
 with open(data["float_fixture"], encoding="utf-8") as f:
     seal = json.load(f)["frames"][0]["discovery"]["seals"][0]
@@ -849,7 +1068,29 @@ const GOOD_GROUPS = [
   'good/retired_group_then_within_line.json',
   'good/within_line_inside_group.json',
 ];
+const REQUIRED_MUTANTS = {
+  'bad/witness_mismatch.json': [
+    'deletion',
+    'duplicate_insertion',
+    'reorder',
+    'same_count_replacement',
+    'endpoint_role_swap',
+    ...WITNESS_FIELDS_V1.map((f) => `field_${f.replace('.', '_')}`),
+    'null_witness',
+  ],
+  // BB8 6678599629: the suffix is contiguous and belongs to its method alone.
+  'bad/terminal_suffix_not_contiguous.json': [
+    'contribution_between_parent_and_part',
+    'contribution_after_suffix',
+    'other_method_terminal',
+    'other_method_part',
+    'contribution_part_after_boundary',
+    'part_before_its_parent',
+    'part_after_next_terminal',
+  ],
+};
 const BAD = {
+  alt_seen_over_cap: 'W7',
   changed_digest_after: 'F5',
   cursor_record_disagreement: 'W4',
   cursor_summary_disagreement: 'R3',
@@ -863,6 +1104,8 @@ const BAD = {
   reset_unheld_log: 'W3',
   retired_key_recurring: 'S1',
   tail_rewritten: 'W6',
+  terminal_suffix_not_contiguous: 'S2',
+  verified_ahead_of_head: 'R5',
   witness_mismatch: 'S2',
 };
 // Per epoch and log: every sealed entry in order, then the last cursor tail of that epoch.
@@ -965,6 +1208,11 @@ test('canonical form and ordered digest: the vectors, recomputed in Node and in 
   for (const rel of GOOD_WRITE)
     for (const r of replay(load(rel))) for (const s of r.segments) segments.push(s.raw);
   const wfx = load('good/witness_cursor_option2.json');
+  const sfx = load('bad/terminal_suffix_not_contiguous.json');
+  const suffixCases = [
+    ...sfx.mutants.map((m) => ({ ...m, accepted: false })),
+    ...sfx.controls.map((m) => ({ ...m, accepted: true })),
+  ];
   const py = python({
     vectors: entries,
     domain: fx.vector_chain.domain,
@@ -975,6 +1223,7 @@ test('canonical form and ordered digest: the vectors, recomputed in Node and in 
       witness: wfx.cursor.witness,
       domain: DOMAIN.witness(wfx.cursor.witness.method_id),
     },
+    suffix_cases: suffixCases.map((m) => ({ name: m.name, stream: mutantStream(wfx, m) })),
     float_fixture: path.join(DIR, 'bad', 'float_entry.json'),
   });
   py.vectors.forEach(([viaContracts, viaDumps], i) => {
@@ -992,6 +1241,19 @@ test('canonical form and ordered digest: the vectors, recomputed in Node and in 
   assert.ok(py.suffix_ok, 'Python finds the same terminal suffix');
   assert.deepEqual(py.witness, [wfx.cursor.witness.count, wfx.cursor.witness.digest]);
   assert.equal(py.whole_stream, 'RESULT_EXPIRED', 'resolving the unfiltered stream refuses');
+  // The terminal suffix: Python's reading refuses every mutant and accepts every
+  // control, as Node's does, and the controls' detail bytes resolve in Python.
+  assert.deepEqual(
+    py.suffix_cases,
+    suffixCases.map((m) => [m.name, m.accepted, m.accepted ? true : null])
+  );
+  for (const m of suffixCases)
+    assert.equal(
+      reconstruct(wfx.cursor.witness.method_id, wfx.cursor.witness, mutantStream(wfx, m)).violations
+        .length === 0,
+      m.accepted,
+      `Node agrees on ${m.name}`
+    );
   // The float: Python reads 1.0, writes "1.0", and its digest is the fixture's; Node's is not.
   assert.deepEqual(py.float, ['float', '1.0', true]);
   const floatSeal = load('bad/float_entry.json').frames[0].discovery.seals[0];
@@ -1159,6 +1421,150 @@ test('good/lease_payload_summary_paths.json: the walk, the load and the inventor
   }
 });
 
+test('good/lease_incremental_walk.json: a lease reads only what was appended since its verified head', () => {
+  const fx = load('good/lease_incremental_walk.json');
+  for (const rule of readmeRows().get(fx.fixture).rules) assert.ok(WALK_RULES.includes(rule));
+  // The record is the seal sequence's last, with verified heads a walk saved after frame 2.
+  const seq = load('good/seal_sequence_two_logs.json');
+  const results = replay(seq);
+  assert.deepEqual(fx.record.discovery.logs, results.at(-1).discovery.logs);
+  assert.equal(fx.record.id, seq.job_id);
+  for (const [log, v] of Object.entries(fx.record.discovery.verified))
+    assert.deepEqual(
+      v,
+      results[1].discovery.logs[log] ?? emptyLog(log),
+      `${log} verified at frame 2`
+    );
+  // The address list is the chain: every segment the commits wrote, oldest first.
+  for (const [log, list] of Object.entries(fx.addresses))
+    assert.deepEqual(
+      list,
+      results.flatMap((r) => r.segments.filter((s) => s.log === log).map((s) => s.address))
+    );
+  const pick = (r, keys) => Object.fromEntries(keys.map((k) => [k, r[k]]));
+  // A lease: stat the verified prefix, read only the appended segment, advance.
+  const lease = evaluateWalk(fx, fx.record.discovery, 'lease');
+  assert.deepEqual(lease.violations, []);
+  assert.deepEqual(pick(lease, ['stat', 'read', 'verified', 'saved', 'payload']), fx.expect.lease);
+  assert.deepEqual(lease.read, [fx.addresses.alt_cells[1]], 'only alt_cells#1 is read');
+  assert.deepEqual(
+    [...lease.stat, ...lease.read].sort(),
+    Object.values(fx.addresses).flat().sort(),
+    'every segment is statted or read'
+  );
+  assert.deepEqual(
+    Object.keys(lease.verified).filter(
+      (l) => canonical(lease.verified[l]) !== canonical(fx.record.discovery.verified[l])
+    ),
+    ['alt_cells'],
+    "only alt_cells' verified head moves"
+  );
+  // The worker sees the same payload as the full lease fixture's.
+  assert.deepEqual(lease.payload, load('good/lease_payload_summary_paths.json').payload.discovery);
+  // The next lease: nothing appended, nothing read, nothing saved.
+  const next = evaluateWalk(fx, { ...fx.record.discovery, verified: lease.verified }, 'lease');
+  assert.deepEqual(next.violations, []);
+  assert.deepEqual(pick(next, ['stat', 'read', 'saved']), fx.expect.next_lease);
+  // A full read (resume(), or reconciliation after a foreign generation) reads all.
+  const full = evaluateWalk(fx, fx.record.discovery, 'full');
+  assert.deepEqual(full.violations, []);
+  assert.deepEqual(pick(full, ['read', 'verified']), fx.expect.full);
+  assert.deepEqual(full.stat, []);
+  // A list that skips the verified head is caught at the junction (R5), not trusted.
+  const skewed = { ...fx, addresses: { ...fx.addresses, alt_cells: [fx.addresses.alt_cells[1]] } };
+  const rules = evaluateWalk(skewed, fx.record.discovery, 'lease').violations.map((v) => v.rule);
+  assert.ok(rules.includes('R5'), JSON.stringify(rules));
+});
+
+test('§4: a commit keeps verified, never advances it; a release empties it', () => {
+  const fx = load('good/lease_incremental_walk.json');
+  const job = { job_id: fx.record.id, identity_hash: fx.record.identity_hash };
+  const record = {
+    discovery: { ...fx.record.discovery, verified: fx.expect.lease.verified },
+    cursor: fx.record.cursor,
+  };
+  // A frame with no seals keeps every verified state.
+  const quiet = { discovery: { epoch: 0, resets: [], seals: [] }, cursor: clone(fx.record.cursor) };
+  const kept = evaluateFrame(job, record, quiet);
+  assert.deepEqual(kept.violations, []);
+  assert.deepEqual(kept.discovery.verified, record.discovery.verified);
+  // A seal moves the head; alt_cells' verified head stays behind it.
+  const st = record.discovery.logs.alt_cells;
+  const entries = Array.from({ length: 1024 }, (_, k) => (2048 + k) % 10);
+  const cursor = clone(fx.record.cursor);
+  cursor.discovery.logs.alt_cells = {
+    sealed: 3072,
+    sealed_digest: fold(st.digest, entries),
+    tail: [2],
+  };
+  const sealed = evaluateFrame(job, record, {
+    discovery: {
+      epoch: 0,
+      resets: [],
+      seals: [
+        {
+          log: 'alt_cells',
+          first: 2048,
+          entries,
+          digest_before: st.digest,
+          digest_after: fold(st.digest, entries),
+        },
+      ],
+    },
+    cursor,
+  });
+  assert.deepEqual(sealed.violations, []);
+  assert.equal(sealed.discovery.logs.alt_cells.segments, 3);
+  assert.deepEqual(
+    sealed.discovery.verified,
+    record.discovery.verified,
+    'the commit moved no verified head'
+  );
+  // An epoch advance releases every chain, and its verified state with it.
+  const next = clone(fx.record.cursor);
+  next.method_index = 1;
+  next.discovery = {
+    version: 1,
+    epoch: 1,
+    logs: { seen: { sealed: 0, sealed_digest: d0(DOMAIN.log('seen')), tail: [7] } },
+    inventory: null,
+    groups: { through: null, current: null },
+  };
+  const advanced = evaluateFrame(job, record, {
+    discovery: { epoch: 1, resets: [], seals: [] },
+    cursor: next,
+  });
+  assert.deepEqual(advanced.violations, []);
+  assert.deepEqual(advanced.discovery.verified, { seen: emptyLog('seen') });
+  assert.deepEqual(advanced.released.sort(), [st.head, record.discovery.logs.seen.head].sort());
+});
+
+test('good/unavailable_pause_reason.json: one save releases the logs and the reason keeps their heads', () => {
+  const fx = load('good/unavailable_pause_reason.json');
+  const walk = load('good/lease_incremental_walk.json');
+  assert.deepEqual(fx.record.discovery, {
+    ...walk.record.discovery,
+    verified: walk.expect.lease.verified,
+  });
+  const heads = Object.fromEntries(
+    Object.entries(fx.record.discovery.logs).map(([log, st]) => [log, st.head])
+  );
+  assert.ok(Object.values(heads).includes(null), 'a log with only a tail is released as null');
+  assert.deepEqual(
+    fx.cases.map((c) => c.event.by),
+    ['store.pause', 'reconciliation']
+  );
+  for (const kase of fx.cases) {
+    const got = pauseCase(fx.record, kase);
+    assert.deepEqual(got, kase.expect, kase.name);
+    assert.deepEqual(got.reason.released, heads, `${kase.name}: every released log and its head`);
+    assert.deepEqual(got.discovery.unavailable.released, heads);
+    assert.deepEqual([got.discovery.logs, got.discovery.verified], [{}, {}]);
+  }
+  assert.ok(fx.cases[0].expect.reason.message.includes('Its committed evidence stays readable.'));
+  assert.equal(fx.cases[1].expect.reason.message, undefined, 'the store renders it from the cause');
+});
+
 for (const rel of GOOD_GROUPS)
   test(`${rel}: retirement only at a two-line boundary, within-line keys and a pending binding`, () => {
     const fx = load(rel);
@@ -1244,12 +1650,23 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
     // Node parses a float such as 1.0 as an integer, so it meets F1 there as F5 (§2.1).
     let expected = [fx.expect.node_detects ?? fx.expect.rule];
     let violations;
-    if (fx.kind === 'write') {
+    if (fx.kind === 'write' || fx.kind === 'limit') {
       assert.equal(fx.frames.length, 1, 'a bad write fixture is one frame');
       const before = clone(fx.record);
       violations = evaluateFrame(fx, fx.record, fx.frames[0]).violations;
       assert.deepEqual(fx.record, before, 'nothing is written');
       assert.equal(fx.expect.written, 'nothing');
+      // The worker refuses first; a store sent the frame refuses it as a write rule.
+      if (fx.kind === 'limit') assert.deepEqual(fx.expect.store, REFUSAL.write[fx.expect.rule]);
+    } else if (fx.kind === 'walk') {
+      const got = evaluateWalk(fx, fx.record.discovery, 'lease');
+      violations = got.violations;
+      assert.deepEqual(got.read, [], 'refused before any segment is read');
+      assert.deepEqual(
+        fx.expect.released,
+        releaseOf(fx.record.discovery, fx.expect.cause, violations[0]?.log ?? null),
+        'the walk releases the logs in one save, recording each head'
+      );
     } else if (fx.kind === 'resume') {
       violations = evaluateResume(fx).violations;
       if (fx.expect.store_outside_reconciliation)
@@ -1265,16 +1682,15 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
       const base = load(fx.base);
       const w = base.cursor.witness;
       const names = fx.mutants.map((m) => m.name);
-      for (const name of [
-        'deletion',
-        'duplicate_insertion',
-        'reorder',
-        'same_count_replacement',
-        'endpoint_role_swap',
-        ...WITNESS_FIELDS_V1.map((f) => `field_${f.replace('.', '_')}`),
-        'null_witness',
-      ])
+      for (const name of REQUIRED_MUTANTS[rel])
         assert.ok(names.includes(name), `the mutants include ${name}`);
+      // Controls keep the rule the mutants break, and are accepted.
+      for (const m of fx.controls || [])
+        assert.deepEqual(
+          reconstruct(w.method_id, w, mutantStream(base, m)).violations,
+          [],
+          `control ${m.name}`
+        );
       violations = [];
       for (const m of fx.mutants) {
         const got = reconstruct(
@@ -1310,12 +1726,14 @@ test('the bad fixtures are the named set, and together they cover every rule the
     'R2',
     'R3',
     'R4',
+    'R5',
     'S1',
     'S2',
     'W2',
     'W3',
     'W4',
     'W6',
+    'W7',
   ]);
 });
 
@@ -1367,18 +1785,76 @@ test('the contract states the constants, logs, schema, domains and causes this f
   // record.discovery.unavailable takes exactly the DISCOVERY_UNAVAILABLE causes (§2.7).
   const unavailable = section('2. Format').split('### 2.7')[1].split('### 2.8')[0];
   for (const cause of CAUSES) assert.ok(unavailable.includes(`"${cause}"`), `§2.7 allows ${cause}`);
-  for (const [rule, refusal] of Object.entries({ ...REFUSAL.resume, ...REFUSAL.groups }))
+  for (const field of ['"verified"', '"released"'])
+    assert.ok(unavailable.includes(field), `§2.7's record.discovery has ${field}`);
+  for (const [rule, refusal] of Object.entries({
+    ...REFUSAL.resume,
+    ...REFUSAL.groups,
+    ...REFUSAL.walk,
+  }))
     if (refusal.cause)
       assert.ok(
         causes.some((r) => r[0] === `\`${refusal.cause}\`` && r[1].split(/[ ,]+/).includes(rule)),
         `§8 maps ${rule} to ${refusal.cause}`
       );
+  assert.ok(CONTRACT.includes(`\`ALT_SEEN_ENTRIES = ${LIMITS.ALT_SEEN_ENTRIES}\``));
+  assert.ok(section('4. Write path').includes('**W7, the `alt_seen` cap.**'), '§4 states W7');
+  assert.ok(section('5. Resume path').includes('**R5, the verified prefix'), '§5.1 states R5');
+  assert.ok(section('8. Refusals').includes('**U1, the release record.**'), '§8 states U1');
   assert.ok(
     CONTRACT.includes(JSON.stringify(WITNESS_FIELDS_V1).replace(/,/g, ', ')),
     'the v1 witness fields'
   );
   for (const key of TERMINAL_INPUTS)
     assert.ok(section('2. Format').includes(`\`${key}\``), `§2.8 names the terminal input ${key}`);
+});
+
+// BB8 6678599629 (a): the cap is derived from the 30 s first-commit budget on a
+// loaded host, from §10's measurements. The arithmetic and the document agree.
+test('§6.11: ALT_SEEN_ENTRIES fits the first-commit budget by the contract figures', () => {
+  const measured = section('10. Measured on #656, not bounds');
+  for (const figure of [
+    'walk about 10 ms',
+    '20,045 entries × 30.4 µs = 0.6 / 1.5 s',
+    'recompute 0.9 / 2.4 s',
+    'construct 6.4 / 15.2 s',
+  ])
+    assert.ok(measured.includes(figure), `§10 measures ${figure}`);
+  const light = { construct: 6.4, load: 0.6, recompute: 0.9 };
+  const loaded = { construct: 15.2, load: 1.5, recompute: 2.4 };
+  const ratios = Object.keys(light).map((k) => loaded[k] / light[k]);
+  const factor = 3;
+  assert.ok(
+    ratios.every((r) => r <= factor) && ratios.some((r) => r > factor - 1),
+    'the smallest whole factor at or above every measured ratio'
+  );
+  assert.ok(
+    2 < loaded.load / light.load,
+    "the earlier 2x scenario understates the load's own ratio"
+  );
+  const rate = 30.4e-6 * factor;
+  const walk = 5 * LIMITS.CHAIN_SEGMENTS * (0.01 / 99) * factor;
+  const seenVariants = 20045 * rate;
+  const fixed = loaded.construct + loaded.recompute + seenVariants + walk;
+  const room = Math.floor((30 - fixed) / rate);
+  const atCap = LIMITS.ALT_SEEN_ENTRIES * rate;
+  assert.ok(LIMITS.ALT_SEEN_ENTRIES <= room, `the cap is within the budget's ${room} entries`);
+  assert.ok(fixed + atCap <= 30);
+  assert.ok(30 - fixed - atCap >= 1, "the margin holds the first step's 1 s deadline");
+  const text = section('6. Worker semantics').split('### 6.11')[1];
+  const s = (x) => `${x.toFixed(2)} s`;
+  for (const stated of [
+    '91.2 µs',
+    s(seenVariants),
+    s(walk),
+    s(fixed),
+    room.toLocaleString('en-US'),
+    s(atCap),
+    s(fixed + atCap),
+    s(30 - fixed - atCap),
+    `\`ALT_SEEN_ENTRIES = ${LIMITS.ALT_SEEN_ENTRIES}\``,
+  ])
+    assert.ok(text.includes(stated), `§6.11 states ${stated}`);
 });
 
 test('the cross-reference covers 3PO 1-6 and BB8 1-9, each with a contract section', () => {

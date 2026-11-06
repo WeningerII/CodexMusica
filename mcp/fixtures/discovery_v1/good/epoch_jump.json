@@ -97,6 +97,14 @@
               "digest": "da4cb367f1b942562867c35719ba03716f4960af4065cdbc32762153bba73c72"
             }
           },
+          "verified": {
+            "variants": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "3d776edd104fc89d5c3285e2ecc6bb2c9d882cd84ec9858b11dd88cbd1c6fbd1"
+            }
+          },
           "unavailable": null
         },
         "segments": [
@@ -135,6 +143,14 @@
           "version": 1,
           "epoch": 5,
           "logs": {
+            "seen": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
+            }
+          },
+          "verified": {
             "seen": {
               "head": null,
               "segments": 0,

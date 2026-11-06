@@ -1,0 +1,132 @@
+{
+  "fixture": "good/unavailable_pause_reason.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "pause",
+  "exercises": "The walked record of good/lease_incremental_walk.json, released twice. A running job whose worker refused with DISCOVERY_UNAVAILABLE (cause digest_mismatch on seen) is paused by store.pause; a queued job whose alt_cells segment reconciliation found missing is paused by the store with no message. Each is one save: logs and verified are emptied, unavailable names the cause and log, and both it and the paused reason keep the released log names with their heads at release (variants' is null: it had only a tail), so the cause stays traceable after GC reclaims the segments.",
+  "expect": { "accepted": true },
+  "record": {
+    "id": "reader_b90c9463724ad5086c4f8548f57e93eb31716e4b23f26eec7f01fe663a8a641a",
+    "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+    "discovery": {
+      "version": 1,
+      "epoch": 0,
+      "logs": {
+        "seen": {
+          "head": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
+          "segments": 1,
+          "count": 1024,
+          "digest": "874b95a379790978a8f4af4e02038ae72dcf0dde5bc3b17a74debfe2520ef714"
+        },
+        "alt_cells": {
+          "head": "b4dfde4184d32c3f043afd401bc99903d99b3ea75b08b1d76a14b3f4bdf8a2fa",
+          "segments": 2,
+          "count": 2048,
+          "digest": "c99010d7c9c9bf634f83b220d50267b6eab2ebea08641d175ebab2c293d019ae"
+        },
+        "variants": {
+          "head": null,
+          "segments": 0,
+          "count": 0,
+          "digest": "3d776edd104fc89d5c3285e2ecc6bb2c9d882cd84ec9858b11dd88cbd1c6fbd1"
+        }
+      },
+      "verified": {
+        "seen": {
+          "head": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
+          "segments": 1,
+          "count": 1024,
+          "digest": "874b95a379790978a8f4af4e02038ae72dcf0dde5bc3b17a74debfe2520ef714"
+        },
+        "alt_cells": {
+          "head": "b4dfde4184d32c3f043afd401bc99903d99b3ea75b08b1d76a14b3f4bdf8a2fa",
+          "segments": 2,
+          "count": 2048,
+          "digest": "c99010d7c9c9bf634f83b220d50267b6eab2ebea08641d175ebab2c293d019ae"
+        },
+        "variants": {
+          "head": null,
+          "segments": 0,
+          "count": 0,
+          "digest": "3d776edd104fc89d5c3285e2ecc6bb2c9d882cd84ec9858b11dd88cbd1c6fbd1"
+        }
+      },
+      "unavailable": null
+    }
+  },
+  "cases": [
+    {
+      "name": "worker_refusal",
+      "state": "running",
+      "event": {
+        "by": "store.pause",
+        "code": "DISCOVERY_UNAVAILABLE",
+        "error_cause": "digest_mismatch",
+        "error_log": "seen"
+      },
+      "expect": {
+        "state": "paused",
+        "discovery": {
+          "version": 1,
+          "epoch": 0,
+          "logs": {},
+          "verified": {},
+          "unavailable": {
+            "cause": "digest_mismatch",
+            "log": "seen",
+            "released": {
+              "seen": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
+              "alt_cells": "b4dfde4184d32c3f043afd401bc99903d99b3ea75b08b1d76a14b3f4bdf8a2fa",
+              "variants": null
+            }
+          }
+        },
+        "reason": {
+          "code": "DISCOVERY_UNAVAILABLE",
+          "cause": "digest_mismatch",
+          "log": "seen",
+          "released": {
+            "seen": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
+            "alt_cells": "b4dfde4184d32c3f043afd401bc99903d99b3ea75b08b1d76a14b3f4bdf8a2fa",
+            "variants": null
+          },
+          "message": "This analysis can no longer resume exactly: part of its saved progress does not match its record. Its committed evidence stays readable. Delete it, then create a new analysis with a new key."
+        }
+      }
+    },
+    {
+      "name": "reconciliation",
+      "state": "queued",
+      "event": { "by": "reconciliation", "cause": "segment_missing", "log": "alt_cells" },
+      "expect": {
+        "state": "paused",
+        "deferred_requeue": false,
+        "fence": null,
+        "discovery": {
+          "version": 1,
+          "epoch": 0,
+          "logs": {},
+          "verified": {},
+          "unavailable": {
+            "cause": "segment_missing",
+            "log": "alt_cells",
+            "released": {
+              "seen": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
+              "alt_cells": "b4dfde4184d32c3f043afd401bc99903d99b3ea75b08b1d76a14b3f4bdf8a2fa",
+              "variants": null
+            }
+          }
+        },
+        "reason": {
+          "code": "DISCOVERY_UNAVAILABLE",
+          "cause": "segment_missing",
+          "log": "alt_cells",
+          "released": {
+            "seen": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
+            "alt_cells": "b4dfde4184d32c3f043afd401bc99903d99b3ea75b08b1d76a14b3f4bdf8a2fa",
+            "variants": null
+          }
+        }
+      }
+    }
+  ]
+}

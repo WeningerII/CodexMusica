@@ -70,6 +70,14 @@
               "digest": "98eb5226b4b6a9adfac5ff49360ad07d3edb4332b3872bf90a1f72b93b393116"
             }
           },
+          "verified": {
+            "variants": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "3d776edd104fc89d5c3285e2ecc6bb2c9d882cd84ec9858b11dd88cbd1c6fbd1"
+            }
+          },
           "unavailable": null
         },
         "segments": [

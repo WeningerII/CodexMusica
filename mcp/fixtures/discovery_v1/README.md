@@ -1,7 +1,7 @@
 # discovery_v1 fixtures (#656)
 
 These files are the shared wire interface for persisted discovery state. The contract is
-`mcp/DISCOVERY_V1.md`, and the rule IDs below (F1–F6, W1–W6, R1–R4, S1–S2) are its rules.
+`mcp/DISCOVERY_V1.md`, and the rule IDs below (F1–F6, W1–W7, R1–R5, S1–S2, U1) are its rules.
 `mcp/test_discovery_v1_fixtures.mjs` recomputes every digest and address here from the
 contract, and asserts that each bad fixture violates exactly the rule it is named for and
 passes every other rule.
@@ -11,14 +11,25 @@ passes every other rule.
 - Write fixtures carry only the cursor fields the store reads (`contract_version`,
   `method_index`, `discovery`, `witness`, `continuation`). The witness and lease fixtures
   carry a full cursor v2.
-- Paths under `/store` stand for the store directory. A resume fixture's segments are the
-  ones `good/seal_sequence_two_logs.json` builds, minus any listed in `store.omit`.
+- Paths under `/store` stand for the store directory. A resume or walk fixture's segments are
+  the ones `good/seal_sequence_two_logs.json` builds, minus any listed in `store.omit`.
+- A walk fixture models the store's walk (§5.1). `addresses` is the store's in-memory address
+  list, each live chain's segments oldest first, and `record.discovery.verified` is the verified
+  prefix. `expect.lease` is what a lease stats, reads, saves and returns; `expect.full` is a full
+  read.
+- `bad/alt_seen_over_cap.json` is a limit fixture: the frame a worker must refuse to emit
+  (`RESOURCE_LIMIT`, no HTTP status: the job pauses), with the refusal a store sent it gives
+  (`expect.store`). Its record names a synthetic `alt_seen` chain by its totals only; the write
+  path reads no segment.
+- `good/unavailable_pause_reason.json` is a pause fixture: one record, released by two events,
+  with the saved state and reason each one leaves.
 - A groups fixture models only the membership state of §6.4: `seen_members` is the primary
   `seen` log's membership, `mirror` says whether the schema is same-rule, and each key
   event's `lines` is the sorted pair of the lines of the key's two members.
-- `bad/witness_mismatch.json` lists mutants of the good witness fixture's durable history.
-  Each mutant's `records` holds indexes into that fixture's `durable_records`, or whole
-  records; a mutant may also replace the witness.
+- `bad/witness_mismatch.json` and `bad/terminal_suffix_not_contiguous.json` list mutants of the
+  good witness fixture's durable history. Each mutant's `records` holds indexes into that
+  fixture's `durable_records`, or whole records; a mutant may also replace the witness. The
+  suffix fixture's `controls` use the same form and are accepted.
 - `bad/float_entry.json` holds the number `1.0`. Python reads it as a float and must refuse
   it as F1; Node reads it as the integer 1 and refuses the seal as F5 (`node_detects`).
   Reformatting must keep the literal.
@@ -39,6 +50,8 @@ it is accepted), and what it exercises.
 | `good/within_line_inside_group.json` | S1 | none | (3,7), then (7,7), then (3,7) accepted; membership through primary `seen` and the reversed key; a group opened by a duplicate; a within-line key recurring across groups; canonical-byte membership |
 | `good/witness_cursor_option2.json` | S2 | none | a full cursor v2 carrying the option 2 witness, resumed inside the terminal emission: repeated id, an ineligible record with a detached endpoint, a durable/local overlap, and a partial terminal suffix |
 | `good/lease_payload_summary_paths.json` | R1 R2 R3 R4 | none | the lease payload `{summary, paths}`, oldest first, and the inventory witness |
+| `good/lease_incremental_walk.json` | R2 R5 | none | a lease stats the verified segments, reads only `alt_cells`' newest and advances its verified head in one save; the next lease reads and saves nothing; a full read reads all |
+| `good/unavailable_pause_reason.json` | U1 | none | a `DISCOVERY_UNAVAILABLE` pause from the worker and reconciliation's pause of a queued job: one save empties `logs` and `verified`, and `unavailable` and the reason keep the released log names and their heads |
 | `bad/missing_segment.json` | R1 | DISCOVERY_UNAVAILABLE 409 segment_missing | the oldest `alt_cells` segment is gone; the store meeting it outside reconciliation says STORAGE_CORRUPT 503 |
 | `bad/reordered_segment.json` | R2 | DISCOVERY_UNAVAILABLE 409 chain_broken | the two `alt_cells` paths are swapped |
 | `bad/cursor_summary_disagreement.json` | R3 | DISCOVERY_UNAVAILABLE 409 cursor_disagrees | the cursor's `alt_cells` totals are one segment short of the walked summary |
@@ -53,3 +66,6 @@ it is accepted), and what it exercises.
 | `bad/witness_mismatch.json` | S2 | RESULT_EXPIRED 410 | BB8's five mutants, one per witness field, a contribution after the terminal suffix, a missing detail part and a null witness |
 | `bad/epoch_backwards.json` | W2 | READER_PROTOCOL 400 | a frame at epoch 3 on a record at epoch 5 |
 | `bad/cursor_record_disagreement.json` | W4 | READER_PROTOCOL 400 | the cursor's `sealed_digest` for `seen` differs from the record's |
+| `bad/alt_seen_over_cap.json` | W7 | RESOURCE_LIMIT discovery_alt_seen | `alt_seen` at `ALT_SEEN_ENTRIES` and one more key in the tail; a store sent the frame refuses READER_PROTOCOL 400 |
+| `bad/verified_ahead_of_head.json` | R5 | DISCOVERY_UNAVAILABLE 409 chain_broken | `alt_cells`' verified head is a segment past its head; the walk refuses before reading and releases the logs |
+| `bad/terminal_suffix_not_contiguous.json` | S2 | RESULT_EXPIRED 410 | the terminal suffix broken by a contribution, another method's record or part, a contribution's part, or a part out of its parent's run; the contiguous controls pass |

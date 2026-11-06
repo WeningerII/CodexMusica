@@ -25,6 +25,14 @@
           "digest": "9216001e76afe6aa1a120e7332ab77344f50c276cd781d3b2631ca8f6752d5ea"
         }
       },
+      "verified": {
+        "alt_cells": {
+          "head": null,
+          "segments": 0,
+          "count": 0,
+          "digest": "9216001e76afe6aa1a120e7332ab77344f50c276cd781d3b2631ca8f6752d5ea"
+        }
+      },
       "unavailable": null
     },
     "cursor": {
