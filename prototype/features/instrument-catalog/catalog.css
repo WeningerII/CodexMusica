@@ -1,0 +1,166 @@
+.icatalog {
+  container: instrument-catalog / inline-size;
+  min-width: 0;
+  color: inherit;
+}
+.icatalog * {
+  box-sizing: border-box;
+}
+.icatalog button,
+.icatalog input,
+.icatalog select {
+  font: inherit;
+  color: inherit;
+}
+.icatalog button,
+.icatalog a,
+.icatalog summary,
+.icatalog select {
+  min-height: 44px;
+}
+.icatalog button {
+  cursor: pointer;
+}
+.icatalog button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+.icatalog :focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+.icatalog [aria-pressed='true'],
+.icatalog [aria-current='true'] {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.icatalog .ic-toolbar label {
+  display: grid;
+  gap: 0.4rem;
+}
+.icatalog .ic-toolbar input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+}
+.ic-body {
+  display: grid;
+  grid-template-columns: minmax(13rem, 18rem) minmax(0, 1fr);
+  gap: 1rem;
+}
+.ic-cats-toggle {
+  display: none;
+}
+.icatalog .ic-categories > button {
+  display: block;
+  width: 100%;
+  text-align: start;
+  margin-block: 0.25rem;
+}
+.icatalog .ic-categories details {
+  padding-block: 0.5rem;
+}
+.ic-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+}
+.ic-check > :last-child {
+  margin-inline-start: auto;
+}
+.ic-results {
+  min-width: 0;
+}
+.ic-controls,
+.ic-classes,
+.ic-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.ic-list,
+.ic-track {
+  list-style: none;
+  padding: 0;
+}
+.ic-list {
+  display: grid;
+  gap: 0.75rem;
+}
+.ic-track {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.75rem;
+  scroll-snap-type: x proximity;
+}
+.ic-card {
+  border: 1px solid currentColor;
+  border-radius: 0.4rem;
+  padding: 0.75rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.ic-track .ic-card {
+  flex: 0 0 min(18rem, 85%);
+  scroll-snap-align: start;
+}
+.ic-card p {
+  margin-block: 0.5rem;
+}
+.ic-open {
+  display: block;
+  width: 100%;
+  text-align: start;
+}
+.ic-photo {
+  font-size: 0.85em;
+}
+.ic-photo img {
+  object-fit: contain;
+  max-width: 100%;
+}
+.ic-photo > span,
+.ic-photo > a {
+  display: block;
+}
+.ic-jump {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.3rem;
+  position: sticky;
+  top: 0;
+  background: Canvas;
+  color: CanvasText;
+  z-index: 1;
+}
+.ic-jump button {
+  flex-shrink: 0;
+}
+.ic-group h4 {
+  scroll-margin-top: 4rem;
+}
+.ic-note:empty {
+  display: none;
+}
+@container instrument-catalog (max-width: 1180px) {
+  .ic-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ic-cats-toggle {
+    display: inline-flex;
+    justify-self: start;
+  }
+  .icatalog .ic-categories {
+    display: none;
+  }
+  .icatalog .ic-cats-open .ic-categories {
+    display: block;
+  }
+}
+@media (pointer: coarse) {
+  .ic-group > button {
+    display: none;
+  }
+}
