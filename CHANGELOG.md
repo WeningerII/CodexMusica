@@ -59,6 +59,15 @@ what a `set_environment` wrote on it, inside the workspace, and the warnings rea
   its environment card reports no `ENVIRONMENT_MOVED` for the settings that card held, as
   for a stock environment; clearing every setting on the environment card still reports
   the settings that take over.
+- **`ENVIRONMENT_MOVED` says what the returned recipe renders.** It said the recipe "now
+  takes its room, tuning and chain from" the first card left even when no card left had
+  any (the environment card removed with only a bare card behind it), where the recipe
+  renders no room, tuning or chain at all; it now says that no card carries an environment.
+  Its no-card text was given only when a batch emptied the roster, and stayed when a
+  tradition added later in that batch brought an environment back, and a batch that handed
+  the environment on twice named the card in between. Both texts are now worked out against
+  the card the response renders from, as `environment_card` already was, and
+  `environment_instrument` follows it.
 - **`ENVIRONMENT_OVERWRITTEN` on the environment card reads the record too.** It compared
   the card with its seed, so a second `set_preface` on the environment card that moved the
   room the first one derived said it "replaced the environment you set", which nobody had

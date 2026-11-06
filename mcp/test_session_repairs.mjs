@@ -1457,6 +1457,82 @@ test('ENVIRONMENT_MOVED speaks only for settings a set_environment wrote', async
   });
 });
 
+test('ENVIRONMENT_MOVED says which card the returned recipe renders from, or that none renders one', async () => {
+  // Its two forms follow the card the response renders from (envCardOf): one
+  // that has an environment, or none at all, when no card left has one and the
+  // recipe renders no room, tuning or chain (envCardOf then falls back to the
+  // first card). Said against the card at the end of the batch.
+  const NONE = /: no card carries an environment now\. Set one with set_environment\.$/;
+  const from = (label) =>
+    new RegExp(
+      `: it now takes its room, tuning and chain from ${label} \\(the first card that has one\\)\\.`
+    );
+  await onEverySurface(async (s, name) => {
+    const seed = await s.start(['garage_rock']);
+    const voice = seed.render_scope.environment_card;
+    const wrote = await s.edit(seed, [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'add_instrument', instrument: 'harmonica' },
+    ]);
+    const harmonica = wrote.cards.find((c) => c.instrument === 'harmonica').card;
+    // The environment card goes with its tradition; only a bare card is left.
+    const bare = await s.edit(wrote, [{ action: 'remove_tradition', tradition: 'garage_rock' }]);
+    assert.deepEqual(
+      moved(bare).map((w) => [w.card, w.environment_card, w.environment_instrument, w.settings]),
+      [[voice, harmonica, 'harmonica', { room: { was: 'cathedral', now: null } }]],
+      `${name}: MOVED`
+    );
+    assert.match(moved(bare)[0].meaning, NONE, `${name}: no card carries one`);
+    for (const format of FORMATS) {
+      const r = await s.render(bare, { format });
+      assert.deepEqual(
+        r.render_scope.environment_settings,
+        { room: null, tuning: null, chain: {} },
+        `${name} ${format}: nothing renders an environment`
+      );
+      assert.doesNotMatch(r.recipe, /cathedral/i, `${name} ${format}`);
+    }
+    // The roster empties mid-batch and a tradition with an environment comes
+    // back: said against the card that renders it, not as "no card".
+    const lead = await s.edit(seed, [
+      { action: 'move_instrument', card: seed.cards[2].card },
+      { action: 'set_environment', room: 'cathedral' },
+    ]);
+    const bass = lead.render_scope.environment_card;
+    const back = await s.edit(lead, [
+      { action: 'remove_tradition', tradition: 'garage_rock' },
+      { action: 'add_tradition', tradition: 'delta_blues' },
+    ]);
+    const now = cardOf(back, back.render_scope.environment_card);
+    assert.deepEqual(
+      moved(back).map((w) => [w.card, w.environment_card, w.environment_instrument]),
+      [[bass, now.card, now.instrument]],
+      `${name}: MOVED across an empty roster`
+    );
+    assert.match(moved(back)[0].meaning, from(now.instrument), `${name}: names that card`);
+    // And with only a bare card back, as "no card".
+    const none = await s.edit(lead, [
+      { action: 'remove_tradition', tradition: 'garage_rock' },
+      { action: 'add_instrument', instrument: 'harmonica' },
+    ]);
+    assert.match(moved(none)[0].meaning, NONE, `${name}: a bare card back`);
+    // Handed on twice in one batch: the card at the end, in the text too.
+    const blend = await s.start(['garage_rock', 'delta_blues']);
+    const twice = await s.edit(blend, [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'move_instrument', card: blend.cards.at(-1).card },
+      { action: 'move_instrument', card: blend.cards.at(-2).card },
+    ]);
+    const last = cardOf(twice, twice.render_scope.environment_card);
+    assert.deepEqual(
+      moved(twice).map((w) => [w.environment_card, w.environment_instrument]),
+      [[last.card, last.instrument]],
+      `${name}: the final environment card`
+    );
+    assert.match(moved(twice)[0].meaning, from(last.instrument), `${name}: named in the text`);
+  });
+});
+
 test('the environment moving to the written card is ENVIRONMENT_MOVED once, and its warning goes', async () => {
   await onEverySurface(async (s, name) => {
     const { seed, env, bass } = await garage(s);

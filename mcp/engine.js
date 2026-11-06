@@ -25,6 +25,7 @@ const {
   assignDedupedPrefaces,
   buildStackParts,
   envCardOf,
+  hasEnvironment,
   _kebab,
   _resolvePreface,
 } = require('../scripts/_recipe_stack.js');
@@ -924,21 +925,19 @@ function environmentTransition(before, after, i, e, target) {
   if (!b || b.id !== a.id) {
     const lost = lostOf(writtenEnv(a));
     if (!Object.keys(lost).length) return [];
-    return [
-      {
-        card: a.id,
-        instrument: a.instrumentId,
-        code: 'ENVIRONMENT_MOVED',
-        edit: i,
-        action: e.action,
-        environment_card: b ? b.id : null,
-        environment_instrument: b ? b.instrumentId : null,
-        settings: lost,
-        meaning: b
-          ? `The environment set on ${A} is not used in the current rendered recipe: it now takes its room, tuning and chain from ${B} (the first card that has one). Repeat set_environment without \`card\` to apply it there.`
-          : `The environment set on ${A} is not used in the current rendered recipe: no card carries an environment now. Set one with set_environment.`,
-      },
-    ];
+    const w = {
+      card: a.id,
+      instrument: a.instrumentId,
+      code: 'ENVIRONMENT_MOVED',
+      edit: i,
+      action: e.action,
+      environment_card: b ? b.id : null,
+      environment_instrument: b ? b.instrumentId : null,
+      settings: lost,
+      meaning: movedMeaning(A, after.cards, b),
+    };
+    movedFrom.set(w, A);
+    return [w];
   }
   if (e.action === 'set_environment') return [];
   const lost = lostOf(writtenEnv(a));
@@ -955,6 +954,22 @@ function environmentTransition(before, after, i, e, target) {
     },
   ];
 }
+
+// ENVIRONMENT_MOVED's text for the card the recipe now renders from, `env`. Its
+// two forms follow what that card renders: a card that has an environment (the
+// first that has one: envCardOf), or none, which is what an empty roster gives
+// and also a roster whose cards all lack one, where envCardOf falls back to the
+// first card and the recipe renders no room, tuning or chain at all. Worked out
+// again at the end of the batch against the card the response renders from
+// (editRecipe), since a later edit can hand the environment on again.
+const movedMeaning = (A, cards, env) =>
+  env && hasEnvironment(env)
+    ? `The environment set on ${A} is not used in the current rendered recipe: it now takes its room, tuning and chain from ${cardLabel(cards, env)} (the first card that has one). Repeat set_environment without \`card\` to apply it there.`
+    : `The environment set on ${A} is not used in the current rendered recipe: no card carries an environment now. Set one with set_environment.`;
+// The label each such warning gives its old card, so the end of the batch can
+// say it again against the final environment card (that card may be gone by
+// then, and labels are worked out among the cards present when it was said).
+const movedFrom = new WeakMap();
 
 const overwrittenMeaning = (action, label, lost) =>
   `${action} on ${label} replaced the environment you set (${envChanges(lost)}): it re-derives room, tuning and chain toward the preface. To keep your settings, put set_environment after ${action} in the same batch.`;
@@ -1169,6 +1184,12 @@ export function editRecipe(params = {}) {
       w.settings = settings;
       // Restated against another card than the one it names: say which.
       if (w.code === 'ENVIRONMENT_MOVED' || w.card !== env.id) w.environment_card = env.id;
+      // ENVIRONMENT_MOVED names that card in its text too, and which of its two
+      // forms is true depends on it (movedMeaning).
+      if (movedFrom.has(w)) {
+        w.environment_instrument = env.instrumentId;
+        w.meaning = movedMeaning(movedFrom.get(w), ws.cards, env);
+      }
     }
   }
   return shape(ws, params, { warnings, owners });
