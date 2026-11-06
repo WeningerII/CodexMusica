@@ -1075,6 +1075,12 @@ function expectUnrendered(r, card, env, { edit, where } = {}) {
   assert.deepEqual(Object.keys(ws[0]), Object.keys(want), `${where}: key order`);
   if (edit === undefined) assert(!('edit' in ws[0]), `${where}: no edit key`);
   assert.equal(r.render_scope.environment_card, env.card, where);
+  // The scope says the same two facts about settings on other cards (Jony, #671).
+  assert.equal(
+    r.render_scope.environment,
+    `The whole recipe uses one room, tuning and signal chain, taken from environment_card (${env.instrument}), the first card that has any. set_environment without \`card\` changes it. These settings on other cards don't set the rendered environment; while a card's preface is auto-derived they can still shape its preface word.`,
+    `${where}: render_scope.environment`
+  );
 }
 const cardOf = (r, id) => r.cards.find((c) => c.card === id);
 const garage = async (s) => {
@@ -1273,7 +1279,7 @@ test('a set_preface that re-derives a written setting takes it out: ENVIRONMENT_
       environment_card: env.card,
       environment_instrument: env.instrument,
       settings: { room: { was: 'cathedral', now: room } },
-      meaning: `set_preface on electric_bass re-derived the settings a set_environment wrote there (room cathedral → ${room}). They did not set the rendered environment, which the recipe takes from ${env.instrument}; set_environment without \`card\` sets it.`,
+      meaning: `set_preface on electric_bass re-derived the environment settings a set_environment had written there (room cathedral → ${room}). Settings on electric_bass don't set the rendered environment, which the recipe takes from ${env.instrument}; to change it, use set_environment without \`card\`.`,
     };
     assert.deepEqual(overwritten(over), [want], `${name}: the transition, on its edit`);
     assert.deepEqual(Object.keys(overwritten(over)[0]), Object.keys(want), `${name}: key order`);
@@ -1483,6 +1489,11 @@ test('ENVIRONMENT_MOVED says which card the returned recipe renders from, or tha
       `${name}: MOVED`
     );
     assert.match(moved(bare)[0].meaning, NONE, `${name}: no card carries one`);
+    assert.equal(
+      moved(bare)[0].meaning,
+      'The environment set on voice no longer sets the rendered recipe: no card carries an environment now. Set one with set_environment.',
+      `${name}: Jony's text, when no card carries one`
+    );
     for (const format of FORMATS) {
       const r = await s.render(bare, { format });
       assert.deepEqual(
@@ -1510,6 +1521,11 @@ test('ENVIRONMENT_MOVED says which card the returned recipe renders from, or tha
       `${name}: MOVED across an empty roster`
     );
     assert.match(moved(back)[0].meaning, from(now.instrument), `${name}: names that card`);
+    assert.equal(
+      moved(back)[0].meaning,
+      `The environment set on electric_bass no longer sets the rendered recipe: it now takes its room, tuning and chain from ${now.instrument} (the first card that has one). Repeat set_environment without \`card\` to apply it there.`,
+      `${name}: Jony's text, naming the card`
+    );
     // And with only a bare card back, as "no card".
     const none = await s.edit(lead, [
       { action: 'remove_tradition', tradition: 'garage_rock' },

@@ -301,7 +301,7 @@ await check('an environment that stops rendering is reported, not lost silently'
     assert.equal(w.environment_instrument, r.render_scope.environment_instrument);
     assert.match(
       w.meaning,
-      new RegExp(`set on ${inst(envCard)}\\b.*not used in the current rendered recipe`)
+      new RegExp(`^The environment set on ${inst(envCard)}\\b no longer sets the rendered recipe: `)
     );
     // The named next step works: repeating the edit restores the room.
     const again = E.editRecipe({

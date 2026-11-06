@@ -267,7 +267,7 @@ function unrenderedEnvWarnings(ws, environment, owners = new Map()) {
         ...(edit === undefined ? {} : { edit }),
         environment_card: environment.id,
         environment_instrument: environment.instrumentId,
-        // BB8's draft (6681659990), pending Jony's wording. It says the two
+        // BB8's text (6681659990), which Jony kept as it is. It says the two
         // things that are true of such a setting: it does not set the rendered
         // environment, and on a card whose preface is auto-derived it can still
         // move that card's preface word.
@@ -577,7 +577,7 @@ function shape(ws, params = {}, meta = {}) {
     environment_settings: envSettings(environment),
     environment:
       `The whole recipe uses one room, tuning and signal chain, taken from environment_card (${environment ? cardLabel(ws.cards, environment) : 'none yet'}), the first card that has any. ` +
-      'set_environment without `card` changes it; these settings on other cards are not used in the current rendered recipe.',
+      "set_environment without `card` changes it. These settings on other cards don't set the rendered environment; while a card's preface is auto-derived they can still shape its preface word.",
     output:
       'Text recipe only; no recording, mix, stereo placement or listening test was performed.',
   };
@@ -961,11 +961,14 @@ function environmentTransition(before, after, i, e, target) {
 // and also a roster whose cards all lack one, where envCardOf falls back to the
 // first card and the recipe renders no room, tuning or chain at all. Worked out
 // again at the end of the batch against the card the response renders from
-// (editRecipe), since a later edit can hand the environment on again.
+// (editRecipe), since a later edit can hand the environment on again. Jony's
+// wording (#671): "no longer sets", and nothing about A's settings still being
+// saved there or about A's preface word, since MOVED also fires on a remove,
+// where A's settings go with the card.
 const movedMeaning = (A, cards, env) =>
   env && hasEnvironment(env)
-    ? `The environment set on ${A} is not used in the current rendered recipe: it now takes its room, tuning and chain from ${cardLabel(cards, env)} (the first card that has one). Repeat set_environment without \`card\` to apply it there.`
-    : `The environment set on ${A} is not used in the current rendered recipe: no card carries an environment now. Set one with set_environment.`;
+    ? `The environment set on ${A} no longer sets the rendered recipe: it now takes its room, tuning and chain from ${cardLabel(cards, env)} (the first card that has one). Repeat set_environment without \`card\` to apply it there.`
+    : `The environment set on ${A} no longer sets the rendered recipe: no card carries an environment now. Set one with set_environment.`;
 // The label each such warning gives its old card, so the end of the batch can
 // say it again against the final environment card (that card may be gone by
 // then, and labels are worked out among the cards present when it was said).
@@ -977,10 +980,10 @@ const overwrittenMeaning = (action, label, lost) =>
 // The same transition on a card the recipe does not take its environment from:
 // what it replaced never set the rendered environment, so the advice is the
 // edit that does, not a set_environment on this card (which would only write
-// another setting that does not render). Pending Jony's wording, like
-// ENVIRONMENT_NOT_RENDERED's.
+// another setting that does not render). Jony's wording (#671): with no clause
+// about the card's preface word, since this set_preface has just pinned it.
 const ownOverwrittenMeaning = (action, label, envLabel, lost) =>
-  `${action} on ${label} re-derived the settings a set_environment wrote there (${envChanges(lost)}). They did not set the rendered environment, which the recipe takes from ${envLabel}; set_environment without \`card\` sets it.`;
+  `${action} on ${label} re-derived the environment settings a set_environment had written there (${envChanges(lost)}). Settings on ${label} don't set the rendered environment, which the recipe takes from ${envLabel}; to change it, use set_environment without \`card\`.`;
 
 // ENVIRONMENT_OVERWRITTEN on a card other than the environment card: a
 // set_preface there re-derived settings a set_environment had written on it

@@ -59,6 +59,16 @@ what a `set_environment` wrote on it, inside the workspace, and the warnings rea
   its environment card reports no `ENVIRONMENT_MOVED` for the settings that card held, as
   for a stock environment; clearing every setting on the environment card still reports
   the settings that take over.
+- **No response calls a setting on another card "not used".** Beside
+  `ENVIRONMENT_NOT_RENDERED`, which says such a setting can still shape that card's preface
+  word while the preface is auto-derived, `ENVIRONMENT_MOVED` and `render_scope.environment`
+  said it was "not used in the current rendered recipe", which is untrue for about one
+  written setting in eight. In Jony's wording, `ENVIRONMENT_MOVED` now says the environment
+  set on the old card "no longer sets the rendered recipe", `render_scope.environment` that
+  settings on other cards "don't set the rendered environment; while a card's preface is
+  auto-derived they can still shape its preface word", and `ENVIRONMENT_OVERWRITTEN` on a
+  card other than the environment card that settings there "don't set the rendered
+  environment", with how to change it.
 - **`ENVIRONMENT_MOVED` says what the returned recipe renders.** It said the recipe "now
   takes its room, tuning and chain from" the first card left even when no card left had
   any (the environment card removed with only a bare card behind it), where the recipe
