@@ -168,8 +168,9 @@
 //      reader. The reader's Retry: a mount() that throws then is not said,
 //      with focus on its sentence; focus the person moved on (elsewhere, or
 //      back to Play) is taken, by a Retry that fails again or one that
-//      mounts. Each check has a planted defect in host.js or app.js
-//      (START_MUTANTS), as in 16.
+//      mounts. Two Plays whose look-ups finish out of order: the earlier
+//      one's reading opens. Each check has a planted defect in host.js or
+//      app.js (START_MUTANTS), as in 16.
 //
 //   node scripts/check_prototype_hosts.js
 //
@@ -321,6 +322,9 @@ async function newPage(browser, srv, opts = {}) {
     }
     if (failing.has(u.pathname)) return route.fulfill({ status: 404, body: '' });
     if (override.has(u.pathname)) return route.fulfill(override.get(u.pathname));
+    // A path answered late, as `slow` gives it (keyed by a lane, or a path).
+    if (opts.slow && opts.slow[u.pathname])
+      await new Promise((r) => setTimeout(r, opts.slow[u.pathname]));
     return route.continue();
   });
   if (opts.init) await context.addInitScript(opts.init.fn, opts.init.arg);
@@ -2132,9 +2136,11 @@ async function readerChecks(browser, srv) {
 // it; when its data fails again, its sentence is said and focus moved back
 // to Retry, unless the person moved it on (elsewhere, or back to Play) while
 // it loaded; when it mounts, focus goes into the reader unless the person
-// moved it on. Each check has a planted defect in host.js or app.js
-// (START_MUTANTS), served in place of the file in pages of its own, which
-// must fail it.
+// moved it on. And Play on an appended card, whose collection file is
+// answered late, then Play on a shelf's card: only the later reading opens,
+// and its sentence is said once. Each check has a planted defect in host.js
+// or app.js (START_MUTANTS), served in place of the file in pages of its own,
+// which must fail it.
 const START_SAYS = {
   module: 'The reader isn’t part of this build of the prototype yet.',
   context: 'The reading did not load. Check your connection, then try again.',
@@ -2310,6 +2316,11 @@ const START_MUTANTS = {
       ],
     ],
   },
+  'an earlier Play opens over a later one': {
+    file: 'app',
+    check: 'the latest Play opens',
+    edits: [['      if (mine !== plays) return { unitId }; // a later Play opens instead\n', '']],
+  },
   'autoplay beside a reader that couldn’t start': {
     file: 'app',
     check: 'no autoplay beside a reader that couldn’t start',
@@ -2332,9 +2343,11 @@ const START_MUTANTS = {
   },
 };
 
-async function startRun(page, cid, kind) {
+// `later` is a collection only appended cards show, whose look-up fetches its
+// collection file: the gate answers that file late (LATE_LOOKUP_MS).
+async function startRun(page, cid, kind, later) {
   return page.evaluate(
-    async ({ cid, kind }) => {
+    async ({ cid, kind, later }) => {
       const c = window.__probeCtx.library;
       const region = document.getElementById('proto-status');
       // Every sentence the region is given, one per announcement, but the
@@ -2373,6 +2386,7 @@ async function startRun(page, cid, kind) {
           }
         );
       const speechCtx = () => window.__probeCtx && window.__probeCtx.libraryspeech;
+      const readerMounts = () => (window.__probe.libraryreading || {}).mounts || 0;
       const state = (situation, returned, before) => {
         const reader = inHost('libraryreading', '[data-host-note]');
         const speech = inHost('libraryspeech', '[data-host-note]');
@@ -2388,6 +2402,8 @@ async function startRun(page, cid, kind) {
           speech: speech ? speech.textContent : null,
           // What this open's read-aloud was granted (null: it had no ctx).
           autoplay: sp && sp !== before.sp ? sp.speech.takeAutoplay() : null,
+          readerMounts: readerMounts() - before.mounts,
+          readerUnit: window.__probeCtx.libraryreading && window.__probeCtx.libraryreading.unitId,
           hidden: document.querySelector('[data-panel="library"]').hidden,
           hosts: [...document.querySelectorAll('[data-panel="library"] [data-feature-host]')]
             .map((h) => h.dataset.featureHost)
@@ -2398,7 +2414,7 @@ async function startRun(page, cid, kind) {
         await wait(50); // the turn before has ended
         window.__probeThrow = throws;
         said = [];
-        const before = { sp: speechCtx() };
+        const before = { sp: speechCtx(), mounts: readerMounts() };
         play().focus();
         const opened = openFromPlay(cid);
         // The person moves focus at once, while the unit is looked up.
@@ -2425,7 +2441,7 @@ async function startRun(page, cid, kind) {
         await wait(50);
         window.__probeThrow = throws;
         said = [];
-        const before = { sp: speechCtx() };
+        const before = { sp: speechCtx(), mounts: readerMounts() };
         play().focus();
         const opened = openFromPlay(cid);
         route('browse');
@@ -2435,6 +2451,22 @@ async function startRun(page, cid, kind) {
         route('library');
         await wait(50);
         return r;
+      };
+      // Play on an appended card, then on a shelf's card before the first
+      // card's look-up has finished, so the earlier look-up finishes last.
+      const overtaken = async (throws) => {
+        await wait(50);
+        window.__probeThrow = throws;
+        said = [];
+        const before = { sp: speechCtx(), mounts: readerMounts() };
+        play().focus();
+        const first = openFromPlay(later);
+        await wait(50);
+        play().focus();
+        const second = openFromPlay(cid);
+        const returned = await Promise.all([first, second]);
+        await wait(150);
+        return state('overtaken', returned, before);
       };
       window.__readerContextFails = kind === 'context';
       window.__probeSays = 'libraryspeech'; // read-aloud speaks as it mounts
@@ -2472,13 +2504,14 @@ async function startRun(page, cid, kind) {
       if (kind === 'mount') {
         runs.push(await press('both', ['libraryreading', 'libraryspeech']));
         runs.push(await press('speech', 'libraryspeech'));
+        runs.push(await overtaken(lane));
       }
       runs.push(await away(lane));
       window.__probeThrow = undefined;
       window.__probeSays = undefined;
       return runs;
     },
-    { cid, kind }
+    { cid, kind, later }
   );
 }
 
@@ -2509,9 +2542,17 @@ function startVerdict(g) {
     all.filter((x) => x.r.situation === s).every((x) => x.r.focus === target(x.kind, s));
   const both = run('mount', 'both');
   const speech = run('mount', 'speech');
+  const overtaken = run('mount', 'overtaken');
   const during = START_KINDS.map((kind) => [kind, run(kind, 'during')]);
   const away = START_KINDS.map((kind) => [kind, run(kind, 'away')]);
   const retried = (s) => run('context', s);
+  const unitOf = (json) => {
+    try {
+      return JSON.parse(json).unitId;
+    } catch {
+      return null;
+    }
+  };
   // Every open beside a reader that couldn't start, whose read-aloud had a ctx.
   const besideFailed = [
     ...START_KINDS.flatMap((kind) => ['during', ...SITUATIONS].map((s) => run(kind, s))),
@@ -2581,22 +2622,41 @@ function startVerdict(g) {
         r.focus === 'browse' &&
         resolved(r)
     ),
+    'the latest Play opens':
+      !!overtaken &&
+      overtaken.returned.every((x) => resolved({ returned: x })) &&
+      overtaken.readerMounts === 1 &&
+      !!overtaken.readerUnit &&
+      overtaken.readerUnit === unitOf(overtaken.returned[1]) &&
+      overtaken.readerUnit !== unitOf(overtaken.returned[0]) &&
+      saidOnce(overtaken, START_SAYS.mount) &&
+      overtaken.focus === 'note:libraryreading' &&
+      tail(overtaken),
     // Beside a reader that started (read-aloud alone failing), Play's grant.
     'no autoplay beside a reader that couldn’t start':
       besideFailed.every((r) => r && r.autoplay === false) && !!speech && speech.autoplay === true,
   };
 }
 
+const LATE_LOOKUP_MS = 400;
 let startPlanted = 0;
 const START_DEFECTS = Object.keys(START_MUTANTS).length;
 async function startChecks(browser, srv) {
-  const cid = libData('catalog.json').shelves[0].cards[0][0];
+  const catalog = libData('catalog.json');
+  const cid = catalog.shelves[0].cards[0][0];
+  // A readable collection no shelf shows, so its look-up fetches its file.
+  const shown = new Set(catalog.shelves.flatMap((s) => s.cards.map((t) => t[0])));
+  const later = libData('collections.json').collections.find((r) => r[3] > 0 && !shown.has(r[0]));
   // One page per way the reader can't start, with app.js and host.js as
   // served (`served.app`, `served.host`: the planted text, or undefined for
   // the committed file); the context's page gets READER_CONTEXT_FAULT on top.
-  // The reader's module is answered late (only its first load asks for it).
+  // The reader's module is answered late (only its first load asks for it),
+  // and so is the appended collection's file.
   const onePage = async (kind, served) => {
-    const slow = { libraryreading: 300 };
+    const slow = {
+      libraryreading: 300,
+      [`/library/data/c/${later && later[0]}.json.gz`]: LATE_LOOKUP_MS,
+    };
     const { context, page, errors, override } = await newPage(
       browser,
       srv,
@@ -2613,7 +2673,8 @@ async function startChecks(browser, srv) {
       await page.goto(`${srv.url}/prototype/#library`);
       await waitMounted(page, 'library');
       await waitMounted(page, 'librarymethods');
-      got = await startRun(page, cid, kind);
+      if (!later) throw new Error('no readable collection is left off the shelves');
+      got = await startRun(page, cid, kind, later[0]);
     } catch (e) {
       errors.push(`threw: ${(e && e.message) || e}`);
     }

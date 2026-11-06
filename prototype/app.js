@@ -223,6 +223,7 @@ async function libraryContext({ signal }) {
   const ids = new Map(); // collection → its readable unit ids, once fetched
   const selected = new Set(); // reading unit ids, this tab only
   const listeners = new Set();
+  let plays = 0; // openReading's calls, so that only the latest one opens
   const idsOf = async (cid) => {
     if (!ids.has(cid)) {
       const file = await collectionFile(cid);
@@ -261,9 +262,14 @@ async function libraryContext({ signal }) {
     // Production's Play: resolve the collection's first readable unit, then
     // open it. The prototype has no reading route, so the reader opens in the
     // Library panel, below the lanes, and replaces any reading already open.
+    // Only the latest Play opens (#810): an earlier one whose look-up (an
+    // appended card's collection file) finishes later resolves its unit and
+    // opens nothing, so it can't replace the reading asked for after it.
     async openReading(cid) {
+      const mine = ++plays;
       const opener = document.activeElement; // Play, before the look-up
       const unitId = await lib.unitOf(cid);
+      if (mine !== plays) return { unitId }; // a later Play opens instead
       await openReader(unitId, { play: true, opener });
       return { unitId };
     },
