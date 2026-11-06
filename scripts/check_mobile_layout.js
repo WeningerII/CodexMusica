@@ -390,7 +390,7 @@ const PINNED_PROBE = `(() => {
     // checks above measure ("Instrument" covered Genre at 360-412px; Jony's
     // viewport lane).
     const spills = await page.evaluate(() =>
-      [...document.querySelectorAll('.ui-header nav button, .ui-header nav .ui-nav-link')]
+      [...document.querySelectorAll('.ui-header nav button')]
         .filter((t) => t.getClientRects().length)
         .map((t) => {
           const box = t.getBoundingClientRect();

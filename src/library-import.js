@@ -1,19 +1,15 @@
 /* exported CMLibraryImport */
 /* global module, require */
 /* Library working-copy transport. No source edits, grading, recipe work or
-   network dispatch. Acknowledgements follow a durable, atomic draft commit. */
+   network dispatch. An import is activated only after a durable, atomic draft
+   commit. Envelopes arrive in-page (the Library tab's uiOpenInLyrics) or from
+   a downloaded bundle file; no other window or origin can hand one over. */
 (function (root) {
   const PROTOCOL = 'codex-musica.library-import';
   const VERSION = 1;
-  const SITE_ORIGIN = 'https://codex-musica-corpus.tonybolognamacaroni.chatgpt.site';
-  const HANDSHAKE_MS = 60000;
+  // The in-page handoff's cap (src/library/reader.js): above it the reader
+  // downloads the import bundle instead, for Lyrics' file import.
   const TRANSFER_BYTES = 8 * 1024 * 1024;
-  const TYPES = {
-    ready: 'codex-musica.library.ready',
-    transfer: 'codex-musica.library.transfer',
-    ack: 'codex-musica.library.ack',
-    error: 'codex-musica.library.error',
-  };
   const fail = (message) => {
     throw new Error(message);
   };
@@ -102,20 +98,6 @@
     if (!hex(raw.digest) || (await envelopeDigest(raw, cryptoApi)) !== raw.digest)
       fail('Library import digest does not match its content.');
     return clone(raw);
-  }
-  function originAllowed(origin, devOrigin) {
-    if (origin === SITE_ORIGIN) return true;
-    if (!devOrigin || origin !== devOrigin) return false;
-    try {
-      const u = new URL(devOrigin);
-      return (
-        u.origin === devOrigin &&
-        u.protocol === 'http:' &&
-        ['localhost', '127.0.0.1', '[::1]'].includes(u.hostname)
-      );
-    } catch {
-      return false;
-    }
   }
   const lyricTokens = () =>
     root.CMLyricTokens ||
@@ -224,14 +206,7 @@
     envelope.digest = await envelopeDigest(envelope, cryptoApi);
     return validateEnvelope(envelope, cryptoApi);
   }
-  function prepareCommit(envelope, previous, receipt, existingDraft, now, binding, usedHandshake) {
-    if (
-      usedHandshake &&
-      (usedHandshake.handoffId !== envelope.handoffId ||
-        usedHandshake.digest !== envelope.digest ||
-        usedHandshake.origin !== binding?.origin)
-    )
-      fail('This Library handshake was already used. Open in Lyrics again.');
+  function prepareCommit(envelope, previous, receipt, existingDraft, now) {
     if (receipt) {
       if (receipt.digest !== envelope.digest || receipt.draftId !== envelope.draftId)
         fail('This handoff identity was already used for different content.');
@@ -253,7 +228,6 @@
         draftId: envelope.draftId,
         preservedDraftId: previous.draftId,
         committedAt: now,
-        binding: binding || null,
       },
       active: { draftId: envelope.draftId, handoffId: envelope.handoffId, pending: true },
     };
@@ -271,6 +245,9 @@
         dbPromise = new Promise((resolve, reject) => {
           const request = indexedDB.open('codex-musica-library-drafts', 1);
           request.onupgradeneeded = () => {
+            // 'handshakes' is unused since #659 (the old Library Site's
+            // window handoff is gone); it is still created so the version-1
+            // schema stays the same for databases old and new.
             for (const name of ['drafts', 'receipts', 'active', 'handshakes'])
               if (!request.result.objectStoreNames.contains(name))
                 request.result.createObjectStore(name);
@@ -314,60 +291,39 @@
         request.onsuccess = () => done(request.result || null);
       });
     return {
-      async commitImport(envelope, previous, binding) {
-        return transaction(
-          ['drafts', 'receipts', 'active', 'handshakes'],
-          'readwrite',
-          (tx, done, abort) => {
-            const receipts = tx.objectStore('receipts'),
-              drafts = tx.objectStore('drafts');
-            const handshakes = tx.objectStore('handshakes');
-            const handshake = handshakes.get(binding?.nonce || 'file-import');
-            handshake.onsuccess = () => {
-              const request = receipts.get(envelope.handoffId);
-              request.onsuccess = () => {
-                const receipt = request.result;
-                const lookup = drafts.get(envelope.draftId);
-                lookup.onsuccess = () => {
-                  try {
-                    const commit = prepareCommit(
-                      envelope,
-                      previous,
-                      receipt,
-                      lookup.result,
-                      Date.now(),
-                      binding,
-                      handshake.result
-                    );
-                    if (!commit.duplicate) {
-                      drafts.put(commit.previous, commit.previous.draftId);
-                      drafts.put(commit.draft, commit.draft.draftId);
-                      receipts.put(commit.receipt, commit.receipt.handoffId);
-                      tx.objectStore('active').put(commit.active, 'current');
-                    }
-                    if (binding)
-                      handshakes.put(
-                        {
-                          handoffId: envelope.handoffId,
-                          digest: envelope.digest,
-                          origin: binding.origin,
-                          committedAt: Date.now(),
-                        },
-                        binding.nonce
-                      );
-                    done(commit);
-                  } catch (error) {
-                    abort(error);
-                  }
-                };
-              };
+      async commitImport(envelope, previous) {
+        return transaction(['drafts', 'receipts', 'active'], 'readwrite', (tx, done, abort) => {
+          const receipts = tx.objectStore('receipts'),
+            drafts = tx.objectStore('drafts');
+          const request = receipts.get(envelope.handoffId);
+          request.onsuccess = () => {
+            const receipt = request.result;
+            const lookup = drafts.get(envelope.draftId);
+            lookup.onsuccess = () => {
+              try {
+                const commit = prepareCommit(
+                  envelope,
+                  previous,
+                  receipt,
+                  lookup.result,
+                  Date.now()
+                );
+                if (!commit.duplicate) {
+                  drafts.put(commit.previous, commit.previous.draftId);
+                  drafts.put(commit.draft, commit.draft.draftId);
+                  receipts.put(commit.receipt, commit.receipt.handoffId);
+                  tx.objectStore('active').put(commit.active, 'current');
+                }
+                done(commit);
+              } catch (error) {
+                abort(error);
+              }
             };
-          }
-        );
+          };
+        });
       },
       getDraft: (draftId) => get('drafts', draftId),
       getReceipt: (handoffId) => get('receipts', handoffId),
-      getHandshake: (nonce) => get('handshakes', nonce),
       async pendingActivation() {
         const active = await get('active', 'current');
         return active?.pending ? get('drafts', active.draftId) : null;
@@ -395,46 +351,15 @@
       },
     };
   }
-  function createReceiver({
-    window: win = root,
-    store,
-    captureCurrent,
-    releaseCurrent = () => {},
-    activate,
-    onError = () => {},
-    devOrigin,
-    now = Date.now,
-  }) {
+  // One serial importer: each import captures the draft active at that
+  // moment, commits, then activates, so two imports never interleave.
+  function createReceiver({ store, captureCurrent, releaseCurrent = () => {}, activate }) {
     let tail = Promise.resolve();
-    const params = new URL(win.location.href).searchParams;
-    const origin = params.get('cm_library_origin'),
-      nonce = params.get('cm_library_nonce');
-    const source = win.opener;
-    const validHandshake = originAllowed(origin, devOrigin) && hex(nonce) && !!source;
-    let started = now();
-    if (validHandshake) {
-      try {
-        const key = 'codex-musica-library-handshake:' + nonce;
-        const saved = win.sessionStorage.getItem(key);
-        if (saved) started = Number(saved);
-        else win.sessionStorage.setItem(key, String(started));
-      } catch {
-        /* No session storage: expiry remains bounded to this page load. */
-      }
-    }
-    const ack = (receipt) => ({
-      type: TYPES.ack,
-      version: VERSION,
-      nonce,
-      handoffId: receipt.handoffId,
-      digest: receipt.digest,
-      draftId: receipt.draftId,
-    });
-    async function importEnvelope(raw, binding = null) {
+    async function importEnvelope(raw) {
       const envelope = await validateEnvelope(raw);
       try {
         const previous = await captureCurrent();
-        const commit = await store.commitImport(envelope, previous, binding);
+        const commit = await store.commitImport(envelope, previous);
         if (!commit.duplicate) {
           const result = await activate(commit.draft, {
             imported: true,
@@ -453,47 +378,6 @@
         releaseCurrent();
       }
     }
-    async function receive(event) {
-      if (!validHandshake || event.origin !== origin || event.source !== source) return false;
-      const data = event.data;
-      if (
-        !plain(data) ||
-        data.type !== TYPES.transfer ||
-        data.version !== VERSION ||
-        data.nonce !== nonce
-      )
-        return false;
-      try {
-        if (new TextEncoder().encode(JSON.stringify(data)).byteLength > TRANSFER_BYTES)
-          fail('This reading needs the downloadable import bundle.');
-        if (now() - started >= HANDSHAKE_MS) {
-          const receipt = await store.getHandshake(nonce);
-          if (
-            !receipt ||
-            receipt.handoffId !== data.envelope?.handoffId ||
-            receipt.origin !== origin
-          )
-            fail('The Library handshake expired. Open in Lyrics again or import its bundle.');
-        }
-        const commit = await importEnvelope(data.envelope, { nonce, origin });
-        source.postMessage(ack(commit.receipt), origin);
-        return true;
-      } catch (error) {
-        onError(error);
-        source.postMessage(
-          { type: TYPES.error, version: VERSION, nonce, message: error.message },
-          origin
-        );
-        return false;
-      }
-    }
-    function queueReceive(event) {
-      tail = tail.then(
-        () => receive(event),
-        () => receive(event)
-      );
-      return tail;
-    }
     async function recover() {
       const draft = await store.pendingActivation();
       if (draft) {
@@ -502,7 +386,6 @@
       }
     }
     return {
-      receive: queueReceive,
       importEnvelope(raw) {
         const result = tail.then(
           () => importEnvelope(raw),
@@ -511,29 +394,20 @@
         tail = result.catch(() => {});
         return result;
       },
+      // Completes an activation a reload interrupted after its commit.
       async start() {
         await recover();
-        win.addEventListener('message', queueReceive);
-        if (validHandshake)
-          source.postMessage({ type: TYPES.ready, version: VERSION, nonce }, origin);
-      },
-      stop() {
-        win.removeEventListener('message', queueReceive);
       },
     };
   }
   const api = {
     PROTOCOL,
     VERSION,
-    SITE_ORIGIN,
-    HANDSHAKE_MS,
     TRANSFER_BYTES,
-    TYPES,
     canonical,
     sha256,
     envelopeDigest,
     validateEnvelope,
-    originAllowed,
     eligibleForWriter,
     importedDraft,
     makeWorkingCopyEnvelope,

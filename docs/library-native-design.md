@@ -40,6 +40,7 @@ The Library becomes a native tab on codexmusica.com, as much a part of the site 
 - Colour: `--cm-route-library: var(--cm-green)` in src/theme.css:168-173 (defined in both themes; this is the Library's own #1e8e3e), plus a nav svg rule beside src/workbench.css:1245-1256.
 - At cutover:
   - delete `uiLibraryLink` (workbench.js:114-119) and its call (751);
+    - Status (#659): the cutover kept it for `CODEX_LIBRARY=0` builds only, still pointing at the old Site. It was deleted with the receiver below in the website-only follow-up to #811, along with its `.ui-nav-link` styles in workbench.css and `CMLibraryImport` in workbench.js's `/* global */`. No build links to another website now.
   - retarget the narrow-header rules (workbench.css:1300-1315, plus the `.ui-nav-link` selectors at 85,104,109,537,583,589,963,1215) to `button.cm-tab[data-view=library]`: icon-only at <=440px and 900-1099px, label kept in aria-label and title, target >=44px;
   - scripts/build_html.js:229 `PAGES += 'library'`.
 - Before cutover the entry exists only in two cases:
@@ -755,6 +756,7 @@ The handoff stays in the same document and carries text only, through the receiv
 - SITE_ORIGIN, originAllowed, TYPES, HANDSHAKE_MS and createReceiver's opener path stay through cutover (PR 6), so the old Site's 'Open in Lyrics' keeps working until the move page replaces it.
 - PR 6c deletes them, and their tests in scripts/test_library_import*.js, immediately after John confirms the move page is live, or 7 days after cutover if it is not deployed. `TRANSFER_BYTES` stays, because the in-page handoff keeps the cap. Old-Site users then still have the bundle-download fallback.
 - That returns about 1.5-2 KB gz to the page, and `check_library_isolation` then asserts that no 'chatgpt' string remains in codex.html or library/code.
+- Status (#659): done in the website-only follow-up to #811, after John decided the old Site goes and the website never links to a chatgpt.site address. SITE_ORIGIN, originAllowed, TYPES, HANDSHAKE_MS, the URL-param/opener/sessionStorage path, `receive`/`stop`, the handshake bookkeeping in prepareCommit and commitImport, and lyrics.js's `devOrigin`/`onError`/nonce toast are gone. createReceiver keeps importEnvelope, its serial queue and `start()` (recovery only). The IndexedDB schema still creates the unused 'handshakes' store, so version 1 is the same for old and new databases. `test_library_import_inpage.js` and `check_library_isolation.js` were never written: the no-'chatgpt.site' guard is a test in `scripts/test_library_import.js` that scans every file git tracks, because GitHub Pages serves all of main (it matches an address, a host label before the domain, and exempts sites/library/ until #811 deletes it), and the in-page path is covered by the rewritten `test_library_import.js`, `test_library_import_browser.js` and `test_library_import_shipped.js`.
 - Bundles downloaded earlier still import through the file path, which has no origin check.
 - Existing Lyrics drafts with snapshotId 5226 are unaffected: Lyrics reads only provenance.workingCopy, and every 5226 id and revision is unchanged in 317c.
 
@@ -922,6 +924,8 @@ The margin `m` is John's to set (decision 5). Recommended: 0.45, which is <= 0.5
 
 **Records.** The old-Site fixtures, the modelled-delay table, the calibration runs and the current-route baselines are recorded in PR 0 (tests/perf/library-baseline.json: date, commit, runner, raw runs). After cutover the same harness runs against https://codexmusica.com, plus PageSpeed Insights n=5, archived in docs/library-performance.md.
 
+Status (#659): when the old Site was removed, the four old-Site `target` addresses in tests/perf/library-baseline.json became plain labels (`old Library Site /` and `old Library Site /read/…`), because GitHub Pages serves every file on main. The two files that timed the old Site, tests/perf/library-baseline-config.json and .github/workflows/library-perf-baseline.yml, were deleted then; the recorded numbers stay.
+
 ## Migration and retirement
 
 ### Existing private analysis jobs
@@ -1008,6 +1012,7 @@ codexmusica.com never links to chatgpt.site after cutover.
 - Kept through cutover.
 - Deleted in PR 6c once the move page is confirmed live, or 7 days after cutover, together with its tests.
 - File-bundle import remains.
+- Status (#659): deleted without a move page, in the website-only follow-up to #811 (see Legacy receiver). Its tests were rewritten onto the in-page path.
 
 ### Bridge
 - After the move page ships: the `/internal/reader` router, reader_protocol.js, the raw-body capture for `/internal/reader`, and READER_BRIDGE_SECRET and READER_SITE_ID in the Render dashboard are removed in PR 7.
@@ -1205,6 +1210,7 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 - tests/library/id-map.json, eligibility-changes.json, revisions.json and data-manifest.json.
 - tests/library/goldens/317c/** (Worker goldens, including the provenance download sample and the analysis export).
 - tests/perf/library-baseline.json and the pinned old-Site response fixtures.
+- Status (#659): the baseline's old-Site addresses are now plain labels, and its config (tests/perf/library-baseline-config.json) and workflow (.github/workflows/library-perf-baseline.yml) were deleted with the old Site (see Records).
 
 ### Added: Render and catalog
 - lyric-harness/library/search_store.py (with projection and ZIP entry tables) and lyric-harness/library/test_search_store.py.
@@ -1217,16 +1223,16 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 
 ### Changed: shell sources
 - src/workbench.js:
-  - UI_ROUTES fifth entry (flag-gated until cutover); uiLibraryLink removed;
+  - UI_ROUTES fifth entry (flag-gated until cutover); uiLibraryLink removed (done for every build in #659);
   - uiRouteOf at 156-163, 1011-1014 and 1047-1063; route and currentRoute hooks; imports registration;
   - new APIs uiSubroute, uiOpenInLyrics, uiEnsureWorkspace, uiLoadChunk;
   - deferred-workspace guards in uiStart (uiRestoreSession and renderAll queued);
-  - CMLibraryImport dropped from /* global */ in PR 6c.
+  - CMLibraryImport dropped from /* global */ in PR 6c (done, #659).
 - src/app.js: BOOT_ROUTE_LIBRARY; `_initApp(deferWorkspace)` guard clauses and `_initWorkspace()`; ENGINE_AT_BOOT and CATALOG_READY not awaited on #library, with the CATALOG_READY expression route-gated; the resize handler guarded until the workspace is ready; low-priority workspace fetches that pause during Library fetches; Engine.start and prose suppressed while view==='library'.
 - src/engine_preload.js: route test.
 - src/index.template.html: `<!--@LIBRARY_PRELOAD-->` marker; BOOT_PRELOAD emitted as a script; the preview flag read in the head boot script.
 - src/pages/lyrics.js: imports.library hook; the 'Library source' card icon becomes 'library'.
-- src/library-import.js: handshake removed in PR 6c; importEnvelope, validateEnvelope, canonical, envelopeDigest and the TRANSFER_BYTES cap kept.
+- src/library-import.js: handshake removed in PR 6c (done, #659); importEnvelope, validateEnvelope, canonical, envelopeDigest and the TRANSFER_BYTES cap kept.
 - src/theme.css: --cm-route-library.
 - src/workbench.css: nav icon colour, narrow rules retargeted (1300-1315 plus the listed selectors), 60% phone-sheet rule.
 
@@ -1258,7 +1264,7 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 - scripts/check_layout_usability.js: five-entry header.
 - scripts/ui_reachability_check.js PRECONDITIONS ('library view', 'library reader', 'library analysis'), run on the flagged lazy build, and tests/ui_capability_inventory.md (navigation-library, one entry per feature row, five-section history, Counts).
 - scripts/faults.js: library-loses-recipe, library-held-body-served, library-chatgpt-link, library-boot-waits-catalog, library-capability-persisted, library-readable-regression, library-count-drift, library-labels-missing, library-capability-leak, library-chunk-stale.
-- scripts/test_library_import*.js: rewritten in PR 6c.
+- scripts/test_library_import*.js: rewritten in PR 6c (done, #659).
 
 ### Changed: repo configuration
 - scripts/_build_closure.js: src/library/** as closure, library/code/** as output, library/data/** and tests/library/** in a library-data class inert to the Node builders.
@@ -1387,6 +1393,7 @@ After the export window, the move page goes live (device-data export, redirects,
 
 **PR 6c: after the move page is confirmed live, or 7 days after cutover**
 Delete the SITE_ORIGIN handshake and rewrite test_library_import*.js. check_library_isolation then asserts that no 'chatgpt' string remains.
+Status (#659): done without a move page, in the website-only follow-up to #811. The no-'chatgpt.site' assertion lives in `scripts/test_library_import.js` and covers every tracked file, since Pages serves all of main; check_library_isolation was never written.
 
 **PR 7: retirement (at least 30 days after PR 6b, with John's go-ahead)**
 - Delete sites/library and library-site.yml. Done 2026-11-05 (#659), ahead of the rest of PR 7.
