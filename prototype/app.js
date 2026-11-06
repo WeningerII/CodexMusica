@@ -39,6 +39,15 @@ function routeFromHash() {
   return ROUTES.includes(id) ? id : null;
 }
 
+// What a lane listens to through its ctx ends with its mount (#810
+// 6682309672): the view it is handed, with its subscribe (or, given `key`,
+// that method) bound by host.js's untilAborted to the signal the host passed
+// the lane's context(). A listener the lane keeps past its unmount stops
+// hearing at the abort, whatever the lane does, and one added after it is
+// never added.
+const ending = (signal, view, key = 'subscribe') =>
+  Object.freeze({ ...view, [key]: untilAborted(view[key], signal) });
+
 // The lane registry: route → lane. Each import is a literal path, so the
 // gate can check where feature code may come from. A lane's file not being
 // in this build is a stated state, not an error (host.js). A lane that closes
@@ -121,12 +130,12 @@ async function openReader(unitId, { play = false } = {}) {
       label: 'Read aloud',
       load: () => import('./features/library-speech/controls.js'),
       unloaded: 'Read aloud did not load.',
-      context: async () => {
+      context: async ({ signal }) => {
         const record = await readings.reading(unitId);
         return {
           language: record.head.language,
           lines: await readingLines(record),
-          speech: speechAdapter({ autoplay: play }),
+          speech: ending(signal, speechAdapter({ autoplay: play }), 'subscribeVoices'),
         };
       },
     },
@@ -137,7 +146,7 @@ async function openReader(unitId, { play = false } = {}) {
 // no recipe object, by construction (Rule 1). The prototype has no collection
 // page and no reader yet, so the two navigation calls say so instead of
 // routing; openReading still resolves the unit as production's Play does.
-async function libraryContext() {
+async function libraryContext({ signal }) {
   const lib = await loadLibrary();
   const ids = new Map(); // collection → its readable unit ids, once fetched
   const selected = new Set(); // reading unit ids, this tab only
@@ -173,7 +182,7 @@ async function libraryContext() {
   return {
     shelves: lib.shelves,
     loadMore: lib.loadMore,
-    selection,
+    selection: ending(signal, selection),
     openCollection() {
       announce('Collection pages aren’t part of this prototype yet.');
     },
@@ -209,8 +218,8 @@ LANES.genre = {
   label: 'The genre detail page',
   load: () => import('./features/genre-detail/detail.js'),
   unloaded: 'The genre detail page did not load.',
-  context: async () => ({
-    genre: Object.freeze({ current: genre.current, subscribe: genre.subscribe }),
+  context: async ({ signal }) => ({
+    genre: ending(signal, { current: genre.current, subscribe: genre.subscribe }),
     loadGenre: genres.loadGenre,
     media,
     openPhoto(photo, { returnFocus } = {}) {
@@ -229,8 +238,8 @@ LANES.instrument = {
   label: 'The instrument detail page',
   load: () => import('./features/instrument-detail/detail.js'),
   unloaded: 'The instrument detail page did not load.',
-  context: async () => ({
-    instrument: Object.freeze({ current: instrument.current, subscribe: instrument.subscribe }),
+  context: async ({ signal }) => ({
+    instrument: ending(signal, { current: instrument.current, subscribe: instrument.subscribe }),
     loadInstrument: instruments.loadInstrument,
     media,
     openPhoto(photo, { returnFocus } = {}) {
@@ -259,13 +268,13 @@ const discoveryLanes = [
     // Not "check your connection": the discovery load also fails on the
     // engine's page parse, which no connection fixes (Jony, #810 6673521152).
     retryHint: 'Try again.',
-    context: async () => {
+    context: async ({ signal }) => {
       await discovery.start();
       if (discovery.categories.current().status !== 'ready') throw new Error('not ready');
       return {
-        categories: discovery.categories,
-        discovery: discovery.discovery,
-        targets: Object.freeze({
+        categories: ending(signal, discovery.categories),
+        discovery: ending(signal, discovery.discovery),
+        targets: ending(signal, {
           current: discovery.targets.current,
           subscribe: discovery.targets.subscribe,
         }),
@@ -278,10 +287,13 @@ const discoveryLanes = [
     load: () => import('./features/genre-targets/targets.js'),
     unloaded: 'Find a sound did not load.',
     retryHint: 'Try again.',
-    context: async () => {
+    context: async ({ signal }) => {
       await discovery.start();
       if (discovery.targets.current().status !== 'ready') throw new Error('not ready');
-      return { targets: discovery.targets, discovery: discovery.discovery };
+      return {
+        targets: ending(signal, discovery.targets),
+        discovery: ending(signal, discovery.discovery),
+      };
     },
   },
 ];
@@ -334,20 +346,17 @@ const MORE = {
       // As for the discovery lanes: the store's load also fails on the
       // engine's page parse, which no connection fixes.
       retryHint: 'Try again.',
-      // Its genre and recipe listeners end with the mount (the host's
-      // signal), whatever the lane keeps.
+      // Its genre and recipe listeners end with the mount (ending),
+      // whatever the lane keeps.
       context: async ({ signal }) => {
         await recipe.start();
         if (recipe.status() !== 'ready') throw new Error('not ready');
         const port = recipe.port(['addEnsemble', 'addInstrument', 'snapshot', 'subscribe']);
         return {
-          genre: Object.freeze({
-            current: genre.current,
-            subscribe: untilAborted(genre.subscribe, signal),
-          }),
+          genre: ending(signal, { current: genre.current, subscribe: genre.subscribe }),
           loadGenreInstruments,
           openInstrument,
-          recipe: Object.freeze({ ...port, subscribe: untilAborted(port.subscribe, signal) }),
+          recipe: ending(signal, port),
         };
       },
     },

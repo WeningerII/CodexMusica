@@ -132,7 +132,10 @@
 //      registered: its roster is the genre page's, the "Your recipe" line
 //      follows the store, and its host's ctx and recipe view are exactly
 //      CTX_KEYS and PORT_KEYS, with "Try again." and a Retry that mounts it
-//      when the store can't load. Each check has a planted defect of its own
+//      when the store can't load. Every registered lane's ctx subscriptions
+//      are SUBSCRIBED's, and each hears a change while the lane is mounted
+//      and none once its mount's signal aborts (#810 6682309672). Each check
+//      has a planted defect of its own
 //      (STORE_MUTANTS, LOAD_MUTANTS, DATA_MUTANTS, APP_MUTANTS), served in
 //      place of the file in that check's own page, and that defect must fail
 //      the check.
@@ -3618,6 +3621,23 @@ const APP_JS = fs.readFileSync(path.join(root, 'prototype', 'app.js'), 'utf8');
 const PORT_KEYS = {
   genreinstruments: { recipe: ['addEnsemble', 'addInstrument', 'snapshot', 'subscribe'] },
 };
+// Every registered lane, and what its ctx lets it subscribe to (a field's
+// subscribe or subscribeVoices), each of which ends with its mount (app.js
+// ending, #810 6682309672).
+const SUBSCRIBED = {
+  browse: [],
+  genrecategories: ['categories.subscribe', 'discovery.subscribe', 'targets.subscribe'],
+  genredetail: ['genre.subscribe'],
+  genreinstruments: ['genre.subscribe', 'recipe.subscribe'],
+  genretargets: ['discovery.subscribe', 'targets.subscribe'],
+  instrumentdetail: ['instrument.subscribe'],
+  library: ['selection.subscribe'],
+  librarycredits: [],
+  librarymethods: [],
+  libraryreading: [],
+  libraryspeech: ['speech.subscribeVoices'],
+  lyrics: [],
+};
 // What a check may serve in place of a committed file.
 const SERVED = {
   store: '/prototype/recipe-store.js',
@@ -6622,6 +6642,132 @@ const STORE_CHECKS = {
         JSON.stringify(g).slice(0, 900)
       ),
   },
+  // 40. Every lane's subscriptions end with its mount (Don, #810 6682309672,
+  // point 5). Each registered lane is mounted (the reader's two through
+  // openReading), and a listener goes on every subscribe its ctx carries:
+  // it hears a change while the lane is mounted, none once the mount's
+  // signal aborts (as the host's unmount aborts it), and one added after
+  // the abort never hears. The subscriptions found are exactly SUBSCRIBED's,
+  // so a lane given a new one can't go unchecked.
+  lanesReleased: {
+    opts: { hash: '#genre', init: { fn: `(${KEEP_CONTROLLERS})();\n(${fakeSpeech})();` } },
+    run: async (page) => {
+      const routes = [
+        ['#genre', ['genrecategories', 'genretargets', 'genredetail', 'genreinstruments']],
+        ['#instrument', ['instrumentdetail']],
+        ['#browse', ['browse']],
+        ['#lyrics', ['lyrics']],
+        ['#library', ['library', 'librarycredits', 'librarymethods']],
+      ];
+      for (const [hash, lanes] of routes) {
+        await page.evaluate((h) => {
+          location.hash = h;
+        }, hash);
+        for (const l of lanes) await waitMounted(page, l);
+      }
+      const cid = libData('catalog.json').shelves[0].cards[0][0];
+      await page.evaluate((c) => window.__probeCtx.library.openReading(c), cid);
+      for (const l of ['libraryreading', 'libraryspeech']) await waitMounted(page, l);
+      return inPage(
+        page,
+        async (S, ARG) => {
+          const { R } = await S.boot();
+          const sel = await import('/prototype/selection.js');
+          const { discovery } = await import('/prototype/app.js');
+          const all = window.__probeCtx;
+          // Every subscribe a lane's ctx carries, as 'field.method'.
+          const found = {};
+          const subs = [];
+          for (const lane of ARG.lanes) {
+            found[lane] = [];
+            for (const [field, v] of Object.entries(all[lane] || {}))
+              if (v && typeof v === 'object' && !Array.isArray(v))
+                for (const k of Object.keys(v))
+                  if (/^subscribe/.test(k) && typeof v[k] === 'function') {
+                    found[lane].push(`${field}.${k}`);
+                    subs.push({ lane, name: `${field}.${k}`, subscribe: v[k] });
+                  }
+            found[lane].sort();
+          }
+          // A change that reaches each kind of subscription.
+          let turn = 0;
+          const genres = ['bluegrass', 'afrobeat', 'gagaku'];
+          const instruments = ['oud', 'udu', 'banjo_5_string'];
+          const CHANGES = {
+            'genre.subscribe': () => sel.genre.set(genres[turn % 3]),
+            'instrument.subscribe': () => sel.instrument.set(instruments[turn % 3]),
+            'recipe.subscribe': async () => {
+              for (let i = 0; i < 200 && R.snapshot().busy; i++) await S.tick(25);
+              await R.addInstrument({
+                instrumentId: 'udu',
+                destination: null,
+                revision: R.snapshot().revision,
+              });
+            },
+            'categories.subscribe': () =>
+              discovery.categories.toggleRoots(discovery.categories.current().revision),
+            'targets.subscribe': () =>
+              discovery.targets.toggleAll(discovery.targets.current().revision),
+            'discovery.subscribe': () => {
+              const d = discovery.discovery.current();
+              return discovery.discovery.setOpen(!d.open, d.revision);
+            },
+            'selection.subscribe': () => all.library.selection.toggle(ARG.cid),
+            'speech.subscribeVoices': () =>
+              window.speechSynthesis.dispatchEvent(new Event('voiceschanged')),
+          };
+          const unknown = subs.filter((x) => !CHANGES[x.name]).map((x) => `${x.lane} ${x.name}`);
+          const kinds = [...new Set(subs.map((x) => x.name))].filter((n) => CHANGES[n]);
+          const failed = [];
+          const round = async () => {
+            turn++;
+            for (const n of kinds) {
+              const code = await S.code(Promise.resolve().then(CHANGES[n]));
+              if (code !== 'ok') failed.push(`${n}: ${code}`);
+            }
+            await S.settle(8);
+          };
+          const heard = subs.map(() => 0);
+          subs.forEach((x, i) => x.subscribe(() => heard[i]++));
+          await round();
+          const live = heard.slice();
+          // Each mount ends: its signal aborts, as the host's unmount aborts it.
+          const controllers = ARG.lanes.map((l) =>
+            window.__controllers.find((c) => all[l] && c.signal === all[l].signal)
+          );
+          for (const c of controllers) if (c) c.abort();
+          await round();
+          const late = subs.map(() => 0);
+          subs.forEach((x, i) => x.subscribe(() => late[i]++));
+          await round();
+          const named = (list) => list.map((i) => `${subs[i].lane} ${subs[i].name}`);
+          const at = (test) => subs.map((_, i) => i).filter(test);
+          return {
+            found,
+            unknown,
+            failed,
+            unmounted: ARG.lanes.filter((l, i) => !controllers[i]),
+            deaf: named(at((i) => !live[i])),
+            kept: named(at((i) => heard[i] !== live[i])),
+            late: named(at((i) => late[i] > 0)),
+          };
+        },
+        { lanes: Object.keys(SUBSCRIBED), cid }
+      );
+    },
+    verdict: (g) =>
+      why(
+        same(Object.keys(SUBSCRIBED).sort(), Object.keys(LANE_MODULES).sort()) &&
+          same(g.found, SUBSCRIBED) &&
+          !g.unknown.length &&
+          !g.failed.length &&
+          !g.unmounted.length &&
+          !g.deaf.length &&
+          !g.kept.length &&
+          !g.late.length,
+        JSON.stringify(g).slice(0, 900)
+      ),
+  },
 };
 
 // One planted defect (at least) for every check: text edits to
@@ -7149,19 +7295,101 @@ const APP_MUTANTS = {
   },
   'the genre instruments recipe view outlives its mount': {
     check: 'released',
-    edits: [
-      [
-        '          recipe: Object.freeze({ ...port, subscribe: untilAborted(port.subscribe, signal) }),',
-        '          recipe: port,',
-      ],
-    ],
+    edits: [['          recipe: ending(signal, port),', '          recipe: port,']],
   },
   'the genre instruments genre selection outlives its mount': {
     check: 'released',
     edits: [
       [
-        '            subscribe: untilAborted(genre.subscribe, signal),',
-        '            subscribe: genre.subscribe,',
+        '          genre: ending(signal, { current: genre.current, subscribe: genre.subscribe }),\n          loadGenreInstruments,',
+        '          genre: Object.freeze({ current: genre.current, subscribe: genre.subscribe }),\n          loadGenreInstruments,',
+      ],
+    ],
+  },
+  // Every other lane's subscriptions (lanesReleased), one bypassed at a
+  // time, and ending itself ending nothing.
+  'the genre detail selection outlives its mount': {
+    check: 'lanesReleased',
+    edits: [
+      [
+        '    genre: ending(signal, { current: genre.current, subscribe: genre.subscribe }),\n    loadGenre: genres.loadGenre,',
+        '    genre: Object.freeze({ current: genre.current, subscribe: genre.subscribe }),\n    loadGenre: genres.loadGenre,',
+      ],
+    ],
+  },
+  'the instrument detail selection outlives its mount': {
+    check: 'lanesReleased',
+    edits: [
+      [
+        '    instrument: ending(signal, { current: instrument.current, subscribe: instrument.subscribe }),',
+        '    instrument: Object.freeze({ current: instrument.current, subscribe: instrument.subscribe }),',
+      ],
+    ],
+  },
+  'the categories store outlives its mount': {
+    check: 'lanesReleased',
+    edits: [
+      [
+        '        categories: ending(signal, discovery.categories),',
+        '        categories: discovery.categories,',
+      ],
+    ],
+  },
+  'the categories lane’s disclosure outlives its mount': {
+    check: 'lanesReleased',
+    edits: [
+      [
+        '        categories: ending(signal, discovery.categories),\n        discovery: ending(signal, discovery.discovery),',
+        '        categories: ending(signal, discovery.categories),\n        discovery: discovery.discovery,',
+      ],
+    ],
+  },
+  'the categories lane’s targets outlive its mount': {
+    check: 'lanesReleased',
+    edits: [
+      [
+        '        targets: ending(signal, {\n          current: discovery.targets.current,',
+        '        targets: Object.freeze({\n          current: discovery.targets.current,',
+      ],
+    ],
+  },
+  'Find a sound’s targets outlive its mount': {
+    check: 'lanesReleased',
+    edits: [
+      [
+        '        targets: ending(signal, discovery.targets),',
+        '        targets: discovery.targets,',
+      ],
+    ],
+  },
+  'Find a sound’s disclosure outlives its mount': {
+    check: 'lanesReleased',
+    edits: [
+      [
+        '        targets: ending(signal, discovery.targets),\n        discovery: ending(signal, discovery.discovery),',
+        '        targets: ending(signal, discovery.targets),\n        discovery: discovery.discovery,',
+      ],
+    ],
+  },
+  'the Library selection outlives its mount': {
+    check: 'lanesReleased',
+    edits: [['    selection: ending(signal, selection),', '    selection,']],
+  },
+  'read-aloud’s voices outlive its mount': {
+    check: 'lanesReleased',
+    edits: [
+      [
+        "          speech: ending(signal, speechAdapter({ autoplay: play }), 'subscribeVoices'),",
+        '          speech: speechAdapter({ autoplay: play }),',
+      ],
+    ],
+  },
+  'ending ends nothing': {
+    check: 'lanesReleased',
+    edits: [
+      [
+        '  Object.freeze({ ...view, [key]: untilAborted(view[key], signal) });',
+        '  Object.freeze({ ...view });',
       ],
     ],
   },
