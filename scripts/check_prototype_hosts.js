@@ -144,7 +144,10 @@
 //      visible note is outside any live region, says exactly the sentence
 //      the shell said, and is cleared when the next attempt starts or
 //      succeeds, and a rejection with no message shows no note (D7, #810
-//      6682330118). Each check has a planted defect of its own
+//      6682330118); a role is read as its first recognised token, with
+//      roles that make no live region as controls the check must pass and
+//      planted defects in its own classifier (CLASSIFIER_MUTANTS, #810
+//      6690036650). Each check has a planted defect of its own
 //      (STORE_MUTANTS, LOAD_MUTANTS, DATA_MUTANTS, APP_MUTANTS,
 //      CATALOG_MUTANTS), served in place of the file in that check's own
 //      page, and that defect must fail the check (a catalog.js defect, on
@@ -8217,11 +8220,33 @@ const STORE_CHECKS = {
         for (let i = 0; i < 400 && !host.querySelector('[data-add]'); i++) await S.tick(10);
         return { host, end: () => (ac.abort(), host.remove()) };
       };
-      // What makes a node part of a live region, from it up.
+      // What makes a node part of a live region, from it up. Its role is
+      // the first token of the role attribute, split on ASCII whitespace,
+      // that is a WAI-ARIA 1.2 role (an abstract role is none): so
+      // role="status region" and role="unknown status" are both a status,
+      // and role="none status" is none (3PO, #810 6690036650).
+      const ROLES = new Set(
+        (
+          'alert alertdialog application article banner blockquote button caption cell ' +
+          'checkbox code columnheader combobox complementary contentinfo definition ' +
+          'deletion dialog directory document emphasis feed figure form generic grid ' +
+          'gridcell group heading img insertion link list listbox listitem log main ' +
+          'marquee math menu menubar menuitem menuitemcheckbox menuitemradio meter ' +
+          'navigation none note option paragraph presentation progressbar radio ' +
+          'radiogroup region row rowgroup rowheader scrollbar search searchbox separator ' +
+          'slider spinbutton status strong subscript superscript switch tab table ' +
+          'tablist tabpanel term textbox time timer toolbar tooltip tree treegrid treeitem'
+        ).split(' ')
+      );
+      const roleOf = (x) =>
+        (x.getAttribute('role') || '')
+          .replace(/[A-Z]/g, (c) => c.toLowerCase())
+          .split(/[\t\n\f\r ]+/)
+          .find((t) => ROLES.has(t)) || '';
       const live = (n) => {
         const out = [];
         for (let x = n; x && x.nodeType === 1; x = x.parentElement) {
-          const role = (x.getAttribute('role') || '').trim().toLowerCase();
+          const role = roleOf(x);
           const polite = x.getAttribute('aria-live');
           if (
             /^(status|alert|log|marquee|timer)$/.test(role) ||
@@ -9118,7 +9143,8 @@ const HOST_SHELL_MUTANTS = {
 // catalog.js as the lane wrote it, with a planted defect for each condition
 // that must fail it by that name (`fails`): the note never cleared, as at
 // b4d5912e9 before its fix; a sentence of the lane's own for a rejection
-// with no message; and the note inside a live region.
+// with no message; and the note inside a live region, by aria-live or by
+// its role (the first role token the gate recognises, CATALOG_ROLE).
 const CATALOG_NOTE = {
   relies: 'the adds the check relies on',
   live: 'outside any live region',
@@ -9129,6 +9155,13 @@ const CATALOG_NOTE = {
 const CATALOG_FILE = path.join(root, 'prototype', 'features', 'instrument-catalog', 'catalog.js');
 const hasCatalog = fs.existsSync(CATALOG_FILE);
 const CATALOG_JS = hasCatalog ? fs.readFileSync(CATALOG_FILE, 'utf8') : '';
+// catalog.js with a role on the lane's root, which holds the note.
+const CATALOG_ROLE = (role) => [
+  [
+    "  root.setAttribute('aria-label', 'Instrument catalog');\n",
+    `  root.setAttribute('aria-label', 'Instrument catalog');\n  root.setAttribute('role', '${role}');\n`,
+  ],
+];
 const CATALOG_MUTANTS = {
   'the note never cleared (catalog.js at b4d5912e9)': {
     check: 'catalogNote',
@@ -9155,13 +9188,59 @@ const CATALOG_MUTANTS = {
       ],
     ],
   },
+  // 3PO's two misses (#810 6690036650): a status by its first recognised
+  // role token, not by the whole attribute.
+  'the note inside role="status region"': {
+    check: 'catalogNote',
+    fails: CATALOG_NOTE.live,
+    edits: CATALOG_ROLE('status region'),
+  },
+  'the note inside role="unknown status"': {
+    check: 'catalogNote',
+    fails: CATALOG_NOTE.live,
+    edits: CATALOG_ROLE('unknown status'),
+  },
+};
+// Roles on the same root that make no live region, each of which the
+// catalogNote check must pass: a region; none, a recognised role ahead of
+// status; an empty role; presentation.
+const CATALOG_CONTROLS = {
+  'role="region"': CATALOG_ROLE('region'),
+  'role="none status"': CATALOG_ROLE('none status'),
+  'role=""': CATALOG_ROLE(''),
+  'role="presentation"': CATALOG_ROLE('presentation'),
+};
+// Planted defects in the catalogNote check's own classifier, edits to its
+// page function's text: each must let a role mutant above pass (`misses`) or
+// fail a control (`flags`).
+const CLASSIFIER_MUTANTS = {
+  'the role read as the whole attribute': {
+    edits: [
+      [
+        '          const role = roleOf(x);\n',
+        "          const role = (x.getAttribute('role') || '').trim().toLowerCase();\n",
+      ],
+    ],
+    misses: ['the note inside role="status region"', 'the note inside role="unknown status"'],
+  },
+  'the first role token taken, recognised or not': {
+    edits: [['.find((t) => ROLES.has(t))', '.find((t) => t)']],
+    misses: ['the note inside role="unknown status"'],
+  },
+  'any live role token taken': {
+    edits: [
+      ['.find((t) => ROLES.has(t))', '.find((t) => /^(status|alert|log|marquee|timer)$/.test(t))'],
+    ],
+    flags: ['role="none status"'],
+  },
 };
 
 // Runs one check in its own page (and any further pages it opens), with the
 // store and load.js as served (`served.store`, `served.load`: the planted
-// text, or undefined for the committed file). Returns its verdict and the
-// page errors it didn't expect.
-async function storeRun(browser, srv, name, prod, served = {}) {
+// text, or undefined for the committed file), and the check's page function
+// as `body` (planted text) or its own. Returns its verdict and the page
+// errors it didn't expect.
+async function storeRun(browser, srv, name, prod, served = {}, body) {
   const check = STORE_CHECKS[name];
   const opts = check.opts || {};
   const pages = [];
@@ -9189,7 +9268,7 @@ async function storeRun(browser, srv, name, prod, served = {}) {
     };
     const got = check.run
       ? await check.run(first.page, prod, ctx)
-      : await inPage(first.page, check.page, check.arg ? check.arg(prod) : null);
+      : await inPage(first.page, body || check.page, check.arg ? check.arg(prod) : null);
     verdict = check.verdict(got, prod);
   } catch (e) {
     verdict = `threw: ${(e && e.message) || e}`.slice(0, 600);
@@ -9428,6 +9507,46 @@ async function recipeChecks(browser, srv) {
       );
     if (o.verdict !== true && named) storePlanted++;
   });
+
+  // The catalogNote check's role controls pass it, and each defect planted
+  // in its own classifier lets a role mutant through or fails a control.
+  const catalogRun = (edits, body) =>
+    storeRun(browser, srv, 'catalogNote', p, { catalog: plantIn(CATALOG_JS, edits) }, body);
+  const controls = Object.entries(CATALOG_CONTROLS);
+  const controlRuns = await pooled(controls, 4, ([, edits]) =>
+    plantIn(CATALOG_JS, edits) ? catalogRun(edits) : null
+  );
+  controls.forEach(([c], i) => {
+    const r = controlRuns[i];
+    expect(r, `recipe store: the catalogNote control ${c} no longer applies to catalog.js`);
+    if (r)
+      expect(r.verdict === true, `recipe store: catalogNote fails the control ${c}: ${r.verdict}`);
+  });
+  const classifier = Object.entries(CLASSIFIER_MUTANTS).flatMap(([m, d]) => [
+    ...(d.misses || []).map((c) => ({ m, d, c, edits: CATALOG_MUTANTS[c].edits, passes: true })),
+    ...(d.flags || []).map((c) => ({ m, d, c, edits: CATALOG_CONTROLS[c], passes: false })),
+  ]);
+  storeDefects += Object.keys(CLASSIFIER_MUTANTS).length;
+  const classifierRuns = await pooled(classifier, 4, async (x) => {
+    const body = plantIn(STORE_CHECKS.catalogNote.page.toString(), x.d.edits);
+    if (!body) return null;
+    return (await catalogRun(x.edits, body)).verdict;
+  });
+  const caught = new Map(Object.keys(CLASSIFIER_MUTANTS).map((m) => [m, true]));
+  classifier.forEach((x, i) => {
+    const v = classifierRuns[i];
+    expect(
+      v !== null,
+      `recipe store: the planted classifier defect "${x.m}" no longer applies to the catalogNote check`
+    );
+    const ok = v !== null && (x.passes ? v === true : v !== true);
+    expect(
+      ok,
+      `recipe store: with the planted classifier defect "${x.m}", the catalogNote check ${x.passes ? 'still fails' : 'still passes'} ${x.c}: ${String(v).slice(0, 300)}`
+    );
+    if (!ok) caught.set(x.m, false);
+  });
+  for (const ok of caught.values()) if (ok) storePlanted++;
 }
 
 (async () => {
