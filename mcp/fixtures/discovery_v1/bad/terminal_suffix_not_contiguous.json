@@ -2,7 +2,7 @@
   "fixture": "bad/terminal_suffix_not_contiguous.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "witness",
-  "exercises": "Mutants of the good witness fixture's durable history, each with the four contributions intact before the boundary, where the terminal suffix is not one contiguous run of this method's terminal records and their parts: a contribution between the terminal parent and its detail part, a contribution after a complete suffix, another method's terminal record, another method's detail part, a contribution's detail part after the boundary, the terminal's part before its parent, and its part after the next terminal record. Each alone is an inserted record and refuses as RESULT_EXPIRED. The controls, the complete suffix and a suffix of two terminal records, are accepted.",
+  "exercises": "Mutants of the good witness fixture's durable history, each with the four contributions intact before the boundary, where the terminal suffix is not one contiguous run of this method's terminal records and their parts: a contribution between the terminal parent and its detail part, a contribution after a complete suffix, another method's terminal record, another method's detail part, a contribution's detail part after the boundary, the terminal's part before its parent, and its part after the next terminal record; and parts that break resolve_detail_records inside the suffix: a terminal record cut off by the next one before its part, a duplicated part, a wrong part index, a wrong total, a foreign detail id and changed detail bytes. Each alone refuses as RESULT_EXPIRED. The controls, the complete suffix and a suffix of two terminal records, are accepted.",
   "expect": { "accepted": false, "rule": "S2", "code": "RESULT_EXPIRED", "status": 410 },
   "base": "good/witness_cursor_option2.json",
   "mutants": [
@@ -174,6 +174,151 @@
           "part": 0,
           "total": 1,
           "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        }
+      ]
+    },
+    {
+      "name": "part_cut_off_by_next_terminal",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        {
+          "id": "method_result:t2",
+          "kind": "method_result",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "coverage": "answered"
+        }
+      ]
+    },
+    {
+      "name": "duplicate_part",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:f836b100d456726acdef2b0ed13b801c",
+          "field": "domain",
+          "part": 0,
+          "total": 1,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        },
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:f836b100d456726acdef2b0ed13b801c",
+          "field": "domain",
+          "part": 0,
+          "total": 1,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        }
+      ]
+    },
+    {
+      "name": "part_index_wrong",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:f836b100d456726acdef2b0ed13b801c",
+          "field": "domain",
+          "part": 1,
+          "total": 1,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        }
+      ]
+    },
+    {
+      "name": "part_total_wrong",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:f836b100d456726acdef2b0ed13b801c",
+          "field": "domain",
+          "part": 0,
+          "total": 2,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        }
+      ]
+    },
+    {
+      "name": "part_foreign_detail_id",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:00000000000000000000000000000000",
+          "field": "domain",
+          "part": 0,
+          "total": 1,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":2,\"outside\":0,\"undecided\":1}"
+        }
+      ]
+    },
+    {
+      "name": "part_bytes_changed",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        {
+          "id": "detail_part:2ea0a2dba4b99782298fda9848b527f9",
+          "kind": "detail_part",
+          "method_id": "schema:end_rhyme",
+          "basis": "measured",
+          "parent_id": "method_result:t1",
+          "detail_id": "detail:f836b100d456726acdef2b0ed13b801c",
+          "field": "domain",
+          "part": 0,
+          "total": 1,
+          "json_fragment": "{\"judged_false\":1,\"judged_true\":3,\"outside\":0,\"undecided\":1}"
         }
       ]
     }

@@ -2,7 +2,7 @@
   "fixture": "bad/alt_seen_over_cap.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "limit",
-  "exercises": "alt_seen holds exactly ALT_SEEN_ENTRIES (65,536) entries in 64 sealed segments; the record names that chain by its totals only (it is synthetic: the write path reads no segment). The frame adds one more within-line key to the tail, entry 65,537. The worker refuses with RESOURCE_LIMIT, cause discovery_alt_seen, instead of emitting this frame; a store sent it refuses it by W7, and every other rule passes.",
+  "exercises": "alt_seen holds exactly ALT_SEEN_ENTRIES (65,536) entries in 64 sealed segments; the record names that chain by its totals only (it is synthetic: the write path reads no segment). The frame adds one more within-line key to the tail, entry 65,537. The worker refuses with RESOURCE_LIMIT, cause discovery_alt_seen, instead of emitting this frame; a store sent it refuses it by W7, and every other rule passes. The control holds 65,535 entries and adds the same key: alt_seen then holds exactly ALT_SEEN_ENTRIES, which is accepted.",
   "expect": {
     "accepted": false,
     "rule": "W7",
@@ -76,6 +76,75 @@
         },
         "witness": null,
         "continuation": { "position": 90001 }
+      }
+    }
+  ],
+  "controls": [
+    {
+      "name": "exactly_at_the_cap",
+      "record": {
+        "discovery": {
+          "version": 1,
+          "epoch": 3,
+          "logs": {
+            "alt_seen": {
+              "head": "28421d018ad1d6b84acfda535d95449b1d26eb5a37e536943de08efa56355c5e",
+              "segments": 64,
+              "count": 65535,
+              "digest": "9f6871ccfedd7a5e91d55c1bb91622073d7730bb91fae11589e7a95c52eb02b8"
+            }
+          },
+          "verified": {
+            "alt_seen": {
+              "head": "28421d018ad1d6b84acfda535d95449b1d26eb5a37e536943de08efa56355c5e",
+              "segments": 64,
+              "count": 65535,
+              "digest": "9f6871ccfedd7a5e91d55c1bb91622073d7730bb91fae11589e7a95c52eb02b8"
+            }
+          },
+          "unavailable": null
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "alt_seen": {
+                "sealed": 65535,
+                "sealed_digest": "9f6871ccfedd7a5e91d55c1bb91622073d7730bb91fae11589e7a95c52eb02b8",
+                "tail": []
+              }
+            },
+            "inventory": null,
+            "groups": { "through": null, "current": null }
+          },
+          "witness": null,
+          "continuation": { "position": 89999 }
+        }
+      },
+      "frame": {
+        "discovery": { "epoch": 3, "resets": [], "seals": [] },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "alt_seen": {
+                "sealed": 65535,
+                "sealed_digest": "9f6871ccfedd7a5e91d55c1bb91622073d7730bb91fae11589e7a95c52eb02b8",
+                "tail": [["12:1", "12:4"]]
+              }
+            },
+            "inventory": null,
+            "groups": { "through": null, "current": null }
+          },
+          "witness": null,
+          "continuation": { "position": 90000 }
+        }
       }
     }
   ]

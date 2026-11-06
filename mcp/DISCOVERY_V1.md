@@ -6,8 +6,9 @@ folds in 3PO's six #721 source-review obligations (6676909499), R2's ownership a
 handoff decision (6676918434) and BB8's nine semantic rulings (6676928839). It is held to
 BB8's reconstruction contract (6673031748) and replay ruling (6675208404 §1). It folds in
 BB8's rulings on §12 (6678599629): the store's walk is incremental (§5.1), `alt_seen` has a
-cap derived from the first-commit budget (§3, §6.11), and §12 records each ruling. Where this
-text and the proposal differ, this text governs. 3PO's acknowledgement (6677006069) fixes
+cap derived from the first-commit budget (§3, §6.11), and §12 records each ruling. It also
+fixes the eight findings of an adversarial review of that revision. Where this text and the
+proposal differ, this text governs. 3PO's acknowledgement (6677006069) fixes
 the `contracts.py` reservation to the checkpoint declaration and schema; the shared
 `CONTRACT_VERSION` does not change.
 
@@ -50,7 +51,11 @@ truncation.
 - **Walk.** Reading a chain back and checking it (§5).
 - **Verified head.** How far the store has read a chain back and checked it. It is kept per
   log in `record.discovery.verified`, and it is never ahead of the head (§5.1).
-- **Full read.** A walk that reads and checks every segment of a chain, oldest first (§5.1).
+- **Full read.** A walk that starts at the record's head, follows `previous_hash` back to the
+  chain's first segment and checks every segment. It uses neither the verified head nor the
+  address list (§5.1).
+- **Address list.** The store's in-memory list of a live chain's segment addresses, oldest
+  first (§5.1).
 - **Terminal suffix.** A method's terminal records on its own stream: its `method_result`
   records and their detail parts (§6.9).
 
@@ -215,17 +220,19 @@ null
   rule U1, §8), by any of:
   - reconciliation (§7.4), with cause `segment_missing`, or `chain_broken` for any other
     failure of its full read;
-  - a store walk that fails (§5.1), with cause `chain_broken`;
+  - a full read in `resume()` that fails (§5.1), with cause `chain_broken`;
   - a pause with code `DISCOVERY_UNAVAILABLE` (§8), with the cause the worker named.
 
-  `log` names the log the cause is about, or is `null` when the cause belongs to no one
-  log (`inventory_mismatch`, `retired_key_recurred`, and `cursor_disagrees` over the epoch
-  or the log names). `released` names every log `logs` held at the release, with its head
-  then (`null` for a log with only a tail), so the cause stays traceable after GC reclaims
-  the segments.
-- Once it is set, `_dispatchable` skips the job, and `workerPayload`, `commitCheckpoint`
-  and `resume` refuse it with `DISCOVERY_UNAVAILABLE`, naming the cause (§8). The lease
-  itself never refuses (§7.4). A tombstone drops the field with the rest of `discovery`.
+  A lease's walk never sets it (§5.1). `log` names the log the cause is about, or is `null`
+  when the cause belongs to no one log (`inventory_mismatch`, `retired_key_recurred`, and
+  `cursor_disagrees` over the epoch or the log names). `released` names every log `logs`
+  held at the release, with its head then (`null` for a log with only a tail; never its
+  verified head), so the cause stays traceable after GC reclaims the segments.
+- Once it is set, it does not change: a later release of the record releases nothing (U1,
+  §8). While it is set, it is the job's reason (U2, §8), `_dispatchable` skips the job, and
+  `workerPayload`, `commitCheckpoint` and `resume` refuse it with `DISCOVERY_UNAVAILABLE`,
+  naming its cause and log. The lease itself never refuses (§7.4). A tombstone drops the
+  field with the rest of `discovery`.
 
 ### 2.8 Cursor v2
 
@@ -405,7 +412,10 @@ There is no new channel. A frame's seals ride the existing step and its acknowle
    `count` and sets `digest` to the recomputed digest. `verified` keeps each log's state
    unless the frame releases or resets that log; a log that is new, reset or of a new epoch
    starts at the empty state. A commit never advances `verified`: only a read of the stored
-   segment does (§5.1). The store appends each seal's address to its address list (§5.1).
+   segment does (§5.1). The store appends each seal's address to that chain's address list
+   (§5.1) only after the record save that sets its new head returns. A commit that throws
+   after writing segments, `_quotaPause` included (`:1118-1119`), leaves every list as it
+   was: its segments are orphans (§7.3), never in a list.
 
 ## 5. Resume path
 
@@ -421,25 +431,31 @@ and `resume()` refuses a dead job at once instead of queueing it
   found by reconciliation (§7.4) before the walk reads anything, and no other writer can
   delete one while it reads. `workerPayload` runs inside the scheduler's try block
   (`reader_scheduler.js:523`), so a refusal there pauses that one job.
-- If `record.discovery.unavailable` is set, the store refuses with `DISCOVERY_UNAVAILABLE`
-  and that cause, without walking.
+- If `record.discovery.unavailable` is set, the store refuses with `DISCOVERY_UNAVAILABLE`,
+  naming its cause and log, without walking.
 - **The address list.** Statting a segment needs its address, and only the segment after it
   names it (the record names the head). So the store keeps in memory, for each live chain,
-  the addresses of its segments, oldest first:
-  - a commit appends each seal's address (§4);
-  - a release empties the list;
-  - reconciliation rebuilds every list by a full read (§7.4).
+  the addresses of its segments, oldest first. A list changes only after the record save
+  that changes its chain returns:
+  - a commit appends each seal's address once its record save returns (§4). A commit that
+    throws, `_quotaPause` included, leaves every list as it was, so a refused commit's
+    orphans (§7.3) are never in a list (`good/lease_after_refused_commit.json`);
+  - a release, a reset or an epoch advance empties the lists of the chains it releases;
+  - a full read replaces the list with the addresses it read from the head.
 
   `_reload` drops the lists with the rest of the cache. A starting store holds generation −1
-  (`:331`), so its first lock entry reloads and reconciles: every list in use was built by a
-  reconciliation in this process. The list is never persisted; the record holds the heads
-  and the verified heads.
+  (`:331`), so its first lock entry reloads and reconciles, which full-reads every live
+  chain. So every list in use was built by a full read in this process and then extended
+  only by commits whose saves returned. The list is never persisted; the record holds the
+  heads and the verified heads.
 - **On a lease the walk is incremental.** For each log, with `v` its verified state:
-  1. **R5, the verified prefix**, checked from the record before anything is read.
-     `verified` names exactly the logs `logs` names. `v` is never ahead of the head (§2.7):
-     its `segments` and `count` are at most the head's, it is the empty state when its
-     `segments` is 0, and it is the head's own state when its `segments` equals the head's.
-     Otherwise the list's address number `v.segments`, counting from 1, is `v.head`.
+  1. **R5, the store's own bookkeeping**, checked for every log before anything is read.
+     `verified` names exactly the logs `logs` names. The address list holds exactly the
+     head's `segments` addresses and ends at the head (it is empty when the head is
+     `null`). `v` is never ahead of the head (§2.7): its `segments` and `count` are at most
+     the head's, it is the empty state when its `segments` is 0, it is the head's own state
+     when its `segments` equals the head's, and otherwise the list's address number
+     `v.segments`, counting from 1, is `v.head`.
   2. **Stat** each of the first `v.segments` addresses. Reconciliation has already run
      under this lock (§7.4), so a missing one is `STORAGE_CORRUPT`.
   3. **Read and check the rest**: the segments appended since the verified head, oldest
@@ -457,16 +473,29 @@ and `resume()` refuses a dead job at once instead of queueing it
      (`STORE_RECOUNTING` or `RESOURCE_LIMIT`, `_capacity` `:534-563`), the store skips it and
      leaves `verified` where it was. The next walk then reads from there. The advance is never
      forced, and it never refuses the lease.
-- **Failures.** A failure of R2, R5 or F3 is `DISCOVERY_UNAVAILABLE` (409) with cause
-  `chain_broken`. The store releases the logs and sets `unavailable` in one save under the
-  same lock (rule U1, §8), then refuses. `bad/verified_ahead_of_head.json` is refused this way
-  before anything is read.
-- **A full read** reads and checks every segment from the oldest. The oldest has
-  `previous_hash: null`, `first: 0` and `digest_before = d₀`. Every segment is then checked as
-  in step 3, and the number of segments equals the record's `segments`. Apart from the
-  membership logs the worker loads on every lease (§5.2), which is logged membership state
-  that ruling (a) lets resume grow with, a chain is read in full in exactly three places:
-  1. the worker's load of `alt_cells` when it builds the terminal record (§5.2);
+- **A mismatch on a lease.** A lease's walk reads only segments this process listed itself:
+  a commit wrote each one after W3 checked its link, or a full read checked it, and F6 holds
+  its bytes to its address. Only this image's own bookkeeping writes the list and `verified`.
+  So a failure of R5, R2 or F3 on a lease is this image's bookkeeping disagreeing with the
+  record or with the stored segments. It is not evidence that the chain is broken. It is
+  `STORAGE_CORRUPT` (503), like the image's other defects (§7.4): nothing is released or
+  saved, and the job keeps its chains. The scheduler pauses the job with that reason
+  (`reader_scheduler.js:592-600`). `resume()` then decides by a full read, which uses
+  neither `verified` nor the list. `bad/verified_ahead_of_head.json` is refused this way
+  before anything is read; its full read passes and saves the corrected verified heads.
+- **A full read** starts at the record's head and follows `previous_hash` back to the chain's
+  first segment, reading each segment once and at most the head's `segments` of them. It
+  never uses the address list. Each read goes through `_object('pages', …)` (F6). The chain
+  is then checked oldest first: the oldest has `previous_hash: null`, `first: 0` and
+  `digest_before = d₀`; each segment passes F3 and links to the one before it; and the chain
+  holds exactly the head's `segments`, `count` and `digest` (R2). The list is replaced with
+  what was read. A failure of R2 or F3 is `DISCOVERY_UNAVAILABLE` (409), cause
+  `chain_broken`: the store releases the logs in one save (U1, §8), then refuses, naming the
+  cause and the log. Apart from the membership logs the worker loads on every lease (§5.2),
+  which is logged membership state that ruling (a) lets resume grow with, a chain is read in
+  full in exactly three places:
+  1. the worker's load of `alt_cells` when it builds the terminal record (§5.2), by its
+     paths;
   2. reconciliation after a foreign generation, which includes startup (§7.4);
   3. `resume()` of a paused or cancelled job. Its own save (`:1392-1407`) carries the advanced
      `verified`.
@@ -477,7 +506,9 @@ and `resume()` refuses a dead job at once instead of queueing it
   - the walk sets it to heads it has just read, under the lock that every commit needs.
 
   A crash before the walk's save leaves the older verified head, so the next walk reads more,
-  never less. A record whose verified head is ahead of its head fails R5.
+  never less. A crash loses the address lists, and the restart's reconciliation rebuilds them
+  from the heads. A record whose verified head is ahead of its head fails R5 and releases
+  nothing.
 - It returns `discovery: {version: 1, summary, paths}`, every path oldest first (§2.10), from
   the address list.
 - **Cost.** A lease stats the verified segments and reads only the ones appended since: in
@@ -503,9 +534,9 @@ and `resume()` refuses a dead job at once instead of queueing it
 - **Membership.** It is then each log's sealed entries followed by its tail.
 - **When `alt_cells` is read.** The worker reads its segments, and checks them by R1, F6,
   F3, R2 and F5, only when it builds the terminal record (`analysis.py:2386-2403`,
-  `:1870-1879`). That is a full read (§5.1). On every other lease it checks `alt_cells` by R3
-  alone, and the store's walk stats its verified segments and reads only those appended since
-  (§5.1).
+  `:1870-1879`). That is one of the three full reads (§5.1), by its paths, oldest first. On
+  every other lease it checks `alt_cells` by R3 alone, and the store's walk stats its verified
+  segments and reads only those appended since (§5.1).
 
 ### 5.3 The target inventory (R4)
 
@@ -541,6 +572,9 @@ within the row are in `continuation.row`.
   far apart, every row in between keeps its dead keys there.
 - **Reset.** At a row boundary where no live row state remains, the worker resets
   `row_seen` (§2.6).
+- **The end of the lower traversal is a row boundary**, and no row state is live after it.
+  So the worker resets `row_seen` there if it holds any entry, and the log stays empty for
+  the rest of the epoch. §6.11 relies on this.
 - **Compaction.** At a row boundary where the log holds more than twice as many keys as
   are live, and the cut of the live keys needs at most `FRAME_SEALS` seals, the worker
   resets `row_seen` and appends the live keys again, in their first-insertion order, in the
@@ -558,6 +592,8 @@ within the row are in `continuation.row`.
     (BB8 4);
   - one whose left spans repeat far apart compacts, and its restart at the compaction
     boundary matches the uninterrupted run too.
+- **Test** for the end of the traversal: a run past its lower traversal holds an empty
+  `row_seen` in every frame after it.
 
 ### 6.3 The pending binding
 
@@ -689,15 +725,23 @@ Domain tallies are not logged. They are rebuilt from committed evidence.
      with its detail parts. A terminal record before that count is a mismatch.
   2. Every later record must belong to the method's terminal suffix. The suffix is
      contiguous, running to the end of the stream, and it belongs to that method alone
-     (BB8 6678599629). Each record in it is either a `method_result` record of that method
-     (`analysis.py:2401`), or a detail part of that method whose parent is the latest such
-     record before it, because parts are written immediately after their parent
-     (`analysis.py:221`). The suffix is filtered out before resolving. So a resume inside
-     a terminal emission that spans frames, with its parent durable and its parts not yet,
-     reads as consistent, not as a missing record. Any other record after the boundary is an
-     inserted record, and it refuses `RESULT_EXPIRED`. That covers a contribution, a record
-     or detail part of another method, a contribution's detail part, and a part outside its
-     parent's run. A non-terminal record after a suffix record is one of these.
+     (BB8 6678599629). It is a run of that method's `method_result` records
+     (`analysis.py:2401`), each followed by its own detail parts, because parts are written
+     immediately after their parent (`analysis.py:221`). Within the suffix the parts follow
+     their parent exactly as `resolve_detail_records` requires (`analysis.py:218-256`):
+     each part is of that method, its `parent_id` is its parent's id, its `detail_id` is one
+     of the parent's `$detail_ref`s, its `part` runs 0, 1, … within that ref, and its
+     `total` equals the ref's `parts`. Once a ref's parts are complete, their bytes must
+     match its `byte_length` and `sha256`. Every terminal record but the last is complete;
+     only the last may be partial, because the stream may end inside its emission. The
+     suffix is filtered out before resolving. So a resume inside a terminal emission that
+     spans frames, with its parent durable and its parts not yet, reads as consistent, not as
+     a missing record. Any other record after the boundary is an inserted record, and it
+     refuses `RESULT_EXPIRED`. That covers a contribution, a record or detail part of
+     another method, a contribution's detail part, a part outside its parent's run, a
+     duplicated part, and a terminal record cut off by the next record before its parts are
+     complete. A non-terminal record after a suffix record is one of these. Changed detail
+     bytes, a wrong part index and a wrong total refuse the same way.
   3. The count and the digest must equal the witness's.
 - **Multiplicity.** Repeated ids are distinct emissions. Nothing deduplicates by public id
   or token pair, or normalises roles, before hashing or counting.
@@ -713,8 +757,8 @@ Domain tallies are not logged. They are rebuilt from committed evidence.
     history.
 
   `bad/witness_mismatch.json` holds one mutant for each.
-  `bad/terminal_suffix_not_contiguous.json` holds the suffix's own mutants, and controls that
-  keep the suffix contiguous and are accepted.
+  `bad/terminal_suffix_not_contiguous.json` holds the suffix's own mutants, its parts' among
+  them, and controls that keep the suffix contiguous and complete and are accepted.
 - **The fields are part of the cursor's meaning.** A worker whose reducer reads fields
   other than `witness.fields` refuses the cursor with `STALE_READING`.
 - **The store's part is its delivery promise.** `load_records(method_id)` yields exactly
@@ -758,46 +802,55 @@ primary phase: the worker's load of `alt_seen`, and the store's walk of `alt_cel
 
 **The derivation.** The budget is 30 s from a lease's start to its first commit (§9). The
 inputs are §10's measurements, not bounds; the result, `ALT_SEEN_ENTRIES = 65536`, is the
-bound.
+bound. The loaded host is the one §10 measured.
 
-| Term, on a loaded host | Value | Source |
+| Term, on the loaded host | Value | Source |
 | --- | --- | --- |
-| load rate | 30.4 µs per entry, × 3 = 91.2 µs | measured (§10), scaled as below |
-| construct | 15.2 s | measured on #656, loaded host (§10) |
-| recompute | 2.4 s | measured on #656, loaded host (§10) |
+| load rate | 30.4 µs per entry, × 3 = 91.2 µs | measured on the light host (§10), scaled as below |
+| construct | 15.2 s | measured on #656, loaded host (§10), not scaled |
+| recompute | 2.4 s | measured on #656, loaded host (§10), not scaled |
 | load of `seen` and `variants` | 20,045 entries × 91.2 µs = 1.83 s | the measured entry count (§10) at the scaled rate |
-| incremental walk | at most 10,240 segments × 10 ms / 99 × 3 = 3.10 s | the measured walk rate (§10), computed at the bounds |
+| incremental walk | at most 10,240 segments × 10 ms / 99 × 3 = 3.10 s | the measured walk rate (§10), scaled, computed at the bounds |
 | load of `alt_seen` | n entries × 91.2 µs | computed |
 
-- **The scale factor is 3.** §10's loaded-host times are 2.375 (construct), 2.5 (load) and
-  2.67 (recompute) times its light-host ones, and 3 is the smallest whole factor at or above
-  all three. The earlier #656 analysis used a production host 2× slower. That is below the
-  measured 2.5 of the load term itself, so it would understate the load. The walk has a
-  single measured figure, so it is scaled by the same factor.
+- **The scale factor is 3, and it scales the per-entry rate only.** 30.4 µs is a light-host
+  rate. §10 measured the same load at 0.6 s light and 1.5 s loaded, a ratio of 2.5, and 3
+  rounds that up to a whole factor. The earlier #656 analysis used a production host 2×
+  slower, which is below this measured 2.5, so it would understate the load. Construct and
+  recompute enter at their loaded-host measurements and are not scaled. The walk has a single
+  measured figure, not split by host, so it is scaled by the same 3.
 - **The walk term** is a full read of five chains of `CHAIN_SEGMENTS` (10,240 segments) at the
-  measured rate, about 0.1 ms per segment. An incremental walk stats the verified segments,
-  which costs less than reading them, and reads only the appended ones, so it costs at most
-  this.
+  measured rate, about 0.3 ms per segment once scaled. An incremental walk stats the verified
+  segments, which costs less than reading them, and reads only the appended ones, so it costs
+  at most this.
 - **The sum.** The fixed terms come to 15.2 + 2.4 + 1.83 + 3.10 = 22.53 s. That leaves 7.47 s,
   or 81,895 entries at 91.2 µs each.
 - **The bound.** `ALT_SEEN_ENTRIES = 65536`, which is 64 segments full by count. At the cap
   the load is 5.98 s and the sum is 28.51 s, 1.49 s under the budget. That margin holds the
   first step's 1 s deadline (`analysis.py:2582`).
-- `row_seen` is empty in the alternate phase: the lower traversal's last row boundary resets
-  it (§6.2).
+- `row_seen` is empty in the alternate phase: the end of the lower traversal is a row
+  boundary, and the worker resets it there (§6.2).
 
-What the bound leaves out (§12, item 18):
+What the bound leaves out (§12, item 18), each computed from the same figures:
 
-- Construct and recompute are #656's measurements. They depend on the text, not on the
-  cursor's position.
+- **Construct and recompute are #656's measurements** on the loaded host. They depend on the
+  text, not on the cursor's position. On a host uniformly 3× slower than the light host
+  (construct 19.2 s, recompute 2.7 s), the fixed terms come to 26.83 s. That leaves room for
+  34,746 entries, or 23,781 with the 1 s margin, and at the cap the sum is 32.81 s, over the
+  budget. Scaling every term that way would set the cap at 16,384 entries (16 segments).
 - `seen` and `variants` enter at #656's size. Neither changes in the alternate phase, but at
-  its `CHAIN_SEGMENTS` bound each would hold 2,097,152 entries: about 191 s to load
-  (computed).
-- The finish lease loads `alt_cells` in full: 12,105 entries on #656, about 1.1 s at 91.2 µs,
-  and about 191 s at its bound (computed).
+  its `CHAIN_SEGMENTS` bound each would hold 2,097,152 entries: about 191 s to load.
+- **The finish lease** loads `alt_cells` in full: 12,105 entries on #656, about 1.1 s at
+  91.2 µs, and about 191 s at its bound. It also reads the committed evidence for option 2's
+  reconstruction (`load_records`, about 63 MB plain on #656, time not measured, §6.9).
+- **Reconciliation inside a lease's lock entry.** After a foreign generation, the lease's
+  first lock entry reconciles, which full-reads every live chain of every job (§7.4). At the
+  default 256 MiB quota (`server_http.js:336`), if all of it were segments of about 17.5 KiB,
+  that is 14,979 segments: 4.54 s at the scaled walk rate, three times the margin above. It
+  happens only after an older image writes to the store.
 
 The measured gate stays: in the proof run, every lease's first commit lands within 30 s of the
-lease start.
+lease start, and each walk's time is recorded (§9).
 
 ## 7. Retention, GC roots and crash ordering
 
@@ -818,11 +871,12 @@ Each release point is a single record save; GC then reclaims the segments.
 - a `row_seen` reset (§2.6);
 - `complete()`, which saves `discovery: null` (`:1236-1246`);
 - expiry or delete: `_tombstone` rebuilds the record without the field (`:1532-1566`);
-- reconciliation (§7.4), a store walk that fails (§5.1), and a pause with code
+- reconciliation (§7.4), a full read in `resume()` that fails (§5.1), and a pause with code
   `DISCOVERY_UNAVAILABLE` (§8), each of which also sets `unavailable` (§2.7, U1).
 
-Every release empties the released logs' `verified` states in the same save. The walk's
-advance of `verified` (§5.1) is not a release: it moves no head and frees nothing.
+Every release empties the released logs' `verified` states in the same save, and their
+address lists once it returns. The walk's advance of `verified` (§5.1) is not a release: it
+moves no head and frees nothing. A lease's walk never releases.
 
 GC:
 
@@ -847,11 +901,15 @@ GC:
 - **`RESOURCE_LIMIT` (507) or `STORE_RECOUNTING` during a commit.** `_quotaPause` keeps the
   previous cursor and heads. The orphans are up to about 1 MiB of pages, indexes, manifest
   and checkpoint, as today, plus at most 8 segments. They count against quota until swept.
+  The address lists are as they were (§4), so the next lease never reads an orphan, and the
+  re-seal writes the same addresses (`good/lease_after_refused_commit.json`).
 - **A seal lands while a collection is open.** The new file is newer than the mark, and the
   record is marked dirty, so it is never swept.
 - **An exact retry** writes nothing.
 - **The walk's save of `verified` is lost.** The older verified head stays, and the next walk
   reads the appended segments again (§5.1). A verified head is never saved ahead of its head.
+- **A crash loses the address lists.** The restart reconciles, and its full read rebuilds them
+  from the heads (§5.1).
 - **A release** empties `logs` and `verified` in one save, so a verified head never outlives
   its head.
 - **Only GC deletes.**
@@ -869,12 +927,12 @@ GC:
   store makes is the walk or reconciliation, and both run under the lock (§5.1), so a walk
   always runs after the reconciliation it needs.
 - **Reconciliation is a full read** (§5.1) of every live chain, one of the three places a
-  chain is read in full. It stats each segment before reading it, because `_object` maps
-  `ENOENT` to `STORAGE_CORRUPT` (`:668-683`), and it rebuilds the address lists. For a
-  #656-sized job that is 99 segments (measured), and at the bounds up to 5 ×
-  `CHAIN_SEGMENTS` per job (computed). It saves no verified head: usage is unknown until the
-  recount (`:444-447`), and only a save that does not grow a record commits then. The job's
-  next walk reads from its saved verified head.
+  chain is read in full. It starts at each head and stats each segment before reading it,
+  because `_object` maps `ENOENT` to `STORAGE_CORRUPT` (`:668-683`), and it replaces the
+  address lists with what it read. For a #656-sized job that is 99 segments (measured), and
+  at the bounds up to 5 × `CHAIN_SEGMENTS` per job (computed). It saves no verified head:
+  usage is unknown until the recount (`:444-447`), and only a save that does not grow a
+  record commits then. The job's next walk reads from its saved verified head.
 - **A chain it cannot use is released**, in one save:
   - a missing segment: `unavailable` becomes `{cause: "segment_missing", log, released}`;
   - any other failure of the full read (F6, F3 or R2): `{cause: "chain_broken", log,
@@ -886,15 +944,24 @@ GC:
     text; the message is rendered from the cause (§8). This is confirmed (BB8 6678599629):
     it is better than leasing a job that must fail, and `_dispatchable` skips it, so the
     queue never spins;
-  - a running job's state is left to its lease, whose next commit refuses;
-  - paused and cancelled jobs keep their state and their reason. `unavailable.released`
-    keeps their trace, and `resume` refuses them.
+  - a running job's state and reason are left to its lease: its next refusal, from
+    `workerPayload` or `commitCheckpoint`, pauses it with the reason copied from
+    `unavailable` (U2, §8);
+  - paused and cancelled jobs keep their state. Their reason becomes the one copied from
+    `unavailable` (U2), and `resume` refuses them.
 
-  A log line is written. For each released log the save drops its two states, in `logs` and
-  in `verified` (about 190 bytes each with a head), and adds its head twice, in
-  `unavailable.released` and in a queued job's reason (about 80 bytes each). It adds about
-  150 bytes of envelope once. Since every release holds at least one log with a head, the
-  save is a shrink.
+  A log line is written. **The release is a shrink.** For each released log the save drops
+  its two states, in `logs` and in `verified` (about 190 bytes with a head, about 125 for an
+  empty state), and adds its head twice, in `unavailable.released` and in the reason (about
+  80 bytes each, or about 20 for a log with only a tail). It adds the cause and the log twice
+  (about 30 bytes each time) and about 90 bytes of envelope once. Reconciliation releases a
+  chain because one of its segments is missing or does not fit, so the released logs include
+  one with a head. The worst case is a queued, paused or cancelled job holding that one log,
+  at its smallest count, with the longest cause and log names: the save shrinks by 13 bytes.
+  The margin is small. A field added to this reason or to `unavailable`, such as a message or
+  a time, would make the release grow, and a growth before usage is known is refused
+  (`STORE_RECOUNTING`), which would fail the startup. The validator computes this worst case
+  and holds it at or below zero.
 - **No refusal at lease time.** `store.lease()` is called outside the scheduler's try block
   (`reader_scheduler.js:514`) and takes the head of the queue
   (`reader_job_store.js:889-891`), so a lease that threw would pick the same job on every
@@ -905,8 +972,9 @@ GC:
   fail the store. The release only shrinks a record, so it commits before usage is known.
 - **Everywhere else** a missing segment is `STORAGE_CORRUPT`, like any other object, and a
   mark that meets one abandons the collection, as today. The new image's own bugs stay
-  visible. An error without a status inside `_open` makes the whole store unavailable, which
-  is why reconciliation stats before it reads.
+  visible, and so does a lease's walk that finds this image's bookkeeping disagreeing with
+  the record (§5.1): it releases nothing. An error without a status inside `_open` makes the
+  whole store unavailable, which is why reconciliation stats before it reads.
 
 ## 8. Refusals
 
@@ -915,8 +983,8 @@ Nothing is ever reinterpreted, and missing state is never rebuilt.
 | Code | Status | Raised by | When |
 | --- | --- | --- | --- |
 | `READER_PROTOCOL` | 400 | store, `commitCheckpoint` | any of F1–F6 or W1–W7 on a frame. Nothing is written; the job pauses with this reason and is not requeued. |
-| `DISCOVERY_UNAVAILABLE` | 409 | store (`workerPayload`, `commitCheckpoint` and `resume` from `unavailable`; the walk; reconciliation's pause of a queued job) and worker (load, traversal) | causes below |
-| `STORAGE_CORRUPT` | 503 | store; worker | a segment's bytes do not match its address (F6), or the store meets a missing segment, outside reconciliation; reconciliation releases that job instead (§7.4) |
+| `DISCOVERY_UNAVAILABLE` | 409 | store (`workerPayload`, `commitCheckpoint` and `resume` from `unavailable`; a full read in `resume()`; reconciliation's pause of a queued job) and worker (load, traversal) | causes below |
+| `STORAGE_CORRUPT` | 503 | store; worker | a segment's bytes do not match its address (F6); the store meets a missing segment outside reconciliation, which releases that job instead (§7.4); or a lease's walk fails R5, R2 or F3 (§5.1), which releases nothing |
 | `STALE_READING` | 409 | worker | a v1 cursor on a v2 worker, a v2 cursor on a v1 worker (`analysis.py:464`), or a witness whose fields are not the ones the worker's reducer reads (§6.9) |
 | `RESULT_EXPIRED` | 410 | worker | the option 2 witness disagrees with durable history, or is null on a qualified method (§6.9) |
 | `RESOURCE_LIMIT` | — (the job pauses) | worker | a §3 limit the worker cannot meet by ending its step; it names its cause (below) |
@@ -927,7 +995,7 @@ Nothing is ever reinterpreted, and missing state is never rebuilt.
 | Cause | Rule | Raised by | Message |
 | --- | --- | --- | --- |
 | `segment_missing` | R1 | worker; store from `unavailable` | This analysis can no longer resume exactly: part of its saved progress is missing. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
-| `chain_broken` | R2, R5, F3 at read | store walk and reconciliation; worker | This analysis can no longer resume exactly: part of its saved progress does not fit together. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
+| `chain_broken` | R2, F3 at read | the store's full read (reconciliation, `resume()`); worker | This analysis can no longer resume exactly: part of its saved progress does not fit together. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
 | `digest_mismatch` | F5 at read | worker | This analysis can no longer resume exactly: part of its saved progress does not match its record. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
 | `cursor_disagrees` | R3 | worker | the `digest_mismatch` message |
 | `inventory_mismatch` | R4 | worker | the `digest_mismatch` message |
@@ -951,8 +1019,11 @@ Plumbing (R2's side):
   either field is dropped. The cause sets are closed and confirmed (BB8 6678599629);
   `discovery_alt_seen` is the fourth `RESOURCE_LIMIT` cause.
 - The scheduler passes `error_cause` and `error_log` to `store.pause` on both of its failure
-  paths: the error it throws for a failed reply (`reader_scheduler.js:568-572`) carries them,
-  and the catch that pauses (`:592-600`) passes them on.
+  paths. The error it throws for a failed reply (`reader_scheduler.js:568-572`) carries them,
+  and the catch that pauses (`:592-600`) passes `failure.error_cause ?? failure.cause` and
+  `failure.error_log ?? failure.log`. Every refusal the store raises from `unavailable`
+  (`workerPayload`, `commitCheckpoint`, `resume`) or from a failed full read carries `cause`
+  and `log`, so the catch passes those on too.
 - `store.pause` with code `DISCOVERY_UNAVAILABLE` releases the logs and sets
   `unavailable: {cause, log | null, released}` in the same save (§2.7). This is how a refusal
   the worker raises (R1, `digest_mismatch`, `cursor_disagrees`, `inventory_mismatch`,
@@ -960,16 +1031,25 @@ Plumbing (R2's side):
   refuses at once instead of requeueing a job that would fail the same way. Confirmed, with
   one condition (BB8 6678599629): the paused reason records the released log names and
   their heads at release.
-- The paused record's reason carries `{code, cause, log, released, message}`. A pause the
-  store makes on its own (reconciliation, §7.4) stores no message; it is rendered from the
-  cause.
 - **U1, the release record.** Every release that sets `unavailable`, from reconciliation, a
-  failed walk or a `DISCOVERY_UNAVAILABLE` pause, is one save. It empties `logs` and
+  failed full read or a `DISCOVERY_UNAVAILABLE` pause, is one save. It empties `logs` and
   `verified`, and it sets `unavailable` with `released`: each log the record held, with its
-  head at release. A pause's reason carries the same `cause`, `log` and `released`, so the
-  cause stays traceable after GC reclaims the segments. The committed evidence stays
-  readable: a release frees discovery segments only, never pages, indexes, manifests or
-  checkpoints (§7.2). `good/unavailable_pause_reason.json` pins both pauses.
+  head at release. The committed evidence stays readable: a release frees discovery segments
+  only, never pages, indexes, manifests or checkpoints (§7.2). **A release of a record whose
+  `unavailable` is already set releases nothing and leaves `unavailable` unchanged**, so the
+  first release's trace wins. That covers a pause after reconciliation released a running
+  job, and a pause that names no cause or another one.
+- **U2, the reason follows `unavailable`.** While it is set, every save that writes the job's
+  reason writes `{code: "DISCOVERY_UNAVAILABLE", cause, log, released}`, copied from it, and
+  stores no message: the job view renders the message from the cause, by the table above.
+  The saves are a release itself (reconciliation's, of a queued, paused or cancelled job), a
+  `store.pause` of any code, `_quotaPause` (`:972-990`), startup's `INTERRUPTED` pause
+  (`:357-376`), `_expireLeases` (`:930-948`) and `cancel()` (`:1342-1360`). Each changes the
+  state as it does today, except that while `unavailable` is set a pause never requeues the
+  job: its state is `paused` (or `cancelled` on a requested cancel), with
+  `deferred_requeue: false`. So the trace stays in the reason whatever happens to the job
+  after the release, and the cause stays traceable after GC reclaims the segments.
+  `good/unavailable_pause_reason.json` pins each path.
 
 **There is no new job state.** Every image's `_reload` refuses an unknown state as
 `STORAGE_CORRUPT` (`:491-498`), so adding a state would be a format break. A job refused with
@@ -1004,8 +1084,9 @@ Plumbing (R2's side):
   30 s of the lease start, discovery is about 1.6 MB plain and 0.2 MB stored, the store is at
   or below 40 MiB, and frames and the record stay within their derived bounds (§3). It
   records the restart count, each restart's cost, the segments each lease's walk read and
-  statted, `row_seen`'s size, `alt_seen`'s size against `ALT_SEEN_ENTRIES`, and worker memory
-  in the alternate phase. It is the completed run that Phase B needs (`mcp/READER_RUNTIME.md`).
+  statted and the time each walk took, any reconciliation and its time, `row_seen`'s size,
+  `alt_seen`'s size against `ALT_SEEN_ENTRIES`, and worker memory in the alternate phase. It
+  is the completed run that Phase B needs (`mcp/READER_RUNTIME.md`).
 
 ## 10. Measured on #656, not bounds
 
@@ -1024,7 +1105,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | segment envelope | about 550 B | measured |
 | discovery total | about 1.64 MB plain, about 0.2 MB gzip | computed |
 | per lease | walk about 10 ms; load 20,045 entries × 30.4 µs = 0.6 / 1.5 s; recompute 0.9 / 2.4 s; construct 6.4 / 15.2 s; about 8 / 19 s in all | measured |
-| loaded / light | construct 2.375, load 2.5, recompute 2.67 | computed from the measured times; §6.11 scales by 3 |
+| loaded / light | construct 2.375, load 2.5, recompute 2.67 | computed from the measured times; §6.11 rounds the load's 2.5 up to 3 |
 | per commit | about 0.22 KB retained on average | computed |
 | GC at the end of the run | about 80 min per cycle, against 17 | computed |
 | preparation ticks | 256 ticks take 4–12 s | measured |
@@ -1054,12 +1135,12 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 16 | BB8 6673031748 | exact ordered delivery; witness over every record; refusal, never a quieter fallback | §6.9 | `good/witness_cursor_option2.json`, `bad/witness_mismatch.json` |
 | 17 | BB8 6675208404 §1 | replay is exact at every boundary; ticks and pending state checkpointable | §6.3, §6.7, §6.10 | #721 restart-at-every-boundary test |
 | 18 | R2 6676918434 | one interface, tested from both sides, as versioned fixtures | §13 | the whole fixture set |
-| 19 | BB8 (a) (6678599629) | the store's walk is incremental: it stats every segment and reads and verifies only those appended since a persisted verified head; a full read happens in exactly three places | §1, §2.7 `verified`, §4, §5.1, §7.3, §7.4 | `good/lease_incremental_walk.json`, `bad/verified_ahead_of_head.json` |
+| 19 | BB8 (a) (6678599629) | the store's walk is incremental: it stats every segment and reads and verifies only those appended since a persisted verified head; a full read happens in exactly three places | §1, §2.7 `verified`, §4, §5.1, §7.3, §7.4 | `good/lease_incremental_walk.json`, `good/lease_after_refused_commit.json`, `bad/verified_ahead_of_head.json` |
 | 20 | BB8 (a) | `alt_seen` gets its own cap, derived from the 30 s first-commit budget on a loaded host; passing it is `RESOURCE_LIMIT`, cause `discovery_alt_seen` | §3, §4 W7, §6.4, §6.11, §8 | `bad/alt_seen_over_cap.json`; the §6.11 derivation test |
 | 21 | BB8 (b) | confirmed: `row_seen` reset and compaction, with both tests required; `CURSOR_BYTES`, `CONTINUATION_BYTES` and `WITNESS_FIELDS`, with `INVARIANT_FAILURE` on the worker for the byte bounds; `methods[*]` holds no terminal input; the closed cause sets | §2.8, §3, §6.2, §8 | `good/lease_payload_summary_paths.json`; #721: both §6.2 tests |
 | 22 | BB8 (b) | the terminal suffix is contiguous and belongs to its method alone; a non-terminal record after a suffix record is an inserted record | §6.9 | `bad/terminal_suffix_not_contiguous.json`, `bad/witness_mismatch.json` |
-| 23 | BB8 (b) | reconciliation pauses a released queued job, with its reason rendered from the cause, and `_dispatchable` skips it | §2.7, §7.4 | `good/unavailable_pause_reason.json` |
-| 24 | BB8 (b) | a `DISCOVERY_UNAVAILABLE` pause releases the logs; its reason keeps the released log names and their heads, and committed evidence stays readable | §2.7, §8 U1 | `good/unavailable_pause_reason.json` |
+| 23 | BB8 (b) | reconciliation pauses a released queued job, with its reason rendered from the cause, and `_dispatchable` skips it | §2.7, §7.4, §8 U2 | `good/unavailable_pause_reason.json` |
+| 24 | BB8 (b) | a `DISCOVERY_UNAVAILABLE` pause releases the logs; its reason keeps the released log names and their heads, and committed evidence stays readable | §2.7, §8 U1 and U2 | `good/unavailable_pause_reason.json` |
 
 ## 12. Rulings on the items added for confirmation
 
@@ -1094,7 +1175,8 @@ the cursor fields are 3PO's to confirm.
    releases the logs; the worker's whitelist gains `STORAGE_CORRUPT`, its reply gains
    `error_cause`, and the scheduler passes it to `store.pause` (§8). The condition: the paused
    reason records the released log names and their heads at release, so the cause stays
-   traceable after GC reclaims the segments (U1, §8). The committed evidence stays readable.
+   traceable after GC reclaims the segments (U1 and U2, §8). The committed evidence stays
+   readable.
 10. **Ruled: no semantic objection** (BB8 6678599629). The inventory and witness digest
     domains, and the v1 witness fields.
 11. **Ruled: confirmed, with one addition** (BB8 6678599629). Option 2's terminal-suffix rule,
@@ -1116,27 +1198,53 @@ BB8 still re-checks §6.9's acceptance list against the worker half once 3PO pub
 
 ### New in this revision, for confirmation
 
-These fill gaps that ruling (a) left open. BB8 confirms or strikes each one.
+These fill gaps that ruling (a) left open, and record how this revision fixed an adversarial
+review of the previous one. BB8 confirms or strikes each one.
 
-15. **Where the walk gets its addresses** (§5.1). Statting a segment needs its address, and
-    only the segment after it names it (the record names the head). So the store keeps each
-    live chain's address list in memory. Reconciliation rebuilds the lists by a full read, and
-    a starting store always reconciles, because it holds generation −1. Reconciliation saves
-    no verified head, because usage is unknown until the recount.
-16. **R5, and how the advance fails** (§5.1, §7.4). A verified state that is not a prefix of
-    its chain is `chain_broken`. The walk's save is skipped, never forced, when it cannot get
-    capacity. Reconciliation releases one job with `chain_broken` for any failure of its full
-    read other than a missing segment; it does not fail the store.
-17. **The derivation's inputs** (§6.11): the scale factor 3, and the walk term taken at five
-    full chains. Also, `WITNESS_FIELDS` on the worker is `INVARIANT_FAILURE`, for item 5's
-    reason: the field list is the reducer's constant.
-18. **What the bound leaves out** (§6.11). `seen` and `variants` enter at #656's size; at their
-    `CHAIN_SEGMENTS` bound each would load for about 191 s (computed). The finish lease's full
-    load of `alt_cells` is also outside the bound: about 1.1 s on #656, and about 191 s at the
-    bound (computed). Does ruling (a)'s criterion need caps for these too?
-19. **`unavailable.released` on every release** (§2.7, U1), not only on a pause, so a paused or
-    cancelled job that reconciliation releases keeps its trace. And `error_log` in the worker's
-    reply (§8), which the release needs for its `log`.
+15. **Where the walk gets its addresses** (§4, §5.1). Statting a segment needs its address,
+    and only the segment after it names it (the record names the head). So the store keeps
+    each live chain's address list in memory. A list changes only after the record save that
+    changes its chain returns, so a commit refused after writing segments leaves no orphan in
+    a list (`good/lease_after_refused_commit.json`). A full read rebuilds a list from the
+    head by `previous_hash`, and a starting store always reconciles, because it holds
+    generation −1. Reconciliation saves no verified head, because usage is unknown until the
+    recount.
+16. **A lease's walk never releases** (§5.1, §7.4). It reads only segments this process
+    listed itself, and only this image's bookkeeping writes the list and `verified`. So R5
+    (now also covering the list), or R2 or F3 on the appended segments, is `STORAGE_CORRUPT`
+    on a lease: nothing is released or saved, and `resume()`'s full read, which uses neither,
+    decides. Only a full read releases with `chain_broken`. The review proposed instead a full
+    read on the lease itself; that would be a fourth place a chain is read in full, against
+    ruling (a), so it is not taken unless BB8 prefers it. Also: the walk's save is skipped,
+    never forced, when it cannot get capacity, and reconciliation releases one job with
+    `chain_broken` for any failure of its full read other than a missing segment; it does not
+    fail the store.
+17. **The derivation's inputs** (§6.11). The factor 3 scales the per-entry load rate only,
+    rounding up the load's measured loaded/light ratio of 2.5. Construct and recompute enter
+    at their loaded-host measurements, not scaled. The walk's single measured figure is
+    scaled by 3 and taken at five full chains. Also, `WITNESS_FIELDS` on the worker is
+    `INVARIANT_FAILURE`, for item 5's reason: the field list is the reducer's constant.
+18. **What the bound leaves out** (§6.11). Construct and recompute are #656's figures; on a
+    host uniformly 3× the light host the cap would not fit (23,781 entries with the margin),
+    and scaling every term would set it at 16,384. `seen` and `variants` enter at #656's
+    size; at their `CHAIN_SEGMENTS` bound each would load for about 191 s. The finish lease's
+    full load of `alt_cells` (about 1.1 s on #656, about 191 s at the bound) and its option 2
+    read of the evidence (about 63 MB on #656, not timed) are outside the bound. So is a
+    reconciliation inside a lease's lock entry after an older image writes (4.54 s at the
+    default quota, three times the margin). The empty `row_seen` of the alternate phase rests
+    on §6.2's rule that the end of the lower traversal is a row boundary. Does ruling (a)'s
+    criterion need caps, or a different host, for any of these?
+19. **The release trace** (§2.7, §8). `unavailable.released` is set on every release, not
+    only on a pause, so a paused or cancelled job that reconciliation releases keeps its
+    trace. U1: a release of a record already released releases nothing, so the first trace
+    wins. U2: while `unavailable` is set, every save that writes the reason writes it copied
+    from `unavailable`, with no stored message, and a pause never requeues; the view renders
+    the message from the cause. The worker's reply gains `error_log`, and the scheduler
+    passes `error_cause ?? cause` and `error_log ?? log` on.
+20. **The suffix's parts** (§6.9), which item 11's addition left open. Inside the terminal
+    suffix, each terminal record's parts are held to `resolve_detail_records`'s own rules:
+    its `$detail_ref`s, the part order, the totals and the bytes. Every terminal record but
+    the last is complete; only the last may be partial.
 
 ## 13. Fixtures and validator
 
@@ -1165,10 +1273,16 @@ Good:
 - `good/lease_incremental_walk.json`: the same record with verified heads saved after the
   second frame. A lease stats `seen`'s and `alt_cells`' verified segments, reads only
   `alt_cells`' newest, and advances its verified head in one save. The next lease reads and
-  saves nothing, and a full read reads all three.
-- `good/unavailable_pause_reason.json`: a `DISCOVERY_UNAVAILABLE` pause the worker raises, and
-  reconciliation's pause of a queued job. Each is one save that empties `logs` and `verified`;
-  `unavailable` and the reason keep the released log names and their heads (U1).
+  saves nothing, and a full read from the heads reads all three and rebuilds the list.
+- `good/lease_after_refused_commit.json`: the second frame's record after a refused third
+  commit left its segment an orphan. The list was not extended, so a lease reads and saves
+  nothing and its payload leaves the orphan out.
+- `good/unavailable_pause_reason.json`: every path that releases, and the saves that follow a
+  release: a `DISCOVERY_UNAVAILABLE` pause the worker raises, reconciliation's release of a
+  queued, running or paused job, then a refusal, a yield, a lease expiry or a cancel. Each
+  release is one save that empties `logs` and `verified`; `unavailable` and the reason keep
+  the released log names and their heads, the first release's trace wins, and a released job
+  is never requeued (U1, U2).
 
 Bad:
 
@@ -1178,12 +1292,14 @@ Bad:
   `bad/reset_unheld_log.json` (W3), `bad/cursor_record_disagreement.json` (W4),
   `bad/tail_rewritten.json` (W6);
 - limit: `bad/alt_seen_over_cap.json` (W7). The worker refuses it first, as `RESOURCE_LIMIT`
-  with cause `discovery_alt_seen`; a store sent the frame refuses it `READER_PROTOCOL` 400;
+  with cause `discovery_alt_seen`; a store sent the frame refuses it `READER_PROTOCOL` 400. Its
+  control reaches the cap exactly and is accepted;
 - resume (`DISCOVERY_UNAVAILABLE` 409): `bad/missing_segment.json` (R1),
   `bad/reordered_segment.json` (R2), `bad/cursor_summary_disagreement.json` (R3),
   `bad/inventory_mismatch.json` (R4);
-- walk (`DISCOVERY_UNAVAILABLE` 409 `chain_broken`): `bad/verified_ahead_of_head.json` (R5),
-  refused before anything is read, with the release it saves;
+- walk (`STORAGE_CORRUPT` 503): `bad/verified_ahead_of_head.json` (R5), refused before
+  anything is read, releasing nothing; its `resume()` full read passes and saves the
+  corrected verified heads;
 - traversal: `bad/retired_key_recurring.json` (S1, `DISCOVERY_UNAVAILABLE` 409),
   `bad/witness_mismatch.json` and `bad/terminal_suffix_not_contiguous.json` (S2,
   `RESULT_EXPIRED` 410).
@@ -1199,10 +1315,12 @@ The validator rebuilds every segment from the seals, recomputes every digest and
 and checks this document's constants, causes and cross-reference rows. It also runs Python
 over the same bytes: `canonical_json` and `json.dumps` against Node's bytes, the segment
 addresses, `resolve_detail_records` and the witness over the filtered stream, the terminal
-suffix's mutants and controls, and the float fixture. It recomputes the §6.11 derivation from
-§10's figures and §3's constants. Where one failure leaves a later check undefined (a log
-whose seal fails F5 has no digest for W4 to compare), it skips that check. It runs in
-`npm run test:library`:
+suffix's mutants and controls (resolving the suffix itself with `resolve_detail_records`), and
+the float fixture. It recomputes the §6.11 derivation and what it leaves out from §10's
+figures and §3's constants, and it computes the worst case of §7.4's shrink claim. Each R5
+clause, the junction and the full read's refusals are checked one at a time. Where one
+failure leaves a later check undefined (a log whose seal fails F5 has no digest for W4 to
+compare), it skips that check. It runs in `npm run test:library`:
 
 ```sh
 node --test mcp/test_discovery_v1_fixtures.mjs

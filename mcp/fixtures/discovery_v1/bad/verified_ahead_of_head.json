@@ -2,25 +2,41 @@
   "fixture": "bad/verified_ahead_of_head.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "walk",
-  "exercises": "The record after the seal sequence's second frame, whose alt_cells verified state names alt_cells#1 (two segments, 2,048 entries) while its head is alt_cells#0 (one segment): a verified head saved ahead of the head it verifies. The lease's walk refuses before it reads anything, and releases the logs in one save that records each log's head. Every other rule passes: seen's verified head is its head, and the store holds every segment.",
+  "exercises": "The record after the seal sequence's second frame, whose alt_cells verified state names alt_cells#1 (two segments, 2,048 entries) while its head is alt_cells#0 (one segment): a verified head saved ahead of the head it verifies. Only this image's own bookkeeping writes verified, so the lease's walk refuses STORAGE_CORRUPT before it reads anything, and releases and saves nothing: the job keeps its chains. resume() then decides by a full read from the heads, which uses neither verified nor the address list: the chain is intact, so it passes and saves the corrected verified heads. Every other rule passes: seen's verified head is its head, and the store holds every segment.",
   "expect": {
     "accepted": false,
     "rule": "R5",
-    "code": "DISCOVERY_UNAVAILABLE",
-    "status": 409,
-    "cause": "chain_broken",
-    "released": {
-      "version": 1,
-      "epoch": 0,
-      "logs": {},
-      "verified": {},
-      "unavailable": {
-        "cause": "chain_broken",
-        "log": "alt_cells",
-        "released": {
-          "seen": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
-          "alt_cells": "472d9313172d254c78b2e74742c467ae2871be26a3163af8c19c2dff3be63961",
-          "variants": null
+    "code": "STORAGE_CORRUPT",
+    "status": 503,
+    "released": null,
+    "resume": {
+      "read": [
+        "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
+        "472d9313172d254c78b2e74742c467ae2871be26a3163af8c19c2dff3be63961"
+      ],
+      "addresses": {
+        "seen": ["b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694"],
+        "alt_cells": ["472d9313172d254c78b2e74742c467ae2871be26a3163af8c19c2dff3be63961"],
+        "variants": []
+      },
+      "verified": {
+        "seen": {
+          "head": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
+          "segments": 1,
+          "count": 1024,
+          "digest": "874b95a379790978a8f4af4e02038ae72dcf0dde5bc3b17a74debfe2520ef714"
+        },
+        "alt_cells": {
+          "head": "472d9313172d254c78b2e74742c467ae2871be26a3163af8c19c2dff3be63961",
+          "segments": 1,
+          "count": 1024,
+          "digest": "8cabfdb84c82ae3938a27fb65817d3c8d64c0fe48d5438251201593191188f12"
+        },
+        "variants": {
+          "head": null,
+          "segments": 0,
+          "count": 0,
+          "digest": "3d776edd104fc89d5c3285e2ecc6bb2c9d882cd84ec9858b11dd88cbd1c6fbd1"
         }
       }
     }

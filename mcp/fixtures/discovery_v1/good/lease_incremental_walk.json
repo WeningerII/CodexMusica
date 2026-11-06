@@ -2,7 +2,7 @@
   "fixture": "good/lease_incremental_walk.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "walk",
-  "exercises": "The record after the seal sequence, whose verified heads a walk saved after its second frame: seen's is its head (seen#0), alt_cells' is alt_cells#0, one segment behind its head, and variants' is empty, like its head (it has only a tail). A lease stats seen#0 and alt_cells#0, reads and verifies only alt_cells#1, which links to the verified head, and advances alt_cells' verified head to its head in one save. The next lease stats all three segments and reads and saves nothing. A full read (resume(), or reconciliation after a foreign generation) reads all three from the oldest.",
+  "exercises": "The record after the seal sequence, whose verified heads a walk saved after its second frame: seen's is its head (seen#0), alt_cells' is alt_cells#0, one segment behind its head, and variants' is empty, like its head (it has only a tail). A lease stats seen#0 and alt_cells#0, reads and verifies only alt_cells#1, which links to the verified head, and advances alt_cells' verified head to its head in one save. The next lease stats all three segments and reads and saves nothing. A full read (resume(), or reconciliation after a foreign generation) starts at each head and follows previous_hash back, so it reads all three newest first and rebuilds the address list without using it.",
   "expect": {
     "accepted": true,
     "lease": {
@@ -81,9 +81,17 @@
     "full": {
       "read": [
         "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
-        "472d9313172d254c78b2e74742c467ae2871be26a3163af8c19c2dff3be63961",
-        "b4dfde4184d32c3f043afd401bc99903d99b3ea75b08b1d76a14b3f4bdf8a2fa"
+        "b4dfde4184d32c3f043afd401bc99903d99b3ea75b08b1d76a14b3f4bdf8a2fa",
+        "472d9313172d254c78b2e74742c467ae2871be26a3163af8c19c2dff3be63961"
       ],
+      "addresses": {
+        "seen": ["b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694"],
+        "alt_cells": [
+          "472d9313172d254c78b2e74742c467ae2871be26a3163af8c19c2dff3be63961",
+          "b4dfde4184d32c3f043afd401bc99903d99b3ea75b08b1d76a14b3f4bdf8a2fa"
+        ],
+        "variants": []
+      },
       "verified": {
         "seen": {
           "head": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
