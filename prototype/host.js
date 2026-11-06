@@ -281,25 +281,35 @@ export function createHost(lane, panel) {
 // A held lane whose own unmount() throws doesn't stop either one, as it
 // doesn't stop ctx.close() (#810 6675659005): that lane's host still ends (its
 // signal aborts, its node goes, it is idle), every other held lane is
-// unmounted too, and open() still mounts its lanes, focus included. The first
+// unmounted too, and open() still mounts its lanes, focus included. The
 // error then comes back: open() rejects with it once it has finished (or
-// been overtaken), and close() throws it once every lane is gone.
+// been overtaken), and close() throws it once every lane is gone. When
+// several held lanes throw, none is lost (#810 6677708921): what comes back
+// is one AggregateError whose errors are theirs, in the order they were
+// thrown, the last lane's first.
 export function createOnDemand(panel) {
   let held = [];
   let turn = 0;
-  // Every held lane, last first; the first error is returned, not thrown.
+  // Every held lane, last first; every error is kept, in the order thrown,
+  // and returned, not thrown.
   const clear = () => {
-    let failed = null;
+    const errors = [];
     for (const h of held.slice().reverse()) {
       try {
         h.unmount();
       } catch (error) {
-        failed = failed || { error };
+        errors.push(error);
       }
     }
     held = [];
-    return failed;
+    return errors;
   };
+  // What a failed teardown hands back: one lane's error as it is, or several
+  // lanes' together.
+  const failure = (errors) =>
+    errors.length === 1
+      ? errors[0]
+      : new AggregateError(errors, `${errors.length} lanes did not unmount cleanly.`);
   return {
     async open(lanes, { returnFocus } = {}) {
       const back = returnFocus || document.activeElement;
@@ -317,13 +327,13 @@ export function createOnDemand(panel) {
         }
         if (i === 0) h.focus();
       }
-      if (failed) throw failed.error; // the open went on regardless
+      if (failed.length) throw failure(failed); // the open went on regardless
       return mounted;
     },
     close() {
       turn++;
       const failed = clear(); // the shell's own close
-      if (failed) throw failed.error; // every lane went regardless
+      if (failed.length) throw failure(failed); // every lane went regardless
     },
   };
 }

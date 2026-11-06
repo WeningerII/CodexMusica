@@ -101,7 +101,9 @@
 //      unmount() throws stops the next open() or the shell's close() from
 //      ending every held lane, stops the open from mounting its lane with
 //      focus in it, or is swallowed instead of coming back from open() and
-//      close() (#810 6675659005); or a host unmounted
+//      close() (#810 6675659005), or, when several held lanes throw, does not
+//      come back as one AggregateError holding each of their errors, in the
+//      order they were thrown (#810 6677708921); or a host unmounted
 //      while its lane's module or ctx loads, which then fails, is not idle,
 //      so its next show() does not mount. Each check has a planted defect, as
 //      in 14. The reader and read-aloud, which app.js opens through it, keep
@@ -138,10 +140,12 @@
 //      reader that is open throws from its own unmount(), the new reading
 //      does not resolve { unitId }, is not mounted once after the Library's
 //      lanes with focus in it, leaves the old one standing, says anything, or
-//      does not log the error; or, when the new reader's open fails, over an
-//      old one that throws, openReading does not reject with the new
-//      reader's error, or does not log the old one's. Each check has a
-//      planted defect in app.js (READER_MUTANTS), as in 16.
+//      does not log the error; when both of the old reading's lanes throw,
+//      the same, and each of their errors is not logged once; or, when the
+//      new reader's open fails, over an old one that throws, openReading
+//      does not reject with the new reader's error, or does not log the old
+//      one's. Each check has a planted defect in app.js (READER_MUTANTS), as
+//      in 16.
 //
 //   node scripts/check_prototype_hosts.js
 //
@@ -251,12 +255,17 @@ export function mount(host, ctx) {
   field.addEventListener('input', () => ctx.onChange && ctx.onChange(field.value), { signal: ctx.signal });
   rec.write = ctx.storage.write('pref', { n: 1 });
   if (window.__probeThrow === lane) throw new Error('probe mount failure');
-  // A check can make a lane's unmount() or focus() throw, read when called.
+  // A check can make a lane's unmount() (one lane, or a list) or focus()
+  // throw, read when called. Each unmount error names its lane and is kept.
   const throws = () => window.__probeThrows || {};
   return {
     unmount() {
       rec.unmounted = true;
-      if (throws().unmount === lane) throw (window.__probeUnmountError = new Error('probe unmount failure'));
+      if ([].concat(throws().unmount).includes(lane)) {
+        const error = new Error('probe unmount failure in ' + lane);
+        (window.__probeUnmountErrors = window.__probeUnmountErrors || []).push(error);
+        throw (window.__probeUnmountError = error);
+      }
     },
     focus() {
       if (throws().focus === lane) throw new Error('probe focus failure');
@@ -1780,12 +1789,15 @@ async function speechChecks(browser, srv) {
 // hears is kept. Then, with the reader that is open throwing from its own
 // unmount(), a second reading must open, resolve { unitId } and take focus,
 // with nothing said and the error logged (console.warn or console.error).
-// And with a new reader whose open fails (its focus() throws, the last step
-// of an open), over one whose unmount also throws, openReading must still
+// With a new reader whose open fails (its focus() throws, the last step of
+// an open), over one whose unmount also throws, openReading must still
 // reject, with the new reader's error, and the teardown error still logged.
 // (A reader whose mount() throws is not that case: the host says so in the
-// panel, as for any lane (8), and the open resolves, before this fix and
-// after it.)
+// panel, as for any lane (8), and the open resolves. Before this fix it
+// resolved too, but only when the old reading ended cleanly.) And when both
+// lanes of the reading that is open throw from unmount(), the slot hands
+// back both errors at once (15): the new reading must still open as above,
+// with nothing said, and each error logged once, so neither hides the other.
 // Each check also runs on app.js with a planted defect (READER_MUTANTS),
 // served in place of app.js in a page of its own, which must fail it.
 const READER_MUTANTS = {
@@ -1793,7 +1805,7 @@ const READER_MUTANTS = {
     check: 'an old reader’s teardown',
     edits: [
       [
-        "  try {\n    reader.close();\n  } catch (error) {\n    console.warn('[prototype] The reading that was open did not end cleanly:', error);\n  }\n",
+        "  try {\n    reader.close();\n  } catch (error) {\n    for (const e of error instanceof AggregateError ? error.errors : [error]) {\n      console.warn('[prototype] The reading that was open did not end cleanly:', e);\n    }\n  }\n",
         '',
       ],
     ],
@@ -1802,8 +1814,8 @@ const READER_MUTANTS = {
     check: 'an old reader’s teardown',
     edits: [
       [
-        "console.warn('[prototype] The reading that was open did not end cleanly:', error);\n",
-        "console.warn('[prototype] The reading that was open did not end cleanly:', error);\n    throw error;\n",
+        "console.warn('[prototype] The reading that was open did not end cleanly:', e);\n    }\n",
+        "console.warn('[prototype] The reading that was open did not end cleanly:', e);\n    }\n    throw error;\n",
       ],
     ],
   },
@@ -1815,7 +1827,7 @@ const READER_MUTANTS = {
     check: 'nothing said',
     edits: [
       [
-        "console.warn('[prototype] The reading that was open did not end cleanly:', error);",
+        "console.warn('[prototype] The reading that was open did not end cleanly:', e);",
         "announce('The reading that was open did not end cleanly.');",
       ],
     ],
@@ -1823,11 +1835,12 @@ const READER_MUTANTS = {
   'openReader drops the teardown error unlogged': {
     check: 'logged',
     edits: [
-      [
-        "console.warn('[prototype] The reading that was open did not end cleanly:', error);",
-        'void error;',
-      ],
+      ["console.warn('[prototype] The reading that was open did not end cleanly:', e);", 'void e;'],
     ],
+  },
+  'openReader logs both lanes’ teardown errors as one': {
+    check: 'both lanes’ teardown errors',
+    edits: [['error instanceof AggregateError ? error.errors : [error]', '[error]']],
   },
   'openReader swallows a failed open': {
     check: 'a new reader’s failure',
@@ -1940,13 +1953,48 @@ async function readerRun(page, cid) {
     b.logged = errB ? loggedOf(errB) : 0;
     await tick();
     b.said = said.slice();
+
+    // C: both lanes of the reading that is open throw from their unmount().
+    // First a reading with nothing throwing, then one over it.
     window.__probeThrows = {};
-    return { a, b };
+    const speechMounts = mounts('libraryspeech');
+    playButton().focus();
+    const clean = await play();
+    await until(() => mounts('libraryspeech') === speechMounts + 1);
+    const oldC = { reading: window.__probe.libraryreading, speech: window.__probe.libraryspeech };
+    await tick();
+    said.length = 0;
+    window.__probeUnmountErrors = [];
+    window.__probeThrows = { unmount: ['libraryreading', 'libraryspeech'] };
+    playButton().focus();
+    const d = { clean, returned: await play() };
+    const errsC = window.__probeUnmountErrors.slice();
+    Object.assign(d, {
+      threw: errsC.map((e) => e.message).sort(),
+      logged: errsC.map(loggedOf),
+      focus: focusIn(),
+      focusNew:
+        window.__probe.libraryreading !== oldC.reading &&
+        document.activeElement ===
+          document.querySelector('[data-feature-host="libraryreading"] textarea'),
+      oldEnded:
+        oldC.reading.unmounted &&
+        oldC.reading.aborted &&
+        oldC.speech.unmounted &&
+        oldC.speech.aborted,
+    });
+    await until(() => mounts('libraryspeech') === speechMounts + 2);
+    await tick();
+    d.said = said.slice();
+    d.hosts = hosts().join();
+    d.speech = mounts('libraryspeech') - speechMounts;
+    window.__probeThrows = {};
+    return { a, b, d };
   }, cid);
 }
 
 function readerVerdict(g) {
-  const { a, b } = g;
+  const { a, b, d } = g;
   const tail = a.hosts.split(',').slice(-2).join();
   const once = (id) => a.hosts.split(',').filter((h) => h === id).length === 1;
   return {
@@ -1966,6 +2014,21 @@ function readerVerdict(g) {
     logged: a.threw && a.logged === 1,
     'a new reader’s failure':
       b.threw && b.returned === 'threw: probe focus failure' && b.logged === 1,
+    'both lanes’ teardown errors':
+      d.clean === a.first &&
+      d.returned === a.first &&
+      d.threw.join() ===
+        'probe unmount failure in libraryreading,probe unmount failure in libraryspeech' &&
+      d.logged.length === 2 &&
+      d.logged.every((n) => n === 1) &&
+      d.said.length === 0 &&
+      d.oldEnded &&
+      d.focus === 'libraryreading' &&
+      d.focusNew &&
+      d.speech === 2 &&
+      d.hosts.split(',').slice(-2).join() === 'libraryreading,libraryspeech' &&
+      d.hosts.split(',').filter((h) => h === 'libraryreading').length === 1 &&
+      d.hosts.split(',').filter((h) => h === 'libraryspeech').length === 1,
   };
 }
 
@@ -2074,7 +2137,8 @@ async function unmounting(browser, srv) {
 // ctx fields ask for three variants: closeInMount calls close() inside
 // mount(), contentFirst clears the lane's own content (and with it the focus)
 // before it calls close(), as a sheet's `unmount(); ctx.close();` would, and
-// unmountThrows makes its unmount() throw, as a buggy lane's might.
+// unmountThrows makes its unmount() throw, as a buggy lane's might (with
+// unmountThrows as the message, when it is a string).
 const CLOSER = `
 export function mount(host, ctx) {
   const lane = host.dataset.featureHost;
@@ -2120,7 +2184,10 @@ export function mount(host, ctx) {
     unmount() {
       unmounted = true;
       rec.unmounts++;
-      if (ctx.unmountThrows) throw new Error('the lane’s unmount failed');
+      if (ctx.unmountThrows)
+        throw new Error(
+          typeof ctx.unmountThrows === 'string' ? ctx.unmountThrows : 'the lane’s unmount failed'
+        );
     },
     focus() { field.focus(); },
   };
@@ -2522,7 +2589,7 @@ const DEMAND_MUTANTS = {
   },
   'open keeps what was open': {
     check: 'replaces',
-    edits: [['const failed = clear(); // what was open goes first', 'const failed = null;']],
+    edits: [['const failed = clear(); // what was open goes first', 'const failed = [];']],
   },
   'lanes out of order': {
     check: 'in order',
@@ -2560,7 +2627,7 @@ const DEMAND_MUTANTS = {
   },
   'the shell’s close keeps the lanes': {
     check: 'shell close',
-    edits: [["const failed = clear(); // the shell's own close", 'const failed = null;']],
+    edits: [["const failed = clear(); // the shell's own close", 'const failed = [];']],
   },
   'the shell’s close doesn’t stop an open': {
     check: 'shell close stops an open',
@@ -2571,7 +2638,7 @@ const DEMAND_MUTANTS = {
     check: 'a throwing unmount',
     edits: [
       [
-        '      try {\n        h.unmount();\n      } catch (error) {\n        failed = failed || { error };\n      }\n',
+        '      try {\n        h.unmount();\n      } catch (error) {\n        errors.push(error);\n      }\n',
         '      h.unmount();\n',
       ],
     ],
@@ -2581,17 +2648,40 @@ const DEMAND_MUTANTS = {
     edits: [
       [
         'const failed = clear(); // what was open goes first',
-        'const failed = clear(); // what was open goes first\n      if (failed) throw failed.error;',
+        'const failed = clear(); // what was open goes first\n      if (failed.length) throw failure(failed);',
       ],
     ],
   },
   'an open swallows a throwing unmount': {
     check: 'a throwing unmount',
-    edits: [['if (failed) throw failed.error; // the open went on regardless', '']],
+    edits: [['if (failed.length) throw failure(failed); // the open went on regardless', '']],
   },
   'the shell’s close swallows a throwing unmount': {
     check: 'a throwing unmount',
-    edits: [['if (failed) throw failed.error; // every lane went regardless', '']],
+    edits: [['if (failed.length) throw failure(failed); // every lane went regardless', '']],
+  },
+  // #810 6677708921: several held lanes whose unmount() throws.
+  'clear keeps only the first of several errors': {
+    check: 'several throwing unmounts',
+    edits: [['        errors.push(error);\n', '        if (!errors.length) errors.push(error);\n']],
+  },
+  'an open hands back one of several errors': {
+    check: 'several throwing unmounts',
+    edits: [
+      [
+        'if (failed.length) throw failure(failed); // the open went on regardless',
+        'if (failed.length) throw failed[0]; // the open went on regardless',
+      ],
+    ],
+  },
+  'the shell’s close hands back one of several errors': {
+    check: 'several throwing unmounts',
+    edits: [
+      [
+        'if (failed.length) throw failure(failed); // every lane went regardless',
+        'if (failed.length) throw failed[0]; // every lane went regardless',
+      ],
+    ],
   },
   'a load that fails after unmount sticks': {
     check: 'idle after a late failure',
@@ -2746,6 +2836,37 @@ async function demandRun(page, hostUrl) {
         throwsClose.threw = e.message;
       }
       Object.assign(throwsClose, { order: order(), ended: ended('t4') && ended('t5') });
+      // Two held lanes whose unmount() throws (#810 6677708921): neither error
+      // is lost. open() rejects, and close() throws, one AggregateError
+      // holding both, in the order they were thrown (the last lane's first).
+      const several = (e) =>
+        e instanceof AggregateError
+          ? e.errors.map((x) => x.message).join()
+          : `one: ${e && e.message}`;
+      const thrower = (id) =>
+        lane(id, { context: async () => ({ unmountThrows: `${id} failed` }) });
+      opener.focus();
+      await settle(slot.open([thrower('u1'), thrower('u2')]));
+      const severalOpen = { threw: null };
+      try {
+        severalOpen.returned = await slot.open(lane('u3'));
+      } catch (e) {
+        severalOpen.threw = several(e);
+      }
+      Object.assign(severalOpen, {
+        order: order(),
+        focus: where(),
+        ended: ended('u1') && ended('u2'),
+        mounts: rec('u3').mounts,
+      });
+      await settle(slot.open([thrower('u4'), thrower('u5')]));
+      const severalClose = { threw: null };
+      try {
+        slot.close();
+      } catch (e) {
+        severalClose.threw = several(e);
+      }
+      Object.assign(severalClose, { order: order(), ended: ended('u4') && ended('u5') });
       // The shell's close while an open() still loads its first lane: that
       // open stops, mounts nothing more and resolves false.
       opener.focus();
@@ -2801,6 +2922,8 @@ async function demandRun(page, hostUrl) {
         shut,
         throwsOpen,
         throwsClose,
+        severalOpen,
+        severalClose,
         shutting,
         late,
       };
@@ -2856,6 +2979,15 @@ function demandVerdict(g) {
       g.throwsClose.threw === 'the lane’s unmount failed' &&
       g.throwsClose.ended &&
       g.throwsClose.order === 'tab',
+    'several throwing unmounts':
+      g.severalOpen.threw === 'u2 failed,u1 failed' &&
+      g.severalOpen.ended &&
+      g.severalOpen.order === 'tab,u3' &&
+      g.severalOpen.mounts === 1 &&
+      g.severalOpen.focus === 'u3' &&
+      g.severalClose.threw === 'u5 failed,u4 failed' &&
+      g.severalClose.ended &&
+      g.severalClose.order === 'tab',
     'shell close stops an open':
       g.shutting.returned === false &&
       g.shutting.slow === 0 &&
