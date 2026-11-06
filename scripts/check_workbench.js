@@ -763,8 +763,79 @@ const run = (code) => dom.window.eval(code);
     assert.equal(strip(appCards()), held, 'and the values');
   }
 
+  // Explicit round trips (BB8 6688635328, 4): the app's save and reload, a
+  // saved copy opened and forked, export and import, and history restoration
+  // each give back every card's record exactly, and the connector reads the
+  // same warnings from what comes back.
+  {
+    const W = require('./_workspace_ops.js');
+    const E = await import(path.join(root, 'mcp/engine.js'));
+    let ws = W.seed(['garage_rock']);
+    const of = (name) => ws.cards.find((c) => c.instrumentId === name).id;
+    const [bass, guitar, organ] = [
+      'electric_bass',
+      'electric_guitar_single_coil',
+      'tonewheel_organ',
+    ].map(of);
+    ws = W.setEnvironment(ws, bass, {
+      room: 'cathedral',
+      chain: { fx: ['tape_echo', 'plate_reverb'] },
+    });
+    ws = W.setEnvironment(ws, guitar, { tuning: ws.cards.find((c) => c.id === guitar).tuning });
+    ws = W.setEnvironment(ws, organ, { chain: { mic: 'ribbon_passive' } });
+    ws = W.setEnvironment(ws, null, { chain: { medium: 'tape_15ips' } });
+    const records = (cards) => cards.map((c) => c[W.ENV_RECORD] ?? null);
+    const want = records(ws.cards);
+    assert.equal(want.filter(Boolean).length, 4, 'fixture: four cards carry a record');
+    const warningsOf = (cards) =>
+      E.renderRecipe({ workspace: { cards } })
+        .render_warnings.map((w) => [w.code, cards.findIndex((c) => c.id === w.card)])
+        .sort();
+    const wantWarnings = warningsOf(ws.cards);
+    assert.ok(wantWarnings.length >= 3, 'fixture: the written cards warn');
+    const appCards = () => JSON.parse(run('JSON.stringify(app.cards)'));
+    const same = (what) => {
+      const cards = appCards();
+      assert.deepEqual(records(cards), want, `${what}: every record exactly`);
+      assert.deepEqual(warningsOf(cards), wantWarnings, `${what}: the same warnings`);
+    };
+    dom.window.roundCards = JSON.parse(JSON.stringify(ws.cards));
+    run(
+      "app.cards=normalizeWorkspaceCards(window.roundCards);app.workspaceName='Round trip';app.lyrics='';app.history=[];app.historyIndex=-1;pushHistory();renderAll();"
+    );
+    same('loaded');
+    // Export, then import the exported file (fresh card ids).
+    run(
+      'window.realDownload=uiDownload;uiDownload=(name,text)=>{window.exported=text};uiExport();uiDownload=window.realDownload'
+    );
+    await run('uiImport({text:async()=>window.exported})');
+    same('export and import');
+    // A saved copy, opened as it is and forked under fresh ids.
+    run(
+      'window.records=new Map();window.storage={async get(k){return window.records.has(k)?{value:window.records.get(k)}:null},async set(k,v){window.records.set(k,v)},async delete(k){window.records.delete(k)},async list(p){return {keys:[...window.records.keys()].filter(k=>k.startsWith(p))}}};'
+    );
+    await run("saveWS('Round trip')");
+    run("window.savedKey=JSON.parse(window.records.get('codex:list')).at(-1).key;app.cards=[];");
+    await run('loadWS(window.savedKey)');
+    same('save and open');
+    await run('forkWS(window.savedKey)');
+    same('save and fork');
+    // History: a later step on another card, then Undo and Redo.
+    run(
+      `app.cards.find((c)=>c.instrumentId==='drum_kit').${W.ENV_RECORD}={room:'cathedral'};pushHistory();renderAll();`
+    );
+    assert.notDeepEqual(records(appCards()), want, 'fixture: the later step changed a record');
+    run('undo();renderAll();');
+    same('Undo');
+    run('redo();undo();renderAll();');
+    same('Redo then Undo');
+    // Autosave and a reload of it.
+    run('app.cards=[];uiRestoreSession();renderAll();');
+    same('autosave and reload');
+  }
+
   console.log(
-    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, stale recipe protection, late lyrics, conflict protection, preface Enter flush, connector record kept, a duplicate carries no record, a record-only change is a step'
+    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, stale recipe protection, late lyrics, conflict protection, preface Enter flush, connector record kept, a duplicate carries no record, a record-only change is a step, every round trip keeps the record'
   );
   dom.window.close();
 })().catch((e) => {
