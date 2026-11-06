@@ -2,7 +2,7 @@
   "fixture": "good/release_fencing.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "fence",
-  "exercises": "The record of good/unavailable_pause_reason.json, released by reconciliation on instance A while instance B holds the job's live lease. The release is a normal record save: it leaves B's lease, fence and attempt as they are, so B's next commit, with that very fence, is refused DISCOVERY_UNAVAILABLE and writes nothing; B's pause then sets the fence null, keeping the attempt. A commit from an older attempt is refused STALE_ATTEMPT first, as today. A queued job becomes paused with a null fence and keeps its attempt counter; a paused job keeps its attempt. Nothing resets a fence on a job some instance holds.",
+  "exercises": "The record of good/unavailable_pause_reason.json, released by reconciliation on instance A while instance B holds the job's live lease. The release is a normal record save: it leaves B's lease, fence and attempt as they are, so B's next commit, with that very fence, is refused DISCOVERY_UNAVAILABLE and writes nothing. That refusal is thrown inside B's checkpoint sink: the scheduler keeps it and rethrows it as it was, so B's pause carries its cause and log (not a worker reply, so C1 does not check it) and sets the fence null, keeping the attempt. A commit from an older attempt is refused STALE_ATTEMPT first, as today. A queued job becomes paused with a null fence and keeps its attempt counter, its queued_at, its queue_order and its cancel_requested; a paused job keeps its attempt. Nothing resets a fence on a job some instance holds.",
   "expect": {
     "accepted": true
   },
@@ -85,8 +85,9 @@
           "attempt": 3,
           "fence": "6b04123b5fd2020e94f8cf2bf28a34568940a63079de8628a5523aa0ddd46f8f",
           "code": "DISCOVERY_UNAVAILABLE",
-          "error_cause": "segment_missing",
-          "error_log": "alt_cells"
+          "from": "sink",
+          "cause": "segment_missing",
+          "log": "alt_cells"
         }
       ],
       "expect": [
@@ -275,6 +276,9 @@
         "fence": null,
         "lease_expires_at": null,
         "deferred_requeue": false,
+        "queued_at": 1793318000000,
+        "queue_order": 9,
+        "cancel_requested": false,
         "reason": null
       },
       "events": [
@@ -294,6 +298,9 @@
             "fence": null,
             "lease_expires_at": null,
             "deferred_requeue": false,
+            "queued_at": 1793318000000,
+            "queue_order": 9,
+            "cancel_requested": false,
             "reason": {
               "code": "DISCOVERY_UNAVAILABLE",
               "cause": "segment_missing",

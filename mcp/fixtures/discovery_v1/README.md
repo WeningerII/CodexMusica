@@ -19,11 +19,20 @@ passes every other rule.
   bad walk fixture's `expect.resume`) is a full read: what it reads from the heads, newest
   first, the address list it rebuilds, and the verified heads it saves. `orphans` names
   segments in the store that no list holds.
-- `bad/alt_seen_over_cap.json` is a limit fixture: the frame a worker must refuse to emit
-  (`RESOURCE_LIMIT`, no HTTP status: the job pauses), with the refusal a store sent it gives
-  (`expect.store`). Its record names a synthetic `alt_seen` chain by its totals only; the write
-  path reads no segment. Its `controls` are frames that reach the cap exactly, each with its own
-  record, and are accepted.
+- `bad/membership_over_cap.json` is a limit fixture. Each mutant is a record and the frame a
+  worker must refuse to emit (`RESOURCE_LIMIT`, no HTTP status: the job pauses), naming in
+  `worker` the cause for the one membership log (`log`) whose append passes the cap; the refusal
+  a store sent it gives is `expect.store`. Records name synthetic chains by their totals only; the
+  write path reads no segment. Its `controls`, one per log, reach the cap exactly and are
+  accepted.
+- `bad/segment_corrupt_at_reconciliation.json` is a full-read fixture. `store.corrupt` changes one
+  stored byte of a segment (`address`, the byte offset `at`, the new `byte`), so its bytes no
+  longer match its address. `expect.reconciliation` is the job after the release (from
+  `job_state`), `expect.lease` what a lease's walk on the same store gives, and `expect.resume`
+  what `resume()`'s full read gives. Its `controls` are full reads of a structural fault.
+- `good/thrown_save_outcome_unknown.json` is a thrown-save fixture: the record and lists before a
+  commit that wrote `commit.wrote`, and one case per way its record save throws, each with the
+  durable record that results (`durable`) and what the instance and its restart then do.
 - `good/unavailable_pause_reason.json` is a pause fixture: one record, and cases that each
   apply a sequence of events (`store.pause`, `reconciliation`, `lease_expiry`, `cancel`) to it
   from a starting state (and reason), with the state, `record.discovery` and stored reason the
@@ -41,7 +50,9 @@ passes every other rule.
 - `good/seal_completeness.json` and the seal sequence are the largest files: a segment that
   is complete by its bytes needs 16,384 entry bytes, and one complete by count needs 1,024
   entries.
-- `good/row_seen_compaction_next_frame.json` is a compaction fixture. To keep it small, each seal
+- `good/row_seen_compaction_next_frame.json` is a compaction fixture, and store-only (`side`):
+  no traversal produced its positions, so the worker's half of the rule is a #721 test. To keep
+  it small, each seal
   writes its entries as `entries_range` [a, b): the integers a … b − 1, expanded before any rule
   runs; its digests and addresses are over the expanded entries. `boundary` names the row
   boundary: the log's count, its live keys (`live_range`), the seals the compaction needs and the
@@ -59,18 +70,26 @@ passes every other rule.
   `pad:` + `z`s whose length makes the size exact. `refusal_one_byte_over` adds one `x` to the
   first method's refusal. A frame carries the cursor with an empty `discovery` and
   `continuation`, at epoch `integer`, on a record with no discovery.
-- `bad/reply_cause_invalid.json` is a reply fixture: failed worker replies on a running lease,
-  each with the pause it leads to. `discovery: "unchanged"` means nothing is released. A case
+- `bad/reply_cause_invalid.json` is a reply fixture: failed leases on a running job, each with the
+  pause it leads to. Each case holds one of `reply` (the bridge's result for the worker's own
+  final frame, `reply: true`, which C1 checks), `sink` (an error a Node sink threw inside
+  `onReaderCheckpoint`, kept and rethrown as it was) or `bridge` (a bridge failure with no worker
+  reply); only a `reply` is checked. `discovery: "unchanged"` means nothing is released. A case
   with `released` starts from the record already released with that cause and log.
-- `good/release_fencing.json` is a fence fixture: jobs with their attempt, fence and lease, events
-  from two instances, and the job after each event (`saved`, or `refused` with `written`).
+- `good/release_fencing.json` is a fence fixture: jobs with their attempt, fence, lease and queue
+  fields, events from two instances, and the job after each event (`saved`, or `refused` with
+  `written`). A `store.pause` event `from: "sink"` carries the `cause` and `log` of the sink's own
+  refusal; one without carries a worker reply's `error_cause` and `error_log`.
 - `bad/terminal_suffix_resume_faults.json` uses the suffix fixtures' form, and a record may also
   be a name from its `named` records, or `{of, set}`: a copy of a named record with `set`'s
   fields replaced. `boundary` is the index of the first record after the witness's
-  contributions. Each mutant names its `split` point, its `fault`, when it is `read` (at the
-  resume, or later), and whether `resolve_detail_records` alone, run on the records after the
-  boundary, `accepts` or `refuses` it. Every `accepts` case is a required worker refusal: only
-  the worker's suffix-membership check refuses it (3PO 6678848728).
+  contributions. Each mutant names its `split` point, its `fault`, when it is `read`
+  (`resume`: the resume at that split point reads it; `later_read`: the fault is in the first
+  part the resumed lease writes, read by the next resume in the epoch whose durable suffix holds
+  it), and whether `resolve_detail_records` alone, run on the records after the boundary,
+  `accepts` or `refuses` it. Each mutant and control is derived from its split point's durable
+  prefix, and the validator rebuilds it from that. Every `accepts` case is a required worker
+  refusal: only the worker's suffix-membership check refuses it (3PO 6678848728).
 - The files are data. Change them only together with the contract, then run the validator.
 
 Each row: the fixture, the rule or rules it exercises, the refusal it expects (`none` when
@@ -88,7 +107,8 @@ it is accepted), and what it exercises.
 | `good/lease_incremental_walk.json` | R2 R5 | none | a lease stats the verified segments, reads only `alt_cells`' newest and advances its verified head in one save; the next lease reads and saves nothing; a full read from the heads reads all and rebuilds the list |
 | `good/lease_after_refused_commit.json` | R2 R5 | none | a refused commit left `alt_cells#1` an orphan; the list was extended only after a save that returned, so the lease reads nothing and its payload leaves the orphan out |
 | `good/row_seen_compaction_next_frame.json` | F4 W1 W3 W4 | none | a frame with seven seals reaches a compaction boundary whose two seals would pass FRAME_SEALS: the step ends before it, the compaction runs first and whole in the next frame, a restart seals the same bytes, and a split the store accepts is one the worker never emits |
-| `good/release_fencing.json` | U1 U2 | none | reconciliation on one instance during a live lease on another: the lease's next commit is refused and writes nothing, its fence and attempt are unchanged, and a queued job keeps its attempt counter |
+| `good/release_fencing.json` | U1 U2 | none | reconciliation on one instance during a live lease on another: the lease's next commit is refused and writes nothing, its fence and attempt are unchanged, its pause carries the sink refusal's own cause and log, and a queued job keeps its attempt counter and queue fields |
+| `good/thrown_save_outcome_unknown.json` | R2 F3 F6 | none | a commit's record save throws: with a status, before the write, so only orphans change; without one, after the rename, so the outcome is unknown, the instance serves nothing, and the restart's full read rebuilds the lists from the durable heads, landed or not |
 | `good/unavailable_pause_reason.json` | U1 U2 | none | every release path and the saves after one: one save empties `logs` and `verified`; `unavailable` and the reason keep the released log names and their heads; the first trace wins; a released job is never requeued |
 | `bad/missing_segment.json` | R1 | DISCOVERY_UNAVAILABLE 409 segment_missing | the oldest `alt_cells` segment is gone; the store meeting it outside reconciliation says STORAGE_CORRUPT 503 |
 | `bad/reordered_segment.json` | R2 | DISCOVERY_UNAVAILABLE 409 chain_broken | the two `alt_cells` paths are swapped |
@@ -104,9 +124,10 @@ it is accepted), and what it exercises.
 | `bad/witness_mismatch.json` | S2 | RESULT_EXPIRED 410 | BB8's five mutants, one per witness field, a contribution after the terminal suffix, a missing detail part and a null witness |
 | `bad/epoch_backwards.json` | W2 | READER_PROTOCOL 400 | a frame at epoch 3 on a record at epoch 5 |
 | `bad/cursor_record_disagreement.json` | W4 | READER_PROTOCOL 400 | the cursor's `sealed_digest` for `seen` differs from the record's |
-| `bad/alt_seen_over_cap.json` | W7 | RESOURCE_LIMIT discovery_alt_seen | `alt_seen` at `ALT_SEEN_ENTRIES` and one more key in the tail; a store sent the frame refuses READER_PROTOCOL 400; the control reaches the cap exactly and passes |
+| `bad/membership_over_cap.json` | W7 | RESOURCE_LIMIT | for each of `seen`, `variants`, `row_seen` and `alt_seen`, a frame whose append takes the four logs one past `MEMBERSHIP_ENTRIES`: the worker names `discovery_<log>`, a store sent it refuses READER_PROTOCOL 400; a control per log reaches the cap exactly and passes |
+| `bad/segment_corrupt_at_reconciliation.json` | F6 | DISCOVERY_UNAVAILABLE 409 segment_corrupt | one byte of `alt_cells#1` changed: reconciliation releases that job alone with `segment_corrupt`, logged at error level, and the store does not fail; a lease's walk refuses STORAGE_CORRUPT 503 and releases nothing; `resume()`'s full read releases it too; a structural fault is `chain_broken` |
 | `bad/verified_ahead_of_head.json` | R5 | STORAGE_CORRUPT 503 | `alt_cells`' verified head is a segment past its head; the lease's walk refuses before reading and releases nothing; `resume()`'s full read passes and saves the corrected verified heads |
 | `bad/cursor_over_bound.json` | W4 | READER_PROTOCOL 400 | the largest cursor §3.1's inputs allow (142,912 bytes) and one of exactly CURSOR_BYTES pass; one byte over fails W4 and is the worker's INVARIANT_FAILURE; a refusal one byte over REFUSAL_BYTES fails W4 and is the worker's RESOURCE_LIMIT cursor_refusal_bytes |
-| `bad/reply_cause_invalid.json` | C1 | READER_PROTOCOL | a missing, unknown or cross-code cause, a cause on a code that takes none, a cut and a non-string echo, and a log outside the set: each pauses READER_PROTOCOL naming the bad value, releasing nothing; valid causes pause as before |
-| `bad/terminal_suffix_resume_faults.json` | S2 | RESULT_EXPIRED 410 | at three split points of a four-part terminal detail: fifteen faults resolve_detail_records refuses, and the nine it accepts that the worker's suffix-membership check must refuse; the durable prefixes and the complete suffix pass |
+| `bad/reply_cause_invalid.json` | C1 | READER_PROTOCOL | for each of the two codes a missing, an unknown and a cross-code cause, the store's own cause from a worker, a cause on a code that takes none, a cut and a non-string echo, a log outside the set, missing where its cause needs one, or on a cause or code that takes none: each pauses READER_PROTOCOL naming the bad value, releasing nothing; valid replies, sink errors and a bridge failure pause as before |
+| `bad/terminal_suffix_resume_faults.json` | S2 | RESULT_EXPIRED 410 | at three split points of a four-part terminal detail: fifteen faults resolve_detail_records refuses, and the nine it accepts that the worker's suffix-membership check must refuse; the durable prefixes, the complete suffix and a part whose schema_name alone changes pass |
 | `bad/terminal_suffix_not_contiguous.json` | S2 | RESULT_EXPIRED 410 | the terminal suffix broken by a contribution, another method's record or part, a contribution's part, a part out of its parent's run, or a part that breaks `resolve_detail_records` (cut off, duplicated, wrong index, total, detail id or bytes); the contiguous controls pass |

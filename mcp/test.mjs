@@ -5456,7 +5456,11 @@ await check('validation: actionable errors', () => {
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/good/unavailable_pause_reason.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
-      'mcp/fixtures/discovery_v1/bad/alt_seen_over_cap.json':
+      'mcp/fixtures/discovery_v1/bad/membership_over_cap.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/segment_corrupt_at_reconciliation.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/good/thrown_save_outcome_unknown.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/terminal_suffix_not_contiguous.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',

@@ -2,7 +2,7 @@
   "fixture": "bad/terminal_suffix_resume_faults.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "witness",
-  "exercises": "The four contributions of good/witness_cursor_option2.json, then a terminal record whose domain detail is four parts, emitted across frames. A resume reads durable history at three split points: after the parent, after part 0 and after part 1, and each durable prefix is accepted (the controls), as is the complete suffix. At each split point, a fault at the junction, in the first part the resumed lease writes, read back later: a missing part, reordered parts, a stale part of an earlier emission, a changed part and a wrong parent id. resolve_detail_records refuses each of these fifteen itself. Then the nine it accepts, which the worker's suffix-membership check must refuse: a junction part of another method, read back later, and, read at the resume itself, a terminal parent of another method and a contribution inserted before the parent. All twenty-four refuse RESULT_EXPIRED.",
+  "exercises": "The four contributions of good/witness_cursor_option2.json, then a terminal record whose domain detail is four parts, emitted across frames. A resume reads durable history at three split points: after the parent, after part 0 and after part 1, and each durable prefix is accepted (the controls), as is the complete suffix. Each mutant is derived from its split point's durable prefix. Read later (read: later_read): the prefix, then the remaining parts with one fault at the first part the resumed lease writes, read by the next resume in the epoch whose durable suffix holds it: a missing part, reordered parts, a stale part of an earlier emission, a changed part, a wrong parent id, and a part of another method. Read at the resume (read: resume): the prefix with its terminal parent of another method, or with a contribution inserted before the parent. resolve_detail_records refuses the first five itself at each split point (fifteen). It accepts the other nine, which the worker's suffix-membership check, run before resolving, must refuse: membership is method_id equal to the witness's, on the parent and on every part, and no other field counts, so a part whose schema_name alone changes is accepted (a control). All twenty-four refuse RESULT_EXPIRED.",
   "expect": {
     "accepted": false,
     "rule": "S2",
@@ -107,6 +107,22 @@
     {
       "name": "complete",
       "records": [0, 1, 2, 3, 4, "P", "d0", "d1", "d2", "d3"]
+    },
+    {
+      "name": "after_part_0_schema_name_only",
+      "split": "after_part_0",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        "P",
+        "d0",
+        { "of": "d1", "set": { "schema_name": "internal rhyme" } },
+        "d2",
+        "d3"
+      ]
     }
   ],
   "mutants": [

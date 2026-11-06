@@ -139,8 +139,9 @@
           "by": "store.pause",
           "code": "DISCOVERY_UNAVAILABLE",
           "requeue": false,
-          "error_cause": "chain_broken",
-          "error_log": "alt_cells"
+          "from": "sink",
+          "cause": "chain_broken",
+          "log": "alt_cells"
         }
       ],
       "expect": {

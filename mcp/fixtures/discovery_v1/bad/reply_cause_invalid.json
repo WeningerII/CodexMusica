@@ -2,7 +2,7 @@
   "fixture": "bad/reply_cause_invalid.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "reply",
-  "exercises": "The record of good/unavailable_pause_reason.json on a running lease, and failed worker replies the scheduler checks before it pauses the job (C1). DISCOVERY_UNAVAILABLE and RESOURCE_LIMIT each need a cause from their own set, any other code carries none, and error_log is absent or a discovery log. Each mutant is a protocol failure: the job pauses with READER_PROTOCOL, naming the bad value verbatim, cut to 64 bytes at a character boundary, and nothing is released or stored as a cause. After a release, U2 keeps the copied reason and the bad value is logged. The controls name a valid cause or none, and pause as before.",
+  "exercises": "The record of good/unavailable_pause_reason.json on a running lease. A reply is the bridge's result for the worker's own final frame, marked reply: true, carrying error_code, error_cause and error_log; the scheduler checks it before it pauses the job (C1). DISCOVERY_UNAVAILABLE needs a cause from the worker's six (segment_corrupt is the store's alone) and RESOURCE_LIMIT one from its eleven; any other code carries none. error_log is a discovery log where the cause is about one log, may be left out where the cause takes one optionally, and is absent everywhere else. Each mutant is a protocol failure: the job pauses with READER_PROTOCOL, naming the bad value verbatim, cut to 64 bytes at a character boundary, and nothing is released or stored as a cause; for each of the two codes there is a missing, an unknown and a cross-code cause. After a release, U2 keeps the copied reason and the bad value is logged. The controls pause as before: valid replies, two errors a Node sink threw (packing's RESOURCE_LIMIT and the record bound's 413, each without a cause), a sink's DISCOVERY_UNAVAILABLE that carries its cause and log through to the pause and logs no bad value, and a bridge failure with no worker reply.",
   "expect": {
     "accepted": false,
     "rule": "C1",
@@ -60,6 +60,7 @@
     {
       "name": "unavailable_without_a_cause",
       "reply": {
+        "reply": true,
         "error_code": "DISCOVERY_UNAVAILABLE"
       },
       "expect": {
@@ -78,6 +79,7 @@
     {
       "name": "unavailable_with_an_unknown_cause",
       "reply": {
+        "reply": true,
         "error_code": "DISCOVERY_UNAVAILABLE",
         "error_cause": "segment_gone",
         "error_log": "alt_cells"
@@ -98,6 +100,7 @@
     {
       "name": "unavailable_with_a_resource_cause",
       "reply": {
+        "reply": true,
         "error_code": "DISCOVERY_UNAVAILABLE",
         "error_cause": "discovery_alt_seen"
       },
@@ -115,8 +118,30 @@
       }
     },
     {
+      "name": "unavailable_with_the_store_cause",
+      "reply": {
+        "reply": true,
+        "error_code": "DISCOVERY_UNAVAILABLE",
+        "error_cause": "segment_corrupt",
+        "error_log": "alt_cells"
+      },
+      "expect": {
+        "state": "paused",
+        "deferred_requeue": false,
+        "discovery": "unchanged",
+        "reason": {
+          "code": "READER_PROTOCOL",
+          "reply_code": "DISCOVERY_UNAVAILABLE",
+          "field": "error_cause",
+          "value": "segment_corrupt",
+          "message": "The reader worker replied DISCOVERY_UNAVAILABLE with the cause \"segment_corrupt\", which DISCOVERY_UNAVAILABLE does not take."
+        }
+      }
+    },
+    {
       "name": "resource_limit_without_a_cause",
       "reply": {
+        "reply": true,
         "error_code": "RESOURCE_LIMIT"
       },
       "expect": {
@@ -135,6 +160,7 @@
     {
       "name": "resource_limit_with_an_unknown_cause",
       "reply": {
+        "reply": true,
         "error_code": "RESOURCE_LIMIT",
         "error_cause": "discovery_frame_bytes"
       },
@@ -154,6 +180,7 @@
     {
       "name": "resource_limit_with_an_unavailable_cause",
       "reply": {
+        "reply": true,
         "error_code": "RESOURCE_LIMIT",
         "error_cause": "chain_broken",
         "error_log": "alt_cells"
@@ -174,6 +201,7 @@
     {
       "name": "another_code_with_a_cause",
       "reply": {
+        "reply": true,
         "error_code": "STALE_READING",
         "error_cause": "chain_broken"
       },
@@ -193,6 +221,7 @@
     {
       "name": "a_cause_past_the_echo_bound",
       "reply": {
+        "reply": true,
         "error_code": "DISCOVERY_UNAVAILABLE",
         "error_cause": "segment_missing_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxéand more"
       },
@@ -212,6 +241,7 @@
     {
       "name": "a_cause_that_is_not_a_string",
       "reply": {
+        "reply": true,
         "error_code": "DISCOVERY_UNAVAILABLE",
         "error_cause": {
           "cause": "chain_broken"
@@ -233,6 +263,7 @@
     {
       "name": "a_log_outside_the_set",
       "reply": {
+        "reply": true,
         "error_code": "DISCOVERY_UNAVAILABLE",
         "error_cause": "segment_missing",
         "error_log": "alt_cellz"
@@ -251,12 +282,74 @@
       }
     },
     {
+      "name": "a_cause_without_its_log",
+      "reply": {
+        "reply": true,
+        "error_code": "DISCOVERY_UNAVAILABLE",
+        "error_cause": "segment_missing"
+      },
+      "expect": {
+        "state": "paused",
+        "deferred_requeue": false,
+        "discovery": "unchanged",
+        "reason": {
+          "code": "READER_PROTOCOL",
+          "reply_code": "DISCOVERY_UNAVAILABLE",
+          "field": "error_log",
+          "value": null,
+          "message": "The reader worker replied DISCOVERY_UNAVAILABLE with the cause \"segment_missing\" and no log."
+        }
+      }
+    },
+    {
+      "name": "a_log_on_a_cause_without_one",
+      "reply": {
+        "reply": true,
+        "error_code": "DISCOVERY_UNAVAILABLE",
+        "error_cause": "inventory_mismatch",
+        "error_log": "seen"
+      },
+      "expect": {
+        "state": "paused",
+        "deferred_requeue": false,
+        "discovery": "unchanged",
+        "reason": {
+          "code": "READER_PROTOCOL",
+          "reply_code": "DISCOVERY_UNAVAILABLE",
+          "field": "error_log",
+          "value": "seen",
+          "message": "The reader worker replied DISCOVERY_UNAVAILABLE with the log \"seen\", which inventory_mismatch does not take."
+        }
+      }
+    },
+    {
+      "name": "a_log_on_a_code_without_a_cause",
+      "reply": {
+        "reply": true,
+        "error_code": "STALE_READING",
+        "error_log": "seen"
+      },
+      "expect": {
+        "state": "paused",
+        "deferred_requeue": false,
+        "discovery": "unchanged",
+        "reason": {
+          "code": "READER_PROTOCOL",
+          "reply_code": "STALE_READING",
+          "field": "error_log",
+          "value": "seen",
+          "message": "The reader worker replied STALE_READING with the log \"seen\", which STALE_READING does not take."
+        }
+      }
+    },
+    {
       "name": "after_a_release",
       "released": {
         "cause": "chain_broken",
         "log": "alt_cells"
       },
       "reply": {
+        "reply": true,
         "error_code": "DISCOVERY_UNAVAILABLE"
       },
       "expect": {
@@ -285,6 +378,7 @@
     {
       "name": "unavailable_with_its_cause",
       "reply": {
+        "reply": true,
         "error_code": "DISCOVERY_UNAVAILABLE",
         "error_cause": "segment_missing",
         "error_log": "alt_cells"
@@ -320,8 +414,46 @@
       }
     },
     {
+      "name": "unavailable_with_an_optional_log_left_out",
+      "reply": {
+        "reply": true,
+        "error_code": "DISCOVERY_UNAVAILABLE",
+        "error_cause": "cursor_disagrees"
+      },
+      "expect": {
+        "state": "paused",
+        "deferred_requeue": false,
+        "discovery": {
+          "version": 1,
+          "epoch": 0,
+          "logs": {},
+          "verified": {},
+          "unavailable": {
+            "cause": "cursor_disagrees",
+            "log": null,
+            "released": {
+              "seen": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
+              "alt_cells": "b4dfde4184d32c3f043afd401bc99903d99b3ea75b08b1d76a14b3f4bdf8a2fa",
+              "variants": null
+            }
+          }
+        },
+        "reason": {
+          "code": "DISCOVERY_UNAVAILABLE",
+          "cause": "cursor_disagrees",
+          "log": null,
+          "released": {
+            "seen": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
+            "alt_cells": "b4dfde4184d32c3f043afd401bc99903d99b3ea75b08b1d76a14b3f4bdf8a2fa",
+            "variants": null
+          }
+        }
+      }
+    },
+    {
       "name": "resource_limit_with_its_cause",
       "reply": {
+        "reply": true,
         "error_code": "RESOURCE_LIMIT",
         "error_cause": "discovery_alt_seen"
       },
@@ -336,8 +468,27 @@
       }
     },
     {
+      "name": "resource_limit_with_a_log",
+      "reply": {
+        "reply": true,
+        "error_code": "RESOURCE_LIMIT",
+        "error_cause": "discovery_chain_segments",
+        "error_log": "seen"
+      },
+      "expect": {
+        "state": "paused",
+        "deferred_requeue": false,
+        "discovery": "unchanged",
+        "reason": {
+          "code": "RESOURCE_LIMIT",
+          "cause": "discovery_chain_segments"
+        }
+      }
+    },
+    {
       "name": "resident_capacity",
       "reply": {
+        "reply": true,
         "error_code": "RESOURCE_LIMIT",
         "error_cause": "resident_capacity"
       },
@@ -352,8 +503,26 @@
       }
     },
     {
+      "name": "declared_coordinate_bits",
+      "reply": {
+        "reply": true,
+        "error_code": "RESOURCE_LIMIT",
+        "error_cause": "declared_coordinate_bits"
+      },
+      "expect": {
+        "state": "paused",
+        "deferred_requeue": false,
+        "discovery": "unchanged",
+        "reason": {
+          "code": "RESOURCE_LIMIT",
+          "cause": "declared_coordinate_bits"
+        }
+      }
+    },
+    {
       "name": "another_code_without_a_cause",
       "reply": {
+        "reply": true,
         "error_code": "STALE_READING"
       },
       "expect": {
@@ -362,6 +531,79 @@
         "discovery": "unchanged",
         "reason": {
           "code": "STALE_READING"
+        }
+      }
+    },
+    {
+      "name": "sink_resource_limit_from_packing",
+      "sink": {
+        "code": "RESOURCE_LIMIT",
+        "status": null
+      },
+      "expect": {
+        "state": "paused",
+        "deferred_requeue": false,
+        "discovery": "unchanged",
+        "reason": {
+          "code": "RESOURCE_LIMIT"
+        }
+      }
+    },
+    {
+      "name": "sink_record_bound",
+      "sink": {
+        "code": "RESOURCE_LIMIT",
+        "status": 413
+      },
+      "expect": {
+        "state": "paused",
+        "deferred_requeue": false,
+        "discovery": "unchanged",
+        "reason": {
+          "code": "RESOURCE_LIMIT"
+        }
+      }
+    },
+    {
+      "name": "sink_discovery_unavailable",
+      "released": {
+        "cause": "chain_broken",
+        "log": "alt_cells"
+      },
+      "sink": {
+        "code": "DISCOVERY_UNAVAILABLE",
+        "status": 409,
+        "cause": "chain_broken",
+        "log": "alt_cells"
+      },
+      "expect": {
+        "state": "paused",
+        "deferred_requeue": false,
+        "discovery": "unchanged",
+        "reason": {
+          "code": "DISCOVERY_UNAVAILABLE",
+          "cause": "chain_broken",
+          "log": "alt_cells",
+          "released": {
+            "seen": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
+            "alt_cells": "b4dfde4184d32c3f043afd401bc99903d99b3ea75b08b1d76a14b3f4bdf8a2fa",
+            "variants": null
+          }
+        }
+      }
+    },
+    {
+      "name": "bridge_failure_without_a_reply",
+      "bridge": {
+        "code": -1,
+        "error_code": "READER_PROTOCOL"
+      },
+      "expect": {
+        "state": "paused",
+        "deferred_requeue": false,
+        "discovery": "unchanged",
+        "reason": {
+          "code": "READER_PROTOCOL"
         }
       }
     }

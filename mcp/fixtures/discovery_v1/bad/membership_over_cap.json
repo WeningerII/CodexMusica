@@ -1,0 +1,1014 @@
+{
+  "fixture": "bad/membership_over_cap.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "limit",
+  "exercises": "The four membership logs share one cap, MEMBERSHIP_ENTRIES (32,768): seen, variants, row_seen and alt_seen, each sealed and tail together. One case per log, at the phase that appends to it: variants in preparation, seen and row_seen in the primary traversal, alt_seen (with row_seen) in the alternates. Each record holds 32,767 entries across the logs of its phase, named by their totals only (synthetic: the write path reads no segment). Each mutant appends two entries to one log, so the sum passes the cap by one: the worker refuses with RESOURCE_LIMIT, naming the log whose append passes it (discovery_seen, discovery_variants, discovery_row_seen or discovery_alt_seen), instead of emitting the frame; a store sent it refuses it by W7, and every other rule passes. Each control appends one entry to the same log: the sum is exactly MEMBERSHIP_ENTRIES, which is accepted. #656 holds 20,045 (seen and variants), within the cap; at 16,384 it would not be.",
+  "expect": {
+    "accepted": false,
+    "rule": "W7",
+    "code": "RESOURCE_LIMIT",
+    "store": {
+      "code": "READER_PROTOCOL",
+      "status": 400
+    },
+    "written": "nothing"
+  },
+  "job_id": "reader_b90c9463724ad5086c4f8548f57e93eb31716e4b23f26eec7f01fe663a8a641a",
+  "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+  "mutants": [
+    {
+      "name": "variants_passes_the_cap",
+      "log": "variants",
+      "record": {
+        "discovery": {
+          "version": 1,
+          "epoch": 3,
+          "logs": {
+            "variants": {
+              "head": "a82a4a7468b0bf2ad09748f99f0c37b34da84a264641327098d4b7c8ca03c7dc",
+              "segments": 32,
+              "count": 32767,
+              "digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666"
+            }
+          },
+          "verified": {
+            "variants": {
+              "head": "a82a4a7468b0bf2ad09748f99f0c37b34da84a264641327098d4b7c8ca03c7dc",
+              "segments": 32,
+              "count": 32767,
+              "digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666"
+            }
+          },
+          "unavailable": null
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 32767,
+                "sealed_digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666",
+                "tail": []
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90000
+          }
+        }
+      },
+      "frame": {
+        "discovery": {
+          "epoch": 3,
+          "resets": [],
+          "seals": []
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 32767,
+                "sealed_digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666",
+                "tail": [
+                  ["L12", "tok:3", "r:2", 0],
+                  ["L12", "tok:3", "r:2", 1]
+                ]
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90001
+          }
+        }
+      },
+      "worker": {
+        "code": "RESOURCE_LIMIT",
+        "cause": "discovery_variants"
+      }
+    },
+    {
+      "name": "seen_passes_the_cap",
+      "log": "seen",
+      "record": {
+        "discovery": {
+          "version": 1,
+          "epoch": 3,
+          "logs": {
+            "variants": {
+              "head": "22120a2072fbe0707621a25095b49adda76ce33ccac562ce3de28634edb41d31",
+              "segments": 1,
+              "count": 165,
+              "digest": "b85eff95a272027c411143d2214984bc320d3c2ffcdbf0d81773b67e157d9ced"
+            },
+            "seen": {
+              "head": "a937a891f5c8c1642c4b483758126ef19b4d671a3f36e0a5f1e284d04b960dc0",
+              "segments": 32,
+              "count": 32090,
+              "digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82"
+            },
+            "row_seen": {
+              "head": "bd74d728620b6388103311b1e399746aa112f7954b921c5afd2080fb62697a1b",
+              "segments": 1,
+              "count": 512,
+              "digest": "09f85dcb0698faf3dfb55485f211a4800084be50a7a29f633556f8783d50e3a7"
+            }
+          },
+          "verified": {
+            "variants": {
+              "head": "22120a2072fbe0707621a25095b49adda76ce33ccac562ce3de28634edb41d31",
+              "segments": 1,
+              "count": 165,
+              "digest": "b85eff95a272027c411143d2214984bc320d3c2ffcdbf0d81773b67e157d9ced"
+            },
+            "seen": {
+              "head": "a937a891f5c8c1642c4b483758126ef19b4d671a3f36e0a5f1e284d04b960dc0",
+              "segments": 32,
+              "count": 32090,
+              "digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82"
+            },
+            "row_seen": {
+              "head": "bd74d728620b6388103311b1e399746aa112f7954b921c5afd2080fb62697a1b",
+              "segments": 1,
+              "count": 512,
+              "digest": "09f85dcb0698faf3dfb55485f211a4800084be50a7a29f633556f8783d50e3a7"
+            }
+          },
+          "unavailable": null
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 165,
+                "sealed_digest": "b85eff95a272027c411143d2214984bc320d3c2ffcdbf0d81773b67e157d9ced",
+                "tail": []
+              },
+              "seen": {
+                "sealed": 32090,
+                "sealed_digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82",
+                "tail": []
+              },
+              "row_seen": {
+                "sealed": 512,
+                "sealed_digest": "09f85dcb0698faf3dfb55485f211a4800084be50a7a29f633556f8783d50e3a7",
+                "tail": []
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90000
+          }
+        }
+      },
+      "frame": {
+        "discovery": {
+          "epoch": 3,
+          "resets": [],
+          "seals": []
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 165,
+                "sealed_digest": "b85eff95a272027c411143d2214984bc320d3c2ffcdbf0d81773b67e157d9ced",
+                "tail": []
+              },
+              "seen": {
+                "sealed": 32090,
+                "sealed_digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82",
+                "tail": [
+                  ["12:1", "12:4", 0],
+                  ["12:1", "12:4", 1]
+                ]
+              },
+              "row_seen": {
+                "sealed": 512,
+                "sealed_digest": "09f85dcb0698faf3dfb55485f211a4800084be50a7a29f633556f8783d50e3a7",
+                "tail": []
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90001
+          }
+        }
+      },
+      "worker": {
+        "code": "RESOURCE_LIMIT",
+        "cause": "discovery_seen"
+      }
+    },
+    {
+      "name": "row_seen_passes_the_cap",
+      "log": "row_seen",
+      "record": {
+        "discovery": {
+          "version": 1,
+          "epoch": 3,
+          "logs": {
+            "variants": {
+              "head": "7453b77de283b2c83b3544d54e10f87cde7fb0b93ae2910000ea4a4cd4241034",
+              "segments": 1,
+              "count": 165,
+              "digest": "2c4a2f42290e919c4fdd637744988755ff895b26d387549b4a1a0b8db751988d"
+            },
+            "seen": {
+              "head": "1667ebd3ed74a66ae699e123e06c24059609f8d700057d0914335dcb4fd24d12",
+              "segments": 20,
+              "count": 20480,
+              "digest": "372f115855df1236a85e6d4cb99d09d995fb5194b795b18e18947c9e0183492b"
+            },
+            "row_seen": {
+              "head": "fe4668268590deb926b9060b65147cf1f51baa74be000364622ff7b636ea2b4d",
+              "segments": 12,
+              "count": 12122,
+              "digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12"
+            }
+          },
+          "verified": {
+            "variants": {
+              "head": "7453b77de283b2c83b3544d54e10f87cde7fb0b93ae2910000ea4a4cd4241034",
+              "segments": 1,
+              "count": 165,
+              "digest": "2c4a2f42290e919c4fdd637744988755ff895b26d387549b4a1a0b8db751988d"
+            },
+            "seen": {
+              "head": "1667ebd3ed74a66ae699e123e06c24059609f8d700057d0914335dcb4fd24d12",
+              "segments": 20,
+              "count": 20480,
+              "digest": "372f115855df1236a85e6d4cb99d09d995fb5194b795b18e18947c9e0183492b"
+            },
+            "row_seen": {
+              "head": "fe4668268590deb926b9060b65147cf1f51baa74be000364622ff7b636ea2b4d",
+              "segments": 12,
+              "count": 12122,
+              "digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12"
+            }
+          },
+          "unavailable": null
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 165,
+                "sealed_digest": "2c4a2f42290e919c4fdd637744988755ff895b26d387549b4a1a0b8db751988d",
+                "tail": []
+              },
+              "seen": {
+                "sealed": 20480,
+                "sealed_digest": "372f115855df1236a85e6d4cb99d09d995fb5194b795b18e18947c9e0183492b",
+                "tail": []
+              },
+              "row_seen": {
+                "sealed": 12122,
+                "sealed_digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12",
+                "tail": []
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90000
+          }
+        }
+      },
+      "frame": {
+        "discovery": {
+          "epoch": 3,
+          "resets": [],
+          "seals": []
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 165,
+                "sealed_digest": "2c4a2f42290e919c4fdd637744988755ff895b26d387549b4a1a0b8db751988d",
+                "tail": []
+              },
+              "seen": {
+                "sealed": 20480,
+                "sealed_digest": "372f115855df1236a85e6d4cb99d09d995fb5194b795b18e18947c9e0183492b",
+                "tail": []
+              },
+              "row_seen": {
+                "sealed": 12122,
+                "sealed_digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12",
+                "tail": [
+                  ["r:12", 4, 0],
+                  ["r:12", 4, 1]
+                ]
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90001
+          }
+        }
+      },
+      "worker": {
+        "code": "RESOURCE_LIMIT",
+        "cause": "discovery_row_seen"
+      }
+    },
+    {
+      "name": "alt_seen_passes_the_cap",
+      "log": "alt_seen",
+      "record": {
+        "discovery": {
+          "version": 1,
+          "epoch": 3,
+          "logs": {
+            "variants": {
+              "head": "a7d03cdc04dcc9b3ac72c6b5d8f0a1ad467f6ad53124bdab0cf228e87daa356e",
+              "segments": 1,
+              "count": 165,
+              "digest": "fa352c36fa841f5df5f227f0d5c47a35db6b954e099457451196d2c03c7b1375"
+            },
+            "seen": {
+              "head": "c3adb5eba7f0b62c4c1db6faf7d8e5217d994444452f748ab06cf7322ae5b331",
+              "segments": 20,
+              "count": 19880,
+              "digest": "0cd27ca81355f1a2fa9d488a06270071f450cbc9e9ba6b9f8732d0e8e6e857bb"
+            },
+            "row_seen": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "0e3c1c4ad79161d8d8d41343cd641d74139a82fe1049635899de39e8f8af6737"
+            },
+            "alt_seen": {
+              "head": "0ef432febc972c868db22fcf895d7d24746b51537f98aa3cebb636c31d6bf294",
+              "segments": 13,
+              "count": 12722,
+              "digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb"
+            }
+          },
+          "verified": {
+            "variants": {
+              "head": "a7d03cdc04dcc9b3ac72c6b5d8f0a1ad467f6ad53124bdab0cf228e87daa356e",
+              "segments": 1,
+              "count": 165,
+              "digest": "fa352c36fa841f5df5f227f0d5c47a35db6b954e099457451196d2c03c7b1375"
+            },
+            "seen": {
+              "head": "c3adb5eba7f0b62c4c1db6faf7d8e5217d994444452f748ab06cf7322ae5b331",
+              "segments": 20,
+              "count": 19880,
+              "digest": "0cd27ca81355f1a2fa9d488a06270071f450cbc9e9ba6b9f8732d0e8e6e857bb"
+            },
+            "row_seen": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "0e3c1c4ad79161d8d8d41343cd641d74139a82fe1049635899de39e8f8af6737"
+            },
+            "alt_seen": {
+              "head": "0ef432febc972c868db22fcf895d7d24746b51537f98aa3cebb636c31d6bf294",
+              "segments": 13,
+              "count": 12722,
+              "digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb"
+            }
+          },
+          "unavailable": null
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 165,
+                "sealed_digest": "fa352c36fa841f5df5f227f0d5c47a35db6b954e099457451196d2c03c7b1375",
+                "tail": []
+              },
+              "seen": {
+                "sealed": 19880,
+                "sealed_digest": "0cd27ca81355f1a2fa9d488a06270071f450cbc9e9ba6b9f8732d0e8e6e857bb",
+                "tail": []
+              },
+              "row_seen": {
+                "sealed": 0,
+                "sealed_digest": "0e3c1c4ad79161d8d8d41343cd641d74139a82fe1049635899de39e8f8af6737",
+                "tail": []
+              },
+              "alt_seen": {
+                "sealed": 12722,
+                "sealed_digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb",
+                "tail": []
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90000
+          }
+        }
+      },
+      "frame": {
+        "discovery": {
+          "epoch": 3,
+          "resets": [],
+          "seals": []
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 165,
+                "sealed_digest": "fa352c36fa841f5df5f227f0d5c47a35db6b954e099457451196d2c03c7b1375",
+                "tail": []
+              },
+              "seen": {
+                "sealed": 19880,
+                "sealed_digest": "0cd27ca81355f1a2fa9d488a06270071f450cbc9e9ba6b9f8732d0e8e6e857bb",
+                "tail": []
+              },
+              "row_seen": {
+                "sealed": 0,
+                "sealed_digest": "0e3c1c4ad79161d8d8d41343cd641d74139a82fe1049635899de39e8f8af6737",
+                "tail": []
+              },
+              "alt_seen": {
+                "sealed": 12722,
+                "sealed_digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb",
+                "tail": [
+                  ["12:1", "12:4", 0],
+                  ["12:1", "12:4", 1]
+                ]
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90001
+          }
+        }
+      },
+      "worker": {
+        "code": "RESOURCE_LIMIT",
+        "cause": "discovery_alt_seen"
+      }
+    }
+  ],
+  "controls": [
+    {
+      "name": "variants_reaches_the_cap",
+      "log": "variants",
+      "record": {
+        "discovery": {
+          "version": 1,
+          "epoch": 3,
+          "logs": {
+            "variants": {
+              "head": "a82a4a7468b0bf2ad09748f99f0c37b34da84a264641327098d4b7c8ca03c7dc",
+              "segments": 32,
+              "count": 32767,
+              "digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666"
+            }
+          },
+          "verified": {
+            "variants": {
+              "head": "a82a4a7468b0bf2ad09748f99f0c37b34da84a264641327098d4b7c8ca03c7dc",
+              "segments": 32,
+              "count": 32767,
+              "digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666"
+            }
+          },
+          "unavailable": null
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 32767,
+                "sealed_digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666",
+                "tail": []
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90000
+          }
+        }
+      },
+      "frame": {
+        "discovery": {
+          "epoch": 3,
+          "resets": [],
+          "seals": []
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 32767,
+                "sealed_digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666",
+                "tail": [["L12", "tok:3", "r:2", 0]]
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90001
+          }
+        }
+      }
+    },
+    {
+      "name": "seen_reaches_the_cap",
+      "log": "seen",
+      "record": {
+        "discovery": {
+          "version": 1,
+          "epoch": 3,
+          "logs": {
+            "variants": {
+              "head": "22120a2072fbe0707621a25095b49adda76ce33ccac562ce3de28634edb41d31",
+              "segments": 1,
+              "count": 165,
+              "digest": "b85eff95a272027c411143d2214984bc320d3c2ffcdbf0d81773b67e157d9ced"
+            },
+            "seen": {
+              "head": "a937a891f5c8c1642c4b483758126ef19b4d671a3f36e0a5f1e284d04b960dc0",
+              "segments": 32,
+              "count": 32090,
+              "digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82"
+            },
+            "row_seen": {
+              "head": "bd74d728620b6388103311b1e399746aa112f7954b921c5afd2080fb62697a1b",
+              "segments": 1,
+              "count": 512,
+              "digest": "09f85dcb0698faf3dfb55485f211a4800084be50a7a29f633556f8783d50e3a7"
+            }
+          },
+          "verified": {
+            "variants": {
+              "head": "22120a2072fbe0707621a25095b49adda76ce33ccac562ce3de28634edb41d31",
+              "segments": 1,
+              "count": 165,
+              "digest": "b85eff95a272027c411143d2214984bc320d3c2ffcdbf0d81773b67e157d9ced"
+            },
+            "seen": {
+              "head": "a937a891f5c8c1642c4b483758126ef19b4d671a3f36e0a5f1e284d04b960dc0",
+              "segments": 32,
+              "count": 32090,
+              "digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82"
+            },
+            "row_seen": {
+              "head": "bd74d728620b6388103311b1e399746aa112f7954b921c5afd2080fb62697a1b",
+              "segments": 1,
+              "count": 512,
+              "digest": "09f85dcb0698faf3dfb55485f211a4800084be50a7a29f633556f8783d50e3a7"
+            }
+          },
+          "unavailable": null
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 165,
+                "sealed_digest": "b85eff95a272027c411143d2214984bc320d3c2ffcdbf0d81773b67e157d9ced",
+                "tail": []
+              },
+              "seen": {
+                "sealed": 32090,
+                "sealed_digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82",
+                "tail": []
+              },
+              "row_seen": {
+                "sealed": 512,
+                "sealed_digest": "09f85dcb0698faf3dfb55485f211a4800084be50a7a29f633556f8783d50e3a7",
+                "tail": []
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90000
+          }
+        }
+      },
+      "frame": {
+        "discovery": {
+          "epoch": 3,
+          "resets": [],
+          "seals": []
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 165,
+                "sealed_digest": "b85eff95a272027c411143d2214984bc320d3c2ffcdbf0d81773b67e157d9ced",
+                "tail": []
+              },
+              "seen": {
+                "sealed": 32090,
+                "sealed_digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82",
+                "tail": [["12:1", "12:4", 0]]
+              },
+              "row_seen": {
+                "sealed": 512,
+                "sealed_digest": "09f85dcb0698faf3dfb55485f211a4800084be50a7a29f633556f8783d50e3a7",
+                "tail": []
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90001
+          }
+        }
+      }
+    },
+    {
+      "name": "row_seen_reaches_the_cap",
+      "log": "row_seen",
+      "record": {
+        "discovery": {
+          "version": 1,
+          "epoch": 3,
+          "logs": {
+            "variants": {
+              "head": "7453b77de283b2c83b3544d54e10f87cde7fb0b93ae2910000ea4a4cd4241034",
+              "segments": 1,
+              "count": 165,
+              "digest": "2c4a2f42290e919c4fdd637744988755ff895b26d387549b4a1a0b8db751988d"
+            },
+            "seen": {
+              "head": "1667ebd3ed74a66ae699e123e06c24059609f8d700057d0914335dcb4fd24d12",
+              "segments": 20,
+              "count": 20480,
+              "digest": "372f115855df1236a85e6d4cb99d09d995fb5194b795b18e18947c9e0183492b"
+            },
+            "row_seen": {
+              "head": "fe4668268590deb926b9060b65147cf1f51baa74be000364622ff7b636ea2b4d",
+              "segments": 12,
+              "count": 12122,
+              "digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12"
+            }
+          },
+          "verified": {
+            "variants": {
+              "head": "7453b77de283b2c83b3544d54e10f87cde7fb0b93ae2910000ea4a4cd4241034",
+              "segments": 1,
+              "count": 165,
+              "digest": "2c4a2f42290e919c4fdd637744988755ff895b26d387549b4a1a0b8db751988d"
+            },
+            "seen": {
+              "head": "1667ebd3ed74a66ae699e123e06c24059609f8d700057d0914335dcb4fd24d12",
+              "segments": 20,
+              "count": 20480,
+              "digest": "372f115855df1236a85e6d4cb99d09d995fb5194b795b18e18947c9e0183492b"
+            },
+            "row_seen": {
+              "head": "fe4668268590deb926b9060b65147cf1f51baa74be000364622ff7b636ea2b4d",
+              "segments": 12,
+              "count": 12122,
+              "digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12"
+            }
+          },
+          "unavailable": null
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 165,
+                "sealed_digest": "2c4a2f42290e919c4fdd637744988755ff895b26d387549b4a1a0b8db751988d",
+                "tail": []
+              },
+              "seen": {
+                "sealed": 20480,
+                "sealed_digest": "372f115855df1236a85e6d4cb99d09d995fb5194b795b18e18947c9e0183492b",
+                "tail": []
+              },
+              "row_seen": {
+                "sealed": 12122,
+                "sealed_digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12",
+                "tail": []
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90000
+          }
+        }
+      },
+      "frame": {
+        "discovery": {
+          "epoch": 3,
+          "resets": [],
+          "seals": []
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 165,
+                "sealed_digest": "2c4a2f42290e919c4fdd637744988755ff895b26d387549b4a1a0b8db751988d",
+                "tail": []
+              },
+              "seen": {
+                "sealed": 20480,
+                "sealed_digest": "372f115855df1236a85e6d4cb99d09d995fb5194b795b18e18947c9e0183492b",
+                "tail": []
+              },
+              "row_seen": {
+                "sealed": 12122,
+                "sealed_digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12",
+                "tail": [["r:12", 4, 0]]
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90001
+          }
+        }
+      }
+    },
+    {
+      "name": "alt_seen_reaches_the_cap",
+      "log": "alt_seen",
+      "record": {
+        "discovery": {
+          "version": 1,
+          "epoch": 3,
+          "logs": {
+            "variants": {
+              "head": "a7d03cdc04dcc9b3ac72c6b5d8f0a1ad467f6ad53124bdab0cf228e87daa356e",
+              "segments": 1,
+              "count": 165,
+              "digest": "fa352c36fa841f5df5f227f0d5c47a35db6b954e099457451196d2c03c7b1375"
+            },
+            "seen": {
+              "head": "c3adb5eba7f0b62c4c1db6faf7d8e5217d994444452f748ab06cf7322ae5b331",
+              "segments": 20,
+              "count": 19880,
+              "digest": "0cd27ca81355f1a2fa9d488a06270071f450cbc9e9ba6b9f8732d0e8e6e857bb"
+            },
+            "row_seen": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "0e3c1c4ad79161d8d8d41343cd641d74139a82fe1049635899de39e8f8af6737"
+            },
+            "alt_seen": {
+              "head": "0ef432febc972c868db22fcf895d7d24746b51537f98aa3cebb636c31d6bf294",
+              "segments": 13,
+              "count": 12722,
+              "digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb"
+            }
+          },
+          "verified": {
+            "variants": {
+              "head": "a7d03cdc04dcc9b3ac72c6b5d8f0a1ad467f6ad53124bdab0cf228e87daa356e",
+              "segments": 1,
+              "count": 165,
+              "digest": "fa352c36fa841f5df5f227f0d5c47a35db6b954e099457451196d2c03c7b1375"
+            },
+            "seen": {
+              "head": "c3adb5eba7f0b62c4c1db6faf7d8e5217d994444452f748ab06cf7322ae5b331",
+              "segments": 20,
+              "count": 19880,
+              "digest": "0cd27ca81355f1a2fa9d488a06270071f450cbc9e9ba6b9f8732d0e8e6e857bb"
+            },
+            "row_seen": {
+              "head": null,
+              "segments": 0,
+              "count": 0,
+              "digest": "0e3c1c4ad79161d8d8d41343cd641d74139a82fe1049635899de39e8f8af6737"
+            },
+            "alt_seen": {
+              "head": "0ef432febc972c868db22fcf895d7d24746b51537f98aa3cebb636c31d6bf294",
+              "segments": 13,
+              "count": 12722,
+              "digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb"
+            }
+          },
+          "unavailable": null
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 165,
+                "sealed_digest": "fa352c36fa841f5df5f227f0d5c47a35db6b954e099457451196d2c03c7b1375",
+                "tail": []
+              },
+              "seen": {
+                "sealed": 19880,
+                "sealed_digest": "0cd27ca81355f1a2fa9d488a06270071f450cbc9e9ba6b9f8732d0e8e6e857bb",
+                "tail": []
+              },
+              "row_seen": {
+                "sealed": 0,
+                "sealed_digest": "0e3c1c4ad79161d8d8d41343cd641d74139a82fe1049635899de39e8f8af6737",
+                "tail": []
+              },
+              "alt_seen": {
+                "sealed": 12722,
+                "sealed_digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb",
+                "tail": []
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90000
+          }
+        }
+      },
+      "frame": {
+        "discovery": {
+          "epoch": 3,
+          "resets": [],
+          "seals": []
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 3,
+          "discovery": {
+            "version": 1,
+            "epoch": 3,
+            "logs": {
+              "variants": {
+                "sealed": 165,
+                "sealed_digest": "fa352c36fa841f5df5f227f0d5c47a35db6b954e099457451196d2c03c7b1375",
+                "tail": []
+              },
+              "seen": {
+                "sealed": 19880,
+                "sealed_digest": "0cd27ca81355f1a2fa9d488a06270071f450cbc9e9ba6b9f8732d0e8e6e857bb",
+                "tail": []
+              },
+              "row_seen": {
+                "sealed": 0,
+                "sealed_digest": "0e3c1c4ad79161d8d8d41343cd641d74139a82fe1049635899de39e8f8af6737",
+                "tail": []
+              },
+              "alt_seen": {
+                "sealed": 12722,
+                "sealed_digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb",
+                "tail": [["12:1", "12:4", 0]]
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 90001
+          }
+        }
+      }
+    }
+  ]
+}
