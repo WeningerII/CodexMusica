@@ -7437,10 +7437,107 @@ async function browserChecks(chromium) {
           ? JSON.stringify((await lyLibraryStore.getDraft(app.lyricMeta.draftId)) || null)
           : 'NO_DRAFT_ID',
       }));
+    const structuralImport = (page, text) =>
+      page.evaluate(async (text) => {
+        const envelope = {
+          protocol: CMLibraryImport.PROTOCOL,
+          version: 1,
+          handoffId: 'handoff:one',
+          draftId: 'draft:imported',
+          createdAt: '2026-10-08T00:00:00Z',
+          payload: {
+            text,
+            title: 'Test reading',
+            language: 'eng',
+            scope: 'whole',
+            provenance: {
+              snapshotId: 'snapshot:one',
+              unitId: 'unit:one',
+              workId: 'work:one',
+              editionId: 'edition:one',
+              revisionId: 'revision:one',
+              rights: {
+                attribution: 'Source credit',
+                notices: ['First notice', 'Second notice'],
+              },
+            },
+            lineage: [{ row: 1, sourceLine: 12, sourceStart: 100, sourceEnd: 116 }],
+            declarations: [{ type: 'meter', line: 1, value: '7/8' }],
+          },
+        };
+        envelope.digest = await CMLibraryImport.envelopeDigest(envelope, crypto);
+        await lyLibraryImport(envelope);
+        if (!app.lyricMeta?.libraryOrigin)
+          throw new Error('import did not activate source metadata');
+      }, text);
     const structuralDrag = (page) =>
       page
         .locator('#ly-form-rows tr[data-sec="0"] .ly-handle')
         .dragTo(page.locator('#ly-form-rows tr[data-sec="2"] .ly-handle'));
+    await step(
+      'S803 imported move uses existing adapted export with unedited control',
+      async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          await structuralImport(page, structuralDecl + structuralSong);
+          await structuralOpen(page);
+          const exported = () =>
+            page.evaluate(async () => ({
+              origin: JSON.parse(JSON.stringify(app.lyricMeta.libraryOrigin)),
+              envelope: await CMLibraryImport.makeWorkingCopyEnvelope(
+                $ui('lyrics-draft').value,
+                app.lyricMeta,
+                crypto
+              ),
+            }));
+          const before = await exported();
+          check(before.origin.adapted === false, 'unedited import already adapted');
+          check(
+            before.envelope.payload.declarations.length === 1 &&
+              JSON.stringify(before.envelope.payload.declarations) ===
+                JSON.stringify(before.origin.declarations),
+            'unedited control lost source declarations'
+          );
+          const snapshot = await structuralState(page);
+          await page.locator('#ly-form-rows [data-ui="ly-sec-move"][data-id="0:1"]').focus();
+          await page.keyboard.press('Enter');
+          const after = await exported();
+          const state = await structuralState(page);
+          check(
+            state.text !== snapshot.text && state.index === snapshot.index + 1,
+            'imported move was not accepted exactly once'
+          );
+          check(
+            after.origin.adapted === true &&
+              after.envelope.payload.provenance.workingCopy.adapted === true,
+            'existing imported adaptation mechanism was not used'
+          );
+          check(
+            JSON.stringify(after.origin.lineage) === JSON.stringify(before.origin.lineage) &&
+              JSON.stringify(after.envelope.payload.lineage) ===
+                JSON.stringify(before.origin.lineage),
+            'imported lineage was rebound'
+          );
+          check(
+            after.envelope.payload.provenance.workingCopy.lineageBasis ===
+              'Imported reading before edits',
+            'export omitted exact original-reading lineage basis'
+          );
+          check(
+            JSON.stringify(after.envelope.payload.declarations) === '[]',
+            'adapted export still binds source declarations'
+          );
+          check(
+            JSON.stringify(after.envelope.payload.provenance.workingCopy.declarations) ===
+              JSON.stringify(before.origin.declarations),
+            'adapted export lost historical source declarations'
+          );
+          check(q.calls.length === 0, 'imported move sent provider request');
+        } finally {
+          await ctx.close();
+        }
+      }
+    );
     for (const scenario of [
       {
         name: 'move',
@@ -7485,10 +7582,11 @@ async function browserChecks(chromium) {
         review: true,
       },
       {
-        name: 'imported-label',
-        action: 'ly-label-stanzas',
-        text: 'The evening wind\nReturns the song',
-        named: 'Library source details',
+        name: 'imported-remove',
+        action: 'ly-sec-remove',
+        id: '0',
+        text: structuralDecl + structuralSong,
+        named: 'returns',
         imported: true,
       },
     ]) {
@@ -7498,38 +7596,7 @@ async function browserChecks(chromium) {
           if (scenario.imported) {
             // Exact valid envelope fixture from test_library_import.js;
             // the actual receiver validates/digests and activates the draft.
-            await page.evaluate(async (text) => {
-              const envelope = {
-                protocol: CMLibraryImport.PROTOCOL,
-                version: 1,
-                handoffId: 'handoff:one',
-                draftId: 'draft:imported',
-                createdAt: '2026-10-08T00:00:00Z',
-                payload: {
-                  text,
-                  title: 'Test reading',
-                  language: 'eng',
-                  scope: 'whole',
-                  provenance: {
-                    snapshotId: 'snapshot:one',
-                    unitId: 'unit:one',
-                    workId: 'work:one',
-                    editionId: 'edition:one',
-                    revisionId: 'revision:one',
-                    rights: {
-                      attribution: 'Source credit',
-                      notices: ['First notice', 'Second notice'],
-                    },
-                  },
-                  lineage: [{ row: 1, sourceLine: 12, sourceStart: 100, sourceEnd: 116 }],
-                  declarations: [],
-                },
-              };
-              envelope.digest = await CMLibraryImport.envelopeDigest(envelope, crypto);
-              await lyLibraryImport(envelope);
-              if (!app.lyricMeta?.libraryOrigin)
-                throw new Error('import did not activate source metadata');
-            }, scenario.text);
+            await structuralImport(page, scenario.text);
           } else await setDraft(page, scenario.text);
           await structuralOpen(page, scenario.review);
           const button = page.locator(structuralButton(scenario.action, scenario.id)).first();

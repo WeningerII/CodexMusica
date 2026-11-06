@@ -260,7 +260,7 @@ async function checkStructural(sourcePath = path.join(ROOT, 'src/pages/lyrics.js
     draftId: 'draft:imported',
     createdAt: '2026-10-08T00:00:00Z',
     payload: {
-      text: 'The evening wind\nReturns the song',
+      text: full,
       title: 'Test reading',
       language: 'eng',
       scope: 'whole',
@@ -281,8 +281,13 @@ async function checkStructural(sourcePath = path.join(ROOT, 'src/pages/lyrics.js
   const imported = context(importedDraft.text);
   imported.app.lyricMeta = importedDraft.meta;
   const importedMeta = JSON.parse(JSON.stringify(imported.app.lyricMeta));
-  refusal(imported, "LY_ACTIONS['ly-label-stanzas']()", 'Library source details');
+  eq(imported.run("LY_ACTIONS['ly-sec-move']('0:1').applied"), true);
+  // VM host effects are doubled; adapted/export behavior is tested in Chromium.
   eq(imported.app.lyricMeta, importedMeta);
+  const importedRefusal = context(importedDraft.text);
+  importedRefusal.app.lyricMeta = JSON.parse(JSON.stringify(importedDraft.meta));
+  refusal(importedRefusal, "LY_ACTIONS['ly-sec-remove']('0')", 'returns');
+  eq(importedRefusal.app.lyricMeta, importedMeta);
 
   // Unreferenced clone/delete must work, not just the refusal controls.
   const extra = '\n\n[VERSE]\nClouds gather above the hill\nThe gate stands open';
@@ -307,7 +312,10 @@ async function checkStructural(sourcePath = path.join(ROOT, 'src/pages/lyrics.js
   eq(readings.run('lyDeclarationsOf(LY.model)'), JSON.parse(JSON.stringify(beforeRead)));
   eq(readings.run('lyDeclarationsOf(LY.model).pronunciations.length'), 1);
   refusal(context(read + '\n' + song), "LY_ACTIONS['ly-sec-remove']('0')", 'reading');
-  refusal(context(hook + '\n' + song), "LY_ACTIONS['ly-sec-dup']('0')", 'hook');
+  for (const action of ['ly-sec-dup', 'ly-sec-remove']) {
+    refusal(context(hook + '\n' + song), `LY_ACTIONS['${action}']('0')`, 'hook line');
+    refusal(context(read + '\n' + song), `LY_ACTIONS['${action}']('0')`, 'reading');
+  }
   const unique = context(
     read.replace('I lead you home', 'I lead the chorus') +
       '\n' +

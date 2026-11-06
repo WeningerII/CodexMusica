@@ -3250,7 +3250,7 @@ function lyCarriedDecide(id, keep) {
 // Read-only preflight over detached rows. Old sung numbers identify occurrences;
 // identical text never substitutes for a missing or cloned numbered member.
 // Readings and hooks, in contrast, retain today's exact-text declarations.
-function lyStructuralPreflight(model, parts, libraryOrigin, originalBlocks) {
+function lyStructuralPreflight(model, parts, originalBlocks) {
   const rows = [...parts.prefix, ...parts.blocks.flat(), ...parts.suffix];
   const sung = rows.filter((r) => r.raw.trim() && !LY_BRACKET.test(r.raw.trim()));
   const positions = new Map();
@@ -3304,8 +3304,9 @@ function lyStructuralPreflight(model, parts, libraryOrigin, originalBlocks) {
       // occurrence needs an ownership decision even if another text matches.
       const bound = model.sung.filter((r) => r.text === d.line);
       if (!d.line || !bound.length || bound.some((r) => !carried(r.n)))
-        refused.add(`${d.key}: ${d.value}`);
-      if (sung.some((r) => !r.n && r.raw.trim() === d.line)) refused.add(`${d.key}: ${d.value}`);
+        refused.add(`${d.key === 'hook' ? 'hook line' : 'reading'}: ${d.value}`);
+      if (sung.some((r) => !r.n && r.raw.trim() === d.line))
+        refused.add(`${d.key === 'hook' ? 'hook line' : 'reading'}: ${d.value}`);
     } else if (d.key === 'narrative') {
       if (!/^off$/i.test(d.value.trim())) refused.add(`narrative: ${d.value}`);
     } else if (d.key === 'melody') {
@@ -3332,20 +3333,9 @@ function lyStructuralPreflight(model, parts, libraryOrigin, originalBlocks) {
     )
       refused.add(`section: ${s.headerRow.raw}`);
   }
-  const contentChanged =
-    rows
-      .filter((r) => r.raw.trim())
-      .map((r) => r.raw)
-      .join('\n') !==
-    model.rows
-      .filter((r) => r.raw.trim())
-      .map((r) => r.raw)
-      .join('\n');
-  if (libraryOrigin && (changed || contentChanged))
-    refused.add('Library source details for this draft');
   if (changed) {
-    // Until ownership is defined, do not silently move a bar span, story or
-    // imported source coordinate. These are real declarations, not new fields.
+    // Until ownership is defined, do not silently move declared bar spans
+    // or unknown section details.
     for (const s of model.sections)
       if (
         (s.header?.bars != null || s.header?.meter || s.header?.pickup || s.header?.extra.length) &&
@@ -3361,7 +3351,7 @@ function lyEditSections(mutate, message) {
   const parts = lyBlocks(model);
   const originalBlocks = parts.blocks.map((block) => block.slice());
   if (mutate(parts, model) === false) return { applied: false, refused: [] };
-  const result = lyStructuralPreflight(model, parts, app.lyricMeta?.libraryOrigin, originalBlocks);
+  const result = lyStructuralPreflight(model, parts, originalBlocks);
   if (lyDraft().value !== source)
     result.refused.push('the draft changed while preparing this edit');
   if (result.refused.length) {
