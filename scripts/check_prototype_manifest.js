@@ -27,9 +27,17 @@
 //      tests listed in KNOWN_MISSING, which the feature matrix names but the
 //      repo does not have. That list must match exactly: a test that appears
 //      must leave it, and a newly missing one fails.
+//   7. DEVIATION. A row's `deviation` (a deliberate, disclosed difference from
+//      production that a lane keeps, such as #767's note under row 170) is not
+//      exactly { pin, file, blob, text, decision }: a 40-hex pinned head, a
+//      lane file under prototype/features/, the 40-hex git blob of that file
+//      at the pin, the deviation's exact text and the decision that kept it.
+//      It also fails when the file's bytes are no longer that blob, or the
+//      text is no longer in it, so an accepted deviation can't drift.
 //
 //   node scripts/check_prototype_manifest.js
 
+const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
@@ -58,6 +66,9 @@ const expect = (ok, what) => {
   checks++;
   if (!ok) problems.push(what);
 };
+// A file's git blob id, as `git hash-object` gives it.
+const blobOf = (bytes) =>
+  crypto.createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
 
 const manifest = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
 const rows = manifest.rows || [];
@@ -191,6 +202,43 @@ for (const g of Object.keys(KNOWN_MISSING)) {
   );
 }
 
+// 7. deviation
+const DEVIATION_KEYS = ['blob', 'decision', 'file', 'pin', 'text'];
+const HEX40 = /^[0-9a-f]{40}$/;
+const deviations = rows.filter((r) => 'deviation' in r);
+for (const r of deviations) {
+  const d = r.deviation;
+  const what = `row ${r.n} (${r.id}): deviation`;
+  const ok = d && typeof d === 'object' && !Array.isArray(d);
+  expect(
+    ok && JSON.stringify(Object.keys(d).sort()) === JSON.stringify(DEVIATION_KEYS),
+    `${what} is not exactly { ${DEVIATION_KEYS.join(', ')} }`
+  );
+  if (!ok) continue;
+  expect(HEX40.test(d.pin), `${what}: pin "${d.pin}" is not a 40-hex commit`);
+  expect(HEX40.test(d.blob), `${what}: blob "${d.blob}" is not a 40-hex blob id`);
+  for (const f of ['text', 'decision']) {
+    expect(typeof d[f] === 'string' && d[f].trim().length > 0, `${what}: no ${f}`);
+  }
+  const file = typeof d.file === 'string' && /^prototype\/features\/[a-z0-9-]+\//.test(d.file);
+  expect(file, `${what}: file "${d.file}" is not a lane file under prototype/features/`);
+  if (!file) continue;
+  const abs = path.join(root, d.file);
+  if (!fs.existsSync(abs)) {
+    expect(false, `${what}: ${d.file} does not exist`);
+    continue;
+  }
+  const bytes = fs.readFileSync(abs);
+  expect(
+    blobOf(bytes) === d.blob,
+    `${what}: ${d.file} is now blob ${blobOf(bytes)}, not the ${d.blob} the deviation was accepted at; re-confirm it with the lane's author and update the row`
+  );
+  expect(
+    typeof d.text === 'string' && bytes.toString('utf8').includes(d.text),
+    `${what}: its text is no longer in ${d.file}`
+  );
+}
+
 if (problems.length) {
   console.error(`check_prototype_manifest: FAIL — ${problems.length} of ${checks} checks`);
   for (const p of problems) console.error(`  ✗ ${p}`);
@@ -200,6 +248,7 @@ const count = (t) => rows.filter((r) => r.treatment === t).length;
 console.log(
   `check_prototype_manifest: ${checks}/${checks} checks pass — ${rows.length} rows ` +
     `(${count('Keep')} Keep, ${count('Merge')} Merge, ${count('Move')} Move, ${count('Defer')} Defer; ` +
-    `${rows.filter((r) => r.status === 'done').length} done); ` +
+    `${rows.filter((r) => r.status === 'done').length} done; ` +
+    `${deviations.length} disclosed deviation(s)${deviations.length ? `, row ${deviations.map((r) => r.n).join(', ')}` : ''}); ` +
     `${missing.size} named gate(s) absent from the repo: ${[...missing].join(', ')}`
 );
