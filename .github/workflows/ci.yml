@@ -578,6 +578,15 @@ jobs:
         working-directory: lyric-harness
         run: python3 -m unittest library.test_unit_manifest
 
+      # The generated-output pre-push wrapper's contract (#661; placed in this
+      # job by BB8, 6669724922): 12 fixture-isolated tests, stdlib only, about
+      # 1 s. They run the wrapper against temporary fixture gates, so no
+      # generator, working-tree output or Git hook is touched. A wrapper that
+      # passes stale generated files would let the jobs below test a tree its
+      # own maps don't describe, so a failure here is worth failing fast on.
+      - name: Generated-output pre-push wrapper contract
+        run: python3 tests/tools/test_generated_prepush.py
+
       # Pages serves main verbatim and refuses a site over 1 GB; git refuses a
       # file of 100 MB or more. The Library's static data must leave headroom.
       - name: Served tree inside GitHub Pages limits
