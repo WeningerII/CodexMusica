@@ -2,8 +2,9 @@
 // Wrapped by the build as CMLibraryDefine('works', function () { … }).
 // The Works view (docs/library-ui-contract.md): a 50-row table of reading
 // units, the search field, the filters sheet and the metadata sheet. Ported
-// from sites/library/components/library/library-app.tsx (Works, search,
-// filter and metadata parts).
+// from the old Library Site's components/library/library-app.tsx (Works,
+// search, filter and metadata parts; removed from the repo on 2026-11-05,
+// #659; last at 92c9b318).
 //
 // Where rows come from:
 //   - the default list (availability=readable, sort=title, nothing else) is

@@ -3,7 +3,8 @@
 // The "Text comparison" sheet of the reader: the comparison picker (other
 // readings of the same recorded work first, then free search) and the aligned
 // side-by-side comparison with intra-line differences. alignLines/intraLine are
-// an exact port of sites/library/lib/compare-text.ts.
+// an exact port of lib/compare-text.ts of the old Library Site (removed from
+// the repo on 2026-11-05, #659; last at 92c9b318).
 //
 // mount(container, { left, rightId, lib, passage, onClose }) → { close, choose, escape }
 // (the reader's { reading, compare, close } shape is accepted too: see mount)

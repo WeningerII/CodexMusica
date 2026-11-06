@@ -181,7 +181,7 @@ The Library becomes a native tab on codexmusica.com, as much a part of the site 
 ### Static builder
 New `build_library_data.py` calls a new lyric-harness/library/catalog_static_export.py, which runs four steps.
 1. `library.catalog build` into lyric-harness/library/snapshot (gitignored, .gitignore:54), with --repo-sha read from library/catalog_sources.json.
-   - This is the layout library-site.yml uses.
+   - This is the layout library-site.yml used (removed from the repo on 2026-11-05, #659); library-parity.yml's pinned 317c rebuild uses the same layout.
    - It fixes the verified label pitfall: pack_export reads `canonical_source.parent.parent/data/lyric_label_prefixes.json` and silently attaches {} otherwise (catalog_site_export.py:175-179). The 317c export measured in an earlier session had label_registry_sha256 None and no references.
 2. The unchanged verified exporter, run in order: export_snapshot, then pack_export, then attach_references(reference_dir=lyric-harness/library), then verify_export.
    - The builder asserts `derived_metadata.label_registry_sha256 == sha256(lyric-harness/data/lyric_label_prefixes.json)` and that the source_records and label_prefixes references are attached. This activates verify_export's held-body and held-label refusals (379-380) and its label identity check (319).
@@ -256,7 +256,7 @@ Sizes are measured on 317c by scratchpad r1design/measure_e.py and measure_f.py,
 10. **methods.json** (copy of lyric-harness/library/methods.json, 278,001 B; registry_hash gated) and reader-result.schema.json. declaration-options.json is bundled into the analysis chunk.
 11. **Art renditions** in assets/library/art/<id>-{240,480}.{avif,webp}.
     - Derived by a new `build_library_art.js` using sharp (already a devDependency), byte-checked with --check, at most 25,600 B per file.
-    - The originals move from sites/library/public/art to assets/library/art-src. Measured: 1,734,318 B of originals become about 127 KB of WebP at 272px.
+    - The originals move from sites/library/public/art to assets/library/art-src (done 2026-11-05, #659, when sites/library was removed from the repo). Measured: 1,734,318 B of originals become about 127 KB of WebP at 272px.
 
 ### Where a reading's path key comes from
 - List rows (`w/`, `c/`), `u/` shards, search results and the tab's own links carry the `rev16-proj12` path key, and the head preload uses it directly.
@@ -716,7 +716,7 @@ Change from the Worker, stated openly and disclosed in the release notes: there 
 - The Rights page states that Gutenberg admission is a USA public-domain statement.
 
 ### Determinism gates
-- PR 0 captures goldens by running the Worker's own TypeScript (library-exports.ts, zip-stream.ts) against the pinned 317c fixture: ZIP sha256 for fixed selections in all three formats, one analysis export, and the Worker's own provenance download bytes for a golden sample. The analysis-export golden needs a live reader job: library-site.yml runs the image's reader backend for one short poem (22-26 s of CPU).
+- PR 0 captures goldens by running the Worker's own TypeScript (library-exports.ts, zip-stream.ts) against the pinned 317c fixture: ZIP sha256 for fixed selections in all three formats, one analysis export, and the Worker's own provenance download bytes for a golden sample. The analysis-export golden needs a live reader job: library-site.yml (removed from the repo on 2026-11-05, #659) runs the image's reader backend for one short poem (22-26 s of CPU).
 - mcp/test_library_exports.mjs requires byte equality with the selection goldens, and an identical sha256 for the same plan made twice.
 - **The analysis-export golden is entry-level parity.** Every entry is byte-equal except `REQUEST.json`, which is compared field by field on reading_unit_id, reading_revision, declaration_set, requested_layers, requested_methods and snapshot_id.
 - **Provenance download:** byte-equal to the Worker's own provenance download bytes, including its enrichments (source_basis, labels, notices), for the golden sample, and byte-equal to a canonical rebuild with `snapshot_id = projected_from.snapshot_id` for every readable unit, in `check_library_data`.
@@ -1002,6 +1002,7 @@ codexmusica.com never links to chatgpt.site after cutover.
 - The 5226 manifest and goldens stay as permanent fixtures.
 
 ### library-site.yml
+- Status 2026-11-05 (#659): library-site.yml and sites/library were removed from the repo; their last tree is at 92c9b318. The native parity replays of its library-goldens job (the 317c rebuild, the export with labels asserted, the search/metadata and selection-export replays) moved to library-parity.yml, job id unchanged. The Worker's own recapture and its census, export, isolation and package tests went with the Worker. Nothing recaptures the goldens now: library-parity.yml checks each one against the sha256 that tests/library/goldens/317c/capture.json records, and readings.jsonl.gz, which no native replay reads, is checked only that way. mcp/test_library_routes.mjs, named below, was never written.
 - PR 0 extends it to dump the Worker goldens, including one live reader job for the analysis-export golden.
 - PR 6b retargets it to the move page: typecheck, plus a test that the page maps every route and writes no capability.
 - PR 7 deletes it together with sites/library.
@@ -1098,8 +1099,9 @@ qualify_reader asserts the same total from Render's search store and the corpus 
    - Catalog inputs: lyric-harness/corpus/**, data/{sources.tsv, authority.tsv, library_identity_registry.json*, calibration_work_editions.json, lyric_label_prefixes.json}, library/**, quality/{provenance.py, lyric_reader.py, populate_authority.py}, lyric_harness.py.
    - Rebuilds the snapshot (205 s), the export (339 s) and the projection; compares decompressed content with projected_from excluded; revalidates retained generations against current eligibility; reruns every gate on the fresh output. About 12-13 min and 0.7 GB RAM.
 3. **library-parity job** (path-filtered on mcp/library_* and lyric-harness/library/search_store.py; nightly):
-   - Sparse-checks out commit 031b7de's catalog inputs, as library-site.yml does with ceab2d61, rebuilding the pinned 317c exactly.
+   - Sparse-checks out commit 031b7de's catalog inputs, as library-site.yml did with ceab2d61 (removed from the repo on 2026-11-05, #659), rebuilding the pinned 317c exactly.
    - Runs the Node routes against the Worker goldens: at least 300 search queries (RTL, CJK, astral, ß, whitespace, 500-char cap, filters, offsets), readingPage samples including a header reading, hit projections, and ZIP sha256s.
+   - As built (2026-11-05, #659): .github/workflows/library-parity.yml, job id library-goldens. It is path-filtered on the goldens, search_store.py, mcp/library_search.js, mcp/library_casefold.json, mcp/library_exports.js, the two parity tests and itself, not on mcp/library_*. It has no nightly run. It replays the search, metadata and selection-export goldens only; no native readingPage replay was written, and the reading-page golden was only ever checked by the Worker's recapture, which went with the Worker.
 4. **lyrics-image job:** qualify_reader asserts per-id readable ⊇ baselines, the static/Render agreement, search totals, corpus --verify-existing, viewer isolation, memory, and the `store-load` and concurrent-heavy-request scenarios.
 5. **Post-publish smoke** (`smoke_library_live.js` after sync-pages and after deploy-connector):
    - live catalog.json census;
@@ -1188,7 +1190,7 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 ### Added: data and art
 - library/data/**, including artwork.json and the retained generations: generated by `build_library_data.py` via the new lyric-harness/library/catalog_static_export.py.
 - assets/library/art/*.{avif,webp}: built by the new `build_library_art.js` (--check).
-- assets/library/art-src/* and assets/library/artwork.json: moved from sites/library.
+- assets/library/art-src/* and assets/library/artwork.json: moved from sites/library (done 2026-11-05, #659).
 
 ### Added: gates and tooling
 - `check_library_data.js`: count, per-id, rights, label census, row-content and summary parity, provenance byte-equality, embedded identity, page offsets, projection identity, retained-generation eligibility, Play target, collection coverage, size budgets.
@@ -1295,7 +1297,7 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 - scripts/check_deploy_memory.js: band re-measured if the peak moves.
 
 ### Retired in PR 7
-sites/library/**, .github/workflows/library-site.yml, the Dockerfile approved-library stage, release_assets retention usage, test_retained_reader_catalog.py, mcp/README.md:246-253, /internal/reader with reader_protocol.js, and the READER_BRIDGE_SECRET and READER_SITE_ID dashboard secrets.
+sites/library/** and .github/workflows/library-site.yml were removed from the repo on 2026-11-05 (#659), ahead of the rest. Still to retire: the Dockerfile approved-library stage, release_assets retention usage, test_retained_reader_catalog.py, mcp/README.md:246-253, /internal/reader with reader_protocol.js, and the READER_BRIDGE_SECRET and READER_SITE_ID dashboard secrets.
 
 ## Risks
 
@@ -1327,7 +1329,7 @@ Principle: the published codex.html changes nothing user-visible until PR 6. Eve
 
 **PR 0: evidence (no behaviour change)**
 - tests/library/units-5226b4fb.tsv.gz and units-317c5afa.tsv.gz (every unit, pinned sha256), the empty ledgers, `check_library_regression.js` with the full classifier and id reconciliation, and fault library-readable-regression.
-- library-site.yml extended to capture Worker goldens on a pinned 317c rebuild from commit 031b7de's sparse catalog inputs: at least 300 search queries, readingPage and whole-reading samples (including a header reading), hit projections, ZIP sha256s for fixed text/json/csv selections, the Worker's own provenance download bytes for a golden sample, and one analysis export from a live reader job (one short poem, 22-26 s of CPU). Committed to tests/library/goldens/317c/.
+- library-site.yml (removed from the repo on 2026-11-05, #659; the native replays now run in library-parity.yml) extended to capture Worker goldens on a pinned 317c rebuild from commit 031b7de's sparse catalog inputs: at least 300 search queries, readingPage and whole-reading samples (including a header reading), hit projections, ZIP sha256s for fixed text/json/csv selections, the Worker's own provenance download bytes for a golden sample, and one analysis export from a live reader job (one short poem, 22-26 s of CPU). Committed to tests/library/goldens/317c/.
 - `check_library_perf.js` and `_pages_server.js` with the four-condition ready definition. The old Site's responses pinned as fixtures; old-Site server delay measured (n >= 30 per endpoint) into the modelled-delay table; the live calibration run (n = 9); the current-route baselines; all recorded in tests/perf/library-baseline.json.
 - A Pages probe file with a live .json.gz header check.
 - check_pages_size.
@@ -1387,14 +1389,14 @@ The stub and chunks ship in production codex.html. The route is reachable only v
 - Before the move page, the old Site announces the window in which users can export their analyses.
 
 **PR 6b: publish day (John runs the Sites deploy)**
-After the export window, the move page goes live (device-data export, redirects, 410 for the API), and library-site.yml is retargeted to it.
+After the export window, the move page goes live (device-data export, redirects, 410 for the API), and library-site.yml is retargeted to it. (Not done: library-site.yml was removed from the repo on 2026-11-05, #659.)
 
 **PR 6c: after the move page is confirmed live, or 7 days after cutover**
 Delete the SITE_ORIGIN handshake and rewrite test_library_import*.js. check_library_isolation then asserts that no 'chatgpt' string remains.
 Status (#659): done without a move page, in the website-only follow-up to #811. The no-'chatgpt.site' assertion lives in `scripts/test_library_import.js` and covers every tracked file, since Pages serves all of main; check_library_isolation was never written.
 
 **PR 7: retirement (at least 30 days after PR 6b, with John's go-ahead)**
-- Delete sites/library and library-site.yml.
+- Delete sites/library and library-site.yml. Done 2026-11-05 (#659), ahead of the rest of PR 7.
 - Drop 5226 retention (Dockerfile, release_assets, qualify_reader, test_retained_reader_catalog, mcp/README).
 - Drop /internal/reader, reader_protocol.js, READER_BRIDGE_SECRET and READER_SITE_ID.
 - John exports the `(job_id, viewer)` allowlist from D1. The purge dry-run lists exact matches, and the purge runs only after John confirms that exact count at action time.
