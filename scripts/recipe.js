@@ -636,8 +636,10 @@ if (flags.json) {
 
 // A swapped part can still print none of its words (a BARE token such as
 // `modern` is never rendered), and then stdout is byte-identical to the run
-// without the swap. The recipe stays exactly as rendered; stderr says which
-// card's descriptors were filtered out, one line per card (#671).
+// without the swap. The recipe stays exactly as rendered; stderr names, one
+// line per card, the descriptors that card's part of the recipe does not
+// print (#671). It says no more than that: another card or the header may
+// print the same word, which is not this card's (BB8 6676262617, call 3).
 const filteredSwaps = [];
 const out = translate(result.config, { ceiling: maxChars, filteredSwaps });
 console.log(out);
@@ -646,7 +648,7 @@ if (!flags['why-json'] && !flags['why-prefaces-json']) {
   for (const f of filteredSwaps) byCard.set(f.instrument, [...(byCard.get(f.instrument) || []), f]);
   for (const [instrument, swaps] of byCard)
     console.error(
-      `note: ${instrument} card: --swap-variant descriptor(s) filtered out of the recipe: ` +
+      `note: --swap-variant descriptor(s) not printed in the ${instrument} card's part of the recipe: ` +
         swaps.map((f) => `${f.descriptors.join(', ')} (${f.part}:${f.variant})`).join('; ')
     );
   console.error(`(${out.length} chars)`);

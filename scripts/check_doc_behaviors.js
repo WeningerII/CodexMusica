@@ -139,7 +139,10 @@ assert('§3f', 'a valid --swap-variant on an instrument part changes the recipe'
 // (#671; BB8 6646430850). mpc_modern's only word is the BARE token `modern`,
 // which this renderer never prints, so stdout is byte-identical to the run
 // without the swap. stdout stays exactly that; stderr names the card and the
-// filtered descriptor, and a run without a swap says nothing of the kind.
+// descriptor, and a run without a swap says nothing of the kind. The note says
+// where the word is missing from, the card's part of the recipe, and not
+// `filtered out of the recipe`, which is false when another card or the header
+// prints the same word (BB8 6676262617, call 3).
 assert(
   '§3f',
   'a swap whose words the recipe filters out is named on stderr; stdout is unchanged',
@@ -158,8 +161,8 @@ assert(
       r.out === base.out &&
       stderrNotes(base).length === 0 &&
       stderrNotes(r).length === 1 &&
-      /\bsampler_classic card\b/.test(note) &&
-      /: modern \(sampler_archetypes:mpc_modern\)$/.test(note);
+      note ===
+        "note: --swap-variant descriptor(s) not printed in the sampler_classic card's part of the recipe: modern (sampler_archetypes:mpc_modern)";
     return {
       ok,
       detail: `exit ${r.code}; stdout ${r.out === base.out ? 'unchanged' : 'changed'}; note ${JSON.stringify(note)}`,
@@ -248,7 +251,9 @@ assert(
       ]);
       const ends = new RegExp(`\\b${c.noun}$`, 'i');
       const clause = r.out.split(/[.,] /).find((x) => ends.test(x)) || '';
-      const notes = stderrNotes(r).filter((n) => n.startsWith(`note: ${instId} card: `));
+      const notes = stderrNotes(r).filter((n) =>
+        n.startsWith(`note: --swap-variant descriptor(s) not printed in the ${instId} card's `)
+      );
       const m = (notes[0] || '').match(new RegExp(`: ([^:]*) \\(${partId}:${variantId}\\)$`));
       const named = m ? m[1].split(', ') : [];
       const expected = words.filter((d) => !printedIn(clause, d) || (c.notOwn || []).includes(d));

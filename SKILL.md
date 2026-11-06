@@ -433,10 +433,12 @@ Notes that bite:
   stderr gets one line per card naming the swap's words that card's own clause does not
   print. A word counts as printed by the rule the connector's `render_warnings` applies: as a
   whole word (a hyphen is a boundary; a word inside a longer word does not count), anywhere
-  in that card's own clause, whichever of the card's parts printed it. The same word printed
-  on another card or in the header does not count:
+  in that card's own clause, whichever of the card's parts printed it. Present means printed
+  in that card's part of the recipe, not that the swap put it there. The same word printed
+  on another card or in the header does not count, so a named word may still appear
+  elsewhere in the recipe:
   ```
-  note: <instrument> card: --swap-variant descriptor(s) filtered out of the recipe: <descriptor>, … (<part>:<variant>)
+  note: --swap-variant descriptor(s) not printed in the <instrument> card's part of the recipe: <descriptor>, … (<part>:<variant>)
   ```
 - A swap on an instrument the recipe does not have (not in the roster, or removed by
   `--exclude-instrument`) has no card to apply to: exit 0, and stdout is the recipe (under

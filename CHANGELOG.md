@@ -30,8 +30,9 @@ would have counted too. Gangsta rap Rich and Tags and Irish trad session Tags we
   `EXPLICIT_PREFACE_NOT_ATTRIBUTABLE` (new), with `shared_with`. Both carry a `meaning`.
 - **CLI.** `recipe.js --swap-variant` keeps stdout exactly as rendered and prints one
   stderr line per card naming the swapped descriptors its own clause does not print
-  (`note: sampler_classic card: --swap-variant descriptor(s) filtered out of the recipe:
-  modern (sampler_archetypes:mpc_modern)`). It decides "printed" with the connector's own
+  (`note: --swap-variant descriptor(s) not printed in the sampler_classic card's part of the
+  recipe: modern (sampler_archetypes:mpc_modern)`; a word named there may still be printed
+  by another card or the header). It decides "printed" with the connector's own
   test (`scripts/_whole_word.js`, shared with `mcp/engine.js`): a whole word anywhere in
   that card's clause, whichever part printed it, so a drum-kit `edge_round` swap no longer
   names `fundamental` while the clause reads `low fundamental tuning … drum kit`.
