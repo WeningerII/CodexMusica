@@ -3273,7 +3273,8 @@ function lyStructuralPreflight(model, parts, originalBlocks) {
   const before = new Map();
   model.setup.forEach((d) => before.set(d.raw, (before.get(d.raw) || 0) + 1));
   for (const d of model.setup) {
-    if (counts.get(d.raw) !== before.get(d.raw)) refused.add(`${d.key}: ${d.value}`);
+    if (counts.get(d.raw) !== before.get(d.raw))
+      refused.add(`${d.key === 'hook' ? 'hook line' : d.key}: ${d.value}`);
     // The assembler drops empty/malformed declarations. Refuse before that
     // loss even for header-only edits; an unknown cut is not ours to rewrite.
     if (d.key === 'rhyme groups' || d.key === 'returns') {

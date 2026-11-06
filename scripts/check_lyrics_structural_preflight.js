@@ -316,6 +316,17 @@ async function checkStructural(sourcePath = path.join(ROOT, 'src/pages/lyrics.js
     refusal(context(hook + '\n' + song), `LY_ACTIONS['${action}']('0')`, 'hook line');
     refusal(context(read + '\n' + song), `LY_ACTIONS['${action}']('0')`, 'reading');
   }
+  for (const action of ['ly-sec-dup', 'ly-sec-remove']) {
+    const inside = context(song.replace('[CHORUS]', '[CHORUS]\n' + hook));
+    refusal(inside, `LY_ACTIONS['${action}']('0')`, 'hook line');
+    ok(!inside.toasts[0].message.includes('hook:'), 'generic count refusal must say hook line');
+  }
+  const melodyHost = context(song);
+  const melodyText = melodyHost.run(`LY_FORMS.melody.apply(LY.model, 'song', {
+    meter:'4/4', groups:'2+2', bars:'1', subdivision:'2', events:'440:8'
+  }).text`);
+  ok(typeof melodyText === 'string', 'actual melody form did not produce a valid fixture');
+  refusal(context(melodyText), "LY_ACTIONS['ly-sec-move']('0:1')", 'melody');
   const unique = context(
     read.replace('I lead you home', 'I lead the chorus') +
       '\n' +
