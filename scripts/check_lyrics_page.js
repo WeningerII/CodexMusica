@@ -7428,6 +7428,9 @@ async function browserChecks(chromium) {
         revision: UI.lyricRevision,
         selection: [$ui('lyrics-draft').selectionStart, $ui('lyrics-draft').selectionEnd],
         picked: LY.picks.formSec,
+        renderedSelection: [
+          ...document.querySelectorAll('#ly-form-rows [data-ui="ly-form-pick"]'),
+        ].map((b) => [b.dataset.id, b.getAttribute('aria-pressed')]),
         session: localStorage.getItem('codex-workbench-v1'),
         recovery: sessionStorage.getItem('codex-workbench-recovery'),
         library: app.lyricMeta?.draftId
@@ -7630,8 +7633,8 @@ async function browserChecks(chromium) {
         id: '0:1',
         text: structuralDecl + structuralSong,
         lines: 6,
-        focus: 'ly-sec-move',
-        focusId: '1:1',
+        focus: 'ly-form-pick',
+        focusId: '1',
         groups: '4,2,6',
         returns: '3,5;4,6',
       },
@@ -7726,6 +7729,18 @@ async function browserChecks(chromium) {
               'successful drop did not focus the moved section control'
             );
           }
+          if (['move', 'drop'].includes(scenario.name)) {
+            const destination = scenario.name === 'move' ? 1 : 2;
+            const pressed = await page.evaluate(() =>
+              [...document.querySelectorAll('#ly-form-rows [data-ui="ly-form-pick"]')]
+                .filter((b) => b.getAttribute('aria-pressed') === 'true')
+                .map((b) => Number(b.dataset.id))
+            );
+            check(
+              JSON.stringify(pressed) === JSON.stringify([destination]),
+              `${scenario.name}: moved row must be the only pressed row`
+            );
+          }
           if (scenario.groups)
             check(
               got.declarations.groups === scenario.groups &&
@@ -7766,58 +7781,132 @@ async function browserChecks(chromium) {
         }
       });
     }
-    await step('S803 drop destination after splice: first, last and repeated reorder', async () => {
-      const { ctx, page, q } = await boot();
-      try {
-        await setDraft(page, structuralDecl + structuralSong);
-        await structuralOpen(page);
-        for (const [from, to] of [
-          [0, 2],
-          [2, 0],
-          [0, 1],
-        ]) {
-          const before = await structuralState(page);
-          const movedWords = await page.evaluate(
-            (from) => LY.model.sections[from].sung.map((r) => r.text),
-            from
-          );
-          await page
-            .locator(`#ly-form-rows tr[data-sec="${from}"] .ly-handle`)
-            .dragTo(page.locator(`#ly-form-rows tr[data-sec="${to}"] .ly-handle`));
-          const after = await structuralState(page);
-          const focus = await page.evaluate((to) => {
-            const control = document.querySelector(
-              `#ly-form-rows tr[data-sec="${to}"] [data-ui="ly-form-pick"]`
-            );
-            return {
-              matches: document.activeElement === control && control?.isConnected,
-              words: LY.model.sections[to].sung.map((r) => r.text),
-              picked: LY.picks.formSec,
-            };
-          }, to);
-          check(
-            focus.matches &&
-              focus.picked === to &&
-              JSON.stringify(focus.words) === JSON.stringify(movedWords),
-            `drop ${from}→${to} did not focus the moved occurrence`
-          );
-          check(after.index === before.index + 1, 'repeated drop added other history steps');
-          await page.locator('#btn-undo').click();
-          check(
-            (await structuralState(page)).text === before.text,
-            'repeated drop Undo did not restore text/declarations'
-          );
-          await page.locator('#btn-redo').click();
-          check(
-            (await structuralState(page)).text === after.text,
-            'repeated drop Redo did not restore text/declarations'
-          );
+    for (const phone of [false, true]) {
+      await step(
+        `S803 drop destination after splice: first, last and repeated reorder (${phone ? 'phone' : 'desktop'})`,
+        async () => {
+          const { ctx, page, q } = await boot({ phone });
+          try {
+            await setDraft(page, structuralDecl + structuralSong);
+            await structuralOpen(page);
+            for (const [from, to] of [
+              [0, 2],
+              [2, 0],
+              [0, 1],
+            ]) {
+              const before = await structuralState(page);
+              const movedWords = await page.evaluate(
+                (from) => LY.model.sections[from].sung.map((r) => r.text),
+                from
+              );
+              await page
+                .locator(`#ly-form-rows tr[data-sec="${from}"] .ly-handle`)
+                .dragTo(page.locator(`#ly-form-rows tr[data-sec="${to}"] .ly-handle`));
+              const after = await structuralState(page);
+              const focus = await page.evaluate((to) => {
+                const control = document.querySelector(
+                  `#ly-form-rows tr[data-sec="${to}"] [data-ui="ly-form-pick"]`
+                );
+                return {
+                  matches: document.activeElement === control && control?.isConnected,
+                  words: LY.model.sections[to].sung.map((r) => r.text),
+                  picked: LY.picks.formSec,
+                  pressed: [...document.querySelectorAll('#ly-form-rows [data-ui="ly-form-pick"]')]
+                    .filter((b) => b.getAttribute('aria-pressed') === 'true')
+                    .map((b) => Number(b.dataset.id)),
+                };
+              }, to);
+              check(
+                focus.matches &&
+                  JSON.stringify(focus.pressed) === JSON.stringify([to]) &&
+                  focus.picked === to &&
+                  JSON.stringify(focus.words) === JSON.stringify(movedWords),
+                `drop ${from}→${to} did not focus the moved occurrence`
+              );
+              check(after.index === before.index + 1, 'repeated drop added other history steps');
+              await page.locator('#btn-undo').click();
+              check(
+                (await structuralState(page)).text === before.text,
+                'repeated drop Undo did not restore text/declarations'
+              );
+              await page.locator('#btn-redo').click();
+              check(
+                (await structuralState(page)).text === after.text,
+                'repeated drop Redo did not restore text/declarations'
+              );
+            }
+            check(q.calls.length === 0, 'repeated drop sent a provider request');
+          } finally {
+            await ctx.close();
+          }
         }
-        check(q.calls.length === 0, 'repeated drop sent a provider request');
-      } finally {
-        await ctx.close();
-      }
-    });
+      );
+    }
+    for (const phone of [false, true]) {
+      await step(
+        `S803 keyboard Move pressed selection first/last and Undo/Redo (${phone ? 'phone' : 'desktop'})`,
+        async () => {
+          const { ctx, page, q } = await boot({ phone });
+          try {
+            await setDraft(page, structuralDecl + structuralSong);
+            await structuralOpen(page);
+            for (const [from, direction] of [
+              [0, 1],
+              [1, 1],
+              [2, -1],
+              [1, -1],
+            ]) {
+              const to = from + direction;
+              const before = await structuralState(page);
+              const button = page.locator(
+                `#ly-form-rows [data-ui="ly-sec-move"][data-id="${from}:${direction}"]`
+              );
+              await button.focus();
+              await page.keyboard.press('Enter');
+              const after = await structuralState(page);
+              const rendered = await page.evaluate(() => ({
+                picked: LY.picks.formSec,
+                pressed: [...document.querySelectorAll('#ly-form-rows [data-ui="ly-form-pick"]')]
+                  .filter((b) => b.getAttribute('aria-pressed') === 'true')
+                  .map((b) => Number(b.dataset.id)),
+                focus: document.activeElement?.dataset?.ui,
+                focusId: document.activeElement?.dataset?.id,
+              }));
+              check(
+                rendered.picked === to && JSON.stringify(rendered.pressed) === JSON.stringify([to]),
+                `Move ${from}→${to}: moved row not exclusively pressed`
+              );
+              check(
+                rendered.focus === 'ly-form-pick' && rendered.focusId === String(to),
+                `Move ${from}→${to}: focus did not follow R2 row-pick target`
+              );
+              check(
+                after.index === before.index + 1 && after.revision === before.revision + 1,
+                'selection redraw added save/history step'
+              );
+              // Native history handoff is separately owned; preserve its behavior.
+              for (const action of ['undo', 'redo']) {
+                await page.locator(`#btn-${action}`).click();
+                check(
+                  await page.evaluate(
+                    () => document.activeElement === document.getElementById('btn-undo')
+                  ),
+                  `${action} after Move changed native history focus`
+                );
+                check(
+                  (await structuralState(page)).text ===
+                    (action === 'undo' ? before.text : after.text),
+                  `${action} after Move changed text restoration`
+                );
+              }
+            }
+            check(q.calls.length === 0, 'keyboard selection checks sent a provider request');
+          } finally {
+            await ctx.close();
+          }
+        }
+      );
+    }
     await step('S803 drop Undo/Redo focus unchanged from existing implementation', async () => {
       const { ctx, page, q } = await boot();
       try {

@@ -7264,8 +7264,12 @@ const LY_ACTIONS = {
       `Moved section ${d < 0 ? 'up' : 'down'}.`
     );
     if (!result.applied) return result;
-    if (LY.picks.formSec === k) LY.picks.formSec = k + d;
-    lyFocusSectionControl(k + d, `[data-ui="ly-sec-move"][data-id="${k + d}:${d}"]`);
+    // Commit has rendered already; correct selection only after acceptance,
+    // then redraw the form surfaces before focusing the moved row.
+    LY.picks.formSec = k + d;
+    lyRenderMainTool();
+    if (LY.tab === 'tools') lyRenderTools();
+    lyFocusSectionControl(k + d, '[data-ui="ly-form-pick"]');
     return result;
   },
   'ly-sec-dup'(id) {
@@ -8284,6 +8288,8 @@ function lyWire(surface) {
     }, 'Moved the section.');
     if (!result.applied) return result;
     LY.picks.formSec = to;
+    lyRenderMainTool();
+    if (LY.tab === 'tools') lyRenderTools();
     lyFocusSectionControl(to, '[data-ui="ly-form-pick"]');
     return result;
   });

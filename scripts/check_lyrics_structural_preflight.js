@@ -70,6 +70,8 @@ async function checkStructural(sourcePath = path.join(ROOT, 'src/pages/lyrics.js
       calls.push('refresh');
       run('LY.model = lyParse(lyDraft().value)');
     };
+    c.lyRenderMainTool = () => {};
+    c.lyRenderTools = () => {};
     c.lyFocusSectionControl = (index) => {
       calls.push('focus');
       c.document.activeElement = { index };
