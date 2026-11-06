@@ -762,9 +762,40 @@ async function browserMain() {
     await browser.close();
   }
 }
+// Default CI mode is hermetic DOM evidence only. --browser additionally runs
+// the real browser suite above and must fail if sandboxed Chromium cannot start.
+async function main(args = process.argv.slice(2)) {
+  if (args.some((arg) => arg !== '--browser'))
+    throw new Error('Usage: node similar.cjs [--browser]');
+  const { JSDOM } = require('jsdom');
+  const modulePath = path.resolve(__dirname, '../../features/genre-similar/similar.js');
+  const source = fs.readFileSync(modulePath, 'utf8');
+  const dom = new JSDOM('<!doctype html><body></body>', {
+    url: 'http://similar.test/',
+    runScripts: 'outside-only',
+  });
+  try {
+    const factory = dom.window.Function(
+      source
+        .replace('export function mount', 'function mount')
+        .replace(
+          'import.meta.url',
+          JSON.stringify('http://similar.test/prototype/features/genre-similar/similar.js')
+        ) + '\nreturn mount;'
+    );
+    const checks = await contractSuite(factory(), fixtures(), dom.window);
+    console.log(
+      `Similar hermetic DOM contract: ${checks} checks PASS; not browser or host integration qualification.`
+    );
+  } finally {
+    dom.window.close();
+  }
+  if (args.includes('--browser')) await browserMain();
+  else console.log('Browser checks not run; use --browser on a sandbox-capable host.');
+}
 module.exports = { fixtures, contractSuite };
 if (require.main === module)
-  browserMain().catch((error) => {
+  main().catch((error) => {
     console.error(error);
     process.exitCode = 2;
   });
