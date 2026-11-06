@@ -4709,7 +4709,15 @@ const STORE_CHECKS = {
       );
       return why(
         !wrong.length &&
-          same(g.store, ['addGenre', 'port', 'preview', 'previewIs', 'start', 'status']) &&
+          same(g.store, [
+            'addGenre',
+            'port',
+            'preview',
+            'previewIs',
+            'reopen',
+            'start',
+            'status',
+          ]) &&
           g.frozen &&
           g.refused,
         wrong.map(([k]) => `${k}: ${JSON.stringify(g[k])}`).join(' | ') || JSON.stringify(g)
@@ -5452,6 +5460,68 @@ const STORE_CHECKS = {
       );
     },
   },
+  // 35. Opening the instrument already open rebuilds its preview, as
+  // production's inspect does: a preview that failed (its instrument
+  // couldn't be read) is tried again through a lane's openInstrument, and a
+  // ready one is rebuilt. Another instrument opens as before; a reopen of
+  // anything but the open instrument does nothing.
+  reopen: {
+    opts: { hash: '#genre' },
+    run: async (page) => {
+      await waitMounted(page, 'genreinstruments');
+      return inPage(page, async (S) => {
+        const { recipe, R, E, instrument } = await S.boot();
+        const ctx = window.__probeCtx.genreinstruments;
+        const inst = E.Inst('udu');
+        const parts = inst.parts;
+        const state = () => {
+          const a = S.acts(R);
+          return [a.status, a.instrumentId, a.error && a.error.code, a.previewRevision];
+        };
+        Object.defineProperty(inst, 'parts', {
+          configurable: true,
+          get() {
+            throw new Error('gate: an instrument that can’t be read');
+          },
+        });
+        ctx.openInstrument('udu', { returnFocus: document.body });
+        await S.settle(8);
+        const failed = state();
+        Object.defineProperty(inst, 'parts', { configurable: true, writable: true, value: parts });
+        ctx.openInstrument('udu', { returnFocus: document.body });
+        await S.settle(8);
+        const again = state();
+        ctx.openInstrument('udu', { returnFocus: document.body });
+        await S.settle(8);
+        const ready = state();
+        const others = [recipe.reopen('oud'), recipe.reopen(null), state()[3] === ready[3]];
+        ctx.openInstrument('oud', { returnFocus: document.body });
+        await S.settle(8);
+        return {
+          failed,
+          again,
+          ready,
+          others,
+          oud: state(),
+          selected: instrument.current(),
+          hash: location.hash,
+        };
+      });
+    },
+    verdict: (g) =>
+      why(
+        same(g.failed.slice(0, 3), ['error', 'udu', 'LOAD_FAILED']) &&
+          same(g.again.slice(0, 3), ['ready', 'udu', null]) &&
+          g.again[3] > g.failed[3] &&
+          same(g.ready.slice(0, 3), ['ready', 'udu', null]) &&
+          g.ready[3] > g.again[3] &&
+          same(g.others, [false, false, true]) &&
+          same(g.oud.slice(0, 3), ['ready', 'oud', null]) &&
+          g.selected === 'oud' &&
+          g.hash === '#instrument',
+        JSON.stringify(g)
+      ),
+  },
 };
 
 // One planted defect (at least) for every check: text edits to
@@ -5603,8 +5673,8 @@ const STORE_MUTANTS = {
     check: 'surfaces',
     edits: [
       [
-        '    return Object.freeze(out);\n  }\n\n  return Object.freeze({',
-        '    out.apply = recipe.apply;\n    return Object.freeze(out);\n  }\n\n  return Object.freeze({',
+        "    return Object.freeze(out);\n  }\n\n  // The shell's openInstrument",
+        "    out.apply = recipe.apply;\n    return Object.freeze(out);\n  }\n\n  // The shell's openInstrument",
       ],
     ],
   },
@@ -5712,6 +5782,16 @@ STORE_MUTANTS['remove_tradition takes a genre that isn’t an id'] = {
   check: 'apply',
   edits: [["      if (typeof edit.tradition !== 'string') return no('INVALID');\n", '']],
 };
+// The reopen check's defects.
+STORE_MUTANTS['reopen rebuilds nothing'] = {
+  check: 'reopen',
+  edits: [
+    [
+      '    if (instrumentId !== selection.current() || instrumentId !== pv.instrumentId) return false;\n    rebuild();\n    return true;',
+      '    if (instrumentId !== selection.current() || instrumentId !== pv.instrumentId) return false;\n    return true;',
+    ],
+  ],
+};
 // The throwing-add check's defects.
 Object.assign(STORE_MUTANTS, {
   'an ensemble whose engine call throws leaves the store busy': {
@@ -5765,6 +5845,15 @@ const APP_MUTANTS = {
       [
         "      unloaded: 'The genre’s instruments did not load.',\n      // As for the discovery lanes: the store's load also fails on the\n      // engine's page parse, which no connection fixes.\n      retryHint: 'Try again.',\n",
         "      unloaded: 'The genre’s instruments did not load.',\n",
+      ],
+    ],
+  },
+  'openInstrument leaves the open instrument as it is': {
+    check: 'reopen',
+    edits: [
+      [
+        "  if (typeof id === 'string' && id && id === instrument.current()) recipe.reopen(id);\n  else instrument.set(id);",
+        '  instrument.set(id);',
       ],
     ],
   },

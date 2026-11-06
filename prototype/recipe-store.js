@@ -1256,12 +1256,24 @@ export function recipeStore({ load, selection, announce, ceiling } = {}) {
     return Object.freeze(out);
   }
 
+  // The shell's openInstrument on the instrument already open: production's
+  // uiInspectInstrument rebuilds the preview every time it is asked, which
+  // is how a preview that failed is tried again (a selection set to the
+  // value it has tells no one). True when it rebuilt.
+  function reopen(instrumentId) {
+    if (status !== 'ready' || typeof instrumentId !== 'string') return false;
+    if (instrumentId !== selection.current() || instrumentId !== pv.instrumentId) return false;
+    rebuild();
+    return true;
+  }
+
   return Object.freeze({
     start,
     status: () => status,
     port,
     preview: previewViews,
     addGenre,
+    reopen,
     // The shell's own STALE check for openInstrument (#780, 6647783903).
     previewIs: (instrumentId, previewRevision) =>
       pv.instrumentId === instrumentId && pv.revision === previewRevision,

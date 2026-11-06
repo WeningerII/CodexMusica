@@ -278,9 +278,11 @@ const recipe = recipeStore({ load: loadEngine, selection: instrument, announce }
 // Opens an instrument (#668 6647387849): the shell's selection, then the
 // Instrument route, whose heading takes focus. A lane passes returnFocus, the
 // control that asked; the Instrument page's way back isn't in this build, so
-// nothing reads it yet.
+// nothing reads it yet. The instrument already open has its preview rebuilt,
+// as production's inspect does, so one that failed can be tried again.
 function openInstrument(id) {
-  instrument.set(id);
+  if (typeof id === 'string' && id && id === instrument.current()) recipe.reopen(id);
+  else instrument.set(id);
   if (routeFromHash() !== 'instrument') location.hash = '#instrument';
 }
 
