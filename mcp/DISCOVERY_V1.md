@@ -20,8 +20,13 @@ save is an unknown outcome (§4, §5.1). It answers 3PO's review of `2e8ae0239` 
 fixes an adversarial review of `8732918312`: the reply plumbing C1 needs (§8), the other
 `RESOURCE_LIMIT` raisers (§8), and the precision of §6.9's nine cases. It folds BB8's
 correction of the budget (6682942783, option (b)): only the per-entry load rate is scaled, and
-the combined cap is 65,536 entries (§3, §6.11, §12 item 25). Where this text and the proposal
-differ, this text governs. 3PO's
+the combined cap is 65,536 entries (§3, §6.11, §12 item 25). It folds BB8's rulings on items
+21–29 (6683944548) and BB8's revision of item 27 (6684866461), on 3PO's reachability correction
+(6684847656): the refusal stays in the cursor, `REFUSAL_BYTES` is derived from how the adapter
+builds a refusal and passing it is `INVARIANT_FAILURE` (§3.2), `CURSOR_BYTES` is derived again
+from that refusal (§3.1), C1 is switched on in the worker half's runtime train (§8), and BB8's
+correction of where the `row_seen` figure comes from is carried through (§6.11, §10). Where this
+text and the proposal differ, this text governs. 3PO's
 acknowledgement (6677006069) fixes the `contracts.py` reservation to the checkpoint declaration
 and schema; the shared `CONTRACT_VERSION` does not change.
 
@@ -284,8 +289,8 @@ changes:
   (`:2445-2458`), so nothing bounds them. In v2, `alt_cells` is a log (§2.3) and the domain
   tallies are rebuilt under option 2 (§6.9). What stays in the cursor outside `discovery`
   and `continuation`, `witness` included, is at most `CURSOR_BYTES`, a bound derived from the
-  engine's constants (§3.1), and each method's `refusal` is at most `REFUSAL_BYTES`; Node checks
-  these rules under W4.
+  engine's constants (§3.1), and each method's `refusal` is at most `REFUSAL_BYTES`, a bound
+  derived from how the adapter builds a refusal (§3.2); Node checks these rules under W4.
 - **`discovery`:**
 
   ```
@@ -365,8 +370,8 @@ truncation.
 | `GROUP_KEYS`, `GROUP_BYTES` | 32 keys and 8192 entry bytes in the current group | spill to `alt_seen` (§6.4): a spill rule, not a refusal | `READER_PROTOCOL` (W4) |
 | `WITNESS_FIELDS` | 16 field names, each a dot path of lowercase names (`[a-z0-9_]`, joined by `.`) of at most 64 bytes | `INVARIANT_FAILURE` (an engine defect: the field list is the reducer's constant, five names in v1) | `READER_PROTOCOL` (W4) |
 | `CONTINUATION_BYTES` | 8192 canonical bytes | `INVARIANT_FAILURE` (an engine defect, never a truncation) | `READER_PROTOCOL` (W4) |
-| `REFUSAL_BYTES` | 1024 canonical bytes of one method's refusal (`methods[*].refusal`) | `RESOURCE_LIMIT` (cause `cursor_refusal_bytes`): its detail can carry text from the input, which makes this a regression for a long declared source label (§3.1, §12 item 27) | `READER_PROTOCOL` (W4) |
-| `CURSOR_BYTES` | 163840 canonical bytes (160 KiB) of the cursor outside `discovery` and `continuation`, derived in §3.1 | `INVARIANT_FAILURE` (an engine defect: the largest cursor the constants allow is 142,912 bytes, §3.1) | `READER_PROTOCOL` (W4) |
+| `REFUSAL_BYTES` | 543 canonical bytes of one method's refusal (`methods[*].refusal`): the largest refusal the adapter can construct, derived in §3.2 | `INVARIANT_FAILURE` (an engine defect: no input can lengthen a refusal, §3.2) | `READER_PROTOCOL` (W4) |
+| `CURSOR_BYTES` | 131072 canonical bytes (128 KiB) of the cursor outside `discovery` and `continuation`, derived in §3.1 | `INVARIANT_FAILURE` (an engine defect: the largest cursor the constants allow is 99,141 bytes, §3.1) | `READER_PROTOCOL` (W4) |
 | frame | 2 MiB (`worker.py:166`, `python_bridge.js:16`) | the existing frame refusal | — |
 | control payload and record | 2 MiB (`READER_LIMITS.objectBytes`) | — | the existing `RESOURCE_LIMIT` 413 (`reader_job_store.js:78-83`) |
 
@@ -377,12 +382,13 @@ one, not only this table's: the resident-capacity guard (`analysis.py:40-55`,
 `declared_coordinate_bits`; `:110-113`, `expansion_budget`), which the reader reaches through
 `library/form.py:351-372` and `quality/fit.py`. §8 lists every raise site, the validator fails on
 a site it does not list, and C1 refuses a reply without a cause (§8). The worker's
-`INVARIANT_FAILURE` for the two byte bounds, `CONTINUATION_BYTES` and `CURSOR_BYTES`, is
-confirmed (BB8 6678599629): each is an engine defect, never a truncation. For `CURSOR_BYTES`
-that holds only once the bound is derived from the constants (BB8 6678702125, ruling 2). §3.1
-derives it, and the previous revision's 64 KiB does not hold the largest cursor, so the bound
-is 160 KiB. `WITNESS_FIELDS` takes `INVARIANT_FAILURE` for the same reason as the byte bounds
-(§12, item 17).
+`INVARIANT_FAILURE` for the byte bounds `CONTINUATION_BYTES` and `CURSOR_BYTES` is confirmed
+(BB8 6678599629): each is an engine defect, never a truncation. For `CURSOR_BYTES` that holds
+only once the bound is derived from the constants (BB8 6678702125, ruling 2), and §3.1 derives
+it: 128 KiB, over a largest cursor of 99,141 bytes. `REFUSAL_BYTES` takes `INVARIANT_FAILURE`
+too, because §3.2 derives it from how the adapter builds a refusal, so no input can pass it (BB8
+6684866461). `WITNESS_FIELDS` takes `INVARIANT_FAILURE` for the same reason as the byte bounds
+(§12, item 17). None of the four names a cause (§8).
 
 Derived bounds, computed from the constants (not measured):
 
@@ -390,13 +396,13 @@ Derived bounds, computed from the constants (not measured):
   separators each, plus one group of 8192 bytes plus 32 separators, plus about 1 KiB of
   envelope: about 96 KiB.
 - **The whole cursor** is `cursor.discovery`, plus `continuation` (8 KiB), plus everything
-  else (`CURSOR_BYTES`, 160 KiB, `witness` included): about 264 KiB. This holds only because
+  else (`CURSOR_BYTES`, 128 KiB, `witness` included): about 232 KiB. This holds only because
   `methods[*]` carries no terminal input (§2.8).
-- **A frame** is at most 1 MiB of records (`worker.py:161`), plus the cursor (about 264 KiB),
+- **A frame** is at most 1 MiB of records (`worker.py:161`), plus the cursor (about 232 KiB),
   plus 8 seals of about 17.2 KiB each (16384 entry bytes, 1023 separators, two digests and
   the envelope), plus the summary, which this contract does not change: about 1.4 MiB plus
   the summary, under the 2 MiB caps.
-- **The record** is the cursor (about 264 KiB), plus `record.discovery` (five logs, each
+- **The record** is the cursor (about 232 KiB), plus `record.discovery` (five logs, each
   about 200 bytes in `logs` and as much again in `verified`), plus today's record fields,
   including the inline page refs while `page_count` ≤ 250 (`reader_job_store.js:1062`). R2's
   store tests hold a record to that bound.
@@ -416,62 +422,166 @@ engine's own constants allow. This section builds that cursor from those constan
 | the envelope | `contract_version`, `identity_hash` (64 hex digits), `phase` (at most 12 bytes: `native_pairs`, `shared_sound`), `method_index`, `candidate`, `emission`, `sequence`, `counters` (five integers) and `done` | the cursor's fixed fields (`analysis.py:466-476`); the phases are the task list's and `"complete"` (`:440-462`, `:2457`) |
 | `methods` | one entry per method a job names: at most 91, each key at most 37 bytes (`shared_sound:` and 24 hex digits) | the task list (`analysis.py:440-462`): `coordinates`, `form`, `language`, three native work methods (the most any language has, `fas`), its relation method, the 80 schemas and the four shared-sound methods; an assembly task shares its schema's id |
 | one method's entry | seven integer counters (`candidates`, `true`, `false`, `undecided`, `refused_questions`, `first_reading_only`, `unreadable_tokens`), `coverage` (`answered` or `refused`, at most 8 bytes), `figure_counts` (three integers) and at most one `refusal` | every key the method's counts take (`analysis.py:2484-2490`, `:2556-2605`, `:2366`, `:2379-2398`, `:1871-1876`); the terminal inputs are gone (§2.8) |
-| a refusal | at most `REFUSAL_BYTES` | its own bound, below |
+| a refusal | at most `REFUSAL_BYTES`, 543 bytes | derived from how the adapter builds a refusal (§3.2) |
 | `incomplete` | one reason per schema, at most 80; the longest is 68 bytes (70 canonical): "its disputed words' readings collide on more than 1375311 line pairs", with `MINI_CAP` | the three writers (`analysis.py:716`, `:958`, `:1036`) |
 | `refused_schemas` | at most the 80 schema names, each at most 39 bytes | the registry |
 | `witness` | `WITNESS_FIELDS` dot paths of 64 bytes, a method id, a count and a digest; v1 holds five fields, the ids and every field `_domain_tally` reads (`analysis.py:1466-1479`) | §2.8, §3 |
 
-**The refusal is the one part that grows with the input.** Its shape is fixed,
-`{schema, capability, detail, missing, kind, vacuous}` (`quality/relations.py:184-236`), and its
-names come from the registry. But its detail is a message built from the text: counts of loci
-and pairs (`relations.py:2070-2072`, `analysis.py:1625-1628`), and, where `relations.py` builds
-a vacuous-frame refusal, a declared source label (`relations.py:3586-3588`). So a long detail
-cannot be an engine defect. It gets its own bound, `REFUSAL_BYTES = 1024`, and its own cause: a
-refusal past it is `RESOURCE_LIMIT`, cause `cursor_refusal_bytes`, raised when the refusal is
-stored, before the frame is emitted. The longest refusal at this head with no input text in it,
-the stub-resolution refusal (`relations.py:4665-4676`), is 543 bytes (measured).
+**The refusal does not grow with the input** (BB8 6684866461, on 3PO 6684847656). The previous
+revision read a refusal's detail as text from the input, because `relations.realise` embeds a
+declared source label in its vacuous-frame detail (`relations.py:3586-3588`), and it bounded the
+refusal as `RESOURCE_LIMIT`, cause `cursor_refusal_bytes`. The adapter never builds that refusal.
+§3.2 lists every refusal it can put in a cursor, derives `REFUSAL_BYTES` from them, and makes
+passing it `INVARIANT_FAILURE`, as this section's bound is.
 
-**This is a regression, stated** (§12, item 27). The vacuous-frame refusal embeds the declared
-source label of each empty frame (`relations.py:3586-3588`), and `form.py:66-68` requires a label
-only to be nonempty. No schema at this head has more than one frame capability, so a refusal
-carries one label. With a one-byte label, the largest such refusal is 756 bytes (measured: `平仄
-tonal template`, with a second capability missing), so a label of about 270 bytes or more passes
-`REFUSAL_BYTES`. Today such a job completes with that method refused. Under v2 it stops with
-`RESOURCE_LIMIT`, cause `cursor_refusal_bytes`, and does so every time. The other ways out are
-BB8's to choose: bound a declared source label at validation, so that the refusal is bounded by
-constants and the cause can go, or keep the detail out of the cursor (its sha256 and byte length,
-since the refusal record the step emits keeps the words), which changes the shape of
-`summary().methods[*].refusal`.
-
-**The largest cursor.** Every integer at 2⁵³ − 1, 91 methods each at its fullest with a refusal
-of exactly `REFUSAL_BYTES`, the longest reason for all 80 schemas, every schema refused, and the
-widest witness:
+**The largest cursor.** Every integer at 2⁵³ − 1, 91 methods each at its fullest with the
+largest refusal the adapter can construct (§3.2), of exactly `REFUSAL_BYTES`: the actual refusal,
+`search_stub_resolution`'s, not padding. Then the longest reason for all 80 schemas, every schema
+refused, and the widest witness:
 
 | Part | Canonical bytes |
 | --- | --- |
-| `methods` | 128,766: 91 entries of 1,414 bytes each with its key, and their separators |
+| `methods` | 84,995: 91 entries of 933 bytes each with its key, and their separators |
 | `incomplete` | 9,041 |
 | `refused_schemas` | 3,361 |
 | `witness` | 1,274 |
 | the envelope and its separators | 470 |
-| the largest cursor | 142,912 |
+| the largest cursor | 99,141 |
 
-- **The bound.** `CURSOR_BYTES = 163840` (160 KiB), 20,928 bytes above the largest cursor: room
-  for 14 more methods at their fullest before the bound has to be derived again. The previous
-  revision's 64 KiB does not hold the largest cursor, so it is replaced (§12, item 21).
-- **What the worker does past it.** A cursor past `CURSOR_BYTES` has every refusal within
-  `REFUSAL_BYTES`, which is checked first, so only content no constant allows can get it there,
-  such as a method the registry does not have. That is `INVARIANT_FAILURE`, never a truncation.
+- **The bound.** `CURSOR_BYTES = 131072` (128 KiB), 31,931 bytes above the largest cursor: room
+  for 34 more methods at their fullest before the bound has to be derived again. It replaces
+  160 KiB, whose derivation took every refusal at the previous revision's 1,024 bytes and found
+  a largest cursor of 142,912 bytes. That figure is not reused (BB8 6684866461; §12, item 21).
+- **What the worker does past it.** It checks each refusal against `REFUSAL_BYTES` first, then
+  the cursor against `CURSOR_BYTES`. Either one passed is `INVARIANT_FAILURE`, never a
+  truncation: only content no constant allows gets there, such as a method the registry does not
+  have, or a refusal from a construction §3.2 does not list.
 - **When it is derived again.** On any change to the inputs above: a method, a schema, a
-  counter, a reason or a refusal bound. On each run the validator reads, from the registry and
-  the source: the methods and their ids, the schema names, the phases, the coverage values, the
+  counter, a reason, or `REFUSAL_BYTES` (§3.2). On each run the validator reads, from the
+  registry and the source: the methods and their ids, the schema names, the phases, the coverage values, the
   cursor's counters (`analysis.py:470`), every key a method's counts take, the incomplete
   writers and their templates, and the fields `_domain_tally` reads. It fails when any of them
   passes this table's inputs.
 - **Tests** (`bad/cursor_over_bound.json`): the largest cursor and a cursor of exactly
   `CURSOR_BYTES` are accepted. One byte over is refused by W4, and by the worker as
   `INVARIANT_FAILURE`. One refusal one byte over `REFUSAL_BYTES` is refused by W4, and by the
-  worker as `RESOURCE_LIMIT`, cause `cursor_refusal_bytes`.
+  worker as `INVARIANT_FAILURE` too.
+
+### 3.2 Deriving `REFUSAL_BYTES` (BB8 6684866461)
+
+`REFUSAL_BYTES` bounds one method's `refusal` in the cursor. The refusal stays in the cursor,
+whole. Its bound is derived from how the adapter builds a refusal: fixed text, plus parts whose
+size is bounded. It is not a guess about inputs, so passing it is `INVARIANT_FAILURE`, an engine
+defect. This replaces the previous revision's 1,024 bytes as `RESOURCE_LIMIT`, and BB8's earlier
+ruling to move the detail out of the cursor behind a fixed-size reference (6683944548, item 27).
+3PO showed that no input reaches a long refusal through the real adapter (6684847656), so a
+reference encoding would protect against a case that cannot occur.
+
+**Where a cursor's refusal comes from.** `analysis.py` writes `counts["refusal"]` in four places,
+and nowhere else:
+
+- `_sound_result` (`analysis.py:1874-1875`) and `_finish` (`:2394-2395`): the unread-members
+  refusal, fixed text;
+- `_finish` (`:2398-2400`): the reading-combinations refusal, fixed text around one incomplete
+  reason, at most 68 bytes (§3.1's three writers);
+- `_prepare_event` (`:2560-2562`): `json_safe(exc.refusal)` for every `_Refused` (`:2627-2630`)
+  the traversal raises. That is a `Refusal` (`quality/relations.py:184-236`), written field by
+  field (`library/contracts.py:182-205`).
+
+The traversal raises `_Refused` in seven places. Four build the refusal there, and three pass on
+one an engine function built:
+
+| Raise | Refusal | Its variable parts |
+| --- | --- | --- |
+| `_sound_candidates` (`analysis.py:1624-1628`) | `pair_cap` | the shared-sound method's name (`library/registry.py:50-51`), the word count, the pair count, and `SOUND_PAIR_CAP` (`analysis.py:1594`) |
+| `_candidates` (`:1972-1974`) | `beat` | the schema name |
+| `_candidates` (`:1983-1989`) | a missing capability | the schema name, its missing and vacuous capabilities, and each one's `REMEDIES` text (`library/registry.py:54-73`) |
+| `_candidates` (`:2015-2026`) | `span` | the schema name, and `str()` of the `NoReferent` that `enumerate_spans` raises: its own message (`relations.py:2070-2072`) or `_loci`'s (`:2043`), each naming the rule's anchor and locus and, for the first, a count of loci; `_anchor_pos`'s messages (`:1918-1971`) are caught inside `enumerate_spans` and counted as skipped, and are bounded with the rest |
+| `_candidates` (`:1975-1978`) | what `_stub_resolved_stream` returns (`relations.py:4838-4873`) | fixed text (`:4850-4855`); four counts (`:4861-4868`); or `search_stub_resolution`'s refusal (`:4665-4675`), passed on at `:4858-4860`, fixed text |
+| `_assembly_records` (`:2346-2349`) | what `assemble` returns (`relations.py:3812-3883`): `_full_shape`'s (`:3834-3835`) | the schema name and its missing and vacuous capabilities (`:9294-9316`) |
+| `_prepare_event` (`:2530-2532`) | what `_shape` returns (`:2068`): `_full_shape`'s | the same |
+
+`assemble` passes on a refusal it is given (`relations.py:3836-3837`), but the adapter gives it
+the list of edges it rebuilt (`analysis.py:2336-2346`). In the call closure of those three
+functions in `relations.py`, only `_stub_resolved_stream`, `search_stub_resolution` and
+`_full_shape` build a `Refusal`.
+
+**The declared label never reaches a refusal.** `_apply_declarations` reads a declaration's
+`source` only to require one (`analysis.py:1105`, `:1134`, `:1158`). It sets every frame's source
+to `"declared"` (`:1121`, `:1124`, `:1127`, `:1129`, `:1131`, `:1150`, `:1166`, `:1194`) or
+`"none"` (`:1154`), never to the label. And no construction above reads a frame's source: the
+capability refusals name capabilities and `REMEDIES` text, never `Supply.source`. 3PO measured
+it through the real adapter (6684847656): with a real 4,096-byte declared label, `AnalysisSession`
+completes identical continuing and restored 18-record streams, and the refusal is 187 bytes.
+
+**Context, not a regression.** `relations.realise` does embed the label in its vacuous-frame
+detail (`relations.py:3586-3588`). On a separately built, lower-level stream with a 4 KiB label,
+3PO measured 4,607 detail bytes. The adapter never calls `realise`, so that detail never reaches
+a cursor. It shows lower-level behaviour, and it is not an adapter regression.
+
+**The bounds of the variable parts.**
+
+- A name, a capability, a list of capabilities or a `REMEDIES` text is taken at the longest value
+  its expression gives over the registry: the 80 schemas, their capabilities (where any is
+  missing), the four shared-sound methods, and the anchors and loci of the schemas' span rules.
+- Every count is a `len()` of a CPython container, or a counter that moves once per element of
+  one, so it is at most `sys.maxsize`, 2⁶³ − 1 = 9223372036854775807, on the 64-bit build the
+  reader runs on: the loci `enumerate_spans` skipped, and the four stub counts. `pair_cap`'s word
+  count is two such lengths, at most 2(2⁶³ − 1), and its pair count is that count's n(n − 1)/2
+  (`analysis.py:1622-1623`), at most 39 digits.
+- `SOUND_PAIR_CAP` is a constant, and so is the incomplete reason's longest form (§3.1).
+
+**The largest refusal.** With every variable part at its maximum, each construction gives:
+
+| Construction | Where | Canonical bytes |
+| --- | --- | --- |
+| `search_stub_resolution`: no line is declared a pointer | `relations.py:4665-4675` | 543 |
+| `_candidates`: a missing capability | `analysis.py:1987-1989` | 386 |
+| `_full_shape`: a missing capability | `relations.py:9304-9310` | 339 |
+| `_stub_resolved_stream`: no stub resolves | `relations.py:4861-4868` | 336 |
+| `_finish`: reading combinations | `analysis.py:2398-2400` | 297 |
+| `_stub_resolved_stream`: nothing is declared | `relations.py:4850-4855` | 297 |
+| `_sound_candidates`: `pair_cap` | `analysis.py:1625-1628` | 285 |
+| `_full_shape`: no member bindings | `relations.py:9295-9298` | 264 |
+| `_candidates`: `span` | `analysis.py:2026` | 261 |
+| `_candidates`: `beat` | `analysis.py:1973-1974` | 236 |
+| `_finish`: unread members | `analysis.py:2394-2395` | 209 |
+| `_sound_result`: unread members | `analysis.py:1874-1875` | 209 |
+| `_full_shape`: no stanza frame | `relations.py:9315-9316` | 177 |
+
+- **The bound.** `REFUSAL_BYTES = 543`: the largest itself, `search_stub_resolution`'s refusal,
+  which has no variable part. It has no headroom, on purpose: a change that lengthens any
+  construction moves the figure, and the validator fails until the bound is derived again.
+- **What the worker does past it.** `INVARIANT_FAILURE`, raised when the refusal is stored,
+  before the frame is emitted, and never a truncation. It names no cause, as the other byte
+  bounds do not (§8), so `cursor_refusal_bytes` is retired. BB8 left the name open (rename it to
+  match, or keep it under `INVARIANT_FAILURE`); it matches the other `INVARIANT_FAILURE` bounds
+  by naming none, and C1's rule that only `DISCOVERY_UNAVAILABLE` and `RESOURCE_LIMIT` carry a
+  cause stands as confirmed (§12, item 22). The store refuses it by W4.
+- **Guard tests** (BB8 6684866461, both required):
+  1. **The worker half (#721), with the dictionary.** An analysis whose declaration gives a frame
+     a source label of 4,096 bytes, and one of 65,536 bytes, completes as it does today,
+     continuing and restored at every step boundary: the same records as an uninterrupted run,
+     and every refused method's refusal byte-identical to the one a 1-byte label gives, within
+     `REFUSAL_BYTES`.
+  2. **The validator, without the dictionary** (`good/refusal_construction.json`). It walks the
+     source: every write of a `refusal` key and every `_Refused` raise in `analysis.py`, and every
+     `Refusal` and `NoReferent` the engine functions those raises pass on can build, over their
+     call closure in `relations.py`. It fails on a construction or a variable part this section
+     does not list. It evaluates each variable part over the registry, builds each construction's
+     largest refusal, and shows the largest of all is `REFUSAL_BYTES`. It runs the real
+     `_candidates`, `_full_shape` and `_stub_resolved_stream` on a stream whose every frame has a
+     source label of 1, 4,096 and 65,536 bytes, and holds the refusals byte-identical across the
+     three and within the bound. It checks that `_apply_declarations` sets a frame's source only
+     to `"declared"` or `"none"`.
+
+  If a later change lets label text into a refusal, the walk finds a part with no bound and the
+  labelled runs differ, so the validator fails: the derivation catches it, not the input. If a
+  future adapter does put input text into a refusal, the guard fails first, and the reference
+  design comes back then (BB8 6684866461); 3PO's scratch reference oracle is kept for that.
+- **When it is derived again.** On any change to a construction above, to `REMEDIES`, to
+  `SOUND_PAIR_CAP` or the incomplete reasons, or to the registry's names, capabilities, anchors or
+  loci. `CURSOR_BYTES` is derived again with it (§3.1).
 
 ## 4. Write path
 
@@ -519,7 +629,7 @@ There is no new channel. A frame's seals ride the existing step and its acknowle
      frame's and its fields dot paths within `WITNESS_FIELDS`. `continuation` stays within
      `CONTINUATION_BYTES`. `methods[*]` carries no terminal input, each method's `refusal`
      stays within `REFUSAL_BYTES`, and the cursor outside `discovery` and `continuation` stays
-     within `CURSOR_BYTES` (§2.8, §3.1). A record holding discovery with a frame and cursor
+     within `CURSOR_BYTES` (§2.8, §3.1, §3.2). A record holding discovery with a frame and cursor
      that have none also fails W4.
 4. **Write order:** pages, indexes, manifest and checkpoint as today
    (`reader_job_store.js:1051-1097`), then one segment per seal in seal order (each
@@ -1001,7 +1111,13 @@ Domain tallies are not logged. They are rebuilt from committed evidence.
     `bad/terminal_suffix_resume_faults.json`);
   - the 3 valid restores, one at each split point, finish the emission byte-identical to the
     uninterrupted run (BB8 6678856548, from 3PO's disk-backed restores in 6678848728), and the
-    durable prefixes, the complete suffix and the `schema_name` control are accepted.
+    durable prefixes, the complete suffix and the `schema_name` control are accepted;
+  - a non-terminal record inserted after the terminal suffix refuses `RESULT_EXPIRED`, as a test
+    of its own (3PO's qualification of item 24, kept by BB8 6683944548): a contribution after the
+    complete suffix (`bad/terminal_suffix_not_contiguous.json`'s `contribution_after_suffix`). It
+    is separate from the contribution inserted between the boundary and the terminal parent at
+    each split point (`bad/terminal_suffix_resume_faults.json`'s `inserted_record`), and neither
+    stands in for the other.
 - **Fallback.** If reading the evidence at finish is too slow (about 63 MB plain on #656,
   time not yet measured), the fallback is domain logs, with the same semantics and no new
   ruling. It adds two logs to §2.3, so it is a revision of this contract.
@@ -1067,12 +1183,15 @@ recompute and the walk enter at their loaded-host measurements, as in the deriva
 - **The check.** At the cap the load is 65,536 × 91.2 µs = 5.98 s, about 6.0 s. With construct,
   recompute and the walk the sum is 26.68 s, 3.32 s under the budget, which holds the first
   step's 1 s deadline.
-- **#656 is expected to fit, and the proof run decides** (BB8 6682942783). Its primary phase
-  holds 20,045 `seen` and `variants` entries (§10), which leaves 45,491 for the alternate phase:
-  `alt_seen` measured empty, and 3PO found `row_seen` live at only 6 of 42 boundaries. That is an
-  expectation, not a guarantee. The proof run's gates decide (§9): every lease's first commit
-  within 30 s, and finish work measured, which is still open. If a lease's first commit misses
-  30 s on the qualified image, the cap is re-derived from that measurement. It is never waived.
+- **The proof run decides whether #656 fits** (BB8 6682942783, corrected by 6683944548). The one
+  Whitman figure here is its primary phase's 20,045 `seen` and `variants` entries (§10). The
+  45,491 entries the cap leaves are headroom for the alternate phase, not a measured margin:
+  Whitman's alternate phase is not measured. The figure "`row_seen` live at only 6 of 42
+  boundaries", cited in 6682942783, comes from 3PO's two-line synthetic fixture, not from
+  Whitman, so it says nothing about Whitman's alternate phase. The proof run is the only evidence
+  for that phase, and its gates decide (§9): every lease's first commit within 30 s, and finish
+  work measured, which is still open. If a lease's first commit misses 30 s on the qualified
+  image, the cap is re-derived from that measurement. It is never waived.
 - **What this replaces.** 6681838131 took every term at the loaded-host factor, construct and
   recompute included (19.2 s and 2.7 s). That gave BB8's 16,384, and over the combined sum the
   previous revision's 32,768 (`147f5dd3d`). A combined cap of 16,384 would refuse #656's own
@@ -1275,7 +1394,7 @@ Nothing is ever reinterpreted, and missing state is never rebuilt.
 | `STALE_READING` | 409 | worker | a v1 cursor on a v2 worker, a v2 cursor on a v1 worker (`analysis.py:464`), or a witness whose fields are not the ones the worker's reducer reads (§6.9) |
 | `RESULT_EXPIRED` | 410 | worker | the option 2 witness disagrees with durable history, or is null on a qualified method (§6.9) |
 | `RESOURCE_LIMIT` | — (the job pauses) | worker | a §3 limit the worker cannot meet by ending its step, or another raise of §8's list; it names its cause (below) |
-| `INVARIANT_FAILURE` | — (the job pauses) | worker | `CURSOR_BYTES`, `CONTINUATION_BYTES` or `WITNESS_FIELDS` passed: an engine defect (§3, §3.1) |
+| `INVARIANT_FAILURE` | — (the job pauses) | worker | `CURSOR_BYTES`, `CONTINUATION_BYTES`, `REFUSAL_BYTES` or `WITNESS_FIELDS` passed: an engine defect, naming no cause (§3, §3.1, §3.2) |
 
 `DISCOVERY_UNAVAILABLE` always names its cause. 409 matches `STALE_READING`; 410 stays with
 `RESULT_EXPIRED`, because here the result is not gone. The Log column says whether a reply's
@@ -1304,7 +1423,6 @@ raise the reader reaches:
 | `discovery_variants` | `MEMBERSHIP_ENTRIES`, by an append to `variants` | none | This analysis stopped: it prepared more reading variants than a resume can reload in time. Its committed evidence stays readable. |
 | `discovery_row_seen` | `MEMBERSHIP_ENTRIES`, by an append to `row_seen` | none | This analysis stopped: its search kept more pairs of one row than a resume can reload in time. Its committed evidence stays readable. |
 | `discovery_alt_seen` | `MEMBERSHIP_ENTRIES`, by an append to `alt_seen` | none | This analysis stopped: its search of alternate readings kept more pairs than a resume can reload in time. Its committed evidence stays readable. |
-| `cursor_refusal_bytes` | `REFUSAL_BYTES` | none | This analysis stopped: one of its methods' refusals is longer than a checkpoint can keep. Its committed evidence stays readable. |
 | `resident_capacity` | the reader's memory envelope (`analysis.py:40-55`) | none | This analysis stopped: it needs more memory than this reader may use. No source or comparison was skipped. Its committed evidence stays readable. |
 | `declared_coordinate_bits` | the meter's 256-bit coordinate budget (`quality/meter.py:94-96`) | none | This analysis stopped: a declared beat or meter position is larger than the reader can compute with. Its committed evidence stays readable. |
 | `expansion_budget` | the meter's per-operation expansion budget (`quality/meter.py:110-113`) | none | This analysis stopped: a declared meter or beat pattern expands to more positions than the reader can compute with. Its committed evidence stays readable. |
@@ -1386,7 +1504,7 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   are not replies, and C1 never checks them:
   - `DISCOVERY_UNAVAILABLE` needs an `error_cause` from the worker's six causes (every cause in
     the table above but `segment_corrupt`, which is the store's alone), and `RESOURCE_LIMIT` one
-    from its eleven. So a missing cause, an unknown one, the store's own cause, and a cause of
+    from its ten. So a missing cause, an unknown one, the store's own cause, and a cause of
     one code's set used with the other code all fail;
   - any other code carries no `error_cause`;
   - `error_log` follows the Log column: a §2.3 log name where the cause's is `required`, absent
@@ -1417,11 +1535,21 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   unknown and a cross-code cause for each of the two codes, the other faults, and controls that
   pause as before: valid replies, the sink errors and a bridge failure.
 
-  **C1 ships with the worker half.** It changes how every reply pauses: a worker of this head
-  names no cause, so under C1 its `RESOURCE_LIMIT` would pause as `READER_PROTOCOL`. So C1 is
-  switched on in the same change that makes the worker name its causes, and until then the
-  scheduler pauses replies as today. Both halves ride one runtime train (§9), so a reply always
-  comes from a worker of the scheduler's own image.
+  **C1 is switched on in the same runtime train as the worker half, never before** (BB8
+  6683944548, item 28). A worker of this head names no cause, so under C1 its every
+  `RESOURCE_LIMIT` and `DISCOVERY_UNAVAILABLE` reply would pause as `READER_PROTOCOL`. The
+  mechanism is one switch, and it is the same for both implementers:
+  - R2's scheduler change carries C1 behind one constant in `reader_scheduler.js`, off. Off, the
+    scheduler pauses every reply as today; on, it applies C1 to every reply. R2's tests run both
+    settings against `bad/reply_cause_invalid.json`.
+  - The #721 author's worker half names its causes in its message heads, as above, and is tested
+    against that fixture's `reply` cases.
+  - The change that brings the worker half into its runtime train turns the constant on. No
+    change turns it on without the worker half, and none brings the worker half in with it off.
+
+  So no image runs C1 against a worker that names no causes, and no image runs the worker half
+  without C1. Both halves ride one runtime train (§9), so a reply always comes from a worker of
+  the scheduler's own image.
 
 **There is no new job state.** Every image's `_reload` refuses an unknown state as
 `STORAGE_CORRUPT` (`:491-498`), so adding a state would be a format break. A job refused with
@@ -1449,8 +1577,8 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   (`contracts.py:253`), the result schemas and the registry.
 - **Release.** The store half and the worker half ride one runtime train; both change the
   fingerprint (`mcp/IMAGE_RELEASE.md`). The store half does nothing while frames carry no
-  `discovery`. C1 is switched on with the worker half, in the change that makes the worker
-  name its causes (§8). Jobs paused on the previous image refuse `STALE_READING` anyway
+  `discovery`. C1 is switched on in the same runtime train as the worker half, never before, by
+  the change that brings the worker half in (§8). Jobs paused on the previous image refuse `STALE_READING` anyway
   (`reader_scheduler.js:519-521`).
 - **Proof run (R2).** It runs on a fresh disposable store with `READER_STORE_GZIP=1`, on the
   qualified image. It passes when the run completes, every lease's first commit lands within
@@ -1476,10 +1604,10 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | `seen` key | 65.3 B mean, 1.6 B per primary pair; 2.45% of pairs touch a varying word | measured |
 | `variants` | 165 descriptors of about 240 B (211 B measured for `c[2]` alone), 3 segments, 0.04 MB | measured |
 | `alt_cells` | 12,105 entries of 20.45 B, 16 segments, 0.25 MB | measured |
-| `seen` plus `variants` | 20,045 entries, against `MEMBERSHIP_ENTRIES` (65,536): about 45k left for the alternate phase, an expectation (§6.11) | measured |
+| `seen` plus `variants` | 20,045 entries, Whitman's one measured membership figure. Against `MEMBERSHIP_ENTRIES` (65,536) the cap leaves 45,491 entries of headroom for the alternate phase, not a measured margin (§6.11) | measured; the headroom is computed |
 | `alt_seen` | 0 entries: no within-line alternate pair, 6,250 line pairs each one contiguous run, at most 2 pairs per line pair | measured (BB8 1, 3PO 6) |
 | primary rows | 1,560 rows, no repeated left-span index | measured (3PO 1) |
-| `row_seen` | its size is not measured; 3PO found it live at only 6 of 42 boundaries (cited in BB8 6682942783) | the proof run records its size |
+| `row_seen` | not measured on #656. "Live at only 6 of 42 boundaries", cited in BB8 6682942783, is 3PO's two-line synthetic fixture, not Whitman (BB8 6683944548) | the proof run records its size |
 | segment envelope | about 550 B | measured |
 | discovery total | about 1.64 MB plain, about 0.2 MB gzip | computed |
 | per lease | walk about 10 ms; load 20,045 entries × 30.4 µs = 0.6 / 1.5 s; recompute 0.9 / 2.4 s; construct 6.4 / 15.2 s; about 8 / 19 s in all | measured |
@@ -1520,7 +1648,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 23 | BB8 (b) | reconciliation pauses a released queued job, with its reason rendered from the cause, and `_dispatchable` skips it | §2.7, §7.4, §8 U2 | `good/unavailable_pause_reason.json` |
 | 24 | BB8 (b) | a `DISCOVERY_UNAVAILABLE` pause releases the logs; its reason keeps the released log names and their heads, and committed evidence stays readable | §2.7, §8 U1 and U2 | `good/unavailable_pause_reason.json` |
 | 25 | 3PO 6678688668 recommendation 1; BB8 6678702125 ruling 1 | a `row_seen` compaction is atomic within one frame; when the frame lacks room, the step ends at the safe point before the boundary, and the compaction runs first in the next frame | §1, §2.6, §6.2 | `good/row_seen_compaction_next_frame.json` |
-| 26 | 3PO recommendation 2; BB8 ruling 2 | `CURSOR_BYTES` is `INVARIANT_FAILURE` only once derived from the constants, with a max-cursor test; a part that grows with the input gets its own `RESOURCE_LIMIT` cause | §2.8, §3, §3.1, §4 W4, §8 | `bad/cursor_over_bound.json` |
+| 26 | 3PO recommendation 2; BB8 ruling 2 | `CURSOR_BYTES` is `INVARIANT_FAILURE` only once derived from the constants, with a max-cursor test; a part that grows with the input gets its own `RESOURCE_LIMIT` cause (for the refusal, revised by row 42: it does not grow with the input) | §2.8, §3, §3.1, §4 W4, §8 | `bad/cursor_over_bound.json` |
 | 27 | 3PO recommendation 3; BB8 ruling 3 | the terminal suffix stays checked by `resolve_detail_records`' own rules, at a resume and at every read; a part whose parent is not the method's `method_result` is an inserted record | §1, §6.9 | `bad/terminal_suffix_resume_faults.json`, `bad/terminal_suffix_not_contiguous.json` |
 | 28 | 3PO recommendation 4; BB8 ruling 4 | a missing, unknown or cross-code cause is `READER_PROTOCOL`, naming the bad cause; it is never discarded | §8 C1 | `bad/reply_cause_invalid.json` |
 | 29 | 3PO recommendation 5; BB8 ruling 5 | the release save is provably no larger, each released entry collapsed to `{log, head}`; the fence and the attempt counter are kept; a live lease on another instance cannot commit | §7.4, §8 U1 | `good/release_fencing.json`; the §7.4 property test |
@@ -1534,7 +1662,11 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 37 | BB8 6681838131; 3PO 6681823180 (a) | a thrown save is an unknown outcome: the address lists are rebuilt from the durable record head before use | §4, §5.1, §7.3 | `good/thrown_save_outcome_unknown.json` |
 | 38 | BB8 6681838131; 3PO 6681823180 (b) | reconciliation follows any foreign writer, not only an older image | §5.1, §6.11, §7.4 | — |
 | 39 | BB8 6681838131 | items 15, 17, 19 and 20: no semantic objection | §12 | — |
-| 40 | BB8 6682942783 | option (b): only the per-entry load rate is scaled (30.4 µs × 3); construct, recompute and the walk enter at their loaded-host measurements; about 81,895 entries, rounded down to `MEMBERSHIP_ENTRIES = 65536`, combined, with a cause per log; #656's fit is an expectation the proof run's gates decide, and a missed 30 s re-derives the cap, never waives it; 16,384 retracted (item 25) | §3, §6.11, §9, §10, §12 | `bad/membership_over_cap.json`; the §6.11 derivation test |
+| 40 | BB8 6682942783 | option (b): only the per-entry load rate is scaled (30.4 µs × 3); construct, recompute and the walk enter at their loaded-host measurements; about 81,895 entries, rounded down to `MEMBERSHIP_ENTRIES = 65536`, combined, with a cause per log; the proof run's gates decide whether #656 fits, and a missed 30 s re-derives the cap, never waives it; 16,384 retracted (item 25) | §3, §6.11, §9, §10, §12 | `bad/membership_over_cap.json`; the §6.11 derivation test |
+| 41 | BB8 6683944548 | items 21 (in method), 22, 23, 26 and 28 confirmed, and 25 confirmed as folded (also 6684866461); C1 is switched on in the same runtime train as the worker half, never before, by one switch; 29 stays open | §2.6, §3.1, §5.1, §8 C1, §9, §12 | `bad/reply_cause_invalid.json`, `bad/cursor_over_bound.json`, `bad/segment_corrupt_at_reconciliation.json` |
+| 42 | BB8 6684866461; 3PO 6684847656 | item 27 revised: the refusal stays in the cursor; `REFUSAL_BYTES = 543` is derived from the adapter's construction, and passing it is `INVARIANT_FAILURE`; guard tests: 4 KiB and 64 KiB declared labels complete as today, continuing and restored, and the validator builds the largest refusal; `CURSOR_BYTES` re-derived from the actual refusal (99,141 bytes, bound 131,072); `RL.realise`'s 4,607 detail bytes are context, not an adapter regression | §2.8, §3, §3.1, §3.2, §4 W4, §8 | `good/refusal_construction.json`, `bad/cursor_over_bound.json` |
+| 43 | BB8 6683944548, item 24; 3PO 6684847656 | item 24 is 3PO's: the post-terminal insertion test stays separate from the contribution-prefix case | §6.9 | `bad/terminal_suffix_not_contiguous.json`, `bad/terminal_suffix_resume_faults.json` |
+| 44 | BB8 6683944548 | correction: "`row_seen` live at 6 of 42 boundaries" is 3PO's two-line synthetic fixture, not Whitman; Whitman's one measured figure is 20,045 `seen` and `variants` entries, and the 45,491 left under the cap are headroom, not a measured margin | §6.11, §10, §12 | the proof run |
 
 ## 12. Rulings on the items added for confirmation
 
@@ -1543,7 +1675,9 @@ An earlier revision listed items 1–14 for confirmation. BB8 ruled on every one
 the cursor fields are 3PO's to confirm. BB8 then ruled on 3PO's amendments to items 1, 5, 7–9
 and 11, and on §6.8's wording (6678702125), made item 11's suffix check an explicit acceptance
 requirement (6678856548), ruled on items 15–20 (6681838131), and corrected the budget and ruled
-item 25 (6682942783). Each ruling is marked on its item below. Items 21–24 and 26–29 are open.
+item 25 (6682942783). BB8 then ruled items 21–23, 25, 26 and 28 (6683944548) and revised its
+ruling on item 27 (6684866461). Item 24 is 3PO's, with BB8's agreement. Each ruling is marked on
+its item below. Only item 29 is open.
 
 1. **Ruled: confirmed** (BB8 6678599629). `row_seen`'s reset at row boundaries and its
    compaction (§6.2), and the frame's `resets` field. The compaction decision depends only on
@@ -1558,14 +1692,16 @@ item 25 (6682942783). Each ruling is marked on its item below. Items 21–24 and
 4. **Ruled: no semantic objection** (BB8 6678599629). The group bound (`GROUP_KEYS = 32`,
    `GROUP_BYTES = 8192`), with spill to `alt_seen`, which counts toward the membership cap
    (items 13 and 18).
-5. **Ruled: confirmed** (BB8 6678599629). `CURSOR_BYTES = 65536` (163840 since the amendment
-   below), `CONTINUATION_BYTES = 8192` and `WITNESS_FIELDS = 16`, with `INVARIANT_FAILURE` on
-   the worker for the two byte bounds: both are engine defects, never truncations (§3). Also
-   confirmed: `methods[*]` holds no terminal input (§2.8). **Amended** (BB8 6678702125, ruling
-   2): `INVARIANT_FAILURE` for
-   `CURSOR_BYTES` holds only once the bound is derived from the constants. §3.1 derives it. The
-   64 KiB did not hold, so the bound is 160 KiB, and a refusal, the one part that grows with the
-   input, gets `REFUSAL_BYTES` and cause `cursor_refusal_bytes` (item 21,
+5. **Ruled: confirmed** (BB8 6678599629). `CURSOR_BYTES = 65536` (163840 after the amendment
+   below, and 131072 since items 21 and 27), `CONTINUATION_BYTES = 8192` and
+   `WITNESS_FIELDS = 16`, with `INVARIANT_FAILURE` on the worker for the two byte bounds: both
+   are engine defects, never truncations (§3). Also confirmed: `methods[*]` holds no terminal
+   input (§2.8). **Amended** (BB8 6678702125, ruling 2): `INVARIANT_FAILURE` for `CURSOR_BYTES`
+   holds only once the bound is derived from the constants. §3.1 derives it. The 64 KiB did not
+   hold, so the bound became 160 KiB, and a refusal, then read as growing with the input, got
+   `REFUSAL_BYTES` and cause `cursor_refusal_bytes`. Item 27's ruling replaces that: the
+   refusal's bound is derived from the adapter's construction, passing it is
+   `INVARIANT_FAILURE` (§3.2), and the cursor's bound is 128 KiB (item 21,
    `bad/cursor_over_bound.json`).
 6. **Ruled: no semantic objection** (BB8 6678599629). A string with a lone surrogate is not an
    entry, and entries are equal exactly when their canonical bytes are (§2.1).
@@ -1617,8 +1753,10 @@ BB8 still re-checks §6.9's acceptance list against the worker half once 3PO pub
 
 Items 15–20 filled gaps that ruling (a) left open, and are ruled by 6681838131. Items 21–24
 came with the fold of 6678702125 (`8732918312`), and items 25–29 with the fold of 6681838131
-and its review (`147f5dd3d`). Item 25 is ruled by 6682942783. Items 21–23 and 26–29 are open for
-BB8, and item 24 for 3PO.
+and its review (`147f5dd3d`). Item 25 is ruled by 6682942783, and BB8 confirmed it as folded
+(6684866461). Items 21–23, 26 and 28 are ruled by 6683944548. Item 27 is ruled by 6684866461,
+which replaces 6683944548's ruling on it. Item 24 is 3PO's, and BB8 agrees with 3PO's
+qualification (6683944548). Item 29 stays open.
 
 15. **Ruled: no semantic objection** (BB8 6681838131). **Where the walk gets its addresses**
     (§4, §5.1). Statting a segment needs its address,
@@ -1680,32 +1818,38 @@ BB8, and item 24 for 3PO.
     rules: its `$detail_ref`s, the part order, the totals and the bytes. Every terminal record
     but the last is complete; only the last may be partial. Ruling 3 of 6678702125 keeps these
     checks at a resume and at every read.
-21. **The `CURSOR_BYTES` derivation** (§3.1), which ruling 2 asked for. The largest cursor the
-    constants allow is 142,912 bytes, so 64 KiB is replaced by 160 KiB, with 20,928 bytes of
-    room. A refusal's detail, the one part that grows with the input, gets
-    `REFUSAL_BYTES = 1024` and cause `cursor_refusal_bytes`. Witness fields are dot paths, so
-    their canonical bytes are bounded. The validator fails when the registry passes the
-    derivation's inputs. BB8 confirms the derivation and the new bound.
-22. **The reply boundary's details** (§8, C1), beyond ruling 4's three cases. An `error_log`
-    outside §2.3, and a cause on a code that takes none, are protocol failures the same way.
-    Extended in this revision: each cause says whether it takes a log (§8's Log column), so a
-    log missing where its cause needs one, or present where it takes none, fails too; and a
-    worker naming `segment_corrupt`, the store's own cause, fails. The echo is cut to 64 bytes at
-    a character boundary, and a value that is not a string is echoed as its JSON text. After a
-    release, U2 keeps the copied reason and the bad value is logged. The worker's
-    resident-capacity guard names a new `RESOURCE_LIMIT` cause, `resident_capacity`, so its reply
-    is not a protocol failure. BB8 confirms or strikes each.
-23. **No reset after a seal of the same log** (§2.6, §6.2). A frame applies its resets first,
-    so a step that has already sealed `row_seen` ends before a row boundary that resets it,
-    whether a plain reset or a compaction. This follows from ruling 1 and W3, and it moves only
-    where steps end. BB8 confirms.
-24. **Where the nine cases sit** (§6.9), for 3PO. This contract places the three
-    membership-only faults at three split points of a four-part terminal detail: a part of
-    another method at the junction, read later; and a parent of another method and an inserted
-    contribution, read at the resume. Membership is `method_id` alone, so a part whose
-    `schema_name` alone changes is accepted. 3PO confirms they match the nine his resolver run
-    accepted, or names the difference.
-25. **Ruled: option (b)** (BB8 6682942783). **The combined cap's value** (§6.11). Ruling 18
+21. **Ruled: confirmed in method** (BB8 6683944548), **and derived again** under item 27's
+    ruling (6684866461). **The `CURSOR_BYTES` derivation** (§3.1), which ruling 2 asked for.
+    BB8 confirmed the method and required the validator's failure when the registry passes the
+    derivation's inputs, which it has. The figure is derived again from the actual refusal
+    envelope, as 3PO asked (6684847656), not reused: every method holds the largest refusal the
+    adapter can construct, 543 bytes (§3.2), so the largest cursor is 99,141 bytes, and the bound
+    is `CURSOR_BYTES = 131072` (128 KiB), with room for 34 more methods. The 142,912-byte figure
+    and its 160 KiB go. `bad/cursor_over_bound.json` holds the largest cursor and one at the
+    bound, accepted, and one byte over, refused by W4 and by the worker as `INVARIANT_FAILURE`.
+22. **Ruled: confirmed in full** (BB8 6683944548). **The reply boundary's details** (§8, C1),
+    beyond ruling 4's three cases. Each cause declares whether it takes a log (§8's Log column),
+    and a log missing or present against that declaration is a protocol failure, as are an
+    `error_log` outside §2.3 and a cause on a code that takes none. A worker naming
+    `segment_corrupt`, the store's own cause, is a protocol failure. The echo is cut to 64 bytes
+    at a character boundary, and a value that is not a string is echoed as its JSON text. After
+    a release, U2 keeps the copied reason and the bad value is logged. The worker's
+    resident-capacity guard names a new `RESOURCE_LIMIT` cause, `resident_capacity`.
+23. **Ruled: confirmed** (BB8 6683944548). **No reset after a seal of the same log** (§2.6,
+    §6.2). A frame applies its resets first, so a step that has already sealed `row_seen` ends
+    before a row boundary that resets it, whether a plain reset or a compaction. It follows from
+    atomic compaction and W3, and it moves only where steps end.
+24. **3PO's, with BB8's agreement** (BB8 6683944548; 3PO 6684847656). **Where the nine cases
+    sit** (§6.9). This contract places the three membership-only faults at three split points of
+    a four-part terminal detail: a part of another method at the junction, read later; and a
+    parent of another method and an inserted contribution, read at the resume. Membership is
+    `method_id` alone, so a part whose `schema_name` alone changes is accepted. BB8 agrees with
+    3PO's qualification: the test of a non-terminal record inserted after the terminal suffix
+    stays, separate from the contribution-prefix fixture (§6.9's acceptance list,
+    `contribution_after_suffix` beside `inserted_record`). Method membership and generic detail
+    integrity remain two separate checks (BB8 6678856548).
+25. **Ruled: option (b)** (BB8 6682942783), **confirmed as folded** (BB8 6684866461). **The
+    combined cap's value** (§6.11). Ruling 18
     named 16,384 with every term at the loaded-host factor, and the previous revision derived
     32,768 the same way over the combined sum. BB8 retracts that rule: construct and recompute
     already enter at their loaded-host measurements, so scaling them again counts the same
@@ -1714,30 +1858,47 @@ BB8, and item 24 for 3PO.
     recompute (2.4 s) and the walk enter at their loaded-host measurements. About 81,895 entries
     fit in 30 s, rounded down to a power of two: `MEMBERSHIP_ENTRIES = 65536`, combined over
     `seen`, `variants`, `alt_seen` and `row_seen`, with a cause for each log. At the cap the load
-    is about 6.0 s and the sum 26.68 s, under the 30 s budget. #656's 20,045 primary-phase entries
-    fit with about 45k left, as an expectation: the proof run's gates decide, and if a lease's
-    first commit misses 30 s on the qualified image, the cap is re-derived from that measurement,
-    never waived.
-26. **`resume()`'s full read on a byte mismatch** (§5.1). The ruling names reconciliation. At
-    this head `_object` turns F6 into `STORAGE_CORRUPT`, so a job whose segment is damaged
-    would stay paused at `STORAGE_CORRUPT` on every resume. This contract gives `resume()`'s
-    full read the same cause, `segment_corrupt`, releasing the job. BB8 confirms.
-27. **The refusal's regression** (§3.1, from the review of `8732918312`). `REFUSAL_BYTES` and
-    `cursor_refusal_bytes` follow ruling 2, but a declared source label of about 270 bytes or
-    more now stops a job that completes today with that method refused. BB8 keeps that, or picks
-    one of the two ways out §3.1 names: bound labels at validation, or keep the detail out of the
-    cursor.
-28. **The new causes and how the worker names them** (§3, §8, from the same review). The meter's
-    two budgets get `declared_coordinate_bits` and `expansion_budget`, so every `RESOURCE_LIMIT`
-    raise the reader reaches names a cause; the four membership causes and `segment_corrupt` get
-    messages; a refusal names its cause in its message head, `CODE[cause]:` or
-    `CODE[cause,log]:`; the bridge marks a worker's reply `reply: true`, and the scheduler keeps a
-    sink's own error, so C1 checks replies only; and C1 is switched on with the worker half. BB8
-    confirms the causes, their messages and the sequencing.
-29. **Finish work must fit a lease** (§6.11, ruling 18). It stays open: the full `alt_cells`
-    load, option 2's read of about 63 MB, and `_domain`'s enumeration, up to `DOMAIN_CAP` pairs,
-    are not timed. The proof run measures the finish lease against the lease; if it does not
-    fit, it needs checkpointable progress or option 2's domain-log fallback.
+    is about 6.0 s and the sum 26.68 s, under the 30 s budget. #656's 20,045 primary-phase entries,
+    its one measured membership figure, leave 45,491 entries under the cap: headroom for the
+    alternate phase, not a measured margin (BB8 6683944548). The proof run's gates decide, and if
+    a lease's first commit misses 30 s on the qualified image, the cap is re-derived from that
+    measurement, never waived. 3PO's four controls at 65,536 and four refusals at 65,537 match
+    the cause for each log (6684847656).
+26. **Ruled: confirmed** (BB8 6683944548). **`resume()`'s full read on a byte mismatch** (§5.1)
+    gives `segment_corrupt` and releases the job. It is a full read like reconciliation, so it
+    gets the same cause. Lease time stays `STORAGE_CORRUPT`, with no release.
+27. **Ruled** (BB8 6684866461, which replaces 6683944548's ruling on this item). **The
+    refusal's bound** (§3.2). 6683944548 ruled that a job completing today must not stop because
+    a refusal's detail is long, and moved the detail out of the cursor behind a fixed-size
+    reference. 3PO then showed the case cannot occur through the real adapter (6684847656): a
+    4,096-byte declared label gives a 187-byte refusal, because `analysis.py:1129` substitutes
+    `"declared"` for the label and `_candidates` uses a fixed remedy, and continuing and restored
+    streams are identical. The 4,607 detail bytes come only from a separately built lower-level
+    `RL.realise` stream, which never reaches the cursor. **The ruling:** the refusal stays in the
+    cursor. `REFUSAL_BYTES` is derived from the adapter's construction, its fixed text plus parts
+    whose size is bounded: 543 bytes, `search_stub_resolution`'s refusal. Passing it is
+    `INVARIANT_FAILURE`, an engine defect, and the store's W4 refuses it; `cursor_refusal_bytes`
+    is retired, matching the other `INVARIANT_FAILURE` bounds, which name no cause. Two guard
+    tests are required: 4 KiB and 64 KiB declared labels complete as today, continuing and
+    restored (the worker half), and the validator builds the largest refusal the construction
+    allows and shows it fits (`good/refusal_construction.json`). `CURSOR_BYTES` is derived again
+    from the actual refusal (item 21). There is no reference-encoding interface. If a future
+    adapter puts input text into a refusal, the guard fails first, and the reference design comes
+    back then.
+28. **Ruled: confirmed** (BB8 6683944548). **The new causes and how the worker names them** (§3,
+    §8). The meter's two budgets get `declared_coordinate_bits` and `expansion_budget`, so every
+    `RESOURCE_LIMIT` raise the reader reaches names a cause; the four membership causes and
+    `segment_corrupt` get messages; a refusal names its cause in its message head, `CODE[cause]:`
+    or `CODE[cause,log]:`; the bridge marks a worker's reply `reply: true`, and the scheduler keeps
+    a sink's own error, so C1 checks replies only. **C1 is switched on in the same runtime train
+    as the worker half, never before**, or today's worker replies, which carry no causes, would
+    fail. The mechanism is one switch (§8): R2's scheduler change carries C1 off, and the change
+    that brings the worker half into its train turns it on.
+29. **Open** (BB8 6683944548: it stays open, as stated). **Finish work must fit a lease**
+    (§6.11, ruling 18). The full `alt_cells` load, option 2's read of about 63 MB, and
+    `_domain`'s enumeration, up to `DOMAIN_CAP` pairs, are not timed. The proof run measures the
+    finish lease against the lease; if it does not fit, it needs checkpointable progress or
+    option 2's domain-log fallback.
 
 ## 13. Fixtures and validator
 
@@ -1791,6 +1952,12 @@ Good:
   release is one save that empties `logs` and `verified`; `unavailable` and the reason keep
   the released log names and their heads, the first release's trace wins, and a released job
   is never requeued (U1, U2).
+- `good/refusal_construction.json`: every refusal the adapter can put in a cursor, read from the
+  source, each construction with its parts and the bound of every variable part; the largest of
+  each with every part at its maximum, and the largest of all, 543 bytes, which is
+  `REFUSAL_BYTES`; the refusals the real `_candidates`, `_full_shape` and `_stub_resolved_stream`
+  build with frame source labels of 1, 4,096 and 65,536 bytes, identical across the three; and
+  the frame sources `_apply_declarations` sets (§3.2).
 
 Bad:
 
@@ -1799,8 +1966,8 @@ Bad:
   `bad/premature_seal.json` (F4), `bad/epoch_backwards.json` (W2),
   `bad/reset_unheld_log.json` (W3), `bad/cursor_record_disagreement.json` (W4),
   `bad/cursor_over_bound.json` (W4, built from §3.1's inputs: the worker refuses first, with
-  `INVARIANT_FAILURE` past `CURSOR_BYTES`, or `RESOURCE_LIMIT` for a refusal past
-  `REFUSAL_BYTES`), `bad/tail_rewritten.json` (W6);
+  `INVARIANT_FAILURE`, past `CURSOR_BYTES` or for a refusal past `REFUSAL_BYTES`),
+  `bad/tail_rewritten.json` (W6);
 - reply (`READER_PROTOCOL`, no status): `bad/reply_cause_invalid.json` (C1), with sink errors
   and a bridge failure among its controls;
 - limit: `bad/membership_over_cap.json` (W7). For each membership log, the worker refuses first,
@@ -1826,6 +1993,9 @@ rule, code, status and cause. For `bad/float_entry.json` the worker refuses by F
 Node can only refuse by F5. `bad/membership_over_cap.json`'s mutants are frames the worker must
 refuse to emit, each naming the cause of the log whose append passes the cap, and so are
 `bad/cursor_over_bound.json`'s mutants, each with the code it names.
+`good/refusal_construction.json` is the worker half's statement of every refusal it may store:
+its guard tests (§3.2) hold each refusal the worker stores to a construction listed there and to
+`REFUSAL_BYTES`, with the same bytes for a 1-byte, a 4,096-byte and a 65,536-byte label.
 `bad/terminal_suffix_resume_faults.json`'s nine `accepts` cases are required worker refusals:
 `resolve_detail_records` accepts each, and the worker's suffix-membership check, run before
 resolving, must refuse it; its five controls must be accepted. `bad/reply_cause_invalid.json`'s
@@ -1842,7 +2012,9 @@ suffix's mutants and controls (resolving the suffix itself with `resolve_detail_
 the float fixture. It recomputes the §6.11 derivation and what it leaves out from §10's
 figures and §3's constants, and it holds §7.4's release property over every combination of
 logs. It builds the largest cursor from §3.1's inputs and checks those inputs against the
-registry and the source. It walks the reader's imports for every `RESOURCE_LIMIT` raise and
+registry and the source. It walks every refusal the adapter can construct, bounds each variable
+part over the registry, builds the largest refusal, and runs the real refusal builders with
+labels of three sizes, without the dictionary (§3.2). It walks the reader's imports for every `RESOURCE_LIMIT` raise and
 holds each to §8's list. It models C1, the sink errors it never checks, the fencing of a
 release, a byte mismatch at a full read and a thrown save, and it rebuilds each resume case from
 its split point's durable prefix. Each R5

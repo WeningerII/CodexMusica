@@ -1,0 +1,419 @@
+{
+  "fixture": "good/refusal_construction.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "refusal",
+  "exercises": "Every refusal the adapter can put in a cursor's methods[*].refusal (§3.2), read from the source: the four writes of counts[\"refusal\"] and the seven _Refused raises in analysis.py, and every Refusal and NoReferent that the relations.py functions those raises pass on can build, in their call closure. Each construction's parts are constants, a choice of two constants, or a variable part with a bound: names, capabilities and REMEDIES text at the longest the registry gives, the incomplete reason at its longest (§3.1), and every count at sys.maxsize, or the pair count n(n - 1)/2 of two such lengths. Built with every variable part at its maximum, the largest is search_stub_resolution's refusal, 543 bytes, which has no variable part: REFUSAL_BYTES. The real _candidates, _full_shape and _stub_resolved_stream, run on a stream whose every frame has a source label of 1, 4,096 and 65,536 bytes, build byte-identical refusals, all within REFUSAL_BYTES; and _apply_declarations sets a frame's source only to \"declared\" or \"none\". A construction or variable part not listed here, a bound that moves, or a label that reaches a refusal fails the validator: REFUSAL_BYTES is then derived again.",
+  "expect": {
+    "accepted": true
+  },
+  "refusal_bytes": 543,
+  "integer_bound": {
+    "name": "sys.maxsize",
+    "value": "9223372036854775807"
+  },
+  "sources": [
+    {
+      "module": "library/analysis.py",
+      "function": "_prepare_event",
+      "value": "shapes",
+      "from": "_full_shape"
+    },
+    {
+      "module": "library/analysis.py",
+      "function": "_candidates",
+      "value": "derived",
+      "from": "_stub_resolved_stream"
+    },
+    {
+      "module": "library/analysis.py",
+      "function": "_assembly_records",
+      "value": "assembled",
+      "from": "assemble"
+    },
+    {
+      "module": "library/analysis.py",
+      "function": "_prepare_event",
+      "value": "json_safe(exc.refusal)",
+      "stores": true
+    }
+  ],
+  "spans_from": ["enumerate_spans"],
+  "sites": [
+    {
+      "module": "library/analysis.py",
+      "function": "_finish",
+      "construction": "literal",
+      "parts": {
+        "kind": ["const", "reading_combinations"],
+        "capability": ["const", "any_reading"],
+        "missing": ["const", []],
+        "vacuous": ["const", []],
+        "detail": [
+          "text",
+          [
+            ["text", "Not every combination of the disputed words' readings was searched: "],
+            ["value", "self._incomplete[name]"],
+            ["text", ". Findings over the combinations searched do not answer the rest."]
+          ]
+        ]
+      },
+      "bytes": 297
+    },
+    {
+      "module": "library/analysis.py",
+      "function": "_finish",
+      "construction": "literal",
+      "parts": {
+        "kind": ["const", "unknown_members"],
+        "capability": ["const", "native_reading"],
+        "missing": ["const", []],
+        "vacuous": ["const", []],
+        "detail": [
+          "const",
+          "Unread lexical members remain in the source census. Findings over readable members do not answer those obligations."
+        ]
+      },
+      "bytes": 209
+    },
+    {
+      "module": "library/analysis.py",
+      "function": "_sound_result",
+      "construction": "literal",
+      "parts": {
+        "kind": ["const", "unknown_members"],
+        "capability": ["const", "native_reading"],
+        "missing": ["const", []],
+        "vacuous": ["const", []],
+        "detail": [
+          "const",
+          "Unread lexical members remain in the source census. Findings over readable members do not answer those obligations."
+        ]
+      },
+      "bytes": 209
+    },
+    {
+      "module": "library/analysis.py",
+      "function": "_candidates",
+      "construction": "refusal",
+      "parts": {
+        "schema": ["expr", "name"],
+        "capability": ["const", "beat"],
+        "detail": [
+          "const",
+          "The sourced BeatGrid does not place every native unit. Unplaced units are not off beat."
+        ],
+        "missing": ["const", ["beatgrid_complete"]],
+        "kind": ["const", "capability"],
+        "vacuous": ["const", []]
+      },
+      "bytes": 236
+    },
+    {
+      "module": "library/analysis.py",
+      "function": "_candidates",
+      "construction": "refusal",
+      "parts": {
+        "schema": ["expr", "name"],
+        "capability": ["const", "span"],
+        "detail": ["expr", "str(exc)"],
+        "kind": ["const", "span"],
+        "missing": ["const", []],
+        "vacuous": ["const", []]
+      },
+      "bytes": 261
+    },
+    {
+      "module": "library/analysis.py",
+      "function": "_candidates",
+      "construction": "refusal",
+      "parts": {
+        "schema": ["expr", "name"],
+        "capability": ["expr", "missing[0]"],
+        "detail": ["expr", "'; '.join((REMEDIES.get(c, 'Supply ' + c) for c in missing))"],
+        "missing": ["expr", "missing"],
+        "vacuous": ["expr", "vacuous"],
+        "kind": ["either", ["vacuous_frame", "capability"]]
+      },
+      "bytes": 386
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "_full_shape",
+      "construction": "refusal",
+      "parts": {
+        "schema": ["expr", "schema.name"],
+        "capability": ["const", "figure"],
+        "detail": [
+          "const",
+          "The declared multi-member graph/template has no executable member bindings; a pair projection cannot certify the full figure."
+        ],
+        "kind": ["const", "unsupported_shape"],
+        "missing": ["const", []],
+        "vacuous": ["const", []]
+      },
+      "bytes": 264
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "_full_shape",
+      "construction": "refusal",
+      "parts": {
+        "schema": ["expr", "schema.name"],
+        "capability": ["const", "stanza"],
+        "detail": ["const", "A full figure requires a declared stanza frame."],
+        "missing": ["const", ["stanza"]],
+        "kind": ["const", ""],
+        "vacuous": ["const", []]
+      },
+      "bytes": 177
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "_full_shape",
+      "construction": "refusal",
+      "parts": {
+        "schema": ["expr", "schema.name"],
+        "capability": ["expr", "miss[0]"],
+        "detail": [
+          "text",
+          [
+            ["value", "schema.name"],
+            ["text", " needs "],
+            ["value", "', '.join(miss)"],
+            ["text", "; this declaration does not supply "],
+            ["either", ["it", "them"]],
+            ["text", "."]
+          ]
+        ],
+        "missing": ["expr", "miss"],
+        "vacuous": ["expr", "vac"],
+        "kind": ["either", ["vacuous_frame", "capability"]]
+      },
+      "bytes": 339
+    },
+    {
+      "module": "library/analysis.py",
+      "function": "_sound_candidates",
+      "construction": "refusal",
+      "parts": {
+        "schema": ["expr", "shared_sound_name(key)"],
+        "capability": ["const", "pair_cap"],
+        "detail": [
+          "text",
+          [
+            ["value", "len(toks) + len(missing)"],
+            ["text", " words make "],
+            ["value", "total"],
+            ["text", " pairs, more than "],
+            ["value", "self.SOUND_PAIR_CAP"],
+            ["text", "; shared sound is not answered over the pairs it would reach before the cap"]
+          ]
+        ],
+        "kind": ["const", "capability"],
+        "missing": ["const", []],
+        "vacuous": ["const", []]
+      },
+      "bytes": 285
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "_stub_resolved_stream",
+      "construction": "refusal",
+      "parts": {
+        "schema": ["const", "refrain by reference"],
+        "capability": ["const", "stub_resolution"],
+        "detail": [
+          "const",
+          "refrain by reference needs 'stub_resolution' — declare it (`declare_stub_resolution`) or declare which lines are pointers (`line_status`) and it is derived."
+        ],
+        "missing": ["const", ["stub_resolution"]],
+        "kind": ["const", "capability"],
+        "vacuous": ["const", []]
+      },
+      "bytes": 297
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "_stub_resolved_stream",
+      "construction": "refusal",
+      "parts": {
+        "schema": ["const", "refrain by reference"],
+        "capability": ["const", "stub_resolution"],
+        "detail": [
+          "text",
+          [
+            ["value", "rep['stubs']"],
+            ["text", " declared stub(s), none resolving to a unique earlier line (ambiguous "],
+            ["value", "len(rep['ambiguous'])"],
+            ["text", ", unmatched "],
+            ["value", "len(rep['unmatched'])"],
+            ["text", ", no incipit "],
+            ["value", "len(rep['no_incipit'])"],
+            ["text", "); declare the resolution."]
+          ]
+        ],
+        "missing": ["const", ["stub_resolution"]],
+        "kind": ["const", "capability"],
+        "vacuous": ["const", []]
+      },
+      "bytes": 336
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "search_stub_resolution",
+      "construction": "refusal",
+      "parts": {
+        "schema": ["const", "search_stub_resolution"],
+        "capability": ["const", "line_status"],
+        "detail": [
+          "const",
+          "nobody has said which lines are POINTERS. Declare it -- `build_stream(line_status=...)`, or `line_status_from(lines, predicate, label)` -- or pass `is_stub=`. Which printed mark is a stub is the EDITION's judgement and this module ships no list: English prints `&c.`, Finnish `j. n. e.`, Malay `d. s. b.` (P10, BACKLOG 2.4). An empty map would say 'no pointers here', which is a different answer (doctrine 20)."
+        ],
+        "missing": ["const", ["line_status"]],
+        "kind": ["const", "capability"],
+        "vacuous": ["const", []]
+      },
+      "bytes": 543
+    }
+  ],
+  "messages": [
+    {
+      "module": "quality/relations.py",
+      "function": "_anchor_pos",
+      "message": ["const", "no unstressed syllable in this token"]
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "_anchor_pos",
+      "message": ["const", "pronunciation readings disagree on the anchor position"]
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "_anchor_pos",
+      "message": ["const", "pronunciation readings disagree whether an unstressed anchor exists"]
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "_anchor_pos",
+      "message": [
+        "const",
+        "this declaration carries no prominence, so an anchor rule keyed on stress names nothing here"
+      ]
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "_anchor_pos",
+      "message": ["const", "token has no penult"]
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "_anchor_pos",
+      "message": ["const", "token has no second syllable"]
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "_anchor_pos",
+      "message": [
+        "text",
+        [
+          ["text", "unknown anchor rule "],
+          ["value", "a!r"]
+        ]
+      ]
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "_loci",
+      "message": [
+        "text",
+        [
+          ["text", "unknown locus "],
+          ["value", "rule.locus!r"]
+        ]
+      ]
+    },
+    {
+      "module": "quality/relations.py",
+      "function": "enumerate_spans",
+      "message": [
+        "text",
+        [
+          ["text", "anchor "],
+          ["value", "rule.anchor!r"],
+          ["text", " at locus "],
+          ["value", "rule.locus!r"],
+          ["text", " has no referent at any of the "],
+          ["value", "skipped"],
+          ["text", " loci in this declaration"]
+        ]
+      ]
+    }
+  ],
+  "bounds": {
+    "', '.join(miss)": "prominence, quotient:vowel_class",
+    "'; '.join((REMEDIES.get(c, 'Supply ' + c) for c in missing))": "Declare the beat grid and its basis; this reader does not infer beats from audio or text.; This method requires the selected phonology's declared prominence channel.",
+    "a!r": "'final_unstressed'",
+    "len(rep['ambiguous'])": "9223372036854775807",
+    "len(rep['no_incipit'])": "9223372036854775807",
+    "len(rep['unmatched'])": "9223372036854775807",
+    "len(toks) + len(missing)": "18446744073709551614",
+    "miss": ["prominence", "quotient:vowel_class"],
+    "miss[0]": "quotient:reduced_vowel",
+    "missing": ["prominence", "quotient:vowel_class"],
+    "missing[0]": "quotient:reduced_vowel",
+    "name": "Scots vowel-length rhyme (Aitken's Law)",
+    "rep['stubs']": "9223372036854775807",
+    "rule.anchor!r": "'final_unstressed'",
+    "rule.locus!r": "'line_final_before_refrain'",
+    "schema.name": "Scots vowel-length rhyme (Aitken's Law)",
+    "self.SOUND_PAIR_CAP": 124322796,
+    "self._incomplete[name]": "its disputed words' readings collide on more than 1375311 line pairs",
+    "shared_sound_name(key)": "stressed_onset@v1",
+    "skipped": "9223372036854775807",
+    "total": "170141183460469231685570443531610226691",
+    "vac": ["prominence", "quotient:vowel_class"],
+    "vacuous": ["prominence", "quotient:vowel_class"],
+    "str(exc)": "anchor 'final_unstressed' at locus 'line_final_before_refrain' has no referent at any of the 9223372036854775807 loci in this declaration"
+  },
+  "largest": {
+    "module": "quality/relations.py",
+    "function": "search_stub_resolution",
+    "refusal": {
+      "schema": "search_stub_resolution",
+      "capability": "line_status",
+      "detail": "nobody has said which lines are POINTERS. Declare it -- `build_stream(line_status=...)`, or `line_status_from(lines, predicate, label)` -- or pass `is_stub=`. Which printed mark is a stub is the EDITION's judgement and this module ships no list: English prints `&c.`, Finnish `j. n. e.`, Malay `d. s. b.` (P10, BACKLOG 2.4). An empty map would say 'no pointers here', which is a different answer (doctrine 20).",
+      "missing": ["line_status"],
+      "kind": "capability",
+      "vacuous": []
+    },
+    "bytes": 543,
+    "sha256": "c7aa1565a5cdb975a49c534c2ffbdd844e723bed4d1323ceff0c2fcddaf454b4"
+  },
+  "labels": [1, 4096, 65536],
+  "label_runs": {
+    "candidates": {
+      "refusals": 55,
+      "largest": 334
+    },
+    "full_shape": {
+      "refusals": 76,
+      "largest": 264
+    },
+    "stub_resolution": {
+      "refusals": 2,
+      "largest": 543
+    }
+  },
+  "frame_sources": [
+    ["beat_source", "declared"],
+    ["beat_source", "declared"],
+    ["caesura_source", "declared"],
+    ["lift_source", "declared"],
+    ["refrain_source", "declared"],
+    ["stanza_source", "declared"],
+    ["stanza_source", "none"],
+    ["stub_source", "declared"],
+    ["tonal_source", "declared"]
+  ],
+  "source_reads": 3
+}

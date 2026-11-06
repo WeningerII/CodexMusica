@@ -17,7 +17,8 @@
 //     under a live lease, and recomputes the MEMBERSHIP_ENTRIES derivation
 //     from the contract's own figures (§6.11);
 //   - builds the largest cursor §3.1's inputs allow, checks those inputs
-//     against the registry and the source, holds the release-size property
+//     against the registry and the source; walks every refusal the adapter
+//     can construct and builds the largest (§3.2); holds the release-size property
 //     over every combination of logs (§7.4), and checks that every
 //     RESOURCE_LIMIT raise the reader reaches names a cause (§8);
 //   - checks Python's canonical_json (lyric-harness/library/contracts.py) and
@@ -50,8 +51,8 @@ const LIMITS = Object.freeze({
   GROUP_BYTES: 8192,
   WITNESS_FIELDS: 16,
   CONTINUATION_BYTES: 8192,
-  CURSOR_BYTES: 163840,
-  REFUSAL_BYTES: 1024,
+  CURSOR_BYTES: 131072,
+  REFUSAL_BYTES: 543,
   MEMBERSHIP_ENTRIES: 65536,
 });
 // §8, C1: a bad cause or log is echoed in the reason, cut to this many bytes.
@@ -94,7 +95,6 @@ const RESOURCE_CAUSES = [
   'discovery_frame_seals',
   'discovery_chain_segments',
   ...MEMBERSHIP_LOGS.map((log) => `discovery_${log}`),
-  'cursor_refusal_bytes',
   'resident_capacity',
   'declared_coordinate_bits',
   'expansion_budget',
@@ -116,7 +116,6 @@ const CAUSE_LOG = {
   discovery_variants: 'none',
   discovery_row_seen: 'none',
   discovery_alt_seen: 'none',
-  cursor_refusal_bytes: 'none',
   resident_capacity: 'none',
   declared_coordinate_bits: 'none',
   expansion_budget: 'none',
@@ -173,8 +172,8 @@ const REFUSAL = {
   },
   groups: { S1: unavailable('retired_key_recurred') },
   witness: { S2: { code: 'RESULT_EXPIRED', status: 410 } },
-  // A cursor over CURSOR_BYTES or a refusal over REFUSAL_BYTES (§3.1): the
-  // store refuses the frame; the worker never emits it.
+  // A cursor over CURSOR_BYTES (§3.1) or a refusal over REFUSAL_BYTES (§3.2):
+  // the store refuses the frame; the worker never emits it.
   cursor: { W4: PROTOCOL },
   // A failed worker reply whose cause or log is outside its set (§8, C1): the
   // job pauses with this code; there is no HTTP status.
@@ -363,7 +362,7 @@ function cursorShape(cursor, epoch, bad) {
     for (const key of TERMINAL_INPUTS)
       if (plainObject(counts) && Object.hasOwn(counts, key))
         bad('W4', `methods[${mid}] holds the terminal input ${key}`);
-    // REFUSAL_BYTES (§3.1): a refusal's detail can grow with the input.
+    // REFUSAL_BYTES (§3.2): derived from how the adapter builds a refusal.
     if (
       plainObject(counts) &&
       Object.hasOwn(counts, 'refusal') &&
@@ -1289,15 +1288,15 @@ const longestReason = (edge, mini) =>
   ].reduce((a, b) => (Buffer.byteLength(b) > Buffer.byteLength(a) ? b : a));
 const cbytes = (v) => Buffer.byteLength(canonical(v));
 // The largest cursor outside discovery and continuation that §3.1's inputs
-// allow: every integer at 2^53 - 1, every method at its fullest with a refusal
-// of exactly REFUSAL_BYTES, an incomplete reason for every schema, every schema
-// refused, and the widest witness.
+// allow: every integer at 2^53 - 1, every method at its fullest with the
+// largest refusal the adapter can construct (§3.2, inputs.refusal, exactly
+// REFUSAL_BYTES: the actual refusal, not padding), an incomplete reason for
+// every schema, every schema refused, and the widest witness.
 function largestCursor(inp) {
   const id = (i) => `shared_sound:${sha(`method ${i}`)}`.slice(0, inp.method_id_bytes);
   const name = (i) =>
     `schema_${i}_${'n'.repeat(inp.schema_name_bytes)}`.slice(0, inp.schema_name_bytes);
-  const refusal = { capability: '', detail: '', kind: '', missing: [], schema: '', vacuous: [] };
-  refusal.detail = 'x'.repeat(inp.refusal_bytes - cbytes(refusal));
+  const refusal = inp.refusal;
   const I = inp.integer;
   const entry = {
     candidates: I,
@@ -1378,13 +1377,13 @@ const cursorFrame = (rest) => ({
     continuation: {},
   },
 });
-// The worker, before it emits: a refusal past REFUSAL_BYTES is RESOURCE_LIMIT
-// (its detail can grow with the input); a cursor past CURSOR_BYTES is then an
-// engine defect, because only content no constant allows gets it there.
+// The worker, before it emits: a refusal past REFUSAL_BYTES, then a cursor
+// past CURSOR_BYTES. Both are engine defects (§3.1, §3.2): no input can
+// lengthen a refusal, and only content no constant allows gets either there.
 function workerCursorRefusal(rest) {
   for (const counts of Object.values(rest.methods))
     if (counts.refusal && cbytes(counts.refusal) > LIMITS.REFUSAL_BYTES)
-      return { code: 'RESOURCE_LIMIT', cause: 'cursor_refusal_bytes' };
+      return { code: 'INVARIANT_FAILURE' };
   if (cbytes(rest) > LIMITS.CURSOR_BYTES) return { code: 'INVARIANT_FAILURE' };
   return null;
 }
@@ -1783,6 +1782,339 @@ sys.stdout.buffer.write(json.dumps(out).encode("ascii"))
   assert.equal(run.status, 0, run.stderr?.toString());
   return JSON.parse(run.stdout.toString('ascii'));
 }
+
+// §3.2 (BB8 6684866461): every refusal the adapter can put in a cursor, read
+// from the source without the dictionary. The program walks analysis.py's
+// writes of a "refusal" key and its _Refused raises, follows each raise that
+// passes on an engine-built refusal to its relations.py function and walks the
+// call closure there for every Refusal and NoReferent it can build; bounds every
+// variable part by evaluating it over the registry (counts at sys.maxsize);
+// builds the largest refusal of each construction; and runs the real
+// _candidates, _full_shape and _stub_resolved_stream on a stream whose frames
+// carry a source label of each size in input.labels.
+const REFUSAL_PROGRAM = String.raw`import ast, builtins, dataclasses, json, sys
+sys.path.insert(0, sys.argv[1])
+from quality import relations as RL
+from library import analysis as A
+from library.contracts import canonical_json, json_safe
+from library.registry import REMEDIES, SHARED_SOUND_METHODS, shared_sound_name
+data = json.loads(sys.stdin.buffer.read().decode("utf-8"))
+MODULES = {"library/analysis.py": A, "quality/relations.py": RL}
+TREES = {m: ast.parse(open(mod.__file__, encoding="utf-8").read()) for m, mod in MODULES.items()}
+def functions(tree):
+    out = {}
+    for n in ast.walk(tree):
+        if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            out.setdefault(n.name, n)
+    return out
+AF, RF = functions(TREES["library/analysis.py"]), functions(TREES["quality/relations.py"])
+def named(f, name):
+    return (isinstance(f, ast.Name) and f.id == name) or (isinstance(f, ast.Attribute) and f.attr == name)
+def within(fn_nodes, node):
+    best = None
+    for n in fn_nodes:
+        if n.lineno <= node.lineno <= n.end_lineno and (best is None or n.lineno > best.lineno):
+            best = n
+    return best.name if best else None
+def either(v):
+    if isinstance(v, ast.IfExp) and isinstance(v.body, ast.Constant) and isinstance(v.orelse, ast.Constant):
+        return ["either", [v.body.value, v.orelse.value]]
+    return None
+def piece(x):
+    if isinstance(x, ast.Constant):
+        return ["text", x.value]
+    if isinstance(x, ast.FormattedValue):
+        e = either(x.value)
+        if e and x.conversion == -1:
+            return e
+        return ["value", ast.unparse(x.value) + ("!r" if x.conversion == 114 else "")]
+    return ["value", ast.unparse(x)]
+def part(v):
+    if isinstance(v, ast.Constant):
+        return ["const", v.value]
+    if isinstance(v, (ast.Tuple, ast.List)) and all(isinstance(e, ast.Constant) for e in v.elts):
+        return ["const", [e.value for e in v.elts]]
+    if either(v):
+        return either(v)
+    if isinstance(v, ast.JoinedStr):
+        return ["text", [piece(x) for x in v.values]]
+    if isinstance(v, ast.BinOp) and isinstance(v.op, ast.Add):
+        seq = []
+        def flat(n):
+            if isinstance(n, ast.BinOp) and isinstance(n.op, ast.Add):
+                flat(n.left)
+                flat(n.right)
+            elif isinstance(n, ast.JoinedStr):
+                seq.extend(piece(x) for x in n.values)
+            else:
+                seq.append(piece(n))
+        flat(v)
+        return ["text", seq]
+    return ["expr", ast.unparse(v)]
+FIELDS = dataclasses.fields(RL.Refusal)
+def refusal(call):
+    got = {}
+    for f, a in zip(FIELDS, call.args):
+        got[f.name] = part(a)
+    for k in call.keywords:
+        got[k.arg] = part(k.value)
+    for f in FIELDS:
+        if f.name not in got:
+            got[f.name] = ["const", json_safe(f.default)]
+    return got
+# 1. Where a cursor's refusal comes from: every write of a "refusal" key and
+# every _Refused raise in the adapter.
+sites, raised = [], []
+afn = [n for n in ast.walk(TREES["library/analysis.py"]) if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))]
+for node in ast.walk(TREES["library/analysis.py"]):
+    if isinstance(node, (ast.Call, ast.Assign)):
+        where = {"module": "library/analysis.py", "function": within(afn, node)}
+    if isinstance(node, ast.Call) and named(node.func, "_Refused"):
+        arg = node.args[0]
+        if isinstance(arg, ast.Call) and named(arg.func, "Refusal"):
+            sites.append({**where, "construction": "refusal", "parts": refusal(arg)})
+        else:
+            raised.append({**where, "value": ast.unparse(arg)})
+    if isinstance(node, ast.Assign):
+        for t in node.targets:
+            if isinstance(t, ast.Subscript) and isinstance(t.slice, ast.Constant) and t.slice.value == "refusal":
+                v = node.value
+                if isinstance(v, ast.Dict):
+                    sites.append({**where, "construction": "literal",
+                                  "parts": {k.value: part(x) for k, x in zip(v.keys, v.values)}})
+                else:
+                    raised.append({**where, "value": ast.unparse(v), "stores": True})
+# What each raise of an engine-built refusal passes on: the relations.py
+# function whose result it is, followed through one adapter method.
+def source_of(fn, name):
+    for n in ast.walk(AF[fn]):
+        if isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id == name for t in n.targets) \
+                and isinstance(n.value, ast.Call):
+            f = n.value.func
+            if isinstance(f, ast.Attribute) and ast.unparse(f.value) == "RL":
+                return f.attr
+            if isinstance(f, ast.Attribute) and ast.unparse(f.value) == "self" and f.attr in AF:
+                rets = [r for r in ast.walk(AF[f.attr]) if isinstance(r, ast.Return) and isinstance(r.value, ast.Call)]
+                if len(rets) == 1 and ast.unparse(rets[0].value.func).startswith("RL."):
+                    return ast.unparse(rets[0].value.func)[3:]
+    return None
+for r in raised:
+    if not r.get("stores"):
+        r["from"] = source_of(r["function"], r["value"])
+# The span refusal's detail is str() of a NoReferent from the try it is raised in.
+def no_referent_sources():
+    out = []
+    for t in ast.walk(AF["_candidates"]):
+        if isinstance(t, ast.Try) and any(h.type is not None and ast.unparse(h.type) == "RL.NoReferent" for h in t.handlers):
+            for n in ast.walk(ast.Module(body=t.body, type_ignores=[])):
+                if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name) and n.value.id == "RL" \
+                        and n.attr in RF:
+                    out.append(n.attr)
+    return sorted(set(out))
+spans_from = no_referent_sources()
+def closure(roots):
+    seen, stack = set(), list(roots)
+    while stack:
+        x = stack.pop()
+        if x in seen or x not in RF:
+            continue
+        seen.add(x)
+        stack += [n.func.id for n in ast.walk(RF[x])
+                  if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id in RF]
+    return seen
+builders = closure([r["from"] for r in raised if r.get("from")])
+for name in sorted(builders):
+    for node in ast.walk(RF[name]):
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == "Refusal":
+            sites.append({"module": "quality/relations.py", "function": name, "construction": "refusal",
+                          "parts": refusal(node)})
+messages = []
+for name in sorted(closure(spans_from)):
+    for node in ast.walk(RF[name]):
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == "NoReferent":
+            messages.append({"module": "quality/relations.py", "function": name, "message": part(node.args[0])})
+order = lambda s: json.dumps(s, sort_keys=True, ensure_ascii=False)
+sites.sort(key=order)
+messages.sort(key=order)
+raised.sort(key=order)
+# 2. The bound of every variable part: each expression evaluated over the
+# domain of its one free name, from the registry; integers by sys.maxsize.
+schemas = list(RL.REGISTRY.values())
+# A capability refusal is built only when something is missing (if missing:).
+caps = [tuple(s.capabilities()) for s in schemas if s.capabilities()]
+rules = [r for s in schemas for r in s.spans]
+DOMAINS = {
+    "name": [s.name for s in schemas], "schema": schemas,
+    "missing": caps, "miss": caps, "vacuous": caps, "vac": caps,
+    "key": list(SHARED_SOUND_METHODS), "rule": rules, "a": [r.anchor for r in rules],
+    "self": [A.AnalysisSession],
+}
+GLOBALS = {"REMEDIES": REMEDIES, "shared_sound_name": shared_sound_name}
+N = 2 * sys.maxsize
+INTEGERS = {
+    "len(toks) + len(missing)": N, "total": N * (N - 1) // 2,
+    "rep['stubs']": sys.maxsize, "len(rep['ambiguous'])": sys.maxsize,
+    "len(rep['unmatched'])": sys.maxsize, "len(rep['no_incipit'])": sys.maxsize,
+    "skipped": sys.maxsize,
+}
+INPUTS = {"self._incomplete[name]": data["incomplete_reason"]}
+size = lambda v: len(canonical_json(v).encode("utf-8"))
+def longest(xs):
+    return max(xs, key=lambda x: (size(x), canonical_json(x)))
+unbounded = []
+def bound(k):
+    if k in INTEGERS:
+        return str(INTEGERS[k])
+    if k in INPUTS:
+        return INPUTS[k]
+    text, conv = (k[:-2], repr) if k.endswith("!r") else (k, None)
+    tree = ast.parse(text, mode="eval")
+    stored = {n.id for n in ast.walk(tree) if isinstance(n, ast.Name) and isinstance(n.ctx, ast.Store)}
+    free = {n.id for n in ast.walk(tree) if isinstance(n, ast.Name) and isinstance(n.ctx, ast.Load)} \
+        - stored - set(GLOBALS) - set(dir(builtins))
+    if len(free) != 1 or not free <= set(DOMAINS):
+        unbounded.append(k)
+        return None
+    var = free.pop()
+    code = compile(tree, k, "eval")
+    try:
+        vals = [eval(code, dict(GLOBALS), {var: v}) for v in DOMAINS[var]]
+        vals = [conv(v) if conv else json_safe(v) for v in vals]
+    except Exception:
+        # A part the registry cannot evaluate reads something else: no bound.
+        unbounded.append(k)
+        return None
+    return longest(vals)
+keys = set()
+def collect(p):
+    if p[0] == "expr":
+        keys.add(p[1])
+    if p[0] == "text":
+        keys.update(x[1] for x in p[1] if x[0] == "value")
+for s in sites:
+    for p in s["parts"].values():
+        collect(p)
+for m in messages:
+    collect(m["message"])
+keys.discard("str(exc)")
+bounds = {k: bound(k) for k in sorted(keys)}
+def value(p, bounds):
+    if p[0] == "const":
+        return p[1]
+    if p[0] == "either":
+        return max(p[1], key=lambda s: (len(s.encode("utf-8")), s))
+    if p[0] == "expr":
+        return bounds[p[1]]
+    out = ""
+    for x in p[1]:
+        if x[0] == "text":
+            out += x[1]
+        elif x[0] == "either":
+            out += value(x, bounds)
+        else:
+            v = bounds[x[1]]
+            out += v if isinstance(v, str) else str(v)
+    return out
+if not unbounded:
+    bounds["str(exc)"] = longest([value(m["message"], bounds) for m in messages])
+    built = [{f: value(p, bounds) for f, p in s["parts"].items()} for s in sites]
+    sizes = [size(r) for r in built]
+    largest = longest(built)
+else:
+    sizes, largest = [], None
+# 3. The declared label never reaches a refusal: the frame sources the adapter
+# sets, and every refusal it builds with a frame source of each label size.
+frame_sources, source_reads = [], []
+for n in ast.walk(AF["_apply_declarations"]):
+    if isinstance(n, ast.Assign):
+        for t in n.targets:
+            targets = t.elts if isinstance(t, ast.Tuple) else [t]
+            values = n.value.elts if isinstance(n.value, ast.Tuple) and isinstance(t, ast.Tuple) else [n.value]
+            for tt, vv in zip(targets, values):
+                if isinstance(tt, ast.Attribute) and tt.attr.endswith("_source"):
+                    frame_sources.append([tt.attr, vv.value if isinstance(vv, ast.Constant) else ast.unparse(vv)])
+    if isinstance(n, ast.UnaryOp) and isinstance(n.op, ast.Not):
+        for c in ast.walk(n.operand):
+            c.parent_not = True
+for n in ast.walk(AF["_apply_declarations"]):
+    if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute) and n.func.attr == "get" \
+            and n.args and isinstance(n.args[0], ast.Constant) and n.args[0].value == "source":
+        source_reads.append(bool(getattr(n, "parent_not", False)))
+class Stream:
+    def __init__(self, label, state):
+        self.label, self.state = label, state
+        self.lines, self.lexical_tokens, self.line_stanzas, self.line_status = [], (), (), ()
+        self.units, self.tokens, self.text_lines = [], {}, []
+    def supply(self, c):
+        return RL.Supply(c, self.state, 0, self.label, self.label)
+    def provides(self, c):
+        return False
+class Session:
+    RL = RL
+    _beat_placed = None
+def canon(r):
+    return canonical_json(json_safe(r))
+runs = {}
+for n in data["labels"]:
+    label = "x" * n
+    got = {"candidates": [], "full_shape": [], "stub_resolution": []}
+    for name, schema in RL.REGISTRY.items():
+        if schema.capabilities():
+            s = Session()
+            s.stream = Stream(label, "empty")
+            try:
+                next(A.AnalysisSession._candidates(s, name))
+            except A._Refused as exc:
+                got["candidates"].append(canon(exc.refusal))
+        r = RL._full_shape(schema, Stream(label, "empty"))
+        if isinstance(r, RL.Refusal):
+            got["full_shape"].append(canon(r))
+    for state in ("absent", "present"):
+        r = RL._stub_resolved_stream(Stream(label, state))
+        if isinstance(r, RL.Refusal):
+            got["stub_resolution"].append(canon(r))
+    runs[str(n)] = got
+out = {"sites": sites, "raised": raised, "spans_from": spans_from, "messages": messages,
+       "bounds": bounds, "unbounded": unbounded, "sizes": sizes, "largest": largest,
+       "frame_sources": sorted(frame_sources), "source_reads": source_reads, "runs": runs,
+       "maxsize": str(sys.maxsize)}
+sys.stdout.buffer.write(json.dumps(out, ensure_ascii=True).encode("ascii"))
+`;
+function refusalPython(input) {
+  const run = spawnSync(
+    'python3',
+    ['-I', '-c', REFUSAL_PROGRAM, path.join(ROOT, 'lyric-harness')],
+    {
+      input: Buffer.from(JSON.stringify(input), 'utf8'),
+      maxBuffer: 64 * 1024 * 1024,
+    }
+  );
+  assert.equal(run.error, undefined, `python3 runs (${run.error?.message})`);
+  assert.equal(run.status, 0, run.stderr?.toString());
+  return JSON.parse(run.stdout.toString('ascii'));
+}
+// One part of a refusal construction, at its bound: a constant; the longer of
+// two constants; a variable part, from the bounds; or text joined from those.
+function partValue(p, bounds) {
+  if (p[0] === 'const') return p[1];
+  if (p[0] === 'either')
+    return p[1].reduce((a, b) => (Buffer.byteLength(b) > Buffer.byteLength(a) ? b : a));
+  if (p[0] === 'expr') {
+    assert.ok(Object.hasOwn(bounds, p[1]), `${p[1]} has a bound (§3.2)`);
+    return bounds[p[1]];
+  }
+  assert.equal(p[0], 'text', `a part is const, either, expr or text: ${p[0]}`);
+  return p[1]
+    .map((x) => {
+      if (x[0] === 'text') return x[1];
+      if (x[0] === 'either') return partValue(x, bounds);
+      assert.ok(Object.hasOwn(bounds, x[1]), `${x[1]} has a bound (§3.2)`);
+      return String(bounds[x[1]]);
+    })
+    .join('');
+}
+const buildRefusal = (site, bounds) =>
+  Object.fromEntries(Object.entries(site.parts).map(([f, p]) => [f, partValue(p, bounds)]));
 
 // ---------------------------------------------------------------- the document
 function section(heading) {
@@ -3509,8 +3841,9 @@ test('§6.11: MEMBERSHIP_ENTRIES fits the first-commit budget by the contract fi
     assert.equal(pow2(x), LIMITS.MEMBERSHIP_ENTRIES, `${x} rounds down to the same power`);
   const atCap = LIMITS.MEMBERSHIP_ENTRIES * rate;
   assert.ok(fixed + atCap <= 29, "the margin holds the first step's 1 s deadline");
-  // #656 is expected to fit: its seen and variants are 20,045 entries, with
-  // about 45k left. 16,384, the retracted every-term figure, would not hold them.
+  // #656's measured seen and variants are 20,045 entries; the 45,491 left are
+  // headroom under the cap, not a measured margin (BB8 6683944548). 16,384, the
+  // retracted every-term figure, would not hold them.
   assert.ok(own <= LIMITS.MEMBERSHIP_ENTRIES);
   assert.ok(own > 16384, "16,384 would refuse #656's own primary phase");
   // What the bound leaves out (§12, item 18, ruled): a membership log alone at
@@ -3571,6 +3904,10 @@ test('§3.1: the largest cursor the constants allow fits CURSOR_BYTES, by the st
   const [key, entry] = Object.entries(largest.methods)[0];
   const perMethod = cbytes({ [key]: entry }) - 2;
   assert.equal(cbytes(entry.refusal), LIMITS.REFUSAL_BYTES, 'each refusal at its bound');
+  // The actual refusal envelope, not padding: the largest the adapter can
+  // construct (§3.2), so this derivation moves with REFUSAL_BYTES.
+  assert.deepEqual(entry.refusal, load('good/refusal_construction.json').largest.refusal);
+  assert.equal(inp.refusal_bytes, LIMITS.REFUSAL_BYTES);
   assert.equal(Buffer.byteLength(canonical(inp.incomplete_reason)), 70);
   assert.ok(largest.witness.fields.every((f) => DOT_PATH.test(f) && f.length === 64));
   // W4 holds a witness field to a dot path of at most 64 bytes, so its
@@ -3606,7 +3943,7 @@ test('§3.1: the largest cursor the constants allow fits CURSOR_BYTES, by the st
     `\`CURSOR_BYTES = ${LIMITS.CURSOR_BYTES}\``,
     `${n(margin)} bytes above the largest cursor`,
     `room\n  for ${Math.floor(margin / perMethod)} more methods`,
-    `\`REFUSAL_BYTES = ${LIMITS.REFUSAL_BYTES}\``,
+    `largest refusal the adapter can construct (§3.2), of exactly \`REFUSAL_BYTES\``,
     `at most ${inp.methods}, each key at most ${inp.method_id_bytes} bytes`,
     `the ${inp.schemas} schema names, each at most ${inp.schema_name_bytes} bytes`,
     `the longest is ${Buffer.byteLength(inp.incomplete_reason)} bytes (${Buffer.byteLength(canonical(inp.incomplete_reason))} canonical): "${inp.incomplete_reason}"`,
@@ -3618,6 +3955,204 @@ test('§3.1: the largest cursor the constants allow fits CURSOR_BYTES, by the st
     ),
     "§3's table cites the largest cursor"
   );
+});
+
+// BB8 6684866461 (§12, item 27): the refusal stays in the cursor, and
+// REFUSAL_BYTES is derived from how the adapter builds one. The validator
+// walks the source without the dictionary, holds every construction and
+// variable part to good/refusal_construction.json, builds the largest refusal
+// with every variable part at its maximum, and shows it is REFUSAL_BYTES. A
+// declared label of any size reaches no refusal: the walk would find a part
+// with no bound, and the labelled runs would differ.
+test('good/refusal_construction.json: the largest refusal the adapter can construct is REFUSAL_BYTES (§3.2)', () => {
+  const fx = load('good/refusal_construction.json');
+  const cfx = load('bad/cursor_over_bound.json');
+  const py = refusalPython({ labels: fx.labels, incomplete_reason: cfx.inputs.incomplete_reason });
+  // The walk: every construction, and every variable part, is one §3.2 lists.
+  assert.deepEqual(py.unbounded, [], 'every variable part of a refusal has a bound (§3.2)');
+  assert.deepEqual(py.raised, fx.sources, 'what each raise passes on, and the one store');
+  assert.deepEqual(py.spans_from, fx.spans_from, "the span refusal's NoReferent comes from");
+  assert.deepEqual(
+    py.sites,
+    fx.sites.map(({ bytes: _bytes, ...site }) => site),
+    'the refusal constructions are the ones §3.2 lists; on any change REFUSAL_BYTES is derived again'
+  );
+  assert.deepEqual(py.messages, fx.messages, 'the NoReferent messages a span refusal can carry');
+  assert.deepEqual(py.bounds, fx.bounds, 'each bound, evaluated over the registry');
+  // Every count is a len() of a CPython container, or a counter moving once per
+  // element of one: at most sys.maxsize. The word count is two such lengths,
+  // the pair count n(n - 1)/2 of it (analysis.py:1622-1623).
+  const M = 2n ** 63n - 1n;
+  const N = 2n * M;
+  assert.equal(fx.integer_bound.value, String(M));
+  assert.equal(py.maxsize, String(M), 'the reader runs on a 64-bit build');
+  for (const k of [
+    'skipped',
+    "rep['stubs']",
+    "len(rep['ambiguous'])",
+    "len(rep['unmatched'])",
+    "len(rep['no_incipit'])",
+  ])
+    assert.equal(fx.bounds[k], String(M), `${k} is at most sys.maxsize`);
+  assert.equal(fx.bounds['len(toks) + len(missing)'], String(N));
+  assert.equal(fx.bounds.total, String((N * (N - 1n)) / 2n));
+  // Built again in Node, from the parts and the bounds: the same bytes.
+  const longer = (a, b) => (Buffer.byteLength(b) > Buffer.byteLength(a) ? b : a);
+  const { 'str(exc)': message, ...rest } = fx.bounds;
+  assert.equal(message, fx.messages.map((m) => partValue(m.message, rest)).reduce(longer));
+  const built = fx.sites.map((site) => buildRefusal(site, fx.bounds));
+  built.forEach((r, i) => {
+    assert.equal(cbytes(r), fx.sites[i].bytes, `${fx.sites[i].function}: its largest refusal`);
+    assert.equal(cbytes(r), py.sizes[i], `${fx.sites[i].function}: Python builds the same`);
+    assert.ok(cbytes(r) <= LIMITS.REFUSAL_BYTES, `${fx.sites[i].function} fits REFUSAL_BYTES`);
+  });
+  const largest = built.reduce((a, b) => (cbytes(b) > cbytes(a) ? b : a));
+  assert.deepEqual(largest, fx.largest.refusal);
+  assert.deepEqual(py.largest, fx.largest.refusal);
+  assert.equal(cbytes(largest), fx.largest.bytes);
+  assert.equal(sha(canonical(largest)), fx.largest.sha256);
+  assert.equal(
+    fx.largest.bytes,
+    LIMITS.REFUSAL_BYTES,
+    'REFUSAL_BYTES is the largest refusal itself'
+  );
+  assert.equal(fx.refusal_bytes, LIMITS.REFUSAL_BYTES);
+  const at = fx.sites.filter((site) => site.bytes === fx.largest.bytes);
+  assert.equal(at.length, 1, 'one construction is the largest');
+  assert.deepEqual([at[0].module, at[0].function], [fx.largest.module, fx.largest.function]);
+  assert.deepEqual(cfx.inputs.refusal, fx.largest.refusal, 'the largest cursor holds it (§3.1)');
+  // One byte more is refused: by W4 on the store, as INVARIANT_FAILURE by the worker.
+  const over = clone(largestCursor(cfx.inputs));
+  over.methods[Object.keys(over.methods)[0]].refusal.detail += 'x';
+  assert.deepEqual(workerCursorRefusal(over), { code: 'INVARIANT_FAILURE' });
+  // The declared label never reaches a refusal: _apply_declarations sets a
+  // frame's source only to a constant, and reads a declaration's own source
+  // only to require one (analysis.py:1121-1194).
+  assert.deepEqual(py.frame_sources, fx.frame_sources);
+  for (const [attr, value] of fx.frame_sources)
+    assert.ok(['declared', 'none'].includes(value), `${attr} is set to "declared" or "none"`);
+  assert.equal(py.source_reads.length, fx.source_reads);
+  assert.ok(py.source_reads.every(Boolean), "a declaration's source is read only under `not`");
+  // The real _candidates, _full_shape and _stub_resolved_stream, on a stream
+  // whose every frame carries a source label of 1, 4,096 and 65,536 bytes.
+  assert.deepEqual(fx.labels, [1, 4096, 65536]);
+  const first = py.runs[String(fx.labels[0])];
+  for (const n of fx.labels)
+    assert.deepEqual(py.runs[String(n)], first, `a ${n}-byte label builds the same refusals`);
+  for (const [family, want] of Object.entries(fx.label_runs)) {
+    const sizes = first[family].map((t) => Buffer.byteLength(t));
+    assert.equal(sizes.length, want.refusals, `${family}: its refusals`);
+    assert.equal(Math.max(...sizes), want.largest, `${family}: its largest`);
+    assert.ok(Math.max(...sizes) <= LIMITS.REFUSAL_BYTES, `${family} fits REFUSAL_BYTES`);
+  }
+  // §3.2 states the derivation this builds.
+  const text = section('3. Hard limits').split('### 3.2')[1];
+  const flat = text.replace(/\s+/g, ' ');
+  for (const stated of [
+    '6684866461',
+    `\`REFUSAL_BYTES = ${LIMITS.REFUSAL_BYTES}\``,
+    String(M),
+    'INVARIANT_FAILURE',
+    '187 bytes',
+    '4,607',
+    'not an adapter regression',
+    '`good/refusal_construction.json`',
+  ])
+    assert.ok(flat.includes(stated), `§3.2 states ${stated}`);
+  const rows = tableRows(text.split('**The largest refusal.**')[1]);
+  const key = (fn, bytes) => `${fn} ${bytes}`;
+  assert.deepEqual(
+    rows.map((r) => key(r[0].match(/^`(\w+)`/)[1], r[2])).sort(),
+    fx.sites.map((site) => key(site.function, site.bytes)).sort(),
+    "§3.2's table gives every construction's largest refusal"
+  );
+  for (const r of fx.sources)
+    assert.ok(flat.includes(`\`${r.function}\``), `§3.2 names ${r.function}`);
+  // 3PO's 6684847656: the lower-level RL.realise detail is context only, and
+  // cursor_refusal_bytes is gone with the RESOURCE_LIMIT classification.
+  assert.ok(!CONTRACT.includes('`cursor_refusal_bytes`') || /retired|gone/.test(flat));
+  assert.ok(!RESOURCE_CAUSES.includes('cursor_refusal_bytes'));
+});
+
+// 3PO's item 24, kept by BB8 6683944548: a non-terminal record inserted after
+// the terminal suffix is a test of its own, separate from the contribution
+// inserted before the terminal parent at each split point.
+test('§6.9: the post-terminal insertion test stays separate from the prefix case (item 24)', () => {
+  const wfx = load('good/witness_cursor_option2.json');
+  const sfx = load('bad/terminal_suffix_not_contiguous.json');
+  const rfx = load('bad/terminal_suffix_resume_faults.json');
+  const method = wfx.cursor.witness.method_id;
+  const witness = wfx.cursor.witness;
+  const terminalRecord = (r) =>
+    (r.kind === 'method_result' || r.kind === 'detail_part') && r.method_id === method;
+  // After the suffix: the complete suffix, then one contribution.
+  const post = mutantStream(
+    wfx,
+    sfx.mutants.find((m) => m.name === 'contribution_after_suffix')
+  );
+  const complete = mutantStream(
+    wfx,
+    sfx.controls.find((c) => c.name === 'complete_suffix')
+  );
+  assert.deepEqual(post.slice(0, -1), complete, 'the complete suffix comes first');
+  assert.ok(!terminalRecord(post.at(-1)), 'then a non-terminal record');
+  assert.ok(reconstruct(method, witness, post).violations.length > 0, 'refused, RESULT_EXPIRED');
+  assert.equal(reconstruct(method, witness, complete).violations.length, 0);
+  // Before the terminal parent: the contribution-prefix case at each split point.
+  const prefix = rfx.mutants.filter((m) => m.fault === 'inserted_record');
+  assert.deepEqual(
+    prefix.map((m) => m.split),
+    ['after_parent', 'after_part_0', 'after_part_1']
+  );
+  for (const m of prefix) {
+    const stream = mutantStream(wfx, m, rfx);
+    const parent = stream.findIndex((r, i) => i >= rfx.boundary && r.kind === 'method_result');
+    assert.ok(parent > rfx.boundary, `${m.name}: a record sits before the terminal parent`);
+    assert.ok(
+      stream.slice(rfx.boundary, parent).every((r) => !terminalRecord(r)),
+      `${m.name}: the inserted record is a contribution`
+    );
+    assert.ok(stream.slice(parent).every(terminalRecord), `${m.name}: nothing after the suffix`);
+  }
+  const text = section('6. Worker semantics')
+    .split('### 6.9')[1]
+    .split('### 6.10')[0]
+    .replace(/\s+/g, ' ');
+  for (const name of ['contribution_after_suffix', 'inserted_record', 'a test of its own'])
+    assert.ok(text.includes(name), `§6.9 names ${name}`);
+});
+
+// BB8 6683944548's correction: "row_seen live at 6 of 42 boundaries" is 3PO's
+// two-line synthetic fixture, not Whitman, and the 45,491 entries left under the
+// cap for Whitman's alternate phase are headroom, not a measured margin.
+test('the attribution of the row_seen figure and the headroom (BB8 6683944548)', () => {
+  const flat = CONTRACT.replace(/\s+/g, ' ');
+  for (const m of flat.matchAll(/6 of 42 boundaries/g)) {
+    const around = flat.slice(Math.max(0, m.index - 300), m.index + 300);
+    assert.ok(/synthetic/.test(around), 'the 6-of-42 figure is named as the synthetic fixture');
+  }
+  for (const m of flat.matchAll(/45,491/g)) {
+    const around = flat.slice(Math.max(0, m.index - 300), m.index + 300);
+    assert.ok(/headroom/.test(around), '45,491 is named as headroom');
+  }
+  assert.ok(!/about 45k left/.test(flat), 'no "about 45k left"');
+  assert.ok(!/an expectation, not a guarantee/.test(flat));
+});
+
+// §12: every item BB8 ruled is marked with its ruling; only item 29 is open.
+test('§12: items 21-28 carry their rulings, and only item 29 stays open', () => {
+  const text = section('12. Rulings on the items added for confirmation');
+  const item = (n) => {
+    const m = new RegExp(`\\n${n}\\. \\*\\*([^*]+)\\*\\*`).exec(text);
+    assert.ok(m, `§12 has item ${n}`);
+    return m[1];
+  };
+  for (const n of [21, 22, 23, 25, 26, 27, 28])
+    assert.match(item(n), /^Ruled/, `item ${n} is ruled`);
+  assert.match(item(24), /^3PO's/, "item 24 is 3PO's");
+  assert.match(item(29), /^Open/, 'item 29 stays open');
+  assert.ok(text.includes('6684866461') && text.includes('6683944548'));
+  assert.ok(!/Items 21–2\d and 26–29 are open/.test(text));
 });
 
 test('the cross-reference covers 3PO 1-6 and BB8 1-9, each with a contract section', () => {

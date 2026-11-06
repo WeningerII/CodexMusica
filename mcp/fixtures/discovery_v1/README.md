@@ -62,14 +62,29 @@ passes every other rule.
   names a cursor outside `discovery` and `continuation`, with its canonical bytes and sha256. The
   largest cursor: every integer at `integer`; `methods` keys `shared_sound:` plus sha256 of
   `method <i>`, cut to `method_id_bytes`, each holding every counter, `coverage: "answered"`,
-  `figure_counts` and a refusal whose `detail` is `x` repeated to make the refusal exactly
-  `refusal_bytes`; `schemas` names `schema_<i>_` padded with `n` to `schema_name_bytes`, each with
-  `incomplete_reason` and in `refused_schemas`; `identity_hash` and the witness digest 64 `f`s; a
-  witness of `witness_fields` names of `witness_field_bytes` `a`s. Padding to a target adds
+  `figure_counts` and `inputs.refusal`, the largest refusal the adapter can construct
+  (`good/refusal_construction.json`), of exactly `refusal_bytes`; `schemas` names `schema_<i>_`
+  padded with `n` to `schema_name_bytes`, each with `incomplete_reason` and in
+  `refused_schemas`; `identity_hash` and the witness digest 64 `f`s; a witness of
+  `witness_fields` names of `witness_field_bytes` `a`s. Padding to a target adds
   methods `pad:<k>` holding `{"candidates": 0}` while 64 bytes or more remain, then one
   `pad:` + `z`s whose length makes the size exact. `refusal_one_byte_over` adds one `x` to the
-  first method's refusal. A frame carries the cursor with an empty `discovery` and
+  first method's refusal's `detail`. A frame carries the cursor with an empty `discovery` and
   `continuation`, at epoch `integer`, on a record with no discovery.
+- `good/refusal_construction.json` is a construction fixture (§3.2). `sites` is every refusal the
+  adapter can put in a cursor, as the validator reads it from the source: its `module`,
+  `function` and `construction` (`literal`, a dict written to `counts["refusal"]`, or `refusal`, a
+  `Refusal` call), and its `parts`, one per field. A part is `["const", value]`, `["either",
+  [a, b]]` (the longer of two constants), `["expr", e]` (a variable part, whose bound is
+  `bounds[e]`) or `["text", pieces]`, each piece `["text", s]`, `["either", [a, b]]` or
+  `["value", e]` (`e!r` for a repr). `bytes` is the canonical size of the refusal with every
+  part at its bound. `sources` names what each `_Refused` raise passes on, `spans_from` the
+  function a span refusal's `NoReferent` comes from, and `messages` every `NoReferent` message
+  in its call closure, whose longest is `bounds["str(exc)"]`. Counts in `bounds` are decimal
+  strings, at most `integer_bound`. `largest` is the largest refusal, `refusal_bytes` its size.
+  `label_runs` summarises the refusals the real builders make with each of `labels` as every
+  frame's source; `frame_sources` lists what `_apply_declarations` sets a frame's source to, and
+  `source_reads` how often it reads a declaration's own source.
 - `bad/reply_cause_invalid.json` is a reply fixture: failed leases on a running job, each with the
   pause it leads to. Each case holds one of `reply` (the bridge's result for the worker's own
   final frame, `reply: true`, which C1 checks), `sink` (an error a Node sink threw inside
@@ -109,6 +124,7 @@ it is accepted), and what it exercises.
 | `good/row_seen_compaction_next_frame.json` | F4 W1 W3 W4 | none | a frame with seven seals reaches a compaction boundary whose two seals would pass FRAME_SEALS: the step ends before it, the compaction runs first and whole in the next frame, a restart seals the same bytes, and a split the store accepts is one the worker never emits |
 | `good/release_fencing.json` | U1 U2 | none | reconciliation on one instance during a live lease on another: the lease's next commit is refused and writes nothing, its fence and attempt are unchanged, its pause carries the sink refusal's own cause and log, and a queued job keeps its attempt counter and queue fields |
 | `good/thrown_save_outcome_unknown.json` | R2 F3 F6 | none | a commit's record save throws: with a status, before the write, so only orphans change; without one, after the rename, so the outcome is unknown, the instance serves nothing, and the restart's full read rebuilds the lists from the durable heads, landed or not |
+| `good/refusal_construction.json` | W4 | none | every refusal the adapter can construct, read from the source with the bound of each variable part; the largest, every part at its maximum, is 543 bytes, REFUSAL_BYTES; frame source labels of 1, 4,096 and 65,536 bytes build the same refusals |
 | `good/unavailable_pause_reason.json` | U1 U2 | none | every release path and the saves after one: one save empties `logs` and `verified`; `unavailable` and the reason keep the released log names and their heads; the first trace wins; a released job is never requeued |
 | `bad/missing_segment.json` | R1 | DISCOVERY_UNAVAILABLE 409 segment_missing | the oldest `alt_cells` segment is gone; the store meeting it outside reconciliation says STORAGE_CORRUPT 503 |
 | `bad/reordered_segment.json` | R2 | DISCOVERY_UNAVAILABLE 409 chain_broken | the two `alt_cells` paths are swapped |
@@ -127,7 +143,7 @@ it is accepted), and what it exercises.
 | `bad/membership_over_cap.json` | W7 | RESOURCE_LIMIT | for each of `seen`, `variants`, `row_seen` and `alt_seen`, a frame whose append takes the four logs one past `MEMBERSHIP_ENTRIES`: the worker names `discovery_<log>`, a store sent it refuses READER_PROTOCOL 400; a control per log reaches the cap exactly and passes |
 | `bad/segment_corrupt_at_reconciliation.json` | F6 | DISCOVERY_UNAVAILABLE 409 segment_corrupt | one byte of `alt_cells#1` changed: reconciliation releases that job alone with `segment_corrupt`, logged at error level, and the store does not fail; a lease's walk refuses STORAGE_CORRUPT 503 and releases nothing; `resume()`'s full read releases it too; a structural fault is `chain_broken` |
 | `bad/verified_ahead_of_head.json` | R5 | STORAGE_CORRUPT 503 | `alt_cells`' verified head is a segment past its head; the lease's walk refuses before reading and releases nothing; `resume()`'s full read passes and saves the corrected verified heads |
-| `bad/cursor_over_bound.json` | W4 | READER_PROTOCOL 400 | the largest cursor §3.1's inputs allow (142,912 bytes) and one of exactly CURSOR_BYTES pass; one byte over fails W4 and is the worker's INVARIANT_FAILURE; a refusal one byte over REFUSAL_BYTES fails W4 and is the worker's RESOURCE_LIMIT cursor_refusal_bytes |
+| `bad/cursor_over_bound.json` | W4 | READER_PROTOCOL 400 | the largest cursor §3.1's inputs allow (99,141 bytes, every method holding the largest refusal) and one of exactly CURSOR_BYTES pass; one byte over fails W4 and is the worker's INVARIANT_FAILURE; a refusal one byte over REFUSAL_BYTES fails W4 and is the worker's INVARIANT_FAILURE too |
 | `bad/reply_cause_invalid.json` | C1 | READER_PROTOCOL | for each of the two codes a missing, an unknown and a cross-code cause, the store's own cause from a worker, a cause on a code that takes none, a cut and a non-string echo, a log outside the set, missing where its cause needs one, or on a cause or code that takes none: each pauses READER_PROTOCOL naming the bad value, releasing nothing; valid replies, sink errors and a bridge failure pause as before |
 | `bad/terminal_suffix_resume_faults.json` | S2 | RESULT_EXPIRED 410 | at three split points of a four-part terminal detail: fifteen faults resolve_detail_records refuses, and the nine it accepts that the worker's suffix-membership check must refuse; the durable prefixes, the complete suffix and a part whose schema_name alone changes pass |
-| `bad/terminal_suffix_not_contiguous.json` | S2 | RESULT_EXPIRED 410 | the terminal suffix broken by a contribution, another method's record or part, a contribution's part, a part out of its parent's run, or a part that breaks `resolve_detail_records` (cut off, duplicated, wrong index, total, detail id or bytes); the contiguous controls pass |
+| `bad/terminal_suffix_not_contiguous.json` | S2 | RESULT_EXPIRED 410 | the terminal suffix broken by a contribution (`contribution_after_suffix`, after the complete suffix, is the post-terminal insertion test, separate from the resume fixture's `inserted_record`), another method's record or part, a contribution's part, a part out of its parent's run, or a part that breaks `resolve_detail_records` (cut off, duplicated, wrong index, total, detail id or bytes); the contiguous controls pass |

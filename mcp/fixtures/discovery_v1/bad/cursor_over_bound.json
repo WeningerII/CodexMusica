@@ -2,7 +2,7 @@
   "fixture": "bad/cursor_over_bound.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "cursor",
-  "exercises": "The largest cursor the constants allow, outside discovery and continuation (§3.1), built from the inputs below: 142,912 bytes, within CURSOR_BYTES. A store accepts it, and a cursor padded to exactly CURSOR_BYTES. Padded one byte past CURSOR_BYTES, the store refuses the frame by W4; the worker never emits it, and refuses with INVARIANT_FAILURE, because only content no constant allows (methods the registry does not have) gets a cursor that far. One refusal one byte past REFUSAL_BYTES is refused by W4 too; the worker names RESOURCE_LIMIT, cause cursor_refusal_bytes, because a refusal's detail can grow with the input.",
+  "exercises": "The largest cursor the constants allow, outside discovery and continuation (§3.1), built from the inputs below: 99,141 bytes, within CURSOR_BYTES. Each of its methods holds inputs.refusal, the largest refusal the adapter can construct (§3.2, good/refusal_construction.json), of exactly REFUSAL_BYTES: the actual refusal, not padding. A store accepts it, and a cursor padded to exactly CURSOR_BYTES. Padded one byte past CURSOR_BYTES, the store refuses the frame by W4; the worker never emits it, and refuses with INVARIANT_FAILURE, because only content no constant allows (methods the registry does not have) gets a cursor that far. One refusal one byte past REFUSAL_BYTES is refused by W4 too, and the worker refuses it with INVARIANT_FAILURE as well: no input can lengthen a refusal, so only a construction §3.2 does not list gets one that long.",
   "expect": {
     "accepted": false,
     "rule": "W4",
@@ -16,40 +16,47 @@
     "schemas": 80,
     "schema_name_bytes": 39,
     "incomplete_reason": "its disputed words' readings collide on more than 1375311 line pairs",
-    "refusal_bytes": 1024,
+    "refusal_bytes": 543,
     "integer": 9007199254740991,
     "phase": "shared_sound",
     "witness_fields": 16,
-    "witness_field_bytes": 64
+    "witness_field_bytes": 64,
+    "refusal": {
+      "schema": "search_stub_resolution",
+      "capability": "line_status",
+      "detail": "nobody has said which lines are POINTERS. Declare it -- `build_stream(line_status=...)`, or `line_status_from(lines, predicate, label)` -- or pass `is_stub=`. Which printed mark is a stub is the EDITION's judgement and this module ships no list: English prints `&c.`, Finnish `j. n. e.`, Malay `d. s. b.` (P10, BACKLOG 2.4). An empty map would say 'no pointers here', which is a different answer (doctrine 20).",
+      "missing": ["line_status"],
+      "kind": "capability",
+      "vacuous": []
+    }
   },
   "controls": [
     {
       "name": "largest",
-      "bytes": 142912,
-      "sha256": "8472e93fff6af3596671b69c8db745dc51d11874c2d17fc9f9fec423dff88893"
+      "bytes": 99141,
+      "sha256": "f0e6bc4267c170cd12f7ee0d827f62e56c0234f5b249778aacfb44c46f1e3ef0"
     },
     {
       "name": "at_the_bound",
-      "bytes": 163840,
-      "sha256": "e64ab3f7abb3267f9b1a21188425aa425c4a2cdb2dac413f106d2dd90dd171fb"
+      "bytes": 131072,
+      "sha256": "94ddee1f3605065d500ef7e9714b22235dc48d3c405fdf695c0232557a4423ad"
     }
   ],
   "mutants": [
     {
       "name": "one_byte_over",
-      "bytes": 163841,
-      "sha256": "fce096c776131e8f9c2cb9f8d6e37b4e1f870c7271b1daaf2970892b67d94dc1",
+      "bytes": 131073,
+      "sha256": "fba34e007d996ce6441f7e52f0151589e71ee5db92b10bee692bba0cf7929a69",
       "worker": {
         "code": "INVARIANT_FAILURE"
       }
     },
     {
       "name": "refusal_one_byte_over",
-      "bytes": 142913,
-      "sha256": "246cf414b4250d0fc6fe5b1ad2434548ce8a707781aa01b380ebe6360e0de443",
+      "bytes": 99142,
+      "sha256": "7a4e441663f2ff3fd7265ad9fa663ccca06c2131ecce5f5977cf6537583b4a8b",
       "worker": {
-        "code": "RESOURCE_LIMIT",
-        "cause": "cursor_refusal_bytes"
+        "code": "INVARIANT_FAILURE"
       }
     }
   ]
