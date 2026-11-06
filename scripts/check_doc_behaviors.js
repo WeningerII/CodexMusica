@@ -417,6 +417,84 @@ assert(
   }
 );
 
+// A part swapped twice keeps the later variant, as a card keeps its last pick,
+// and the earlier swap used to vanish: `edge_round;edge_45` printed what
+// `edge_45` alone prints, stdout and stderr, and nothing named edge_round
+// (BB8 6676262617, call 4). It is not refused; the earlier swap gets a note,
+// first, and the run otherwise matches the last swap alone, stdout, exit and
+// every other note, also in the JSON's `notes` and for an instrument the
+// recipe does not have. Each swap a later different one replaced is named
+// (`a;b;a` names a then b); a repeat of the same variant replaces nothing.
+assert('§3f', 'a part swapped twice keeps the last swap and names the one it replaced', () => {
+  const replacedNote = (inst, part, was, now) =>
+    `note: --swap-variant ${inst}:${part}:${was} was replaced by a later --swap-variant for the same part (${now})`;
+  const edge = (v) => `drum_kit:bearing_edges:${v}`;
+  const banjo = (v) => `banjo_5_string:banjo_back:${v}`;
+  const cases = [
+    {
+      tradition: 'italogaze',
+      swaps: [edge('edge_round'), edge('edge_45')],
+      alone: edge('edge_45'),
+      replaced: [replacedNote('drum_kit', 'bearing_edges', 'edge_round', 'edge_45')],
+    },
+    {
+      tradition: 'italogaze',
+      swaps: [edge('edge_round'), edge('edge_45'), edge('edge_round')],
+      alone: edge('edge_round'),
+      replaced: [
+        replacedNote('drum_kit', 'bearing_edges', 'edge_round', 'edge_45'),
+        replacedNote('drum_kit', 'bearing_edges', 'edge_45', 'edge_round'),
+      ],
+    },
+    {
+      tradition: 'italogaze',
+      swaps: [edge('edge_45'), edge('edge_45')],
+      alone: edge('edge_45'),
+      replaced: [],
+    },
+    {
+      tradition: 'gangsta_rap',
+      swaps: [banjo('resonator'), banjo('open_back')],
+      alone: banjo('open_back'),
+      replaced: [replacedNote('banjo_5_string', 'banjo_back', 'resonator', 'open_back')],
+    },
+  ];
+  const details = [];
+  let ok = true;
+  for (const c of cases) {
+    const args = [RECIPE, '--tradition', c.tradition];
+    const r = runSplit([...args, `--swap-variant=${c.swaps.join(';')}`]);
+    const alone = runSplit([...args, `--swap-variant=${c.alone}`]);
+    const want = [...c.replaced, ...stderrNotes(alone)];
+    let caseOk =
+      r.code === 0 &&
+      alone.code === 0 &&
+      r.out === alone.out &&
+      JSON.stringify(stderrNotes(r)) === JSON.stringify(want) &&
+      r.err
+        .split('\n')
+        .filter((l) => !l.startsWith('note: '))
+        .join('\n') ===
+        alone.err
+          .split('\n')
+          .filter((l) => !l.startsWith('note: '))
+          .join('\n');
+    const j = runSplit([...args, '--why-json', `--swap-variant=${c.swaps.join(';')}`]);
+    let notes = null;
+    try {
+      notes = JSON.parse(j.err).notes;
+    } catch {
+      notes = null;
+    }
+    caseOk = caseOk && j.out === alone.out && JSON.stringify(notes) === JSON.stringify(want);
+    ok = ok && caseOk;
+    details.push(
+      `${c.tradition} ${c.swaps.join(';')}: ${caseOk ? 'ok' : 'FAIL'}; exit ${r.code}; notes ${JSON.stringify(stderrNotes(r))}; want ${JSON.stringify(want)}; --why-json notes ${JSON.stringify(notes)}`
+    );
+  }
+  return { ok, detail: details.join(' | ') };
+});
+
 // SKILL.md's flag contract: a misspelled flag is refused by name, not
 // stored and ignored with the recipe unchanged and exit 0.
 assert('§3f', 'a misspelled flag exits 2 and names the flag it meant', () => {

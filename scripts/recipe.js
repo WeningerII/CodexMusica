@@ -139,6 +139,11 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
   const add = new Set();
   const swap = {};
   const errors = [];
+  // A part given a different variant by a later swap keeps the later one, as a
+  // card keeps its last pick; the earlier swap gets a note rather than
+  // vanishing (BB8 6676262617, call 4). A repeat of the same variant replaces
+  // nothing.
+  const replaced = [];
 
   if (flags['exclude-instrument']) {
     const ids = String(flags['exclude-instrument'])
@@ -218,6 +223,11 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
         continue;
       }
       swap[iid] = swap[iid] || {};
+      const prior = swap[iid][pid];
+      if (prior !== undefined && prior !== vid)
+        replaced.push(
+          `note: --swap-variant ${iid}:${pid}:${prior} was replaced by a later --swap-variant for the same part (${vid})`
+        );
       swap[iid][pid] = vid;
     }
   }
@@ -233,7 +243,7 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
   }
 
   // removed: filled by seedFromTradition with the ids an exclude actually removed.
-  return { exclude, add, swap, stapleMode, arrangement, removed: [] };
+  return { exclude, add, swap, stapleMode, arrangement, removed: [], replaced };
 }
 
 // === Seed generation by mode ===
@@ -435,8 +445,9 @@ const jsonStderr = !!(flags['why-json'] || flags['why-prefaces-json']);
 
 // A swap on an instrument the recipe does not have (not in the roster, or
 // removed by --exclude-instrument) has no card to apply to, and stdout is the
-// recipe, or under --json the config, without it, one note per swap.
-const notAppliedNotes = [];
+// recipe, or under --json the config, without it, one note per swap. A swap a
+// later one replaced (opts.replaced) is noted first.
+const notAppliedNotes = [...opts.replaced];
 {
   const inRecipe = new Set(result.config.instruments.map((inst) => inst.id));
   for (const [instrument, parts] of Object.entries(opts.swap)) {

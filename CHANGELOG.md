@@ -43,6 +43,12 @@ would have counted too. Gangsta rap Rich and Tags and Irish trad session Tags we
   `note: <instrument> is not in the recipe, so --swap-variant <triple> was not applied (…)`,
   one line per such swap. `--json` no longer ends with `process.exit()`, which through a
   pipe could cut off the end of stderr (`--why` output, and now this note).
+- **CLI: a part swapped twice.** `--swap-variant 'drum_kit:bearing_edges:edge_round;drum_kit:bearing_edges:edge_45'`
+  printed what `edge_45` alone prints, and nothing named `edge_round` (already so on
+  0888a1610). Last-wins stays, and is not refused; each swap a later, different variant
+  replaced now gets
+  `note: --swap-variant <instrument>:<part>:<variant> was replaced by a later --swap-variant for the same part (<variant>)`,
+  before the other notes.
 - **CLI: the notes under `--why-json` / `--why-prefaces-json`.** There stderr is pure JSON,
   so a note line would break it, and the notes were left out: a JSON consumer was never
   told. The same strings are now in that JSON's top-level `notes` array, after the keys it

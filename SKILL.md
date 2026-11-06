@@ -442,15 +442,21 @@ Notes that bite:
   ```
 - A swap on an instrument the recipe does not have (not in the roster, or removed by
   `--exclude-instrument`) has no card to apply to: exit 0, and stdout is the recipe (under
-  `--json`, the config) without it. stderr gets one line per such swap (a part swapped twice
-  keeps only the last, as on a card), ending `(add it with --add-instrument=<instrument>)`
-  or `(--exclude-instrument removed it)`:
+  `--json`, the config) without it. stderr gets one line per such swap, ending
+  `(add it with --add-instrument=<instrument>)` or `(--exclude-instrument removed it)`:
   ```
   note: <instrument> is not in the recipe, so --swap-variant <instrument>:<part>:<variant> was not applied (…)
   ```
-  Under `--why-json` / `--why-prefaces-json` stderr is JSON, so no note line is printed
-  there (nor `(N chars)`): the same note strings are in that JSON's top-level `notes` array,
-  after the keys it always had, which do not change (`[]` when there is no note).
+- A part swapped more than once keeps the last variant, as a card keeps its last pick; it
+  is not refused. Each earlier swap a later, different variant replaced gets a line first
+  (a repeat of the same variant replaces nothing):
+  ```
+  note: --swap-variant <instrument>:<part>:<variant> was replaced by a later --swap-variant for the same part (<variant>)
+  ```
+- Under `--why-json` / `--why-prefaces-json` stderr is JSON, so none of these note lines is
+  printed there (nor `(N chars)`): the same note strings are in that JSON's top-level
+  `notes` array, after the keys it always had, which do not change (`[]` when there is no
+  note).
 - Stapling **order** in `--traditions a,b` sets which tradition leads the
   recipe header and instrument order (matches the app's group-order → output
   behavior). Reorder by reordering the ids.
