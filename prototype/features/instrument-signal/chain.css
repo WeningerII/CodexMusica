@@ -1,0 +1,66 @@
+.instrument-signal-chain {
+  min-width: 0;
+  color: inherit;
+  font: inherit;
+}
+
+.instrument-signal-chain .chain-controls {
+  display: grid;
+  gap: 1rem;
+}
+
+.instrument-signal-chain .chain-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.instrument-signal-chain .chain-effects {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.instrument-signal-chain .chain-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-block: 0.375rem;
+}
+
+.instrument-signal-chain select,
+.instrument-signal-chain button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  box-sizing: border-box;
+  min-height: 2.75rem;
+  max-width: 100%;
+  padding: 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+  color: inherit;
+  background-color: inherit;
+  font: inherit;
+}
+
+.instrument-signal-chain select {
+  width: 100%;
+}
+
+.instrument-signal-chain button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.instrument-signal-chain .chain-message {
+  overflow-wrap: anywhere;
+}
+
+.instrument-signal-chain :focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}

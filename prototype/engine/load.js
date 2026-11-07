@@ -54,6 +54,67 @@ export const NAMES = Object.freeze([
   'INSTRUMENT_FAMILIES',
 ]);
 
+// Page tables and engine functions the shell's stores call, beyond the
+// parity gates' EXPORTED list (so NAMES, which that list fixes, is unchanged).
+// Each is held in check_prototype_engine.js HOLDS, or, for the Genre
+// discovery tables (the first six: the taxonomy, its glyphs and the 13 sound
+// characteristics, #668 6665493327), in check_prototype_hosts.js
+// discoveryChecks. Returned beside NAMES, exported as they are.
+export const PAGE_TABLES = Object.freeze([
+  'TREE_NODES',
+  'AXIS_DEFINITIONS',
+  'GLYPH_META',
+  'resolveTraditionGlyphs',
+  'glyphSvg',
+  'axisLabel',
+  // Rendering and lookups (the recipe store and its preview views).
+  'compileStack',
+  'buildStackParts',
+  'entryRenderDescs',
+  'hasEnvironment',
+  'Inst',
+  'Variant',
+  'Tuning',
+  'Room',
+  'ChainItem',
+  'RECIPE_FORMATS',
+  'RECIPE_CHAR_CEILING',
+  // Compact's shapes, rebuilt for the preview's environment sentence:
+  // the genre header and the render's deduplicated prefaces.
+  '_recipeHeader',
+  '_computeRecipeDedupedPrefaces',
+  '_resolvePreface',
+  // History and add.
+  'pushHistory',
+  'undo',
+  'redo',
+  'musicalWorkspaceKey',
+  'addInstrumentFromPicker',
+  '_addedInstrumentMessage',
+  // Character.
+  'prefaceGlyphsHTML',
+  'prefaceCatGlyphHTML',
+  'prefaceGroups',
+  'prefaceCategoryOf',
+  'PREFACE_CAT_ORDER',
+  'loadNavGlyphArt',
+  // Search.
+  'normalizeSearch',
+  'searchRank',
+  // Ranking, for the similar and catalog loaders (#668 6647783903,
+  // 6647387849).
+  'findSimilarInstruments',
+  'getMatchingInstrumentAxes',
+  'findSimilar',
+  'getMatchingAxes',
+]);
+
+// Tables the instrument engine fills after the engine is created: their
+// slots are codex.html's `let` declarations, which CODEX_ENGINE_COMMIT
+// assigns once api/engine.json is in. So they are returned as getters that
+// read the slot each time; a plain property would keep the empty slot.
+export const LIVE_TABLES = Object.freeze(['PREFACE_LEXICON', 'TUNINGS', 'ROOMS', 'CHAIN_SECTIONS']);
+
 // The page around the engine. Each is a parameter of the wrapper, so the
 // engine's code never reaches the prototype's window, document or storage:
 // it gets inert stand-ins, in-memory storage and the fetch passed to it.
@@ -126,7 +187,7 @@ export function engineModule(html) {
     `  return (function (${PARAMS.join(', ')}) {`,
     body,
     ';',
-    `    return Object.freeze({ ${NAMES.join(', ')} });`,
+    `    return Object.freeze({ ${[...NAMES, ...PAGE_TABLES, ...LIVE_TABLES.map((n) => `get ${n}() { return ${n}; }`)].join(', ')} });`,
     '  })(sink, sink, location, sink, memory(), memory(), sink, page.fetch, () => {}, () => {}, () => 0, () => {}, undefined);',
     '}',
     '',
@@ -177,11 +238,43 @@ export function pageEngine() {
   return created;
 }
 
+// The catalog, booted from api/browse_boot.json. The engine builds its
+// CATALOG_READY once, when it is created (src/app.js), so after a failed boot
+// index that promise stays rejected and waiting on it again can never
+// succeed. So when it has rejected, each call asks for the file again and
+// boots the catalog from it the way the lazy page's _fetchBootIndex does
+// (its deep-link prose step reads a location.search the engine's page
+// doesn't have). A failure is forgotten, so the next call asks again.
+let booted = null;
+function bootCatalog(engine) {
+  if (!booted || booted.engine !== engine)
+    booted = {
+      engine,
+      ready: Promise.resolve(engine.CATALOG_READY)
+        .catch(() =>
+          engineFetch('api/browse_boot.json')
+            .then((res) => {
+              if (!res.ok) throw new Error(`the boot index did not load (${res.status})`);
+              return res.json();
+            })
+            .then((boot) => {
+              if (!engine.Catalog.bootFromIndex(boot, 'api/'))
+                throw new Error('the boot index is empty');
+            })
+        )
+        .catch((e) => {
+          booted = null;
+          throw e;
+        }),
+    };
+  return booted.ready;
+}
+
 // The engine, booted the way the lazy page boots: resolves once its catalog
 // and instrument data are in.
 export async function loadEngine() {
   const engine = await pageEngine();
-  await engine.CATALOG_READY;
+  await bootCatalog(engine);
   await engine.Engine.ensure();
   return engine;
 }
