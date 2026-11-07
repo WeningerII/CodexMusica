@@ -642,6 +642,9 @@ export class ReaderScheduler {
         pages: packReaderPages(step.records),
         progress: step.summary?.progress || step.summary?.counters || {},
         coverage: step.summary?.coverage || {},
+        // DISCOVERY_V1 §2.9: passed only when the step has the key, so a step
+        // without it commits exactly as before.
+        ...(Object.hasOwn(step, 'discovery') ? { discovery: step.discovery } : {}),
       });
       return {
         added_page_paths: committed.added_page_paths || [],

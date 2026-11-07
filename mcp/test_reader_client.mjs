@@ -1548,3 +1548,42 @@ readline.createInterface({ input: process.stdin }).on('line', (line) => {
   assert.equal(killed.error_code, 'READER_PROTOCOL');
   assert.equal(Object.hasOwn(killed, 'reply'), false, 'failure() never sets reply');
 });
+
+// DISCOVERY_V1 §2.9 (#656 Step 8): the scheduler passes a step's `discovery`
+// to commitCheckpoint exactly when the step has the key, null included, so a
+// step without it commits as before. A frame the store refuses pauses the job
+// with READER_PROTOCOL, not requeued.
+test('the scheduler passes discovery to commitCheckpoint only when the step has the key', async (t) => {
+  const frame = { epoch: 0, resets: [], seals: [] };
+  for (const [name, extra, refusedWith] of [
+    ['absent', {}, null],
+    ['an object', { discovery: frame }, 'W1'],
+    ['null', { discovery: null }, 'W1'],
+  ]) {
+    const payloads = [];
+    const run = await leaseOnce(t, {
+      during: (store) => {
+        const commit = store.commitCheckpoint.bind(store);
+        store.commitCheckpoint = (id, attempt, fence, payload) => {
+          payloads.push(clone(payload));
+          return commit(id, attempt, fence, payload);
+        };
+      },
+      plan: async (sink) => {
+        await sink(readerStep(extra));
+        return { reply: true, code: 0, error_code: 'YIELD' };
+      },
+    });
+    assert.equal(payloads.length, 1, name);
+    assert.equal(Object.hasOwn(payloads[0], 'discovery'), Object.hasOwn(extra, 'discovery'), name);
+    if (Object.hasOwn(extra, 'discovery')) assert.deepEqual(payloads[0].discovery, extra.discovery);
+    const after = run.store.inspect(run.a);
+    assert.equal(Object.hasOwn(after, 'discovery'), false, `${name}: no discovery saved`);
+    if (refusedWith) {
+      assert.equal(after.state, 'paused', name);
+      assert.equal(after.reason.code, 'READER_PROTOCOL', name);
+      assert.equal(after.reason.message, `Reader discovery frame refused: ${refusedWith}.`, name);
+      assert.equal(after.deferred_requeue, false, `${name}: not requeued`);
+    } else assert.equal(after.generation, 1, `${name}: committed as before`);
+  }
+});

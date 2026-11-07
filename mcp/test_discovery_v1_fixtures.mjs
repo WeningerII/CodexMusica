@@ -8719,7 +8719,7 @@ const CONTRACT_CITES = [
     starts:
       'const committed = this.store.commitCheckpoint(record.id, record.attempt, record.fence, {',
     ends: '});',
-    code: 'a1e1199fe713721e',
+    code: '46d73878a769bb6e',
   },
   {
     id: 'c.reader_job_store.workerPayload',
@@ -9558,7 +9558,7 @@ const CONTRACT_CITES = [
     starts: 'try {',
     ends: '});',
     endsNth: 2,
-    code: '8943dcd13009a8cb',
+    code: '0d4a770d84d79f7f',
   },
   {
     id: 'c.reader_job_store.commitCheckpoint.4',
@@ -9567,7 +9567,7 @@ const CONTRACT_CITES = [
     symbol: 'commitCheckpoint',
     starts: 'const saved = this._save({',
     ends: '});',
-    code: '4deee2cb7545b300',
+    code: '021b6f24b09e6fe0',
   },
   {
     id: 'c.reader_job_store._save.2',
@@ -9611,7 +9611,7 @@ const CONTRACT_CITES = [
     file: 'mcp/reader_job_store.js',
     symbol: '_open',
     starts: '_open(run) {',
-    code: 'ffc2d61e5f5ae796',
+    code: '42758a87a46c6dcb',
   },
   {
     id: 'c.reader_job_store._cached',
@@ -9646,7 +9646,7 @@ const CONTRACT_CITES = [
     symbol: '_open',
     starts: '_open(run) {',
     whole: true,
-    code: 'ffc2d61e5f5ae796',
+    code: '42758a87a46c6dcb',
   },
   {
     id: 'c.reader_job_store._locked',
@@ -10011,7 +10011,7 @@ const CONTRACT_CITES = [
     symbol: 'complete',
     starts: 'return this._save({',
     ends: '});',
-    code: '4088b7312228a181',
+    code: '69147edd70231a3f',
   },
   {
     id: 'c.reader_job_store._tombstone',
@@ -10199,7 +10199,7 @@ const CONTRACT_CITES = [
     file: 'mcp/reader_scheduler.js',
     symbol: 'pump',
     starts: 'const checkpoint = async (step) => {',
-    code: 'd7dc6c867e803ff8',
+    code: '340731351f144631',
   },
   // Step 4: the sink's own error is kept before the bridge sees it.
   {

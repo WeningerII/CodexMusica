@@ -458,7 +458,9 @@ as `discovery` in the `commitCheckpoint` payload (`reader_scheduler.js:pump`).
 ```
 
 A frame carries `discovery` exactly when its cursor carries `discovery`; one without the
-other is refused (W1). A frame and cursor with neither leave the store as it is today,
+other is refused (W1). A `frame.discovery` of `null` is not the frame's shape and is refused
+(W1), and a `cursor.discovery` of `null` is not the cursor's shape and is refused (W4, §2.8):
+neither is read as absent (#656 Step 8). A frame and cursor with neither leave the store as it is today,
 which is how the store half stays inert until the worker half ships. A frame with neither
 whose record holds discovery is refused (W4).
 

@@ -7,11 +7,13 @@ import zlib from 'node:zlib';
 import {
   DISCOVERY_CAUSES,
   DISCOVERY_LIMITS,
+  DiscoveryCodecError,
   DOMAINS,
   LOGS,
   RESOURCE_CAUSES,
   domainDigest,
   isDigest,
+  planDiscovery,
   segmentContent,
 } from './reader_discovery.js';
 
@@ -1343,7 +1345,11 @@ export class ReaderJobStore {
       return this._locked(run);
     } catch (error) {
       if (!error.status) {
+        // A write that throws without a status may have landed (§4): the
+        // outcome is unknown, so no list is used again until a restart's
+        // reconciliation rebuilds them from the durable heads (§5.1).
         this.failure = error.message;
+        this.chains = new Map();
         throw problem(
           'STORAGE_UNAVAILABLE',
           'Reader persistence failed; committed work is retained.',
@@ -1583,6 +1589,40 @@ export class ReaderJobStore {
       reason: reason ?? { code: error.code, message: error.message },
     }));
   }
+  // §4 step 3, under the lock: the commit's discovery plan, or null for a
+  // commit whose frame, cursor and record carry none. A rule's refusal is
+  // READER_PROTOCOL (400), naming the rule; nothing has been written.
+  _planDiscovery(record, input) {
+    const live = this._discoveryShape(record) === 'live';
+    try {
+      return planDiscovery({ ...record, discovery: live ? record.discovery : null }, input);
+    } catch (error) {
+      if (!(error instanceof DiscoveryCodecError)) throw error;
+      const rule = { INTEGER_FIELD: 'W1' }[error.rule] ?? error.rule;
+      throw Object.assign(
+        problem('READER_PROTOCOL', `Reader discovery frame refused: ${rule}.`, 400),
+        { rule }
+      );
+    }
+  }
+  // After a commit's record save returns (§5.1): each seal's address is
+  // appended to the list of its (job, log), or to a new list started at []
+  // when the log's head before the seal was null (a new log, or one this
+  // frame released or reset). A log whose head was not null and that has no
+  // list is left without one: a lease's R5 refuses it and resume()'s full
+  // read rebuilds it. Only the record's logs keep a list, so an epoch
+  // advance, whose logs are all fresh, drops every list of the old epoch.
+  _commitLists(id, plan) {
+    const old = this.chains.get(id) ?? new Map();
+    const next = new Map();
+    for (const log of Object.keys(plan.discovery.logs)) {
+      const base = plan.fresh.has(log) ? [] : old.get(log);
+      if (base === undefined) continue;
+      next.set(log, [...base, ...(plan.appended[log] ?? [])]);
+    }
+    if (next.size) this.chains.set(id, next);
+    else this.chains.delete(id);
+  }
   _page(value) {
     if (
       value &&
@@ -1648,6 +1688,9 @@ export class ReaderJobStore {
       // §4 step 3: a released job's commit is refused before any rule runs,
       // and writes nothing; its holder's pause then carries the cause (§7.4).
       this._refuseUnavailable(record);
+      // §4 step 3: every rule runs before anything is written, outside the
+      // try, so a refusal never reaches _quotaPause.
+      const plan = this._planDiscovery(record, input);
       try {
         const refs = (input.pages || []).map((page) => this._page(page));
         let root = record.page_index_hash;
@@ -1695,6 +1738,10 @@ export class ReaderJobStore {
           evidence_count,
           manifest_hash: manifest.sha256,
         });
+        // §4 step 4: one segment per seal, in seal order, then the record.
+        for (const { address, segment } of plan?.segments ?? [])
+          if (this._blob('pages', segment).sha256 !== address)
+            throw new Error('A reader discovery segment was stored at another address.');
         const saved = this._save({
           ...record,
           cursor: input.cursor,
@@ -1708,7 +1755,10 @@ export class ReaderJobStore {
           checkpoint_hash: checkpoint.sha256,
           manifest_hash: manifest.sha256,
           last_checkpoint_digest: inputDigest,
+          ...(plan ? { discovery: plan.discovery } : {}),
         });
+        // The lists change only once the record save has returned (§5.1).
+        if (plan) this._commitLists(id, plan);
         return {
           ...saved,
           added_page_paths: refs.map((ref) =>
@@ -1843,6 +1893,8 @@ export class ReaderJobStore {
           fence: null,
           lease_expires_at: null,
           reason: null,
+          // §7.2: completion releases the job's discovery in this save.
+          ...(Object.hasOwn(record, 'discovery') ? { discovery: null } : {}),
         });
       } catch (error) {
         return this._quotaPause(record, error);

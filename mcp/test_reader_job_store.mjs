@@ -4280,3 +4280,692 @@ test('U2 path: a release a refused save deferred is completed in one save once r
     assert.deepEqual([view.state, view.reason], [state, U2({})], `${where}: the view`);
   }
 });
+
+// ── persisted discovery, Step 8 (#656 Node-side plan): the write path (§4).
+// Every frame here goes through the real commitCheckpoint, on a job planted
+// with the fixture's id, identity_hash, record.discovery and cursor and then
+// leased, so its segments land at the fixture's addresses.
+const JOB_ID = /^reader_[a-f0-9]{64}$/;
+// A seal written as `entries_range` [a, b) holds the integers a … b − 1.
+const expandSeal = ({ entries_range, ...seal }) =>
+  entries_range
+    ? {
+        ...seal,
+        entries: Array.from(
+          { length: entries_range[1] - entries_range[0] },
+          (_, i) => i + entries_range[0]
+        ),
+      }
+    : seal;
+const frameDiscovery = (frame) =>
+  frame.discovery === undefined || frame.discovery === null
+    ? frame.discovery
+    : { ...frame.discovery, seals: frame.discovery.seals.map(expandSeal) };
+function commitFrame(store, lease, frame) {
+  return store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
+    cursor: frame.cursor,
+    ...(frame.discovery === undefined ? {} : { discovery: frameDiscovery(frame) }),
+    pages: [],
+    progress: {},
+    coverage,
+  });
+}
+// A store holding one created job and the fixture's job, planted queued as a
+// foreign writer would and then leased. `mock` mocks reconciliation away, for
+// records that name synthetic chains by their totals (a full read would
+// release them).
+// The store that leases it is a restart, so usage is known (a foreign write
+// leaves it unknown until a recount, and every growth would be refused).
+function writeJob(t, fx, { record = fx.record, gzip = false, mock = false, options = {} } = {}) {
+  if (mock) gcOnly(t);
+  const { directory, store: first } = fixture(t, { gzip, ...options });
+  const base = first.records.get(create(first).record.id);
+  const id = JOB_ID.test(fx.job_id ?? '') ? fx.job_id : base.id;
+  plantRecord(directory, {
+    ...base,
+    id,
+    identity_hash: fx.identity_hash ?? base.identity_hash,
+    discovery: clone(record.discovery),
+    cursor: clone(record.cursor),
+    state: 'queued',
+  });
+  // A synthetic chain has no segments to mark: the restart's collection is
+  // mocked away with reconciliation (design §B2), and only for it.
+  const collect = mock ? t.mock.method(ReaderJobStore.prototype, '_collectAll', () => {}) : null;
+  const store = new ReaderJobStore({ directory, gzip, ...options });
+  collect?.mock.restore();
+  const lease = store.lease(id);
+  assert.equal(lease?.id, id, 'the fixture job is leased');
+  return { directory, store, lease, id };
+}
+const STORED = ['pages', 'indexes', 'manifests', 'checkpoints'];
+// What "nothing written" compares: the object listings, the record's bytes,
+// the generation and the job's lists.
+function written(store, id) {
+  const gen = path.join(store.directory, 'generation');
+  return {
+    objects: Object.fromEntries(STORED.map((kind) => [kind, objectsOf(store, kind)])),
+    record: fs.readFileSync(path.join(store.directory, 'records', `${id}.json`), 'utf8'),
+    generation: fs.existsSync(gen) ? fs.readFileSync(gen, 'utf8') : null,
+    lists: listsOf(store, id),
+  };
+}
+const protocolRefusal = (rule) => (error) =>
+  error.code === 'READER_PROTOCOL' &&
+  error.status === 400 &&
+  (rule === undefined || error.rule === rule);
+// The plain bytes stored at `address`, inflated when gzip stored them.
+const storedSegment = (store, address) =>
+  decodeStoredObject(fs.readFileSync(path.join(store.directory, 'pages', `${address}.json`)));
+// The address lists a fixture's frames give, derived from its segments: a
+// chain's list starts at [] where this store saw its head null (a new log, a
+// reset, a new epoch, or a planted null head) and holds every segment sealed
+// since, oldest first; a planted chain with a head no full read listed has
+// none (`mock`).
+function listOracle(record, mock) {
+  let epoch = record.discovery?.epoch ?? null;
+  let lists = {};
+  for (const [log, st] of Object.entries(record.discovery?.logs ?? {}))
+    lists[log] = st.head === null ? [] : undefined;
+  assert.ok(mock || !record.discovery, 'a planted chain is listed only by a full read');
+  return (frame) => {
+    const fd = frame.discovery;
+    if (epoch !== null && fd.epoch !== epoch) lists = {};
+    epoch = fd.epoch;
+    for (const log of fd.resets) lists[log] = [];
+    for (const log of Object.keys(frame.expect.record_discovery.logs))
+      if (!Object.hasOwn(lists, log)) lists[log] = [];
+    for (const seg of frame.expect.segments) lists[seg.log]?.push(seg.address);
+    return Object.fromEntries(Object.entries(lists).filter(([, v]) => v !== undefined));
+  };
+}
+// Replays a write fixture's frames through the real store, holding each to
+// its expected record.discovery, segments (by address and plain bytes), the
+// cursor saved and the lists.
+function replayFixture(t, fx, { gzip = false, mock = false } = {}) {
+  const job = writeJob(t, fx, { gzip, mock });
+  const oracle = listOracle(fx.record, mock);
+  for (const [i, frame] of fx.frames.entries()) {
+    const at = `${fx.fixture} frame ${i} gzip=${gzip}`;
+    const saved = commitFrame(job.store, job.lease, frame);
+    assert.equal(saved.state, 'running', `${at}: accepted`);
+    assert.deepEqual(saved.discovery, frame.expect.record_discovery, `${at}: record.discovery`);
+    assert.deepEqual(saved.cursor, frame.cursor, `${at}: the cursor`);
+    for (const { address, bytes } of frame.expect.segments) {
+      const plain = storedSegment(job.store, address);
+      assert.equal(plain.length, bytes, `${at}: ${address} bytes`);
+      assert.equal(dsha(plain), address, `${at}: the address is the plain bytes' sha256`);
+    }
+    assert.deepEqual(listsOf(job.store, job.id) ?? {}, oracle(frame), `${at}: the lists`);
+  }
+  return job;
+}
+const WRITE_GOOD = [
+  ['good/seal_sequence_two_logs.json', false],
+  ['good/epoch_jump.json', false],
+  ['good/seal_completeness.json', false],
+  // Its row_seen chain before frame 1 is synthetic, named by its totals.
+  ['good/row_seen_compaction_next_frame.json', true],
+];
+
+test('write path: each good write fixture is accepted frame by frame, its segments and lists exact, plain and gzip', (t) => {
+  for (const [rel, mock] of WRITE_GOOD)
+    for (const gzip of [false, true]) {
+      const fx = loadFixture(rel);
+      const job = replayFixture(t, fx, { gzip, mock });
+      if (gzip) {
+        // At least one segment is stored compressed, and still named by its
+        // plain bytes (§2.5).
+        const addresses = fx.frames.flatMap((f) => f.expect.segments.map((s) => s.address));
+        assert.ok(
+          addresses.some((a) => {
+            const raw = fs.readFileSync(path.join(job.store.directory, 'pages', `${a}.json`));
+            return raw[0] === 0x1f && raw[1] === 0x8b;
+          }),
+          `${rel}: a segment is stored gzipped`
+        );
+      }
+      t.mock.restoreAll();
+    }
+});
+
+test("write path: the seal sequence leaves good/lease_payload_summary_paths.json's record", (t) => {
+  const job = replayFixture(t, loadFixture('good/seal_sequence_two_logs.json'));
+  const fx = loadFixture('good/lease_payload_summary_paths.json');
+  const saved = job.store.records.get(job.id);
+  assert.equal(job.id, fx.record.id);
+  assert.equal(saved.identity_hash, fx.record.identity_hash);
+  assert.deepEqual(saved.discovery, fx.record.discovery);
+  assert.deepEqual(saved.cursor.discovery, fx.record.cursor.discovery);
+});
+
+test('write path: a split the worker must never emit is one the store accepts (row_seen compaction)', (t) => {
+  const fx = loadFixture('good/row_seen_compaction_next_frame.json');
+  for (const kase of fx.worker_must_not_emit) {
+    assert.equal(kase.expect.store, 'accepted');
+    const job = writeJob(t, fx, { mock: true });
+    for (const frame of kase.frames)
+      assert.equal(commitFrame(job.store, job.lease, frame).state, 'running', kase.name);
+    t.mock.restoreAll();
+  }
+});
+
+// W4's agreement core, one fault each, on the seal sequence after frame 2
+// (seen and alt_cells sealed once, variants a tail): the cursor's `sealed`, a
+// log the record holds left out, and a tail that is not open, by its entry
+// count and by its entry bytes (§2.4).
+test("write path: W4's agreement core refuses each of its faults alone", (t) => {
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  const base = fx.frames[2];
+  const frame = (edit) => {
+    const f = clone({
+      discovery: { epoch: 0, resets: [], seals: [] },
+      cursor: fx.frames[1].cursor,
+    });
+    edit(f.cursor.discovery.logs);
+    return f;
+  };
+  const cases = [
+    ['sealed', frame((logs) => (logs.seen.sealed += 1))],
+    ['a held log left out', frame((logs) => delete logs.variants)],
+    [
+      'a tail of SEGMENT_ENTRIES entries',
+      frame((logs) => {
+        logs.alt_cells.tail = Array.from({ length: 1024 }, (_, i) => i + 4);
+      }),
+    ],
+    [
+      'a tail of SEGMENT_BYTES entry bytes',
+      frame((logs) => {
+        logs.alt_cells.tail = [
+          4,
+          5,
+          'x'.repeat(4094),
+          'y'.repeat(4094),
+          'z'.repeat(4094),
+          'w'.repeat(4092),
+        ];
+      }),
+    ],
+  ];
+  assert.ok(base, 'the sequence has a third frame');
+  for (const [name, f] of cases) {
+    const job = writeJob(t, fx);
+    commitFrame(job.store, job.lease, fx.frames[0]);
+    commitFrame(job.store, job.lease, fx.frames[1]);
+    refusedFrame(job, f, 'W4', name);
+  }
+  // The controls: one entry or one byte short of each bound is open.
+  for (const tail of [
+    Array.from({ length: 1023 }, (_, i) => i + 4),
+    [4, 5, 'x'.repeat(4094), 'y'.repeat(4094), 'z'.repeat(4094), 'w'.repeat(4091)],
+  ]) {
+    const job = writeJob(t, fx);
+    commitFrame(job.store, job.lease, fx.frames[0]);
+    commitFrame(job.store, job.lease, fx.frames[1]);
+    const f = frame((logs) => (logs.alt_cells.tail = tail));
+    assert.equal(commitFrame(job.store, job.lease, f).state, 'running');
+  }
+});
+
+// W3 alone: a seal whose `first` is not the log's count, its digest_before
+// right (bad/reset_unheld_log.json pins W3's reset half).
+test("write path: a seal whose first is not its log's count is refused W3", (t) => {
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  // Frame 2 seals seen and alt_cells, each at count 0.
+  for (const [seal, first] of [
+    [0, 1],
+    [1, 1024],
+  ]) {
+    const job = writeJob(t, fx);
+    commitFrame(job.store, job.lease, fx.frames[0]);
+    const frame = clone(fx.frames[1]);
+    frame.discovery.seals[seal].first = first;
+    refusedFrame(job, frame, 'W3', `seal ${seal} first ${first}`);
+  }
+});
+
+const WRITE_BAD = [
+  ['bad/changed_digest_after.json', 'F5'],
+  ['bad/float_entry.json', 'F5'], // node_detects: Node parses 1.0 as 1
+  ['bad/over_bound_seal.json', 'F4'],
+  ['bad/premature_seal.json', 'F4'],
+  ['bad/epoch_backwards.json', 'W2'],
+  ['bad/reset_unheld_log.json', 'W3'],
+  ['bad/cursor_record_disagreement.json', 'W4'],
+  ['bad/tail_rewritten.json', 'W6'],
+];
+// Refused READER_PROTOCOL (400) with nothing written; the job stays leased.
+function refusedFrame(job, frame, rule, at) {
+  const before = written(job.store, job.id);
+  assert.throws(() => commitFrame(job.store, job.lease, frame), protocolRefusal(rule), at);
+  assert.deepEqual(written(job.store, job.id), before, `${at}: nothing written`);
+  assert.equal(job.store.records.get(job.id).state, 'running', `${at}: still leased`);
+}
+
+test('write path: each bad write fixture is refused READER_PROTOCOL by its rule, writing nothing', (t) => {
+  for (const [rel, rule] of WRITE_BAD) {
+    const fx = loadFixture(rel);
+    if (fx.expect.node_detects) assert.equal(rule, fx.expect.node_detects);
+    else assert.equal(rule, fx.expect.rule);
+    assert.deepEqual([fx.expect.code, fx.expect.status], ['READER_PROTOCOL', 400]);
+    for (const gzip of [false, true]) {
+      const job = writeJob(t, fx, { gzip, mock: true });
+      refusedFrame(job, fx.frames[0], rule, `${rel} gzip=${gzip}`);
+      t.mock.restoreAll();
+    }
+  }
+});
+
+test('write path: bad/membership_over_cap.json, each mutant refused W7 and each control accepted', (t) => {
+  const fx = loadFixture('bad/membership_over_cap.json');
+  assert.deepEqual(fx.expect.store, { code: 'READER_PROTOCOL', status: 400 });
+  for (const kase of fx.mutants) {
+    const job = writeJob(t, fx, { record: kase.record, mock: true });
+    refusedFrame(job, kase.frame, 'W7', kase.name);
+    t.mock.restoreAll();
+  }
+  for (const kase of fx.controls) {
+    const job = writeJob(t, fx, { record: kase.record, mock: true });
+    assert.equal(commitFrame(job.store, job.lease, kase.frame).state, 'running', kase.name);
+    t.mock.restoreAll();
+  }
+});
+
+test('write path: an entry past ENTRY_DEPTH is refused F1; the same at the depth is accepted', (t) => {
+  const fx = loadFixture('bad/entry_over_depth.json');
+  assert.deepEqual(fx.expect.store, { code: 'READER_PROTOCOL', status: 400, written: 'nothing' });
+  refusedFrame(writeJob(t, fx), fx.frame, 'F1', 'frame');
+  const control = writeJob(t, fx);
+  assert.equal(commitFrame(control.store, control.lease, fx.control_frame).state, 'running');
+});
+
+// A minimal frame on a record with no discovery: an empty cursor.discovery.
+const EMPTY_CD = {
+  version: 1,
+  epoch: 0,
+  logs: {},
+  inventory: null,
+  groups: { through: null, current: null },
+};
+const minimalFrame = () => ({
+  discovery: { epoch: 0, resets: [], seals: [] },
+  cursor: {
+    contract_version: 2,
+    method_index: 0,
+    discovery: clone(EMPTY_CD),
+    witness: null,
+    continuation: {},
+  },
+});
+
+test("write path: the codec fixture's integer-only frame fields are refused READER_PROTOCOL", (t) => {
+  const fx = loadFixture('good/codec_error_mapping.json');
+  const cases = fx.integer_fields.filter((c) => c.where === 'frame' || c.where === 'seal');
+  assert.ok(cases.length >= 3);
+  for (const c of cases) {
+    assert.equal(c.rule, 'W1');
+    const frame = minimalFrame();
+    if (c.where === 'frame') frame.discovery[c.field] = c.value;
+    else {
+      const entries = [0, 1, 2, 3];
+      const d0 = domainDigest(DOMAINS.log('seen'));
+      const after = entries.reduce((d, e) => digestStep(d, JSON.stringify(e)), d0);
+      frame.discovery.seals = [
+        {
+          log: 'seen',
+          first: 0,
+          entries,
+          digest_before: d0,
+          digest_after: after,
+          [c.field]: c.value,
+        },
+      ];
+    }
+    // Several rules can fail at once here; only the code is asserted (§2.11).
+    refusedFrame(
+      writeJob(t, { record: { discovery: null, cursor: null } }),
+      frame,
+      undefined,
+      `${c.where}.${c.field}=${c.value}`
+    );
+    if (c.where !== 'frame') continue;
+    // The same epoch in the cursor's method_index and cursor.discovery too,
+    // so W2 agrees: still refused.
+    const agreed = minimalFrame();
+    agreed.discovery[c.field] = c.value;
+    agreed.cursor.method_index = c.value;
+    agreed.cursor.discovery.epoch = c.value;
+    refusedFrame(
+      writeJob(t, { record: { discovery: null, cursor: null } }),
+      agreed,
+      undefined,
+      `${c.field}=${c.value} everywhere`
+    );
+  }
+});
+
+test('write path: a null frame.discovery or cursor.discovery is refused, never read as absent', (t) => {
+  const none = { record: { discovery: null, cursor: null } };
+  const nullFrame = { ...minimalFrame(), discovery: null };
+  refusedFrame(writeJob(t, none), nullFrame, 'W1', 'frame.discovery null');
+  const nullCursor = minimalFrame();
+  nullCursor.cursor.discovery = null;
+  refusedFrame(writeJob(t, none), nullCursor, 'W4', 'cursor.discovery null');
+  const both = { ...nullCursor, discovery: null };
+  refusedFrame(writeJob(t, none), both, undefined, 'both null');
+  // One without the other is W1; a record holding discovery with a frame and
+  // cursor that have none is W4.
+  const noCursor = minimalFrame();
+  delete noCursor.cursor.discovery;
+  refusedFrame(writeJob(t, none), noCursor, 'W1', 'the frame without its cursor');
+  const noFrame = { cursor: minimalFrame().cursor };
+  refusedFrame(writeJob(t, none), noFrame, 'W1', 'the cursor without its frame');
+  const held = writeJob(t, none);
+  commitFrame(held.store, held.lease, minimalFrame());
+  refusedFrame(held, { cursor: { phase: 'pairs' } }, 'W4', 'a held record and no discovery');
+});
+
+test('write path: a frame and cursor with no discovery on a record with none add no key', (t) => {
+  const { store } = fixture(t);
+  const lease = store.lease(create(store).record.id);
+  const saved = commit(store, lease, [{ id: 'evidence-a', verdict: true }], { phase: 'pairs' });
+  assert.equal(Object.hasOwn(saved, 'discovery'), false);
+  assert.equal(Object.hasOwn(store.records.get(lease.id), 'discovery'), false);
+  assert.equal(store.chains.has(lease.id), false);
+});
+
+test('write path: an exact retry of a sealing frame writes nothing', (t) => {
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  const job = writeJob(t, fx);
+  commitFrame(job.store, job.lease, fx.frames[0]);
+  const first = commitFrame(job.store, job.lease, fx.frames[1]);
+  const before = written(job.store, job.id);
+  const again = commitFrame(job.store, job.lease, fx.frames[1]);
+  assert.deepEqual(again.added_page_paths, []);
+  assert.deepEqual(again.discovery, first.discovery);
+  assert.deepEqual(written(job.store, job.id), before);
+  // The retry digest covers `discovery`: the same cursor with another frame
+  // (here one with no seals, which now agrees with the record) is no retry:
+  // it commits a new generation.
+  const other = { ...fx.frames[1], discovery: { ...fx.frames[1].discovery, seals: [] } };
+  const next = commitFrame(job.store, job.lease, other);
+  assert.equal(next.generation, first.generation + 1, 'a new commit, not a retry');
+  assert.deepEqual(next.discovery, first.discovery);
+});
+
+test('write path: a commit refused after one segment landed leaves the record and every list as they were', (t) => {
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  const job = writeJob(t, fx);
+  commitFrame(job.store, job.lease, fx.frames[0]);
+  const record = job.store.records.get(job.id);
+  const lists = listsOf(job.store, job.id);
+  const blob = job.store._blob;
+  let segments = 0;
+  t.mock.method(job.store, '_blob', function (kind, value, ...rest) {
+    if (value?.kind === 'reader_discovery_segment' && ++segments === 2)
+      throw Object.assign(new Error('quota'), { code: 'RESOURCE_LIMIT', status: 507 });
+    return blob.call(this, kind, value, ...rest);
+  });
+  const paused = commitFrame(job.store, job.lease, fx.frames[1]);
+  assert.equal(segments, 2, 'the second segment write was refused');
+  assert.equal(paused.state, 'paused');
+  assert.equal(paused.reason.code, 'RESOURCE_LIMIT');
+  assert.deepEqual(paused.discovery, record.discovery, 'record.discovery as it was');
+  assert.deepEqual(paused.cursor, record.cursor, 'the cursor as it was');
+  assert.deepEqual(listsOf(job.store, job.id), lists, 'every list as it was');
+  const [landed] = fx.frames[1].expect.segments;
+  assert.ok(pageExists(job.directory, landed.address), 'the first segment landed, an orphan');
+  assert.ok(!Object.values(listsOf(job.store, job.id)).flat().includes(landed.address));
+});
+
+test('write path: a held head with no list gets no partial list from a commit', (t) => {
+  // Frame 2's record, its seen and alt_cells heads non-null, planted with
+  // reconciliation mocked away: no full read listed them.
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  const record = { discovery: fx.frames[1].expect.record_discovery, cursor: fx.frames[1].cursor };
+  const job = writeJob(t, fx, { record, mock: true });
+  assert.equal(listsOf(job.store, job.id), undefined, 'no list before the commit');
+  const saved = commitFrame(job.store, job.lease, fx.frames[2]);
+  assert.deepEqual(saved.discovery, fx.frames[2].expect.record_discovery);
+  // alt_cells was sealed onto a head no list held: it stays without one, so
+  // the next lease's R5 refuses it (Step 10). variants' head is null: [].
+  assert.deepEqual(listsOf(job.store, job.id), { variants: [] });
+});
+
+test('write path: complete() saves discovery null and drops the lists after its save', (t) => {
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  const job = replayFixture(t, fx);
+  const last = fx.frames.at(-1);
+  commitFrame(job.store, job.lease, {
+    discovery: { epoch: 0, resets: [], seals: [] },
+    cursor: { ...last.cursor, done: true },
+  });
+  assert.ok(job.store.chains.has(job.id));
+  const done = finish(job.store, job.lease, 0);
+  assert.equal(done.state, 'completed');
+  assert.equal(done.discovery, null);
+  assert.equal(job.store.records.get(job.id).discovery, null);
+  assert.equal(job.store.chains.has(job.id), false);
+  // A job whose record has no discovery key gains none.
+  const { store } = fixture(t);
+  const lease = store.lease(create(store).record.id);
+  commit(store, lease);
+  assert.equal(Object.hasOwn(finish(store, lease), 'discovery'), false);
+});
+
+// §5.1's required store test (good/thrown_save_outcome_unknown.json): the
+// record of good/lease_after_refused_commit.json, planted with its segments
+// (the reconciliation that follows lists them), then the seal sequence's
+// frame 3 committed with its record save throwing.
+test('write path: a thrown record save, for each outcome, leaves no list in use until the rebuild', (t) => {
+  const fx = loadFixture('good/thrown_save_outcome_unknown.json');
+  const frame = loadFixture('good/seal_sequence_two_logs.json').frames[2];
+  const outcomes = new Set();
+  for (const kase of fx.cases) {
+    for (const gzip of [false, true]) {
+      const at = `${kase.name} gzip=${gzip}`;
+      let fault = null;
+      const { directory, store: first } = fixture(t, { gzip });
+      plantFixture(directory, first.records.get(create(first).record.id), fx, { gzip });
+      // A restart, so usage is known; its reconciliation lists the chains.
+      const store = new ReaderJobStore({
+        directory,
+        gzip,
+        faultInjector: (stage, info) => fault?.(stage, info),
+      });
+      const lease = store.lease(fx.record.id);
+      assert.deepEqual(listsOf(store, fx.record.id), fx.addresses, `${at}: the lists before`);
+      const file = path.join(store.directory, 'records', `${fx.record.id}.json`);
+      const old = fs.readFileSync(file);
+      if (kase.throws.status) {
+        const save = store._save;
+        let first = true;
+        t.mock.method(store, '_save', function (input, ...rest) {
+          if (first && input.id === fx.record.id) {
+            first = false;
+            throw Object.assign(new Error('quota'), {
+              code: kase.throws.code,
+              status: kase.throws.status,
+            });
+          }
+          return save.call(this, input, ...rest);
+        });
+        const paused = commitFrame(store, lease, frame);
+        assert.equal(store.failure, null, `${at}: serving`);
+        assert.equal(paused.reason.code, kase.throws.code);
+        assert.deepEqual(store.records.get(fx.record.id).discovery, kase.durable, `${at}: durable`);
+        assert.deepEqual(listsOf(store, fx.record.id), kase.expect.addresses, `${at}: lists`);
+        assert.doesNotThrow(() => store.lease(), `${at}: the instance serves`);
+        for (const address of kase.expect.orphans) {
+          assert.ok(pageExists(directory, address), `${at}: ${address} was written`);
+          assert.ok(!Object.values(listsOf(store, fx.record.id)).flat().includes(address));
+        }
+        outcomes.add('status');
+      } else {
+        assert.equal(kase.throws.after, 'rename');
+        const landed = kase.durable.logs.alt_cells.head === fx.commit.wrote[0];
+        fault = (stage, { kind, file: f }) => {
+          if (kind !== 'record' || stage !== 'renamed' || f !== file) return;
+          fault = null;
+          // The save that is lost: its rename never became durable.
+          if (!landed) fs.writeFileSync(file, old);
+          throw new Error('EIO after the rename');
+        };
+        assert.throws(
+          () => commitFrame(store, lease, frame),
+          (e) => e.code === kase.expect.refused_until_restart.code && e.status === 503,
+          at
+        );
+        assert.ok(store.failure, `${at}: the instance failed`);
+        // The commit wrote its segment either way (the restart's collection
+        // may take an orphan).
+        for (const address of fx.commit.wrote) assert.ok(pageExists(directory, address), at);
+        assert.equal(store.chains.size, 0, `${at}: no list is kept`);
+        for (const call of [
+          () => store.lease(),
+          () => store.workerPayload(fx.record.id),
+          () => commitFrame(store, lease, frame),
+        ])
+          assert.throws(call, (e) => e.code === 'STORAGE_UNAVAILABLE' && e.status === 503, at);
+        // The restart's first lock entry reconciles: a full read from the
+        // durable heads, newest first, rebuilds every list.
+        const reads = [];
+        const segment = ReaderJobStore.prototype._segment;
+        // A full read passes `expect`; the collection's mark reads pass null.
+        t.mock.method(ReaderJobStore.prototype, '_segment', function (hash, expect, ...rest) {
+          if (expect !== null) reads.push(hash);
+          return segment.call(this, hash, expect, ...rest);
+        });
+        const restarted = new ReaderJobStore({ directory, gzip });
+        t.mock.restoreAll();
+        const durable = restarted.records.get(fx.record.id);
+        assert.deepEqual(durable.discovery, kase.durable, `${at}: the durable record`);
+        assert.deepEqual(reads, kase.expect.restart.read, `${at}: the full read`);
+        assert.deepEqual(
+          listsOf(restarted, fx.record.id),
+          kase.expect.restart.addresses,
+          `${at}: the rebuilt lists`
+        );
+        for (const [log, list] of Object.entries(kase.expect.restart.addresses))
+          assert.equal(
+            list.at(-1) ?? null,
+            durable.discovery.logs[log].head,
+            `${at}: ${log} ends at the head`
+          );
+        const listed = Object.values(listsOf(restarted, fx.record.id)).flat();
+        assert.deepEqual(
+          kase.expect.orphans,
+          fx.commit.wrote.filter((a) => !listed.includes(a)),
+          `${at}: the orphans are the written segments no list holds`
+        );
+        outcomes.add(landed ? 'landed' : 'lost');
+      }
+      t.mock.restoreAll();
+    }
+  }
+  assert.deepEqual([...outcomes].sort(), ['landed', 'lost', 'status']);
+});
+
+// §3, the record bound (#656 critique c21): the discovery-era fields at their
+// bounds leave a record under READER_LIMITS.objectBytes with room for today's
+// own fields.
+test('write path: a record with its cursor at the §3 bound, a full record.discovery and 250 inline refs encodes under 2 MiB', (t) => {
+  const { store } = fixture(t);
+  const job = create(store);
+  const record = clone(store.records.get(job.record.id));
+  const max = Number.MAX_SAFE_INTEGER;
+  const state = {
+    head: 'f'.repeat(64),
+    segments: max,
+    count: max,
+    bytes: max,
+    digest: 'f'.repeat(64),
+  };
+  record.discovery = {
+    version: 1,
+    epoch: max,
+    logs: Object.fromEntries(
+      ['seen', 'row_seen', 'variants', 'alt_cells', 'alt_seen'].map((l) => [l, state])
+    ),
+    verified: Object.fromEntries(
+      ['seen', 'row_seen', 'variants', 'alt_cells', 'alt_seen'].map((l) => [l, state])
+    ),
+    unavailable: null,
+  };
+  // §3: the whole cursor is at most 235,483 canonical bytes.
+  record.cursor = { pad: 'x'.repeat(235_483 - '{"pad":""}'.length) };
+  assert.equal(Buffer.byteLength(JSON.stringify(record.cursor)), 235_483);
+  const ref = { sha256: 'f'.repeat(64), bytes: READER_LIMITS.objectBytes, count: 250 };
+  record.page_refs = Array.from({ length: 250 }, () => ref);
+  record.page_count = 250;
+  record.generation = max;
+  record.updated_at = max;
+  record.record_digest = 'f'.repeat(64);
+  const bytes = Buffer.byteLength(JSON.stringify(record));
+  // Neither declaration_set nor control_receipts has a store bound of its own:
+  // a request is held only to READER_LIMITS.objectBytes at create. So the
+  // test states the room they keep: more than 1.7 MiB.
+  const room = READER_LIMITS.objectBytes - bytes;
+  assert.ok(room > 1.7 * 1024 * 1024, `the record is ${bytes} bytes`);
+  record.request = { layers: ['sound'], declaration_set: { pad: 'd'.repeat(1024 * 1024) } };
+  record.control_receipts = Array.from({ length: 2000 }, (_, i) => ({
+    key: 'f'.repeat(64),
+    action: 'resume',
+    digest: 'f'.repeat(64),
+    payload_hash: 'f'.repeat(64),
+    at: max - i,
+  }));
+  assert.ok(Buffer.byteLength(JSON.stringify(record)) < READER_LIMITS.objectBytes);
+});
+
+// One field wider than the bound: the record save's own `encoded` refuses
+// 413 inside the try, after the pages, indexes, manifest, checkpoint and
+// segments were written (§4 accepts that: only orphans changed).
+test('write path: a record one field past 2 MiB is refused 413 at its save; only unreferenced objects are new, and maintain() sweeps them', (t) => {
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  const job = writeJob(t, fx);
+  const { store, directory } = job;
+  commitFrame(store, job.lease, fx.frames[0]);
+  // The request grows the record to just under the bound; frame 2's record
+  // passes it.
+  const current = store.records.get(fx.job_id);
+  const size = Buffer.byteLength(JSON.stringify(current));
+  const pad = READER_LIMITS.objectBytes - size - 64;
+  store._open(() =>
+    store._save({ ...current, request: { ...current.request, pad: 'p'.repeat(pad) } }, true)
+  );
+  const before = written(store, fx.job_id);
+  const record = clone(store.records.get(fx.job_id));
+  assert.throws(
+    () => commitFrame(store, job.lease, fx.frames[1]),
+    (e) => e.code === 'RESOURCE_LIMIT' && e.status === 413
+  );
+  const after = store.records.get(fx.job_id);
+  assert.deepEqual(after.discovery, record.discovery, 'record.discovery unchanged');
+  assert.deepEqual(after, record, 'the record unchanged');
+  assert.deepEqual(listsOf(store, fx.job_id), before.lists, 'the lists unchanged');
+  const added = Object.fromEntries(
+    STORED.map((kind) => [
+      kind,
+      objectsOf(store, kind).filter((f) => !before.objects[kind].includes(f)),
+    ])
+  );
+  const segments = fx.frames[1].expect.segments.map((s) => `${s.address}.json`);
+  for (const name of segments) assert.ok(added.pages.includes(name), `${name} was written`);
+  assert.ok(added.manifests.length === 1 && added.checkpoints.length === 1);
+  // None of them is referenced: a full maintain() sweeps them all.
+  backdate(directory);
+  // The scheduler's catch would pause it; here the lease ends by expiry.
+  store._open(() =>
+    store._save({ ...store.records.get(fx.job_id), state: 'paused', fence: null }, true)
+  );
+  maintainAll(store);
+  for (const kind of STORED)
+    for (const name of added[kind])
+      assert.ok(!fs.existsSync(path.join(store.directory, kind, name)), `${kind}/${name} swept`);
+  for (const kind of STORED)
+    for (const name of before.objects[kind])
+      if (kind !== 'pages' || !segments.includes(name))
+        assert.ok(fs.existsSync(path.join(store.directory, kind, name)), `${kind}/${name} kept`);
+});

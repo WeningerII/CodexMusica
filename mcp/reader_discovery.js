@@ -421,3 +421,220 @@ export function wellFormedDeep(value) {
   }
   return true;
 }
+
+// ── the write path (§4) ──────────────────────────────────────────────────
+// The store's plan for one commit, made under the lock after _leaseRecord,
+// the exact-retry check and the unavailable refusal, and before anything is
+// written. `record` is the job record: `discovery` is its live discovery
+// state or null (the store passes null for a record that holds none), and
+// `cursor` the cursor last committed. `input` is the commit payload.
+//
+// Returns null when neither the frame nor its cursor carries `discovery` and
+// the record holds none: the commit is today's, byte for byte (§2.9).
+// Otherwise it returns the record's new `discovery`, the segments to write in
+// seal order ({log, segment, raw, address}), and what the address lists need
+// once the record save returns (§5.1): `fresh` (the logs whose head before
+// this frame's seals is null, after any release or reset: each starts a new
+// list at []; after an epoch advance that is every log), and `appended` (each
+// log's new addresses, oldest first).
+//
+// Every refusal is a DiscoveryCodecError tagged with the rule it broke (W1,
+// F1, F2, W2, W3, F5, F4, W5, W7, W6 or W4), in §4's order; the store maps
+// each to READER_PROTOCOL (400). This is W4's agreement core: the log names,
+// `sealed` and `sealed_digest`, open tails, the shape the agreement reads,
+// and a record holding discovery with a frame that has none. W4's other shape
+// and bound checks are not made here.
+export function planDiscovery(record, input) {
+  const refuse = (rule, what) => {
+    throw new DiscoveryCodecError(rule, what);
+  };
+  const rd = record.discovery ?? null;
+  const frameHas = plainObject(input) && Object.hasOwn(input, 'discovery');
+  const cursor = plainObject(input) ? input.cursor : undefined;
+  const cursorHas = plainObject(cursor) && Object.hasOwn(cursor, 'discovery');
+  if (!frameHas && !cursorHas) {
+    if (rd !== null) refuse('W4', 'the record holds discovery and the frame has none');
+    return null;
+  }
+  if (frameHas !== cursorHas)
+    refuse('W1', 'the frame carries discovery exactly when its cursor does');
+  // W1, the frame's shape and bounds. A null frame.discovery is no frame
+  // shape (§2.9): refused, never read as absent.
+  const fd = input.discovery;
+  if (!plainObject(fd)) refuse('W1', 'frame.discovery is not an object');
+  const { epoch, resets, seals } = fd;
+  if (!Number.isSafeInteger(epoch) || epoch < 0) refuse('W1', 'epoch');
+  if (!Array.isArray(resets) || new Set(resets).size !== resets.length) refuse('W1', 'resets');
+  for (const log of resets) if (!RESETTABLE.includes(log)) refuse('W1', 'a reset log');
+  if (!Array.isArray(seals) || seals.length > DISCOVERY_LIMITS.FRAME_SEALS)
+    refuse('W1', 'the seal count');
+  for (const s of seals)
+    if (
+      !plainObject(s) ||
+      !LOGS.includes(s.log) ||
+      !Number.isSafeInteger(s.first) ||
+      s.first < 0 ||
+      !Array.isArray(s.entries) ||
+      !s.entries.length ||
+      !isDigest(s.digest_before) ||
+      !isDigest(s.digest_after)
+    )
+      refuse('W1', 'a seal');
+  // The cursor's discovery as the agreement reads it. A null
+  // cursor.discovery is no cursor shape (§2.8): W4.
+  const cd = cursor.discovery;
+  if (!plainObject(cd) || !plainObject(cd.logs)) refuse('W4', 'cursor.discovery');
+  for (const [log, st] of Object.entries(cd.logs)) {
+    if (!LOGS.includes(log)) refuse('W1', 'a cursor log name');
+    if (
+      !plainObject(st) ||
+      !Number.isSafeInteger(st.sealed) ||
+      st.sealed < 0 ||
+      !isDigest(st.sealed_digest) ||
+      !Array.isArray(st.tail)
+    )
+      refuse('W4', 'a cursor log');
+  }
+  // F1 and F2 on every entry the frame carries: the seals, the cursor tails
+  // and the current group's keys. `sizes` keeps each entry's canonical form.
+  const sizes = new Map();
+  const check = (entry) => {
+    const c = checkEntry(entry);
+    sizes.set(entry, c);
+    return c;
+  };
+  const tails = Object.fromEntries(
+    Object.entries(cd.logs).map(([log, st]) => [log, st.tail.map(check)])
+  );
+  const current = plainObject(cd.groups) ? cd.groups.current : null;
+  if (plainObject(current) && Array.isArray(current.keys)) current.keys.forEach(check);
+  const sealed = seals.map((s) => s.entries.map(check));
+  // W2, the epoch rule.
+  if (cursor.method_index !== epoch || cd.epoch !== epoch)
+    refuse('W2', 'the frame, cursor.method_index and cursor.discovery.epoch disagree');
+  if (rd !== null && epoch < rd.epoch) refuse('W2', 'the epoch went backwards');
+  const advanced = rd !== null && epoch > rd.epoch;
+  if (advanced && resets.length) refuse('W2', 'a reset on an epoch advance');
+  // W3: release on an advance, then the resets, then each seal in order,
+  // with F5, F4 and W5 on each seal as it is applied.
+  const empty = (log) => ({
+    head: null,
+    segments: 0,
+    count: 0,
+    bytes: 0,
+    digest: domainDigest(DOMAINS.log(log)),
+  });
+  const sameEpoch = rd !== null && !advanced;
+  const logs = sameEpoch ? structuredClone(rd.logs) : {};
+  const reset = new Set();
+  for (const log of resets) {
+    if (!Object.hasOwn(logs, log)) refuse('W3', 'a reset of a log the record does not hold');
+    logs[log] = empty(log);
+    reset.add(log);
+  }
+  const fresh = new Set(Object.keys(logs).filter((log) => logs[log].head === null));
+  const appended = {};
+  const segments = [];
+  const sealedEntries = {};
+  seals.forEach((s, i) => {
+    const log = s.log;
+    if (!Object.hasOwn(logs, log)) {
+      logs[log] = empty(log);
+      fresh.add(log);
+    }
+    const st = logs[log];
+    if (s.first !== st.count) refuse('W3', `seal ${i}'s first`);
+    if (s.digest_before !== st.digest) refuse('W3', `seal ${i}'s digest_before`);
+    let digest = st.digest;
+    let bytes = 0;
+    for (const c of sealed[i]) {
+      digest = digestStep(digest, c.canonical);
+      bytes += c.bytes;
+    }
+    if (digest !== s.digest_after) refuse('F5', `seal ${i}'s digest_after`);
+    const later = seals.slice(i + 1).find((t) => t.log === log);
+    const next = later ? sizes.get(later.entries[0]) : tails[log]?.[0];
+    const cut = cutComplete({ count: s.entries.length, bytes }, next ? next.bytes : null);
+    if (cut) refuse('F4', `seal ${i}: ${cut.fault}`);
+    const built = buildSegment(record, epoch, log, st.head, st.count, s.entries, st.digest, digest);
+    segments.push({ log, ...built });
+    logs[log] = {
+      head: built.address,
+      segments: st.segments + 1,
+      count: st.count + s.entries.length,
+      bytes: st.bytes + bytes,
+      digest,
+    };
+    if (logs[log].segments > DISCOVERY_LIMITS.CHAIN_SEGMENTS)
+      refuse('W5', `${log} passes CHAIN_SEGMENTS`);
+    (appended[log] ??= []).push(built.address);
+    (sealedEntries[log] ??= []).push(...sealed[i]);
+  });
+  // A log the cursor names enters `logs` with only a tail (§2.7).
+  for (const log of Object.keys(cd.logs))
+    if (!Object.hasOwn(logs, log)) {
+      logs[log] = empty(log);
+      fresh.add(log);
+    }
+  // W7, the membership caps: each membership log's count and `bytes` plus
+  // its new tail's length and canonical bytes, the four together.
+  let held = 0;
+  let heldBytes = 0;
+  for (const log of MEMBERSHIP_LOGS) {
+    if (Object.hasOwn(logs, log)) {
+      held += logs[log].count;
+      heldBytes += logs[log].bytes;
+    }
+    for (const c of tails[log] ?? []) {
+      held += 1;
+      heldBytes += c.bytes;
+    }
+  }
+  if (held > DISCOVERY_LIMITS.MEMBERSHIP_ENTRIES) refuse('W7', 'MEMBERSHIP_ENTRIES');
+  if (heldBytes > DISCOVERY_LIMITS.MEMBERSHIP_BYTES) refuse('W7', 'MEMBERSHIP_BYTES');
+  // W6, append-only tails: in the same epoch, for every log the frame does
+  // not reset, the previous cursor's tail is a prefix of this frame's seal
+  // entries for the log followed by its new tail, entry by entry.
+  const pd = plainObject(record.cursor) ? record.cursor.discovery : null;
+  if (plainObject(pd) && pd.epoch === epoch && plainObject(pd.logs))
+    for (const log of Object.keys(cd.logs)) {
+      const old = pd.logs[log];
+      if (reset.has(log) || !plainObject(old) || !Array.isArray(old.tail)) continue;
+      const after = [...(sealedEntries[log] ?? []), ...tails[log]];
+      if (
+        old.tail.length > after.length ||
+        old.tail.some((e, k) => JSON.stringify(e) !== after[k].canonical)
+      )
+        refuse('W6', `${log}: the previous tail is not a prefix of what follows it`);
+    }
+  // W4, the agreement core: the cursor names exactly the record's logs, each
+  // with its count and digest, and every tail is open (§2.4).
+  const names = Object.keys(logs);
+  if (names.length !== Object.keys(cd.logs).length || names.some((l) => !Object.hasOwn(cd.logs, l)))
+    refuse('W4', 'the cursor does not name exactly the record logs');
+  for (const [log, st] of Object.entries(cd.logs)) {
+    if (st.sealed !== logs[log].count) refuse('W4', `${log}: sealed`);
+    if (st.sealed_digest !== logs[log].digest) refuse('W4', `${log}: sealed_digest`);
+    const tailBytes = tails[log].reduce((n, c) => n + c.bytes, 0);
+    if (
+      tails[log].length >= DISCOVERY_LIMITS.SEGMENT_ENTRIES ||
+      tailBytes >= DISCOVERY_LIMITS.SEGMENT_BYTES
+    )
+      refuse('W4', `${log}: the tail is not open`);
+  }
+  // §4: `verified` keeps each log's state unless the frame releases or resets
+  // it; a log that is new, reset or of a new epoch starts empty. A commit
+  // never advances it.
+  const verified = {};
+  for (const log of names)
+    verified[log] =
+      sameEpoch && Object.hasOwn(rd.verified, log) && !reset.has(log)
+        ? structuredClone(rd.verified[log])
+        : empty(log);
+  return {
+    discovery: { version: 1, epoch, logs, verified, unavailable: null },
+    segments,
+    fresh,
+    appended,
+  };
+}
