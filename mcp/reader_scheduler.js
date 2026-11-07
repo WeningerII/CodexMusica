@@ -6,6 +6,7 @@ import { createReadStream } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Worker } from 'node:worker_threads';
+import { wellFormedDeep } from './reader_discovery.js';
 
 const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const error = (code, message) => Object.assign(new Error(message), { code });
@@ -516,6 +517,17 @@ export class ReaderScheduler {
     this.active = true;
     let lastStep;
     try {
+      // A record written before admission held the set to well-formed Unicode
+      // is refused here, after the store's lease and before the worker's; the
+      // catch pauses it with the code (DISCOVERY_V1 §2.11).
+      if (!wellFormedDeep(record.request.declaration_set))
+        throw Object.assign(
+          error(
+            'INVALID_DECLARATION',
+            'The declaration set contains text that is not well-formed Unicode.'
+          ),
+          { status: 400 }
+        );
       const identity = await this.resolveIdentity(record.request);
       if (canonicalJSON(identity) !== canonicalJSON(record.identity))
         throw error('STALE_READING', 'Source or engine identity changed; create a new reader job.');

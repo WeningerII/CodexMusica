@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { mkdtemp, mkdir, writeFile, copyFile, rm } from 'node:fs/promises';
+import { mkdtemp, mkdir, writeFile, copyFile, rm, readdir, readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -46,7 +47,7 @@ const coverage = {
   refused_obligations: [],
 };
 
-async function httpFixture() {
+async function httpFixture({ scheduler = { kick() {} } } = {}) {
   const directory = await mkdtemp(path.join(tmpdir(), 'reader-http-'));
   const store = new ReaderJobStore({ directory });
   const app = express();
@@ -60,7 +61,7 @@ async function httpFixture() {
   app.use(
     createReaderRouter({
       store,
-      scheduler: { kick() {} },
+      scheduler,
       secret,
       site: 'library-test',
       resolveIdentity: async (input) => ({ ...identity, declaration_set: input.declaration_set }),
@@ -109,6 +110,7 @@ async function httpFixture() {
   };
   return {
     store,
+    directory,
     call,
     close: async () => {
       await new Promise((resolve) => server.close(resolve));
@@ -667,6 +669,151 @@ test('a job queued across the word-cut release is refused, never run, never rewr
     // The rebound set is a different declaration set, so a new job has a
     // new identity; the stored one above keeps the old hash.
     assert.notEqual(hash(reboundSet), hash(legacySet));
+  } finally {
+    scheduler.stop();
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+// DISCOVERY_V1 §2.11, admission (BB8's guard test and stored-request case).
+// The fixture's bodies hold the escape `\ud800` as raw JSON text, which
+// express.json turns into a lone surrogate.
+const admissionCases = JSON.parse(
+  await readFile(path.join(here, 'fixtures/discovery_v1/good/codec_error_mapping.json'), 'utf8')
+).admission;
+const NOT_WELL_FORMED = 'The declaration set contains text that is not well-formed Unicode.';
+// A bridge that records every lease the scheduler hands it and runs none.
+function spyBridge() {
+  const leases = [];
+  return {
+    leases,
+    capacity: () => ({ active: 0, admitted: 0, queued: 0 }),
+    runReaderLease: async (req) => {
+      leases.push(req);
+      return { code: 1, error_code: 'READER_ERROR', stderr: 'spy bridge' };
+    },
+  };
+}
+
+test('admission: the Site bridge refuses a lone surrogate in a line or a key, before any job', async () => {
+  const kicks = [];
+  const f = await httpFixture({ scheduler: { kick: () => kicks.push(1) } });
+  const bridge = spyBridge();
+  const resolved = [];
+  const scheduler = new ReaderScheduler({
+    store: f.store,
+    bridge,
+    resolveIdentity: async (input) => {
+      resolved.push(input);
+      return { ...identity, declaration_set: input.declaration_set };
+    },
+    resolveSource: async () => ({ source: { text: 'Bad' } }),
+  });
+  try {
+    assert.deepEqual(
+      admissionCases.refused.map((c) => c.name),
+      ['line', 'key']
+    );
+    for (const c of admissionCases.refused) {
+      assert.match(c.body, /\\ud800/, `${c.name}: sent as the JSON escape`);
+      const input = { ...request, ...JSON.parse(c.body) };
+      const refused = await f.call('POST', '/internal/reader/jobs', {
+        input,
+        idempotency: `refused-${c.name}`,
+      });
+      assert.equal(refused.status, 400, c.name);
+      assert.deepEqual(
+        { code: refused.body.error.code, message: refused.body.error.message },
+        { code: 'INVALID_DECLARATION', message: NOT_WELL_FORMED },
+        c.name
+      );
+    }
+    // No job: no record in the store or on disk, nothing kicked, nothing to
+    // lease, and the bridge never asked.
+    assert.equal(f.store.records.size, 0);
+    const records = path.join(f.directory, 'records');
+    assert.deepEqual(
+      existsSync(records) ? (await readdir(records)).filter((n) => n.endsWith('.json')) : [],
+      []
+    );
+    assert.equal(kicks.length, 0);
+    await scheduler.pump();
+    assert.equal(bridge.leases.length, 0);
+    assert.equal(resolved.length, 0);
+    // The control: a well-formed pair (an emoji) is admitted, stored as sent
+    // and handed to the worker as it is.
+    const [pair] = admissionCases.admitted;
+    const input = { ...request, ...JSON.parse(pair.body) };
+    const created = await f.call('POST', '/internal/reader/jobs', {
+      input,
+      idempotency: 'admitted-pair',
+    });
+    assert.equal(created.status, 202);
+    assert.equal(kicks.length, 1);
+    await scheduler.pump();
+    assert.equal(bridge.leases.length, 1);
+    assert.deepEqual(bridge.leases[0].declarations, input.declaration_set);
+    assert.equal(bridge.leases[0].declarations.pronunciations[0].line, 'Bad \u{1F600}');
+  } finally {
+    scheduler.stop();
+    await f.close();
+  }
+});
+
+test('admission: a stored request with a lone surrogate is leased, refused at the check and paused', async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), 'reader-stored-'));
+  const st = admissionCases.stored_request;
+  assert.equal(st.written_before_the_check, true);
+  const stored = { ...request, ...JSON.parse(st.request) };
+  const store = new ReaderJobStore({ directory });
+  // Written as an image without the check wrote it: store.create holds the
+  // request to JSON, not to well-formed Unicode.
+  const created = store.create({
+    viewer: 'viewer',
+    idempotency_key: 'written-before',
+    identity,
+    request: stored,
+  });
+  const before = store.inspect(created.record.id);
+  assert.equal(before.state, 'queued');
+  assert.equal(before.request.declaration_set.pronunciations[0].line, 'Bad \ud800');
+  const bridge = spyBridge();
+  const calls = [];
+  const lease = store.lease.bind(store);
+  store.lease = (...args) => {
+    const record = lease(...args);
+    calls.push({ lease: record && { state: record.state, attempt: record.attempt } });
+    return record;
+  };
+  const scheduler = new ReaderScheduler({
+    store,
+    bridge,
+    resolveIdentity: async () => {
+      calls.push('resolveIdentity');
+      return identity;
+    },
+    resolveSource: async () => {
+      calls.push('resolveSource');
+      return { source: { text: 'Bad' } };
+    },
+  });
+  try {
+    await scheduler.pump();
+    // The store leased it first (saved running, attempt + 1); the check then
+    // refused it, so identity, source and the bridge were never reached.
+    assert.deepEqual(calls, [{ lease: { state: 'running', attempt: before.attempt + 1 } }]);
+    assert.equal(bridge.leases.length, 0);
+    const after = store.inspect(created.record.id);
+    assert.equal(after.state, 'paused');
+    assert.deepEqual(
+      { code: after.reason.code, message: after.reason.message },
+      { code: st.expect.code, message: NOT_WELL_FORMED }
+    );
+    assert.equal(after.attempt, before.attempt + 1);
+    // The catch's pause ended the store's lease.
+    assert.equal(after.fence, null);
+    assert.equal(after.lease_expires_at, null);
+    assert.deepEqual(after.request, before.request);
   } finally {
     scheduler.stop();
     await rm(directory, { recursive: true, force: true });

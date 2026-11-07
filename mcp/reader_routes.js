@@ -7,6 +7,7 @@ import {
   READER_BODY_BYTES,
   READER_CONTRACT_VERSION,
 } from './reader_protocol.js';
+import { wellFormedDeep } from './reader_discovery.js';
 
 export { canonicalReaderQuery, READER_BODY_BYTES, READER_CONTRACT_VERSION };
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
@@ -178,6 +179,13 @@ export function validateRequest(input) {
       Array.isArray(input.declaration_set))
   )
     throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');
+  // Caller text reaches the worker as it is, so a lone surrogate in any string
+  // or key of the set is refused here, before a job exists (DISCOVERY_V1 §2.11).
+  if (input.declaration_set !== undefined && !wellFormedDeep(input.declaration_set))
+    throw fail(
+      'INVALID_DECLARATION',
+      'The declaration set contains text that is not well-formed Unicode.'
+    );
   const requested = input.requested_layers ?? ['sound', 'form', 'rhythm', 'language'];
   if (
     !Array.isArray(requested) ||

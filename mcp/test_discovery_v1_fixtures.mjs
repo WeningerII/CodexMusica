@@ -6402,7 +6402,7 @@ const mibKib = (n) => {
 // flipped only by the commit that implements it; either mismatch fails, so the
 // switch cannot drift from the code. A row with `when` must resolve while its
 // key is true and must not resolve while it is false.
-const STORE_HALF = Object.freeze({ admission: false, fatal_decode: false });
+const STORE_HALF = Object.freeze({ admission: true, fatal_decode: false });
 
 // Each row: `id`; `file`; `symbol` (a function, a method, a top-level constant
 // or class, `Outer.inner` for a method of a class, or `module` for a file's
@@ -6591,7 +6591,7 @@ const ANCHORS = [
     starts: 'const record = this.store.lease();',
     cite: true,
   },
-  // Step 3 adds this statement and flips STORE_HALF.admission in one commit.
+  // Step 3 added this statement and flipped STORE_HALF.admission in one commit.
   {
     id: 'sched.pump.stored_check',
     file: 'mcp/reader_scheduler.js',
@@ -7811,8 +7811,8 @@ function check211(half, src, section) {
       at.get(order[i - 1]).endLine < at.get(order[i]).line,
       `${order[i - 1]} comes before ${order[i]}`
     );
-  // The declaration set is held only to being an object, until admission
-  // lands; the bindings are ASCII.
+  // At Base the declaration set is held only to being an object; admission
+  // (Step 3) adds the walk. The bindings are ASCII either way.
   // While the key is false, neither validateRequest nor pump may hold any
   // Unicode check, under any name, nor pump any INVALID_DECLARATION refusal:
   // the false branch forbids what the true branch requires, and more, so a
@@ -7820,9 +7820,18 @@ function check211(half, src, section) {
   const validate = spanText(src('mcp/reader_routes.js'), ANCHOR.get('routes.validate'));
   const pump = spanText(src('mcp/reader_scheduler.js'), ANCHOR.get('sched.pump.store_lease'));
   const unicode = /wellformed|surrogate|normalize\(/i;
-  if (half.admission)
-    assert.ok(validate.includes('wellFormedDeep('), 'validateRequest walks the set');
-  else {
+  if (half.admission) {
+    // Exactly the two checks the contract names, and no other: one walk in
+    // validateRequest, and in pump one walk and one refusal, the stored
+    // check, as the first statement of the try the catch pauses from.
+    assert.equal(validate.match(/wellFormedDeep\(/g)?.length, 1, 'validateRequest walks the set');
+    assert.equal(pump.match(new RegExp(unicode, 'gi'))?.length, 1, 'pump has one Unicode check');
+    assert.equal(pump.match(/INVALID_DECLARATION/g)?.length, 1, 'pump has one such refusal');
+    const sched = src('mcp/reader_scheduler.js').split('\n');
+    let k = at.get('sched.pump.stored_check').line - 2;
+    while (k >= 0 && (!sched[k].trim() || sched[k].trim().startsWith('//'))) k--;
+    assert.equal(sched[k].trim(), 'try {', 'the stored check opens the try');
+  } else {
     assert.ok(!unicode.test(validate), 'validateRequest has no Unicode check yet');
     assert.ok(
       !unicode.test(pump) && !/INVALID_DECLARATION/.test(pump),
@@ -7851,7 +7860,7 @@ function check211(half, src, section) {
 const CITED_CODE = {
   'http.json': 'ba0efe192b57e7cc',
   'routes.valid_binding': 'ffcf0160378f1057',
-  'routes.validate': '6e6f98d317d638ca',
+  'routes.validate': '3b347e194be1dfcc',
   'routes.validate.bindings': '3b2ccfc18609d366',
   'routes.validate.object_check': 'ee3f1076a197f408',
   'routes.validate.object_refusal': '82f6cdb879d66b07',
@@ -7866,6 +7875,7 @@ const CITED_CODE = {
   'sched.prepare.defaults': '88b1b94374432c46',
   'sched.identity.return': '0418225a3a80651b',
   'sched.pump.store_lease': '6f02c32eea3984dc',
+  'sched.pump.stored_check': '5bb62c97312dc525',
   'sched.pump.identity_check': '805d36dac33de30d',
   'sched.pump.run_reader_lease': 'fa744ae3e099f326',
   'sched.pump.declarations': '9c0b44cf7533f1fd',
@@ -10459,34 +10469,34 @@ test('anchors: each STORE_HALF key, flipped against the unchanged code, fails', 
   assert.throws(() => check211(flip('admission'), readSource, s211raw()));
   assert.throws(() => checkStoredRequest(st, flip('admission'), readSource));
   assert.throws(() => checkFatalDecode(flip('fatal_decode'), readSource));
-  // The gated row, true, against the code: it names a statement Step 3 adds.
+  // The gated row, false, against the code: Step 3 added the statement it
+  // names, so it resolves, and a false key says it must not.
   assert.throws(
     () => resolveAnchors([ANCHOR.get('sched.pump.stored_check')], flip('admission'), readSource),
-    /sched\.pump\.stored_check: no line in pump/
+    /sched\.pump\.stored_check must not resolve while STORE_HALF\.admission is false/
   );
-  // And each true branch accepts the code its key describes, so the switch
-  // can be flipped by the commit that implements it.
+  // And each branch accepts the code its key describes: the false branch, the
+  // code with both checks taken out (Base's), and the true branch refuses it.
   const sched = readSource('mcp/reader_scheduler.js');
-  const lease = resolveAnchor(sched, ANCHOR.get('sched.pump.store_lease'));
-  const own = /^\s*/.exec(sched.split('\n')[lease.line - 1])[0];
-  const checked = insertAbove(
-    sched,
-    lease.line + 1,
-    `${own}if (!wellFormedDeep(record.request.declaration_set ?? {})) throw refuse();`
-  );
-  const routes = readSource('mcp/reader_routes.js').replace(
-    "throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');",
-    "throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');\n  if (!wellFormedDeep(input.declaration_set)) throw refuse();"
-  );
-  const admitted = (f) =>
+  const check = resolveAnchor(sched, ANCHOR.get('sched.pump.stored_check'));
+  const lines = sched.split('\n');
+  let first = check.line - 1;
+  while (lines[first - 1].trim().startsWith('//')) first--;
+  lines.splice(first - 1, check.endLine - first + 1);
+  const unchecked = lines.join('\n');
+  const refusal = /\n {2}\/\/ Caller text reaches the worker[^]*?well-formed Unicode\.'\n {4}\);\n/;
+  const routesNow = readSource('mcp/reader_routes.js');
+  assert.match(routesNow, refusal);
+  const routes = routesNow.replace(refusal, '\n');
+  const based = (f) =>
     f === 'mcp/reader_scheduler.js'
-      ? checked
+      ? unchecked
       : f === 'mcp/reader_routes.js'
         ? routes
         : readSource(f);
-  check211(flip('admission'), admitted, s211raw());
-  checkStoredRequest(st, flip('admission'), admitted);
-  assert.throws(() => check211(STORE_HALF, admitted, s211raw()), /must not resolve/);
+  check211(flip('admission'), based, s211raw());
+  checkStoredRequest(st, flip('admission'), based);
+  assert.throws(() => check211(STORE_HALF, based, s211raw()), /stored_check: no line in pump/);
   const store = readSource('mcp/reader_job_store.js').replace(
     /\n {2}_object\(kind, hash\) \{/,
     [
@@ -10604,6 +10614,21 @@ const REVIEW_MUTANTS = [
     'mcp/reader_scheduler.js',
     '    const record = this.store.lease();\n    if (!record) return;\n',
     "    const record = this.store.lease();\n    if (!record) return; if (!isWellFormedRequest(record.request)) throw error('INVALID_DECLARATION', 'x');\n",
+    /pump has one Unicode check/,
+  ],
+  [
+    'X14b',
+    'mcp/reader_scheduler.js',
+    '    let lastStep;\n    try {\n',
+    '    let lastStep;\n    if (!wellFormedDeep(record.request)) return;\n    try {\n',
+    /stored_check: 2 lines in pump/,
+  ],
+  [
+    'X14c',
+    'mcp/reader_scheduler.js',
+    '    let lastStep;\n    try {\n',
+    '    let lastStep;\n    try {\n      await Promise.resolve();\n',
+    /the stored check opens the try/,
   ],
   [
     'X15',

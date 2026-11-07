@@ -21,6 +21,7 @@ import { ExportStore, buildExportStore, zipChunks } from './library_exports.js';
 import { reading, writeExport, readZip, sha } from './test_library_fixtures.mjs';
 import { createAdmission } from './library_admission.js';
 import { createReaderRouter, signReaderRequest } from './reader_routes.js';
+import { ReaderScheduler } from './reader_scheduler.js';
 
 const coverage = {
   partial: false,
@@ -417,6 +418,74 @@ test('the request contract: no client snapshot, a key, JSON only, known units', 
   assert.equal(stale.body.error.code, 'STALE_READING');
   assert.equal(stale.body.error.current_revision, 'rev_short');
   assert.equal((await a.analyse('short', 'k3', { requested_layers: ['bogus'] })).status, 400);
+});
+
+// DISCOVERY_V1 §2.11, admission: a declaration set holding a lone surrogate,
+// in a pronunciation line or in a key, is refused before any job exists. The
+// body is sent as JSON text, where the surrogate is the escape `\ud800`.
+test('admission: /library/v1 refuses a lone surrogate in a line or a key, before any job', async (t) => {
+  const { browser, store, kicks } = await setup(t);
+  const { admission: cases } = JSON.parse(
+    fs.readFileSync(
+      new URL('./fixtures/discovery_v1/good/codec_error_mapping.json', import.meta.url),
+      'utf8'
+    )
+  );
+  const leases = [];
+  const scheduler = new ReaderScheduler({
+    store,
+    bridge: {
+      capacity: () => ({ active: 0, admitted: 0, queued: 0 }),
+      runReaderLease: async (req) => {
+        leases.push(req);
+        return { code: 1, error_code: 'READER_ERROR', stderr: 'spy bridge' };
+      },
+    },
+    resolveIdentity: async () => {
+      throw new Error('identity must not be resolved');
+    },
+    resolveSource: async () => ({ source: { text: 'Bad' } }),
+  });
+  t.after(() => scheduler.stop());
+  const a = browser();
+  assert.deepEqual(
+    cases.refused.map((c) => c.name),
+    ['line', 'key']
+  );
+  for (const c of cases.refused) {
+    const extra = JSON.parse(c.body);
+    assert.match(JSON.stringify(extra), /\\ud800/, `${c.name}: sent as the JSON escape`);
+    const refused = await a.analyse('short', `refused-${c.name}`, extra);
+    assert.equal(refused.status, 400, c.name);
+    assert.deepEqual(
+      { code: refused.body.error.code, message: refused.body.error.message },
+      {
+        code: 'INVALID_DECLARATION',
+        message: 'The declaration set contains text that is not well-formed Unicode.',
+      },
+      c.name
+    );
+    assert.equal(refused.set, null, `${c.name}: no viewer cookie minted`);
+  }
+  // No job: no record, nothing kicked, nothing to lease, no bridge lease.
+  assert.equal(store.records.size, 0);
+  const records = path.join(store.directory, 'records');
+  assert.deepEqual(
+    fs.existsSync(records) ? fs.readdirSync(records).filter((n) => n.endsWith('.json')) : [],
+    []
+  );
+  assert.equal(kicks.length, 0);
+  await scheduler.pump();
+  assert.equal(leases.length, 0);
+  // The control: a well-formed pair (an emoji) is admitted and stored as sent.
+  const [pair] = cases.admitted;
+  const extra = JSON.parse(pair.body);
+  const created = await a.analyse('short', 'admitted-pair', extra);
+  assert.equal(created.status, 202);
+  assert.equal(kicks.length, 1);
+  const record = store.inspect(created.body.job.id);
+  assert.deepEqual(record.request.declaration_set, extra.declaration_set);
+  assert.equal(record.request.declaration_set.pronunciations[0].line, 'Bad \u{1F600}');
 });
 
 test('two outstanding per viewer, as the old Site allowed', async (t) => {
