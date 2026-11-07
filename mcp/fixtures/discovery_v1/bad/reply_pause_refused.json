@@ -1,0 +1,435 @@
+{
+  "fixture": "bad/reply_pause_refused.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "fallback",
+  "exercises": "The fallback pause (§8; BB8 6700200435, condition 3). One lease on a running job with no discovery state, and the store.pause and store.complete calls the scheduler makes after it. A lease ends in a worker reply (`reply`, marked reply: true, with code 1 and the worker's stderr), a bridge result after a sink error (`sink`: the sink throws, as when a checkpoint names a provider call), or a result (`result`: a yield, or `done` with a complete, which ends in store.complete). `stub` names the refusals a stubbed store.pause meets, in call order, before the real store answers, and a stubbed store.complete's refusal; INVALID_PAUSE is the real store's. When store.pause refuses the pause it was given with any code but STALE_ATTEMPT, the scheduler logs the refusal and makes exactly one more store.pause, the fallback, `{code: READER_PROTOCOL, message: \"The reader reply could not be recorded: <code>.\", requeue: false}`, with no cause, no log and no release; a refused fallback is logged and lease expiry ends the lease. A refused end-of-lease pause or complete reaches the catch, whose pause carries the refusal's code. `errors` and `warnings` are the console.error and console.warn lines, each call's arguments joined by a space. `c1` lists the settings each case runs under.",
+  "expect": {
+    "accepted": false,
+    "rule": "C1",
+    "code": "READER_PROTOCOL"
+  },
+  "fallback_message": "The reader reply could not be recorded: <code>.",
+  "cases": [
+    {
+      "name": "cause_outside_every_set",
+      "c1": [false],
+      "lease": {
+        "reply": {
+          "reply": true,
+          "code": 1,
+          "error_code": "DISCOVERY_UNAVAILABLE",
+          "error_cause": "not_a_cause",
+          "stderr": "worker text"
+        }
+      },
+      "stub": {
+        "pause": []
+      },
+      "expect": {
+        "calls": [
+          {
+            "method": "pause",
+            "code": "DISCOVERY_UNAVAILABLE",
+            "refused": "INVALID_PAUSE"
+          },
+          {
+            "method": "pause",
+            "code": "READER_PROTOCOL",
+            "fallback": true,
+            "outcome": "ok"
+          }
+        ],
+        "record": {
+          "state": "paused",
+          "deferred_requeue": false,
+          "fence": null,
+          "lease_expires_at": null,
+          "discovery": "unchanged",
+          "reason": {
+            "code": "READER_PROTOCOL",
+            "message": "The reader reply could not be recorded: INVALID_PAUSE."
+          }
+        },
+        "errors": ["[reader] checkpoint recovery failed: INVALID_PAUSE"],
+        "warnings": ["[reader] worker reply DISCOVERY_UNAVAILABLE[not_a_cause]: worker text"]
+      }
+    },
+    {
+      "name": "cause_not_a_string",
+      "c1": [false],
+      "lease": {
+        "reply": {
+          "reply": true,
+          "code": 1,
+          "error_code": "DISCOVERY_UNAVAILABLE",
+          "error_cause": 7,
+          "stderr": "worker text"
+        }
+      },
+      "stub": {
+        "pause": []
+      },
+      "expect": {
+        "calls": [
+          {
+            "method": "pause",
+            "code": "DISCOVERY_UNAVAILABLE",
+            "refused": "INVALID_PAUSE"
+          },
+          {
+            "method": "pause",
+            "code": "READER_PROTOCOL",
+            "fallback": true,
+            "outcome": "ok"
+          }
+        ],
+        "record": {
+          "state": "paused",
+          "deferred_requeue": false,
+          "fence": null,
+          "lease_expires_at": null,
+          "discovery": "unchanged",
+          "reason": {
+            "code": "READER_PROTOCOL",
+            "message": "The reader reply could not be recorded: INVALID_PAUSE."
+          }
+        },
+        "errors": ["[reader] checkpoint recovery failed: INVALID_PAUSE"],
+        "warnings": ["[reader] worker reply DISCOVERY_UNAVAILABLE[7]: worker text"]
+      }
+    },
+    {
+      "name": "stale_attempt",
+      "c1": [false, true],
+      "lease": {
+        "reply": {
+          "reply": true,
+          "code": 1,
+          "error_code": "READER_ERROR",
+          "stderr": "worker text"
+        }
+      },
+      "stub": {
+        "pause": ["STALE_ATTEMPT"]
+      },
+      "expect": {
+        "calls": [
+          {
+            "method": "pause",
+            "code": "READER_ERROR",
+            "refused": "STALE_ATTEMPT"
+          }
+        ],
+        "record": {
+          "state": "running",
+          "discovery": "unchanged",
+          "saved": "nothing"
+        },
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "fallback_refused",
+      "c1": [false, true],
+      "lease": {
+        "reply": {
+          "reply": true,
+          "code": 1,
+          "error_code": "READER_ERROR",
+          "stderr": "worker text"
+        }
+      },
+      "stub": {
+        "pause": ["STORE_RECOUNTING", "STORE_RECOUNTING"]
+      },
+      "expect": {
+        "calls": [
+          {
+            "method": "pause",
+            "code": "READER_ERROR",
+            "refused": "STORE_RECOUNTING"
+          },
+          {
+            "method": "pause",
+            "code": "READER_PROTOCOL",
+            "fallback": true,
+            "refused": "STORE_RECOUNTING"
+          }
+        ],
+        "record": {
+          "state": "running",
+          "discovery": "unchanged",
+          "saved": "nothing"
+        },
+        "after_lease_expiry": {
+          "state": "paused",
+          "deferred_requeue": false,
+          "fence": null,
+          "lease_expires_at": null,
+          "discovery": "unchanged",
+          "reason": {
+            "code": "INTERRUPTED",
+            "message": "Lease expired; resume the last durable checkpoint explicitly."
+          }
+        },
+        "errors": [
+          "[reader] checkpoint recovery failed: STORE_RECOUNTING",
+          "[reader] fallback pause failed: STORE_RECOUNTING"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "c1_on_safety_net",
+      "c1": [true],
+      "lease": {
+        "reply": {
+          "reply": true,
+          "code": 1,
+          "error_code": "RESOURCE_LIMIT",
+          "error_cause": "resident_capacity",
+          "stderr": "worker text"
+        }
+      },
+      "stub": {
+        "pause": ["STORE_RECOUNTING"]
+      },
+      "expect": {
+        "calls": [
+          {
+            "method": "pause",
+            "code": "RESOURCE_LIMIT",
+            "refused": "STORE_RECOUNTING"
+          },
+          {
+            "method": "pause",
+            "code": "READER_PROTOCOL",
+            "fallback": true,
+            "outcome": "ok"
+          }
+        ],
+        "record": {
+          "state": "paused",
+          "deferred_requeue": false,
+          "fence": null,
+          "lease_expires_at": null,
+          "discovery": "unchanged",
+          "reason": {
+            "code": "READER_PROTOCOL",
+            "message": "The reader reply could not be recorded: STORE_RECOUNTING."
+          }
+        },
+        "errors": ["[reader] checkpoint recovery failed: STORE_RECOUNTING"],
+        "warnings": ["[reader] worker reply RESOURCE_LIMIT[resident_capacity]: worker text"]
+      }
+    },
+    {
+      "name": "end_of_lease_pause_refused",
+      "c1": [false, true],
+      "lease": {
+        "result": {
+          "code": 0,
+          "reader_result": {
+            "status": "yielded",
+            "reason": "YIELD"
+          }
+        }
+      },
+      "stub": {
+        "pause": ["STORE_RECOUNTING", "STORE_RECOUNTING"]
+      },
+      "expect": {
+        "calls": [
+          {
+            "method": "pause",
+            "code": "YIELD",
+            "refused": "STORE_RECOUNTING"
+          },
+          {
+            "method": "pause",
+            "code": "STORE_RECOUNTING",
+            "refused": "STORE_RECOUNTING"
+          },
+          {
+            "method": "pause",
+            "code": "READER_PROTOCOL",
+            "fallback": true,
+            "outcome": "ok"
+          }
+        ],
+        "record": {
+          "state": "paused",
+          "deferred_requeue": false,
+          "fence": null,
+          "lease_expires_at": null,
+          "discovery": "unchanged",
+          "reason": {
+            "code": "READER_PROTOCOL",
+            "message": "The reader reply could not be recorded: STORE_RECOUNTING."
+          }
+        },
+        "errors": ["[reader] checkpoint recovery failed: STORE_RECOUNTING"],
+        "warnings": []
+      }
+    },
+    {
+      "name": "end_of_lease_stale",
+      "c1": [false, true],
+      "lease": {
+        "result": {
+          "code": 0,
+          "reader_result": {
+            "status": "yielded",
+            "reason": "YIELD"
+          }
+        }
+      },
+      "stub": {
+        "pause": ["STALE_ATTEMPT", "STALE_ATTEMPT"]
+      },
+      "expect": {
+        "calls": [
+          {
+            "method": "pause",
+            "code": "YIELD",
+            "refused": "STALE_ATTEMPT"
+          },
+          {
+            "method": "pause",
+            "code": "STALE_ATTEMPT",
+            "refused": "STALE_ATTEMPT"
+          }
+        ],
+        "record": {
+          "state": "running",
+          "discovery": "unchanged",
+          "saved": "nothing"
+        },
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "complete_refused",
+      "c1": [false],
+      "lease": {
+        "done": true,
+        "result": {
+          "code": 0,
+          "reader_result": {
+            "status": "complete"
+          }
+        }
+      },
+      "stub": {
+        "pause": [],
+        "complete": {
+          "code": "CENSUS_MISMATCH",
+          "message": "The final census does not match."
+        }
+      },
+      "expect": {
+        "calls": [
+          {
+            "method": "complete",
+            "refused": "CENSUS_MISMATCH"
+          },
+          {
+            "method": "pause",
+            "code": "CENSUS_MISMATCH",
+            "outcome": "ok"
+          }
+        ],
+        "record": {
+          "state": "paused",
+          "deferred_requeue": false,
+          "fence": null,
+          "lease_expires_at": null,
+          "discovery": "unchanged",
+          "reason": {
+            "code": "CENSUS_MISMATCH",
+            "message": "The final census does not match."
+          }
+        },
+        "errors": [],
+        "warnings": []
+      }
+    }
+  ],
+  "controls": [
+    {
+      "name": "valid_reply",
+      "c1": [false, true],
+      "lease": {
+        "reply": {
+          "reply": true,
+          "code": 1,
+          "error_code": "RESOURCE_LIMIT",
+          "error_cause": "resident_capacity",
+          "stderr": "worker text"
+        }
+      },
+      "stub": {
+        "pause": []
+      },
+      "expect": {
+        "calls": [
+          {
+            "method": "pause",
+            "code": "RESOURCE_LIMIT",
+            "outcome": "ok"
+          }
+        ],
+        "record": {
+          "state": "paused",
+          "deferred_requeue": false,
+          "fence": null,
+          "lease_expires_at": null,
+          "discovery": "unchanged",
+          "reason": {
+            "code": "RESOURCE_LIMIT",
+            "cause": "resident_capacity"
+          }
+        },
+        "errors": [],
+        "warnings": ["[reader] worker reply RESOURCE_LIMIT[resident_capacity]: worker text"]
+      }
+    },
+    {
+      "name": "sink_reader_protocol",
+      "c1": [false, true],
+      "lease": {
+        "sink": {
+          "code": "READER_PROTOCOL",
+          "provider_calls": 1
+        }
+      },
+      "stub": {
+        "pause": []
+      },
+      "expect": {
+        "calls": [
+          {
+            "method": "pause",
+            "code": "READER_PROTOCOL",
+            "outcome": "ok"
+          }
+        ],
+        "record": {
+          "state": "paused",
+          "deferred_requeue": false,
+          "fence": null,
+          "lease_expires_at": null,
+          "discovery": "unchanged",
+          "reason": {
+            "code": "READER_PROTOCOL",
+            "message": "Reader analysis attempted a provider call."
+          }
+        },
+        "errors": [],
+        "warnings": []
+      }
+    }
+  ]
+}

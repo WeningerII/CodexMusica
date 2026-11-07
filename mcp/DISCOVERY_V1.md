@@ -86,7 +86,7 @@ language's own parser checks each. So any change to that code fails until the cl
 read again and the digest pinned again, and a citation of a line number, or of a symbol no row
 pins, fails too. A `file:symbol` citation names the symbol; its rows name the statements the
 claim rests on. Each row names the sections it backs, each citation of a row's symbol in a section
-has a row there, and the rows' ranges, digests aside, are held to the digest `3099391cfca9fb92` in this
+has a row there, and the rows' ranges, digests aside, are held to the digest `11764c138691e5a3` in this
 note, so a row deleted, narrowed or moved changes this text. Two citations name a comment or a
 docstring, not code (`reader_scheduler.js:createCatalogResolver`'s note on engine commits and
 `analysis.py:resolve_detail_records`' docstring); those rows hold the text as written. Every
@@ -1885,7 +1885,7 @@ Nothing is ever reinterpreted, and missing state is never rebuilt.
 
 | Code | Status | Raised by | When |
 | --- | --- | --- | --- |
-| `READER_PROTOCOL` | 400 | store, `commitCheckpoint`; scheduler, at the reply boundary | any of F1–F6 or W1–W7 on a frame. Nothing is written; the job pauses with this reason and is not requeued. The scheduler pauses a job with this code, without a status, for a reply that breaks C1. |
+| `READER_PROTOCOL` | 400 | store, `commitCheckpoint`; scheduler, at the reply boundary and as the fallback pause | any of F1–F6 or W1–W7 on a frame. Nothing is written; the job pauses with this reason and is not requeued. The scheduler pauses a job with this code, without a status, for a reply that breaks C1, and as the one fallback pause when `store.pause` refuses the pause it was given (§8, the pause). |
 | `DISCOVERY_UNAVAILABLE` | 409 | store (`workerPayload`, `commitCheckpoint` and `resume` from `unavailable`; a full read in `resume()`; reconciliation's release) and worker (load, traversal) | causes below |
 | `STORAGE_CORRUPT` | 503 | store; worker | a segment's bytes do not match its address (F6) on a lease's walk or the worker's load, the finish-time complete verified load of `alt_cells` included (§5.2), which releases nothing, while a full read releases that job with `segment_corrupt` instead (§5.1, §7.4); the store meets a missing segment outside reconciliation, which releases that job instead (§7.4); or a lease's walk fails R5, R2 or F3 (§5.1), which releases nothing |
 | `STALE_READING` | 409 | worker | a v1 cursor on a v2 worker, a v2 cursor on a v1 worker (`analysis.py:AnalysisSession.__init__`), or a witness whose fields are not the ones the worker's reducer reads (§6.9) |
@@ -1949,8 +1949,10 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   (the #721 author's) and the meter's two, whose message heads change and nothing else.
 - **The bridge forwards them, and marks a reply.** On the worker's final frame
   (`python_bridge.js:spawnWorker`) the bridge passes `error_cause` and `error_log` beside
-  `reader_result` and `error_code`, and sets `reply: true`. Today it forwards only
-  `reader_result` and `error_code` (`:spawnWorker`), so a worker's cause never reaches the scheduler.
+  `reader_result` and `error_code`, and sets `reply: true`. At Base it forwarded only
+  `reader_result` and `error_code`, so a worker's cause never reached the scheduler; R2's Step 4
+  adds the two fields and the mark (`:spawnWorker`), and a bridge failure (`:createPythonBridge.failure`)
+  never sets `reply`.
 - **The scheduler tells a reply from its own errors.** An error a Node sink throws inside
   `onReaderCheckpoint` (`reader_scheduler.js:pump`: `commitCheckpoint`'s refusals, and
   `packReaderPages`' `RESOURCE_LIMIT`, `:packReaderPages`) reaches the scheduler today only as a bridge
@@ -1967,6 +1969,22 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   inside the sink reaches the catch through `sinkError`. The scheduler logs a reply's stderr,
   the worker's message with the meter's or the resident guard's figures, because a reason with
   a named cause stores no message.
+  **The fallback pause** (BB8 6700200435, condition 3, on R2's question 3). If `store.pause`
+  refuses with any code but `STALE_ATTEMPT`, the scheduler logs the refusal and makes exactly one
+  more `store.pause`, `{code: "READER_PROTOCOL", message: "The reader reply could not be
+  recorded: <code>.", requeue: false}`, where `<code>` is the refusal's code. It carries no cause,
+  no log and no release, and `discovery` is unchanged. So the lease ends whatever the reply held.
+  If the fallback is refused too, that is logged, no further call is made, and lease expiry
+  (`_expireLeases`) ends the lease as at Base. The fallback follows only a refused catch-pause:
+  after a sink, worker or bridge error the catch-pause is the first `store.pause` and the fallback
+  the second; when the scheduler's own end-of-lease `store.pause` or `store.complete` is refused
+  first, that refusal reaches the catch as at Base, the catch-pause (with the refusal's code) is
+  the second store call and the fallback the third. There is never a second fallback.
+  `STALE_ATTEMPT` takes no fallback: the lease is already over or another's. The fallback is the
+  same with C1 on and off; with C1 on it is a logged safety net. `store.pause` refuses an argument
+  outside its sets (a cause outside every set, a cause that is not a string) with the internal
+  code `INVALID_PAUSE` (500), which is never a job's reason and never collides with admission's
+  `INVALID_DECLARATION`. `bad/reply_pause_refused.json` pins every case.
 - `store.pause` with code `DISCOVERY_UNAVAILABLE` releases the logs and sets
   `unavailable: {cause, log | null, released}` in the same save (§2.7). This is how a refusal
   the worker raises (R1, `chain_broken` from F3 or R2 at its load, `digest_mismatch`,
@@ -2038,8 +2056,10 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   `RESOURCE_LIMIT` and `DISCOVERY_UNAVAILABLE` reply would pause as `READER_PROTOCOL`. The
   mechanism is one switch, and it is the same for both implementers:
   - R2's scheduler change carries C1 behind one constant in `reader_scheduler.js`, off. Off, the
-    scheduler pauses every reply as today; on, it applies C1 to every reply. R2's tests run both
-    settings against `bad/reply_cause_invalid.json`.
+    scheduler forwards every reply's `error_cause` and `error_log` to `store.pause` unchecked, and a
+    pause `store.pause` refuses takes the fallback pause (above); on, it applies C1 to every reply.
+    R2's tests run both settings against `bad/reply_cause_invalid.json` and
+    `bad/reply_pause_refused.json`.
   - The #721 author's worker half names its causes in its message heads, as above, and is tested
     against that fixture's `reply` cases. The #721 author's change does not touch
     `reader_scheduler.js`.
@@ -2233,6 +2253,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 47 | BB8, #721 items 2–3 (accepted by R2); BB8's #721 codec review, should-fix 1; BB8's emit-precedence ruling (19:40Z) | the codec raises a local error with a rule tag and the enclosing operation maps it, never the codec; (a) a submitted frame's F1 or F2 is `READER_PROTOCOL`, its integer fields W1 and W4, and a frame that is not JSON is the step channel's failure; (b) a generated entry's F2 is `RESOURCE_LIMIT` (`discovery_entry_bytes`) and its F1 `INVARIANT_FAILURE`, its message naming the rule; (c) a persisted segment's bad content is F3, `segment_corrupt` stays F6's and the store's, a failed inflation F6; the `1.0` divergence, one pin per side; invalid UTF-8 in a segment F3 in both languages; precedence F1 before F2 on the worker's emit, unpinned elsewhere; F2 on the canonical form, the raw input bounded by the enclosing reader; `INTEGER_FIELD`; a lone surrogate refused at admission, before any lease | §2.5, §2.11, §3, §4, §5.1, §5.2, §8, §9, §13 | `good/codec_error_mapping.json`, `bad/float_entry.json`; the §2.11 tests |
 | 48 | BB8 6693502369 (items 30 and 31, R2's questions of 6693449409); BB8's review 6693638249, nits 1–4 | (30) each log's head and verified state carry `bytes`, the sum of its sealed entries' canonical bytes, added to by each seal; W7 holds `MEMBERSHIP_BYTES` from it; it is verified where it is read: R2 at a full read (`chain_broken`), R5 at a lease's walk (`STORAGE_CORRUPT`), R3 at the worker's load (`cursor_disagrees`); (31) F1 bounds the depth by `ENTRY_DEPTH`, the smallest power of two at least twice the largest declared depth, at least 8 and at most 64, provisionally 8 until the #721 author declares the entry shapes; past it `INVARIANT_FAILURE` on the worker's emit, `READER_PROTOCOL` at the store, F3 on read-back; `MEMBERSHIP_BYTES = 4194304` re-derived over the 17 shapes capped at it, provisional with it; the nits: no #656 entry count is a term, each log's section names both caps, the counts use the unrounded terms but for the per-byte rate, as printed, and 2.3-fold is against 107.3 ns; BB8's 21:31Z confirmations: invalid UTF-8 in a segment F3 in both languages, never `Buffer.toString`, and admission's stored-request case | §1, §2.1, §2.3, §2.7, §2.10, §2.11, §3, §4, §5.1, §5.2, §6.1, §6.2, §6.4, §6.11, §8, §9, §10, §12, §13 | `bad/entry_over_depth.json`, `bad/head_bytes_disagree.json`, `bad/verified_bytes_disagree.json`, `bad/summary_bytes_disagree.json`, `bad/membership_over_cap.json`, `bad/verified_bytes_ahead.json`, `good/codec_error_mapping.json`, `good/membership_load_measurement.json`; the §6.11 derivation and byte tests |
 | 49 | BB8 6699352254 (review of `a12c35b4d`, rulings 1–2) | (1) `MEMBERSHIP_BYTES = 4194304` stands, provisional with `ENTRY_DEPTH`; power-of-two rounding is accepted; the per-byte rate is re-measured on a quiet host before the proof run, and the cap is re-derived, not inherited, if `ENTRY_DEPTH` reaches 64; (2) the stored-request check stays where §2.11 has it, before `workerPayload`, never in `this.store.lease()`; and the 17 named shapes are 13 distinct loads at this cap | §2.11, §6.11, §10, §12 | `good/membership_load_measurement.json`, `good/codec_error_mapping.json`; the §6.11 derivation and the claim tests |
+| 50 | BB8 6700200435 (all seven recommendations accepted, with conditions) | (3) the scheduler's fallback pause when `store.pause` refuses: one `READER_PROTOCOL` pause, no cause, no release, none for `STALE_ATTEMPT`, the same under C1 on and off, pinned by a fixture | §8, §12, §13 | `bad/reply_pause_refused.json` |
 
 ## 12. Rulings on the items added for confirmation
 
@@ -2340,7 +2361,8 @@ and its review (`147f5dd3d`). Item 25 is ruled by 6682942783, and BB8 confirmed 
 (6684866461). Items 21–23, 26 and 28 are ruled by 6683944548. Item 27 is ruled by 6684866461,
 which replaces 6683944548's ruling on it. Item 24 is 3PO's, and BB8 agrees with 3PO's
 qualification (6683944548). Item 29 stays open. Items 30 and 31 are R2's two questions to BB8 in
-6693449409; BB8 ruled both yes (6693502369), and this text folds both rulings.
+6693449409; BB8 ruled both yes (6693502369), and this text folds both rulings. Item 32 is ruled by
+6700200435.
 
 15. **Ruled: no semantic objection** (BB8 6681838131). **Where the walk gets its addresses**
     (§4, §5.1). Statting a segment needs its address,
@@ -2524,6 +2546,11 @@ qualification (6683944548). Item 29 stays open. Items 30 and 31 are R2's two que
     re-measured on a quiet host before the proof run; and if the declared shapes put
     `ENTRY_DEPTH` at 64, the cap is re-derived, not inherited (§6.11). The 17 shapes are 17
     named shapes, 13 distinct at this cap (§10).
+32. **Ruled: accepted, with conditions** (BB8 6700200435, on R2's seven questions of the Node-side
+    plan). (3) When `store.pause` refuses a pause with anything but `STALE_ATTEMPT`, the scheduler
+    makes one fallback pause, `READER_PROTOCOL`, "The reader reply could not be recorded:
+    <code>.", with no cause or release, so a lease always ends; a refused fallback is logged and
+    left to lease expiry (§8, `bad/reply_pause_refused.json`).
 
 ## 13. Fixtures and validator
 
@@ -2614,7 +2641,13 @@ Bad:
   is not an integer from 0 to 2⁵³ − 1 is the store's alone),
   `bad/tail_rewritten.json` (W6);
 - reply (`READER_PROTOCOL`, no status): `bad/reply_cause_invalid.json` (C1), with sink errors
-  and a bridge failure among its controls;
+  and a bridge failure among its controls; `bad/reply_pause_refused.json` (the fallback pause): a
+  reply whose cause `store.pause` refuses (`INVALID_PAUSE`, C1 off: a cause outside every set and
+  one that is not a string) ends in exactly one fallback pause with the reason `{code:
+  "READER_PROTOCOL", message: "The reader reply could not be recorded: INVALID_PAUSE."}`, no cause
+  and no release; a `STALE_ATTEMPT` takes no fallback; a refused fallback is two calls and then
+  lease expiry; with C1 on, a valid reply whose pause is refused once takes the same fallback; a
+  valid reply and a sink error are controls with one call each;
 - limit: `bad/membership_over_cap.json` (W7). For each membership log and each cap, the worker
   refuses first, as `RESOURCE_LIMIT` with cause `discovery_<log>`; a store sent the frame refuses
   it `READER_PROTOCOL` 400, totalling the entry bytes from each log's `bytes`. A control per log
@@ -2689,7 +2722,7 @@ registry and the source, and builds the largest `cursor.discovery` and the whole
 a refusal, bounds each variable part over the registry, builds the largest refusal
 independently and schema by schema, shows the dispatch never builds the largest, and runs the
 real refusal builders with labels of three sizes, without the dictionary (§3.2). It walks the
-reader's imports for every `RESOURCE_LIMIT` raise and holds each to §8's list. It models C1, the sink errors it never checks, the fencing of a
+reader's imports for every `RESOURCE_LIMIT` raise and holds each to §8's list. It models C1, the sink errors it never checks, the fallback pause and its one call, the fencing of a
 release, a byte mismatch at a full read and a thrown save, and it rebuilds each resume case from
 its split point's durable prefix. Each R5
 clause, the junction and the full read's refusals are checked one at a time. Where one

@@ -362,8 +362,17 @@ export function createPythonBridge({
             current.resolve({
               code: reply.code,
               ...current.capture.result(),
+              // A reader reply: the worker's own final frame. Its cause and
+              // log travel beside its code, and `reply: true` tells it from a
+              // failure() result, which never sets it (DISCOVERY_V1 §8).
               ...(current.family === 'reader'
-                ? { reader_result: reply.reader_result, error_code: reply.error_code }
+                ? {
+                    reader_result: reply.reader_result,
+                    error_code: reply.error_code,
+                    error_cause: reply.error_cause,
+                    error_log: reply.error_log,
+                    reply: true,
+                  }
                 : {}),
             });
           } else throw interrupted('unreadable worker reply', { protocolError: true });

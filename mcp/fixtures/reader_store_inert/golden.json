@@ -19059,13 +19059,23 @@
               "requeue": false
             },
             "refused": "STORAGE_UNAVAILABLE"
+          },
+          {
+            "method": "pause",
+            "reason": {
+              "code": "READER_PROTOCOL",
+              "message": "The reader reply could not be recorded: STORAGE_UNAVAILABLE.",
+              "requeue": false
+            },
+            "refused": "STORAGE_UNAVAILABLE"
           }
         ],
         "logged": [
           {
             "level": "error",
             "args": ["[reader] checkpoint recovery failed:", "STORAGE_UNAVAILABLE"]
-          }
+          },
+          { "level": "error", "args": ["[reader] fallback pause failed:", "STORAGE_UNAVAILABLE"] }
         ]
       },
       {
@@ -22810,13 +22820,23 @@
               "requeue": false
             },
             "refused": "STORAGE_UNAVAILABLE"
+          },
+          {
+            "method": "pause",
+            "reason": {
+              "code": "READER_PROTOCOL",
+              "message": "The reader reply could not be recorded: STORAGE_UNAVAILABLE.",
+              "requeue": false
+            },
+            "refused": "STORAGE_UNAVAILABLE"
           }
         ],
         "logged": [
           {
             "level": "error",
             "args": ["[reader] checkpoint recovery failed:", "STORAGE_UNAVAILABLE"]
-          }
+          },
+          { "level": "error", "args": ["[reader] fallback pause failed:", "STORAGE_UNAVAILABLE"] }
         ]
       },
       {
@@ -24224,6 +24244,7 @@
               "accounting_unknown": false,
               "uncertain_proposal": false,
               "reader_result": { "status": "yielded", "reason": "YIELD" },
+              "reply": true,
               "path": "warm-reader",
               "retained": {
                 "stage": "spawned",
@@ -24585,6 +24606,7 @@
               "accounting_unknown": false,
               "uncertain_proposal": false,
               "error_code": "READER_ERROR",
+              "reply": true,
               "path": "warm-reader",
               "retained": {
                 "stage": "spawned",
@@ -25295,6 +25317,7 @@
               "accounting_unknown": false,
               "uncertain_proposal": false,
               "reader_result": { "status": "stopped", "reason": "CANCELLED" },
+              "reply": true,
               "path": "warm-reader",
               "retained": {
                 "stage": "spawned",
@@ -25685,6 +25708,7 @@
               "accounting_unknown": false,
               "uncertain_proposal": false,
               "reader_result": { "status": "complete" },
+              "reply": true,
               "path": "warm-reader",
               "retained": {
                 "stage": "spawned",

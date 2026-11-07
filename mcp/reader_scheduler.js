@@ -6,7 +6,13 @@ import { createReadStream } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Worker } from 'node:worker_threads';
-import { wellFormedDeep } from './reader_discovery.js';
+import {
+  DISCOVERY_CAUSES,
+  LOGS,
+  RESOURCE_CAUSES,
+  WORKER_CAUSES,
+  wellFormedDeep,
+} from './reader_discovery.js';
 
 const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const error = (code, message) => Object.assign(new Error(message), { code });
@@ -467,6 +473,106 @@ export function packReaderPages(records) {
   return pages;
 }
 
+// §8, C1: whether the scheduler checks a worker reply's error_cause and
+// error_log against the cause sets before it pauses the job. Off until the
+// worker half names its causes (the runtime train that carries it turns this
+// on); off, a reply's cause and log reach store.pause unchecked, and a pause
+// the store refuses takes the fallback pause.
+export const READER_REPLY_CAUSES_ENFORCED = false;
+
+// §8's echo of a bad value: a string as itself, anything else as its JSON
+// text, cut to at most 64 UTF-8 bytes at a character boundary; null when
+// missing.
+const ECHO_BYTES = 64;
+function echo(value) {
+  if (value === undefined || value === null) return null;
+  let text = typeof value === 'string' ? value : JSON.stringify(value);
+  if (typeof text !== 'string') text = String(text);
+  while (Buffer.byteLength(text) > ECHO_BYTES) text = [...text].slice(0, -1).join('');
+  return text;
+}
+
+/**
+ * C1 (§8): a reply, the bridge's result for the worker's own final frame
+ * (`reply: true`), is checked before the job pauses. DISCOVERY_UNAVAILABLE
+ * needs one of the worker's six causes and RESOURCE_LIMIT one of its ten;
+ * any other code takes none; error_log follows the cause's Log column.
+ * Returns null for a reply that passes, else the READER_PROTOCOL reason's
+ * `{reply_code, field, value, message}`.
+ */
+export function checkReply(result) {
+  const code = result.error_code;
+  const set =
+    code === 'DISCOVERY_UNAVAILABLE'
+      ? WORKER_CAUSES
+      : code === 'RESOURCE_LIMIT'
+        ? Object.keys(RESOURCE_CAUSES)
+        : [];
+  const cause = result.error_cause ?? null;
+  const fail = (field, value, message) => ({ reply_code: code, field, value, message });
+  if (set.length ? !set.includes(cause) : cause !== null) {
+    const value = echo(cause);
+    return fail(
+      'error_cause',
+      value,
+      value === null
+        ? `The reader worker replied ${code} with no cause.`
+        : `The reader worker replied ${code} with the cause ${JSON.stringify(value)}, which ${code} does not take.`
+    );
+  }
+  const log = result.error_log ?? null;
+  if (log !== null && !LOGS.includes(log)) {
+    const value = echo(log);
+    return fail(
+      'error_log',
+      value,
+      `The reader worker replied ${code} with the log ${JSON.stringify(value)}, which is not a discovery log.`
+    );
+  }
+  const table = Object.hasOwn(DISCOVERY_CAUSES, cause) ? DISCOVERY_CAUSES : RESOURCE_CAUSES;
+  const need = cause === null ? 'none' : table[cause].log;
+  if (need === 'required' && log === null)
+    return fail(
+      'error_log',
+      null,
+      `The reader worker replied ${code} with the cause ${JSON.stringify(cause)} and no log.`
+    );
+  if (need === 'none' && log !== null)
+    return fail(
+      'error_log',
+      log,
+      `The reader worker replied ${code} with the log ${JSON.stringify(log)}, which ${cause ?? code} does not take.`
+    );
+  return null;
+}
+
+// The fields a failed lease's error adds to its pause (§8, the pause): a
+// reply's error_cause and error_log, else a store refusal's own cause and log,
+// and C1's reply_code, field and value. Each only when present. A native
+// Error `cause` (an Error, not a §8 cause) is not one of them.
+function pauseFields(failure) {
+  const cause = failure.error_cause ?? (typeof failure.cause === 'string' ? failure.cause : null);
+  const log = failure.error_log ?? failure.log;
+  return Object.fromEntries(
+    [
+      ['cause', cause],
+      ['log', log],
+      ['reply_code', failure.reply_code],
+      ['field', failure.field],
+      ['value', failure.value],
+    ].filter(([key, value]) => value !== undefined && (value !== null || key === 'value'))
+  );
+}
+
+// §8, the fallback pause (BB8 6700200435, condition 3): the one pause the
+// scheduler makes when store.pause refused the pause it was given with any
+// code but STALE_ATTEMPT. No cause, no log, no release.
+const fallbackPause = (code) => ({
+  code: 'READER_PROTOCOL',
+  message: `The reader reply could not be recorded: ${code || 'READER_ERROR'}.`,
+  requeue: false,
+});
+
 export class ReaderScheduler {
   constructor({
     store,
@@ -476,6 +582,8 @@ export class ReaderScheduler {
     readerScheme = null,
     leaseMs = 600000,
     pollMs = 100,
+    // Tests only: server_http.js never passes it (§8, C1).
+    enforceReplyCauses = READER_REPLY_CAUSES_ENFORCED,
   }) {
     if (!store || !bridge?.runReaderLease)
       throw new TypeError('Reader scheduler requires its durable store and shared bridge.');
@@ -487,6 +595,7 @@ export class ReaderScheduler {
       readerScheme,
       leaseMs: Math.min(600000, leaseMs),
       pollMs,
+      enforceReplyCauses,
     });
     this.active = false;
     this.stopped = false;
@@ -515,6 +624,28 @@ export class ReaderScheduler {
     const record = this.store.lease();
     if (!record) return;
     this.active = true;
+    // An error a Node sink threw inside onReaderCheckpoint, kept as it was:
+    // the bridge reports it only as a result with code -1 (§8).
+    let sinkError = null;
+    // The checkpoint sink: the step's pages and cursor, committed under the
+    // lease's fence.
+    const checkpoint = async (step) => {
+      if (step.provider_calls !== 0)
+        throw error('READER_PROTOCOL', 'Reader analysis attempted a provider call.');
+      lastStep = step;
+      const committed = this.store.commitCheckpoint(record.id, record.attempt, record.fence, {
+        cursor: step.checkpoint,
+        pages: packReaderPages(step.records),
+        progress: step.summary?.progress || step.summary?.counters || {},
+        coverage: step.summary?.coverage || {},
+      });
+      return {
+        added_page_paths: committed.added_page_paths || [],
+        ...(committed.state !== 'running'
+          ? { stop_reason: committed.reason?.code || 'INTERRUPTED' }
+          : {}),
+      };
+    };
     let lastStep;
     try {
       // A record written before admission held the set to well-formed Unicode
@@ -558,30 +689,34 @@ export class ReaderScheduler {
               : this.store.inspect(record.id)?.cancel_requested
                 ? 'CANCELLED'
                 : null,
-          onReaderCheckpoint: async (step) => {
-            if (step.provider_calls !== 0)
-              throw error('READER_PROTOCOL', 'Reader analysis attempted a provider call.');
-            lastStep = step;
-            const committed = this.store.commitCheckpoint(record.id, record.attempt, record.fence, {
-              cursor: step.checkpoint,
-              pages: packReaderPages(step.records),
-              progress: step.summary?.progress || step.summary?.counters || {},
-              coverage: step.summary?.coverage || {},
-            });
-            return {
-              added_page_paths: committed.added_page_paths || [],
-              ...(committed.state !== 'running'
-                ? { stop_reason: committed.reason?.code || 'INTERRUPTED' }
-                : {}),
-            };
-          },
+          // A sink error is kept before the bridge sees it (§8).
+          onReaderCheckpoint: (step) =>
+            checkpoint(step).catch((thrown) => {
+              sinkError ??= thrown;
+              throw thrown;
+            }),
         }
       );
-      if (result.code !== 0)
-        throw error(
-          result.error_code || 'INTERRUPTED',
-          result.stderr || 'The reader worker was interrupted.'
+      // A sink's own error, with its code, status, cause and log, before the
+      // bridge result that only reports it.
+      if (sinkError) throw sinkError;
+      if (result.code !== 0) {
+        if (this.enforceReplyCauses && result.reply === true) {
+          const bad = checkReply(result);
+          if (bad) throw Object.assign(error('READER_PROTOCOL', bad.message), bad);
+        }
+        throw Object.assign(
+          error(
+            result.error_code || 'INTERRUPTED',
+            result.stderr || 'The reader worker was interrupted.'
+          ),
+          {
+            ...(result.error_cause !== undefined ? { error_cause: result.error_cause } : {}),
+            ...(result.error_log !== undefined ? { error_log: result.error_log } : {}),
+            ...(result.reply === true ? { reply: true } : {}),
+          }
         );
+      }
       if (lastStep?.done && result.reader_result?.status === 'complete') {
         this.store.complete(record.id, record.attempt, record.fence, {
           summary: lastStep.summary,
@@ -602,15 +737,34 @@ export class ReaderScheduler {
         });
       }
     } catch (failure) {
+      const fields = pauseFields(failure);
+      // A reason with a named cause stores no message, so a reply's stderr
+      // (the worker's message, with the meter's or the guard's figures) is
+      // logged here instead.
+      if (failure.reply === true && fields.cause !== undefined)
+        console.warn(
+          `[reader] worker reply ${failure.code}[${echo(fields.cause)}]:`,
+          String(failure.message).slice(0, 4096)
+        );
       try {
         this.store.pause(record.id, record.attempt, record.fence, {
           code: failure.code || 'INTERRUPTED',
           message: failure.message,
           requeue: false,
+          ...fields,
         });
       } catch (stale) {
-        if (stale.code !== 'STALE_ATTEMPT')
+        if (stale.code !== 'STALE_ATTEMPT') {
           console.error('[reader] checkpoint recovery failed:', stale.code || 'READER_ERROR');
+          // One fallback pause, so the lease ends whatever the reply held; if
+          // it is refused too, lease expiry remains the backstop. Never a
+          // second fallback.
+          try {
+            this.store.pause(record.id, record.attempt, record.fence, fallbackPause(stale.code));
+          } catch (refused) {
+            console.error('[reader] fallback pause failed:', refused.code || 'READER_ERROR');
+          }
+        }
       }
     } finally {
       this.active = false;

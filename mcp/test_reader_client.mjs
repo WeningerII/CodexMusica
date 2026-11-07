@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import express from 'express';
 import { ReaderJobStore } from './reader_job_store.js';
 import {
+  READER_REPLY_CAUSES_ENFORCED,
   ReaderScheduler,
   packReaderPages,
   canonicalJSON,
@@ -910,4 +911,457 @@ test('the job view renders a causal reason message from causeMessage', async () 
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
+});
+
+// ── DISCOVERY_V1 §8: reply and pause plumbing (#656 Step 4) ──────────────
+const replyCauseInvalid = JSON.parse(
+  await readFile(path.join(here, 'fixtures/discovery_v1/bad/reply_cause_invalid.json'), 'utf8')
+);
+const replyPauseRefused = JSON.parse(
+  await readFile(path.join(here, 'fixtures/discovery_v1/bad/reply_pause_refused.json'), 'utf8')
+);
+const WORKER_TEXT = 'worker text';
+const FALLBACK_TEXT = 'The reader reply could not be recorded: ';
+const readerStep = (extra = {}) => ({
+  provider_calls: 0,
+  checkpoint: { phase: 'pairs', index: 1 },
+  records: [{ id: 'evidence-a' }],
+  summary: { progress: { candidates: 1 }, coverage },
+  done: false,
+  ...extra,
+});
+// A bridge that answers as python_bridge.js does: an error the sink throws
+// kills the lease, which resolves with code -1, the error's code and its
+// message, and no `reply`.
+function scriptedBridge(plan) {
+  return {
+    capacity: () => ({ active: 0, admitted: 0, queued: 0 }),
+    runReaderLease: async (_req, options) => {
+      try {
+        return await plan((step) => options.onReaderCheckpoint(step), options);
+      } catch (thrown) {
+        return { code: -1, error_code: thrown.code, stderr: thrown.message };
+      }
+    },
+  };
+}
+const refusal = (code, message = `stubbed ${code}`, extra = {}) =>
+  Object.assign(new Error(message), { code, status: 503, ...extra });
+// One lease of job A (job B waits behind it) through the real store and
+// scheduler; store.pause and store.complete are spied, and stubbed to refuse
+// as `stub` names before the real store answers.
+async function leaseOnce(t, { plan, enforce, stub = {}, commitError = null }) {
+  const directory = await mkdtemp(path.join(tmpdir(), 'reader-pause-'));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  let now = Date.now();
+  const store = new ReaderJobStore({ directory, now: () => now });
+  const a = store.create({ viewer: 'viewer-a', idempotency_key: 'job-a', identity, request });
+  const b = store.create({ viewer: 'viewer-b', idempotency_key: 'job-b', identity, request });
+  const calls = [];
+  const pauses = [...(stub.pause || [])];
+  const pause = store.pause.bind(store);
+  store.pause = (...args) => {
+    const reason = args[3] || {};
+    const call = {
+      method: 'pause',
+      code: reason.code,
+      ...(String(reason.message).startsWith(FALLBACK_TEXT) ? { fallback: true } : {}),
+    };
+    try {
+      const code = pauses.shift();
+      if (code) throw refusal(code);
+      const out = pause(...args);
+      calls.push({ ...call, outcome: 'ok' });
+      return out;
+    } catch (thrown) {
+      calls.push({ ...call, refused: thrown.code });
+      throw thrown;
+    }
+  };
+  const complete = store.complete.bind(store);
+  store.complete = (...args) => {
+    try {
+      if (stub.complete) throw refusal(stub.complete.code, stub.complete.message);
+      const out = complete(...args);
+      calls.push({ method: 'complete', outcome: 'ok' });
+      return out;
+    } catch (thrown) {
+      calls.push({ method: 'complete', refused: thrown.code });
+      throw thrown;
+    }
+  };
+  if (commitError)
+    store.commitCheckpoint = () => {
+      throw commitError();
+    };
+  const errors = [];
+  const warnings = [];
+  t.mock.method(console, 'error', (...args) => errors.push(args.map(String).join(' ')));
+  t.mock.method(console, 'warn', (...args) => warnings.push(args.map(String).join(' ')));
+  let leased = null;
+  const scheduler = new ReaderScheduler({
+    store,
+    bridge: scriptedBridge(async (sink, options) => {
+      leased = store.inspect(a.record.id);
+      return plan(sink, options);
+    }),
+    resolveIdentity: async () => identity,
+    resolveSource: async () => ({ source: { text: 'Bad' } }),
+    ...(enforce === undefined ? {} : { enforceReplyCauses: enforce }),
+  });
+  t.mock.method(scheduler, 'kick', () => {});
+  try {
+    await scheduler.pump();
+  } finally {
+    scheduler.stop();
+    t.mock.restoreAll();
+  }
+  return {
+    store,
+    a: a.record.id,
+    b: b.record.id,
+    calls,
+    errors,
+    warnings,
+    leased,
+    advance: (ms) => {
+      now += ms;
+    },
+  };
+}
+// The record as the fixtures state it.
+function outcome(run) {
+  const after = run.store.inspect(run.a);
+  if (after.state === 'running')
+    return {
+      state: 'running',
+      discovery: Object.hasOwn(after, 'discovery') ? after.discovery : 'unchanged',
+      saved: canonicalJSON(after) === canonicalJSON(run.leased) ? 'nothing' : 'changed',
+    };
+  return {
+    state: after.state,
+    deferred_requeue: after.deferred_requeue,
+    fence: after.fence,
+    lease_expires_at: after.lease_expires_at,
+    discovery: Object.hasOwn(after, 'discovery') ? after.discovery : 'unchanged',
+    reason: after.reason,
+  };
+}
+// The lease a fixture case names, as a bridge plan.
+function planOf(lease) {
+  if (lease.reply) return async () => ({ ...lease.reply });
+  if (lease.sink?.provider_calls)
+    return async (sink) => {
+      await sink(readerStep({ provider_calls: lease.sink.provider_calls }));
+      return { code: 0, reader_result: { status: 'complete' } };
+    };
+  if (lease.done)
+    return async (sink) => {
+      await sink(readerStep({ checkpoint: { phase: 'done', done: true }, done: true }));
+      return { ...lease.result };
+    };
+  return async () => ({ ...lease.result });
+}
+
+test('reply_pause_refused.json: the fallback pause, every case under each C1 setting it names', async (t) => {
+  assert.equal(replyPauseRefused.kind, 'fallback');
+  for (const c of [...replyPauseRefused.cases, ...replyPauseRefused.controls])
+    for (const enforce of c.c1) {
+      const label = `${c.name} (C1 ${enforce ? 'on' : 'off'})`;
+      const run = await leaseOnce(t, { plan: planOf(c.lease), enforce, stub: c.stub });
+      assert.deepEqual(run.calls, c.expect.calls, `${label}: the store calls`);
+      assert.deepEqual(outcome(run), c.expect.record, `${label}: the record`);
+      assert.deepEqual(run.errors, c.expect.errors, `${label}: console.error`);
+      assert.deepEqual(run.warnings, c.expect.warnings, `${label}: console.warn`);
+      // A lease that ended lets the next job through; a refused fallback
+      // leaves lease expiry as the backstop.
+      if (c.expect.record.state === 'running') {
+        assert.equal(run.store.lease(), null, `${label}: A still holds the one lease`);
+        if (c.expect.after_lease_expiry) {
+          run.advance(run.store.leaseMs + 1);
+          const next = run.store.lease();
+          assert.equal(next?.id, run.b, `${label}: B leases once A's lease expires`);
+          const after = run.store.inspect(run.a);
+          assert.deepEqual(
+            outcome({ ...run, leased: null }),
+            { ...c.expect.after_lease_expiry, reason: after.reason },
+            label
+          );
+          assert.deepEqual(after.reason, c.expect.after_lease_expiry.reason, label);
+        }
+      } else assert.equal(run.store.lease()?.id, run.b, `${label}: B leases next`);
+    }
+});
+
+// The C1-off outcomes bad/reply_cause_invalid.json does not state (Q3's
+// reading: a reply's code, cause and log reach store.pause unchanged; where
+// store.pause refuses INVALID_PAUSE, the fallback pause). Step 7's strict
+// pause edits the rows it changes.
+const FALLBACK_INVALID = {
+  code: 'READER_PROTOCOL',
+  message: 'The reader reply could not be recorded: INVALID_PAUSE.',
+};
+const PACKING_TEXT =
+  'One evidence object exceeds the page limit; its adapter must provide identity-preserving subpages.';
+const C1_OFF = {
+  unavailable_without_a_cause: { code: 'DISCOVERY_UNAVAILABLE', message: WORKER_TEXT },
+  unavailable_with_an_unknown_cause: FALLBACK_INVALID,
+  unavailable_with_a_resource_cause: { code: 'DISCOVERY_UNAVAILABLE', message: WORKER_TEXT },
+  unavailable_with_the_store_cause: {
+    code: 'DISCOVERY_UNAVAILABLE',
+    cause: 'segment_corrupt',
+    log: 'alt_cells',
+  },
+  resource_limit_without_a_cause: { code: 'RESOURCE_LIMIT', message: WORKER_TEXT },
+  resource_limit_with_an_unknown_cause: FALLBACK_INVALID,
+  resource_limit_with_an_unavailable_cause: { code: 'RESOURCE_LIMIT', message: WORKER_TEXT },
+  another_code_with_a_cause: { code: 'STALE_READING', message: WORKER_TEXT },
+  a_cause_past_the_echo_bound: FALLBACK_INVALID,
+  a_cause_that_is_not_a_string: FALLBACK_INVALID,
+  a_log_outside_the_set: FALLBACK_INVALID,
+  a_cause_without_its_log: {
+    code: 'DISCOVERY_UNAVAILABLE',
+    cause: 'segment_missing',
+    log: null,
+  },
+  a_log_on_a_cause_without_one: {
+    code: 'DISCOVERY_UNAVAILABLE',
+    cause: 'inventory_mismatch',
+    log: 'seen',
+  },
+  a_log_on_a_code_without_a_cause: { code: 'STALE_READING', message: WORKER_TEXT },
+  unavailable_with_its_cause: {
+    code: 'DISCOVERY_UNAVAILABLE',
+    cause: 'segment_missing',
+    log: 'alt_cells',
+  },
+  unavailable_with_an_optional_log_left_out: {
+    code: 'DISCOVERY_UNAVAILABLE',
+    cause: 'cursor_disagrees',
+    log: null,
+  },
+  resource_limit_with_its_cause: { code: 'RESOURCE_LIMIT', cause: 'discovery_alt_seen' },
+  resource_limit_with_a_log: { code: 'RESOURCE_LIMIT', cause: 'discovery_chain_segments' },
+  resident_capacity: { code: 'RESOURCE_LIMIT', cause: 'resident_capacity' },
+  declared_coordinate_bits: { code: 'RESOURCE_LIMIT', cause: 'declared_coordinate_bits' },
+  another_code_without_a_cause: { code: 'STALE_READING', message: WORKER_TEXT },
+  sink_resource_limit_from_packing: { code: 'RESOURCE_LIMIT', message: PACKING_TEXT },
+  sink_record_bound: { code: 'RESOURCE_LIMIT', message: 'The record bound was passed.' },
+  sink_discovery_unavailable: {
+    code: 'DISCOVERY_UNAVAILABLE',
+    cause: 'chain_broken',
+    log: 'alt_cells',
+  },
+  bridge_failure_without_a_reply: { code: 'READER_PROTOCOL', message: 'bridge killed' },
+};
+// What a case cannot show before Step 7: a record released before the reply
+// (U2), and the release a DISCOVERY_UNAVAILABLE pause makes (U1). Step 7
+// removes these.
+const BEFORE_STEP_7 = { skip: ['after_a_release'], release: 'released' };
+// A reply_cause_invalid.json case as a lease: a worker reply, a sink error or
+// a bridge failure.
+function causeCase(c) {
+  if (c.reply)
+    return { plan: async () => ({ code: 1, ...c.reply, stderr: WORKER_TEXT }), commitError: null };
+  if (c.bridge)
+    return { plan: async () => ({ ...c.bridge, stderr: 'bridge killed' }), commitError: null };
+  if (c.sink.code === 'RESOURCE_LIMIT' && !c.sink.status)
+    return {
+      plan: async (sink) => {
+        await sink(readerStep({ records: [{ id: 'big', blob: 'x'.repeat(2 * 1024 * 1024) }] }));
+        return { code: 0, reader_result: { status: 'complete' } };
+      },
+      commitError: null,
+    };
+  return {
+    plan: async (sink) => {
+      await sink(readerStep());
+      return { code: 0, reader_result: { status: 'complete' } };
+    },
+    commitError: () =>
+      Object.assign(
+        new Error(
+          c.sink.code === 'RESOURCE_LIMIT' ? 'The record bound was passed.' : 'stubbed refusal'
+        ),
+        c.sink
+      ),
+  };
+}
+
+test('reply_cause_invalid.json: every mutant and control under C1 off and on', async (t) => {
+  const all = [...replyCauseInvalid.mutants, ...replyCauseInvalid.controls];
+  assert.deepEqual(
+    Object.keys(C1_OFF).sort(),
+    all
+      .map((c) => c.name)
+      .filter((name) => !BEFORE_STEP_7.skip.includes(name))
+      .sort(),
+    'one C1-off row per mutant and control'
+  );
+  for (const c of all) {
+    if (BEFORE_STEP_7.skip.includes(c.name)) continue;
+    for (const enforce of [false, true]) {
+      const label = `${c.name} (C1 ${enforce ? 'on' : 'off'})`;
+      const run = await leaseOnce(t, { ...causeCase(c), enforce });
+      const after = run.store.inspect(run.a);
+      assert.equal(after.state, 'paused', label);
+      assert.equal(after.deferred_requeue, false, label);
+      assert.equal(after.fence, null, label);
+      assert.equal(Object.hasOwn(after, 'discovery'), false, `${label}: nothing released`);
+      const fallback = run.calls.some((call) => call.fallback);
+      assert.equal(
+        run.calls.filter((call) => call.method === 'pause').length,
+        fallback ? 2 : 1,
+        `${label}: one pause, or one refused and the fallback`
+      );
+      if (!enforce) {
+        assert.deepEqual(after.reason, C1_OFF[c.name], label);
+        continue;
+      }
+      // C1 on: the fixture's own outcome, less what Step 7 adds.
+      const want = { ...c.expect.reason };
+      delete want[BEFORE_STEP_7.release];
+      const got = { ...after.reason };
+      if (!Object.hasOwn(want, 'message')) delete got.message;
+      assert.deepEqual(got, want, label);
+      assert.equal(fallback, false, `${label}: no fallback`);
+    }
+  }
+});
+
+test('every refusal path ends the store lease, and the next job leases', async (t) => {
+  const reply = (fields) => async () => ({
+    reply: true,
+    code: 1,
+    stderr: WORKER_TEXT,
+    ...fields,
+  });
+  const paths = [
+    ['a sink READER_PROTOCOL', { plan: planOf({ sink: { provider_calls: 1 } }) }],
+    [
+      'a sink RESOURCE_LIMIT (413)',
+      {
+        plan: causeCase({ sink: { code: 'RESOURCE_LIMIT', status: 413 } }).plan,
+        commitError: () =>
+          refusal('RESOURCE_LIMIT', 'The record bound was passed.', { status: 413 }),
+      },
+    ],
+    [
+      'a sink DISCOVERY_UNAVAILABLE with a cause',
+      {
+        plan: causeCase({ sink: { code: 'DISCOVERY_UNAVAILABLE' } }).plan,
+        commitError: () =>
+          refusal('DISCOVERY_UNAVAILABLE', 'stubbed', {
+            status: 409,
+            cause: 'chain_broken',
+            log: 'alt_cells',
+          }),
+      },
+    ],
+    ...[false, true].flatMap((enforce) => [
+      [
+        `a reply with a missing cause (C1 ${enforce})`,
+        { plan: reply({ error_code: 'DISCOVERY_UNAVAILABLE' }), enforce },
+      ],
+      [
+        `a reply with an invalid cause (C1 ${enforce})`,
+        {
+          plan: reply({ error_code: 'DISCOVERY_UNAVAILABLE', error_cause: 'not_a_cause' }),
+          enforce,
+        },
+      ],
+      [
+        `a reply with a valid cause (C1 ${enforce})`,
+        {
+          plan: reply({ error_code: 'RESOURCE_LIMIT', error_cause: 'resident_capacity' }),
+          enforce,
+        },
+      ],
+    ]),
+    [
+      'a bridge kill',
+      {
+        plan: async () => {
+          throw Object.assign(new Error('reader bridge killed'), { code: undefined });
+        },
+      },
+    ],
+    [
+      'a stubbed store.pause that refuses once',
+      { plan: reply({ error_code: 'READER_ERROR' }), stub: { pause: ['STORE_RECOUNTING'] } },
+    ],
+  ];
+  for (const [name, given] of paths) {
+    const run = await leaseOnce(t, given);
+    const after = run.store.inspect(run.a);
+    assert.ok(after.state !== 'running' || after.lease_expires_at === null, name);
+    assert.equal(run.store.lease()?.id, run.b, `${name}: the queue does not stall`);
+  }
+});
+
+test('C1 is behind one constant, off, and the service never passes the option', async () => {
+  assert.equal(READER_REPLY_CAUSES_ENFORCED, false);
+  const server = await readFile(path.join(here, 'server_http.js'), 'utf8');
+  assert.ok(server.includes('new ReaderScheduler({'), 'the service builds the scheduler');
+  assert.equal(/enforceReplyCauses/.test(server), false, 'server_http.js never passes it');
+  const scheduler = new ReaderScheduler({
+    store: { lease: () => null },
+    bridge: { runReaderLease: async () => ({}) },
+  });
+  assert.equal(scheduler.enforceReplyCauses, false);
+});
+
+// The real bridge's final reader frame (python_bridge.js): error_cause and
+// error_log travel beside error_code and reader_result, and `reply: true`
+// marks it. A bridge failure (here, a provider call the bridge refuses)
+// never sets `reply`.
+test('python_bridge forwards a reply cause and log and marks a reply; a kill is no reply', async (t) => {
+  const directory = await mkdtemp(path.join(tmpdir(), 'reader-reply-bridge-'));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  const workerPath = path.join(directory, 'reply_worker.mjs');
+  await writeFile(
+    workerPath,
+    `import readline from 'node:readline';
+const send = (o) => process.stdout.write(JSON.stringify(o) + '\\n');
+readline.createInterface({ input: process.stdin }).on('line', (line) => {
+  const frame = JSON.parse(line);
+  if (frame.event === 'reader_ack') return;
+  const scenario = frame.reader.source.scenario;
+  if (scenario === 'kill')
+    return send({ id: frame.id, event: 'reader_checkpoint', data: { provider_calls: 1 } });
+  send({
+    id: frame.id,
+    code: 1,
+    error_code: 'DISCOVERY_UNAVAILABLE',
+    error_cause: 'segment_missing',
+    error_log: 'alt_cells',
+    stderr: 'worker text',
+  });
+});
+`
+  );
+  const bridge = createPythonBridge({
+    python: process.execPath,
+    harnessDir: directory,
+    workerPath,
+    harnessEnv: () => ({ PATH: process.env.PATH ?? '' }),
+    timeoutMs: 30_000,
+    maxOutputBytes: 1024 * 1024,
+  });
+  t.after(() => bridge.internals.kill());
+  const lease = (scenario) =>
+    bridge.runReaderLease(
+      { source: { scenario }, lease_ms: 1000 },
+      { onReaderCheckpoint: async () => ({}), timeoutMs: 30_000 }
+    );
+  const reply = await lease('reply');
+  assert.equal(reply.reply, true);
+  assert.deepEqual(
+    [reply.code, reply.error_code, reply.error_cause, reply.error_log],
+    [1, 'DISCOVERY_UNAVAILABLE', 'segment_missing', 'alt_cells']
+  );
+  const killed = await lease('kill');
+  assert.equal(killed.code, -1);
+  assert.equal(killed.error_code, 'READER_PROTOCOL');
+  assert.equal(Object.hasOwn(killed, 'reply'), false, 'failure() never sets reply');
 });

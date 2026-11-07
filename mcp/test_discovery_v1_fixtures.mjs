@@ -195,6 +195,9 @@ const REFUSAL = {
   // A failed worker reply whose cause or log is outside its set (§8, C1): the
   // job pauses with this code; there is no HTTP status.
   reply: { C1: { code: 'READER_PROTOCOL' } },
+  // The reply boundary's fallback pause (§8; BB8 6700200435, condition 3):
+  // a pause store.pause refuses ends in one READER_PROTOCOL pause.
+  fallback: { C1: { code: 'READER_PROTOCOL' } },
 };
 const HEX = /^[a-f0-9]{64}$/;
 // A witness field is a dot path of lowercase names (§3), so its canonical form
@@ -1642,6 +1645,126 @@ function replyCase(discovery, c) {
   };
 }
 
+// ---------------------------------------------------------------- the fallback pause (§8)
+// BB8 6700200435, condition 3: when store.pause refuses the pause it was given
+// with any code but STALE_ATTEMPT, the scheduler logs it and makes exactly one
+// more store.pause, READER_PROTOCOL with no cause, log or release; a refused
+// fallback is logged and lease expiry ends the lease. A refused end-of-lease
+// pause or complete() reaches the catch, whose pause carries its code.
+const fallbackMessage = (code) => `The reader reply could not be recorded: ${code}.`;
+// store.pause refuses an argument outside every set with INVALID_PAUSE (§8).
+function pauseRefusal(reason) {
+  const named = (v) => v !== undefined && v !== null;
+  if (
+    named(reason.cause) &&
+    !(typeof reason.cause === 'string' && [...CAUSES, ...RESOURCE_CAUSES].includes(reason.cause))
+  )
+    return 'INVALID_PAUSE';
+  if (named(reason.log) && !LOGS.includes(reason.log)) return 'INVALID_PAUSE';
+  return null;
+}
+// The reason store.pause stores: a named cause stores no message.
+function storedReason(r) {
+  if (r.code === 'RESOURCE_LIMIT' && RESOURCE_CAUSES.includes(r.cause))
+    return { code: r.code, cause: r.cause };
+  if (r.code === 'DISCOVERY_UNAVAILABLE' && CAUSES.includes(r.cause))
+    return { code: r.code, cause: r.cause, log: r.log ?? null };
+  if (r.code === 'READER_PROTOCOL' && r.reply_code !== undefined)
+    return {
+      code: r.code,
+      reply_code: r.reply_code,
+      field: r.field,
+      value: r.value,
+      message: r.message,
+    };
+  return { code: r.code, message: r.message };
+}
+function fallbackCase(c, c1) {
+  const stubs = [...c.stub.pause];
+  const calls = [];
+  const errors = [];
+  const warnings = [];
+  let saved = null;
+  const pause = (reason, fallback = false) => {
+    const call = { method: 'pause', code: reason.code, ...(fallback ? { fallback: true } : {}) };
+    const refused = stubs.shift() ?? pauseRefusal(reason);
+    calls.push(refused ? { ...call, refused } : { ...call, outcome: 'ok' });
+    if (!refused) saved = storedReason(reason);
+    return refused;
+  };
+  const lease = c.lease;
+  let failure = null;
+  if (lease.reply) {
+    const bad = c1 ? checkReply(lease.reply) : null;
+    failure = bad
+      ? { code: 'READER_PROTOCOL', reply_code: lease.reply.error_code, ...bad }
+      : {
+          code: lease.reply.error_code,
+          message: lease.reply.stderr,
+          cause: lease.reply.error_cause,
+          log: lease.reply.error_log,
+          reply: true,
+        };
+  } else if (lease.sink)
+    failure = { code: lease.sink.code, message: 'Reader analysis attempted a provider call.' };
+  else if (lease.done) {
+    if (c.stub.complete) {
+      calls.push({ method: 'complete', refused: c.stub.complete.code });
+      failure = { ...c.stub.complete };
+    } else calls.push({ method: 'complete', outcome: 'ok' });
+  } else {
+    const refused = pause({ code: lease.result.reader_result.reason, message: 'yield' });
+    if (refused) failure = { code: refused, message: `stubbed ${refused}` };
+  }
+  if (failure) {
+    if (failure.reply && failure.cause !== undefined && failure.cause !== null)
+      warnings.push(
+        `[reader] worker reply ${failure.code}[${echo(failure.cause)}]: ${failure.message}`
+      );
+    const refused = pause(failure);
+    if (refused && refused !== 'STALE_ATTEMPT') {
+      errors.push(`[reader] checkpoint recovery failed: ${refused}`);
+      const again = pause({ code: 'READER_PROTOCOL', message: fallbackMessage(refused) }, true);
+      if (again) errors.push(`[reader] fallback pause failed: ${again}`);
+    }
+  }
+  const paused = (reason) => ({
+    state: 'paused',
+    deferred_requeue: false,
+    fence: null,
+    lease_expires_at: null,
+    discovery: 'unchanged',
+    reason,
+  });
+  const fellBack = calls.some((x) => x.fallback);
+  return {
+    calls,
+    record: saved ? paused(saved) : { state: 'running', discovery: 'unchanged', saved: 'nothing' },
+    ...(!saved && fellBack
+      ? {
+          after_lease_expiry: paused({
+            code: 'INTERRUPTED',
+            message: 'Lease expired; resume the last durable checkpoint explicitly.',
+          }),
+        }
+      : {}),
+    errors,
+    warnings,
+  };
+}
+// The fallback fixture's cases, exactly.
+const FALLBACK_CASES = [
+  'cause_outside_every_set',
+  'cause_not_a_string',
+  'stale_attempt',
+  'fallback_refused',
+  'c1_on_safety_net',
+  'end_of_lease_pause_refused',
+  'end_of_lease_stale',
+  'complete_refused',
+];
+const FALLBACK_CONTROLS = ['valid_reply', 'sink_reader_protocol'];
+
 // ---------------------------------------------------------------- a release under a live lease (§7.4)
 // Reconciliation on one instance, a commit and a pause from the instance that
 // holds the lease. The release is a normal record save: it never touches a
@@ -2687,6 +2810,7 @@ const BAD = {
   premature_seal: 'F4',
   reordered_segment: 'R2',
   reply_cause_invalid: 'C1',
+  reply_pause_refused: 'C1',
   reset_unheld_log: 'W3',
   retired_key_recurring: 'S1',
   segment_corrupt_at_reconciliation: 'F6',
@@ -4131,6 +4255,44 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
         }),
         'a cause past the echo bound'
       );
+    } else if (fx.kind === 'fallback') {
+      // §8, the fallback pause: each case and control under each C1 setting it
+      // names; at most one fallback, never after STALE_ATTEMPT, at most three
+      // store.pause calls, and the fallback carries no cause, log or release.
+      assert.deepEqual(
+        fx.cases.map((c) => c.name),
+        FALLBACK_CASES,
+        'the cases, exactly'
+      );
+      assert.deepEqual(
+        fx.controls.map((c) => c.name),
+        FALLBACK_CONTROLS,
+        'the controls, exactly'
+      );
+      assert.equal(fx.fallback_message, fallbackMessage('<code>'));
+      violations = [];
+      for (const c of [...fx.cases, ...fx.controls]) {
+        assert.ok(c.c1.length >= 1, `${c.name}: a C1 setting`);
+        for (const c1 of c.c1) {
+          const got = fallbackCase(c, c1);
+          assert.deepEqual(got, c.expect, `${c.name} (C1 ${c1 ? 'on' : 'off'})`);
+          const pauses = got.calls.filter((x) => x.method === 'pause');
+          const fell = got.calls.filter((x) => x.fallback);
+          assert.ok(fell.length <= 1, `${c.name}: never a second fallback`);
+          assert.ok(pauses.length <= 3, `${c.name}: at most three pause calls`);
+          for (const [i, x] of got.calls.entries())
+            if (x.fallback) assert.notEqual(got.calls[i - 1].refused, 'STALE_ATTEMPT', c.name);
+          if (fell.length && got.record.state === 'paused')
+            assert.deepEqual(Object.keys(got.record.reason).sort(), ['code', 'message'], c.name);
+          if (fell.length && fx.cases.includes(c)) violations.push({ rule: 'C1', detail: c.name });
+          if (fx.controls.includes(c))
+            assert.equal(pauses.length, 1, `control ${c.name}: one call`);
+        }
+      }
+      // The two INVALID_PAUSE cases run with C1 off; the safety net with C1 on.
+      for (const name of ['cause_outside_every_set', 'cause_not_a_string'])
+        assert.deepEqual(fx.cases.find((c) => c.name === name).c1, [false], name);
+      assert.deepEqual(fx.cases.find((c) => c.name === 'c1_on_safety_net').c1, [true]);
     } else if (fx.kind === 'groups') {
       violations = runGroups(fx).violations;
       assert.equal(violations.at(-1)?.at_event, fx.expect.at_event, 'refused at the named event');
@@ -5657,7 +5819,7 @@ test('the attribution of the row_seen figure and the headroom (BB8 6683944548)',
 });
 
 // §12: every item BB8 ruled is marked with its ruling; only item 29 is open.
-test('§12: items 21-28 carry their rulings, 30-31 are ruled and folded, and only 29 is open', () => {
+test('§12: items 21-28 carry their rulings, 30-32 are ruled and folded, and only 29 is open', () => {
   const text = section('12. Rulings on the items added for confirmation');
   const item = (n) => {
     const m = new RegExp(`\\n${n}\\. \\*\\*([^*]+)\\*\\*`).exec(text);
@@ -5678,7 +5840,13 @@ test('§12: items 21-28 carry their rulings, 30-31 are ruled and folded, and onl
   assert.ok(!/not yet folded|Until the next revision folds/.test(text), 'nothing waits on a fold');
   assert.ok(body(31).includes('**Open for BB8:**'), "item 31's value is open for BB8");
   assert.ok(/ENTRY_DEPTH/.test(section('2. Format')), '§2.1 carries ENTRY_DEPTH');
-  assert.ok(!/\n32\. /.test(text), 'no item 32');
+  // BB8 6700200435 on R2's seven questions of the Node-side plan: item 32,
+  // which names condition (3) and its fixture from Step 4 on.
+  assert.equal(item(32), 'Ruled: accepted, with conditions');
+  assert.ok(body(32).includes('(BB8 6700200435,'), 'item 32 names its ruling');
+  assert.ok(body(32).includes('`bad/reply_pause_refused.json`'), 'item 32 names its fixture');
+  assert.ok(text.replace(/\s+/g, ' ').includes('Item 32 is ruled by 6700200435.'));
+  assert.ok(!/\n33\. /.test(text), 'no item 33');
   assert.ok(text.replace(/\s+/g, ' ').includes('Only item 29 is open, for the proof run.'));
   assert.ok(!/Items 29, 30 and 31 are open/.test(text));
   assert.ok(text.includes('6684866461') && text.includes('6683944548'));
@@ -7877,9 +8045,9 @@ const CITED_CODE = {
   'sched.pump.store_lease': '6f02c32eea3984dc',
   'sched.pump.stored_check': '5bb62c97312dc525',
   'sched.pump.identity_check': '805d36dac33de30d',
-  'sched.pump.run_reader_lease': 'fa744ae3e099f326',
+  'sched.pump.run_reader_lease': '573bffc4bb5398ea',
   'sched.pump.declarations': '9c0b44cf7533f1fd',
-  'sched.pump.catch_pause': '04dec2ef3774723a',
+  'sched.pump.catch_pause': 'bebbb496624f56f4',
   'source_worker.verify': 'c70ad56857c8151f',
   'bridge.frame_cap': '9984ca2e1f63dc5b',
   'bridge.spawn.parse': 'a78dbdf6483e4415',
@@ -8133,7 +8301,7 @@ const CONTRACT_CITES = [
     symbol: 'pump',
     starts: 'const trusted = this.store.workerPayload(record.id);',
     ends: 'committed_pages: trusted.page_paths || trusted.pages || [],',
-    code: '4817ddb9a9850bfc',
+    code: 'd85e7c627f0363d6',
   },
   {
     id: 'c.worker.run_reader.1',
@@ -8168,7 +8336,7 @@ const CONTRACT_CITES = [
     symbol: 'pump',
     starts: '} catch (failure) {',
     ends: "if (stale.code !== 'STALE_ATTEMPT')",
-    code: '04dec2ef3774723a',
+    code: 'bebbb496624f56f4',
   },
   {
     id: 'c.analysis._resource_guard',
@@ -9577,7 +9745,7 @@ const CONTRACT_CITES = [
     symbol: 'spawnWorker',
     starts: "else if (typeof reply.code === 'number') {",
     ends: ': {}),',
-    code: '58729c82f39c4047',
+    code: '5d4c41bc8ef07386',
   },
   {
     id: 'c.python_bridge.spawnWorker.2',
@@ -9585,16 +9753,25 @@ const CONTRACT_CITES = [
     file: 'mcp/python_bridge.js',
     symbol: 'spawnWorker',
     starts: "...(current.family === 'reader'",
-    code: '6472facd6f406f09',
+    code: 'ee49ccf6fd8012a3',
   },
   {
     id: 'c.reader_scheduler.pump.7',
     at: '8',
     file: 'mcp/reader_scheduler.js',
     symbol: 'pump',
-    starts: 'onReaderCheckpoint: async (step) => {',
-    ends: '},',
-    code: 'b28e592dc16aea21',
+    starts: 'const checkpoint = async (step) => {',
+    code: 'd7dc6c867e803ff8',
+  },
+  // Step 4: the sink's own error is kept before the bridge sees it.
+  {
+    id: 'c.reader_scheduler.pump.10',
+    at: '8',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'onReaderCheckpoint: (step) =>',
+    ends: '}),',
+    code: 'ce2c50c860af3fc8',
   },
   {
     id: 'c.reader_scheduler.packReaderPages',
@@ -9638,9 +9815,8 @@ const CONTRACT_CITES = [
     at: '8',
     file: 'mcp/reader_scheduler.js',
     symbol: 'pump',
-    starts: 'if (result.code !== 0)',
-    ends: ');',
-    code: 'eaa519e44e23b666',
+    starts: 'if (result.code !== 0) {',
+    code: '090dc9419698911c',
   },
   {
     id: 'c.reader_job_store.constructor.4',
@@ -10669,7 +10845,7 @@ const REVIEW_MUTANTS = [
   [
     'Y2',
     'mcp/reader_scheduler.js',
-    "      try {\n        this.store.pause(record.id, record.attempt, record.fence, {\n          code: failure.code || 'INTERRUPTED',\n          message: failure.message,\n          requeue: false,\n        });\n      } catch (stale) {",
+    "      try {\n        this.store.pause(record.id, record.attempt, record.fence, {\n          code: failure.code || 'INTERRUPTED',\n          message: failure.message,\n          requeue: false,\n          ...fields,\n        });\n      } catch (stale) {",
     '      try {\n        void failure;\n      } catch (stale) {',
   ],
   [
