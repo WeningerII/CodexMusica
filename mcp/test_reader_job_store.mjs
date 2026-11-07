@@ -1345,11 +1345,15 @@ test('pause: an argument outside every set is refused INVALID_PAUSE (500) and sa
     { code: 'READER_PROTOCOL', reply_code: 4, field: 'error_cause', value: null },
     { code: 'READER_PROTOCOL', reply_code: 'RESOURCE_LIMIT', field: 'error_cause', value: 9 },
   ])
-    assert.throws(
-      () => store.pause(lease.id, lease.attempt, lease.fence, { message: 'm', ...extra }),
-      (error) => error.code === 'INVALID_PAUSE' && error.status === 500,
-      JSON.stringify(extra)
-    );
+    // A requeue stores no reason, so the check before the save is the only
+    // guard there; both are refused before anything is saved.
+    for (const requeue of [false, true])
+      assert.throws(
+        () =>
+          store.pause(lease.id, lease.attempt, lease.fence, { message: 'm', requeue, ...extra }),
+        (error) => error.code === 'INVALID_PAUSE' && error.status === 500,
+        JSON.stringify({ requeue, ...extra })
+      );
   assert.deepEqual(store.inspect(lease.id), before, 'nothing saved; the lease is held');
   // A stale lease is refused STALE_ATTEMPT first.
   assert.throws(

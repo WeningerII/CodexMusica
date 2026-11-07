@@ -1706,7 +1706,15 @@ function fallbackCase(c, c1) {
           reply: true,
         };
   } else if (lease.sink)
-    failure = { code: lease.sink.code, message: 'Reader analysis attempted a provider call.' };
+    // A sink error is rethrown as it was, with its cause and log (§8).
+    failure = lease.sink.provider_calls
+      ? { code: lease.sink.code, message: 'Reader analysis attempted a provider call.' }
+      : {
+          code: lease.sink.code,
+          message: 'stubbed refusal',
+          cause: lease.sink.cause,
+          log: lease.sink.log,
+        };
   else if (lease.done) {
     if (c.stub.complete) {
       calls.push({ method: 'complete', refused: c.stub.complete.code });
@@ -1763,7 +1771,12 @@ const FALLBACK_CASES = [
   'end_of_lease_stale',
   'complete_refused',
 ];
-const FALLBACK_CONTROLS = ['valid_reply', 'sink_reader_protocol'];
+const FALLBACK_CONTROLS = [
+  'valid_reply',
+  'sink_reader_protocol',
+  'reply_with_a_log',
+  'sink_with_a_cause',
+];
 
 // ---------------------------------------------------------------- a release under a live lease (§7.4)
 // Reconciliation on one instance, a commit and a pause from the instance that

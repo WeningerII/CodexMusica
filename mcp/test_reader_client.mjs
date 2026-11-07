@@ -1050,9 +1050,9 @@ function outcome(run) {
 // The lease a fixture case names, as a bridge plan.
 function planOf(lease) {
   if (lease.reply) return async () => ({ ...lease.reply });
-  if (lease.sink?.provider_calls)
+  if (lease.sink)
     return async (sink) => {
-      await sink(readerStep({ provider_calls: lease.sink.provider_calls }));
+      await sink(readerStep({ provider_calls: lease.sink.provider_calls || 0 }));
       return { code: 0, reader_result: { status: 'complete' } };
     };
   if (lease.done)
@@ -1068,7 +1068,13 @@ test('reply_pause_refused.json: the fallback pause, every case under each C1 set
   for (const c of [...replyPauseRefused.cases, ...replyPauseRefused.controls])
     for (const enforce of c.c1) {
       const label = `${c.name} (C1 ${enforce ? 'on' : 'off'})`;
-      const run = await leaseOnce(t, { plan: planOf(c.lease), enforce, stub: c.stub });
+      // A sink error that is not a provider call is the store's commit
+      // refusing, with the code, cause and log the case names.
+      const commitError =
+        c.lease.sink && !c.lease.sink.provider_calls
+          ? () => Object.assign(new Error('stubbed refusal'), { status: 503, ...c.lease.sink })
+          : null;
+      const run = await leaseOnce(t, { plan: planOf(c.lease), enforce, stub: c.stub, commitError });
       assert.deepEqual(run.calls, c.expect.calls, `${label}: the store calls`);
       assert.deepEqual(outcome(run), c.expect.record, `${label}: the record`);
       assert.deepEqual(run.errors, c.expect.errors, `${label}: console.error`);
