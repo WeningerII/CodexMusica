@@ -4,7 +4,13 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
-import { DISCOVERY_CAUSES, LOGS, RESOURCE_CAUSES } from './reader_discovery.js';
+import {
+  DISCOVERY_CAUSES,
+  LOGS,
+  RESOURCE_CAUSES,
+  isDigest,
+  segmentContent,
+} from './reader_discovery.js';
 
 export const READER_LIMITS = Object.freeze({
   pageInstances: 250,
@@ -50,6 +56,46 @@ const reserveGap = (size) => Math.max(0, RESERVE_BYTES - size);
 function problem(code, message, status = 409) {
   return Object.assign(new Error(message), { code, status });
 }
+// §2.7's exact keys and types of `record.discovery` (the store's
+// _discoveryShape and _liveDiscovery read them). That `verified` names the
+// logs `logs` names is R5's (§5.1), not the shape's.
+const plainObject = (v) =>
+  v !== null && typeof v === 'object' && Object.getPrototypeOf(v) === Object.prototype;
+const exactKeys = (v, keys) =>
+  plainObject(v) &&
+  Object.keys(v).length === keys.length &&
+  keys.every((key) => Object.hasOwn(v, key));
+const nonNegative = (v) => Number.isSafeInteger(v) && v >= 0;
+const headOf = (v) => v === null || isDigest(v);
+const LOG_STATE_KEYS = ['head', 'segments', 'count', 'bytes', 'digest'];
+const logStates = (v) =>
+  plainObject(v) &&
+  Object.entries(v).every(
+    ([log, state]) =>
+      LOGS.includes(log) &&
+      exactKeys(state, LOG_STATE_KEYS) &&
+      headOf(state.head) &&
+      nonNegative(state.segments) &&
+      nonNegative(state.count) &&
+      nonNegative(state.bytes) &&
+      isDigest(state.digest)
+  );
+const unavailableShape = (v) =>
+  v === null ||
+  (exactKeys(v, ['cause', 'log', 'released']) &&
+    Object.hasOwn(DISCOVERY_CAUSES, v.cause) &&
+    (v.log === null || LOGS.includes(v.log)) &&
+    plainObject(v.released) &&
+    Object.entries(v.released).every(([log, head]) => LOGS.includes(log) && headOf(head)));
+const discoveryStateShape = (value) =>
+  exactKeys(value, ['version', 'epoch', 'logs', 'verified', 'unavailable']) &&
+  value.version === 1 &&
+  nonNegative(value.epoch) &&
+  logStates(value.logs) &&
+  logStates(value.verified) &&
+  unavailableShape(value.unavailable);
+// §7.1: the states whose discovery chains stay live, and so root the GC.
+const DISCOVERY_LIVE_STATES = new Set(['queued', 'running', 'paused', 'cancelled']);
 // The reason a pause stores (DISCOVERY_V1 §8, the pause). A RESOURCE_LIMIT
 // with one of its ten causes is `{code, cause}`, and a DISCOVERY_UNAVAILABLE
 // with one of §8's causes `{code, cause, log}`: a reason with a named cause
@@ -711,6 +757,96 @@ export class ReaderJobStore {
       const hash = record.definitions?.[`${which}_sha256`];
       return hash ? this._rawObject('definitions', hash) : null;
     });
+  }
+  // ── persisted discovery (DISCOVERY_V1, #656): predicates and segment reads ──
+  // Single-sourced here for every later step. 'none' when `discovery` is
+  // absent or null (every record on main lacks it, and complete() saves null,
+  // so neither is malformed); 'malformed' when it is present, non-null and
+  // fails §2.7's exact keys and types; 'released' when it passes and
+  // `unavailable` is set; 'live' when it passes and `unavailable` is null.
+  _discoveryShape(record) {
+    const value = record?.discovery;
+    if (value === undefined || value === null) return 'none';
+    if (!discoveryStateShape(value)) return 'malformed';
+    return value.unavailable === null ? 'live' : 'released';
+  }
+  // §7.1: a queued, running, paused or cancelled record with a live discovery.
+  // Only these root the GC (§7.2). A completed record or a tombstone is never
+  // read for discovery, and a malformed one roots nothing.
+  _liveDiscovery(record) {
+    return DISCOVERY_LIVE_STATES.has(record?.state) && this._discoveryShape(record) === 'live';
+  }
+  // One ['discovery', head] GC root per non-null head of a live record's logs.
+  _discoveryRoots(record) {
+    if (!this._liveDiscovery(record)) return [];
+    return Object.values(record.discovery.logs)
+      .filter((state) => state.head !== null)
+      .map((state) => ['discovery', state.head]);
+  }
+  // A segment's bytes are decoded fatally, never with Buffer.toString or
+  // JSON.parse on the buffer, which replace bytes that are not UTF-8 (§2.11).
+  _segmentText(buf) {
+    return new TextDecoder('utf-8', { fatal: true }).decode(buf);
+  }
+  _segmentJSON(buf) {
+    return JSON.parse(this._segmentText(buf));
+  }
+  // Reads one discovery segment (§2.5) and returns {missing}, {f6}, {f3: tag}
+  // or {segment, bytes}; it never refuses with a public code itself. The file
+  // is stat'ed first (BB8 6700200435, condition 7): ENOENT is {missing}, and
+  // a stored size over READER_LIMITS.objectBytes is {f6} WITHOUT reading the
+  // file. A caller that has stat'ed it already passes the size, so no path
+  // stats a segment twice. Only then is it read through _readFile and
+  // decodeStoredObject: a failed bounded inflation, or bytes that do not
+  // match the address, are {f6}. _readFile's own size refusal is met only if
+  // the file is replaced by a larger one between the stat and the read
+  // (segments are content-addressed and written once, so only a foreign
+  // writer or damage can), and that stays STORAGE_CORRUPT, as at Base.
+  // `expect` null is a mark read: past F6, the strict decode, the parse and
+  // `previous_hash`'s shape only (a malformed link is {f3}, never
+  // INVALID_DECLARATION). Otherwise F3 runs in full against `expect`
+  // ({job_id, identity_hash, epoch, log}). An address that is not 64-hex
+  // names no file and is {f3}, so no caller's link reaches the filesystem.
+  _segment(hash, expect, size = null) {
+    if (!HASH.test(hash)) return { f3: 'FIELD' };
+    const file = path.join(this.directory, 'pages', `${hash}.json`);
+    if (size === null) {
+      try {
+        size = fs.statSync(file).size;
+      } catch (error) {
+        if (error.code === 'ENOENT') return { missing: true };
+        throw error;
+      }
+    }
+    if (size > READER_LIMITS.objectBytes) return { f6: true };
+    let bytes;
+    try {
+      bytes = this._readFile(file);
+    } catch (error) {
+      if (error.code === 'ENOENT') return { missing: true };
+      throw error;
+    }
+    try {
+      bytes = decodeStoredObject(bytes);
+    } catch (error) {
+      if (error.code === 'STORAGE_CORRUPT') return { f6: true };
+      throw error;
+    }
+    if (sha(bytes) !== hash) return { f6: true };
+    let segment;
+    try {
+      segment = this._segmentJSON(bytes);
+    } catch {
+      return { f3: 'JSON' };
+    }
+    if (expect === null) {
+      if (!plainObject(segment)) return { f3: 'JSON' };
+      if (segment.previous_hash !== null && !isDigest(segment.previous_hash))
+        return { f3: 'FIELD' };
+      return { segment, bytes };
+    }
+    const [fault] = segmentContent(segment, expect).faults;
+    return fault ? { f3: fault.tag } : { segment, bytes };
   }
   _object(kind, hash) {
     if (!HASH.test(hash || ''))
@@ -1696,13 +1832,22 @@ export class ReaderJobStore {
   // With `bounds`, the object's size is checked BEFORE it is read: an object
   // that would take the slice past its object or byte bound stays on the
   // stack for the next slice, and false is returned.
+  //
+  // A `discovery` entry is a segment (§7.2): it lives in pages/, so it is
+  // marked in live.pages (`live` holds only OBJECT_KINDS), read by _segment as
+  // a mark read, and continues at its previous_hash. A segment that is
+  // missing, over the size bound (never read, and never deferred by the byte
+  // bound: it could never fit), changed, not strictly UTF-8 JSON, or whose
+  // link is malformed is STORAGE_CORRUPT, which abandons the collection
+  // (§7.4); the error's non-enumerable `rule` says which.
   _markStep(stack, live, budget, bounds = null) {
     const [kind, hash] = stack[stack.length - 1];
-    if (!hash || live[kind].has(hash)) {
+    const liveKind = kind === 'discovery' ? 'pages' : kind;
+    if (!hash || live[liveKind].has(hash)) {
       stack.pop();
       return true;
     }
-    const file = path.join(this.directory, kind, `${hash}.json`);
+    const file = path.join(this.directory, liveKind, `${hash}.json`);
     let size;
     try {
       size = fs.statSync(file).size;
@@ -1711,9 +1856,30 @@ export class ReaderJobStore {
         throw problem('STORAGE_CORRUPT', 'Committed reader object is missing.', 503);
       throw error;
     }
-    if (bounds && (budget.objects + 1 > bounds.objects || budget.bytes + size > bounds.bytes))
+    const oversized = kind === 'discovery' && size > READER_LIMITS.objectBytes;
+    if (
+      bounds &&
+      !oversized &&
+      (budget.objects + 1 > bounds.objects || budget.bytes + size > bounds.bytes)
+    )
       return false;
     stack.pop();
+    if (kind === 'discovery') {
+      const read = this._segment(hash, null, size);
+      if (!read.segment) {
+        const rule = read.missing ? 'missing' : read.f6 ? 'F6' : 'F3';
+        throw Object.defineProperty(
+          problem('STORAGE_CORRUPT', 'A live discovery segment failed its mark read.', 503),
+          'rule',
+          { value: rule, enumerable: false }
+        );
+      }
+      budget.objects++;
+      budget.bytes += size;
+      stack.push(['discovery', read.segment.previous_hash]);
+      live.pages.add(hash);
+      return true;
+    }
     const node = this._object(kind, hash);
     budget.objects++;
     budget.bytes += size;
@@ -1733,7 +1899,7 @@ export class ReaderJobStore {
   }
   _markRecord(record, live, budget) {
     this._markDefinitions(record, live);
-    const stack = [['checkpoints', record.checkpoint_hash]];
+    const stack = [['checkpoints', record.checkpoint_hash], ...this._discoveryRoots(record)];
     while (stack.length) this._markStep(stack, live, budget);
   }
   _unlinkCounted(file) {
@@ -1862,6 +2028,7 @@ export class ReaderJobStore {
         if (record) {
           this._markDefinitions(record, gc.live);
           gc.stack.push(['checkpoints', record.checkpoint_hash]);
+          gc.stack.push(...this._discoveryRoots(record));
         }
         marked++;
       }
@@ -1883,6 +2050,7 @@ export class ReaderJobStore {
             if (record) {
               this._markDefinitions(record, gc.live);
               gc.stack.push(['checkpoints', record.checkpoint_hash]);
+              gc.stack.push(...this._discoveryRoots(record));
             }
           }
           gc.dirty.clear();

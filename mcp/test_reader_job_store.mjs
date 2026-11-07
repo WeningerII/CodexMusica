@@ -8,6 +8,8 @@ import express from 'express';
 import { ReaderJobStore, READER_LIMITS, decodeStoredObject } from './reader_job_store.js';
 import { canonicalJSON, createCatalogResolver } from './reader_scheduler.js';
 import { createReaderRouter, signReaderRequest } from './reader_routes.js';
+import { buildSegment } from './reader_discovery.js';
+import { plantRecord, storeDirectory } from './reader_store_test_support.mjs';
 
 const identity = {
   snapshot: 'snapshot-a',
@@ -1379,4 +1381,540 @@ test('pause: an argument outside every set is refused INVALID_PAUSE (500) and sa
   // A valid pause still ends the lease.
   store.pause(lease.id, lease.attempt, lease.fence, { code: 'READER_ERROR', message: 'm' });
   assert.equal(store.inspect(lease.id).state, 'paused');
+});
+
+// ── persisted discovery, Step 5 (#656 Node-side plan): the predicates, the
+// segment reader and the GC roots, before any segment write. Nothing writes
+// a chain yet, so the chains are planted as a foreign writer would
+// (reader_store_test_support.mjs), and prune() / maintain() reload them.
+const dsha = (bytes) => createHash('sha256').update(bytes).digest('hex');
+const EMPTY = { head: null, segments: 0, count: 0, bytes: 0, digest: dsha('d0') };
+// A chain of `n` linked segments of `log` for `record`, oldest first.
+function plantedChain(record, log, n, { epoch = 0, tag = log } = {}) {
+  const raws = [];
+  let previous = null;
+  for (let i = 0; i < n; i++) {
+    const { raw, address } = buildSegment(
+      record,
+      epoch,
+      log,
+      previous,
+      i * 4,
+      [`${tag}-${i}-a`, `${tag}-${i}-b`, `${tag}-${i}-c`, `${tag}-${i}-d`],
+      dsha(`${tag}-before-${i}`),
+      dsha(`${tag}-after-${i}`)
+    );
+    raws.push(raw);
+    previous = address;
+  }
+  const addresses = raws.map((raw) => dsha(raw));
+  return { raws, addresses, head: previous };
+}
+const stateFor = (head, segments) => ({
+  head,
+  segments,
+  count: segments * 4,
+  bytes: segments * 40,
+  digest: dsha(`state-${head}`),
+});
+function liveDiscoveryOf(chains) {
+  const logs = {};
+  const verified = {};
+  for (const [log, c] of Object.entries(chains)) {
+    logs[log] = stateFor(c.head, c.addresses.length);
+    verified[log] = EMPTY;
+  }
+  return { version: 1, epoch: 0, logs, verified, unavailable: null };
+}
+const pagesDir = (directory) => path.join(storeDirectory(directory), 'pages');
+const pageExists = (directory, hash) =>
+  fs.existsSync(path.join(pagesDir(directory), `${hash}.json`));
+// A store holding one created job, planted again with `discovery` and the
+// chains' segments (and optionally a state), plus one orphan segment that
+// nothing references.
+function discoveryFixture(t, { state, chains = 2, gzip = false, options = {} } = {}) {
+  const { directory, store } = fixture(t, options);
+  const job = create(store);
+  const base = store.records.get(job.record.id);
+  const seen = plantedChain(base, 'seen', chains);
+  const alt = plantedChain(base, 'alt_cells', 1);
+  const orphan = plantedChain(base, 'variants', 1, { tag: 'orphan' });
+  const record = {
+    ...base,
+    ...(state ? { state } : {}),
+    discovery: liveDiscoveryOf({ seen, alt_cells: alt }),
+  };
+  plantRecord(directory, record, [...seen.raws, ...alt.raws, ...orphan.raws], { gzip });
+  return { directory, store, job, record, seen, alt, orphan };
+}
+// Back-dates every stored object, so maintain()'s mtime sweep can take them.
+function backdate(directory) {
+  const old = new Date(Date.now() - 60_000);
+  for (const kind of ['pages', 'indexes', 'checkpoints', 'manifests', 'definitions'])
+    for (const file of fs.readdirSync(path.join(storeDirectory(directory), kind)))
+      fs.utimesSync(path.join(storeDirectory(directory), kind, file), old, old);
+}
+function maintainAll(store, bounds = undefined) {
+  for (let i = 0; i < 1000; i++) {
+    const result = store.maintain(bounds);
+    if (result.phase === 'idle') return result;
+  }
+  throw new Error('maintain() did not finish');
+}
+const corruptAt = (rule) => (error) =>
+  error.code === 'STORAGE_CORRUPT' &&
+  error.status === 503 &&
+  error.rule === rule &&
+  !Object.keys(error).includes('rule');
+
+test('discovery: _discoveryShape and _liveDiscovery read §2.7 exactly', (t) => {
+  const { store } = fixture(t);
+  const good = liveDiscoveryOf({ seen: { head: dsha('h'), addresses: [dsha('h')] } });
+  const shape = (discovery) => store._discoveryShape({ discovery });
+  assert.equal(store._discoveryShape({}), 'none', 'absent, as every record on main');
+  assert.equal(shape(null), 'none', 'null, as complete() saves it');
+  assert.equal(shape(good), 'live');
+  assert.equal(shape({ ...good, logs: {}, verified: {} }), 'live', 'no logs yet');
+  const released = {
+    ...good,
+    logs: {},
+    verified: {},
+    unavailable: { cause: 'chain_broken', log: null, released: { seen: dsha('h') } },
+  };
+  assert.equal(shape(released), 'released');
+  for (const [name, bad] of [
+    ['an empty object', {}],
+    ['a string', 'discovery'],
+    ['an array', [good]],
+    ['a number', 1],
+    ['version 2', { ...good, version: 2 }],
+    ['an extra key', { ...good, extra: 1 }],
+    ['a missing key', (({ verified: _v, ...rest }) => rest)(good)],
+    ['a log outside §2.3', { ...good, logs: { alt_cellz: good.logs.seen } }],
+    ['a head that is not 64-hex', { ...good, logs: { seen: { ...good.logs.seen, head: 'ABC' } } }],
+    ['a non-integer epoch', { ...good, epoch: 1.5 }],
+    ['a negative epoch', { ...good, epoch: -1 }],
+    ['a string count', { ...good, logs: { seen: { ...good.logs.seen, count: '4' } } }],
+    ['a state with an extra key', { ...good, logs: { seen: { ...good.logs.seen, x: 0 } } }],
+    ['a bad digest', { ...good, verified: { seen: { ...EMPTY, digest: 'd0' } } }],
+    ['an unknown cause', { ...released, unavailable: { ...released.unavailable, cause: 'x' } }],
+    [
+      'an unavailable log outside §2.3',
+      { ...released, unavailable: { ...released.unavailable, log: 'alt_cellz' } },
+    ],
+    [
+      'a released head',
+      { ...released, unavailable: { ...released.unavailable, released: { seen: 1 } } },
+    ],
+    ['logs an array', { ...good, logs: [] }],
+  ])
+    assert.equal(shape(bad), 'malformed', name);
+  // Only §7.1's four states hold a live discovery.
+  for (const state of ['queued', 'running', 'paused', 'cancelled'])
+    assert.equal(store._liveDiscovery({ state, discovery: good }), true, state);
+  for (const state of ['completed', 'completed_with_refusals', 'expired', 'deleted'])
+    assert.equal(store._liveDiscovery({ state, discovery: good }), false, state);
+  assert.equal(store._liveDiscovery({ state: 'queued', discovery: released }), false);
+  assert.equal(store._liveDiscovery({ state: 'queued', discovery: {} }), false, 'malformed');
+  assert.equal(store._liveDiscovery({ state: 'queued', discovery: null }), false);
+  assert.equal(store._liveDiscovery({ state: 'queued' }), false);
+  // The roots: one per non-null head, of a live record only.
+  const twoLogs = {
+    ...good,
+    logs: { ...good.logs, row_seen: EMPTY },
+    verified: { ...good.verified, row_seen: EMPTY },
+  };
+  assert.deepEqual(store._discoveryRoots({ state: 'paused', discovery: twoLogs }), [
+    ['discovery', dsha('h')],
+  ]);
+  assert.deepEqual(store._discoveryRoots({ state: 'completed', discovery: twoLogs }), []);
+  assert.deepEqual(store._discoveryRoots({ state: 'queued', discovery: { logs: good.logs } }), []);
+});
+
+test('discovery: a record with discovery absent or null roots nothing, and its stray segments are swept', (t) => {
+  for (const discovery of [undefined, null]) {
+    const { directory, store } = fixture(t);
+    const job = create(store);
+    const base = store.records.get(job.record.id);
+    const stray = plantedChain(base, 'seen', 2);
+    const record = { ...base };
+    if (discovery === null) record.discovery = null;
+    plantRecord(directory, record, stray.raws);
+    assert.deepEqual(store._discoveryRoots(store.records.get(job.record.id)), []);
+    store.prune();
+    for (const hash of stray.addresses) assert.equal(pageExists(directory, hash), false);
+    assert.equal(store.inspect(job.record.id).state, 'queued');
+  }
+});
+
+test('discovery: prune() and a full maintain() keep every segment of a live record, and sweep the orphan', (t) => {
+  for (const state of ['queued', 'running', 'paused', 'cancelled'])
+    for (const gzip of [false, true]) {
+      const f = discoveryFixture(t, { state, gzip });
+      f.store.prune();
+      for (const hash of [...f.seen.addresses, ...f.alt.addresses])
+        assert.ok(pageExists(f.directory, hash), `${state} gzip=${gzip}: prune keeps ${hash}`);
+      assert.equal(pageExists(f.directory, f.orphan.addresses[0]), false, 'the orphan is swept');
+      // And maintain(), in slices of one object, on a fresh orphan.
+      plantRecord(f.directory, f.record, f.orphan.raws, { gzip });
+      backdate(f.directory);
+      const result = maintainAll(f.store, {
+        records: 1,
+        objects: 1,
+        bytes: 2 * 1024 * 1024,
+        ms: 1e9,
+      });
+      assert.equal(result.phase, 'idle');
+      for (const hash of [...f.seen.addresses, ...f.alt.addresses])
+        assert.ok(pageExists(f.directory, hash), `${state}: maintain keeps ${hash}`);
+      assert.equal(pageExists(f.directory, f.orphan.addresses[0]), false, 'maintain sweeps it');
+    }
+});
+
+test('discovery: startup marks the live chains and sweeps the rest', (t) => {
+  const f = discoveryFixture(t);
+  const restarted = new ReaderJobStore({ directory: f.directory });
+  assert.equal(restarted.failure, null);
+  for (const hash of [...f.seen.addresses, ...f.alt.addresses])
+    assert.ok(pageExists(f.directory, hash));
+  assert.equal(pageExists(f.directory, f.orphan.addresses[0]), false);
+});
+
+test("discovery: a mark read takes the mark's stat, adds only _readFile's own, and reads once", (t) => {
+  const f = discoveryFixture(t, { chains: 3 });
+  const dir = pagesDir(f.directory);
+  const stats = new Map();
+  const reads = new Map();
+  const count = (map) => (file) => {
+    const name = String(file);
+    if (name.startsWith(dir)) map.set(name, (map.get(name) ?? 0) + 1);
+  };
+  const statSync = fs.statSync;
+  const readFileSync = fs.readFileSync;
+  t.mock.method(fs, 'statSync', function (file, ...rest) {
+    count(stats)(file);
+    return statSync.call(this, file, ...rest);
+  });
+  t.mock.method(fs, 'readFileSync', function (file, ...rest) {
+    count(reads)(file);
+    return readFileSync.call(this, file, ...rest);
+  });
+  // _markRecord directly, so nothing else (the sweep, a recount) stats pages.
+  const live = {
+    pages: new Set(),
+    indexes: new Set(),
+    checkpoints: new Set(),
+    manifests: new Set(),
+    definitions: new Set(),
+  };
+  f.store._reload();
+  f.store._markRecord(f.store.records.get(f.job.record.id), live, { objects: 0 });
+  t.mock.restoreAll();
+  for (const hash of [...f.seen.addresses, ...f.alt.addresses]) {
+    const file = path.join(dir, `${hash}.json`);
+    // The mark's stat is passed in, so _segment never stats again; the only
+    // other is _readFile's own size check, which every stored read makes.
+    assert.equal(stats.get(file), 2, `the mark's stat and _readFile's of ${hash}`);
+    assert.equal(reads.get(file), 1, `one read of ${hash}`);
+    assert.ok(live.pages.has(hash), 'marked in live.pages');
+  }
+  assert.equal(stats.has(path.join(dir, `${f.orphan.addresses[0]}.json`)), false);
+});
+
+test('discovery: a completed or tombstoned record is never marked, even holding a swept head', (t) => {
+  // A completed record that an older image's complete() left holding its
+  // discovery (its spread keeps the field), its head already swept.
+  for (const state of ['completed', 'completed_with_refusals', 'expired', 'deleted']) {
+    const { directory, store } = fixture(t);
+    const job = create(store);
+    const base = store.records.get(job.record.id);
+    const swept = plantedChain(base, 'seen', 2);
+    const kept = plantedChain(base, 'alt_cells', 1);
+    plantRecord(
+      directory,
+      { ...base, state, discovery: liveDiscoveryOf({ seen: swept, alt_cells: kept }) },
+      kept.raws
+    );
+    // startup neither fails nor marks; GC sweeps what the record names.
+    const restarted = new ReaderJobStore({ directory });
+    assert.equal(restarted.failure, null, state);
+    assert.equal(pageExists(directory, kept.addresses[0]), false, `${state}: swept at startup`);
+    plantRecord(directory, restarted.records.get(job.record.id), kept.raws);
+    restarted.prune();
+    assert.equal(pageExists(directory, kept.addresses[0]), false, `${state}: prune sweeps it`);
+    plantRecord(directory, restarted.records.get(job.record.id), kept.raws);
+    backdate(directory);
+    assert.equal(maintainAll(restarted).phase, 'idle');
+    assert.equal(pageExists(directory, kept.addresses[0]), false, `${state}: maintain sweeps it`);
+  }
+});
+
+test('discovery: a deleted job drops its discovery, and its segments are swept', (t) => {
+  const f = discoveryFixture(t);
+  f.store.delete(f.job.record.id, f.job.capability, 'viewer-a');
+  assert.equal(Object.hasOwn(f.store.records.get(f.job.record.id), 'discovery'), false);
+  f.store.prune();
+  for (const hash of [...f.seen.addresses, ...f.alt.addresses, ...f.orphan.addresses])
+    assert.equal(pageExists(f.directory, hash), false);
+});
+
+test('discovery: a dirty re-mark keeps a segment the record took during an open collection', (t) => {
+  const f = discoveryFixture(t, { chains: 1 });
+  // A second seen segment exists on disk, old, and nothing names it yet.
+  const id = f.job.record.id;
+  const { record } = f;
+  const next = buildSegment(
+    record,
+    0,
+    'seen',
+    f.seen.head,
+    4,
+    ['n-a', 'n-b', 'n-c', 'n-d'],
+    dsha('b'),
+    dsha('a')
+  );
+  plantRecord(f.directory, record, [next.raw]);
+  backdate(f.directory);
+  // Mark everything with the record as it is: one slice whose object bound
+  // is exactly the two live segments, so the mark has passed the record and
+  // the sweep has not begun. The new segment is unmarked.
+  const bounds = { records: 1, objects: 2, bytes: 64 * 1024 * 1024, ms: 1e9 };
+  let result = f.store.maintain(bounds);
+  const gc = f.store._gc;
+  assert.equal(gc.phase, 'mark');
+  assert.equal(gc.at, gc.ids.length, 'every record has been marked');
+  assert.ok(
+    gc.stack.every(([, hash]) => hash === null),
+    'only ended links are left'
+  );
+  assert.ok(gc.live.pages.has(f.seen.head));
+  assert.equal(gc.live.pages.has(next.address), false);
+  // The record takes the segment as its head in a save while the collection is open.
+  f.store._open(() =>
+    f.store._save({
+      ...f.store.records.get(id),
+      discovery: {
+        ...record.discovery,
+        logs: { ...record.discovery.logs, seen: stateFor(next.address, 2) },
+      },
+    })
+  );
+  assert.ok(f.store._gc.dirty.has(id));
+  result = maintainAll(f.store, bounds);
+  assert.equal(result.phase, 'idle');
+  assert.ok(pageExists(f.directory, next.address), 'the re-mark kept it');
+  assert.ok(pageExists(f.directory, f.seen.head), 'and the chain behind it');
+  assert.equal(pageExists(f.directory, f.orphan.addresses[0]), false);
+});
+
+test('discovery: a missing live segment abandons the collection and sweeps nothing', (t) => {
+  for (const which of ['head', 'interior']) {
+    const f = discoveryFixture(t, { chains: 3 });
+    const gone = which === 'head' ? f.seen.head : f.seen.addresses[0];
+    fs.unlinkSync(path.join(pagesDir(f.directory), `${gone}.json`));
+    assert.throws(
+      () => f.store.prune(),
+      (e) => e.code === 'STORAGE_CORRUPT' && e.status === 503
+    );
+    assert.ok(pageExists(f.directory, f.orphan.addresses[0]), `${which}: prune swept nothing`);
+    backdate(f.directory);
+    assert.throws(
+      () => maintainAll(f.store),
+      (e) => e.code === 'STORAGE_CORRUPT' && e.status === 503
+    );
+    assert.equal(f.store._gc, null, 'abandoned');
+    assert.ok(pageExists(f.directory, f.orphan.addresses[0]), `${which}: maintain swept nothing`);
+    assert.equal(f.store._segment(gone, null).missing, true);
+  }
+});
+
+test('discovery: an oversized live segment is F6 without being opened, plain and gzip-marked', (t) => {
+  for (const gzip of [false, true]) {
+    const f = discoveryFixture(t, { chains: 1 });
+    // The record's head is replaced by a file one byte over the bound.
+    const big = Buffer.alloc(READER_LIMITS.objectBytes + 1, 0x20);
+    if (gzip) big.set([0x1f, 0x8b, 8, 0]);
+    const file = path.join(pagesDir(f.directory), `${f.seen.head}.json`);
+    fs.writeFileSync(file, big);
+    const opened = [];
+    for (const name of ['readFileSync', 'openSync']) {
+      const real = fs[name];
+      t.mock.method(fs, name, function (target, ...rest) {
+        if (String(target) === file) opened.push(name);
+        return real.call(this, target, ...rest);
+      });
+    }
+    assert.deepEqual(f.store._segment(f.seen.head, null), { f6: true });
+    assert.deepEqual(f.store._segment(f.seen.head, { job_id: f.job.record.id }), { f6: true });
+    assert.throws(() => f.store.prune(), corruptAt('F6'));
+    assert.ok(pageExists(f.directory, f.orphan.addresses[0]), `gzip=${gzip}: prune swept nothing`);
+    backdate(f.directory);
+    // The smallest legal byte bound: an oversized segment can never fit it,
+    // and it is refused rather than deferred forever.
+    assert.throws(
+      () =>
+        maintainAll(f.store, {
+          records: 100,
+          objects: 500,
+          bytes: READER_LIMITS.objectBytes,
+          ms: 1e9,
+        }),
+      corruptAt('F6')
+    );
+    assert.equal(f.store._gc, null, 'abandoned');
+    assert.ok(
+      pageExists(f.directory, f.orphan.addresses[0]),
+      `gzip=${gzip}: maintain swept nothing`
+    );
+    assert.deepEqual(opened, [], `gzip=${gzip}: the file was never opened`);
+    t.mock.restoreAll();
+  }
+});
+
+// The bound is inclusive: a segment of exactly objectBytes is read, through
+// _segment and through a full maintain() whose byte bound is that size.
+test('discovery: a live segment of exactly objectBytes is read, not F6', (t) => {
+  const f = discoveryFixture(t, { chains: 1 });
+  // The head's own bytes, padded with JSON whitespace to the bound.
+  const raw = f.seen.raws[0];
+  const padded = Buffer.concat([raw, Buffer.alloc(READER_LIMITS.objectBytes - raw.length, 0x20)]);
+  assert.equal(padded.length, READER_LIMITS.objectBytes);
+  const head = dsha(padded);
+  const record = {
+    ...f.record,
+    discovery: liveDiscoveryOf({ seen: { head, addresses: [head] }, alt_cells: f.alt }),
+  };
+  plantRecord(f.directory, record, [padded]);
+  assert.equal(fs.statSync(path.join(pagesDir(f.directory), `${head}.json`)).size, padded.length);
+  const read = f.store._segment(head, null);
+  assert.ok(read.segment, `read at the bound: ${JSON.stringify(read)}`);
+  assert.equal(read.segment.previous_hash, null);
+  assert.ok(read.bytes.equals(padded));
+  backdate(f.directory);
+  // Each slice reads at most its byte bound: the segment at the bound is
+  // deferred past the small objects marked before it, not read beside them.
+  const bounds = { records: 100, objects: 500, bytes: READER_LIMITS.objectBytes, ms: 1e9 };
+  let sliceBytes = 0;
+  const readFile = ReaderJobStore.prototype._readFile;
+  t.mock.method(ReaderJobStore.prototype, '_readFile', function (...args) {
+    const bytes = readFile.apply(this, args);
+    sliceBytes += bytes.length;
+    return bytes;
+  });
+  let result;
+  for (let i = 0; i < 1000; i++) {
+    sliceBytes = 0;
+    result = f.store.maintain(bounds);
+    assert.ok(sliceBytes <= bounds.bytes, `slice ${i} read ${sliceBytes} bytes`);
+    if (result.phase === 'idle') break;
+  }
+  t.mock.restoreAll();
+  assert.equal(result.phase, 'idle');
+  assert.ok(pageExists(f.directory, head), 'the segment at the bound is kept');
+  assert.equal(pageExists(f.directory, f.orphan.addresses[0]), false, 'the orphan is swept');
+});
+
+test('discovery: _segment reads F6 and F3 apart, and its decode is fatal', (t) => {
+  const f = discoveryFixture(t, { chains: 2 });
+  const record = f.record;
+  const dir = pagesDir(f.directory);
+  const expect = { job_id: record.id, identity_hash: record.identity_hash, epoch: 0, log: 'seen' };
+  const read = f.store._segment(f.seen.head, expect);
+  assert.equal(read.segment.previous_hash, f.seen.addresses[0]);
+  assert.ok(read.bytes.equals(f.seen.raws[1]));
+  assert.ok(f.store._segment(f.seen.head, null).segment, 'a mark read');
+  // An address that is not 64-hex names no file: F3, never a path.
+  for (const bad of ['../records/x', 'A'.repeat(64), '', 7])
+    assert.deepEqual(f.store._segment(bad, null), { f3: 'FIELD' }, String(bad));
+  // F6: bytes that do not match the address, and a failed bounded inflation.
+  const changed = dsha('changed');
+  fs.writeFileSync(path.join(dir, `${changed}.json`), f.seen.raws[0]);
+  assert.deepEqual(f.store._segment(changed, null), { f6: true });
+  const inflation = dsha('inflation');
+  fs.writeFileSync(
+    path.join(dir, `${inflation}.json`),
+    Buffer.from([0x1f, 0x8b, 8, 0, ...Buffer.alloc(20)])
+  );
+  assert.deepEqual(f.store._segment(inflation, null), { f6: true });
+  // F3 against `expect`: another job's segment, another log.
+  assert.deepEqual(f.store._segment(f.seen.head, { ...expect, job_id: 'reader_other' }), {
+    f3: 'FIELD',
+  });
+  assert.deepEqual(f.store._segment(f.alt.head, expect), { f3: 'FIELD' });
+  // Invalid UTF-8 (the 0xFF read_back): address-valid, F3 under the fatal decode.
+  const ff = Buffer.from(f.seen.raws[0].toString('latin1').replace('"seen-0-a"', '"ÿ"'), 'latin1');
+  assert.equal(ff.includes(0xff), true);
+  const ffHash = dsha(ff);
+  fs.writeFileSync(path.join(dir, `${ffHash}.json`), ff);
+  assert.deepEqual(f.store._segment(ffHash, null), { f3: 'JSON' });
+  assert.deepEqual(f.store._segment(ffHash, expect), { f3: 'JSON' });
+  // A replacing decoder passes those bytes, so the refusal is the fatal decoder's.
+  t.mock.method(ReaderJobStore.prototype, '_segmentText', (buf) => buf.toString('utf8'));
+  assert.ok(f.store._segment(ffHash, null).segment, 'a replacing decode passes the bytes');
+  t.mock.restoreAll();
+  assert.throws(() => new TextDecoder('utf-8', { fatal: true }).decode(ff), TypeError);
+});
+
+test('discovery: a live F3 segment abandons the collection and sweeps nothing', (t) => {
+  const f = discoveryFixture(t, { chains: 1 });
+  // The head is replaced by an address-valid segment holding a lone 0xFF byte.
+  const record = f.record;
+  const ff = Buffer.from(f.seen.raws[0].toString('latin1').replace('"seen-0-a"', '"ÿ"'), 'latin1');
+  const discovery = {
+    ...record.discovery,
+    logs: { ...record.discovery.logs, seen: stateFor(dsha(ff), 1) },
+  };
+  plantRecord(f.directory, { ...record, discovery }, [ff]);
+  assert.throws(() => f.store.prune(), corruptAt('F3'));
+  assert.ok(pageExists(f.directory, f.orphan.addresses[0]), 'prune swept nothing');
+  backdate(f.directory);
+  assert.throws(() => maintainAll(f.store), corruptAt('F3'));
+  assert.ok(pageExists(f.directory, f.orphan.addresses[0]), 'maintain swept nothing');
+  // With a replacing decoder the same collection passes: the fatal decode refuses.
+  t.mock.method(ReaderJobStore.prototype, '_segmentText', (buf) => buf.toString('utf8'));
+  f.store.prune();
+  t.mock.restoreAll();
+  assert.equal(pageExists(f.directory, f.orphan.addresses[0]), false);
+});
+
+test('discovery: a malformed previous_hash is STORAGE_CORRUPT at the mark, never 400', (t) => {
+  for (const previous of ['ABC', 'z'.repeat(64), 7, 'A'.repeat(64)]) {
+    const f = discoveryFixture(t, { chains: 1 });
+    const record = f.record;
+    const { raw, address } = buildSegment(
+      record,
+      0,
+      'seen',
+      previous,
+      0,
+      ['x', 'y', 'z', 'w'],
+      dsha('b'),
+      dsha('a')
+    );
+    const discovery = {
+      ...record.discovery,
+      logs: { ...record.discovery.logs, seen: stateFor(address, 1) },
+    };
+    plantRecord(f.directory, { ...record, discovery }, [raw]);
+    assert.deepEqual(f.store._segment(address, null), { f3: 'FIELD' });
+    assert.throws(() => f.store.prune(), corruptAt('F3'), JSON.stringify(previous));
+    assert.ok(pageExists(f.directory, f.orphan.addresses[0]));
+  }
+});
+
+test('discovery: readPage refuses a segment address with 404', (t) => {
+  const { directory, store } = fixture(t);
+  const job = create(store);
+  const lease = store.lease();
+  commit(store, lease, [{ id: 'evidence-a', verdict: true }], { phase: 'more' });
+  const base = store.records.get(job.record.id);
+  const seen = plantedChain(base, 'seen', 1);
+  plantRecord(directory, { ...base, discovery: liveDiscoveryOf({ seen }) }, seen.raws);
+  assert.throws(
+    () => store.readPage(job.record.id, seen.head, job.capability, 'viewer-a'),
+    (error) => error.code === 'NOT_FOUND' && error.status === 404
+  );
+  // The segment is live and on disk: it is refused by membership, not absence.
+  store.prune();
+  assert.ok(pageExists(directory, seen.head));
 });

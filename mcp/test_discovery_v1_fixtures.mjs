@@ -6624,7 +6624,7 @@ const mibKib = (n) => {
 // flipped only by the commit that implements it; either mismatch fails, so the
 // switch cannot drift from the code. A row with `when` must resolve while its
 // key is true and must not resolve while it is false.
-const STORE_HALF = Object.freeze({ admission: true, fatal_decode: false });
+const STORE_HALF = Object.freeze({ admission: true, fatal_decode: true });
 
 // Each row: `id`; `file`; `symbol` (a function, a method, a top-level constant
 // or class, `Outer.inner` for a method of a class, or `module` for a file's
@@ -7126,6 +7126,53 @@ const ANCHORS = [
     file: 'mcp/reader_job_store.js',
     symbol: '_readFile',
     starts: 'if (fs.statSync(file).size > READER_LIMITS.objectBytes)',
+  },
+  // The segment reader (Step 5, BB8 6700200435 condition 7): the stat's
+  // bound comes before any read, then _readFile, the bounded decode, and the
+  // one strict parse.
+  {
+    id: 'store.segment',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_segment',
+    starts: '_segment(hash, expect, size = null) {',
+    whole: true,
+    cite: true,
+    when: 'fatal_decode',
+  },
+  {
+    id: 'store.segment.stat',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_segment',
+    starts: 'size = fs.statSync(file).size;',
+    when: 'fatal_decode',
+  },
+  {
+    id: 'store.segment.stat_bound',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_segment',
+    starts: 'if (size > READER_LIMITS.objectBytes) return { f6: true };',
+    when: 'fatal_decode',
+  },
+  {
+    id: 'store.segment.read',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_segment',
+    starts: 'bytes = this._readFile(file);',
+    when: 'fatal_decode',
+  },
+  {
+    id: 'store.segment.decode',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_segment',
+    starts: 'bytes = decodeStoredObject(bytes);',
+    when: 'fatal_decode',
+  },
+  {
+    id: 'store.segment.parse',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_segment',
+    starts: 'segment = this._segmentJSON(bytes);',
+    when: 'fatal_decode',
   },
   {
     id: 'store.object',
@@ -7950,7 +7997,7 @@ function resolveAnchors(rows, half, src) {
     if (row.when && !half[row.when]) {
       assert.throws(
         () => resolveAnchor(src(row.file), row),
-        /no line in/,
+        /no line in|: no definition of /,
         `${row.id} must not resolve while STORE_HALF.${row.when} is false`
       );
       continue;
@@ -8032,6 +8079,22 @@ function check211(half, src, section) {
     assert.ok(
       at.get(order[i - 1]).endLine < at.get(order[i]).line,
       `${order[i - 1]} comes before ${order[i]}`
+    );
+  // The segment reader (Step 5): the stat and its bound come before the read,
+  // the read before the bounded decode, and that before the one strict parse,
+  // so an oversized segment is F6 without being opened.
+  const segment = [
+    'store.segment.stat',
+    'store.segment.stat_bound',
+    'store.segment.read',
+    'store.segment.decode',
+    'store.segment.parse',
+  ].filter((id) => at.has(id));
+  assert.equal(segment.length, half.fatal_decode ? 5 : 0);
+  for (let i = 1; i < segment.length; i++)
+    assert.ok(
+      at.get(segment[i - 1]).endLine < at.get(segment[i]).line,
+      `${segment[i - 1]} comes before ${segment[i]}`
     );
   // At Base the declaration set is held only to being an object; admission
   // (Step 3) adds the walk. The bindings are ASCII either way.
@@ -8126,6 +8189,7 @@ const CITED_CODE = {
   'store.limits.object_bytes': 'b6d127b7a0a393da',
   'store.decode_stored_object': 'cde659ed88e5a273',
   'store.read_file': 'c9801821b51ad00f',
+  'store.segment': '6b20639193323316',
   'store.object': '84c4231531c0b173',
   'store.object.parse': 'c191f67de6b2a935',
   'store.create': '8a859865d99b9fae',
@@ -9647,7 +9711,7 @@ const CONTRACT_CITES = [
     symbol: '_markRecord',
     starts: '_markRecord(record, live, budget) {',
     whole: true,
-    code: '3135814a72810288',
+    code: '0479237ce7a58378',
   },
   {
     id: 'c.reader_job_store.maintain.1',
@@ -9655,8 +9719,9 @@ const CONTRACT_CITES = [
     file: 'mcp/reader_job_store.js',
     symbol: 'maintain',
     starts: "gc.stack.push(['checkpoints', record.checkpoint_hash]);",
+    ends: 'gc.stack.push(...this._discoveryRoots(record));',
     nth: [1, 2],
-    code: '42dc512773902d98',
+    code: '201a3975283f8864',
   },
   {
     id: 'c.reader_job_store.maintain.2',
@@ -9664,8 +9729,9 @@ const CONTRACT_CITES = [
     file: 'mcp/reader_job_store.js',
     symbol: 'maintain',
     starts: "gc.stack.push(['checkpoints', record.checkpoint_hash]);",
+    ends: 'gc.stack.push(...this._discoveryRoots(record));',
     nth: [2, 2],
-    code: '42dc512773902d98',
+    code: '201a3975283f8864',
   },
   {
     id: 'c.reader_job_store._markStep',
@@ -9674,7 +9740,7 @@ const CONTRACT_CITES = [
     symbol: '_markStep',
     starts: '_markStep(stack, live, budget, bounds = null) {',
     whole: true,
-    code: '1f26bbe24bb5fc4a',
+    code: '8612e7fcab48a1a3',
   },
   {
     id: 'c.reader_job_store.OBJECT_KINDS',
@@ -10727,33 +10793,55 @@ test('anchors: each STORE_HALF key, flipped against the unchanged code, fails', 
   check211(flip('admission'), based, s211raw());
   checkStoredRequest(st, flip('admission'), based);
   assert.throws(() => check211(STORE_HALF, based, s211raw()), /stored_check: no line in pump/);
-  const store = readSource('mcp/reader_job_store.js').replace(
-    /\n {2}_object\(kind, hash\) \{/,
-    [
-      '',
-      '  _segmentText(buf) {',
-      "    return new TextDecoder('utf-8', { fatal: true }).decode(buf);",
-      '  }',
-      '  _segmentJSON(buf) {',
-      '    return JSON.parse(this._segmentText(buf));',
-      '  }',
-      '  _segment(hash) {',
-      '    return this._segmentJSON(this._readFile(hash));',
-      '  }',
-      '  _object(kind, hash) {',
-    ].join('\n')
+  // Step 5 added the segment reader and flipped STORE_HALF.fatal_decode in
+  // one commit. The false branch accepts the store with the three helpers
+  // taken out (Base's: no fatal decoder, no _segment), and the true branch
+  // refuses that store.
+  const storeNow = readSource('mcp/reader_job_store.js');
+  const helpers =
+    /\n {2}\/\/ A segment's bytes are decoded fatally[^]*?(?=\n {2}_object\(kind, hash\) \{)/;
+  assert.match(storeNow, helpers);
+  const baseStore = storeNow.replace(helpers, '');
+  assert.ok(
+    !/_segmentText|_segmentJSON|_segment\(hash/.test(baseStore.replace(/this\._segment\(/g, ''))
   );
-  const decoding = (f) => (f === 'mcp/reader_job_store.js' ? store : readSource(f));
-  checkFatalDecode(flip('fatal_decode'), decoding);
-  assert.throws(() => checkFatalDecode(STORE_HALF, decoding), /not met yet/);
+  const undecoded = (f) => (f === 'mcp/reader_job_store.js' ? baseStore : readSource(f));
+  checkFatalDecode(flip('fatal_decode'), undecoded);
+  assert.throws(() => checkFatalDecode(STORE_HALF, undecoded), /no definition of _segmentText/);
+  const segmentRows = ANCHORS.filter((r) => r.when === 'fatal_decode');
+  assert.ok(segmentRows.length >= 2 && segmentRows.some((r) => r.cite));
+  resolveAnchors(segmentRows, flip('fatal_decode'), undecoded);
+  assert.throws(
+    () => resolveAnchors(segmentRows, STORE_HALF, undecoded),
+    /no definition of _segment/
+  );
+  assert.throws(
+    () => resolveAnchors(segmentRows, flip('fatal_decode'), readSource),
+    /must not resolve while STORE_HALF\.fatal_decode is false/
+  );
+  // _segment parsing on its own, around the strict helper, fails.
   const parsing = (f) =>
     f === 'mcp/reader_job_store.js'
-      ? store.replace(
-          'return this._segmentJSON(this._readFile(hash));',
-          'return JSON.parse(this._readFile(hash).toString());'
+      ? storeNow.replace(
+          'segment = this._segmentJSON(bytes);',
+          'segment = JSON.parse(bytes.toString());'
         )
       : readSource(f);
-  assert.throws(() => checkFatalDecode(flip('fatal_decode'), parsing), /parses nothing itself/);
+  assert.throws(() => checkFatalDecode(STORE_HALF, parsing), /parses nothing itself/);
+  // And a helper that decodes by replacement, or parses the buffer, fails.
+  const replacing = (f) =>
+    f === 'mcp/reader_job_store.js'
+      ? storeNow.replace(
+          "return new TextDecoder('utf-8', { fatal: true }).decode(buf);",
+          "return buf.toString('utf8');"
+        )
+      : readSource(f);
+  assert.throws(() => checkFatalDecode(STORE_HALF, replacing));
+  const bufferParse = (f) =>
+    f === 'mcp/reader_job_store.js'
+      ? storeNow.replace('return JSON.parse(this._segmentText(buf));', 'return JSON.parse(buf);')
+      : readSource(f);
+  assert.throws(() => checkFatalDecode(STORE_HALF, bufferParse));
 });
 
 // The mutants the review of the Step 0 re-anchor ran (#656): each
@@ -11042,6 +11130,29 @@ const REVIEW_MUTANTS = [
     '            return False\n',
     /c\.relations\.search_stub_resolution\.2/,
   ],
+  // Step 5's segment reader: the size bound dropped from the stat, the read
+  // moved ahead of the stat's bound, and the read made unbounded.
+  [
+    'S5a',
+    'mcp/reader_job_store.js',
+    '    if (size > READER_LIMITS.objectBytes) return { f6: true };\n',
+    '',
+    /store\.segment/,
+  ],
+  [
+    'S5b',
+    'mcp/reader_job_store.js',
+    '    if (size > READER_LIMITS.objectBytes) return { f6: true };\n    let bytes;\n    try {\n      bytes = this._readFile(file);\n',
+    '    let bytes;\n    try {\n      bytes = this._readFile(file);\n      if (size > READER_LIMITS.objectBytes) return { f6: true };\n',
+    /store\.segment/,
+  ],
+  [
+    'S5c',
+    'mcp/reader_job_store.js',
+    '      bytes = this._readFile(file);\n',
+    '      bytes = fs.readFileSync(file);\n',
+    /store\.segment/,
+  ],
   [
     'D4f',
     'mcp/reader_scheduler.js',
@@ -11179,7 +11290,8 @@ const CLAIMS = [
       'a full read (reconciliation, `resume()`) releases with `{{C_FULL_CODE}}`, cause',
       "`{{C_CAUSE}}` (§5.1); the worker's load refuses with `{{C_CAUSE}}` (§5.2).",
       "`{{STORE_CAUSE}}` stays F6's alone, and the store's alone, and a failed gzip inflation",
-      'stays F6. - **Invalid UTF-8 in a segment, in both languages** (BB8, 21:31Z). The',
+      'and a stored size over `READER_LIMITS.objectBytes` stay F6 (§2.5). - **Invalid UTF-8 in',
+      'a segment, in both languages** (BB8, 21:31Z). The',
       "worker's load decodes strictly (`worker.py:read_page_object`), so bytes that are not",
       'UTF-8 are `{{U_TAG}}`, and F3. At Base the store parses the verified bytes with',
       '`JSON.parse` on the buffer (`reader_job_store.js:_object`), which decodes invalid UTF-8',
@@ -11234,10 +11346,10 @@ const CLAIMS = [
       '(`worker.py:run_reader`); - a segment the worker reads goes through the bounded page',
       'reader, `read_page_object` (`worker.py:read_page_object`): it reads at most',
       '`READER_OBJECT_BYTES`, {{OBJ}} (`:READER_OBJECT_BYTES`), and inflates at most as much,',
-      'before it parses; - a segment the store reads goes through `_object`',
-      '(`reader_job_store.js:_object`): `_readFile` holds the stored bytes to',
-      '`READER_LIMITS.objectBytes`, {{STORE_OBJ}} (`:_readFile`, `:READER_LIMITS`), and',
-      '`decodeStoredObject` holds the inflated bytes to it too (`:decodeStoredObject`).',
+      "before it parses; - a segment the store reads is stat'ed first, and a stored size over",
+      '`READER_LIMITS.objectBytes`, {{STORE_OBJ}} (`reader_job_store.js:READER_LIMITS`), is F6',
+      'without a read (`:_segment`); within the bound `_readFile` reads it (`:_readFile`), and',
+      '`decodeStoredObject` holds the inflated bytes to the same bound (`:decodeStoredObject`).',
       "Required acceptance tests, of the worker half's codec (the validator runs both against",
       'its own model): a valid entry whose canonical form is {{ENTRY_BYTES}} bytes, padded with',
       'whitespace to {{PADDED}}, decodes and passes F2 within those bounds, with its peak',

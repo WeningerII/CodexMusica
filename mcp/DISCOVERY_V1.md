@@ -86,7 +86,7 @@ language's own parser checks each. So any change to that code fails until the cl
 read again and the digest pinned again, and a citation of a line number, or of a symbol no row
 pins, fails too. A `file:symbol` citation names the symbol; its rows name the statements the
 claim rests on. Each row names the sections it backs, each citation of a row's symbol in a section
-has a row there, and the rows' ranges, digests aside, are held to the digest `11764c138691e5a3` in this
+has a row there, and the rows' ranges, digests aside, are held to the digest `cd193dbaaafa5f61` in this
 note, so a row deleted, narrowed or moved changes this text. Two citations name a comment or a
 docstring, not code (`reader_scheduler.js:createCatalogResolver`'s note on engine commits and
 `analysis.py:resolve_detail_records`' docstring); those rows hold the text as written. Every
@@ -306,6 +306,11 @@ What is not logged, and why:
   `json.dumps` of a dict in this order with `ensure_ascii=False` and
   `separators=(",", ":")`, and **without** `sort_keys`. It is not `canonical()` of the
   segment, which would sort the keys. With gzip, the address still covers the plain bytes.
+  **A segment file larger than `READER_LIMITS.objectBytes` (2 MiB) fails F6 without being read**
+  (BB8 6700200435, condition 7, on R2's question 7): the store stats every segment before it
+  reads it, and a stored size over the bound is F6, exactly like bytes that do not match the
+  address. A gzip-stored segment within the bound whose inflation passes it is F6 by the bounded
+  inflation, as before.
 
 ### 2.6 Epochs and resets
 
@@ -512,8 +517,8 @@ and the validator checks it in Node and in Python and builds this section's text
   mapping is F3's, unchanged: a lease's walk refuses `STORAGE_CORRUPT` (503) and releases
   nothing (§5.1); a full read (reconciliation, `resume()`) releases with `DISCOVERY_UNAVAILABLE`,
   cause `chain_broken` (§5.1); the worker's load refuses with `chain_broken` (§5.2).
-  `segment_corrupt` stays F6's alone, and the store's alone, and a failed gzip inflation stays
-  F6.
+  `segment_corrupt` stays F6's alone, and the store's alone, and a failed gzip inflation and a
+  stored size over `READER_LIMITS.objectBytes` stay F6 (§2.5).
 - **Invalid UTF-8 in a segment, in both languages** (BB8, 21:31Z). The worker's load decodes
   strictly (`worker.py:read_page_object`), so bytes that are not UTF-8 are `JSON`, and F3. At Base
   the store parses the verified bytes with `JSON.parse` on the buffer
@@ -567,9 +572,10 @@ and the validator checks it in Node and in Python and builds this section's text
   - a segment the worker reads goes through the bounded page reader, `read_page_object`
     (`worker.py:read_page_object`): it reads at most `READER_OBJECT_BYTES`, 2 MiB
     (`:READER_OBJECT_BYTES`), and inflates at most as much, before it parses;
-  - a segment the store reads goes through `_object` (`reader_job_store.js:_object`): `_readFile`
-    holds the stored bytes to `READER_LIMITS.objectBytes`, 2 MiB (`:_readFile`, `:READER_LIMITS`),
-    and `decodeStoredObject` holds the inflated bytes to it too (`:decodeStoredObject`).
+  - a segment the store reads is stat'ed first, and a stored size over
+    `READER_LIMITS.objectBytes`, 2 MiB (`reader_job_store.js:READER_LIMITS`), is F6 without a read
+    (`:_segment`); within the bound `_readFile` reads it (`:_readFile`), and `decodeStoredObject`
+    holds the inflated bytes to the same bound (`:decodeStoredObject`).
 
   Required acceptance tests, of the worker half's codec (the validator runs both against its own
   model): a valid entry whose canonical form is 4,096 bytes, padded with whitespace to about
