@@ -1652,7 +1652,10 @@ function replyCase(discovery, c) {
 // fallback is logged and lease expiry ends the lease. A refused end-of-lease
 // pause or complete() reaches the catch, whose pause carries its code.
 const fallbackMessage = (code) => `The reader reply could not be recorded: ${code}.`;
-// store.pause refuses an argument outside every set with INVALID_PAUSE (§8).
+// store.pause refuses an argument outside every set with INVALID_PAUSE (§8),
+// and a cause of the wrong family: a resource cause on DISCOVERY_UNAVAILABLE, a
+// discovery cause on RESOURCE_LIMIT, any cause on another code (BB8
+// 6705927389).
 function pauseRefusal(reason) {
   const named = (v) => v !== undefined && v !== null;
   if (
@@ -1661,6 +1664,17 @@ function pauseRefusal(reason) {
   )
     return 'INVALID_PAUSE';
   if (named(reason.log) && !LOGS.includes(reason.log)) return 'INVALID_PAUSE';
+  if (
+    named(reason.cause) &&
+    !(
+      reason.code === 'RESOURCE_LIMIT'
+        ? RESOURCE_CAUSES
+        : reason.code === 'DISCOVERY_UNAVAILABLE'
+          ? CAUSES
+          : []
+    ).includes(reason.cause)
+  )
+    return 'INVALID_PAUSE';
   return null;
 }
 // The reason store.pause stores: a named cause stores no message.
@@ -1725,13 +1739,16 @@ function fallbackCase(c, c1) {
     if (refused) failure = { code: refused, message: `stubbed ${refused}` };
   }
   if (failure) {
-    if (failure.reply && failure.cause !== undefined && failure.cause !== null)
-      warnings.push(
-        `[reader] worker reply ${failure.code}[${echo(failure.cause)}]: ${failure.message}`
-      );
+    // The pause's code and cause, as the warn and the recovery line name them:
+    // a refused reply's own code is never lost (BB8 6705927389).
+    const caused = failure.cause !== undefined && failure.cause !== null;
+    const named = `${echo(failure.code)}${caused ? `[${echo(failure.cause)}]` : ''}`;
+    const warn = () => warnings.push(`[reader] worker reply ${named}: ${failure.message}`);
+    if (failure.reply && caused) warn();
     const refused = pause(failure);
+    if (refused && failure.reply && !caused) warn();
     if (refused && refused !== 'STALE_ATTEMPT') {
-      errors.push(`[reader] checkpoint recovery failed: ${refused}`);
+      errors.push(`[reader] checkpoint recovery failed: ${refused} refusing ${named}`);
       const again = pause({ code: 'READER_PROTOCOL', message: fallbackMessage(refused) }, true);
       if (again) errors.push(`[reader] fallback pause failed: ${again}`);
     }
@@ -1764,6 +1781,8 @@ function fallbackCase(c, c1) {
 const FALLBACK_CASES = [
   'cause_outside_every_set',
   'cause_not_a_string',
+  'cause_of_the_wrong_family',
+  'no_cause_and_a_log_outside_the_set',
   'stale_attempt',
   'fallback_refused',
   'c1_on_safety_net',
@@ -4302,8 +4321,29 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
             assert.equal(pauses.length, 1, `control ${c.name}: one call`);
         }
       }
-      // The two INVALID_PAUSE cases run with C1 off; the safety net with C1 on.
-      for (const name of ['cause_outside_every_set', 'cause_not_a_string'])
+      // A refused reply's own code is recoverable: the warn and the recovery
+      // line name it, with its cause when it has one (BB8 6705927389).
+      for (const c of fx.cases) {
+        const reply = c.lease.reply;
+        if (!reply || !c.expect.calls[0].refused) continue;
+        const named = `${reply.error_code}${reply.error_cause !== undefined ? `[${echo(reply.error_cause)}]` : ''}`;
+        assert.ok(
+          c.expect.warnings.some((w) => w.startsWith(`[reader] worker reply ${named}: `)),
+          `${c.name}: the warn names ${named}`
+        );
+        if (c.expect.calls.some((x) => x.fallback) && c.c1.includes(false))
+          assert.ok(
+            c.expect.errors[0].endsWith(` refusing ${named}`),
+            `${c.name}: the recovery line names ${named}`
+          );
+      }
+      // The INVALID_PAUSE cases run with C1 off; the safety net with C1 on.
+      for (const name of [
+        'cause_outside_every_set',
+        'cause_not_a_string',
+        'cause_of_the_wrong_family',
+        'no_cause_and_a_log_outside_the_set',
+      ])
         assert.deepEqual(fx.cases.find((c) => c.name === name).c1, [false], name);
       assert.deepEqual(fx.cases.find((c) => c.name === 'c1_on_safety_net').c1, [true]);
     } else if (fx.kind === 'groups') {
@@ -8060,7 +8100,7 @@ const CITED_CODE = {
   'sched.pump.identity_check': '805d36dac33de30d',
   'sched.pump.run_reader_lease': '573bffc4bb5398ea',
   'sched.pump.declarations': '9c0b44cf7533f1fd',
-  'sched.pump.catch_pause': 'bebbb496624f56f4',
+  'sched.pump.catch_pause': '801fb622a04a3827',
   'source_worker.verify': 'c70ad56857c8151f',
   'bridge.frame_cap': '9984ca2e1f63dc5b',
   'bridge.spawn.parse': 'a78dbdf6483e4415',
@@ -8349,7 +8389,7 @@ const CONTRACT_CITES = [
     symbol: 'pump',
     starts: '} catch (failure) {',
     ends: "if (stale.code !== 'STALE_ATTEMPT')",
-    code: 'bebbb496624f56f4',
+    code: '801fb622a04a3827',
   },
   {
     id: 'c.analysis._resource_guard',
@@ -9678,7 +9718,7 @@ const CONTRACT_CITES = [
     symbol: 'pause',
     starts: 'pause(',
     whole: true,
-    code: '1c93a4b18a0954e7',
+    code: 'fd37abd36b90eaf8',
   },
   {
     id: 'c.reader_scheduler.pump.6',
@@ -11004,8 +11044,8 @@ const REVIEW_MUTANTS = [
   [
     'D4f',
     'mcp/reader_scheduler.js',
-    "          console.error('[reader] checkpoint recovery failed:', stale.code || 'READER_ERROR');\n",
-    '          void 0;\n',
+    "            '[reader] checkpoint recovery failed:',\n",
+    "            '[reader] checkpoint recovery:',\n",
     /sched\.pump\.catch_pause/,
   ],
   [

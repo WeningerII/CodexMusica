@@ -1101,7 +1101,8 @@ test('reply_pause_refused.json: the fallback pause, every case under each C1 set
 
 // The C1-off outcomes bad/reply_cause_invalid.json does not state (Q3's
 // reading: a reply's code, cause and log reach store.pause unchanged; where
-// store.pause refuses INVALID_PAUSE, the fallback pause). Step 7's strict
+// store.pause refuses INVALID_PAUSE, the fallback pause). A cause of the
+// wrong family is refused INVALID_PAUSE too (BB8 6705927389). Step 7's strict
 // pause edits the rows it changes.
 const FALLBACK_INVALID = {
   code: 'READER_PROTOCOL',
@@ -1112,7 +1113,7 @@ const PACKING_TEXT =
 const C1_OFF = {
   unavailable_without_a_cause: { code: 'DISCOVERY_UNAVAILABLE', message: WORKER_TEXT },
   unavailable_with_an_unknown_cause: FALLBACK_INVALID,
-  unavailable_with_a_resource_cause: { code: 'DISCOVERY_UNAVAILABLE', message: WORKER_TEXT },
+  unavailable_with_a_resource_cause: FALLBACK_INVALID,
   unavailable_with_the_store_cause: {
     code: 'DISCOVERY_UNAVAILABLE',
     cause: 'segment_corrupt',
@@ -1120,8 +1121,8 @@ const C1_OFF = {
   },
   resource_limit_without_a_cause: { code: 'RESOURCE_LIMIT', message: WORKER_TEXT },
   resource_limit_with_an_unknown_cause: FALLBACK_INVALID,
-  resource_limit_with_an_unavailable_cause: { code: 'RESOURCE_LIMIT', message: WORKER_TEXT },
-  another_code_with_a_cause: { code: 'STALE_READING', message: WORKER_TEXT },
+  resource_limit_with_an_unavailable_cause: FALLBACK_INVALID,
+  another_code_with_a_cause: FALLBACK_INVALID,
   a_cause_past_the_echo_bound: FALLBACK_INVALID,
   a_cause_that_is_not_a_string: FALLBACK_INVALID,
   a_log_outside_the_set: FALLBACK_INVALID,

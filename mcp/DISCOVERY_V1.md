@@ -1968,10 +1968,16 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   `commitCheckpoint`, `resume`) or from a failed full read carries `cause` and `log`; one raised
   inside the sink reaches the catch through `sinkError`. The scheduler logs a reply's stderr,
   the worker's message with the meter's or the resident guard's figures, because a reason with
-  a named cause stores no message.
+  a named cause stores no message. It logs that line too for every reply whose pause
+  `store.pause` refuses, with a cause or without one (BB8 6705927389): `[reader] worker reply
+  <code>[<cause>]: <stderr>`, the `[<cause>]` only when the reply names one, each echoed as C1's
+  `value` is (at most 64 bytes) and the stderr cut to 4,096 characters.
   **The fallback pause** (BB8 6700200435, condition 3, on R2's question 3). If `store.pause`
   refuses with any code but `STALE_ATTEMPT`, the scheduler logs the refusal and makes exactly one
-  more `store.pause`, `{code: "READER_PROTOCOL", message: "The reader reply could not be
+  more `store.pause`. The log line, `[reader] checkpoint recovery failed: <refusal> refusing
+  <code>[<cause>]`, names the refused pause's code and, when it has one, its cause, echoed as
+  above, so the original stays recoverable once the fallback has replaced it (BB8 6705927389).
+  The fallback is `{code: "READER_PROTOCOL", message: "The reader reply could not be
   recorded: <code>.", requeue: false}`, where `<code>` is the refusal's code. It carries no cause,
   no log and no release, and `discovery` is unchanged. So the lease ends whatever the reply held.
   If the fallback is refused too, that is logged, no further call is made, and lease expiry
@@ -1982,9 +1988,12 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   the second store call and the fallback the third. There is never a second fallback.
   `STALE_ATTEMPT` takes no fallback: the lease is already over or another's. The fallback is the
   same with C1 on and off; with C1 on it is a logged safety net. `store.pause` refuses an argument
-  outside its sets (a cause outside every set, a cause that is not a string) with the internal
-  code `INVALID_PAUSE` (500), which is never a job's reason and never collides with admission's
-  `INVALID_DECLARATION`. `bad/reply_pause_refused.json` pins every case.
+  outside its sets (a cause outside every set, a cause that is not a string, a log outside §2.3's),
+  and a cause of the wrong family (a `RESOURCE_LIMIT` cause on `DISCOVERY_UNAVAILABLE`, a
+  `DISCOVERY_UNAVAILABLE` cause on `RESOURCE_LIMIT`, any cause on another code; BB8 6705927389),
+  with the internal code `INVALID_PAUSE` (500), which is never a job's reason and never collides
+  with admission's `INVALID_DECLARATION`; a cause is never dropped to `{code, message}`.
+  `bad/reply_pause_refused.json` pins every case.
 - `store.pause` with code `DISCOVERY_UNAVAILABLE` releases the logs and sets
   `unavailable: {cause, log | null, released}` in the same save (§2.7). This is how a refusal
   the worker raises (R1, `chain_broken` from F3 or R2 at its load, `digest_mismatch`,
@@ -2642,10 +2651,11 @@ Bad:
   `bad/tail_rewritten.json` (W6);
 - reply (`READER_PROTOCOL`, no status): `bad/reply_cause_invalid.json` (C1), with sink errors
   and a bridge failure among its controls; `bad/reply_pause_refused.json` (the fallback pause): a
-  reply whose cause `store.pause` refuses (`INVALID_PAUSE`, C1 off: a cause outside every set and
-  one that is not a string) ends in exactly one fallback pause with the reason `{code:
-  "READER_PROTOCOL", message: "The reader reply could not be recorded: INVALID_PAUSE."}`, no cause
-  and no release; a `STALE_ATTEMPT` takes no fallback; a refused fallback is two calls and then
+  reply whose cause `store.pause` refuses (`INVALID_PAUSE`, C1 off: a cause outside every set,
+  one that is not a string, one of the wrong family, and no cause with a log outside the set)
+  ends in exactly one fallback pause with the reason `{code: "READER_PROTOCOL", message: "The
+  reader reply could not be recorded: INVALID_PAUSE."}`, no cause and no release, and the warn and
+  the recovery line name the reply's own code and cause; a `STALE_ATTEMPT` takes no fallback; a refused fallback is two calls and then
   lease expiry; with C1 on, a valid reply whose pause is refused once takes the same fallback; a
   valid reply and a sink error are controls with one call each;
 - limit: `bad/membership_over_cap.json` (W7). For each membership log and each cap, the worker

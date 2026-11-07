@@ -738,14 +738,16 @@ export class ReaderScheduler {
       }
     } catch (failure) {
       const fields = pauseFields(failure);
+      // The pause's code, and its cause when it has one, bounded by §8's echo.
+      const named = `${echo(failure.code || 'INTERRUPTED')}${fields.cause !== undefined ? `[${echo(fields.cause)}]` : ''}`;
       // A reason with a named cause stores no message, so a reply's stderr
       // (the worker's message, with the meter's or the guard's figures) is
-      // logged here instead.
-      if (failure.reply === true && fields.cause !== undefined)
-        console.warn(
-          `[reader] worker reply ${failure.code}[${echo(fields.cause)}]:`,
-          String(failure.message).slice(0, 4096)
-        );
+      // logged here instead; and so is every reply whose pause is refused,
+      // cause or none, so the worker's own code is never lost (BB8
+      // 6705927389).
+      const warnReply = () =>
+        console.warn(`[reader] worker reply ${named}:`, String(failure.message).slice(0, 4096));
+      if (failure.reply === true && fields.cause !== undefined) warnReply();
       try {
         this.store.pause(record.id, record.attempt, record.fence, {
           code: failure.code || 'INTERRUPTED',
@@ -754,8 +756,15 @@ export class ReaderScheduler {
           ...fields,
         });
       } catch (stale) {
+        if (failure.reply === true && fields.cause === undefined) warnReply();
         if (stale.code !== 'STALE_ATTEMPT') {
-          console.error('[reader] checkpoint recovery failed:', stale.code || 'READER_ERROR');
+          // Names the refused pause's code and cause, so the original stays
+          // recoverable once the fallback has replaced it.
+          console.error(
+            '[reader] checkpoint recovery failed:',
+            stale.code || 'READER_ERROR',
+            `refusing ${named}`
+          );
           // One fallback pause, so the lease ends whatever the reply held; if
           // it is refused too, lease expiry remains the backstop. Never a
           // second fallback.

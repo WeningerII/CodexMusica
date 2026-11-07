@@ -57,7 +57,9 @@ function problem(code, message, status = 409) {
 // is `{code, reply_code, field, value, message}`. Anything else is
 // `{code, message}`, as before. An argument outside every set (a cause or a
 // log that is not one, reply_code or field not a string, value neither a
-// string nor null) is refused INVALID_PAUSE, an internal code that is never a
+// string nor null), and a cause of the wrong family (a resource cause on
+// DISCOVERY_UNAVAILABLE, a discovery cause on RESOURCE_LIMIT, any cause on
+// another code), is refused INVALID_PAUSE, an internal code that is never a
 // job's reason.
 function pauseReason(code, message, { cause, log, reply_code, field, value }) {
   const invalid = (what) =>
@@ -73,10 +75,14 @@ function pauseReason(code, message, { cause, log, reply_code, field, value }) {
   if (reply_code !== undefined && typeof reply_code !== 'string') throw invalid('a reply code');
   if (field !== undefined && typeof field !== 'string') throw invalid('a field');
   if (named(value) && typeof value !== 'string') throw invalid('a value');
-  if (code === 'RESOURCE_LIMIT' && named(cause) && Object.hasOwn(RESOURCE_CAUSES, cause))
-    return { code, cause };
-  if (code === 'DISCOVERY_UNAVAILABLE' && named(cause) && Object.hasOwn(DISCOVERY_CAUSES, cause))
-    return { code, cause, log: log ?? null };
+  if (named(cause)) {
+    if (code === 'RESOURCE_LIMIT' && Object.hasOwn(RESOURCE_CAUSES, cause)) return { code, cause };
+    if (code === 'DISCOVERY_UNAVAILABLE' && Object.hasOwn(DISCOVERY_CAUSES, cause))
+      return { code, cause, log: log ?? null };
+    // A cause of the other code's set, or any cause on a code that takes
+    // none (BB8 6705927389): refused, never dropped to {code, message}.
+    throw invalid('a cause for its code');
+  }
   if (code === 'READER_PROTOCOL' && reply_code !== undefined)
     return { code, reply_code, field: field ?? null, value: value ?? null, message };
   return { code, message };
@@ -1326,6 +1332,10 @@ export class ReaderJobStore {
           else {
             code = 'QUEUE_FULL';
             message = 'Queue is full; committed work is retained.';
+            // The store's own reason takes no cause or log: as before, a
+            // requeue's cause is not stored under QUEUE_FULL.
+            cause = undefined;
+            log = undefined;
           }
         }
       }

@@ -19073,7 +19073,11 @@
         "logged": [
           {
             "level": "error",
-            "args": ["[reader] checkpoint recovery failed:", "STORAGE_UNAVAILABLE"]
+            "args": [
+              "[reader] checkpoint recovery failed:",
+              "STORAGE_UNAVAILABLE",
+              "refusing STORAGE_UNAVAILABLE"
+            ]
           },
           { "level": "error", "args": ["[reader] fallback pause failed:", "STORAGE_UNAVAILABLE"] }
         ]
@@ -22834,7 +22838,11 @@
         "logged": [
           {
             "level": "error",
-            "args": ["[reader] checkpoint recovery failed:", "STORAGE_UNAVAILABLE"]
+            "args": [
+              "[reader] checkpoint recovery failed:",
+              "STORAGE_UNAVAILABLE",
+              "refusing STORAGE_UNAVAILABLE"
+            ]
           },
           { "level": "error", "args": ["[reader] fallback pause failed:", "STORAGE_UNAVAILABLE"] }
         ]

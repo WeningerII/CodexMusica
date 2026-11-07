@@ -1291,15 +1291,6 @@ test('pause: a named cause is stored without a message; C1 fields are kept; othe
       { code: 'DISCOVERY_UNAVAILABLE', message: 'worker text' },
       { code: 'DISCOVERY_UNAVAILABLE', message: 'worker text' },
     ],
-    // A cause from a set, but not its code's: stored as code and message.
-    [
-      { code: 'RESOURCE_LIMIT', message: 'worker text', cause: 'chain_broken' },
-      { code: 'RESOURCE_LIMIT', message: 'worker text' },
-    ],
-    [
-      { code: 'STALE_READING', message: 'worker text', cause: 'chain_broken', log: 'seen' },
-      { code: 'STALE_READING', message: 'worker text' },
-    ],
     [
       {
         code: 'READER_PROTOCOL',
@@ -1330,6 +1321,24 @@ test('pause: a named cause is stored without a message; C1 fields are kept; othe
   });
 });
 
+test('pause: a requeue that meets a full queue stores QUEUE_FULL without the cause', (t) => {
+  const { store } = fixture(t);
+  create(store);
+  const lease = store.lease();
+  for (let i = 0; i < 16; i++) create(store, `viewer-${i}`, `queued-${i}`);
+  const paused = store.pause(lease.id, lease.attempt, lease.fence, {
+    code: 'RESOURCE_LIMIT',
+    message: 'worker text',
+    cause: 'resident_capacity',
+    requeue: true,
+  });
+  assert.equal(paused.state, 'paused');
+  assert.deepEqual(store.inspect(lease.id).reason, {
+    code: 'QUEUE_FULL',
+    message: 'Queue is full; committed work is retained.',
+  });
+});
+
 test('pause: an argument outside every set is refused INVALID_PAUSE (500) and saves nothing', (t) => {
   const { store } = fixture(t);
   create(store);
@@ -1341,6 +1350,13 @@ test('pause: an argument outside every set is refused INVALID_PAUSE (500) and sa
     { code: 'DISCOVERY_UNAVAILABLE', cause: { cause: 'chain_broken' } },
     { code: 'DISCOVERY_UNAVAILABLE', cause: 'segment_missing', log: 'alt_cellz' },
     { code: 'DISCOVERY_UNAVAILABLE', cause: 'segment_missing', log: 3 },
+    // A cause of the wrong family (BB8 6705927389): refused, never dropped.
+    { code: 'DISCOVERY_UNAVAILABLE', cause: 'discovery_alt_seen' },
+    { code: 'RESOURCE_LIMIT', cause: 'chain_broken' },
+    { code: 'RESOURCE_LIMIT', cause: 'chain_broken', log: 'alt_cells' },
+    { code: 'STALE_READING', cause: 'chain_broken', log: 'seen' },
+    { code: 'READER_ERROR', cause: 'resident_capacity' },
+    { code: 'READER_PROTOCOL', cause: 'chain_broken' },
     { code: 'READER_PROTOCOL', reply_code: 'RESOURCE_LIMIT', field: 7, value: null },
     { code: 'READER_PROTOCOL', reply_code: 4, field: 'error_cause', value: null },
     { code: 'READER_PROTOCOL', reply_code: 'RESOURCE_LIMIT', field: 'error_cause', value: 9 },

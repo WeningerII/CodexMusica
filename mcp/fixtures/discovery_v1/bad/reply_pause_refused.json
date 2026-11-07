@@ -50,7 +50,9 @@
             "message": "The reader reply could not be recorded: INVALID_PAUSE."
           }
         },
-        "errors": ["[reader] checkpoint recovery failed: INVALID_PAUSE"],
+        "errors": [
+          "[reader] checkpoint recovery failed: INVALID_PAUSE refusing DISCOVERY_UNAVAILABLE[not_a_cause]"
+        ],
         "warnings": ["[reader] worker reply DISCOVERY_UNAVAILABLE[not_a_cause]: worker text"]
       }
     },
@@ -94,8 +96,100 @@
             "message": "The reader reply could not be recorded: INVALID_PAUSE."
           }
         },
-        "errors": ["[reader] checkpoint recovery failed: INVALID_PAUSE"],
+        "errors": [
+          "[reader] checkpoint recovery failed: INVALID_PAUSE refusing DISCOVERY_UNAVAILABLE[7]"
+        ],
         "warnings": ["[reader] worker reply DISCOVERY_UNAVAILABLE[7]: worker text"]
+      }
+    },
+    {
+      "name": "cause_of_the_wrong_family",
+      "c1": [false],
+      "lease": {
+        "reply": {
+          "reply": true,
+          "code": 1,
+          "error_code": "DISCOVERY_UNAVAILABLE",
+          "error_cause": "discovery_alt_seen",
+          "stderr": "worker text"
+        }
+      },
+      "stub": {
+        "pause": []
+      },
+      "expect": {
+        "calls": [
+          {
+            "method": "pause",
+            "code": "DISCOVERY_UNAVAILABLE",
+            "refused": "INVALID_PAUSE"
+          },
+          {
+            "method": "pause",
+            "code": "READER_PROTOCOL",
+            "fallback": true,
+            "outcome": "ok"
+          }
+        ],
+        "record": {
+          "state": "paused",
+          "deferred_requeue": false,
+          "fence": null,
+          "lease_expires_at": null,
+          "discovery": "unchanged",
+          "reason": {
+            "code": "READER_PROTOCOL",
+            "message": "The reader reply could not be recorded: INVALID_PAUSE."
+          }
+        },
+        "errors": [
+          "[reader] checkpoint recovery failed: INVALID_PAUSE refusing DISCOVERY_UNAVAILABLE[discovery_alt_seen]"
+        ],
+        "warnings": ["[reader] worker reply DISCOVERY_UNAVAILABLE[discovery_alt_seen]: worker text"]
+      }
+    },
+    {
+      "name": "no_cause_and_a_log_outside_the_set",
+      "c1": [false],
+      "lease": {
+        "reply": {
+          "reply": true,
+          "code": 1,
+          "error_code": "RESOURCE_LIMIT",
+          "error_log": "alt_cellz",
+          "stderr": "worker text"
+        }
+      },
+      "stub": {
+        "pause": []
+      },
+      "expect": {
+        "calls": [
+          {
+            "method": "pause",
+            "code": "RESOURCE_LIMIT",
+            "refused": "INVALID_PAUSE"
+          },
+          {
+            "method": "pause",
+            "code": "READER_PROTOCOL",
+            "fallback": true,
+            "outcome": "ok"
+          }
+        ],
+        "record": {
+          "state": "paused",
+          "deferred_requeue": false,
+          "fence": null,
+          "lease_expires_at": null,
+          "discovery": "unchanged",
+          "reason": {
+            "code": "READER_PROTOCOL",
+            "message": "The reader reply could not be recorded: INVALID_PAUSE."
+          }
+        },
+        "errors": ["[reader] checkpoint recovery failed: INVALID_PAUSE refusing RESOURCE_LIMIT"],
+        "warnings": ["[reader] worker reply RESOURCE_LIMIT: worker text"]
       }
     },
     {
@@ -126,7 +220,7 @@
           "saved": "nothing"
         },
         "errors": [],
-        "warnings": []
+        "warnings": ["[reader] worker reply READER_ERROR: worker text"]
       }
     },
     {
@@ -174,10 +268,10 @@
           }
         },
         "errors": [
-          "[reader] checkpoint recovery failed: STORE_RECOUNTING",
+          "[reader] checkpoint recovery failed: STORE_RECOUNTING refusing READER_ERROR",
           "[reader] fallback pause failed: STORE_RECOUNTING"
         ],
-        "warnings": []
+        "warnings": ["[reader] worker reply READER_ERROR: worker text"]
       }
     },
     {
@@ -220,7 +314,9 @@
             "message": "The reader reply could not be recorded: STORE_RECOUNTING."
           }
         },
-        "errors": ["[reader] checkpoint recovery failed: STORE_RECOUNTING"],
+        "errors": [
+          "[reader] checkpoint recovery failed: STORE_RECOUNTING refusing RESOURCE_LIMIT[resident_capacity]"
+        ],
         "warnings": ["[reader] worker reply RESOURCE_LIMIT[resident_capacity]: worker text"]
       }
     },
@@ -269,7 +365,9 @@
             "message": "The reader reply could not be recorded: STORE_RECOUNTING."
           }
         },
-        "errors": ["[reader] checkpoint recovery failed: STORE_RECOUNTING"],
+        "errors": [
+          "[reader] checkpoint recovery failed: STORE_RECOUNTING refusing STORE_RECOUNTING"
+        ],
         "warnings": []
       }
     },
