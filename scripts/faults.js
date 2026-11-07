@@ -88,6 +88,7 @@
 //   drifted frozen DF   -> build_descriptor_df.js --check (app.js DF block != the JSON)
 //   stale frozen DF     -> build_descriptor_df.js --check (the freeze fell behind the catalog)
 //   stdout lost to exit -> check_cli_output.js      (process.exit drops the unflushed pipe queue)
+//   stderr lost to exit -> check_cli_stderr.js      (the same drop on a 4 MiB recipe.js --json stderr)
 //   corrupt spend file -> mcp/test.mjs  (a negative usd would hand spent budget back)
 //   connector over-cascades -> check_edit_parity.js (guard the app has, the connector lacked)
 //   renderer fork drift -> check_edit_differential.js (one engine's copy changes, the other's doesn't)
@@ -3146,6 +3147,48 @@ if (want('retired-id-unresolved')) {
       /: resolver/
     );
   }
+}
+
+// stderr truncated by process.exit -> check_cli_stderr.js
+//
+// The stderr twin of stdout-truncated-by-exit above (added here, last, so the
+// classes before it keep their --shard hands). The defect: recipe.js's --json
+// branch ends in process.exit(0) again instead of `process.exitCode = 0;
+// return;` -- the exit its own comment says dropped the --why output and the
+// notes on stderr, which Node writes to a pipe asynchronously.
+//
+// Restoring that line ALONE is not a plant this gate can catch, and that was
+// measured, not assumed: under --json the largest stderr the suite produces is
+// 24,353 bytes (--json --why-json with a swap that is not applied), which fits
+// whole in the ~208KB socketpair Node gives a child, so nothing is queued at
+// exit and no byte is lost (the gate passed twice in a row on that plant,
+// correctly: the bytes are equal).
+// So the plant is the defect as it bites: when stderr carries JSON, 4 MiB of
+// trailing JSON whitespace, then the restored exit -- the same mutation as the
+// gate's own --self-test control, written to disk. 4 MiB cannot fit on any
+// default kernel; the file reference keeps every byte and still parses, the
+// piped probe does not. Caught by name: the byte comparison on the
+// --json --why-json case, not a JSON parse, a timeout or a spawn failure.
+if (want('stderr-truncated-by-exit')) {
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'scripts/recipe.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const tail = '  process.exitCode = 0;\n  return;\n}\n';
+  if (src.split(tail).length !== 2)
+    throw new Error('faults: recipe.js --json exit tail not found exactly once');
+  plantWrite(
+    d,
+    f,
+    src.replace(
+      tail,
+      "  if (jsonStderr) process.stderr.write(' '.repeat(4 * 1024 * 1024));\n  process.exit(0);\n}\n"
+    )
+  );
+  record(
+    'stderr-truncated-by-exit -> check_cli_stderr.js',
+    gate(d, ['scripts/check_cli_stderr.js']),
+    /json-why-json repeat \d: stderr mismatch expected=\d+ actual=\d+/
+  );
 }
 
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
