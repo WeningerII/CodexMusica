@@ -8050,7 +8050,7 @@
       },
       {
         "op": "a temporary record file left mid-write, then prune()",
-        "value": { "left": true, "gone": true, "usage_minus_disk": -1000 },
+        "value": { "left": true, "gone": true, "usage_minus_disk": 0 },
         "files": {
           "added": {},
           "changed": {
@@ -16102,7 +16102,7 @@
       },
       {
         "op": "a temporary record file left mid-write, then prune()",
-        "value": { "left": true, "gone": true, "usage_minus_disk": -1000 },
+        "value": { "left": true, "gone": true, "usage_minus_disk": 0 },
         "files": {
           "added": {},
           "changed": {

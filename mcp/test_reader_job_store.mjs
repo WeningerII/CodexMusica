@@ -841,6 +841,50 @@ test('a restart collects a killed write before it counts, so a near-full store s
   assert.ok(recovered.usage + recovered.slack <= SMALL_QUOTA);
 });
 
+// A records/*.tmp file comes off the usage counter only if the full scan
+// that set the counter counted it. One that appears with no pending marker
+// (planted here as the golden plants it) was never counted; one a recount saw
+// was. Every sweep of records/*.tmp, prune(), reopen and maintain()'s bounded
+// one, leaves the counter equal to the bytes on disk for both (BB8's ruling:
+// prune() took the uncounted one's size off and read 1,000 under the disk).
+test('usage equals the bytes on disk after the records/*.tmp sweep, by prune(), reopen and maintain()', async (t) => {
+  const { directory, store } = fixture(t);
+  const job = create(store);
+  commit(store, store.lease());
+  assert.equal(store.usage, scan(store), 'counted before the temporary appears');
+  const records = path.join(store.directory, 'records');
+  let n = 0;
+  const leaveTemporary = () => {
+    const file = path.join(records, `${job.record.id}.json.${String(n++).padStart(24, '0')}.tmp`);
+    fs.writeFileSync(file, '{"partial":'.padEnd(1000, ' '));
+    const old = new Date(Date.now() - 60_000);
+    fs.utimesSync(file, old, old); // older than any mark start, so maintain() may sweep it
+    return file;
+  };
+  for (const counted of [false, true]) {
+    const label = counted ? 'a counted temporary' : 'an uncounted temporary';
+    let file = leaveTemporary();
+    if (counted) assert.equal(await store.recount(), true, 'the recount is accepted');
+    const bytes = store.prune().bytes;
+    assert.equal(fs.existsSync(file), false, `prune() sweeps ${label}`);
+    assert.equal(bytes, scan(store), `prune()'s bytes equal the disk (${label})`);
+    assert.equal(store.usage, scan(store), `the counter equals the disk after prune() (${label})`);
+    file = leaveTemporary();
+    if (counted) assert.equal(await store.recount(), true, 'the recount is accepted');
+    collect(store);
+    assert.equal(fs.existsSync(file), false, `maintain() sweeps ${label}`);
+    assert.equal(
+      store.usage,
+      scan(store),
+      `the counter equals the disk after maintain() (${label})`
+    );
+  }
+  const file = leaveTemporary();
+  const reopened = new ReaderJobStore({ directory });
+  assert.equal(fs.existsSync(file), false, 'reopen sweeps the temporary');
+  assert.equal(reopened.usage, scan(reopened), 'the counter equals the disk after reopen');
+});
+
 const readerSha = (value) => createHash('sha256').update(value).digest('hex');
 function pronunciationCatalogFixture(t, options = {}) {
   const { directory, store } = fixture(t);

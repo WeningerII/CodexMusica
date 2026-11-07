@@ -334,6 +334,8 @@ export class ReaderJobStore {
       this._writing = false;
       this._inflight = false;
       this._recountWanted = false;
+      // records/*.tmp names the last accepted full scan counted (see _usage).
+      this._countedTemporaries = new Set();
       this._timers = [];
       this._gc = null;
       this._expiryScan = null;
@@ -519,11 +521,19 @@ export class ReaderJobStore {
     if (fs.existsSync(marker)) total += fs.statSync(marker).size;
     return total;
   }
+  // A full scan, quiescent under the writer lock. It also records which
+  // records/*.tmp files it counted: a writer adds only the renamed file to the
+  // counter, never its temporary, so a temporary is in the counter only if
+  // the full scan that set it saw that name (see _unlinkTemporary).
   _usage() {
     let total = this._metadataBytes();
+    const temporaries = new Set();
     for (const dir of ['records', ...OBJECT_KINDS])
-      for (const name of fs.readdirSync(path.join(this.directory, dir)))
+      for (const name of fs.readdirSync(path.join(this.directory, dir))) {
         total += fs.statSync(path.join(this.directory, dir, name)).size;
+        if (dir === 'records' && name.endsWith('.tmp')) temporaries.add(name);
+      }
+    this._countedTemporaries = temporaries;
     return total;
   }
   // Every record holds a RESERVE_BYTES reservation: the quota invariant is
@@ -1677,6 +1687,20 @@ export class ReaderJobStore {
     if (this.usage !== null) this.usage -= size;
     this._inflight = false;
   }
+  // A records/*.tmp file comes off a known counter only if the scan that set
+  // the counter counted it. One no scan saw (a temporary that appeared with
+  // no pending marker, so no lock holder recounted) was never added. Both
+  // sweeps remove temporaries this way: _collectAll and maintain().
+  _unlinkTemporary(file) {
+    const name = path.basename(file);
+    const size = fs.statSync(file).size;
+    this._beginWrite();
+    this._inflight = true;
+    fs.unlinkSync(file);
+    if (this.usage !== null && this._countedTemporaries.has(name)) this.usage -= size;
+    this._countedTemporaries.delete(name);
+    this._inflight = false;
+  }
   // Under the lock, all at once: startup and prune() only.
   _collectAll() {
     const live = Object.fromEntries(OBJECT_KINDS.map((kind) => [kind, new Set()]));
@@ -1696,7 +1720,7 @@ export class ReaderJobStore {
     const recordsDir = path.join(this.directory, 'records');
     for (const file of fs.readdirSync(recordsDir))
       if (file.endsWith('.tmp')) {
-        this._unlinkCounted(path.join(recordsDir, file));
+        this._unlinkTemporary(path.join(recordsDir, file));
         removedTemporary = true;
       }
     if (removedTemporary) syncDirectory(recordsDir);
@@ -1851,7 +1875,8 @@ export class ReaderJobStore {
               gc.pending = file; // deleting it would pass the byte bound
               break;
             }
-            this._unlinkCounted(full);
+            if (kind === 'records') this._unlinkTemporary(full);
+            else this._unlinkCounted(full);
             budget.bytes += stat.size;
             swept++;
           }
@@ -1880,6 +1905,7 @@ export class ReaderJobStore {
         continue;
       }
       let g0, total;
+      const temporaries = new Set();
       try {
         g0 = this._readGeneration();
         total = this._metadataBytes();
@@ -1889,6 +1915,7 @@ export class ReaderJobStore {
             // Any failed measurement (even ENOENT) invalidates the whole pass;
             // the generation fence cannot vouch for a stat that did not happen.
             total += fs.statSync(path.join(this.directory, dir, name)).size;
+            if (dir === 'records' && name.endsWith('.tmp')) temporaries.add(name);
             if (++n % slice === 0) await yieldNow();
           }
       } catch (error) {
@@ -1904,6 +1931,7 @@ export class ReaderJobStore {
               JSON.stringify({ event: 'READER_USAGE_DRIFT', counter: this.usage, scan: total })
             );
           this.usage = total;
+          this._countedTemporaries = temporaries;
           this.generation = g0;
           this._recountWanted = false;
           return true;

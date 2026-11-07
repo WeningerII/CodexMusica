@@ -655,9 +655,10 @@ function runStoreHalf(t, gzip) {
   });
 
   // 11. The startup and prune() sweep of records/*.tmp (_collectAll), apart
-  //     from maintain()'s bounded sweep (maintain/bounded). A writer that died
-  //     mid-write leaves a temporary record file; the usage counter never
-  //     counted it. The listing hides *.tmp (N4), so each step reports the
+  //     from maintain()'s bounded sweep (maintain/bounded). Each step plants a
+  //     temporary record file with no pending marker, so no scan counted it
+  //     (a writer that really dies leaves pending, and the next lock holder
+  //     recounts it in). The listing hides *.tmp (N4), so each step reports the
   //     file's presence itself: left before, gone after, on both paths
   //     (BB8 6703592982: a changed suffix in that sweep failed no test).
   const recordsDir = path.join(rec.root, 'records');
@@ -676,8 +677,8 @@ function runStoreHalf(t, gzip) {
     const file = leftTmp('x.tmp');
     const left = fs.existsSync(file);
     const out = store.prune();
-    // Pinned as it is: _unlinkCounted subtracts the size of a file the
-    // counter never counted, so prune()'s usage reads under the disk by it.
+    // Zero: no scan counted the temporary, so the sweep takes nothing off
+    // for it (_unlinkTemporary); before BB8's ruling it read -1000.
     return { left, gone: !fs.existsSync(file), usage_minus_disk: out.bytes - diskBytes(rec.root) };
   });
   return rec;
