@@ -88,6 +88,8 @@
 //   drifted frozen DF   -> build_descriptor_df.js --check (app.js DF block != the JSON)
 //   stale frozen DF     -> build_descriptor_df.js --check (the freeze fell behind the catalog)
 //   stdout lost to exit -> check_cli_output.js      (process.exit drops the unflushed pipe queue)
+//   stderr lost to exit -> check_cli_stderr.js      (the same drop on a 4 MiB recipe.js --json stderr)
+//   stderr lost to bare exit -> check_cli_stderr.js (the bare restore, unpadded, on the 449 KB blend case)
 //   corrupt spend file -> mcp/test.mjs  (a negative usd would hand spent budget back)
 //   connector over-cascades -> check_edit_parity.js (guard the app has, the connector lacked)
 //   renderer fork drift -> check_edit_differential.js (one engine's copy changes, the other's doesn't)
@@ -3146,6 +3148,74 @@ if (want('retired-id-unresolved')) {
       /: resolver/
     );
   }
+}
+
+// stderr truncated by process.exit -> check_cli_stderr.js
+//
+// The stderr twin of stdout-truncated-by-exit above (added here, last, so the
+// classes before it keep their --shard hands). The defect: recipe.js's --json
+// branch ends in process.exit(0) again instead of `process.exitCode = 0;
+// return;` -- the exit its own comment says dropped the --why output and the
+// notes on stderr, which Node writes to a pipe asynchronously.
+//
+// Restoring that line alone is the next class, and the gate catches it on one
+// case: pipe-overflow-json-why-json (BB8's ruling on #828) writes 449,254
+// stderr bytes under --json, more than twice the ~208KB socketpair Node gives
+// a child. Every other --json case fits whole in that pipe (the largest,
+// --json --why-json with a swap that is not applied, is 24,353 bytes), so on
+// them the bare restore loses nothing; the plant below makes all of them lose.
+// So this plant is the defect as it bites: when stderr carries JSON, 4 MiB of
+// trailing JSON whitespace, then the restored exit -- the same mutation as the
+// gate's own --self-test control, written to disk. 4 MiB cannot fit on any
+// default kernel; the file reference keeps every byte and still parses, the
+// piped probe does not. Caught by name: the byte comparison on the
+// json-why-json case itself (the match is anchored, so absent-json-why-json
+// and pipe-overflow-json-why-json do not stand in for it), not a JSON parse,
+// a timeout or a spawn failure.
+if (want('stderr-truncated-by-exit')) {
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'scripts/recipe.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const tail = '  process.exitCode = 0;\n  return;\n}\n';
+  if (src.split(tail).length !== 2)
+    throw new Error('faults: recipe.js --json exit tail not found exactly once');
+  plantWrite(
+    d,
+    f,
+    src.replace(
+      tail,
+      "  if (jsonStderr) process.stderr.write(' '.repeat(4 * 1024 * 1024));\n  process.exit(0);\n}\n"
+    )
+  );
+  record(
+    'stderr-truncated-by-exit -> check_cli_stderr.js',
+    gate(d, ['scripts/check_cli_stderr.js']),
+    /(?:^|\n|AggregateError: )json-why-json repeat \d: stderr mismatch expected=\d+ actual=\d+/
+  );
+}
+
+// stderr truncated by the bare process.exit restore -> check_cli_stderr.js
+//
+// The class above without its padding: recipe.js's --json branch ends in
+// process.exit(0) again, the line its own comment says was removed, and
+// nothing else changes. Only a case whose stderr outgrows the pipe sees it:
+// pipe-overflow-json-why-json (449,254 bytes; its floor is 2 x 208 KiB) loses
+// its tail to the piped probe (measured: 146,261 and 292,437 bytes arrived,
+// exit 0) while the file reference keeps every byte. Caught by name: that
+// case's byte comparison, not a JSON parse, a timeout or a spawn failure.
+if (want('stderr-truncated-by-bare-exit')) {
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'scripts/recipe.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const tail = '  process.exitCode = 0;\n  return;\n}\n';
+  if (src.split(tail).length !== 2)
+    throw new Error('faults: recipe.js --json exit tail not found exactly once');
+  plantWrite(d, f, src.replace(tail, '  process.exit(0);\n}\n'));
+  record(
+    'stderr-truncated-by-bare-exit -> check_cli_stderr.js',
+    gate(d, ['scripts/check_cli_stderr.js']),
+    /pipe-overflow-json-why-json repeat \d: stderr mismatch expected=\d+ actual=\d+/
+  );
 }
 
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have

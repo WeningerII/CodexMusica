@@ -240,4 +240,12 @@ module.exports = [
     claim:
       'a read-only CLI writes the same bytes and returns the same exit code whether stdout is a file, a terminal or a pipe',
   },
+  {
+    id: 'cli-stderr-complete',
+    doc: 'SKILL.md',
+    gate: 'check_cli_stderr.js',
+    claim:
+      'recipe.js writes the same stderr bytes and returns the same exit code whether stderr is a file or a pipe, and those bytes carry its literal note lines',
+    doc_terms: ['same stderr bytes', 'same exit code', 'file or a pipe'],
+  },
 ];
