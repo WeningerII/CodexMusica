@@ -3169,7 +3169,9 @@ if (want('retired-id-unresolved')) {
 // gate's own --self-test control, written to disk. 4 MiB cannot fit on any
 // default kernel; the file reference keeps every byte and still parses, the
 // piped probe does not. Caught by name: the byte comparison on the
-// --json --why-json case, not a JSON parse, a timeout or a spawn failure.
+// json-why-json case itself (the match is anchored, so absent-json-why-json
+// and pipe-overflow-json-why-json do not stand in for it), not a JSON parse,
+// a timeout or a spawn failure.
 if (want('stderr-truncated-by-exit')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'scripts/recipe.js');
@@ -3188,7 +3190,7 @@ if (want('stderr-truncated-by-exit')) {
   record(
     'stderr-truncated-by-exit -> check_cli_stderr.js',
     gate(d, ['scripts/check_cli_stderr.js']),
-    /json-why-json repeat \d: stderr mismatch expected=\d+ actual=\d+/
+    /(?:^|\n|AggregateError: )json-why-json repeat \d: stderr mismatch expected=\d+ actual=\d+/
   );
 }
 

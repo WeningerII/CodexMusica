@@ -125,7 +125,8 @@ cases.push({
 // a --json exit that does not wait for stderr loses bytes here (BB8, #828).
 // minStderr is that 2 x 208 KiB: a wording trim that took the case under it
 // would let the case fit again, so the gate fails instead. The 17 ids are the
-// smallest pinned blend found that clears it (greedy on distinct slots).
+// smallest pinned blend found that clears it with margin (greedy on distinct
+// slots; 16 cleared it by under 2%).
 cases.push({
   name: 'pipe-overflow-json-why-json',
   args: [
@@ -274,11 +275,11 @@ function valid(c, r) {
   }
 }
 function equal(ref, r, label) {
-  assert.ifError(r.error);
-  assert.equal(r.timedOut, false);
-  assert.equal(r.signal, null);
-  assert.equal(r.code, ref.code);
-  assert.equal(r.signal, ref.signal);
+  assert.ok(!r.error, `${label}: spawn error: ${r.error && r.error.message}`);
+  assert.equal(r.timedOut, false, `${label}: timeout`);
+  assert.equal(r.signal, null, `${label}: signal ${r.signal}`);
+  assert.equal(r.code, ref.code, `${label}: exit ${r.code}, reference ${ref.code}`);
+  assert.equal(r.signal, ref.signal, `${label}: signal ${r.signal}, reference ${ref.signal}`);
   assert.ok(
     ref.err.equals(r.err),
     `${label}: stderr mismatch expected=${ref.err.length} actual=${r.err.length}`
