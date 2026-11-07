@@ -37,6 +37,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import test from 'node:test';
+import vm from 'node:vm';
 import {
   cursorCase as buildCursorCase,
   largestCursor,
@@ -6986,9 +6987,19 @@ const ANCHORS = [
 // set is closed: every statement in a depth symbol that DEPTH_WATCH selects
 // (one that builds or reshapes a cell, a span key, a key or an alt_cells
 // pair) must be one of these, whole, so a statement added or changed there
-// fails even where the pinned ones still resolve. `stmt` is the whole
-// statement where it runs past its first line.
+// fails even where the pinned ones still resolve; and the set is closed over
+// its helpers: every `self.*` call in a depth symbol is to a depth symbol or
+// to a helper DEPTH_HELPERS names, with the reason its result builds no
+// entry (BB8 6701778607, item 3). `stmt` is the whole statement where it runs
+// past its first line.
 const DEPTH_ANCHORS = [
+  // The span key's locus: a string, the origin with a unit number replaced
+  // by that unit's cell, formatted.
+  ['analysis.origin.def', '_origin', 'def _origin(self, span, st):'],
+  ['analysis.origin.split', '_origin', 'head, at, unit = span.origin.rpartition("@")'],
+  ['analysis.origin.unit', '_origin', 'if at and unit.isdigit() and int(unit) < len(st.units):'],
+  ['analysis.origin.cell', '_origin', 'return f"{head}@{self._cell(st.units[int(unit)])}"'],
+  ['analysis.origin.plain', '_origin', 'return span.origin'],
   ['analysis.cell.def', '_cell', 'def _cell(self, u):'],
   ['analysis.cell.tok', '_cell', 'tok = (u.line, u.token)'],
   [
@@ -7050,6 +7061,28 @@ const DEPTH_ANCHORS = [
     '_prepare_event',
     'delta["alt_cells"] = delta.get("alt_cells", []) + [[list(binding[1]), list(binding[2])]]',
   ],
+  // The binding that build copies: `("alt", ta, tb)`, two words, each the
+  // stream's `(line, token)`, from the words with a span and those without.
+  ['analysis.sound_candidates.toks', '_sound_candidates', 'toks = sorted(spans)'],
+  [
+    'analysis.sound_candidates.missing',
+    '_sound_candidates',
+    'missing = [] if self._any_reading_off else self._sound_unspanned(spans)',
+  ],
+  ['analysis.sound_candidates.ta', '_sound_candidates', 'for i, ta in enumerate(toks):'],
+  ['analysis.sound_candidates.tb', '_sound_candidates', 'for tb in toks[i + 1:]:'],
+  ['analysis.sound_candidates.pair', '_sound_candidates', 'yield a, b'],
+  ['analysis.sound_candidates.alt_ta', '_sound_candidates', 'for ta in missing:'],
+  [
+    'analysis.sound_candidates.alt_tb',
+    '_sound_candidates',
+    'for tb in sorted(set(toks) | set(missing)):',
+  ],
+  [
+    'analysis.sound_candidates.alt',
+    '_sound_candidates',
+    'yield ("alt",) + tuple(sorted((ta, tb)))',
+  ],
 ].map(([id, symbol, starts, stmt]) => ({
   id,
   file: 'lyric-harness/library/analysis.py',
@@ -7062,10 +7095,49 @@ const DEPTH_ANCHORS = [
 // in the other three.
 const DEPTH_WATCH = {
   _cell: /./,
+  _origin: /./,
   _span_key: /./,
+  _sound_candidates: /^(?:toks|missing) =|^for (?:i, )?(?:ta|tb) in |^yield\b/,
   _candidates: /\bseen\b|_span_key\(|_cell\(/,
   _new_pairs: /\b(?:key|seen)\b|_span_key\(|_cell\(/,
   _prepare_event: /\bcells\b|alt_cells|_span_key\(|_cell\(/,
+};
+// The helpers a depth symbol calls that are not depth symbols, each with why
+// its result never reaches a cell, a span key, a key or an alt_cells pair. A
+// call to any other `self.*` helper fails, and so does an entry here that no
+// depth symbol calls, so the list cannot go stale.
+const DEPTH_HELPERS = {
+  // _candidates
+  _alternate_edges:
+    "yields alt_edge bindings and passes `seen` on to _discover, then _new_pairs (a depth symbol), which adds the keys; the keys it compares are _span_key's, and it adds none itself",
+  _touched: 'a set of words, used only as the condition for keeping a key',
+  // _prepare_event
+  _task_generator:
+    "dispatches the phase's candidate generator: the one binding an entry copies is shared_sound's `(\"alt\", ta, tb)`, from _sound_candidates (a depth symbol); the schema phase's are _candidates' (a depth symbol), whose alt_cells cells read `.line` and `.token` from a stream's units",
+  _any_reading:
+    'the judged instance, stream, witness and flags; the alt_cells cells are read from the binding, not from these',
+  _coordinate: 'a coordinates record, emitted, never logged',
+  _native_pair: 'a native pair record, emitted, never logged',
+  _native_measure: 'a native measure record, emitted, never logged',
+  _edge_record: 'an edge record, emitted; _domain_tally reads it',
+  _domain_tally:
+    "adds token pairs to delta's domain_true and domain_undecided, terminal inputs that are not logs",
+  _shape: 'the figure frames a shape binding yields, each made a record by _figure_record',
+  _shape_first_only: 'a bool, counted',
+  _figure_record: 'a figure record, emitted, never logged',
+  _sound_alt_pair:
+    "the value, the record and a bool that says whether the pair is a cell: the pair appended is the binding's",
+  _sound_pair: 'the value, the record and a count',
+  _finish: "the method's terminal records, emitted",
+  _sound_refusal: 'a refusal record, emitted',
+  _refusal: 'a refusal record, emitted',
+  _bounded_records: 'the records, with large fields detached, emitted',
+  _task_mid: 'a method id string',
+  // _sound_candidates
+  _sound_spans:
+    "the family's spans by word: its keys, the stream's `(line, token)`, are the words ta and tb",
+  _sound_unspanned:
+    "the varying words with no span: the stream's `(line, token)` keys, the words ta takes",
 };
 const ANCHOR = new Map([...ANCHORS, ...DEPTH_ANCHORS].map((r) => [r.id, r]));
 
@@ -7147,6 +7219,70 @@ function symbolSpan(lines, symbol, py, id) {
   }
   return { from, to };
 }
+// The last line of the statement that starts on line `start` (0-based), at
+// most `to`: its lines run on while a bracket it opened is open (comments and
+// strings aside), while a Python line ends in a backslash, and while a JS line
+// ends in an operator or the next one starts with one (`.`, `?`, `:`, `&&`,
+// `||`, `??`). A compound header takes its body: a Python line ending in `:`
+// takes its indented suite and any `elif`, `else`, `except` or `finally` after
+// it, and a JS `if`, `for`, `while` or `else` with no brace takes the next
+// statement. A line that closes a bracket it did not open (an element or the
+// end of an argument list) is its own statement.
+function statementEnd(lines, start, py, to) {
+  const code = stripComments(lines.slice(start, to + 1).join('\n'), py).map((t) =>
+    t
+      .replace(
+        py
+          ? /"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g
+          : /"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|`(?:\\.|[^`\\])*`/g,
+        '""'
+      )
+      .trim()
+  );
+  const next = (k) => {
+    for (let j = k + 1; j < code.length; j++) if (code[j]) return j;
+    return -1;
+  };
+  let depth = 0;
+  let k = 0;
+  for (;;) {
+    const t = code[k];
+    for (const c of t) depth += '([{'.includes(c) ? 1 : ')]}'.includes(c) ? -1 : 0;
+    if (depth < 0) return start + k;
+    const n = next(k);
+    const more =
+      depth > 0 ||
+      (py
+        ? t.endsWith('\\')
+        : /(?:&&|\|\||\?\?|[=+\-*/%<>?:]|=>)$/.test(t) ||
+          (n >= 0 && /^(?:\.|\?|:|&&|\|\||\?\?)/.test(code[n])));
+    if (more) {
+      if (n < 0) throw new Error(`the statement at line ${start + 1} does not end in its symbol`);
+      k = n;
+      continue;
+    }
+    if (py && t.endsWith(':')) {
+      // The suite: every later line indented past the header, then a clause
+      // that continues the statement.
+      const ind = indentOf(lines[start]);
+      let last = start + k;
+      for (let j = k + 1; j < code.length; j++) {
+        if (!code[j]) continue;
+        const own = indentOf(lines[start + j]);
+        if (own > ind) last = start + j;
+        else if (own === ind && /^(?:elif\b|else\b|except\b|finally\b)/.test(code[j]))
+          last = start + j;
+        else break;
+      }
+      return last;
+    }
+    if (!py && /^(?:\}\s*)?(?:(?:else\s+)?if|for|while)\s*\(.*\)$|^(?:\}\s*)?else$/.test(t)) {
+      if (n < 0) throw new Error(`the statement at line ${start + 1} has no body in its symbol`);
+      return statementEnd(lines, start + n, py, to);
+    }
+    return start + k;
+  }
+}
 // One anchor row against its file's text: the 1-based line whose trimmed text
 // starts with `starts`, inside the symbol's span, and the last line of its
 // range. A missing symbol, a second definition, a missing or ambiguous anchor
@@ -7173,7 +7309,7 @@ function resolveAnchor(sourceText, row) {
       throw new Error(
         `${row.id}: no later line in ${row.symbol} starts ${JSON.stringify(row.ends)}`
       );
-  }
+  } else endLine = statementEnd(lines, line, py, to);
   return { line: line + 1, endLine: endLine + 1, text: lines.slice(line, endLine + 1).join('\n') };
 }
 const spanText = (sourceText, row, symbol = row.symbol) => {
@@ -7182,29 +7318,131 @@ const spanText = (sourceText, row, symbol = row.symbol) => {
   return lines.slice(from, to + 1).join('\n');
 };
 const readSource = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
-// The code of a text, line by line: trimmed, with blank lines and comments
-// dropped (a JS `//` line or `/* … */` block; a Python `#` line or a string
-// statement, the docstring), so a comment or a line shift never moves it.
-function codeLines(text, py) {
+// A text, line by line, with its comments and (Python) its string statements
+// cut out and the rest of each line kept: a JS `//` or `/* … */` comment, a
+// Python `#` comment or a triple-quoted string that starts a statement (a
+// docstring), wherever on the line it starts or ends. Strings, template
+// literals and regex literals are read as code, so a comment marker inside one
+// is not a comment. Lines are not joined: line i of the result is line i of
+// the text, possibly empty.
+function stripComments(text, py) {
   const out = [];
-  let open = null;
+  let state = null; // null, a quote, '*/' (a block comment) or 'doc' + a quote
+  let prev = ''; // the last code character before the scan point, for regexes
   for (const s of text.split('\n')) {
-    const t = s.trim();
-    if (open) {
-      if (t.includes(open)) open = null;
-      continue;
+    let kept = '';
+    let i = 0;
+    const put = (c) => {
+      kept += c;
+      if (!/\s/.test(c)) prev = c;
+    };
+    while (i < s.length) {
+      const c = s[i];
+      const two = s.slice(i, i + 2);
+      const three = s.slice(i, i + 3);
+      if (state === '*/' || state?.startsWith('doc')) {
+        const close = state === '*/' ? '*/' : state.slice(3);
+        const at = s.indexOf(close, i);
+        if (at < 0) {
+          i = s.length;
+          break;
+        }
+        i = at + close.length;
+        state = null;
+        continue;
+      }
+      if (state) {
+        // Inside a string: a backslash escapes the next character.
+        if (c === '\\') {
+          put(s.slice(i, i + 2));
+          i += 2;
+          continue;
+        }
+        if (s.startsWith(state, i)) {
+          put(state);
+          i += state.length;
+          state = null;
+          continue;
+        }
+        put(c);
+        i++;
+        continue;
+      }
+      if (py) {
+        if (c === '#') break;
+        const q = /^[rRbBuUfF]{0,2}("""|''')/.exec(s.slice(i));
+        if (q && (!kept.trim() || /;\s*$/.test(kept))) {
+          state = `doc${q[1]}`;
+          i += q[0].length;
+          continue;
+        }
+        if (three === '"""' || three === "'''") {
+          state = three;
+          put(three);
+          i += 3;
+          continue;
+        }
+        if (c === '"' || c === "'") {
+          state = c;
+          put(c);
+          i++;
+          continue;
+        }
+      } else {
+        if (two === '//') break;
+        if (two === '/*') {
+          state = '*/';
+          i += 2;
+          continue;
+        }
+        if (c === '"' || c === "'" || c === '`') {
+          state = c;
+          put(c);
+          i++;
+          continue;
+        }
+        if (c === '/' && (prev === '' || '(,=:[!&|?{};+-*%<>~^'.includes(prev))) {
+          // A regex literal: to the next unescaped `/` outside a class.
+          let j = i + 1;
+          let cls = false;
+          while (j < s.length && (s[j] !== '/' || cls)) {
+            if (s[j] === '\\') j++;
+            else if (s[j] === '[') cls = true;
+            else if (s[j] === ']') cls = false;
+            j++;
+          }
+          put(s.slice(i, j + 1));
+          i = j + 1;
+          continue;
+        }
+      }
+      put(c);
+      i++;
     }
-    if (!t || t.startsWith(py ? '#' : '//')) continue;
-    const q = py ? /^[rRbBuU]{0,2}("""|''')/.exec(t)?.[1] : t.startsWith('/*') && '/*';
-    if (q) {
-      const close = py ? q : '*/';
-      if (py ? (t.split(q).length - 1) % 2 === 1 : !t.includes('*/', 2)) open = close;
-      continue;
-    }
-    out.push(t);
+    // A JS string other than a template literal, or a Python one other than a
+    // triple-quoted one, ends at its line.
+    if (
+      state &&
+      !(
+        state === '`' ||
+        state === '"""' ||
+        state === "'''" ||
+        state === '*/' ||
+        state.startsWith('doc')
+      )
+    )
+      state = null;
+    out.push(kept);
   }
   return out;
 }
+// The code of a text: each line with its comments cut out (stripComments),
+// trimmed, and the lines left empty dropped, so a comment or a line shift
+// never moves it, and code beside a comment is still code.
+const codeLines = (text, py) =>
+  stripComments(text, py)
+    .map((t) => t.trim())
+    .filter(Boolean);
 const digestOf = (text, py) =>
   crypto.createHash('sha256').update(codeLines(text, py).join('\n')).digest('hex').slice(0, 16);
 // A Python span's statements, each a logical line (its physical lines joined
@@ -7380,15 +7618,15 @@ const CITED_CODE = {
   'bridge.spawn.protocol_cap': 'cadb7f1e057905cc',
   'bridge.warm.write': 'b51bbd51ba159282',
   'worker.lone_surrogate': 'd0457298ed2dc3bb',
-  'worker.object_bytes': 'a5d12f796a8f11ef',
+  'worker.object_bytes': '822de74937f3c593',
   'worker.read_page_object': 'b8865ac3e2a116e5',
   'worker.read_page_object.bound': '7d735f17e4c9637d',
   'worker.read_page_object.inflate': 'a8ed729ba0240c39',
   'worker.read_page_object.decode': '74f569f6c35d7905',
-  'worker.run_reader.session': '110135f20c463b5b',
+  'worker.run_reader.session': '190a01c7fe47bf2e',
   'worker.run_reader.frame': 'caf89ec2cc962427',
   'worker.run_reader.frame_cap': '9b8ba89fd8ec23ef',
-  'worker.run_reader.size_check': '828d77bbd389aa00',
+  'worker.run_reader.size_check': 'a294b3fad06b777b',
   'worker.run_reader.print': '3e5cecfe2d544074',
   'worker.main.parse': 'f08047d623f14bbe',
   'worker.main.argv_clean': '7a471f0acaf403e7',
@@ -7402,7 +7640,7 @@ const CITED_CODE = {
   'store.lease': 'f2ee1ce687b1356e',
   'analysis.public_declarations': '4e8128044b314e09',
   'analysis.session.stale_reading': '8805f122444f8bd2',
-  'pronunciation.validate_choices.line': 'cceafe9c674ec9e2',
+  'pronunciation.validate_choices.line': '1f1265384d8db1d1',
 };
 function checkDigests(half, src) {
   const rows = ANCHORS.filter((r) => r.cite);
@@ -7618,6 +7856,106 @@ test('anchors: a line shift or a comment above any anchor never fails, on unchan
   }
 });
 
+test('codeLines: a comment is cut out of its line, and the code beside it kept (BB8 6701778607, item 2)', () => {
+  const js = (t) => codeLines(t, false);
+  const py = (t) => codeLines(t, true);
+  assert.deepEqual(js('/* noop */ return null;'), ['return null;']);
+  assert.deepEqual(js('a(); // note\n// line\n/* one\ntwo */ b();'), ['a();', 'b();']);
+  assert.deepEqual(js("const u = 'http://x/*y*/'; /* c */"), ["const u = 'http://x/*y*/';"]);
+  assert.deepEqual(js('const r = /\\/\\//; // c'), ['const r = /\\/\\//;']);
+  assert.deepEqual(js('const t = `a\n// in a template\n`;'), [
+    'const t = `a',
+    '// in a template',
+    '`;',
+  ]);
+  assert.deepEqual(py('"""x"""; return {}'), ['; return {}']);
+  assert.deepEqual(py('"""doc\nmore\n"""\nx = 1  # c\n# line'), ['x = 1']);
+  assert.deepEqual(py("s = '#not a comment'  # a comment"), ["s = '#not a comment'"]);
+  assert.deepEqual(py('x = """kept\n# kept too\n"""'), ['x = """kept', '# kept too', '"""']);
+  // A change beside a comment moves the digest; the comment alone does not.
+  assert.notEqual(digestOf('/* noop */ return null;', false), digestOf('', false));
+  assert.equal(digestOf('a(); // one', false), digestOf('a(); // two', false));
+});
+
+// Whether each text is one whole statement, parsed by the language itself and
+// never run. Python: its ast, on the dedented text, holds exactly one
+// statement. JS: it compiles as the one statement of an `if (0) … else ;` in an
+// async generator body (a `const` or `let` read as `var`, which that position
+// allows), so a cut-off statement fails and so do two; or, for an array
+// element or an object property, inside `[…]` or `({…})`, where a cut-off one
+// fails.
+function wholeStatements(texts, py) {
+  if (!py)
+    return texts.map((t) =>
+      [
+        `(async function* () {\nif (0) ${t.replace(/^(\s*)(?:const|let)\b/, '$1var')}\nelse;\n});`,
+        `[\n${t}\n];`,
+        `({\n${t}\n});`,
+      ].some((w) => {
+        try {
+          new vm.Script(w);
+          return true;
+        } catch {
+          return false;
+        }
+      })
+    );
+  const run = spawnSync(
+    'python3',
+    [
+      '-I',
+      '-c',
+      [
+        'import ast, json, sys, textwrap',
+        'out = []',
+        'for t in json.load(sys.stdin):',
+        '    try:',
+        '        out.append(len(ast.parse(textwrap.dedent(t)).body) == 1)',
+        '    except SyntaxError:',
+        '        out.append(False)',
+        'print(json.dumps(out))',
+      ].join('\n'),
+    ],
+    { input: JSON.stringify(texts) }
+  );
+  assert.equal(run.status, 0, run.stderr?.toString());
+  return JSON.parse(run.stdout.toString());
+}
+
+test('anchors: a cited row with neither whole nor ends covers its whole statement, and only it', () => {
+  // BB8 6701778607, item 1: such a row runs to the end of its statement, so
+  // its digest holds every line of it; and each one, one line or more, is
+  // checked to be exactly one statement by the language's own parser.
+  const rows = ANCHORS.filter((r) => r.cite && !r.whole && !r.ends);
+  const at = resolveAnchors(rows, STORE_HALF, readSource);
+  for (const py of [false, true]) {
+    const mine = rows.filter((r) => at.has(r.id) && r.file.endsWith('.py') === py);
+    const ok = wholeStatements(
+      mine.map((r) => at.get(r.id).text),
+      py
+    );
+    assert.deepEqual(
+      mine.filter((_, i) => !ok[i]).map((r) => r.id),
+      [],
+      'each is one whole statement'
+    );
+  }
+  // The multi-line call BB8 named: its first line alone is not a statement,
+  // and the row now runs to the call's close.
+  const session = at.get('worker.run_reader.session');
+  assert.ok(session.endLine > session.line, 'the AnalysisSession call runs past its first line');
+  assert.match(session.text, /identity=payload\.get\("identity"\)/);
+  assert.deepEqual(wholeStatements([session.text.split('\n')[0]], true), [false]);
+  // A braceless JS if takes its body; an element is its own statement.
+  const bound = resolveAnchor(
+    readSource('mcp/reader_job_store.js'),
+    ANCHOR.get('store.read_file.bound')
+  );
+  assert.equal(bound.endLine, bound.line + 1);
+  const key = at.get('routes.validate.idempotency_key');
+  assert.equal(key.endLine, key.line);
+});
+
 test('anchors: a call is not a definition, and a changed statement, rename, second definition or duplicate fails', () => {
   const routes = readSource('mcp/reader_routes.js');
   const row = ANCHOR.get('routes.validate.object_refusal');
@@ -7727,6 +8065,7 @@ test('anchors: each STORE_HALF key, flipped against the unchanged code, fails', 
 // The mutants the review of the Step 0 re-anchor ran (#656): each
 // changes code a §2.11 claim or §2.1's depth basis rests on, most keeping
 // the line count, and each must fail. In memory, as the anchor mutants are.
+// An optional fifth element is the failure message it must give.
 const REVIEW_MUTANTS = [
   [
     'X01',
@@ -7860,6 +8199,49 @@ const REVIEW_MUTANTS = [
     "    throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');\n",
     "    throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');\n  if (input.declaration_set && !wellFormedDeep(input.declaration_set)) throw fail('INVALID_DECLARATION', 'The declaration set contains text that is not well-formed Unicode.');\n",
   ],
+  // BB8 6701778607, items 1-3: each passed the validator at c20feb79f.
+  // (1) A multi-line call pinned by its first line only.
+  [
+    'B1',
+    'mcp/worker.py',
+    '                              identity=payload.get("identity"),\n',
+    '                              identity=None,\n',
+    /worker\.run_reader\.session/,
+  ],
+  // (2) A closed comment, then code, on one line: lease() made a no-op.
+  [
+    'B2',
+    'mcp/reader_job_store.js',
+    '  lease(id = null) {\n    return this._open(() => {\n',
+    '  lease(id = null) {\n    return this._open(() => {\n      /* noop */ return null;\n',
+    /store\.lease/,
+  ],
+  // (2) The same in Python: a closed triple-quoted string, then a statement.
+  [
+    'B2py',
+    'lyric-harness/library/analysis.py',
+    'def _public_declarations(value):\n',
+    'def _public_declarations(value):\n    """x"""; return {}\n',
+    /analysis\.public_declarations/,
+  ],
+  // (3) A helper a pinned depth statement calls, deepened: every span key
+  // gains two arrays.
+  [
+    'B3',
+    'lyric-harness/library/analysis.py',
+    '            return f"{head}@{self._cell(st.units[int(unit)])}"\n',
+    '            return (head, (self._cell(st.units[int(unit)]),))\n',
+    /analysis\.origin\.cell: no line in _origin/,
+  ],
+  // (3) A new helper call in a depth symbol, in a statement DEPTH_WATCH does
+  // not select: the binding alt_cells copies, reshaped by an unlisted helper.
+  [
+    'B3b',
+    'lyric-harness/library/analysis.py',
+    '            binding = next(self._generator)\n',
+    '            binding = self._rebind(next(self._generator))\n',
+    /_prepare_event calls self\._rebind, which is neither a depth symbol nor a listed helper/,
+  ],
 ];
 // Every check the validator makes of the sources, at the STORE_HALF state.
 function traceAll(src) {
@@ -7872,10 +8254,10 @@ function traceAll(src) {
 
 test('anchors: each review mutant of a cited symbol or a depth symbol fails', () => {
   traceAll(readSource);
-  for (const [tag, file, old, now] of REVIEW_MUTANTS) {
+  for (const [tag, file, old, now, why] of REVIEW_MUTANTS) {
     const text = readSource(file);
     assert.equal(text.split(old).length, 2, `${tag}: its text occurs once in ${file}`);
-    let failed = false;
+    let failed = null;
     try {
       traceAll(
         withFile(
@@ -7883,10 +8265,12 @@ test('anchors: each review mutant of a cited symbol or a depth symbol fails', ()
           text.replace(old, () => now)
         )
       );
-    } catch {
-      failed = true;
+    } catch (error) {
+      failed = error;
     }
     assert.ok(failed, `${tag} fails the validator`);
+    // Where the row names it, the failure says which check caught it.
+    if (why) assert.match(String(failed.message), why, `${tag} fails by name`);
   }
 });
 
@@ -8360,10 +8744,12 @@ const FOLD48_CLAIMS = [
       'entry shape and its largest depth. That declaration does not exist yet, so `ENTRY_DEPTH',
       '= {{ED}}` is provisional, and open for BB8 (§12, item 31). Its basis is the deepest',
       'shape the source builds at this head: a `seen` or `alt_seen` key is a pair of span keys',
-      '(`analysis.py:_candidates`, `:_new_pairs`), each span key the locus, the direction and',
-      'the cells (`:_span_key`), and each cell a line and a token, with its syllable outside a',
-      'disputed word (`:_cell`), so depth {{DECL}}; an `alt_cells` entry is a pair of cells, at',
-      'the pair build and at the shared-sound build (`:_prepare_event`), depth {{DECL_CELLS}}.',
+      '(`analysis.py:_candidates`, `:_new_pairs`), each span key the locus, a string',
+      '(`:_origin`), the direction and the cells (`:_span_key`), and each cell a line and a',
+      'token, with its syllable outside a disputed word (`:_cell`), so depth {{DECL}}; an',
+      '`alt_cells` entry is a pair of cells, at the pair build and at the shared-sound build',
+      "(`:_prepare_event`), the latter a pair of the stream's words (`:_sound_candidates`),",
+      'depth {{DECL_CELLS}}.',
       "`variants`' descriptor and `row_seen`'s keys are not built yet. Twice {{DECL}} is",
       '{{ED}}, which is also the floor. If the declared largest depth is {{DECL_NEXT}} or more,',
       '`ENTRY_DEPTH` becomes {{ED_NEXT}} or more, and `MEMBERSHIP_BYTES` is derived again with',
@@ -8771,6 +9157,7 @@ const depthFor = (declared) => Math.min(64, Math.max(8, 2 ** Math.ceil(Math.log2
 function declaredDepths(src = readSource) {
   const text = src('lyric-harness/library/analysis.py');
   for (const row of DEPTH_ANCHORS) resolveAnchor(text, row);
+  const called = new Set();
   // The set is closed: each symbol's watched statements are exactly the
   // pinned ones, whole.
   assert.deepEqual(
@@ -8787,7 +9174,22 @@ function declaredDepths(src = readSource) {
       `every statement in ${symbol} that builds or reshapes an entry is a depth anchor`
     );
     for (const p of pinned) assert.ok(stmts.includes(p), `${symbol} holds the statement ${p}`);
+    // Closed over its helpers: each `self.*` call is to a depth symbol or a
+    // listed helper.
+    for (const st of stmts)
+      for (const [, callee] of st.matchAll(/\bself\.(\w+)\(/g)) {
+        assert.ok(
+          callee in DEPTH_WATCH || Object.hasOwn(DEPTH_HELPERS, callee),
+          `${symbol} calls self.${callee}, which is neither a depth symbol nor a listed helper`
+        );
+        called.add(callee);
+      }
   }
+  assert.deepEqual(
+    Object.keys(DEPTH_HELPERS).filter((h) => !called.has(h)),
+    [],
+    'every listed helper is called by a depth symbol'
+  );
   // The shapes those lines build, as JSON: a cell is a line and a token (and
   // a syllable), a span key its origin, direction and cells, a key two span keys.
   const cell = [12, 3, 0];

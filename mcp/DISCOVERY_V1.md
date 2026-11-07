@@ -74,9 +74,12 @@ instead: a function, method, constant or class (`Class.method` for a method of a
 nearest file-qualified citation in its bullet. `mcp/test_discovery_v1_fixtures.mjs` holds the
 pinned statements as anchors inside those symbols, so a line shift never changes the text,
 and a statement about the code's state there names Base. It also holds the code of each cited
-symbol or range to a digest, blank lines and comments aside, so any change to that code fails
+symbol or range to a digest, blank lines and comments aside (code beside a comment is still
+code), and a cited statement to its last line, so any change to that code fails
 until the claim it backs is read again and the digest pinned again; and every statement in
-§2.1's depth symbols that builds or reshapes a cell, a span key or a key is a pinned anchor.
+§2.1's depth symbols that builds or reshapes a cell, a span key or a key is a pinned anchor,
+and every helper a depth symbol calls is a depth symbol or is listed with the reason it builds no
+entry.
 Every other line reference in this contract, in §2.1's other bullets, §2.3 and every later
 section, is at Base and is not checked: a line shift after Base can leave one stale.
 `analysis.py`, `worker.py` and `reader_scheduler.js` are unchanged there from main
@@ -159,10 +162,11 @@ truncation.
   the #721 author declares each log's entry shape and its largest depth. That declaration does not
   exist yet, so `ENTRY_DEPTH = 8` is provisional, and open for BB8 (§12, item 31). Its basis is the
   deepest shape the source builds at this head: a `seen` or `alt_seen` key is a pair of span keys
-  (`analysis.py:_candidates`, `:_new_pairs`), each span key the locus, the direction and the cells
-  (`:_span_key`), and each cell a line and a token, with its syllable outside a disputed word
-  (`:_cell`), so depth 4; an `alt_cells` entry is a pair of cells, at the pair build and at the
-  shared-sound build (`:_prepare_event`), depth 2. `variants`' descriptor and `row_seen`'s keys are
+  (`analysis.py:_candidates`, `:_new_pairs`), each span key the locus, a string (`:_origin`), the
+  direction and the cells (`:_span_key`), and each cell a line and a token, with its syllable
+  outside a disputed word (`:_cell`), so depth 4; an `alt_cells` entry is a pair of cells, at the
+  pair build and at the shared-sound build (`:_prepare_event`), the latter a pair of the stream's
+  words (`:_sound_candidates`), depth 2. `variants`' descriptor and `row_seen`'s keys are
   not built yet. Twice 4 is 8, which is also the floor. If the declared largest depth is 5 or more,
   `ENTRY_DEPTH` becomes 16 or more, and `MEMBERSHIP_BYTES` is derived again with it (§6.11). So
   `MEMBERSHIP_BYTES = 4194304`, derived at `ENTRY_DEPTH = 8`, is provisional with it, until the #721
