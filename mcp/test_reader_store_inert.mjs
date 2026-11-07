@@ -7,12 +7,20 @@
 // refusals, the same store calls the scheduler makes and what it logs, and the
 // same request objects and reader replies that cross the bridge.
 //
-// Five halves, each on a fresh directory with fresh deterministic sources:
+// Seven halves, each on a fresh directory with fresh deterministic sources:
 // the store driven directly, and the same store driven through
-// ReaderScheduler with a scripted fake bridge, each plain and with gzip; and
-// the scheduler driven through the REAL python_bridge.js, whose warm worker
-// is a scripted Node process speaking the reader protocol (plain only: the
-// bridge never touches the store's encoding).
+// ReaderScheduler with a scripted fake bridge, each plain and with gzip; the
+// scheduler driven through the REAL python_bridge.js, whose warm worker is a
+// scripted Node process speaking the reader protocol (plain only: the bridge
+// never touches the store's encoding); packReaderPages at exactly its 2 MiB
+// and 250-instance page limits and one past each; and createCatalogResolver
+// over a minimal pinned catalog, recording the request identity it computes
+// and leasing a job through it.
+//
+// Boundaries the store half holds on purpose: a lease read 1 ms before and
+// AT lease_expires_at (expiry is `<=`), and maintain()'s mark window, with
+// one orphan page aged 1 ms inside it (swept) and one exactly on its edge
+// (kept).
 //
 // Determinism (nothing is left to the host):
 // - the store's `now` and `clock` are injected and advance 1000 ms once per
@@ -36,19 +44,23 @@
 //   N2 a stored object in gzip form is listed as `gzip:<sha256 of its
 //      inflated bytes>` rather than the sha256 of its compressed bytes,
 //      which depend on the zlib build;
-//   N3 every store usage count (store.usage, prune().bytes, readiness().bytes,
-//      maintain().bytes) is first asserted equal to the bytes on disk the
-//      store counts; in the gzip halves only, it then reads `<on-disk-bytes>`
-//      (the plain halves record the number);
+//   N3 every store usage count (store.usage, prune().bytes, readiness().bytes)
+//      is first asserted equal to the bytes on disk the store counts; in the
+//      gzip halves only, it then reads `<on-disk-bytes>` (the plain halves
+//      record the number);
 //   N4 the listing leaves out writer.lock, *.tmp names and readiness-probe
 //      (transient), and every mtime;
 //   N5 the real bridge's reply drops `ms` and `tool_deadline.elapsed_ms`
 //      (wall time), and the worker's request frame lists its `env` keys only
 //      (a per-call token and a wall-clock deadline).
+//   N6 maintain().bytes is what a slice swept, not a usage count; the gzip
+//      halves read `<swept-bytes>` where it is not 0 (compressed sizes).
 //
 // READER_INERT_GOLDEN_UPDATE=1 node --test mcp/test_reader_store_inert.mjs
-// rewrites the golden, and nothing else does. A commit that changes the
-// golden states the behaviour change it intends.
+// rewrites the golden, and nothing else does; under CI the variable fails the
+// file instead. A commit that changes the golden states the behaviour change
+// it intends. A step never records a failed assertion of this file as a
+// refusal: it fails the test.
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -59,7 +71,12 @@ import { after, test } from 'node:test';
 import { createPythonBridge } from './python_bridge.js';
 import { ReaderJobStore } from './reader_job_store.js';
 import { publicReaderJob } from './reader_routes.js';
-import { ReaderScheduler } from './reader_scheduler.js';
+import {
+  ReaderScheduler,
+  canonicalJSON,
+  createCatalogResolver,
+  packReaderPages,
+} from './reader_scheduler.js';
 import {
   FIXED_DATE,
   deterministicRandomBytes,
@@ -68,12 +85,18 @@ import {
 
 const GOLDEN = new URL('./fixtures/reader_store_inert/golden.json', import.meta.url);
 const UPDATE = process.env.READER_INERT_GOLDEN_UPDATE === '1';
+// A stray update setting must never turn the gate into a rewrite in CI.
+if (process.env.READER_INERT_GOLDEN_UPDATE && process.env.CI)
+  throw new Error(
+    'READER_INERT_GOLDEN_UPDATE is set under CI: the inertness golden is compared in CI, never rewritten.'
+  );
 const NORMALISATIONS = [
   'N1 absolute paths under the test directory read <store> (the store directory) or <dir> (its parent)',
   'N2 a stored object in gzip form is listed as gzip:<sha256 of its inflated bytes>',
   'N3 every usage count is asserted equal to the bytes on disk the store counts; gzip halves then read <on-disk-bytes>',
   'N4 the listing leaves out writer.lock, *.tmp, readiness-probe and every mtime',
   "N5 the real bridge's reply drops ms and tool_deadline.elapsed_ms; the worker's request frame lists its env keys only",
+  'N6 maintain().bytes is the bytes a slice swept (not a usage count); gzip halves read <swept-bytes> where it is not 0',
 ];
 const MAX_BYTES = 1024 * 1024;
 const LEASE_MS = 600_000;
@@ -126,6 +149,9 @@ function steppedClocks(start) {
   const now = () => t;
   now.advance = (ms) => {
     t += ms;
+  };
+  now.set = (ms) => {
+    t = ms;
   };
   const clock = () => c;
   const tick = () => {
@@ -212,13 +238,17 @@ class Recorder {
     assert.equal(value, diskBytes(this.root), 'the usage counter equals the bytes on disk');
     return this.gzip ? '<on-disk-bytes>' : value;
   }
+  // N6: maintain().bytes is what a slice swept, not a usage count.
+  swept(value) {
+    return this.gzip && value > 0 ? '<swept-bytes>' : value;
+  }
   step(op, run) {
     this.tick();
     let result;
     try {
       result = { value: this.norm(run()) };
     } catch (error) {
-      if (!error.code) throw error;
+      if (!error.code || error instanceof assert.AssertionError) throw error;
       result = {
         error: { code: error.code, status: error.status ?? null, message: error.message },
       };
@@ -232,7 +262,7 @@ class Recorder {
     try {
       result = { value: this.norm(await run()) };
     } catch (error) {
-      if (!error.code) throw error;
+      if (!error.code || error instanceof assert.AssertionError) throw error;
       result = {
         error: { code: error.code, status: error.status ?? null, message: error.message },
       };
@@ -455,15 +485,17 @@ function runStoreHalf(t, gzip) {
     now.advance(LEASE_MS + 1000);
     return { next: store.lease(), expired: store.inspect(leased.id) };
   });
-  rec.step('maintain (full)', () => {
+  const maintainFull = () => {
     const rounds = [];
     for (let i = 0; i < 8; i++) {
       const out = store.maintain(FULL);
-      rounds.push({ ...out, bytes: rec.usage(out.bytes) });
+      rounds.push({ ...out, bytes: rec.swept(out.bytes), usage: rec.usage(store.usage) });
       if (out.phase === 'idle') break;
     }
+    assert.equal(rounds.at(-1).phase, 'idle', 'maintain() finished its collection');
     return rounds;
-  });
+  };
+  rec.step('maintain (full)', maintainFull);
   rec.step('readiness', () => {
     const out = store.readiness();
     return { ...out, bytes: rec.usage(out.bytes) };
@@ -485,7 +517,77 @@ function runStoreHalf(t, gzip) {
   });
   rec.step('lease after restart', () => store.lease());
   rec.step('resume C', () => store.resume(...ctl(c.record.id), identity));
-  rec.step('lease C after resume', () => store.lease());
+  const leaseC = rec.step('lease C after resume', () => store.lease());
+
+  // 7. The lease-expiry boundary: one ms before lease_expires_at the lease
+  //    holds (a lease() and a commit both see it running); AT lease_expires_at
+  //    it has expired (_expireLeases: lease_expires_at <= now), so the same
+  //    commit is refused and the job reads paused INTERRUPTED.
+  rec.step('lease boundary: 1 ms before, then at, lease_expires_at', () => {
+    const at = leaseC.lease_expires_at;
+    now.set(at - 1);
+    const before = { lease: store.lease(), commit: null };
+    before.commit = commit(store, leaseC, { phase: 'pairs', index: 1 }, pages([{ id: 'c-1' }]));
+    before.C = store.inspect(leaseC.id);
+    now.set(at);
+    let refused = null;
+    try {
+      commit(store, leaseC, { phase: 'pairs', index: 2 }, pages([{ id: 'c-2' }]));
+    } catch (error) {
+      if (!error.code) throw error;
+      refused = error.code;
+    }
+    return {
+      before,
+      at: { commit_refused: refused, lease: store.lease(), C: store.inspect(leaseC.id) },
+    };
+  });
+
+  // 8. maintain()'s mark window: the sweep deletes an unreferenced object only
+  //    when its mtime is before startedAt = Date.now() - 1000 (FIXED_DATE -
+  //    1000; Date is never ticked). Two orphan pages from a 507 are aged one
+  //    just inside the window (FIXED_DATE - 1001: swept) and one just outside
+  //    it (exactly FIXED_DATE - 1000: kept).
+  const e = rec.step('create E', () => created(make('viewer-e', 'key-e')));
+  const leaseE = rec.step('lease E', () => store.lease(e.record.id));
+  const pagesDir = path.join(rec.root, 'pages');
+  const pagesBefore = new Set(fs.readdirSync(pagesDir));
+  rec.step('commit E 507 (two orphan pages)', () =>
+    commit(
+      store,
+      leaseE,
+      { phase: 'pairs', index: 1 },
+      pages(
+        [{ id: 'orphan-1', blob: filler('orphan-1', 200_000) }],
+        [{ id: 'orphan-2', blob: filler('orphan-2', 200_000) }],
+        [{ id: 'big-3', blob: filler('big-3', 1_300_000) }]
+      )
+    )
+  );
+  const orphans = fs
+    .readdirSync(pagesDir)
+    .filter((name) => !pagesBefore.has(name))
+    .sort();
+  assert.equal(orphans.length, 2, 'the 507 left two orphan pages');
+  const [inside, outside] = orphans;
+  rec.step('age the orphans either side of the mark window', () => {
+    fs.utimesSync(
+      path.join(pagesDir, inside),
+      (FIXED_DATE - 1001) / 1000,
+      (FIXED_DATE - 1001) / 1000
+    );
+    fs.utimesSync(
+      path.join(pagesDir, outside),
+      (FIXED_DATE - 1000) / 1000,
+      (FIXED_DATE - 1000) / 1000
+    );
+    return { inside: `pages/${inside}`, outside: `pages/${outside}` };
+  });
+  rec.step('maintain (an orphan inside the mark window, one outside)', () => ({
+    rounds: maintainFull(),
+    inside_kept: fs.existsSync(path.join(pagesDir, inside)),
+    outside_kept: fs.existsSync(path.join(pagesDir, outside)),
+  }));
   return rec;
 }
 
@@ -860,6 +962,193 @@ async function runBridgeHalf(t) {
   return rec;
 }
 
+// ── the page packer at its limits ────────────────────────────────────────
+// packReaderPages, which the scheduler's sink runs on every checkpoint, at
+// exactly its two page limits and one past each: a page holds at most 250
+// instances and 2 MiB, counted as 16 bytes plus each record's JSON bytes + 1,
+// and one record past the page limit on its own is refused RESOURCE_LIMIT.
+const PAGE_BYTES = 2 * 1024 * 1024;
+// A record whose packed size (JSON bytes + 1) is exactly `size`.
+function sized(id, size) {
+  const base = Buffer.byteLength(JSON.stringify({ id, pad: '' })) + 1;
+  const record = { id, pad: 'x'.repeat(size - base) };
+  assert.equal(Buffer.byteLength(JSON.stringify(record)) + 1, size, `${id} is ${size} bytes`);
+  return record;
+}
+function runPackHalf() {
+  const steps = [];
+  const pack = (op, records) => {
+    let entry;
+    try {
+      entry = {
+        op,
+        value: packReaderPages(records).map((page) => ({
+          instances: page.instances.length,
+          first: page.instances[0].id,
+          last: page.instances.at(-1).id,
+        })),
+      };
+    } catch (error) {
+      if (!error.code || error instanceof assert.AssertionError) throw error;
+      entry = { op, error: { code: error.code, message: error.message } };
+    }
+    steps.push(entry);
+  };
+  const tiny = (n, label) => Array.from({ length: n }, (_, i) => sized(`${label}-${i}`, 64));
+  pack('250 records: one page', tiny(250, 't'));
+  pack('251 records: 250, then 1', tiny(251, 't'));
+  pack('500 records: 250, 250', tiny(500, 't'));
+  pack('two records filling a page exactly (16 + a + b = 2 MiB)', [
+    sized('a', 1024),
+    sized('b', PAGE_BYTES - 16 - 1024),
+  ]);
+  pack('two records one byte past a page (16 + a + b = 2 MiB + 1)', [
+    sized('a', 1024),
+    sized('b', PAGE_BYTES - 16 - 1024 + 1),
+  ]);
+  const many = Array.from({ length: 249 }, (_, i) => sized(`m-${i}`, 8000));
+  const rest = PAGE_BYTES - 16 - 249 * 8000;
+  pack('250 records filling a page exactly, then one more', [
+    ...many,
+    sized('m-249', rest),
+    sized('m-250', 64),
+  ]);
+  pack('250 records one byte past a page, then one more', [
+    ...many,
+    sized('m-249', rest + 1),
+    sized('m-250', 64),
+  ]);
+  pack('one record exactly at the page limit (16 + a = 2 MiB)', [sized('one', PAGE_BYTES - 16)]);
+  pack('one record one byte past the page limit (RESOURCE_LIMIT)', [
+    sized('one', PAGE_BYTES - 16 + 1),
+  ]);
+  return { steps };
+}
+
+// ── the catalog resolver ─────────────────────────────────────────────────
+// createCatalogResolver over a minimal pinned catalog written here (one
+// readable, non-collection reading, so no pronunciation asset and no method
+// registry is read): the request identity it computes (contract_version,
+// parser_version and every other field), the reading it resolves, its probe,
+// and the scheduler leasing a job through it, so that identity is the one the
+// store persists, the lease re-checks and the bridge receives; and a job whose
+// stored identity differs, which the lease refuses STALE_READING.
+function writeCatalog(catalog) {
+  const write = (name, value) => {
+    const file = path.join(catalog, name);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    const bytes = JSON.stringify(value);
+    fs.writeFileSync(file, bytes);
+    return sha(bytes);
+  };
+  const source = {
+    reading_unit_id: 'reading_inert',
+    language: 'eng',
+    availability: 'readable',
+    source_path: 'corpus/inert/reading.txt',
+    title: 'Inert reading',
+    source_sha256: sha('inert source witness'),
+    normalized_sha256: sha('A line that sings.\nA line that rings.'),
+    work_id: 'work_inert',
+    edition_id: 'edition_inert',
+    lines: [
+      { kind: 'lyric', text: 'A line that sings.' },
+      { kind: 'lyric', text: 'A line that rings.' },
+    ],
+  };
+  source.reading_revision = sha(canonicalJSON(source));
+  const reading = `readings/${source.reading_unit_id}.json`;
+  const artifacts = {
+    [reading]: write(reading, source),
+    'index.json': write('index.json', { readings: [] }),
+  };
+  const manifest = {
+    parser_version: 'parser-inert',
+    normalizer_version: 'normalizer-inert',
+    artifacts,
+  };
+  manifest.snapshot_id = sha(canonicalJSON(manifest));
+  write('manifest.json', manifest);
+  return {
+    contract_version: 1,
+    snapshot_id: manifest.snapshot_id,
+    reading_unit_id: source.reading_unit_id,
+    reading_revision: source.reading_revision,
+    declaration_set: {},
+    requested_layers: ['sound'],
+  };
+}
+async function runResolverHalf(t) {
+  const dir = setup(t);
+  const { now, clock, tick } = steppedClocks(FIXED_DATE - 100_000);
+  const rec = new Recorder(dir, false, tick);
+  spyConsole(t, rec);
+  const catalog = path.join(dir, 'catalog');
+  const readerRequest = writeCatalog(catalog);
+  let store, resolver;
+  rec.step('construct', () => {
+    store = spyStore(open(dir, false, now, clock), rec);
+    resolver = createCatalogResolver({
+      directory: catalog,
+      engineCommit: 'engine-inert',
+      resourceFingerprint: 'resources-inert',
+      readerScheme: 'v2',
+      pronunciationRoot: path.join(dir, 'no-pronunciations'),
+      methodsPath: path.join(dir, 'no-methods.json'),
+    });
+    return { usage: rec.usage(store.usage), resolver: Object.keys(resolver).sort() };
+  });
+  await rec.stepAsync('probe', () => resolver.probe());
+  const resolved = await rec.stepAsync('resolveIdentity', () =>
+    resolver.resolveIdentity(readerRequest)
+  );
+  await rec.stepAsync('prepareRequest (no collection: unchanged)', () =>
+    resolver.prepareRequest(readerRequest)
+  );
+  await rec.stepAsync('resolveSource', () => resolver.resolveSource(readerRequest));
+  await rec.stepAsync('resolveEntry', () => resolver.resolveEntry(readerRequest));
+  const caps = new Map();
+  const make = (viewer, key, id) => {
+    const out = store.create({
+      viewer,
+      idempotency_key: key,
+      identity: id,
+      request: readerRequest,
+    });
+    caps.set(out.record.id, out.capability);
+    return out.record.id;
+  };
+  const A = rec.step('create A with the resolved identity', () =>
+    make('viewer-a', 'key-a', resolved)
+  );
+  const B = rec.step('create B with another engine commit', () =>
+    make('viewer-b', 'key-b', { ...resolved, engine_commit: 'engine-other' })
+  );
+  const bridge = fakeBridge(rec, [
+    async (sink) => {
+      await sink(step({ phase: 'done', done: true }, [{ id: 'evidence-a' }], 1, true));
+      return { code: 0, reader_result: { status: 'complete' } };
+    },
+  ]);
+  const scheduler = new ReaderScheduler({
+    store,
+    bridge,
+    resolveSource: resolver.resolveSource,
+    resolveIdentity: resolver.resolveIdentity,
+    readerScheme: resolver.readerScheme,
+    leaseMs: LEASE_MS,
+  });
+  t.mock.method(scheduler, 'kick', () => {});
+  const pump = (label) =>
+    rec.stepAsync(label, async () => {
+      await scheduler.pump();
+      return { A: store.inspect(A), B: store.inspect(B), active: scheduler.active };
+    });
+  await pump('pump 1: A leased through the resolver, completes');
+  await pump('pump 2: B identity differs (STALE_READING)');
+  return rec;
+}
+
 // ── golden comparison ────────────────────────────────────────────────────
 const golden = fs.existsSync(GOLDEN) ? JSON.parse(fs.readFileSync(GOLDEN, 'utf8')) : null;
 const captured = {};
@@ -883,10 +1172,14 @@ for (const gzip of [false, true]) {
 }
 test('inertness golden: the scheduler through the real bridge', async (t) =>
   check('bridge/plain', await runBridgeHalf(t)));
+test('inertness golden: the page packer at its limits', () => check('pack/limits', runPackHalf()));
+test('inertness golden: the catalog resolver and its request identity', async (t) =>
+  check('resolver/plain', await runResolverHalf(t)));
 
 test('the golden pins the record key sets and no discovery anywhere', () => {
   if (UPDATE) return;
   for (const [name, steps] of Object.entries(golden.halves)) {
+    if (name === 'pack/limits') continue; // a pure function: no store, no records
     const keys = new Set();
     for (const entry of steps) {
       for (const list of Object.values(entry.record_keys || {})) {
@@ -908,7 +1201,15 @@ test('the golden pins the record key sets and no discovery anywhere', () => {
 // file as committed; the comparison above reads it parsed either way.
 after(async () => {
   if (!UPDATE) return;
-  const order = ['store/plain', 'store/gzip', 'scheduler/plain', 'scheduler/gzip', 'bridge/plain'];
+  const order = [
+    'store/plain',
+    'store/gzip',
+    'scheduler/plain',
+    'scheduler/gzip',
+    'bridge/plain',
+    'pack/limits',
+    'resolver/plain',
+  ];
   assert.deepEqual(Object.keys(captured).sort(), [...order].sort(), 'every half ran');
   const out = {
     about:

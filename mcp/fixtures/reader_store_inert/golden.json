@@ -5,7 +5,8 @@
     "N2 a stored object in gzip form is listed as gzip:<sha256 of its inflated bytes>",
     "N3 every usage count is asserted equal to the bytes on disk the store counts; gzip halves then read <on-disk-bytes>",
     "N4 the listing leaves out writer.lock, *.tmp, readiness-probe and every mtime",
-    "N5 the real bridge's reply drops ms and tool_deadline.elapsed_ms; the worker's request frame lists its env keys only"
+    "N5 the real bridge's reply drops ms and tool_deadline.elapsed_ms; the worker's request frame lists its env keys only",
+    "N6 maintain().bytes is the bytes a slice swept (not a usage count); gzip halves read <swept-bytes> where it is not 0"
   ],
   "halves": {
     "store/plain": [
@@ -4658,11 +4659,18 @@
       },
       {
         "op": "maintain (full)",
-        "error": {
-          "code": "ERR_ASSERTION",
-          "status": null,
-          "message": "the usage counter equals the bytes on disk\n\n304750 !== 31016\n"
-        },
+        "value": [
+          {
+            "expired": 0,
+            "marked": 17,
+            "swept": 1,
+            "read": 48,
+            "bytes": 304750,
+            "examined": 17,
+            "phase": "idle",
+            "usage": 31016
+          }
+        ],
         "files": {
           "added": {},
           "changed": {
@@ -6088,6 +6096,667 @@
             "cancel_requested": false,
             "deferred_requeue": false
           }
+        }
+      },
+      {
+        "op": "lease boundary: 1 ms before, then at, lease_expires_at",
+        "value": {
+          "before": {
+            "lease": null,
+            "commit": {
+              "version": 1,
+              "id": "reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e",
+              "viewer": "viewer-c",
+              "identity": {
+                "snapshot": "snapshot-inert",
+                "revision": "revision-inert",
+                "engine": "engine-inert",
+                "declarations": "none"
+              },
+              "identity_hash": "d83a9a93777809f453c9b0dc42155ca0ae3513d1ea0494246e84cd6fd1d353be",
+              "request": { "requested_layers": ["sound"], "declaration_set": { "returns": [] } },
+              "request_digest": "49442fd4b1c62f660eba60bb97657a75b84ed54ed477b1e657c9701387b47468",
+              "idempotency_hash": "5ca201091af2a6422b33524f2d43bdf2332af388e86ffea35fac5ea3bde7d8cc",
+              "state": "running",
+              "attempt": 2,
+              "fence": "30eae736ba37ebc43b8d58c0612ef3ae44f881133be3e9cf1c757be13083de6f",
+              "cursor": { "phase": "pairs", "index": 1 },
+              "progress": { "candidates": 1 },
+              "coverage": {
+                "partial": false,
+                "certified": true,
+                "requested_methods": 1,
+                "answered_methods": 1,
+                "refused_methods": 0,
+                "not_requested_methods": 0,
+                "pending_methods": 0,
+                "refused_obligations": []
+              },
+              "page_refs": [
+                {
+                  "sha256": "c83c45135dc88aaa8e45a6c7534f595db6b7bada7cd7f12c8d14cc93bcdecb96",
+                  "bytes": 28,
+                  "count": 1
+                }
+              ],
+              "page_index_hash": "79cfb20170782805dcf7b62c3d82d2b449fc1ce9b3671d22b8f84baa7b6fbb33",
+              "page_count": 1,
+              "evidence_count": 1,
+              "generation": 1,
+              "checkpoint_hash": "0f23485851c88733fe7688a34a07d2eb48326e05390b47c3612ab5383ad9e9a0",
+              "manifest_hash": "46e3a608169c04da94aad239d5439531cac02ba2ffadb4ff6e56faef0e709018",
+              "cancel_requested": false,
+              "lease_expires_at": 4105038050000,
+              "reason": null,
+              "deferred_requeue": false,
+              "control_receipts": [],
+              "created_at": 4105037445000,
+              "queued_at": 4105037449000,
+              "queue_order": 2,
+              "accessed_at": 4105037449000,
+              "updated_at": 4105038049999,
+              "expires_at": 4107629449000,
+              "last_checkpoint_digest": "d94458e1fb13ccbca5b843db87fd81b2327935b30c1a961e1369b3fd58382113",
+              "record_digest": "4c3d15c1ccb6c470d41d0ef16b8e97d8d30deb2d68fb27c7f927423c79c95147",
+              "added_page_paths": [
+                "<store>/pages/c83c45135dc88aaa8e45a6c7534f595db6b7bada7cd7f12c8d14cc93bcdecb96.json"
+              ]
+            },
+            "C": {
+              "version": 1,
+              "id": "reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e",
+              "viewer": "viewer-c",
+              "identity": {
+                "snapshot": "snapshot-inert",
+                "revision": "revision-inert",
+                "engine": "engine-inert",
+                "declarations": "none"
+              },
+              "identity_hash": "d83a9a93777809f453c9b0dc42155ca0ae3513d1ea0494246e84cd6fd1d353be",
+              "request": { "requested_layers": ["sound"], "declaration_set": { "returns": [] } },
+              "request_digest": "49442fd4b1c62f660eba60bb97657a75b84ed54ed477b1e657c9701387b47468",
+              "idempotency_hash": "5ca201091af2a6422b33524f2d43bdf2332af388e86ffea35fac5ea3bde7d8cc",
+              "state": "running",
+              "attempt": 2,
+              "fence": "30eae736ba37ebc43b8d58c0612ef3ae44f881133be3e9cf1c757be13083de6f",
+              "cursor": { "phase": "pairs", "index": 1 },
+              "progress": { "candidates": 1 },
+              "coverage": {
+                "partial": false,
+                "certified": true,
+                "requested_methods": 1,
+                "answered_methods": 1,
+                "refused_methods": 0,
+                "not_requested_methods": 0,
+                "pending_methods": 0,
+                "refused_obligations": []
+              },
+              "page_refs": [
+                {
+                  "sha256": "c83c45135dc88aaa8e45a6c7534f595db6b7bada7cd7f12c8d14cc93bcdecb96",
+                  "bytes": 28,
+                  "count": 1
+                }
+              ],
+              "page_index_hash": "79cfb20170782805dcf7b62c3d82d2b449fc1ce9b3671d22b8f84baa7b6fbb33",
+              "page_count": 1,
+              "evidence_count": 1,
+              "generation": 1,
+              "checkpoint_hash": "0f23485851c88733fe7688a34a07d2eb48326e05390b47c3612ab5383ad9e9a0",
+              "manifest_hash": "46e3a608169c04da94aad239d5439531cac02ba2ffadb4ff6e56faef0e709018",
+              "cancel_requested": false,
+              "lease_expires_at": 4105038050000,
+              "reason": null,
+              "deferred_requeue": false,
+              "control_receipts": [],
+              "created_at": 4105037445000,
+              "queued_at": 4105037449000,
+              "queue_order": 2,
+              "accessed_at": 4105037449000,
+              "updated_at": 4105038049999,
+              "expires_at": 4107629449000,
+              "last_checkpoint_digest": "d94458e1fb13ccbca5b843db87fd81b2327935b30c1a961e1369b3fd58382113",
+              "record_digest": "4c3d15c1ccb6c470d41d0ef16b8e97d8d30deb2d68fb27c7f927423c79c95147"
+            }
+          },
+          "at": {
+            "commit_refused": "STALE_ATTEMPT",
+            "lease": null,
+            "C": {
+              "version": 1,
+              "id": "reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e",
+              "viewer": "viewer-c",
+              "identity": {
+                "snapshot": "snapshot-inert",
+                "revision": "revision-inert",
+                "engine": "engine-inert",
+                "declarations": "none"
+              },
+              "identity_hash": "d83a9a93777809f453c9b0dc42155ca0ae3513d1ea0494246e84cd6fd1d353be",
+              "request": { "requested_layers": ["sound"], "declaration_set": { "returns": [] } },
+              "request_digest": "49442fd4b1c62f660eba60bb97657a75b84ed54ed477b1e657c9701387b47468",
+              "idempotency_hash": "5ca201091af2a6422b33524f2d43bdf2332af388e86ffea35fac5ea3bde7d8cc",
+              "state": "paused",
+              "attempt": 2,
+              "fence": null,
+              "cursor": { "phase": "pairs", "index": 1 },
+              "progress": { "candidates": 1 },
+              "coverage": {
+                "partial": false,
+                "certified": true,
+                "requested_methods": 1,
+                "answered_methods": 1,
+                "refused_methods": 0,
+                "not_requested_methods": 0,
+                "pending_methods": 0,
+                "refused_obligations": []
+              },
+              "page_refs": [
+                {
+                  "sha256": "c83c45135dc88aaa8e45a6c7534f595db6b7bada7cd7f12c8d14cc93bcdecb96",
+                  "bytes": 28,
+                  "count": 1
+                }
+              ],
+              "page_index_hash": "79cfb20170782805dcf7b62c3d82d2b449fc1ce9b3671d22b8f84baa7b6fbb33",
+              "page_count": 1,
+              "evidence_count": 1,
+              "generation": 1,
+              "checkpoint_hash": "0f23485851c88733fe7688a34a07d2eb48326e05390b47c3612ab5383ad9e9a0",
+              "manifest_hash": "46e3a608169c04da94aad239d5439531cac02ba2ffadb4ff6e56faef0e709018",
+              "cancel_requested": false,
+              "lease_expires_at": null,
+              "reason": {
+                "code": "INTERRUPTED",
+                "message": "Lease expired; resume the last durable checkpoint explicitly."
+              },
+              "deferred_requeue": false,
+              "control_receipts": [],
+              "created_at": 4105037445000,
+              "queued_at": 4105037449000,
+              "queue_order": 2,
+              "accessed_at": 4105037449000,
+              "updated_at": 4105038050000,
+              "expires_at": 4107629449000,
+              "last_checkpoint_digest": "d94458e1fb13ccbca5b843db87fd81b2327935b30c1a961e1369b3fd58382113",
+              "record_digest": "4a7df5dde03ae4cddb147f709f5a03fe0853a5d03824f5e8407af0cd0d8ca6a7"
+            }
+          }
+        },
+        "files": {
+          "added": {
+            "checkpoints/0f23485851c88733fe7688a34a07d2eb48326e05390b47c3612ab5383ad9e9a0.json": "0f23485851c88733fe7688a34a07d2eb48326e05390b47c3612ab5383ad9e9a0",
+            "indexes/79cfb20170782805dcf7b62c3d82d2b449fc1ce9b3671d22b8f84baa7b6fbb33.json": "79cfb20170782805dcf7b62c3d82d2b449fc1ce9b3671d22b8f84baa7b6fbb33",
+            "manifests/46e3a608169c04da94aad239d5439531cac02ba2ffadb4ff6e56faef0e709018.json": "46e3a608169c04da94aad239d5439531cac02ba2ffadb4ff6e56faef0e709018",
+            "pages/c83c45135dc88aaa8e45a6c7534f595db6b7bada7cd7f12c8d14cc93bcdecb96.json": "c83c45135dc88aaa8e45a6c7534f595db6b7bada7cd7f12c8d14cc93bcdecb96"
+          },
+          "changed": {
+            "generation": "74d0ec72caa25139b90d76e670e531b770f9d1b11c7d5ed0442aa198569fcd33",
+            "records/reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e.json": "078ef14781e71a2b2109d08382e4cc84442081b4d27751bf7c242868fa213ddd"
+          },
+          "removed": []
+        },
+        "record_keys": {
+          "records/reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e.json": [
+            "accessed_at",
+            "attempt",
+            "cancel_requested",
+            "checkpoint_hash",
+            "control_receipts",
+            "coverage",
+            "created_at",
+            "cursor",
+            "deferred_requeue",
+            "evidence_count",
+            "expires_at",
+            "fence",
+            "generation",
+            "id",
+            "idempotency_hash",
+            "identity",
+            "identity_hash",
+            "last_checkpoint_digest",
+            "lease_expires_at",
+            "manifest_hash",
+            "page_count",
+            "page_index_hash",
+            "page_refs",
+            "progress",
+            "queue_order",
+            "queued_at",
+            "reason",
+            "record_digest",
+            "request",
+            "request_digest",
+            "state",
+            "updated_at",
+            "version",
+            "viewer"
+          ]
+        },
+        "public_jobs": {
+          "records/reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e.json": {
+            "id": "reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e",
+            "state": "paused",
+            "identity": {
+              "snapshot": "snapshot-inert",
+              "revision": "revision-inert",
+              "engine": "engine-inert",
+              "declarations": "none"
+            },
+            "attempt": 2,
+            "generation": 1,
+            "progress": { "candidates": 1 },
+            "coverage": {
+              "partial": false,
+              "certified": true,
+              "requested_methods": 1,
+              "answered_methods": 1,
+              "refused_methods": 0,
+              "not_requested_methods": 0,
+              "pending_methods": 0,
+              "refused_obligations": []
+            },
+            "manifest_hash": "46e3a608169c04da94aad239d5439531cac02ba2ffadb4ff6e56faef0e709018",
+            "created_at": 4105037445000,
+            "updated_at": 4105038050000,
+            "accessed_at": 4105037449000,
+            "expires_at": 4107629449000,
+            "lease_expires_at": null,
+            "reason": {
+              "code": "INTERRUPTED",
+              "message": "Lease expired; resume the last durable checkpoint explicitly."
+            },
+            "cancel_requested": false,
+            "deferred_requeue": false
+          }
+        }
+      },
+      {
+        "op": "create E",
+        "value": {
+          "created": true,
+          "record": {
+            "version": 1,
+            "id": "reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2",
+            "viewer": "viewer-e",
+            "identity": {
+              "snapshot": "snapshot-inert",
+              "revision": "revision-inert",
+              "engine": "engine-inert",
+              "declarations": "none"
+            },
+            "identity_hash": "d83a9a93777809f453c9b0dc42155ca0ae3513d1ea0494246e84cd6fd1d353be",
+            "request": { "requested_layers": ["sound"], "declaration_set": { "returns": [] } },
+            "request_digest": "49442fd4b1c62f660eba60bb97657a75b84ed54ed477b1e657c9701387b47468",
+            "idempotency_hash": "2328660b9a8adbac86ee84dfe18d082fe3cd675eb9cc3b3841d0711c1939fd5c",
+            "state": "queued",
+            "attempt": 0,
+            "fence": null,
+            "cursor": null,
+            "progress": null,
+            "coverage": null,
+            "page_refs": [],
+            "page_index_hash": null,
+            "page_count": 0,
+            "evidence_count": 0,
+            "generation": 0,
+            "checkpoint_hash": null,
+            "manifest_hash": null,
+            "cancel_requested": false,
+            "lease_expires_at": null,
+            "reason": null,
+            "deferred_requeue": false,
+            "control_receipts": [],
+            "created_at": 4105038051000,
+            "queued_at": 4105038051000,
+            "queue_order": 3,
+            "accessed_at": 4105038051000,
+            "updated_at": 4105038051000,
+            "expires_at": 4107630051000,
+            "record_digest": "6c79f9001575fd8bba9a9299ae3b84bc26eca1985318eaa4d9c56f676f6b75ed"
+          },
+          "capability": "c86fcd917d76ce8f8d14346db5cc181dbb1dc22c091489b9a45b87c244779ae6"
+        },
+        "files": {
+          "added": {
+            "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": "d62844160aa5ec9fa92e0192b05a2dbd0550d9c4e437ffce8d4141ea6774ed0d"
+          },
+          "changed": {
+            "generation": "86508b5a9e4a138e6e4ff4290352b7a3bc96e9d9639ee3126232429e69de0d52"
+          },
+          "removed": []
+        },
+        "record_keys": {
+          "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": [
+            "accessed_at",
+            "attempt",
+            "cancel_requested",
+            "checkpoint_hash",
+            "control_receipts",
+            "coverage",
+            "created_at",
+            "cursor",
+            "deferred_requeue",
+            "evidence_count",
+            "expires_at",
+            "fence",
+            "generation",
+            "id",
+            "idempotency_hash",
+            "identity",
+            "identity_hash",
+            "lease_expires_at",
+            "manifest_hash",
+            "page_count",
+            "page_index_hash",
+            "page_refs",
+            "progress",
+            "queue_order",
+            "queued_at",
+            "reason",
+            "record_digest",
+            "request",
+            "request_digest",
+            "state",
+            "updated_at",
+            "version",
+            "viewer"
+          ]
+        },
+        "public_jobs": {
+          "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": {
+            "id": "reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2",
+            "state": "queued",
+            "identity": {
+              "snapshot": "snapshot-inert",
+              "revision": "revision-inert",
+              "engine": "engine-inert",
+              "declarations": "none"
+            },
+            "attempt": 0,
+            "generation": 0,
+            "progress": null,
+            "coverage": null,
+            "manifest_hash": null,
+            "created_at": 4105038051000,
+            "updated_at": 4105038051000,
+            "accessed_at": 4105038051000,
+            "expires_at": 4107630051000,
+            "lease_expires_at": null,
+            "reason": null,
+            "cancel_requested": false,
+            "deferred_requeue": false
+          }
+        }
+      },
+      {
+        "op": "lease E",
+        "value": {
+          "version": 1,
+          "id": "reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2",
+          "viewer": "viewer-e",
+          "identity": {
+            "snapshot": "snapshot-inert",
+            "revision": "revision-inert",
+            "engine": "engine-inert",
+            "declarations": "none"
+          },
+          "identity_hash": "d83a9a93777809f453c9b0dc42155ca0ae3513d1ea0494246e84cd6fd1d353be",
+          "request": { "requested_layers": ["sound"], "declaration_set": { "returns": [] } },
+          "request_digest": "49442fd4b1c62f660eba60bb97657a75b84ed54ed477b1e657c9701387b47468",
+          "idempotency_hash": "2328660b9a8adbac86ee84dfe18d082fe3cd675eb9cc3b3841d0711c1939fd5c",
+          "state": "running",
+          "attempt": 1,
+          "fence": "781f4d1d1ed22d6ce2bcb21792abf5045aa40b74304e7442f594a98c1b17af59",
+          "cursor": null,
+          "progress": null,
+          "coverage": null,
+          "page_refs": [],
+          "page_index_hash": null,
+          "page_count": 0,
+          "evidence_count": 0,
+          "generation": 0,
+          "checkpoint_hash": null,
+          "manifest_hash": null,
+          "cancel_requested": false,
+          "lease_expires_at": 4105038652000,
+          "reason": null,
+          "deferred_requeue": false,
+          "control_receipts": [],
+          "created_at": 4105038051000,
+          "queued_at": 4105038051000,
+          "queue_order": 3,
+          "accessed_at": 4105038051000,
+          "updated_at": 4105038052000,
+          "expires_at": 4107630051000,
+          "record_digest": "609ff9c4adba9e2575b0d884ee1433dd318845dd8e0b32955c75a897b9ab7556"
+        },
+        "files": {
+          "added": {},
+          "changed": {
+            "generation": "7aa73a862af18c99c2b5d5e48f017dcf302ff592aff9fe36840188fdcb7fd830",
+            "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": "e87a3f200c51a19fb654131af64ba9d0bb39ef5a0b394fc970eee5916aca4131"
+          },
+          "removed": []
+        },
+        "record_keys": {
+          "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": [
+            "accessed_at",
+            "attempt",
+            "cancel_requested",
+            "checkpoint_hash",
+            "control_receipts",
+            "coverage",
+            "created_at",
+            "cursor",
+            "deferred_requeue",
+            "evidence_count",
+            "expires_at",
+            "fence",
+            "generation",
+            "id",
+            "idempotency_hash",
+            "identity",
+            "identity_hash",
+            "lease_expires_at",
+            "manifest_hash",
+            "page_count",
+            "page_index_hash",
+            "page_refs",
+            "progress",
+            "queue_order",
+            "queued_at",
+            "reason",
+            "record_digest",
+            "request",
+            "request_digest",
+            "state",
+            "updated_at",
+            "version",
+            "viewer"
+          ]
+        },
+        "public_jobs": {
+          "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": {
+            "id": "reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2",
+            "state": "running",
+            "identity": {
+              "snapshot": "snapshot-inert",
+              "revision": "revision-inert",
+              "engine": "engine-inert",
+              "declarations": "none"
+            },
+            "attempt": 1,
+            "generation": 0,
+            "progress": null,
+            "coverage": null,
+            "manifest_hash": null,
+            "created_at": 4105038051000,
+            "updated_at": 4105038052000,
+            "accessed_at": 4105038051000,
+            "expires_at": 4107630051000,
+            "lease_expires_at": 4105038652000,
+            "reason": null,
+            "cancel_requested": false,
+            "deferred_requeue": false
+          }
+        }
+      },
+      {
+        "op": "commit E 507 (two orphan pages)",
+        "value": {
+          "version": 1,
+          "id": "reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2",
+          "viewer": "viewer-e",
+          "identity": {
+            "snapshot": "snapshot-inert",
+            "revision": "revision-inert",
+            "engine": "engine-inert",
+            "declarations": "none"
+          },
+          "identity_hash": "d83a9a93777809f453c9b0dc42155ca0ae3513d1ea0494246e84cd6fd1d353be",
+          "request": { "requested_layers": ["sound"], "declaration_set": { "returns": [] } },
+          "request_digest": "49442fd4b1c62f660eba60bb97657a75b84ed54ed477b1e657c9701387b47468",
+          "idempotency_hash": "2328660b9a8adbac86ee84dfe18d082fe3cd675eb9cc3b3841d0711c1939fd5c",
+          "state": "paused",
+          "attempt": 1,
+          "fence": null,
+          "cursor": null,
+          "progress": null,
+          "coverage": null,
+          "page_refs": [],
+          "page_index_hash": null,
+          "page_count": 0,
+          "evidence_count": 0,
+          "generation": 0,
+          "checkpoint_hash": null,
+          "manifest_hash": null,
+          "cancel_requested": false,
+          "lease_expires_at": null,
+          "reason": {
+            "code": "RESOURCE_LIMIT",
+            "message": "Reader storage quota reached; committed work is retained."
+          },
+          "deferred_requeue": false,
+          "control_receipts": [],
+          "created_at": 4105038051000,
+          "queued_at": 4105038051000,
+          "queue_order": 3,
+          "accessed_at": 4105038051000,
+          "updated_at": 4105038053000,
+          "expires_at": 4107630051000,
+          "record_digest": "3a7273282b53870fc379e1a3ee29a217d807f62a0db5ccc48f502b4d386d3863"
+        },
+        "files": {
+          "added": {
+            "pages/ca72e5c903e57f875f390abe34c37c100cd826f2c6b9a79b98713b49cbe4e1eb.json": "ca72e5c903e57f875f390abe34c37c100cd826f2c6b9a79b98713b49cbe4e1eb",
+            "pages/f5fe7416c7fa475f4b7891db3496fee222a7a445d2bf91fba20b097e29891f8b.json": "f5fe7416c7fa475f4b7891db3496fee222a7a445d2bf91fba20b097e29891f8b"
+          },
+          "changed": {
+            "generation": "eb5a3a525789a456a4230bef4a352c29d9b6a66156fa51333f8da60945c28fe8",
+            "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": "2757affbab488f117331b45860cf775faedae0c32e7550e891c400e1d350f2b3"
+          },
+          "removed": []
+        },
+        "record_keys": {
+          "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": [
+            "accessed_at",
+            "attempt",
+            "cancel_requested",
+            "checkpoint_hash",
+            "control_receipts",
+            "coverage",
+            "created_at",
+            "cursor",
+            "deferred_requeue",
+            "evidence_count",
+            "expires_at",
+            "fence",
+            "generation",
+            "id",
+            "idempotency_hash",
+            "identity",
+            "identity_hash",
+            "lease_expires_at",
+            "manifest_hash",
+            "page_count",
+            "page_index_hash",
+            "page_refs",
+            "progress",
+            "queue_order",
+            "queued_at",
+            "reason",
+            "record_digest",
+            "request",
+            "request_digest",
+            "state",
+            "updated_at",
+            "version",
+            "viewer"
+          ]
+        },
+        "public_jobs": {
+          "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": {
+            "id": "reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2",
+            "state": "paused",
+            "identity": {
+              "snapshot": "snapshot-inert",
+              "revision": "revision-inert",
+              "engine": "engine-inert",
+              "declarations": "none"
+            },
+            "attempt": 1,
+            "generation": 0,
+            "progress": null,
+            "coverage": null,
+            "manifest_hash": null,
+            "created_at": 4105038051000,
+            "updated_at": 4105038053000,
+            "accessed_at": 4105038051000,
+            "expires_at": 4107630051000,
+            "lease_expires_at": null,
+            "reason": {
+              "code": "RESOURCE_LIMIT",
+              "message": "Reader storage quota reached; committed work is retained."
+            },
+            "cancel_requested": false,
+            "deferred_requeue": false
+          }
+        }
+      },
+      {
+        "op": "age the orphans either side of the mark window",
+        "value": {
+          "inside": "pages/ca72e5c903e57f875f390abe34c37c100cd826f2c6b9a79b98713b49cbe4e1eb.json",
+          "outside": "pages/f5fe7416c7fa475f4b7891db3496fee222a7a445d2bf91fba20b097e29891f8b.json"
+        },
+        "files": { "added": {}, "changed": {}, "removed": [] }
+      },
+      {
+        "op": "maintain (an orphan inside the mark window, one outside)",
+        "value": {
+          "rounds": [
+            {
+              "expired": 0,
+              "marked": 19,
+              "swept": 1,
+              "read": 27,
+              "bytes": 200815,
+              "examined": 19,
+              "phase": "idle",
+              "usage": 220599
+            }
+          ],
+          "inside_kept": false,
+          "outside_kept": true
+        },
+        "files": {
+          "added": {},
+          "changed": {
+            "generation": "e9d9beaf59ff2fafe63010821cbc6ad2e678258855891b38c8e1648b46db715f"
+          },
+          "removed": ["pages/ca72e5c903e57f875f390abe34c37c100cd826f2c6b9a79b98713b49cbe4e1eb.json"]
         }
       }
     ],
@@ -10742,11 +11411,18 @@
       },
       {
         "op": "maintain (full)",
-        "error": {
-          "code": "ERR_ASSERTION",
-          "status": null,
-          "message": "the usage counter equals the bytes on disk\n\n231751 !== 31034\n"
-        },
+        "value": [
+          {
+            "expired": 0,
+            "marked": 17,
+            "swept": 1,
+            "read": 48,
+            "bytes": "<swept-bytes>",
+            "examined": 17,
+            "phase": "idle",
+            "usage": "<on-disk-bytes>"
+          }
+        ],
         "files": {
           "added": {},
           "changed": {
@@ -12172,6 +12848,667 @@
             "cancel_requested": false,
             "deferred_requeue": false
           }
+        }
+      },
+      {
+        "op": "lease boundary: 1 ms before, then at, lease_expires_at",
+        "value": {
+          "before": {
+            "lease": null,
+            "commit": {
+              "version": 1,
+              "id": "reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e",
+              "viewer": "viewer-c",
+              "identity": {
+                "snapshot": "snapshot-inert",
+                "revision": "revision-inert",
+                "engine": "engine-inert",
+                "declarations": "none"
+              },
+              "identity_hash": "d83a9a93777809f453c9b0dc42155ca0ae3513d1ea0494246e84cd6fd1d353be",
+              "request": { "requested_layers": ["sound"], "declaration_set": { "returns": [] } },
+              "request_digest": "49442fd4b1c62f660eba60bb97657a75b84ed54ed477b1e657c9701387b47468",
+              "idempotency_hash": "5ca201091af2a6422b33524f2d43bdf2332af388e86ffea35fac5ea3bde7d8cc",
+              "state": "running",
+              "attempt": 2,
+              "fence": "30eae736ba37ebc43b8d58c0612ef3ae44f881133be3e9cf1c757be13083de6f",
+              "cursor": { "phase": "pairs", "index": 1 },
+              "progress": { "candidates": 1 },
+              "coverage": {
+                "partial": false,
+                "certified": true,
+                "requested_methods": 1,
+                "answered_methods": 1,
+                "refused_methods": 0,
+                "not_requested_methods": 0,
+                "pending_methods": 0,
+                "refused_obligations": []
+              },
+              "page_refs": [
+                {
+                  "sha256": "c83c45135dc88aaa8e45a6c7534f595db6b7bada7cd7f12c8d14cc93bcdecb96",
+                  "bytes": 28,
+                  "count": 1
+                }
+              ],
+              "page_index_hash": "79cfb20170782805dcf7b62c3d82d2b449fc1ce9b3671d22b8f84baa7b6fbb33",
+              "page_count": 1,
+              "evidence_count": 1,
+              "generation": 1,
+              "checkpoint_hash": "0f23485851c88733fe7688a34a07d2eb48326e05390b47c3612ab5383ad9e9a0",
+              "manifest_hash": "46e3a608169c04da94aad239d5439531cac02ba2ffadb4ff6e56faef0e709018",
+              "cancel_requested": false,
+              "lease_expires_at": 4105038050000,
+              "reason": null,
+              "deferred_requeue": false,
+              "control_receipts": [],
+              "created_at": 4105037445000,
+              "queued_at": 4105037449000,
+              "queue_order": 2,
+              "accessed_at": 4105037449000,
+              "updated_at": 4105038049999,
+              "expires_at": 4107629449000,
+              "last_checkpoint_digest": "d94458e1fb13ccbca5b843db87fd81b2327935b30c1a961e1369b3fd58382113",
+              "record_digest": "4c3d15c1ccb6c470d41d0ef16b8e97d8d30deb2d68fb27c7f927423c79c95147",
+              "added_page_paths": [
+                "<store>/pages/c83c45135dc88aaa8e45a6c7534f595db6b7bada7cd7f12c8d14cc93bcdecb96.json"
+              ]
+            },
+            "C": {
+              "version": 1,
+              "id": "reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e",
+              "viewer": "viewer-c",
+              "identity": {
+                "snapshot": "snapshot-inert",
+                "revision": "revision-inert",
+                "engine": "engine-inert",
+                "declarations": "none"
+              },
+              "identity_hash": "d83a9a93777809f453c9b0dc42155ca0ae3513d1ea0494246e84cd6fd1d353be",
+              "request": { "requested_layers": ["sound"], "declaration_set": { "returns": [] } },
+              "request_digest": "49442fd4b1c62f660eba60bb97657a75b84ed54ed477b1e657c9701387b47468",
+              "idempotency_hash": "5ca201091af2a6422b33524f2d43bdf2332af388e86ffea35fac5ea3bde7d8cc",
+              "state": "running",
+              "attempt": 2,
+              "fence": "30eae736ba37ebc43b8d58c0612ef3ae44f881133be3e9cf1c757be13083de6f",
+              "cursor": { "phase": "pairs", "index": 1 },
+              "progress": { "candidates": 1 },
+              "coverage": {
+                "partial": false,
+                "certified": true,
+                "requested_methods": 1,
+                "answered_methods": 1,
+                "refused_methods": 0,
+                "not_requested_methods": 0,
+                "pending_methods": 0,
+                "refused_obligations": []
+              },
+              "page_refs": [
+                {
+                  "sha256": "c83c45135dc88aaa8e45a6c7534f595db6b7bada7cd7f12c8d14cc93bcdecb96",
+                  "bytes": 28,
+                  "count": 1
+                }
+              ],
+              "page_index_hash": "79cfb20170782805dcf7b62c3d82d2b449fc1ce9b3671d22b8f84baa7b6fbb33",
+              "page_count": 1,
+              "evidence_count": 1,
+              "generation": 1,
+              "checkpoint_hash": "0f23485851c88733fe7688a34a07d2eb48326e05390b47c3612ab5383ad9e9a0",
+              "manifest_hash": "46e3a608169c04da94aad239d5439531cac02ba2ffadb4ff6e56faef0e709018",
+              "cancel_requested": false,
+              "lease_expires_at": 4105038050000,
+              "reason": null,
+              "deferred_requeue": false,
+              "control_receipts": [],
+              "created_at": 4105037445000,
+              "queued_at": 4105037449000,
+              "queue_order": 2,
+              "accessed_at": 4105037449000,
+              "updated_at": 4105038049999,
+              "expires_at": 4107629449000,
+              "last_checkpoint_digest": "d94458e1fb13ccbca5b843db87fd81b2327935b30c1a961e1369b3fd58382113",
+              "record_digest": "4c3d15c1ccb6c470d41d0ef16b8e97d8d30deb2d68fb27c7f927423c79c95147"
+            }
+          },
+          "at": {
+            "commit_refused": "STALE_ATTEMPT",
+            "lease": null,
+            "C": {
+              "version": 1,
+              "id": "reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e",
+              "viewer": "viewer-c",
+              "identity": {
+                "snapshot": "snapshot-inert",
+                "revision": "revision-inert",
+                "engine": "engine-inert",
+                "declarations": "none"
+              },
+              "identity_hash": "d83a9a93777809f453c9b0dc42155ca0ae3513d1ea0494246e84cd6fd1d353be",
+              "request": { "requested_layers": ["sound"], "declaration_set": { "returns": [] } },
+              "request_digest": "49442fd4b1c62f660eba60bb97657a75b84ed54ed477b1e657c9701387b47468",
+              "idempotency_hash": "5ca201091af2a6422b33524f2d43bdf2332af388e86ffea35fac5ea3bde7d8cc",
+              "state": "paused",
+              "attempt": 2,
+              "fence": null,
+              "cursor": { "phase": "pairs", "index": 1 },
+              "progress": { "candidates": 1 },
+              "coverage": {
+                "partial": false,
+                "certified": true,
+                "requested_methods": 1,
+                "answered_methods": 1,
+                "refused_methods": 0,
+                "not_requested_methods": 0,
+                "pending_methods": 0,
+                "refused_obligations": []
+              },
+              "page_refs": [
+                {
+                  "sha256": "c83c45135dc88aaa8e45a6c7534f595db6b7bada7cd7f12c8d14cc93bcdecb96",
+                  "bytes": 28,
+                  "count": 1
+                }
+              ],
+              "page_index_hash": "79cfb20170782805dcf7b62c3d82d2b449fc1ce9b3671d22b8f84baa7b6fbb33",
+              "page_count": 1,
+              "evidence_count": 1,
+              "generation": 1,
+              "checkpoint_hash": "0f23485851c88733fe7688a34a07d2eb48326e05390b47c3612ab5383ad9e9a0",
+              "manifest_hash": "46e3a608169c04da94aad239d5439531cac02ba2ffadb4ff6e56faef0e709018",
+              "cancel_requested": false,
+              "lease_expires_at": null,
+              "reason": {
+                "code": "INTERRUPTED",
+                "message": "Lease expired; resume the last durable checkpoint explicitly."
+              },
+              "deferred_requeue": false,
+              "control_receipts": [],
+              "created_at": 4105037445000,
+              "queued_at": 4105037449000,
+              "queue_order": 2,
+              "accessed_at": 4105037449000,
+              "updated_at": 4105038050000,
+              "expires_at": 4107629449000,
+              "last_checkpoint_digest": "d94458e1fb13ccbca5b843db87fd81b2327935b30c1a961e1369b3fd58382113",
+              "record_digest": "4a7df5dde03ae4cddb147f709f5a03fe0853a5d03824f5e8407af0cd0d8ca6a7"
+            }
+          }
+        },
+        "files": {
+          "added": {
+            "checkpoints/0f23485851c88733fe7688a34a07d2eb48326e05390b47c3612ab5383ad9e9a0.json": "0f23485851c88733fe7688a34a07d2eb48326e05390b47c3612ab5383ad9e9a0",
+            "indexes/79cfb20170782805dcf7b62c3d82d2b449fc1ce9b3671d22b8f84baa7b6fbb33.json": "79cfb20170782805dcf7b62c3d82d2b449fc1ce9b3671d22b8f84baa7b6fbb33",
+            "manifests/46e3a608169c04da94aad239d5439531cac02ba2ffadb4ff6e56faef0e709018.json": "46e3a608169c04da94aad239d5439531cac02ba2ffadb4ff6e56faef0e709018",
+            "pages/c83c45135dc88aaa8e45a6c7534f595db6b7bada7cd7f12c8d14cc93bcdecb96.json": "c83c45135dc88aaa8e45a6c7534f595db6b7bada7cd7f12c8d14cc93bcdecb96"
+          },
+          "changed": {
+            "generation": "74d0ec72caa25139b90d76e670e531b770f9d1b11c7d5ed0442aa198569fcd33",
+            "records/reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e.json": "078ef14781e71a2b2109d08382e4cc84442081b4d27751bf7c242868fa213ddd"
+          },
+          "removed": []
+        },
+        "record_keys": {
+          "records/reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e.json": [
+            "accessed_at",
+            "attempt",
+            "cancel_requested",
+            "checkpoint_hash",
+            "control_receipts",
+            "coverage",
+            "created_at",
+            "cursor",
+            "deferred_requeue",
+            "evidence_count",
+            "expires_at",
+            "fence",
+            "generation",
+            "id",
+            "idempotency_hash",
+            "identity",
+            "identity_hash",
+            "last_checkpoint_digest",
+            "lease_expires_at",
+            "manifest_hash",
+            "page_count",
+            "page_index_hash",
+            "page_refs",
+            "progress",
+            "queue_order",
+            "queued_at",
+            "reason",
+            "record_digest",
+            "request",
+            "request_digest",
+            "state",
+            "updated_at",
+            "version",
+            "viewer"
+          ]
+        },
+        "public_jobs": {
+          "records/reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e.json": {
+            "id": "reader_8a6d9b82ff30105c059944960d873aea325af03c9e76d3033400465f5c0c0f2e",
+            "state": "paused",
+            "identity": {
+              "snapshot": "snapshot-inert",
+              "revision": "revision-inert",
+              "engine": "engine-inert",
+              "declarations": "none"
+            },
+            "attempt": 2,
+            "generation": 1,
+            "progress": { "candidates": 1 },
+            "coverage": {
+              "partial": false,
+              "certified": true,
+              "requested_methods": 1,
+              "answered_methods": 1,
+              "refused_methods": 0,
+              "not_requested_methods": 0,
+              "pending_methods": 0,
+              "refused_obligations": []
+            },
+            "manifest_hash": "46e3a608169c04da94aad239d5439531cac02ba2ffadb4ff6e56faef0e709018",
+            "created_at": 4105037445000,
+            "updated_at": 4105038050000,
+            "accessed_at": 4105037449000,
+            "expires_at": 4107629449000,
+            "lease_expires_at": null,
+            "reason": {
+              "code": "INTERRUPTED",
+              "message": "Lease expired; resume the last durable checkpoint explicitly."
+            },
+            "cancel_requested": false,
+            "deferred_requeue": false
+          }
+        }
+      },
+      {
+        "op": "create E",
+        "value": {
+          "created": true,
+          "record": {
+            "version": 1,
+            "id": "reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2",
+            "viewer": "viewer-e",
+            "identity": {
+              "snapshot": "snapshot-inert",
+              "revision": "revision-inert",
+              "engine": "engine-inert",
+              "declarations": "none"
+            },
+            "identity_hash": "d83a9a93777809f453c9b0dc42155ca0ae3513d1ea0494246e84cd6fd1d353be",
+            "request": { "requested_layers": ["sound"], "declaration_set": { "returns": [] } },
+            "request_digest": "49442fd4b1c62f660eba60bb97657a75b84ed54ed477b1e657c9701387b47468",
+            "idempotency_hash": "2328660b9a8adbac86ee84dfe18d082fe3cd675eb9cc3b3841d0711c1939fd5c",
+            "state": "queued",
+            "attempt": 0,
+            "fence": null,
+            "cursor": null,
+            "progress": null,
+            "coverage": null,
+            "page_refs": [],
+            "page_index_hash": null,
+            "page_count": 0,
+            "evidence_count": 0,
+            "generation": 0,
+            "checkpoint_hash": null,
+            "manifest_hash": null,
+            "cancel_requested": false,
+            "lease_expires_at": null,
+            "reason": null,
+            "deferred_requeue": false,
+            "control_receipts": [],
+            "created_at": 4105038051000,
+            "queued_at": 4105038051000,
+            "queue_order": 3,
+            "accessed_at": 4105038051000,
+            "updated_at": 4105038051000,
+            "expires_at": 4107630051000,
+            "record_digest": "6c79f9001575fd8bba9a9299ae3b84bc26eca1985318eaa4d9c56f676f6b75ed"
+          },
+          "capability": "c86fcd917d76ce8f8d14346db5cc181dbb1dc22c091489b9a45b87c244779ae6"
+        },
+        "files": {
+          "added": {
+            "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": "d62844160aa5ec9fa92e0192b05a2dbd0550d9c4e437ffce8d4141ea6774ed0d"
+          },
+          "changed": {
+            "generation": "86508b5a9e4a138e6e4ff4290352b7a3bc96e9d9639ee3126232429e69de0d52"
+          },
+          "removed": []
+        },
+        "record_keys": {
+          "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": [
+            "accessed_at",
+            "attempt",
+            "cancel_requested",
+            "checkpoint_hash",
+            "control_receipts",
+            "coverage",
+            "created_at",
+            "cursor",
+            "deferred_requeue",
+            "evidence_count",
+            "expires_at",
+            "fence",
+            "generation",
+            "id",
+            "idempotency_hash",
+            "identity",
+            "identity_hash",
+            "lease_expires_at",
+            "manifest_hash",
+            "page_count",
+            "page_index_hash",
+            "page_refs",
+            "progress",
+            "queue_order",
+            "queued_at",
+            "reason",
+            "record_digest",
+            "request",
+            "request_digest",
+            "state",
+            "updated_at",
+            "version",
+            "viewer"
+          ]
+        },
+        "public_jobs": {
+          "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": {
+            "id": "reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2",
+            "state": "queued",
+            "identity": {
+              "snapshot": "snapshot-inert",
+              "revision": "revision-inert",
+              "engine": "engine-inert",
+              "declarations": "none"
+            },
+            "attempt": 0,
+            "generation": 0,
+            "progress": null,
+            "coverage": null,
+            "manifest_hash": null,
+            "created_at": 4105038051000,
+            "updated_at": 4105038051000,
+            "accessed_at": 4105038051000,
+            "expires_at": 4107630051000,
+            "lease_expires_at": null,
+            "reason": null,
+            "cancel_requested": false,
+            "deferred_requeue": false
+          }
+        }
+      },
+      {
+        "op": "lease E",
+        "value": {
+          "version": 1,
+          "id": "reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2",
+          "viewer": "viewer-e",
+          "identity": {
+            "snapshot": "snapshot-inert",
+            "revision": "revision-inert",
+            "engine": "engine-inert",
+            "declarations": "none"
+          },
+          "identity_hash": "d83a9a93777809f453c9b0dc42155ca0ae3513d1ea0494246e84cd6fd1d353be",
+          "request": { "requested_layers": ["sound"], "declaration_set": { "returns": [] } },
+          "request_digest": "49442fd4b1c62f660eba60bb97657a75b84ed54ed477b1e657c9701387b47468",
+          "idempotency_hash": "2328660b9a8adbac86ee84dfe18d082fe3cd675eb9cc3b3841d0711c1939fd5c",
+          "state": "running",
+          "attempt": 1,
+          "fence": "781f4d1d1ed22d6ce2bcb21792abf5045aa40b74304e7442f594a98c1b17af59",
+          "cursor": null,
+          "progress": null,
+          "coverage": null,
+          "page_refs": [],
+          "page_index_hash": null,
+          "page_count": 0,
+          "evidence_count": 0,
+          "generation": 0,
+          "checkpoint_hash": null,
+          "manifest_hash": null,
+          "cancel_requested": false,
+          "lease_expires_at": 4105038652000,
+          "reason": null,
+          "deferred_requeue": false,
+          "control_receipts": [],
+          "created_at": 4105038051000,
+          "queued_at": 4105038051000,
+          "queue_order": 3,
+          "accessed_at": 4105038051000,
+          "updated_at": 4105038052000,
+          "expires_at": 4107630051000,
+          "record_digest": "609ff9c4adba9e2575b0d884ee1433dd318845dd8e0b32955c75a897b9ab7556"
+        },
+        "files": {
+          "added": {},
+          "changed": {
+            "generation": "7aa73a862af18c99c2b5d5e48f017dcf302ff592aff9fe36840188fdcb7fd830",
+            "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": "e87a3f200c51a19fb654131af64ba9d0bb39ef5a0b394fc970eee5916aca4131"
+          },
+          "removed": []
+        },
+        "record_keys": {
+          "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": [
+            "accessed_at",
+            "attempt",
+            "cancel_requested",
+            "checkpoint_hash",
+            "control_receipts",
+            "coverage",
+            "created_at",
+            "cursor",
+            "deferred_requeue",
+            "evidence_count",
+            "expires_at",
+            "fence",
+            "generation",
+            "id",
+            "idempotency_hash",
+            "identity",
+            "identity_hash",
+            "lease_expires_at",
+            "manifest_hash",
+            "page_count",
+            "page_index_hash",
+            "page_refs",
+            "progress",
+            "queue_order",
+            "queued_at",
+            "reason",
+            "record_digest",
+            "request",
+            "request_digest",
+            "state",
+            "updated_at",
+            "version",
+            "viewer"
+          ]
+        },
+        "public_jobs": {
+          "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": {
+            "id": "reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2",
+            "state": "running",
+            "identity": {
+              "snapshot": "snapshot-inert",
+              "revision": "revision-inert",
+              "engine": "engine-inert",
+              "declarations": "none"
+            },
+            "attempt": 1,
+            "generation": 0,
+            "progress": null,
+            "coverage": null,
+            "manifest_hash": null,
+            "created_at": 4105038051000,
+            "updated_at": 4105038052000,
+            "accessed_at": 4105038051000,
+            "expires_at": 4107630051000,
+            "lease_expires_at": 4105038652000,
+            "reason": null,
+            "cancel_requested": false,
+            "deferred_requeue": false
+          }
+        }
+      },
+      {
+        "op": "commit E 507 (two orphan pages)",
+        "value": {
+          "version": 1,
+          "id": "reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2",
+          "viewer": "viewer-e",
+          "identity": {
+            "snapshot": "snapshot-inert",
+            "revision": "revision-inert",
+            "engine": "engine-inert",
+            "declarations": "none"
+          },
+          "identity_hash": "d83a9a93777809f453c9b0dc42155ca0ae3513d1ea0494246e84cd6fd1d353be",
+          "request": { "requested_layers": ["sound"], "declaration_set": { "returns": [] } },
+          "request_digest": "49442fd4b1c62f660eba60bb97657a75b84ed54ed477b1e657c9701387b47468",
+          "idempotency_hash": "2328660b9a8adbac86ee84dfe18d082fe3cd675eb9cc3b3841d0711c1939fd5c",
+          "state": "paused",
+          "attempt": 1,
+          "fence": null,
+          "cursor": null,
+          "progress": null,
+          "coverage": null,
+          "page_refs": [],
+          "page_index_hash": null,
+          "page_count": 0,
+          "evidence_count": 0,
+          "generation": 0,
+          "checkpoint_hash": null,
+          "manifest_hash": null,
+          "cancel_requested": false,
+          "lease_expires_at": null,
+          "reason": {
+            "code": "RESOURCE_LIMIT",
+            "message": "Reader storage quota reached; committed work is retained."
+          },
+          "deferred_requeue": false,
+          "control_receipts": [],
+          "created_at": 4105038051000,
+          "queued_at": 4105038051000,
+          "queue_order": 3,
+          "accessed_at": 4105038051000,
+          "updated_at": 4105038053000,
+          "expires_at": 4107630051000,
+          "record_digest": "3a7273282b53870fc379e1a3ee29a217d807f62a0db5ccc48f502b4d386d3863"
+        },
+        "files": {
+          "added": {
+            "pages/ca72e5c903e57f875f390abe34c37c100cd826f2c6b9a79b98713b49cbe4e1eb.json": "gzip:ca72e5c903e57f875f390abe34c37c100cd826f2c6b9a79b98713b49cbe4e1eb",
+            "pages/f5fe7416c7fa475f4b7891db3496fee222a7a445d2bf91fba20b097e29891f8b.json": "gzip:f5fe7416c7fa475f4b7891db3496fee222a7a445d2bf91fba20b097e29891f8b"
+          },
+          "changed": {
+            "generation": "eb5a3a525789a456a4230bef4a352c29d9b6a66156fa51333f8da60945c28fe8",
+            "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": "2757affbab488f117331b45860cf775faedae0c32e7550e891c400e1d350f2b3"
+          },
+          "removed": []
+        },
+        "record_keys": {
+          "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": [
+            "accessed_at",
+            "attempt",
+            "cancel_requested",
+            "checkpoint_hash",
+            "control_receipts",
+            "coverage",
+            "created_at",
+            "cursor",
+            "deferred_requeue",
+            "evidence_count",
+            "expires_at",
+            "fence",
+            "generation",
+            "id",
+            "idempotency_hash",
+            "identity",
+            "identity_hash",
+            "lease_expires_at",
+            "manifest_hash",
+            "page_count",
+            "page_index_hash",
+            "page_refs",
+            "progress",
+            "queue_order",
+            "queued_at",
+            "reason",
+            "record_digest",
+            "request",
+            "request_digest",
+            "state",
+            "updated_at",
+            "version",
+            "viewer"
+          ]
+        },
+        "public_jobs": {
+          "records/reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2.json": {
+            "id": "reader_695b84a62c6c96756af14739bfa704ca385b4229f4bdd66a2d137ae1dd8cb5f2",
+            "state": "paused",
+            "identity": {
+              "snapshot": "snapshot-inert",
+              "revision": "revision-inert",
+              "engine": "engine-inert",
+              "declarations": "none"
+            },
+            "attempt": 1,
+            "generation": 0,
+            "progress": null,
+            "coverage": null,
+            "manifest_hash": null,
+            "created_at": 4105038051000,
+            "updated_at": 4105038053000,
+            "accessed_at": 4105038051000,
+            "expires_at": 4107630051000,
+            "lease_expires_at": null,
+            "reason": {
+              "code": "RESOURCE_LIMIT",
+              "message": "Reader storage quota reached; committed work is retained."
+            },
+            "cancel_requested": false,
+            "deferred_requeue": false
+          }
+        }
+      },
+      {
+        "op": "age the orphans either side of the mark window",
+        "value": {
+          "inside": "pages/ca72e5c903e57f875f390abe34c37c100cd826f2c6b9a79b98713b49cbe4e1eb.json",
+          "outside": "pages/f5fe7416c7fa475f4b7891db3496fee222a7a445d2bf91fba20b097e29891f8b.json"
+        },
+        "files": { "added": {}, "changed": {}, "removed": [] }
+      },
+      {
+        "op": "maintain (an orphan inside the mark window, one outside)",
+        "value": {
+          "rounds": [
+            {
+              "expired": 0,
+              "marked": 19,
+              "swept": 1,
+              "read": 27,
+              "bytes": "<swept-bytes>",
+              "examined": 19,
+              "phase": "idle",
+              "usage": "<on-disk-bytes>"
+            }
+          ],
+          "inside_kept": false,
+          "outside_kept": true
+        },
+        "files": {
+          "added": {},
+          "changed": {
+            "generation": "e9d9beaf59ff2fafe63010821cbc6ad2e678258855891b38c8e1648b46db715f"
+          },
+          "removed": ["pages/ca72e5c903e57f875f390abe34c37c100cd826f2c6b9a79b98713b49cbe4e1eb.json"]
         }
       }
     ],
@@ -22019,6 +23356,925 @@
           "active": false
         },
         "files": { "added": {}, "changed": {}, "removed": [] }
+      }
+    ],
+    "pack/limits": [
+      {
+        "op": "250 records: one page",
+        "value": [{ "instances": 250, "first": "t-0", "last": "t-249" }]
+      },
+      {
+        "op": "251 records: 250, then 1",
+        "value": [
+          { "instances": 250, "first": "t-0", "last": "t-249" },
+          { "instances": 1, "first": "t-250", "last": "t-250" }
+        ]
+      },
+      {
+        "op": "500 records: 250, 250",
+        "value": [
+          { "instances": 250, "first": "t-0", "last": "t-249" },
+          { "instances": 250, "first": "t-250", "last": "t-499" }
+        ]
+      },
+      {
+        "op": "two records filling a page exactly (16 + a + b = 2 MiB)",
+        "value": [{ "instances": 2, "first": "a", "last": "b" }]
+      },
+      {
+        "op": "two records one byte past a page (16 + a + b = 2 MiB + 1)",
+        "value": [
+          { "instances": 1, "first": "a", "last": "a" },
+          { "instances": 1, "first": "b", "last": "b" }
+        ]
+      },
+      {
+        "op": "250 records filling a page exactly, then one more",
+        "value": [
+          { "instances": 250, "first": "m-0", "last": "m-249" },
+          { "instances": 1, "first": "m-250", "last": "m-250" }
+        ]
+      },
+      {
+        "op": "250 records one byte past a page, then one more",
+        "value": [
+          { "instances": 249, "first": "m-0", "last": "m-248" },
+          { "instances": 2, "first": "m-249", "last": "m-250" }
+        ]
+      },
+      {
+        "op": "one record exactly at the page limit (16 + a = 2 MiB)",
+        "value": [{ "instances": 1, "first": "one", "last": "one" }]
+      },
+      {
+        "op": "one record one byte past the page limit (RESOURCE_LIMIT)",
+        "error": {
+          "code": "RESOURCE_LIMIT",
+          "message": "One evidence object exceeds the page limit; its adapter must provide identity-preserving subpages."
+        }
+      }
+    ],
+    "resolver/plain": [
+      {
+        "op": "construct",
+        "value": {
+          "usage": 32,
+          "resolver": [
+            "prepareRequest",
+            "probe",
+            "readerScheme",
+            "resolveEntry",
+            "resolveIdentity",
+            "resolveSource"
+          ]
+        },
+        "files": {
+          "added": {
+            "capability-key": "d7e712f0c00e2f54a324dde3eda08207c5682cabeda75bc7ff5267f3f9e74b6c"
+          },
+          "changed": {},
+          "removed": []
+        }
+      },
+      {
+        "op": "probe",
+        "value": {
+          "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+          "readings": 1
+        },
+        "files": { "added": {}, "changed": {}, "removed": [] }
+      },
+      {
+        "op": "resolveIdentity",
+        "value": {
+          "contract_version": 1,
+          "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+          "reading_unit_id": "reading_inert",
+          "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+          "work_id": "work_inert",
+          "edition_id": "edition_inert",
+          "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+          "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+          "native_profile": "eng",
+          "engine_commit": "engine-inert",
+          "parser_version": "parser-inert",
+          "normalizer_version": "normalizer-inert",
+          "resource_fingerprint": "resources-inert",
+          "reader_scheme": "v2",
+          "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "requested_layers": ["sound"],
+          "requested_methods": null
+        },
+        "files": { "added": {}, "changed": {}, "removed": [] }
+      },
+      {
+        "op": "prepareRequest (no collection: unchanged)",
+        "value": {
+          "contract_version": 1,
+          "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+          "reading_unit_id": "reading_inert",
+          "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+          "declaration_set": {},
+          "requested_layers": ["sound"]
+        },
+        "files": { "added": {}, "changed": {}, "removed": [] }
+      },
+      {
+        "op": "resolveSource",
+        "value": {
+          "source": {
+            "reading_unit_id": "reading_inert",
+            "language": "eng",
+            "availability": "readable",
+            "source_path": "corpus/inert/reading.txt",
+            "title": "Inert reading",
+            "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+            "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+            "work_id": "work_inert",
+            "edition_id": "edition_inert",
+            "lines": [
+              { "kind": "lyric", "text": "A line that sings." },
+              { "kind": "lyric", "text": "A line that rings." }
+            ],
+            "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+            "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e"
+          },
+          "entry": {
+            "reading_unit_id": "reading_inert",
+            "language": "eng",
+            "availability": "readable",
+            "source_path": "corpus/inert/reading.txt",
+            "title": "Inert reading",
+            "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+            "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+            "work_id": "work_inert",
+            "edition_id": "edition_inert",
+            "lines": [
+              { "kind": "lyric", "text": "A line that sings." },
+              { "kind": "lyric", "text": "A line that rings." }
+            ],
+            "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+            "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e"
+          },
+          "manifest": {
+            "parser_version": "parser-inert",
+            "normalizer_version": "normalizer-inert",
+            "artifacts": {
+              "readings/reading_inert.json": "95adb2419411af0d54d799a3878dc5a5cc50f92d39820fbafb695c8764f88539",
+              "index.json": "26ca84ce35e85fbb463a453ac0d9109a3fb42131efa8b8c451aed5e2dcd9b535"
+            },
+            "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e"
+          }
+        },
+        "files": { "added": {}, "changed": {}, "removed": [] }
+      },
+      {
+        "op": "resolveEntry",
+        "value": {
+          "entry": {
+            "reading_unit_id": "reading_inert",
+            "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+            "work_id": "work_inert",
+            "edition_id": "edition_inert",
+            "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+            "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+            "language": "eng",
+            "source_path": "corpus/inert/reading.txt",
+            "title": "Inert reading",
+            "lyric_lines": null
+          },
+          "manifest": {
+            "parser_version": "parser-inert",
+            "normalizer_version": "normalizer-inert",
+            "artifacts": {
+              "readings/reading_inert.json": "95adb2419411af0d54d799a3878dc5a5cc50f92d39820fbafb695c8764f88539",
+              "index.json": "26ca84ce35e85fbb463a453ac0d9109a3fb42131efa8b8c451aed5e2dcd9b535"
+            },
+            "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e"
+          }
+        },
+        "files": { "added": {}, "changed": {}, "removed": [] }
+      },
+      {
+        "op": "create A with the resolved identity",
+        "value": "reader_5ed6fe3a8831357cdcf1fb1482ee60f5726d24a8dd6055f404f2e980c2d92a1a",
+        "files": {
+          "added": {
+            "generation": "fa02354bd70e0b908b245c66be4bbc6626f0e5c7dae4b4953d802d0b647b1ffb",
+            "records/reader_5ed6fe3a8831357cdcf1fb1482ee60f5726d24a8dd6055f404f2e980c2d92a1a.json": "7c89383400286147f4dba4bab163707bacfa3f051be7720764ba9f26c78f653d"
+          },
+          "changed": {},
+          "removed": []
+        },
+        "record_keys": {
+          "records/reader_5ed6fe3a8831357cdcf1fb1482ee60f5726d24a8dd6055f404f2e980c2d92a1a.json": [
+            "accessed_at",
+            "attempt",
+            "cancel_requested",
+            "checkpoint_hash",
+            "control_receipts",
+            "coverage",
+            "created_at",
+            "cursor",
+            "deferred_requeue",
+            "evidence_count",
+            "expires_at",
+            "fence",
+            "generation",
+            "id",
+            "idempotency_hash",
+            "identity",
+            "identity_hash",
+            "lease_expires_at",
+            "manifest_hash",
+            "page_count",
+            "page_index_hash",
+            "page_refs",
+            "progress",
+            "queue_order",
+            "queued_at",
+            "reason",
+            "record_digest",
+            "request",
+            "request_digest",
+            "state",
+            "updated_at",
+            "version",
+            "viewer"
+          ]
+        },
+        "public_jobs": {
+          "records/reader_5ed6fe3a8831357cdcf1fb1482ee60f5726d24a8dd6055f404f2e980c2d92a1a.json": {
+            "id": "reader_5ed6fe3a8831357cdcf1fb1482ee60f5726d24a8dd6055f404f2e980c2d92a1a",
+            "state": "queued",
+            "identity": {
+              "contract_version": 1,
+              "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+              "reading_unit_id": "reading_inert",
+              "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+              "work_id": "work_inert",
+              "edition_id": "edition_inert",
+              "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+              "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+              "native_profile": "eng",
+              "engine_commit": "engine-inert",
+              "parser_version": "parser-inert",
+              "normalizer_version": "normalizer-inert",
+              "resource_fingerprint": "resources-inert",
+              "reader_scheme": "v2",
+              "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+              "requested_layers": ["sound"],
+              "requested_methods": null
+            },
+            "attempt": 0,
+            "generation": 0,
+            "progress": null,
+            "coverage": null,
+            "manifest_hash": null,
+            "created_at": 4102444707000,
+            "updated_at": 4102444707000,
+            "accessed_at": 4102444707000,
+            "expires_at": 4105036707000,
+            "lease_expires_at": null,
+            "reason": null,
+            "cancel_requested": false,
+            "deferred_requeue": false
+          }
+        }
+      },
+      {
+        "op": "create B with another engine commit",
+        "value": "reader_59f1548adace74694640c509d2eb673396d759e363020bb414c2c0f88e32d237",
+        "files": {
+          "added": {
+            "records/reader_59f1548adace74694640c509d2eb673396d759e363020bb414c2c0f88e32d237.json": "8dc50b7bc71f4107dc00547459477244fb92b2371814a1bf705b14d7ea2aaefb"
+          },
+          "changed": {
+            "generation": "1a8b638ae979fac2184d4fbab8d647828af012c6bba062efa6cf5a215c6187c5"
+          },
+          "removed": []
+        },
+        "record_keys": {
+          "records/reader_59f1548adace74694640c509d2eb673396d759e363020bb414c2c0f88e32d237.json": [
+            "accessed_at",
+            "attempt",
+            "cancel_requested",
+            "checkpoint_hash",
+            "control_receipts",
+            "coverage",
+            "created_at",
+            "cursor",
+            "deferred_requeue",
+            "evidence_count",
+            "expires_at",
+            "fence",
+            "generation",
+            "id",
+            "idempotency_hash",
+            "identity",
+            "identity_hash",
+            "lease_expires_at",
+            "manifest_hash",
+            "page_count",
+            "page_index_hash",
+            "page_refs",
+            "progress",
+            "queue_order",
+            "queued_at",
+            "reason",
+            "record_digest",
+            "request",
+            "request_digest",
+            "state",
+            "updated_at",
+            "version",
+            "viewer"
+          ]
+        },
+        "public_jobs": {
+          "records/reader_59f1548adace74694640c509d2eb673396d759e363020bb414c2c0f88e32d237.json": {
+            "id": "reader_59f1548adace74694640c509d2eb673396d759e363020bb414c2c0f88e32d237",
+            "state": "queued",
+            "identity": {
+              "contract_version": 1,
+              "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+              "reading_unit_id": "reading_inert",
+              "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+              "work_id": "work_inert",
+              "edition_id": "edition_inert",
+              "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+              "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+              "native_profile": "eng",
+              "engine_commit": "engine-other",
+              "parser_version": "parser-inert",
+              "normalizer_version": "normalizer-inert",
+              "resource_fingerprint": "resources-inert",
+              "reader_scheme": "v2",
+              "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+              "requested_layers": ["sound"],
+              "requested_methods": null
+            },
+            "attempt": 0,
+            "generation": 0,
+            "progress": null,
+            "coverage": null,
+            "manifest_hash": null,
+            "created_at": 4102444708000,
+            "updated_at": 4102444708000,
+            "accessed_at": 4102444708000,
+            "expires_at": 4105036708000,
+            "lease_expires_at": null,
+            "reason": null,
+            "cancel_requested": false,
+            "deferred_requeue": false
+          }
+        }
+      },
+      {
+        "op": "pump 1: A leased through the resolver, completes",
+        "value": {
+          "A": {
+            "version": 1,
+            "id": "reader_5ed6fe3a8831357cdcf1fb1482ee60f5726d24a8dd6055f404f2e980c2d92a1a",
+            "viewer": "viewer-a",
+            "identity": {
+              "contract_version": 1,
+              "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+              "reading_unit_id": "reading_inert",
+              "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+              "work_id": "work_inert",
+              "edition_id": "edition_inert",
+              "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+              "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+              "native_profile": "eng",
+              "engine_commit": "engine-inert",
+              "parser_version": "parser-inert",
+              "normalizer_version": "normalizer-inert",
+              "resource_fingerprint": "resources-inert",
+              "reader_scheme": "v2",
+              "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+              "requested_layers": ["sound"],
+              "requested_methods": null
+            },
+            "identity_hash": "770b66a6ea744f3ce62acd8ba36813ffe53548a4cf9a6ed6f440f18c1089f403",
+            "request": {
+              "contract_version": 1,
+              "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+              "reading_unit_id": "reading_inert",
+              "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+              "declaration_set": {},
+              "requested_layers": ["sound"]
+            },
+            "request_digest": "0cd4472b672423bf02be40b99e0785be7aacbcce5262c1f92f7dfe78256dd11f",
+            "idempotency_hash": "efbbd965927f4f98c9d62f0f99addf7115d882d4e0d592cdd25ca0abee9ae0c4",
+            "state": "completed",
+            "attempt": 1,
+            "fence": null,
+            "cursor": { "phase": "done", "done": true },
+            "progress": { "candidates": 1 },
+            "coverage": {
+              "partial": false,
+              "certified": true,
+              "requested_methods": 1,
+              "answered_methods": 1,
+              "refused_methods": 0,
+              "not_requested_methods": 0,
+              "pending_methods": 0,
+              "refused_obligations": []
+            },
+            "page_refs": [
+              {
+                "sha256": "4d8c8506b4228beb60f3f4b6eb2cb92dc9ea43cd6fbd49d8e07a49c2f35a6d3b",
+                "bytes": 35,
+                "count": 1
+              }
+            ],
+            "page_index_hash": "85dfd18cb4464cec3d0f68a203d740faa2307a06a5cc4c5c72dc88a9f0e5e7b1",
+            "page_count": 1,
+            "evidence_count": 1,
+            "generation": 2,
+            "checkpoint_hash": "43362d72c3ae0b2381a320397a04823b81bb5b9604c5526a6ff1487315f8478d",
+            "manifest_hash": "21b0cb7fe07f6d34288f607aa167458afc03a979cb773796f41c8aa2b56b1f84",
+            "cancel_requested": false,
+            "lease_expires_at": null,
+            "reason": null,
+            "deferred_requeue": false,
+            "control_receipts": [],
+            "created_at": 4102444707000,
+            "queued_at": 4102444707000,
+            "queue_order": 1,
+            "accessed_at": 4102444707000,
+            "updated_at": 4102444709000,
+            "expires_at": 4105036707000,
+            "last_checkpoint_digest": "ff3a4b6ea0416db8a476df08fd4618fd42e2c924deb137c15f114764bd83a37b",
+            "record_digest": "11eb630ea62ac9caf3b617f53b841d7ddc777513731755581bcb80aef74e7196"
+          },
+          "B": {
+            "version": 1,
+            "id": "reader_59f1548adace74694640c509d2eb673396d759e363020bb414c2c0f88e32d237",
+            "viewer": "viewer-b",
+            "identity": {
+              "contract_version": 1,
+              "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+              "reading_unit_id": "reading_inert",
+              "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+              "work_id": "work_inert",
+              "edition_id": "edition_inert",
+              "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+              "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+              "native_profile": "eng",
+              "engine_commit": "engine-other",
+              "parser_version": "parser-inert",
+              "normalizer_version": "normalizer-inert",
+              "resource_fingerprint": "resources-inert",
+              "reader_scheme": "v2",
+              "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+              "requested_layers": ["sound"],
+              "requested_methods": null
+            },
+            "identity_hash": "4608c9e59817eb156255248217e2d974a854188d9d87a21c580f760b581a6648",
+            "request": {
+              "contract_version": 1,
+              "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+              "reading_unit_id": "reading_inert",
+              "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+              "declaration_set": {},
+              "requested_layers": ["sound"]
+            },
+            "request_digest": "38e1c2f3d007328b2eb364c16d1eaeeb7a267e12190b2485a21b22486d74474f",
+            "idempotency_hash": "bc84906a5c86ca7c11af4e4e53c57b58efc2678bb69053e9be309928d8eb400e",
+            "state": "queued",
+            "attempt": 0,
+            "fence": null,
+            "cursor": null,
+            "progress": null,
+            "coverage": null,
+            "page_refs": [],
+            "page_index_hash": null,
+            "page_count": 0,
+            "evidence_count": 0,
+            "generation": 0,
+            "checkpoint_hash": null,
+            "manifest_hash": null,
+            "cancel_requested": false,
+            "lease_expires_at": null,
+            "reason": null,
+            "deferred_requeue": false,
+            "control_receipts": [],
+            "created_at": 4102444708000,
+            "queued_at": 4102444708000,
+            "queue_order": 2,
+            "accessed_at": 4102444708000,
+            "updated_at": 4102444708000,
+            "expires_at": 4105036708000,
+            "record_digest": "1a35adbe8ef62ade869e7b60e4fa6ce5e842734f358aee8c5fbd19f882c57b6b"
+          },
+          "active": false
+        },
+        "files": {
+          "added": {
+            "checkpoints/43362d72c3ae0b2381a320397a04823b81bb5b9604c5526a6ff1487315f8478d.json": "43362d72c3ae0b2381a320397a04823b81bb5b9604c5526a6ff1487315f8478d",
+            "checkpoints/b403de2b2d0e10588b8893f797a3e6affa6f843465240ee2bf0c00db883edfed.json": "b403de2b2d0e10588b8893f797a3e6affa6f843465240ee2bf0c00db883edfed",
+            "indexes/85dfd18cb4464cec3d0f68a203d740faa2307a06a5cc4c5c72dc88a9f0e5e7b1.json": "85dfd18cb4464cec3d0f68a203d740faa2307a06a5cc4c5c72dc88a9f0e5e7b1",
+            "manifests/21b0cb7fe07f6d34288f607aa167458afc03a979cb773796f41c8aa2b56b1f84.json": "21b0cb7fe07f6d34288f607aa167458afc03a979cb773796f41c8aa2b56b1f84",
+            "manifests/ee4826797fe3ea28b0d2838d5826657e8af1d990f1dd291a32e4bfed95104067.json": "ee4826797fe3ea28b0d2838d5826657e8af1d990f1dd291a32e4bfed95104067",
+            "pages/4d8c8506b4228beb60f3f4b6eb2cb92dc9ea43cd6fbd49d8e07a49c2f35a6d3b.json": "4d8c8506b4228beb60f3f4b6eb2cb92dc9ea43cd6fbd49d8e07a49c2f35a6d3b"
+          },
+          "changed": {
+            "generation": "adcefb390b978367e6740ba876a29f317fe030acd124c9137db8b389b6b3f63a",
+            "records/reader_5ed6fe3a8831357cdcf1fb1482ee60f5726d24a8dd6055f404f2e980c2d92a1a.json": "3803f582323aced23e216e0632754705070a7d06515e2da3df28e70334e6ad1e"
+          },
+          "removed": []
+        },
+        "record_keys": {
+          "records/reader_5ed6fe3a8831357cdcf1fb1482ee60f5726d24a8dd6055f404f2e980c2d92a1a.json": [
+            "accessed_at",
+            "attempt",
+            "cancel_requested",
+            "checkpoint_hash",
+            "control_receipts",
+            "coverage",
+            "created_at",
+            "cursor",
+            "deferred_requeue",
+            "evidence_count",
+            "expires_at",
+            "fence",
+            "generation",
+            "id",
+            "idempotency_hash",
+            "identity",
+            "identity_hash",
+            "last_checkpoint_digest",
+            "lease_expires_at",
+            "manifest_hash",
+            "page_count",
+            "page_index_hash",
+            "page_refs",
+            "progress",
+            "queue_order",
+            "queued_at",
+            "reason",
+            "record_digest",
+            "request",
+            "request_digest",
+            "state",
+            "updated_at",
+            "version",
+            "viewer"
+          ]
+        },
+        "public_jobs": {
+          "records/reader_5ed6fe3a8831357cdcf1fb1482ee60f5726d24a8dd6055f404f2e980c2d92a1a.json": {
+            "id": "reader_5ed6fe3a8831357cdcf1fb1482ee60f5726d24a8dd6055f404f2e980c2d92a1a",
+            "state": "completed",
+            "identity": {
+              "contract_version": 1,
+              "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+              "reading_unit_id": "reading_inert",
+              "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+              "work_id": "work_inert",
+              "edition_id": "edition_inert",
+              "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+              "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+              "native_profile": "eng",
+              "engine_commit": "engine-inert",
+              "parser_version": "parser-inert",
+              "normalizer_version": "normalizer-inert",
+              "resource_fingerprint": "resources-inert",
+              "reader_scheme": "v2",
+              "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+              "requested_layers": ["sound"],
+              "requested_methods": null
+            },
+            "attempt": 1,
+            "generation": 2,
+            "progress": { "candidates": 1 },
+            "coverage": {
+              "partial": false,
+              "certified": true,
+              "requested_methods": 1,
+              "answered_methods": 1,
+              "refused_methods": 0,
+              "not_requested_methods": 0,
+              "pending_methods": 0,
+              "refused_obligations": []
+            },
+            "manifest_hash": "21b0cb7fe07f6d34288f607aa167458afc03a979cb773796f41c8aa2b56b1f84",
+            "created_at": 4102444707000,
+            "updated_at": 4102444709000,
+            "accessed_at": 4102444707000,
+            "expires_at": 4105036707000,
+            "lease_expires_at": null,
+            "reason": null,
+            "cancel_requested": false,
+            "deferred_requeue": false
+          }
+        },
+        "bridge": [
+          {
+            "request": {
+              "source": {
+                "reading_unit_id": "reading_inert",
+                "language": "eng",
+                "availability": "readable",
+                "source_path": "corpus/inert/reading.txt",
+                "title": "Inert reading",
+                "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+                "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+                "work_id": "work_inert",
+                "edition_id": "edition_inert",
+                "lines": [
+                  { "kind": "lyric", "text": "A line that sings." },
+                  { "kind": "lyric", "text": "A line that rings." }
+                ],
+                "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+                "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e"
+              },
+              "identity": {
+                "contract_version": 1,
+                "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+                "reading_unit_id": "reading_inert",
+                "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+                "work_id": "work_inert",
+                "edition_id": "edition_inert",
+                "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+                "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+                "native_profile": "eng",
+                "engine_commit": "engine-inert",
+                "parser_version": "parser-inert",
+                "normalizer_version": "normalizer-inert",
+                "resource_fingerprint": "resources-inert",
+                "reader_scheme": "v2",
+                "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+                "requested_layers": ["sound"],
+                "requested_methods": null
+              },
+              "declarations": {},
+              "requested": ["sound"],
+              "checkpoint": null,
+              "committed_pages": [],
+              "lease_ms": 508000
+            },
+            "timeoutMs": 605000,
+            "should_stop": [null, null],
+            "sink": [
+              {
+                "reply": {
+                  "added_page_paths": [
+                    "<store>/pages/4d8c8506b4228beb60f3f4b6eb2cb92dc9ea43cd6fbd49d8e07a49c2f35a6d3b.json"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "store_calls": [
+          { "method": "commitCheckpoint", "outcome": "ok" },
+          { "method": "complete", "outcome": "ok" }
+        ]
+      },
+      {
+        "op": "pump 2: B identity differs (STALE_READING)",
+        "value": {
+          "A": {
+            "version": 1,
+            "id": "reader_5ed6fe3a8831357cdcf1fb1482ee60f5726d24a8dd6055f404f2e980c2d92a1a",
+            "viewer": "viewer-a",
+            "identity": {
+              "contract_version": 1,
+              "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+              "reading_unit_id": "reading_inert",
+              "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+              "work_id": "work_inert",
+              "edition_id": "edition_inert",
+              "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+              "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+              "native_profile": "eng",
+              "engine_commit": "engine-inert",
+              "parser_version": "parser-inert",
+              "normalizer_version": "normalizer-inert",
+              "resource_fingerprint": "resources-inert",
+              "reader_scheme": "v2",
+              "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+              "requested_layers": ["sound"],
+              "requested_methods": null
+            },
+            "identity_hash": "770b66a6ea744f3ce62acd8ba36813ffe53548a4cf9a6ed6f440f18c1089f403",
+            "request": {
+              "contract_version": 1,
+              "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+              "reading_unit_id": "reading_inert",
+              "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+              "declaration_set": {},
+              "requested_layers": ["sound"]
+            },
+            "request_digest": "0cd4472b672423bf02be40b99e0785be7aacbcce5262c1f92f7dfe78256dd11f",
+            "idempotency_hash": "efbbd965927f4f98c9d62f0f99addf7115d882d4e0d592cdd25ca0abee9ae0c4",
+            "state": "completed",
+            "attempt": 1,
+            "fence": null,
+            "cursor": { "phase": "done", "done": true },
+            "progress": { "candidates": 1 },
+            "coverage": {
+              "partial": false,
+              "certified": true,
+              "requested_methods": 1,
+              "answered_methods": 1,
+              "refused_methods": 0,
+              "not_requested_methods": 0,
+              "pending_methods": 0,
+              "refused_obligations": []
+            },
+            "page_refs": [
+              {
+                "sha256": "4d8c8506b4228beb60f3f4b6eb2cb92dc9ea43cd6fbd49d8e07a49c2f35a6d3b",
+                "bytes": 35,
+                "count": 1
+              }
+            ],
+            "page_index_hash": "85dfd18cb4464cec3d0f68a203d740faa2307a06a5cc4c5c72dc88a9f0e5e7b1",
+            "page_count": 1,
+            "evidence_count": 1,
+            "generation": 2,
+            "checkpoint_hash": "43362d72c3ae0b2381a320397a04823b81bb5b9604c5526a6ff1487315f8478d",
+            "manifest_hash": "21b0cb7fe07f6d34288f607aa167458afc03a979cb773796f41c8aa2b56b1f84",
+            "cancel_requested": false,
+            "lease_expires_at": null,
+            "reason": null,
+            "deferred_requeue": false,
+            "control_receipts": [],
+            "created_at": 4102444707000,
+            "queued_at": 4102444707000,
+            "queue_order": 1,
+            "accessed_at": 4102444707000,
+            "updated_at": 4102444709000,
+            "expires_at": 4105036707000,
+            "last_checkpoint_digest": "ff3a4b6ea0416db8a476df08fd4618fd42e2c924deb137c15f114764bd83a37b",
+            "record_digest": "11eb630ea62ac9caf3b617f53b841d7ddc777513731755581bcb80aef74e7196"
+          },
+          "B": {
+            "version": 1,
+            "id": "reader_59f1548adace74694640c509d2eb673396d759e363020bb414c2c0f88e32d237",
+            "viewer": "viewer-b",
+            "identity": {
+              "contract_version": 1,
+              "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+              "reading_unit_id": "reading_inert",
+              "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+              "work_id": "work_inert",
+              "edition_id": "edition_inert",
+              "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+              "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+              "native_profile": "eng",
+              "engine_commit": "engine-other",
+              "parser_version": "parser-inert",
+              "normalizer_version": "normalizer-inert",
+              "resource_fingerprint": "resources-inert",
+              "reader_scheme": "v2",
+              "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+              "requested_layers": ["sound"],
+              "requested_methods": null
+            },
+            "identity_hash": "4608c9e59817eb156255248217e2d974a854188d9d87a21c580f760b581a6648",
+            "request": {
+              "contract_version": 1,
+              "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+              "reading_unit_id": "reading_inert",
+              "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+              "declaration_set": {},
+              "requested_layers": ["sound"]
+            },
+            "request_digest": "38e1c2f3d007328b2eb364c16d1eaeeb7a267e12190b2485a21b22486d74474f",
+            "idempotency_hash": "bc84906a5c86ca7c11af4e4e53c57b58efc2678bb69053e9be309928d8eb400e",
+            "state": "paused",
+            "attempt": 1,
+            "fence": null,
+            "cursor": null,
+            "progress": null,
+            "coverage": null,
+            "page_refs": [],
+            "page_index_hash": null,
+            "page_count": 0,
+            "evidence_count": 0,
+            "generation": 0,
+            "checkpoint_hash": null,
+            "manifest_hash": null,
+            "cancel_requested": false,
+            "lease_expires_at": null,
+            "reason": {
+              "code": "STALE_READING",
+              "message": "Source or engine identity changed; create a new reader job."
+            },
+            "deferred_requeue": false,
+            "control_receipts": [],
+            "created_at": 4102444708000,
+            "queued_at": 4102444710000,
+            "queue_order": 3,
+            "accessed_at": 4102444708000,
+            "updated_at": 4102444710000,
+            "expires_at": 4105036708000,
+            "record_digest": "66c0236a770eea329f6a484d2d15016e1c1908d5b6f2decd1441ee7f234302b0"
+          },
+          "active": false
+        },
+        "files": {
+          "added": {},
+          "changed": {
+            "generation": "087264bedf692c94b3884c805b55e2b6f379902885b232c6ffa9ab158d9f1510",
+            "records/reader_59f1548adace74694640c509d2eb673396d759e363020bb414c2c0f88e32d237.json": "dd7426e31b32d4d6d44b071332b1837386be7b888da01f6e4aa7bdcd317099cf"
+          },
+          "removed": []
+        },
+        "record_keys": {
+          "records/reader_59f1548adace74694640c509d2eb673396d759e363020bb414c2c0f88e32d237.json": [
+            "accessed_at",
+            "attempt",
+            "cancel_requested",
+            "checkpoint_hash",
+            "control_receipts",
+            "coverage",
+            "created_at",
+            "cursor",
+            "deferred_requeue",
+            "evidence_count",
+            "expires_at",
+            "fence",
+            "generation",
+            "id",
+            "idempotency_hash",
+            "identity",
+            "identity_hash",
+            "lease_expires_at",
+            "manifest_hash",
+            "page_count",
+            "page_index_hash",
+            "page_refs",
+            "progress",
+            "queue_order",
+            "queued_at",
+            "reason",
+            "record_digest",
+            "request",
+            "request_digest",
+            "state",
+            "updated_at",
+            "version",
+            "viewer"
+          ]
+        },
+        "public_jobs": {
+          "records/reader_59f1548adace74694640c509d2eb673396d759e363020bb414c2c0f88e32d237.json": {
+            "id": "reader_59f1548adace74694640c509d2eb673396d759e363020bb414c2c0f88e32d237",
+            "state": "paused",
+            "identity": {
+              "contract_version": 1,
+              "snapshot_id": "1556fe6a6125a0a45ce6e61bcf4d67952b1cb894ad695b88cc71e7a356bd0b7e",
+              "reading_unit_id": "reading_inert",
+              "reading_revision": "1930fecdde377a572983e0b9b0748477650580a417e9ba35ac17c3b885751550",
+              "work_id": "work_inert",
+              "edition_id": "edition_inert",
+              "source_sha256": "a0670c84ab9c92833a66ca70aef84d8b2c31edec039a3582313a436b54dc36ce",
+              "normalized_sha256": "8ff43f69b83faa90fb9e0646bb2d264602cd1bdfc798f3e76696004e76c9ab12",
+              "native_profile": "eng",
+              "engine_commit": "engine-other",
+              "parser_version": "parser-inert",
+              "normalizer_version": "normalizer-inert",
+              "resource_fingerprint": "resources-inert",
+              "reader_scheme": "v2",
+              "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+              "requested_layers": ["sound"],
+              "requested_methods": null
+            },
+            "attempt": 1,
+            "generation": 0,
+            "progress": null,
+            "coverage": null,
+            "manifest_hash": null,
+            "created_at": 4102444708000,
+            "updated_at": 4102444710000,
+            "accessed_at": 4102444708000,
+            "expires_at": 4105036708000,
+            "lease_expires_at": null,
+            "reason": {
+              "code": "STALE_READING",
+              "message": "Source or engine identity changed; create a new reader job."
+            },
+            "cancel_requested": false,
+            "deferred_requeue": false
+          }
+        },
+        "store_calls": [
+          {
+            "method": "pause",
+            "reason": {
+              "code": "STALE_READING",
+              "message": "Source or engine identity changed; create a new reader job.",
+              "requeue": false
+            },
+            "outcome": "ok"
+          }
+        ]
       }
     ]
   }
