@@ -634,6 +634,13 @@ and the validator checks it in Node and in Python and builds this section's text
   hand-out" means before the worker, and a refusal inside `lease()` would add a queued → paused
   transition with no fence, a new state edge for a case that exists only for records written
   before the check.
+  **A deliberate change** (BB8's ruling): a keyed replay of a body an older image admitted, whose
+  declaration set holds a lone surrogate, got 200 with the job that create made, and now gets
+  `INVALID_DECLARATION` (400) on both create paths, because the check runs before either path
+  looks up the key's job. For a job still queued the two agree: when next leased, it pauses at the
+  stored-request check with the same code. A job no longer queued (paused, completed, failed or
+  cancelled) is not leased by a replay, so nothing pauses: the replay gets the same 400 and the job
+  itself is not touched.
 
 ## 3. Hard limits
 
