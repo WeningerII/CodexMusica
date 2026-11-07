@@ -9,7 +9,13 @@ import express from 'express';
 import { ReaderJobStore, READER_LIMITS, decodeStoredObject } from './reader_job_store.js';
 import { canonicalJSON, createCatalogResolver } from './reader_scheduler.js';
 import { createReaderRouter, signReaderRequest } from './reader_routes.js';
-import { DOMAINS, buildSegment, digestStep, domainDigest } from './reader_discovery.js';
+import {
+  DISCOVERY_LIMITS,
+  DOMAINS,
+  buildSegment,
+  digestStep,
+  domainDigest,
+} from './reader_discovery.js';
 import { plantRecord, storeDirectory } from './reader_store_test_support.mjs';
 
 const identity = {
@@ -1520,6 +1526,11 @@ test('discovery: _discoveryShape and _liveDiscovery read §2.7 exactly', (t) => 
       { ...released, unavailable: { ...released.unavailable, released: { seen: 1 } } },
     ],
     ['logs an array', { ...good, logs: [] }],
+    ['verified naming none of the logs', { ...good, verified: {} }],
+    [
+      'verified naming a log logs does not',
+      { ...good, verified: { ...good.verified, row_seen: EMPTY } },
+    ],
   ])
     assert.equal(shape(bad), 'malformed', name);
   // Only §7.1's four states hold a live discovery.
@@ -3148,4 +3159,188 @@ test('malformed discovery: a pending paused job deferred to requeue is never pro
   assert.equal(store.lease().id, other.record.id);
   assert.equal(store.records.get(id).state, 'paused', 'never promoted to the queue');
   assert.equal(store.inspect(id).deferred_requeue, false);
+});
+
+// ── the Step 6 review (D1, D2, G1, B1) ──────────────────────────────────────
+test('review D1: a `verified` that does not name the logs of `logs` is malformed, so its release never fails startup', (t) => {
+  const missingHead = { ...goodState, bytes: 4 };
+  const tailOnly = (log) => ({
+    head: null,
+    segments: 2,
+    count: 9,
+    bytes: 0,
+    digest: domainDigest(DOMAINS.log(log)),
+  });
+  const cases = [
+    // BB8's repro: a head with no segment file and verified {} grew 1305 → 1409 bytes.
+    ['a head, verified empty', { alt_cells: missingHead }, {}, { alt_cells: H }],
+    [
+      'tails only, whose counts disagree with a null head, verified empty',
+      { seen: tailOnly('seen'), alt_cells: tailOnly('alt_cells') },
+      {},
+      { seen: null, alt_cells: null },
+    ],
+    [
+      'verified naming one of two logs',
+      { seen: goodState, alt_cells: missingHead },
+      { seen: { ...EMPTY } },
+      { seen: H, alt_cells: H },
+    ],
+  ];
+  for (const [name, logs, verified, released] of cases)
+    for (const state of ['queued', 'paused', 'cancelled']) {
+      const { directory, store } = fixture(t);
+      const other = create(store);
+      const base = store.records.get(other.record.id);
+      const id = `reader_${'e'.repeat(64)}`;
+      const discovery = { version: 1, epoch: 0, logs, verified, unavailable: null };
+      assert.equal(store._discoveryShape({ discovery }), 'malformed', name);
+      plantRecord(directory, {
+        ...base,
+        id,
+        state,
+        reason: state === 'queued' ? null : { code: 'INTERRUPTED', message: 'x' },
+        discovery,
+      });
+      eventsOf(t);
+      const restarted = new ReaderJobStore({ directory });
+      t.mock.restoreAll();
+      assert.equal(restarted.failure, null, `${name}, ${state}: startup succeeds`);
+      const got = restarted.records.get(id);
+      assert.equal(got.state, state === 'queued' ? 'paused' : state, `${name}, ${state}`);
+      assert.deepEqual(got.reason, U2(released), `${name}, ${state}`);
+      assert.deepEqual(got.discovery, malformedRelease(0, released), `${name}, ${state}`);
+      assert.equal(restarted.lease().id, other.record.id, `${name}, ${state}: the store serves`);
+    }
+});
+
+test('review D1: a mirrored tail whose counts disagree with its null head is R2, and its release shrinks', (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = `reader_${'e'.repeat(63)}f`;
+  const tail = {
+    head: null,
+    segments: 2,
+    count: 9,
+    bytes: 0,
+    digest: domainDigest(DOMAINS.log('alt_cells')),
+  };
+  const discovery = {
+    version: 1,
+    epoch: 0,
+    logs: { alt_cells: tail },
+    verified: { alt_cells: { ...EMPTY, digest: tail.digest } },
+    unavailable: null,
+  };
+  assert.equal(store._discoveryShape({ discovery }), 'live');
+  assert.deepEqual(store._fullRead({ ...base, id, discovery }, 'alt_cells'), {
+    cause: 'chain_broken',
+    rule: 'R2',
+  });
+  plantRecord(directory, { ...base, id, discovery });
+  const file = path.join(storeDirectory(directory), 'records', `${id}.json`);
+  const before = fs.statSync(file).size;
+  releaseLog(t);
+  const restarted = new ReaderJobStore({ directory });
+  t.mock.restoreAll();
+  assert.equal(restarted.failure, null);
+  const got = restarted.records.get(id);
+  assert.equal(got.state, 'paused');
+  assert.deepEqual(got.discovery.unavailable, {
+    cause: 'chain_broken',
+    log: 'alt_cells',
+    released: { alt_cells: null },
+  });
+  assert.ok(fs.statSync(file).size < before, 'the release is no larger');
+});
+
+test('review D2: deleting a job whose release is pending drops the pending release', (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = `reader_${'d'.repeat(63)}e`;
+  plantRecord(directory, {
+    ...base,
+    id,
+    request: { ...base.request, pad: 'p'.repeat(20_000) },
+    discovery: {},
+  });
+  eventsOf(t);
+  const capability = store.capabilityFor(id, base.viewer);
+  assert.equal(store.get(id, capability, base.viewer).state, 'paused');
+  assert.ok(store.pendingRelease.has(id), 'pending');
+  store.delete(id, capability, base.viewer);
+  assert.equal(store.pendingRelease.has(id), false, 'the tombstone drops it');
+  const shown = store.inspect(id);
+  assert.equal(shown.state, 'deleted');
+  assert.equal(shown.reason.code, 'RESULT_EXPIRED');
+  assert.equal(shown.discovery, undefined, 'the view is the saved tombstone');
+});
+
+test('review G1: a release is exactly one save of its record', (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = `reader_${'b'.repeat(63)}c`;
+  plantReal(
+    directory,
+    base,
+    id,
+    { seen: 2, alt_cells: 3 },
+    { damage: (stored) => stored.filter((_, k) => k !== stored.length - 1) }
+  );
+  releaseLog(t);
+  const saves = [];
+  const save = ReaderJobStore.prototype._save;
+  t.mock.method(ReaderJobStore.prototype, '_save', function (input, ...rest) {
+    if (input.id === id) saves.push(clone(input));
+    return save.call(this, input, ...rest);
+  });
+  const restarted = new ReaderJobStore({ directory });
+  t.mock.restoreAll();
+  assert.equal(restarted.failure, null);
+  assert.equal(saves.length, 1, 'one save');
+  assert.equal(saves[0].discovery.unavailable.cause, 'segment_missing');
+  assert.deepEqual(saves[0].discovery.logs, {});
+  assert.deepEqual(saves[0].discovery.verified, {});
+});
+
+test('review B1: a head past CHAIN_SEGMENTS is R2 with nothing read', (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = `reader_${'b'.repeat(63)}d`;
+  const record = plantReal(directory, base, id, { seen: 2 });
+  const reads = [];
+  const segment = store._segment;
+  t.mock.method(store, '_segment', function (...args) {
+    reads.push(args[0]);
+    return segment.apply(this, args);
+  });
+  const at = (segments) => ({
+    ...record,
+    discovery: {
+      ...record.discovery,
+      logs: { seen: { ...record.discovery.logs.seen, segments } },
+    },
+  });
+  assert.deepEqual(store._fullRead(at(DISCOVERY_LIMITS.CHAIN_SEGMENTS + 1), 'seen'), {
+    cause: 'chain_broken',
+    rule: 'R2',
+  });
+  assert.deepEqual(store._fullRead(at(Number.MAX_SAFE_INTEGER), 'seen'), {
+    cause: 'chain_broken',
+    rule: 'R2',
+  });
+  assert.deepEqual(reads, [], 'nothing read');
+  // At the bound the read runs as before, here ending R2 at the chain's start.
+  assert.deepEqual(store._fullRead(at(DISCOVERY_LIMITS.CHAIN_SEGMENTS), 'seen'), {
+    cause: 'chain_broken',
+    rule: 'R2',
+  });
+  assert.equal(reads.length, 2, 'the two stored segments, read once each');
+  reads.length = 0;
+  assert.deepEqual(store._fullRead(record, 'seen').addresses.length, 2);
+  assert.equal(reads.length, 2);
 });

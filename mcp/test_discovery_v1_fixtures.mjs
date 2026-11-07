@@ -9776,7 +9776,7 @@ const CONTRACT_CITES = [
     symbol: '_tombstone',
     starts: '_tombstone(record, state, options = {}) {',
     whole: true,
-    code: '8f2592c0722b5ec0',
+    code: '7ad2c31202c5ce4e',
   },
   {
     id: 'c.reader_job_store._markRecord',

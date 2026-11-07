@@ -355,7 +355,8 @@ null
 
 - `null` means the job holds no discovery state: its frames carry none, it has completed,
   or it is a tombstone. A record with no `discovery` key holds none either.
-- **Malformed** means present, not `null`, and not of this shape: its keys or their types differ.
+- **Malformed** means present, not `null`, and not of this shape: its keys or their types differ,
+  or `verified` does not name exactly the logs `logs` names (below; #656 Step 6 review, D1).
   Only a writer other than the store can produce one. Reconciliation releases it with cause
   `chain_broken` and log `null` (§7.4); it is never dispatched and never a GC root.
 - `logs` names every log of the current epoch that any committed cursor of that epoch has
@@ -1152,7 +1153,9 @@ and `resume()` refuses a dead job at once instead of queueing it
   neither `verified` nor the list. `bad/verified_ahead_of_head.json` is refused this way
   before anything is read; its full read passes and saves the corrected verified heads.
 - **A full read** starts at the record's head and follows `previous_hash` back to the chain's first
-  segment, reading each segment once and at most the head's `segments` of them. It never uses the
+  segment, reading each segment once and at most the head's `segments` of them. A head whose
+  `segments` is past `CHAIN_SEGMENTS`, the most W5 lets a chain hold, is R2 before any read,
+  so a stored count never bounds the reads by itself. It never uses the
   address list. Each read goes through `_object('pages', …)` (F6). The chain is then checked oldest
   first: the oldest has `previous_hash: null`, `first: 0` and `digest_before = d₀`; each segment
   passes F3 and links to the one before it; and the chain holds exactly the head's `segments`,
@@ -1880,8 +1883,11 @@ GC:
   lagging or not; the three causes a full read releases with; and every job state with its
   attempt counter, its fence and its queue fields (`queued_at`, `queue_order`,
   `cancel_requested`) at their widest, kept as they were. The release is never larger than the
-  record it replaces. The property covers every well-formed `record.discovery`; a malformed one is
-  ruled by the bullet below, never by this property. The worst case is one log at its smallest count, with the longest cause
+  record it replaces. The property covers every well-formed `record.discovery`, whose `verified` names exactly the
+  logs `logs` names (§2.7); a malformed one is
+  ruled by the bullet below, never by this property. A log whose head is `null` but whose
+  `segments` is not 0 fails R2 and releases with no head; its two dropped states still outweigh
+  what the release adds. The worst case is one log at its smallest count, with the longest cause
   and log names: the save shrinks by 33 bytes. The margin is small. A field added to this reason
   or to `unavailable`, such as a message or a time, would make the release grow, and a growth
   before usage is known is refused (`STORE_RECOUNTING`), which would fail the startup. Startup's
@@ -1903,7 +1909,9 @@ GC:
     `DISCOVERY_UNAVAILABLE`, cause `chain_broken`, log `null`, exactly as after the save. It is
     saved at the first point usage is known: startup after the usage scan, a recount's
     acceptance, or a `lease()` with usage known. A save refused there is logged and retried at the
-    next such point, and never thrown from `lease()`, a recount or startup.
+    next such point, and never thrown from `lease()`, a recount or startup. A delete or an expiry
+    of a pending job drops the pending release with the rest of `discovery`: the tombstone holds
+    none, and the job view shows the tombstone.
   - It is logged once at error level. A running job keeps its lease; its next refusal pauses it
     with the U2 reason (§8).
 - **No refusal at lease time.** `store.lease()` is called outside the scheduler's try block

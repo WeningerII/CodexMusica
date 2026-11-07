@@ -6,6 +6,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import {
   DISCOVERY_CAUSES,
+  DISCOVERY_LIMITS,
   DOMAINS,
   LOGS,
   RESOURCE_CAUSES,
@@ -63,8 +64,10 @@ function problem(code, message, status = 409) {
   return Object.assign(new Error(message), { code, status });
 }
 // §2.7's exact keys and types of `record.discovery` (the store's
-// _discoveryShape and _liveDiscovery read them). That `verified` names the
-// logs `logs` names is R5's (§5.1), not the shape's.
+// _discoveryShape and _liveDiscovery read them), including §2.7's rule that
+// `verified` names exactly the logs `logs` names: a value that breaks it is
+// malformed, so the §7.4 property, which assumes it, never meets one (#656
+// Step 6 review, D1). R5 (§5.1) still checks it on a lease's walk.
 const plainObject = (v) =>
   v !== null && typeof v === 'object' && Object.getPrototypeOf(v) === Object.prototype;
 const exactKeys = (v, keys) =>
@@ -86,6 +89,9 @@ const logStates = (v) =>
       nonNegative(state.bytes) &&
       isDigest(state.digest)
   );
+const sameKeys = (a, b) =>
+  Object.keys(a).length === Object.keys(b).length &&
+  Object.keys(a).every((key) => Object.hasOwn(b, key));
 const unavailableShape = (v) =>
   v === null ||
   (exactKeys(v, ['cause', 'log', 'released']) &&
@@ -99,6 +105,7 @@ const discoveryStateShape = (value) =>
   nonNegative(value.epoch) &&
   logStates(value.logs) &&
   logStates(value.verified) &&
+  sameKeys(value.logs, value.verified) &&
   unavailableShape(value.unavailable);
 // §7.1: the states whose discovery chains stay live, and so root the GC.
 const DISCOVERY_LIVE_STATES = new Set(['queued', 'running', 'paused', 'cancelled']);
@@ -902,8 +909,8 @@ export class ReaderJobStore {
   }
   // ── the full read and reconciliation (§5.1, §7.4) ──────────────────────
   // A full read of one log of a live record: from the record's head, back
-  // along previous_hash, at most the head's `segments` reads, never the
-  // address list. Every read is _segment's, which stats first and returns a
+  // along previous_hash, at most the head's `segments` reads (a head past
+  // CHAIN_SEGMENTS is R2 with nothing read), never the address list. Every read is _segment's, which stats first and returns a
   // fault rather than refusing: {missing} is segment_missing, {f6} (bytes
   // that do not match the address, a failed bounded inflation, a stored size
   // over the bound never read, or a file that is not regular) is
@@ -922,6 +929,10 @@ export class ReaderJobStore {
       epoch: discovery.epoch,
       log,
     };
+    const broken = { cause: 'chain_broken', rule: 'R2' };
+    // W5 holds every chain to CHAIN_SEGMENTS, so a head past it is R2 before
+    // any read: the stored value never bounds the loop by itself (§5.1).
+    if (head.segments > DISCOVERY_LIMITS.CHAIN_SEGMENTS) return broken;
     const chain = [];
     let address = head.head;
     while (address !== null && chain.length < head.segments) {
@@ -929,10 +940,10 @@ export class ReaderJobStore {
       if (read.missing) return { cause: 'segment_missing', rule: 'missing' };
       if (read.f6) return { cause: 'segment_corrupt', rule: 'F6' };
       if (!read.segment) return { cause: 'chain_broken', rule: 'F3' };
-      chain.unshift({ address, segment: read.segment, entryBytes: read.entryBytes });
+      chain.push({ address, segment: read.segment, entryBytes: read.entryBytes });
       address = read.segment.previous_hash;
     }
-    const broken = { cause: 'chain_broken', rule: 'R2' };
+    chain.reverse(); // read newest first; R2 runs oldest first
     if (address !== null || chain.length !== head.segments) return broken;
     let at = {
       head: null,
@@ -2067,6 +2078,7 @@ export class ReaderJobStore {
       true
     );
     this.chains.delete(record.id); // after the save returns (§5.1)
+    this.pendingRelease.delete(record.id); // a tombstone holds no discovery (§2.7)
     return saved;
   }
   delete(id, capability, viewer, options = {}) {
