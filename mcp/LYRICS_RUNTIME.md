@@ -198,6 +198,103 @@ one bounded request can stop and resume from its receipt; then attempt a full so
 This code and the offline regression suite do not prove live provider latency,
 writer convergence, the actual mounted disk, or sustained memory headroom.
 
+## Recognition caps, checked before anything is queued
+
+Three caps bound what one lyric call can feed the meter recognizer. They are
+checked by one function, `admitRecognitionInput` in `mcp/meter_admission.js`,
+before any work is queued: by the tool wrapper in `mcp/tools.js` before a lyric
+handler can reach the Python queue, and by `WorkflowSessions.submit` in
+`mcp/workflow_sessions.js` before a session operation exists. A call over one
+is refused with `RESOURCE_LIMIT` and the cap's cause. Nothing is queued, and no
+line is truncated or renumbered.
+
+The checks run in this order:
+
+1. **`raw_rows`.** A line set may have at most 1,389 physical rows (3 × 463),
+   counting blank rows and `[SECTION]` markers. A final line break ends the
+   last row and does not open another, so 1,389 rows are admitted with or
+   without one (`\n`, `\r\n` or `\r`); a blank row after it is a row. Line
+   ids are not affected: the sung lines are numbered `L001`… after blank rows
+   and markers are dropped, so 500 blank rows and one sung line make one line,
+   `L001`.
+2. **`meter_line_digits`.** A sung line may have at most 301 syllable digits,
+   floor(1.5 × 201).
+3. **`meter_request_digits`.** One request may carry at most 139,363 digits in
+   total (463 × 301), over every line whose recognition the response carries:
+   the draft once, at the largest of its spellings (the call's own draft and a
+   continuation's `input_draft` and `accepted_lines` are one song), plus
+   `lyric_verify`'s `before` and `after` and `lyric_recover`'s rows, added
+   together. A `blueprint`'s stored line texts are not in the total: every
+   lyric tool fits the draft's own lines to the blueprint's placements and
+   never reads that text, so they meet only the raw-row cap: neither the
+   per-line cap nor this total applies to them. If any path ever reads that
+   text, both apply to it again. The
+   refusal names each set it added (for example, "`before` (463 lines,
+   139,363) and `after` (1 line, 19) together could reach 139,382 syllable
+   digits; one request carries at most 139,363") and each set it left out.
+
+**What counts as a line set.** Each of the following is one line set:
+
+- `draft`, `draft_text`, `lines`, `lines_text`, `before`, `after` and the text
+  twins of `before` and `after`;
+- a `state` or `checkpoint` continuation's `input_draft` and `accepted_lines`;
+- a declared `blueprint`'s line texts, held to the raw-row cap only (nothing
+  recognises them; see above). A pronunciation declared on one of those texts
+  is measured as a declared line (below), and its refusal says the line is a
+  line of `blueprint.lines` whose stored text no check reads;
+- for `lyric_recover`, the rows of `lines` or `lines_text` as the source reader
+  is handed them. That reader sets apparatus rows aside and resolves bracket
+  spans before it numbers the sung lines, so a refusal there names the row,
+  counted from the top of the paste with headings and blank rows included
+  ("row 3 of the pasted text"), not an L id; sent as a `lines` array, the row
+  is the item's position in the array, counted from 1 with blank items
+  included ("row 3 of `lines`"). A final line break ends the last
+  row and opens no blank row after it, in the check and in the handler alike,
+  so 463 sung rows with a final break are 463 rows;
+- every distinct line a pronunciation declares that could be sung (at most
+  200 characters, one row), checked against the per-line cap only. The harness
+  keeps a declaration whose line is in no draft (it reports it stale), and an
+  answer or a source reading can make that line sung later, so it is measured
+  even when no draft holds it. Its refusal names the declaration by its P
+  index and quotes the line's text; it has no L id, because the line is not
+  sung.
+
+A revision's answered lines are not a separate line set. An undeclared answer
+over 200 characters is refused before any work, and a declared one is measured
+as a declared line.
+
+**How a line's digits are counted.** The figure is an upper bound computed
+without the lexicon. It is the stressed vowels of every reading the call
+declares on the line, plus 1.5 digits per unit for the rest. Declarations are
+not merged by `token` number: one number under two `numbering` values names
+two tokens, and the harness applies both. A
+unit is one character, or the separator that ends a token.
+
+- No token the reader can produce reads more than 1.5 digits per unit, so a
+  line of 200 characters without declarations is never refused.
+  `lyric-harness/quality/test_meter_digit_bound.py` re-derives that ratio over
+  the pinned lexicon, rule tables and fallback layers.
+- A line with declarations can be refused even if its real count would fit.
+  The refusal names the line, each declaration that contributes (`P001`…),
+  the bound and the cap. It says the line *could reach* that many digits, never
+  that it has them.
+
+Every path uses this same rule.
+
+**What one admitted line costs a response.** The largest recognition the
+recognizer core can return for one line at the per-line cap, JSON-escaped as
+the bounded payload measures it and with its candidate rows included, is
+7,507 B (`METER_LINE_RESPONSE_BYTES`; 5,979 B without the candidate rows).
+With 200 B per line for the withheld wrapper, 463 such lines are 3,568,341 B
+(`METER_REQUEST_RESPONSE_BYTES`), 42.5% of the 8 MiB default-view budget,
+before the response envelope, which is not measured yet. None of the three
+caps depends on it. `lyric-harness/quality/test_meter_digit_bound.py` measures
+the figure over every surface the core can generate and fails if it moves or
+the candidate rows leave it; until the core (`quality/meter_recognize.py`) is
+on the branch, that measurement reports SKIP. Only the core's own absence
+skips: an import error raised inside the core fails the gate, and
+`METER_RECOGNIZE_REQUIRED=1` makes the absence a failure too.
+
 ## Reading basis: the lexicon supplement
 
 Every tool that reads words (`lyric_screen`, `lyric_grade`, `lyric_revise`,

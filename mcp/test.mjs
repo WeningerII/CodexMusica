@@ -301,7 +301,7 @@ await check('an environment that stops rendering is reported, not lost silently'
     assert.equal(w.environment_instrument, r.render_scope.environment_instrument);
     assert.match(
       w.meaning,
-      new RegExp(`set on ${inst(envCard)}\\b.*not used in the current rendered recipe`)
+      new RegExp(`^The environment set on ${inst(envCard)}\\b no longer sets the rendered recipe: `)
     );
     // The named next step works: repeating the edit restores the room.
     const again = E.editRecipe({
@@ -531,8 +531,9 @@ await check('an environment edit that does not reach the output is not confirmed
   const nr = other.render_warnings.find((x) => x.code === 'ENVIRONMENT_NOT_RENDERED');
   assert.ok(nr, 'changed reported a room the recipe does not contain, with no warning');
   assert.equal(nr.environment_card, s.render_scope.environment_card);
-  // Both cards named by instrument, as edits address them; "not used in the
-  // current rendered recipe", since moving cards can change what renders.
+  // Both cards named by instrument, as edits address them. It says the setting
+  // does not set the rendered environment, and that it can still shape the
+  // card's own preface word while that is auto-derived (#671, BB8 6681659990).
   assert.equal(nr.instrument, s.cards.at(-1).instrument);
   assert.equal(nr.environment_instrument, s.render_scope.environment_instrument);
   assert.equal(
@@ -542,7 +543,7 @@ await check('an environment edit that does not reach the output is not confirmed
   assert.match(
     nr.meaning,
     new RegExp(
-      `^Saved on ${s.cards.at(-1).instrument}\\b.*from ${nr.environment_instrument}\\b.*not used in the current rendered recipe`
+      `^Saved on ${s.cards.at(-1).instrument}\\b.*from ${nr.environment_instrument}\\b.*does not set the rendered environment\\. While ${s.cards.at(-1).instrument}'s preface is auto-derived, it can still shape`
     )
   );
   assert.doesNotMatch(nr.meaning, /no effect/);
@@ -5456,6 +5457,8 @@ await check('validation: actionable errors', () => {
       'mcp/test_run_continuation.mjs': 'offline real run continuation regressions',
       'mcp/test_deferred_continuation.mjs': 'real deferred provider recovery regression',
       'mcp/test_state_codec.mjs': 'offline portable state codec regressions',
+      'mcp/test_meter_admission.mjs':
+        'offline recognition-cap admission regressions on every path (#677 W5)',
       'mcp/test_function_disclosure_identity.mjs':
         'offline function disclosure identity, plan-to-grade and released-runtime recovery regressions',
       'mcp/test_runtime_assets.mjs': 'offline immutable runtime asset inventory regressions',

@@ -533,8 +533,962 @@ const run = (code) => dom.window.eval(code);
     'Enter inside the debounce window must commit the typed query’s top match, not the previous query’s'
   );
 
+  // The connector keeps a record on each card of what set_environment wrote
+  // there (`envWritten`, scripts/_workspace_ops.js; #671, BB8 6681659990). An
+  // import, "Use recipe", Undo and Redo, a saved copy and an export all carry it
+  // as the connector left it, and the connector reads it back from the cards
+  // the app hands on. (A pick in any card's environment editor writes it; see
+  // below.)
+  {
+    const W = require('./_workspace_ops.js');
+    let ws = W.seed(['garage_rock']);
+    const bass = ws.cards.find((c) => c.instrumentId === 'electric_bass').id;
+    ws = W.setEnvironment(ws, bass, { room: 'cathedral', chain: { fx: 'tape_echo' } });
+    const record = ws.cards.find((c) => c.id === bass)[W.ENV_RECORD];
+    assert.deepEqual(record, { room: 'cathedral', fx: ['tape_echo'] }, 'fixture: the record');
+    dom.window.connectorCards = JSON.parse(JSON.stringify(ws.cards));
+    const recordIn = (cards) =>
+      JSON.parse(
+        run(
+          `JSON.stringify(${cards}.find((c) => c.instrumentId === 'electric_bass')?.${W.ENV_RECORD} ?? null)`
+        )
+      );
+    run("app.cards=[];app.lyrics='';app.history=[];app.historyIndex=-1;pushHistory();");
+    await run(
+      "uiImport({text:async()=>JSON.stringify({name:'Connector recipe',workspace:{cards:window.connectorCards}})})"
+    );
+    assert.deepEqual(recordIn('app.cards'), record, 'an import keeps the record');
+    run(
+      "commitPrefaceChange(app.cards.find((c)=>c.instrumentId==='electric_bass'),'bright');pushHistory()"
+    );
+    assert.deepEqual(recordIn('app.cards'), record, 'a preface pick on that card leaves it');
+    run('app.cards[0].room=ROOMS[0].id;pushHistory()');
+    run('undo()');
+    run('undo()');
+    assert.deepEqual(recordIn('app.cards'), record, 'Undo keeps it');
+    run('redo()');
+    run('redo()');
+    assert.deepEqual(recordIn('app.cards'), record, 'Redo keeps it');
+    run(
+      'window.savedCopy=normalizeWorkspaceCards(JSON.parse(JSON.stringify(sessionSnapshot())).cards,true)'
+    );
+    assert.deepEqual(recordIn('window.savedCopy'), record, 'a saved copy keeps it');
+    run(
+      'window.realDownload=uiDownload;uiDownload=(name,text)=>{window.exported=text};uiExport();uiDownload=window.realDownload'
+    );
+    const exported = JSON.parse(run('window.exported')).cards;
+    assert.deepEqual(
+      exported.find((c) => c.instrumentId === 'electric_bass')[W.ENV_RECORD],
+      record,
+      'an export keeps it'
+    );
+    // "Use recipe" on a connector reply carrying the record.
+    recipeUse = await recipeReply('recipeResult.workspace={cards:window.connectorCards}');
+    await recipeUse.onclick();
+    assert.deepEqual(recordIn('app.cards'), record, '"Use recipe" keeps it');
+    // Back to the connector: what the app hands on is read with the record.
+    // The app's preface pick may have moved the room in place; the effect
+    // written is still there, so the bass's setting still does not render.
+    const E = await import(path.join(root, 'mcp/engine.js'));
+    const back = E.renderRecipe({ workspace: { cards: exported } });
+    assert.ok(
+      back.render_warnings.some(
+        (w) => w.code === 'ENVIRONMENT_NOT_RENDERED' && w.instrument === 'electric_bass'
+      ),
+      'the connector reads the record back from the app'
+    );
+    for (const format of ['rich', 'tags', 'prose', 'compact'])
+      assert.equal(
+        run(`compileRecipeStack(app.cards, ${JSON.stringify(format)}, { ceiling: 1000 })`),
+        run(
+          `compileRecipeStack(app.cards.map(({ ${W.ENV_RECORD}: _, ...c }) => c), ${JSON.stringify(format)}, { ceiling: 1000 })`
+        ),
+        `the record changes no byte the app renders (${format})`
+      );
+  }
+
+  // Duplicating a card copies its values, not its provenance (#671, BB8
+  // 6685465828, 5(e)): the record says what a set_environment wrote on that card,
+  // and nothing was written on the copy. A copy of the environment card that
+  // carried it would be warned about on every response for settings nobody set
+  // there. The app's own Duplicate action (handleAction -> dupCard).
+  {
+    const W = require('./_workspace_ops.js');
+    let ws = W.seed(['garage_rock']);
+    ws = W.setEnvironment(ws, null, { room: 'cathedral', chain: { fx: 'tape_echo' } });
+    const record = { room: 'cathedral', fx: ['tape_echo'] };
+    assert.deepEqual(
+      ws.cards[0][W.ENV_RECORD],
+      record,
+      'fixture: the record on the environment card'
+    );
+    dom.window.connectorCards = JSON.parse(JSON.stringify(ws.cards));
+    run("app.cards=[];app.lyrics='';app.history=[];app.historyIndex=-1;pushHistory();");
+    await run(
+      "uiImport({text:async()=>JSON.stringify({name:'Connector recipe',workspace:{cards:window.connectorCards}})})"
+    );
+    const before = JSON.parse(run('JSON.stringify(app.cards.map((c) => c.id))'));
+    run("handleAction('duplicate', envCardOf(app.cards))");
+    const cards = JSON.parse(run('JSON.stringify(app.cards)'));
+    assert.equal(cards.length, before.length + 1, 'Duplicate adds one card');
+    const original = cards[0];
+    const copy = cards.find((c) => !before.includes(c.id));
+    assert.ok(copy && cards.indexOf(copy) === 1, 'the copy sits after the environment card');
+    assert.deepEqual(original[W.ENV_RECORD], record, 'the original keeps its record');
+    assert.ok(!(W.ENV_RECORD in copy), 'the copy carries no record');
+    assert.equal(copy.room, 'cathedral', 'the copy carries the values');
+    assert.deepEqual(copy.chain.fx, original.chain.fx, 'and the effects');
+    const E = await import(path.join(root, 'mcp/engine.js'));
+    const back = E.renderRecipe({ workspace: { cards } });
+    assert.equal(back.render_scope.environment_card, original.id, 'fixture: the original renders');
+    assert.deepEqual(
+      back.render_warnings.filter((w) => w.code === 'ENVIRONMENT_NOT_RENDERED'),
+      [],
+      'no ENVIRONMENT_NOT_RENDERED for the copy'
+    );
+    // Before 5(e) the copy carried the record: what the connector says about such a card.
+    const carried = cards.map((c) => (c.id === copy.id ? { ...c, [W.ENV_RECORD]: record } : c));
+    assert.ok(
+      E.renderRecipe({ workspace: { cards: carried } }).render_warnings.some(
+        (w) => w.code === 'ENVIRONMENT_NOT_RENDERED' && w.card === copy.id
+      ),
+      'fixture: a copy carrying the record would be warned about'
+    );
+    // Nothing is shared (BB8 6688635328, 2): a record later written on either
+    // card, or changed in place, leaves the other card's as it was.
+    run(
+      "{const o=envCardOf(app.cards),c=app.cards[1];c.envWritten={tuning:'just_intonation'};o.envWritten.room='concrete_basement';o.envWritten.fx.push('plate_reverb');}"
+    );
+    const after = JSON.parse(run('JSON.stringify(app.cards.slice(0, 2).map((c) => c.envWritten))'));
+    assert.deepEqual(
+      after,
+      [
+        { room: 'concrete_basement', fx: ['tape_echo', 'plate_reverb'] },
+        { tuning: 'just_intonation' },
+      ],
+      'editing either card’s record leaves the other’s unchanged'
+    );
+    run("app.cards[1].envWritten.tuning='pythagorean'");
+    assert.deepEqual(
+      JSON.parse(run('JSON.stringify(envCardOf(app.cards).envWritten)')),
+      after[0],
+      'and the other way round'
+    );
+    // The same through the connector: a set_environment on the copy records
+    // there only.
+    const appCards = JSON.parse(run('JSON.stringify(app.cards)'));
+    const onCopy = W.setEnvironment({ cards: appCards }, appCards[1].id, {
+      room: 'tin_roofed_shack',
+    });
+    assert.deepEqual(
+      onCopy.cards[0][W.ENV_RECORD],
+      after[0],
+      'a connector write on the copy leaves the original'
+    );
+    assert.deepEqual(onCopy.cards[1][W.ENV_RECORD], {
+      room: 'tin_roofed_shack',
+      tuning: 'pythagorean',
+    });
+  }
+
+  // A change to the record alone is a change (BB8 6688635328, 3). Writing the
+  // seeded value moves no value, yet it is a write the connector then warns
+  // about; so the history takes it as a step (not coalesced into the one
+  // before), the editor's revision moves, Undo takes it out and the warning with
+  // it, Redo puts both back, and autosave and a reload keep it.
+  {
+    const W = require('./_workspace_ops.js');
+    const E = await import(path.join(root, 'mcp/engine.js'));
+    const seed = W.seed(['garage_rock']);
+    const bass = seed.cards.find((c) => c.instrumentId === 'electric_bass');
+    const wrote = W.setEnvironment(seed, bass.id, { room: bass.room });
+    const strip = (cards) => JSON.stringify(cards.map(({ [W.ENV_RECORD]: _, ...c }) => c));
+    assert.equal(strip(wrote.cards), strip(seed.cards), 'fixture: no value moved');
+    assert.deepEqual(
+      wrote.cards.find((c) => c.id === bass.id)[W.ENV_RECORD],
+      { room: bass.room },
+      'fixture: only the record changed'
+    );
+    dom.window.seedCards = JSON.parse(JSON.stringify(seed.cards));
+    dom.window.wroteCards = JSON.parse(JSON.stringify(wrote.cards));
+    const appCards = () => JSON.parse(run('JSON.stringify(app.cards)'));
+    const warned = () =>
+      E.renderRecipe({ workspace: { cards: appCards() } }).render_warnings.some(
+        (w) => w.code === 'ENVIRONMENT_NOT_RENDERED' && w.card === bass.id
+      );
+    const recordNow = () =>
+      JSON.parse(
+        run(
+          `JSON.stringify(app.cards.find((c) => c.id === ${JSON.stringify(bass.id)}).${W.ENV_RECORD} ?? null)`
+        )
+      );
+    run(
+      "app.cards=normalizeWorkspaceCards(window.seedCards);app.lyrics='';app.history=[];app.historyIndex=-1;pushHistory();renderAll();"
+    );
+    assert.equal(warned(), false, 'fixture: the seed does not warn');
+    const before = JSON.parse(run('JSON.stringify([app.history.length, recipeEditSnapshot()])'));
+    run('app.cards=normalizeWorkspaceCards(window.wroteCards);pushHistory();renderAll();');
+    const after = JSON.parse(run('JSON.stringify([app.history.length, recipeEditSnapshot()])'));
+    assert.equal(after[0], before[0] + 1, 'a record-only change is its own history step');
+    assert.notEqual(after[1].revision, before[1].revision, 'and moves the editor revision');
+    assert.notEqual(after[1].key, before[1].key, 'through the workspace key');
+    assert.deepEqual(recordNow(), { room: bass.room }, 'the app holds the record');
+    assert.equal(warned(), true, 'and the connector warns for it');
+    run('undo()');
+    assert.equal(recordNow(), null, 'Undo takes the record out');
+    assert.equal(warned(), false, 'and the warning goes with it');
+    run('redo()');
+    assert.deepEqual(recordNow(), { room: bass.room }, 'Redo puts it back');
+    assert.equal(warned(), true, 'and the warning');
+    // Autosave registers it, and a reload of the autosaved session keeps it.
+    const saved = run("sessionStorage.getItem('codex-workbench-recovery')");
+    assert.deepEqual(
+      JSON.parse(saved).cards.find((c) => c.id === bass.id)[W.ENV_RECORD],
+      { room: bass.room },
+      'autosave writes the record'
+    );
+    run('undo();renderAll();');
+    assert.equal(
+      JSON.parse(run("sessionStorage.getItem('codex-workbench-recovery')")).cards.find(
+        (c) => c.id === bass.id
+      )[W.ENV_RECORD],
+      undefined,
+      'and autosaves its removal, a change to the record alone'
+    );
+    run('redo();renderAll();');
+    const held = strip(appCards());
+    run('app.cards=[];uiRestoreSession();renderAll();');
+    assert.deepEqual(recordNow(), { room: bass.room }, 'a reload keeps the record');
+    assert.equal(warned(), true, 'and the warning it carries');
+    assert.equal(strip(appCards()), held, 'and the values');
+  }
+
+  // Explicit round trips (BB8 6688635328, 4): the app's save and reload, a
+  // saved copy opened and forked, export and import, and history restoration
+  // each give back every card's record exactly, and the connector reads the
+  // same warnings from what comes back.
+  {
+    const W = require('./_workspace_ops.js');
+    const E = await import(path.join(root, 'mcp/engine.js'));
+    let ws = W.seed(['garage_rock']);
+    const of = (name) => ws.cards.find((c) => c.instrumentId === name).id;
+    const [bass, guitar, organ] = [
+      'electric_bass',
+      'electric_guitar_single_coil',
+      'tonewheel_organ',
+    ].map(of);
+    ws = W.setEnvironment(ws, bass, {
+      room: 'cathedral',
+      chain: { fx: ['tape_echo', 'plate_reverb'] },
+    });
+    ws = W.setEnvironment(ws, guitar, { tuning: ws.cards.find((c) => c.id === guitar).tuning });
+    ws = W.setEnvironment(ws, organ, { chain: { mic: 'ribbon_passive' } });
+    ws = W.setEnvironment(ws, null, { chain: { medium: 'tape_15ips' } });
+    const records = (cards) => cards.map((c) => c[W.ENV_RECORD] ?? null);
+    const want = records(ws.cards);
+    assert.equal(want.filter(Boolean).length, 4, 'fixture: four cards carry a record');
+    const warningsOf = (cards) =>
+      E.renderRecipe({ workspace: { cards } })
+        .render_warnings.map((w) => [w.code, cards.findIndex((c) => c.id === w.card)])
+        .sort();
+    const wantWarnings = warningsOf(ws.cards);
+    assert.ok(wantWarnings.length >= 3, 'fixture: the written cards warn');
+    const appCards = () => JSON.parse(run('JSON.stringify(app.cards)'));
+    const same = (what) => {
+      const cards = appCards();
+      assert.deepEqual(records(cards), want, `${what}: every record exactly`);
+      assert.deepEqual(warningsOf(cards), wantWarnings, `${what}: the same warnings`);
+    };
+    dom.window.roundCards = JSON.parse(JSON.stringify(ws.cards));
+    run(
+      "app.cards=normalizeWorkspaceCards(window.roundCards);app.workspaceName='Round trip';app.lyrics='';app.history=[];app.historyIndex=-1;pushHistory();renderAll();"
+    );
+    same('loaded');
+    // Export, then import the exported file (fresh card ids).
+    run(
+      'window.realDownload=uiDownload;uiDownload=(name,text)=>{window.exported=text};uiExport();uiDownload=window.realDownload'
+    );
+    await run('uiImport({text:async()=>window.exported})');
+    same('export and import');
+    // A saved copy, opened as it is and forked under fresh ids.
+    run(
+      'window.records=new Map();window.storage={async get(k){return window.records.has(k)?{value:window.records.get(k)}:null},async set(k,v){window.records.set(k,v)},async delete(k){window.records.delete(k)},async list(p){return {keys:[...window.records.keys()].filter(k=>k.startsWith(p))}}};'
+    );
+    await run("saveWS('Round trip')");
+    run("window.savedKey=JSON.parse(window.records.get('codex:list')).at(-1).key;app.cards=[];");
+    await run('loadWS(window.savedKey)');
+    same('save and open');
+    await run('forkWS(window.savedKey)');
+    same('save and fork');
+    // History: a later step on another card, then Undo and Redo.
+    run(
+      `app.cards.find((c)=>c.instrumentId==='drum_kit').${W.ENV_RECORD}={room:'cathedral'};pushHistory();renderAll();`
+    );
+    assert.notDeepEqual(records(appCards()), want, 'fixture: the later step changed a record');
+    run('undo();renderAll();');
+    same('Undo');
+    run('redo();undo();renderAll();');
+    same('Redo then Undo');
+    // Autosave and a reload of it.
+    run('app.cards=[];uiRestoreSession();renderAll();');
+    same('autosave and reload');
+  }
+
+  // A pick in the Recording environment panel writes the record as a
+  // set_environment on that card does (#826, BB8's ruling (b) on Don
+  // 6694017051): a pick of the value already there included, a "Not set" as
+  // the connector's clear. Only the pick writes: opening and closing the panel
+  // does not, and Undo and Redo restore the record with the rest of the card.
+  // Driven through the panel's own buttons in the real app.
+  {
+    const W = require('./_workspace_ops.js');
+    const E = await import(path.join(root, 'mcp/engine.js'));
+    // jsdom has no CSS.escape, which the editor's focus restore uses.
+    if (!dom.window.CSS)
+      dom.window.CSS = { escape: (x) => String(x).replace(/[^\w-]/g, (ch) => '\\' + ch) };
+    const appCards = () => JSON.parse(run('JSON.stringify(app.cards)'));
+    const records = (cards) => cards.map((c) => c[W.ENV_RECORD] ?? null);
+    const load = async (cards) => {
+      dom.window.connectorCards = JSON.parse(JSON.stringify(cards));
+      run("app.cards=[];app.lyrics='';app.history=[];app.historyIndex=-1;pushHistory();");
+      await run(
+        "uiImport({text:async()=>JSON.stringify({name:'Connector recipe',workspace:{cards:window.connectorCards}})})"
+      );
+      run('renderAll()');
+    };
+    // The panel's row opens the shared editor on envCardOf's card at its picker.
+    const pick = (row, selector) => {
+      run(`uiOpenEnvironment(${JSON.stringify(row)})`);
+      const button = doc.querySelector(`#detail-view ${selector}`);
+      assert.ok(button, `the panel offers ${selector}`);
+      button.click();
+    };
+    const envIndex = () => run('app.cards.indexOf(envCardOf(app.cards))');
+    // The connector's set_preface on the environment card of what the app holds.
+    const overwritten = (preface) => {
+      const cards = appCards();
+      const env = cards[envIndex()].id;
+      return E.editRecipe({
+        workspace: { cards },
+        edits: [{ action: 'set_preface', card: env, preface }],
+      })
+        .render_warnings.filter((w) => w.code === 'ENVIRONMENT_OVERWRITTEN')
+        .map(({ card: _, ...w }) => w);
+    };
+    // What main reports for Don's sequence (run from main ccfd3bc85, whose app
+    // moved the room in place and whose connector compared with the seed).
+    const mainSays = (now) => [
+      {
+        instrument: 'voice',
+        code: 'ENVIRONMENT_OVERWRITTEN',
+        edit: 0,
+        action: 'set_preface',
+        settings: { room: { was: 'parlor', now } },
+        meaning: `set_preface on voice replaced the environment you set (room parlor → ${now}): it re-derives room, tuning and chain toward the preface. To keep your settings, put set_environment after set_preface in the same batch.`,
+      },
+    ];
+
+    // Don's sequence: set_environment with no card, then the panel picks the
+    // room parlor, then set_preface on the environment card.
+    const wrote = W.setEnvironment(W.seed(['garage_rock']), null, {
+      room: 'cathedral',
+      chain: { fx: 'tape_echo' },
+    });
+    await load(wrote.cards);
+    assert.equal(envIndex(), 0, 'fixture: the voice is the environment card');
+    const steps = run('app.history.length');
+    pick('room', '[data-set-room="parlor"]');
+    assert.equal(run('envCardOf(app.cards).room'), 'parlor', 'the panel picked parlor');
+    assert.equal(run('app.history.length'), steps + 1, 'the pick is one history step');
+    const viaConnector = W.setEnvironment({ cards: wrote.cards }, null, { room: 'parlor' });
+    assert.deepEqual(
+      records(appCards()),
+      records(viaConnector.cards),
+      'the pick records what set_environment records'
+    );
+    assert.deepEqual(appCards()[0][W.ENV_RECORD], { room: 'parlor', fx: ['tape_echo'] });
+    assert.deepEqual(overwritten('haunting'), mainSays('cathedral'), 'haunting: as main reports');
+    assert.deepEqual(
+      overwritten('drowning'),
+      mainSays('tin_roofed_shack'),
+      'drowning: as main reports'
+    );
+    // Undo takes the pick out, record and warning; Redo puts both back.
+    run('undo()');
+    assert.equal(run('envCardOf(app.cards).room'), 'cathedral', 'Undo restores the room');
+    assert.deepEqual(records(appCards()), records(wrote.cards), 'and the record before the pick');
+    assert.deepEqual(overwritten('haunting'), [], 'and with it the warning');
+    run('redo()');
+    assert.deepEqual(records(appCards()), records(viaConnector.cards), 'Redo restores the record');
+    assert.deepEqual(overwritten('haunting'), mainSays('cathedral'), 'and the warning');
+
+    // A pick of the value already there is a write, as set_environment of it is.
+    const seed = W.seed(['garage_rock']);
+    const seeded = seed.cards[0].room;
+    assert.ok(seeded && seeded !== 'tin_roofed_shack', 'fixture: a seeded room drowning moves');
+    await load(seed.cards);
+    assert.deepEqual(records(appCards()), records(seed.cards), 'fixture: nothing recorded');
+    assert.deepEqual(overwritten('drowning'), [], 'fixture: the seed does not warn');
+    pick('room', `[data-set-room="${seeded}"]`);
+    assert.equal(run('envCardOf(app.cards).room'), seeded, 'fixture: no value moved');
+    const same = W.setEnvironment(seed, null, { room: seeded });
+    assert.deepEqual(records(appCards()), records(same.cards), 'the seeded pick records it');
+    const seededWarning = overwritten('drowning');
+    assert.equal(seededWarning.length, 1, 'and set_preface then warns');
+    assert.deepEqual(seededWarning[0].settings, { room: { was: seeded, now: 'tin_roofed_shack' } });
+    assert.deepEqual(
+      seededWarning,
+      E.editRecipe({
+        workspace: same,
+        edits: [{ action: 'set_preface', card: same.cards[0].id, preface: 'drowning' }],
+      })
+        .render_warnings.filter((w) => w.code === 'ENVIRONMENT_OVERWRITTEN')
+        .map(({ card: _, ...w }) => w),
+      'as it does after set_environment of the seeded room'
+    );
+    run('undo()');
+    assert.deepEqual(records(appCards()), records(seed.cards), 'Undo removes the record');
+    assert.deepEqual(overwritten('drowning'), [], 'and the warning');
+    run('redo()');
+    assert.deepEqual(records(appCards()), records(same.cards), 'Redo restores the record');
+    assert.equal(overwritten('drowning').length, 1, 'and the warning');
+
+    // The same for the tuning already set and the value a chain stage already
+    // holds (BB8, #826 6695852151): each pick of it records the write and warns
+    // exactly as set_environment of that value does.
+    for (const [field, preface, now, choose] of [
+      [
+        'tuning',
+        'drowning',
+        'just_intonation',
+        (id) => pick('tuning', `[data-set-tuning="${id}"]`),
+      ],
+      [
+        'mic',
+        'muddy',
+        'ribbon_passive',
+        (id) => {
+          run('uiOpenEnvironment("chain")');
+          doc.querySelector('#detail-view [data-edit-chain="mic"]').click();
+          const button = doc.querySelector(
+            `#detail-view [data-set-chain="mic"][data-item="${id}"]`
+          );
+          assert.ok(button, `the mic stage offers ${id}`);
+          button.click();
+        },
+      ],
+    ]) {
+      const held = (c) => (field === 'tuning' ? c.tuning : c.chain[field]);
+      const value = held(seed.cards[0]);
+      assert.ok(value && value !== now, `fixture: a seeded ${field} ${preface} moves`);
+      await load(seed.cards);
+      assert.deepEqual(overwritten(preface), [], `fixture: the seeded ${field} does not warn`);
+      choose(value);
+      assert.equal(held(appCards()[0]), value, `fixture: no ${field} moved`);
+      const via =
+        field === 'tuning'
+          ? W.setEnvironment(seed, null, { tuning: value })
+          : W.setEnvironment(seed, null, { chain: { [field]: value } });
+      assert.deepEqual(
+        records(appCards()),
+        records(via.cards),
+        `the seeded ${field} pick records it`
+      );
+      const warned = overwritten(preface);
+      assert.equal(warned.length, 1, `and set_preface ${preface} then warns`);
+      assert.deepEqual(warned[0].settings, { [field]: { was: value, now } });
+      assert.deepEqual(
+        warned,
+        E.editRecipe({
+          workspace: via,
+          edits: [{ action: 'set_preface', card: via.cards[0].id, preface }],
+        })
+          .render_warnings.filter((w) => w.code === 'ENVIRONMENT_OVERWRITTEN')
+          .map(({ card: _, ...w }) => w),
+        `as it does after set_environment of the seeded ${field}`
+      );
+    }
+
+    // Opening and closing the panel, with no pick, writes nothing.
+    await load(wrote.cards);
+    const untouched = records(appCards());
+    const history = run('app.history.length');
+    for (const row of ['room', 'tuning', 'chain', 'env'])
+      run(`uiOpenEnvironment(${JSON.stringify(row)})`);
+    for (const selector of [
+      '[data-toggle-env="room"]',
+      '[data-toggle-env="tuning"]',
+      '[data-edit-chain="mic"]',
+    ]) {
+      if (selector.includes('chain')) run('uiOpenEnvironment("chain")');
+      else run('uiOpenEnvironment("env")');
+      for (let i = 0; i < 2; i++) {
+        const control = doc.querySelector(`#detail-view ${selector}`);
+        assert.ok(control, `the panel offers ${selector}`);
+        control.click();
+      }
+    }
+    assert.deepEqual(
+      records(appCards()),
+      untouched,
+      'opening and closing the panel writes nothing'
+    );
+    assert.equal(run('app.history.length'), history, 'and takes no history step');
+
+    // A pick in the editor of a card that is not the environment card writes
+    // that card's record, as set_environment {card} does there, and settles
+    // nothing (#826, BB8's ruling (ii) in 6695603726): the connector then
+    // answers it with the same render_warnings (ENVIRONMENT_NOT_RENDERED).
+    {
+      await load(wrote.cards);
+      const guitar = wrote.cards[1].id;
+      const steps = run('app.history.length');
+      run(
+        "app.cards[1]._uiTab='env';app.cards[1].editingEnv='room';renderAll();uiOpenEditor(app.cards[1].id)"
+      );
+      const other = doc.querySelector('#detail-view [data-set-room="parlor"]');
+      assert.ok(other, 'fixture: the editor on another card offers parlor');
+      other.click();
+      assert.equal(run('app.cards[1].room'), 'parlor', 'fixture: the other card took parlor');
+      assert.equal(envIndex(), 0, 'fixture: the voice is still the environment card');
+      assert.equal(run('app.history.length'), steps + 1, 'the pick there is one history step');
+      const viaCard = W.setEnvironment(wrote, guitar, { room: 'parlor' });
+      assert.deepEqual(
+        records(appCards()),
+        records(viaCard.cards),
+        'a pick on another card records what set_environment {card} records, settling nothing'
+      );
+      assert.deepEqual(
+        appCards()[0][W.ENV_RECORD],
+        records(wrote.cards)[0],
+        'the voice is left as it was'
+      );
+      // Card ids by position: the app's import mints fresh ones.
+      const warnings = (cards) => {
+        const at = (id) => cards.findIndex((c) => c.id === id);
+        return E.renderRecipe({ workspace: { cards } }).render_warnings.map((w) => ({
+          ...w,
+          card: at(w.card),
+          environment_card: at(w.environment_card),
+        }));
+      };
+      const said = warnings(appCards());
+      assert.deepEqual(
+        said.map((w) => w.code),
+        ['ENVIRONMENT_NOT_RENDERED'],
+        'the connector answers the pick with ENVIRONMENT_NOT_RENDERED'
+      );
+      assert.deepEqual(said, warnings(viaCard.cards), 'in the words set_environment {card} gets');
+      run('undo()');
+      assert.deepEqual(records(appCards()), records(wrote.cards), 'Undo takes the record out');
+      assert.deepEqual(warnings(appCards()), [], 'and the warning');
+      run('redo()');
+      assert.deepEqual(records(appCards()), records(viaCard.cards), 'Redo puts it back');
+
+      // That card becomes the environment card when the voice is removed in the
+      // app; a set_preface on it then reports ENVIRONMENT_OVERWRITTEN for the
+      // room picked, as after set_environment {card} and remove_instrument.
+      run('rmCard(app.cards[0].id)');
+      assert.equal(
+        run('envCardOf(app.cards).instrumentId'),
+        'electric_guitar_single_coil',
+        'fixture: the picked card is the environment card now'
+      );
+      const overwrittenOn = (cards, edits) =>
+        E.editRecipe({ workspace: { cards }, edits })
+          .render_warnings.filter((w) => w.code === 'ENVIRONMENT_OVERWRITTEN')
+          .map(({ card: _, ...w }) => w);
+      const viaApp = overwrittenOn(appCards(), [
+        { action: 'set_preface', card: appCards()[0].id, preface: 'drowning' },
+      ]);
+      const viaConnector = overwrittenOn(viaCard.cards, [
+        { action: 'remove_instrument', card: viaCard.cards[0].id },
+        { action: 'set_preface', card: guitar, preface: 'drowning' },
+      ]).map((w) => ({ ...w, edit: 0 }));
+      assert.equal(viaApp.length, 1, 'set_preface on it reports ENVIRONMENT_OVERWRITTEN');
+      assert.deepEqual(viaApp[0].settings, { room: { was: 'parlor', now: 'tin_roofed_shack' } });
+      assert.deepEqual(viaApp, viaConnector, 'as it does on the connector');
+    }
+
+    // A misdirected connector write, fixed from the panel: the same room picked
+    // on the environment card settles the bass's record, as set_environment
+    // without `card` does, so ENVIRONMENT_NOT_RENDERED ends.
+    {
+      const bass = wrote.cards.find((c) => c.instrumentId === 'electric_bass').id;
+      const misdirected = W.setEnvironment(wrote, bass, { room: 'parlor' });
+      const notRendered = (cards) =>
+        E.renderRecipe({ workspace: { cards } })
+          .render_warnings.filter((w) => w.code === 'ENVIRONMENT_NOT_RENDERED')
+          .map((w) => cards.findIndex((c) => c.id === w.card));
+      const bassAt = misdirected.cards.findIndex((c) => c.id === bass);
+      assert.deepEqual(notRendered(misdirected.cards), [bassAt], 'fixture: the bass warns');
+      await load(misdirected.cards);
+      assert.deepEqual(notRendered(appCards()), [bassAt], 'fixture: and in the app');
+      pick('room', '[data-set-room="parlor"]');
+      const fixed = W.setEnvironment(misdirected, null, { room: 'parlor' });
+      assert.deepEqual(notRendered(fixed.cards), [], 'fixture: the connector fix ends it');
+      assert.deepEqual(
+        records(appCards()),
+        records(fixed.cards),
+        'the panel pick settles the bass record as set_environment without card does'
+      );
+      assert.deepEqual(notRendered(appCards()), [], 'so the bass no longer warns');
+    }
+
+    // "Not set" in the panel does to the record what the connector's clear does:
+    // the field leaves the environment card's record and is settled on every
+    // other card. Fixture: the bass and the guitar hold records of their own.
+    const of = (cards, name) => cards.find((c) => c.instrumentId === name).id;
+    // The environment card's own mic first: a write there settles the others.
+    let busy = W.setEnvironment(wrote, null, { chain: { mic: 'ribbon_passive' } });
+    busy = W.setEnvironment(busy, of(busy.cards, 'electric_bass'), {
+      room: 'parlor',
+      chain: { mic: 'ribbon_passive' },
+    });
+    busy = W.setEnvironment(busy, of(busy.cards, 'electric_guitar_single_coil'), {
+      room: 'concrete_basement',
+    });
+    for (const [row, selector, clear] of [
+      ['room', '[data-set-room=""]', 'room'],
+      ['chain', '[data-set-chain="mic"][data-item=""]', 'mic'],
+    ]) {
+      await load(busy.cards);
+      const before = records(appCards());
+      assert.ok(
+        before.filter((r) => r && clear in r).length >= 2,
+        `fixture: ${clear} recorded on two cards`
+      );
+      if (row === 'chain') {
+        run('uiOpenEnvironment("chain")');
+        doc.querySelector('#detail-view [data-edit-chain="mic"]').click();
+        const none = doc.querySelector(`#detail-view ${selector}`);
+        assert.ok(none, 'the mic stage offers Not set');
+        none.click();
+      } else pick(row, selector);
+      const cleared = W.setEnvironment(busy, null, { clear: [clear] });
+      const cards = appCards();
+      assert.deepEqual(
+        records(cards),
+        records(cleared.cards),
+        `Not set (${clear}) clears as the connector does`
+      );
+      assert.equal(
+        clear === 'room' ? cards[0].room : cards[0].chain[clear],
+        null,
+        `Not set (${clear}) empties the field`
+      );
+      const warn = (list) =>
+        E.renderRecipe({ workspace: { cards: list } })
+          .render_warnings.map((w) => [w.code, list.findIndex((c) => c.id === w.card)])
+          .sort();
+      assert.deepEqual(warn(cards), warn(cleared.cards), `Not set (${clear}): the same warnings`);
+    }
+    // An effect, a multi-select stage, settles item by item (BB8, #826
+    // 6698139061). The bass's record holds effects X, Y and tape_echo, which
+    // the environment card already records. Picking X on the environment card
+    // takes X, and only X, out of the bass's record: not the environment
+    // card's whole list, so the bass keeps tape_echo. Switching X off again
+    // there drops it from the environment card's record only.
+    {
+      const [X, Y, T] = ['fuzz_silicon', 'overdrive_low', 'tape_echo'];
+      const fxOf = (cards, k) => (cards[k][W.ENV_RECORD] || {}).fx || null;
+      // The effect's button on the environment card, through the panel.
+      // The stage stays open after a pick, so it is opened only when closed.
+      const toggleFx = (id) => {
+        run('uiOpenEnvironment("chain")');
+        const find = () =>
+          doc.querySelector(`#detail-view [data-set-chain="fx"][data-item="${id}"]`);
+        if (!find()) doc.querySelector('#detail-view [data-edit-chain="fx"]').click();
+        const button = find();
+        assert.ok(button, `the fx stage offers ${id}`);
+        button.click();
+      };
+      const bassIn = (ws) => of(ws.cards, 'electric_bass');
+      const withBass = (ws) =>
+        [X, Y, T].reduce((w, id) => W.setEnvironment(w, bassIn(w), { chain: { fx: id } }), ws);
+      const fx = withBass(wrote);
+      const b = fx.cards.findIndex((c) => c.instrumentId === 'electric_bass');
+      assert.deepEqual(
+        fxOf(fx.cards, b),
+        [X, Y, T],
+        'fixture: the bass records X, Y and tape_echo'
+      );
+      assert.deepEqual(fxOf(fx.cards, 0), [T], 'fixture: the voice records tape_echo');
+      await load(fx.cards);
+      assert.deepEqual(fxOf(appCards(), b), [X, Y, T], 'fixture: the app loaded the bass record');
+      assert.deepEqual(fxOf(appCards(), 0), [T], 'fixture: the app loaded the voice record');
+      assert.equal(envIndex(), 0, 'fixture: the voice is the environment card');
+      assert.ok(!appCards()[0].chain.fx.includes(X), 'fixture: the voice has no X yet');
+
+      toggleFx(X);
+      assert.ok(appCards()[0].chain.fx.includes(X), 'fixture: the voice took X');
+      assert.deepEqual(
+        fxOf(appCards(), b),
+        [Y, T],
+        'picking X there takes only X out of the bass: it keeps Y and tape_echo'
+      );
+      assert.deepEqual(fxOf(appCards(), 0), [T, X], 'and records X on the voice');
+      assert.deepEqual(
+        records(appCards()),
+        records(W.setEnvironment(fx, null, { chain: { fx: X } }).cards),
+        'as set_environment without card records it'
+      );
+      const bassAfterPick = appCards()[b][W.ENV_RECORD];
+
+      toggleFx(X);
+      assert.ok(!appCards()[0].chain.fx.includes(X), 'fixture: the voice switched X off');
+      assert.deepEqual(fxOf(appCards(), 0), [T], 'switching X off drops it there');
+      assert.deepEqual(
+        appCards()[b][W.ENV_RECORD],
+        bassAfterPick,
+        'and leaves the bass record unchanged'
+      );
+
+      // Switching off settles nothing even where another card still records X:
+      // the voice holds X, the bass X and Y, and only the voice loses X.
+      const held = withBass(W.setEnvironment(wrote, null, { chain: { fx: X } }));
+      assert.deepEqual(fxOf(held.cards, 0), [T, X], 'fixture: the voice records X');
+      assert.deepEqual(
+        fxOf(held.cards, b),
+        [X, Y, T],
+        'fixture: the bass records X, Y and tape_echo'
+      );
+      await load(held.cards);
+      assert.deepEqual(fxOf(appCards(), b), [X, Y, T], 'fixture: the app loaded the bass record');
+      assert.deepEqual(fxOf(appCards(), 0), [T, X], 'fixture: the app loaded the voice record');
+      assert.ok(appCards()[0].chain.fx.includes(X), 'fixture: the voice has X on');
+      const bassBefore = appCards()[b][W.ENV_RECORD];
+      toggleFx(X);
+      assert.deepEqual(fxOf(appCards(), 0), [T], 'switching X off drops it there');
+      assert.deepEqual(
+        appCards()[b][W.ENV_RECORD],
+        bassBefore,
+        'and leaves X in the bass record: switching off settles nothing'
+      );
+    }
+    // Across the catalog, through the editors' own buttons: a pick on the
+    // environment card (the panel) records and settles as set_environment
+    // without `card` does, a pick in another card's editor records as
+    // set_environment {card} does and settles nothing, and the app's Duplicate
+    // copies the values and not the record. Every third tradition of a strided
+    // sample has a bare card moved to the front, so cards[0] and the
+    // environment card differ.
+    {
+      const C = require('./_loader.js');
+      const { envCardOf: envCardOfCards } = require('./_recipe_stack.js');
+      const sections = C.CHAIN_SECTIONS || [];
+      const singles = sections.filter((x) => !x.multiSelect && (x.items || []).length);
+      const multi = sections.find((x) => x.multiSelect && (x.items || []).length);
+      const trads = (C.TRADITIONS || []).filter((t) => (t.instruments || []).length);
+      const SAMPLE = 16;
+      const stride = Math.max(1, Math.floor(trads.length / SAMPLE));
+      // Card ids by position: the app's import mints fresh ones.
+      const warningsOf = (cards) => {
+        const at = (id) => cards.findIndex((c) => c.id === id);
+        return E.renderRecipe({ workspace: { cards } })
+          .render_warnings.map((w) => ({
+            ...w,
+            card: at(w.card),
+            environment_card: at(w.environment_card),
+          }))
+          .map((w) =>
+            cards
+              .map((c, k) => [c.id, k])
+              .sort((a, b) => b[0].length - a[0].length)
+              .reduce((text, [id, k]) => text.split(id).join(`#${k}`), JSON.stringify(w))
+          )
+          .sort();
+      };
+      const editorAt = (k, tab, env) =>
+        run(
+          `{const c=app.cards[${k}];c._uiTab=${JSON.stringify(tab)};c.editingEnv=${JSON.stringify(env)};c.editingChainStage=null;renderAll();uiOpenEditor(c.id)}`
+        );
+      // Picks the n-th value the editor on card k offers in a field, by its button.
+      const choose = (k, field, n, skip = []) => {
+        let selector;
+        if (field === 'room' || field === 'tuning') {
+          editorAt(k, 'env', field);
+          selector = `[data-set-${field}]`;
+        } else {
+          editorAt(k, 'chain', null);
+          const stage = doc.querySelector(`#detail-view [data-edit-chain="${field}"]`);
+          assert.ok(stage, `the editor offers the ${field} stage`);
+          stage.click();
+          selector = `[data-set-chain="${field}"]`;
+        }
+        const offered = [...doc.querySelectorAll(`#detail-view ${selector}`)].filter((b) => {
+          const id =
+            field === 'room' || field === 'tuning'
+              ? b.dataset[`set${field[0].toUpperCase()}${field.slice(1)}`]
+              : b.dataset.item;
+          return id && !skip.includes(id);
+        });
+        assert.ok(offered.length, `the editor offers a ${field}`);
+        const button = offered[n % offered.length];
+        const id =
+          field === 'room' || field === 'tuning'
+            ? button.dataset[`set${field[0].toUpperCase()}${field.slice(1)}`]
+            : button.dataset.item;
+        button.click();
+        return id;
+      };
+      let panelCases = 0;
+      let otherCases = 0;
+      let dupCases = 0;
+      let bareFirst = 0;
+      for (let n = 0, i = 0; i < trads.length && n < SAMPLE; i += stride, n++) {
+        let ws = W.seed([trads[i].id]);
+        if (!ws.cards.length) continue;
+        if (ws.cards.length < 2 || n % 3 === 1) {
+          ws = W.addInstrument(ws, ws.cards[0].instrumentId);
+          if (n % 3 === 1) ws = W.moveInstrument(ws, ws.cards[ws.cards.length - 1].id);
+        }
+        const label = trads[i].id;
+        const stage = singles[n % singles.length].id;
+
+        // The panel: the environment card's editor.
+        await load(ws.cards);
+        const e = envIndex();
+        if (e > 0) bareFirst++;
+        const room = choose(e, 'room', n);
+        const tuning = choose(e, 'tuning', n);
+        const item = choose(e, stage, n);
+        const cardless = W.setEnvironment(ws, null, { room, tuning, chain: { [stage]: item } });
+        assert.deepEqual(
+          records(appCards()),
+          records(cardless.cards),
+          `${label}: the panel records as set_environment`
+        );
+        assert.deepEqual(
+          warningsOf(appCards()),
+          warningsOf(cardless.cards),
+          `${label}: and warns as it`
+        );
+        panelCases++;
+
+        // Another card's editor, the environment card holding a write of its own.
+        const held = W.setEnvironment(ws, null, { room });
+        const at = held.cards.indexOf(envCardOfCards(held.cards));
+        const k = held.cards.findIndex((_, x) => x > at);
+        if (k > 0) {
+          await load(held.cards);
+          const oRoom = choose(k, 'room', n + 1);
+          const oTuning = choose(k, 'tuning', n + 1);
+          const oItem = choose(k, stage, n + 1);
+          const chain = { [stage]: oItem };
+          if (multi) {
+            const fx = choose(k, multi.id, n, held.cards[k].chain[multi.id] || []);
+            chain[multi.id] = fx;
+          }
+          const byCard = W.setEnvironment(held, held.cards[k].id, {
+            room: oRoom,
+            tuning: oTuning,
+            chain,
+          });
+          const now = appCards();
+          assert.equal(envIndex(), at, `${label}: fixture: the environment card stays`);
+          assert.ok(now[k][W.ENV_RECORD], `${label}: the other card's pick is recorded`);
+          assert.deepEqual(
+            records(now),
+            records(byCard.cards),
+            `${label}: as set_environment {card} records it, settling nothing`
+          );
+          assert.deepEqual(warningsOf(now), warningsOf(byCard.cards), `${label}: and warns as it`);
+          assert.ok(
+            warningsOf(now).some((w) => w.includes('ENVIRONMENT_NOT_RENDERED')),
+            `${label}: ENVIRONMENT_NOT_RENDERED`
+          );
+          otherCases++;
+        }
+
+        // Duplicate, the app's own action, on the environment card.
+        const fxItem = multi ? multi.items[n % multi.items.length].id : null;
+        const written = W.setEnvironment(
+          ws,
+          null,
+          fxItem ? { room, chain: { [multi.id]: fxItem } } : { room }
+        );
+        await load(written.cards);
+        const before = appCards();
+        const d = envIndex();
+        run("handleAction('duplicate', envCardOf(app.cards))");
+        const after = appCards();
+        const copy = after.find((c) => !before.some((b) => b.id === c.id));
+        assert.ok(copy && after.length === before.length + 1, `${label}: Duplicate adds one card`);
+        assert.ok(!(W.ENV_RECORD in copy), `${label}: the copy carries no record`);
+        assert.deepEqual(
+          after[d][W.ENV_RECORD],
+          before[d][W.ENV_RECORD],
+          `${label}: the original keeps its record`
+        );
+        assert.equal(copy.room, after[d].room, `${label}: the copy carries the room`);
+        assert.deepEqual(copy.chain, after[d].chain, `${label}: and the chain`);
+        assert.ok(
+          !warningsOf(after).some((w) => w.includes('ENVIRONMENT_NOT_RENDERED')),
+          `${label}: no ENVIRONMENT_NOT_RENDERED for the copy`
+        );
+        dupCases++;
+      }
+      console.log(
+        `  catalog sample: ${panelCases} panel, ${otherCases} other-card and ${dupCases} duplicate case(s), ${bareFirst} with a bare card first`
+      );
+      assert.ok(
+        panelCases >= 12 && otherCases >= 12 && dupCases >= 12 && bareFirst > 0,
+        `the catalog sample ran (${panelCases} panel, ${otherCases} other-card, ${dupCases} duplicate, ${bareFirst} bare-first)`
+      );
+    }
+
+    // Let the editor's queued focus and announcement work run while the page is open.
+    await new Promise((r) => setTimeout(r, 50));
+  }
+
+  // An imported record is normalised as the engine reads it (BB8, #826
+  // 6694245096): what is not an environment field holding catalog ids of that
+  // field is dropped, a repeated effect kept once, and an empty record leaves
+  // no key, exactly as copyEnvRecord does.
+  {
+    const W = require('./_workspace_ops.js');
+    const seed = W.seed(['garage_rock']);
+    const junk = [
+      {
+        bogus: 1,
+        fx: ['tape_echo', 'tape_echo', 'not_an_effect', 7],
+        room: 'cathedral',
+        tuning: 42,
+        mic: { nested: true },
+      },
+      { room: 'no_such_room', fx: [] },
+      ['room', 'cathedral'],
+    ];
+    dom.window.connectorCards = seed.cards.map((c, i) =>
+      i < junk.length ? { ...c, [W.ENV_RECORD]: junk[i] } : c
+    );
+    run("app.cards=[];app.lyrics='';app.history=[];app.historyIndex=-1;pushHistory();");
+    await run(
+      "uiImport({text:async()=>JSON.stringify({name:'Connector recipe',workspace:{cards:window.connectorCards}})})"
+    );
+    const cards = JSON.parse(run('JSON.stringify(app.cards)'));
+    junk.forEach((raw, i) => {
+      const want = W.copyEnvRecord(raw);
+      if (want === undefined) assert.ok(!(W.ENV_RECORD in cards[i]), `import ${i}: no record left`);
+      else {
+        assert.deepEqual(
+          cards[i][W.ENV_RECORD],
+          want,
+          `import ${i}: normalised as the engine does`
+        );
+        assert.deepEqual(
+          Object.keys(cards[i][W.ENV_RECORD]),
+          Object.keys(want),
+          `import ${i}: key order`
+        );
+      }
+    });
+    assert.deepEqual(W.copyEnvRecord(junk[0]), { room: 'cathedral', fx: ['tape_echo'] }, 'fixture');
+  }
+
   console.log(
-    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, stale recipe protection, late lyrics, conflict protection, preface Enter flush'
+    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, stale recipe protection, late lyrics, conflict protection, preface Enter flush, connector record kept, a duplicate carries no record, a record-only change is a step, every round trip keeps the record, a pick in any card editor writes it as set_environment does, an import normalises it'
   );
   dom.window.close();
 })().catch((e) => {

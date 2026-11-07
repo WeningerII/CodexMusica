@@ -297,8 +297,13 @@ const ENGINE_READERS = {
       buildDriftCandidates: 1,
       buildStackParts: 1,
       inverseConfigureForPreface: 1,
+      multi: 1,
       normalizeWorkspaceCards: 1,
       renderChainSection: 2,
+      // The record a panel pick writes, and its normaliser: run on a card's
+      // pick, a preface pick or an import, so after the data has loaded (#671).
+      recordEnvPick: 1,
+      envRecordOf: 2,
       handleCardClick: 1,
     },
     PREFACE_LEXICON: {
