@@ -1771,6 +1771,68 @@ test('discovery: an oversized live segment is F6 without being opened, plain and
   }
 });
 
+// A segment replaced by a larger file between _segment's stat (or the mark's,
+// passed in) and the read meets _readFile's own size refusal: that is {f6},
+// one damaged segment, never the store-wide STORAGE_CORRUPT (BB8 6707363590,
+// condition 7). The read itself never opens the larger file.
+test('discovery: a segment replaced between the stat and the read is F6', (t) => {
+  const f = discoveryFixture(t, { chains: 1 });
+  const file = path.join(pagesDir(f.directory), `${f.seen.head}.json`);
+  const small = fs.statSync(file).size;
+  const big = Buffer.alloc(READER_LIMITS.objectBytes + 1, 0x20);
+  const opened = [];
+  const readFileSync = fs.readFileSync;
+  t.mock.method(fs, 'readFileSync', function (target, ...rest) {
+    if (String(target) === file) opened.push(target);
+    return readFileSync.call(this, target, ...rest);
+  });
+  // _segment's own stat sees the small file; the replacement lands after it.
+  const statSync = fs.statSync;
+  let replaced = false;
+  t.mock.method(fs, 'statSync', function (target, ...rest) {
+    const stat = statSync.call(this, target, ...rest);
+    if (String(target) === file && !replaced) {
+      replaced = true;
+      fs.writeFileSync(file, big);
+    }
+    return stat;
+  });
+  assert.deepEqual(f.store._segment(f.seen.head, null), { f6: true });
+  assert.equal(replaced, true, 'replaced after the first stat');
+  // A caller's stat passed in, the file already replaced: the same.
+  assert.deepEqual(f.store._segment(f.seen.head, { job_id: f.job.record.id }, small), {
+    f6: true,
+  });
+  assert.deepEqual(opened, [], 'the larger file was never read');
+  t.mock.restoreAll();
+});
+
+// A directory, or any non-regular file, at a segment address is {f6}: a stat
+// that is not a regular file, and EISDIR from a read a passed-in stat let
+// through (BB8 6707363590). Through the mark it is F6, never a raw EISDIR.
+test('discovery: a directory at a segment address is F6, not EISDIR', (t) => {
+  const f = discoveryFixture(t, { chains: 1 });
+  const file = path.join(pagesDir(f.directory), `${f.seen.head}.json`);
+  fs.rmSync(file);
+  fs.mkdirSync(file);
+  const opened = [];
+  const readFileSync = fs.readFileSync;
+  t.mock.method(fs, 'readFileSync', function (target, ...rest) {
+    if (String(target) === file) opened.push(target);
+    return readFileSync.call(this, target, ...rest);
+  });
+  // _segment's own stat: {f6} without a read.
+  assert.deepEqual(f.store._segment(f.seen.head, null), { f6: true });
+  assert.deepEqual(f.store._segment(f.seen.head, { job_id: f.job.record.id }), { f6: true });
+  assert.deepEqual(opened, [], 'a non-regular stat is never read');
+  // A caller's stat passed in: the read meets EISDIR.
+  assert.deepEqual(f.store._segment(f.seen.head, null, fs.statSync(file).size), { f6: true });
+  assert.equal(opened.length, 1, 'the passed-in stat reads, and EISDIR is {f6}');
+  t.mock.restoreAll();
+  assert.throws(() => f.store.prune(), corruptAt('F6'));
+  assert.ok(pageExists(f.directory, f.orphan.addresses[0]), 'prune swept nothing');
+});
+
 // The bound is inclusive: a segment of exactly objectBytes is read, through
 // _segment and through a full maintain() whose byte bound is that size.
 test('discovery: a live segment of exactly objectBytes is read, not F6', (t) => {

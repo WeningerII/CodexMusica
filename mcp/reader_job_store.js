@@ -794,14 +794,18 @@ export class ReaderJobStore {
   // Reads one discovery segment (§2.5) and returns {missing}, {f6}, {f3: tag}
   // or {segment, bytes}; it never refuses with a public code itself. The file
   // is stat'ed first (BB8 6700200435, condition 7): ENOENT is {missing}, and
-  // a stored size over READER_LIMITS.objectBytes is {f6} WITHOUT reading the
-  // file. A caller that has stat'ed it already passes the size, so no path
-  // stats a segment twice. Only then is it read through _readFile and
+  // a stored size over READER_LIMITS.objectBytes, or a stat that is not a
+  // regular file, is {f6} WITHOUT reading the file. A caller that has
+  // stat'ed it already passes the size, and _segment does not stat it again
+  // itself; _readFile, which every stored read goes through, makes its own
+  // second stat. Only then is it read through _readFile and
   // decodeStoredObject: a failed bounded inflation, or bytes that do not
-  // match the address, are {f6}. _readFile's own size refusal is met only if
-  // the file is replaced by a larger one between the stat and the read
-  // (segments are content-addressed and written once, so only a foreign
-  // writer or damage can), and that stays STORAGE_CORRUPT, as at Base.
+  // match the address, are {f6}. So is _readFile's own size refusal, met
+  // only if the file is replaced by a larger one between the stat and the
+  // read (segments are content-addressed and written once, so only a
+  // foreign writer or damage can), and EISDIR from the read (a directory at
+  // the address, or put there after the stat): one damaged segment releases
+  // only its job, never the store (BB8 6707363590, condition 7).
   // `expect` null is a mark read: past F6, the strict decode, the parse and
   // `previous_hash`'s shape only (a malformed link is {f3}, never
   // INVALID_DECLARATION). Otherwise F3 runs in full against `expect`
@@ -811,12 +815,15 @@ export class ReaderJobStore {
     if (!HASH.test(hash)) return { f3: 'FIELD' };
     const file = path.join(this.directory, 'pages', `${hash}.json`);
     if (size === null) {
+      let stat;
       try {
-        size = fs.statSync(file).size;
+        stat = fs.statSync(file);
       } catch (error) {
         if (error.code === 'ENOENT') return { missing: true };
         throw error;
       }
+      if (!stat.isFile()) return { f6: true };
+      size = stat.size;
     }
     if (size > READER_LIMITS.objectBytes) return { f6: true };
     let bytes;
@@ -824,6 +831,7 @@ export class ReaderJobStore {
       bytes = this._readFile(file);
     } catch (error) {
       if (error.code === 'ENOENT') return { missing: true };
+      if (error.code === 'STORAGE_CORRUPT' || error.code === 'EISDIR') return { f6: true };
       throw error;
     }
     try {

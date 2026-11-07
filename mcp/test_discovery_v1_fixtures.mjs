@@ -7143,7 +7143,15 @@ const ANCHORS = [
     id: 'store.segment.stat',
     file: 'mcp/reader_job_store.js',
     symbol: '_segment',
-    starts: 'size = fs.statSync(file).size;',
+    starts: 'stat = fs.statSync(file);',
+    when: 'fatal_decode',
+  },
+  // A stat that is not a regular file is F6 unread (BB8 6707363590).
+  {
+    id: 'store.segment.not_file',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_segment',
+    starts: 'if (!stat.isFile()) return { f6: true };',
     when: 'fatal_decode',
   },
   {
@@ -7158,6 +7166,15 @@ const ANCHORS = [
     file: 'mcp/reader_job_store.js',
     symbol: '_segment',
     starts: 'bytes = this._readFile(file);',
+    when: 'fatal_decode',
+  },
+  // _readFile's size refusal (a file replaced after the stat) and EISDIR
+  // are F6 of the one segment, never a store-wide refusal (BB8 6707363590).
+  {
+    id: 'store.segment.read_refused',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_segment',
+    starts: "if (error.code === 'STORAGE_CORRUPT' || error.code === 'EISDIR') return { f6: true };",
     when: 'fatal_decode',
   },
   {
@@ -8080,17 +8097,20 @@ function check211(half, src, section) {
       at.get(order[i - 1]).endLine < at.get(order[i]).line,
       `${order[i - 1]} comes before ${order[i]}`
     );
-  // The segment reader (Step 5): the stat and its bound come before the read,
-  // the read before the bounded decode, and that before the one strict parse,
-  // so an oversized segment is F6 without being opened.
+  // The segment reader (Step 5): the stat, its regular-file check and its
+  // bound come before the read, the read and its refusals before the bounded
+  // decode, and that before the one strict parse, so an oversized or
+  // non-regular segment is F6 without being opened.
   const segment = [
     'store.segment.stat',
+    'store.segment.not_file',
     'store.segment.stat_bound',
     'store.segment.read',
+    'store.segment.read_refused',
     'store.segment.decode',
     'store.segment.parse',
   ].filter((id) => at.has(id));
-  assert.equal(segment.length, half.fatal_decode ? 5 : 0);
+  assert.equal(segment.length, half.fatal_decode ? 7 : 0);
   for (let i = 1; i < segment.length; i++)
     assert.ok(
       at.get(segment[i - 1]).endLine < at.get(segment[i]).line,
@@ -8189,7 +8209,7 @@ const CITED_CODE = {
   'store.limits.object_bytes': 'b6d127b7a0a393da',
   'store.decode_stored_object': 'cde659ed88e5a273',
   'store.read_file': 'c9801821b51ad00f',
-  'store.segment': '6b20639193323316',
+  'store.segment': 'd090f31885aa4352',
   'store.object': '84c4231531c0b173',
   'store.object.parse': 'c191f67de6b2a935',
   'store.create': '8a859865d99b9fae',
@@ -11348,8 +11368,10 @@ const CLAIMS = [
       '`READER_OBJECT_BYTES`, {{OBJ}} (`:READER_OBJECT_BYTES`), and inflates at most as much,',
       "before it parses; - a segment the store reads is stat'ed first, and a stored size over",
       '`READER_LIMITS.objectBytes`, {{STORE_OBJ}} (`reader_job_store.js:READER_LIMITS`), is F6',
-      'without a read (`:_segment`); within the bound `_readFile` reads it (`:_readFile`), and',
-      '`decodeStoredObject` holds the inflated bytes to the same bound (`:decodeStoredObject`).',
+      'without a read (`:_segment`), and so is a stat that is not a regular file; within the',
+      'bound `_readFile` reads it (`:_readFile`), its own size refusal (a file replaced after the',
+      'stat) and `EISDIR` are F6 of that segment too (§2.5), and `decodeStoredObject` holds the',
+      'inflated bytes to the same bound (`:decodeStoredObject`).',
       "Required acceptance tests, of the worker half's codec (the validator runs both against",
       'its own model): a valid entry whose canonical form is {{ENTRY_BYTES}} bytes, padded with',
       'whitespace to {{PADDED}}, decodes and passes F2 within those bounds, with its peak',

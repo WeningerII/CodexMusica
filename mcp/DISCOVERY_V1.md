@@ -310,7 +310,11 @@ What is not logged, and why:
   (BB8 6700200435, condition 7, on R2's question 7): the store stats every segment before it
   reads it, and a stored size over the bound is F6, exactly like bytes that do not match the
   address. A gzip-stored segment within the bound whose inflation passes it is F6 by the bounded
-  inflation, as before.
+  inflation, as before. A file replaced by a larger one between that stat and the read (only a
+  foreign writer or damage can do it: a segment is written once) meets `_readFile`'s own size
+  refusal, and anything at the address that is not a regular file (a directory) is refused by
+  the stat or by the read; both are F6 of that one segment, never a store-wide
+  `STORAGE_CORRUPT` (BB8 6707363590, condition 7).
 
 ### 2.6 Epochs and resets
 
@@ -574,8 +578,10 @@ and the validator checks it in Node and in Python and builds this section's text
     (`:READER_OBJECT_BYTES`), and inflates at most as much, before it parses;
   - a segment the store reads is stat'ed first, and a stored size over
     `READER_LIMITS.objectBytes`, 2 MiB (`reader_job_store.js:READER_LIMITS`), is F6 without a read
-    (`:_segment`); within the bound `_readFile` reads it (`:_readFile`), and `decodeStoredObject`
-    holds the inflated bytes to the same bound (`:decodeStoredObject`).
+    (`:_segment`), and so is a stat that is not a regular file; within the bound `_readFile`
+    reads it (`:_readFile`), its own size refusal (a file replaced after the stat) and `EISDIR`
+    are F6 of that segment too (§2.5), and `decodeStoredObject` holds the inflated bytes to the
+    same bound (`:decodeStoredObject`).
 
   Required acceptance tests, of the worker half's codec (the validator runs both against its own
   model): a valid entry whose canonical form is 4,096 bytes, padded with whitespace to about
