@@ -31,6 +31,7 @@ import {
   cutComplete,
   digestStep,
   domainDigest,
+  isDigest,
   requireInteger,
   segmentContent,
   wellFormedDeep,
@@ -750,3 +751,77 @@ function codecText(input) {
   const tokens = [...(b.lead === null ? [] : [String(b.lead)]), ...Array(b.zeros).fill('0')];
   return `[${pad}${tokens.join(`${pad},${pad}`)}${pad}]`;
 }
+
+// BB8 6701778607, items 4-8: the mutants of the module this suite let live.
+// Each test below fails under its mutant.
+
+test('F1: a sub-array shared by two places is a DAG, not a cycle (item 4)', () => {
+  const a = ['x', [1]];
+  assert.deepEqual(checkEntry([a, a]), { canonical: '[["x",[1]],["x",[1]]]', bytes: 21 });
+  const b = [a];
+  assert.equal(checkEntry([b, [b, a]]).canonical, '[[["x",[1]]],[[["x",[1]]],["x",[1]]]]');
+  // A real cycle is still one.
+  const c = [1];
+  c.push(c);
+  assert.throws(() => checkEntry([c]), { rule: 'F1', what: F1_WHAT.cyclic });
+});
+
+test('F1: an Array subclass or a null-prototype array is a value of another type (§3(d), item 5)', () => {
+  class Sub extends Array {}
+  const sub = Sub.from([1, 2]);
+  const bare = Object.setPrototypeOf([1, 2], null);
+  assert.ok(Array.isArray(sub) && Array.isArray(bare));
+  for (const v of [sub, bare]) {
+    assert.throws(() => checkEntry(v), { rule: 'F1', what: F1_WHAT.other });
+    assert.throws(() => checkEntry(['ok', [v]]), { rule: 'F1', what: F1_WHAT.other });
+  }
+});
+
+test('F5: a digest is lowercase hex; an uppercase one is refused (§2.2, item 6)', () => {
+  const lower = domainDigest('codexmusica.reader.discovery.v1\nseen');
+  const upper = lower.toUpperCase();
+  assert.ok(lower !== upper && isDigest(lower));
+  assert.equal(isDigest(upper), false);
+  assert.throws(() => digestStep(upper, '1'), TypeError);
+  const ok = fatal(segmentBytes(Buffer.from('["x"]')));
+  for (const field of ['digest_before', 'digest_after', 'previous_hash'])
+    assert.deepEqual(
+      segmentContent({ ...ok, [field]: upper }, EXPECT).faults.map((f) => [f.tag, f.field]),
+      [['FIELD', field]],
+      field
+    );
+});
+
+test('a negative epoch, first, count or byte count is refused as that field (item 7)', () => {
+  const ok = fatal(segmentBytes(Buffer.from('["x"]')));
+  const { epoch: _epoch, ...anyEpoch } = EXPECT;
+  const faults = (field) =>
+    segmentContent({ ...ok, [field]: -1 }, anyEpoch).faults.map((f) => [f.tag, f.field]);
+  assert.deepEqual(faults('epoch'), [['INTEGER_FIELD', 'epoch']]);
+  assert.deepEqual(faults('first'), [['INTEGER_FIELD', 'first']]);
+  assert.deepEqual(faults('count'), [
+    ['INTEGER_FIELD', 'count'],
+    ['FIELD', 'count'],
+  ]);
+  // cutComplete: a negative byte count is a bytes fault, never a premature
+  // seal, and never complete, even at a full count.
+  const { SEGMENT_ENTRIES } = DISCOVERY_LIMITS;
+  for (const count of [5, SEGMENT_ENTRIES]) {
+    const error = cutComplete({ count, bytes: -1 });
+    assert.ok(error instanceof DiscoveryCodecError, `count ${count}: refused`);
+    assert.deepEqual([error.rule, error.fault], ['F4', 'bytes'], `count ${count}`);
+  }
+  assert.equal(cutComplete({ count: SEGMENT_ENTRIES, bytes: 0 }), null);
+});
+
+test("F3: each entry fault carries the entry's index (item 8)", () => {
+  const ok = fatal(segmentBytes(Buffer.from('["x"]')));
+  const { faults } = segmentContent({ ...ok, count: 4, entries: ['x', 1.5, 'y', {}] }, EXPECT);
+  assert.deepEqual(
+    faults.map((f) => [f.rule, f.tag, f.what, f.index]),
+    [
+      ['F3', 'F1', F1_WHAT.float, 1],
+      ['F3', 'F1', F1_WHAT.object, 3],
+    ]
+  );
+});
