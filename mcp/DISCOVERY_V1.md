@@ -86,7 +86,7 @@ language's own parser checks each. So any change to that code fails until the cl
 read again and the digest pinned again, and a citation of a line number, or of a symbol no row
 pins, fails too. A `file:symbol` citation names the symbol; its rows name the statements the
 claim rests on. Each row names the sections it backs, each citation of a row's symbol in a section
-has a row there, and the rows' ranges, digests aside, are held to the digest `cd193dbaaafa5f61` in this
+has a row there, and the rows' ranges, digests aside, are held to the digest `ac173b65fd2aeda4` in this
 note, so a row deleted, narrowed or moved changes this text. Two citations name a comment or a
 docstring, not code (`reader_scheduler.js:createCatalogResolver`'s note on engine commits and
 `analysis.py:resolve_detail_records`' docstring); those rows hold the text as written. Every
@@ -1919,6 +1919,15 @@ GC:
   - It is logged once at error level. A running job keeps its lease; its next refusal pauses it
     with the U2 reason (§8).
   `bad/malformed_record_discovery.json` pins it.
+- **A queued job whose `unavailable` is set** (BB8 6700200435, on R2's question 6). An older
+  image's `resume()` or `_promoteDeferred` can leave a released job `queued`, or `paused` with
+  `deferred_requeue: true`. `_promoteDeferred` never requeues a record whose `unavailable` is set.
+  A queued one is repaired to `paused` with the U2 reason, `deferred_requeue: false` and a null
+  fence, keeping its attempt and queue fields: at startup beside the `INTERRUPTED` pauses, and in
+  `lease()` when usage is known, so a small growth is admitted. A repair `_capacity` refuses is
+  logged (`READER_REPAIR_DEFERRED`) and retried at the next such point, and never thrown. Until it
+  lands, `_dispatchable` skips the record, `lease(id)` returns null for it, and the job view shows
+  the repair, so no record that is not dispatched is ever shown `queued`.
 - **No refusal at lease time.** `store.lease()` is called outside the scheduler's try block
   (`reader_scheduler.js:pump`) and takes the head of the queue
   (`reader_job_store.js:lease`), so a lease that threw would pick the same job on every
@@ -2051,9 +2060,10 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   `STALE_ATTEMPT` takes no fallback: the lease is already over or another's. The fallback is the
   same with C1 on and off; with C1 on it is a logged safety net. `store.pause` refuses an argument
   outside its sets (a cause outside every set, a cause that is not a string, a log outside §2.3's),
-  and a cause of the wrong family (a `RESOURCE_LIMIT` cause on `DISCOVERY_UNAVAILABLE`, a
+  a cause of the wrong family (a `RESOURCE_LIMIT` cause on `DISCOVERY_UNAVAILABLE`, a
   `DISCOVERY_UNAVAILABLE` cause on `RESOURCE_LIMIT`, any cause on another code; BB8 6705927389),
-  with the internal code `INVALID_PAUSE` (500), which is never a job's reason and never collides
+  and a `DISCOVERY_UNAVAILABLE` that names no cause (the strict pause, which U1 and U2 need: both
+  name the cause), with the internal code `INVALID_PAUSE` (500), which is never a job's reason and never collides
   with admission's `INVALID_DECLARATION`; a cause is never dropped to `{code, message}`.
   `bad/reply_pause_refused.json` pins every case.
 - `store.pause` with code `DISCOVERY_UNAVAILABLE` releases the logs and sets
@@ -2063,7 +2073,9 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   quota, and why a later `resume()`
   refuses at once instead of requeueing a job that would fail the same way. Confirmed, with
   one condition (BB8 6678599629): the paused reason records the released log names and
-  their heads at release.
+  their heads at release. The job's address lists (§5.1) go once that save returns, and the
+  release is logged as reconciliation's is. A record that holds no discovery state (`null`, or no
+  key) has nothing to release: the pause stores `{code, cause, log}` and adds no `discovery`.
 - **U1, the release record.** Every release that sets `unavailable`, from reconciliation, a
   failed full read or a `DISCOVERY_UNAVAILABLE` pause, is one save. It empties `logs` and
   `verified`, and it sets `unavailable` with `released`: each log the record held, with its
@@ -2072,7 +2084,8 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   `unavailable` is already set releases nothing and leaves `unavailable` unchanged**, so the
   first release's trace wins. That covers a pause after reconciliation released a running
   job, and a later pause that names another cause. A reply that names no cause never gets
-  here: C1 refuses it first.
+  here: C1 refuses it first, and with C1 off `store.pause` refuses it `INVALID_PAUSE` (the
+  strict pause, above), so the fallback pause ends the lease (`bad/reply_pause_refused.json`).
 - **U2, the reason follows `unavailable`.** While it is set, every save that writes the job's
   reason writes `{code: "DISCOVERY_UNAVAILABLE", cause, log, released}`, copied from it, and
   stores no message: the job view renders the message from the cause, by the table above.
@@ -2085,7 +2098,13 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   job: its state is `paused` (or `cancelled` on a requested cancel), with
   `deferred_requeue: false`. So the trace stays in the reason whatever happens to the job
   after the release, and the cause stays traceable after GC reclaims the segments.
-  `good/unavailable_pause_reason.json` pins each path.
+  `good/unavailable_pause_reason.json` pins each path. A job whose malformed release is pending
+  (§7.4) has its `unavailable` there: each of these saves writes the release too, and so is the
+  durable release when it lands. If `_capacity` refuses such a save (`STORE_RECOUNTING` while usage
+  is unknown, `RESOURCE_LIMIT` at full quota), it is logged (`READER_REPAIR_DEFERRED`) and made
+  without the release, with the reason it would hold without U2; the release stays pending and
+  shown, so none of these saves fails where it did not before. A C1 reason that U2 replaces is
+  logged as `READER_REPLY_UNRECORDED`, with its `reply_code`, `field` and `value`.
 - **C1, the cause sets at the reply boundary.** This is BB8 6678702125, ruling 4, and it
   replaces an earlier revision's rule that anything outside the sets was discarded. The
   scheduler checks every reply, a result marked `reply: true`, before it pauses the job
@@ -2723,8 +2742,9 @@ Bad:
 - reply (`READER_PROTOCOL`, no status): `bad/reply_cause_invalid.json` (C1), with sink errors
   and a bridge failure among its controls; `bad/reply_pause_refused.json` (the fallback pause): a
   reply whose cause `store.pause` refuses (`INVALID_PAUSE`, C1 off: a cause outside every set,
-  one that is not a string, one of the wrong family, and no cause with a log outside the set)
-  ends in exactly one fallback pause with the reason `{code: "READER_PROTOCOL", message: "The
+  one that is not a string, one of the wrong family, no cause with a log outside the set, and a
+  `DISCOVERY_UNAVAILABLE` with no cause, which the strict pause refuses) ends in exactly one
+  fallback pause with the reason `{code: "READER_PROTOCOL", message: "The
   reader reply could not be recorded: INVALID_PAUSE."}`, no cause and no release, and the warn and
   the recovery line name the reply's own code and cause; a `STALE_ATTEMPT` takes no fallback and
   its warn names it stale; a refused fallback is two calls and then

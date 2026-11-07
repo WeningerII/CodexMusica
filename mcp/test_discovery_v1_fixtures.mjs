@@ -1804,9 +1804,11 @@ const fallbackMessage = (code) => `The reader reply could not be recorded: ${cod
 // store.pause refuses an argument outside every set with INVALID_PAUSE (§8),
 // and a cause of the wrong family: a resource cause on DISCOVERY_UNAVAILABLE, a
 // discovery cause on RESOURCE_LIMIT, any cause on another code (BB8
-// 6705927389).
+// 6705927389), and, since the strict pause (#656 Step 7), a
+// DISCOVERY_UNAVAILABLE that names no cause.
 function pauseRefusal(reason) {
   const named = (v) => v !== undefined && v !== null;
+  if (reason.code === 'DISCOVERY_UNAVAILABLE' && !named(reason.cause)) return 'INVALID_PAUSE';
   if (
     named(reason.cause) &&
     !(typeof reason.cause === 'string' && [...CAUSES, ...RESOURCE_CAUSES].includes(reason.cause))
@@ -1935,6 +1937,7 @@ const FALLBACK_CASES = [
   'cause_not_a_string',
   'cause_of_the_wrong_family',
   'no_cause_and_a_log_outside_the_set',
+  'unavailable_without_a_cause',
   'stale_attempt',
   'fallback_refused',
   'c1_on_safety_net',
@@ -4600,6 +4603,7 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
         'cause_not_a_string',
         'cause_of_the_wrong_family',
         'no_cause_and_a_log_outside_the_set',
+        'unavailable_without_a_cause',
       ])
         assert.deepEqual(fx.cases.find((c) => c.name === name).c1, [false], name);
       assert.deepEqual(fx.cases.find((c) => c.name === 'c1_on_safety_net').c1, [true]);
@@ -8486,7 +8490,7 @@ const CITED_CODE = {
   'store.object': '84c4231531c0b173',
   'store.object.parse': 'c191f67de6b2a935',
   'store.create': '8a859865d99b9fae',
-  'store.lease': 'bf693900100906d8',
+  'store.lease': 'd360e25c7ed821d2',
   'analysis.public_declarations': '55d5ea2e67aa1639',
   'analysis.session.stale_reading': '5c5f4526cdb1c440',
   'pronunciation.validate_choices.line': 'da9c46227f11509e',
@@ -9889,7 +9893,7 @@ const CONTRACT_CITES = [
     symbol: '_expireLeases',
     starts: '_expireLeases() {',
     whole: true,
-    code: '3fe40054086176f4',
+    code: 'f608e4e35021a459',
   },
   {
     id: 'c.analysis.resolve_detail_records.1',
@@ -9977,7 +9981,7 @@ const CONTRACT_CITES = [
     symbol: '_quotaPause',
     starts: '_quotaPause(record, error) {',
     whole: true,
-    code: '01cbb5b1a8757615',
+    code: '5d76b3f43ee5a620',
   },
   {
     id: 'c.reader_job_store.complete',
@@ -10060,7 +10064,7 @@ const CONTRACT_CITES = [
     symbol: 'constructor',
     starts: 'this._locked(() => {',
     ends: '});',
-    code: 'b49a859fbf856c68',
+    code: '1d10bc588eb6a42e',
   },
   {
     id: 'c.reader_job_store._enterLock.2',
@@ -10078,7 +10082,7 @@ const CONTRACT_CITES = [
     symbol: 'pause',
     starts: 'pause(',
     whole: true,
-    code: 'fd37abd36b90eaf8',
+    code: '604090edc73d2010',
   },
   {
     id: 'c.reader_scheduler.pump.6',
@@ -10104,7 +10108,7 @@ const CONTRACT_CITES = [
     symbol: '_dispatchable',
     starts: '_dispatchable() {',
     whole: true,
-    code: 'cb068ad8b13bc355',
+    code: 'cc7934e2cf333441',
   },
   {
     id: 'c.reader_job_store.constructor.3',
@@ -10237,8 +10241,8 @@ const CONTRACT_CITES = [
     file: 'mcp/reader_job_store.js',
     symbol: 'constructor',
     starts: 'this.usage = this._usage();',
-    ends: ');',
-    code: '9cc6fc4dde1ed13e',
+    ends: '}));',
+    code: '3d72584abb6d6c7c',
   },
   {
     id: 'c.reader_job_store.cancel',
@@ -10247,7 +10251,7 @@ const CONTRACT_CITES = [
     symbol: 'cancel',
     starts: 'cancel(id, capability, viewer, options = {}) {',
     ends: "? 'Cancellation requested; worker stops at its next committed safe point.'",
-    code: '59a3b8a94ef39114',
+    code: 'cfc89d30ea3a963d',
   },
   {
     id: 'c.reader_job_store._reload',

@@ -920,6 +920,7 @@ const replyCauseInvalid = JSON.parse(
 const replyPauseRefused = JSON.parse(
   await readFile(path.join(here, 'fixtures/discovery_v1/bad/reply_pause_refused.json'), 'utf8')
 );
+const clone = (v) => JSON.parse(JSON.stringify(v));
 const WORKER_TEXT = 'worker text';
 const FALLBACK_TEXT = 'The reader reply could not be recorded: ';
 const readerStep = (extra = {}) => ({
@@ -950,13 +951,21 @@ const refusal = (code, message = `stubbed ${code}`, extra = {}) =>
 // One lease of job A (job B waits behind it) through the real store and
 // scheduler; store.pause and store.complete are spied, and stubbed to refuse
 // as `stub` names before the real store answers.
-async function leaseOnce(t, { plan, enforce, stub = {}, commitError = null }) {
+// `discovery` is saved on A before its lease, as the store's own write path
+// would leave it (no foreign write, so no reconciliation reads it); `during`
+// runs once A is leased, before the lease's plan.
+async function leaseOnce(
+  t,
+  { plan, enforce, stub = {}, commitError = null, discovery, during = null }
+) {
   const directory = await mkdtemp(path.join(tmpdir(), 'reader-pause-'));
   t.after(() => rm(directory, { recursive: true, force: true }));
   let now = Date.now();
   const store = new ReaderJobStore({ directory, now: () => now });
   const a = store.create({ viewer: 'viewer-a', idempotency_key: 'job-a', identity, request });
   const b = store.create({ viewer: 'viewer-b', idempotency_key: 'job-b', identity, request });
+  if (discovery !== undefined)
+    store._open(() => store._save({ ...store.records.get(a.record.id), discovery }, true));
   const calls = [];
   const pauses = [...(stub.pause || [])];
   const pause = store.pause.bind(store);
@@ -1002,6 +1011,7 @@ async function leaseOnce(t, { plan, enforce, stub = {}, commitError = null }) {
   const scheduler = new ReaderScheduler({
     store,
     bridge: scriptedBridge(async (sink, options) => {
+      if (during) during(store, a.record.id);
       leased = store.inspect(a.record.id);
       return plan(sink, options);
     }),
@@ -1102,23 +1112,27 @@ test('reply_pause_refused.json: the fallback pause, every case under each C1 set
 // The C1-off outcomes bad/reply_cause_invalid.json does not state (Q3's
 // reading: a reply's code, cause and log reach store.pause unchanged; where
 // store.pause refuses INVALID_PAUSE, the fallback pause). A cause of the
-// wrong family is refused INVALID_PAUSE too (BB8 6705927389). Step 7's strict
-// pause edits the rows it changes.
+// wrong family is refused INVALID_PAUSE too (BB8 6705927389), and since
+// Step 7's strict pause so is a DISCOVERY_UNAVAILABLE with no cause
+// (unavailable_without_a_cause, after_a_release). A DISCOVERY_UNAVAILABLE
+// that store.pause accepts releases the fixture's record (U1), and a record
+// already released keeps its first trace (U2).
 const FALLBACK_INVALID = {
   code: 'READER_PROTOCOL',
   message: 'The reader reply could not be recorded: INVALID_PAUSE.',
 };
 const PACKING_TEXT =
   'One evidence object exceeds the page limit; its adapter must provide identity-preserving subpages.';
+// The fixture record's heads, as a release names them.
+const HEADS = Object.fromEntries(
+  Object.entries(replyCauseInvalid.record.discovery.logs).map(([log, st]) => [log, st.head])
+);
+const RELEASE = (cause, log) => ({ code: 'DISCOVERY_UNAVAILABLE', cause, log, released: HEADS });
 const C1_OFF = {
-  unavailable_without_a_cause: { code: 'DISCOVERY_UNAVAILABLE', message: WORKER_TEXT },
+  unavailable_without_a_cause: FALLBACK_INVALID,
   unavailable_with_an_unknown_cause: FALLBACK_INVALID,
   unavailable_with_a_resource_cause: FALLBACK_INVALID,
-  unavailable_with_the_store_cause: {
-    code: 'DISCOVERY_UNAVAILABLE',
-    cause: 'segment_corrupt',
-    log: 'alt_cells',
-  },
+  unavailable_with_the_store_cause: RELEASE('segment_corrupt', 'alt_cells'),
   resource_limit_without_a_cause: { code: 'RESOURCE_LIMIT', message: WORKER_TEXT },
   resource_limit_with_an_unknown_cause: FALLBACK_INVALID,
   resource_limit_with_an_unavailable_cause: FALLBACK_INVALID,
@@ -1126,27 +1140,12 @@ const C1_OFF = {
   a_cause_past_the_echo_bound: FALLBACK_INVALID,
   a_cause_that_is_not_a_string: FALLBACK_INVALID,
   a_log_outside_the_set: FALLBACK_INVALID,
-  a_cause_without_its_log: {
-    code: 'DISCOVERY_UNAVAILABLE',
-    cause: 'segment_missing',
-    log: null,
-  },
-  a_log_on_a_cause_without_one: {
-    code: 'DISCOVERY_UNAVAILABLE',
-    cause: 'inventory_mismatch',
-    log: 'seen',
-  },
+  a_cause_without_its_log: RELEASE('segment_missing', null),
+  a_log_on_a_cause_without_one: RELEASE('inventory_mismatch', 'seen'),
   a_log_on_a_code_without_a_cause: { code: 'STALE_READING', message: WORKER_TEXT },
-  unavailable_with_its_cause: {
-    code: 'DISCOVERY_UNAVAILABLE',
-    cause: 'segment_missing',
-    log: 'alt_cells',
-  },
-  unavailable_with_an_optional_log_left_out: {
-    code: 'DISCOVERY_UNAVAILABLE',
-    cause: 'cursor_disagrees',
-    log: null,
-  },
+  after_a_release: RELEASE('chain_broken', 'alt_cells'),
+  unavailable_with_its_cause: RELEASE('segment_missing', 'alt_cells'),
+  unavailable_with_an_optional_log_left_out: RELEASE('cursor_disagrees', null),
   resource_limit_with_its_cause: { code: 'RESOURCE_LIMIT', cause: 'discovery_alt_seen' },
   resource_limit_with_a_log: { code: 'RESOURCE_LIMIT', cause: 'discovery_chain_segments' },
   resident_capacity: { code: 'RESOURCE_LIMIT', cause: 'resident_capacity' },
@@ -1154,17 +1153,9 @@ const C1_OFF = {
   another_code_without_a_cause: { code: 'STALE_READING', message: WORKER_TEXT },
   sink_resource_limit_from_packing: { code: 'RESOURCE_LIMIT', message: PACKING_TEXT },
   sink_record_bound: { code: 'RESOURCE_LIMIT', message: 'The record bound was passed.' },
-  sink_discovery_unavailable: {
-    code: 'DISCOVERY_UNAVAILABLE',
-    cause: 'chain_broken',
-    log: 'alt_cells',
-  },
+  sink_discovery_unavailable: RELEASE('chain_broken', 'alt_cells'),
   bridge_failure_without_a_reply: { code: 'READER_PROTOCOL', message: 'bridge killed' },
 };
-// What a case cannot show before Step 7: a record released before the reply
-// (U2), and the release a DISCOVERY_UNAVAILABLE pause makes (U1). Step 7
-// removes these.
-const BEFORE_STEP_7 = { skip: ['after_a_release'], release: 'released' };
 // A reply_cause_invalid.json case as a lease: a worker reply, a sink error or
 // a bridge failure.
 function causeCase(c) {
@@ -1199,41 +1190,157 @@ test('reply_cause_invalid.json: every mutant and control under C1 off and on', a
   const all = [...replyCauseInvalid.mutants, ...replyCauseInvalid.controls];
   assert.deepEqual(
     Object.keys(C1_OFF).sort(),
-    all
-      .map((c) => c.name)
-      .filter((name) => !BEFORE_STEP_7.skip.includes(name))
-      .sort(),
+    all.map((c) => c.name).sort(),
     'one C1-off row per mutant and control'
   );
+  const planted = replyCauseInvalid.record.discovery;
   for (const c of all) {
-    if (BEFORE_STEP_7.skip.includes(c.name)) continue;
     for (const enforce of [false, true]) {
       const label = `${c.name} (C1 ${enforce ? 'on' : 'off'})`;
-      const run = await leaseOnce(t, { ...causeCase(c), enforce });
+      // The fixture's record on A's lease; a case that names `released` is
+      // released by reconciliation's own release while A runs, before the reply.
+      let start = clone(planted);
+      const during = c.released
+        ? (store, id) =>
+            store._open(() => {
+              start = store._release(store.records.get(id), c.released).discovery;
+            })
+        : null;
+      const run = await leaseOnce(t, {
+        ...causeCase(c),
+        enforce,
+        discovery: clone(planted),
+        during,
+      });
       const after = run.store.inspect(run.a);
       assert.equal(after.state, 'paused', label);
       assert.equal(after.deferred_requeue, false, label);
       assert.equal(after.fence, null, label);
-      assert.equal(Object.hasOwn(after, 'discovery'), false, `${label}: nothing released`);
       const fallback = run.calls.some((call) => call.fallback);
       assert.equal(
         run.calls.filter((call) => call.method === 'pause').length,
         fallback ? 2 : 1,
         `${label}: one pause, or one refused and the fallback`
       );
+      const unrecorded = run.warnings
+        .map((w) => {
+          try {
+            return JSON.parse(w);
+          } catch {
+            return null;
+          }
+        })
+        .filter((e) => e?.event === 'READER_REPLY_UNRECORDED');
       if (!enforce) {
-        assert.deepEqual(after.reason, C1_OFF[c.name], label);
+        const want = C1_OFF[c.name];
+        assert.deepEqual(after.reason, want, label);
+        // A pause that releases empties logs and verified in the same save (U1).
+        const released = want.released && !c.released;
+        assert.deepEqual(
+          after.discovery,
+          released
+            ? {
+                version: 1,
+                epoch: planted.epoch,
+                logs: {},
+                verified: {},
+                unavailable: { cause: want.cause, log: want.log, released: HEADS },
+              }
+            : start,
+          `${label}: the discovery`
+        );
+        assert.deepEqual(unrecorded, [], `${label}: no C1 reason to log`);
         continue;
       }
-      // C1 on: the fixture's own outcome, less what Step 7 adds.
-      const want = { ...c.expect.reason };
-      delete want[BEFORE_STEP_7.release];
+      // C1 on: the fixture's own outcome, exactly.
       const got = { ...after.reason };
-      if (!Object.hasOwn(want, 'message')) delete got.message;
-      assert.deepEqual(got, want, label);
+      if (!Object.hasOwn(c.expect.reason, 'message')) delete got.message;
+      assert.deepEqual(got, c.expect.reason, label);
+      assert.deepEqual(
+        after.discovery,
+        c.expect.discovery === 'unchanged' ? start : c.expect.discovery,
+        `${label}: the discovery`
+      );
       assert.equal(fallback, false, `${label}: no fallback`);
+      // After a release U2 keeps the reason, and the bad value is logged (§8, C1).
+      assert.deepEqual(
+        unrecorded.map(({ reply_code, field, value }) => ({ reply_code, field, value })),
+        c.expect.logged ? [c.expect.logged] : [],
+        `${label}: the logged bad value`
+      );
     }
   }
+});
+
+// good/unavailable_pause_reason.json's pauses on a running lease, through the
+// real scheduler and store (c18): a worker refusal releases (U1); after
+// reconciliation's own release, the lease's next commit is refused from
+// unavailable by the real commitCheckpoint, which the sink's error carries
+// (sinkError) to a pause that keeps the copied reason; and a yield that would
+// requeue pauses with it instead (U2).
+const unavailablePauseReason = JSON.parse(
+  await readFile(
+    path.join(here, 'fixtures/discovery_v1/good/unavailable_pause_reason.json'),
+    'utf8'
+  )
+);
+test('unavailable_pause_reason.json: its pauses on a lease, through the scheduler and the real store', async (t) => {
+  const fx = unavailablePauseReason;
+  const driven = [];
+  for (const c of fx.cases) {
+    if (
+      c.state !== 'running' ||
+      c.events.some((e) => !['store.pause', 'reconciliation'].includes(e.by))
+    )
+      continue;
+    const [first, ...rest] = c.events;
+    const pause = c.events.find((e) => e.by === 'store.pause');
+    const released = first.by === 'reconciliation' ? { cause: first.cause, log: first.log } : null;
+    assert.equal(rest.length, released ? 1 : 0, c.name);
+    let plan;
+    if (!released)
+      plan = async () => ({
+        reply: true,
+        code: 1,
+        error_code: pause.code,
+        error_cause: pause.error_cause,
+        error_log: pause.error_log,
+        stderr: WORKER_TEXT,
+      });
+    else if (pause.from === 'sink')
+      plan = async (sink) => {
+        await sink(readerStep());
+        return { code: 0, reader_result: { status: 'complete' } };
+      };
+    else plan = async () => ({ code: 0, reader_result: { status: 'yielded', reason: pause.code } });
+    for (const enforce of [false, true]) {
+      const label = `${c.name} (C1 ${enforce ? 'on' : 'off'})`;
+      const during = released
+        ? (store, id) => store._open(() => store._release(store.records.get(id), released))
+        : null;
+      const run = await leaseOnce(t, {
+        plan,
+        enforce,
+        discovery: clone(fx.record.discovery),
+        during,
+      });
+      const after = run.store.inspect(run.a);
+      for (const [key, value] of Object.entries(c.expect))
+        assert.deepEqual(after[key], value, `${label}: ${key}`);
+      assert.deepEqual(
+        run.calls,
+        [{ method: 'pause', code: pause.code, outcome: 'ok' }],
+        `${label}: one pause, the store's own`
+      );
+      assert.equal(run.store.lease()?.id, run.b, `${label}: B leases next`);
+    }
+    driven.push(c.name);
+  }
+  assert.deepEqual(driven, [
+    'worker_refusal',
+    'reconciliation_then_commit_refusal',
+    'reconciliation_then_yield_without_a_cause',
+  ]);
 });
 
 // A reply whose pause is refused STALE_ATTEMPT is warned once, as stale,

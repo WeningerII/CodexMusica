@@ -107,6 +107,34 @@ const discoveryStateShape = (value) =>
   logStates(value.verified) &&
   sameKeys(value.logs, value.verified) &&
   unavailableShape(value.unavailable);
+// U1 (§8): a well-formed `record.discovery` released with `cause` and `log`.
+// `logs` and `verified` are emptied, and `unavailable.released` names each log
+// `logs` held, with its head then (never its verified head).
+function releasedDiscovery(discovery, cause, log) {
+  const released = Object.fromEntries(
+    Object.entries(discovery.logs).map(([name, state]) => [name, state.head])
+  );
+  const unavailable = { cause, log, released };
+  return { version: 1, epoch: discovery.epoch, logs: {}, verified: {}, unavailable };
+}
+// U2 (§8): the reason copied from `unavailable`, with no message; the job view
+// renders the message from the cause.
+const unavailableReason = ({ cause, log, released }) => ({
+  code: 'DISCOVERY_UNAVAILABLE',
+  cause,
+  log,
+  released: clone(released),
+});
+// The refusal `unavailable` gives (§2.7, §8): its cause and its log.
+const unavailableRefusal = ({ cause, log }) =>
+  Object.assign(
+    problem(
+      'DISCOVERY_UNAVAILABLE',
+      `Reader discovery state is unavailable for this job: ${cause}.`,
+      409
+    ),
+    { cause, log }
+  );
 // §7.1: the states whose discovery chains stay live, and so root the GC.
 const DISCOVERY_LIVE_STATES = new Set(['queued', 'running', 'paused', 'cancelled']);
 // The reason a pause stores (DISCOVERY_V1 §8, the pause). A RESOURCE_LIMIT
@@ -119,7 +147,9 @@ const DISCOVERY_LIVE_STATES = new Set(['queued', 'running', 'paused', 'cancelled
 // string nor null), and a cause of the wrong family (a resource cause on
 // DISCOVERY_UNAVAILABLE, a discovery cause on RESOURCE_LIMIT, any cause on
 // another code), is refused INVALID_PAUSE, an internal code that is never a
-// job's reason.
+// job's reason. A DISCOVERY_UNAVAILABLE without a cause is refused the same
+// way (#656 Step 7, the strict pause): it can never be stored, because U1's
+// release and U2's reason both name the cause.
 function pauseReason(code, message, { cause, log, reply_code, field, value }) {
   const invalid = (what) =>
     problem('INVALID_PAUSE', `A reader pause names ${what} outside its sets.`, 500);
@@ -134,6 +164,8 @@ function pauseReason(code, message, { cause, log, reply_code, field, value }) {
   if (reply_code !== undefined && typeof reply_code !== 'string') throw invalid('a reply code');
   if (field !== undefined && typeof field !== 'string') throw invalid('a field');
   if (named(value) && typeof value !== 'string') throw invalid('a value');
+  if (code === 'DISCOVERY_UNAVAILABLE' && !named(cause))
+    throw problem('INVALID_PAUSE', 'A reader DISCOVERY_UNAVAILABLE pause names no cause.', 500);
   if (named(cause)) {
     if (code === 'RESOURCE_LIMIT' && Object.hasOwn(RESOURCE_CAUSES, cause)) return { code, cause };
     if (code === 'DISCOVERY_UNAVAILABLE' && Object.hasOwn(DISCOVERY_CAUSES, cause))
@@ -470,23 +502,21 @@ export class ReaderJobStore {
         this.usage = this._usage();
         this._recountWanted = false;
         this._savePending();
-        for (const record of this.records.values()) {
+        this._repairReleased();
+        for (const record of [...this.records.values()]) {
           if (record.state !== 'running') continue;
-          this._save(
-            {
-              ...record,
-              state: record.cancel_requested ? 'cancelled' : 'paused',
-              fence: null,
-              lease_expires_at: null,
-              cancel_requested: false,
-              deferred_requeue: false,
-              reason: {
-                code: 'INTERRUPTED',
-                message: 'Worker interrupted; explicitly resume the committed cursor.',
-              },
+          this._saveReason(record, (base, reason) => ({
+            ...base,
+            state: record.cancel_requested ? 'cancelled' : 'paused',
+            fence: null,
+            lease_expires_at: null,
+            cancel_requested: false,
+            deferred_requeue: false,
+            reason: reason ?? {
+              code: 'INTERRUPTED',
+              message: 'Worker interrupted; explicitly resume the committed cursor.',
             },
-            true
-          );
+          }));
         }
         this._probe();
       });
@@ -981,21 +1011,15 @@ export class ReaderJobStore {
   // well-formed record is never larger than the record it replaces (§7.4):
   // a growth is this image's defect, thrown without a status, never saved.
   _release(record, { cause, log }) {
-    const discovery = record.discovery;
-    if (discovery.unavailable !== null) return record;
-    const released = Object.fromEntries(
-      Object.entries(discovery.logs).map(([name, state]) => [name, state.head])
-    );
-    const unavailable = { cause, log, released };
+    if (record.discovery.unavailable !== null) return record;
+    const discovery = releasedDiscovery(record.discovery, cause, log);
     const queued = record.state === 'queued';
     const release = {
       ...record,
       ...(queued ? { state: 'paused', fence: null } : {}),
       deferred_requeue: false,
-      ...(record.state === 'running'
-        ? {}
-        : { reason: { code: 'DISCOVERY_UNAVAILABLE', cause, log, released: clone(released) } }),
-      discovery: { version: 1, epoch: discovery.epoch, logs: {}, verified: {}, unavailable },
+      ...(record.state === 'running' ? {} : { reason: unavailableReason(discovery.unavailable) }),
+      discovery,
     };
     // Asserted before the save, at its widest: _save stamps updated_at, which
     // is never past 2^53 - 1, and a 64-hex record_digest.
@@ -1008,10 +1032,14 @@ export class ReaderJobStore {
       throw new Error(`A reader release would grow its record from ${before} to ${widest} bytes.`);
     const saved = this._save(release, true);
     this.chains.delete(record.id);
-    const line = JSON.stringify({ event: 'READER_DISCOVERY_RELEASED', job: record.id, cause, log });
+    this._logRelease(record.id, cause, log);
+    return saved;
+  }
+  // One log line per release: error level for segment_corrupt (BB8 6681838131).
+  _logRelease(job, cause, log) {
+    const line = JSON.stringify({ event: 'READER_DISCOVERY_RELEASED', job, cause, log });
     if (cause === 'segment_corrupt') console.error(line);
     else console.warn(line);
-    return saved;
   }
   // The release §7.4 gives a malformed record.discovery (§2.7; BB8
   // 6700200435, condition 4): the per-state rules of _release, with the
@@ -1092,25 +1120,95 @@ export class ReaderJobStore {
       this._releaseMalformed(record);
     }
   }
-  // The job view of a record (get, inspect): a pending release is shown as
-  // the save the store has decided and is waiting to make.
+  // The job view of a record (get, inspect): a pending release, and the
+  // repair of a queued record whose unavailable is set, are shown as the save
+  // the store has decided and is waiting to make, so no record that is not
+  // dispatched is ever shown queued (§7.4).
   _shown(record) {
     const live = record && this.records.get(record.id);
-    return live && this.pendingRelease.has(record.id)
-      ? { ...clone(this._malformedRelease(live)), ...pick(record, ['accessed_at', 'expires_at']) }
-      : record;
+    if (!live) return record;
+    const kept = pick(record, ['accessed_at', 'expires_at']);
+    if (this.pendingRelease.has(record.id))
+      return { ...clone(this._malformedRelease(live)), ...kept };
+    // A queued record whose unavailable is set shows as its repair (§7.4).
+    if (live.state === 'queued' && this._discoveryShape(live) === 'released')
+      return { ...clone(this._repaired(live)), ...kept };
+    return record;
   }
   // The refusal of a pending release, exactly as after its save (§8).
   _refusePending(id) {
-    if (this.pendingRelease.has(id))
-      throw Object.assign(
-        problem(
-          'DISCOVERY_UNAVAILABLE',
-          'Reader discovery state is unavailable for this job: chain_broken.',
-          409
-        ),
-        { cause: 'chain_broken', log: null }
+    if (this.pendingRelease.has(id)) throw unavailableRefusal({ cause: 'chain_broken', log: null });
+  }
+  // The refusal from a saved `unavailable` (§2.7, §8), with its cause and log.
+  _refuseUnavailable(record) {
+    if (this._discoveryShape(record) === 'released')
+      throw unavailableRefusal(record.discovery.unavailable);
+  }
+  // U2 (§8), from the record's `unavailable`, or from its pending release
+  // (§7.4, Step 6), so a save of a pending job writes that release too: the
+  // save, when it lands, is the durable release. Returns {base, reason}, the
+  // record the save starts from and the reason it writes, or null when the
+  // job holds no `unavailable` and no pending release.
+  _u2(record) {
+    const base = this.pendingRelease.has(record.id) ? this._malformedRelease(record) : record;
+    if (this._discoveryShape(base) !== 'released') return null;
+    return { base, reason: unavailableReason(base.discovery.unavailable) };
+  }
+  // Every save that writes a job's reason (§8, U2): `build(base, reason)` is
+  // the record it saves, `reason` the U2 reason or null when U2 does not
+  // apply. A save that carries a pending release and is refused with a status
+  // (STORE_RECOUNTING while usage is unknown, RESOURCE_LIMIT at full quota) is
+  // logged and made again from the record as it is, with the reason it
+  // would hold without U2; the release stays pending and shown. So none of
+  // these saves fails where it did not before (§7.4, "No refusal at lease
+  // time"). A saved release drops the job's lists.
+  _saveReason(record, build) {
+    const u2 = this._u2(record);
+    const pending = u2 !== null && u2.base !== record;
+    let saved;
+    try {
+      saved = this._save(build(u2?.base ?? record, u2?.reason ?? null), true);
+    } catch (error) {
+      if (!pending || !error.status) throw error;
+      console.warn(
+        JSON.stringify({ event: 'READER_REPAIR_DEFERRED', job: record.id, code: error.code })
       );
+      return this._save(build(record, null), true);
+    }
+    if (pending) this.pendingRelease.delete(record.id);
+    if (this._discoveryShape(saved) === 'released') this.chains.delete(record.id);
+    return saved;
+  }
+  // The repair of a queued record whose `unavailable` is set, as an older
+  // image's resume() or _promoteDeferred can leave it (§7.4; BB8 6700200435,
+  // on R2's question 6): paused with the U2 reason, deferred_requeue false and
+  // a null fence, its queue fields and attempt kept.
+  _repaired(record) {
+    return {
+      ...record,
+      state: 'paused',
+      fence: null,
+      deferred_requeue: false,
+      reason: unavailableReason(record.discovery.unavailable),
+    };
+  }
+  // Each repair is saved where usage is known (startup after the usage scan,
+  // lease() with usage known). A refusal with a status is logged and the
+  // record skipped, to be retried at the next such point: a repair never
+  // throws from lease() or startup. An error without a status still fails
+  // the store, as any write does.
+  _repairReleased() {
+    for (const record of [...this.records.values()]) {
+      if (record.state !== 'queued' || this._discoveryShape(record) !== 'released') continue;
+      try {
+        this._save(this._repaired(record), true);
+      } catch (error) {
+        if (!error.status) throw error;
+        console.warn(
+          JSON.stringify({ event: 'READER_REPAIR_DEFERRED', job: record.id, code: error.code })
+        );
+      }
+    }
   }
   // Reconciliation (§7.4), on every lock entry that reloaded, startup's
   // first included: a full read of every chain of each record
@@ -1358,7 +1456,10 @@ export class ReaderJobStore {
 
   lease(id = null) {
     return this._open(() => {
-      if (this.usage !== null) this._savePending();
+      if (this.usage !== null) {
+        this._savePending();
+        this._repairReleased();
+      }
       this._expireLeases();
       this._promoteDeferred();
       if ([...this.records.values()].some((r) => r.state === 'running')) return null;
@@ -1366,6 +1467,7 @@ export class ReaderJobStore {
       const record = id ? this._require(id) : queued.sort((a, b) => this._queueSort(a, b))[0];
       if (!record || record.state !== 'queued') return null;
       if (this.pendingRelease.has(record.id)) return null; // a pending release (§7.4)
+      if (this._discoveryShape(record) === 'released') return null; // a repair to come (§7.4)
       const leased = this._save(
         {
           ...record,
@@ -1392,6 +1494,7 @@ export class ReaderJobStore {
           r.state === 'paused' &&
           r.deferred_requeue &&
           !this.pendingRelease.has(r.id) &&
+          this._discoveryShape(r) !== 'released' && // an older image's flag (§7.4)
           !this._expireIfDue(r)
       )
       .sort((a, b) => this._queueSort(a, b));
@@ -1411,23 +1514,20 @@ export class ReaderJobStore {
     }
   }
   _expireLeases() {
-    for (const record of this.records.values()) {
+    for (const record of [...this.records.values()]) {
       if (record.state === 'running' && record.lease_expires_at <= this.now())
-        this._save(
-          {
-            ...record,
-            state: record.cancel_requested ? 'cancelled' : 'paused',
-            fence: null,
-            lease_expires_at: null,
-            cancel_requested: false,
-            deferred_requeue: false,
-            reason: {
-              code: 'INTERRUPTED',
-              message: 'Lease expired; resume the last durable checkpoint explicitly.',
-            },
+        this._saveReason(record, (base, reason) => ({
+          ...base,
+          state: record.cancel_requested ? 'cancelled' : 'paused',
+          fence: null,
+          lease_expires_at: null,
+          cancel_requested: false,
+          deferred_requeue: false,
+          reason: reason ?? {
+            code: 'INTERRUPTED',
+            message: 'Lease expired; resume the last durable checkpoint explicitly.',
           },
-          true
-        );
+        }));
     }
   }
   // Expiry binds before any sweep: a job past its expiry is tombstoned the
@@ -1443,7 +1543,8 @@ export class ReaderJobStore {
       if (
         record.state === 'queued' &&
         !this._expireIfDue(record) &&
-        !this.pendingRelease.has(record.id)
+        !this.pendingRelease.has(record.id) &&
+        this._discoveryShape(record) !== 'released' // until its repair lands (§7.4)
       )
         queued.push(record);
     return queued;
@@ -1461,19 +1562,17 @@ export class ReaderJobStore {
     const recounting = error.code === 'STORE_RECOUNTING' && error.status === 503;
     if (!recounting && (error.code !== 'RESOURCE_LIMIT' || error.status !== 507)) throw error;
     // The cursor is unchanged. Reserved metadata space makes this pause durable.
-    // A recount pause returns to the queue by itself once a slot opens.
-    return this._save(
-      {
-        ...record,
-        state: record.cancel_requested ? 'cancelled' : 'paused',
-        cancel_requested: false,
-        deferred_requeue: recounting && !record.cancel_requested,
-        fence: null,
-        lease_expires_at: null,
-        reason: { code: error.code, message: error.message },
-      },
-      true
-    );
+    // A recount pause returns to the queue by itself once a slot opens, unless
+    // U2 holds the reason: a released job is never requeued (§8).
+    return this._saveReason(record, (base, reason) => ({
+      ...base,
+      state: record.cancel_requested ? 'cancelled' : 'paused',
+      cancel_requested: false,
+      deferred_requeue: reason === null && recounting && !record.cancel_requested,
+      fence: null,
+      lease_expires_at: null,
+      reason: reason ?? { code: error.code, message: error.message },
+    }));
   }
   _page(value) {
     if (
@@ -1537,6 +1636,9 @@ export class ReaderJobStore {
         input.previous_generation !== record.generation
       )
         throw problem('STALE_ATTEMPT', 'Checkpoint was built against an older result generation.');
+      // §4 step 3: a released job's commit is refused before any rule runs,
+      // and writes nothing; its holder's pause then carries the cause (§7.4).
+      this._refuseUnavailable(record);
       try {
         const refs = (input.pages || []).map((page) => this._page(page));
         let root = record.page_index_hash;
@@ -1759,10 +1861,42 @@ export class ReaderJobStore {
     } = {}
   ) {
     return this._open(() => {
-      const record = this._leaseRecord(id, attempt, fence);
+      const leased = this._leaseRecord(id, attempt, fence);
       // Refused before anything is saved; the scheduler's fallback pause
       // (§8) then ends the lease.
       pauseReason(code, message, { cause, log, reply_code, field, value });
+      // U1: a DISCOVERY_UNAVAILABLE pause of a job that holds live discovery
+      // state releases it in this same save. A job already released (or
+      // pending its release) releases nothing: the first trace wins. A job
+      // that holds none has nothing to release.
+      const releasing =
+        code === 'DISCOVERY_UNAVAILABLE' &&
+        this._discoveryShape(leased) === 'live' &&
+        !this.pendingRelease.has(id);
+      const record = releasing
+        ? { ...leased, discovery: releasedDiscovery(leased.discovery, cause, log ?? null) }
+        : leased;
+      if (this._u2(record)) {
+        // U2: the reason is copied from unavailable, and the job is never
+        // requeued. A C1 reason it replaces is logged instead (§8, C1).
+        if (reply_code !== undefined)
+          console.warn(
+            JSON.stringify({ event: 'READER_REPLY_UNRECORDED', job: id, reply_code, field, value })
+          );
+        const saved = this._saveReason(record, (base, reason) => ({
+          ...base,
+          state: record.cancel_requested ? 'cancelled' : 'paused',
+          fence: null,
+          lease_expires_at: null,
+          cancel_requested: false,
+          deferred_requeue: false,
+          queued_at: this.now(),
+          queue_order: this._tailOrder(),
+          reason: reason ?? pauseReason(code, message, { cause, log, reply_code, field, value }),
+        }));
+        if (releasing) this._logRelease(id, cause, log ?? null);
+        return saved;
+      }
       let state = record.cancel_requested ? 'cancelled' : requeue ? 'queued' : 'paused';
       let deferred_requeue = false;
       if (state === 'queued') {
@@ -1859,23 +1993,20 @@ export class ReaderJobStore {
       this._expected(record, options);
       if (['completed', 'completed_with_refusals'].includes(record.state))
         return this._save(control.record, true);
-      return this._save(
-        {
-          ...control.record,
-          state: record.state === 'running' ? 'running' : 'cancelled',
-          cancel_requested: record.state === 'running',
-          deferred_requeue: false,
-          reason: {
-            code: 'CANCELLED',
-            message:
-              record.state === 'running'
-                ? 'Cancellation requested; worker stops at its next committed safe point.'
-                : 'Cancelled; committed evidence is retained.',
-          },
-          ...(record.state === 'running' ? {} : { fence: null, lease_expires_at: null }),
+      return this._saveReason(control.record, (base, reason) => ({
+        ...base,
+        state: record.state === 'running' ? 'running' : 'cancelled',
+        cancel_requested: record.state === 'running',
+        deferred_requeue: false,
+        reason: reason ?? {
+          code: 'CANCELLED',
+          message:
+            record.state === 'running'
+              ? 'Cancellation requested; worker stops at its next committed safe point.'
+              : 'Cancelled; committed evidence is retained.',
         },
-        true
-      );
+        ...(record.state === 'running' ? {} : { fence: null, lease_expires_at: null }),
+      }));
     });
   }
   resume(id, capability, viewer, identity, options = {}) {

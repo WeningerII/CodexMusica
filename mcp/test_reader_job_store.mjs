@@ -1294,12 +1294,6 @@ test('pause: a named cause is stored without a message; C1 fields are kept; othe
       { code: 'DISCOVERY_UNAVAILABLE', message: 'm', cause: 'cursor_disagrees' },
       { code: 'DISCOVERY_UNAVAILABLE', cause: 'cursor_disagrees', log: null },
     ],
-    // No causeless DISCOVERY_UNAVAILABLE is refused yet (Step 7 does that):
-    // it is stored as code and message.
-    [
-      { code: 'DISCOVERY_UNAVAILABLE', message: 'worker text' },
-      { code: 'DISCOVERY_UNAVAILABLE', message: 'worker text' },
-    ],
     [
       {
         code: 'READER_PROTOCOL',
@@ -1328,6 +1322,46 @@ test('pause: a named cause is stored without a message; C1 fields are kept; othe
     assert.equal(paused.state, 'paused', given.code);
     assert.deepEqual(store.inspect(lease.id).reason, stored, JSON.stringify(given));
   });
+});
+
+// The strict pause (#656 Step 7): a DISCOVERY_UNAVAILABLE without a cause from
+// its set, or with a cause outside its code's, is refused INVALID_PAUSE (500)
+// before anything is saved, whoever calls it; the lease stays the caller's,
+// so the scheduler's fallback pause can end it (§8).
+test('pause: a DISCOVERY_UNAVAILABLE with no cause, or a cause outside its set, is refused INVALID_PAUSE', (t) => {
+  const { store } = fixture(t);
+  create(store);
+  const lease = store.lease();
+  const before = fs.readFileSync(path.join(store.directory, 'records', `${lease.id}.json`));
+  for (const given of [
+    { message: 'worker text' },
+    { message: 'worker text', cause: null, log: 'alt_cells' },
+    { cause: 'discovery_alt_seen' },
+    { cause: 'segment_gone', log: 'seen' },
+  ]) {
+    assert.throws(
+      () =>
+        store.pause(lease.id, lease.attempt, lease.fence, {
+          code: 'DISCOVERY_UNAVAILABLE',
+          requeue: false,
+          ...given,
+        }),
+      (e) => e.code === 'INVALID_PAUSE' && e.status === 500,
+      JSON.stringify(given)
+    );
+    assert.deepEqual(
+      fs.readFileSync(path.join(store.directory, 'records', `${lease.id}.json`)),
+      before,
+      'nothing saved'
+    );
+  }
+  // The lease is still the caller's: the fallback pause ends it.
+  const fallback = store.pause(lease.id, lease.attempt, lease.fence, {
+    code: 'READER_PROTOCOL',
+    message: 'The reader reply could not be recorded: INVALID_PAUSE.',
+    requeue: false,
+  });
+  assert.equal(fallback.state, 'paused');
 });
 
 test('pause: a requeue that meets a full queue stores QUEUE_FULL without the cause', (t) => {
@@ -2634,8 +2668,12 @@ test('reconciliation: every release of a fixture record, at its widest queue fie
         plantRecord(directory, record);
         store._open(() => {
           const before = store.recordBytes.get(id);
+          // Lists as a full read would have installed them: a release drops
+          // them after its save (BB8 6710235213, the _release survivor).
+          store.chains.set(id, new Map([['alt_cells', ['0'.repeat(64)]]]));
           const saved = store._release(store.records.get(id), { cause, log: 'alt_cells' });
           assert.ok(store.recordBytes.get(id) < before, `${rel} ${state} ${cause}`);
+          assert.equal(store.chains.has(id), false, `${rel} ${state} ${cause}: no lists`);
           assert.equal(saved.discovery.unavailable.cause, cause);
         });
       }
@@ -3492,4 +3530,667 @@ test('review B1: a head past CHAIN_SEGMENTS is R2 with nothing read', (t) => {
   reads.length = 0;
   assert.deepEqual(store._fullRead(record, 'seen').addresses.length, 2);
   assert.equal(reads.length, 2);
+});
+
+// ── #656 Step 7: U1 on a pause, U2 on every save that writes a reason, and
+// the repair of a queued record whose unavailable is set (§2.7, §7.4, §8).
+const PAUSE_FX = 'good/unavailable_pause_reason.json';
+// The fixture record's logs made real for a planted job: seen with one
+// segment, alt_cells with two and variants with only a tail, as the fixture
+// holds them. `swap` rewrites the fixture's heads to the planted ones.
+const PAUSE_LOGS = { seen: 1, alt_cells: 2, variants: 0 };
+const headSwap = (fx, planted) => (value) => {
+  let text = JSON.stringify(value);
+  for (const [log, st] of Object.entries(fx.record.discovery.logs))
+    if (st.head) text = text.replaceAll(st.head, planted.discovery.logs[log].head);
+  return JSON.parse(text);
+};
+// A foreign writer damages a live job's chain: the oldest segment of `log`
+// deleted (segment_missing), or the head's count off by one (chain_broken).
+// The store's next lock entry reloads and reconciles.
+function damageChain(directory, store, id, cause, log) {
+  const record = clone(store.records.get(id));
+  if (cause === 'segment_missing') {
+    const [oldest] = store.chains.get(id).get(log);
+    fs.unlinkSync(path.join(storeDirectory(directory), 'pages', `${oldest}.json`));
+  } else if (cause === 'chain_broken') record.discovery.logs[log].count -= 1;
+  else assert.fail(`no damage for ${cause}`);
+  plantRecord(directory, record);
+}
+// A released discovery, as U1 leaves it.
+const releasedAs = (discovery, cause, log) => ({
+  version: 1,
+  epoch: discovery.epoch,
+  logs: {},
+  verified: {},
+  unavailable: {
+    cause,
+    log,
+    released: Object.fromEntries(Object.entries(discovery.logs).map(([l, st]) => [l, st.head])),
+  },
+});
+const reasonOf = ({ cause, log, released }) => ({
+  code: 'DISCOVERY_UNAVAILABLE',
+  cause,
+  log,
+  released,
+});
+
+test('U2: good/unavailable_pause_reason.json, every case through the real store', (t) => {
+  const fx = loadFixture(PAUSE_FX);
+  for (const c of fx.cases) {
+    let now = Date.now();
+    const { directory, store } = fixture(t, { now: () => now });
+    const other = create(store);
+    const base = store.records.get(other.record.id);
+    const id = fx.record.id;
+    const planted = plantReal(directory, base, id, PAUSE_LOGS, {
+      job: {
+        state: c.state === 'running' ? 'queued' : c.state,
+        reason: c.reason ?? null,
+        fence: null,
+        lease_expires_at: null,
+      },
+    });
+    const swap = headSwap(fx, planted);
+    store.inspect(id); // the full read passes and installs the lists
+    assert.ok(store.chains.has(id), `${c.name}: the lists are installed`);
+    const lease = c.state === 'running' ? store.lease(id) : null;
+    if (lease) assert.equal(lease.id, id);
+    for (const ev of c.events) {
+      if (ev.by === 'reconciliation') {
+        damageChain(directory, store, id, ev.cause, ev.log);
+        store.inspect(id);
+        assert.equal(store.records.get(id).discovery.unavailable?.cause, ev.cause, c.name);
+      } else if (ev.by === 'store.pause') {
+        const cause = ev.error_cause ?? ev.cause;
+        const log = ev.error_log ?? ev.log;
+        if (ev.from === 'sink')
+          // The sink's error is the commit's own refusal, from unavailable,
+          // before any rule; it writes nothing (§4, §7.4).
+          assert.throws(
+            () => commit(store, lease),
+            (e) =>
+              e.code === 'DISCOVERY_UNAVAILABLE' &&
+              e.status === 409 &&
+              e.cause === cause &&
+              e.log === log,
+            `${c.name}: the commit is refused from unavailable`
+          );
+        store.pause(id, lease.attempt, lease.fence, {
+          code: ev.code,
+          message: 'worker text',
+          requeue: ev.requeue,
+          cause,
+          log,
+        });
+      } else if (ev.by === 'lease_expiry') {
+        now = store.records.get(id).lease_expires_at;
+        store.lease();
+      } else if (ev.by === 'cancel')
+        store.cancel(id, store.capabilityFor(id, base.viewer), base.viewer);
+      else assert.fail(`no driver for ${ev.by}`);
+    }
+    const got = store.inspect(id);
+    for (const [key, value] of Object.entries(swap(c.expect)))
+      assert.deepEqual(got[key], value, `${c.name}: ${key}`);
+    // A released job holds no address lists (BB8 6710235213).
+    assert.equal(store.chains.has(id), false, `${c.name}: no lists`);
+    assert.notEqual(
+      store
+        .listQueued()
+        .map((r) => r.id)
+        .includes(id),
+      true
+    );
+  }
+});
+
+test('U1: a DISCOVERY_UNAVAILABLE pause releases in its own save, drops the lists, and logs the release', (t) => {
+  const fx = loadFixture(PAUSE_FX);
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = fx.record.id;
+  const planted = plantReal(directory, base, id, PAUSE_LOGS, { job: { state: 'queued' } });
+  store.inspect(id);
+  const lease = store.lease(id);
+  assert.ok(store.chains.has(id));
+  const saves = [];
+  const save = ReaderJobStore.prototype._save;
+  t.mock.method(store, '_save', function (input, ...rest) {
+    if (input.id === id) saves.push(clone(input));
+    return save.call(this, input, ...rest);
+  });
+  const seen = releaseLog(t);
+  store.pause(id, lease.attempt, lease.fence, {
+    code: 'DISCOVERY_UNAVAILABLE',
+    requeue: true,
+    cause: 'segment_corrupt',
+    log: 'alt_cells',
+  });
+  assert.equal(saves.length, 1, 'one save');
+  const want = releasedAs(planted.discovery, 'segment_corrupt', 'alt_cells');
+  assert.deepEqual(saves[0].discovery, want);
+  assert.deepEqual(saves[0].reason, reasonOf(want.unavailable));
+  assert.equal(saves[0].state, 'paused', 'never requeued');
+  assert.equal(store.chains.has(id), false, 'the lists are dropped');
+  assert.deepEqual(seen.error, [
+    { event: 'READER_DISCOVERY_RELEASED', job: id, cause: 'segment_corrupt', log: 'alt_cells' },
+  ]);
+  // A record that holds no discovery has nothing to release: its reason is
+  // {code, cause, log}, and no discovery key appears (as on main).
+  const plain = store.lease();
+  assert.equal(plain.id, other.record.id);
+  store.pause(plain.id, plain.attempt, plain.fence, {
+    code: 'DISCOVERY_UNAVAILABLE',
+    cause: 'segment_missing',
+    log: 'seen',
+  });
+  const after = store.inspect(plain.id);
+  assert.equal(Object.hasOwn(after, 'discovery'), false);
+  assert.deepEqual(after.reason, {
+    code: 'DISCOVERY_UNAVAILABLE',
+    cause: 'segment_missing',
+    log: 'seen',
+  });
+});
+
+// good/release_fencing.json's pause events: the holder's commit after another
+// instance's release, and the pause that follows it.
+test("U2: good/release_fencing.json's commit and pause events, on the lease's own instance", (t) => {
+  const fx = loadFixture('good/release_fencing.json');
+  const walk = loadFixture('good/lease_incremental_walk.json');
+  const NOW = 1793318000000; // before the fixture's lease_expires_at
+  for (const c of fx.cases) {
+    const [first, ...rest] = c.events;
+    const { directory, store: a } = fixture(t, { now: () => NOW });
+    const b = new ReaderJobStore({ directory, now: () => NOW });
+    const other = create(a);
+    const discovery = clone(fx.record.discovery);
+    const spec = clone(walk.store);
+    if (first.cause === 'segment_missing') spec.omit = [walk.addresses.alt_cells[0]];
+    else discovery.logs.alt_cells.count -= 1;
+    plantFixture(directory, a.records.get(other.record.id), fx, {
+      discovery,
+      store: spec,
+      job: c.job,
+    });
+    a.inspect(fx.record.id);
+    const file = path.join(storeDirectory(directory), 'records', `${fx.record.id}.json`);
+    rest.forEach((ev, i) => {
+      const want = c.expect[i + 1];
+      const before = fs.readFileSync(file);
+      if (ev.by === 'commitCheckpoint') {
+        assert.throws(
+          () =>
+            b.commitCheckpoint(fx.record.id, ev.attempt, ev.fence, {
+              cursor: { phase: 'next' },
+              pages: [],
+            }),
+          (e) => Object.entries(want.refused).every(([k, v]) => e[k] === v),
+          `${c.name}: refused`
+        );
+        assert.equal(want.written, 'nothing');
+        assert.ok(fs.readFileSync(file).equals(before), `${c.name}: nothing written`);
+      } else if (ev.by === 'store.pause') {
+        assert.equal(ev.from, 'sink');
+        b.pause(fx.record.id, ev.attempt, ev.fence, {
+          code: ev.code,
+          message: 'stubbed refusal',
+          cause: ev.cause,
+          log: ev.log,
+        });
+        assert.equal(want.saved, true);
+      } else assert.fail(`no driver for ${ev.by}`);
+      const got = b.inspect(fx.record.id);
+      for (const [key, value] of Object.entries(want.job))
+        assert.deepEqual(got[key], value, `${c.name} event ${i + 1}: ${key}`);
+    });
+  }
+});
+
+// Q6 (BB8 6700200435, on R2's question 6): an older image's resume() or
+// _promoteDeferred can leave a released record queued, or paused with
+// deferred_requeue. Planted as such an image would leave it.
+function plantOlderQueued(directory, base, id, extra = {}) {
+  const fx = loadFixture(PAUSE_FX);
+  const discovery = fx.cases.find((c) => c.name === 'worker_refusal').expect.discovery;
+  return plantRecord(directory, {
+    ...base,
+    id,
+    state: 'queued',
+    attempt: 2,
+    // A fence no lease holds: the repair sets it null, as a release does.
+    fence: 'e'.repeat(64),
+    lease_expires_at: null,
+    queued_at: 5,
+    queue_order: 9,
+    cancel_requested: false,
+    deferred_requeue: false,
+    reason: null,
+    discovery,
+    ...extra,
+  }).record;
+}
+const repairedView = (r) => ({
+  state: r.state,
+  fence: r.fence,
+  deferred_requeue: r.deferred_requeue,
+  attempt: r.attempt,
+  queued_at: r.queued_at,
+  queue_order: r.queue_order,
+  reason: r.reason,
+});
+
+test('repair: a queued record whose unavailable is set is paused with the U2 reason at startup, and holds no waiting slot', (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = `reader_${'7'.repeat(64)}`;
+  const planted = plantOlderQueued(directory, base, id);
+  const want = {
+    state: 'paused',
+    fence: null,
+    deferred_requeue: false,
+    attempt: 2,
+    queued_at: 5,
+    queue_order: 9,
+    reason: reasonOf(planted.discovery.unavailable),
+  };
+  // A live instance, usage unknown after the foreign write: the view shows
+  // the repair it has decided, nothing dispatches it, and lease(id) is null.
+  assert.deepEqual(repairedView(store.inspect(id)), want, 'shown repaired');
+  assert.equal(store.records.get(id).state, 'queued', 'not saved while usage is unknown');
+  assert.equal(store.lease(id), null, 'lease(id) never hands it out');
+  assert.deepEqual(
+    store.listQueued().map((r) => r.id),
+    [other.record.id]
+  );
+  // A restart repairs it beside the INTERRUPTED pauses, usage known.
+  const restarted = new ReaderJobStore({ directory });
+  assert.deepEqual(repairedView(restarted.records.get(id)), want, 'saved repaired');
+  assert.deepEqual(restarted.records.get(id).discovery, planted.discovery, 'discovery kept');
+  // It holds no waiting slot: fifteen more jobs fill the queue beside `other`.
+  for (let i = 0; i < READER_LIMITS.waiting - 1; i++) create(restarted, `viewer-${i}`, `key-${i}`);
+  refused(() => create(restarted, 'viewer-x', 'key-x'), 'QUEUE_FULL');
+  assert.notEqual(restarted.lease().id, id);
+});
+
+test('repair: on a live instance, lease() with usage known repairs it', async (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = `reader_${'8'.repeat(64)}`;
+  const planted = plantOlderQueued(directory, base, id);
+  assert.equal(store.lease(id), null);
+  assert.equal(store.records.get(id).state, 'queued');
+  assert.equal(await store.recount(), true);
+  const leased = store.lease();
+  assert.equal(leased.id, other.record.id, 'the next job leases');
+  assert.deepEqual(
+    repairedView(store.records.get(id)).reason,
+    reasonOf(planted.discovery.unavailable)
+  );
+  assert.equal(store.records.get(id).state, 'paused');
+});
+
+test('repair: at full quota startup succeeds, lease() never throws, it stays skipped and shown paused, and the repair lands once room is freed', (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = clone(store.records.get(other.record.id));
+  const lease = store.lease();
+  commit(store, lease, [{ id: 'x', blob: 'e'.repeat(40_000) }], { phase: 'more' });
+  store.pause(lease.id, lease.attempt, lease.fence, { code: 'INTERRUPTED', message: 'x' });
+  const id = `reader_${'9'.repeat(64)}`;
+  // Past its reservation, so the repair's growth (the U2 reason) needs quota.
+  plantOlderQueued(directory, base, id, { request: { pad: 'p'.repeat(20_000) } });
+  const root = storeDirectory(directory);
+  let usage = fs.statSync(path.join(root, 'capability-key')).size;
+  let slack = 0;
+  for (const dir of ['records', 'pages', 'indexes', 'checkpoints', 'manifests', 'definitions'])
+    for (const name of fs.readdirSync(path.join(root, dir))) {
+      const size = fs.statSync(path.join(root, dir, name)).size;
+      usage += size;
+      if (dir === 'records') slack += Math.max(0, RESERVE - size);
+    }
+  const seen = eventsOf(t);
+  const quota = new ReaderJobStore({ directory, maxBytes: usage + slack + 64 });
+  assert.equal(quota.failure, null, 'startup succeeds');
+  assert.equal(quota.records.get(id).state, 'queued', 'the repair did not fit');
+  assert.ok(
+    seen.some(
+      (e) => e.event === 'READER_REPAIR_DEFERRED' && e.job === id && e.code === 'RESOURCE_LIMIT'
+    ),
+    'the refused repair is logged'
+  );
+  for (let i = 0; i < 3; i++) {
+    assert.doesNotThrow(() => quota.lease(), 'lease() never throws');
+    assert.equal(quota.inspect(id).state, 'paused', 'shown paused');
+    assert.equal(quota.records.get(id).state, 'queued', 'still skipped');
+    assert.equal(quota.lease(id), null);
+  }
+  quota.delete(other.record.id, quota.capabilityFor(other.record.id, base.viewer), base.viewer);
+  quota.prune();
+  quota.lease();
+  assert.equal(quota.records.get(id).state, 'paused', 'repaired once room is freed');
+  assert.equal(quota.records.get(id).reason.code, 'DISCOVERY_UNAVAILABLE');
+});
+
+test('repair: a paused record with deferred_requeue and unavailable set is never requeued', async (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = `reader_${'6'.repeat(64)}`;
+  const planted = plantOlderQueued(directory, base, id, {
+    state: 'paused',
+    fence: null,
+    deferred_requeue: true,
+    reason: reasonOf(loadFixture(PAUSE_FX).cases[0].expect.discovery.unavailable),
+  });
+  await store.recount();
+  const file = path.join(storeDirectory(directory), 'records', `${id}.json`);
+  const bytes = fs.readFileSync(file);
+  for (const s of [store, new ReaderJobStore({ directory })])
+    for (let i = 0; i < 3; i++) {
+      // Each call that promotes (lease(), listQueued()) leaves it as it was:
+      // never queued, never saved, its flag and queue fields untouched.
+      s.lease();
+      assert.equal(s.records.get(id).state, 'paused', `lease ${i}`);
+      assert.ok(!s.listQueued().some((r) => r.id === id), 'never promoted');
+      assert.equal(s.records.get(id).state, 'paused', `listQueued ${i}`);
+      assert.ok(fs.readFileSync(file).equals(bytes), 'never saved');
+      assert.deepEqual(s.records.get(id).discovery, planted.discovery);
+    }
+});
+
+// Every U2 save path, one test each, over three inputs: a well-formed release
+// already saved, a malformed record.discovery whose release is pending (at
+// full quota on a live instance, then room freed, so the save lands with the
+// release in it), and a record with no discovery (the control: the reason it
+// writes today).
+function u2Inputs(t, kind, { state = 'running', now = () => Date.now() } = {}) {
+  const { directory, store: seed } = fixture(t, { now });
+  const other = create(seed);
+  const base = clone(seed.records.get(other.record.id));
+  const lease = seed.lease();
+  commit(seed, lease, [{ id: 'x', blob: 'e'.repeat(40_000) }], { phase: 'more' });
+  seed.pause(lease.id, lease.attempt, lease.fence, { code: 'INTERRUPTED', message: 'x' });
+  const id = `reader_${'c'.repeat(64)}`;
+  const running = state === 'running';
+  const fence = running ? 'f'.repeat(64) : null;
+  const fx = loadFixture(PAUSE_FX);
+  const released = fx.cases.find((c) => c.name === 'worker_refusal').expect.discovery;
+  const job = {
+    ...base,
+    id,
+    state,
+    attempt: 1,
+    fence,
+    lease_expires_at: running ? now() + 60_000 : null,
+    cancel_requested: false,
+    deferred_requeue: false,
+    reason: running ? null : { code: 'INTERRUPTED', message: 'x' },
+    ...(kind === 'pending' ? { request: { pad: 'p'.repeat(20_000) }, discovery: [] } : {}),
+    ...(kind === 'saved' ? { discovery: released } : {}),
+  };
+  let store = seed;
+  if (kind === 'pending') {
+    // The quota: what the store counts with the job planted, and 64 bytes.
+    plantRecord(directory, job);
+    const root = storeDirectory(directory);
+    let usage = fs.statSync(path.join(root, 'capability-key')).size;
+    let slack = 0;
+    for (const dir of ['records', 'pages', 'indexes', 'checkpoints', 'manifests', 'definitions'])
+      for (const name of fs.readdirSync(path.join(root, dir))) {
+        const size = fs.statSync(path.join(root, dir, name)).size;
+        usage += size;
+        if (dir === 'records') slack += Math.max(0, RESERVE - size);
+      }
+    fs.unlinkSync(path.join(root, 'records', `${id}.json`));
+    store = new ReaderJobStore({ directory, maxBytes: usage + slack + 64, now });
+  }
+  plantRecord(directory, job);
+  store.inspect(id); // reconciliation: saved, or pending
+  return {
+    directory,
+    store,
+    id,
+    fence,
+    viewer: base.viewer,
+    other: other.record.id,
+    async ready() {
+      if (kind !== 'pending') return;
+      assert.ok(store.pendingRelease.has(id), 'pending on the live instance');
+      assert.equal(await store.recount(), true);
+      assert.ok(store.pendingRelease.has(id), 'still pending at full quota');
+      store.delete(other.record.id, store.capabilityFor(other.record.id, base.viewer), base.viewer);
+      store.prune();
+      assert.ok(store.pendingRelease.has(id), 'pending until a save that writes it');
+    },
+    want(todays) {
+      if (kind === 'none') return { reason: todays, discovery: undefined };
+      if (kind === 'saved') return { reason: reasonOf(released.unavailable), discovery: released };
+      return { reason: U2({}), discovery: malformedRelease(0, {}) };
+    },
+  };
+}
+const U2_KINDS = ['saved', 'pending', 'none'];
+const assertU2 = (store, id, want, label) => {
+  const got = store.records.get(id);
+  assert.deepEqual(got.reason, want.reason, `${label}: reason`);
+  assert.deepEqual(got.discovery, want.discovery, `${label}: discovery`);
+  assert.equal(store.pendingRelease.has(id), false, `${label}: no release left pending`);
+  assert.equal(store.inspect(id).state, got.state, `${label}: the view is the record`);
+};
+
+test('U2 path: store.pause, a requeuing YIELD pauses instead and writes the copied reason', async (t) => {
+  for (const kind of U2_KINDS) {
+    const job = u2Inputs(t, kind);
+    await job.ready();
+    job.store.pause(job.id, 1, job.fence, { code: 'YIELD', message: 'yield', requeue: true });
+    const got = job.store.records.get(job.id);
+    if (kind === 'none') assert.equal(got.state, 'queued', 'a control requeues as today');
+    else {
+      assert.equal(got.state, 'paused', `${kind}: never requeued`);
+      assert.equal(got.deferred_requeue, false);
+      assertU2(job.store, job.id, job.want(null), kind);
+    }
+  }
+});
+
+test('U2 path: _quotaPause forces deferred_requeue false and writes the copied reason', async (t) => {
+  for (const kind of U2_KINDS) {
+    const job = u2Inputs(t, kind);
+    await job.ready();
+    const error = Object.assign(new Error('recounting'), { code: 'STORE_RECOUNTING', status: 503 });
+    job.store._open(() => job.store._quotaPause(job.store.records.get(job.id), error));
+    const got = job.store.records.get(job.id);
+    assert.equal(got.state, 'paused');
+    assert.equal(got.deferred_requeue, kind === 'none', `${kind}: deferred_requeue`);
+    assertU2(
+      job.store,
+      job.id,
+      job.want({ code: 'STORE_RECOUNTING', message: 'recounting' }),
+      kind
+    );
+  }
+});
+
+test('U2 path: _expireLeases writes the copied reason', async (t) => {
+  for (const kind of U2_KINDS) {
+    let now = Date.now();
+    const job = u2Inputs(t, kind, { now: () => now });
+    await job.ready();
+    now += 120_000;
+    job.store._open(() => job.store._expireLeases());
+    assert.equal(job.store.records.get(job.id).state, 'paused');
+    assertU2(
+      job.store,
+      job.id,
+      job.want({
+        code: 'INTERRUPTED',
+        message: 'Lease expired; resume the last durable checkpoint explicitly.',
+      }),
+      kind
+    );
+  }
+});
+
+test('U2 path: cancel() writes the copied reason, a running job keeping its lease', async (t) => {
+  for (const state of ['running', 'paused'])
+    for (const kind of U2_KINDS) {
+      const job = u2Inputs(t, kind, { state });
+      await job.ready();
+      job.store.cancel(job.id, job.store.capabilityFor(job.id, job.viewer), job.viewer);
+      const got = job.store.records.get(job.id);
+      assert.equal(got.state, state === 'running' ? 'running' : 'cancelled');
+      assert.equal(got.fence, job.fence, 'a running lease is kept');
+      assertU2(
+        job.store,
+        job.id,
+        job.want({
+          code: 'CANCELLED',
+          message:
+            state === 'running'
+              ? 'Cancellation requested; worker stops at its next committed safe point.'
+              : 'Cancelled; committed evidence is retained.',
+        }),
+        `${state} ${kind}`
+      );
+    }
+});
+
+test("U2 path: startup's INTERRUPTED pause writes the copied reason", (t) => {
+  for (const kind of ['saved', 'malformed', 'none']) {
+    const job = u2Inputs(t, kind === 'malformed' ? 'none' : kind);
+    if (kind === 'malformed') {
+      // A small malformed record: its release is saved at startup's
+      // reconciliation, and the INTERRUPTED pause then copies it.
+      const record = clone(job.store.records.get(job.id));
+      plantRecord(job.directory, { ...record, discovery: {} });
+    }
+    const restarted = new ReaderJobStore({ directory: job.directory });
+    const got = restarted.records.get(job.id);
+    assert.equal(got.state, 'paused');
+    const want =
+      kind === 'malformed'
+        ? { reason: U2({}), discovery: malformedRelease(0, {}) }
+        : job.want({
+            code: 'INTERRUPTED',
+            message: 'Worker interrupted; explicitly resume the committed cursor.',
+          });
+    assertU2(restarted, job.id, want, kind);
+  }
+});
+
+test("U2 path: reconciliation's own release of a queued, paused or cancelled job writes the copied reason; a running job's is left to its lease", (t) => {
+  for (const state of ['queued', 'paused', 'cancelled', 'running']) {
+    const { directory, store } = fixture(t);
+    const other = create(store);
+    const base = store.records.get(other.record.id);
+    const id = `reader_${'d'.repeat(64)}`;
+    const running = state === 'running';
+    const planted = plantReal(directory, base, id, PAUSE_LOGS, {
+      job: {
+        state,
+        fence: running ? 'f'.repeat(64) : null,
+        lease_expires_at: running ? Date.now() + 60_000 : null,
+        reason: running ? null : { code: 'INTERRUPTED', message: 'x' },
+      },
+      damage: (stored) => stored.slice(1),
+    });
+    store.inspect(id);
+    const got = store.records.get(id);
+    const want = releasedAs(planted.discovery, 'segment_missing', 'seen');
+    assert.deepEqual(got.discovery, want, state);
+    assert.deepEqual(got.reason, running ? null : reasonOf(want.unavailable), state);
+    assert.equal(got.state, state === 'queued' ? 'paused' : state);
+  }
+});
+
+// No record that is not dispatched is ever shown queued (§7.4): every state ×
+// every discovery shape, a malformed one's release saved or pending, a
+// released queued one's repair saved or not yet.
+test('the view: every record _dispatchable skips is shown paused or cancelled with a reason, or as its own state', async (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const released = loadFixture(PAUSE_FX).cases[0].expect.discovery;
+  const planted = [];
+  let n = 0;
+  for (const state of ['queued', 'running', 'paused', 'cancelled', 'completed'])
+    for (const shape of ['none', 'live', 'released', 'malformed'])
+      for (const pad of [false, true]) {
+        const id = `reader_${(++n).toString(16).padStart(64, '0')}`;
+        const running = state === 'running';
+        const job = {
+          state,
+          fence: running ? 'f'.repeat(64) : null,
+          lease_expires_at: running ? Date.now() + 60_000 : null,
+          reason: ['queued', 'running'].includes(state)
+            ? null
+            : { code: 'INTERRUPTED', message: 'x' },
+          ...(pad ? { request: { pad: 'p'.repeat(20_000) } } : {}),
+        };
+        if (shape === 'live') plantReal(directory, base, id, { seen: 1 }, { job });
+        else
+          plantRecord(directory, {
+            ...base,
+            id,
+            ...job,
+            ...(shape === 'released' ? { discovery: released } : {}),
+            ...(shape === 'malformed' ? { discovery: {} } : {}),
+          });
+        planted.push(id);
+      }
+  const check = (label) => {
+    const dispatchable = new Set(store._open(() => store._dispatchable().map((r) => r.id)));
+    for (const id of [other.record.id, ...planted]) {
+      const view = store.inspect(id);
+      if (view.state === 'queued')
+        assert.ok(dispatchable.has(id), `${label} ${id}: shown queued, dispatchable`);
+      if (dispatchable.has(id)) assert.equal(view.state, 'queued', `${label} ${id}`);
+      else if (store.records.get(id).state === 'queued') {
+        assert.ok(['paused', 'cancelled'].includes(view.state), `${label} ${id}: ${view.state}`);
+        assert.ok(view.reason?.code, `${label} ${id}: with a reason`);
+      }
+    }
+  };
+  store.inspect(other.record.id); // reconciles: small releases saved, padded ones pending
+  assert.ok(store.pendingRelease.size > 0, 'some releases pending');
+  check('usage unknown');
+  await store.recount();
+  check('after the recount');
+  store.lease();
+  check('after a lease');
+});
+
+// A U2 save of a pending job that _capacity refuses is made without the
+// release, with today's reason, and logged; the release stays pending and
+// shown, and lease() never throws (§7.4, §8 U2).
+test('U2 path: a refused save of a pending job is made without its release, and lease() never throws', async (t) => {
+  let now = Date.now();
+  const job = u2Inputs(t, 'pending', { now: () => now });
+  assert.equal(await job.store.recount(), true);
+  assert.ok(job.store.pendingRelease.has(job.id), 'pending at full quota');
+  const seen = eventsOf(t);
+  now += 120_000; // past the lease
+  assert.doesNotThrow(() => job.store.lease(), 'lease() never throws');
+  const got = job.store.records.get(job.id);
+  assert.equal(got.state, 'paused');
+  assert.deepEqual(got.reason, {
+    code: 'INTERRUPTED',
+    message: 'Lease expired; resume the last durable checkpoint explicitly.',
+  });
+  assert.deepEqual(got.discovery, [], 'the malformed value, unreleased');
+  assert.ok(job.store.pendingRelease.has(job.id), 'still pending');
+  assert.ok(
+    seen.some(
+      (e) => e.event === 'READER_REPAIR_DEFERRED' && e.job === job.id && e.code === 'RESOURCE_LIMIT'
+    ),
+    'the refused save is logged'
+  );
+  const view = job.store.inspect(job.id);
+  assert.deepEqual([view.state, view.reason], ['paused', U2({})], 'shown as its release');
 });
