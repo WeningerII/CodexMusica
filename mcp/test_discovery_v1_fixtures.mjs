@@ -4685,6 +4685,17 @@ test('§10: the per-byte rate over the capped shapes, and at the deeper bounds',
     'the next bound and the last'
   );
   assert.ok(deeper.includes(`under the ${stops.toFixed(1)} ns at which it stops fitting`));
+  // The conclusion the row draws is the derivation's at both deeper rates.
+  const keep = [at16, at64].map((r) =>
+    mib(2 ** Math.floor(Math.log2(Math.floor(left / (r * 1e-9 * factor)))))
+  );
+  assert.equal(new Set(keep).size, 1, 'one cap at both deeper bounds');
+  assert.ok(
+    deeper.includes(
+      `so on these measurements a re-derivation at either would keep the cap at ${keep[0]}, under`
+    ),
+    `§10: a re-derivation at either keeps ${keep[0]}`
+  );
   for (const r of [median, at16, at64]) {
     assert.ok(r <= stops, `${r} ns keeps ${LIMITS.MEMBERSHIP_BYTES}`);
     const room = Math.floor(left / (r * 1e-9 * factor));
@@ -4772,6 +4783,48 @@ test(`${MEASUREMENT}: §10's per-byte figures are the rows' own`, () => {
   ])
     assert.ok(row.includes(stated), `§10 states ${stated}`);
   assert.ok(fx.host.cpu.includes('Xeon') && fx.host.cpu.includes('2.10GHz'));
+  // The row's list of shapes is the fixture's names, in order, with the runs
+  // of one kind of name folded into one phrase.
+  const names = fx.shapes.map((x) => x.name);
+  const and = (xs) =>
+    xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`;
+  const plainNest = names.filter((x) => /^empty arrays nested [\d,]+ deep$/.test(x));
+  const cappedNest = names.filter((x) => /^empty arrays nested [\d,]+ deep, capped at 7$/.test(x));
+  const zeros = names.filter((x) => x.startsWith('`0` nested'));
+  const singles = names.filter((x) => x.startsWith('one array nested'));
+  const flat = names.filter(
+    (x) => ![plainNest, cappedNest, zeros, singles].some((g) => g.includes(x))
+  );
+  assert.equal(
+    flat.length + plainNest.length + cappedNest.length + zeros.length + singles.length,
+    names.length
+  );
+  assert.equal(singles.length, 1);
+  const depths = (xs) => xs.map((x) => /nested ([\d,]+) deep/.exec(x)[1]);
+  const list = [
+    ...flat,
+    `empty arrays nested ${and(depths(plainNest))} deep`,
+    `empty arrays nested ${and(depths(cappedNest))} deep, each capped at ${LIMITS.ENTRY_DEPTH - 1} inside the entry's own array`,
+    and(zeros),
+    `and ${singles[0]}`,
+  ].join(', ');
+  assert.ok(
+    row.includes(`(BB8 6693502369): ${list}, each stored plain and gzipped`),
+    `§10 lists the shapes: ${list}`
+  );
+  const longest = depths(singles)[0];
+  assert.ok(
+    row.includes(`The previous revision's 251.4 ns came from the ${longest}-deep array, gzipped`),
+    `the previous worst is the ${longest}-deep array`
+  );
+  // §6.11 states the passes as the rows give them.
+  const passWord = { 1: 'one pass', 2: 'two passes' }[passes.length];
+  assert.ok(
+    section('6. Worker semantics')
+      .replace(/\s+/g, ' ')
+      .includes(`each stored plain and gzipped, in ${passWord} (§10; BB8 6693502369)`),
+    `§6.11 states ${passWord}`
+  );
   assert.ok(
     deeper.includes(
       `the same load, in one pass, with the nested shapes capped at ${depthFor(5)} and at 64 instead: worst medians ${f1(sens[0])} and ${f1(sens[1])} ns`
@@ -6683,6 +6736,9 @@ const CITES = [
     'const identity = await this.resolveIdentity(record.request);',
     'const trusted = this.store.workerPayload(record.id);',
   ],
+  ['reader_scheduler.js:514', 'const record = this.store.lease();', null],
+  ['reader_job_store.js:884-907', 'lease(id = null) {', '}'],
+  ['reader_scheduler.js:592-598', '} catch (failure) {', '});'],
 ];
 const CITE_ROOTS = ['mcp/', 'lyric-harness/library/', 'lyric-harness/'];
 const citeFile = (f) => {
@@ -6817,23 +6873,47 @@ test(`${CODEC}: the admission guard's cases, paths and refusal (§2.11, §9)`, (
     { code: ad.code, status: ad.status },
     { code: 'INVALID_DECLARATION', status: 400 }
   );
-  // BB8 21:31Z: a record written before the check is refused at the
-  // scheduler's check before workerPayload, paused with the code, never leased.
+  // BB8 21:31Z: a record written before the check is leased by the store
+  // (store.lease() runs before the check and saves it running), refused at the
+  // scheduler's check before workerPayload, and paused with the code by the
+  // catch; the bridge's runReaderLease is never reached.
   const st = ad.stored_request;
   const stored = JSON.parse(st.request);
   assert.equal(wellFormedDeep(stored.declaration_set), false, 'the stored request is refused');
   assert.deepEqual(stored, JSON.parse(ad.refused[0].body), "the guard test's line, stored");
   assert.equal(st.written_before_the_check, true);
-  assert.ok(
-    CITES.some(([c]) => c === st.checked_at),
-    st.checked_at
-  );
+  for (const at of [st.store_leased_at, st.store_lease, st.checked_at, st.paused_at])
+    assert.ok(
+      CITES.some(([c]) => c === at),
+      at
+    );
   assert.deepEqual(st.expect, {
     code: ad.code,
+    store_leased: true,
     paused: true,
-    leased: false,
     run_reader_lease: 'never called',
   });
+  // The order the record meets them in: the store's lease, the check, then the
+  // bridge lease the check keeps it from, and the catch's pause.
+  const sched = fs.readFileSync(path.join(ROOT, 'mcp/reader_scheduler.js'), 'utf8').split('\n');
+  const lineOf = (cite) => Number(/:(\d+)/.exec(cite)[1]);
+  assert.ok(sched[lineOf(st.store_leased_at) - 1].includes('this.store.lease()'));
+  assert.ok(
+    lineOf(st.store_leased_at) < lineOf(st.checked_at),
+    'the store leases before the check'
+  );
+  const bridge = sched.findIndex((l) => l.includes('this.bridge.runReaderLease(')) + 1;
+  assert.ok(Number(/-(\d+)$/.exec(st.checked_at)[1]) < bridge, 'the check comes before it');
+  assert.ok(bridge < lineOf(st.paused_at), 'the catch follows the bridge lease');
+  const store = fs.readFileSync(path.join(ROOT, 'mcp/reader_job_store.js'), 'utf8').split('\n');
+  const [, a, b] = /:(\d+)-(\d+)/.exec(st.store_lease).map(Number);
+  assert.ok(
+    store
+      .slice(a - 1, b)
+      .join('\n')
+      .includes("state: 'running'"),
+    'lease() saves it running'
+  );
 });
 
 // Every statement this fold adds, as the contract must read once the facts
@@ -6998,9 +7078,12 @@ const CLAIMS = [
       "bridge's `runReaderLease` is never called. The same text with a well-formed pair",
       "(`{{ADM_PAIR}}`) is admitted. **Stored-request case** (BB8's, 21:31Z; R2's scheduler",
       'test): a job record written before the check, whose stored declaration set holds the',
-      'same lone-surrogate `line`, is refused at the check before `workerPayload`',
-      '(`{{ADM_STORED_AT}}`) with `{{ADM_CODE}}` and paused with that code, and is never leased:',
-      '`runReaderLease` is never called. `admission.stored_request` in',
+      'same lone-surrogate `line`, is leased by the store first (`this.store.lease()`,',
+      '`{{ADM_LEASED_AT}}`, saves it `running` with a lease, `{{ADM_STORE_LEASE}}`). It is then',
+      'refused at the check before `workerPayload` (`{{ADM_STORED_AT}}`) with `{{ADM_CODE}}`,',
+      "and the scheduler's catch pauses it with that code (`:{{ADM_PAUSED_LINES}}`), which ends",
+      "the store's lease. The bridge lease is never taken: `runReaderLease` is never called, and",
+      'the worker never sees the request. `admission.stored_request` in',
       "`good/codec_error_mapping.json` is that record's request.",
     ],
   },
@@ -7165,8 +7248,9 @@ const CLAIMS = [
     text: [
       "- **The store's segment decode (R2).** The store decodes a segment's verified bytes with",
       'a fatal UTF-8 decoder before it parses them, so invalid UTF-8 is F3 in Node as in Python',
-      "(§2.11), in the store half's runtime train. It never decodes them with `Buffer.toString`,",
-      "and its tests include §2.11's read-back of a lone {{U_BYTE}} byte, which a replacing decode",
+      "(§2.11), in the store half's runtime train. It never decodes them with `Buffer.toString`",
+      "or `JSON.parse` on the buffer, and its tests include §2.11's read-back of a lone {{U_BYTE}}",
+      'byte, which a replacing decode',
       'fails (BB8, 21:31Z).',
     ],
   },
@@ -7491,6 +7575,9 @@ const FOLD48_CLAIMS = [
     where: '7',
     whole: false,
     text: [
+      "In `unavailable.released`, each released log's state, `{{STATE_SHAPE}}`, collapses to its",
+      'name and its head, `{"<log>": <head>}`, as the previous revision (`2e8ae0239`) already',
+      'defined it, and the reason copies the same map (U2).',
       'For each released log the save drops its two states, in `logs` and in `verified` (about',
       '{{STATE_HEAD}} bytes with a head, about {{STATE_EMPTY}} for an empty state), and adds its head',
       'twice',
@@ -7665,6 +7752,33 @@ const FOLD48_CLAIMS = [
       "checks §10's text and §6.11's rate against them.",
     ],
   },
+  // The review of 04495c233: §2's state size, and §6.11's provisional bounds.
+  {
+    where: '3',
+    whole: false,
+    text: [
+      '`record.discovery` (five logs, each about {{STATE_HEAD}} bytes in `logs` and as much',
+      'again in `verified`)',
+    ],
+  },
+  {
+    where: '6',
+    whole: false,
+    text: [
+      '`MEMBERSHIP_ENTRIES = 65536` and `MEMBERSHIP_BYTES = {{MB}}`, are the bounds, and',
+      '`MEMBERSHIP_BYTES` is provisional with `ENTRY_DEPTH = {{ED}}` (§2.1).',
+    ],
+  },
+  {
+    where: '6',
+    whole: false,
+    text: [
+      'not a measured margin. The byte bound is provisional: its rate is the worst of {{SHAPES}} shapes',
+      'capped at `ENTRY_DEPTH = {{ED}}`, itself provisional until the #721 author declares the',
+      'entry shapes, and a declared depth of {{DECL_NEXT}} or more re-derives both (§2.1, §12,',
+      'item 31).',
+    ],
+  },
 ];
 // Item 31's basis (§2.1): the deepest entries the source builds at this head,
 // read from the lines §2.1 cites, and ENTRY_DEPTH from the formula BB8 ruled
@@ -7798,12 +7912,16 @@ function codecFacts() {
     RESET_BYTES: String(reset.bytes),
     STATE_HEAD: String(states.head),
     STATE_EMPTY: String(states.empty),
+    STATE_SHAPE: `{${Object.keys(reset).join(', ')}}`,
     U_FULL_CAUSE: pb.expect.full_read.cause,
     U_WALK_CODE: pb.expect.lease_walk.code,
     U_LOAD_CAUSE: pb.expect.worker_load.cause,
     U_BYTE: `0x${pb.entry_hex.slice(2, -2).toUpperCase()}`,
     U_REPLACING: pb.replacing_decode.rule,
     ADM_STORED_AT: ad.stored_request.checked_at,
+    ADM_LEASED_AT: ad.stored_request.store_leased_at,
+    ADM_STORE_LEASE: ad.stored_request.store_lease,
+    ADM_PAUSED_LINES: ad.stored_request.paused_at.split(':')[1],
     SHAPES: String(meas.shapes.length),
     SENS16: String(depthFor(5)),
     SENS64: String(64),

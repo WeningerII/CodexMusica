@@ -57,7 +57,9 @@ by `ENTRY_DEPTH`, provisional until the #721 author declares the entry shapes, a
 §3, §6.11, §8, §9, §10, §12, §13). It folds BB8's confirmations of 21:31Z: segment bytes that are
 not UTF-8 are F3 in both languages, decoded in Node by a fatal `TextDecoder`, never
 `Buffer.toString`; and admission's lone-surrogate refusal has a guard test on both create paths
-and a stored-request case at `workerPayload` (§2.11, §9, §13). Where this text and the proposal differ, this text governs. 3PO's
+and a stored-request case at `workerPayload` (§2.11, §9, §13). A review of `04495c233`
+corrected that case: the store leases the record before the check, and the check keeps it from
+the bridge lease (§2.11). Where this text and the proposal differ, this text governs. 3PO's
 acknowledgement (6677006069) fixes the `contracts.py` reservation to the checkpoint declaration
 and schema; the shared `CONTRACT_VERSION` does not change.
 
@@ -591,9 +593,12 @@ and the validator checks it in Node and in Python and builds this section's text
   the Site bridge and `/library/v1`, before any lease: no job record is written and the bridge's
   `runReaderLease` is never called. The same text with a well-formed pair (`\ud83d\ude00`) is
   admitted. **Stored-request case** (BB8's, 21:31Z; R2's scheduler test): a job record written
-  before the check, whose stored declaration set holds the same lone-surrogate `line`, is refused
-  at the check before `workerPayload` (`reader_scheduler.js:519-523`) with `INVALID_DECLARATION`
-  and paused with that code, and is never leased: `runReaderLease` is never called.
+  before the check, whose stored declaration set holds the same lone-surrogate `line`, is leased
+  by the store first (`this.store.lease()`, `reader_scheduler.js:514`, saves it `running` with a
+  lease, `reader_job_store.js:884-907`). It is then refused at the check before `workerPayload`
+  (`reader_scheduler.js:519-523`) with `INVALID_DECLARATION`, and the scheduler's catch pauses
+  it with that code (`:592-598`), which ends the store's lease. The bridge lease is never taken:
+  `runReaderLease` is never called, and the worker never sees the request.
   `admission.stored_request` in `good/codec_error_mapping.json` is that record's request.
 
 ## 3. Hard limits
@@ -1547,7 +1552,8 @@ are measured, not bounded. The proof run's 30 s first-commit gate is what qualif
 
 **The derivation** (BB8 6682942783, option (b); 6688972927). The budget is 30 s from a lease's
 start to its first commit (§9). The inputs are §10's measurements, not bounds; the results,
-`MEMBERSHIP_ENTRIES = 65536` and `MEMBERSHIP_BYTES = 4194304`, are the bounds. Only the load
+`MEMBERSHIP_ENTRIES = 65536` and `MEMBERSHIP_BYTES = 4194304`, are the bounds, and
+`MEMBERSHIP_BYTES` is provisional with `ENTRY_DEPTH = 8` (§2.1). Only the load
 rates are scaled. Construct, recompute and the walk enter at their loaded-host measurements, as
 in the derivation of `8732918312`.
 
@@ -1609,7 +1615,10 @@ in the derivation of `8732918312`.
   over the same four logs. Its term is 1.75 s. At 4,096-byte entries it holds 1,024 of them,
   256 segments. #656's measured `seen` and `variants` hold about 1,337,764 entry bytes
   (19,880 × 65.3 + 165 × about 240, computed from §10), so the cap leaves 2,856,540 bytes of
-  headroom for the alternate phase, not a measured margin.
+  headroom for the alternate phase, not a measured margin. The byte bound is provisional: its
+  rate is the worst of 17 shapes capped at `ENTRY_DEPTH = 8`, itself provisional until the #721
+  author declares the entry shapes, and a declared depth of 5 or more re-derives both (§2.1, §12,
+  item 31).
 - **What it replaces** (BB8 6693502369). The previous revision's 2,097,152 (2 MiB) came from
   251.4 ns per byte, the 17 shapes measured up to 2,040 levels deep, which F1 no longer admits.
   That rate was about 2.3-fold the 107.3 ns the five shapes of `465582a78` peaked at on the same
@@ -1788,7 +1797,7 @@ GC:
 
   A log line is written, at error level for `segment_corrupt`. **The release is provably no
   larger** (BB8 6678702125, ruling 5). In `unavailable.released`, each released log's state,
-  `{head, segments, count, digest}`, collapses to its name and its head, `{"<log>": <head>}`, as
+  `{head, segments, count, bytes, digest}`, collapses to its name and its head, `{"<log>": <head>}`, as
   the previous revision (`2e8ae0239`) already defined it, and the reason copies the same map
   (U2). For each released log the save drops its two states, in `logs` and in `verified` (about
   200 bytes with a head, about 130 for an empty state), and adds its head twice (about 80 bytes
@@ -2070,8 +2079,8 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   BB8 6693502369). `record.discovery` has not shipped, so the member is no format break.
 - **The store's segment decode (R2).** The store decodes a segment's verified bytes with a fatal
   UTF-8 decoder before it parses them, so invalid UTF-8 is F3 in Node as in Python (§2.11), in
-  the store half's runtime train. It never decodes them with `Buffer.toString`, and its tests
-  include §2.11's read-back of a lone 0xFF byte, which a replacing decode fails (BB8, 21:31Z).
+  the store half's runtime train. It never decodes them with `Buffer.toString` or `JSON.parse`
+  on the buffer, and its tests include §2.11's read-back of a lone 0xFF byte, which a replacing decode fails (BB8, 21:31Z).
 - **Admission refuses a lone surrogate (R2).** `validateRequest` and the scheduler's check before
   `workerPayload` refuse a declaration set holding text that is not well-formed Unicode, as
   `INVALID_DECLARATION` (400), in the store half's runtime train, which carries the worker half
@@ -2112,7 +2121,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | per lease | walk about 10 ms; load 20,045 entries × 30.4 µs = 0.6 / 1.5 s; recompute 0.9 / 2.4 s; construct 6.4 / 15.2 s; about 8 / 19 s in all | measured |
 | loaded / light | construct 2.375, load 2.5, recompute 2.67 | computed from the measured times; §6.11 rounds the load's 2.5 up to 3 |
 | load per byte | 138.8 ns per entry byte at 4,096-byte entries: the worst median of five loads of 8 MiB (2,048 entries, 512 segments), over 17 entry shapes, each capped at `ENTRY_DEPTH` (8) (BB8 6693502369): an ASCII string, a 3-byte UTF-8 string, one-character escapes, empty strings, one-digit integers, one-element arrays, empty arrays, empty arrays nested 2 and 4 deep, empty arrays nested 8, 16, 64, 256 and 1,024 deep, each capped at 7 inside the entry's own array, `0` nested 2 deep and `0` nested 8 deep, capped at 7, and one array nested 2,040 deep, capped at 7, each stored plain and gzipped, in two passes. The worst median is `0` nested 7 deep, gzipped; the worst single load 151.0 ns. The five shapes of `465582a78` peak at 101.9 ns in the same passes, so nesting to the bound raises the rate about 1.4-fold. The previous revision's 251.4 ns came from the 2,040-deep array, gzipped, about 2.3-fold the 107.3 ns its five shapes peaked at on that host (BB8 6693638249). The load is the worker's page reader (`worker.read_page_object`), F3, R2 and F5, and the membership set keyed by each entry's canonical bytes, computed once for F5 (§5.2). Measured on a 4-CPU Xeon at 2.1 GHz under Python 3.13, at one-minute load averages of 3.7 to 4.4, not on #656's light host | measured (BB8 6688972927, 6693502369); the rows are `good/membership_load_measurement.json`; §6.11 scales it by 3 |
-| load per byte, deeper bounds | the same load, in one pass, with the nested shapes capped at 16 and at 64 instead: worst medians 153.5 and 169.9 ns, so the cap would stay 4 MiB for either, under the 184.4 ns at which it stops fitting (§6.11) | measured beside the row above, in the same fixture; for BB8's ruling on `ENTRY_DEPTH` (§12, item 31) |
+| load per byte, deeper bounds | the same load, in one pass, with the nested shapes capped at 16 and at 64 instead: worst medians 153.5 and 169.9 ns, so on these measurements a re-derivation at either would keep the cap at 4 MiB, under the 184.4 ns at which it stops fitting (§6.11) | measured beside the row above, in the same fixture; for BB8's ruling on `ENTRY_DEPTH` (§12, item 31) |
 | keyed through `canonical_json` | 411 to 703 ns per entry byte on value-dense 4,096-byte entries (one-digit integers, one-element and empty arrays), five to nine times the single pass on the same shapes; 12 to 18 ns on long strings. The same load path and host as the row above, keying each entry by `canonical_json` instead | measured; outside the derivation, which §2.1 and §5.2 forbid |
 | rebuilt load at #656's entry size | 20,045 ASCII entries of 65 bytes: about 3.5 µs per entry plain and 4.1 µs gzipped, against a0's 30.4 µs on the light host; the gap is not explained (§6.11) | measured on the same host as the two rows above |
 | per commit | about 0.22 KB retained on average | computed |

@@ -590,11 +590,14 @@
       "name": "stored",
       "request": "{\"declaration_set\":{\"pronunciations\":[{\"line\":\"Bad \\ud800\"}]}}",
       "written_before_the_check": true,
+      "store_leased_at": "reader_scheduler.js:514",
+      "store_lease": "reader_job_store.js:884-907",
       "checked_at": "reader_scheduler.js:519-523",
+      "paused_at": "reader_scheduler.js:592-598",
       "expect": {
         "code": "INVALID_DECLARATION",
+        "store_leased": true,
         "paused": true,
-        "leased": false,
         "run_reader_lease": "never called"
       }
     }
