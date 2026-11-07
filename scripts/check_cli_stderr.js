@@ -138,6 +138,10 @@ cases.push({
   ],
   notes: [],
   minStderr: 2 * 212992,
+  // About 5.4 s alone and up to 8.2 s with CONCURRENCY children on a 4-core
+  // box: too close to the shared 15 s for a slow runner, so this case alone
+  // gets 30 s (BB8, #828). A timeout still fails under the case's name.
+  timeout: 30000,
   jsonPrefix:
     'note: blending 17 traditions; recipes are tuned for up to 3, so output may be noisy.\n',
 });
@@ -311,7 +315,7 @@ async function main() {
   const refs = new Map();
   await pool(
     cases.map((c) => async () => {
-      const r = await run(c.args, true);
+      const r = await run(c.args, true, c.timeout || TIMEOUT);
       valid(c, r);
       refs.set(c.name, r);
     })
@@ -319,7 +323,7 @@ async function main() {
   await pool(
     cases.flatMap((c) =>
       Array.from({ length: REPEATS }, (_, i) => async () => {
-        const r = await run(c.args);
+        const r = await run(c.args, false, c.timeout || TIMEOUT);
         // Bytes first: a pipe that lost a JSON stderr's tail is a stderr
         // mismatch against the file reference, not a JSON parse error.
         equal(refs.get(c.name), r, `${c.name} repeat ${i + 1}`);
