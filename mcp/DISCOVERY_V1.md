@@ -356,7 +356,8 @@ null
 - `null` means the job holds no discovery state: its frames carry none, it has completed,
   or it is a tombstone. A record with no `discovery` key holds none either.
 - **Malformed** means present, not `null`, and not of this shape: its keys or their types differ,
-  or `verified` does not name exactly the logs `logs` names (below; #656 Step 6 review, D1).
+  or `verified` does not name exactly the logs `logs` names (below; #656 Step 6 review, D1, which
+  BB8 ruled is this bullet's reading of §2.7, 6709891376, ruling 1).
   Only a writer other than the store can produce one. Reconciliation releases it with cause
   `chain_broken` and log `null` (§7.4); it is never dispatched and never a GC root.
 - `logs` names every log of the current epoch that any committed cursor of that epoch has
@@ -1884,7 +1885,8 @@ GC:
   attempt counter, its fence and its queue fields (`queued_at`, `queue_order`,
   `cancel_requested`) at their widest, kept as they were. The release is never larger than the
   record it replaces. The property covers every well-formed `record.discovery`, whose `verified` names exactly the
-  logs `logs` names (§2.7); a malformed one is
+  logs `logs` names (§2.7; BB8's ruling on D1, 6709891376: a value that breaks it is malformed, and
+  never takes a pending path of its own); a malformed one is
   ruled by the bullet below, never by this property. A log whose head is `null` but whose
   `segments` is not 0 fails R2 and releases with no head; its two dropped states still outweigh
   what the release adds. The worst case is one log at its smallest count, with the longest cause
@@ -1947,13 +1949,15 @@ Nothing is ever reinterpreted, and missing state is never rebuilt.
 `DISCOVERY_UNAVAILABLE` always names its cause. 409 matches `STALE_READING`; 410 stays with
 `RESULT_EXPIRED`, because here the result is not gone. The Log column says whether a reply's
 `error_log` names a log (`required`), may (`optional`) or must not (`none`); §2.7's `log` follows
-it. The causes:
+it. The one exception is `chain_broken` for a malformed `record.discovery`, whose release is the
+store's own and names log `null` (§2.7, §7.4; BB8 6709891376, ruling 2). That release is not a
+reply, so C1 still holds every reply naming `chain_broken` to `required`. The causes:
 
 | Cause | Rule | Raised by | Log | Message |
 | --- | --- | --- | --- | --- |
 | `segment_missing` | R1 | worker; store from `unavailable` | required | This analysis can no longer resume exactly: part of its saved progress is missing. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
 | `segment_corrupt` | F6 at a full read | the store's full read only (reconciliation, `resume()`), logged at error level; never a worker, whose loads, the complete verified load of `alt_cells` included, raise `STORAGE_CORRUPT` on F6 | required | This analysis can no longer resume exactly: part of its saved progress is damaged. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
-| `chain_broken` | R2, F3 at read | the store's full read (reconciliation, `resume()`); worker | required | This analysis can no longer resume exactly: part of its saved progress does not fit together. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
+| `chain_broken` | R2, F3 at read; §2.7 shape (malformed record) | the store's full read (reconciliation, `resume()`); reconciliation of a malformed `record.discovery` (§2.7, §7.4); worker | required, except null for a malformed record (§2.7, §7.4) | This analysis can no longer resume exactly: part of its saved progress does not fit together. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
 | `digest_mismatch` | F5 at read | worker | required | This analysis can no longer resume exactly: part of its saved progress does not match its record. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
 | `cursor_disagrees` | R3 | worker | optional | the `digest_mismatch` message |
 | `inventory_mismatch` | R4 | worker | none | the `digest_mismatch` message |
@@ -2320,6 +2324,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 48 | BB8 6693502369 (items 30 and 31, R2's questions of 6693449409); BB8's review 6693638249, nits 1–4 | (30) each log's head and verified state carry `bytes`, the sum of its sealed entries' canonical bytes, added to by each seal; W7 holds `MEMBERSHIP_BYTES` from it; it is verified where it is read: R2 at a full read (`chain_broken`), R5 at a lease's walk (`STORAGE_CORRUPT`), R3 at the worker's load (`cursor_disagrees`); (31) F1 bounds the depth by `ENTRY_DEPTH`, the smallest power of two at least twice the largest declared depth, at least 8 and at most 64, provisionally 8 until the #721 author declares the entry shapes; past it `INVARIANT_FAILURE` on the worker's emit, `READER_PROTOCOL` at the store, F3 on read-back; `MEMBERSHIP_BYTES = 4194304` re-derived over the 17 shapes capped at it, provisional with it; the nits: no #656 entry count is a term, each log's section names both caps, the counts use the unrounded terms but for the per-byte rate, as printed, and 2.3-fold is against 107.3 ns; BB8's 21:31Z confirmations: invalid UTF-8 in a segment F3 in both languages, never `Buffer.toString`, and admission's stored-request case | §1, §2.1, §2.3, §2.7, §2.10, §2.11, §3, §4, §5.1, §5.2, §6.1, §6.2, §6.4, §6.11, §8, §9, §10, §12, §13 | `bad/entry_over_depth.json`, `bad/head_bytes_disagree.json`, `bad/verified_bytes_disagree.json`, `bad/summary_bytes_disagree.json`, `bad/membership_over_cap.json`, `bad/verified_bytes_ahead.json`, `good/codec_error_mapping.json`, `good/membership_load_measurement.json`; the §6.11 derivation and byte tests |
 | 49 | BB8 6699352254 (review of `a12c35b4d`, rulings 1–2) | (1) `MEMBERSHIP_BYTES = 4194304` stands, provisional with `ENTRY_DEPTH`; power-of-two rounding is accepted; the per-byte rate is re-measured on a quiet host before the proof run, and the cap is re-derived, not inherited, if `ENTRY_DEPTH` reaches 64; (2) the stored-request check stays where §2.11 has it, before `workerPayload`, never in `this.store.lease()`; and the 17 named shapes are 13 distinct loads at this cap | §2.11, §6.11, §10, §12 | `good/membership_load_measurement.json`, `good/codec_error_mapping.json`; the §6.11 derivation and the claim tests |
 | 50 | BB8 6700200435 (all seven recommendations accepted, with conditions) | (3) the scheduler's fallback pause when `store.pause` refuses: one `READER_PROTOCOL` pause, no cause, no release, none for `STALE_ATTEMPT`, the same under C1 on and off, pinned by a fixture; (4) a malformed `record.discovery` shows as `paused` with the U2 `chain_broken` reason from the reconciliation that finds it, saved at once when admitted and otherwise pending until usage is known; (7) the store stats a segment before reading it, and a stored size over 2 MiB is F6, `segment_corrupt` at a full read, without a read | §2.5, §2.7, §2.11, §5.1, §7.4, §8, §12, §13 | `bad/reply_pause_refused.json`, `bad/segment_oversized.json` |
+| 51 | BB8 6709891376 (rulings 1–2 on R2's Step 6 questions) | (1) D1 as built: a `verified` that does not name exactly the logs `logs` names is not of §2.7's shape, so the value is malformed, and a release that could grow never takes a pending path of its own; (2) the `chain_broken` cause row names the malformed record in its Rule and Log columns, and the module's test holds that row to `DISCOVERY_CAUSES` through a closed list of exactly one exception | §2.7, §7.4, §8 | the store tests; `test_reader_discovery`'s cause-table test |
 
 ## 12. Rulings on the items added for confirmation
 

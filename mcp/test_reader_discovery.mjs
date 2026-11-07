@@ -159,11 +159,45 @@ function causeTables() {
   };
 }
 
+// The rows of §8's cause table whose Rule and Log columns say more than
+// DISCOVERY_CAUSES does, each with the exact text the row holds (BB8
+// 6709891376, ruling 2). The list is closed: it holds exactly this one entry,
+// and a second one fails the test below until it is ruled on. chain_broken is
+// also the cause of a malformed record.discovery (§2.7), which the store
+// releases with log null (§7.4). That release is the store's own, never a
+// worker's reply, so the module keeps `required`, the value C1 checks.
+const CAUSE_ROW_EXCEPTIONS = Object.freeze({
+  chain_broken: Object.freeze({
+    rule: 'R2, F3 at read; §2.7 shape (malformed record)',
+    log: 'required, except null for a malformed record (§2.7, §7.4)',
+  }),
+});
+// A row as the module states it: an excepted row's Rule and Log columns must
+// be exactly the listed text, and then read as the module's values.
+function asModule(cause, row) {
+  if (!Object.hasOwn(CAUSE_ROW_EXCEPTIONS, cause)) return row;
+  const exception = CAUSE_ROW_EXCEPTIONS[cause];
+  assert.deepEqual(
+    { rule: row.rule, log: row.log },
+    { ...exception },
+    `§8's ${cause} row holds exactly its listed exception`
+  );
+  return { ...row, rule: DISCOVERY_CAUSES[cause].rule, log: DISCOVERY_CAUSES[cause].log };
+}
+
 test("the cause tables and messages equal §8's", () => {
   const { du, rl } = causeTables();
   assert.deepEqual(
+    Object.keys(CAUSE_ROW_EXCEPTIONS),
+    ['chain_broken'],
+    'the cause row exceptions are closed: chain_broken alone (BB8 6709891376)'
+  );
+  assert.deepEqual(
     Object.fromEntries(
-      Object.entries(du).map(([k, v]) => [k, { rule: v.rule, log: v.log, message: v.message }])
+      Object.entries(du).map(([k, row]) => {
+        const v = asModule(k, row);
+        return [k, { rule: v.rule, log: v.log, message: v.message }];
+      })
     ),
     JSON.parse(JSON.stringify(DISCOVERY_CAUSES))
   );

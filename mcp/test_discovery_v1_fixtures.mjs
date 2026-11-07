@@ -4561,13 +4561,29 @@ test('the contract states the constants, logs, schema, domains and causes this f
     resource.map((r) => r[0].replace(/`/g, '')),
     RESOURCE_CAUSES
   );
-  // §8's Log column, for both cause sets, is the one C1 checks.
+  // §8's Log column, for both cause sets, is the one C1 checks. One row says
+  // more, and only that one (BB8 6709891376, ruling 2): chain_broken is also
+  // a malformed record.discovery's cause, which the store releases with log
+  // null (§2.7, §7.4). That release is never a reply, so C1 reads `required`.
+  const LOG_EXCEPTIONS = {
+    chain_broken: {
+      log: 'required, except null for a malformed record (§2.7, §7.4)',
+      rule: 'R2, F3 at read; §2.7 shape (malformed record)',
+    },
+  };
+  assert.deepEqual(Object.keys(LOG_EXCEPTIONS), ['chain_broken'], 'one exception, closed');
   for (const [rows, col] of [
     [causes, 3],
     [resource, 2],
   ])
-    for (const r of rows)
-      assert.equal(r[col], CAUSE_LOG[r[0].replace(/`/g, '')], `§8's log rule for ${r[0]}`);
+    for (const r of rows) {
+      const cause = r[0].replace(/`/g, '');
+      const exception = rows === causes ? LOG_EXCEPTIONS[cause] : undefined;
+      if (exception) {
+        assert.deepEqual([r[1], r[col]], [exception.rule, exception.log], `§8's ${cause} row`);
+        assert.equal(CAUSE_LOG[cause], 'required', `C1 holds a ${cause} reply to a log`);
+      } else assert.equal(r[col], CAUSE_LOG[cause], `§8's log rule for ${r[0]}`);
+    }
   // The store's own cause: raised by the store's full read alone.
   for (const cause of STORE_CAUSES)
     assert.ok(
