@@ -7,20 +7,30 @@
 // refusals, the same store calls the scheduler makes and what it logs, and the
 // same request objects and reader replies that cross the bridge.
 //
-// Seven halves, each on a fresh directory with fresh deterministic sources:
+// Eight halves, each on a fresh directory with fresh deterministic sources:
 // the store driven directly, and the same store driven through
 // ReaderScheduler with a scripted fake bridge, each plain and with gzip; the
 // scheduler driven through the REAL python_bridge.js, whose warm worker is a
 // scripted Node process speaking the reader protocol (plain only: the bridge
 // never touches the store's encoding); packReaderPages at exactly its 2 MiB
-// and 250-instance page limits and one past each; and createCatalogResolver
-// over a minimal pinned catalog, recording the request identity it computes
-// and leasing a job through it.
+// and 250-instance page limits and one past each, on a first and on a later
+// page; createCatalogResolver over a minimal pinned catalog, recording the
+// request identity it computes, leasing a job through it, and filling its
+// two-snapshot cache past its bound; and maintain() run in bounded slices
+// (plain only: the byte bounds are exact on-disk sizes).
 //
 // Boundaries the store half holds on purpose: a lease read 1 ms before and
-// AT lease_expires_at (expiry is `<=`), and maintain()'s mark window, with
-// one orphan page aged 1 ms inside it (swept) and one exactly on its edge
-// (kept).
+// AT lease_expires_at (expiry is `<=`), and a lease that expires with a
+// cancel requested (it ends cancelled); maintain()'s mark start, with one
+// orphan page 1 ms older than startedAt (swept) and one exactly at it (kept);
+// a read exactly TOUCH_INTERVAL_MS after the durable expiry was set (slid in
+// memory only) and 1 ms later (persisted); and retention, 1 ms before and AT
+// expires_at, at read time and in prune(). The bounded half holds a mark
+// slice whose byte bound is exactly the bytes it reads, a sweep slice that
+// defers an object past its byte bound (gc.pending) and the next slice that
+// retries it and stops exactly on its bound, and a temporary record file
+// (records/*.tmp, as a writer that died mid-write leaves it) the sweep
+// deletes.
 //
 // Determinism (nothing is left to the host):
 // - the store's `now` and `clock` are injected and advance 1000 ms once per
@@ -309,10 +319,10 @@ function setup(t) {
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
   return dir;
 }
-function open(dir, gzip, now, clock, faultInjector = null) {
+function open(dir, gzip, now, clock, faultInjector = null, maxBytes = MAX_BYTES) {
   return new ReaderJobStore({
     directory: dir,
-    maxBytes: MAX_BYTES,
+    maxBytes,
     now,
     clock,
     ttlMs: TTL_MS,
@@ -534,7 +544,7 @@ function runStoreHalf(t, gzip) {
     try {
       commit(store, leaseC, { phase: 'pairs', index: 2 }, pages([{ id: 'c-2' }]));
     } catch (error) {
-      if (!error.code) throw error;
+      if (!error.code || error instanceof assert.AssertionError) throw error;
       refused = error.code;
     }
     return {
@@ -543,11 +553,12 @@ function runStoreHalf(t, gzip) {
     };
   });
 
-  // 8. maintain()'s mark window: the sweep deletes an unreferenced object only
-  //    when its mtime is before startedAt = Date.now() - 1000 (FIXED_DATE -
-  //    1000; Date is never ticked). Two orphan pages from a 507 are aged one
-  //    just inside the window (FIXED_DATE - 1001: swept) and one just outside
-  //    it (exactly FIXED_DATE - 1000: kept).
+  // 8. maintain()'s mark start: the sweep deletes an unreferenced object only
+  //    when its mtime is strictly before startedAt = Date.now() - 1000
+  //    (FIXED_DATE - 1000; Date is never ticked); anything at or after it is
+  //    protected as written since the mark began. Two orphan pages from a 507
+  //    are aged one 1 ms older than startedAt (FIXED_DATE - 1001: swept) and
+  //    one exactly at it (FIXED_DATE - 1000: kept).
   const e = rec.step('create E', () => created(make('viewer-e', 'key-e')));
   const leaseE = rec.step('lease E', () => store.lease(e.record.id));
   const pagesDir = path.join(rec.root, 'pages');
@@ -569,25 +580,79 @@ function runStoreHalf(t, gzip) {
     .filter((name) => !pagesBefore.has(name))
     .sort();
   assert.equal(orphans.length, 2, 'the 507 left two orphan pages');
-  const [inside, outside] = orphans;
-  rec.step('age the orphans either side of the mark window', () => {
+  const [older, atStart] = orphans;
+  rec.step('age the orphans either side of the mark start', () => {
     fs.utimesSync(
-      path.join(pagesDir, inside),
+      path.join(pagesDir, older),
       (FIXED_DATE - 1001) / 1000,
       (FIXED_DATE - 1001) / 1000
     );
     fs.utimesSync(
-      path.join(pagesDir, outside),
+      path.join(pagesDir, atStart),
       (FIXED_DATE - 1000) / 1000,
       (FIXED_DATE - 1000) / 1000
     );
-    return { inside: `pages/${inside}`, outside: `pages/${outside}` };
+    return { older_than_start: `pages/${older}`, at_start: `pages/${atStart}` };
   });
-  rec.step('maintain (an orphan inside the mark window, one outside)', () => ({
+  rec.step('maintain (one orphan older than the mark start, one at it)', () => ({
     rounds: maintainFull(),
-    inside_kept: fs.existsSync(path.join(pagesDir, inside)),
-    outside_kept: fs.existsSync(path.join(pagesDir, outside)),
+    older_than_start_kept: fs.existsSync(path.join(pagesDir, older)),
+    at_start_kept: fs.existsSync(path.join(pagesDir, atStart)),
   }));
+
+  // 9. A lease that expires while a cancel is requested: _expireLeases ends
+  //    the job cancelled (not paused), at lease_expires_at exactly.
+  const j = rec.step('create J', () => created(make('viewer-j', 'key-j')));
+  const J = j.record.id;
+  const leaseJ = rec.step('lease J', () => store.lease(J));
+  rec.step('cancel J (running: cancel requested)', () => store.cancel(...ctl(J)));
+  rec.step('lease expiry with a cancel requested (at lease_expires_at)', () => {
+    now.set(leaseJ.lease_expires_at);
+    return { next: store.lease(), J: store.inspect(J) };
+  });
+
+  // 10. Retention. A read slides expiry in memory, and persists the slide
+  //     only once the durable expiry is more than TOUCH_INTERVAL_MS stale
+  //     (_refresh: `<=` stays in memory). Expiry binds AT expires_at, both at
+  //     read time (_authorized: RESULT_EXPIRED) and in prune() (tombstoned).
+  //     F, G and K are created in one step, so they share one expires_at.
+  const TOUCH_INTERVAL_MS = 60 * 60 * 1000; // reader_job_store.js
+  const trio = rec.step('create F, G and K (one instant)', () =>
+    ['f', 'g', 'k'].map((x) => created(make(`viewer-${x}`, `key-${x}`)).record)
+  );
+  const [F, G, K] = trio.map((r) => r.id);
+  const expiresAt = trio[0].expires_at;
+  assert.ok(
+    trio.every((r) => r.expires_at === expiresAt),
+    'F, G and K share one expires_at'
+  );
+  const born = expiresAt - TTL_MS;
+  rec.step('get K exactly TOUCH_INTERVAL_MS after creation (slid in memory only)', () => {
+    now.set(born + TOUCH_INTERVAL_MS);
+    return store.get(...ctl(K));
+  });
+  rec.step('get K 1 ms later (the slide is persisted)', () => {
+    now.set(born + TOUCH_INTERVAL_MS + 1);
+    return store.get(...ctl(K));
+  });
+  rec.step('get F 1 ms before expires_at', () => {
+    now.set(expiresAt - 1);
+    return store.get(...ctl(F));
+  });
+  rec.step('get G at expires_at (RESULT_EXPIRED)', () => {
+    now.set(expiresAt);
+    return store.get(...ctl(G));
+  });
+  rec.step('prune at expires_at (G expires; F and K slid past it)', () => {
+    now.set(expiresAt);
+    const out = store.prune();
+    return {
+      bytes: rec.usage(out.bytes),
+      F: store.inspect(F).state,
+      G: store.inspect(G).state,
+      K: store.inspect(K).state,
+    };
+  });
   return rec;
 }
 
@@ -751,7 +816,7 @@ async function runSchedulerHalf(t, gzip) {
     try {
       return store.inspect(id);
     } catch (error) {
-      if (!error.code) throw error;
+      if (!error.code || error instanceof assert.AssertionError) throw error;
       return { refused: error.code };
     }
   };
@@ -1018,6 +1083,20 @@ function runPackHalf() {
     sized('m-249', rest + 1),
     sized('m-250', 64),
   ]);
+  // The 2 MiB limit on a page after a split: the new page's count starts at
+  // 16 again, so q and r fill it exactly, and one byte more moves r on.
+  pack('a full page, then a second page filled exactly (16 + q + r = 2 MiB)', [
+    sized('p', PAGE_BYTES - 16),
+    sized('q', 1024),
+    sized('r', PAGE_BYTES - 16 - 1024),
+    sized('s', 64),
+  ]);
+  pack('a full page, then a second page one byte past (16 + q + r = 2 MiB + 1)', [
+    sized('p', PAGE_BYTES - 16),
+    sized('q', 1024),
+    sized('r', PAGE_BYTES - 16 - 1024 + 1),
+    sized('s', 64),
+  ]);
   pack('one record exactly at the page limit (16 + a = 2 MiB)', [sized('one', PAGE_BYTES - 16)]);
   pack('one record one byte past the page limit (RESOURCE_LIMIT)', [
     sized('one', PAGE_BYTES - 16 + 1),
@@ -1031,9 +1110,10 @@ function runPackHalf() {
 // registry is read): the request identity it computes (contract_version,
 // parser_version and every other field), the reading it resolves, its probe,
 // and the scheduler leasing a job through it, so that identity is the one the
-// store persists, the lease re-checks and the bridge receives; and a job whose
-// stored identity differs, which the lease refuses STALE_READING.
-function writeCatalog(catalog) {
+// store persists, the lease re-checks and the bridge receives; a job whose
+// stored identity differs, which the lease refuses STALE_READING; and the
+// resolver's snapshot cache, which keeps the two snapshots loaded last.
+function writeCatalog(catalog, parserVersion = 'parser-inert') {
   const write = (name, value) => {
     const file = path.join(catalog, name);
     fs.mkdirSync(path.dirname(file), { recursive: true });
@@ -1063,7 +1143,7 @@ function writeCatalog(catalog) {
     'index.json': write('index.json', { readings: [] }),
   };
   const manifest = {
-    parser_version: 'parser-inert',
+    parser_version: parserVersion,
     normalizer_version: 'normalizer-inert',
     artifacts,
   };
@@ -1146,10 +1226,204 @@ async function runResolverHalf(t) {
     });
   await pump('pump 1: A leased through the resolver, completes');
   await pump('pump 2: B identity differs (STALE_READING)');
+
+  // The snapshot cache holds the two snapshots loaded last (oldest out
+  // first). Two more snapshots, each installed under its own id, push the
+  // first out; then every manifest but the third's is removed from disk, so
+  // a snapshot still cached resolves and an evicted one is refused.
+  const installed = (parserVersion) => {
+    const staging = path.join(dir, `staging-${parserVersion}`);
+    const out = writeCatalog(staging, parserVersion);
+    fs.renameSync(staging, path.join(catalog, out.snapshot_id));
+    return out;
+  };
+  const second = installed('parser-inert-2');
+  const third = installed('parser-inert-3');
+  await rec.stepAsync('resolveIdentity, a second snapshot', () => resolver.resolveIdentity(second));
+  await rec.stepAsync('resolveIdentity, a third snapshot (the first leaves the cache)', () =>
+    resolver.resolveIdentity(third)
+  );
+  fs.rmSync(path.join(catalog, 'manifest.json'));
+  fs.rmSync(path.join(catalog, second.snapshot_id, 'manifest.json'));
+  await rec.stepAsync('resolveIdentity, the second snapshot, manifest removed (cached)', () =>
+    resolver.resolveIdentity(second)
+  );
+  await rec.stepAsync(
+    'resolveIdentity, the first snapshot, manifest removed (evicted: SNAPSHOT_CHANGED)',
+    () => resolver.resolveIdentity(readerRequest)
+  );
   return rec;
 }
 
+// ── maintain() in bounded slices ─────────────────────────────────────────
+// One live job L whose two checkpoints (no pages) are the whole mark, and a
+// deleted job O whose six equal pages are the sweep's orphans; a temporary
+// record file as a writer that died mid-write leaves it, re-counted into
+// usage by recount() (the store counts every file under records/). Each
+// slice's byte bound is an exact on-disk size: the mark's bytes, then 3.5
+// pages (three swept, the fourth deferred to gc.pending), then 3 pages (the
+// deferred one retried first, the slice stopping exactly on its bound), then
+// unbounded. All four slices are one step, so the order a directory lists
+// its files in never reaches the golden: only counts and sizes do. Every
+// file this half writes has an mtime before FIXED_DATE - 1000.
+const BOUNDED_MAX_BYTES = 16 * 1024 * 1024;
+async function runBoundedHalf(t) {
+  const dir = setup(t);
+  const { now, clock, tick } = steppedClocks(FIXED_DATE);
+  const rec = new Recorder(dir, false, tick);
+  spyConsole(t, rec);
+  const steps = [];
+  // Large progress values would bloat the listing-based record; this half
+  // records each step's value (summarised), its refusal, what it logged, and
+  // each directory's file count and bytes.
+  const dirs = () => {
+    const out = {};
+    for (const kind of COUNTED_DIRS) {
+      const names = fs.readdirSync(path.join(rec.root, kind));
+      const tmp = names.filter((n) => n.endsWith('.tmp'));
+      out[kind] = {
+        files: names.length - tmp.length,
+        bytes: names.reduce((n, f) => n + fs.statSync(path.join(rec.root, kind, f)).size, 0),
+        ...(tmp.length ? { tmp: tmp.length } : {}),
+      };
+    }
+    return out;
+  };
+  const stepLite = async (op, run) => {
+    tick();
+    let entry;
+    try {
+      entry = { op, value: rec.norm(await run()) };
+    } catch (error) {
+      if (!error.code || error instanceof assert.AssertionError) throw error;
+      entry = {
+        op,
+        error: { code: error.code, status: error.status ?? null, message: error.message },
+      };
+    }
+    entry.dirs = dirs();
+    if (rec.extras.logged.length) entry.logged = rec.extras.logged.splice(0);
+    steps.push(entry);
+    return entry.value;
+  };
+  const brief = (r) => ({
+    id: r.id,
+    state: r.state,
+    generation: r.generation,
+    page_count: r.page_count,
+    checkpoint_hash: r.checkpoint_hash,
+  });
+  let store;
+  await stepLite('construct', () => {
+    store = open(dir, false, now, clock, null, BOUNDED_MAX_BYTES);
+    return { usage: rec.usage(store.usage) };
+  });
+  const caps = new Map();
+  const make = (viewer, key) => {
+    const out = store.create({ viewer, idempotency_key: key, identity, request });
+    caps.set(out.record.id, { capability: out.capability, viewer });
+    return out.record.id;
+  };
+  const ctl = (id) => [id, caps.get(id).capability, caps.get(id).viewer];
+  const L = await stepLite('create L', () => make('viewer-l', 'key-l'));
+  const leaseL = await stepLite('lease L', () => brief(store.lease(L)));
+  const leaseRef = (id) => store.inspect(id);
+  const commitL = (index) => {
+    const live = leaseRef(L);
+    return brief(
+      store.commitCheckpoint(L, live.attempt, live.fence, {
+        cursor: { phase: 'pairs', index },
+        pages: [],
+        progress: { candidates: 0, pad: filler(`progress-${index}`, 1_100_000) },
+        coverage,
+      })
+    );
+  };
+  assert.equal(leaseL.id, L);
+  await stepLite('commit L 1 (a 1.1 MB checkpoint, no pages)', () => commitL(1));
+  await stepLite('commit L 2', () => commitL(2));
+  await stepLite('pause L', () => {
+    const live = leaseRef(L);
+    return brief(store.pause(L, live.attempt, live.fence, { code: 'YIELD', requeue: false }));
+  });
+  const O = await stepLite('create O', () => make('viewer-o', 'key-o'));
+  await stepLite('lease O', () => brief(store.lease(O)));
+  for (const index of [1, 2, 3])
+    await stepLite(`commit O ${index} (two equal pages)`, () => {
+      const live = leaseRef(O);
+      return brief(
+        store.commitCheckpoint(O, live.attempt, live.fence, {
+          cursor: { phase: 'pairs', index },
+          pages: [2 * index - 2, 2 * index - 1].map((i) => ({
+            instances: [{ id: `o-${i}`, blob: filler(`o-${i}`, 720_000) }],
+          })),
+          progress: { candidates: 2 * index },
+          coverage,
+        })
+      );
+    });
+  await stepLite('delete O (its objects are orphans)', () => brief(store.delete(...ctl(O))));
+  const temp = path.join(rec.root, 'records', `${L}.json.${'0'.repeat(24)}.tmp`);
+  await stepLite('a temporary record file left mid-write, then recount()', async () => {
+    fs.writeFileSync(temp, '{"partial":'.padEnd(1000, ' '));
+    return { recounted: await store.recount(), usage: rec.usage(store.usage) };
+  });
+  // The bounds: L's checkpoints (the whole mark), and the orphan page size.
+  const object = (kind, hash) => fs.statSync(path.join(rec.root, kind, `${hash}.json`)).size;
+  let markBytes = 0;
+  for (let hash = leaseRef(L).checkpoint_hash; hash; ) {
+    markBytes += object('checkpoints', hash);
+    hash = JSON.parse(
+      fs.readFileSync(path.join(rec.root, 'checkpoints', `${hash}.json`), 'utf8')
+    ).previous_hash;
+  }
+  const pageSizes = fs
+    .readdirSync(path.join(rec.root, 'pages'))
+    .map((f) => fs.statSync(path.join(rec.root, 'pages', f)).size);
+  assert.equal(pageSizes.length, 6, 'six orphan pages');
+  assert.ok(
+    pageSizes.every((n) => n === pageSizes[0]),
+    'the orphan pages are one size'
+  );
+  const page = pageSizes[0];
+  const bounds = [
+    ['the mark exactly (L: two checkpoints)', markBytes],
+    ['3.5 pages', Math.floor(3.5 * page)],
+    ['3 pages exactly', 3 * page],
+    ['unbounded', FULL.bytes],
+  ];
+  for (const [, bytes] of bounds)
+    assert.ok(bytes >= 2 * 1024 * 1024, 'every byte bound is at least objectBytes');
+  await stepLite('maintain in bounded slices', () => ({
+    page_bytes: page,
+    slices: bounds.map(([bound, bytes]) => {
+      const out = store.maintain({ ...FULL, bytes });
+      return {
+        bound,
+        bytes_bound: bytes,
+        ...out,
+        usage: rec.usage(store.usage),
+        orphan_pages_left: fs.readdirSync(path.join(rec.root, 'pages')).length,
+        temporary_left: fs.existsSync(temp),
+      };
+    }),
+  }));
+  return { steps };
+}
+
 // ── golden comparison ────────────────────────────────────────────────────
+// Every half, in the golden's order. The golden holds exactly these: a half
+// it holds that no longer runs fails the file, as a missing one does.
+const HALVES = [
+  'store/plain',
+  'store/gzip',
+  'scheduler/plain',
+  'scheduler/gzip',
+  'bridge/plain',
+  'pack/limits',
+  'resolver/plain',
+  'maintain/bounded',
+];
 const golden = fs.existsSync(GOLDEN) ? JSON.parse(fs.readFileSync(GOLDEN, 'utf8')) : null;
 const captured = {};
 function check(name, rec) {
@@ -1175,11 +1449,19 @@ test('inertness golden: the scheduler through the real bridge', async (t) =>
 test('inertness golden: the page packer at its limits', () => check('pack/limits', runPackHalf()));
 test('inertness golden: the catalog resolver and its request identity', async (t) =>
   check('resolver/plain', await runResolverHalf(t)));
+test('inertness golden: maintain() in bounded slices', async (t) =>
+  check('maintain/bounded', await runBoundedHalf(t)));
+test('the golden holds every half that runs, and no other', () => {
+  if (UPDATE) return;
+  assert.deepEqual(Object.keys(golden.halves), HALVES);
+});
 
 test('the golden pins the record key sets and no discovery anywhere', () => {
   if (UPDATE) return;
   for (const [name, steps] of Object.entries(golden.halves)) {
-    if (name === 'pack/limits') continue; // a pure function: no store, no records
+    // pack/limits is a pure function (no store); maintain/bounded records
+    // directory counts, not record key sets.
+    if (name === 'pack/limits' || name === 'maintain/bounded') continue;
     const keys = new Set();
     for (const entry of steps) {
       for (const list of Object.values(entry.record_keys || {})) {
@@ -1201,15 +1483,7 @@ test('the golden pins the record key sets and no discovery anywhere', () => {
 // file as committed; the comparison above reads it parsed either way.
 after(async () => {
   if (!UPDATE) return;
-  const order = [
-    'store/plain',
-    'store/gzip',
-    'scheduler/plain',
-    'scheduler/gzip',
-    'bridge/plain',
-    'pack/limits',
-    'resolver/plain',
-  ];
+  const order = HALVES;
   assert.deepEqual(Object.keys(captured).sort(), [...order].sort(), 'every half ran');
   const out = {
     about:
