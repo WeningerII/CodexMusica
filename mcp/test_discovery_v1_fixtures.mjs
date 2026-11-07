@@ -6367,9 +6367,9 @@ test(`${CODEC}: invalid UTF-8 in a segment is F3 in both languages once the stor
     const today = segmentContent(raw, { fatal: false });
     assert.deepEqual(today.faults, [], `${c.name}: today's decode passes the bytes`);
     assert.ok(today.seg.entries[0].includes('�'));
-    // And the store's read today is JSON.parse on the buffer, not a fatal decode.
-    const store = fs.readFileSync(path.join(ROOT, 'mcp/reader_job_store.js'), 'utf8');
-    assert.ok(!/fatal: true/.test(store), 'the requirement is not met yet, so it is stated');
+    // And the store's read at Base is JSON.parse on the buffer, not a fatal
+    // decode, until STORE_HALF.fatal_decode says otherwise.
+    checkFatalDecode(STORE_HALF, readSource);
     // BB8 21:31Z: the read-back is an address-valid segment holding a string
     // with a lone 0xFF byte, F3 on a full read, a lease's walk and the
     // worker's load; a replacing decode passes the content and meets F5.
@@ -6467,342 +6467,824 @@ const mibKib = (n) => {
   return rest ? `${whole} MiB plus ${rest / 1024} KiB` : `${whole} MiB`;
 };
 
-// §2.11: where caller text enters the analysis, by line. A lone surrogate the
-// caller sends as an escape reaches the worker as a lone surrogate, and only a
-// lyrics argv is cleaned, so admission must refuse one (BB8's condition).
-const TRACE_LINES = [
-  ['mcp/server_http.js', 226, 'express.json({'],
-  [
-    'mcp/reader_routes.js',
-    15,
-    'const validBinding = (value) => /^[A-Za-z0-9_.:-]{1,200}$/.test(value);',
-  ],
-  ['mcp/reader_routes.js', 169, 'export function validateRequest(input) {'],
-  [
-    'mcp/reader_routes.js',
-    173,
-    "if (!validBinding(input[field])) throw fail('BAD_REQUEST', `A valid ${field} is required.`);",
-  ],
-  [
-    'mcp/reader_routes.js',
-    180,
-    "throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');",
-  ],
-  ['mcp/reader_routes.js', 209, "'idempotency_key',"],
-  ['mcp/reader_routes.js', 226, 'export async function createAnalysisJob({'],
-  ['mcp/reader_routes.js', 283, 'let request = validateRequest(req.body);'],
-  ['mcp/library_viewer_routes.js', 146, "if (typeof key !== 'string' || !key || key.length > 200)"],
-  [
-    'mcp/library_viewer_routes.js',
-    148,
-    'const request = validateRequest({ ...body, snapshot_id: snapshotId() });',
-  ],
-  ['mcp/reader_scheduler.js', 66, 'const source = JSON.parse(bytes);'],
-  ['mcp/reader_scheduler.js', 280, 'const prepareRequest = async (request) => {'],
-  [
-    'mcp/reader_scheduler.js',
-    369,
-    'declaration_set: { ...declarations, pronunciations: structuredClone(defaults) },',
-  ],
-  [
-    'mcp/reader_scheduler.js',
-    420,
-    'declaration_hash: sha256(canonicalJSON(semanticDeclarations(request.declaration_set || {}))),',
-  ],
-  [
-    'mcp/reader_scheduler.js',
-    521,
-    "throw error('STALE_READING', 'Source or engine identity changed; create a new reader job.');",
-  ],
-  ['mcp/reader_scheduler.js', 523, 'const trusted = this.store.workerPayload(record.id);'],
-  ['mcp/reader_scheduler.js', 528, 'declarations: record.request.declaration_set,'],
-  [
-    'mcp/reader_source_worker.js',
-    12,
-    'const source = verifyReading(await readFile(file), expected, request);',
-  ],
-  ['mcp/python_bridge.js', 16, 'const READER_FRAME_CAP = 2 * 1024 * 1024 + 16384;'],
-  ['mcp/python_bridge.js', 317, 'const reply = JSON.parse(line);'],
-  [
-    'mcp/python_bridge.js',
-    325,
-    "throw interrupted('unreadable reader checkpoint', { code: 'READER_PROTOCOL' });",
-  ],
-  ['mcp/python_bridge.js', 371, 'kill(error);'],
-  [
-    'mcp/python_bridge.js',
-    379,
-    "Buffer.byteLength(protocol) > (waiter?.family === 'reader' ? READER_FRAME_CAP : 1024 * 1024)",
-  ],
-  ['mcp/python_bridge.js', 580, 'JSON.stringify({'],
-  [
-    'mcp/python_bridge.js',
-    584,
-    "...(options.family === 'reader' ? { reader: options.readerPayload } : {}),",
-  ],
-  ['mcp/worker.py', 87, '_LONE_SURROGATE = re.compile("[\\ud800-\\udfff]")'],
-  [
-    'mcp/worker.py',
-    94,
-    'READER_OBJECT_BYTES = 2 * 1024 * 1024  # READER_LIMITS.objectBytes in reader_job_store.js',
-  ],
-  ['mcp/worker.py', 97, 'def read_page_object(page_path):'],
-  ['mcp/worker.py', 105, 'raw = source_file.read(READER_OBJECT_BYTES + 1)'],
-  ['mcp/worker.py', 111, 'body = inflater.decompress(raw, READER_OBJECT_BYTES + 1)'],
-  ['mcp/worker.py', 123, 'return json.loads(body.decode("utf-8"))'],
-  [
-    'mcp/worker.py',
-    155,
-    'session = AnalysisSession(payload["source"], payload.get("declarations"), requested,',
-  ],
-  [
-    'mcp/worker.py',
-    164,
-    'frame = json.dumps({"id": request_id, "event": "reader_checkpoint", "data": step},',
-  ],
-  ['mcp/worker.py', 166, 'if len(frame.encode("utf-8")) > 2 * 1024 * 1024:'],
-  ['mcp/worker.py', 168, 'print(frame, flush=True)'],
-  ['mcp/worker.py', 241, 'req = json.loads(line)'],
-  ['mcp/worker.py', 249, 'argv = [_LONE_SURROGATE.sub("\\ufffd", a) for a in argv]'],
-  ['mcp/worker.py', 265, 'reason = "READER_ERROR"'],
-  ['mcp/reader_job_store.js', 10, 'objectBytes: 2 * 1024 * 1024,'],
-  ['mcp/reader_job_store.js', 164, 'export function decodeStoredObject(raw) {'],
-  ['mcp/reader_job_store.js', 511, '_readFile(file) {'],
-  ['mcp/reader_job_store.js', 667, '_object(kind, hash) {'],
-  ['mcp/reader_job_store.js', 681, 'return JSON.parse(bytes);'],
-  [
-    'mcp/reader_job_store.js',
-    812,
-    'const idempotency_hash = sha(`${viewer}\\0${idempotency_key}`);',
-  ],
-  ['lyric-harness/library/analysis.py', 163, 'def _public_declarations(value):'],
-  [
-    'lyric-harness/library/analysis.py',
-    367,
-    'raise ValueError("STALE_READING: an exact pronunciation line is absent from this registered reading"',
-  ],
-  [
-    'lyric-harness/quality/pronunciation.py',
-    174,
-    "if not isinstance(line, str) or not line.strip() or len(line) > 4000 or any(c in line for c in '\\r\\n",
-  ],
+// §2.11: where caller text enters the analysis. A lone surrogate the caller
+// sends as an escape reaches the worker as a lone surrogate, and only a lyrics
+// argv is cleaned, so admission must refuse one (BB8's condition).
+//
+// The contract cites code as `file:symbol`, never by line (§2.11's grammar,
+// stated under the Base note), and the pinned statements live here as
+// anchors. An anchor is a statement found by its text inside one symbol's
+// span, so a line shift anywhere never fails this file; a renamed symbol, a
+// second definition, or a changed pinned statement always does.
+//
+// STORE_HALF says which parts of the store half are implemented. Each key is
+// flipped only by the commit that implements it; either mismatch fails, so the
+// switch cannot drift from the code. A row with `when` must resolve while its
+// key is true and must not resolve while it is false.
+const STORE_HALF = Object.freeze({ admission: false, fatal_decode: false });
+
+// Each row: `id`; `file`; `symbol` (a function, a method, a top-level constant
+// or class, `Outer.inner` for a method of a class, or `module` for a file's
+// top-level statements); `starts`, the pinned statement's trimmed first text;
+// `ends`, the first later line of its range, or `whole` for the symbol's own
+// span; `nth: [k, of]` where exactly `of` lines in the span start `starts`;
+// `cite` for a range §2.11 cites (every other row lies inside one); `when`.
+const ANCHORS = [
+  // How the caller's body is parsed, and validateRequest's two callers.
+  {
+    id: 'http.json',
+    file: 'mcp/server_http.js',
+    symbol: 'module',
+    starts: 'express.json({',
+    ends: '})',
+    cite: true,
+  },
+  {
+    id: 'routes.valid_binding',
+    file: 'mcp/reader_routes.js',
+    symbol: 'validBinding',
+    starts: 'const validBinding = (value) => /^[A-Za-z0-9_.:-]{1,200}$/.test(value);',
+    cite: true,
+  },
+  {
+    id: 'routes.validate',
+    file: 'mcp/reader_routes.js',
+    symbol: 'validateRequest',
+    starts: 'export function validateRequest(input) {',
+    whole: true,
+    cite: true,
+  },
+  {
+    id: 'routes.validate.bindings',
+    file: 'mcp/reader_routes.js',
+    symbol: 'validateRequest',
+    starts: "for (const field of ['snapshot_id', 'reading_unit_id', 'reading_revision'])",
+    ends: "if (!validBinding(input[field])) throw fail('BAD_REQUEST', `A valid ${field} is required.`);",
+    cite: true,
+  },
+  {
+    id: 'routes.validate.object_check',
+    file: 'mcp/reader_routes.js',
+    symbol: 'validateRequest',
+    starts: 'input.declaration_set !== undefined &&',
+    ends: "throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');",
+    cite: true,
+  },
+  {
+    id: 'routes.validate.object_refusal',
+    file: 'mcp/reader_routes.js',
+    symbol: 'validateRequest',
+    starts: "throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');",
+    cite: true,
+  },
+  {
+    id: 'routes.validate.layers',
+    file: 'mcp/reader_routes.js',
+    symbol: 'validateRequest',
+    starts: "const requested = input.requested_layers ?? ['sound', 'form', 'rhythm', 'language'];",
+    ends: ');',
+    cite: true,
+  },
+  {
+    id: 'routes.validate.idempotency_key',
+    file: 'mcp/reader_routes.js',
+    symbol: 'validateRequest',
+    starts: "'idempotency_key',",
+    cite: true,
+  },
+  {
+    id: 'routes.create_job',
+    file: 'mcp/reader_routes.js',
+    symbol: 'createAnalysisJob',
+    starts: 'export async function createAnalysisJob({',
+    whole: true,
+    cite: true,
+  },
+  {
+    id: 'routes.router.validate_call',
+    file: 'mcp/reader_routes.js',
+    symbol: 'createReaderRouter',
+    starts: 'let request = validateRequest(req.body);',
+    cite: true,
+  },
+  {
+    id: 'viewer.router.key',
+    file: 'mcp/library_viewer_routes.js',
+    symbol: 'libraryViewerRouter',
+    starts: 'const key = body.idempotency_key;',
+    ends: "throw fail('BAD_REQUEST', 'An idempotency_key (at most 200 characters) is required.');",
+    cite: true,
+  },
+  {
+    id: 'viewer.router.key_bound',
+    file: 'mcp/library_viewer_routes.js',
+    symbol: 'libraryViewerRouter',
+    starts: "if (typeof key !== 'string' || !key || key.length > 200)",
+  },
+  {
+    id: 'viewer.router.validate_call',
+    file: 'mcp/library_viewer_routes.js',
+    symbol: 'libraryViewerRouter',
+    starts: 'const request = validateRequest({ ...body, snapshot_id: snapshotId() });',
+    cite: true,
+  },
+  // The scheduler: the stored request, its identity, and the lease.
+  {
+    id: 'sched.verify_reading',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'verifyReading',
+    starts: 'export function verifyReading(bytes, expected, request) {',
+    whole: true,
+    cite: true,
+  },
+  {
+    id: 'sched.verify_reading.parse',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'verifyReading',
+    starts: 'const source = JSON.parse(bytes);',
+  },
+  {
+    id: 'sched.prepare',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'prepareRequest',
+    starts: 'const prepareRequest = async (request) => {',
+    cite: true,
+  },
+  {
+    id: 'sched.prepare.defaults',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'prepareRequest',
+    starts: 'declaration_set: { ...declarations, pronunciations: structuredClone(defaults) },',
+    cite: true,
+  },
+  {
+    id: 'sched.identity.return',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'resolveIdentity',
+    starts: 'return {',
+    ends: 'requested_methods: request.requested_methods ?? null,',
+    cite: true,
+  },
+  {
+    id: 'sched.identity.declaration_hash',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'resolveIdentity',
+    starts:
+      'declaration_hash: sha256(canonicalJSON(semanticDeclarations(request.declaration_set || {}))),',
+  },
+  {
+    id: 'sched.pump.store_lease',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'const record = this.store.lease();',
+    cite: true,
+  },
+  // Step 3 adds this statement and flips STORE_HALF.admission in one commit.
+  {
+    id: 'sched.pump.stored_check',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'if (!wellFormedDeep(record.request',
+    when: 'admission',
+    cite: true,
+  },
+  {
+    id: 'sched.pump.identity_check',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'const identity = await this.resolveIdentity(record.request);',
+    ends: 'const trusted = this.store.workerPayload(record.id);',
+    cite: true,
+  },
+  {
+    id: 'sched.pump.stale',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts:
+      "throw error('STALE_READING', 'Source or engine identity changed; create a new reader job.');",
+  },
+  {
+    id: 'sched.pump.worker_payload',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'const trusted = this.store.workerPayload(record.id);',
+  },
+  {
+    id: 'sched.pump.run_reader_lease',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'const result = await this.bridge.runReaderLease(',
+    ends: '},',
+    cite: true,
+  },
+  {
+    id: 'sched.pump.declarations',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'declarations: record.request.declaration_set,',
+    cite: true,
+  },
+  {
+    id: 'sched.pump.catch_pause',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: '} catch (failure) {',
+    ends: '});',
+    cite: true,
+  },
+  {
+    id: 'source_worker.verify',
+    file: 'mcp/reader_source_worker.js',
+    symbol: 'module',
+    starts: 'const source = verifyReading(await readFile(file), expected, request);',
+    cite: true,
+  },
+  // The bridge.
+  {
+    id: 'bridge.frame_cap',
+    file: 'mcp/python_bridge.js',
+    symbol: 'READER_FRAME_CAP',
+    starts: 'const READER_FRAME_CAP = 2 * 1024 * 1024 + 16384;',
+    cite: true,
+  },
+  {
+    id: 'bridge.spawn.parse',
+    file: 'mcp/python_bridge.js',
+    symbol: 'spawnWorker',
+    starts: 'const reply = JSON.parse(line);',
+    cite: true,
+  },
+  {
+    id: 'bridge.spawn.reader_line_cap',
+    file: 'mcp/python_bridge.js',
+    symbol: 'spawnWorker',
+    starts: 'Buffer.byteLength(line) > READER_FRAME_CAP ||',
+    ends: "throw interrupted('unreadable reader checkpoint', { code: 'READER_PROTOCOL' });",
+    cite: true,
+  },
+  {
+    id: 'bridge.spawn.unreadable',
+    file: 'mcp/python_bridge.js',
+    symbol: 'spawnWorker',
+    starts: "throw interrupted('unreadable reader checkpoint', { code: 'READER_PROTOCOL' });",
+  },
+  {
+    id: 'bridge.spawn.catch_kill',
+    file: 'mcp/python_bridge.js',
+    symbol: 'spawnWorker',
+    starts: '} catch (error) {',
+    ends: 'return;',
+    cite: true,
+  },
+  {
+    id: 'bridge.spawn.kill',
+    file: 'mcp/python_bridge.js',
+    symbol: 'spawnWorker',
+    starts: 'kill(error);',
+    nth: [1, 2],
+  },
+  {
+    id: 'bridge.spawn.protocol_cap',
+    file: 'mcp/python_bridge.js',
+    symbol: 'spawnWorker',
+    starts:
+      "Buffer.byteLength(protocol) > (waiter?.family === 'reader' ? READER_FRAME_CAP : 1024 * 1024)",
+    ends: "kill(interrupted('worker protocol frame exceeds cap', { protocolError: true }));",
+    cite: true,
+  },
+  {
+    id: 'bridge.warm.write',
+    file: 'mcp/python_bridge.js',
+    symbol: 'warm',
+    starts: 'child.stdin.write(',
+    ends: "}) + '\\n'",
+    cite: true,
+  },
+  {
+    id: 'bridge.warm.stringify',
+    file: 'mcp/python_bridge.js',
+    symbol: 'warm',
+    starts: 'JSON.stringify({',
+  },
+  {
+    id: 'bridge.warm.reader_payload',
+    file: 'mcp/python_bridge.js',
+    symbol: 'warm',
+    starts: "...(options.family === 'reader' ? { reader: options.readerPayload } : {}),",
+  },
+  // The worker.
+  {
+    id: 'worker.lone_surrogate',
+    file: 'mcp/worker.py',
+    symbol: '_LONE_SURROGATE',
+    starts: '_LONE_SURROGATE = re.compile("[\\ud800-\\udfff]")',
+    cite: true,
+  },
+  {
+    id: 'worker.object_bytes',
+    file: 'mcp/worker.py',
+    symbol: 'READER_OBJECT_BYTES',
+    starts:
+      'READER_OBJECT_BYTES = 2 * 1024 * 1024  # READER_LIMITS.objectBytes in reader_job_store.js',
+    cite: true,
+  },
+  {
+    id: 'worker.read_page_object',
+    file: 'mcp/worker.py',
+    symbol: 'read_page_object',
+    starts: 'def read_page_object(page_path):',
+    whole: true,
+    cite: true,
+  },
+  {
+    id: 'worker.read_page_object.bound',
+    file: 'mcp/worker.py',
+    symbol: 'read_page_object',
+    starts: 'with open(page_path, "rb") as source_file:',
+    ends: 'raise ValueError("reader page object exceeds its bound")',
+    cite: true,
+  },
+  {
+    id: 'worker.read_page_object.raw',
+    file: 'mcp/worker.py',
+    symbol: 'read_page_object',
+    starts: 'raw = source_file.read(READER_OBJECT_BYTES + 1)',
+  },
+  {
+    id: 'worker.read_page_object.inflate',
+    file: 'mcp/worker.py',
+    symbol: 'read_page_object',
+    starts: 'if raw[:2] == b"\\x1f\\x8b":',
+    ends: 'raise ValueError("reader page object exceeds its bound, is truncated or ',
+    cite: true,
+  },
+  {
+    id: 'worker.read_page_object.inflated',
+    file: 'mcp/worker.py',
+    symbol: 'read_page_object',
+    starts: 'body = inflater.decompress(raw, READER_OBJECT_BYTES + 1)',
+  },
+  {
+    id: 'worker.read_page_object.decode',
+    file: 'mcp/worker.py',
+    symbol: 'read_page_object',
+    starts: 'return json.loads(body.decode("utf-8"))',
+    cite: true,
+  },
+  {
+    id: 'worker.run_reader.session',
+    file: 'mcp/worker.py',
+    symbol: 'run_reader',
+    starts: 'session = AnalysisSession(payload["source"], payload.get("declarations"), requested,',
+    cite: true,
+  },
+  {
+    id: 'worker.run_reader.frame',
+    file: 'mcp/worker.py',
+    symbol: 'run_reader',
+    starts: 'frame = json.dumps({"id": request_id, "event": "reader_checkpoint", "data": step},',
+    ends: 'ensure_ascii=False, separators=(",", ":"))',
+    cite: true,
+  },
+  {
+    id: 'worker.run_reader.frame_cap',
+    file: 'mcp/worker.py',
+    symbol: 'run_reader',
+    starts: 'frame = json.dumps({"id": request_id, "event": "reader_checkpoint", "data": step},',
+    ends: 'raise ValueError("reader checkpoint frame exceeds byte limit")',
+    cite: true,
+  },
+  {
+    id: 'worker.run_reader.size_check',
+    file: 'mcp/worker.py',
+    symbol: 'run_reader',
+    starts: 'if len(frame.encode("utf-8")) > 2 * 1024 * 1024:',
+    cite: true,
+  },
+  {
+    id: 'worker.run_reader.print',
+    file: 'mcp/worker.py',
+    symbol: 'run_reader',
+    starts: 'print(frame, flush=True)',
+    cite: true,
+  },
+  {
+    id: 'worker.main.parse',
+    file: 'mcp/worker.py',
+    symbol: 'main',
+    starts: 'req = json.loads(line)',
+    cite: true,
+  },
+  {
+    id: 'worker.main.argv_clean',
+    file: 'mcp/worker.py',
+    symbol: 'main',
+    starts: 'argv = [_LONE_SURROGATE.sub("\\ufffd", a) for a in argv]',
+    cite: true,
+  },
+  {
+    id: 'worker.main.except',
+    file: 'mcp/worker.py',
+    symbol: 'main',
+    starts: 'except Exception as exc:',
+    ends: '"provider_calls": 0}}), flush=True)',
+    cite: true,
+  },
+  {
+    id: 'worker.main.reader_error',
+    file: 'mcp/worker.py',
+    symbol: 'main',
+    starts: 'reason = "READER_ERROR"',
+  },
+  // The store.
+  {
+    id: 'store.limits.object_bytes',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'READER_LIMITS',
+    starts: 'objectBytes: 2 * 1024 * 1024,',
+    cite: true,
+  },
+  {
+    id: 'store.decode_stored_object',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'decodeStoredObject',
+    starts: 'export function decodeStoredObject(raw) {',
+    whole: true,
+    cite: true,
+  },
+  {
+    id: 'store.read_file',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_readFile',
+    starts: '_readFile(file) {',
+    whole: true,
+    cite: true,
+  },
+  {
+    id: 'store.object',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_object',
+    starts: '_object(kind, hash) {',
+    whole: true,
+    cite: true,
+  },
+  {
+    id: 'store.object.parse',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_object',
+    starts: 'return JSON.parse(bytes);',
+    cite: true,
+  },
+  {
+    id: 'store.create',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'create',
+    starts: 'create({ viewer, idempotency_key, identity, request, definitions = null }) {',
+    ends: 'const request_digest = sha(canonical({ identity, request: intent }));',
+    cite: true,
+  },
+  {
+    id: 'store.create.idempotency_hash',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'create',
+    starts: 'const idempotency_hash = sha(`${viewer}\\0${idempotency_key}`);',
+  },
+  {
+    id: 'store.lease',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'lease',
+    starts: 'lease(id = null) {',
+    whole: true,
+    cite: true,
+  },
+  // The analysis.
+  {
+    id: 'analysis.public_declarations',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_public_declarations',
+    starts: 'def _public_declarations(value):',
+    ends: 'return [_public_declarations(v) for v in value]',
+    cite: true,
+  },
+  {
+    id: 'analysis.session.stale_reading',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'AnalysisSession.__init__',
+    starts: 'if any(choice["line"] not in lines for choice in lex.pronunciations):',
+    ends: 'raise ValueError("STALE_READING: an exact pronunciation line is absent from this registered reading")',
+    cite: true,
+  },
+  {
+    id: 'pronunciation.validate_choices.line',
+    file: 'lyric-harness/quality/pronunciation.py',
+    symbol: 'validate_choices',
+    starts:
+      "if not isinstance(line, str) or not line.strip() or len(line) > 4000 or any(c in line for c in '\\r\\n",
+    cite: true,
+  },
 ];
-// Every citation §2.11 makes, as it resolves: a bare `:N` names the file of the
-// nearest file-qualified citation before it in the same bullet. Each is listed
-// once, with the text its first and last lines start with.
-const CITES = [
-  ['python_bridge.js:317', 'const reply = JSON.parse(line);', null],
-  ['python_bridge.js:370-372', '} catch (error) {', 'return;'],
-  ['python_bridge.js:16', 'const READER_FRAME_CAP = 2 * 1024 * 1024 + 16384;', null],
+// §2.1's basis for ENTRY_DEPTH (item 31): the statements that build the
+// deepest entries at this head, cited by §2.1 as `analysis.py:symbol`.
+const DEPTH_ANCHORS = [
+  ['analysis.cell.def', '_cell', 'def _cell(self, u):'],
+  ['analysis.cell.tok', '_cell', 'tok = (u.line, u.token)'],
   [
-    'python_bridge.js:320-325',
-    'if (',
-    "throw interrupted('unreadable reader checkpoint', { code: 'READER_PROTOC",
+    'analysis.cell.return',
+    '_cell',
+    'return tok if tok in self._disputed else (u.line, u.token, u.tok_syl)',
   ],
   [
-    'worker.py:164-165',
-    'frame = json.dumps({"id": request_id, "event": "reader_checkpoint", "dat',
-    'ensure_ascii=False, separators=(",", ":"))',
-  ],
-  ['worker.py:166', 'if len(frame.encode("utf-8")) > 2 * 1024 * 1024:', null],
-  ['worker.py:168', 'print(frame, flush=True)', null],
-  ['worker.py:260-270', 'except Exception as exc:', '"provider_calls": 0}}), flush=True)'],
-  ['worker.py:123', 'return json.loads(body.decode("utf-8"))', null],
-  ['reader_job_store.js:681', 'return JSON.parse(bytes);', null],
-  [
-    'python_bridge.js:378-381',
-    'if (',
-    "kill(interrupted('worker protocol frame exceeds cap', { protocolError: t",
+    'analysis.span_key.return',
+    '_span_key',
+    'return (self._origin(span, st), span.direction, tuple(cells))',
   ],
   [
-    'worker.py:164-167',
-    'frame = json.dumps({"id": request_id, "event": "reader_checkpoint", "dat',
-    'raise ValueError("reader checkpoint frame exceeds byte limit")',
+    'analysis.candidates.seen_add',
+    '_candidates',
+    'seen.add((self._span_key(a, st), self._span_key(b, st)))',
   ],
   [
-    'worker.py:97-123',
-    'def read_page_object(page_path):',
-    'return json.loads(body.decode("utf-8"))',
+    'analysis.new_pairs.key',
+    '_new_pairs',
+    'key = (self._span_key(x, alt), self._span_key(y, alt))',
+  ],
+  ['analysis.new_pairs.seen_add', '_new_pairs', 'seen.add(key)'],
+  [
+    'analysis.prepare_event.pair_cells',
+    '_prepare_event',
+    'cells = [sorted({(found.units[i].line, found.units[i].token) for i in m.idx})',
   ],
   [
-    'worker.py:94',
-    'READER_OBJECT_BYTES = 2 * 1024 * 1024  # READER_LIMITS.objectBytes in re',
-    null,
+    'analysis.prepare_event.pair_append',
+    '_prepare_event',
+    'delta["alt_cells"] = delta.get("alt_cells", []) + [[list(cells[0][0]), list(cells[1][0])]]',
   ],
+  // The shared-sound build of the same entry: a pair of cells, each a
+  // binding's (line, token).
+  ['analysis.prepare_event.shared_sound', '_prepare_event', 'elif phase == "shared_sound":'],
   [
-    'worker.py:104-107',
-    'with open(page_path, "rb") as source_file:',
-    'raise ValueError("reader page object exceeds its bound")',
+    'analysis.prepare_event.shared_append',
+    '_prepare_event',
+    'delta["alt_cells"] = delta.get("alt_cells", []) + [[list(binding[1]), list(binding[2])]]',
   ],
-  [
-    'worker.py:108-117',
-    'if raw[:2] == b"\\x1f\\x8b":',
-    'raise ValueError("reader page object exceeds its bound, is truncated or ',
-  ],
-  ['reader_job_store.js:667-682', '_object(kind, hash) {', '}'],
-  ['reader_job_store.js:511-515', '_readFile(file) {', '}'],
-  ['reader_job_store.js:10', 'objectBytes: 2 * 1024 * 1024,', null],
-  ['reader_job_store.js:164-214', 'export function decodeStoredObject(raw) {', '}'],
-  ['server_http.js:225-231', 'app.use(', '})'],
-  ['reader_routes.js:169-219', 'export function validateRequest(input) {', '}'],
-  ['reader_routes.js:283', 'let request = validateRequest(req.body);', null],
-  [
-    'library_viewer_routes.js:148',
-    'const request = validateRequest({ ...body, snapshot_id: snapshotId() });',
-    null,
-  ],
-  [
-    'reader_routes.js:174-180',
-    'if (',
-    "throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON ob",
-  ],
-  [
-    'reader_routes.js:15',
-    'const validBinding = (value) => /^[A-Za-z0-9_.:-]{1,200}$/.test(value);',
-    null,
-  ],
-  [
-    'reader_routes.js:172-173',
-    "for (const field of ['snapshot_id', 'reading_unit_id', 'reading_revision",
-    "if (!validBinding(input[field])) throw fail('BAD_REQUEST', `A valid ${fi",
-  ],
-  [
-    'reader_routes.js:181-197',
-    "const requested = input.requested_layers ?? ['sound', 'form', 'rhythm', ",
-    ');',
-  ],
-  ['reader_routes.js:209', "'idempotency_key',", null],
-  [
-    'library_viewer_routes.js:145-147',
-    'const key = body.idempotency_key;',
-    "throw fail('BAD_REQUEST', 'An idempotency_key (at most 200 characters) i",
-  ],
-  [
-    'reader_job_store.js:806-813',
-    'create({ viewer, idempotency_key, identity, request, definitions = null ',
-    'const request_digest = sha(canonical({ identity, request: intent }));',
-  ],
-  ['reader_scheduler.js:524-540', 'const result = await this.bridge.runReaderLease(', '},'],
-  [
-    'reader_scheduler.js:404-422',
-    'return {',
-    'requested_methods: request.requested_methods ?? null,',
-  ],
-  ['reader_routes.js:226-247', 'export async function createAnalysisJob({', '}'],
-  ['reader_scheduler.js:280', 'const prepareRequest = async (request) => {', null],
-  [
-    'reader_scheduler.js:369',
-    'declaration_set: { ...declarations, pronunciations: structuredClone(defa',
-    null,
-  ],
-  ['reader_scheduler.js:528', 'declarations: record.request.declaration_set,', null],
-  ['python_bridge.js:579-586', 'child.stdin.write(', "}) + '\\n'"],
-  ['worker.py:241', 'req = json.loads(line)', null],
-  ['worker.py:87', '_LONE_SURROGATE = re.compile("[\\ud800-\\udfff]")', null],
-  ['worker.py:249', 'argv = [_LONE_SURROGATE.sub("\\ufffd", a) for a in argv]', null],
-  [
-    'worker.py:155',
-    'session = AnalysisSession(payload["source"], payload.get("declarations")',
-    null,
-  ],
-  [
-    'analysis.py:163-170',
-    'def _public_declarations(value):',
-    'return [_public_declarations(v) for v in value]',
-  ],
-  [
-    'quality/pronunciation.py:174',
-    'if not isinstance(line, str) or not line.strip() or len(line) > 4000 or ',
-    null,
-  ],
-  [
-    'analysis.py:366-367',
-    'if any(choice["line"] not in lines for choice in lex.pronunciations):',
-    'raise ValueError("STALE_READING: an exact pronunciation line is absent f',
-  ],
-  ['reader_scheduler.js:63-80', 'export function verifyReading(bytes, expected, request) {', '}'],
-  [
-    'reader_source_worker.js:12',
-    'const source = verifyReading(await readFile(file), expected, request);',
-    null,
-  ],
-  [
-    'reader_routes.js:180',
-    "throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON ob",
-    null,
-  ],
-  [
-    'reader_scheduler.js:519-523',
-    'const identity = await this.resolveIdentity(record.request);',
-    'const trusted = this.store.workerPayload(record.id);',
-  ],
-  ['reader_scheduler.js:514', 'const record = this.store.lease();', null],
-  ['reader_job_store.js:884-907', 'lease(id = null) {', '}'],
-  ['reader_scheduler.js:592-598', '} catch (failure) {', '});'],
-];
+].map(([id, symbol, starts]) => ({
+  id,
+  file: 'lyric-harness/library/analysis.py',
+  symbol,
+  starts,
+}));
+const ANCHOR = new Map([...ANCHORS, ...DEPTH_ANCHORS].map((r) => [r.id, r]));
+
+const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const indentOf = (s) => /^\s*/.exec(s)[0].length;
+// The lines of [from, to] that define `name`: a JS function, method, const or
+// class (a call statement `name(x);` or argument `name(x),` is not one), or a
+// Python def, class or top-level assignment.
+function definitionLines(lines, name, py, from, to) {
+  const n = escapeRe(name);
+  const res = py
+    ? [
+        new RegExp(`^\\s*(?:async\\s+)?def ${n}\\(`),
+        new RegExp(`^\\s*class ${n}\\b`),
+        new RegExp(`^${n}\\s*=`),
+      ]
+    : [
+        new RegExp(`^\\s*(?:export\\s+)?(?:async\\s+)?(?:function\\s+)?${n}\\s*\\(`),
+        new RegExp(`^\\s*(?:export\\s+)?const ${n}\\s*=`),
+        new RegExp(`^\\s*(?:export\\s+)?class ${n}\\b`),
+      ];
+  const out = [];
+  for (let i = from; i <= to; i++) {
+    const s = lines[i];
+    if (!res.some((re) => re.test(s))) continue;
+    if (!py && /[;,]$/.test(s.trimEnd()) && !/^\s*(?:export\s+)?const /.test(s)) continue;
+    out.push(i);
+  }
+  return out;
+}
+// The last line of the definition at `start`. JS: the first later line at or
+// left of its indentation that is closers alone (`}`, `});`), or else the line
+// before the first later line there that is not a closer; a one-line const is
+// its own span, and `}) {` (the end of a parameter list) stays inside. Python:
+// the line before the first later line at or left of the def's indentation
+// that is not blank, not a comment and not inside a triple-quoted string.
+function spanEnd(lines, start, py, to) {
+  const ind = indentOf(lines[start]);
+  let last = start;
+  let quote = null;
+  for (let i = start + 1; i <= to; i++) {
+    const s = lines[i];
+    const t = s.trim();
+    if (py) {
+      const inString = quote;
+      for (const q of ['"""', "'''"]) {
+        const odd = (s.split(q).length - 1) % 2;
+        if (odd && !quote) quote = q;
+        else if (odd && quote === q) quote = null;
+      }
+      if (inString) {
+        last = i;
+        continue;
+      }
+      if (!t || t.startsWith('#')) continue;
+      if (indentOf(s) <= ind) return last;
+      last = i;
+    } else {
+      if (!t) continue;
+      if (indentOf(s) <= ind) {
+        if (/^[}\])]+[;,]?$/.test(t)) return i;
+        if (!/^[}\])]/.test(t)) return last;
+      }
+      last = i;
+    }
+  }
+  return last;
+}
+function symbolSpan(lines, symbol, py, id) {
+  let from = 0;
+  let to = lines.length - 1;
+  if (symbol === 'module') return { from, to };
+  for (const name of symbol.split('.')) {
+    const defs = definitionLines(lines, name, py, from, to);
+    if (defs.length !== 1)
+      throw new Error(`${id}: ${defs.length ? 'a second definition' : 'no definition'} of ${name}`);
+    to = spanEnd(lines, defs[0], py, to);
+    from = defs[0];
+  }
+  return { from, to };
+}
+// One anchor row against its file's text: the 1-based line whose trimmed text
+// starts with `starts`, inside the symbol's span, and the last line of its
+// range. A missing symbol, a second definition, a missing or ambiguous anchor
+// or a missing end throws, naming the row. Pure: the mutation tests below
+// feed it altered text.
+function resolveAnchor(sourceText, row) {
+  const lines = sourceText.split('\n');
+  const py = row.file.endsWith('.py');
+  const { from, to } = symbolSpan(lines, row.symbol, py, row.id);
+  const hits = [];
+  for (let i = from; i <= to; i++) if (lines[i].trim().startsWith(row.starts)) hits.push(i);
+  const [nth, of] = row.nth ?? [1, 1];
+  const what = `${row.symbol} start ${JSON.stringify(row.starts)}`;
+  if (!hits.length) throw new Error(`${row.id}: no line in ${what}`);
+  if (hits.length !== of) throw new Error(`${row.id}: ${hits.length} lines in ${what}, not ${of}`);
+  const line = hits[nth - 1];
+  let endLine = line;
+  if (row.whole) {
+    if (line !== from) throw new Error(`${row.id}: not the definition of ${row.symbol}`);
+    endLine = to;
+  } else if (row.ends) {
+    endLine = lines.findIndex((s, i) => i >= line && i <= to && s.trim().startsWith(row.ends));
+    if (endLine < 0)
+      throw new Error(
+        `${row.id}: no later line in ${row.symbol} starts ${JSON.stringify(row.ends)}`
+      );
+  }
+  return { line: line + 1, endLine: endLine + 1, text: lines.slice(line, endLine + 1).join('\n') };
+}
+const spanText = (sourceText, row, symbol = row.symbol) => {
+  const lines = sourceText.split('\n');
+  const { from, to } = symbolSpan(lines, symbol, row.file.endsWith('.py'), row.id);
+  return lines.slice(from, to + 1).join('\n');
+};
+const readSource = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
+// Resolves every row a STORE_HALF state allows, and holds each gated row to
+// not resolving while its key is false. `src(file)` gives a file's text.
+function resolveAnchors(rows, half, src) {
+  const out = new Map();
+  for (const row of rows) {
+    if (row.when && !half[row.when]) {
+      assert.throws(
+        () => resolveAnchor(src(row.file), row),
+        /no line in/,
+        `${row.id} must not resolve while STORE_HALF.${row.when} is false`
+      );
+      continue;
+    }
+    out.set(row.id, resolveAnchor(src(row.file), row));
+  }
+  return out;
+}
+// A row's citation as the contract writes it.
+const citeOf = (row) =>
+  `${row.file.replace(/^(?:mcp|lyric-harness\/library|lyric-harness)\//, '')}:${row.symbol}`;
+
 const CITE_ROOTS = ['mcp/', 'lyric-harness/library/', 'lyric-harness/'];
 const citeFile = (f) => {
   const hit = ['', ...CITE_ROOTS].map((r) => r + f).find((p) => fs.existsSync(path.join(ROOT, p)));
   assert.ok(hit, `${f} resolves to a file`);
   return hit;
 };
+// Every `file:symbol` citation a text makes: a bare `:symbol` names the file
+// of the nearest file-qualified citation before it in the same bullet.
 function citesOf(text) {
   const out = [];
   let file = null;
   for (const line of text.split('\n')) {
     if (/^\s*(?:- |\d+\. )/.test(line) || !line.trim()) file = null;
-    for (const m of line.matchAll(/`(?:([a-z_./]+\.(?:js|py)))?:(\d+)(?:-(\d+))?`/g)) {
+    for (const m of line.matchAll(/`(?:([a-z_./]+\.(?:js|py)))?:([A-Za-z_]\w*(?:\.\w+)?)`/g)) {
       if (m[1]) file = m[1];
       assert.ok(file, `the bare citation :${m[2]} follows a named file in its bullet`);
-      out.push(`${file}:${m[2]}${m[3] ? `-${m[3]}` : ''}`);
+      out.push(`${citeFile(file)}:${m[2]}`);
     }
   }
   return out;
 }
+// A citation by line number, in a text the validator checks.
+const lineCites = (text) =>
+  [...text.matchAll(/`(?:[a-z_./]+\.(?:js|py))?:\d+(?:-\d+)?`/g)].map((m) => m[0]);
 const s211raw = () => CONTRACT.slice(CONTRACT.indexOf('\n### 2.11'), CONTRACT.indexOf('\n## 3.'));
 const s211text = () => s211raw().replace(/\s+/g, ' ');
 
-test('§2.11: every citation resolves to a pinned range, and the trace runs end to end', () => {
-  const lines = (f) => fs.readFileSync(path.join(ROOT, citeFile(f)), 'utf8').split('\n');
-  for (const [file, line, text] of TRACE_LINES) {
-    const got = lines(file)[line - 1] ?? '';
-    assert.ok(got.trim().startsWith(text), `${file}:${line} is ${JSON.stringify(text)}`);
-  }
-  // The citations §2.11 makes are exactly CITES, each range's ends as pinned.
-  const cited = [...new Set(citesOf(s211raw()))].sort();
-  assert.deepEqual(cited, CITES.map(([c]) => c).sort(), '§2.11 cites exactly the pinned ranges');
-  for (const [cite, first, last] of CITES) {
-    const [, file, a, b] = /^(.+):(\d+)(?:-(\d+))?$/.exec(cite);
-    const src = lines(file);
-    assert.ok(src[a - 1].trim().startsWith(first), `${cite} starts ${JSON.stringify(first)}`);
-    if (b) assert.ok(src[b - 1].trim().startsWith(last), `${cite} ends ${JSON.stringify(last)}`);
-    else assert.equal(last, null);
-  }
-  // Every pinned line lies inside a range §2.11 cites.
-  for (const [file, line] of TRACE_LINES)
+// The §2.11 trace, as one function of the sources, the section's text and the
+// STORE_HALF state, so the mutation tests can run it on altered inputs.
+function check211(half, src, section) {
+  const at = resolveAnchors(ANCHORS, half, src);
+  // §2.11 cites exactly the symbols the anchors pin, and nothing by line.
+  assert.deepEqual(lineCites(section), [], '§2.11 cites no line number');
+  const cited = [...new Set(citesOf(section))].sort();
+  const pinned = [...new Set(ANCHORS.map((r) => `${r.file}:${r.symbol}`))].sort();
+  assert.deepEqual(cited, pinned, '§2.11 cites exactly the symbols the anchors pin');
+  // Every pinned statement lies inside a range §2.11 cites.
+  for (const row of ANCHORS.filter((r) => !r.cite && at.has(r.id))) {
+    const { line } = at.get(row.id);
     assert.ok(
-      CITES.some(([c]) => {
-        const [, f, a, b] = /^(.+):(\d+)(?:-(\d+))?$/.exec(c);
-        return citeFile(f) === citeFile(file) && line >= +a && line <= +(b ?? a);
+      ANCHORS.some((c) => {
+        const r = c.cite && c.file === row.file && at.get(c.id);
+        return r && line >= r.line && line <= r.endLine;
       }),
-      `${file}:${line} lies in a cited range`
+      `${row.id} lies in a cited range`
     );
-  // The declaration set is held only to being an object; the bindings are ASCII.
-  const routes = fs.readFileSync(path.join(ROOT, 'mcp/reader_routes.js'), 'utf8');
-  const validate = routes.slice(routes.indexOf('export function validateRequest'));
-  const body = validate.slice(0, validate.indexOf('\n}\n'));
-  assert.ok(!/isWellFormed|toWellFormed|surrogate/.test(body));
+  }
+  // The order inside pump: the store's lease, the stored-request check once
+  // it exists, the bridge lease, and the catch's pause.
+  const order = [
+    'sched.pump.store_lease',
+    'sched.pump.stored_check',
+    'sched.pump.run_reader_lease',
+    'sched.pump.catch_pause',
+  ].filter((id) => at.has(id));
+  assert.equal(order.length, half.admission ? 4 : 3);
+  for (let i = 1; i < order.length; i++)
+    assert.ok(
+      at.get(order[i - 1]).endLine < at.get(order[i]).line,
+      `${order[i - 1]} comes before ${order[i]}`
+    );
+  // The declaration set is held only to being an object, until admission
+  // lands; the bindings are ASCII.
+  const validate = spanText(src('mcp/reader_routes.js'), ANCHOR.get('routes.validate'));
+  if (half.admission)
+    assert.ok(validate.includes('wellFormedDeep('), 'validateRequest walks the set');
+  else
+    assert.ok(
+      !/isWellFormed|toWellFormed|surrogate/.test(validate),
+      'validateRequest has no Unicode check yet'
+    );
   // idempotency_key is allowed and unchecked there; the lease payload omits it.
-  assert.equal(body.match(/idempotency_key/g).length, 1);
-  const sched = fs.readFileSync(path.join(ROOT, 'mcp/reader_scheduler.js'), 'utf8').split('\n');
-  const payload = sched.slice(523, 540).join('\n');
+  assert.equal(validate.match(/idempotency_key/g).length, 1);
+  const payload = at.get('sched.pump.run_reader_lease').text;
   assert.ok(
     !/idempotency/.test(payload) && /declarations: record\.request\.declaration_set/.test(payload)
   );
-  assert.ok(!/idempotency/.test(sched.slice(403, 422).join('\n')), 'the identity holds no key');
+  assert.ok(!/idempotency/.test(at.get('sched.identity.return').text), 'the identity holds no key');
   // The worker cleans lone surrogates in a lyrics argv only.
-  const worker = fs.readFileSync(path.join(ROOT, 'mcp/worker.py'), 'utf8');
-  assert.equal(worker.match(/_LONE_SURROGATE\.sub/g).length, 1);
+  assert.equal(src('mcp/worker.py').match(/_LONE_SURROGATE\.sub/g).length, 1);
+  // No sentence states the code's present state: a state claim names Base.
+  assert.ok(!/\btoday\b/i.test(section), '§2.11 says "at Base", never "today"');
+  return at;
+}
+// The fatal decode the store half implements (§2.11, Step 5): until then the
+// store has no fatal decoder at all; once it lands, the only parse of segment
+// bytes is a one-statement helper that decodes fatally first.
+function checkFatalDecode(half, src) {
+  const store = src('mcp/reader_job_store.js');
+  if (!half.fatal_decode) {
+    assert.ok(!/fatal: true/.test(store), 'the requirement is not met yet, so it is stated');
+    return;
+  }
+  const row = (symbol) => ({ id: `store.${symbol}`, file: 'mcp/reader_job_store.js', symbol });
+  const body = (symbol) =>
+    spanText(store, row(symbol))
+      .split('\n')
+      .slice(1, -1)
+      .map((s) => s.trim())
+      .filter(Boolean);
+  const text = body('_segmentText');
+  assert.equal(text.length, 1, '_segmentText is one statement');
+  assert.ok(text[0].startsWith("return new TextDecoder('utf-8', { fatal: true }).decode("));
+  const json = body('_segmentJSON');
+  assert.equal(json.length, 1, '_segmentJSON is one statement');
+  assert.ok(json[0].startsWith('return JSON.parse(this._segmentText('));
+  const segment = spanText(store, row('_segment'));
+  assert.ok(
+    !/JSON\.parse\(|\.toString\(|TextDecoder/.test(segment),
+    '_segment parses nothing itself'
+  );
+  assert.ok(segment.includes('this._segmentJSON('), '_segment reads through _segmentJSON');
+}
+
+test('§2.11: every citation resolves to a pinned symbol, and the trace runs end to end', () => {
+  check211(STORE_HALF, readSource, s211raw());
   // The round trip, run: JSON.parse makes the escape a lone surrogate,
   // JSON.stringify writes it back as the escape, Python's json.loads makes it
   // a lone surrogate again, and the frame's strict encode refuses it.
@@ -6843,6 +7325,38 @@ const wellFormedDeep = (v) =>
         ? Object.entries(v).every(([k, x]) => k.isWellFormed() && wellFormedDeep(x))
         : true;
 
+// The stored-request case's anchors and their order (§2.11), as a function
+// of the fixture's block, the STORE_HALF state and the sources.
+function checkStoredRequest(st, half, src) {
+  const ids = [st.store_leased_at, st.store_lease, st.checked_at, st.paused_at];
+  assert.deepEqual(ids, [
+    'sched.pump.store_lease',
+    'store.lease',
+    'sched.pump.stored_check',
+    'sched.pump.catch_pause',
+  ]);
+  for (const id of ids) assert.ok(ANCHOR.get(id)?.cite, `${id} is a cited anchor`);
+  const at = resolveAnchors(
+    ids.map((id) => ANCHOR.get(id)).concat(ANCHOR.get('sched.pump.run_reader_lease')),
+    half,
+    src
+  );
+  // The order the record meets them in: the store's lease, the check, then the
+  // bridge lease the check keeps it from, and the catch's pause.
+  assert.ok(at.get(st.store_leased_at).text.includes('this.store.lease()'));
+  const bridge = at.get('sched.pump.run_reader_lease');
+  if (half.admission) {
+    assert.ok(
+      at.get(st.store_leased_at).line < at.get(st.checked_at).line,
+      'the store leases before the check'
+    );
+    assert.ok(at.get(st.checked_at).endLine < bridge.line, 'the check comes before it');
+  } else assert.ok(!at.has(st.checked_at), 'the check is not implemented yet');
+  assert.ok(at.get(st.store_leased_at).line < bridge.line, 'the store leases before the bridge');
+  assert.ok(bridge.endLine < at.get(st.paused_at).line, 'the catch follows the bridge lease');
+  assert.ok(at.get(st.store_lease).text.includes("state: 'running'"), 'lease() saves it running');
+}
+
 test(`${CODEC}: the admission guard's cases, paths and refusal (§2.11, §9)`, () => {
   const fx = load(CODEC);
   const ad = fx.admission;
@@ -6862,13 +7376,13 @@ test(`${CODEC}: the admission guard's cases, paths and refusal (§2.11, §9)`, (
   // The two create paths are the two validateRequest callers the trace pins.
   assert.deepEqual(
     ad.paths.map((p) => p.cite),
-    ['reader_routes.js:283', 'library_viewer_routes.js:148']
+    ['routes.router.validate_call', 'viewer.router.validate_call']
   );
-  for (const p of ad.paths)
-    assert.ok(
-      CITES.some(([c]) => c === p.cite),
-      p.cite
-    );
+  for (const p of ad.paths) {
+    const row = ANCHOR.get(p.cite);
+    assert.ok(row?.cite, p.cite);
+    assert.match(resolveAnchor(readSource(row.file), row).text, /validateRequest\(/);
+  }
   assert.deepEqual(
     { code: ad.code, status: ad.status },
     { code: 'INVALID_DECLARATION', status: 400 }
@@ -6882,38 +7396,158 @@ test(`${CODEC}: the admission guard's cases, paths and refusal (§2.11, §9)`, (
   assert.equal(wellFormedDeep(stored.declaration_set), false, 'the stored request is refused');
   assert.deepEqual(stored, JSON.parse(ad.refused[0].body), "the guard test's line, stored");
   assert.equal(st.written_before_the_check, true);
-  for (const at of [st.store_leased_at, st.store_lease, st.checked_at, st.paused_at])
-    assert.ok(
-      CITES.some(([c]) => c === at),
-      at
-    );
   assert.deepEqual(st.expect, {
     code: ad.code,
     store_leased: true,
     paused: true,
     run_reader_lease: 'never called',
   });
-  // The order the record meets them in: the store's lease, the check, then the
-  // bridge lease the check keeps it from, and the catch's pause.
-  const sched = fs.readFileSync(path.join(ROOT, 'mcp/reader_scheduler.js'), 'utf8').split('\n');
-  const lineOf = (cite) => Number(/:(\d+)/.exec(cite)[1]);
-  assert.ok(sched[lineOf(st.store_leased_at) - 1].includes('this.store.lease()'));
-  assert.ok(
-    lineOf(st.store_leased_at) < lineOf(st.checked_at),
-    'the store leases before the check'
+  checkStoredRequest(st, STORE_HALF, readSource);
+});
+
+// The anchors, mutated in memory: no repo copy, no ROOT override, nothing
+// written. A line shift or an inserted comment never fails; a changed pinned
+// statement, a renamed symbol, a second definition, an ambiguous anchor or a
+// flipped STORE_HALF key always does.
+const ANCHOR_FILES = [...new Set([...ANCHORS, ...DEPTH_ANCHORS].map((r) => r.file))];
+const insertAbove = (text, line, what) => {
+  const lines = text.split('\n');
+  lines.splice(line - 1, 0, what);
+  return lines.join('\n');
+};
+const withFile = (file, text) => (f) => (f === file ? text : readSource(f));
+
+test('anchors: a line shift or a comment above any anchor never fails, on unchanged contract text', () => {
+  const contract211 = s211raw();
+  // A blank line at the top of every cited file at once.
+  const blankTop = (f) => `\n${readSource(f)}`;
+  check211(STORE_HALF, blankTop, contract211);
+  checkStoredRequest(load(CODEC).admission.stored_request, STORE_HALF, blankTop);
+  checkFatalDecode(STORE_HALF, blankTop);
+  declaredDepths(blankTop);
+  // Above each anchor in turn: a blank line, then a comment at the anchor's
+  // own indentation, then (Python) a comment at column 0.
+  for (const row of [...ANCHORS, ...DEPTH_ANCHORS]) {
+    if (row.when && !STORE_HALF[row.when]) continue;
+    const text = readSource(row.file);
+    const { line } = resolveAnchor(text, row);
+    const own = /^\s*/.exec(text.split('\n')[line - 1])[0];
+    const py = row.file.endsWith('.py');
+    const mutants = ['', `${own}${py ? '# moved' : '// moved'}`, ...(py ? ['# moved'] : [])];
+    for (const what of mutants) {
+      const moved = insertAbove(text, line, what);
+      const got = resolveAnchor(moved, row);
+      assert.equal(got.line, line + 1, `${row.id} follows ${JSON.stringify(what)}`);
+      if (ANCHORS.includes(row)) check211(STORE_HALF, withFile(row.file, moved), contract211);
+      else declaredDepths(withFile(row.file, moved));
+    }
+  }
+});
+
+test('anchors: a call is not a definition, and a changed statement, rename, second definition or duplicate fails', () => {
+  const routes = readSource('mcp/reader_routes.js');
+  const row = ANCHOR.get('routes.validate.object_refusal');
+  // A call statement at the start of a line elsewhere still resolves.
+  assert.ok(resolveAnchor(`validateRequest(x);\n${routes}`, row));
+  assert.ok(resolveAnchor(`${routes}\nvalidateRequest(x);\n`, row));
+  // A second definition fails, with the row's id.
+  assert.throws(
+    () => resolveAnchor(`${routes}\nfunction validateRequest(x) {\n  return x;\n}\n`, row),
+    /routes\.validate\.object_refusal: a second definition of validateRequest/
   );
-  const bridge = sched.findIndex((l) => l.includes('this.bridge.runReaderLease(')) + 1;
-  assert.ok(Number(/-(\d+)$/.exec(st.checked_at)[1]) < bridge, 'the check comes before it');
-  assert.ok(bridge < lineOf(st.paused_at), 'the catch follows the bridge lease');
-  const store = fs.readFileSync(path.join(ROOT, 'mcp/reader_job_store.js'), 'utf8').split('\n');
-  const [, a, b] = /:(\d+)-(\d+)/.exec(st.store_lease).map(Number);
-  assert.ok(
-    store
-      .slice(a - 1, b)
-      .join('\n')
-      .includes("state: 'running'"),
-    'lease() saves it running'
+  // So does one in Python.
+  const worker = readSource('mcp/worker.py');
+  const py = ANCHOR.get('worker.read_page_object.decode');
+  assert.throws(
+    () => resolveAnchor(`${worker}\ndef read_page_object(p):\n    return p\n`, py),
+    /a second definition of read_page_object/
   );
+  // A changed pinned statement fails.
+  assert.throws(
+    () => resolveAnchor(routes.replace('must be a JSON object.', 'must be an object.'), row),
+    /no line in validateRequest/
+  );
+  // A renamed symbol fails.
+  assert.throws(
+    () => resolveAnchor(routes.replaceAll('validateRequest', 'checkRequest'), row),
+    /no definition of validateRequest/
+  );
+  // A duplicated anchor line inside the span, with no nth, fails as ambiguous.
+  const { line } = resolveAnchor(routes, row);
+  const dup = insertAbove(routes, line, routes.split('\n')[line - 1]);
+  assert.throws(() => resolveAnchor(dup, row), /2 lines in validateRequest/);
+  // The same anchor text outside the span is not a duplicate.
+  assert.ok(resolveAnchor(`${routes}\n${routes.split('\n')[line - 1]}\n`, row));
+  // A Python span is not ended by a column-0 comment or a docstring inside it.
+  const r = ANCHOR.get('worker.read_page_object.decode');
+  const { line: dl } = resolveAnchor(worker, r);
+  const doc = insertAbove(worker, dl, '    """\nnot code\n    """');
+  assert.equal(resolveAnchor(doc, r).line, dl + 3);
+  // Every file the anchors name is read; none is missing.
+  for (const f of ANCHOR_FILES) assert.ok(fs.existsSync(path.join(ROOT, f)), f);
+});
+
+test('anchors: each STORE_HALF key, flipped against the unchanged code, fails', () => {
+  const st = load(CODEC).admission.stored_request;
+  const flip = (k) => ({ ...STORE_HALF, [k]: !STORE_HALF[k] });
+  assert.throws(() => check211(flip('admission'), readSource, s211raw()));
+  assert.throws(() => checkStoredRequest(st, flip('admission'), readSource));
+  assert.throws(() => checkFatalDecode(flip('fatal_decode'), readSource));
+  // The gated row, true, against the code: it names a statement Step 3 adds.
+  assert.throws(
+    () => resolveAnchors([ANCHOR.get('sched.pump.stored_check')], flip('admission'), readSource),
+    /sched\.pump\.stored_check: no line in pump/
+  );
+  // And each true branch accepts the code its key describes, so the switch
+  // can be flipped by the commit that implements it.
+  const sched = readSource('mcp/reader_scheduler.js');
+  const lease = resolveAnchor(sched, ANCHOR.get('sched.pump.store_lease'));
+  const own = /^\s*/.exec(sched.split('\n')[lease.line - 1])[0];
+  const checked = insertAbove(
+    sched,
+    lease.line + 1,
+    `${own}if (!wellFormedDeep(record.request.declaration_set ?? {})) throw refuse();`
+  );
+  const routes = readSource('mcp/reader_routes.js').replace(
+    "throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');",
+    "throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');\n  if (!wellFormedDeep(input.declaration_set)) throw refuse();"
+  );
+  const admitted = (f) =>
+    f === 'mcp/reader_scheduler.js'
+      ? checked
+      : f === 'mcp/reader_routes.js'
+        ? routes
+        : readSource(f);
+  check211(flip('admission'), admitted, s211raw());
+  checkStoredRequest(st, flip('admission'), admitted);
+  assert.throws(() => check211(STORE_HALF, admitted, s211raw()), /must not resolve/);
+  const store = readSource('mcp/reader_job_store.js').replace(
+    /\n {2}_object\(kind, hash\) \{/,
+    [
+      '',
+      '  _segmentText(buf) {',
+      "    return new TextDecoder('utf-8', { fatal: true }).decode(buf);",
+      '  }',
+      '  _segmentJSON(buf) {',
+      '    return JSON.parse(this._segmentText(buf));',
+      '  }',
+      '  _segment(hash) {',
+      '    return this._segmentJSON(this._readFile(hash));',
+      '  }',
+      '  _object(kind, hash) {',
+    ].join('\n')
+  );
+  const decoding = (f) => (f === 'mcp/reader_job_store.js' ? store : readSource(f));
+  checkFatalDecode(flip('fatal_decode'), decoding);
+  assert.throws(() => checkFatalDecode(STORE_HALF, decoding), /not met yet/);
+  const parsing = (f) =>
+    f === 'mcp/reader_job_store.js'
+      ? store.replace(
+          'return this._segmentJSON(this._readFile(hash));',
+          'return JSON.parse(this._readFile(hash).toString());'
+        )
+      : readSource(f);
+  assert.throws(() => checkFatalDecode(flip('fatal_decode'), parsing), /parses nothing itself/);
 });
 
 // Every statement this fold adds, as the contract must read once the facts
@@ -6936,140 +7570,143 @@ const CLAIMS = [
       "codec is whatever decodes, checks or encodes entries: the #721 author's entry codec in",
       "the worker, and the store's entry checks (§4). Its tags: - `F1`: a value inside an entry",
       "that is outside §2.1's subset: a float (`1.0` included), a nonfinite number, an object,",
-      'an integer past ±(2⁵³ − 1), a lone surrogate, a cyclic array, an array past `ENTRY_DEPTH` or',
-      'a value of another type;',
-      '- `F2`: an entry whose canonical form is longer than `ENTRY_BYTES`; - `JSON`: input that',
-      'is not one JSON value: invalid UTF-8, a truncated value or trailing content; -',
-      '`INTEGER_FIELD`: an integer-only field outside the entries that is not an integer in its',
-      "range: a frame's `epoch`, a seal's `first`, a cursor number, or a segment's `epoch`,",
-      '`first` or `count`. `F1` stays for integers inside entries, on the decode and the encode',
-      "paths alike (BB8's review; required of the codec, §9). - **(a) The store, on a submitted",
-      'frame** (§4 step 3). `F1` or `F2` on any entry in the seals, the cursor tails or the',
-      'group keys is `{{A_CODE}}` ({{A_STATUS}}), and nothing is written. `INTEGER_FIELD` is',
-      "the same code under the frame's own rule, not F1: {{W1}} for `epoch` and a seal's",
-      '`first`, {{W4}} for a cursor number. Same code, different tag. A frame whose `discovery`',
-      'is not JSON never reaches the store, because the frame is one JSON line: it is the step',
-      "channel's existing failure for a malformed step, and there is no new code. The bridge",
-      'parses each line (`python_bridge.js:317`) inside the try whose catch kills the worker',
-      '(`:370-372`), a bridge failure with no reply that pauses as today (§8), and refuses a',
-      'reader line past `READER_FRAME_CAP` (`:16`) as `{{A_CODE}}` (`:320-325`). - **(b) The',
-      'worker, on an entry it generated, before it emits.** `F2` is `{{B_F2_CODE}}`, cause',
-      '`{{B_F2_CAUSE}}`, naming the log (§3, §8). `F1` (a float, a lone surrogate, an object,',
-      'an integer out of range, a depth past `ENTRY_DEPTH`) is `{{B_F1_CODE}}`, an engine defect,',
-      'with a message that names',
-      'the rule, like the other `{{B_F1_CODE}}` messages (§3, §8). The worker never truncates',
-      'or skips the entry. It refuses before it builds the frame. Without that refusal a lone',
-      'surrogate would fail later, still before the write: `worker.py` builds each frame with',
-      "`ensure_ascii=False` (`worker.py:164-165`), and the size check's strict encode (`:166`)",
-      'raises `UnicodeEncodeError` before the frame is printed (`:168`), so the lease would end',
-      'as `READER_ERROR` (`:260-270`). - **(c) A persisted segment that passed F6.** Bytes that',
-      'do not parse, an entry failing F1 or F2, and a `first`, `count` or `epoch` that is not',
-      "an integer are F3, not corruption (§2.5). The mapping is F3's, unchanged: a lease's walk",
-      'refuses `{{C_WALK_CODE}}` ({{C_WALK_STATUS}}) and releases nothing (§5.1); a full read',
-      '(reconciliation, `resume()`) releases with `{{C_FULL_CODE}}`, cause `{{C_CAUSE}}`',
-      "(§5.1); the worker's load refuses with `{{C_CAUSE}}` (§5.2). `{{STORE_CAUSE}}` stays",
-      "F6's alone, and the store's alone, and a failed gzip inflation stays F6. - **Invalid",
-      "UTF-8 in a segment, in both languages** (BB8, 21:31Z). The worker's load decodes strictly",
-      '(`worker.py:123`), so bytes that are not UTF-8 are `{{U_TAG}}`, and F3. The store today',
-      'parses the verified bytes with `JSON.parse` on the buffer (`reader_job_store.js:681`),',
-      'which decodes invalid UTF-8 as U+FFFD instead of refusing it, so the same bytes would',
-      "pass or meet F5. **Required** (R2's, in the store half): the store decodes a segment's",
-      "verified bytes with a fatal UTF-8 decoder (`new TextDecoder('utf-8', { fatal: true })`)",
-      'before it parses them, never with `Buffer.toString` or `JSON.parse` on the buffer, which',
-      'replace bytes that are not UTF-8, and a failure is F3, so both languages refuse the same',
-      "bytes for the same rule: a full read releases with `{{U_FULL_CAUSE}}`, a lease's walk",
-      "refuses `{{U_WALK_CODE}}`, and the worker's load refuses with `{{U_LOAD_CAUSE}}`. A failed",
-      'gzip inflation comes before the decode and stays F6. Only a writer other than the store',
-      'can produce such bytes. `persisted_bytes` in `good/codec_error_mapping.json` pins it:',
-      "Python's load and the required store are F3 (`JSON`), and a non-fatal decode, as the",
-      "store's is today, passes the bytes. Its `read_back` is an address-valid segment holding",
-      "a string with a lone {{U_BYTE}} byte. **Required test** (R2's store tests): a full read and a",
-      "lease's walk of that segment each refuse it as F3, and the same test run against a",
-      'replacing decode fails, because that decode passes the content and meets {{U_REPLACING}}',
-      'instead, so the test shows the store does not use one. - **The integral float `1.0`,',
-      'across languages.** Take a persisted segment',
-      "whose digests a Python writer computed over the bytes `1.0`. Python's load meets a",
-      'float: F1, so F3, cause `{{C_CAUSE}}`. Node parses it as the integer 1, so the entry',
-      'passes F1 and its recomputed digest does not match: {{X_NODE_RULE}}, cause',
-      '`{{X_NODE_CAUSE}}`. The divergence is accepted: both refuse, with different causes. Each',
-      'side pins its own cause in `good/codec_error_mapping.json`: `cross_language.python` for',
-      "the worker's codec, `cross_language.node` for a Node reader and this validator's model",
-      "of the load. Neither side's tests assert the other side's cause. On a submitted frame",
-      "the same divergence is `bad/float_entry.json`'s (F1 in Python, F5 in Node), where both",
-      "are `{{A_CODE}}`. - **(d) Precedence is pinned on the worker's emit path only** (BB8,",
-      '19:40Z). An entry the worker generated that breaks F1 is `{{B_F1_CODE}}` whatever else',
-      'it breaks, {{P1}} included: `{{B_F1_CODE}}` reports an engine defect, and',
-      "`{{B_F2_CODE}}` would blame the input and hide the defect. The worker's encoder makes",
-      "two passes. The first is the F1 walk: §2.1's types with no subclasses, integers within",
-      '±(2⁵³ − 1), cycles, the depth, and lone surrogates found by a scan that encodes nothing. It',
-      "serialises nothing, holds iterators rather than a stack proportional to an array's",
-      'width, allocates in proportion to the depth and takes time in proportion to the nodes.',
-      "Only an entry that passes it reaches the second pass, today's encoder with its early F2",
-      "guards unchanged. `emit_precedence` in `good/codec_error_mapping.json` holds BB8's",
-      'cases. - **Elsewhere precedence is not pinned.** On a submitted frame and on a persisted',
-      'segment, an input that breaks more than one rule carries the tag of its first failure in',
-      "§4's listed order, and within one entry whichever check the bounded scan reaches first.",
-      'No test depends on which. A test of such an input asserts the code and that nothing was',
-      'written; it never asserts the tag or the rule. Only a single-fault case asserts its tag.',
-      'The same holds for (c): a segment with several content faults is F3, whichever comes',
-      'first. - **F2 is measured on the canonical form, not on the raw input** (BB8, #721 item',
-      "3). The decoder's time and peak memory grow with the raw bytes it is given, whitespace",
-      'included. F2 bounds only the canonical form: an entry passes F2 when its canonical form',
-      'is at most {{ENTRY_BYTES}} bytes, however it was spaced. The raw input is bounded only',
-      "by the enclosing reader's existing limit, and this contract adds no raw-input constant:",
-      '- a submitted frame is one step line of at most `READER_FRAME_CAP`, {{FRAME_CAP}}, which',
-      'the bridge holds each line to (`python_bridge.js:16`, `:320-325`) and its unterminated',
-      'buffer too (`:378-381`); the worker holds its own frames to {{WORKER_FRAME}} before it',
-      'writes them (`worker.py:164-167`); - a segment the worker reads goes through the bounded',
-      'page reader, `read_page_object` (`worker.py:97-123`): it reads at most',
-      '`READER_OBJECT_BYTES`, {{OBJ}} (`:94`, `:104-107`), and inflates at most as much',
-      '(`:108-117`), before it parses (`:123`); - a segment the store reads goes through',
-      '`_object` (`reader_job_store.js:667-682`): `_readFile` holds the stored bytes to',
-      '`READER_LIMITS.objectBytes`, {{STORE_OBJ}} (`:511-515`, `:10`), and `decodeStoredObject`',
-      'holds the inflated bytes to it too (`:164-214`). Required acceptance tests, of the',
-      "worker half's codec (the validator runs both against its own model): a valid entry whose",
-      'canonical form is {{ENTRY_BYTES}} bytes, padded with whitespace to {{PADDED}}, decodes',
-      'and passes F2 within those bounds, with its peak memory measured; and an entry whose',
-      'canonical form is {{ENTRY_BYTES1}} bytes fails F2 however it is spaced. `raw_transport`',
-      'in `good/codec_error_mapping.json` builds both. - **A lone surrogate is refused where',
-      'caller text is admitted.** (b) calls a lone surrogate in a generated entry an engine',
-      'defect. That holds only if no caller text can carry one into the analysis, and today',
-      'caller text can: 1. Both create paths parse the body with `express.json`',
-      '(`server_http.js:225-231`), whose `JSON.parse` turns the escape `\\ud800` into a lone',
-      'surrogate, and both call `validateRequest` (`reader_routes.js:169-219`): the Site bridge',
-      '(`:283`) and `/library/v1` (`library_viewer_routes.js:148`). It holds `declaration_set`',
-      'only to being an object (`reader_routes.js:174-180`). The three bindings are ASCII by',
-      '`validBinding` (`:15`, `:172-173`), and the layers and methods are a closed set or ASCII',
-      'by `validBinding` (`:181-197`). `idempotency_key` is on the allow-list (`:209`) and',
+      'an integer past ±(2⁵³ − 1), a lone surrogate, a cyclic array, an array past',
+      '`ENTRY_DEPTH` or a value of another type; - `F2`: an entry whose canonical form is',
+      'longer than `ENTRY_BYTES`; - `JSON`: input that is not one JSON value: invalid UTF-8, a',
+      'truncated value or trailing content; - `INTEGER_FIELD`: an integer-only field outside',
+      "the entries that is not an integer in its range: a frame's `epoch`, a seal's `first`, a",
+      "cursor number, or a segment's `epoch`, `first` or `count`. `F1` stays for integers",
+      "inside entries, on the decode and the encode paths alike (BB8's review; required of the",
+      'codec, §9). - **(a) The store, on a submitted frame** (§4 step 3). `F1` or `F2` on any',
+      'entry in the seals, the cursor tails or the group keys is `{{A_CODE}}` ({{A_STATUS}}),',
+      "and nothing is written. `INTEGER_FIELD` is the same code under the frame's own rule, not",
+      "F1: {{W1}} for `epoch` and a seal's `first`, {{W4}} for a cursor number. Same code,",
+      'different tag. A frame whose `discovery` is not JSON never reaches the store, because',
+      "the frame is one JSON line: it is the step channel's existing failure for a malformed",
+      'step, and there is no new code. The bridge parses each line',
+      '(`python_bridge.js:spawnWorker`) inside the try whose catch kills the worker, a bridge',
+      'failure with no reply that pauses as it does at Base (§8), and refuses a reader line',
+      'past `READER_FRAME_CAP` (`:READER_FRAME_CAP`) as `{{A_CODE}}`. - **(b) The worker, on an',
+      'entry it generated, before it emits.** `F2` is `{{B_F2_CODE}}`, cause `{{B_F2_CAUSE}}`,',
+      'naming the log (§3, §8). `F1` (a float, a lone surrogate, an object, an integer out of',
+      'range, a depth past `ENTRY_DEPTH`) is `{{B_F1_CODE}}`, an engine defect, with a message',
+      'that names the rule, like the other `{{B_F1_CODE}}` messages (§3, §8). The worker never',
+      'truncates or skips the entry. It refuses before it builds the frame. Without that',
+      'refusal a lone surrogate would fail later, still before the write: `worker.py` builds',
+      "each frame with `ensure_ascii=False` (`worker.py:run_reader`), and the size check's",
+      'strict encode raises `UnicodeEncodeError` before the frame is printed, so the lease',
+      'would end as `READER_ERROR` (`:main`). - **(c) A persisted segment that passed F6.**',
+      'Bytes that do not parse, an entry failing F1 or F2, and a `first`, `count` or `epoch`',
+      "that is not an integer are F3, not corruption (§2.5). The mapping is F3's, unchanged: a",
+      "lease's walk refuses `{{C_WALK_CODE}}` ({{C_WALK_STATUS}}) and releases nothing (§5.1);",
+      'a full read (reconciliation, `resume()`) releases with `{{C_FULL_CODE}}`, cause',
+      "`{{C_CAUSE}}` (§5.1); the worker's load refuses with `{{C_CAUSE}}` (§5.2).",
+      "`{{STORE_CAUSE}}` stays F6's alone, and the store's alone, and a failed gzip inflation",
+      'stays F6. - **Invalid UTF-8 in a segment, in both languages** (BB8, 21:31Z). The',
+      "worker's load decodes strictly (`worker.py:read_page_object`), so bytes that are not",
+      'UTF-8 are `{{U_TAG}}`, and F3. At Base the store parses the verified bytes with',
+      '`JSON.parse` on the buffer (`reader_job_store.js:_object`), which decodes invalid UTF-8',
+      'as U+FFFD instead of refusing it, so the same bytes would pass or meet F5. **Required**',
+      "(R2's, in the store half): the store decodes a segment's verified bytes with a fatal",
+      "UTF-8 decoder (`new TextDecoder('utf-8', { fatal: true })`) before it parses them, never",
+      'with `Buffer.toString` or `JSON.parse` on the buffer, which replace bytes that are not',
+      'UTF-8, and a failure is F3, so both languages refuse the same bytes for the same rule: a',
+      "full read releases with `{{U_FULL_CAUSE}}`, a lease's walk refuses `{{U_WALK_CODE}}`,",
+      "and the worker's load refuses with `{{U_LOAD_CAUSE}}`. A failed gzip inflation comes",
+      'before the decode and stays F6. Only a writer other than the store can produce such',
+      "bytes. `persisted_bytes` in `good/codec_error_mapping.json` pins it: Python's load and",
+      "the required store are F3 (`JSON`), and a non-fatal decode, as the store's is at Base,",
+      'passes the bytes. Its `read_back` is an address-valid segment holding a string with a',
+      "lone {{U_BYTE}} byte. **Required test** (R2's store tests): a full read and a lease's",
+      'walk of that segment each refuse it as F3, and the same test run against a replacing',
+      'decode fails, because that decode passes the content and meets {{U_REPLACING}} instead,',
+      'so the test shows the store does not use one. - **The integral float `1.0`, across',
+      'languages.** Take a persisted segment whose digests a Python writer computed over the',
+      "bytes `1.0`. Python's load meets a float: F1, so F3, cause `{{C_CAUSE}}`. Node parses it",
+      'as the integer 1, so the entry passes F1 and its recomputed digest does not match:',
+      '{{X_NODE_RULE}}, cause `{{X_NODE_CAUSE}}`. The divergence is accepted: both refuse, with',
+      'different causes. Each side pins its own cause in `good/codec_error_mapping.json`:',
+      "`cross_language.python` for the worker's codec, `cross_language.node` for a Node reader",
+      "and this validator's model of the load. Neither side's tests assert the other side's",
+      "cause. On a submitted frame the same divergence is `bad/float_entry.json`'s (F1 in",
+      'Python, F5 in Node), where both are `{{A_CODE}}`. - **(d) Precedence is pinned on the',
+      "worker's emit path only** (BB8, 19:40Z). An entry the worker generated that breaks F1 is",
+      '`{{B_F1_CODE}}` whatever else it breaks, {{P1}} included: `{{B_F1_CODE}}` reports an',
+      'engine defect, and `{{B_F2_CODE}}` would blame the input and hide the defect. The',
+      "worker's encoder makes two passes. The first is the F1 walk: §2.1's types with no",
+      'subclasses, integers within ±(2⁵³ − 1), cycles, the depth, and lone surrogates found by',
+      'a scan that encodes nothing. It serialises nothing, holds iterators rather than a stack',
+      "proportional to an array's width, allocates in proportion to the depth and takes time in",
+      'proportion to the nodes. Only an entry that passes it reaches the second pass, the',
+      "worker's encoder at Base with its early F2 guards unchanged. `emit_precedence` in",
+      "`good/codec_error_mapping.json` holds BB8's cases. - **Elsewhere precedence is not",
+      'pinned.** On a submitted frame and on a persisted segment, an input that breaks more',
+      "than one rule carries the tag of its first failure in §4's listed order, and within one",
+      'entry whichever check the bounded scan reaches first. No test depends on which. A test',
+      'of such an input asserts the code and that nothing was written; it never asserts the tag',
+      'or the rule. Only a single-fault case asserts its tag. The same holds for (c): a segment',
+      'with several content faults is F3, whichever comes first. - **F2 is measured on the',
+      "canonical form, not on the raw input** (BB8, #721 item 3). The decoder's time and peak",
+      'memory grow with the raw bytes it is given, whitespace included. F2 bounds only the',
+      'canonical form: an entry passes F2 when its canonical form is at most {{ENTRY_BYTES}}',
+      "bytes, however it was spaced. The raw input is bounded only by the enclosing reader's",
+      'existing limit, and this contract adds no raw-input constant: - a submitted frame is one',
+      'step line of at most `READER_FRAME_CAP`, {{FRAME_CAP}}, which the bridge holds each line',
+      'to (`python_bridge.js:READER_FRAME_CAP`, `:spawnWorker`) and its unterminated buffer',
+      'too; the worker holds its own frames to {{WORKER_FRAME}} before it writes them',
+      '(`worker.py:run_reader`); - a segment the worker reads goes through the bounded page',
+      'reader, `read_page_object` (`worker.py:read_page_object`): it reads at most',
+      '`READER_OBJECT_BYTES`, {{OBJ}} (`:READER_OBJECT_BYTES`), and inflates at most as much,',
+      'before it parses; - a segment the store reads goes through `_object`',
+      '(`reader_job_store.js:_object`): `_readFile` holds the stored bytes to',
+      '`READER_LIMITS.objectBytes`, {{STORE_OBJ}} (`:_readFile`, `:READER_LIMITS`), and',
+      '`decodeStoredObject` holds the inflated bytes to it too (`:decodeStoredObject`).',
+      "Required acceptance tests, of the worker half's codec (the validator runs both against",
+      'its own model): a valid entry whose canonical form is {{ENTRY_BYTES}} bytes, padded with',
+      'whitespace to {{PADDED}}, decodes and passes F2 within those bounds, with its peak',
+      'memory measured; and an entry whose canonical form is {{ENTRY_BYTES1}} bytes fails F2',
+      'however it is spaced. `raw_transport` in `good/codec_error_mapping.json` builds both. -',
+      '**A lone surrogate is refused where caller text is admitted.** (b) calls a lone',
+      'surrogate in a generated entry an engine defect. That holds only if no caller text can',
+      'carry one into the analysis, and at Base caller text can: 1. Both create paths parse the',
+      'body with `express.json` (`server_http.js:module`), whose `JSON.parse` turns the escape',
+      '`\\ud800` into a lone surrogate, and both call `validateRequest`',
+      '(`reader_routes.js:validateRequest`): the Site bridge (`:createReaderRouter`) and',
+      '`/library/v1` (`library_viewer_routes.js:libraryViewerRouter`). At Base it holds',
+      '`declaration_set` only to being an object (`reader_routes.js:validateRequest`). The',
+      'three bindings are ASCII by `validBinding` (`:validBinding`), and the layers and methods',
+      'are a closed set or ASCII by `validBinding`. `idempotency_key` is on the allow-list and',
       'nothing in `validateRequest` checks it; `/library/v1` holds it only to a string of at',
-      'most 200 characters (`library_viewer_routes.js:145-147`), and the store keeps it with',
-      'the request (`reader_job_store.js:806-813`). It never reaches the worker: the lease',
-      'payload carries the declarations, the layers and the methods, not the key',
-      '(`reader_scheduler.js:524-540`), and the identity holds only hashes of the request',
-      '(`:404-422`). 2. `createAnalysisJob` (`reader_routes.js:226-247`) stores the request as',
-      "it is: `prepareRequest` (`reader_scheduler.js:280`) keeps a caller's declaration set,",
-      "and only adds a collection's default pronunciations to a set that has none (`:369`). 3.",
-      'Each lease passes `record.request.declaration_set` to the worker',
-      '(`reader_scheduler.js:528`). The bridge writes it with `JSON.stringify`',
-      '(`python_bridge.js:579-586`), which writes a lone surrogate as the escape `\\ud800`, and',
-      '`worker.py` reads it with `json.loads` (`worker.py:241`), which makes it a lone',
+      'most 200 characters (`library_viewer_routes.js:libraryViewerRouter`), and the store',
+      'keeps it with the request (`reader_job_store.js:create`). It never reaches the worker:',
+      'the lease payload carries the declarations, the layers and the methods, not the key',
+      '(`reader_scheduler.js:pump`), and the identity holds only hashes of the request',
+      '(`:resolveIdentity`). 2. `createAnalysisJob` (`reader_routes.js:createAnalysisJob`)',
+      'stores the request as it is: `prepareRequest` (`reader_scheduler.js:prepareRequest`)',
+      "keeps a caller's declaration set, and only adds a collection's default pronunciations to",
+      'a set that has none. 3. Each lease passes `record.request.declaration_set` to the worker',
+      '(`reader_scheduler.js:pump`). The bridge writes it with `JSON.stringify`',
+      '(`python_bridge.js:warm`), which writes a lone surrogate as the escape `\\ud800`, and',
+      '`worker.py` reads it with `json.loads` (`worker.py:main`), which makes it a lone',
       "surrogate again. `worker.py` replaces lone surrogates only in a lyrics request's `argv`",
-      '(`:87`, `:249`); the reader family hands `declarations` to `AnalysisSession` as they are',
-      '(`:155`). 4. In the analysis, `_public_declarations` (`analysis.py:163-170`) redacts',
-      'only `source`, `provenance` and `citation`, and no check on the way holds a string to',
-      "well-formed Unicode: a pronunciation's `line` is held to 4,000 characters",
-      '(`quality/pronunciation.py:174`) and refused later only because no registered line',
-      'matches it (`analysis.py:366-367`). The registered reading is not caller text: it comes',
-      'from the approved snapshot, checked against its pinned hash',
-      '(`reader_scheduler.js:63-80`, read off the event loop by `reader_source_worker.js:12`).',
-      "**Required** (R2's, in the store half's runtime train, which is the worker half's, §9):",
-      '`validateRequest` refuses a request whose `declaration_set` holds a string or a key, at',
-      'any depth, that is not well-formed Unicode (`String.prototype.isWellFormed`), as',
-      '`{{ADM_CODE}}` ({{ADM_STATUS}}), "{{ADM_MESSAGE}}", in the style of its other',
-      'declaration refusal (`reader_routes.js:180`). It runs before the store creates a job, so',
-      'no lease is ever offered. Because the job identity does not always change between images',
+      '(`:_LONE_SURROGATE`, `:main`); the reader family hands `declarations` to',
+      '`AnalysisSession` as they are (`:run_reader`). 4. In the analysis,',
+      '`_public_declarations` (`analysis.py:_public_declarations`) redacts only `source`,',
+      '`provenance` and `citation`, and no check on the way holds a string to well-formed',
+      "Unicode: a pronunciation's `line` is held to 4,000 characters",
+      '(`quality/pronunciation.py:validate_choices`) and refused later only because no',
+      'registered line matches it (`analysis.py:AnalysisSession.__init__`). The registered',
+      'reading is not caller text: it comes from the approved snapshot, checked against its',
+      'pinned hash (`reader_scheduler.js:verifyReading`, read off the event loop by',
+      "`reader_source_worker.js:module`). **Required** (R2's, in the store half's runtime",
+      "train, which is the worker half's, §9): `validateRequest` refuses a request whose",
+      '`declaration_set` holds a string or a key, at any depth, that is not well-formed Unicode',
+      '(`String.prototype.isWellFormed`), as `{{ADM_CODE}}` ({{ADM_STATUS}}),',
+      '"{{ADM_MESSAGE}}", in the style of its other declaration refusal',
+      '(`reader_routes.js:validateRequest`). It runs before the store creates a job, so no',
+      'lease is ever offered. Because the job identity does not always change between images',
       '(§9), the scheduler holds a stored request to the same check before `workerPayload`',
-      '(`reader_scheduler.js:519-523`) and pauses a job that fails it with that code, so a job',
+      '(`reader_scheduler.js:pump`) and pauses a job that fails it with that code, so a job',
       'admitted by an image without the check never reaches the worker either. **Guard test**',
       "(BB8's; R2's store and route tests): a create whose declaration set holds a",
       'lone-surrogate pronunciation `line` (`"{{ADM_LINE}}"`, sent as the JSON escape), and one',
@@ -7081,13 +7718,14 @@ const CLAIMS = [
       'same lone-surrogate `line`, is leased by the store first (`this.store.lease()`,',
       '`{{ADM_LEASED_AT}}`, saves it `running` with a lease, `{{ADM_STORE_LEASE}}`). It is then',
       'refused at the check before `workerPayload` (`{{ADM_STORED_AT}}`) with `{{ADM_CODE}}`,',
-      "and the scheduler's catch pauses it with that code (`:{{ADM_PAUSED_LINES}}`), which ends",
-      "the store's lease. The bridge lease is never taken: `runReaderLease` is never called, and",
-      'the worker never sees the request. `admission.stored_request` in',
+      "and the scheduler's catch pauses it with that code (`:{{ADM_PAUSED_AT}}`), which ends",
+      "the store's lease. The bridge lease is never taken: `runReaderLease` is never called,",
+      'and the worker never sees the request. `admission.stored_request` in',
       "`good/codec_error_mapping.json` is that record's request. The check stays there, not in",
       '`this.store.lease()` (BB8 6699352254, ruling 2): "refused before hand-out" means before',
-      'the worker, and a refusal inside `lease()` would add a queued → paused transition with no',
-      'fence, a new state edge for a case that exists only for records written before the check.',
+      'the worker, and a refusal inside `lease()` would add a queued → paused transition with',
+      'no fence, a new state edge for a case that exists only for records written before the',
+      'check.',
     ],
   },
   {
@@ -7366,6 +8004,8 @@ const FOLD48_CLAIMS = [
   {
     where: '2',
     whole: false,
+    // Its citations are the depth anchors' symbols (checked below).
+    cites: 'depth',
     text: [
       '- **F1, the subset.** An entry is built only from arrays, strings, booleans, `null` and',
       'integers n with |n| ≤ 2⁵³ − 1, and its depth is at most `ENTRY_DEPTH`. Objects and',
@@ -7380,16 +8020,16 @@ const FOLD48_CLAIMS = [
       'entry shape and its largest depth. That declaration does not exist yet, so `ENTRY_DEPTH',
       '= {{ED}}` is provisional, and open for BB8 (§12, item 31). Its basis is the deepest',
       'shape the source builds at this head: a `seen` or `alt_seen` key is a pair of span keys',
-      '(`analysis.py:2044`, `:1081`), each span key the locus, the direction and the cells, and',
-      'each cell a line and a token, with its syllable outside a disputed word (`:612-627`), so',
-      'depth {{DECL}}; an `alt_cells` entry is a pair of cells, at the pair build',
-      '(`:2512-2519`) and at the shared-sound build (`:2537-2546`), depth {{DECL_CELLS}}.',
+      '(`analysis.py:_candidates`, `:_new_pairs`), each span key the locus, the direction and',
+      'the cells (`:_span_key`), and each cell a line and a token, with its syllable outside a',
+      'disputed word (`:_cell`), so depth {{DECL}}; an `alt_cells` entry is a pair of cells, at',
+      'the pair build and at the shared-sound build (`:_prepare_event`), depth {{DECL_CELLS}}.',
       "`variants`' descriptor and `row_seen`'s keys are not built yet. Twice {{DECL}} is",
       '{{ED}}, which is also the floor. If the declared largest depth is {{DECL_NEXT}} or more,',
       '`ENTRY_DEPTH` becomes {{ED_NEXT}} or more, and `MEMBERSHIP_BYTES` is derived again with',
       'it (§6.11). So `MEMBERSHIP_BYTES = {{MB}}`, derived at `ENTRY_DEPTH = {{ED}}`, is',
-      'provisional with it, until the #721 author (3PO) declares the entry shapes (§3, §9,',
-      '§12, item 31).',
+      'provisional with it, until the #721 author (3PO) declares the entry shapes (§3, §9, §12,',
+      'item 31).',
     ],
   },
   {
@@ -7788,25 +8428,9 @@ const FOLD48_CLAIMS = [
 // (6693502369): the smallest power of two at least twice the largest declared
 // depth, at least 8 and at most 64.
 const depthFor = (declared) => Math.min(64, Math.max(8, 2 ** Math.ceil(Math.log2(2 * declared))));
-function declaredDepths() {
-  const src = fs
-    .readFileSync(path.join(ROOT, 'lyric-harness', 'library', 'analysis.py'), 'utf8')
-    .split('\n');
-  const at = (line, text) =>
-    assert.ok(src[line - 1].includes(text), `analysis.py:${line} holds ${text}`);
-  at(612, 'def _cell(self, u):');
-  at(613, 'tok = (u.line, u.token)');
-  at(614, 'return tok if tok in self._disputed else (u.line, u.token, u.tok_syl)');
-  at(627, 'return (self._origin(span, st), span.direction, tuple(cells))');
-  at(2044, 'seen.add((self._span_key(a, st), self._span_key(b, st)))');
-  at(1076, 'key = (self._span_key(x, alt), self._span_key(y, alt))');
-  at(1081, 'seen.add(key)');
-  at(2516, 'cells = [sorted({(found.units[i].line, found.units[i].token) for i in m.idx})');
-  at(2519, '[[list(cells[0][0]), list(cells[1][0])]]');
-  // The shared-sound build of the same entry: a pair of cells, each a binding's
-  // (line, token) (§6.8's `:2537-2546`).
-  at(2538, 'elif phase == "shared_sound":');
-  at(2545, '[[list(binding[1]), list(binding[2])]]');
+function declaredDepths(src = readSource) {
+  const text = src('lyric-harness/library/analysis.py');
+  for (const row of DEPTH_ANCHORS) resolveAnchor(text, row);
   // The shapes those lines build, as JSON: a cell is a line and a token (and
   // a syllable), a span key its origin, direction and cells, a key two span keys.
   const cell = [12, 3, 0];
@@ -8049,10 +8673,11 @@ function codecFacts() {
     U_LOAD_CAUSE: pb.expect.worker_load.cause,
     U_BYTE: `0x${pb.entry_hex.slice(2, -2).toUpperCase()}`,
     U_REPLACING: pb.replacing_decode.rule,
-    ADM_STORED_AT: ad.stored_request.checked_at,
-    ADM_LEASED_AT: ad.stored_request.store_leased_at,
-    ADM_STORE_LEASE: ad.stored_request.store_lease,
-    ADM_PAUSED_LINES: ad.stored_request.paused_at.split(':')[1],
+    // The stored-request case's anchors, as the contract cites them.
+    ADM_STORED_AT: citeOf(ANCHOR.get(ad.stored_request.checked_at)),
+    ADM_LEASED_AT: citeOf(ANCHOR.get(ad.stored_request.store_leased_at)),
+    ADM_STORE_LEASE: citeOf(ANCHOR.get(ad.stored_request.store_lease)),
+    ADM_PAUSED_AT: ANCHOR.get(ad.stored_request.paused_at).symbol,
     SHAPES: String(meas.shapes.length),
     SENS16: String(depthFor(5)),
     SENS64: String(64),
@@ -8110,6 +8735,15 @@ test('§2.11 and every statement of this fold read as the fixture, the tables an
       assert.ok(have.includes(want), `§${c.where} states: ${want.slice(0, 120)}`);
     }
   }
+  // §2.1's depth basis cites exactly the depth anchors' symbols, by name.
+  const depth = FOLD48_CLAIMS.filter((c) => c.cites === 'depth');
+  assert.equal(depth.length, 1);
+  const depthText = fillClaim(depth[0].text.join('\n'), facts);
+  assert.deepEqual(lineCites(depthText), [], "§2.1's depth basis cites no line number");
+  assert.deepEqual(
+    [...new Set(citesOf(depthText))].sort(),
+    [...new Set(DEPTH_ANCHORS.map((r) => `${r.file}:${r.symbol}`))].sort()
+  );
   // Every fact is used, so none is checked against nothing.
   const used = new Set(
     [...CLAIMS, ...FOLD48_CLAIMS, ...FOLD49_CLAIMS].flatMap((c) =>

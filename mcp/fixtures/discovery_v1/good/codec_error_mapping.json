@@ -563,11 +563,11 @@
     "paths": [
       {
         "name": "the Site bridge",
-        "cite": "reader_routes.js:283"
+        "cite": "routes.router.validate_call"
       },
       {
         "name": "`/library/v1`",
-        "cite": "library_viewer_routes.js:148"
+        "cite": "viewer.router.validate_call"
       }
     ],
     "refused": [
@@ -590,10 +590,10 @@
       "name": "stored",
       "request": "{\"declaration_set\":{\"pronunciations\":[{\"line\":\"Bad \\ud800\"}]}}",
       "written_before_the_check": true,
-      "store_leased_at": "reader_scheduler.js:514",
-      "store_lease": "reader_job_store.js:884-907",
-      "checked_at": "reader_scheduler.js:519-523",
-      "paused_at": "reader_scheduler.js:592-598",
+      "store_leased_at": "sched.pump.store_lease",
+      "store_lease": "store.lease",
+      "checked_at": "sched.pump.stored_check",
+      "paused_at": "sched.pump.catch_pause",
       "expect": {
         "code": "INVALID_DECLARATION",
         "store_leased": true,

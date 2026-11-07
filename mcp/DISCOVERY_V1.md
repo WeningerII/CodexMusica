@@ -68,6 +68,12 @@ checkpoint declaration and schema; the shared `CONTRACT_VERSION` does not change
 
 **Base.** a0 (draft PR #816, head `aabf6eeb0`): checkpoint objects carry no cursor, and the
 job record holds the one cursor that resume reads. Line references are at that head.
+The citations the validator checks, in §2.11 and in §2.1's depth basis, are `file:symbol`
+instead: a function, method, constant or class (`Class.method` for a method of a class,
+`file:module` for a file's top-level statements), and a bare `:symbol` takes the file of the
+nearest file-qualified citation in its bullet. `mcp/test_discovery_v1_fixtures.mjs` holds the
+pinned statements as anchors inside those symbols, so a line shift never changes the text,
+and a statement about the code's state there names Base.
 `analysis.py`, `worker.py` and `reader_scheduler.js` are unchanged there from main
 `21e013507`.
 
@@ -140,23 +146,22 @@ truncation.
   integers n with |n| ≤ 2⁵³ − 1, and its depth is at most `ENTRY_DEPTH`. Objects and
   non-integers are not entries. Strings are well-formed Unicode with no lone surrogate (Node
   `String.prototype.isWellFormed`; in Python, strict UTF-8 encoding succeeds).
-- **The depth bound** (BB8 6693502369, item 31). `ENTRY_DEPTH` is derived from the #721
-  author's declared entry shapes: the smallest power of two at least twice the largest depth
-  they declare, and at least 8. It is never above 64, well under any recursion limit, so
-  `canonical_json` completes on every entry. Nothing in v1 needs deep entries: §2.3's logs hold
-  fixed-shape keys and descriptors that `analysis.py` declares, and caller text cannot deepen
-  them. **Required** (§9): the #721 author declares each log's entry shape and its largest
-  depth. That declaration does not exist yet, so `ENTRY_DEPTH = 8` is provisional, and open for
-  BB8 (§12, item 31). Its basis is the deepest shape the source builds at this head: a `seen` or
-  `alt_seen` key is a pair of span keys (`analysis.py:2044`, `:1081`), each span key the locus,
-  the direction and the cells, and each cell a line and a token, with its syllable outside a
-  disputed word (`:612-627`), so depth 4; an `alt_cells` entry is a pair of cells, at the pair
-  build (`:2512-2519`) and at the shared-sound build (`:2537-2546`), depth 2. `variants`'
-  descriptor and `row_seen`'s keys are not built yet. Twice 4 is 8, which is also the floor. If
-  the declared largest depth is 5 or more, `ENTRY_DEPTH` becomes 16 or more, and
-  `MEMBERSHIP_BYTES` is derived again with it (§6.11). So `MEMBERSHIP_BYTES = 4194304`, derived
-  at `ENTRY_DEPTH = 8`, is provisional with it, until the #721 author (3PO) declares the entry
-  shapes (§3, §9, §12, item 31).
+- **The depth bound** (BB8 6693502369, item 31). `ENTRY_DEPTH` is derived from the #721 author's
+  declared entry shapes: the smallest power of two at least twice the largest depth they declare,
+  and at least 8. It is never above 64, well under any recursion limit, so `canonical_json`
+  completes on every entry. Nothing in v1 needs deep entries: §2.3's logs hold fixed-shape keys and
+  descriptors that `analysis.py` declares, and caller text cannot deepen them. **Required** (§9):
+  the #721 author declares each log's entry shape and its largest depth. That declaration does not
+  exist yet, so `ENTRY_DEPTH = 8` is provisional, and open for BB8 (§12, item 31). Its basis is the
+  deepest shape the source builds at this head: a `seen` or `alt_seen` key is a pair of span keys
+  (`analysis.py:_candidates`, `:_new_pairs`), each span key the locus, the direction and the cells
+  (`:_span_key`), and each cell a line and a token, with its syllable outside a disputed word
+  (`:_cell`), so depth 4; an `alt_cells` entry is a pair of cells, at the pair build and at the
+  shared-sound build (`:_prepare_event`), depth 2. `variants`' descriptor and `row_seen`'s keys are
+  not built yet. Twice 4 is 8, which is also the floor. If the declared largest depth is 5 or more,
+  `ENTRY_DEPTH` becomes 16 or more, and `MEMBERSHIP_BYTES` is derived again with it (§6.11). So
+  `MEMBERSHIP_BYTES = 4194304`, derived at `ENTRY_DEPTH = 8`, is provisional with it, until the #721
+  author (3PO) declares the entry shapes (§3, §9, §12, item 31).
 - **Canonical form.** `canonical(entry)` is the UTF-8 encoding of the entry serialised with
   no whitespace:
   - Node: `JSON.stringify(entry)`. For this subset it is identical to `canonical()` in
@@ -463,24 +468,24 @@ and the validator checks it in Node and in Python and builds this section's text
     range: a frame's `epoch`, a seal's `first`, a cursor number, or a segment's `epoch`, `first`
     or `count`. `F1` stays for integers inside entries, on the decode and the encode paths alike
     (BB8's review; required of the codec, §9).
-- **(a) The store, on a submitted frame** (§4 step 3). `F1` or `F2` on any entry in the seals,
-  the cursor tails or the group keys is `READER_PROTOCOL` (400), and nothing is written.
-  `INTEGER_FIELD` is the same code under the frame's own rule, not F1: W1 for `epoch` and a
-  seal's `first`, W4 for a cursor number. Same code, different tag. A frame whose `discovery` is
-  not JSON never reaches the store, because the frame is one JSON line: it is the step channel's
-  existing failure for a malformed step, and there is no new code. The bridge parses each line
-  (`python_bridge.js:317`) inside the try whose catch kills the worker (`:370-372`), a bridge
-  failure with no reply that pauses as today (§8), and refuses a reader line past
-  `READER_FRAME_CAP` (`:16`) as `READER_PROTOCOL` (`:320-325`).
+- **(a) The store, on a submitted frame** (§4 step 3). `F1` or `F2` on any entry in the seals, the
+  cursor tails or the group keys is `READER_PROTOCOL` (400), and nothing is written. `INTEGER_FIELD`
+  is the same code under the frame's own rule, not F1: W1 for `epoch` and a seal's `first`, W4 for a
+  cursor number. Same code, different tag. A frame whose `discovery` is not JSON never reaches the
+  store, because the frame is one JSON line: it is the step channel's existing failure for a
+  malformed step, and there is no new code. The bridge parses each line
+  (`python_bridge.js:spawnWorker`) inside the try whose catch kills the worker, a bridge failure
+  with no reply that pauses as it does at Base (§8), and refuses a reader line past
+  `READER_FRAME_CAP` (`:READER_FRAME_CAP`) as `READER_PROTOCOL`.
 - **(b) The worker, on an entry it generated, before it emits.** `F2` is `RESOURCE_LIMIT`, cause
   `discovery_entry_bytes`, naming the log (§3, §8). `F1` (a float, a lone surrogate, an object, an
   integer out of range, a depth past `ENTRY_DEPTH`) is `INVARIANT_FAILURE`, an engine defect, with a
   message that names the rule, like the other `INVARIANT_FAILURE` messages (§3, §8). The worker
   never truncates or skips the entry. It refuses before it builds the frame. Without that refusal a
   lone surrogate would fail later, still before the write: `worker.py` builds each frame with
-  `ensure_ascii=False` (`worker.py:164-165`), and the size check's strict encode (`:166`) raises
-  `UnicodeEncodeError` before the frame is printed (`:168`), so the lease would end as
-  `READER_ERROR` (`:260-270`).
+  `ensure_ascii=False` (`worker.py:run_reader`), and the size check's strict encode raises
+  `UnicodeEncodeError` before the frame is printed, so the lease would end as `READER_ERROR`
+  (`:main`).
 - **(c) A persisted segment that passed F6.** Bytes that do not parse, an entry failing F1 or F2,
   and a `first`, `count` or `epoch` that is not an integer are F3, not corruption (§2.5). The
   mapping is F3's, unchanged: a lease's walk refuses `STORAGE_CORRUPT` (503) and releases
@@ -489,22 +494,22 @@ and the validator checks it in Node and in Python and builds this section's text
   `segment_corrupt` stays F6's alone, and the store's alone, and a failed gzip inflation stays
   F6.
 - **Invalid UTF-8 in a segment, in both languages** (BB8, 21:31Z). The worker's load decodes
-  strictly (`worker.py:123`), so bytes that are not UTF-8 are `JSON`, and F3. The store today
-  parses the verified bytes with `JSON.parse` on the buffer (`reader_job_store.js:681`), which
-  decodes invalid UTF-8 as U+FFFD instead of refusing it, so the same bytes would pass or meet
-  F5. **Required** (R2's, in the store half): the store decodes a segment's verified bytes with a
-  fatal UTF-8 decoder (`new TextDecoder('utf-8', { fatal: true })`) before it parses them, never
-  with `Buffer.toString` or `JSON.parse` on the buffer, which replace bytes that are not UTF-8,
-  and a failure is F3, so both languages refuse the same bytes for the same rule: a full read
-  releases with `chain_broken`, a lease's walk refuses `STORAGE_CORRUPT`, and the worker's load
-  refuses with `chain_broken`. A failed gzip inflation comes before the decode and stays F6.
-  Only a writer other than the store can produce such bytes. `persisted_bytes` in
-  `good/codec_error_mapping.json` pins it: Python's load and the required store are F3 (`JSON`),
-  and a non-fatal decode, as the store's is today, passes the bytes. Its `read_back` is an
+  strictly (`worker.py:read_page_object`), so bytes that are not UTF-8 are `JSON`, and F3. At Base
+  the store parses the verified bytes with `JSON.parse` on the buffer
+  (`reader_job_store.js:_object`), which decodes invalid UTF-8 as U+FFFD instead of refusing it, so
+  the same bytes would pass or meet F5. **Required** (R2's, in the store half): the store decodes a
+  segment's verified bytes with a fatal UTF-8 decoder (`new TextDecoder('utf-8', { fatal: true })`)
+  before it parses them, never with `Buffer.toString` or `JSON.parse` on the buffer, which replace
+  bytes that are not UTF-8, and a failure is F3, so both languages refuse the same bytes for the
+  same rule: a full read releases with `chain_broken`, a lease's walk refuses `STORAGE_CORRUPT`, and
+  the worker's load refuses with `chain_broken`. A failed gzip inflation comes before the decode and
+  stays F6. Only a writer other than the store can produce such bytes. `persisted_bytes` in
+  `good/codec_error_mapping.json` pins it: Python's load and the required store are F3 (`JSON`), and
+  a non-fatal decode, as the store's is at Base, passes the bytes. Its `read_back` is an
   address-valid segment holding a string with a lone 0xFF byte. **Required test** (R2's store
-  tests): a full read and a lease's walk of that segment each refuse it as F3, and the same test
-  run against a replacing decode fails, because that decode passes the content and meets F5
-  instead, so the test shows the store does not use one.
+  tests): a full read and a lease's walk of that segment each refuse it as F3, and the same test run
+  against a replacing decode fails, because that decode passes the content and meets F5 instead, so
+  the test shows the store does not use one.
 - **The integral float `1.0`, across languages.** Take a persisted segment whose digests a
   Python writer computed over the bytes `1.0`. Python's load meets a float: F1, so F3, cause
   `chain_broken`. Node parses it as the integer 1, so the entry passes F1 and its recomputed
@@ -521,8 +526,8 @@ and the validator checks it in Node and in Python and builds this section's text
   subclasses, integers within ±(2⁵³ − 1), cycles, the depth, and lone surrogates found by a scan
   that encodes nothing. It serialises nothing, holds iterators rather than a stack proportional to
   an array's width, allocates in proportion to the depth and takes time in proportion to the nodes.
-  Only an entry that passes it reaches the second pass, today's encoder with its early F2 guards
-  unchanged. `emit_precedence` in `good/codec_error_mapping.json` holds BB8's cases.
+  Only an entry that passes it reaches the second pass, the worker's encoder at Base with its early
+  F2 guards unchanged. `emit_precedence` in `good/codec_error_mapping.json` holds BB8's cases.
 - **Elsewhere precedence is not pinned.** On a submitted frame and on a persisted segment, an
   input that breaks more than one rule carries the tag of its first failure in §4's listed
   order, and within one entry whichever check the bounded scan reaches first. No test depends on
@@ -534,16 +539,16 @@ and the validator checks it in Node and in Python and builds this section's text
   bounds only the canonical form: an entry passes F2 when its canonical form is at most 4,096
   bytes, however it was spaced. The raw input is bounded only by the enclosing reader's existing
   limit, and this contract adds no raw-input constant:
-  - a submitted frame is one step line of at most `READER_FRAME_CAP`, 2 MiB plus 16 KiB, which
-    the bridge holds each line to (`python_bridge.js:16`, `:320-325`) and its unterminated buffer
-    too (`:378-381`); the worker holds its own frames to 2 MiB before it writes them
-    (`worker.py:164-167`);
+  - a submitted frame is one step line of at most `READER_FRAME_CAP`, 2 MiB plus 16 KiB, which the
+    bridge holds each line to (`python_bridge.js:READER_FRAME_CAP`, `:spawnWorker`) and its
+    unterminated buffer too; the worker holds its own frames to 2 MiB before it writes them
+    (`worker.py:run_reader`);
   - a segment the worker reads goes through the bounded page reader, `read_page_object`
-    (`worker.py:97-123`): it reads at most `READER_OBJECT_BYTES`, 2 MiB (`:94`, `:104-107`), and
-    inflates at most as much (`:108-117`), before it parses (`:123`);
-  - a segment the store reads goes through `_object` (`reader_job_store.js:667-682`): `_readFile`
-    holds the stored bytes to `READER_LIMITS.objectBytes`, 2 MiB (`:511-515`, `:10`), and
-    `decodeStoredObject` holds the inflated bytes to it too (`:164-214`).
+    (`worker.py:read_page_object`): it reads at most `READER_OBJECT_BYTES`, 2 MiB
+    (`:READER_OBJECT_BYTES`), and inflates at most as much, before it parses;
+  - a segment the store reads goes through `_object` (`reader_job_store.js:_object`): `_readFile`
+    holds the stored bytes to `READER_LIMITS.objectBytes`, 2 MiB (`:_readFile`, `:READER_LIMITS`),
+    and `decodeStoredObject` holds the inflated bytes to it too (`:decodeStoredObject`).
 
   Required acceptance tests, of the worker half's codec (the validator runs both against its own
   model): a valid entry whose canonical form is 4,096 bytes, padded with whitespace to about
@@ -552,56 +557,57 @@ and the validator checks it in Node and in Python and builds this section's text
   `good/codec_error_mapping.json` builds both.
 - **A lone surrogate is refused where caller text is admitted.** (b) calls a lone surrogate in a
   generated entry an engine defect. That holds only if no caller text can carry one into the
-  analysis, and today caller text can:
-  1. Both create paths parse the body with `express.json` (`server_http.js:225-231`), whose
-     `JSON.parse` turns the escape `\ud800` into a lone surrogate, and both call
-     `validateRequest` (`reader_routes.js:169-219`): the Site bridge (`:283`) and `/library/v1`
-     (`library_viewer_routes.js:148`). It holds `declaration_set` only to being an object
-     (`reader_routes.js:174-180`). The three bindings are ASCII by `validBinding` (`:15`,
-     `:172-173`), and the layers and methods are a closed set or ASCII by `validBinding`
-     (`:181-197`). `idempotency_key` is on the allow-list (`:209`) and nothing in
-     `validateRequest` checks it; `/library/v1` holds it only to a string of at most 200
-     characters (`library_viewer_routes.js:145-147`), and the store keeps it with the request
-     (`reader_job_store.js:806-813`). It never reaches the worker: the lease payload carries the
-     declarations, the layers and the methods, not the key (`reader_scheduler.js:524-540`), and
-     the identity holds only hashes of the request (`:404-422`).
-  2. `createAnalysisJob` (`reader_routes.js:226-247`) stores the request as it is:
-     `prepareRequest` (`reader_scheduler.js:280`) keeps a caller's declaration set, and only adds
-     a collection's default pronunciations to a set that has none (`:369`).
-  3. Each lease passes `record.request.declaration_set` to the worker
-     (`reader_scheduler.js:528`). The bridge writes it with `JSON.stringify`
-     (`python_bridge.js:579-586`), which writes a lone surrogate as the escape `\ud800`, and
-     `worker.py` reads it with `json.loads` (`worker.py:241`), which makes it a lone surrogate
-     again. `worker.py` replaces lone surrogates only in a lyrics request's `argv` (`:87`,
-     `:249`); the reader family hands `declarations` to `AnalysisSession` as they are (`:155`).
-  4. In the analysis, `_public_declarations` (`analysis.py:163-170`) redacts only `source`,
-     `provenance` and `citation`, and no check on the way holds a string to well-formed Unicode:
-     a pronunciation's `line` is held to 4,000 characters (`quality/pronunciation.py:174`) and
-     refused later only because no registered line matches it (`analysis.py:366-367`).
+  analysis, and at Base caller text can:
+  1. Both create paths parse the body with `express.json` (`server_http.js:module`), whose
+     `JSON.parse` turns the escape `\ud800` into a lone surrogate, and both call `validateRequest`
+     (`reader_routes.js:validateRequest`): the Site bridge (`:createReaderRouter`) and `/library/v1`
+     (`library_viewer_routes.js:libraryViewerRouter`). At Base it holds `declaration_set` only to
+     being an object (`reader_routes.js:validateRequest`). The three bindings are ASCII by
+     `validBinding` (`:validBinding`), and the layers and methods are a closed set or ASCII by
+     `validBinding`. `idempotency_key` is on the allow-list and nothing in `validateRequest` checks
+     it; `/library/v1` holds it only to a string of at most 200 characters
+     (`library_viewer_routes.js:libraryViewerRouter`), and the store keeps it with the request
+     (`reader_job_store.js:create`). It never reaches the worker: the lease payload carries the
+     declarations, the layers and the methods, not the key (`reader_scheduler.js:pump`), and the
+     identity holds only hashes of the request (`:resolveIdentity`).
+  2. `createAnalysisJob` (`reader_routes.js:createAnalysisJob`) stores the request as it is:
+     `prepareRequest` (`reader_scheduler.js:prepareRequest`) keeps a caller's declaration set, and
+     only adds a collection's default pronunciations to a set that has none.
+  3. Each lease passes `record.request.declaration_set` to the worker (`reader_scheduler.js:pump`).
+     The bridge writes it with `JSON.stringify` (`python_bridge.js:warm`), which writes a lone
+     surrogate as the escape `\ud800`, and `worker.py` reads it with `json.loads`
+     (`worker.py:main`), which makes it a lone surrogate again. `worker.py` replaces lone surrogates
+     only in a lyrics request's `argv` (`:_LONE_SURROGATE`, `:main`); the reader family hands
+     `declarations` to `AnalysisSession` as they are (`:run_reader`).
+  4. In the analysis, `_public_declarations` (`analysis.py:_public_declarations`) redacts only
+     `source`, `provenance` and `citation`, and no check on the way holds a string to well-formed
+     Unicode: a pronunciation's `line` is held to 4,000 characters
+     (`quality/pronunciation.py:validate_choices`) and refused later only because no registered line
+     matches it (`analysis.py:AnalysisSession.__init__`).
 
-  The registered reading is not caller text: it comes from the approved snapshot, checked
-  against its pinned hash (`reader_scheduler.js:63-80`, read off the event loop by
-  `reader_source_worker.js:12`). **Required** (R2's, in the store half's runtime train, which is
-  the worker half's, §9): `validateRequest` refuses a request whose `declaration_set` holds a
-  string or a key, at any depth, that is not well-formed Unicode (`String.prototype.isWellFormed`),
-  as `INVALID_DECLARATION` (400), "The declaration set contains text that is not well-formed
-  Unicode.", in the style of its other declaration refusal (`reader_routes.js:180`). It runs
-  before the store creates a job, so no lease is ever offered. Because the job identity does not
-  always change between images (§9), the scheduler holds a stored request to the same check
-  before `workerPayload` (`reader_scheduler.js:519-523`) and pauses a job that fails it with that
-  code, so a job admitted by an image without the check never reaches the worker either.
-  **Guard test** (BB8's; R2's store and route tests): a create whose declaration set holds a
-  lone-surrogate pronunciation `line` (`"Bad \ud800"`, sent as the JSON escape), and one whose
-  declaration key holds one, are each refused `INVALID_DECLARATION` (400) on both create paths,
-  the Site bridge and `/library/v1`, before any lease: no job record is written and the bridge's
-  `runReaderLease` is never called. The same text with a well-formed pair (`\ud83d\ude00`) is
-  admitted. **Stored-request case** (BB8's, 21:31Z; R2's scheduler test): a job record written
-  before the check, whose stored declaration set holds the same lone-surrogate `line`, is leased
-  by the store first (`this.store.lease()`, `reader_scheduler.js:514`, saves it `running` with a
-  lease, `reader_job_store.js:884-907`). It is then refused at the check before `workerPayload`
-  (`reader_scheduler.js:519-523`) with `INVALID_DECLARATION`, and the scheduler's catch pauses
-  it with that code (`:592-598`), which ends the store's lease. The bridge lease is never taken:
-  `runReaderLease` is never called, and the worker never sees the request.
+  The registered reading is not caller text: it comes from the approved snapshot, checked against
+  its pinned hash (`reader_scheduler.js:verifyReading`, read off the event loop by
+  `reader_source_worker.js:module`). **Required** (R2's, in the store half's runtime train, which
+  is the worker half's, §9): `validateRequest` refuses a request whose `declaration_set` holds a
+  string or a key, at any depth, that is not well-formed Unicode
+  (`String.prototype.isWellFormed`), as `INVALID_DECLARATION` (400), "The declaration set contains
+  text that is not well-formed Unicode.", in the style of its other declaration refusal
+  (`reader_routes.js:validateRequest`). It runs before the store creates a job, so no lease is
+  ever offered. Because the job identity does not always change between images (§9), the scheduler
+  holds a stored request to the same check before `workerPayload` (`reader_scheduler.js:pump`) and
+  pauses a job that fails it with that code, so a job admitted by an image without the check never
+  reaches the worker either. **Guard test** (BB8's; R2's store and route tests): a create whose
+  declaration set holds a lone-surrogate pronunciation `line` (`"Bad \ud800"`, sent as the JSON
+  escape), and one whose declaration key holds one, are each refused `INVALID_DECLARATION` (400)
+  on both create paths, the Site bridge and `/library/v1`, before any lease: no job record is
+  written and the bridge's `runReaderLease` is never called. The same text with a well-formed pair
+  (`\ud83d\ude00`) is admitted. **Stored-request case** (BB8's, 21:31Z; R2's scheduler test): a
+  job record written before the check, whose stored declaration set holds the same lone-surrogate
+  `line`, is leased by the store first (`this.store.lease()`, `reader_scheduler.js:pump`, saves it
+  `running` with a lease, `reader_job_store.js:lease`). It is then refused at the check before
+  `workerPayload` (`reader_scheduler.js:pump`) with `INVALID_DECLARATION`, and the scheduler's
+  catch pauses it with that code (`:pump`), which ends the store's lease. The bridge lease is
+  never taken: `runReaderLease` is never called, and the worker never sees the request.
   `admission.stored_request` in `good/codec_error_mapping.json` is that record's request. The
   check stays there, not in `this.store.lease()` (BB8 6699352254, ruling 2): "refused before
   hand-out" means before the worker, and a refusal inside `lease()` would add a queued → paused
