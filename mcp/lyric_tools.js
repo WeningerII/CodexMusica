@@ -1768,6 +1768,23 @@ const blueprintField = z
   .string()
   .max(MAX_STATE_CHARS)
   .optional()
+  .superRefine((raw, ctx) => {
+    if (raw === undefined) return;
+    let blueprint;
+    try {
+      blueprint = JSON.parse(raw);
+    } catch {
+      return; // Preserve existing malformed-JSON handling.
+    }
+    if (!Array.isArray(blueprint?.lines)) return;
+    blueprint.lines.forEach((line, index) => {
+      if (line && typeof line === 'object' && Object.hasOwn(line, 'role'))
+        ctx.addIssue({
+          code: 'custom',
+          message: `line ${index + 1}: \`role\` isn't supported yet, so this blueprint was not accepted. Remove \`role\` from this line and send it again.`,
+        });
+    });
+  })
   .describe(
     'For a PASTED song only (a seeded run takes its blueprint off the plan and refuses this field): a DECLARED blueprint as JSON text — the bar grid the graders read: {"sections":[{"name","function","bars","start_bar","meter":{"beats","unit","groups":[…]}}],"lines":[{"text","bar","beat","duration"}], optional "title", "hooks"}. With it the meter, song-function, hook and title layers are ASKED of the paste; without it only rhyme and the slop floor are (blueprint_declared says which). A meter written as a signature STRING ("4/4") is refused, not parsed. Pass `subdivision` with it.'
   );
