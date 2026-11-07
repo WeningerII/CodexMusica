@@ -1,7 +1,7 @@
 # discovery_v1 fixtures (#656)
 
 These files are the shared wire interface for persisted discovery state. The contract is
-`mcp/DISCOVERY_V1.md`, and the rule IDs below (F1–F6, W1–W7, R1–R5, S1–S2, U1–U2, C1) are its rules.
+`mcp/DISCOVERY_V1.md`, and the rule IDs below (F1–F6, W1–W7, R1–R5, M1, S1–S2, U1–U2, C1) are its rules.
 `mcp/test_discovery_v1_fixtures.mjs` recomputes every digest and address here from the
 contract, and asserts that each bad fixture violates exactly the rule it is named for and
 passes every other rule.

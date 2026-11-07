@@ -3065,6 +3065,27 @@ test('the README lists every fixture once, with its rule and refusal', () => {
   }
 });
 
+// The README's opening list of rule IDs (BB8 6709891376 ruling 3: M1 sits in it
+// next to R1-R5) is exactly the set its table and the refusal model name.
+test('the README lists every rule ID its table and the refusal model name, and no other', () => {
+  const m = /the rule IDs below \(([^)]+)\) are its rules/.exec(README.replace(/\s+/g, ' '));
+  assert.ok(m, 'the README opens with its list of rule IDs');
+  const listed = [];
+  for (const item of m[1].split(/,\s*/)) {
+    const range = /^([A-Z])(\d+)–\1(\d+)$/.exec(item);
+    if (range) for (let n = +range[2]; n <= +range[3]; n++) listed.push(`${range[1]}${n}`);
+    else {
+      assert.match(item, /^[A-Z]\d+$/, `${item} is a rule ID or a range of them`);
+      listed.push(item);
+    }
+  }
+  assert.equal(new Set(listed).size, listed.length, 'the list names each rule once');
+  const named = new Set();
+  for (const row of readmeRows().values()) for (const rule of row.rules) named.add(rule);
+  for (const kind of Object.values(REFUSAL)) for (const rule of Object.keys(kind)) named.add(rule);
+  for (const rule of Object.values(BAD)) named.add(rule);
+  assert.deepEqual([...listed].sort(), [...named].sort(), 'the list is the rules named');
+});
 test('canonical form and ordered digest: the vectors, recomputed in Node and in Python', () => {
   const fx = load('good/seal_sequence_two_logs.json');
   const entries = fx.canonical_vectors.map((v) => v.entry);
