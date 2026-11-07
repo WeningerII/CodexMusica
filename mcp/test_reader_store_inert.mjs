@@ -653,6 +653,33 @@ function runStoreHalf(t, gzip) {
       K: store.inspect(K).state,
     };
   });
+
+  // 11. The startup and prune() sweep of records/*.tmp (_collectAll), apart
+  //     from maintain()'s bounded sweep (maintain/bounded). A writer that died
+  //     mid-write leaves a temporary record file; the usage counter never
+  //     counted it. The listing hides *.tmp (N4), so each step reports the
+  //     file's presence itself: left before, gone after, on both paths
+  //     (BB8 6703592982: a changed suffix in that sweep failed no test).
+  const recordsDir = path.join(rec.root, 'records');
+  const leftTmp = (name) => {
+    const file = path.join(recordsDir, name);
+    fs.writeFileSync(file, '{"partial":'.padEnd(1000, ' '));
+    return file;
+  };
+  rec.step('a temporary record file left mid-write, then reopen', () => {
+    const file = leftTmp('x.tmp');
+    const left = fs.existsSync(file);
+    store = open(dir, gzip, now, clock);
+    return { left, gone: !fs.existsSync(file), usage: rec.usage(store.usage) };
+  });
+  rec.step('a temporary record file left mid-write, then prune()', () => {
+    const file = leftTmp('x.tmp');
+    const left = fs.existsSync(file);
+    const out = store.prune();
+    // Pinned as it is: _unlinkCounted subtracts the size of a file the
+    // counter never counted, so prune()'s usage reads under the disk by it.
+    return { left, gone: !fs.existsSync(file), usage_minus_disk: out.bytes - diskBytes(rec.root) };
+  });
   return rec;
 }
 

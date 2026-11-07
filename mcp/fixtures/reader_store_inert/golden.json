@@ -8036,6 +8036,28 @@
             "cancel_requested": false
           }
         }
+      },
+      {
+        "op": "a temporary record file left mid-write, then reopen",
+        "value": { "left": true, "gone": true, "usage": 21990 },
+        "files": {
+          "added": {},
+          "changed": {
+            "generation": "682a3b3d32ac2b4e4ebfde262619c28f72f853685bc66e3502e7ebebb42ba687"
+          },
+          "removed": []
+        }
+      },
+      {
+        "op": "a temporary record file left mid-write, then prune()",
+        "value": { "left": true, "gone": true, "usage_minus_disk": -1000 },
+        "files": {
+          "added": {},
+          "changed": {
+            "generation": "26a47b597e7a8d0571ed076d0b151ec13bdf4bb31a26f29ebb0df7a8e8641f1c"
+          },
+          "removed": []
+        }
       }
     ],
     "store/gzip": [
@@ -16065,6 +16087,28 @@
             },
             "cancel_requested": false
           }
+        }
+      },
+      {
+        "op": "a temporary record file left mid-write, then reopen",
+        "value": { "left": true, "gone": true, "usage": "<on-disk-bytes>" },
+        "files": {
+          "added": {},
+          "changed": {
+            "generation": "682a3b3d32ac2b4e4ebfde262619c28f72f853685bc66e3502e7ebebb42ba687"
+          },
+          "removed": []
+        }
+      },
+      {
+        "op": "a temporary record file left mid-write, then prune()",
+        "value": { "left": true, "gone": true, "usage_minus_disk": -1000 },
+        "files": {
+          "added": {},
+          "changed": {
+            "generation": "26a47b597e7a8d0571ed076d0b151ec13bdf4bb31a26f29ebb0df7a8e8641f1c"
+          },
+          "removed": []
         }
       }
     ],
