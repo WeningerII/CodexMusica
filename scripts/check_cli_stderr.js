@@ -1,15 +1,38 @@
 #!/usr/bin/env node
-'use strict';
-// Scratch candidate: node gate.cjs /absolute/path/to/repo [--self-test]
+// Gate: scripts/recipe.js writes the SAME stderr bytes, and the same exit
+// code, to a pipe as it does to a file, and those bytes say what they must.
+//
+// @covers: cli-stderr-complete
+//
+// Usage: node scripts/check_cli_stderr.js [ROOT] [--self-test]
+//   ROOT defaults to the checkout this file is in (scripts/..).
+//   --self-test also runs the controls below: a 4 MiB stderr write with and
+//   without a forced process.exit(0), a stalled child, and two in-memory edits
+//   of recipe.js's note loop.
+//
+// Issue #815, to BB8's acceptance contract (comment 6687985836). Written by
+// 3PO (candidate V3, built on ccfd3bc85); registered here beside
+// check_cli_output.js, which gates stdout and is left as it is.
+//
 // No production files are modified. File-backed stderr is the transport oracle;
 // explicit shape/note assertions prevent consistently absent diagnostics passing.
+'use strict';
 const assert = require('node:assert/strict');
 const { spawn } = require('node:child_process');
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const crypto = require('node:crypto');
-const root = path.resolve(process.argv[2] || '.');
+const argv = process.argv.slice(2);
+const unknown = argv.filter((a) => a.startsWith('-') && a !== '--self-test');
+const positional = argv.filter((a) => !a.startsWith('-'));
+if (unknown.length || positional.length > 1) {
+  console.error(
+    `check_cli_stderr: usage: node scripts/check_cli_stderr.js [ROOT] [--self-test] (got ${argv.join(' ')})`
+  );
+  process.exit(2);
+}
+const root = path.resolve(positional[0] || path.join(__dirname, '..'));
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'cli-stderr-815-'));
 const active = new Set();
 const TIMEOUT = 15000,
