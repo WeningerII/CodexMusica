@@ -625,6 +625,30 @@ test("wellFormedDeep: the fixture's admission cases, held to their outcomes", ()
   assert.equal(wellFormedDeep(cyclic), false);
 });
 
+test('wellFormedDeep: the edges of both surrogate ranges, as values and as keys', () => {
+  // Every edge alone is refused; every edge pairing is admitted; a reversed pair is two lone ones.
+  const lone = ['\ud800', '\udbff', '\udc00', '\udfff', 'a\udbffb', 'a\udc00b', '\udc00\ud800'];
+  const u = (...cs) => String.fromCharCode(...cs);
+  const pairs = [
+    u(0xd800, 0xdc00),
+    u(0xd800, 0xdfff),
+    u(0xdbff, 0xdc00),
+    u(0xdbff, 0xdfff),
+    `a${u(0xdbff, 0xdfff)}b`,
+  ];
+  // Just outside the ranges: ordinary BMP code points.
+  const outside = [u(0xd7ff), u(0xe000), u(0xd7ff, 0xe000)];
+  const hex = (s) => [...s].map((c) => c.codePointAt(0).toString(16)).join(' ');
+  for (const s of lone) {
+    assert.equal(wellFormedDeep({ v: s }), false, `value ${hex(s)} refused`);
+    assert.equal(wellFormedDeep({ [s]: 1 }), false, `key ${hex(s)} refused`);
+  }
+  for (const s of [...pairs, ...outside]) {
+    assert.equal(wellFormedDeep({ v: s }), true, `value ${hex(s)} admitted`);
+    assert.equal(wellFormedDeep({ [s]: 1 }), true, `key ${hex(s)} admitted`);
+  }
+});
+
 // ------------------------------------------------------------ independence
 
 // Every module a file names: `import … from`, `export … from`, a bare
