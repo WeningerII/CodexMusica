@@ -3157,12 +3157,18 @@ if (want('retired-id-unresolved')) {
 // return;` -- the exit its own comment says dropped the --why output and the
 // notes on stderr, which Node writes to a pipe asynchronously.
 //
-// Restoring that line ALONE is not a plant this gate can catch, and that was
-// measured, not assumed: under --json the largest stderr the suite produces is
-// 24,353 bytes (--json --why-json with a swap that is not applied), which fits
-// whole in the ~208KB socketpair Node gives a child, so nothing is queued at
-// exit and no byte is lost (the gate passed twice in a row on that plant,
-// correctly: the bytes are equal).
+// Restoring that line ALONE escapes this gate WITH ITS CURRENT CASES, and that
+// was measured, not assumed: under --json the largest stderr the suite
+// produces is 24,353 bytes (--json --why-json with a swap that is not
+// applied), which fits whole in the ~208KB socketpair Node gives a child, so
+// nothing is queued at exit and no byte is lost (the gate passed twice in a
+// row on that plant, correctly: the bytes are equal). The CLI itself can
+// produce more than the pipe holds: an 80-tradition --json --why-json blend
+// writes 354,485 stderr bytes, and with the bare exit restored a piped run
+// with the gate's 200 ms hold got 146,261 of them, exit 0. A case of that
+// size (ids pinned, under the 15 s per-child timeout) would let the gate
+// catch the bare restore; adding one changes V3's case contract, which is
+// BB8's call (#815), and until then the plant below stands in for it.
 // So the plant is the defect as it bites: when stderr carries JSON, 4 MiB of
 // trailing JSON whitespace, then the restored exit -- the same mutation as the
 // gate's own --self-test control, written to disk. 4 MiB cannot fit on any
