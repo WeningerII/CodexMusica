@@ -5456,6 +5456,8 @@ await check('validation: actionable errors', () => {
       'mcp/test_run_continuation.mjs': 'offline real run continuation regressions',
       'mcp/test_deferred_continuation.mjs': 'real deferred provider recovery regression',
       'mcp/test_state_codec.mjs': 'offline portable state codec regressions',
+      'mcp/test_meter_admission.mjs':
+        'offline recognition-cap admission regressions on every path (#677 W5)',
       'mcp/test_function_disclosure_identity.mjs':
         'offline function disclosure identity, plan-to-grade and released-runtime recovery regressions',
       'mcp/test_runtime_assets.mjs': 'offline immutable runtime asset inventory regressions',
