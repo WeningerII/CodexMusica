@@ -5408,6 +5408,10 @@ await check('validation: actionable errors', () => {
         'offline persisted-discovery wire fixture validator (#656), executed by CI (test:library)',
       'mcp/test_reader_discovery.mjs':
         'offline persisted-discovery codec and constants regressions (#656), executed by CI (test:library)',
+      'mcp/test_reader_store_inert.mjs':
+        'offline reader store inertness golden (#656), executed by CI (test:library)',
+      'mcp/fixtures/reader_store_inert/golden.json':
+        'the inertness golden read only by test_reader_store_inert.mjs',
       'mcp/reader_store_test_support.mjs':
         "the reader store tests' record planting and deterministic clock and random helpers",
       'mcp/fixtures/discovery_v1/builders.mjs':
