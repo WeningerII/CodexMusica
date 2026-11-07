@@ -277,7 +277,7 @@ const LINE_ID = (path) =>
   path === 'recover lines_text'
     ? 'The line at row 1 of the pasted text'
     : path === 'blueprint'
-      ? 'The line "[^"]+", which P001 declares readings for, is a line of `blueprint.lines`, whose stored text is not read,'
+      ? 'The line "[^"]+", which P001 declares readings for, is a line of `blueprint.lines`, whose stored text no check reads,'
       : 'L001 of `[^`]+`';
 const AT_REQUEST_FOR = (path) => (path === 'blueprint' ? AT_REQUEST_BESIDE_DRAFT : AT_REQUEST);
 // The array paths cannot carry more than MAX_LINES items or a 201-character
@@ -913,7 +913,7 @@ test('a declaration on a blueprint line is refused as a blueprint line, not as a
       (e) =>
         e.cause === 'meter_line_digits' &&
         e.message.includes(
-          'The line "a a a", which P001, P002, P003 declare readings for, is a line of `blueprint.lines`, whose stored text is not read, but an answer or a source reading can make it a sung line, and it could reach '
+          'The line "a a a", which P001, P002, P003 declare readings for, is a line of `blueprint.lines`, whose stored text no check reads, but an answer or a source reading can make it a sung line, and it could reach '
         ) &&
         !/in no line set/.test(e.message),
       name
@@ -1030,7 +1030,7 @@ test('one total per request: the draft once, every other song the response recog
         'meter_request_digits — the draft `state.input_draft` (464 lines, 139,364) could reach 139,364 syllable digits; one request carries at most 139,363'
       ) &&
       e.message.includes(
-        "Not counted, because no response carries their recognition: `blueprint.lines` (its stored text is not read; the draft's lines are fitted to its placements); the pronunciations' own lines (a declaration on a line of a set summed here counts there; every other declared line, one on a `blueprint.lines` text included, was held to the per-line cap)."
+        "Not counted, because no response carries their recognition: `blueprint.lines` (its stored text is not read; the draft's lines are fitted to its placements); the pronunciations' own lines (a declaration on a line already counted in this total is counted with that line; any other declared line, including one on a `blueprint.lines` text, was checked against the per-line cap instead)."
       ) &&
       JSON.stringify(e.detail.not_counted) === JSON.stringify(['blueprint.lines', 'pronunciations'])
   );

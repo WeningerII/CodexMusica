@@ -241,7 +241,7 @@ The checks run in this order:
 - a declared `blueprint`'s line texts, held to the raw-row cap only (nothing
   recognises them; see above). A pronunciation declared on one of those texts
   is measured as a declared line (below), and its refusal says the line is a
-  line of `blueprint.lines` whose stored text is not read;
+  line of `blueprint.lines` whose stored text no check reads;
 - for `lyric_recover`, the rows of `lines` or `lines_text` as the source reader
   is handed them. That reader sets apparatus rows aside and resolves bracket
   spans before it numbers the sung lines, so a refusal there names the row,

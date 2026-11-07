@@ -375,7 +375,7 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
               )}: ${fmt(line.declared_digits)} digits) and 1.5 digits per unit for its ${fmt(line.undeclared_units)} undeclared units`
           : `at 1.5 digits per unit for its ${fmt(line.undeclared_units)} units (each character and each token's separator)`;
         const which = set.declared_only
-          ? `The line ${JSON.stringify(line.text)}, which ${line.id} declare${line.contributing.length > 1 ? '' : 's'} readings for, ${line.blueprint_text ? 'is a line of `blueprint.lines`, whose stored text is not read,' : 'is in no line set of this call,'} but an answer or a source reading can make it a sung line, and it`
+          ? `The line ${JSON.stringify(line.text)}, which ${line.id} declare${line.contributing.length > 1 ? '' : 's'} readings for, ${line.blueprint_text ? 'is a line of `blueprint.lines`, whose stored text no check reads,' : 'is in no line set of this call,'} but an answer or a source reading can make it a sung line, and it`
           : set.by_row
             ? set.name === 'lines'
               ? `The line at ${line.id} of \`lines\` (the row is the item's position in the array, counted from 1 with blank items included)`
@@ -426,7 +426,7 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
       ? ` Not counted, because no response carries their recognition: ${left
           .map((s) =>
             s.declared_only
-              ? "the pronunciations' own lines (a declaration on a line of a set summed here counts there; every other declared line, one on a `blueprint.lines` text included, was held to the per-line cap)"
+              ? "the pronunciations' own lines (a declaration on a line already counted in this total is counted with that line; any other declared line, including one on a `blueprint.lines` text, was checked against the per-line cap instead)"
               : `\`${s.name}\` (its stored text is not read; the draft's lines are fitted to its placements)`
           )
           .join('; ')}.`
