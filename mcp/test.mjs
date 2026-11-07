@@ -5406,6 +5406,12 @@ await check('validation: actionable errors', () => {
         'offline bounded reader-store maintenance and quiescent usage regressions',
       'mcp/test_discovery_v1_fixtures.mjs':
         'offline persisted-discovery wire fixture validator (#656), executed by CI (test:library)',
+      'mcp/test_reader_discovery.mjs':
+        'offline persisted-discovery codec and constants regressions (#656), executed by CI (test:library)',
+      'mcp/reader_store_test_support.mjs':
+        "the reader store tests' record planting and deterministic clock and random helpers",
+      'mcp/fixtures/discovery_v1/builders.mjs':
+        'cursor builders shared by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/DISCOVERY_V1.md': 'persisted discovery store and wire contract documentation',
       'mcp/fixtures/discovery_v1/README.md': 'the discovery_v1 fixture index',
       'mcp/fixtures/discovery_v1/good/epoch_jump.json':
