@@ -2,7 +2,7 @@
   "fixture": "bad/reply_pause_refused.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "fallback",
-  "exercises": "The fallback pause (§8; BB8 6700200435, condition 3). One lease on a running job with no discovery state, and the store.pause and store.complete calls the scheduler makes after it. A lease ends in a worker reply (`reply`, marked reply: true, with code 1 and the worker's stderr), a bridge result after a sink error (`sink`: the sink throws, as when a checkpoint names a provider call or the store's commit refuses with a cause and a log), or a result (`result`: a yield, or `done` with a complete, which ends in store.complete). `stub` names the refusals a stubbed store.pause meets, in call order, before the real store answers, and a stubbed store.complete's refusal; INVALID_PAUSE is the real store's. When store.pause refuses the pause it was given with any code but STALE_ATTEMPT, the scheduler logs the refusal and makes exactly one more store.pause, the fallback, `{code: READER_PROTOCOL, message: \"The reader reply could not be recorded: <code>.\", requeue: false}`, with no cause, no log and no release; a refused fallback is logged and lease expiry ends the lease. A refused end-of-lease pause or complete reaches the catch, whose pause carries the refusal's code. `errors` and `warnings` are the console.error and console.warn lines, each call's arguments joined by a space. `c1` lists the settings each case runs under.",
+  "exercises": "The fallback pause (§8; BB8 6700200435, condition 3). One lease on a running job with no discovery state, and the store.pause and store.complete calls the scheduler makes after it. A lease ends in a worker reply (`reply`, marked reply: true, with code 1 and the worker's stderr), a bridge result after a sink error (`sink`: the sink throws, as when a checkpoint names a provider call or the store's commit refuses with a cause and a log), or a result (`result`: a yield, or `done` with a complete, which ends in store.complete). `stub` names the refusals a stubbed store.pause meets, in call order, before the real store answers, and a stubbed store.complete's refusal; INVALID_PAUSE is the real store's. When store.pause refuses the pause it was given with any code but STALE_ATTEMPT, the scheduler logs the refusal and makes exactly one more store.pause, the fallback, `{code: READER_PROTOCOL, message: \"The reader reply could not be recorded: <code>.\", requeue: false}`, with no cause, no log and no release; a refused fallback is logged and lease expiry ends the lease. A refused end-of-lease pause or complete reaches the catch, whose pause carries the refusal's code. `errors` and `warnings` are the console.error and console.warn lines, each call's arguments joined by a space; a reply refused STALE_ATTEMPT is warned as stale, `[reader] worker reply <code>[<cause>] (stale: STALE_ATTEMPT): <stderr>` (BB8 6707363590). `c1` lists the settings each case runs under.",
   "expect": {
     "accepted": false,
     "rule": "C1",
@@ -220,7 +220,7 @@
           "saved": "nothing"
         },
         "errors": [],
-        "warnings": ["[reader] worker reply READER_ERROR: worker text"]
+        "warnings": ["[reader] worker reply READER_ERROR (stale: STALE_ATTEMPT): worker text"]
       }
     },
     {

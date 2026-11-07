@@ -748,10 +748,15 @@ export class ReaderScheduler {
       // (the worker's message, with the meter's or the guard's figures) is
       // logged here instead; and so is every reply whose pause is refused,
       // cause or none, so the worker's own code is never lost (BB8
-      // 6705927389).
-      const warnReply = () =>
-        console.warn(`[reader] worker reply ${named}:`, String(failure.message).slice(0, 4096));
-      if (failure.reply === true && fields.cause !== undefined) warnReply();
+      // 6705927389). A reply refused STALE_ATTEMPT is logged as stale: its
+      // lease was already over or another's, which is not a defect (BB8
+      // 6707363590).
+      const warnReply = (stale) =>
+        console.warn(
+          `[reader] worker reply ${named}${stale ? ' (stale: STALE_ATTEMPT)' : ''}:`,
+          String(failure.message).slice(0, 4096)
+        );
+      let recorded = false;
       try {
         this.store.pause(record.id, record.attempt, record.fence, {
           code: failure.code || 'INTERRUPTED',
@@ -759,8 +764,9 @@ export class ReaderScheduler {
           requeue: false,
           ...fields,
         });
+        recorded = true;
       } catch (stale) {
-        if (failure.reply === true && fields.cause === undefined) warnReply();
+        if (failure.reply === true) warnReply(stale.code === 'STALE_ATTEMPT');
         if (stale.code !== 'STALE_ATTEMPT') {
           // Names the refused pause's code and cause, so the original stays
           // recoverable once the fallback has replaced it.
@@ -779,6 +785,7 @@ export class ReaderScheduler {
           }
         }
       }
+      if (recorded && failure.reply === true && fields.cause !== undefined) warnReply(false);
     } finally {
       this.active = false;
       this.kick();

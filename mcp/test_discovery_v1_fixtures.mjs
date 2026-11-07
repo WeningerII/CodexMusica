@@ -1744,10 +1744,13 @@ function fallbackCase(c, c1) {
     // a refused reply's own code is never lost (BB8 6705927389).
     const caused = failure.cause !== undefined && failure.cause !== null;
     const named = `${echo(failure.code)}${caused ? `[${echo(failure.cause)}]` : ''}`;
-    const warn = () => warnings.push(`[reader] worker reply ${named}: ${failure.message}`);
-    if (failure.reply && caused) warn();
+    // A reply refused STALE_ATTEMPT is warned as stale (BB8 6707363590).
+    const warn = (stale) =>
+      warnings.push(
+        `[reader] worker reply ${named}${stale ? ' (stale: STALE_ATTEMPT)' : ''}: ${failure.message}`
+      );
     const refused = pause(failure);
-    if (refused && failure.reply && !caused) warn();
+    if (failure.reply && (caused || refused)) warn(refused === 'STALE_ATTEMPT');
     if (refused && refused !== 'STALE_ATTEMPT') {
       errors.push(`[reader] checkpoint recovery failed: ${refused} refusing ${named}`);
       const again = pause({ code: 'READER_PROTOCOL', message: fallbackMessage(refused) }, true);
@@ -4328,10 +4331,19 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
         const reply = c.lease.reply;
         if (!reply || !c.expect.calls[0].refused) continue;
         const named = `${reply.error_code}${reply.error_cause !== undefined ? `[${echo(reply.error_cause)}]` : ''}`;
+        // A reply refused STALE_ATTEMPT says so, and no other warn does, so
+        // a stale reply never reads as a defect (BB8 6707363590).
+        const stale =
+          c.expect.calls[0].refused === 'STALE_ATTEMPT' ? ' (stale: STALE_ATTEMPT)' : '';
         assert.ok(
-          c.expect.warnings.some((w) => w.startsWith(`[reader] worker reply ${named}: `)),
-          `${c.name}: the warn names ${named}`
+          c.expect.warnings.some((w) => w.startsWith(`[reader] worker reply ${named}${stale}: `)),
+          `${c.name}: the warn names ${named}${stale}`
         );
+        if (!stale)
+          assert.ok(
+            c.expect.warnings.every((w) => !w.includes('stale')),
+            `${c.name}: a reply refused otherwise is not called stale`
+          );
         if (c.expect.calls.some((x) => x.fallback) && c.c1.includes(false))
           assert.ok(
             c.expect.errors[0].endsWith(` refusing ${named}`),
@@ -8184,7 +8196,7 @@ const CITED_CODE = {
   'sched.pump.identity_check': '805d36dac33de30d',
   'sched.pump.run_reader_lease': '573bffc4bb5398ea',
   'sched.pump.declarations': '9c0b44cf7533f1fd',
-  'sched.pump.catch_pause': '801fb622a04a3827',
+  'sched.pump.catch_pause': '75e9e46cba590e53',
   'source_worker.verify': 'c70ad56857c8151f',
   'bridge.frame_cap': '9984ca2e1f63dc5b',
   'bridge.spawn.parse': 'a78dbdf6483e4415',
@@ -8474,7 +8486,7 @@ const CONTRACT_CITES = [
     symbol: 'pump',
     starts: '} catch (failure) {',
     ends: "if (stale.code !== 'STALE_ATTEMPT')",
-    code: '801fb622a04a3827',
+    code: '75e9e46cba590e53',
   },
   {
     id: 'c.analysis._resource_guard',
@@ -11007,8 +11019,8 @@ const REVIEW_MUTANTS = [
   [
     'Y2',
     'mcp/reader_scheduler.js',
-    "      try {\n        this.store.pause(record.id, record.attempt, record.fence, {\n          code: failure.code || 'INTERRUPTED',\n          message: failure.message,\n          requeue: false,\n          ...fields,\n        });\n      } catch (stale) {",
-    '      try {\n        void failure;\n      } catch (stale) {',
+    "      try {\n        this.store.pause(record.id, record.attempt, record.fence, {\n          code: failure.code || 'INTERRUPTED',\n          message: failure.message,\n          requeue: false,\n          ...fields,\n        });\n        recorded = true;\n      } catch (stale) {",
+    '      try {\n        void failure;\n        recorded = true;\n      } catch (stale) {',
   ],
   [
     'Z1',

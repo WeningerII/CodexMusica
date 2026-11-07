@@ -1236,6 +1236,35 @@ test('reply_cause_invalid.json: every mutant and control under C1 off and on', a
   }
 });
 
+// A reply whose pause is refused STALE_ATTEMPT is warned once, as stale,
+// whether it names a cause or not; a recorded reply with a cause, and a reply
+// refused otherwise, are warned once and never called stale (BB8 6707363590).
+test('a stale reply is warned once, as stale, with a cause or without', async (t) => {
+  const reply = (fields) => async () => ({
+    reply: true,
+    code: 1,
+    stderr: 'worker text',
+    ...fields,
+  });
+  const caused = { error_code: 'RESOURCE_LIMIT', error_cause: 'resident_capacity' };
+  const cases = [
+    [caused, ['STALE_ATTEMPT'], 'RESOURCE_LIMIT[resident_capacity] (stale: STALE_ATTEMPT)'],
+    [{ error_code: 'READER_ERROR' }, ['STALE_ATTEMPT'], 'READER_ERROR (stale: STALE_ATTEMPT)'],
+    [caused, [], 'RESOURCE_LIMIT[resident_capacity]'],
+    [caused, ['STORE_RECOUNTING'], 'RESOURCE_LIMIT[resident_capacity]'],
+  ];
+  for (const enforce of [false, true])
+    for (const [fields, pause, named] of cases) {
+      const run = await leaseOnce(t, { plan: reply(fields), stub: { pause }, enforce });
+      assert.deepEqual(
+        run.warnings,
+        [`[reader] worker reply ${named}: worker text`],
+        `C1 ${enforce}, ${pause[0] || 'recorded'}: ${run.warnings}`
+      );
+      if (pause[0] === 'STALE_ATTEMPT') assert.deepEqual(run.errors, [], 'no recovery line');
+    }
+});
+
 test('every refusal path ends the store lease, and the next job leases', async (t) => {
   const reply = (fields) => async () => ({
     reply: true,

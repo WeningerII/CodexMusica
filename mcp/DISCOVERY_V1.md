@@ -1983,7 +1983,11 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   a named cause stores no message. It logs that line too for every reply whose pause
   `store.pause` refuses, with a cause or without one (BB8 6705927389): `[reader] worker reply
   <code>[<cause>]: <stderr>`, the `[<cause>]` only when the reply names one, each echoed as C1's
-  `value` is (at most 64 bytes) and the stderr cut to 4,096 characters.
+  `value` is (at most 64 bytes) and the stderr cut to 4,096 characters. A reply whose pause is
+  refused `STALE_ATTEMPT` is logged as stale, `[reader] worker reply <code>[<cause>] (stale:
+  STALE_ATTEMPT): <stderr>`, with the same echo and cut, because its lease was already over or
+  another's and that is not a defect (BB8 6707363590); no other line says stale. The line is
+  written once the pause is answered, never before.
   **The fallback pause** (BB8 6700200435, condition 3, on R2's question 3). If `store.pause`
   refuses with any code but `STALE_ATTEMPT`, the scheduler logs the refusal and makes exactly one
   more `store.pause`. The log line, `[reader] checkpoint recovery failed: <refusal> refusing
@@ -2667,7 +2671,8 @@ Bad:
   one that is not a string, one of the wrong family, and no cause with a log outside the set)
   ends in exactly one fallback pause with the reason `{code: "READER_PROTOCOL", message: "The
   reader reply could not be recorded: INVALID_PAUSE."}`, no cause and no release, and the warn and
-  the recovery line name the reply's own code and cause; a `STALE_ATTEMPT` takes no fallback; a refused fallback is two calls and then
+  the recovery line name the reply's own code and cause; a `STALE_ATTEMPT` takes no fallback and
+  its warn names it stale; a refused fallback is two calls and then
   lease expiry; with C1 on, a valid reply whose pause is refused once takes the same fallback; a
   valid reply and a sink error are controls with one call each;
 - limit: `bad/membership_over_cap.json` (W7). For each membership log and each cap, the worker
