@@ -471,8 +471,8 @@ Notes that bite:
 - stderr is as safe to pipe as stdout: `recipe.js` writes the same stderr bytes, and returns
   the same exit code, whether stderr is a file or a pipe, and those bytes carry the note
   lines above word for word. That holds for `--why` and for the `--why-json` /
-  `--why-prefaces-json` JSON, which a blend of more than 3 traditions follows with nothing
-  removed: its stderr is one `note: blending N traditions; …` line, then the JSON.
+  `--why-prefaces-json` JSON, which a blend larger than recipes are tuned for follows with
+  nothing removed: its stderr is one `note: blending N traditions; …` line, then the JSON.
   <!-- @promise: cli-stderr-complete -->
 - Stapling **order** in `--traditions a,b` sets which tradition leads the
   recipe header and instrument order (matches the app's group-order → output
