@@ -1082,8 +1082,10 @@ export class ReaderJobStore {
   // Saves a malformed record's release when _capacity admits it; a refusal
   // with a status (STORE_RECOUNTING while usage is unknown, RESOURCE_LIMIT
   // at full quota) leaves it pending and is logged, never thrown. Logged
-  // once at error level when first found. An error without a status fails
-  // the store, as any write does.
+  // once at error level when first found, and its release once when its save
+  // lands, as every release is (here, or in a U2 save that carries it:
+  // _saveReason). An error without a status fails the store, as any write
+  // does.
   _releaseMalformed(record) {
     if (!this._malformedLogged.has(record.id)) {
       this._malformedLogged.add(record.id);
@@ -1093,6 +1095,7 @@ export class ReaderJobStore {
       this._save(this._malformedRelease(record), true);
       this.pendingRelease.delete(record.id);
       this.chains.delete(record.id);
+      this._logRelease(record.id, 'chain_broken', null);
       return true;
     } catch (error) {
       if (!error.status) throw error;
@@ -1161,7 +1164,10 @@ export class ReaderJobStore {
   // logged and made again from the record as it is, with the reason it
   // would hold without U2; the release stays pending and shown. So none of
   // these saves fails where it did not before (§7.4, "No refusal at lease
-  // time"). A saved release drops the job's lists.
+  // time"). A saved release drops the job's lists, and a pending one that
+  // lands is logged as its release, once: the fallback leaves it pending, so
+  // the next save that carries it, or the next point usage is known
+  // (_savePending), completes it.
   _saveReason(record, build) {
     const u2 = this._u2(record);
     const pending = u2 !== null && u2.base !== record;
@@ -1175,7 +1181,10 @@ export class ReaderJobStore {
       );
       return this._save(build(record, null), true);
     }
-    if (pending) this.pendingRelease.delete(record.id);
+    if (pending) {
+      this.pendingRelease.delete(record.id);
+      this._logRelease(record.id, 'chain_broken', null);
+    }
     if (this._discoveryShape(saved) === 'released') this.chains.delete(record.id);
     return saved;
   }

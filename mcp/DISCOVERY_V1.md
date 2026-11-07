@@ -1916,8 +1916,10 @@ GC:
     next such point, and never thrown from `lease()`, a recount or startup. A delete or an expiry
     of a pending job drops the pending release with the rest of `discovery`: the tombstone holds
     none, and the job view shows the tombstone.
-  - It is logged once at error level. A running job keeps its lease; its next refusal pauses it
-    with the U2 reason (§8).
+  - It is logged once at error level when found (`READER_DISCOVERY_MALFORMED`), and its release
+    once when its save lands (`READER_DISCOVERY_RELEASED`, cause `chain_broken`, log `null`), as
+    every release is: at once, at the first point usage is known, or in a U2 save that carries it
+    (§8). A running job keeps its lease; its next refusal pauses it with the U2 reason (§8).
   `bad/malformed_record_discovery.json` pins it.
 - **A queued job whose `unavailable` is set** (BB8 6700200435, on R2's question 6). An older
   image's `resume()` or `_promoteDeferred` can leave a released job `queued`, or `paused` with
@@ -2103,7 +2105,10 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   durable release when it lands. If `_capacity` refuses such a save (`STORE_RECOUNTING` while usage
   is unknown, `RESOURCE_LIMIT` at full quota), it is logged (`READER_REPAIR_DEFERRED`) and made
   without the release, with the reason it would hold without U2; the release stays pending and
-  shown, so none of these saves fails where it did not before. A C1 reason that U2 replaces is
+  shown, so none of these saves fails where it did not before. It is deferred, never lost (BB8's
+  call 3 on Step 7): the record keeps its malformed value, so once room is freed the next save
+  that carries it, the next point usage is known, or the reconciliation after a restart completes
+  the release in one save, with the U2 reason, logged once. A C1 reason that U2 replaces is
   logged as `READER_REPLY_UNRECORDED`, with its `reply_code`, `field` and `value`.
 - **C1, the cause sets at the reply boundary.** This is BB8 6678702125, ruling 4, and it
   replaces an earlier revision's rule that anything outside the sets was discarded. The
@@ -2347,6 +2352,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 49 | BB8 6699352254 (review of `a12c35b4d`, rulings 1–2) | (1) `MEMBERSHIP_BYTES = 4194304` stands, provisional with `ENTRY_DEPTH`; power-of-two rounding is accepted; the per-byte rate is re-measured on a quiet host before the proof run, and the cap is re-derived, not inherited, if `ENTRY_DEPTH` reaches 64; (2) the stored-request check stays where §2.11 has it, before `workerPayload`, never in `this.store.lease()`; and the 17 named shapes are 13 distinct loads at this cap | §2.11, §6.11, §10, §12 | `good/membership_load_measurement.json`, `good/codec_error_mapping.json`; the §6.11 derivation and the claim tests |
 | 50 | BB8 6700200435 (all seven recommendations accepted, with conditions) | (3) the scheduler's fallback pause when `store.pause` refuses: one `READER_PROTOCOL` pause, no cause, no release, none for `STALE_ATTEMPT`, the same under C1 on and off, pinned by a fixture; (4) a malformed `record.discovery` shows as `paused` with the U2 `chain_broken` reason from the reconciliation that finds it, saved at once when admitted and otherwise pending until usage is known; (7) the store stats a segment before reading it, and a stored size over 2 MiB is F6, `segment_corrupt` at a full read, without a read | §2.5, §2.7, §2.11, §5.1, §7.4, §8, §12, §13 | `bad/reply_pause_refused.json`, `bad/malformed_record_discovery.json`, `bad/segment_oversized.json` |
 | 51 | BB8 6709891376 (rulings 1–3 on R2's Step 6 questions) | (1) D1 as built: a `verified` that does not name exactly the logs `logs` names is not of §2.7's shape, so the value is malformed, and a release that could grow never takes a pending path of its own; (2) the `chain_broken` cause row names the malformed record in its Rule and Log columns, and the module's test holds that row to `DISCOVERY_CAUSES` through a closed list of exactly one exception; (3) a new rule, M1: a `record.discovery` that is present, not `null`, and not of §2.7's shape is malformed, released `chain_broken` with log `null`, never dispatched and never a GC root | §2.7, §7.4, §8, §13 | `bad/malformed_record_discovery.json`; the store tests; `test_reader_discovery`'s cause-table test |
+| 52 | BB8 6712649145 (review of `eb3fc2fff`, pins 1 and 2; call 3 on Step 7) | (1) a U2 save that carries a pending malformed release and is refused saves without it only if the release is deferred, not lost: once room is freed, the next `lease()` with usage known, the reconciliation after a restart, or the next U2 save that carries it completes the release in one save, with the U2 reason and `READER_DISCOVERY_RELEASED` logged once, as every release is; (2) the store tests pin the case and control names of `bad/malformed_record_discovery.json` as the fixtures suite does | §7.4, §8 | the store tests |
 
 ## 12. Rulings on the items added for confirmation
 

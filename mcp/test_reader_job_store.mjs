@@ -3226,6 +3226,16 @@ const refusedM1 = (fx) => (e) =>
 
 test('malformed discovery: each case of bad/malformed_record_discovery.json is M1, released at startup as the fixture gives', (t) => {
   const fx = loadFixture(MALFORMED_FIXTURE);
+  // The cases are pinned here too, not only by the fixtures suite (BB8
+  // 6712649145, pin 2): a case dropped from the fixture fails this suite.
+  assert.deepEqual(
+    fx.cases.map((c) => c.name),
+    ['verified_mismatch', 'wrong_type_key', 'extra_key', 'extra_state_key', 'empty_object']
+  );
+  assert.deepEqual(
+    fx.controls.map((c) => c.name),
+    ['null', 'absent']
+  );
   for (const c of fx.cases) {
     const { directory, store } = fixture(t);
     const other = create(store);
@@ -3263,6 +3273,19 @@ test('malformed discovery: each case of bad/malformed_record_discovery.json is M
       seen.filter((e) => e.event === 'READER_DISCOVERY_MALFORMED'),
       [{ level: fx.expect.logged, event: 'READER_DISCOVERY_MALFORMED', job: job.id }],
       `${c.name}: logged once`
+    );
+    assert.deepEqual(
+      seen.filter((e) => e.event === 'READER_DISCOVERY_RELEASED'),
+      [
+        {
+          level: 'warn',
+          event: 'READER_DISCOVERY_RELEASED',
+          job: job.id,
+          cause: fx.expect.cause,
+          log: fx.expect.log,
+        },
+      ],
+      `${c.name}: its release logged once, when its save lands`
     );
     assert.equal(restarted.lease(job.id), null, `${c.name}: never leased by id`);
     assert.equal(restarted.lease().id, other.record.id, `${c.name}: the next job leases`);
@@ -4193,4 +4216,67 @@ test('U2 path: a refused save of a pending job is made without its release, and 
   );
   const view = job.store.inspect(job.id);
   assert.deepEqual([view.state, view.reason], ['paused', U2({})], 'shown as its release');
+});
+
+// BB8's call (3) on Step 7: the fallback above saves without the release
+// only if the release is deferred, not lost. Once room is freed, the next
+// point usage is known (a lease() on the live instance), the next
+// reconciliation (a restart), or the next U2 save that carries it (a
+// cancel()) finds the pending release again and completes it in one save,
+// with the U2 reason and the release logged once.
+test('U2 path: a release a refused save deferred is completed in one save once room is freed: by lease(), after a restart, or by the next U2 save', async (t) => {
+  for (const where of ['live', 'restart', 'cancel']) {
+    let now = Date.now();
+    const job = u2Inputs(t, 'pending', { now: () => now });
+    assert.equal(await job.store.recount(), true);
+    now += 120_000; // past the lease: _expireLeases' U2 save is refused, the fallback lands
+    job.store.lease();
+    assert.ok(job.store.pendingRelease.has(job.id), `${where}: deferred by the fallback`);
+    assert.deepEqual(job.store.records.get(job.id).discovery, [], `${where}: saved unreleased`);
+    job.store.delete(job.other, job.store.capabilityFor(job.other, job.viewer), job.viewer);
+    job.store.prune();
+    assert.ok(job.store.pendingRelease.has(job.id), `${where}: still pending once room is freed`);
+    const seen = eventsOf(t);
+    const saves = []; // the saves that land (a refused one throws)
+    const save = ReaderJobStore.prototype._save;
+    t.mock.method(ReaderJobStore.prototype, '_save', function (input, ...rest) {
+      const saved = save.call(this, input, ...rest);
+      if (input.id === job.id) saves.push(clone(input));
+      return saved;
+    });
+    let store = job.store;
+    if (where === 'live') assert.doesNotThrow(() => store.lease(), 'lease() never throws');
+    else if (where === 'restart')
+      store = new ReaderJobStore({ directory: job.directory, now: () => now });
+    else store.cancel(job.id, store.capabilityFor(job.id, job.viewer), job.viewer);
+    for (let i = 0; i < 2; i++) store.lease(); // later points find nothing left to do
+    store.inspect(job.id);
+    t.mock.restoreAll();
+    assert.equal(store.failure, null);
+    assert.equal(saves.length, 1, `${where}: one save`);
+    assert.deepEqual(saves[0].discovery, malformedRelease(0, {}), `${where}: the release`);
+    assert.deepEqual(saves[0].reason, U2({}), `${where}: the U2 reason`);
+    const got = store.records.get(job.id);
+    const state = where === 'cancel' ? 'cancelled' : 'paused';
+    assert.equal(got.state, state, `${where}: ${state}`);
+    assert.equal(got.deferred_requeue, false);
+    assert.deepEqual(got.reason, U2({}), `${where}: the reason saved`);
+    assert.deepEqual(got.discovery, malformedRelease(0, {}), `${where}: the release saved`);
+    assert.equal(store.pendingRelease.has(job.id), false, `${where}: nothing left pending`);
+    assert.deepEqual(
+      seen.filter((e) => e.event === 'READER_DISCOVERY_RELEASED'),
+      [
+        {
+          level: 'warn',
+          event: 'READER_DISCOVERY_RELEASED',
+          job: job.id,
+          cause: 'chain_broken',
+          log: null,
+        },
+      ],
+      `${where}: the release logged once`
+    );
+    const view = store.inspect(job.id);
+    assert.deepEqual([view.state, view.reason], [state, U2({})], `${where}: the view`);
+  }
 });
