@@ -76,15 +76,24 @@ cited range as an anchor inside its symbol, so a line shift never changes the te
 statement about the code's state there names Base. It holds §2.11's ranges and §2.1's depth basis
 as anchors of their own, and every other citation (§2.1's other bullets, §2.3, §3 and the later
 sections) as one row per cited range, made from the line references at Base (`CONTRACT_CITES`).
-It also holds the code of each cited symbol or range to a digest, blank lines and comments aside
-(code beside a comment is still code), and a cited statement to its last line, so any change to
-that code fails until the claim it backs is read again and the digest pinned again; a citation of
-a line number, or of a symbol no row pins, fails too. Two citations name a comment or a docstring,
-not code (`reader_scheduler.js:createCatalogResolver`'s note on engine commits and
+It also holds the code of each cited range to a digest: blank lines, comments and docstrings
+aside, code beside a comment still code, and a Python line's indentation kept relative to the
+range's first. A docstring is only a bare string that opens a def or class body; an f-string, or a
+string inside brackets, is code. Each range is whole statements: it opens a statement (a row whose
+anchor line is inside one names the line it opens with), runs on through every statement it
+starts, a compound one with its body, and a Python definition starts at its first decorator; the
+language's own parser checks each. So any change to that code fails until the claim it backs is
+read again and the digest pinned again, and a citation of a line number, or of a symbol no row
+pins, fails too. A `file:symbol` citation names the symbol; its rows name the statements the
+claim rests on. Each row names the sections it backs, each citation of a row's symbol in a section
+has a row there, and the rows' ranges, digests aside, are held to the digest `3099391cfca9fb92` in this
+note, so a row deleted, narrowed or moved changes this text. Two citations name a comment or a
+docstring, not code (`reader_scheduler.js:createCatalogResolver`'s note on engine commits and
 `analysis.py:resolve_detail_records`' docstring); those rows hold the text as written. Every
 statement in §2.1's depth symbols that builds or reshapes a cell, a span key or a key is a pinned
-anchor, and every helper a depth symbol calls is a depth symbol or is listed with the reason it
-builds no entry. `analysis.py`, `worker.py` and `reader_scheduler.js` are unchanged there from
+anchor, and each depth symbol's code is held to a digest whole. Every call in one, read by
+Python's own parser, is to a depth symbol, to a builtin on a short list, or to a helper or callee
+listed with the reason it builds no entry; a callee computed or read by name fails. `analysis.py`, `worker.py` and `reader_scheduler.js` are unchanged there from
 main `21e013507`.
 
 **The interface.** The fixtures under `mcp/fixtures/discovery_v1/` are the wire interface.
@@ -168,7 +177,8 @@ truncation.
   direction and the cells (`:_span_key`), and each cell a line and a token, with its syllable
   outside a disputed word (`:_cell`), so depth 4; an `alt_cells` entry is a pair of cells, at the
   pair build and at the shared-sound build (`:_prepare_event`), the latter a pair of the stream's
-  words (`:_sound_candidates`), depth 2. `variants`' descriptor and `row_seen`'s keys are
+  words (`:_sound_candidates`), each a word with a span (`:_sound_spans`) or a varying word with
+  none (`:_sound_unspanned`), depth 2. `variants`' descriptor and `row_seen`'s keys are
   not built yet. Twice 4 is 8, which is also the floor. If the declared largest depth is 5 or more,
   `ENTRY_DEPTH` becomes 16 or more, and `MEMBERSHIP_BYTES` is derived again with it (§6.11). So
   `MEMBERSHIP_BYTES = 4194304`, derived at `ENTRY_DEPTH = 8`, is provisional with it, until the #721
