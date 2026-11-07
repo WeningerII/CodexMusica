@@ -88,7 +88,7 @@
     "assets:fetch:images": "node scripts/fetch_image_manifest.js",
     "check:mobile": "node scripts/check_mobile_layout.js",
     "check:ui": "node scripts/check_ui_foundation.js",
-    "check:cli": "node scripts/check_cli_output.js && node --test scripts/test_cli_contract.js && node scripts/check_cli_stderr.js",
+    "check:cli": "node scripts/check_cli_output.js && node --test scripts/test_cli_contract.js && node scripts/check_cli_stderr.js --self-test",
     "check:differential": "node scripts/check_edit_differential.js",
     "check:atlas": "node scripts/build_atlas_basemap.js --check && node scripts/build_atlas_geo.js --check && node scripts/build_atlas_tree.js --check && node scripts/check_atlas_publish.js && node scripts/check_atlas_publish.js --self-test && node scripts/check_earth_tiles.js && node --test scripts/test_atlas_tiles.js scripts/test_atlas_controls.js",
     "test:lyrics:browser": "node scripts/check_lyrics_writing.js && node scripts/check_lyrics_gate.js && node scripts/check_lyrics_viewport.js && node scripts/check_lyrics_natural_resize.js && node scripts/check_lyrics_integration.js && node scripts/check_lyrics_inspection_transport.mjs && node scripts/check_lyrics_inspection.js",

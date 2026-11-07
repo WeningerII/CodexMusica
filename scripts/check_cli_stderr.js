@@ -8,7 +8,10 @@
 //   ROOT defaults to the checkout this file is in (scripts/..).
 //   --self-test also runs the controls below: a 4 MiB stderr write with and
 //   without a forced process.exit(0), a stalled child, and two in-memory edits
-//   of recipe.js's note loop.
+//   of recipe.js's note loop. check:cli (so CI) runs it WITH --self-test: the
+//   controls anchor on exact recipe.js lines, and a refactor that moves one
+//   must fail here, not leave the controls unrun (about 15 s more than the
+//   cases alone).
 //
 // Issue #815, to BB8's acceptance contract (comment 6687985836). Written by
 // 3PO (candidate V3, built on ccfd3bc85); registered here beside
