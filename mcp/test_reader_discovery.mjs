@@ -514,6 +514,16 @@ test("F3: a persisted segment's content faults, each tagged, in the order the sc
   assert.deepEqual(tags(segmentContent({ entries, ...rest }, EXPECT).faults), ['FIELDS']);
   assert.deepEqual(tags(segmentContent([], EXPECT).faults), ['JSON']);
   assert.deepEqual(tags(segmentContent(null, EXPECT).faults), ['JSON']);
+  // The log is one of LOGS on its own, whether or not `expect` names one.
+  const { log: _log, ...noLog } = EXPECT;
+  assert.deepEqual(segmentContent(ok, noLog).faults, []);
+  for (const expect of [noLog, EXPECT]) {
+    const { faults } = segmentContent({ ...ok, log: 'not_a_log' }, expect);
+    assert.deepEqual(
+      faults.map((f) => [f.tag, f.field]),
+      [['FIELD', 'log']]
+    );
+  }
 });
 
 test('persisted bytes: invalid UTF-8 is F3 under the fatal decode, and a replacing decode meets F5', () => {
@@ -606,16 +616,26 @@ test("wellFormedDeep: the fixture's admission cases, held to their outcomes", ()
   let deep = ['\ud800'];
   for (let i = 0; i < 200_000; i++) deep = [deep];
   assert.equal(wellFormedDeep(deep), false);
+  // Parsed JSON cannot be cyclic, but a cyclic or shared value still ends.
+  const cyclic = { a: ['ok'] };
+  cyclic.a.push(cyclic);
+  assert.equal(wellFormedDeep(cyclic), true);
+  cyclic.b = '\udfff';
+  assert.equal(wellFormedDeep(cyclic), false);
 });
 
 // ------------------------------------------------------------ independence
 
+// Every module a file names: `import … from`, `export … from`, a bare
+// side-effect `import '…'`, a dynamic `import(…)` and a `require(…)`.
 const importsOf = (file) =>
   [
     ...fs
       .readFileSync(file, 'utf8')
-      .matchAll(/^\s*(?:import|export)\b[^'"]*?from\s+['"]([^'"]+)['"]/gm),
-  ].map((m) => m[1]);
+      .matchAll(
+        /^\s*(?:import|export)\b[^'"]*?from\s+['"]([^'"]+)['"]|^\s*import\s*['"]([^'"]+)['"]|\b(?:import|require)\s*\(\s*['"]([^'"]+)['"]/gm
+      ),
+  ].map((m) => m[1] ?? m[2] ?? m[3]);
 
 test('the validator and the builders import nothing from mcp/reader_*.js, and the module nothing but node:', () => {
   const validator = path.join(HERE, 'test_discovery_v1_fixtures.mjs');
@@ -624,10 +644,33 @@ test('the validator and the builders import nothing from mcp/reader_*.js, and th
     for (const spec of importsOf(file))
       assert.ok(!/reader_[a-z_]+\.js$/.test(spec), `${path.basename(file)} imports ${spec}`);
   assert.ok(importsOf(validator).includes('./fixtures/discovery_v1/builders.mjs'));
-  assert.deepEqual(importsOf(path.join(HERE, 'reader_discovery.js')), ['node:crypto']);
-  // Nor does any of them reach the others by a dynamic import.
-  for (const file of [validator, builders, path.join(HERE, 'reader_discovery.js')])
-    assert.ok(!/\bimport\(/.test(fs.readFileSync(file, 'utf8')), path.basename(file));
+  const module = path.join(HERE, 'reader_discovery.js');
+  assert.deepEqual(importsOf(module), ['node:buffer', 'node:crypto']);
+  // It names Buffer only by that import, never the global.
+  assert.ok(!/\bglobalThis\b|\bprocess\b/.test(fs.readFileSync(module, 'utf8')));
+  // Nor does any of them reach the others by a dynamic import or a require.
+  for (const file of [validator, builders, module])
+    assert.ok(
+      !/\bimport\s*\(|\brequire\s*\(/.test(fs.readFileSync(file, 'utf8')),
+      path.basename(file)
+    );
+  // The scan sees every form of import, so none can slip past it.
+  const probe = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'imports-')), 'probe.mjs');
+  fs.writeFileSync(
+    probe,
+    [
+      "import 'node:fs';",
+      "import a from './a.js';",
+      "export { b } from './b.js';",
+      "const c = await import('./c.js');",
+      "const d = require('./d.js');",
+    ].join('\n')
+  );
+  try {
+    assert.deepEqual(importsOf(probe), ['node:fs', './a.js', './b.js', './c.js', './d.js']);
+  } finally {
+    fs.rmSync(path.dirname(probe), { recursive: true, force: true });
+  }
 });
 
 // ------------------------------------------------------------ test support

@@ -8,6 +8,7 @@
 // public code: the codec throws or returns a local error tagged with its rule
 // (F1, F2, F4, INTEGER_FIELD, or a segment's content fault), and the enclosing
 // operation maps the tag (§2.11).
+import { Buffer } from 'node:buffer';
 import crypto from 'node:crypto';
 
 // §3. ENTRY_DEPTH and MEMBERSHIP_BYTES are provisional until the #721 author
@@ -344,7 +345,8 @@ const plainObject = (v) =>
 
 // F3 on a stored segment that passed F6 and was decoded strictly and parsed
 // (§2.5, §5.1 step 3): its fields in order; version, kind, job_id,
-// identity_hash, epoch and log as `expect` gives them; the links' digests
+// identity_hash, epoch and log as `expect` gives them, and the log one of
+// LOGS whether or not `expect` names it; the links' digests
 // well formed; first, count and epoch integers; count the entries' length;
 // and every entry passing F1 and F2. Returns every fault the scan meets, each
 // a local error ({rule: 'F3', tag, field?, what?, index?}), in that order;
@@ -362,8 +364,10 @@ export function segmentContent(segment, expect = {}) {
     fault('FIELDS', { field: null });
   if (segment.version !== 1) fault('FIELD', { field: 'version' });
   if (segment.kind !== SEGMENT_KIND) fault('FIELD', { field: 'kind' });
-  for (const field of ['job_id', 'identity_hash', 'log'])
+  for (const field of ['job_id', 'identity_hash'])
     if (Object.hasOwn(expect, field) && segment[field] !== expect[field]) fault('FIELD', { field });
+  if (!LOGS.includes(segment.log) || (Object.hasOwn(expect, 'log') && segment.log !== expect.log))
+    fault('FIELD', { field: 'log' });
   for (const field of ['epoch', 'first', 'count'])
     if (!Number.isSafeInteger(segment[field]) || segment[field] < 0)
       fault('INTEGER_FIELD', { field });
@@ -394,20 +398,25 @@ export function segmentContent(segment, expect = {}) {
 
 // The admission predicate (§2.11): every string and every key in the value,
 // at any depth, is well-formed Unicode. An explicit stack, so a deeply nested
-// request cannot exhaust the call stack.
+// request cannot exhaust the call stack. Its callers pass parsed JSON, which
+// cannot be cyclic; a container met twice is walked once, so a cyclic or
+// shared value still ends, and is judged by what it holds.
 export function wellFormedDeep(value) {
   const stack = [value];
+  const met = new Set();
   while (stack.length) {
     const v = stack.pop();
     if (typeof v === 'string') {
       if (!v.isWellFormed()) return false;
-    } else if (Array.isArray(v)) {
-      for (const x of v) stack.push(x);
     } else if (v !== null && typeof v === 'object') {
-      for (const [k, x] of Object.entries(v)) {
-        if (!k.isWellFormed()) return false;
-        stack.push(x);
-      }
+      if (met.has(v)) continue;
+      met.add(v);
+      if (Array.isArray(v)) for (const x of v) stack.push(x);
+      else
+        for (const [k, x] of Object.entries(v)) {
+          if (!k.isWellFormed()) return false;
+          stack.push(x);
+        }
     }
   }
   return true;
