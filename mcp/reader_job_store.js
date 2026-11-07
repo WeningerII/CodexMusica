@@ -1901,8 +1901,14 @@ export class ReaderJobStore {
       }
     });
     // A completed job's lists go once its save has returned (§5.1); a quota
-    // pause keeps them.
-    if (['completed', 'completed_with_refusals'].includes(done.state)) this.chains.delete(id);
+    // pause keeps them. A pending malformed release (§7.4) is completed by
+    // that save, which releases the whole of `discovery` (null): it is no
+    // longer pending, and is logged once, as every release is. A quota pause
+    // carries it through _saveReason instead.
+    if (['completed', 'completed_with_refusals'].includes(done.state)) {
+      this.chains.delete(id);
+      if (this.pendingRelease.delete(id)) this._logRelease(id, 'chain_broken', null);
+    }
     return done;
   }
 

@@ -459,8 +459,8 @@ as `discovery` in the `commitCheckpoint` payload (`reader_scheduler.js:pump`).
 
 A frame carries `discovery` exactly when its cursor carries `discovery`; one without the
 other is refused (W1). A `frame.discovery` of `null` is not the frame's shape and is refused
-(W1), and a `cursor.discovery` of `null` is not the cursor's shape and is refused (W4, §2.8):
-neither is read as absent (#656 Step 8). A frame and cursor with neither leave the store as it is today,
+(W1), and a `cursor.discovery` of `null` with a frame that carries `discovery` is not the cursor's
+shape and is refused (W4, §2.8): neither is read as absent (#656 Step 8). A frame and cursor with neither leave the store as it is today,
 which is how the store half stays inert until the worker half ships. A frame with neither
 whose record holds discovery is refused (W4).
 
@@ -1922,6 +1922,10 @@ GC:
     once when its save lands (`READER_DISCOVERY_RELEASED`, cause `chain_broken`, log `null`), as
     every release is: at once, at the first point usage is known, or in a U2 save that carries it
     (§8). A running job keeps its lease; its next refusal pauses it with the U2 reason (§8).
+    `complete()` is not among its refusers, as it is not among a saved release's: its save writes
+    `discovery: null` (§7.2), which releases the whole of the value, so when it lands the release
+    is no longer pending and is logged once there. A completion refused with a status is a quota
+    pause, which is a U2 save that carries the release.
   `bad/malformed_record_discovery.json` pins it.
 - **A queued job whose `unavailable` is set** (BB8 6700200435, on R2's question 6). An older
   image's `resume()` or `_promoteDeferred` can leave a released job `queued`, or `paused` with

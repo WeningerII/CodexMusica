@@ -4654,6 +4654,11 @@ test('write path: a null frame.discovery or cursor.discovery is refused, never r
   refusedFrame(writeJob(t, none), nullCursor, 'W4', 'cursor.discovery null');
   const both = { ...nullCursor, discovery: null };
   refusedFrame(writeJob(t, none), both, undefined, 'both null');
+  // A null frame.discovery with a cursor that has no discovery key is W1:
+  // read as absent, the two would agree and the frame would commit.
+  const nullFrameBare = { ...minimalFrame(), discovery: null };
+  delete nullFrameBare.cursor.discovery;
+  refusedFrame(writeJob(t, none), nullFrameBare, 'W1', 'frame.discovery null, cursor bare');
   // One without the other is W1; a record holding discovery with a frame and
   // cursor that have none is W4.
   const noCursor = minimalFrame();
@@ -4752,6 +4757,158 @@ test('write path: complete() saves discovery null and drops the lists after its 
   const lease = store.lease(create(store).record.id);
   commit(store, lease);
   assert.equal(Object.hasOwn(finish(store, lease), 'discovery'), false);
+});
+
+// Review of b35da3722, E2 and E4: a complete() whose save is refused with a
+// status is a quota pause, and keeps the lists, as every refused save does;
+// they go only once a completing save has returned (§5.1).
+test('write path: a complete() refused at its save is a quota pause and keeps the lists', (t) => {
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  const job = replayFixture(t, fx);
+  const last = fx.frames.at(-1);
+  commitFrame(job.store, job.lease, {
+    discovery: { epoch: 0, resets: [], seals: [] },
+    cursor: { ...last.cursor, done: true },
+  });
+  const before = listsOf(job.store, job.id);
+  const record = clone(job.store.records.get(job.id));
+  assert.ok(before && Object.keys(before).length, 'the job holds lists');
+  const save = job.store._save;
+  let refused = 0;
+  t.mock.method(job.store, '_save', function (input, ...rest) {
+    if (input.id === job.id && input.state === 'completed') {
+      refused++;
+      throw Object.assign(new Error('quota'), { code: 'RESOURCE_LIMIT', status: 507 });
+    }
+    // The lists are still held while the completing save runs.
+    if (input.id === job.id) assert.deepEqual(listsOf(this, job.id), before, 'held at the save');
+    return save.call(this, input, ...rest);
+  });
+  const paused = finish(job.store, job.lease, 0);
+  assert.equal(refused, 1, 'the completing save was refused');
+  assert.equal(paused.state, 'paused');
+  assert.equal(paused.reason.code, 'RESOURCE_LIMIT');
+  assert.deepEqual(paused.discovery, record.discovery, 'record.discovery kept');
+  assert.deepEqual(listsOf(job.store, job.id), before, 'every list kept');
+});
+
+// Review of b35da3722, D-1: complete() is not among a pending release's
+// refusers (§7.4), so a running job whose malformed release is pending can
+// complete. Its save releases the whole of `discovery` (null), so that save
+// completes the release: nothing stays pending, the view is the record, and
+// the release is logged once, never again.
+test('write path: complete() of a job whose malformed release is pending completes that release, logged once', async (t) => {
+  const job = u2Inputs(t, 'pending');
+  await job.ready(); // pending at full quota, then room freed: nothing saved it
+  const store = job.store;
+  assert.ok(store.pendingRelease.has(job.id));
+  assert.deepEqual(store.records.get(job.id).discovery, [], 'the malformed value on disk');
+  // As a running job whose last commit had a done cursor.
+  store.records.get(job.id).cursor = { phase: 'done', done: true };
+  const seen = eventsOf(t);
+  const done = finish(store, { id: job.id, attempt: 1, fence: job.fence }, 0);
+  for (let i = 0; i < 2; i++) store.lease(); // later points find nothing left to do
+  t.mock.restoreAll();
+  assert.equal(done.state, 'completed');
+  assert.equal(done.discovery, null);
+  const got = store.records.get(job.id);
+  assert.deepEqual([got.state, got.reason, got.discovery], ['completed', null, null]);
+  assert.equal(store.pendingRelease.has(job.id), false, 'nothing left pending');
+  const view = store.inspect(job.id);
+  assert.deepEqual(
+    [view.state, view.reason, view.discovery],
+    ['completed', null, null],
+    'the view is the record'
+  );
+  assert.deepEqual(
+    seen.filter((e) => e.event === 'READER_DISCOVERY_RELEASED'),
+    [
+      {
+        level: 'warn',
+        event: 'READER_DISCOVERY_RELEASED',
+        job: job.id,
+        cause: 'chain_broken',
+        log: null,
+      },
+    ],
+    'the release logged once'
+  );
+  // A job whose release was saved already logged it: its completion adds no line.
+  const saved = u2Inputs(t, 'saved');
+  assert.equal(await saved.store.recount(), true); // usage known after the planted write
+  saved.store.records.get(saved.id).cursor = { phase: 'done', done: true };
+  const again = eventsOf(t);
+  const out = finish(saved.store, { id: saved.id, attempt: 1, fence: saved.fence }, 0);
+  t.mock.restoreAll();
+  assert.equal(out.state, 'completed');
+  assert.deepEqual(
+    again.filter((e) => e.event === 'READER_DISCOVERY_RELEASED'),
+    [],
+    'no second line'
+  );
+});
+
+// And a completion whose save is refused is a quota pause: at full quota its
+// U2 save is refused too, so the fallback keeps the release pending, unlogged.
+test('write path: a refused complete() of a job whose malformed release is pending keeps it pending', async (t) => {
+  const job = u2Inputs(t, 'pending');
+  const store = job.store;
+  assert.equal(await store.recount(), true);
+  assert.ok(store.pendingRelease.has(job.id), 'pending at full quota');
+  store.records.get(job.id).cursor = { phase: 'done', done: true };
+  const save = store._save;
+  t.mock.method(store, '_save', function (input, ...rest) {
+    if (input.id === job.id && input.state === 'completed')
+      throw Object.assign(new Error('quota'), { code: 'RESOURCE_LIMIT', status: 507 });
+    return save.call(this, input, ...rest);
+  });
+  const seen = eventsOf(t);
+  const out = finish(store, { id: job.id, attempt: 1, fence: job.fence }, 0);
+  t.mock.restoreAll();
+  assert.equal(out.state, 'paused');
+  assert.deepEqual(store.records.get(job.id).discovery, [], 'saved unreleased');
+  assert.ok(store.pendingRelease.has(job.id), 'still pending');
+  assert.equal(seen.filter((e) => e.event === 'READER_DISCOVERY_RELEASED').length, 0);
+  assert.equal(store.inspect(job.id).reason.code, 'DISCOVERY_UNAVAILABLE', 'shown released');
+});
+
+// Review of b35da3722, C2: a reset, or an epoch advance, starts the log's
+// list again at [], even where the log already holds one.
+test('write path: a reset of a log that holds a list starts its list again at []', (t) => {
+  const fx = loadFixture('good/row_seen_compaction_next_frame.json');
+  const job = writeJob(t, fx, { mock: true });
+  commitFrame(job.store, job.lease, fx.frames[0]);
+  // As a full read would have listed it: the planted row_seen head.
+  const head = job.store.records.get(job.id).discovery.logs.row_seen.head;
+  job.store.chains.get(job.id).set('row_seen', [head]);
+  const frame = fx.frames[1];
+  assert.ok(frame.discovery.resets.includes('row_seen'), 'the frame resets row_seen');
+  commitFrame(job.store, job.lease, frame);
+  const want = frame.expect.segments.filter((s) => s.log === 'row_seen').map((s) => s.address);
+  assert.deepEqual(listsOf(job.store, job.id).row_seen, want, 'only its new seals');
+});
+
+test("write path: an epoch advance starts a held log's list again at []", (t) => {
+  const fx = loadFixture('good/epoch_jump.json');
+  const job = writeJob(t, fx);
+  commitFrame(job.store, job.lease, fx.frames[0]);
+  assert.equal(listsOf(job.store, job.id).variants.length, 1, 'variants holds a list');
+  // The same advance, its cursor naming variants with an empty tail, so the
+  // new epoch's record holds variants with a null head.
+  const frame = clone(fx.frames[1]);
+  assert.ok(frame.discovery.epoch > fx.frames[0].discovery.epoch, 'an advance');
+  frame.cursor.discovery.logs = {
+    ...frame.cursor.discovery.logs,
+    variants: {
+      sealed: 0,
+      sealed_digest: fx.frames[0].expect.record_discovery.verified.variants.digest,
+      tail: [],
+    },
+  };
+  const saved = commitFrame(job.store, job.lease, frame);
+  assert.equal(saved.state, 'running', 'accepted');
+  assert.equal(saved.discovery.logs.variants.head, null);
+  assert.deepEqual(listsOf(job.store, job.id).variants, [], 'variants starts again at []');
 });
 
 // §5.1's required store test (good/thrown_save_outcome_unknown.json): the
