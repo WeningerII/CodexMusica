@@ -777,7 +777,7 @@ test('F1: an Array subclass or a null-prototype array is a value of another type
   }
 });
 
-test('F5: a digest is lowercase hex; an uppercase one is refused (§2.2, item 6)', () => {
+test('F5: a digest is 64 lowercase hex digits; an uppercase, short or long one is refused (§2.2, item 6)', () => {
   const lower = domainDigest('codexmusica.reader.discovery.v1\nseen');
   const upper = lower.toUpperCase();
   assert.ok(lower !== upper && isDigest(lower));
@@ -790,6 +790,18 @@ test('F5: a digest is lowercase hex; an uppercase one is refused (§2.2, item 6)
       [['FIELD', field]],
       field
     );
+  // Exactly 64 digits: one short or one over is refused the same way (BB8
+  // 6701778607, his D7).
+  for (const bad of [lower.slice(1), `${lower}0`]) {
+    assert.equal(isDigest(bad), false, `${bad.length} digits`);
+    assert.throws(() => digestStep(bad, '1'), TypeError);
+    for (const field of ['digest_before', 'digest_after', 'previous_hash'])
+      assert.deepEqual(
+        segmentContent({ ...ok, [field]: bad }, EXPECT).faults.map((f) => [f.tag, f.field]),
+        [['FIELD', field]],
+        `${field}, ${bad.length} digits`
+      );
+  }
 });
 
 test('a negative epoch, first, count or byte count is refused as that field (item 7)', () => {
