@@ -17,7 +17,8 @@ import {
 } from './reader_scheduler.js';
 import { createPythonBridge } from './python_bridge.js';
 import { canonicalReaderQuery, canonicalReaderSigningInput } from './reader_protocol.js';
-import { createReaderRouter, signReaderRequest } from './reader_routes.js';
+import { createReaderRouter, publicReaderJob, signReaderRequest } from './reader_routes.js';
+import { DISCOVERY_CAUSES, causeMessage } from './reader_discovery.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const secret = 'test-reader-private-secret-32bytes-only';
@@ -852,6 +853,61 @@ test('admission: a stored request with a lone surrogate is leased, refused at th
     assert.deepEqual(after.request, before.request);
   } finally {
     scheduler.stop();
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+// DISCOVERY_V1 §8 (#656 Step 4): a reason with a named cause stores no
+// message; the job view renders it from the cause (default 7), and shows the
+// reason's other fields as stored.
+test('the job view renders a causal reason message from causeMessage', async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), 'reader-render-'));
+  try {
+    const store = new ReaderJobStore({ directory });
+    const show = (given) => {
+      const { record } = store.create({
+        viewer: `viewer-${given.code}-${given.cause ?? 'none'}`,
+        idempotency_key: `render-${given.code}-${given.cause ?? 'none'}`,
+        identity,
+        request,
+      });
+      const lease = store.lease();
+      assert.equal(lease.id, record.id);
+      store.pause(lease.id, lease.attempt, lease.fence, { ...given, requeue: false });
+      return {
+        stored: store.inspect(record.id).reason,
+        view: publicReaderJob(store.inspect(record.id)).reason,
+      };
+    };
+    const resource = show({
+      code: 'RESOURCE_LIMIT',
+      message: 'figures',
+      cause: 'resident_capacity',
+    });
+    assert.deepEqual(resource.stored, { code: 'RESOURCE_LIMIT', cause: 'resident_capacity' });
+    assert.deepEqual(resource.view, {
+      code: 'RESOURCE_LIMIT',
+      cause: 'resident_capacity',
+      message: causeMessage({ code: 'RESOURCE_LIMIT', cause: 'resident_capacity' }),
+    });
+    assert.match(resource.view.message, /needs more memory than this reader may use/);
+    const unavailable = show({
+      code: 'DISCOVERY_UNAVAILABLE',
+      message: 'm',
+      cause: 'segment_missing',
+      log: 'alt_cells',
+    });
+    assert.deepEqual(unavailable.view, {
+      code: 'DISCOVERY_UNAVAILABLE',
+      cause: 'segment_missing',
+      log: 'alt_cells',
+      message: DISCOVERY_CAUSES.segment_missing.message,
+    });
+    // A reason without a cause is shown as stored.
+    const plain = show({ code: 'READER_ERROR', message: 'worker text' });
+    assert.deepEqual(plain.view, { code: 'READER_ERROR', message: 'worker text' });
+    assert.deepEqual(plain.view, plain.stored);
+  } finally {
     await rm(directory, { recursive: true, force: true });
   }
 });

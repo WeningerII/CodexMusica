@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
+import { DISCOVERY_CAUSES, LOGS, RESOURCE_CAUSES } from './reader_discovery.js';
 
 export const READER_LIMITS = Object.freeze({
   pageInstances: 250,
@@ -48,6 +49,37 @@ const sha = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 const reserveGap = (size) => Math.max(0, RESERVE_BYTES - size);
 function problem(code, message, status = 409) {
   return Object.assign(new Error(message), { code, status });
+}
+// The reason a pause stores (DISCOVERY_V1 §8, the pause). A RESOURCE_LIMIT
+// with one of its ten causes is `{code, cause}`, and a DISCOVERY_UNAVAILABLE
+// with one of §8's causes `{code, cause, log}`: a reason with a named cause
+// stores no message, which the job view renders from the cause. C1's reason
+// is `{code, reply_code, field, value, message}`. Anything else is
+// `{code, message}`, as before. An argument outside every set (a cause or a
+// log that is not one, reply_code or field not a string, value neither a
+// string nor null) is refused INVALID_PAUSE, an internal code that is never a
+// job's reason.
+function pauseReason(code, message, { cause, log, reply_code, field, value }) {
+  const invalid = (what) =>
+    problem('INVALID_PAUSE', `A reader pause names ${what} outside its sets.`, 500);
+  const named = (v) => v !== undefined && v !== null;
+  if (
+    named(cause) &&
+    (typeof cause !== 'string' ||
+      !(Object.hasOwn(DISCOVERY_CAUSES, cause) || Object.hasOwn(RESOURCE_CAUSES, cause)))
+  )
+    throw invalid('a cause');
+  if (named(log) && (typeof log !== 'string' || !LOGS.includes(log))) throw invalid('a log');
+  if (reply_code !== undefined && typeof reply_code !== 'string') throw invalid('a reply code');
+  if (field !== undefined && typeof field !== 'string') throw invalid('a field');
+  if (named(value) && typeof value !== 'string') throw invalid('a value');
+  if (code === 'RESOURCE_LIMIT' && named(cause) && Object.hasOwn(RESOURCE_CAUSES, cause))
+    return { code, cause };
+  if (code === 'DISCOVERY_UNAVAILABLE' && named(cause) && Object.hasOwn(DISCOVERY_CAUSES, cause))
+    return { code, cause, log: log ?? null };
+  if (code === 'READER_PROTOCOL' && reply_code !== undefined)
+    return { code, reply_code, field: field ?? null, value: value ?? null, message };
+  return { code, message };
 }
 function canonical(value) {
   if (value === null || typeof value !== 'object') return JSON.stringify(value);
@@ -1264,10 +1296,22 @@ export class ReaderJobStore {
     id,
     attempt,
     fence,
-    { code = 'INTERRUPTED', message = 'Explicit resume is required.', requeue = false } = {}
+    {
+      code = 'INTERRUPTED',
+      message = 'Explicit resume is required.',
+      requeue = false,
+      cause,
+      log,
+      reply_code,
+      field,
+      value,
+    } = {}
   ) {
     return this._open(() => {
       const record = this._leaseRecord(id, attempt, fence);
+      // Refused before anything is saved; the scheduler's fallback pause
+      // (§8) then ends the lease.
+      pauseReason(code, message, { cause, log, reply_code, field, value });
       let state = record.cancel_requested ? 'cancelled' : requeue ? 'queued' : 'paused';
       let deferred_requeue = false;
       if (state === 'queued') {
@@ -1295,7 +1339,10 @@ export class ReaderJobStore {
           deferred_requeue,
           queued_at: this.now(),
           queue_order: this._tailOrder(),
-          reason: state === 'queued' ? null : { code, message },
+          reason:
+            state === 'queued'
+              ? null
+              : pauseReason(code, message, { cause, log, reply_code, field, value }),
         },
         true
       );

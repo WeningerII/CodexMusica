@@ -7,7 +7,7 @@ import {
   READER_BODY_BYTES,
   READER_CONTRACT_VERSION,
 } from './reader_protocol.js';
-import { wellFormedDeep } from './reader_discovery.js';
+import { causeMessage, wellFormedDeep } from './reader_discovery.js';
 
 export { canonicalReaderQuery, READER_BODY_BYTES, READER_CONTRACT_VERSION };
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
@@ -163,8 +163,17 @@ export function publicReaderJob(record) {
       'deferred_requeue',
     ]
       .filter((key) => record[key] !== undefined)
-      .map((key) => [key, record[key]])
+      .map((key) => [key, key === 'reason' ? publicReason(record.reason) : record[key]])
   );
+}
+
+// A reason that names a cause stores no message (DISCOVERY_V1 §8): the view
+// renders it from the cause, for a causal RESOURCE_LIMIT and a
+// DISCOVERY_UNAVAILABLE that carries one. Every other field, `released`
+// included, is shown as stored.
+function publicReason(reason) {
+  const message = causeMessage(reason);
+  return message === null ? reason : { ...reason, message };
 }
 
 export function validateRequest(input) {

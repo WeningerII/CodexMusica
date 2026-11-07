@@ -9497,7 +9497,7 @@ const CONTRACT_CITES = [
     symbol: 'pause',
     starts: 'pause(',
     whole: true,
-    code: '7560248df6510b02',
+    code: '1c93a4b18a0954e7',
   },
   {
     id: 'c.reader_scheduler.pump.6',

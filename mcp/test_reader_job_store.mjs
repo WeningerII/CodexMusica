@@ -1256,3 +1256,107 @@ test('a committed checkpoint is refused after the reader scheme changes', async 
   const next = store.lease(job.record.id);
   assert.deepEqual(next.cursor, saved.cursor);
 });
+
+// DISCOVERY_V1 §8, the pause (#656 Step 4): store.pause accepts a cause, a
+// log and C1's reply_code, field and value, and stores a reason with a named
+// cause without a message.
+test('pause: a named cause is stored without a message; C1 fields are kept; others as before', (t) => {
+  const { store } = fixture(t);
+  const cases = [
+    [
+      { code: 'RESOURCE_LIMIT', message: 'worker text', cause: 'resident_capacity' },
+      { code: 'RESOURCE_LIMIT', cause: 'resident_capacity' },
+    ],
+    // A log beside a RESOURCE_LIMIT cause is not stored.
+    [
+      {
+        code: 'RESOURCE_LIMIT',
+        message: 'worker text',
+        cause: 'discovery_chain_segments',
+        log: 'seen',
+      },
+      { code: 'RESOURCE_LIMIT', cause: 'discovery_chain_segments' },
+    ],
+    [
+      { code: 'DISCOVERY_UNAVAILABLE', message: 'm', cause: 'segment_missing', log: 'alt_cells' },
+      { code: 'DISCOVERY_UNAVAILABLE', cause: 'segment_missing', log: 'alt_cells' },
+    ],
+    [
+      { code: 'DISCOVERY_UNAVAILABLE', message: 'm', cause: 'cursor_disagrees' },
+      { code: 'DISCOVERY_UNAVAILABLE', cause: 'cursor_disagrees', log: null },
+    ],
+    // No causeless DISCOVERY_UNAVAILABLE is refused yet (Step 7 does that):
+    // it is stored as code and message.
+    [
+      { code: 'DISCOVERY_UNAVAILABLE', message: 'worker text' },
+      { code: 'DISCOVERY_UNAVAILABLE', message: 'worker text' },
+    ],
+    // A cause from a set, but not its code's: stored as code and message.
+    [
+      { code: 'RESOURCE_LIMIT', message: 'worker text', cause: 'chain_broken' },
+      { code: 'RESOURCE_LIMIT', message: 'worker text' },
+    ],
+    [
+      { code: 'STALE_READING', message: 'worker text', cause: 'chain_broken', log: 'seen' },
+      { code: 'STALE_READING', message: 'worker text' },
+    ],
+    [
+      {
+        code: 'READER_PROTOCOL',
+        message: 'The reader worker replied RESOURCE_LIMIT with no cause.',
+        reply_code: 'RESOURCE_LIMIT',
+        field: 'error_cause',
+        value: null,
+      },
+      {
+        code: 'READER_PROTOCOL',
+        reply_code: 'RESOURCE_LIMIT',
+        field: 'error_cause',
+        value: null,
+        message: 'The reader worker replied RESOURCE_LIMIT with no cause.',
+      },
+    ],
+    [
+      { code: 'READER_ERROR', message: 'worker text' },
+      { code: 'READER_ERROR', message: 'worker text' },
+    ],
+  ];
+  cases.forEach(([given, stored], i) => {
+    create(store, `viewer-${i}`, `request-${i}`);
+    const lease = store.lease();
+    const paused = store.pause(lease.id, lease.attempt, lease.fence, { ...given, requeue: false });
+    assert.equal(paused.state, 'paused', given.code);
+    assert.deepEqual(store.inspect(lease.id).reason, stored, JSON.stringify(given));
+  });
+});
+
+test('pause: an argument outside every set is refused INVALID_PAUSE (500) and saves nothing', (t) => {
+  const { store } = fixture(t);
+  create(store);
+  const lease = store.lease();
+  const before = store.inspect(lease.id);
+  for (const extra of [
+    { code: 'DISCOVERY_UNAVAILABLE', cause: 'not_a_cause' },
+    { code: 'DISCOVERY_UNAVAILABLE', cause: 7 },
+    { code: 'DISCOVERY_UNAVAILABLE', cause: { cause: 'chain_broken' } },
+    { code: 'DISCOVERY_UNAVAILABLE', cause: 'segment_missing', log: 'alt_cellz' },
+    { code: 'DISCOVERY_UNAVAILABLE', cause: 'segment_missing', log: 3 },
+    { code: 'READER_PROTOCOL', reply_code: 'RESOURCE_LIMIT', field: 7, value: null },
+    { code: 'READER_PROTOCOL', reply_code: 4, field: 'error_cause', value: null },
+    { code: 'READER_PROTOCOL', reply_code: 'RESOURCE_LIMIT', field: 'error_cause', value: 9 },
+  ])
+    assert.throws(
+      () => store.pause(lease.id, lease.attempt, lease.fence, { message: 'm', ...extra }),
+      (error) => error.code === 'INVALID_PAUSE' && error.status === 500,
+      JSON.stringify(extra)
+    );
+  assert.deepEqual(store.inspect(lease.id), before, 'nothing saved; the lease is held');
+  // A stale lease is refused STALE_ATTEMPT first.
+  assert.throws(
+    () => store.pause(lease.id, lease.attempt, 'not-the-fence', { cause: 7 }),
+    (error) => error.code === 'STALE_ATTEMPT'
+  );
+  // A valid pause still ends the lease.
+  store.pause(lease.id, lease.attempt, lease.fence, { code: 'READER_ERROR', message: 'm' });
+  assert.equal(store.inspect(lease.id).state, 'paused');
+});
