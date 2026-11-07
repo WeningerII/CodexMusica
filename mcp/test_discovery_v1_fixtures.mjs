@@ -142,7 +142,7 @@ const RAISE_SITES = [
   ['quality/meter.py', 'guard_expansion', 'expansion_budget'],
   ['lyric_harness.py', 'main', null],
 ];
-// §2.8: cursor v2 keeps none of a method's terminal inputs (analysis.py:2439).
+// §2.8: cursor v2 keeps none of a method's terminal inputs (analysis.py:AnalysisSession._TERMINAL_INPUTS).
 const TERMINAL_INPUTS = ['domain_true', 'domain_undecided', 'alt_cells'];
 const DOMAIN = Object.freeze({
   log: (log) => `codexmusica.reader.discovery.v1\n${log}`,
@@ -215,7 +215,7 @@ const digestStep = (digest, entry) =>
 const fold = (digest, entries) => entries.reduce(digestStep, digest);
 const clone = (value) => JSON.parse(JSON.stringify(value));
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-// The store's canonical() (reader_job_store.js:52-59): sorted keys, no whitespace.
+// The store's canonical() (reader_job_store.js:canonical): sorted keys, no whitespace.
 function canonical(value) {
   if (value === null || typeof value !== 'object') return JSON.stringify(value);
   if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
@@ -264,7 +264,7 @@ const segmentBytes = (segment) => Buffer.from(JSON.stringify(segment), 'utf8');
 // the codec's tags (§2.11), listed in the order the scan meets them. The bytes
 // are decoded as the store is required to decode them, with a fatal UTF-8
 // decoder (§2.11); `{ fatal: false }` is the store's decode today, which reads
-// invalid UTF-8 as U+FFFD (`JSON.parse` on the buffer, reader_job_store.js:681).
+// invalid UTF-8 as U+FFFD (`JSON.parse` on the buffer, reader_job_store.js:_object).
 function segmentContent(raw, { fatal = true } = {}) {
   let seg;
   try {
@@ -1177,7 +1177,7 @@ function runGroups(fx) {
   assert.equal(alt().sealed, 0, 'a groups fixture starts with alt_seen wholly in its tail');
   const outcomes = [];
   // A key already met: in the primary seen log, the current group or alt_seen,
-  // or reversed for a same-rule schema (analysis.py:1079).
+  // or reversed for a same-rule schema (analysis.py:_new_pairs).
   const known = (key) => {
     const sets = [fx.seen_members, state.discovery.groups.current?.keys || [], alt().tail];
     const one = (k) => sets.some((set) => member(set, k));
@@ -1276,7 +1276,7 @@ const witnessOf = (method, fields, records) => {
   return { count: tuples.length, digest: fold(d0(DOMAIN.witness(method)), tuples) };
 };
 // One record and its detail parts, resolved as resolve_detail_records
-// (analysis.py:218-256) resolves them; any defect is an error.
+// (analysis.py:resolve_detail_records) resolves them; any defect is an error.
 function resolveOne(stream, i) {
   const record = stream[i];
   if (!plainObject(record) || record.kind === 'detail_part')
@@ -1438,7 +1438,7 @@ const METHOD_FIELDS = [
   'undecided',
   'unreadable_tokens',
 ];
-// The three incomplete-search reasons (analysis.py:716, :958, :1036), as
+// The three incomplete-search reasons (analysis.py:_any_reading, :_alternate_edges), as
 // source fragments; the longest is built from the constants they print.
 const INCOMPLETE_TEMPLATES = [
   `f"a pair's words take more than {self.EDGE_COMBOS} combinations of readings"`,
@@ -1871,17 +1871,17 @@ out["registry"] = {
     "count_keys": sorted(keys),
     "incomplete_writers": len(re.findall(r"self\\._incomplete\\[name\\] =|self\\._incomplete\\.setdefault\\(name,", src)),
     "templates": [t in src for t in data["incomplete_templates"]],
-    # The phases a cursor names: each task's phase, and "complete" (analysis.py:2457).
+    # The phases a cursor names: each task's phase, and "complete" (analysis.py:_advance).
     "phases": sorted(set(re.findall(r'self\\.tasks\\.append\\(\\("(\\w+)",', src))
                      | set(re.findall(r'self\\.tasks = \\[\\("(\\w+)",', src))
                      | set(re.findall(r'if i < len\\(self\\.tasks\\) else "(\\w+)"', src))),
     # The values a method's coverage takes.
     "coverage": sorted(set(re.findall(r'counts\\["coverage"\\] = "(\\w+)"', src))
                        | set(re.findall(r'counts\\.get\\("coverage", "(\\w+)"\\)', src))),
-    # The cursor's counters (analysis.py:470).
+    # The cursor's counters (analysis.py:AnalysisSession.__init__).
     "counters": re.findall(r'"(\\w+)": 0', re.search(r'"counters": \\{(.*?)\\}', src, re.S).group(1)),
 }
-# The fields the domain reducer reads (analysis.py:1466-1479): the witness
+# The fields the domain reducer reads (analysis.py:_domain_tally): the witness
 # holds them, beside the method and record ids.
 import inspect
 tally = inspect.getsource(A.AnalysisSession._domain_tally)
@@ -5134,7 +5134,7 @@ test('BB8 6688972927: each fold is pinned where it is stated, with computed figu
   // RecursionError caveat are gone (BB8 6693502369, item 31).
   assert.ok(
     format.includes(
-      "For this subset its output is identical to `canonical_json`'s (`contracts.py:208-210`). `json_safe` recurses once per level, and F1's depth bound keeps every entry far under Python's recursion limit, so both complete on every entry"
+      "For this subset its output is identical to `canonical_json`'s (`contracts.py:canonical_json`). `json_safe` recurses once per level, and F1's depth bound keeps every entry far under Python's recursion limit, so both complete on every entry"
     )
   );
   assert.ok(
@@ -5422,7 +5422,7 @@ test("good/refusal_construction.json: REFUSAL_BYTES is the largest refusal in th
   );
   // Every count is a len() of a CPython container, or a counter moving once per
   // element of one: at most sys.maxsize. The word count is two such lengths,
-  // the pair count n(n - 1)/2 of it (analysis.py:1622-1623).
+  // the pair count n(n - 1)/2 of it (analysis.py:_sound_candidates).
   const M = 2n ** 63n - 1n;
   const N = 2n * M;
   assert.equal(fx.integer_bound.value, String(M));
@@ -7164,9 +7164,39 @@ function definitionLines(lines, name, py, from, to) {
     const s = lines[i];
     if (!res.some((re) => re.test(s))) continue;
     if (!py && /[;,]$/.test(s.trimEnd()) && !/^\s*(?:export\s+)?const /.test(s)) continue;
+    // A method-shaped line (`name(` with no keyword) defines only when its
+    // parameter list is followed by a body: a call that runs over lines,
+    // `name(\n  args\n);`, is not a definition.
+    if (
+      !py &&
+      !/^\s*(?:export\s+|async\s+|function\s+|const |class )/.test(s) &&
+      !bodyFollows(lines, i, to)
+    )
+      continue;
     out.push(i);
   }
   return out;
+}
+// Whether the parenthesis a JS line opens first is followed by `{` once it
+// closes (comments and strings aside).
+function bodyFollows(lines, i, to) {
+  const code = stripComments(lines.slice(i, to + 1).join('\n'), false).map((t) =>
+    t.replace(/"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|`(?:\\.|[^`\\])*`/g, '""')
+  );
+  let depth = 0;
+  let opened = false;
+  for (let j = 0; j < code.length; j++)
+    for (let k = 0; k < code[j].length; k++) {
+      const c = code[j][k];
+      if (c === '(') {
+        depth++;
+        opened = true;
+      } else if (c === ')' && --depth === 0 && opened) {
+        const rest = `${code[j].slice(k + 1)} ${code.slice(j + 1).join(' ')}`.trimStart();
+        return rest.startsWith('{');
+      }
+    }
+  return false;
 }
 // The last line of the definition at `start`. JS: the first later line at or
 // left of its indentation that is closers alone (`}`, `});`), or else the line
@@ -7193,7 +7223,9 @@ function spanEnd(lines, start, py, to) {
         continue;
       }
       if (!t || t.startsWith('#')) continue;
-      if (indentOf(s) <= ind) return last;
+      // A closer alone at the definition's indentation ends a top-level
+      // bracketed assignment, and is part of it.
+      if (indentOf(s) <= ind) return /^[}\])]+,?$/.test(t) ? i : last;
       last = i;
     } else {
       if (!t) continue;
@@ -7211,7 +7243,16 @@ function symbolSpan(lines, symbol, py, id) {
   let to = lines.length - 1;
   if (symbol === 'module') return { from, to };
   for (const name of symbol.split('.')) {
-    const defs = definitionLines(lines, name, py, from, to);
+    let defs = definitionLines(lines, name, py, from, to);
+    // A Python class attribute: an assignment at the class body's indentation.
+    if (py && !defs.length && /^\s*class\s/.test(lines[from])) {
+      const body = lines.slice(from + 1, to + 1).find((s) => s.trim() && !s.trim().startsWith('#'));
+      const at = body === undefined ? -1 : indentOf(body);
+      const re = new RegExp(`^\\s*${escapeRe(name)}\\s*(?::[^=]*)?=(?!=)`);
+      defs = [];
+      for (let i = from + 1; i <= to; i++)
+        if (indentOf(lines[i]) === at && re.test(lines[i])) defs.push(i);
+    }
     if (defs.length !== 1)
       throw new Error(`${id}: ${defs.length ? 'a second definition' : 'no definition'} of ${name}`);
     to = spanEnd(lines, defs[0], py, to);
@@ -7304,7 +7345,12 @@ function resolveAnchor(sourceText, row) {
     if (line !== from) throw new Error(`${row.id}: not the definition of ${row.symbol}`);
     endLine = to;
   } else if (row.ends) {
-    endLine = lines.findIndex((s, i) => i >= line && i <= to && s.trim().startsWith(row.ends));
+    // The first later line that starts `ends`, or the endsNth-th where the
+    // first is not the range's last.
+    let k = row.endsNth ?? 1;
+    endLine = lines.findIndex(
+      (s, i) => i >= line && i <= to && s.trim().startsWith(row.ends) && --k === 0
+    );
     if (endLine < 0)
       throw new Error(
         `${row.id}: no later line in ${row.symbol} starts ${JSON.stringify(row.ends)}`
@@ -7486,20 +7532,21 @@ function resolveAnchors(rows, half, src) {
 const citeOf = (row) =>
   `${row.file.replace(/^(?:mcp|lyric-harness\/library|lyric-harness)\//, '')}:${row.symbol}`;
 
-const CITE_ROOTS = ['mcp/', 'lyric-harness/library/', 'lyric-harness/'];
+const CITE_ROOTS = ['mcp/', 'lyric-harness/library/', 'lyric-harness/quality/', 'lyric-harness/'];
 const citeFile = (f) => {
   const hit = ['', ...CITE_ROOTS].map((r) => r + f).find((p) => fs.existsSync(path.join(ROOT, p)));
   assert.ok(hit, `${f} resolves to a file`);
   return hit;
 };
 // Every `file:symbol` citation a text makes: a bare `:symbol` names the file
-// of the nearest file-qualified citation before it in the same bullet.
+// of the nearest file-qualified citation before it in the same bullet, table
+// row or paragraph.
 function citesOf(text) {
   const out = [];
   let file = null;
   for (const line of text.split('\n')) {
-    if (/^\s*(?:- |\d+\. )/.test(line) || !line.trim()) file = null;
-    for (const m of line.matchAll(/`(?:([a-z_./]+\.(?:js|py)))?:([A-Za-z_]\w*(?:\.\w+)?)`/g)) {
+    if (/^\s*(?:- |\d+\. |\|)/.test(line) || !line.trim()) file = null;
+    for (const m of line.matchAll(/`(?:([a-z_./-]+\.(?:js|py|mjs)))?:([A-Za-z_]\w*(?:\.\w+)*)`/g)) {
       if (m[1]) file = m[1];
       assert.ok(file, `the bare citation :${m[2]} follows a named file in its bullet`);
       out.push(`${citeFile(file)}:${m[2]}`);
@@ -7509,7 +7556,11 @@ function citesOf(text) {
 }
 // A citation by line number, in a text the validator checks.
 const lineCites = (text) =>
-  [...text.matchAll(/`(?:[a-z_./]+\.(?:js|py))?:\d+(?:-\d+)?`/g)].map((m) => m[0]);
+  [
+    ...text.matchAll(
+      /`(?:[\w./-]+\.(?:js|py|mjs))?:\d+(?:-\d+)?`|(?<![\w`])[\w./-]+\.(?:js|py|mjs):\d+/g
+    ),
+  ].map((m) => m[0]);
 const s211raw = () => CONTRACT.slice(CONTRACT.indexOf('\n### 2.11'), CONTRACT.indexOf('\n## 3.'));
 const s211text = () => s211raw().replace(/\s+/g, ' ');
 
@@ -7661,6 +7712,1723 @@ function checkDigests(half, src) {
     'every pinned digest is a resolved cited row'
   );
 }
+// Every other code citation in the contract (§2.1's other bullets, §2.3, §3
+// and the sections after them; BB8 6701778607), as `file:symbol`: each row is
+// one cited range, found as ANCHORS' rows are, and `code` is its digest
+// (codeLines'; a `prose` row, which cites a comment or a docstring, digests its
+// trimmed lines as they stand). The rows were made from the line citations at
+// Base and resolve there. A change anywhere in a range fails with the digest
+// it now has: read the claim that cites it again before pinning that digest.
+const CONTRACT_CITES = [
+  {
+    id: 'c.reader_job_store.canonical',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'canonical',
+    starts: 'function canonical(value) {',
+    whole: true,
+    code: 'b017252caaf66d96',
+  },
+  {
+    id: 'c.contracts.canonical_json',
+    file: 'lyric-harness/library/contracts.py',
+    symbol: 'canonical_json',
+    starts: 'def canonical_json(value: Any) -> str:',
+    whole: true,
+    code: 'd28a1a3ce2aecde7',
+  },
+  {
+    id: 'c.analysis._candidates.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_candidates',
+    starts: 'seen = set()',
+    ends: 'seen.add((self._span_key(a, st), self._span_key(b, st)))',
+    code: '9bbbdd5bbd406496',
+  },
+  {
+    id: 'c.relations._candidate_pairs',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_candidate_pairs',
+    starts: 'remaining = {}',
+    ends: 'seen = {}',
+    code: 'fc5a65d1ea5bd010',
+  },
+  {
+    id: 'c.analysis._prepare_event.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_prepare_event',
+    starts: 'cells = [sorted({(found.units[i].line, found.units[i].token) for i in m.idx})',
+    ends: 'delta["alt_cells"] = delta.get("alt_cells", []) + [[list(cells[0][0]), list(cells[1][0])]]',
+    code: 'c9f7650156975984',
+  },
+  {
+    id: 'c.analysis._prepare_event.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_prepare_event',
+    starts: 'new.append(self._figure_record(name, frame, edges, v))',
+    ends: 'else:',
+    code: '698040aee1d5ae00',
+  },
+  {
+    id: 'c.reader_job_store._blob.1',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_blob',
+    starts: '_blob(kind, value) {',
+    whole: true,
+    code: '8d39a853847c9f10',
+  },
+  {
+    id: 'c.reader_job_store._blob.2',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_blob',
+    starts: 'let stored = bytes;',
+    ends: 'if (compressed.length < bytes.length) stored = compressed;',
+    code: 'a752fa4b5937af0d',
+  },
+  {
+    id: 'c.reader_job_store.readPage',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'readPage',
+    starts: 'readPage(id, pageSha, capability, viewer, manifestHash = null) {',
+    whole: true,
+    code: '6ff37474cf39b0e7',
+  },
+  {
+    id: 'c.analysis.step.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'step',
+    starts: 'while cp["method_index"] < len(self.tasks) and used < budget_candidates:',
+    ends: 'if size > 32768:',
+    code: 'af4572b830718c28',
+  },
+  {
+    id: 'c.analysis._candidates.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_candidates',
+    starts: 'seen = set()',
+    code: 'c8124e676ebd4d90',
+  },
+  {
+    id: 'c.analysis._advance.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_advance',
+    starts: 'def _advance(self):',
+    whole: true,
+    code: '96f4e67d2bf1c925',
+  },
+  {
+    id: 'c.reader_job_store._save.1',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_save',
+    starts: '_save(input, reserved = false) {',
+    ends: 'const record = { ...body, record_digest: sha(canonical(body)) };',
+    code: '909b6b9d3ac63d11',
+  },
+  {
+    id: 'c.analysis._prepare_event.3',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_prepare_event',
+    starts: 'if phase == "schema" and name not in cp.setdefault("refused_schemas", []):',
+    ends: 'cp["refused_schemas"].append(name)',
+    code: '456524d1a1e291ef',
+  },
+  {
+    id: 'c.contracts.CONTRACT_VERSION',
+    file: 'lyric-harness/library/contracts.py',
+    symbol: 'CONTRACT_VERSION',
+    starts: 'CONTRACT_VERSION = 1',
+    whole: true,
+    code: 'b9fb29224e9f02b0',
+  },
+  {
+    id: 'c.contracts.semantic_identity',
+    file: 'lyric-harness/library/contracts.py',
+    symbol: 'semantic_identity',
+    starts: 'identity = {"contract_version": CONTRACT_VERSION,',
+    code: '6642f7d5c58ffe35',
+  },
+  {
+    id: 'c.analysis.AnalysisSession._TERMINAL_INPUTS',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'AnalysisSession._TERMINAL_INPUTS',
+    starts: '_TERMINAL_INPUTS = ("domain_true", "domain_undecided", "alt_cells")',
+    code: 'd349458045c4b759',
+  },
+  {
+    id: 'c.analysis.step.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'step',
+    starts: 'except StopIteration:',
+    ends: 'cp["counters"][key] += value',
+    code: '941e7d9a7b050bdc',
+  },
+  {
+    id: 'c.analysis.step.3',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'step',
+    starts: 'done = cp["method_index"] >= len(self.tasks)',
+    ends: '"records": records, "done": done, "summary": self.summary(), "provider_calls": 0}',
+    code: 'dadec90f92804403',
+  },
+  {
+    id: 'c.reader_scheduler.pump.1',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts:
+      'const committed = this.store.commitCheckpoint(record.id, record.attempt, record.fence, {',
+    ends: '});',
+    code: 'a1e1199fe713721e',
+  },
+  {
+    id: 'c.reader_job_store.workerPayload',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'workerPayload',
+    starts: 'workerPayload(id) {',
+    whole: true,
+    code: '6df8e5c66b0dbefc',
+  },
+  {
+    id: 'c.reader_scheduler.pump.2',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'const trusted = this.store.workerPayload(record.id);',
+    ends: 'committed_pages: trusted.page_paths || trusted.pages || [],',
+    code: '610ce17c4fde77e2',
+  },
+  {
+    id: 'c.worker.run_reader.1',
+    file: 'mcp/worker.py',
+    symbol: 'run_reader',
+    starts: 'if len(frame.encode("utf-8")) > 2 * 1024 * 1024:',
+    code: 'a294b3fad06b777b',
+  },
+  {
+    id: 'c.python_bridge.READER_FRAME_CAP',
+    file: 'mcp/python_bridge.js',
+    symbol: 'READER_FRAME_CAP',
+    starts: 'const READER_FRAME_CAP = 2 * 1024 * 1024 + 16384;',
+    whole: true,
+    code: '9984ca2e1f63dc5b',
+  },
+  {
+    id: 'c.reader_job_store.encoded',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'encoded',
+    starts: 'function encoded(value, label, limit = READER_LIMITS.objectBytes) {',
+    whole: true,
+    code: 'c25c510edd5ee386',
+  },
+  {
+    id: 'c.reader_scheduler.pump.3',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: '} catch (failure) {',
+    ends: "if (stale.code !== 'STALE_ATTEMPT')",
+    code: '22772b485de5e028',
+  },
+  {
+    id: 'c.analysis._resource_guard',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_resource_guard',
+    starts: 'def _resource_guard(phase, extra_bytes=0):',
+    ends: 'f"observed={resident}, reserved={extra_bytes}, envelope={ceiling}. "',
+    code: '72c4ec04af735a29',
+  },
+  {
+    id: 'c.meter.exact_number',
+    file: 'lyric-harness/quality/meter.py',
+    symbol: 'exact_number',
+    starts: 'if max(out.numerator.bit_length(), out.denominator.bit_length()) > 256:',
+    ends: 'raise ValueError(f"RESOURCE_LIMIT: {field} exceeds the 256-bit coordinate budget")',
+    code: 'cf66912b3f0cc6cb',
+  },
+  {
+    id: 'c.meter.guard_expansion',
+    file: 'lyric-harness/quality/meter.py',
+    symbol: 'guard_expansion',
+    starts: 'def guard_expansion(count, field, limit=MAX_EXPANDED_POSITIONS):',
+    whole: true,
+    code: 'dd73d7dbb684ad03',
+  },
+  {
+    id: 'c.form.decode_beatgrid.1',
+    file: 'lyric-harness/library/form.py',
+    symbol: 'decode_beatgrid',
+    starts: 'from quality.meter import Cycle, exact_integer, exact_number',
+    ends: 'positions[locus] = exact_number(pos.get("pulse"), "beatgrid pulse")',
+    code: 'fe09a2da8fdc0b69',
+  },
+  {
+    id: 'c.reader_job_store.jsonValue',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'jsonValue',
+    starts: 'function jsonValue(value, label) {',
+    whole: true,
+    code: '47f86f4b6d70ab22',
+  },
+  {
+    id: 'c.worker.run_reader.2',
+    file: 'mcp/worker.py',
+    symbol: 'run_reader',
+    starts:
+      'step = session.step(budget_candidates=256, deadline=min(deadline, time.monotonic() + 1),',
+    code: 'babe3dad5349c8b8',
+  },
+  {
+    id: 'c.reader_job_store.commitCheckpoint.1',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'commitCheckpoint',
+    starts: 'const inline = page_count <= 250 ? [...this._refs(root)] : [];',
+    code: '09f81548b2b3fe3f',
+  },
+  {
+    id: 'c.analysis.AnalysisSession.__init__.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'AnalysisSession.__init__',
+    starts: 'self.checkpoint = copy.deepcopy(checkpoint)',
+    ends: 'self._incomplete.update(self.checkpoint.get("incomplete", {}))',
+    code: 'efa294baa47c25df',
+  },
+  {
+    id: 'c.analysis.AnalysisSession.__init__.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'AnalysisSession.__init__',
+    starts: 'self.tasks = [("coordinates", "coordinates")]',
+    ends: 'self.tasks.append(("shared_sound", key))',
+    code: '59f7110353dc1304',
+  },
+  {
+    id: 'c.analysis._advance.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_advance',
+    starts: 'self.checkpoint["phase"] = self.tasks[i][0] if i < len(self.tasks) else "complete"',
+    code: '184ba7bbb8163d06',
+  },
+  {
+    id: 'c.analysis._prepare_event.4',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_prepare_event',
+    starts:
+      'delta = {"candidates": 0, "true": 0, "false": 0, "undecided": 0, "refused_questions": 0,',
+    ends: 'try:',
+    code: '26624cdd86921eb6',
+  },
+  {
+    id: 'c.analysis._prepare_event.5',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_prepare_event',
+    starts: 'delta["candidates"] = 1',
+    ends: 'return {"records": emitted, "delta": delta, "action": action, "method_id": self._task_mid(phase, name)}',
+    code: 'eb87c7af79ee1fb9',
+  },
+  {
+    id: 'c.analysis.step.4',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'step',
+    starts: 'def step(self, budget_candidates: int = 256, deadline: float | None = None,',
+    ends: 'cp["counters"][key] += value',
+    code: '774b281a64203044',
+  },
+  {
+    id: 'c.analysis._assembly_records.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_assembly_records',
+    starts: 'counts["figure_counts"] = {tag: sum(verdict(v) == tag for _, _, v in assembled)',
+    code: '9db42efafc502fe1',
+  },
+  {
+    id: 'c.analysis._finish.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_finish',
+    starts:
+      'counts["coverage"] = "refused" if counts.get("refused_questions") else counts.get("coverage", "answered")',
+    ends: 'counts["refusal"] = {"kind": "reading_combinations", "capability": "any_reading", "missing": [], "vacuous": [],',
+    code: '89c4cf8dd87272be',
+  },
+  {
+    id: 'c.analysis._sound_result.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_sound_result',
+    starts: 'if self.stream.unreadable and counts["coverage"] == "answered":',
+    ends: 'return self._record("method_result", mid, "result", namespace="shared_sound",',
+    code: '354472284a94e991',
+  },
+  {
+    id: 'c.analysis._any_reading.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_any_reading',
+    starts:
+      'reason = f"a pair\'s words take more than {self.EDGE_COMBOS} combinations of readings"',
+    code: 'df2c45f63ab73e1f',
+  },
+  {
+    id: 'c.analysis._alternate_edges.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_alternate_edges',
+    starts:
+      'self._incomplete.setdefault(name, f"a line\'s words take more than {self.EDGE_COMBOS} "',
+    code: 'd74218ea65719b62',
+  },
+  {
+    id: 'c.analysis._alternate_edges.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_alternate_edges',
+    starts: 'self._incomplete[name] = (f"its disputed words\' readings collide on more than "',
+    code: '7e8d4ea2639afad8',
+  },
+  {
+    id: 'c.analysis._domain_tally',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_domain_tally',
+    starts: 'def _domain_tally(delta, record):',
+    whole: true,
+    code: '20fbd2a44f70b6fb',
+  },
+  {
+    id: 'c.relations.realise',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: 'realise',
+    starts: 'why = "; ".join(',
+    ends: 'f"— 0 {sup[c].detail}" for c in vac)',
+    code: 'de25e806a278251e',
+  },
+  {
+    id: 'c.analysis.AnalysisSession.__init__.3',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'AnalysisSession.__init__',
+    starts:
+      'self.checkpoint = {"contract_version": CONTRACT_VERSION, "identity_hash": self.identity["hash"],',
+    code: '015be74dda7a5501',
+  },
+  {
+    id: 'c.analysis._sound_result.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_sound_result',
+    starts:
+      'counts["refusal"] = {"kind": "unknown_members", "capability": "native_reading", "missing": [], "vacuous": [],',
+    ends: '"detail": "Unread lexical members remain in the source census. Findings over readable members do not answer those obligations."}',
+    code: 'ab40b05a4159238d',
+  },
+  {
+    id: 'c.analysis._finish.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_finish',
+    starts:
+      'counts["refusal"] = {"kind": "unknown_members", "capability": "native_reading", "missing": [], "vacuous": [],',
+    ends: '"detail": "Unread lexical members remain in the source census. Findings over readable members do not answer those obligations."}',
+    code: 'ab40b05a4159238d',
+  },
+  {
+    id: 'c.analysis._finish.3',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_finish',
+    starts:
+      'counts["refusal"] = {"kind": "reading_combinations", "capability": "any_reading", "missing": [], "vacuous": [],',
+    ends: '+ ". Findings over the combinations searched do not answer the rest."}',
+    code: 'df45f52e7f87fb8c',
+  },
+  {
+    id: 'c.analysis._prepare_event.6',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_prepare_event',
+    starts: 'except _Refused as exc:',
+    ends: 'counts["refusal"] = json_safe(exc.refusal)',
+    code: '9edc3712350030ab',
+  },
+  {
+    id: 'c.analysis._Refused',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_Refused',
+    starts: 'class _Refused(Exception):',
+    whole: true,
+    code: '76c36a66234190aa',
+  },
+  {
+    id: 'c.relations.Refusal',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: 'Refusal',
+    starts: 'class Refusal:',
+    ends: 'vacuous: tuple = ()',
+    code: 'c7f671f7040753d2',
+  },
+  {
+    id: 'c.contracts.json_safe',
+    file: 'lyric-harness/library/contracts.py',
+    symbol: 'json_safe',
+    starts: 'def json_safe(value: Any) -> Any:',
+    whole: true,
+    code: '9049a5086d908d2c',
+  },
+  {
+    id: 'c.analysis._prepare_event.7',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_prepare_event',
+    starts: 'except _Refused as exc:',
+    ends: 'counts["coverage"] = "refused"',
+    code: '99a771b87bc717c9',
+  },
+  {
+    id: 'c.analysis._sound_candidates.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_sound_candidates',
+    starts: 'if total > self.SOUND_PAIR_CAP:',
+    ends: '"shared sound is not answered over the pairs it would reach before the cap", kind="capability"))',
+    code: 'f4e9c8e80600651e',
+  },
+  {
+    id: 'c.registry.shared_sound_name',
+    file: 'lyric-harness/library/registry.py',
+    symbol: 'shared_sound_name',
+    starts: 'def shared_sound_name(key: str) -> str:',
+    whole: true,
+    code: '2d794a5a23b4505c',
+  },
+  {
+    id: 'c.analysis.AnalysisSession.SOUND_PAIR_CAP',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'AnalysisSession.SOUND_PAIR_CAP',
+    starts: 'SOUND_PAIR_CAP = 124322796',
+    code: '47b50dad9aa2eaa8',
+  },
+  {
+    id: 'c.analysis._candidates.3',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_candidates',
+    starts:
+      'if "beat" in schema.capabilities() and self._beat_placed is not None and self._beat_placed != {u.i for u in st.units}:',
+    ends: 'missing=("beatgrid_complete",), kind="capability"))',
+    code: '907bc4bdc257f2af',
+  },
+  {
+    id: 'c.analysis._candidates.4',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_candidates',
+    starts: 'supply = {c: st.supply(c) for c in schema.capabilities()}',
+    ends: 'kind="vacuous_frame" if len(vacuous) == len(missing) else "capability"))',
+    code: '14f39b4a4ae91fe4',
+  },
+  {
+    id: 'c.registry.REMEDIES',
+    file: 'lyric-harness/library/registry.py',
+    symbol: 'REMEDIES',
+    starts: 'REMEDIES = {',
+    whole: true,
+    code: 'fa536dbe43c08aaa',
+  },
+  {
+    id: 'c.analysis._candidates.5',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_candidates',
+    starts: 'try:',
+    ends: 'raise _Refused(RL.Refusal(name, "span", str(exc), kind="span")) from exc',
+    code: '832ea092fc139b94',
+  },
+  {
+    id: 'c.relations.enumerate_spans',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: 'enumerate_spans',
+    starts: 'raise NoReferent(',
+    ends: 'f"any of the {skipped} loci in this declaration")',
+    code: 'd8f2180d6d166a4d',
+  },
+  {
+    id: 'c.relations._loci',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_loci',
+    starts: 'raise NoReferent(f"unknown locus {rule.locus!r}")',
+    code: '9e501c1b84315eaa',
+  },
+  {
+    id: 'c.relations._anchor_pos',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_anchor_pos',
+    starts: 'def _anchor_pos(rule, stream, ids):',
+    whole: true,
+    code: 'f5fb98f5c44c9194',
+  },
+  {
+    id: 'c.analysis._candidates.6',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_candidates',
+    starts:
+      'if "stub_resolution" in schema.capabilities() and st.supply("stub_resolution").state == "absent":',
+    ends: 'raise _Refused(derived)',
+    code: '804feffaf2f0d76b',
+  },
+  {
+    id: 'c.relations._stub_resolved_stream.1',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_stub_resolved_stream',
+    starts: 'def _stub_resolved_stream(stream):',
+    whole: true,
+    code: '04292a8b658b6b51',
+  },
+  {
+    id: 'c.relations._stub_resolved_stream.2',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_stub_resolved_stream',
+    starts: 'return Refusal("refrain by reference", "stub_resolution",',
+    nth: [1, 2],
+    ends: 'kind="capability")',
+    code: 'fb2dba815549d412',
+  },
+  {
+    id: 'c.relations._stub_resolved_stream.3',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_stub_resolved_stream',
+    starts: 'if not rep["resolved"]:',
+    ends: 'missing=("stub_resolution",), kind="capability")',
+    code: '507c9492359c50e6',
+  },
+  {
+    id: 'c.relations.search_stub_resolution.1',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: 'search_stub_resolution',
+    starts: 'return Refusal(',
+    ends: 'missing=("line_status",), kind="capability")',
+    code: 'ff927de2f9ddd960',
+  },
+  {
+    id: 'c.relations._stub_resolved_stream.4',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_stub_resolved_stream',
+    starts: 'rep = search_stub_resolution(stream)',
+    ends: 'return rep',
+    code: 'a04111ac8f76ddc7',
+  },
+  {
+    id: 'c.analysis._assembly_records.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_assembly_records',
+    starts: 'assembled = RL.assemble(RL.REGISTRY[name], edges, self.stream)',
+    ends: 'raise _Refused(assembled)',
+    code: '32b64657e79da0ca',
+  },
+  {
+    id: 'c.relations.assemble.1',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: 'assemble',
+    starts: 'def assemble(schema, edges, stream):',
+    whole: true,
+    code: '4bbb32d99375ed54',
+  },
+  {
+    id: 'c.relations.assemble.2',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: 'assemble',
+    starts: 'if not figure_pair_representable(schema):',
+    ends: 'return _full_shape(schema, stream)',
+    code: '6d5235fa10b0cd3b',
+  },
+  {
+    id: 'c.relations._full_shape.1',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_full_shape',
+    starts: 'if schema.judge not in FULL_JUDGES:',
+    ends: '"declared stanza frame.", missing=("stanza",))',
+    code: 'd0de2423e555ef84',
+  },
+  {
+    id: 'c.analysis._prepare_event.8',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_prepare_event',
+    starts: 'shapes = self._shape(name, kind, value)',
+    ends: 'raise _Refused(shapes)',
+    code: 'e5ae26c859f956e8',
+  },
+  {
+    id: 'c.analysis._shape',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_shape',
+    starts: 'return RL._full_shape(RL.REGISTRY[name], view)',
+    code: 'ffe31bd3031b98c3',
+  },
+  {
+    id: 'c.relations.assemble.3',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: 'assemble',
+    starts: 'if isinstance(edges, Refusal):',
+    ends: 'return edges',
+    code: '0f157c6bcee5c0c4',
+  },
+  {
+    id: 'c.analysis._assembly_records.3',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_assembly_records',
+    starts: 'seen, edges = set(), []',
+    ends: 'assembled = RL.assemble(RL.REGISTRY[name], edges, self.stream)',
+    code: '00a1bc5b9f13eaee',
+  },
+  {
+    id: 'c.analysis._apply_declarations.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts:
+      'if not isinstance(declaration, dict) or not declaration.get("source") or not isinstance(declaration.get("positions"), dict):',
+    code: '4836021a7d8977cb',
+  },
+  {
+    id: 'c.analysis._apply_declarations.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts:
+      'if not isinstance(declaration, dict) or not declaration.get("source") or not isinstance(declaration.get("groups"), list):',
+    code: '9ea08803a80d4af4',
+  },
+  {
+    id: 'c.analysis._apply_declarations.3',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts: 'if not isinstance(declaration, dict) or not declaration.get("source"):',
+    code: '6733c4e33acd48be',
+  },
+  {
+    id: 'c.form.decode_beatgrid.2',
+    file: 'lyric-harness/library/form.py',
+    symbol: 'decode_beatgrid',
+    starts: '_source_basis(declaration, "beatgrid")',
+    code: '213478803dec37d0',
+  },
+  {
+    id: 'c.form._source_basis',
+    file: 'lyric-harness/library/form.py',
+    symbol: '_source_basis',
+    starts: 'def _source_basis(value, field):',
+    whole: true,
+    code: '4fbd484972d9365a',
+  },
+  {
+    id: 'c.form.decode_beatgrid.3',
+    file: 'lyric-harness/library/form.py',
+    symbol: 'decode_beatgrid',
+    starts:
+      'return BeatGrid(cycle=cycle, positions=positions, derived_from=declaration["derived_from"], source=declaration["source"])',
+    code: '614f6b25eb4ae3a9',
+  },
+  {
+    id: 'c.analysis._apply_declarations.4',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts: 'projected = BeatGrid(cycle=grid.cycle, positions=positions,',
+    ends: 'RL.declare_beat(st, projected)',
+    code: '2e46e99ed00a64e9',
+  },
+  {
+    id: 'c.relations.declare_beat',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: 'declare_beat',
+    starts: 'def declare_beat(stream, mapping):',
+    whole: true,
+    code: 'd55115b2491bdcc2',
+  },
+  {
+    id: 'c.relations._beat_from_grid',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_beat_from_grid',
+    starts: 'def _beat_from_grid(stream, grid):',
+    whole: true,
+    code: 'd0b1fc2ba8f2e79c',
+  },
+  {
+    id: 'c.analysis._apply_declarations.5',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts: 'grid = decode_beatgrid(self.source, self.declarations["beatgrid"])',
+    code: '8d268bc970082ef7',
+  },
+  {
+    id: 'c.analysis._apply_declarations.6',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts: 'st.frames.tonal_source = "declared"',
+    code: '35ba701f0e63ce1b',
+  },
+  {
+    id: 'c.analysis._apply_declarations.7',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts: 'st.frames.lift_source = "declared"',
+    code: '40572d8595570af8',
+  },
+  {
+    id: 'c.analysis._apply_declarations.8',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts: 'st.frames.beat_source = "declared"',
+    nth: [1, 2],
+    code: 'd71a914ad5a20668',
+  },
+  {
+    id: 'c.analysis._apply_declarations.9',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts: 'st.frames.caesura, st.frames.caesura_source = mapping, "declared"',
+    code: 'adff77431c9416b4',
+  },
+  {
+    id: 'c.analysis._apply_declarations.10',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts: 'st.frames.refrain_tail, st.frames.refrain_source = mapping, "declared"',
+    code: '3d0acd1569e78210',
+  },
+  {
+    id: 'c.analysis._apply_declarations.11',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts: 'st.frames.stanza_source = "declared"',
+    code: 'd3567a6a6c0b38c0',
+  },
+  {
+    id: 'c.analysis._apply_declarations.12',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts: 'st.frames.stub_source = "declared"',
+    code: 'bad819beba7f1c30',
+  },
+  {
+    id: 'c.analysis._apply_declarations.13',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts: 'st.frames.beat_source = "declared"',
+    nth: [2, 2],
+    code: 'd71a914ad5a20668',
+  },
+  {
+    id: 'c.analysis._apply_declarations.14',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_apply_declarations',
+    starts: 'st.frames.stanza_source = "none"',
+    code: '2049cfc4c388b452',
+  },
+  {
+    id: 'c.analysis._sound_candidates.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_sound_candidates',
+    starts: 'total = (len(toks) * (len(toks) - 1) // 2 + len(missing) * len(toks)',
+    ends: '+ len(missing) * (len(missing) - 1) // 2)',
+    code: '5fff84e42384fe7a',
+  },
+  {
+    id: 'c.analysis._candidates.7',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_candidates',
+    starts:
+      'raise _Refused(RL.Refusal(name, missing[0], "; ".join(REMEDIES.get(c, "Supply " + c) for c in missing),',
+    ends: 'kind="vacuous_frame" if len(vacuous) == len(missing) else "capability"))',
+    code: '31249bb1aa3695b9',
+  },
+  {
+    id: 'c.relations._full_shape.2',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_full_shape',
+    starts: 'return Refusal(schema.name, miss[0],',
+    ends: 'else "capability"))',
+    code: '3cf6f7498e6fd8bd',
+  },
+  {
+    id: 'c.analysis._sound_candidates.3',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_sound_candidates',
+    starts: 'raise _Refused(self.RL.Refusal(',
+    ends: '"shared sound is not answered over the pairs it would reach before the cap", kind="capability"))',
+    code: 'fc1bf863f9c6b92e',
+  },
+  {
+    id: 'c.relations._full_shape.3',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_full_shape',
+    starts: 'return Refusal(schema.name, "figure",',
+    ends: '"certify the full figure.", kind="unsupported_shape")',
+    code: 'a8cfa430ad3047f0',
+  },
+  {
+    id: 'c.analysis._candidates.8',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_candidates',
+    starts: 'raise _Refused(RL.Refusal(name, "span", str(exc), kind="span")) from exc',
+    code: '564f17fc80543fd3',
+  },
+  {
+    id: 'c.analysis._candidates.9',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_candidates',
+    starts:
+      'raise _Refused(RL.Refusal(name, "beat", "The sourced BeatGrid does not place every native unit. Unplaced units are not off beat.",',
+    ends: 'missing=("beatgrid_complete",), kind="capability"))',
+    code: 'ad6262ce53df1490',
+  },
+  {
+    id: 'c.relations._full_shape.4',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_full_shape',
+    starts: 'return Refusal(schema.name, "stanza", "A full figure requires a "',
+    ends: '"declared stanza frame.", missing=("stanza",))',
+    code: '53418bde5ec9bb32',
+  },
+  {
+    id: 'c.relations._stub_resolved_stream.5',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_stub_resolved_stream',
+    starts: 'sup = stream.supply("line_status")',
+    ends: 'return []',
+    code: 'f4e94daa8b7f5d95',
+  },
+  {
+    id: 'c.relations.supply',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: 'supply',
+    starts: 'if cap == "line_status":',
+    ends: '"lines carrying a non-empty declared status")',
+    code: '264702ccabbd209f',
+  },
+  {
+    id: 'c.relations._frame_supply',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: '_frame_supply',
+    starts: 'def _frame_supply(self, cap, source, n, detail):',
+    whole: true,
+    code: 'e6d3ada792940d97',
+  },
+  {
+    id: 'c.relations.search_stub_resolution.2',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: 'search_stub_resolution',
+    starts: 'status = tuple(getattr(stream, "line_status", ()) or ())',
+    ends: 'if status:',
+    code: '5e56c7a1326deea4',
+  },
+  {
+    id: 'c.relations.search_stub_resolution.3',
+    file: 'lyric-harness/quality/relations.py',
+    symbol: 'search_stub_resolution',
+    starts: 'else:',
+    nth: [2, 2],
+    ends: 'missing=("line_status",), kind="capability")',
+    code: '816575b5990d41ab',
+  },
+  {
+    id: 'c.reader_job_store.commitCheckpoint.2',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'commitCheckpoint',
+    starts: 'const record = this._leaseRecord(id, attempt, fence);',
+    ends: 'return { ...clone(record), added_page_paths: [] };',
+    code: '7f92e12d8eb54c32',
+  },
+  {
+    id: 'c.reader_job_store.commitCheckpoint.3',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'commitCheckpoint',
+    starts: 'try {',
+    ends: '});',
+    endsNth: 2,
+    code: '1b27ab8341bbccc0',
+  },
+  {
+    id: 'c.reader_job_store.commitCheckpoint.4',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'commitCheckpoint',
+    starts: 'const saved = this._save({',
+    ends: '});',
+    code: '4deee2cb7545b300',
+  },
+  {
+    id: 'c.reader_job_store._save.2',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_save',
+    starts: "const bytes = encoded(record, 'Reader record');",
+    ends: 'const slackDelta = reserveGap(bytes.length) - (previous ? reserveGap(previous) : 0);',
+    code: 'bc19f624c70215ef',
+  },
+  {
+    id: 'c.reader_job_store.commitCheckpoint.5',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'commitCheckpoint',
+    starts: '} catch (error) {',
+    ends: 'return this._quotaPause(record, error);',
+    code: '07346bcacbc56131',
+  },
+  {
+    id: 'c.reader_job_store.atomicWrite',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'atomicWrite',
+    starts: 'fs.renameSync(temp, file);',
+    ends: "fault('directory_synced', { kind, file });",
+    code: '883940969e21b2e3',
+  },
+  {
+    id: 'c.reader_job_store.resume.1',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'resume',
+    starts: 'resume(id, capability, viewer, identity, options = {}) {',
+    whole: true,
+    code: '42e9cc9576219d62',
+  },
+  {
+    id: 'c.reader_job_store._open.1',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_open',
+    starts: '_open(run) {',
+    code: 'ffc2d61e5f5ae796',
+  },
+  {
+    id: 'c.reader_job_store._cached',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_cached',
+    starts: '_cached(run) {',
+    whole: true,
+    code: 'c8e75ccc53921376',
+  },
+  {
+    id: 'c.reader_job_store._enterLock.1',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_enterLock',
+    starts: '_enterLock() {',
+    whole: true,
+    code: '036352aeb0e15309',
+  },
+  {
+    id: 'c.reader_scheduler.pump.4',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'const trusted = this.store.workerPayload(record.id);',
+    code: '312ce3c7d0da2e1c',
+  },
+  {
+    id: 'c.reader_job_store._open.2',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_open',
+    starts: '_open(run) {',
+    whole: true,
+    code: 'ffc2d61e5f5ae796',
+  },
+  {
+    id: 'c.reader_job_store._locked',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_locked',
+    starts: '_locked(run) {',
+    ends: ');',
+    code: 'ebc60379d1999542',
+  },
+  {
+    id: 'c.test_reader_job_store.module',
+    file: 'mcp/test_reader_job_store.mjs',
+    symbol: 'module',
+    starts:
+      "test('crash after pointer rename recovers exactly the newly committed generation', (t) => {",
+    ends: ');',
+    code: 'b35e927fd391a8f3',
+  },
+  {
+    id: 'c.reader_job_store.constructor.1',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'constructor',
+    starts: 'this.generation = -1;',
+    code: '3f5972ad5a22309d',
+  },
+  {
+    id: 'c.reader_job_store._capacity',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_capacity',
+    starts: '_capacity(bytes, reserve = true, extraRecords = 0, slackDelta = 0) {',
+    whole: true,
+    code: '3aca650705c6d646',
+  },
+  {
+    id: 'c.reader_job_store._object.1',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_object',
+    starts: 'if (sha(bytes) !== hash)',
+    ends: "throw problem('STORAGE_CORRUPT', 'Immutable reader object failed hash verification.', 503);",
+    code: 'ffd1522d8a275771',
+  },
+  {
+    id: 'c.reader_job_store.decodeStoredObject',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'decodeStoredObject',
+    starts: 'export function decodeStoredObject(raw) {',
+    whole: true,
+    code: 'cde659ed88e5a273',
+  },
+  {
+    id: 'c.reader_job_store._object.2',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_object',
+    starts: 'return JSON.parse(bytes);',
+    code: 'c191f67de6b2a935',
+  },
+  {
+    id: 'c.reader_job_store._object.3',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_object',
+    starts: '_object(kind, hash) {',
+    whole: true,
+    code: '84c4231531c0b173',
+  },
+  {
+    id: 'c.reader_job_store.resume.2',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'resume',
+    starts: 'return this._save(',
+    ends: ');',
+    code: '34869a5b3bd429f7',
+  },
+  {
+    id: 'c.worker.read_page_object.1',
+    file: 'mcp/worker.py',
+    symbol: 'read_page_object',
+    starts: 'def read_page_object(page_path):',
+    whole: true,
+    code: 'b8865ac3e2a116e5',
+  },
+  {
+    id: 'c.worker.read_page_object.2',
+    file: 'mcp/worker.py',
+    symbol: 'read_page_object',
+    starts: 'return json.loads(body.decode("utf-8"))',
+    code: '74f569f6c35d7905',
+  },
+  {
+    id: 'c.worker.read_page_object.3',
+    file: 'mcp/worker.py',
+    symbol: 'read_page_object',
+    starts: 'if raw[:2] == b"\\x1f\\x8b":',
+    ends: 'raise ValueError("reader page object exceeds its bound, is truncated or has trailing data")',
+    code: 'a8ed729ba0240c39',
+  },
+  {
+    id: 'c.analysis._finish.4',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_finish',
+    starts: 'tally = (counts.get("domain_true", []), counts.get("domain_undecided", []))',
+    ends: 'domain=self._outcomes(self._domain(name, counts.get("alt_cells", [])), tally,',
+    code: '4e5f12fe78cfbd03',
+  },
+  {
+    id: 'c.analysis._sound_result.3',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_sound_result',
+    starts: 'tally = (counts.get("domain_true", []), counts.get("domain_undecided", []))',
+    ends: 'domain=self._outcomes(self._sound_domain(key, counts.get("alt_cells", [])), tally)',
+    code: '885a9fe9b2111bd6',
+  },
+  {
+    id: 'c.analysis.target.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'target',
+    starts: 'if kx == ky or (kx, ky) in seen or same_rule and (ky, kx) in seen:',
+    code: 'ca7f9903b83d358e',
+  },
+  {
+    id: 'c.analysis._new_pairs.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_new_pairs',
+    starts: 'if key in seen or mirror and key[::-1] in seen:',
+    code: 'bce7976d568cd9d2',
+  },
+  {
+    id: 'c.analysis._new_pairs.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_new_pairs',
+    starts: 'def _new_pairs(self, schema, alt, aa, bb, seen):',
+    whole: true,
+    code: 'a2cc47a12740d408',
+  },
+  {
+    id: 'c.analysis._line_stream',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_line_stream',
+    starts: 'raw = [text if i in keep else "" for i, text in enumerate(self._raw_lines)]',
+    code: '9d62a0861839c45c',
+  },
+  {
+    id: 'c.analysis._cell',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_cell',
+    starts: 'def _cell(self, u):',
+    whole: true,
+    code: '1e0c4ff470390290',
+  },
+  {
+    id: 'c.analysis._span_key',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_span_key',
+    starts: 'def _span_key(self, span, st):',
+    whole: true,
+    code: 'd16a33fa3a66d55e',
+  },
+  {
+    id: 'c.analysis.target.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'target',
+    starts: 'targets.setdefault((lines, self._combo_key(union)), (lines, union))',
+    code: 'b28e2e40451d6401',
+  },
+  {
+    id: 'c.analysis._alternate_edges.3',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_alternate_edges',
+    starts: 'for key in sorted(targets):',
+    code: '07a52f648aefd383',
+  },
+  {
+    id: 'c.analysis.target.3',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'target',
+    starts: 'union, lines = cx or cy, (lx,)',
+    ends: 'union, lines = {**(cx or {}), **(cy or {})}, tuple(sorted((lx, ly)))',
+    code: '5b20c6fa8155647a',
+  },
+  {
+    id: 'c.analysis._discover',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_discover',
+    starts: 'except RL.NoReferent:',
+    ends: 'yield from self._new_pairs(schema, alt, left, right, seen)',
+    code: '0d8b5959932aacaf',
+  },
+  {
+    id: 'c.analysis.AnalysisSession.__init__.4',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'AnalysisSession.__init__',
+    starts: 'self._incomplete.update(self.checkpoint.get("incomplete", {}))',
+    code: '339ac5d66ccda8bd',
+  },
+  {
+    id: 'c.analysis._finish.5',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_finish',
+    starts: 'elif name in self._incomplete:',
+    ends: 'rows.append(self._record("method_result", mid, "result", namespace="schema", schema_name=name,',
+    code: '618b7929416ed626',
+  },
+  {
+    id: 'c.analysis._any_reading.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_any_reading',
+    starts: 'self._incomplete[name] = self.checkpoint.setdefault("incomplete", {})[name] = reason',
+    code: '40214733eddf505e',
+  },
+  {
+    id: 'c.analysis._prepare_event.9',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_prepare_event',
+    starts: 'delta["candidates"] = 1',
+    code: 'feeef2a4e5a7e6b7',
+  },
+  {
+    id: 'c.analysis.step.5',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'step',
+    starts: 'if records and (time.monotonic() >= deadline or bytes_used >= max_bytes - 32768):',
+    code: 'd7d9289dde75bd6c',
+  },
+  {
+    id: 'c.reader_scheduler.pump.5',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'lease_ms: Math.max(',
+    ends: '),',
+    code: '4b019c926658eabf',
+  },
+  {
+    id: 'c.reader_job_store._expireLeases',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_expireLeases',
+    starts: '_expireLeases() {',
+    whole: true,
+    code: '3fe40054086176f4',
+  },
+  {
+    id: 'c.analysis.resolve_detail_records.1',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'resolve_detail_records',
+    starts: 'def resolve_detail_records(records):',
+    ends: 'yield record',
+    code: 'c665b34d79694397',
+  },
+  {
+    id: 'c.analysis._finish.6',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_finish',
+    starts:
+      'rows.append(self._record("method_result", mid, "result", namespace="schema", schema_name=name,',
+    code: '56a93e2b4611133a',
+  },
+  {
+    id: 'c.analysis.resolve_detail_records.2',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'resolve_detail_records',
+    starts: 'Parts are written immediately after their parent. A missing, duplicate,',
+    prose: true,
+    code: '2fa89104589809b7',
+  },
+  {
+    id: 'c.worker.load_records',
+    file: 'mcp/worker.py',
+    symbol: 'load_records',
+    starts: 'def load_records(schema_id):',
+    whole: true,
+    code: '2ee705eb216cd66d',
+  },
+  {
+    id: 'c.analysis._assembly_records.4',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_assembly_records',
+    starts: 'def _assembly_records(self, name):',
+    ends: '_resource_guard("whole-figure assembly", extra_bytes=len(edges) * 256)',
+    code: 'f3c54540cdf17fc6',
+  },
+  {
+    id: 'c.analysis.step.6',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'step',
+    starts: 'deadline = min(deadline, start + 1) if deadline is not None else start + 1',
+    code: '77f9bc04b1ce632b',
+  },
+  {
+    id: 'c.analysis._domain',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: '_domain',
+    starts: 'if any(token(s) is None for s in aa) or any(token(s) is None for s in bb):',
+    ends: 'for n, (a, b, _) in enumerate(RL._candidate_pairs(schema, layout, st, {s.idx for s in aa},',
+    code: '2db1c383fb19c194',
+  },
+  {
+    id: 'c.server_http.module',
+    file: 'mcp/server_http.js',
+    symbol: 'module',
+    starts: 'maxBytes: Number(process.env.READER_STORAGE_MAX_BYTES) || 256 * 1024 * 1024,',
+    code: '4ee9ded51c07ac3a',
+  },
+  {
+    id: 'c.reader_job_store.resume.3',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'resume',
+    starts: "if (!['paused', 'cancelled'].includes(record.state))",
+    ends: ');',
+    code: 'd73804b46e544536',
+  },
+  {
+    id: 'c.reader_job_store._quotaPause',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_quotaPause',
+    starts: '_quotaPause(record, error) {',
+    whole: true,
+    code: '01cbb5b1a8757615',
+  },
+  {
+    id: 'c.reader_job_store.complete',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'complete',
+    starts: 'return this._save({',
+    ends: '});',
+    code: '4088b7312228a181',
+  },
+  {
+    id: 'c.reader_job_store._tombstone',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_tombstone',
+    starts: '_tombstone(record, state, options = {}) {',
+    whole: true,
+    code: '0e9055357f951008',
+  },
+  {
+    id: 'c.reader_job_store._markRecord',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_markRecord',
+    starts: '_markRecord(record, live, budget) {',
+    whole: true,
+    code: '3135814a72810288',
+  },
+  {
+    id: 'c.reader_job_store.maintain.1',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'maintain',
+    starts: "gc.stack.push(['checkpoints', record.checkpoint_hash]);",
+    nth: [1, 2],
+    code: '42dc512773902d98',
+  },
+  {
+    id: 'c.reader_job_store.maintain.2',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'maintain',
+    starts: "gc.stack.push(['checkpoints', record.checkpoint_hash]);",
+    nth: [2, 2],
+    code: '42dc512773902d98',
+  },
+  {
+    id: 'c.reader_job_store._markStep',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_markStep',
+    starts: '_markStep(stack, live, budget, bounds = null) {',
+    whole: true,
+    code: '1f26bbe24bb5fc4a',
+  },
+  {
+    id: 'c.reader_job_store.OBJECT_KINDS',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'OBJECT_KINDS',
+    starts: "const OBJECT_KINDS = ['pages', 'indexes', 'checkpoints', 'manifests', 'definitions'];",
+    whole: true,
+    code: '028a6b425cd44a1b',
+  },
+  {
+    id: 'c.reader_job_store._blob.3',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_blob',
+    starts: 'const now = new Date();',
+    ends: 'fs.utimesSync(file, now, now);',
+    code: 'e981943d84bb3d80',
+  },
+  {
+    id: 'c.reader_job_store.constructor.2',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'constructor',
+    starts: 'this._locked(() => {',
+    ends: '});',
+    code: 'a77e58a2c64372ca',
+  },
+  {
+    id: 'c.reader_job_store._enterLock.2',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_enterLock',
+    starts: 'this.usage = null;',
+    ends: 'this._scheduleRecount();',
+    code: '9ca9e639ce74cbcc',
+  },
+  {
+    id: 'c.reader_job_store.pause',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'pause',
+    starts: 'pause(',
+    whole: true,
+    code: '7560248df6510b02',
+  },
+  {
+    id: 'c.reader_scheduler.pump.6',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'const record = this.store.lease();',
+    code: '6f02c32eea3984dc',
+  },
+  {
+    id: 'c.reader_job_store.lease',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'lease',
+    starts: 'const queued = this._dispatchable();',
+    ends: "if (!record || record.state !== 'queued') return null;",
+    code: '9dd683f1eda20700',
+  },
+  {
+    id: 'c.reader_job_store._dispatchable',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_dispatchable',
+    starts: '_dispatchable() {',
+    whole: true,
+    code: 'ef55ea14def27c05',
+  },
+  {
+    id: 'c.reader_job_store.constructor.3',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'constructor',
+    starts: 'this._pruneExpired(Infinity);',
+    ends: 'this._collectAll();',
+    code: 'a14aa5402a4ce0fe',
+  },
+  {
+    id: 'c.analysis.AnalysisSession.__init__.5',
+    file: 'lyric-harness/library/analysis.py',
+    symbol: 'AnalysisSession.__init__',
+    starts:
+      'if checkpoint.get("contract_version") != CONTRACT_VERSION or checkpoint.get("identity_hash") != self.identity["hash"]:',
+    code: '14b0602da2ddaaad',
+  },
+  {
+    id: 'c.lyric_harness.main',
+    file: 'lyric-harness/lyric_harness.py',
+    symbol: 'main',
+    starts: 'if any(len(line) > 200 for line in lines):',
+    ends: '"text capacity; no writer was started.")',
+    code: '430b09162adab5c2',
+  },
+  {
+    id: 'c.worker.main.1',
+    file: 'mcp/worker.py',
+    symbol: 'main',
+    starts: 'if reason not in ("INVALID_DECLARATION", "UNSUPPORTED_METHOD", "STALE_READING",',
+    ends: '"RESOURCE_LIMIT", "RESULT_EXPIRED", "SNAPSHOT_CHANGED"):',
+    code: 'd52d529fa1e07ddc',
+  },
+  {
+    id: 'c.worker.main.2',
+    file: 'mcp/worker.py',
+    symbol: 'main',
+    starts: 'reason = str(exc).split(":", 1)[0]',
+    ends: '"RESOURCE_LIMIT", "RESULT_EXPIRED", "SNAPSHOT_CHANGED"):',
+    code: 'baf57083ca8dadb7',
+  },
+  {
+    id: 'c.python_bridge.spawnWorker.1',
+    file: 'mcp/python_bridge.js',
+    symbol: 'spawnWorker',
+    starts: "else if (typeof reply.code === 'number') {",
+    ends: ': {}),',
+    code: '72b0efbcea7c1b9a',
+  },
+  {
+    id: 'c.python_bridge.spawnWorker.2',
+    file: 'mcp/python_bridge.js',
+    symbol: 'spawnWorker',
+    starts: "...(current.family === 'reader'",
+    code: '6472facd6f406f09',
+  },
+  {
+    id: 'c.reader_scheduler.pump.7',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'onReaderCheckpoint: async (step) => {',
+    ends: ');',
+    code: 'f0e531fa03ef325a',
+  },
+  {
+    id: 'c.reader_scheduler.packReaderPages',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'packReaderPages',
+    starts: 'if (size + 16 > 2 * 1024 * 1024)',
+    ends: ');',
+    code: '80a9aaebc5a18882',
+  },
+  {
+    id: 'c.python_bridge.spawnWorker.3',
+    file: 'mcp/python_bridge.js',
+    symbol: 'spawnWorker',
+    starts: '})',
+    nth: [5, 13],
+    ends: 'if (waiter === current) kill(error);',
+    code: 'eb0d2fce52e70eb1',
+  },
+  {
+    id: 'c.python_bridge.execute',
+    file: 'mcp/python_bridge.js',
+    symbol: 'execute',
+    starts: "result = stamp(failure(['reader'], error), 'killed');",
+    code: '441269f81e8a8861',
+  },
+  {
+    id: 'c.python_bridge.createPythonBridge.failure',
+    file: 'mcp/python_bridge.js',
+    symbol: 'createPythonBridge.failure',
+    starts: 'const failure = (args, error) => {',
+    ends: "result.stderr += `${result.stderr ? '\\n' : ''}${error.message}`;",
+    code: '54eb6db2113550cc',
+  },
+  {
+    id: 'c.reader_scheduler.pump.8',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'if (result.code !== 0)',
+    ends: ');',
+    code: 'eaa519e44e23b666',
+  },
+  {
+    id: 'c.reader_job_store.constructor.4',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'constructor',
+    starts: 'this.usage = this._usage();',
+    ends: ');',
+    code: 'e40c19a1b0350a32',
+  },
+  {
+    id: 'c.reader_job_store.cancel',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'cancel',
+    starts: 'cancel(id, capability, viewer, options = {}) {',
+    ends: "? 'Cancellation requested; worker stops at its next committed safe point.'",
+    code: 'f39fb67a58fa9e7f',
+  },
+  {
+    id: 'c.reader_job_store._reload',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_reload',
+    starts: 'record.version !== 1 ||',
+    ends: "'Reader record failed identity or digest validation.',",
+    code: 'a27618eac2dbeefe',
+  },
+  {
+    id: 'c.reader_job_store.READER_LIMITS',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'READER_LIMITS',
+    starts: 'outstandingPerViewer: 2,',
+    code: '3c2db6058caae103',
+  },
+  {
+    id: 'c.reader_job_store.create',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'create',
+    starts: 'if (this._outstanding(viewer) >= READER_LIMITS.outstandingPerViewer)',
+    code: '139ed860eb728af2',
+  },
+  {
+    id: 'c.reader_job_store.resume.4',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'resume',
+    starts: 'this._outstanding(viewer) >= READER_LIMITS.outstandingPerViewer',
+    code: '7f92f5da486000ca',
+  },
+  {
+    id: 'c.build_identity.releaseIdentity',
+    file: 'mcp/build_identity.js',
+    symbol: 'releaseIdentity',
+    starts: 'commit: baked?.commit || env.BUILD_GIT_COMMIT || env.RENDER_GIT_COMMIT || null,',
+    code: '1978042906bca492',
+  },
+  {
+    id: 'c.server_http.readerResourceFingerprint',
+    file: 'mcp/server_http.js',
+    symbol: 'readerResourceFingerprint',
+    starts: 'const readerResourceFingerprint = () =>',
+    whole: true,
+    code: '3b358ef0e2659d13',
+  },
+  {
+    id: 'c.reader_scheduler.createCatalogResolver',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'createCatalogResolver',
+    starts: "// The running reader's word-cut scheme (probeReaderScheme). Every identity",
+    ends: '// STALE_READING at its lease even where both sides have no engine commit.',
+    prose: true,
+    code: 'a22d4b29185757e1',
+  },
+  {
+    id: 'c.reader_scheduler.pump.9',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'const identity = await this.resolveIdentity(record.request);',
+    ends: "throw error('STALE_READING', 'Source or engine identity changed; create a new reader job.');",
+    code: 'f9cf73fa0810f1b2',
+  },
+];
+// A row's digest: codeLines' for code, the trimmed lines for prose.
+const citeDigest = (row, text) =>
+  row.prose
+    ? crypto
+        .createHash('sha256')
+        .update(
+          text
+            .split('\n')
+            .map((t) => t.trim())
+            .join('\n')
+        )
+        .digest('hex')
+        .slice(0, 16)
+    : digestOf(text, row.file.endsWith('.py'));
+// The contract without the Base note, whose `file:symbol` and `:symbol` are
+// the form's description, not citations.
+const withoutBase = (text) => {
+  const at = text.indexOf('**Base.**');
+  return at < 0 ? text : text.slice(0, at) + text.slice(text.indexOf('\n\n', at));
+};
+// Every citation the contract makes, checked: none by line number; each names
+// a symbol a row pins (ANCHORS, DEPTH_ANCHORS or CONTRACT_CITES), and each
+// CONTRACT_CITES symbol is cited; and every row resolves to its digest.
+function checkContractCites(src, contract = CONTRACT) {
+  assert.equal(new Set(CONTRACT_CITES.map((r) => r.id)).size, CONTRACT_CITES.length);
+  const at = resolveAnchors(CONTRACT_CITES, STORE_HALF, src);
+  const off = CONTRACT_CITES.map((r) => [r.id, citeDigest(r, at.get(r.id).text)]).filter(
+    ([id, d]) => CONTRACT_CITES.find((r) => r.id === id).code !== d
+  );
+  assert.deepEqual(
+    off.map(([id]) => id),
+    [],
+    `the code the contract cites changed: read each claim again, then pin ${JSON.stringify(Object.fromEntries(off))}`
+  );
+  const text = withoutBase(contract);
+  assert.deepEqual(lineCites(text), [], 'the contract cites no line number');
+  const cited = new Set(citesOf(text));
+  const key = (r) => `${r.file}:${r.symbol}`;
+  const pinned = new Set([...ANCHORS, ...DEPTH_ANCHORS, ...CONTRACT_CITES].map(key));
+  assert.deepEqual(
+    [...cited].filter((c) => !pinned.has(c)).sort(),
+    [],
+    'every citation names a pinned symbol'
+  );
+  assert.deepEqual(
+    [...new Set(CONTRACT_CITES.map(key))].filter((c) => !cited.has(c)).sort(),
+    [],
+    'every pinned symbol is cited'
+  );
+}
+
+test('the contract: every citation is a pinned file:symbol, never a line, and holds its digest', () => {
+  checkContractCites(readSource);
+  // A line citation anywhere in the contract fails, by line.
+  assert.throws(
+    () =>
+      checkContractCites(
+        readSource,
+        CONTRACT.replace('(`analysis.py:_candidates`)', '(`analysis.py:2038`)')
+      ),
+    /cites no line number/
+  );
+  // So does a citation of a symbol no row pins.
+  assert.throws(
+    () => checkContractCites(readSource, `${CONTRACT}\nSee \`analysis.py:_cell_shape\`.\n`),
+    /every citation names a pinned symbol/
+  );
+});
+
+test('the contract: a line shift or a comment above a cited range never fails; a change inside one does', () => {
+  // Above each row in turn, as for the anchors: the row resolves one line
+  // lower and its digest stands.
+  for (const row of CONTRACT_CITES) {
+    const text = readSource(row.file);
+    const { line } = resolveAnchor(text, row);
+    const own = /^\s*/.exec(text.split('\n')[line - 1])[0];
+    const py = row.file.endsWith('.py');
+    for (const what of ['', `${own}${py ? '# moved' : '// moved'}`]) {
+      const got = resolveAnchor(insertAbove(text, line, what), row);
+      assert.equal(got.line, line + 1, `${row.id} follows ${JSON.stringify(what)}`);
+      assert.equal(citeDigest(row, got.text), row.code, `${row.id}: its digest stands`);
+    }
+  }
+  // A change inside a range, in each language and in a file §2.11 does not
+  // cite, fails by the row's id.
+  for (const [file, old, now, id] of [
+    [
+      'lyric-harness/library/analysis.py',
+      '        seen = set()\n',
+      '        seen = {}\n',
+      'c.analysis._candidates.1',
+    ],
+    [
+      'lyric-harness/quality/relations.py',
+      '    remaining = {}\n',
+      '    remaining = dict()\n',
+      'c.relations._candidate_pairs',
+    ],
+    [
+      'mcp/reader_job_store.js',
+      '      this.generation = -1;\n',
+      '      this.generation = 0;\n',
+      'c.reader_job_store.constructor.1',
+    ],
+  ]) {
+    const text = readSource(file);
+    assert.equal(text.split(old).length, 2, `${id}: its text occurs once`);
+    assert.throws(
+      () =>
+        checkContractCites(
+          withFile(
+            file,
+            text.replace(old, () => now)
+          )
+        ),
+      (e) => new RegExp(escapeRe(id)).test(e.message),
+      `${id} fails`
+    );
+  }
+});
+
 // The fatal decode the store half implements (§2.11, Step 5): until then the
 // store has no fatal decoder at all; once it lands, the only parse of segment
 // bytes is a one-statement helper that decodes fatally first.
@@ -7835,6 +9603,7 @@ test('anchors: a line shift or a comment above any anchor never fails, on unchan
   checkStoredRequest(load(CODEC).admission.stored_request, STORE_HALF, blankTop);
   checkFatalDecode(STORE_HALF, blankTop);
   declaredDepths(blankTop);
+  checkContractCites(blankTop);
   // Above each anchor in turn: a blank line, then a comment at the anchor's
   // own indentation, then (Python) a comment at column 0.
   for (const row of [...ANCHORS, ...DEPTH_ANCHORS]) {
@@ -7926,20 +9695,19 @@ test('anchors: a cited row with neither whole nor ends covers its whole statemen
   // BB8 6701778607, item 1: such a row runs to the end of its statement, so
   // its digest holds every line of it; and each one, one line or more, is
   // checked to be exactly one statement by the language's own parser.
-  const rows = ANCHORS.filter((r) => r.cite && !r.whole && !r.ends);
+  const rows = [...ANCHORS.filter((r) => r.cite), ...CONTRACT_CITES].filter(
+    (r) => !r.whole && !r.ends && !r.prose
+  );
   const at = resolveAnchors(rows, STORE_HALF, readSource);
-  for (const py of [false, true]) {
+  const broken = [false, true].flatMap((py) => {
     const mine = rows.filter((r) => at.has(r.id) && r.file.endsWith('.py') === py);
     const ok = wholeStatements(
       mine.map((r) => at.get(r.id).text),
       py
     );
-    assert.deepEqual(
-      mine.filter((_, i) => !ok[i]).map((r) => r.id),
-      [],
-      'each is one whole statement'
-    );
-  }
+    return mine.filter((_, i) => !ok[i]).map((r) => r.id);
+  });
+  assert.deepEqual(broken, [], 'each is one whole statement');
   // The multi-line call BB8 named: its first line alone is not a statement,
   // and the row now runs to the call's close.
   const session = at.get('worker.run_reader.session');
@@ -8250,6 +10018,7 @@ function traceAll(src) {
   checkStoredRequest(load(CODEC).admission.stored_request, STORE_HALF, src);
   checkFatalDecode(STORE_HALF, src);
   declaredDepths(src);
+  checkContractCites(src);
 }
 
 test('anchors: each review mutant of a cited symbol or a depth symbol fails', () => {
@@ -8497,7 +10266,7 @@ const CLAIMS = [
       "That is BB8's classification: the engine builds the entries, and the caller text known",
       "to reach the analysis, a declaration's strings, is held to well-formed Unicode at",
       'admission (§2.11). That no caller number reaches an entry is not traced here:',
-      '`declaration_set` admits any finite JSON number (`reader_job_store.js:60-76`), and the',
+      '`declaration_set` admits any finite JSON number (`reader_job_store.js:jsonValue`), and the',
       '#721 author shows it from the declared entry shapes (§9). None of the five names a cause',
       "(§8), and each one's message names the bound it passed, with the bound's value and the",
       'size found, or the rule it broke, so an engine-defect report says which invariant broke',
@@ -8536,7 +10305,7 @@ const CLAIMS = [
     where: '5',
     whole: false,
     text: [
-      'Bytes that match the address but do not parse (`JSON.parse`, `:681`), or are not UTF-8',
+      'Bytes that match the address but do not parse (`JSON.parse`, `:_object`), or are not UTF-8',
       'under the required fatal decode (§2.11), are F3, so `{{C_CAUSE}}` (§2.5); any other',
       'error keeps its own code.',
     ],
@@ -8546,9 +10315,9 @@ const CLAIMS = [
     whole: false,
     text: [
       '- **F3 and R2** as in §5.1, with cause `{{C_CAUSE}}`. F3 includes the content (§2.5):',
-      'bytes that do not parse (`json.loads`, `worker.py:123`), an entry the codec refuses as',
+      'bytes that do not parse (`json.loads`, `worker.py:read_page_object`), an entry the codec refuses as',
       'F1 or F2, and a `first`, `count` or `epoch` that is not an integer are `{{C_CAUSE}}`,',
-      'never `{{C_WALK_CODE}}`. A failed inflation in the page reader (`:108-117`) stays F6',
+      'never `{{C_WALK_CODE}}`. A failed inflation in the page reader (`:read_page_object`) stays F6',
       '(§2.11).',
     ],
   },
@@ -8604,7 +10373,7 @@ const CLAIMS = [
       '`ENTRY_DEPTH = {{ED}}` and `MEMBERSHIP_BYTES = {{MB}}`, and a declared depth of',
       "{{DECL_NEXT}} or more re-derives both before the worker half joins a release train; - the declared entry shapes show that no caller number reaches an entry, which §3's",
       'classification of a generated F1 as an engine defect assumes and this contract has not',
-      'traced (`declaration_set` admits any finite JSON number, `reader_job_store.js:60-76`).',
+      'traced (`declaration_set` admits any finite JSON number, `reader_job_store.js:jsonValue`).',
     ],
   },
   {

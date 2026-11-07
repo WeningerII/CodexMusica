@@ -67,23 +67,25 @@ this text governs. 3PO's acknowledgement (6677006069) fixes the `contracts.py` r
 checkpoint declaration and schema; the shared `CONTRACT_VERSION` does not change.
 
 **Base.** a0 (draft PR #816, head `aabf6eeb0`): checkpoint objects carry no cursor, and the
-job record holds the one cursor that resume reads. Line references are at that head.
-The citations the validator checks, in §2.11 and in §2.1's depth basis, are `file:symbol`
-instead: a function, method, constant or class (`Class.method` for a method of a class,
-`file:module` for a file's top-level statements), and a bare `:symbol` takes the file of the
-nearest file-qualified citation in its bullet. `mcp/test_discovery_v1_fixtures.mjs` holds the
-pinned statements as anchors inside those symbols, so a line shift never changes the text,
-and a statement about the code's state there names Base. It also holds the code of each cited
-symbol or range to a digest, blank lines and comments aside (code beside a comment is still
-code), and a cited statement to its last line, so any change to that code fails
-until the claim it backs is read again and the digest pinned again; and every statement in
-§2.1's depth symbols that builds or reshapes a cell, a span key or a key is a pinned anchor,
-and every helper a depth symbol calls is a depth symbol or is listed with the reason it builds no
-entry.
-Every other line reference in this contract, in §2.1's other bullets, §2.3 and every later
-section, is at Base and is not checked: a line shift after Base can leave one stale.
-`analysis.py`, `worker.py` and `reader_scheduler.js` are unchanged there from main
-`21e013507`.
+job record holds the one cursor that resume reads. Every code citation in this contract is
+`file:symbol`, never a line number: a function, method, constant or class (`Class.method` for a
+method or attribute of a class, `outer.inner` for a function inside another, `file:module` for a
+file's top-level statements), and a bare `:symbol` takes the file of the nearest file-qualified
+citation in its bullet, table row or paragraph. `mcp/test_discovery_v1_fixtures.mjs` holds each
+cited range as an anchor inside its symbol, so a line shift never changes the text, and a
+statement about the code's state there names Base. It holds §2.11's ranges and §2.1's depth basis
+as anchors of their own, and every other citation (§2.1's other bullets, §2.3, §3 and the later
+sections) as one row per cited range, made from the line references at Base (`CONTRACT_CITES`).
+It also holds the code of each cited symbol or range to a digest, blank lines and comments aside
+(code beside a comment is still code), and a cited statement to its last line, so any change to
+that code fails until the claim it backs is read again and the digest pinned again; a citation of
+a line number, or of a symbol no row pins, fails too. Two citations name a comment or a docstring,
+not code (`reader_scheduler.js:createCatalogResolver`'s note on engine commits and
+`analysis.py:resolve_detail_records`' docstring); those rows hold the text as written. Every
+statement in §2.1's depth symbols that builds or reshapes a cell, a span key or a key is a pinned
+anchor, and every helper a depth symbol calls is a depth symbol or is listed with the reason it
+builds no entry. `analysis.py`, `worker.py` and `reader_scheduler.js` are unchanged there from
+main `21e013507`.
 
 **The interface.** The fixtures under `mcp/fixtures/discovery_v1/` are the wire interface.
 Both sides implement against them. `mcp/test_discovery_v1_fixtures.mjs` recomputes every
@@ -174,9 +176,9 @@ truncation.
 - **Canonical form.** `canonical(entry)` is the UTF-8 encoding of the entry serialised with
   no whitespace:
   - Node: `JSON.stringify(entry)`. For this subset it is identical to `canonical()` in
-    `reader_job_store.js:52-59`, because the subset has no objects.
+    `reader_job_store.js:canonical`, because the subset has no objects.
   - Python: `json.dumps(entry, ensure_ascii=False, separators=(",", ":"), allow_nan=False)`.
-    For this subset its output is identical to `canonical_json`'s (`contracts.py:208-210`).
+    For this subset its output is identical to `canonical_json`'s (`contracts.py:canonical_json`).
     `json_safe` recurses once per level, and F1's depth bound keeps every entry far under
     Python's recursion limit, so both complete on every entry (BB8 6693502369).
   - Non-ASCII text is raw UTF-8. `"`, `\` and U+0000–U+001F are escaped: `\b \f \n \r \t`
@@ -195,7 +197,7 @@ truncation.
   shared with F5's digest (§5.2). Those bytes equal `canonical_json(entry)`'s, so `["9:2", 1]`
   and `["9:2", true]` stay two members (`good/within_line_inside_group.json`).
   It **must not** compute a key by calling `canonical_json` on an entry: that call first walks
-  the entry value by value in Python (`json_safe`, `contracts.py:208-210`), which costs five to
+  the entry value by value in Python (`json_safe`, `contracts.py:canonical_json`), which costs five to
   nine times the load's per-byte rate (measured, §10), and `MEMBERSHIP_BYTES` is derived from the
   single pass (§6.11). That rule is about the rate, not recursion, so the depth bound leaves it
   as it was (BB8 6693502369). The validator checks the byte equality on every vector and fixture
@@ -220,10 +222,10 @@ entries as opaque §2.1 values, and the fixtures use synthetic entries.
 
 | Log | Holds | Semantics | Resettable |
 | --- | --- | --- | --- |
-| `seen` | primary-phase pairs that touch a disputed word (`analysis.py:2038-2044`) | ordered set log: each key at its first insertion only | no |
-| `row_seen` | the row dedup keys that can still recur in the `_candidate_pairs` enumeration under way: the current row's, and those of earlier rows whose left span has occurrences left (`lyric-harness/quality/relations.py:3351-3357`); in the lower traversal, and within each alternate-phase call (§6.2) | ordered set log, first insertion | yes |
+| `seen` | primary-phase pairs that touch a disputed word (`analysis.py:_candidates`) | ordered set log: each key at its first insertion only | no |
+| `row_seen` | the row dedup keys that can still recur in the `_candidate_pairs` enumeration under way: the current row's, and those of earlier rows whose left span has occurrences left (`lyric-harness/quality/relations.py:_candidate_pairs`); in the lower traversal, and within each alternate-phase call (§6.2) | ordered set log, first insertion | yes |
 | `variants` | preparation output, one descriptor per variant span: the line, each pinned token's full reading choice (all of `c`, not only `c[2]`), the span key, the frame key and both bucket keys | list, in preparation order | no |
-| `alt_cells` | judged alternate cells, one per yielded alternate pair, false verdicts included (`analysis.py:2512-2519`), appended when the event's delta is applied (§6.3). In a shared-sound epoch: its in-domain judged cells (`:2537-2546`), never an outside-domain binding | list with multiplicity | no |
+| `alt_cells` | judged alternate cells, one per yielded alternate pair, false verdicts included (`analysis.py:_prepare_event`), appended when the event's delta is applied (§6.3). In a shared-sound epoch: its in-domain judged cells (`:_prepare_event`), never an outside-domain binding | list with multiplicity | no |
 | `alt_seen` | alternate keys within one line, and keys spilled from the current group past its bound (§6.4) | ordered set log, first insertion | no |
 
 `seen`, `variants`, `row_seen` and `alt_seen` are the membership logs (§1): together they hold at
@@ -261,9 +263,9 @@ What is not logged, and why:
 ### 2.5 Segments (rules F3, F6)
 
 - **Where.** A new logical object, `reader_discovery_segment`, stored as
-  `pages/<sha256>.json` through `_blob('pages', …)` (`reader_job_store.js:585-624`). With
-  `READER_STORE_GZIP=1` it may be stored gzipped by the existing pages rule (`:597-601`).
-  It is never in an index chain, so `readPage` refuses it by membership (`:1491-1512`).
+  `pages/<sha256>.json` through `_blob('pages', …)` (`reader_job_store.js:_blob`). With
+  `READER_STORE_GZIP=1` it may be stored gzipped by the existing pages rule (`:_blob`).
+  It is never in an index chain, so `readPage` refuses it by membership (`:readPage`).
 - **F3, the schema.** The field order is fixed, because `_blob` hashes `JSON.stringify`
   bytes:
 
@@ -303,9 +305,9 @@ What is not logged, and why:
   record's, the record keeps none of the old epoch's chains, every seal in the frame
   belongs to the new epoch, and the frame lists no reset. The epoch may jump by more than
   one, because one step can finish a method, pass an empty or refused one and start a third
-  (`analysis.py:2589-2615`). A method's logs serve only its own traversal: `seen` is
-  created fresh in each `_candidates` call (`:2038`), and `_advance` already drops the
-  terminal inputs (`:2445-2458`).
+  (`analysis.py:step`). A method's logs serve only its own traversal: `seen` is
+  created fresh in each `_candidates` call (`:_candidates`), and `_advance` already drops the
+  terminal inputs (`:_advance`).
 - **A reset restarts one resettable log inside an epoch.** Only `row_seen` is resettable.
   Resets are listed in `frame.discovery.resets`. They are applied before the frame's
   seals, and the log restarts empty (head `null`, count 0, bytes 0, digest `d₀`). Its old chain is
@@ -317,7 +319,7 @@ What is not logged, and why:
 
 ### 2.7 `record.discovery`
 
-It is owned by Node and covered by `record_digest` (`reader_job_store.js:564-567`).
+It is owned by Node and covered by `record_digest` (`reader_job_store.js:_save`).
 
 ```
 null
@@ -376,17 +378,17 @@ null
 The cursor is owned by the worker and stored as `record.cursor`. Its declaration and schema
 in `contracts.py` belong to the #721 author. Today's fields stay: `identity_hash`, `phase`,
 `method_index`, `candidate`, `emission`, `sequence`, `counters`, `methods`, `done` and
-`incomplete`, and `refused_schemas` once a schema has refused (`analysis.py:2563-2564`). The
+`incomplete`, and `refused_schemas` once a schema has refused (`analysis.py:_prepare_event`). The
 changes:
 
 - **`contract_version: 2`.** This is the cursor version. It is separate from
-  `CONTRACT_VERSION` (1) in the identity (`contracts.py:18`, `:253`), which does not move.
+  `CONTRACT_VERSION` (1) in the identity (`contracts.py:CONTRACT_VERSION`, `:semantic_identity`), which does not move.
 - **`incomplete`** (`{name: reason}`) is also written at the moment either preparation flag
   is set (§6.6).
 - **`methods[*]` holds none of the terminal inputs** `domain_true`, `domain_undecided` and
-  `alt_cells` (`_TERMINAL_INPUTS`, `analysis.py:2439`). Today they accumulate in
-  `methods[mid]` with every event's delta (`:2600-2605`) until `_advance` pops them
-  (`:2445-2458`), so nothing bounds them. In v2, `alt_cells` is a log (§2.3) and the domain
+  `alt_cells` (`_TERMINAL_INPUTS`, `analysis.py:AnalysisSession._TERMINAL_INPUTS`). Today they accumulate in
+  `methods[mid]` with every event's delta (`:step`) until `_advance` pops them
+  (`:_advance`), so nothing bounds them. In v2, `alt_cells` is a log (§2.3) and the domain
   tallies are rebuilt under option 2 (§6.9). What stays in the cursor outside `discovery`
   and `continuation`, `witness` included, is at most `CURSOR_BYTES`, a bound derived from the
   engine's constants (§3.1): the canonical bytes of the cursor object with those two members
@@ -421,8 +423,8 @@ of its meaning.
 
 ### 2.9 `frame.discovery`
 
-The worker's `step()` adds it to the step (`analysis.py:2622-2624`). The scheduler passes it
-as `discovery` in the `commitCheckpoint` payload (`reader_scheduler.js:553-558`).
+The worker's `step()` adds it to the step (`analysis.py:step`). The scheduler passes it
+as `discovery` in the `commitCheckpoint` payload (`reader_scheduler.js:pump`).
 
 ```
 {"epoch":<int>,"resets":[<log>…],
@@ -437,8 +439,8 @@ whose record holds discovery is refused (W4).
 
 ### 2.10 Lease payload `discovery`
 
-`workerPayload` (`reader_job_store.js:1513-1531`) adds it, and the scheduler passes it to the
-worker beside `checkpoint` (`reader_scheduler.js:523-532`).
+`workerPayload` (`reader_job_store.js:workerPayload`) adds it, and the scheduler passes it to the
+worker beside `checkpoint` (`reader_scheduler.js:pump`).
 
 ```
 null
@@ -645,14 +647,14 @@ truncation.
 | `REFUSAL_BYTES` | 543 canonical bytes of one method's refusal (`methods[*].refusal`): the largest construction in the call closure of the adapter's refusals, a conservative bound that the dispatch never builds; the largest refusal the dispatch can build is 336 bytes (§3.2) | `INVARIANT_FAILURE` (an engine defect: no input can lengthen a refusal, §3.2), its message naming `REFUSAL_BYTES (543)` | `READER_PROTOCOL` (W4) |
 | `CURSOR_BYTES` | 131072 canonical bytes (128 KiB) of the cursor object with its `discovery` and `continuation` members removed: the largest such cursor, 99,141 bytes, plus an allowance of 31,931 bytes (§3.1) | `INVARIANT_FAILURE` (an engine defect: the largest cursor the constants allow is 99,141 bytes, §3.1), its message naming `CURSOR_BYTES (131072)` | `READER_PROTOCOL` (W4) |
 | cursor numbers | every number in the cursor outside its entries and `continuation` is an integer from 0 to 2⁵³ − 1 | none: each is a count, an index or an epoch, which never reaches 2⁵³ | `READER_PROTOCOL` (W4) |
-| frame | 2 MiB (`worker.py:166`, `python_bridge.js:16`) | the existing frame refusal | — |
-| control payload and record | 2 MiB (`READER_LIMITS.objectBytes`) | — | the existing `RESOURCE_LIMIT` 413 (`reader_job_store.js:78-83`) |
+| frame | 2 MiB (`worker.py:run_reader`, `python_bridge.js:READER_FRAME_CAP`) | the existing frame refusal | — |
+| control payload and record | 2 MiB (`READER_LIMITS.objectBytes`) | — | the existing `RESOURCE_LIMIT` 413 (`reader_job_store.js:encoded`) |
 
 A worker `RESOURCE_LIMIT` names its cause (§8), pauses the job with that reason and does not requeue
-it (`reader_scheduler.js:592-600`). Every `RESOURCE_LIMIT` raise the reader reaches names one, not
-only this table's: the resident-capacity guard (`analysis.py:40-55`, `resident_capacity`) and the
-meter's two budgets (`quality/meter.py:94-96`, `declared_coordinate_bits`; `:110-113`,
-`expansion_budget`), which the reader reaches through `library/form.py:351-372` and
+it (`reader_scheduler.js:pump`). Every `RESOURCE_LIMIT` raise the reader reaches names one, not
+only this table's: the resident-capacity guard (`analysis.py:_resource_guard`, `resident_capacity`) and the
+meter's two budgets (`quality/meter.py:exact_number`, `declared_coordinate_bits`; `:guard_expansion`,
+`expansion_budget`), which the reader reaches through `library/form.py:decode_beatgrid` and
 `quality/fit.py`. §8 lists every raise site, the validator fails on a site it does not list, and C1
 refuses a reply without a cause (§8). The worker's `INVARIANT_FAILURE` for the byte bounds
 `CONTINUATION_BYTES` and `CURSOR_BYTES` is confirmed (BB8 6678599629): each is an engine defect,
@@ -664,7 +666,7 @@ takes `INVARIANT_FAILURE` for the same reason as the byte bounds (§12, item 17)
 generates that breaks F1 takes it too (§2.11; BB8, #721 item 2 (b)). That is BB8's classification:
 the engine builds the entries, and the caller text known to reach the analysis, a declaration's
 strings, is held to well-formed Unicode at admission (§2.11). That no caller number reaches an entry
-is not traced here: `declaration_set` admits any finite JSON number (`reader_job_store.js:60-76`),
+is not traced here: `declaration_set` admits any finite JSON number (`reader_job_store.js:jsonValue`),
 and the #721 author shows it from the declared entry shapes (§9). None of the five names a cause
 (§8), and each one's message names the bound it passed, with the bound's value and the size found,
 or the rule it broke, so an engine-defect report says which invariant broke (BB8 6688972927):
@@ -693,13 +695,13 @@ Derived bounds, computed from the constants (not measured):
   plus 29 bytes for the two members' keys and separators (`,"discovery":` is 13 bytes and
   `,"continuation":` 16): 131,072 + 96,190 + 8,192 + 29 = 235,483 bytes, about 230 KiB. This
   holds only because `methods[*]` carries no terminal input (§2.8).
-- **A frame** is at most 1 MiB of records (`worker.py:161`), plus the cursor (at most
+- **A frame** is at most 1 MiB of records (`worker.py:run_reader`), plus the cursor (at most
   235,483 bytes), plus 8 seals of about 17.2 KiB each (16384 entry bytes, 1023 separators, two
   digests and the envelope), plus the summary, which this contract does not change: about
   1.4 MiB plus the summary, under the 2 MiB caps.
 - **The record** is the cursor (at most 235,483 bytes), plus `record.discovery` (five logs, each
   about 200 bytes in `logs` and as much again in `verified`), plus today's record fields,
-  including the inline page refs while `page_count` ≤ 250 (`reader_job_store.js:1062`). R2's
+  including the inline page refs while `page_count` ≤ 250 (`reader_job_store.js:commitCheckpoint`). R2's
   store tests hold a record to that bound.
 
 ### 3.1 Deriving `CURSOR_BYTES` (BB8 6678702125, ruling 2)
@@ -716,17 +718,17 @@ holds to `CURSOR_BYTES`; §3 adds those two members back for the whole cursor's 
 | Part | Bound | Source |
 | --- | --- | --- |
 | integers | each an integer from 0 to 2⁵³ − 1: at most 16 digits | W4, which refuses any other number outside the entries and `continuation` (§2.8, §4) |
-| the envelope | `contract_version`, `identity_hash` (64 hex digits), `phase` (at most 12 bytes: `native_pairs`, `shared_sound`), `method_index`, `candidate`, `emission`, `sequence`, `counters` (five integers) and `done` | the cursor's fixed fields (`analysis.py:466-476`); the phases are the task list's and `"complete"` (`:440-462`, `:2457`) |
-| `methods` | one entry per method a job names: at most 91, each key at most 37 bytes (`shared_sound:` and 24 hex digits) | the task list (`analysis.py:440-462`): `coordinates`, `form`, `language`, three native work methods (the most any language has, `fas`), its relation method, the 80 schemas and the four shared-sound methods; an assembly task shares its schema's id |
-| one method's entry | seven integer counters (`candidates`, `true`, `false`, `undecided`, `refused_questions`, `first_reading_only`, `unreadable_tokens`), `coverage` (`answered` or `refused`, at most 8 bytes), `figure_counts` (three integers) and at most one `refusal` | every key the method's counts take (`analysis.py:2484-2490`, `:2556-2605`, `:2366`, `:2379-2398`, `:1871-1876`); the terminal inputs are gone (§2.8) |
+| the envelope | `contract_version`, `identity_hash` (64 hex digits), `phase` (at most 12 bytes: `native_pairs`, `shared_sound`), `method_index`, `candidate`, `emission`, `sequence`, `counters` (five integers) and `done` | the cursor's fixed fields (`analysis.py:AnalysisSession.__init__`); the phases are the task list's and `"complete"` (`:AnalysisSession.__init__`, `:_advance`) |
+| `methods` | one entry per method a job names: at most 91, each key at most 37 bytes (`shared_sound:` and 24 hex digits) | the task list (`analysis.py:AnalysisSession.__init__`): `coordinates`, `form`, `language`, three native work methods (the most any language has, `fas`), its relation method, the 80 schemas and the four shared-sound methods; an assembly task shares its schema's id |
+| one method's entry | seven integer counters (`candidates`, `true`, `false`, `undecided`, `refused_questions`, `first_reading_only`, `unreadable_tokens`), `coverage` (`answered` or `refused`, at most 8 bytes), `figure_counts` (three integers) and at most one `refusal` | every key the method's counts take (`analysis.py:_prepare_event`, `:step`, `:_assembly_records`, `:_finish`, `:_sound_result`); the terminal inputs are gone (§2.8) |
 | a refusal | at most `REFUSAL_BYTES`, 543 bytes | the largest construction in the call closure of the adapter's refusals (§3.2) |
-| `incomplete` | one reason per schema, at most 80; the longest is 68 bytes (70 canonical): "its disputed words' readings collide on more than 1375311 line pairs", with `MINI_CAP` | the three writers (`analysis.py:716`, `:958`, `:1036`) |
+| `incomplete` | one reason per schema, at most 80; the longest is 68 bytes (70 canonical): "its disputed words' readings collide on more than 1375311 line pairs", with `MINI_CAP` | the three writers (`analysis.py:_any_reading`, `:_alternate_edges`) |
 | `refused_schemas` | at most the 80 schema names, each at most 39 bytes | the registry |
-| `witness` | `WITNESS_FIELDS` dot paths of 64 bytes, a method id, a count and a digest; v1 holds five fields, the ids and every field `_domain_tally` reads (`analysis.py:1466-1479`) | §2.8, §3 |
+| `witness` | `WITNESS_FIELDS` dot paths of 64 bytes, a method id, a count and a digest; v1 holds five fields, the ids and every field `_domain_tally` reads (`analysis.py:_domain_tally`) | §2.8, §3 |
 
 **The refusal does not grow with the input** (BB8 6684866461, on 3PO 6684847656). The previous
 revision read a refusal's detail as text from the input, because `relations.realise` embeds a
-declared source label in its vacuous-frame detail (`relations.py:3586-3588`), and it bounded the
+declared source label in its vacuous-frame detail (`relations.py:realise`), and it bounded the
 refusal as `RESOURCE_LIMIT`, cause `cursor_refusal_bytes`. The adapter never builds that refusal.
 §3.2 lists every refusal construction in the call closure of what the adapter can put in a
 cursor, derives `REFUSAL_BYTES` from them, and makes passing it `INVARIANT_FAILURE`, as this
@@ -767,7 +769,7 @@ for all 80 schemas, every schema refused, and the widest witness:
 - **When it is derived again.** On any change to the inputs above: a method, a schema, a
   counter, a reason, or `REFUSAL_BYTES` (§3.2). On each run the validator reads, from the
   registry and the source: the methods and their ids, the schema names, the phases, the coverage values, the
-  cursor's counters (`analysis.py:470`), every key a method's counts take, the incomplete
+  cursor's counters (`analysis.py:AnalysisSession.__init__`), every key a method's counts take, the incomplete
   writers and their templates, and the fields `_domain_tally` reads. It fails when any of them
   passes this table's inputs.
 - **Tests** (`bad/cursor_over_bound.json`): the largest cursor and a cursor of exactly
@@ -790,13 +792,13 @@ reference encoding would protect against a case that cannot occur.
 **Where a cursor's refusal comes from.** `analysis.py` writes `counts["refusal"]` in four places,
 and nowhere else:
 
-- `_sound_result` (`analysis.py:1874-1875`) and `_finish` (`:2394-2395`): the unread-members
+- `_sound_result` (`analysis.py:_sound_result`) and `_finish` (`:_finish`): the unread-members
   refusal, fixed text;
-- `_finish` (`:2398-2400`): the reading-combinations refusal, fixed text around one incomplete
+- `_finish` (`analysis.py:_finish`): the reading-combinations refusal, fixed text around one incomplete
   reason, at most 68 bytes (§3.1's three writers);
-- `_prepare_event` (`:2560-2562`): `json_safe(exc.refusal)` for every `_Refused` (`:2627-2630`)
-  the traversal raises. That is a `Refusal` (`quality/relations.py:184-236`), written field by
-  field (`library/contracts.py:182-205`).
+- `_prepare_event` (`analysis.py:_prepare_event`): `json_safe(exc.refusal)` for every `_Refused` (`:_Refused`)
+  the traversal raises. That is a `Refusal` (`quality/relations.py:Refusal`), written field by
+  field (`library/contracts.py:json_safe`).
 
 The validator holds that list closed. It lists every place `analysis.py` names a refusal in any
 form, with the statement it sits in: the key `"refusal"` as a subscript, a dict key or a call's
@@ -804,7 +806,7 @@ argument, a keyword `refusal=`, and an attribute `.refusal`. The only writes amo
 four above and `_Refused`'s own field, and a call names the key only to read it
 (`counts.get("refusal")`). So a write by `setdefault`, by `update`, by `+=` on a field, or in a
 second statement is a new entry, and the validator fails on it. `_Refused` is used only to raise
-(seven times), to catch (once, `:2560`) and in its own class: an alias, a subclass or a stored
+(seven times), to catch (once, `analysis.py:_prepare_event`) and in its own class: an alias, a subclass or a stored
 instance fails, and so does any other module under `library/` or `quality/` that names it.
 
 The traversal raises `_Refused` in seven places. Four build the refusal there, and three pass on
@@ -812,16 +814,16 @@ one an engine function built:
 
 | Raise | Refusal | Its variable parts |
 | --- | --- | --- |
-| `_sound_candidates` (`analysis.py:1624-1628`) | `pair_cap` | the shared-sound method's name (`library/registry.py:50-51`), the word count, the pair count, and `SOUND_PAIR_CAP` (`analysis.py:1594`) |
-| `_candidates` (`:1972-1974`) | `beat` | the schema name |
-| `_candidates` (`:1983-1989`) | a missing capability | the schema name, its missing and vacuous capabilities, and each one's `REMEDIES` text (`library/registry.py:54-73`) |
-| `_candidates` (`:2015-2026`) | `span` | the schema name, and `str()` of the `NoReferent` that `enumerate_spans` raises: its own message (`relations.py:2070-2072`) or `_loci`'s (`:2043`), each naming the rule's anchor and locus and, for the first, a count of loci; `_anchor_pos`'s messages (`:1918-1971`) are caught inside `enumerate_spans` and counted as skipped, and are bounded with the rest |
-| `_candidates` (`:1975-1978`) | what `_stub_resolved_stream` returns (`relations.py:4838-4873`) | fixed text (`:4850-4855`); four counts (`:4861-4868`); or `search_stub_resolution`'s refusal (`:4665-4675`), passed on at `:4858-4860`, fixed text |
-| `_assembly_records` (`:2346-2349`) | what `assemble` returns (`relations.py:3812-3883`): `_full_shape`'s (`:3834-3835`) | the schema name and its missing and vacuous capabilities (`:9294-9316`) |
-| `_prepare_event` (`:2530-2532`) | what `_shape` returns (`:2068`): `_full_shape`'s | the same |
+| `_sound_candidates` (`analysis.py:_sound_candidates`) | `pair_cap` | the shared-sound method's name (`library/registry.py:shared_sound_name`), the word count, the pair count, and `SOUND_PAIR_CAP` (`analysis.py:AnalysisSession.SOUND_PAIR_CAP`) |
+| `_candidates` (`analysis.py:_candidates`) | `beat` | the schema name |
+| `_candidates` (`analysis.py:_candidates`) | a missing capability | the schema name, its missing and vacuous capabilities, and each one's `REMEDIES` text (`library/registry.py:REMEDIES`) |
+| `_candidates` (`analysis.py:_candidates`) | `span` | the schema name, and `str()` of the `NoReferent` that `enumerate_spans` raises: its own message (`relations.py:enumerate_spans`) or `_loci`'s (`:_loci`), each naming the rule's anchor and locus and, for the first, a count of loci; `_anchor_pos`'s messages (`:_anchor_pos`) are caught inside `enumerate_spans` and counted as skipped, and are bounded with the rest |
+| `_candidates` (`analysis.py:_candidates`) | what `_stub_resolved_stream` returns (`relations.py:_stub_resolved_stream`) | fixed text (`:_stub_resolved_stream`); four counts (`:_stub_resolved_stream`); or `search_stub_resolution`'s refusal (`:search_stub_resolution`), passed on at `:_stub_resolved_stream`, fixed text |
+| `_assembly_records` (`analysis.py:_assembly_records`) | what `assemble` returns (`relations.py:assemble`): `_full_shape`'s (`:assemble`) | the schema name and its missing and vacuous capabilities (`:_full_shape`) |
+| `_prepare_event` (`analysis.py:_prepare_event`) | what `_shape` returns (`:_shape`): `_full_shape`'s | the same |
 
-`assemble` passes on a refusal it is given (`relations.py:3836-3837`), but the adapter gives it
-the list of edges it rebuilt (`analysis.py:2336-2346`). In the closure of those three functions
+`assemble` passes on a refusal it is given (`relations.py:assemble`), but the adapter gives it
+the list of edges it rebuilt (`analysis.py:_assembly_records`). In the closure of those three functions
 in `relations.py` (every module function they call or name, and every one those call or name),
 only `_stub_resolved_stream`, `search_stub_resolution` and `_full_shape` build a `Refusal`. Every
 call in that closure that could copy a refusal with a field changed (`replace`, `setattr`,
@@ -829,14 +831,13 @@ call in that closure that could copy a refusal with a field changed (`replace`, 
 one fails the validator. `Refusal` is a frozen dataclass, so no field can be assigned.
 
 **The declared label never reaches a refusal.** `_apply_declarations` reads a declaration's
-`source` only to require one (`analysis.py:1105`, `:1134`, `:1158`), except the beatgrid's, which
-is dropped further on. `decode_beatgrid` requires that one too (`library/form.py:349`, through
-`_source_basis`, `:66-68`) and copies it into `BeatGrid.source` (`:373`). `_apply_declarations`
-passes it on (`analysis.py:1189-1191`), and `declare_beat` (`relations.py:4217-4265`) reads only
-the grid's positions and cycle (`_beat_from_grid`, `:4165-4214`) and sets `beat_source` itself.
-(The `self.source` that `analysis.py:1179` passes to `decode_beatgrid` is the reading, not a
-declaration's source.) `_apply_declarations` sets every frame's source to `"declared"` (`:1121`,
-`:1124`, `:1127`, `:1129`, `:1131`, `:1150`, `:1166`, `:1194`) or `"none"` (`:1154`), never to
+`source` only to require one (`analysis.py:_apply_declarations`), except the beatgrid's, which
+is dropped further on. `decode_beatgrid` requires that one too (`library/form.py:decode_beatgrid`, through
+`_source_basis`, `:_source_basis`) and copies it into `BeatGrid.source` (`:decode_beatgrid`). `_apply_declarations`
+passes it on (`analysis.py:_apply_declarations`), and `declare_beat` (`relations.py:declare_beat`) reads only
+the grid's positions and cycle (`_beat_from_grid`, `:_beat_from_grid`) and sets `beat_source` itself.
+(The `self.source` that `analysis.py:_apply_declarations` passes to `decode_beatgrid` is the reading, not a
+declaration's source.) `_apply_declarations` sets every frame's source to `"declared"` (`:_apply_declarations`) or `"none"` (`:_apply_declarations`), never to
 the label. And no construction above reads a frame's source: the capability refusals name
 capabilities and `REMEDIES` text, never `Supply.source`. 3PO measured it through the real
 adapter (6684847656, 6684968306): with real 4,096-byte and 65,536-byte declared labels,
@@ -848,7 +849,7 @@ declaration that takes a source carrying the label, in two runs (one with `sound
 cursor an integer from 0 to 2⁵³ − 1.
 
 **Context, not a regression.** `relations.realise` does embed the label in its vacuous-frame
-detail (`relations.py:3586-3588`). On a separately built, lower-level stream with a 4 KiB label,
+detail (`relations.py:realise`). On a separately built, lower-level stream with a 4 KiB label,
 3PO measured 4,607 detail bytes. The adapter never calls `realise`, so that detail never reaches
 a cursor. It shows lower-level behaviour, and it is not an adapter regression.
 
@@ -863,7 +864,7 @@ a cursor. It shows lower-level behaviour, and it is not an adapter regression.
   one, so it is at most `sys.maxsize`, 2⁶³ − 1 = 9223372036854775807, on the 64-bit build the
   reader runs on: the loci `enumerate_spans` skipped, and the four stub counts. `pair_cap`'s word
   count is two such lengths, at most 2(2⁶³ − 1), and its pair count is that count's n(n − 1)/2
-  (`analysis.py:1622-1623`), at most 39 digits.
+  (`analysis.py:_sound_candidates`), at most 39 digits.
 - `SOUND_PAIR_CAP` is a constant, and so is the incomplete reason's longest form (§3.1).
 
 **The largest refusal.** With every variable part at its maximum, each construction gives the
@@ -883,26 +884,26 @@ part that depends on the schema, the two columns agree.
 
 | Construction | Where | Independent bound | Per schema |
 | --- | --- | --- | --- |
-| `search_stub_resolution`: no line is declared a pointer, which the dispatch never builds | `relations.py:4665-4675` | 543 | 543 |
-| `_candidates`: a missing capability | `analysis.py:1987-1989` | 386 | 334, chain rhyme (interlocking scheme) |
-| `_full_shape`: a missing capability | `relations.py:9304-9310` | 339 | 259, 平仄 tonal template |
-| `_stub_resolved_stream`: no stub resolves | `relations.py:4861-4868` | 336 | 336 |
-| `_finish`: reading combinations | `analysis.py:2398-2400` | 297 | 297 |
-| `_stub_resolved_stream`: nothing is declared | `relations.py:4850-4855` | 297 | 297 |
-| `_sound_candidates`: `pair_cap` | `analysis.py:1625-1628` | 285 | 285 |
-| `_full_shape`: no member bindings | `relations.py:9295-9298` | 264 | 264, Scots vowel-length rhyme (Aitken's Law) |
-| `_candidates`: `span` | `analysis.py:2026` | 261 | 249, Scots vowel-length rhyme (Aitken's Law) |
-| `_candidates`: `beat` | `analysis.py:1973-1974` | 236 | 219, offbeat internal rhyme |
-| `_finish`: unread members | `analysis.py:2394-2395` | 209 | 209 |
-| `_sound_result`: unread members | `analysis.py:1874-1875` | 209 | 209 |
-| `_full_shape`: no stanza frame | `relations.py:9315-9316` | 177 | 154, blues AAB stanza |
+| `search_stub_resolution`: no line is declared a pointer, which the dispatch never builds | `relations.py:search_stub_resolution` | 543 | 543 |
+| `_candidates`: a missing capability | `analysis.py:_candidates` | 386 | 334, chain rhyme (interlocking scheme) |
+| `_full_shape`: a missing capability | `relations.py:_full_shape` | 339 | 259, 平仄 tonal template |
+| `_stub_resolved_stream`: no stub resolves | `relations.py:_stub_resolved_stream` | 336 | 336 |
+| `_finish`: reading combinations | `analysis.py:_finish` | 297 | 297 |
+| `_stub_resolved_stream`: nothing is declared | `relations.py:_stub_resolved_stream` | 297 | 297 |
+| `_sound_candidates`: `pair_cap` | `analysis.py:_sound_candidates` | 285 | 285 |
+| `_full_shape`: no member bindings | `relations.py:_full_shape` | 264 | 264, Scots vowel-length rhyme (Aitken's Law) |
+| `_candidates`: `span` | `analysis.py:_candidates` | 261 | 249, Scots vowel-length rhyme (Aitken's Law) |
+| `_candidates`: `beat` | `analysis.py:_candidates` | 236 | 219, offbeat internal rhyme |
+| `_finish`: unread members | `analysis.py:_finish` | 209 | 209 |
+| `_sound_result`: unread members | `analysis.py:_sound_result` | 209 | 209 |
+| `_full_shape`: no stanza frame | `relations.py:_full_shape` | 177 | 154, blues AAB stanza |
 
 **543 is in the call closure, but the dispatch never builds it.** `_stub_resolved_stream` calls
 `search_stub_resolution` only when `stream.supply("line_status")` is `present`: it returns first
-when the state is `absent` or `empty` (`relations.py:4848-4857`). A real stream reports `present`
-only for a non-empty `line_status` that holds a non-empty label (`relations.py:649-658`,
-`:708-712`). `search_stub_resolution` then reads that `line_status` (`:4654-4655`), so the
-refusal it builds when none is declared and no `is_stub` is passed (`:4664-4675`) is never built
+when the state is `absent` or `empty` (`relations.py:_stub_resolved_stream`). A real stream reports `present`
+only for a non-empty `line_status` that holds a non-empty label (`relations.py:supply`,
+`:_frame_supply`). `search_stub_resolution` then reads that `line_status` (`:search_stub_resolution`), so the
+refusal it builds when none is declared and no `is_stub` is passed (`:search_stub_resolution`) is never built
 from the adapter. The validator shows both halves: called directly on a stream with no
 `line_status`, `search_stub_resolution` builds it; through `_stub_resolved_stream`, on streams
 whose state the real `Stream.supply` reads from an empty, a blank and a labelled `line_status`, it
@@ -972,7 +973,7 @@ There is no new channel. A frame's seals ride the existing step and its acknowle
 1. `step()` emits `discovery` (§2.9).
 2. The scheduler passes it to `commitCheckpoint`.
 3. Under the lock, after `_leaseRecord` and the exact-retry check
-   (`reader_job_store.js:1042-1045`), the store checks everything below **before it writes
+   (`reader_job_store.js:commitCheckpoint`), the store checks everything below **before it writes
    anything**. The retry digest covers `discovery`, so an exact retry writes nothing. If
    `record.discovery.unavailable` is set, the commit is refused with
    `DISCOVERY_UNAVAILABLE` and its cause before any rule runs. Every rule failure is refused
@@ -1020,8 +1021,8 @@ There is no new channel. A frame's seals ride the existing step and its acknowle
      within `CURSOR_BYTES` (§2.8, §3.1, §3.2). A record holding discovery with a frame and cursor
      that have none also fails W4.
 4. **Write order:** pages, indexes, manifest and checkpoint as today
-   (`reader_job_store.js:1051-1097`), then one segment per seal in seal order (each `previous_hash`
-   is the log's head at that point), then the record (`:1098-1111`). The record's `discovery`
+   (`reader_job_store.js:commitCheckpoint`), then one segment per seal in seal order (each `previous_hash`
+   is the log's head at that point), then the record (`:commitCheckpoint`). The record's `discovery`
    becomes `{version: 1, epoch, logs, verified, unavailable: null}`, where each seal sets `head` to
    the new address, adds one to `segments`, adds its count to `count`, adds its entry bytes to
    `bytes` and sets `digest` to the recomputed digest. `verified` keeps each log's state unless the
@@ -1029,9 +1030,9 @@ There is no new channel. A frame's seals ride the existing step and its acknowle
    state. A commit never advances `verified`: only a read of the stored segment does (§5.1). The
    store appends each seal's address to that chain's address list (§5.1) only after the record save
    that sets its new head returns. A commit whose record save throws leaves every list as it was. A
-   throw that carries a status (`encoded`'s 413, `_capacity`'s 507 or 503, `:568-571`) comes before
-   the record is written, `_quotaPause` included (`:1118-1119`), so only orphans changed (§7.3). A
-   throw without a status can come after the rename (`atomicWrite`, `:125-128`), so the record may
+   throw that carries a status (`encoded`'s 413, `_capacity`'s 507 or 503, `:_save`) comes before
+   the record is written, `_quotaPause` included (`:commitCheckpoint`), so only orphans changed (§7.3). A
+   throw without a status can come after the rename (`atomicWrite`, `:atomicWrite`), so the record may
    have landed: the outcome is unknown (BB8 6681838131; 3PO 6681823180). The store then uses no list
    again until it has rebuilt them from the durable record's heads (§5.1).
 
@@ -1041,15 +1042,15 @@ There is no new channel. A frame's seals ride the existing step and its acknowle
 
 `workerPayload` and `resume` run it, so a lease checks the walk before the worker starts,
 and `resume()` refuses a dead job at once instead of queueing it
-(`reader_job_store.js:1369-1408`).
+(`reader_job_store.js:resume`).
 
-- **Under the writer lock.** Both run the walk through `_open` (`:759`), never through
-  `_cached` (`:734-742`), which skips the lock while the generation has not moved.
-  Entering the lock runs `_enterLock` (`:435-448`): after any foreign writer, a generation this
+- **Under the writer lock.** Both run the walk through `_open` (`reader_job_store.js:_open`), never through
+  `_cached` (`:_cached`), which skips the lock while the generation has not moved.
+  Entering the lock runs `_enterLock` (`:_enterLock`): after any foreign writer, a generation this
   instance did not write or a pending marker, it reloads, and reconciliation (§7.4) runs before
   the walk reads anything, so a segment an older image swept is found there. No other writer can
   delete one while the walk reads. `workerPayload` runs inside the scheduler's try block
-  (`reader_scheduler.js:523`), so a refusal there pauses that one job.
+  (`reader_scheduler.js:pump`), so a refusal there pauses that one job.
 - If `record.discovery.unavailable` is set, the store refuses with `DISCOVERY_UNAVAILABLE`,
   naming its cause and log, without walking.
 - **The address list.** Statting a segment needs its address, and only the segment after it
@@ -1063,11 +1064,11 @@ and `resume()` refuses a dead job at once instead of queueing it
   - a full read replaces the list with the addresses it read from the head;
   - **a save whose outcome is unknown** (BB8 6681838131; 3PO 6681823180 (a)) drops every list. A
     save that throws without a status may have landed after its rename (§4). `_open` then sets
-    `this.failure` (`:759-772`), so the instance serves nothing more, its lists included, until a
-    restart (`:389-395`). The restart's first lock entry reconciles, and its full read rebuilds
+    `this.failure` (`reader_job_store.js:_open`), so the instance serves nothing more, its lists included, until a
+    restart (`:_locked`). The restart's first lock entry reconciles, and its full read rebuilds
     every list from the durable record's heads, whichever record landed
     (`good/thrown_save_outcome_unknown.json`; the store's own test,
-    `mcp/test_reader_job_store.mjs:310-327`, already holds a restart to the generation that
+    `mcp/test_reader_job_store.mjs:module`, already holds a restart to the generation that
     landed). That is BB8's rule, "rebuild the address list from the record's head before using
     it", and in this store the rebuild is the restart's reconciliation, so it adds no place a
     chain is read in full. Required store test (R2's side): a commit whose record save throws
@@ -1075,7 +1076,7 @@ and `resume()` refuses a dead job at once instead of queueing it
     list ends at the durable head.
 
   `_reload` drops the lists with the rest of the cache. A starting store holds generation −1
-  (`:331`), so its first lock entry reloads and reconciles, which full-reads every live
+  (`reader_job_store.js:constructor`), so its first lock entry reloads and reconciles, which full-reads every live
   chain. So every list in use was built by a full read in this process and then extended
   only by commits whose saves returned. The list is never persisted; the record holds the
   heads and the verified heads.
@@ -1103,7 +1104,7 @@ and `resume()` refuses a dead job at once instead of queueing it
      one record save, in the same lock hold as the reads, so no commit can come between them:
      the save writes each verified head together with the head it verifies. A walk that read
      nothing saves nothing. If the save needs capacity the store cannot grant
-     (`STORE_RECOUNTING` or `RESOURCE_LIMIT`, `_capacity` `:534-563`), the store skips it and
+     (`STORE_RECOUNTING` or `RESOURCE_LIMIT`, `_capacity` `reader_job_store.js:_capacity`), the store skips it and
      leaves `verified` where it was. The next walk then reads from there. The advance is never
      forced, and it never refuses the lease.
 - **A mismatch on a lease** (confirmed, BB8 6681838131). A lease's walk reads only segments
@@ -1114,7 +1115,7 @@ and `resume()` refuses a dead job at once instead of queueing it
   the chain is broken. It is
   `STORAGE_CORRUPT` (503), like the image's other defects (§7.4): nothing is released or
   saved, and the job keeps its chains. The scheduler pauses the job with that reason
-  (`reader_scheduler.js:592-600`). `resume()` then decides by a full read, which uses
+  (`reader_scheduler.js:pump`). `resume()` then decides by a full read, which uses
   neither `verified` nor the list. `bad/verified_ahead_of_head.json` is refused this way
   before anything is read; its full read passes and saves the corrected verified heads.
 - **A full read** starts at the record's head and follows `previous_hash` back to the chain's first
@@ -1128,17 +1129,17 @@ and `resume()` refuses a dead job at once instead of queueing it
   logged at error level: corruption, never relabelled as breakage (BB8 6681838131). A structural
   failure, R2 or F3 (a link, a count, `first` or a field), is cause `chain_broken`. Either way the
   store releases the logs in one save (U1, §8), then refuses, naming the cause and the log. To tell
-  F6 apart, the full read takes `_object`'s hash-verification refusal (`:679-680`), and a failed
-  bounded inflation of a segment (`decodeStoredObject`, `:164-214`), as F6. Bytes that match the
-  address but do not parse (`JSON.parse`, `:681`), or are not UTF-8 under the required fatal decode
+  F6 apart, the full read takes `_object`'s hash-verification refusal (`reader_job_store.js:_object`), and a failed
+  bounded inflation of a segment (`decodeStoredObject`, `:decodeStoredObject`), as F6. Bytes that match the
+  address but do not parse (`JSON.parse`, `:_object`), or are not UTF-8 under the required fatal decode
   (§2.11), are F3, so `chain_broken` (§2.5); any other error keeps its own code. In `resume()` this
-  is new (§12, item 26): `_object` turns F6 into `STORAGE_CORRUPT` (`:668-683`), which would leave
+  is new (§12, item 26): `_object` turns F6 into `STORAGE_CORRUPT` (`:_object`), which would leave
   the job paused at `STORAGE_CORRUPT` on every resume. Apart from the membership logs the worker
   loads on every lease (§5.2), which is logged membership state that ruling (a) lets resume grow
   with, a chain is read in full in exactly two places by the store, and once by the worker (BB8
   6688972927, amending the three sites of 6678599629):
   1. reconciliation after any foreign writer, which includes startup (§7.4): a full read;
-  2. `resume()` of a paused or cancelled job: a full read. Its own save (`:1392-1407`) carries
+  2. `resume()` of a paused or cancelled job: a full read. Its own save (`reader_job_store.js:resume`) carries
      the advanced `verified`;
   3. the worker's load of `alt_cells` when it builds the terminal record (§5.2), by its paths:
      a complete verified load, not a full read (§1). It releases nothing on F6; it raises
@@ -1165,16 +1166,16 @@ and `resume()` refuses a dead job at once instead of queueing it
 ### 5.2 The worker's load
 
 - The worker reads each path with the bounded, address-checked page reader
-  (`worker.py:97-123`).
+  (`worker.py:read_page_object`).
   - **R1.** Every path resolves; otherwise `DISCOVERY_UNAVAILABLE`, cause
     `segment_missing`. This happens only when an older image sweeps a segment after the
     walk has left the lock.
   - **F6.** Changed bytes are `STORAGE_CORRUPT`: the job pauses with it, nothing is released,
     and `resume()`'s full read then releases it as `segment_corrupt` (§5.1).
 - **F3 and R2** as in §5.1, with cause `chain_broken`. F3 includes the content (§2.5): bytes
-  that do not parse (`json.loads`, `worker.py:123`), an entry the codec refuses as F1 or F2, and
+  that do not parse (`json.loads`, `worker.py:read_page_object`), an entry the codec refuses as F1 or F2, and
   a `first`, `count` or `epoch` that is not an integer are `chain_broken`, never
-  `STORAGE_CORRUPT`. A failed inflation in the page reader (`:108-117`) stays F6 (§2.11).
+  `STORAGE_CORRUPT`. A failed inflation in the page reader (`:read_page_object`) stays F6 (§2.11).
 - **F5.** Every segment's `digest_after` is recomputed from its entries. A mismatch is cause
   `digest_mismatch`.
 - **R3, cursor agreement.** The summary's epoch and log names equal `cursor.discovery`'s.
@@ -1194,8 +1195,8 @@ and `resume()` refuses a dead job at once instead of queueing it
   `canonical_json`'s on every canonical vector, every fixture entry and every §10 load shape
   `canonical_json` completes on, and that it fails only on the two nested past 1,000 levels.
 - **When `alt_cells` is read.** The worker reads its segments, and checks them by R1, F6,
-  F3, R2 and F5, only when it builds the terminal record (`analysis.py:2386-2403`,
-  `:1870-1879`). That is a **complete verified load** (§1; BB8 6688972927), not a full read: it
+  F3, R2 and F5, only when it builds the terminal record (`analysis.py:_finish`,
+  `:_sound_result`). That is a **complete verified load** (§1; BB8 6688972927), not a full read: it
   reads every segment by its path, checks each `previous_hash` link back from the record's head
   (R2), and checks the chain's count and digest against `record.discovery` (the summary, §2.10).
   On F6 it raises `STORAGE_CORRUPT` and releases nothing, exactly like a lease-time load, and
@@ -1220,7 +1221,7 @@ author; each item names the test that has to fail before the change and pass aft
 ### 6.1 `seen`
 
 `seen` is persisted (BB8 4) as an ordered set log: first insertion only (BB8 5). It is read only for
-membership (`analysis.py:1012`, `:1079`) and never iterated, so membership is all its meaning; the
+membership (`analysis.py:target`, `:_new_pairs`) and never iterated, so membership is all its meaning; the
 order only makes the bytes canonical. It counts toward `MEMBERSHIP_ENTRIES` and `MEMBERSHIP_BYTES`
 (§3): an append that would pass either cap refuses with `RESOURCE_LIMIT`, cause `discovery_seen`,
 and so does `variants`' with `discovery_variants`. **Test:** a guard that no consumer iterates
@@ -1229,7 +1230,7 @@ and so does `variants`' with `discovery_variants`. **Test:** a guard that no con
 ### 6.2 `row_seen` and the lower traversal
 
 `_candidate_pairs` supports repeated left spans: it keeps a row's dedup state until that
-left span's last occurrence (`lyric-harness/quality/relations.py:3351-3357`). The #656
+left span's last occurrence (`lyric-harness/quality/relations.py:_candidate_pairs`). The #656
 layout has 1,560 rows and no repeated left span, but that is a measurement (3PO 1), so it
 cannot justify discarding dedup history. The row dedup keys that can still recur are
 therefore persisted in `row_seen`, first insertion only. The row index and the position
@@ -1241,8 +1242,8 @@ within the row are in `continuation.row`.
 - **Reset.** At a row boundary where no live row state remains, the worker resets
   `row_seen` (§2.6).
 - **The alternate phase** (BB8 6681838131; 3PO 6681823180 (c)). `_new_pairs` enumerates with
-  `_candidate_pairs(prune=True)` as well (`analysis.py:1063-1082`), and that call's row dedup
-  lives within the call (`relations.py:3351-3357`). So in the alternate phase `row_seen` holds the
+  `_candidate_pairs(prune=True)` as well (`analysis.py:_new_pairs`), and that call's row dedup
+  lives within the call (`relations.py:_candidate_pairs`). So in the alternate phase `row_seen` holds the
   row dedup keys of the call under way that can still recur, under the same reset and compaction
   rules. The end of each call, like the end of the lower traversal, is a row boundary with no
   live row state, where the worker resets the log if it holds any entry. It is not assumed
@@ -1296,7 +1297,7 @@ the group, and the key is not added again (3PO 2).
 
 Appends ride the delta. An `alt_cells` entry is part of its event's delta, and the delta is
 applied once, with the counters, when the event's records are exhausted
-(`analysis.py:2512-2519`, `:2600-2605`). The entry is appended to the log then, not when the
+(`analysis.py:_prepare_event`, `:step`). The entry is appended to the log then, not when the
 event is prepared. An event re-prepared after a checkpoint inside its emission would
 otherwise append it twice, and 1 true / 2 false would become 1 true / 3 false. A record's
 contribution to the witness is folded at the same moment (§6.9).
@@ -1311,21 +1312,21 @@ contribution to the witness is folded at the same moment (§6.9).
 
 ### 6.4 Alternate keys and their groups (rule S1)
 
-The argument holds (BB8 1). A target's stream is non-blank only on its own lines (`:570`),
-every cell of a span key carries its line (`:612-627`), and targets sort by their lines first
-(`:1020`, `:1039`). So a two-line key can only recur inside its own contiguous line-pair
+The argument holds (BB8 1). A target's stream is non-blank only on its own lines (`analysis.py:_line_stream`),
+every cell of a span key carries its line (`:_cell`, `:_span_key`), and targets sort by their lines first
+(`:target`, `:_alternate_edges`). So a two-line key can only recur inside its own contiguous line-pair
 group. The code checks this while it runs, and does not assume it.
 
 For an alternate key k, let L be the sorted pair of the lines of its two members. Pairs are
 compared lexicographically.
 
-- **Membership**, as `_new_pairs` checks it (`analysis.py:1079`). k has already been met
+- **Membership**, as `_new_pairs` checks it (`analysis.py:_new_pairs`). k has already been met
   when it is in the primary `seen` log, in `current.keys` or in `alt_seen`, or when its
   reverse is in one of them and the schema is same-rule. Equality is §2.1's. A key already
   met is skipped. A new key becomes the pending binding.
 - **A key within one line** (L = [l, l]). A new k goes to `alt_seen`, which keeps it for the
   epoch. It never retires a group, opens one or is refused by one. A two-line target yields
-  within-line keys on both of its lines (`analysis.py:1017-1019`, `:1055-1062`), and other
+  within-line keys on both of its lines (`analysis.py:target`, `:_discover`), and other
   targets cover those lines too, so such a key can recur in any group.
 - **A two-line key** (l₁ < l₂) is compared with the current group's pair, or with `through`
   when there is no current group:
@@ -1360,33 +1361,33 @@ itself is a fixed cost, 0.9–2.4 s measured on #656. The whole resume cost is i
 
 ### 6.6 Incomplete-search flags (BB8 6)
 
-Variant preparation's flag (`analysis.py:958`) and the `MINI_CAP` flag (`:1036`) are not
-in the cursor today; they "replay themselves" (`:474-476`). Once variants are read from the
+Variant preparation's flag (`analysis.py:_alternate_edges`) and the `MINI_CAP` flag (`:_alternate_edges`) are not
+in the cursor today; they "replay themselves" (`:AnalysisSession.__init__`). Once variants are read from the
 log, they would be lost, and `_finish` would report an incomplete search as answered
-(`:2396-2401`). Each is written into `cursor["incomplete"]` at the moment it is set, as
-`:717` already does. **Test:** for each flag, a restart after it is set still reports the
+(`:_finish`). Each is written into `cursor["incomplete"]` at the moment it is set, as
+`:_any_reading` already does. **Test:** for each flag, a restart after it is set still reports the
 method incomplete.
 
 ### 6.7 Progress ticks (BB8 7)
 
 Ticks give zero-record preparation and duplicate scans their own safe points (6675208404
 §1). A tick emits no record and moves no counter: it is not a candidate
-(`delta["candidates"] = 1` at `:2556` must not apply to it), and records and counters are
+(`delta["candidates"] = 1` at `analysis.py:_prepare_event` must not apply to it), and records and counters are
 unchanged from an uninterrupted run. The step deadline also applies to a step with no
-records: `if records and …` (`:2590`) becomes `if (records or used) and …`. Otherwise 256
-preparation ticks (4–12 s, measured) can straddle the lease end (`reader_scheduler.js:533-539`),
-which ends in `INTERRUPTED` with no requeue (`reader_job_store.js:930-950`). **Test:** a run
+records: `if records and …` (`:step`) becomes `if (records or used) and …`. Otherwise 256
+preparation ticks (4–12 s, measured) can straddle the lease end (`reader_scheduler.js:pump`),
+which ends in `INTERRUPTED` with no requeue (`reader_job_store.js:_expireLeases`). **Test:** a run
 that ends on tick-only steps gives the same records and counters as an uninterrupted run,
 and a tick-only step stops by its deadline.
 
 ### 6.8 Shared-sound traversal (3PO 4)
 
-The traversal at `analysis.py:2537-2546` gets the same treatment, held to everything in §6.
+The traversal at `analysis.py:_prepare_event` gets the same treatment, held to everything in §6.
 It has its own continuation (`continuation.shared_sound`: token, span and missing-word
 positions). It keeps "false with a domain" apart from "outside the domain": an in-domain
 judged cell, false included, is an `alt_cells` entry of its epoch. An outside-domain binding
 logs nothing and moves no domain tally, but it is still a candidate: `candidates` increments,
-as it does today (`delta["candidates"] = 1`, `analysis.py:2556`). So records and counters equal
+as it does today (`delta["candidates"] = 1`, `analysis.py:_prepare_event`). So records and counters equal
 an uninterrupted run's, which the tick test of §6.7 pins (BB8 6678702125, ruling 6). Only a tick
 moves no counter (§6.7).
 
@@ -1400,11 +1401,11 @@ Domain tallies are not logged. They are rebuilt from committed evidence.
 - **The witness.** `cursor.witness` holds a count and an ordered digest (§2.2, witness
   domain) over **every** contribution record on the method's stream, in commit order,
   eligible or not. A record here is resolved: its detail parts are folded into it, as
-  `resolve_detail_records` folds them (`analysis.py:218-256`), and a detail part is never a
+  `resolve_detail_records` folds them (`analysis.py:resolve_detail_records`), and a detail part is never a
   witness record of its own. Each record contributes the tuple of `witness.fields`, read
   from the resolved record, with `null` for an absent field. The v1 fields are
   `["method_id", "id", "verdict", "a.token_ids", "b.token_ids"]`: everything
-  `_domain_tally` reads (`analysis.py:1466-1479`), endpoint roles included. The field
+  `_domain_tally` reads (`analysis.py:_domain_tally`), endpoint roles included. The field
   list is the one place they are enumerated, and it travels with the cursor. Adding a
   field the reducer reads changes the cursor; each field needs one mutant in the tests.
 - **When a record is folded.** With its event's delta (§6.3), so a checkpoint inside the
@@ -1421,9 +1422,9 @@ Domain tallies are not logged. They are rebuilt from committed evidence.
   2. Every later record must belong to the method's terminal suffix. The suffix is
      contiguous, running to the end of the stream, and it belongs to that method alone
      (BB8 6678599629). It is a run of that method's `method_result` records
-     (`analysis.py:2401`), each followed by its own detail parts, because parts are written
-     immediately after their parent (`analysis.py:221`). Within the suffix the parts follow
-     their parent exactly as `resolve_detail_records` requires (`analysis.py:218-256`):
+     (`analysis.py:_finish`), each followed by its own detail parts, because parts are written
+     immediately after their parent (`analysis.py:resolve_detail_records`). Within the suffix the parts follow
+     their parent exactly as `resolve_detail_records` requires (`analysis.py:resolve_detail_records`):
      each part is of that method, its `parent_id` is its parent's id, its `detail_id` is one
      of the parent's `$detail_ref`s, its `part` runs 0, 1, … within that ref, and its
      `total` equals the ref's `parts`. Once a ref's parts are complete, their bytes must
@@ -1460,7 +1461,7 @@ Domain tallies are not logged. They are rebuilt from committed evidence.
   whose `method_id` equals `witness.method_id`, or a `detail_part` whose `method_id` equals
   `witness.method_id` and that sits in its parent's run. The check is on the parent and on every
   part, and `method_id` is the only field that counts. `load_records` also matches `schema_id`,
-  `schema_name` and the engine payload's ids (`worker.py:143-151`); none of them makes a record a
+  `schema_name` and the engine payload's ids (`worker.py:load_records`); none of them makes a record a
   member or stops one being one, so a part whose `schema_name` alone changes is accepted (the
   `after_part_0_schema_name_only` control).
 - **The cases.** A terminal record whose detail is four parts is emitted across frames, and a
@@ -1525,7 +1526,7 @@ Domain tallies are not logged. They are rebuilt from committed evidence.
   - continuing and fresh streams are equal;
   - the no-callback in-memory path is byte-identical before and after;
   - the five whole-figure paths keep their id deduplication over durable plus local
-    (`_assembly_records`, `analysis.py:2325-2345`);
+    (`_assembly_records`, `analysis.py:_assembly_records`);
   - at each of the three split points, the worker refuses the 15 integrity faults through
     `resolve_detail_records`, and the 9 cases the resolver accepts through its own
     suffix-membership check, which runs before resolving (3PO 6678848728, BB8 6678856548,
@@ -1621,7 +1622,7 @@ in the derivation of `8732918312`.
   costs less than a read, so this bounds the stats and the reads together.
 - **The sum.** The fixed terms come to 15.2 + 2.4 + 3.10303 s = 20.70303 s. #656's own entries
   count inside the combined cap, so the room over the whole sum is 9.29697 s, or
-  101,940 entries, and 90,975 once the first step's 1 s deadline (`analysis.py:2582`) is
+  101,940 entries, and 90,975 once the first step's 1 s deadline (`analysis.py:step`) is
   kept as margin. Every count in this section is computed from the unrounded terms, which are
   printed to five places (BB8 6693638249), with one exception: the per-byte rate enters as
   printed, §10's worst median of 138.846 ns rounded to 138.8 ns and scaled to 416.4 ns, so the
@@ -1692,15 +1693,15 @@ Each exclusion is named, and each is either capped or left out on purpose:
   `alt_cells` in full: 12,105 entries on #656, about 1.10 s at 91.2 µs, and up to 2,097,152
   entries at `CHAIN_SEGMENTS`, about 191.26 s. It reads the committed evidence for option 2's
   reconstruction (`load_records`, about 63 MB plain on #656, not timed, §6.9). And it runs
-  `_domain`'s unpruned enumeration (`analysis.py:1426-1432`), up to `DOMAIN_CAP` = 248,661,361
+  `_domain`'s unpruned enumeration (`analysis.py:_domain`), up to `DOMAIN_CAP` = 248,661,361
   pairs, not timed. It happens once, so the first-commit criterion does not cover it, but the
   finish lease must complete before the lease expires, or it loops. The proof run measures it
   (§9). If it does not fit, it needs checkpointable progress of its own or option 2's domain-log
   fallback (§6.9). It is listed as open, not as qualified (§12, item 29).
 - **Reconciliation inside a lease's lock entry is an accepted exclusion.** After any foreign
   writer, a generation this instance did not write or a pending marker (`_enterLock`,
-  `reader_job_store.js:435-448`), the lease's first lock entry reconciles, which full-reads
-  every live chain of every job (§7.4). At the default 256 MiB quota (`server_http.js:336`), if
+  `reader_job_store.js:_enterLock`), the lease's first lock entry reconciles, which full-reads
+  every live chain of every job (§7.4). At the default 256 MiB quota (`server_http.js:module`), if
   all of it were segments of about 17.5 KiB, that is 14,979 segments: 4.54 s at the walk term's
   rate, more than the 1.57 s margin above. The proof run records each one (§9).
 
@@ -1714,8 +1715,8 @@ lease start, and each walk's time is recorded (§9).
 Segments reachable from the heads of records in the queued, running, paused or cancelled
 states stay live.
 
-- Cancelled jobs can resume (`reader_job_store.js:1381-1385`), so they keep their discovery.
-- So do jobs paused by quota (`_quotaPause`, `:972-990`), by lease expiry (`:930-950`), or by
+- Cancelled jobs can resume (`reader_job_store.js:resume`), so they keep their discovery.
+- So do jobs paused by quota (`_quotaPause`, `reader_job_store.js:_quotaPause`), by lease expiry (`:_expireLeases`), or by
   `READER_ERROR`.
 
 ### 7.2 Release points and GC roots
@@ -1724,8 +1725,8 @@ Each release point is a single record save; GC then reclaims the segments.
 
 - an epoch advance (§2.6);
 - a `row_seen` reset (§2.6);
-- `complete()`, which saves `discovery: null` (`:1236-1246`);
-- expiry or delete: `_tombstone` rebuilds the record without the field (`:1532-1566`);
+- `complete()`, which saves `discovery: null` (`reader_job_store.js:complete`);
+- expiry or delete: `_tombstone` rebuilds the record without the field (`reader_job_store.js:_tombstone`);
 - reconciliation (§7.4), a full read in `resume()` that fails (§5.1), and a pause with code
   `DISCOVERY_UNAVAILABLE` (§8), each of which also sets `unavailable` (§2.7, U1).
 
@@ -1736,10 +1737,10 @@ moves no head and frees nothing. A lease's walk never releases.
 GC:
 
 - Add one `['discovery', head]` root per non-null head, next to the checkpoint root, in
-  three places: `_markRecord` (`:1667-1671`), the mark loop (`:1783`) and the re-mark
-  (`:1804`).
-- In `_markStep` (`:1632-1662`), a `discovery` entry reads from `pages/`, marks `live.pages`
-  and pushes its `previous_hash`. `live` holds only `OBJECT_KINDS` (`:45`), so the kind must
+  three places: `_markRecord` (`reader_job_store.js:_markRecord`), the mark loop (`:maintain`) and the re-mark
+  (`:maintain`).
+- In `_markStep` (`reader_job_store.js:_markStep`), a `discovery` entry reads from `pages/`, marks `live.pages`
+  and pushes its `previous_hash`. `live` holds only `OBJECT_KINDS` (`:OBJECT_KINDS`), so the kind must
   be mapped to `pages`; indexing `live.discovery` would throw.
 - The sweep is unchanged. A verified head needs no root (§2.7).
 - Chains are append-only and their tails live in the record, so a running job creates no
@@ -1750,7 +1751,7 @@ GC:
 
 - **A segment is synced but the record is not saved.** The orphan is collected. On resume
   the worker re-seals identical bytes (the cut rule), and `_blob` refreshes the file's
-  mtime (`:592-595`).
+  mtime (`reader_job_store.js:_blob`).
 - **The record is saved but not acknowledged.** Resume continues from the new cursor.
 - **A crash during a release or `complete()`, before the record save.** The old chain is
   still referenced, so the job resumes, or is marked interrupted and completes again.
@@ -1782,19 +1783,19 @@ GC:
   (`mcp/READER_RUNTIME.md`), so an old instance can sweep while a new one runs. Its
   deletes go through `_unlinkCounted`, which begins a write, so the generation moves.
 - **Where the store notices: reconciliation**, whenever it enters the lock after any foreign
-  writer: a generation it did not write, or a pending marker (`_enterLock`, `:435-448`, which
+  writer: a generation it did not write, or a pending marker (`_enterLock`, `reader_job_store.js:_enterLock`, which
   already reloads the records and abandons the GC). A foreign writer is any other instance, of
   this image or an older one, not only an image that sweeps (3PO 6681823180 (b)). Startup is
-  one such entry: a starting store holds generation −1 (`:331`), so its first lock entry
-  (`:342-379`) always reconciles. Every discovery read the
+  one such entry: a starting store holds generation −1 (`:constructor`), so its first lock entry
+  (`:constructor`) always reconciles. Every discovery read the
   store makes is the walk or reconciliation, and both run under the lock (§5.1), so a walk
   always runs after the reconciliation it needs.
 - **Reconciliation is a full read** (§5.1) of every live chain, one of the store's two
   full-read places (the other is `resume()`). It starts at each head and stats each segment before reading it,
-  because `_object` maps `ENOENT` to `STORAGE_CORRUPT` (`:668-683`), and it replaces the
+  because `_object` maps `ENOENT` to `STORAGE_CORRUPT` (`reader_job_store.js:_object`), and it replaces the
   address lists with what it read. For a #656-sized job that is 99 segments (measured), and
   at the bounds up to 5 × `CHAIN_SEGMENTS` per job (computed). It saves no verified head:
-  usage is unknown until the recount (`:444-447`), and only a save that does not grow a
+  usage is unknown until the recount (`:_enterLock`), and only a save that does not grow a
   record commits then. The job's next walk reads from its saved verified head.
 - **A chain it cannot use is released**, in one save:
   - a missing segment: `unavailable` becomes `{cause: "segment_missing", log, released}`;
@@ -1808,7 +1809,7 @@ GC:
   - `logs` and `verified` are emptied in the same save (U1, §8);
   - a queued job is also set to `paused`, with `deferred_requeue: false` and a null fence. It
     keeps its `queued_at`, `queue_order` and `cancel_requested`: the release is not
-    `store.pause`, which rewrites them (`:1253-1290`). Its reason is
+    `store.pause`, which rewrites them (`reader_job_store.js:pause`). Its reason is
     `{code: "DISCOVERY_UNAVAILABLE", cause, log, released}` with no message text; the message
     is rendered from the cause (§8). This is confirmed (BB8 6678599629):
     it is better than leasing a job that must fail, and `_dispatchable` skips it, so the
@@ -1846,12 +1847,12 @@ GC:
   before usage is known is refused (`STORE_RECOUNTING`), which would fail the startup. Startup's
   commit-before-usage ordering relies on this property.
 - **No refusal at lease time.** `store.lease()` is called outside the scheduler's try block
-  (`reader_scheduler.js:514`) and takes the head of the queue
-  (`reader_job_store.js:889-891`), so a lease that threw would pick the same job on every
-  pump. `_dispatchable` (`:957-962`) skips a record whose `discovery.unavailable` is set,
+  (`reader_scheduler.js:pump`) and takes the head of the queue
+  (`reader_job_store.js:lease`), so a lease that threw would pick the same job on every
+  pump. `_dispatchable` (`:_dispatchable`) skips a record whose `discovery.unavailable` is set,
   and refusals are raised only by `workerPayload`, `resume` and `commitCheckpoint`.
 - **Startup order.** At startup the pass runs before the startup collection, which a0 moved
-  ahead of the pauses (`:351-352`). Otherwise the mark would meet the missing segment and
+  ahead of the pauses (`reader_job_store.js:constructor`). Otherwise the mark would meet the missing segment and
   fail the store. The release only shrinks a record, so it commits before usage is known.
 - **Everywhere else** a missing segment is `STORAGE_CORRUPT`, like any other object, and a
   mark that meets one abandons the collection, as today. Every other object kind (pages,
@@ -1870,7 +1871,7 @@ Nothing is ever reinterpreted, and missing state is never rebuilt.
 | `READER_PROTOCOL` | 400 | store, `commitCheckpoint`; scheduler, at the reply boundary | any of F1–F6 or W1–W7 on a frame. Nothing is written; the job pauses with this reason and is not requeued. The scheduler pauses a job with this code, without a status, for a reply that breaks C1. |
 | `DISCOVERY_UNAVAILABLE` | 409 | store (`workerPayload`, `commitCheckpoint` and `resume` from `unavailable`; a full read in `resume()`; reconciliation's release) and worker (load, traversal) | causes below |
 | `STORAGE_CORRUPT` | 503 | store; worker | a segment's bytes do not match its address (F6) on a lease's walk or the worker's load, the finish-time complete verified load of `alt_cells` included (§5.2), which releases nothing, while a full read releases that job with `segment_corrupt` instead (§5.1, §7.4); the store meets a missing segment outside reconciliation, which releases that job instead (§7.4); or a lease's walk fails R5, R2 or F3 (§5.1), which releases nothing |
-| `STALE_READING` | 409 | worker | a v1 cursor on a v2 worker, a v2 cursor on a v1 worker (`analysis.py:464`), or a witness whose fields are not the ones the worker's reducer reads (§6.9) |
+| `STALE_READING` | 409 | worker | a v1 cursor on a v2 worker, a v2 cursor on a v1 worker (`analysis.py:AnalysisSession.__init__`), or a witness whose fields are not the ones the worker's reducer reads (§6.9) |
 | `RESULT_EXPIRED` | 410 | worker | the option 2 witness disagrees with durable history, or is null on a qualified method (§6.9) |
 | `RESOURCE_LIMIT` | — (the job pauses) | worker | a §3 limit the worker cannot meet by ending its step, or another raise of §8's list; it names its cause (below) |
 | `INVARIANT_FAILURE` | — (the job pauses) | worker | `CURSOR_BYTES`, `CONTINUATION_BYTES`, `REFUSAL_BYTES` or `WITNESS_FIELDS` passed, or an entry the worker generated breaks F1 (a float, a lone surrogate, an object, an integer out of range or a depth past `ENTRY_DEPTH`; §2.11): an engine defect, naming no cause, never a truncation or a skip; its message names the bound and its value, such as `REFUSAL_BYTES (543)`, or the rule, `breaks F1: <what>` (§3, §3.1, §3.2) |
@@ -1902,9 +1903,9 @@ raise the reader reaches:
 | `discovery_variants` | `MEMBERSHIP_ENTRIES` or `MEMBERSHIP_BYTES`, by an append to `variants` | none | This analysis stopped: it prepared more reading variants than a resume can reload in time. Its committed evidence stays readable. |
 | `discovery_row_seen` | `MEMBERSHIP_ENTRIES` or `MEMBERSHIP_BYTES`, by an append to `row_seen` | none | This analysis stopped: its search kept more row pairs than a resume can reload in time. Its committed evidence stays readable. |
 | `discovery_alt_seen` | `MEMBERSHIP_ENTRIES` or `MEMBERSHIP_BYTES`, by an append to `alt_seen` | none | This analysis stopped: its search of alternate readings kept more pairs than a resume can reload in time. Its committed evidence stays readable. |
-| `resident_capacity` | the reader's memory envelope (`analysis.py:40-55`) | none | This analysis stopped: it needs more memory than this reader may use. No source or comparison was skipped. Its committed evidence stays readable. |
-| `declared_coordinate_bits` | the meter's 256-bit coordinate budget (`quality/meter.py:94-96`) | none | This analysis stopped: a declared beat or meter position is larger than the reader can compute with. Its committed evidence stays readable. |
-| `expansion_budget` | the meter's per-operation expansion budget (`quality/meter.py:110-113`) | none | This analysis stopped: a declared meter or beat pattern expands to more positions than the reader can compute with. Its committed evidence stays readable. |
+| `resident_capacity` | the reader's memory envelope (`analysis.py:_resource_guard`) | none | This analysis stopped: it needs more memory than this reader may use. No source or comparison was skipped. Its committed evidence stays readable. |
+| `declared_coordinate_bits` | the meter's 256-bit coordinate budget (`quality/meter.py:exact_number`) | none | This analysis stopped: a declared beat or meter position is larger than the reader can compute with. Its committed evidence stays readable. |
+| `expansion_budget` | the meter's per-operation expansion budget (`quality/meter.py:guard_expansion`) | none | This analysis stopped: a declared meter or beat pattern expands to more positions than the reader can compute with. Its committed evidence stays readable. |
 
 Every `RESOURCE_LIMIT` raise the reader reaches, by module and enclosing function, and the cause
 it names (review H2). The validator walks the imports of `library/analysis.py`, function-local
@@ -1916,33 +1917,33 @@ table does not list, unless its message names a cause of the set itself (`RESOUR
 | `library/analysis.py` | `_resource_guard` | `resident_capacity` |
 | `quality/meter.py` | `exact_number` | `declared_coordinate_bits` |
 | `quality/meter.py` | `guard_expansion` | `expansion_budget` |
-| `lyric_harness.py` | `main` | none: the lyrics command line's writer check (`:15309-15312`); `library/form.py` imports the module for its lexicon, and the reader never runs `main` |
+| `lyric_harness.py` | `main` | none: the lyrics command line's writer check (`lyric_harness.py:main`); `library/form.py` imports the module for its lexicon, and the reader never runs `main` |
 
 Plumbing (R2's side, with the #721 author for the worker's raises):
 
-- **The whitelist.** `worker.py`'s whitelist (`:263-264`) gains `DISCOVERY_UNAVAILABLE`,
+- **The whitelist.** `worker.py`'s whitelist (`worker.py:main`) gains `DISCOVERY_UNAVAILABLE`,
   `STORAGE_CORRUPT` and `INVARIANT_FAILURE`; otherwise they surface as `READER_ERROR`.
 - **How the worker names a cause.** A refusal's message starts `CODE[cause]:` or
   `CODE[cause,log]:`, for example `RESOURCE_LIMIT[declared_coordinate_bits]: …` or
-  `DISCOVERY_UNAVAILABLE[segment_missing,alt_cells]: …`. `worker.py` (`:261-264`) reads the code,
+  `DISCOVERY_UNAVAILABLE[segment_missing,alt_cells]: …`. `worker.py` (`worker.py:main`) reads the code,
   the cause and the log from that head, applies the whitelist to the code, and sends
   `error_cause` and `error_log` beside `error_code`. A head that does not parse is
   `READER_ERROR`. Every raise site in the table above gains its cause this way: `analysis.py`'s
   (the #721 author's) and the meter's two, whose message heads change and nothing else.
 - **The bridge forwards them, and marks a reply.** On the worker's final frame
-  (`python_bridge.js:352-367`) the bridge passes `error_cause` and `error_log` beside
+  (`python_bridge.js:spawnWorker`) the bridge passes `error_cause` and `error_log` beside
   `reader_result` and `error_code`, and sets `reply: true`. Today it forwards only
-  `reader_result` and `error_code` (`:366`), so a worker's cause never reaches the scheduler.
+  `reader_result` and `error_code` (`:spawnWorker`), so a worker's cause never reaches the scheduler.
 - **The scheduler tells a reply from its own errors.** An error a Node sink throws inside
-  `onReaderCheckpoint` (`reader_scheduler.js:549-567`: `commitCheckpoint`'s refusals, and
-  `packReaderPages`' `RESOURCE_LIMIT`, `:452-456`) reaches the scheduler today only as a bridge
-  result with code −1 and no status, cause or log (`python_bridge.js:347-349`, `:751`,
-  `:657-676`). The scheduler keeps that error itself (`let sinkError`, set in
+  `onReaderCheckpoint` (`reader_scheduler.js:pump`: `commitCheckpoint`'s refusals, and
+  `packReaderPages`' `RESOURCE_LIMIT`, `:packReaderPages`) reaches the scheduler today only as a bridge
+  result with code −1 and no status, cause or log (`python_bridge.js:spawnWorker`, `:execute`,
+  `:createPythonBridge.failure`). The scheduler keeps that error itself (`let sinkError`, set in
   `onReaderCheckpoint` before it rethrows) and, when the lease fails, rethrows it as it was, with
   its code, status, cause and log, instead of building one from the bridge result
-  (`reader_scheduler.js:568-572`). Only a result with `reply: true` is a reply. A bridge failure
+  (`reader_scheduler.js:pump`). Only a result with `reply: true` is a reply. A bridge failure
   with no reply (a kill, a timeout, an unreadable frame) pauses as today.
-- **The pause.** The catch that pauses (`:592-600`) passes `failure.error_cause ?? failure.cause`
+- **The pause.** The catch that pauses (`reader_scheduler.js:pump`) passes `failure.error_cause ?? failure.cause`
   and `failure.error_log ?? failure.log`, and for C1's reason `reply_code`, `field` and `value`;
   `store.pause` accepts them. A refusal the store raises from `unavailable` (`workerPayload`,
   `commitCheckpoint`, `resume`) or from a failed full read carries `cause` and `log`; one raised
@@ -1970,8 +1971,8 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   reason writes `{code: "DISCOVERY_UNAVAILABLE", cause, log, released}`, copied from it, and
   stores no message: the job view renders the message from the cause, by the table above.
   The saves are a release itself (reconciliation's, of a queued, paused or cancelled job), a
-  `store.pause` of any code, `_quotaPause` (`:972-990`), startup's `INTERRUPTED` pause
-  (`:357-376`), `_expireLeases` (`:930-948`) and `cancel()` (`:1342-1360`). Each changes the
+  `store.pause` of any code, `_quotaPause` (`reader_job_store.js:_quotaPause`), startup's `INTERRUPTED` pause
+  (`:constructor`), `_expireLeases` (`:_expireLeases`) and `cancel()` (`:cancel`). Each changes the
   state as it does today, except that while `unavailable` is set a pause never requeues the
   job: its state is `paused` (or `cancelled` on a requested cancel), with
   `deferred_requeue: false`. So the trace stays in the reason whatever happens to the job
@@ -1980,7 +1981,7 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
 - **C1, the cause sets at the reply boundary.** This is BB8 6678702125, ruling 4, and it
   replaces an earlier revision's rule that anything outside the sets was discarded. The
   scheduler checks every reply, a result marked `reply: true`, before it pauses the job
-  (`reader_scheduler.js:568-572`). Errors a Node sink threw, and bridge failures with no reply,
+  (`reader_scheduler.js:pump`). Errors a Node sink threw, and bridge failures with no reply,
   are not replies, and C1 never checks them:
   - `DISCOVERY_UNAVAILABLE` needs an `error_cause` from the worker's six causes (every cause in
     the table above but `segment_corrupt`, which is the store's alone), and `RESOURCE_LIMIT` one
@@ -2007,8 +2008,8 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   `{code: "RESOURCE_LIMIT", cause}`, its message rendered from the table above.
 
   The store's and the scheduler's own refusals are not replies. A `RESOURCE_LIMIT` that Node
-  raises (the record bound's 413, `reader_job_store.js:78-83`; `packReaderPages`,
-  `reader_scheduler.js:452-456`) carries no cause and pauses as today, through `sinkError`. A
+  raises (the record bound's 413, `reader_job_store.js:encoded`; `packReaderPages`,
+  `reader_scheduler.js:packReaderPages`) carries no cause and pauses as today, through `sinkError`. A
   sink's `DISCOVERY_UNAVAILABLE` carries its own cause and log to the pause and logs no bad value.
   `store.pause` still refuses, whoever calls it, a `DISCOVERY_UNAVAILABLE` without a cause from
   its set, and a cause outside its code's set. `bad/reply_cause_invalid.json` holds a missing, an
@@ -2035,9 +2036,9 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   reply always comes from a worker of the scheduler's own image.
 
 **There is no new job state.** Every image's `_reload` refuses an unknown state as
-`STORAGE_CORRUPT` (`:491-498`), so adding a state would be a format break. A job refused with
+`STORAGE_CORRUPT` (`reader_job_store.js:_reload`), so adding a state would be a format break. A job refused with
 `DISCOVERY_UNAVAILABLE` therefore stays `paused`. It holds one of its viewer's two slots
-(`:12`, `:832`, `:1389`), and a create with the same key returns it.
+(`:READER_LIMITS`, `:create`, `:resume`), and a create with the same key returns it.
 
 ## 9. Compatibility and release
 
@@ -2050,21 +2051,21 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   then refuse to resume. Their evidence stays readable.
 - **Cursor v2.** One cursor version carries the continuation, the discovery logs and option
   2's witness (6675208404 §3). It has its own `contract_version: 2`, which old workers
-  already refuse at `analysis.py:464`. That matters because the job identity does not always
+  already refuse at `analysis.py:AnalysisSession.__init__`. That matters because the job identity does not always
   change between images: with no baked build identity, the commit is null
-  (`mcp/build_identity.js:31`) and the resource fingerprint falls back
-  (`mcp/server_http.js:302-306`); the scheduler acknowledges this at
-  `reader_scheduler.js:133-136`. New workers must refuse v1 cursors with `STALE_READING`;
+  (`mcp/build_identity.js:releaseIdentity`) and the resource fingerprint falls back
+  (`mcp/server_http.js:readerResourceFingerprint`); the scheduler acknowledges this at
+  `reader_scheduler.js:createCatalogResolver`. New workers must refuse v1 cursors with `STALE_READING`;
   that check does not exist yet. There is no implicit migration.
 - **The shared `CONTRACT_VERSION` does not move.** It is part of the identity
-  (`contracts.py:253`), the result schemas and the registry.
+  (`contracts.py:semantic_identity`), the result schemas and the registry.
 - **Release.** The store half and the worker half ride one runtime train; both change the
   fingerprint (`mcp/IMAGE_RELEASE.md`). The store half does nothing while frames carry no
   `discovery`. C1 is switched on in the same runtime train as the worker half, never before: R2
   turns its constant on in that train, and the #721 author's change does not touch
   `reader_scheduler.js` (§8). The off setting exists only on branches and on `main` between the
   merges, never in a released image. Jobs paused on the previous image refuse `STALE_READING` anyway
-  (`reader_scheduler.js:519-521`).
+  (`reader_scheduler.js:pump`).
 - **The entry codec (the #721 author's; BB8's review, should-fix 1; BB8's emit ruling, 19:40Z).**
   The codec raises a local error with a rule tag and never a public code; the enclosing
   operation maps it (§2.11). Before the worker half enters a train, the #721 author changes the
@@ -2103,7 +2104,7 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
     worker half joins a release train;
   - the declared entry shapes show that no caller number reaches an entry, which §3's
     classification of a generated F1 as an engine defect assumes and this contract has not
-    traced (`declaration_set` admits any finite JSON number, `reader_job_store.js:60-76`).
+    traced (`declaration_set` admits any finite JSON number, `reader_job_store.js:jsonValue`).
 - **The store's byte count (R2).** Each log's state carries `bytes`, a commit adds its seals'
   entry bytes, and W7 holds `MEMBERSHIP_BYTES` from it; R2 checks it at a full read and R5 at a
   lease's walk, and the worker's R3 at its load, in the store half's runtime train (§2.7, §4, §5;
@@ -2448,7 +2449,7 @@ qualification (6683944548). Item 29 stays open. Items 30 and 31 are R2's two que
     refusal's bound** (§3.2). 6683944548 ruled that a job completing today must not stop because
     a refusal's detail is long, and moved the detail out of the cursor behind a fixed-size
     reference. 3PO then showed the case cannot occur through the real adapter (6684847656): a
-    4,096-byte declared label gives a 187-byte refusal, because `analysis.py:1129` substitutes
+    4,096-byte declared label gives a 187-byte refusal, because `analysis.py:_apply_declarations` substitutes
     `"declared"` for the label and `_candidates` uses a fixed remedy, and continuing and restored
     streams are identical. The 4,607 detail bytes come only from a separately built lower-level
     `RL.realise` stream, which never reaches the cursor. **The ruling:** the refusal stays in the
