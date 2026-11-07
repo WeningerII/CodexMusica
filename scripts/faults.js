@@ -2801,7 +2801,9 @@ if (want('corrupt-spend-file-widens-cap')) {
 //
 // Planted by neutering the guard, which is exactly the prior state.
 if (want('connector-cascades-where-app-does-not')) {
-  const d = mkenv(['scripts', 'references', 'src']);
+  // check_edit_parity reads mcp/engine.js for its record sections; without it the
+  // gate dies on the import before it prints the divergence this plant causes.
+  const d = mkenv(['scripts', 'references', 'src', 'mcp']);
   const f = path.join(d, 'scripts/_workspace_ops.js');
   const src = fs.readFileSync(f, 'utf8');
   const marker = '  if (!isMaterialPart) {';
