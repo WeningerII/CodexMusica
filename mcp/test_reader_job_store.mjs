@@ -3161,6 +3161,155 @@ test('malformed discovery: a pending paused job deferred to requeue is never pro
   assert.equal(store.inspect(id).deferred_requeue, false);
 });
 
+// ── bad/malformed_record_discovery.json (M1, §2.7; BB8 6709891376, ruling 3) ─
+// The fixture's cases and controls on the store: each case once inside its
+// reservation, saved at startup before usage is known, and once past it,
+// pending on a live instance, shown and refused until the recount saves it.
+const MALFORMED_FIXTURE = 'bad/malformed_record_discovery.json';
+function plantMalformed(directory, base, fx, c, pad = false) {
+  const running = c.start.state === 'running';
+  const job = {
+    ...base,
+    id: fx.record.id,
+    ...c.start,
+    attempt: 1,
+    lease_expires_at: running ? Date.now() + 60_000 : null,
+    ...(pad ? { request: { ...base.request, pad: 'p'.repeat(20_000) } } : {}),
+    discovery: c.discovery,
+  };
+  plantRecord(directory, job);
+  return job;
+}
+const refusedM1 = (fx) => (e) =>
+  e.code === fx.expect.code &&
+  e.status === fx.expect.status &&
+  e.cause === fx.expect.cause &&
+  e.log === fx.expect.log;
+
+test('malformed discovery: each case of bad/malformed_record_discovery.json is M1, released at startup as the fixture gives', (t) => {
+  const fx = loadFixture(MALFORMED_FIXTURE);
+  for (const c of fx.cases) {
+    const { directory, store } = fixture(t);
+    const other = create(store);
+    const base = store.records.get(other.record.id);
+    const job = plantMalformed(directory, base, fx, c);
+    assert.equal(store._discoveryShape(job), 'malformed', c.name);
+    assert.deepEqual(store._discoveryRoots(job), fx.expect.roots, `${c.name}: never a root`);
+    const seen = eventsOf(t);
+    const saves = [];
+    const save = ReaderJobStore.prototype._save;
+    t.mock.method(ReaderJobStore.prototype, '_save', function (input, ...rest) {
+      if (input.id === job.id) saves.push({ usage: this.usage, record: clone(input) });
+      return save.call(this, input, ...rest);
+    });
+    const restarted = new ReaderJobStore({ directory });
+    t.mock.restoreAll();
+    assert.equal(restarted.failure !== null, fx.expect.store_fails, `${c.name}: the store serves`);
+    // The release is the first save, before usage is known. A running job's
+    // release keeps its lease; startup's own INTERRUPTED pause of a running
+    // job follows it, once usage is known (Step 7 gives that pause U2).
+    const running = c.start.state === 'running';
+    assert.deepEqual(
+      saves.map((x) => x.usage),
+      running ? [null, saves[1]?.usage] : [null],
+      `${c.name}: the release is one save, before usage is known`
+    );
+    if (running) assert.notEqual(saves[1].usage, null);
+    const released = saves[0].record;
+    assert.deepEqual(releaseView(released), c.expect, `${c.name}: the release`);
+    assert.equal(released.attempt, 1, `${c.name}: keeps its attempt`);
+    if (running)
+      assert.equal(released.lease_expires_at, job.lease_expires_at, `${c.name}: keeps its lease`);
+    else assert.deepEqual(releaseView(restarted.records.get(job.id)), c.expect, c.name);
+    assert.deepEqual(
+      seen.filter((e) => e.event === 'READER_DISCOVERY_MALFORMED'),
+      [{ level: fx.expect.logged, event: 'READER_DISCOVERY_MALFORMED', job: job.id }],
+      `${c.name}: logged once`
+    );
+    assert.equal(restarted.lease(job.id), null, `${c.name}: never leased by id`);
+    assert.equal(restarted.lease().id, other.record.id, `${c.name}: the next job leases`);
+    assert.equal(fx.expect.dispatched, false);
+    assert.equal(restarted.pendingRelease.size, 0, `${c.name}: nothing pending`);
+  }
+});
+
+test('malformed discovery: past its reservation with usage unknown, a fixture release that grows is pending, shown and refused until the recount saves it; one that does not is saved at once', async (t) => {
+  const fx = loadFixture(MALFORMED_FIXTURE);
+  const strip = ({ updated_at: _u, record_digest: _d, ...rest }) => rest;
+  for (const c of fx.cases) {
+    const { directory, store } = fixture(t);
+    const other = create(store);
+    const base = store.records.get(other.record.id);
+    const job = plantMalformed(directory, base, fx, c, true);
+    eventsOf(t);
+    const view = store.inspect(job.id); // a live instance's next entry
+    t.mock.restoreAll();
+    assert.equal(store.failure, null, c.name);
+    assert.equal(store.usage, null, `${c.name}: usage unknown`);
+    assert.deepEqual(releaseView(view), c.expect, `${c.name}: shown as its release`);
+    const file = path.join(storeDirectory(directory), 'records', `${job.id}.json`);
+    if (c.past_reservation === 'saved') {
+      assert.equal(store.pendingRelease.has(job.id), false, `${c.name}: saved at once`);
+      assert.deepEqual(releaseView(JSON.parse(fs.readFileSync(file, 'utf8'))), c.expect, c.name);
+      continue;
+    }
+    assert.equal(c.past_reservation, 'pending');
+    assert.ok(store.pendingRelease.has(job.id), `${c.name}: pending`);
+    assert.deepEqual(
+      JSON.parse(fs.readFileSync(file, 'utf8')).discovery,
+      c.discovery,
+      `${c.name}: nothing saved yet`
+    );
+    assert.throws(() => store.workerPayload(job.id), refusedM1(fx), c.name);
+    if (c.start.state === 'running')
+      assert.throws(
+        () =>
+          store.commitCheckpoint(job.id, 1, c.start.fence, {
+            cursor: { phase: 'more' },
+            pages: [],
+          }),
+        refusedM1(fx),
+        c.name
+      );
+    assert.equal(store.lease().id, other.record.id, `${c.name}: lease() skips it`);
+    assert.equal(await store.recount(), true);
+    assert.equal(store.pendingRelease.has(job.id), false, `${c.name}: saved by the recount`);
+    const disk = JSON.parse(fs.readFileSync(file, 'utf8'));
+    assert.deepEqual(releaseView(disk), c.expect, `${c.name}: the saved release`);
+    assert.deepEqual(strip(disk), strip(store.inspect(job.id)), c.name);
+  }
+});
+
+test('malformed discovery: the controls of bad/malformed_record_discovery.json are never touched', (t) => {
+  const fx = loadFixture(MALFORMED_FIXTURE);
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const root = path.join(storeDirectory(directory), 'records');
+  for (const c of fx.controls) {
+    assert.equal(c.expect, 'untouched');
+    const { discovery: _d, ...without } = base;
+    const job = {
+      ...without,
+      id: fx.record.id,
+      ...(Object.hasOwn(c, 'discovery') ? { discovery: c.discovery } : {}),
+    };
+    plantRecord(directory, job);
+    assert.equal(store._discoveryShape(job), 'none', c.name);
+    const before = fs.readFileSync(path.join(root, `${job.id}.json`));
+    const seen = eventsOf(t);
+    store.inspect(other.record.id);
+    t.mock.restoreAll();
+    assert.ok(fs.readFileSync(path.join(root, `${job.id}.json`)).equals(before), c.name);
+    assert.equal(store.pendingRelease.size, 0, c.name);
+    assert.deepEqual(
+      seen.filter((e) => /READER_/.test(e.event ?? '')),
+      [],
+      c.name
+    );
+  }
+});
+
 // ── the Step 6 review (D1, D2, G1, B1) ──────────────────────────────────────
 test('review D1: a `verified` that does not name the logs of `logs` is malformed, so its release never fails startup', (t) => {
   const missingHead = { ...goodState, bytes: 4 };

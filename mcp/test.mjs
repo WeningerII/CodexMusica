@@ -5470,6 +5470,8 @@ await check('validation: actionable errors', () => {
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/segment_oversized.json':
         'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
+      'mcp/fixtures/discovery_v1/bad/malformed_record_discovery.json':
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/bad/segment_corrupt_at_reconciliation.json':
         'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/good/thrown_save_outcome_unknown.json':

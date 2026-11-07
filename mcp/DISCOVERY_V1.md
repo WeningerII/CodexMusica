@@ -336,7 +336,7 @@ What is not logged, and why:
   W3. So a step that has already sealed `row_seen` ends at the safe point before a row boundary
   that resets it, and the reset opens the next frame (§6.2).
 
-### 2.7 `record.discovery`
+### 2.7 `record.discovery` (rule M1)
 
 It is owned by Node and covered by `record_digest` (`reader_job_store.js:_save`).
 
@@ -355,11 +355,12 @@ null
 
 - `null` means the job holds no discovery state: its frames carry none, it has completed,
   or it is a tombstone. A record with no `discovery` key holds none either.
-- **Malformed** means present, not `null`, and not of this shape: its keys or their types differ,
-  or `verified` does not name exactly the logs `logs` names (below; #656 Step 6 review, D1, which
-  BB8 ruled is this bullet's reading of §2.7, 6709891376, ruling 1).
-  Only a writer other than the store can produce one. Reconciliation releases it with cause
-  `chain_broken` and log `null` (§7.4); it is never dispatched and never a GC root.
+- **M1, a malformed `record.discovery`** (BB8 6709891376, ruling 3). A `record.discovery` that is
+  present, not `null`, and not of §2.7's shape is malformed: released `chain_broken`, log `null`,
+  never dispatched and never a GC root (§7.4). It is not of the shape when its keys or their types
+  differ, or when `verified` does not name exactly the logs `logs` names (below; #656 Step 6
+  review, D1, which BB8 ruled is this rule's reading of §2.7, 6709891376, ruling 1). Only a writer
+  other than the store can produce one. `bad/malformed_record_discovery.json` pins M1.
 - `logs` names every log of the current epoch that any committed cursor of that epoch has
   named, including logs that have only a tail (head `null`, segments 0, count 0, bytes 0, digest
   `d₀`).
@@ -381,7 +382,7 @@ null
   rule U1, §8), by any of:
   - reconciliation (§7.4), with cause `segment_missing`, `segment_corrupt` for a segment whose
     bytes do not match its address (F6), or `chain_broken` for a structural failure of its full
-    read (F3, R2) or a malformed `record.discovery`, whose log is `null`;
+    read (F3, R2) or a malformed `record.discovery` (M1), whose log is `null`;
   - a full read in `resume()` that fails (§5.1), with cause `segment_corrupt` (F6) or
     `chain_broken` (F3, R2);
   - a pause with code `DISCOVERY_UNAVAILABLE` (§8), with the cause the worker named.
@@ -1894,7 +1895,8 @@ GC:
   or to `unavailable`, such as a message or a time, would make the release grow, and a growth
   before usage is known is refused (`STORE_RECOUNTING`), which would fail the startup. Startup's
   commit-before-usage ordering relies on this property.
-- **A malformed `record.discovery`** (§2.7; BB8 6700200435, condition 4, on R2's question 4).
+- **A malformed `record.discovery`** (§2.7, M1; BB8 6700200435, condition 4, on R2's question 4;
+  BB8 6709891376, ruling 3).
   Reconciliation finds it, in a queued, running, paused or cancelled record, and releases it as
   above: cause `chain_broken`, log `null`, `released` naming each well-formed log name with its
   head if that is a 64-hex string and `null` otherwise, `epoch` the value's own if it is an
@@ -1916,6 +1918,7 @@ GC:
     none, and the job view shows the tombstone.
   - It is logged once at error level. A running job keeps its lease; its next refusal pauses it
     with the U2 reason (§8).
+  `bad/malformed_record_discovery.json` pins it.
 - **No refusal at lease time.** `store.lease()` is called outside the scheduler's try block
   (`reader_scheduler.js:pump`) and takes the head of the queue
   (`reader_job_store.js:lease`), so a lease that threw would pick the same job on every
@@ -2323,8 +2326,8 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 47 | BB8, #721 items 2–3 (accepted by R2); BB8's #721 codec review, should-fix 1; BB8's emit-precedence ruling (19:40Z) | the codec raises a local error with a rule tag and the enclosing operation maps it, never the codec; (a) a submitted frame's F1 or F2 is `READER_PROTOCOL`, its integer fields W1 and W4, and a frame that is not JSON is the step channel's failure; (b) a generated entry's F2 is `RESOURCE_LIMIT` (`discovery_entry_bytes`) and its F1 `INVARIANT_FAILURE`, its message naming the rule; (c) a persisted segment's bad content is F3, `segment_corrupt` stays F6's and the store's, a failed inflation F6; the `1.0` divergence, one pin per side; invalid UTF-8 in a segment F3 in both languages; precedence F1 before F2 on the worker's emit, unpinned elsewhere; F2 on the canonical form, the raw input bounded by the enclosing reader; `INTEGER_FIELD`; a lone surrogate refused at admission, before any lease | §2.5, §2.11, §3, §4, §5.1, §5.2, §8, §9, §13 | `good/codec_error_mapping.json`, `bad/float_entry.json`; the §2.11 tests |
 | 48 | BB8 6693502369 (items 30 and 31, R2's questions of 6693449409); BB8's review 6693638249, nits 1–4 | (30) each log's head and verified state carry `bytes`, the sum of its sealed entries' canonical bytes, added to by each seal; W7 holds `MEMBERSHIP_BYTES` from it; it is verified where it is read: R2 at a full read (`chain_broken`), R5 at a lease's walk (`STORAGE_CORRUPT`), R3 at the worker's load (`cursor_disagrees`); (31) F1 bounds the depth by `ENTRY_DEPTH`, the smallest power of two at least twice the largest declared depth, at least 8 and at most 64, provisionally 8 until the #721 author declares the entry shapes; past it `INVARIANT_FAILURE` on the worker's emit, `READER_PROTOCOL` at the store, F3 on read-back; `MEMBERSHIP_BYTES = 4194304` re-derived over the 17 shapes capped at it, provisional with it; the nits: no #656 entry count is a term, each log's section names both caps, the counts use the unrounded terms but for the per-byte rate, as printed, and 2.3-fold is against 107.3 ns; BB8's 21:31Z confirmations: invalid UTF-8 in a segment F3 in both languages, never `Buffer.toString`, and admission's stored-request case | §1, §2.1, §2.3, §2.7, §2.10, §2.11, §3, §4, §5.1, §5.2, §6.1, §6.2, §6.4, §6.11, §8, §9, §10, §12, §13 | `bad/entry_over_depth.json`, `bad/head_bytes_disagree.json`, `bad/verified_bytes_disagree.json`, `bad/summary_bytes_disagree.json`, `bad/membership_over_cap.json`, `bad/verified_bytes_ahead.json`, `good/codec_error_mapping.json`, `good/membership_load_measurement.json`; the §6.11 derivation and byte tests |
 | 49 | BB8 6699352254 (review of `a12c35b4d`, rulings 1–2) | (1) `MEMBERSHIP_BYTES = 4194304` stands, provisional with `ENTRY_DEPTH`; power-of-two rounding is accepted; the per-byte rate is re-measured on a quiet host before the proof run, and the cap is re-derived, not inherited, if `ENTRY_DEPTH` reaches 64; (2) the stored-request check stays where §2.11 has it, before `workerPayload`, never in `this.store.lease()`; and the 17 named shapes are 13 distinct loads at this cap | §2.11, §6.11, §10, §12 | `good/membership_load_measurement.json`, `good/codec_error_mapping.json`; the §6.11 derivation and the claim tests |
-| 50 | BB8 6700200435 (all seven recommendations accepted, with conditions) | (3) the scheduler's fallback pause when `store.pause` refuses: one `READER_PROTOCOL` pause, no cause, no release, none for `STALE_ATTEMPT`, the same under C1 on and off, pinned by a fixture; (4) a malformed `record.discovery` shows as `paused` with the U2 `chain_broken` reason from the reconciliation that finds it, saved at once when admitted and otherwise pending until usage is known; (7) the store stats a segment before reading it, and a stored size over 2 MiB is F6, `segment_corrupt` at a full read, without a read | §2.5, §2.7, §2.11, §5.1, §7.4, §8, §12, §13 | `bad/reply_pause_refused.json`, `bad/segment_oversized.json` |
-| 51 | BB8 6709891376 (rulings 1–2 on R2's Step 6 questions) | (1) D1 as built: a `verified` that does not name exactly the logs `logs` names is not of §2.7's shape, so the value is malformed, and a release that could grow never takes a pending path of its own; (2) the `chain_broken` cause row names the malformed record in its Rule and Log columns, and the module's test holds that row to `DISCOVERY_CAUSES` through a closed list of exactly one exception | §2.7, §7.4, §8 | the store tests; `test_reader_discovery`'s cause-table test |
+| 50 | BB8 6700200435 (all seven recommendations accepted, with conditions) | (3) the scheduler's fallback pause when `store.pause` refuses: one `READER_PROTOCOL` pause, no cause, no release, none for `STALE_ATTEMPT`, the same under C1 on and off, pinned by a fixture; (4) a malformed `record.discovery` shows as `paused` with the U2 `chain_broken` reason from the reconciliation that finds it, saved at once when admitted and otherwise pending until usage is known; (7) the store stats a segment before reading it, and a stored size over 2 MiB is F6, `segment_corrupt` at a full read, without a read | §2.5, §2.7, §2.11, §5.1, §7.4, §8, §12, §13 | `bad/reply_pause_refused.json`, `bad/malformed_record_discovery.json`, `bad/segment_oversized.json` |
+| 51 | BB8 6709891376 (rulings 1–3 on R2's Step 6 questions) | (1) D1 as built: a `verified` that does not name exactly the logs `logs` names is not of §2.7's shape, so the value is malformed, and a release that could grow never takes a pending path of its own; (2) the `chain_broken` cause row names the malformed record in its Rule and Log columns, and the module's test holds that row to `DISCOVERY_CAUSES` through a closed list of exactly one exception; (3) a new rule, M1: a `record.discovery` that is present, not `null`, and not of §2.7's shape is malformed, released `chain_broken` with log `null`, never dispatched and never a GC root | §2.7, §7.4, §8, §13 | `bad/malformed_record_discovery.json`; the store tests; `test_reader_discovery`'s cause-table test |
 
 ## 12. Rulings on the items added for confirmation
 
@@ -2625,7 +2628,7 @@ qualification (6683944548). Item 29 stays open. Items 30 and 31 are R2's two que
     is released `chain_broken`, log `null`, at the reconciliation that finds it; its release is
     outside §7.4's property, so a save `_capacity` refuses is held pending, shown as `paused` with
     the U2 reason and refused as `DISCOVERY_UNAVAILABLE`, and saved at the first point usage is
-    known (§2.7, §7.4). (7) A segment is stat'ed before it
+    known (§2.7, §7.4, `bad/malformed_record_discovery.json`; rule M1, BB8 6709891376). (7) A segment is stat'ed before it
     is read, and a stored size over `READER_LIMITS.objectBytes` is F6 without a read (§2.5, §2.11,
     §5.1, §7.4, `bad/segment_oversized.json`).
 
@@ -2748,6 +2751,17 @@ Bad:
   `bad/head_bytes_disagree.json` (R2, cause `chain_broken`): a
   head whose `bytes` disagrees with its chain, which a lease's walk meets at R5's junction as
   `STORAGE_CORRUPT`;
+- malformed record (`DISCOVERY_UNAVAILABLE` 409): `bad/malformed_record_discovery.json` (M1,
+  §2.7, §7.4, cause `chain_broken`, log `null`): the record of `good/lease_incremental_walk.json`
+  with one change each, a `verified` naming two of the three logs `logs` names, a state key of the
+  wrong type, an extra key of `record.discovery` and an extra key of a log state, and the value
+  `{}`, on queued, paused, cancelled and running records. Reconciliation releases each in the
+  state it is in. Inside the record's reservation each release is saved at startup's
+  reconciliation, before usage is known. Past it, with usage unknown, a release no larger than the
+  record is saved at once, and `{}`'s, which grows, is pending, shown with the same release and
+  refused the same way until the recount saves it. The store never fails, the job is never
+  dispatched and its heads are never roots. `discovery: null` and an absent key are controls that
+  nothing touches;
 - resume (`DISCOVERY_UNAVAILABLE` 409): `bad/missing_segment.json` (R1),
   `bad/reordered_segment.json` (R2), `bad/cursor_summary_disagreement.json` (R3),
   `bad/summary_bytes_disagree.json` (R3: the summary's `bytes` against the worker's own sum),

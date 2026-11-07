@@ -198,6 +198,9 @@ const REFUSAL = {
   // The reply boundary's fallback pause (§8; BB8 6700200435, condition 3):
   // a pause store.pause refuses ends in one READER_PROTOCOL pause.
   fallback: { C1: { code: 'READER_PROTOCOL' } },
+  // A malformed record.discovery (§2.7, M1; BB8 6709891376, ruling 3):
+  // reconciliation releases it with chain_broken and log null.
+  malformed: { M1: unavailable('chain_broken') },
 };
 const HEX = /^[a-f0-9]{64}$/;
 // A witness field is a dot path of lowercase names (§3), so its canonical form
@@ -1068,6 +1071,130 @@ function causeMessages() {
 // releases nothing, so the first trace wins. U2: while unavailable is set,
 // every save that writes the job's reason writes it copied from unavailable,
 // with no stored message, and a pause never requeues.
+// ---------------------------------------------------------------- M1 (§2.7)
+// A record.discovery that is present, not null, and not of §2.7's shape is
+// malformed (BB8 6709891376, ruling 3). Its faults, by kind: 'keys' (a key
+// missing or extra, or a log name outside §2.3), 'type' (a value of the wrong
+// type or range) and 'verified' (verified does not name exactly the logs logs
+// names; BB8 6709891376, ruling 1). Empty when the value is of the shape.
+// Null and an absent key are not M1: they hold no discovery state.
+const RECORD_DISCOVERY_KEYS = ['epoch', 'logs', 'unavailable', 'verified', 'version'];
+const LOG_STATE_KEYS = ['bytes', 'count', 'digest', 'head', 'segments'];
+function m1Faults(value) {
+  const faults = new Set();
+  const nat = (v) => Number.isSafeInteger(v) && v >= 0;
+  const hex = (v) => typeof v === 'string' && HEX.test(v);
+  const has = (v, k) => Object.hasOwn(v, k);
+  const keys = (v, want) => same(Object.keys(v).sort(), want) || faults.add('keys');
+  if (!plainObject(value)) return ['type'];
+  keys(value, RECORD_DISCOVERY_KEYS);
+  if (has(value, 'version') && value.version !== 1) faults.add('type');
+  if (has(value, 'epoch') && !nat(value.epoch)) faults.add('type');
+  for (const which of ['logs', 'verified']) {
+    if (!has(value, which)) continue;
+    const states = value[which];
+    if (!plainObject(states)) {
+      faults.add('type');
+      continue;
+    }
+    for (const [log, st] of Object.entries(states)) {
+      if (!LOGS.includes(log)) faults.add('keys');
+      if (!plainObject(st)) {
+        faults.add('type');
+        continue;
+      }
+      keys(st, LOG_STATE_KEYS);
+      if (has(st, 'head') && st.head !== null && !hex(st.head)) faults.add('type');
+      for (const k of ['segments', 'count', 'bytes'])
+        if (has(st, k) && !nat(st[k])) faults.add('type');
+      if (has(st, 'digest') && !hex(st.digest)) faults.add('type');
+    }
+  }
+  if (
+    plainObject(value.logs) &&
+    plainObject(value.verified) &&
+    !same(Object.keys(value.logs).sort(), Object.keys(value.verified).sort())
+  )
+    faults.add('verified');
+  const u = value.unavailable;
+  if (has(value, 'unavailable') && u !== null) {
+    if (!plainObject(u)) faults.add('type');
+    else {
+      keys(u, ['cause', 'log', 'released']);
+      if (has(u, 'cause') && !CAUSES.includes(u.cause)) faults.add('type');
+      if (has(u, 'log') && u.log !== null && !LOGS.includes(u.log)) faults.add('type');
+      if (has(u, 'released'))
+        if (!plainObject(u.released)) faults.add('type');
+        else
+          for (const [log, head] of Object.entries(u.released)) {
+            if (!LOGS.includes(log)) faults.add('keys');
+            if (head !== null && !hex(head)) faults.add('type');
+          }
+    }
+  }
+  return [...faults].sort();
+}
+// §7.4's release of a malformed value, from the job as it was (`start`): cause
+// chain_broken, log null; `released` names each log name of §2.3 the value's
+// logs holds, with its head if that is 64-hex and null otherwise; `epoch` is the
+// value's own if it is an integer from 0 to 2^53 - 1, else 0. A queued job is
+// paused with a null fence; every job leaves deferred_requeue false; a running
+// job keeps its state, fence and reason, and every other takes the U2 reason.
+function m1Release(start, value) {
+  const logs = plainObject(value) && plainObject(value.logs) ? value.logs : {};
+  const released = Object.fromEntries(
+    Object.entries(logs)
+      .filter(([log]) => LOGS.includes(log))
+      .map(([log, st]) => [
+        log,
+        plainObject(st) && typeof st.head === 'string' && HEX.test(st.head) ? st.head : null,
+      ])
+  );
+  const epoch =
+    plainObject(value) && Number.isSafeInteger(value.epoch) && value.epoch >= 0 ? value.epoch : 0;
+  const running = start.state === 'running';
+  return {
+    state: start.state === 'queued' ? 'paused' : start.state,
+    deferred_requeue: false,
+    fence: start.state === 'queued' ? null : start.fence,
+    discovery: {
+      version: 1,
+      epoch,
+      logs: {},
+      verified: {},
+      unavailable: { cause: 'chain_broken', log: null, released },
+    },
+    reason: running
+      ? start.reason
+      : {
+          code: 'DISCOVERY_UNAVAILABLE',
+          cause: 'chain_broken',
+          log: null,
+          released: clone(released),
+        },
+  };
+}
+// A value's leaves by dot path; an empty object or array is a leaf.
+function flatten(v, at = '', out = {}) {
+  const entries = plainObject(v) || Array.isArray(v) ? Object.entries(v) : [];
+  if (!entries.length) out[at] = v;
+  for (const [k, x] of entries) flatten(x, at ? `${at}.${k}` : k, out);
+  return out;
+}
+const MALFORMED_CASES = [
+  'verified_mismatch',
+  'wrong_type_key',
+  'extra_key',
+  'extra_state_key',
+  'empty_object',
+];
+// The fields a release changes, as their JSON bytes: every other field of the
+// record is saved as it was, so a release grows the record exactly when these
+// grow.
+const RELEASE_FIELDS = ['state', 'deferred_requeue', 'fence', 'discovery', 'reason'];
+const fieldBytes = (r) =>
+  Buffer.byteLength(JSON.stringify(Object.fromEntries(RELEASE_FIELDS.map((k) => [k, r[k]]))));
+
 function pauseCase(record, kase) {
   let discovery = clone(record.discovery);
   let state = kase.state;
@@ -2872,6 +2999,7 @@ const BAD = {
   retired_key_recurring: 'S1',
   segment_corrupt_at_reconciliation: 'F6',
   segment_oversized: 'F6',
+  malformed_record_discovery: 'M1',
   tail_rewritten: 'W6',
   terminal_suffix_not_contiguous: 'S2',
   terminal_suffix_resume_faults: 'S2',
@@ -4333,6 +4461,80 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
         }),
         'a cause past the echo bound'
       );
+    } else if (fx.kind === 'malformed') {
+      // M1 (§2.7; BB8 6709891376, ruling 3): every case but {} is one change
+      // to the record of good/lease_incremental_walk.json, which is of the
+      // shape. At least the verified mismatch, a wrong-type key and an extra
+      // key, over every §7.1 state. Each has exactly its own fault, and
+      // reconciliation releases it, as §7.4 gives, into a value that is of the
+      // shape. Past the reservation a release that grows is pending, and one
+      // that does not is saved at once: at least one of each.
+      assert.deepEqual(
+        fx.cases.map((c) => c.name),
+        MALFORMED_CASES,
+        'the cases, exactly'
+      );
+      for (const fault of ['verified', 'type', 'keys'])
+        assert.ok(
+          fx.cases.some((c) => c.fault === fault),
+          `a case whose fault is ${fault}`
+        );
+      assert.deepEqual(
+        [...new Set(fx.cases.map((c) => c.start.state))].sort(),
+        ['cancelled', 'paused', 'queued', 'running'],
+        'every state whose discovery §7.1 keeps live'
+      );
+      assert.deepEqual(
+        [...new Set(fx.cases.map((c) => c.past_reservation))].sort(),
+        ['pending', 'saved'],
+        'a release that grows, and one that does not'
+      );
+      const walk = load('good/lease_incremental_walk.json');
+      assert.deepEqual(fx.record, pick(walk.record, ['id', 'identity_hash']), 'the walk record');
+      assert.deepEqual(m1Faults(walk.record.discovery), [], 'the walk record is of the shape');
+      violations = [];
+      for (const c of fx.cases) {
+        const faults = m1Faults(c.discovery);
+        assert.deepEqual(faults, [c.fault], `${c.name}: exactly its own fault`);
+        violations.push({ rule: 'M1', detail: `${c.name}: ${faults.join()}` });
+        // One change from the walk record, or the value {}.
+        if (c.name === 'empty_object') assert.deepEqual(c.discovery, {});
+        const changed = Object.entries(flatten(c.discovery))
+          .filter(([k, v]) => !same(flatten(walk.record.discovery)[k], v))
+          .map(([k]) => k);
+        const dropped = Object.keys(flatten(walk.record.discovery)).filter(
+          (k) => !Object.hasOwn(flatten(c.discovery), k)
+        );
+        assert.ok(changed.length + dropped.length >= 1, `${c.name}: changed`);
+        if (c.name !== 'empty_object')
+          assert.ok(
+            new Set([...changed, ...dropped].map((k) => k.split('.').slice(0, 2).join('.')))
+              .size === 1,
+            `${c.name}: one change`
+          );
+        assert.deepEqual(m1Release(c.start, c.discovery), c.expect, `${c.name}: its release`);
+        assert.deepEqual(
+          m1Faults(c.expect.discovery),
+          [],
+          `${c.name}: the release is of the shape`
+        );
+        const grows = fieldBytes(c.expect) > fieldBytes({ ...c.start, discovery: c.discovery });
+        assert.equal(c.past_reservation, grows ? 'pending' : 'saved', `${c.name}: past it`);
+      }
+      assert.equal(fx.expect.log, null, 'log null');
+      assert.equal(fx.expect.logged, 'error', 'logged at error level');
+      assert.equal(fx.expect.store_fails, false);
+      assert.equal(fx.expect.dispatched, false, 'never dispatched');
+      assert.deepEqual(fx.expect.roots, [], 'never a GC root');
+      // Null and an absent key hold no discovery state: not M1, never touched.
+      assert.deepEqual(
+        fx.controls.map((c) => [c.name, Object.hasOwn(c, 'discovery') ? c.discovery : 'absent']),
+        [
+          ['null', null],
+          ['absent', 'absent'],
+        ]
+      );
+      for (const c of fx.controls) assert.equal(c.expect, 'untouched', c.name);
     } else if (fx.kind === 'fallback') {
       // §8, the fallback pause: each case and control under each C1 setting it
       // names; at most one fallback, never after STALE_ATTEMPT, at most three
@@ -4491,6 +4693,7 @@ test('the bad fixtures are the named set, and together they cover every rule the
     'F4',
     'F5',
     'F6',
+    'M1',
     'R1',
     'R2',
     'R3',
