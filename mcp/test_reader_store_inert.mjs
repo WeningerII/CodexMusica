@@ -1,17 +1,23 @@
 // The reader store's inertness golden (#656 persisted discovery, Node-side
-// plan Step 2). Captured on the store, the scheduler and the bridge contract
-// as they were BEFORE any discovery change, so every later step can show that
-// with C1 off and no frame carrying `discovery`, behaviour is unchanged: the
-// same files with the same bytes, the same record key sets and public job
+// plan Step 2). Captured on the store, the scheduler and the bridge's reader
+// frame as they were BEFORE any discovery change, so every later step can show
+// that with C1 off and no frame carrying `discovery`, behaviour is unchanged:
+// the same files with the same bytes, the same record key sets and public job
 // views, the same lease and pause transitions, the same return values and
-// refusals, and the same request objects handed to the bridge.
+// refusals, the same store calls the scheduler makes and what it logs, and the
+// same request objects and reader replies that cross the bridge.
 //
-// Four halves, each on a fresh directory with fresh deterministic sources:
+// Five halves, each on a fresh directory with fresh deterministic sources:
 // the store driven directly, and the same store driven through
-// ReaderScheduler with a scripted fake bridge, each plain and with gzip.
+// ReaderScheduler with a scripted fake bridge, each plain and with gzip; and
+// the scheduler driven through the REAL python_bridge.js, whose warm worker
+// is a scripted Node process speaking the reader protocol (plain only: the
+// bridge never touches the store's encoding).
 //
 // Determinism (nothing is left to the host):
-// - the store's `now` and `clock` are injected counters, 1000 ms per call;
+// - the store's `now` and `clock` are injected and advance 1000 ms once per
+//   RECORDED STEP, never per call, so a later step that reads the clock more
+//   often (an expiry or reconciliation check) leaves the golden where it was;
 //   `now` also takes explicit jumps (lease expiry, retention expiry);
 // - crypto.randomBytes draws come from deterministicRandomBytes(), one counter
 //   per draw size, so a later step that takes the lock more often (12- and
@@ -19,7 +25,10 @@
 //   it was;
 // - Date is mocked to FIXED_DATE and never ticked, so maintain()'s mtime
 //   sweep (startedAt = Date.now() - 1000) and _blob's mtime refresh
-//   (new Date()) decide the same way on every host.
+//   (new Date()) decide the same way on every host. The scheduler halves
+//   start the store's `now` 100 s before FIXED_DATE, so the scheduler's
+//   lease_ms clamp (lease_expires_at - Date.now() - 1000) takes its
+//   non-default branch and the value it computes is recorded.
 //
 // Normalisations, each applied explicitly below and listed in the golden:
 //   N1 every absolute path under the test's directory is rewritten to
@@ -27,14 +36,15 @@
 //   N2 a stored object in gzip form is listed as `gzip:<sha256 of its
 //      inflated bytes>` rather than the sha256 of its compressed bytes,
 //      which depend on the zlib build;
-//   N3 in the gzip halves only, store usage byte counts that include
-//      compressed sizes (prune().bytes, readiness().bytes, maintain().bytes)
-//      read `<gzip-bytes>`;
-//   N4 the bridge request's `lease_ms` and the call's `timeoutMs` read
-//      `<lease_ms>` and `<timeout_ms>` (fixed under the Date mock already; a
-//      second guard);
-//   N5 the listing leaves out writer.lock, *.tmp names and readiness-probe
-//      (transient), and every mtime.
+//   N3 every store usage count (store.usage, prune().bytes, readiness().bytes,
+//      maintain().bytes) is first asserted equal to the bytes on disk the
+//      store counts; in the gzip halves only, it then reads `<on-disk-bytes>`
+//      (the plain halves record the number);
+//   N4 the listing leaves out writer.lock, *.tmp names and readiness-probe
+//      (transient), and every mtime;
+//   N5 the real bridge's reply drops `ms` and `tool_deadline.elapsed_ms`
+//      (wall time), and the worker's request frame lists its `env` keys only
+//      (a per-call token and a wall-clock deadline).
 //
 // READER_INERT_GOLDEN_UPDATE=1 node --test mcp/test_reader_store_inert.mjs
 // rewrites the golden, and nothing else does. A commit that changes the
@@ -46,12 +56,12 @@ import os from 'node:os';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import { after, test } from 'node:test';
+import { createPythonBridge } from './python_bridge.js';
 import { ReaderJobStore } from './reader_job_store.js';
 import { publicReaderJob } from './reader_routes.js';
 import { ReaderScheduler } from './reader_scheduler.js';
 import {
   FIXED_DATE,
-  counterClock,
   deterministicRandomBytes,
   storeDirectory,
 } from './reader_store_test_support.mjs';
@@ -61,9 +71,9 @@ const UPDATE = process.env.READER_INERT_GOLDEN_UPDATE === '1';
 const NORMALISATIONS = [
   'N1 absolute paths under the test directory read <store> (the store directory) or <dir> (its parent)',
   'N2 a stored object in gzip form is listed as gzip:<sha256 of its inflated bytes>',
-  'N3 gzip halves only: prune().bytes, readiness().bytes and maintain().bytes read <gzip-bytes>',
-  "N4 the bridge request's lease_ms and the call's timeoutMs read <lease_ms> and <timeout_ms>",
-  'N5 the listing leaves out writer.lock, *.tmp, readiness-probe and every mtime',
+  'N3 every usage count is asserted equal to the bytes on disk the store counts; gzip halves then read <on-disk-bytes>',
+  'N4 the listing leaves out writer.lock, *.tmp, readiness-probe and every mtime',
+  "N5 the real bridge's reply drops ms and tool_deadline.elapsed_ms; the worker's request frame lists its env keys only",
 ];
 const MAX_BYTES = 1024 * 1024;
 const LEASE_MS = 600_000;
@@ -107,14 +117,36 @@ function filler(label, n) {
   return parts.join('').slice(0, n);
 }
 
-// The store's `now`: a counter, 1000 ms per call, that a test can jump.
-function steppedNow(start) {
-  let t = start - 1000;
-  const now = () => (t += 1000);
+// The store's `now` and `clock`: frozen within a recorded step, advanced
+// 1000 ms by the Recorder at the start of each one (`tick`), and `now` can
+// be jumped. The number of times the store reads either never matters.
+function steppedClocks(start) {
+  let t = start,
+    c = 0;
+  const now = () => t;
   now.advance = (ms) => {
     t += ms;
   };
-  return now;
+  const clock = () => c;
+  const tick = () => {
+    t += 1000;
+    c += 1000;
+  };
+  return { now, clock, tick };
+}
+
+// The bytes the store's usage counter stands for (reader_job_store.js
+// _metadataBytes and _usage): capability-key, store-format.json, and every
+// file under records/ and the object directories.
+const COUNTED_DIRS = ['records', 'pages', 'indexes', 'checkpoints', 'manifests', 'definitions'];
+function diskBytes(root) {
+  let total = fs.statSync(path.join(root, 'capability-key')).size;
+  const marker = path.join(root, 'store-format.json');
+  if (fs.existsSync(marker)) total += fs.statSync(marker).size;
+  for (const dir of COUNTED_DIRS)
+    for (const name of fs.readdirSync(path.join(root, dir)))
+      total += fs.statSync(path.join(root, dir, name)).size;
+  return total;
 }
 
 function hasKeyDeep(value, key) {
@@ -124,14 +156,17 @@ function hasKeyDeep(value, key) {
 }
 
 class Recorder {
-  constructor(dir, gzip) {
+  constructor(dir, gzip, tick) {
     this.dir = dir;
     this.root = storeDirectory(dir);
     this.gzip = gzip;
+    this.tick = tick;
     this.previous = new Map();
     this.steps = [];
-    this.requests = [];
-    this.sent = 0;
+    // Per-step extras, drained into the step that produced them: bridge
+    // requests, the store calls the scheduler made, what it logged, and the
+    // frames the real bridge's worker received.
+    this.extras = { bridge: [], store_calls: [], logged: [], worker: [] };
   }
   // N1: absolute paths, in any string, anywhere in a value.
   norm(value) {
@@ -170,11 +205,15 @@ class Recorder {
     walk('');
     return files;
   }
-  // N3, applied by the operations that report usage.
+  // N3, applied by the operations that report usage. Unknown usage (null)
+  // is recorded as is.
   usage(value) {
-    return this.gzip ? '<gzip-bytes>' : value;
+    if (value === null) return null;
+    assert.equal(value, diskBytes(this.root), 'the usage counter equals the bytes on disk');
+    return this.gzip ? '<on-disk-bytes>' : value;
   }
   step(op, run) {
+    this.tick();
     let result;
     try {
       result = { value: this.norm(run()) };
@@ -188,6 +227,7 @@ class Recorder {
     return result.value;
   }
   async stepAsync(op, run) {
+    this.tick();
     let result;
     try {
       result = { value: this.norm(await run()) };
@@ -224,9 +264,8 @@ class Recorder {
     this.previous = files;
     const entry = { op, ...result, files: { added, changed, removed: removed.sort() } };
     if (Object.keys(record_keys).length) Object.assign(entry, { record_keys, public_jobs });
-    const requests = this.requests.slice(this.sent);
-    this.sent = this.requests.length;
-    if (requests.length) entry.bridge = requests;
+    for (const [key, list] of Object.entries(this.extras))
+      if (list.length) entry[key] = list.splice(0);
     this.steps.push(entry);
   }
 }
@@ -240,7 +279,7 @@ function setup(t) {
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
   return dir;
 }
-function open(dir, gzip, now, clock) {
+function open(dir, gzip, now, clock, faultInjector = null) {
   return new ReaderJobStore({
     directory: dir,
     maxBytes: MAX_BYTES,
@@ -249,7 +288,48 @@ function open(dir, gzip, now, clock) {
     ttlMs: TTL_MS,
     leaseMs: LEASE_MS,
     gzip,
+    faultInjector,
   });
+}
+// The scheduler halves: every store call the scheduler's lease makes, with
+// the pause reason it asked for and the code of any refusal, in order.
+function spyStore(store, rec) {
+  for (const method of ['commitCheckpoint', 'pause', 'complete']) {
+    const original = store[method].bind(store);
+    store[method] = (...args) => {
+      const call = { method };
+      if (method === 'pause') call.reason = rec.norm(args[3]);
+      try {
+        const out = original(...args);
+        rec.extras.store_calls.push({ ...call, outcome: 'ok' });
+        return out;
+      } catch (error) {
+        rec.extras.store_calls.push({ ...call, refused: error.code ?? null });
+        throw error;
+      }
+    };
+  }
+  return store;
+}
+// The scheduler halves: what reaches console.error and console.warn. Node's
+// own process warnings (the MockTimers ExperimentalWarning, printed once per
+// process by whichever test is running) are not the code's and are left out.
+function spyConsole(t, rec) {
+  for (const level of ['error', 'warn'])
+    t.mock.method(console, level, (...args) => {
+      if (/^\(node:\d+\) \w*Warning:/.test(String(args[0]))) return;
+      rec.extras.logged.push({ level, args: rec.norm(args.map(String)) });
+    });
+}
+// A fault injector that fails the next atomic write of one kind, once.
+function armableFault() {
+  const fault = (stage, { kind }) => {
+    if (stage !== 'temporary_written' || fault.next !== kind) return;
+    fault.next = null;
+    throw new Error(`injected ${kind} write fault`);
+  };
+  fault.next = null;
+  return fault;
 }
 const pages = (...instances) => instances.map((list) => ({ instances: list }));
 const commit = (store, lease, cursor, list) =>
@@ -271,9 +351,8 @@ const complete = (store, lease, count) =>
 // ── the store half ───────────────────────────────────────────────────────
 function runStoreHalf(t, gzip) {
   const dir = setup(t);
-  const now = steppedNow(FIXED_DATE),
-    clock = counterClock(0, 1000);
-  const rec = new Recorder(dir, gzip);
+  const { now, clock, tick } = steppedClocks(FIXED_DATE);
+  const rec = new Recorder(dir, gzip, tick);
   let store;
   rec.step('construct', () => {
     store = open(dir, gzip, now, clock);
@@ -412,23 +491,32 @@ function runStoreHalf(t, gzip) {
 
 // ── the scheduler half ───────────────────────────────────────────────────
 // A fake bridge whose `runReaderLease` follows a script, one entry per lease,
-// and records each request object (N4) and what each sink call returned.
+// and records each request object and call timeout as the scheduler built
+// them, every value its shouldStop returned (called at the lease's start and
+// after each sink reply), and what each sink call returned.
 function fakeBridge(rec, script) {
   let at = 0;
   return {
     capacity: () => ({ active: 0, admitted: 0, queued: 0 }),
     async runReaderLease(req, options) {
       const entry = {
-        request: rec.norm({ ...req, lease_ms: '<lease_ms>' }),
-        timeoutMs: '<timeout_ms>',
+        request: rec.norm(req),
+        timeoutMs: options.timeoutMs,
+        should_stop: [],
         sink: [],
       };
       assert.equal(hasKeyDeep(req, 'discovery'), false, 'a bridge request names discovery');
-      rec.requests.push(entry);
+      rec.extras.bridge.push(entry);
+      const shouldStop = () => {
+        const reason = options.shouldStop();
+        entry.should_stop.push(reason);
+        return reason;
+      };
       const sink = async (step) => {
         try {
           const reply = await options.onReaderCheckpoint(step);
           entry.sink.push({ reply: rec.norm(reply) });
+          shouldStop();
           return reply;
         } catch (error) {
           entry.sink.push({ thrown: { code: error.code ?? null, message: error.message } });
@@ -437,7 +525,8 @@ function fakeBridge(rec, script) {
       };
       const plan = script[at++];
       if (!plan) throw new Error('fake bridge: no scripted lease left');
-      return plan(sink, options);
+      shouldStop();
+      return plan(sink, shouldStop);
     },
   };
 }
@@ -451,14 +540,24 @@ const step = (checkpoint, records, count, done = false) => ({
 
 async function runSchedulerHalf(t, gzip) {
   const dir = setup(t);
-  const now = steppedNow(FIXED_DATE),
-    clock = counterClock(0, 1000);
-  const rec = new Recorder(dir, gzip);
+  // 100 s before FIXED_DATE: the lease_ms clamp takes its computed branch.
+  const { now, clock, tick } = steppedClocks(FIXED_DATE - 100_000);
+  const rec = new Recorder(dir, gzip, tick);
+  spyConsole(t, rec);
+  const fault = armableFault();
   let store;
   rec.step('construct', () => {
-    store = open(dir, gzip, now, clock);
+    store = spyStore(open(dir, gzip, now, clock, fault), rec);
     return { usage: rec.usage(store.usage) };
   });
+  const caps = new Map();
+  const make = (viewer, key) => {
+    const out = store.create({ viewer, idempotency_key: key, identity, request });
+    caps.set(out.record.id, { capability: out.capability, viewer });
+    return out;
+  };
+  const ctl = (id) => [id, caps.get(id).capability, caps.get(id).viewer];
+  let scheduler, C, D;
   const script = [
     // lease 1 (A): two checkpoints, the first sent twice (an exact retry), then a yield.
     async (sink) => {
@@ -468,17 +567,21 @@ async function runSchedulerHalf(t, gzip) {
       await sink(step({ phase: 'pairs', index: 2 }, [{ id: 'evidence-2' }], 2));
       return { code: 0, reader_result: { status: 'yielded', reason: 'YIELD' } };
     },
-    // lease 2 (B): a checkpoint past the quota pauses the job inside the sink;
-    // the worker stops, and the scheduler's own pause meets STALE_ATTEMPT.
+    // lease 2 (B): a checkpoint past the quota, packed as two pages (250
+    // small records, then one large): the first lands as an orphan, the
+    // second is refused 507 and the job pauses inside the sink; the worker
+    // stops, and the scheduler's own pause and its catch-pause both meet
+    // STALE_ATTEMPT (two pause calls, nothing logged).
     async (sink) => {
+      const small = Array.from({ length: 250 }, (_, i) => ({
+        id: `small-${i}`,
+        blob: filler(`small-${i}`, 1200),
+      }));
       const reply = await sink(
         step(
           { phase: 'pairs', index: 1 },
-          [
-            { id: 'big-1', blob: filler('big-1', 300_000) },
-            { id: 'big-2', blob: filler('big-2', 1_300_000) },
-          ],
-          2
+          [...small, { id: 'big-2', blob: filler('big-2', 1_300_000) }],
+          251
         )
       );
       return { code: 0, reader_result: { status: 'stopped', reason: reply.stop_reason } };
@@ -499,37 +602,75 @@ async function runSchedulerHalf(t, gzip) {
       await sink(step({ phase: 'done', done: true }, [{ id: 'evidence-3' }], 3, true));
       return { code: 0, reader_result: { status: 'complete' } };
     },
+    // lease 7 (C): the job is cancelled while it runs; shouldStop says
+    // CANCELLED and the worker stops with that reason.
+    async (_sink, shouldStop) => {
+      store.cancel(...ctl(C));
+      return { code: 0, reader_result: { status: 'stopped', reason: shouldStop() } };
+    },
+    // lease 8 (D): a checkpoint, then the end-of-lease pause's record write
+    // fails (an injected fault): the pause is refused STORAGE_UNAVAILABLE, the
+    // catch-pause meets the same refusal and is logged; two pause calls.
+    async (sink) => {
+      await sink(step({ phase: 'pairs', index: 1 }, [{ id: 'evidence-d' }], 1));
+      fault.next = 'record';
+      return { code: 0, reader_result: { status: 'yielded', reason: 'YIELD' } };
+    },
+    // lease 9 (D, after the restart): the scheduler is stopped while the
+    // lease runs; shouldStop says INTERRUPTED.
+    async (_sink, shouldStop) => {
+      scheduler.stop();
+      return { code: 0, reader_result: { status: 'stopped', reason: shouldStop() } };
+    },
   ];
   const bridge = fakeBridge(rec, script);
-  const scheduler = new ReaderScheduler({
-    store,
-    bridge,
-    resolveSource: async () => ({ source: 'inert source text' }),
-    resolveIdentity: async () => identity,
-    leaseMs: LEASE_MS,
-  });
-  // pump()'s finally kicks a timer that would pump again on its own; the test
-  // pumps explicitly instead, so every lease lands in the step that caused it.
-  t.mock.method(scheduler, 'kick', () => {});
-  const caps = new Map();
-  const make = (viewer, key) => {
-    const out = store.create({ viewer, idempotency_key: key, identity, request });
-    caps.set(out.record.id, { capability: out.capability, viewer });
-    return out;
+  const schedule = () => {
+    scheduler = new ReaderScheduler({
+      store,
+      bridge,
+      resolveSource: async () => ({ source: 'inert source text' }),
+      resolveIdentity: async () => identity,
+      leaseMs: LEASE_MS,
+    });
+    // pump()'s finally kicks a timer that would pump again on its own; the
+    // test pumps explicitly instead, so every lease lands in the step that
+    // caused it.
+    t.mock.method(scheduler, 'kick', () => {});
   };
+  schedule();
   const a = rec.step('create A', () => make('viewer-a', 'key-a'));
   const b = rec.step('create B', () => make('viewer-b', 'key-b'));
   rec.step('create A again (idempotent replay)', () => make('viewer-a', 'key-a'));
   const A = a.record.id,
     B = b.record.id;
-  const ctl = (id) => [id, caps.get(id).capability, caps.get(id).viewer];
+  // Each job as the store holds it; a store that refuses reads (after the
+  // write fault) is recorded as its refusal code.
+  const inspect = (id) => {
+    try {
+      return store.inspect(id);
+    } catch (error) {
+      if (!error.code) throw error;
+      return { refused: error.code };
+    }
+  };
+  const jobs = () =>
+    Object.fromEntries(
+      [
+        ['A', A],
+        ['B', B],
+        ['C', C],
+        ['D', D],
+      ]
+        .filter(([, id]) => id)
+        .map(([k, id]) => [k, inspect(id)])
+    );
   const pump = (label) =>
     rec.stepAsync(label, async () => {
       await scheduler.pump();
-      return { A: store.inspect(A), B: store.inspect(B), active: scheduler.active };
+      return { ...jobs(), active: scheduler.active };
     });
   await pump('pump 1: A checkpoints and yields');
-  await pump('pump 2: B over quota, stale pause');
+  await pump('pump 2: B over quota (orphan page), stale pauses');
   await pump('pump 3: A worker error');
   rec.step('resume A', () => store.resume(...ctl(A), identity));
   await pump('pump 4: A bridge killed');
@@ -538,14 +679,184 @@ async function runSchedulerHalf(t, gzip) {
   rec.step('resume A once more', () => store.resume(...ctl(A), identity));
   await pump('pump 6: A completes');
   await pump('pump 7: nothing queued');
-  rec.step('readiness', () => {
+  C = rec.step('create C', () => make('viewer-c', 'key-c')).record.id;
+  await pump('pump 8: C cancelled while running');
+  D = rec.step('create D', () => make('viewer-d', 'key-d')).record.id;
+  await pump('pump 9: D end-of-lease pause write fails');
+  rec.step('readiness after the write fault', () => {
     const out = scheduler.readiness();
     return { ...out, bytes: rec.usage(out.bytes) };
   });
   rec.step('restart', () => {
-    store = open(dir, gzip, now, clock);
-    return { usage: rec.usage(store.usage), A: store.inspect(A), B: store.inspect(B) };
+    store = spyStore(open(dir, gzip, now, clock, fault), rec);
+    schedule();
+    return { usage: rec.usage(store.usage), ...jobs() };
   });
+  rec.step('resume D', () => store.resume(...ctl(D), identity));
+  await pump('pump 10: D, scheduler stopped while running');
+  rec.step('readiness', () => {
+    const out = scheduler.readiness();
+    return { ...out, bytes: rec.usage(out.bytes) };
+  });
+  return rec;
+}
+
+// ── the real-bridge half ─────────────────────────────────────────────────
+// The scheduler through python_bridge.js itself. Its warm worker is this
+// scripted Node process (spawned as `python workerPath`): it logs every frame
+// it receives, sends a scenario's checkpoint frames one at a time, honours
+// each ack, and ends with the scenario's final frame. The scenario is the
+// lease's `source`.
+const WORKER = (scenarios) => `import fs from 'node:fs';
+import readline from 'node:readline';
+const SCENARIOS = ${JSON.stringify(scenarios)};
+const log = (o) => fs.appendFileSync(process.env.INERT_WORKER_LOG, JSON.stringify(o) + '\\n');
+const send = (o) => process.stdout.write(JSON.stringify(o) + '\\n');
+let run = null;
+const finish = (frame) => {
+  send({ id: run.id, ...frame });
+  run = null;
+};
+const next = () => {
+  const s = run.scenario;
+  if (run.at < s.checkpoints.length)
+    send({ id: run.id, event: 'reader_checkpoint', data: s.checkpoints[run.at++] });
+  else finish(s.final);
+};
+readline.createInterface({ input: process.stdin }).on('line', (line) => {
+  const frame = JSON.parse(line);
+  if (frame.event === 'reader_ack') {
+    log({ ack: frame });
+    if (!run) return;
+    if (frame.continue) return next();
+    return finish(
+      frame.reason === 'COMPLETE'
+        ? { code: 0, reader_result: { status: 'complete' } }
+        : { code: 0, reader_result: { status: 'stopped', reason: frame.reason } }
+    );
+  }
+  const { env, ...rest } = frame;
+  log({ request: { ...rest, env_keys: Object.keys(env || {}).sort() } });
+  run = { id: frame.id, scenario: SCENARIOS[frame.reader.source], at: 0 };
+  next();
+});
+`;
+const SCENARIOS = {
+  // two checkpoints, each acknowledged to continue, then a yield
+  yield: {
+    checkpoints: [
+      step({ phase: 'pairs', index: 1 }, [{ id: 'evidence-1', verdict: true }], 1),
+      step({ phase: 'pairs', index: 2 }, [{ id: 'evidence-2' }], 2),
+    ],
+    final: { code: 0, reader_result: { status: 'yielded', reason: 'YIELD' } },
+  },
+  // the worker's own error reply: a code, an error_code and stderr
+  error: {
+    checkpoints: [],
+    final: { code: 1, error_code: 'READER_ERROR', stderr: 'reader worker failed\n' },
+  },
+  // a checkpoint frame that names a provider call: the bridge kills the worker
+  protocol: {
+    checkpoints: [{ ...step({ phase: 'pairs', index: 1 }, [], 0), provider_calls: 1 }],
+    final: { code: 0, reader_result: { status: 'complete' } },
+  },
+  // the job is cancelled before the worker runs: the ack carries CANCELLED
+  cancel: {
+    checkpoints: [step({ phase: 'pairs', index: 1 }, [{ id: 'evidence-c' }], 1)],
+    final: { code: 0, reader_result: { status: 'complete' } },
+  },
+  // the done checkpoint: the ack says COMPLETE and the job completes
+  done: {
+    checkpoints: [step({ phase: 'done', done: true }, [{ id: 'evidence-3' }], 3, true)],
+    final: { code: 0, reader_result: { status: 'complete' } },
+  },
+};
+// N5: the reply the scheduler receives, without wall time.
+function bridgeReply(result) {
+  const { ms: _ms, tool_deadline, ...rest } = result;
+  const { elapsed_ms: _elapsed, ...deadline } = tool_deadline || {};
+  return { ...rest, tool_deadline: deadline };
+}
+
+async function runBridgeHalf(t) {
+  const dir = setup(t);
+  const { now, clock, tick } = steppedClocks(FIXED_DATE - 100_000);
+  const rec = new Recorder(dir, false, tick);
+  spyConsole(t, rec);
+  const workerPath = path.join(dir, 'inert_reader_worker.mjs');
+  const workerLog = path.join(dir, 'inert_reader_worker.log');
+  fs.writeFileSync(workerPath, WORKER(SCENARIOS));
+  fs.writeFileSync(workerLog, '');
+  const real = createPythonBridge({
+    python: process.execPath,
+    harnessDir: dir,
+    workerPath,
+    harnessEnv: () => ({ PATH: process.env.PATH ?? '', INERT_WORKER_LOG: workerLog }),
+    timeoutMs: 605_000,
+    maxOutputBytes: 1024 * 1024,
+  });
+  t.after(() => real.internals.kill());
+  let logged = 0;
+  const bridge = {
+    capacity: () => real.capacity(),
+    async runReaderLease(req, options) {
+      assert.equal(hasKeyDeep(req, 'discovery'), false, 'a bridge request names discovery');
+      const entry = { request: rec.norm(req), timeoutMs: options.timeoutMs };
+      rec.extras.bridge.push(entry);
+      const result = await real.runReaderLease(req, options);
+      entry.reply = rec.norm(bridgeReply(result));
+      return result;
+    },
+  };
+  let store;
+  rec.step('construct', () => {
+    store = spyStore(open(dir, false, now, clock), rec);
+    return { usage: rec.usage(store.usage) };
+  });
+  const caps = new Map();
+  const make = (viewer, key) => {
+    const out = store.create({ viewer, idempotency_key: key, identity, request });
+    caps.set(out.record.id, { capability: out.capability, viewer });
+    return out.record.id;
+  };
+  const ctl = (id) => [id, caps.get(id).capability, caps.get(id).viewer];
+  const ids = {};
+  for (const name of ['A', 'B', 'C', 'D'])
+    ids[name] = rec.step(`create ${name}`, () => make(`viewer-${name}`, `key-${name}`));
+  const sources = ['yield', 'error', 'protocol', 'cancel', 'done'];
+  const scheduler = new ReaderScheduler({
+    store,
+    bridge,
+    resolveSource: async () => {
+      const source = sources.shift();
+      if (source === 'cancel') store.cancel(...ctl(ids.D));
+      return { source };
+    },
+    resolveIdentity: async () => identity,
+    leaseMs: LEASE_MS,
+  });
+  t.mock.method(scheduler, 'kick', () => {});
+  const pump = (label) =>
+    rec.stepAsync(label, async () => {
+      await scheduler.pump();
+      const lines = fs.readFileSync(workerLog, 'utf8').split('\n').filter(Boolean);
+      for (const line of lines.slice(logged)) {
+        const frame = JSON.parse(line);
+        assert.equal(hasKeyDeep(frame, 'discovery'), false, 'a worker frame names discovery');
+        rec.extras.worker.push(rec.norm(frame));
+      }
+      logged = lines.length;
+      return {
+        ...Object.fromEntries(Object.entries(ids).map(([k, id]) => [k, store.inspect(id)])),
+        active: scheduler.active,
+      };
+    });
+  await pump('pump 1: A checkpoints twice and yields');
+  await pump('pump 2: B worker error reply');
+  await pump('pump 3: C provider call, the bridge kills the worker');
+  await pump('pump 4: D cancelled, the ack stops it');
+  await pump('pump 5: A completes');
+  await pump('pump 6: nothing queued');
   return rec;
 }
 
@@ -570,6 +881,8 @@ for (const gzip of [false, true]) {
   test(`inertness golden: the scheduler, ${label}`, async (t) =>
     check(`scheduler/${label}`, await runSchedulerHalf(t, gzip)));
 }
+test('inertness golden: the scheduler through the real bridge', async (t) =>
+  check('bridge/plain', await runBridgeHalf(t)));
 
 test('the golden pins the record key sets and no discovery anywhere', () => {
   if (UPDATE) return;
@@ -584,6 +897,8 @@ test('the golden pins the record key sets and no discovery anywhere', () => {
         assert.equal(hasKeyDeep(job, 'discovery'), false, `${name} ${entry.op}`);
       for (const req of entry.bridge || [])
         assert.equal(hasKeyDeep(req, 'discovery'), false, `${name} ${entry.op}`);
+      for (const frame of entry.worker || [])
+        assert.equal(hasKeyDeep(frame, 'discovery'), false, `${name} ${entry.op}`);
     }
     assert.ok(keys.size > 0, `${name} records no record key set`);
   }
@@ -593,7 +908,7 @@ test('the golden pins the record key sets and no discovery anywhere', () => {
 // file as committed; the comparison above reads it parsed either way.
 after(async () => {
   if (!UPDATE) return;
-  const order = ['store/plain', 'store/gzip', 'scheduler/plain', 'scheduler/gzip'];
+  const order = ['store/plain', 'store/gzip', 'scheduler/plain', 'scheduler/gzip', 'bridge/plain'];
   assert.deepEqual(Object.keys(captured).sort(), [...order].sort(), 'every half ran');
   const out = {
     about:
