@@ -2835,3 +2835,317 @@ test('reconciliation: a release of a record already released saves nothing (the 
   assert.ok(fs.readFileSync(file).equals(before));
   assert.equal(store.records.get(id).discovery.unavailable.cause, 'segment_missing');
 });
+
+// ── a malformed record.discovery (§2.7, §7.4; BB8 6700200435, condition 4):
+// released chain_broken, log null, from the reconciliation that finds it;
+// saved at once when _capacity admits it, otherwise pending and shown.
+const U2 = (released) => ({
+  code: 'DISCOVERY_UNAVAILABLE',
+  cause: 'chain_broken',
+  log: null,
+  released,
+});
+const malformedRelease = (epoch, released) => ({
+  version: 1,
+  epoch,
+  logs: {},
+  verified: {},
+  unavailable: { cause: 'chain_broken', log: null, released },
+});
+function eventsOf(t) {
+  const seen = [];
+  for (const level of ['error', 'warn'])
+    t.mock.method(console, level, (line) => {
+      try {
+        seen.push({ level, ...JSON.parse(line) });
+      } catch {}
+    });
+  return seen;
+}
+const H = 'a'.repeat(64);
+const goodState = { head: H, segments: 1, count: 4, bytes: 16, digest: 'b'.repeat(64) };
+const MALFORMED = [
+  ['an empty object', {}, 0, {}],
+  ['a string', 'x', 0, {}],
+  ['an array', [], 0, {}],
+  [
+    'a log name outside §2.3',
+    {
+      version: 1,
+      epoch: 3,
+      logs: { seen: goodState, alt_cellz: goodState },
+      verified: {},
+      unavailable: null,
+    },
+    3,
+    { seen: H },
+  ],
+  [
+    'a head that is not 64-hex',
+    {
+      version: 1,
+      epoch: 2,
+      logs: { seen: { ...goodState, head: 'ABC' } },
+      verified: {},
+      unavailable: null,
+    },
+    2,
+    { seen: null },
+  ],
+  [
+    'a non-integer epoch',
+    { version: 1, epoch: 1.5, logs: { seen: goodState }, verified: {}, unavailable: null },
+    0,
+    { seen: H },
+  ],
+];
+
+test('malformed discovery: a queued record inside its reservation is saved paused at startup, before usage is known', (t) => {
+  for (const [name, discovery, epoch, released] of MALFORMED) {
+    const { directory, store } = fixture(t);
+    const other = create(store);
+    const base = store.records.get(other.record.id);
+    const id = `reader_${'c'.repeat(64)}`;
+    plantRecord(directory, { ...base, id, discovery });
+    const seen = eventsOf(t);
+    const usage = [];
+    const save = ReaderJobStore.prototype._save;
+    t.mock.method(ReaderJobStore.prototype, '_save', function (input, ...rest) {
+      if (input.id === id) usage.push(this.usage);
+      return save.call(this, input, ...rest);
+    });
+    const restarted = new ReaderJobStore({ directory });
+    t.mock.restoreAll();
+    assert.equal(restarted.failure, null, name);
+    assert.deepEqual(usage, [null], `${name}: saved once, while usage was unknown`);
+    const got = restarted.records.get(id);
+    assert.equal(got.state, 'paused', name);
+    assert.equal(got.fence, null);
+    assert.equal(got.deferred_requeue, false);
+    assert.deepEqual(got.reason, U2(released), name);
+    assert.deepEqual(got.discovery, malformedRelease(epoch, released), name);
+    assert.equal(restarted.pendingRelease.size, 0);
+    assert.deepEqual(
+      seen.filter((e) => e.event === 'READER_DISCOVERY_MALFORMED'),
+      [{ level: 'error', event: 'READER_DISCOVERY_MALFORMED', job: id }],
+      `${name}: logged once, at error level`
+    );
+    const view = restarted.get(id, restarted.capabilityFor(id, base.viewer), base.viewer);
+    assert.equal(view.state, 'paused');
+    assert.deepEqual(view.reason, U2(released));
+    assert.equal(restarted.lease().id, other.record.id, `${name}: the next job leases`);
+  }
+});
+
+test('malformed discovery: past its reservation with usage unknown, the release is pending, shown and refused, until the recount saves it', async (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = `reader_${'d'.repeat(64)}`;
+  const padded = {
+    ...base,
+    id,
+    request: { ...base.request, pad: 'p'.repeat(20_000) },
+    discovery: {},
+  };
+  plantRecord(directory, padded);
+  const seen = eventsOf(t);
+  const capability = store.capabilityFor(id, base.viewer);
+  // A live instance's next entry: the foreign write leaves usage unknown.
+  const view = store.get(id, capability, base.viewer);
+  assert.equal(store.usage, null);
+  assert.ok(store.pendingRelease.has(id), 'pending');
+  assert.ok(
+    seen.some(
+      (e) => e.event === 'READER_REPAIR_DEFERRED' && e.job === id && e.code === 'STORE_RECOUNTING'
+    ),
+    'the refused save is logged'
+  );
+  const file = path.join(storeDirectory(directory), 'records', `${id}.json`);
+  assert.deepEqual(JSON.parse(fs.readFileSync(file, 'utf8')).discovery, {}, 'nothing saved yet');
+  for (const shown of [view, store.inspect(id)]) {
+    assert.equal(shown.state, 'paused');
+    assert.deepEqual(shown.reason, U2({}));
+    assert.deepEqual(shown.discovery, malformedRelease(0, {}));
+  }
+  const unavailable = (e) =>
+    e.code === 'DISCOVERY_UNAVAILABLE' &&
+    e.status === 409 &&
+    e.cause === 'chain_broken' &&
+    e.log === null;
+  assert.throws(() => store.resume(id, capability, base.viewer, identity), unavailable);
+  assert.throws(() => store.workerPayload(id), unavailable);
+  assert.equal(store.lease(id), null, 'never leased by id');
+  assert.equal(
+    store.listQueued().some((r) => r.id === id),
+    false
+  );
+  assert.equal(store.lease().id, other.record.id, 'lease() skips it');
+  assert.equal(seen.filter((e) => e.event === 'READER_DISCOVERY_MALFORMED').length, 1);
+  // The recount's acceptance is the first point usage is known: it saves.
+  assert.equal(await store.recount(), true);
+  assert.equal(store.pendingRelease.has(id), false);
+  const disk = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const strip = ({ updated_at: _u, record_digest: _d, ...rest }) => rest;
+  assert.deepEqual(strip(disk), strip(view), 'the saved record is the one the view showed');
+});
+
+test('malformed discovery: at full quota startup succeeds, lease() never throws, and the save lands once room is freed', async (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = clone(store.records.get(other.record.id)); // before it holds evidence
+  const lease = store.lease();
+  // committed evidence, to free later
+  commit(store, lease, [{ id: 'x', blob: 'e'.repeat(40_000) }], { phase: 'more' });
+  store.pause(lease.id, lease.attempt, lease.fence, { code: 'INTERRUPTED', message: 'x' });
+  const id = `reader_${'b'.repeat(64)}`;
+  plantRecord(directory, {
+    ...base,
+    id,
+    state: 'queued',
+    request: { pad: 'p'.repeat(20_000) },
+    discovery: [],
+  });
+  // The quota: what _usage counts, every reservation, and 64 bytes, so the
+  // release's growth (more than 64 bytes past its reservation) does not fit.
+  const root = storeDirectory(directory);
+  let usage = fs.statSync(path.join(root, 'capability-key')).size;
+  let slack = 0;
+  for (const dir of ['records', 'pages', 'indexes', 'checkpoints', 'manifests', 'definitions'])
+    for (const name of fs.readdirSync(path.join(root, dir))) {
+      const size = fs.statSync(path.join(root, dir, name)).size;
+      usage += size;
+      if (dir === 'records') slack += Math.max(0, RESERVE - size);
+    }
+  const seen = eventsOf(t);
+  const quota = new ReaderJobStore({ directory, maxBytes: usage + slack + 64 });
+  assert.equal(quota.failure, null, 'startup succeeds');
+  assert.ok(quota.pendingRelease.has(id), 'pending at full quota');
+  assert.ok(
+    seen.some((e) => e.event === 'READER_REPAIR_DEFERRED' && e.code === 'RESOURCE_LIMIT'),
+    'the refused save is logged'
+  );
+  const shown = () => quota.inspect(id);
+  for (let i = 0; i < 3; i++) {
+    assert.doesNotThrow(() => quota.lease(), 'lease() never throws');
+    assert.equal(shown().state, 'paused');
+    assert.deepEqual(shown().reason, U2({}));
+  }
+  assert.ok(quota.pendingRelease.has(id), 'still pending');
+  // Free room: delete the committed job and collect its evidence.
+  quota.delete(other.record.id, quota.capabilityFor(other.record.id, base.viewer), base.viewer);
+  quota.prune();
+  quota.lease();
+  assert.equal(quota.pendingRelease.has(id), false, 'saved once room is freed');
+  assert.deepEqual(quota.records.get(id).discovery, malformedRelease(0, {}));
+});
+
+test('malformed discovery: paused, cancelled and running records keep their state; a running one keeps its lease', (t) => {
+  for (const state of ['paused', 'cancelled', 'running']) {
+    const { directory, store } = fixture(t);
+    const other = create(store);
+    const base = store.records.get(other.record.id);
+    const id = `reader_${'e'.repeat(63)}0`;
+    const running = state === 'running';
+    const job = {
+      ...base,
+      id,
+      state,
+      attempt: 2,
+      fence: running ? 'f'.repeat(64) : null,
+      lease_expires_at: running ? Date.now() + 60_000 : null,
+      reason: running ? null : { code: 'INTERRUPTED', message: 'x' },
+      discovery: 'x',
+    };
+    plantRecord(directory, job);
+    store.inspect(other.record.id); // a live entry: no startup pause
+    const got = store.records.get(id);
+    assert.equal(got.state, state);
+    assert.equal(got.attempt, 2);
+    assert.equal(got.fence, job.fence);
+    assert.equal(got.lease_expires_at, job.lease_expires_at);
+    assert.deepEqual(got.reason, running ? null : U2({}), state);
+    assert.deepEqual(got.discovery, malformedRelease(0, {}));
+  }
+  // Pending, a running job's view stays running, with the release in
+  // discovery only, and its next commit is refused.
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = `reader_${'e'.repeat(63)}1`;
+  const fence = 'f'.repeat(64);
+  plantRecord(directory, {
+    ...base,
+    id,
+    state: 'running',
+    attempt: 1,
+    fence,
+    lease_expires_at: Date.now() + 60_000,
+    request: { pad: 'p'.repeat(20_000) },
+    discovery: {},
+  });
+  const view = store.inspect(id);
+  assert.ok(store.pendingRelease.has(id));
+  assert.equal(view.state, 'running');
+  assert.equal(view.fence, fence);
+  assert.equal(view.reason, null);
+  assert.deepEqual(view.discovery, malformedRelease(0, {}));
+  assert.throws(
+    () => store.commitCheckpoint(id, 1, fence, { cursor: { phase: 'more' }, pages: [] }),
+    (e) => e.code === 'DISCOVERY_UNAVAILABLE' && e.cause === 'chain_broken' && e.log === null
+  );
+});
+
+test('malformed discovery: a null or absent discovery is never touched, and a malformed one of a finished job is never read', (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const ids = [];
+  for (const [i, record] of [
+    { ...base, discovery: null },
+    { ...base },
+    { ...base, state: 'completed', discovery: {} },
+    { ...base, state: 'deleted', discovery: 'x' },
+  ].entries()) {
+    const id = `reader_${String(i).repeat(64)}`;
+    ids.push(id);
+    plantRecord(directory, { ...record, id });
+  }
+  const root = path.join(storeDirectory(directory), 'records');
+  const before = ids.map((id) => fs.readFileSync(path.join(root, `${id}.json`)));
+  const seen = eventsOf(t);
+  store.inspect(other.record.id);
+  ids.forEach((id, i) =>
+    assert.ok(fs.readFileSync(path.join(root, `${id}.json`)).equals(before[i]), id)
+  );
+  assert.equal(store.pendingRelease.size, 0);
+  assert.deepEqual(
+    seen.filter((e) => /READER_/.test(e.event ?? '')),
+    []
+  );
+});
+
+test('malformed discovery: a pending paused job deferred to requeue is never promoted, and is logged once across reloads', (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = `reader_${'9'.repeat(63)}a`;
+  plantRecord(directory, {
+    ...base,
+    id,
+    state: 'paused',
+    deferred_requeue: true,
+    reason: { code: 'STORE_RECOUNTING', message: 'x' },
+    request: { pad: 'p'.repeat(20_000) },
+    discovery: { version: 1 },
+  });
+  const seen = eventsOf(t);
+  store.inspect(other.record.id);
+  plantRecord(directory, { ...base, id: `reader_${'9'.repeat(63)}b`, state: 'cancelled' }); // another foreign write
+  store.inspect(other.record.id);
+  assert.ok(store.pendingRelease.has(id), 'pending after both reconciliations');
+  assert.equal(seen.filter((e) => e.event === 'READER_DISCOVERY_MALFORMED').length, 1);
+  assert.equal(store.lease().id, other.record.id);
+  assert.equal(store.records.get(id).state, 'paused', 'never promoted to the queue');
+  assert.equal(store.inspect(id).deferred_requeue, false);
+});

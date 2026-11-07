@@ -53,6 +53,10 @@ export const MAINTENANCE_BOUNDS = Object.freeze({
 // current image's.
 const OBJECT_KINDS = ['pages', 'indexes', 'checkpoints', 'manifests', 'definitions'];
 const clone = (value) => JSON.parse(JSON.stringify(value));
+const pick = (value, keys) =>
+  Object.fromEntries(
+    keys.filter((key) => Object.hasOwn(value, key)).map((key) => [key, value[key]])
+  );
 const sha = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 const reserveGap = (size) => Math.max(0, RESERVE_BYTES - size);
 function problem(code, message, status = 409) {
@@ -414,6 +418,14 @@ export class ReaderJobStore {
     // builds a job's lists; _reload and a job's release, tombstone or
     // completion drop them. Never persisted.
     this.chains = new Map();
+    // A malformed record.discovery's release that _capacity refused (§7.4,
+    // BB8 6700200435 condition 4): job ids, in memory only. _reload clears
+    // it and the reconciliation after it rebuilds it. While an id is here
+    // the job view shows the release, nothing dispatches the job, and its
+    // refusals are the saved release's; it is saved at the first point usage
+    // is known (_savePending).
+    this.pendingRelease = new Map();
+    this._malformedLogged = new Set();
     try {
       fs.mkdirSync(this.directory, { recursive: true, mode: 0o700 });
       for (const dir of ['records', ...OBJECT_KINDS])
@@ -450,6 +462,7 @@ export class ReaderJobStore {
         // unknown that growth is refused, which would fail every restart.
         this.usage = this._usage();
         this._recountWanted = false;
+        this._savePending();
         for (const record of this.records.values()) {
           if (record.state !== 'running') continue;
           this._save(
@@ -616,6 +629,7 @@ export class ReaderJobStore {
     }
     this.records = records;
     this.chains = new Map(); // the reconciliation that follows rebuilds them
+    this.pendingRelease = new Map();
     this.durableExpiry = new Map([...records.values()].map((r) => [r.id, r.expires_at]));
     this.recordBytes = sizes;
     this.slack = 0;
@@ -988,6 +1002,105 @@ export class ReaderJobStore {
     else console.warn(line);
     return saved;
   }
+  // The release §7.4 gives a malformed record.discovery (§2.7; BB8
+  // 6700200435, condition 4): the per-state rules of _release, with the
+  // well-formed released shape, cause chain_broken and log null. `epoch` is
+  // the value's own when it is an integer from 0 to 2^53 - 1, else 0;
+  // `released` names each well-formed log name with its head when that is
+  // 64-hex, else null ({} when none is readable). Built from the record as
+  // it is now, so a view or a later save never shows stale fields.
+  _malformedRelease(record) {
+    const value = record.discovery;
+    const epoch = plainObject(value) && nonNegative(value.epoch) ? value.epoch : 0;
+    const logs = plainObject(value) && plainObject(value.logs) ? value.logs : {};
+    const released = Object.fromEntries(
+      Object.entries(logs)
+        .filter(([name]) => LOGS.includes(name))
+        .map(([name, state]) => [
+          name,
+          plainObject(state) && isDigest(state.head) ? state.head : null,
+        ])
+    );
+    const unavailable = { cause: 'chain_broken', log: null, released };
+    const queued = record.state === 'queued';
+    return {
+      ...record,
+      ...(queued ? { state: 'paused', fence: null } : {}),
+      deferred_requeue: false,
+      ...(record.state === 'running'
+        ? {}
+        : {
+            reason: {
+              code: 'DISCOVERY_UNAVAILABLE',
+              cause: 'chain_broken',
+              log: null,
+              released: clone(released),
+            },
+          }),
+      discovery: { version: 1, epoch, logs: {}, verified: {}, unavailable },
+    };
+  }
+  // Saves a malformed record's release when _capacity admits it; a refusal
+  // with a status (STORE_RECOUNTING while usage is unknown, RESOURCE_LIMIT
+  // at full quota) leaves it pending and is logged, never thrown. Logged
+  // once at error level when first found. An error without a status fails
+  // the store, as any write does.
+  _releaseMalformed(record) {
+    if (!this._malformedLogged.has(record.id)) {
+      this._malformedLogged.add(record.id);
+      console.error(JSON.stringify({ event: 'READER_DISCOVERY_MALFORMED', job: record.id }));
+    }
+    try {
+      this._save(this._malformedRelease(record), true);
+      this.pendingRelease.delete(record.id);
+      this.chains.delete(record.id);
+      return true;
+    } catch (error) {
+      if (!error.status) throw error;
+      this.pendingRelease.set(record.id, true);
+      console.warn(
+        JSON.stringify({ event: 'READER_REPAIR_DEFERRED', job: record.id, code: error.code })
+      );
+      return false;
+    }
+  }
+  // The first points usage is known: startup after the usage scan, a
+  // recount's acceptance, and lease() with usage known. Each pending release
+  // still malformed is saved, or stays pending.
+  _savePending() {
+    for (const id of [...this.pendingRelease.keys()]) {
+      const record = this.records.get(id);
+      if (
+        !record ||
+        !DISCOVERY_LIVE_STATES.has(record.state) ||
+        this._discoveryShape(record) !== 'malformed'
+      ) {
+        this.pendingRelease.delete(id);
+        continue;
+      }
+      this._releaseMalformed(record);
+    }
+  }
+  // The job view of a record (get, inspect): a pending release is shown as
+  // the save the store has decided and is waiting to make.
+  _shown(record) {
+    const live = record && this.records.get(record.id);
+    return live && this.pendingRelease.has(record.id)
+      ? { ...clone(this._malformedRelease(live)), ...pick(record, ['accessed_at', 'expires_at']) }
+      : record;
+  }
+  // The refusal of a pending release, exactly as after its save (§8).
+  _refusePending(id) {
+    if (this.pendingRelease.has(id))
+      throw Object.assign(
+        problem(
+          'DISCOVERY_UNAVAILABLE',
+          'Reader discovery state is unavailable for this job: chain_broken.',
+          409
+        ),
+        { cause: 'chain_broken', log: null }
+      );
+  }
   // Reconciliation (§7.4), on every lock entry that reloaded, startup's
   // first included: a full read of every chain of each record
   // _liveDiscovery accepts (the GC's roots, §7.1). A chain that reads
@@ -996,6 +1109,10 @@ export class ReaderJobStore {
   // discovery is never read.
   _reconcile() {
     for (const record of [...this.records.values()]) {
+      if (DISCOVERY_LIVE_STATES.has(record.state) && this._discoveryShape(record) === 'malformed') {
+        this._releaseMalformed(record);
+        continue;
+      }
       if (!this._liveDiscovery(record)) continue;
       const lists = new Map();
       let failed = null;
@@ -1230,12 +1347,14 @@ export class ReaderJobStore {
 
   lease(id = null) {
     return this._open(() => {
+      if (this.usage !== null) this._savePending();
       this._expireLeases();
       this._promoteDeferred();
       if ([...this.records.values()].some((r) => r.state === 'running')) return null;
       const queued = this._dispatchable();
       const record = id ? this._require(id) : queued.sort((a, b) => this._queueSort(a, b))[0];
       if (!record || record.state !== 'queued') return null;
+      if (this.pendingRelease.has(record.id)) return null; // a pending release (§7.4)
       const leased = this._save(
         {
           ...record,
@@ -1257,7 +1376,13 @@ export class ReaderJobStore {
     let room =
       READER_LIMITS.waiting - [...this.records.values()].filter((r) => r.state === 'queued').length;
     const deferred = [...this.records.values()]
-      .filter((r) => r.state === 'paused' && r.deferred_requeue && !this._expireIfDue(r))
+      .filter(
+        (r) =>
+          r.state === 'paused' &&
+          r.deferred_requeue &&
+          !this.pendingRelease.has(r.id) &&
+          !this._expireIfDue(r)
+      )
       .sort((a, b) => this._queueSort(a, b));
     for (const record of deferred) {
       if (room-- <= 0) break;
@@ -1304,7 +1429,12 @@ export class ReaderJobStore {
   _dispatchable() {
     const queued = [];
     for (const record of [...this.records.values()])
-      if (record.state === 'queued' && !this._expireIfDue(record)) queued.push(record);
+      if (
+        record.state === 'queued' &&
+        !this._expireIfDue(record) &&
+        !this.pendingRelease.has(record.id)
+      )
+        queued.push(record);
     return queued;
   }
   _leaseRecord(id, attempt, fence) {
@@ -1387,6 +1517,7 @@ export class ReaderJobStore {
       );
     return this._open(() => {
       const record = this._leaseRecord(id, attempt, fence);
+      this._refusePending(id);
       const inputDigest = sha(canonical(input));
       if (record.last_checkpoint_digest === inputDigest)
         return { ...clone(record), added_page_paths: [] };
@@ -1743,6 +1874,7 @@ export class ReaderJobStore {
       const control = this._control(record, 'resume', options, { id, identity_hash: expected });
       if (control.replay) return clone(record);
       this._expected(record, options);
+      this._refusePending(id);
       if (expected !== record.identity_hash)
         throw problem(
           'STALE_READING',
@@ -1779,10 +1911,10 @@ export class ReaderJobStore {
   }
   get(id, capability, viewer) {
     const authorize = () => this._authorized(id, capability, viewer);
-    return this._refresh(this._cached(authorize), authorize);
+    return this._shown(this._refresh(this._cached(authorize), authorize));
   }
   inspect(id) {
-    return this._cached(() => clone(this._require(id)));
+    return this._cached(() => this._shown(clone(this._require(id))));
   }
   listQueued() {
     return this._open(() => {
@@ -1885,6 +2017,7 @@ export class ReaderJobStore {
       const record = this._require(id);
       if (['expired', 'deleted'].includes(record.state) || this._expiredUnswept(record))
         throw problem('RESULT_EXPIRED', 'Reader work expired.', 410);
+      this._refusePending(id);
       const page_refs = [...this._refs(record.page_index_hash)];
       return {
         ...clone(record),
@@ -2328,6 +2461,7 @@ export class ReaderJobStore {
           this._countedTemporaries = temporaries;
           this.generation = g0;
           this._recountWanted = false;
+          this._savePending();
           return true;
         });
       } catch (error) {

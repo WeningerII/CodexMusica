@@ -8267,7 +8267,7 @@ const CITED_CODE = {
   'store.object': '84c4231531c0b173',
   'store.object.parse': 'c191f67de6b2a935',
   'store.create': '8a859865d99b9fae',
-  'store.lease': 'f2ee1ce687b1356e',
+  'store.lease': 'bf693900100906d8',
   'analysis.public_declarations': '55d5ea2e67aa1639',
   'analysis.session.stale_reading': '5c5f4526cdb1c440',
   'pronunciation.validate_choices.line': 'da9c46227f11509e',
@@ -8484,7 +8484,7 @@ const CONTRACT_CITES = [
     symbol: 'workerPayload',
     starts: 'workerPayload(id) {',
     whole: true,
-    code: '6df8e5c66b0dbefc',
+    code: '6cf5610a3328f5a7',
   },
   {
     id: 'c.reader_scheduler.pump.2',
@@ -9304,7 +9304,7 @@ const CONTRACT_CITES = [
     symbol: 'commitCheckpoint',
     starts: 'const record = this._leaseRecord(id, attempt, fence);',
     ends: 'return { ...clone(record), added_page_paths: [] };',
-    code: '7f92e12d8eb54c32',
+    code: '7a9ab60095766687',
   },
   {
     id: 'c.reader_job_store.commitCheckpoint.3',
@@ -9359,7 +9359,7 @@ const CONTRACT_CITES = [
     symbol: 'resume',
     starts: 'resume(id, capability, viewer, identity, options = {}) {',
     whole: true,
-    code: '42e9cc9576219d62',
+    code: 'cd7c4de63b7f8612',
   },
   {
     id: 'c.reader_job_store._open.1',
@@ -9841,7 +9841,7 @@ const CONTRACT_CITES = [
     symbol: 'constructor',
     starts: 'this._locked(() => {',
     ends: '});',
-    code: 'a77e58a2c64372ca',
+    code: 'b49a859fbf856c68',
   },
   {
     id: 'c.reader_job_store._enterLock.2',
@@ -9885,7 +9885,7 @@ const CONTRACT_CITES = [
     symbol: '_dispatchable',
     starts: '_dispatchable() {',
     whole: true,
-    code: 'ef55ea14def27c05',
+    code: 'cb068ad8b13bc355',
   },
   {
     id: 'c.reader_job_store.constructor.3',
@@ -10019,7 +10019,7 @@ const CONTRACT_CITES = [
     symbol: 'constructor',
     starts: 'this.usage = this._usage();',
     ends: ');',
-    code: 'bfb9d2b12f58f989',
+    code: '9cc6fc4dde1ed13e',
   },
   {
     id: 'c.reader_job_store.cancel',
