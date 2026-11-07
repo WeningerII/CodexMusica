@@ -728,8 +728,11 @@ function replay(fx) {
 // stored byte of a segment ({address, at, byte}), so its bytes no longer match
 // its address. `extra` are segments a fixture stores as they are, such as one
 // no store would have written (an entry past ENTRY_DEPTH, §2.1), or, as
-// `{hex}`, bytes no JSON value spells (invalid UTF-8, §2.11).
-function storeOf(rel, omit = [], corrupt = [], extra = []) {
+// `{hex}`, bytes no JSON value spells (invalid UTF-8, §2.11). `oversized`
+// replaces a segment by a file of `bytes` bytes ({address, bytes}), which the
+// store stats and never reads when it passes READER_LIMITS.objectBytes (§2.5,
+// F6 by size; BB8 6700200435, condition 7): its content is never looked at.
+function storeOf(rel, omit = [], corrupt = [], extra = [], oversized = []) {
   const store = new Map();
   if (rel)
     for (const result of replay(load(rel)))
@@ -743,6 +746,10 @@ function storeOf(rel, omit = [], corrupt = [], extra = []) {
     assert.notEqual(raw[at], byte, 'a corruption changes the byte');
     raw[at] = byte;
     store.set(address, raw);
+  }
+  for (const { address, bytes } of oversized) {
+    assert.ok(store.has(address), 'an oversized file replaces a segment the store holds');
+    store.set(address, { stored: bytes });
   }
   return store;
 }
@@ -869,19 +876,33 @@ const RESUME_RULES = ['R1', 'R2', 'R3', 'R4', 'F3', 'F4', 'F5', 'F6'];
 function evaluateWalk(fx, discovery, mode) {
   const violations = [];
   const bad = (rule, detail, log = null) => violations.push({ rule, detail, log });
-  const store = storeOf(fx.store.segments_from, fx.store.omit, fx.store.corrupt, fx.store.segments);
+  const store = storeOf(
+    fx.store.segments_from,
+    fx.store.omit,
+    fx.store.corrupt,
+    fx.store.segments,
+    fx.store.oversized
+  );
   const rd = discovery;
   const stat = [];
   const read = [];
   const verified = {};
   const paths = {};
   const addresses = {};
-  // One segment read by address: F6, then F3. Null when it is missing.
+  // One segment read by address: F6, then F3. Null when it is missing, or
+  // when its stat finds it over the bound (F6, never read).
   const get = (log, address) => {
     const raw = store.get(address);
     if (!raw) {
       bad('missing', `${log}: ${address} is missing`, log);
       return null;
+    }
+    if (!Buffer.isBuffer(raw)) {
+      if (raw.stored > codecBounds().storeBytes) {
+        bad('F6', `${address} is stored as ${raw.stored} bytes, over the bound: never read`, log);
+        return null;
+      }
+      assert.fail(`${address}: an oversized file within the bound is not a fixture's case`);
     }
     read.push(address);
     if (sha(raw) !== address) bad('F6', `${address} does not match its address`, log);
@@ -2850,6 +2871,7 @@ const BAD = {
   reset_unheld_log: 'W3',
   retired_key_recurring: 'S1',
   segment_corrupt_at_reconciliation: 'F6',
+  segment_oversized: 'F6',
   tail_rewritten: 'W6',
   terminal_suffix_not_contiguous: 'S2',
   terminal_suffix_resume_faults: 'S2',
@@ -4060,6 +4082,26 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
         fx.expect.resume,
         "resume()'s full read releases it the same way"
       );
+      // F6 by size (§2.5; BB8 6700200435, condition 7): a file one byte over
+      // READER_LIMITS.objectBytes, plain and gzip-marked, is stat'ed and never
+      // opened, by the full read or the lease's walk; without it the same
+      // store's full read passes.
+      if (fx.store.oversized) {
+        const bound = codecBounds().storeBytes;
+        for (const { address, bytes } of fx.store.oversized) {
+          assert.equal(bytes, bound + 1, 'one byte over the bound');
+          assert.ok(!full.read.includes(address) && !lease.read.includes(address), 'never read');
+        }
+        assert.deepEqual(fx.store.forms, ['plain', 'gzip'], 'stored plain and gzip-marked');
+        assert.deepEqual(fx.expect.opened, [], 'the file is never opened');
+        assert.equal(first.rule, 'F6');
+        const { oversized: _o, ...written } = fx.store;
+        assert.deepEqual(
+          evaluateWalk({ ...fx, store: written }, fx.record.discovery, 'full').violations,
+          [],
+          'as written, the full read passes'
+        );
+      } else assert.equal(fx.expect.opened, undefined);
       for (const c of fx.controls ?? []) {
         const got = evaluateWalk({ ...fx, store: c.store }, c.discovery, 'full');
         const v = got.violations[0];
@@ -8221,7 +8263,7 @@ const CITED_CODE = {
   'store.limits.object_bytes': 'b6d127b7a0a393da',
   'store.decode_stored_object': 'cde659ed88e5a273',
   'store.read_file': 'c9801821b51ad00f',
-  'store.segment': 'd090f31885aa4352',
+  'store.segment': '7fc478d3c0c12f65',
   'store.object': '84c4231531c0b173',
   'store.object.parse': 'c191f67de6b2a935',
   'store.create': '8a859865d99b9fae',
@@ -9343,7 +9385,7 @@ const CONTRACT_CITES = [
     symbol: '_enterLock',
     starts: '_enterLock() {',
     whole: true,
-    code: '036352aeb0e15309',
+    code: 'b64a642608b18e8f',
   },
   {
     id: 'c.reader_scheduler.pump.4',
@@ -9369,7 +9411,7 @@ const CONTRACT_CITES = [
     symbol: '_locked',
     starts: '_locked(run) {',
     ends: ');',
-    code: '33b2842845370b14',
+    code: '29dc6dc66e18f9e0',
   },
   {
     id: 'c.test_reader_job_store.module',
@@ -9734,7 +9776,7 @@ const CONTRACT_CITES = [
     symbol: '_tombstone',
     starts: '_tombstone(record, state, options = {}) {',
     whole: true,
-    code: '0e9055357f951008',
+    code: '8f2592c0722b5ec0',
   },
   {
     id: 'c.reader_job_store._markRecord',

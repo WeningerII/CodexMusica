@@ -5425,7 +5425,7 @@ await check('validation: actionable errors', () => {
       'mcp/fixtures/discovery_v1/good/retired_group_then_within_line.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/good/seal_sequence_two_logs.json':
-        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/good/witness_cursor_option2.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/changed_digest_after.json':
@@ -5435,7 +5435,7 @@ await check('validation: actionable errors', () => {
       'mcp/fixtures/discovery_v1/bad/epoch_backwards.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/missing_segment.json':
-        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/bad/over_bound_seal.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/reordered_segment.json':
@@ -5461,15 +5461,17 @@ await check('validation: actionable errors', () => {
       'mcp/fixtures/discovery_v1/bad/witness_mismatch.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/good/lease_incremental_walk.json':
-        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/good/lease_after_refused_commit.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/good/unavailable_pause_reason.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/membership_over_cap.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/segment_oversized.json':
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/bad/segment_corrupt_at_reconciliation.json':
-        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/good/thrown_save_outcome_unknown.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/terminal_suffix_not_contiguous.json':
@@ -5477,7 +5479,7 @@ await check('validation: actionable errors', () => {
       'mcp/fixtures/discovery_v1/good/row_seen_compaction_next_frame.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/good/release_fencing.json':
-        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/bad/cursor_over_bound.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/reply_cause_invalid.json':
@@ -5487,21 +5489,21 @@ await check('validation: actionable errors', () => {
       'mcp/fixtures/discovery_v1/bad/terminal_suffix_resume_faults.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/verified_ahead_of_head.json':
-        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/good/refusal_construction.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/good/codec_error_mapping.json':
-        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/bad/entry_over_depth.json':
-        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/bad/head_bytes_disagree.json':
-        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/bad/summary_bytes_disagree.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/verified_bytes_disagree.json':
-        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/bad/verified_bytes_ahead.json':
-        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/good/membership_load_measurement.json':
         'a discovery_v1 measurement fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/test_library_viewer_routes.mjs':

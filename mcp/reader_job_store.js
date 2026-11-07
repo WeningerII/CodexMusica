@@ -6,8 +6,10 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import {
   DISCOVERY_CAUSES,
+  DOMAINS,
   LOGS,
   RESOURCE_CAUSES,
+  domainDigest,
   isDigest,
   segmentContent,
 } from './reader_discovery.js';
@@ -407,6 +409,11 @@ export class ReaderJobStore {
     this.fault = faultInjector || (() => {});
     this.failure = null;
     this.records = new Map();
+    // Each live chain's segment addresses, oldest first, by job id and log
+    // (DISCOVERY_V1 §5.1). Only a full read (_fullRead, from reconciliation)
+    // builds a job's lists; _reload and a job's release, tombstone or
+    // completion drop them. Never persisted.
+    this.chains = new Map();
     try {
       fs.mkdirSync(this.directory, { recursive: true, mode: 0o700 });
       for (const dir of ['records', ...OBJECT_KINDS])
@@ -482,11 +489,30 @@ export class ReaderJobStore {
     return withReaderWriterLock(
       this.directory,
       () => {
-        this._enterLock();
+        const reloaded = this._enterLock();
+        // Reconciliation (§7.4) runs in the guarded region, before `run`, on
+        // every entry that reloaded. _enterLock has already taken the new
+        // generation, so a reconciliation that throws part way leaves
+        // this.generation at -1, which no generation file holds: the next
+        // _locked and the next _cached reload and reconcile again. That is
+        // set only after _leaveLock has published the releases that landed.
+        let unreconciled = false;
         try {
+          if (reloaded) {
+            try {
+              this._reconcile();
+            } catch (error) {
+              unreconciled = true;
+              throw error;
+            }
+          }
           return run();
         } finally {
-          this._leaveLock();
+          try {
+            this._leaveLock();
+          } finally {
+            if (unreconciled) this.generation = -1;
+          }
         }
       },
       this.now
@@ -522,7 +548,7 @@ export class ReaderJobStore {
     this._writing = false;
     const pending = this._hasPending();
     const generation = this._readGeneration();
-    if (!pending && generation === this.generation) return;
+    if (!pending && generation === this.generation) return false;
     // Another writer committed, or one died mid-write: the cache and the usage
     // counter can no longer be trusted until a quiescent recount.
     this._reload();
@@ -531,6 +557,7 @@ export class ReaderJobStore {
     this._abandonGc(); // a collection marked against records another writer changed
     if (pending) this._beginWrite(); // publishes a fresh generation on leave
     this._scheduleRecount();
+    return true;
   }
   _beginWrite() {
     if (this._writing) return;
@@ -588,6 +615,7 @@ export class ReaderJobStore {
       sizes.set(id, raw.length);
     }
     this.records = records;
+    this.chains = new Map(); // the reconciliation that follows rebuilds them
     this.durableExpiry = new Map([...records.values()].map((r) => [r.id, r.expires_at]));
     this.recordBytes = sizes;
     this.slack = 0;
@@ -853,8 +881,135 @@ export class ReaderJobStore {
         return { f3: 'FIELD' };
       return { segment, bytes };
     }
-    const [fault] = segmentContent(segment, expect).faults;
-    return fault ? { f3: fault.tag } : { segment, bytes };
+    const content = segmentContent(segment, expect);
+    const [fault] = content.faults;
+    // `entryBytes` is the sum of its entries' canonical bytes, for R2.
+    return fault ? { f3: fault.tag } : { segment, bytes, entryBytes: content.bytes };
+  }
+  // ── the full read and reconciliation (§5.1, §7.4) ──────────────────────
+  // A full read of one log of a live record: from the record's head, back
+  // along previous_hash, at most the head's `segments` reads, never the
+  // address list. Every read is _segment's, which stats first and returns a
+  // fault rather than refusing: {missing} is segment_missing, {f6} (bytes
+  // that do not match the address, a failed bounded inflation, a stored size
+  // over the bound never read, or a file that is not regular) is
+  // segment_corrupt, and {f3} is chain_broken. Then R2, oldest first: the
+  // oldest has previous_hash null, first 0 and digest_before d0; each links
+  // to the one before; and the chain ends at exactly the head's state,
+  // `bytes` included. Returns {addresses} (oldest first), or {cause, rule}
+  // with the rule that failed ('missing', 'F6', 'F3' or 'R2'; tests read it,
+  // nothing stores it). Any other error keeps its own code.
+  _fullRead(record, log) {
+    const discovery = record.discovery;
+    const head = discovery.logs[log];
+    const expect = {
+      job_id: record.id,
+      identity_hash: record.identity_hash,
+      epoch: discovery.epoch,
+      log,
+    };
+    const chain = [];
+    let address = head.head;
+    while (address !== null && chain.length < head.segments) {
+      const read = this._segment(address, expect);
+      if (read.missing) return { cause: 'segment_missing', rule: 'missing' };
+      if (read.f6) return { cause: 'segment_corrupt', rule: 'F6' };
+      if (!read.segment) return { cause: 'chain_broken', rule: 'F3' };
+      chain.unshift({ address, segment: read.segment, entryBytes: read.entryBytes });
+      address = read.segment.previous_hash;
+    }
+    const broken = { cause: 'chain_broken', rule: 'R2' };
+    if (address !== null || chain.length !== head.segments) return broken;
+    let at = {
+      head: null,
+      segments: 0,
+      count: 0,
+      bytes: 0,
+      digest: domainDigest(DOMAINS.log(log)),
+    };
+    for (const { address: a, segment, entryBytes } of chain) {
+      if (
+        segment.previous_hash !== at.head ||
+        segment.first !== at.count ||
+        segment.digest_before !== at.digest
+      )
+        return broken;
+      at = {
+        head: a,
+        segments: at.segments + 1,
+        count: segment.first + segment.count,
+        bytes: at.bytes + entryBytes,
+        digest: segment.digest_after,
+      };
+    }
+    if (canonical(at) !== canonical(head)) return broken;
+    return { addresses: chain.map((c) => c.address) };
+  }
+  // A release (U1, §7.4): one save that empties `logs` and `verified` and
+  // sets `unavailable`, naming each released log with its head. A queued job
+  // is paused with a null fence, keeping its attempt and queue fields; a
+  // running job keeps its state, lease, fence and reason (its next refusal
+  // pauses it); a paused, cancelled or queued job's reason is copied from
+  // `unavailable` with no message (U2). `deferred_requeue` is cleared in
+  // every state, so no later _promoteDeferred requeues a released job. A
+  // no-op when `unavailable` is set: the first trace wins. The release of a
+  // well-formed record is never larger than the record it replaces (§7.4):
+  // a growth is this image's defect, thrown without a status, never saved.
+  _release(record, { cause, log }) {
+    const discovery = record.discovery;
+    if (discovery.unavailable !== null) return record;
+    const released = Object.fromEntries(
+      Object.entries(discovery.logs).map(([name, state]) => [name, state.head])
+    );
+    const unavailable = { cause, log, released };
+    const queued = record.state === 'queued';
+    const release = {
+      ...record,
+      ...(queued ? { state: 'paused', fence: null } : {}),
+      deferred_requeue: false,
+      ...(record.state === 'running'
+        ? {}
+        : { reason: { code: 'DISCOVERY_UNAVAILABLE', cause, log, released: clone(released) } }),
+      discovery: { version: 1, epoch: discovery.epoch, logs: {}, verified: {}, unavailable },
+    };
+    // Asserted before the save, at its widest: _save stamps updated_at, which
+    // is never past 2^53 - 1, and a 64-hex record_digest.
+    const widest = encoded(
+      { ...release, updated_at: Number.MAX_SAFE_INTEGER, record_digest: '0'.repeat(64) },
+      'Reader record'
+    ).length;
+    const before = this.recordBytes.get(record.id);
+    if (widest > before)
+      throw new Error(`A reader release would grow its record from ${before} to ${widest} bytes.`);
+    const saved = this._save(release, true);
+    this.chains.delete(record.id);
+    const line = JSON.stringify({ event: 'READER_DISCOVERY_RELEASED', job: record.id, cause, log });
+    if (cause === 'segment_corrupt') console.error(line);
+    else console.warn(line);
+    return saved;
+  }
+  // Reconciliation (§7.4), on every lock entry that reloaded, startup's
+  // first included: a full read of every chain of each record
+  // _liveDiscovery accepts (the GC's roots, §7.1). A chain that reads
+  // installs its address lists and saves nothing; one that does not releases
+  // its job in one save and the store goes on to the next. A record with no
+  // discovery is never read.
+  _reconcile() {
+    for (const record of [...this.records.values()]) {
+      if (!this._liveDiscovery(record)) continue;
+      const lists = new Map();
+      let failed = null;
+      for (const log of Object.keys(record.discovery.logs)) {
+        const read = this._fullRead(record, log);
+        if (read.cause) {
+          failed = { cause: read.cause, log };
+          break;
+        }
+        lists.set(log, read.addresses);
+      }
+      if (failed) this._release(record, failed);
+      else this.chains.set(record.id, lists);
+    }
   }
   _object(kind, hash) {
     if (!HASH.test(hash || ''))
@@ -1379,7 +1534,7 @@ export class ReaderJobStore {
           'Method rows do not reconcile with the complete coverage census.'
         );
     }
-    return this._open(() => {
+    const done = this._open(() => {
       const record = this._leaseRecord(id, attempt, fence);
       if (record.cancel_requested)
         throw problem(
@@ -1440,6 +1595,10 @@ export class ReaderJobStore {
         return this._quotaPause(record, error);
       }
     });
+    // A completed job's lists go once its save has returned (§5.1); a quota
+    // pause keeps them.
+    if (['completed', 'completed_with_refusals'].includes(done.state)) this.chains.delete(id);
+    return done;
   }
 
   pause(
@@ -1741,7 +1900,7 @@ export class ReaderJobStore {
     });
   }
   _tombstone(record, state, options = {}) {
-    return this._save(
+    const saved = this._save(
       {
         version: 1,
         id: record.id,
@@ -1774,6 +1933,8 @@ export class ReaderJobStore {
       },
       true
     );
+    this.chains.delete(record.id); // after the save returns (§5.1)
+    return saved;
   }
   delete(id, capability, viewer, options = {}) {
     return this._open(() => {

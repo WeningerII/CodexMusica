@@ -2,13 +2,14 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import zlib from 'node:zlib';
 import { createHash } from 'node:crypto';
 import { test } from 'node:test';
 import express from 'express';
 import { ReaderJobStore, READER_LIMITS, decodeStoredObject } from './reader_job_store.js';
 import { canonicalJSON, createCatalogResolver } from './reader_scheduler.js';
 import { createReaderRouter, signReaderRequest } from './reader_routes.js';
-import { buildSegment } from './reader_discovery.js';
+import { DOMAINS, buildSegment, digestStep, domainDigest } from './reader_discovery.js';
 import { plantRecord, storeDirectory } from './reader_store_test_support.mjs';
 
 const identity = {
@@ -1432,7 +1433,19 @@ const pageExists = (directory, hash) =>
 // A store holding one created job, planted again with `discovery` and the
 // chains' segments (and optionally a state), plus one orphan segment that
 // nothing references.
+// The Step 5 GC tests plant chains whose log states are named by their
+// totals only, which a full read would release: they run with reconciliation
+// (Step 6) mocked away, so they stay GC-only (design §C, Step 5).
+// Only while the real method is installed: a second mock of the same method
+// would capture the first as its original, and restoring both in order would
+// leave the first installed for every later test.
+const realReconcile = ReaderJobStore.prototype._reconcile;
+const gcOnly = (t) => {
+  if (ReaderJobStore.prototype._reconcile === realReconcile)
+    t.mock.method(ReaderJobStore.prototype, '_reconcile', () => {});
+};
 function discoveryFixture(t, { state, chains = 2, gzip = false, options = {} } = {}) {
+  gcOnly(t);
   const { directory, store } = fixture(t, options);
   const job = create(store);
   const base = store.records.get(job.record.id);
@@ -1817,7 +1830,7 @@ test('discovery: a directory at a segment address is F6, not EISDIR', (t) => {
   fs.mkdirSync(file);
   const opened = [];
   const readFileSync = fs.readFileSync;
-  t.mock.method(fs, 'readFileSync', function (target, ...rest) {
+  const spy = t.mock.method(fs, 'readFileSync', function (target, ...rest) {
     if (String(target) === file) opened.push(target);
     return readFileSync.call(this, target, ...rest);
   });
@@ -1828,7 +1841,7 @@ test('discovery: a directory at a segment address is F6, not EISDIR', (t) => {
   // A caller's stat passed in: the read meets EISDIR.
   assert.deepEqual(f.store._segment(f.seen.head, null, fs.statSync(file).size), { f6: true });
   assert.equal(opened.length, 1, 'the passed-in stat reads, and EISDIR is {f6}');
-  t.mock.restoreAll();
+  spy.mock.restore(); // the spy only: the GC stays GC-only
   assert.throws(() => f.store.prune(), corruptAt('F6'));
   assert.ok(pageExists(f.directory, f.orphan.addresses[0]), 'prune swept nothing');
 });
@@ -1965,6 +1978,7 @@ test('discovery: a malformed previous_hash is STORAGE_CORRUPT at the mark, never
 });
 
 test('discovery: readPage refuses a segment address with 404', (t) => {
+  gcOnly(t);
   const { directory, store } = fixture(t);
   const job = create(store);
   const lease = store.lease();
@@ -1979,4 +1993,845 @@ test('discovery: readPage refuses a segment address with 404', (t) => {
   // The segment is live and on disk: it is refused by membership, not absence.
   store.prune();
   assert.ok(pageExists(directory, seen.head));
+});
+
+// ── persisted discovery, Step 6 (#656 Node-side plan): the full read and
+// reconciliation (§5.1, §7.4). The fixtures' records and segments are planted
+// as a foreign writer would, so the full read is the real path: a restart's
+// first lock entry, or a live instance's next one, reloads and reconciles.
+const FIXTURES = path.join(import.meta.dirname, 'fixtures', 'discovery_v1');
+const loadFixture = (rel) => JSON.parse(fs.readFileSync(path.join(FIXTURES, rel), 'utf8'));
+// The segments a write fixture's frames seal, by address: each log chained
+// within its epoch, as the store's write path would build them (§2.5).
+function sealedSegments(rel) {
+  const fx = loadFixture(rel);
+  const owner = { id: fx.job_id, identity_hash: fx.identity_hash };
+  const heads = new Map();
+  const out = new Map();
+  for (const frame of fx.frames) {
+    const { epoch, seals } = frame.discovery;
+    for (const seal of seals) {
+      const key = `${epoch}/${seal.log}`;
+      const built = buildSegment(
+        owner,
+        epoch,
+        seal.log,
+        heads.get(key) ?? null,
+        seal.first,
+        seal.entries,
+        seal.digest_before,
+        seal.digest_after
+      );
+      out.set(built.address, built.raw);
+      heads.set(key, built.address);
+    }
+  }
+  return out;
+}
+// A fixture's store (README: `segments_from` minus `omit`, `segments` as they
+// are, `corrupt` bytes changed in place), as {address: stored} where stored
+// is a Buffer, or {size} for an oversized file.
+function fixtureStore(spec) {
+  const out = spec.segments_from ? sealedSegments(spec.segments_from) : new Map();
+  for (const address of spec.omit ?? []) out.delete(address);
+  for (const seg of spec.segments ?? []) {
+    const raw =
+      typeof seg.hex === 'string'
+        ? Buffer.from(seg.hex, 'hex')
+        : Buffer.from(JSON.stringify(seg), 'utf8');
+    out.set(dsha(raw), raw);
+  }
+  for (const { address, at, byte } of spec.corrupt ?? []) {
+    const raw = Buffer.from(out.get(address));
+    raw[at] = byte;
+    out.set(address, raw);
+  }
+  for (const { address, bytes } of spec.oversized ?? []) out.set(address, { size: bytes });
+  return out;
+}
+// Writes one stored segment at `address` as the store's pages rule would
+// (gzip when smaller, the format marker first), or an oversized file: plain
+// spaces, or gzip-marked (1f 8b 08 00, then spaces).
+function writeStored(directory, address, stored, gzip) {
+  const root = storeDirectory(directory);
+  let bytes;
+  if (Buffer.isBuffer(stored)) {
+    bytes = stored;
+    if (gzip) {
+      const compressed = zlib.gzipSync(stored);
+      if (compressed.length < stored.length) bytes = compressed;
+    }
+  } else {
+    bytes = Buffer.alloc(stored.size, 0x20);
+    if (gzip) bytes.set([0x1f, 0x8b, 8, 0]);
+  }
+  if (bytes[0] === 0x1f && bytes[1] === 0x8b) {
+    const marker = path.join(root, 'store-format.json');
+    if (!fs.existsSync(marker)) fs.writeFileSync(marker, JSON.stringify({ min_reader: 'A' }));
+  }
+  fs.writeFileSync(path.join(root, 'pages', `${address}.json`), bytes);
+}
+// Plants a fixture's job into a live store beside the job `base` the store
+// created, with the fixture's id, identity_hash, discovery and cursor and the
+// given job fields, and its store's segments. A foreign write: the next lock
+// entry of any instance reconciles.
+function plantFixture(directory, base, fx, { discovery, store, job = {}, gzip = false } = {}) {
+  for (const [address, stored] of fixtureStore(store ?? fx.store))
+    writeStored(directory, address, stored, gzip);
+  const record = {
+    ...base,
+    id: fx.record.id,
+    identity_hash: fx.record.identity_hash,
+    cursor: fx.record.cursor ?? base.cursor,
+    discovery: clone(discovery ?? fx.record.discovery),
+    state: fx.job_state ?? 'queued',
+    ...job,
+  };
+  plantRecord(directory, record);
+  return record;
+}
+const clone = (v) => JSON.parse(JSON.stringify(v));
+// The release events a console spy saw, by level.
+function releaseLog(t) {
+  const seen = { error: [], warn: [] };
+  for (const level of ['error', 'warn'])
+    t.mock.method(console, level, (line) => {
+      try {
+        const event = JSON.parse(line);
+        if (event.event === 'READER_DISCOVERY_RELEASED') seen[level].push(event);
+      } catch {}
+    });
+  return seen;
+}
+const releasedOf = (discovery) =>
+  Object.fromEntries(Object.entries(discovery.logs).map(([log, st]) => [log, st.head]));
+// The record §7.4 gives a release of `before` with `cause` and `log`.
+function expectedRelease(before, cause, log) {
+  const released = releasedOf(before.discovery);
+  const queued = before.state === 'queued';
+  return {
+    state: queued ? 'paused' : before.state,
+    deferred_requeue: false,
+    fence: queued ? null : before.fence,
+    discovery: {
+      version: 1,
+      epoch: before.discovery.epoch,
+      logs: {},
+      verified: {},
+      unavailable: { cause, log, released },
+    },
+    reason:
+      before.state === 'running'
+        ? before.reason
+        : { code: 'DISCOVERY_UNAVAILABLE', cause, log, released },
+  };
+}
+const releaseView = (r) => ({
+  state: r.state,
+  deferred_requeue: r.deferred_requeue,
+  fence: r.fence,
+  discovery: r.discovery,
+  reason: r.reason,
+});
+const listsOf = (store, id) =>
+  store.chains.has(id) ? Object.fromEntries(store.chains.get(id)) : undefined;
+// Each full-read fixture that releases, and what it releases with.
+const RELEASING = [
+  ['bad/segment_corrupt_at_reconciliation.json', 'segment_corrupt', 'alt_cells', 'F6'],
+  ['bad/head_bytes_disagree.json', 'chain_broken', 'alt_cells', 'R2'],
+  ['bad/missing_segment.json', 'segment_missing', 'alt_cells', 'missing'],
+  ['bad/segment_oversized.json', 'segment_corrupt', 'alt_cells', 'F6'],
+];
+
+test('reconciliation: a full-read fixture is released at startup, that job alone, and the store serves on', (t) => {
+  for (const [rel, cause, log, rule] of RELEASING)
+    for (const gzip of [false, true]) {
+      const fx = loadFixture(rel);
+      const name = `${rel} gzip=${gzip}`;
+      const { directory, store } = fixture(t, { gzip });
+      const other = create(store);
+      const base = store.records.get(other.record.id);
+      const planted = plantFixture(directory, base, fx, { gzip });
+      const seen = releaseLog(t);
+      const rules = [];
+      const fullRead = ReaderJobStore.prototype._fullRead;
+      t.mock.method(ReaderJobStore.prototype, '_fullRead', function (...args) {
+        const read = fullRead.apply(this, args);
+        if (read.rule) rules.push(read.rule);
+        return read;
+      });
+      // A spy on every open of an oversized file (the fixture's F6 by size).
+      const big = (fx.store.oversized ?? []).map((o) =>
+        path.join(pagesDir(directory), `${o.address}.json`)
+      );
+      const opened = [];
+      for (const fn of ['readFileSync', 'openSync']) {
+        const real = fs[fn];
+        t.mock.method(fs, fn, function (target, ...rest) {
+          if (big.includes(String(target))) opened.push(fn);
+          return real.call(this, target, ...rest);
+        });
+      }
+      const restarted = new ReaderJobStore({ directory, gzip });
+      t.mock.restoreAll();
+      assert.equal(restarted.failure, null, `${name}: the store does not fail`);
+      assert.deepEqual(rules, [rule], `${name}: the full read meets ${rule}`);
+      const got = restarted.records.get(fx.record.id);
+      const want = expectedRelease(planted, cause, log);
+      if (fx.expect.reconciliation) assert.deepEqual(want, fx.expect.reconciliation, name);
+      assert.deepEqual(releaseView(got), want, `${name}: the release record`);
+      for (const key of ['attempt', 'queued_at', 'queue_order', 'cancel_requested'])
+        assert.equal(got[key], planted[key], `${name}: keeps ${key}`);
+      assert.equal(listsOf(restarted, fx.record.id), undefined, `${name}: no list`);
+      // One release event, at error level for segment_corrupt alone.
+      const level = cause === 'segment_corrupt' ? 'error' : 'warn';
+      assert.deepEqual(
+        seen[level],
+        [{ event: 'READER_DISCOVERY_RELEASED', job: fx.record.id, cause, log }],
+        `${name}: one ${level} line`
+      );
+      assert.deepEqual(seen[level === 'error' ? 'warn' : 'error'], [], name);
+      if (fx.expect.logged) assert.equal(fx.expect.logged, level);
+      if (fx.expect.store_fails !== undefined) assert.equal(fx.expect.store_fails, false);
+      if (fx.expect.opened) assert.deepEqual(opened, fx.expect.opened, `${name}: never opened`);
+      // The released job is never dispatched; the other one leases and commits.
+      const lease = restarted.lease();
+      assert.equal(lease.id, other.record.id, `${name}: the other job leases`);
+      assert.equal(commit(restarted, lease, undefined, { phase: 'more' }).state, 'running');
+      assert.equal(restarted.listQueued().length, 0);
+    }
+});
+
+test('reconciliation: a live instance reconciles at its next lock entry after a foreign write', (t) => {
+  const fx = loadFixture('bad/segment_corrupt_at_reconciliation.json');
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const seen = releaseLog(t);
+  const planted = plantFixture(directory, store.records.get(other.record.id), fx);
+  // inspect() reads through _cached: the moved generation takes the lock.
+  assert.deepEqual(
+    releaseView(store.inspect(fx.record.id)),
+    expectedRelease(planted, 'segment_corrupt', 'alt_cells')
+  );
+  assert.equal(seen.error.length, 1);
+  assert.equal(store.failure, null);
+  // The release is published: another instance's entry reconciles nothing more.
+  const second = new ReaderJobStore({ directory });
+  assert.deepEqual(
+    second.records.get(fx.record.id).discovery,
+    store.inspect(fx.record.id).discovery
+  );
+  assert.equal(seen.error.length, 1, 'a released record is never read again');
+});
+
+test("reconciliation: the corrupt fixture's structural control is chain_broken", (t) => {
+  const fx = loadFixture('bad/segment_corrupt_at_reconciliation.json');
+  for (const c of fx.controls) {
+    const { directory, store } = fixture(t);
+    const other = create(store);
+    const planted = plantFixture(directory, store.records.get(other.record.id), fx, {
+      discovery: c.discovery,
+      store: c.store,
+    });
+    const restarted = new ReaderJobStore({ directory });
+    assert.deepEqual(
+      releaseView(restarted.records.get(fx.record.id)),
+      expectedRelease(planted, c.expect.cause, c.expect.log),
+      c.name
+    );
+  }
+});
+
+test('reconciliation: a chain that reads installs its lists, in read order, and saves nothing', (t) => {
+  const cases = [
+    ['good/lease_incremental_walk.json', (fx) => fx.expect.full],
+    ['bad/verified_ahead_of_head.json', (fx) => fx.expect.resume],
+    ['bad/verified_bytes_ahead.json', (fx) => fx.expect.resume],
+    ['bad/verified_bytes_disagree.json', (fx) => fx.expect.resume],
+  ];
+  for (const [rel, expectOf] of cases)
+    for (const gzip of [false, true]) {
+      const fx = loadFixture(rel);
+      const name = `${rel} gzip=${gzip}`;
+      const { directory, store } = fixture(t, { gzip });
+      const other = create(store);
+      plantFixture(directory, store.records.get(other.record.id), fx, { gzip });
+      const file = path.join(storeDirectory(directory), 'records', `${fx.record.id}.json`);
+      const before = fs.readFileSync(file);
+      const read = [];
+      const segment = ReaderJobStore.prototype._segment;
+      t.mock.method(ReaderJobStore.prototype, '_segment', function (hash, expect, ...rest) {
+        if (expect !== null) read.push(hash);
+        return segment.call(this, hash, expect, ...rest);
+      });
+      // A live instance's next entry: no startup pass pauses or sweeps.
+      store.inspect(other.record.id);
+      t.mock.restoreAll();
+      const want = expectOf(fx);
+      assert.deepEqual(read, want.read, `${name}: read from each head back`);
+      assert.deepEqual(listsOf(store, fx.record.id), want.addresses, `${name}: the lists`);
+      assert.ok(fs.readFileSync(file).equals(before), `${name}: nothing is saved`);
+      assert.equal(store.records.get(fx.record.id).discovery.unavailable, null);
+    }
+});
+
+test('reconciliation: the read-back fixtures are chain_broken by F3, and a replacing decoder is not', (t) => {
+  // An entry past ENTRY_DEPTH (bad/entry_over_depth.json) and a lone 0xFF
+  // byte (good/codec_error_mapping.json's persisted_bytes): address-valid
+  // segments whose content fails F3. Their fixture job ids are not store ids,
+  // so each segment is re-addressed under the planted job's id.
+  const depth = loadFixture('bad/entry_over_depth.json');
+  const codec = loadFixture('good/codec_error_mapping.json');
+  const cases = [
+    ['entry_over_depth read_back', depth.read_back, 'F3'],
+    ['entry_over_depth read_back_control', depth.read_back_control, null],
+    ...codec.persisted_bytes
+      .filter((p) => p.read_back)
+      .map((p) => [`persisted_bytes ${p.name}`, p.read_back, 'F3']),
+  ];
+  assert.ok(cases.length >= 3);
+  for (const [name, rb, rule] of cases)
+    for (const replacing of [false, true]) {
+      const { directory, store } = fixture(t);
+      const other = create(store);
+      const base = store.records.get(other.record.id);
+      const [stored] = fixtureStore(rb.store).values();
+      const raw = Buffer.from(
+        stored.toString('latin1').replace(`"job_id":"${rb.record.id}"`, `"job_id":"${base.id}"`),
+        'latin1'
+      );
+      assert.notDeepEqual(raw, stored, `${name}: re-addressed`);
+      const [log] = Object.keys(rb.record.discovery.logs);
+      const discovery = clone(rb.record.discovery);
+      discovery.logs[log].head = dsha(raw);
+      writeStored(directory, dsha(raw), raw, false);
+      plantRecord(directory, {
+        ...base,
+        identity_hash: rb.record.identity_hash,
+        discovery,
+      });
+      if (replacing)
+        t.mock.method(ReaderJobStore.prototype, '_segmentText', (buf) => buf.toString('utf8'));
+      const rules = [];
+      const fullRead = ReaderJobStore.prototype._fullRead;
+      t.mock.method(ReaderJobStore.prototype, '_fullRead', function (...args) {
+        const read = fullRead.apply(this, args);
+        rules.push(read.rule ?? null);
+        return read;
+      });
+      store.inspect(base.id);
+      t.mock.restoreAll();
+      const got = store.records.get(base.id).discovery;
+      if (rule === null) {
+        assert.deepEqual(rules, [null], `${name}: passes`);
+        assert.equal(got.unavailable, null);
+        continue;
+      }
+      if (!replacing) {
+        assert.deepEqual(rules, ['F3'], `${name}: F3 under the fatal decode`);
+        assert.equal(got.unavailable.cause, 'chain_broken');
+        assert.equal(got.unavailable.log, log);
+      } else if (name.startsWith('persisted_bytes')) {
+        // The replacing decoder reads U+FFFD: no F3, so the fault the fatal
+        // decode found is invisible to it (it meets R2's bytes instead).
+        assert.notDeepEqual(rules, ['F3'], `${name}: a replacing decode is not F3`);
+      }
+    }
+});
+
+test('reconciliation: a failed bounded inflation is segment_corrupt', (t) => {
+  const fx = loadFixture('good/lease_incremental_walk.json');
+  const { directory, store } = fixture(t, { gzip: true });
+  const other = create(store);
+  const planted = plantFixture(directory, store.records.get(other.record.id), fx, {
+    gzip: true,
+  });
+  // alt_cells' head, as a gzip member whose deflate stream is cut short.
+  const head = fx.record.discovery.logs.alt_cells.head;
+  const file = path.join(pagesDir(directory), `${head}.json`);
+  const whole = fs.readFileSync(file);
+  assert.equal(whole[0], 0x1f, 'stored gzip');
+  fs.writeFileSync(file, Buffer.concat([whole.subarray(0, 20), whole.subarray(whole.length - 8)]));
+  store.inspect(other.record.id);
+  assert.deepEqual(
+    releaseView(store.records.get(fx.record.id)),
+    expectedRelease(planted, 'segment_corrupt', 'alt_cells')
+  );
+});
+
+// A real chain of `n` segments of `log` for `record`: entries, digests and
+// byte totals as the write path builds them, so its full read passes.
+function realChain(record, log, n, { epoch = 0 } = {}) {
+  let state = {
+    head: null,
+    segments: 0,
+    count: 0,
+    bytes: 0,
+    digest: domainDigest(DOMAINS.log(log)),
+  };
+  const raws = [];
+  for (let i = 0; i < n; i++) {
+    const entries = [0, 1, 2, 3].map((k) => [`${log}-${i}`, k]);
+    let digest = state.digest;
+    let bytes = 0;
+    for (const entry of entries) {
+      digest = digestStep(digest, JSON.stringify(entry));
+      bytes += Buffer.byteLength(JSON.stringify(entry));
+    }
+    const built = buildSegment(
+      record,
+      epoch,
+      log,
+      state.head,
+      state.count,
+      entries,
+      state.digest,
+      digest
+    );
+    raws.push(built.raw);
+    state = {
+      head: built.address,
+      segments: state.segments + 1,
+      count: state.count + entries.length,
+      bytes: state.bytes + bytes,
+      digest,
+    };
+  }
+  return {
+    raws,
+    state,
+    empty: { head: null, segments: 0, count: 0, bytes: 0, digest: domainDigest(DOMAINS.log(log)) },
+  };
+}
+// A record of `base`'s job planted under `id` with real chains of `logs`
+// ({log: n}); `damage(raws)` may change the stored segments.
+function plantReal(directory, base, id, logs, { job = {}, damage = null, gzip = false } = {}) {
+  const owner = { ...base, id };
+  const discovery = { version: 1, epoch: 0, logs: {}, verified: {}, unavailable: null };
+  const stored = [];
+  for (const [log, n] of Object.entries(logs)) {
+    const c = realChain(owner, log, n);
+    discovery.logs[log] = c.state;
+    discovery.verified[log] = c.empty;
+    stored.push(...c.raws.map((raw) => [dsha(raw), raw]));
+  }
+  for (const [address, raw] of damage ? damage(stored) : stored)
+    writeStored(directory, address, raw, gzip);
+  const record = { ...base, id, discovery, ...job };
+  plantRecord(directory, record);
+  return record;
+}
+
+test('reconciliation: one bad chain among good ones releases that job only', (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const ids = ['a', 'b', 'c', 'd'].map((c) => `reader_${c.repeat(64)}`);
+  const planted = ids.map((id, i) =>
+    plantReal(
+      directory,
+      base,
+      id,
+      { seen: 2, alt_cells: 3 },
+      {
+        // the second job's alt_cells head is missing from the store
+        damage: i === 1 ? (stored) => stored.filter((_, k) => k !== stored.length - 1) : null,
+      }
+    )
+  );
+  const seen = releaseLog(t);
+  const restarted = new ReaderJobStore({ directory });
+  assert.equal(restarted.failure, null);
+  assert.deepEqual(
+    releaseView(restarted.records.get(ids[1])),
+    expectedRelease(planted[1], 'segment_missing', 'alt_cells')
+  );
+  assert.equal(seen.warn.length, 1);
+  for (const i of [0, 2, 3]) {
+    assert.equal(restarted.records.get(ids[i]).discovery.unavailable, null, ids[i]);
+    assert.deepEqual(Object.keys(listsOf(restarted, ids[i])), ['seen', 'alt_cells']);
+    assert.equal(listsOf(restarted, ids[i]).alt_cells.length, 3);
+    assert.equal(
+      listsOf(restarted, ids[i]).alt_cells.at(-1),
+      planted[i].discovery.logs.alt_cells.head
+    );
+  }
+});
+
+test("reconciliation: good/release_fencing.json's releases, by one instance during another's lease", (t) => {
+  const fx = loadFixture('good/release_fencing.json');
+  const walk = loadFixture('good/lease_incremental_walk.json');
+  for (const c of fx.cases) {
+    const ev = c.events[0];
+    assert.equal(ev.by, 'reconciliation');
+    const { directory, store: a } = fixture(t);
+    const b = new ReaderJobStore({ directory });
+    const other = create(a);
+    // The cause the event names, made real: alt_cells' oldest segment gone
+    // (segment_missing), or its count off by one from its chain (chain_broken).
+    const discovery = clone(fx.record.discovery);
+    const spec = clone(walk.store);
+    if (ev.cause === 'segment_missing') spec.omit = [walk.addresses.alt_cells[0]];
+    else if (ev.cause === 'chain_broken') discovery.logs.alt_cells.count -= 1;
+    else assert.fail(`no setup for ${ev.cause}`);
+    const planted = plantFixture(directory, a.records.get(other.record.id), fx, {
+      discovery,
+      store: spec,
+      job: c.job,
+    });
+    // Instance A's next lock entry releases; B holds the lease (its fields
+    // are the record's) and makes no write.
+    a.inspect(fx.record.id);
+    const [want] = c.expect;
+    assert.equal(want.saved, true);
+    const got = b.inspect(fx.record.id);
+    for (const [key, value] of Object.entries(want.job))
+      assert.deepEqual(got[key], value, `${c.name}: ${key}`);
+    assert.deepEqual(
+      releaseView(got),
+      { ...expectedRelease({ ...planted, discovery: fx.record.discovery }, ev.cause, ev.log) },
+      c.name
+    );
+  }
+});
+
+test('reconciliation: a paused job deferred to requeue is released without it, and never requeued', (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = `reader_${'e'.repeat(64)}`;
+  const planted = plantReal(
+    directory,
+    base,
+    id,
+    { seen: 1 },
+    {
+      job: {
+        state: 'paused',
+        deferred_requeue: true,
+        reason: { code: 'STORE_RECOUNTING', message: 'Reader storage usage is being recounted.' },
+      },
+      damage: () => [],
+    }
+  );
+  store.inspect(other.record.id);
+  const got = store.records.get(id);
+  assert.deepEqual(releaseView(got), expectedRelease(planted, 'segment_missing', 'seen'));
+  assert.equal(got.deferred_requeue, false);
+  // The other job leases; the released one is never promoted to the queue.
+  assert.equal(store.lease().id, other.record.id);
+  assert.equal(store.records.get(id).state, 'paused');
+  assert.equal(store.listQueued().length, 0);
+});
+
+test('reconciliation: a throw part way is retried at the next lock entry, after the generation is published', async (t) => {
+  for (const kind of ['status', 'no status']) {
+    const { directory, store } = fixture(t);
+    const root = storeDirectory(directory);
+    const other = create(store);
+    const base = store.records.get(other.record.id);
+    const ids = ['1', '2'].map((c) => `reader_${c.repeat(64)}`);
+    for (const id of ids) plantReal(directory, base, id, { seen: 1 }, { damage: () => [] });
+    const fullRead = ReaderJobStore.prototype._fullRead;
+    let thrown = 0;
+    // The first job's release lands, then the second job's full read throws once.
+    t.mock.method(ReaderJobStore.prototype, '_fullRead', function (record, ...rest) {
+      if (record.id === ids[1] && !thrown++)
+        throw kind === 'status'
+          ? Object.assign(new Error('busy'), { code: 'STORE_BUSY', status: 503 })
+          : new Error('EIO');
+      return fullRead.call(this, record, ...rest);
+    });
+    const warnings = [];
+    t.mock.method(console, 'warn', (line) => warnings.push(JSON.parse(line)));
+    const onDisk = () =>
+      JSON.parse(fs.readFileSync(path.join(root, 'generation'), 'utf8')).generation;
+    const unavailable = (id) => store.records.get(id).discovery.unavailable?.cause ?? null;
+    if (kind === 'status') {
+      // A status error from inside the hold: _open rethrows it unchanged.
+      assert.throws(() => store.inspect(other.record.id), { code: 'STORE_BUSY' });
+      assert.equal(store.failure, null, 'a status error does not fail the store');
+      assert.equal(fs.existsSync(path.join(root, 'pending')), false, 'pending is cleared');
+      assert.equal(store.generation, -1, 'the next entry reloads');
+      const published = onDisk();
+      assert.equal(unavailable(ids[0]), 'segment_missing', 'the first release landed');
+      assert.equal(unavailable(ids[1]), null);
+      store.inspect(other.record.id);
+      assert.equal(unavailable(ids[1]), 'segment_missing', 'reconciled at the next entry');
+      assert.ok(onDisk() > published);
+      assert.equal(store.generation, onDisk());
+    } else {
+      // Inside recount()'s own _locked: logged as READER_RECOUNT_FAILED and
+      // retried; never this.failure.
+      assert.equal(await store.recount(), true);
+      assert.equal(store.failure, null, 'no failure');
+      assert.ok(
+        warnings.some((w) => w.event === 'READER_RECOUNT_FAILED' && w.message === 'EIO'),
+        'the recount logged it'
+      );
+      assert.equal(unavailable(ids[0]), 'segment_missing');
+      assert.equal(unavailable(ids[1]), 'segment_missing', 'the retry reconciled the rest');
+      assert.equal(fs.existsSync(path.join(root, 'pending')), false);
+      assert.equal(store.generation, onDisk());
+      assert.equal(store.usage, store._usage(), 'the accepted recount is exact');
+    }
+    t.mock.restoreAll();
+  }
+});
+
+test('reconciliation: every release of a fixture record, at its widest queue fields, is no larger', (t) => {
+  // §7.4's property, on the store: each well-formed fixture record, in every
+  // §7.1 state, its attempt, fence, lease and queue fields at their widest,
+  // released with each cause a full read gives. The size is asserted before
+  // the save; a release that grows is refused without a status and saves nothing.
+  const rels = [
+    'good/lease_incremental_walk.json',
+    'bad/segment_corrupt_at_reconciliation.json',
+    'bad/missing_segment.json',
+    'bad/head_bytes_disagree.json',
+    'bad/segment_oversized.json',
+    'bad/verified_ahead_of_head.json',
+    'good/release_fencing.json',
+  ];
+  const WIDE = Number.MAX_SAFE_INTEGER;
+  gcOnly(t); // _release is called directly, on records reconciliation never saw
+  const { directory, store } = fixture(t, { maxBytes: 1024 * 1024 * 1024 });
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  let n = 0;
+  for (const rel of rels)
+    for (const state of ['queued', 'running', 'paused', 'cancelled'])
+      for (const cause of ['segment_missing', 'segment_corrupt', 'chain_broken']) {
+        const fx = loadFixture(rel);
+        const id = `reader_${(n++).toString(16).padStart(64, '0')}`;
+        const running = state === 'running';
+        const record = {
+          ...base,
+          id,
+          identity_hash: fx.record.identity_hash,
+          discovery: clone(fx.record.discovery),
+          state,
+          attempt: WIDE,
+          fence: running ? 'f'.repeat(64) : null,
+          lease_expires_at: running ? WIDE : null,
+          queued_at: WIDE,
+          queue_order: WIDE,
+          cancel_requested: running,
+          deferred_requeue: state === 'paused',
+          reason: running ? null : { code: 'INTERRUPTED', message: 'x' },
+        };
+        plantRecord(directory, record);
+        store._open(() => {
+          const before = store.recordBytes.get(id);
+          const saved = store._release(store.records.get(id), { cause, log: 'alt_cells' });
+          assert.ok(store.recordBytes.get(id) < before, `${rel} ${state} ${cause}`);
+          assert.equal(saved.discovery.unavailable.cause, cause);
+        });
+      }
+  // A growth is this image's defect: thrown without a status before the save.
+  const fx = loadFixture('good/lease_incremental_walk.json');
+  const id = `reader_${'9'.repeat(64)}`;
+  plantRecord(directory, { ...base, id, discovery: clone(fx.record.discovery) });
+  const file = path.join(storeDirectory(directory), 'records', `${id}.json`);
+  const before = fs.readFileSync(file);
+  assert.throws(
+    () =>
+      store._open(() => {
+        store.recordBytes.set(id, 100);
+        store._release(store.records.get(id), { cause: 'chain_broken', log: 'seen' });
+      }),
+    { code: 'STORAGE_UNAVAILABLE' }
+  );
+  assert.ok(fs.readFileSync(file).equals(before), 'nothing saved');
+  assert.match(store.failure, /would grow its record from 100 to/);
+});
+
+test('reconciliation: the full read covers exactly the records the GC roots', (t) => {
+  // Every §7.1 and other state × every shape (none, null, live, released,
+  // malformed): the records _reconcile full-reads and the records the
+  // startup mark roots are the same set, both from _liveDiscovery.
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const shapes = {
+    absent: undefined,
+    null: null,
+    live: 'live',
+    released: 'released',
+    malformed: {},
+  };
+  let n = 0;
+  const live = new Set();
+  for (const state of ['queued', 'running', 'paused', 'cancelled', 'completed', 'expired'])
+    for (const [shape, value] of Object.entries(shapes)) {
+      const id = `reader_${(n++).toString(16).padStart(64, 'a')}`;
+      if (value === 'live' || value === 'released') {
+        const r = plantReal(directory, base, id, { seen: 1 }, { job: { state } });
+        if (value === 'released')
+          plantRecord(directory, {
+            ...r,
+            discovery: {
+              ...r.discovery,
+              logs: {},
+              verified: {},
+              unavailable: { cause: 'chain_broken', log: null, released: {} },
+            },
+          });
+        else if (['queued', 'running', 'paused', 'cancelled'].includes(state)) live.add(id);
+      } else {
+        const record = { ...base, id, state };
+        if (shape !== 'absent') record.discovery = value;
+        plantRecord(directory, record);
+      }
+    }
+  const read = new Set();
+  const rooted = new Set();
+  const fullRead = ReaderJobStore.prototype._fullRead;
+  t.mock.method(ReaderJobStore.prototype, '_fullRead', function (record, ...rest) {
+    read.add(record.id);
+    return fullRead.call(this, record, ...rest);
+  });
+  const roots = ReaderJobStore.prototype._discoveryRoots;
+  t.mock.method(ReaderJobStore.prototype, '_discoveryRoots', function (record) {
+    const out = roots.call(this, record);
+    if (out.length) rooted.add(record.id);
+    return out;
+  });
+  const asked = { reconcile: 0, roots: 0 };
+  const liveOf = ReaderJobStore.prototype._liveDiscovery;
+  let where = null;
+  t.mock.method(ReaderJobStore.prototype, '_liveDiscovery', function (record) {
+    if (where) asked[where]++;
+    return liveOf.call(this, record);
+  });
+  const reconcile = ReaderJobStore.prototype._reconcile;
+  t.mock.method(ReaderJobStore.prototype, '_reconcile', function () {
+    where = 'reconcile';
+    try {
+      return reconcile.call(this);
+    } finally {
+      where = 'roots';
+    }
+  });
+  const restarted = new ReaderJobStore({ directory });
+  t.mock.restoreAll();
+  assert.equal(restarted.failure, null);
+  assert.deepEqual([...read].sort(), [...live].sort(), 'the full read reads the live records');
+  assert.deepEqual([...rooted].sort(), [...live].sort(), 'and the GC roots the same ones');
+  assert.ok(asked.reconcile > 0 && asked.roots > 0, 'both ask _liveDiscovery');
+});
+
+test('reconciliation: a job drops its lists when it is deleted, expires, completes or reloads', async (t) => {
+  const { directory, store } = fixture(t, { ttlMs: 10 ** 9 });
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const ids = ['5', '6', '7'].map((c) => `reader_${c.repeat(64)}`);
+  for (const id of ids) plantReal(directory, base, id, { seen: 2 });
+  store.inspect(other.record.id);
+  for (const id of ids) assert.equal(listsOf(store, id).seen.length, 2, id);
+  // delete (a tombstone)
+  store.delete(ids[0], store.capabilityFor(ids[0], base.viewer), base.viewer);
+  assert.equal(listsOf(store, ids[0]), undefined, 'deleted');
+  // expiry (a tombstone): _pruneExpired at its expiry
+  store._open(() => store._tombstone(store.records.get(ids[1]), 'expired'));
+  assert.equal(listsOf(store, ids[1]), undefined, 'expired');
+  // complete()
+  store._open(() =>
+    store._save({ ...store.records.get(ids[2]), cursor: { phase: 'done', done: true } })
+  );
+  assert.equal(await store.recount(), true); // usage known, so completion can write
+  const lease = store.lease(ids[2]);
+  assert.equal(listsOf(store, ids[2]).seen.length, 2);
+  assert.equal(finish(store, lease, 0).state, 'completed');
+  assert.equal(listsOf(store, ids[2]), undefined, 'completed');
+  // _reload clears every list; the reconciliation after it rebuilds the live ones.
+  const id = `reader_${'8'.repeat(64)}`;
+  const planted = plantReal(directory, base, id, { seen: 1 });
+  store.inspect(other.record.id);
+  assert.equal(listsOf(store, id).seen.length, 1, 'a foreign write reconciles');
+  plantRecord(directory, planted); // another foreign write
+  store._enterLock();
+  assert.equal(store.chains.size, 0, '_reload clears them');
+  store._leaveLock();
+  store.inspect(other.record.id);
+  assert.equal(listsOf(store, id), undefined, 'an equal generation does not reconcile');
+  store.generation = -1;
+  store.inspect(other.record.id);
+  assert.equal(listsOf(store, id).seen.length, 1, 'the next reload reconciles');
+});
+
+test('reconciliation: a gap in `first` between two linked segments is chain_broken by R2', (t) => {
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = `reader_${'f'.repeat(64)}`;
+  const owner = { ...base, id };
+  // Two linked segments whose second starts one entry late; the record's
+  // totals follow the chain, so only the link between them is wrong.
+  const a = realChain(owner, 'seen', 1);
+  const entries = [['gap', 0]];
+  const after = digestStep(a.state.digest, JSON.stringify(entries[0]));
+  const b = buildSegment(
+    owner,
+    0,
+    'seen',
+    a.state.head,
+    a.state.count + 1,
+    entries,
+    a.state.digest,
+    after
+  );
+  for (const raw of [...a.raws, b.raw]) writeStored(directory, dsha(raw), raw, false);
+  const discovery = {
+    version: 1,
+    epoch: 0,
+    logs: {
+      seen: {
+        head: b.address,
+        segments: 2,
+        count: a.state.count + 2,
+        bytes: a.state.bytes + Buffer.byteLength(JSON.stringify(entries[0])),
+        digest: after,
+      },
+    },
+    verified: { seen: a.empty },
+    unavailable: null,
+  };
+  const planted = { ...base, id, discovery };
+  plantRecord(directory, planted);
+  const rules = [];
+  const fullRead = ReaderJobStore.prototype._fullRead;
+  t.mock.method(ReaderJobStore.prototype, '_fullRead', function (...args) {
+    const read = fullRead.apply(this, args);
+    rules.push(read.rule ?? null);
+    return read;
+  });
+  store.inspect(other.record.id);
+  assert.deepEqual(rules, ['R2']);
+  assert.deepEqual(
+    releaseView(store.records.get(id)),
+    expectedRelease(planted, 'chain_broken', 'seen')
+  );
+});
+
+test('reconciliation: a release of a record already released saves nothing (the first trace wins)', (t) => {
+  gcOnly(t);
+  const { directory, store } = fixture(t);
+  const other = create(store);
+  const base = store.records.get(other.record.id);
+  const id = `reader_${'0'.repeat(63)}1`;
+  const released = {
+    version: 1,
+    epoch: 0,
+    logs: {},
+    verified: {},
+    unavailable: { cause: 'segment_missing', log: 'seen', released: { seen: null } },
+  };
+  plantRecord(directory, { ...base, id, discovery: released });
+  const file = path.join(storeDirectory(directory), 'records', `${id}.json`);
+  store.inspect(id);
+  const before = fs.readFileSync(file);
+  store._open(() => store._release(store.records.get(id), { cause: 'chain_broken', log: null }));
+  assert.ok(fs.readFileSync(file).equals(before));
+  assert.equal(store.records.get(id).discovery.unavailable.cause, 'segment_missing');
 });

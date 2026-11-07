@@ -40,6 +40,10 @@ passes every other rule.
   longer match its address. `expect.reconciliation` is the job after the release (from
   `job_state`), `expect.lease` what a lease's walk on the same store gives, and `expect.resume`
   what `resume()`'s full read gives. Its `controls` are full reads of a structural fault.
+  `bad/segment_oversized.json` has the same form, with `store.oversized` in place of
+  `store.corrupt`: each names a segment (`address`) the store holds as a file of `bytes` bytes,
+  stored in each of `store.forms` (`plain`: spaces; `gzip`: the same bytes starting `1f 8b 08 00`),
+  and `expect.opened` lists the opens of that file a full read or a lease makes (none).
 - `good/thrown_save_outcome_unknown.json` is a thrown-save fixture: the record and lists before a
   commit that wrote `commit.wrote`, and one case per way its record save throws, each with the
   durable record that results (`durable`) and what the instance and its restart then do.
@@ -195,6 +199,7 @@ it is accepted), and what it exercises.
 | `bad/verified_bytes_ahead.json` | R5 | STORAGE_CORRUPT 503 | `alt_cells`' verified `bytes` is one more than its head's, while its head, segments, count and digest are a valid prefix: the lease's walk refuses at R5's prefix check before reading anything, releasing and saving nothing; `resume()`'s full read passes and saves the corrected verified heads |
 | `bad/summary_bytes_disagree.json` | R3 | DISCOVERY_UNAVAILABLE 409 cursor_disagrees | the record's and the summary's `alt_cells` `bytes` is one more than the entry bytes the worker loads |
 | `bad/segment_corrupt_at_reconciliation.json` | F6 | DISCOVERY_UNAVAILABLE 409 segment_corrupt | one byte of `alt_cells#1` changed: reconciliation releases that job alone with `segment_corrupt`, logged at error level, and the store does not fail; a lease's walk refuses STORAGE_CORRUPT 503 and releases nothing; `resume()`'s full read releases it too; a structural fault is `chain_broken` |
+| `bad/segment_oversized.json` | F6 | DISCOVERY_UNAVAILABLE 409 segment_corrupt | `alt_cells#1` stored as `objectBytes + 1` bytes, plain and gzip-marked: reconciliation releases that job alone without opening the file, logged at error level, and the store does not fail; a lease's walk refuses STORAGE_CORRUPT 503 and releases nothing; a second job in the store is unaffected |
 | `bad/verified_ahead_of_head.json` | R5 | STORAGE_CORRUPT 503 | `alt_cells`' verified head is a segment past its head; the lease's walk refuses before reading and releases nothing; `resume()`'s full read passes and saves the corrected verified heads |
 | `bad/cursor_over_bound.json` | W4 | READER_PROTOCOL 400 | the largest cursor §3.1's inputs allow (99,141 bytes, every method holding a REFUSAL_BYTES refusal) and one of exactly CURSOR_BYTES pass; one byte over fails W4 and is the worker's INVARIANT_FAILURE, naming CURSOR_BYTES (131072); a refusal one byte over REFUSAL_BYTES fails W4 and is the worker's INVARIANT_FAILURE too, naming REFUSAL_BYTES (543); a number past 2⁵³ − 1, below 0 or not an integer fails W4 |
 | `bad/reply_cause_invalid.json` | C1 | READER_PROTOCOL | for each of the two codes a missing, an unknown and a cross-code cause, the store's own cause from a worker, a cause on a code that takes none, a cut and a non-string echo, a log outside the set, missing where its cause needs one, or on a cause or code that takes none: each pauses READER_PROTOCOL naming the bad value, releasing nothing; valid replies, sink errors and a bridge failure pause as before |

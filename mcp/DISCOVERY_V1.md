@@ -1120,8 +1120,9 @@ and `resume()` refuses a dead job at once instead of queueing it
   2. **Stat** each of the first `v.segments` addresses. Reconciliation has already run
      under this lock (§7.4), so a missing one is `STORAGE_CORRUPT`.
   3. **Read and check the rest**: the segments appended since the verified head, oldest
-     first. Each read goes through `_object('pages', …)`, which is bounded and address-checked
-     (F6: changed bytes are `STORAGE_CORRUPT`). Then **F3** on each segment: the kind, the
+     first. Each is stat'ed, then read through `_object('pages', …)`, which is bounded and
+     address-checked (F6: changed bytes, and a stored size over the bound, which is never read,
+     are `STORAGE_CORRUPT`). Then **F3** on each segment: the kind, the
      version, `job_id`, `identity_hash`, `epoch` equal to the record's epoch, and `log`, and its
      content (§2.5): every entry passes F1 and F2, and every integer field is an integer.
      **R2** links each segment to the one before it, and the last one to the record's head,
@@ -1158,8 +1159,11 @@ and `resume()` refuses a dead job at once instead of queueing it
   logged at error level: corruption, never relabelled as breakage (BB8 6681838131). A structural
   failure, R2 or F3 (a link, a count, `first` or a field), is cause `chain_broken`. Either way the
   store releases the logs in one save (U1, §8), then refuses, naming the cause and the log. To tell
-  F6 apart, the full read takes `_object`'s hash-verification refusal (`reader_job_store.js:_object`), and a failed
-  bounded inflation of a segment (`decodeStoredObject`, `:decodeStoredObject`), as F6. Bytes that match the
+  F6 apart, the full read takes `_object`'s hash-verification refusal (`reader_job_store.js:_object`), a failed
+  bounded inflation of a segment (`decodeStoredObject`, `:decodeStoredObject`), and a stored size over
+  `READER_LIMITS.objectBytes` found by the stat that precedes every read (§2.5), with the file never
+  read, as F6. The store's full read makes these reads through `_segment` (`:_segment`), which
+  returns each of them as a fault of that one segment rather than refusing. Bytes that match the
   address but do not parse (`JSON.parse`, `:_object`), or are not UTF-8 under the required fatal decode
   (§2.11), are F3, so `chain_broken` (§2.5); any other error keeps its own code. In `resume()` this
   is new (§12, item 26): `_object` turns F6 into `STORAGE_CORRUPT` (`:_object`), which would leave
@@ -1821,15 +1825,18 @@ GC:
   always runs after the reconciliation it needs.
 - **Reconciliation is a full read** (§5.1) of every live chain, one of the store's two
   full-read places (the other is `resume()`). It starts at each head and stats each segment before reading it,
-  because `_object` maps `ENOENT` to `STORAGE_CORRUPT` (`reader_job_store.js:_object`), and it replaces the
-  address lists with what it read. For a #656-sized job that is 99 segments (measured), and
+  because `_object` maps `ENOENT` to `STORAGE_CORRUPT` (`reader_job_store.js:_object`) and `_readFile` refuses a file
+  over its bound as `STORAGE_CORRUPT` before any address check (`:_readFile`), either of which would
+  fail the whole store: a missing segment is `segment_missing`, and a stored size over the bound is
+  F6, `segment_corrupt`, without a read. It replaces the address lists with what it read. For a #656-sized job that is 99 segments (measured), and
   at the bounds up to 5 × `CHAIN_SEGMENTS` per job (computed). It saves no verified head:
   usage is unknown until the recount (`:_enterLock`), and only a save that does not grow a
   record commits then. The job's next walk reads from its saved verified head.
 - **A chain it cannot use is released**, in one save:
   - a missing segment: `unavailable` becomes `{cause: "segment_missing", log, released}`;
-  - a segment whose bytes do not match its address (F6): `{cause: "segment_corrupt", log,
-    released}`, and a log line at error level (BB8 6681838131). Corruption stays visible as
+  - a segment whose bytes do not match its address, or whose stored size is over the bound
+    (F6, §2.5): `{cause: "segment_corrupt", log, released}`, and a log line at error level (BB8
+    6681838131). Corruption stays visible as
     corruption; it is never relabelled as breakage (`bad/segment_corrupt_at_reconciliation.json`);
   - a structural failure of the full read (F3 or R2: a link, a count, `first` or a field):
     `{cause: "chain_broken", log, released}`. `chain_broken` is structural only;
@@ -2278,7 +2285,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 47 | BB8, #721 items 2–3 (accepted by R2); BB8's #721 codec review, should-fix 1; BB8's emit-precedence ruling (19:40Z) | the codec raises a local error with a rule tag and the enclosing operation maps it, never the codec; (a) a submitted frame's F1 or F2 is `READER_PROTOCOL`, its integer fields W1 and W4, and a frame that is not JSON is the step channel's failure; (b) a generated entry's F2 is `RESOURCE_LIMIT` (`discovery_entry_bytes`) and its F1 `INVARIANT_FAILURE`, its message naming the rule; (c) a persisted segment's bad content is F3, `segment_corrupt` stays F6's and the store's, a failed inflation F6; the `1.0` divergence, one pin per side; invalid UTF-8 in a segment F3 in both languages; precedence F1 before F2 on the worker's emit, unpinned elsewhere; F2 on the canonical form, the raw input bounded by the enclosing reader; `INTEGER_FIELD`; a lone surrogate refused at admission, before any lease | §2.5, §2.11, §3, §4, §5.1, §5.2, §8, §9, §13 | `good/codec_error_mapping.json`, `bad/float_entry.json`; the §2.11 tests |
 | 48 | BB8 6693502369 (items 30 and 31, R2's questions of 6693449409); BB8's review 6693638249, nits 1–4 | (30) each log's head and verified state carry `bytes`, the sum of its sealed entries' canonical bytes, added to by each seal; W7 holds `MEMBERSHIP_BYTES` from it; it is verified where it is read: R2 at a full read (`chain_broken`), R5 at a lease's walk (`STORAGE_CORRUPT`), R3 at the worker's load (`cursor_disagrees`); (31) F1 bounds the depth by `ENTRY_DEPTH`, the smallest power of two at least twice the largest declared depth, at least 8 and at most 64, provisionally 8 until the #721 author declares the entry shapes; past it `INVARIANT_FAILURE` on the worker's emit, `READER_PROTOCOL` at the store, F3 on read-back; `MEMBERSHIP_BYTES = 4194304` re-derived over the 17 shapes capped at it, provisional with it; the nits: no #656 entry count is a term, each log's section names both caps, the counts use the unrounded terms but for the per-byte rate, as printed, and 2.3-fold is against 107.3 ns; BB8's 21:31Z confirmations: invalid UTF-8 in a segment F3 in both languages, never `Buffer.toString`, and admission's stored-request case | §1, §2.1, §2.3, §2.7, §2.10, §2.11, §3, §4, §5.1, §5.2, §6.1, §6.2, §6.4, §6.11, §8, §9, §10, §12, §13 | `bad/entry_over_depth.json`, `bad/head_bytes_disagree.json`, `bad/verified_bytes_disagree.json`, `bad/summary_bytes_disagree.json`, `bad/membership_over_cap.json`, `bad/verified_bytes_ahead.json`, `good/codec_error_mapping.json`, `good/membership_load_measurement.json`; the §6.11 derivation and byte tests |
 | 49 | BB8 6699352254 (review of `a12c35b4d`, rulings 1–2) | (1) `MEMBERSHIP_BYTES = 4194304` stands, provisional with `ENTRY_DEPTH`; power-of-two rounding is accepted; the per-byte rate is re-measured on a quiet host before the proof run, and the cap is re-derived, not inherited, if `ENTRY_DEPTH` reaches 64; (2) the stored-request check stays where §2.11 has it, before `workerPayload`, never in `this.store.lease()`; and the 17 named shapes are 13 distinct loads at this cap | §2.11, §6.11, §10, §12 | `good/membership_load_measurement.json`, `good/codec_error_mapping.json`; the §6.11 derivation and the claim tests |
-| 50 | BB8 6700200435 (all seven recommendations accepted, with conditions) | (3) the scheduler's fallback pause when `store.pause` refuses: one `READER_PROTOCOL` pause, no cause, no release, none for `STALE_ATTEMPT`, the same under C1 on and off, pinned by a fixture | §8, §12, §13 | `bad/reply_pause_refused.json` |
+| 50 | BB8 6700200435 (all seven recommendations accepted, with conditions) | (3) the scheduler's fallback pause when `store.pause` refuses: one `READER_PROTOCOL` pause, no cause, no release, none for `STALE_ATTEMPT`, the same under C1 on and off, pinned by a fixture; (7) the store stats a segment before reading it, and a stored size over 2 MiB is F6, `segment_corrupt` at a full read, without a read | §2.5, §2.11, §5.1, §7.4, §8, §12, §13 | `bad/reply_pause_refused.json`, `bad/segment_oversized.json` |
 
 ## 12. Rulings on the items added for confirmation
 
@@ -2575,7 +2582,9 @@ qualification (6683944548). Item 29 stays open. Items 30 and 31 are R2's two que
     plan). (3) When `store.pause` refuses a pause with anything but `STALE_ATTEMPT`, the scheduler
     makes one fallback pause, `READER_PROTOCOL`, "The reader reply could not be recorded:
     <code>.", with no cause or release, so a lease always ends; a refused fallback is logged and
-    left to lease expiry (§8, `bad/reply_pause_refused.json`).
+    left to lease expiry (§8, `bad/reply_pause_refused.json`). (7) A segment is stat'ed before it
+    is read, and a stored size over `READER_LIMITS.objectBytes` is F6 without a read (§2.5, §2.11,
+    §5.1, §7.4, `bad/segment_oversized.json`).
 
 ## 13. Fixtures and validator
 
@@ -2689,7 +2698,11 @@ Bad:
   6693502369, item 31);
 - full read (`DISCOVERY_UNAVAILABLE` 409): `bad/segment_corrupt_at_reconciliation.json` (F6,
   cause `segment_corrupt`), with a lease's `STORAGE_CORRUPT` on the same store and a structural
-  control that is `chain_broken`; `bad/head_bytes_disagree.json` (R2, cause `chain_broken`): a
+  control that is `chain_broken`; `bad/segment_oversized.json` (F6 by size, cause
+  `segment_corrupt`): a segment file one byte over `READER_LIMITS.objectBytes`, plain and
+  gzip-marked, is released at reconciliation without being opened, the store keeps serving its
+  other jobs, and a lease's walk that meets it refuses `STORAGE_CORRUPT` and releases nothing;
+  `bad/head_bytes_disagree.json` (R2, cause `chain_broken`): a
   head whose `bytes` disagrees with its chain, which a lease's walk meets at R5's junction as
   `STORAGE_CORRUPT`;
 - resume (`DISCOVERY_UNAVAILABLE` 409): `bad/missing_segment.json` (R1),
