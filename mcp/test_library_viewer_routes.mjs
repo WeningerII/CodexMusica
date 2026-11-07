@@ -488,6 +488,36 @@ test('admission: /library/v1 refuses a lone surrogate in a line or a key, before
   assert.equal(record.request.declaration_set.pronunciations[0].line, 'Bad \u{1F600}');
 });
 
+// BB8 6704382892: the lone surrogate in the SECOND pronunciation line, the
+// first well-formed, so a walk that reads only an array's first element would
+// admit it.
+test('admission: /library/v1 refuses a lone surrogate in the second line, before any job', async (t) => {
+  const { browser, store, kicks } = await setup(t);
+  const body = '{"declaration_set":{"pronunciations":[{"line":"Good"},{"line":"Bad \\ud800"}]}}';
+  const extra = JSON.parse(body);
+  assert.match(JSON.stringify(extra), /\\ud800/, 'sent as the JSON escape');
+  assert.equal(extra.declaration_set.pronunciations[0].line.isWellFormed(), true);
+  const a = browser();
+  const refused = await a.analyse('short', 'refused-second-line', extra);
+  assert.equal(refused.status, 400);
+  assert.deepEqual(
+    { code: refused.body.error.code, message: refused.body.error.message },
+    {
+      code: 'INVALID_DECLARATION',
+      message: 'The declaration set contains text that is not well-formed Unicode.',
+    }
+  );
+  assert.equal(refused.set, null, 'no viewer cookie minted');
+  // Nothing written: no record, nothing kicked.
+  assert.equal(store.records.size, 0);
+  const records = path.join(store.directory, 'records');
+  assert.deepEqual(
+    fs.existsSync(records) ? fs.readdirSync(records).filter((n) => n.endsWith('.json')) : [],
+    []
+  );
+  assert.equal(kicks.length, 0);
+});
+
 test('two outstanding per viewer, as the old Site allowed', async (t) => {
   const { browser } = await setup(t);
   const a = browser();

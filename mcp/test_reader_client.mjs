@@ -760,6 +760,42 @@ test('admission: the Site bridge refuses a lone surrogate in a line or a key, be
   }
 });
 
+// BB8 6704382892: the walk reaches every element, not only the first. The
+// first pronunciation line is well-formed and the lone surrogate is in the
+// second, so a walk that stops at an array's first element admits this body.
+const SECOND_LINE_BODY =
+  '{"declaration_set":{"pronunciations":[{"line":"Good"},{"line":"Bad \\ud800"}]}}';
+
+test('admission: the Site bridge refuses a lone surrogate in the second line, before any job', async () => {
+  const kicks = [];
+  const f = await httpFixture({ scheduler: { kick: () => kicks.push(1) } });
+  try {
+    assert.match(SECOND_LINE_BODY, /\\ud800/, 'sent as the JSON escape');
+    const input = { ...request, ...JSON.parse(SECOND_LINE_BODY) };
+    assert.equal(input.declaration_set.pronunciations[0].line.isWellFormed(), true);
+    assert.equal(input.declaration_set.pronunciations[1].line.isWellFormed(), false);
+    const refused = await f.call('POST', '/internal/reader/jobs', {
+      input,
+      idempotency: 'refused-second-line',
+    });
+    assert.equal(refused.status, 400);
+    assert.deepEqual(
+      { code: refused.body.error.code, message: refused.body.error.message },
+      { code: 'INVALID_DECLARATION', message: NOT_WELL_FORMED }
+    );
+    // Nothing written: no record in the store or on disk, nothing kicked.
+    assert.equal(f.store.records.size, 0);
+    const records = path.join(f.directory, 'records');
+    assert.deepEqual(
+      existsSync(records) ? (await readdir(records)).filter((n) => n.endsWith('.json')) : [],
+      []
+    );
+    assert.equal(kicks.length, 0);
+  } finally {
+    await f.close();
+  }
+});
+
 test('admission: a stored request with a lone surrogate is leased, refused at the check and paused', async () => {
   const directory = await mkdtemp(path.join(tmpdir(), 'reader-stored-'));
   const st = admissionCases.stored_request;
