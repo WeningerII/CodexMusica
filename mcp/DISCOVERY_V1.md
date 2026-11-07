@@ -73,7 +73,12 @@ instead: a function, method, constant or class (`Class.method` for a method of a
 `file:module` for a file's top-level statements), and a bare `:symbol` takes the file of the
 nearest file-qualified citation in its bullet. `mcp/test_discovery_v1_fixtures.mjs` holds the
 pinned statements as anchors inside those symbols, so a line shift never changes the text,
-and a statement about the code's state there names Base.
+and a statement about the code's state there names Base. It also holds the code of each cited
+symbol or range to a digest, blank lines and comments aside, so any change to that code fails
+until the claim it backs is read again and the digest pinned again; and every statement in
+§2.1's depth symbols that builds or reshapes a cell, a span key or a key is a pinned anchor.
+Every other line reference in this contract, in §2.1's other bullets, §2.3 and every later
+section, is at Base and is not checked: a line shift after Base can leave one stale.
 `analysis.py`, `worker.py` and `reader_scheduler.js` are unchanged there from main
 `21e013507`.
 

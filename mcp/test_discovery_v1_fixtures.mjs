@@ -6408,7 +6408,11 @@ const STORE_HALF = Object.freeze({ admission: false, fatal_decode: false });
 // top-level statements); `starts`, the pinned statement's trimmed first text;
 // `ends`, the first later line of its range, or `whole` for the symbol's own
 // span; `nth: [k, of]` where exactly `of` lines in the span start `starts`;
-// `cite` for a range §2.11 cites (every other row lies inside one); `when`.
+// `cite` for a range §2.11 cites (every other row lies inside one, and inside
+// the row `within` names where it gives one); `when`. A cited row's code is
+// also held to its digest in CITED_CODE, below, so a claim §2.11 makes inside
+// a cited range cannot go false while the anchors still resolve; the uncited
+// rows name the statements those claims rest on, so a failure says which.
 const ANCHORS = [
   // How the caller's body is parsed, and validateRequest's two callers.
   {
@@ -6458,6 +6462,12 @@ const ANCHORS = [
     cite: true,
   },
   {
+    id: 'routes.validate.array',
+    file: 'mcp/reader_routes.js',
+    symbol: 'validateRequest',
+    starts: 'Array.isArray(input.declaration_set))',
+  },
+  {
     id: 'routes.validate.layers',
     file: 'mcp/reader_routes.js',
     symbol: 'validateRequest',
@@ -6479,6 +6489,12 @@ const ANCHORS = [
     starts: 'export async function createAnalysisJob({',
     whole: true,
     cite: true,
+  },
+  {
+    id: 'routes.create_job.request',
+    file: 'mcp/reader_routes.js',
+    symbol: 'createAnalysisJob',
+    starts: 'request: prepared,',
   },
   {
     id: 'routes.router.validate_call',
@@ -6524,11 +6540,24 @@ const ANCHORS = [
     starts: 'const source = JSON.parse(bytes);',
   },
   {
+    id: 'sched.verify_reading.hash',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'verifyReading',
+    starts: 'if (!expected || sha256(bytes) !== expected)',
+  },
+  {
     id: 'sched.prepare',
     file: 'mcp/reader_scheduler.js',
     symbol: 'prepareRequest',
     starts: 'const prepareRequest = async (request) => {',
+    whole: true,
     cite: true,
+  },
+  {
+    id: 'sched.prepare.declarations',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'prepareRequest',
+    starts: 'const declarations = request.declaration_set;',
   },
   {
     id: 'sched.prepare.defaults',
@@ -6613,6 +6642,18 @@ const ANCHORS = [
     cite: true,
   },
   {
+    id: 'sched.pump.catch_code',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: "code: failure.code || 'INTERRUPTED',",
+  },
+  {
+    id: 'sched.pump.catch_requeue',
+    file: 'mcp/reader_scheduler.js',
+    symbol: 'pump',
+    starts: 'requeue: false,',
+  },
+  {
     id: 'source_worker.verify',
     file: 'mcp/reader_source_worker.js',
     symbol: 'module',
@@ -6662,6 +6703,7 @@ const ANCHORS = [
     symbol: 'spawnWorker',
     starts: 'kill(error);',
     nth: [1, 2],
+    within: 'bridge.spawn.catch_kill',
   },
   {
     id: 'bridge.spawn.protocol_cap',
@@ -6833,12 +6875,30 @@ const ANCHORS = [
     cite: true,
   },
   {
+    id: 'store.decode_stored_object.inflate_bound',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'decodeStoredObject',
+    starts: 'maxOutputLength: READER_LIMITS.objectBytes,',
+  },
+  {
+    id: 'store.decode_stored_object.raw_bound',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'decodeStoredObject',
+    starts: 'if (raw.length > READER_LIMITS.objectBytes)',
+  },
+  {
     id: 'store.read_file',
     file: 'mcp/reader_job_store.js',
     symbol: '_readFile',
     starts: '_readFile(file) {',
     whole: true,
     cite: true,
+  },
+  {
+    id: 'store.read_file.bound',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_readFile',
+    starts: 'if (fs.statSync(file).size > READER_LIMITS.objectBytes)',
   },
   {
     id: 'store.object',
@@ -6856,6 +6916,12 @@ const ANCHORS = [
     cite: true,
   },
   {
+    id: 'store.object.verify',
+    file: 'mcp/reader_job_store.js',
+    symbol: '_object',
+    starts: 'if (sha(bytes) !== hash)',
+  },
+  {
     id: 'store.create',
     file: 'mcp/reader_job_store.js',
     symbol: 'create',
@@ -6870,6 +6936,12 @@ const ANCHORS = [
     starts: 'const idempotency_hash = sha(`${viewer}\\0${idempotency_key}`);',
   },
   {
+    id: 'store.create.intent',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'create',
+    starts: "const intent = jsonValue(request, 'Reader request');",
+  },
+  {
     id: 'store.lease',
     file: 'mcp/reader_job_store.js',
     symbol: 'lease',
@@ -6877,13 +6949,19 @@ const ANCHORS = [
     whole: true,
     cite: true,
   },
+  {
+    id: 'store.lease.fence',
+    file: 'mcp/reader_job_store.js',
+    symbol: 'lease',
+    starts: "fence: crypto.randomBytes(32).toString('hex'),",
+  },
   // The analysis.
   {
     id: 'analysis.public_declarations',
     file: 'lyric-harness/library/analysis.py',
     symbol: '_public_declarations',
     starts: 'def _public_declarations(value):',
-    ends: 'return [_public_declarations(v) for v in value]',
+    whole: true,
     cite: true,
   },
   {
@@ -6904,7 +6982,12 @@ const ANCHORS = [
   },
 ];
 // §2.1's basis for ENTRY_DEPTH (item 31): the statements that build the
-// deepest entries at this head, cited by §2.1 as `analysis.py:symbol`.
+// deepest entries at this head, cited by §2.1 as `analysis.py:symbol`. The
+// set is closed: every statement in a depth symbol that DEPTH_WATCH selects
+// (one that builds or reshapes a cell, a span key, a key or an alt_cells
+// pair) must be one of these, whole, so a statement added or changed there
+// fails even where the pinned ones still resolve. `stmt` is the whole
+// statement where it runs past its first line.
 const DEPTH_ANCHORS = [
   ['analysis.cell.def', '_cell', 'def _cell(self, u):'],
   ['analysis.cell.tok', '_cell', 'tok = (u.line, u.token)'],
@@ -6913,26 +6996,46 @@ const DEPTH_ANCHORS = [
     '_cell',
     'return tok if tok in self._disputed else (u.line, u.token, u.tok_syl)',
   ],
+  ['analysis.span_key.def', '_span_key', 'def _span_key(self, span, st):'],
+  ['analysis.span_key.cells', '_span_key', 'cells = []'],
+  ['analysis.span_key.loop', '_span_key', 'for i in span.idx:'],
+  ['analysis.span_key.cell', '_span_key', 'cell = self._cell(st.units[i])'],
+  ['analysis.span_key.dedupe', '_span_key', 'if not cells or cells[-1] != cell:'],
+  ['analysis.span_key.append', '_span_key', 'cells.append(cell)'],
   [
     'analysis.span_key.return',
     '_span_key',
     'return (self._origin(span, st), span.direction, tuple(cells))',
   ],
+  ['analysis.candidates.seen', '_candidates', 'seen = set()'],
   [
     'analysis.candidates.seen_add',
     '_candidates',
     'seen.add((self._span_key(a, st), self._span_key(b, st)))',
   ],
   [
+    'analysis.candidates.alternate',
+    '_candidates',
+    'yield from self._alternate_edges(name, schema, seen)',
+  ],
+  ['analysis.new_pairs.def', '_new_pairs', 'def _new_pairs(self, schema, alt, aa, bb, seen):'],
+  [
     'analysis.new_pairs.key',
     '_new_pairs',
     'key = (self._span_key(x, alt), self._span_key(y, alt))',
   ],
+  ['analysis.new_pairs.met', '_new_pairs', 'if key in seen or mirror and key[::-1] in seen:'],
   ['analysis.new_pairs.seen_add', '_new_pairs', 'seen.add(key)'],
   [
     'analysis.prepare_event.pair_cells',
     '_prepare_event',
     'cells = [sorted({(found.units[i].line, found.units[i].token) for i in m.idx})',
+    'cells = [sorted({(found.units[i].line, found.units[i].token) for i in m.idx}) for m in (a, b)]',
+  ],
+  [
+    'analysis.prepare_event.pair_single',
+    '_prepare_event',
+    'if all(len(c) == 1 for c in cells) and cells[0] != cells[1]:',
   ],
   [
     'analysis.prepare_event.pair_append',
@@ -6947,12 +7050,23 @@ const DEPTH_ANCHORS = [
     '_prepare_event',
     'delta["alt_cells"] = delta.get("alt_cells", []) + [[list(binding[1]), list(binding[2])]]',
   ],
-].map(([id, symbol, starts]) => ({
+].map(([id, symbol, starts, stmt]) => ({
   id,
   file: 'lyric-harness/library/analysis.py',
   symbol,
   starts,
+  ...(stmt ? { stmt } : {}),
 }));
+// Which statements of each depth symbol build or reshape an entry: every one
+// in `_cell` and `_span_key`, and those naming the set, the key or the cells
+// in the other three.
+const DEPTH_WATCH = {
+  _cell: /./,
+  _span_key: /./,
+  _candidates: /\bseen\b|_span_key\(|_cell\(/,
+  _new_pairs: /\b(?:key|seen)\b|_span_key\(|_cell\(/,
+  _prepare_event: /\bcells\b|alt_cells|_span_key\(|_cell\(/,
+};
 const ANCHOR = new Map([...ANCHORS, ...DEPTH_ANCHORS].map((r) => [r.id, r]));
 
 const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -7068,6 +7182,51 @@ const spanText = (sourceText, row, symbol = row.symbol) => {
   return lines.slice(from, to + 1).join('\n');
 };
 const readSource = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
+// The code of a text, line by line: trimmed, with blank lines and comments
+// dropped (a JS `//` line or `/* … */` block; a Python `#` line or a string
+// statement, the docstring), so a comment or a line shift never moves it.
+function codeLines(text, py) {
+  const out = [];
+  let open = null;
+  for (const s of text.split('\n')) {
+    const t = s.trim();
+    if (open) {
+      if (t.includes(open)) open = null;
+      continue;
+    }
+    if (!t || t.startsWith(py ? '#' : '//')) continue;
+    const q = py ? /^[rRbBuU]{0,2}("""|''')/.exec(t)?.[1] : t.startsWith('/*') && '/*';
+    if (q) {
+      const close = py ? q : '*/';
+      if (py ? (t.split(q).length - 1) % 2 === 1 : !t.includes('*/', 2)) open = close;
+      continue;
+    }
+    out.push(t);
+  }
+  return out;
+}
+const digestOf = (text, py) =>
+  crypto.createHash('sha256').update(codeLines(text, py).join('\n')).digest('hex').slice(0, 16);
+// A Python span's statements, each a logical line (its physical lines joined
+// while a bracket is open or a line ends in a backslash), with blank lines,
+// comments and string statements dropped.
+function pyStatements(text) {
+  const out = [];
+  let cur = null;
+  let depth = 0;
+  for (const t of codeLines(text, true)) {
+    cur = cur === null ? t : `${cur} ${t}`;
+    const bare = t.replace(/"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g, '').replace(/#.*$/, '');
+    for (const c of bare) depth += '([{'.includes(c) ? 1 : ')]}'.includes(c) ? -1 : 0;
+    if (depth <= 0 && !t.endsWith('\\')) {
+      out.push(cur);
+      cur = null;
+      depth = 0;
+    }
+  }
+  if (cur !== null) out.push(cur);
+  return out;
+}
 // Resolves every row a STORE_HALF state allows, and holds each gated row to
 // not resolving while its key is false. `src(file)` gives a file's text.
 function resolveAnchors(rows, half, src) {
@@ -7135,6 +7294,10 @@ function check211(half, src, section) {
       }),
       `${row.id} lies in a cited range`
     );
+    if (row.within) {
+      const w = at.get(row.within);
+      assert.ok(line >= w.line && line <= w.endLine, `${row.id} lies in ${row.within}`);
+    }
   }
   // The order inside pump: the store's lease, the stored-request check once
   // it exists, the bridge lease, and the catch's pause.
@@ -7152,14 +7315,22 @@ function check211(half, src, section) {
     );
   // The declaration set is held only to being an object, until admission
   // lands; the bindings are ASCII.
+  // While the key is false, neither validateRequest nor pump may hold any
+  // Unicode check, under any name, nor pump any INVALID_DECLARATION refusal:
+  // the false branch forbids what the true branch requires, and more, so a
+  // check landed under other text still fails until the key is flipped.
   const validate = spanText(src('mcp/reader_routes.js'), ANCHOR.get('routes.validate'));
+  const pump = spanText(src('mcp/reader_scheduler.js'), ANCHOR.get('sched.pump.store_lease'));
+  const unicode = /wellformed|surrogate|normalize\(/i;
   if (half.admission)
     assert.ok(validate.includes('wellFormedDeep('), 'validateRequest walks the set');
-  else
+  else {
+    assert.ok(!unicode.test(validate), 'validateRequest has no Unicode check yet');
     assert.ok(
-      !/isWellFormed|toWellFormed|surrogate/.test(validate),
-      'validateRequest has no Unicode check yet'
+      !unicode.test(pump) && !/INVALID_DECLARATION/.test(pump),
+      'pump has no stored-request check yet'
     );
+  }
   // idempotency_key is allowed and unchecked there; the lease payload omits it.
   assert.equal(validate.match(/idempotency_key/g).length, 1);
   const payload = at.get('sched.pump.run_reader_lease').text;
@@ -7172,6 +7343,85 @@ function check211(half, src, section) {
   // No sentence states the code's present state: a state claim names Base.
   assert.ok(!/\btoday\b/i.test(section), '§2.11 says "at Base", never "today"');
   return at;
+}
+// The code of each range §2.11 cites, by row id: the first 16 hex digits of
+// the sha256 of its code lines (codeLines: trimmed, blank lines and comments
+// dropped). An anchor pins one statement; this pins all of them, so a line
+// added, deleted or changed anywhere in a cited range fails, with the digest
+// it now has. Read the §2.11 claim the range backs again before pinning that
+// digest here; a commit that flips a STORE_HALF key pins its new code too.
+const CITED_CODE = {
+  'http.json': 'a139c735f649afd0',
+  'routes.valid_binding': 'ffcf0160378f1057',
+  'routes.validate': '6e6f98d317d638ca',
+  'routes.validate.bindings': '3b2ccfc18609d366',
+  'routes.validate.object_check': '4e0de58b66d02c10',
+  'routes.validate.object_refusal': '82f6cdb879d66b07',
+  'routes.validate.layers': 'e27cb0f554b9eea2',
+  'routes.validate.idempotency_key': '395c0c67a67563b5',
+  'routes.create_job': '28b038bf72982a7b',
+  'routes.router.validate_call': 'dfb6986394734699',
+  'viewer.router.key': '6d1009ee7657a946',
+  'viewer.router.validate_call': '5163e29c3d275aa6',
+  'sched.verify_reading': '64967a499472686b',
+  'sched.prepare': '77017df34b5986f5',
+  'sched.prepare.defaults': '88b1b94374432c46',
+  'sched.identity.return': '035875b529c14380',
+  'sched.pump.store_lease': '6f02c32eea3984dc',
+  'sched.pump.identity_check': '805d36dac33de30d',
+  'sched.pump.run_reader_lease': '660bf11460671462',
+  'sched.pump.declarations': '9c0b44cf7533f1fd',
+  'sched.pump.catch_pause': '537b801e7c66a735',
+  'source_worker.verify': 'c70ad56857c8151f',
+  'bridge.frame_cap': '9984ca2e1f63dc5b',
+  'bridge.spawn.parse': 'a78dbdf6483e4415',
+  'bridge.spawn.reader_line_cap': '2097a438a0bb0ce2',
+  'bridge.spawn.catch_kill': '785418f6478e620e',
+  'bridge.spawn.protocol_cap': 'cadb7f1e057905cc',
+  'bridge.warm.write': 'b51bbd51ba159282',
+  'worker.lone_surrogate': 'd0457298ed2dc3bb',
+  'worker.object_bytes': 'a5d12f796a8f11ef',
+  'worker.read_page_object': 'b8865ac3e2a116e5',
+  'worker.read_page_object.bound': '7d735f17e4c9637d',
+  'worker.read_page_object.inflate': 'a8ed729ba0240c39',
+  'worker.read_page_object.decode': '74f569f6c35d7905',
+  'worker.run_reader.session': '110135f20c463b5b',
+  'worker.run_reader.frame': 'caf89ec2cc962427',
+  'worker.run_reader.frame_cap': '9b8ba89fd8ec23ef',
+  'worker.run_reader.size_check': '828d77bbd389aa00',
+  'worker.run_reader.print': '3e5cecfe2d544074',
+  'worker.main.parse': 'f08047d623f14bbe',
+  'worker.main.argv_clean': '7a471f0acaf403e7',
+  'worker.main.except': '290215fd0f884781',
+  'store.limits.object_bytes': 'b6d127b7a0a393da',
+  'store.decode_stored_object': 'cde659ed88e5a273',
+  'store.read_file': 'c9801821b51ad00f',
+  'store.object': '84c4231531c0b173',
+  'store.object.parse': 'c191f67de6b2a935',
+  'store.create': 'be15f6c41dde3133',
+  'store.lease': 'f2ee1ce687b1356e',
+  'analysis.public_declarations': '4e8128044b314e09',
+  'analysis.session.stale_reading': '8805f122444f8bd2',
+  'pronunciation.validate_choices.line': 'cceafe9c674ec9e2',
+};
+function checkDigests(half, src) {
+  const rows = ANCHORS.filter((r) => r.cite);
+  const at = resolveAnchors(rows, half, src);
+  const off = rows
+    .filter((r) => at.has(r.id))
+    .map((r) => [r.id, digestOf(at.get(r.id).text, r.file.endsWith('.py'))])
+    .filter(([id, d]) => CITED_CODE[id] !== d);
+  assert.deepEqual(
+    off.map(([id]) => id),
+    [],
+    `the code §2.11 cites changed: read each claim again, then pin ${JSON.stringify(Object.fromEntries(off))}`
+  );
+  // No digest is pinned for a row that does not exist or does not resolve.
+  assert.deepEqual(
+    Object.keys(CITED_CODE).filter((id) => !at.has(id)),
+    [],
+    'every pinned digest is a resolved cited row'
+  );
 }
 // The fatal decode the store half implements (§2.11, Step 5): until then the
 // store has no fatal decoder at all; once it lands, the only parse of segment
@@ -7205,6 +7455,7 @@ function checkFatalDecode(half, src) {
 
 test('§2.11: every citation resolves to a pinned symbol, and the trace runs end to end', () => {
   check211(STORE_HALF, readSource, s211raw());
+  checkDigests(STORE_HALF, readSource);
   // The round trip, run: JSON.parse makes the escape a lone surrogate,
   // JSON.stringify writes it back as the escape, Python's json.loads makes it
   // a lone surrogate again, and the frame's strict encode refuses it.
@@ -7342,6 +7593,7 @@ test('anchors: a line shift or a comment above any anchor never fails, on unchan
   // A blank line at the top of every cited file at once.
   const blankTop = (f) => `\n${readSource(f)}`;
   check211(STORE_HALF, blankTop, contract211);
+  checkDigests(STORE_HALF, blankTop);
   checkStoredRequest(load(CODEC).admission.stored_request, STORE_HALF, blankTop);
   checkFatalDecode(STORE_HALF, blankTop);
   declaredDepths(blankTop);
@@ -7358,8 +7610,10 @@ test('anchors: a line shift or a comment above any anchor never fails, on unchan
       const moved = insertAbove(text, line, what);
       const got = resolveAnchor(moved, row);
       assert.equal(got.line, line + 1, `${row.id} follows ${JSON.stringify(what)}`);
-      if (ANCHORS.includes(row)) check211(STORE_HALF, withFile(row.file, moved), contract211);
-      else declaredDepths(withFile(row.file, moved));
+      if (ANCHORS.includes(row)) {
+        check211(STORE_HALF, withFile(row.file, moved), contract211);
+        checkDigests(STORE_HALF, withFile(row.file, moved));
+      } else declaredDepths(withFile(row.file, moved));
     }
   }
 });
@@ -7468,6 +7722,172 @@ test('anchors: each STORE_HALF key, flipped against the unchanged code, fails', 
         )
       : readSource(f);
   assert.throws(() => checkFatalDecode(flip('fatal_decode'), parsing), /parses nothing itself/);
+});
+
+// The mutants the review of the Step 0 re-anchor ran (#656): each
+// changes code a §2.11 claim or §2.1's depth basis rests on, most keeping
+// the line count, and each must fail. In memory, as the anchor mutants are.
+const REVIEW_MUTANTS = [
+  [
+    'X01',
+    'mcp/server_http.js',
+    '    limit: HTTP_REQUEST_BYTES,\n',
+    "    limit: HTTP_REQUEST_BYTES, reviver: (k, v) => (typeof v === 'string' ? v.toWellFormed() : v),\n",
+  ],
+  [
+    'X02',
+    'lyric-harness/library/analysis.py',
+    '        return [_public_declarations(v) for v in value]\n    return value\n',
+    "        return [_public_declarations(v) for v in value]\n    return value.encode('utf-8', 'replace').decode() if isinstance(value, str) else value\n",
+  ],
+  [
+    'X03',
+    'lyric-harness/library/analysis.py',
+    '                cells.append(cell)\n',
+    '                cells.append([cell])\n',
+  ],
+  [
+    'X04',
+    'mcp/reader_routes.js',
+    '    request: prepared,\n',
+    '    request: { ...prepared, declaration_set: {} },\n',
+  ],
+  [
+    'X05',
+    'mcp/reader_scheduler.js',
+    '    const declarations = request.declaration_set;\n',
+    '    const declarations = request.declaration_set && {};\n',
+  ],
+  [
+    'X06',
+    'mcp/reader_scheduler.js',
+    '  if (!expected || sha256(bytes) !== expected)\n',
+    '  if (!expected)\n',
+  ],
+  [
+    'X07',
+    'mcp/reader_job_store.js',
+    '        maxOutputLength: READER_LIMITS.objectBytes,\n',
+    '        maxOutputLength: 2 * READER_LIMITS.objectBytes,\n',
+  ],
+  [
+    'X08',
+    'mcp/reader_job_store.js',
+    '    if (fs.statSync(file).size > READER_LIMITS.objectBytes)\n',
+    '    if (false)\n',
+  ],
+  [
+    'X09',
+    'mcp/reader_job_store.js',
+    '    bytes = decodeStoredObject(bytes);\n    if (sha(bytes) !== hash)\n',
+    '    bytes = decodeStoredObject(bytes);\n    if (false)\n',
+  ],
+  [
+    'X10',
+    'mcp/reader_scheduler.js',
+    "          code: failure.code || 'INTERRUPTED',\n",
+    "          code: 'INTERRUPTED',\n",
+  ],
+  [
+    'X11',
+    'mcp/reader_scheduler.js',
+    '          message: failure.message,\n          requeue: false,\n',
+    '          message: failure.message,\n          requeue: true,\n',
+  ],
+  [
+    'X12',
+    'mcp/reader_job_store.js',
+    "    const intent = jsonValue(request, 'Reader request');\n",
+    "    const intent = jsonValue({}, 'Reader request');\n",
+  ],
+  [
+    'X13',
+    'mcp/reader_job_store.js',
+    "          fence: crypto.randomBytes(32).toString('hex'),\n",
+    '          fence: record.fence,\n',
+  ],
+  [
+    'X14',
+    'mcp/reader_scheduler.js',
+    '    const record = this.store.lease();\n    if (!record) return;\n',
+    "    const record = this.store.lease();\n    if (!record) return; if (!isWellFormedRequest(record.request)) throw error('INVALID_DECLARATION', 'x');\n",
+  ],
+  [
+    'X15',
+    'mcp/reader_job_store.js',
+    '    return JSON.parse(bytes);\n  }\n  _require(id) {',
+    "    return JSON.parse(new TextDecoder('utf-8', {fatal:true}).decode(bytes));\n  }\n  _require(id) {",
+  ],
+  [
+    'X16',
+    'lyric-harness/library/analysis.py',
+    '            seen.add(key)\n            yield "alt_edge", (x, y, alt)\n',
+    '            seen.add((key,))\n            yield "alt_edge", (x, y, alt)\n',
+  ],
+  [
+    'X17',
+    'lyric-harness/library/analysis.py',
+    '                                 for m in (a, b)]\n',
+    '                                 for m in (a, b)]; cells = [[c] for c in cells]\n',
+  ],
+  [
+    'X18',
+    'mcp/python_bridge.js',
+    '        } catch (error) {\n          kill(error);\n          return;\n',
+    '        } catch (error) {\n          return;\n          kill(error);\n',
+  ],
+  [
+    'X19',
+    'mcp/reader_routes.js',
+    '      Array.isArray(input.declaration_set))\n',
+    '      false)\n',
+  ],
+  [
+    'Y1',
+    'mcp/reader_job_store.js',
+    "    if (fs.statSync(file).size > READER_LIMITS.objectBytes)\n      throw problem('STORAGE_CORRUPT', 'Stored reader object exceeds its bounded format.', 503);\n",
+    '',
+  ],
+  [
+    'Y2',
+    'mcp/reader_scheduler.js',
+    "      try {\n        this.store.pause(record.id, record.attempt, record.fence, {\n          code: failure.code || 'INTERRUPTED',\n          message: failure.message,\n          requeue: false,\n        });\n      } catch (stale) {",
+    '      try {\n        void failure;\n      } catch (stale) {',
+  ],
+  [
+    'Z1',
+    'mcp/reader_routes.js',
+    "    throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');\n",
+    "    throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');\n  if (input.declaration_set && !wellFormedDeep(input.declaration_set)) throw fail('INVALID_DECLARATION', 'The declaration set contains text that is not well-formed Unicode.');\n",
+  ],
+];
+// Every check the validator makes of the sources, at the STORE_HALF state.
+function traceAll(src) {
+  check211(STORE_HALF, src, s211raw());
+  checkDigests(STORE_HALF, src);
+  checkStoredRequest(load(CODEC).admission.stored_request, STORE_HALF, src);
+  checkFatalDecode(STORE_HALF, src);
+  declaredDepths(src);
+}
+
+test('anchors: each review mutant of a cited symbol or a depth symbol fails', () => {
+  traceAll(readSource);
+  for (const [tag, file, old, now] of REVIEW_MUTANTS) {
+    const text = readSource(file);
+    assert.equal(text.split(old).length, 2, `${tag}: its text occurs once in ${file}`);
+    let failed = false;
+    try {
+      traceAll(
+        withFile(
+          file,
+          text.replace(old, () => now)
+        )
+      );
+    } catch {
+      failed = true;
+    }
+    assert.ok(failed, `${tag} fails the validator`);
+  }
 });
 
 // Every statement this fold adds, as the contract must read once the facts
@@ -8351,6 +8771,23 @@ const depthFor = (declared) => Math.min(64, Math.max(8, 2 ** Math.ceil(Math.log2
 function declaredDepths(src = readSource) {
   const text = src('lyric-harness/library/analysis.py');
   for (const row of DEPTH_ANCHORS) resolveAnchor(text, row);
+  // The set is closed: each symbol's watched statements are exactly the
+  // pinned ones, whole.
+  assert.deepEqual(
+    Object.keys(DEPTH_WATCH).sort(),
+    [...new Set(DEPTH_ANCHORS.map((r) => r.symbol))].sort()
+  );
+  for (const [symbol, watch] of Object.entries(DEPTH_WATCH)) {
+    const id = `analysis.${symbol}`;
+    const stmts = pyStatements(spanText(text, { id, file: 'x.py', symbol }));
+    const pinned = DEPTH_ANCHORS.filter((r) => r.symbol === symbol).map((r) => r.stmt ?? r.starts);
+    assert.deepEqual(
+      stmts.filter((st) => watch.test(st) && !pinned.includes(st)),
+      [],
+      `every statement in ${symbol} that builds or reshapes an entry is a depth anchor`
+    );
+    for (const p of pinned) assert.ok(stmts.includes(p), `${symbol} holds the statement ${p}`);
+  }
   // The shapes those lines build, as JSON: a cell is a line and a token (and
   // a syllable), a span key its origin, direction and cells, a key two span keys.
   const cell = [12, 3, 0];
