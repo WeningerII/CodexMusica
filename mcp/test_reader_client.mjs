@@ -1306,6 +1306,46 @@ test('every refusal path ends the store lease, and the next job leases', async (
   }
 });
 
+// A reply's code and cause come from the worker's final frame, which the
+// bridge lets run to READER_FRAME_CAP. The log lines echo each one cut to 64
+// bytes, and the cut costs the same whatever the length: a pump with a 32 KiB
+// code and cause, C1 off and on, finishes at once (a cut that trims the whole
+// value a character at a time takes seconds per echo here, and hours at the
+// frame cap), and no log line holds more than each value's first 64 bytes.
+test('a long reply code and cause are echoed in bounded time', async (t) => {
+  const long = 'X'.repeat(1 << 15);
+  const head = 'X'.repeat(64);
+  for (const enforce of [false, true]) {
+    const started = performance.now();
+    const run = await leaseOnce(t, {
+      plan: async () => ({
+        code: 1,
+        reply: true,
+        error_code: long,
+        error_cause: long,
+        stderr: 'w',
+      }),
+      enforce,
+    });
+    const took = performance.now() - started;
+    assert.ok(took < 2000, `C1 ${enforce}: the pump took ${Math.round(took)} ms`);
+    const lines = [...run.warnings, ...run.errors];
+    assert.ok(
+      lines.every((line) => line.length < 4096),
+      `C1 ${enforce}: no log line carries the long value`
+    );
+    if (!enforce)
+      assert.ok(
+        run.warnings.some((line) => line.startsWith(`[reader] worker reply ${head}[${head}]: `)),
+        `C1 off: the warn echoes the code and the cause, each cut to 64 bytes: ${run.warnings}`
+      );
+    assert.ok(
+      run.store.inspect(run.a).state !== 'running',
+      `C1 ${enforce}: the job leaves the lease`
+    );
+  }
+});
+
 test('C1 is behind one constant, off, and the service never passes the option', async () => {
   assert.equal(READER_REPLY_CAUSES_ENFORCED, false);
   const server = await readFile(path.join(here, 'server_http.js'), 'utf8');

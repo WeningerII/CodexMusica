@@ -482,12 +482,16 @@ export const READER_REPLY_CAUSES_ENFORCED = false;
 
 // §8's echo of a bad value: a string as itself, anything else as its JSON
 // text, cut to at most 64 UTF-8 bytes at a character boundary; null when
-// missing.
+// missing. A reply's code or cause can be as long as a worker frame, so the
+// text is first cut to ECHO_BYTES UTF-16 units (every unit is at least one
+// byte, so the cut keeps the whole answer) and only that prefix is trimmed:
+// the cost never grows with the input.
 const ECHO_BYTES = 64;
 function echo(value) {
   if (value === undefined || value === null) return null;
   let text = typeof value === 'string' ? value : JSON.stringify(value);
   if (typeof text !== 'string') text = String(text);
+  if (text.length > ECHO_BYTES) text = text.slice(0, ECHO_BYTES);
   while (Buffer.byteLength(text) > ECHO_BYTES) text = [...text].slice(0, -1).join('');
   return text;
 }

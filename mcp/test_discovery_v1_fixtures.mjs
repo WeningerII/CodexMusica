@@ -1552,6 +1552,7 @@ function workerCursorRefusal(rest) {
 function echo(v) {
   if (v === undefined || v === null) return null;
   let text = typeof v === 'string' ? v : JSON.stringify(v);
+  if (text.length > ECHO_BYTES) text = text.slice(0, ECHO_BYTES);
   while (Buffer.byteLength(text) > ECHO_BYTES) text = [...text].slice(0, -1).join('');
   return text;
 }
