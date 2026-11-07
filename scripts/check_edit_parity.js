@@ -539,6 +539,32 @@ const ENV_WRITES = [
     src: appSrc,
     re: /card\.chain\[sId\]\s*=\s*cur\.includes\(itemId\)\s*\?\s*cur\.filter\(x\s*=>\s*x\s*!==\s*itemId\)\s*:\s*\[\.\.\.cur,\s*itemId\]/,
   },
+  // A pick there, or in any other card's editor, also writes the record (#826,
+  // BB8's rulings (b) on Don 6694017051 and (ii) in 6695603726), through
+  // recordEnvPick, unconditionally: whether it settles is recordEnvPick's own
+  // call. check_workbench.js drives those picks through the editors' own buttons
+  // across a catalog sample and compares the record with set_environment's; the
+  // cases here compare the values and renders, which the record never moves.
+  {
+    label: 'room pick records',
+    src: appSrc,
+    re: /\n\s*recordEnvPick\(card, 'room', \{ id: card\.room \}\)/,
+  },
+  {
+    label: 'tuning pick records',
+    src: appSrc,
+    re: /\n\s*recordEnvPick\(card, 'tuning', \{ id: card\.tuning \}\)/,
+  },
+  {
+    label: 'chain pick records',
+    src: appSrc,
+    re: /\n\s*recordEnvPick\(card, sId, \{ id: itemId, off \}\)[\s\S]{0,200}\n\s*recordEnvPick\(card, sId, \{ id: card\.chain\[sId\] \}\)/,
+  },
+  {
+    label: 'a pick records with no card gate',
+    src: appSrc,
+    re: /^(?![\s\S]*if \(panel\) recordEnvPick)/,
+  },
   {
     label: 'environment editor opens on envCardOf',
     src: workbenchSrc,
@@ -601,6 +627,7 @@ let multiCases = 0;
 let clearCases = 0;
 let cardlessCases = 0;
 let cardlessMoved = 0;
+let otherCardCases = 0;
 for (let i = 0; i < cases.length; i++) {
   const c = cases[i];
   const room = rooms[i % rooms.length];
@@ -702,34 +729,223 @@ for (let i = 0; i < cases.length; i++) {
       after.cards
     );
   }
+
+  // another card: the values a pick in the editor of a card that is not the
+  // environment card stores, against set_environment {card} there (#826, BB8's
+  // ruling (ii) in 6695603726); its record is check_workbench.js's to compare.
+  // The environment card first holds a connector write of the same room.
+  {
+    let ws = W.seed([c.tradition]);
+    if (ws.cards.length < 2) ws = W.addInstrument(ws, c.card.instrumentId);
+    const envId = app.envCardOf(ws.cards).id;
+    ws = W.setEnvironment(ws, null, { room });
+    const appCards = clone(ws.cards);
+    const envAt = appCards.findIndex((x) => x.id === envId);
+    const target = appCards.find((x, k) => k > envAt);
+    if (target) {
+      const multiPick =
+        multi && multi.items.find((it) => !(target.chain[multi.id] || []).includes(it.id));
+      target.room = room || null;
+      target.tuning = tuning || null;
+      target.chain[stage.id] = item.id || null;
+      const chain = { [stage.id]: item.id };
+      if (multiPick) {
+        target.chain[multi.id] = [...(target.chain[multi.id] || []), multiPick.id];
+        chain[multi.id] = multiPick.id;
+      }
+      const after = W.setEnvironment(ws, target.id, { room, tuning, chain });
+      otherCardCases++;
+      compareRosters(
+        `${c.tradition} roster → environment pick on ${target.instrumentId} (not the environment card)`,
+        appCards,
+        after.cards
+      );
+    }
+  }
 }
 console.log(
   `  ${envCases} single-card, ${multiCases} multi-select add, ${clearCases} clear and ` +
-    `${cardlessCases} card-less roster edit(s) compared (${cardlessMoved} with a bare card first)`
+    `${cardlessCases} card-less roster edit(s) compared (${cardlessMoved} with a bare card first), ` +
+    `and ${otherCardCases} pick(s) on a card that is not the environment card`
 );
-if (envCases === 0 || multiCases === 0 || clearCases === 0 || cardlessMoved === 0) {
+if (
+  envCases === 0 ||
+  multiCases === 0 ||
+  clearCases === 0 ||
+  cardlessMoved === 0 ||
+  otherCardCases === 0
+) {
   console.log(
-    '\nEDIT PARITY: FAIL — an environment case kind never ran (single-card, multi-select, clear, or a card-less edit on a roster whose first card is bare); agreement there proves nothing.'
+    '\nEDIT PARITY: FAIL — an environment case kind never ran (single-card, multi-select, clear, a card-less edit on a roster whose first card is bare, or a pick on another card); agreement there proves nothing.'
   );
   process.exit(1);
 }
 
-// Same anti-vacuity rule the cascade check above uses: a render comparison that
-// never ran is not a render comparison that passed.
-if (rendersCompared === 0) {
-  console.log('\nEDIT PARITY: FAIL — no post-edit render was compared; agreement proves nothing.');
-  process.exit(1);
-}
-if (mismatches || renderMismatches) {
-  if (mismatches)
-    console.log(`\nEDIT PARITY: FAIL — ${mismatches} case(s) diverged in card state.`);
-  if (renderMismatches)
-    console.log(
-      `EDIT PARITY: FAIL — ${renderMismatches}/${rendersCompared} post-edit render(s) diverged.`
-    );
-  process.exit(1);
+// ── the connector's envWritten record, then the app's own edits ─────────────
+//
+// set_environment keeps a record on the card of what it wrote (`envWritten`,
+// scripts/_workspace_ops.js), which the connector's ENVIRONMENT_NOT_RENDERED
+// and ENVIRONMENT_MOVED read (#671, BB8 6681659990). Only a pick in an app card's
+// environment editor writes it there (check_workbench.js drives that through
+// the editors); the edits here are not picks: a workspace a connector
+// edited, then edited in the app, must come back with the record exactly as the
+// connector left it, and the record must change no byte either surface renders.
+// The app's edits here are its real functions (commitPrefaceChange,
+// applyPartEdit) and the inline environment writes the tripwire above pins.
+// What the app moved in place, it moved: the connector then reads the record
+// against the values it is handed (W.envRecordHolds), so a value the app
+// replaced simply no longer holds.
+console.log('\n=== Record parity: a connector set_environment, then app edits ===');
+let recordCases = 0;
+let recordLost = 0;
+let recordDropped = 0;
+let recordRenderDiffs = 0;
+for (let i = 0; i < cases.length; i++) {
+  const c = cases[i];
+  let ws = W.seed([c.tradition]);
+  const envCard = app.envCardOf(ws.cards);
+  const target = ws.cards.find((x) => x !== envCard);
+  if (!target) continue;
+  ws = W.setEnvironment(ws, target.id, {
+    room: rooms[i % rooms.length],
+    chain: { [multiStages[0].id]: multiStages[0].items[i % multiStages[0].items.length].id },
+  });
+  const appCards = clone(ws.cards);
+  const card = appCards.find((x) => x.id === target.id);
+  // The app's preface pick, a variant pick, and an environment write of its
+  // own on another field. The preface pick drops each field it re-derived from
+  // the record, as set_preface does (BB8, #826 6694245096); the rest is not a
+  // pick, and leaves the record as it is.
+  const preface = prefaces[i % prefaces.length];
+  let reDerived = ws;
+  try {
+    reDerived = W.setPreface(ws, target.id, preface);
+  } catch {
+    // A preface the connector refuses: the app sets the label only.
+  }
+  const written = JSON.stringify(reDerived.cards.map((x) => x[W.ENV_RECORD] ?? null));
+  if (written !== JSON.stringify(ws.cards.map((x) => x[W.ENV_RECORD] ?? null))) recordDropped++;
+  app.commitPrefaceChange(card, preface);
+  const inst = (C.INSTRUMENTS || []).find((x) => x.id === card.instrumentId);
+  const part = (inst.parts || []).find((p) => (p.variants || []).length > 1);
+  if (part) {
+    card.parts[part.id] = part.variants.find((v) => v.id !== card.parts[part.id]).id;
+    app.applyPartEdit(card, part.id);
+  }
+  card.tuning = tunings[i % tunings.length] || null;
+  recordCases++;
+  const now = JSON.stringify(appCards.map((x) => x[W.ENV_RECORD] ?? null));
+  if (now !== written) {
+    recordLost++;
+    if (shown < SHOW) {
+      shown++;
+      console.log(
+        `  ✗ ${c.tradition}: the app's record is not set_preface's\n      ${written}\n      ${now}`
+      );
+    }
+  }
+  const bare = clone(appCards).map(({ [W.ENV_RECORD]: _, ...x }) => x);
+  for (const format of FORMATS) {
+    const withRecord = app.compileRecipeStack(clone(appCards), format, { ceiling: CEILING });
+    rendersCompared++;
+    if (
+      withRecord !== app.compileRecipeStack(clone(bare), format, { ceiling: CEILING }) ||
+      withRecord !== renderWorkspace(clone(appCards), { format, ceiling: CEILING })
+    ) {
+      recordRenderDiffs++;
+      renderMismatches++;
+    }
+  }
 }
 console.log(
-  `\nEDIT PARITY: PASS — set_variant, set_preface and set_environment each reshape the card identically in both surfaces, and all ${rendersCompared} post-edit renders are byte-identical across every format.`
+  `  ${recordCases} connector-written card(s) edited in the app: ${recordLost} record(s) unlike the connector's, ` +
+    `${recordRenderDiffs} render(s) moved with it; ${recordDropped} preface pick(s) re-derived a written field`
 );
-process.exit(0);
+if (recordCases === 0 || recordDropped === 0) {
+  console.log(
+    '\nEDIT PARITY: FAIL — no record case ran, or no preface pick re-derived a written field; agreement there proves nothing.'
+  );
+  process.exit(1);
+}
+mismatches += recordLost;
+
+// BB8's sequence (#826 6694245096): a set_environment on a card that is not the
+// environment card, then two preface picks on that card, the first moving the
+// room off what was written and the second landing back on it. set_preface
+// drops the room at the first, so nothing warns at the second; the app's
+// preface pick must do the same, or ENVIRONMENT_NOT_RENDERED comes back for a
+// room the preface derived. The app's real commitPrefaceChange, then the
+// connector reading what it left.
+// The engine is an ES module, so the rest of the gate runs once it is loaded.
+(async () => {
+  console.log('\n=== A preface pick drops a re-derived field, as set_preface does ===');
+  {
+    const E = await import(path.join(__dirname, '..', 'mcp', 'engine.js'));
+    const seeded = W.seed(['bluegrass']);
+    const card2 = seeded.cards[1].id;
+    const ws = W.setEnvironment(seeded, card2, { room: 'ice_glacier' });
+    const warnings = (cards) =>
+      E.renderRecipe({ workspace: { cards } }).render_warnings.map((w) => [
+        w.code,
+        cards.findIndex((x) => x.id === w.card),
+      ]);
+    const connector = [W.setPreface(ws, card2, 'conspiring')];
+    connector.push(W.setPreface(connector[0], card2, 'shrieking'));
+    const room = (w) => w.cards.find((x) => x.id === card2).room;
+    const fixture =
+      warnings(ws.cards).some(([code]) => code === 'ENVIRONMENT_NOT_RENDERED') &&
+      room(connector[0]) !== 'ice_glacier' &&
+      room(connector[1]) === 'ice_glacier';
+    if (!fixture) {
+      mismatches++;
+      console.log(
+        `  ✗ fixture: bluegrass ${card2} should warn, move off ice_glacier and land back on it (${room(connector[0])}, ${room(connector[1])})`
+      );
+    }
+    const appCards = clone(ws.cards);
+    app.app.cards = appCards;
+    const appCard = appCards.find((x) => x.id === card2);
+    for (const [step, preface] of ['conspiring', 'shrieking'].entries()) {
+      app.commitPrefaceChange(appCard, preface);
+      const a = JSON.stringify(warnings(appCards));
+      const b = JSON.stringify(warnings(connector[step].cards));
+      const ra = JSON.stringify(appCards.map((x) => x[W.ENV_RECORD] ?? null));
+      const rb = JSON.stringify(connector[step].cards.map((x) => x[W.ENV_RECORD] ?? null));
+      if (a !== b || ra !== rb || appCard.room !== room(connector[step])) {
+        mismatches++;
+        console.log(
+          `  ✗ after ${preface}: app ${a} ${ra} room=${appCard.room}\n      connector ${b} ${rb} room=${room(connector[step])}`
+        );
+      } else console.log(`  ✓ after ${preface}: the same record and render_warnings ${a}`);
+    }
+  }
+
+  // The app's Duplicate copies a card's values, not its provenance (#671, BB8
+  // 6685465828, 5(e)): check_workbench.js runs the app's own Duplicate action on
+  // the environment card across a catalog sample and checks the copy.
+
+  // Same anti-vacuity rule the cascade check above uses: a render comparison that
+  // never ran is not a render comparison that passed.
+  if (rendersCompared === 0) {
+    console.log(
+      '\nEDIT PARITY: FAIL — no post-edit render was compared; agreement proves nothing.'
+    );
+    process.exit(1);
+  }
+  if (mismatches || renderMismatches) {
+    if (mismatches)
+      console.log(`\nEDIT PARITY: FAIL — ${mismatches} case(s) diverged in card state.`);
+    if (renderMismatches)
+      console.log(
+        `EDIT PARITY: FAIL — ${renderMismatches}/${rendersCompared} post-edit render(s) diverged.`
+      );
+    process.exit(1);
+  }
+  console.log(
+    `\nEDIT PARITY: PASS — set_variant, set_preface and set_environment each reshape the card identically in both surfaces, the record set_environment keeps comes through the app's edits as the connector's own edits leave it, and all ${rendersCompared} post-edit renders are byte-identical across every format.`
+  );
+  process.exit(0);
+})().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
