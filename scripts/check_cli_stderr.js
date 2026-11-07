@@ -119,6 +119,27 @@ cases.push({
   jsonPrefix:
     'note: blending 6 traditions; recipes are tuned for up to 3, so output may be noisy.\n',
 });
+// The one case whose stderr cannot fit in the pipe: Linux gives the child a
+// socketpair holding 208 KiB (212,992 B, net.core.wmem_default), and this
+// --json --why-json blend writes more than twice that (449,254 B measured), so
+// a --json exit that does not wait for stderr loses bytes here (BB8, #828).
+// minStderr is that 2 x 208 KiB: a wording trim that took the case under it
+// would let the case fit again, so the gate fails instead. The 17 ids are the
+// smallest pinned blend found that clears it (greedy on distinct slots).
+cases.push({
+  name: 'pipe-overflow-json-why-json',
+  args: [
+    'scripts/recipe.js',
+    '--traditions',
+    'musique_comorienne,symphonic,british_invasion_rb,historical_informed_performance,carnatic_instrumental,nordic_folk,chinese_traditional_ensemble,musique_guadeloupe,french_indietronica,hindustani,video_game_music,samba,mande_griot,nepali_indie,persian_dastgah,celtic_irish_trad,classic_bhangra',
+    '--json',
+    '--why-json',
+  ],
+  notes: [],
+  minStderr: 2 * 212992,
+  jsonPrefix:
+    'note: blending 17 traditions; recipes are tuned for up to 3, so output may be noisy.\n',
+});
 const kill = (c) => {
   try {
     if (process.platform !== 'win32') process.kill(-c.pid, 'SIGKILL');
@@ -218,7 +239,10 @@ function valid(c, r) {
   assert.equal(r.signal, null);
   assert.equal(r.code, 0);
   if (c.minStderr)
-    assert.ok(r.err.length >= c.minStderr, `${c.name}: genuine stderr below ${c.minStderr} bytes`);
+    assert.ok(
+      r.err.length >= c.minStderr,
+      `${c.name}: stderr is ${r.err.length} bytes, under this case's floor of ${c.minStderr}`
+    );
   const text = r.err.toString('utf8');
   if (c.args.includes('--json')) assert.ok(JSON.parse(r.out).config);
   else assert.ok(r.out.length > 0);
@@ -295,8 +319,10 @@ async function main() {
     cases.flatMap((c) =>
       Array.from({ length: REPEATS }, (_, i) => async () => {
         const r = await run(c.args);
-        valid(c, r);
+        // Bytes first: a pipe that lost a JSON stderr's tail is a stderr
+        // mismatch against the file reference, not a JSON parse error.
         equal(refs.get(c.name), r, `${c.name} repeat ${i + 1}`);
+        valid(c, r);
       })
     )
   );
