@@ -59,9 +59,12 @@ not UTF-8 are F3 in both languages, decoded in Node by a fatal `TextDecoder`, ne
 `Buffer.toString`; and admission's lone-surrogate refusal has a guard test on both create paths
 and a stored-request case at `workerPayload` (§2.11, §9, §13). A review of `04495c233`
 corrected that case: the store leases the record before the check, and the check keeps it from
-the bridge lease (§2.11). Where this text and the proposal differ, this text governs. 3PO's
-acknowledgement (6677006069) fixes the `contracts.py` reservation to the checkpoint declaration
-and schema; the shared `CONTRACT_VERSION` does not change.
+the bridge lease (§2.11). BB8's review of `a12c35b4d` (6699352254) accepts `MEMBERSHIP_BYTES` at
+4 MiB, provisional with `ENTRY_DEPTH`, on two conditions (§6.11, §12, item 31), keeps the
+stored-request check where §2.11 has it, not in the store's lease (§2.11), and counts the 17
+named shapes as 13 distinct loads at this cap (§10). Where this text and the proposal differ,
+this text governs. 3PO's acknowledgement (6677006069) fixes the `contracts.py` reservation to the
+checkpoint declaration and schema; the shared `CONTRACT_VERSION` does not change.
 
 **Base.** a0 (draft PR #816, head `aabf6eeb0`): checkpoint objects carry no cursor, and the
 job record holds the one cursor that resume reads. Line references are at that head.
@@ -599,7 +602,11 @@ and the validator checks it in Node and in Python and builds this section's text
   (`reader_scheduler.js:519-523`) with `INVALID_DECLARATION`, and the scheduler's catch pauses
   it with that code (`:592-598`), which ends the store's lease. The bridge lease is never taken:
   `runReaderLease` is never called, and the worker never sees the request.
-  `admission.stored_request` in `good/codec_error_mapping.json` is that record's request.
+  `admission.stored_request` in `good/codec_error_mapping.json` is that record's request. The
+  check stays there, not in `this.store.lease()` (BB8 6699352254, ruling 2): "refused before
+  hand-out" means before the worker, and a refusal inside `lease()` would add a queued → paused
+  transition with no fence, a new state edge for a case that exists only for records written
+  before the check.
 
 ## 3. Hard limits
 
@@ -1619,6 +1626,15 @@ in the derivation of `8732918312`.
   rate is the worst of 17 shapes capped at `ENTRY_DEPTH = 8`, itself provisional until the #721
   author declares the entry shapes, and a declared depth of 5 or more re-derives both (§2.1, §12,
   item 31).
+- **BB8's acceptance, and its two conditions** (BB8 6699352254, ruling 1). `MEMBERSHIP_BYTES =
+  4194304` stands, provisional with `ENTRY_DEPTH`. Rounding it down to a power of two is
+  accepted: it gives up 1,377,469 bytes of room (5,571,773 less 4,194,304) and keeps the two
+  caps alike. (a) The per-byte rate is re-measured on a quiet host before the proof run. The
+  worst median's two passes differ by 4.8%, and the worst single load with the nested shapes
+  capped at 64, 208.1 ns, is past the 184.4 ns at which the cap stops fitting, so the medians
+  carry the claim and a noisy run could flip it. (b) If the declared entry shapes put
+  `ENTRY_DEPTH` at 64, `MEMBERSHIP_BYTES` is re-derived, not inherited: the median at that cap,
+  169.9 ns, is within 8% of 184.4 ns.
 - **What it replaces** (BB8 6693502369). The previous revision's 2,097,152 (2 MiB) came from
   251.4 ns per byte, the 17 shapes measured up to 2,040 levels deep, which F1 no longer admits.
   That rate was about 2.3-fold the 107.3 ns the five shapes of `465582a78` peaked at on the same
@@ -2120,7 +2136,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | discovery total | about 1.64 MB plain, about 0.2 MB gzip | computed |
 | per lease | walk about 10 ms; load 20,045 entries × 30.4 µs = 0.6 / 1.5 s; recompute 0.9 / 2.4 s; construct 6.4 / 15.2 s; about 8 / 19 s in all | measured |
 | loaded / light | construct 2.375, load 2.5, recompute 2.67 | computed from the measured times; §6.11 rounds the load's 2.5 up to 3 |
-| load per byte | 138.8 ns per entry byte at 4,096-byte entries: the worst median of five loads of 8 MiB (2,048 entries, 512 segments), over 17 entry shapes, each capped at `ENTRY_DEPTH` (8) (BB8 6693502369): an ASCII string, a 3-byte UTF-8 string, one-character escapes, empty strings, one-digit integers, one-element arrays, empty arrays, empty arrays nested 2 and 4 deep, empty arrays nested 8, 16, 64, 256 and 1,024 deep, each capped at 7 inside the entry's own array, `0` nested 2 deep and `0` nested 8 deep, capped at 7, and one array nested 2,040 deep, capped at 7, each stored plain and gzipped, in two passes. The worst median is `0` nested 7 deep, gzipped; the worst single load 151.0 ns. The five shapes of `465582a78` peak at 101.9 ns in the same passes, so nesting to the bound raises the rate about 1.4-fold. The previous revision's 251.4 ns came from the 2,040-deep array, gzipped, about 2.3-fold the 107.3 ns its five shapes peaked at on that host (BB8 6693638249). The load is the worker's page reader (`worker.read_page_object`), F3, R2 and F5, and the membership set keyed by each entry's canonical bytes, computed once for F5 (§5.2). Measured on a 4-CPU Xeon at 2.1 GHz under Python 3.13, at one-minute load averages of 3.7 to 4.4, not on #656's light host | measured (BB8 6688972927, 6693502369); the rows are `good/membership_load_measurement.json`; §6.11 scales it by 3 |
+| load per byte | 138.8 ns per entry byte at 4,096-byte entries: the worst median of five loads of 8 MiB (2,048 entries, 512 segments), over 17 entry shapes, each capped at `ENTRY_DEPTH` (8) (BB8 6693502369): an ASCII string, a 3-byte UTF-8 string, one-character escapes, empty strings, one-digit integers, one-element arrays, empty arrays, empty arrays nested 2 and 4 deep, empty arrays nested 8, 16, 64, 256 and 1,024 deep, each capped at 7 inside the entry's own array, `0` nested 2 deep and `0` nested 8 deep, capped at 7, and one array nested 2,040 deep, capped at 7, each stored plain and gzipped, in two passes. These are 17 named shapes, 13 distinct at this cap: capped at 7, the empty arrays nested 8, 16, 64, 256 and 1,024 deep build the same entry, so 13 distinct loads stand behind the rate (BB8 6699352254). The worst median is `0` nested 7 deep, gzipped; the worst single load 151.0 ns. The five shapes of `465582a78` peak at 101.9 ns in the same passes, so nesting to the bound raises the rate about 1.4-fold. The previous revision's 251.4 ns came from the 2,040-deep array, gzipped, about 2.3-fold the 107.3 ns its five shapes peaked at on that host (BB8 6693638249). The load is the worker's page reader (`worker.read_page_object`), F3, R2 and F5, and the membership set keyed by each entry's canonical bytes, computed once for F5 (§5.2). Measured on a 4-CPU Xeon at 2.1 GHz under Python 3.13, at one-minute load averages of 3.7 to 4.4, not on #656's light host | measured (BB8 6688972927, 6693502369); the rows are `good/membership_load_measurement.json`; §6.11 scales it by 3 |
 | load per byte, deeper bounds | the same load, in one pass, with the nested shapes capped at 16 and at 64 instead: worst medians 153.5 and 169.9 ns, so on these measurements a re-derivation at either would keep the cap at 4 MiB, under the 184.4 ns at which it stops fitting (§6.11) | measured beside the row above, in the same fixture; for BB8's ruling on `ENTRY_DEPTH` (§12, item 31) |
 | keyed through `canonical_json` | 411 to 703 ns per entry byte on value-dense 4,096-byte entries (one-digit integers, one-element and empty arrays), five to nine times the single pass on the same shapes; 12 to 18 ns on long strings. The same load path and host as the row above, keying each entry by `canonical_json` instead | measured; outside the derivation, which §2.1 and §5.2 forbid |
 | rebuilt load at #656's entry size | 20,045 ASCII entries of 65 bytes: about 3.5 µs per entry plain and 4.1 µs gzipped, against a0's 30.4 µs on the light host; the gap is not explained (§6.11) | measured on the same host as the two rows above |
@@ -2183,6 +2199,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 46 | BB8 6688972927 | `cursor_refusal_bytes` retired, accepted, on the condition that an `INVARIANT_FAILURE` message names the bound it passed; (1) the cap is stated as 90,975 with the margin, rounded down to 65,536, with no #656 entry count as a term; (2) `MEMBERSHIP_BYTES`, from a per-byte rate measured at 4,096-byte entries, the worst of 17 shapes, scaled by 3, with the same causes (2 MiB then; re-derived by row 48); the caps bound the load and the walk, construct and recompute are measured, and the figures at the caps are a derivation; (3) an oversized compaction defers, and §6.2 wins over §3's `FRAME_SEALS` row; (4) a full read is the store's alone (reconciliation, `resume()`), and the worker's finish-time `alt_cells` load is a complete verified load, `STORAGE_CORRUPT` on F6 with no release; (5)–(10) the walk's two caps, `chain_broken` among the pause's worker causes, the GC sentence, four §6.2 tests everywhere, `discovery_row_seen`'s message, item 25's attribution; item 29 stays open | §1, §3, §5.1, §5.2, §6.2, §6.11, §7.2, §8, §10, §11, §12 | `bad/cursor_over_bound.json`; the §6.11 derivation and byte tests |
 | 47 | BB8, #721 items 2–3 (accepted by R2); BB8's #721 codec review, should-fix 1; BB8's emit-precedence ruling (19:40Z) | the codec raises a local error with a rule tag and the enclosing operation maps it, never the codec; (a) a submitted frame's F1 or F2 is `READER_PROTOCOL`, its integer fields W1 and W4, and a frame that is not JSON is the step channel's failure; (b) a generated entry's F2 is `RESOURCE_LIMIT` (`discovery_entry_bytes`) and its F1 `INVARIANT_FAILURE`, its message naming the rule; (c) a persisted segment's bad content is F3, `segment_corrupt` stays F6's and the store's, a failed inflation F6; the `1.0` divergence, one pin per side; invalid UTF-8 in a segment F3 in both languages; precedence F1 before F2 on the worker's emit, unpinned elsewhere; F2 on the canonical form, the raw input bounded by the enclosing reader; `INTEGER_FIELD`; a lone surrogate refused at admission, before any lease | §2.5, §2.11, §3, §4, §5.1, §5.2, §8, §9, §13 | `good/codec_error_mapping.json`, `bad/float_entry.json`; the §2.11 tests |
 | 48 | BB8 6693502369 (items 30 and 31, R2's questions of 6693449409); BB8's review 6693638249, nits 1–4 | (30) each log's head and verified state carry `bytes`, the sum of its sealed entries' canonical bytes, added to by each seal; W7 holds `MEMBERSHIP_BYTES` from it; it is verified where it is read: R2 at a full read (`chain_broken`), R5 at a lease's walk (`STORAGE_CORRUPT`), R3 at the worker's load (`cursor_disagrees`); (31) F1 bounds the depth by `ENTRY_DEPTH`, the smallest power of two at least twice the largest declared depth, at least 8 and at most 64, provisionally 8 until the #721 author declares the entry shapes; past it `INVARIANT_FAILURE` on the worker's emit, `READER_PROTOCOL` at the store, F3 on read-back; `MEMBERSHIP_BYTES = 4194304` re-derived over the 17 shapes capped at it, provisional with it; the nits: no #656 entry count is a term, each log's section names both caps, the counts use the unrounded terms but for the per-byte rate, as printed, and 2.3-fold is against 107.3 ns; BB8's 21:31Z confirmations: invalid UTF-8 in a segment F3 in both languages, never `Buffer.toString`, and admission's stored-request case | §1, §2.1, §2.3, §2.7, §2.10, §2.11, §3, §4, §5.1, §5.2, §6.1, §6.2, §6.4, §6.11, §8, §9, §10, §12, §13 | `bad/entry_over_depth.json`, `bad/head_bytes_disagree.json`, `bad/verified_bytes_disagree.json`, `bad/summary_bytes_disagree.json`, `bad/membership_over_cap.json`, `bad/verified_bytes_ahead.json`, `good/codec_error_mapping.json`, `good/membership_load_measurement.json`; the §6.11 derivation and byte tests |
+| 49 | BB8 6699352254 (review of `a12c35b4d`, rulings 1–2) | (1) `MEMBERSHIP_BYTES = 4194304` stands, provisional with `ENTRY_DEPTH`; power-of-two rounding is accepted; the per-byte rate is re-measured on a quiet host before the proof run, and the cap is re-derived, not inherited, if `ENTRY_DEPTH` reaches 64; (2) the stored-request check stays where §2.11 has it, before `workerPayload`, never in `this.store.lease()`; and the 17 named shapes are 13 distinct loads at this cap | §2.11, §6.11, §10, §12 | `good/membership_load_measurement.json`, `good/codec_error_mapping.json`; the §6.11 derivation and the claim tests |
 
 ## 12. Rulings on the items added for confirmation
 
@@ -2198,7 +2215,8 @@ sites, and closes the contract's semantics but for item 29. Each ruling is marke
 below. Only item 29 is open, for the proof run. Items 30 and 31, R2's two questions of
 6693449409, are ruled (BB8 6693502369: yes to both) and folded; item 31's `ENTRY_DEPTH`, and
 `MEMBERSHIP_BYTES` with it, are provisional until the #721 author declares the entry shapes, and
-those values are open for BB8.
+those values are open for BB8. BB8 accepts `MEMBERSHIP_BYTES` at 4 MiB, provisional with
+`ENTRY_DEPTH`, on two conditions (6699352254, ruling 1; item 31).
 
 1. **Ruled: confirmed** (BB8 6678599629). `row_seen`'s reset at row boundaries and its
    compaction (§6.2), and the frame's `resets` field. The compaction decision depends only on
@@ -2468,7 +2486,11 @@ qualification (6683944548). Item 29 stays open. Items 30 and 31 are R2's two que
     `alt_seen` key of depth 4 (§2.1). `MEMBERSHIP_BYTES` is re-derived over the 17 shapes
     capped at it (§6.11, §10), and `MEMBERSHIP_BYTES = 4194304` is provisional with
     `ENTRY_DEPTH = 8`: both wait on the #721 author's (3PO's) declared entry shapes, and a
-    declared depth of 5 or more re-derives both.
+    declared depth of 5 or more re-derives both. BB8 accepts `MEMBERSHIP_BYTES = 4194304` on
+    these terms (6699352254, ruling 1): the power-of-two rounding stands; the per-byte rate is
+    re-measured on a quiet host before the proof run; and if the declared shapes put
+    `ENTRY_DEPTH` at 64, the cap is re-derived, not inherited (§6.11). The 17 shapes are 17
+    named shapes, 13 distinct at this cap (§10).
 
 ## 13. Fixtures and validator
 

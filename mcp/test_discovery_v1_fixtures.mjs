@@ -7084,7 +7084,10 @@ const CLAIMS = [
       "and the scheduler's catch pauses it with that code (`:{{ADM_PAUSED_LINES}}`), which ends",
       "the store's lease. The bridge lease is never taken: `runReaderLease` is never called, and",
       'the worker never sees the request. `admission.stored_request` in',
-      "`good/codec_error_mapping.json` is that record's request.",
+      "`good/codec_error_mapping.json` is that record's request. The check stays there, not in",
+      '`this.store.lease()` (BB8 6699352254, ruling 2): "refused before hand-out" means before',
+      'the worker, and a refusal inside `lease()` would add a queued → paused transition with no',
+      'fence, a new state edge for a case that exists only for records written before the check.',
     ],
   },
   {
@@ -7835,6 +7838,134 @@ function releaseStateSizes() {
     for (const x of xs) assert.ok(Math.abs(x - out[k]) <= 10, `${k}: ${x} is about ${out[k]}`);
   return out;
 }
+// BB8's review of a12c35b4d (6699352254): ruling 1 on MEMBERSHIP_BYTES, with
+// its two conditions; ruling 2, the stored-request check stays where §2.11 has
+// it; and the 17 named shapes counted as the distinct loads behind the rate.
+const FOLD49_CLAIMS = [
+  {
+    where: '0',
+    whole: false,
+    text: [
+      "BB8's review of `a12c35b4d` (6699352254) accepts `MEMBERSHIP_BYTES` at {{MIB}},",
+      'provisional with `ENTRY_DEPTH`, on two conditions (§6.11, §12, item 31), keeps the',
+      "stored-request check where §2.11 has it, not in the store's lease (§2.11), and counts",
+      'the {{SHAPES}} named shapes as {{B8_DISTINCT}} distinct loads at this cap (§10).',
+    ],
+  },
+  {
+    where: '6',
+    whole: false,
+    text: [
+      "- **BB8's acceptance, and its two conditions** (BB8 6699352254, ruling 1).",
+      '`MEMBERSHIP_BYTES = {{MB}}` stands, provisional with `ENTRY_DEPTH`. Rounding it down to',
+      'a power of two is accepted: it gives up {{B8_GIVEN_UP}} bytes of room ({{B8_ROOM}} less',
+      '{{B8_MB}}) and keeps the two caps alike. (a) The per-byte rate is re-measured on a quiet',
+      "host before the proof run. The worst median's two passes differ by {{B8_SPREAD}}%, and",
+      'the worst single load with the nested shapes capped at {{SENS64}}, {{B8_SINGLE64}} ns, is',
+      'past the {{B8_STOPS}} ns at which the cap stops fitting, so the medians carry the claim',
+      'and a noisy run could flip it. (b) If the declared entry shapes put `ENTRY_DEPTH` at',
+      '{{SENS64}}, `MEMBERSHIP_BYTES` is re-derived, not inherited: the median at that cap,',
+      '{{B8_AT64}} ns, is within {{B8_GAP64}}% of {{B8_STOPS}} ns.',
+    ],
+  },
+  {
+    where: '10',
+    whole: false,
+    text: [
+      'These are {{SHAPES}} named shapes, {{B8_DISTINCT}} distinct at this cap: capped at',
+      '{{B8_CAPPED}}, the empty arrays nested {{B8_SAME}} deep build the same entry, so',
+      '{{B8_DISTINCT}} distinct loads stand behind the rate (BB8 6699352254).',
+    ],
+  },
+  {
+    where: '11',
+    whole: false,
+    text: [
+      '| 49 | BB8 6699352254 (review of `a12c35b4d`, rulings 1–2) | (1) `MEMBERSHIP_BYTES =',
+      '{{MB}}` stands, provisional with `ENTRY_DEPTH`; power-of-two rounding is accepted; the',
+      'per-byte rate is re-measured on a quiet host before the proof run, and the cap is',
+      're-derived, not inherited, if `ENTRY_DEPTH` reaches {{SENS64}}; (2) the stored-request',
+      'check stays where §2.11 has it, before `workerPayload`, never in `this.store.lease()`;',
+      'and the {{SHAPES}} named shapes are {{B8_DISTINCT}} distinct loads at this cap |',
+    ],
+  },
+  {
+    where: '12',
+    whole: false,
+    text: [
+      'those values are open for BB8. BB8 accepts `MEMBERSHIP_BYTES` at {{MIB}}, provisional',
+      'with `ENTRY_DEPTH`, on two conditions (6699352254, ruling 1; item 31).',
+    ],
+  },
+  {
+    where: '12',
+    whole: false,
+    text: [
+      'declared depth of {{DECL_NEXT}} or more re-derives both. BB8 accepts `MEMBERSHIP_BYTES =',
+      '{{MB}}` on these terms (6699352254, ruling 1): the power-of-two rounding stands; the',
+      'per-byte rate is re-measured on a quiet host before the proof run; and if the declared',
+      'shapes put `ENTRY_DEPTH` at {{SENS64}}, the cap is re-derived, not inherited (§6.11). The',
+      '{{SHAPES}} shapes are {{SHAPES}} named shapes, {{B8_DISTINCT}} distinct at this cap (§10).',
+    ],
+  },
+];
+// The figures FOLD49_CLAIMS states, computed from the measurement's rows and
+// §6.11's terms (BB8 6699352254).
+function fold49Facts(meas) {
+  const n = (v) => v.toLocaleString('en-US');
+  const f1 = (x) => x.toFixed(1);
+  const factor = 3;
+  const walk = 5 * LIMITS.CHAIN_SEGMENTS * (0.01 / 99) * factor;
+  const left = 29 - 15.2 - 2.4 - walk - LIMITS.MEMBERSHIP_ENTRIES * 30.4e-6 * factor;
+  const MB = LIMITS.MEMBERSHIP_BYTES;
+  const top = (rows, f) => rows.reduce((a, r) => (r[f] > a[f] ? r : a));
+  const main = meas.runs.filter((r) => r.cap === LIMITS.ENTRY_DEPTH);
+  const worst = top(main, 'ns_per_byte_med');
+  // The per-byte rate enters as printed (§6.11), so the room is over 416.4 ns.
+  const printed = Number(f1(worst.ns_per_byte_med));
+  const room = Math.floor(left / (printed * 1e-9 * factor));
+  assert.equal(2 ** Math.floor(Math.log2(room)), MB, 'the room rounds down to the cap');
+  const stops = (left / (MB * factor)) * 1e9;
+  // (a) The worst median's other pass, the same shape stored the same way.
+  const other = main.find(
+    (r) => r.kind === worst.kind && r.gz === worst.gz && r.pass !== worst.pass
+  );
+  const spread =
+    (Math.abs(worst.ns_per_byte_med - other.ns_per_byte_med) / other.ns_per_byte_med) * 100;
+  const deep = meas.runs.filter((r) => r.cap === 64);
+  const single64 = top(deep, 'ns_per_byte_max').ns_per_byte_max;
+  const at64 = top(deep, 'ns_per_byte_med').ns_per_byte_med;
+  assert.ok(single64 > stops, 'the worst single load at 64 is past the breakpoint');
+  assert.ok(at64 < stops, 'the median at 64 is under it');
+  // (b) Within this many percent of the breakpoint, rounded up.
+  const gap64 = Math.ceil(((stops - at64) / stops) * 100);
+  assert.ok(gap64 <= 8, 'within 8%');
+  // The named shapes and the distinct loads: the fixture's kinds, and the
+  // validator's own entries by their canonical bytes.
+  const kinds = new Set(meas.shapes.map((x) => x.kind));
+  assert.equal(new Set(LOAD_SHAPES.map(canonical)).size, kinds.size, 'distinct entries are kinds');
+  assert.equal(new Set(main.map((r) => r.kind)).size, kinds.size, 'one load per distinct kind');
+  const shared = meas.shapes.filter((x) => meas.shapes.filter((y) => y.kind === x.kind).length > 1);
+  assert.equal(new Set(shared.map((x) => x.kind)).size, 1, 'one kind is shared');
+  assert.equal(meas.shapes.length - kinds.size, shared.length - 1);
+  const idx = shared.map((x) => meas.shapes.indexOf(x));
+  assert.equal(new Set(idx.map((i) => canonical(LOAD_SHAPES[i]))).size, 1, 'the same entry');
+  const depths = shared.map((x) => /^empty arrays nested ([\d,]+) deep, capped at/.exec(x.name)[1]);
+  const and = (xs) => `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`;
+  return {
+    B8_DISTINCT: String(kinds.size),
+    B8_CAPPED: String(LIMITS.ENTRY_DEPTH - 1),
+    B8_SAME: and(depths),
+    B8_GIVEN_UP: n(room - MB),
+    B8_ROOM: n(room),
+    B8_MB: n(MB),
+    B8_SPREAD: f1(spread),
+    B8_SINGLE64: f1(single64),
+    B8_STOPS: f1(stops),
+    B8_AT64: f1(at64),
+    B8_GAP64: String(gap64),
+  };
+}
 function codecFacts() {
   const fx = load(CODEC);
   const m = fx.mapping;
@@ -7925,6 +8056,7 @@ function codecFacts() {
     SHAPES: String(meas.shapes.length),
     SENS16: String(depthFor(5)),
     SENS64: String(64),
+    ...fold49Facts(meas),
   };
   // ENTRY_DEPTH is the formula's value at the deepest shape the source builds.
   assert.equal(depthFor(Math.max(decl.key, decl.alt_cells)), LIMITS.ENTRY_DEPTH);
@@ -7952,6 +8084,7 @@ const CLAIM_SECTIONS = {
   5: () => section('5. Resume path'),
   8: () => section('8. Refusals'),
   9: () => section('9. Compatibility and release'),
+  10: () => section('10. Measured on #656, not bounds'),
   11: () => section('11. Cross-reference'),
   12: () => section('12. Rulings on the items added for confirmation'),
   13: () => section('13. Fixtures and validator'),
@@ -7967,7 +8100,7 @@ test('§2.11 and every statement of this fold read as the fixture, the tables an
   const facts = codecFacts();
   const flat = (t) => t.replace(/\s+/g, ' ').trim();
   assert.equal(CLAIMS.filter((c) => c.whole).length, 1);
-  for (const c of [...CLAIMS, ...FOLD48_CLAIMS]) {
+  for (const c of [...CLAIMS, ...FOLD48_CLAIMS, ...FOLD49_CLAIMS]) {
     const want = flat(fillClaim(c.text.join(' '), facts));
     if (c.whole) {
       const have = flat(s211raw());
@@ -7979,7 +8112,7 @@ test('§2.11 and every statement of this fold read as the fixture, the tables an
   }
   // Every fact is used, so none is checked against nothing.
   const used = new Set(
-    [...CLAIMS, ...FOLD48_CLAIMS].flatMap((c) =>
+    [...CLAIMS, ...FOLD48_CLAIMS, ...FOLD49_CLAIMS].flatMap((c) =>
       [...c.text.join(' ').matchAll(/\{\{([A-Z0-9_]+)\}\}/g)].map((x) => x[1])
     )
   );
