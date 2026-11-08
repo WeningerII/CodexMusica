@@ -8217,6 +8217,9 @@ test('merged pump: a STORE_BUSY from listQueued() or lease() after a busy lease,
     process.on('unhandledRejection', onRejection);
     const timers = t.mock.timers;
     timers.enable({ apis: ['setTimeout'] });
+    // Node 22 emits MockTimers' warning asynchronously. Let setup warnings
+    // reach stderr before capturing the pump's own exact diagnostics.
+    await new Promise((resolve) => setImmediate(resolve));
     const errors = t.mock.method(console, 'error', () => {});
     try {
       // The lock is taken after the lease, before the payload, and kept: the
