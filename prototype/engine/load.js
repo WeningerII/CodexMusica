@@ -101,6 +101,8 @@ export const PAGE_TABLES = Object.freeze([
   // Search.
   'normalizeSearch',
   'searchRank',
+  'INSTRUMENT_FILTER_PILLS',
+  'passesInstrumentFilter',
   // Ranking, for the similar and catalog loaders (#668 6647783903,
   // 6647387849).
   'findSimilarInstruments',

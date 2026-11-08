@@ -211,7 +211,7 @@ const HOLDS = {
     'loadNavGlyphArt',
   ],
   compact: ['_recipeHeader', '_computeRecipeDedupedPrefaces', '_resolvePreface'],
-  search: ['normalizeSearch', 'searchRank'],
+  search: ['normalizeSearch', 'searchRank', 'INSTRUMENT_FILTER_PILLS', 'passesInstrumentFilter'],
   instsim: ['findSimilarInstruments', 'getMatchingInstrumentAxes'],
   gensim: ['findSimilar', 'getMatchingAxes'],
 };
@@ -461,6 +461,11 @@ async function holdSamples(E, which, input) {
       const names = input.allInstruments.map((id) => E.Inst(id)?.name || id);
       const norm = names.map((n) => E.normalizeSearch(n));
       return {
+        filters: E.INSTRUMENT_FILTER_PILLS.map((p) => [
+          p.id,
+          p.label,
+          input.allInstruments.map((id) => E.passesInstrumentFilter(E.Inst(id), new Set([p.id]))),
+        ]),
         fixed: input.fixed.map((t) => E.normalizeSearch(t)),
         names: norm.map(hash),
         ranks: input.queries.map((q) => {
@@ -553,6 +558,12 @@ const wrap = (name, params, body, { async = false } = {}) => {
 };
 const constWrap = (name, value) => [`const ${name}=`, `const ${name}=${value},${name}__real=`];
 const PLANTS = {
+  INSTRUMENT_FILTER_PILLS: constWrap('INSTRUMENT_FILTER_PILLS', '[]'),
+  passesInstrumentFilter: wrap(
+    'passesInstrumentFilter',
+    'i,f',
+    'return !passesInstrumentFilter__real(i,f)'
+  ),
   compileStack: wrap('compileStack', 'c,f', 'return compileStack__real(c,f)+" "'),
   buildStackParts: wrap('buildStackParts', 'c', 'return buildStackParts__real(c).reverse()'),
   entryRenderDescs: wrap('entryRenderDescs', 'e', 'return entryRenderDescs__real(e).slice(1)'),
