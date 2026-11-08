@@ -7873,3 +7873,32 @@ test('resume: a dead chain is refused before the queue checks, and a QUEUE_FULL 
   assert.equal(passed.error, null, passed.error?.message);
   assert.deepEqual(passed.disk.discovery.verified, fx.expect.resume.verified);
 });
+
+test("resume: the full read replaces the job's lists, a log with none or a short one included, and the next lease passes R5", (t) => {
+  // §5.1: a log left with no address list, or one that does not end at its
+  // head, is R5 on a lease; resume()'s full read rebuilds it from the head.
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  for (const fault of ['dropped', 'short'])
+    for (const gzip of [false, true]) {
+      const name = `${fault} gzip=${gzip}`;
+      const job = writeJob(t, fx, { gzip });
+      commitFrame(job.store, job.lease, fx.frames[0]);
+      commitFrame(job.store, job.lease, fx.frames[1]);
+      const full = clone(listsOf(job.store, job.id));
+      const [log] = Object.entries(full).find(([, list]) => list.length > 0);
+      if (fault === 'dropped') job.store.chains.get(job.id).delete(log);
+      else job.store.chains.get(job.id).set(log, full[log].slice(0, -1));
+      const walk = walkOnce(t, job.store, job.id);
+      assertWalkRefused(walk, 'R5', name);
+      job.store.pause(job.lease.id, job.lease.attempt, job.lease.fence, STORAGE_PAUSE);
+      const record = job.store.records.get(job.id);
+      const capability = job.store.capabilityFor(job.id, record.viewer);
+      const got = resumeOnce(t, job.store, job.id, capability, record.viewer);
+      assert.equal(got.error, null, `${name}: ${got.error?.message}`);
+      assert.deepEqual(listsOf(job.store, job.id), full, `${name}: the lists rebuilt`);
+      job.store.lease(job.id);
+      const next = walkOnce(t, job.store, job.id);
+      assert.equal(next.error, null, `${name}: ${next.error?.message}`);
+      assert.deepEqual(next.read, [], `${name}: verified at the heads, nothing read`);
+    }
+});
