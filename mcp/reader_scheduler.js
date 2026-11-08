@@ -604,6 +604,37 @@ export class ReaderScheduler {
     this.active = false;
     this.stopped = false;
     this.timer = null;
+    // A lease whose payload was refused STORE_BUSY, `{id, attempt, fence}`,
+    // until the store takes it back (DISCOVERY_V1 §5.1; BB8 6717719856, F5).
+    this.busyLease = null;
+  }
+  // The next pump after one interval, as the capacity wait does: the pump's
+  // own cadence is the backoff for a busy writer lock.
+  later() {
+    if (this.stopped || this.timer) return;
+    this.timer = setTimeout(() => {
+      this.timer = null;
+      void this.pump();
+    }, this.pollMs);
+    this.timer.unref?.();
+  }
+  // F5: the lease ends, the job goes back to `queued` and the attempt is not
+  // counted (the store's returnLease). True once that is settled: returned,
+  // or refused with any code but STORE_BUSY, which means the lease had
+  // already ended (STALE_ATTEMPT: expired, or another's) or the store cannot
+  // write, whose own expiry then ends it. False while the lock is still
+  // busy: the pump tries again one interval later, never in a loop.
+  returnBusyLease() {
+    const { id, attempt, fence } = this.busyLease;
+    try {
+      this.store.returnLease(id, attempt, fence);
+    } catch (refused) {
+      if (refused.code === 'STORE_BUSY' && refused.status === 503) return false;
+      if (refused.code !== 'STALE_ATTEMPT')
+        console.error('[reader] lease return failed:', refused.code || 'READER_ERROR');
+    }
+    this.busyLease = null;
+    return true;
   }
   kick() {
     if (this.stopped || this.active || this.timer) return;
@@ -615,6 +646,7 @@ export class ReaderScheduler {
   }
   async pump() {
     if (this.stopped || this.active) return;
+    if (this.busyLease && !this.returnBusyLease()) return this.later();
     if (!this.store.listQueued().length) return;
     const capacity = this.bridge.capacity();
     if (capacity.active || capacity.admitted || capacity.queued) {
@@ -653,6 +685,10 @@ export class ReaderScheduler {
           : {}),
       };
     };
+    // True only while workerPayload runs, so a STORE_BUSY from any other
+    // call (a commit, the completion, the pause) is paused as before.
+    let atPayload = false;
+    let busy = false;
     let lastStep;
     try {
       // A record written before admission held the set to well-formed Unicode
@@ -670,7 +706,9 @@ export class ReaderScheduler {
       if (canonicalJSON(identity) !== canonicalJSON(record.identity))
         throw error('STALE_READING', 'Source or engine identity changed; create a new reader job.');
       const { source } = await this.resolveSource(record.request);
+      atPayload = true;
       const trusted = this.store.workerPayload(record.id);
+      atPayload = false;
       const result = await this.bridge.runReaderLease(
         {
           source,
@@ -747,6 +785,15 @@ export class ReaderScheduler {
         });
       }
     } catch (failure) {
+      // F5: the writer lock was busy before the payload read anything. The
+      // job is not paused: its lease ends, it goes back to the queue with its
+      // attempt uncounted, and the next pump, one interval later, takes it.
+      if (atPayload && failure.code === 'STORE_BUSY' && failure.status === 503) {
+        busy = true;
+        this.busyLease = { id: record.id, attempt: record.attempt, fence: record.fence };
+        this.returnBusyLease();
+        return;
+      }
       const fields = pauseFields(failure);
       // The pause's code, and its cause when it has one, bounded by §8's echo.
       const named = `${echo(failure.code || 'INTERRUPTED')}${fields.cause !== undefined ? `[${echo(fields.cause)}]` : ''}`;
@@ -794,7 +841,8 @@ export class ReaderScheduler {
       if (recorded && failure.reply === true && fields.cause !== undefined) warnReply(false);
     } finally {
       this.active = false;
-      this.kick();
+      if (busy) this.later();
+      else this.kick();
     }
   }
   stop() {

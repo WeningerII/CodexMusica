@@ -2049,6 +2049,53 @@ export class ReaderJobStore {
     });
   }
 
+  // A lease whose payload was refused STORE_BUSY (BB8 6717719856, F5) ends as
+  // if it had never been taken: lock contention is transient and nobody did
+  // anything wrong, so the job never waits for a resume. It goes back to
+  // `queued` in the place it held (its queue fields were never changed by the
+  // lease), with its attempt counter restored and no reason. Three cases keep
+  // what a pause would do instead: a cancel asked for meanwhile lands as
+  // `cancelled`; a job released meanwhile (U2) is paused with the release's
+  // reason and never requeued (§8); and with no queue room it is paused to
+  // return by itself when a slot opens (deferred_requeue), never QUEUE_FULL.
+  // The attempt is uncounted in each. Like any write it takes the lock, so
+  // while the lock stays busy it is refused STORE_BUSY too, and the scheduler
+  // retries it at its own cadence.
+  returnLease(id, attempt, fence) {
+    return this._open(() => {
+      const record = this._leaseRecord(id, attempt, fence);
+      const ended = {
+        attempt: record.attempt - 1,
+        fence: null,
+        lease_expires_at: null,
+        cancel_requested: false,
+      };
+      let room = true;
+      try {
+        this._queueRoom();
+      } catch {
+        room = false;
+      }
+      if (record.cancel_requested || !room || this._u2(record))
+        return this._saveReason(record, (base, reason) => ({
+          ...base,
+          ...ended,
+          state: record.cancel_requested ? 'cancelled' : 'paused',
+          deferred_requeue: reason === null && !record.cancel_requested,
+          reason: reason ?? {
+            code: 'STORE_BUSY',
+            message: record.cancel_requested
+              ? 'Cancelled before the lease started; the writer lock was busy.'
+              : 'Scheduling boundary; committed work will return to the queue when its next slot opens.',
+          },
+        }));
+      return this._save(
+        { ...record, ...ended, state: 'queued', deferred_requeue: false, reason: null },
+        true
+      );
+    });
+  }
+
   _control(record, action, options, payload) {
     if (!options?.idempotency_key) return { record, replay: false };
     text(options.idempotency_key, 'Control idempotency key');

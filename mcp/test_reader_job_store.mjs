@@ -6969,6 +6969,247 @@ test('lease walk: the bridge request carries the walk’s discovery, with no ver
   }
 });
 
+// F5 (BB8 6717719856): a STORE_BUSY at workerPayload requeues, never pauses.
+// The lease ends, the job goes back to `queued` in its place with its attempt
+// uncounted and no reason, and the next pump, one interval later (`later`,
+// never `kick`), leases it and walks. Run through the real scheduler, for a
+// job holding discovery and for one holding none.
+function busyScheduler(t, store, { onLease } = {}) {
+  const requests = [];
+  const scheduler = new ReaderScheduler({
+    store,
+    bridge: {
+      capacity: () => ({ active: 0, admitted: 0, queued: 0 }),
+      runReaderLease: async (request, options) => {
+        requests.push(request);
+        if (onLease) return onLease(request, options);
+        return { code: 0, reader_result: { status: 'yield', reason: 'YIELD' } };
+      },
+    },
+    resolveIdentity: async () => identity,
+    resolveSource: async () => ({ source: { text: 'line' } }),
+  });
+  const kicks = t.mock.method(scheduler, 'kick', () => {});
+  const laters = t.mock.method(scheduler, 'later', () => {});
+  t.after(() => scheduler.stop());
+  return { scheduler, requests, kicks, laters };
+}
+function busyJobs(t) {
+  const fx = loadFixture('good/lease_incremental_walk.json');
+  const { directory, store: first } = fixture(t);
+  const plain = create(first, 'viewer-b', 'request-plain').record.id;
+  plantFixture(directory, first.records.get(plain), fx, { job: { queue_order: 0 } });
+  const store = walkStore(t, directory);
+  assert.equal(store.failure, null);
+  return { fx, store, directory, plain };
+}
+const plantLock = (store) =>
+  fs.writeFileSync(
+    path.join(store.directory, 'writer.lock'),
+    JSON.stringify({ pid: process.pid, nonce: 'f'.repeat(32) })
+  );
+const freeLock = (store) => fs.rmSync(path.join(store.directory, 'writer.lock'), { force: true });
+const durable = (store, id) =>
+  JSON.parse(fs.readFileSync(path.join(store.directory, 'records', `${id}.json`)));
+
+test('F5: a STORE_BUSY at workerPayload requeues the job in its place with its attempt uncounted, never paused; the next lease walks', async (t) => {
+  const { fx, store, plain } = busyJobs(t);
+  for (const id of [fx.record.id, plain]) {
+    const { scheduler, requests, kicks, laters } = busyScheduler(t, store);
+    const before = store.records.get(id);
+    assert.equal(before.state, 'queued');
+    // Only this job is dispatchable, so the pump leases it.
+    const other = id === plain ? fx.record.id : plain;
+    store._open(() => store._save({ ...store.records.get(other), state: 'paused' }, true));
+    // The foreign writer holds the lock only while the payload is built, so
+    // the return lands at once.
+    const payload = store.workerPayload;
+    t.mock.method(store, 'workerPayload', function (...args) {
+      plantLock(store);
+      try {
+        return payload.apply(this, args);
+      } finally {
+        freeLock(store);
+      }
+    });
+    await scheduler.pump();
+    store.workerPayload.mock.restore();
+    assert.equal(requests.length, 0, `${id}: the worker never started`);
+    const after = store.records.get(id);
+    assert.deepEqual(
+      [after.state, after.attempt, after.reason, after.fence, after.lease_expires_at],
+      ['queued', before.attempt, null, null, null],
+      `${id}: queued, not paused, with the attempt uncounted`
+    );
+    assert.deepEqual(
+      [after.queued_at, after.queue_order, after.deferred_requeue],
+      [before.queued_at, before.queue_order, false],
+      `${id}: in the place it held`
+    );
+    assert.deepEqual(durable(store, id).state, 'queued', `${id}: saved`);
+    if (id === fx.record.id)
+      assert.deepEqual(after.discovery, before.discovery, `${id}: discovery untouched`);
+    assert.equal(scheduler.busyLease, null, `${id}: settled`);
+    assert.deepEqual(
+      [laters.mock.callCount(), kicks.mock.callCount()],
+      [1, 0],
+      `${id}: the next pump is one interval later`
+    );
+    // The lock free, the next lease takes the job and walks.
+    await scheduler.pump();
+    assert.equal(requests.length, 1, `${id}: leased again`);
+    const walked = store.records.get(id);
+    assert.equal(walked.attempt, before.attempt + 1, `${id}: one attempt, for the lease that ran`);
+    assert.equal(walked.state, 'queued', `${id}: the yield requeued it`);
+    if (id === fx.record.id) {
+      assert.deepEqual(requests[0].discovery, atStore(store, fx.expect.lease.payload));
+      assert.deepEqual(walked.discovery.verified, fx.expect.lease.verified, 'the walk ran');
+    } else assert.equal(Object.hasOwn(requests[0], 'discovery'), false);
+    store._open(() => store._save({ ...store.records.get(other), state: 'queued' }, true));
+  }
+});
+
+test('F5: while the foreign lock stays held the return waits, one try per pump, never a loop; freed, the job is requeued uncounted and the next lease walks', async (t) => {
+  const { fx, store, plain } = busyJobs(t);
+  store._open(() => store._save({ ...store.records.get(plain), state: 'paused' }, true));
+  const id = fx.record.id;
+  const before = store.records.get(id);
+  const { scheduler, requests, laters, kicks } = busyScheduler(t, store);
+  // The lock is taken after the lease, before the payload, and kept.
+  const source = scheduler.resolveSource;
+  scheduler.resolveSource = async (...args) => {
+    plantLock(store);
+    return source(...args);
+  };
+  t.after(() => freeLock(store));
+  const returns = t.mock.method(store, 'returnLease');
+  await scheduler.pump();
+  scheduler.resolveSource = source;
+  assert.equal(requests.length, 0);
+  assert.equal(returns.mock.callCount(), 1, 'one return, refused STORE_BUSY');
+  assert.equal(returns.mock.calls[0].error?.code, 'STORE_BUSY');
+  assert.deepEqual(scheduler.busyLease, {
+    id,
+    attempt: before.attempt + 1,
+    fence: store.records.get(id).fence,
+  });
+  assert.equal(durable(store, id).state, 'running', 'nothing written while the lock is held');
+  assert.equal(store.failure, null, 'the store serves on');
+  assert.deepEqual([laters.mock.callCount(), kicks.mock.callCount()], [1, 0]);
+  // A pump while it is still held tries the return once more, leases nothing,
+  // and waits another interval.
+  await scheduler.pump();
+  assert.equal(returns.mock.callCount(), 2);
+  assert.equal(requests.length, 0);
+  assert.equal(laters.mock.callCount(), 2);
+  assert.equal(durable(store, id).attempt, before.attempt + 1);
+  // Freed: the return lands, queued and uncounted, and the same pump leases
+  // the job again and walks.
+  freeLock(store);
+  let seen = null;
+  const lease = store.lease;
+  t.mock.method(store, 'lease', function (...args) {
+    seen ??= clone(this.records.get(id));
+    return lease.apply(this, args);
+  });
+  await scheduler.pump();
+  assert.equal(returns.mock.callCount(), 3);
+  assert.equal(scheduler.busyLease, null);
+  assert.deepEqual(
+    [seen.state, seen.attempt, seen.reason, seen.queue_order],
+    ['queued', before.attempt, null, before.queue_order],
+    'requeued, not paused, the attempt uncounted, before the next lease'
+  );
+  assert.equal(requests.length, 1, 'the next lease ran');
+  assert.deepEqual(requests[0].discovery, atStore(store, fx.expect.lease.payload));
+  const walked = store.records.get(id);
+  assert.deepEqual(walked.discovery.verified, fx.expect.lease.verified, 'and walked');
+  assert.equal(walked.attempt, before.attempt + 1, 'one attempt counted in all');
+});
+
+test('F5: only workerPayload requeues; a STORE_BUSY from the checkpoint sink pauses the job as before, its attempt counted', async (t) => {
+  const { fx, store, plain } = busyJobs(t);
+  store._open(() => store._save({ ...store.records.get(plain), state: 'paused' }, true));
+  const id = fx.record.id;
+  const before = store.records.get(id);
+  const { scheduler, laters, kicks } = busyScheduler(t, store, {
+    onLease: async (_request, options) => {
+      plantLock(store);
+      try {
+        await assert.rejects(
+          options.onReaderCheckpoint({ provider_calls: 0, checkpoint: {}, records: [] }),
+          { code: 'STORE_BUSY', status: 503 }
+        );
+      } finally {
+        freeLock(store);
+      }
+      return { code: -1 };
+    },
+  });
+  const returns = t.mock.method(store, 'returnLease');
+  await scheduler.pump();
+  assert.equal(returns.mock.callCount(), 0, 'no return');
+  assert.equal(scheduler.busyLease, null);
+  const after = store.records.get(id);
+  assert.deepEqual(
+    [after.state, after.attempt, after.reason?.code],
+    ['paused', before.attempt + 1, 'STORE_BUSY'],
+    'paused, as any other refusal there'
+  );
+  assert.deepEqual([laters.mock.callCount(), kicks.mock.callCount()], [0, 1]);
+});
+
+// The store's half (returnLease): only the lease's holder returns it; a cancel
+// asked for meanwhile lands cancelled; a job released meanwhile is paused with
+// the U2 reason, never requeued; with no queue room it is paused to return when
+// a slot opens. The attempt is uncounted in each.
+test('F5: returnLease ends only its own lease, and keeps cancel, U2 and the queue bound', (t) => {
+  const cases = ['stale', 'cancel', 'released', 'full'];
+  for (const kind of cases) {
+    const fx = loadFixture('good/lease_incremental_walk.json');
+    const { store, lease } = leaseFixture(t, fx);
+    const id = fx.record.id;
+    if (kind === 'stale') {
+      refused(() => store.returnLease(id, lease.attempt, 'f'.repeat(64)), 'STALE_ATTEMPT');
+      refused(() => store.returnLease(id, lease.attempt - 1, lease.fence), 'STALE_ATTEMPT');
+      assert.equal(store.records.get(id).state, 'running', `${kind}: the lease stands`);
+      continue;
+    }
+    if (kind === 'cancel')
+      store._open(() => store._save({ ...store.records.get(id), cancel_requested: true }, true));
+    if (kind === 'released')
+      store._open(() =>
+        store._release(store.records.get(id), { cause: 'segment_missing', log: 'alt_cells' })
+      );
+    if (kind === 'full')
+      for (let n = store.listQueued().length; n < READER_LIMITS.waiting; n++)
+        create(store, `viewer-${n}`, `full-${n}`);
+    const back = store.returnLease(id, lease.attempt, lease.fence);
+    assert.equal(back.attempt, lease.attempt - 1, `${kind}: uncounted`);
+    assert.deepEqual([back.fence, back.lease_expires_at], [null, null], `${kind}: the lease ended`);
+    if (kind === 'cancel')
+      assert.deepEqual([back.state, back.reason?.code], ['cancelled', 'STORE_BUSY']);
+    if (kind === 'released') {
+      assert.deepEqual(
+        [back.state, back.reason?.code, back.reason?.cause, back.deferred_requeue],
+        ['paused', 'DISCOVERY_UNAVAILABLE', 'segment_missing', false],
+        'U2: never requeued'
+      );
+    }
+    if (kind === 'full') {
+      assert.deepEqual(
+        [back.state, back.reason?.code, back.deferred_requeue],
+        ['paused', 'STORE_BUSY', true],
+        'no room: back by itself when a slot opens, never QUEUE_FULL'
+      );
+      const first = [...store.records.values()].find((r) => r.state === 'queued');
+      store._open(() => store._save({ ...first, state: 'paused' }, true));
+      store.listQueued();
+      assert.equal(store.records.get(id).state, 'queued', 'promoted once a slot opened');
+    }
+  }
+});
+
 // The mutation pass: each clause of R5 refuses on its own, as the validator's
 // R5 test holds its model to, before any read where the record and the list
 // alone show it, and the junction is R5, never R2. The record or the lists are

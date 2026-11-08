@@ -1103,8 +1103,19 @@ and `resume()` refuses a dead job at once instead of queueing it
   (`reader_scheduler.js:pump`), so a refusal there pauses that one job. Because it takes the
   lock, `workerPayload` is refused `STORE_BUSY` (503) while another process holds it, for a job
   holding no discovery too, before anything is stat'ed or read. Before the walk, a lease of such
-  a job read the cache without the lock while the generation had not moved. The scheduler then
-  pauses that job with `STORE_BUSY`, not requeued, as it pauses any other refusal there.
+  a job read the cache without the lock while the generation had not moved. That one refusal is
+  not paused (BB8 6717719856, F5): lock contention is transient and nobody did anything wrong,
+  so it must not leave a job waiting for a resume. The lease ends, the job goes back to `queued`
+  in the place it held, with no reason, and its attempt is not counted: the attempt counter is
+  what it was before the lease. The store's `returnLease` does it, under the lock like any
+  write. A cancel asked for meanwhile lands as `cancelled`, a job released meanwhile is paused
+  with the U2 reason and never requeued (§8), and with no queue room the job is paused to return
+  by itself when a slot opens, never `QUEUE_FULL`; the attempt is uncounted in each. There is no
+  retry loop in `workerPayload`: the scheduler's next pump comes one poll interval later, and
+  while the lock is still held the return is refused `STORE_BUSY` too and is tried once more at
+  each pump, the job staying `running` meanwhile, with its lease's expiry as the backstop. A
+  `STORE_BUSY` from any other call in the lease (a commit, the completion, the pause) is paused
+  as before. So the only effect on main is that a lease can wait one pump interval.
 - If `record.discovery.unavailable` is set, the store refuses with `DISCOVERY_UNAVAILABLE`,
   naming its cause and log, without walking.
 - **The address list.** Statting a segment needs its address, and only the segment after it
@@ -2408,6 +2419,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 58 | BB8 6710235213 (review of Step 6; owed before Step 10) | the GC-races-release interleaving: two instances on one root, a release on one between the other's mark slices, between its mark and its sweep, and during its sweep; no segment a surviving record references is swept, a collection marked before the release sweeps nothing, a release refused `STORE_BUSY` writes nothing and lands when retried, and the next collection reclaims the released segments with the trace kept | §7.3 | the store tests (GC races a release) |
 | 59 | #656 Step 10 (design v2; v1 Step 6) | the lease's walk: `workerPayload` runs under the writer lock; a pending release, then `unavailable`, refuse first and walk nothing; R5 over every log before anything is read, a non-null head with no address list included; the verified segments are stat'ed and only those appended since are read (F6, F3, R2, R5's junction); every failure is `STORAGE_CORRUPT` 503 with nothing released or saved; one verified save when something was read, skipped on `STORE_RECOUNTING` or `RESOURCE_LIMIT`; the payload carries `summary` and `paths` and never `verified` or `unavailable`, and the scheduler passes it only when it is not `null` | §2.10, §5.1, §6.9 | `good/lease_incremental_walk.json` (`expect.lease`, `next_lease`), `good/lease_after_refused_commit.json`, `good/lease_payload_summary_paths.json`, `bad/verified_ahead_of_head.json`, `bad/verified_bytes_ahead.json`, `bad/verified_bytes_disagree.json`, `bad/head_bytes_disagree.json` (`expect.lease`), `bad/entry_over_depth.json` (`read_back`), `bad/segment_corrupt_at_reconciliation.json` (`expect.lease`), `bad/missing_segment.json`; the store tests (lease walk) |
 | 60 | Review of `c6e57967c` (#656 Step 10 and its follow-ups) | the previous `current.lines` bounds the frame within an epoch whatever the previous `through` was, on both sides; the walk's F3 holds a listed segment to the record's own epoch; a one-segment non-null head with no list is R5; a verified address that is not a regular file, or is over the object bound, is F6 at its stat, never read, as the read's own stat holds it; `workerPayload` is refused `STORE_BUSY` while another process holds the lock, with or without discovery; a seal another instance commits during a collection is kept by its abandon | §4 W4, §5.1, §7.3 | `bad/current_moved_back.json`; the store tests (W4, lease walk, GC races a release); the validator's F-6 test |
+| 61 | BB8 6717719856 (calls on R2's Step 10 questions) | (F5) a `STORE_BUSY` at `workerPayload` is not paused: the lease ends, the job goes back to `queued` in its place with no reason and its attempt uncounted, a cancel, a release (U2) and a full queue kept as a pause keeps them; no retry loop in `workerPayload`, the return tried once per pump while the lock stays held; a `STORE_BUSY` from any other call in the lease is paused as before | §5.1 | the store tests (F5) |
 
 ## 12. Rulings on the items added for confirmation
 

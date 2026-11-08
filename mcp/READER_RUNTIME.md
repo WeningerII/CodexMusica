@@ -287,8 +287,11 @@ jobs per viewer. Waiting jobs consume no Python bridge tokens. A lease lasts at
 most 600 seconds and traverses the complete reading unit through safe points
 every 256 candidates or one second. Successful exhaustion or writing demand
 commits and requeues at the tail. A full waiting queue temporarily defers that
-successful requeue until a slot opens; it still continues automatically. Failure,
-restart and explicit cancellation require explicit Resume. Closing the browser
+successful requeue until a slot opens; it still continues automatically. A lease
+that finds the writer lock held by another process before its payload is read is
+not a failure: it returns to the queue in its place with its attempt uncounted,
+and the next pump, one poll interval later, takes it. Failure, restart and
+explicit cancellation require explicit Resume. Closing the browser
 or a polling request does not cancel work.
 
 Python emits a bounded `reader_checkpoint` frame and waits. Node fsyncs immutable
