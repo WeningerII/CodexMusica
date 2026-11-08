@@ -6079,3 +6079,408 @@ test("W4: a record cursor.discovery with no inventory holds none, so the frame's
   assert.equal(commitFrame(job.store, job.lease, frame).state, 'running');
   assert.deepEqual(job.store.records.get(job.id).cursor, frame.cursor, 'committed');
 });
+
+// ── persisted discovery, Step 10 (#656 Node-side plan): the lease's walk
+// (§5.1) in workerPayload, under the writer lock. Each walk fixture's record
+// and segments are planted as a foreign writer would, and a second instance
+// constructed on the store: its startup reconciliation builds the lists (the
+// real path), or, for a lease-only case whose full read would release the
+// job, design §B2's seam installs the fixture's list instead.
+// The fixture's `/store` paths, in this store.
+const atStore = (store, value) =>
+  JSON.parse(JSON.stringify(value).replaceAll('"/store/', `"${store.directory}/`));
+// The fixture's address lists, as `this.chains` holds them (§B2: `prebuilt`).
+const prebuilt = (id, addresses) => new Map([[id, new Map(Object.entries(clone(addresses)))]]);
+// A second instance on `directory`. With `lists`, design §B2's seam, for its
+// constructor only: _reconcile installs them in place of the full read, and,
+// with `collect: false`, _collectAll does nothing (its mark read decodes
+// fatally, so a segment failing F3 would fail the constructor).
+function walkStore(t, directory, { gzip = false, lists = null, collect = true } = {}) {
+  const mocks = [];
+  if (lists)
+    mocks.push(
+      t.mock.method(ReaderJobStore.prototype, '_reconcile', function () {
+        this.chains = lists();
+      })
+    );
+  if (!collect) mocks.push(t.mock.method(ReaderJobStore.prototype, '_collectAll', () => {}));
+  try {
+    return new ReaderJobStore({ directory, gzip });
+  } finally {
+    for (const m of mocks) m.mock.restore();
+  }
+}
+// One walk: what it stats (and does not read), what it reads through _segment
+// with an expect, whether the record file changed, and the payload or the
+// refusal.
+function walkOnce(t, store, id) {
+  const file = path.join(store.directory, 'records', `${id}.json`);
+  const before = fs.readFileSync(file);
+  const generation = fs.readFileSync(path.join(store.directory, 'generation'), 'utf8');
+  const lists = listsOf(store, id);
+  const pages = path.join(store.directory, 'pages') + path.sep;
+  const stats = [];
+  const reads = [];
+  const stat = fs.statSync;
+  const segment = ReaderJobStore.prototype._segment;
+  const spies = [
+    t.mock.method(fs, 'statSync', function (target, ...rest) {
+      const name = String(target);
+      if (name.startsWith(pages)) stats.push(path.basename(name, '.json'));
+      return stat.call(this, target, ...rest);
+    }),
+    t.mock.method(ReaderJobStore.prototype, '_segment', function (hash, expect, ...rest) {
+      if (expect !== null) reads.push(hash);
+      return segment.call(this, hash, expect, ...rest);
+    }),
+  ];
+  let payload = null;
+  let error = null;
+  try {
+    payload = store.workerPayload(id);
+  } catch (thrown) {
+    error = thrown;
+  } finally {
+    for (const s of spies) s.mock.restore();
+  }
+  const after = fs.readFileSync(file);
+  return {
+    payload,
+    error,
+    stat: [...new Set(stats)].filter((a) => !reads.includes(a)),
+    read: reads,
+    saved: !after.equals(before),
+    generationMoved:
+      fs.readFileSync(path.join(store.directory, 'generation'), 'utf8') !== generation,
+    listsBefore: lists,
+    record: store.records.get(id),
+  };
+}
+// Plants a walk fixture beside a created job and leases it on a second
+// instance: by the real path (reconciliation lists it), or by the seam.
+function leaseFixture(t, fx, { gzip = false, seam = false, store: spec, job } = {}) {
+  const { directory, store: first } = fixture(t, { gzip });
+  const base = first.records.get(create(first).record.id);
+  const planted = plantFixture(directory, base, fx, { gzip, store: spec, job });
+  const store = walkStore(t, directory, {
+    gzip,
+    lists: seam ? () => prebuilt(fx.record.id, fx.addresses) : null,
+  });
+  assert.equal(store.failure, null);
+  const lease = store.lease(fx.record.id);
+  assert.equal(lease?.id, fx.record.id, 'the fixture job is leased');
+  return { directory, store, lease, planted, base };
+}
+// A refused walk: STORAGE_CORRUPT 503, by `rule`, nothing released, saved or
+// listed anew (§5.1, "A mismatch on a lease").
+function assertWalkRefused(walk, rule, name) {
+  assert.equal(walk.error?.code, 'STORAGE_CORRUPT', `${name}: ${walk.error?.message}`);
+  assert.equal(walk.error.status, 503, name);
+  assert.equal(walk.error.rule, rule, `${name}: the rule`);
+  assert.equal(Object.keys(walk.error).includes('rule'), false, `${name}: rule not enumerable`);
+  assert.equal(JSON.stringify(walk.error).includes('"rule"'), false, `${name}: never serialised`);
+  for (const key of ['cause', 'log'])
+    assert.equal(walk.error[key], undefined, `${name}: no ${key}, so its pause carries none`);
+  assert.equal(walk.saved, false, `${name}: nothing saved`);
+  assert.equal(walk.generationMoved, false, `${name}: nothing written`);
+  assert.equal(walk.record.discovery.unavailable, null, `${name}: nothing released`);
+}
+const WALK_LEASES = ['good/lease_incremental_walk.json', 'good/lease_after_refused_commit.json'];
+
+test("lease walk: each good walk fixture's expect.lease and next_lease, through the real store, plain and gzip", (t) => {
+  for (const rel of WALK_LEASES)
+    for (const gzip of [false, true])
+      for (const seam of [false, true]) {
+        const fx = loadFixture(rel);
+        const name = `${rel} gzip=${gzip} seam=${seam}`;
+        const { store, lease } = leaseFixture(t, fx, { gzip, seam });
+        assert.deepEqual(listsOf(store, fx.record.id), fx.addresses, `${name}: the lists`);
+        const walk = walkOnce(t, store, fx.record.id);
+        assert.equal(walk.error, null, `${name}: ${walk.error?.message}`);
+        const want = fx.expect.lease;
+        assert.deepEqual(walk.stat, want.stat, `${name}: stats the verified prefix`);
+        assert.deepEqual(walk.read, want.read, `${name}: reads what was appended since`);
+        assert.equal(walk.saved, want.saved, `${name}: saved`);
+        assert.deepEqual(walk.record.discovery.verified, want.verified, `${name}: verified`);
+        const durable = JSON.parse(
+          fs.readFileSync(path.join(store.directory, 'records', `${fx.record.id}.json`))
+        );
+        assert.deepEqual(durable.discovery.verified, want.verified, `${name}: verified on disk`);
+        assert.deepEqual(walk.payload.discovery, atStore(store, want.payload), `${name}: payload`);
+        // The payload is the record without its discovery, then the built one.
+        const { discovery: _d, ...rest } = walk.record;
+        for (const [key, value] of Object.entries(rest))
+          assert.deepEqual(walk.payload[key], value, `${name}: payload ${key}`);
+        assert.equal(walk.payload.state, 'running');
+        assert.equal(walk.payload.fence, lease.fence);
+        assert.deepEqual(listsOf(store, fx.record.id), fx.addresses, `${name}: lists unchanged`);
+        if (fx.orphans)
+          for (const orphan of fx.orphans)
+            assert.ok(!JSON.stringify(walk.payload).includes(orphan), `${name}: no orphan`);
+        // The next lease: the job yields, requeues and is leased again.
+        store.pause(lease.id, lease.attempt, lease.fence, {
+          code: 'YIELD',
+          message: 'yield',
+          requeue: true,
+        });
+        assert.equal(store.lease(fx.record.id)?.id, fx.record.id, `${name}: leased again`);
+        const next = walkOnce(t, store, fx.record.id);
+        assert.equal(next.error, null, name);
+        const wantNext = fx.expect.next_lease ?? {
+          stat: [...want.stat, ...want.read],
+          read: [],
+          saved: false,
+        };
+        assert.deepEqual(
+          { stat: next.stat, read: next.read, saved: next.saved },
+          wantNext,
+          `${name}: the next lease reads and saves nothing`
+        );
+        assert.deepEqual(next.payload.discovery, walk.payload.discovery, `${name}: same payload`);
+      }
+});
+
+test("lease walk: the seal sequence's record leases good/lease_payload_summary_paths.json's payload exactly", (t) => {
+  for (const gzip of [false, true]) {
+    const job = replayFixture(t, loadFixture('good/seal_sequence_two_logs.json'), { gzip });
+    const fx = loadFixture('good/lease_payload_summary_paths.json');
+    const walk = walkOnce(t, job.store, job.id);
+    assert.equal(walk.error, null);
+    assert.deepEqual(walk.payload.discovery, atStore(job.store, fx.payload.discovery));
+    // Every segment was sealed by this instance and never verified: all read.
+    assert.deepEqual(
+      walk.read.sort(),
+      Object.values(fx.payload.discovery.paths)
+        .flat()
+        .map((p) => path.basename(p, '.json'))
+        .sort()
+    );
+    assert.deepEqual(
+      walk.record.discovery.verified,
+      fx.record.discovery.logs,
+      'verified at the heads'
+    );
+    t.mock.restoreAll();
+  }
+});
+
+// Each R5 fixture of the walk: refused before any read (the record and the
+// list alone show it) or at the junction, nothing released or saved.
+const WALK_REFUSED = [
+  ['bad/verified_ahead_of_head.json', 'R5', []],
+  ['bad/verified_bytes_ahead.json', 'R5', null],
+  ['bad/verified_bytes_disagree.json', 'R5', null],
+];
+
+test('lease walk: the bad verified fixtures are refused R5, STORAGE_CORRUPT, nothing released or saved, plain and gzip', (t) => {
+  for (const [rel, rule, read] of WALK_REFUSED)
+    for (const gzip of [false, true])
+      for (const seam of [false, true]) {
+        const fx = loadFixture(rel);
+        const name = `${rel} gzip=${gzip} seam=${seam}`;
+        assert.deepEqual(
+          [fx.expect.rule, fx.expect.code, fx.expect.status, fx.expect.released],
+          [rule, 'STORAGE_CORRUPT', 503, null]
+        );
+        const { store } = leaseFixture(t, fx, { gzip, seam });
+        const walk = walkOnce(t, store, fx.record.id);
+        assertWalkRefused(walk, rule, name);
+        assert.deepEqual(walk.read, read ?? fx.expect.lease.read, `${name}: what was read`);
+        if (fx.expect.lease) assert.equal(walk.saved, fx.expect.lease.saved);
+        assert.deepEqual(listsOf(store, fx.record.id), walk.listsBefore, `${name}: lists kept`);
+        assert.deepEqual(
+          walk.record.discovery,
+          fx.record.discovery,
+          `${name}: the job keeps its chains`
+        );
+      }
+});
+
+test("lease walk: head_bytes_disagree.expect.lease, by design §B2's seam, is R5's junction", (t) => {
+  const fx = loadFixture('bad/head_bytes_disagree.json');
+  const want = fx.expect.lease;
+  for (const gzip of [false, true]) {
+    const { store } = leaseFixture(t, fx, { gzip, seam: true });
+    const walk = walkOnce(t, store, fx.record.id);
+    assertWalkRefused(walk, want.rule, `gzip=${gzip}`);
+    assert.deepEqual([walk.error.code, walk.error.status], [want.code, want.status]);
+    assert.deepEqual(walk.read, want.read);
+    assert.equal(walk.saved, want.saved);
+    assert.equal(want.released, null);
+  }
+});
+
+test("lease walk: §B2's control: with only _reconcile mocked, every lease-only case constructs and the GC sweeps nothing reachable", (t) => {
+  for (const rel of [
+    'bad/head_bytes_disagree.json',
+    'bad/verified_ahead_of_head.json',
+    'bad/verified_bytes_ahead.json',
+    'bad/verified_bytes_disagree.json',
+  ])
+    for (const gzip of [false, true]) {
+      const fx = loadFixture(rel);
+      const { directory, store: first } = fixture(t, { gzip });
+      const base = first.records.get(create(first).record.id);
+      plantFixture(directory, base, fx, { gzip });
+      const store = walkStore(t, directory, {
+        gzip,
+        lists: () => prebuilt(fx.record.id, fx.addresses),
+      });
+      assert.equal(store.failure, null, `${rel}: constructs`);
+      // Every segment the installed lists hold is a root: none is swept.
+      for (const address of Object.values(fx.addresses).flat())
+        assert.ok(pageExists(directory, address), `${rel}: ${address} kept`);
+      assert.deepEqual(store.records.get(fx.record.id).discovery, fx.record.discovery);
+    }
+  // And the one case the _collectAll mock hides a GC failure in: the 0xFF
+  // read_back, whose mark read meets F3 (Step 5's own test).
+  const codec = loadFixture('good/codec_error_mapping.json');
+  const rb = codec.persisted_bytes.find((p) => p.read_back).read_back;
+  const { directory, store: first } = fixture(t);
+  const { base, address } = plantReadBack(directory, first, rb);
+  refused(
+    () => walkStore(t, directory, { lists: () => prebuilt(base.id, { seen: [address] }) }),
+    'STORAGE_CORRUPT'
+  );
+});
+
+test('lease walk: nothing in mcp/ outside the tests references prebuilt or mocks _reconcile or _collectAll', () => {
+  const root = import.meta.dirname;
+  const files = [];
+  const visit = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (['node_modules', 'fixtures'].includes(entry.name)) continue;
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) visit(full);
+      else if (/\.(c|m)?js$/.test(entry.name) && !/^test_/.test(entry.name)) files.push(full);
+    }
+  };
+  visit(root);
+  assert.ok(files.some((f) => f.endsWith('reader_job_store.js')));
+  for (const file of files) {
+    const text = fs.readFileSync(file, 'utf8');
+    // The seam's helper, as code (a message may say the word: library_export_routes.js).
+    assert.equal(/\bprebuilt\s*\(/.test(text), false, `${file} calls prebuilt`);
+    assert.equal(
+      /mock\.method\([^)]*['"](_reconcile|_collectAll)['"]/.test(text),
+      false,
+      `${file} mocks the seam`
+    );
+  }
+});
+
+// A read-back fixture's one segment, re-addressed under a created job's id
+// (its fixture job id is not a store id), planted as that job's chain.
+function plantReadBack(directory, store, rb) {
+  const base = store.records.get(create(store).record.id);
+  const [stored] = fixtureStore(rb.store).values();
+  const raw = Buffer.from(
+    stored.toString('latin1').replace(`"job_id":"${rb.record.id}"`, `"job_id":"${base.id}"`),
+    'latin1'
+  );
+  assert.notDeepEqual(raw, stored, 're-addressed');
+  const address = dsha(raw);
+  const [log] = Object.keys(rb.record.discovery.logs);
+  const discovery = clone(rb.record.discovery);
+  discovery.logs[log].head = address;
+  writeStored(directory, address, raw, false);
+  plantRecord(directory, { ...base, identity_hash: rb.record.identity_hash, discovery });
+  return { base, address, log, discovery };
+}
+
+test("lease walk: the read-back fixtures are F3 on a lease, STORAGE_CORRUPT, and a replacing decoder is not F3 (§2.11's required test)", (t) => {
+  const depth = loadFixture('bad/entry_over_depth.json');
+  const codec = loadFixture('good/codec_error_mapping.json');
+  const cases = [
+    ['entry_over_depth read_back', depth.read_back, depth.expect.read_back],
+    ['entry_over_depth read_back_control', depth.read_back_control, null],
+    ...codec.persisted_bytes
+      .filter((p) => p.read_back)
+      .map((p) => [`persisted_bytes ${p.name}`, p.read_back, p.expect]),
+  ];
+  assert.ok(cases.length >= 3);
+  for (const [name, rb, want] of cases)
+    for (const replacing of [false, true]) {
+      const label = `${name} replacing=${replacing}`;
+      const { directory, store: first } = fixture(t);
+      const { base, address, log } = plantReadBack(directory, first, rb);
+      // §B2: the list installed without the full read that would release the
+      // job; _collectAll mocked for the 0xFF segment, whose mark read is F3.
+      const store = walkStore(t, directory, {
+        lists: () => prebuilt(base.id, { [log]: [address] }),
+        collect: !name.startsWith('persisted_bytes'),
+      });
+      assert.equal(store.failure, null, label);
+      store.lease(base.id);
+      if (replacing)
+        t.mock.method(ReaderJobStore.prototype, '_segmentText', (buf) => buf.toString('utf8'));
+      const walk = walkOnce(t, store, base.id);
+      t.mock.restoreAll();
+      assert.deepEqual(walk.read, [address], `${label}: the one segment is read`);
+      if (want === null) {
+        assert.equal(walk.error, null, `${label}: passes`);
+        const payload = atStore(store, rb.payload.discovery);
+        payload.summary.logs[log].head = address;
+        payload.paths[log] = [path.join(store.directory, 'pages', `${address}.json`)];
+        assert.deepEqual(walk.payload.discovery, payload, `${label}: the payload`);
+        assert.equal(walk.saved, true, `${label}: verified advanced`);
+        continue;
+      }
+      assert.deepEqual(
+        [want.lease_walk.code, want.lease_walk.status, want.lease_walk.released],
+        ['STORAGE_CORRUPT', 503, false]
+      );
+      if (!replacing) {
+        assertWalkRefused(walk, 'F3', label);
+      } else if (name.startsWith('persisted_bytes')) {
+        // The replacing decode reads U+FFFD: no F3, so the fault the fatal
+        // decode finds is invisible to it, and the walk meets the bytes the
+        // head names instead (R5's).
+        assert.notEqual(walk.error?.rule, 'F3', `${label}: a replacing decode is not F3`);
+        assert.ok(walk.error, `${label}: and still refused`);
+      }
+    }
+});
+
+test("lease walk: bad/segment_corrupt_at_reconciliation.json's expect.lease, corrupted after this instance reconciled", (t) => {
+  const fx = loadFixture('bad/segment_corrupt_at_reconciliation.json');
+  const want = fx.expect.lease;
+  for (const gzip of [false, true]) {
+    const { directory, store } = leaseFixture(t, fx, { gzip, store: { ...fx.store, corrupt: [] } });
+    assert.deepEqual(listsOf(store, fx.record.id), fx.addresses, 'reconciled and listed');
+    // The byte changed in place, with no foreign write: no reload follows.
+    const [{ address }] = fx.store.corrupt;
+    writeStored(directory, address, fixtureStore(fx.store).get(address), gzip);
+    const walk = walkOnce(t, store, fx.record.id);
+    assertWalkRefused(walk, want.rule, `gzip=${gzip}`);
+    assert.deepEqual([walk.error.code, walk.error.status], [want.code, want.status]);
+    assert.deepEqual(walk.read, want.read);
+    assert.equal(walk.saved, want.saved);
+    assert.equal(want.released, null);
+  }
+});
+
+test('lease walk: a segment missing outside reconciliation is STORAGE_CORRUPT (bad/missing_segment.json), read or statted', (t) => {
+  const fx = loadFixture('bad/missing_segment.json');
+  assert.deepEqual(fx.expect.store_outside_reconciliation, {
+    code: 'STORAGE_CORRUPT',
+    status: 503,
+  });
+  for (const gzip of [false, true]) {
+    // Its record verifies nothing, so the walk reads the omitted segment.
+    const { directory, store } = leaseFixture(t, fx, { gzip, store: { ...fx.store, omit: [] } });
+    for (const address of fx.store.omit)
+      fs.unlinkSync(path.join(pagesDir(directory), `${address}.json`));
+    const walk = walkOnce(t, store, fx.record.id);
+    assertWalkRefused(walk, 'missing', `read gzip=${gzip}`);
+    assert.equal(walk.read.includes(fx.store.omit[0]), true);
+    // The incremental walk's record, missing a verified segment it only stats.
+    const inc = loadFixture('good/lease_incremental_walk.json');
+    const again = leaseFixture(t, inc, { gzip });
+    const seen = inc.addresses.seen[0];
+    fs.unlinkSync(path.join(pagesDir(again.directory), `${seen}.json`));
+    const statted = walkOnce(t, again.store, inc.record.id);
+    assertWalkRefused(statted, 'missing', `statted gzip=${gzip}`);
+    assert.deepEqual(statted.read, [], 'refused at the stat, before any read');
+  }
+});
