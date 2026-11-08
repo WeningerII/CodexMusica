@@ -3368,8 +3368,17 @@ def test_a_near_miss_flag_refuses_on_the_reviser_verbs():
         check(f"`{good.split('=')[0]}` still runs", rc == 0
               and "REFUSED" not in out, f"rc {rc}")
     rc, out, _ = run("revise", q, "ABAB", "--propose=stub")
-    check("`--propose=stub` still runs", rc == 0 and "REFUSED" not in out,
-          f"rc {rc}")
+    # A recognized proposer runs, but cannot certify these same-spelled rhymes.
+    # Pin the actual bans separately from the flag-spelling acceptance check.
+    check("`--propose=stub` still runs", rc == 3 and "REFUSED" not in out
+          and "PROPOSER: stub" in out, f"rc {rc}")
+    result = _machine_result(out)
+    check("the stub leaves the fixture's two prohibited rhyme pairs standing",
+          [(f["code"], f["locations"]) for f in result.get("findings", [])
+           if f.get("severity") == "flag"] ==
+          [("HOMEOTELEUTON", [1, 3]), ("HOMEOTELEUTON", [2, 4])]
+          and result.get("stop_reason") == "NO_PROGRESS"
+          and result.get("unresolved_lines") == [3, 4])
 
 
 def test_a_file_the_harness_cannot_read_refuses_on_every_verb():
@@ -4294,7 +4303,12 @@ def test_the_structures_spelling_reaches_the_verbs():
               and any(f.get("code") == "SCHEME_VIOLATION" and f.get("severity") == "flag"
                       and f.get("locations") == [3, 4]
                       for f in default.get("findings", []))
-              and not [f for f in declared.get("findings", []) if f.get("severity") == "flag"])
+              and not [f for f in declared.get("findings", [])
+                       if f.get("code") == "SCHEME_VIOLATION"])
+        check("the unchanged bright/tight pair is banned under both structure declarations",
+              all([(f["code"], f["locations"]) for f in report.get("findings", [])
+                   if f.get("severity") == "flag" and f.get("code") != "SCHEME_VIOLATION"]
+                  == [("HOMEOTELEUTON", [1, 2])] for report in (declared, default)))
         check("...and the run that declared it carries the language-aware "
               "disclosure: fin-calibrated, this draft is eng, laziness is "
               "NOT graded",
@@ -4305,7 +4319,12 @@ def test_the_structures_spelling_reaches_the_verbs():
         check("CONTROL: asking the narrower rhyme question yields a judged sun/silver violation",
               rcr == 0 and rhymed.get("coverage", {}).get("certified") is True
               and [(f["code"], f["locations"]) for f in rhymed.get("findings", [])
-                   if f.get("severity") == "flag"] == [("SCHEME_VIOLATION", [3, 4])])
+                   if f.get("severity") == "flag" and f.get("code") == "SCHEME_VIOLATION"]
+              == [("SCHEME_VIOLATION", [3, 4])])
+        check("the narrower rhyme control also retains only the bright/tight ban",
+              [(f["code"], f["locations"]) for f in rhymed.get("findings", [])
+               if f.get("severity") == "flag" and f.get("code") != "SCHEME_VIOLATION"]
+              == [("HOMEOTELEUTON", [1, 2])])
         rc2, out2, _ = run("brief", path, "--groups=1,2",
                            "--structures=A:vibes")
         check("an unknown structure name REFUSES through the catalog's "
@@ -5438,6 +5457,9 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     REPINNED 2026-10-04: the plan now ties rhymes only at line ends
     (1,2,3;4,5;6,7), so L3's ~~'cheap cologne'~~ (bound to L1's T6 and L2's
     head before) ends on 'afternoon' to stand with 'balloon'/'June'.
+    REPINNED 2026-11-08: balloon/afternoon shares the banned -oon ending.
+    L3 now ends on 'strewn': balloon/June/strewn rhyme with distinct spelled
+    endings and no modal ban, keeping the whole-draft-only control clean.
     Lines using 'into' and 'towels' have disputed pronunciation; the explicit
     negative below ensures those cannot acquire the certified control's
     success by sharing its flags.
@@ -5447,7 +5469,7 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     draft = os.path.join(d, "whole176.txt")
     lines = ['Buttons gleam where wheat was sown by a balloon',
              "Bone cold, my mother's herbs came up in June",
-             'The kettle smells of smoke all afternoon',
+             'The kettle smells of smoke where leaves lie strewn',
              'Blue shadows drag the doubt across the floor',
              'Before the long drought we kept salt in the drawer',
              'Each night the slow crawl wakes the rain',
@@ -5474,6 +5496,8 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
           rc == 3 and result.get("stop_reason") == "WHOLE_DRAFT_UNRESOLVED"
           and result.get("whole_flags") == ["TITLE_NOT_IN_HOOK"]
           and result.get("unresolved_lines") == []
+          and not [f for f in result.get("findings", [])
+                   if f.get("severity") == "flag" and f.get("locations")]
           and st is not None and st.group(1) == "3"
           and st.group(2) == "WHOLE_DRAFT_UNRESOLVED",
           st.group(0) if st else out[-300:])
@@ -5488,7 +5512,8 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
           rc0 == 0 and clean.get("stop_reason") == "SUCCESS"
           and clean.get("coverage", {}).get("certified") is True
           and clean.get("whole_flags") == [] and clean.get("unresolved_lines") == []
-          and clean.get("final_draft") == lines,
+          and clean.get("final_draft") == lines
+          and not [f for f in clean.get("findings", []) if f.get("severity") == "flag"],
           str((rc0, clean.get("stop_reason"), clean.get("whole_flags"))))
     uncertain = list(lines)
     uncertain[3] = uncertain[3].replace("across the floor", "into the floor")
@@ -5519,7 +5544,8 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
           "draft certifies exit0",
           rca == 0 and judged.get("stop_reason") == "SUCCESS"
           and judged.get("coverage", {}).get("certified") is True
-          and judged.get("coverage", {}).get("refused_obligations") == [],
+          and judged.get("coverage", {}).get("refused_obligations") == []
+          and not [f for f in judged.get("findings", []) if f.get("severity") == "flag"],
           str((rca, judged.get("stop_reason"),
                judged.get("coverage", {}).get("refused_obligations"))))
     uncertain[9] = uncertain[9].replace("towels", "qzzxv")
@@ -5543,6 +5569,8 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     check("CONTROL: an unreadable word stays uncertified despite zero flags",
           rcu == 2 and unjudged.get("whole_flags") == []
           and unjudged.get("coverage", {}).get("certified") is False
+          and unjudged.get("unresolved_lines") == []
+          and not [f for f in unjudged.get("findings", []) if f.get("severity") == "flag"]
           and _uref == ["meter:COUNT_IS_A_LOWER_BOUND:L10"]
           and not any(x.startswith("prominence:") for x in _uref),
           str(_uref))
