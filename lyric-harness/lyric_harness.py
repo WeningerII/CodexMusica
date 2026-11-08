@@ -8283,7 +8283,7 @@ def _strip_flag(args, flag, bare=False):
     return out
 
 
-def _ban_bindings(found, findings):
+def _ban_bindings(found, findings, *, writing=False):
     """Where each two-tier ban sits, and which pairs the ban never asked.
 
     A HOMEOTELEUTON / MODAL_RHYME finding names its two LINES, and the ban is
@@ -8291,11 +8291,11 @@ def _ban_bindings(found, findings):
     when the group binds at the line end. `binding` is read off the grade's
     own pair verdict for that group (its bound words and the mandate's slot
     for each member), so a writer told to replace a banned word is told which
-    word, at which place. The ban is an end-rhyme instrument and is skipped on
-    a pair judged under a declared non-default structure; `not_asked` names
-    those pairs so a count of zero bans is never read as clean when the
-    question was not put. Machine-record fields only: no finding, severity or
-    verdict changes.
+    word, at which place. Corpus readers skip non-default structures. Writing
+    also checks their satisfied, non-repeat actual rhyme pairs; `not_asked`
+    retains only the structured pairs outside that check, so a count of zero
+    bans is never read as clean when the question was not put. Machine-record
+    fields only: no finding, severity or verdict changes.
     """
     from quality import slots as _SLb
     from quality import structures as _STb
@@ -8323,7 +8323,11 @@ def _ban_bindings(found, findings):
     not_asked = [{"lines": list(v["lines"]), "group": v["label"],
                   "structure": v.get("structure")}
                  for v in verdicts
-                 if v.get("structure") not in (None, _STb.DEFAULT)]
+                 if v.get("structure") not in (None, _STb.DEFAULT)
+                 and not (writing and not v["why"]
+                          and "REPEAT" not in v["relations"]
+                          and {"RHYME", "RIME_RICHE", "PROMOTED_RHYME"}
+                              .intersection(v["relations"]))]
     return {"asked": len(verdicts) - len(not_asked), "not_asked": not_asked}
 
 
@@ -14477,7 +14481,7 @@ def main():
             _machine_findings = [_finding_dict(f)
                                  for fs in found["per_line"].values() for f in fs]
             _machine_findings.extend(_finding_dict(f) for f in whole)
-            _ban_scope = _ban_bindings(found, _machine_findings)
+            _ban_scope = _ban_bindings(found, _machine_findings, writing=rv.writing)
             # Keep legacy v1 machine records frozen; instance evidence is v2-only.
             from quality.schema_instance_evidence import for_grade as _report_instances
             _machine = {"version": 1, "status": "graded", "command": cmd,

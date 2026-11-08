@@ -219,6 +219,40 @@ class WritingRhymeBanTests(unittest.TestCase):
             "RHYME", "RIME_RICHE", "PROMOTED_RHYME"})
         self.assertFalse(bans(found))
 
+    def test_structured_rhyme_ban_scope_reports_what_writing_checked(self):
+        from dataclasses import asdict
+
+        m = mandate([[1, 2]], n_lines=2,
+                    structures={"A": "perfect-rhyme"})
+        for lines, expected in ((SAME, "HOMEOTELEUTON"),
+                                (MODAL, "MODAL_RHYME"), (CLEAN, None)):
+            with self.subTest(expected=expected):
+                found = self.writer.inspect(lines, m)
+                findings = [asdict(f) for f in bans(found)]
+                scope = LH._ban_bindings(found, findings, writing=True)
+                self.assertEqual(scope, {"asked": 1, "not_asked": []})
+                self.assertEqual([f["code"] for f in findings],
+                                 [expected] if expected else [])
+                if findings:
+                    self.assertEqual([b["word"] for b in findings[0]["binding"]],
+                                     list(found["grade"]["verdicts"][0]["endwords"]))
+                    self.assertEqual([b["line"] for b in findings[0]["binding"]],
+                                     [1, 2])
+                # The descriptive-reader reporting contract stays unchanged.
+                read = self.reader.inspect(lines, m)
+                self.assertEqual(LH._ban_bindings(read, [])["asked"], 0)
+
+        near = mandate([[1, 2]], n_lines=2,
+                       structures={"A": "kalevala-alliteration"})
+        for lines in (["The wind", "The winter"], SAME):
+            found = self.writer.inspect(lines, near)
+            self.assertFalse(bans(found))
+            scope = LH._ban_bindings(found, [], writing=True)
+            self.assertEqual(scope["asked"], 0)
+            self.assertEqual(scope["not_asked"], [
+                {"lines": [1, 2], "group": "A",
+                 "structure": "kalevala-alliteration"}])
+
     def test_same_words_at_distinct_slots_remain_distinct_obligations(self):
         before = ["Night carries into the night", "Light shines in the light"]
         after = ["Bone carries into the night", "Sown shines in the light"]

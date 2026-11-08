@@ -2189,8 +2189,8 @@ await check('validation: actionable errors', () => {
           { whole_flags: 1 },
           { loop_unresolved: 1 },
           { loop_whole_flags: 1 },
-          // ~~{ banned_pairs: 1 },~~ — report-only since 2026-10-04 (owner's
-          // ruling); pinned as NOT blocking just below.
+          // A display count alone does not override the authenticated findings;
+          // mandatory writing bans reach this gate as flags.
           { final_draft: null },
           { coverage: { certified: true } },
           { coverage: { ...coverage, certified: false } },
@@ -2212,7 +2212,7 @@ await check('validation: actionable errors', () => {
         assert.equal(
           VI.loopStatusOf(0, { ...result, banned_pairs: 3 }),
           'finished_clean',
-          'banned pairs are reported, not a condition of finishing (2026-10-04)'
+          'a display-only ban count cannot replace the authenticated flag inventory'
         );
       }
       assert.equal(
@@ -8038,13 +8038,9 @@ try {
     };
     const screened = await callText('lyric_screen', { words: ['hair', 'chair'] });
     assert.equal(screened.exit_code, 0, 'screen exit 0 — the pair is an ANSWER');
-    // REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660, D6: no
-    // unsolicited system bans): the screen relays no system ban.
-    assert.ok(
-      !screened.report.includes('BANNED'),
-      'no system ban is relayed through the whole stack'
-    );
-    console.log('  ok  lyric_screen live: hair/chair answered with no system ban, exit 0');
+    // A screen answers at exit 0 while naming prohibited writing pairs.
+    assert.match(screened.report, /BANNED/, 'the writing ban reaches the whole stack');
+    console.log('  ok  lyric_screen live: hair/chair answered with its writing ban, exit 0');
     passed++;
     // EVERY RELATION THE PAIR STANDS IN, structured (the N-relation model):
     // hair/chair is a perfect rhyme, so it stands in RHYME AND ASSONANCE AND
@@ -8059,7 +8055,7 @@ try {
         hc.schema_relations.every((n) => hc.relations.includes(n)),
       'the relation list carries the registry schemas beside the coarse relations'
     );
-    assert.deepEqual(hc.codes, [], 'no system ban rides beside the relations');
+    assert.deepEqual(hc.codes, ['HOMEOTELEUTON'], 'the exact ban rides beside the relations');
     assert.ok(!/CLEAN —/.test(screened.report), 'no CLEAN — RHYMES / DOES NOT RHYME verdict');
     console.log('  ok  lyric_screen live: the pair carries every relation it stands in');
     passed++;
@@ -8106,11 +8102,12 @@ try {
     // 176 at 12 lines keeps its sections, returns (6,8;7,9) and hook (L6)
     // and re-deals its meter (~~9/1~~ 2/4) and the intro's scheme, so the
     // ends tie ~~1,2,3~~ 1,3;4,5;6,7. The draft is unchanged and still
-    // grades clean.
+    // grades clean. Re-pinned for mandatory writing bans: balloon/afternoon
+    // shares -oon; strewn keeps the rhyme without a spelled-ending or modal ban.
     const qualifiedDraft = [
       'Buttons gleam where wheat was sown by a balloon',
       "Bone cold, my mother's herbs came up in June",
-      'The kettle smells of smoke all afternoon',
+      'The kettle smells of smoke where leaves lie strewn',
       'Blue shadows drag the doubt across the floor',
       'Before the long drought we kept salt in the drawer',
       'Each night the slow crawl wakes the rain',
@@ -8480,12 +8477,13 @@ try {
     // run stops at exit 3. ~~'Bone buttons gleam beneath the rain in June'~~
     // ended on L2's 'June' while L2 shared L1's group; RE-MEASURED
     // 2026-10-21, L1's partner is L3 now (1,3 above) and 'June' finishes
-    // clean, so L1 ends on L3's 'afternoon' instead, the same defect.
+    // clean, so L1 must end on L3's own word instead, the same defect.
+    // With the clean control now ending on strewn, the negative repeats strewn too.
     // 2026-10-27 (D7): the returns and hook this draft is written for are
     // planned only for a returning form, so every seed-176 call declares
     // `verse-chorus`; under it the plan is unchanged (1,3;4,5;6,7, returns
     // 6,8;7,9, hook L6).
-    revisionDraft[0] = 'Bone buttons gleam beneath the rain all afternoon';
+    revisionDraft[0] = 'Bone buttons gleam beneath the rain where leaves lie strewn';
     const withRevision = (extra) => ({
       seed: revisionSeed,
       lines: 12,
@@ -8847,31 +8845,40 @@ try {
     console.log('  ok  lyric_grade live: --title reaches the plan, both directions');
     passed++;
 
-    // The two-tier ban reaches the verdict as banned_pairs — UNSKIPPABLE
-    // disclosure at the one surface with no revise loop. mass/pass is the
-    // demonstrative pair: it RHYMES, so it grades exit 0, and it is
-    // HOMEOTELEUTON (-ass on both sides), so a chat model shown only the
-    // exit code would present it as finished — the 2026-08-19 site
-    // transcript, in miniature.
+    // The pasted-song check answers at the brief verb's exit 0, but its
+    // structured flags and standing report must carry mandatory writing bans.
     const checked = await callText('lyric_check', {
-      lines: ['we carry the evening to the mass', 'and no one had to tell us about pass'],
+      lines: ['dust settles on the kitchen chair', 'cold rain keeps combing through her hair'],
       scheme: 'AA',
     });
-    assert.equal(checked.exit_code, 0, 'the pair rhymes — no flag stands');
-    // REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660, D6: no
-    // unsolicited system bans): the harness no longer files HOMEOTELEUTON
-    // or MODAL_RHYME, so a pair that holds surfaces no banned pair.
-    assert.equal(checked.banned_pairs, 0, 'no system ban is surfaced');
-    assert.deepEqual(checked.banned, [], 'and none is named');
-    // REPINNED 2026-10-04 (owner's ruling): a banned pair is reported, not
-    // standing — ~~`standing` carries it~~, ~~the contract says "unskippable
-    // at any exit code"~~.
-    assert.ok(!checked.standing.some((s) => s.includes('HOMEOTELEUTON')));
-    assert.ok(
-      /reported as notes/i.test(lyric.find((t) => t.name === 'lyric_check').description),
-      'the advertised tool contract says the ban is reported as notes'
+    assert.equal(checked.exit_code, 0, 'check answered; exit 0 alone is not a clean verdict');
+    assert.equal(checked.banned_pairs, 1);
+    assert.deepEqual(
+      checked.banned.map(({ code, lines }) => [code, lines]),
+      [['HOMEOTELEUTON', [1, 2]]]
     );
-    console.log('  ok  lyric_check live: no system ban is surfaced at exit 0');
+    assert.deepEqual(
+      checked.findings.filter((f) => f.severity === 'flag').map((f) => [f.code, f.locations]),
+      [['HOMEOTELEUTON', [1, 2]]]
+    );
+    assert.ok(checked.standing.some((s) => s.includes('[FLAG] HOMEOTELEUTON')));
+    assert.match(
+      lyric.find((t) => t.name === 'lyric_check').description,
+      /mandatory HOMEOTELEUTON and MODAL_RHYME flags/
+    );
+    const cleanCheck = await callText('lyric_check', {
+      lines: ['dust settles on the kitchen chair', 'cold rain leaves nothing left to spare'],
+      scheme: 'AA',
+    });
+    assert.equal(cleanCheck.exit_code, 0);
+    assert.equal(cleanCheck.certified, true);
+    assert.equal(cleanCheck.banned_pairs, 0);
+    assert.deepEqual(cleanCheck.banned, []);
+    assert.deepEqual(
+      cleanCheck.findings.filter((f) => f.severity === 'flag'),
+      []
+    );
+    console.log('  ok  lyric_check live: mandatory ban stands; clean rhyme control has no flags');
     passed++;
     const survivingBan = await callText('lyric_verify', {
       before: checked.final_draft,
@@ -8912,8 +8919,14 @@ try {
     assert.equal(plain.coverage.certified, true);
     assert.deepEqual(plain.coverage.refused_obligations, []);
     assert.deepEqual(
-      plain.findings.filter((f) => f.severity === 'flag').map((f) => [f.code, f.locations]),
-      [['SCHEME_VIOLATION', [3, 4]]],
+      plain.findings
+        .filter((f) => f.severity === 'flag')
+        .map((f) => [f.code, f.locations])
+        .sort(([a], [b]) => a.localeCompare(b)),
+      [
+        ['HOMEOTELEUTON', [1, 2]],
+        ['SCHEME_VIOLATION', [3, 4]],
+      ],
       'and judged a violation under the default'
     );
     const structured = await callText('lyric_check', {
@@ -8926,6 +8939,10 @@ try {
       'and NOT one under the declared alliteration — the field is read, not dropped'
     );
     assert.equal(structured.exit_code, 0);
+    assert.deepEqual(
+      structured.findings.filter((f) => f.severity === 'flag').map((f) => [f.code, f.locations]),
+      [['HOMEOTELEUTON', [1, 2]]]
+    );
     assert.equal(structured.coverage.certified, true);
     assert.equal(structured.coverage.pairs_judged, 2);
     const narrowed = await callText('lyric_check', {
@@ -8940,18 +8957,23 @@ try {
     );
     assert.equal(narrowed.coverage.certified, true);
     assert.deepEqual(
-      narrowed.findings.filter((f) => f.severity === 'flag').map((f) => [f.code, f.locations]),
-      [['SCHEME_VIOLATION', [3, 4]]]
+      narrowed.findings
+        .filter((f) => f.severity === 'flag')
+        .map((f) => [f.code, f.locations])
+        .sort(([a], [b]) => a.localeCompare(b)),
+      [
+        ['HOMEOTELEUTON', [1, 2]],
+        ['SCHEME_VIOLATION', [3, 4]],
+      ]
     );
-    // THE DISCLOSURE IS THE REASON THE FIELD IS SAFE TO EXPOSE. The two-tier
-    // ban is not asked of a pair judged under a non-default structure, and
-    // the verdict names those pairs instead of letting a zero read as clean.
+    // The non-rhyme structured group B is not asked for a writing ban. The
+    // verdict names it without hiding group A's actual bright/tight ban.
     assert.deepEqual(
       structured.ban_not_asked.map((row) => row.lines),
       [[3, 4]],
       'the structured group B is named as not asked'
     );
-    assert.equal(typeof structured.banned_pairs, 'number', 'group A was asked, so a count stands');
+    assert.equal(structured.banned_pairs, 1, 'group A retains its one writing ban');
     const allStructured = await callText('lyric_check', {
       lines: stLines,
       groups: '1,2;3,4',

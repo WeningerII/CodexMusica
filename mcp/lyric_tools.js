@@ -1117,16 +1117,16 @@ function verdictOf(r) {
       finding: f.message,
       ...(Array.isArray(f.binding) ? { binding: f.binding } : {}),
     }));
-    // THE BAN IS NOT ASKED of a pair judged under a declared non-default
-    // structure (its tables are end-rhyme instruments). Those pairs are
-    // named, and a count over no asked pair is null, never a clean zero.
+    // The harness names structured pairs outside the rhyme-ban check. Actual
+    // satisfied rhymes remain checked even under a non-default structure.
+    // A count over no asked pair is null, never a clean zero.
     const scope = record.ban_scope;
     if (scope && Array.isArray(scope.not_asked) && scope.not_asked.length) {
       v.ban_not_asked = scope.not_asked;
       if (scope.asked === 0) {
         v.banned_pairs = null;
         v.banned_pairs_reason =
-          'not asked: every mandated pair is judged under a declared non-default structure, and the two-tier ban is an end-rhyme instrument';
+          'not asked: no mandated pair was eligible for the two-tier rhyme-ban check; see ban_not_asked for the structured pairs outside its scope';
       }
     }
     v.unreadable_findings = findings.filter((f) => /UNREADABLE|UNJUDGED|REFUSED/.test(f.code));
