@@ -3083,6 +3083,68 @@ test('reconciliation: a gap in `first` between two linked segments is chain_brok
   );
 });
 
+// The full read's own digest_before link (BB8 6718090169: the clause appears
+// twice, here and in the lease walk, and each needs a test that fails without
+// it). A segment whose digest_before is not the digest it follows, d0 for the
+// oldest, while its own F5 holds (digest_after folds from that digest_before)
+// and the record's totals follow the chain: only the link is wrong, so the
+// final-state check cannot see it, and the full read is chain_broken by R2.
+// The same chain with the right digest_before reads and releases nothing.
+test('reconciliation: a digest_before that does not link to the digest before it is chain_broken by R2', (t) => {
+  for (const kind of ['oldest', 'second', 'control']) {
+    const { directory, store } = fixture(t);
+    const other = create(store);
+    const base = store.records.get(other.record.id);
+    const id = `reader_${'e'.repeat(64)}`;
+    const owner = { ...base, id };
+    const a = kind === 'oldest' ? null : realChain(owner, 'seen', 1);
+    const at = a ? a.state : realChain(owner, 'seen', 0).state;
+    const entries = [['link', 0]];
+    const before = kind === 'control' ? at.digest : digestStep(at.digest, '"elsewhere"');
+    const after = digestStep(before, JSON.stringify(entries[0]));
+    const b = buildSegment(owner, 0, 'seen', at.head, at.count, entries, before, after);
+    for (const raw of [...(a?.raws ?? []), b.raw]) writeStored(directory, dsha(raw), raw, false);
+    const discovery = {
+      version: 1,
+      epoch: 0,
+      logs: {
+        seen: {
+          head: b.address,
+          segments: at.segments + 1,
+          count: at.count + 1,
+          bytes: at.bytes + Buffer.byteLength(JSON.stringify(entries[0])),
+          digest: after,
+        },
+      },
+      verified: { seen: realChain(owner, 'seen', 0).empty },
+      unavailable: null,
+    };
+    const planted = { ...base, id, discovery };
+    plantRecord(directory, planted);
+    const rules = [];
+    const fullRead = ReaderJobStore.prototype._fullRead;
+    const spy = t.mock.method(ReaderJobStore.prototype, '_fullRead', function (...args) {
+      const read = fullRead.apply(this, args);
+      rules.push(read.rule ?? null);
+      return read;
+    });
+    store.inspect(other.record.id);
+    spy.mock.restore();
+    if (kind === 'control') {
+      assert.deepEqual(rules, [null], 'control: the chain reads');
+      assert.equal(store.records.get(id).discovery.unavailable, null, 'control: nothing released');
+      assert.equal(listsOf(store, id).seen.length, at.segments + 1);
+      continue;
+    }
+    assert.deepEqual(rules, ['R2'], kind);
+    assert.deepEqual(
+      releaseView(store.records.get(id)),
+      expectedRelease(planted, 'chain_broken', 'seen'),
+      kind
+    );
+  }
+});
+
 test('reconciliation: a release of a record already released saves nothing (the first trace wins)', (t) => {
   gcOnly(t);
   const { directory, store } = fixture(t);
