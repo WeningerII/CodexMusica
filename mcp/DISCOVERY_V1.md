@@ -1842,7 +1842,10 @@ GC:
   lock entry, its next slice or its sweep, abandons it, and it sweeps nothing. A release tried
   while the sweep holds the lock is refused `STORE_BUSY` (503) and writes nothing; retried, it
   lands. The next full collection reclaims the released segments, and every segment a
-  surviving record references stays (BB8 6710235213).
+  surviving record references stays (BB8 6710235213). A release only removes roots, so what
+  this protects is a write the mark never saw: a seal another instance commits at the same
+  point is kept by the same abandon, even with its file back-dated past the mark's start, and
+  one tried while the sweep holds the lock is refused `STORE_BUSY` and writes no segment.
 - **An exact retry** writes nothing.
 - **The walk's save of `verified` is lost.** The older verified head stays, and the next walk
   reads the appended segments again (§5.1). A verified head is never saved ahead of its head.
@@ -2404,6 +2407,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 57 | BB8 6715909159 (review of `11c186ee2`, #656 Step 9) | no defect; the survivor pinned: `complete()` of a job whose release was saved, whose completing save throws with a status (409, and 413), logs no `READER_DISCOVERY_TRACE_ERASED` line, neither `unknown` nor `saved`, keeps the trace in the record and on disk, and leaves the store serving | §7.2 | the store tests (Q5) |
 | 58 | BB8 6710235213 (review of Step 6; owed before Step 10) | the GC-races-release interleaving: two instances on one root, a release on one between the other's mark slices, between its mark and its sweep, and during its sweep; no segment a surviving record references is swept, a collection marked before the release sweeps nothing, a release refused `STORE_BUSY` writes nothing and lands when retried, and the next collection reclaims the released segments with the trace kept | §7.3 | the store tests (GC races a release) |
 | 59 | #656 Step 10 (design v2; v1 Step 6) | the lease's walk: `workerPayload` runs under the writer lock; a pending release, then `unavailable`, refuse first and walk nothing; R5 over every log before anything is read, a non-null head with no address list included; the verified segments are stat'ed and only those appended since are read (F6, F3, R2, R5's junction); every failure is `STORAGE_CORRUPT` 503 with nothing released or saved; one verified save when something was read, skipped on `STORE_RECOUNTING` or `RESOURCE_LIMIT`; the payload carries `summary` and `paths` and never `verified` or `unavailable`, and the scheduler passes it only when it is not `null` | §2.10, §5.1, §6.9 | `good/lease_incremental_walk.json` (`expect.lease`, `next_lease`), `good/lease_after_refused_commit.json`, `good/lease_payload_summary_paths.json`, `bad/verified_ahead_of_head.json`, `bad/verified_bytes_ahead.json`, `bad/verified_bytes_disagree.json`, `bad/head_bytes_disagree.json` (`expect.lease`), `bad/entry_over_depth.json` (`read_back`), `bad/segment_corrupt_at_reconciliation.json` (`expect.lease`), `bad/missing_segment.json`; the store tests (lease walk) |
+| 60 | Review of `c6e57967c` (#656 Step 10 and its follow-ups) | the previous `current.lines` bounds the frame within an epoch whatever the previous `through` was, on both sides; the walk's F3 holds a listed segment to the record's own epoch; a one-segment non-null head with no list is R5; a verified address that is not a regular file, or is over the object bound, is F6 at its stat, never read, as the read's own stat holds it; `workerPayload` is refused `STORE_BUSY` while another process holds the lock, with or without discovery; a seal another instance commits during a collection is kept by its abandon | §4 W4, §5.1, §7.3 | `bad/current_moved_back.json`; the store tests (W4, lease walk, GC races a release); the validator's F-6 test |
 
 ## 12. Rulings on the items added for confirmation
 

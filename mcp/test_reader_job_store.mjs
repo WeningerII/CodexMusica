@@ -2539,7 +2539,13 @@ test("reconciliation: good/release_fencing.json's releases, by one instance duri
 // writes nothing, and its retry lands; once it has landed, the next full
 // collection reclaims X's segments, and X keeps its trace. Every stored
 // object is back-dated, so only the mark protects one.
-test('GC races a release: two instances, the release lands or is retried, and no surviving segment is swept', (t) => {
+// A release only removes roots, so Y, which never changes, is kept by any
+// mark (Step 10 review, F4). So at the same point B also commits a seal on a
+// third running job Z (good/seal_sequence_two_logs.json's frame 1): new
+// segments A's mark never saw, back-dated at once, so only A's abandon on
+// entering the lock keeps them through A's in-flight collection, which runs
+// on to its end in every case.
+test('GC races a release: two instances, the release lands or is retried, and no surviving segment is swept', async (t) => {
   const FENCE = 'f'.repeat(64);
   const BOUNDS = { records: 1, objects: 1, bytes: 2 * 1024 * 1024, ms: 1e9 };
   const release = (b, x) =>
@@ -2578,6 +2584,23 @@ test('GC races a release: two instances, the release lands or is retried, and no
       }
     );
     const y = plantReal(directory, base, Y, { seen: 3, variants: 1 });
+    const seq = loadFixture('good/seal_sequence_two_logs.json');
+    const Z = seq.job_id;
+    const zLease = { id: Z, attempt: 1, fence: FENCE };
+    plantRecord(directory, {
+      ...base,
+      id: Z,
+      identity_hash: seq.identity_hash,
+      discovery: clone(seq.record.discovery),
+      cursor: clone(seq.record.cursor),
+      state: 'running',
+      attempt: 1,
+      fence: FENCE,
+      lease_expires_at: Date.now() + 600_000,
+      reason: null,
+    });
+    const zs = seq.frames[1].expect.segments.map((s) => s.address);
+    assert.equal(zs.length, 2);
     const segmentsOf = (record) => {
       const out = [];
       for (const st of Object.values(record.discovery.logs)) {
@@ -2598,6 +2621,22 @@ test('GC races a release: two instances, the release lands or is retried, and no
     // Both instances reconcile the planted records: real chains, kept live.
     assert.equal(a.inspect(X).state, 'running');
     assert.equal(b.inspect(Y).state, 'queued');
+    // B's usage known, so its commit can grow; Z's first frame seals nothing.
+    assert.equal(await b.recount(), true);
+    assert.equal(commitFrame(b, zLease, seq.frames[0]).state, 'running');
+    const zFile = path.join(storeDirectory(directory), 'records', `${Z}.json`);
+    // B's second write: Z's seal, its segments back-dated once written.
+    const seal = () => {
+      const saved = commitFrame(b, zLease, seq.frames[1]);
+      assert.equal(saved.state, 'running', `${when}: Z's seal is committed`);
+      assert.ok(
+        zs.every((h) => pageExists(directory, h)),
+        `${when}: Z's seal is written`
+      );
+      backdate(directory);
+      return saved;
+    };
+    let sealed = null;
     const orphan = plantedChain(base, 'row_seen', 1, { tag: 'orphan' });
     writeStored(directory, orphan.addresses[0], orphan.raws[0], false);
     backdate(directory);
@@ -2609,6 +2648,12 @@ test('GC races a release: two instances, the release lands or is retried, and no
       const first = a.maintain(BOUNDS);
       assert.equal(first.phase, 'mark', `${when}: the mark is under way`);
       landed = release(b, X);
+      sealed = seal();
+      // A's in-flight collection runs on: its next lock entry abandons it.
+      const gc = a._gc;
+      assert.equal(maintainAll(a, BOUNDS).phase, 'idle');
+      assert.notEqual(gc, null);
+      assert.ok(all(zs), `${when}: Z's new segments survive A's collection`);
     } else if (when === 'after the mark, before the sweep') {
       // maintain() takes the lock twice: for expiry, then for the sweep. B
       // releases between A's finished mark and the sweep's lock.
@@ -2618,6 +2663,7 @@ test('GC races a release: two instances, the release lands or is retried, and no
         if (calls++ === 1) {
           assert.equal(this._gc?.phase, 'sweep', `${when}: A's mark is done`);
           landed = release(b, X);
+          sealed = seal();
         }
         return open.call(this, run);
       });
@@ -2628,6 +2674,7 @@ test('GC races a release: two instances, the release lands or is retried, and no
       assert.equal(result.swept, 0, `${when}: the stale collection sweeps nothing`);
       assert.ok(pageExists(directory, orphan.addresses[0]), `${when}: not even the orphan`);
       assert.equal(a._gc, null, `${when}: it is abandoned`);
+      assert.ok(all(zs), `${when}: Z's new segments survive A's collection`);
     } else {
       // A's sweep holds the lock: B's release is refused STORE_BUSY and
       // writes nothing; B serves on and retries once A is done.
@@ -2636,6 +2683,7 @@ test('GC races a release: two instances, the release lands or is retried, and no
       t.mock.method(a, '_unlinkCounted', function (target) {
         if (refusal === null) {
           const bytes = fs.readFileSync(file);
+          const zBytes = fs.readFileSync(zFile);
           try {
             release(b, X);
           } catch (error) {
@@ -2644,6 +2692,12 @@ test('GC races a release: two instances, the release lands or is retried, and no
           assert.ok(
             fs.readFileSync(file).equals(bytes),
             `${when}: the refused release wrote nothing`
+          );
+          assert.throws(() => seal(), { code: 'STORE_BUSY', status: 503 });
+          assert.ok(fs.readFileSync(zFile).equals(zBytes), `${when}: nor the refused seal`);
+          assert.ok(
+            zs.every((h) => !pageExists(directory, h)),
+            `${when}: the refused seal wrote no segment`
           );
         }
         return unlink.call(this, target);
@@ -2656,14 +2710,19 @@ test('GC races a release: two instances, the release lands or is retried, and no
       assert.equal(result.phase, 'idle');
       assert.ok(all(xs), `${when}: X is still live, so its segments stay`);
       assert.equal(pageExists(directory, orphan.addresses[0]), false, `${when}: the orphan swept`);
+      // A's sweep wrote, so B recounts before its seal can grow the store.
+      assert.equal(await b.recount(), true);
       landed = release(b, X);
+      sealed = seal();
     }
     assert.ok(all(ys), `${when}: Y's segments survive the race`);
     assert.equal(landed.state, 'paused', `${when}: the release landed`);
+    assert.deepEqual(sealed.discovery, seq.frames[1].expect.record_discovery, `${when}: Z sealed`);
     // The next full collection, on A, reclaims X's segments and keeps Y's.
     backdate(directory);
     assert.equal(maintainAll(a, BOUNDS).phase, 'idle');
     assert.ok(all(ys), `${when}: Y's segments survive the collection`);
+    assert.ok(all(zs), `${when}: Z's sealed segments survive the collection`);
     assert.ok(none(xs), `${when}: X's released segments are reclaimed`);
     assert.equal(pageExists(directory, orphan.addresses[0]), false, `${when}: the orphan too`);
     // The release, as both instances and the disk see it: one save, its trace kept.
@@ -2689,6 +2748,15 @@ test('GC races a release: two instances, the release lands or is retried, and no
     assert.deepEqual(a.inspect(Y).discovery, y.discovery, `${when}: Y unchanged`);
     assert.deepEqual(Object.keys(listsOf(a, Y)).sort(), ['seen', 'variants']);
     assert.equal(listsOf(a, Y).seen.length, 3);
+    for (const [who, store] of [
+      ['A', a],
+      ['B', b],
+    ])
+      assert.deepEqual(
+        store.inspect(Z).discovery,
+        seq.frames[1].expect.record_discovery,
+        `${when}: Z as ${who} sees it`
+      );
   }
 });
 
