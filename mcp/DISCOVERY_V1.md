@@ -86,7 +86,7 @@ language's own parser checks each. So any change to that code fails until the cl
 read again and the digest pinned again, and a citation of a line number, or of a symbol no row
 pins, fails too. A `file:symbol` citation names the symbol; its rows name the statements the
 claim rests on. Each row names the sections it backs, each citation of a row's symbol in a section
-has a row there, and the rows' ranges, digests aside, are held to the digest `38fb4e68dcfa482a` in this
+has a row there, and the rows' ranges, digests aside, are held to the digest `a1b1198890c482e5` in this
 note, so a row deleted, narrowed or moved changes this text. Two citations name a comment or a
 docstring, not code (`reader_scheduler.js:createCatalogResolver`'s note on engine commits and
 `analysis.py:resolve_detail_records`' docstring); those rows hold the text as written. Every
@@ -1631,6 +1631,9 @@ Domain tallies are not logged. They are rebuilt from committed evidence.
 - **The store's part is its delivery promise.** `load_records(method_id)` yields exactly
   the committed records, in commit order, with their multiplicity: no redelivery, no
   deduplication, no reordering (R2's store test, #665 6674027857 §1).
+  The adapter also accepts `load_records()` or `load_records(None)` to read the complete
+  committed wire stream across all schemas, including records without a schema, in that
+  same order and with multiplicity. A non-null argument retains the five-field schema filter.
 - **Acceptance tests** (6673031748; each fails before the change and passes after):
   - whole-record deletion, duplicate insertion, reorder, same-count replacement and
     endpoint-role swap all refuse, and so does one mutant per witness field;

@@ -10145,9 +10145,9 @@ const CONTRACT_CITES = [
     at: '6.9',
     file: 'mcp/worker.py',
     symbol: 'load_records',
-    starts: 'def load_records(schema_id):',
+    starts: 'def load_records(schema_id=None):',
     whole: true,
-    code: '376e40c8957cc9dc',
+    code: '0c73f25c9ee5a904',
   },
   {
     id: 'c.analysis._assembly_records.4',

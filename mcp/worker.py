@@ -160,12 +160,12 @@ def run_reader(payload, request_id):
     if not all(isinstance(item, str) and os.path.isabs(item) for item in paths):
         raise ValueError("reader committed page paths must be registered absolute paths")
 
-    def load_records(schema_id):
+    def load_records(schema_id=None):
         for page_path in paths:
             page = read_page_object(page_path)
             for row in page.get("instances", []):
                 engine = row.get("engine_payload") or {}
-                if schema_id in (row.get("schema_id"), row.get("method_id"),
+                if schema_id is None or schema_id in (row.get("schema_id"), row.get("method_id"),
                                  row.get("schema_name"), engine.get("schema_id"),
                                  engine.get("schema_name")):
                     yield row
