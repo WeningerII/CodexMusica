@@ -944,9 +944,9 @@ const readerStep = (extra = {}) => ({
 function scriptedBridge(plan) {
   return {
     capacity: () => ({ active: 0, admitted: 0, queued: 0 }),
-    runReaderLease: async (_req, options) => {
+    runReaderLease: async (input, options) => {
       try {
-        return await plan((step) => options.onReaderCheckpoint(step), options);
+        return await plan((step) => options.onReaderCheckpoint(step), options, input);
       } catch (thrown) {
         return { code: -1, error_code: thrown.code, stderr: thrown.message };
       }
@@ -1029,10 +1029,10 @@ async function leaseOnce(
   let leased = null;
   const scheduler = new ReaderScheduler({
     store,
-    bridge: scriptedBridge(async (sink, options) => {
+    bridge: scriptedBridge(async (sink, options, input) => {
       if (during) during(store, a.record.id);
       leased = store.inspect(a.record.id);
-      return plan(sink, options);
+      return plan(sink, options, input);
     }),
     resolveIdentity: async () => identity,
     resolveSource: async () => ({ source: { text: 'Bad' } }),
@@ -1842,4 +1842,76 @@ test('C1 U2 diagnostics bound a long reply code without changing the release rea
   assert.equal(run.store.inspect(run.a).reason.code, 'DISCOVERY_UNAVAILABLE');
   assert.equal(run.store.inspect(run.a).reason.cause, c.released.cause);
   assert.equal(run.calls.length, 1);
+});
+
+test('discovery ACK is rebuilt after durable zero-record seals in committed path order', async (t) => {
+  let activeStore, activeId;
+  const run = await leaseOnce(t, {
+    discovery: null,
+    during: (store, id) => {
+      activeStore = store;
+      activeId = id;
+    },
+    plan: async (sink) => {
+      for (const frame of SEAL_SEQUENCE.frames) {
+        const ack = await sink(
+          readerStep({ records: [], checkpoint: frame.cursor, discovery: frame.discovery })
+        );
+        const saved = activeStore.inspect(activeId);
+        assert.deepEqual(saved.cursor, frame.cursor, 'checkpoint durable before ACK');
+        assert.deepEqual(ack.added_page_paths, [], 'seal-only frame has no evidence page');
+        assert.deepEqual(ack.discovery.summary, {
+          epoch: saved.discovery.epoch,
+          logs: saved.discovery.logs,
+        });
+        for (const [log, paths] of Object.entries(ack.discovery.paths)) {
+          assert.equal(paths.length, saved.discovery.logs[log].segments);
+          let previous = null;
+          for (const file of paths) {
+            const bytes = await readFile(file);
+            const segment = JSON.parse(bytes);
+            assert.equal(segment.previous_hash, previous, 'oldest first');
+            previous = path.basename(file, '.json');
+            assert.equal(sha(bytes), previous, 'registered content address');
+          }
+          assert.equal(previous, saved.discovery.logs[log].head);
+        }
+      }
+      return { code: 1, error_code: 'INTERRUPTED' };
+    },
+  });
+  assert.equal(run.store.inspect(run.a).generation, 3);
+});
+
+test('discovery lease supplies persisted job identity; refresh failure sends no successful ACK', async (t) => {
+  let activeStore,
+    reads = 0,
+    accepted = false;
+  const run = await leaseOnce(t, {
+    discovery: clone(replyCauseInvalid.record.discovery),
+    during: (store) => {
+      activeStore = store;
+      store.workerPayload = () => {
+        reads++;
+        throw refusal('STORAGE_CORRUPT');
+      };
+    },
+    plan: async (sink, _options, input) => {
+      assert.equal(input.discovery_job_id, WALK_JOB.id);
+      assert.ok(input.discovery);
+      const held = activeStore.inspect(WALK_JOB.id);
+      await sink(
+        readerStep({
+          records: [],
+          checkpoint: clone(WALK_JOB.cursor),
+          discovery: { epoch: held.discovery.epoch, resets: [], seals: [] },
+        })
+      );
+      accepted = true;
+      return { code: 0 };
+    },
+  });
+  assert.equal(reads, 1, JSON.stringify(run.store.inspect(run.a).reason));
+  assert.equal(accepted, false);
+  assert.equal(run.store.inspect(run.a).reason.code, 'STORAGE_CORRUPT');
 });

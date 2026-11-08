@@ -21,7 +21,17 @@ from library import analysis
 class Session:
  def __init__(self,*args,**kwargs):
   if os.environ['READER_HEAD']:raise ValueError(os.environ['READER_HEAD'])
- def step(self,**kwargs):return {'done':True,'provider_calls':0}
+  self.refresh=args[0].get('refresh',False)
+  self.discovery=kwargs.get('discovery')
+  self.original=self.discovery
+  self.n=0
+ def step(self,**kwargs):
+  self.n+=1
+  if self.refresh:
+   if self.n==1:return {'done':False,'provider_calls':0,'records':[]}
+   assert self.discovery is self.original
+   return {'done':True,'provider_calls':0,'records':[], 'probe':self.discovery}
+  return {'done':True,'provider_calls':0}
 analysis.AnalysisSession=Session
 worker['main']()
 `
@@ -136,4 +146,31 @@ test('protocol-only control: projection does not coerce or semantically filter v
   assert.deepEqual(result.error_cause, cause);
   assert.equal(result.error_log, log);
   assert.equal(result.reply, true);
+});
+
+test('actual bridge ACK refreshes the retained discovery object after an empty frame', async (t) => {
+  const bridge = await fixture(t);
+  const refreshed = {
+    version: 1,
+    summary: { epoch: 2, logs: {} },
+    paths: { seen: ['/second', '/first'] },
+  };
+  let checkpoints = 0;
+  const result = await bridge.runReaderLease(
+    {
+      source: { refresh: true },
+      discovery: { version: 1, summary: { epoch: 1, logs: {} }, paths: {}, obsolete: true },
+      discovery_job_id: 'persisted-job',
+    },
+    {
+      onReaderCheckpoint: (step) => {
+        checkpoints++;
+        assert.deepEqual(step.records, []);
+        if (checkpoints === 2) assert.deepEqual(step.probe, refreshed);
+        return { discovery: refreshed };
+      },
+    }
+  );
+  assert.equal(checkpoints, 2);
+  assert.equal(result.code, 0);
 });

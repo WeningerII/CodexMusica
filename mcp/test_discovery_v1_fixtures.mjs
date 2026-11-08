@@ -8675,7 +8675,7 @@ const CITED_CODE = {
   'sched.pump.store_lease': '5af198b4587bd30f',
   'sched.pump.stored_check': '5bb62c97312dc525',
   'sched.pump.identity_check': '1b9b173f92ea262f',
-  'sched.pump.run_reader_lease': 'd5136c6a9fca28f8',
+  'sched.pump.run_reader_lease': 'bbeeec9a0f689670',
   'sched.pump.declarations': '9c0b44cf7533f1fd',
   'sched.pump.catch_pause': '8ce4e7d41f4044b3',
   'source_worker.verify': 'c70ad56857c8151f',
@@ -8932,7 +8932,7 @@ const CONTRACT_CITES = [
     symbol: 'pump',
     starts: 'const trusted = this.store.workerPayload(record.id);',
     ends: 'committed_pages: trusted.page_paths || trusted.pages || [],',
-    code: '9af3e210572093e3',
+    code: 'a1861f55162e03c0',
   },
   {
     id: 'c.worker.run_reader.1',
@@ -10415,7 +10415,7 @@ const CONTRACT_CITES = [
     file: 'mcp/reader_scheduler.js',
     symbol: 'pump',
     starts: 'const checkpoint = async (step) => {',
-    code: '340731351f144631',
+    code: '26706d9f5595062d',
   },
   // Step 4: the sink's own error is kept before the bridge sees it.
   {
@@ -10445,7 +10445,7 @@ const CONTRACT_CITES = [
     nth: [5, 13],
     head: 'Promise.resolve()',
     ends: 'if (waiter === current) kill(error);',
-    code: 'cf2bd022359bc025',
+    code: '5412b17636c5bde9',
   },
   {
     id: 'c.python_bridge.execute',

@@ -489,6 +489,21 @@ null
 - A record whose `discovery.unavailable` is set never reaches a lease payload:
   `_dispatchable` does not offer it, and `workerPayload` refuses it (§2.7).
 
+For a non-null discovery lease, the adapter supplies the persisted `discovery_job_id`
+and injects the synchronous `read_discovery_page` callback alongside `discovery`.
+That callback is the bounded, address-verifying page reader and preserves its typed
+`PageObjectMissing`, `PageObjectUndecodable` and `PageObjectCorrupt` exceptions.
+The producer owns their contextual mapping; consumer fixture tests do not qualify the held
+producer source. Legacy non-discovery sessions receive none of these additional keywords.
+
+After each running discovery checkpoint commit, including a zero-record seal frame, the
+scheduler rebuilds the payload from the committed summary and ordered address lists.
+Only that rebuilt value is forwarded in the ACK. A rebuild refusal prevents a successful
+ACK; the durable commit is not rolled back. Before another producer step, the worker updates
+the same retained discovery dictionary in place. A missing or non-object refresh refuses
+continuation as `READER_ERROR` under the existing worker whitelist. Initial discovery
+bootstrap, producer pairing and C1 activation remain separate gates.
+
 ### 2.11 Codec errors and where they are mapped (BB8, #721 items 2–3)
 
 This is BB8's proposal for the #721 handoff's items 2 and 3, which R2 accepted, with BB8's review

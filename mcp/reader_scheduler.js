@@ -721,8 +721,15 @@ export class ReaderScheduler {
         // without it commits exactly as before.
         ...(Object.hasOwn(step, 'discovery') ? { discovery: step.discovery } : {}),
       });
+      // Rebuild from the committed record and ordered address lists, never
+      // from the worker's proposed seals. A read refusal prevents the ACK.
+      const refreshed =
+        committed.state === 'running' && committed.discovery
+          ? this.store.workerPayload(record.id).discovery
+          : undefined;
       return {
         added_page_paths: committed.added_page_paths || [],
+        ...(refreshed ? { discovery: refreshed } : {}),
         ...(committed.state !== 'running'
           ? { stop_reason: committed.reason?.code || 'INTERRUPTED' }
           : {}),
@@ -762,7 +769,9 @@ export class ReaderScheduler {
           checkpoint: record.cursor || null,
           // DISCOVERY_V1 §2.10: passed only when the walk built one, so a
           // lease of a job holding no discovery sends exactly what it did.
-          ...(trusted.discovery ? { discovery: trusted.discovery } : {}),
+          ...(trusted.discovery
+            ? { discovery: trusted.discovery, discovery_job_id: record.id }
+            : {}),
           committed_pages: trusted.page_paths || trusted.pages || [],
           lease_ms: Math.max(
             1,

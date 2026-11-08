@@ -14,10 +14,13 @@ PRODUCER = '''
 MISSING = object()
 class AnalysisSession:
     def __init__(self, source, declarations, requested, checkpoint, *,
-                 load_records, identity, requested_methods, discovery=MISSING):
+                 load_records, identity, requested_methods, discovery=MISSING,
+                 read_discovery_page=MISSING, discovery_job_id=MISSING):
         if "error" in source:
             raise ValueError(source["error"])
-        self.probe = {"has_discovery": discovery is not MISSING,
+        self.probe = {"reader_injected": read_discovery_page is not MISSING,
+                      "job_injected": discovery_job_id is not MISSING,
+                      "has_discovery": discovery is not MISSING,
                       "discovery": None if discovery is MISSING else discovery,
                       "records": list(load_records("schema"))}
     def step(self, **kwargs):
@@ -98,6 +101,8 @@ class ReaderProtocolTests(unittest.TestCase):
                 probe = frames[0]["data"]["probe"]
                 self.assertEqual(probe["has_discovery"], extra.get("discovery") is not None)
                 self.assertEqual(probe["discovery"], extra.get("discovery"))
+                self.assertEqual(probe["reader_injected"], extra.get("discovery") is not None)
+                self.assertEqual(probe["job_injected"], extra.get("discovery") is not None)
                 self.assertEqual(frames[1]["reader_result"]["status"], "complete")
 
     def test_load_records_keeps_order_multiplicity_and_one_yield_per_row(self):
@@ -115,6 +120,83 @@ class ReaderProtocolTests(unittest.TestCase):
         ])
         self.assertEqual([r["id"] for r in frames[0]["data"]["probe"]["records"]],
                          ["same", "same", "next"])
+
+
+    def test_discovery_reader_job_and_same_object_refresh_after_zero_record_seal(self):
+        producer = """
+class AnalysisSession:
+ def __init__(self, source, declarations, requested, checkpoint, *, discovery,
+              read_discovery_page, discovery_job_id, **kwargs):
+  assert discovery_job_id == 'persisted-job'
+  self.discovery = discovery
+  self.original = discovery
+  self.read = read_discovery_page
+  self.n = 0
+ def step(self, **kwargs):
+  self.n += 1
+  if self.n == 1:
+   return {'done':False,'provider_calls':0,'records':[],
+           'discovery':{'epoch':0,'resets':[],'seals':[{'test_only':True}]}}
+  assert self.discovery is self.original
+  assert self.discovery['summary']['logs']['seen']['count'] == 2
+  assert 'obsolete' not in self.discovery
+  pages = [self.read(p) for p in self.discovery['paths']['seen']]
+  return {'done':True,'provider_calls':0,'records':[], 'pages':pages}
+"""
+        (self.root / 'lyric-harness/library/analysis.py').write_text(producer)
+        paths = []
+        for value in (2, 1):
+            body = json.dumps({'value': value}).encode()
+            p = self.root / (hashlib.sha256(body).hexdigest() + '.json')
+            p.write_bytes(body)
+            paths.append(str(p))
+        initial = {'version': 1, 'summary': {'epoch': 0, 'logs': {}},
+                   'paths': {}, 'obsolete': True}
+        refresh = {'version': 1, 'summary': {'epoch': 0, 'logs': {'seen': {'count': 2}}},
+                   'paths': {'seen': paths}}
+        frames = self.run_worker([
+            {'id': 1, 'family': 'reader', 'reader': {'source': {},
+                'discovery': initial, 'discovery_job_id': 'persisted-job'}},
+            {'id': 1, 'event': 'reader_ack', 'continue': True, 'discovery': refresh},
+            {'id': 1, 'event': 'reader_ack', 'continue': False, 'reason': 'COMPLETE'},
+        ])
+        self.assertEqual(frames[0]['data']['records'], [])
+        self.assertEqual(frames[1]['data']['pages'], [{'value': 2}, {'value': 1}])
+        self.assertEqual(frames[2]['reader_result']['status'], 'complete')
+        refused = self.run_worker([
+            {'id': 1, 'family': 'reader', 'reader': {'source': {},
+                'discovery': initial, 'discovery_job_id': 'persisted-job'}},
+            {'id': 1, 'event': 'reader_ack', 'continue': True},
+        ])
+        self.assertEqual(len(refused), 2, 'no second step without committed refresh')
+        self.assertEqual(refused[1]['error_code'], 'READER_ERROR')
+
+
+    def test_injected_page_reader_preserves_typed_failures(self):
+        producer = """
+class AnalysisSession:
+ def __init__(self, source, *args, read_discovery_page, **kwargs):
+  try: read_discovery_page(source['page'])
+  except ValueError as error:
+   # Controlled consumer mapping, not the held production implementation.
+   heads = {'PageObjectMissing':'DISCOVERY_UNAVAILABLE[segment_missing,seen]',
+            'PageObjectUndecodable':'DISCOVERY_UNAVAILABLE[chain_broken,seen]',
+            'PageObjectCorrupt':'STORAGE_CORRUPT'}
+   raise ValueError(heads[type(error).__name__] + ': fixture')
+"""
+        (self.root / 'lyric-harness/library/analysis.py').write_text(producer)
+        bad = b'not-json'
+        undecodable = self.root / (hashlib.sha256(bad).hexdigest() + '.json')
+        undecodable.write_bytes(bad)
+        corrupt = self.root / ('0' * 64 + '.json')
+        corrupt.write_bytes(b'{}')
+        for page, code, cause in ((self.root / 'missing.json', 'DISCOVERY_UNAVAILABLE', 'segment_missing'),
+                                 (undecodable, 'DISCOVERY_UNAVAILABLE', 'chain_broken'),
+                                 (corrupt, 'STORAGE_CORRUPT', None)):
+            frames = self.run_worker([{'id': 1, 'family': 'reader', 'reader': {
+                'source': {'page': str(page)}, 'discovery': {}, 'discovery_job_id': 'job'}}])
+            self.assertEqual(frames[0]['error_code'], code)
+            self.assertEqual(frames[0]['error_cause'], cause)
 
 
 if __name__ == "__main__":

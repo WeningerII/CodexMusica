@@ -342,6 +342,7 @@ export function createPythonBridge({
                     continue: !reason && !reply.data.done,
                     reason: reason || (reply.data.done ? 'COMPLETE' : null),
                     added_page_paths: ack.added_page_paths || [],
+                    ...(Object.hasOwn(ack, 'discovery') ? { discovery: ack.discovery } : {}),
                   }) + '\n'
                 );
               })

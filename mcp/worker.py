@@ -174,8 +174,11 @@ def run_reader(payload, request_id):
     deadline = time.monotonic() + lease_ms / 1000
     # Omit the keyword for existing sessions: today's AnalysisSession does
     # not accept it. Non-null discovery belongs to the paired producer train.
-    discovery_args = ({"discovery": payload["discovery"]}
-                      if payload.get("discovery") is not None else {})
+    discovery = payload.get("discovery")
+    discovery_args = ({"discovery": discovery,
+                       "read_discovery_page": read_page_object,
+                       "discovery_job_id": payload.get("discovery_job_id")}
+                      if discovery is not None else {})
     session = AnalysisSession(payload["source"], payload.get("declarations"), requested,
                               payload.get("checkpoint"), load_records=load_records,
                               identity=payload.get("identity"),
@@ -201,6 +204,14 @@ def run_reader(payload, request_id):
         if not all(isinstance(item, str) and os.path.isabs(item) for item in added):
             raise ValueError("reader acknowledged page paths are invalid")
         paths.extend(added)
+        if discovery is not None and not step.get("done") and ack.get("continue"):
+            refreshed = ack.get("discovery")
+            if not isinstance(refreshed, dict):
+                raise ValueError("reader committed discovery acknowledgement is missing")
+            # The producer retains this object; replacing our reference would
+            # leave its next step reading stale heads and ordered paths.
+            discovery.clear()
+            discovery.update(refreshed)
         if step.get("done") and ack.get("reason") in (None, "COMPLETE", "YIELD", "LEASE_EXHAUSTED"):
             return {"status": "complete", "reason": "COMPLETE", "provider_calls": 0}
         if not ack.get("continue") or time.monotonic() >= deadline:
