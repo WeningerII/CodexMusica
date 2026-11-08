@@ -2319,13 +2319,20 @@ export class ReaderJobStore {
     for (const [log, st] of Object.entries(logs)) {
       const list = listOf(log);
       const v = verified[log];
-      for (const address of list.slice(0, v.segments))
+      // A verified segment is stat'ed, not read, and held as _segment's own
+      // stat holds it: gone is missing; a name that is not a regular file (a
+      // directory, say) or a size over the object bound is F6; any other
+      // stat error is thrown as it is.
+      for (const address of list.slice(0, v.segments)) {
+        let stat;
         try {
-          fs.statSync(path.join(this.directory, 'pages', `${address}.json`));
+          stat = fs.statSync(path.join(this.directory, 'pages', `${address}.json`));
         } catch (error) {
           if (error.code === 'ENOENT') throw corrupt('missing');
           throw error;
         }
+        if (!stat.isFile() || stat.size > READER_LIMITS.objectBytes) throw corrupt('F6');
+      }
       const expect = { job_id: record.id, identity_hash: record.identity_hash, epoch, log };
       let at = v;
       let junction = v.segments > 0;

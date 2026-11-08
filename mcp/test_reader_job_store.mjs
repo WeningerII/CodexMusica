@@ -2430,13 +2430,19 @@ function realChain(record, log, n, { epoch = 0 } = {}) {
   };
 }
 // A record of `base`'s job planted under `id` with real chains of `logs`
-// ({log: n}); `damage(raws)` may change the stored segments.
-function plantReal(directory, base, id, logs, { job = {}, damage = null, gzip = false } = {}) {
+// ({log: n}) at `epoch`; `damage(raws)` may change the stored segments.
+function plantReal(
+  directory,
+  base,
+  id,
+  logs,
+  { job = {}, damage = null, gzip = false, epoch = 0 } = {}
+) {
   const owner = { ...base, id };
-  const discovery = { version: 1, epoch: 0, logs: {}, verified: {}, unavailable: null };
+  const discovery = { version: 1, epoch, logs: {}, verified: {}, unavailable: null };
   const stored = [];
   for (const [log, n] of Object.entries(logs)) {
-    const c = realChain(owner, log, n);
+    const c = realChain(owner, log, n, { epoch });
     discovery.logs[log] = c.state;
     discovery.verified[log] = c.empty;
     stored.push(...c.raws.map((raw) => [dsha(raw), raw]));
@@ -6531,6 +6537,129 @@ test('lease walk: a planted head with no list gets no partial list from a commit
   assert.equal(passed.error, null, 'a null head with no list passes R5');
   assert.deepEqual(passed.payload.discovery.paths.variants, []);
   assert.deepEqual(passed.read, inc.expect.lease.read);
+});
+
+// R5 on a one-segment chain (Step 10 review, F3): a non-null head with no
+// list is R5 though the head alone would make a list of the right length
+// ending at the head. seen, in the incremental walk's record, is one segment
+// and verified at its head.
+test('lease walk: a one-segment non-null head with no list is R5, before any stat or read', (t) => {
+  const fx = loadFixture('good/lease_incremental_walk.json');
+  const seen = fx.record.discovery.logs.seen;
+  assert.equal(seen.segments, 1);
+  assert.notEqual(seen.head, null);
+  assert.deepEqual(fx.record.discovery.verified.seen, seen, 'verified at its head');
+  for (const gzip of [false, true]) {
+    const { store } = leaseFixture(t, fx, { gzip });
+    store.chains.get(fx.record.id).delete('seen');
+    const walk = walkOnce(t, store, fx.record.id);
+    assertWalkRefused(walk, 'R5', `gzip=${gzip}`);
+    assert.deepEqual([walk.read, walk.stat], [[], []], `gzip=${gzip}: nothing stat'ed or read`);
+  }
+});
+
+// F3 on the walk holds each listed segment to the record's own epoch (Step
+// 10 review, F2): a real chain at epoch 1 walks clean, and a listed segment
+// of epoch 0, otherwise a whole chain ending at the head the record names,
+// is F3.
+test('lease walk: at epoch 1 a listed segment of another epoch is F3; the epoch-1 chain walks clean', (t) => {
+  for (const gzip of [false, true]) {
+    const at = `gzip=${gzip}`;
+    const { directory, store: first } = fixture(t, { gzip });
+    const base = first.records.get(create(first).record.id);
+    const planted = plantReal(directory, base, base.id, { seen: 2 }, { epoch: 1, gzip });
+    const store = walkStore(t, directory, { gzip });
+    assert.equal(store.failure, null, `${at}: the epoch-1 chain reconciles`);
+    assert.equal(store.lease(base.id)?.id, base.id);
+    const clean = walkOnce(t, store, base.id);
+    assert.equal(clean.error, null, `${at}: ${clean.error?.message}`);
+    assert.deepEqual(clean.read, listsOf(store, base.id).seen, `${at}: both segments read`);
+    assert.deepEqual(clean.record.discovery.verified, planted.discovery.logs);
+    // The same log's chain at epoch 0, listed and named as the head.
+    const old = realChain({ ...base, id: base.id }, 'seen', 1, { epoch: 0 });
+    const address = dsha(old.raws[0]);
+    writeStored(directory, address, old.raws[0], gzip);
+    const live = store.records.get(base.id);
+    store.records.set(base.id, {
+      ...live,
+      discovery: {
+        ...live.discovery,
+        logs: { seen: old.state },
+        verified: { seen: old.empty },
+      },
+    });
+    store.chains.get(base.id).set('seen', [address]);
+    const walk = walkOnce(t, store, base.id);
+    assertWalkRefused(walk, 'F3', `${at}: another epoch`);
+    assert.deepEqual(walk.read, [address], `${at}: read, then refused`);
+  }
+});
+
+// A verified segment is stat'ed as the read's own stat holds it (Step 10
+// review, F6): a directory, or a stored size over the object bound, at a
+// verified address is F6, never read.
+test('lease walk: a verified address that is not a regular file, or is over the object bound, is F6 at its stat', (t) => {
+  const fx = loadFixture('good/lease_incremental_walk.json');
+  const seen = fx.addresses.seen[0];
+  for (const [name, plant] of [
+    ['a directory', (file) => fs.mkdirSync(file)],
+    [
+      'over the object bound',
+      (file) => fs.writeFileSync(file, Buffer.alloc(READER_LIMITS.objectBytes + 1)),
+    ],
+  ]) {
+    const { directory, store } = leaseFixture(t, fx);
+    const file = path.join(pagesDir(directory), `${seen}.json`);
+    fs.unlinkSync(file);
+    plant(file);
+    const walk = walkOnce(t, store, fx.record.id);
+    assertWalkRefused(walk, 'F6', name);
+    assert.deepEqual(walk.read, [], `${name}: refused at the stat, before any read`);
+    assert.equal(store.failure, null, `${name}: the store serves on`);
+  }
+  // At the bound exactly, the stat passes: a verified segment is not read.
+  const { directory, store } = leaseFixture(t, fx);
+  fs.writeFileSync(
+    path.join(pagesDir(directory), `${seen}.json`),
+    Buffer.alloc(READER_LIMITS.objectBytes)
+  );
+  const walk = walkOnce(t, store, fx.record.id);
+  assert.equal(walk.error, null, 'at the bound');
+  assert.deepEqual(walk.read, fx.expect.lease.read);
+});
+
+// workerPayload takes the writer lock (Step 10 review, F5): while another
+// process holds it, with nothing pending, the payload is refused STORE_BUSY
+// before anything is stat'ed or read, for a job with discovery and for one
+// with none (before Step 10 the second was served from the cache). The store
+// serves on, and the payload is built once the lock is free.
+test('lease walk: a live foreign writer lock refuses workerPayload STORE_BUSY, reading nothing, with or without discovery', (t) => {
+  const fx = loadFixture('good/lease_incremental_walk.json');
+  const { store } = leaseFixture(t, fx);
+  const plain = create(store, 'viewer-b', 'request-plain').record.id;
+  assert.notEqual(plain, fx.record.id);
+  assert.equal(Object.hasOwn(store.records.get(plain), 'discovery'), false);
+  const lock = path.join(store.directory, 'writer.lock');
+  for (const id of [fx.record.id, plain]) {
+    fs.writeFileSync(lock, JSON.stringify({ pid: process.pid, nonce: 'f'.repeat(32) }));
+    let walk;
+    try {
+      walk = walkOnce(t, store, id);
+    } finally {
+      fs.unlinkSync(lock);
+    }
+    assert.deepEqual([walk.error?.code, walk.error?.status], ['STORE_BUSY', 503], id);
+    assert.deepEqual(
+      [walk.read, walk.stat, walk.saved, walk.generationMoved],
+      [[], [], false, false],
+      `${id}: nothing read or written`
+    );
+    assert.equal(store.failure, null, `${id}: the store serves on`);
+  }
+  const walk = walkOnce(t, store, fx.record.id);
+  assert.equal(walk.error, null);
+  assert.deepEqual(walk.read, fx.expect.lease.read, 'the lock freed, the walk runs');
+  assert.equal(Object.hasOwn(walkOnce(t, store, plain).payload, 'discovery'), false);
 });
 
 test('lease walk: the refusals before the walk, in order: a pending release, then unavailable, reading nothing', (t) => {

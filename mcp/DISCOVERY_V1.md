@@ -1100,7 +1100,11 @@ and `resume()` refuses a dead job at once instead of queueing it
   instance did not write or a pending marker, it reloads, and reconciliation (§7.4) runs before
   the walk reads anything, so a segment an older image swept is found there. No other writer can
   delete one while the walk reads. `workerPayload` runs inside the scheduler's try block
-  (`reader_scheduler.js:pump`), so a refusal there pauses that one job.
+  (`reader_scheduler.js:pump`), so a refusal there pauses that one job. Because it takes the
+  lock, `workerPayload` is refused `STORE_BUSY` (503) while another process holds it, for a job
+  holding no discovery too, before anything is stat'ed or read. Before the walk, a lease of such
+  a job read the cache without the lock while the generation had not moved. The scheduler then
+  pauses that job with `STORE_BUSY`, not requeued, as it pauses any other refusal there.
 - If `record.discovery.unavailable` is set, the store refuses with `DISCOVERY_UNAVAILABLE`,
   naming its cause and log, without walking.
 - **The address list.** Statting a segment needs its address, and only the segment after it
@@ -1139,7 +1143,10 @@ and `resume()` refuses a dead job at once instead of queueing it
      when its `segments` equals the head's, and otherwise the list's address number
      `v.segments`, counting from 1, is `v.head`.
   2. **Stat** each of the first `v.segments` addresses. Reconciliation has already run
-     under this lock (§7.4), so a missing one is `STORAGE_CORRUPT`.
+     under this lock (§7.4), so a missing one is `STORAGE_CORRUPT`. The stat holds it as step
+     3's stat does: a name that is not a regular file, or a stored size over the bound, is F6,
+     `STORAGE_CORRUPT` too, and it is not read. Any other stat error is not a verdict on the
+     segment and is thrown as the read's own stat throws it.
   3. **Read and check the rest**: the segments appended since the verified head, oldest
      first. Each is stat'ed, then read through `_object('pages', …)`, which is bounded and
      address-checked (F6: changed bytes, and a stored size over the bound, which is never read,
