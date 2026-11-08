@@ -7257,7 +7257,11 @@ test('F5: returnLease ends only its own lease, and keeps cancel, U2 and the queu
     assert.equal(back.attempt, lease.attempt - 1, `${kind}: uncounted`);
     assert.deepEqual([back.fence, back.lease_expires_at], [null, null], `${kind}: the lease ended`);
     if (kind === 'cancel')
-      assert.deepEqual([back.state, back.reason?.code], ['cancelled', 'STORE_BUSY']);
+      assert.deepEqual(
+        [back.state, back.reason?.code, back.deferred_requeue],
+        ['cancelled', 'STORE_BUSY', false],
+        'cancelled, never to be requeued'
+      );
     if (kind === 'released') {
       assert.deepEqual(
         [back.state, back.reason?.code, back.reason?.cause, back.deferred_requeue],
@@ -7277,6 +7281,176 @@ test('F5: returnLease ends only its own lease, and keeps cancel, U2 and the queu
       assert.equal(store.records.get(id).state, 'queued', 'promoted once a slot opened');
     }
   }
+});
+
+// Review of 4f96eff9f, finding 3: a running job whose malformed release is
+// still pending (usage was unknown at reconciliation) is returned as U2 holds
+// it: paused with the release's reason, the release written in that same save
+// and logged once, never requeued, its attempt uncounted.
+test('F5: returnLease of a job whose malformed release is pending writes the release in its save, paused, never requeued', async (t) => {
+  const job = u2Inputs(t, 'pending');
+  await job.ready();
+  const { store, id } = job;
+  assert.ok(store.pendingRelease.has(id), 'pending before the return');
+  const before = store.records.get(id);
+  assert.equal(before.state, 'running');
+  const seen = eventsOf(t);
+  const back = store.returnLease(id, before.attempt, job.fence);
+  assert.equal(store.failure, null);
+  assert.deepEqual(
+    [back.state, back.reason, back.deferred_requeue, back.attempt],
+    ['paused', U2({}), false, before.attempt - 1],
+    'U2: paused with the release reason, uncounted, never requeued'
+  );
+  assert.deepEqual([back.fence, back.lease_expires_at], [null, null], 'the lease ended');
+  assert.deepEqual(back.discovery, malformedRelease(0, {}), 'the release in that save');
+  assert.deepEqual(durable(store, id).discovery, malformedRelease(0, {}), 'saved');
+  assert.equal(store.pendingRelease.has(id), false, 'no longer pending');
+  assert.deepEqual(
+    seen.filter((e) => e.event === 'READER_DISCOVERY_RELEASED'),
+    [
+      {
+        level: 'warn',
+        event: 'READER_DISCOVERY_RELEASED',
+        job: id,
+        cause: 'chain_broken',
+        log: null,
+      },
+    ],
+    'the release logged once'
+  );
+});
+
+// Review of 4f96eff9f, finding 1: the foreign lock held past the lease's
+// expiry. The return is then STALE_ATTEMPT (returnLease expires the lease
+// first, as any fenced call does), which settles the busy lease: the job is
+// paused INTERRUPTED with its attempt counted, as any expired lease is, and
+// the scheduler leases the next job at the same pump.
+test('F5: a lease that expires while the lock is held ends INTERRUPTED, its attempt counted, and the scheduler moves on', async (t) => {
+  const { fx, store, plain } = busyJobs(t);
+  const id = fx.record.id;
+  const before = store.records.get(id);
+  const { scheduler, requests } = busyScheduler(t, store);
+  const source = scheduler.resolveSource;
+  scheduler.resolveSource = async (...args) => {
+    plantLock(store);
+    return source(...args);
+  };
+  t.after(() => freeLock(store));
+  // The fixture's job leads the queue (queue_order 0); plain waits behind it.
+  await scheduler.pump();
+  scheduler.resolveSource = source;
+  assert.ok(scheduler.busyLease, 'busy');
+  assert.equal(requests.length, 0);
+  freeLock(store);
+  const lease = store.records.get(id);
+  const plainAttempt = store.records.get(plain).attempt;
+  const real = store.now;
+  store.now = () => lease.lease_expires_at + 1;
+  t.after(() => (store.now = real));
+  const returns = t.mock.method(store, 'returnLease');
+  const errors = t.mock.method(console, 'error', () => {});
+  await scheduler.pump();
+  assert.equal(returns.mock.calls[0].error?.code, 'STALE_ATTEMPT', 'the lease had ended');
+  assert.equal(scheduler.busyLease, null, 'settled by STALE_ATTEMPT');
+  assert.equal(
+    errors.mock.calls.some((c) => c.arguments[0] === '[reader] lease return failed:'),
+    false,
+    'a lease already ended is not a failure'
+  );
+  errors.mock.restore();
+  const after = store.records.get(id);
+  assert.deepEqual(
+    [after.state, after.reason?.code, after.attempt],
+    ['paused', 'INTERRUPTED', before.attempt + 1],
+    'expired, not requeued uncounted'
+  );
+  assert.equal(durable(store, id).state, 'paused', 'saved');
+  assert.equal(requests.length, 1, 'the same pump leased the next job');
+  assert.equal(store.records.get(plain).attempt, plainAttempt + 1, 'the next job was leased');
+  assert.equal(store.records.get(plain).state, 'queued', 'and its yield requeued it');
+});
+
+// Review of 4f96eff9f, finding 1 (N31): a return refused with any code but
+// STORE_BUSY or STALE_ATTEMPT is logged and settles the busy lease, so the
+// scheduler never wedges on it and never tries that return again. The job
+// stays running, one lease at a time, and its lease's expiry ends it; the
+// next job is leased once it has.
+test('F5: a return refused for another reason is logged and settles the busy lease; the lease expiry ends the job and the next is leased', async (t) => {
+  const { fx, store, plain } = busyJobs(t);
+  const id = fx.record.id;
+  const before = store.records.get(id);
+  const { scheduler, requests } = busyScheduler(t, store);
+  const source = scheduler.resolveSource;
+  scheduler.resolveSource = async (...args) => {
+    plantLock(store);
+    return source(...args);
+  };
+  t.after(() => freeLock(store));
+  await scheduler.pump();
+  scheduler.resolveSource = source;
+  assert.ok(scheduler.busyLease, 'busy');
+  freeLock(store);
+  const plainAttempt = store.records.get(plain).attempt;
+  const returns = t.mock.method(store, 'returnLease', () => {
+    throw Object.assign(new Error('unavailable'), { code: 'STORAGE_UNAVAILABLE', status: 503 });
+  });
+  const errors = t.mock.method(console, 'error', () => {});
+  await scheduler.pump();
+  assert.equal(scheduler.busyLease, null, 'settled');
+  assert.ok(
+    errors.mock.calls.some(
+      (c) =>
+        c.arguments[0] === '[reader] lease return failed:' &&
+        c.arguments[1] === 'STORAGE_UNAVAILABLE'
+    ),
+    'the refusal is logged'
+  );
+  assert.equal(store.records.get(id).state, 'running', 'its lease expiry is the backstop');
+  assert.equal(requests.length, 0, 'one lease at a time');
+  await scheduler.pump();
+  assert.equal(returns.mock.callCount(), 1, 'the return is not tried again');
+  returns.mock.restore();
+  const lease = store.records.get(id);
+  const real = store.now;
+  store.now = () => lease.lease_expires_at + 1;
+  t.after(() => (store.now = real));
+  await scheduler.pump();
+  const after = store.records.get(id);
+  assert.deepEqual(
+    [after.state, after.reason?.code, after.attempt],
+    ['paused', 'INTERRUPTED', before.attempt + 1],
+    'the expiry ended it'
+  );
+  assert.equal(requests.length, 1, 'the next job was leased');
+  assert.equal(store.records.get(plain).attempt, plainAttempt + 1);
+});
+
+// Review of 4f96eff9f, finding 2: "never a loop" pinned. The busy path's next
+// pump comes one poll interval later, never at once.
+test('F5: later() pumps after one poll interval, never at once', (t) => {
+  const { store } = busyJobs(t);
+  const scheduler = new ReaderScheduler({
+    store,
+    pollMs: 250,
+    bridge: {
+      capacity: () => ({ active: 0, admitted: 0, queued: 0 }),
+      runReaderLease: async () => ({ code: 0 }),
+    },
+    resolveIdentity: async () => identity,
+    resolveSource: async () => ({ source: { text: 'line' } }),
+  });
+  t.after(() => scheduler.stop());
+  t.mock.timers.enable({ apis: ['setTimeout'] });
+  const pumps = t.mock.method(scheduler, 'pump', async () => {});
+  scheduler.later();
+  scheduler.later(); // one timer at a time
+  t.mock.timers.tick(249);
+  assert.equal(pumps.mock.callCount(), 0, 'not before the interval');
+  t.mock.timers.tick(1);
+  assert.equal(pumps.mock.callCount(), 1, 'once, at the interval');
+  t.mock.timers.tick(1000);
+  assert.equal(pumps.mock.callCount(), 1, 'and only once');
 });
 
 // The mutation pass: each clause of R5 refuses on its own, as the validator's
