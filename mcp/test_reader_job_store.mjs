@@ -4684,7 +4684,7 @@ test('repair: a paused record with deferred_requeue and unavailable set is never
 // full quota on a live instance, then room freed, so the save lands with the
 // release in it), and a record with no discovery (the control: the reason it
 // writes today).
-function u2Inputs(t, kind, { state = 'running', now = () => Date.now() } = {}) {
+function u2Inputs(t, kind, { state = 'running', now = () => Date.now(), headroom = 64 } = {}) {
   const { directory, store: seed } = fixture(t, { now });
   const other = create(seed);
   const base = clone(seed.records.get(other.record.id));
@@ -4711,7 +4711,8 @@ function u2Inputs(t, kind, { state = 'running', now = () => Date.now() } = {}) {
   };
   let store = seed;
   if (kind === 'pending') {
-    // The quota: what the store counts with the job planted, and 64 bytes.
+    // The quota: what the store counts with the job planted, and `headroom`
+    // bytes (64 by default; 0 holds the store at exactly full quota).
     plantRecord(directory, job);
     const root = storeDirectory(directory);
     let usage = fs.statSync(path.join(root, 'capability-key')).size;
@@ -4723,7 +4724,7 @@ function u2Inputs(t, kind, { state = 'running', now = () => Date.now() } = {}) {
         if (dir === 'records') slack += Math.max(0, RESERVE - size);
       }
     fs.unlinkSync(path.join(root, 'records', `${id}.json`));
-    store = new ReaderJobStore({ directory, maxBytes: usage + slack + 64, now });
+    store = new ReaderJobStore({ directory, maxBytes: usage + slack + headroom, now });
   }
   plantRecord(directory, job);
   store.inspect(id); // reconciliation: saved, or pending
@@ -4968,6 +4969,74 @@ test('U2 path: a refused save of a pending job is made without its release, and 
   );
   const view = job.store.inspect(job.id);
   assert.deepEqual([view.state, view.reason], ['paused', U2({})], 'shown as its release');
+});
+
+// Review of 78fc83df1, finding F1: the fallback above is itself one of the
+// exempt transitions (§8, §11 row 65). The test above leaves 64 bytes of
+// headroom, which the fallback's growth fits inside (the record gains its
+// reason and loses its fence and expiry), so it never needed the exemption.
+// Here the store holds exactly its quota (no headroom), so the fallback lands
+// only because it is exempt: the lease's expiry, a commit's quota pause and
+// startup's INTERRUPTED pause each commit without the release, the release
+// stays pending, and neither lease() nor startup throws.
+test('U2 path: at exactly full quota, a pending release’s fallback save is exempt: expiry, quota pause and startup each commit, and the release stays pending', async (t) => {
+  for (const where of ['expiry', 'quota', 'startup']) {
+    let now = Date.now();
+    const job = u2Inputs(t, 'pending', { now: () => now, headroom: 0 });
+    assert.equal(await job.store.recount(), true);
+    assert.equal(job.store.usage + job.store.slack, job.store.maxBytes, `${where}: exactly full`);
+    assert.ok(job.store.pendingRelease.has(job.id), `${where}: pending at full quota`);
+    const seen = eventsOf(t);
+    let store = job.store;
+    let reason;
+    if (where === 'expiry') {
+      now += 120_000; // past the lease
+      assert.doesNotThrow(() => store.lease(), `${where}: lease() never throws`);
+      reason = {
+        code: 'INTERRUPTED',
+        message: 'Lease expired; resume the last durable checkpoint explicitly.',
+      };
+    } else if (where === 'quota') {
+      const message = 'Reader storage quota reached; committed work is retained.';
+      const refusal = Object.assign(new Error(message), {
+        code: 'RESOURCE_LIMIT',
+        status: 507,
+      });
+      store._open(() => store._quotaPause(store.records.get(job.id), refusal));
+      reason = { code: 'RESOURCE_LIMIT', message };
+    } else {
+      store = new ReaderJobStore({
+        directory: job.directory,
+        maxBytes: job.store.maxBytes,
+        now: () => now,
+      });
+      assert.equal(store.failure, null, `${where}: startup succeeds`);
+      reason = {
+        code: 'INTERRUPTED',
+        message: 'Worker interrupted; explicitly resume the committed cursor.',
+      };
+    }
+    const got = store.records.get(job.id);
+    assert.equal(got.state, 'paused', `${where}: the job left running`);
+    assert.deepEqual(got.reason, reason, `${where}: today's reason`);
+    assert.deepEqual(got.discovery, [], `${where}: the malformed value, unreleased`);
+    assert.deepEqual(durable(store, job.id).reason, reason, `${where}: durable`);
+    assert.ok(store.pendingRelease.has(job.id), `${where}: the release still pending`);
+    assert.ok(
+      store.usage === null || store.usage + store.slack >= store.maxBytes,
+      `${where}: the transition took the store to or past its quota`
+    );
+    if (where !== 'startup')
+      assert.ok(
+        seen.some(
+          (e) =>
+            e.event === 'READER_REPAIR_DEFERRED' && e.job === job.id && e.code === 'RESOURCE_LIMIT'
+        ),
+        `${where}: the refused save is logged`
+      );
+    const view = store.inspect(job.id);
+    assert.deepEqual([view.state, view.reason], ['paused', U2({})], `${where}: shown as released`);
+  }
 });
 
 // BB8's call (3) on Step 7: the fallback above saves without the release
@@ -7760,6 +7829,60 @@ test('F5: returnLease ends only its own lease, and keeps cancel, U2 and the queu
   }
 });
 
+// Review of 78fc83df1, F5: returnLease is not one of the three transitions
+// exempt from quota (§5.1, §8). Its cancel and no-room paths give the record a
+// reason, so at exactly full quota a record past its reservation is refused
+// RESOURCE_LIMIT and nothing is written; the job stays running, and its
+// lease's expiry, which is exempt, then pauses it INTERRUPTED with the attempt
+// counted. The queued path drops the fence and adds no reason, so it shrinks
+// the record and lands.
+test('F5: at exactly full quota, a return that adds a reason to a record past its reservation is refused; the exempt expiry ends the lease', (t) => {
+  for (const kind of ['cancel', 'full', 'queued']) {
+    const fx = loadFixture('good/lease_incremental_walk.json');
+    const { store, lease } = leaseFixture(t, fx);
+    const id = fx.record.id;
+    if (kind === 'full')
+      for (let n = store.listQueued().length; n < READER_LIMITS.waiting; n++)
+        create(store, `viewer-${n}`, `full-${n}`);
+    const running = store.records.get(id);
+    store._open(() =>
+      store._save({
+        ...running,
+        cancel_requested: kind === 'cancel',
+        request: { ...running.request, pad: 'p'.repeat(20_000) },
+      })
+    );
+    assert.ok(
+      fs.statSync(path.join(store.directory, 'records', `${id}.json`)).size > RESERVE,
+      `${kind}: past its reservation`
+    );
+    store.maxBytes = store.usage + store.slack;
+    if (kind === 'queued') {
+      const back = store.returnLease(id, lease.attempt, lease.fence);
+      assert.deepEqual([back.state, back.attempt], ['queued', lease.attempt - 1], kind);
+      continue;
+    }
+    const before = durable(store, id);
+    assert.throws(
+      () => store.returnLease(id, lease.attempt, lease.fence),
+      (error) => error.code === 'RESOURCE_LIMIT' && error.status === 507,
+      `${kind}: refused for quota`
+    );
+    assert.deepEqual(durable(store, id), before, `${kind}: nothing written`);
+    assert.equal(store.records.get(id).state, 'running', `${kind}: still running`);
+    const real = store.now;
+    store.now = () => before.lease_expires_at + 1;
+    store.lease();
+    store.now = real;
+    const after = store.records.get(id);
+    assert.deepEqual(
+      [after.state, after.reason?.code, after.attempt],
+      [kind === 'cancel' ? 'cancelled' : 'paused', 'INTERRUPTED', lease.attempt],
+      `${kind}: the expiry ended it, its attempt counted`
+    );
+  }
+});
+
 // Review of 4f96eff9f, finding 3: a running job whose malformed release is
 // still pending (usage was unknown at reconciliation) is returned as U2 holds
 // it: paused with the release's reason, the release written in that same save
@@ -9008,20 +9131,28 @@ test('resume: a verified save refused STORE_RECOUNTING or RESOURCE_LIMIT is made
     }
   }
   // Not retried: any other refusal of the advanced save, and a record with
-  // no discovery refused for room.
-  {
+  // no discovery refused for room. A room refusal is the code and the status
+  // together (roomRefusal): a RESOURCE_LIMIT that is not 507, a 503 that is
+  // not STORE_RECOUNTING (a busy writer lock, storage unavailable) and a 507
+  // with another code are each thrown at once (review of 78fc83df1, F2).
+  for (const [code, status] of [
+    ['RESOURCE_LIMIT', 413],
+    ['STORE_BUSY', 503],
+    ['STORAGE_UNAVAILABLE', 503],
+    ['X', 507],
+  ]) {
     const job = setup();
     const attempts = refuse(
       job.store,
       job.id,
       job.paused,
-      () => Object.assign(new Error('too large'), { code: 'RESOURCE_LIMIT', status: 413 }),
+      () => Object.assign(new Error('not room'), { code, status }),
       () => true
     );
     const got = resumeOnce(t, job.store, job.id, job.capability, job.paused.viewer);
     job.store._save.mock.restore();
-    assert.deepEqual([got.error?.code, got.error?.status], ['RESOURCE_LIMIT', 413]);
-    assert.deepEqual(attempts, ['advanced'], 'a refusal that is not for room: no retry');
+    assert.deepEqual([got.error?.code, got.error?.status], [code, status]);
+    assert.deepEqual(attempts, ['advanced'], `${code} ${status}: not for room, no retry`);
   }
   {
     const { store } = fixture(t);
@@ -9039,6 +9170,58 @@ test('resume: a verified save refused STORE_RECOUNTING or RESOURCE_LIMIT is made
     const got = resumeOnce(t, store, job.record.id, job.capability, 'viewer-a', {}, identity);
     store._save.mock.restore();
     assert.deepEqual([got.error?.code, calls], ['RESOURCE_LIMIT', 1], 'no discovery: no retry');
+  }
+});
+
+// The same retry, refused by the store's own quota check rather than a mocked
+// _save (review of 78fc83df1, F2). The record is padded past its 16 KiB
+// reservation, so the advance grows it by more than any reservation holds:
+// at exactly full quota the advanced save is refused RESOURCE_LIMIT 507, and
+// while usage is unknown it is refused STORE_RECOUNTING 503. Without the
+// advance the save shrinks the record (the reason goes), so it lands, and
+// `verified` stays where it was.
+test('resume: at a real full quota or an unknown usage, the advanced save is refused for room and the save without the advance lands', (t) => {
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  for (const [code, status] of [
+    ['RESOURCE_LIMIT', 507],
+    ['STORE_RECOUNTING', 503],
+  ]) {
+    const job = writeJob(t, fx);
+    commitFrame(job.store, job.lease, fx.frames[0]);
+    commitFrame(job.store, job.lease, fx.frames[1]);
+    job.store.pause(job.lease.id, job.lease.attempt, job.lease.fence, STORAGE_PAUSE);
+    const unpadded = job.store.records.get(job.id);
+    job.store._open(() =>
+      job.store._save({ ...unpadded, request: { ...unpadded.request, pad: 'p'.repeat(20_000) } })
+    );
+    const paused = clone(job.store.records.get(job.id));
+    assert.ok(
+      fs.statSync(path.join(job.store.directory, 'records', `${job.id}.json`)).size > RESERVE,
+      `${code}: past its reservation`
+    );
+    assert.notDeepEqual(paused.discovery.verified, paused.discovery.logs, `${code}: behind`);
+    if (code === 'RESOURCE_LIMIT') job.store.maxBytes = job.store.usage + job.store.slack;
+    else job.store.usage = null;
+    const refused = [];
+    const save = ReaderJobStore.prototype._save;
+    t.mock.method(job.store, '_save', function (record, ...rest) {
+      try {
+        return save.call(this, record, ...rest);
+      } catch (error) {
+        if (record.id === job.id) refused.push([error.code, error.status]);
+        throw error;
+      }
+    });
+    const capability = job.store.capabilityFor(job.id, paused.viewer);
+    const got = resumeOnce(t, job.store, job.id, capability, paused.viewer);
+    job.store._save.mock.restore();
+    assert.equal(got.error, null, `${code}: ${got.error?.message}`);
+    assert.deepEqual(refused, [[code, status]], `${code}: the advance refused by the store`);
+    for (const r of [got.record, durable(job.store, job.id), job.store.records.get(job.id)]) {
+      assert.equal(r.state, 'queued', `${code}: queued`);
+      assert.deepEqual(r.discovery.verified, paused.discovery.verified, `${code}: kept`);
+      assert.deepEqual(r.discovery.logs, paused.discovery.logs, `${code}: heads unchanged`);
+    }
   }
 });
 
