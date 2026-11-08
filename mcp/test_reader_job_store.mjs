@@ -17,6 +17,7 @@ import {
   domainDigest,
 } from './reader_discovery.js';
 import { plantRecord, storeDirectory } from './reader_store_test_support.mjs';
+import { cursorCase } from './fixtures/discovery_v1/builders.mjs';
 
 const identity = {
   snapshot: 'snapshot-a',
@@ -5125,4 +5126,409 @@ test('write path: a record one field past 2 MiB is refused 413 at its save; only
     for (const name of before.objects[kind])
       if (kind !== 'pages' || !segments.includes(name))
         assert.ok(fs.existsSync(path.join(store.directory, kind, name)), `${kind}/${name} kept`);
+});
+
+// ── W4's shape and bound checks (#656 Step 9; §2.8, §3, §3.1, §3.2) ───────
+// A fresh job (no discovery, no cursor) that takes the frames given in turn:
+// each but the last must be accepted, and the last is refused W4 or accepted.
+const FRESH = { record: { discovery: null, cursor: null } };
+// The store's canonical(): sorted keys, no whitespace.
+function sortedCanonical(value) {
+  if (value === null || typeof value !== 'object') return JSON.stringify(value);
+  if (Array.isArray(value)) return `[${value.map(sortedCanonical).join(',')}]`;
+  return `{${Object.keys(value)
+    .sort()
+    .map((key) => `${JSON.stringify(key)}:${sortedCanonical(value[key])}`)
+    .join(',')}}`;
+}
+const cbytes = (v) => Buffer.byteLength(sortedCanonical(v));
+function shapeCase(t, frames, outcome, name) {
+  const job = writeJob(t, FRESH);
+  for (const f of frames.slice(0, -1))
+    assert.equal(commitFrame(job.store, job.lease, f).state, 'running', `${name}: a setup frame`);
+  const last = frames.at(-1);
+  if (outcome === 'W4') refusedFrame(job, last, 'W4', name);
+  else assert.equal(commitFrame(job.store, job.lease, last).state, 'running', name);
+}
+// minimalFrame() edited, at epoch `epoch` (frame, method_index and
+// cursor.discovery agree, W2).
+function shapeFrame(edit = () => {}, epoch = 0) {
+  const f = minimalFrame();
+  f.discovery.epoch = epoch;
+  f.cursor.method_index = epoch;
+  f.cursor.discovery.epoch = epoch;
+  edit(f.cursor, f.cursor.discovery);
+  return f;
+}
+const WITNESS = (epoch = 0) => ({
+  version: 1,
+  epoch,
+  method_id: 'schema:end_rhyme',
+  fields: ['method_id', 'id', 'verdict', 'a.token_ids', 'b.token_ids'],
+  count: 4,
+  digest: 'f'.repeat(64),
+});
+// n string entries of exactly `bytes` canonical bytes together.
+function entriesOf(n, bytes) {
+  const each = Math.floor(bytes / n);
+  return Array.from({ length: n }, (_, i) => {
+    const want = i < n - 1 ? each : bytes - (n - 1) * each;
+    return 'k'.repeat(want - 2);
+  });
+}
+
+test('W4: bad/cursor_over_bound.json, built from builders.mjs: the controls accepted, each mutant refused', (t) => {
+  const fx = loadFixture('bad/cursor_over_bound.json');
+  assert.deepEqual(
+    [fx.expect.rule, fx.expect.code, fx.expect.status],
+    ['W4', 'READER_PROTOCOL', 400]
+  );
+  assert.deepEqual(
+    fx.controls.map((c) => c.name),
+    ['largest', 'at_the_bound']
+  );
+  assert.deepEqual(
+    fx.mutants.map((m) => m.name),
+    [
+      'one_byte_over',
+      'refusal_one_byte_over',
+      'integer_past_the_safe_range',
+      'integer_below_zero',
+      'number_not_an_integer',
+    ]
+  );
+  // The frame the validator gives each cursor (cursorFrame there): the
+  // cursor's own epoch, no logs, an empty continuation.
+  const frameOf = (rest) => ({
+    discovery: { epoch: rest.method_index, resets: [], seals: [] },
+    cursor: {
+      ...clone(rest),
+      discovery: { ...clone(EMPTY_CD), epoch: rest.method_index },
+      continuation: {},
+    },
+  });
+  const built = (c) => {
+    const rest = cursorCase(fx.inputs, c.name, DISCOVERY_LIMITS.CURSOR_BYTES);
+    // By the store's sorted canonical(), byte for byte the fixture's.
+    assert.equal(cbytes(rest), c.bytes, `${c.name}: its canonical bytes`);
+    const digest = createHash('sha256').update(sortedCanonical(rest)).digest('hex');
+    assert.equal(digest, c.sha256, `${c.name}: its digest`);
+    return rest;
+  };
+  for (const c of fx.controls) {
+    const job = writeJob(t, FRESH);
+    const saved = commitFrame(job.store, job.lease, frameOf(built(c)));
+    assert.equal(saved.state, 'running', c.name);
+  }
+  assert.equal(fx.controls[1].bytes, DISCOVERY_LIMITS.CURSOR_BYTES);
+  assert.equal(fx.mutants[0].bytes, DISCOVERY_LIMITS.CURSOR_BYTES + 1);
+  for (const m of fx.mutants) refusedFrame(writeJob(t, FRESH), frameOf(built(m)), 'W4', m.name);
+});
+
+test("W4: the codec fixture's cursor integer fields are refused; good/witness_cursor_option2.json's cursor is accepted", (t) => {
+  const fx = loadFixture('good/codec_error_mapping.json');
+  const cases = fx.integer_fields.filter((c) => c.where === 'cursor');
+  assert.equal(cases.length, 2);
+  const at = (cursor, field, value) => {
+    const keys = field.split('.');
+    let v = cursor;
+    for (const k of keys.slice(0, -1)) v = v[k] ??= {};
+    v[keys.at(-1)] = value;
+  };
+  for (const c of cases) {
+    assert.deepEqual([c.tag, c.rule], ['INTEGER_FIELD', 'W4']);
+    shapeCase(
+      t,
+      [shapeFrame((cursor) => at(cursor, c.field, c.value))],
+      'W4',
+      `${c.field}=${c.value}`
+    );
+  }
+  // The control: the same field at an integer.
+  shapeCase(t, [shapeFrame((cursor) => at(cursor, cases[0].field, 0))], 'accepted', 'control');
+  const wx = loadFixture('good/witness_cursor_option2.json');
+  const epoch = wx.cursor.method_index;
+  shapeCase(
+    t,
+    [{ discovery: { epoch, resets: [], seals: [] }, cursor: clone(wx.cursor) }],
+    'accepted',
+    'witness_cursor_option2'
+  );
+});
+
+test('W4: cursor.discovery, its logs, inventory, groups and groups.current hold exactly their keys', (t) => {
+  const log = (cd) => {
+    cd.logs.seen = { sealed: 0, sealed_digest: domainDigest(DOMAINS.log('seen')), tail: [] };
+  };
+  const cases = [
+    ['cursor.discovery with a key more', (c, cd) => (cd.extra = 0)],
+    ['cursor.discovery without inventory', (c, cd) => delete cd.inventory],
+    ['cursor.discovery without groups', (c, cd) => delete cd.groups],
+    ['cursor.discovery of version 2', (c, cd) => (cd.version = 2)],
+    ['a log with a key more', (c, cd) => (log(cd), (cd.logs.seen.extra = 0))],
+    ['groups with a key more', (c, cd) => (cd.groups.extra = null)],
+    ['groups without current', (c, cd) => delete cd.groups.current],
+    [
+      'groups.current with a key more',
+      (c, cd) => (cd.groups.current = { lines: [0, 1], keys: [], extra: 0 }),
+    ],
+    ['groups.current without keys', (c, cd) => (cd.groups.current = { lines: [0, 1] })],
+    [
+      'inventory with a key more',
+      (c, cd) => (cd.inventory = { count: 1, digest: 'a'.repeat(64), x: 0 }),
+    ],
+    ['inventory without its digest', (c, cd) => (cd.inventory = { count: 1 })],
+  ];
+  for (const [name, edit] of cases) shapeCase(t, [shapeFrame(edit)], 'W4', name);
+  // The controls: each object with exactly its keys.
+  shapeCase(
+    t,
+    [
+      shapeFrame((c, cd) => {
+        log(cd);
+        cd.inventory = { count: 1, digest: 'a'.repeat(64) };
+        cd.groups.current = { lines: [0, 1], keys: [] };
+      }),
+    ],
+    'accepted',
+    'every object with exactly its keys'
+  );
+});
+
+test('W4: groups hold line pairs, current after through, within GROUP_KEYS and GROUP_BYTES', (t) => {
+  const groups = (through, current) => (c, cd) => {
+    cd.groups = { through, current };
+  };
+  const cur = (lines, keys = []) => ({ lines, keys });
+  const refusedCases = [
+    ['through of one line', groups([3, 3], null)],
+    ['through out of order', groups([4, 3], null)],
+    ['through of one number', groups([3], null)],
+    ['through of three numbers', groups([1, 2, 3], null)],
+    ['through not an array', groups({ 0: 1, 1: 2 }, null)],
+    ['through a float', groups([1.5, 2], null)],
+    ['current of one line', groups(null, cur([2, 2]))],
+    ['current out of order', groups(null, cur([2, 1]))],
+    ['current lines a string', groups(null, cur(['1', 2]))],
+    ['current keys not an array', groups(null, { lines: [0, 1], keys: 'k' })],
+    ['current at through', groups([1, 2], cur([1, 2]))],
+    ['current before through', groups([1, 3], cur([1, 2]))],
+    ['current before through, an earlier first line', groups([2, 3], cur([1, 4]))],
+    [
+      'GROUP_KEYS + 1 keys',
+      groups(
+        null,
+        cur(
+          [0, 1],
+          Array.from({ length: 33 }, (_, i) => i)
+        )
+      ),
+    ],
+    ['GROUP_BYTES + 1 bytes', groups(null, cur([0, 1], entriesOf(4, 8193)))],
+  ];
+  assert.equal(DISCOVERY_LIMITS.GROUP_KEYS, 32);
+  assert.equal(DISCOVERY_LIMITS.GROUP_BYTES, 8192);
+  for (const [name, edit] of refusedCases) shapeCase(t, [shapeFrame(edit)], 'W4', name);
+  const accepted = [
+    ['through and current null', groups(null, null)],
+    ['through alone', groups([0, 1], null)],
+    ['current alone', groups(null, cur([0, 1]))],
+    ['current after through, the same first line', groups([1, 2], cur([1, 3]))],
+    ['current after through, a later first line', groups([1, 5], cur([2, 3]))],
+    [
+      'GROUP_KEYS keys',
+      groups(
+        null,
+        cur(
+          [0, 1],
+          Array.from({ length: 32 }, (_, i) => i)
+        )
+      ),
+    ],
+    ['GROUP_BYTES bytes', groups(null, cur([0, 1], entriesOf(4, 8192)))],
+  ];
+  for (const [name, edit] of accepted) shapeCase(t, [shapeFrame(edit)], 'accepted', name);
+});
+
+test('W4: within an epoch, through never moves back and a non-null inventory is fixed, against record.cursor', (t) => {
+  const through = (pair, epoch = 0) =>
+    shapeFrame((c, cd) => (cd.groups = { through: pair, current: null }), epoch);
+  shapeCase(t, [through([1, 2]), through([0, 5])], 'W4', 'through moved back');
+  shapeCase(t, [through([1, 2]), through([1, 1 + 0])], 'W4', 'through moved back to one line');
+  shapeCase(t, [through([1, 2]), through(null)], 'W4', 'through moved back to null');
+  shapeCase(t, [through([1, 2]), through([1, 2])], 'accepted', 'through held');
+  shapeCase(t, [through([1, 2]), through([1, 3])], 'accepted', 'through moved on');
+  shapeCase(t, [through(null), through([0, 1])], 'accepted', 'through set');
+  // An epoch advance starts again (W2: the record's epoch goes up).
+  shapeCase(t, [through([5, 6]), through(null, 1)], 'accepted', 'a new epoch, through null');
+  shapeCase(t, [through([5, 6]), through([0, 1], 1)], 'accepted', 'a new epoch, through earlier');
+  const inv = (value, epoch = 0) => shapeFrame((c, cd) => (cd.inventory = value), epoch);
+  const A = { count: 3, digest: 'a'.repeat(64) };
+  const B = { count: 3, digest: 'b'.repeat(64) };
+  shapeCase(t, [inv(A), inv(B)], 'W4', 'the inventory changed');
+  shapeCase(t, [inv(A), inv({ ...A, count: 4 })], 'W4', 'the inventory count changed');
+  shapeCase(t, [inv(A), inv(null)], 'W4', 'the inventory went back to null');
+  shapeCase(
+    t,
+    [inv(A), inv({ digest: A.digest, count: A.count })],
+    'accepted',
+    'the inventory held'
+  );
+  shapeCase(t, [inv(null), inv(A)], 'accepted', 'the inventory set');
+  shapeCase(t, [inv(A), inv(B, 1)], 'accepted', 'a new epoch, a new inventory');
+  shapeCase(t, [inv(A), inv(null, 1)], 'accepted', 'a new epoch, no inventory yet');
+});
+
+test("W4: the witness is null or well formed, of the frame's epoch, its fields dot paths within WITNESS_FIELDS", (t) => {
+  const witness = (edit, epoch = 3) =>
+    shapeFrame((c) => {
+      c.witness = WITNESS(epoch);
+      edit(c.witness);
+    }, epoch);
+  const refusedCases = [
+    ['absent', shapeFrame((c) => delete c.witness)],
+    ['not an object', shapeFrame((c) => (c.witness = []))],
+    ['another epoch', witness((w) => (w.epoch = 2))],
+    ['version 2', witness((w) => (w.version = 2))],
+    ['a method_id not a string', witness((w) => (w.method_id = 1))],
+    ['fields not an array', witness((w) => (w.fields = 'id'))],
+    [
+      'WITNESS_FIELDS + 1 fields',
+      witness((w) => (w.fields = Array.from({ length: 17 }, (_, i) => `f${i}`))),
+    ],
+    ['a field of 65 bytes', witness((w) => (w.fields = ['a'.repeat(65)]))],
+    ['a field not a string', witness((w) => (w.fields = [1]))],
+    ['a field with a capital', witness((w) => (w.fields = ['A.b']))],
+    ['a field with an empty name', witness((w) => (w.fields = ['a..b']))],
+    ['a field with a leading dot', witness((w) => (w.fields = ['.a']))],
+    ['a field with a trailing dot', witness((w) => (w.fields = ['a.']))],
+    ['a field with a quote', witness((w) => (w.fields = ['a"b']))],
+    ['a field with a letter past ASCII', witness((w) => (w.fields = ['a.é']))],
+    ['a count not an integer', witness((w) => (w.count = 1.5))],
+    ['a count below zero', witness((w) => (w.count = -1))],
+    ['a short digest', witness((w) => (w.digest = 'f'.repeat(63)))],
+    ['an uppercase digest', witness((w) => (w.digest = 'F'.repeat(64)))],
+  ];
+  assert.equal(DISCOVERY_LIMITS.WITNESS_FIELDS, 16);
+  for (const [name, f] of refusedCases) shapeCase(t, [f], 'W4', `witness ${name}`);
+  const accepted = [
+    ['null', shapeFrame((c) => (c.witness = null))],
+    ['the five fields of v1', witness(() => {})],
+    [
+      'WITNESS_FIELDS fields',
+      witness((w) => (w.fields = Array.from({ length: 16 }, (_, i) => `f${i}`))),
+    ],
+    ['a field of 64 bytes', witness((w) => (w.fields = [`${'a'.repeat(31)}.${'b'.repeat(32)}`]))],
+    ['no fields', witness((w) => (w.fields = []))],
+  ];
+  for (const [name, f] of accepted) shapeCase(t, [f], 'accepted', `witness ${name}`);
+});
+
+test('W4: continuation within CONTINUATION_BYTES; methods[*] with no terminal input and each refusal within REFUSAL_BYTES', (t) => {
+  const continuation = (n) => {
+    const c = { x: '' };
+    c.x = 'c'.repeat(n - cbytes(c));
+    assert.equal(cbytes(c), n);
+    return c;
+  };
+  assert.equal(DISCOVERY_LIMITS.CONTINUATION_BYTES, 8192);
+  const C = DISCOVERY_LIMITS.CONTINUATION_BYTES;
+  shapeCase(
+    t,
+    [shapeFrame((c) => (c.continuation = continuation(C + 1)))],
+    'W4',
+    'continuation + 1'
+  );
+  shapeCase(t, [shapeFrame((c) => delete c.continuation)], 'W4', 'no continuation');
+  shapeCase(t, [shapeFrame((c) => (c.continuation = null))], 'W4', 'a null continuation');
+  shapeCase(t, [shapeFrame((c) => (c.continuation = []))], 'W4', 'an array continuation');
+  shapeCase(t, [shapeFrame((c) => (c.continuation = continuation(C)))], 'accepted', 'continuation');
+  // A continuation's keys are measured sorted: the same bytes either way.
+  const sorted = continuation(C);
+  shapeCase(
+    t,
+    [shapeFrame((c) => (c.continuation = { z: 1, ...sorted }))],
+    'W4',
+    'continuation + 6'
+  );
+  for (const key of ['domain_true', 'domain_undecided', 'alt_cells'])
+    shapeCase(
+      t,
+      [shapeFrame((c) => (c.methods = { m: { candidates: 0, [key]: 0 } }))],
+      'W4',
+      `methods[m].${key}`
+    );
+  const fx = loadFixture('bad/cursor_over_bound.json');
+  const refusal = clone(fx.inputs.refusal);
+  assert.equal(cbytes(refusal), DISCOVERY_LIMITS.REFUSAL_BYTES);
+  const withRefusal = (r) => shapeFrame((c) => (c.methods = { m: { candidates: 0, refusal: r } }));
+  shapeCase(t, [withRefusal(refusal)], 'accepted', 'a refusal of REFUSAL_BYTES');
+  shapeCase(
+    t,
+    [withRefusal({ ...refusal, detail: `${refusal.detail}x` })],
+    'W4',
+    'REFUSAL_BYTES + 1'
+  );
+  shapeCase(
+    t,
+    [shapeFrame((c) => (c.methods = { m: { candidates: 0, coverage: 'answered' } }))],
+    'accepted',
+    'a method with no refusal and no terminal input'
+  );
+});
+
+test('W4: every cursor number outside the entries and continuation is an integer from 0 to 2^53 - 1', (t) => {
+  const refusedCases = [
+    ['sequence', (c) => (c.sequence = 2 ** 53)],
+    ['candidate', (c) => (c.candidate = -1)],
+    ['counters.true', (c) => (c.counters = { true: 1.5 })],
+    ['methods.m.figure_counts.true', (c) => (c.methods = { m: { figure_counts: { true: -2 } } })],
+    ['incomplete', (c) => (c.incomplete = { s: 0.25 })],
+    ['refused_schemas', (c) => (c.refused_schemas = ['s', -1])],
+    ['a nested array', (c) => (c.extra = [[[[0.5]]]])],
+    ['inventory.count', (c, cd) => (cd.inventory = { count: -1, digest: 'a'.repeat(64) })],
+    ['witness.count', (c) => (c.witness = { ...WITNESS(0), count: 2 ** 53 })],
+    ['groups.current.lines', (c, cd) => (cd.groups.current = { lines: [-1, 1], keys: [] })],
+  ];
+  for (const [name, edit] of refusedCases) shapeCase(t, [shapeFrame(edit)], 'W4', name);
+  // The entries are F1's: a negative integer there is an entry (§2.1). And
+  // continuation is opaque: any finite number.
+  const accepted = [
+    [
+      'a negative integer in a tail',
+      (c, cd) =>
+        (cd.logs.seen = {
+          sealed: 0,
+          sealed_digest: domainDigest(DOMAINS.log('seen')),
+          tail: [-1, [-2]],
+        }),
+    ],
+    [
+      'a negative integer in a group key',
+      (c, cd) => (cd.groups.current = { lines: [0, 1], keys: [-1] }),
+    ],
+    ['a float in continuation', (c) => (c.continuation = { position: 0.5, row: [-1] })],
+    ['the largest integer', (c) => (c.sequence = Number.MAX_SAFE_INTEGER)],
+  ];
+  for (const [name, edit] of accepted) shapeCase(t, [shapeFrame(edit)], 'accepted', name);
+});
+
+test('W4: the shape and bound checks apply only when the frame carries discovery', (t) => {
+  // Today's frames, with no discovery: a cursor W4 would refuse commits as
+  // today, byte for byte.
+  const { store } = fixture(t);
+  const lease = store.lease(create(store).record.id);
+  const fx = loadFixture('bad/cursor_over_bound.json');
+  const over = cursorCase(fx.inputs, 'one_byte_over', DISCOVERY_LIMITS.CURSOR_BYTES);
+  for (const cursor of [
+    { phase: 'pairs', counters: { true: 1.5 }, sequence: -1 },
+    { phase: 'pairs', methods: { m: { domain_true: 3, refusal: { detail: 'x'.repeat(600) } } } },
+    { phase: 'pairs', continuation: { x: 'c'.repeat(9000) }, witness: { epoch: 'any' } },
+    over,
+  ]) {
+    const saved = commit(store, lease, [{ id: `e-${cbytes(cursor)}`, verdict: true }], cursor);
+    assert.equal(saved.state, 'running');
+    assert.equal(Object.hasOwn(saved, 'discovery'), false);
+    assert.deepEqual(store.records.get(lease.id).cursor, cursor);
+  }
 });

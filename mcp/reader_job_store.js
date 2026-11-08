@@ -1595,7 +1595,11 @@ export class ReaderJobStore {
   _planDiscovery(record, input) {
     const live = this._discoveryShape(record) === 'live';
     try {
-      return planDiscovery({ ...record, discovery: live ? record.discovery : null }, input);
+      return planDiscovery(
+        { ...record, discovery: live ? record.discovery : null },
+        input,
+        canonical
+      );
     } catch (error) {
       if (!(error instanceof DiscoveryCodecError)) throw error;
       const rule = { INTEGER_FIELD: 'W1' }[error.rule] ?? error.rule;

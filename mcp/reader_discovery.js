@@ -440,11 +440,15 @@ export function wellFormedDeep(value) {
 //
 // Every refusal is a DiscoveryCodecError tagged with the rule it broke (W1,
 // F1, F2, W2, W3, F5, F4, W5, W7, W6 or W4), in §4's order; the store maps
-// each to READER_PROTOCOL (400). This is W4's agreement core: the log names,
-// `sealed` and `sealed_digest`, open tails, the shape the agreement reads,
-// and a record holding discovery with a frame that has none. W4's other shape
-// and bound checks are not made here.
-export function planDiscovery(record, input) {
+// each to READER_PROTOCOL (400). W4 is checked last: its agreement core (the
+// log names, `sealed` and `sealed_digest`, open tails, the shape the
+// agreement reads, and a record holding discovery with a frame that has
+// none), then its shape and bound checks (cursorShape, below). `canonical` is
+// the store's sorted canonical(), by which W4 measures the byte bounds
+// (§3.1): the plan never measures them by any other form.
+export function planDiscovery(record, input, canonical) {
+  if (typeof canonical !== 'function')
+    throw new TypeError("planDiscovery needs the store's canonical()");
   const refuse = (rule, what) => {
     throw new DiscoveryCodecError(rule, what);
   };
@@ -622,6 +626,8 @@ export function planDiscovery(record, input) {
     )
       refuse('W4', `${log}: the tail is not open`);
   }
+  // W4, shape and bounds (§2.8, §3, §3.1, §3.2).
+  cursorShape(cursor, epoch, pd, sizes, canonical, refuse);
   // §4: `verified` keeps each log's state unless the frame releases or resets
   // it; a log that is new, reset or of a new epoch starts empty. A commit
   // never advances it.
@@ -637,4 +643,166 @@ export function planDiscovery(record, input) {
     fresh,
     appended,
   };
+}
+
+// ── W4's shape and bound checks (§2.8, §3, §3.1, §3.2; #656 Step 9) ──────
+// The keys §2.8 gives each object of cursor.discovery, exactly: anything else
+// would leave cursor.discovery without a bound (§3).
+const CURSOR_DISCOVERY_KEYS = Object.freeze({
+  discovery: Object.freeze(['epoch', 'groups', 'inventory', 'logs', 'version']),
+  log: Object.freeze(['sealed', 'sealed_digest', 'tail']),
+  inventory: Object.freeze(['count', 'digest']),
+  groups: Object.freeze(['current', 'through']),
+  current: Object.freeze(['keys', 'lines']),
+});
+// §3's WITNESS_FIELDS row: each field a dot path of lowercase names, joined by
+// `.`, of at most 64 bytes.
+const DOT_PATH = /^[a-z0-9_]+(?:\.[a-z0-9_]+)*$/;
+const WITNESS_FIELD_BYTES = 64;
+const exactKeys = (v, keys) =>
+  plainObject(v) && Object.keys(v).length === keys.length && keys.every((k) => Object.hasOwn(v, k));
+const count = (v) => Number.isSafeInteger(v) && v >= 0;
+const pair = (v) => Array.isArray(v) && v.length === 2 && v.every(count);
+// A group's line pair is two different lines, the first before the second
+// (§6.4: a two-line key l₁ < l₂); a key within one line never forms a group.
+const linePair = (v) => pair(v) && v[0] < v[1];
+const pairOrder = (a, b) => a[0] - b[0] || a[1] - b[1];
+
+// Where in the cursor a number is not an integer from 0 to 2^53 - 1, or null.
+// The entries (each log's tail, the current group's keys), which F1 governs,
+// and `continuation`, which is opaque (§2.8), are not walked. An explicit
+// stack, so a deep cursor cannot exhaust the call stack.
+function cursorNumberFault(cursor) {
+  const stack = [];
+  const members = (v, where, skip = null) => {
+    for (const [k, x] of Object.entries(v)) if (k !== skip) stack.push([x, `${where}.${k}`]);
+  };
+  for (const [k, v] of Object.entries(cursor)) {
+    if (k === 'continuation') continue;
+    if (k !== 'discovery' || !plainObject(v)) {
+      stack.push([v, k]);
+      continue;
+    }
+    for (const [dk, dv] of Object.entries(v)) {
+      const where = `discovery.${dk}`;
+      if (dk === 'logs' && plainObject(dv))
+        for (const [log, st] of Object.entries(dv))
+          if (plainObject(st)) members(st, `${where}.${log}`, 'tail');
+          else stack.push([st, `${where}.${log}`]);
+      else if (dk === 'groups' && plainObject(dv))
+        for (const [gk, gv] of Object.entries(dv))
+          if (gk === 'current' && plainObject(gv)) members(gv, `${where}.current`, 'keys');
+          else stack.push([gv, `${where}.${gk}`]);
+      else stack.push([dv, where]);
+    }
+  }
+  while (stack.length) {
+    const [v, where] = stack.pop();
+    if (typeof v === 'number') {
+      if (!count(v)) return where;
+    } else if (Array.isArray(v)) v.forEach((x, i) => stack.push([x, `${where}[${i}]`]));
+    else if (plainObject(v)) members(v, where);
+  }
+  return null;
+}
+
+// W4's shape and bound checks, after its agreement core: `cursor` is the
+// frame's, `epoch` the frame's, `previous` the record's cursor.discovery (or
+// anything else when it has none), `sizes` each entry's canonical form from
+// F1 and F2, and `canonical` the store's sorted canonical(). Throws through
+// `refuse` with W4 at the first fault.
+function cursorShape(cursor, epoch, previous, sizes, canonical, refuse) {
+  const W4 = (what) => refuse('W4', what);
+  const bytes = (v) => Buffer.byteLength(canonical(v), 'utf8');
+  const cd = cursor.discovery;
+  // Exact keys on cursor.discovery and each of its logs.
+  if (!exactKeys(cd, CURSOR_DISCOVERY_KEYS.discovery) || cd.version !== 1)
+    W4('cursor.discovery holds exactly the keys of §2.8');
+  for (const [log, st] of Object.entries(cd.logs))
+    if (!exactKeys(st, CURSOR_DISCOVERY_KEYS.log)) W4(`cursor log ${log} holds exactly its keys`);
+  // Every number outside the entries and continuation is a count, an index
+  // or an epoch.
+  const where = cursorNumberFault(cursor);
+  if (where !== null) W4(`${where} is not an integer from 0 to 2^53 - 1`);
+  // The groups: exact keys, line pairs, current after through, and the
+  // current group within GROUP_KEYS and GROUP_BYTES.
+  const g = cd.groups;
+  if (!exactKeys(g, CURSOR_DISCOVERY_KEYS.groups)) W4('groups holds exactly its keys');
+  if (g.through !== null && !linePair(g.through)) W4('groups.through is a line pair');
+  if (g.current !== null) {
+    const c = g.current;
+    if (
+      !exactKeys(c, CURSOR_DISCOVERY_KEYS.current) ||
+      !linePair(c.lines) ||
+      !Array.isArray(c.keys)
+    )
+      W4('groups.current shape');
+    if (g.through !== null && pairOrder(c.lines, g.through) <= 0)
+      W4('groups.current comes after through');
+    if (c.keys.length > DISCOVERY_LIMITS.GROUP_KEYS) W4('groups.current passes GROUP_KEYS');
+    if (c.keys.reduce((n, e) => n + sizes.get(e).bytes, 0) > DISCOVERY_LIMITS.GROUP_BYTES)
+      W4('groups.current passes GROUP_BYTES');
+  }
+  // The inventory: null, or a count and a digest.
+  const inv = cd.inventory;
+  if (
+    inv !== null &&
+    !(exactKeys(inv, CURSOR_DISCOVERY_KEYS.inventory) && count(inv.count) && isDigest(inv.digest))
+  )
+    W4('inventory shape');
+  // Within the epoch, against the record's cursor: `through` never moves
+  // back, and an inventory once non-null is fixed.
+  if (plainObject(previous) && previous.epoch === epoch) {
+    const before = plainObject(previous.groups) ? previous.groups.through : null;
+    if (pair(before) && !(g.through !== null && pairOrder(g.through, before) >= 0))
+      W4('groups.through went backwards within its epoch');
+    const held = previous.inventory;
+    if (held !== null && held !== undefined && canonical(held) !== canonical(inv))
+      W4('the inventory changed within its epoch');
+  }
+  // The witness: null, or well formed, of the frame's epoch, its fields dot
+  // paths within WITNESS_FIELDS.
+  const w = cursor.witness;
+  if (
+    !(
+      w === null ||
+      (plainObject(w) &&
+        w.version === 1 &&
+        w.epoch === epoch &&
+        typeof w.method_id === 'string' &&
+        Array.isArray(w.fields) &&
+        w.fields.length <= DISCOVERY_LIMITS.WITNESS_FIELDS &&
+        w.fields.every(
+          (f) =>
+            typeof f === 'string' &&
+            DOT_PATH.test(f) &&
+            Buffer.byteLength(f, 'utf8') <= WITNESS_FIELD_BYTES
+        ) &&
+        count(w.count) &&
+        isDigest(w.digest))
+    )
+  )
+    W4('witness shape');
+  // continuation: an object within CONTINUATION_BYTES, opaque beyond it.
+  if (
+    !plainObject(cursor.continuation) ||
+    bytes(cursor.continuation) > DISCOVERY_LIMITS.CONTINUATION_BYTES
+  )
+    W4('continuation shape or CONTINUATION_BYTES');
+  // methods[*]: no terminal input, and each refusal within REFUSAL_BYTES.
+  const methods = plainObject(cursor.methods) ? cursor.methods : {};
+  for (const [mid, counts] of Object.entries(methods)) {
+    if (!plainObject(counts)) continue;
+    for (const key of TERMINAL_INPUTS)
+      if (Object.hasOwn(counts, key)) W4(`methods[${mid}] holds the terminal input ${key}`);
+    if (Object.hasOwn(counts, 'refusal') && bytes(counts.refusal) > DISCOVERY_LIMITS.REFUSAL_BYTES)
+      W4(`methods[${mid}].refusal passes REFUSAL_BYTES`);
+  }
+  // CURSOR_BYTES: the cursor without discovery and continuation, witness
+  // included, by the store's sorted canonical() (§3.1).
+  const rest = Object.fromEntries(
+    Object.entries(cursor).filter(([k]) => k !== 'discovery' && k !== 'continuation')
+  );
+  if (bytes(rest) > DISCOVERY_LIMITS.CURSOR_BYTES)
+    W4('the cursor without discovery and continuation passes CURSOR_BYTES');
 }
