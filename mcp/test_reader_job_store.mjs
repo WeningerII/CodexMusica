@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import zlib from 'node:zlib';
-import { createHash } from 'node:crypto';
+import crypto, { createHash } from 'node:crypto';
 import { test } from 'node:test';
 import express from 'express';
 import { ReaderJobStore, READER_LIMITS, decodeStoredObject } from './reader_job_store.js';
@@ -7446,4 +7446,430 @@ test('lease walk: a finished record’s discovery is never read: a completed one
     assert.equal(walk.payload.discovery, null, `${state}: not built`);
     assert.deepEqual([walk.stat, walk.read, walk.saved], [[], [], false], state);
   }
+});
+
+// ── persisted discovery, Step 11 (#656 Node-side plan): resume()'s full read
+// (§5.1). A lease's walk that fails is STORAGE_CORRUPT and the scheduler
+// pauses the job with that reason; resume() then decides by a full read of
+// every log, which uses neither `verified` nor the address list. A pass
+// queues the job with `verified` at the heads in resume's own save and the
+// lists rebuilt; a failure releases the job (U1), from the record and not
+// the control, and refuses DISCOVERY_UNAVAILABLE with the cause and the log.
+const STORAGE_PAUSE = {
+  code: 'STORAGE_CORRUPT',
+  message: 'Reader discovery state failed its lease walk.',
+};
+// A walk fixture leased on a second instance (leaseFixture), with `mutate`
+// applied to the store after its reconciliation and no foreign write, its
+// walk refused, and the job paused STORAGE_CORRUPT as the scheduler's catch
+// pauses it; then `state` 'cancelled' cancels the paused job.
+function pausedFixture(t, fx, { gzip = false, seam = false, store: spec, mutate, state } = {}) {
+  const leased = leaseFixture(t, fx, { gzip, seam, store: spec });
+  if (mutate) mutate(leased.directory);
+  const walk = walkOnce(t, leased.store, fx.record.id);
+  assert.equal(walk.error?.code, 'STORAGE_CORRUPT', `the walk refuses: ${walk.error?.message}`);
+  const { lease, store } = leased;
+  store.pause(lease.id, lease.attempt, lease.fence, STORAGE_PAUSE);
+  const capability = store.capabilityFor(fx.record.id, leased.base.viewer);
+  if (state === 'cancelled') store.cancel(fx.record.id, capability, leased.base.viewer);
+  const paused = clone(store.records.get(fx.record.id));
+  assert.equal(paused.state, state ?? 'paused');
+  return { ...leased, capability, paused, viewer: leased.base.viewer };
+}
+// The fixtures name an identity_hash and not the identity it hashes, so a
+// resume of a fixture job passes this marker identity, and for that call
+// alone the store's sha256 of the marker's canonical JSON reads as the hash
+// it names. No other digest changes, and the store holds no seam for it.
+const fixtureIdentity = (hash) => ({ fixture_identity_hash: hash });
+const FIXTURE_IDENTITY = /^\{"fixture_identity_hash":"([0-9a-f]{64})"\}$/;
+function mapFixtureIdentity(t) {
+  const real = crypto.createHash;
+  return t.mock.method(crypto, 'createHash', function (...args) {
+    const hash = real.apply(this, args);
+    const update = hash.update.bind(hash);
+    const digest = hash.digest.bind(hash);
+    let data = '';
+    hash.update = (value, ...rest) => {
+      data = typeof value === 'string' && data !== null ? data + value : null;
+      update(value, ...rest);
+      return hash;
+    };
+    hash.digest = (encoding) => {
+      const marker = data !== null && encoding === 'hex' && FIXTURE_IDENTITY.exec(data);
+      return marker ? marker[1] : digest(encoding);
+    };
+    return hash;
+  });
+}
+// One resume: what its full read reads (_segment with an expect) and the
+// rules _fullRead returns, the record saves it makes, and the record or the
+// refusal. `who` null is the fixture job's own identity.
+function resumeOnce(t, store, id, capability, viewer, options = {}, who = null) {
+  const file = path.join(store.directory, 'records', `${id}.json`);
+  const before = fs.readFileSync(file);
+  const reads = [];
+  const rules = [];
+  const saves = [];
+  const segment = ReaderJobStore.prototype._segment;
+  const fullRead = ReaderJobStore.prototype._fullRead;
+  const save = ReaderJobStore.prototype._save;
+  const spies = [
+    ...(who === null ? [mapFixtureIdentity(t)] : []),
+    t.mock.method(ReaderJobStore.prototype, '_segment', function (hash, expect, ...rest) {
+      if (expect !== null) reads.push(hash);
+      return segment.call(this, hash, expect, ...rest);
+    }),
+    t.mock.method(ReaderJobStore.prototype, '_fullRead', function (...args) {
+      const read = fullRead.apply(this, args);
+      rules.push(read.rule ?? 'pass');
+      return read;
+    }),
+    t.mock.method(ReaderJobStore.prototype, '_save', function (record, ...rest) {
+      if (record.id === id) saves.push(clone(record));
+      return save.call(this, record, ...rest);
+    }),
+  ];
+  let record = null;
+  let error = null;
+  try {
+    const as = who ?? fixtureIdentity(store.records.get(id).identity_hash);
+    record = store.resume(id, capability, viewer, as, options);
+  } catch (thrown) {
+    error = thrown;
+  } finally {
+    for (const s of spies) s.mock.restore();
+  }
+  return {
+    record,
+    error,
+    read: reads,
+    rules,
+    saves,
+    saved: !fs.readFileSync(file).equals(before),
+    disk: JSON.parse(fs.readFileSync(file, 'utf8')),
+  };
+}
+// The refusal a failed full read, or a saved release, gives (§8).
+function assertResumeRefused(got, want, name) {
+  assert.deepEqual(
+    {
+      code: got.error?.code,
+      status: got.error?.status,
+      cause: got.error?.cause,
+      log: got.error?.log,
+    },
+    want,
+    `${name}: ${got.error?.message}`
+  );
+}
+// The verified fixtures' resume halves: plain and gzip, the lists built by
+// the real path (reconciliation) and by design §B2's seam.
+const RESUME_PASSES = [
+  'bad/verified_ahead_of_head.json',
+  'bad/verified_bytes_ahead.json',
+  'bad/verified_bytes_disagree.json',
+];
+
+test("resume: the bad verified fixtures' expect.resume: the full read passes, and resume's own save carries verified at the heads", (t) => {
+  for (const rel of RESUME_PASSES)
+    for (const gzip of [false, true])
+      for (const seam of [false, true])
+        for (const state of ['paused', 'cancelled']) {
+          const fx = loadFixture(rel);
+          const want = fx.expect.resume;
+          const name = `${rel} gzip=${gzip} seam=${seam} ${state}`;
+          const job = pausedFixture(t, fx, { gzip, seam, state });
+          const got = resumeOnce(t, job.store, fx.record.id, job.capability, job.viewer, {
+            idempotency_key: 'resume-step-11',
+          });
+          assert.equal(got.error, null, `${name}: ${got.error?.message}`);
+          assert.deepEqual(got.read, want.read, `${name}: read from each head back`);
+          assert.deepEqual(got.rules, ['pass', 'pass', 'pass'], `${name}: every log read`);
+          assert.deepEqual(listsOf(job.store, fx.record.id), want.addresses, `${name}: lists`);
+          // One save, resume's own, carries the queued state and verified.
+          assert.equal(got.saves.length, 1, `${name}: one save`);
+          assert.deepEqual(got.saves[0].discovery.verified, want.verified, `${name}: verified`);
+          assert.deepEqual(want.verified, fx.record.discovery.logs, `${name}: at the heads`);
+          for (const r of [got.record, got.disk, job.store.records.get(fx.record.id)]) {
+            assert.equal(r.state, 'queued', name);
+            assert.equal(r.reason, null, name);
+            assert.deepEqual(
+              r.discovery,
+              { ...fx.record.discovery, verified: want.verified },
+              `${name}: only verified moves`
+            );
+          }
+          assert.equal(got.disk.control_receipts.length, job.paused.control_receipts.length + 1);
+          // The next lease's walk stats every segment and reads none.
+          const lease = job.store.lease(fx.record.id);
+          assert.equal(lease?.id, fx.record.id, `${name}: leased again`);
+          const walk = walkOnce(t, job.store, fx.record.id);
+          assert.equal(walk.error, null, `${name}: ${walk.error?.message}`);
+          assert.deepEqual(walk.read, [], `${name}: nothing appended since, nothing read`);
+          assert.deepEqual(walk.stat.sort(), [...want.read].sort(), `${name}: all stat'ed`);
+          assert.equal(walk.saved, false, `${name}: nothing to advance`);
+        }
+});
+
+test('resume: after a pass, the next lease walks only what was appended since', (t) => {
+  // good/seal_sequence_two_logs.json's frames 0 and 1 seal on a live job; the
+  // job is paused, resumed (verified at frame 1's heads), and frame 2 seals:
+  // the next walk reads frame 2's seals alone.
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  const job = writeJob(t, fx);
+  commitFrame(job.store, job.lease, fx.frames[0]);
+  commitFrame(job.store, job.lease, fx.frames[1]);
+  job.store.pause(job.lease.id, job.lease.attempt, job.lease.fence, STORAGE_PAUSE);
+  const record = job.store.records.get(job.id);
+  const capability = job.store.capabilityFor(job.id, record.viewer);
+  const got = resumeOnce(t, job.store, job.id, capability, record.viewer);
+  assert.equal(got.error, null, got.error?.message);
+  const sealed = got.read;
+  assert.ok(sealed.length > 0, 'something was sealed');
+  assert.deepEqual(
+    [...sealed].sort(),
+    [...job.store.chains.get(job.id).values()].flat().sort(),
+    'the full read reads every listed segment, and the lists are what it read'
+  );
+  assert.deepEqual(got.disk.discovery.verified, got.disk.discovery.logs);
+  const lease = job.store.lease(job.id);
+  commitFrame(job.store, lease, fx.frames[2]);
+  const walk = walkOnce(t, job.store, job.id);
+  assert.equal(walk.error, null, walk.error?.message);
+  const lists = [...job.store.chains.get(job.id).values()].flat();
+  assert.deepEqual(
+    walk.read.sort(),
+    lists.filter((a) => !sealed.includes(a)).sort(),
+    'only the segments frame 2 sealed are read'
+  );
+  assert.ok(walk.read.length > 0, 'frame 2 sealed something');
+  assert.equal(walk.saved, true, 'and the walk advances verified past them');
+  assert.deepEqual(walk.stat.sort(), [...sealed].sort(), 'the resumed verified ones are stat');
+});
+
+// The resume halves of the fixtures whose full read fails: by the real path
+// with the fault made after reconciliation (missing, corrupt), or by the
+// seam (head_bytes_disagree, whose reconciliation would release the job).
+const RESUME_FAILS = [
+  {
+    rel: 'bad/missing_segment.json',
+    rule: 'missing',
+    want: (fx) => ({
+      code: fx.expect.code,
+      status: fx.expect.status,
+      cause: fx.expect.cause,
+      log: 'alt_cells',
+    }),
+    store: (fx) => ({ ...fx.store, omit: [] }),
+    mutate: (fx) => (directory) => {
+      for (const address of fx.store.omit)
+        fs.unlinkSync(path.join(pagesDir(directory), `${address}.json`));
+    },
+  },
+  {
+    rel: 'bad/segment_corrupt_at_reconciliation.json',
+    rule: 'F6',
+    want: (fx) => fx.expect.resume,
+    store: (fx) => ({ ...fx.store, corrupt: [] }),
+    mutate: (fx, gzip) => (directory) => {
+      const [{ address }] = fx.store.corrupt;
+      writeStored(directory, address, fixtureStore(fx.store).get(address), gzip);
+    },
+  },
+  {
+    rel: 'bad/head_bytes_disagree.json',
+    rule: 'R2',
+    seam: true,
+    want: (fx) => fx.expect.resume,
+  },
+];
+
+test('resume: a full read that fails releases the job from its record and refuses DISCOVERY_UNAVAILABLE with the cause and the log', (t) => {
+  for (const kase of RESUME_FAILS)
+    for (const gzip of [false, true])
+      for (const state of ['paused', 'cancelled']) {
+        const fx = loadFixture(kase.rel);
+        const want = kase.want(fx);
+        const name = `${kase.rel} gzip=${gzip} ${state}`;
+        const job = pausedFixture(t, fx, {
+          gzip,
+          seam: kase.seam,
+          store: kase.store?.(fx),
+          mutate: kase.mutate?.(fx, gzip),
+          state,
+        });
+        const seen = releaseLog(t);
+        const got = resumeOnce(t, job.store, fx.record.id, job.capability, job.viewer, {
+          idempotency_key: 'resume-step-11',
+        });
+        t.mock.restoreAll();
+        assertResumeRefused(got, want, name);
+        // seen, then alt_cells: the first log passes, the second is the fault.
+        assert.deepEqual(got.rules, ['pass', kase.rule], `${name}: the full read's rules`);
+        // One save, the release, from the record: no receipt, the state kept.
+        assert.equal(got.saves.length, 1, `${name}: the release alone`);
+        const release = expectedRelease(job.paused, want.cause, want.log);
+        if (fx.expect.reconciliation)
+          assert.deepEqual(
+            release.discovery,
+            fx.expect.reconciliation.discovery,
+            `${name}: §7.4's release`
+          );
+        assert.deepEqual(releaseView(got.disk), release, `${name}: the release record`);
+        assert.deepEqual(got.disk.control_receipts, job.paused.control_receipts, name);
+        for (const key of ['attempt', 'queued_at', 'queue_order', 'generation'])
+          assert.equal(got.disk[key], job.paused[key], `${name}: keeps ${key}`);
+        assert.equal(listsOf(job.store, fx.record.id), undefined, `${name}: lists dropped`);
+        const level = want.cause === 'segment_corrupt' ? 'error' : 'warn';
+        assert.deepEqual(
+          seen[level],
+          [{ event: 'READER_DISCOVERY_RELEASED', job: fx.record.id, ...pick(want) }],
+          `${name}: one ${level} line`
+        );
+        assert.deepEqual(seen[level === 'error' ? 'warn' : 'error'], [], name);
+        assert.equal(job.store.failure, null, `${name}: the store does not fail`);
+        // The same key again, and a new one, refuse from unavailable at once.
+        for (const options of [{ idempotency_key: 'resume-step-11' }, {}]) {
+          const again = resumeOnce(t, job.store, fx.record.id, job.capability, job.viewer, options);
+          assertResumeRefused(again, want, `${name}: again`);
+          assert.deepEqual([again.rules, again.read, again.saved], [[], [], false], name);
+        }
+        // The store serves on: the other job leases and commits.
+        const other = job.store.lease();
+        assert.equal(other?.id, job.base.id, `${name}: the other job leases`);
+        assert.equal(commit(job.store, other, undefined, { phase: 'more' }).state, 'running');
+      }
+});
+const pick = ({ cause, log }) => ({ cause, log });
+
+test('resume: a release reconciliation saved refuses at once, with its cause and log, before the identity and state checks', (t) => {
+  for (const [rel, cause, log] of RELEASING)
+    for (const gzip of [false, true]) {
+      const fx = loadFixture(rel);
+      const name = `${rel} gzip=${gzip}`;
+      const { directory, store: first } = fixture(t, { gzip });
+      const base = first.records.get(create(first).record.id);
+      plantFixture(directory, base, fx, { gzip });
+      const store = new ReaderJobStore({ directory, gzip });
+      const record = store.records.get(fx.record.id);
+      assert.equal(record.discovery.unavailable.cause, cause);
+      const capability = store.capabilityFor(fx.record.id, base.viewer);
+      const want = { code: 'DISCOVERY_UNAVAILABLE', status: 409, cause, log };
+      if (fx.expect.resume) assert.deepEqual(fx.expect.resume, want, name);
+      for (const who of [identity, { ...identity, engine: 'changed' }]) {
+        const got = resumeOnce(t, store, fx.record.id, capability, base.viewer, {}, who);
+        assertResumeRefused(got, want, name);
+        assert.deepEqual([got.rules, got.read, got.saved], [[], [], false], name);
+      }
+    }
+  // A running record holding unavailable (released after its lease began)
+  // refuses DISCOVERY_UNAVAILABLE, not INVALID_JOB_STATE.
+  const fx = loadFixture('bad/head_bytes_disagree.json');
+  const { directory, store: first } = fixture(t);
+  const base = first.records.get(create(first).record.id);
+  const planted = plantFixture(directory, base, fx, { job: { state: 'running' } });
+  const store = new ReaderJobStore({ directory });
+  assert.equal(store.records.get(planted.id).discovery.unavailable.cause, 'chain_broken');
+  const got = resumeOnce(
+    t,
+    store,
+    planted.id,
+    store.capabilityFor(planted.id, base.viewer),
+    base.viewer
+  );
+  assertResumeRefused(got, fx.expect.resume, 'running');
+});
+
+test('resume: a record with no discovery resumes exactly as before: nothing read, no discovery key', (t) => {
+  for (const discovery of [undefined, null]) {
+    const name = `discovery=${discovery}`;
+    const { directory, store } = fixture(t);
+    const job = create(store);
+    const lease = store.lease();
+    store.pause(lease.id, lease.attempt, lease.fence, STORAGE_PAUSE);
+    if (discovery === null) {
+      plantRecord(directory, { ...store.records.get(job.record.id), discovery: null });
+      store.inspect(job.record.id);
+    }
+    const before = clone(store.records.get(job.record.id));
+    const got = resumeOnce(t, store, job.record.id, job.capability, 'viewer-a', {}, identity);
+    assert.equal(got.error, null, name);
+    assert.deepEqual([got.rules, got.read, got.saves.length], [[], [], 1], name);
+    assert.equal(Object.hasOwn(got.disk, 'discovery'), discovery === null, name);
+    if (discovery === null) assert.equal(got.disk.discovery, null, name);
+    assert.equal(store.chains.has(job.record.id), false, `${name}: no list`);
+    const { updated_at: _u, record_digest: _d, ...kept } = got.saves[0];
+    assert.deepEqual(
+      Object.keys(kept).sort(),
+      Object.keys(before)
+        .filter((k) => !['updated_at', 'record_digest'].includes(k))
+        .sort(),
+      `${name}: no key gained`
+    );
+  }
+});
+
+test('resume: a status-less host error at the full read (EACCES, EIO, ENOTDIR) stops the store and releases nothing', (t) => {
+  const fx = loadFixture('bad/verified_ahead_of_head.json');
+  const [stat, read] = ['statSync', 'readFileSync'];
+  for (const code of ['EACCES', 'EIO', 'ENOTDIR'])
+    for (const fn of [stat, read]) {
+      const name = `${code} at ${fn}`;
+      const job = pausedFixture(t, fx);
+      const file = path.join(job.store.directory, 'records', `${fx.record.id}.json`);
+      const before = fs.readFileSync(file);
+      const pages = path.join(job.store.directory, 'pages') + path.sep;
+      const real = fs[fn];
+      t.mock.method(fs, fn, function (target, ...rest) {
+        if (String(target).startsWith(pages))
+          throw Object.assign(new Error(`${code}: planted`), { code });
+        return real.call(this, target, ...rest);
+      });
+      const seen = releaseLog(t);
+      const got = resumeOnce(t, job.store, fx.record.id, job.capability, job.viewer);
+      const { error } = got;
+      t.mock.restoreAll();
+      assert.deepEqual([error?.code, error?.status], ['STORAGE_UNAVAILABLE', 503], name);
+      assert.ok(job.store.failure, `${name}: the store stops`);
+      assert.ok(fs.readFileSync(file).equals(before), `${name}: nothing saved`);
+      assert.deepEqual([seen.error, seen.warn], [[], []], `${name}: nothing released`);
+      // A restart reconciles the unchanged chain and the resume passes.
+      const restarted = new ReaderJobStore({ directory: job.directory });
+      assert.equal(restarted.failure, null, name);
+      const again = resumeOnce(t, restarted, fx.record.id, job.capability, job.viewer);
+      assert.equal(again.error, null, `${name}: ${again.error?.message}`);
+      assert.deepEqual(again.disk.discovery.verified, fx.expect.resume.verified, name);
+    }
+});
+
+test('resume: a dead chain is refused before the queue checks, and a QUEUE_FULL after a pass saves nothing', (t) => {
+  const full = () => {
+    throw Object.assign(new Error('The durable reader queue is full.'), {
+      code: 'QUEUE_FULL',
+      status: 429,
+    });
+  };
+  // A dead chain: the full read releases it though the queue is full.
+  const dead = loadFixture('bad/head_bytes_disagree.json');
+  const job = pausedFixture(t, dead, { seam: true });
+  t.mock.method(job.store, '_queueRoom', full);
+  const got = resumeOnce(t, job.store, dead.record.id, job.capability, job.viewer);
+  assertResumeRefused(got, dead.expect.resume, 'dead chain, queue full');
+  t.mock.restoreAll();
+  // A chain that reads: QUEUE_FULL, nothing saved; the lists are the full
+  // read's, which hold for the unchanged heads.
+  const fx = loadFixture('bad/verified_ahead_of_head.json');
+  const live = pausedFixture(t, fx, { seam: true });
+  t.mock.method(live.store, '_queueRoom', full);
+  const refusedFull = resumeOnce(t, live.store, fx.record.id, live.capability, live.viewer);
+  t.mock.restoreAll();
+  assert.equal(refusedFull.error?.code, 'QUEUE_FULL');
+  assert.deepEqual([refusedFull.saves, refusedFull.saved], [[], false]);
+  assert.deepEqual(refusedFull.read, fx.expect.resume.read);
+  assert.deepEqual(listsOf(live.store, fx.record.id), fx.expect.resume.addresses);
+  assert.deepEqual(live.store.records.get(fx.record.id), live.paused, 'unchanged');
+  // Room again: the resume passes.
+  const passed = resumeOnce(t, live.store, fx.record.id, live.capability, live.viewer);
+  assert.equal(passed.error, null, passed.error?.message);
+  assert.deepEqual(passed.disk.discovery.verified, fx.expect.resume.verified);
 });
