@@ -504,6 +504,24 @@ the same retained discovery dictionary in place. A missing or non-object refresh
 continuation as `READER_ERROR` under the existing worker whitelist. Initial discovery
 bootstrap, producer pairing and C1 activation remain separate gates.
 
+The local default-off selection candidate adds an optional server-construction input to
+`ReaderScheduler`, not a request field or production configuration. With no selection,
+the preceding payload behavior is unchanged. A selected candidate must carry the opaque
+result of `verifyReaderSelection`: descriptor version 1, discovery protocol version 1,
+cursor version 2, and pinned SHA256 values checked against both local worker and producer
+files. The token is bound to the exact bridge object and the file bytes are checked again
+before dispatch. Mismatches refuse `READER_UNAVAILABLE`; no word-cut scheme or C1 value
+selects discovery. Hash equality does not qualify the producer or prove the bridge's
+execution/import paths. Approved artifact pins and an immutable launcher/import binding
+remain deployment prerequisites; the production server supplies no selection.
+
+For that explicit selection only, a genuinely fresh persisted record receives exactly
+`{"version":1,"summary":{"epoch":0,"logs":{}},"paths":{}}`. The bootstrap guard requires
+no cursor and no prior durable work, including zero-record checkpoints. A v1 resume or a
+lost cursor refuses `STALE_READING`; a v2 resume must match committed discovery state and
+keeps that same payload object. Internal epoch transitions are not bootstrap. These local
+consumer checks do not establish pairing with the held producer or authorize activation.
+
 ### 2.11 Codec errors and where they are mapped (BB8, #721 items 2–3)
 
 This is BB8's proposal for the #721 handoff's items 2 and 3, which R2 accepted, with BB8's review
