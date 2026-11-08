@@ -94,6 +94,18 @@ REQUEST_ENV = ("LYRIC_CONTROL_TOKEN", "LYRIC_REQUEST_DEADLINE_MS", "LYRIC_CHECKP
 READER_OBJECT_BYTES = 2 * 1024 * 1024  # READER_LIMITS.objectBytes in reader_job_store.js
 
 
+class PageObjectMissing(ValueError):
+    """A registered page path no longer exists (discovery R1)."""
+
+
+class PageObjectCorrupt(ValueError):
+    """Stored bytes fail the size, compression or address check (F6)."""
+
+
+class PageObjectUndecodable(ValueError):
+    """Address-verified bytes are not UTF-8 JSON (F3)."""
+
+
 def read_page_object(page_path):
     """Read one content-addressed evidence page, plain or gzip (phase A).
 
@@ -101,26 +113,34 @@ def read_page_object(page_path):
     always the uncompressed JSON, inflation is bounded by the object limit, and
     anything else is refused rather than parsed.
     """
-    with open(page_path, "rb") as source_file:
-        raw = source_file.read(READER_OBJECT_BYTES + 1)
+    try:
+        with open(page_path, "rb") as source_file:
+            raw = source_file.read(READER_OBJECT_BYTES + 1)
+    except FileNotFoundError as error:
+        raise PageObjectMissing("reader page object is missing") from error
+    except IsADirectoryError as error:
+        raise PageObjectCorrupt("reader page object is not a regular file") from error
     if len(raw) > READER_OBJECT_BYTES:
-        raise ValueError("reader page object exceeds its bound")
+        raise PageObjectCorrupt("reader page object exceeds its bound")
     if raw[:2] == b"\x1f\x8b":
         inflater = zlib.decompressobj(16 + zlib.MAX_WBITS)
         try:
             body = inflater.decompress(raw, READER_OBJECT_BYTES + 1)
         except zlib.error as error:
-            raise ValueError("reader page object is corrupt") from error
+            raise PageObjectCorrupt("reader page object is corrupt") from error
         # Exactly one member and no trailing bytes, as the Node reader requires.
         if (len(body) > READER_OBJECT_BYTES or inflater.unconsumed_tail
                 or not inflater.eof or inflater.unused_data):
-            raise ValueError("reader page object exceeds its bound, is truncated or has trailing data")
+            raise PageObjectCorrupt("reader page object exceeds its bound, is truncated or has trailing data")
     else:
         body = raw
     stem = os.path.splitext(os.path.basename(page_path))[0]
     if hashlib.sha256(body).hexdigest() != stem:
-        raise ValueError("reader page object does not match its address")
-    return json.loads(body.decode("utf-8"))
+        raise PageObjectCorrupt("reader page object does not match its address")
+    try:
+        return json.loads(body.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise PageObjectUndecodable("reader page object is not UTF-8 JSON") from error
 
 
 def run_reader(payload, request_id):
@@ -152,10 +172,15 @@ def run_reader(payload, request_id):
 
     lease_ms = min(600000, max(1, int(payload.get("lease_ms", 600000))))
     deadline = time.monotonic() + lease_ms / 1000
+    # Omit the keyword for existing sessions: today's AnalysisSession does
+    # not accept it. Non-null discovery belongs to the paired producer train.
+    discovery_args = ({"discovery": payload["discovery"]}
+                      if payload.get("discovery") is not None else {})
     session = AnalysisSession(payload["source"], payload.get("declarations"), requested,
                               payload.get("checkpoint"), load_records=load_records,
                               identity=payload.get("identity"),
-                              requested_methods=payload.get("requested_methods"))
+                              requested_methods=payload.get("requested_methods"),
+                              **discovery_args)
     while True:
         step = session.step(budget_candidates=256, deadline=min(deadline, time.monotonic() + 1),
                             max_bytes=1048576)
@@ -259,13 +284,18 @@ def main():
                                   "reader_result": result}), flush=True)
             except Exception as exc:
                 # No traceback/source prose leaks through the reader protocol.
-                reason = str(exc).split(":", 1)[0]
+                head = str(exc).split(":", 1)[0]
+                parsed = re.fullmatch(r"([A-Z][A-Z0-9_]*)(?:\[([a-z][a-z0-9_]*)(?:,([a-z][a-z0-9_]*))?\])?", head)
+                reason, cause, log = parsed.groups() if parsed else (None, None, None)
                 if reason not in ("INVALID_DECLARATION", "UNSUPPORTED_METHOD", "STALE_READING",
-                                  "RESOURCE_LIMIT", "RESULT_EXPIRED", "SNAPSHOT_CHANGED"):
+                                  "RESOURCE_LIMIT", "RESULT_EXPIRED", "SNAPSHOT_CHANGED",
+                                  "DISCOVERY_UNAVAILABLE", "STORAGE_CORRUPT", "INVARIANT_FAILURE"):
                     reason = "READER_ERROR"
+                    cause = log = None
                 print(json.dumps({"id": req.get("id"), "code": 1, "stdout": "",
                                   "stderr": "reader: " + str(exc),
                                   "error_code": reason,
+                                  "error_cause": cause, "error_log": log,
                                   "reader_result": {"status": "paused", "reason": reason,
                                                     "provider_calls": 0}}), flush=True)
             release_heap()

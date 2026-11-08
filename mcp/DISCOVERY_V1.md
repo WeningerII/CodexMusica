@@ -86,7 +86,7 @@ language's own parser checks each. So any change to that code fails until the cl
 read again and the digest pinned again, and a citation of a line number, or of a symbol no row
 pins, fails too. A `file:symbol` citation names the symbol; its rows name the statements the
 claim rests on. Each row names the sections it backs, each citation of a row's symbol in a section
-has a row there, and the rows' ranges, digests aside, are held to the digest `5d681f36afb808d3` in this
+has a row there, and the rows' ranges, digests aside, are held to the digest `38fb4e68dcfa482a` in this
 note, so a row deleted, narrowed or moved changes this text. Two citations name a comment or a
 docstring, not code (`reader_scheduler.js:createCatalogResolver`'s note on engine commits and
 `analysis.py:resolve_detail_records`' docstring); those rows hold the text as written. Every
@@ -1276,6 +1276,12 @@ a full read instead (below), so it refuses a dead job at once instead of queuein
 
 - The worker reads each path with the bounded, address-checked page reader
   (`worker.py:read_page_object`).
+  The page reader exposes three `ValueError` subclasses to the producer: `PageObjectMissing`
+  for a missing path, `PageObjectCorrupt` for F6 (including a directory, size, inflation or
+  address failure), and `PageObjectUndecodable` for address-verified bytes that fail UTF-8
+  or JSON decoding. Host errors such as permission and I/O failures retain their identity.
+  The producer maps these types to the contextual refusal below; the page reader does not
+  guess which discovery log a path belongs to.
   - **R1.** Every path resolves; otherwise `DISCOVERY_UNAVAILABLE`, cause
     `segment_missing`. This happens only when an older image sweeps a segment after the
     walk has left the lock.
@@ -2108,14 +2114,20 @@ table does not list, unless its message names a cause of the set itself (`RESOUR
 
 Plumbing (R2's side, with the #721 author for the worker's raises):
 
-- **The whitelist.** `worker.py`'s whitelist (`worker.py:main`) gains `DISCOVERY_UNAVAILABLE`,
+- **The whitelist.** `worker.py`'s whitelist (`worker.py:main`) includes `DISCOVERY_UNAVAILABLE`,
   `STORAGE_CORRUPT` and `INVARIANT_FAILURE`; otherwise they surface as `READER_ERROR`.
 - **How the worker names a cause.** A refusal's message starts `CODE[cause]:` or
   `CODE[cause,log]:`, for example `RESOURCE_LIMIT[declared_coordinate_bits]: …` or
   `DISCOVERY_UNAVAILABLE[segment_missing,alt_cells]: …`. `worker.py` (`worker.py:main`) reads the code,
   the cause and the log from that head, applies the whitelist to the code, and sends
-  `error_cause` and `error_log` beside `error_code`. A head that does not parse is
-  `READER_ERROR`. Every raise site in the table above gains its cause this way: `analysis.py`'s
+  `error_cause` and `error_log` beside `error_code` (null when absent). The head is the
+  text before the first colon, matched in full: an uppercase code (letters, digits and
+  underscores, beginning with a letter), optionally followed by a bracketed lowercase
+  cause and optional comma-separated lowercase log (letters, digits and underscores,
+  each beginning with a letter). A bare code without a colon keeps the legacy behavior.
+  Whitespace, empty fields, extra fields or unmatched brackets do not parse. A head that
+  does not parse, or whose code is not whitelisted, is `READER_ERROR` with no cause or log.
+  Cause/log membership remains the scheduler's C1 check, not a second worker allowlist. Every raise site in the table above gains its cause this way: `analysis.py`'s
   (the #721 author's) and the meter's two, whose message heads change and nothing else.
 - **The bridge forwards them, and marks a reply.** On the worker's final frame
   (`python_bridge.js:spawnWorker`) the bridge passes `error_cause` and `error_log` beside
@@ -2477,6 +2489,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 66 | BB8 6719406992 (calls 2, 5, 6, 7 and 8 on R2's Step 11 questions) and BB8's 09:16Z review of `34833d71a` (pins a, b and c) | (2) a cancel that lands through `returnLease` stores reason `CANCELLED`, never `STORE_BUSY`, with queue room, without it and on a pending release's fallback, the release's reason standing where U2 applies; (a) every path through `returnLease` clears `cancel_requested`, in the record and in the job view; (5, c) the lists `resume()`'s full read installs stand after a `QUEUE_FULL`, and a save that fails discards them, leaving the job's lists as they were before the resume (a save without a status then drops every list), killed behaviourally for both "installed after the save" and "kept after a failed save"; (b) the lists read replace the job's lists, so a log absent from the full read does not survive (the review's M15); (6) `resume()`'s verified save, refused `STORE_RECOUNTING` or `RESOURCE_LIMIT`, is made once more without the advance, and a second refusal is thrown; (7) a `DISCOVERY_UNAVAILABLE` refusal names its `cause` and `log` in the route's 409 error body, on the Site bridge and `/library/v1`, nothing else added; (8) every fixture that holds an `identity_hash` names the identity behind it, the validator checks each hash, and the resume tests mock no digest | §5.1, §7.4, §8, §13 | every fixture that holds an `identity_hash` (`identity`); the store tests (F5 returnLease; resume); the route tests (409 body); the validator's identity test |
 | 67 | Review of `78fc83df1` (the merge of main and the Step 11 calls) | (F1) the fallback of a transition that carries a pending release is exempt at exactly full quota, with no headroom: a lease's expiry, a commit's quota pause and startup's pause each commit without the release, which stays pending; (F2) `resume()` retries its verified save only for a room refusal, the code and the status together (`roomRefusal`), never for another 503 or 507, and a real quota refusal or an unknown usage is retried without the advance and lands; (F3) main's timer rules: a kick cuts a retry's backoff short but not the capacity poll, and busy capacity polls at `pollMs` without backing off; (F4) a return that throws a value with no code is a failed return at both of its calls, never an escape from the pump's catch; (F5, superseded by row 68) `returnLease` is not exempt from quota: at exactly full quota a return that adds a reason to a record past its reservation is refused and the lease's expiry ends the job, its attempt counted; §7.4 says a refusal inside `lease()` holds up that job and every job behind it | §5.1, §7.4, §8 | the store tests (U2 path at full quota; resume retry; F5); the client tests (scheduler timers) |
 | 68 | BB8 6722270626 | `returnLease` joins the quota-exempt lease-ending transitions, with the pending-release save still checked and its fallback exempt; every fixture identity is checked against its own hashes in the store suite; a retained wrong `verified` can refuse again until another resume saves its advance after quota frees | §5.1, §8 | store tests (F5 at full quota; U2 fallback; per-fixture identities) |
+| 69 | Step 12 worker plumbing, implementing §5.2 and §8 | reader reply heads preserve the three added codes and syntactically valid cause/log fields; typed page-reader failures distinguish missing, corrupt and undecodable; `AnalysisSession` receives `discovery` only when non-null. C1 remains off; this changes today's `INVARIANT_FAILURE` classification and is held for the paired producer train, not independently inert | §5.2, §8 | worker page-object and reader-protocol tests; existing bridge tests |
 
 ## 12. Rulings on the items added for confirmation
 
