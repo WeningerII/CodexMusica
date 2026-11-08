@@ -16,6 +16,7 @@ import {
   loadMethodRegistry,
   genreLoader,
   instrumentLoader,
+  instrumentCatalogLoader,
   readingLoader,
   readingLines,
   loadGenreDiscovery,
@@ -24,6 +25,7 @@ import {
 import { genreDiscovery, countOf } from './discovery.js';
 import { recipeStore } from './recipe-store.js';
 import { loadEngine } from './engine/load.js';
+import { createInspector } from './inspector.js';
 import { createTabs } from './tabs.js';
 import { detailPanels } from './detail-panels.js';
 import { media, overlay, speechAdapter } from './adapters.js';
@@ -31,6 +33,8 @@ import { genre, instrument } from './selection.js';
 
 const ROUTES = ['browse', 'genre', 'instrument', 'map', 'lyrics', 'library'];
 const DEFAULT_ROUTE = 'browse';
+let routeRevision = 0;
+let activeRoute = null;
 
 // The shell's own lasting state (storage refused) has its own visible line,
 // so a lane's announcement in the shared status region can't erase it.
@@ -438,10 +442,39 @@ const recipe = recipeStore({ load: loadEngine, selection: instrument, announce }
 // control that asked; the Instrument page's way back isn't in this build, so
 // nothing reads it yet. The instrument already open has its preview rebuilt,
 // as production's inspect does, so one that failed can be tried again.
-function openInstrument(id) {
+const instrumentData = instrumentCatalogLoader();
+function selectInstrument(id) {
   if (typeof id === 'string' && id && id === instrument.current()) recipe.reopen(id);
   else instrument.set(id);
+}
+const inspector = createInspector({
+  panel: document.querySelector('[data-panel="instrument"]'),
+  selection: instrument,
+  recipe,
+  select: selectInstrument,
+  nameOf: (id) => instrumentData.nameOf(id),
+  onClose: () => {
+    inspections++;
+  },
+  announce,
+});
+let inspections = 0;
+async function openInstrument(id, options = {}) {
+  const mine = ++inspections;
+  const route = routeFromHash();
+  const generation = routeRevision;
+  try {
+    await instrumentData.loadInstrumentNames();
+  } catch (error) {
+    if (mine === inspections && routeRevision === generation && routeFromHash() === route)
+      announce(error.message);
+    throw error;
+  }
+  if (mine !== inspections || routeRevision !== generation || routeFromHash() !== route)
+    throw Object.assign(new Error('Instrument navigation ended.'), { code: 'ENDED' });
+  inspector.open(id, options);
   if (routeFromHash() !== 'instrument') location.hash = '#instrument';
+  else inspector.focus();
 }
 
 // "Your recipe" (index.html's aside): until the dock (row 209) arrives, one
@@ -492,6 +525,51 @@ const MORE = {
   // The reviewed preview lanes share the existing store. This is not yet
   // the complete inspector: its header, catalog and Similar remain pending.
   instrument: [
+    {
+      id: 'instrumentcatalog',
+      label: 'Instrument catalog',
+      load: () => import('./features/instrument-catalog/catalog.js'),
+      unloaded: 'The instrument catalog did not load.',
+      context: async ({ signal }) => {
+        await recipe.start();
+        if (recipe.status() !== 'ready') throw new Error('not ready');
+        return {
+          loadInstrumentCatalog: instrumentData.loadInstrumentCatalog,
+          catalog: instrumentData.catalog,
+          instrument: ending(signal, {
+            current: instrument.current,
+            subscribe: instrument.subscribe,
+          }),
+          openInstrument,
+          openPhoto: (photo, { returnFocus } = {}) => {
+            announce('The photo viewer isn’t part of this build of the prototype yet.');
+            returnFocus?.focus();
+          },
+          media,
+          recipe: ending(signal, recipe.port(['addInstrument', 'snapshot', 'subscribe'])),
+        };
+      },
+    },
+    {
+      id: 'instrumentsimilar',
+      label: 'Similar instruments',
+      load: () => import('./features/instrument-similar/similar.js'),
+      unloaded: 'Similar instruments did not load.',
+      context: async ({ signal }) => {
+        await recipe.start();
+        if (recipe.status() !== 'ready') throw new Error('not ready');
+        return {
+          loadInstrumentSimilar: instrumentData.loadInstrumentSimilar,
+          openInstrument,
+          openPhoto: (photo, { returnFocus } = {}) => {
+            announce('The photo viewer isn’t part of this build of the prototype yet.');
+            returnFocus?.focus();
+          },
+          media,
+          recipe: ending(signal, recipe.port(['addInstrument', 'snapshot', 'subscribe'])),
+        };
+      },
+    },
     {
       id: 'instrumentparts',
       tab: 'Parts',
@@ -608,12 +686,13 @@ const hosts = {};
 for (const [route, lane] of Object.entries(LANES)) {
   const panel = document.querySelector(`[data-panel="${route}"]`);
   hosts[route] = [...(FIRST[route] || []), lane, ...(MORE[route] || []).filter((l) => !l.tab)].map(
-    (l) => createHost(l, panel)
+    (l) =>
+      createHost(l, route === 'instrument' && l.id !== 'instrumentcatalog' ? inspector.body : panel)
   );
 }
 
 const instrumentTabs = createTabs(
-  document.querySelector('[data-panel="instrument"]'),
+  inspector.body,
   MORE.instrument.filter((lane) => lane.tab),
   createHost
 );
@@ -684,7 +763,12 @@ genrePanel.addEventListener('keydown', (e) => {
 });
 
 function show(route, { moveFocus }) {
+  if (activeRoute !== route) {
+    activeRoute = route;
+    routeRevision++;
+  }
   details.show(route);
+  document.body.dataset.recipePresentation = route === 'instrument' ? 'dock' : 'sidebar';
   for (const panel of document.querySelectorAll('[data-panel]')) {
     panel.hidden = panel.dataset.panel !== route;
   }
@@ -700,6 +784,7 @@ function show(route, { moveFocus }) {
   if (route === 'instrument') {
     document.querySelector('[data-feature-host="instrumentdetail"]')?.after(instrumentTabs.root);
     instrumentTabs.show();
+    if (moveFocus && instrument.current()) inspector.focus();
   }
   if (route === 'genre') placeCount();
   const saved = write('route', route);

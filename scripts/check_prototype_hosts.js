@@ -204,6 +204,8 @@ const { start } = require('./_pages_server.js');
 const root = path.resolve(__dirname, '..');
 const NS = 'codex-prototype:';
 const LANE_MODULES = {
+  instrumentsimilar: '/prototype/features/instrument-similar/similar.js',
+  instrumentcatalog: '/prototype/features/instrument-catalog/catalog.js',
   instrumentsignal: '/prototype/features/instrument-signal/chain.js',
   instrumentenvironment: '/prototype/features/instrument-environment/environment.js',
   instrumentcharacter: '/prototype/features/instrument-character/character.js',
@@ -226,6 +228,28 @@ const LANE_MODULES = {
   genretargets: '/prototype/features/genre-targets/targets.js',
 };
 const CTX_KEYS = {
+  instrumentsimilar: [
+    'announce',
+    'loadInstrumentSimilar',
+    'media',
+    'openInstrument',
+    'openPhoto',
+    'recipe',
+    'signal',
+    'storage',
+  ],
+  instrumentcatalog: [
+    'announce',
+    'catalog',
+    'instrument',
+    'loadInstrumentCatalog',
+    'media',
+    'openInstrument',
+    'openPhoto',
+    'recipe',
+    'signal',
+    'storage',
+  ],
   instrumentsignal: ['announce', 'chain', 'signal', 'storage'],
   instrumentenvironment: ['announce', 'environment', 'signal', 'storage'],
   instrumentcharacter: ['announce', 'character', 'signal', 'storage'],
@@ -1215,6 +1239,8 @@ async function instrumentChecks(browser, srv) {
     `ctx: instrumentdetail got [${p.keys}], expected [${CTX_KEYS.instrumentdetail}]`
   );
   for (const lane of [
+    'instrumentcatalog',
+    'instrumentsimilar',
     'instrumentparts',
     'instrumentcharacter',
     'instrumentenvironment',
@@ -4511,6 +4537,8 @@ const PORT_KEYS = {
 // options, CALLBACK_METHODS), each of which ends with its mount (app.js
 // ending and speaking, #810 6682309672).
 const SUBSCRIBED = {
+  instrumentsimilar: ['recipe.subscribe'],
+  instrumentcatalog: ['instrument.subscribe', 'recipe.subscribe'],
   instrumentsignal: ['chain.subscribe'],
   instrumentenvironment: ['environment.subscribe'],
   instrumentcharacter: ['character.subscribe'],
@@ -4544,6 +4572,13 @@ const CALLBACK_METHODS = ['speech.speak'];
 // otherwise, went unchecked).
 const DISCLOSURE_METHODS = ['current', 'focusToggle', 'setOpen', 'subscribe'];
 const CTX_VIEWS = {
+  instrumentsimilar: { media: ['resolve'], recipe: ['addInstrument', 'snapshot', 'subscribe'] },
+  instrumentcatalog: {
+    catalog: ['normalize', 'search'],
+    instrument: ['current', 'subscribe'],
+    media: ['resolve'],
+    recipe: ['addInstrument', 'snapshot', 'subscribe'],
+  },
   instrumentsignal: { chain: ['choose', 'snapshot', 'subscribe'] },
   instrumentenvironment: { environment: ['choose', 'snapshot', 'subscribe'] },
   instrumentcharacter: { character: ['automatic', 'choose', 'normalize', 'snapshot', 'subscribe'] },
@@ -7426,7 +7461,7 @@ const STORE_CHECKS = {
         const keys = window.__probe.genreinstruments.keys;
         const recipeKeys = Object.keys(ctx.recipe).sort();
         const frozen = Object.isFrozen(ctx.recipe) && Object.isFrozen(ctx.genre);
-        ctx.openInstrument('oud', { returnFocus: document.body });
+        await ctx.openInstrument('oud', { returnFocus: document.body });
         await new Promise((r) => setTimeout(r, 100));
         return {
           keys,
@@ -7447,7 +7482,7 @@ const STORE_CHECKS = {
           g.frozen &&
           g.instrument === 'oud' &&
           g.hash === '#instrument' &&
-          g.heading === 'h-instrument',
+          g.heading === 'proto-inspector-title',
         JSON.stringify(g)
       ),
   },
@@ -7647,18 +7682,18 @@ const STORE_CHECKS = {
             throw new Error('gate: an instrument that can’t be read');
           },
         });
-        ctx.openInstrument('udu', { returnFocus: document.body });
+        await ctx.openInstrument('udu', { returnFocus: document.body });
         await S.settle(8);
         const failed = state();
         Object.defineProperty(inst, 'parts', { configurable: true, writable: true, value: parts });
-        ctx.openInstrument('udu', { returnFocus: document.body });
+        await ctx.openInstrument('udu', { returnFocus: document.body });
         await S.settle(8);
         const again = state();
-        ctx.openInstrument('udu', { returnFocus: document.body });
+        await ctx.openInstrument('udu', { returnFocus: document.body });
         await S.settle(8);
         const ready = state();
         const others = [recipe.reopen('oud'), recipe.reopen(null), state()[3] === ready[3]];
-        ctx.openInstrument('oud', { returnFocus: document.body });
+        await ctx.openInstrument('oud', { returnFocus: document.body });
         await S.settle(8);
         return {
           failed,
@@ -8034,6 +8069,8 @@ const STORE_CHECKS = {
           '#instrument',
           [
             'instrumentdetail',
+            'instrumentcatalog',
+            'instrumentsimilar',
             'instrumentparts',
             'instrumentcharacter',
             'instrumentenvironment',
@@ -9759,6 +9796,8 @@ async function recipeChecks(browser, srv) {
   await require('./check_prototype_preview_registration.js').check();
   await require('./check_prototype_detail_panels.js').check();
   await require('./check_prototype_tabs.js').check();
+  await require('./check_prototype_instrument_data.js').check();
+  await require('./check_prototype_inspector.js').check();
   for (const [lane, mod] of Object.entries(LANE_MODULES)) {
     const app = fs.readFileSync(path.join(root, 'prototype', 'app.js'), 'utf8');
     expect(

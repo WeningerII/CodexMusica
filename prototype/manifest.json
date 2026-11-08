@@ -1770,7 +1770,7 @@
       "kind": "D",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-catalog/catalog.cjs"
     },
     {
       "n": 194,
@@ -1779,7 +1779,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-catalog/catalog.cjs"
     },
     {
       "n": 195,
@@ -1788,7 +1788,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-catalog/catalog.cjs"
     },
     {
       "n": 196,
@@ -1806,7 +1806,7 @@
       "kind": "D",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-catalog/catalog.cjs"
     },
     {
       "n": 198,
@@ -1904,7 +1904,7 @@
       "kind": "D",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-similar/similar.cjs"
     },
     {
       "n": 208,
@@ -1967,7 +1967,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-catalog/catalog.cjs"
     },
     {
       "n": 215,
@@ -1976,7 +1976,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-catalog/catalog.cjs"
     },
     {
       "n": 216,
