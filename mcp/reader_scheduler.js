@@ -6,6 +6,7 @@ import { createReadStream } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Worker } from 'node:worker_threads';
+import { checkReaderSelection, selectedReaderBootstrap } from './reader_selection.js';
 import {
   DISCOVERY_CAUSES,
   LOGS,
@@ -584,6 +585,7 @@ export class ReaderScheduler {
     resolveSource,
     resolveIdentity,
     readerScheme = null,
+    discoverySelection = null,
     leaseMs = 600000,
     pollMs = 100,
     // Tests only: server_http.js never passes it (§8, C1).
@@ -592,7 +594,9 @@ export class ReaderScheduler {
   }) {
     if (!store || !bridge?.runReaderLease)
       throw new TypeError('Reader scheduler requires its durable store and shared bridge.');
+    checkReaderSelection(discoverySelection, bridge);
     Object.assign(this, {
+      discoverySelection,
       store,
       bridge,
       resolveSource,
@@ -759,6 +763,7 @@ export class ReaderScheduler {
       atPayload = true;
       const trusted = this.store.workerPayload(record.id);
       atPayload = false;
+      const bootstrap = selectedReaderBootstrap(this.discoverySelection, this.bridge, trusted);
       const result = await this.bridge.runReaderLease(
         {
           source,
@@ -769,9 +774,10 @@ export class ReaderScheduler {
           checkpoint: record.cursor || null,
           // DISCOVERY_V1 §2.10: passed only when the walk built one, so a
           // lease of a job holding no discovery sends exactly what it did.
-          ...(trusted.discovery
-            ? { discovery: trusted.discovery, discovery_job_id: record.id }
-            : {}),
+          ...(bootstrap ??
+            (trusted.discovery
+              ? { discovery: trusted.discovery, discovery_job_id: record.id }
+              : {})),
           committed_pages: trusted.page_paths || trusted.pages || [],
           lease_ms: Math.max(
             1,

@@ -107,9 +107,10 @@ test('v2 restore preserves committed state and rejects cross-version or mismatch
   assert.equal(v2(record).discovery.summary.epoch, 3);
 });
 
-test('bootstrap helper is not wired to production or C1', async () => {
+test('production construction does not select discovery or enable C1', async () => {
   const scheduler = await readFile(new URL('./reader_scheduler.js', import.meta.url), 'utf8');
-  assert.doesNotMatch(scheduler, /reader_bootstrap|prepareReaderBootstrap/);
+  const server = await readFile(new URL('./server_http.js', import.meta.url), 'utf8');
+  assert.doesNotMatch(server, /discoverySelection|verifyReaderSelection/);
   assert.match(scheduler, /READER_REPLY_CAUSES_ENFORCED = false/);
 });
 
