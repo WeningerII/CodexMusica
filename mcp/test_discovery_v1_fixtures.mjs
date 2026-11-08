@@ -8677,7 +8677,7 @@ const CITED_CODE = {
   'sched.pump.identity_check': '1b9b173f92ea262f',
   'sched.pump.run_reader_lease': 'd5136c6a9fca28f8',
   'sched.pump.declarations': '9c0b44cf7533f1fd',
-  'sched.pump.catch_pause': 'a0cbd73603202e8b',
+  'sched.pump.catch_pause': '8ce4e7d41f4044b3',
   'source_worker.verify': 'c70ad56857c8151f',
   'bridge.frame_cap': '9984ca2e1f63dc5b',
   'bridge.spawn.parse': 'a78dbdf6483e4415',
@@ -8969,7 +8969,7 @@ const CONTRACT_CITES = [
     // The second: the first is dispatch's, around listQueued() and lease().
     nth: [2, 2],
     ends: "if (stale.code !== 'STALE_ATTEMPT')",
-    code: 'a0cbd73603202e8b',
+    code: '8ce4e7d41f4044b3',
   },
   {
     id: 'c.analysis._resource_guard',
@@ -10319,7 +10319,7 @@ const CONTRACT_CITES = [
     symbol: 'pause',
     starts: 'pause(',
     whole: true,
-    code: '604090edc73d2010',
+    code: 'd66887f1e8fa0d24',
   },
   {
     id: 'c.reader_scheduler.pump.6',
@@ -10470,7 +10470,7 @@ const CONTRACT_CITES = [
     file: 'mcp/reader_scheduler.js',
     symbol: 'pump',
     starts: 'if (result.code !== 0) {',
-    code: '090dc9419698911c',
+    code: '95f9043116ae7f67',
   },
   {
     id: 'c.reader_job_store.constructor.4',

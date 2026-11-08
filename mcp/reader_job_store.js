@@ -157,6 +157,13 @@ const DISCOVERY_LIVE_STATES = new Set(['queued', 'running', 'paused', 'cancelled
 // job's reason. A DISCOVERY_UNAVAILABLE without a cause is refused the same
 // way (#656 Step 7, the strict pause): it can never be stored, because U1's
 // release and U2's reason both name the cause.
+// Only the diagnostic is cut; the stored C1 reason keeps its original code.
+function boundedReplyCode(code) {
+  let text = code.slice(0, 64);
+  while (Buffer.byteLength(text) > 64) text = [...text].slice(0, -1).join('');
+  return text;
+}
+
 function pauseReason(code, message, { cause, log, reply_code, field, value }) {
   const invalid = (what) =>
     problem('INVALID_PAUSE', `A reader pause names ${what} outside its sets.`, 500);
@@ -2065,7 +2072,13 @@ export class ReaderJobStore {
         // requeued. A C1 reason it replaces is logged instead (§8, C1).
         if (reply_code !== undefined)
           console.warn(
-            JSON.stringify({ event: 'READER_REPLY_UNRECORDED', job: id, reply_code, field, value })
+            JSON.stringify({
+              event: 'READER_REPLY_UNRECORDED',
+              job: id,
+              reply_code: boundedReplyCode(reply_code),
+              field,
+              value,
+            })
           );
         const saved = this._saveReason(record, (base, reason) => ({
           ...base,

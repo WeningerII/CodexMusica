@@ -1792,3 +1792,54 @@ test('scheduler: busy bridge capacity polls at pollMs and never backs off', asyn
     );
   }
 });
+
+test('C1 rejected replies retain their original diagnostics through refusal and fallback', async (t) => {
+  for (const error_code of ['RESOURCE_LIMIT', 17, { bad: true }]) {
+    for (const pause of [
+      [],
+      ['STORE_RECOUNTING'],
+      ['STALE_ATTEMPT'],
+      ['STORE_RECOUNTING', 'STORAGE_UNAVAILABLE'],
+    ]) {
+      const run = await leaseOnce(t, {
+        enforce: true,
+        stub: { pause },
+        plan: async () => ({ reply: true, code: 1, error_code, error_cause: 'unknown_cause' }),
+      });
+      const code = typeof error_code === 'string' ? error_code : JSON.stringify(error_code);
+      assert.equal(run.warnings.length, 1);
+      assert.ok(run.warnings[0].includes(`worker reply ${code}[unknown_cause]`));
+      if (pause[0] === 'STALE_ATTEMPT') {
+        assert.match(run.warnings[0], /stale: STALE_ATTEMPT/);
+        assert.equal(run.calls.length, 1);
+      } else {
+        for (const line of run.errors.filter((line) => line.includes('checkpoint recovery failed')))
+          assert.ok(line.includes(`refusing ${code}[unknown_cause]`));
+        if (pause.length < 2) assert.equal(run.store.inspect(run.a).state, 'paused');
+      }
+    }
+  }
+});
+
+test('C1 U2 diagnostics bound a long reply code without changing the release reason', async (t) => {
+  const c = replyCauseInvalid.mutants.find((row) => row.released);
+  assert.ok(c);
+  const code = '😀'.repeat(8192);
+  const run = await leaseOnce(t, {
+    enforce: true,
+    discovery: clone(replyCauseInvalid.record.discovery),
+    during: (store, id) => store._open(() => store._release(store.records.get(id), c.released)),
+    plan: async () => ({ reply: true, code: 1, error_code: code, error_cause: 'unknown_cause' }),
+  });
+  const trace = run.warnings
+    .filter((line) => line.startsWith('{'))
+    .map(JSON.parse)
+    .filter((row) => row.event === 'READER_REPLY_UNRECORDED');
+  assert.equal(trace.length, 1);
+  assert.equal(trace[0].event, 'READER_REPLY_UNRECORDED');
+  assert.equal(trace[0].reply_code, '😀'.repeat(16));
+  assert.equal(Buffer.byteLength(trace[0].reply_code), 64);
+  assert.equal(run.store.inspect(run.a).reason.code, 'DISCOVERY_UNAVAILABLE');
+  assert.equal(run.store.inspect(run.a).reason.cause, c.released.cause);
+  assert.equal(run.calls.length, 1);
+});

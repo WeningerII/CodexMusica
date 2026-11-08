@@ -794,7 +794,15 @@ export class ReaderScheduler {
       if (result.code !== 0) {
         if (this.enforceReplyCauses && result.reply === true) {
           const bad = checkReply(result);
-          if (bad) throw Object.assign(error('READER_PROTOCOL', bad.message), bad);
+          if (bad)
+            throw Object.assign(error('READER_PROTOCOL', bad.message), bad, {
+              reply: true,
+              rejectedReply: {
+                code: result.error_code,
+                cause: result.error_cause,
+                message: result.stderr,
+              },
+            });
         }
         throw Object.assign(
           error(
@@ -839,7 +847,10 @@ export class ReaderScheduler {
       }
       const fields = pauseFields(failure);
       // The pause's code, and its cause when it has one, bounded by §8's echo.
-      const named = `${echo(failure.code || 'INTERRUPTED')}${fields.cause !== undefined ? `[${echo(fields.cause)}]` : ''}`;
+      const original = failure.rejectedReply;
+      const namedCode = original ? original.code : failure.code || 'INTERRUPTED';
+      const namedCause = original ? original.cause : fields.cause;
+      const named = `${echo(namedCode)}${namedCause !== undefined ? `[${echo(namedCause)}]` : ''}`;
       // A reason with a named cause stores no message, so a reply's stderr
       // (the worker's message, with the meter's or the guard's figures) is
       // logged here instead; and so is every reply whose pause is refused,
@@ -850,7 +861,7 @@ export class ReaderScheduler {
       const warnReply = (stale) =>
         console.warn(
           `[reader] worker reply ${named}${stale ? ' (stale: STALE_ATTEMPT)' : ''}:`,
-          String(failure.message).slice(0, 4096)
+          String(original ? (original.message ?? '') : failure.message).slice(0, 4096)
         );
       let recorded = false;
       try {
@@ -881,7 +892,8 @@ export class ReaderScheduler {
           }
         }
       }
-      if (recorded && failure.reply === true && fields.cause !== undefined) warnReply(false);
+      if (recorded && failure.reply === true && (original || fields.cause !== undefined))
+        warnReply(false);
     } finally {
       this.active = false;
       if (busy) this.later();

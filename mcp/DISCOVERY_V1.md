@@ -2256,7 +2256,15 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   worker replied DISCOVERY_UNAVAILABLE with the cause "segment_missing" and no log." or "The
   reader worker replied STALE_READING with the log "seen", which STALE_READING does not take."
   If `unavailable` is already set, U2 governs the stored reason, and the store logs the bad
-  value instead. A worker `RESOURCE_LIMIT` with a valid cause pauses the job with
+  value instead. Its `READER_REPLY_UNRECORDED` diagnostic cuts `reply_code` to
+  64 UTF-8 bytes at a character boundary; the stored C1 reason keeps the original code.
+  Every C1-rejected reply warns once with the original code and cause, each bounded by
+  the same echo rule, and the worker's stderr. This also holds when its pause is refused
+  (including stale refusal); a recovery line names that original reply before the one
+  fallback. A non-string reply code still fails the store's strict pause and takes that
+  fallback. These prerequisites do not turn C1 on: activation remains Step 13 in train T
+  after the paired #721 producer.
+  A worker `RESOURCE_LIMIT` with a valid cause pauses the job with
   `{code: "RESOURCE_LIMIT", cause}`, its message rendered from the table above.
 
   The store's and the scheduler's own refusals are not replies. A `RESOURCE_LIMIT` that Node
