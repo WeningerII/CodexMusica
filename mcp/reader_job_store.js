@@ -2265,15 +2265,137 @@ export class ReaderJobStore {
     this._refresh(record, authorize);
     return clone(page);
   }
+  // ── the lease's walk (§5.1) ─────────────────────────────────────────────
+  // One lease's walk of a live record, under the writer lock and so after
+  // any reconciliation (§7.4). R5 first, for every log and before anything
+  // is read: the log's address list (a log with no list has the empty one,
+  // so a non-null head without a list is R5) holds exactly the head's
+  // `segments` addresses and ends at the head, and `verified` is a prefix of
+  // it. (`verified` naming exactly the logs `logs` names is the record's
+  // shape, M1: a record without it is never 'live'.) Then, log by log, a
+  // stat of each verified segment, and a read through _segment of each one
+  // appended since: F6, F3, R2, and R5's junction (the first segment read
+  // continues the verified head, and the bytes read from v.bytes end at the
+  // head's). Every failure is this image's own bookkeeping disagreeing with
+  // the record or the stored segments, never evidence of a broken chain:
+  // STORAGE_CORRUPT 503 with a non-enumerable `rule` (tests read it, the
+  // routes never serialise it), nothing released or saved. Returns the
+  // verified heads to save, null when nothing was read, and each log's
+  // absolute paths, oldest first (§2.10).
+  _walk(record) {
+    const { epoch, logs, verified } = record.discovery;
+    const lists = this.chains.get(record.id);
+    const listOf = (log) => lists?.get(log) ?? [];
+    const corrupt = (rule) =>
+      Object.defineProperty(
+        problem('STORAGE_CORRUPT', 'Reader discovery state failed its lease walk.', 503),
+        'rule',
+        { value: rule, enumerable: false }
+      );
+    for (const [log, st] of Object.entries(logs)) {
+      const list = listOf(log);
+      const v = verified[log];
+      const empty = {
+        head: null,
+        segments: 0,
+        count: 0,
+        bytes: 0,
+        digest: domainDigest(DOMAINS.log(log)),
+      };
+      if (
+        list.length !== st.segments ||
+        (list.at(-1) ?? null) !== st.head ||
+        v.segments > st.segments ||
+        v.count > st.count ||
+        v.bytes > st.bytes ||
+        (v.segments === 0 && canonical(v) !== canonical(empty)) ||
+        (v.segments === st.segments && canonical(v) !== canonical(st)) ||
+        (v.segments > 0 && list[v.segments - 1] !== v.head)
+      )
+        throw corrupt('R5');
+    }
+    let read = 0;
+    const paths = {};
+    for (const [log, st] of Object.entries(logs)) {
+      const list = listOf(log);
+      const v = verified[log];
+      for (const address of list.slice(0, v.segments))
+        try {
+          fs.statSync(path.join(this.directory, 'pages', `${address}.json`));
+        } catch (error) {
+          if (error.code === 'ENOENT') throw corrupt('missing');
+          throw error;
+        }
+      const expect = { job_id: record.id, identity_hash: record.identity_hash, epoch, log };
+      let at = v;
+      let junction = v.segments > 0;
+      for (const address of list.slice(v.segments)) {
+        const got = this._segment(address, expect);
+        read++;
+        if (got.missing) throw corrupt('missing');
+        if (got.f6) throw corrupt('F6');
+        if (!got.segment) throw corrupt('F3');
+        const { segment } = got;
+        if (
+          segment.previous_hash !== at.head ||
+          segment.first !== at.count ||
+          segment.digest_before !== at.digest
+        )
+          throw corrupt(junction ? 'R5' : 'R2');
+        junction = false;
+        at = {
+          head: address,
+          segments: at.segments + 1,
+          count: segment.first + segment.count,
+          bytes: at.bytes + got.entryBytes,
+          digest: segment.digest_after,
+        };
+      }
+      if (at.head !== st.head || at.count !== st.count || at.digest !== st.digest)
+        throw corrupt('R2');
+      if (at.bytes !== st.bytes) throw corrupt('R5');
+      paths[log] = list.map((a) => path.join(this.directory, 'pages', `${a}.json`));
+    }
+    return { verified: read ? clone(logs) : null, paths };
+  }
+  // The lease payload (§2.10), under the writer lock (§5.1): a pending
+  // release and a saved `unavailable` refuse first, with no walk; then a
+  // live record's walk, and its one verified save, skipped when nothing was
+  // read or when _capacity cannot grant it (STORE_RECOUNTING, RESOURCE_LIMIT:
+  // the next walk reads from the older verified heads; the advance never
+  // refuses the lease). The payload is the record without its `discovery`,
+  // whose `verified` and `unavailable` are the store's own (c14), and with
+  // `discovery` built from the record's heads and the address lists. A record
+  // with no `discovery` key gains none, so a payload today is byte for byte
+  // what it was.
   workerPayload(id) {
-    return this._cached(() => {
-      const record = this._require(id);
+    return this._open(() => {
+      let record = this._require(id);
       if (['expired', 'deleted'].includes(record.state) || this._expiredUnswept(record))
         throw problem('RESULT_EXPIRED', 'Reader work expired.', 410);
       this._refusePending(id);
+      this._refuseUnavailable(record);
+      let built = null;
+      if (this._liveDiscovery(record)) {
+        const walk = this._walk(record);
+        if (walk.verified)
+          try {
+            record = this._save(
+              { ...record, discovery: { ...record.discovery, verified: walk.verified } },
+              true
+            );
+          } catch (error) {
+            const recounting = error.code === 'STORE_RECOUNTING' && error.status === 503;
+            if (!recounting && (error.code !== 'RESOURCE_LIMIT' || error.status !== 507))
+              throw error;
+          }
+        const { epoch, logs } = record.discovery;
+        built = { version: 1, summary: { epoch, logs: clone(logs) }, paths: walk.paths };
+      }
       const page_refs = [...this._refs(record.page_index_hash)];
+      const { discovery: _held, ...rest } = clone(record);
       return {
-        ...clone(record),
+        ...rest,
         directory: this.directory,
         page_refs,
         page_paths: page_refs.map((ref) =>
@@ -2282,6 +2404,7 @@ export class ReaderJobStore {
         committed_page_paths: page_refs.map((ref) =>
           path.join(this.directory, 'pages', `${ref.sha256}.json`)
         ),
+        ...(Object.hasOwn(record, 'discovery') ? { discovery: built } : {}),
       };
     });
   }

@@ -679,6 +679,9 @@ export class ReaderScheduler {
           requested: record.request.requested_layers,
           requested_methods: record.request.requested_methods,
           checkpoint: record.cursor || null,
+          // DISCOVERY_V1 §2.10: passed only when the walk built one, so a
+          // lease of a job holding no discovery sends exactly what it did.
+          ...(trusted.discovery ? { discovery: trusted.discovery } : {}),
           committed_pages: trusted.page_paths || trusted.pages || [],
           lease_ms: Math.max(
             1,

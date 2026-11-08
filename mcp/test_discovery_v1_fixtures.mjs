@@ -8581,7 +8581,7 @@ const CITED_CODE = {
   'sched.pump.store_lease': '6f02c32eea3984dc',
   'sched.pump.stored_check': '5bb62c97312dc525',
   'sched.pump.identity_check': '805d36dac33de30d',
-  'sched.pump.run_reader_lease': '573bffc4bb5398ea',
+  'sched.pump.run_reader_lease': 'd5136c6a9fca28f8',
   'sched.pump.declarations': '9c0b44cf7533f1fd',
   'sched.pump.catch_pause': '75e9e46cba590e53',
   'source_worker.verify': 'c70ad56857c8151f',
@@ -8829,7 +8829,7 @@ const CONTRACT_CITES = [
     symbol: 'workerPayload',
     starts: 'workerPayload(id) {',
     whole: true,
-    code: '6cf5610a3328f5a7',
+    code: 'facb908c2d6fdeb2',
   },
   {
     id: 'c.reader_scheduler.pump.2',
@@ -8838,7 +8838,7 @@ const CONTRACT_CITES = [
     symbol: 'pump',
     starts: 'const trusted = this.store.workerPayload(record.id);',
     ends: 'committed_pages: trusted.page_paths || trusted.pages || [],',
-    code: 'd85e7c627f0363d6',
+    code: '018e62083d9f9750',
   },
   {
     id: 'c.worker.run_reader.1',

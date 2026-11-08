@@ -17,7 +17,11 @@ import {
   domainDigest,
   planDiscovery,
 } from './reader_discovery.js';
-import { plantRecord, storeDirectory } from './reader_store_test_support.mjs';
+import {
+  plantRecord,
+  sealedSegments as sealedOf,
+  storeDirectory,
+} from './reader_store_test_support.mjs';
 import { canonical as sortedCanonical, cursorCase } from './fixtures/discovery_v1/builders.mjs';
 
 const identity = {
@@ -2048,33 +2052,8 @@ test('discovery: readPage refuses a segment address with 404', (t) => {
 // first lock entry, or a live instance's next one, reloads and reconciles.
 const FIXTURES = path.join(import.meta.dirname, 'fixtures', 'discovery_v1');
 const loadFixture = (rel) => JSON.parse(fs.readFileSync(path.join(FIXTURES, rel), 'utf8'));
-// The segments a write fixture's frames seal, by address: each log chained
-// within its epoch, as the store's write path would build them (§2.5).
-function sealedSegments(rel) {
-  const fx = loadFixture(rel);
-  const owner = { id: fx.job_id, identity_hash: fx.identity_hash };
-  const heads = new Map();
-  const out = new Map();
-  for (const frame of fx.frames) {
-    const { epoch, seals } = frame.discovery;
-    for (const seal of seals) {
-      const key = `${epoch}/${seal.log}`;
-      const built = buildSegment(
-        owner,
-        epoch,
-        seal.log,
-        heads.get(key) ?? null,
-        seal.first,
-        seal.entries,
-        seal.digest_before,
-        seal.digest_after
-      );
-      out.set(built.address, built.raw);
-      heads.set(key, built.address);
-    }
-  }
-  return out;
-}
+// The segments a write fixture's frames seal, by address (§2.5).
+const sealedSegments = (rel) => sealedOf(loadFixture(rel));
 // A fixture's store (README: `segments_from` minus `omit`, `segments` as they
 // are, `corrupt` bytes changed in place), as {address: stored} where stored
 // is a Buffer, or {size} for an oversized file.

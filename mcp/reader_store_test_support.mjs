@@ -13,6 +13,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
+import { buildSegment } from './reader_discovery.js';
 
 const sha = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 // The store's canonical(): sorted keys, no whitespace (reader_job_store.js).
@@ -119,3 +120,31 @@ export function counterClock(start = 0, step = 1000) {
 // The fixed wall-clock time both halves of the inertness golden run under
 // (mock.timers with `apis: ['Date']`), never ticked.
 export const FIXED_DATE = Date.UTC(2100, 0, 1);
+
+// The segments a write fixture's frames seal (`fx`, the parsed fixture), as
+// {address: plain bytes}: each log chained within its epoch, as the store's
+// write path builds them (DISCOVERY_V1 §2.5).
+export function sealedSegments(fx) {
+  const owner = { id: fx.job_id, identity_hash: fx.identity_hash };
+  const heads = new Map();
+  const out = new Map();
+  for (const frame of fx.frames) {
+    const { epoch, seals } = frame.discovery;
+    for (const seal of seals) {
+      const key = `${epoch}/${seal.log}`;
+      const built = buildSegment(
+        owner,
+        epoch,
+        seal.log,
+        heads.get(key) ?? null,
+        seal.first,
+        seal.entries,
+        seal.digest_before,
+        seal.digest_after
+      );
+      out.set(built.address, built.raw);
+      heads.set(key, built.address);
+    }
+  }
+  return out;
+}

@@ -20,6 +20,7 @@ import { createPythonBridge } from './python_bridge.js';
 import { canonicalReaderQuery, canonicalReaderSigningInput } from './reader_protocol.js';
 import { createReaderRouter, publicReaderJob, signReaderRequest } from './reader_routes.js';
 import { DISCOVERY_CAUSES, causeMessage } from './reader_discovery.js';
+import { plantRecord, sealedSegments } from './reader_store_test_support.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const secret = 'test-reader-private-secret-32bytes-only';
@@ -917,6 +918,12 @@ test('the job view renders a causal reason message from causeMessage', async () 
 const replyCauseInvalid = JSON.parse(
   await readFile(path.join(here, 'fixtures/discovery_v1/bad/reply_cause_invalid.json'), 'utf8')
 );
+const SEAL_SEQUENCE = JSON.parse(
+  await readFile(path.join(here, 'fixtures/discovery_v1/good/seal_sequence_two_logs.json'), 'utf8')
+);
+const WALK_JOB = JSON.parse(
+  await readFile(path.join(here, 'fixtures/discovery_v1/good/lease_incremental_walk.json'), 'utf8')
+).record;
 const replyPauseRefused = JSON.parse(
   await readFile(path.join(here, 'fixtures/discovery_v1/bad/reply_pause_refused.json'), 'utf8')
 );
@@ -951,9 +958,12 @@ const refusal = (code, message = `stubbed ${code}`, extra = {}) =>
 // One lease of job A (job B waits behind it) through the real store and
 // scheduler; store.pause and store.complete are spied, and stubbed to refuse
 // as `stub` names before the real store answers.
-// `discovery` is saved on A before its lease, as the store's own write path
-// would leave it (no foreign write, so no reconciliation reads it); `during`
-// runs once A is leased, before the lease's plan.
+// `discovery`, a record.discovery of good/lease_incremental_walk.json's job,
+// makes A that job: its record, with A's queue place and that discovery, and
+// the seal sequence's segments are planted as a foreign writer would, and a
+// second instance's startup reconciliation lists them, so the lease's walk
+// (§5.1) reads them as it would any job's. `during` runs once A is leased and
+// walked, before the lease's plan.
 async function leaseOnce(
   t,
   { plan, enforce, stub = {}, commitError = null, discovery, during = null }
@@ -961,11 +971,20 @@ async function leaseOnce(
   const directory = await mkdtemp(path.join(tmpdir(), 'reader-pause-'));
   t.after(() => rm(directory, { recursive: true, force: true }));
   let now = Date.now();
-  const store = new ReaderJobStore({ directory, now: () => now });
-  const a = store.create({ viewer: 'viewer-a', idempotency_key: 'job-a', identity, request });
+  let store = new ReaderJobStore({ directory, now: () => now });
+  let a = store.create({ viewer: 'viewer-a', idempotency_key: 'job-a', identity, request });
   const b = store.create({ viewer: 'viewer-b', idempotency_key: 'job-b', identity, request });
-  if (discovery !== undefined)
-    store._open(() => store._save({ ...store.records.get(a.record.id), discovery }, true));
+  if (discovery !== undefined) {
+    const own = store.records.get(a.record.id);
+    plantRecord(
+      directory,
+      { ...own, id: WALK_JOB.id, identity_hash: WALK_JOB.identity_hash, discovery },
+      [...sealedSegments(SEAL_SEQUENCE).values()]
+    );
+    await rm(path.join(store.directory, 'records', `${own.id}.json`));
+    store = new ReaderJobStore({ directory, now: () => now });
+    a = { record: { id: WALK_JOB.id } };
+  }
   const calls = [];
   const pauses = [...(stub.pause || [])];
   const pause = store.pause.bind(store);
@@ -1197,9 +1216,10 @@ test('reply_cause_invalid.json: every mutant and control under C1 off and on', a
   for (const c of all) {
     for (const enforce of [false, true]) {
       const label = `${c.name} (C1 ${enforce ? 'on' : 'off'})`;
-      // The fixture's record on A's lease; a case that names `released` is
+      // The fixture's record on A's lease, as its walk leaves it (§5.1: the
+      // verified heads advanced to the heads); a case that names `released` is
       // released by reconciliation's own release while A runs, before the reply.
-      let start = clone(planted);
+      let start = { ...clone(planted), verified: clone(planted.logs) };
       const during = c.released
         ? (store, id) =>
             store._open(() => {
