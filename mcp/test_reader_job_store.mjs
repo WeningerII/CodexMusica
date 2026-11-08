@@ -8,7 +8,7 @@ import { test } from 'node:test';
 import express from 'express';
 import { ReaderJobStore, READER_LIMITS, decodeStoredObject } from './reader_job_store.js';
 import { ReaderScheduler, canonicalJSON, createCatalogResolver } from './reader_scheduler.js';
-import { createReaderRouter, signReaderRequest } from './reader_routes.js';
+import { createReaderRouter, publicReaderJob, signReaderRequest } from './reader_routes.js';
 import {
   DISCOVERY_LIMITS,
   DOMAINS,
@@ -7725,10 +7725,17 @@ test('F5: returnLease ends only its own lease, and keeps cancel, U2 and the queu
     const back = store.returnLease(id, lease.attempt, lease.fence);
     assert.equal(back.attempt, lease.attempt - 1, `${kind}: uncounted`);
     assert.deepEqual([back.fence, back.lease_expires_at], [null, null], `${kind}: the lease ended`);
+    assert.equal(back.cancel_requested, false, `${kind}: cancel_requested cleared`);
+    assert.equal(durable(store, id).cancel_requested, false, `${kind}: cleared on disk`);
+    assert.equal(
+      publicReaderJob(store.inspect(id)).cancel_requested,
+      false,
+      `${kind}: the job view shows it cleared`
+    );
     if (kind === 'cancel')
       assert.deepEqual(
         [back.state, back.reason?.code, back.deferred_requeue],
-        ['cancelled', 'STORE_BUSY', false],
+        ['cancelled', 'CANCELLED', false],
         'cancelled, never to be requeued'
       );
     if (kind === 'released') {
@@ -7788,6 +7795,103 @@ test('F5: returnLease of a job whose malformed release is pending writes the rel
     ],
     'the release logged once'
   );
+});
+
+// BB8 6719406992 (call 2) and the 09:16Z review of 34833d71a (pin a): a
+// cancel that lands through returnLease stores CANCELLED, never STORE_BUSY,
+// on every path: queue room, no room, and a pending release whose save is
+// refused with a status (the fallback, which leaves it pending). Where U2
+// applies (a saved release, or a pending one that lands) the reason is the
+// release's, as cancel() writes it. On every path the returned, durable and
+// viewed record has cancel_requested false and deferred_requeue false, and
+// the job view (publicReaderJob) renders the stored reason.
+test('F5: a cancel that lands through returnLease stores CANCELLED on every path, cancel_requested cleared, and the job view shows it', async (t) => {
+  const CANCELLED = { code: 'CANCELLED', message: 'Cancelled; committed evidence is retained.' };
+  const check = (store, id, back, reason, label) => {
+    const view = publicReaderJob(store.inspect(id));
+    for (const [where, got] of [
+      ['returned', back],
+      ['durable', durable(store, id)],
+      ['viewed', view],
+    ]) {
+      assert.deepEqual(
+        [got.state, got.cancel_requested, got.deferred_requeue],
+        ['cancelled', false, false],
+        `${label} (${where}): cancelled, cancel_requested cleared`
+      );
+      assert.equal(got.reason?.code, reason.code, `${label} (${where}): reason`);
+    }
+    assert.deepEqual([back.fence, back.lease_expires_at], [null, null], `${label}: lease ended`);
+    assert.deepEqual(back.reason, reason, `${label}: the stored reason`);
+    if (reason.code === 'CANCELLED') assert.deepEqual(view.reason, reason, `${label}: view`);
+  };
+  for (const kind of ['room', 'full', 'released']) {
+    const fx = loadFixture('good/lease_incremental_walk.json');
+    const { store, lease } = leaseFixture(t, fx);
+    const id = fx.record.id;
+    store._open(() => store._save({ ...store.records.get(id), cancel_requested: true }, true));
+    if (kind === 'full')
+      for (let n = store.listQueued().length; n < READER_LIMITS.waiting; n++)
+        create(store, `viewer-${n}`, `full-${n}`);
+    if (kind === 'released')
+      store._open(() =>
+        store._release(store.records.get(id), { cause: 'segment_missing', log: 'alt_cells' })
+      );
+    const back = store.returnLease(id, lease.attempt, lease.fence);
+    const want =
+      kind === 'released'
+        ? { ...reasonOf(store.records.get(id).discovery.unavailable) }
+        : CANCELLED;
+    check(store, id, back, want, kind);
+    store.listQueued();
+    assert.equal(store.records.get(id).state, 'cancelled', `${kind}: never promoted`);
+  }
+  for (const kind of ['lands', 'fallback']) {
+    const job = u2Inputs(t, 'pending');
+    await job.ready();
+    const { store, id } = job;
+    store._open(() => store._save({ ...store.records.get(id), cancel_requested: true }, true));
+    assert.ok(store.pendingRelease.has(id), `${kind}: pending before the return`);
+    const save = store._save;
+    if (kind === 'fallback') {
+      let refusedOnce = false;
+      t.mock.method(store, '_save', function (record, ...rest) {
+        if (!refusedOnce && record.id === id && record.discovery?.unavailable) {
+          refusedOnce = true;
+          throw Object.assign(new Error('recounting'), { code: 'STORE_RECOUNTING', status: 503 });
+        }
+        return save.call(this, record, ...rest);
+      });
+    }
+    const before = store.records.get(id);
+    const back = store.returnLease(id, before.attempt, job.fence);
+    if (kind === 'fallback') store._save.mock.restore();
+    assert.equal(back.attempt, before.attempt - 1, `${kind}: uncounted`);
+    if (kind === 'lands') {
+      assert.equal(store.pendingRelease.has(id), false, 'the release landed');
+      check(store, id, back, U2({}), kind);
+    } else {
+      assert.ok(store.pendingRelease.has(id), 'fallback: the release stays pending');
+      assert.deepEqual(back.reason, CANCELLED, 'fallback: CANCELLED, never STORE_BUSY');
+      assert.deepEqual(
+        [back.state, back.cancel_requested, back.deferred_requeue],
+        ['cancelled', false, false],
+        'fallback: returned'
+      );
+      assert.deepEqual(
+        [durable(store, id).reason, durable(store, id).cancel_requested],
+        [CANCELLED, false],
+        'fallback: durable'
+      );
+      // The view shows the release the store has decided (§7.4), cancelled.
+      const view = publicReaderJob(store.inspect(id));
+      assert.deepEqual(
+        [view.state, view.cancel_requested, view.reason?.code],
+        ['cancelled', false, 'DISCOVERY_UNAVAILABLE'],
+        'fallback: the view'
+      );
+    }
+  }
 });
 
 // Review of 4f96eff9f, finding 1: the foreign lock held past the lease's

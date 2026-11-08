@@ -2127,7 +2127,9 @@ export class ReaderJobStore {
   // `queued` in the place it held (its queue fields were never changed by the
   // lease), with its attempt counter restored and no reason. Three cases keep
   // what a pause would do instead: a cancel asked for meanwhile lands as
-  // `cancelled`; a job released meanwhile (U2) is paused with the release's
+  // `cancelled` with reason CANCELLED, as cancel() writes it, on every path
+  // but U2's, which holds the reason as it does in cancel() (BB8 6719406992,
+  // call 2); a job released meanwhile (U2) is paused with the release's
   // reason and never requeued (§8); and with no queue room it is paused to
   // return by itself when a slot opens (deferred_requeue), never QUEUE_FULL.
   // The attempt is uncounted in each, so the next lease carries the same
@@ -2158,12 +2160,15 @@ export class ReaderJobStore {
           ...ended,
           state: record.cancel_requested ? 'cancelled' : 'paused',
           deferred_requeue: reason === null && !record.cancel_requested,
-          reason: reason ?? {
-            code: 'STORE_BUSY',
-            message: record.cancel_requested
-              ? 'Cancelled before the lease started; the writer lock was busy.'
-              : 'Scheduling boundary; committed work will return to the queue when its next slot opens.',
-          },
+          reason:
+            reason ??
+            (record.cancel_requested
+              ? { code: 'CANCELLED', message: 'Cancelled; committed evidence is retained.' }
+              : {
+                  code: 'STORE_BUSY',
+                  message:
+                    'Scheduling boundary; committed work will return to the queue when its next slot opens.',
+                }),
         }));
       return this._save(
         { ...record, ...ended, state: 'queued', deferred_requeue: false, reason: null },
