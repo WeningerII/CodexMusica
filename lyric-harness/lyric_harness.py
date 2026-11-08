@@ -7142,11 +7142,8 @@ def _rel_show(stream, inst):
 #: Pair-scoped finding codes `screen` relays. Everything else the carrier
 #: lines provoke is about the SCAFFOLD, not the pair, and relaying it
 #: would teach a caller to distrust the instrument.
-#: ~~("HOMEOTELEUTON", "MODAL_RHYME")~~ -> (), 2026-10-27 (end-of-day plan,
-#: #519 6448819660, D6: no unsolicited system bans). Both were system
-#: lexical bans; the revision lane stops filing them, and the screen no
-#: longer relays them as bans on a pair.
-SCREEN_PAIR_CODES = ()
+#: Writing-only prohibitions. Corpus reading does not use this screen.
+SCREEN_PAIR_CODES = ("HOMEOTELEUTON", "MODAL_RHYME")
 
 #: Two DIFFERENT carrier lines, every word CMUdict-readable, ending in the
 #: screened words. Different on purpose: with identical carriers the
@@ -7593,7 +7590,7 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
         if _kind == "schema":
             from quality import relations as _RL
             _schema = _RL.REGISTRY[_canon]
-    rv = Reviser(lex=lex, decl=decl) if (lex or decl) else Reviser()
+    rv = Reviser(lex=lex, decl=decl, writing=True)
     # THE GRADE'S READER, THROUGH THE LEXICON THIS SCREEN WAS HANDED
     # (`MISSING.md` M-321): the broad schema column and the declared-relation
     # verdict both read the words exactly as `Reviser` judges a declared
@@ -13553,7 +13550,7 @@ def main():
             _refuse("--max-rounds, --attempts and --backtrack take "
                     "integers")
         rdecl = ReviseDeclaration(**_rd_kw) if _rd_kw else None
-        rv = Reviser(lex=lex, decl=decl, rdecl=rdecl)
+        rv = Reviser(lex=lex, decl=decl, rdecl=rdecl, writing=True)
         if _pur:
             print(f"  PURSUING {len(_pur)} note code(s) beyond the flags: "
                   f"{', '.join(sorted(_pur))} — the loop keeps asking on a "
@@ -15619,7 +15616,7 @@ def main():
                     sys.exit(0 if _ok else 3)
 
                 from quality import replay_memo as RM
-                _rm_key = RM.run_key(sys.argv[1:], input_paths=(args[1], bp_path),
+                _rm_key = RM.run_key([*sys.argv[1:], f"writing-policy:{rv.writing_policy}"], input_paths=(args[1], bp_path),
                                      reader_scheme=resolve_reader_scheme(None))
                 from quality.propose import ProposerUnavailable
                 try:
@@ -15654,7 +15651,7 @@ def main():
                     from quality import relations as _RPM
                     return _RPM
                 from quality import revise as _RV_mod
-                _rm_key = RM.run_key(sys.argv[1:],
+                _rm_key = RM.run_key([*sys.argv[1:], f"writing-policy:{rv.writing_policy}"],
                                      input_paths=(args[1], bp_path),
                                      reader_scheme=resolve_reader_scheme(None))
                 rv_loop, say_memo = RM.wrap(rv, _rm_key, len(lines))
