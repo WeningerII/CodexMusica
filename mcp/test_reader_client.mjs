@@ -1733,3 +1733,62 @@ test('a dispatch refused while usage is recounted is logged and retried until co
     await rm(directory, { recursive: true, force: true });
   }
 });
+
+// Main's two timer rules from #820, pinned (review of 78fc83df1, F3; both
+// were unpinned on main too). A kick cuts a retry's backoff short, since a
+// request may have freed room, but leaves the bridge-capacity poll as it is;
+// and the capacity wait polls at pollMs without backing off, since busy
+// capacity is no failure.
+function timerProbe(t, { capacity = { active: 0, admitted: 0, queued: 0 } } = {}) {
+  const scheduler = new ReaderScheduler({
+    store: { listQueued: () => [{ id: 'queued' }], lease: () => null },
+    bridge: { capacity: () => capacity, runReaderLease: async () => ({ code: 0 }) },
+    pollMs: 100,
+    retryMaxMs: 400,
+    resolveIdentity: async () => identity,
+    resolveSource: async () => ({ source: { text: 'line' } }),
+  });
+  t.after(() => scheduler.stop());
+  t.mock.timers.enable({ apis: ['setTimeout'] });
+  return scheduler;
+}
+
+test('scheduler: a kick cuts a retry backoff short and runs the pump at once, but never the capacity poll', (t) => {
+  const scheduler = timerProbe(t);
+  const pumps = t.mock.method(scheduler, 'pump', async () => {});
+  for (let i = 0; i < 3; i++) scheduler._retry();
+  assert.deepEqual([scheduler.retrying, scheduler.retryMs], [true, 400], 'a 400 ms backoff armed');
+  scheduler.kick();
+  t.mock.timers.tick(0);
+  assert.equal(pumps.mock.callCount(), 1, 'the kick pumped at once');
+  t.mock.timers.tick(400);
+  assert.equal(pumps.mock.callCount(), 1, 'and replaced the backoff');
+  // The capacity poll is not a retry: a kick leaves it armed.
+  scheduler._arm(scheduler.pollMs);
+  scheduler.kick();
+  t.mock.timers.tick(99);
+  assert.equal(pumps.mock.callCount(), 1, 'the kick did not cut the poll short');
+  t.mock.timers.tick(1);
+  assert.equal(pumps.mock.callCount(), 2, 'the poll pumps at pollMs');
+});
+
+test('scheduler: busy bridge capacity polls at pollMs and never backs off', async (t) => {
+  const scheduler = timerProbe(t, { capacity: { active: 1, admitted: 0, queued: 0 } });
+  const pump = scheduler.pump.bind(scheduler);
+  const pumps = t.mock.method(scheduler, 'pump', () => pump());
+  for (let round = 1; round <= 3; round++) {
+    if (round === 1) await scheduler.pump();
+    else {
+      t.mock.timers.tick(99);
+      assert.equal(pumps.mock.callCount(), round - 1, `round ${round}: not before pollMs`);
+      t.mock.timers.tick(1);
+      await new Promise((resolve) => setImmediate(resolve));
+    }
+    assert.equal(pumps.mock.callCount(), round, `round ${round}: pumped`);
+    assert.deepEqual(
+      [scheduler.retrying, scheduler.retryMs],
+      [false, 0],
+      `round ${round}: a poll, not a backoff`
+    );
+  }
+});
