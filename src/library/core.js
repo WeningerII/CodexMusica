@@ -71,37 +71,72 @@ const shardOf = (id) =>
     .slice(0, 2)
     .toLowerCase();
 
-async function api(path, opts = {}, credentials = 'omit') {
-  const { body, method, headers, raw, signal } = opts;
-  const init = {
-    method: method || (body !== undefined ? 'POST' : 'GET'),
-    credentials,
-    signal,
-    headers: { ...(headers || {}) },
+// One visible, polite status for concurrent service requests. A quick request
+// never announces loading; the last settlement clears only our own message.
+let serviceRequests = 0;
+let serviceTimer = null;
+let serviceRegion = null;
+const LOADING_LIBRARY = 'Loading the Library…';
+function beginServiceRequest() {
+  if (serviceRequests++ === 0) {
+    const sub = LIBRARY.sub;
+    serviceTimer = setTimeout(() => {
+      if (!serviceRequests || LIBRARY.sub !== sub) return;
+      serviceRegion = document.getElementById('library-live');
+      if (serviceRegion) {
+        serviceRegion.classList.add('lib-loading');
+        serviceRegion.textContent = LOADING_LIBRARY;
+      }
+    }, 1000);
+  }
+  return () => {
+    if (--serviceRequests) return;
+    clearTimeout(serviceTimer);
+    serviceTimer = null;
+    if (serviceRegion) {
+      serviceRegion.classList.remove('lib-loading');
+      if (serviceRegion.textContent === LOADING_LIBRARY) serviceRegion.textContent = '';
+      serviceRegion = null;
+    }
   };
-  if (body !== undefined) {
-    init.body = typeof body === 'string' ? body : JSON.stringify(body);
-    if (typeof body !== 'string') init.headers['content-type'] = 'application/json';
-  }
-  const res = await fetch(lib.api + path, init);
-  if (raw) return res;
-  const text = await res.text();
-  let data = null;
+}
+
+async function api(path, opts = {}, credentials = 'omit') {
+  const finishLoading = beginServiceRequest();
   try {
-    data = text ? JSON.parse(text) : null;
-  } catch {
-    data = { error: text };
+    const { body, method, headers, raw, signal } = opts;
+    const init = {
+      method: method || (body !== undefined ? 'POST' : 'GET'),
+      credentials,
+      signal,
+      headers: { ...(headers || {}) },
+    };
+    if (body !== undefined) {
+      init.body = typeof body === 'string' ? body : JSON.stringify(body);
+      if (typeof body !== 'string') init.headers['content-type'] = 'application/json';
+    }
+    const res = await fetch(lib.api + path, init);
+    if (raw) return res;
+    const text = await res.text();
+    let data = null;
+    try {
+      data = text ? JSON.parse(text) : null;
+    } catch {
+      data = { error: text };
+    }
+    if (!res.ok) {
+      const error = Error(
+        (data && (data.error?.message || data.message || data.error)) ||
+          `Library service ${res.status}`
+      );
+      error.status = res.status;
+      error.body = data;
+      throw error;
+    }
+    return data;
+  } finally {
+    finishLoading();
   }
-  if (!res.ok) {
-    const error = Error(
-      (data && (data.error?.message || data.message || data.error)) ||
-        `Library service ${res.status}`
-    );
-    error.status = res.status;
-    error.body = data;
-    throw error;
-  }
-  return data;
 }
 
 // Selection: reading unit ids pinned on this device, under the old app's key

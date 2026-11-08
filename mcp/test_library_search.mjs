@@ -492,13 +492,14 @@ test('an unusable store is reported failed, by name, and its routes answer 503',
   assert.doesNotMatch(server.log(), /search store is unusable/, 'nothing loaded at startup');
   const res = await fetch(`${server.base}/library/v1/search?q=love`);
   assert.equal(res.status, 503);
-  assert.equal((await res.json()).error.code, 'SEARCH_UNAVAILABLE');
+  assert.equal((await res.json()).error.code, 'LIBRARY_UNAVAILABLE');
   assert.deepEqual(await server.library(), {
     state: 'failed',
     failures: ['search'],
     corpus: 'absent',
   });
-  assert.match(server.log(), /search store is unusable/);
+  await fetch(`${server.base}/library/v1/health`);
+  assert.equal((await server.library()).state, 'failed');
 });
 
 test('with no Library store configured the state is absent after first use', async (t) => {
@@ -551,7 +552,7 @@ async function settledCorpus(server) {
 
 test('verified corpus packages leave the Library ready', async (t) => {
   const server = await spawnServer(t, { LIBRARY_CORPUS_DIR: corpusPackages(t) });
-  assert.equal((await fetch(`${server.base}/library/v1/health`)).status, 200);
+  assert.equal((await fetch(`${server.base}/library/v1/health?load=1`)).status, 200);
   assert.deepEqual(await settledCorpus(server), {
     state: 'ready',
     failures: [],
@@ -561,11 +562,53 @@ test('verified corpus packages leave the Library ready', async (t) => {
 
 test('a corpus package that fails its hash marks the Library failed, by name', async (t) => {
   const server = await spawnServer(t, { LIBRARY_CORPUS_DIR: corpusPackages(t, { corrupt: true }) });
-  assert.equal((await fetch(`${server.base}/library/v1/health`)).status, 200);
+  assert.equal((await fetch(`${server.base}/library/v1/health?load=1`)).status, 503);
   assert.deepEqual(await settledCorpus(server), {
     state: 'failed',
     failures: ['corpus'],
     corpus: 'failed',
   });
-  assert.match(server.log(), /corpus packages failed verification/);
+  assert.equal(
+    (await (await fetch(`${server.base}/library/v1/health`)).json()).search_ready,
+    false
+  );
+});
+
+test('public health observes unloaded stores and concurrent first searches return complete data', async (t) => {
+  const { dir } = build(t, [item('u1', {}, 'love and more')]);
+  const server = await spawnServer(t, { LIBRARY_SEARCH_DIR: dir });
+  for (let i = 0; i < 2; i++) {
+    const health = await (await fetch(`${server.base}/library/v1/health`)).json();
+    assert.equal(health.search_ready, false);
+    assert.equal(health.stores.state, 'not_loaded');
+    assert.equal(health.counts, null);
+    assert.equal(health.snapshot_id, null);
+  }
+  const responses = await Promise.all(
+    [1, 2].map(() => fetch(`${server.base}/library/v1/search?q=love`))
+  );
+  for (const response of responses) {
+    assert.equal(response.status, 200);
+    assert.deepEqual(ids(await response.json()), ['u1']);
+  }
+});
+
+test('a failed first load can recover on explicit retry after the store is repaired', async (t) => {
+  const { dir } = build(t, [item('u1', {}, 'love and more')]);
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'library-retry-'));
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  const missing = path.join(root, 'store');
+  const server = await spawnServer(t, { LIBRARY_SEARCH_DIR: missing });
+  assert.equal((await fetch(`${server.base}/library/v1/search?q=love`)).status, 503);
+  fs.cpSync(dir, missing, { recursive: true });
+  await fetch(`${server.base}/library/v1/health`);
+  assert.equal((await server.library()).state, 'failed');
+  const responses = await Promise.all(
+    [1, 2].map(() => fetch(`${server.base}/library/v1/search?q=love`))
+  );
+  for (const response of responses) {
+    assert.equal(response.status, 200);
+    assert.deepEqual(ids(await response.json()), ['u1']);
+  }
+  assert.equal((await server.library()).state, 'ready');
 });

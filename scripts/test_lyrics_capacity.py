@@ -8,6 +8,7 @@ from pathlib import Path
 from lyrics_capacity_runtime import library_evidence_failures, runtime_evidence_failures, run_store_evidence_failures, queue_pressure_failures, ResidentRuntime
 import re
 import unittest
+from test_library_load_measurement import FirstLoad
 from unittest.mock import patch
 from check_lyrics_capacity import validate_measurement, percentile, terminate_measurement, MeasurementProgress
 from measure_verb_memory import _checkpoint_valid, _machine_result, CONTROL_TOKEN, assessment_coverage_valid
@@ -945,6 +946,10 @@ class ShardedCapacityMerge(unittest.TestCase):
             'memory_trace': [{'lines': size, 'seed': seed, 'mode': mode,
                               'peak_bytes': 1000, 'current_bytes': 900}
                              for size, seed in cells for mode in MODES],
+            'library_load_memory_trace': [
+                {'phase': phase, 'metric': 'sampled_resident_first_load', 'peak_bytes': 1000,
+                 'instrumentation': {'sample_count': 2, 'peak_sample': {'resident_bytes': 1000}}}
+                for phase in ('library', 'library_recovery')],
             'summaries': [], 'failures': [],
             'leak_signature': {'boundaries': len(cells) * len(MODES),
                                'rose_at_every_boundary': False, 'judged_here': False},
@@ -978,6 +983,17 @@ class ShardedCapacityMerge(unittest.TestCase):
         for name, cells in deal:
             self.assertGreaterEqual(len(cells), 2, f'{name} measures one cell; the leak signature could not run')
         self.assertEqual(len({name for name, _ in deal}), len(deal))
+
+    def test_first_load_evidence_is_required_and_retained_by_the_merger(self):
+        from merge_lyrics_capacity import merge
+        shards = self.complete()
+        report, failures = merge(shards)
+        self.assertFalse(failures)
+        self.assertEqual(len(report['library_load_memory_trace']), len(shards))
+        shards[0][1].pop('library_load_memory_trace')
+        report, failures = merge(shards)
+        self.assertFalse(report['production_qualified'])
+        self.assertTrue(any('first-load' in f for f in failures))
 
     def test_a_complete_consistent_matrix_qualifies(self):
         from merge_lyrics_capacity import merge

@@ -27,6 +27,7 @@ import tempfile
 import time
 from measure_verb_memory import assessment_coverage_valid
 from lyrics_capacity_runtime import ResidentRuntime, runtime_evidence_failures
+from library_load_measurement import sample_during_load, load_trace_failures
 
 ROOT = Path(__file__).resolve().parents[1]
 SIZES = (18, 24, 31)
@@ -657,7 +658,7 @@ def main():
               "cells": [list(cell) for cell in cells],
               "scope": "resource capacity with explicit refusal accounting; not lyric-quality certification",
               "limits": LIMITS, "isolation": isolation(), "measurements": [],
-              "memory_trace": [], "failures": [],
+              "memory_trace": [], "library_load_memory_trace": [], "failures": [],
               "source_sha256": source_identity()}
     before_events = memory_events()
     if not args.local and 'oom_kill' not in before_events:
@@ -667,7 +668,24 @@ def main():
     write_result(out, report)
     deadline = time.monotonic() + 60 * 60
     with tempfile.TemporaryDirectory(prefix='lyrics-capacity-') as tmp:
-        resident = ResidentRuntime(Path(tmp) / 'server')
+        def observe_library_load(key, load):
+            progress = MeasurementProgress(
+                'forced-load/' + key,
+                node_pid=lambda: resident.child.pid if resident.child is not None else None,
+                node_memory_path=resident.directory / 'node-memory.json')
+            try:
+                return sample_during_load(load, progress)
+            finally:
+                evidence = progress.instrumentation()
+                peak = evidence.get('peak_sample')
+                peak_bytes = peak.get('resident_bytes') if isinstance(peak, dict) else None
+                report['library_load_memory_trace'].append({
+                    'phase': key, 'metric': 'sampled_resident_first_load',
+                    'peak_bytes': peak_bytes, 'instrumentation': evidence})
+                if not args.local and (type(peak_bytes) is not int or
+                        peak_bytes > LIMITS['whole_runtime_peak_mib'] * 1024**2):
+                    report['failures'].append(f'{key}: missing or excessive first-load resident peak')
+        resident = ResidentRuntime(Path(tmp) / 'server', library_load_probe=observe_library_load)
         try:
             if not report['failures']:
                 report['resident_runtime'] = resident.start()
@@ -774,6 +792,9 @@ def main():
                 source = Path(tmp) / 'server' / name
                 if source.exists():
                     out.with_name(out.stem + '-' + name).write_text(source.read_text()[-131072:])
+    if not args.local:
+        report['failures'] += load_trace_failures(
+            report['library_load_memory_trace'], LIMITS['whole_runtime_peak_mib'] * 1024**2)
     after_events = memory_events()
     if after_events.get('oom_kill', 0) > before_events.get('oom_kill', 0):
         report['failures'].append('cgroup recorded an OOM kill during the matrix')

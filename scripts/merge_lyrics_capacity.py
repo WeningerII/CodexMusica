@@ -58,6 +58,8 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 from check_lyrics_capacity import (CELLS, LEAK_MIN_BOUNDARIES, LIMITS, MODES,  # noqa: E402
                                    SEEDS, SIZES, summarize_measurements)
 
+from library_load_measurement import load_trace_failures
+
 EXPECTED_EXECUTIONS = len(CELLS) * len(MODES)
 #: Fewer boundaries than this and the leak signature never ran (doctrine 20).
 MIN_TRACE_PER_SHARD = LEAK_MIN_BOUNDARIES
@@ -107,6 +109,8 @@ def merge(shards):
                         f'{sorted(CELLS)}, each exactly once')
 
     for name, shard in shards:
+        failures.extend(f'{name}: {error}' for error in load_trace_failures(
+            shard.get('library_load_memory_trace'), LIMITS['whole_runtime_peak_mib'] * 1024**2))
         if shard.get('status') != 'passed':
             failures.append(f"{name}: status is {shard.get('status')!r}, not 'passed'")
         for failure in shard.get('failures') or []:
@@ -202,6 +206,7 @@ def merge(shards):
         'isolation': {name: shard.get('isolation') for name, shard in shards},
         'measurements': measurements,
         'memory_trace': trace,
+        'library_load_memory_trace': {name: shard.get('library_load_memory_trace') for name, shard in shards},
         # Re-derived over the union, by the one function that derives them: a
         # size whose seeds were dealt to two containers gets one row here.
         'summaries': summarize_measurements(measurements),

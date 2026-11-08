@@ -1,0 +1,66 @@
+#612 option A — local replacement milestone, 2026-11-08
+
+Base: verified main 51813636913b4f6fd29e551ee4765d0e52e2bbb3.
+Branch: codex/612-option-a-local. Writer: this dedicated Codex #612 session.
+R2's named option-A ref was unavailable; this is a replacement candidate, not
+R2's unpublished implementation. Historical handoff item 8/findings 1,6,7,10,11
+remain unidentified and have not been substituted with new findings.
+
+Authority: John's recorded Claude-unavailability takeover instruction permits
+local implementation. No external publication, source transfer, artifact-byte
+access, dispatch, paid work, merge or release is authorized by this milestone.
+Original evidence and scratch validator are preserved separately.
+
+Implemented source:
+- Same-process shared load; stores are published together only after configured
+  stores load, snapshots agree and corpus hashes verify. Concurrent callers
+  share an attempt. Rejection leaves no published partial stores; a later
+  explicit data request retries from fresh constructors.
+- Public and private admission await loading before using line counts or
+  queuing work. Private authentication still precedes loading/admission.
+- Ordinary /health and /library/v1/health observe unloaded/loading/failed/ready
+  state. Package discovery explicitly loads via /health?load=1. Startup live
+  checking can accept explicit unloaded health, but logs that loaded data was
+  not verified. The strict loaded-data predicate remains the default.
+- Shared browser service requests show Loading the Library… after one second
+  in the existing visible/polite status region, once per concurrent group;
+  settlement removes that message without erasing a newer status. Existing
+  request errors and Retry UI are retained.
+- The existing loaded capacity path now starts with a real first search (or
+  explicit load for export-only configuration), records cold first_search_s,
+  and samples resident memory from before the request until it settles.
+  Startup and recovery samples must both survive merge and the unchanged
+  1792 MiB ceiling. Lifetime/cumulative peak labels cannot substitute.
+
+Verification (local Node v24.19.0; Python 3.12.14, synthetic fixtures only):
+- 36 focused loader/search/UI tests passed; two additional private lazy
+  admission regressions passed; two strict-versus-startup health tests passed.
+- 56 capacity-oracle tests passed (including five first-load tests); 26 shard
+  selection tests passed. These execute no capacity campaign.
+- Broader routes: 72 passed, one production idle-stream test hit the imposed
+  60-second timeout. This is not a complete broad-suite pass.
+- Two unrelated connector sweep tests failed on candidate and verified base;
+  no clean full-connector-suite claim.
+- Two new HTTP regressions fail on the base with only the test file overlaid
+  and pass on the candidate: health-triggered loading and sticky failed load.
+- Touched JS lint/format, Python compilation and diff whitespace checks pass.
+Detailed local receipts are in /workspace/scratch/capacity-612-validator/option-a-*.txt.
+
+Remaining scope and gates:
+1. This milestone intentionally retains the existing conservative loaded
+   matrix. It does NOT yet add the separate unloaded matrix profile and
+   forced-loaded cell population/workflow/schema. That next change must keep
+   both profiles below 1792 MiB and retain exact workload/source/image/host
+   identity. The first-load sampler is a reviewable candidate, not measured
+   evidence. Sampling overhead and cadence require independent review.
+2. Generate/review browser delivery assets during coordinated integration;
+   source-only UI tests are not browser or screen-reader acceptance.
+3. Obtain independent review of the exact candidate and workflow before any
+   same-host paired before/after campaign. Report paired peak margins and
+   median cold first-search time; no savings or latency number is inferred.
+4. Node 22 release-runtime checks, full CI, required UI review, criteria-owner
+   acceptance and eventual release/live verification remain open.
+
+Local reservation: listed modified files/functions belong to this branch only;
+release on agreed handoff, merge or withdrawal. No shared production checkout
+or generated codex.html was changed. No issue completion or self-acceptance.

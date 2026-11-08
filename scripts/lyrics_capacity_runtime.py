@@ -278,7 +278,8 @@ def queue_evidence_extends(evidence, recorded):
 
 
 class ResidentRuntime:
-    def __init__(self, directory):
+    def __init__(self, directory, *, library_load_probe=None):
+        self.library_load_probe = library_load_probe
         self.directory = Path(directory)
         self.directory.mkdir(parents=True, exist_ok=True)
         with socket.socket() as listener:
@@ -487,13 +488,21 @@ class ResidentRuntime:
         started = time.monotonic()
         # Outside the startup gate, so a cold read of the stores (hundreds of MB)
         # gets a minute rather than a replay's ten seconds.
+        # A cold first search includes the store load. Timing a search after
+        # load=1 would disguise the latency cost as a warmed request.
+        first_path = '/library/v1/search?limit=1' if stores['search'] else '/library/v1/health?load=1'
+        load = lambda: self.request('GET', first_path, timeout=LIBRARY_LOAD_SECONDS)
+        self.library_load_probe(key, load) if self.library_load_probe else load()
+        first_search_s = time.monotonic() - started if stores['search'] else None
         library = self.request('GET', '/library/v1/health', timeout=LIBRARY_LOAD_SECONDS)
         state = self.health().get('library') or {}
         self.record[key] = {'configured': any(stores.values()), 'stores': stores,
                             'state': state.get('state'), 'failures': state.get('failures'),
                             'corpus': state.get('corpus'),
                             'search_ready': library.get('search_ready') is True,
-                            'load_s': time.monotonic() - started}
+                            'load_s': time.monotonic() - started,
+                            'first_search_s': first_search_s,
+                            'first_search_scope': 'cold request including store load' if stores['search'] else 'not configured'}
         failures = library_evidence_failures(self.record[key], key)
         if failures:
             raise RuntimeError('; '.join(failures))
