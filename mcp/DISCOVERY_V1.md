@@ -1129,15 +1129,13 @@ a full read instead (below), so it refuses a dead job at once instead of queuein
   as before. A return refused for any other reason is logged and not tried again; the job stays
   `running` and its lease's expiry ends it. A thrown value with no code, even `null`, is such a
   refusal, logged as `READER_ERROR`, so the return never throws out of the pump's catch. The
-  return is not one of the three transitions out of `running` exempt from quota (§8): its
-  cancel and no-room paths give the record a reason, so at exactly full quota a record past its
-  reservation is refused `RESOURCE_LIMIT` and nothing is written, and the lease's expiry, which is
-  exempt, then pauses the job `INTERRUPTED` with its attempt counted. So on main, while another
-  process holds the lock at a lease's payload, the lease waits one pump interval, with three
-  exceptions: a hold that outlasts the lease ends it as any expired lease ends, paused
-  `INTERRUPTED` with its attempt counted, and it needs a resume; with no queue room the job waits
-  paused until a slot opens; and at exactly full quota a return that would add a reason to a
-  record past its reservation is refused, so that lease too ends at its expiry. The attempt
+  return is a quota-exempt transition out of `running` (§8; BB8 6722270626):
+  with known usage, even a record past its reservation can gain its bounded reason at
+  exactly full quota. A save carrying a pending release still needs room; only its
+  lease-ending fallback is exempt, leaving the release pending. Unknown usage still
+  takes the normal capacity check. A hold that outlasts the lease ends it as any expired
+  lease ends, paused `INTERRUPTED` with its attempt counted, and it needs a resume;
+  with no queue room the job waits paused until a slot opens. The attempt
   number of a returned lease is the next lease's again, so a control signed with
   `expected_attempt` during the returned lease is accepted against the next one. That is benign:
   the returned lease never started a worker, so there was no work for the control to race.
@@ -1242,7 +1240,9 @@ a full read instead (below), so it refuses a dead job at once instead of queuein
      the advanced `verified`. If that save needs capacity the store cannot grant (`STORE_RECOUNTING`
      or `RESOURCE_LIMIT`), it is made once more without the advance, as the walk skips its own
      (step 4 above), and `verified` stays where it was, so the next lease's walk reads from there;
-     a second refusal is thrown as it is (BB8 6719406992, call 6). A pending release, then a saved `unavailable`, refuses first, before
+     if the retained `verified` was wrong, the next walk can still refuse `STORAGE_CORRUPT`,
+     but the full read has proved the chain and another resume can save the advance when quota frees.
+     A second refusal is thrown as it is (BB8 6719406992, call 6). A pending release, then a saved `unavailable`, refuses first, before
      the identity and state checks, with nothing read; the full read comes after those checks and
      before the queue's, so a dead job is refused even when the queue is full. A pass replaces
      the job's address lists with the ones read, as reconciliation's does. They stand when the
@@ -2206,13 +2206,14 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   durable release when it lands. If `_capacity` refuses such a save (`STORE_RECOUNTING` while usage
   is unknown, `RESOURCE_LIMIT` at full quota), it is logged (`READER_REPAIR_DEFERRED`) and made
   without the release, with the reason it would hold without U2; the release stays pending and
-  shown, so none of these saves fails where it did not before. Startup's pause, a lease's expiry
-  and a commit's quota pause are transitions out of `running` that are never refused for quota.
+  shown, so none of these saves fails where it did not before. Startup's pause, a lease's expiry,
+  a commit's quota pause and `returnLease` are transitions out of `running` exempt from quota
+  when usage is known.
   Such a save that carries a pending release is not exempt, since the release grows the record
   beyond its reason, but its fallback is: so the transition always commits, and at a full quota
   the release stays pending, as before. This holds at exactly full quota, with no headroom for
-  the fallback's own growth (pinned by the U2-path test at full quota). `returnLease` is not one
-  of these transitions (§5.1). It is deferred, never lost (BB8's
+  the fallback's own growth (pinned by the U2-path test at full quota). The release is deferred,
+  never lost (BB8's
   call 3 on Step 7): the record keeps its malformed value, so once room is freed the next save
   that carries it, the next point usage is known, or the reconciliation after a restart completes
   the release in one save, with the U2 reason, logged once. A C1 reason that U2 replaces is
@@ -2474,7 +2475,8 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 64 | Review of `4f96eff9f` (#656 Steps 10 and 11) | (F5) a lease that expires while the foreign lock is held is not returned: the return is `STALE_ATTEMPT`, which settles the busy lease, the job is paused `INTERRUPTED` with its attempt counted and the scheduler leases the next job; a return refused for any other reason is logged and settles it too, never tried again, the lease's expiry the backstop; the busy path's next pump comes one poll interval later, never at once; a job whose malformed release is still pending is returned as U2 holds it, the release written in that save and logged once; a returned cancel is never to be requeued; a returned lease's attempt number is the next lease's again, which is benign | §5.1 | the store tests (F5) |
 | 65 | BB8 08:46Z (merge of main into the branch, main's #820 `f97b6901d`) | every store call in the scheduler's pump sits inside a try, F5's lease return included: a refusal at dispatch (a `STORE_BUSY` from `listQueued()` or `lease()` in a pump entered with a busy lease, or a return that throws) is caught, logged `[reader] dispatch refused:` and retried with backoff, never an unhandled rejection, and the busy lease is tried again first; `later()` arms its pump through the caught timer; `lease()` passes over a job that does not fit, its pending-release and released checks kept for `lease(id)`; the three transitions out of `running` that are never refused for quota stay exempt through U2, except a save that carries a pending release, whose fallback is exempt, so at a full quota the release stays pending | §5.1, §7.4, §8 | the store tests (merged pump; F5; U2 path) |
 | 66 | BB8 6719406992 (calls 2, 5, 6, 7 and 8 on R2's Step 11 questions) and BB8's 09:16Z review of `34833d71a` (pins a, b and c) | (2) a cancel that lands through `returnLease` stores reason `CANCELLED`, never `STORE_BUSY`, with queue room, without it and on a pending release's fallback, the release's reason standing where U2 applies; (a) every path through `returnLease` clears `cancel_requested`, in the record and in the job view; (5, c) the lists `resume()`'s full read installs stand after a `QUEUE_FULL`, and a save that fails discards them, leaving the job's lists as they were before the resume (a save without a status then drops every list), killed behaviourally for both "installed after the save" and "kept after a failed save"; (b) the lists read replace the job's lists, so a log absent from the full read does not survive (the review's M15); (6) `resume()`'s verified save, refused `STORE_RECOUNTING` or `RESOURCE_LIMIT`, is made once more without the advance, and a second refusal is thrown; (7) a `DISCOVERY_UNAVAILABLE` refusal names its `cause` and `log` in the route's 409 error body, on the Site bridge and `/library/v1`, nothing else added; (8) every fixture that holds an `identity_hash` names the identity behind it, the validator checks each hash, and the resume tests mock no digest | §5.1, §7.4, §8, §13 | every fixture that holds an `identity_hash` (`identity`); the store tests (F5 returnLease; resume); the route tests (409 body); the validator's identity test |
-| 67 | Review of `78fc83df1` (the merge of main and the Step 11 calls) | (F1) the fallback of a transition that carries a pending release is exempt at exactly full quota, with no headroom: a lease's expiry, a commit's quota pause and startup's pause each commit without the release, which stays pending; (F2) `resume()` retries its verified save only for a room refusal, the code and the status together (`roomRefusal`), never for another 503 or 507, and a real quota refusal or an unknown usage is retried without the advance and lands; (F3) main's timer rules: a kick cuts a retry's backoff short but not the capacity poll, and busy capacity polls at `pollMs` without backing off; (F4) a return that throws a value with no code is a failed return at both of its calls, never an escape from the pump's catch; (F5) `returnLease` is not exempt from quota: at exactly full quota a return that adds a reason to a record past its reservation is refused and the lease's expiry ends the job, its attempt counted; §7.4 says a refusal inside `lease()` holds up that job and every job behind it | §5.1, §7.4, §8 | the store tests (U2 path at full quota; resume retry; F5); the client tests (scheduler timers) |
+| 67 | Review of `78fc83df1` (the merge of main and the Step 11 calls) | (F1) the fallback of a transition that carries a pending release is exempt at exactly full quota, with no headroom: a lease's expiry, a commit's quota pause and startup's pause each commit without the release, which stays pending; (F2) `resume()` retries its verified save only for a room refusal, the code and the status together (`roomRefusal`), never for another 503 or 507, and a real quota refusal or an unknown usage is retried without the advance and lands; (F3) main's timer rules: a kick cuts a retry's backoff short but not the capacity poll, and busy capacity polls at `pollMs` without backing off; (F4) a return that throws a value with no code is a failed return at both of its calls, never an escape from the pump's catch; (F5, superseded by row 68) `returnLease` is not exempt from quota: at exactly full quota a return that adds a reason to a record past its reservation is refused and the lease's expiry ends the job, its attempt counted; §7.4 says a refusal inside `lease()` holds up that job and every job behind it | §5.1, §7.4, §8 | the store tests (U2 path at full quota; resume retry; F5); the client tests (scheduler timers) |
+| 68 | BB8 6722270626 | `returnLease` joins the quota-exempt lease-ending transitions, with the pending-release save still checked and its fallback exempt; every fixture identity is checked against its own hashes in the store suite; a retained wrong `verified` can refuse again until another resume saves its advance after quota frees | §5.1, §8 | store tests (F5 at full quota; U2 fallback; per-fixture identities) |
 
 ## 12. Rulings on the items added for confirmation
 

@@ -753,7 +753,8 @@ export class ReaderJobStore {
   }
   // `transition` marks a write that takes a record out of running, the only
   // writes exempt from the quota limit: the startup pause (the constructor),
-  // a lease's expiry (_expireLeases) and a commit's quota pause (_quotaPause).
+  // a lease's expiry (_expireLeases), a commit's quota pause (_quotaPause)
+  // and an undispatched lease's return (returnLease).
   // Refused, the store could not record that its job stopped: startup would
   // fail every restart, lease() and every lease check would throw for every
   // job, and a commit would leave its job running. Each is one write per
@@ -1223,7 +1224,7 @@ export class ReaderJobStore {
   // time"). A saved release drops the job's lists, and a pending one that
   // lands is logged as its release, once: the fallback leaves it pending, so
   // the next save that carries it, or the next point usage is known
-  // (_savePending), completes it. `transition` is _save's: the three
+  // (_savePending), completes it. `transition` is _save's: the four
   // transitions out of running that are never refused for quota pass it.
   // A save that carries a pending release is not exempt, since it grows the
   // record by the release as well as the reason; its fallback, which grows
@@ -2155,23 +2156,28 @@ export class ReaderJobStore {
         room = false;
       }
       if (record.cancel_requested || !room || this._u2(record))
-        return this._saveReason(record, (base, reason) => ({
-          ...base,
-          ...ended,
-          state: record.cancel_requested ? 'cancelled' : 'paused',
-          deferred_requeue: reason === null && !record.cancel_requested,
-          reason:
-            reason ??
-            (record.cancel_requested
-              ? { code: 'CANCELLED', message: 'Cancelled; committed evidence is retained.' }
-              : {
-                  code: 'STORE_BUSY',
-                  message:
-                    'Scheduling boundary; committed work will return to the queue when its next slot opens.',
-                }),
-        }));
+        return this._saveReason(
+          record,
+          (base, reason) => ({
+            ...base,
+            ...ended,
+            state: record.cancel_requested ? 'cancelled' : 'paused',
+            deferred_requeue: reason === null && !record.cancel_requested,
+            reason:
+              reason ??
+              (record.cancel_requested
+                ? { code: 'CANCELLED', message: 'Cancelled; committed evidence is retained.' }
+                : {
+                    code: 'STORE_BUSY',
+                    message:
+                      'Scheduling boundary; committed work will return to the queue when its next slot opens.',
+                  }),
+          }),
+          true
+        );
       return this._save(
         { ...record, ...ended, state: 'queued', deferred_requeue: false, reason: null },
+        true,
         true
       );
     });

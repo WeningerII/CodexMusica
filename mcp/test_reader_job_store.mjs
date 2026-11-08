@@ -4979,8 +4979,8 @@ test('U2 path: a refused save of a pending job is made without its release, and 
 // only because it is exempt: the lease's expiry, a commit's quota pause and
 // startup's INTERRUPTED pause each commit without the release, the release
 // stays pending, and neither lease() nor startup throws.
-test('U2 path: at exactly full quota, a pending release’s fallback save is exempt: expiry, quota pause and startup each commit, and the release stays pending', async (t) => {
-  for (const where of ['expiry', 'quota', 'startup']) {
+test('U2 path: at exactly full quota, a pending release’s fallback save is exempt: expiry, quota pause, startup and return each commit, and the release stays pending', async (t) => {
+  for (const where of ['expiry', 'quota', 'startup', 'return']) {
     let now = Date.now();
     const job = u2Inputs(t, 'pending', { now: () => now, headroom: 0 });
     assert.equal(await job.store.recount(), true);
@@ -5004,6 +5004,18 @@ test('U2 path: at exactly full quota, a pending release’s fallback save is exe
       });
       store._open(() => store._quotaPause(store.records.get(job.id), refusal));
       reason = { code: 'RESOURCE_LIMIT', message };
+    } else if (where === 'return') {
+      const before = durable(store, job.id);
+      const back = store.returnLease(job.id, before.attempt, job.fence);
+      assert.equal(back.attempt, before.attempt - 1, 'return: attempt uncounted');
+      assert.equal(back.cancel_requested, false);
+      assert.equal(back.fence, null);
+      assert.equal(back.lease_expires_at, null);
+      reason = {
+        code: 'STORE_BUSY',
+        message:
+          'Scheduling boundary; committed work will return to the queue when its next slot opens.',
+      };
     } else {
       store = new ReaderJobStore({
         directory: job.directory,
@@ -7829,15 +7841,9 @@ test('F5: returnLease ends only its own lease, and keeps cancel, U2 and the queu
   }
 });
 
-// Review of 78fc83df1, F5: returnLease is not one of the three transitions
-// exempt from quota (§5.1, §8). Its cancel and no-room paths give the record a
-// reason, so at exactly full quota a record past its reservation is refused
-// RESOURCE_LIMIT and nothing is written; the job stays running, and its
-// lease's expiry, which is exempt, then pauses it INTERRUPTED with the attempt
-// counted. The queued path drops the fence and adds no reason, so it shrinks
-// the record and lands.
-test('F5: at exactly full quota, a return that adds a reason to a record past its reservation is refused; the exempt expiry ends the lease', (t) => {
-  for (const kind of ['cancel', 'full', 'queued']) {
+// BB8 6722270626: a return ends a lease even at full quota.
+test('F5: at exactly full quota, returnLease ends the lease with bounded growth and its attempt uncounted', (t) => {
+  for (const kind of ['cancel', 'full', 'queued', 'released']) {
     const fx = loadFixture('good/lease_incremental_walk.json');
     const { store, lease } = leaseFixture(t, fx);
     const id = fx.record.id;
@@ -7856,30 +7862,49 @@ test('F5: at exactly full quota, a return that adds a reason to a record past it
       fs.statSync(path.join(store.directory, 'records', `${id}.json`)).size > RESERVE,
       `${kind}: past its reservation`
     );
+    if (kind === 'released')
+      store._open(() =>
+        store._release(store.records.get(id), { cause: 'segment_missing', log: 'alt_cells' })
+      );
     store.maxBytes = store.usage + store.slack;
-    if (kind === 'queued') {
-      const back = store.returnLease(id, lease.attempt, lease.fence);
-      assert.deepEqual([back.state, back.attempt], ['queued', lease.attempt - 1], kind);
-      continue;
-    }
+    assert.equal(store.usage + store.slack, store.maxBytes, `${kind}: exactly full`);
+    const file = path.join(store.directory, 'records', `${id}.json`);
+    const size = fs.statSync(file).size;
     const before = durable(store, id);
-    assert.throws(
-      () => store.returnLease(id, lease.attempt, lease.fence),
-      (error) => error.code === 'RESOURCE_LIMIT' && error.status === 507,
-      `${kind}: refused for quota`
-    );
-    assert.deepEqual(durable(store, id), before, `${kind}: nothing written`);
-    assert.equal(store.records.get(id).state, 'running', `${kind}: still running`);
-    const real = store.now;
-    store.now = () => before.lease_expires_at + 1;
-    store.lease();
-    store.now = real;
-    const after = store.records.get(id);
+    const back = store.returnLease(id, lease.attempt, lease.fence);
+    const state = kind === 'cancel' ? 'cancelled' : kind === 'queued' ? 'queued' : 'paused';
+    const code =
+      kind === 'cancel'
+        ? 'CANCELLED'
+        : kind === 'full'
+          ? 'STORE_BUSY'
+          : kind === 'released'
+            ? 'DISCOVERY_UNAVAILABLE'
+            : undefined;
     assert.deepEqual(
-      [after.state, after.reason?.code, after.attempt],
-      [kind === 'cancel' ? 'cancelled' : 'paused', 'INTERRUPTED', lease.attempt],
-      `${kind}: the expiry ended it, its attempt counted`
+      [back.state, back.reason?.code, back.attempt],
+      [state, code, lease.attempt - 1],
+      kind
     );
+    assert.deepEqual(
+      [back.cancel_requested, back.fence, back.lease_expires_at, back.deferred_requeue],
+      [false, null, null, kind === 'full'],
+      kind
+    );
+    assert.deepEqual(durable(store, id), back, `${kind}: durable`);
+    assert.deepEqual(back.discovery, before.discovery, `${kind}: discovery unchanged`);
+    assert.deepEqual(
+      [back.queued_at, back.queue_order],
+      [before.queued_at, before.queue_order],
+      `${kind}: queue position retained`
+    );
+    assert.ok(
+      fs.statSync(file).size - size <= Buffer.byteLength(JSON.stringify(back.reason)),
+      `${kind}: growth bounded by reason`
+    );
+    exact(store, kind);
+    refused(() => store.returnLease(id, lease.attempt, lease.fence), 'STALE_ATTEMPT');
+    assert.deepEqual(durable(store, id), back, `${kind}: no second transition`);
   }
 });
 
@@ -8569,6 +8594,40 @@ const IDENTITIES = new Map(
     ),
   ].map((named) => [identityHashOf(named), named])
 );
+// A shared lookup must not hide one fixture's changed or missing identity.
+test('identities: every store fixture names the identity behind each of its hashes', () => {
+  let checked = 0;
+  for (const side of ['good', 'bad']) {
+    for (const name of fs
+      .readdirSync(path.join(FIXTURES, side))
+      .filter((n) => n.endsWith('.json'))) {
+      const rel = `${side}/${name}`;
+      const fx = loadFixture(rel);
+      const hashes = [];
+      const visit = (value) => {
+        if (!value || typeof value !== 'object') return;
+        for (const [key, child] of Object.entries(value)) {
+          if (key === 'identity_hash') hashes.push(child);
+          else visit(child);
+        }
+      };
+      visit(fx);
+      if (!hashes.length) continue;
+      assert.ok(
+        fx.identity &&
+          typeof fx.identity === 'object' &&
+          !Array.isArray(fx.identity) &&
+          Object.keys(fx.identity).length,
+        `${rel}: missing identity`
+      );
+      for (const hash of hashes)
+        assert.equal(hash, identityHashOf(fx.identity), `${rel}: identity hash`);
+      checked++;
+    }
+  }
+  assert.ok(checked >= 30, `${checked} job fixtures checked`);
+});
+
 function identityOf(hash) {
   const named = IDENTITIES.get(hash);
   assert.ok(named, `no fixture names the identity behind ${hash}`);
