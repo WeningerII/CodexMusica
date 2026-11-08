@@ -1095,8 +1095,8 @@ There is no new channel. A frame's seals ride the existing step and its acknowle
 
 ### 5.1 The store's walk (BB8 (a), 6678599629)
 
-`workerPayload` and `resume` run it, so a lease checks the walk before the worker starts,
-and `resume()` refuses a dead job at once instead of queueing it
+`workerPayload` runs it, so a lease checks the walk before the worker starts. `resume()` runs
+a full read instead (below), so it refuses a dead job at once instead of queueing it
 (`reader_job_store.js:resume`).
 
 - **Under the writer lock.** Both run the walk through `_open` (`reader_job_store.js:_open`), never through
@@ -1120,7 +1120,14 @@ and `resume()` refuses a dead job at once instead of queueing it
   while the lock is still held the return is refused `STORE_BUSY` too and is tried once more at
   each pump, the job staying `running` meanwhile, with its lease's expiry as the backstop. A
   `STORE_BUSY` from any other call in the lease (a commit, the completion, the pause) is paused
-  as before. So the only effect on main is that a lease can wait one pump interval.
+  as before. A return refused for any other reason is logged and not tried again; the job stays
+  `running` and its lease's expiry ends it. So on main, while another process holds the lock at
+  a lease's payload, the lease waits one pump interval, with two exceptions: a hold that outlasts
+  the lease ends it as any expired lease ends, paused `INTERRUPTED` with its attempt counted, and
+  it needs a resume; and with no queue room the job waits paused until a slot opens. The attempt
+  number of a returned lease is the next lease's again, so a control signed with
+  `expected_attempt` during the returned lease is accepted against the next one. That is benign:
+  the returned lease never started a worker, so there was no work for the control to race.
 - If `record.discovery.unavailable` is set, the store refuses with `DISCOVERY_UNAVAILABLE`,
   naming its cause and log, without walking.
 - **The address list.** Statting a segment needs its address, and only the segment after it
@@ -2431,6 +2438,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 61 | BB8 6717719856 (calls on R2's Step 10 questions) | (F5) a `STORE_BUSY` at `workerPayload` is not paused: the lease ends, the job goes back to `queued` in its place with no reason and its attempt uncounted, a cancel, a release (U2) and a full queue kept as a pause keeps them; no retry loop in `workerPayload`, the return tried once per pump while the lock stays held; a `STORE_BUSY` from any other call in the lease is paused as before; (F-6) narrowed, on both sides, to frames where the record's cursor and the frame both have a current group, the frame's `current.lines` at or after the previous one; a group dropped without retiring and a `through` behind the previous group accepted until 3PO's #721 confirmation, kept as accepted controls to refuse if it widens; (F7) a pending malformed release refuses `commitCheckpoint`, `workerPayload` and `resume` with `DISCOVERY_UNAVAILABLE`, cause `chain_broken`, log `null`, exactly as after its save, never `STORAGE_CORRUPT`: the contract wins over the design text | §4 W4, §5.1, §7.4, §8 | `bad/current_moved_back.json` and its controls, on both sides; the store tests (F5, W4); the validator's F-6 test |
 | 62 | BB8 6718090169 (review of `59a917a62`) | no defect; each of the two `digest_before !== at.digest` clauses is killed on its own: the lease walk's by the R5 clause test's junction-digest case, and the full read's, which no test killed, by a new test, a segment whose `digest_before` does not link (the oldest's not d0, or the second's not the first's `digest_after`) with its own F5 and the record's totals intact, chain_broken by R2, and its control; `test_reader_job_store` keeps its coverage of the witness's exact keys and of F-6 | §5.1, §7.4 | the store tests (reconciliation, lease walk, W4) |
 | 63 | #656 Step 11 (design v2; v1 Step 8) | `resume()`'s full read: a pending release, then `unavailable`, refuse `DISCOVERY_UNAVAILABLE` first, with its cause and log and nothing read, before the identity and state checks; a paused or cancelled job's live discovery is then read in full, every log from its head, `verified` and the lists unused, before the queue checks; a failure releases the job in one save from the record, not the control, so the refused control writes no receipt, logs the release (error level for `segment_corrupt`) and refuses naming the cause and the log; a stat or read error without a status (EACCES, EIO, ENOTDIR) releases nothing and stops the store; a pass installs the lists read, and resume's own save carries `verified` at the heads; a record with no discovery resumes exactly as before | §5.1, §7.4, §8 | `bad/verified_ahead_of_head.json`, `bad/verified_bytes_ahead.json` and `bad/verified_bytes_disagree.json` (`expect.resume`), `bad/missing_segment.json`, `bad/segment_corrupt_at_reconciliation.json` and `bad/head_bytes_disagree.json` (`expect.resume`); the store tests (resume) |
+| 64 | Review of `4f96eff9f` (#656 Steps 10 and 11) | (F5) a lease that expires while the foreign lock is held is not returned: the return is `STALE_ATTEMPT`, which settles the busy lease, the job is paused `INTERRUPTED` with its attempt counted and the scheduler leases the next job; a return refused for any other reason is logged and settles it too, never tried again, the lease's expiry the backstop; the busy path's next pump comes one poll interval later, never at once; a job whose malformed release is still pending is returned as U2 holds it, the release written in that save and logged once; a returned cancel is never to be requeued; a returned lease's attempt number is the next lease's again, which is benign | §5.1 | the store tests (F5) |
 
 ## 12. Rulings on the items added for confirmation
 

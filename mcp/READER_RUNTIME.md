@@ -290,7 +290,8 @@ commits and requeues at the tail. A full waiting queue temporarily defers that
 successful requeue until a slot opens; it still continues automatically. A lease
 that finds the writer lock held by another process before its payload is read is
 not a failure: it returns to the queue in its place with its attempt uncounted,
-and the next pump, one poll interval later, takes it. Failure, restart and
+and the next pump, one poll interval later, takes it. A hold that outlasts the
+lease ends it as any expired lease ends, and that needs a Resume. Failure, restart and
 explicit cancellation require explicit Resume. Closing the browser
 or a polling request does not cancel work.
 

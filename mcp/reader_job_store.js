@@ -2058,9 +2058,13 @@ export class ReaderJobStore {
   // `cancelled`; a job released meanwhile (U2) is paused with the release's
   // reason and never requeued (§8); and with no queue room it is paused to
   // return by itself when a slot opens (deferred_requeue), never QUEUE_FULL.
-  // The attempt is uncounted in each. Like any write it takes the lock, so
-  // while the lock stays busy it is refused STORE_BUSY too, and the scheduler
-  // retries it at its own cadence.
+  // The attempt is uncounted in each, so the next lease carries the same
+  // attempt number again: a control signed with that expected_attempt during
+  // this lease is accepted against the next, which is benign, since this
+  // lease never started a worker. A lease that expired first is not returned
+  // (STALE_ATTEMPT): its expiry paused it INTERRUPTED, counted. Like any write
+  // it takes the lock, so while the lock stays busy it is refused STORE_BUSY
+  // too, and the scheduler retries it at its own cadence.
   returnLease(id, attempt, fence) {
     return this._open(() => {
       const record = this._leaseRecord(id, attempt, fence);
