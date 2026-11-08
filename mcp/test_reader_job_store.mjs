@@ -5025,6 +5025,47 @@ test('Q5: a completing save that throws without a status logs the trace once, of
   );
 });
 
+// Q5, a completing save that throws WITH a status (BB8 6715909159, the
+// survivor of the Step 9 review): a status means the save never wrote the
+// record (§4), so nothing was erased and no trace line is logged, neither
+// unknown nor saved. The trace stays in the record and the store serves on.
+test('Q5: a completing save that throws with a status logs no trace line', async (t) => {
+  const TRACE = 'READER_DISCOVERY_TRACE_ERASED';
+  for (const [code, status] of [
+    ['STALE_ATTEMPT', 409],
+    ['PAYLOAD_TOO_LARGE', 413],
+  ]) {
+    const job = u2Inputs(t, 'saved');
+    assert.equal(await job.store.recount(), true);
+    const before = clone(job.store.records.get(job.id).discovery.unavailable);
+    job.store.records.get(job.id).cursor = { phase: 'done', done: true };
+    const save = job.store._save;
+    t.mock.method(job.store, '_save', function (input, ...rest) {
+      if (input.id === job.id && input.state === 'completed')
+        throw Object.assign(new Error('refused'), { code, status });
+      return save.call(this, input, ...rest);
+    });
+    const seen = eventsOf(t);
+    assert.throws(
+      () => finish(job.store, { id: job.id, attempt: 1, fence: job.fence }, 0),
+      (e) => e.code === code && e.status === status,
+      `${status}: the refusal reaches the caller`
+    );
+    t.mock.restoreAll();
+    assert.deepEqual(
+      seen.filter((e) => e.event === TRACE),
+      [],
+      `${status}: no trace line, neither unknown nor saved`
+    );
+    assert.equal(job.store.failure, null, `${status}: the store serves on`);
+    assert.deepEqual(job.store.records.get(job.id).discovery.unavailable, before, 'kept');
+    const onDisk = JSON.parse(
+      fs.readFileSync(path.join(storeDirectory(job.directory), 'records', `${job.id}.json`))
+    );
+    assert.deepEqual(onDisk.discovery.unavailable, before, `${status}: kept on disk`);
+  }
+});
+
 // Q5's level follows the cause (BB8 6715584092), as the release line's does:
 // error for segment_corrupt, warn for any other, for both outcomes. The cause
 // is planted on the saved release u2Inputs builds; its shape stays §2.7's.

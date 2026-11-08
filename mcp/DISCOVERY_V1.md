@@ -1786,7 +1786,8 @@ Each release point is a single record save; GC then reclaims the segments.
   save erases nothing and logs nothing, and a job with no saved release logs no such line (BB8
   6714569541, Q5). A completing save that throws without a status may have landed (§4), and
   nothing could log the trace later if it did, so the trace is logged then, once, with
-  `outcome: "unknown"`; a throw before that save starts logs nothing. If that save did not land,
+  `outcome: "unknown"`; a throw before that save starts logs nothing, and so does a save that
+  throws with a status, which wrote no record (BB8 6715909159). If that save did not land,
   the trace stays in the record, and a later completion that lands logs it again, as `saved`;
 - expiry or delete: `_tombstone` rebuilds the record without the field (`reader_job_store.js:_tombstone`);
 - reconciliation (§7.4), a full read in `resume()` that fails (§5.1), and a pause with code
@@ -2382,6 +2383,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 54 | BB8 6714569541 (review of `c9e44f7ba`, on Step 8); BB8's rulings on R2's Step 8 calls (23:20Z) | (D-1) `complete()` completes a pending malformed release in its save, and is not its refuser; (c21) no new bound on the declaration set: it is bounded at admission by `HTTP_REQUEST_BYTES` (4.5 MiB, `mcp/payload_limits.js`); (Q5) `complete()` after a saved release logs the trace its null save erases, once, when that save lands; the module's comment on an entry breaking both F1 and F2 says it is tagged F1 | §3, §7.2, §7.4 | the store tests (Q5) |
 | 55 | Review of `b3b2a64f5` (#656 Step 9) | W4 checks the cursor's `contract_version` and every member of `methods` as the validator does; Q5 logs a trace once, with `outcome: "unknown"`, when the completing save throws without a status; the module's comment on an entry breaking both F1 and F2 says Node's own tag is not pinned | §2.11, §4 W4, §7.2 | the store tests |
 | 56 | BB8 6715584092 (rulings on R2's Step 9 calls) | (Q5) the trace line's level follows its cause, error for `segment_corrupt` and warn otherwise, as the release line's does; (witness) a non-null `witness` holds exactly §2.8's six keys, checked under W4 by Node and the validator alike; (F-6) within an epoch the current group never moves back, even with `through` null: the frame's `current.lines`, or its `through` when it has no current group, is at or after the previous `current.lines` | §2.8, §4 W4, §7.2 | `bad/current_moved_back.json` and its controls, on both sides; the store tests (Q5, W4); the validator's W4 witness test |
+| 57 | BB8 6715909159 (review of `11c186ee2`, #656 Step 9) | no defect; the survivor pinned: `complete()` of a job whose release was saved, whose completing save throws with a status (409, and 413), logs no `READER_DISCOVERY_TRACE_ERASED` line, neither `unknown` nor `saved`, keeps the trace in the record and on disk, and leaves the store serving | §7.2 | the store tests (Q5) |
 
 ## 12. Rulings on the items added for confirmation
 
