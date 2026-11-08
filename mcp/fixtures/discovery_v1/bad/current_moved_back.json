@@ -2,6 +2,12 @@
   "fixture": "bad/current_moved_back.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "write",
+  "identity": {
+    "snapshot": "snapshot-discovery-v1",
+    "revision": "revision-discovery-v1",
+    "engine": "engine-discovery-v1",
+    "declarations": "none"
+  },
   "exercises": "The record's cursor, at epoch 0, has no retired group (through null) and the current group [3,4]. The frame, in the same epoch, has through null and the current group [1,2]: the group moved back, which only the previous current.lines shows, since through is null on both sides (BB8 6715584092, F-6). Everything else is consistent. The controls, each accepted on the same record: the current group held at [3,4], a later current group [3,5], the group retired (through [3,4], current null), and the group retired with the next one open (through [3,4], current [5,6]).",
   "expect": {
     "accepted": false,
@@ -11,7 +17,7 @@
     "written": "nothing"
   },
   "job_id": "reader_22f56ea3df8ac3c61a74e95e7347ff723085ffbd188b5762daa5a7cd580cca0d",
-  "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+  "identity_hash": "b5b4724c8781d2c57ce46291f48e2295859e23d15b36f4943215e99feee4a9bd",
   "record": {
     "discovery": {
       "version": 1,

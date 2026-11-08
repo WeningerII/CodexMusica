@@ -315,6 +315,32 @@ function cut(lengths) {
 }
 
 // ---------------------------------------------------------------- fixtures
+// A job's identity_hash, as the store derives it from the analysis identity
+// (reader_job_store.js, identityHash): sha256 of its canonical JSON.
+const identityHashOf = (identity) => sha(Buffer.from(canonical(identity), 'utf8'));
+// Every identity_hash a value holds, at any depth, with its path.
+function identityHashes(value, at = '') {
+  if (Array.isArray(value)) return value.flatMap((v, i) => identityHashes(v, `${at}[${i}]`));
+  if (value === null || typeof value !== 'object') return [];
+  return Object.entries(value).flatMap(([key, v]) =>
+    key === 'identity_hash' ? [[`${at}.${key}`, v]] : identityHashes(v, `${at}.${key}`)
+  );
+}
+// The identity check (#656, BB8 6719406992, call 8): a fixture that holds an
+// identity_hash names the identity behind it (`identity`, a nonempty plain
+// object), and every identity_hash it holds is that identity's hash; a
+// fixture that holds none names none. Returns the problems found.
+function identityProblems(fx) {
+  const found = identityHashes(fx);
+  if (!found.length)
+    return Object.hasOwn(fx, 'identity') ? ['names an identity but holds no identity_hash'] : [];
+  if (!plainObject(fx.identity) || !Object.keys(fx.identity).length)
+    return ['holds an identity_hash but names no identity'];
+  const want = identityHashOf(fx.identity);
+  return found
+    .filter(([, hash]) => hash !== want)
+    .map(([at, hash]) => `${at} is ${hash}, not the identity's ${want}`);
+}
 function load(rel) {
   return JSON.parse(fs.readFileSync(path.join(DIR, rel), 'utf8'));
 }
@@ -3080,6 +3106,36 @@ test('the README lists every fixture once, with its rule and refusal', () => {
 
 // The README's opening list of rule IDs (BB8 6709891376 ruling 3: M1 sits in it
 // next to R1-R5) is exactly the set its table and the refusal model name.
+// BB8 6719406992 (call 8): the fixtures name the identity behind each
+// identity_hash, so a test resumes a fixture job with that identity and no
+// hash is mocked. Each identity_hash, at any depth (a record, a cursor, a
+// segment), is the sha256 of the fixture's `identity` in canonical JSON, as
+// the store computes it; and the check refuses a changed identity, a
+// missing one, one named with no hash, and a hash that is not the identity's.
+test('identities: every identity_hash is the hash of the identity its fixture names', () => {
+  let named = 0;
+  for (const rel of fixtureFiles()) {
+    const fx = load(rel);
+    assert.deepEqual(identityProblems(fx), [], rel);
+    if (Object.hasOwn(fx, 'identity')) named += 1;
+  }
+  assert.ok(named >= 30, `${named} fixtures name an identity`);
+  const fx = load('good/lease_incremental_walk.json');
+  assert.equal(identityHashOf(fx.identity), fx.record.identity_hash);
+  const { identity: _dropped, ...unnamed } = fx;
+  for (const [name, mutant] of [
+    ['a changed identity', { ...fx, identity: { ...fx.identity, engine: 'engine-other' } }],
+    ['no identity', unnamed],
+    ['an empty identity', { ...fx, identity: {} }],
+    [
+      "a hash that is not the identity's",
+      { ...fx, record: { ...fx.record, identity_hash: 'a'.repeat(64) } },
+    ],
+    ['an identity with no hash', { kind: 'x', identity: fx.identity }],
+  ])
+    assert.notDeepEqual(identityProblems(mutant), [], name);
+});
+
 test('the README lists every rule ID its table and the refusal model name, and no other', () => {
   const m = /the rule IDs below \(([^)]+)\) are its rules/.exec(README.replace(/\s+/g, ' '));
   assert.ok(m, 'the README opens with its list of rule IDs');
@@ -6565,7 +6621,8 @@ function codecFrame(tail) {
   frame.cursor.discovery.logs.seen = { sealed: 0, sealed_digest: d0(DOMAIN.log('seen')), tail };
   return frame;
 }
-const CODEC_JOB = { job_id: 'reader_codec', identity_hash: 'f'.repeat(64) };
+// The codec job's identity is the one its fixture names (§13, `identity`).
+const CODEC_JOB = { job_id: 'reader_codec', identity_hash: identityHashOf(load(CODEC).identity) };
 const codecStore = (frame) => {
   const record = { discovery: null, cursor: null };
   const got = evaluateFrame(CODEC_JOB, record, frame);

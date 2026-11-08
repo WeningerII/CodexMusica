@@ -11,6 +11,13 @@ passes every other rule.
 - Write fixtures carry only the cursor fields the store reads (`contract_version`,
   `method_index`, `discovery`, `witness`, `continuation`). The witness and lease fixtures
   carry a full cursor v2.
+- A fixture that holds an `identity_hash` names the identity behind it in `identity` (BB8
+  6719406992, call 8): every `identity_hash` it holds, in a record, a cursor or a segment, is the
+  sha256 of that identity's canonical JSON, as the store derives a job's hash from its analysis
+  identity, so a test resumes a fixture job with its own identity. The write, walk and resume
+  fixtures name one job identity; `bad/entry_over_depth.json` and `good/codec_error_mapping.json`
+  name their own. A fixture that holds none names none, and the cursors `builders.mjs` constructs
+  for `bad/cursor_over_bound.json` keep 64 `f`s: they belong to no job.
 - Paths under `/store` stand for the store directory. A resume or walk fixture's segments are
   the ones `good/seal_sequence_two_logs.json` builds, minus any listed in `store.omit`.
 - A walk fixture models the store's walk (§5.1). `addresses` is the store's in-memory address

@@ -2,10 +2,16 @@
   "fixture": "good/seal_completeness.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "write",
+  "identity": {
+    "snapshot": "snapshot-discovery-v1",
+    "revision": "revision-discovery-v1",
+    "engine": "engine-discovery-v1",
+    "declarations": "none"
+  },
   "exercises": "One frame sealing variants twice. The first seal (4 entries, 12,388 bytes) is complete because the next entry, the second seal's first (4,096 bytes), would not fit; the second seal (4 entries) is complete because its entry bytes are exactly 16,384.",
   "expect": { "accepted": true },
   "job_id": "reader_b90c9463724ad5086c4f8548f57e93eb31716e4b23f26eec7f01fe663a8a641a",
-  "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+  "identity_hash": "b5b4724c8781d2c57ce46291f48e2295859e23d15b36f4943215e99feee4a9bd",
   "record": { "discovery": null, "cursor": null },
   "frames": [
     {
@@ -64,7 +70,7 @@
           "epoch": 0,
           "logs": {
             "variants": {
-              "head": "4939983c9407d8551d2133d8850d68aa1ab86e2eb8cea1b977dec3f7511989e7",
+              "head": "5e7bdba053b353228b3f837025ab24e4ed67d55f6c242b3a6f288f4014a312c7",
               "segments": 2,
               "count": 8,
               "bytes": 28772,
@@ -85,12 +91,12 @@
         "segments": [
           {
             "log": "variants",
-            "address": "f7bdb433bf495cfb8373333bca3f217604c533c9a5063c7ebfbe1e355b2debf5",
+            "address": "1d2f2a90258ea4e9d05b6839e28b12977685710bb74634b17cfd489be0de229a",
             "bytes": 12850
           },
           {
             "log": "variants",
-            "address": "4939983c9407d8551d2133d8850d68aa1ab86e2eb8cea1b977dec3f7511989e7",
+            "address": "5e7bdba053b353228b3f837025ab24e4ed67d55f6c242b3a6f288f4014a312c7",
             "bytes": 16908
           }
         ],

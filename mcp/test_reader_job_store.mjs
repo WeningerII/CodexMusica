@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import zlib from 'node:zlib';
-import crypto, { createHash } from 'node:crypto';
+import { createHash } from 'node:crypto';
 import { test } from 'node:test';
 import express from 'express';
 import { ReaderJobStore, READER_LIMITS, decodeStoredObject } from './reader_job_store.js';
@@ -8379,30 +8379,27 @@ function pausedFixture(t, fx, { gzip = false, seam = false, store: spec, mutate,
   assert.equal(paused.state, state ?? 'paused');
   return { ...leased, capability, paused, viewer: leased.base.viewer };
 }
-// The fixtures name an identity_hash and not the identity it hashes, so a
-// resume of a fixture job passes this marker identity, and for that call
-// alone the store's sha256 of the marker's canonical JSON reads as the hash
-// it names. No other digest changes, and the store holds no seam for it.
-const fixtureIdentity = (hash) => ({ fixture_identity_hash: hash });
-const FIXTURE_IDENTITY = /^\{"fixture_identity_hash":"([0-9a-f]{64})"\}$/;
-function mapFixtureIdentity(t) {
-  const real = crypto.createHash;
-  return t.mock.method(crypto, 'createHash', function (...args) {
-    const hash = real.apply(this, args);
-    const update = hash.update.bind(hash);
-    const digest = hash.digest.bind(hash);
-    let data = '';
-    hash.update = (value, ...rest) => {
-      data = typeof value === 'string' && data !== null ? data + value : null;
-      update(value, ...rest);
-      return hash;
-    };
-    hash.digest = (encoding) => {
-      const marker = data !== null && encoding === 'hex' && FIXTURE_IDENTITY.exec(data);
-      return marker ? marker[1] : digest(encoding);
-    };
-    return hash;
-  });
+// The identity behind a job's identity_hash: the one its fixture names
+// (DISCOVERY_V1 §13, `identity`; BB8 6719406992, call 8), checked by the
+// validator to hash to it, or this file's own for a job it created. A resume
+// passes it as any caller does, and no digest is mocked.
+const identityHashOf = (value) => createHash('sha256').update(sortedCanonical(value)).digest('hex');
+const IDENTITIES = new Map(
+  [
+    identity,
+    ...['good', 'bad'].flatMap((side) =>
+      fs
+        .readdirSync(path.join(FIXTURES, side))
+        .filter((name) => name.endsWith('.json'))
+        .map((name) => loadFixture(`${side}/${name}`).identity)
+        .filter(Boolean)
+    ),
+  ].map((named) => [identityHashOf(named), named])
+);
+function identityOf(hash) {
+  const named = IDENTITIES.get(hash);
+  assert.ok(named, `no fixture names the identity behind ${hash}`);
+  return named;
 }
 // One resume: what its full read reads (_segment with an expect) and the
 // rules _fullRead returns, the record saves it makes, and the record or the
@@ -8417,7 +8414,6 @@ function resumeOnce(t, store, id, capability, viewer, options = {}, who = null) 
   const fullRead = ReaderJobStore.prototype._fullRead;
   const save = ReaderJobStore.prototype._save;
   const spies = [
-    ...(who === null ? [mapFixtureIdentity(t)] : []),
     t.mock.method(ReaderJobStore.prototype, '_segment', function (hash, expect, ...rest) {
       if (expect !== null) reads.push(hash);
       return segment.call(this, hash, expect, ...rest);
@@ -8435,7 +8431,7 @@ function resumeOnce(t, store, id, capability, viewer, options = {}, who = null) 
   let record = null;
   let error = null;
   try {
-    const as = who ?? fixtureIdentity(store.records.get(id).identity_hash);
+    const as = who ?? identityOf(store.records.get(id).identity_hash);
     record = store.resume(id, capability, viewer, as, options);
   } catch (thrown) {
     error = thrown;

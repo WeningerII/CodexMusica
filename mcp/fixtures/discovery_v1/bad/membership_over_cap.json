@@ -2,6 +2,12 @@
   "fixture": "bad/membership_over_cap.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "limit",
+  "identity": {
+    "snapshot": "snapshot-discovery-v1",
+    "revision": "revision-discovery-v1",
+    "engine": "engine-discovery-v1",
+    "declarations": "none"
+  },
   "exercises": "The four membership logs share one cap, MEMBERSHIP_ENTRIES (65,536, BB8 6682942783): seen, variants, row_seen and alt_seen, each sealed and tail together. One case per log, at the phase that appends to it: variants in preparation, seen and row_seen in the primary traversal, alt_seen (with row_seen) in the alternates. Each record holds 65,535 entries across the logs of its phase, named by their totals only (synthetic: the write path reads no segment). Each mutant appends two entries to one log, so the sum passes the cap by one: the worker refuses with RESOURCE_LIMIT, naming the log whose append passes it (discovery_seen, discovery_variants, discovery_row_seen or discovery_alt_seen), instead of emitting the frame; a store sent it refuses it by W7, and every other rule passes. Each control appends one entry to the same log: the sum is exactly MEMBERSHIP_ENTRIES, 65,536, which is accepted. #656 holds 20,045 (seen and variants), expected to fit with 45,491 left; the proof run decides. Byte cases (BB8 6693502369, item 30): for each log a record holding 1,024 entries in 4,182,016 entry bytes (a synthetic chain, named by its totals and its `bytes`), and a frame whose tail appends three 4,096-byte entries and a 1-byte one, one byte past MEMBERSHIP_BYTES: the worker refuses with RESOURCE_LIMIT and that log's cause, and a store sent it refuses it by W7 from the logs' `bytes`; each byte control appends the three 4,096-byte entries alone, exactly MEMBERSHIP_BYTES, and is accepted. The entry-count cases' synthetic chains hold 16 bytes an entry. Byte cases (BB8 6693502369, item 30): for each log a record holding 1,024 entries in 4,182,016 entry bytes (a synthetic chain, named by its totals and its `bytes`), and a frame whose tail appends three 4,096-byte entries and a 1-byte one, one byte past MEMBERSHIP_BYTES: the worker refuses with RESOURCE_LIMIT and that log's cause, and a store sent it refuses it by W7 from the logs' `bytes`; each byte control appends the three 4,096-byte entries alone, exactly MEMBERSHIP_BYTES, and is accepted. The entry-count cases' synthetic chains hold 16 bytes an entry.",
   "expect": {
     "accepted": false,
@@ -14,7 +20,7 @@
     "written": "nothing"
   },
   "job_id": "reader_b90c9463724ad5086c4f8548f57e93eb31716e4b23f26eec7f01fe663a8a641a",
-  "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+  "identity_hash": "b5b4724c8781d2c57ce46291f48e2295859e23d15b36f4943215e99feee4a9bd",
   "mutants": [
     {
       "name": "variants_passes_the_cap",

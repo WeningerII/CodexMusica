@@ -2,10 +2,16 @@
   "fixture": "good/epoch_jump.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "write",
+  "identity": {
+    "snapshot": "snapshot-discovery-v1",
+    "revision": "revision-discovery-v1",
+    "engine": "engine-discovery-v1",
+    "declarations": "none"
+  },
   "exercises": "A frame at epoch 2 seals variants#0; the next frame jumps to epoch 5 (one method finished, one passed empty), releasing the epoch-2 chain and starting seen afresh.",
   "expect": { "accepted": true },
   "job_id": "reader_b90c9463724ad5086c4f8548f57e93eb31716e4b23f26eec7f01fe663a8a641a",
-  "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+  "identity_hash": "b5b4724c8781d2c57ce46291f48e2295859e23d15b36f4943215e99feee4a9bd",
   "record": { "discovery": null, "cursor": null },
   "frames": [
     {
@@ -91,7 +97,7 @@
           "epoch": 2,
           "logs": {
             "variants": {
-              "head": "1f2d0c9c4ae5e42111219c4752453a704dabc6b0bafbfdfb1ba1dc511af0a339",
+              "head": "20629748adec1284dd35d2834cbde73f45b471a47553553575cc756410408e93",
               "segments": 1,
               "count": 1024,
               "bytes": 1024,
@@ -112,7 +118,7 @@
         "segments": [
           {
             "log": "variants",
-            "address": "1f2d0c9c4ae5e42111219c4752453a704dabc6b0bafbfdfb1ba1dc511af0a339",
+            "address": "20629748adec1284dd35d2834cbde73f45b471a47553553575cc756410408e93",
             "bytes": 2509
           }
         ],
@@ -165,7 +171,7 @@
           "unavailable": null
         },
         "segments": [],
-        "released": ["1f2d0c9c4ae5e42111219c4752453a704dabc6b0bafbfdfb1ba1dc511af0a339"]
+        "released": ["20629748adec1284dd35d2834cbde73f45b471a47553553575cc756410408e93"]
       }
     }
   ]

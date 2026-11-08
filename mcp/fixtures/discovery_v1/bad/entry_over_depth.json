@@ -2,6 +2,12 @@
   "fixture": "bad/entry_over_depth.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "depth",
+  "identity": {
+    "snapshot": "snapshot-entry-depth",
+    "revision": "revision-entry-depth",
+    "engine": "engine-discovery-v1",
+    "declarations": "none"
+  },
   "exercises": "An entry nested ENTRY_DEPTH + 1 (9) arrays deep, and its control at exactly ENTRY_DEPTH (8) (BB8 6693502369, item 31; depth counts nested arrays, so a scalar is 0 and [[\"a\"]] is 2). The store, sent a frame whose seen tail holds it, refuses F1 as READER_PROTOCOL 400 and writes nothing; the control frame is accepted. The worker, having generated it, refuses before it emits, as INVARIANT_FAILURE with §3's F1 message: an engine defect, since no input can deepen an entry. Read back from a segment whose bytes match its address, it is F3: a full read (reconciliation, resume()) releases with DISCOVERY_UNAVAILABLE, cause chain_broken; a lease's walk refuses STORAGE_CORRUPT 503 and releases nothing; the worker's load refuses chain_broken. The same segment holding the control passes all three.",
   "expect": {
     "accepted": false,
@@ -39,7 +45,7 @@
     }
   },
   "job_id": "reader_depth",
-  "identity_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "identity_hash": "71269cfc9369d77095451ed84a9601dc1783e943926287cfc628741cbf21a18e",
   "log": "seen",
   "entry": [[[[[[[[["deep"]]]]]]]]],
   "control": [[[[[[[["deep"]]]]]]]],
@@ -116,7 +122,7 @@
           "version": 1,
           "kind": "reader_discovery_segment",
           "job_id": "reader_depth",
-          "identity_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "identity_hash": "71269cfc9369d77095451ed84a9601dc1783e943926287cfc628741cbf21a18e",
           "epoch": 0,
           "log": "seen",
           "previous_hash": null,
@@ -131,13 +137,13 @@
     "directory": "/store",
     "record": {
       "id": "reader_depth",
-      "identity_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "identity_hash": "71269cfc9369d77095451ed84a9601dc1783e943926287cfc628741cbf21a18e",
       "discovery": {
         "version": 1,
         "epoch": 0,
         "logs": {
           "seen": {
-            "head": "bf0fefe5552e0d4cdbca7fc9766c7f17cbfa6b5762511b84f3b365bbe9849e62",
+            "head": "cf387f96409ce467130c179a2d315b4b6b259d907da4c036b93c025a0bf342d3",
             "segments": 1,
             "count": 4,
             "bytes": 42,
@@ -177,7 +183,7 @@
       }
     },
     "addresses": {
-      "seen": ["bf0fefe5552e0d4cdbca7fc9766c7f17cbfa6b5762511b84f3b365bbe9849e62"]
+      "seen": ["cf387f96409ce467130c179a2d315b4b6b259d907da4c036b93c025a0bf342d3"]
     },
     "payload": {
       "discovery": {
@@ -186,7 +192,7 @@
           "epoch": 0,
           "logs": {
             "seen": {
-              "head": "bf0fefe5552e0d4cdbca7fc9766c7f17cbfa6b5762511b84f3b365bbe9849e62",
+              "head": "cf387f96409ce467130c179a2d315b4b6b259d907da4c036b93c025a0bf342d3",
               "segments": 1,
               "count": 4,
               "bytes": 42,
@@ -196,7 +202,7 @@
         },
         "paths": {
           "seen": [
-            "/store/pages/bf0fefe5552e0d4cdbca7fc9766c7f17cbfa6b5762511b84f3b365bbe9849e62.json"
+            "/store/pages/cf387f96409ce467130c179a2d315b4b6b259d907da4c036b93c025a0bf342d3.json"
           ]
         }
       }
@@ -212,7 +218,7 @@
           "version": 1,
           "kind": "reader_discovery_segment",
           "job_id": "reader_depth",
-          "identity_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "identity_hash": "71269cfc9369d77095451ed84a9601dc1783e943926287cfc628741cbf21a18e",
           "epoch": 0,
           "log": "seen",
           "previous_hash": null,
@@ -227,13 +233,13 @@
     "directory": "/store",
     "record": {
       "id": "reader_depth",
-      "identity_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "identity_hash": "71269cfc9369d77095451ed84a9601dc1783e943926287cfc628741cbf21a18e",
       "discovery": {
         "version": 1,
         "epoch": 0,
         "logs": {
           "seen": {
-            "head": "1eeab0e4fee43aab7ebfdbee92c497aa4cc83576b025b23eed10592bf4943838",
+            "head": "14dd6bb813bce5d71ba58901bf6d2061dab4e5b4081f06a59a4b2e1f3af508cf",
             "segments": 1,
             "count": 4,
             "bytes": 40,
@@ -273,7 +279,7 @@
       }
     },
     "addresses": {
-      "seen": ["1eeab0e4fee43aab7ebfdbee92c497aa4cc83576b025b23eed10592bf4943838"]
+      "seen": ["14dd6bb813bce5d71ba58901bf6d2061dab4e5b4081f06a59a4b2e1f3af508cf"]
     },
     "payload": {
       "discovery": {
@@ -282,7 +288,7 @@
           "epoch": 0,
           "logs": {
             "seen": {
-              "head": "1eeab0e4fee43aab7ebfdbee92c497aa4cc83576b025b23eed10592bf4943838",
+              "head": "14dd6bb813bce5d71ba58901bf6d2061dab4e5b4081f06a59a4b2e1f3af508cf",
               "segments": 1,
               "count": 4,
               "bytes": 40,
@@ -292,7 +298,7 @@
         },
         "paths": {
           "seen": [
-            "/store/pages/1eeab0e4fee43aab7ebfdbee92c497aa4cc83576b025b23eed10592bf4943838.json"
+            "/store/pages/14dd6bb813bce5d71ba58901bf6d2061dab4e5b4081f06a59a4b2e1f3af508cf.json"
           ]
         }
       }

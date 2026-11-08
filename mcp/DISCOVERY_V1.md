@@ -2766,7 +2766,10 @@ qualification (6683944548). Item 29 stays open. Items 30 and 31 are R2's two que
 
 `mcp/fixtures/discovery_v1/README.md` lists every fixture, one line each, with the rule it
 exercises and the refusal it expects. The good fixtures are accepted with no refusal. Each
-bad fixture violates exactly the rule it is named for and passes every other rule.
+bad fixture violates exactly the rule it is named for and passes every other rule. A fixture that
+holds an `identity_hash` names the identity behind it (`identity`), and the validator checks that
+every `identity_hash` it holds is that identity's hash (BB8 6719406992, call 8), so the store's
+tests resume a fixture job with its own identity and mock no digest.
 
 Good:
 

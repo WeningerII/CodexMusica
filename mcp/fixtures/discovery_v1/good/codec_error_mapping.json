@@ -2,6 +2,12 @@
   "fixture": "good/codec_error_mapping.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "codec",
+  "identity": {
+    "snapshot": "snapshot-codec",
+    "revision": "revision-codec",
+    "engine": "engine-discovery-v1",
+    "declarations": "none"
+  },
   "exercises": "The entry codec raises a local error with a rule tag, and the enclosing operation maps it; the codec never picks a public code (§2.11). Each single-fault case pins its tag in Python and in Node and, for F1, its what; the controls pass; each integer-only field maps to its operation's rule; the multi-fault cases pin the code only, and the worker's emit pins F1 before F2; the integral float 1.0 has one pin per side; invalid UTF-8 in a segment is F3 once the store decodes strictly, and its address-valid read-back of a lone 0xFF byte is F3 on a full read, a lease's walk and the worker's load, while a replacing decode meets F5; the codec requirement's calls and the admission guard and its stored-request case are stated; and the raw-transport pair shows F2 is measured on the canonical form.",
   "expect": {
     "accepted": true
@@ -361,20 +367,20 @@
           "omit": [],
           "segments": [
             {
-              "hex": "7b2276657273696f6e223a312c226b696e64223a227265616465725f646973636f766572795f7365676d656e74222c226a6f625f6964223a227265616465725f636f646563222c226964656e746974795f68617368223a2266666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666222c2265706f6368223a302c226c6f67223a227365656e222c2270726576696f75735f68617368223a6e756c6c2c226669727374223a302c22636f756e74223a312c226469676573745f6265666f7265223a2263336364386436653464393666613263383835313334333839343165383433333232306534316130643832393531343830333536393466636466663839313336222c226469676573745f6166746572223a2262333633633664613330313066663961613235323635333530376537616531383663333536323633633061303964353631663037336264303631356364336336222c22656e7472696573223a5b22ff225d7d"
+              "hex": "7b2276657273696f6e223a312c226b696e64223a227265616465725f646973636f766572795f7365676d656e74222c226a6f625f6964223a227265616465725f636f646563222c226964656e746974795f68617368223a2233363033326434633763343530613666386166366561383166636539366439323337326136613332363065313166376164653738653732653361363566313934222c2265706f6368223a302c226c6f67223a227365656e222c2270726576696f75735f68617368223a6e756c6c2c226669727374223a302c22636f756e74223a312c226469676573745f6265666f7265223a2263336364386436653464393666613263383835313334333839343165383433333232306534316130643832393531343830333536393466636466663839313336222c226469676573745f6166746572223a2262333633633664613330313066663961613235323635333530376537616531383663333536323633633061303964353631663037336264303631356364336336222c22656e7472696573223a5b22ff225d7d"
             }
           ]
         },
         "directory": "/store",
         "record": {
           "id": "reader_codec",
-          "identity_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "identity_hash": "36032d4c7c450a6f8af6ea81fce96d92372a6a3260e11f7ade78e72e3a65f194",
           "discovery": {
             "version": 1,
             "epoch": 0,
             "logs": {
               "seen": {
-                "head": "ca6277bbad4b4efef902c1d1fce5c4e91d39cac11afb66674835f399f75f4ef1",
+                "head": "210fc920e1eceba92d8f698b01f4659d8374f9dd227453bf44e13ba3360e1139",
                 "segments": 1,
                 "count": 1,
                 "bytes": 3,
@@ -414,7 +420,7 @@
           }
         },
         "addresses": {
-          "seen": ["ca6277bbad4b4efef902c1d1fce5c4e91d39cac11afb66674835f399f75f4ef1"]
+          "seen": ["210fc920e1eceba92d8f698b01f4659d8374f9dd227453bf44e13ba3360e1139"]
         },
         "payload": {
           "discovery": {
@@ -423,7 +429,7 @@
               "epoch": 0,
               "logs": {
                 "seen": {
-                  "head": "ca6277bbad4b4efef902c1d1fce5c4e91d39cac11afb66674835f399f75f4ef1",
+                  "head": "210fc920e1eceba92d8f698b01f4659d8374f9dd227453bf44e13ba3360e1139",
                   "segments": 1,
                   "count": 1,
                   "bytes": 3,
@@ -433,7 +439,7 @@
             },
             "paths": {
               "seen": [
-                "/store/pages/ca6277bbad4b4efef902c1d1fce5c4e91d39cac11afb66674835f399f75f4ef1.json"
+                "/store/pages/210fc920e1eceba92d8f698b01f4659d8374f9dd227453bf44e13ba3360e1139.json"
               ]
             }
           }

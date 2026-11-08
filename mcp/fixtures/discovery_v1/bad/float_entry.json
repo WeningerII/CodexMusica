@@ -2,6 +2,12 @@
   "fixture": "bad/float_entry.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "write",
+  "identity": {
+    "snapshot": "snapshot-discovery-v1",
+    "revision": "revision-discovery-v1",
+    "engine": "engine-discovery-v1",
+    "declarations": "none"
+  },
   "exercises": "A seal whose second entry is the Python float 1.0, with digest_after and sealed_digest as a Python encoder would compute them over the bytes 1.0. Python sees a float, which is not an entry (F1). Node parses it as the integer 1, so it cannot see F1, and refuses the seal because digest_after does not recompute (F5).",
   "expect": {
     "accepted": false,
@@ -12,7 +18,7 @@
     "node_detects": "F5"
   },
   "job_id": "reader_b90c9463724ad5086c4f8548f57e93eb31716e4b23f26eec7f01fe663a8a641a",
-  "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+  "identity_hash": "b5b4724c8781d2c57ce46291f48e2295859e23d15b36f4943215e99feee4a9bd",
   "record": {
     "discovery": {
       "version": 1,

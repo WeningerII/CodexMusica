@@ -2,13 +2,19 @@
   "fixture": "good/row_seen_compaction_next_frame.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "compaction",
+  "identity": {
+    "snapshot": "snapshot-discovery-v1",
+    "revision": "revision-discovery-v1",
+    "engine": "engine-discovery-v1",
+    "declarations": "none"
+  },
   "side": "store",
   "exercises": "row_seen holds 5,120 keys, 2,049 of them live, so the row boundary after row 41 compacts it, and the live keys need two seals. Frame 1 already carries seven seals of seen when the traversal reaches that boundary: seven and two would pass FRAME_SEALS, so the step ends at the safe point before the boundary, with no part of the compaction in it. Frame 2 runs the compaction first: the reset, both seals of the live keys, the last live key in the tail, then a seen seal. A restart at the boundary seals the same bytes, because the cut depends only on the live keys. The split the worker must never emit puts the reset and the first seal in frame 1 and the second seal in frame 2: a store accepts both frames, but the log after frame 1 has lost live keys. Store-only. Its entries are integers and its continuation positions are labels, so no traversal produced it (frame 2 seals seen entries while its continuation sits at the start of row 42); it pins the frames a store accepts and the cut rule's bytes. The worker's half of ruling 1 is §6.2's third test.",
   "expect": {
     "accepted": true
   },
   "job_id": "reader_b90c9463724ad5086c4f8548f57e93eb31716e4b23f26eec7f01fe663a8a641a",
-  "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+  "identity_hash": "b5b4724c8781d2c57ce46291f48e2295859e23d15b36f4943215e99feee4a9bd",
   "record": {
     "discovery": {
       "version": 1,
@@ -190,7 +196,7 @@
           "epoch": 0,
           "logs": {
             "seen": {
-              "head": "9bb255fe864af15f601c6388f84089199d1132def5d63dbe638c53225a043311",
+              "head": "0ca348834e6ce0570186a0d02025bd518e06a958c2eb149a6d0383b474aef285",
               "segments": 7,
               "count": 7168,
               "bytes": 27562,
@@ -225,37 +231,37 @@
         "segments": [
           {
             "log": "seen",
-            "address": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
+            "address": "31e70ebd829baead6f1de4b74d7dd38e99e5345c0cd6316aec7e938cb5eccceb",
             "bytes": 4467
           },
           {
             "log": "seen",
-            "address": "555d49cf7390d0bee795d6eb474f8582778f1f2bf8aa1b72858715f20b9c843b",
+            "address": "ef4efb4a4b6a1848af18601681c8d991302996967605ad575eac9b21b59e8b50",
             "bytes": 5642
           },
           {
             "log": "seen",
-            "address": "a149bf975d45ecbcddebfb8cb60f46492154965fe0091b08991b493487c8e7b9",
+            "address": "2d4261cf360607266906fb03451e3baa809b2b9c0d61cfb4d08f07cab66606ac",
             "bytes": 5642
           },
           {
             "log": "seen",
-            "address": "a71663ea3cb43be885e653359cf1c0ceb437f504913d7d04056bfa78dfef85f6",
+            "address": "6555886ee4d8d1b805613704e791ee0f672fbce3d5de0ba593b8fc0efe48efa2",
             "bytes": 5642
           },
           {
             "log": "seen",
-            "address": "614dfebeebf37ff0fff5521e112a1e957ab8fc10a32744487b158077023b748d",
+            "address": "62e624ba7dbe158b8048efda9c9d1b4c9ff9a42635b3172cde9cfef5f57b5ee7",
             "bytes": 5642
           },
           {
             "log": "seen",
-            "address": "403b80ce6e028e4f902e7833b29556179b03632ca515167e35cec29885e9ba46",
+            "address": "a2a3719ebd09dd6a47ef80b08d0f8502f9a5516b8a7246c7a115ebb6767a1dc9",
             "bytes": 5642
           },
           {
             "log": "seen",
-            "address": "9bb255fe864af15f601c6388f84089199d1132def5d63dbe638c53225a043311",
+            "address": "0ca348834e6ce0570186a0d02025bd518e06a958c2eb149a6d0383b474aef285",
             "bytes": 5642
           }
         ],
@@ -332,14 +338,14 @@
           "epoch": 0,
           "logs": {
             "seen": {
-              "head": "3cac8ddae7022b8508061f088295c457c4acb49a1a102d237865af7760ee2fa8",
+              "head": "6aaeecac94b0c3bf043c82eb1cff9ad4cfb8e46feb5652c863d70269cbff68a7",
               "segments": 8,
               "count": 8192,
               "bytes": 31658,
               "digest": "6e144826645205a844b2201ac04196a1c00f4090ef98883de4ffb19bf9ab80e7"
             },
             "row_seen": {
-              "head": "52deb439dc810c5d5896838805625a7e843215964b2813a8db7ef582b23bc2a5",
+              "head": "65f3d4cf454e0274fe0d571de783b58fc87e427d51b1e77822965cce794fe5c9",
               "segments": 2,
               "count": 2048,
               "bytes": 12288,
@@ -367,17 +373,17 @@
         "segments": [
           {
             "log": "row_seen",
-            "address": "fde26a5f31db04f99aec6a9be1a259d51b2ca5b7106d7be00b555b941270feb7",
+            "address": "921952979d6d96c30b71afe91088c4ab3e0cd5857811df38e56fbed36de76d2e",
             "bytes": 7629
           },
           {
             "log": "row_seen",
-            "address": "52deb439dc810c5d5896838805625a7e843215964b2813a8db7ef582b23bc2a5",
+            "address": "65f3d4cf454e0274fe0d571de783b58fc87e427d51b1e77822965cce794fe5c9",
             "bytes": 7694
           },
           {
             "log": "seen",
-            "address": "3cac8ddae7022b8508061f088295c457c4acb49a1a102d237865af7760ee2fa8",
+            "address": "6aaeecac94b0c3bf043c82eb1cff9ad4cfb8e46feb5652c863d70269cbff68a7",
             "bytes": 5642
           }
         ],

@@ -2,11 +2,17 @@
   "fixture": "good/witness_cursor_option2.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "witness",
+  "identity": {
+    "snapshot": "snapshot-discovery-v1",
+    "revision": "revision-discovery-v1",
+    "engine": "engine-discovery-v1",
+    "declarations": "none"
+  },
   "exercises": "A full cursor v2 carrying option 2's contribution witness, resumed inside the terminal emission. Durable history holds four contributions in commit order (a repeated id on a distinct binding, a multi-token ineligible record with its endpoint a detached into a detail part, and a same-token record), then the method's terminal parent, whose detail part was not yet committed. The witness folds the four resolved contributions; the terminal suffix is filtered before resolving. The lease's local tail overlaps the last contribution and adds one not yet durable, and neither is counted.",
   "expect": { "accepted": true, "count": 4, "terminal_suffix": 1 },
   "cursor": {
     "contract_version": 2,
-    "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+    "identity_hash": "b5b4724c8781d2c57ce46291f48e2295859e23d15b36f4943215e99feee4a9bd",
     "phase": "schema",
     "method_index": 7,
     "candidate": 4410,
