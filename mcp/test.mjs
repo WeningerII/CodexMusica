@@ -5434,6 +5434,8 @@ await check('validation: actionable errors', () => {
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/epoch_backwards.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/current_moved_back.json':
+        'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/bad/missing_segment.json':
         'a discovery_v1 wire fixture read by test_discovery_v1_fixtures.mjs and the store tests',
       'mcp/fixtures/discovery_v1/bad/over_bound_seal.json':

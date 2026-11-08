@@ -1051,7 +1051,10 @@ There is no new channel. A frame's seals ride the existing step and its acknowle
      For each log, `sealed` equals the count and `sealed_digest` equals the digest. Every
      tail is open (§2.4). `groups` keeps within `GROUP_KEYS` and `GROUP_BYTES`. `through`
      and `current.lines` are integer pairs of two different lines, `current.lines` comes
-     after `through`, and `through` never moves back within an epoch. `inventory` is `null`
+     after `through`, and `through` never moves back within an epoch. Nor does the current
+     group, even with `through` null (BB8 6715584092, F-6): a group leaves only by retiring, so
+     the frame's `current.lines`, or its `through` when it has no current group, is at or after
+     the `current.lines` of `record.cursor` in the same epoch. `inventory` is `null`
      or a count and digest, and once it is non-null in an epoch it does not change until the
      epoch advances. `witness` is `null` or well formed, with its `epoch` equal to the
      frame's and its fields dot paths within `WITNESS_FIELDS`. `continuation` stays within
@@ -2378,7 +2381,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 53 | #656 Step 9 (design v2, v1 Step 4) | W4's shape and bound checks, made only when the frame carries `discovery`: the cursor's `contract_version` 2; exact keys on `cursor.discovery`, its logs, `inventory`, `groups` and `groups.current`; the groups' line pairs, order and bounds, and `through` never moving back within the epoch; the inventory fixed once non-null within the epoch; the witness of the frame's epoch with its fields within `WITNESS_FIELDS`; `continuation`, each refusal and the cursor without `discovery` and `continuation` within their byte bounds, measured by the store's sorted `canonical()`; no terminal input in `methods[*]`, each member checked whatever `methods` is, as the validator walks it; every cursor number outside the entries and `continuation` an integer from 0 to 2⁵³ − 1 | §2.8, §3, §3.1, §3.2, §4 W4 | `bad/cursor_over_bound.json` (built from `builders.mjs` in the store tests too), `good/codec_error_mapping.json`'s cursor integer fields, `good/witness_cursor_option2.json`; the store tests |
 | 54 | BB8 6714569541 (review of `c9e44f7ba`, on Step 8); BB8's rulings on R2's Step 8 calls (23:20Z) | (D-1) `complete()` completes a pending malformed release in its save, and is not its refuser; (c21) no new bound on the declaration set: it is bounded at admission by `HTTP_REQUEST_BYTES` (4.5 MiB, `mcp/payload_limits.js`); (Q5) `complete()` after a saved release logs the trace its null save erases, once, when that save lands; the module's comment on an entry breaking both F1 and F2 says it is tagged F1 | §3, §7.2, §7.4 | the store tests (Q5) |
 | 55 | Review of `b3b2a64f5` (#656 Step 9) | W4 checks the cursor's `contract_version` and every member of `methods` as the validator does; Q5 logs a trace once, with `outcome: "unknown"`, when the completing save throws without a status; the module's comment on an entry breaking both F1 and F2 says Node's own tag is not pinned | §2.11, §4 W4, §7.2 | the store tests |
-| 56 | BB8 6715584092 (rulings on R2's Step 9 calls) | (Q5) the trace line's level follows its cause, error for `segment_corrupt` and warn otherwise, as the release line's does; (witness) a non-null `witness` holds exactly §2.8's six keys, checked under W4 by Node and the validator alike | §2.8, §4 W4, §7.2 | the store tests (Q5, W4); the validator's W4 witness test |
+| 56 | BB8 6715584092 (rulings on R2's Step 9 calls) | (Q5) the trace line's level follows its cause, error for `segment_corrupt` and warn otherwise, as the release line's does; (witness) a non-null `witness` holds exactly §2.8's six keys, checked under W4 by Node and the validator alike; (F-6) within an epoch the current group never moves back, even with `through` null: the frame's `current.lines`, or its `through` when it has no current group, is at or after the previous `current.lines` | §2.8, §4 W4, §7.2 | `bad/current_moved_back.json` and its controls, on both sides; the store tests (Q5, W4); the validator's W4 witness test |
 
 ## 12. Rulings on the items added for confirmation
 
@@ -2766,6 +2769,7 @@ Bad:
   `bad/float_entry.json` (F1, which Node meets as F5), `bad/over_bound_seal.json` (F4),
   `bad/premature_seal.json` (F4), `bad/epoch_backwards.json` (W2),
   `bad/reset_unheld_log.json` (W3), `bad/cursor_record_disagreement.json` (W4),
+  `bad/current_moved_back.json` (W4, with its accepted controls),
   `bad/cursor_over_bound.json` (W4, built from §3.1's inputs: the worker refuses first, with
   `INVARIANT_FAILURE`, past `CURSOR_BYTES` or for a refusal past `REFUSAL_BYTES`, its message
   naming the bound and its value; a number that

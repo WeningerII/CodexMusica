@@ -673,6 +673,13 @@ function evaluateFrame(job, record, frame) {
     !(isPair(g.through) && cmpPair(g.through, pg.through) >= 0)
   )
     bad('W4', 'groups.through went backwards within its epoch');
+  // Nor does the current group (BB8 6715584092, F-6): it leaves only by
+  // retiring, so the frame's current.lines, or its through when it has no
+  // current group, is at or after the previous current.lines.
+  const was = plainObject(pg?.current) ? pg.current.lines : null;
+  const now = plainObject(g?.current) ? g.current.lines : g?.through;
+  if (isPair(was) && plainObject(g) && !(isPair(now) && cmpPair(now, was) >= 0))
+    bad('W4', 'groups.current went backwards within its epoch');
   return {
     violations,
     discovery: { version: 1, epoch, logs, verified, unavailable: null },
@@ -2990,6 +2997,7 @@ const BAD = {
   verified_bytes_ahead: 'R5',
   cursor_over_bound: 'W4',
   cursor_record_disagreement: 'W4',
+  current_moved_back: 'W4',
   cursor_summary_disagreement: 'R3',
   epoch_backwards: 'W2',
   float_entry: 'F1',
@@ -3412,6 +3420,59 @@ test('W4 holds the group positions: through never moves back, current comes afte
       ['W4'],
       `not a valid position: ${JSON.stringify(groups)}`
     );
+});
+
+// F-6 (BB8 6715584092): the current group never moves back within an epoch,
+// even with through null on both sides. bad/current_moved_back.json's frame
+// is refused by W4 alone (the generic bad-fixture test); its controls are
+// accepted on the same record. The group leaves only by retiring, so a frame
+// with no current group is held by its through, and one with neither moved
+// back too; a new epoch starts again.
+test('bad/current_moved_back.json: the current group never moves back; its controls are accepted', () => {
+  const fx = load('bad/current_moved_back.json');
+  const rules = (frame, record = fx.record) => [
+    ...new Set(evaluateFrame(fx, record, frame).violations.map((v) => v.rule)),
+  ];
+  assert.deepEqual(fx.record.cursor.discovery.groups, {
+    through: null,
+    current: { lines: [3, 4], keys: [] },
+  });
+  assert.equal(fx.frames[0].cursor.discovery.groups.through, null);
+  assert.deepEqual(rules(fx.frames[0]), ['W4']);
+  assert.deepEqual(
+    fx.controls.map((c) => c.name),
+    ['current_held', 'current_later', 'retired', 'retired_next_open']
+  );
+  for (const c of fx.controls) assert.deepEqual(rules(c.frame), [], c.name);
+  const groups = (g) => {
+    const frame = clone(fx.frames[0]);
+    frame.cursor.discovery.groups = g;
+    return frame;
+  };
+  for (const [name, g] of [
+    ['the group dropped, nothing retired', { through: null, current: null }],
+    ['retired behind the previous group', { through: [2, 5], current: null }],
+    ['an earlier first line', { through: null, current: { lines: [2, 9], keys: [] } }],
+    [
+      'retired before the group, the next open',
+      { through: [1, 2], current: { lines: [2, 3], keys: [] } },
+    ],
+  ])
+    assert.deepEqual(rules(groups(g)), ['W4'], name);
+  // The same first line: the second line decides.
+  const at35 = clone(fx.record);
+  at35.cursor.discovery.groups.current.lines = [3, 5];
+  for (const g of [
+    { through: null, current: { lines: [3, 4], keys: [] } },
+    { through: [3, 4], current: null },
+  ])
+    assert.deepEqual(rules(groups(g), at35), ['W4'], `behind [3,5]: ${JSON.stringify(g)}`);
+  // A new epoch starts again: the record's epoch is behind the frame's.
+  const advanced = clone(fx.frames[0]);
+  advanced.discovery.epoch = 1;
+  advanced.cursor.method_index = 1;
+  advanced.cursor.discovery.epoch = 1;
+  assert.deepEqual(rules(advanced), [], 'a new epoch, an earlier group');
 });
 
 // The witness holds exactly §2.8's six keys (BB8 6715584092), as Node's W4

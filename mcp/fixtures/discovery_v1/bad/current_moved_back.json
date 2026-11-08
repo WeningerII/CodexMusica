@@ -1,0 +1,250 @@
+{
+  "fixture": "bad/current_moved_back.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "write",
+  "exercises": "The record's cursor, at epoch 0, has no retired group (through null) and the current group [3,4]. The frame, in the same epoch, has through null and the current group [1,2]: the group moved back, which only the previous current.lines shows, since through is null on both sides (BB8 6715584092, F-6). Everything else is consistent. The controls, each accepted on the same record: the current group held at [3,4], a later current group [3,5], the group retired (through [3,4], current null), and the group retired with the next one open (through [3,4], current [5,6]).",
+  "expect": {
+    "accepted": false,
+    "rule": "W4",
+    "code": "READER_PROTOCOL",
+    "status": 400,
+    "written": "nothing"
+  },
+  "job_id": "reader_22f56ea3df8ac3c61a74e95e7347ff723085ffbd188b5762daa5a7cd580cca0d",
+  "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+  "record": {
+    "discovery": {
+      "version": 1,
+      "epoch": 0,
+      "logs": {
+        "seen": {
+          "head": null,
+          "segments": 0,
+          "count": 0,
+          "bytes": 0,
+          "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
+        }
+      },
+      "verified": {
+        "seen": {
+          "head": null,
+          "segments": 0,
+          "count": 0,
+          "bytes": 0,
+          "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
+        }
+      },
+      "unavailable": null
+    },
+    "cursor": {
+      "contract_version": 2,
+      "method_index": 0,
+      "discovery": {
+        "version": 1,
+        "epoch": 0,
+        "logs": {
+          "seen": {
+            "sealed": 0,
+            "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+            "tail": [7]
+          }
+        },
+        "inventory": null,
+        "groups": {
+          "through": null,
+          "current": {
+            "lines": [3, 4],
+            "keys": []
+          }
+        }
+      },
+      "witness": null,
+      "continuation": {
+        "position": 3
+      }
+    }
+  },
+  "frames": [
+    {
+      "discovery": {
+        "epoch": 0,
+        "resets": [],
+        "seals": []
+      },
+      "cursor": {
+        "contract_version": 2,
+        "method_index": 0,
+        "discovery": {
+          "version": 1,
+          "epoch": 0,
+          "logs": {
+            "seen": {
+              "sealed": 0,
+              "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+              "tail": [7]
+            }
+          },
+          "inventory": null,
+          "groups": {
+            "through": null,
+            "current": {
+              "lines": [1, 2],
+              "keys": []
+            }
+          }
+        },
+        "witness": null,
+        "continuation": {
+          "position": 4
+        }
+      }
+    }
+  ],
+  "controls": [
+    {
+      "name": "current_held",
+      "frame": {
+        "discovery": {
+          "epoch": 0,
+          "resets": [],
+          "seals": []
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 0,
+          "discovery": {
+            "version": 1,
+            "epoch": 0,
+            "logs": {
+              "seen": {
+                "sealed": 0,
+                "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+                "tail": [7]
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": {
+                "lines": [3, 4],
+                "keys": []
+              }
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 4
+          }
+        }
+      }
+    },
+    {
+      "name": "current_later",
+      "frame": {
+        "discovery": {
+          "epoch": 0,
+          "resets": [],
+          "seals": []
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 0,
+          "discovery": {
+            "version": 1,
+            "epoch": 0,
+            "logs": {
+              "seen": {
+                "sealed": 0,
+                "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+                "tail": [7]
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": null,
+              "current": {
+                "lines": [3, 5],
+                "keys": []
+              }
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 4
+          }
+        }
+      }
+    },
+    {
+      "name": "retired",
+      "frame": {
+        "discovery": {
+          "epoch": 0,
+          "resets": [],
+          "seals": []
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 0,
+          "discovery": {
+            "version": 1,
+            "epoch": 0,
+            "logs": {
+              "seen": {
+                "sealed": 0,
+                "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+                "tail": [7]
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": [3, 4],
+              "current": null
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 4
+          }
+        }
+      }
+    },
+    {
+      "name": "retired_next_open",
+      "frame": {
+        "discovery": {
+          "epoch": 0,
+          "resets": [],
+          "seals": []
+        },
+        "cursor": {
+          "contract_version": 2,
+          "method_index": 0,
+          "discovery": {
+            "version": 1,
+            "epoch": 0,
+            "logs": {
+              "seen": {
+                "sealed": 0,
+                "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+                "tail": [7]
+              }
+            },
+            "inventory": null,
+            "groups": {
+              "through": [3, 4],
+              "current": {
+                "lines": [5, 6],
+                "keys": []
+              }
+            }
+          },
+          "witness": null,
+          "continuation": {
+            "position": 4
+          }
+        }
+      }
+    }
+  ]
+}

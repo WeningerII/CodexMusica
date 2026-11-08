@@ -4535,6 +4535,7 @@ const WRITE_BAD = [
   ['bad/epoch_backwards.json', 'W2'],
   ['bad/reset_unheld_log.json', 'W3'],
   ['bad/cursor_record_disagreement.json', 'W4'],
+  ['bad/current_moved_back.json', 'W4'],
   ['bad/tail_rewritten.json', 'W6'],
 ];
 // Refused READER_PROTOCOL (400) with nothing written; the job stays leased.
@@ -4556,6 +4557,23 @@ test('write path: each bad write fixture is refused READER_PROTOCOL by its rule,
       refusedFrame(job, fx.frames[0], rule, `${rel} gzip=${gzip}`);
       t.mock.restoreAll();
     }
+  }
+});
+
+// F-6 (BB8 6715584092): bad/current_moved_back.json's frame is refused W4
+// above; each of its controls commits on the same record.
+test('write path: bad/current_moved_back.json, each control accepted', (t) => {
+  const fx = loadFixture('bad/current_moved_back.json');
+  assert.equal(fx.controls.length, 4);
+  for (const c of fx.controls) {
+    const job = writeJob(t, fx, { mock: true });
+    assert.equal(commitFrame(job.store, job.lease, c.frame).state, 'running', c.name);
+    assert.deepEqual(
+      job.store.records.get(job.id).cursor.discovery.groups,
+      c.frame.cursor.discovery.groups,
+      `${c.name}: committed`
+    );
+    t.mock.restoreAll();
   }
 });
 
@@ -5564,6 +5582,46 @@ test('W4: within an epoch, through never moves back and a non-null inventory is 
   shapeCase(t, [through([1, 2]), through([1, 2])], 'accepted', 'through held');
   shapeCase(t, [through([1, 2]), through([1, 3])], 'accepted', 'through moved on');
   shapeCase(t, [through(null), through([0, 1])], 'accepted', 'through set');
+  // Nor does the current group, even with through null (BB8 6715584092,
+  // F-6): the frame's current.lines, or its through when it has none, is at
+  // or after the previous current.lines.
+  const groups = (g, epoch = 0) => shapeFrame((c, cd) => (cd.groups = g), epoch);
+  const cur = (lines) => ({ lines, keys: [] });
+  const at34 = groups({ through: null, current: cur([3, 4]) });
+  for (const [name, g] of [
+    ['current moved back, through null', { through: null, current: cur([1, 2]) }],
+    ['current moved back, a later second line', { through: null, current: cur([2, 9]) }],
+    ['current dropped, nothing retired', { through: null, current: null }],
+    ['retired behind the previous current', { through: [2, 5], current: null }],
+    ['retired before it, the next open behind it', { through: [1, 2], current: cur([2, 3]) }],
+  ])
+    shapeCase(t, [at34, groups(g)], 'W4', name);
+  const at35 = groups({ through: null, current: cur([3, 5]) });
+  shapeCase(
+    t,
+    [at35, groups({ through: null, current: cur([3, 4]) })],
+    'W4',
+    'current moved back, the same first line'
+  );
+  shapeCase(
+    t,
+    [at35, groups({ through: [3, 4], current: null })],
+    'W4',
+    'retired behind the previous current, the same first line'
+  );
+  for (const [name, g] of [
+    ['current held', { through: null, current: cur([3, 4]) }],
+    ['current moved on', { through: null, current: cur([3, 5]) }],
+    ['current retired', { through: [3, 4], current: null }],
+    ['current retired, the next open', { through: [3, 4], current: cur([5, 6]) }],
+  ])
+    shapeCase(t, [at34, groups(g)], 'accepted', name);
+  shapeCase(
+    t,
+    [at34, groups({ through: null, current: cur([1, 2]) }, 1)],
+    'accepted',
+    'a new epoch, an earlier current'
+  );
   // An epoch advance starts again (W2: the record's epoch goes up).
   shapeCase(t, [through([5, 6]), through(null, 1)], 'accepted', 'a new epoch, through null');
   shapeCase(t, [through([5, 6]), through([0, 1], 1)], 'accepted', 'a new epoch, through earlier');
