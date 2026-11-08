@@ -3155,7 +3155,21 @@ jobs:
       #   mosaic_rhyme and sequence_unread joined 2026-10-31 with M-311 F1/F4
       #   (#657): the mosaic rule and the unread-word guard; seconds each;
       #   label 109 to 111
-      - name: The 115 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02; bias_census 2026-11-03; meter_strict 2026-11-04; function_disclosure 2026-11-04)
+      #   p2_full_floor joined 2026-11-06 with #805: the eight-arm #676
+      #   characterization of the repeat licence and declared returns against
+      #   the REAL floor and coverage; it verifies the cmudict, tagger_eng and
+      #   wordnet assets this job stages above and the runtime_tables the
+      #   checkout carries, and skips by name if any is unverified; 21.7 s on
+      #   BB8's run, 44-46 s on R2's; label 115 to 116
+      #   meter_digit_bound joined 2026-11-06 with #677 W5's recognition caps
+      #   (mcp/meter_admission.js): it re-derives the 1.5 digits-per-unit
+      #   token bound behind METER_LINE_DIGITS_CAP over the pinned lexicon,
+      #   rule tables and fallback layers (dictionary as data; rule forms,
+      #   morphology, elisions and code points through the real reader; the
+      #   letter layer by exact search) and fails if any token exceeds it;
+      #   it reads the cmudict this job stages and needs numpy, installed
+      #   above; about 100 CPU-s on R2's run; label 116 to 117
+      - name: The 117 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02; bias_census 2026-11-03; meter_strict 2026-11-04; function_disclosure 2026-11-04; p2_full_floor 2026-11-06; meter_digit_bound 2026-11-06)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -3250,7 +3264,7 @@ jobs:
                    controls data_row_claims english_text stub_resolution melody meter meter_honesty meter_strict bias_census function_disclosure tempo verify_figures expected_drift \
                    cross_song brief_provenance shard \
                    battery_rounds comparator_pin audit_regressions production_harness production_relations high_report \
-                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader reader_quotes moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence sound_inventory connection_schemas schema_report mosaic_rhyme sequence_unread; do
+                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader reader_quotes moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence sound_inventory connection_schemas schema_report mosaic_rhyme sequence_unread p2_full_floor meter_digit_bound; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured

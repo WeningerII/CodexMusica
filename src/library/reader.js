@@ -2,8 +2,9 @@
 // Wrapped by the build as CMLibraryDefine('reader', function () { … }).
 // '#library/read/<id>?offset=&compare=&line=&span=&precision=&lens=&view=&autoplay='
 // (docs/library-native-design.md, features 19-26, 31, 44, 45 and the Lyrics
-// handoff). Ported from sites/library/components/library/reader.tsx and
-// text-marks.tsx.
+// handoff). Ported from the old Library Site's components/library/reader.tsx
+// and text-marks.tsx (removed from the repo on 2026-11-05, #659; last at
+// 92c9b318).
 //
 // Data: the reading's static directory r/<hh>/<id>/<rev16>-<proj12>/ holds a
 // head (rows 0-249) and content-hashed page files of 250 rows. The head's

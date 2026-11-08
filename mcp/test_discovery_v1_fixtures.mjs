@@ -7244,7 +7244,7 @@ const ANCHORS = [
     id: 'sched.pump.store_lease',
     file: 'mcp/reader_scheduler.js',
     symbol: 'pump',
-    starts: 'const record = this.store.lease();',
+    starts: 'record = this.store.lease();',
     cite: true,
   },
   // Step 3 added this statement and flipped STORE_HALF.admission in one commit.
@@ -7297,6 +7297,8 @@ const ANCHORS = [
     file: 'mcp/reader_scheduler.js',
     symbol: 'pump',
     starts: '} catch (failure) {',
+    // The second: the first is dispatch's, around listQueued() and lease().
+    nth: [2, 2],
     ends: '});',
     cite: true,
   },
@@ -8613,7 +8615,7 @@ const CITED_CODE = {
   'sched.prepare': '77017df34b5986f5',
   'sched.prepare.defaults': '88b1b94374432c46',
   'sched.identity.return': '0418225a3a80651b',
-  'sched.pump.store_lease': '6f02c32eea3984dc',
+  'sched.pump.store_lease': '5af198b4587bd30f',
   'sched.pump.stored_check': '5bb62c97312dc525',
   'sched.pump.identity_check': '1b9b173f92ea262f',
   'sched.pump.run_reader_lease': 'd5136c6a9fca28f8',
@@ -8647,7 +8649,7 @@ const CITED_CODE = {
   'store.object': '84c4231531c0b173',
   'store.object.parse': 'c191f67de6b2a935',
   'store.create': '8a859865d99b9fae',
-  'store.lease': 'd360e25c7ed821d2',
+  'store.lease': '52963e123b8ecebb',
   'analysis.public_declarations': '55d5ea2e67aa1639',
   'analysis.session.stale_reading': '5c5f4526cdb1c440',
   'pronunciation.validate_choices.line': 'da9c46227f11509e',
@@ -8791,9 +8793,9 @@ const CONTRACT_CITES = [
     at: '2.7',
     file: 'mcp/reader_job_store.js',
     symbol: '_save',
-    starts: '_save(input, reserved = false) {',
+    starts: '_save(input, reserved = false, transition = false) {',
     ends: 'const record = { ...body, record_digest: sha(canonical(body)) };',
-    code: '29e4133248d4eff9',
+    code: '0663bfda69cf3a3a',
   },
   {
     id: 'c.analysis._prepare_event.3',
@@ -8907,6 +8909,8 @@ const CONTRACT_CITES = [
     file: 'mcp/reader_scheduler.js',
     symbol: 'pump',
     starts: '} catch (failure) {',
+    // The second: the first is dispatch's, around listQueued() and lease().
+    nth: [2, 2],
     ends: "if (stale.code !== 'STALE_ATTEMPT')",
     code: 'a0cbd73603202e8b',
   },
@@ -10050,7 +10054,7 @@ const CONTRACT_CITES = [
     symbol: '_expireLeases',
     starts: '_expireLeases() {',
     whole: true,
-    code: 'f608e4e35021a459',
+    code: '496018cd675463ae',
   },
   {
     id: 'c.analysis.resolve_detail_records.1',
@@ -10157,7 +10161,7 @@ const CONTRACT_CITES = [
     symbol: '_quotaPause',
     starts: '_quotaPause(record, error) {',
     whole: true,
-    code: '5d76b3f43ee5a620',
+    code: 'cdcbc292f9fa23c9',
   },
   {
     id: 'c.reader_job_store.complete',
@@ -10240,7 +10244,7 @@ const CONTRACT_CITES = [
     symbol: 'constructor',
     starts: 'this._locked(() => {',
     ends: '});',
-    code: '1d10bc588eb6a42e',
+    code: 'b091ee548ec2f732',
   },
   {
     id: 'c.reader_job_store._enterLock.2',
@@ -10265,8 +10269,8 @@ const CONTRACT_CITES = [
     at: '7.4',
     file: 'mcp/reader_scheduler.js',
     symbol: 'pump',
-    starts: 'const record = this.store.lease();',
-    code: '6f02c32eea3984dc',
+    starts: 'record = this.store.lease();',
+    code: '5af198b4587bd30f',
   },
   {
     id: 'c.reader_job_store.lease',
@@ -10274,8 +10278,8 @@ const CONTRACT_CITES = [
     file: 'mcp/reader_job_store.js',
     symbol: 'lease',
     starts: 'const queued = this._dispatchable();',
-    ends: "if (!record || record.state !== 'queued') return null;",
-    code: '9dd683f1eda20700',
+    ends: "if (this._discoveryShape(record) === 'released') return null; // a repair to come (§7.4)",
+    code: '42cd18a3b94097d8',
   },
   {
     id: 'c.reader_job_store._dispatchable',
@@ -10417,8 +10421,8 @@ const CONTRACT_CITES = [
     file: 'mcp/reader_job_store.js',
     symbol: 'constructor',
     starts: 'this.usage = this._usage();',
-    ends: '}));',
-    code: '3d72584abb6d6c7c',
+    ends: '}),',
+    code: '8415a9422a8791a4',
   },
   {
     id: 'c.reader_job_store.cancel',
@@ -11403,8 +11407,8 @@ const REVIEW_MUTANTS = [
   [
     'X14',
     'mcp/reader_scheduler.js',
-    '    const record = this.store.lease();\n    if (!record) return;\n',
-    "    const record = this.store.lease();\n    if (!record) return; if (!isWellFormedRequest(record.request)) throw error('INVALID_DECLARATION', 'x');\n",
+    '      record = this.store.lease();\n',
+    "      record = this.store.lease();\n      if (record && !isWellFormedRequest(record.request)) throw error('INVALID_DECLARATION', 'x');\n",
     /pump has one Unicode check/,
   ],
   [

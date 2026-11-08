@@ -30,8 +30,38 @@ environment, from the first card that has one; `set_environment` without a card
 writes there, and a multi-select stage (`fx`) adds to its list (`clear` empties it).
 Rich compression prioritizes explicitly pinned descriptors; inspect `render_warnings`
 for explicit words — descriptors, prefaces, environment — absent from the result, or
-an environment that moved, was overwritten or was set on a card that does not render,
-and `render_scope` for which shared environment is represented.
+an environment that moved or was overwritten (said on the edit that did it), and
+`render_scope` for which shared environment is represented. `ENVIRONMENT_MOVED` speaks
+for settings a `set_environment` wrote on the old environment card, and when a
+`set_environment` clears every setting there so the next card's own settings render;
+`ENVIRONMENT_OVERWRITTEN` for settings a `set_environment` wrote that a `set_preface`
+then re-derived (a second `set_preface` that replaces what the first derived gives no
+warning: nothing there was written by `set_environment`). A setting a `set_environment`
+wrote on a card that does not render it is `ENVIRONMENT_NOT_RENDERED` on every response
+while the card still holds it, render_recipe included; `edit` is there only on the call
+that wrote it. A `set_environment` on the
+environment card that sets or clears the same field (an added effect: that effect) settles
+it, so repeating the edit without `card` ends the warning. Each card records what
+`set_environment` (or a pick in that card's environment editor in the app) wrote on it
+(`envWritten`, inside the workspace you thread), so a
+tradition's stock settings and a room a `set_preface` re-derived never count, and a
+workspace without the record has nothing written, so it gets no `ENVIRONMENT_MOVED` or
+`ENVIRONMENT_OVERWRITTEN` for those settings either. The record holds only environment
+fields and the catalog ids written under them; anything else sent back in it is dropped.
+Where a warning or `render_scope` says a card's preface is auto-derived, that is a card
+whose `preface_locked` is false in the response's `cards`: its preface word is worked out
+from its settings, so a setting written there can still shape it. A pinned descriptor
+counts only as a whole word in its own card's segment (`PINNED_DESCRIPTORS_NOT_LITERAL`
+otherwise, even when another card prints it). In a Rich or Prose chunk that merges cards on
+a trailing word, a card's own words are its head words (its preface, then its inner label),
+which the renderer prints before that card's label. Printed only where the output cannot say
+which card it describes (the part of a chunk pooling cards of the same label, the trailing
+label or pooled descriptors a merged chunk's cards share, or a render with no per-card
+segments), it is `PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`, with the cards that share the words
+it is printed in under `shared_with` (only the same-label cards for their pooled part). A
+pinned preface follows the same rule (`EXPLICIT_PREFACE_NOT_LITERAL`,
+`EXPLICIT_PREFACE_NOT_ATTRIBUTABLE`). Present means printed in that card's part of the
+recipe, not that the edit put it there.
 
 | Tool | What it does |
 |---|---|

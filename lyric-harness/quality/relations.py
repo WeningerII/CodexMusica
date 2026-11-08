@@ -5044,6 +5044,23 @@ def declare_orthography(stream, rime, name="orthography"):
 
 REGISTRY = {}
 
+#: The `normative` values that DISOWN a type: the planner never draws it and
+#: refuses it when requested (`quality/plan.py`, which reads this tuple), and
+#: no report shows it as a relation of the writer's pair (#671 row 7, BB8
+#: 6670984213, under #627 D6). A disowned schema still HOLDS of a pair and is
+#: still judged -- capacity and the offline audits measure with it -- it is
+#: only never written onto the writer's words. Selected by this FIELD, never
+#: by a name.
+DISOWNED_NORMATIVE = ("forbidden", "deprecated")
+
+
+def disowned(name):
+    """True when `name` is a registry schema whose `normative` disowns it.
+    A name that is not a schema (a coarse relation such as `RHYME`) is never
+    disowned."""
+    s = REGISTRY.get(name)
+    return s is not None and s.normative in DISOWNED_NORMATIVE
+
 
 def declare(s):
     REGISTRY[s.name] = s

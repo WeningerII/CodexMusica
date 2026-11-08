@@ -17,7 +17,7 @@ import { CONNECTOR_VERSION } from './contract_version.js';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import * as E from './engine.js';
 import { TOOL_SCHEMAS } from './schemas.js';
-import { registerLyricTools, lyricInstructions } from './lyric_tools.js';
+import { registerLyricTools, lyricInstructions, admitLyricCall } from './lyric_tools.js';
 import { withExecutionContext, childExecutionContext } from './execution_context.js';
 import { performance } from 'node:perf_hooks';
 import { TOOL_BUDGET_MS } from './budget.js';
@@ -148,6 +148,9 @@ function tool(server, name, config, fn) {
         throw new Error(
           'LYRIC_ASSETS_UNAVAILABLE: the installed grading assets failed the release check. The server cannot run lyric tools until it is repaired, and nothing was started. Retry this same call later; lyric_revise with recover_only: true still exports a held journal.'
         );
+      // The recognition caps (#677 W5): refused here, before the handler can
+      // reach the Python bridge's queue, with RESOURCE_LIMIT and its cause.
+      if (name.startsWith('lyric_')) admitLyricCall(name, args ?? {});
       const out = await withExecutionContext(
         childExecutionContext({
           signal: extra?.signal,

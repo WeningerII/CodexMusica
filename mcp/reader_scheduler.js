@@ -588,6 +588,7 @@ export class ReaderScheduler {
     pollMs = 100,
     // Tests only: server_http.js never passes it (§8, C1).
     enforceReplyCauses = READER_REPLY_CAUSES_ENFORCED,
+    retryMaxMs = 30000,
   }) {
     if (!store || !bridge?.runReaderLease)
       throw new TypeError('Reader scheduler requires its durable store and shared bridge.');
@@ -600,6 +601,7 @@ export class ReaderScheduler {
       leaseMs: Math.min(600000, leaseMs),
       pollMs,
       enforceReplyCauses,
+      retryMaxMs: Math.max(pollMs, retryMaxMs),
     });
     this.active = false;
     this.stopped = false;
@@ -607,16 +609,16 @@ export class ReaderScheduler {
     // A lease whose payload was refused STORE_BUSY, `{id, attempt, fence}`,
     // until the store takes it back (DISCOVERY_V1 §5.1; BB8 6717719856, F5).
     this.busyLease = null;
+    this.retrying = false;
+    this.retryMs = 0;
   }
   // The next pump after one interval, as the capacity wait does: the pump's
-  // own cadence is the backoff for a busy writer lock.
+  // own cadence is the backoff for a busy writer lock. It is armed through
+  // _arm, so that pump is caught too; a timer already pending (a retry's
+  // included) is left as it is, so two calls arm one pump.
   later() {
     if (this.stopped || this.timer) return;
-    this.timer = setTimeout(() => {
-      this.timer = null;
-      void this.pump();
-    }, this.pollMs);
-    this.timer.unref?.();
+    this._arm(this.pollMs);
   }
   // F5: the lease ends, the job goes back to `queued` and the attempt is not
   // counted (the store's returnLease). True once that is settled: returned,
@@ -636,29 +638,68 @@ export class ReaderScheduler {
     this.busyLease = null;
     return true;
   }
+  // A kick runs a pump at once, cutting short a retry's backoff (a request
+  // may have freed room), but not the bridge-capacity poll.
   kick() {
-    if (this.stopped || this.active || this.timer) return;
+    if (this.stopped || this.active || (this.timer && !this.retrying)) return;
+    this._arm(0);
+  }
+  // Every timed pump is caught: a failure is logged and retried with backoff,
+  // never an unhandled rejection, which would end the process.
+  _arm(ms, retrying = false) {
+    clearTimeout(this.timer);
+    this.retrying = retrying;
     this.timer = setTimeout(() => {
       this.timer = null;
-      void this.pump();
-    }, 0);
+      this.retrying = false;
+      this.pump().catch((failure) => {
+        console.error('[reader] dispatch failed:', failure?.code || 'READER_ERROR');
+        this._retry();
+      });
+    }, ms);
     this.timer.unref?.();
+  }
+  // Backoff from pollMs, doubling to retryMaxMs; reset once a lease is taken
+  // or the queue is empty.
+  _retry() {
+    if (this.stopped) return;
+    this.retryMs = Math.min(this.retryMaxMs, Math.max(this.pollMs, this.retryMs * 2));
+    this._arm(this.retryMs, true);
   }
   async pump() {
     if (this.stopped || this.active) return;
-    if (this.busyLease && !this.returnBusyLease()) return this.later();
-    if (!this.store.listQueued().length) return;
-    const capacity = this.bridge.capacity();
-    if (capacity.active || capacity.admitted || capacity.queued) {
-      this.timer = setTimeout(() => {
-        this.timer = null;
-        void this.pump();
-      }, this.pollMs);
-      this.timer.unref?.();
+    let record;
+    try {
+      // F5: a lease whose payload met a busy writer lock goes back to the
+      // queue first. returnBusyLease catches its own refusals; it sits in this
+      // try with every other store call here, so nothing at dispatch can
+      // reject this pump.
+      if (this.busyLease && !this.returnBusyLease()) return this.later();
+      if (!this.store.listQueued().length) {
+        this.retryMs = 0;
+        return;
+      }
+      const capacity = this.bridge.capacity();
+      if (capacity.active || capacity.admitted || capacity.queued) {
+        this._arm(this.pollMs);
+        return;
+      }
+      record = this.store.lease();
+    } catch (failure) {
+      // A store refusal at dispatch (usage being recounted, storage
+      // unavailable, a busy writer lock) leases nothing; dispatch tries again
+      // later. A busy lease still held is tried again first.
+      console.error('[reader] dispatch refused:', failure.code || 'READER_ERROR');
+      this._retry();
       return;
     }
-    const record = this.store.lease();
-    if (!record) return;
+    if (!record) {
+      // Queued work that no lease fits yet (no room, or another live lease):
+      // look again with backoff rather than wait for the next kick.
+      this._retry();
+      return;
+    }
+    this.retryMs = 0;
     this.active = true;
     // An error a Node sink threw inside onReaderCheckpoint, kept as it was:
     // the bridge reports it only as a result with code -1 (§8).

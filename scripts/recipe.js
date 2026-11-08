@@ -56,21 +56,48 @@ const BOOLEAN_FLAGS = new Set([
   'why-prefaces',
   'why-prefaces-json',
 ]);
+// A flag given more than once keeps its last value. Every value it was given is
+// kept here, so the ones that were not read can be named (see repeatedFlagNotes).
+const given = new Map();
+const setFlag = (name, value) => {
+  flags[name] = value;
+  given.set(name, [...(given.get(name) || []), value]);
+};
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a.startsWith('--')) {
     const eq = a.indexOf('=');
-    if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
+    if (eq > 0) setFlag(a.slice(2, eq), a.slice(eq + 1));
     else {
       const name = a.slice(2);
       const next = args[i + 1];
       if (!BOOLEAN_FLAGS.has(name) && next && !next.startsWith('--')) {
-        flags[name] = next;
+        setFlag(name, next);
         i++;
-      } else flags[name] = true;
+      } else setFlag(name, true);
     }
   } else {
     positional.push(a);
+  }
+}
+
+// Two --swap-variant flags used to keep the second and drop the first one's
+// swaps with exit 0 and nothing said; the same holds for any flag given twice.
+// Only the last value is still read (stdout does not change), and each other
+// value the flag was given gets a note (#814 review). Several swaps go in one
+// --swap-variant, separated by `;`; several ids in one --exclude-instrument or
+// --add-instrument, separated by `,`.
+const LIST_SEPARATOR = { 'swap-variant': ';', 'exclude-instrument': ',', 'add-instrument': ',' };
+const repeatedFlagNotes = [];
+for (const [name, values] of given) {
+  const last = values[values.length - 1];
+  for (const value of new Set(values)) {
+    if (value === last) continue;
+    const sep = LIST_SEPARATOR[name];
+    repeatedFlagNotes.push(
+      `note: only the last --${name} is read, so --${name}${value === true ? '' : '=' + value} was not` +
+        (sep ? ` (to give several, separate them with '${sep}' in one --${name})` : '')
+    );
   }
 }
 
@@ -139,6 +166,12 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
   const add = new Set();
   const swap = {};
   const errors = [];
+  // A part swapped more than once keeps its last variant, as a card keeps its
+  // last pick; each other variant it was given gets a note naming the one used,
+  // rather than vanishing (BB8 6676262617, call 4). A repeat of the variant used
+  // replaces nothing: `a;b;a` notes only b, `a;b;c` notes a and b.
+  const replaced = [];
+  const swapsOf = new Map(); // `inst:part` -> every variant given, in order
 
   if (flags['exclude-instrument']) {
     const ids = String(flags['exclude-instrument'])
@@ -219,7 +252,16 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
       }
       swap[iid] = swap[iid] || {};
       swap[iid][pid] = vid;
+      swapsOf.set(`${iid}:${pid}`, [...(swapsOf.get(`${iid}:${pid}`) || []), vid]);
     }
+  }
+  for (const [part, vids] of swapsOf) {
+    const used = vids[vids.length - 1];
+    for (const was of new Set(vids))
+      if (was !== used)
+        replaced.push(
+          `note: --swap-variant ${part}:${was} was replaced by a later --swap-variant for the same part (${used})`
+        );
   }
 
   const stapleMode = flags['staple-mode'] === 'lineage' ? 'lineage' : 'full';
@@ -232,7 +274,8 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
     process.exit(2);
   }
 
-  return { exclude, add, swap, stapleMode, arrangement };
+  // removed: filled by seedFromTradition with the ids an exclude actually removed.
+  return { exclude, add, swap, stapleMode, arrangement, removed: [], replaced };
 }
 
 // === Seed generation by mode ===
@@ -425,6 +468,58 @@ if (trace) {
   console.error('');
 }
 
+// ─────────────────────── stderr notes about the swaps (#671) ───────────────────────
+// Each note is one `note: ` line on stderr. Under --why-json / --why-prefaces-json
+// stderr is JSON, so the same strings go in that JSON's top-level `notes` array
+// instead (empty when there are none; the other keys are unchanged), and none is
+// printed as a line (BB8 6676262617, call 1).
+const jsonStderr = !!(flags['why-json'] || flags['why-prefaces-json']);
+
+// A swap on an instrument the recipe does not have (not in the roster, or
+// removed by --exclude-instrument) has no card to apply to, and stdout is the
+// recipe, or under --json the config, without it, one note per swap. A flag
+// value that was not read (repeatedFlagNotes), then a swap a later one replaced
+// (opts.replaced), are noted first.
+const notAppliedNotes = [...repeatedFlagNotes, ...opts.replaced];
+{
+  const inRecipe = new Set(result.config.instruments.map((inst) => inst.id));
+  for (const [instrument, parts] of Object.entries(opts.swap)) {
+    if (inRecipe.has(instrument)) continue;
+    const why = opts.removed.includes(instrument)
+      ? '--exclude-instrument removed it'
+      : `add it with --add-instrument=${instrument}`;
+    for (const [part, variant] of Object.entries(parts))
+      notAppliedNotes.push(
+        `note: ${instrument} is not in the recipe, so --swap-variant ${instrument}:${part}:${variant} was not applied (${why})`
+      );
+  }
+}
+
+// The recipe, rendered once, and the notes for the swapped descriptors its
+// cards' parts do not print: a swapped part can still print none of its words
+// (a BARE token such as `modern` is never rendered), and then stdout is
+// byte-identical to the run without the swap. The recipe stays exactly as
+// rendered; the notes name, one line per card, the descriptors that card's part
+// of the recipe does not print. They say no more than that: another card or the
+// header may print the same word, which is not this card's (BB8 6676262617,
+// call 3). Under --json stdout is the config and nothing is rendered.
+let rendered = null;
+const render = () => {
+  if (rendered) return rendered;
+  const filteredSwaps = [];
+  const out = translate(result.config, { ceiling: maxChars, filteredSwaps });
+  const byCard = new Map();
+  for (const f of filteredSwaps) byCard.set(f.instrument, [...(byCard.get(f.instrument) || []), f]);
+  const notes = [...byCard].map(
+    ([instrument, swaps]) =>
+      `note: --swap-variant descriptor(s) not printed in the ${instrument} card's part of the recipe: ` +
+      swaps.map((f) => `${f.descriptors.join(', ')} (${f.part}:${f.variant})`).join('; ')
+  );
+  return (rendered = { out, notes });
+};
+// Every note this run gives, in the order the lines are printed.
+const allNotes = () => [...notAppliedNotes, ...(flags.json ? [] : render().notes)];
+
 // ─────────────────────── --why / --why-json diagnostic ───────────────────────
 // For each instrument slot in the final config, show top 3 variant candidates
 // with their scores and the delta-from-winner. Plus search trace summary, plus
@@ -485,6 +580,7 @@ if (flags.why || flags['why-json']) {
           breakdown: result.breakdown,
           trace: result.trace,
           slots: slotDetails,
+          notes: allNotes(),
         },
         null,
         2
@@ -564,6 +660,7 @@ if (flags['why-prefaces'] || flags['why-prefaces-json']) {
         {
           tradition: result.config.traditions[0],
           prefaces: prefaceDetails,
+          notes: allNotes(),
         },
         null,
         2
@@ -599,6 +696,8 @@ if (flags['why-prefaces'] || flags['why-prefaces-json']) {
   }
 }
 
+if (!jsonStderr) for (const note of notAppliedNotes) console.error(note);
+
 if (flags.json) {
   console.log(
     JSON.stringify(
@@ -607,9 +706,17 @@ if (flags.json) {
       2
     )
   );
-  process.exit(0);
+  // Not process.exit(): to a pipe Node writes asynchronously, and exiting here
+  // dropped whatever stderr (--why output, the note above) had not drained yet.
+  // The module ends and Node exits 0 once both streams are written (as
+  // audit.js does).
+  process.exitCode = 0;
+  return;
 }
 
-const out = translate(result.config, { ceiling: maxChars });
+const { out, notes } = render();
 console.log(out);
-if (!flags['why-json'] && !flags['why-prefaces-json']) console.error(`(${out.length} chars)`);
+if (!jsonStderr) {
+  for (const note of notes) console.error(note);
+  console.error(`(${out.length} chars)`);
+}

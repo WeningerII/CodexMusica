@@ -2231,6 +2231,12 @@ function dupCard(id) {
     chain: { ...o.chain, fx: [...(o.chain.fx || [])] },
     ..._CARD_TRANSIENTS,
   };
+  // The copy takes the card's values, not its provenance. `envWritten` is the
+  // connector's record of what a set_environment wrote on THIS card (#671,
+  // scripts/_workspace_ops.js), and nothing was written on the copy: carried
+  // over, a copy of the environment card would be warned about, on every
+  // response, for settings nobody set there (BB8 6685465828, 5(e)).
+  delete copy.envWritten;
   app.cards.splice(i + 1, 0, copy);
   if (typeof pushHistory === 'function') pushHistory();
   return copy;
@@ -13705,18 +13711,39 @@ function _refocusPreface(cardId, { chip = '', control = '.preface-input' } = {})
   const target = [pick, sec.querySelector(control), sec.querySelector('.preface-input')].find(shown);
   if (target) target.focus({ preventScroll: true });
 }
+// setPreface's record rule (scripts/_workspace_ops.js): keep each recorded
+// field whose value is the same before and after the re-derivation.
+function dropReDerivedEnv(card, was) {
+  const record = envRecordOf(card.envWritten);
+  const multi = (field) => !!CHAIN_SECTIONS.find(s => s.id === field)?.multiSelect;
+  const value = (c, field) => {
+    if (field === 'room' || field === 'tuning') return c[field] || null;
+    const v = (c.chain || {})[field];
+    return multi(field) ? (Array.isArray(v) ? v.join('\u0000') : '') : v || null;
+  };
+  const kept = Object.keys(record).filter(field => value(was, field) === value(card, field));
+  if (kept.length < Object.keys(record).length)
+    storeEnvRecordOn(card, Object.fromEntries(kept.map(field => [field, record[field]])));
+}
 function commitPrefaceChange(card, prefaceId) {
   if (!card || !prefaceId) return;
   const result = (typeof inverseConfigureForPreface === 'function')
     ? inverseConfigureForPreface(card, prefaceId)
     : null;
   if (result) {
+    const was = { room: card.room, tuning: card.tuning, chain: JSON.parse(JSON.stringify(card.chain || {})) };
     result.apply();
     // A preface pick re-derives the whole card by design, so the part pins it
     // just overwrote are spent. Carrying them forward would make the next
     // material edit restore values this call deliberately moved. Mirrors
     // scripts/_workspace_ops.js:setPreface.
     card.pinnedParts = [];
+    // And as setPreface does, a field of the record (envWritten) whose value
+    // the re-derivation changed leaves it: the card no longer holds what was
+    // written there, and a later preface that lands on the same value again
+    // must not read as the write (BB8, #826 6694245096). A field it left as it
+    // was keeps the write.
+    dropReDerivedEnv(card, was);
   } else {
     // Target not in lexicon (free-form word) — just set the label without
     // reshaping. The inverse can't run without a token signature.
@@ -14569,6 +14596,8 @@ function normalizeWorkspaceCards(cards,freshIds=false){
     }
     if(c.pinnedParts!==undefined&&(!Array.isArray(c.pinnedParts)||c.pinnedParts.some(p=>!inst.parts.some(x=>x.id===p))))throw Error('Unknown pinned part');
     if(freshIds||typeof c.id!=='string'||ids.has(c.id))c.id=newId('card');ids.add(c.id);
+    // The connector's record, normalised as the engine reads it (envRecord): junk off the wire does not sit in history, autosave and the key.
+    if('envWritten'in c)storeEnvRecordOn(c,c.envWritten);
     return {...c,chain,prefaceAuto:c.prefaceAuto===undefined?!c.preface:!!c.prefaceAuto,..._CARD_TRANSIENTS};
   });
 }
@@ -16589,10 +16618,19 @@ function renderDetailTabContent(card, inst) {
 // instrument, remove, reorder, variant/preface/environment refinements, title
 // and lyrics. Presentation-only changes preserve the current history position
 // and redo future. Lyrics typing is coalesced when the editor loses focus.
+//
+// The key also holds each card's envWritten, the connector's record of what a
+// set_environment wrote there (#671, scripts/_workspace_ops.js). No recipe byte
+// depends on it, but it decides which warnings the connector gives for these
+// cards, and it can change with no value moving (writing the seeded value, or a
+// write elsewhere settling it). So a change to it alone is a step: it is not
+// coalesced into the previous history entry, Undo and Redo restore it, and a
+// recipe reply requested before it no longer owns the editor (BB8 6688635328, 3).
+// Absent on a card, it adds nothing to the key.
 function musicalWorkspaceKey(cards) {
   return JSON.stringify(cards.map(c => ({id:c.id,instrumentId:c.instrumentId,traditionId:c.traditionId,
     parts:c.parts,room:c.room,tuning:c.tuning,chain:c.chain,preface:c.preface,
-    prefaceAuto:c.prefaceAuto,pinned:c.pinned,pinnedParts:c.pinnedParts})));
+    prefaceAuto:c.prefaceAuto,pinned:c.pinned,pinnedParts:c.pinnedParts,envWritten:c.envWritten})));
 }
 // Local editor ownership for asynchronous recipe replies. History commits and
 // restores observe transitions, so edit -> Undo cannot revive an old reply.
@@ -17593,6 +17631,87 @@ function _detailFocusTarget(t) {
   return null;
 }
 
+// A pick in a card's environment editor (the Recording environment panel on
+// envCardOf's card, or any other card's own editor) writes the connector's
+// record of what was set on that card (`envWritten`, scripts/_workspace_ops.js),
+// exactly as a set_environment on the same card and field does (#826, BB8's
+// rulings (b) on Don 6694017051 and (ii) in 6695603726): a room, tuning or
+// single-select stage records the id picked (the value already there included:
+// picking it is a write), its "Not set" takes the field out as the connector's
+// clear does, and an effect switched on in a multi-select stage is added to the
+// list. When the card is the environment card once the value is stored, it also
+// settles what it names on every other card, as set_environment there does
+// (settleEnvRecords), so fixing a misdirected write from the panel ends its
+// warning; a pick on any other card records the write and settles nothing, as
+// set_environment {card} there does, so the connector then answers it with
+// ENVIRONMENT_NOT_RENDERED, and with ENVIRONMENT_OVERWRITTEN if that card later
+// becomes the environment card and a set_preface re-derives what was picked.
+// An effect switched off leaves this card's record only and settles nothing:
+// the connector has no edit that removes one effect. Only these clicks write:
+// rendering an editor, a restore, Undo and Redo (which restore the record with
+// the rest of the card), a preface cascade and every other programmatic set
+// write nothing (a preface pick only drops the fields it re-derived, as
+// set_preface does: dropReDerivedEnv). The caller calls this once the value is
+// stored, since set_environment settles the other cards only when the card it
+// wrote is the environment card afterwards.
+function recordEnvPick(card, field, pick) {
+  const record = envRecordOf(card.envWritten);
+  let named = true;
+  if (CHAIN_SECTIONS.find(s => s.id === field)?.multiSelect) {
+    const list = record[field] || [];
+    record[field] = pick.off ? list.filter(x => x !== pick.id) : [...list, pick.id];
+    named = pick.off ? null : [pick.id];
+  } else if (pick.id) record[field] = pick.id;
+  else delete record[field];
+  storeEnvRecordOn(card, record);
+  if (named && card === envCardOf(app.cards)) settleEnvRecordsOn(app.cards, card, { [field]: named });
+}
+// The record as the engine reads it (envRecord in scripts/_workspace_ops.js):
+// only environment fields, in that order, each holding catalog ids of that
+// field (a multi-select stage a list of distinct ones), anything else dropped.
+function envRecordOf(raw) {
+  const out = {};
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return out;
+  const known = (field, id) =>
+    typeof id === 'string' &&
+    !!(field === 'room' ? Room(id) : field === 'tuning' ? Tuning(id) : ChainItem(field, id));
+  for (const field of ['room', 'tuning', ...CHAIN_SECTIONS.map(s => s.id)]) {
+    const value = raw[field];
+    if (CHAIN_SECTIONS.find(s => s.id === field)?.multiSelect) {
+      const ids = Array.isArray(value) ? [...new Set(value.filter(x => known(field, x)))] : [];
+      if (ids.length) out[field] = ids;
+    } else if (known(field, value)) out[field] = value;
+  }
+  return out;
+}
+// Stored as a fresh object, or no key when empty (storeEnvRecord).
+function storeEnvRecordOn(card, record) {
+  const clean = envRecordOf(record);
+  if (Object.keys(clean).length) card.envWritten = clean;
+  else delete card.envWritten;
+}
+// settleEnvRecords: a write on the environment card settles, on every other
+// card, what it named there (true: the whole field; a list: those items).
+function settleEnvRecordsOn(cards, envCard, named) {
+  for (const other of cards) {
+    if (other === envCard) continue;
+    const record = envRecordOf(other.envWritten);
+    let moved = false;
+    for (const [field, what] of Object.entries(named)) {
+      if (!(field in record)) continue;
+      if (what === true) delete record[field];
+      else {
+        const left = record[field].filter(x => !what.includes(x));
+        if (left.length === record[field].length) continue;
+        if (left.length) record[field] = left;
+        else delete record[field];
+      }
+      moved = true;
+    }
+    if (moved) storeEnvRecordOn(other, record);
+  }
+}
+
 function handleCardClick(e, card) {
   const t = e.target.closest('button, [data-toggle-part], [data-toggle-env]');
   if (!t) return;
@@ -17627,12 +17746,14 @@ function handleCardClick(e, card) {
   }
   if (t.dataset.setTuning != null) {
     card.tuning = t.dataset.setTuning || null;
+    recordEnvPick(card, 'tuning', { id: card.tuning });
     card.editingEnv = null;
     rerenderCard(card);
     return;
   }
   if (t.dataset.setRoom != null) {
     card.room = t.dataset.setRoom || null;
+    recordEnvPick(card, 'room', { id: card.room });
     card.editingEnv = null;
     rerenderCard(card);
     return;
@@ -17649,9 +17770,12 @@ function handleCardClick(e, card) {
     if (!sec) return;
     if (sec.multiSelect) {
       const cur = card.chain[sId] || [];
+      const off = cur.includes(itemId);
       card.chain[sId] = cur.includes(itemId) ? cur.filter(x => x !== itemId) : [...cur, itemId];
+      recordEnvPick(card, sId, { id: itemId, off });
     } else {
       card.chain[sId] = itemId || null;
+      recordEnvPick(card, sId, { id: card.chain[sId] });
     }
     rerenderCard(card);
     return;

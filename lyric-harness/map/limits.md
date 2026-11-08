@@ -94,6 +94,14 @@ Connector:
 | CONNECTOR_ATTEMPTS | 1 | `../mcp/lyric_tools.js` |
 | KITCHEN_ATTEMPTS | 3 | `../mcp/lyric_tools.js` |
 | REFUSAL_HEADLINE_MAX | 400 | `../mcp/lyric_tools.js` |
+| ADMISSION_MAX_LINES | 463 | `../mcp/meter_admission.js` |
+| ADMISSION_MAX_LINE_CHARS | 200 | `../mcp/meter_admission.js` |
+| METER_LINE_DIGITS_CAP | 301 | `../mcp/meter_admission.js` |
+| METER_REQUEST_DIGITS_CAP | 139,363 | `../mcp/meter_admission.js` |
+| RAW_ROWS_CAP | 1,389 | `../mcp/meter_admission.js` |
+| METER_LINE_RESPONSE_BYTES | 7,507 (7 KB) | `../mcp/meter_admission.js` |
+| METER_LINE_WRAPPER_BYTES | 200 | `../mcp/meter_admission.js` |
+| METER_REQUEST_RESPONSE_BYTES | 3,568,341 (3,485 KB) | `../mcp/meter_admission.js` |
 | MAX_LEDGER_BYTES | 1,048,576 (1,024 KB) | `../mcp/paid_budget.js` |
 | STATE_WIRE_BYTES | 2,359,296 (2,304 KB) | `../mcp/payload_limits.js` |
 | HTTP_REQUEST_BYTES | 4,718,592 (4,608 KB) | `../mcp/payload_limits.js` |

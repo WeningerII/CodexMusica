@@ -79,7 +79,7 @@ server's own snapshot (the client never sends one):
   `LIBRARY_SEARCH_DIR`. It reproduces SQLite's `instr`, `substr`, ASCII
   `lower()` and BINARY ordering. Every one of the Worker's 363 search goldens
   replays byte-identically (`mcp/test_library_search_parity.mjs`, run by
-  `library-site.yml`); the only intended difference is the page cap of 100
+  `library-parity.yml`); the only intended difference is the page cap of 100
   instead of 250. No canonical reading is parsed on a request: a hit reads
   only the compressed projection chunks it intersects.
 - `GET /library/v1/metadata/:id`: one unit's recorded metadata, any
@@ -89,7 +89,7 @@ server's own snapshot (the client never sends one):
   or csv) and `HEAD`/`GET /library/v1/exports/p/<content_id>.zip`: a selection
   export, byte-identical to the approved Worker's ZIP (every one of its nine
   export goldens replays exactly: `mcp/test_library_exports_parity.mjs`, run by
-  `library-site.yml`). The plan names the exact inputs (`content_id`: exporter
+  `library-parity.yml`). The plan names the exact inputs (`content_id`: exporter
   version, format, snapshot, rights registry and each reading's revision) and
   is held in a process-local LRU (2,000 plans, one hour), so no id list ever
   appears in a URL or log. A download recomputes `content_id` (409
@@ -295,6 +295,13 @@ lease ends it as any expired lease ends, and that needs a Resume. Failure, resta
 explicit cancellation require explicit Resume. Closing the browser
 or a polling request does not cancel work.
 
+Dispatch leases the first queued job whose lease fits the quota (below); a job
+it does not fit stays queued and the next is tried. When the store refuses
+dispatch (usage being recounted, storage unavailable), the scheduler logs
+`[reader] dispatch refused:` with the refusal's code. Either way it looks again
+with backoff, from its 100 ms poll interval up to 30 seconds, and a create or
+resume looks at once; a refusal never ends the process.
+
 Python emits a bounded `reader_checkpoint` frame and waits. Node fsyncs immutable
 pages, then commits the fenced checkpoint cursor and page-hash index before
 sending `reader_ack`. Stale attempts cannot publish. Completion requires an
@@ -332,18 +339,41 @@ unknown.
 Every job holds a 16 KiB reservation for its own record. The quota invariant is
 usage plus slack at most `READER_STORAGE_MAX_BYTES`, where slack sums each
 record's unused reservation, so one job's growth can never consume another's
-room and any record can always grow to 16 KiB. While usage is unknown, a write
-that would raise usage plus slack (a new job, a new object, or a record
+room and any record can always grow to 16 KiB, except while the bytes of a
+transition out of running stand over the quota (below). While usage is unknown,
+a write that would raise usage plus slack (a new job, a new object, or a record
 outgrowing its reservation) is refused with 503 `STORE_RECOUNTING`; a record
 transition inside its reservation still commits, a paused lease requeues as for
 `RESOURCE_LIMIT`, and deletes and reads proceed.
 
 Startup holds the writer lock throughout. It tombstones expired jobs, removes
 what an interrupted write left (unreferenced objects and temporaries), counts
-usage, and only then pauses each running job as `INTERRUPTED`. A paused record
-gains a reason, so a record already past its reservation grows; with usage
-known that growth takes the ordinary quota check instead of being refused as
-`STORE_RECOUNTING`, which failed every restart of such a store.
+usage, and only then pauses each running job as `INTERRUPTED` (cancelled, if
+cancellation was requested).
+
+Three transitions take a job out of running whatever the quota: that startup
+pause, a lease's expiry (paused as `INTERRUPTED`, or cancelled if cancellation
+was requested) and a commit's or completion's quota pause (paused as
+`RESOURCE_LIMIT`, or cancelled). Each gains the record a reason, so a record
+already past its reservation grows by a few bytes. Refused, startup would fail
+every restart, every lease and lease check would fail for every job, and a
+commit would leave its job running instead of durably paused. They are the only
+writes exempt from the quota check, one write per record leaving running; while
+usage is unknown they take the ordinary check. Their bytes are counted exactly,
+so usage plus slack may then exceed the quota by those bytes. Any later growth
+of that record is checked as usual, and it leaves running again only after a
+resume, which clears the reason, and a lease, so repeated cycles do not add to
+the overage. Every other write that grows the store is refused with
+`RESOURCE_LIMIT`, a worker's own pause and a cancellation request included (a
+running job whose pause is refused is paused when its lease expires). A lease
+is growth back into running and is always checked: a queued job whose lease
+does not fit (its attempt number or queue position gaining a digit is enough)
+waits queued with nothing written. A routed resume always carries an
+`Idempotency-Key` and so records a control receipt; where that outweighs the
+reason the resume clears, it needs room like any other growth. While a
+transition's bytes stand over the quota they come out of other jobs'
+reservations, so even a transition inside a job's reservation can be refused,
+until expiry, collection or a delete frees room.
 
 A verification scan runs in slices outside the lock and is accepted only if
 every measurement succeeded, no marker appeared and the generation did not move

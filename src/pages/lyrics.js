@@ -3600,9 +3600,9 @@ async function lyLibraryActivate(record, { restored = false, preservedDraftId } 
   );
   return { persisted: !UI.saveFailed && !UI.storageConflict };
 }
-// One Library envelope through the receiver's no-binding path: validated,
-// committed as a durable draft with its receipt, then activated. The JSON file
-// import and the in-page handoff (imports.library below) both come here.
+// One Library envelope through the receiver: validated, committed as a
+// durable draft with its receipt, then activated. The JSON file import and the
+// in-page handoff (imports.library below) both come here; nothing else does.
 async function lyLibraryImport(envelope, { push = false } = {}) {
   if (!lyLibraryReceiver) await lyLibraryStart();
   if (!lyLibraryReceiver) throw new Error('The Library import receiver is unavailable.');
@@ -3618,7 +3618,6 @@ async function lyLibraryStart() {
   lyLibraryStore = CMLibraryImport.createIndexedDBStore();
   let importLock = null;
   lyLibraryReceiver = CMLibraryImport.createReceiver({
-    window,
     store: lyLibraryStore,
     captureCurrent: async () => {
       importLock = lyLibraryAcquire();
@@ -3634,8 +3633,6 @@ async function lyLibraryStart() {
       importLock = null;
     },
     activate: lyLibraryActivate,
-    devOrigin: window.CODEX_LIBRARY_DEV_ORIGIN,
-    onError: (error) => showToast('Library import failed: ' + error.message, 'error'),
   });
   try {
     await lyLibraryReceiver.start();
@@ -3643,9 +3640,9 @@ async function lyLibraryStart() {
     const id = lyMeta().draftId;
     if (id) lyLibraryRecord = await lyLibraryStore.getDraft(id);
     if (LY.tab === 'history') lyRenderHistory();
-  } catch (error) {
-    const requested = new URL(location.href).searchParams.has('cm_library_nonce');
-    if (requested) showToast('Library import unavailable: ' + error.message, 'error');
+  } catch {
+    /* No draft storage: the next import reports its own failure (the file
+       import's toast, or the reader's bundle fallback). */
   }
 }
 function lyLibraryPersist() {

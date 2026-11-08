@@ -526,6 +526,7 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
   if (!t) return null;
   // opts:
   //   exclude:      Set<instrumentId> — instruments to drop from the seed
+  //   removed:      optional array; receives each exclude id that was in the roster
   //   swap:         { instrumentId: { partId: variantId, ... } } — variant overrides
   //   stapleMode:   'lineage' | 'full' (default 'full')
   //                   'full'    — stapled traditions contribute both context AND instruments (current behavior)
@@ -573,8 +574,11 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
   // pipeline, though that would be unusual.
   for (const iid of add) allInstrumentIds.add(iid);
   // Apply excludes after assembly (so the user can drop instruments contributed by
-  // either the primary or a staple)
-  for (const iid of exclude) allInstrumentIds.delete(iid);
+  // either the primary or a staple). A caller that passes an array as
+  // opts.removed is told which ids an exclude actually removed: recipe.js uses it
+  // to say why a --swap-variant had no card to apply to (#671).
+  for (const iid of exclude)
+    if (allInstrumentIds.delete(iid) && Array.isArray(opts.removed)) opts.removed.push(iid);
   const instruments = [...allInstrumentIds].map((iid) => {
     const i = C.INSTRUMENTS.find((x) => x.id === iid);
     if (!i) return { id: iid, slots: {}, scores: {} };

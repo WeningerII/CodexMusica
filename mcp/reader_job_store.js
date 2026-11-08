@@ -62,6 +62,11 @@ const pick = (value, keys) =>
   );
 const sha = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 const reserveGap = (size) => Math.max(0, RESERVE_BYTES - size);
+// A write refused for room: the quota (RESOURCE_LIMIT), or usage unknown until
+// a recount (STORE_RECOUNTING). Both are thrown before that write's first byte.
+const roomRefusal = (error) =>
+  (error?.code === 'RESOURCE_LIMIT' && error.status === 507) ||
+  (error?.code === 'STORE_RECOUNTING' && error.status === 503);
 function problem(code, message, status = 409) {
   return Object.assign(new Error(message), { code, status });
 }
@@ -498,27 +503,33 @@ export class ReaderJobStore {
         this._collectAll();
         // Startup holds the writer lock throughout, so this full scan is a
         // quiescent one by construction: usage is known before any request,
-        // and before the pauses below. Pausing a running record a few bytes
-        // larger than its 16 KiB reservation needs a known usage; while it is
-        // unknown that growth is refused, which would fail every restart.
+        // and before the pauses below, which add their exact deltas to it.
         this.usage = this._usage();
         this._recountWanted = false;
+        // Each pause always commits, whatever the quota: a store that cannot
+        // record its own interruption cannot start, and every request then
+        // fails until someone frees space. It is one of the transitions out of
+        // running that are never refused for quota (see _save).
         this._savePending();
         this._repairReleased();
         for (const record of [...this.records.values()]) {
           if (record.state !== 'running') continue;
-          this._saveReason(record, (base, reason) => ({
-            ...base,
-            state: record.cancel_requested ? 'cancelled' : 'paused',
-            fence: null,
-            lease_expires_at: null,
-            cancel_requested: false,
-            deferred_requeue: false,
-            reason: reason ?? {
-              code: 'INTERRUPTED',
-              message: 'Worker interrupted; explicitly resume the committed cursor.',
-            },
-          }));
+          this._saveReason(
+            record,
+            (base, reason) => ({
+              ...base,
+              state: record.cancel_requested ? 'cancelled' : 'paused',
+              fence: null,
+              lease_expires_at: null,
+              cancel_requested: false,
+              deferred_requeue: false,
+              reason: reason ?? {
+                code: 'INTERRUPTED',
+                message: 'Worker interrupted; explicitly resume the committed cursor.',
+              },
+            }),
+            true
+          );
         }
         this._probe();
       });
@@ -706,6 +717,10 @@ export class ReaderJobStore {
   // so any record can grow to RESERVE_BYTES whatever the others do. A record
   // growing inside its reservation moves bytes from slack to usage and leaves
   // the sum unchanged; that is the only growth allowed while usage is unknown.
+  // One exception: a transition out of running (see _save) may put
+  // usage + slack over maxBytes. While its bytes stand they come out of other
+  // records' reservations, so even a transition inside a reservation can be
+  // refused until expiry, collection or a delete frees room.
   _capacity(bytes, reserve = true, extraRecords = 0, slackDelta = 0) {
     const growth = bytes + slackDelta;
     if (this.usage === null) {
@@ -736,7 +751,22 @@ export class ReaderJobStore {
         507
       );
   }
-  _save(input, reserved = false) {
+  // `transition` marks a write that takes a record out of running, the only
+  // writes exempt from the quota limit: the startup pause (the constructor),
+  // a lease's expiry (_expireLeases) and a commit's quota pause (_quotaPause).
+  // Refused, the store could not record that its job stopped: startup would
+  // fail every restart, lease() and every lease check would throw for every
+  // job, and a commit would leave its job running. Each is one write per
+  // record leaving running, and it grows that record by at most the reason it
+  // gains; its bytes are still counted in usage and slack. Any later growth of
+  // the record is checked, and it leaves running again only after a resume
+  // (which clears the reason) and a lease, so repeated cycles add nothing
+  // more. Only the RESOURCE_LIMIT refusal of an existing running record with
+  // known usage is skipped; an unknown usage, a new record or any other write
+  // takes the full check. A lease is growth back into running and is never
+  // exempt (see lease()); the running guards below keep it checked even if a
+  // caller passed `transition`.
+  _save(input, reserved = false, transition = false) {
     const { record_digest: _old, ...body } = input;
     body.updated_at = this.now();
     const record = { ...body, record_digest: sha(canonical(body)) };
@@ -744,7 +774,13 @@ export class ReaderJobStore {
     const file = path.join(this.directory, 'records', `${record.id}.json`);
     const previous = fs.existsSync(file) ? fs.statSync(file).size : 0;
     const slackDelta = reserveGap(bytes.length) - (previous ? reserveGap(previous) : 0);
-    this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1, slackDelta);
+    const leaving =
+      transition &&
+      this.usage !== null &&
+      previous > 0 &&
+      this.records.get(record.id)?.state === 'running' &&
+      record.state !== 'running';
+    if (!leaving) this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1, slackDelta);
     this._beginWrite();
     this._inflight = true;
     atomicWrite(file, bytes, this.fault, 'record');
@@ -1187,19 +1223,28 @@ export class ReaderJobStore {
   // time"). A saved release drops the job's lists, and a pending one that
   // lands is logged as its release, once: the fallback leaves it pending, so
   // the next save that carries it, or the next point usage is known
-  // (_savePending), completes it.
-  _saveReason(record, build) {
+  // (_savePending), completes it. `transition` is _save's: the three
+  // transitions out of running that are never refused for quota pass it.
+  // A save that carries a pending release is not exempt, since it grows the
+  // record by the release as well as the reason; its fallback, which grows
+  // it by the reason alone, is. So the transition always commits, and at a
+  // full quota the release stays pending, as before.
+  _saveReason(record, build, transition = false) {
     const u2 = this._u2(record);
     const pending = u2 !== null && u2.base !== record;
     let saved;
     try {
-      saved = this._save(build(u2?.base ?? record, u2?.reason ?? null), true);
+      saved = this._save(
+        build(u2?.base ?? record, u2?.reason ?? null),
+        true,
+        transition && !pending
+      );
     } catch (error) {
       if (!pending || !error.status) throw error;
       console.warn(
         JSON.stringify({ event: 'READER_REPAIR_DEFERRED', job: record.id, code: error.code })
       );
-      return this._save(build(record, null), true);
+      return this._save(build(record, null), true, transition);
     }
     if (pending) {
       this.pendingRelease.delete(record.id);
@@ -1487,6 +1532,12 @@ export class ReaderJobStore {
     });
   }
 
+  // With no id, the first queued job whose lease fits is leased. A lease grows
+  // its record back into running and always takes the quota check: a job it
+  // does not fit (RESOURCE_LIMIT, or STORE_RECOUNTING while usage is unknown)
+  // stays queued with nothing written and the next one is tried, so one job
+  // that has outgrown the room left never stops the queue behind it. null
+  // when none fits. lease(id) still refuses.
   lease(id = null) {
     return this._open(() => {
       if (this.usage !== null) {
@@ -1497,25 +1548,34 @@ export class ReaderJobStore {
       this._promoteDeferred();
       if ([...this.records.values()].some((r) => r.state === 'running')) return null;
       const queued = this._dispatchable();
-      const record = id ? this._require(id) : queued.sort((a, b) => this._queueSort(a, b))[0];
-      if (!record || record.state !== 'queued') return null;
-      if (this.pendingRelease.has(record.id)) return null; // a pending release (§7.4)
-      if (this._discoveryShape(record) === 'released') return null; // a repair to come (§7.4)
-      const leased = this._save(
-        {
-          ...record,
-          state: 'running',
-          attempt: record.attempt + 1,
-          fence: crypto.randomBytes(32).toString('hex'),
-          lease_expires_at: this.now() + this.leaseMs,
-          cancel_requested: false,
-          deferred_requeue: false,
-          reason: null,
-        },
-        true
-      );
-      this._promoteDeferred();
-      return leased;
+      const candidates = id ? [this._require(id)] : queued.sort((a, b) => this._queueSort(a, b));
+      for (const record of candidates) {
+        if (record.state !== 'queued') return null;
+        if (this.pendingRelease.has(record.id)) return null; // a pending release (§7.4)
+        if (this._discoveryShape(record) === 'released') return null; // a repair to come (§7.4)
+        let leased;
+        try {
+          leased = this._save(
+            {
+              ...record,
+              state: 'running',
+              attempt: record.attempt + 1,
+              fence: crypto.randomBytes(32).toString('hex'),
+              lease_expires_at: this.now() + this.leaseMs,
+              cancel_requested: false,
+              deferred_requeue: false,
+              reason: null,
+            },
+            true
+          );
+        } catch (error) {
+          if (id || !roomRefusal(error)) throw error;
+          continue;
+        }
+        this._promoteDeferred();
+        return leased;
+      }
+      return null;
     });
   }
   _promoteDeferred() {
@@ -1546,21 +1606,27 @@ export class ReaderJobStore {
       );
     }
   }
+  // An expired lease always records its pause, whatever the quota (see
+  // _save): refused, lease() and every lease check would throw for every job.
   _expireLeases() {
     for (const record of [...this.records.values()]) {
       if (record.state === 'running' && record.lease_expires_at <= this.now())
-        this._saveReason(record, (base, reason) => ({
-          ...base,
-          state: record.cancel_requested ? 'cancelled' : 'paused',
-          fence: null,
-          lease_expires_at: null,
-          cancel_requested: false,
-          deferred_requeue: false,
-          reason: reason ?? {
-            code: 'INTERRUPTED',
-            message: 'Lease expired; resume the last durable checkpoint explicitly.',
-          },
-        }));
+        this._saveReason(
+          record,
+          (base, reason) => ({
+            ...base,
+            state: record.cancel_requested ? 'cancelled' : 'paused',
+            fence: null,
+            lease_expires_at: null,
+            cancel_requested: false,
+            deferred_requeue: false,
+            reason: reason ?? {
+              code: 'INTERRUPTED',
+              message: 'Lease expired; resume the last durable checkpoint explicitly.',
+            },
+          }),
+          true
+        );
     }
   }
   // Expiry binds before any sweep: a job past its expiry is tombstoned the
@@ -1592,20 +1658,26 @@ export class ReaderJobStore {
     return record;
   }
   _quotaPause(record, error) {
-    const recounting = error.code === 'STORE_RECOUNTING' && error.status === 503;
-    if (!recounting && (error.code !== 'RESOURCE_LIMIT' || error.status !== 507)) throw error;
-    // The cursor is unchanged. Reserved metadata space makes this pause durable.
-    // A recount pause returns to the queue by itself once a slot opens, unless
-    // U2 holds the reason: a released job is never requeued (§8).
-    return this._saveReason(record, (base, reason) => ({
-      ...base,
-      state: record.cancel_requested ? 'cancelled' : 'paused',
-      cancel_requested: false,
-      deferred_requeue: reason === null && recounting && !record.cancel_requested,
-      fence: null,
-      lease_expires_at: null,
-      reason: reason ?? { code: error.code, message: error.message },
-    }));
+    if (!roomRefusal(error)) throw error;
+    const recounting = error.code === 'STORE_RECOUNTING';
+    // The cursor is unchanged. This pause is durable whatever the quota (see
+    // _save): refused, the job would stay running. While usage is unknown it
+    // takes the full check, and a recount pause returns to the queue by
+    // itself once a slot opens, unless U2 holds the reason: a released job is
+    // never requeued (§8).
+    return this._saveReason(
+      record,
+      (base, reason) => ({
+        ...base,
+        state: record.cancel_requested ? 'cancelled' : 'paused',
+        cancel_requested: false,
+        deferred_requeue: reason === null && recounting && !record.cancel_requested,
+        fence: null,
+        lease_expires_at: null,
+        reason: reason ?? { code: error.code, message: error.message },
+      }),
+      true
+    );
   }
   // §4 step 3, under the lock: the commit's discovery plan, or null for a
   // commit whose frame, cursor and record carry none. A rule's refusal is

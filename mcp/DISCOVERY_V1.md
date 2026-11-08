@@ -86,7 +86,7 @@ language's own parser checks each. So any change to that code fails until the cl
 read again and the digest pinned again, and a citation of a line number, or of a symbol no row
 pins, fails too. A `file:symbol` citation names the symbol; its rows name the statements the
 claim rests on. Each row names the sections it backs, each citation of a row's symbol in a section
-has a row there, and the rows' ranges, digests aside, are held to the digest `d94012f3dcb28033` in this
+has a row there, and the rows' ranges, digests aside, are held to the digest `7bfa199c3e7b62cf` in this
 note, so a row deleted, narrowed or moved changes this text. Two citations name a comment or a
 docstring, not code (`reader_scheduler.js:createCatalogResolver`'s note on engine commits and
 `analysis.py:resolve_detail_records`' docstring); those rows hold the text as written. Every
@@ -1118,7 +1118,10 @@ a full read instead (below), so it refuses a dead job at once instead of queuein
   by itself when a slot opens, never `QUEUE_FULL`; the attempt is uncounted in each. There is no
   retry loop in `workerPayload`: the scheduler's next pump comes one poll interval later, and
   while the lock is still held the return is refused `STORE_BUSY` too and is tried once more at
-  each pump, the job staying `running` meanwhile, with its lease's expiry as the backstop. A
+  each pump, the job staying `running` meanwhile, with its lease's expiry as the backstop. The
+  return sits in the pump's dispatch try with `listQueued()` and `lease()`, so a refusal at
+  dispatch while the busy lease is held (a `STORE_BUSY` from either, say) is caught, logged and
+  retried with backoff, never an unhandled rejection, and the next pump tries the return first. A
   `STORE_BUSY` from any other call in the lease (a commit, the completion, the pause) is paused
   as before. A return refused for any other reason is logged and not tried again; the job stays
   `running` and its lease's expiry ends it. So on main, while another process holds the lock at
@@ -2004,10 +2007,11 @@ GC:
   logged (`READER_REPAIR_DEFERRED`) and retried at the next such point, and never thrown. Until it
   lands, `_dispatchable` skips the record, `lease(id)` returns null for it, and the job view shows
   the repair, so no record that is not dispatched is ever shown `queued`.
-- **No refusal at lease time.** `store.lease()` is called outside the scheduler's try block
-  (`reader_scheduler.js:pump`) and takes the head of the queue
-  (`reader_job_store.js:lease`), so a lease that threw would pick the same job on every
-  pump. `_dispatchable` (`:_dispatchable`) skips a record whose `discovery.unavailable` is set,
+- **No refusal at lease time.** `store.lease()` takes the first queued job whose lease fits
+  (`reader_job_store.js:lease`), passing over a job only for a room refusal. Any other refusal it
+  throws is caught by the scheduler's dispatch try (`reader_scheduler.js:pump`), logged and
+  retried with backoff, and the next pump picks the same job again, so a discovery refusal raised
+  inside `lease()` would hold up the queue behind that job. `_dispatchable` (`reader_job_store.js:_dispatchable`) skips a record whose `discovery.unavailable` is set,
   and refusals are raised only by `workerPayload`, `resume` and `commitCheckpoint`.
 - **Startup order.** At startup the pass runs before the startup collection, which a0 moved
   ahead of the pauses (`reader_job_store.js:constructor`). Otherwise the mark would meet the missing segment and
@@ -2179,7 +2183,11 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   durable release when it lands. If `_capacity` refuses such a save (`STORE_RECOUNTING` while usage
   is unknown, `RESOURCE_LIMIT` at full quota), it is logged (`READER_REPAIR_DEFERRED`) and made
   without the release, with the reason it would hold without U2; the release stays pending and
-  shown, so none of these saves fails where it did not before. It is deferred, never lost (BB8's
+  shown, so none of these saves fails where it did not before. Startup's pause, a lease's expiry
+  and a commit's quota pause are transitions out of `running` that are never refused for quota.
+  Such a save that carries a pending release is not exempt, since the release grows the record
+  beyond its reason, but its fallback is: so the transition always commits, and at a full quota
+  the release stays pending, as before. It is deferred, never lost (BB8's
   call 3 on Step 7): the record keeps its malformed value, so once room is freed the next save
   that carries it, the next point usage is known, or the reconciliation after a restart completes
   the release in one save, with the U2 reason, logged once. A C1 reason that U2 replaces is
@@ -2439,6 +2447,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 62 | BB8 6718090169 (review of `59a917a62`) | no defect; each of the two `digest_before !== at.digest` clauses is killed on its own: the lease walk's by the R5 clause test's junction-digest case, and the full read's, which no test killed, by a new test, a segment whose `digest_before` does not link (the oldest's not d0, or the second's not the first's `digest_after`) with its own F5 and the record's totals intact, chain_broken by R2, and its control; `test_reader_job_store` keeps its coverage of the witness's exact keys and of F-6 | §5.1, §7.4 | the store tests (reconciliation, lease walk, W4) |
 | 63 | #656 Step 11 (design v2; v1 Step 8) | `resume()`'s full read: a pending release, then `unavailable`, refuse `DISCOVERY_UNAVAILABLE` first, with its cause and log and nothing read, before the identity and state checks; a paused or cancelled job's live discovery is then read in full, every log from its head, `verified` and the lists unused, before the queue checks; a failure releases the job in one save from the record, not the control, so the refused control writes no receipt, logs the release (error level for `segment_corrupt`) and refuses naming the cause and the log; a stat or read error without a status (EACCES, EIO, ENOTDIR) releases nothing and stops the store; a pass installs the lists read, and resume's own save carries `verified` at the heads; a record with no discovery resumes exactly as before | §5.1, §7.4, §8 | `bad/verified_ahead_of_head.json`, `bad/verified_bytes_ahead.json` and `bad/verified_bytes_disagree.json` (`expect.resume`), `bad/missing_segment.json`, `bad/segment_corrupt_at_reconciliation.json` and `bad/head_bytes_disagree.json` (`expect.resume`); the store tests (resume) |
 | 64 | Review of `4f96eff9f` (#656 Steps 10 and 11) | (F5) a lease that expires while the foreign lock is held is not returned: the return is `STALE_ATTEMPT`, which settles the busy lease, the job is paused `INTERRUPTED` with its attempt counted and the scheduler leases the next job; a return refused for any other reason is logged and settles it too, never tried again, the lease's expiry the backstop; the busy path's next pump comes one poll interval later, never at once; a job whose malformed release is still pending is returned as U2 holds it, the release written in that save and logged once; a returned cancel is never to be requeued; a returned lease's attempt number is the next lease's again, which is benign | §5.1 | the store tests (F5) |
+| 65 | BB8 08:46Z (merge of main into the branch, main's #820 `f97b6901d`) | every store call in the scheduler's pump sits inside a try, F5's lease return included: a refusal at dispatch (a `STORE_BUSY` from `listQueued()` or `lease()` in a pump entered with a busy lease, or a return that throws) is caught, logged `[reader] dispatch refused:` and retried with backoff, never an unhandled rejection, and the busy lease is tried again first; `later()` arms its pump through the caught timer; `lease()` passes over a job that does not fit, its pending-release and released checks kept for `lease(id)`; the three transitions out of `running` that are never refused for quota stay exempt through U2, except a save that carries a pending release, whose fallback is exempt, so at a full quota the release stays pending | §5.1, §7.4, §8 | the store tests (merged pump; F5; U2 path) |
 
 ## 12. Rulings on the items added for confirmation
 

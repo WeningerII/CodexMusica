@@ -575,8 +575,9 @@ class ResidentMemoryReading(unittest.TestCase):
     """The envelope is gated on what it has to HOLD, not on what the kernel
     happens to be caching (M-269). The arithmetic is small and the failure
     it prevents was a green commit going red on the next runner, so every
-    branch of it is pinned: the subtraction, the shmem add-back, the fallback
-    when memory.stat cannot say, and the absence of a reading at all."""
+    branch of it is pinned: the subtraction, the shmem add-back, the zero
+    clamp, the fallback when memory.stat cannot say, and the absence of a
+    reading at all."""
 
     STAT = 'anon 700000000\nfile 900000000\nkernel 50000000\nshmem 100000000\nfile_mapped 1\n'
 
@@ -591,12 +592,31 @@ class ResidentMemoryReading(unittest.TestCase):
         self.assertEqual(accounting, 'current-minus-reclaimable-file')
 
     def test_without_memory_stat_the_reading_is_the_raw_figure_and_says_so(self):
+        """Either required row missing is the WHOLE fallback: resident is
+        memory.current unmodified, current is memory.current, and the label
+        says so. Each component is dropped on its own and the whole tuple is
+        pinned, because a label alone passes a reading that subtracted the
+        one row it did have (`file` without `shmem`) under the fallback label
+        -- a number that is neither the raw figure nor the cache-free one."""
         from check_lyrics_capacity import resident_bytes
-        resident, current, accounting = resident_bytes(current=1_800_000_000, stat={})
-        self.assertEqual((resident, current), (1_800_000_000, 1_800_000_000))
-        self.assertEqual(accounting, 'cgroup-current')
-        resident, current, accounting = resident_bytes(current=1_800_000_000, stat={'file': 5})
-        self.assertEqual(accounting, 'cgroup-current')
+        cases = {'no memory.stat': {},
+                 'file only (shmem missing)': {'file': 900_000_000},
+                 'shmem only (file missing)': {'shmem': 100_000_000}}
+        for label, stat in cases.items():
+            with self.subTest(label):
+                self.assertEqual(resident_bytes(current=1_800_000_000, stat=stat),
+                                 (1_800_000_000, 1_800_000_000, 'cgroup-current'))
+
+    def test_a_cache_larger_than_current_clamps_the_reading_at_zero(self):
+        """memory.current and memory.stat are two separate reads, so supplied
+        counters can imply more reclaimable cache than the cgroup holds. The
+        subtraction is clamped at 0 (still labelled as the subtraction, with
+        current untouched): a computed reading of zero, never a negative one,
+        and not the None of a cgroup with no reading at all."""
+        from check_lyrics_capacity import resident_bytes
+        self.assertEqual(resident_bytes(current=500_000_000,
+                                        stat={'file': 900_000_000, 'shmem': 100_000_000}),
+                         (0, 500_000_000, 'current-minus-reclaimable-file'))
 
     def test_no_cgroup_reading_is_none_not_zero(self):
         from check_lyrics_capacity import resident_bytes
@@ -679,21 +699,65 @@ class PeakInstrumentation(unittest.TestCase):
 
     def test_fallback_readings_are_not_cache_estimates(self):
         """A memory.stat without `file` or without `shmem` falls back to
-        resident = current; that zero must not enter the cache median."""
+        resident = current; that zero must not enter the cache median.
+
+        AND ONE EXECUTION CAN MIX MODES (#612, #661). Here the peak (1_200)
+        is a fallback reading between two that subtracted the cache (the
+        first and the last), so a label taken from the sample before or after
+        the peak is wrong, and two labels are recorded, each describing its
+        own reading: the
+        peak sample's `accounting` is the mode of the sample that set the
+        peak, and the row-level `progress.accounting` (what the memory-trace
+        row records) is the LAST sample's mode, the one that row's
+        `current_bytes` comes from. A last sample with no reading at all is
+        recorded as 'unavailable' with None figures, never zeros, and moves
+        neither the peak, nor its label, nor the counts."""
         import check_lyrics_capacity as matrix
-        samples = [(1_000, {'file': 300, 'shmem': 50}), (1_100, {'shmem': 50}),
-                   (1_200, {'file': 400}), (1_050, {'file': 250, 'shmem': 50})]
+        samples = [(1_000, {'file': 300, 'shmem': 50}), (1_200, {'file': 400}),
+                   (1_100, {'shmem': 50}), (1_050, {'file': 250, 'shmem': 50})]
         a, b, c, d = self.readings(matrix, samples)
         with a, b, c, d:
             progress = matrix.MeasurementProgress('t')
-            for _ in samples:
-                progress.sample()
-            record = progress.instrumentation()
+            # Explicit sample times, one second apart, so the timing
+            # assertions below cannot pass by sub-millisecond rounding.
+            returned = [progress.sample(now=progress.started + i)
+                        for i, _ in enumerate(samples, 1)]
+            # A copy: the record holds the live peak_sample dict, and the
+            # sample below must not be able to rewrite what was recorded here.
+            record = copy.deepcopy(progress.instrumentation())
+            gated, row_accounting = progress.resident_peak, progress.accounting
+            # One more sample with nothing readable: no memory.current, no memory.stat.
+            with patch.object(matrix, 'cgroup_bytes', return_value=None), \
+                 patch.object(matrix, 'memory_stat', return_value={}):
+                unreadable = progress.sample(now=progress.started + 5)
+            after = progress.instrumentation()
+        self.assertEqual(record['sampled_seconds'], 4.0)
         self.assertEqual(record['cache_estimate_bytes'], [250, 200])
         self.assertEqual(record['cache_estimate_unavailable_samples'], 2)
         self.assertEqual(record['sample_count'], 4)
         # The gate's own conservative fallback is unchanged: 1_200 counted whole.
+        self.assertEqual(gated, 1_200)
+        # The peak's label is its OWN sample's: 1_200 was read with no `shmem`.
+        peak = record['peak_sample']
+        self.assertEqual((peak['resident_bytes'], peak['current_bytes'], peak['accounting']),
+                         (1_200, 1_200, 'cgroup-current'))
+        # The row's label is the LAST sample's, the one its current_bytes is
+        # read from: resident 1_050 - (250 - 50) = 850, raw current 1_050.
+        self.assertEqual(row_accounting, 'current-minus-reclaimable-file')
+        self.assertEqual(returned[-1], (850, 1_050))
+        # No reading: None, not 0, labelled as such (as the boundary sample it
+        # would give the row current_bytes None under 'unavailable'); the peak
+        # and its label stand.
+        self.assertEqual(unreadable, (None, None))
+        self.assertEqual(progress.accounting, 'unavailable')
         self.assertEqual(progress.resident_peak, 1_200)
+        self.assertEqual(after['peak_sample']['accounting'], 'cgroup-current')
+        self.assertEqual(after['peak_sample'], record['peak_sample'])
+        # Neither a cache estimate nor a fallback reading, and not a sample.
+        self.assertEqual(after['cache_estimate_bytes'], [250, 200])
+        self.assertEqual(after['cache_estimate_unavailable_samples'], 2)
+        self.assertEqual(after['sample_count'], 4)
+        self.assertEqual(after['sampled_seconds'], record['sampled_seconds'])
 
     def test_events_delta_never_assumes_a_zero_baseline(self):
         from check_lyrics_capacity import events_delta

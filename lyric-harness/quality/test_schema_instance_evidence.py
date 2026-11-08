@@ -412,5 +412,50 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(before, {c: dataclasses.fields(c) for c in before})
 
 
+
+class DisownedTypesTests(unittest.TestCase):
+    """#671 row 7 (BB8 6670984213, under #627 D6): a schema the registry
+    disowns is never written onto the writer's pair, selected by its
+    `normative` field and never by its name."""
+
+    def test_the_field_selects_the_disowned_rows(self):
+        from quality import plan as P
+        got = sorted(n for n in R.REGISTRY if R.disowned(n))
+        self.assertEqual(got, sorted(n for n, s in R.REGISTRY.items()
+                                     if s.normative in ("forbidden", "deprecated")))
+        # Today the planner's stricter `== "attested"` selects the same rows.
+        self.assertEqual(got, sorted(n for n, s in R.REGISTRY.items()
+                                     if s.normative != "attested"))
+        self.assertIs(P.DISOWNED_NORMATIVE, R.DISOWNED_NORMATIVE)
+        self.assertFalse(R.disowned("RHYME"))
+        # The selection reads the field: flip one row and the answer follows.
+        name = "perfect rhyme"
+        flipped = dataclasses.replace(R.REGISTRY[name], normative="deprecated")
+        with patch.dict(R.REGISTRY, {name: flipped}):
+            self.assertTrue(R.disowned(name))
+            self.assertEqual(LH.relation_label({"RHYME", name}), "RHYME")
+
+    def test_the_relation_label_leaves_disowned_types_out(self):
+        self.assertEqual(LH.relation_label(
+            {"relations": frozenset({"RHYME", "perfect rhyme", "trite rhyme",
+                                     "homoioteleuton"})}), "RHYME+perfect rhyme")
+        self.assertEqual(LH.relation_label({"homoioteleuton"}), "NO_ATTESTED_RELATION")
+        self.assertEqual(LH.relation_label(set()), "NO_RELATION")
+        self.assertEqual(LH.relation_label({"relations": frozenset()}), "NO_RELATION")
+
+    def test_the_grade_census_asks_no_disowned_schema(self):
+        from quality.schemes import Mandate
+        lines = ["cat bat cat", "hat"]
+        phon = FixturePhonology()
+        rv = SimpleNamespace(_relation_phonology=lambda: phon, decl=LH.Declaration())
+        got = for_grade(rv, lines, Mandate(n_lines=2, groups=((1, 2),), labels=("A",)),
+                        provenance={"reader_scheme": "v2"})
+        disowned = sorted(n for n in R.REGISTRY if R.disowned(n))
+        self.assertTrue(disowned)
+        self.assertEqual(sorted(got["population"]["not_requested_schemas"]), disowned)
+        self.assertFalse(set(got["population"]["requested_schemas"]) & set(disowned))
+        self.assertFalse({r["schema_name"] for r in got["records"]} & set(disowned))
+
+
 if __name__ == '__main__':
     unittest.main()
