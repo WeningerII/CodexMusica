@@ -2167,6 +2167,15 @@ export class ReaderJobStore {
       }));
     });
   }
+  // A resume of a paused or cancelled job (§5.1). A pending release and a
+  // saved `unavailable` refuse first, with nothing read. A live discovery is
+  // then read in full, every log from its head, the address lists and
+  // `verified` unused (_fullRead): a failure releases the job, from `record`
+  // and not `control.record`, so the refused control writes no receipt, and
+  // refuses DISCOVERY_UNAVAILABLE with the cause and the log. A pass
+  // replaces the job's address lists with the ones read, and resume's own
+  // save carries `verified` at the heads. A record with no discovery resumes
+  // exactly as before: nothing is read and its save gains no key.
   resume(id, capability, viewer, identity, options = {}) {
     const expected = identityHash(identity);
     return this._open(() => {
@@ -2175,6 +2184,7 @@ export class ReaderJobStore {
       if (control.replay) return clone(record);
       this._expected(record, options);
       this._refusePending(id);
+      this._refuseUnavailable(record);
       if (expected !== record.identity_hash)
         throw problem(
           'STALE_READING',
@@ -2185,6 +2195,7 @@ export class ReaderJobStore {
           'INVALID_JOB_STATE',
           'Only paused or cancelled reader jobs can explicitly resume.'
         );
+      const full = this._liveDiscovery(record) && this._resumeRead(record);
       this._queueRoom();
       if (
         !OUTSTANDING.has(record.state) &&
@@ -2204,10 +2215,37 @@ export class ReaderJobStore {
           queue_order: this._tailOrder(),
           accessed_at: this.now(),
           expires_at: this.now() + this.ttlMs,
+          ...(full
+            ? { discovery: { ...record.discovery, verified: clone(record.discovery.logs) } }
+            : {}),
         },
         true
       );
     });
+  }
+  // resume()'s full read (§5.1): every log, in the order `logs` holds them,
+  // stopping at the first that fails. A pass installs the lists read, as
+  // reconciliation's does: they are read from the durable heads, which
+  // resume's save leaves as they are, so they hold whether or not that save
+  // is made (a QUEUE_FULL after the read), and a save that throws without a
+  // status drops every list through _open. A failure releases the job in
+  // one save (U1) and refuses DISCOVERY_UNAVAILABLE, naming its cause and log.
+  // Only the faults _fullRead returns release; any other error, a stat or a
+  // read that fails for a reason that is not a verdict on the segment
+  // (EACCES, EIO, ENOTDIR), keeps its own code, so one without a status
+  // stops the store through _open and releases nothing.
+  _resumeRead(record) {
+    const lists = new Map();
+    for (const log of Object.keys(record.discovery.logs)) {
+      const read = this._fullRead(record, log);
+      if (read.cause) {
+        this._release(record, { cause: read.cause, log });
+        throw unavailableRefusal({ cause: read.cause, log });
+      }
+      lists.set(log, read.addresses);
+    }
+    this.chains.set(record.id, lists);
+    return true;
   }
   get(id, capability, viewer) {
     const authorize = () => this._authorized(id, capability, viewer);
