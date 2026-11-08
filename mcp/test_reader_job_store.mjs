@@ -8032,10 +8032,12 @@ test('F5: later() pumps after one poll interval, never at once', (t) => {
 // pump never rejects. A pump entered with a busy lease returns it first; the
 // foreign writer then takes the lock back before listQueued() or before
 // lease(), and the STORE_BUSY each throws is caught in the pump, logged, and
-// retried with main's backoff (pollMs, then doubled). A return that throws
-// something with no code (`null`) is the one store failure possible while the
-// busy lease is still held: it is caught the same way and the lease kept for
-// the next pump. No variant leaves a rejection for the process to see, and
+// retried with main's backoff (pollMs, then doubled). returnBusyLease catches
+// every refusal of the return itself (a `null` included, since the review of
+// 78fc83df1, F4), so the third variant makes returnBusyLease throw, which
+// nothing does today: the dispatch try still catches it the same way, and the
+// lease is kept for the next pump. No variant leaves a rejection for the
+// process to see, and
 // F5 still holds: the job comes back queued, uncounted, and its next lease
 // runs with one attempt counted.
 test('merged pump: a STORE_BUSY from listQueued() or lease() after a busy lease, or a failed return, is caught in the pump, logged and retried with backoff', async (t) => {
@@ -8082,7 +8084,7 @@ test('merged pump: a STORE_BUSY from listQueued() or lease() after a busy lease,
       assert.equal(durable(store, id).state, 'running', `${where}: nothing written`);
       const returnLease = store.returnLease;
       const listQueued = store.listQueued;
-      // Set when the pump calls the store's return, so with the busy lease
+      // Set when the pump calls the return, so with the busy lease
       // still held.
       let enteredBusy = false;
       if (where === 'listQueued') {
@@ -8109,13 +8111,14 @@ test('merged pump: a STORE_BUSY from listQueued() or lease() after a busy lease,
         });
         freeLock(store);
       } else {
-        // The return throws `null`: returnBusyLease's own catch cannot read
-        // it, so the TypeError leaves returnBusyLease with the lease held.
+        // returnBusyLease itself throws once, with the lease held: the
+        // dispatch try is all that stands between it and the process.
+        const returnBusy = scheduler.returnBusyLease;
         let n = 0;
-        t.mock.method(store, 'returnLease', function (...args) {
+        t.mock.method(scheduler, 'returnBusyLease', function (...args) {
           enteredBusy ||= scheduler.busyLease !== null;
-          if (n++ === 0) throw null;
-          return returnLease.apply(this, args);
+          if (n++ === 0) throw new TypeError('returnBusyLease failed');
+          return returnBusy.apply(this, args);
         });
         freeLock(store);
       }
@@ -8179,6 +8182,53 @@ test('merged pump: a STORE_BUSY from listQueued() or lease() after a busy lease,
       process.off('unhandledRejection', onRejection);
     }
     assert.deepEqual(rejections, [], `${where}: no rejection reaches the process`);
+  }
+});
+
+// Review of 78fc83df1, F4: a return that throws a value with no code, even
+// `null`, is a failed return at both of returnBusyLease's calls: logged as
+// `lease return failed: READER_ERROR`, the busy lease settled, and the pump
+// resolves. At the F5 catch, where the payload's STORE_BUSY tries the return
+// at once, it no longer escapes the catch block; at dispatch, the pump goes
+// on to look at the queue. The job stays running and its lease's expiry ends
+// it, as for any failed return.
+test('F5: a return that throws null is a failed return at both calls: logged, the busy lease settled, the pump resolved', async (t) => {
+  for (const where of ['catch', 'dispatch']) {
+    const { fx, store } = busyJobs(t);
+    const id = fx.record.id;
+    const { scheduler, laters } = busyScheduler(t, store);
+    t.mock.method(scheduler, '_retry', () => {});
+    const source = scheduler.resolveSource;
+    scheduler.resolveSource = async (...args) => {
+      plantLock(store);
+      return source(...args);
+    };
+    t.after(() => freeLock(store));
+    const errors = t.mock.method(console, 'error', () => {});
+    const throwNull = () =>
+      t.mock.method(store, 'returnLease', function () {
+        throw null;
+      });
+    if (where === 'catch') throwNull();
+    await assert.doesNotReject(scheduler.pump(), `${where}: the pump resolves`);
+    if (where === 'dispatch') {
+      assert.ok(scheduler.busyLease, `${where}: busy`);
+      scheduler.resolveSource = source;
+      freeLock(store);
+      throwNull();
+      await assert.doesNotReject(scheduler.pump(), `${where}: the pump resolves`);
+    }
+    const logged = errors.mock.calls.map((c) => c.arguments.join(' '));
+    t.mock.restoreAll();
+    assert.deepEqual(
+      logged,
+      ['[reader] lease return failed: READER_ERROR'],
+      `${where}: logged as a failed return, and nothing else`
+    );
+    assert.equal(scheduler.busyLease, null, `${where}: settled`);
+    assert.equal(store.records.get(id).state, 'running', `${where}: its lease expiry ends it`);
+    if (where === 'catch') assert.equal(laters.mock.callCount(), 1, `${where}: one interval later`);
+    freeLock(store);
   }
 });
 

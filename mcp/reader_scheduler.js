@@ -625,15 +625,17 @@ export class ReaderScheduler {
   // or refused with any code but STORE_BUSY, which means the lease had
   // already ended (STALE_ATTEMPT: expired, or another's) or the store cannot
   // write, whose own expiry then ends it. False while the lock is still
-  // busy: the pump tries again one interval later, never in a loop.
+  // busy: the pump tries again one interval later, never in a loop. A thrown
+  // value with no code (even a non-object) is a failed return, logged as
+  // READER_ERROR, so this never throws at either of its two calls.
   returnBusyLease() {
     const { id, attempt, fence } = this.busyLease;
     try {
       this.store.returnLease(id, attempt, fence);
     } catch (refused) {
-      if (refused.code === 'STORE_BUSY' && refused.status === 503) return false;
-      if (refused.code !== 'STALE_ATTEMPT')
-        console.error('[reader] lease return failed:', refused.code || 'READER_ERROR');
+      if (refused?.code === 'STORE_BUSY' && refused?.status === 503) return false;
+      if (refused?.code !== 'STALE_ATTEMPT')
+        console.error('[reader] lease return failed:', refused?.code || 'READER_ERROR');
     }
     this.busyLease = null;
     return true;
