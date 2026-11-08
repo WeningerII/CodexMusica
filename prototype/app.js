@@ -452,6 +452,41 @@ const MORE = {
       },
     },
   ],
+  // The reviewed preview lanes share the existing store. This is not yet
+  // the complete inspector: its tabs, catalog and other panels are pending.
+  instrument: [
+    {
+      id: 'instrumentoutput',
+      label: 'Instrument output',
+      load: () => import('./features/instrument-output/output.js'),
+      unloaded: 'The instrument output did not load.',
+      retryHint: 'Try again.',
+      context: async ({ signal }) => {
+        await recipe.start();
+        if (recipe.status() !== 'ready') throw new Error('not ready');
+        return { output: ending(signal, recipe.preview.output) };
+      },
+    },
+    {
+      id: 'instrumentactions',
+      label: 'Add the configured instrument',
+      load: () => import('./features/instrument-actions/actions.js'),
+      unloaded: 'The instrument actions did not load.',
+      retryHint: 'Try again.',
+      context: async ({ signal }) => {
+        await recipe.start();
+        if (recipe.status() !== 'ready') throw new Error('not ready');
+        const port = recipe.port([
+          'addConfiguredInstrument',
+          'resetInstrumentPreview',
+          'setInstrumentDestination',
+          'snapshot',
+          'subscribe',
+        ]);
+        return { recipe: ending(signal, port) };
+      },
+    },
+  ],
   library: [
     {
       id: 'librarycredits',

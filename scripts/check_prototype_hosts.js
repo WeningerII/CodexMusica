@@ -211,6 +211,8 @@ const LANE_MODULES = {
   librarymethods: '/prototype/features/library-methods/reference.js',
   genredetail: '/prototype/features/genre-detail/detail.js',
   instrumentdetail: '/prototype/features/instrument-detail/detail.js',
+  instrumentoutput: '/prototype/features/instrument-output/output.js',
+  instrumentactions: '/prototype/features/instrument-actions/actions.js',
   genreinstruments: '/prototype/features/genre-instruments/instruments.js',
   libraryreading: '/prototype/features/library-reading/text-view.js',
   libraryspeech: '/prototype/features/library-speech/controls.js',
@@ -218,6 +220,8 @@ const LANE_MODULES = {
   genretargets: '/prototype/features/genre-targets/targets.js',
 };
 const CTX_KEYS = {
+  instrumentoutput: ['announce', 'output', 'signal', 'storage'],
+  instrumentactions: ['announce', 'recipe', 'signal', 'storage'],
   genrecategories: ['announce', 'categories', 'discovery', 'signal', 'storage', 'targets'],
   genretargets: ['announce', 'discovery', 'signal', 'storage', 'targets'],
   genreinstruments: [
@@ -1198,6 +1202,14 @@ async function instrumentChecks(browser, srv) {
     JSON.stringify(p.keys) === JSON.stringify(CTX_KEYS.instrumentdetail),
     `ctx: instrumentdetail got [${p.keys}], expected [${CTX_KEYS.instrumentdetail}]`
   );
+  for (const lane of ['instrumentoutput', 'instrumentactions']) {
+    await waitMounted(page, lane);
+    const registered = await probe(page, lane);
+    expect(
+      JSON.stringify(registered.keys) === JSON.stringify(CTX_KEYS[lane]),
+      `ctx: ${lane} has only its registered capabilities`
+    );
+  }
   const asked = [];
   page.on('request', (r) => asked.push(new URL(r.url()).pathname));
   const got = await page.evaluate(async (list) => {
@@ -4485,6 +4497,8 @@ const SUBSCRIBED = {
   genreinstruments: ['genre.subscribe', 'recipe.subscribe'],
   genretargets: ['discovery.subscribe', 'targets.subscribe'],
   instrumentdetail: ['instrument.subscribe'],
+  instrumentoutput: ['output.subscribe'],
+  instrumentactions: ['recipe.subscribe'],
   library: ['selection.subscribe'],
   librarycredits: [],
   librarymethods: [],
@@ -4529,6 +4543,16 @@ const CTX_VIEWS = {
     ],
   },
   instrumentdetail: { instrument: ['current', 'subscribe'], media: ['resolve'] },
+  instrumentoutput: { output: ['copy', 'setFormat', 'snapshot', 'subscribe'] },
+  instrumentactions: {
+    recipe: [
+      'addConfiguredInstrument',
+      'resetInstrumentPreview',
+      'setInstrumentDestination',
+      'snapshot',
+      'subscribe',
+    ],
+  },
   library: { selection: ['state', 'subscribe', 'toggle'] },
   // Data, with no methods.
   librarycredits: { artwork: [], artworkUrls: [], catalog: [] },
@@ -7974,7 +7998,7 @@ const STORE_CHECKS = {
     run: async (page) => {
       const routes = [
         ['#genre', ['genrecategories', 'genretargets', 'genredetail', 'genreinstruments']],
-        ['#instrument', ['instrumentdetail']],
+        ['#instrument', ['instrumentdetail', 'instrumentoutput', 'instrumentactions']],
         ['#browse', ['browse']],
         ['#lyrics', ['lyrics']],
         ['#library', ['library', 'librarycredits', 'librarymethods']],
@@ -8049,6 +8073,7 @@ const STORE_CHECKS = {
           const CHANGES = {
             'genre.subscribe': () => sel.genre.set(genres[turn % 3]),
             'instrument.subscribe': () => sel.instrument.set(instruments[turn % 3]),
+            'output.subscribe': () => sel.instrument.set(instruments[(turn + 1) % 3]),
             'recipe.subscribe': async () => {
               for (let i = 0; i < 200 && R.snapshot().busy; i++) await S.tick(25);
               await R.addInstrument({
@@ -9656,6 +9681,7 @@ async function recipeChecks(browser, srv) {
 }
 
 (async () => {
+  await require('./check_prototype_preview_registration.js').check();
   for (const [lane, mod] of Object.entries(LANE_MODULES)) {
     const app = fs.readFileSync(path.join(root, 'prototype', 'app.js'), 'utf8');
     expect(
