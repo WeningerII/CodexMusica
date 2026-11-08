@@ -4898,7 +4898,7 @@ test('write path: a held head with no list gets no partial list from a commit', 
   const saved = commitFrame(job.store, job.lease, fx.frames[2]);
   assert.deepEqual(saved.discovery, fx.frames[2].expect.record_discovery);
   // alt_cells was sealed onto a head no list held: it stays without one, so
-  // the next lease's R5 refuses it (Step 10). variants' head is null: [].
+  // the next lease's R5 refuses it (the lease walk tests). variants' head is null: [].
   assert.deepEqual(listsOf(job.store, job.id), { variants: [] });
 });
 
@@ -6697,10 +6697,14 @@ test("lease walk: §6.9's store promise: page_paths yield the committed records 
 
 test('lease walk: the bridge request carries the walk’s discovery, with no verified and no unavailable key (c14); a job with none sends none', async (t) => {
   const fx = loadFixture('good/lease_incremental_walk.json');
-  for (const held of [true, false]) {
+  for (const kind of ['walked', 'no key', 'null']) {
+    const held = kind === 'walked';
     const { directory, store: first } = fixture(t);
     let id = create(first).record.id;
     let store = first;
+    // A discovery of null, as complete() saves it: the payload's is null, never sent.
+    if (kind === 'null')
+      first._open(() => first._save({ ...first.records.get(id), discovery: null }, true));
     if (held) {
       // At the head of the queue, ahead of the created job.
       plantFixture(directory, first.records.get(id), fx, { job: { queue_order: 0 } });
@@ -6726,16 +6730,185 @@ test('lease walk: the bridge request carries the walk’s discovery, with no ver
     } finally {
       scheduler.stop();
     }
-    assert.equal(requests.length, 1, `held=${held}: one lease`);
+    assert.equal(requests.length, 1, `${kind}: one lease`);
     const request = JSON.parse(requests[0]);
     assert.equal(/"(verified|unavailable)"/.test(requests[0]), false, 'never the store’s own');
     if (!held) {
-      assert.equal(Object.hasOwn(request, 'discovery'), false, 'no key, as today');
+      assert.equal(Object.hasOwn(request, 'discovery'), false, `${kind}: no key, as today`);
       continue;
     }
     assert.deepEqual(request.discovery, atStore(store, fx.expect.lease.payload));
     assert.deepEqual(store.records.get(id).discovery.verified, fx.expect.lease.verified, 'walked');
     assert.deepEqual(Object.keys(request.discovery).sort(), ['paths', 'summary', 'version']);
     assert.equal(store.records.get(id).state, 'queued', 'the yield requeued it');
+  }
+});
+
+// The mutation pass: each clause of R5 refuses on its own, as the validator's
+// R5 test holds its model to, before any read where the record and the list
+// alone show it, and the junction is R5, never R2. The record or the lists are
+// changed in memory on the leased instance, as this image's own bookkeeping
+// would be wrong.
+test('lease walk: each clause of R5 refuses on its own, as STORAGE_CORRUPT, R5 and never R2', (t) => {
+  const fx = loadFixture('good/lease_incremental_walk.json');
+  const rd = fx.record.discovery;
+  const alt0 = rd.verified.alt_cells;
+  const [a0, a1] = fx.addresses.alt_cells;
+  const empty = (log) => ({
+    head: null,
+    segments: 0,
+    count: 0,
+    bytes: 0,
+    digest: domainDigest(DOMAINS.log(log)),
+  });
+  const cases = [
+    // [name, verified alt_cells, alt_cells list, what is read]
+    ['count ahead of the head', { ...alt0, count: rd.logs.alt_cells.count + 1 }, null, []],
+    ['segments ahead of the head', { ...rd.logs.alt_cells, segments: 3 }, null, []],
+    ['at the head with another digest', { ...rd.logs.alt_cells, digest: alt0.digest }, null, []],
+    ['empty but not the empty state', { ...empty('alt_cells'), count: 1 }, null, []],
+    ['a head the list does not hold there', { ...alt0, head: rd.logs.seen.head }, null, []],
+    ['a list that skips the verified head', alt0, [a1], []],
+    ['a list that skips its oldest, nothing verified', empty('alt_cells'), [a1], []],
+    ['a list that does not end at the head', alt0, [a0, a0], []],
+    ['a list past the head', alt0, [a0, a1, a1], []],
+    ['the junction count', { ...alt0, count: 1000 }, null, [a1]],
+    ['the junction digest', { ...alt0, digest: rd.logs.seen.digest }, null, [a1]],
+  ];
+  for (const [name, verified, list, read] of cases) {
+    const { store } = leaseFixture(t, fx);
+    const live = store.records.get(fx.record.id);
+    store.records.set(fx.record.id, {
+      ...live,
+      discovery: {
+        ...live.discovery,
+        verified: { ...live.discovery.verified, alt_cells: verified },
+      },
+    });
+    if (list) store.chains.get(fx.record.id).set('alt_cells', list);
+    const walk = walkOnce(t, store, fx.record.id);
+    assertWalkRefused(walk, 'R5', name);
+    assert.deepEqual(walk.read, read, `${name}: what was read before the refusal`);
+  }
+});
+
+test('lease walk: a listed segment whose successor names another address is R2, though its first and digests continue', (t) => {
+  // alt_cells#0 stored a second time with other spacing: the same fields, so
+  // its first, digests and entry bytes continue the chain, at another
+  // address. A list holding that copy, then alt_cells#1 (whose previous_hash
+  // names the original), passes every R5 clause; only the link refuses.
+  const fx = loadFixture('good/lease_incremental_walk.json');
+  for (const gzip of [false, true]) {
+    const { directory, store } = leaseFixture(t, fx, { gzip });
+    const [a0, a1] = fx.addresses.alt_cells;
+    const copy = Buffer.from(JSON.stringify(JSON.parse(storedSegment(store, a0)), null, 1));
+    const twin = dsha(copy);
+    assert.notEqual(twin, a0);
+    writeStored(directory, twin, copy, gzip);
+    const live = store.records.get(fx.record.id);
+    store.records.set(fx.record.id, {
+      ...live,
+      discovery: {
+        ...live.discovery,
+        verified: {
+          ...live.discovery.verified,
+          alt_cells: {
+            head: null,
+            segments: 0,
+            count: 0,
+            bytes: 0,
+            digest: domainDigest(DOMAINS.log('alt_cells')),
+          },
+        },
+      },
+    });
+    store.chains.get(fx.record.id).set('alt_cells', [twin, a1]);
+    const walk = walkOnce(t, store, fx.record.id);
+    assertWalkRefused(walk, 'R2', `gzip=${gzip}`);
+    assert.deepEqual(walk.read, [twin, a1], 'the copy reads clean; its successor does not link');
+  }
+});
+
+test('lease walk: past the junction a link that fails is R2, not R5', (t) => {
+  // A real three-segment chain, its first verified; the list holds a copy of
+  // the second at another address (same fields, other spacing), so the
+  // junction passes and the third's previous_hash names the original.
+  const { directory, store: first } = fixture(t);
+  const base = first.records.get(create(first).record.id);
+  const planted = plantReal(directory, base, base.id, { seen: 3 });
+  const store = walkStore(t, directory);
+  store.lease(base.id);
+  const [s0, s1, s2] = listsOf(store, base.id).seen;
+  const copy = Buffer.from(JSON.stringify(JSON.parse(storedSegment(store, s1)), null, 1));
+  const twin = dsha(copy);
+  writeStored(directory, twin, copy, false);
+  const live = store.records.get(base.id);
+  store.records.set(base.id, {
+    ...live,
+    discovery: {
+      ...live.discovery,
+      verified: { seen: realChain({ ...base, id: base.id }, 'seen', 1).state },
+    },
+  });
+  assert.equal(store.records.get(base.id).discovery.verified.seen.head, s0);
+  store.chains.get(base.id).set('seen', [s0, twin, s2]);
+  const walk = walkOnce(t, store, base.id);
+  assertWalkRefused(walk, 'R2', 'the second segment read');
+  assert.deepEqual([walk.stat, walk.read], [[s0], [twin, s2]]);
+  assert.equal(planted.discovery.logs.seen.head, s2);
+});
+
+test("lease walk: a head whose count or digest the chain does not end at is R2 after the read (the corrupt fixture's control)", (t) => {
+  const fx = loadFixture('bad/segment_corrupt_at_reconciliation.json');
+  const [control] = fx.controls;
+  const counted = {
+    ...fx,
+    record: { ...fx.record, discovery: control.discovery },
+    store: control.store,
+  };
+  const digested = clone(counted);
+  digested.record.discovery = clone(fx.record.discovery);
+  digested.record.discovery.logs.alt_cells.digest = fx.record.discovery.logs.seen.digest;
+  for (const [name, kase] of [
+    ['count', counted],
+    ['digest', digested],
+  ]) {
+    // By the seam: a full read would release the job (R2, chain_broken).
+    const { store } = leaseFixture(t, kase, { seam: true });
+    const walk = walkOnce(t, store, fx.record.id);
+    assertWalkRefused(walk, 'R2', name);
+    assert.deepEqual(walk.read, [fx.addresses.alt_cells[1]], `${name}: read, then refused`);
+  }
+});
+
+test('lease walk: the verified save is a reserved save: at full quota, a growth inside the record’s reservation lands', (t) => {
+  // good/lease_payload_summary_paths.json's record verifies nothing yet, so
+  // its walk's save grows the record (each null head becomes 64 hex), inside
+  // its 16 KiB reservation.
+  const fx = loadFixture('good/lease_payload_summary_paths.json');
+  const { store } = leaseFixture(t, { ...fx, addresses: undefined });
+  assert.notEqual(store.usage, null, 'usage known');
+  store.maxBytes = store.usage + store.slack; // exactly full
+  const walk = walkOnce(t, store, fx.record.id);
+  assert.equal(walk.error, null);
+  assert.equal(walk.saved, true, 'the reserved save lands at full quota');
+  assert.deepEqual(walk.record.discovery.verified, fx.record.discovery.logs);
+  assert.deepEqual(walk.payload.discovery, atStore(store, fx.payload.discovery));
+});
+
+test('lease walk: a finished record’s discovery is never read: a completed one is not walked', (t) => {
+  // Only a writer other than the store leaves a live discovery on a finished
+  // record (complete() saves null); §7.1 never reads one, and neither does the
+  // walk: its payload's discovery is null and nothing is statted or read.
+  const fx = loadFixture('good/lease_incremental_walk.json');
+  for (const state of ['completed', 'completed_with_refusals']) {
+    const { directory, store: first } = fixture(t);
+    const base = first.records.get(create(first).record.id);
+    plantFixture(directory, base, fx, { job: { state } });
+    const store = walkStore(t, directory, { lists: () => new Map() });
+    const walk = walkOnce(t, store, fx.record.id);
+    assert.equal(walk.error, null, `${state}: ${walk.error?.message}`);
+    assert.equal(walk.payload.discovery, null, `${state}: not built`);
+    assert.deepEqual([walk.stat, walk.read, walk.saved], [[], [], false], state);
   }
 });
