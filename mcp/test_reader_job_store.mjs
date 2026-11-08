@@ -12,6 +12,7 @@ import { createReaderRouter, publicReaderJob, signReaderRequest } from './reader
 import {
   DISCOVERY_LIMITS,
   DOMAINS,
+  LOGS,
   buildSegment,
   digestStep,
   domainDigest,
@@ -8993,6 +8994,41 @@ test('resume: a verified save refused STORE_RECOUNTING or RESOURCE_LIMIT is made
     store._save.mock.restore();
     assert.deepEqual([got.error?.code, calls], ['RESOURCE_LIMIT', 1], 'no discovery: no retry');
   }
+});
+
+// The 09:16Z review of 34833d71a (pin b, its mutant M15): a pass replaces
+// the job's lists, never merges them. A log present in the job's lists
+// before the resume but absent from the record's `logs` (so from the full
+// read) is gone after it; a stale list for a log the record names is
+// replaced by the one read. Both, for every log the record does not name.
+test('resume: the lists read replace the old ones; a log absent from the full read does not survive', (t) => {
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  let ran = 0;
+  for (const stale of LOGS) {
+    const job = writeJob(t, fx);
+    commitFrame(job.store, job.lease, fx.frames[0]);
+    commitFrame(job.store, job.lease, fx.frames[1]);
+    const full = clone(listsOf(job.store, job.id));
+    if (Object.hasOwn(job.store.records.get(job.id).discovery.logs, stale)) continue;
+    job.store.pause(job.lease.id, job.lease.attempt, job.lease.fence, STORAGE_PAUSE);
+    const lists = job.store.chains.get(job.id);
+    lists.set(stale, ['e'.repeat(64)]);
+    const [log] = Object.keys(full);
+    lists.set(log, ['d'.repeat(64)]);
+    const record = job.store.records.get(job.id);
+    const capability = job.store.capabilityFor(job.id, record.viewer);
+    const got = resumeOnce(t, job.store, job.id, capability, record.viewer);
+    assert.equal(got.error, null, `${stale}: ${got.error?.message}`);
+    assert.equal(job.store.chains.get(job.id).has(stale), false, `${stale}: not carried over`);
+    assert.deepEqual(listsOf(job.store, job.id), full, `${stale}: exactly the lists read`);
+    assert.deepEqual(
+      Object.keys(listsOf(job.store, job.id)).sort(),
+      Object.keys(record.discovery.logs).sort(),
+      `${stale}: one list per log the record names`
+    );
+    ran += 1;
+  }
+  assert.ok(ran >= 1, 'at least one log the record does not name');
 });
 
 test("resume: the full read replaces the job's lists, a log with none or a short one included, and the next lease passes R5", (t) => {
