@@ -7,7 +7,7 @@ import {
   READER_BODY_BYTES,
   READER_CONTRACT_VERSION,
 } from './reader_protocol.js';
-import { causeMessage, wellFormedDeep } from './reader_discovery.js';
+import { DISCOVERY_CAUSES, LOGS, causeMessage, wellFormedDeep } from './reader_discovery.js';
 
 export { canonicalReaderQuery, READER_BODY_BYTES, READER_CONTRACT_VERSION };
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
@@ -165,6 +165,18 @@ export function publicReaderJob(record) {
       .filter((key) => record[key] !== undefined)
       .map((key) => [key, key === 'reason' ? publicReason(record.reason) : record[key]])
   );
+}
+
+// The fields a DISCOVERY_UNAVAILABLE refusal adds to its error body (DISCOVERY_V1
+// §8; BB8 6719406992, call 7): its `cause`, one of DISCOVERY_CAUSES, and its
+// `log`, one of LOGS or null, both read from the record the store validated
+// (§2.7). Nothing else is named, and a refusal of any other code adds nothing.
+export function refusalDetail(error) {
+  if (error?.code !== 'DISCOVERY_UNAVAILABLE' || !Object.hasOwn(DISCOVERY_CAUSES, error.cause))
+    return {};
+  const detail = { cause: error.cause };
+  if (error.log === null || LOGS.includes(error.log)) detail.log = error.log;
+  return detail;
 }
 
 // A reason that names a cause stores no message (DISCOVERY_V1 §8): the view
@@ -480,6 +492,7 @@ export function createReaderRouter({
             error.code === 'RESOURCE_LIMIT'
               ? 'Free storage or retry after capacity is available.'
               : 'Check the request and retry explicitly.',
+          ...refusalDetail(error),
         },
       });
   });

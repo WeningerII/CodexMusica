@@ -161,6 +161,8 @@ public analysis on (`LIBRARY_PUBLIC` not `0`), the search store installed and th
   re-hashed with `X-Library-SHA256`. Create answers 202 (new) or 200 (exact
   retry), 409 `STALE_READING` with `current_revision`, 403
   `READING_UNAVAILABLE`, and 503 `STORE_RECOUNTING` while usage is unknown.
+  A resume refused 409 `DISCOVERY_UNAVAILABLE` names the `cause` and the `log`
+  (or `null`) in its error body, as the Site bridge's does.
 - **Every response is `Cache-Control: private, no-store`.** Another viewer's
   job is 404. Methods route strictly (no `GET …/cancel` read). Every non-GET
   body must be `application/json`, which forces a CORS preflight.

@@ -18,7 +18,12 @@
 // 404. Methods route strictly. Limits are owner decision 4 (LIBRARY_LIMITS).
 import crypto from 'node:crypto';
 import express from 'express';
-import { publicReaderJob, validateRequest, createAnalysisJob } from './reader_routes.js';
+import {
+  publicReaderJob,
+  refusalDetail,
+  validateRequest,
+  createAnalysisJob,
+} from './reader_routes.js';
 import { LIBRARY_LIMITS, Windows, clientIp } from './ratelimit.js';
 import { Worker } from 'node:worker_threads';
 import { analysisLayout, analysisTail, canonical } from './library_exports.js';
@@ -531,6 +536,7 @@ export function libraryViewerRouter({
         message: error.message,
         remedy: REMEDY[error.code] || 'Check the request and retry explicitly.',
         ...extra,
+        ...refusalDetail(error),
       },
     });
   });

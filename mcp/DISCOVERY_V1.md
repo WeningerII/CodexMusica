@@ -2045,7 +2045,11 @@ Nothing is ever reinterpreted, and missing state is never rebuilt.
 | `INVARIANT_FAILURE` | — (the job pauses) | worker | `CURSOR_BYTES`, `CONTINUATION_BYTES`, `REFUSAL_BYTES` or `WITNESS_FIELDS` passed, or an entry the worker generated breaks F1 (a float, a lone surrogate, an object, an integer out of range or a depth past `ENTRY_DEPTH`; §2.11): an engine defect, naming no cause, never a truncation or a skip; its message names the bound and its value, such as `REFUSAL_BYTES (543)`, or the rule, `breaks F1: <what>` (§3, §3.1, §3.2) |
 
 `DISCOVERY_UNAVAILABLE` always names its cause. 409 matches `STALE_READING`; 410 stays with
-`RESULT_EXPIRED`, because here the result is not gone. The Log column says whether a reply's
+`RESULT_EXPIRED`, because here the result is not gone. A route's 409 error body names it too
+(BB8 6719406992, call 7): on the Site bridge and on `/library/v1`, the body of a
+`DISCOVERY_UNAVAILABLE` refusal, a resume's included, carries `cause` and `log` beside `code`,
+`message` and `remedy`, copied only when the cause is one of the table's and the log one of §2.3's
+or `null`, so it names nothing the record's validated `unavailable` does not. The Log column says whether a reply's
 `error_log` names a log (`required`), may (`optional`) or must not (`none`); §2.7's `log` follows
 it. The one exception is `chain_broken` for a malformed `record.discovery`, whose release is the
 store's own and names log `null` (§2.7, §7.4; BB8 6709891376, ruling 2). That release is not a

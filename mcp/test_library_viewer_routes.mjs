@@ -20,7 +20,7 @@ import { LIBRARY_LIMITS } from './ratelimit.js';
 import { ExportStore, buildExportStore, zipChunks } from './library_exports.js';
 import { reading, writeExport, readZip, sha } from './test_library_fixtures.mjs';
 import { createAdmission } from './library_admission.js';
-import { createReaderRouter, signReaderRequest } from './reader_routes.js';
+import { createReaderRouter, refusalDetail, signReaderRequest } from './reader_routes.js';
 import { ReaderScheduler } from './reader_scheduler.js';
 
 const coverage = {
@@ -811,6 +811,123 @@ test('a body that does not parse answers the JSON, uncached refusal', async (t) 
   assert.equal(res.headers.get('cache-control'), 'private, no-store');
   assert.ok((await res.json()).error.code);
 });
+
+// BB8 6719406992 (call 7): a resume refused DISCOVERY_UNAVAILABLE (409)
+// names its cause and log in the error body, on both create paths' routes
+// (/library/v1 and the Site bridge): a saved release with its own, and a
+// pending one as chain_broken with log null. Nothing else is added: the
+// body is code, message, remedy, cause and log, and the job view shows the
+// release's reason.
+test('a resume refused DISCOVERY_UNAVAILABLE names its cause and log in the 409 body, on both routes', async (t) => {
+  const RELEASED = {
+    version: 1,
+    epoch: 0,
+    logs: {},
+    verified: {},
+    unavailable: {
+      cause: 'segment_missing',
+      log: 'alt_cells',
+      released: { alt_cells: 'a'.repeat(64) },
+    },
+  };
+  const plant = (store, id, kind) => {
+    const record = store.records.get(id);
+    if (kind === 'pending') store.pendingRelease.set(id, true);
+    // As U1 saves it (§8): the reason copied from `unavailable`.
+    else
+      store._open(() =>
+        store._save(
+          {
+            ...record,
+            discovery: structuredClone(RELEASED),
+            reason: { code: 'DISCOVERY_UNAVAILABLE', ...structuredClone(RELEASED.unavailable) },
+          },
+          true
+        )
+      );
+  };
+  const want = {
+    saved: { cause: 'segment_missing', log: 'alt_cells' },
+    pending: { cause: 'chain_broken', log: null },
+  };
+  for (const kind of ['saved', 'pending']) {
+    {
+      const { browser, store } = await setup(t);
+      const owner = browser();
+      const id = (await owner.analyse()).body.job.id;
+      await owner.call('POST', `/jobs/${id}/cancel`, { headers: { 'Idempotency-Key': 'c' } });
+      plant(store, id, kind);
+      const resumed = await owner.call('POST', `/jobs/${id}/resume`, {
+        headers: { 'Idempotency-Key': 'r' },
+      });
+      assert.equal(resumed.status, 409, `${kind}: /library/v1`);
+      assert.deepEqual(
+        Object.keys(resumed.body.error).sort(),
+        ['cause', 'code', 'log', 'message', 'remedy'],
+        `${kind}: /library/v1 body keys`
+      );
+      assert.deepEqual(
+        pickError(resumed.body.error),
+        { code: 'DISCOVERY_UNAVAILABLE', ...want[kind] },
+        `${kind}: /library/v1 cause and log`
+      );
+      const view = (await owner.call('GET', `/jobs/${id}`)).body.job;
+      assert.deepEqual(
+        [view.reason?.code, view.reason?.cause, view.reason?.log],
+        ['DISCOVERY_UNAVAILABLE', want[kind].cause, want[kind].log],
+        `${kind}: the job view shows the release`
+      );
+    }
+    {
+      const { store, bridgeCreate, bridgeCall } = await setup(t, { bridge: true });
+      const a = await bridgeCreate('short', 'site-viewer', 'k1');
+      const binding = { job: a.body.job.id, capability: a.body.capability, attempt: 0 };
+      const route = `/internal/reader/jobs/${a.body.job.id}`;
+      await bridgeCall('POST', `${route}/cancel`, { ...binding, generation: 0, idempotency: 'c' });
+      plant(store, a.body.job.id, kind);
+      const resumed = await bridgeCall('POST', `${route}/resume`, {
+        ...binding,
+        generation: 0,
+        idempotency: 'r',
+      });
+      assert.equal(resumed.status, 409, `${kind}: bridge`);
+      assert.deepEqual(
+        Object.keys(resumed.body.error).sort(),
+        ['cause', 'code', 'log', 'message', 'remedy'],
+        `${kind}: bridge body keys`
+      );
+      assert.deepEqual(
+        pickError(resumed.body.error),
+        { code: 'DISCOVERY_UNAVAILABLE', ...want[kind] },
+        `${kind}: bridge cause and log`
+      );
+    }
+  }
+  // Another refusal adds nothing, and only a cause the contract names and a
+  // log it names (or null) are ever copied: no other field of the error.
+  const { browser } = await setup(t);
+  const owner = browser();
+  const id = (await owner.analyse()).body.job.id;
+  const resumed = await owner.call('POST', `/jobs/${id}/resume`, {
+    headers: { 'Idempotency-Key': 'r' },
+  });
+  assert.equal(resumed.body.error.code, 'INVALID_JOB_STATE');
+  assert.equal(Object.hasOwn(resumed.body.error, 'cause'), false);
+  const forged = (fields) =>
+    refusalDetail(Object.assign(new Error('x'), { code: 'DISCOVERY_UNAVAILABLE', ...fields }));
+  assert.deepEqual(forged({ cause: 'segment_missing', log: 'seen', released: {}, job: 'j' }), {
+    cause: 'segment_missing',
+    log: 'seen',
+  });
+  assert.deepEqual(forged({ cause: 'not_a_cause', log: 'seen' }), {});
+  assert.deepEqual(forged({ cause: 'chain_broken', log: 'not_a_log' }), { cause: 'chain_broken' });
+  assert.deepEqual(forged({ cause: 'chain_broken' }), { cause: 'chain_broken' });
+  assert.deepEqual(
+    refusalDetail(Object.assign(new Error('x'), { code: 'STALE_READING', cause: 'chain_broken' })),
+    {}
+  );
+});
+const pickError = ({ code, cause, log }) => ({ code, cause, log });
 
 test('a private-bridge resume shares the long-reading rule, in both orders', async (t) => {
   {
