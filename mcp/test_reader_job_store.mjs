@@ -4849,6 +4849,91 @@ test('write path: complete() of a job whose malformed release is pending complet
   );
 });
 
+// Q5 (BB8 23:20Z and 6714569541, on Step 8): complete() of a job whose release
+// was saved erases its trace (unavailable) with discovery: null. The trace is
+// logged once, after that save lands, as READER_DISCOVERY_TRACE_ERASED, with
+// the cause, the log and the released heads; a refused completion erases
+// nothing and logs nothing, and a job with no saved release logs no such line.
+test('Q5: complete() after a saved release logs its trace once, when the erasing save lands', async (t) => {
+  const TRACE = 'READER_DISCOVERY_TRACE_ERASED';
+  const saved = u2Inputs(t, 'saved');
+  assert.equal(await saved.store.recount(), true);
+  const before = clone(saved.store.records.get(saved.id).discovery.unavailable);
+  assert.ok(before.cause && Object.keys(before.released).length, 'a trace to erase');
+  saved.store.records.get(saved.id).cursor = { phase: 'done', done: true };
+  // Refused at its save: a quota pause, nothing erased, nothing logged.
+  const save = saved.store._save;
+  const refuse = t.mock.method(saved.store, '_save', function (input, ...rest) {
+    if (input.id === saved.id && input.state === 'completed')
+      throw Object.assign(new Error('quota'), { code: 'RESOURCE_LIMIT', status: 507 });
+    return save.call(this, input, ...rest);
+  });
+  let seen = eventsOf(t);
+  const paused = finish(saved.store, { id: saved.id, attempt: 1, fence: saved.fence }, 0);
+  t.mock.restoreAll();
+  refuse.mock.restore();
+  assert.equal(paused.state, 'paused');
+  assert.deepEqual(saved.store.records.get(saved.id).discovery.unavailable, before, 'kept');
+  assert.deepEqual(
+    seen.filter((e) => e.event === TRACE),
+    [],
+    'a refused save logs nothing'
+  );
+  // A released job is never dispatched again (§8, U2), so the landing save is
+  // shown on a second job planted the same way.
+  const landed = u2Inputs(t, 'saved');
+  assert.equal(await landed.store.recount(), true);
+  landed.store.records.get(landed.id).cursor = { phase: 'done', done: true };
+  seen = eventsOf(t);
+  const out = finish(landed.store, { id: landed.id, attempt: 1, fence: landed.fence }, 0);
+  for (let i = 0; i < 2; i++) landed.store.lease(); // later points log nothing more
+  t.mock.restoreAll();
+  assert.equal(out.state, 'completed');
+  assert.equal(landed.store.records.get(landed.id).discovery, null, 'the trace erased');
+  assert.deepEqual(
+    seen.filter((e) => e.event === TRACE),
+    [{ level: 'warn', event: TRACE, job: landed.id, ...before }],
+    'logged once, with the cause, the log and the released heads'
+  );
+  assert.deepEqual(
+    seen.map((e) => e.event),
+    [TRACE],
+    'the one line, and no release line again'
+  );
+  // No saved release: a pending malformed release completes as a release
+  // (logged READER_DISCOVERY_RELEASED), a live state and no discovery at all
+  // log no trace line.
+  const pending = u2Inputs(t, 'pending');
+  await pending.ready();
+  pending.store.records.get(pending.id).cursor = { phase: 'done', done: true };
+  seen = eventsOf(t);
+  finish(pending.store, { id: pending.id, attempt: 1, fence: pending.fence }, 0);
+  t.mock.restoreAll();
+  assert.deepEqual(
+    seen.map((e) => e.event),
+    ['READER_DISCOVERY_RELEASED']
+  );
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  const live = replayFixture(t, fx);
+  commitFrame(live.store, live.lease, {
+    discovery: { epoch: 0, resets: [], seals: [] },
+    cursor: { ...fx.frames.at(-1).cursor, done: true },
+  });
+  seen = eventsOf(t);
+  assert.equal(finish(live.store, live.lease, 0).discovery, null);
+  t.mock.restoreAll();
+  assert.deepEqual(seen, [], 'a live state completes with no line');
+  // Inert on main: a record with no discovery logs nothing new.
+  const { store } = fixture(t);
+  const plain = store.lease(create(store).record.id);
+  commit(store, plain);
+  seen = eventsOf(t);
+  const done = finish(store, plain);
+  t.mock.restoreAll();
+  assert.equal(Object.hasOwn(done, 'discovery'), false);
+  assert.deepEqual(seen, [], 'no line');
+});
+
 // And a completion whose save is refused is a quota pause: at full quota its
 // U2 save is refused too, so the fallback keeps the release pending, unlogged.
 test('write path: a refused complete() of a job whose malformed release is pending keeps it pending', async (t) => {

@@ -1043,6 +1043,14 @@ export class ReaderJobStore {
     if (cause === 'segment_corrupt') console.error(line);
     else console.warn(line);
   }
+  // One log line when complete() erases a saved release's trace (Q5): its
+  // cause, its log and the heads it released, all of the record's validated
+  // unavailable (§2.7), so nothing else is named.
+  _logTraceErased(job, { cause, log, released }) {
+    console.warn(
+      JSON.stringify({ event: 'READER_DISCOVERY_TRACE_ERASED', job, cause, log, released })
+    );
+  }
   // The release §7.4 gives a malformed record.discovery (§2.7; BB8
   // 6700200435, condition 4): the per-state rules of _release, with the
   // well-formed released shape, cause chain_broken and log null. `epoch` is
@@ -1841,8 +1849,13 @@ export class ReaderJobStore {
           'Method rows do not reconcile with the complete coverage census.'
         );
     }
+    // Q5 (BB8 23:20Z, on Step 8): a release already saved holds its trace in
+    // `unavailable`, which the completing save's null erases. It is read here,
+    // under the lock, before that save, and logged once the save lands.
+    let trace = null;
     const done = this._open(() => {
       const record = this._leaseRecord(id, attempt, fence);
+      trace = this._discoveryShape(record) === 'released' ? record.discovery.unavailable : null;
       if (record.cancel_requested)
         throw problem(
           'CANCEL_REQUESTED',
@@ -1909,9 +1922,13 @@ export class ReaderJobStore {
     // that save, which releases the whole of `discovery` (null): it is no
     // longer pending, and is logged once, as every release is. A quota pause
     // carries it through _saveReason instead.
+    // A saved release's trace (Q5) is logged once its erasing save has
+    // returned: a refused save erased nothing, and the trace stays in the
+    // record for the completion that lands.
     if (['completed', 'completed_with_refusals'].includes(done.state)) {
       this.chains.delete(id);
       if (this.pendingRelease.delete(id)) this._logRelease(id, 'chain_broken', null);
+      if (trace) this._logTraceErased(id, trace);
     }
     return done;
   }

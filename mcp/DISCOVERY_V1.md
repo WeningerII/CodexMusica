@@ -86,7 +86,7 @@ language's own parser checks each. So any change to that code fails until the cl
 read again and the digest pinned again, and a citation of a line number, or of a symbol no row
 pins, fails too. A `file:symbol` citation names the symbol; its rows name the statements the
 claim rests on. Each row names the sections it backs, each citation of a row's symbol in a section
-has a row there, and the rows' ranges, digests aside, are held to the digest `ac173b65fd2aeda4` in this
+has a row there, and the rows' ranges, digests aside, are held to the digest `d94012f3dcb28033` in this
 note, so a row deleted, narrowed or moved changes this text. Two citations name a comment or a
 docstring, not code (`reader_scheduler.js:createCatalogResolver`'s note on engine commits and
 `analysis.py:resolve_detail_records`' docstring); those rows hold the text as written. Every
@@ -740,6 +740,11 @@ Derived bounds, computed from the constants (not measured):
   about 200 bytes in `logs` and as much again in `verified`), plus today's record fields,
   including the inline page refs while `page_count` ≤ 250 (`reader_job_store.js:commitCheckpoint`). R2's
   store tests hold a record to that bound.
+- **The declaration set** takes no bound of its own (BB8, on c21). It is bounded at admission by
+  the request body it arrives in: both create paths parse the body with `express.json` at
+  `HTTP_REQUEST_BYTES`, 4.5 MiB (`payload_limits.js:HTTP_REQUEST_BYTES`, `server_http.js:module`).
+  The store then holds the request to 2 MiB when it creates the job, and a record past 2 MiB is
+  refused 413 at its save (`reader_job_store.js:encoded`).
 
 ### 3.1 Deriving `CURSOR_BYTES` (BB8 6678702125, ruling 2)
 
@@ -1768,7 +1773,12 @@ Each release point is a single record save; GC then reclaims the segments.
 
 - an epoch advance (§2.6);
 - a `row_seen` reset (§2.6);
-- `complete()`, which saves `discovery: null` (`reader_job_store.js:complete`);
+- `complete()`, which saves `discovery: null` (`reader_job_store.js:complete`). On a job whose
+  release was saved already, that null erases its trace, `unavailable`: the trace is read under
+  the lock before the save and, once the save lands, logged once at warn level as
+  `READER_DISCOVERY_TRACE_ERASED`, with the job, the cause, the log and the released heads, all
+  from the record's validated `unavailable` (§2.7). A completion refused at its save erases nothing
+  and logs nothing, and a job with no saved release logs no such line (BB8 6714569541, Q5);
 - expiry or delete: `_tombstone` rebuilds the record without the field (`reader_job_store.js:_tombstone`);
 - reconciliation (§7.4), a full read in `resume()` that fails (§5.1), and a pause with code
   `DISCOVERY_UNAVAILABLE` (§8), each of which also sets `unavailable` (§2.7, U1).
@@ -2360,6 +2370,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 51 | BB8 6709891376 (rulings 1–3 on R2's Step 6 questions) | (1) D1 as built: a `verified` that does not name exactly the logs `logs` names is not of §2.7's shape, so the value is malformed, and a release that could grow never takes a pending path of its own; (2) the `chain_broken` cause row names the malformed record in its Rule and Log columns, and the module's test holds that row to `DISCOVERY_CAUSES` through a closed list of exactly one exception; (3) a new rule, M1: a `record.discovery` that is present, not `null`, and not of §2.7's shape is malformed, released `chain_broken` with log `null`, never dispatched and never a GC root | §2.7, §7.4, §8, §13 | `bad/malformed_record_discovery.json`; the store tests; `test_reader_discovery`'s cause-table test |
 | 52 | BB8 6712649145 (review of `eb3fc2fff`, pins 1 and 2; call 3 on Step 7) | (1) a U2 save that carries a pending malformed release and is refused saves without it only if the release is deferred, not lost: once room is freed, the next `lease()` with usage known, the reconciliation after a restart, or the next U2 save that carries it completes the release in one save, with the U2 reason and `READER_DISCOVERY_RELEASED` logged once, as every release is; (2) the store tests pin the case and control names of `bad/malformed_record_discovery.json` as the fixtures suite does | §7.4, §8 | the store tests |
 | 53 | #656 Step 9 (design v2, v1 Step 4) | W4's shape and bound checks, made only when the frame carries `discovery`: exact keys on `cursor.discovery`, its logs, `inventory`, `groups` and `groups.current`; the groups' line pairs, order and bounds, and `through` never moving back within the epoch; the inventory fixed once non-null within the epoch; the witness of the frame's epoch with its fields within `WITNESS_FIELDS`; `continuation`, each refusal and the cursor without `discovery` and `continuation` within their byte bounds, measured by the store's sorted `canonical()`; no terminal input in `methods[*]`; every cursor number outside the entries and `continuation` an integer from 0 to 2⁵³ − 1 | §2.8, §3, §3.1, §3.2, §4 W4 | `bad/cursor_over_bound.json` (built from `builders.mjs` in the store tests too), `good/codec_error_mapping.json`'s cursor integer fields, `good/witness_cursor_option2.json`; the store tests |
+| 54 | BB8 6714569541 (review of `c9e44f7ba`, on Step 8); BB8's rulings on R2's Step 8 calls (23:20Z) | (D-1) `complete()` completes a pending malformed release in its save, and is not its refuser; (c21) no new bound on the declaration set: it is bounded at admission by `HTTP_REQUEST_BYTES` (4.5 MiB, `mcp/payload_limits.js`); (Q5) `complete()` after a saved release logs the trace its null save erases, once, when that save lands; the module's comment on an entry breaking both F1 and F2 says it is tagged F1 | §3, §7.2, §7.4 | the store tests (Q5) |
 
 ## 12. Rulings on the items added for confirmation
 

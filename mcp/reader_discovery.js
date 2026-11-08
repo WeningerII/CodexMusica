@@ -254,7 +254,9 @@ function f1Fault(entry) {
 // F1 then F2 on one entry (§2.1, §2.11). Returns its canonical form and that
 // form's UTF-8 byte length, or throws a DiscoveryCodecError tagged F1 (with
 // §3's <what>) or F2. F2 is measured on the canonical form, however the entry
-// was spaced on the wire. Which tag an entry breaking both gets is not pinned.
+// was spaced on the wire. An entry breaking both is tagged F1, because the F1
+// walk runs first: the order the worker's emit pins (§2.11 (d)). The store
+// maps either tag to READER_PROTOCOL.
 export function checkEntry(entry) {
   const what = f1Fault(entry);
   if (what) throw new DiscoveryCodecError('F1', what);
