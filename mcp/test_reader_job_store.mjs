@@ -5801,6 +5801,34 @@ test('W4: within an epoch, through never moves back and a non-null inventory is 
     ['current retired, the next open', { through: [3, 4], current: cur([5, 6]) }],
   ])
     shapeCase(t, [at34, groups(g)], 'accepted', name);
+  // The previous current.lines bounds the frame whatever the previous
+  // through was, not only when it was null (Step 10 review, F1): a record
+  // cursor with a retired group [1,2] and the current group [5,6].
+  const at56 = groups({ through: [1, 2], current: cur([5, 6]) });
+  shapeCase(
+    t,
+    [at56, groups({ through: [1, 2], current: cur([3, 4]) })],
+    'W4',
+    'current moved back, through held'
+  );
+  shapeCase(
+    t,
+    [at56, groups({ through: [3, 4], current: null })],
+    'W4',
+    'retired behind the previous current, through not null'
+  );
+  shapeCase(
+    t,
+    [at56, groups({ through: [1, 2], current: cur([5, 7]) })],
+    'accepted',
+    'current moved on, through held'
+  );
+  shapeCase(
+    t,
+    [at56, groups({ through: [5, 6], current: null })],
+    'accepted',
+    'current retired, through not null before'
+  );
   shapeCase(
     t,
     [at34, groups({ through: null, current: cur([1, 2]) }, 1)],

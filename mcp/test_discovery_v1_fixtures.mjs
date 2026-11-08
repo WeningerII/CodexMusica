@@ -3467,6 +3467,21 @@ test('bad/current_moved_back.json: the current group never moves back; its contr
     { through: [3, 4], current: null },
   ])
     assert.deepEqual(rules(groups(g), at35), ['W4'], `behind [3,5]: ${JSON.stringify(g)}`);
+  // The previous current.lines bounds the frame whatever the previous
+  // through was, not only when it was null (Step 10 review, F1): a record
+  // cursor with a retired group [1,2] and the current group [5,6].
+  const at56 = clone(fx.record);
+  at56.cursor.discovery.groups = { through: [1, 2], current: { lines: [5, 6], keys: [] } };
+  for (const g of [
+    { through: [1, 2], current: { lines: [3, 4], keys: [] } },
+    { through: [3, 4], current: null },
+  ])
+    assert.deepEqual(rules(groups(g), at56), ['W4'], `behind [5,6]: ${JSON.stringify(g)}`);
+  for (const g of [
+    { through: [1, 2], current: { lines: [5, 7], keys: [] } },
+    { through: [5, 6], current: null },
+  ])
+    assert.deepEqual(rules(groups(g), at56), [], `at or after [5,6]: ${JSON.stringify(g)}`);
   // A new epoch starts again: the record's epoch is behind the frame's.
   const advanced = clone(fx.frames[0]);
   advanced.discovery.epoch = 1;
