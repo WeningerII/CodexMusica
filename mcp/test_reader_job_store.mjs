@@ -7,7 +7,7 @@ import { createHash } from 'node:crypto';
 import { test } from 'node:test';
 import express from 'express';
 import { ReaderJobStore, READER_LIMITS, decodeStoredObject } from './reader_job_store.js';
-import { canonicalJSON, createCatalogResolver } from './reader_scheduler.js';
+import { ReaderScheduler, canonicalJSON, createCatalogResolver } from './reader_scheduler.js';
 import { createReaderRouter, signReaderRequest } from './reader_routes.js';
 import {
   DISCOVERY_LIMITS,
@@ -6482,5 +6482,260 @@ test('lease walk: a segment missing outside reconciliation is STORAGE_CORRUPT (b
     const statted = walkOnce(t, again.store, inc.record.id);
     assertWalkRefused(statted, 'missing', `statted gzip=${gzip}`);
     assert.deepEqual(statted.read, [], 'refused at the stat, before any read');
+  }
+});
+
+test('lease walk: a planted head with no list gets no partial list from a commit, and the next lease refuses R5', (t) => {
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  const record = { discovery: fx.frames[1].expect.record_discovery, cursor: fx.frames[1].cursor };
+  const job = writeJob(t, fx, { record, mock: true });
+  commitFrame(job.store, job.lease, fx.frames[2]);
+  assert.deepEqual(listsOf(job.store, job.id), { variants: [] }, 'no partial list');
+  const walk = walkOnce(t, job.store, job.id);
+  assertWalkRefused(walk, 'R5', 'a non-null head with no list');
+  assert.deepEqual([walk.read, walk.stat], [[], []], 'refused before any stat or read');
+  // A log whose head is null and that has no list holds the empty one.
+  t.mock.restoreAll(); // writeJob's mock of reconciliation
+  const inc = loadFixture('good/lease_incremental_walk.json');
+  const { store } = leaseFixture(t, inc);
+  store.chains.get(inc.record.id).delete('variants');
+  const passed = walkOnce(t, store, inc.record.id);
+  assert.equal(passed.error, null, 'a null head with no list passes R5');
+  assert.deepEqual(passed.payload.discovery.paths.variants, []);
+  assert.deepEqual(passed.read, inc.expect.lease.read);
+});
+
+test('lease walk: the refusals before the walk, in order: a pending release, then unavailable, reading nothing', (t) => {
+  const fx = loadFixture('good/lease_incremental_walk.json');
+  const { store } = leaseFixture(t, fx);
+  store.pendingRelease.set(fx.record.id, true);
+  let walk = walkOnce(t, store, fx.record.id);
+  assert.deepEqual(
+    [walk.error?.code, walk.error?.status, walk.error?.cause, walk.error?.log],
+    ['DISCOVERY_UNAVAILABLE', 409, 'chain_broken', null],
+    'a pending release refuses exactly as after its save'
+  );
+  assert.deepEqual([walk.read, walk.stat, walk.saved], [[], [], false]);
+  store.pendingRelease.delete(fx.record.id);
+  // A running job's release keeps its lease; its next workerPayload refuses.
+  store._open(() =>
+    store._release(store.records.get(fx.record.id), { cause: 'segment_missing', log: 'alt_cells' })
+  );
+  walk = walkOnce(t, store, fx.record.id);
+  assert.deepEqual(
+    [walk.error?.code, walk.error?.status, walk.error?.cause, walk.error?.log],
+    ['DISCOVERY_UNAVAILABLE', 409, 'segment_missing', 'alt_cells']
+  );
+  assert.deepEqual([walk.read, walk.stat, walk.saved], [[], [], false]);
+  // Expiry still comes first, as before the walk.
+  const { store: other } = leaseFixture(t, fx);
+  const live = other.records.get(fx.record.id);
+  other.records.set(fx.record.id, { ...live, expires_at: 0 });
+  refused(() => other.workerPayload(fx.record.id), 'RESULT_EXPIRED');
+});
+
+test('lease walk: a job holding no discovery is never walked, and gains no key; one with discovery null keeps null', (t) => {
+  const { store } = fixture(t);
+  const job = create(store);
+  const lease = store.lease(job.record.id);
+  let walk = walkOnce(t, store, lease.id);
+  assert.equal(walk.error, null);
+  assert.equal(Object.hasOwn(walk.payload, 'discovery'), false, 'no key, as today');
+  assert.deepEqual(
+    [walk.read, walk.stat, walk.saved, walk.generationMoved],
+    [[], [], false, false]
+  );
+  store._open(() => store._save({ ...store.records.get(lease.id), discovery: null }, true));
+  walk = walkOnce(t, store, lease.id);
+  assert.equal(walk.payload.discovery, null);
+  assert.deepEqual([walk.read, walk.saved], [[], false]);
+});
+
+test('lease walk: the verified save is skipped on STORE_RECOUNTING or RESOURCE_LIMIT, never refusing the lease; the next walk reads again', (t) => {
+  const fx = loadFixture('good/lease_incremental_walk.json');
+  for (const [code, status, skipped] of [
+    ['STORE_RECOUNTING', 503, true],
+    ['RESOURCE_LIMIT', 507, true],
+    ['RESOURCE_LIMIT', 413, false],
+    ['STORE_RECOUNTING', 507, false],
+  ]) {
+    const name = `${code} ${status}`;
+    const { store } = leaseFixture(t, fx);
+    const capacity = t.mock.method(store, '_capacity', () => {
+      throw Object.assign(new Error(name), { code, status });
+    });
+    const walk = walkOnce(t, store, fx.record.id);
+    capacity.mock.restore();
+    assert.equal(capacity.mock.callCount(), 1, `${name}: the save was attempted once`);
+    assert.equal(walk.saved, false, `${name}: nothing saved`);
+    assert.deepEqual(walk.record.discovery.verified, fx.record.discovery.verified, name);
+    if (!skipped) {
+      assert.equal(walk.error?.code, code, `${name}: any other refusal is the lease's`);
+      continue;
+    }
+    assert.equal(walk.error, null, `${name}: the lease is not refused`);
+    assert.deepEqual(walk.payload.discovery, atStore(store, fx.expect.lease.payload), name);
+    const next = walkOnce(t, store, fx.record.id);
+    assert.deepEqual(next.read, fx.expect.lease.read, `${name}: the next walk reads from there`);
+    assert.equal(next.saved, true);
+    assert.deepEqual(next.record.discovery.verified, fx.expect.lease.verified);
+  }
+});
+
+test('lease walk: walk then commit (c15): one walk save before the first commit; the commit sees the saved record; a quota pause keeps the walked verified', (t) => {
+  const fx = loadFixture('good/lease_incremental_walk.json');
+  for (const gzip of [false, true]) {
+    const { store, lease } = leaseFixture(t, fx, { gzip });
+    const saves = [];
+    const save = store._save;
+    t.mock.method(store, '_save', function (input, ...rest) {
+      const out = save.call(this, input, ...rest);
+      saves.push(out.discovery?.verified);
+      return out;
+    });
+    const walk = walkOnce(t, store, fx.record.id);
+    assert.deepEqual(
+      saves,
+      [fx.expect.lease.verified],
+      'one save, the walk’s, which read something'
+    );
+    assert.equal(walk.saved, true);
+    // The saved record keeps the lease and the result generation.
+    const leased = store.records.get(fx.record.id);
+    assert.deepEqual(
+      [leased.fence, leased.attempt, leased.generation, leased.last_checkpoint_digest],
+      [lease.fence, lease.attempt, lease.generation, lease.last_checkpoint_digest]
+    );
+    const frame = {
+      cursor: fx.record.cursor,
+      discovery: { epoch: 0, resets: [], seals: [] },
+      previous_generation: leased.generation,
+    };
+    const payload = { ...frame, pages: [], progress: {}, coverage };
+    const committed = store.commitCheckpoint(lease.id, lease.attempt, lease.fence, payload);
+    assert.equal(committed.state, 'running', 'previous_generation sees the saved record');
+    assert.equal(committed.generation, leased.generation + 1);
+    assert.deepEqual(
+      committed.discovery.verified,
+      fx.expect.lease.verified,
+      'a commit never moves verified'
+    );
+    assert.equal(saves.length, 2, 'then the commit’s save');
+    const again = store.commitCheckpoint(lease.id, lease.attempt, lease.fence, payload);
+    assert.deepEqual(again.added_page_paths, [], 'an exact retry');
+    assert.equal(again.generation, committed.generation);
+    assert.equal(saves.length, 2, 'the retry writes nothing');
+    // A commit refused at full quota is a _quotaPause, from the record as saved.
+    const blob = store._blob;
+    t.mock.method(store, '_blob', function (kind, ...rest) {
+      if (kind === 'pages')
+        throw Object.assign(new Error('quota'), { code: 'RESOURCE_LIMIT', status: 507 });
+      return blob.call(this, kind, ...rest);
+    });
+    const paused = store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
+      ...payload,
+      previous_generation: committed.generation,
+      pages: [{ instances: [{ id: 'x' }] }],
+    });
+    assert.equal(paused.state, 'paused');
+    assert.equal(paused.reason.code, 'RESOURCE_LIMIT');
+    assert.deepEqual(
+      paused.discovery.verified,
+      fx.expect.lease.verified,
+      'the walked verified kept'
+    );
+    t.mock.restoreAll();
+  }
+});
+
+test("lease walk: §6.9's store promise: page_paths yield the committed records in commit order, with their multiplicity", (t) => {
+  // 20 records over 16 ids across three commits: ids repeat within a page,
+  // across pages of one commit and across commits.
+  const commits = [
+    [
+      ['a', 'b', 'c', 'a'],
+      ['d', 'e'],
+    ],
+    [
+      ['f', 'g', 'b'],
+      ['h', 'i'],
+    ],
+    [
+      ['j', 'k', 'l', 'm', 'n', 'c'],
+      ['o', 'p', 'a'],
+    ],
+  ];
+  const ids = commits.flat(2);
+  assert.deepEqual([ids.length, new Set(ids).size], [20, 16]);
+  for (const gzip of [false, true]) {
+    const { store } = fixture(t, { gzip });
+    const lease = store.lease(create(store).record.id);
+    let n = 0;
+    for (const pages of commits)
+      store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
+        cursor: { phase: 'pairs', index: n++ },
+        pages: pages.map((page) => ({
+          instances: page.map((id, i) => ({ id, verdict: i % 2 === 0 })),
+        })),
+        progress: {},
+        coverage,
+      });
+    const payload = store.workerPayload(lease.id);
+    assert.deepEqual(payload.committed_page_paths, payload.page_paths);
+    // As the worker's read_page_object reads them: bounded, inflated, a
+    // strict UTF-8 decode, then the parse.
+    const read = payload.page_paths.flatMap((file) => {
+      const raw = fs.readFileSync(file);
+      assert.ok(raw.length <= READER_LIMITS.objectBytes);
+      const text = new TextDecoder('utf-8', { fatal: true }).decode(decodeStoredObject(raw));
+      return JSON.parse(text).instances.map((r) => r.id);
+    });
+    assert.deepEqual(read, ids, `gzip=${gzip}: no redelivery, deduplication or reordering`);
+    assert.equal(payload.page_paths.length, 6);
+  }
+});
+
+test('lease walk: the bridge request carries the walk’s discovery, with no verified and no unavailable key (c14); a job with none sends none', async (t) => {
+  const fx = loadFixture('good/lease_incremental_walk.json');
+  for (const held of [true, false]) {
+    const { directory, store: first } = fixture(t);
+    let id = create(first).record.id;
+    let store = first;
+    if (held) {
+      // At the head of the queue, ahead of the created job.
+      plantFixture(directory, first.records.get(id), fx, { job: { queue_order: 0 } });
+      store = walkStore(t, directory);
+      id = fx.record.id;
+    }
+    const requests = [];
+    const scheduler = new ReaderScheduler({
+      store,
+      bridge: {
+        capacity: () => ({ active: 0, admitted: 0, queued: 0 }),
+        runReaderLease: async (request) => {
+          requests.push(JSON.stringify(request));
+          return { code: 0, reader_result: { status: 'yield', reason: 'YIELD' } };
+        },
+      },
+      resolveIdentity: async () => identity,
+      resolveSource: async () => ({ source: { text: 'line' } }),
+    });
+    t.mock.method(scheduler, 'kick', () => {});
+    try {
+      await scheduler.pump();
+    } finally {
+      scheduler.stop();
+    }
+    assert.equal(requests.length, 1, `held=${held}: one lease`);
+    const request = JSON.parse(requests[0]);
+    assert.equal(/"(verified|unavailable)"/.test(requests[0]), false, 'never the store’s own');
+    if (!held) {
+      assert.equal(Object.hasOwn(request, 'discovery'), false, 'no key, as today');
+      continue;
+    }
+    assert.deepEqual(request.discovery, atStore(store, fx.expect.lease.payload));
+    assert.deepEqual(store.records.get(id).discovery.verified, fx.expect.lease.verified, 'walked');
+    assert.deepEqual(Object.keys(request.discovery).sort(), ['paths', 'summary', 'version']);
+    assert.equal(store.records.get(id).state, 'queued', 'the yield requeued it');
   }
 });
