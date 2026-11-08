@@ -4923,6 +4923,22 @@ test('Q5: complete() after a saved release logs its trace once, when the erasing
   assert.equal(finish(live.store, live.lease, 0).discovery, null);
   t.mock.restoreAll();
   assert.deepEqual(seen, [], 'a live state completes with no line');
+  // Only a validated unavailable is a trace: a value that is not of §2.7's
+  // shape, though it holds an `unavailable`, logs none.
+  const odd = replayFixture(t, fx);
+  commitFrame(odd.store, odd.lease, {
+    discovery: { epoch: 0, resets: [], seals: [] },
+    cursor: { ...fx.frames.at(-1).cursor, done: true },
+  });
+  odd.store.records.get(odd.id).discovery = { version: 2, unavailable: clone(before) };
+  seen = eventsOf(t);
+  assert.equal(finish(odd.store, odd.lease, 0).state, 'completed');
+  t.mock.restoreAll();
+  assert.deepEqual(
+    seen.filter((e) => e.event === TRACE),
+    [],
+    'a malformed value logs no trace'
+  );
   // Inert on main: a record with no discovery logs nothing new.
   const { store } = fixture(t);
   const plain = store.lease(create(store).record.id);
@@ -5227,13 +5243,23 @@ function sortedCanonical(value) {
     .join(',')}}`;
 }
 const cbytes = (v) => Buffer.byteLength(sortedCanonical(v));
+// Each frame's cursor.candidate is its index, unless the case sets it, so a
+// frame that repeats the one before is a commit, never an exact retry.
 function shapeCase(t, frames, outcome, name) {
   const job = writeJob(t, FRESH);
+  frames = frames.map((f, k) => {
+    const g = clone(f);
+    if (frames.length > 1 && !Object.hasOwn(g.cursor, 'candidate')) g.cursor.candidate = k;
+    return g;
+  });
   for (const f of frames.slice(0, -1))
     assert.equal(commitFrame(job.store, job.lease, f).state, 'running', `${name}: a setup frame`);
   const last = frames.at(-1);
   if (outcome === 'W4') refusedFrame(job, last, 'W4', name);
-  else assert.equal(commitFrame(job.store, job.lease, last).state, 'running', name);
+  else {
+    assert.equal(commitFrame(job.store, job.lease, last).state, 'running', name);
+    assert.deepEqual(job.store.records.get(job.id).cursor, last.cursor, `${name}: committed`);
+  }
 }
 // minimalFrame() edited, at epoch `epoch` (frame, method_index and
 // cursor.discovery agree, W2).
@@ -5363,6 +5389,15 @@ test('W4: cursor.discovery, its logs, inventory, groups and groups.current hold 
       (c, cd) => (cd.inventory = { count: 1, digest: 'a'.repeat(64), x: 0 }),
     ],
     ['inventory without its digest', (c, cd) => (cd.inventory = { count: 1 })],
+    [
+      'inventory with a short digest',
+      (c, cd) => (cd.inventory = { count: 1, digest: 'a'.repeat(63) }),
+    ],
+    [
+      'inventory with a string count',
+      (c, cd) => (cd.inventory = { count: '1', digest: 'a'.repeat(64) }),
+    ],
+    ['inventory not an object', (c, cd) => (cd.inventory = [1, 'a'.repeat(64)])],
   ];
   for (const [name, edit] of cases) shapeCase(t, [shapeFrame(edit)], 'W4', name);
   // The controls: each object with exactly its keys.
@@ -5439,7 +5474,7 @@ test('W4: within an epoch, through never moves back and a non-null inventory is 
   const through = (pair, epoch = 0) =>
     shapeFrame((c, cd) => (cd.groups = { through: pair, current: null }), epoch);
   shapeCase(t, [through([1, 2]), through([0, 5])], 'W4', 'through moved back');
-  shapeCase(t, [through([1, 2]), through([1, 1 + 0])], 'W4', 'through moved back to one line');
+  shapeCase(t, [through([1, 2]), through([1, 1])], 'W4', 'through moved back to one line');
   shapeCase(t, [through([1, 2]), through(null)], 'W4', 'through moved back to null');
   shapeCase(t, [through([1, 2]), through([1, 2])], 'accepted', 'through held');
   shapeCase(t, [through([1, 2]), through([1, 3])], 'accepted', 'through moved on');
@@ -5491,6 +5526,7 @@ test("W4: the witness is null or well formed, of the frame's epoch, its fields d
     ['a field with a letter past ASCII', witness((w) => (w.fields = ['a.é']))],
     ['a count not an integer', witness((w) => (w.count = 1.5))],
     ['a count below zero', witness((w) => (w.count = -1))],
+    ['a count that is a string', witness((w) => (w.count = '4'))],
     ['a short digest', witness((w) => (w.digest = 'f'.repeat(63)))],
     ['an uppercase digest', witness((w) => (w.digest = 'F'.repeat(64)))],
   ];
