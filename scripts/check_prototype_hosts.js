@@ -204,6 +204,8 @@ const { start } = require('./_pages_server.js');
 const root = path.resolve(__dirname, '..');
 const NS = 'codex-prototype:';
 const LANE_MODULES = {
+  detailphotos: '/prototype/features/media/lightbox.js',
+  librarymetadata: '/prototype/features/library-metadata/sheet.js',
   browse: '/prototype/features/browse-map/discovery.js',
   lyrics: '/prototype/features/lyrics/editor.js',
   library: '/prototype/features/library/explore.js',
@@ -220,6 +222,8 @@ const LANE_MODULES = {
   genretargets: '/prototype/features/genre-targets/targets.js',
 };
 const CTX_KEYS = {
+  detailphotos: ['announce', 'close', 'media', 'overlay', 'photos', 'signal', 'storage'],
+  librarymetadata: ['announce', 'close', 'record', 'signal', 'storage'],
   instrumentoutput: ['announce', 'output', 'signal', 'storage'],
   instrumentactions: ['announce', 'recipe', 'signal', 'storage'],
   genrecategories: ['announce', 'categories', 'discovery', 'signal', 'storage', 'targets'],
@@ -4491,6 +4495,8 @@ const PORT_KEYS = {
 // options, CALLBACK_METHODS), each of which ends with its mount (app.js
 // ending and speaking, #810 6682309672).
 const SUBSCRIBED = {
+  detailphotos: [],
+  librarymetadata: [],
   browse: [],
   genrecategories: ['categories.subscribe', 'discovery.subscribe', 'targets.subscribe'],
   genredetail: ['genre.subscribe'],
@@ -4518,6 +4524,8 @@ const CALLBACK_METHODS = ['speech.speak'];
 // otherwise, went unchecked).
 const DISCLOSURE_METHODS = ['current', 'focusToggle', 'setOpen', 'subscribe'];
 const CTX_VIEWS = {
+  detailphotos: { media: ['resolve'], overlay: ['open'] },
+  librarymetadata: { record: [] },
   browse: {},
   genrecategories: {
     categories: ['allGenres', 'back', 'current', 'openBranch', 'subscribe', 'toggleRoots'],
@@ -8009,6 +8017,31 @@ const STORE_CHECKS = {
         }, hash);
         for (const l of lanes) await waitMounted(page, l);
       }
+      await page.evaluate(async () => {
+        const { openMetadata } = await import('/prototype/app.js');
+        await openMetadata(Object.freeze({ reading_unit_id: 'probe', availability: 'held' }));
+      });
+      await waitMounted(page, 'librarymetadata');
+      expect(
+        same((await probe(page, 'librarymetadata')).keys, CTX_KEYS.librarymetadata),
+        'metadata ctx capabilities'
+      );
+      // Mount the photo lane on a selected detail, then return to Library.
+      // Route changes dispose it; retain its aborted ctx for lifetime accounting.
+      await page.evaluate(async () => {
+        const { instrument } = await import('/prototype/selection.js');
+        instrument.set('oud');
+        location.hash = '#instrument';
+      });
+      await waitMounted(page, 'detailphotos');
+      expect(
+        same((await probe(page, 'detailphotos')).keys, CTX_KEYS.detailphotos),
+        'photo ctx capabilities'
+      );
+      await page.evaluate(() => {
+        location.hash = '#library';
+      });
+      await page.waitForFunction(() => !document.querySelector('[data-panel="library"]').hidden);
       const cid = libData('catalog.json').shelves[0].cards[0][0];
       await page.evaluate((c) => window.__probeCtx.library.openReading(c), cid);
       for (const l of ['libraryreading', 'libraryspeech']) await waitMounted(page, l);
@@ -9682,6 +9715,7 @@ async function recipeChecks(browser, srv) {
 
 (async () => {
   await require('./check_prototype_preview_registration.js').check();
+  await require('./check_prototype_detail_panels.js').check();
   for (const [lane, mod] of Object.entries(LANE_MODULES)) {
     const app = fs.readFileSync(path.join(root, 'prototype', 'app.js'), 'utf8');
     expect(

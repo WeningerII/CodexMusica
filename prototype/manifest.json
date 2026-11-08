@@ -1931,7 +1931,7 @@
       "kind": "D",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/media/lightbox.cjs"
     },
     {
       "n": 211,
@@ -1940,7 +1940,7 @@
       "kind": "M",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/media/lightbox.cjs"
     },
     {
       "n": 212,
@@ -2148,7 +2148,7 @@
       "kind": "L",
       "gate": "check_library_page",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/library-metadata/sheet.cjs"
     },
     {
       "n": 235,

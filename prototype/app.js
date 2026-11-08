@@ -24,7 +24,8 @@ import {
 import { genreDiscovery, countOf } from './discovery.js';
 import { recipeStore } from './recipe-store.js';
 import { loadEngine } from './engine/load.js';
-import { media, speechAdapter } from './adapters.js';
+import { detailPanels } from './detail-panels.js';
+import { media, overlay, speechAdapter } from './adapters.js';
 import { genre, instrument } from './selection.js';
 
 const ROUTES = ['browse', 'genre', 'instrument', 'map', 'lyrics', 'library'];
@@ -340,6 +341,41 @@ LANES.instrument = {
   }),
 };
 
+// Batch 1a: all detail sources remain unavailable in this build. Selection
+// remounts the reviewed lane without inventing a usable image or changing the
+// openPhoto refusal above. Metadata's opener accepts a supplied immutable
+// record; the Works-list/metadata transport is still pending.
+const details = detailPanels({
+  createHost,
+  createOnDemand,
+  photos: ['genre', 'instrument'].map((route) => ({
+    route,
+    panel: document.querySelector(`[data-panel="${route}"]`),
+    selection: route === 'genre' ? genre : instrument,
+    kind: route === 'genre' ? 'tradition' : 'instrument',
+    load: route === 'genre' ? genres.loadGenre : instruments.loadInstrument,
+    media: Object.freeze({ resolve: () => null }),
+    overlay,
+    lane: {
+      id: 'detailphotos',
+      label: 'Detail photos',
+      load: () => import('./features/media/lightbox.js'),
+      unloaded: 'The detail photo record did not load.',
+    },
+  })),
+  metadata: {
+    panel: document.querySelector('[data-panel="library"]'),
+    lane: {
+      id: 'librarymetadata',
+      label: 'Recorded availability and source evidence',
+      load: () => import('./features/library-metadata/sheet.js'),
+      unloaded: 'The source record did not load.',
+    },
+  },
+  warn: (error) => console.warn('[prototype] A detail panel did not end cleanly:', error),
+});
+const openMetadata = (record, options) => details.openMetadata(record, options);
+
 // The Genre page's discovery (#668 6665493327): Categories (rows 163–165)
 // and Find a sound (rows 166–169, 171) read one store, so a count equals its
 // list and a target narrows the same results. The ranked results are the
@@ -588,6 +624,7 @@ genrePanel.addEventListener('keydown', (e) => {
 });
 
 function show(route, { moveFocus }) {
+  details.show(route);
   for (const panel of document.querySelectorAll('[data-panel]')) {
     panel.hidden = panel.dataset.panel !== route;
   }
@@ -636,4 +673,4 @@ fetch('../api/index.json')
 // The discovery and recipe stores, for the host gate
 // (check_prototype_hosts.js), which reads the shell's ranked rows and holds
 // the recipe store to production; lanes get only their ctx.
-export { discovery, recipe };
+export { discovery, recipe, openMetadata };
