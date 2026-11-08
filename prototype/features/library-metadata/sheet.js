@@ -4,8 +4,10 @@
 // record (metadata object, not an HTTP Response or search envelope).
 // Don confirmed this at #668 comment 6641909843. Host owns transport, layering,
 // route/history and inertness. This is a nonmodal dialog.
+// Closable hosts also supply ctx.close(); the host owns teardown and focus return.
 // No persistence is needed; ctx.storage is deliberately unused.
 const STATES = new Set(['held', 'metadata_only', 'research_only', 'rejected', 'readable']);
+// Top-level presentation selects named fields; nested evidence uses this denylist.
 const OMIT = new Set([
   'body',
   'reading',
@@ -117,7 +119,6 @@ export function mount(host, ctx) {
   root.tabIndex = -1;
   const controller = new AbortController();
   const id = typeof ctx.record?.reading_unit_id === 'string' ? ctx.record.reading_unit_id : '';
-  const opener = doc.activeElement;
   let alive = true;
   const record = id && valid(ctx.record, id) ? ctx.record : null;
   const say = (s) => {
@@ -150,7 +151,9 @@ export function mount(host, ctx) {
       `<header><h2 tabindex="-1">${esc((typeof m.title === 'string' && m.title) || 'Source record')}</h2><button type="button" data-lm-close aria-label="Close source record">Close</button></header>` +
       `<p class="lm-badge" data-availability="${esc(m.availability || 'unknown')}">${esc(words(m.availability || 'unknown'))}</p>` +
       (message ? `<p role="status">${esc(message)}</p>` : '') +
-      '<p>This unit is not readable in this view. Admission requires resolving the recorded evidence before a source body can be read or exported.</p>' +
+      (record && record.availability !== 'readable'
+        ? '<p>This unit is not readable in this view. Admission requires resolving the recorded evidence before a source body can be read or exported.</p>'
+        : '') +
       `<dl>${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>` +
       value({
         source_path: m.source_path,
@@ -168,8 +171,7 @@ export function mount(host, ctx) {
     style.remove();
   }
   function close() {
-    unmount();
-    if (opener?.isConnected && typeof opener.focus === 'function') opener.focus();
+    ctx.close();
   }
   root.addEventListener(
     'click',

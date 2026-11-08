@@ -23,6 +23,8 @@ if (process.env.METADATA_MUTATION === 'leak')
   );
 if (process.env.METADATA_MUTATION === 'style')
   source = source.replace('host.append(style);', '/* missing stylesheet */');
+if (process.env.METADATA_MUTATION === 'dd')
+  source = source.replace('<dd>${esc(v)}</dd>', '<dd>${v}</dd>');
 const held = {
   availability: 'held',
   collection_ids: ['col_a'],
@@ -40,7 +42,109 @@ const check = (ok, message) => {
   assert.ok(ok, message);
   count++;
 };
-(async () => {
+// Own resources before any asynchronous setup; a cleanup failure must not
+// prevent the other cleanup or hide the original launch/scenario error.
+async function withResources(server, launch, exercise) {
+  let browser;
+  let primary;
+  let failed = false;
+  let cleanup;
+  try {
+    await new Promise((resolve, reject) => {
+      const onError = (error) => reject(error);
+      server.once('error', onError);
+      server.listen(0, '127.0.0.1', () => {
+        server.removeListener('error', onError);
+        resolve();
+      });
+    });
+    browser = await launch();
+    await exercise(browser, `http://127.0.0.1:${server.address().port}`);
+  } catch (error) {
+    failed = true;
+    primary = error;
+  } finally {
+    cleanup = await Promise.allSettled([
+      Promise.resolve().then(() => browser?.close()),
+      Promise.resolve().then(
+        () =>
+          new Promise((resolve, reject) => {
+            server.close((error) => {
+              if (error && error.code !== 'ERR_SERVER_NOT_RUNNING') reject(error);
+              else resolve();
+            });
+            server.closeAllConnections?.();
+          })
+      ),
+    ]);
+  }
+  const errors = cleanup.filter((r) => r.status === 'rejected').map((r) => r.reason);
+  if (errors.length) {
+    throw new AggregateError(failed ? [primary, ...errors] : errors, 'Scenario cleanup failed', {
+      cause: failed ? primary : errors[0],
+    });
+  }
+  if (failed) throw primary;
+}
+
+// Synthetic mode never calls chromium.launch. Real HTTP servers prove closure;
+// throwing close stubs prove independent cleanup and primary-error retention.
+async function cleanupControls() {
+  for (const mode of ['listen', 'launch', 'setup', 'browser-close', 'both-close', 'success']) {
+    const server = http.createServer();
+    const primary = new Error(mode);
+    const browserError = new Error('browser close');
+    const serverError = new Error('server close');
+    if (mode === 'listen')
+      server.listen = () => {
+        process.nextTick(() => server.emit('error', primary));
+        return server;
+      };
+    const close = server.close.bind(server);
+    let browserClosed = 0;
+    let serverClosed = 0;
+    server.close = (callback) => {
+      serverClosed++;
+      return close((error) => callback(mode === 'both-close' ? serverError : error));
+    };
+    let caught;
+    try {
+      await withResources(
+        server,
+        async () => {
+          if (mode === 'launch') throw primary;
+          return {
+            close() {
+              browserClosed++;
+              if (mode === 'browser-close' || mode === 'both-close') throw browserError;
+            },
+          };
+        },
+        async () => {
+          if (mode === 'setup' || mode === 'both-close') throw primary;
+        }
+      );
+    } catch (error) {
+      caught = error;
+    }
+    assert.equal(server.listening, false, mode + ': HTTP server closed');
+    assert.equal(serverClosed, 1, mode + ': server cleanup attempted once');
+    assert.equal(
+      browserClosed,
+      mode === 'launch' || mode === 'listen' ? 0 : 1,
+      mode + ': acquired browser closed once'
+    );
+    if (mode === 'listen' || mode === 'launch' || mode === 'setup') assert.equal(caught, primary);
+    else if (mode === 'both-close') {
+      assert.equal(caught.cause, primary);
+      assert.deepEqual(caught.errors, [primary, browserError, serverError]);
+    } else if (mode === 'browser-close') assert.deepEqual(caught.errors, [browserError]);
+    else assert.equal(caught, undefined);
+  }
+  console.log('metadata cleanup: 6 synthetic cases passed; no browser launched');
+}
+
+async function run() {
   const server = http.createServer((req, res) => {
     if (req.url === '/sheet.js') {
       res.setHeader('Content-Type', 'text/javascript');
@@ -55,14 +159,7 @@ const check = (ok, message) => {
       '<!doctype html><meta name="viewport" content="width=device-width"><button id="opener">Inspect</button><div id="host"></div><button id="outside">Outside</button>'
     );
   });
-  await new Promise((r) => server.listen(0, '127.0.0.1', r));
-  const base = `http://127.0.0.1:${server.address().port}`;
-  const browser = await chromium.launch({
-    headless: true,
-    executablePath: process.env.CHROMIUM_PATH || '/usr/bin/chromium',
-    args: ['--no-sandbox'],
-  });
-  try {
+  async function exercise(browser, base) {
     const page = await browser.newPage();
     const errors = [];
     const requests = [];
@@ -90,7 +187,22 @@ const check = (ok, message) => {
             }
             return x;
           };
+          const mine = window.ac;
+          let mounted;
+          let ended = false;
+          const host = document.querySelector('#host');
           const ctx = {
+            close: () => {
+              if (ended || mine.signal.aborted || window.ac !== mine || !mounted) return false;
+              ended = true;
+              const active = document.activeElement;
+              const restore = !active || active === document.body || host.contains(active);
+              mounted.unmount();
+              mine.abort();
+              // Fixture retains the reusable container; the real host removes its node.
+              if (restore) document.querySelector('#opener').focus();
+              return true;
+            },
             record: freeze(record),
             storage: {
               read() {
@@ -103,7 +215,8 @@ const check = (ok, message) => {
             announce: (s) => messages.push(s),
             signal: ac.signal,
           };
-          window.handle = mod.mount(document.querySelector('#host'), Object.freeze(ctx));
+          mounted = mod.mount(host, Object.freeze(ctx));
+          window.handle = mounted;
           handle.focus();
         },
         { record, aborted }
@@ -221,7 +334,7 @@ const check = (ok, message) => {
       (await page.locator('#host').textContent()).includes('Not loaded yet'),
       'sparse record preserves unknown evidence'
     );
-    for (const availability of ['metadata_only', 'research_only', 'rejected', 'readable']) {
+    for (const availability of ['held', 'metadata_only', 'research_only', 'rejected', 'readable']) {
       await mount({ ...held, availability });
       check(
         (await page.locator('[data-availability]').getAttribute('data-availability')) ===
@@ -232,7 +345,32 @@ const check = (ok, message) => {
         (await page.locator('#host button').count()) === 1,
         'no reading action for any availability'
       );
+      const note = await page.locator('#host').textContent();
+      check(
+        note.includes('Admission requires resolving the recorded evidence') ===
+          (availability !== 'readable'),
+        'admission guidance follows actual availability'
+      );
+      check(
+        note.includes('This unit is not readable') === (availability !== 'readable'),
+        'unreadability wording follows actual availability'
+      );
     }
+    const hostile = '<img src=x data-dd-injection onerror=alert(1)>';
+    await mount({
+      ...held,
+      contributor_search: hostile,
+      language: hostile,
+      completeness: hostile,
+      work_id: hostile,
+      edition_id: hostile,
+      reading_revision: hostile,
+    });
+    check((await page.locator('#host dd img').count()) === 0, 'DD values do not create elements');
+    check(
+      (await page.locator('#host dd').allTextContents()).filter((x) => x === hostile).length === 6,
+      'DD values preserve escaped literal text'
+    );
     await mount();
     await page.locator('#outside').focus();
     await page.evaluate(() => ac.abort());
@@ -294,11 +432,19 @@ const check = (ok, message) => {
       'only local fixture requests'
     );
     console.log(`metadata sheet: ${count} checks passed; standalone only`);
-  } finally {
-    await browser.close();
-    await new Promise((r) => server.close(r));
   }
-})().catch((e) => {
+  await withResources(
+    server,
+    () =>
+      chromium.launch({
+        headless: true,
+        executablePath: process.env.CHROMIUM_PATH || '/usr/bin/chromium',
+        args: ['--no-sandbox'],
+      }),
+    exercise
+  );
+}
+(process.env.METADATA_CLEANUP_TEST === '1' ? cleanupControls() : run()).catch((e) => {
   console.error(e);
   process.exitCode = 1;
 });
