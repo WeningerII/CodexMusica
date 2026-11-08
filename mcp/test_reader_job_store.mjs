@@ -5630,6 +5630,40 @@ test("W4: the witness is null or well formed, of the frame's epoch, its fields d
   for (const [name, f] of accepted) shapeCase(t, [f], 'accepted', `witness ${name}`);
 });
 
+// The witness holds exactly §2.8's six keys (BB8 6715584092), on both sides:
+// the validator's W4 makes the same check. Each key missing in turn, and one
+// key more (null, an object, a key that only differs by case); the control
+// is the six keys, in any order.
+test('W4: the witness holds exactly the keys of §2.8', (t) => {
+  const KEYS = ['version', 'epoch', 'method_id', 'fields', 'count', 'digest'];
+  assert.deepEqual(Object.keys(WITNESS(3)), KEYS);
+  const witness = (edit) =>
+    shapeFrame((c) => {
+      c.witness = WITNESS(3);
+      edit(c.witness);
+    }, 3);
+  for (const key of KEYS)
+    shapeCase(t, [witness((w) => delete w[key])], 'W4', `witness without ${key}`);
+  for (const [name, edit] of [
+    ['a key more', (w) => (w.extra = 0)],
+    ['a null key more', (w) => (w.extra = null)],
+    ['an object key more', (w) => (w.detail = {})],
+    ['a key more that differs by case', (w) => (w.Count = 4)],
+  ])
+    shapeCase(t, [witness(edit)], 'W4', `witness with ${name}`);
+  shapeCase(t, [witness(() => {})], 'accepted', 'witness with exactly its keys');
+  shapeCase(
+    t,
+    [
+      shapeFrame((c) => {
+        c.witness = Object.fromEntries(Object.entries(WITNESS(3)).reverse());
+      }, 3),
+    ],
+    'accepted',
+    'witness with exactly its keys, in another order'
+  );
+});
+
 test('W4: continuation within CONTINUATION_BYTES; methods[*] with no terminal input and each refusal within REFUSAL_BYTES', (t) => {
   const continuation = (n) => {
     const c = { x: '' };

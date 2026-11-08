@@ -657,6 +657,8 @@ const CURSOR_DISCOVERY_KEYS = Object.freeze({
   inventory: Object.freeze(['count', 'digest']),
   groups: Object.freeze(['current', 'through']),
   current: Object.freeze(['keys', 'lines']),
+  // §2.8's witness, exactly (BB8 6715584092): its six keys and no other.
+  witness: Object.freeze(['count', 'digest', 'epoch', 'fields', 'method_id', 'version']),
 });
 // §3's WITNESS_FIELDS row: each field a dot path of lowercase names, joined by
 // `.`, of at most 64 bytes.
@@ -766,13 +768,13 @@ function cursorShape(cursor, epoch, previous, sizes, canonical, refuse) {
     if (held !== null && held !== undefined && canonical(held) !== canonical(inv))
       W4('the inventory changed within its epoch');
   }
-  // The witness: null, or well formed, of the frame's epoch, its fields dot
-  // paths within WITNESS_FIELDS.
+  // The witness: null, or well formed (exactly §2.8's keys), of the frame's
+  // epoch, its fields dot paths within WITNESS_FIELDS.
   const w = cursor.witness;
   if (
     !(
       w === null ||
-      (plainObject(w) &&
+      (exactKeys(w, CURSOR_DISCOVERY_KEYS.witness) &&
         w.version === 1 &&
         w.epoch === epoch &&
         typeof w.method_id === 'string' &&

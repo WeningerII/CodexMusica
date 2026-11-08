@@ -354,6 +354,8 @@ const DISCOVERY_KEYS = {
   inventory: ['count', 'digest'],
   groups: ['current', 'through'],
   current: ['keys', 'lines'],
+  // §2.8's witness, exactly (BB8 6715584092).
+  witness: ['count', 'digest', 'epoch', 'fields', 'method_id', 'version'],
 };
 const keysAre = (v, which) => same(Object.keys(v).sort(), DISCOVERY_KEYS[which]);
 // Every number in the cursor outside its entries (the tails and the group's
@@ -453,6 +455,7 @@ function cursorShape(cursor, epoch, bad) {
     !(
       w === null ||
       (plainObject(w) &&
+        keysAre(w, 'witness') &&
         w.version === 1 &&
         w.epoch === epoch &&
         typeof w.method_id === 'string' &&
@@ -3409,6 +3412,43 @@ test('W4 holds the group positions: through never moves back, current comes afte
       ['W4'],
       `not a valid position: ${JSON.stringify(groups)}`
     );
+});
+
+// The witness holds exactly §2.8's six keys (BB8 6715584092), as Node's W4
+// checks it: each key missing in turn and one key more are refused by W4
+// alone; the six keys, in either order, are accepted.
+test('W4 holds the witness to exactly its keys', () => {
+  const fx = load('good/seal_sequence_two_logs.json');
+  const record = { discovery: replay(fx).at(-1).discovery, cursor: fx.frames.at(-1).cursor };
+  const epoch = record.cursor.discovery.epoch;
+  const W = {
+    version: 1,
+    epoch,
+    method_id: 'schema:end_rhyme',
+    fields: ['method_id', 'id', 'verdict', 'a.token_ids', 'b.token_ids'],
+    count: 4,
+    digest: 'f'.repeat(64),
+  };
+  const rules = (witness) => {
+    const cursor = clone(record.cursor);
+    cursor.witness = witness;
+    const frame = { discovery: { epoch, resets: [], seals: [] }, cursor };
+    return [...new Set(evaluateFrame(fx, record, frame).violations.map((v) => v.rule))];
+  };
+  assert.deepEqual(rules(W), [], 'the six keys');
+  assert.deepEqual(rules(Object.fromEntries(Object.entries(W).reverse())), [], 'in another order');
+  assert.deepEqual(rules(null), [], 'a null witness');
+  for (const key of Object.keys(W)) {
+    const { [key]: _, ...rest } = W;
+    assert.deepEqual(rules(rest), ['W4'], `without ${key}`);
+  }
+  for (const [name, extra] of [
+    ['a key more', { extra: 0 }],
+    ['a null key more', { extra: null }],
+    ['an object key more', { detail: {} }],
+    ['a key more that differs by case', { Count: 4 }],
+  ])
+    assert.deepEqual(rules({ ...W, ...extra }), ['W4'], name);
 });
 
 test('good/lease_payload_summary_paths.json: the walk, the load and the inventory witness', () => {
