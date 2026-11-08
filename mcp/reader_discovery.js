@@ -255,8 +255,9 @@ function f1Fault(entry) {
 // form's UTF-8 byte length, or throws a DiscoveryCodecError tagged F1 (with
 // §3's <what>) or F2. F2 is measured on the canonical form, however the entry
 // was spaced on the wire. An entry breaking both is tagged F1, because the F1
-// walk runs first: the order the worker's emit pins (§2.11 (d)). The store
-// maps either tag to READER_PROTOCOL.
+// walk runs first: the order the worker's emit pins (§2.11 (d)). Node's own
+// tag is not pinned (§2.11 (d)); only the worker's emit is. The store maps
+// either tag to READER_PROTOCOL.
 export function checkEntry(entry) {
   const what = f1Fault(entry);
   if (what) throw new DiscoveryCodecError('F1', what);
@@ -672,8 +673,9 @@ const pairOrder = (a, b) => a[0] - b[0] || a[1] - b[1];
 
 // Where in the cursor a number is not an integer from 0 to 2^53 - 1, or null.
 // The entries (each log's tail, the current group's keys), which F1 governs,
-// and `continuation`, which is opaque (§2.8), are not walked. An explicit
-// stack, so a deep cursor cannot exhaust the call stack.
+// and `continuation`, which is opaque (§2.8), are not walked. The walk itself
+// keeps an explicit stack; a cursor nested past the call stack still fails
+// earlier, in jsonValue, and later, in the recursive canonical().
 function cursorNumberFault(cursor) {
   const stack = [];
   const members = (v, where, skip = null) => {
@@ -717,6 +719,8 @@ function cursorShape(cursor, epoch, previous, sizes, canonical, refuse) {
   const W4 = (what) => refuse('W4', what);
   const bytes = (v) => Buffer.byteLength(canonical(v), 'utf8');
   const cd = cursor.discovery;
+  // The cursor's own version (§2.8), as the validator's W4 checks it.
+  if (cursor.contract_version !== 2) W4('cursor contract_version is 2');
   // Exact keys on cursor.discovery and each of its logs.
   if (!exactKeys(cd, CURSOR_DISCOVERY_KEYS.discovery) || cd.version !== 1)
     W4('cursor.discovery holds exactly the keys of §2.8');
@@ -792,8 +796,10 @@ function cursorShape(cursor, epoch, previous, sizes, canonical, refuse) {
   )
     W4('continuation shape or CONTINUATION_BYTES');
   // methods[*]: no terminal input, and each refusal within REFUSAL_BYTES.
-  const methods = plainObject(cursor.methods) ? cursor.methods : {};
-  for (const [mid, counts] of Object.entries(methods)) {
+  // Every member is checked, as the validator does, whatever `methods` is: an
+  // array's members are its entries. A member that is not an object holds
+  // neither.
+  for (const [mid, counts] of Object.entries(cursor.methods || {})) {
     if (!plainObject(counts)) continue;
     for (const key of TERMINAL_INPUTS)
       if (Object.hasOwn(counts, key)) W4(`methods[${mid}] holds the terminal input ${key}`);

@@ -8,7 +8,7 @@ import crypto from 'node:crypto';
 const sha = (text) => crypto.createHash('sha256').update(text).digest('hex');
 const clone = (value) => JSON.parse(JSON.stringify(value));
 // The store's canonical(): sorted keys, no whitespace (reader_job_store.js).
-function canonical(value) {
+export function canonical(value) {
   if (value === null || typeof value !== 'object') return JSON.stringify(value);
   if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
   return `{${Object.keys(value)

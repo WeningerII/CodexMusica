@@ -15,9 +15,10 @@ import {
   buildSegment,
   digestStep,
   domainDigest,
+  planDiscovery,
 } from './reader_discovery.js';
 import { plantRecord, storeDirectory } from './reader_store_test_support.mjs';
-import { cursorCase } from './fixtures/discovery_v1/builders.mjs';
+import { canonical as sortedCanonical, cursorCase } from './fixtures/discovery_v1/builders.mjs';
 
 const identity = {
   snapshot: 'snapshot-a',
@@ -4892,7 +4893,7 @@ test('Q5: complete() after a saved release logs its trace once, when the erasing
   assert.equal(landed.store.records.get(landed.id).discovery, null, 'the trace erased');
   assert.deepEqual(
     seen.filter((e) => e.event === TRACE),
-    [{ level: 'warn', event: TRACE, job: landed.id, ...before }],
+    [{ level: 'warn', event: TRACE, job: landed.id, outcome: 'saved', ...before }],
     'logged once, with the cause, the log and the released heads'
   );
   assert.deepEqual(
@@ -4948,6 +4949,62 @@ test('Q5: complete() after a saved release logs its trace once, when the erasing
   t.mock.restoreAll();
   assert.equal(Object.hasOwn(done, 'discovery'), false);
   assert.deepEqual(seen, [], 'no line');
+});
+
+// Q5, the save that throws without a status (review of b3b2a64f5, F-3): it
+// may have landed (§4), and if it did the trace is gone with nothing left to
+// log it, so the trace is logged then, once, as of unknown outcome. A throw
+// before the save starts (a manifest write) erased nothing and logs nothing.
+test('Q5: a completing save that throws without a status logs the trace once, of unknown outcome', async (t) => {
+  const TRACE = 'READER_DISCOVERY_TRACE_ERASED';
+  const lost = (store, kind, stage) => {
+    store.fault = (at, event) => {
+      if (event.kind === kind && at === stage) throw new Error('simulated process loss');
+    };
+  };
+  for (const [stage, landed] of [
+    ['temporary_written', false],
+    ['renamed', true],
+  ]) {
+    const job = u2Inputs(t, 'saved');
+    assert.equal(await job.store.recount(), true);
+    const before = clone(job.store.records.get(job.id).discovery.unavailable);
+    job.store.records.get(job.id).cursor = { phase: 'done', done: true };
+    lost(job.store, 'record', stage);
+    const seen = eventsOf(t);
+    assert.throws(
+      () => finish(job.store, { id: job.id, attempt: 1, fence: job.fence }, 0),
+      (e) => e.code === 'STORAGE_UNAVAILABLE' && e.status === 503,
+      stage
+    );
+    t.mock.restoreAll();
+    assert.deepEqual(
+      seen.filter((e) => e.event === TRACE),
+      [{ level: 'warn', event: TRACE, job: job.id, outcome: 'unknown', ...before }],
+      `${stage}: logged once, of unknown outcome`
+    );
+    // What reached disk: the rename landed the null save, the earlier loss did not.
+    const onDisk = JSON.parse(
+      fs.readFileSync(path.join(storeDirectory(job.directory), 'records', `${job.id}.json`))
+    );
+    if (landed) assert.equal(onDisk.discovery, null, `${stage}: the trace erased on disk`);
+    else assert.deepEqual(onDisk.discovery.unavailable, before, `${stage}: the trace kept`);
+  }
+  const early = u2Inputs(t, 'saved');
+  assert.equal(await early.store.recount(), true);
+  early.store.records.get(early.id).cursor = { phase: 'done', done: true };
+  lost(early.store, 'manifests', 'renamed');
+  const seen = eventsOf(t);
+  assert.throws(
+    () => finish(early.store, { id: early.id, attempt: 1, fence: early.fence }, 0),
+    (e) => e.code === 'STORAGE_UNAVAILABLE' && e.status === 503
+  );
+  t.mock.restoreAll();
+  assert.deepEqual(
+    seen.filter((e) => e.event === TRACE),
+    [],
+    'a throw before the save logs nothing'
+  );
 });
 
 // And a completion whose save is refused is a quota pause: at full quota its
@@ -5233,15 +5290,8 @@ test('write path: a record one field past 2 MiB is refused 413 at its save; only
 // A fresh job (no discovery, no cursor) that takes the frames given in turn:
 // each but the last must be accepted, and the last is refused W4 or accepted.
 const FRESH = { record: { discovery: null, cursor: null } };
-// The store's canonical(): sorted keys, no whitespace.
-function sortedCanonical(value) {
-  if (value === null || typeof value !== 'object') return JSON.stringify(value);
-  if (Array.isArray(value)) return `[${value.map(sortedCanonical).join(',')}]`;
-  return `{${Object.keys(value)
-    .sort()
-    .map((key) => `${JSON.stringify(key)}:${sortedCanonical(value[key])}`)
-    .join(',')}}`;
-}
+// sortedCanonical is the store's canonical() (sorted keys, no whitespace),
+// from builders.mjs.
 const cbytes = (v) => Buffer.byteLength(sortedCanonical(v));
 // Each frame's cursor.candidate is its index, unless the case sets it, so a
 // frame that repeats the one before is a commit, never an exact retry.
@@ -5564,13 +5614,15 @@ test('W4: continuation within CONTINUATION_BYTES; methods[*] with no terminal in
   shapeCase(t, [shapeFrame((c) => (c.continuation = null))], 'W4', 'a null continuation');
   shapeCase(t, [shapeFrame((c) => (c.continuation = []))], 'W4', 'an array continuation');
   shapeCase(t, [shapeFrame((c) => (c.continuation = continuation(C)))], 'accepted', 'continuation');
-  // A continuation's keys are measured sorted: the same bytes either way.
+  // The byte count, not the sort: sorted and unsorted JSON of one object have
+  // the same length, so no byte bound can show which form measured it (the
+  // inventory comparison, which can, is pinned in its own test).
   const sorted = continuation(C);
   shapeCase(
     t,
     [shapeFrame((c) => (c.continuation = { z: 1, ...sorted }))],
     'W4',
-    'continuation + 6'
+    'continuation + 6, its keys out of order'
   );
   for (const key of ['domain_true', 'domain_undecided', 'alt_cells'])
     shapeCase(
@@ -5652,4 +5704,66 @@ test('W4: the shape and bound checks apply only when the frame carries discovery
     assert.equal(Object.hasOwn(saved, 'discovery'), false);
     assert.deepEqual(store.records.get(lease.id).cursor, cursor);
   }
+});
+
+// Review of b3b2a64f5: F-1 (contract_version), F-2 and F-4 (methods[*] of any
+// shape, as the validator walks them), and the survivors M27 and M29.
+test('W4: the cursor contract_version is 2', (t) => {
+  for (const [name, edit] of [
+    ['contract_version 3', (c) => (c.contract_version = 3)],
+    ['contract_version 1', (c) => (c.contract_version = 1)],
+    ['contract_version a string', (c) => (c.contract_version = '2')],
+    ['no contract_version', (c) => delete c.contract_version],
+  ])
+    shapeCase(t, [shapeFrame(edit)], 'W4', name);
+  shapeCase(t, [shapeFrame((c) => (c.contract_version = 2))], 'accepted', 'contract_version 2');
+});
+
+test('W4: every member of methods is checked, whatever methods is; a member not an object holds nothing', (t) => {
+  // An array's members are its entries: a terminal input there is refused.
+  shapeCase(t, [shapeFrame((c) => (c.methods = [{ domain_true: 1 }]))], 'W4', 'an array methods');
+  const fx = loadFixture('bad/cursor_over_bound.json');
+  const over = { ...clone(fx.inputs.refusal), detail: `${fx.inputs.refusal.detail}x` };
+  shapeCase(
+    t,
+    [shapeFrame((c) => (c.methods = [{ candidates: 0, refusal: over }]))],
+    'W4',
+    'an array methods, a refusal past REFUSAL_BYTES'
+  );
+  // Members that are not objects, as the validator accepts them (F-4: without
+  // the guard, null would throw a TypeError, a 500, not a W4).
+  for (const [name, methods] of [
+    ['a null member', { m: null }],
+    ['a number member', { m: 5 }],
+    ['a string member', { m: 'domain_true' }],
+    ['an array of null', [null]],
+    ['methods null', null],
+    ['methods a string', 'domain_true'],
+  ])
+    shapeCase(t, [shapeFrame((c) => (c.methods = methods))], 'accepted', name);
+  shapeCase(
+    t,
+    [shapeFrame((c) => (c.methods = [{ candidates: 0 }]))],
+    'accepted',
+    'an array, clean'
+  );
+});
+
+test("W4: planDiscovery needs the store's canonical()", () => {
+  const record = { discovery: null, cursor: null };
+  const frame = shapeFrame();
+  assert.throws(() => planDiscovery(record, frame), TypeError);
+  assert.throws(() => planDiscovery(record, frame, 'canonical'), TypeError);
+  assert.ok(planDiscovery(record, frame, sortedCanonical), 'with it, the plan');
+});
+
+test("W4: a record cursor.discovery with no inventory holds none, so the frame's is accepted", (t) => {
+  // Only a record cursor accepted before Step 9 can lack it: planted here.
+  const job = writeJob(t, FRESH);
+  assert.equal(commitFrame(job.store, job.lease, shapeFrame()).state, 'running');
+  delete job.store.records.get(job.id).cursor.discovery.inventory;
+  const frame = shapeFrame((c, cd) => (cd.inventory = { count: 3, digest: 'a'.repeat(64) }));
+  frame.cursor.candidate = 1;
+  assert.equal(commitFrame(job.store, job.lease, frame).state, 'running');
+  assert.deepEqual(job.store.records.get(job.id).cursor, frame.cursor, 'committed');
 });

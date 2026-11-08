@@ -1045,10 +1045,19 @@ export class ReaderJobStore {
   }
   // One log line when complete() erases a saved release's trace (Q5): its
   // cause, its log and the heads it released, all of the record's validated
-  // unavailable (§2.7), so nothing else is named.
-  _logTraceErased(job, { cause, log, released }) {
+  // unavailable (§2.7), so nothing else is named. `outcome` is `saved` when
+  // the erasing save returned, `unknown` when it threw without a status and
+  // may have landed (§4).
+  _logTraceErased(job, { cause, log, released }, outcome) {
     console.warn(
-      JSON.stringify({ event: 'READER_DISCOVERY_TRACE_ERASED', job, cause, log, released })
+      JSON.stringify({
+        event: 'READER_DISCOVERY_TRACE_ERASED',
+        job,
+        outcome,
+        cause,
+        log,
+        released,
+      })
     );
   }
   // The release §7.4 gives a malformed record.discovery (§2.7; BB8
@@ -1851,9 +1860,13 @@ export class ReaderJobStore {
     }
     // Q5 (BB8 23:20Z, on Step 8): a release already saved holds its trace in
     // `unavailable`, which the completing save's null erases. It is read here,
-    // under the lock, before that save, and logged once the save lands.
+    // under the lock, before that save, and logged once the save lands. A save
+    // that throws without a status may have landed (§4): the trace is logged
+    // then too, as of unknown outcome, since nothing could log it later.
     let trace = null;
-    const done = this._open(() => {
+    let unknown = false;
+    let saving = false;
+    const completing = () => {
       const record = this._leaseRecord(id, attempt, fence);
       trace = this._discoveryShape(record) === 'released' ? record.discovery.unavailable : null;
       if (record.cancel_requested)
@@ -1900,6 +1913,7 @@ export class ReaderJobStore {
           evidence_count: record.evidence_count,
           manifest_hash: manifest.sha256,
         });
+        saving = true;
         return this._save({
           ...record,
           state: certified ? 'completed' : 'completed_with_refusals',
@@ -1914,9 +1928,17 @@ export class ReaderJobStore {
           ...(Object.hasOwn(record, 'discovery') ? { discovery: null } : {}),
         });
       } catch (error) {
+        if (saving && !error.status) unknown = true;
         return this._quotaPause(record, error);
       }
-    });
+    };
+    let done;
+    try {
+      done = this._open(completing);
+    } catch (error) {
+      if (unknown && trace) this._logTraceErased(id, trace, 'unknown');
+      throw error;
+    }
     // A completed job's lists go once its save has returned (§5.1); a quota
     // pause keeps them. A pending malformed release (§7.4) is completed by
     // that save, which releases the whole of `discovery` (null): it is no
@@ -1928,7 +1950,7 @@ export class ReaderJobStore {
     if (['completed', 'completed_with_refusals'].includes(done.state)) {
       this.chains.delete(id);
       if (this.pendingRelease.delete(id)) this._logRelease(id, 'chain_broken', null);
-      if (trace) this._logTraceErased(id, trace);
+      if (trace) this._logTraceErased(id, trace, 'saved');
     }
     return done;
   }
