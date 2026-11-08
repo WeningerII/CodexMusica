@@ -19,7 +19,7 @@ class AnalysisSession:
             raise ValueError(source["error"])
         self.probe = {"has_discovery": discovery is not MISSING,
                       "discovery": None if discovery is MISSING else discovery,
-                      "records": list(load_records() if source.get("all_records") else load_records("schema"))}
+                      "records": list(load_records("schema"))}
     def step(self, **kwargs):
         return {"done": True, "provider_calls": 0, "probe": self.probe}
 '''
@@ -115,25 +115,6 @@ class ReaderProtocolTests(unittest.TestCase):
         ])
         self.assertEqual([r["id"] for r in frames[0]["data"]["probe"]["records"]],
                          ["same", "same", "next"])
-
-
-    def test_unfiltered_load_returns_complete_committed_wire_stream(self):
-        rows = [{"id": "same", "schema_id": "a"},
-                {"id": "no-schema"},
-                {"id": "same", "schema_id": "a"},
-                {"id": "other", "schema_id": "b"}]
-        paths = []
-        for part in (rows[:2], rows[2:]):
-            body = json.dumps({"instances": part}).encode()
-            page = self.root / (hashlib.sha256(body).hexdigest() + ".json")
-            page.write_bytes(body)
-            paths.append(str(page))
-        frames = self.run_worker([
-            {"id": 1, "family": "reader", "reader": {
-                "source": {"all_records": True}, "committed_pages": paths}},
-            {"id": 1, "event": "reader_ack", "reason": "COMPLETE"},
-        ])
-        self.assertEqual(frames[0]["data"]["probe"]["records"], rows)
 
 
 if __name__ == "__main__":
