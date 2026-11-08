@@ -1851,3 +1851,112 @@ test('a record holding the cap of maximum-size receipts saves under objectBytes'
   assert.equal(next.control_receipts.length, CONTROL_RECEIPT_CAP);
   assert.ok(fs.statSync(recordFile(directory, id)).size < READER_LIMITS.objectBytes);
 });
+
+// Review additions (#833 survivors).
+test('the cap holds on the delete path, including deletes of an already deleted job', (t) => {
+  const { directory, store, job, tick } = cancelledJob(t);
+  const id = job.record.id;
+  for (let i = 0; i <= CONTROL_RECEIPT_CAP; i++) {
+    tick();
+    store.delete(id, job.capability, 'viewer-a', { idempotency_key: `delete-${i}` });
+  }
+  const receipts = onDisk(directory, id);
+  assert.equal(receipts.length, CONTROL_RECEIPT_CAP);
+  assert.ok(!receipts.some((r) => r.key === receiptKey('delete', 'delete-0')));
+  assert.equal(receipts[0].key, receiptKey('delete', 'delete-1'));
+});
+
+test('a new receipt is stamped with the store clock, so it outlives older ones', (t) => {
+  const { directory, store, job, tick, setNow } = cancelledJob(t);
+  const id = job.record.id;
+  for (let i = 0; i < CONTROL_RECEIPT_CAP; i++) {
+    tick();
+    store.cancel(id, job.capability, 'viewer-a', { idempotency_key: `cancel-${i}` });
+  }
+  setNow(50_000);
+  const late = store.cancel(id, job.capability, 'viewer-a', { idempotency_key: 'late' });
+  assert.equal(late.control_receipts.at(-1).at, 50_000);
+  // Stored out of time order: 'late' (newest) stays first, then the cap drops by `at`.
+  const reordered = [late.control_receipts.at(-1), ...late.control_receipts.slice(0, -1)];
+  store._save({ ...store.inspect(id), control_receipts: reordered }, true);
+  const again = new ReaderJobStore({ directory, now: () => 50_001 });
+  const next = again.cancel(id, job.capability, 'viewer-a', { idempotency_key: 'next' });
+  const keys = next.control_receipts.map((r) => r.key);
+  assert.equal(keys[0], receiptKey('cancel', 'late'), 'the newest `at` is not dropped');
+  assert.ok(!keys.includes(receiptKey('cancel', 'cancel-1')));
+});
+
+test('READER_RUNTIME.md states the cap the module holds', () => {
+  const doc = fs
+    .readFileSync(new URL('./READER_RUNTIME.md', import.meta.url), 'utf8')
+    .replace(/\s+/g, ' ');
+  assert.ok(doc.includes(`A job keeps at most ${CONTROL_RECEIPT_CAP} control receipts`));
+  assert.ok(doc.includes(`among the job's ${CONTROL_RECEIPT_CAP} most recent control keys`));
+  assert.ok(doc.includes(`Once a job holds ${CONTROL_RECEIPT_CAP} receipts`));
+});
+
+test('an over-full loaded record answers replays only from its newest CONTROL_RECEIPT_CAP keys', (t) => {
+  const { directory, store, job, tick } = cancelledJob(t);
+  const id = job.record.id;
+  const extra = 40;
+  const cancelKey = (i) => ({ idempotency_key: `cancel-${i}` });
+  for (let i = 0; i < CONTROL_RECEIPT_CAP; i++) {
+    tick();
+    store.cancel(id, job.capability, 'viewer-a', cancelKey(i));
+  }
+  const first = store.inspect(id).control_receipts;
+  for (let i = CONTROL_RECEIPT_CAP; i < CONTROL_RECEIPT_CAP + extra; i++) {
+    tick();
+    store.cancel(id, job.capability, 'viewer-a', cancelKey(i));
+  }
+  // Genuine receipts for cancel-0 .. cancel-295, oldest `at` first, as a
+  // record written before the cap could hold them.
+  const planted = [...first.slice(0, extra), ...store.inspect(id).control_receipts];
+  assert.equal(planted.length, CONTROL_RECEIPT_CAP + extra);
+  store._save({ ...store.inspect(id), control_receipts: planted }, true);
+  const loaded = new ReaderJobStore({ directory, now: () => 90_000 });
+  const before = loaded.inspect(id);
+  assert.equal(before.control_receipts.length, CONTROL_RECEIPT_CAP + extra);
+  // The oldest key inside the window replays and writes nothing.
+  const replay = loaded.cancel(id, job.capability, 'viewer-a', cancelKey(extra));
+  assert.deepEqual(replay, before);
+  assert.deepEqual(loaded.inspect(id), before);
+  // The newest key outside it is a new control, though its receipt is stored.
+  const fresh = loaded.cancel(id, job.capability, 'viewer-a', cancelKey(extra - 1));
+  assert.notEqual(fresh.updated_at, before.updated_at, 'not answered as a replay');
+  const keys = fresh.control_receipts.map((receipt) => receipt.key);
+  assert.equal(keys.length, CONTROL_RECEIPT_CAP);
+  assert.equal(keys.filter((key) => key === receiptKey('cancel', `cancel-${extra - 1}`)).length, 1);
+  assert.equal(keys.at(-1), receiptKey('cancel', `cancel-${extra - 1}`));
+  assert.ok(!keys.includes(receiptKey('cancel', `cancel-${extra}`)), 'the next oldest drops');
+  // A dropped key sent with changed input is a new control, not a conflict.
+  const changed = loaded.cancel(id, job.capability, 'viewer-a', {
+    ...cancelKey(0),
+    expected_attempt: 0,
+  });
+  assert.equal(changed.state, 'cancelled');
+  assert.equal(changed.control_receipts.at(-1).key, receiptKey('cancel', 'cancel-0'));
+});
+
+test('the replay window of an over-full record is chosen by `at`, not stored position', (t) => {
+  const { directory, store, job, tick } = cancelledJob(t);
+  const id = job.record.id;
+  for (let i = 0; i <= CONTROL_RECEIPT_CAP; i++) {
+    tick();
+    store.cancel(id, job.capability, 'viewer-a', { idempotency_key: `cancel-${i}` });
+  }
+  const genuine = store.inspect(id).control_receipts;
+  const oldest = { ...genuine[0], key: receiptKey('cancel', 'cancel-old'), at: 1 };
+  // The newest `at` stored first and the oldest last: one over the cap.
+  const planted = [genuine.at(-1), ...genuine.slice(0, -1), oldest];
+  assert.equal(planted.length, CONTROL_RECEIPT_CAP + 1);
+  store._save({ ...store.inspect(id), control_receipts: planted }, true);
+  const loaded = new ReaderJobStore({ directory, now: () => 90_000 });
+  const before = loaded.inspect(id);
+  const newest = `cancel-${CONTROL_RECEIPT_CAP}`;
+  assert.deepEqual(
+    loaded.cancel(id, job.capability, 'viewer-a', { idempotency_key: newest }),
+    before
+  );
+  assert.deepEqual(loaded.inspect(id), before, 'the newest key replays though stored first');
+});

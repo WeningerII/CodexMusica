@@ -1378,7 +1378,11 @@ export class ReaderJobStore {
       })
     );
     const digest = options.digest ?? payload_hash;
-    const previous = record.control_receipts.find((receipt) => receipt.key === key);
+    // Only the newest CONTROL_RECEIPT_CAP receipts answer a replay, so a record
+    // loaded over-full answers exactly as one its next save has trimmed.
+    const previous = retainedReceipts(record.control_receipts, CONTROL_RECEIPT_CAP).find(
+      (receipt) => receipt.key === key
+    );
     if (previous) {
       if (previous.digest !== digest || previous.payload_hash !== payload_hash)
         throw problem('IDEMPOTENCY_CONFLICT', 'Control key belongs to changed input.');
