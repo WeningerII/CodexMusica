@@ -5842,19 +5842,26 @@ test('W4: within an epoch, through never moves back and a non-null inventory is 
   shapeCase(t, [through([1, 2]), through([1, 3])], 'accepted', 'through moved on');
   shapeCase(t, [through(null), through([0, 1])], 'accepted', 'through set');
   // Nor does the current group, even with through null (BB8 6715584092,
-  // F-6): the frame's current.lines, or its through when it has none, is at
-  // or after the previous current.lines.
+  // F-6), narrowed (BB8 6717719856) to frames where both the record's cursor
+  // and the frame have a current group: the frame's current.lines is at or
+  // after the previous one. A group dropped without retiring, and a through
+  // behind the previous group, are accepted for now, PENDING 3PO's #721
+  // confirmation that the worker never makes either: widen if confirmed, and
+  // the `pending` cases below become W4 again.
   const groups = (g, epoch = 0) => shapeFrame((c, cd) => (cd.groups = g), epoch);
   const cur = (lines) => ({ lines, keys: [] });
   const at34 = groups({ through: null, current: cur([3, 4]) });
   for (const [name, g] of [
     ['current moved back, through null', { through: null, current: cur([1, 2]) }],
     ['current moved back, a later second line', { through: null, current: cur([2, 9]) }],
-    ['current dropped, nothing retired', { through: null, current: null }],
-    ['retired behind the previous current', { through: [2, 5], current: null }],
     ['retired before it, the next open behind it', { through: [1, 2], current: cur([2, 3]) }],
   ])
     shapeCase(t, [at34, groups(g)], 'W4', name);
+  for (const [name, g] of [
+    ['current dropped, nothing retired', { through: null, current: null }],
+    ['retired behind the previous current', { through: [2, 5], current: null }],
+  ])
+    shapeCase(t, [at34, groups(g)], 'accepted', `pending #721: ${name}`);
   const at35 = groups({ through: null, current: cur([3, 5]) });
   shapeCase(
     t,
@@ -5865,8 +5872,8 @@ test('W4: within an epoch, through never moves back and a non-null inventory is 
   shapeCase(
     t,
     [at35, groups({ through: [3, 4], current: null })],
-    'W4',
-    'retired behind the previous current, the same first line'
+    'accepted',
+    'pending #721: retired behind the previous current, the same first line'
   );
   for (const [name, g] of [
     ['current held', { through: null, current: cur([3, 4]) }],
@@ -5888,8 +5895,8 @@ test('W4: within an epoch, through never moves back and a non-null inventory is 
   shapeCase(
     t,
     [at56, groups({ through: [3, 4], current: null })],
-    'W4',
-    'retired behind the previous current, through not null'
+    'accepted',
+    'pending #721: retired behind the previous current, through not null'
   );
   shapeCase(
     t,

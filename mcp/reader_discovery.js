@@ -760,17 +760,19 @@ function cursorShape(cursor, epoch, previous, sizes, canonical, refuse) {
     W4('inventory shape');
   // Within the epoch, against the record's cursor: `through` never moves
   // back, nor does the current group (BB8 6715584092, F-6), and an inventory
-  // once non-null is fixed. A current group leaves only by retiring, so the
-  // frame's position, its current.lines or, with no current group, its
-  // through, is at or after the previous current.lines, whatever through was.
+  // once non-null is fixed. F-6 is narrowed (BB8 6717719856) to frames where
+  // both the record's cursor and the frame have a current group: the frame's
+  // current.lines is at or after the previous one, whatever through was. A
+  // group dropped without retiring, or a through behind the previous group,
+  // is accepted until 3PO confirms (#721) the worker never does either; if
+  // so, the check widens to the frame's through when it has no current group.
   if (plainObject(previous) && previous.epoch === epoch) {
     const pg = plainObject(previous.groups) ? previous.groups : {};
     const before = pg.through ?? null;
     if (pair(before) && !(g.through !== null && pairOrder(g.through, before) >= 0))
       W4('groups.through went backwards within its epoch');
     const was = plainObject(pg.current) ? pg.current.lines : null;
-    const now = g.current !== null ? g.current.lines : g.through;
-    if (pair(was) && !(now !== null && pairOrder(now, was) >= 0))
+    if (pair(was) && g.current !== null && !(pairOrder(g.current.lines, was) >= 0))
       W4('groups.current went backwards within its epoch');
     const held = previous.inventory;
     if (held !== null && held !== undefined && canonical(held) !== canonical(inv))

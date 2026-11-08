@@ -673,12 +673,14 @@ function evaluateFrame(job, record, frame) {
     !(isPair(g.through) && cmpPair(g.through, pg.through) >= 0)
   )
     bad('W4', 'groups.through went backwards within its epoch');
-  // Nor does the current group (BB8 6715584092, F-6): it leaves only by
-  // retiring, so the frame's current.lines, or its through when it has no
-  // current group, is at or after the previous current.lines.
+  // Nor does the current group (BB8 6715584092, F-6), narrowed (BB8
+  // 6717719856) to frames where both the record's cursor and the frame have
+  // a current group: the frame's current.lines is at or after the previous
+  // one. A group dropped without retiring, or a through behind the previous
+  // group, is accepted until 3PO confirms (#721) the worker never does either.
   const was = plainObject(pg?.current) ? pg.current.lines : null;
-  const now = plainObject(g?.current) ? g.current.lines : g?.through;
-  if (isPair(was) && plainObject(g) && !(isPair(now) && cmpPair(now, was) >= 0))
+  const now = plainObject(g?.current) ? g.current.lines : null;
+  if (isPair(was) && now !== null && !(isPair(now) && cmpPair(now, was) >= 0))
     bad('W4', 'groups.current went backwards within its epoch');
   return {
     violations,
@@ -3425,9 +3427,12 @@ test('W4 holds the group positions: through never moves back, current comes afte
 // F-6 (BB8 6715584092): the current group never moves back within an epoch,
 // even with through null on both sides. bad/current_moved_back.json's frame
 // is refused by W4 alone (the generic bad-fixture test); its controls are
-// accepted on the same record. The group leaves only by retiring, so a frame
-// with no current group is held by its through, and one with neither moved
-// back too; a new epoch starts again.
+// accepted on the same record; a new epoch starts again. Narrowed (BB8
+// 6717719856): only a frame with a current group is held to the previous
+// one. The wider cases, a group dropped without retiring and a through behind
+// the previous group, are accepted controls for now, PENDING 3PO's #721
+// confirmation that the worker never makes either: widen if confirmed, and
+// these become refusals again.
 test('bad/current_moved_back.json: the current group never moves back; its controls are accepted', () => {
   const fx = load('bad/current_moved_back.json');
   const rules = (frame, record = fx.record) => [
@@ -3450,8 +3455,6 @@ test('bad/current_moved_back.json: the current group never moves back; its contr
     return frame;
   };
   for (const [name, g] of [
-    ['the group dropped, nothing retired', { through: null, current: null }],
-    ['retired behind the previous group', { through: [2, 5], current: null }],
     ['an earlier first line', { through: null, current: { lines: [2, 9], keys: [] } }],
     [
       'retired before the group, the next open',
@@ -3459,24 +3462,41 @@ test('bad/current_moved_back.json: the current group never moves back; its contr
     ],
   ])
     assert.deepEqual(rules(groups(g)), ['W4'], name);
+  // PENDING 3PO's #721 confirmation (BB8 6717719856): accepted while F-6 is
+  // narrowed; refused W4 if it widens.
+  for (const [name, g] of [
+    ['the group dropped, nothing retired', { through: null, current: null }],
+    ['retired behind the previous group', { through: [2, 5], current: null }],
+  ])
+    assert.deepEqual(rules(groups(g)), [], `pending #721: ${name}`);
   // The same first line: the second line decides.
   const at35 = clone(fx.record);
   at35.cursor.discovery.groups.current.lines = [3, 5];
-  for (const g of [
-    { through: null, current: { lines: [3, 4], keys: [] } },
-    { through: [3, 4], current: null },
-  ])
-    assert.deepEqual(rules(groups(g), at35), ['W4'], `behind [3,5]: ${JSON.stringify(g)}`);
+  assert.deepEqual(
+    rules(groups({ through: null, current: { lines: [3, 4], keys: [] } }), at35),
+    ['W4'],
+    'behind [3,5]'
+  );
+  assert.deepEqual(
+    rules(groups({ through: [3, 4], current: null }), at35),
+    [],
+    'pending #721: retired behind [3,5]'
+  );
   // The previous current.lines bounds the frame whatever the previous
   // through was, not only when it was null (Step 10 review, F1): a record
   // cursor with a retired group [1,2] and the current group [5,6].
   const at56 = clone(fx.record);
   at56.cursor.discovery.groups = { through: [1, 2], current: { lines: [5, 6], keys: [] } };
-  for (const g of [
-    { through: [1, 2], current: { lines: [3, 4], keys: [] } },
-    { through: [3, 4], current: null },
-  ])
-    assert.deepEqual(rules(groups(g), at56), ['W4'], `behind [5,6]: ${JSON.stringify(g)}`);
+  assert.deepEqual(
+    rules(groups({ through: [1, 2], current: { lines: [3, 4], keys: [] } }), at56),
+    ['W4'],
+    'behind [5,6], through held'
+  );
+  assert.deepEqual(
+    rules(groups({ through: [3, 4], current: null }), at56),
+    [],
+    'pending #721: retired behind [5,6]'
+  );
   for (const g of [
     { through: [1, 2], current: { lines: [5, 7], keys: [] } },
     { through: [5, 6], current: null },
