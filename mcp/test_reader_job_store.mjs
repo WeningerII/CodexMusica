@@ -5007,6 +5007,41 @@ test('Q5: a completing save that throws without a status logs the trace once, of
   );
 });
 
+// Q5's level follows the cause (BB8 6715584092), as the release line's does:
+// error for segment_corrupt, warn for any other, for both outcomes. The cause
+// is planted on the saved release u2Inputs builds; its shape stays §2.7's.
+test('Q5: the trace line is at error level for segment_corrupt, warn otherwise, saved or unknown', async (t) => {
+  const TRACE = 'READER_DISCOVERY_TRACE_ERASED';
+  for (const [cause, level] of [
+    ['segment_corrupt', 'error'],
+    ['segment_missing', 'warn'],
+    ['digest_mismatch', 'warn'],
+  ])
+    for (const outcome of ['saved', 'unknown']) {
+      const job = u2Inputs(t, 'saved');
+      assert.equal(await job.store.recount(), true);
+      const record = job.store.records.get(job.id);
+      record.discovery.unavailable.cause = cause;
+      assert.equal(job.store._discoveryShape(record), 'released', `${cause}: still §2.7's shape`);
+      const before = clone(record.discovery.unavailable);
+      record.cursor = { phase: 'done', done: true };
+      if (outcome === 'unknown')
+        job.store.fault = (at, event) => {
+          if (event.kind === 'record' && at === 'renamed') throw new Error('simulated loss');
+        };
+      const seen = eventsOf(t);
+      const run = () => finish(job.store, { id: job.id, attempt: 1, fence: job.fence }, 0);
+      if (outcome === 'unknown') assert.throws(run, (e) => e.code === 'STORAGE_UNAVAILABLE');
+      else assert.equal(run().state, 'completed');
+      t.mock.restoreAll();
+      assert.deepEqual(
+        seen.filter((e) => e.event === TRACE),
+        [{ level, event: TRACE, job: job.id, outcome, ...before }],
+        `${cause} ${outcome}: one line at ${level}`
+      );
+    }
+});
+
 // And a completion whose save is refused is a quota pause: at full quota its
 // U2 save is refused too, so the fallback keeps the release pending, unlogged.
 test('write path: a refused complete() of a job whose malformed release is pending keeps it pending', async (t) => {

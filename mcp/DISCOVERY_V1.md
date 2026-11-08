@@ -1775,8 +1775,9 @@ Each release point is a single record save; GC then reclaims the segments.
 - a `row_seen` reset (§2.6);
 - `complete()`, which saves `discovery: null` (`reader_job_store.js:complete`). On a job whose
   release was saved already, that null erases its trace, `unavailable`: the trace is read under
-  the lock before the save and, once the save lands, logged once at warn level as
-  `READER_DISCOVERY_TRACE_ERASED`, with the job, `outcome: "saved"`, the cause, the log and the
+  the lock before the save and, once the save lands, logged once as
+  `READER_DISCOVERY_TRACE_ERASED`, at error level for `segment_corrupt` and warn for any other
+  cause, as the release's own line is (BB8 6715584092), with the job, `outcome: "saved"`, the cause, the log and the
   released heads, all from the record's validated `unavailable` (§2.7). A completion refused at its
   save erases nothing and logs nothing, and a job with no saved release logs no such line (BB8
   6714569541, Q5). A completing save that throws without a status may have landed (§4), and
@@ -2376,6 +2377,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 53 | #656 Step 9 (design v2, v1 Step 4) | W4's shape and bound checks, made only when the frame carries `discovery`: the cursor's `contract_version` 2; exact keys on `cursor.discovery`, its logs, `inventory`, `groups` and `groups.current`; the groups' line pairs, order and bounds, and `through` never moving back within the epoch; the inventory fixed once non-null within the epoch; the witness of the frame's epoch with its fields within `WITNESS_FIELDS`; `continuation`, each refusal and the cursor without `discovery` and `continuation` within their byte bounds, measured by the store's sorted `canonical()`; no terminal input in `methods[*]`, each member checked whatever `methods` is, as the validator walks it; every cursor number outside the entries and `continuation` an integer from 0 to 2⁵³ − 1 | §2.8, §3, §3.1, §3.2, §4 W4 | `bad/cursor_over_bound.json` (built from `builders.mjs` in the store tests too), `good/codec_error_mapping.json`'s cursor integer fields, `good/witness_cursor_option2.json`; the store tests |
 | 54 | BB8 6714569541 (review of `c9e44f7ba`, on Step 8); BB8's rulings on R2's Step 8 calls (23:20Z) | (D-1) `complete()` completes a pending malformed release in its save, and is not its refuser; (c21) no new bound on the declaration set: it is bounded at admission by `HTTP_REQUEST_BYTES` (4.5 MiB, `mcp/payload_limits.js`); (Q5) `complete()` after a saved release logs the trace its null save erases, once, when that save lands; the module's comment on an entry breaking both F1 and F2 says it is tagged F1 | §3, §7.2, §7.4 | the store tests (Q5) |
 | 55 | Review of `b3b2a64f5` (#656 Step 9) | W4 checks the cursor's `contract_version` and every member of `methods` as the validator does; Q5 logs a trace once, with `outcome: "unknown"`, when the completing save throws without a status; the module's comment on an entry breaking both F1 and F2 says Node's own tag is not pinned | §2.11, §4 W4, §7.2 | the store tests |
+| 56 | BB8 6715584092 (rulings on R2's Step 9 calls) | (Q5) the trace line's level follows its cause, error for `segment_corrupt` and warn otherwise, as the release line's does | §7.2 | the store tests (Q5) |
 
 ## 12. Rulings on the items added for confirmation
 

@@ -1047,18 +1047,19 @@ export class ReaderJobStore {
   // cause, its log and the heads it released, all of the record's validated
   // unavailable (§2.7), so nothing else is named. `outcome` is `saved` when
   // the erasing save returned, `unknown` when it threw without a status and
-  // may have landed (§4).
+  // may have landed (§4). Its level follows the cause, as _logRelease's
+  // does: error for segment_corrupt, warn otherwise (BB8 6715584092).
   _logTraceErased(job, { cause, log, released }, outcome) {
-    console.warn(
-      JSON.stringify({
-        event: 'READER_DISCOVERY_TRACE_ERASED',
-        job,
-        outcome,
-        cause,
-        log,
-        released,
-      })
-    );
+    const line = JSON.stringify({
+      event: 'READER_DISCOVERY_TRACE_ERASED',
+      job,
+      outcome,
+      cause,
+      log,
+      released,
+    });
+    if (cause === 'segment_corrupt') console.error(line);
+    else console.warn(line);
   }
   // The release §7.4 gives a malformed record.discovery (§2.7; BB8
   // 6700200435, condition 4): the per-state rules of _release, with the
