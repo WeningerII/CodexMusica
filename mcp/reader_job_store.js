@@ -2255,8 +2255,10 @@ export class ReaderJobStore {
   // and not `control.record`, so the refused control writes no receipt, and
   // refuses DISCOVERY_UNAVAILABLE with the cause and the log. A pass
   // replaces the job's address lists with the ones read, and resume's own
-  // save carries `verified` at the heads. A record with no discovery resumes
-  // exactly as before: nothing is read and its save gains no key.
+  // save carries `verified` at the heads. A save that fails discards the
+  // lists read (BB8 6719406992, call 5): the job's lists are as they were
+  // before the resume. A record with no discovery resumes exactly as before:
+  // nothing is read and its save gains no key.
   resume(id, capability, viewer, identity, options = {}) {
     const expected = identityHash(identity);
     return this._open(() => {
@@ -2276,6 +2278,7 @@ export class ReaderJobStore {
           'INVALID_JOB_STATE',
           'Only paused or cancelled reader jobs can explicitly resume.'
         );
+      const prior = this.chains.get(id);
       const full = this._liveDiscovery(record) && this._resumeRead(record);
       this._queueRoom();
       if (
@@ -2283,33 +2286,43 @@ export class ReaderJobStore {
         this._outstanding(viewer) >= READER_LIMITS.outstandingPerViewer
       )
         throw problem('QUEUE_FULL', 'This viewer already has two outstanding reader jobs.', 429);
-      return this._save(
-        {
-          ...control.record,
-          state: 'queued',
-          reason: null,
-          fence: null,
-          lease_expires_at: null,
-          cancel_requested: false,
-          deferred_requeue: false,
-          queued_at: this.now(),
-          queue_order: this._tailOrder(),
-          accessed_at: this.now(),
-          expires_at: this.now() + this.ttlMs,
-          ...(full
-            ? { discovery: { ...record.discovery, verified: clone(record.discovery.logs) } }
-            : {}),
-        },
-        true
-      );
+      const queued = {
+        ...control.record,
+        state: 'queued',
+        reason: null,
+        fence: null,
+        lease_expires_at: null,
+        cancel_requested: false,
+        deferred_requeue: false,
+        queued_at: this.now(),
+        queue_order: this._tailOrder(),
+        accessed_at: this.now(),
+        expires_at: this.now() + this.ttlMs,
+        ...(full
+          ? { discovery: { ...record.discovery, verified: clone(record.discovery.logs) } }
+          : {}),
+      };
+      try {
+        return this._save(queued, true);
+      } catch (error) {
+        // A failed save discards the lists the read installed (BB8
+        // 6719406992, call 5): the job's lists are as they were before this
+        // resume, and one without a status then drops every list (_open).
+        if (full) {
+          if (prior === undefined) this.chains.delete(id);
+          else this.chains.set(id, prior);
+        }
+        throw error;
+      }
     });
   }
   // resume()'s full read (§5.1): every log, in the order `logs` holds them,
   // stopping at the first that fails. A pass installs the lists read, as
   // reconciliation's does: they are read from the durable heads, which
-  // resume's save leaves as they are, so they hold whether or not that save
-  // is made (a QUEUE_FULL after the read), and a save that throws without a
-  // status drops every list through _open. A failure releases the job in
+  // resume's save leaves as they are, so they hold when the save is never
+  // tried (a QUEUE_FULL after the read). A save that fails discards them
+  // (resume), and one that throws without a status then drops every list
+  // through _open. A failure releases the job in
   // one save (U1) and refuses DISCOVERY_UNAVAILABLE, naming its cause and log.
   // Only the faults _fullRead returns release; any other error, a stat or a
   // read that fails for a reason that is not a verdict on the segment

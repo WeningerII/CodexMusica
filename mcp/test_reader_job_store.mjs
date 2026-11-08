@@ -8776,6 +8776,92 @@ test('resume: a dead chain is refused before the queue checks, and a QUEUE_FULL 
   assert.deepEqual(passed.disk.discovery.verified, fx.expect.resume.verified);
 });
 
+// BB8 6719406992 (call 5) and the 09:16Z review of 34833d71a (pin c): the
+// lists a passing full read installs before resume's save stand when nothing
+// is saved for a reason that is not the save (a QUEUE_FULL: they hold for the
+// unchanged durable heads), and a failed save discards them, leaving the
+// job's lists exactly as they were before the resume (a Map entry, or none);
+// a save that fails without a status then drops every list (_open). Each job
+// starts with lists that disagree with its heads (a log's list dropped or
+// short, or no entry at all), so the lists read are told apart from the
+// lists before.
+test('resume: the lists read stand after a QUEUE_FULL, and a failed save, with a status or without, discards them', (t) => {
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  const setup = (fault) => {
+    const job = writeJob(t, fx);
+    commitFrame(job.store, job.lease, fx.frames[0]);
+    commitFrame(job.store, job.lease, fx.frames[1]);
+    const full = clone(listsOf(job.store, job.id));
+    job.store.pause(job.lease.id, job.lease.attempt, job.lease.fence, STORAGE_PAUSE);
+    const [log] = Object.entries(full).find(([, list]) => list.length > 0);
+    if (fault === 'absent') job.store.chains.delete(job.id);
+    else if (fault === 'dropped') job.store.chains.get(job.id).delete(log);
+    else job.store.chains.get(job.id).set(log, full[log].slice(0, -1));
+    const record = job.store.records.get(job.id);
+    const capability = job.store.capabilityFor(job.id, record.viewer);
+    const before = job.store.chains.get(job.id);
+    const listed = before === undefined ? undefined : Object.fromEntries(before);
+    assert.notDeepEqual(listed, full, `${fault}: the lists before disagree with the heads`);
+    return { job, full, record, capability, before, listed };
+  };
+  const failSave = (store, id, error) =>
+    t.mock.method(store, '_save', function (record, ...rest) {
+      if (record.id === id && record.state === 'queued') throw error();
+      return ReaderJobStore.prototype._save.call(this, record, ...rest);
+    });
+  for (const fault of ['absent', 'dropped', 'short']) {
+    // QUEUE_FULL after a pass: nothing saved, the lists read stand.
+    {
+      const { job, full, record, capability } = setup(fault);
+      t.mock.method(job.store, '_queueRoom', () => {
+        throw Object.assign(new Error('full'), { code: 'QUEUE_FULL', status: 429 });
+      });
+      const got = resumeOnce(t, job.store, job.id, capability, record.viewer);
+      job.store._queueRoom.mock.restore();
+      assert.equal(got.error?.code, 'QUEUE_FULL', `${fault}: queue full`);
+      assert.deepEqual([got.saves, got.saved], [[], false], `${fault}: nothing saved`);
+      assert.deepEqual(
+        listsOf(job.store, job.id),
+        full,
+        `${fault}: QUEUE_FULL keeps the lists read`
+      );
+    }
+    // A save refused with a status: the lists are as they were before.
+    {
+      const { job, record, capability, before, listed } = setup(fault);
+      const disk = durable(job.store, job.id);
+      failSave(job.store, job.id, () =>
+        Object.assign(new Error('Reader record exceeds the bound.'), {
+          code: 'RESOURCE_LIMIT',
+          status: 413,
+        })
+      );
+      const got = resumeOnce(t, job.store, job.id, capability, record.viewer);
+      job.store._save.mock.restore();
+      assert.deepEqual(
+        [got.error?.code, got.error?.status],
+        ['RESOURCE_LIMIT', 413],
+        `${fault}: the save's own refusal`
+      );
+      assert.equal(job.store.failure, null, `${fault}: the store serves on`);
+      assert.equal(job.store.chains.get(job.id), before, `${fault}: the same entry as before`);
+      assert.deepEqual(listsOf(job.store, job.id), listed, `${fault}: lists as before`);
+      assert.deepEqual(durable(job.store, job.id), disk, `${fault}: nothing written`);
+      assert.equal(job.store.records.get(job.id).state, 'paused', `${fault}: still paused`);
+    }
+    // A save that throws without a status: the store stops and every list goes.
+    {
+      const { job, record, capability } = setup(fault);
+      failSave(job.store, job.id, () => new Error('EIO: the disk went away'));
+      const got = resumeOnce(t, job.store, job.id, capability, record.viewer);
+      job.store._save.mock.restore();
+      assert.equal(got.error?.code, 'STORAGE_UNAVAILABLE', `${fault}: status-less`);
+      assert.notEqual(job.store.failure, null, `${fault}: the store stops`);
+      assert.equal(job.store.chains.size, 0, `${fault}: every list dropped`);
+    }
+  }
+});
+
 test("resume: the full read replaces the job's lists, a log with none or a short one included, and the next lease passes R5", (t) => {
   // §5.1: a log left with no address list, or one that does not end at its
   // head, is R5 on a lease; resume()'s full read rebuilds it from the head.

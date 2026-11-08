@@ -86,7 +86,7 @@ language's own parser checks each. So any change to that code fails until the cl
 read again and the digest pinned again, and a citation of a line number, or of a symbol no row
 pins, fails too. A `file:symbol` citation names the symbol; its rows name the statements the
 claim rests on. Each row names the sections it backs, each citation of a row's symbol in a section
-has a row there, and the rows' ranges, digests aside, are held to the digest `7bfa199c3e7b62cf` in this
+has a row there, and the rows' ranges, digests aside, are held to the digest `5d681f36afb808d3` in this
 note, so a row deleted, narrowed or moved changes this text. Two citations name a comment or a
 docstring, not code (`reader_scheduler.js:createCatalogResolver`'s note on engine commits and
 `analysis.py:resolve_detail_records`' docstring); those rows hold the text as written. Every
@@ -1232,8 +1232,11 @@ a full read instead (below), so it refuses a dead job at once instead of queuein
      the advanced `verified`. A pending release, then a saved `unavailable`, refuses first, before
      the identity and state checks, with nothing read; the full read comes after those checks and
      before the queue's, so a dead job is refused even when the queue is full. A pass replaces
-     the job's address lists with the ones read, as reconciliation's does, whether or not the save
-     is then made: they are read from the durable heads, which the save leaves as they are;
+     the job's address lists with the ones read, as reconciliation's does. They stand when the
+     save is never tried (a `QUEUE_FULL` after the read): they are read from the durable heads,
+     which nothing has changed. A save that fails discards them, so the job's lists are as they
+     were before the resume (BB8 6719406992, call 5), and one that fails without a status then
+     drops every list (`_open`);
   3. the worker's load of `alt_cells` when it builds the terminal record (§5.2), by its paths:
      a complete verified load, not a full read (§1). It releases nothing on F6; it raises
      `STORAGE_CORRUPT`, and `resume()`'s full read then decides.

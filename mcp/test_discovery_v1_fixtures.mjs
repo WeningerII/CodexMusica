@@ -9743,7 +9743,7 @@ const CONTRACT_CITES = [
     symbol: 'resume',
     starts: 'resume(id, capability, viewer, identity, options = {}) {',
     whole: true,
-    code: 'b23da10780114c12',
+    code: 'afec78a755722cec',
   },
   {
     id: 'c.reader_job_store._open.1',
@@ -9864,9 +9864,9 @@ const CONTRACT_CITES = [
     at: '5.1',
     file: 'mcp/reader_job_store.js',
     symbol: 'resume',
-    starts: 'return this._save(',
-    ends: ');',
-    code: '7996ebbb2ae6274b',
+    starts: 'const queued = {',
+    ends: '};',
+    code: '0fe5c8e8dd00c9e0',
   },
   {
     id: 'c.worker.read_page_object.1',
