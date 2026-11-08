@@ -1229,7 +1229,10 @@ a full read instead (below), so it refuses a dead job at once instead of queuein
   6688972927, amending the three sites of 6678599629):
   1. reconciliation after any foreign writer, which includes startup (§7.4): a full read;
   2. `resume()` of a paused or cancelled job: a full read. Its own save (`reader_job_store.js:resume`) carries
-     the advanced `verified`. A pending release, then a saved `unavailable`, refuses first, before
+     the advanced `verified`. If that save needs capacity the store cannot grant (`STORE_RECOUNTING`
+     or `RESOURCE_LIMIT`), it is made once more without the advance, as the walk skips its own
+     (step 4 above), and `verified` stays where it was, so the next lease's walk reads from there;
+     a second refusal is thrown as it is (BB8 6719406992, call 6). A pending release, then a saved `unavailable`, refuses first, before
      the identity and state checks, with nothing read; the full read comes after those checks and
      before the queue's, so a dead job is refused even when the queue is full. A pass replaces
      the job's address lists with the ones read, as reconciliation's does. They stand when the

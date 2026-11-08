@@ -9743,7 +9743,7 @@ const CONTRACT_CITES = [
     symbol: 'resume',
     starts: 'resume(id, capability, viewer, identity, options = {}) {',
     whole: true,
-    code: 'afec78a755722cec',
+    code: 'f8d33dbbdd650ca0',
   },
   {
     id: 'c.reader_job_store._open.1',

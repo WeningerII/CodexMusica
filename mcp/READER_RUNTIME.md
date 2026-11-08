@@ -370,7 +370,11 @@ is growth back into running and is always checked: a queued job whose lease
 does not fit (its attempt number or queue position gaining a digit is enough)
 waits queued with nothing written. A routed resume always carries an
 `Idempotency-Key` and so records a control receipt; where that outweighs the
-reason the resume clears, it needs room like any other growth. While a
+reason the resume clears, it needs room like any other growth. The resume of a
+job that holds discovery state also moves its verified heads in that save;
+refused for room (`RESOURCE_LIMIT`, or `STORE_RECOUNTING` while usage is
+unknown), the save is made once more without that move, and a second refusal
+is the resume's answer. While a
 transition's bytes stand over the quota they come out of other jobs'
 reservations, so even a transition inside a job's reservation can be refused,
 until expiry, collection or a delete frees room.

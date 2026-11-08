@@ -8862,6 +8862,139 @@ test('resume: the lists read stand after a QUEUE_FULL, and a failed save, with a
   }
 });
 
+// BB8 6719406992 (call 6): resume's save carries the advanced `verified`;
+// refused for room (STORE_RECOUNTING while usage is unknown, RESOURCE_LIMIT
+// at full quota), it is made once more without the advance, as the walk
+// skips its own, so `verified` stays where it was and the next lease's walk
+// reads from there. A second refusal is thrown as it is, and the lists read
+// are discarded (call 5). Any other refusal, and a record with no discovery,
+// is not retried.
+test('resume: a verified save refused STORE_RECOUNTING or RESOURCE_LIMIT is made once more without the advance; a second refusal is thrown', (t) => {
+  const fx = loadFixture('good/seal_sequence_two_logs.json');
+  const setup = () => {
+    const job = writeJob(t, fx);
+    commitFrame(job.store, job.lease, fx.frames[0]);
+    commitFrame(job.store, job.lease, fx.frames[1]);
+    const full = clone(listsOf(job.store, job.id));
+    job.store.pause(job.lease.id, job.lease.attempt, job.lease.fence, STORAGE_PAUSE);
+    const paused = clone(job.store.records.get(job.id));
+    assert.notDeepEqual(
+      paused.discovery.verified,
+      paused.discovery.logs,
+      'verified behind the heads'
+    );
+    const capability = job.store.capabilityFor(job.id, paused.viewer);
+    return { ...job, full, paused, capability };
+  };
+  const advanced = (record, paused) =>
+    record.state === 'queued' &&
+    JSON.stringify(record.discovery?.verified) === JSON.stringify(paused.discovery.logs);
+  const refuse = (store, id, paused, refusal, when) => {
+    const attempts = [];
+    t.mock.method(store, '_save', function (record, ...rest) {
+      if (record.id === id && record.state === 'queued') {
+        attempts.push(advanced(record, paused) ? 'advanced' : 'kept');
+        if (when(record)) throw refusal();
+      }
+      return ReaderJobStore.prototype._save.call(this, record, ...rest);
+    });
+    return attempts;
+  };
+  for (const [code, status] of [
+    ['STORE_RECOUNTING', 503],
+    ['RESOURCE_LIMIT', 507],
+  ]) {
+    const refusal = () => Object.assign(new Error(`${code} refusal`), { code, status });
+    // Refused once, with the advance: saved without it.
+    {
+      const job = setup();
+      const attempts = refuse(job.store, job.id, job.paused, refusal, (r) =>
+        advanced(r, job.paused)
+      );
+      const got = resumeOnce(t, job.store, job.id, job.capability, job.paused.viewer, {
+        idempotency_key: `retry-${code}`,
+      });
+      job.store._save.mock.restore();
+      assert.equal(got.error, null, `${code}: ${got.error?.message}`);
+      assert.deepEqual(attempts, ['advanced', 'kept'], `${code}: once more, without the advance`);
+      for (const r of [got.record, got.disk, job.store.records.get(job.id)]) {
+        assert.equal(r.state, 'queued', `${code}: queued`);
+        assert.deepEqual(r.discovery.verified, job.paused.discovery.verified, `${code}: kept`);
+        assert.deepEqual(r.discovery.logs, job.paused.discovery.logs, `${code}: heads unchanged`);
+      }
+      assert.equal(
+        got.disk.control_receipts.length,
+        job.paused.control_receipts.length + 1,
+        `${code}: the receipt in the save that landed`
+      );
+      assert.deepEqual(listsOf(job.store, job.id), job.full, `${code}: the lists read stand`);
+      // The next lease walks from the older verified heads and advances.
+      job.store.lease(job.id);
+      const walk = walkOnce(t, job.store, job.id);
+      assert.equal(walk.error, null, `${code}: ${walk.error?.message}`);
+      assert.ok(walk.read.length > 0, `${code}: the walk reads what verified had not`);
+      assert.equal(walk.saved, true, `${code}: and saves its advance`);
+      assert.deepEqual(
+        job.store.records.get(job.id).discovery.verified,
+        job.paused.discovery.logs,
+        `${code}: verified at the heads after the walk`
+      );
+    }
+    // Refused twice: the second refusal is thrown and the lists are discarded.
+    {
+      const job = setup();
+      const before = job.store.chains.get(job.id);
+      const disk = durable(job.store, job.id);
+      const attempts = refuse(job.store, job.id, job.paused, refusal, () => true);
+      const got = resumeOnce(t, job.store, job.id, job.capability, job.paused.viewer);
+      job.store._save.mock.restore();
+      assert.deepEqual(
+        [got.error?.code, got.error?.status],
+        [code, status],
+        `${code}: the second refusal`
+      );
+      assert.deepEqual(attempts, ['advanced', 'kept'], `${code}: retried once, never more`);
+      assert.equal(job.store.failure, null, `${code}: the store serves on`);
+      assert.deepEqual(durable(job.store, job.id), disk, `${code}: nothing written`);
+      assert.equal(job.store.chains.get(job.id), before, `${code}: the lists as before`);
+      assert.equal(job.store.records.get(job.id).state, 'paused', `${code}: still paused`);
+    }
+  }
+  // Not retried: any other refusal of the advanced save, and a record with
+  // no discovery refused for room.
+  {
+    const job = setup();
+    const attempts = refuse(
+      job.store,
+      job.id,
+      job.paused,
+      () => Object.assign(new Error('too large'), { code: 'RESOURCE_LIMIT', status: 413 }),
+      () => true
+    );
+    const got = resumeOnce(t, job.store, job.id, job.capability, job.paused.viewer);
+    job.store._save.mock.restore();
+    assert.deepEqual([got.error?.code, got.error?.status], ['RESOURCE_LIMIT', 413]);
+    assert.deepEqual(attempts, ['advanced'], 'a refusal that is not for room: no retry');
+  }
+  {
+    const { store } = fixture(t);
+    const job = create(store);
+    const lease = store.lease();
+    store.pause(lease.id, lease.attempt, lease.fence, STORAGE_PAUSE);
+    let calls = 0;
+    t.mock.method(store, '_save', function (record, ...rest) {
+      if (record.id === job.record.id && record.state === 'queued') {
+        calls += 1;
+        throw Object.assign(new Error('full'), { code: 'RESOURCE_LIMIT', status: 507 });
+      }
+      return ReaderJobStore.prototype._save.call(this, record, ...rest);
+    });
+    const got = resumeOnce(t, store, job.record.id, job.capability, 'viewer-a', {}, identity);
+    store._save.mock.restore();
+    assert.deepEqual([got.error?.code, calls], ['RESOURCE_LIMIT', 1], 'no discovery: no retry');
+  }
+});
+
 test("resume: the full read replaces the job's lists, a log with none or a short one included, and the next lease passes R5", (t) => {
   // §5.1: a log left with no address list, or one that does not end at its
   // head, is R5 on a lease; resume()'s full read rebuilds it from the head.

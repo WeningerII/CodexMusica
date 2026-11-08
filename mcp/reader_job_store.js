@@ -2255,7 +2255,8 @@ export class ReaderJobStore {
   // and not `control.record`, so the refused control writes no receipt, and
   // refuses DISCOVERY_UNAVAILABLE with the cause and the log. A pass
   // replaces the job's address lists with the ones read, and resume's own
-  // save carries `verified` at the heads. A save that fails discards the
+  // save carries `verified` at the heads, or, refused for room, is made once
+  // more without the advance. A save that fails discards the
   // lists read (BB8 6719406992, call 5): the job's lists are as they were
   // before the resume. A record with no discovery resumes exactly as before:
   // nothing is read and its save gains no key.
@@ -2303,7 +2304,16 @@ export class ReaderJobStore {
           : {}),
       };
       try {
-        return this._save(queued, true);
+        try {
+          return this._save(queued, true);
+        } catch (error) {
+          // The advance needs room the store cannot grant (STORE_RECOUNTING,
+          // RESOURCE_LIMIT): the save is made once more without it, as the
+          // walk skips its own, and `verified` stays where it was (BB8
+          // 6719406992, call 6). A second refusal is thrown as it is.
+          if (!full || !roomRefusal(error)) throw error;
+          return this._save({ ...queued, discovery: record.discovery }, true);
+        }
       } catch (error) {
         // A failed save discards the lists the read installed (BB8
         // 6719406992, call 5): the job's lists are as they were before this
