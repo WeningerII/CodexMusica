@@ -44,6 +44,13 @@ export function createLibraryStoreLoader(factories) {
             }
           } else if (factories.corpus) corpus = 'failed';
           if (failures.length) {
+            for (const candidateStore of Object.values(candidate)) {
+              try {
+                candidateStore.close?.();
+              } catch {
+                failures.push('cleanup');
+              }
+            }
             state = 'failed';
             throw Object.assign(new Error('The Library could not answer.'), {
               code: 'LIBRARY_UNAVAILABLE',

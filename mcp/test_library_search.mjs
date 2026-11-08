@@ -612,3 +612,11 @@ test('a failed first load can recover on explicit retry after the store is repai
   }
   assert.equal((await server.library()).state, 'ready');
 });
+
+test('constructor closes metadata descriptor when projection is unavailable', (t) => {
+  const { dir } = build(t, [item('u1', {}, 'text')]);
+  fs.unlinkSync(path.join(dir, 'projection.bin'));
+  const before = fs.readdirSync('/proc/self/fd').length;
+  for (let i = 0; i < 3; i++) assert.throws(() => new LibrarySearch(dir), /ENOENT/);
+  assert.equal(fs.readdirSync('/proc/self/fd').length, before);
+});

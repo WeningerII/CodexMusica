@@ -73,30 +73,37 @@ const shardOf = (id) =>
 
 // One visible, polite status for concurrent service requests. A quick request
 // never announces loading; the last settlement clears only our own message.
-let serviceRequests = 0;
-let serviceTimer = null;
-let serviceRegion = null;
+const serviceGroups = new Map();
+let serviceOwner = null;
 const LOADING_LIBRARY = 'Loading the Library…';
 function beginServiceRequest() {
-  if (serviceRequests++ === 0) {
-    const sub = LIBRARY.sub;
-    serviceTimer = setTimeout(() => {
-      if (!serviceRequests || LIBRARY.sub !== sub) return;
-      serviceRegion = document.getElementById('library-live');
-      if (serviceRegion) {
-        serviceRegion.classList.add('lib-loading');
-        serviceRegion.textContent = LOADING_LIBRARY;
+  const sub = LIBRARY.sub;
+  let group = serviceGroups.get(sub);
+  if (!group) {
+    group = { count: 0, timer: null, region: null };
+    serviceGroups.set(sub, group);
+  }
+  group.count++;
+  if (!group.timer && serviceOwner !== group) {
+    group.timer = setTimeout(() => {
+      group.timer = null;
+      if (!group.count || LIBRARY.sub !== sub) return;
+      group.region = document.getElementById('library-live');
+      if (group.region) {
+        serviceOwner = group;
+        group.region.classList.add('lib-loading');
+        group.region.textContent = LOADING_LIBRARY;
       }
     }, 1000);
   }
   return () => {
-    if (--serviceRequests) return;
-    clearTimeout(serviceTimer);
-    serviceTimer = null;
-    if (serviceRegion) {
-      serviceRegion.classList.remove('lib-loading');
-      if (serviceRegion.textContent === LOADING_LIBRARY) serviceRegion.textContent = '';
-      serviceRegion = null;
+    if (--group.count) return;
+    clearTimeout(group.timer);
+    serviceGroups.delete(sub);
+    if (serviceOwner === group) {
+      group.region.classList.remove('lib-loading');
+      if (group.region.textContent === LOADING_LIBRARY) group.region.textContent = '';
+      serviceOwner = null;
     }
   };
 }

@@ -85,3 +85,18 @@ test('navigation before the delay suppresses stale loading status', async (t) =>
   f.calls[0].resolve(ok());
   await a;
 });
+
+test('overlapping query navigation gives the current request its own loading status', async (t) => {
+  const f = fixture(t);
+  const old = f.lib.get('/search?q=a');
+  f.w.LIBRARY.sub = '/works?q=ab';
+  const current = f.lib.get('/search?q=ab');
+  f.tick();
+  assert.equal(f.live.textContent, 'Loading the Library…');
+  f.calls[0].resolve(ok());
+  await old;
+  assert.equal(f.live.textContent, 'Loading the Library…');
+  f.calls[1].resolve(ok());
+  await current;
+  assert.equal(f.live.textContent, '');
+});

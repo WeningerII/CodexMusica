@@ -69,16 +69,25 @@ export class LibrarySearch {
       if (this[name].length !== this.offsets[name][n])
         throw new Error(`Library search store column ${name} is truncated`);
     }
-    for (const name of ['metadata', 'projection']) {
-      const size = fs.statSync(path.join(directory, `${name}.bin`)).size;
-      if (name === 'metadata' && size !== this.offsets.metadata[n])
-        throw new Error('Library search store metadata is truncated');
-      this[`${name}Fd`] = fs.openSync(path.join(directory, `${name}.bin`), 'r');
+    try {
+      for (const name of ['metadata', 'projection']) {
+        const size = fs.statSync(path.join(directory, `${name}.bin`)).size;
+        if (name === 'metadata' && size !== this.offsets.metadata[n])
+          throw new Error('Library search store metadata is truncated');
+        this[`${name}Fd`] = fs.openSync(path.join(directory, `${name}.bin`), 'r');
+      }
+    } catch (error) {
+      this.close();
+      throw error;
     }
   }
   close() {
-    fs.closeSync(this.metadataFd);
-    fs.closeSync(this.projectionFd);
+    for (const name of ['metadataFd', 'projectionFd']) {
+      if (this[name] !== undefined) {
+        fs.closeSync(this[name]);
+        this[name] = undefined;
+      }
+    }
   }
   get snapshotId() {
     return this.store.snapshot_id;

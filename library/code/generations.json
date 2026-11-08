@@ -709,6 +709,22 @@
         "works.d450a5dc32.js"
       ],
       "first_published": "2026-11-05",
+      "retired": "2026-11-08"
+    },
+    {
+      "id": "f531445bd6311fb3",
+      "files": [
+        "analysis.9e090d9deb.js",
+        "compare.dd92747264.js",
+        "connection-bindings.73302dd467.js",
+        "connection-views.cc63c4fc8d.js",
+        "core.ad13fbbd26.js",
+        "marks.97e3addb07.js",
+        "reader.b726c826b0.js",
+        "rights.1378d82c76.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-11-08",
       "retired": null
     }
   ]

@@ -46,21 +46,60 @@ Verification (local Node v24.19.0; Python 3.12.14, synthetic fixtures only):
 - Touched JS lint/format, Python compilation and diff whitespace checks pass.
 Detailed local receipts are in /workspace/scratch/capacity-612-validator/option-a-*.txt.
 
-Remaining scope and gates:
-1. This milestone intentionally retains the existing conservative loaded
-   matrix. It does NOT yet add the separate unloaded matrix profile and
-   forced-loaded cell population/workflow/schema. That next change must keep
-   both profiles below 1792 MiB and retain exact workload/source/image/host
-   identity. The first-load sampler is a reviewable candidate, not measured
-   evidence. Sampling overhead and cadence require independent review.
-2. Generate/review browser delivery assets during coordinated integration;
-   source-only UI tests are not browser or screen-reader acceptance.
-3. Obtain independent review of the exact candidate and workflow before any
-   same-host paired before/after campaign. Report paired peak margins and
-   median cold first-search time; no savings or latency number is inferred.
-4. Node 22 release-runtime checks, full CI, required UI review, criteria-owner
-   acceptance and eventual release/live verification remain open.
+Followup milestone (local, not published):
+- Eight workflow jobs now cover both complete 18-execution populations with
+  configured stores unchanged: unloaded and forced-loaded. Merger requires
+  both profiles, exact source digests/limits, matching workload boundary
+  states, per-cell peaks, startup/recovery load samples and cold-search timing.
+  Consolidated receipt retains each shard's runtime/timing evidence.
+- Two implementation review findings fixed: failed attempts/partial search
+  constructors close descriptors, and overlapping query navigation retains
+  the current request's delayed accessible status. Regression tests added.
+- Four independent capacity-review findings fixed: require verified recovery,
+  validate timing, reject missing source identities/altered limits, preserve
+  runtime timing in merged receipts. Both reviewers rechecked final source
+  blobs and reported no remaining concrete defect within their review scope.
+- Supported build regenerated codex.html, Library generation manifest and
+  core.ad13fbbd26.js / rights.1378d82c76.js. Build parse/size checks passed.
+  Manifest publication dates are generated metadata, not a deployment claim.
+- Final focused loader/search/UI tests: 39 passed. Capacity oracle: 59 passed,
+  including the six-test sampling suite and unloaded-path regression.
+  Final results are preserved in final-capacity-tests.txt.
+- Exact production idle-stream control passed on candidate and baseline,
+  about 61.264 seconds each, using an 80-second limit. Prior 60-second imposed
+  limit was shorter than the configured idle timeout plus cleanup.
+- Formatting, touched JS lint, Python compilation and diff checks passed.
 
-Local reservation: listed modified files/functions belong to this branch only;
-release on agreed handoff, merge or withdrawal. No shared production checkout
-or generated codex.html was changed. No issue completion or self-acceptance.
+Remaining acceptance and measurement limits:
+1. No capacity campaign or workflow was dispatched. Reviewed sampling brackets
+   the actual cold request at 50ms intervals and can miss shorter transients;
+   it is neither a lifetime maximum nor a measured production savings claim.
+   Separate runner profiles are acceptance populations, not causal same-host
+   before/after evidence. Paired peak margins and median first-search timing
+   still require the authorized reviewed-head measurement stage.
+2. Node22 is not installed locally; executed Node tests used v24.19.0.
+   Browser page and shell checks could not launch because the configured
+   Playwright Chromium binary is absent. No browser installation attempted.
+   Real browser/screen-reader review, Node22/full CI remain open.
+3. Independent local engineering reviews are not criteria-owner acceptance.
+   Required product/latency decisions, release-owner integration and live
+   verification remain open. The 1792 MiB gate is unchanged.
+4. External publication/source-transfer/archive-access/release holds remain.
+
+Local reservation: affected paths/functions belong to this isolated branch;
+release on agreed handoff, merge or withdrawal. No issue-completion claim.
+Original milestone fe17c0c4891df37205939b636f9b60f4f39976dd remains in history.
+
+Independent review evidence (exact final implementation blobs):
+Backend reviewer: 12 loader/UI tests plus constructor cleanup regression pass.
+  mcp/library_store_loader.js c8aab92701e2026980a98f36c310031f162c1587
+  mcp/library_search.js fae45bb068eec7fe4b1734503b4a6eec56624f96
+  src/library/core.js 14db4608d6f1968a44ff0c59962d6e5f281b1f8c
+Capacity reviewer: seven targeted tests plus independent invalid timing,
+missing identity, altered limit and incomplete recovery controls pass/refuse
+as intended; merged per-shard timing retention verified.
+  scripts/merge_lyrics_capacity.py 89c43f47d4a25b0191eb249f3d4e200628611235
+  scripts/lyrics_capacity_runtime.py 9ff807274d38db629da8f589ffc327963091029c
+  scripts/library_load_measurement.py 3076cb307fc8fc41c03be710f3b3bc3ef5a4680e
+  scripts/check_lyrics_capacity.py 95f8b2c524a0332e250e59746d756bdbf5e81939
+  .github/workflows/capacity-matrix.yml 68fa4d794f5800825376f701344a45777fb7ddee

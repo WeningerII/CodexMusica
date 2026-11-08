@@ -89,3 +89,26 @@ test('health returns independent failures and absent is never ready', async () =
   await loader.load();
   assert.deepEqual(loader.health(), { state: 'absent', failures: [], corpus: 'absent' });
 });
+
+test('failed attempts close constructed stores before each explicit retry', async () => {
+  let opened = 0,
+    closed = 0;
+  const loader = createLibraryStoreLoader({
+    search: () => ({
+      ...store(),
+      close() {
+        closed++;
+      },
+      id: ++opened,
+    }),
+    corpus: () => {
+      throw Error('unavailable');
+    },
+  });
+  for (let i = 1; i <= 3; i++) {
+    await assert.rejects(loader.load());
+    assert.equal(opened, i);
+    assert.equal(closed, i);
+    assert.equal(loader.stores, null);
+  }
+});

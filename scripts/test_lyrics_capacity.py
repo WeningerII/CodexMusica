@@ -936,7 +936,7 @@ class ShardedCapacityMerge(unittest.TestCase):
         from check_lyrics_capacity import LIMITS, MODES, SEEDS
         cells = [tuple(c) for c in cells]
         return {**{
-            'version': 1, 'status': 'passed', 'production_qualified': False,
+            'version': 1, 'library_mode': 'loaded', 'status': 'passed', 'production_qualified': False,
             'local_supplement': False, 'sizes': sorted({size for size, _ in cells}),
             'seeds': list(SEEDS), 'cells': [list(c) for c in cells],
             'scope': 'resource capacity with explicit refusal accounting; not lyric-quality certification',
@@ -985,7 +985,7 @@ class ShardedCapacityMerge(unittest.TestCase):
         self.assertEqual(len({name for name, _ in deal}), len(deal))
 
     def test_first_load_evidence_is_required_and_retained_by_the_merger(self):
-        from merge_lyrics_capacity import merge
+        from merge_lyrics_capacity import merge_profile as merge
         shards = self.complete()
         report, failures = merge(shards)
         self.assertFalse(failures)
@@ -996,7 +996,7 @@ class ShardedCapacityMerge(unittest.TestCase):
         self.assertTrue(any('first-load' in f for f in failures))
 
     def test_a_complete_consistent_matrix_qualifies(self):
-        from merge_lyrics_capacity import merge
+        from merge_lyrics_capacity import merge_profile as merge
         from check_lyrics_capacity import CELLS, MODES
         report, failures = merge(self.complete())
         self.assertEqual(failures, [])
@@ -1012,7 +1012,7 @@ class ShardedCapacityMerge(unittest.TestCase):
         """A size whose seeds sit in two shards gets ONE row per (mode, verb),
         from the same function a single process uses -- not one partial row
         per shard, which is what concatenating shard summaries would give."""
-        from merge_lyrics_capacity import merge
+        from merge_lyrics_capacity import merge_profile as merge
         from check_lyrics_capacity import SIZES, MODES, summarize_measurements
         report, failures = merge(self.complete())
         self.assertEqual(failures, [])
@@ -1029,7 +1029,7 @@ class ShardedCapacityMerge(unittest.TestCase):
         two of the merger's cell guards with no case that reached them,
         because the coverage check fired first on the shape meant for them.
         """
-        from merge_lyrics_capacity import merge
+        from merge_lyrics_capacity import merge_profile as merge
         from check_lyrics_capacity import CELLS
         first_cell = tuple(self.complete()[0][1]['cells'][0])
 
@@ -1138,7 +1138,7 @@ class ShardedCapacityMerge(unittest.TestCase):
         the runtime, so it shows in EVERY shard; one shard's climb, with
         another shard falling, qualifies. Every shard climbing does not (the
         refusal list holds that case)."""
-        from merge_lyrics_capacity import merge
+        from merge_lyrics_capacity import merge_profile as merge
         shards = self.complete()
         name, pole = shards[0]
         shards[0] = (name, {**pole, 'leak_signature': {**pole['leak_signature'],
@@ -1168,6 +1168,62 @@ class ShardedCapacityMerge(unittest.TestCase):
         self.assertIs(merger.LIMITS, matrix.LIMITS)
         self.assertEqual(merger.EXPECTED_EXECUTIONS,
                          len(matrix.SIZES) * len(matrix.SEEDS) * 2)
+
+
+class LibraryProfileMerge(unittest.TestCase):
+    def complete(self):
+        rows = []
+        for mode in ('unloaded', 'loaded'):
+            for name, shard in ShardedCapacityMerge().complete():
+                shard['library_mode'] = mode
+                state = {'state': 'ready' if mode == 'loaded' else 'not_loaded',
+                         'corpus': 'verified' if mode == 'loaded' else 'absent', 'failures': []}
+                evidence = {**state, 'configured': True,
+                            'stores': {'search': True, 'export': True, 'corpus': True},
+                            'search_ready': mode == 'loaded',
+                            'first_search_s': 0.25 if mode == 'loaded' else None,
+                            'first_search_scope': 'cold request including store load' if mode == 'loaded' else 'not measured'}
+                shard['resident_runtime'] = {'library': dict(evidence), 'library_recovery': dict(evidence)}
+                for trace in shard['memory_trace']:
+                    trace.update(library_mode=mode, library_before=dict(state), library_after=dict(state))
+                if mode == 'unloaded':
+                    shard['library_load_memory_trace'] = []
+                rows.append((mode + name, shard))
+        return rows
+
+    def test_both_complete_profiles_are_required(self):
+        from merge_lyrics_capacity import merge
+        rows = self.complete()
+        report, failures = merge(rows)
+        self.assertEqual(failures, [])
+        self.assertTrue(report['production_qualified'])
+        self.assertEqual(set(report['library_profiles']), {'unloaded', 'loaded'})
+        self.assertEqual(len(report['library_profiles']['loaded']['resident_runtime']), 4)
+        self.assertFalse(merge(rows[:4])[0]['production_qualified'])
+
+    def test_profile_evidence_mutants_are_refused(self):
+        from merge_lyrics_capacity import merge
+        mutations = [
+            lambda s: s['memory_trace'].pop(),
+            lambda s: s['memory_trace'][0].update(peak_bytes=1792 * 1024**2 + 1),
+            lambda s: s['memory_trace'][0]['library_after'].update(state='not_loaded'),
+            lambda s: s['resident_runtime']['library_recovery'].update(corpus='verifying'),
+            lambda s: s['resident_runtime']['library'].update(first_search_s=float('nan')),
+            lambda s: s['resident_runtime']['library'].pop('first_search_s'),
+            lambda s: s['resident_runtime']['library']['stores'].update(search=False),
+            lambda s: s.update(source_sha256='b' * 64),
+            lambda s: s.update(limits={}),
+            lambda s: s.update(source_sha256=None, source_sha256_after=None),
+            lambda s: s['library_load_memory_trace'].pop(),
+        ]
+        for mutate in mutations:
+            with self.subTest(mutation=mutate):
+                rows = self.complete()
+                mutate(rows[-1][1])
+                self.assertFalse(merge(rows)[0]['production_qualified'])
+        rows = self.complete()
+        rows[0][1]['memory_trace'][0]['library_after']['state'] = 'ready'
+        self.assertFalse(merge(rows)[0]['production_qualified'])
 
 
 if __name__ == '__main__':

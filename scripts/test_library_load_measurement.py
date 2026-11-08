@@ -50,6 +50,7 @@ class FirstLoad(unittest.TestCase):
         from unittest.mock import patch
         runtime = object.__new__(ResidentRuntime)
         runtime.record = {}
+        runtime.library_mode = "loaded"
         runtime.library_load_probe = lambda key, fn: fn()
         paths = []
         def request(method, path, **kwargs):
@@ -64,6 +65,23 @@ class FirstLoad(unittest.TestCase):
         self.assertEqual(paths, ['/library/v1/search?limit=1', '/library/v1/health'])
         self.assertEqual(runtime.record['library']['first_search_s'], 2.)
         self.assertEqual(runtime.record['library']['load_s'], 3.)
+
+    def test_unloaded_profile_only_observes_health_and_never_samples_a_load(self):
+        from lyrics_capacity_runtime import ResidentRuntime
+        from unittest.mock import patch
+        runtime = object.__new__(ResidentRuntime)
+        runtime.record = {}
+        runtime.library_mode = 'unloaded'
+        runtime.library_load_probe = lambda *args: self.fail('unloaded profile attempted load')
+        paths = []
+        runtime.request = lambda method, path, **kwargs: paths.append(path) or {'search_ready': False}
+        runtime.health = lambda: {'library': {'state': 'not_loaded', 'failures': [], 'corpus': 'absent'}}
+        runtime.sample = lambda: None
+        with patch.dict('os.environ', {f'LIBRARY_{name}_DIR': 'fixture' for name in ('SEARCH', 'EXPORT', 'CORPUS')}):
+            runtime.load_library('library')
+        self.assertEqual(paths, ['/library/v1/health'])
+        self.assertIsNone(runtime.record['library']['first_search_s'])
+        self.assertEqual(runtime.record['library']['first_search_scope'], 'not measured')
 
     def test_missing_excessive_or_relabelled_load_evidence_is_rejected(self):
         rows = [dict(phase=phase, metric='sampled_resident_first_load', peak_bytes=1000,
