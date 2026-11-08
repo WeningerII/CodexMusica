@@ -146,6 +146,8 @@ const mutations = {
   ],
   revision: ['const revision = snapshot.revision;', 'const revision = 0;'],
   cleanup: ['unsubscribe();', '// leaked subscription'],
+  delayed: ['if (pending) return;', 'if (pending) { intents.clear(); render(); return; }'],
+  settlement: ['if (accepted) {', 'if (false) {'],
   focus: ['if (!restoringFocus) focusVersion++;', 'if (false) focusVersion++;'],
 };
 const failures = {
@@ -158,6 +160,8 @@ const failures = {
   label: 'canonical-label',
   revision: 'shown-revision',
   cleanup: 'cleanup',
+  delayed: 'delayed-keyboard-intent',
+  settlement: 'delayed-keyboard-final',
   focus: 'internal-focus-no-steal',
 };
 const source = fs.readFileSync(path.join(FEATURE, 'targets.js'), 'utf8');
@@ -408,6 +412,201 @@ async function exercise(mount, fixture, document, window) {
   outside.remove();
   return true;
 }
+// Deterministic delayed-host contract test. Native range input sequences are
+// represented by value+input; this is not a claim about native pointer dispatch.
+async function delayedExercise(mount, fixture, document, window) {
+  const check = (ok, name) => {
+    if (!ok) throw new Error('ASSERT:' + name);
+  };
+  const sleep = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+  const featured = ['soundTech', 'density', 'voice'];
+  const axes = [
+    ...featured.map((id) => fixture.definitions.find((a) => a.id === id)),
+    ...fixture.definitions.filter((a) => !featured.includes(a.id)),
+  ];
+  const freeze = (v) => {
+    if (v && typeof v === 'object') {
+      Object.values(v).forEach(freeze);
+      Object.freeze(v);
+    }
+    return v;
+  };
+  let state = freeze({
+    status: 'ready',
+    error: null,
+    revision: 20,
+    axes,
+    allAxes: true,
+    targets: [],
+    applied: 0,
+    results: { count: 4, best: null },
+  });
+  const listeners = new Set(),
+    calls = [],
+    waiting = [];
+  let automatic = false;
+  const publish = (patch) => {
+    state = freeze({ ...state, ...patch, revision: state.revision + 1 });
+    for (const fn of listeners) fn();
+  };
+  const label = (axis, value) => {
+    const a = axes.find((a) => a.id === axis);
+    return value === 0
+      ? 'middle'
+      : value === -2
+        ? a.neg
+        : value === 2
+          ? a.pos
+          : value < 0
+            ? 'leans ' + a.neg
+            : 'leans ' + a.pos;
+  };
+  const targets = {
+    current: () => state,
+    subscribe: (fn) => {
+      listeners.add(fn);
+      return () => listeners.delete(fn);
+    },
+    apply: (axis, value, revision) => {
+      calls.push({ axis, value, revision });
+      return new Promise((resolve, reject) => {
+        const complete = (code, superseded = false) => {
+          if (code) {
+            reject({ code });
+            return;
+          }
+          if (!superseded) {
+            const ts = [
+              ...state.targets.filter((t) => t.axis !== axis),
+              { axis, value, label: label(axis, value) },
+            ];
+            publish({ targets: ts, applied: ts.length });
+          }
+          resolve({ revision: superseded ? revision : state.revision });
+        };
+        if (automatic) window.setTimeout(complete, 150);
+        else waiting.push(complete);
+      });
+    },
+  };
+  const host = document.createElement('div');
+  document.body.append(host);
+  const abort = new window.AbortController();
+  const lane = mount(host, { targets, discovery: { focusToggle: () => {} }, signal: abort.signal });
+  const input = (axis) => [...host.querySelectorAll('input')].find((n) => n.dataset.axis === axis);
+  const send = (axis, value) => {
+    const n = input(axis);
+    n.focus();
+    n.value = String(value);
+    n.dispatchEvent(new window.Event('input', { bubbles: true }));
+  };
+  const flush = async () => {
+    await sleep(0);
+  };
+  const finish = async (code, superseded) => {
+    check(waiting.length > 0, 'delayed-host-has-command');
+    waiting.shift()(code, superseded);
+    await flush();
+  };
+  const value = (axis) => state.targets.find((t) => t.axis === axis)?.value;
+  // Two relative keyboard steps: losing the DOM's first intended value makes
+  // the second step compute 1 again. Each host command really delays 150 ms.
+  automatic = true;
+  const start = calls.length;
+  send('harm', Number(input('harm').value) + 1);
+  send('harm', Number(input('harm').value) + 1);
+  check(input('harm').value === '2', 'delayed-keyboard-intent');
+  // Allow loaded CI hosts to settle without asserting wall-clock performance.
+  for (let elapsed = 0; elapsed < 2000 && value('harm') !== 2; elapsed += 20) await sleep(20);
+  check(value('harm') === 2 && calls.length === start + 2, 'delayed-keyboard-final');
+  check(calls.at(-1).revision === 21, 'delayed-new-revision');
+  automatic = false;
+  // Pointer-like value samples coalesce to the final endpoint, not every sample.
+  const pointerStart = calls.length;
+  send('density', -1);
+  send('density', 0);
+  send('density', 1);
+  send('density', 2);
+  publish({ results: { count: 3, best: null } }); // publication must not snap active value
+  check(input('density').value === '2', 'delayed-pointer-intent');
+  await finish();
+  check(calls.length === pointerStart + 2 && calls.at(-1).value === 2, 'delayed-pointer-coalesced');
+  await finish();
+  check(value('density') === 2 && input('density').value === '2', 'delayed-pointer-final');
+  // Keep the latest intention for each axis rather than silently losing one.
+  send('density', 0);
+  send('density', 1);
+  send('voice', -1);
+  send('voice', -2);
+  await finish();
+  check(calls.at(-1).axis === 'density' && calls.at(-1).value === 1, 'delayed-first-axis');
+  await finish();
+  check(calls.at(-1).axis === 'voice' && calls.at(-1).value === -2, 'delayed-second-axis');
+  await finish();
+  check(value('density') === 1 && value('voice') === -2, 'delayed-multi-final');
+  // A refusal of the follow-up itself must not drain another axis or retry.
+  let refusedStart = calls.length;
+  send('density', 0);
+  send('density', 2);
+  send('voice', 1);
+  await finish();
+  await finish('STALE');
+  check(
+    calls.length === refusedStart + 2 && waiting.length === 0 && value('voice') === -2,
+    'delayed-followup-refusal'
+  );
+  // Same final value needs no second command (absence and applied zero differ).
+  let n = calls.length;
+  send('density', 0);
+  send('density', 0);
+  await finish();
+  check(calls.length === n + 1 && value('density') === 0, 'delayed-duplicate');
+  for (const code of ['STALE', 'BUSY', 'BAD_VALUE']) {
+    n = calls.length;
+    send('density', 1);
+    send('density', 2);
+    await finish(code);
+    check(
+      calls.length === n + 1 &&
+        waiting.length === 0 &&
+        value('density') === 0 &&
+        input('density').value === '0',
+      'delayed-refusal-' + code
+    );
+  }
+  // A new independent event after refusal is allowed; it is not a replay.
+  send('density', -1);
+  await finish();
+  check(value('density') === -1, 'delayed-after-refusal');
+  n = calls.length;
+  send('density', 1);
+  send('density', 2);
+  publish({ targets: [{ axis: 'density', value: -2, label: 'sparse' }], applied: 1 });
+  await finish(null, true);
+  check(
+    calls.length === n + 1 && value('density') === -2 && input('density').value === '-2',
+    'delayed-superseded'
+  );
+  n = calls.length;
+  send('density', 1);
+  send('density', 2);
+  publish({ status: 'loading' });
+  await finish(null, true);
+  publish({ status: 'ready' });
+  check(calls.length === n + 1 && input('density').value === '-2', 'delayed-not-ready');
+  n = calls.length;
+  send('density', 1);
+  send('density', 2);
+  abort.abort();
+  await finish(null, true);
+  check(
+    calls.length === n + 1 && listeners.size === 0 && host.children.length === 0,
+    'delayed-abort'
+  );
+  lane.unmount();
+  host.remove();
+}
+
 async function domRun(code) {
   const { JSDOM } = require('jsdom');
   const dom = new JSDOM('<!doctype html><body></body>', {
@@ -426,7 +625,8 @@ async function domRun(code) {
     );
   dom.window.eval(transformed + '\nwindow.fixtureMount=mount;');
   try {
-    return await exercise(dom.window.fixtureMount, fixture, dom.window.document, dom.window);
+    await exercise(dom.window.fixtureMount, fixture, dom.window.document, dom.window);
+    return await delayedExercise(dom.window.fixtureMount, fixture, dom.window.document, dom.window);
   } finally {
     dom.window.close();
   }
@@ -458,11 +658,12 @@ async function browserRun() {
     for (const width of [280, 390, 1280]) {
       await page.setViewportSize({ width, height: 900 });
       await page.evaluate(
-        async ({ fixture, exerciseText }) => {
+        async ({ fixture, exerciseText, delayedText }) => {
           const { mount } = await import('/targets.js');
           await (0, eval)('(' + exerciseText + ')')(mount, fixture, document, window);
+          await (0, eval)('(' + delayedText + ')')(mount, fixture, document, window);
         },
-        { fixture, exerciseText: exercise.toString() }
+        { fixture, exerciseText: exercise.toString(), delayedText: delayedExercise.toString() }
       );
     }
     console.log('Browser contract scenarios passed at 280/390/1280px.');
