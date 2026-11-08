@@ -13,6 +13,11 @@ export const READER_LIMITS = Object.freeze({
   leaseMs: 600_000,
   retentionMs: 30 * 24 * 60 * 60 * 1000,
 });
+// A job record keeps at most this many control idempotency receipts. The save
+// that appends a new receipt drops the oldest `at` first (ties by array order,
+// earliest appended first); the new receipt is always kept. A key whose receipt
+// was dropped is a new control again (mcp/READER_RUNTIME.md).
+export const CONTROL_RECEIPT_CAP = 256;
 const HASH = /^[a-f0-9]{64}$/;
 const ID = /^reader_[a-f0-9]{64}$/;
 const STATES = new Set([
@@ -85,6 +90,19 @@ function encoded(value, label, limit = READER_LIMITS.objectBytes) {
   if (bytes.length > limit)
     throw problem('RESOURCE_LIMIT', `${label} exceeds ${limit} encoded bytes.`, 413);
   return bytes;
+}
+// The newest `limit` receipts in their stored order: the oldest `at` goes
+// first, and receipts with the same `at` go in array order.
+function retainedReceipts(receipts, limit) {
+  if (receipts.length <= limit) return receipts;
+  const dropped = new Set(
+    receipts
+      .map((receipt, index) => [receipt.at, index])
+      .sort((a, b) => a[0] - b[0] || a[1] - b[1])
+      .slice(0, receipts.length - limit)
+      .map(([, index]) => index)
+  );
+  return receipts.filter((_, index) => !dropped.has(index));
 }
 function text(value, label) {
   if (typeof value !== 'string' || !value.trim() || Buffer.byteLength(value) > 256)
@@ -1371,7 +1389,7 @@ export class ReaderJobStore {
       record: {
         ...record,
         control_receipts: [
-          ...record.control_receipts,
+          ...retainedReceipts(record.control_receipts, CONTROL_RECEIPT_CAP - 1),
           { key, action, digest, payload_hash, at: this.now() },
         ],
       },

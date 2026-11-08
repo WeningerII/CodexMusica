@@ -278,7 +278,15 @@ the same body bytes for signing and sending. Accept a five-minute clock window.
 Exact nonce replay is idempotent; changed replay refuses. Mutating actions also
 have durable idempotency receipts, so a retry cannot restart a later failed
 attempt. Optional control attempt/generation bindings are checked after that
-durable replay lookup.
+durable replay lookup. A job keeps at most 256 control receipts
+(`CONTROL_RECEIPT_CAP` in `mcp/reader_job_store.js`): the save that appends a
+new receipt drops the one with the oldest `at` (receipts with the same `at` go
+in the order they were added) and always keeps the new one. A record loaded with
+more is trimmed by its next control save; loading never fails over the count.
+So a key is answered from its receipt while it is among the job's 256 most
+recent control keys. An older key is treated as new and checked against the
+job's current state like any new control, under its `expected_attempt` and
+`expected_generation` guards.
 
 ## Leases and persistence
 

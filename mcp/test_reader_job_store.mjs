@@ -5,7 +5,12 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { test } from 'node:test';
 import express from 'express';
-import { ReaderJobStore, READER_LIMITS, decodeStoredObject } from './reader_job_store.js';
+import {
+  ReaderJobStore,
+  READER_LIMITS,
+  CONTROL_RECEIPT_CAP,
+  decodeStoredObject,
+} from './reader_job_store.js';
 import { canonicalJSON, createCatalogResolver } from './reader_scheduler.js';
 import { createReaderRouter, signReaderRequest } from './reader_routes.js';
 
@@ -1680,4 +1685,169 @@ test('a committed checkpoint is refused after the reader scheme changes', async 
   store.resume(job.record.id, job.capability, 'viewer-a', v2);
   const next = store.lease(job.record.id);
   assert.deepEqual(next.cursor, saved.cursor);
+});
+
+// #833: a job keeps at most CONTROL_RECEIPT_CAP control receipts.
+function cancelledJob(t) {
+  let now = 1_000;
+  const fx = fixture(t, { now: () => now });
+  const job = create(fx.store);
+  const tick = () => ++now;
+  return { ...fx, job, tick, setNow: (value) => (now = value) };
+}
+const receiptKey = (action, key) => createHash('sha256').update(`${action}\0${key}`).digest('hex');
+const onDisk = (directory, id) =>
+  JSON.parse(fs.readFileSync(recordFile(directory, id))).control_receipts;
+const recordFile = (directory, id) =>
+  path.join(directory, 'reader-jobs-v1', 'records', `${id}.json`);
+
+test('control receipts are capped in the save that appends; the oldest key is dropped', (t) => {
+  assert.equal(CONTROL_RECEIPT_CAP, 256, 'the cap #833 ruled');
+  const { directory, store, job, tick } = cancelledJob(t);
+  const id = job.record.id;
+  for (let i = 0; i <= CONTROL_RECEIPT_CAP; i++) {
+    tick();
+    store.cancel(id, job.capability, 'viewer-a', { idempotency_key: `cancel-${i}` });
+  }
+  const receipts = store.inspect(id).control_receipts;
+  assert.equal(receipts.length, CONTROL_RECEIPT_CAP);
+  const keys = receipts.map((receipt) => receipt.key);
+  assert.ok(!keys.includes(receiptKey('cancel', 'cancel-0')), 'the first key is gone');
+  assert.equal(keys[0], receiptKey('cancel', 'cancel-1'));
+  assert.equal(keys.at(-1), receiptKey('cancel', `cancel-${CONTROL_RECEIPT_CAP}`));
+  // The same save wrote the trimmed list: the durable record already holds it.
+  assert.deepEqual(onDisk(directory, id), receipts);
+  assert.deepEqual(new ReaderJobStore({ directory }).inspect(id).control_receipts, receipts);
+});
+
+test('a retained key replays; a dropped key is a new control checked against current state', (t) => {
+  const { store, job, tick } = cancelledJob(t);
+  const id = job.record.id;
+  const options = (i) => ({ idempotency_key: `cancel-${i}`, expected_attempt: 0 });
+  for (let i = 0; i <= CONTROL_RECEIPT_CAP; i++) {
+    tick();
+    store.cancel(id, job.capability, 'viewer-a', options(i));
+  }
+  const before = store.inspect(id);
+  assert.equal(store._control(before, 'cancel', options(1), { id }).replay, true);
+  assert.equal(store._control(before, 'cancel', options(0), { id }).replay, false);
+  tick();
+  const replay = store.cancel(id, job.capability, 'viewer-a', options(1));
+  assert.equal(replay.updated_at, before.updated_at, 'a replay writes nothing');
+  assert.deepEqual(store.inspect(id), before);
+  // The dropped key is evaluated as new: its guard is checked against the job now...
+  refused(
+    () =>
+      store.cancel(id, job.capability, 'viewer-a', {
+        idempotency_key: 'cancel-0',
+        expected_attempt: 7,
+      }),
+    'STALE_ATTEMPT'
+  );
+  // ...and, with the job already cancelled, it gets a cancel's normal answer.
+  tick();
+  const fresh = store.cancel(id, job.capability, 'viewer-a', options(0));
+  assert.equal(fresh.state, 'cancelled');
+  assert.equal(fresh.reason.code, 'CANCELLED');
+  assert.notEqual(fresh.updated_at, before.updated_at);
+  const keys = fresh.control_receipts.map((receipt) => receipt.key);
+  assert.equal(keys.length, CONTROL_RECEIPT_CAP);
+  assert.equal(keys.at(-1), receiptKey('cancel', 'cancel-0'));
+  assert.ok(!keys.includes(receiptKey('cancel', 'cancel-1')), 'now the oldest is dropped');
+  // A retained key with changed input still conflicts.
+  refused(
+    () =>
+      store.cancel(id, job.capability, 'viewer-a', {
+        idempotency_key: 'cancel-2',
+        expected_attempt: 0,
+        digest: 'a'.repeat(64),
+      }),
+    'IDEMPOTENCY_CONFLICT'
+  );
+  refused(
+    () =>
+      store.cancel(id, job.capability, 'viewer-a', {
+        idempotency_key: `cancel-${CONTROL_RECEIPT_CAP}`,
+        expected_attempt: 1,
+      }),
+    'IDEMPOTENCY_CONFLICT'
+  );
+});
+
+test('the cap drops the oldest `at` first, ties in array order, and trims an over-full loaded record', (t) => {
+  const { directory, store, job, tick, setNow } = cancelledJob(t);
+  const id = job.record.id;
+  const hex = (i) => i.toString(16).padStart(64, '0');
+  // Stored order is not time order: `at` descends, and pairs share an `at`.
+  const count = CONTROL_RECEIPT_CAP + 40;
+  const planted = Array.from({ length: count }, (_, i) => ({
+    key: hex(i),
+    action: 'cancel',
+    digest: hex(i),
+    payload_hash: hex(i),
+    at: 10_000 - Math.floor(i / 2),
+  }));
+  store._save({ ...store.inspect(id), control_receipts: planted }, true);
+  const loaded = new ReaderJobStore({ directory, now: () => 20_000 });
+  assert.equal(loaded.inspect(id).control_receipts.length, count, 'loading never fails or trims');
+  setNow(20_000);
+  tick();
+  const saved = loaded.cancel(id, job.capability, 'viewer-a', { idempotency_key: 'late' });
+  const kept = saved.control_receipts;
+  assert.equal(kept.length, CONTROL_RECEIPT_CAP);
+  assert.equal(kept.at(-1).key, receiptKey('cancel', 'late'), 'the new receipt is kept');
+  // The newest `at`s are the first stored, so the tail drops; of the pair that
+  // straddles the cut (same `at`), the earlier-stored one drops first.
+  const survivors = CONTROL_RECEIPT_CAP - 1;
+  assert.deepEqual(
+    kept.slice(0, -1).map((receipt) => receipt.key),
+    [...planted.slice(0, survivors - 1), planted[survivors]].map((receipt) => receipt.key)
+  );
+  // Ties alone: equal `at`s drop in array order, earliest appended first.
+  const tied = planted.map((receipt) => ({ ...receipt, at: 5 }));
+  loaded._save({ ...loaded.inspect(id), control_receipts: tied }, true);
+  const again = new ReaderJobStore({ directory, now: () => 30_000 });
+  const trimmed = again.cancel(id, job.capability, 'viewer-a', { idempotency_key: 'tie' });
+  assert.deepEqual(
+    trimmed.control_receipts.slice(0, -1).map((receipt) => receipt.key),
+    tied.slice(count - survivors).map((receipt) => receipt.key)
+  );
+  // A new receipt older than every kept one (a clock step back) is still kept.
+  const back = new ReaderJobStore({ directory, now: () => 1 });
+  const stepped = back.cancel(id, job.capability, 'viewer-a', { idempotency_key: 'back' });
+  assert.equal(stepped.control_receipts.length, CONTROL_RECEIPT_CAP);
+  assert.equal(stepped.control_receipts.at(-1).key, receiptKey('cancel', 'back'));
+});
+
+test('a record holding the cap of maximum-size receipts saves under objectBytes', (t) => {
+  const source = fs.readFileSync(new URL('./reader_job_store.js', import.meta.url), 'utf8');
+  const limits = source.indexOf('export const READER_LIMITS');
+  const cap = source.indexOf(`export const CONTROL_RECEIPT_CAP = ${CONTROL_RECEIPT_CAP};`);
+  assert.ok(limits >= 0 && cap > limits, 'the cap is a named constant beside READER_LIMITS');
+  assert.ok(cap - limits < 1024, 'declared right after READER_LIMITS');
+  const control = source.slice(source.indexOf('  _control('), source.indexOf('  _expected('));
+  assert.match(control, /CONTROL_RECEIPT_CAP/, '_control reads the named constant');
+  assert.doesNotMatch(control, /(?<![-\w])25[5-7]\b/, 'no inlined cap');
+  const { directory, store, job } = cancelledJob(t);
+  const id = job.record.id;
+  // The longest action, a three-digest receipt and the widest safe `at`.
+  const widest = (i) => ({
+    key: i.toString(16).padStart(64, 'f'),
+    action: 'resume',
+    digest: 'f'.repeat(64),
+    payload_hash: 'f'.repeat(64),
+    at: Number.MAX_SAFE_INTEGER - i,
+  });
+  const full = Array.from({ length: CONTROL_RECEIPT_CAP }, (_, i) => widest(i));
+  const saved = store._save({ ...store.inspect(id), control_receipts: full }, true);
+  const bytes = fs.statSync(recordFile(directory, id)).size;
+  assert.ok(bytes < READER_LIMITS.objectBytes, `${bytes} < ${READER_LIMITS.objectBytes}`);
+  assert.equal(saved.control_receipts.length, CONTROL_RECEIPT_CAP);
+  const receiptBytes = Buffer.byteLength(JSON.stringify(widest(0))) + 1;
+  assert.ok(CONTROL_RECEIPT_CAP * receiptBytes < READER_LIMITS.objectBytes / 16);
+  // Loading it back and appending one more stays at the cap and under the bound.
+  const reloaded = new ReaderJobStore({ directory, now: () => 2_000 });
+  const next = reloaded.cancel(id, job.capability, 'viewer-a', { idempotency_key: 'one-more' });
+  assert.equal(next.control_receipts.length, CONTROL_RECEIPT_CAP);
+  assert.ok(fs.statSync(recordFile(directory, id)).size < READER_LIMITS.objectBytes);
 });
