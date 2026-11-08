@@ -67,9 +67,12 @@ async function exercise(source) {
     },
   };
   const sandbox = vm.createContext({ recipe });
-  const lanes = vm.runInContext(
+  const registered = vm.runInContext(
     `${cut(host, until.declaration)}\nconst ending = ${cut(source, initializer(source, 'ending'))};\n(${cut(source, instrument.value)})`,
     sandbox
+  );
+  const lanes = registered.filter((lane) =>
+    ['instrumentoutput', 'instrumentactions'].includes(lane.id)
   );
   assert.deepEqual(
     Array.from(lanes, (l) => l.id),

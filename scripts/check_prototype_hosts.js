@@ -204,6 +204,10 @@ const { start } = require('./_pages_server.js');
 const root = path.resolve(__dirname, '..');
 const NS = 'codex-prototype:';
 const LANE_MODULES = {
+  instrumentsignal: '/prototype/features/instrument-signal/chain.js',
+  instrumentenvironment: '/prototype/features/instrument-environment/environment.js',
+  instrumentcharacter: '/prototype/features/instrument-character/character.js',
+  instrumentparts: '/prototype/features/instrument-configuration/parts.js',
   detailphotos: '/prototype/features/media/lightbox.js',
   librarymetadata: '/prototype/features/library-metadata/sheet.js',
   browse: '/prototype/features/browse-map/discovery.js',
@@ -222,6 +226,10 @@ const LANE_MODULES = {
   genretargets: '/prototype/features/genre-targets/targets.js',
 };
 const CTX_KEYS = {
+  instrumentsignal: ['announce', 'chain', 'signal', 'storage'],
+  instrumentenvironment: ['announce', 'environment', 'signal', 'storage'],
+  instrumentcharacter: ['announce', 'character', 'signal', 'storage'],
+  instrumentparts: ['announce', 'configuration', 'signal', 'storage'],
   detailphotos: ['announce', 'close', 'media', 'overlay', 'photos', 'signal', 'storage'],
   librarymetadata: ['announce', 'close', 'record', 'signal', 'storage'],
   instrumentoutput: ['announce', 'output', 'signal', 'storage'],
@@ -1206,7 +1214,15 @@ async function instrumentChecks(browser, srv) {
     JSON.stringify(p.keys) === JSON.stringify(CTX_KEYS.instrumentdetail),
     `ctx: instrumentdetail got [${p.keys}], expected [${CTX_KEYS.instrumentdetail}]`
   );
-  for (const lane of ['instrumentoutput', 'instrumentactions']) {
+  for (const lane of [
+    'instrumentparts',
+    'instrumentcharacter',
+    'instrumentenvironment',
+    'instrumentsignal',
+    'instrumentoutput',
+    'instrumentactions',
+  ]) {
+    await page.evaluate((id) => document.getElementById(`proto-tab-${id}`)?.click(), lane);
     await waitMounted(page, lane);
     const registered = await probe(page, lane);
     expect(
@@ -4495,6 +4511,10 @@ const PORT_KEYS = {
 // options, CALLBACK_METHODS), each of which ends with its mount (app.js
 // ending and speaking, #810 6682309672).
 const SUBSCRIBED = {
+  instrumentsignal: ['chain.subscribe'],
+  instrumentenvironment: ['environment.subscribe'],
+  instrumentcharacter: ['character.subscribe'],
+  instrumentparts: ['configuration.subscribe'],
   detailphotos: [],
   librarymetadata: [],
   browse: [],
@@ -4524,6 +4544,10 @@ const CALLBACK_METHODS = ['speech.speak'];
 // otherwise, went unchecked).
 const DISCLOSURE_METHODS = ['current', 'focusToggle', 'setOpen', 'subscribe'];
 const CTX_VIEWS = {
+  instrumentsignal: { chain: ['choose', 'snapshot', 'subscribe'] },
+  instrumentenvironment: { environment: ['choose', 'snapshot', 'subscribe'] },
+  instrumentcharacter: { character: ['automatic', 'choose', 'normalize', 'snapshot', 'subscribe'] },
+  instrumentparts: { configuration: ['choosePart', 'snapshot', 'subscribe'] },
   detailphotos: { media: ['resolve'], overlay: ['open'] },
   librarymetadata: { record: [] },
   browse: {},
@@ -8006,7 +8030,18 @@ const STORE_CHECKS = {
     run: async (page) => {
       const routes = [
         ['#genre', ['genrecategories', 'genretargets', 'genredetail', 'genreinstruments']],
-        ['#instrument', ['instrumentdetail', 'instrumentoutput', 'instrumentactions']],
+        [
+          '#instrument',
+          [
+            'instrumentdetail',
+            'instrumentparts',
+            'instrumentcharacter',
+            'instrumentenvironment',
+            'instrumentsignal',
+            'instrumentoutput',
+            'instrumentactions',
+          ],
+        ],
         ['#browse', ['browse']],
         ['#lyrics', ['lyrics']],
         ['#library', ['library', 'librarycredits', 'librarymethods']],
@@ -8015,7 +8050,10 @@ const STORE_CHECKS = {
         await page.evaluate((h) => {
           location.hash = h;
         }, hash);
-        for (const l of lanes) await waitMounted(page, l);
+        for (const l of lanes) {
+          await page.evaluate((id) => document.getElementById(`proto-tab-${id}`)?.click(), l);
+          await waitMounted(page, l);
+        }
       }
       await page.evaluate(async () => {
         const { openMetadata } = await import('/prototype/app.js');
@@ -8106,6 +8144,10 @@ const STORE_CHECKS = {
           const CHANGES = {
             'genre.subscribe': () => sel.genre.set(genres[turn % 3]),
             'instrument.subscribe': () => sel.instrument.set(instruments[turn % 3]),
+            'configuration.subscribe': () => sel.instrument.set(instruments[(turn + 2) % 3]),
+            'character.subscribe': () => sel.instrument.set(instruments[(turn + 2) % 3]),
+            'environment.subscribe': () => sel.instrument.set(instruments[(turn + 2) % 3]),
+            'chain.subscribe': () => sel.instrument.set(instruments[(turn + 2) % 3]),
             'output.subscribe': () => sel.instrument.set(instruments[(turn + 1) % 3]),
             'recipe.subscribe': async () => {
               for (let i = 0; i < 200 && R.snapshot().busy; i++) await S.tick(25);
@@ -9716,6 +9758,7 @@ async function recipeChecks(browser, srv) {
 (async () => {
   await require('./check_prototype_preview_registration.js').check();
   await require('./check_prototype_detail_panels.js').check();
+  await require('./check_prototype_tabs.js').check();
   for (const [lane, mod] of Object.entries(LANE_MODULES)) {
     const app = fs.readFileSync(path.join(root, 'prototype', 'app.js'), 'utf8');
     expect(

@@ -117,8 +117,14 @@ export function createHost(lane, panel) {
   function place() {
     host = document.createElement('div');
     host.dataset.featureHost = lane.id;
-    const hosts = panel.querySelectorAll('[data-feature-host]');
-    (hosts.length ? hosts[hosts.length - 1] : panel.querySelector('h1')).after(host);
+    // Nested tab panels own their hosts; a later sibling lane must not be
+    // inserted inside whichever tab happened to mount last.
+    const hosts = [...panel.children].filter((node) => node.hasAttribute('data-feature-host'));
+    const anchor = hosts.length
+      ? hosts[hosts.length - 1]
+      : [...panel.children].find((node) => node.matches('h1, h2'));
+    if (anchor) anchor.after(host);
+    else panel.append(host);
   }
 
   // A host unmounted while its lane loads (an on-demand lane opened again

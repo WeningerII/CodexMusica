@@ -1826,7 +1826,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-configuration/parts.cjs"
     },
     {
       "n": 200,
@@ -1836,7 +1836,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-configuration/parts.cjs"
     },
     {
       "n": 201,
@@ -1846,7 +1846,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-character/character.cjs"
     },
     {
       "n": 202,
@@ -1856,7 +1856,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-environment/environment.cjs"
     },
     {
       "n": 203,
@@ -1866,7 +1866,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-environment/environment.cjs"
     },
     {
       "n": 204,
@@ -1876,7 +1876,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-signal/chain.cjs"
     },
     {
       "n": 205,

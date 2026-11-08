@@ -24,6 +24,7 @@ import {
 import { genreDiscovery, countOf } from './discovery.js';
 import { recipeStore } from './recipe-store.js';
 import { loadEngine } from './engine/load.js';
+import { createTabs } from './tabs.js';
 import { detailPanels } from './detail-panels.js';
 import { media, overlay, speechAdapter } from './adapters.js';
 import { genre, instrument } from './selection.js';
@@ -489,10 +490,63 @@ const MORE = {
     },
   ],
   // The reviewed preview lanes share the existing store. This is not yet
-  // the complete inspector: its tabs, catalog and other panels are pending.
+  // the complete inspector: its header, catalog and Similar remain pending.
   instrument: [
     {
+      id: 'instrumentparts',
+      tab: 'Parts',
+      label: 'Instrument parts',
+      load: () => import('./features/instrument-configuration/parts.js'),
+      unloaded: 'The instrument parts did not load.',
+      retryHint: 'Try again.',
+      context: async ({ signal }) => {
+        await recipe.start();
+        if (recipe.status() !== 'ready') throw new Error('not ready');
+        return { configuration: ending(signal, recipe.preview.configuration) };
+      },
+    },
+    {
+      id: 'instrumentcharacter',
+      tab: 'Character',
+      label: 'Instrument character',
+      load: () => import('./features/instrument-character/character.js'),
+      unloaded: 'The instrument character did not load.',
+      retryHint: 'Try again.',
+      context: async ({ signal }) => {
+        await recipe.start();
+        if (recipe.status() !== 'ready') throw new Error('not ready');
+        return { character: ending(signal, recipe.preview.character) };
+      },
+    },
+    {
+      id: 'instrumentenvironment',
+      tab: 'Environment',
+      label: 'Instrument environment',
+      load: () => import('./features/instrument-environment/environment.js'),
+      unloaded: 'The instrument environment did not load.',
+      retryHint: 'Try again.',
+      context: async ({ signal }) => {
+        await recipe.start();
+        if (recipe.status() !== 'ready') throw new Error('not ready');
+        return { environment: ending(signal, recipe.preview.environment) };
+      },
+    },
+    {
+      id: 'instrumentsignal',
+      tab: 'Signal',
+      label: 'Instrument signal',
+      load: () => import('./features/instrument-signal/chain.js'),
+      unloaded: 'The instrument signal did not load.',
+      retryHint: 'Try again.',
+      context: async ({ signal }) => {
+        await recipe.start();
+        if (recipe.status() !== 'ready') throw new Error('not ready');
+        return { chain: ending(signal, recipe.preview.chain) };
+      },
+    },
+    {
       id: 'instrumentoutput',
+      tab: 'Output',
       label: 'Instrument output',
       load: () => import('./features/instrument-output/output.js'),
       unloaded: 'The instrument output did not load.',
@@ -553,10 +607,16 @@ const FIRST = { genre: discoveryLanes };
 const hosts = {};
 for (const [route, lane] of Object.entries(LANES)) {
   const panel = document.querySelector(`[data-panel="${route}"]`);
-  hosts[route] = [...(FIRST[route] || []), lane, ...(MORE[route] || [])].map((l) =>
-    createHost(l, panel)
+  hosts[route] = [...(FIRST[route] || []), lane, ...(MORE[route] || []).filter((l) => !l.tab)].map(
+    (l) => createHost(l, panel)
   );
 }
+
+const instrumentTabs = createTabs(
+  document.querySelector('[data-panel="instrument"]'),
+  MORE.instrument.filter((lane) => lane.tab),
+  createHost
+);
 
 // The results count line (production's #gp-count): the shell's own node,
 // rewritten from the store. It heads the results, as #gp-count does: right
@@ -637,6 +697,10 @@ function show(route, { moveFocus }) {
   // so the next Tab lands inside it. The first paint does not take focus.
   if (moveFocus) document.querySelector(`[data-panel="${route}"] h1`).focus();
   for (const h of hosts[route] || []) h.show();
+  if (route === 'instrument') {
+    document.querySelector('[data-feature-host="instrumentdetail"]')?.after(instrumentTabs.root);
+    instrumentTabs.show();
+  }
   if (route === 'genre') placeCount();
   const saved = write('route', route);
   if (!saved.ok && !savedLine.textContent) {
