@@ -2542,6 +2542,171 @@ test("reconciliation: good/release_fencing.json's releases, by one instance duri
   }
 });
 
+// GC races a release (BB8 6710235213, owed before Step 10): two instances on
+// one root. A runs maintain() in slices; B releases job X (a pause with code
+// DISCOVERY_UNAVAILABLE, U1) at three points around A's lock: between two
+// mark slices, after A's mark and before its sweep takes the lock, and while
+// A's sweep holds it. What §7.2 and §7.3 promise: a release is one record
+// save, and only GC deletes; no segment a surviving record (Y) references is
+// ever swept; a collection marked before another instance's write never
+// sweeps (A abandons it on entering the lock, so even an orphan it marked
+// dead outlives it); a release refused STORE_BUSY because A holds the lock
+// writes nothing, and its retry lands; once it has landed, the next full
+// collection reclaims X's segments, and X keeps its trace. Every stored
+// object is back-dated, so only the mark protects one.
+test('GC races a release: two instances, the release lands or is retried, and no surviving segment is swept', (t) => {
+  const FENCE = 'f'.repeat(64);
+  const BOUNDS = { records: 1, objects: 1, bytes: 2 * 1024 * 1024, ms: 1e9 };
+  const release = (b, x) =>
+    b.pause(x, 1, FENCE, {
+      code: 'DISCOVERY_UNAVAILABLE',
+      message: 'stubbed refusal',
+      cause: 'digest_mismatch',
+      log: 'seen',
+    });
+  for (const when of [
+    'between mark slices',
+    'after the mark, before the sweep',
+    'during the sweep',
+  ]) {
+    gcOnly(t); // only for the collections the instances' own startups run
+    const { directory, store: a } = fixture(t);
+    const b = new ReaderJobStore({ directory });
+    t.mock.restoreAll();
+    const other = create(a);
+    const base = a.records.get(other.record.id);
+    const X = `reader_${'a'.repeat(64)}`;
+    const Y = `reader_${'b'.repeat(64)}`;
+    const x = plantReal(
+      directory,
+      base,
+      X,
+      { seen: 2, alt_cells: 2 },
+      {
+        job: {
+          state: 'running',
+          attempt: 1,
+          fence: FENCE,
+          lease_expires_at: Date.now() + 600_000,
+          reason: null,
+        },
+      }
+    );
+    const y = plantReal(directory, base, Y, { seen: 3, variants: 1 });
+    const segmentsOf = (record) => {
+      const out = [];
+      for (const st of Object.values(record.discovery.logs)) {
+        let at = st.head;
+        while (at) {
+          out.push(at);
+          at = JSON.parse(
+            fs.readFileSync(path.join(pagesDir(directory), `${at}.json`))
+          ).previous_hash;
+        }
+      }
+      return out;
+    };
+    const xs = segmentsOf(x);
+    const ys = segmentsOf(y);
+    assert.equal(xs.length, 4);
+    assert.equal(ys.length, 4);
+    // Both instances reconcile the planted records: real chains, kept live.
+    assert.equal(a.inspect(X).state, 'running');
+    assert.equal(b.inspect(Y).state, 'queued');
+    const orphan = plantedChain(base, 'row_seen', 1, { tag: 'orphan' });
+    writeStored(directory, orphan.addresses[0], orphan.raws[0], false);
+    backdate(directory);
+    const all = (hashes) => hashes.every((h) => pageExists(directory, h));
+    const none = (hashes) => hashes.every((h) => !pageExists(directory, h));
+    const file = path.join(storeDirectory(directory), 'records', `${X}.json`);
+    let landed = null;
+    if (when === 'between mark slices') {
+      const first = a.maintain(BOUNDS);
+      assert.equal(first.phase, 'mark', `${when}: the mark is under way`);
+      landed = release(b, X);
+    } else if (when === 'after the mark, before the sweep') {
+      // maintain() takes the lock twice: for expiry, then for the sweep. B
+      // releases between A's finished mark and the sweep's lock.
+      const open = a._open;
+      let calls = 0;
+      t.mock.method(a, '_open', function (run) {
+        if (calls++ === 1) {
+          assert.equal(this._gc?.phase, 'sweep', `${when}: A's mark is done`);
+          landed = release(b, X);
+        }
+        return open.call(this, run);
+      });
+      const result = a.maintain({ ...BOUNDS, records: 1e6, objects: 1e6 });
+      assert.equal(calls, 2, `${when}: the sweep took the lock`);
+      assert.ok(landed, `${when}: B released before it`);
+      t.mock.restoreAll();
+      assert.equal(result.swept, 0, `${when}: the stale collection sweeps nothing`);
+      assert.ok(pageExists(directory, orphan.addresses[0]), `${when}: not even the orphan`);
+      assert.equal(a._gc, null, `${when}: it is abandoned`);
+    } else {
+      // A's sweep holds the lock: B's release is refused STORE_BUSY and
+      // writes nothing; B serves on and retries once A is done.
+      const unlink = a._unlinkCounted;
+      let refusal = null;
+      t.mock.method(a, '_unlinkCounted', function (target) {
+        if (refusal === null) {
+          const bytes = fs.readFileSync(file);
+          try {
+            release(b, X);
+          } catch (error) {
+            refusal = error;
+          }
+          assert.ok(
+            fs.readFileSync(file).equals(bytes),
+            `${when}: the refused release wrote nothing`
+          );
+        }
+        return unlink.call(this, target);
+      });
+      const result = maintainAll(a, { ...BOUNDS, objects: 1e6 });
+      t.mock.restoreAll();
+      assert.equal(refusal?.code, 'STORE_BUSY', `${when}: refused while A holds the lock`);
+      assert.equal(refusal.status, 503);
+      assert.equal(b.failure, null, `${when}: B serves on`);
+      assert.equal(result.phase, 'idle');
+      assert.ok(all(xs), `${when}: X is still live, so its segments stay`);
+      assert.equal(pageExists(directory, orphan.addresses[0]), false, `${when}: the orphan swept`);
+      landed = release(b, X);
+    }
+    assert.ok(all(ys), `${when}: Y's segments survive the race`);
+    assert.equal(landed.state, 'paused', `${when}: the release landed`);
+    // The next full collection, on A, reclaims X's segments and keeps Y's.
+    backdate(directory);
+    assert.equal(maintainAll(a, BOUNDS).phase, 'idle');
+    assert.ok(all(ys), `${when}: Y's segments survive the collection`);
+    assert.ok(none(xs), `${when}: X's released segments are reclaimed`);
+    assert.equal(pageExists(directory, orphan.addresses[0]), false, `${when}: the orphan too`);
+    // The release, as both instances and the disk see it: one save, its trace kept.
+    const heads = Object.fromEntries(
+      Object.entries(x.discovery.logs).map(([log, st]) => [log, st.head])
+    );
+    const want = {
+      version: 1,
+      epoch: 0,
+      logs: {},
+      verified: {},
+      unavailable: { cause: 'digest_mismatch', log: 'seen', released: heads },
+    };
+    for (const [who, got] of [
+      ['A', a.inspect(X)],
+      ['B', b.inspect(X)],
+      ['disk', JSON.parse(fs.readFileSync(file))],
+    ]) {
+      assert.equal(got.state, 'paused', `${when}: ${who}`);
+      assert.deepEqual(got.discovery, want, `${when}: ${who}`);
+    }
+    // Y is untouched, and its chains still read whole.
+    assert.deepEqual(a.inspect(Y).discovery, y.discovery, `${when}: Y unchanged`);
+    assert.deepEqual(Object.keys(listsOf(a, Y)).sort(), ['seen', 'variants']);
+    assert.equal(listsOf(a, Y).seen.length, 3);
+  }
+});
+
 test('reconciliation: a paused job deferred to requeue is released without it, and never requeued', (t) => {
   const { directory, store } = fixture(t);
   const other = create(store);

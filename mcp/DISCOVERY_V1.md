@@ -1825,6 +1825,13 @@ GC:
   re-seal writes the same addresses (`good/lease_after_refused_commit.json`).
 - **A seal lands while a collection is open.** The new file is newer than the mark, and the
   record is marked dirty, so it is never swept.
+- **Another instance releases while a collection is open.** The mark reads the cached records
+  without the lock, so it may still count the released job's segments live; that only keeps
+  them. The release is one record save that moves the generation, so the collection's next
+  lock entry, its next slice or its sweep, abandons it, and it sweeps nothing. A release tried
+  while the sweep holds the lock is refused `STORE_BUSY` (503) and writes nothing; retried, it
+  lands. The next full collection reclaims the released segments, and every segment a
+  surviving record references stays (BB8 6710235213).
 - **An exact retry** writes nothing.
 - **The walk's save of `verified` is lost.** The older verified head stays, and the next walk
   reads the appended segments again (§5.1). A verified head is never saved ahead of its head.
@@ -2384,6 +2391,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 55 | Review of `b3b2a64f5` (#656 Step 9) | W4 checks the cursor's `contract_version` and every member of `methods` as the validator does; Q5 logs a trace once, with `outcome: "unknown"`, when the completing save throws without a status; the module's comment on an entry breaking both F1 and F2 says Node's own tag is not pinned | §2.11, §4 W4, §7.2 | the store tests |
 | 56 | BB8 6715584092 (rulings on R2's Step 9 calls) | (Q5) the trace line's level follows its cause, error for `segment_corrupt` and warn otherwise, as the release line's does; (witness) a non-null `witness` holds exactly §2.8's six keys, checked under W4 by Node and the validator alike; (F-6) within an epoch the current group never moves back, even with `through` null: the frame's `current.lines`, or its `through` when it has no current group, is at or after the previous `current.lines` | §2.8, §4 W4, §7.2 | `bad/current_moved_back.json` and its controls, on both sides; the store tests (Q5, W4); the validator's W4 witness test |
 | 57 | BB8 6715909159 (review of `11c186ee2`, #656 Step 9) | no defect; the survivor pinned: `complete()` of a job whose release was saved, whose completing save throws with a status (409, and 413), logs no `READER_DISCOVERY_TRACE_ERASED` line, neither `unknown` nor `saved`, keeps the trace in the record and on disk, and leaves the store serving | §7.2 | the store tests (Q5) |
+| 58 | BB8 6710235213 (review of Step 6; owed before Step 10) | the GC-races-release interleaving: two instances on one root, a release on one between the other's mark slices, between its mark and its sweep, and during its sweep; no segment a surviving record references is swept, a collection marked before the release sweeps nothing, a release refused `STORE_BUSY` writes nothing and lands when retried, and the next collection reclaims the released segments with the trace kept | §7.3 | the store tests (GC races a release) |
 
 ## 12. Rulings on the items added for confirmation
 
