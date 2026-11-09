@@ -2624,6 +2624,55 @@ class LegacyReplay(unittest.TestCase):
         self.assertNotEqual(v2, legacy)
         self.assertEqual(RM.run_key(["--reader-scheme=v2"] + argv, reader_scheme="v2"), v2)
 
+    def test_pre_policy_checkpoint_parks_only_after_exact_identity_validation(self):
+        import copy
+        from unittest.mock import Mock, patch
+        from quality.propose import ProposerUnavailable
+
+        fx = json.loads((HERE / "fixtures" / "reader_v1_checkpoint.json").read_text(
+            encoding="utf-8"))
+        prior = json.loads(fx["checkpoint"])
+        legacy_key = prior["config_key"]
+        current_key = "current-writing-policy-key"
+        writer = Mock(side_effect=AssertionError("must not dispatch a writer"))
+        path = Path(self._state(prior))
+
+        def admit(record):
+            encoded = json.dumps(record)
+            path.write_text(encoded, encoding="utf-8")
+            return LH._checkpoint_proposer(
+                writer, None, fx["draft"], current_key, prior["proposer"],
+                legacy_config_key=legacy_key)
+
+        with patch.dict(os.environ, {"LYRIC_CHECKPOINT_PATH": str(path)}), \
+                patch.object(LH, "resolve_reader_scheme", return_value="v1"):
+            with self.assertRaises(LH._QuestionChanged) as parked:
+                admit(prior)
+            self.assertEqual(parked.exception.lines, prior["accepted_lines"])
+            self.assertEqual(parked.exception.state, prior)
+            self.assertIsNone(parked.exception.path)
+            self.assertEqual(path.read_text(encoding="utf-8"), json.dumps(prior))
+
+            for changed in ({"config_key": "unrelated-run"},
+                            {"proposer": "call:other:factory"},
+                            {"input_draft": ["different"]},
+                            {"input_fingerprint": "wrong"},
+                            {"accepted_lines": ["wrong length"]},
+                            {"proposals": [{"kind": "invalid"}]},
+                            {"journal_id": "invalid"}):
+                with self.subTest(changed=changed), self.assertRaises(ProposerUnavailable):
+                    admit(dict(prior, **changed))
+                self.assertEqual(path.read_text(encoding="utf-8"),
+                                 json.dumps(dict(prior, **changed)))
+
+            current = dict(copy.deepcopy(prior), config_key=current_key)
+            one, two = admit(current)
+            self.assertEqual(one.checkpoint_state["config_key"], current_key)
+            self.assertEqual(one.checkpoint_state["accepted_lines"], prior["accepted_lines"])
+            self.assertEqual(path.read_text(encoding="utf-8"), json.dumps(current))
+            self.assertIsNone(two)
+        writer.assert_not_called()
+
     def test_a_pre_batch_checkpoint_resumes_byte_for_byte(self):
         # A kitchen (`call:`) checkpoint written on the pre-batch tree
         # (fixtures/reader_v1_checkpoint.json) resumes with no flag and with

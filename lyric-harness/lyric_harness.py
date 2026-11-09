@@ -10174,7 +10174,7 @@ def legacy_question_identities(kind, prompt):
             for t in legacy_question_texts(kind, prompt)]
 
 
-def _checkpoint_proposer(one, two, lines, config_key, spec):
+def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key=None):
     """Journal the call: seam before grading can fail or a worker can die.
 
     Resume replays the original draft and exact ordered questions/answers.
@@ -10223,9 +10223,12 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
                     f"scheme {run_scheme!r}, and this call reads {here_scheme}; "
                     f"resume it with no --reader-scheme (or --reader-scheme="
                     f"{run_scheme}), or start a new run")
+            legacy_policy = (legacy_config_key is not None
+                             and prior.get("config_key") == legacy_config_key
+                             and prior.get("config_key") != config_key)
             if (prior.get("version") != 1
                     or prior.get("input_draft") != initial
-                    or prior.get("config_key") != config_key
+                    or (prior.get("config_key") != config_key and not legacy_policy)
                     or prior.get("proposer") != spec
                     or not isinstance(prior.get("proposals"), list)):
                 raise ValueError("input, declaration, proposer or version differs")
@@ -10255,6 +10258,11 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
             if (not isinstance(journal_id, str) or len(journal_id) != 32
                     or any(c not in "0123456789abcdef" for c in journal_id)):
                 raise ValueError("invalid journal identity")
+            # A recognized pre-policy run is recoverable, never resumable.
+            # Validate it fully first, then park without replaying answers or
+            # rewriting the input journal under the new writing policy.
+            if legacy_policy:
+                raise _QuestionChanged(prior)
             state = dict(prior, journal_id=journal_id)
         except (OSError, ValueError, TypeError) as e:
             raise ProposerUnavailable(f"checkpoint cannot resume: {e}") from e
@@ -10533,7 +10541,8 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
     return wrapped_one, wrapped_two if two is not None else None
 
 
-def _resolve_proposer(spec, lines=None, checkpoint_key=None):
+def _resolve_proposer(spec, lines=None, checkpoint_key=None, *,
+                      legacy_checkpoint_key=None):
     """`--propose=`'s value -> (propose, propose_group, disclosure).
 
     `lines` is the input draft. `defer:` uses it to disclose a completed
@@ -10688,7 +10697,9 @@ def _resolve_proposer(spec, lines=None, checkpoint_key=None):
                    ". NO `.propose_group`: tier 2 (the backtrack) fell "
                    "back to quality/loop.py's own stub slot-swap, so any "
                    "backtracked line is a SPLICE and not proposed text"))
-    one, two = _checkpoint_proposer(one, two, lines, checkpoint_key, spec)
+    one, two = _checkpoint_proposer(
+        one, two, lines, checkpoint_key, spec,
+        legacy_config_key=legacy_checkpoint_key)
     disclosure.record = one.verification_record
     return one, two, disclosure
 
@@ -15622,10 +15633,16 @@ def main():
                 from quality import replay_memo as RM
                 _rm_key = RM.run_key([*sys.argv[1:], f"writing-policy:{rv.writing_policy}"], input_paths=(args[1], bp_path),
                                      reader_scheme=resolve_reader_scheme(None))
+                # Recognize the exact pre-policy checkpoint only to preserve
+                # its accepted draft in a typed new-run park, never for replay.
+                _legacy_checkpoint_key = RM.run_key(
+                    sys.argv[1:], input_paths=(args[1], bp_path),
+                    reader_scheme=resolve_reader_scheme(None))
                 from quality.propose import ProposerUnavailable
                 try:
                     propose, propose_group, say_proposer = _resolve_proposer(
-                        propose_spec, lines=lines, checkpoint_key=_rm_key)
+                        propose_spec, lines=lines, checkpoint_key=_rm_key,
+                        legacy_checkpoint_key=_legacy_checkpoint_key)
                 except _JournalCapacity as e:
                     _journal_stop(e, plan=finish_plan if cmd == "finish" else None)
                 except ProposerUnavailable as e:
@@ -15701,7 +15718,8 @@ def main():
                                                 deadline=_deadline)
                     except LP.CursorMismatch:
                         propose, propose_group, say_proposer = _resolve_proposer(
-                            propose_spec, lines=lines, checkpoint_key=_rm_key)
+                            propose_spec, lines=lines, checkpoint_key=_rm_key,
+                            legacy_checkpoint_key=_legacy_checkpoint_key)
                         _b2 = getattr(say_proposer, "bind", None)
                         if _b2 is not None:
                             _b2(_rm_key, _scorer_identity(), use=False,
