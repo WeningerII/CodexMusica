@@ -8922,7 +8922,7 @@ try {
       plain.findings
         .filter((f) => f.severity === 'flag')
         .map((f) => [f.code, f.locations])
-        .sort(([a], [b]) => a.localeCompare(b)),
+        .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)),
       [
         ['HOMEOTELEUTON', [1, 2]],
         ['SCHEME_VIOLATION', [3, 4]],
@@ -8960,7 +8960,7 @@ try {
       narrowed.findings
         .filter((f) => f.severity === 'flag')
         .map((f) => [f.code, f.locations])
-        .sort(([a], [b]) => a.localeCompare(b)),
+        .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)),
       [
         ['HOMEOTELEUTON', [1, 2]],
         ['SCHEME_VIOLATION', [3, 4]],
