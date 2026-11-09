@@ -1017,7 +1017,9 @@ jobs:
     needs: [dup, gate]
     # M-250: skip when a pull_request run already tests this commit.
     if: needs.dup.outputs.already_covered != 'true'
-    runs-on: ubuntu-latest
+    # Playwright 1.60's Chromium does not support Ubuntu 26.04, now selected
+    # by ubuntu-latest. Keep browser checks on its supported Ubuntu 24.04.
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -1463,7 +1465,9 @@ jobs:
   faults:
     needs: [dup, gate, freshness-build]
     if: ${{ !cancelled() && needs.dup.outputs.already_covered != 'true' }}
-    runs-on: ubuntu-latest
+    # Playwright 1.60's Chromium does not support Ubuntu 26.04, now selected
+    # by ubuntu-latest. Keep browser checks on its supported Ubuntu 24.04.
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     strategy:
       fail-fast: false
