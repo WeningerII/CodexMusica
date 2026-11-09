@@ -1117,17 +1117,25 @@ _BOUND_TOKEN_MEMO = {}
 _BOUND_TOKEN_MEMO_CAP = 50_000
 
 
+WRITING_BAN_CODES = frozenset({"HOMEOTELEUTON", "MODAL_RHYME"})
+WRITING_POLICY = "rhyme-bans-v1"
+
+
 class Reviser:
     """Grades a draft, briefs a revision, and verifies the result."""
 
     def _relation_phonology(self):
         return relation_phonology_for(self.lex)
 
-    def __init__(self, lex=None, decl=None, rdecl=None, floor=None):
+    def __init__(self, lex=None, decl=None, rdecl=None, floor=None, writing=False):
         self.lex = lex or Lexicon()
         self.decl = decl or Declaration()
         self.rdecl = rdecl or ReviseDeclaration()
         self.floor = floor or SlopFloor()
+        # Corpus readers keep their existing descriptive judgment. Authoring
+        # entry points opt into mandatory pair bans, without candidate menus.
+        self.writing = writing
+        self.writing_policy = WRITING_POLICY if writing else None
         self._engine = None
         self._matrix_cache = {}
         self._line_read_cache = collections.OrderedDict()
@@ -3735,7 +3743,10 @@ class Reviser:
         _vs = v.get("structure")
         if _vs is not None:
             from quality import structures as _STm
-            if _vs != _STm.DEFAULT:
+            # Corpus measurements keep the structure-specific calibration.
+            # Writing checks only actual rhyme relations before calling here;
+            # declaring a different structure cannot waive that pair ban.
+            if _vs != _STm.DEFAULT and not self.writing:
                 return None
         i, j = v["lines"]
         wi, wj = (w.lower() for w in v["endwords"])
@@ -3884,6 +3895,8 @@ class Reviser:
             findings underneath it."""
             bucket = seen.setdefault(ln, set())
             key = (f.code, f.message, f.evidence, tuple(f.locations))
+            if self.writing and f.code in WRITING_BAN_CODES:
+                key += (tuple(f.groups), tuple(f.subject))
             if key in bucket:
                 return
             bucket.add(key)
@@ -3955,7 +3968,16 @@ class Reviser:
                     f"declared structure(s) {', '.join(repr(x) for x in _uncal)} "
                     f"have no measured laziness tier FOR THIS DRAFT'S "
                     f"LANGUAGE (eng) — correctness is graded "
-                    f"by the catalog's own judge, laziness is NOT graded",
+                    f"by the catalog's own judge, "
+                    + ("structure-specific laziness is NOT graded" if self.writing
+                       else "laziness is NOT graded"),
+                    f"Structure.calibrated is False for these rows: no "
+                    f"preregistered calibration has adopted a predictability "
+                    f"table or a lazy class under their own pairing "
+                    f"relation. The writing bans (HOMEOTELEUTON / MODAL_RHYME) "
+                    f"still apply when the actual bound words rhyme; "
+                    f"they do not grade structure-specific laziness."
+                    if self.writing else
                     f"Structure.calibrated is False for these rows: no "
                     f"preregistered calibration has adopted a predictability "
                     f"table or a lazy class under their own pairing "
@@ -3986,14 +4008,23 @@ class Reviser:
                 f"{v['endwords'][0]!r} ~ {v['endwords'][1]!r})"
                 f"{v.get('attribution', '')}", [i, j],
                 groups=(v["label"],)))
-        # NO PREDICTABILITY BAN ON A PAIR THAT PASSES (2026-10-27, the owner's
-        # end-of-day plan on #519, D6). This used to route every passing
-        # verdict through `earned_pair_ban`, filing MODAL_RHYME and
-        # HOMEOTELEUTON notes that told the writer to change a word its group
-        # had already satisfied, and the pre-writing screen banned pairs on
-        # those two codes. A group passes when its assigned relation holds;
-        # nothing is charged for which word met it. `earned_pair_ban` stays
-        # as a method because `quality/capacity.py` measures with it.
+        if self.writing:
+            for v in rep["verdicts"]:
+                # The detector measures rhyme endings, not an unrelated
+                # alliteration/assonance that satisfied a declared group.
+                if not {"RHYME", "RIME_RICHE", "PROMOTED_RHYME"}.intersection(
+                        v["relations"]):
+                    continue
+                finding = self.earned_pair_ban(v, profile)
+                if finding is not None:
+                    i, j = v["lines"]
+                    # Pair words AND their actual bound slots are identity:
+                    # swapping one prohibited pair for another is no repair.
+                    subject = (self.writing_policy,
+                               *(w.lower() for w in v["endwords"]),
+                               _SL.spell_slot(m.slot_of(v["group"], i)),
+                               _SL.spell_slot(m.slot_of(v["group"], j)))
+                    add(j, replace(finding, severity="flag", subject=subject))
         default_licensed = self.rdecl.repeat_licence == "refrain"
         for v in rep["repeats"]:
             i, j = v["lines"]
@@ -6749,11 +6780,11 @@ class Reviser:
         out["mandate"] = m
         out["independent"] = m.independent()
 
-        # NO WORD IS REJECTED FOR BEING PREDICTABLE (2026-10-27, D6 on #519).
-        # RULE 3 rejected a revision that moved its bound word onto the
-        # brief's FORBIDDEN list, the modal head of a ranked candidate field.
-        # Briefs carry no word lists now, so there is nothing to enforce: a
-        # revision is judged on what it fixed and what it broke.
+        if self.writing and any(k[1] in WRITING_BAN_CODES for k in new_flags):
+            out["reasons"].append(
+                "introduced a prohibited writing rhyme pair; "
+                "HOMEOTELEUTON and MODAL_RHYME cannot be traded for a repair")
+            return out
 
         if not fixed:
             out["reasons"].append(

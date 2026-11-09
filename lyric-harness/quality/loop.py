@@ -2144,11 +2144,12 @@ class CursorMismatch(ValueError):
     caller falls back to a full replay (never a guess)."""
 
 
-def _cursor_key(before, after, targeted):
+def _cursor_key(before, after, targeted, policy=None):
     import hashlib
     h = lambda ls: hashlib.sha256("\n".join(ls).encode("utf-8")).hexdigest()
-    return [h(before), h(after),
-            None if targeted is None else sorted(int(t) for t in targeted)]
+    key = [h(before), h(after),
+           None if targeted is None else sorted(int(t) for t in targeted)]
+    return key if policy is None else [*key, policy]
 
 
 class _VerdictCache:
@@ -2270,7 +2271,8 @@ class _VerdictCache:
                           line, group_index, **kw)
 
     def verify(self, before, after, mandate=None, targeted=None, **kw):
-        key = _cursor_key(before, after, targeted)
+        key = _cursor_key(before, after, targeted,
+                          getattr(self._inner, "writing_policy", None))
         hit = self._cache.get(repr(key))
         if hit is not None:
             return {"accepted": hit["accepted"], "reasons": list(hit["reasons"])}
@@ -3112,7 +3114,7 @@ if __name__ == "__main__":
     # text: tokenized, rhyme-graded, counted toward the floor's MATTR, and
     # eligible to be handed back to a writer as a line to revise.
     lines_ = load_lyric_lines(sys.argv[1])
-    R = Reviser(rdecl=ReviseDeclaration())
+    R = Reviser(rdecl=ReviseDeclaration(), writing=True)
     result = revise_loop(R, lines_, sys.argv[2])
     print(result)
     print()

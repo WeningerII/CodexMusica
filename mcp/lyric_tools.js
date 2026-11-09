@@ -1117,16 +1117,16 @@ function verdictOf(r) {
       finding: f.message,
       ...(Array.isArray(f.binding) ? { binding: f.binding } : {}),
     }));
-    // THE BAN IS NOT ASKED of a pair judged under a declared non-default
-    // structure (its tables are end-rhyme instruments). Those pairs are
-    // named, and a count over no asked pair is null, never a clean zero.
+    // The harness names structured pairs outside the rhyme-ban check. Actual
+    // satisfied rhymes remain checked even under a non-default structure.
+    // A count over no asked pair is null, never a clean zero.
     const scope = record.ban_scope;
     if (scope && Array.isArray(scope.not_asked) && scope.not_asked.length) {
       v.ban_not_asked = scope.not_asked;
       if (scope.asked === 0) {
         v.banned_pairs = null;
         v.banned_pairs_reason =
-          'not asked: every mandated pair is judged under a declared non-default structure, and the two-tier ban is an end-rhyme instrument';
+          'not asked: no mandated pair was eligible for the two-tier rhyme-ban check; see ban_not_asked for the structured pairs outside its scope';
       }
     }
     v.unreadable_findings = findings.filter((f) => /UNREADABLE|UNJUDGED|REFUSED/.test(f.code));
@@ -2470,7 +2470,7 @@ export function registerLyricTools(server, tool) {
         'own cut and every registry schema judged at the two words — plus the schemas that could not decide at the ' +
         "pair, or the grader's own refusal for an unreadable word. A pair " +
         'standing in no relation is reported as standing in none. USE THIS BEFORE WRITING to check proposed pairs against ' +
-        'the declared requirements. Pass `relation` to ask the question a mandate declaring it will ask (SATISFIES / ' +
+        'the declared requirements. HOMEOTELEUTON and MODAL_RHYME codes prohibit a pair in writing. Pass `relation` to ask the question a mandate declaring it will ask (SATISFIES / ' +
         'VIOLATES / REFUSED per pair), reported independently beside the relation list. ' +
         'Scope: this screens bare candidate words on fixed carrier lines, not the eventual lyric lines; coarse relations ' +
         'search anchor spans and may differ in full-line context. ' +
@@ -2574,7 +2574,8 @@ export function registerLyricTools(server, tool) {
         'count the FLAGS standing (defects). The code follows from those: 0 is measured and certified with no flag; ' +
         '3 is measured and certified with a flag or a whole-draft flag standing; 2 is either ' +
         'measured with coverage incomplete (flags may stand too) or refused with nothing measured (refusal names why). ' +
-        'The stamp says which. NOTES are measurements, not defects. ' +
+        'The stamp says which. HOMEOTELEUTON and MODAL_RHYME are mandatory writing flags, not advisory notes; ' +
+        'revision cannot introduce them and a flagged draft cannot finish cleanly. NOTES are measurements, not defects. ' +
         (server.kitchen
           ? 'To finish the song or fix flagged lines, send this exact graded draft, unchanged, to ' +
             'lyric_revise with the same seed and declarations; the service writer revises. If you ' +
@@ -3725,7 +3726,8 @@ export function registerLyricTools(server, tool) {
       description:
         'For lyrics that were NOT written to a lyric_plan (a human pasting their own song): declare what the lyrics claim — a ' +
         'letter scheme (one letter per line, X = free) OR groups by line number (N,N;N,N), optionally verbatim-return classes — ' +
-        'and get the same grading and slop floor the full pipeline runs. After lyric_recover, pass its `lines` ' +
+        'and get the same writing checks and slop floor the full pipeline runs, including mandatory HOMEOTELEUTON and MODAL_RHYME flags. ' +
+        'After lyric_recover, pass its `lines` ' +
         'with its mandate, so the line numbers name the same lines. A declaration is REQUIRED: nothing declared means ' +
         'nothing mandated, and "nothing flagged" about that would be a vacuous pass. FLAGS are defects with line ' +
         'numbers; everything else is reported as notes, which are measurements. THE EXIT CODE IS NOT THE VERDICT: this verb ' +
