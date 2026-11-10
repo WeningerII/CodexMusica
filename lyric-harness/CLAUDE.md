@@ -20,7 +20,7 @@ House rules: never abbreviate project names (Codex Musica, Pantheon Registry, De
 
 New song: `lyric_sweep` (pick a seed) → `lyric_screen` (test rhyme words) → `lyric_plan` (song shape and rhyme plan) → write the draft → `lyric_grade` → `lyric_revise` (asks for replacement lines until it stops). Pasted lyrics: `lyric_recover` → `lyric_check` → `lyric_revise` → `lyric_verify`.
 
-Slowest call per tool on the 16-line reference song (2026-11-04, limit 600s per call): `lyric_sweep` 3s, `lyric_screen` 16s, `lyric_plan` 1s, `lyric_grade` 11s, `lyric_revise` 13s, `lyric_recover` 4s, `lyric_check` 14s, `lyric_verify` 9s, `lyric_types` 6s.
+Slowest call per tool on the 16-line reference song (2026-11-09, limit 600s per call): `lyric_sweep` 3s, `lyric_screen` 16s, `lyric_plan` 1s, `lyric_grade` 13s, `lyric_revise` 7s, `lyric_recover` 3s, `lyric_check` 10s, `lyric_verify` 7s, `lyric_types` 5s.
 
 ## Map sections (read only what the task needs)
 
@@ -51,7 +51,7 @@ Slowest call per tool on the 16-line reference song (2026-11-04, limit 600s per 
   - The doctrine index — every number, and where it lives (3k)
 - `MISSING.md` (650k): the defect register, entries `M-<n>`. Grep for the entry number.
 - `BACKLOG.md` (51k): open work, by tier.
-- `corpus/`, `data/`, `quality/results/`: measurement inputs and outputs, millions of tokens. In the traced run the song program opened 73 data files and 0 under `corpus/` (`map/files.md` lists them).
+- `corpus/`, `data/`, `quality/results/`: measurement inputs and outputs, millions of tokens. In the traced run the song program opened 71 data files and 0 under `corpus/` (`map/files.md` lists them).
 
 ## Keeping this map true
 

@@ -319,7 +319,7 @@ test('published lyric text carries no ticket, date, doctrine number or stale cla
     /replace those end words/, // bans sit at placed bindings
     /cannot report banned pairs\./, // verify reports introduced ones
     /For "is the song finished", use lyric_grade/, // only revise finishes
-    /holds every flagged and banned line open/, // bans are advisory notes
+    /holds every flagged and banned line open/, // banned pairs are already mandatory flags
   ])
     assert.doesNotMatch(text, stale, String(stale));
   // The declarations that change a plan, and the readings a grade is taken
@@ -330,8 +330,8 @@ test('published lyric text carries no ticket, date, doctrine number or stale cla
     const grade = tools.find((t) => t.name === 'lyric_grade').description;
     const revise = tools.find((t) => t.name === 'lyric_revise').description;
     assert.match(revise, /holds every flagged line open/);
-    // ~~Banned pairs … are reported as notes~~: no system ban is described to
-    // the writer (2026-10-27, D6).
+    // The revise guide describes the flag gate; the grade names the mandatory bans.
+    assert.match(grade, /HOMEOTELEUTON and MODAL_RHYME are mandatory writing flags/);
     assert.doesNotMatch(revise, /Banned pairs|FORBIDDEN|too predictable/);
     for (const field of [...PLAN_FIELDS.filter((f) => f !== 'seed'), ...READING_FIELDS])
       assert.ok(grade.includes(field), `lyric_grade names ${field}`);
@@ -487,20 +487,67 @@ test('recover numbers its mandate over sung lines, and every refusal carries its
   }
 });
 
-test('a pair that holds at its bound place is charged no ban, and an unknown name lists the vocabulary', async () => {
+test('writing bans follow bound words, a clean pair passes, and unknown names list the vocabulary', async () => {
   const { server, client } = await connect({ task: { domain: 'lyrics' } });
   const call = caller(client);
   try {
-    // The group binds the FIRST words. REPOINTED 2026-10-27 (end-of-day plan,
-    // #519 6448819660, D6: no unsolicited system bans): the harness no longer
-    // files HOMEOTELEUTON or MODAL_RHYME, so a pair that holds, at any place,
-    // surfaces no banned pair.
+    // The group binds the FIRST words: charge Night/Light, not town/room.
     const placed = await call('lyric_check', {
       lines: ['Night falls on the quiet town', 'Light fills the empty room'],
       groups: '1.head,2.head',
     });
-    assert.equal(placed.banned_pairs, 0);
-    assert.deepEqual(placed.banned, []);
+    assert.equal(placed.exit_code, 0, 'the check answers even when writing flags stand');
+    assert.equal(placed.banned_pairs, 1);
+    assert.deepEqual(
+      placed.banned.map(({ code, lines }) => [code, lines]),
+      [['HOMEOTELEUTON', [1, 2]]]
+    );
+    assert.deepEqual(
+      placed.banned[0].binding.map(({ word, place }) => [word, place]),
+      [
+        ['Night', '1.head'],
+        ['Light', '2.head'],
+      ]
+    );
+    assert.deepEqual(
+      placed.findings.filter((f) => f.severity === 'flag').map((f) => [f.code, f.locations]),
+      [['HOMEOTELEUTON', [1, 2]]]
+    );
+    // Declaring a rhyme structure must not hide a ban on its actual bound words.
+    const structured = await call('lyric_check', {
+      lines: ['The harbour closes for the night', 'A window holds the last of light'],
+      groups: '1,2',
+      structures: 'A:perfect-rhyme',
+    });
+    assert.equal(structured.exit_code, 0);
+    assert.equal(structured.certified, true);
+    assert.equal(structured.banned_pairs, 1);
+    assert.deepEqual(
+      structured.banned.map(({ code, lines }) => [code, lines]),
+      [['HOMEOTELEUTON', [1, 2]]]
+    );
+    assert.deepEqual(
+      structured.banned[0].binding.map(({ word }) => word),
+      ['night', 'light']
+    );
+    assert.deepEqual(
+      structured.findings.filter((f) => f.severity === 'flag').map((f) => [f.code, f.locations]),
+      [['HOMEOTELEUTON', [1, 2]]]
+    );
+    assert.ok(!Object.hasOwn(structured, 'ban_not_asked'));
+    assert.ok(!Object.hasOwn(structured, 'banned_pairs_reason'));
+    const clean = await call('lyric_check', {
+      lines: ['Chair rests in the quiet town', 'Spare blankets fill the empty room'],
+      groups: '1.head,2.head',
+    });
+    assert.equal(clean.exit_code, 0);
+    assert.equal(clean.certified, true);
+    assert.equal(clean.banned_pairs, 0);
+    assert.deepEqual(clean.banned, []);
+    assert.deepEqual(
+      clean.findings.filter((f) => f.severity === 'flag'),
+      []
+    );
     const relation = await call('lyric_check', {
       lines: ['Night falls on the quiet town', 'Light fills the empty room'],
       groups: '1,2',

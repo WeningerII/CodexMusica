@@ -7142,11 +7142,8 @@ def _rel_show(stream, inst):
 #: Pair-scoped finding codes `screen` relays. Everything else the carrier
 #: lines provoke is about the SCAFFOLD, not the pair, and relaying it
 #: would teach a caller to distrust the instrument.
-#: ~~("HOMEOTELEUTON", "MODAL_RHYME")~~ -> (), 2026-10-27 (end-of-day plan,
-#: #519 6448819660, D6: no unsolicited system bans). Both were system
-#: lexical bans; the revision lane stops filing them, and the screen no
-#: longer relays them as bans on a pair.
-SCREEN_PAIR_CODES = ()
+#: Writing-only prohibitions. Corpus reading does not use this screen.
+SCREEN_PAIR_CODES = ("HOMEOTELEUTON", "MODAL_RHYME")
 
 #: Two DIFFERENT carrier lines, every word CMUdict-readable, ending in the
 #: screened words. Different on purpose: with identical carriers the
@@ -7593,7 +7590,7 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
         if _kind == "schema":
             from quality import relations as _RL
             _schema = _RL.REGISTRY[_canon]
-    rv = Reviser(lex=lex, decl=decl) if (lex or decl) else Reviser()
+    rv = Reviser(lex=lex, decl=decl, writing=True)
     # THE GRADE'S READER, THROUGH THE LEXICON THIS SCREEN WAS HANDED
     # (`MISSING.md` M-321): the broad schema column and the declared-relation
     # verdict both read the words exactly as `Reviser` judges a declared
@@ -8286,7 +8283,7 @@ def _strip_flag(args, flag, bare=False):
     return out
 
 
-def _ban_bindings(found, findings):
+def _ban_bindings(found, findings, *, writing=False):
     """Where each two-tier ban sits, and which pairs the ban never asked.
 
     A HOMEOTELEUTON / MODAL_RHYME finding names its two LINES, and the ban is
@@ -8294,11 +8291,11 @@ def _ban_bindings(found, findings):
     when the group binds at the line end. `binding` is read off the grade's
     own pair verdict for that group (its bound words and the mandate's slot
     for each member), so a writer told to replace a banned word is told which
-    word, at which place. The ban is an end-rhyme instrument and is skipped on
-    a pair judged under a declared non-default structure; `not_asked` names
-    those pairs so a count of zero bans is never read as clean when the
-    question was not put. Machine-record fields only: no finding, severity or
-    verdict changes.
+    word, at which place. Corpus readers skip non-default structures. Writing
+    also checks their satisfied, non-repeat actual rhyme pairs; `not_asked`
+    retains only the structured pairs outside that check, so a count of zero
+    bans is never read as clean when the question was not put. Machine-record
+    fields only: no finding, severity or verdict changes.
     """
     from quality import slots as _SLb
     from quality import structures as _STb
@@ -8326,7 +8323,11 @@ def _ban_bindings(found, findings):
     not_asked = [{"lines": list(v["lines"]), "group": v["label"],
                   "structure": v.get("structure")}
                  for v in verdicts
-                 if v.get("structure") not in (None, _STb.DEFAULT)]
+                 if v.get("structure") not in (None, _STb.DEFAULT)
+                 and not (writing and not v["why"]
+                          and "REPEAT" not in v["relations"]
+                          and {"RHYME", "RIME_RICHE", "PROMOTED_RHYME"}
+                              .intersection(v["relations"]))]
     return {"asked": len(verdicts) - len(not_asked), "not_asked": not_asked}
 
 
@@ -10173,7 +10174,7 @@ def legacy_question_identities(kind, prompt):
             for t in legacy_question_texts(kind, prompt)]
 
 
-def _checkpoint_proposer(one, two, lines, config_key, spec):
+def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key=None):
     """Journal the call: seam before grading can fail or a worker can die.
 
     Resume replays the original draft and exact ordered questions/answers.
@@ -10222,9 +10223,12 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
                     f"scheme {run_scheme!r}, and this call reads {here_scheme}; "
                     f"resume it with no --reader-scheme (or --reader-scheme="
                     f"{run_scheme}), or start a new run")
+            legacy_policy = (legacy_config_key is not None
+                             and prior.get("config_key") == legacy_config_key
+                             and prior.get("config_key") != config_key)
             if (prior.get("version") != 1
                     or prior.get("input_draft") != initial
-                    or prior.get("config_key") != config_key
+                    or (prior.get("config_key") != config_key and not legacy_policy)
                     or prior.get("proposer") != spec
                     or not isinstance(prior.get("proposals"), list)):
                 raise ValueError("input, declaration, proposer or version differs")
@@ -10254,6 +10258,11 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
             if (not isinstance(journal_id, str) or len(journal_id) != 32
                     or any(c not in "0123456789abcdef" for c in journal_id)):
                 raise ValueError("invalid journal identity")
+            # A recognized pre-policy run is recoverable, never resumable.
+            # Validate it fully first, then park without replaying answers or
+            # rewriting the input journal under the new writing policy.
+            if legacy_policy:
+                raise _QuestionChanged(prior)
             state = dict(prior, journal_id=journal_id)
         except (OSError, ValueError, TypeError) as e:
             raise ProposerUnavailable(f"checkpoint cannot resume: {e}") from e
@@ -10532,7 +10541,8 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
     return wrapped_one, wrapped_two if two is not None else None
 
 
-def _resolve_proposer(spec, lines=None, checkpoint_key=None):
+def _resolve_proposer(spec, lines=None, checkpoint_key=None, *,
+                      legacy_checkpoint_key=None):
     """`--propose=`'s value -> (propose, propose_group, disclosure).
 
     `lines` is the input draft. `defer:` uses it to disclose a completed
@@ -10687,7 +10697,9 @@ def _resolve_proposer(spec, lines=None, checkpoint_key=None):
                    ". NO `.propose_group`: tier 2 (the backtrack) fell "
                    "back to quality/loop.py's own stub slot-swap, so any "
                    "backtracked line is a SPLICE and not proposed text"))
-    one, two = _checkpoint_proposer(one, two, lines, checkpoint_key, spec)
+    one, two = _checkpoint_proposer(
+        one, two, lines, checkpoint_key, spec,
+        legacy_config_key=legacy_checkpoint_key)
     disclosure.record = one.verification_record
     return one, two, disclosure
 
@@ -13553,7 +13565,7 @@ def main():
             _refuse("--max-rounds, --attempts and --backtrack take "
                     "integers")
         rdecl = ReviseDeclaration(**_rd_kw) if _rd_kw else None
-        rv = Reviser(lex=lex, decl=decl, rdecl=rdecl)
+        rv = Reviser(lex=lex, decl=decl, rdecl=rdecl, writing=True)
         if _pur:
             print(f"  PURSUING {len(_pur)} note code(s) beyond the flags: "
                   f"{', '.join(sorted(_pur))} — the loop keeps asking on a "
@@ -14480,7 +14492,7 @@ def main():
             _machine_findings = [_finding_dict(f)
                                  for fs in found["per_line"].values() for f in fs]
             _machine_findings.extend(_finding_dict(f) for f in whole)
-            _ban_scope = _ban_bindings(found, _machine_findings)
+            _ban_scope = _ban_bindings(found, _machine_findings, writing=rv.writing)
             # Keep legacy v1 machine records frozen; instance evidence is v2-only.
             from quality.schema_instance_evidence import for_grade as _report_instances
             _machine = {"version": 1, "status": "graded", "command": cmd,
@@ -15619,12 +15631,18 @@ def main():
                     sys.exit(0 if _ok else 3)
 
                 from quality import replay_memo as RM
-                _rm_key = RM.run_key(sys.argv[1:], input_paths=(args[1], bp_path),
+                _rm_key = RM.run_key([*sys.argv[1:], f"writing-policy:{rv.writing_policy}"], input_paths=(args[1], bp_path),
                                      reader_scheme=resolve_reader_scheme(None))
+                # Recognize the exact pre-policy checkpoint only to preserve
+                # its accepted draft in a typed new-run park, never for replay.
+                _legacy_checkpoint_key = RM.run_key(
+                    sys.argv[1:], input_paths=(args[1], bp_path),
+                    reader_scheme=resolve_reader_scheme(None))
                 from quality.propose import ProposerUnavailable
                 try:
                     propose, propose_group, say_proposer = _resolve_proposer(
-                        propose_spec, lines=lines, checkpoint_key=_rm_key)
+                        propose_spec, lines=lines, checkpoint_key=_rm_key,
+                        legacy_checkpoint_key=_legacy_checkpoint_key)
                 except _JournalCapacity as e:
                     _journal_stop(e, plan=finish_plan if cmd == "finish" else None)
                 except ProposerUnavailable as e:
@@ -15654,7 +15672,7 @@ def main():
                     from quality import relations as _RPM
                     return _RPM
                 from quality import revise as _RV_mod
-                _rm_key = RM.run_key(sys.argv[1:],
+                _rm_key = RM.run_key([*sys.argv[1:], f"writing-policy:{rv.writing_policy}"],
                                      input_paths=(args[1], bp_path),
                                      reader_scheme=resolve_reader_scheme(None))
                 rv_loop, say_memo = RM.wrap(rv, _rm_key, len(lines))
@@ -15700,7 +15718,8 @@ def main():
                                                 deadline=_deadline)
                     except LP.CursorMismatch:
                         propose, propose_group, say_proposer = _resolve_proposer(
-                            propose_spec, lines=lines, checkpoint_key=_rm_key)
+                            propose_spec, lines=lines, checkpoint_key=_rm_key,
+                            legacy_checkpoint_key=_legacy_checkpoint_key)
                         _b2 = getattr(say_proposer, "bind", None)
                         if _b2 is not None:
                             _b2(_rm_key, _scorer_identity(), use=False,

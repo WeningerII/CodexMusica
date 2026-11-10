@@ -2485,21 +2485,41 @@ def test_propose_selects_who_writes_the_line():
     driver_flags = ("--relation=class:RHYME", "--max-rounds=1", "--attempts=2", "--backtrack=0")
     rc, out, err = run("revise", quat, "ABAB", f"--propose=replay:{rp}",
                        *driver_flags, expect_rc=3)
-    check("replay: drives the loop and the recorded text reaches it",
-          rc == 3 and "muddy lawn" in out and "Traceback" not in err,
-          [l for l in out.splitlines() if "L3" in l][-1:])
+    replay_result = _machine_result(out)
+    check("replay: drives the loop and both recorded proposals reach the verifier",
+          rc == 3 and "2 consulted and answered" in out
+          and "[--] L3 tier1 (1 tried)" in out and "Traceback" not in err,
+          [l for l in out.splitlines() if "L3" in l][:2])
     check("it discloses how much of its record was CONSULTED and how much "
           "was asked for and missing — a miss is a give-up, never the stub",
           "consulted and answered" in out and "NOT recorded" in out,
           [l for l in out.splitlines() if "PROPOSER: replay" in l][-1:])
-    # NO WORD IS REJECTED FOR BEING PREDICTABLE (2026-10-27, D6 on #519):
-    # until today 'lawn' was refused as the modal candidate; it fixes L3 and
-    # is accepted. superseded: "doctrine 9 still holds over replayed text".
-    check("a replayed word is judged on what it fixes, not rejected as "
-          "predictable: L3's 'lawn' is accepted",
-          "modal candidate" not in out and "[OK] L3 tier1" in out
-          and "* L3: the cattle waded past the muddy lawn" in out,
+    check("replay cannot exchange the scheme violation for dawn/lawn: the original silt line stays",
+          "introduced a prohibited writing rhyme pair" in out
+          and "[OK] L3 tier1" not in out
+          and replay_result.get("final_draft", [None] * 4)[2]
+          == "our cattle waded knee deep in silt",
           [l for l in out.splitlines() if "L3" in l][:2])
+
+    # Rejection-sensitive control on the SAME input and declaration. The
+    # dawn/on pair is an existing tested clean field member (test_revise.py,
+    # internal-slot anchor test) and the writing verifier accepts this line.
+    clean_rp = os.path.join(d, "clean-replay.json")
+    clean_line = "the cattle waited while the flood rolled on"
+    with open(clean_rp, "w") as fh:
+        json.dump({"propose": [{"line": 3, "attempt": 0, "text": clean_line}],
+                   "propose_group": []}, fh)
+    clean_rc, clean_out, clean_err = run(
+        "revise", quat, "ABAB", f"--propose=replay:{clean_rp}",
+        *driver_flags, expect_rc=3)
+    clean_result = _machine_result(clean_out)
+    check("CONTROL: the same replay seam accepts a clean dawn/on repair and retains it",
+          clean_rc == 3 and "[OK] L3 tier1" in clean_out
+          and "1 consulted and answered" in clean_out
+          and clean_result.get("final_draft", [None] * 4)[2] == clean_line
+          and clean_result.get("unresolved_lines") == [4]
+          and "Traceback" not in clean_err,
+          [l for l in clean_out.splitlines() if "L3" in l][:2])
 
     bad = os.path.join(d, "bad.json")
     with open(bad, "w") as fh:
@@ -2906,8 +2926,8 @@ def test_the_loop_suspends_instead_of_guessing():
     check("defer without a PATH refuses as an invalid flag", rc5 == 2 and "REFUSED" in out5)
 
 
-#: Two mandated pairs that RHYME cleanly and are both MODAL — so the draft
-#: carries no flag at all and the loop has always stopped on it.
+#: Both pairs rhyme; town/down is same-spelled and four/more is modal.
+#: Their writing-policy flags keep the draft open without optional pursuit.
 MODAL_DRAFT = ["the bank foreclosed and boarded up the town",
                "the freight train left the siding after four",
                "we packed the truck and never once looked down",
@@ -2915,90 +2935,63 @@ MODAL_DRAFT = ["the bank foreclosed and boarded up the town",
 
 
 def test_the_loop_pursues_a_note_it_can_brief():
-    print("\n21. `--pursue=` — the loop no longer stops on a note it has a "
-          "candidate field for (FIXED 2026-08-15)")
-    # THE DEFECT, found by writing a song through the loop. `MODAL_RHYME` is
-    # in `RHYME_FINDINGS`, so `brief()` hands a line carrying one a COMPLETE
-    # field with the modal words marked FORBIDDEN -- the machinery to fix it
-    # is built and reachable. And it is a NOTE, while every stop condition in
-    # quality/loop.py read `severity == "flag"`, so the loop reported SUCCESS
-    # and stopped before asking. Doctrine 9 is this project's central claim
-    # and its own loop could not enforce it.
+    print("\n21. writing bans stay open without optional `--pursue=`")
     d = tempfile.mkdtemp()
     draft = os.path.join(d, "modal.txt")
     with open(draft, "w") as fh:
         fh.write("\n".join(MODAL_DRAFT) + "\n")
     mand = "--groups=1,3;2,4"
+    ban_codes = {"HOMEOTELEUTON", "MODAL_RHYME"}
 
     rc0, out0, _ = run("brief", draft, mand)
-    # NO BAN ON A PAIR THAT HOLDS (2026-10-27, D6 on #519): both pairs rhyme,
-    # and until today each carried MODAL_RHYME. superseded: "the fixture
-    # carries MODAL_RHYME and NO flag at all".
-    check("the fixture's pairs hold and are charged nothing: no MODAL_RHYME, "
-          "no flag",
-          "MODAL_RHYME" not in out0 and "[FLAG]" not in out0,
-          "a pair that holds is not charged for the word it landed on")
+    check("the fixture's pairs rhyme but both writing bans are mandatory flags",
+          all(re.search(r"\[FLAG\] " + code, out0) for code in ban_codes)
+          and "SCHEME_VIOLATION" not in out0,
+          f"rc {rc0}; same-spelled and evidenced modal rhymes are blocked")
 
-    # ~~WITHOUT --pursue the loop stops and changes nothing~~ RESTATED
-    # 2026-08-17: that check pinned the OPT-IN behaviour, and the opt-in
-    # behaviour was the defect — the operator ran without the flag and an
-    # all-modal draft was reported SUCCESS. `quality/loop.py` now carries
-    # `MANDATORY_PURSUE` (owner's standing order, recorded on the constant):
-    # the union is below every invocation, so a bare `revise` pursues too.
-    # ~~WITHOUT --pursue the loop pursues ANYWAY — mandatory, unskippable~~
-    # RESTATED 2026-10-04: the owner emptied `MANDATORY_PURSUE`, so pursuit
-    # is opt-in again; the set it held is declared below to keep pinning the
-    # mechanism a caller can ask for.
-    PURSUE_OLD = "--pursue=MODAL_RHYME,HOMEOTELEUTON,PREDICTABLE_RHYME,SHARED_SUFFIX"
-    rc1, base, _ = run("revise", draft, mand)
-    check("WITHOUT --pursue the loop pursues nothing — the note is reported "
-          "and the bare run succeeds (owner's ruling 2026-10-04)",
-          rc1 == 0 and "PURSUING" not in base,
-          "the flagless-but-modal draft is left as written on a bare invocation")
+    rc1, base, _ = run("revise", draft, mand, expect_rc=3)
+    base_result = _machine_result(base)
+    base_bans = {f.get("code") for f in base_result.get("findings", [])
+                 if f.get("severity") == "flag" and f.get("code") in ban_codes}
+    check("WITHOUT --pursue the loop cannot finish a prohibited rhyme draft",
+          rc1 == 3 and base_result.get("stop") != "success"
+          and base_result.get("rounds", 0) >= 1
+          and base_bans == ban_codes
+          and {3, 4} <= set(base_result.get("unresolved_lines", []))
+          and base_result.get("final_draft") == MODAL_DRAFT,
+          f"rc {rc1}; stop {base_result.get('stop')}; bans {sorted(base_bans)}")
 
-    # NAMING THE OLD CODES PURSUES NOTHING HERE (2026-10-27): no line
-    # carries one, so the loop asks nothing and changes nothing.
-    # superseded: "naming the codes turns pursuit on — the loop revises the
-    # note", its changed-lines check and the exit-3 give-up on this fixture.
-    rc2, out2, _ = run("revise", draft, mand, PURSUE_OLD)
-    changed = [l for l in out2.splitlines() if l.strip().startswith("* L")]
-    check("naming the old codes finds nothing to pursue: SUCCESS after 0 "
-          "rounds, no line changed",
-          rc2 == 0 and "SUCCESS after 0 round(s)" in out2 and not changed,
-          f"rc {rc2}, {len(changed)} line(s) changed")
+    # Asking to pursue these codes cannot remove mandatory writing flags.
+    pursue = "--pursue=MODAL_RHYME,HOMEOTELEUTON,PREDICTABLE_RHYME,SHARED_SUFFIX"
+    rc2, out2, _ = run("revise", draft, mand, pursue, expect_rc=3)
+    pursued_result = _machine_result(out2)
+    pursued_bans = {f.get("code") for f in pursued_result.get("findings", [])
+                    if f.get("severity") == "flag" and f.get("code") in ban_codes}
+    check("explicit pursuit keeps the same unresolved bans and unchanged draft",
+          rc2 == 3 and pursued_result.get("stop") == base_result.get("stop")
+          and pursued_result.get("rounds", 0) >= 1
+          and pursued_bans == ban_codes
+          and {3, 4} <= set(pursued_result.get("unresolved_lines", []))
+          and pursued_result.get("final_draft") == MODAL_DRAFT,
+          f"rc {rc2}; stop {pursued_result.get('stop')}; bans {sorted(pursued_bans)}")
 
-    # THE SEPARATION THAT MAKES THIS LEGAL. Pursuing changes what the loop
-    # ASKS for; it must never change what verify() REJECTS, or a note would
-    # start failing revisions and doctrine 7 would be broken by the fix.
-    # STATED AS AN EQUALITY, AT THE LAYER THE COORDINATE LIVES IN. Two
-    # earlier versions of this assertion were wrong in different ways and both
-    # are worth recording. The first demanded ACCEPTED and failed -- the TEST
-    # was wrong, not the code: verify() rejects a revision that fixes nothing,
-    # which a draft against itself is, with or without pursuit. The second
-    # compared two CLI runs, and the refusal added above made them
-    # incomparable, because `verify --pursue` now exits 2 by design. The
-    # INVARIANT never moved: `pursue` changes what the LOOP asks for and must
-    # never change what verify() decides. So it is asserted through the API,
-    # where `pursue` is actually read, instead of through a CLI that refuses
-    # to carry it.
+    # Optional note pursuit changes which questions the loop asks, never
+    # what verification accepts. Writing policy is the same in both arms.
     import quality.revise as RV
     lex, dec = lh.Lexicon(), lh.Declaration()
     before = list(MODAL_DRAFT)
     after = list(MODAL_DRAFT)
     after[2] = "we packed the truck and never once looked on"
     groups = [[1, 3], [2, 4]]
-    plain = RV.Reviser(lex=lex, decl=dec).verify(before, after, groups)
-    pursued = RV.Reviser(lex=lex, decl=dec,
+    plain = RV.Reviser(lex=lex, decl=dec, writing=True).verify(before, after, groups)
+    pursued = RV.Reviser(lex=lex, decl=dec, writing=True,
                          rdecl=RV.ReviseDeclaration(
                              pursue=frozenset({"MODAL_RHYME"}))
                          ).verify(before, after, groups)
-    check("`verify()` is UNTOUCHED — same accept/fixed/broken/new with the "
-          "note pursued",
+    check("optional pursuit leaves the writing verifier's decision unchanged",
           all(plain.get(k) == pursued.get(k)
               for k in ("accepted", "fixed", "broken", "new", "new_flags")),
-          f"accepted {plain.get('accepted')} vs {pursued.get('accepted')}; "
-          f"pursuing changes what the loop ASKS for and never what verify "
-          f"REJECTS (doctrine 7)")
+          f"accepted {plain.get('accepted')} vs {pursued.get('accepted')}")
 
     # ONLY `revise` RUNS A LOOP, and this flag was added to the block SHARED by
     # brief/verify/revise/song, so on three of the four it changed no output --
@@ -3375,8 +3368,17 @@ def test_a_near_miss_flag_refuses_on_the_reviser_verbs():
         check(f"`{good.split('=')[0]}` still runs", rc == 0
               and "REFUSED" not in out, f"rc {rc}")
     rc, out, _ = run("revise", q, "ABAB", "--propose=stub")
-    check("`--propose=stub` still runs", rc == 0 and "REFUSED" not in out,
-          f"rc {rc}")
+    # A recognized proposer runs, but cannot certify these same-spelled rhymes.
+    # Pin the actual bans separately from the flag-spelling acceptance check.
+    check("`--propose=stub` still runs", rc == 3 and "REFUSED" not in out
+          and "PROPOSER: stub" in out, f"rc {rc}")
+    result = _machine_result(out)
+    check("the stub leaves the fixture's two prohibited rhyme pairs standing",
+          [(f["code"], f["locations"]) for f in result.get("findings", [])
+           if f.get("severity") == "flag"] ==
+          [("HOMEOTELEUTON", [1, 3]), ("HOMEOTELEUTON", [2, 4])]
+          and result.get("stop_reason") == "NO_PROGRESS"
+          and result.get("unresolved_lines") == [3, 4])
 
 
 def test_a_file_the_harness_cannot_read_refuses_on_every_verb():
@@ -4301,7 +4303,12 @@ def test_the_structures_spelling_reaches_the_verbs():
               and any(f.get("code") == "SCHEME_VIOLATION" and f.get("severity") == "flag"
                       and f.get("locations") == [3, 4]
                       for f in default.get("findings", []))
-              and not [f for f in declared.get("findings", []) if f.get("severity") == "flag"])
+              and not [f for f in declared.get("findings", [])
+                       if f.get("code") == "SCHEME_VIOLATION"])
+        check("the unchanged bright/tight pair is banned under both structure declarations",
+              all([(f["code"], f["locations"]) for f in report.get("findings", [])
+                   if f.get("severity") == "flag" and f.get("code") != "SCHEME_VIOLATION"]
+                  == [("HOMEOTELEUTON", [1, 2])] for report in (declared, default)))
         check("...and the run that declared it carries the language-aware "
               "disclosure: fin-calibrated, this draft is eng, laziness is "
               "NOT graded",
@@ -4312,7 +4319,12 @@ def test_the_structures_spelling_reaches_the_verbs():
         check("CONTROL: asking the narrower rhyme question yields a judged sun/silver violation",
               rcr == 0 and rhymed.get("coverage", {}).get("certified") is True
               and [(f["code"], f["locations"]) for f in rhymed.get("findings", [])
-                   if f.get("severity") == "flag"] == [("SCHEME_VIOLATION", [3, 4])])
+                   if f.get("severity") == "flag" and f.get("code") == "SCHEME_VIOLATION"]
+              == [("SCHEME_VIOLATION", [3, 4])])
+        check("the narrower rhyme control also retains only the bright/tight ban",
+              [(f["code"], f["locations"]) for f in rhymed.get("findings", [])
+               if f.get("severity") == "flag" and f.get("code") != "SCHEME_VIOLATION"]
+              == [("HOMEOTELEUTON", [1, 2])])
         rc2, out2, _ = run("brief", path, "--groups=1,2",
                            "--structures=A:vibes")
         check("an unknown structure name REFUSES through the catalog's "
@@ -4617,9 +4629,7 @@ def test_fill_reads_a_draft_the_way_every_other_verb_does():
 
 
 def test_the_ban_is_unskippable_at_the_grading_verb_too():
-    print("\n42. ~~THE TWO-TIER BAN GATES `song`, not only `revise` "
-          "(`MISSING.md` M-88)~~ ENDED 2026-10-04: the ban is reported on "
-          "`song`, and gates neither verb")
+    print("\n42. Writing bans gate `song` as flags; a clean pair still passes")
     # FOUND BY BEING ASKED WHY A SONG HAD NOT GONE THROUGH `revise`. The
     # honest answer was that the session skipped it — and the sharper one is
     # that NOTHING STOPPED IT. `loop.MANDATORY_PURSUE` holds a line open
@@ -4685,21 +4695,15 @@ def test_the_ban_is_unskippable_at_the_grading_verb_too():
             paths.append(f2.name)
             return f2.name
     try:
-        # ~~a draft carrying a TIER-1 banned pair may not exit 0 from the
-        # GRADING verb~~, ~~the refusal NAMES the code and the line~~, ~~the
-        # severity did not move~~ — RESTATED 2026-10-04: the owner emptied
-        # `MANDATORY_PURSUE`, so the ban no longer moves this verb's exit
-        # code. It is still graded and named, as a note.
+        # Writing restores mandatory enforcement without restricting the
+        # corpus reader or reintroducing ranked candidate-word menus.
         rc, out, err = run("song", bpath, _draft(banned), "--groups=1,2",
-                           expect_rc=0)
+                           expect_rc=3)
         blob = out + err
-        # REPINNED 2026-10-27 (D6 on #519): a same-spelled pair that holds is
-        # charged nothing, so the grading verb no longer names it either.
-        # superseded: "the ban is still NAMED, as a note".
-        check("a same-spelled pair that holds exits 0 from the GRADING verb "
-              "and is charged nothing: no HOMEOTELEUTON is named",
-              rc == 0 and "HOMEOTELEUTON" not in blob
-              and "the two-tier ban STANDS" not in blob, f"rc={rc}")
+        check("a prohibited same-spelled rhyme exits 3 from the grading verb "
+              "and is named as a writing flag",
+              rc == 3 and "HOMEOTELEUTON" in blob
+              and "FLAG" in blob, f"rc={rc}")
         # THE CONTROL, and it must pass on BOTH trees: an unbanned pair on the
         # identical fixture still exits 0. Without it this section would pass
         # on a build that refused every draft.
@@ -5333,8 +5337,7 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
     rc, out, _ = run("revise", song, mand, "--returns=6,9;6,14",
                      f"--blueprint={bpath}", "--subdivision", "2",
                      "--max-rounds=1", "--attempts=0", "--backtrack=0")
-    check("`revise` exits 3 when a WHOLE-DRAFT flag stands and no judged line "
-          "flag stands — the same 3 `song` gives the same draft",
+    check("`revise` exits 3 with the whole-draft flag and mandatory writing bans",
           rc == 3, f"rc {rc}")
     check("...and prints that flag at the stop in the report's own "
           "FINDING spelling, marked as the whole draft's",
@@ -5379,8 +5382,21 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
     # N-relation model)~~ -> L16 (2026-10-01, the unread copy above: G's
     # (15,16) and (16,17) are REFUSED because L16 has no reading at all).
     _R3 = _machine_result(out3)
+    # Restored writing policy also keeps four/lore and all three
+    # brake/snake/shake obligations open, independent of the unknown prix.
+    expected_bans = {("MODAL_RHYME", (1, 2)),
+                     ("HOMEOTELEUTON", (15, 16)),
+                     ("HOMEOTELEUTON", (15, 17)),
+                     ("HOMEOTELEUTON", (16, 17))}
+
+    def standing_bans(result):
+        return {(f["code"], tuple(f["locations"]))
+                for f in result.get("findings", [])
+                if f.get("severity") == "flag"
+                and f.get("code") in {"HOMEOTELEUTON", "MODAL_RHYME"}}
+
     m3 = re.search(r"\[FINISHED — declared mandate — exit (\d) — (\w+) after "
-                   r"(\d+) round\(s\) — UNRESOLVED: L16 — "
+                   r"(\d+) round\(s\) — UNRESOLVED: L2, L16, L17 — "
                    r"WHOLE-DRAFT FLAG: "
                    r"([^\]—]+) — COVERAGE UNCERTIFIED: [^\]]+\]", out3)
     check("under defer: the stamp carries `— WHOLE-DRAFT FLAG: "
@@ -5389,7 +5405,8 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
           _swapped == 1
           and rc3 == 3 and m3 is not None and m3.group(1) == "3"
           and m3.group(4).strip() == "TITLE_NOT_IN_HOOK"
-          and _R3.get('unresolved_lines') == [16]
+          and _R3.get('unresolved_lines') == [2, 16, 17]
+          and standing_bans(_R3) == expected_bans
           and _R3.get('coverage', {}).get('certified') is False
           and {"rhyme:15:16:6", "rhyme:16:17:6"}
           <= set(_R3.get('coverage', {}).get('refused_obligations') or ()),
@@ -5402,32 +5419,30 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
                        f"--propose=defer:{st0}")
     m4 = re.search(r"\[FINISHED — declared mandate — exit (\d) — [^\]]*\]",
                    out4)
-    check("CONTROL: the committed title clears the whole-draft flag while unjudged coverage still prevents success",
-          rc4 == 2 and m4 is not None and m4.group(1) == "2"
+    _R4 = _machine_result(out4)
+    check("CONTROL: the committed title clears only the whole-draft flag, retaining the same bans and unknown coverage",
+          rc4 == 3 and m4 is not None and m4.group(1) == "3"
           and "WHOLE-DRAFT FLAG" not in m4.group(0)
-          and _machine_result(out4).get("whole_flags") == []
-          and _machine_result(out4).get("coverage", {}).get("certified") is False
-          and bool(_machine_result(out4).get("coverage", {}).get("refused_obligations")),
+          and _R4.get("whole_flags") == []
+          and _R4.get("unresolved_lines") == [2, 16, 17]
+          and standing_bans(_R4) == expected_bans
+          and _R4.get("coverage", {}).get("certified") is False
+          and _R4.get("coverage", {}).get("refused_obligations")
+          == _R3.get("coverage", {}).get("refused_obligations"),
           m4.group(0) if m4 else out4[-300:])
-    # THE PURSUED HALF: the canonical tier-1 pair (§42's fixture), the loop
-    # given no attempts so the note stands at the stop.
+    # The canonical tier-1 pair remains a mandatory writing flag when no
+    # attempts are allowed. Optional pursuit does not change its severity.
     banned = os.path.join(d, "banned.txt")
     with open(banned, "w", encoding="utf-8") as fh:
         fh.write("I ran my fingers through her hair\n"
                  "and set the bottle on the chair\n")
-    # `--pursue=HOMEOTELEUTON` DECLARED since 2026-10-04: the owner emptied
-    # the mandatory pursue set, so the note is pursued only when asked for.
     rc2, out2, _ = run("revise", banned, "--groups=1,2", "--attempts=0",
-                       "--backtrack=0", "--pursue=HOMEOTELEUTON")
-    m2 = re.search(r"FINDING \[NOTE\] HOMEOTELEUTON", out2)
-    # NO SAME-SPELLING BAN (2026-10-27, D6 on #519): the pair holds, so even
-    # with the code pursued nothing is filed and no line is held open; the
-    # stop still prints what does stand (a whole-draft flag on this
-    # two-liner). superseded: the pursued note standing at the stop as
-    # `FINDING [NOTE] HOMEOTELEUTON: L1/L2 …`.
-    check("a same-spelled pair that holds files no HOMEOTELEUTON, pursued or "
-          "not, and holds no line open",
-          m2 is None and "unresolved: L" not in out2
+                       "--backtrack=0", "--pursue=HOMEOTELEUTON", expect_rc=3)
+    result2 = _machine_result(out2)
+    check("the same-spelled rhyme remains a standing flag with no attempts",
+          rc2 == 3 and re.search(r"FINDING \[FLAG\] HOMEOTELEUTON", out2)
+          and 2 in result2.get("unresolved_lines", [])
+          and result2.get("stop") != "success"
           and "STANDING AT THE STOP" in out2,
           f"rc {rc2}; " + out2[out2.find("STANDING"):][:200])
 
@@ -5442,6 +5457,9 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     REPINNED 2026-10-04: the plan now ties rhymes only at line ends
     (1,2,3;4,5;6,7), so L3's ~~'cheap cologne'~~ (bound to L1's T6 and L2's
     head before) ends on 'afternoon' to stand with 'balloon'/'June'.
+    REPINNED 2026-11-08: balloon/afternoon shares the banned -oon ending.
+    L3 now ends on 'strewn': balloon/June/strewn rhyme with distinct spelled
+    endings and no modal ban, keeping the whole-draft-only control clean.
     Lines using 'into' and 'towels' have disputed pronunciation; the explicit
     negative below ensures those cannot acquire the certified control's
     success by sharing its flags.
@@ -5451,7 +5469,7 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     draft = os.path.join(d, "whole176.txt")
     lines = ['Buttons gleam where wheat was sown by a balloon',
              "Bone cold, my mother's herbs came up in June",
-             'The kettle smells of smoke all afternoon',
+             'The kettle smells of smoke where leaves lie strewn',
              'Blue shadows drag the doubt across the floor',
              'Before the long drought we kept salt in the drawer',
              'Each night the slow crawl wakes the rain',
@@ -5478,6 +5496,8 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
           rc == 3 and result.get("stop_reason") == "WHOLE_DRAFT_UNRESOLVED"
           and result.get("whole_flags") == ["TITLE_NOT_IN_HOOK"]
           and result.get("unresolved_lines") == []
+          and not [f for f in result.get("findings", [])
+                   if f.get("severity") == "flag" and f.get("locations")]
           and st is not None and st.group(1) == "3"
           and st.group(2) == "WHOLE_DRAFT_UNRESOLVED",
           st.group(0) if st else out[-300:])
@@ -5492,7 +5512,8 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
           rc0 == 0 and clean.get("stop_reason") == "SUCCESS"
           and clean.get("coverage", {}).get("certified") is True
           and clean.get("whole_flags") == [] and clean.get("unresolved_lines") == []
-          and clean.get("final_draft") == lines,
+          and clean.get("final_draft") == lines
+          and not [f for f in clean.get("findings", []) if f.get("severity") == "flag"],
           str((rc0, clean.get("stop_reason"), clean.get("whole_flags"))))
     uncertain = list(lines)
     uncertain[3] = uncertain[3].replace("across the floor", "into the floor")
@@ -5523,7 +5544,8 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
           "draft certifies exit0",
           rca == 0 and judged.get("stop_reason") == "SUCCESS"
           and judged.get("coverage", {}).get("certified") is True
-          and judged.get("coverage", {}).get("refused_obligations") == [],
+          and judged.get("coverage", {}).get("refused_obligations") == []
+          and not [f for f in judged.get("findings", []) if f.get("severity") == "flag"],
           str((rca, judged.get("stop_reason"),
                judged.get("coverage", {}).get("refused_obligations"))))
     uncertain[9] = uncertain[9].replace("towels", "qzzxv")
@@ -5547,6 +5569,8 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     check("CONTROL: an unreadable word stays uncertified despite zero flags",
           rcu == 2 and unjudged.get("whole_flags") == []
           and unjudged.get("coverage", {}).get("certified") is False
+          and unjudged.get("unresolved_lines") == []
+          and not [f for f in unjudged.get("findings", []) if f.get("severity") == "flag"]
           and _uref == ["meter:COUNT_IS_A_LOWER_BOUND:L10"]
           and not any(x.startswith("prominence:") for x in _uref),
           str(_uref))

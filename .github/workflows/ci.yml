@@ -1017,7 +1017,9 @@ jobs:
     needs: [dup, gate]
     # M-250: skip when a pull_request run already tests this commit.
     if: needs.dup.outputs.already_covered != 'true'
-    runs-on: ubuntu-latest
+    # Playwright 1.60's Chromium does not support Ubuntu 26.04, now selected
+    # by ubuntu-latest. Keep browser checks on its supported Ubuntu 24.04.
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -1463,7 +1465,9 @@ jobs:
   faults:
     needs: [dup, gate, freshness-build]
     if: ${{ !cancelled() && needs.dup.outputs.already_covered != 'true' }}
-    runs-on: ubuntu-latest
+    # Playwright 1.60's Chromium does not support Ubuntu 26.04, now selected
+    # by ubuntu-latest. Keep browser checks on its supported Ubuntu 24.04.
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     strategy:
       fail-fast: false
@@ -3169,7 +3173,7 @@ jobs:
       #   letter layer by exact search) and fails if any token exceeds it;
       #   it reads the cmudict this job stages and needs numpy, installed
       #   above; about 100 CPU-s on R2's run; label 116 to 117
-      - name: The 117 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02; bias_census 2026-11-03; meter_strict 2026-11-04; function_disclosure 2026-11-04; p2_full_floor 2026-11-06; meter_digit_bound 2026-11-06)
+      - name: The 118 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02; bias_census 2026-11-03; meter_strict 2026-11-04; function_disclosure 2026-11-04; p2_full_floor 2026-11-06; meter_digit_bound 2026-11-06)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -3252,7 +3256,7 @@ jobs:
                "solo='${_mine:-none}' pool=${_pool_k}/${_pool_n}"
           for f in relations_null screen g2p spans readability \
                    recover replay_memo grid propose gate_census floor fwer homograph \
-                   mut_oracle msa_fin corpus_audit provenance homeoteleuton null_shapes \
+                   mut_oracle msa_fin corpus_audit provenance homeoteleuton writing_rhyme_bans null_shapes \
                    phrase_commonplace mandate_relation meter_bands sentencehood \
                    fit nc_census structure_census placement structures align slots \
                    relations crosslinguistic capabilities declared_inputs door_census \

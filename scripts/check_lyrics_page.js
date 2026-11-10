@@ -67,6 +67,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
+/* global lyCommit */
 /* global devicePixelRatio, lyAnalysis, lyIdentity, lyLibraryCapture, lyLibraryRecord, lyDeclarationRefusal, lyItems, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image, InputEvent, MutationObserver, NodeFilter */
 const fs = require('fs');
 const http = require('http');
@@ -881,7 +882,7 @@ function unitTypeMenu() {
     JSON.stringify(movedDecl.group_types) === JSON.stringify([{ group: 1, type: perfect }]),
     `the migrated link lost its type: ${JSON.stringify(movedDecl.group_types)} (${draft.value.split('\n')[1]})`
   );
-  // A structural edit that makes two links spell alike keeps each link's type
+  // The assembler's convergence primitive keeps each link's type
   // (3PO, #629): `1,2;1,2,3` typed 0 and 4 loses line 3 with its section, and
   // becomes `1,2;1,2` typed 0 and 4, not 4 and none. Each route that
   // rebuilds the text (removing a section, a section made to return) and the
@@ -899,8 +900,18 @@ function unitTypeMenu() {
     ['a section made to return', "LY_ACTIONS['ly-make-return']('1:0')"],
   ]) {
     draft.value = converge;
-    run(edit);
-    const edited = draft.value;
+    const result = run(edit);
+    check(
+      result.applied === false && draft.value === converge,
+      `${route}: a referenced-member loss must refuse before changing the draft`
+    );
+    // Retain the #629 serializer regression independently of the now-refused
+    // user operation: explicit redeclaration may still make links converge.
+    const edited = run(
+      '(() => { const p = lyBlocks(lyParse(__t)); p.blocks.splice(1, 1); return lyAssemble(p).text; })()',
+      { __t: converge }
+    );
+    draft.value = edited;
     check(
       /rhyme groups — 1,2;1,2\b/.test(edited),
       `${route}: the links did not come to spell alike, so the case proves nothing: ${edited.split('\n')[0]}`
@@ -4655,6 +4666,21 @@ async function browserChecks(chromium) {
         (await page.evaluate(() => $ui('lyrics-draft').value)).includes('[BRIDGE — 4 lines]'),
         'one Undo did not reverse the applied change'
       );
+      // Timed sections now refuse structural moves rather than moving a bar
+      // span silently. Keep that check, then exercise the original pending
+      // target invalidation gate with an explicitly untimed fixture.
+      const timedMove = await page.evaluate(() => {
+        const before = $ui('lyrics-draft').value;
+        const result = LY_ACTIONS['ly-sec-move']('0:1');
+        return { result, unchanged: $ui('lyrics-draft').value === before };
+      });
+      check(
+        !timedMove.result.applied &&
+          timedMove.unchanged &&
+          timedMove.result.refused.some((r) => r.includes('8 bars of 4/4')),
+        'timed fixture moved instead of refusing its declared bar span'
+      );
+      await setDraft(page, DRAFT.replaceAll(' — 8 bars of 4/4', ''));
       // A pending entry whose target moves is kept and blocked.
       await page.evaluate(() => {
         LY.picks.formSec = 0;
@@ -4664,7 +4690,8 @@ async function browserChecks(chromium) {
       // The person clicks Move down: focus leaves the note field.
       await page.evaluate(() => {
         document.activeElement.blur();
-        LY_ACTIONS['ly-sec-move']('0:1');
+        const result = LY_ACTIONS['ly-sec-move']('0:1');
+        if (!result.applied) throw new Error('untimed pending-target fixture did not move');
       });
       await page.evaluate(() => lyRefresh(true));
       const blocked = await page.evaluate(() => ({
@@ -5881,10 +5908,9 @@ async function browserChecks(chromium) {
       await ctx.close();
     });
 
-    // ── 9e. link types through a removed section, in the shipped page: two
-    // links that come to spell alike keep a type each, through Run review,
-    // a reload and Undo (3PO, #629) ─────────────────────────────────────
-    await step('9e. link types survive a removed section', async () => {
+    // ── 9e. refuse implicit loss; an explicit manual redeclaration that
+    // makes links alike keeps both types through review/reload/Undo (#629).
+    await step('9e. link types survive explicit redeclaration', async () => {
       const { ctx, page, q } = await boot();
       const pre = `[SETUP — rhyme groups — 1,2;1,2,3]\n[SETUP — group types — 1,2=0;1,2,3=4]\n\n[VERSE — 2 lines]\none\ntwo\n\n[CHORUS — 1 line]\nthree`;
       const both = JSON.stringify([
@@ -5896,7 +5922,19 @@ async function browserChecks(chromium) {
           () => lyDeclarationsOf(lyParse($ui('lyrics-draft').value)).group_types || null
         );
       await setDraft(page, pre);
-      await page.evaluate(() => LY_ACTIONS['ly-sec-remove']('1'));
+      const refused = await page.evaluate(() => {
+        const history = app.history.length,
+          text = $ui('lyrics-draft').value;
+        const result = LY_ACTIONS['ly-sec-remove']('1');
+        return (
+          !result.applied && app.history.length === history && $ui('lyrics-draft').value === text
+        );
+      });
+      check(refused, 'referenced section removal changed the draft or history');
+      // Explicit author edit, not permission inferred by the structural tool.
+      const manual =
+        '[SETUP — rhyme groups — 1,2;1,2]\n[SETUP — group types — 1,2=0;1,2#2=4]\n\n[VERSE — 2 lines]\none\ntwo';
+      await page.evaluate((text) => lyCommit(text, 'Declarations edited explicitly.'), manual);
       const row = await page.evaluate(() => $ui('lyrics-draft').value.split('\n')[0]);
       check(/1,2;1,2\b/.test(row), `the removed section left ${row}`);
       check(
@@ -7360,6 +7398,816 @@ async function browserChecks(chromium) {
       }
     });
 
+    // S803: real DOM events and persistence, with no save/focus/render doubles.
+    // Mutation counts establish DOM delivery only; audible AT remains manual.
+    const structuralSong =
+      '[CHORUS]\nI lead you home\nWe watch the rain\n\n[VERSE]\nThe road bends east\nA lantern lights the lane\n\n[CHORUS]\nI lead you home\nWe watch the rain';
+    const structuralDecl =
+      '[SETUP — rhyme groups — 2,4,6 — numbering v2 — cut v2]\n[SETUP — returns — 1,5;2,6 — numbering v2 — cut v2]\n';
+    const structuralExtra = '\n\n[VERSE]\nClouds gather above the hill\nThe gate stands open';
+    const structuralNear = structuralSong.replace(/We watch the rain$/, 'We await the dawn');
+    const structuralButton = (action, id) =>
+      `#surface-lyrics [data-ui="${action}"]${id == null ? '' : `[data-id="${id}"]`}`;
+    const structuralOpen = async (page, review = false) => {
+      // Reuse the harness's navigation setup; operations below use real controls.
+      await page.evaluate((review) => {
+        LY_ACTIONS['ly-tab'](review ? 'review' : 'tools');
+        if (!review) LY_ACTIONS['ly-tool']('form-story');
+      }, review);
+      await page.waitForFunction(() => !!lyLibraryStore);
+      // The existing Library persistence debounce is 300 ms (J14 uses 800).
+      await page.waitForTimeout(800);
+    };
+    const structuralState = (page) =>
+      page.evaluate(async () => ({
+        text: $ui('lyrics-draft').value,
+        saved: app.lyrics,
+        meta: JSON.stringify(app.lyricMeta),
+        history: JSON.stringify(app.history),
+        index: app.historyIndex,
+        revision: UI.lyricRevision,
+        selection: [$ui('lyrics-draft').selectionStart, $ui('lyrics-draft').selectionEnd],
+        picked: LY.picks.formSec,
+        renderedSelection: [
+          ...document.querySelectorAll('#ly-form-rows [data-ui="ly-form-pick"]'),
+        ].map((b) => [b.dataset.id, b.getAttribute('aria-pressed')]),
+        session: localStorage.getItem('codex-workbench-v1'),
+        recovery: sessionStorage.getItem('codex-workbench-recovery'),
+        library: app.lyricMeta?.draftId
+          ? JSON.stringify((await lyLibraryStore.getDraft(app.lyricMeta.draftId)) || null)
+          : 'NO_DRAFT_ID',
+      }));
+    const structuralImport = (page, text) =>
+      page.evaluate(async (text) => {
+        const envelope = {
+          protocol: CMLibraryImport.PROTOCOL,
+          version: 1,
+          handoffId: 'handoff:one',
+          draftId: 'draft:imported',
+          createdAt: '2026-10-08T00:00:00Z',
+          payload: {
+            text,
+            title: 'Test reading',
+            language: 'eng',
+            scope: 'whole',
+            provenance: {
+              snapshotId: 'snapshot:one',
+              unitId: 'unit:one',
+              workId: 'work:one',
+              editionId: 'edition:one',
+              revisionId: 'revision:one',
+              rights: {
+                attribution: 'Source credit',
+                notices: ['First notice', 'Second notice'],
+              },
+            },
+            lineage: [{ row: 1, sourceLine: 12, sourceStart: 100, sourceEnd: 116 }],
+            declarations: [{ type: 'meter', line: 1, value: '7/8' }],
+          },
+        };
+        envelope.digest = await CMLibraryImport.envelopeDigest(envelope, crypto);
+        await lyLibraryImport(envelope);
+        if (!app.lyricMeta?.libraryOrigin)
+          throw new Error('import did not activate source metadata');
+      }, text);
+    const structuralDrag = (page) =>
+      page
+        .locator('#ly-form-rows tr[data-sec="0"] .ly-handle')
+        .dragTo(page.locator('#ly-form-rows tr[data-sec="2"] .ly-handle'));
+    await step(
+      'S803 imported move uses existing adapted export with unedited control',
+      async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          await structuralImport(page, structuralDecl + structuralSong);
+          await structuralOpen(page);
+          const exported = () =>
+            page.evaluate(async () => ({
+              origin: JSON.parse(JSON.stringify(app.lyricMeta.libraryOrigin)),
+              envelope: await CMLibraryImport.makeWorkingCopyEnvelope(
+                $ui('lyrics-draft').value,
+                app.lyricMeta,
+                crypto
+              ),
+            }));
+          const before = await exported();
+          check(before.origin.adapted === false, 'unedited import already adapted');
+          check(
+            before.envelope.payload.declarations.length === 1 &&
+              JSON.stringify(before.envelope.payload.declarations) ===
+                JSON.stringify(before.origin.declarations),
+            'unedited control lost source declarations'
+          );
+          const snapshot = await structuralState(page);
+          await page.locator('#ly-form-rows [data-ui="ly-sec-move"][data-id="0:1"]').focus();
+          await page.keyboard.press('Enter');
+          const after = await exported();
+          const state = await structuralState(page);
+          check(
+            state.text !== snapshot.text && state.index === snapshot.index + 1,
+            'imported move was not accepted exactly once'
+          );
+          check(
+            after.origin.adapted === true &&
+              after.envelope.payload.provenance.workingCopy.adapted === true,
+            'existing imported adaptation mechanism was not used'
+          );
+          check(
+            JSON.stringify(after.origin.lineage) === JSON.stringify(before.origin.lineage) &&
+              JSON.stringify(after.envelope.payload.lineage) ===
+                JSON.stringify(before.origin.lineage),
+            'imported lineage was rebound'
+          );
+          check(
+            after.envelope.payload.provenance.workingCopy.lineageBasis ===
+              'Imported reading before edits',
+            'export omitted exact original-reading lineage basis'
+          );
+          check(
+            JSON.stringify(after.envelope.payload.declarations) === '[]',
+            'adapted export still binds source declarations'
+          );
+          check(
+            JSON.stringify(after.envelope.payload.provenance.workingCopy.declarations) ===
+              JSON.stringify(before.origin.declarations),
+            'adapted export lost historical source declarations'
+          );
+          check(q.calls.length === 0, 'imported move sent provider request');
+        } finally {
+          await ctx.close();
+        }
+      }
+    );
+    for (const scenario of [
+      {
+        name: 'move',
+        action: 'ly-sec-move',
+        id: '0:1',
+        text: '[SETUP — placement — 3:5:1:4]\n' + structuralSong,
+        named: 'timing',
+      },
+      {
+        name: 'duplicate',
+        action: 'ly-sec-dup',
+        id: '0',
+        text: structuralDecl + structuralSong,
+        named: 'returns',
+      },
+      {
+        name: 'remove',
+        action: 'ly-sec-remove',
+        id: '1',
+        text: structuralDecl + structuralSong,
+        named: 'rhyme groups',
+      },
+      {
+        name: 'drop',
+        action: 'ly-form-pick',
+        id: '0',
+        text: '[INTRO — 4 bars]\n' + structuralSong,
+        named: '[INTRO — 4 bars]',
+      },
+      {
+        name: 'label',
+        action: 'ly-label-stanzas',
+        text: '[SETUP — returns — ]\n' + structuralSong.replace(/^\[(CHORUS|VERSE)\]\n/gm, ''),
+        named: 'returns',
+      },
+      {
+        name: 'make-return',
+        action: 'ly-make-return',
+        id: '2:0',
+        text: structuralDecl + structuralNear,
+        named: 'returns',
+        review: true,
+      },
+      {
+        name: 'imported-remove',
+        action: 'ly-sec-remove',
+        id: '0',
+        text: structuralDecl + structuralSong,
+        named: 'returns',
+        imported: true,
+      },
+    ]) {
+      await step(`S803 refusal ${scenario.name}: focus and selection unchanged`, async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          if (scenario.imported) {
+            // Exact valid envelope fixture from test_library_import.js;
+            // the actual receiver validates/digests and activates the draft.
+            await structuralImport(page, scenario.text);
+          } else await setDraft(page, scenario.text);
+          await structuralOpen(page, scenario.review);
+          const button = page.locator(structuralButton(scenario.action, scenario.id)).first();
+          await button.waitFor({ state: 'visible' });
+          await page.evaluate(() => $ui('lyrics-draft').setSelectionRange(7, 9));
+          await button.focus();
+          // Repeat the same refusal: each activation must deliver one message.
+          for (let attempt = 0; attempt < 2; attempt++) {
+            const before = await structuralState(page);
+            const observation = await page.evaluateHandle((drag) => {
+              const state = {
+                focus: document.activeElement,
+                messages: [],
+                observer: null,
+                dragStarted: false,
+                selection: null,
+              };
+              // mousedown/drag initiation may move focus before the app sees
+              // drop. Sample that real boundary, not pre-gesture focus.
+              if (drag)
+                document.addEventListener(
+                  'dragstart',
+                  () => {
+                    state.dragStarted = true;
+                    state.focus = document.activeElement;
+                    const draft = $ui('lyrics-draft');
+                    state.selection = [draft.selectionStart, draft.selectionEnd];
+                  },
+                  { once: true, capture: true }
+                );
+              state.observer = new MutationObserver((records) => {
+                for (const record of records)
+                  for (const node of record.addedNodes)
+                    if (
+                      node.nodeType === 1 &&
+                      node.matches('span') &&
+                      node.textContent.startsWith('Nothing changed.')
+                    )
+                      state.messages.push(node.textContent);
+              });
+              state.observer.observe(document.getElementById('toast'), { childList: true });
+              return state;
+            }, scenario.name === 'drop');
+            if (scenario.name === 'drop') await structuralDrag(page);
+            else await page.keyboard.press('Enter');
+            await page.waitForFunction(() => document.querySelector('#toast.toast-error.show'));
+            const after = await structuralState(page);
+            if (scenario.name === 'drop') {
+              const gesture = await observation.evaluate((state) => ({
+                started: state.dragStarted,
+                selection: state.selection,
+              }));
+              check(gesture.started, 'drop fixture did not produce a real dragstart');
+              before.selection = gesture.selection;
+            }
+            check(
+              JSON.stringify(after) === JSON.stringify(before),
+              `${scenario.name}: refusal mutated state: ${JSON.stringify({ before, after })}`
+            );
+            const delivery = await observation.evaluate((state) => {
+              state.observer.disconnect();
+              const toast = document.getElementById('toast');
+              return {
+                sameFocus: document.activeElement === state.focus,
+                connected: state.focus.isConnected,
+                messages: state.messages,
+                role: toast.getAttribute('role'),
+                live: toast.getAttribute('aria-live'),
+                dismiss: !!toast.querySelector('.toast-dismiss'),
+                secondRegion: $ui('ly-live').textContent,
+              };
+            });
+            check(
+              delivery.sameFocus && delivery.connected,
+              `${scenario.name}: refusal moved or destroyed focus`
+            );
+            check(
+              delivery.messages.length === 1 && delivery.messages[0].includes(scenario.named),
+              `${scenario.name}: wrong message/update count ${JSON.stringify(delivery)}`
+            );
+            check(
+              delivery.role === 'status' && delivery.live === 'polite' && delivery.dismiss,
+              `${scenario.name}: refusal lacks persistent polite notification`
+            );
+            check(
+              !delivery.secondRegion.includes('Nothing changed.'),
+              `${scenario.name}: refusal duplicated in Lyrics live region`
+            );
+            await observation.dispose();
+          }
+          check(q.calls.length === 0, 'structural refusal sent a provider request');
+        } finally {
+          await ctx.close();
+        }
+      });
+    }
+    for (const scenario of [
+      {
+        name: 'move',
+        action: 'ly-sec-move',
+        id: '0:1',
+        text: structuralDecl + structuralSong,
+        lines: 6,
+        focus: 'ly-sec-move',
+        focusId: '1:1',
+        groups: '4,2,6',
+        returns: '3,5;4,6',
+      },
+      {
+        name: 'duplicate',
+        action: 'ly-sec-dup',
+        id: '3',
+        text: structuralDecl + structuralSong + structuralExtra,
+        lines: 10,
+        focus: 'ly-sec-dup',
+        focusId: '4',
+      },
+      {
+        name: 'remove',
+        action: 'ly-sec-remove',
+        id: '3',
+        text: structuralDecl + structuralSong + structuralExtra,
+        lines: 6,
+        focus: 'ly-sec-remove',
+        focusId: '2',
+      },
+      {
+        name: 'drop',
+        action: 'ly-form-pick',
+        id: '0',
+        text: structuralDecl + structuralSong,
+        lines: 6,
+        groups: '6,2,4',
+        returns: '5,3;6,4',
+      },
+      {
+        name: 'label',
+        action: 'ly-label-stanzas',
+        text: structuralSong.replace(/^\[(CHORUS|VERSE)\]\n/gm, ''),
+        lines: 6,
+      },
+      {
+        name: 'make-return',
+        action: 'ly-make-return',
+        id: '2:0',
+        text: structuralNear,
+        lines: 6,
+        review: true,
+      },
+    ]) {
+      await step(`S803 success ${scenario.name} and Undo`, async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          await setDraft(page, scenario.text);
+          await structuralOpen(page, scenario.review);
+          await page.locator(structuralButton(scenario.action, scenario.id)).first().focus();
+          const before = await structuralState(page);
+          if (scenario.name === 'drop') await structuralDrag(page);
+          else await page.keyboard.press('Enter');
+          await page.waitForFunction((text) => $ui('lyrics-draft').value !== text, before.text);
+          const after = await structuralState(page);
+          const got = await page.evaluate(() => ({
+            lines: LY.model.sung.length,
+            headers: LY.model.sections.map((s) => s.header?.name),
+            sung: LY.model.sung.map((r) => r.text),
+            declarations: lyDeclarationsOf(LY.model),
+            focus: document.activeElement?.dataset?.ui,
+            focusId: document.activeElement?.dataset?.id,
+            focusAlive:
+              document.activeElement !== document.body && document.activeElement?.isConnected,
+            picked: LY.picks.formSec,
+            toast: document.getElementById('toast').classList.contains('toast-success'),
+          }));
+          check(
+            got.lines === scenario.lines && got.toast,
+            `${scenario.name}: supported edit did not succeed`
+          );
+          check(
+            after.revision === before.revision + 1 && after.index === before.index + 1,
+            `${scenario.name}: edit is not one save/history step`
+          );
+          check(
+            after.saved === after.text && JSON.parse(after.session).lyrics === after.text,
+            `${scenario.name}: edited text not saved`
+          );
+          if (scenario.focus)
+            check(
+              got.focus === scenario.focus && got.focusId === scenario.focusId,
+              `${scenario.name}: wrong success focus ${JSON.stringify(got)}`
+            );
+          else if (scenario.name !== 'drop')
+            check(got.focusAlive, `${scenario.name}: success lost focus to body`);
+          if (scenario.name === 'drop') {
+            check(got.picked === 2, 'drop did not select its destination');
+            check(
+              got.focus === 'ly-form-pick' && got.focusId === '2' && got.focusAlive,
+              'successful drop did not focus the moved section control'
+            );
+          }
+          if (['move', 'drop'].includes(scenario.name)) {
+            const destination = scenario.name === 'move' ? 1 : 2;
+            const pressed = await page.evaluate(() =>
+              [...document.querySelectorAll('#ly-form-rows [data-ui="ly-form-pick"]')]
+                .filter((b) => b.getAttribute('aria-pressed') === 'true')
+                .map((b) => Number(b.dataset.id))
+            );
+            check(
+              JSON.stringify(pressed) === JSON.stringify([destination]),
+              `${scenario.name}: moved row must be the only pressed row`
+            );
+          }
+          if (scenario.groups)
+            check(
+              got.declarations.groups === scenario.groups &&
+                got.declarations.returns === scenario.returns,
+              `${scenario.name}: wrong occurrence mapping`
+            );
+          if (scenario.name === 'label')
+            check(
+              JSON.stringify(got.headers) === JSON.stringify(['Stanza 1', 'Stanza 2', 'Stanza 3']),
+              'label did not create the three headers'
+            );
+          if (scenario.name === 'make-return')
+            check(
+              JSON.stringify(got.sung.slice(0, 2)) === JSON.stringify(got.sung.slice(4, 6)),
+              'make-return did not copy the first occurrence'
+            );
+          // Form & story hides the document toolbar; use the visible native
+          // session history buttons, retained by workbench setup.
+          await page.locator('#btn-undo').click();
+          check(
+            (await structuralState(page)).text === before.text,
+            `${scenario.name}: Undo did not restore exact text`
+          );
+          await page.locator('#btn-redo').click();
+          check(
+            (await structuralState(page)).text === after.text,
+            `${scenario.name}: Redo did not restore exact edit`
+          );
+          check(
+            await page.evaluate(
+              () => document.activeElement !== document.body && document.activeElement?.isConnected
+            ),
+            `${scenario.name}: Redo lost focus to body`
+          );
+          check(q.calls.length === 0, 'structural edit sent a provider request');
+        } finally {
+          await ctx.close();
+        }
+      });
+    }
+    // HTML pointer drag is qualified on desktop; the touch-emulated phone
+    // uses keyboard Move checks below, not a claim of touch drag support.
+    for (const phone of [false]) {
+      await step(
+        `S803 drop destination after splice: first, last and repeated reorder (${phone ? 'phone' : 'desktop'})`,
+        async () => {
+          const { ctx, page, q } = await boot({ phone });
+          try {
+            await setDraft(page, structuralDecl + structuralSong);
+            await structuralOpen(page);
+            for (const [from, to] of [
+              [0, 2],
+              [2, 0],
+              [0, 1],
+            ]) {
+              const before = await structuralState(page);
+              const movedWords = await page.evaluate(
+                (from) => LY.model.sections[from].sung.map((r) => r.text),
+                from
+              );
+              await page
+                .locator(`#ly-form-rows tr[data-sec="${from}"] .ly-handle`)
+                .dragTo(page.locator(`#ly-form-rows tr[data-sec="${to}"] .ly-handle`));
+              const after = await structuralState(page);
+              const focus = await page.evaluate((to) => {
+                const control = document.querySelector(
+                  `#ly-form-rows tr[data-sec="${to}"] [data-ui="ly-form-pick"]`
+                );
+                return {
+                  matches: document.activeElement === control && control?.isConnected,
+                  words: LY.model.sections[to].sung.map((r) => r.text),
+                  picked: LY.picks.formSec,
+                  pressed: [...document.querySelectorAll('#ly-form-rows [data-ui="ly-form-pick"]')]
+                    .filter((b) => b.getAttribute('aria-pressed') === 'true')
+                    .map((b) => Number(b.dataset.id)),
+                };
+              }, to);
+              check(
+                focus.matches &&
+                  JSON.stringify(focus.pressed) === JSON.stringify([to]) &&
+                  focus.picked === to &&
+                  JSON.stringify(focus.words) === JSON.stringify(movedWords),
+                `drop ${from}→${to} did not focus the moved occurrence`
+              );
+              check(after.index === before.index + 1, 'repeated drop added other history steps');
+              // Native header history controls are desktop-only.
+              if (!phone) {
+                await page.locator('#btn-undo').click();
+                check(
+                  (await structuralState(page)).text === before.text,
+                  'repeated drop Undo did not restore text/declarations'
+                );
+                await page.locator('#btn-redo').click();
+                check(
+                  (await structuralState(page)).text === after.text,
+                  'repeated drop Redo did not restore text/declarations'
+                );
+              }
+            }
+            check(q.calls.length === 0, 'repeated drop sent a provider request');
+          } finally {
+            await ctx.close();
+          }
+        }
+      );
+    }
+    for (const phone of [false, true]) {
+      await step(
+        `S803 keyboard Move repeated Enter and first/last fallback (${phone ? 'phone' : 'desktop with Undo/Redo'})`,
+        async () => {
+          const { ctx, page, q } = await boot({ phone });
+          try {
+            await setDraft(page, structuralDecl + structuralSong);
+            await structuralOpen(page);
+            for (const [from, direction] of [
+              [0, 1],
+              [1, 1],
+              [2, -1],
+              [1, -1],
+            ]) {
+              const to = from + direction;
+              const before = await structuralState(page);
+              const button = page.locator(
+                `#ly-form-rows [data-ui="ly-sec-move"][data-id="${from}:${direction}"]`
+              );
+              // Focus only at the start of each direction. The second Enter
+              // must reuse the browser's post-move focus, without test repair.
+              if (from !== 1) await button.focus();
+              await page.keyboard.press('Enter');
+              const after = await structuralState(page);
+              const rendered = await page.evaluate(() => ({
+                picked: LY.picks.formSec,
+                pressed: [...document.querySelectorAll('#ly-form-rows [data-ui="ly-form-pick"]')]
+                  .filter((b) => b.getAttribute('aria-pressed') === 'true')
+                  .map((b) => Number(b.dataset.id)),
+                focus: document.activeElement?.dataset?.ui,
+                focusId: document.activeElement?.dataset?.id,
+              }));
+              check(
+                rendered.picked === to && JSON.stringify(rendered.pressed) === JSON.stringify([to]),
+                `Move ${from}→${to}: moved row not exclusively pressed`
+              );
+              check(
+                rendered.focus === (to === 1 ? 'ly-sec-move' : 'ly-form-pick') &&
+                  rendered.focusId === (to === 1 ? `${to}:${direction}` : String(to)),
+                `Move ${from}→${to}: focus did not retain Move or boundary fallback`
+              );
+              check(
+                after.index === before.index + 1 && after.revision === before.revision + 1,
+                'Enter must cause exactly one move/save/history step'
+              );
+              console.log(
+                'S803 repeated Enter',
+                JSON.stringify({
+                  phone,
+                  from,
+                  to,
+                  historyDelta: after.index - before.index,
+                  focus: rendered.focus,
+                  focusId: rendered.focusId,
+                  pressed: rendered.pressed,
+                })
+              );
+              // Native history handoff is separately owned; preserve its behavior.
+              if (!phone && to !== 1)
+                for (const action of ['undo', 'redo']) {
+                  await page.locator(`#btn-${action}`).click();
+                  check(
+                    await page.evaluate(
+                      () => document.activeElement === document.getElementById('btn-undo')
+                    ),
+                    `${action} after Move changed native history focus`
+                  );
+                  check(
+                    (await structuralState(page)).text ===
+                      (action === 'undo' ? before.text : after.text),
+                    `${action} after Move changed text restoration`
+                  );
+                }
+            }
+            check(q.calls.length === 0, 'keyboard selection checks sent a provider request');
+          } finally {
+            await ctx.close();
+          }
+        }
+      );
+    }
+    // Keep history-button clicks outside the causal repeated-Enter sequence.
+    // The upward fixture follows the same moves as the original history checks.
+    for (const direction of [1, -1]) {
+      await step(`S803 interior Move history ${direction === 1 ? 'down' : 'up'}`, async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          await setDraft(page, structuralDecl + structuralSong);
+          await structuralOpen(page);
+          let before;
+          let after;
+          const moves =
+            direction === 1
+              ? [[0, 1]]
+              : [
+                  [0, 1],
+                  [1, 1],
+                  [2, -1],
+                ];
+          for (const [from, d] of moves) {
+            before = await structuralState(page);
+            await page.locator(structuralButton('ly-sec-move', `${from}:${d}`)).focus();
+            await page.keyboard.press('Enter');
+            after = await structuralState(page);
+            check(
+              after.text !== before.text && after.index === before.index + 1,
+              'interior history fixture must perform one actual move'
+            );
+          }
+          for (const action of ['undo', 'redo']) {
+            await page.locator(`#btn-${action}`).click();
+            check(
+              await page.evaluate(
+                () => document.activeElement === document.getElementById('btn-undo')
+              ),
+              `${action} after interior ${direction === 1 ? 'down' : 'up'} Move changed native history focus`
+            );
+            // Downward text restoration is already checked by S803 success move.
+            if (direction === -1)
+              check(
+                (await structuralState(page)).text ===
+                  (action === 'undo' ? before.text : after.text),
+                `${action} after interior up Move changed text restoration`
+              );
+          }
+          check(q.calls.length === 0, 'interior history checks sent a provider request');
+        } finally {
+          await ctx.close();
+        }
+      });
+    }
+    await step('S803 drop Undo/Redo focus unchanged from existing implementation', async () => {
+      const { ctx, page, q } = await boot();
+      try {
+        await setDraft(page, structuralDecl + structuralSong);
+        await structuralOpen(page);
+        await structuralDrag(page);
+        // Native history controls retain their node while rendering. Existing
+        // _historyFocusHandoff keeps an enabled control focused and transfers
+        // focus to its partner when the action disables it. Exercise both
+        // branches, independently of the text-restoration assertions above.
+        const outcomes = [];
+        for (const action of ['undo', 'redo']) {
+          const control = page.locator(`#btn-${action}`);
+          const node = await control.elementHandle();
+          await control.click();
+          const focus = await node.evaluate((button, action) => {
+            const partner = document.getElementById(action === 'undo' ? 'btn-redo' : 'btn-undo');
+            const expected = button.disabled ? partner : button;
+            return {
+              matches: document.activeElement === expected,
+              connected: expected?.isConnected,
+              enabled: !expected?.disabled,
+              id: document.activeElement?.id,
+              transferred: button.disabled,
+            };
+          }, action);
+          check(
+            focus.matches && focus.connected && focus.enabled,
+            `${action} changed existing history focus behavior: ${JSON.stringify(focus)}`
+          );
+          outcomes.push({ action, id: focus.id, transferred: focus.transferred });
+          await node.dispose();
+        }
+        check(!outcomes[0].transferred, 'Undo fixture did not exercise retained control focus');
+        check(outcomes[1].transferred, 'Redo fixture did not exercise partner focus handoff');
+        console.log('S803 existing history focus:', JSON.stringify(outcomes));
+        check(q.calls.length === 0, 'history focus check sent a provider request');
+      } finally {
+        await ctx.close();
+      }
+    });
+    await step('S803 focused older-toast replacement', async () => {
+      const { ctx, page } = await boot();
+      try {
+        await setDraft(page, structuralDecl + structuralSong);
+        await structuralOpen(page);
+        const button = page.locator(structuralButton('ly-sec-remove', '1'));
+        await button.focus();
+        const opener = await page.evaluateHandle(() => document.activeElement);
+        await page.evaluate(() => showToast('Older notification.', 'error'));
+        await page.keyboard.press('F8');
+        check(
+          await page
+            .locator('#toast .toast-dismiss')
+            .evaluate((el) => el === document.activeElement),
+          'F8 did not focus the older Dismiss button'
+        );
+        const before = await structuralState(page);
+        // DOM click while Dismiss holds focus exercises notification replacement
+        // without a pointer press first moving focus to the section button.
+        await button.evaluate((el) => el.click());
+        const after = await structuralState(page);
+        check(
+          JSON.stringify(after) === JSON.stringify(before),
+          'older-toast replacement mutated document state'
+        );
+        check(
+          await opener.evaluate((el) => el === document.activeElement),
+          'existing toast replacement did not restore its opener'
+        );
+        check(
+          await page
+            .locator('#toast')
+            .evaluate((el) => el.textContent.includes('Nothing changed.')),
+          'older toast was not replaced by the refusal'
+        );
+        await opener.dispose();
+      } finally {
+        await ctx.close();
+      }
+    });
+    for (const route of ['session', 'Library']) {
+      await step(`S803 separate ${route} reload`, async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          await setDraft(page, structuralDecl + structuralSong);
+          // Existing /chat fixture route, real request/receive binding. No
+          // assignment to LY.run and no live provider or grading assertion.
+          const final = await page.evaluate(() => LY.model.sung.map((r) => r.text));
+          const reply = certified();
+          reply.artifact = { ...reply.artifact, text: final.join('\n'), final_draft: final };
+          await sendReview(page, q, reply);
+          const current = await page.evaluate(() => LY.run && lyRunStatus(LY.run));
+          if (!current?.certified)
+            throw new Error('fixture did not establish a current accepted review');
+          await structuralOpen(page);
+          await page.locator(structuralButton('ly-sec-move', '0:1')).click();
+          const expected = await page.evaluate(() => ({
+            text: $ui('lyrics-draft').value,
+            declarations: lyDeclarationsOf(LY.model),
+          }));
+          const stale = await page.evaluate(() => LY.run && lyRunStatus(LY.run));
+          check(
+            stale?.word === 'Last run certified an earlier draft' && !stale.certified,
+            'structural edit did not invalidate the accepted review'
+          );
+          let draftId;
+          if (route === 'Library') {
+            await page.waitForFunction(() => !!lyLibraryStore);
+            // Actual IndexedDB adapter, as in J14; no replacement store.
+            draftId = await page.evaluate(async () => {
+              const record = lyLibraryCapture();
+              await lyLibraryStore.saveDraft(record);
+              const saved = await lyLibraryStore.getDraft(record.draftId);
+              if (saved?.text !== record.text) throw new Error('Library readback differs');
+              localStorage.clear();
+              sessionStorage.clear();
+              return record.draftId;
+            });
+          }
+          await page.reload();
+          await page.waitForFunction(() => UI.ready && !!LY.model);
+          if (route === 'Library') {
+            check(
+              (await structuralState(page)).text !== expected.text,
+              'Library reload was accidentally satisfied by session restore'
+            );
+            await page.evaluate(async (id) => LY_ACTIONS['ly-library-restore'](id), draftId);
+          }
+          const restored = await page.evaluate(() => ({
+            text: $ui('lyrics-draft').value,
+            declarations: lyDeclarationsOf(LY.model),
+          }));
+          check(
+            JSON.stringify(restored) === JSON.stringify(expected),
+            `${route}: reload changed text/declarations`
+          );
+          const reloadedReview = await page.evaluate(() => (LY.run ? lyRunStatus(LY.run) : null));
+          if (route === 'Library')
+            check(
+              reloadedReview?.word === 'Last run certified an earlier draft' &&
+                !reloadedReview.certified,
+              'Library reload lost the stale review or made it current'
+            );
+          else {
+            // Page render may recover the saved writer artifact without its
+            // request binding. That is explicitly unknown, never current.
+            const recoveredArtifact = await page.evaluate(() => !!chatState.task?.artifact);
+            check(
+              recoveredArtifact
+                ? reloadedReview?.word === 'Earlier result · declarations unknown' &&
+                    !reloadedReview.certified
+                : reloadedReview === null,
+              'session restore treated an unbound artifact as a current review'
+            );
+          }
+          check(q.calls.length === 1, 'reload or structural edit sent another review request');
+        } finally {
+          await ctx.close();
+        }
+      });
+    }
+
     // U. Undo in the draft is the page's one history, a typing run per step
     // (Jony #79: the read layer's redraw broke Chromium's native typing group,
     // so Ctrl+Z took back one character a press); Undo and Redo say what they
@@ -7642,6 +8490,7 @@ async function browserChecks(chromium) {
     unitEndIdentity();
     unitFormOrder();
     unitHeadersAndIdentity();
+    checks += await require('./check_lyrics_structural_preflight')(UNIT_SOURCE);
   }
   if (flags['unit-only']) {
     if (failures.length) {
