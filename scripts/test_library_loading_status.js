@@ -18,15 +18,21 @@ function fixture(t) {
     return id;
   };
   w.clearTimeout = (id) => timers.delete(id);
-  w.fetch = (url) =>
+  w.fetch = (url, init) =>
     url.startsWith('library/data/')
       ? Promise.reject(Error('static catalog intentionally absent in service-status fixture'))
-      : new Promise((resolve, reject) => calls.push({ resolve, reject }));
+      : new Promise((resolve, reject) => calls.push({ resolve, reject, url, init }));
   w.console.warn = () => {};
+  const works = w.eval(`(function () {${fs.readFileSync('src/library/works.js', 'utf8')}\n})()`);
+  w.libraryChunk = async (name) => {
+    assert.equal(name, 'works');
+    return works;
+  };
   const { lib } = w.eval(`(function () {${fs.readFileSync('src/library/core.js', 'utf8')}\n})()`);
   return {
     w,
-    lib,
+    deferredLib: lib,
+    lib: { get: (...args) => works.api(lib.api, ...args) },
     calls,
     live: w.document.getElementById('library-live'),
     tick() {
@@ -98,5 +104,33 @@ test('overlapping query navigation gives the current request its own loading sta
   assert.equal(f.live.textContent, 'Loading the Library…');
   f.calls[1].resolve(ok());
   await current;
+  assert.equal(f.live.textContent, '');
+});
+
+test('core defers service transport and shares it for public and private requests', async (t) => {
+  const f = fixture(t);
+  let loads = 0;
+  const load = f.w.libraryChunk;
+  f.w.libraryChunk = (name) => {
+    loads++;
+    return load(name);
+  };
+  assert.equal(loads, 0, 'static core initialization does not load Works');
+  const publicRequest = f.deferredLib.get('/search');
+  const privateRequest = f.deferredLib.viewer('/jobs');
+  await new Promise(setImmediate);
+  assert.equal(loads, 2);
+  assert.equal(f.calls.length, 2);
+  assert.ok(f.calls[0].url.endsWith('/search'));
+  assert.equal(f.calls[0].init.credentials, 'omit');
+  assert.ok(f.calls[1].url.endsWith('/jobs'));
+  assert.equal(f.calls[1].init.credentials, 'include');
+  f.tick();
+  assert.equal(f.live.textContent, 'Loading the Library…');
+  f.calls[0].resolve(ok());
+  await publicRequest;
+  assert.equal(f.live.textContent, 'Loading the Library…');
+  f.calls[1].resolve(ok());
+  await privateRequest;
   assert.equal(f.live.textContent, '');
 });
