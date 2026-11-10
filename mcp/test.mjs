@@ -5523,6 +5523,12 @@ await check('validation: actionable errors', () => {
       'mcp/test_reader_client.mjs': 'offline signed Library reader route and scheduler regressions',
       'mcp/test_reader_integration.mjs':
         'local catalog Library reader interruption/resume regressions',
+      'mcp/test_reader_bootstrap.mjs':
+        'offline reader bootstrap selection and state-guard regressions (#656), executed by CI (test:library)',
+      'mcp/test_reader_selection.mjs':
+        'offline default-off reader selection regressions over synthetic artifacts (#656), executed by CI (test:library)',
+      'mcp/test_reader_reply_projection.mjs':
+        'offline worker reply projection regressions over the real bridge (#656), executed by CI (test:library)',
       'mcp/test_lookup_queue.mjs': 'offline lookup-does-not-queue-behind-a-grade regression',
       'mcp/test_lyric_state.mjs': 'offline lyric state and SDK regressions',
       'mcp/test_turn_lifecycle.mjs': 'offline chat lifetime and signed continuation regressions',
