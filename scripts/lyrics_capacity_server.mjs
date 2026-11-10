@@ -5,7 +5,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import path from 'node:path';
-import { queuePressure, memoryPublisher } from './lyrics_capacity_queue.mjs';
+import { queuePressure, memoryPublisher, draftJsonBytes } from './lyrics_capacity_queue.mjs';
 import { RUNS, LYRIC_TOOL_SCHEMAS, lyricCapacity } from '../mcp/lyric_tools.js';
 import {
   WORKER_STATE_BYTES,
@@ -188,7 +188,10 @@ function snapshot() {
     // journals again on every observation. This avoids an observer-only heap.
     state_wire_bytes: records.reduce((sum, row) => sum + Buffer.byteLength(row.state), 0),
     checkpoint_wire_bytes: records.reduce((sum, row) => sum + Buffer.byteLength(row.checkpoint), 0),
-    draft_bytes: records.reduce((sum, row) => sum + bytes(row.draft) + bytes(row.replay_draft), 0),
+    draft_bytes: records.reduce(
+      (sum, row) => sum + draftJsonBytes(row.draft) + draftJsonBytes(row.replay_draft),
+      0
+    ),
     declaration_bytes: records.reduce((sum, row) => sum + bytes(row.decl), 0),
     all_codec_roundtrips_verified: true,
     queue: {
