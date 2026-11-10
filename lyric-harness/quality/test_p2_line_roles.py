@@ -14,7 +14,7 @@ class LineRoles(unittest.TestCase):
     def test_absent_is_undeclared_without_owner(self):
         rows = [{'text': '[REFRAIN]'}, {'text': 'same'}]
         self.assertEqual(resolve_line_roles(rows, {}), ())
-        self.assertEqual(role_report((), {}), {'declarations': [], 'notes': []})
+        self.assertEqual(role_report((), {}, line_count=2), {'declarations': [], 'notes': []})
 
     def test_raw_canonical_and_burden_distinct(self):
         rows = [{'role': 'REFRAIN'}, {'role': 'burden'}]
@@ -47,29 +47,30 @@ class LineRoles(unittest.TestCase):
 
     def test_divergent_text_without_return_is_not_checked(self):
         rows = [{'text': 'hold', 'role': 'refrain'}, {'text': 'guard', 'role': 'refrain'}]
-        report = role_report(resolve_line_roles(rows, {0: 0, 1: 0}), {0: 0, 1: 0})
+        report = role_report(resolve_line_roles(rows, {0: 0, 1: 0}), {0: 0, 1: 0}, line_count=2)
         self.assertEqual(report['notes'], [])
         for item in report['declarations']:
             self.assertEqual(item['identity'], 'not_checked')
             self.assertEqual(item['declared_returns'], [])
             self.assertIn('identity was not checked', item['disclosure'])
-            self.assertFalse({'licence', 'hook', 'origin', 'certified'} & item.keys())
+            self.assertEqual(set(item), {'line', 'container', 'raw', 'role',
+                                        'identity', 'declared_returns', 'disclosure'})
 
     def test_explicit_return_membership_is_not_judgment(self):
         roles = resolve_line_roles([{'role': 'refrain'}, {}, {'role': 'refrain'}], {0: 0, 2: 1})
-        report = role_report(roles, {0: 0, 1: 0, 2: 1}, returns=((3, 1),))
+        report = role_report(roles, {0: 0, 1: 0, 2: 1}, line_count=3, returns=((3, 1),))
         self.assertEqual([x['declared_returns'] for x in report['declarations']], [[[3, 1]], [[3, 1]]])
         self.assertTrue(all(x['identity'] == 'not_checked' for x in report['declarations']))
 
     def test_once_is_note(self):
-        report = role_report(resolve_line_roles([{'role': 'refrain'}], {0: 0}), {0: 0})
+        report = role_report(resolve_line_roles([{'role': 'refrain'}], {0: 0}), {0: 0}, line_count=1)
         self.assertEqual(report['notes'], [{'line': 1, 'severity': 'note',
                           'message': 'marked refrain; the only line marked refrain in this draft'}])
 
     def test_burden_positions_are_draft_notes(self):
         owners = {0: 0, 1: 0, 2: 1, 3: 1, 4: 1}
         roles = resolve_line_roles([{'role': 'burden'}, {}, {'role': 'burden'}, {'role': 'burden'}, {}], owners)
-        notes = role_report(roles, owners)['notes']
+        notes = role_report(roles, owners, line_count=5)['notes']
         self.assertEqual([n['message'] for n in notes], [
             'marked burden; at the opening of this draft',
             'marked burden; at a section boundary in this draft',
@@ -77,22 +78,22 @@ class LineRoles(unittest.TestCase):
         self.assertTrue(all(n['severity'] == 'note' for n in notes))
 
     def test_missing_adjacent_owner_is_disclosed(self):
-        roles = resolve_line_roles([{}, {'role': 'burden'}], {1: 0})
-        self.assertIn("the preceding line's section isn't resolved", role_report(roles, {1: 0})['notes'][-1]['message'])
+        roles = resolve_line_roles([{}, {'role': 'burden'}, {}], {1: 0})
+        self.assertIn("the preceding line's section isn't resolved", role_report(roles, {1: 0}, line_count=3)['notes'][-1]['message'])
 
     def test_invalid_following_owner_is_not_called_inside(self):
         for following in (None, -1, True, [], {}, '0'):
             owners = {0: 0, 1: 0, 2: following}
             roles = resolve_line_roles([{}, {'role': 'burden'}, {}], owners)
             with self.subTest(following=following):
-                self.assertEqual(role_report(roles, owners)['notes'][-1]['message'],
+                self.assertEqual(role_report(roles, owners, line_count=3)['notes'][-1]['message'],
                     "marked burden; the following line's section isn't resolved, so its position isn't known")
 
     def test_no_input_mutation_or_default_keys(self):
         rows = [{'text': 'same'}, {'text': 'same', 'role': 'burden'}]
         owners, returns = {0: 0, 1: 1}, [[1, 2]]
         before = copy.deepcopy((rows, owners, returns))
-        role_report(resolve_line_roles(rows, owners), owners, returns=returns)
+        role_report(resolve_line_roles(rows, owners), owners, line_count=len(rows), returns=returns)
         self.assertEqual((rows, owners, returns), before)
         self.assertNotIn('role', rows[0])
 
@@ -100,17 +101,62 @@ class LineRoles(unittest.TestCase):
         for raw in ('refrain', '', None, {}, [], 17):
             bp = {'sections': [], 'lines': [{'role': raw}]}
             before = copy.deepcopy(bp)
-            with self.subTest(raw=raw), self.assertRaisesRegex(ValueError, r"`role` isn't supported yet, so this blueprint was not accepted\. Remove `role` from this line and send it again\."):
+            with self.subTest(raw=raw), self.assertRaisesRegex(ValueError, r"^line 1: `role` isn't supported yet, so this blueprint was not accepted\. Remove `role` from this line and send it again\."):
                 validate_blueprint(bp)
             self.assertEqual(bp, before)
 
+    def test_missing_owner_key_refuses(self):
+        with self.assertRaisesRegex(ValueError, '^line 2: unresolved containing section'):
+            resolve_line_roles([{}, {'role': 'refrain'}], {0: 0})
+
+    def test_return_membership_does_not_leak_to_outside_line(self):
+        rows = [{'role': 'refrain'}, {}, {}]
+        owners = {0: 0, 1: 0, 2: 0}
+        report = role_report(resolve_line_roles(rows, owners), owners,
+                             line_count=3, returns=((2, 3),))
+        item = report['declarations'][0]
+        self.assertEqual(item['declared_returns'], [])
+        self.assertEqual(item['disclosure'],
+                         'No Return is declared for this occurrence; identity was not checked.')
+
+    def test_burden_close_is_not_missing_following_owner(self):
+        rows = [{}, {'role': 'burden'}]
+        owners = {0: 0, 1: 0}
+        report = role_report(resolve_line_roles(rows, owners), owners, line_count=2)
+        self.assertEqual(report['notes'][-1]['message'], 'marked burden; at the close of this draft')
+        # The identical owner map is incomplete for a longer draft, not proof of its end.
+        report = role_report(resolve_line_roles(rows + [{}], owners), owners, line_count=3)
+        self.assertEqual(report['notes'][-1]['message'],
+                         "marked burden; the following line's section isn't resolved, so its position isn't known")
+
+    def test_boundary_after_burden(self):
+        rows = [{}, {'role': 'burden'}, {}]
+        owners = {0: 0, 1: 0, 2: 1}
+        report = role_report(resolve_line_roles(rows, owners), owners, line_count=3)
+        self.assertEqual(report['notes'][-1]['message'], 'marked burden; at a section boundary in this draft')
+
+    def test_counts_each_role_separately(self):
+        rows = [{'role': 'refrain'}, {'role': 'burden'}]
+        owners = {0: 0, 1: 0}
+        report = role_report(resolve_line_roles(rows, owners), owners, line_count=2)
+        self.assertEqual([n['message'] for n in report['notes'][:2]], [
+            'marked refrain; the only line marked refrain in this draft',
+            'marked burden; the only line marked burden in this draft'])
+
+    def test_presence_guard_checks_later_lines_and_line_number(self):
+        for index in (1, 2):
+            for raw in ('refrain', 'burden', '', None, {}, [], 17):
+                bp = {'sections': [], 'lines': [{} for _ in range(index)] + [{'role': raw}]}
+                with self.subTest(index=index, raw=raw), self.assertRaisesRegex(
+                        ValueError, rf"^line {index + 1}: `role` isn't supported yet"):
+                    validate_blueprint(bp)
+
     def test_legacy_blueprint_raw_serialization_preserved(self):
-        raw = ' {"sections": [], "lines": []}\n'
+        raw = ' {"sections": [{"name": "verse", "bars": 1, "meter": {"beats": 4, "unit": 4}}], "lines": [{"bar": 1, "beat": 1, "duration": 4}]}\n'
         blueprint = json.loads(raw)
         before = copy.deepcopy(blueprint)
         validate_blueprint(blueprint)
         self.assertEqual(blueprint, before)
-        self.assertEqual(raw, ' {"sections": [], "lines": []}\n')
         # No claim that a reconstructed outer session envelope is byte-identical.
 
 

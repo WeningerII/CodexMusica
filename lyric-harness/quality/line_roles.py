@@ -40,12 +40,13 @@ def resolve_line_roles(lines, owners):
     return tuple(result)
 
 
-def role_report(roles, owners, *, returns=()):
+def role_report(roles, owners, *, line_count, returns=()):
     """Disclose declarations and draft-scoped notes, never identity judgments.
 
     returns contains existing, prevalidated directionless one-based classes.
     Membership only points to the existing Return checker; it proves nothing.
     Adjacent physical occurrences determine whether a burden is at a boundary.
+    line_count is the physical draft length, independent of resolved owners.
     Missing adjacent owners produce an explicit unresolved-position note.
     """
     roles = tuple(roles)
@@ -72,6 +73,8 @@ def role_report(roles, owners, *, returns=()):
             following = owners.get(index + 1)
             if index == 0:
                 position = 'at the opening of this draft'
+            elif item.line == line_count:
+                position = 'at the close of this draft'
             elif type(previous) is not int or previous < 0:
                 position = "the preceding line's section isn't resolved, so its position isn't known"
             elif previous != item.container:

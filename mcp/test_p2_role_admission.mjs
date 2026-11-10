@@ -28,9 +28,10 @@ const cases = [
 ];
 const refusal =
   /line 1: `role` isn't supported yet, so this blueprint was not accepted\. Remove `role` from this line and send it again\./;
-function inputs(name, role) {
+function inputs(name, role, index = 0) {
   const bp = structuredClone(base);
-  if (name !== 'absent') bp.lines[0].role = role;
+  while (bp.lines.length <= index) bp.lines.push(structuredClone(base.lines[0]));
+  if (name !== 'absent') bp.lines[index].role = role;
   const common = {
     scheme: 'A',
     blueprint: ' ' + JSON.stringify(bp, null, 2) + '\n',
@@ -73,6 +74,24 @@ for (const [name, role] of cases) {
     } else assert.throws(read, refusal);
     assert.deepEqual(decl, before);
   });
+}
+
+for (const index of [1, 2]) {
+  for (const role of ['refrain', 'burden', '', null, {}, [], 17]) {
+    const expected = new RegExp(`line ${index + 1}: ` + "`role` isn't supported yet");
+    const calls = inputs('present', role, index);
+    test(`later-line schemas: line ${index + 1}, ${JSON.stringify(role)}`, () => {
+      for (const [tool, args] of Object.entries(calls)) {
+        const result = z.object(LYRIC_TOOL_SCHEMAS[tool]).safeParse(args);
+        assert.equal(result.success, false);
+        assert.match(result.error.message, expected);
+      }
+      assert.throws(
+        () => z.object(KITCHEN_REVISE_SCHEMA).parse(declarationsOf(calls.lyric_revise)),
+        expected
+      );
+    });
+  }
 }
 
 test('real MCP admission and synthetic continuation rejection', async (t) => {
@@ -178,6 +197,14 @@ test('real MCP admission and synthetic continuation rejection', async (t) => {
           0
         );
       });
+    }
+    for (const index of [1, 2]) {
+      const expected = new RegExp(`line ${index + 1}: ` + "`role` isn't supported yet");
+      for (const [tool, args] of Object.entries(inputs('present', 'burden', index))) {
+        await t.test(`later-line handler ${tool}: line ${index + 1}`, () =>
+          call(tool, args, expected, 0, 0)
+        );
+      }
     }
     assert.equal(admissions, 17);
     assert.equal(operations, 4);
