@@ -26,6 +26,10 @@ const sha = (p) => crypto.createHash('sha256').update(fs.readFileSync(p)).digest
 const results = [];
 const receipts = [];
 let backend, browser;
+let firstModelReply = false;
+let modelCalls = 0;
+const contexts = new WeakMap();
+const recoveryReceipts = [];
 const assertText = (s, text) => {
   assert.equal(
     s.text,
@@ -48,6 +52,15 @@ async function view(p) {
     badge: $ui('ly-badge').innerText,
     review: $ui('ly-panel-review').innerText,
     hasRun: !!LY.run,
+    baseId: LY.run?.baseId ?? null,
+    resultId: LY.run?.resultId ?? null,
+    recoveredId: LY.run?.relationEvidence?.requestId ?? null,
+    pending: chatState.pending,
+    baseModelNull: LY.run?.baseModel === null,
+    resultModelNull: LY.run?.resultModel === null,
+    runTools: LY.run?.tools ?? null,
+    runAssessment: LY.run?.assessment ?? null,
+    relationBinding: LY.run?.relationEvidence?.binding ?? null,
     reviewEnabled: !$ui('ly-panel-review').querySelector('[data-ui="ly-run-review"]').disabled,
     runBase: LY.run?.baseModel?.text || null,
     runResult: LY.run?.resultModel?.text || null,
@@ -61,6 +74,8 @@ async function setText(p, text) {
 }
 async function boot() {
   const ctx = await browser.newContext();
+  const control = { gate: null };
+  contexts.set(ctx, control);
   const posts = [],
     replies = [],
     errors = [];
@@ -90,13 +105,27 @@ async function boot() {
         });
       }
       if (u.pathname.startsWith('/chat/') && backend) {
+        const gate = !u.search && u.pathname.startsWith('/chat/jobs/') && control.gate;
+        if (gate) {
+          gate.arrived();
+          const deliver = await gate.wait;
+          if (!deliver) return route.abort();
+        }
         const response = await backend.fetch(backend.url + u.pathname + u.search, {
           method: req.method(),
         });
+        const body = await response.text();
+        if (gate) {
+          const receipt = JSON.parse(body);
+          assert.equal(receipt.request_id, gate.id);
+          assert.equal(receipt.state, 'completed');
+          gate.receipt = receipt;
+          gate.body = body;
+        }
         return route.fulfill({
           status: response.status,
-          contentType: 'application/json',
-          body: await response.text(),
+          contentType: response.headers.get('content-type'),
+          body,
         });
       }
       // Availability probe only, not a grading outcome (same as existing browser helper).
@@ -115,6 +144,7 @@ async function boot() {
   p.on('pageerror', (e) => errors.push(e.message));
   await p.goto('http://127.0.0.1/codex.html#lyrics');
   await ready(p);
+  control.posts = posts;
   return { ctx, p, posts, replies, errors };
 }
 async function ready(p) {
@@ -211,10 +241,15 @@ async function review(env, stage) {
   const before = await view(p);
   const context = await p.evaluate(() => lyContext(LY.model));
   backend.setArgs({ lines: before.sung, ...context.declarations });
+  firstModelReply = true;
   const n = posts.length;
   await p.locator('#ly-panel-review [data-ui="ly-run-review"]').click();
   await p.waitForFunction(() => !chatState.busy && !!LY.run, null, { timeout: 120000 });
   assert.equal(posts.length, n + 1, 'one real request per review');
+  assert(
+    !posts.slice(0, n).some((r) => r.request_id === posts[n].request_id),
+    'new review must have a distinct request id'
+  );
   assert.deepEqual(
     posts[n].lyric_context,
     { ...context, intent: 'review' },
@@ -235,6 +270,8 @@ async function review(env, stage) {
     transportIncomplete: false,
   });
   const accounting = reviewAccounting(reply?.payload, tool, after);
+  if (accounting.completedCheck)
+    assert.equal(tool.exit_code, 0, 'this fixture must complete lyric_check at exit 0');
   if (accounting.completedCheck) {
     assert.equal(
       tool.coverage?.obligations?.find((o) => o.id === 'return:1:3')?.status,
@@ -259,30 +296,128 @@ async function saveSession(p) {
     return { key: added[0].key, record };
   });
 }
+async function cleanupResources(resources, failures) {
+  for (const [name, resource] of resources) {
+    if (!resource) continue;
+    try {
+      await resource.close();
+    } catch (error) {
+      failures.push({ name: name + ' cleanup', pass: false, error: error?.stack || String(error) });
+    }
+  }
+}
+async function waitForRecoveryRequest(arrived, p) {
+  let timer;
+  try {
+    await Promise.race([
+      arrived,
+      new Promise((_, reject) => {
+        timer = setTimeout(() => reject(new Error('Recovery GET was not dispatched')), 15000);
+      }),
+    ]);
+  } catch (error) {
+    const state = await p.evaluate(() => ({ busy: chatState.busy, pending: chatState.pending }));
+    throw new Error(error.message + ': ' + JSON.stringify(state));
+  } finally {
+    clearTimeout(timer);
+  }
+}
 async function restoreSession(p, key, noOp = false) {
   const sentinel = '[Verse]\nDifferent autosaved document';
   await setText(p, sentinel);
   await p.evaluate(() => uiAutosave());
-  await p.reload();
-  await ready(p);
-  assert.equal(
-    await p.locator('#lyrics-draft').inputValue(),
-    sentinel,
-    'reload must start from a distinct autosave, not the restore target'
-  );
-  await p.evaluate(
-    async ({ key, noOp }) => {
-      const original = restoreSavedWorkspace;
-      try {
-        if (noOp) restoreSavedWorkspace = async () => {};
-        await loadWS(key);
-        lyRefresh(true);
-      } finally {
-        restoreSavedWorkspace = original;
-      }
-    },
-    { key, noOp }
-  );
+  const control = contexts.get(p.context());
+  const id = control.posts.at(-1)?.request_id;
+  let gate, arrived;
+  const calls = modelCalls;
+  const postCount = backend?.requests?.filter((r) => r.method === 'POST').length;
+  const stored = id ? JSON.stringify(backend.store.get(id)) : null;
+  if (id) {
+    gate = { id };
+    arrived = new Promise((resolve) => {
+      gate.arrived = resolve;
+    });
+    gate.wait = new Promise((resolve) => {
+      gate.release = resolve;
+    });
+    control.gate = gate;
+  }
+  try {
+    await p.reload();
+    await ready(p);
+    if (gate) {
+      await waitForRecoveryRequest(arrived, p);
+      // Withhold the actual receipt once: no fabricated status/body or pending reset.
+      gate.release(false);
+      await p.waitForFunction(() => !chatState.busy && !!chatState.pending);
+      const withheld = await view(p);
+      assert(!withheld.reviewEnabled);
+      assert.match(withheld.review, /Outcome unknown/);
+      assert.equal(withheld.pending.request_id, id);
+      arrived = new Promise((resolve) => {
+        gate.arrived = resolve;
+      });
+      gate.wait = new Promise((resolve) => {
+        gate.release = resolve;
+      });
+      await p.locator('[data-ui="ly-retrieve"]').first().click();
+      await waitForRecoveryRequest(arrived, p);
+      gate.release(true);
+      await p.waitForFunction(() => !chatState.busy && !chatState.pending && !!LY.run);
+      const recovered = await view(p);
+      assert.equal(recovered.recoveredId, id);
+      assert.equal(recovered.baseId, null);
+      assert.equal(recovered.resultId, null);
+      assert.equal(recovered.state, 'none');
+      assert.equal(recovered.baseModelNull, true);
+      assert.equal(recovered.resultModelNull, true);
+      assert.equal(recovered.runBase, null);
+      assert.equal(recovered.runResult, null);
+      assert.equal(recovered.relationBinding, null);
+      assert.deepEqual(recovered.runTools, gate.receipt.response.body.tools);
+      assert.deepEqual(recovered.runAssessment, gate.receipt.response.body.assessment);
+      assert(recovered.reviewEnabled);
+      assert.equal(modelCalls, calls, 'recovery must not call the model');
+      assert.equal(backend.requests.filter((r) => r.method === 'POST').length, postCount);
+      assert.equal(
+        JSON.stringify(backend.store.get(id)),
+        stored,
+        'recovery must not advance tools or rewrite the receipt'
+      );
+      assert.deepEqual(gate.receipt.response.body.tools, JSON.parse(stored).response.body.tools);
+      recoveryReceipts.push({
+        id,
+        withheld,
+        recovered,
+        receipt: gate.receipt,
+        body: gate.body,
+        modelCalls: modelCalls - calls,
+        newPosts: 0,
+      });
+      control.gate = null;
+    }
+    assert.equal(
+      await p.locator('#lyrics-draft').inputValue(),
+      sentinel,
+      'reload must start from a distinct autosave, not the restore target'
+    );
+    await p.evaluate(
+      async ({ key, noOp }) => {
+        const original = restoreSavedWorkspace;
+        try {
+          if (noOp) restoreSavedWorkspace = async () => {};
+          await loadWS(key);
+          lyRefresh(true);
+        } finally {
+          restoreSavedWorkspace = original;
+        }
+      },
+      { key, noOp }
+    );
+  } finally {
+    if (gate) gate.release(false);
+    control.gate = null;
+  }
 }
 async function importLibrary(p, text) {
   return p.evaluate(async (text) => {
@@ -405,7 +540,11 @@ async function expectKilled(label, action) {
     const mod = await import(
       pathToFileURL(path.join(transportRoot, 'scripts/lyrics_inspection_transport_fixture.mjs'))
     );
-    backend = await mod.createOfflineChat();
+    backend = await mod.createOfflineChat({ jobs: true });
+    assert(
+      backend.store && Array.isArray(backend.requests),
+      'requires the reviewed jobs fixture (#808)'
+    );
     // The existing helper chooses one tool in a single model hop. A review
     // requires recover THEN check (gemini_agent.js reviewContext guard).
     // Extend only that already-stubbed model selection, in-order within the
@@ -414,7 +553,11 @@ async function expectKilled(label, action) {
     // Never alter a tool result, HTTP reply, request binding or assessment.
     const selectModelTools = globalThis.fetch;
     globalThis.fetch = async (...args) => {
+      modelCalls++;
+      const rewrite = firstModelReply;
+      firstModelReply = false;
       const response = await selectModelTools(...args);
+      if (!rewrite) return response;
       return {
         ...response,
         json: async () => {
@@ -428,7 +571,7 @@ async function expectKilled(label, action) {
       };
     };
     provenance.transport =
-      'Existing offline helper; model selection only expanded to ordered lyric_recover then lyric_check in one hop; real tool/HTTP replies unchanged';
+      'Existing offline helper; only the first model reply of each review expanded to ordered lyric_recover then lyric_check; later model hops and real tool/HTTP replies unchanged';
   } catch (e) {
     provenance.transportBlocker = e.stack;
   }
@@ -468,7 +611,9 @@ async function expectKilled(label, action) {
         const pristine = await view(p);
         assertText(pristine, song);
         if (kind === 'session') {
-          assert.equal(pristine.hasRun, false);
+          assert.equal(pristine.hasRun, attemptReview);
+          assert.equal(pristine.baseId, null);
+          assert.equal(pristine.resultId, null);
           assert.match(pristine.review, /Not reviewed/);
         } else if (initialReview) {
           assert.equal(pristine.hasRun, true, 'Library restores the genuine prior run');
@@ -487,11 +632,15 @@ async function expectKilled(label, action) {
         const restored = await view(p);
         assertText(restored, edited);
         assert(
-          restored.reviewEnabled || /Outcome unknown|Retrieve saved result/.test(restored.review),
+          restored.reviewEnabled,
           'restored document offers review or explicitly names pending recovery'
         );
         if (kind === 'session') {
-          assert.equal(restored.hasRun, false);
+          assert.equal(restored.hasRun, attemptReview);
+          assert.equal(restored.baseId, null);
+          assert.equal(restored.resultId, null);
+          assert.equal(restored.pending, null);
+          assert(restored.reviewEnabled);
           assert.match(restored.review, /Not reviewed/);
         } else if (initialReview) {
           assert.equal(restored.hasRun, true);
@@ -596,14 +745,19 @@ async function expectKilled(label, action) {
           await review(env, kind + ':restored-divergent');
         assert.deepEqual(env.errors, [], 'no browser exceptions');
       } finally {
-        await env.ctx.close();
+        await cleanupResources([['context', env.ctx]], results);
       }
     }
   } catch (e) {
     results.push({ name: 'integration', pass: false, error: e.stack });
   } finally {
-    if (browser) await browser.close();
-    if (backend) await backend.close();
+    await cleanupResources(
+      [
+        ['browser', browser],
+        ['backend', backend],
+      ],
+      results
+    );
     const failed = results.some((r) => r.pass === false);
     const requiredStages = [
       'session:original',
@@ -627,6 +781,7 @@ async function expectKilled(label, action) {
       reviewStages,
       reviewComplete,
       accountingRegression,
+      recoveryReceipts,
       exitCode: failed ? 1 : reviewComplete ? 0 : 2,
     };
     fs.writeFileSync(path.join(out, 'results.json'), JSON.stringify(report, null, 2) + '\n');
