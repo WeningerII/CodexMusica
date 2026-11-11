@@ -1,0 +1,60 @@
+#612 same-host comparison: preparation for independent measurement review
+
+This separate branch does not modify qualified PR #836 head
+960dd1820a643610ec69b782f4715821c1dcb6a8. No workloads were dispatched.
+
+Proposed before: main 99c1586bfc994fd1b138632fe8c7845b40072142.
+After: 960dd1820a643610ec69b782f4715821c1dcb6a8.
+Both images must be built from those exact trees by the existing supported
+Docker build, carrying their full commit and build identities. Do not substitute
+an old live image or change package/catalog inputs. Resolve immutable local image
+IDs and compare runtime versions, configuration and assets before execution.
+The local Docker daemon works but contains no images at this checkpoint.
+
+Run the same scripts checkout against both images, read-only, so instrumentation
+and synthetic retained workloads are identical. Retain scripts_sha256 separately
+from image/source identity. The additional probe changes measurement sequencing,
+not server code: first /search?limit=1, time the response, then wait within the
+existing load deadline for verified corpus readiness. Record first_search_s and
+verified_ready_s separately. Sample the entire load-and-verification interval.
+Legacy main can return a search while corpus verification is still pending; this
+must neither be called ready nor silently counted as first-response latency.
+
+Use the four existing shard cell sets, each triplet on ONE runner, sequential
+fresh containers: before-loaded, after-loaded, after-unloaded. Reverse the order
+on alternating shard hosts with --candidate-first. No concurrency between arms,
+cache flushing, limits change, dropping cells, store configuration removal or
+automatic rerun. Common 1 CPU/2GiB cgroup, same1792MiB gates. The unloaded arm is
+candidate-only: baseline Library health itself loads stores. Preserve this
+asymmetry rather than pretend the baseline supports the new observational health.
+
+Example after review, with actual immutable image IDs substituted:
+python3 scripts/run_paired_library_capacity.py \
+  --before-image sha256:<64hex> --after-image sha256:<64hex> \
+  --before-sha 99c1586bfc994fd1b138632fe8c7845b40072142 \
+  --after-sha 960dd1820a643610ec69b782f4715821c1dcb6a8 \
+  --cells 31:20260910,24:20260909 --out /workspace/evidence/pole
+
+Before reporting results, independently validate the four complete triplets:
+exact18cold/worker executions per arm; same host within each triplet; all profiles
+pass their original gates; image/source identities; identical assets/configuration
+and Node/Python versions; same workload/source instrumentation except intentionally
+changed runtime code; no missing/duplicate cells or receipt substitution. Retain
+all raw samples, image/build hashes, host metadata, arm order and failures.
+Report each cell's before/after-loaded and before/after-unloaded resident peaks
+and margins, worst cell, and median paired delta separately for the two contrasts.
+Report paired cold-start first_search_s and verified_ready_s; show startup and
+recovery separately, then the paired medians. Same-host pairing reduces host
+confounding but does not remove order/cache effects or establish production savings.
+
+This is an executable preparation milestone, not a finished acceptance report.
+The driver has no image build/pull/publish or qualification dispatch capability.
+Five local protocol/command tests pass; full oracle tests are on the qualified
+source. The new sequence and host orchestration need independent review before
+measurement, as required by #612 issuecomment-6691659223. Reviewer must also
+validate the actual receipt comparison before any acceptance claim.
+
+Acceptance owners: Jony (workflow/measurement), Don (loading/Retry/health and
+user-facing meaning), or explicitly authorized replacements; John decides the
+measured latency trade-off and any scope/limit change. No scope/limit change is
+proposed. No merge until outstanding acceptance and John's decision are satisfied.
