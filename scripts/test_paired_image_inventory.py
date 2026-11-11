@@ -1,19 +1,79 @@
 import tempfile
 import unittest
 from pathlib import Path
-from paired_image_inventory import inventory, effective_config, dependencies
+from paired_image_inventory import inventory, effective_config, dependencies, collect
 import copy
+import json
+import os
 from unittest.mock import patch
 
 
 class Inventory(unittest.TestCase):
+    def test_required_nested_empty_and_special_entries_fail(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'required/empty').mkdir(parents=True)
+            (root / 'other').write_text('unrelated')
+            with self.assertRaises(ValueError):
+                inventory(root, ['required', 'other'])
+            (root / 'required/file').write_text('valid')
+            (root / 'required/link').symlink_to('../other')
+            with self.assertRaises(ValueError):
+                inventory(root, ['required'])
+            (root / 'required/link').unlink()
+            os.mkfifo(root / 'required/fifo')
+            with self.assertRaisesRegex(ValueError, 'special'):
+                inventory(root, ['required'])
+
+    def test_collect_malformed_manifest_and_baked_identity(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            data = root / 'lyric-harness/data'
+            data.mkdir(parents=True)
+            manifest = data / 'runtime_assets.json'
+            for value in ({}, {'assets': []}, {'assets': [{'runtime': 'true'}]}):
+                manifest.write_text(json.dumps(value))
+                with self.assertRaises(ValueError):
+                    collect(root)
+            manifest.write_text(json.dumps({'assets': [{'id':'fixture', 'runtime':True,
+                'decision':'approved', 'base':'root', 'files':[{'path':'data/runtime_assets.json'}]}]}))
+            (root / 'mcp').mkdir()
+            (root / 'mcp/build_identity.json').write_text(json.dumps({'commit':'wrong'}))
+            with patch.dict('os.environ', {'BUILD_GIT_COMMIT':'expected'}):
+                with self.assertRaisesRegex(ValueError, 'commit differ'):
+                    collect(root)
+
     def test_os_dependency_version_drift_is_retained(self):
         with patch('paired_image_inventory.importlib.metadata.distributions', return_value=[]), \
+                patch('paired_image_inventory.Path.glob', return_value=[]), \
                 patch('paired_image_inventory.inventory', return_value={'sha256': 'fixed'}), \
                 patch('paired_image_inventory.shutil.which', return_value='/usr/bin/node'), \
                 patch('paired_image_inventory.subprocess.check_output', side_effect=[
                     'libc6\t1\tamd64\tinstalled\n', 'libc6\t2\tamd64\tinstalled\n']):
             self.assertNotEqual(dependencies(Path('/app')), dependencies(Path('/app')))
+
+    def test_collect_captures_undeclared_asset_and_stays_unreviewed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            names = ['mcp/'+n for n in ('state_codec.js', 'payload_limits.js', 'contract_version.js',
+                'schemas.js', 'lyric_tools.js', 'job_store.js', 'package-lock.json', 'production-config.json')]
+            names += ['library-data/a', 'lyric-harness/library/snapshot/a', 'lyric-harness/data/a']
+            for name in names:
+                p = root / name
+                p.parent.mkdir(parents=True, exist_ok=True)
+                p.write_text('fixture')
+            (root / 'lyric-harness/data/runtime_assets.json').write_text(json.dumps({'assets':[
+                {'id':'fixture','runtime':True,'decision':'approved','base':'root', 'files':[{'path':'data/a'}]}]}))
+            (root / 'mcp/build_identity.json').write_text(json.dumps({'commit':'expected'}))
+            with patch.dict('os.environ', {'BUILD_GIT_COMMIT':'expected'}), \
+                    patch('paired_image_inventory.dependencies', return_value={'fixture':True}), \
+                    patch('paired_image_inventory.subprocess.check_output', return_value='v22\n'):
+                a = collect(root)
+                (root / 'lyric-harness/data/unexpected').write_text('new')
+                b = collect(root)
+            self.assertEqual(b['status'], 'unreviewed')
+            self.assertNotEqual(a['assets']['sha256'], b['assets']['sha256'])
+            self.assertIn('lyric-harness/data/unexpected', b['assets']['files'])
 
     def test_environment_and_configuration_drift(self):
         before = {'Os': 'linux', 'Architecture': 'amd64',

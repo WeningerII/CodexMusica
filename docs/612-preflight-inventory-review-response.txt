@@ -9,8 +9,9 @@ OS/architecture/variant. Symlinks are rejected for assets; dependency file links
 retain link target and target-byte hash. Differences stop and remain unreviewed.
 No drift is normalized except BUILD_GIT_COMMIT and RENDER_GIT_COMMIT environment
 entries, independently checked as the intentionally different source identities.
-OS package identity is version/architecture/status, not a complete hash of every
-OS file. Python bytecode/file-list differences may produce a conservative refusal;
+OS identity includes versions/architecture/status plus actual SHA256 of package
+files listed in dpkg md5 manifests and explicit missing-file membership. This does
+not claim that every unowned OS/configuration file is covered. Python bytecode/file-list differences may produce a conservative refusal;
 do not silently omit files or mark such differences equivalent.
 
 Existing 1967f47f review bundle is superseded for inventory code only by this
@@ -34,6 +35,22 @@ Archive access remains held in this executor. Baseline reference independently
 confirmed by permitted successful job 130710784507 push logs; parent separately
 verified receipt artifact. Registry digest f314ffd665dfc617d22b24c75e03ecb563452c0756b20bfb7f3314d887580954.
 
-Local checks: 5 inventory tests (including environment/user, symlink and installed
-OS version mutants), existing 14 protocol tests, YAML/shell syntax, compilation,
-diff checks. Actual image inventory and fixture compatibility are still pending.
+Local checks: 23 tests total (8 inventory, 1 failure-collection, 14 protocol),
+YAML/shell syntax, compilation and diff checks. Added nested-empty, nested-link,
+special-file, malformed-manifest, baked-identity and actual collect() undeclared
+asset controls. Both arm reads are attempted; stderr and structured failure status
+are retained. Always-run final disk/daemon receipts supplement before/after pull
+and build records. Fixed source inputs, baseline receipt reference, workflow/helper
+hashes and runner/run/attempt metadata are recorded.
+
+Full shipped runtime source inventory and before/after file-level delta are now
+retained separately for independent review. This records the full fixture source
+context, not an assertion all source hashes match. The common reviewed scripts
+must generate the single fixture set and mount into BOTH arms, accounting for
+lyrics_capacity_server.mjs and lyrics_capacity_queue.mjs instrumentation changes.
+Actual fixture compatibility tests in both images remain pending.
+
+Preservation and revised push trigger are still proposal-only. No image/fixture
+archive is uploaded or downloaded by these changes. Independent review and denial
+scope reconciliation remain prerequisites before publication. Exact comparator
+99c1586b and candidate 960dd182 remain pinned despite newer main.

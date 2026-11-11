@@ -35,6 +35,18 @@ jobs:
           [[ "$BASELINE_DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]
           mkdir -p evidence
           git -C diagnostic rev-parse HEAD > evidence/protocol-source.txt
+          sha256sum diagnostic/.github/workflows/612-paired-image-preflight.yml diagnostic/scripts/paired_image_inventory.py diagnostic/scripts/collect_paired_images.py > evidence/instrument-sha256.txt
+          python3 - <<'PYMETA'
+          import json, os, platform
+          from pathlib import Path
+          keys = ('GITHUB_SHA', 'GITHUB_REF', 'GITHUB_RUN_ID', 'GITHUB_RUN_ATTEMPT', 'GITHUB_REPOSITORY',
+                  'RUNNER_NAME', 'RUNNER_OS', 'RUNNER_ARCH', 'RUNNER_ENVIRONMENT', 'ImageOS', 'ImageVersion',
+                  'BEFORE_SHA', 'AFTER_SHA', 'BASELINE_DIGEST')
+          Path('evidence/inputs-and-host.json').write_text(json.dumps({
+              'environment': {k: os.environ.get(k) for k in keys}, 'host': platform.uname()._asdict(),
+              'baseline_receipt_artifact': 13882889682, 'baseline_ci_run': 43073617924,
+              'baseline_log_job': 130710784507}, indent=2))
+          PYMETA
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: 960dd1820a643610ec69b782f4715821c1dcb6a8
@@ -63,7 +75,9 @@ jobs:
           set -euo pipefail
           test "$(git -C candidate rev-parse HEAD)" = "$AFTER_SHA"
           baseline="ghcr.io/weningerii/codexmusica/lyrics@$BASELINE_DIGEST"
-          docker pull --platform=linux/amd64 "$baseline"
+          docker pull --platform=linux/amd64 "$baseline" 2>&1 | tee evidence/pull.log
+          df -B1 / /var/lib/docker > evidence/disk-after-pull.txt
+          docker system df > evidence/docker-after-pull.txt
           docker image inspect "$baseline" > evidence/before-image.json
           docker build --platform=linux/amd64 \
             --build-arg RENDER_GIT_COMMIT="$AFTER_SHA" \
@@ -73,37 +87,18 @@ jobs:
           docker image inspect codex-612-preflight-after > evidence/after-image.json
           df -B1 / /var/lib/docker > evidence/disk-built.txt
       - name: Inventory actual bytes offline for independent review
-        timeout-minutes: 15
+        timeout-minutes: 25
         shell: bash
         run: |
           set -euo pipefail
-          for arm in before after; do
-            image=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))[0]["Id"])' "evidence/$arm-image.json")
-            docker run --rm --pull=never --network=none --read-only \
-              --mount "type=bind,src=$GITHUB_WORKSPACE/diagnostic/scripts/paired_image_inventory.py,dst=/inventory.py,readonly" \
-              --entrypoint python3 "$image" /inventory.py > "evidence/$arm-inventory.json"
-          done
-          python3 - <<'PY'
-          import json, os, sys
-          from pathlib import Path
-          sys.path.insert(0, 'diagnostic/scripts')
-          from paired_image_inventory import effective_config
-          rows = {a: json.loads(Path(f'evidence/{a}-inventory.json').read_text()) for a in ('before', 'after')}
-          for arm in rows:
-              assert rows[arm]['source_sha'] == os.environ[arm.upper() + '_SHA'], 'wrong source'
-              info = json.loads(Path(f'evidence/{arm}-image.json').read_text())[0]
-              rows[arm]['effective_image_config'] = effective_config(info)
-              Path(f'evidence/{arm}-effective-config.json').write_text(json.dumps(rows[arm]['effective_image_config'], indent=2) + '\n')
-          fields = ('assets', 'corpus_directory_present', 'configuration', 'fixture_dependencies',
-                    'runtime_dependencies', 'effective_image_config', 'node_version', 'python_version')
-          differences = [f for f in fields if rows['before'][f] != rows['after'][f]]
-          result = {'status': 'unreviewed', 'differences': differences,
-                    'measurements_run': False, 'fixture_compatibility_verified': False}
-          Path('evidence/comparison.json').write_text(json.dumps(result, indent=2) + '\n')
-          print(json.dumps(result))
-          if differences:
-              raise SystemExit('Image equivalence discrepancy: independent review required')
-          PY
+          python3 diagnostic/scripts/collect_paired_images.py evidence diagnostic/scripts/paired_image_inventory.py
+      - name: Final disk and daemon diagnostics
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p evidence
+          df -B1 / /var/lib/docker > evidence/disk-final.txt 2>&1
+          docker system df > evidence/docker-final.txt 2>&1
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
