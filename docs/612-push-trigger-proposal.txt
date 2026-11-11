@@ -1,0 +1,74 @@
+#612 isolated push-trigger assessment; unpublished proposal
+
+Original review target 1967f47f6157ead74968c21622675d982890cbec is unchanged.
+Proposed remote branch: codex/612-paired-hosted-once-v1
+Check remote absence before the single creation push; do not overwrite or delete
+an existing ref to re-arm this trigger. Local implementation remains on
+codex/612-paired-measurement. No change to PR #836, main or shared workflows.
+
+Replace workflow_dispatch and its input with:
+
+on:
+  push:
+    branches: ['codex/612-paired-hosted-once-v1']
+
+Add to the inventory job:
+
+if: >-
+  github.repository == 'WeningerII/CodexMusica' &&
+  github.event_name == 'push' &&
+  github.ref == 'refs/heads/codex/612-paired-hosted-once-v1' &&
+  github.event.created == true &&
+  github.event.deleted == false &&
+  github.event.forced == false &&
+  github.run_attempt == 1
+
+Keep cancel-in-progress false and fix BASELINE_DIGEST to:
+sha256:f314ffd665dfc617d22b24c75e03ecb563452c0756b20bfb7f3314d887580954
+Baseline source remains 99c1586bfc994fd1b138632fe8c7845b40072142;
+candidate remains 960dd1820a643610ec69b782f4715821c1dcb6a8.
+No mutable image tag input, dispatch inputs or branch globs.
+The creation guard is operational one-shot protection, not durable deduplication:
+deleting and recreating the ref could re-arm it. Do not do that. A failed attempt
+requires a separately reviewed follow-up, not blind retry/recreation.
+
+GitHub supports push workflows not merged to the default branch:
+https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#push
+This uses ordinary supported event semantics; no denied dispatch is retried.
+The final published head must be the independently reviewed diagnostic tree;
+record it in the publication receipt. The workflow already records checkout HEAD.
+
+Isolation limits found by source inspection at 1967f47f:
+- ci.yml push branches ['**'] necessarily schedules ordinary CI too. There is no
+  per-new-workflow setting that disables another workflow's push trigger. Do not
+  modify ci.yml, use skip-ci markers, or cancel checks to hide this consequence.
+- library-parity.yml also matches all branches, subject to its path filters;
+  branch-creation diff semantics can include earlier relevant source changes.
+- deploy-connector.yml, sync-pages.yml and qualification-backstop.yml have main
+  branch restrictions for CI workflow_run; CI image publication additionally
+  requires github.ref == refs/heads/main. This diagnostic has neither production
+  qualification's workflow name nor its deploy handoff.
+- Hosted runner disk evidence supplied by coordinator: 154993672192 total bytes,
+  110592598016 free after approved SDK reclaim; candidate build 1209 seconds.
+  This supports feasibility, not a free-space guarantee. Keep actual admission.
+
+Preservation/fixture path for review, NOT implemented or authorized by this note:
+The existing preflight only retains inventories/logs, not images or fixtures.
+Do not publish it expecting a later job to retain the runner's Docker daemon.
+Prefer a provisioning job that exports both exact local images as OCI/Docker
+archives plus image IDs, archive hashes and inventory; generate ONE baseline
+fixture set and verify its schemas/codecs with both images outside measurement.
+Retain that exact fixture set with complete membership/hash manifest. A later
+review-gated campaign loads those exact archives and rechecks inventories and
+fixture bytes before any measured arm. Each shard runs all six ordered arms on
+one host. No registry publication or paid runner is proposed.
+The preservation route, archive size/disk budget, artifact retention/access,
+independent actual-inventory/fixture approval mechanism, and negative controls
+must be reviewed before publication. This proposal is not approval to route any
+previously denied archive access through Actions; no such access is attempted.
+If an approved preservation route cannot be established, stop before provisioning
+rather than consume a build that cannot feed the accepted measurement protocol.
+
+Pending parent decisions: independent reviewer covers revised trigger and complete
+preservation/fixture design; CI optimization owner acknowledges ordinary CI fanout.
+No publication, new campaign, merge, deployment or paid action performed here.
