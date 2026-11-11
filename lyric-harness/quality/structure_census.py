@@ -341,13 +341,33 @@ D1_2026_10_15 = {
 # This is a corrected uncertainty count, not an improvement in agreement.
 # Actual pairs and all 27 channel combinations: test_structures.py,
 # test_cell_uncertainty. Dated old record retained above, never overwritten.
-D1_RECORDED = {
+D1_2026_10_26 = {
     **D1_2026_10_15,
     "measured": "2026-10-26",
     "table": {("true", "admits"): 5, ("true", "rejects"): 2,
               ("false", "admits"): 1, ("false", "rejects"): 678,
               ("refused", "admits"): 4, ("refused", "rejects"): 310},
     "agree": (683, 686),
+}
+
+
+# REPINNED 2026-11-11 — THE WHOLE-READING JUDGE, not the population.
+# 55fd640c (2026-10-30) made structures.judge try each whole reading when
+# merged channels are undecided. A/B over the same 1,000 seeded pairs at
+# a6243929, substituting only get(name).judge for the wrapper, reproduces
+# D1_2026_10_26 exactly. ONLY office/color moves: None -> True, while the
+# coarse engine still rejects. The v1 color reading K AO1 L ER0 supplies
+# the vowel agreement with office AO1 F IH0 S; the old merged channel is
+# still None. test_structures already pins the whole-reading answer, and
+# test_structure_census checks it under this instrument's v1 coordinate.
+# All nine artifact figures and the 4,315,945-pair pool hold. This adds one
+# judged disagreement, not an improvement: 683/686 -> 683/687.
+D1_RECORDED = {
+    **D1_2026_10_26,
+    "measured": "2026-11-11",
+    "table": {**D1_2026_10_26["table"],
+              ("true", "rejects"): 3, ("refused", "rejects"): 309},
+    "agree": (683, 687),
 }
 
 #: HISTORICAL, and unreachable from this tree by any population.

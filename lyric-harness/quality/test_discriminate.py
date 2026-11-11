@@ -628,14 +628,32 @@ def close(name, got, want, note=""):
 #: dated blocks above keep quoting its figures as the record of what was
 #: measured; nothing measures them now. Experiment 1 (human against human)
 #: is pinned exactly as before.
+#: REPINNED 2026-11-11 — accent-derived readings (ff556ae5, 2026-10-30).
+#: Paired execution at a6243929, same corpus and installed packages: current
+#: code reproduces scheduled run 43007837054's eight failures; disabling ONLY
+#: Lexicon._derive_cmu_readings restores all 35 prior checks. Each arm computed
+#: 264 vectors cold (current 1073.9s wall / 1067.2s CPU; raw 1177.2s / 1170.7s).
+#: Python 3.12.14 locally versus CI 3.11.16; numpy 2.4.6, scikit-learn 1.9.1,
+#: scipy 1.17.1 match CI. All 15 non-predictability per-feature AUCs and all
+#: population shapes hold. Thus this is the adopted accent coordinate moving
+#: the candidate field, not a numerical-package change or a corpus re-draw.
+#: Seven numeric pins move; the eighth failing check is the all-feature
+#: printed ABSOLUTE figure. Old readings retained here, never widened away:
+#:   abs_exp1 joint_all  ~~0.7601139601139602~~  0.7578347578347578
+#:   abs_exp1 joint_solo ~~0.7321937321937322~~  0.7282051282051282
+#:   abs_exp1 predictability_mean ~~0.2433048433048433~~ 0.245014245014245
+#:   abs_exp1 predictability_min ~~0.32336182336182334~~ 0.32393162393162395
+#:   wi_exp1 joint_all   ~~0.6182336182336182~~  0.6176638176638177
+#:   wi_exp1 joint_solo  ~~0.7413105413105413~~  0.7407407407407407
+#:   wi_exp1 predictability_advantage ~~0.2433048433048433~~ 0.245014245014245
 PINNED = {
     "abs_exp1": {
         "label": "ABSOLUTE (original ten) / Exp 1  survived vs forgotten",
         "n_pos": 15, "n_neg": 117, "n_features": 10,
-        "joint_all": 0.7601139601139602, "joint_solo": 0.7321937321937322,
+        "joint_all": 0.7578347578347578, "joint_solo": 0.7282051282051282,
         "features": {
-            "rhyme_predictability_mean": 0.2433048433048433,
-            "rhyme_predictability_min": 0.32336182336182334,
+            "rhyme_predictability_mean": 0.245014245014245,
+            "rhyme_predictability_min": 0.32393162393162395,
             "concreteness_mean": 0.6695156695156695,
             "concreteness_p90": 0.6017094017094017,
             "abstract_noun_ratio": 0.32364672364672364,
@@ -657,9 +675,9 @@ PINNED = {
         "label": "WITHIN-ITEM (respecified eight) / Exp 1  survived vs "
                  "forgotten",
         "n_pos": 15, "n_neg": 117, "n_features": 8,
-        "joint_all": 0.6182336182336182, "joint_solo": 0.7413105413105413,
+        "joint_all": 0.6176638176638177, "joint_solo": 0.7407407407407407,
         "features": {
-            "wi_predictability_advantage": 0.2433048433048433,
+            "wi_predictability_advantage": 0.245014245014245,
             "wi_concreteness_delta": 0.5168091168091168,
             "wi_abstract_delta": 0.5655270655270656,
             "wi_freq_delta": 0.49743589743589745,
