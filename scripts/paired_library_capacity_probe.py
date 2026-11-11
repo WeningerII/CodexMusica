@@ -13,7 +13,7 @@ import subprocess
 from urllib.parse import urlencode
 import time
 import check_lyrics_capacity as matrix
-from lyrics_capacity_runtime import LIBRARY_LOAD_SECONDS, LIBRARY_STORES, library_evidence_failures
+from lyrics_capacity_runtime import HEALTH_SECONDS, LIBRARY_LOAD_SECONDS, LIBRARY_STORES, library_evidence_failures
 
 
 # Startup and recovery are distinct fresh server processes. Pin a useful query
@@ -74,14 +74,14 @@ class PairedRuntime(matrix.ResidentRuntime):
             raise RuntimeError('unexpected paired fixture preparation command')
         return subprocess.CompletedProcess(command, 0, '', '')
 
-    def request(self, *args, **kwargs):
+    def request(self, method, path, body=None, timeout=HEALTH_SECONDS):
         deadline = getattr(self, '_pair_deadline', None)
         if deadline is not None:
             remaining = deadline - time.monotonic()
             if remaining <= 0:
                 raise RuntimeError('Library verification exceeded the unchanged load deadline')
-            kwargs['timeout'] = min(kwargs.get('timeout', LIBRARY_LOAD_SECONDS), remaining)
-        value = super().request(*args, **kwargs)
+            timeout = min(timeout, remaining)
+        value = super().request(method, path, body=body, timeout=timeout)
         if deadline is not None and time.monotonic() >= deadline:
             raise RuntimeError('Library verification exceeded the unchanged load deadline')
         return value

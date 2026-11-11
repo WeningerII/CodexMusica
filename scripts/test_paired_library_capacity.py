@@ -157,6 +157,31 @@ class Protocol(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             validate_preflight(broken, images)
 
+    def test_inherited_health_keeps_five_second_default_and_deadline_cap(self):
+        from lyrics_capacity_runtime import ResidentRuntime, HEALTH_SECONDS
+        healthy = {'service':'codex-musica-mcp', 'recovery':{'healthy':True,'durable':True},
+                   'lyrics':{'ready':True}, 'build':{'node':'fixture'}}
+        for remaining, expected in [(60, HEALTH_SECONDS), (2, 2)]:
+            runtime = object.__new__(PairedRuntime)
+            runtime._pair_deadline = remaining
+            runtime.record = {}
+            runtime.library_mode = 'loaded'
+            with patch.object(ResidentRuntime, 'request', return_value=healthy) as request, \
+                    patch('paired_library_capacity_probe.time.monotonic', return_value=0):
+                runtime.health()
+            self.assertEqual(request.call_args.kwargs['timeout'], expected)
+
+    def test_explicit_search_timeout_is_preserved_and_capped(self):
+        from lyrics_capacity_runtime import ResidentRuntime, LIBRARY_LOAD_SECONDS
+        for remaining, explicit, expected in [(90, LIBRARY_LOAD_SECONDS, 60),
+                                               (12, LIBRARY_LOAD_SECONDS, 12), (60, 3, 3)]:
+            runtime = object.__new__(PairedRuntime)
+            runtime._pair_deadline = remaining
+            with patch.object(ResidentRuntime, 'request', return_value={}) as request, \
+                    patch('paired_library_capacity_probe.time.monotonic', return_value=0):
+                runtime.request('GET', '/library/v1/search?q=love&limit=1', timeout=explicit)
+            self.assertEqual(request.call_args.kwargs['timeout'], expected)
+
     def test_mutable_image_names_are_refused(self):
         for name in ['latest','ghcr.io/x/image:tag','sha256:'+'a'*63]:
             with self.assertRaises(ValueError):

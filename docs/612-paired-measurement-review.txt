@@ -60,7 +60,9 @@ must match across before/after for each repetition. A mismatch fails the driver.
 Legacy main can return search before corpus verification ends; record response
 first_search_s separately from verified_ready_s. Readiness must be observed
 before the unchanged60second deadline. Late-ready responses are refused, and
-request timeouts are capped to remaining time. Include verification in the
+request timeouts are capped to remaining time. Implicit health requests retain
+the inherited5second default; explicit search/load requests retain their declared
+timeout, capped by the same shared deadline. Include verification in the
 sampled load window. Candidate-unloaded stays unloaded and has no search timing.
 
 MEDIAN POPULATIONS (do not pool unlike observations)
@@ -99,7 +101,7 @@ python3 scripts/run_paired_library_capacity.py \
 (Image IDs above are placeholders; substitute verified immutable IDs.)
 
 VALIDATION AND OWNERS
-12 simulated protocol tests pass, including deadline, differing fixture bytes,
+14 simulated protocol tests pass, including deadline, differing fixture bytes,
 extra files, identical two-arm copies, nonempty controls, response mismatch,
 timeout/interruption cleanup, cleanup failure, per-workload reversal and preflight
 identity mismatch. These are not actual memory/latency measurements.
