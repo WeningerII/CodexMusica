@@ -1,0 +1,64 @@
+#612 v2 fixture implementation — unpublished; requires new protocol review
+
+This explicitly replaces cba88d6's cross-image identical encoded-file rule.
+Production code/identity checks are untouched. Limits, six-arm schedule, reverse
+second repetition, sampling and aggregation remain unchanged. No campaign run.
+
+Implemented:
+- paired_fixture_core.mjs creates one common decoded corpus using actual schema
+  maxima and retained count/worker/declaration limits, stable record IDs/metadata,
+  and random payload content generated once. Validates near-ceiling loads.
+- prepare_paired_fixtures.mjs generate COMMON_DIR runs inside baseline with the
+  FINAL common /app/scripts mount; creates common.json and one common JobStore
+  set with the existing seed script. encode COMMON_DIR OUTPUT_DIR IMAGE_ID runs
+  separately inside each actual image with the SAME mount. It requires verified
+  runtime assets and baked source, validates every state/checkpoint through real
+  schema/capacity/encode/decode, and writes prepared-runs.json plus proof/manifest.
+  Each image must use a private writable preparation runtime; no real data or
+  shared credentials. All generation/validation occurs outside measurement.
+- Proof binds actual instrumented runtime fingerprint, semantic identity, script
+  tree hashes, source/release/image ID, common corpus hash, decoded/wire hashes and
+  sizes. JobStore files retain identical bytes and private modes. New derived
+  outputs are created exclusively; no automatic regeneration or overwrite.
+- paired_fixture_validation.py verifies complete derived membership/hash, actual
+  image/source/script binding, per-file preparation evidence, common JobStore
+  identity, bounded gzip decode to exact original decoded bytes and checksum,
+  all envelope fields except each genuinely generated semantic_identity, and
+  equal wire lengths. Rejects expired/insufficient-TTL completed receipts before
+  starting an arm. Actual startup/replay is still required and remains unchanged.
+- Driver now requires --before-fixtures, --after-fixtures and --common-corpus.
+  Baseline uses its one set twice; candidate loaded AND unloaded use the same
+  candidate set four times. Complete sets/manifests and scripts are rechecked
+  before every arm. New preflight fields fixture_protocol, fixture_manifests and
+  common_corpus_sha256 must match independently reviewed evidence. Merely having
+  files or proof status does not self-approve a run.
+
+No transfer/retention route is added. No artifact upload, workflow publication,
+capacity execution or spending. Global-versus-per-host common corpus remains a
+separate pending decision. Existing unpublished artifact workflow is STILL NOT
+safe to publish under the no-cost constraint; this change does not enable it.
+Combined decoded+two prepared sets and copied common JobStore files must be sized
+and reviewed for the chosen storage design; prior single-set estimate is not a
+claim this expanded layout fits 1 GiB. No workload shrinking is permitted.
+
+Preparation and measured /app/scripts must be byte-identical, including all files
+in the recursive inventory. Driver disables Python bytecode writes; don't run
+generators with a different scripts checkout or add files after preparation.
+Record actual image ID from host Docker inspect when invoking encode; later
+driver checks the independently reviewed proof/manifest against its own inspect.
+Real encode/decode under each image establishes semantics; host gzip inspection
+is an additional consistency check, never a replacement for that execution.
+
+Validation performed locally:
+29 Python tests pass (existing protocol + new derived manifest/image/script/TTL,
+payload/count/metadata and cross-arm mutation controls); JS fixture-core positive
+pair and 15 causal refusal controls pass. Real baseline/candidate codec source
+control with identical modelled assets verifies revised common-core preparation,
+matching decoded content and all nonsemantic envelope fields/lengths, while old
+baseline wires still fail candidate decode. It uses small synthetic count/schema
+controls, not actual-image/full-load evidence. Node 24.19.0. Syntax/compile/diff
+checks pass. Actual image preparation and final independent review remain open.
+
+This session owns the new core, adapter, Python verifier and their tests plus this
+note; existing private driver/control edits also remain here. No main or #836
+edits. Owner acceptance and John's measured-latency decision remain mandatory.

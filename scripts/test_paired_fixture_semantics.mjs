@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import vm from 'node:vm';
+import { generate, encode, compareEncoded } from './paired_fixture_core.mjs';
 
 const [before, after] = process.argv.slice(2);
 if (!before || !after) throw new Error('Supply baseline and candidate checkout roots');
@@ -41,7 +42,19 @@ const wire = a.encodeState(state);
 assert.equal(JSON.stringify(a.decodeState(wire)), JSON.stringify(state));
 assert.equal(JSON.stringify(matching.decodeState(wire)), JSON.stringify(state));
 assert.throws(() => b.decodeState(wire), error => error.code === 'CONTINUATION_MIGRATION_REQUIRED');
+// Exercise the revised preparation core against both real codec implementations.
+// Count/schema are small synthetic controls; actual image/schema checks stay open.
+const schema = { safeParse: v => ({success:Array.isArray(v) && v.length > 0 && v.length <= 2 && v.every(s => typeof s === 'string' && s.length <= 10)}),
+  parse(v) { assert(this.safeParse(v).success); } };
+const deps = code => ({ count:1, schema, worker:code.WORKER_STATE_BYTES,
+  declaration:code.CONNECTOR_DECLARATION_BYTES, decoded:code.STATE_DECODED_BYTES,
+  wire:(2*1024+256)*1024, capacity:code.assertContinuationCapacity,
+  encode:code.encodeState, decode:code.decodeState, identity:code.continuationSemanticIdentity });
+const common = generate(deps(a));
+const first = encode(common,deps(a)), second = encode(common,deps(b));
+compareEncoded(first,second);
 console.log(JSON.stringify({ status: 'source-control-passed', before_source: beforeSource,
   after_source: afterSource, same_identity_decode: 'passed', differing_identity_decode: 'refused',
+  revised_genuine_encoders: 'decoded equality and envelope/length comparison passed',
   scope: 'real codec; modelled equal assets; checkout source fingerprints, not image inventories',
   consequence: 'unchanged shared encoded fixtures cannot pass decodeState across distinct semantic identities' }, null, 2));

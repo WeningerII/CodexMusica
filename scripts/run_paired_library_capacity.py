@@ -14,6 +14,8 @@ import re
 import subprocess
 import signal
 import uuid
+import sys
+sys.dont_write_bytecode = True
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCKER = ['docker', '--host=unix:///var/run/docker.sock']
@@ -99,7 +101,9 @@ def main():
     ap.add_argument('--after-sha', required=True)
     ap.add_argument('--cells', required=True)
     ap.add_argument('--out', required=True, type=Path)
-    ap.add_argument('--fixtures', required=True, type=Path)
+    ap.add_argument('--before-fixtures', required=True, type=Path)
+    ap.add_argument('--after-fixtures', required=True, type=Path)
+    ap.add_argument('--common-corpus', required=True, type=Path)
     ap.add_argument('--preflight', required=True, type=Path)
     ap.add_argument('--candidate-first', action='store_true')
     args = ap.parse_args()
@@ -112,8 +116,8 @@ def main():
         if not re.fullmatch(r'[0-9a-f]{40}', sha):
             ap.error('full source commits are required')
     from paired_library_capacity_probe import fixture_files
-    fixtures = args.fixtures.resolve()
-    fixture_identity = fixture_files(fixtures)
+    from paired_fixture_validation import PROTOCOL, fixture_set, compare_sets, scripts_inventory
+    fixtures = {'before': args.before_fixtures.resolve(), 'after': args.after_fixtures.resolve()}
     env = docker_env()
     images = {}
     for label, image, sha in [('before', args.before_image, args.before_sha),
@@ -125,6 +129,12 @@ def main():
         images[label] = {'image_id': image, 'source_sha': sha}
     preflight = json.loads(args.preflight.read_text())
     validate_preflight(preflight, images)
+    scripts = scripts_inventory(ROOT / 'scripts')
+    sets = {key: fixture_set(fixtures[key], images[key], scripts) for key in images}
+    common_identity = compare_sets(sets['before'], sets['after'], args.common_corpus.read_bytes())
+    fixture_identity = {key: value['manifest_sha256'] for key, value in sets.items()}
+    if preflight.get('fixture_protocol') != PROTOCOL or preflight.get('fixture_manifests') != fixture_identity or preflight.get('common_corpus_sha256') != common_identity:
+        raise RuntimeError('independently reviewed v2 fixture evidence required')
     args.out.mkdir(parents=True, exist_ok=False)
     arms = [('before-loaded', args.before_image, 'loaded'),
             ('after-loaded', args.after_image, 'loaded'),
@@ -132,7 +142,8 @@ def main():
     if args.candidate_first:
         arms.reverse()
     receipt = {'experiment_id': str(uuid.uuid4()), 'host': platform.uname()._asdict(),
-               'fixture_sha256': fixture_identity, 'preflight': preflight,
+               'fixture_protocol': PROTOCOL, 'fixture_manifests': fixture_identity,
+               'common_corpus_sha256': common_identity, 'preflight': preflight,
                'replications_per_cell': 2,
                'images': images, 'cells': args.cells, 'order': [{'replication': r, 'arm': a} for r,a,_,_ in schedule(arms)],
                'scripts_sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
@@ -145,13 +156,17 @@ def main():
     for replication, base_arm, image, mode in schedule(arms):
         arm = f'r{replication}-' + base_arm
         receipt_path.write_text(json.dumps(receipt, indent=2) + '\n')
-        if fixture_files(fixtures) != fixture_identity:
-            raise RuntimeError('shared fixtures changed between arms')
+        current = {key: fixture_set(fixtures[key], images[key], scripts_inventory(ROOT / 'scripts')) for key in images}
+        if {key:value['manifest_sha256'] for key,value in current.items()} != fixture_identity:
+            raise RuntimeError('derived fixtures changed between repetitions')
+        if scripts_inventory(ROOT / 'scripts') != scripts:
+            raise RuntimeError('measurement scripts changed')
+        fixture_key = 'before' if base_arm == 'before-loaded' else 'after'
         name = 'capacity-pair-' + receipt['experiment_id'] + '-' + arm
         try:
             with (args.out / f'{arm}.log').open('w') as log:
                 result = run_arm(command(image, ROOT / 'scripts', args.out.resolve(), args.cells,
-                                         mode, arm, fixtures, name), env, log, name)
+                                         mode, arm, fixtures[fixture_key], name), env, log, name)
         except BaseException as error:
             receipt['arms'].append({'arm': arm, 'container_name': name,
                                     'error': type(error).__name__ + ': ' + str(error)})
