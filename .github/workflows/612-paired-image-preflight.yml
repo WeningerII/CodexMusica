@@ -127,18 +127,18 @@ jobs:
               -u "$GITHUB_ACTOR" --password-stdin 2>&1 | tee evidence/registry-login.log
             docker --config "$pull_config" pull --platform=linux/amd64 "$baseline" \
               2>&1 | tee evidence/pull.log
+            df -B1 / /var/lib/docker > evidence/disk-after-pull.txt
+            docker system df > evidence/docker-after-pull.txt
+            docker image inspect "$baseline" > evidence/before-image.json
+            docker --config "$pull_config" build --platform=linux/amd64 \
+              --build-arg RENDER_GIT_COMMIT="$AFTER_SHA" \
+              --build-arg BUILD_RELEASE_ID="612-paired-preflight:$GITHUB_RUN_ID:$GITHUB_RUN_ATTEMPT" \
+              -f candidate/mcp/Dockerfile -t codex-612-preflight-after candidate \
+              2>&1 | tee evidence/build.log
+            docker image inspect codex-612-preflight-after > evidence/after-image.json
+            df -B1 / /var/lib/docker > evidence/disk-built.txt
           )
           unset GH_TOKEN
-          df -B1 / /var/lib/docker > evidence/disk-after-pull.txt
-          docker system df > evidence/docker-after-pull.txt
-          docker image inspect "$baseline" > evidence/before-image.json
-          docker build --platform=linux/amd64 \
-            --build-arg RENDER_GIT_COMMIT="$AFTER_SHA" \
-            --build-arg BUILD_RELEASE_ID="612-paired-preflight:$GITHUB_RUN_ID:$GITHUB_RUN_ATTEMPT" \
-            -f candidate/mcp/Dockerfile -t codex-612-preflight-after candidate \
-            2>&1 | tee evidence/build.log
-          docker image inspect codex-612-preflight-after > evidence/after-image.json
-          df -B1 / /var/lib/docker > evidence/disk-built.txt
       - name: Inventory actual bytes offline for independent review
         timeout-minutes: 25
         shell: bash
