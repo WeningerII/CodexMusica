@@ -3,12 +3,8 @@ name: Issue 612 paired image preflight
 # Isolated preparation only. Independent image/fixture review must precede
 # the separate same-host campaign. No deploy, registry push or qualification.
 on:
-  workflow_dispatch:
-    inputs:
-      baseline_digest:
-        description: Verified registry digest from main CI 43073617924 image receipt
-        required: true
-        type: string
+  push:
+    branches: ['codex/612-paired-hosted-once-v1']
 permissions:
   contents: read
   packages: read
@@ -17,12 +13,20 @@ concurrency:
   cancel-in-progress: false
 jobs:
   inventory:
+    if: >-
+      github.repository == 'WeningerII/CodexMusica' &&
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/codex/612-paired-hosted-once-v1' &&
+      github.event.created == true &&
+      github.event.deleted == false &&
+      github.event.forced == false &&
+      github.run_attempt == 1
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
       BEFORE_SHA: 99c1586bfc994fd1b138632fe8c7845b40072142
       AFTER_SHA: 960dd1820a643610ec69b782f4715821c1dcb6a8
-      BASELINE_DIGEST: ${{ inputs.baseline_digest }}
+      BASELINE_DIGEST: sha256:f314ffd665dfc617d22b24c75e03ecb563452c0756b20bfb7f3314d887580954
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:

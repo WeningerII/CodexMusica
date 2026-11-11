@@ -4,16 +4,22 @@ Reviewed measurement protocol remains cba88d6eb89dd7693ae42cba28c73ba9a5cc06d3.
 New workflow and inventory helper require independent review before dispatch.
 These changes do not alter that protocol, the 1792 MiB limit or PR #836.
 
-Proposed new-file ownership: this #612 session owns
-.github/workflows/612-paired-image-preflight.yml,
-scripts/paired_image_inventory.py, scripts/test_paired_image_inventory.py,
-and this note, from cba88d6eb. Release reservation on agreed handoff or withdrawal.
+New-file ownership: this #612 session owns all eight paths from cba88d6eb:
+.github/workflows/612-paired-image-preflight.yml
+scripts/paired_image_inventory.py
+scripts/test_paired_image_inventory.py
+scripts/collect_paired_images.py
+scripts/test_collect_paired_images.py
+docs/612-hosted-preflight-review.txt
+docs/612-preflight-inventory-review-response.txt
+docs/612-push-trigger-proposal.txt
+Release reservation on agreed handoff or withdrawal.
 No shared CI/capacity/deploy workflow is edited. Coordinator must route these
 paths to the CI optimization session: no direct inter-session routing tool or
 that session's identity is available in this executor. Ownership overlap is
 not established; this is a private proposal, not a public reservation.
 
-Workflow is manual and provisioning-only. It pulls a required immutable baseline
+Workflow is unpublished, creation-push-only and provisioning-only. It pulls a fixed immutable baseline
 digest, checks out exact candidate 960dd182, and runs the unchanged candidate
 Dockerfile. Both actual images are inspected and byte inventories are generated
 offline on the same runner. It retains logs and JSON, marks inventory unreviewed,
@@ -37,10 +43,10 @@ any historical Actions artifacts. Future receipts must use permitted read routes
 Remaining work before actual campaign:
 1. Coordinate new workflow ownership and obtain independent workflow review.
 2. Resolve baseline receipt digest through an authorized readable source.
-3. Publish/invoke through a supported authorized route. New workflow_dispatch
-   files ordinarily need registration on the default branch; this diagnostic is
-   not currently published or registered. Do not retry the previously refused
-   CLI dispatch route without materially new relevant authorization/evidence.
+3. Review exact implemented creation-push trigger on
+   codex/612-paired-hosted-once-v1 with repository/ref and first-attempt guards.
+   No default-branch registration is needed. Do not publish before review and
+   preservation scope resolution. The old CLI route remains unused.
 4. Review actual complete image inventories, including image environment/config,
    dependency differences, and missing/unexpected asset membership. This helper
    hashes manifest-declared runtime assets plus full Library directories; it is

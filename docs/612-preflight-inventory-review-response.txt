@@ -54,3 +54,17 @@ Preservation and revised push trigger are still proposal-only. No image/fixture
 archive is uploaded or downloaded by these changes. Independent review and denial
 scope reconciliation remain prerequisites before publication. Exact comparator
 99c1586b and candidate 960dd182 remain pinned despite newer main.
+
+Latest revision: trigger is now implemented locally, not merely proposed, with
+fixed digest and exact creation/ref/repository/attempt guards. Publication remains
+pending review and preservation scope. No retention route has been implemented.
+27 tests pass: four added direct read_arm controls cover timeout, malformed JSON,
+source mismatch and cleanup failure, each asserting owned-container cleanup and
+retained status/stderr. Cleanup failure overrides an otherwise successful read.
+All eight new path reservations are listed in the primary handoff.
+
+Historical denial outcome is now resolved by coordinator's original-thread lookup:
+gh workflow run production-qualification.yml --repo WeningerII/CodexMusica --ref codex/612-option-a-draft
+failed on lookup GET before dispatch because GH_TOKEN was invalid; original
+readback confirmed no run started. This supersedes the earlier missing-outcome
+paragraph. No invalid CLI retry; historical archive-access scope is separate.

@@ -1,4 +1,4 @@
-#612 isolated push-trigger assessment; unpublished proposal
+#612 isolated push-trigger implementation; unpublished review candidate
 
 Original review target 1967f47f6157ead74968c21622675d982890cbec is unchanged.
 Proposed remote branch: codex/612-paired-hosted-once-v1
@@ -6,13 +6,13 @@ Check remote absence before the single creation push; do not overwrite or delete
 an existing ref to re-arm this trigger. Local implementation remains on
 codex/612-paired-measurement. No change to PR #836, main or shared workflows.
 
-Replace workflow_dispatch and its input with:
+Implemented replacement for workflow_dispatch and its input:
 
 on:
   push:
     branches: ['codex/612-paired-hosted-once-v1']
 
-Add to the inventory job:
+Implemented inventory job guard:
 
 if: >-
   github.repository == 'WeningerII/CodexMusica' &&
