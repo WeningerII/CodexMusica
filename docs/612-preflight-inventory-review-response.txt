@@ -1,0 +1,39 @@
+Response to independent inventory review; no hosted execution or acceptance.
+
+Correction covers complete shipped data and Library directories, undeclared
+non-Python assets anywhere in the harness, declared root runtime assets, Python
+distribution names/versions and recorded file hashes, installed OS package
+name/version/architecture/status, complete installed node_modules membership,
+Node/Python executable hashes and Python build, and effective Docker Config plus
+OS/architecture/variant. Symlinks are rejected for assets; dependency file links
+retain link target and target-byte hash. Differences stop and remain unreviewed.
+No drift is normalized except BUILD_GIT_COMMIT and RENDER_GIT_COMMIT environment
+entries, independently checked as the intentionally different source identities.
+OS package identity is version/architecture/status, not a complete hash of every
+OS file. Python bytecode/file-list differences may produce a conservative refusal;
+do not silently omit files or mark such differences equivalent.
+
+Existing 1967f47f review bundle is superseded for inventory code only by this
+correction. Push trigger remains a separate proposal (cca24f6a); workflow still
+uses workflow_dispatch until review covers trigger AND preservation/fixture path.
+Nothing has been published or dispatched. PR #836 remains untouched.
+
+CLI-denial receipt lookup: no original raw command/error receipt was found in
+retained scratch logs, internal review files or #612 notes. Retained session
+summary reports GitHub CLI workflow lookup GET was Forbidden while attempting
+Production qualification dispatch; later context identifies invalid GH_TOKEN.
+These are retained summaries, not freshly verified exact stderr or an account
+permission diagnosis. Exact original command, URL/ref, HTTP status/reason and
+whether any dispatch POST executed cannot be reconstructed from available files.
+No retry was attempted. Before any publication-triggered execution, coordinator
+must reconcile the original denial scope; a push event cannot be used to evade
+a denied campaign/publication. Branch-push proposal is conditional on independent
+authorization, not a conclusion that the old refusal is lifted.
+
+Archive access remains held in this executor. Baseline reference independently
+confirmed by permitted successful job 130710784507 push logs; parent separately
+verified receipt artifact. Registry digest f314ffd665dfc617d22b24c75e03ecb563452c0756b20bfb7f3314d887580954.
+
+Local checks: 5 inventory tests (including environment/user, symlink and installed
+OS version mutants), existing 14 protocol tests, YAML/shell syntax, compilation,
+diff checks. Actual image inventory and fixture compatibility are still pending.

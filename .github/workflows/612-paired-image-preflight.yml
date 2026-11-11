@@ -84,12 +84,18 @@ jobs:
               --entrypoint python3 "$image" /inventory.py > "evidence/$arm-inventory.json"
           done
           python3 - <<'PY'
-          import json, os
+          import json, os, sys
           from pathlib import Path
+          sys.path.insert(0, 'diagnostic/scripts')
+          from paired_image_inventory import effective_config
           rows = {a: json.loads(Path(f'evidence/{a}-inventory.json').read_text()) for a in ('before', 'after')}
           for arm in rows:
               assert rows[arm]['source_sha'] == os.environ[arm.upper() + '_SHA'], 'wrong source'
-          fields = ('assets', 'configuration', 'fixture_dependencies', 'node_version', 'python_version')
+              info = json.loads(Path(f'evidence/{arm}-image.json').read_text())[0]
+              rows[arm]['effective_image_config'] = effective_config(info)
+              Path(f'evidence/{arm}-effective-config.json').write_text(json.dumps(rows[arm]['effective_image_config'], indent=2) + '\n')
+          fields = ('assets', 'corpus_directory_present', 'configuration', 'fixture_dependencies',
+                    'runtime_dependencies', 'effective_image_config', 'node_version', 'python_version')
           differences = [f for f in fields if rows['before'][f] != rows['after'][f]]
           result = {'status': 'unreviewed', 'differences': differences,
                     'measurements_run': False, 'fixture_compatibility_verified': False}
