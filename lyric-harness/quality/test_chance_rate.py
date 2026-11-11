@@ -70,6 +70,66 @@ def check(section, claim, ok, evidence=""):
         FAILED.append(f"{section}: {claim}")
 
 
+
+def _check_separation_gate():
+    """Exercise drift without running the 504-stream nightly a second time."""
+    import contextlib
+    import copy
+    import io
+    from unittest.mock import Mock, patch
+
+    # The historical arm must not silently become the bound-end production
+    # question, nor drop the interior schemas responsible for its new answer.
+    lines = [f"whole historical line {i}" for i in range(CR.NULL_LINES)]
+    judge = Mock()
+    judge.whole_vocabulary_pairs.return_value.listed.return_value = {
+        (1, 3): ["internal assonance"]}
+    rates = CR._answered(lines, None, judge)
+    check("7", "the historical door keeps whole lines and interior witnesses",
+          rates == (1 / 91, 1 / 7)
+          and judge.whole_vocabulary_pairs.call_args.args == (lines, None)
+          and judge.whole_vocabulary_pairs.call_args.kwargs == {})
+
+    baseline = {"items": CR.NULL_ITEMS, "draws": CR.NULL_DRAWS}
+    for arm, pins in CR.ADOPTED_SEPARATION.items():
+        baseline[arm] = dict(pins, min=pins["median"], p_empirical=1.0,
+                             excess_over_median=pins["r_obs"] - pins["median"],
+                             excess_over_max=pins["r_obs"] - pins["max"])
+
+    def run(result):
+        output = io.StringIO()
+        with patch.object(CR, "separation", return_value=result), \
+                contextlib.redirect_stdout(output):
+            status = CR.check_separation()
+        return status, output.getvalue()
+
+    status, output = run(baseline)
+    check("7", "the adopted historical measurements and verdicts pass",
+          status == 0)
+    check("7", "the report distinguishes historical scope from enforcement",
+          "historical unbound whole-line door" in output
+          and "NOT current bound-word mandate enforcement" in output
+          and "ENFORCEMENT question" not in output)
+    for arm in CR.ADOPTED_SEPARATION:
+        for field in CR.ADOPTED_SEPARATION[arm]:
+            moved = copy.deepcopy(baseline)
+            moved[arm][field] -= 2 * CR.SEPARATION_TOL
+            status, output = run(moved)
+            check("7", f"planted numeric drift fails: {arm}.{field}",
+                  status == 3 and f"{arm}.{field}: adopted" in output)
+    # A real, internally consistent return to separation can sit INSIDE the
+    # numeric rounding tolerance. The independent verdict gate must catch it.
+    moved = copy.deepcopy(baseline)
+    moved["mandated"]["median"] -= CR.SEPARATION_TOL / 4
+    moved["mandated"]["min"] = moved["mandated"]["median"]
+    moved["mandated"]["excess_over_median"] = (
+        moved["mandated"]["r_obs"] - moved["mandated"]["median"])
+    status, output = run(moved)
+    check("7", "verdict drift fails even within numeric rounding tolerance",
+          status == 3 and "THE VERDICT MOVED" in output
+          and "MOVED 1:" in output)
+
+
 def main():
     lex = L.Lexicon()
     shipped = CR.Sampler(CR.SHIPPED.seed, N, CR.SHIPPED.population,
@@ -206,6 +266,9 @@ def main():
           shipped.pairs(lex) == RB.sample_pairs(lex, N,
                                                 random.Random(shipped.seed)),
           f"{N} pairs")
+
+    print("\n7. historical separation pins and independent verdict drift")
+    _check_separation_gate()
 
     print()
     if FAILED:

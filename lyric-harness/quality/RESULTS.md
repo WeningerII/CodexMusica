@@ -1,5 +1,43 @@
 # Results — English cell
 
+## Current Experiment 1 measurement — 2026-11-11
+
+This section supersedes the older Experiment 1 measurements labelled "current"
+below; their dated records and the preregistration remain historical. Experiment 2
+was deleted on 2026-10-27 and is not re-measured here.
+
+At main a6243929, a cold run computed 264 vectors over the unchanged 15 survived
+and 117 forgotten sonnets, for the ten absolute and eight within-item features.
+It reproduces scheduled CI run 43007837054. Disabling only the accent derivation
+introduced by [ff556ae5](https://github.com/WeningerII/CodexMusica/commit/ff556ae583a815e3a9fd2d223963695ac41965be)
+restores all 35 previous checks in a second cold 264-vector run. The other 15
+per-feature AUCs and every population shape hold. This locates the change in the
+adopted accent readings and their rhyme-candidate field, not in the corpus or
+numerical dependencies. No runtime feature or tolerance was changed to adopt it.
+
+| Experiment 1 quantity | Superseded measurement | 2026-11-11 measurement |
+|---|---:|---:|
+| Absolute, joint all ten | ~~0.760114~~ | 0.757835 |
+| Absolute, joint predictability only | ~~0.732194~~ | 0.728205 |
+| Absolute, predictability mean | ~~0.243305~~ | 0.245014 |
+| Absolute, predictability minimum | ~~0.323362~~ | 0.323932 |
+| Within-item, joint all eight | ~~0.618234~~ | 0.617664 |
+| Within-item, joint predictability only | ~~0.741311~~ | 0.740741 |
+| Within-item, predictability advantage | ~~0.243305~~ | 0.245014 |
+
+At three decimals the absolute joints are **0.758 / 0.728** and the within-item
+joints remain **0.618 / 0.741**. The within-item all-feature AUC remains below the
+absolute one, by 0.140171; this is not an improvement in discrimination. No new
+permutation p-values or seed-sweep medians were measured in this check.
+
+Local Python 3.12.14 versus CI 3.11.16; NumPy 2.4.6, scikit-learn 1.9.1 and
+SciPy 1.17.1 match CI. The cold current run used 1073.9 s wall / 1067.2 s CPU;
+the derivation-disabled control used 1177.2 s wall / 1170.7 s CPU. Full-precision
+pins are in `quality/test_discriminate.py`; the post-adoption verification reuses
+these freshly computed, fingerprint-matching vectors rather than claiming a
+third cold extraction.
+
+
 > **SUPERSEDED IN PART, TWICE. Written 2026-08-09; repinned 2026-08-13.**
 >
 > FIRST: the numbers in the next two sections are the pre-fix run. Two defects
@@ -96,7 +134,7 @@ wrong sign below is a failed prediction and is reported as one.
 | pre-registered hits | ~~2/10~~ **4/10** | ~~4/10~~ **5/10** |
 | wrong-sign features | 0 | ~~5~~ **4** |
 | **joint held-out AUC** — pre-fix, 2026-08-09, **SUPERSEDED** three times | **0.709** | **0.971** |
-| **joint held-out AUC** — cold, current, measured 2026-09-26 (the N-relation model, b42287af / #380, M-314) | **0.760** | **0.967** |
+| **joint held-out AUC** — cold, current, measured 2026-09-26 (the N-relation model, b42287af / #380, M-314) | **~~0.760~~** | **0.967** |
 | ~~joint held-out AUC — cold, measured 2026-09-17 (E-5 empty-coda evidence, M-293)~~ | ~~0.761~~ | ~~0.967~~ |
 | ~~joint held-out AUC — cold, measured 2026-09-14 (tokenizer normalized)~~ | ~~0.758~~ | ~~0.967~~ |
 | ~~joint held-out AUC — cold, measured 2026-08-22, M-31~~ | ~~0.723~~ | ~~0.960~~ |
@@ -146,7 +184,7 @@ power, and the power was spurious. Nothing was tuned to recover it.
 **Detecting bad writing works. Ranking good writing barely does.** That gap —
 0.971 against 0.709 on the pre-fix reading, ~~**0.964 against 0.717 cold**~~
 ~~**0.960 against 0.723 cold**~~ ~~**0.967 against 0.758 cold**~~
-~~**0.967 against 0.761 cold**~~ **0.967 against 0.760 cold** — is the whole
+~~**0.967 against 0.761 cold**~~ **0.967 against ~~0.760~~ cold** — is the whole
 argument in two numbers. A floor is
 objectively enforceable; a ceiling is not. Build the rejection gate. The gap is
 **0.262 pre-fix and ~~0.247~~ ~~0.237~~ ~~0.209~~ ~~0.206~~ 0.207 cold, so it
@@ -446,7 +484,7 @@ is which numbers the fix was measured against.
 | predictability-only AUC | 0.670 | **0.676** | 0.617 | **0.560** |
 
 Cold, the last two rows read ~~**0.717** / **0.964**~~ ~~**0.723** / **0.960**~~
-~~**0.758** / **0.967**~~ ~~**0.761** / **0.967**~~ **0.760** / **0.967** and
+~~**0.758** / **0.967**~~ ~~**0.761** / **0.967**~~ **~~0.760~~** / **0.967** and
 ~~**0.710** / **0.648**~~ ~~**0.737** / **0.638**~~ ~~**0.731** / **0.637**~~
 **0.732** / **0.645** (repinned 2026-09-26, M-314; 2026-09-17, M-293). The full cold table is at the foot of this file.
 
@@ -538,7 +576,7 @@ project had designated its candidate universal.
   result is weaker overall even as individual features got cleaner. At n=15
   it does not exclude chance. *(Both endpoints are WARM, and the post-fix one
   is **SUPERSEDED 2026-08-13**: cold, that fit reads ~~**0.717**~~ ~~**0.723**~~
-  ~~**0.758**~~ ~~**0.761**~~ **0.760** (repinned 2026-09-26, M-314;
+  ~~**0.758**~~ ~~**0.761**~~ **~~0.760~~** (repinned 2026-09-26, M-314;
   2026-09-17, M-293; 2026-09-14; 2026-08-22, M-31). The FALL
   cannot be recomputed — the pre-fix code has never been run cold, so there is
   no cold 0.709 to subtract from — and what can be said is only that the cold
@@ -589,7 +627,7 @@ mismatch discards the cache and prints the coordinate that moved.
 
 | feature set | Exp 1 | Exp 2 | reading |
 |---|---|---|---|
-| ABSOLUTE, all 10 features | **0.760** | **0.967** | COLD, current, 2026-09-26 (the N-relation model, b42287af / #380, M-314) |
+| ABSOLUTE, all 10 features | **~~0.760~~** | **0.967** | COLD, current, 2026-09-26 (the N-relation model, b42287af / #380, M-314) |
 | ABSOLUTE, predictability only | **0.732** | **0.645** | COLD, current, 2026-09-26 (the N-relation model, b42287af / #380, M-314) |
 | ~~ABSOLUTE, all 10 features~~ | ~~0.761~~ | ~~0.967~~ | ~~cold 2026-09-17 (E-5 empty-coda evidence, M-293)~~, **SUPERSEDED** 2026-09-26 |
 | ~~ABSOLUTE, predictability only~~ | ~~0.731~~ | ~~0.637~~ | ~~cold 2026-09-17 (E-5 empty-coda evidence, M-293)~~, **SUPERSEDED** 2026-09-26 |
@@ -610,7 +648,7 @@ struck pairs are 2026-08-13 and 2026-08-22. **Both ABSOLUTE medians HOLD under t
 digit — while both WITHIN-ITEM medians moved; see `RESULTS_WITHIN_ITEM.md`.
 Under the 2026-09-26 N-relation repin, M-314, the Exp 1 median moves 0.665 →
 **0.663** and Exp 2's holds at 0.968).
-The recorded Exp 1 draw of ~~0.717~~ ~~0.723~~ ~~0.758~~ ~~0.761~~ **0.760**
+The recorded Exp 1 draw of ~~0.717~~ ~~0.723~~ ~~0.758~~ ~~0.761~~ **~~0.760~~**
 sits well above its own median (~~+0.088~~ ~~+0.093~~ ~~+0.096~~ **+0.097**),
 which is doctrine 73's point and is why the seed distribution is pinned
 separately from the headline.
@@ -801,7 +839,7 @@ Exp 1 at 0.604 (n=15, does not exclude chance), Exp 2 still 0.877."
   written.)*
 - The layer-level claim survives, on numbers that did not move in its favour:
   Experiment 1's joint AUC is ~~0.638~~ ~~0.621~~ **0.618** within-item and
-  ~~0.717~~ ~~0.723~~ ~~0.758~~ ~~0.761~~ **0.760** absolute at n = 15
+  ~~0.717~~ ~~0.723~~ ~~0.758~~ ~~0.761~~ **~~0.760~~** absolute at n = 15
   (repinned 2026-09-26, M-314; 2026-09-17, M-293);
   `quality/NULL_AUDIT.md` §1.3 measured that neither beats its own
   label-permutation null's MAXIMUM, and the within-item one is not separated

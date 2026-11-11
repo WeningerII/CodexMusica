@@ -104,12 +104,17 @@ def _pinned():
 #: `test_discriminate.PINNED` no longer holds `abs_exp2` and neither row has
 #: a pin to derive from. The Exp 2 figures RESULTS.md quotes (0.967 and the
 #: 0.207 gap) are now records of a deleted measurement, policed by nothing.
+#: WALKED 2026-11-11 for ff556ae5's accent-derived readings: current
+#: 0.760 -> superseded (policed), prior 0.761 -> retired, measured 0.758 in.
+#: The spelling 0.758 recurs from the 2026-09-14 measurement; that historical
+#: provenance remains in the documents, but it is no longer also retired in
+#: this ladder. The history rule itself is unchanged.
 TRACKED = (
     {"name": "joint held-out AUC, Exp 1 (selection)",
      "derive": lambda p: p["abs_exp1"]["joint_all"],
-     "precision": 3, "current_spelling": "0.760",
-     "superseded": ("0.761",),
-     "retired": ("0.758", "0.723", "0.717", "0.716809", "0.659", "0.709")},
+     "precision": 3, "current_spelling": "0.758",
+     "superseded": ("0.760",),
+     "retired": ("0.761", "0.723", "0.717", "0.716809", "0.659", "0.709")},
 )
 
 #: The documents in scope.  Per-document, declared, extendable.
