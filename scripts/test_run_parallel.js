@@ -193,6 +193,104 @@ try {
   );
   checks++;
 
+  // The fan-in enumerates the shared declaration without importing SDK code.
+  // A clean fixture tree intentionally has neither mcp/ nor node_modules/.
+  const sharedParts = JSON.parse(
+    fs.readFileSync(path.join(root, 'scripts/ci_mcp_test_parts.json'), 'utf8')
+  );
+  const listedParts = spawnSync(process.execPath, ['mcp/test.mjs', '--list-parts'], {
+    cwd: root,
+    encoding: 'utf8',
+  });
+  assert.equal(listedParts.status, 0, listedParts.stderr);
+  assert.deepEqual(JSON.parse(listedParts.stdout), sharedParts);
+  checks++;
+  const cleanRoot = path.join(temp, 'dependency-free');
+  fs.mkdirSync(path.join(cleanRoot, 'scripts'), { recursive: true });
+  fs.copyFileSync(
+    path.join(root, 'scripts/run_parallel.js'),
+    path.join(cleanRoot, 'scripts/run_parallel.js')
+  );
+  fs.writeFileSync(
+    path.join(cleanRoot, 'package.json'),
+    JSON.stringify({ scripts: { inventory: 'node mcp/test.mjs' } })
+  );
+  const gitDirectory = spawnSync('git', ['rev-parse', '--absolute-git-dir'], {
+    cwd: root,
+    encoding: 'utf8',
+  });
+  assert.equal(gitDirectory.status, 0, gitDirectory.stderr);
+  const sharedPath = path.join(cleanRoot, 'scripts/ci_mcp_test_parts.json');
+  const cleanList = () =>
+    spawnSync(
+      process.execPath,
+      ['scripts/run_parallel.js', 'inventory', '--split-tests', '--list-json'],
+      {
+        cwd: cleanRoot,
+        env: { ...process.env, GIT_DIR: gitDirectory.stdout.trim() },
+        encoding: 'utf8',
+      }
+    );
+  fs.writeFileSync(sharedPath, JSON.stringify(sharedParts));
+  const cleanInventory = cleanList();
+  assert.equal(cleanInventory.status, 0, cleanInventory.stderr);
+  const cleanRecord = JSON.parse(cleanInventory.stdout);
+  assert.deepEqual(
+    cleanRecord.leaves.map((leaf) => leaf.command),
+    sharedParts.map((part) => `node mcp/test.mjs --part=${part}`)
+  );
+  assert.ok(cleanRecord.inventoryDigests['scripts/ci_mcp_test_parts.json']);
+  assert.ok(
+    !fs.existsSync(path.join(cleanRoot, 'node_modules')) &&
+      !fs.existsSync(path.join(cleanRoot, 'mcp'))
+  );
+  checks++;
+  for (const invalid of [
+    [],
+    ['offline', 'offline'],
+    ['invalid!'],
+    [1],
+    [true],
+    [['offline']],
+    {},
+    null,
+  ]) {
+    fs.writeFileSync(sharedPath, JSON.stringify(invalid));
+    assert.equal(
+      cleanList().status,
+      2,
+      `malformed shared part inventory ${JSON.stringify(invalid)} must fail closed`
+    );
+    checks++;
+  }
+  fs.writeFileSync(sharedPath, '{invalid JSON');
+  assert.equal(cleanList().status, 2);
+  checks++;
+  fs.rmSync(sharedPath);
+  assert.equal(cleanList().status, 2, 'missing shared inventory must fail closed');
+  checks++;
+  fs.writeFileSync(sharedPath, JSON.stringify(sharedParts) + '\n');
+  const reformatted = cleanList();
+  assert.equal(reformatted.status, 0, reformatted.stderr);
+  const reformattedRecord = JSON.parse(reformatted.stdout);
+  assert.deepEqual(reformattedRecord.leaves, cleanRecord.leaves);
+  assert.notEqual(reformattedRecord.manifest, cleanRecord.manifest);
+  assert.notEqual(
+    reformattedRecord.inventoryDigests['scripts/ci_mcp_test_parts.json'],
+    cleanRecord.inventoryDigests['scripts/ci_mcp_test_parts.json']
+  );
+  checks++;
+  fs.writeFileSync(sharedPath, JSON.stringify([...sharedParts].reverse()));
+  const reordered = cleanList();
+  assert.equal(reordered.status, 0, reordered.stderr);
+  const reorderedRecord = JSON.parse(reordered.stdout);
+  assert.notEqual(reorderedRecord.manifest, cleanRecord.manifest);
+  assert.notEqual(
+    reorderedRecord.inventoryDigests['scripts/ci_mcp_test_parts.json'],
+    cleanRecord.inventoryDigests['scripts/ci_mcp_test_parts.json']
+  );
+  checks++;
+
   // A tiny suite proves real execution, import errors, fixture lifecycles and
   // method ownership without reproducing the discovery implementation.
   const fixture = path.join(temp, 'tests');

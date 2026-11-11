@@ -434,11 +434,11 @@ NULL_LINES = 14
 #: pretending to a spread it does not have. Drift here means the CORPUS or the
 #: COMPARATOR moved, which is an answer.
 #:
-#: **TWO POPULATIONS, TWO OPPOSITE VERDICTS, NEVER SUMMED** (doctrine 79).
-#: The `all` arm does not separate — it sits BELOW its own null — so the
-#: "the door answers on three line pairs in four" headline is at chance. The
-#: `mandated` arm separates clear of the null's MAXIMUM, so the default is
-#: doing real work on the pairs a writer actually declared.
+#: **TWO POPULATIONS, NEVER SUMMED** (doctrine 79). The original adoption
+#: had opposite verdicts: `all` did not separate, `mandated` did. That is a
+#: historical finding, not an invariant to force on a changing registry.
+#: The 2026-11-11 adoption below records that BOTH now fail to separate.
+#: This is the historical unbound whole-line door, not production enforcement.
 #:
 #: GATED BECAUSE THE UNGATED VERSION IS THE DEFECT THIS MODULE WAS BUILT OVER:
 #: M-138's figures were recorded from an uncommitted script and did not
@@ -516,10 +516,27 @@ NULL_LINES = 14
 # 38953456008 on aca29aa6e3: MOVED 2, every other figure HOLDS, mandated
 # r_obs 0.9107 unchanged). That the 4 quote-kept pairs are what left `all` is
 # inferred from the fix, not measured pair by pair.
+# REPINNED 2026-11-11 from ~~all 0.5087/0.5254/0.5444, mandated
+# 0.9107/0.5298/0.5476; verdicts False/True~~. Nightly 43007837054,
+# job 130481710445, at a6243929e5301e721e2cc5ffcc64a9631b52993e:
+# all 0.9973/0.9979/1.0000, mandated 1.0000/1.0000/1.0000.
+# THE MANDATED VERDICT CHANGED: BOTH populations now fail to separate.
+# M-323 added internal assonance/consonance to the registry, including
+# function words; M-322's any-reading listing supplies further witnesses.
+# Attribution on this tree, Sonnet 1: internal assonance alone covers 60/91
+# pairs definitely and 90/91 under the listing (all schemas: 73/91 -> 90/91).
+# The first seeded redeal has internal assonance on 61/91 definite pairs and
+# 91/91 listed pairs; without both new interior schemas its listing has 69/91.
+# This instrument deliberately retains the pre-M-317 UNBOUND whole-line
+# question. Its saturation is an honest negative finding, not evidence that
+# current BOUND-WORD mandate enforcement stopped discriminating. Do not
+# silently bind the ends, drop interior schemas, or restore the old verdict.
+# Corpus, seed, 24 items, 20 draws, rounding tolerance and judge are unchanged.
 ADOPTED_SEPARATION = {
-    "all": {"r_obs": 0.5087, "median": 0.5254, "max": 0.5444},
-    "mandated": {"r_obs": 0.9107, "median": 0.5298, "max": 0.5476},
+    "all": {"r_obs": 0.9973, "median": 0.9979, "max": 1.0000},
+    "mandated": {"r_obs": 1.0000, "median": 1.0000, "max": 1.0000},
 }
+ADOPTED_SEPARATION_VERDICTS = {"all": False, "mandated": False}
 
 #: How far a re-derivation may sit from the pin before it is DRIFT. The figures
 #: are means over 24 items, so the fourth decimal is rendering; this is a
@@ -546,11 +563,9 @@ def check_separation(log=None):
                            f"measured {g:.4f}")
             else:
                 print(f"  HOLDS  {key + '.' + field:<18} {w:.4f}")
-    # THE VERDICT IS PINNED TOO, not only the numbers: the whole point of the
-    # entry is that one arm separates and the other does not, and a tree where
-    # both moved to the same side would hold every number above and mean
-    # something else entirely.
-    for key, want_sep in (("all", False), ("mandated", True)):
+    # THE VERDICT IS PINNED TOO, independently of the rounded figures.
+    # A changed answer is still drift, including a return to separation.
+    for key, want_sep in sorted(ADOPTED_SEPARATION_VERDICTS.items()):
         got_sep = r[key]["excess_over_median"] > 0
         if got_sep != want_sep:
             bad.append(f"{key}: adopted separates={want_sep}, "
@@ -565,7 +580,7 @@ def check_separation(log=None):
             print(f"  - {b}")
         return 3
     print()
-    print("the separation holds, and so does each arm's verdict")
+    print("the adopted measurements hold, and so does each arm's verdict")
     return 0
 
 
@@ -583,8 +598,8 @@ def _sonnets(path="corpus/sonnets.txt"):
 #:   ALL PAIRS - how much of the relation graph this door lights up. This is
 #:     the population the M-139 lane's 73.09% is over.
 #:   MANDATED  - whether "the default satisfied it" carries information about
-#:     a pair somebody DECLARED. This is the ENFORCEMENT question, and it is
-#:     the one the mandate layer actually asks.
+#:     a pair somebody DECLARED, under the historical unbound whole-line
+#:     door. Current enforcement binds the declared words (M-317) instead.
 SONNET_MANDATED = ((1, 3), (2, 4), (5, 7), (6, 8), (9, 11), (10, 12), (13, 14))
 
 
@@ -667,15 +682,18 @@ def separation(seed=None, items=NULL_ITEMS, draws=NULL_DRAWS, log=None):
 
 
 def _print_separation(r):
-    print("  SEPARATION - the default door (any coarse relation or any "
-          "schema) against a MATCHED REDEAL")
+    print("  SEPARATION - historical unbound whole-line door against a "
+          "MATCHED REDEAL")
+    print("    scope: any listed registry schema anywhere in the two lines, "
+          "or legacy scalar end-anchor admission; NOT current bound-word "
+          "mandate enforcement")
     print(f"    {r['items']} sonnets, {r['draws']} null draws, "
           f"{NULL_LINES} lines each; null = each line from a DIFFERENT "
           f"sonnet at the SAME position index")
     for key, gloss in (("all", "ALL 91 line pairs - how much of the graph "
                                "this door lights up"),
-                       ("mandated", "the 7 pairs the POET declared - the "
-                                    "ENFORCEMENT question")):
+                       ("mandated", "the 7 pairs the POET declared - historical "
+                                    "unbound whole-line door")):
         d = r[key]
         print()
         print(f"    {key.upper()}: {gloss}")
@@ -700,10 +718,9 @@ def _print_separation(r):
                   f"{100 * d['excess_over_median']:+.2f} pp over the median "
                   f"and {100 * d['excess_over_max']:+.2f} pp over the max.")
     print()
-    print("    THE TWO ARE NEVER SUMMED AND NEVER READ AS ONE (doctrine 79): "
-          "a door can light up an arbitrary pair at chance and still "
-          "discriminate a DECLARED one, and only the second is what the "
-          "mandate layer asks.")
+    print("    THE TWO ARE NEVER SUMMED AND NEVER READ AS ONE (doctrine 79). "
+          "Neither arm measures current bound-word mandate enforcement; "
+          "failure to separate is a finding about this historical door.")
 
 
 def _print(m, decl):

@@ -111,6 +111,7 @@ if (!NAME) {
 // The serial package chain remains the definition: adding a test file or a
 // discovered unittest adds it here without maintaining a second list.
 const parents = new Map();
+const inventoryDigests = {};
 function expandCommand(command) {
   // No flag preserves npm test's standing process boundaries and optional
   // local SDK behavior. CI explicitly requests independently audited pieces.
@@ -185,17 +186,17 @@ function expandCommand(command) {
     );
   }
   if (command === 'node mcp/test.mjs') {
-    const parts = JSON.parse(
-      execFileSync(process.execPath, [path.join(ROOT, 'mcp/test.mjs'), '--list-parts'], {
-        cwd: ROOT,
-        encoding: 'utf8',
-      })
-    );
+    // Inventory must not import the connector: the fan-in intentionally has
+    // no installed SDK/express tree. The suite reads this same declaration.
+    const inventoryPath = 'scripts/ci_mcp_test_parts.json';
+    const inventoryText = fs.readFileSync(path.join(ROOT, inventoryPath), 'utf8');
+    const parts = JSON.parse(inventoryText);
+    inventoryDigests[inventoryPath] = createHash('sha256').update(inventoryText).digest('hex');
     if (
       !Array.isArray(parts) ||
       parts.length === 0 ||
       new Set(parts).size !== parts.length ||
-      parts.some((part) => !/^[a-z-]+$/.test(part))
+      parts.some((part) => typeof part !== 'string' || !/^[a-z-]+$/.test(part))
     )
       throw new Error('run_parallel: invalid connector part inventory');
     expanded = parts.map((part) => `${command} --part=${part}`);
@@ -275,6 +276,7 @@ const MANIFEST = hash(
     costs: hash(costText),
     workers: WORKERS,
     splitTests: flag('split-tests') === true,
+    inventoryDigests,
   })
 );
 const SOURCE = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT, encoding: 'utf8' }).trim();
@@ -382,6 +384,7 @@ if (flag('list-json')) {
       name: NAME,
       manifest: MANIFEST,
       source: SOURCE,
+      inventoryDigests,
       leaves: ALL.map((command, i) => ({
         command,
         parent: parents.get(command),

@@ -1160,6 +1160,46 @@ def test_split_suite_inventories_and_panel_work_are_complete():
     check("panel refuses zero workers instead of performing no test work", refused)
 
 
+def _test_pool_coordinate_modes():
+    """Execute the real YAML coordinate block with inherited stale values."""
+    import collections
+    import subprocess
+    import textwrap
+    print("\n13. pool coordinates preserve native and unsharded local runs")
+    job = _ci_jobs()["suites"]
+    start = job.index('          if [ "${SUITES_SHARDS:-1}" -eq 8 ]; then')
+    end = job.index('          for f in relations_null ', start)
+    script = textwrap.dedent(job[start:end])
+    script += '\nprintf "%s|%s\\n" "${TEST_G2P_SHARD-unset}" "${TEST_SPANS_SHARD-unset}"\n'
+    cases = [(None, None, "unset|unset"), ("1", "1", "unset|unset"),
+             ("3", "2", "2/3|2/3"), ("8", "1", "8/8|5/8")]
+    for total, index, want in cases:
+        env = dict(os.environ, TEST_G2P_SHARD="77/99", TEST_SPANS_SHARD="66/99")
+        env.pop("SUITES_SHARDS", None)
+        env.pop("SUITES_SHARD", None)
+        if total is not None:
+            env.update(SUITES_SHARDS=total, SUITES_SHARD=index)
+        result = subprocess.run(["bash", "-o", "pipefail", "-c", script],
+                                env=env, capture_output=True, text=True)
+        check(f"pool {index or 'unset'}/{total or 'unset'} overrides stale coordinates correctly",
+              result.returncode == 0 and result.stdout.strip() == want,
+              result.stdout.strip() + result.stderr)
+    g2p, spans = [], []
+    for index in range(1, 9):
+        env = dict(os.environ, SUITES_SHARDS="8", SUITES_SHARD=str(index),
+                   TEST_G2P_SHARD="77/99", TEST_SPANS_SHARD="66/99")
+        result = subprocess.run(["bash", "-o", "pipefail", "-c", script],
+                                env=env, capture_output=True, text=True)
+        left, right = result.stdout.strip().split("|")
+        g2p.append(left)
+        spans.append(right)
+    expected = collections.Counter(f"{index}/8" for index in range(1, 9))
+    check("the eight G2P rotations still execute every coordinate exactly once",
+          collections.Counter(g2p) == expected)
+    check("the eight spans rotations still execute every coordinate exactly once",
+          collections.Counter(spans) == expected)
+
+
 if __name__ == "__main__":
     for fn in (test_the_deal_is_exactly_once, test_a_bad_coordinate_refuses,
                test_run_sections_times_and_gates,
@@ -1171,7 +1211,8 @@ if __name__ == "__main__":
                test_the_two_qualification_tables_cannot_drift_apart,
                test_the_backstop_can_still_reach_what_it_backs_up,
                test_panel_sections_keep_the_pool_inventory_and_failure_gate,
-               test_split_suite_inventories_and_panel_work_are_complete):
+               test_split_suite_inventories_and_panel_work_are_complete,
+               _test_pool_coordinate_modes):
         fn()
     print("=" * 62)
     if FAILURES:

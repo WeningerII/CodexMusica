@@ -21,6 +21,9 @@ try {
   put('package-lock.json', 'lock');
   put('scripts/_build_closure.js', 'closure');
   put('scripts/artifact_build_cache.js', 'admission');
+  put('scripts/build_html.js', 'builder');
+  put('src/pages/library.js', 'Library loader');
+  put('src/library/core.js', 'Library chunk source');
   put('.github/workflows/ci.yml', 'builder invocation');
   execFileSync('git', ['-C', tmp, 'add', '.']);
   const original = fingerprint(tmp);
@@ -31,6 +34,9 @@ try {
     'package-lock.json',
     'scripts/_build_closure.js',
     'scripts/artifact_build_cache.js',
+    'scripts/build_html.js',
+    'src/pages/library.js',
+    'src/library/core.js',
     '.github/workflows/ci.yml',
   ]) {
     const prior = fs.readFileSync(path.join(tmp, p));
@@ -78,9 +84,56 @@ try {
   assert.equal(admit(dir, original), false, 'symlink artifacts refuse');
   fs.unlinkSync(path.join(dir, 'codex.html'));
   put('build/codex.html', '<html>original</html>');
+
+  // The default lazy page names generated Library chunks beside codex.html.
+  // A pair-only archive used to pass admission while the fault budget baseline
+  // failed on these missing files. Every named chunk is required at record
+  // time; neither a missing chunk nor an unreferenced extra can be recorded.
+  const page =
+    '<script>const chunks={core:["library/code/core.test.js"],reader:["library/code/reader.test.js"]};</script>';
+  put('build/codex.html', page);
+  assert.throws(() => record(dir, original, tmp), /library\/code directory/);
+  put('build/library/code/core.test.js', 'core bytes');
+  assert.throws(() => record(dir, original, tmp), /required Library chunk/);
+  put('build/library/code/reader.test.js', 'reader bytes');
+  put('build/library/code/extra.test.js', 'extra generated chunk');
+  assert.throws(() => record(dir, original, tmp), /unreferenced Library chunk/);
+  fs.unlinkSync(path.join(dir, 'library/code/extra.test.js'));
+  const receipt = record(dir, original, tmp);
+  assert.equal(receipt.version, 2, 'incomplete version-1 receipts cannot be reused');
+  assert.deepEqual(
+    receipt.files.filter(([p]) => p.startsWith('library/code/')).map(([p]) => p),
+    ['library/code/core.test.js', 'library/code/reader.test.js']
+  );
+  assert.equal(admit(dir, original), true, 'the complete Library build is admitted');
+  put('build/library/code/core.test.js', 'tampered core');
+  assert.equal(admit(dir, original), false, 'tampered Library bytes refuse');
+  put('build/library/code/core.test.js', 'core bytes');
+  fs.unlinkSync(path.join(dir, 'library/code/reader.test.js'));
+  assert.equal(admit(dir, original), false, 'a missing Library chunk refuses');
+  put('build/library/code/reader.test.js', 'reader bytes');
+  put('build/library/code/unexpected.js', 'unrecorded');
+  assert.equal(admit(dir, original), false, 'an extra Library chunk refuses');
+  fs.unlinkSync(path.join(dir, 'library/code/unexpected.js'));
+  fs.unlinkSync(path.join(dir, 'library/code/core.test.js'));
+  fs.symlinkSync('../../../../README.md', path.join(dir, 'library/code/core.test.js'));
+  assert.equal(admit(dir, original), false, 'linked Library chunks refuse');
+  fs.unlinkSync(path.join(dir, 'library/code/core.test.js'));
+  put('build/library/code/core.test.js', 'core bytes');
+  fs.renameSync(path.join(dir, 'library'), path.join(tmp, 'generated-library'));
+  assert.equal(admit(dir, original), false, 'a pair-only handoff refuses');
+  fs.symlinkSync('../generated-library', path.join(dir, 'library'));
+  assert.equal(admit(dir, original), false, 'a linked Library directory refuses');
+  fs.unlinkSync(path.join(dir, 'library'));
+  fs.renameSync(path.join(tmp, 'generated-library'), path.join(dir, 'library'));
+  assert.equal(admit(dir, original), true, 'restored complete Library bytes are admitted');
+  put('build/artifact-build.json', JSON.stringify({ ...receipt, version: 1 }));
+  assert.equal(admit(dir, original), false, 'old receipts fail closed even with the same key');
   put('build/artifact-build.json', '{broken');
   assert.equal(admit(dir, original), false, 'truncated receipt refuses');
-  console.log('artifact build cache: source/runtime invalidation and damaged-cache controls pass');
+  console.log(
+    'artifact build cache: source/runtime, complete Library inventory and damaged-cache controls pass'
+  );
 } finally {
   fs.rmSync(tmp, { recursive: true, force: true });
 }

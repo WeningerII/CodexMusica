@@ -1012,7 +1012,8 @@ jobs:
   # `verify` below is now the fan-in: it proves from the two shards' records
   # that every leaf ran on exactly one of them, so `verify` still means what
   # `scripts/verify_ci.mjs`'s REQUIRED_JOBS reads it to mean. The checks
-  # outside `test:ci` run once, on shard 2, which has fewer leaf-seconds.
+  # outside `test:ci` originally ran on shard 2. As of 2026-11-11 they run
+  # on shard 3, after balancing all 203 leaves from run 43099681517.
   verify-shard:
     # 2026-11-11: eight measured-cost hands. The CI-only --split-tests mode
     # divides discovered unittest IDs, Node files, connector phases and recipe
@@ -1117,26 +1118,26 @@ jobs:
       # which this job depends on — repeating them here would just re-spend 41s.
 
       - name: Static API contract (committed api/ honors promises)
-        if: matrix.shard == 8
+        if: matrix.shard == 3
         run: npm run check:api
 
       - name: Promise→gate coverage (every promise documented AND gated, 0 orphans)
-        if: matrix.shard == 8
+        if: matrix.shard == 3
         run: npm run check:promises
 
       # Every doc that lists the connector's tools lists the tools /mcp serves.
       # Needs the connector's dependencies (it builds the surface), so it runs
       # here rather than with check-docs in the gate job.
       - name: Connector tool lists in docs match the served surface
-        if: matrix.shard == 8
+        if: matrix.shard == 3
         run: npm run check:doc-tools
 
       - name: Preface lexicon hygiene (no dup/empty/production-dead tokens, no dup ids)
-        if: matrix.shard == 8
+        if: matrix.shard == 3
         run: npm run check:prefaces
 
       - name: Authoring dead-token gate (every preface token reaches a tradition-default card)
-        if: matrix.shard == 8
+        if: matrix.shard == 3
         run: npm run check:dead-tokens
 
       # Renaming a record must never move a DIFFERENT record's picks. This was a
@@ -1144,7 +1145,7 @@ jobs:
       # merseybeat's scoring context and compiled a 1962-1968 tradition with a
       # 1981 amplifier.
       - name: Name isolation (no tradition's picks depend on another's name)
-        if: matrix.shard == 8
+        if: matrix.shard == 3
         run: npm run check:names
 
       # The publish workflow is the one piece of this repo no other gate covered,
@@ -1152,11 +1153,11 @@ jobs:
       # before anyone noticed. Its decision now lives in scripts/publish_guard.sh
       # and is exercised against a synthetic replay of that exact race.
       - name: Publish guard (a superseded build can never overwrite the live site)
-        if: matrix.shard == 8
+        if: matrix.shard == 3
         run: npm run check:publish
 
       - name: Audit data quality
-        if: matrix.shard == 8
+        if: matrix.shard == 3
         run: npm run audit
 
       # npm test -> test:connector:live -> test:lyrics:runtime ->
@@ -1284,11 +1285,11 @@ jobs:
       # still why it exists and what it catches.
 
       - name: Build codex.html (lazy shell + no-table-leak + byte-ceiling check)
-        if: matrix.shard == 8
+        if: matrix.shard == 3
         run: npm run build:html
 
       - name: UI reachability
-        if: matrix.shard == 8
+        if: matrix.shard == 3
         run: npm run reachability
 
       # The embedded build (every table inline: the page check_lazy_app and
@@ -1300,12 +1301,12 @@ jobs:
       # default output path, where the lazy build above is what UI
       # reachability reads.
       - name: Build the embedded codex.html (--check)
-        if: matrix.shard == 8
+        if: matrix.shard == 3
         run: npm run build:html:embedded -- --out="$RUNNER_TEMP/embedded/codex.html" --quiet
 
   # The fan-in for `verify-shard`, and the job `scripts/verify_ci.mjs` names.
-  # Green only when both shards were green AND their records prove the split
-  # lost nothing: the same leaf list on both, and every leaf of
+  # Green only when all eight shards were green AND their records prove the
+  # split lost nothing: the same leaf list on every shard, and every leaf of
   # `test:ci:serial` (read from this checkout's package.json) run on exactly
   # one shard.
   verify:
@@ -1336,7 +1337,7 @@ jobs:
       - name: Every leaf ran on exactly one shard
         run: node scripts/run_parallel.js test:ci:serial --split-tests --verify-shards="$RUNNER_TEMP/verify-records" --shards=8 --workers=4 --costs=scripts/ci_verify_costs.json
 
-      - name: Both shards passed
+      - name: All eight shards passed
         if: ${{ !cancelled() }}
         run: |
           result="${{ needs.verify-shard.result }}"
@@ -1450,7 +1451,7 @@ jobs:
       # Consumers check both the source/runtime identity and every file digest.
       - name: Archive the verified artifact build
         if: needs.gate.outputs.artifacts_affected == 'true'
-        run: tar -czf "$RUNNER_TEMP/verified-fresh-build.tar.gz" -C "$RUNNER_TEMP/fresh" api codex.html artifact-build.json
+        run: tar -czf "$RUNNER_TEMP/verified-fresh-build.tar.gz" -C "$RUNNER_TEMP/fresh" api codex.html library/code artifact-build.json
 
       - name: Share this run's verified artifact build
         if: needs.gate.outputs.artifacts_affected == 'true'
@@ -2800,7 +2801,8 @@ jobs:
     # 2026-11-11: eight runners. The five largest modules now partition their
     # own sections/test IDs. Full sonnet/schema aggregates retain their original
     # assertions; internal worker pools drain the ordinary four-wide pool first.
-    # Fixed checks are spread below and still run exactly once after failures.
+    # Fixed checks have their own four-worker evidence job; suites-result
+    # requires both producers and every check still runs after another fails.
     needs: [dup, gate]
     # M-250: skip when a pull_request run already tests this commit.
     if: needs.dup.outputs.already_covered != 'true'
@@ -3281,8 +3283,15 @@ jobs:
                "solo='${_mine:-none}' pool=${_pool_k}/${_pool_n}"
           # Rotate the costly section sets: their longest sections must not
           # all land beside one another on shard 1. Each rotation is a bijection.
-          export TEST_G2P_SHARD="$(( (${SUITES_SHARD:-1} + 6) % 8 + 1 ))/8"
-          export TEST_SPANS_SHARD="$(( (${SUITES_SHARD:-1} + 3) % 8 + 1 ))/8"
+          if [ "${SUITES_SHARDS:-1}" -eq 8 ]; then
+            export TEST_G2P_SHARD="$(( (${SUITES_SHARD:-1} + 6) % 8 + 1 ))/8"
+            export TEST_SPANS_SHARD="$(( (${SUITES_SHARD:-1} + 3) % 8 + 1 ))/8"
+          elif [ "${SUITES_SHARDS:-1}" -gt 1 ]; then
+            export TEST_G2P_SHARD="${SUITES_SHARD:-1}/${SUITES_SHARDS}"
+            export TEST_SPANS_SHARD="${SUITES_SHARD:-1}/${SUITES_SHARDS}"
+          else
+            unset TEST_G2P_SHARD TEST_SPANS_SHARD
+          fi
           for f in relations_null g2p spans readability reader screen \
                    recover replay_memo grid propose gate_census floor fwer homograph \
                    mut_oracle msa_fin corpus_audit provenance homeoteleuton writing_rhyme_bans null_shapes \
@@ -3342,7 +3351,20 @@ jobs:
               # Keep its index in the list so every other suite's deal holds.
               case "$f" in
                 relations_null|g2p|spans|readability|reader) ;;
-                *) [ $(( (_i - 1) % _pool_n )) -eq $(( _pool_k - 1 )) ] || continue ;;
+                *)
+                  _owner=$(( (_i - 1) % _pool_n + 1 ))
+                  # Measured on 43099681517: the unchanged residue deal spent
+                  # 535/541/522/433/541/481/338/332 s in these eight pools.
+                  # Four explicit moves retain order and exact ownership; the
+                  # replay projects 492/429/485/433/429/481/389/414 s. Other
+                  # shard counts and the unsharded local command keep residue.
+                  if [ "$_pool_n" -eq 8 ]; then
+                    case "$f" in
+                      high_report|production_revision|gate_census) _owner=8 ;;
+                      fwer) _owner=7 ;;
+                    esac
+                  fi
+                  [ "$_owner" -eq "$_pool_k" ] || continue ;;
               esac
             fi
             while [ "$(jobs -rp | wc -l)" -ge 4 ]; do
@@ -3406,6 +3428,42 @@ jobs:
             exit 1
           fi
 
+  # The first eight-shard run (43099681517) measured 332–541 s in the
+  # module pool, then up to several minutes of serial fixed checks. Run those
+  # same twelve commands four-wide beside the module pool. Their runner owns
+  # one literal inventory, isolates writable caches, records every outcome and
+  # fails after all commands finish if any command failed. This adds one setup,
+  # rather than another setup for each check. Historical rulings follow.
+  suites-evidence:
+    needs: [dup, gate]
+    if: needs.dup.outputs.already_covered != 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      SWEEP_WORKERS: '1'
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11.16'
+          architecture: 'x64'
+      - name: Stage the pronunciation dictionary
+        working-directory: lyric-harness
+        run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+      - name: Install the locked harness dependencies
+        run: python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
+      - name: Install numpy for evidence instruments
+        run: python3 -m pip install --disable-pip-version-check numpy
+      - name: Stage the tagger model and concreteness norms
+        working-directory: lyric-harness
+        run: python3 quality/fetch_data.py --research
+
+      # MOVED 2026-11-11: the checks described below retain their exact argv
+      # in scripts/run_suite_evidence.py. Former shard assignments are history;
+      # the complete runner now invokes every command even after a peer fails.
       # MOVED HERE FROM `record` 2026-08-14, because this job has the tagger.
       # 64 CPU-s. It judges 13 of the 18 calibration constants EXACTLY and
       # REFUSES the other 5 BY NAME rather than passing them silently (doctrine
@@ -3505,14 +3563,6 @@ jobs:
       # E-5 joined it, while shard 2's loop was the shortest each time. With
       # the 3.7-min meter bands on shard 2 the longest of the three becomes
       # 23.4, 25.3 and 30.3 on the same step times. Still done exactly once.
-      - name: Song-profile calibration, against the drift that is RULED (not silenced)
-        if: ${{ always() && matrix.shard == 5 }}
-        working-directory: lyric-harness
-        env:
-          OMP_NUM_THREADS: '1'
-          MKL_NUM_THREADS: '1'
-          OPENBLAS_NUM_THREADS: '1'
-        run: python3 quality/expected_drift.py song_profile_calibration-fast
 
       # The same pattern for the meter bands (DENSITY [5,12] / PROMINENCE
       # [2,7], adopted 2026-08-17 in RESULTS_METER_BANDS_READER.md and
@@ -3524,14 +3574,6 @@ jobs:
       # the grader (doctrine 58/48). Proven to exit 1 by the suite's own
       # mutation set (test_meter_bands section 9 drives the comparison
       # logic; --check is this same comparison over the real sweep).
-      - name: Meter-band adoption check, the shipped constants re-derived
-        if: ${{ always() && matrix.shard == 6 }}
-        working-directory: lyric-harness
-        env:
-          OMP_NUM_THREADS: '1'
-          MKL_NUM_THREADS: '1'
-          OPENBLAS_NUM_THREADS: '1'
-        run: python3 quality/meter_bands.py --check
 
       # THE COMPARATOR'S SPAN SEARCH AGAINST A NULL UNDER THE SAME SEARCH.
       # `best_score` records `search_k` under a comment calling it "the
@@ -3553,14 +3595,6 @@ jobs:
       # so the sweep costs no extra scoring). It is a rounding error against
       # this job's budget -- which is stated here because M-129's whole
       # subject was a shard whose cost nobody had written down.
-      - name: Span-search null, the shipped band against the measured crossover
-        if: ${{ always() && matrix.shard == 5 }}
-        working-directory: lyric-harness
-        env:
-          OMP_NUM_THREADS: '1'
-          MKL_NUM_THREADS: '1'
-          OPENBLAS_NUM_THREADS: '1'
-        run: python3 quality/search_null.py --check
 
       # DOES THE SCHEMA DOOR RESCUE A SOUND THE LISTENER GETS? (`MISSING.md`
       # M-140, registered in `quality/SCHEMA_END_READING_PREREGISTRATION.md`
@@ -3586,14 +3620,6 @@ jobs:
       # it never joins that count. Cheap -- it reads `check_scheme`'s own
       # report over the sonnet battery and counts, ~1 min, no scoring beyond
       # what the battery already pays.
-      - name: The schema door's end-rhyme reading, split from its satisfaction
-        if: ${{ always() && matrix.shard == 5 }}
-        working-directory: lyric-harness
-        env:
-          OMP_NUM_THREADS: '1'
-          MKL_NUM_THREADS: '1'
-          OPENBLAS_NUM_THREADS: '1'
-        run: python3 quality/schema_end_reading.py --check
 
       # HOW FAR APART ARE THE LINES THE SCHEMA DOOR RESCUES? (`MISSING.md`
       # M-240's open half, under
@@ -3612,14 +3638,6 @@ jobs:
       # first reported 924 because the runner read `pairs_schema_satisfied`,
       # which now lists every pair standing in a schema; it reads
       # `schema_end_reading.schema_only()` now. E2 still fires.
-      - name: The schema door's rescues by line distance, and why the sonnets cannot answer
-        if: ${{ always() && matrix.shard == 5 }}
-        working-directory: lyric-harness
-        env:
-          OMP_NUM_THREADS: '1'
-          MKL_NUM_THREADS: '1'
-          OPENBLAS_NUM_THREADS: '1'
-        run: python3 quality/schema_window.py --check
 
       # WHICH DOOR EACH SITE JUDGES A PAIR AT (`MISSING.md` M-139, owner's
       # ruling 2026-08-26: *"go find everywhere it still has the incorrect 4
@@ -3640,10 +3658,6 @@ jobs:
       #
       # COST, MEASURED before it was added: **1.9s**, pure AST, no corpus and
       # no scoring.
-      - name: Door census, every pair-satisfaction site against every relation
-        if: ${{ always() && matrix.shard == 5 }}
-        working-directory: lyric-harness
-        run: python3 quality/door_census.py --check
 
       # THE CHANCE RATE OF THE SHIPPED DOOR (`MISSING.md` M-138's strike and
       # M-140). This repository's oldest comparator argument is the one that
@@ -3663,23 +3677,27 @@ jobs:
       # COST, MEASURED before it was added: **45s** -- four cells of 4,000
       # pairs, each judged against every relation. It is here rather than in the
       # cheap-suite pool for exactly that reason.
-      - name: Chance rate, the shipped door against random pairs
-        if: ${{ always() && matrix.shard == 7 }}
-        working-directory: lyric-harness
-        run: python3 quality/chance_rate.py --check
-
-      - name: E-5 empty-coda evidence compatibility, canon
-        if: ${{ always() && matrix.shard == 8 }}
-        working-directory: lyric-harness
-        run: python3 quality/e5_coda_adoption.py --part=canon
-
-      - name: E-5 empty-coda evidence compatibility, complete random samplers
-        if: ${{ always() && matrix.shard >= 4 && matrix.shard <= 7 }}
-        working-directory: lyric-harness
-        run: python3 quality/e5_coda_adoption.py --part=random-$(( ${{ matrix.shard }} - 3 ))/4
 
       # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
       # green -- against the "15+ minutes each" that kept them out until today.
+
+      - name: Every fixed calibration and evidence check, with complete outcomes
+        if: ${{ always() }}
+        run: >-
+          python3 scripts/run_suite_evidence.py --workers=4
+          --logs-dir="$RUNNER_TEMP/suite-evidence-logs"
+          --report="$RUNNER_TEMP/suite-evidence.json"
+      - name: Preserve every evidence command's log and outcome
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: suite-evidence
+          path: |
+            ${{ runner.temp }}/suite-evidence-logs/**/*.log
+            ${{ runner.temp }}/suite-evidence.json
+          if-no-files-found: error
+          retention-days: 7
+
   # An always-reporting summary over the `suites` shards, so the largest test
   # job in the repository can still be a REQUIRED status check.
   #
@@ -3714,41 +3732,29 @@ jobs:
     # M-250: `gate` joins so this skips WITH its matrix on a duplicate push
     # run — otherwise it would aggregate a matrix that never ran, and its
     # `skipped` arm would read that as gate having failed.
-    needs: [dup, gate, suites]
+    needs: [dup, gate, suites, suites-evidence]
     # A seconds-long fan-in; capped so a wedged runner cannot make it the
     # slowest job in the run it exists to summarize.
     timeout-minutes: 15
     if: ${{ !cancelled() && needs.dup.outputs.already_covered != 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Aggregate the suites shards
+      - name: Require both complete suites producers
+        env:
+          SUITES_RESULT: ${{ needs.suites.result }}
+          EVIDENCE_RESULT: ${{ needs.suites-evidence.result }}
         run: |
-          result="${{ needs.suites.result }}"
-          echo "suites aggregate result: $result"
-          case "$result" in
-            success)
-              echo "All shards passed."
-              ;;
-            skipped)
-              # Unlike `catalog`, this job has no `if:` — it runs on every
-              # event — so a skip means `gate` did not succeed and the suites
-              # never ran. Reporting success here would certify a pool that
-              # was never executed.
-              echo "::error::suites shards were SKIPPED — the job is unconditional, so this means gate did not succeed and no suite ran"
-              exit 1
-              ;;
-            cancelled)
-              # Reached only when the RUN was not cancelled (the `if:` above),
-              # so this is a shard that died on its own — a timeout or a
-              # runner loss.
-              echo "::error::suites shards were CANCELLED while the run was not — a shard hit its own timeout or lost its runner"
-              exit 1
-              ;;
-            *)
-              echo "::error::suites shards reported '$result'"
-              exit 1
-              ;;
-          esac
+          failed=0
+          for producer in SUITES EVIDENCE; do
+            key="${producer}_RESULT"
+            result="${!key}"
+            echo "$producer result: $result"
+            if [ "$result" != success ]; then
+              echo "::error::$producer reported '$result'; every suites producer must execute and pass"
+              failed=1
+            fi
+          done
+          [ "$failed" -eq 0 ] || exit 1
 
   # ── The revision pair, its own runner (SPLIT OUT 2026-08-18) ─────────────
   # It ran as the suites job's LAST step, sequential after the 49-suite

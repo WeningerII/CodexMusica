@@ -83,7 +83,9 @@ for (const inst of C.INSTRUMENTS || [])
 // command still runs this entire suite, in its original order. The planner
 // fixture is initialized independently for revision and title checks; no part
 // inherits a warm worker, remembered run, or mocked fetch from another process.
-const PARTS = ['offline', 'live-revision', 'live-title', 'live-lookups'];
+const PARTS = JSON.parse(
+  readFileSync(new URL('../scripts/ci_mcp_test_parts.json', import.meta.url), 'utf8')
+);
 const suiteStarted = performance.now();
 const partArg = process.argv.find((arg) => arg.startsWith('--part='));
 const PART = partArg ? partArg.slice('--part='.length) : null;

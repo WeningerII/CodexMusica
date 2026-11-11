@@ -1224,10 +1224,14 @@ def evaluate_heldout(lex, fallback_factory, limit=None, stressless=False):
     The dictionary entry is removed from the fallback's view before it reads
     the word, so a `morphology` reading has to reach a DIFFERENT headword.
     """
-    train, heldout = _split_dict(lex.entries)
+    # The held-out gold and the learned letter rules share the RAW CMUdict
+    # coordinate. Accent-derived readings are runtime alternatives, not the
+    # dictionary this model was trained on (2026-11-11; ff556ae5).
+    entries = lex.cmu_raw_entries
+    train, heldout = _split_dict(entries)
     if limit:
         heldout = heldout[:limit]
-    hidden = dict(lex.entries)
+    hidden = dict(entries)
     for w in heldout:
         hidden.pop(w, None)
 
@@ -1243,7 +1247,7 @@ def evaluate_heldout(lex, fallback_factory, limit=None, stressless=False):
     per_layer = Counter()
     per_layer_exact = Counter()
     for w in heldout:
-        gold = [p for p in lex.entries[w][0]]
+        gold = [p for p in entries[w][0]]
         r = fb.read(w)
         if r is None:
             continue
@@ -1282,7 +1286,10 @@ def main(argv):
         return _counts_main(args)
     lex = Lexicon()
     if args[0] == "--train":
-        train_letter_rules(lex.entries)
+        # The artifact declares CMUdict, not the accent rules applied by
+        # the runtime reader. ff556ae5 changed 2,011 first readings without
+        # changing the split size; raw CMUdict reproduces the shipped bytes.
+        train_letter_rules(lex.cmu_raw_entries)
         return 0
     if args[0] == "--evaluate":
         lim = int(args[1]) if len(args) > 1 else 3000
