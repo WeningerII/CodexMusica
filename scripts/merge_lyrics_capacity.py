@@ -51,6 +51,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
+sys.path.insert(0, str(ROOT / 'lyric-harness'))
 
 # The declared population, read from the ONE place that declares it (doctrine 1).
 # Retyping 18/24/31 here is how a merger and a matrix come to disagree about
@@ -59,6 +60,7 @@ from check_lyrics_capacity import (CELLS, LEAK_MIN_BOUNDARIES, LIMITS, MODES,  #
                                    SEEDS, SIZES, summarize_measurements, source_closure)
 
 from library_load_measurement import load_trace_failures
+from quality.release_assets import runtime_modules
 
 EXPECTED_EXECUTIONS = len(CELLS) * len(MODES)
 #: Fewer boundaries than this and the leak signature never ran (doctrine 20).
@@ -235,9 +237,11 @@ def merge(shards):
     if not shards:
         return {}, ['no capacity shards were supplied']
     # The producer records a path -> SHA-256 map, not a digest of the map.
+    # Derive the expected closure from the Docker assembler's module inventory,
+    # not research/build-only modules present solely in the checkout.
     # Require its complete runtime closure as well as valid hashes; equally
     # incomplete maps across every shard must not qualify production.
-    expected_sources = set(source_closure())
+    expected_sources = set(source_closure(harness_modules=runtime_modules(ROOT / 'lyric-harness')))
     def valid_identity(value):
         return (isinstance(value, dict) and bool(value) and set(value) == expected_sources
                 and all(isinstance(digest, str) and re.fullmatch(r'[0-9a-f]{64}', digest)

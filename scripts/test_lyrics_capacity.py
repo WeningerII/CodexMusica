@@ -17,8 +17,11 @@ from measure_verb_memory import _checkpoint_valid, _machine_result, CONTROL_TOKE
 
 @lru_cache(maxsize=1)
 def producer_source_identity():
-    from check_lyrics_capacity import source_identity
-    return source_identity()
+    from check_lyrics_capacity import source_identity, source_closure, ROOT
+    from merge_lyrics_capacity import runtime_modules
+    identity = source_identity()
+    projected = source_closure(harness_modules=runtime_modules(ROOT / 'lyric-harness'))
+    return {name: identity[name] for name in projected}
 
 
 def measured(mode='cold'):
@@ -462,6 +465,38 @@ class CapacitySourceIdentity(unittest.TestCase):
 class CapacitySourceClosure(unittest.TestCase):
     """The identity is every repository module the measured runtime loads,
     derived from its entry points, not a hand-picked list (#612/#664 R-3)."""
+
+    def test_checkout_projection_matches_the_assembled_source_tree(self):
+        import tempfile
+        import shutil
+        import check_lyrics_capacity as matrix
+        from merge_lyrics_capacity import runtime_modules
+        root = matrix.ROOT
+        shipped = set(runtime_modules(root / 'lyric-harness'))
+        full = matrix.source_closure()
+        projected = matrix.source_closure(harness_modules=shipped)
+        self.assertIn('lyric-harness/battery.py', full)
+        self.assertNotIn('lyric-harness/battery.py', projected)
+        expected = {name: hashlib.sha256((root / name).read_bytes()).hexdigest()
+                    for name in projected}
+        with tempfile.TemporaryDirectory() as tmp:
+            staged = Path(tmp)
+            # Reproduce the assembler's source selection, without assets,
+            # Docker, network, workloads or copying corpus content.
+            for name in full:
+                source = root / name
+                if name.startswith('lyric-harness/') and source not in shipped:
+                    continue
+                target = staged / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(source, target)
+            with patch.object(matrix, 'ROOT', staged):
+                actual = matrix.source_identity()
+                self.assertEqual(actual, expected)
+                # A missing shipped module must not silently shrink what the
+                # checkout validator expects from the measured image.
+                (staged / 'mcp/worker.py').unlink()
+                self.assertNotEqual(set(matrix.source_identity()), set(expected))
 
     def test_the_closure_covers_grid_and_the_old_hand_picked_list(self):
         from check_lyrics_capacity import source_closure, source_identity

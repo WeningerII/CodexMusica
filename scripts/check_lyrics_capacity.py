@@ -588,7 +588,7 @@ def _script_literals(path):
     return found
 
 
-def source_closure():
+def source_closure(*, harness_modules=None):
     """-> sorted repository paths the measured runtime loads from its entry
     points: the Python import closure (static, so imports inside functions
     count), the relative JS import closure, and every script a member
@@ -599,10 +599,16 @@ def source_closure():
     `scripts/_loader.js` evaluates from references/*.js with readFileSync and
     new Function, and every data/ or corpus table. Two shards that agree on
     this identity ran the same code, not necessarily the same inputs."""
+    # The checkout merger can project the harness tree through the same
+    # runtime_modules inventory that Docker assembly uses. The producer's
+    # default still walks every source actually present in its measured image.
+    admitted = None if harness_modules is None else {Path(p).resolve() for p in harness_modules}
+    harness = ROOT / 'lyric-harness'
     seen, todo = set(), [ROOT / entry for entry in SOURCE_ENTRIES]
     while todo:
         path = todo.pop().resolve()
-        if path in seen or not path.is_file():
+        if (path in seen or not path.is_file() or
+                admitted is not None and harness in path.parents and path not in admitted):
             continue
         seen.add(path)
         if path.suffix == '.py':
