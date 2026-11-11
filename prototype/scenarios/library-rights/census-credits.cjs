@@ -550,6 +550,9 @@ async function main() {
     await page.setViewportSize({ width: 320, height: 700 });
     await page.evaluate(() => window.make());
     await page.emulateMedia({ colorScheme: 'dark' });
+    // make() owns a fresh link on every mount; a previous load does not
+    // establish that this mount's stylesheet has finished loading.
+    await page.waitForFunction(() => document.querySelector('#host > link')?.sheet);
     const dark = await page.locator('.pcc').evaluate((el) => ({
       foreground: getComputedStyle(el).color,
       background: getComputedStyle(el.querySelector('.pcc-card')).backgroundColor,

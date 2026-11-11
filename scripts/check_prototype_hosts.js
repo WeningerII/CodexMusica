@@ -9485,6 +9485,9 @@ const CLASSIFIER_MUTANTS = {
 // errors it didn't expect.
 async function storeRun(browser, srv, name, prod, served = {}, body) {
   const check = STORE_CHECKS[name];
+  // The registered catalog is otherwise replaced by newPage's generic probe.
+  // This check exercises the actual lane; explicit mutant sources still win.
+  if (name === 'catalogNote') served = { catalog: CATALOG_JS, ...served };
   const opts = check.opts || {};
   const pages = [];
   const open = async () => {
