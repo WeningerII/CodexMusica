@@ -1,0 +1,87 @@
+#612 hosted global-fixture transfer + rebuild admission — unpublished review tree
+
+Parent withdrew its precautionary strict-zero-cost rule; ordinary bounded CI and
+artifact use is authorized. No upgrade, paid runner, storage plan or separate
+financial commitment. Historical artifact 13467272488/run42138230866 and denied
+executor route remain untouched. No publication/dispatch or actual-image run yet.
+
+This supersedes the temporary no-artifact/per-host alternative. There is ONE global
+decoded corpus, two genuine encoded sets and common JobStore bytes. No image archive
+or registry publication. All v2 production identity checks remain unchanged.
+
+Hosted preparation:
+Existing guarded one-shot branch builds exact candidate and pulls immutable baseline.
+Inventory collector now mounts the FINAL common scripts tree, inventories references
+as well, and records actual instrumented runtimeSourceFingerprint. Preparation uses
+that same tree and refuses a different encoding/runtime fingerprint.
+hosted_paired_fixture_prepare.py generates once in baseline, encodes separately in
+both images, verifies v2 manifests/decoded equality/envelopes, and runs real offline
+startup, receipt replay and restart in both images using the existing PairedRuntime.
+It records statuses/logs and keeps approval=unreviewed even when execution passes.
+No capacity cells are run. Startup preflight is NOT production qualification.
+Own UUID preparation containers have finally cleanup; no shared container deletion.
+Preparation keeps 1CPU/2GiB/no-swap/no-network per container; each invocation has a
+20-minute preparation-only timeout. Measurement timeouts/limits are unchanged.
+Host admission requires 8GiB free disk and 4GiB MemAvailable; actual peak host parsing
+may still fail. Such failure is not grounds to shrink payloads or raise service gates.
+Before later measurement confirm host paging/swap inactivity and sufficient headroom;
+no host swap/security configuration is changed here.
+
+Transfer:
+Only newly generated synthetic fixture files are tar/gzip packed. Hard bounds:
+4096 regular files, 2GiB expanded, 1GiB compressed. Links/special entries are refused;
+unpack also refuses absolute/traversal/duplicate members and validates expected
+archive SHA before extraction. Extracted files0600/directories0700 preserve JobStore
+requirements. Whole-package membership/hash receipt supplements each v2 manifest.
+Upload uses existing pinned official action, compression-level0 for already compressed
+tar, one-day retention. Small inventory/log evidence remains seven-day retention.
+The complete combined set must satisfy actual caps; no fixture truncation is allowed.
+Any expired artifact requires an explicitly reviewed fresh preparation, not an old
+artifact substitute or silently regenerated per-arm payloads.
+
+Cross-run access is a separate workflow_call-only preflight, not automatic campaign:
+.github/workflows/612-paired-fixture-access.yml accepts an explicit new run ID,
+artifact ID, exact protocol SHA and independently pinned inner archive SHA256.
+Read-only API metadata must match run/head/name/not-expired/size before pinned
+official download-artifact. Downloaded package names, compressed hash, expanded
+membership and every extracted file hash are verified. Output says access verified,
+approval unreviewed; no measurement job follows it. Historical target/run are refused.
+No fixture bytes pass through the earlier denied executor transfer route, no token
+is persisted, and the invalid local gh CLI is unused.
+
+Rebuild admission:
+Original encoding proof/manifest image_id is NEVER rewritten. Driver accepts original
+encoding-evidence and fresh rebuild-evidence directories only with explicit reviewed
+rebuild_rule=exact-inventory-except-baked-release-v1. The reviewed preflight must bind
+each original inventory JSON SHA256 and effective-config SHA256. Fresh inspect/read
+status must name actual driver image ID; source pins and baked source must agree.
+Compare full original/current inventory records and effective configs; only baked
+release_id may differ, and both original/new values are retained. No dependency,
+asset, instrumented source, interpreter or environment drift is normalized away.
+Full observed inventories can conservatively refuse bytecode or package changes;
+that requires review, never silently filtering fields.
+Witness binds old encoding image ID, current measurement image ID, approved/current
+inventory hashes, source/runtime fingerprint and old/new release IDs. Fixture proofs
+are checked against the ORIGINAL image; actual current runtime fingerprint must
+match the reviewed encoding fingerprint. Source SHA alone cannot admit a rebuild.
+Without a witness the original exact-image binding remains in force.
+
+Required approval fields, supplied by owner/reviewer, not auto-generated here:
+status=verified, reviewer and evidence_source, previous per-arm identity/equality
+fields; fixture_protocol=paired-decoded-fixtures-v2; both fixture manifest hashes;
+common corpus hash; explicit rebuild_rule; per-arm inventory_sha256 and
+effective_config_sha256. Final named criteria-owner authority remains with parent.
+Technical review is not labelled Jony acceptance or John's latency decision.
+
+Local verification: 36 Python tests including new-image-ID admission, dependency/
+source drift, changed approved bytes, archive roundtrip/private modes, links,
+traversal, duplicate paths and budget refusals. Preparation timeout/cleanup and existing failed-arm receipt regression
+still passes. Both workflows parse and all shell blocks pass bash -n; Python compile
+and git diff checks pass. Actual pinned-image preparation, cross-run access and
+equivalence execution are NOT run. New code requires independent review.
+
+No main/#836/shared CI/#848 files edited. This session owns new fixture-access
+workflow, preparation/startup/archive/admission helpers and tests, plus this note;
+existing issue-private paths retain ownership until reviewed handoff/withdrawal.
+Separate final campaign wiring/publication follows criteria-owner acceptance of
+these exact reviewed bytes and observed preflight evidence; no implicit chaining.

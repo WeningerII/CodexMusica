@@ -105,6 +105,8 @@ def main():
     ap.add_argument('--after-fixtures', required=True, type=Path)
     ap.add_argument('--common-corpus', required=True, type=Path)
     ap.add_argument('--preflight', required=True, type=Path)
+    ap.add_argument('--encoding-evidence', type=Path)
+    ap.add_argument('--rebuild-evidence', type=Path)
     ap.add_argument('--candidate-first', action='store_true')
     args = ap.parse_args()
     from check_lyrics_capacity import parse_cells
@@ -128,9 +130,21 @@ def main():
             raise RuntimeError(f'{label}: image/source identity mismatch')
         images[label] = {'image_id': image, 'source_sha': sha}
     preflight = json.loads(args.preflight.read_text())
-    validate_preflight(preflight, images)
+    encoding_images = images
+    rebuild_witnesses = None
+    if args.encoding_evidence or args.rebuild_evidence:
+        if not args.encoding_evidence or not args.rebuild_evidence:
+            ap.error('both original encoding and current rebuild evidence are required')
+        encoding_images = {arm: {'image_id':preflight[arm]['image_id'], 'source_sha':images[arm]['source_sha']} for arm in images}
+        validate_preflight(preflight, encoding_images)
+        from paired_rebuild_admission import admit
+        rebuild_witnesses = admit(preflight, images, args.encoding_evidence, args.rebuild_evidence)
+    else:
+        validate_preflight(preflight, images)
     scripts = scripts_inventory(ROOT / 'scripts')
-    sets = {key: fixture_set(fixtures[key], images[key], scripts) for key in images}
+    sets = {key: fixture_set(fixtures[key], encoding_images[key], scripts) for key in images}
+    if rebuild_witnesses and any(sets[key]['proof']['runtime_source_sha256'] != rebuild_witnesses[key]['instrumented_runtime_sha256'] for key in images):
+        raise RuntimeError('encoding proof and reviewed rebuilt runtime fingerprints differ')
     common_identity = compare_sets(sets['before'], sets['after'], args.common_corpus.read_bytes())
     fixture_identity = {key: value['manifest_sha256'] for key, value in sets.items()}
     if preflight.get('fixture_protocol') != PROTOCOL or preflight.get('fixture_manifests') != fixture_identity or preflight.get('common_corpus_sha256') != common_identity:
@@ -144,6 +158,7 @@ def main():
     receipt = {'experiment_id': str(uuid.uuid4()), 'host': platform.uname()._asdict(),
                'fixture_protocol': PROTOCOL, 'fixture_manifests': fixture_identity,
                'common_corpus_sha256': common_identity, 'preflight': preflight,
+               'encoding_images': encoding_images, 'rebuild_witnesses': rebuild_witnesses,
                'replications_per_cell': 2,
                'images': images, 'cells': args.cells, 'order': [{'replication': r, 'arm': a} for r,a,_,_ in schedule(arms)],
                'scripts_sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
@@ -160,7 +175,7 @@ def main():
         phase = 'precheck'
         measurement_invoked = False
         try:
-            current = {key: fixture_set(fixtures[key], images[key], scripts_inventory(ROOT / 'scripts')) for key in images}
+            current = {key: fixture_set(fixtures[key], encoding_images[key], scripts_inventory(ROOT / 'scripts')) for key in images}
             if {key:value['manifest_sha256'] for key,value in current.items()} != fixture_identity:
                 raise RuntimeError('derived fixtures changed between repetitions')
             if scripts_inventory(ROOT / 'scripts') != scripts:

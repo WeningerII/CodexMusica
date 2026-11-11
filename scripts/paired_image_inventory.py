@@ -145,11 +145,13 @@ def collect(root):
     return {'status': 'unreviewed', 'source_sha': baked['commit'], 'baked': baked,
             'node_version': subprocess.check_output(['node', '--version'], text=True).strip(),
             'python_version': platform.python_version(),
+            'instrumented_runtime_sha256': subprocess.check_output(['node', '--input-type=module', '-e',
+                "import {runtimeSourceFingerprint} from '/app/mcp/build_identity.js'; console.log(runtimeSourceFingerprint());"], text=True).strip(),
             'assets': inventory(root, names),
             'corpus_directory_present': corpus_presence,
             'runtime_dependencies': dependencies(root),
             'runtime_source': inventory(root, [p.relative_to(root).as_posix()
-                for directory in ('mcp', 'scripts', 'lyric-harness')
+                for directory in ('mcp', 'scripts', 'lyric-harness', 'references')
                 for p in (root / directory).rglob('*')
                 if p.is_file() and p.suffix in ('.js', '.mjs', '.py')
                 and 'node_modules' not in p.parts]),

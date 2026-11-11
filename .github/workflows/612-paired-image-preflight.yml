@@ -23,11 +23,12 @@ jobs:
       github.event.forced == false &&
       github.run_attempt == 1
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 210
     env:
       BEFORE_SHA: 99c1586bfc994fd1b138632fe8c7845b40072142
       AFTER_SHA: 960dd1820a643610ec69b782f4715821c1dcb6a8
       BASELINE_DIGEST: sha256:f314ffd665dfc617d22b24c75e03ecb563452c0756b20bfb7f3314d887580954
+      PYTHONDONTWRITEBYTECODE: '1'
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
@@ -133,6 +134,35 @@ jobs:
         run: |
           set -euo pipefail
           python3 diagnostic/scripts/collect_paired_images.py evidence diagnostic/scripts/paired_image_inventory.py
+      - name: Generate global decoded corpus and genuine per-image fixtures
+        timeout-minutes: 110
+        run: python3 diagnostic/scripts/hosted_paired_fixture_prepare.py evidence fixture-bundle diagnostic/scripts
+      - name: Bound and package only new synthetic fixtures
+        run: |
+          mkdir -p fixture-transfer
+          python3 diagnostic/scripts/paired_fixture_archive.py pack fixture-bundle fixture-transfer/fixtures.tar.gz > evidence/fixture-archive.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        id: fixtures
+        with:
+          name: issue-612-global-fixtures-${{ github.run_attempt }}
+          path: fixture-transfer/
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 1
+      - name: Record fixture transfer identity without approval
+        env:
+          FIXTURE_ARTIFACT_ID: ${{ steps.fixtures.outputs.artifact-id }}
+          FIXTURE_ARTIFACT_DIGEST: ${{ steps.fixtures.outputs.artifact-digest }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          Path('evidence/fixture-transfer.json').write_text(json.dumps({
+            'status':'unreviewed', 'run_id':os.environ['GITHUB_RUN_ID'],
+            'attempt':os.environ['GITHUB_RUN_ATTEMPT'], 'protocol_sha':os.environ['GITHUB_SHA'],
+            'artifact_id':os.environ['FIXTURE_ARTIFACT_ID'],
+            'artifact_digest':os.environ['FIXTURE_ARTIFACT_DIGEST'], 'retention_days':1}, indent=2))
+          PY
       - name: Final disk and daemon diagnostics
         if: always()
         shell: bash

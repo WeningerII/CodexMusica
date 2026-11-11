@@ -25,6 +25,7 @@ def read_arm(arm, evidence, helper):
             result = subprocess.run(['docker', 'run', '--name', name, '--rm', '--pull=never',
                 '--network=none', '--read-only', '--mount',
                 f'type=bind,src={helper.resolve()},dst=/inventory.py,readonly',
+                '--mount', f'type=bind,src={helper.resolve().parent},dst=/app/scripts,readonly',
                 '--entrypoint', 'python3', image, '/inventory.py'],
                 stdout=out, stderr=err, timeout=600)
         status['exit_code'] = result.returncode

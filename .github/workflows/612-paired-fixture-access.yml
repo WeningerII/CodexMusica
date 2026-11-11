@@ -1,0 +1,84 @@
+name: Issue 612 fixture access preflight
+on:
+  workflow_call:
+    inputs:
+      run_id:
+        type: number
+        required: true
+      artifact_id:
+        type: number
+        required: true
+      protocol_sha:
+        type: string
+        required: true
+      archive_sha256:
+        type: string
+        required: true
+permissions:
+  contents: read
+  actions: read
+jobs:
+  access:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SOURCE_RUN: ${{ inputs.run_id }}
+      FIXTURE_ARTIFACT: ${{ inputs.artifact_id }}
+      PROTOCOL_SHA: ${{ inputs.protocol_sha }}
+      EXPECTED_ARCHIVE_SHA256: ${{ inputs.archive_sha256 }}
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ inputs.protocol_sha }}
+          persist-credentials: false
+      - name: Verify new artifact provenance and available space before download
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, shutil, urllib.request
+          from pathlib import Path
+          for key in ('SOURCE_RUN','FIXTURE_ARTIFACT'):
+              assert re.fullmatch(r'[1-9][0-9]*',os.environ[key]), 'invalid ID'
+          assert re.fullmatch(r'[a-f0-9]{40}',os.environ['PROTOCOL_SHA'])
+          assert re.fullmatch(r'[a-f0-9]{64}',os.environ['EXPECTED_ARCHIVE_SHA256'])
+          assert int(os.environ['FIXTURE_ARTIFACT']) != 13467272488, 'historical target prohibited'
+          assert int(os.environ['SOURCE_RUN']) != 42138230866, 'historical run prohibited'
+          req=urllib.request.Request('https://api.github.com/repos/WeningerII/CodexMusica/actions/artifacts/'+os.environ['FIXTURE_ARTIFACT'],
+              headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          with urllib.request.urlopen(req,timeout=30) as response: value=json.load(response)
+          assert value['id']==int(os.environ['FIXTURE_ARTIFACT']) and not value['expired']
+          assert re.fullmatch(r'issue-612-global-fixtures-[1-9][0-9]*',value['name'])
+          assert value['workflow_run']['id']==int(os.environ['SOURCE_RUN'])
+          assert value['workflow_run']['head_sha']==os.environ['PROTOCOL_SHA']
+          assert value['size_in_bytes'] <= 1024**3+1024**2, 'artifact exceeds bounded wrapper allowance'
+          assert shutil.disk_usage('.').free>=4*1024**3, 'insufficient fixture access headroom'
+          Path('fixture-artifact-provenance.json').write_text(json.dumps(value,indent=2))
+          PY
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          artifact-ids: ${{ inputs.artifact_id }}
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ github.token }}
+          repository: WeningerII/CodexMusica
+          merge-multiple: true
+          path: fixture-transfer
+      - name: Verify bounded archive and complete extracted file membership
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          from scripts.paired_fixture_archive import unpack
+          transfer=Path('fixture-transfer')
+          assert {p.name for p in transfer.iterdir()}=={'fixtures.tar.gz','fixtures.tar.receipt.json'}
+          files=unpack(transfer/'fixtures.tar.gz',Path('fixtures'),os.environ['EXPECTED_ARCHIVE_SHA256'])
+          receipt=json.loads((transfer/'fixtures.tar.receipt.json').read_text())
+          assert receipt['archive_sha256']==os.environ['EXPECTED_ARCHIVE_SHA256']
+          assert files==receipt['files'], 'fixture membership or bytes differ'
+          print(json.dumps({'status':'access-and-bytes-verified','approval':'unreviewed',
+              'artifact_id':os.environ['FIXTURE_ARTIFACT'],'run_id':os.environ['SOURCE_RUN'],
+              'archive_sha256':os.environ['EXPECTED_ARCHIVE_SHA256'],'measurements_run':False}))
+          PY
+# No measurement job, workflow_run chain, registry publication or deployment.
+# Independent evidence approval precedes a separately reviewed campaign dispatch.
