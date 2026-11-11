@@ -31,11 +31,13 @@ def frozen_image(value):
     return value
 
 
-def command(image, scripts, output, cells, mode, arm):
+def command(image, scripts, output, cells, mode, arm, fixtures):
     return DOCKER + ['run', '--rm', '--pull=never', '--network=none', '--cpus=1',
         '--memory=2g', '--memory-swap=2g', '--pids-limit=256',
         '--mount', f'type=bind,src={scripts},dst=/app/scripts,readonly',
         '--mount', f'type=bind,src={output},dst=/evidence',
+        '--mount', f'type=bind,src={fixtures},dst=/fixtures,readonly',
+        '-e', 'PAIRED_CAPACITY_FIXTURES=/fixtures',
         '--workdir=/app', '--entrypoint=python3', frozen_image(image),
         '/app/scripts/paired_library_capacity_probe.py', f'--cells={cells}',
         f'--library-mode={mode}', f'--out=/evidence/{arm}.json']
@@ -49,6 +51,7 @@ def main():
     ap.add_argument('--after-sha', required=True)
     ap.add_argument('--cells', required=True)
     ap.add_argument('--out', required=True, type=Path)
+    ap.add_argument('--fixtures', required=True, type=Path)
     ap.add_argument('--candidate-first', action='store_true')
     args = ap.parse_args()
     from check_lyrics_capacity import parse_cells
@@ -59,6 +62,9 @@ def main():
     for sha in (args.before_sha, args.after_sha):
         if not re.fullmatch(r'[0-9a-f]{40}', sha):
             ap.error('full source commits are required')
+    from paired_library_capacity_probe import fixture_files
+    fixtures = args.fixtures.resolve()
+    fixture_identity = fixture_files(fixtures)
     env = docker_env()
     images = {}
     for label, image, sha in [('before', args.before_image, args.before_sha),
@@ -75,6 +81,7 @@ def main():
     if args.candidate_first:
         arms.reverse()
     receipt = {'experiment_id': str(uuid.uuid4()), 'host': platform.uname()._asdict(),
+               'fixture_sha256': fixture_identity,
                'images': images, 'cells': args.cells, 'order': [a[0] for a in arms],
                'scripts_sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                                   for p in sorted((ROOT / 'scripts').iterdir()) if p.is_file()},
@@ -82,8 +89,10 @@ def main():
     receipt_path = args.out / 'pair.json'
     for arm, image, mode in arms:
         receipt_path.write_text(json.dumps(receipt, indent=2) + '\n')
+        if fixture_files(fixtures) != fixture_identity:
+            raise RuntimeError('shared fixtures changed between arms')
         with (args.out / f'{arm}.log').open('w') as log:
-            result = subprocess.run(command(image, ROOT / 'scripts', args.out.resolve(), args.cells, mode, arm),
+            result = subprocess.run(command(image, ROOT / 'scripts', args.out.resolve(), args.cells, mode, arm, fixtures),
                                     env=env, stdout=log, stderr=subprocess.STDOUT, timeout=60*60+120)
         receipt['arms'].append({'arm': arm, 'exit_code': result.returncode})
         receipt_path.write_text(json.dumps(receipt, indent=2) + '\n')

@@ -33,7 +33,8 @@ python3 scripts/run_paired_library_capacity.py \
   --before-image sha256:<64hex> --after-image sha256:<64hex> \
   --before-sha 99c1586bfc994fd1b138632fe8c7845b40072142 \
   --after-sha 960dd1820a643610ec69b782f4715821c1dcb6a8 \
-  --cells 31:20260910,24:20260909 --out /workspace/evidence/pole
+  --cells 31:20260910,24:20260909 --out /workspace/evidence/pole \
+  --fixtures /workspace/evidence/shared-fixtures
 
 Before reporting results, independently validate the four complete triplets:
 exact18cold/worker executions per arm; same host within each triplet; all profiles
@@ -58,3 +59,20 @@ Acceptance owners: Jony (workflow/measurement), Don (loading/Retry/health and
 user-facing meaning), or explicitly authorized replacements; John decides the
 measured latency trade-off and any scope/limit change. No scope/limit change is
 proposed. No merge until outstanding acceptance and John's decision are satisfied.
+
+Review corrections (preparation only; no execution authorized by this note):
+- Enforce a single60second deadline through first-search and verification. Request
+  timeouts are capped to remaining time; a ready response after expiry is refused.
+- Prepare retained fixtures ONCE outside measured arms using the existing seed
+  script and server --prepare in the pinned baseline image. Save jobs/,
+  receipts.json, prepared-runs.json and prepared-runs.json.sha256 together with
+  manifest.json containing exact relative-path -> SHA256 entries under files.
+  This generation has not run. The reviewer must check schema/codec compatibility
+  of the two pinned images before accepting a shared prepared payload.
+- The driver requires --fixtures, verifies bytes and membership before each arm,
+  and mounts it read-only. Each arm copies identical jobs/receipts and prepared
+  run bytes into its private writable runtime directory. No arm invokes random
+  generation. Per-arm evidence retains paired_fixture_sha256 for reconciliation.
+- Seven protocol tests pass, including late-ready refusal, altered/extra fixture
+  refusal, and two arm copies preserving identical bytes. Existing five tests
+  remain included. Independent review is still pending; no measurements run.

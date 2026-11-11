@@ -5,13 +5,75 @@ Run only through the reviewed same-host experiment. This does not replace the
 production qualification entry point or grant production_qualified acceptance.
 """
 import os
+import hashlib
+import json
+from pathlib import Path
+import shutil
+import subprocess
 import time
 import check_lyrics_capacity as matrix
 from lyrics_capacity_runtime import LIBRARY_LOAD_SECONDS, LIBRARY_STORES, library_evidence_failures
 
 
+def fixture_files(root):
+    root = Path(root)
+    manifest = json.loads((root / 'manifest.json').read_text())
+    files = manifest.get('files')
+    if not isinstance(files, dict) or not files:
+        raise RuntimeError('missing shared fixture inventory')
+    actual = {p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file() and p != root / 'manifest.json'}
+    if actual != set(files):
+        raise RuntimeError('shared fixture inventory differs')
+    for name, digest in files.items():
+        rel = Path(name)
+        if rel.is_absolute() or '..' in rel.parts or (root / rel).is_symlink():
+            raise RuntimeError('invalid shared fixture path')
+        if hashlib.sha256((root / rel).read_bytes()).hexdigest() != digest:
+            raise RuntimeError('shared fixture bytes differ')
+    required = {'prepared-runs.json', 'prepared-runs.json.sha256', 'receipts.json'}
+    if not required <= set(files) or not any(p.startswith('jobs/') for p in files):
+        raise RuntimeError('incomplete shared fixture inventory')
+    return files
+
+
 class PairedRuntime(matrix.ResidentRuntime):
+    def _prepare(self, command):
+        # Never generate independent random payloads in a measured arm. Each
+        # arm gets a private writable copy of one hash-verified shared fixture.
+        root = Path(os.environ['PAIRED_CAPACITY_FIXTURES'])
+        files = fixture_files(root)
+        self.record['paired_fixture_sha256'] = files
+        script = Path(command[1]).name
+        if script == 'seed_lyrics_capacity_receipts.mjs':
+            shutil.copytree(root / 'jobs', command[2])
+            shutil.copyfile(root / 'receipts.json', command[3])
+        elif script == 'lyrics_capacity_server.mjs' and command[-1] == '--prepare':
+            shutil.copyfile(root / 'prepared-runs.json', command[3])
+            shutil.copyfile(root / 'prepared-runs.json.sha256', command[3] + '.sha256')
+        else:
+            raise RuntimeError('unexpected paired fixture preparation command')
+        return subprocess.CompletedProcess(command, 0, '', '')
+
+    def request(self, *args, **kwargs):
+        deadline = getattr(self, '_pair_deadline', None)
+        if deadline is not None:
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise RuntimeError('Library verification exceeded the unchanged load deadline')
+            kwargs['timeout'] = min(kwargs.get('timeout', LIBRARY_LOAD_SECONDS), remaining)
+        value = super().request(*args, **kwargs)
+        if deadline is not None and time.monotonic() >= deadline:
+            raise RuntimeError('Library verification exceeded the unchanged load deadline')
+        return value
+
     def load_library(self, key):
+        self._pair_deadline = time.monotonic() + LIBRARY_LOAD_SECONDS
+        try:
+            return self._load_library(key)
+        finally:
+            self._pair_deadline = None
+
+    def _load_library(self, key):
         if self.library_mode == 'unloaded':
             return super().load_library(key)
         stores = {name: bool(os.environ.get(f'LIBRARY_{name.upper()}_DIR')) for name in LIBRARY_STORES}
@@ -30,10 +92,10 @@ class PairedRuntime(matrix.ResidentRuntime):
                 state = self.health().get('library') or {}
                 if state.get('state') == 'failed' or state.get('corpus') == 'failed':
                     raise RuntimeError('Library verification failed during paired measurement')
+                if time.monotonic() >= self._pair_deadline:
+                    raise RuntimeError('Library verification exceeded the unchanged load deadline')
                 if state.get('state') == 'ready' and state.get('corpus') == 'verified':
                     break
-                if time.monotonic() - started >= LIBRARY_LOAD_SECONDS:
-                    raise RuntimeError('Library verification exceeded the unchanged load deadline')
                 time.sleep(.05)
             timing['verified_ready_s'] = time.monotonic() - started
 
