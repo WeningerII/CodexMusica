@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Cheap adversarial checks for the production capacity qualification oracle."""
 import copy
+from functools import lru_cache
 import sys
 import json
 import hashlib
@@ -12,6 +13,12 @@ from test_library_load_measurement import FirstLoad
 from unittest.mock import patch
 from check_lyrics_capacity import validate_measurement, percentile, terminate_measurement, MeasurementProgress
 from measure_verb_memory import _checkpoint_valid, _machine_result, CONTROL_TOKEN, assessment_coverage_valid
+
+
+@lru_cache(maxsize=1)
+def producer_source_identity():
+    from check_lyrics_capacity import source_identity
+    return source_identity()
 
 
 def measured(mode='cold'):
@@ -953,7 +960,8 @@ class ShardedCapacityMerge(unittest.TestCase):
             'summaries': [], 'failures': [],
             'leak_signature': {'boundaries': len(cells) * len(MODES),
                                'rose_at_every_boundary': False, 'judged_here': False},
-            'source_sha256': 'a' * 64, 'source_sha256_after': 'a' * 64,
+            'source_sha256': dict(producer_source_identity()),
+            'source_sha256_after': dict(producer_source_identity()),
         }, **over}
 
     @staticmethod
@@ -1200,6 +1208,29 @@ class LibraryProfileMerge(unittest.TestCase):
         self.assertEqual(set(report['library_profiles']), {'unloaded', 'loaded'})
         self.assertEqual(len(report['library_profiles']['loaded']['resident_runtime']), 4)
         self.assertFalse(merge(rows[:4])[0]['production_qualified'])
+
+    def test_source_maps_require_the_complete_producer_closure_and_valid_hashes(self):
+        from merge_lyrics_capacity import merge
+        identity = producer_source_identity()
+        path = next(iter(identity))
+        bad_maps = [None, 'a' * 64, {}, {**identity, path: None},
+                    {**identity, path: 'z' * 64}, {**identity, path: 'a' * 63},
+                    {key: value for key, value in identity.items() if key != path},
+                    {**identity, '../outside.py': 'a' * 64}]
+        for bad in bad_maps:
+            for field in ('source_sha256', 'source_sha256_after'):
+                with self.subTest(bad=bad, field=field):
+                    rows = self.complete()
+                    # Corrupt every shard equally: agreement alone is not provenance.
+                    for _, shard in rows:
+                        shard[field] = copy.deepcopy(bad)
+                    report, failures = merge(rows)
+                    self.assertFalse(report['production_qualified'])
+                    self.assertTrue(any('source identity' in f for f in failures))
+        for field in ('source_sha256', 'source_sha256_after'):
+            rows = self.complete()
+            rows[-1][1][field][path] = 'b' * 64
+            self.assertFalse(merge(rows)[0]['production_qualified'])
 
     def test_profile_evidence_mutants_are_refused(self):
         from merge_lyrics_capacity import merge

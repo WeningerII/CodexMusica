@@ -56,7 +56,7 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 # Retyping 18/24/31 here is how a merger and a matrix come to disagree about
 # what "complete" means.
 from check_lyrics_capacity import (CELLS, LEAK_MIN_BOUNDARIES, LIMITS, MODES,  # noqa: E402
-                                   SEEDS, SIZES, summarize_measurements)
+                                   SEEDS, SIZES, summarize_measurements, source_closure)
 
 from library_load_measurement import load_trace_failures
 
@@ -234,8 +234,16 @@ def merge(shards):
     failures, profiles = [], {}
     if not shards:
         return {}, ['no capacity shards were supplied']
+    # The producer records a path -> SHA-256 map, not a digest of the map.
+    # Require its complete runtime closure as well as valid hashes; equally
+    # incomplete maps across every shard must not qualify production.
+    expected_sources = set(source_closure())
+    def valid_identity(value):
+        return (isinstance(value, dict) and bool(value) and set(value) == expected_sources
+                and all(isinstance(digest, str) and re.fullmatch(r'[0-9a-f]{64}', digest)
+                        for digest in value.values()))
     for name, shard in shards:
-        if any(not isinstance(shard.get(key), str) or not re.fullmatch(r'[0-9a-f]{64}', shard[key]) for key in ('source_sha256', 'source_sha256_after')):
+        if any(not valid_identity(shard.get(key)) for key in ('source_sha256', 'source_sha256_after')):
             failures.append(f'{name}: missing or malformed source identity')
         if shard.get('limits') != LIMITS:
             failures.append(f'{name}: declared capacity limits differ from required limits')
