@@ -1,0 +1,60 @@
+#612 hosted preparation milestone — not a campaign or acceptance receipt
+
+Reviewed measurement protocol remains cba88d6eb89dd7693ae42cba28c73ba9a5cc06d3.
+New workflow and inventory helper require independent review before dispatch.
+These changes do not alter that protocol, the 1792 MiB limit or PR #836.
+
+Proposed new-file ownership: this #612 session owns
+.github/workflows/612-paired-image-preflight.yml,
+scripts/paired_image_inventory.py, scripts/test_paired_image_inventory.py,
+and this note, from cba88d6eb. Release reservation on agreed handoff or withdrawal.
+No shared CI/capacity/deploy workflow is edited. Coordinator must route these
+paths to the CI optimization session: no direct inter-session routing tool or
+that session's identity is available in this executor. Ownership overlap is
+not established; this is a private proposal, not a public reservation.
+
+Workflow is manual and provisioning-only. It pulls a required immutable baseline
+digest, checks out exact candidate 960dd182, and runs the unchanged candidate
+Dockerfile. Both actual images are inspected and byte inventories are generated
+offline on the same runner. It retains logs and JSON, marks inventory unreviewed,
+and fails on differing inventoried assets/configuration/fixture dependencies or
+Node/Python versions. It does not generate fixtures, write a reviewed preflight
+receipt, run measurements, publish an image or trigger deployment. The existing
+deploy workflow subscribes only to CI and Production qualification names.
+
+Storage admission uses 45 GiB free before provisioning after exactly the existing
+approved Android/.NET SDK reclaim. This is conservative admission, not proof the
+build will fit. Do not delete other runner tools/cache or reduce assets to pass.
+No proof cache is imported; ordinary Dockerfile proof verification remains intact.
+
+Baseline reference must come from main CI 43073617924 for source 99c1586b.
+Parent reports a receipt exists. Three connector reads timed out in this turn
+(two general fetches and the dedicated jobs wrapper); no receipt bytes/digest
+were obtained locally. Do not substitute a mutable tag or guessed registry digest.
+The retained archive-access denial is unchanged; this workflow does not download
+any historical Actions artifacts. Future receipts must use permitted read routes.
+
+Remaining work before actual campaign:
+1. Coordinate new workflow ownership and obtain independent workflow review.
+2. Resolve baseline receipt digest through an authorized readable source.
+3. Publish/invoke through a supported authorized route. New workflow_dispatch
+   files ordinarily need registration on the default branch; this diagnostic is
+   not currently published or registered. Do not retry the previously refused
+   CLI dispatch route without materially new relevant authorization/evidence.
+4. Review actual complete image inventories, including image environment/config,
+   dependency differences, and missing/unexpected asset membership. This helper
+   hashes manifest-declared runtime assets plus full Library directories; it is
+   not by itself full image or undeclared-file attestation.
+5. Generate one baseline fixture set, verify its exact schema/codec compatibility
+   in BOTH images, and retain immutable fixture bytes for both repetitions.
+6. Keep exact images available for the campaign. This preparation job does not
+   persist images or fixtures. A later runner cannot assume them retained: use
+   reviewed immutable published images or a reviewed rebuild with verified byte
+   equivalence; do not claim continuity from source SHA alone.
+7. Only then adapt execution to four hosted shard jobs, each running all six
+   ordered arms on its single runner. Actual reviewed inventory/fixture identity
+   is a prerequisite, not a JSON status this workflow may self-approve.
+
+Executed local checks: 2 inventory negative-control tests and existing 14 protocol
+tests; YAML parsing, embedded bash syntax, Python compilation, git diff checks.
+No hosted provisioning or capacity workload has run for this new workflow.

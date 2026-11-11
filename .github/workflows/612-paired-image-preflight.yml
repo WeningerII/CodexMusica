@@ -1,0 +1,106 @@
+name: Issue 612 paired image preflight
+
+# Isolated preparation only. Independent image/fixture review must precede
+# the separate same-host campaign. No deploy, registry push or qualification.
+on:
+  workflow_dispatch:
+    inputs:
+      baseline_digest:
+        description: Verified registry digest from main CI 43073617924 image receipt
+        required: true
+        type: string
+permissions:
+  contents: read
+  packages: read
+concurrency:
+  group: issue-612-paired-image-preflight
+  cancel-in-progress: false
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      BEFORE_SHA: 99c1586bfc994fd1b138632fe8c7845b40072142
+      AFTER_SHA: 960dd1820a643610ec69b782f4715821c1dcb6a8
+      BASELINE_DIGEST: ${{ inputs.baseline_digest }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+          path: diagnostic
+      - name: Validate immutable baseline input
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$BASELINE_DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]
+          mkdir -p evidence
+          git -C diagnostic rev-parse HEAD > evidence/protocol-source.txt
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: 960dd1820a643610ec69b782f4715821c1dcb6a8
+          persist-credentials: false
+          path: candidate
+      - name: Reclaim only approved hosted runner SDKs and preflight storage
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          df -B1 / /var/lib/docker | tee evidence/disk-before.txt
+          sudo rm -rf -- /usr/local/lib/android /usr/share/dotnet
+          df -B1 / /var/lib/docker | tee evidence/disk-after.txt
+          # Conservative admission threshold, not a guarantee of build space.
+          # Local 32 GiB provisioning exhausted disk before assembly completed.
+          python3 - <<'PY'
+          import shutil
+          for path in ('.', '/var/lib/docker'):
+              if shutil.disk_usage(path).free < 45 * 1024**3:
+                  raise SystemExit('Need at least 45 GiB free before two-image provisioning')
+          PY
+      - name: Pull immutable baseline and build exact candidate
+        timeout-minutes: 60
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git -C candidate rev-parse HEAD)" = "$AFTER_SHA"
+          baseline="ghcr.io/weningerii/codexmusica/lyrics@$BASELINE_DIGEST"
+          docker pull --platform=linux/amd64 "$baseline"
+          docker image inspect "$baseline" > evidence/before-image.json
+          docker build --platform=linux/amd64 \
+            --build-arg RENDER_GIT_COMMIT="$AFTER_SHA" \
+            --build-arg BUILD_RELEASE_ID="612-paired-preflight:$GITHUB_RUN_ID:$GITHUB_RUN_ATTEMPT" \
+            -f candidate/mcp/Dockerfile -t codex-612-preflight-after candidate \
+            2>&1 | tee evidence/build.log
+          docker image inspect codex-612-preflight-after > evidence/after-image.json
+          df -B1 / /var/lib/docker > evidence/disk-built.txt
+      - name: Inventory actual bytes offline for independent review
+        timeout-minutes: 15
+        shell: bash
+        run: |
+          set -euo pipefail
+          for arm in before after; do
+            image=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))[0]["Id"])' "evidence/$arm-image.json")
+            docker run --rm --pull=never --network=none --read-only \
+              --mount "type=bind,src=$GITHUB_WORKSPACE/diagnostic/scripts/paired_image_inventory.py,dst=/inventory.py,readonly" \
+              --entrypoint python3 "$image" /inventory.py > "evidence/$arm-inventory.json"
+          done
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          rows = {a: json.loads(Path(f'evidence/{a}-inventory.json').read_text()) for a in ('before', 'after')}
+          for arm in rows:
+              assert rows[arm]['source_sha'] == os.environ[arm.upper() + '_SHA'], 'wrong source'
+          fields = ('assets', 'configuration', 'fixture_dependencies', 'node_version', 'python_version')
+          differences = [f for f in fields if rows['before'][f] != rows['after'][f]]
+          result = {'status': 'unreviewed', 'differences': differences,
+                    'measurements_run': False, 'fixture_compatibility_verified': False}
+          Path('evidence/comparison.json').write_text(json.dumps(result, indent=2) + '\n')
+          print(json.dumps(result))
+          if differences:
+              raise SystemExit('Image equivalence discrepancy: independent review required')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: issue-612-image-preflight-${{ github.run_attempt }}
+          path: evidence/
+          if-no-files-found: error
