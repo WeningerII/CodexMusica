@@ -374,7 +374,11 @@ test(
       shared = await connectWorkflow();
       try {
         let operation;
-        const deadline = Date.now() + 10_000;
+        // The real sweep shares CPU with three other CI leaves, just as
+        // startup does above. Ten seconds can expire while a healthy worker
+        // is still running. Keep polling its result within the same 45-second
+        // allowance; the enclosing 60-second test timeout remains the bound.
+        const deadline = Date.now() + 45_000;
         do {
           const read = await shared.callTool({
             name: 'get_operation',
