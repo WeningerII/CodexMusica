@@ -128,7 +128,7 @@ def test_every_dealt_suite_calls_the_one_idiom():
     import re
     ci = open(os.path.join(HERE, "..", "..", ".github", "workflows",
                            "ci.yml"), encoding="utf-8").read()
-    dealt = sorted(set(re.findall(r"TEST_([A-Z_]+)_SHARD:", ci)))
+    dealt = sorted(set(re.findall(r"TEST_([A-Z_]+)_SHARD(?::|=)", ci)) - {"READER"})
     check("ci.yml deals at least the five suites this entry moved",
           {"VERBS", "PLAN", "REVISE", "LOOP", "CAPACITY"} <= set(dealt),
           str(dealt))
@@ -213,7 +213,7 @@ def test_no_section_reads_what_another_section_wrote():
 
     ci = open(os.path.join(HERE, "..", "..", ".github", "workflows",
                            "ci.yml"), encoding="utf-8").read()
-    dealt = sorted(set(re.findall(r"TEST_([A-Z_]+)_SHARD:", ci)))
+    dealt = sorted(set(re.findall(r"TEST_([A-Z_]+)_SHARD(?::|=)", ci)) - {"READER"})
     for name in dealt:
         path = os.path.join(HERE, f"test_{name.lower()}.py")
         found = handoffs(path) if os.path.exists(path) else [("(missing)", [], [])]
@@ -1020,38 +1020,144 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
     sections = [x.id for x in assignment.value.elts]
     check("every panel section is declared once", len(sections) == len(declared)
           and set(sections) == declared)
-    seen, section_seen = [], []
+    repeated = {"relations_null", "g2p", "spans", "readability", "reader"}
+    seen, section_seen, coordinates = [], [], {name: [] for name in repeated}
     with tempfile.TemporaryDirectory(prefix="m244-pool-") as tmp:
         stub = os.path.join(tmp, "python3")
         with open(stub, "w", encoding="utf-8") as f:
             f.write('#!/bin/sh\nprintf "CALLED %s\\n" "$1"\n'
+                    'printf "COORD %s %s %s %s %s\\n" "$TEST_RELATIONS_NULL_SHARD" '
+                    '"$TEST_G2P_SHARD" "$TEST_SPANS_SHARD" "$TEST_READABILITY_SHARD" "$TEST_READER_SHARD"\n'
                     '[ "$1" != "$FAIL_SUITE" ]\n')
         os.chmod(stub, 0o755)
         for k in range(1, n + 1):
             local = script.replace("/tmp/suites-failed", os.path.join(tmp, "failed"))
             local = local.replace("/tmp/suite-logs", os.path.join(tmp, "logs"))
             env = dict(os.environ, PATH=tmp + os.pathsep + os.environ.get("PATH", ""),
-                       SUITES_SHARD=str(k), SUITES_SHARDS=str(n), FAIL_SUITE="")
+                       SUITES_SHARD=str(k), SUITES_SHARDS=str(n), FAIL_SUITE="",
+                       TEST_RELATIONS_NULL_SHARD=f"{k}/{n}",
+                       TEST_READABILITY_SHARD=f"{k}/{n}", TEST_READER_SHARD=f"{k}/{n}")
             run = subprocess.run(["bash", "-c", local], env=env, capture_output=True, text=True)
             called = re.findall(r"^CALLED quality/test_(\w+)\.py$", run.stdout, re.M)
             check(f"pool shard {k}/{n} executes and includes its panel partition",
                   run.returncode == 0 and called.count("relations_null") == 1,
                   run.stderr[-300:])
             seen.extend(called)
+            coords = re.findall(r"^COORD (\d+/\d+) (\d+/\d+) (\d+/\d+) (\d+/\d+) (\d+/\d+)$", run.stdout, re.M)
+            check(f"pool shard {k}/{n}: every child carries all five coordinates",
+                  len(coords) == len(called))
+            if coords:
+                for module, coordinate in zip(("relations_null", "g2p", "spans", "readability", "reader"), coords[0]):
+                    coordinates[module].append(coordinate)
             _env(f"{k}/{n}")
             section_seen.extend(S.dealt(sections, "TEST_SHARD_PROBE")[0])
         counts = collections.Counter(seen)
         expected = collections.Counter(names)
-        expected["relations_null"] = n
-        check("the actual shell runs every other suite once, the panel once per shard", counts == expected)
+        for name in repeated:
+            expected[name] = n
+        check("the actual shell runs every ordinary suite once and every split suite once per shard", counts == expected)
+        for name, coords in coordinates.items():
+            check(f"{name}: rotated coordinates cover 1..{n} exactly once",
+                  collections.Counter(coords) == collections.Counter(f"{k}/{n}" for k in range(1, n + 1)))
         check("the panel's union contains every section exactly once",
               collections.Counter(section_seen) == collections.Counter(declared))
-        env["FAIL_SUITE"] = "quality/test_relations_null.py"
-        run = subprocess.run(["bash", "-c", local], env=env, capture_output=True, text=True)
-        check("a failed panel partition fails the real pool gate and names the suite",
-              run.returncode == 1 and "FAILING SUITES" in run.stdout
-              and "quality/test_relations_null.py" in run.stdout)
+        ordinary = next(name for name in called if name not in repeated)
+        for shell in (["bash", "-c"], ["bash", "-o", "pipefail", "-c"]):
+            for name in sorted(repeated | {ordinary}):
+                env["FAIL_SUITE"] = f"quality/test_{name}.py"
+                run = subprocess.run(shell + [local], env=env, capture_output=True, text=True)
+                check(f"{' '.join(shell)}: a failed {name} partition fails the real pool gate and names the suite",
+                      run.returncode == 1 and "FAILING SUITES" in run.stdout
+                      and env["FAIL_SUITE"] in run.stdout)
+                after = re.findall(r"^CALLED quality/test_(\w+)\.py$",
+                                   run.stdout.split("FAILING SUITES", 1)[0], re.M)
+                check(f"{' '.join(shell)}: failure in {name} does not omit another selected test module",
+                      collections.Counter(after) == collections.Counter(called))
     _env(None)
+
+
+def test_split_suite_inventories_and_panel_work_are_complete():
+    """Pin the actual runner inventory and exercise the panel's real deal."""
+    import ast
+    import collections
+    print("\n12. large suite splits preserve their original runner inventory")
+    # These are the functions the pre-split entrypoints actually invoked.
+    # This explicit baseline catches a shortened tuple even if every shard
+    # agrees on the same omission.
+    expected = {
+        "spans": (
+            "test_the_original_bad_report_line", "test_every_syllable_knows_its_word",
+            "test_search_size_is_recorded", "test_a_tie_at_the_maximum_is_reported",
+            "test_provenance_is_absent_rather_than_invented", "test_the_consumers_print_it",
+            "test_the_oracle_does_not_move", "test_the_spans_cannot_be_separated_from_the_number",
+            "test_the_report_line_checks_its_own_claim", "test_a_hyphen_can_substitute_the_rhyme_word",
+            "test_the_sweep_runs_and_reports_three_counts", "test_the_refrain_stub_is_not_english",
+            "test_the_brief_does_not_print_one_finding_six_times"),
+        "readability": (
+            "test_readable_pairs_are_untouched", "test_constructed_oov_final",
+            "test_real_corpus_line", "test_nothing_was_lost_on_the_sonnets",
+            "test_corpus_song_rate_is_pinned", "test_zero_syllable_word_has_no_anchor",
+            "test_every_emitted_code_has_a_case", "test_the_manufactured_rhyme_is_refused",
+            "test_the_letter_repertoire_is_declared_and_the_two_sites_agree",
+            "test_interior_is_derived_by_position", "test_the_bracket_rules_are_declared_and_read",
+            "test_the_bracketed_verse_convention_keeps_the_body",
+            "test_a_wordless_score_says_identity_was_not_asked", "test_empty_coda_evidence_is_omitted",
+            "test_the_assonance_profile_says_the_band_is_off",
+            "test_the_default_doors_are_priced_where_they_answer",
+            "test_a_spaced_enclitic_joins_its_word_and_an_elided_word_does_not"),
+    }
+    for name, want in expected.items():
+        tree = ast.parse(open(os.path.join(HERE, f"test_{name}.py"), encoding="utf-8").read())
+        assignment = next(node for node in tree.body if isinstance(node, ast.Assign)
+                          and any(isinstance(t, ast.Name) and t.id == "_SECTIONS" for t in node.targets))
+        got = [node.id for node in assignment.value.elts]
+        check(f"{name}: every pre-split runner call is retained once, in order", got == list(want))
+        for n in (1, 3, 6, 8):
+            seen = []
+            for k in range(1, n + 1):
+                _env(f"{k}/{n}")
+                seen.extend(S.dealt(got, "TEST_SHARD_PROBE")[0])
+            check(f"{name}: all {n} shard inventories retain every original section once",
+                  collections.Counter(seen) == collections.Counter(want))
+    _env(None)
+    tree = ast.parse(open(os.path.join(HERE, "test_g2p.py"), encoding="utf-8").read())
+    defined = {node.name for node in tree.body if isinstance(node, ast.FunctionDef)
+               and node.name.startswith("test_")}
+    scope = {name: name for name in defined}
+    assignments = [node for node in tree.body if isinstance(node, ast.Assign)
+                   and any(isinstance(t, ast.Name) and t.id in
+                           {"_SECTIONS", "_COST_FIRST", "_SHARDED_SECTIONS"} for t in node.targets)]
+    exec(compile(ast.Module(body=assignments, type_ignores=[]), "g2p runner inventory", "exec"), scope)
+    full, sharded = scope["_SECTIONS"], scope["_SHARDED_SECTIONS"]
+    check("g2p: default and cost-first sharded tuples each retain every defined test once",
+          collections.Counter(full) == collections.Counter(defined)
+          == collections.Counter(sharded))
+    seen = []
+    for k in range(1, 9):
+        _env(f"{k}/8")
+        seen.extend(S.dealt(sharded, "TEST_SHARD_PROBE")[0])
+    check("g2p: all eight effective cost-first shard inventories cover every test once",
+          collections.Counter(seen) == collections.Counter(full))
+    _env(None)
+    tree = ast.parse(open(os.path.join(HERE, "test_relations_null.py"), encoding="utf-8").read())
+    fn = next(node for node in tree.body if isinstance(node, ast.FunctionDef)
+              and node.name == "_schema_groups")
+    scope = {}
+    exec(compile(ast.Module(body=[fn], type_ignores=[]), "panel groups", "exec"), scope)
+    group = scope["_schema_groups"]
+    names = tuple(f"schema{i}" for i in range(97))
+    for width in (1, 2, 4, 8, 100):
+        chunks = group(names, width)
+        check(f"panel width {width}: every schema is executed once, no empty worker group",
+              all(chunks) and collections.Counter(n for c in chunks for n in c)
+              == collections.Counter(names))
+    try:
+        group(names, 0)
+    except ValueError:
+        refused = True
+    else:
+        refused = False
+    check("panel refuses zero workers instead of performing no test work", refused)
 
 
 if __name__ == "__main__":
@@ -1064,7 +1170,8 @@ if __name__ == "__main__":
                test_no_result_gate_calls_a_cancelled_run_a_failure,
                test_the_two_qualification_tables_cannot_drift_apart,
                test_the_backstop_can_still_reach_what_it_backs_up,
-               test_panel_sections_keep_the_pool_inventory_and_failure_gate):
+               test_panel_sections_keep_the_pool_inventory_and_failure_gate,
+               test_split_suite_inventories_and_panel_work_are_complete):
         fn()
     print("=" * 62)
     if FAILURES:

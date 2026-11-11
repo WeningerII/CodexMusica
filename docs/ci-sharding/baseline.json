@@ -1,0 +1,281 @@
+{
+  "baseline_main_sha": "99c1586bfc994fd1b138632fe8c7845b40072142",
+  "scope": "Every2/3-shard CI matrix: verify2, suites3, faults3, capacity3",
+  "definitions": {
+    "execution": "completed_at - started_at, including checkout/setup/tests/post steps",
+    "queue": "started_at - created_at from GitHub job metadata",
+    "dependencies": "job.created_at - run.created_at; includes workflow queue, dup/gate and upstream needs waits"
+  },
+  "sample_runs": [
+    {
+      "run": 42805419888,
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/42805419888",
+      "event": "schedule",
+      "sha": "020768a88f97c0c2da18e1ef068dc13cf4611361",
+      "conclusion": "failure",
+      "families": {
+        "suites": {
+          "execution_seconds": [1577.0, 1719.0, 1729.0],
+          "max_execution_seconds": 1729.0,
+          "max_queue_seconds": 3.0
+        },
+        "verify": {
+          "execution_seconds": [787.0, 1882.0],
+          "max_execution_seconds": 1882.0,
+          "max_queue_seconds": 4.0
+        },
+        "faults": {
+          "execution_seconds": [856.0, 1015.0, 1043.0],
+          "max_execution_seconds": 1043.0,
+          "max_queue_seconds": 4.0
+        },
+        "capacity": {
+          "execution_seconds": [74.0, 85.0, 70.0],
+          "max_execution_seconds": 85.0,
+          "max_queue_seconds": 3.0
+        }
+      }
+    },
+    {
+      "run": 42881901198,
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/42881901198",
+      "event": "pull_request",
+      "sha": "c46098cd21764231fdc5953c6dd07fde0f0db8a0",
+      "conclusion": "success",
+      "families": {
+        "suites": {
+          "execution_seconds": [881.0, 1971.0, 1932.0],
+          "max_execution_seconds": 1971.0,
+          "max_queue_seconds": 3.0
+        },
+        "verify": {
+          "execution_seconds": [921.0, 1521.0],
+          "max_execution_seconds": 1521.0,
+          "max_queue_seconds": 2.0
+        },
+        "faults": {
+          "execution_seconds": [725.0, 501.0, 623.0],
+          "max_execution_seconds": 725.0,
+          "max_queue_seconds": 57.0
+        },
+        "capacity": {
+          "execution_seconds": [87.0, 92.0, 67.0],
+          "max_execution_seconds": 92.0,
+          "max_queue_seconds": 3.0
+        }
+      }
+    },
+    {
+      "run": 42916004766,
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/42916004766",
+      "event": "pull_request",
+      "sha": "23b5be91df69a891e61aec46682d0c11766e0021",
+      "conclusion": "success",
+      "families": {
+        "suites": {
+          "execution_seconds": [1067.0, 1756.0, 2165.0],
+          "max_execution_seconds": 2165.0,
+          "max_queue_seconds": 3.0
+        },
+        "verify": {
+          "execution_seconds": [1006.0, 1658.0],
+          "max_execution_seconds": 1658.0,
+          "max_queue_seconds": 3.0
+        },
+        "faults": {
+          "execution_seconds": [734.0, 595.0, 671.0],
+          "max_execution_seconds": 734.0,
+          "max_queue_seconds": 3.0
+        },
+        "capacity": {
+          "execution_seconds": [69.0, 73.0, 67.0],
+          "max_execution_seconds": 73.0,
+          "max_queue_seconds": 3.0
+        }
+      }
+    },
+    {
+      "run": 43007837054,
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/43007837054",
+      "event": "schedule",
+      "sha": "a6243929e5301e721e2cc5ffcc64a9631b52993e",
+      "conclusion": "failure",
+      "families": {
+        "suites": {
+          "execution_seconds": [1566.0, 1239.0, 1805.0],
+          "max_execution_seconds": 1805.0,
+          "max_queue_seconds": 3.0
+        },
+        "verify": {
+          "execution_seconds": [798.0, 1883.0],
+          "max_execution_seconds": 1883.0,
+          "max_queue_seconds": 2.0
+        },
+        "faults": {
+          "execution_seconds": [895.0, 855.0, 1341.0],
+          "max_execution_seconds": 1341.0,
+          "max_queue_seconds": 2.0
+        },
+        "capacity": {
+          "execution_seconds": [80.0, 76.0, 71.0],
+          "max_execution_seconds": 80.0,
+          "max_queue_seconds": 3.0
+        }
+      }
+    },
+    {
+      "run": 43066230490,
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/43066230490",
+      "event": "pull_request",
+      "sha": "5c2e654b8c9902c4a8a8c89508dd891331f8d9d1",
+      "conclusion": "success",
+      "families": {
+        "suites": {
+          "execution_seconds": [909.0, 1714.0, 1961.0],
+          "max_execution_seconds": 1961.0,
+          "max_queue_seconds": 4.0
+        },
+        "verify": {
+          "execution_seconds": [1176.0, 1696.0],
+          "max_execution_seconds": 1696.0,
+          "max_queue_seconds": 2.0
+        },
+        "faults": {
+          "execution_seconds": [623.0, 483.0, 471.0],
+          "max_execution_seconds": 623.0,
+          "max_queue_seconds": 3.0
+        },
+        "capacity": {
+          "execution_seconds": [73.0, 92.0, 62.0],
+          "max_execution_seconds": 92.0,
+          "max_queue_seconds": 3.0
+        }
+      }
+    },
+    {
+      "run": 43071875477,
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/43071875477",
+      "event": "pull_request",
+      "sha": "044165134ddc3cb2c09b0705e1e8c949876ccc32",
+      "conclusion": "success",
+      "families": {
+        "suites": {
+          "execution_seconds": [1088.0, 1729.0, 2189.0],
+          "max_execution_seconds": 2189.0,
+          "max_queue_seconds": 3.0
+        },
+        "verify": {
+          "execution_seconds": [953.0, 1786.0],
+          "max_execution_seconds": 1786.0,
+          "max_queue_seconds": 3.0
+        },
+        "faults": {
+          "execution_seconds": [471.0, 497.0, 549.0],
+          "max_execution_seconds": 549.0,
+          "max_queue_seconds": 257.0
+        },
+        "capacity": {
+          "execution_seconds": [65.0, 81.0, 68.0],
+          "max_execution_seconds": 81.0,
+          "max_queue_seconds": 201.0
+        }
+      }
+    },
+    {
+      "run": 43073617924,
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/43073617924",
+      "event": "push",
+      "sha": "99c1586bfc994fd1b138632fe8c7845b40072142",
+      "conclusion": "success",
+      "families": {
+        "suites": {
+          "execution_seconds": [906.0, 1219.0, 2163.0],
+          "max_execution_seconds": 2163.0,
+          "max_queue_seconds": 862.0
+        },
+        "verify": {
+          "execution_seconds": [912.0, 1540.0],
+          "max_execution_seconds": 1540.0,
+          "max_queue_seconds": 70.0
+        },
+        "faults": {
+          "execution_seconds": [596.0, 606.0, 477.0],
+          "max_execution_seconds": 606.0,
+          "max_queue_seconds": 807.0
+        },
+        "capacity": {
+          "execution_seconds": [75.0, 85.0, 67.0],
+          "max_execution_seconds": 85.0,
+          "max_queue_seconds": 770.0
+        }
+      }
+    },
+    {
+      "run": 43081271970,
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/43081271970",
+      "event": "pull_request",
+      "sha": "960dd1820a643610ec69b782f4715821c1dcb6a8",
+      "conclusion": "success",
+      "families": {
+        "suites": {
+          "execution_seconds": [1532.0, 1239.0, 2160.0],
+          "max_execution_seconds": 2160.0,
+          "max_queue_seconds": 1334.0
+        },
+        "verify": {
+          "execution_seconds": [1278.0, 1536.0],
+          "max_execution_seconds": 1536.0,
+          "max_queue_seconds": 443.0
+        },
+        "faults": {
+          "execution_seconds": [611.0, 626.0, 582.0],
+          "max_execution_seconds": 626.0,
+          "max_queue_seconds": 1083.0
+        },
+        "capacity": {
+          "execution_seconds": [76.0, 73.0, 69.0],
+          "max_execution_seconds": 76.0,
+          "max_queue_seconds": 1315.0
+        }
+      }
+    }
+  ],
+  "sample_warning": "Eight selected recent complete runs, including2 scheduled runs. Scheduled workflow failures were outside the completed target jobs except verify shard2 on43007837054; no failed result is called passing. Per-job performance differs by runner and PR workload.",
+  "confirmed_suite_floors_seconds": {
+    "g2p": 1290.384,
+    "reader": 1013.832,
+    "spans": 807.184,
+    "relations_null_shard1": 1083.369
+  },
+  "queue_observations": {
+    "latest_successful_pr_run": 43081271970,
+    "suites_queue_seconds": [485, 1334, 512],
+    "verify_queue_seconds": [409, 443],
+    "faults_queue_seconds": [614, 1083, 881],
+    "suites_verify_dependency_wait_seconds": 527,
+    "faults_dependency_wait_seconds": 816,
+    "max_concurrent_jobs_in_selected_samples_lower_bound": 39,
+    "peak_at": "2026-11-10T11:15:37Z",
+    "warning": "Selected samples are incomplete account-wide activity; observed peak is a lower bound, not the GitHub-hosted concurrency cap. More shards can queue.",
+    "runner_inventory_api": "GET /repos/WeningerII/CodexMusica/actions/runners returned403 Resource not accessible by integration. GitHub-hosted concurrency cap is not established by this API.",
+    "current_active_run": {
+      "id": 43072222681,
+      "event": "workflow_dispatch",
+      "branch": "codex/repair-nightly-measurements",
+      "created_at": "2026-11-11T17:51:48Z"
+    }
+  },
+  "models": {
+    "verify": "verify-unsplit-scheduling-model.json",
+    "faults": "faults-six-model.json",
+    "caution": "Projections replay measured elapsed times and exclude new runner queue time; they are not validation runs."
+  },
+  "recommendations": [
+    "Leave capacity3 alone: all24 sampled jobs62\u201392s.",
+    "Split indivisible Library/MCP and g2p/reader/spans/relations_null work before relying on runner count.",
+    "Balance longest work first; leave70\u2013150s per Node runner and~40\u201355s per Python runner for measured setup/post overhead.",
+    "Preserve verified freshness producer/consumer identity and avoid three repeated scheduled cold artifact builds.",
+    "Measure created\u2192started queue and needs\u2192created wait separately on candidate runs. Do not promise under10m end-to-end from job execution alone.",
+    "Stage one isolated candidate CI run, avoiding reruns/cancels of active PRs. Compare overall workflow finish and aggregate runner minutes as well as maximum job execution."
+  ]
+}

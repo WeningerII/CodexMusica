@@ -962,22 +962,25 @@ def test_the_brief_does_not_print_one_finding_six_times():
               [F("B", "1"), F("A", "2"), F("B", "1")])] == ["B", "A"])
 
 
+# The complete pre-sharding runner inventory, in its original order.
+_SECTIONS = (
+    test_the_original_bad_report_line,
+    test_every_syllable_knows_its_word,
+    test_search_size_is_recorded,
+    test_a_tie_at_the_maximum_is_reported,
+    test_provenance_is_absent_rather_than_invented,
+    test_the_consumers_print_it,
+    test_the_oracle_does_not_move,
+    test_the_spans_cannot_be_separated_from_the_number,
+    test_the_report_line_checks_its_own_claim,
+    test_a_hyphen_can_substitute_the_rhyme_word,
+    test_the_sweep_runs_and_reports_three_counts,
+    test_the_refrain_stub_is_not_english,
+    test_the_brief_does_not_print_one_finding_six_times,
+)
+
+
 if __name__ == "__main__":
-    test_the_original_bad_report_line()
-    test_every_syllable_knows_its_word()
-    test_search_size_is_recorded()
-    test_a_tie_at_the_maximum_is_reported()
-    test_provenance_is_absent_rather_than_invented()
-    test_the_consumers_print_it()
-    test_the_oracle_does_not_move()
-    test_the_spans_cannot_be_separated_from_the_number()
-    test_the_report_line_checks_its_own_claim()
-    test_a_hyphen_can_substitute_the_rhyme_word()
-    test_the_sweep_runs_and_reports_three_counts()
-    test_the_refrain_stub_is_not_english()
-    test_the_brief_does_not_print_one_finding_six_times()
-    print("=" * 62)
-    if FAILURES:
-        print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
-        sys.exit(1)
-    print("all span-provenance regressions pass")
+    from quality.shard import run_sections
+    sys.exit(run_sections(_SECTIONS, "TEST_SPANS_SHARD", FAILURES,
+                          footer='all span-provenance regressions pass'))

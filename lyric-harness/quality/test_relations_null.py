@@ -113,6 +113,129 @@ FIXTURE = [
 # ---------------------------------------------------------------------------
 
 
+def _schema_groups(names, workers):
+    """Disjoint registry slices; no schema disappears when the width changes."""
+    if workers < 1:
+        raise ValueError("TEST_RELATIONS_NULL_WORKERS must be positive")
+    return [tuple(names[k::workers]) for k in range(min(workers, len(names)))]
+
+
+def _panel_schema_worker(task):
+    """Run the real sweep, with every null and replicate, for this schema set."""
+    import time
+    sl, names = task[:2]
+    nulls = task[2] if len(task) > 2 else tuple(name for name in N.NULLS if name != "identity")
+    t0 = time.monotonic()
+    lines, stanzas, source, refused_marks, refusal = sl.read_grounded(ROOT)
+    if refusal is not None:
+        raise RuntimeError(str(refusal))
+    # Measure the repeated work explicitly: a null split can save wall time
+    # while redoing observation setup, so its actual cost must be visible.
+    costs = {"coverage": 0.0, "observation": 0.0, "replicates": 0.0}
+    observation = []
+    coverage, measure = N.coverage, N._measure
+    def timed_coverage(stream, *args, **kwargs):
+        observation.append(stream)
+        start = time.monotonic()
+        try:
+            return coverage(stream, *args, **kwargs)
+        finally:
+            costs["coverage"] += time.monotonic() - start
+    def timed_measure(stream, *args, **kwargs):
+        key = "observation" if any(stream is item for item in observation) else "replicates"
+        start = time.monotonic()
+        try:
+            return measure(stream, *args, **kwargs)
+        finally:
+            costs[key] += time.monotonic() - start
+    N.coverage, N._measure = timed_coverage, timed_measure
+    try:
+        results, census = N.sweep(
+            lines, get_phonology(sl.language), sl.language,
+            schemas={name: R.REGISTRY[name] for name in names},
+            n=1, budget=None, prepare=sl.prepare(), nulls=nulls,
+            stanzas=stanzas, stanza_source=source)
+    finally:
+        N.coverage, N._measure = coverage, measure
+    print(f"PANEL PHASE {','.join(nulls)}: "
+          + " ".join(f"{name}={seconds:.1f}s" for name, seconds in costs.items()), flush=True)
+    return results, census, time.monotonic() - t0, nulls
+
+
+def _merge_panel_parts(parts, names):
+    """Require every schema/null coordinate once and identical census semantics."""
+    from collections import Counter
+    from dataclasses import asdict
+    nulls = tuple(name for name in N.NULLS if name != "identity")
+    expected = Counter((name, null) for name in names for null in nulls)
+    owned = Counter((c.schema, null) for _, cs, _, ns in parts
+                    for c in cs for null in ns)
+    if owned != expected:
+        raise ValueError("parallel panel did not return every schema/null exactly once")
+    census, semantic = {}, {}
+    rows, coordinates = [], []
+    for results, cs, _, ns in parts:
+        for c in cs:
+            fields = {k: v for k, v in asdict(c).items() if k != "seconds"}
+            if c.schema in semantic and semantic[c.schema] != fields:
+                raise ValueError("parallel panel census differs between null arms: " + c.schema)
+            semantic[c.schema] = fields
+            census.setdefault(c.schema, c)
+        for row in results:
+            if isinstance(row, N.Result):
+                if row.null not in ns or row.schema not in {c.schema for c in cs}:
+                    raise ValueError("parallel panel returned an unassigned result")
+                coordinates.append((row.schema, row.statistic, row.null))
+            if len(ns) != 1:
+                raise ValueError("parallel panel task must own exactly one null algorithm")
+            rows.append((ns[0], row.schema, row))
+    if any(count != 1 for count in Counter(coordinates).values()):
+        raise ValueError("parallel panel duplicated a schema/statistic/null result")
+    # Production sweep orders nulls and schemas lexically and preserves the
+    # statistic order within each schema. Stable sort preserves that order,
+    # including denominator Refusals that do not carry their own null field.
+    rows.sort(key=lambda item: item[:2])
+    return [row for _, _, row in rows], [census[name] for name in names]
+
+
+def _partition_panel_sweep(panel):
+    """Test-only parallel execution; the full production panel is still checked.
+
+    Tasks partition both schemas and null algorithms. Every schema/null pair
+    uses the original seed and replicate count in the real production sweep.
+    The parent verifies all coordinates and identical census semantics across
+    null arms before combining the full panel and applying the original checks.
+    Serial remains the default for local callers and unsupported platforms.
+    """
+    workers = int(os.environ.get("TEST_RELATIONS_NULL_WORKERS", "1"))
+    if workers < 1:
+        raise ValueError("TEST_RELATIONS_NULL_WORKERS must be positive")
+    if workers == 1:
+        return N.panel_sweep(root=ROOT, n=1, budget=None, panel=panel)
+    from concurrent.futures import ProcessPoolExecutor
+    import multiprocessing
+    from collections import Counter
+    groups = _schema_groups(tuple(R.REGISTRY), workers)
+    check("parallel panel schema groups cover the registry exactly once",
+          Counter(name for group in groups for name in group) == Counter(tuple(R.REGISTRY)))
+    out, per_slice = [], {}
+    with ProcessPoolExecutor(max_workers=workers,
+                             mp_context=multiprocessing.get_context("spawn")) as pool:
+        for sl in panel:
+            nulls = tuple(name for name in N.NULLS if name != "identity")
+            tasks = [(sl, group, (null,)) for group in groups for null in nulls]
+            parts = list(pool.map(_panel_schema_worker, tasks))
+            rows, census = _merge_panel_parts(parts, tuple(R.REGISTRY))
+            check(f"parallel panel {sl.name}: returned every schema exactly once",
+                  len(census) == len(R.REGISTRY))
+            out.extend((sl.name, r) for r in rows)
+            per_slice[sl.name] = (sl, census, None)
+            for (_, group, null), (_, cs, elapsed, _) in zip(tasks, parts):
+                print(f"PANEL WORK: {sl.name} {null[0]} {len(cs)} schemas in {elapsed:.1f}s "
+                      + ",".join(group))
+    return out, per_slice
+
+
 def s1_partition():
     print("\n§1 the panel is a partition of the registry")
     # An EMPTY panel is the adversarial case: nothing was asked, so every
@@ -130,7 +253,7 @@ def s1_partition():
           all(c.detail or c.verdict for c in cens))
     # And the same over a real one-slice panel, which is the shape the run has.
     sl = [s for s in N.PANEL if s.name == "eng"]
-    rows, per = N.panel_sweep(root=ROOT, n=1, budget=None, panel=sl)
+    rows, per = _partition_panel_sweep(sl)
     cens = N.panel_census(rows, per)
     check("§1 one real slice: still one row per schema",
           sorted(c.schema for c in cens) == sorted(R.REGISTRY))
@@ -876,6 +999,73 @@ def s16_observation_is_shared_but_every_null_is_measured():
               {row.schema for row in census} == set(schemas))
 
 
+def s17_parallel_panel_preserves_the_full_experiment():
+    """A real sweep stays identical across schema groups; losses fail loudly."""
+    from dataclasses import asdict, replace
+    import tempfile
+    print("\n§17 parallel panel changes execution width, never its experiment")
+    names = ("perfect rhyme", "rime riche", "assonance", "consonance")
+    with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8") as f:
+        f.write("the cat sat by the sea\nthe hat lay by the tree\n")
+        f.flush()
+        sl = N.Slice("parallel-control", f.name, "eng", 2)
+        whole = _panel_schema_worker((sl, names))
+        nulls = tuple(name for name in N.NULLS if name != "identity")
+        chunks = [_panel_schema_worker((sl, group, (null,)))
+                  for group in _schema_groups(names, 2) for null in nulls]
+        serial_panel = N.panel_sweep(root=ROOT, n=1, budget=None, panel=[sl])
+        previous = os.environ.get("TEST_RELATIONS_NULL_WORKERS")
+        os.environ["TEST_RELATIONS_NULL_WORKERS"] = "2"
+        try:
+            parallel_panel = _partition_panel_sweep([sl])
+        finally:
+            if previous is None:
+                os.environ.pop("TEST_RELATIONS_NULL_WORKERS", None)
+            else:
+                os.environ["TEST_RELATIONS_NULL_WORKERS"] = previous
+    rows, census = _merge_panel_parts(chunks, names)
+    def canonical(rs):
+        return [repr(asdict(row)) for row in rs]
+    def census_values(cs):
+        return [{k: v for k, v in asdict(c).items() if k != "seconds"} for c in cs]
+    check("parallel partition retains every full-sweep result, including replicate values",
+          canonical(rows) == canonical(whole[0]))
+    check("parallel partition retains the full census (only measured seconds differ)",
+          census_values(census) == census_values(whole[1]))
+    check("real spawn workers retain the complete registry's sweep results",
+          canonical([row for _, row in parallel_panel[0]])
+          == canonical([row for _, row in serial_panel[0]]))
+    check("real spawn workers retain the complete registry's panel census",
+          census_values(parallel_panel[1][sl.name][1])
+          == census_values(serial_panel[1][sl.name][1]))
+    for label, bad in (("missing", chunks[:-1]), ("duplicate", chunks + chunks[:1])):
+        try:
+            _merge_panel_parts(bad, names)
+        except ValueError:
+            refused = True
+        else:
+            refused = False
+        check(f"a {label} worker census refuses before panel assertions", refused)
+    import copy
+    drift = copy.deepcopy(chunks)
+    drift[0][1][0] = replace(drift[0][1][0], instances=drift[0][1][0].instances + 1)
+    unassigned = copy.deepcopy(chunks)
+    changed = next(row for part in unassigned for row in part[0] if isinstance(row, N.Result))
+    changed.null = "identity"
+    duplicate_row = copy.deepcopy(chunks)
+    source = next(part for part in duplicate_row if any(isinstance(row, N.Result) for row in part[0]))
+    source[0].append(copy.deepcopy(next(row for row in source[0] if isinstance(row, N.Result))))
+    for label, bad in (("census drift", drift), ("unassigned result", unassigned),
+                       ("duplicate result", duplicate_row)):
+        try:
+            _merge_panel_parts(bad, names)
+        except ValueError:
+            refused = True
+        else:
+            refused = False
+        check(f"{label} refuses instead of changing the experiment", refused)
+
+
 _SECTIONS = (
     s1_partition,
     s2_reader,
@@ -894,6 +1084,7 @@ _SECTIONS = (
     s15_blocker_kinds,
     s15_named_nulls_are_not_independent_evidence,
     s16_observation_is_shared_but_every_null_is_measured,
+    s17_parallel_panel_preserves_the_full_experiment,
 )
 
 

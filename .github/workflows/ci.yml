@@ -1014,6 +1014,10 @@ jobs:
   # `scripts/verify_ci.mjs`'s REQUIRED_JOBS reads it to mean. The checks
   # outside `test:ci` run once, on shard 2, which has fewer leaf-seconds.
   verify-shard:
+    # 2026-11-11: eight measured-cost hands. The CI-only --split-tests mode
+    # divides discovered unittest IDs, Node files, connector phases and recipe
+    # fixtures before dealing. The verify fan-in proves the expanded inventory
+    # and every successful outcome; the serial/default commands remain whole.
     needs: [dup, gate]
     # M-250: skip when a pull_request run already tests this commit.
     if: needs.dup.outputs.already_covered != 'true'
@@ -1023,8 +1027,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2]
-    name: verify (shard ${{ matrix.shard }}/2)
+        shard: [1, 2, 3, 4, 5, 6, 7, 8]
+    name: verify (shard ${{ matrix.shard }}/8)
     # MEASURED at ~8-12 minutes green when first pinned; REPINNED 2026-09-04
     # (M-231 addendum) from ~~30~~ to 45: the job now runs the connector
     # suite's live checks and the regression step, 19 minutes green on a
@@ -1044,6 +1048,11 @@ jobs:
         with:
           node-version: '22'
           cache: npm
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11.16'
+          architecture: 'x64'
 
       - name: Install dependencies
         run: npm ci
@@ -1108,26 +1117,26 @@ jobs:
       # which this job depends on — repeating them here would just re-spend 41s.
 
       - name: Static API contract (committed api/ honors promises)
-        if: matrix.shard == 2
+        if: matrix.shard == 8
         run: npm run check:api
 
       - name: Promise→gate coverage (every promise documented AND gated, 0 orphans)
-        if: matrix.shard == 2
+        if: matrix.shard == 8
         run: npm run check:promises
 
       # Every doc that lists the connector's tools lists the tools /mcp serves.
       # Needs the connector's dependencies (it builds the surface), so it runs
       # here rather than with check-docs in the gate job.
       - name: Connector tool lists in docs match the served surface
-        if: matrix.shard == 2
+        if: matrix.shard == 8
         run: npm run check:doc-tools
 
       - name: Preface lexicon hygiene (no dup/empty/production-dead tokens, no dup ids)
-        if: matrix.shard == 2
+        if: matrix.shard == 8
         run: npm run check:prefaces
 
       - name: Authoring dead-token gate (every preface token reaches a tradition-default card)
-        if: matrix.shard == 2
+        if: matrix.shard == 8
         run: npm run check:dead-tokens
 
       # Renaming a record must never move a DIFFERENT record's picks. This was a
@@ -1135,7 +1144,7 @@ jobs:
       # merseybeat's scoring context and compiled a 1962-1968 tradition with a
       # 1981 amplifier.
       - name: Name isolation (no tradition's picks depend on another's name)
-        if: matrix.shard == 2
+        if: matrix.shard == 8
         run: npm run check:names
 
       # The publish workflow is the one piece of this repo no other gate covered,
@@ -1143,11 +1152,11 @@ jobs:
       # before anyone noticed. Its decision now lives in scripts/publish_guard.sh
       # and is exercised against a synthetic replay of that exact race.
       - name: Publish guard (a superseded build can never overwrite the live site)
-        if: matrix.shard == 2
+        if: matrix.shard == 8
         run: npm run check:publish
 
       - name: Audit data quality
-        if: matrix.shard == 2
+        if: matrix.shard == 8
         run: npm run audit
 
       # npm test -> test:connector:live -> test:lyrics:runtime ->
@@ -1169,7 +1178,8 @@ jobs:
       # out of package.json, and `npm test` alone still means what it meant.
       - name: Regression (recipes, prefaces, slots, app), locale invariance, edit differential and the CLI pipe -- every leaf concurrently
         run: >-
-          node scripts/run_parallel.js test:ci:serial --shard=${{ matrix.shard }}/2
+          node scripts/run_parallel.js test:ci:serial --split-tests --shard=${{ matrix.shard }}/8 --workers=4
+          --costs=scripts/ci_verify_costs.json
           --record="$RUNNER_TEMP/verify-record.json"
 
       # THE PROTOTYPE'S BASE DIFF (#670, #719). `test:prototype` above runs in
@@ -1274,11 +1284,11 @@ jobs:
       # still why it exists and what it catches.
 
       - name: Build codex.html (lazy shell + no-table-leak + byte-ceiling check)
-        if: matrix.shard == 2
+        if: matrix.shard == 8
         run: npm run build:html
 
       - name: UI reachability
-        if: matrix.shard == 2
+        if: matrix.shard == 8
         run: npm run reachability
 
       # The embedded build (every table inline: the page check_lazy_app and
@@ -1290,7 +1300,7 @@ jobs:
       # default output path, where the lazy build above is what UI
       # reachability reads.
       - name: Build the embedded codex.html (--check)
-        if: matrix.shard == 2
+        if: matrix.shard == 8
         run: npm run build:html:embedded -- --out="$RUNNER_TEMP/embedded/codex.html" --quiet
 
   # The fan-in for `verify-shard`, and the job `scripts/verify_ci.mjs` names.
@@ -1310,13 +1320,21 @@ jobs:
         with:
           node-version: '22'
 
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11.16'
+          architecture: 'x64'
+
+      - name: Install the discovery inventory's Python dependencies
+        run: python3 -m pip install --disable-pip-version-check --require-hashes -r mcp/requirements-runtime.txt
+
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           pattern: verify-record-*
           path: ${{ runner.temp }}/verify-records
 
       - name: Every leaf ran on exactly one shard
-        run: node scripts/run_parallel.js test:ci:serial --verify-shards="$RUNNER_TEMP/verify-records" --shards=2
+        run: node scripts/run_parallel.js test:ci:serial --split-tests --verify-shards="$RUNNER_TEMP/verify-records" --shards=8 --workers=4 --costs=scripts/ci_verify_costs.json
 
       - name: Both shards passed
         if: ${{ !cancelled() }}
@@ -1422,10 +1440,26 @@ jobs:
         run: node scripts/check_artifact_fresh.js --prebuilt-api="$RUNNER_TEMP/fresh/api" --prebuilt-html="$RUNNER_TEMP/fresh/codex.html"
 
       - name: Record the verified build inventory
-        if: needs.gate.outputs.artifacts_affected == 'true' && steps.artifact-key.outputs.key != '' && steps.artifact-cache.outputs.cache-hit != 'true'
+        if: needs.gate.outputs.artifacts_affected == 'true'
         env:
           EXPECTED_KEY: ${{ steps.artifact-key.outputs.key }}
         run: node scripts/artifact_build_cache.js record "$RUNNER_TEMP/fresh" "$EXPECTED_KEY"
+
+      # Transfer the same verified bytes to every fault shard, including on a
+      # scheduled cold run. One archive avoids uploading thousands of files.
+      # Consumers check both the source/runtime identity and every file digest.
+      - name: Archive the verified artifact build
+        if: needs.gate.outputs.artifacts_affected == 'true'
+        run: tar -czf "$RUNNER_TEMP/verified-fresh-build.tar.gz" -C "$RUNNER_TEMP/fresh" api codex.html artifact-build.json
+
+      - name: Share this run's verified artifact build
+        if: needs.gate.outputs.artifacts_affected == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: verified-fresh-build-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/verified-fresh-build.tar.gz
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Cache the verified artifact build
         if: needs.gate.outputs.artifacts_affected == 'true' && steps.artifact-key.outputs.key != '' && steps.artifact-cache.outputs.cache-hit != 'true'
@@ -1453,6 +1487,9 @@ jobs:
             node scripts/check_payload_budget.js --html=codex.html --api=api
           fi
 
+  # 2026-11-11: six runners; use the same-run verified build below instead of
+  # paying for another cold build on every scheduled fault shard. Historical
+  # measurements and the original three-runner design follow.
   # FAULT INJECTION, DEALT ACROSS THREE RUNNERS (2026-10-30, owner-approved on
   # #637, built on a branch first). It was the last step of `freshness`, one
   # 29.8-min process after an 11.7-min build (run 41118387628), and that job
@@ -1472,8 +1509,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3]
-    name: faults (shard ${{ matrix.shard }}/3)
+        shard: [1, 2, 3, 4, 5, 6]
+    name: faults (shard ${{ matrix.shard }}/6)
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
 
@@ -1512,42 +1549,19 @@ jobs:
           done
           [ "$ok" = "1" ]
 
-      # M-244: cache only the build, keyed by the existing conservative closure
-      # and the runtime. A hit still proves its complete file inventory, then
-      # runs the ordinary byte comparison and every fault injection. Scheduled
-      # runs rebuild cold. There is deliberately no restore-keys fallback.
-      - name: Identify the complete artifact build inputs
-        id: artifact-key
+      - name: Download this run's verified artifact build
+        if: needs.gate.outputs.artifacts_affected == 'true'
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: verified-fresh-build-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/verified-fresh-build
+
+      - name: Admit the shared build bytes and source identity
         if: needs.gate.outputs.artifacts_affected == 'true'
         run: |
-          if key=$(node scripts/artifact_build_cache.js key); then
-            echo "key=$key" >> "$GITHUB_OUTPUT"
-          else
-            echo "Could not establish build identity; rebuilding without cache."
-          fi
-
-      - name: Restore an exact artifact build
-        id: artifact-cache
-        if: needs.gate.outputs.artifacts_affected == 'true' && steps.artifact-key.outputs.key != '' && github.event_name != 'schedule'
-        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
-        with:
-          path: ${{ runner.temp }}/fresh
-          key: artifact-build-v1-${{ steps.artifact-key.outputs.key }}
-
-      - name: Admit the restored build bytes
-        id: artifact-admission
-        if: steps.artifact-cache.outputs.cache-hit == 'true'
-        run: |
-          if node scripts/artifact_build_cache.js admit "$RUNNER_TEMP/fresh"; then
-            echo "reusable=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Build a fresh artifact from source
-        if: needs.gate.outputs.artifacts_affected == 'true' && steps.artifact-admission.outputs.reusable != 'true'
-        run: |
-          rm -rf "$RUNNER_TEMP/fresh"
-          node scripts/build_static_api.js --out="$RUNNER_TEMP/fresh/api"
-          node scripts/build_html.js --out="$RUNNER_TEMP/fresh/codex.html" --quiet
+          mkdir -p "$RUNNER_TEMP/fresh"
+          tar -xzf "$RUNNER_TEMP/verified-fresh-build/verified-fresh-build.tar.gz" -C "$RUNNER_TEMP/fresh"
+          node scripts/artifact_build_cache.js admit "$RUNNER_TEMP/fresh"
 
       # Fault injection runs on EVERY diff, docs-only included, and that is
       # deliberate: several of its classes inject into AGENTS.md / README.md /
@@ -1570,7 +1584,7 @@ jobs:
       # one reports beside it. With no fresh pair to inject against (a step
       # above stopped before the build finished), it says so and fails at
       # once, rather than plant into files that are not there.
-      - name: Fault injection, shard ${{ matrix.shard }}/3 — every gate is two-sided (0 escapes)
+      - name: Fault injection, shard ${{ matrix.shard }}/6 — every gate is two-sided (0 escapes)
         if: ${{ !cancelled() }}
         run: |
           REC="$RUNNER_TEMP/faults-record.json"
@@ -1579,10 +1593,13 @@ jobs:
               echo "No fresh build to inject against: a step above stopped before it was made."
               exit 1
             fi
-            node scripts/faults.js --shard=${{ matrix.shard }}/3 --record="$REC" --fresh-api="$RUNNER_TEMP/fresh/api" --fresh-html="$RUNNER_TEMP/fresh/codex.html"
+            # This step also runs after setup failures. Refuse extracted but
+            # unadmitted bytes before any fault class can consume them.
+            node scripts/artifact_build_cache.js admit "$RUNNER_TEMP/fresh"
+            node scripts/faults.js --shard=${{ matrix.shard }}/6 --record="$REC" --fresh-api="$RUNNER_TEMP/fresh/api" --fresh-html="$RUNNER_TEMP/fresh/codex.html"
           else
             echo "Docs-only diff — injecting against the committed artifacts."
-            node scripts/faults.js --shard=${{ matrix.shard }}/3 --record="$REC" --fresh-api=api --fresh-html=codex.html
+            node scripts/faults.js --shard=${{ matrix.shard }}/6 --record="$REC" --fresh-api=api --fresh-html=codex.html
           fi
 
       - name: Upload this shard's fault record
@@ -1615,8 +1632,8 @@ jobs:
           pattern: faults-record-*
           path: ${{ runner.temp }}/faults-records
 
-      - name: The three shards are one full fault-injection run
-        run: node scripts/faults_shards.js "$RUNNER_TEMP/faults-records" 3
+      - name: The six shards are one full fault-injection run
+        run: node scripts/faults_shards.js "$RUNNER_TEMP/faults-records" 6
 
       - name: The build job and every fault shard passed
         if: ${{ !cancelled() }}
@@ -2780,6 +2797,10 @@ jobs:
   # does, which is why it is a STEP rather than something a suite does for
   # itself.
   suites:
+    # 2026-11-11: eight runners. The five largest modules now partition their
+    # own sections/test IDs. Full sonnet/schema aggregates retain their original
+    # assertions; internal worker pools drain the ordinary four-wide pool first.
+    # Fixed checks are spread below and still run exactly once after failures.
     needs: [dup, gate]
     # M-250: skip when a pull_request run already tests this commit.
     if: needs.dup.outputs.already_covered != 'true'
@@ -2796,8 +2817,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3]
-    name: suites (shard ${{ matrix.shard }}/3)
+        shard: [1, 2, 3, 4, 5, 6, 7, 8]
+    name: suites (shard ${{ matrix.shard }}/8)
     # A RUNAWAY GUARD, NOT A BUDGET. ~~All 44 files in this job are now
     # measured: the 42 cheap ones sum to 505 CPU-s and the revision pair adds
     # 375, so the job is ~880 CPU-s / ~14.7 min and this guard is ~2x that.~~
@@ -2843,7 +2864,7 @@ jobs:
       # loop below. Both are set together so a matrix that grows finds
       # the divisor beside it rather than in a second place.
       SUITES_SHARD: ${{ matrix.shard }}
-      SUITES_SHARDS: 3
+      SUITES_SHARDS: 8
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
 
@@ -3173,7 +3194,7 @@ jobs:
       #   letter layer by exact search) and fails if any token exceeds it;
       #   it reads the cmudict this job stages and needs numpy, installed
       #   above; about 100 CPU-s on R2's run; label 116 to 117
-      - name: The 118 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02; bias_census 2026-11-03; meter_strict 2026-11-04; function_disclosure 2026-11-04; p2_full_floor 2026-11-06; meter_digit_bound 2026-11-06)
+      - name: The 119 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02; bias_census 2026-11-03; meter_strict 2026-11-04; function_disclosure 2026-11-04; p2_full_floor 2026-11-06; meter_digit_bound 2026-11-06)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -3184,7 +3205,11 @@ jobs:
           SWEEP_WORKERS: '1'
           # One formerly serial panel is dealt INSIDE the existing pool; all
           # its sections still run once, with no extra runner jobs (M-244).
-          TEST_RELATIONS_NULL_SHARD: ${{ matrix.shard }}/3
+          TEST_RELATIONS_NULL_SHARD: ${{ matrix.shard }}/8
+          TEST_READER_SHARD: ${{ matrix.shard }}/8
+          TEST_READABILITY_SHARD: ${{ matrix.shard }}/8
+          TEST_G2P_WORKERS: '4'
+          TEST_RELATIONS_NULL_WORKERS: '4'
         run: |
           set -e
           # FOUR AT A TIME, 2026-08-18. These are 49 independent PROCESSES
@@ -3254,7 +3279,11 @@ jobs:
           fi
           echo "shard ${SUITES_SHARD:-1}/${SUITES_SHARDS:-1}:" \
                "solo='${_mine:-none}' pool=${_pool_k}/${_pool_n}"
-          for f in relations_null screen g2p spans readability \
+          # Rotate the costly section sets: their longest sections must not
+          # all land beside one another on shard 1. Each rotation is a bijection.
+          export TEST_G2P_SHARD="$(( (${SUITES_SHARD:-1} + 6) % 8 + 1 ))/8"
+          export TEST_SPANS_SHARD="$(( (${SUITES_SHARD:-1} + 3) % 8 + 1 ))/8"
+          for f in relations_null g2p spans readability reader screen \
                    recover replay_memo grid propose gate_census floor fwer homograph \
                    mut_oracle msa_fin corpus_audit provenance homeoteleuton writing_rhyme_bans null_shapes \
                    phrase_commonplace mandate_relation meter_bands sentencehood \
@@ -3268,7 +3297,7 @@ jobs:
                    controls data_row_claims english_text stub_resolution melody meter meter_honesty meter_strict bias_census function_disclosure tempo verify_figures expected_drift \
                    cross_song brief_provenance shard \
                    battery_rounds comparator_pin audit_regressions production_harness production_relations high_report \
-                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader reader_quotes moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence sound_inventory connection_schemas schema_report mosaic_rhyme sequence_unread p2_full_floor meter_digit_bound; do
+                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader_quotes moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence sound_inventory connection_schemas schema_report mosaic_rhyme sequence_unread p2_full_floor meter_digit_bound e5_coda_adoption; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured
@@ -3311,9 +3340,10 @@ jobs:
               _i=$(( ${_i:-0} + 1 ))
               # The panel deals its own sections by the same coordinate.
               # Keep its index in the list so every other suite's deal holds.
-              if [ "$f" != relations_null ]; then
-                [ $(( (_i - 1) % _pool_n )) -eq $(( _pool_k - 1 )) ] || continue
-              fi
+              case "$f" in
+                relations_null|g2p|spans|readability|reader) ;;
+                *) [ $(( (_i - 1) % _pool_n )) -eq $(( _pool_k - 1 )) ] || continue ;;
+              esac
             fi
             while [ "$(jobs -rp | wc -l)" -ge 4 ]; do
               wait -n
@@ -3328,10 +3358,30 @@ jobs:
             # failing suite's own log, unmixed, where a reader is already
             # looking. A gate that names a failure it cannot show is half a
             # gate.
-            { echo "── quality/test_$f.py"
-              TEST_PLAN_WORKERS=$_w \
-                python3 "quality/test_$f.py" 2>&1 | tee "/tmp/suite-logs/$f.log"
-              [ "${PIPESTATUS[0]}" -eq 0 ] || echo "$f" >> /tmp/suites-failed; } &
+            run_suite() {
+              echo "── quality/test_$f.py"
+              local started=$SECONDS
+              local status
+              # The conditional keeps errexit from hiding the failure record;
+              # PIPESTATUS preserves the Python result with or without pipefail.
+              if TEST_PLAN_WORKERS=$_w \
+                  python3 "quality/test_$f.py" 2>&1 | tee "/tmp/suite-logs/$f.log"; then
+                status=${PIPESTATUS[0]}
+              else
+                status=${PIPESTATUS[0]}
+              fi
+              echo "SUITE COST $((SECONDS-started))s quality/test_$f.py (exit $status)"
+              [ "$status" -eq 0 ] || echo "$f" >> /tmp/suites-failed
+              return 0
+            }
+            case "$f" in
+              relations_null|g2p)
+                # These sections use four child workers. Drain the ordinary
+                # four-wide pool first, giving them the same CPU allowance.
+                wait
+                run_suite ;;
+              *) run_suite & ;;
+            esac
           done
           wait
           # THE GATE NAMES WHAT FAILED. It was `touch` + `test ! -f`, so the
@@ -3456,7 +3506,7 @@ jobs:
       # the 3.7-min meter bands on shard 2 the longest of the three becomes
       # 23.4, 25.3 and 30.3 on the same step times. Still done exactly once.
       - name: Song-profile calibration, against the drift that is RULED (not silenced)
-        if: ${{ always() && matrix.shard == 2 }}
+        if: ${{ always() && matrix.shard == 5 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -3475,7 +3525,7 @@ jobs:
       # mutation set (test_meter_bands section 9 drives the comparison
       # logic; --check is this same comparison over the real sweep).
       - name: Meter-band adoption check, the shipped constants re-derived
-        if: ${{ always() && matrix.shard == 2 }}
+        if: ${{ always() && matrix.shard == 6 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -3504,7 +3554,7 @@ jobs:
       # this job's budget -- which is stated here because M-129's whole
       # subject was a shard whose cost nobody had written down.
       - name: Span-search null, the shipped band against the measured crossover
-        if: ${{ always() && matrix.shard == 2 }}
+        if: ${{ always() && matrix.shard == 5 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -3537,7 +3587,7 @@ jobs:
       # report over the sonnet battery and counts, ~1 min, no scoring beyond
       # what the battery already pays.
       - name: The schema door's end-rhyme reading, split from its satisfaction
-        if: ${{ always() && matrix.shard == 2 }}
+        if: ${{ always() && matrix.shard == 5 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -3563,7 +3613,7 @@ jobs:
       # which now lists every pair standing in a schema; it reads
       # `schema_end_reading.schema_only()` now. E2 still fires.
       - name: The schema door's rescues by line distance, and why the sonnets cannot answer
-        if: ${{ always() && matrix.shard == 2 }}
+        if: ${{ always() && matrix.shard == 5 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -3591,7 +3641,7 @@ jobs:
       # COST, MEASURED before it was added: **1.9s**, pure AST, no corpus and
       # no scoring.
       - name: Door census, every pair-satisfaction site against every relation
-        if: ${{ always() && matrix.shard == 2 }}
+        if: ${{ always() && matrix.shard == 5 }}
         working-directory: lyric-harness
         run: python3 quality/door_census.py --check
 
@@ -3614,14 +3664,19 @@ jobs:
       # pairs, each judged against every relation. It is here rather than in the
       # cheap-suite pool for exactly that reason.
       - name: Chance rate, the shipped door against random pairs
-        if: ${{ always() && matrix.shard == 1 }}
+        if: ${{ always() && matrix.shard == 7 }}
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --check
 
-      - name: E-5 empty-coda evidence compatibility
-        if: ${{ always() && matrix.shard == 3 }}
+      - name: E-5 empty-coda evidence compatibility, canon
+        if: ${{ always() && matrix.shard == 8 }}
         working-directory: lyric-harness
-        run: python3 quality/e5_coda_adoption.py
+        run: python3 quality/e5_coda_adoption.py --part=canon
+
+      - name: E-5 empty-coda evidence compatibility, complete random samplers
+        if: ${{ always() && matrix.shard >= 4 && matrix.shard <= 7 }}
+        working-directory: lyric-harness
+        run: python3 quality/e5_coda_adoption.py --part=random-$(( ${{ matrix.shard }} - 3 ))/4
 
       # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
       # green -- against the "15+ minutes each" that kept them out until today.

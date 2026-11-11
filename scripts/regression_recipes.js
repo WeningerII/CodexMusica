@@ -13,6 +13,8 @@
 //   node scripts/regression_recipes.js --update       # regenerate snapshot from current output
 //   node scripts/regression_recipes.js --verbose    # show full output for each fixture
 //   node scripts/regression_recipes.js --fixture=<id> # run only a specific fixture
+//   node scripts/regression_recipes.js --shard=K/N   # disjoint fixture-ID partition
+//   node scripts/regression_recipes.js --list-shards=4 # JSON inventory, no computation
 //
 // EXIT CODES
 //   0 — all fixtures match snapshot (or --update completed)
@@ -28,6 +30,7 @@
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+const crypto = require('crypto');
 const { Worker, isMainThread, workerData, parentPort } = require('worker_threads');
 const { search, seedFromTradition } = require('./search.js');
 const { translate } = require('./translate.js');
@@ -1292,10 +1295,10 @@ function computeFixture(fixture) {
 // its stripe, then posts {id: result} back. The `return` short-circuits the
 // main flag-parsing/diff section below — workers never reach it.
 if (!isMainThread) {
-  const { workerIndex, nWorkers } = workerData;
+  const { workerIndex, nWorkers, fixtures } = workerData;
   const out = {};
-  for (let i = workerIndex; i < FIXTURES.length; i += nWorkers) {
-    out[FIXTURES[i].id] = computeFixture(FIXTURES[i]);
+  for (let i = workerIndex; i < fixtures.length; i += nWorkers) {
+    out[fixtures[i].id] = computeFixture(fixtures[i]);
   }
   parentPort.postMessage(out);
   return;
@@ -1303,14 +1306,14 @@ if (!isMainThread) {
 
 // Run every fixture across a worker pool (one per core), merging the shard
 // results into a single id→result map identical to a sequential run.
-function runFixturesParallel() {
-  const nWorkers = Math.max(1, Math.min(os.cpus().length || 2, FIXTURES.length));
+function runFixturesParallel(fixtures) {
+  const nWorkers = Math.max(1, Math.min(os.cpus().length || 2, fixtures.length));
   return new Promise((resolve, reject) => {
     const results = {};
     let exited = 0;
     let aborted = false;
     for (let k = 0; k < nWorkers; k++) {
-      const w = new Worker(__filename, { workerData: { workerIndex: k, nWorkers } });
+      const w = new Worker(__filename, { workerData: { workerIndex: k, nWorkers, fixtures } });
       w.on('message', (msg) => Object.assign(results, msg));
       w.on('error', (err) => {
         if (!aborted) {
@@ -1338,10 +1341,79 @@ function runFixturesParallel() {
 const args = process.argv.slice(2);
 const flags = {};
 for (const a of args) {
-  if (!a.startsWith('--')) continue;
+  if (!a.startsWith('--')) {
+    console.error(`Unexpected argument: ${a}`);
+    process.exit(2);
+  }
   const eq = a.indexOf('=');
-  if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
-  else flags[a.slice(2)] = true;
+  const name = eq > 0 ? a.slice(2, eq) : a.slice(2);
+  if (
+    !['update', 'verbose', 'fixture', 'shard', 'list-shards', 'expect'].includes(name) ||
+    Object.prototype.hasOwnProperty.call(flags, name)
+  ) {
+    console.error(`Unknown or repeated argument: ${a}`);
+    process.exit(2);
+  }
+  flags[name] = eq > 0 ? a.slice(eq + 1) : true;
+}
+
+// Deal by ID, keeping duplicate rows on the same owner. The original fixture
+// array has repeated identical rows; they still execute, and each snapshot
+// assertion still has exactly one owner across the complete shard matrix.
+const fixtureIds = [...new Set(FIXTURES.map((fixture) => fixture.id))];
+const owners = new Map(fixtureIds.map((id, index) => [id, index]));
+const fixtureIdentity = crypto
+  .createHash('sha256')
+  .update(JSON.stringify(FIXTURES))
+  .update('\0')
+  .update(fs.existsSync(SNAPSHOT_PATH) ? fs.readFileSync(SNAPSHOT_PATH) : 'ABSENT')
+  .digest('hex');
+let shard = null;
+if (flags.shard !== undefined) {
+  const match = /^(\d+)\/(\d+)$/.exec(String(flags.shard));
+  const k = match && Number(match[1]),
+    n = match && Number(match[2]);
+  if (
+    !match ||
+    !Number.isSafeInteger(k) ||
+    !Number.isSafeInteger(n) ||
+    k < 1 ||
+    k > n ||
+    n > fixtureIds.length
+  ) {
+    console.error(
+      `Invalid --shard=${flags.shard}: want K/N with 1 <= K <= N <= ${fixtureIds.length}`
+    );
+    process.exit(2);
+  }
+  if (flags.fixture || flags.update || flags['list-shards']) {
+    console.error('--shard cannot be combined with --fixture, --update or --list-shards');
+    process.exit(2);
+  }
+  shard = { k, n };
+}
+if (flags.expect !== undefined && (!shard || flags.expect !== fixtureIdentity)) {
+  console.error('Fixture definitions or snapshot moved after the shard inventory was read');
+  process.exit(2);
+}
+if (flags['list-shards'] !== undefined) {
+  const n = flags['list-shards'] === true ? 4 : Number(flags['list-shards']);
+  if (!Number.isSafeInteger(n) || n < 1 || n > fixtureIds.length || flags.fixture || flags.update) {
+    console.error('--list-shards needs a valid count and cannot select or update a fixture');
+    process.exit(2);
+  }
+  console.log(
+    JSON.stringify({
+      version: 1,
+      sha256: fixtureIdentity,
+      fixtures: fixtureIds,
+      shards: Array.from({ length: n }, (_, i) => ({
+        shard: `${i + 1}/${n}`,
+        fixtures: fixtureIds.filter((id) => owners.get(id) % n === i),
+      })),
+    })
+  );
+  process.exit(0);
 }
 
 // Generate current output for each fixture. The full unfiltered set runs across
@@ -1349,17 +1421,27 @@ for (const a of args) {
 // inline on this thread. Both paths call the same computeFixture, so the
 // id→result map — and therefore the snapshot comparison — is identical either way.
 async function runFixtures(filter) {
-  const fixtures = filter ? FIXTURES.filter((f) => f.id === filter) : FIXTURES;
+  const fixtures = filter
+    ? FIXTURES.filter((f) => f.id === filter)
+    : shard
+      ? FIXTURES.filter((f) => owners.get(f.id) % shard.n === shard.k - 1)
+      : FIXTURES;
   if (filter && fixtures.length === 0) {
     console.error(`Unknown fixture: ${filter}`);
     console.error(`Available: ${FIXTURES.map((f) => f.id).join(', ')}`);
     process.exit(2);
   }
+  let results;
   if (!filter && !process.env.REGRESSION_SERIAL && fixtures.length > 1) {
-    return runFixturesParallel();
+    results = await runFixturesParallel(fixtures);
+  } else {
+    results = {};
+    for (const fixture of fixtures) results[fixture.id] = computeFixture(fixture);
   }
-  const results = {};
-  for (const fixture of fixtures) results[fixture.id] = computeFixture(fixture);
+  const expected = [...new Set(fixtures.map((fixture) => fixture.id))].sort();
+  if (JSON.stringify(Object.keys(results).sort()) !== JSON.stringify(expected)) {
+    throw new Error('fixture workers returned an incomplete or unexpected fixture inventory');
+  }
   return results;
 }
 
@@ -1405,6 +1487,10 @@ async function runFixtures(filter) {
 
   const snapshot = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, 'utf8'));
   const current = await runFixtures(flags.fixture);
+  if (shard)
+    console.log(
+      `SHARD ${shard.k}/${shard.n}: ${Object.keys(current).length} of ${fixtureIds.length} fixture IDs`
+    );
 
   const diffs = [];
   const missing = [];
@@ -1427,7 +1513,11 @@ async function runFixtures(filter) {
     }
   }
   for (const id of Object.keys(snapshot)) {
-    if (!current[id] && !flags.fixture) missing.push(id);
+    // The removal assertion belongs to shard 1 and sees the complete code
+    // inventory. Fixtures owned by another shard are never mistaken for
+    // removed fixtures. New/mismatching fixtures are checked by their owner.
+    if (!flags.fixture && (!shard ? !current[id] : shard.k === 1 && !owners.has(id)))
+      missing.push(id);
   }
 
   // Report

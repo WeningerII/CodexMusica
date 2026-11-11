@@ -21,7 +21,7 @@
     "audit:coherence": "node scripts/audit_coherence.js",
     "test": "node scripts/run_parallel.js test:serial",
     "test:ci": "node scripts/run_parallel.js test:ci:serial",
-    "test:ci:serial": "npm run test:serial && npm run check:locale && npm run check:cli",
+    "test:ci:serial": "npm run test:serial && npm run check:locale && npm run check:cli && node scripts/test_run_parallel.js && node scripts/test_ci_sharding.js && node scripts/test_regression_shards.js",
     "test:serial": "npm run check:favicon && npm run check:glyphs && npm run check:dupes && npm run check:aliases && npm run check:signatures && npm run check:engine-codec && npm run check:atlas && npm run test:geography && npm run test:everynoise && npm run test:recipes && npm run test:prefaces && npm run test:slots && npm run test:app && npm run test:focus && npm run test:lyrics:browser && npm run test:prototype && npm run test:library && npm run test:equiv && npm run test:lazy && npm run check:budget && npm run test:minified && npm run test:connector && npm run test:capacity-children && npm run test:reader-format && npm run eval",
     "test:recipes": "node scripts/regression_recipes.js && node scripts/check_genre_bound_iconic.js",
     "test:prefaces": "node scripts/regression_prefaces.js",
