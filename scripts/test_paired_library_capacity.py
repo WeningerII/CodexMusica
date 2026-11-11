@@ -11,6 +11,48 @@ from run_paired_library_capacity import command, frozen_image, run_arm, compare_
 
 
 class Protocol(unittest.TestCase):
+    def test_precheck_refusal_retains_failed_arm_without_measurement(self):
+        from run_paired_library_capacity import main
+        from paired_fixture_validation import PROTOCOL
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            common = root / 'common.json'; common.write_text('{}')
+            preflight = root / 'preflight.json'
+            preflight.write_text(json.dumps({'fixture_protocol': PROTOCOL,
+                'fixture_manifests': {'before':'before-manifest','after':'after-manifest'},
+                'common_corpus_sha256':'common-hash'}))
+            images = ['sha256:'+'a'*64, 'sha256:'+'b'*64]
+            sources = ['c'*40, 'd'*40]
+            infos = [json.dumps([{'Id':image,'Config':{'Env':['BUILD_GIT_COMMIT='+source]}}]).encode()
+                     for image,source in zip(images,sources)]
+            argv = ['driver', '--before-image',images[0], '--after-image',images[1],
+                '--before-sha',sources[0], '--after-sha',sources[1], '--cells','31:20260910,24:20260909',
+                '--out',str(root/'out'), '--before-fixtures',str(root/'before'),
+                '--after-fixtures',str(root/'after'), '--common-corpus',str(common), '--preflight',str(preflight)]
+            with patch('sys.argv',argv), \
+                    patch('run_paired_library_capacity.subprocess.check_output',side_effect=infos), \
+                    patch('run_paired_library_capacity.validate_preflight'), \
+                    patch('run_paired_library_capacity.platform.uname', **{'return_value._asdict.return_value': {'system':'test'}}), \
+                    patch('run_paired_library_capacity.signal.signal'), \
+                    patch('paired_fixture_validation.scripts_inventory',return_value={}), \
+                    patch('paired_fixture_validation.compare_sets',return_value='common-hash'), \
+                    patch('paired_fixture_validation.fixture_set',side_effect=[
+                        {'manifest_sha256':'before-manifest'}, {'manifest_sha256':'after-manifest'},
+                        RuntimeError('JobStore fixture lacks safe remaining TTL')]), \
+                    patch('run_paired_library_capacity.run_arm') as run:
+                with self.assertRaisesRegex(RuntimeError,'safe remaining TTL'):
+                    main()
+            run.assert_not_called()
+            result = json.loads((root/'out/pair.json').read_text())
+            self.assertEqual(result['status'],'failed')
+            self.assertEqual(len(result['arms']),1)
+            failed = result['arms'][0]
+            self.assertEqual(failed['arm'],'r1-before-loaded')
+            self.assertEqual(failed['phase'],'precheck')
+            self.assertEqual(failed['status'],'failed')
+            self.assertFalse(failed['measurement_invoked'])
+            self.assertIn('safe remaining TTL',failed['error'])
+
     def runtime(self, states):
         runtime = object.__new__(PairedRuntime)
         runtime.library_mode = 'loaded'

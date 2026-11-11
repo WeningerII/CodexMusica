@@ -156,19 +156,26 @@ def main():
     for replication, base_arm, image, mode in schedule(arms):
         arm = f'r{replication}-' + base_arm
         receipt_path.write_text(json.dumps(receipt, indent=2) + '\n')
-        current = {key: fixture_set(fixtures[key], images[key], scripts_inventory(ROOT / 'scripts')) for key in images}
-        if {key:value['manifest_sha256'] for key,value in current.items()} != fixture_identity:
-            raise RuntimeError('derived fixtures changed between repetitions')
-        if scripts_inventory(ROOT / 'scripts') != scripts:
-            raise RuntimeError('measurement scripts changed')
-        fixture_key = 'before' if base_arm == 'before-loaded' else 'after'
         name = 'capacity-pair-' + receipt['experiment_id'] + '-' + arm
+        phase = 'precheck'
+        measurement_invoked = False
         try:
+            current = {key: fixture_set(fixtures[key], images[key], scripts_inventory(ROOT / 'scripts')) for key in images}
+            if {key:value['manifest_sha256'] for key,value in current.items()} != fixture_identity:
+                raise RuntimeError('derived fixtures changed between repetitions')
+            if scripts_inventory(ROOT / 'scripts') != scripts:
+                raise RuntimeError('measurement scripts changed')
+            fixture_key = 'before' if base_arm == 'before-loaded' else 'after'
             with (args.out / f'{arm}.log').open('w') as log:
+                phase = 'measurement'
+                measurement_invoked = True
                 result = run_arm(command(image, ROOT / 'scripts', args.out.resolve(), args.cells,
                                          mode, arm, fixtures[fixture_key], name), env, log, name)
         except BaseException as error:
+            receipt['status'] = 'failed'
             receipt['arms'].append({'arm': arm, 'container_name': name,
+                                    'status': 'failed', 'phase': phase,
+                                    'measurement_invoked': measurement_invoked,
                                     'error': type(error).__name__ + ': ' + str(error)})
             receipt_path.write_text(json.dumps(receipt, indent=2) + '\n')
             raise
