@@ -1,0 +1,62 @@
+Concrete prerequisite conflict found before retention implementation
+
+Parent authorized new synthetic diagnostic fixture transfer via pinned official
+Actions upload/download, not image archives or registry publication. Historical
+denial remains only off-pole artifact 13467272488/run 42138230866 and its executor
+proxy transfer route. No attempt against that target/route has been made.
+
+Source evidence:
+mcp/state_codec.js createContinuationIdentity hashes runtimeSourceFingerprint;
+encodeState embeds that semantic identity and decodeState requires equality.
+scripts/lyrics_capacity_server.mjs --prepare calls encodeState for every state
+and checkpoint and validates its own result with decodeState. The proposed
+shared fixture set thus contains baseline-specific continuation identities.
+Even identical codec, schemas, dependency versions and assets cannot make those
+baseline wires pass the candidate's unchanged semantic identity check when
+runtime source differs. Common instrumentation mounted in both arms does not
+erase the actual mcp implementation differences under comparison.
+
+Executed bounded control: scripts/test_paired_fixture_semantics.mjs imports real
+codec source into isolated VM modules with modelled identical assets and supplied
+checkout source fingerprints. Real encode/decode succeeds with matching identity
+and refuses the same wire under changed identity (CONTINUATION_MIGRATION_REQUIRED).
+The matching-identity control also succeeds using candidate codec source. No
+source identity is altered in production; secret loading throws if attempted.
+Node v24.19.0; actual image qualification NOT executed.
+Baseline checkout source fingerprint:
+9d490f177c673c3e13a7c8556765c6fdb4cfba81271a0fb1a38dc1b22936d33a
+Candidate checkout source fingerprint:
+2aad9fa944d32ea62bcdef76a35c8163c28fcc53398a409f2fe5b7aa5f6c6d78
+
+Exact blocked action: implement shared baseline-encoded fixtures that successfully
+pass both images' actual schema/codec compatibility check. The existing protocol
+requires identical fixture bytes; unchanged production codec binds them to
+different source identities. Outcome is a demonstrated source-level prerequisite
+conflict, not a permission denial or actual-image result.
+
+Smallest owner decision: independent measurement reviewer/criteria owner must
+resolve whether compatibility means authentic continuation replay (which this
+fixture cannot satisfy), or approve a revised synthetic retained-memory protocol,
+for example one shared decoded/random payload with per-arm genuine encoding and
+explicitly measured/reviewed wrapper differences. This is a proposal, not an
+implemented relaxation. Do not restamp identities, bypass decodeState, silently
+substitute recoverState, or claim retention-only loading proves codec acceptance.
+Actual image fixture checks remain required after an approved revision.
+
+Independent preparation completed: workflow now contains a new same-run tiny
+artifact canary using pinned official upload/download actions, exact artifact ID
+and run ID, identity-byte comparison before costly builds, read-only Actions
+permission, one-day canary retention and seven-day evidence retention. No local
+archive transfer and no new credentials. This is unpublished and unexecuted.
+It proves only same-run canary access when run, not future cross-run access.
+
+Remaining retention work after protocol resolution: bounded common-payload
+generator/verifier, complete hash/membership manifest, size/free-space limits,
+exact new artifact/run binding, separately reviewed inventory approval receipt,
+cross-run access preflight and rebuilt actual-byte equivalence checks. No
+campaign workflow is enabled or wired to preflight success automatically.
+Existing 1792 MiB gate, pinned comparator/candidate and release gates unchanged.
+
+Ownership extension: this session owns the two new paths
+scripts/test_paired_fixture_semantics.mjs and this note, plus previous eight paths.
+Release on agreed handoff or withdrawal. No shared workflow or #836 edit.

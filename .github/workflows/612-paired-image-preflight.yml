@@ -8,6 +8,7 @@ on:
 permissions:
   contents: read
   packages: read
+  actions: read
 concurrency:
   group: issue-612-paired-image-preflight
   cancel-in-progress: false
@@ -51,6 +52,42 @@ jobs:
               'baseline_receipt_artifact': 13882889682, 'baseline_ci_run': 43073617924,
               'baseline_log_job': 130710784507}, indent=2))
           PYMETA
+      - name: Prepare bounded artifact-access canary
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifact-access-canary
+          printf '%s:%s:%s\n' "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" "$GITHUB_SHA" > artifact-access-canary/identity.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        id: artifact_access
+        with:
+          name: issue-612-access-canary-${{ github.run_attempt }}
+          path: artifact-access-canary/identity.txt
+          if-no-files-found: error
+          retention-days: 1
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          artifact-ids: ${{ steps.artifact_access.outputs.artifact-id }}
+          run-id: ${{ github.run_id }}
+          github-token: ${{ github.token }}
+          path: artifact-access-readback
+          merge-multiple: true
+      - name: Verify this run's artifact access before provisioning
+        shell: bash
+        env:
+          CANARY_ID: ${{ steps.artifact_access.outputs.artifact-id }}
+          CANARY_DIGEST: ${{ steps.artifact_access.outputs.artifact-digest }}
+        run: |
+          set -euo pipefail
+          cmp artifact-access-canary/identity.txt artifact-access-readback/identity.txt
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          Path('evidence/artifact-access.json').write_text(json.dumps({
+              'status': 'verified', 'run_id': os.environ['GITHUB_RUN_ID'],
+              'attempt': os.environ['GITHUB_RUN_ATTEMPT'], 'artifact_id': os.environ['CANARY_ID'],
+              'artifact_digest': os.environ['CANARY_DIGEST'], 'scope': 'new same-run canary only'}, indent=2))
+          PY
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: 960dd1820a643610ec69b782f4715821c1dcb6a8
@@ -109,3 +146,4 @@ jobs:
           name: issue-612-image-preflight-${{ github.run_attempt }}
           path: evidence/
           if-no-files-found: error
+          retention-days: 7
