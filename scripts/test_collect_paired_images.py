@@ -17,7 +17,7 @@ class Collection(unittest.TestCase):
                         ('BUILD_GIT_COMMIT', 'RENDER_GIT_COMMIT')]}}
             (evidence / 'before-image.json').write_text(json.dumps([info]))
             row = {key: {} for key in ('assets', 'configuration', 'fixture_dependencies',
-                   'runtime_dependencies', 'runtime_source')}
+                   'runtime_dependencies', 'runtime_source', 'runtime_inputs', 'generated_metadata')}
             row.update(source_sha=SOURCES['before'], corpus_directory_present=False,
                        node_version='v22', python_version='3.11')
             def process(argv, **kwargs):

@@ -100,6 +100,33 @@ def dependencies(root):
             'python_build': sys.version}
 
 
+def runtime_inputs(root):
+    # Whole references tree, plus every non-code input shipped with MCP/scripts.
+    # Do not infer dependency membership from the runtime source fingerprint.
+    names = ['references', 'mcp/library_casefold.json']
+    generated = []
+    for directory in ('mcp', 'scripts'):
+        for item in (root / directory).rglob('*'):
+            rel = item.relative_to(root).as_posix()
+            if 'node_modules' in item.relative_to(root).parts:
+                continue
+            if item.is_symlink() or not (item.is_file() or item.is_dir()):
+                raise ValueError('unsafe runtime input: ' + rel)
+            if not item.is_file():
+                continue
+            if rel == 'mcp/build_identity.json':
+                # Parsed in baked; only release_id has an approved comparison exception.
+                continue
+            if rel == 'mcp/capacity_verification.json':
+                generated.append(rel)
+            elif item.suffix not in ('.js', '.mjs', '.py'):
+                names.append(rel)
+    return {'inputs': inventory(root, names),
+            # Generated proof bytes are recorded separately, never silently ignored.
+            # Drift requires review; this change adds no normalization exception.
+            'generated_metadata': inventory(root, generated) if generated else None}
+
+
 def collect(root):
     manifest = json.loads((root / 'lyric-harness/data/runtime_assets.json').read_text())
     if not isinstance(manifest, dict) or not isinstance(manifest.get('assets'), list) or not manifest['assets']:
@@ -142,7 +169,10 @@ def collect(root):
     baked = json.loads((root / 'mcp/build_identity.json').read_text())
     if baked['commit'] != os.environ['BUILD_GIT_COMMIT']:
         raise ValueError('baked and environment commit differ')
+    inputs = runtime_inputs(root)
     return {'status': 'unreviewed', 'source_sha': baked['commit'], 'baked': baked,
+            'runtime_inputs': inputs['inputs'],
+            'generated_metadata': inputs['generated_metadata'],
             'node_version': subprocess.check_output(['node', '--version'], text=True).strip(),
             'python_version': platform.python_version(),
             'instrumented_runtime_sha256': subprocess.check_output(['node', '--input-type=module', '-e',

@@ -57,7 +57,7 @@ class Inventory(unittest.TestCase):
             root = Path(directory)
             names = ['mcp/'+n for n in ('state_codec.js', 'payload_limits.js', 'contract_version.js',
                 'schemas.js', 'lyric_tools.js', 'job_store.js', 'package-lock.json', 'production-config.json')]
-            names += ['library-data/a', 'lyric-harness/library/snapshot/a', 'lyric-harness/data/a']
+            names += ['references/_tradition_aliases.json', 'mcp/library_casefold.json', 'library-data/a', 'lyric-harness/library/snapshot/a', 'lyric-harness/data/a']
             for name in names:
                 p = root / name
                 p.parent.mkdir(parents=True, exist_ok=True)
@@ -69,6 +69,12 @@ class Inventory(unittest.TestCase):
                     patch('paired_image_inventory.dependencies', return_value={'fixture':True}), \
                     patch('paired_image_inventory.subprocess.check_output', return_value='v22\n'):
                 a = collect(root)
+                for name in ('mcp/library_casefold.json', 'references/_tradition_aliases.json'):
+                    path = root / name
+                    path.write_text('mutated')
+                    changed = collect(root)
+                    self.assertNotEqual(a['runtime_inputs'], changed['runtime_inputs'], name)
+                    path.write_text('fixture')
                 (root / 'lyric-harness/data/unexpected').write_text('new')
                 b = collect(root)
             self.assertEqual(b['status'], 'unreviewed')

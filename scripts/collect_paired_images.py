@@ -33,7 +33,7 @@ def read_arm(arm, evidence, helper):
             raise ValueError('inventory process failed')
         row = json.loads((evidence / f'{arm}-inventory.json').read_text())
         required = ('assets', 'corpus_directory_present', 'configuration', 'fixture_dependencies',
-                    'runtime_dependencies', 'runtime_source', 'node_version', 'python_version', 'source_sha')
+                    'runtime_dependencies', 'runtime_source', 'runtime_inputs', 'generated_metadata', 'node_version', 'python_version', 'source_sha')
         if not isinstance(row, dict) or not all(k in row for k in required):
             raise ValueError('incomplete collector response')
         env = dict(s.split('=', 1) for s in info['Config']['Env'])
@@ -67,7 +67,7 @@ def collect(evidence, helper):
     else:
         before, after = rows['before'][0], rows['after'][0]
         fields = ('assets', 'corpus_directory_present', 'configuration', 'fixture_dependencies',
-                  'runtime_dependencies', 'node_version', 'python_version')
+                  'runtime_dependencies', 'runtime_inputs', 'node_version', 'python_version')
         result['differences'] = [f for f in fields if before[f] != after[f]]
         if rows['before'][1] != rows['after'][1]:
             result['differences'].append('effective_image_config')

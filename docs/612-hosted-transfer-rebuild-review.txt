@@ -110,3 +110,17 @@ proofs are carried over. Actual GitHub API/action execution remains unrun.
 One-day artifact retention is not a promise that review/consumption fits. Expiry
 or insufficient remaining JobStore TTL stops the work; no restamping, stale-artifact
 substitution, auto-regeneration or workload shrink is permitted.
+
+Final review correction: shipped non-code runtime inputs
+The inventory now hashes the complete references tree and every non-code file
+in shipped mcp/scripts (excluding dependency node_modules, inventoried separately).
+This includes library_casefold.json and _tradition_aliases.json. Symlinks and
+special entries refuse collection. build_identity.json remains parsed as baked
+metadata with only the existing release_id exception. capacity_verification.json
+is separately hash-inventoried as generated_metadata, with presence recorded;
+rebuild admission retains strict equality, so generated-proof drift stops for
+review, not silent normalization. Old inventories lacking runtime_inputs refuse.
+Mutation controls exercise actual collect() for both reported omissions and
+actual inventory-to-admission rejection for those, other references/script data,
+and generated capacity proof. 38 Python tests pass. Authentication correction
+10b45ccf is included. No publication, image pull, or measurement has occurred.

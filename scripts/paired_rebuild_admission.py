@@ -24,6 +24,8 @@ def admit(approved, images, original, rebuilt):
         if status.get('status') != 'read' or status.get('image_id') != image['image_id'] or info[0]['Id'] != image['image_id']:
             raise RuntimeError('rebuilt image read/identity mismatch')
         for record in (old, new):
+            if not isinstance(record.get('runtime_inputs'), dict) or not record['runtime_inputs'].get('files') or 'generated_metadata' not in record:
+                raise RuntimeError('incomplete runtime input inventory')
             if record.get('source_sha') != image['source_sha'] or record.get('baked', {}).get('commit') != image['source_sha']:
                 raise RuntimeError('rebuilt source mismatch')
         a, b = copy.deepcopy(old), copy.deepcopy(new)

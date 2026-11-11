@@ -5,19 +5,27 @@ from pathlib import Path
 import tempfile
 import unittest
 from paired_rebuild_admission import admit
+from paired_image_inventory import runtime_inputs
 
 class Rebuild(unittest.TestCase):
     def test_new_image_id_requires_exact_reviewed_inventory(self):
         with tempfile.TemporaryDirectory() as directory:
             original=Path(directory)/'original'; rebuilt=Path(directory)/'rebuilt'
             original.mkdir();rebuilt.mkdir()
+            runtime=Path(directory)/'runtime'
+            for name in ('references/_tradition_aliases.json', 'references/catalog.json',
+                         'mcp/library_casefold.json', 'scripts/runtime-data.json',
+                         'mcp/capacity_verification.json'):
+                path=runtime/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_text('{}')
+            inputs=runtime_inputs(runtime)
             approval={'rebuild_rule':'exact-inventory-except-baked-release-v1'};images={}
             def save(root,name,obj):
                 raw=json.dumps(obj).encode();(root/name).write_bytes(raw)
                 return hashlib.sha256(raw).hexdigest()
             for arm in ('before','after'):
                 row={'source_sha':arm,'baked':{'commit':arm,'release_id':'old'},
-                     'runtime_source':{'files':{'code':'hash'}},'runtime_dependencies':{'lib':'1'}}
+                     'runtime_source':{'files':{'code':'hash'}},'runtime_dependencies':{'lib':'1'},
+                     'runtime_inputs':inputs['inputs'], 'generated_metadata':inputs['generated_metadata']}
                 approval[arm]={'image_id':'old-'+arm,
                     'inventory_sha256':save(original,arm+'-inventory.json',row),
                     'effective_config_sha256':save(original,arm+'-effective-config.json',{'Env':['fixed']})}
@@ -32,9 +40,24 @@ class Rebuild(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError,'approved rebuild'):
                 admit(dict(approval,rebuild_rule=''),images,original,rebuilt)
             p=rebuilt/'after-inventory.json';baseline=json.loads(p.read_text())
+            row=copy.deepcopy(baseline);row.pop('runtime_inputs');save(rebuilt,p.name,row)
+            with self.assertRaisesRegex(RuntimeError,'incomplete runtime input inventory'):
+                admit(approval,images,original,rebuilt)
             for field in ('runtime_source','runtime_dependencies','source_sha'):
                 row=copy.deepcopy(baseline);row[field]='drift';save(rebuilt,p.name,row)
                 with self.assertRaises(RuntimeError):admit(approval,images,original,rebuilt)
+            for name in ('references/_tradition_aliases.json', 'references/catalog.json',
+                         'mcp/library_casefold.json', 'scripts/runtime-data.json',
+                         'mcp/capacity_verification.json'):
+                path=runtime/name;path.write_text('{"mutated":true}')
+                changed=runtime_inputs(runtime)
+                self.assertNotEqual(inputs,changed,name)
+                row=copy.deepcopy(baseline)
+                row.update(runtime_inputs=changed['inputs'], generated_metadata=changed['generated_metadata'])
+                save(rebuilt,p.name,row)
+                with self.assertRaisesRegex(RuntimeError,'inventory/configuration drift'):
+                    admit(approval,images,original,rebuilt)
+                path.write_text('{}')
             save(rebuilt,p.name,baseline)
             save(original,'before-inventory.json',{})
             with self.assertRaisesRegex(RuntimeError,'reviewed inventory bytes changed'):
