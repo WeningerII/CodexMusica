@@ -67,6 +67,30 @@ def compare_searches(before, after):
             raise RuntimeError('paired search results differ or are missing: ' + phase)
 
 
+def schedule(arms):
+    # Every workload sees both complete orders on this SAME host.
+    return [(rep, arm, image, mode) for rep, ordered in
+            [(1, arms), (2, list(reversed(arms)))] for arm, image, mode in ordered]
+
+
+def validate_preflight(record, images):
+    # A reviewed external image-inventory receipt is a prerequisite, not a
+    # claim this driver independently authenticates asset bytes.
+    if record.get('status') != 'verified' or not record.get('reviewer') or not record.get('evidence_source'):
+        raise RuntimeError('reviewed image/configuration preflight is required')
+    for key in ('before', 'after'):
+        if record.get(key, {}).get('image_id') != images[key]['image_id']:
+            raise RuntimeError('preflight image mismatch')
+        if record[key].get('source_sha') != images[key]['source_sha']:
+            raise RuntimeError('preflight source mismatch')
+    for field in ('assets_sha256', 'config_sha256', 'fixture_codec_sha256', 'node_version', 'python_version'):
+        a, b = record['before'].get(field), record['after'].get(field)
+        if not isinstance(a, str) or not a or a != b:
+            raise RuntimeError('preflight equality missing or different: ' + field)
+        if field.endswith('_sha256') and not re.fullmatch(r'[0-9a-f]{64}', a):
+            raise RuntimeError('malformed preflight hash: ' + field)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--before-image', required=True, type=frozen_image)
@@ -76,6 +100,7 @@ def main():
     ap.add_argument('--cells', required=True)
     ap.add_argument('--out', required=True, type=Path)
     ap.add_argument('--fixtures', required=True, type=Path)
+    ap.add_argument('--preflight', required=True, type=Path)
     ap.add_argument('--candidate-first', action='store_true')
     args = ap.parse_args()
     from check_lyrics_capacity import parse_cells
@@ -98,6 +123,8 @@ def main():
         if info['Id'] != image or config.get('BUILD_GIT_COMMIT') != sha:
             raise RuntimeError(f'{label}: image/source identity mismatch')
         images[label] = {'image_id': image, 'source_sha': sha}
+    preflight = json.loads(args.preflight.read_text())
+    validate_preflight(preflight, images)
     args.out.mkdir(parents=True, exist_ok=False)
     arms = [('before-loaded', args.before_image, 'loaded'),
             ('after-loaded', args.after_image, 'loaded'),
@@ -105,8 +132,9 @@ def main():
     if args.candidate_first:
         arms.reverse()
     receipt = {'experiment_id': str(uuid.uuid4()), 'host': platform.uname()._asdict(),
-               'fixture_sha256': fixture_identity,
-               'images': images, 'cells': args.cells, 'order': [a[0] for a in arms],
+               'fixture_sha256': fixture_identity, 'preflight': preflight,
+               'replications_per_cell': 2,
+               'images': images, 'cells': args.cells, 'order': [{'replication': r, 'arm': a} for r,a,_,_ in schedule(arms)],
                'scripts_sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                                   for p in sorted((ROOT / 'scripts').iterdir()) if p.is_file()},
                'scope': 'same-host diagnostic comparison; not official qualification', 'arms': []}
@@ -114,7 +142,8 @@ def main():
     def interrupted(signum, _frame):
         raise SystemExit(f'measurement interrupted by signal {signum}')
     signal.signal(signal.SIGTERM, interrupted)
-    for arm, image, mode in arms:
+    for replication, base_arm, image, mode in schedule(arms):
+        arm = f'r{replication}-' + base_arm
         receipt_path.write_text(json.dumps(receipt, indent=2) + '\n')
         if fixture_files(fixtures) != fixture_identity:
             raise RuntimeError('shared fixtures changed between arms')
@@ -132,8 +161,9 @@ def main():
         receipt_path.write_text(json.dumps(receipt, indent=2) + '\n')
         if result.returncode:
             raise SystemExit('measurement failed; preserve receipt, no automatic retry')
-    compare_searches(json.loads((args.out / 'before-loaded.json').read_text()),
-                     json.loads((args.out / 'after-loaded.json').read_text()))
+    for replication in (1, 2):
+        compare_searches(json.loads((args.out / f'r{replication}-before-loaded.json').read_text()),
+                         json.loads((args.out / f'r{replication}-after-loaded.json').read_text()))
     receipt['search_results_equivalent'] = True
     receipt_path.write_text(json.dumps(receipt, indent=2) + '\n')
 

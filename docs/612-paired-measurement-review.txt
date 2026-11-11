@@ -1,96 +1,110 @@
-#612 same-host comparison: preparation for independent measurement review
+#612 same-host comparison: revised protocol for independent review
 
-This separate branch does not modify qualified PR #836 head
-960dd1820a643610ec69b782f4715821c1dcb6a8. No workloads were dispatched.
+Review preparation only. No fixture generation or measurement has run.
+Qualified PR #836 remains at960dd1820a643610ec69b782f4715821c1dcb6a8.
+The diagnostic branch is separate; its common scripts are mounted into both images.
 
-Proposed before: main 99c1586bfc994fd1b138632fe8c7845b40072142.
-After: 960dd1820a643610ec69b782f4715821c1dcb6a8.
-Both images must be built from those exact trees by the existing supported
-Docker build, carrying their full commit and build identities. Do not substitute
-an old live image or change package/catalog inputs. Resolve immutable local image
-IDs and compare runtime versions, configuration and assets before execution.
-The local Docker daemon works but contains no images at this checkpoint.
+Pinned comparison:
+  before main99c1586bfc994fd1b138632fe8c7845b40072142
+  after960dd1820a643610ec69b782f4715821c1dcb6a8
 
-Run the same scripts checkout against both images, read-only, so instrumentation
-and synthetic retained workloads are identical. Retain scripts_sha256 separately
-from image/source identity. The additional probe changes measurement sequencing,
-not server code: first /search?q=love&limit=1 on startup, and the pinned nonempty no-match
-control on recovery (each is a fresh server process); time the response, then wait within the
-existing load deadline for verified corpus readiness. Record first_search_s and
-verified_ready_s separately. Sample the entire load-and-verification interval.
-Legacy main can return a search while corpus verification is still pending; this
-must neither be called ready nor silently counted as first-response latency.
+PREREQUISITES (must be independently verified, not assumed from green CI)
+Build images using the supported Docker build from those exact trees; no old-live
+substitution. Preserve immutable local image IDs, baked source/release identity,
+Node/Python versions, production configuration, Library snapshot/data hashes and
+schema/state-codec compatibility of the shared fixtures. Actual byte inventories
+must establish equal assets/configuration/fixture-codec identities and runtime
+versions. Document any differing field and stop rather than silently normalize it.
+The local Docker daemon is available but has no images cached at preparation.
 
-Use the four existing shard cell sets, each triplet on ONE runner, sequential
-fresh containers: before-loaded, after-loaded, after-unloaded. Reverse the order
-on alternating shard hosts with --candidate-first. No concurrency between arms,
-cache flushing, limits change, dropping cells, store configuration removal or
-automatic rerun. Common 1 CPU/2GiB cgroup, same1792MiB gates. The unloaded arm is
-candidate-only: baseline Library health itself loads stores. Preserve this
-asymmetry rather than pretend the baseline supports the new observational health.
+--preflight requires a reviewed external inventory receipt with status=verified,
+reviewer and evidence_source, plus before/after records containing image_id,
+source_sha, assets_sha256, config_sha256, fixture_codec_sha256, node_version and
+python_version. The driver checks hashes' shape, image/source association and
+field equality before measurement. It does not authenticate an inventory merely
+because a JSON file says verified: the independent reviewer must validate its
+source evidence. No such preflight receipt exists yet.
 
-Example after review, with actual immutable image IDs substituted:
+COMMON FIXTURES
+Generate retained payloads ONCE, outside measured arms, with the existing
+seed_lyrics_capacity_receipts.mjs and lyrics_capacity_server.mjs --prepare in the
+pinned baseline image. Save jobs/, receipts.json, prepared-runs.json and its
+.sha256 file. manifest.json contains an exact relative-path -> SHA256 map under
+files. Independently verify that these prepared bytes satisfy both images' schemas
+and codecs. Do not claim equal scripts imply equal crypto.randomBytes output.
+--fixtures is mandatory. Verify complete membership and every hash before each
+arm; mount read-only, copy to each arm's own writable runtime directory. Per-arm
+paired_fixture_sha256 must match the common receipt. No per-arm random generation.
+
+PRESPECIFIED REPLICATION AND ORDER
+Use the four existing shard cell sets, each on one dedicated host. On EACH host,
+run two repetitions of ALL three arms sequentially in fresh containers:
+  repetition1: before-loaded, after-loaded, after-unloaded
+  repetition2: after-unloaded, after-loaded, before-loaded
+--candidate-first reverses the first order and correspondingly the second.
+Thus each exact workload gets both orders on the SAME host, not different orders
+on different populations. Do not run arms concurrently or move repetition2 to a
+new host. Retain host, experiment ID, order, image IDs and all failed receipts.
+Each arm keeps1CPU/2GiB and1792MiB gates. No store removal, workload truncation,
+cache flushing, retry-until-green or qualification substitution. Two repetitions
+provide repeated descriptive evidence, not a tail-risk estimate or a confidence
+interval. This is108 workload executions total (18cells/modes x3arms x2repetitions),
+plus startup/recovery and fixture preparation; review cost before dispatch.
+
+SEARCH AND VERIFICATION
+Each loaded startup times q=love&limit=1, requiring a positive result. Recovery
+starts a NEW server process and times the pinned long no-match query in
+SEARCH_QUERIES, requiring zero results. Both queries are nonempty and exercise
+body scanning. The first-request response digest, snapshot ID, total and query
+must match across before/after for each repetition. A mismatch fails the driver.
+Legacy main can return search before corpus verification ends; record response
+first_search_s separately from verified_ready_s. Readiness must be observed
+before the unchanged60second deadline. Late-ready responses are refused, and
+request timeouts are capped to remaining time. Include verification in the
+sampled load window. Candidate-unloaded stays unloaded and has no search timing.
+
+MEDIAN POPULATIONS (do not pool unlike observations)
+For each of18 exact workload cells/modes, calculate before minus after-loaded
+resident peak in each repetition; take that cell's median of2 paired differences.
+Report all18 cell medians and the median of those18 equally weighted values.
+Repeat separately for before-loaded versus after-unloaded. Also report raw peak
+and margin for every observation and the worst observed cell per arm across both
+repetitions. Do not subtract two separately pooled medians.
+For latency, report startup representative-query and recovery no-match separately.
+Each query has8 paired before/after differences (4hosts x2repetitions). Report
+before/after medians and the median of paired differences over those8 pairs, plus
+ranges and each pair. Do the same separately for verified_ready_s. Do not pool
+representative and no-match timings. Compare assets/configuration, fixture hashes,
+source identities and unchanged limits before interpreting any difference.
+Host pairing reduces host variation but does not remove filesystem-cache/order
+or time drift; two reverse-order repetitions do not establish production savings.
+
+SAMPLING AND CLEANUP
+Retain per-cell peak records, sample counts, peak-associated component snapshots,
+load-window peak records, image/build hashes, host metadata, order and failures.
+The existing sampler does NOT retain every raw sample or continuous maxima;
+short transients can be missed. No full raw-sample claim is made.
+Every arm has an invocation-owned UUID container name; finally removes it after
+completion, timeout or interruption. Cleanup failure stops the experiment and is
+recorded. No competing/shared container is removed; no automatic retry.
+
+Example after independent review and verified preflight, replacing actual IDs:
 python3 scripts/run_paired_library_capacity.py \
   --before-image sha256:<64hex> --after-image sha256:<64hex> \
   --before-sha 99c1586bfc994fd1b138632fe8c7845b40072142 \
   --after-sha 960dd1820a643610ec69b782f4715821c1dcb6a8 \
   --cells 31:20260910,24:20260909 --out /workspace/evidence/pole \
-  --fixtures /workspace/evidence/shared-fixtures
+  --fixtures /workspace/evidence/shared-fixtures \
+  --preflight /workspace/evidence/reviewed-image-inventory.json
+(Image IDs above are placeholders; substitute verified immutable IDs.)
 
-Before reporting results, independently validate the four complete triplets:
-exact18cold/worker executions per arm; same host within each triplet; all profiles
-pass their original gates; image/source identities; identical assets/configuration
-and Node/Python versions; same workload/source instrumentation except intentionally
-changed runtime code; no missing/duplicate cells or receipt substitution. Retain
-per-cell peak records, sample counts, peak-associated component snapshots,
-load-window peak records, image/build hashes, host metadata, arm order and
-failures. The current sampler does NOT retain every raw sample or a continuous
-trace; no claim of full raw-sample retention or continuous maxima is made.
-Report each cell's before/after-loaded and before/after-unloaded resident peaks
-and margins, worst cell, and median paired delta separately for the two contrasts.
-Report paired cold-start first_search_s and verified_ready_s; show startup and
-recovery separately, then the paired medians. Same-host pairing reduces host
-confounding but does not remove order/cache effects or establish production savings.
-
-This is an executable preparation milestone, not a finished acceptance report.
-The driver has no image build/pull/publish or qualification dispatch capability.
-Five local protocol/command tests pass; full oracle tests are on the qualified
-source. The new sequence and host orchestration need independent review before
-measurement, as required by #612 issuecomment-6691659223. Reviewer must also
-validate the actual receipt comparison before any acceptance claim.
-
-Acceptance owners: Jony (workflow/measurement), Don (loading/Retry/health and
-user-facing meaning), or explicitly authorized replacements; John decides the
-measured latency trade-off and any scope/limit change. No scope/limit change is
-proposed. No merge until outstanding acceptance and John's decision are satisfied.
-
-Review corrections (preparation only; no execution authorized by this note):
-- Enforce a single60second deadline through first-search and verification. Request
-  timeouts are capped to remaining time; a ready response after expiry is refused.
-- Prepare retained fixtures ONCE outside measured arms using the existing seed
-  script and server --prepare in the pinned baseline image. Save jobs/,
-  receipts.json, prepared-runs.json and prepared-runs.json.sha256 together with
-  manifest.json containing exact relative-path -> SHA256 entries under files.
-  This generation has not run. The reviewer must check schema/codec compatibility
-  of the two pinned images before accepting a shared prepared payload.
-- The driver requires --fixtures, verifies bytes and membership before each arm,
-  and mounts it read-only. Each arm copies identical jobs/receipts and prepared
-  run bytes into its private writable runtime directory. No arm invokes random
-  generation. Per-arm evidence retains paired_fixture_sha256 for reconciliation.
-- Seven protocol tests pass, including late-ready refusal, altered/extra fixture
-  refusal, and two arm copies preserving identical bytes. Existing five tests
-  remain included. Independent review is still pending; no measurements run.
-
-Further review corrections:
-- SEARCH_QUERIES pins startup q=love (must return a hit) and recovery's nonempty
-  no-match control (must return zero hits). Both invoke the body scan on their
-  respective fresh processes. Compare the full canonical response digest,
-  snapshot ID, count and query across before/after; disagreement fails the driver.
-  Report the two query latency medians separately, not pooled as one workload.
-- Every arm gets an invocation-owned UUID container name. finally removes that
-  container even after Docker client timeout or interruption. Cleanup failure
-  refuses the run, and the receipt records the exception; there is no retry.
-- Sampling claims now name retained peak summaries and sample counts explicitly.
-  All raw samples are not retained, and short transients can still be missed.
-- Ten protocol tests pass; measurement remains stopped pending final independent
-  review. No new actual latency or memory values have been measured.
+VALIDATION AND OWNERS
+12 simulated protocol tests pass, including deadline, differing fixture bytes,
+extra files, identical two-arm copies, nonempty controls, response mismatch,
+timeout/interruption cleanup, cleanup failure, per-workload reversal and preflight
+identity mismatch. These are not actual memory/latency measurements.
+Independent review of this revised protocol, fixtures and image inventories is
+still pending. Jony owns workflow/measurement acceptance; Don owns loading/Retry/
+health meaning, or explicitly authorized replacements. John decides the measured
+latency trade-off and any scope/limit change. No limit change is proposed. Do not
+merge until outstanding acceptance and John's decision are satisfied.

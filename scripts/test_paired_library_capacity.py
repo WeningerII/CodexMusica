@@ -7,7 +7,7 @@ import subprocess
 from pathlib import Path
 from unittest.mock import patch
 from paired_library_capacity_probe import PairedRuntime, fixture_files, search_evidence, SEARCH_QUERIES
-from run_paired_library_capacity import command, frozen_image, run_arm, compare_searches
+from run_paired_library_capacity import command, frozen_image, run_arm, compare_searches, schedule, validate_preflight
 
 
 class Protocol(unittest.TestCase):
@@ -129,6 +129,33 @@ class Protocol(unittest.TestCase):
                 subprocess.CompletedProcess([], 1, '', 'daemon unavailable')]):
             with self.assertRaisesRegex(RuntimeError, 'cleanup failed'):
                 run_arm(['docker', 'run'], {}, None, 'owned-uuid')
+
+    def test_each_workload_has_repeated_reverse_order(self):
+        arms = [('before-loaded','before','loaded'), ('after-loaded','after','loaded'),
+                ('after-unloaded','after','unloaded')]
+        rows = schedule(arms)
+        self.assertEqual(len(rows), 6)
+        self.assertEqual([x[1] for x in rows[:3]], [x[1] for x in rows[3:]][::-1])
+        for arm, _, _ in arms:
+            self.assertEqual([r for r,a,_,_ in rows if a == arm], [1,2])
+
+    def test_preflight_rejects_unreviewed_mismatched_or_missing_identity(self):
+        images = {key: {'image_id':key,'source_sha':key} for key in ('before','after')}
+        record = {'status':'verified','reviewer':'review-fixture','evidence_source':'fixture-only',
+                  **{key:{**value,'assets_sha256':'a'*64,'config_sha256':'b'*64,
+                           'fixture_codec_sha256':'c'*64,'node_version':'22','python_version':'3.11'}
+                     for key,value in images.items()}}
+        validate_preflight(record, images)
+        for field in ('image_id','source_sha','assets_sha256','config_sha256',
+                      'fixture_codec_sha256','node_version','python_version'):
+            broken = copy.deepcopy(record)
+            broken['after'][field] = 'different'
+            with self.assertRaises(RuntimeError):
+                validate_preflight(broken, images)
+        broken = copy.deepcopy(record)
+        broken.pop('reviewer')
+        with self.assertRaises(RuntimeError):
+            validate_preflight(broken, images)
 
     def test_mutable_image_names_are_refused(self):
         for name in ['latest','ghcr.io/x/image:tag','sha256:'+'a'*63]:
