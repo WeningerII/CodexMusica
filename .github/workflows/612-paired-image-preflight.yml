@@ -113,11 +113,22 @@ jobs:
       - name: Pull immutable baseline and build exact candidate
         timeout-minutes: 60
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           test "$(git -C candidate rev-parse HEAD)" = "$AFTER_SHA"
           baseline="ghcr.io/weningerii/codexmusica/lyrics@$BASELINE_DIGEST"
-          docker pull --platform=linux/amd64 "$baseline" 2>&1 | tee evidence/pull.log
+          (
+            umask 077
+            pull_config="$(mktemp -d "$RUNNER_TEMP/612-ghcr-pull.XXXXXX")"
+            trap 'rm -rf -- "$pull_config"' EXIT
+            printf '%s' "$GH_TOKEN" | docker --config "$pull_config" login ghcr.io \
+              -u "$GITHUB_ACTOR" --password-stdin 2>&1 | tee evidence/registry-login.log
+            docker --config "$pull_config" pull --platform=linux/amd64 "$baseline" \
+              2>&1 | tee evidence/pull.log
+          )
+          unset GH_TOKEN
           df -B1 / /var/lib/docker > evidence/disk-after-pull.txt
           docker system df > evidence/docker-after-pull.txt
           docker image inspect "$baseline" > evidence/before-image.json
