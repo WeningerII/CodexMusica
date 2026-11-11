@@ -182,7 +182,9 @@ function expandCommand(command) {
         'run_parallel: recipe shards are not one complete disjoint fixture inventory'
       );
     expanded = inventory.shards.map(
-      (part) => `${command} --shard=${part.shard} --expect=${inventory.sha256}`
+      // The outer pool already owns four CPU lanes. Keep each recipe hand
+      // on one lane instead of nesting another one-Worker-per-core pool.
+      (part) => `REGRESSION_SERIAL=1 ${command} --shard=${part.shard} --expect=${inventory.sha256}`
     );
   }
   if (command === 'node mcp/test.mjs') {

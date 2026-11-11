@@ -1020,14 +1020,19 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
     sections = [x.id for x in assignment.value.elts]
     check("every panel section is declared once", len(sections) == len(declared)
           and set(sections) == declared)
-    repeated = {"relations_null", "g2p", "spans", "readability", "reader"}
+    repeated = {"relations_null", "g2p", "spans", "readability", "reader", "screen"}
+    coordinate_names = ("relations_null", "g2p", "spans", "readability", "reader", "screen")
+    check("the named pool retains 119 distinct modules and six split suites",
+          len(names) == len(set(names)) == 119 and repeated <= set(names))
     seen, section_seen, coordinates = [], [], {name: [] for name in repeated}
     with tempfile.TemporaryDirectory(prefix="m244-pool-") as tmp:
         stub = os.path.join(tmp, "python3")
         with open(stub, "w", encoding="utf-8") as f:
             f.write('#!/bin/sh\nprintf "CALLED %s\\n" "$1"\n'
-                    'printf "COORD %s %s %s %s %s\\n" "$TEST_RELATIONS_NULL_SHARD" '
-                    '"$TEST_G2P_SHARD" "$TEST_SPANS_SHARD" "$TEST_READABILITY_SHARD" "$TEST_READER_SHARD"\n'
+                    'printf "COORD %s %s %s %s %s %s\\n" "$TEST_RELATIONS_NULL_SHARD" '
+                    '"$TEST_G2P_SHARD" "$TEST_SPANS_SHARD" "$TEST_READABILITY_SHARD" "$TEST_READER_SHARD" "$TEST_SCREEN_SHARD"\n'
+                    'printf "CACHE %s %s %s\\n" "$1" "${XDG_CACHE_HOME-unset}" "${LYRIC_FIELD_STORE-unset}"\n'
+                    'module="$1" /bin/sh -c \'printf "CHILD_CACHE %s %s %s\\n" "$module" "${XDG_CACHE_HOME-unset}" "${LYRIC_FIELD_STORE-unset}"\'\n'
                     '[ "$1" != "$FAIL_SUITE" ]\n')
         os.chmod(stub, 0o755)
         for k in range(1, n + 1):
@@ -1036,26 +1041,40 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
             env = dict(os.environ, PATH=tmp + os.pathsep + os.environ.get("PATH", ""),
                        SUITES_SHARD=str(k), SUITES_SHARDS=str(n), FAIL_SUITE="",
                        TEST_RELATIONS_NULL_SHARD=f"{k}/{n}",
-                       TEST_READABILITY_SHARD=f"{k}/{n}", TEST_READER_SHARD=f"{k}/{n}")
+                       TEST_READABILITY_SHARD="77/99", TEST_READER_SHARD="66/99",
+                       TEST_SCREEN_SHARD="55/99", XDG_CACHE_HOME=os.path.join(tmp, "shared-cache"),
+                       LYRIC_FIELD_STORE="1")
             run = subprocess.run(["bash", "-c", local], env=env, capture_output=True, text=True)
             called = re.findall(r"^CALLED quality/test_(\w+)\.py$", run.stdout, re.M)
             check(f"pool shard {k}/{n} executes and includes its panel partition",
                   run.returncode == 0 and called.count("relations_null") == 1,
                   run.stderr[-300:])
             seen.extend(called)
-            coords = re.findall(r"^COORD (\d+/\d+) (\d+/\d+) (\d+/\d+) (\d+/\d+) (\d+/\d+)$", run.stdout, re.M)
-            check(f"pool shard {k}/{n}: every child carries all five coordinates",
+            coords = re.findall(r"^COORD (\d+/\d+) (\d+/\d+) (\d+/\d+) (\d+/\d+) (\d+/\d+) (\d+/\d+)$", run.stdout, re.M)
+            check(f"pool shard {k}/{n}: every child carries all six coordinates",
                   len(coords) == len(called))
             if coords:
-                for module, coordinate in zip(("relations_null", "g2p", "spans", "readability", "reader"), coords[0]):
+                for module, coordinate in zip(coordinate_names, coords[0]):
                     coordinates[module].append(coordinate)
+            caches = re.findall(r"^CACHE (\S+) (\S+) (\S+)$", run.stdout, re.M)
+            children = re.findall(r"^CHILD_CACHE (\S+) (\S+) (\S+)$", run.stdout, re.M)
+            check(f"pool shard {k}/{n}: every child inherits its module's enabled field cache",
+                  len(caches) == len(called) and collections.Counter(caches) == collections.Counter(children)
+                  and all(enabled == "1" for _, _, enabled in caches))
+            screen_cache = [path for module, path, _ in caches if module == "quality/test_screen.py"]
+            check(f"pool shard {k}/{n}: only Screen gets a private cache directory",
+                  len(screen_cache) == 1 and screen_cache[0].startswith(os.path.join(tmp, "logs", "screen-cache-"))
+                  and os.path.isdir(screen_cache[0])
+                  and all(path == env["XDG_CACHE_HOME"] for module, path, _ in caches
+                          if module != "quality/test_screen.py"))
             _env(f"{k}/{n}")
             section_seen.extend(S.dealt(sections, "TEST_SHARD_PROBE")[0])
         counts = collections.Counter(seen)
         expected = collections.Counter(names)
         for name in repeated:
             expected[name] = n
-        check("the actual shell runs every ordinary suite once and every split suite once per shard", counts == expected)
+        check("the actual shell makes 161 calls: every ordinary suite once and every split suite once per shard",
+              counts == expected and len(seen) == 161)
         for name, coords in coordinates.items():
             check(f"{name}: rotated coordinates cover 1..{n} exactly once",
                   collections.Counter(coords) == collections.Counter(f"{k}/{n}" for k in range(1, n + 1)))
@@ -1073,6 +1092,31 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
                                    run.stdout.split("FAILING SUITES", 1)[0], re.M)
                 check(f"{' '.join(shell)}: failure in {name} does not omit another selected test module",
                       collections.Counter(after) == collections.Counter(called))
+        # A cache setup failure must be a failed Screen obligation, with the
+        # remaining selected modules still attempted. Plant it only at the
+        # real wrapper's mkdir call; the initial log-directory setup stays live.
+        blocked = local.replace('mkdir -p "$cache"', 'false')
+        check("the cache failure control plants the actual Screen mkdir call", blocked != local)
+        env["FAIL_SUITE"] = ""
+        run = subprocess.run(["bash", "-o", "pipefail", "-c", blocked], env=env,
+                             capture_output=True, text=True)
+        after = re.findall(r"^CALLED quality/test_(\w+)\.py$",
+                           run.stdout.split("FAILING SUITES", 1)[0], re.M)
+        check("an unusable Screen cache fails the gate and does not omit another module",
+              run.returncode == 1 and "quality/test_screen.py" in run.stdout
+              and collections.Counter(after) == collections.Counter(name for name in called if name != "screen"))
+        for total in (None, "1"):
+            env["FAIL_SUITE"] = ""
+            env.pop("SUITES_SHARD", None)
+            env.pop("SUITES_SHARDS", None)
+            env.pop("TEST_RELATIONS_NULL_SHARD", None)
+            if total is not None:
+                env.update(SUITES_SHARD="1", SUITES_SHARDS=total)
+            run = subprocess.run(["bash", "-o", "pipefail", "-c", local], env=env,
+                                 capture_output=True, text=True)
+            whole = re.findall(r"^CALLED quality/test_(\w+)\.py$", run.stdout, re.M)
+            check(f"pool with {total or 'unset'} shard count runs the whole 119-module inventory once",
+                  run.returncode == 0 and collections.Counter(whole) == collections.Counter(names))
     _env(None)
 
 
@@ -1105,6 +1149,15 @@ def test_split_suite_inventories_and_panel_work_are_complete():
             "test_the_assonance_profile_says_the_band_is_off",
             "test_the_default_doors_are_priced_where_they_answer",
             "test_a_spaced_enclitic_joins_its_word_and_an_elided_word_does_not"),
+        "screen": (
+            "test_the_controls", "test_honesty_and_the_split", "test_no_drift",
+            "test_the_scaffold", "test_the_cli", "test_clean_answers_one_question",
+            "test_the_screen_asks_the_grades_question",
+            "test_the_screen_judges_a_drawn_schema_and_names_a_near_relation",
+            "test_the_screen_says_which_words_cannot_be_bound_at_a_token",
+            "test_named_judgment_survives_broad_uncertainty",
+            "test_screen_retains_partial_anchor_evidence",
+            "test_rime_riche_reads_the_words_own_onset"),
     }
     for name, want in expected.items():
         tree = ast.parse(open(os.path.join(HERE, f"test_{name}.py"), encoding="utf-8").read())
@@ -1112,11 +1165,17 @@ def test_split_suite_inventories_and_panel_work_are_complete():
                           and any(isinstance(t, ast.Name) and t.id == "_SECTIONS" for t in node.targets))
         got = [node.id for node in assignment.value.elts]
         check(f"{name}: every pre-split runner call is retained once, in order", got == list(want))
+        sharded = next((node for node in tree.body if isinstance(node, ast.Assign)
+                        and any(isinstance(t, ast.Name) and t.id == "_SHARDED_SECTIONS"
+                                for t in node.targets)), None)
+        effective = [node.id for node in sharded.value.elts] if sharded else got
+        check(f"{name}: the actual sharded tuple retains every original section once",
+              collections.Counter(effective) == collections.Counter(want))
         for n in (1, 3, 6, 8):
             seen = []
             for k in range(1, n + 1):
                 _env(f"{k}/{n}")
-                seen.extend(S.dealt(got, "TEST_SHARD_PROBE")[0])
+                seen.extend(S.dealt(effective if n > 1 else got, "TEST_SHARD_PROBE")[0])
             check(f"{name}: all {n} shard inventories retain every original section once",
                   collections.Counter(seen) == collections.Counter(want))
     _env(None)
@@ -1170,11 +1229,13 @@ def _test_pool_coordinate_modes():
     start = job.index('          if [ "${SUITES_SHARDS:-1}" -eq 8 ]; then')
     end = job.index('          for f in relations_null ', start)
     script = textwrap.dedent(job[start:end])
-    script += '\nprintf "%s|%s\\n" "${TEST_G2P_SHARD-unset}" "${TEST_SPANS_SHARD-unset}"\n'
-    cases = [(None, None, "unset|unset"), ("1", "1", "unset|unset"),
-             ("3", "2", "2/3|2/3"), ("8", "1", "8/8|5/8")]
+    names = ("G2P", "SPANS", "READER", "READABILITY", "SCREEN")
+    script += '\nprintf "%s|%s|%s|%s|%s\\n" ' + " ".join(
+        '"${TEST_' + name + '_SHARD-unset}"' for name in names) + "\n"
+    cases = [(None, None, "|".join(["unset"] * 5)), ("1", "1", "|".join(["unset"] * 5)),
+             ("3", "2", "|".join(["2/3"] * 5)), ("8", "1", "4/8|8/8|7/8|2/8|1/8")]
     for total, index, want in cases:
-        env = dict(os.environ, TEST_G2P_SHARD="77/99", TEST_SPANS_SHARD="66/99")
+        env = dict(os.environ, **{f"TEST_{name}_SHARD": "77/99" for name in names})
         env.pop("SUITES_SHARDS", None)
         env.pop("SUITES_SHARD", None)
         if total is not None:
@@ -1184,20 +1245,18 @@ def _test_pool_coordinate_modes():
         check(f"pool {index or 'unset'}/{total or 'unset'} overrides stale coordinates correctly",
               result.returncode == 0 and result.stdout.strip() == want,
               result.stdout.strip() + result.stderr)
-    g2p, spans = [], []
+    coordinates = {name: [] for name in names}
     for index in range(1, 9):
         env = dict(os.environ, SUITES_SHARDS="8", SUITES_SHARD=str(index),
-                   TEST_G2P_SHARD="77/99", TEST_SPANS_SHARD="66/99")
+                   **{f"TEST_{name}_SHARD": "77/99" for name in names})
         result = subprocess.run(["bash", "-o", "pipefail", "-c", script],
                                 env=env, capture_output=True, text=True)
-        left, right = result.stdout.strip().split("|")
-        g2p.append(left)
-        spans.append(right)
+        for name, coordinate in zip(names, result.stdout.strip().split("|")):
+            coordinates[name].append(coordinate)
     expected = collections.Counter(f"{index}/8" for index in range(1, 9))
-    check("the eight G2P rotations still execute every coordinate exactly once",
-          collections.Counter(g2p) == expected)
-    check("the eight spans rotations still execute every coordinate exactly once",
-          collections.Counter(spans) == expected)
+    for name, observed in coordinates.items():
+        check(f"the eight {name} rotations still execute every coordinate exactly once",
+              collections.Counter(observed) == expected)
 
 
 if __name__ == "__main__":

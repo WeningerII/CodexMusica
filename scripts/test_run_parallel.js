@@ -163,7 +163,7 @@ try {
   );
   checks++;
   const recipes = commands.filter((command) =>
-    command.startsWith('node scripts/regression_recipes.js --shard=')
+    command.startsWith('REGRESSION_SERIAL=1 node scripts/regression_recipes.js --shard=')
   );
   assert.equal(recipes.length, 4);
   assert.deepEqual(
@@ -171,7 +171,105 @@ try {
     ['1/4', '2/4', '3/4', '4/4']
   );
   assert.ok(recipes.every((command) => /--expect=[a-f0-9]{64}$/.test(command)));
+  assert.ok(
+    full.leaves
+      .filter((leaf) => recipes.includes(leaf.command))
+      .every((leaf) => leaf.parent === 'node scripts/regression_recipes.js'),
+    'CI resource prefix must retain the standing serial-chain parent'
+  );
   checks++;
+  // The production expansion must actually select the existing inline path,
+  // not merely carry a decorative resource flag. A duplicate-ID hand has two
+  // raw rows, so removing the prefix would otherwise construct inner Workers.
+  const serialRoot = path.join(temp, 'serial-recipe');
+  fs.mkdirSync(path.join(serialRoot, 'scripts'), { recursive: true });
+  fs.mkdirSync(path.join(serialRoot, 'tests'));
+  const serialFixtures = [
+    { id: 'a', traditions: ['alpha'] },
+    { id: 'b', traditions: ['beta'] },
+    { id: 'a', traditions: ['alpha'] },
+    { id: 'c', traditions: ['gamma'] },
+    { id: 'd', traditions: ['delta'] },
+  ];
+  const recipeSource = fs.readFileSync(path.join(root, 'scripts/regression_recipes.js'), 'utf8');
+  const fixtureStart = recipeSource.indexOf('const FIXTURES = [');
+  const fixtureEnd = recipeSource.indexOf('\n];\n\n// Compute', fixtureStart) + 3;
+  assert.ok(fixtureStart >= 0 && fixtureEnd > fixtureStart);
+  fs.writeFileSync(
+    path.join(serialRoot, 'scripts/regression_recipes.js'),
+    recipeSource.slice(0, fixtureStart) +
+      `const FIXTURES = ${JSON.stringify(serialFixtures)};` +
+      recipeSource.slice(fixtureEnd)
+  );
+  fs.writeFileSync(
+    path.join(serialRoot, 'scripts/search.js'),
+    "const fs=require('fs');exports.seedFromTradition=(primary,staples)=>({primary,staples});exports.search=(config)=>{fs.appendFileSync(process.env.CI_RECIPE_RAW_CALLS,config.primary+'\\n');return {config};};\n"
+  );
+  fs.writeFileSync(
+    path.join(serialRoot, 'scripts/translate.js'),
+    'exports.translate=(config)=>JSON.stringify(config);\n'
+  );
+  const serialSnapshot = Object.fromEntries(
+    serialFixtures.map((fixture) => [
+      fixture.id,
+      {
+        output: JSON.stringify({ primary: fixture.traditions[0], staples: [] }),
+        traditions: fixture.traditions,
+      },
+    ])
+  );
+  fs.writeFileSync(
+    path.join(serialRoot, 'tests/regression_snapshot.json'),
+    JSON.stringify(serialSnapshot)
+  );
+  const serialList = spawnSync(
+    process.execPath,
+    ['scripts/regression_recipes.js', '--list-shards=4'],
+    { cwd: serialRoot, encoding: 'utf8' }
+  );
+  assert.equal(serialList.status, 0, serialList.stderr);
+  const serialIdentity = JSON.parse(serialList.stdout).sha256;
+  const workerMarker = path.join(serialRoot, 'nested-worker.txt');
+  const rawCalls = path.join(serialRoot, 'raw-calls.txt');
+  const workerTrap = path.join(serialRoot, 'worker-trap.cjs');
+  fs.writeFileSync(
+    workerTrap,
+    "const fs=require('node:fs');require('node:worker_threads').Worker=class{constructor(){fs.writeFileSync(process.env.CI_RECIPE_WORKER_MARKER,'attempt');throw Error('unexpected nested recipe Worker');}};\n"
+  );
+  const serialEnvironment = {
+    ...process.env,
+    REGRESSION_SERIAL: '',
+    CI_RECIPE_RAW_CALLS: rawCalls,
+    CI_RECIPE_WORKER_MARKER: workerMarker,
+    NODE_OPTIONS: ((process.env.NODE_OPTIONS || '') + ' --require=' + workerTrap).trim(),
+  };
+  const serialCommand = recipes[0].replace(/--expect=[a-f0-9]{64}/, `--expect=${serialIdentity}`);
+  const serialResult = spawnSync(serialCommand, {
+    cwd: serialRoot,
+    shell: true,
+    env: serialEnvironment,
+    encoding: 'utf8',
+  });
+  assert.equal(serialResult.status, 0, serialResult.stdout + serialResult.stderr);
+  assert.deepEqual(fs.readFileSync(rawCalls, 'utf8').trim().split('\n'), ['alpha', 'alpha']);
+  assert.ok(!fs.existsSync(workerMarker), 'prefixed CI leaf must never construct an inner Worker');
+  checks++;
+  fs.unlinkSync(rawCalls);
+  const nestedResult = spawnSync(serialCommand.replace(/^REGRESSION_SERIAL=1 /, ''), {
+    cwd: serialRoot,
+    shell: true,
+    env: serialEnvironment,
+    encoding: 'utf8',
+  });
+  assert.notEqual(
+    nestedResult.status,
+    0,
+    'removing the resource prefix must trigger the Worker trap'
+  );
+  assert.ok(fs.existsSync(workerMarker));
+  assert.ok(!fs.existsSync(rawCalls), 'the negative control must fail before fixture computation');
+  checks++;
+
   const offline = commands.filter((command) => command.includes('--test-timeout=120000'));
   const productionCommand = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'))
     .scripts['test:production:offline'].split('&&')[0]

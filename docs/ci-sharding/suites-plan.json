@@ -1,0 +1,1930 @@
+{
+  "basis_runs": [
+    {
+      "run": 43110418153,
+      "head": "8e3d59ab5deb36b2ea4bbeeb54d8fe7baad2a16d"
+    },
+    {
+      "run": 43099681517,
+      "head": "7c847fe0c145524e1edd4bdd4a63b7c403bce8ce"
+    }
+  ],
+  "profile_choice": "Design uses maximum observed cost per ordinary module and per giant coordinate across both hosted runs; separately normalized Screen parts.",
+  "named_list": [
+    "relations_null",
+    "g2p",
+    "spans",
+    "readability",
+    "reader",
+    "screen",
+    "null_shapes",
+    "production_revision",
+    "production_relations",
+    "narrative",
+    "coverage_queue",
+    "homograph",
+    "replay_memo",
+    "mandate_relation",
+    "relation_index",
+    "high_report",
+    "msa_fin",
+    "grid",
+    "bias_census",
+    "floor",
+    "mut_oracle",
+    "structure_census",
+    "fwer",
+    "gate_census",
+    "phrase_commonplace",
+    "homeoteleuton",
+    "field_store",
+    "capacity_receipt",
+    "coverage_split",
+    "cross_song",
+    "provenance",
+    "meter_digit_bound",
+    "chance_rate",
+    "propose",
+    "audit_regressions",
+    "writing_rhyme_bans",
+    "lexicon_supplement",
+    "sequence_unread",
+    "capabilities",
+    "source_identity",
+    "band",
+    "mosaic_rhyme",
+    "recover",
+    "production_data",
+    "song_function",
+    "reader_quotes",
+    "fit",
+    "placement",
+    "register_audit",
+    "relations",
+    "sound_inventory",
+    "corpus_audit",
+    "readings_seam",
+    "p2_full_floor",
+    "cym",
+    "melody",
+    "data_row_claims",
+    "slots",
+    "meter_strict",
+    "schema_report",
+    "schema_instance_evidence",
+    "time_layer",
+    "function_disclosure",
+    "declared_inputs",
+    "stub_resolution",
+    "nc_census",
+    "floor_window",
+    "door_census",
+    "align",
+    "ltc",
+    "taxonomy",
+    "production_harness",
+    "expected_drift",
+    "figure_exhibits",
+    "structures",
+    "sentencehood",
+    "meter_bands",
+    "nucleus",
+    "mut_band",
+    "computational_audit",
+    "battery_rounds",
+    "meter",
+    "suite_sweep",
+    "shard",
+    "production_journal",
+    "comparator_pin",
+    "interlocking_chain",
+    "section_marks",
+    "type_canon",
+    "moby_convert",
+    "tempo",
+    "rhyme_organization",
+    "crosslinguistic",
+    "mandate_language",
+    "candidate_pair_projection",
+    "relation_shapes",
+    "backlog_status",
+    "phon_fas",
+    "render_form",
+    "phonology",
+    "within_item",
+    "connection_schemas",
+    "english_text",
+    "phon_san",
+    "pilot_frame",
+    "phon_non",
+    "coda",
+    "pin_sweep",
+    "meter_honesty",
+    "verify_entries",
+    "verify_figures",
+    "staging",
+    "e5_coda_adoption",
+    "controls",
+    "matrix",
+    "corpus_taxonomy",
+    "positive_control",
+    "phon_msa",
+    "brief_provenance"
+  ],
+  "named_list_sha256": "1293ff702e289d5538357e7e868b6d0cfc7129b818b4a6dc73a9cafb62e561ae",
+  "ordinary_owner_map": {
+    "replay_memo": 5,
+    "mut_oracle": 5,
+    "coverage_queue": 3,
+    "homograph": 4,
+    "production_revision": 8,
+    "high_report": 8,
+    "coverage_split": 5,
+    "gate_census": 8,
+    "floor": 4,
+    "null_shapes": 7,
+    "bias_census": 3,
+    "relation_index": 7,
+    "narrative": 2,
+    "fwer": 7,
+    "grid": 2,
+    "lexicon_supplement": 5,
+    "homeoteleuton": 2,
+    "mandate_relation": 6,
+    "structure_census": 6,
+    "field_store": 3,
+    "audit_regressions": 3,
+    "capacity_receipt": 4,
+    "song_function": 5,
+    "writing_rhyme_bans": 4,
+    "readings_seam": 5,
+    "propose": 2,
+    "schema_instance_evidence": 5,
+    "meter_digit_bound": 8,
+    "recover": 3,
+    "production_data": 4,
+    "corpus_audit": 4,
+    "mosaic_rhyme": 2,
+    "production_relations": 1,
+    "msa_fin": 1,
+    "align": 5,
+    "cross_song": 6,
+    "provenance": 7,
+    "relations": 2,
+    "sequence_unread": 6,
+    "source_identity": 8,
+    "capabilities": 7,
+    "placement": 8,
+    "reader_quotes": 6,
+    "p2_full_floor": 6,
+    "sound_inventory": 3,
+    "meter_strict": 3,
+    "meter_bands": 5,
+    "floor_window": 3,
+    "schema_report": 4,
+    "door_census": 4,
+    "production_journal": 5,
+    "slots": 2,
+    "crosslinguistic": 5,
+    "melody": 8,
+    "fit": 7,
+    "declared_inputs": 8,
+    "phrase_commonplace": 1,
+    "nc_census": 2,
+    "chance_rate": 1,
+    "figure_exhibits": 2,
+    "sentencehood": 4,
+    "structures": 3,
+    "shard": 4,
+    "within_item": 5,
+    "cym": 7,
+    "production_harness": 8,
+    "computational_audit": 8,
+    "time_layer": 6,
+    "ltc": 6,
+    "function_disclosure": 7,
+    "taxonomy": 7,
+    "nucleus": 6,
+    "comparator_pin": 6,
+    "suite_sweep": 3,
+    "tempo": 3,
+    "rhyme_organization": 4,
+    "phonology": 4,
+    "meter": 2,
+    "moby_convert": 2,
+    "meter_honesty": 5,
+    "positive_control": 5,
+    "band": 1,
+    "render_form": 3,
+    "section_marks": 8,
+    "mut_band": 7,
+    "coda": 3,
+    "matrix": 3,
+    "mandate_language": 6,
+    "interlocking_chain": 7,
+    "connection_schemas": 6,
+    "pin_sweep": 4,
+    "corpus_taxonomy": 4,
+    "verify_entries": 6,
+    "candidate_pair_projection": 7,
+    "relation_shapes": 8,
+    "register_audit": 1,
+    "phon_msa": 6,
+    "phon_san": 8,
+    "staging": 8,
+    "data_row_claims": 1,
+    "stub_resolution": 1,
+    "expected_drift": 1,
+    "phon_fas": 2,
+    "phon_non": 2,
+    "controls": 2,
+    "english_text": 7,
+    "verify_figures": 7,
+    "brief_provenance": 7,
+    "battery_rounds": 1,
+    "type_canon": 1,
+    "backlog_status": 1,
+    "pilot_frame": 1,
+    "e5_coda_adoption": 1
+  },
+  "giant_logical_offsets": {
+    "relations_null": 0,
+    "g2p": 3,
+    "reader": 6,
+    "spans": 7,
+    "readability": 1,
+    "screen": 0
+  },
+  "giant_coordinates_by_runner": {
+    "relations_null": [1, 2, 3, 4, 5, 6, 7, 8],
+    "g2p": [4, 5, 6, 7, 8, 1, 2, 3],
+    "spans": [8, 1, 2, 3, 4, 5, 6, 7],
+    "readability": [2, 3, 4, 5, 6, 7, 8, 1],
+    "reader": [7, 8, 1, 2, 3, 4, 5, 6],
+    "screen": [1, 2, 3, 4, 5, 6, 7, 8]
+  },
+  "ordinary_counts_per_runner": {
+    "7": 15,
+    "8": 14,
+    "1": 14,
+    "2": 14,
+    "3": 14,
+    "4": 14,
+    "5": 14,
+    "6": 14
+  },
+  "selected_module_counts_per_runner": [20, 20, 20, 20, 20, 20, 21, 20],
+  "coverage": {
+    "unique_modules": 119,
+    "ordinary_exact_once": 113,
+    "partitioned_giants": 6,
+    "total_module_observations": 161,
+    "observed_counts": {
+      "relations_null": 8,
+      "g2p": 8,
+      "spans": 8,
+      "readability": 8,
+      "reader": 8,
+      "screen": 8,
+      "production_relations": 1,
+      "msa_fin": 1,
+      "phrase_commonplace": 1,
+      "chance_rate": 1,
+      "band": 1,
+      "register_audit": 1,
+      "data_row_claims": 1,
+      "stub_resolution": 1,
+      "expected_drift": 1,
+      "battery_rounds": 1,
+      "type_canon": 1,
+      "backlog_status": 1,
+      "pilot_frame": 1,
+      "e5_coda_adoption": 1,
+      "narrative": 1,
+      "grid": 1,
+      "homeoteleuton": 1,
+      "propose": 1,
+      "mosaic_rhyme": 1,
+      "relations": 1,
+      "slots": 1,
+      "nc_census": 1,
+      "figure_exhibits": 1,
+      "meter": 1,
+      "moby_convert": 1,
+      "phon_fas": 1,
+      "phon_non": 1,
+      "controls": 1,
+      "coverage_queue": 1,
+      "bias_census": 1,
+      "field_store": 1,
+      "audit_regressions": 1,
+      "recover": 1,
+      "sound_inventory": 1,
+      "meter_strict": 1,
+      "floor_window": 1,
+      "structures": 1,
+      "suite_sweep": 1,
+      "tempo": 1,
+      "render_form": 1,
+      "coda": 1,
+      "matrix": 1,
+      "homograph": 1,
+      "floor": 1,
+      "capacity_receipt": 1,
+      "writing_rhyme_bans": 1,
+      "production_data": 1,
+      "corpus_audit": 1,
+      "schema_report": 1,
+      "door_census": 1,
+      "sentencehood": 1,
+      "shard": 1,
+      "rhyme_organization": 1,
+      "phonology": 1,
+      "pin_sweep": 1,
+      "corpus_taxonomy": 1,
+      "replay_memo": 1,
+      "mut_oracle": 1,
+      "coverage_split": 1,
+      "lexicon_supplement": 1,
+      "song_function": 1,
+      "readings_seam": 1,
+      "schema_instance_evidence": 1,
+      "align": 1,
+      "meter_bands": 1,
+      "production_journal": 1,
+      "crosslinguistic": 1,
+      "within_item": 1,
+      "meter_honesty": 1,
+      "positive_control": 1,
+      "mandate_relation": 1,
+      "structure_census": 1,
+      "cross_song": 1,
+      "sequence_unread": 1,
+      "reader_quotes": 1,
+      "p2_full_floor": 1,
+      "time_layer": 1,
+      "ltc": 1,
+      "nucleus": 1,
+      "comparator_pin": 1,
+      "mandate_language": 1,
+      "connection_schemas": 1,
+      "verify_entries": 1,
+      "phon_msa": 1,
+      "null_shapes": 1,
+      "relation_index": 1,
+      "fwer": 1,
+      "provenance": 1,
+      "capabilities": 1,
+      "fit": 1,
+      "cym": 1,
+      "function_disclosure": 1,
+      "taxonomy": 1,
+      "mut_band": 1,
+      "interlocking_chain": 1,
+      "candidate_pair_projection": 1,
+      "english_text": 1,
+      "verify_figures": 1,
+      "brief_provenance": 1,
+      "production_revision": 1,
+      "high_report": 1,
+      "gate_census": 1,
+      "meter_digit_bound": 1,
+      "source_identity": 1,
+      "placement": 1,
+      "melody": 1,
+      "declared_inputs": 1,
+      "production_harness": 1,
+      "computational_audit": 1,
+      "section_marks": 1,
+      "relation_shapes": 1,
+      "phon_san": 1,
+      "staging": 1
+    },
+    "full_matrix_disjoint_partitions_verified": true,
+    "default_unsharded_module_inventory_unchanged": true
+  },
+  "current_profile_replay": {
+    "designed_for": "envelope",
+    "evaluated_with": "current",
+    "rows": [
+      {
+        "shard": 1,
+        "pool_seconds": 442.142,
+        "with_50s_setup_seconds": 492.142,
+        "foreground_seconds": 363,
+        "ordinary_events": [
+          {
+            "module": "production_relations",
+            "seconds": 52,
+            "started": 368,
+            "completed": 420
+          },
+          {
+            "module": "msa_fin",
+            "seconds": 57,
+            "started": 368,
+            "completed": 425
+          },
+          {
+            "module": "phrase_commonplace",
+            "seconds": 23,
+            "started": 417,
+            "completed": 440
+          },
+          {
+            "module": "chance_rate",
+            "seconds": 16,
+            "started": 420,
+            "completed": 436
+          },
+          {
+            "module": "band",
+            "seconds": 6,
+            "started": 425,
+            "completed": 431
+          },
+          {
+            "module": "register_audit",
+            "seconds": 1,
+            "started": 431,
+            "completed": 432
+          },
+          {
+            "module": "data_row_claims",
+            "seconds": 0,
+            "started": 432,
+            "completed": 432
+          },
+          {
+            "module": "stub_resolution",
+            "seconds": 0,
+            "started": 432,
+            "completed": 432
+          },
+          {
+            "module": "expected_drift",
+            "seconds": 0,
+            "started": 432,
+            "completed": 432
+          },
+          {
+            "module": "battery_rounds",
+            "seconds": 0,
+            "started": 432,
+            "completed": 432
+          },
+          {
+            "module": "type_canon",
+            "seconds": 0,
+            "started": 432,
+            "completed": 432
+          },
+          {
+            "module": "backlog_status",
+            "seconds": 0,
+            "started": 432,
+            "completed": 432
+          },
+          {
+            "module": "pilot_frame",
+            "seconds": 0,
+            "started": 432,
+            "completed": 432
+          },
+          {
+            "module": "e5_coda_adoption",
+            "seconds": 0,
+            "started": 432,
+            "completed": 432
+          }
+        ]
+      },
+      {
+        "shard": 2,
+        "pool_seconds": 427,
+        "with_50s_setup_seconds": 477,
+        "foreground_seconds": 216,
+        "ordinary_events": [
+          {
+            "module": "narrative",
+            "seconds": 90,
+            "started": 221,
+            "completed": 311
+          },
+          {
+            "module": "grid",
+            "seconds": 121,
+            "started": 221,
+            "completed": 342
+          },
+          {
+            "module": "homeoteleuton",
+            "seconds": 76,
+            "started": 261.421,
+            "completed": 337.421
+          },
+          {
+            "module": "propose",
+            "seconds": 73,
+            "started": 311,
+            "completed": 384
+          },
+          {
+            "module": "mosaic_rhyme",
+            "seconds": 55,
+            "started": 337.421,
+            "completed": 392.421
+          },
+          {
+            "module": "relations",
+            "seconds": 46,
+            "started": 342,
+            "completed": 388
+          },
+          {
+            "module": "slots",
+            "seconds": 22,
+            "started": 384,
+            "completed": 406
+          },
+          {
+            "module": "nc_census",
+            "seconds": 18,
+            "started": 388,
+            "completed": 406
+          },
+          {
+            "module": "figure_exhibits",
+            "seconds": 11,
+            "started": 392.421,
+            "completed": 403.421
+          },
+          {
+            "module": "meter",
+            "seconds": 9,
+            "started": 403.421,
+            "completed": 412.421
+          },
+          {
+            "module": "moby_convert",
+            "seconds": 6,
+            "started": 406,
+            "completed": 412
+          },
+          {
+            "module": "phon_fas",
+            "seconds": 0,
+            "started": 406,
+            "completed": 406
+          },
+          {
+            "module": "phon_non",
+            "seconds": 0,
+            "started": 406,
+            "completed": 406
+          },
+          {
+            "module": "controls",
+            "seconds": 0,
+            "started": 406,
+            "completed": 406
+          }
+        ]
+      },
+      {
+        "shard": 3,
+        "pool_seconds": 434,
+        "with_50s_setup_seconds": 484,
+        "foreground_seconds": 8,
+        "ordinary_events": [
+          {
+            "module": "coverage_queue",
+            "seconds": 306,
+            "started": 53.195,
+            "completed": 359.195
+          },
+          {
+            "module": "bias_census",
+            "seconds": 184,
+            "started": 210,
+            "completed": 394
+          },
+          {
+            "module": "field_store",
+            "seconds": 85,
+            "started": 301,
+            "completed": 386
+          },
+          {
+            "module": "audit_regressions",
+            "seconds": 90,
+            "started": 315,
+            "completed": 405
+          },
+          {
+            "module": "recover",
+            "seconds": 42,
+            "started": 359.195,
+            "completed": 401.195
+          },
+          {
+            "module": "sound_inventory",
+            "seconds": 32,
+            "started": 386,
+            "completed": 418
+          },
+          {
+            "module": "meter_strict",
+            "seconds": 31,
+            "started": 394,
+            "completed": 425
+          },
+          {
+            "module": "floor_window",
+            "seconds": 20,
+            "started": 401.195,
+            "completed": 421.195
+          },
+          {
+            "module": "structures",
+            "seconds": 21,
+            "started": 405,
+            "completed": 426
+          },
+          {
+            "module": "suite_sweep",
+            "seconds": 11,
+            "started": 418,
+            "completed": 429
+          },
+          {
+            "module": "tempo",
+            "seconds": 10,
+            "started": 421.195,
+            "completed": 431.195
+          },
+          {
+            "module": "render_form",
+            "seconds": 5,
+            "started": 425,
+            "completed": 430
+          },
+          {
+            "module": "coda",
+            "seconds": 3,
+            "started": 426,
+            "completed": 429
+          },
+          {
+            "module": "matrix",
+            "seconds": 5,
+            "started": 429,
+            "completed": 434
+          }
+        ]
+      },
+      {
+        "shard": 4,
+        "pool_seconds": 402,
+        "with_50s_setup_seconds": 452,
+        "foreground_seconds": 8,
+        "ordinary_events": [
+          {
+            "module": "homograph",
+            "seconds": 297,
+            "started": 65.489,
+            "completed": 362.48900000000003
+          },
+          {
+            "module": "floor",
+            "seconds": 197,
+            "started": 137,
+            "completed": 334
+          },
+          {
+            "module": "capacity_receipt",
+            "seconds": 88,
+            "started": 194,
+            "completed": 282
+          },
+          {
+            "module": "writing_rhyme_bans",
+            "seconds": 76,
+            "started": 282,
+            "completed": 358
+          },
+          {
+            "module": "production_data",
+            "seconds": 53,
+            "started": 302,
+            "completed": 355
+          },
+          {
+            "module": "corpus_audit",
+            "seconds": 64,
+            "started": 334,
+            "completed": 398
+          },
+          {
+            "module": "schema_report",
+            "seconds": 28,
+            "started": 355,
+            "completed": 383
+          },
+          {
+            "module": "door_census",
+            "seconds": 26,
+            "started": 358,
+            "completed": 384
+          },
+          {
+            "module": "sentencehood",
+            "seconds": 21,
+            "started": 362.48900000000003,
+            "completed": 383.48900000000003
+          },
+          {
+            "module": "shard",
+            "seconds": 19,
+            "started": 383,
+            "completed": 402
+          },
+          {
+            "module": "rhyme_organization",
+            "seconds": 7,
+            "started": 383.48900000000003,
+            "completed": 390.48900000000003
+          },
+          {
+            "module": "phonology",
+            "seconds": 8,
+            "started": 384,
+            "completed": 392
+          },
+          {
+            "module": "pin_sweep",
+            "seconds": 3,
+            "started": 390.48900000000003,
+            "completed": 393.48900000000003
+          },
+          {
+            "module": "corpus_taxonomy",
+            "seconds": 2,
+            "started": 392,
+            "completed": 394
+          }
+        ]
+      },
+      {
+        "shard": 5,
+        "pool_seconds": 386,
+        "with_50s_setup_seconds": 436,
+        "foreground_seconds": 7,
+        "ordinary_events": [
+          {
+            "module": "replay_memo",
+            "seconds": 365,
+            "started": 12,
+            "completed": 377
+          },
+          {
+            "module": "mut_oracle",
+            "seconds": 169,
+            "started": 32,
+            "completed": 201
+          },
+          {
+            "module": "coverage_split",
+            "seconds": 221,
+            "started": 108.828,
+            "completed": 329.828
+          },
+          {
+            "module": "lexicon_supplement",
+            "seconds": 119,
+            "started": 181,
+            "completed": 300
+          },
+          {
+            "module": "song_function",
+            "seconds": 77,
+            "started": 201,
+            "completed": 278
+          },
+          {
+            "module": "readings_seam",
+            "seconds": 74,
+            "started": 278,
+            "completed": 352
+          },
+          {
+            "module": "schema_instance_evidence",
+            "seconds": 34,
+            "started": 300,
+            "completed": 334
+          },
+          {
+            "module": "align",
+            "seconds": 28,
+            "started": 329.828,
+            "completed": 357.828
+          },
+          {
+            "module": "meter_bands",
+            "seconds": 32,
+            "started": 334,
+            "completed": 366
+          },
+          {
+            "module": "production_journal",
+            "seconds": 27,
+            "started": 352,
+            "completed": 379
+          },
+          {
+            "module": "crosslinguistic",
+            "seconds": 25,
+            "started": 357.828,
+            "completed": 382.828
+          },
+          {
+            "module": "within_item",
+            "seconds": 19,
+            "started": 366,
+            "completed": 385
+          },
+          {
+            "module": "meter_honesty",
+            "seconds": 8,
+            "started": 377,
+            "completed": 385
+          },
+          {
+            "module": "positive_control",
+            "seconds": 7,
+            "started": 379,
+            "completed": 386
+          }
+        ]
+      },
+      {
+        "shard": 6,
+        "pool_seconds": 439,
+        "with_50s_setup_seconds": 489,
+        "foreground_seconds": 290,
+        "ordinary_events": [
+          {
+            "module": "mandate_relation",
+            "seconds": 58,
+            "started": 293,
+            "completed": 351
+          },
+          {
+            "module": "structure_census",
+            "seconds": 97,
+            "started": 294,
+            "completed": 391
+          },
+          {
+            "module": "cross_song",
+            "seconds": 52,
+            "started": 351,
+            "completed": 403
+          },
+          {
+            "module": "sequence_unread",
+            "seconds": 45,
+            "started": 381.828,
+            "completed": 426.828
+          },
+          {
+            "module": "reader_quotes",
+            "seconds": 40,
+            "started": 389,
+            "completed": 429
+          },
+          {
+            "module": "p2_full_floor",
+            "seconds": 35,
+            "started": 391,
+            "completed": 426
+          },
+          {
+            "module": "time_layer",
+            "seconds": 16,
+            "started": 403,
+            "completed": 419
+          },
+          {
+            "module": "ltc",
+            "seconds": 8,
+            "started": 419,
+            "completed": 427
+          },
+          {
+            "module": "nucleus",
+            "seconds": 13,
+            "started": 426,
+            "completed": 439
+          },
+          {
+            "module": "comparator_pin",
+            "seconds": 10,
+            "started": 426.828,
+            "completed": 436.828
+          },
+          {
+            "module": "mandate_language",
+            "seconds": 3,
+            "started": 427,
+            "completed": 430
+          },
+          {
+            "module": "connection_schemas",
+            "seconds": 5,
+            "started": 429,
+            "completed": 434
+          },
+          {
+            "module": "verify_entries",
+            "seconds": 3,
+            "started": 430,
+            "completed": 433
+          },
+          {
+            "module": "phon_msa",
+            "seconds": 1,
+            "started": 433,
+            "completed": 434
+          }
+        ]
+      },
+      {
+        "shard": 7,
+        "pool_seconds": 345,
+        "with_50s_setup_seconds": 395,
+        "foreground_seconds": 121,
+        "ordinary_events": [
+          {
+            "module": "null_shapes",
+            "seconds": 166,
+            "started": 132,
+            "completed": 298
+          },
+          {
+            "module": "relation_index",
+            "seconds": 168,
+            "started": 141,
+            "completed": 309
+          },
+          {
+            "module": "fwer",
+            "seconds": 89,
+            "started": 205.14499999999998,
+            "completed": 294.145
+          },
+          {
+            "module": "provenance",
+            "seconds": 50,
+            "started": 294.145,
+            "completed": 344.145
+          },
+          {
+            "module": "capabilities",
+            "seconds": 31,
+            "started": 298,
+            "completed": 329
+          },
+          {
+            "module": "fit",
+            "seconds": 24,
+            "started": 309,
+            "completed": 333
+          },
+          {
+            "module": "cym",
+            "seconds": 19,
+            "started": 312,
+            "completed": 331
+          },
+          {
+            "module": "function_disclosure",
+            "seconds": 15,
+            "started": 329,
+            "completed": 344
+          },
+          {
+            "module": "taxonomy",
+            "seconds": 13,
+            "started": 331,
+            "completed": 344
+          },
+          {
+            "module": "mut_band",
+            "seconds": 5,
+            "started": 333,
+            "completed": 338
+          },
+          {
+            "module": "interlocking_chain",
+            "seconds": 5,
+            "started": 338,
+            "completed": 343
+          },
+          {
+            "module": "candidate_pair_projection",
+            "seconds": 2,
+            "started": 343,
+            "completed": 345
+          },
+          {
+            "module": "english_text",
+            "seconds": 0,
+            "started": 344,
+            "completed": 344
+          },
+          {
+            "module": "verify_figures",
+            "seconds": 0,
+            "started": 344,
+            "completed": 344
+          },
+          {
+            "module": "brief_provenance",
+            "seconds": 0,
+            "started": 344,
+            "completed": 344
+          }
+        ]
+      },
+      {
+        "shard": 8,
+        "pool_seconds": 418,
+        "with_50s_setup_seconds": 468,
+        "foreground_seconds": 96,
+        "ordinary_events": [
+          {
+            "module": "production_revision",
+            "seconds": 246,
+            "started": 106,
+            "completed": 352
+          },
+          {
+            "module": "high_report",
+            "seconds": 231,
+            "started": 160.042,
+            "completed": 391.04200000000003
+          },
+          {
+            "module": "gate_census",
+            "seconds": 202,
+            "started": 204,
+            "completed": 406
+          },
+          {
+            "module": "meter_digit_bound",
+            "seconds": 63,
+            "started": 273,
+            "completed": 336
+          },
+          {
+            "module": "source_identity",
+            "seconds": 43,
+            "started": 336,
+            "completed": 379
+          },
+          {
+            "module": "placement",
+            "seconds": 34,
+            "started": 352,
+            "completed": 386
+          },
+          {
+            "module": "melody",
+            "seconds": 21,
+            "started": 379,
+            "completed": 400
+          },
+          {
+            "module": "declared_inputs",
+            "seconds": 24,
+            "started": 386,
+            "completed": 410
+          },
+          {
+            "module": "production_harness",
+            "seconds": 10,
+            "started": 391.04200000000003,
+            "completed": 401.04200000000003
+          },
+          {
+            "module": "computational_audit",
+            "seconds": 18,
+            "started": 400,
+            "completed": 418
+          },
+          {
+            "module": "section_marks",
+            "seconds": 5,
+            "started": 401.04200000000003,
+            "completed": 406.04200000000003
+          },
+          {
+            "module": "relation_shapes",
+            "seconds": 1,
+            "started": 406,
+            "completed": 407
+          },
+          {
+            "module": "phon_san",
+            "seconds": 1,
+            "started": 406.04200000000003,
+            "completed": 407.04200000000003
+          },
+          {
+            "module": "staging",
+            "seconds": 0,
+            "started": 407,
+            "completed": 407
+          }
+        ]
+      }
+    ],
+    "max_pool": 442.142,
+    "max_plus50": 492.142
+  },
+  "conservative_max_profile_replay": {
+    "designed_for": "envelope",
+    "evaluated_with": "envelope",
+    "rows": [
+      {
+        "shard": 1,
+        "pool_seconds": 451,
+        "with_50s_setup_seconds": 501,
+        "foreground_seconds": 364,
+        "ordinary_events": [
+          {
+            "module": "production_relations",
+            "seconds": 59,
+            "started": 369,
+            "completed": 428
+          },
+          {
+            "module": "msa_fin",
+            "seconds": 57,
+            "started": 369,
+            "completed": 426
+          },
+          {
+            "module": "phrase_commonplace",
+            "seconds": 23,
+            "started": 426,
+            "completed": 449
+          },
+          {
+            "module": "chance_rate",
+            "seconds": 23,
+            "started": 428,
+            "completed": 451
+          },
+          {
+            "module": "band",
+            "seconds": 6,
+            "started": 443.142,
+            "completed": 449.142
+          },
+          {
+            "module": "register_audit",
+            "seconds": 1,
+            "started": 449,
+            "completed": 450
+          },
+          {
+            "module": "data_row_claims",
+            "seconds": 1,
+            "started": 449.142,
+            "completed": 450.142
+          },
+          {
+            "module": "stub_resolution",
+            "seconds": 1,
+            "started": 450,
+            "completed": 451
+          },
+          {
+            "module": "expected_drift",
+            "seconds": 1,
+            "started": 450,
+            "completed": 451
+          },
+          {
+            "module": "battery_rounds",
+            "seconds": 0,
+            "started": 450.142,
+            "completed": 450.142
+          },
+          {
+            "module": "type_canon",
+            "seconds": 0,
+            "started": 450.142,
+            "completed": 450.142
+          },
+          {
+            "module": "backlog_status",
+            "seconds": 0,
+            "started": 450.142,
+            "completed": 450.142
+          },
+          {
+            "module": "pilot_frame",
+            "seconds": 0,
+            "started": 450.142,
+            "completed": 450.142
+          },
+          {
+            "module": "e5_coda_adoption",
+            "seconds": 0,
+            "started": 450.142,
+            "completed": 450.142
+          }
+        ]
+      },
+      {
+        "shard": 2,
+        "pool_seconds": 452,
+        "with_50s_setup_seconds": 502,
+        "foreground_seconds": 216,
+        "ordinary_events": [
+          {
+            "module": "narrative",
+            "seconds": 162,
+            "started": 221,
+            "completed": 383
+          },
+          {
+            "module": "grid",
+            "seconds": 121,
+            "started": 221,
+            "completed": 342
+          },
+          {
+            "module": "homeoteleuton",
+            "seconds": 105,
+            "started": 261.421,
+            "completed": 366.421
+          },
+          {
+            "module": "propose",
+            "seconds": 73,
+            "started": 342,
+            "completed": 415
+          },
+          {
+            "module": "mosaic_rhyme",
+            "seconds": 61,
+            "started": 366.421,
+            "completed": 427.421
+          },
+          {
+            "module": "relations",
+            "seconds": 46,
+            "started": 383,
+            "completed": 429
+          },
+          {
+            "module": "slots",
+            "seconds": 26,
+            "started": 415,
+            "completed": 441
+          },
+          {
+            "module": "nc_census",
+            "seconds": 23,
+            "started": 427.421,
+            "completed": 450.421
+          },
+          {
+            "module": "figure_exhibits",
+            "seconds": 23,
+            "started": 429,
+            "completed": 452
+          },
+          {
+            "module": "meter",
+            "seconds": 9,
+            "started": 441,
+            "completed": 450
+          },
+          {
+            "module": "moby_convert",
+            "seconds": 9,
+            "started": 441,
+            "completed": 450
+          },
+          {
+            "module": "phon_fas",
+            "seconds": 0,
+            "started": 450,
+            "completed": 450
+          },
+          {
+            "module": "phon_non",
+            "seconds": 0,
+            "started": 450,
+            "completed": 450
+          },
+          {
+            "module": "controls",
+            "seconds": 0,
+            "started": 450,
+            "completed": 450
+          }
+        ]
+      },
+      {
+        "shard": 3,
+        "pool_seconds": 451.195,
+        "with_50s_setup_seconds": 501.195,
+        "foreground_seconds": 12,
+        "ordinary_events": [
+          {
+            "module": "coverage_queue",
+            "seconds": 306,
+            "started": 57.195,
+            "completed": 363.195
+          },
+          {
+            "module": "bias_census",
+            "seconds": 184,
+            "started": 214,
+            "completed": 398
+          },
+          {
+            "module": "field_store",
+            "seconds": 95,
+            "started": 305,
+            "completed": 400
+          },
+          {
+            "module": "audit_regressions",
+            "seconds": 90,
+            "started": 319,
+            "completed": 409
+          },
+          {
+            "module": "recover",
+            "seconds": 67,
+            "started": 363.195,
+            "completed": 430.195
+          },
+          {
+            "module": "sound_inventory",
+            "seconds": 37,
+            "started": 398,
+            "completed": 435
+          },
+          {
+            "module": "meter_strict",
+            "seconds": 36,
+            "started": 400,
+            "completed": 436
+          },
+          {
+            "module": "floor_window",
+            "seconds": 35,
+            "started": 409,
+            "completed": 444
+          },
+          {
+            "module": "structures",
+            "seconds": 21,
+            "started": 430.195,
+            "completed": 451.195
+          },
+          {
+            "module": "suite_sweep",
+            "seconds": 11,
+            "started": 435,
+            "completed": 446
+          },
+          {
+            "module": "tempo",
+            "seconds": 10,
+            "started": 436,
+            "completed": 446
+          },
+          {
+            "module": "render_form",
+            "seconds": 6,
+            "started": 444,
+            "completed": 450
+          },
+          {
+            "module": "coda",
+            "seconds": 5,
+            "started": 446,
+            "completed": 451
+          },
+          {
+            "module": "matrix",
+            "seconds": 5,
+            "started": 446,
+            "completed": 451
+          }
+        ]
+      },
+      {
+        "shard": 4,
+        "pool_seconds": 451.48900000000003,
+        "with_50s_setup_seconds": 501.48900000000003,
+        "foreground_seconds": 9,
+        "ordinary_events": [
+          {
+            "module": "homograph",
+            "seconds": 297,
+            "started": 66.489,
+            "completed": 363.48900000000003
+          },
+          {
+            "module": "floor",
+            "seconds": 197,
+            "started": 138,
+            "completed": 335
+          },
+          {
+            "module": "capacity_receipt",
+            "seconds": 88,
+            "started": 323,
+            "completed": 411
+          },
+          {
+            "module": "writing_rhyme_bans",
+            "seconds": 76,
+            "started": 335,
+            "completed": 411
+          },
+          {
+            "module": "production_data",
+            "seconds": 67,
+            "started": 363.48900000000003,
+            "completed": 430.48900000000003
+          },
+          {
+            "module": "corpus_audit",
+            "seconds": 64,
+            "started": 366,
+            "completed": 430
+          },
+          {
+            "module": "schema_report",
+            "seconds": 28,
+            "started": 411,
+            "completed": 439
+          },
+          {
+            "module": "door_census",
+            "seconds": 27,
+            "started": 411,
+            "completed": 438
+          },
+          {
+            "module": "sentencehood",
+            "seconds": 21,
+            "started": 430,
+            "completed": 451
+          },
+          {
+            "module": "shard",
+            "seconds": 21,
+            "started": 430.48900000000003,
+            "completed": 451.48900000000003
+          },
+          {
+            "module": "rhyme_organization",
+            "seconds": 9,
+            "started": 438,
+            "completed": 447
+          },
+          {
+            "module": "phonology",
+            "seconds": 9,
+            "started": 439,
+            "completed": 448
+          },
+          {
+            "module": "pin_sweep",
+            "seconds": 4,
+            "started": 447,
+            "completed": 451
+          },
+          {
+            "module": "corpus_taxonomy",
+            "seconds": 3,
+            "started": 448,
+            "completed": 451
+          }
+        ]
+      },
+      {
+        "shard": 5,
+        "pool_seconds": 451,
+        "with_50s_setup_seconds": 501,
+        "foreground_seconds": 8,
+        "ordinary_events": [
+          {
+            "module": "replay_memo",
+            "seconds": 365,
+            "started": 13,
+            "completed": 378
+          },
+          {
+            "module": "mut_oracle",
+            "seconds": 310,
+            "started": 33,
+            "completed": 343
+          },
+          {
+            "module": "coverage_split",
+            "seconds": 221,
+            "started": 109.828,
+            "completed": 330.828
+          },
+          {
+            "module": "lexicon_supplement",
+            "seconds": 119,
+            "started": 221,
+            "completed": 340
+          },
+          {
+            "module": "song_function",
+            "seconds": 77,
+            "started": 330.828,
+            "completed": 407.828
+          },
+          {
+            "module": "readings_seam",
+            "seconds": 74,
+            "started": 340,
+            "completed": 414
+          },
+          {
+            "module": "schema_instance_evidence",
+            "seconds": 73,
+            "started": 343,
+            "completed": 416
+          },
+          {
+            "module": "align",
+            "seconds": 53,
+            "started": 378,
+            "completed": 431
+          },
+          {
+            "module": "meter_bands",
+            "seconds": 35,
+            "started": 407.828,
+            "completed": 442.828
+          },
+          {
+            "module": "production_journal",
+            "seconds": 27,
+            "started": 414,
+            "completed": 441
+          },
+          {
+            "module": "crosslinguistic",
+            "seconds": 25,
+            "started": 416,
+            "completed": 441
+          },
+          {
+            "module": "within_item",
+            "seconds": 20,
+            "started": 431,
+            "completed": 451
+          },
+          {
+            "module": "meter_honesty",
+            "seconds": 8,
+            "started": 441,
+            "completed": 449
+          },
+          {
+            "module": "positive_control",
+            "seconds": 7,
+            "started": 441,
+            "completed": 448
+          }
+        ]
+      },
+      {
+        "shard": 6,
+        "pool_seconds": 451.828,
+        "with_50s_setup_seconds": 501.828,
+        "foreground_seconds": 290,
+        "ordinary_events": [
+          {
+            "module": "mandate_relation",
+            "seconds": 99,
+            "started": 294,
+            "completed": 393
+          },
+          {
+            "module": "structure_census",
+            "seconds": 97,
+            "started": 296,
+            "completed": 393
+          },
+          {
+            "module": "cross_song",
+            "seconds": 52,
+            "started": 381.828,
+            "completed": 433.828
+          },
+          {
+            "module": "sequence_unread",
+            "seconds": 45,
+            "started": 389,
+            "completed": 434
+          },
+          {
+            "module": "reader_quotes",
+            "seconds": 40,
+            "started": 393,
+            "completed": 433
+          },
+          {
+            "module": "p2_full_floor",
+            "seconds": 40,
+            "started": 393,
+            "completed": 433
+          },
+          {
+            "module": "time_layer",
+            "seconds": 16,
+            "started": 433,
+            "completed": 449
+          },
+          {
+            "module": "ltc",
+            "seconds": 15,
+            "started": 433,
+            "completed": 448
+          },
+          {
+            "module": "nucleus",
+            "seconds": 13,
+            "started": 433.828,
+            "completed": 446.828
+          },
+          {
+            "module": "comparator_pin",
+            "seconds": 12,
+            "started": 434,
+            "completed": 446
+          },
+          {
+            "module": "mandate_language",
+            "seconds": 5,
+            "started": 446,
+            "completed": 451
+          },
+          {
+            "module": "connection_schemas",
+            "seconds": 5,
+            "started": 446.828,
+            "completed": 451.828
+          },
+          {
+            "module": "verify_entries",
+            "seconds": 3,
+            "started": 448,
+            "completed": 451
+          },
+          {
+            "module": "phon_msa",
+            "seconds": 1,
+            "started": 449,
+            "completed": 450
+          }
+        ]
+      },
+      {
+        "shard": 7,
+        "pool_seconds": 451.145,
+        "with_50s_setup_seconds": 501.145,
+        "foreground_seconds": 193,
+        "ordinary_events": [
+          {
+            "module": "null_shapes",
+            "seconds": 188,
+            "started": 204,
+            "completed": 392
+          },
+          {
+            "module": "relation_index",
+            "seconds": 168,
+            "started": 214,
+            "completed": 382
+          },
+          {
+            "module": "fwer",
+            "seconds": 156,
+            "started": 277.145,
+            "completed": 433.145
+          },
+          {
+            "module": "provenance",
+            "seconds": 50,
+            "started": 382,
+            "completed": 432
+          },
+          {
+            "module": "capabilities",
+            "seconds": 41,
+            "started": 392,
+            "completed": 433
+          },
+          {
+            "module": "fit",
+            "seconds": 24,
+            "started": 421,
+            "completed": 445
+          },
+          {
+            "module": "cym",
+            "seconds": 19,
+            "started": 432,
+            "completed": 451
+          },
+          {
+            "module": "function_disclosure",
+            "seconds": 15,
+            "started": 433,
+            "completed": 448
+          },
+          {
+            "module": "taxonomy",
+            "seconds": 13,
+            "started": 433.145,
+            "completed": 446.145
+          },
+          {
+            "module": "mut_band",
+            "seconds": 5,
+            "started": 445,
+            "completed": 450
+          },
+          {
+            "module": "interlocking_chain",
+            "seconds": 5,
+            "started": 446.145,
+            "completed": 451.145
+          },
+          {
+            "module": "candidate_pair_projection",
+            "seconds": 2,
+            "started": 448,
+            "completed": 450
+          },
+          {
+            "module": "english_text",
+            "seconds": 0,
+            "started": 450,
+            "completed": 450
+          },
+          {
+            "module": "verify_figures",
+            "seconds": 0,
+            "started": 450,
+            "completed": 450
+          },
+          {
+            "module": "brief_provenance",
+            "seconds": 0,
+            "started": 450,
+            "completed": 450
+          }
+        ]
+      },
+      {
+        "shard": 8,
+        "pool_seconds": 450.04200000000003,
+        "with_50s_setup_seconds": 500.04200000000003,
+        "foreground_seconds": 97,
+        "ordinary_events": [
+          {
+            "module": "production_revision",
+            "seconds": 246,
+            "started": 107,
+            "completed": 353
+          },
+          {
+            "module": "high_report",
+            "seconds": 231,
+            "started": 161.042,
+            "completed": 392.04200000000003
+          },
+          {
+            "module": "gate_census",
+            "seconds": 214,
+            "started": 205,
+            "completed": 419
+          },
+          {
+            "module": "meter_digit_bound",
+            "seconds": 71,
+            "started": 353,
+            "completed": 424
+          },
+          {
+            "module": "source_identity",
+            "seconds": 43,
+            "started": 389,
+            "completed": 432
+          },
+          {
+            "module": "placement",
+            "seconds": 40,
+            "started": 392.04200000000003,
+            "completed": 432.04200000000003
+          },
+          {
+            "module": "melody",
+            "seconds": 25,
+            "started": 419,
+            "completed": 444
+          },
+          {
+            "module": "declared_inputs",
+            "seconds": 24,
+            "started": 424,
+            "completed": 448
+          },
+          {
+            "module": "production_harness",
+            "seconds": 18,
+            "started": 432,
+            "completed": 450
+          },
+          {
+            "module": "computational_audit",
+            "seconds": 18,
+            "started": 432.04200000000003,
+            "completed": 450.04200000000003
+          },
+          {
+            "module": "section_marks",
+            "seconds": 5,
+            "started": 444,
+            "completed": 449
+          },
+          {
+            "module": "relation_shapes",
+            "seconds": 1,
+            "started": 448,
+            "completed": 449
+          },
+          {
+            "module": "phon_san",
+            "seconds": 1,
+            "started": 449,
+            "completed": 450
+          },
+          {
+            "module": "staging",
+            "seconds": 1,
+            "started": 449,
+            "completed": 450
+          }
+        ]
+      }
+    ],
+    "max_pool": 452,
+    "max_plus50": 502
+  },
+  "screen_projection": {
+    "hosted_whole_module_seconds": 538,
+    "local_section_total": 402.1,
+    "scale": 1.3379756279532453,
+    "local_final_part_walls": [57.656, 32.453, 32.284, 41.472, 74.611, 67.137, 61.395, 46.37],
+    "host_normalized_parts": [79.142, 45.421, 45.195, 57.489, 101.828, 91.828, 84.145, 64.042],
+    "extra_seconds_per_part": 2,
+    "note": "Projection only: scale each complete measured local part by hosted full-screen/combined local section cost, then add2sstartup allowance."
+  },
+  "scheduling": "Retain4wide pool. relations_null andg2p foreground;4remaininggiants fillbackgroundlanes,ordinaryselectednamesexecuteindescendingcostorderperrunner.",
+  "implementation": "Replace only119-namenamedlist;ordinalresiduealreadyencodesall113ordinaryowners. Existing4guardedownerexceptionsallmatchtheencodedownerandcanberemovedasredundant. No runtimehelper,weightfile,newjobs,assertionchangeorreducedpopulation.",
+  "source_order_change": "The YAML module list changes execution/ownership order. Individual testmoduledefaultfunctionorderandassertionsremainunchanged.",
+  "uncertainty": "A frozen-cost scheduling replay is a projection, not measured third-candidate runtime. Screen hostcostsarederivedfromlocalpartsandmustbeconfirmedonhostedCI. Runnerqueuewaitisseparatefromexecution/setup.",
+  "yaml_hash_before_application": "5deb23c11392dfdabb01ab74dff147397aa17fc020eda32b56d8adeb1e13dbdf",
+  "applied_yaml_sha256": "c30b343bc7bbaad8b736ab4e63ca9ae5f99a28dde19f179c9ec983f40ebf1cf4",
+  "source_proof": {
+    "actual_shell_observations": 161,
+    "unique_named_modules": 119,
+    "ordinary_exactly_once": 113,
+    "partitioned_modules": 6,
+    "coordinates_per_partitioned_module": 8,
+    "all_original_screen_functions_unchanged": 15,
+    "all_original_screen_check_assert_nodes_unchanged": 64
+  }
+}
