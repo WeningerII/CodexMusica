@@ -96,3 +96,17 @@ No installation or runtime acquisition. Formatted instrumented JS passed focused
 Bare localeCompare was replaced by deterministic codepoint sorting; unused locals
 removed. These final source bytes must be used for both fixture prep and measurement.
 No prior fixture/image proof is carried across the formatting change.
+
+Final integration hardening: consumer requires explicit producing attempt, exact
+attempt-specific artifact name, and successful matching run/attempt/head metadata.
+Compressed output is capped during each write; extraction checks cumulative bytes
+and count per member before extracting it, rejects sparse files, and does not
+materialize an unbounded member list first. 38 Python tests pass, including added
+streaming-output/member-count controls; changed YAML passes formatting and shell
+syntax. Prior whole-repository lint/format/docs receipts remain bundled; no JS
+changed since those passes. These Python instrumentation changes require the final
+script tree for all future preparation/encoding/measurement; no existing fixture
+proofs are carried over. Actual GitHub API/action execution remains unrun.
+One-day artifact retention is not a promise that review/consumption fits. Expiry
+or insufficient remaining JobStore TTL stops the work; no restamping, stale-artifact
+substitution, auto-regeneration or workload shrink is permitted.

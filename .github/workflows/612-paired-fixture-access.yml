@@ -5,6 +5,9 @@ on:
       run_id:
         type: number
         required: true
+      attempt:
+        type: number
+        required: true
       artifact_id:
         type: number
         required: true
@@ -23,6 +26,7 @@ jobs:
     timeout-minutes: 15
     env:
       SOURCE_RUN: ${{ inputs.run_id }}
+      SOURCE_ATTEMPT: ${{ inputs.attempt }}
       FIXTURE_ARTIFACT: ${{ inputs.artifact_id }}
       PROTOCOL_SHA: ${{ inputs.protocol_sha }}
       EXPECTED_ARCHIVE_SHA256: ${{ inputs.archive_sha256 }}
@@ -39,7 +43,7 @@ jobs:
           python3 - <<'PY'
           import json, os, re, shutil, urllib.request
           from pathlib import Path
-          for key in ('SOURCE_RUN','FIXTURE_ARTIFACT'):
+          for key in ('SOURCE_RUN','SOURCE_ATTEMPT','FIXTURE_ARTIFACT'):
               assert re.fullmatch(r'[1-9][0-9]*',os.environ[key]), 'invalid ID'
           assert re.fullmatch(r'[a-f0-9]{40}',os.environ['PROTOCOL_SHA'])
           assert re.fullmatch(r'[a-f0-9]{64}',os.environ['EXPECTED_ARCHIVE_SHA256'])
@@ -49,9 +53,16 @@ jobs:
               headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
           with urllib.request.urlopen(req,timeout=30) as response: value=json.load(response)
           assert value['id']==int(os.environ['FIXTURE_ARTIFACT']) and not value['expired']
-          assert re.fullmatch(r'issue-612-global-fixtures-[1-9][0-9]*',value['name'])
+          assert value['name']=='issue-612-global-fixtures-'+os.environ['SOURCE_ATTEMPT']
           assert value['workflow_run']['id']==int(os.environ['SOURCE_RUN'])
           assert value['workflow_run']['head_sha']==os.environ['PROTOCOL_SHA']
+          attempt_req=urllib.request.Request('https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/'+os.environ['SOURCE_RUN']+'/attempts/'+os.environ['SOURCE_ATTEMPT'],
+              headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          with urllib.request.urlopen(attempt_req,timeout=30) as response: producing_attempt=json.load(response)
+          assert producing_attempt['id']==int(os.environ['SOURCE_RUN'])
+          assert producing_attempt['run_attempt']==int(os.environ['SOURCE_ATTEMPT'])
+          assert producing_attempt['head_sha']==os.environ['PROTOCOL_SHA']
+          assert producing_attempt['conclusion']=='success', 'preparation attempt did not succeed'
           assert value['size_in_bytes'] <= 1024**3+1024**2, 'artifact exceeds bounded wrapper allowance'
           assert shutil.disk_usage('.').free>=4*1024**3, 'insufficient fixture access headroom'
           Path('fixture-artifact-provenance.json').write_text(json.dumps(value,indent=2))
@@ -78,6 +89,7 @@ jobs:
           assert files==receipt['files'], 'fixture membership or bytes differ'
           print(json.dumps({'status':'access-and-bytes-verified','approval':'unreviewed',
               'artifact_id':os.environ['FIXTURE_ARTIFACT'],'run_id':os.environ['SOURCE_RUN'],
+              'attempt':os.environ['SOURCE_ATTEMPT'],
               'archive_sha256':os.environ['EXPECTED_ARCHIVE_SHA256'],'measurements_run':False}))
           PY
 
