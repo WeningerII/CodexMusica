@@ -1,0 +1,90 @@
+#612 no-artifact alternative: assessment only, not adopted protocol
+
+No publication, paid action, artifact upload or measurement occurred. Existing
+upload/download workflow additions remain unpublished and paused. Do not publish
+that tree as a no-cost implementation: it still contains artifact actions.
+Parent's independent methodology review and explicit no-cost constraint remain.
+
+Feasibility:
+One host can prepare one local fixture set, retain a read-only original and copy
+it into each sequential arm's private writable directory. Repetitions must reuse
+the same original; verify complete membership and SHA256 before every arm and
+after the final arm. Disclose different host fixture identities; never pool them
+as identical global payloads. This could preserve within-cell same-host pairing
+but changes the earlier common-fixture population and requires review.
+
+Unresolved prerequisite: actual decodeState rejects baseline-encoded continuations
+under different candidate source semantics. Host-local storage does not fix this.
+The existing a16c9af3 source-control demonstrates the guard. Do not equate merely
+loading retained RunStore strings with authentic schema/codec compatibility, and
+do not regenerate per arm or restamp semantic identity without an approved revision.
+
+Size estimate derived from source, not executed fixtures:
+- JobStore maxBytes = 256 MiB, maxRecordBytes = 18 MiB; reachable retained load
+  reserves one record and the producer demands >=95% of that reachable amount.
+- RunStore cap = 64. Two encoded continuations each bounded by 2.25 MiB give
+  288 MiB total before their outer JSON quoting overhead.
+- Draft and replay: 463 lines x 200 chars; producer uses random ASCII plus one
+  U+0100 suffix per line. 64 pairs use about 11.530 MiB including array punctuation.
+- 64 declarations x 32 KiB = 2 MiB; receipts.json retains roughly 2 MiB intent.
+Subtotal = 559.530 MiB, plus envelope escaping, record metadata, hash manifest and
+filesystem overhead. This is a planning estimate, not a rigorous measured size.
+Require a 1 GiB hard actual regular-file sum cap, bounded file count, no links or
+special files, and free-space check before generation and before every copy.
+Budget at least original + one arm copy, plus separately bounded evidence and
+temporary files; do not mistake the logical file cap for peak filesystem usage.
+No compression or deletion of workload data to fit a cap.
+
+Time: run_arm currently allows 3720 seconds; six sequential arms allow 22320
+seconds (372 minutes), plus build/preparation/cleanup. These individual bounds
+are not evidence that one hosted job fits. Measure or review a compatible total
+job budget; preserve partial/failed evidence on termination, do not truncate the
+workload or silently reduce acceptance timeouts. Standard hosted-runner limits
+must be checked before publication. Nominal prior runtime is not a guarantee.
+
+Structured log receipt proposal (metadata/hashes only, no fixture body/secrets):
+1. START: schema version, experiment UUID, repo/workflow/helper commit+hashes,
+   source pins, baseline registry digest, run/attempt/job/shard identity, declared
+   cell set, six-arm order, runtime envelope, limits and sampling semantics.
+2. HOST: runner image/version, kernel, CPU model/topology, Docker version/cgroup
+   mode, RAM, filesystem total/free and timestamps at build/fixture/copy boundaries.
+3. IMAGE before/after: immutable local image ID, baked source/release identity,
+   effective Config hash + explicit permitted source-label differences, runtime
+   versions/build/binary hashes, complete asset/source/dependency inventory roots,
+   entry counts and total sizes. Preserve missing OS package-file membership.
+4. INVENTORY pages: deterministic sorted [relative path,type,size,sha256/link]
+   records, bounded page/line size, sequence/total counts and page hashes. Print
+   complete leaf metadata when needed for independent review; no truncation to
+   merely a root digest when reviewers require exact differences. A terminal
+   receipt binds canonical page hashes/counts; missing pages fail completeness.
+   Print per-field and source differences explicitly; never normalize drift.
+5. FIXTURE: original root identity, exact file membership/hash/size manifest,
+   producer scripts/dependency identities, actual preparation and BOTH-image
+   compatibility outcomes, full invocation/result codes, cap and byte total.
+6. APPROVAL: separately recorded reviewer, exact approved preflight run/attempt,
+   protocol and inventory roots, permitted source/release differences. An emitted
+   'unreviewed' or job success never substitutes for this owner decision.
+7. ARM: pre/post fixture identity, exact rebuilt image identity, approved inventory
+   comparison result, process/cgroup identity, replication/order/cells, all measured
+   peaks/margins/sample counts and first-search/ready latency with response identity.
+8. END: complete expected/actual arm and cell counts, failures/cleanup status,
+   hashes of structured observations, finish/abort cause. Missing END is incomplete.
+
+Later rebuild equivalence needs approved preflight per-arm asset/config/dependency
+AND source inventory roots and explicit reviewed baked-release exceptions. Verify
+actual bytes locally against those approved roots before measured arms; source SHA
+alone is insufficient. For log-only workflow, place the small reviewer-approved
+root receipt in the separately reviewed campaign tree (no credentials or fixtures),
+binding exact run/attempt/protocol. No automatic workflow chaining is proposed.
+If raw complete inventory pages cannot be retrieved through permitted job logs,
+or logs truncate before completeness validation, stop; do not call it verified.
+
+This design uses no cross-job fixture transfer. Full fixture bytes exist only on
+their host. Logs retain metadata, not reconstructable random payloads, so future
+exact-payload replay after the runner disappears is unavailable and must be
+disclosed. Historical off-pole target/transfer denial remains untouched.
+
+Owner decisions pending: methodology for source-bound fixtures; allowance for
+host-to-host fixture variation and loss of byte replay; independently acceptable
+log completeness/approval mechanism; bounded host runtime; parent no-cost review.
+No requested production/source gates change; pins remain 99c1586b and 960dd182.
