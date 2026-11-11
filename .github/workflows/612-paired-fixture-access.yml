@@ -80,5 +80,6 @@ jobs:
               'artifact_id':os.environ['FIXTURE_ARTIFACT'],'run_id':os.environ['SOURCE_RUN'],
               'archive_sha256':os.environ['EXPECTED_ARCHIVE_SHA256'],'measurements_run':False}))
           PY
+
 # No measurement job, workflow_run chain, registry publication or deployment.
 # Independent evidence approval precedes a separately reviewed campaign dispatch.

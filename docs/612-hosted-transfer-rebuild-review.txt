@@ -85,3 +85,14 @@ workflow, preparation/startup/archive/admission helpers and tests, plus this not
 existing issue-private paths retain ownership until reviewed handoff/withdrawal.
 Separate final campaign wiring/publication follows criteria-owner acceptance of
 these exact reviewed bytes and observed preflight evidence; no implicit chaining.
+
+Final publication-preparation qualification on Node24.19.0 (local, not hosted CI):
+repository-wide npm run lint, npm run format:check, npm run validate, complete
+npm run check-docs (14 commands, path checks, all17 behaviors), and
+npm run check:doc-tools passed. Existing installed dependency trees were linked
+locally for these checks, with matching MCP lockfile; temporary links removed.
+No installation or runtime acquisition. Formatted instrumented JS passed focused
+36 Python tests, JS pair+15 refusals and real-codec source control again.
+Bare localeCompare was replaced by deterministic codepoint sorting; unused locals
+removed. These final source bytes must be used for both fixture prep and measurement.
+No prior fixture/image proof is carried across the formatting change.
