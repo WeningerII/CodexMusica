@@ -620,3 +620,54 @@ test('constructor closes metadata descriptor when projection is unavailable', (t
   for (let i = 0; i < 3; i++) assert.throws(() => new LibrarySearch(dir), /ENOENT/);
   assert.equal(fs.readdirSync('/proc/self/fd').length, before);
 });
+
+test('body windows preserve first matches, UTF-8 positions and unit boundaries', (t) => {
+  const { store, dir } = build(t, [item('u1', {}, 'text')]);
+  assert.equal(store.body, undefined, 'the corpus body must not remain in a resident Buffer');
+  const window = 1024 * 1024;
+  const texts = [
+    '',
+    'x'.repeat(window - 2) + '🌊needle' + 'x'.repeat(window) + 'needle',
+    '',
+    'ab',
+    'cd',
+    'needle🌊needle',
+    'é'.repeat(window) + 'needle',
+    '',
+  ];
+  const parts = texts.map((s) => Buffer.from(s));
+  const offsets = [0];
+  for (const part of parts) offsets.push(offsets.at(-1) + part.length);
+  fs.writeFileSync(path.join(dir, 'body.bin'), Buffer.concat(parts));
+  store.offsets.body = Uint32Array.from(offsets);
+  const originalRead = fs.readSync;
+  const lengths = [];
+  fs.readSync = function (fd, buf, offset, length, position) {
+    if (fd === store.bodyFd) lengths.push(length);
+    // Exercise short reads too, including in the middle of a UTF-8 character.
+    return originalRead(fd, buf, offset, Math.min(length, 65537), position);
+  };
+  t.after(() => {
+    fs.readSync = originalRead;
+  });
+  for (const query of ['needle', '🌊needle', 'é', 'abcd', 'absent', 'x🌊', '🌊n']) {
+    const needle = Buffer.from(query);
+    const want = new Map();
+    parts.forEach((part, i) => {
+      const at = part.indexOf(needle);
+      if (at >= 0) want.set(i, at);
+    });
+    assert.deepEqual(store._matches('body', needle, new Map()), want, query);
+  }
+  const prefix = texts[6].indexOf('needle');
+  assert.equal(
+    store._bodyCodePoints(offsets[6], offsets[6] + Buffer.byteLength(texts[6].slice(0, prefix))),
+    window
+  );
+  assert.ok(
+    Math.max(...lengths) <= window + 10,
+    'reads remain bounded independently of corpus size'
+  );
+  fs.truncateSync(path.join(dir, 'body.bin'), 0);
+  assert.throws(() => store._matches('body', Buffer.from('needle'), new Map()), /truncated/);
+});
