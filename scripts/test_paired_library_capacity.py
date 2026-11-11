@@ -2,10 +2,12 @@ import unittest
 import tempfile
 import json
 import hashlib
+import copy
+import subprocess
 from pathlib import Path
 from unittest.mock import patch
-from paired_library_capacity_probe import PairedRuntime, fixture_files
-from run_paired_library_capacity import command, frozen_image
+from paired_library_capacity_probe import PairedRuntime, fixture_files, search_evidence, SEARCH_QUERIES
+from run_paired_library_capacity import command, frozen_image, run_arm, compare_searches
 
 
 class Protocol(unittest.TestCase):
@@ -19,6 +21,8 @@ class Protocol(unittest.TestCase):
         runtime.calls = []
         def request(method, path, **kwargs):
             runtime.calls.append(path)
+            if '/search?' in path:
+                return {'snapshot_id': 'fixture', 'total': 1, 'items': [{'id': 'one'}]}
             return {'search_ready': True}
         runtime.request = request
         return runtime
@@ -30,7 +34,7 @@ class Protocol(unittest.TestCase):
                 patch('paired_library_capacity_probe.time.monotonic', side_effect=[0,0,1,2,3,4,5,6]), \
                 patch('paired_library_capacity_probe.time.sleep'):
             runtime.load_library('library')
-        self.assertEqual(runtime.calls, ['/library/v1/search?limit=1', '/library/v1/health'])
+        self.assertEqual(runtime.calls, ['/library/v1/search?q=love&limit=1', '/library/v1/health'])
         self.assertEqual(runtime.record['library']['first_search_s'], 1)
         self.assertEqual(runtime.record['library']['verified_ready_s'], 5)
 
@@ -88,11 +92,43 @@ class Protocol(unittest.TestCase):
                 runtime.load_library('library')
 
     def test_command_keeps_envelope_offline_and_no_pull(self):
-        cmd = command('sha256:' + 'a'*64, '/scripts', '/out', '31:20260910,24:20260909', 'loaded', 'before-loaded', '/fixtures')
+        cmd = command('sha256:' + 'a'*64, '/scripts', '/out', '31:20260910,24:20260909', 'loaded', 'before-loaded', '/fixtures', 'owned-uuid')
         for flag in ['--pull=never','--network=none','--cpus=1','--memory=2g','--memory-swap=2g','--pids-limit=256']:
             self.assertIn(flag, cmd)
         self.assertIn('type=bind,src=/scripts,dst=/app/scripts,readonly', cmd)
         self.assertNotIn('--privileged', cmd)
+
+    def test_nonempty_controls_and_equivalence_refuse_wrong_results(self):
+        hit = {'snapshot_id':'fixture','total':1,'items':[{'id':'one'}]}
+        miss = {'snapshot_id':'fixture','total':0,'items':[]}
+        before = {'resident_runtime': {
+            'library': {'search_result': search_evidence('library', hit)},
+            'library_recovery': {'search_result': search_evidence('library_recovery', miss)}}}
+        compare_searches(before, copy.deepcopy(before))
+        after = copy.deepcopy(before)
+        after['resident_runtime']['library']['search_result']['result_sha256'] = 'b'*64
+        with self.assertRaisesRegex(RuntimeError, 'differ'):
+            compare_searches(before, after)
+        for key, response in [('library', miss), ('library_recovery', hit)]:
+            with self.assertRaises(RuntimeError):
+                search_evidence(key, response)
+        self.assertTrue(all(SEARCH_QUERIES.values()))
+        self.assertNotEqual(SEARCH_QUERIES['library'], SEARCH_QUERIES['library_recovery'])
+
+    def test_timeout_and_interruption_remove_owned_container(self):
+        for error in [subprocess.TimeoutExpired(['docker'], 1), KeyboardInterrupt()]:
+            with patch('run_paired_library_capacity.subprocess.run', side_effect=[
+                    error, subprocess.CompletedProcess([], 0, '', '')]) as run:
+                with self.assertRaises(type(error)):
+                    run_arm(['docker', 'run'], {}, None, 'owned-uuid')
+                self.assertEqual(run.call_args_list[-1].args[0][-3:], ['rm','-f','owned-uuid'])
+
+    def test_cleanup_failure_is_not_silently_accepted(self):
+        with patch('run_paired_library_capacity.subprocess.run', side_effect=[
+                subprocess.CompletedProcess([], 0),
+                subprocess.CompletedProcess([], 1, '', 'daemon unavailable')]):
+            with self.assertRaisesRegex(RuntimeError, 'cleanup failed'):
+                run_arm(['docker', 'run'], {}, None, 'owned-uuid')
 
     def test_mutable_image_names_are_refused(self):
         for name in ['latest','ghcr.io/x/image:tag','sha256:'+'a'*63]:

@@ -10,9 +10,29 @@ import json
 from pathlib import Path
 import shutil
 import subprocess
+from urllib.parse import urlencode
 import time
 import check_lyrics_capacity as matrix
 from lyrics_capacity_runtime import LIBRARY_LOAD_SECONDS, LIBRARY_STORES, library_evidence_failures
+
+
+# Startup and recovery are distinct fresh server processes. Pin a useful query
+# and a long no-match control; neither may silently become an empty browse.
+SEARCH_QUERIES = {'library': 'love', 'library_recovery': 'codexmusica612nomatch7c14e59b3a8042f1'}
+
+
+def search_evidence(key, response):
+    query = SEARCH_QUERIES[key]
+    if (not isinstance(response, dict) or not isinstance(response.get('snapshot_id'), str)
+            or type(response.get('total')) is not int or not isinstance(response.get('items'), list)):
+        raise RuntimeError('malformed paired search result')
+    if key == 'library' and (response['total'] <= 0 or not response['items']):
+        raise RuntimeError('representative query returned no result')
+    if key == 'library_recovery' and (response['total'] != 0 or response['items']):
+        raise RuntimeError('no-match control unexpectedly matched')
+    return {'query': query, 'result_sha256': hashlib.sha256(json.dumps(response,
+            sort_keys=True, separators=(',', ':'), allow_nan=False).encode()).hexdigest(),
+            'total': response['total'], 'snapshot_id': response['snapshot_id']}
 
 
 def fixture_files(root):
@@ -84,8 +104,9 @@ class PairedRuntime(matrix.ResidentRuntime):
 
         def load_and_verify():
             request_started = time.monotonic()
-            self.request('GET', '/library/v1/search?limit=1', timeout=LIBRARY_LOAD_SECONDS)
+            response = self.request('GET', '/library/v1/search?' + urlencode({'q': SEARCH_QUERIES[key], 'limit': 1}), timeout=LIBRARY_LOAD_SECONDS)
             timing['first_search_s'] = time.monotonic() - request_started
+            timing['search_result'] = search_evidence(key, response)
             # Legacy main returns search before its background package hash
             # check finishes. Record that distinction; never call it ready.
             while True:

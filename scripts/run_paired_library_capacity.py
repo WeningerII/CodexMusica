@@ -12,6 +12,7 @@ from pathlib import Path
 import platform
 import re
 import subprocess
+import signal
 import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,8 +32,8 @@ def frozen_image(value):
     return value
 
 
-def command(image, scripts, output, cells, mode, arm, fixtures):
-    return DOCKER + ['run', '--rm', '--pull=never', '--network=none', '--cpus=1',
+def command(image, scripts, output, cells, mode, arm, fixtures, container_name):
+    return DOCKER + ['run', '--name', container_name, '--rm', '--pull=never', '--network=none', '--cpus=1',
         '--memory=2g', '--memory-swap=2g', '--pids-limit=256',
         '--mount', f'type=bind,src={scripts},dst=/app/scripts,readonly',
         '--mount', f'type=bind,src={output},dst=/evidence',
@@ -41,6 +42,29 @@ def command(image, scripts, output, cells, mode, arm, fixtures):
         '--workdir=/app', '--entrypoint=python3', frozen_image(image),
         '/app/scripts/paired_library_capacity_probe.py', f'--cells={cells}',
         f'--library-mode={mode}', f'--out=/evidence/{arm}.json']
+
+
+def run_arm(argv, env, log, name):
+    try:
+        return subprocess.run(argv, env=env, stdout=log, stderr=subprocess.STDOUT,
+                              timeout=60*60+120)
+    finally:
+        # A killed Docker client does not imply a stopped container. UUID names
+        # belong only to this invocation, never to another owner's container.
+        cleanup = subprocess.run(DOCKER + ['rm', '-f', name], env=env,
+                                 capture_output=True, text=True, timeout=30)
+        if cleanup.returncode and 'No such container' not in cleanup.stderr:
+            raise RuntimeError('owned container cleanup failed: ' + cleanup.stderr)
+
+
+def compare_searches(before, after):
+    from paired_library_capacity_probe import SEARCH_QUERIES
+    for phase, query in SEARCH_QUERIES.items():
+        a = before['resident_runtime'][phase].get('search_result')
+        b = after['resident_runtime'][phase].get('search_result')
+        if (not a or not b or a.get('query') != query or a != b
+                or not re.fullmatch(r'[0-9a-f]{64}', a.get('result_sha256', ''))):
+            raise RuntimeError('paired search results differ or are missing: ' + phase)
 
 
 def main():
@@ -87,17 +111,31 @@ def main():
                                   for p in sorted((ROOT / 'scripts').iterdir()) if p.is_file()},
                'scope': 'same-host diagnostic comparison; not official qualification', 'arms': []}
     receipt_path = args.out / 'pair.json'
+    def interrupted(signum, _frame):
+        raise SystemExit(f'measurement interrupted by signal {signum}')
+    signal.signal(signal.SIGTERM, interrupted)
     for arm, image, mode in arms:
         receipt_path.write_text(json.dumps(receipt, indent=2) + '\n')
         if fixture_files(fixtures) != fixture_identity:
             raise RuntimeError('shared fixtures changed between arms')
-        with (args.out / f'{arm}.log').open('w') as log:
-            result = subprocess.run(command(image, ROOT / 'scripts', args.out.resolve(), args.cells, mode, arm, fixtures),
-                                    env=env, stdout=log, stderr=subprocess.STDOUT, timeout=60*60+120)
-        receipt['arms'].append({'arm': arm, 'exit_code': result.returncode})
+        name = 'capacity-pair-' + receipt['experiment_id'] + '-' + arm
+        try:
+            with (args.out / f'{arm}.log').open('w') as log:
+                result = run_arm(command(image, ROOT / 'scripts', args.out.resolve(), args.cells,
+                                         mode, arm, fixtures, name), env, log, name)
+        except BaseException as error:
+            receipt['arms'].append({'arm': arm, 'container_name': name,
+                                    'error': type(error).__name__ + ': ' + str(error)})
+            receipt_path.write_text(json.dumps(receipt, indent=2) + '\n')
+            raise
+        receipt['arms'].append({'arm': arm, 'container_name': name, 'exit_code': result.returncode})
         receipt_path.write_text(json.dumps(receipt, indent=2) + '\n')
         if result.returncode:
             raise SystemExit('measurement failed; preserve receipt, no automatic retry')
+    compare_searches(json.loads((args.out / 'before-loaded.json').read_text()),
+                     json.loads((args.out / 'after-loaded.json').read_text()))
+    receipt['search_results_equivalent'] = True
+    receipt_path.write_text(json.dumps(receipt, indent=2) + '\n')
 
 
 if __name__ == '__main__':

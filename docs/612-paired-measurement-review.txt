@@ -14,7 +14,8 @@ The local Docker daemon works but contains no images at this checkpoint.
 Run the same scripts checkout against both images, read-only, so instrumentation
 and synthetic retained workloads are identical. Retain scripts_sha256 separately
 from image/source identity. The additional probe changes measurement sequencing,
-not server code: first /search?limit=1, time the response, then wait within the
+not server code: first /search?q=love&limit=1 on startup, and the pinned nonempty no-match
+control on recovery (each is a fresh server process); time the response, then wait within the
 existing load deadline for verified corpus readiness. Record first_search_s and
 verified_ready_s separately. Sample the entire load-and-verification interval.
 Legacy main can return a search while corpus verification is still pending; this
@@ -41,7 +42,10 @@ exact18cold/worker executions per arm; same host within each triplet; all profil
 pass their original gates; image/source identities; identical assets/configuration
 and Node/Python versions; same workload/source instrumentation except intentionally
 changed runtime code; no missing/duplicate cells or receipt substitution. Retain
-all raw samples, image/build hashes, host metadata, arm order and failures.
+per-cell peak records, sample counts, peak-associated component snapshots,
+load-window peak records, image/build hashes, host metadata, arm order and
+failures. The current sampler does NOT retain every raw sample or a continuous
+trace; no claim of full raw-sample retention or continuous maxima is made.
 Report each cell's before/after-loaded and before/after-unloaded resident peaks
 and margins, worst cell, and median paired delta separately for the two contrasts.
 Report paired cold-start first_search_s and verified_ready_s; show startup and
@@ -76,3 +80,17 @@ Review corrections (preparation only; no execution authorized by this note):
 - Seven protocol tests pass, including late-ready refusal, altered/extra fixture
   refusal, and two arm copies preserving identical bytes. Existing five tests
   remain included. Independent review is still pending; no measurements run.
+
+Further review corrections:
+- SEARCH_QUERIES pins startup q=love (must return a hit) and recovery's nonempty
+  no-match control (must return zero hits). Both invoke the body scan on their
+  respective fresh processes. Compare the full canonical response digest,
+  snapshot ID, count and query across before/after; disagreement fails the driver.
+  Report the two query latency medians separately, not pooled as one workload.
+- Every arm gets an invocation-owned UUID container name. finally removes that
+  container even after Docker client timeout or interruption. Cleanup failure
+  refuses the run, and the receipt records the exception; there is no retry.
+- Sampling claims now name retained peak summaries and sample counts explicitly.
+  All raw samples are not retained, and short transients can still be missed.
+- Ten protocol tests pass; measurement remains stopped pending final independent
+  review. No new actual latency or memory values have been measured.
