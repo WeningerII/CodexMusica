@@ -1,0 +1,103 @@
+#612 minimal decoded-payload protocol correction — proposal only
+
+No code/limits/identity checks changed; no campaign, fixture generation, artifact
+publication or paid action. Global versus per-host fixture generation remains a
+SEPARATE criteria-owner decision. Apply this correction at whichever scope is
+explicitly approved; it does not choose that scope or authorize storage spending.
+
+Proposed criterion change, requiring owner/reviewer approval:
+Replace identical baseline-encoded RunStore fixture files across images with
+identical decoded payload content plus genuine per-image encoded fixture files.
+JobStore fixture bytes remain identical. Within each arm, reuse the SAME complete
+prepared-file bytes across both repetitions; never regenerate per repetition.
+After-loaded and after-unloaded share the SAME candidate encoded fixture files.
+Record each original/derived manifest separately. No identity restamping.
+
+Concrete preparation algorithm (outside every timed or sampled workload):
+1. Generate all random draft/replay/noise/declaration padding and run/request IDs
+   once. Preserve one canonical decoded record set: 64 records, max-schema draft
+   and replay arrays, both near-ceiling worker journals, declarations, explicit
+   keys/run IDs and stable record metadata. Record complete byte/hash membership.
+   The existing producer computes limits from actual schemas; do not hardcode
+   smaller payloads. Prohibit source-semantic identity inside decoded fixture
+   journals (the present synthetic producer does not add that field).
+2. Verify the SAME decoded bytes with both unchanged images' draft/replay schemas,
+   assertContinuationCapacity, declaration/worker/wire limits and record caps.
+   Refuse mismatched derived schema maxima, missing/extra records, differing
+   declarations, or too-small retained load. Preserve executed evidence per image.
+3. In each image, call its actual encodeState for each state/checkpoint, then its
+   actual decodeState; deep-compare every decoded field with the original record.
+   Hash canonical decoded payloads independently and compare across images.
+   Never use recoverState as a substitute for decodeState, change codec imports,
+   substitute a shared source fingerprint or patch semantic identity strings.
+4. Compare encoded envelopes field by field. Only semantic_identity is expected
+   to differ, and must equal THAT image's genuine continuationSemanticIdentity.
+   connector_contract, codec, encoding, decoded_bytes, payload SHA256 and compressed
+   payload must match. If actual gzip bytes or other fields differ, stop for review
+   rather than broadly permitting 'runtime differences'. Source/release identities
+   belong in separate build receipts: release_id is NOT a wire-envelope field.
+5. Record each actual wire size, outer serialized record/file size, decoded worker
+   and declaration size, total retained size/count and difference. Assert identical
+   wire lengths when only 64-hex semantic identities differ; verify rather than
+   assume V8 allocation equivalence. Near-ceiling filling criteria remain unchanged.
+6. Save baseline-encoded and candidate-encoded prepared-runs.json plus genuine
+   byte hashes ONCE. Hash both outputs, preserving shared decoded input identity
+   and exact producer/encoder/source/dependency identities. Bound physical bytes
+   separately (combined decoded+two encoded sets may exceed the earlier single-set
+   ~560 MiB estimate; recompute and enforce the approved cap, do not shrink input).
+7. Each measured arm verifies its exact own manifest and the common input identity,
+   copies into a private writable directory with existing required modes, and
+   runs unchanged startup/workload. Both repetitions reuse original arm bytes.
+   Compare candidate loaded/unloaded fixture hashes exactly; before/after compare
+   decoded content and only approved envelope differences. All new validation and
+   encoding is outside measurement; no per-arm random generation.
+
+Additional retained-fixture inspection, derived by reading pinned source:
+- seed_lyrics_capacity_receipts.mjs calls JobStore.begin(id,intent,
+  {capacity_fixture:true}) and complete(id,200,body). No actual build/source/release
+  ID or continuation wire is supplied. checkpoint/progress/proposer_usage remain
+  null for this seed. Request IDs and payload padding are generated once.
+- job_store.js validate checks version, request ID, intent/request digest,
+  timestamps, build object and completed response; file name must equal ID and
+  directory/files must retain private modes. It does not demand that this seed's
+  build marker match the current runtime. Keep these original files byte-identical.
+- Completed replay returns the saved response after request-digest equality,
+  before new-work admission. The resident probe first GETs the existing completed
+  receipt, then POSTs its original intent and checks saved response SHA256. Retain
+  this guard so absence/expiry cannot initiate provider work. No provider calls.
+- JobStore default TTL is 24h; RunStore TTL is 6h. Common creation timestamps and
+  elapsed age must be recorded; refuse insufficient remaining TTL for the planned
+  run rather than rewriting timestamps or disabling expiry in measured code.
+- RunStore.put adds/retains run_id, increments revision and updates timestamp;
+  producer currently uses random IDs and wall clock. Generate stable IDs/metadata
+  once for the common decoded set. Actual startup put/snapshot refresh is expected
+  bookkeeping, not evidence the in-memory records stay byte-identical. Validate
+  counts, stable IDs, revision transitions and retained content before workload.
+- RUNS wireKey decodes continuations when ledger inputs exist, falling back to
+  raw wire on refusal. The normal seed put uses empty inputs and does not force
+  decode. Therefore successful RunStore insertion is NOT compatibility evidence.
+  Explicit step 3 is mandatory; no acceptance via fallback.
+- The runtime creates its own chat signing key and restart evidence binds that
+  process's key digest. Keep keys private/per-arm and verify restart within that
+  arm; do not share credentials or log secret bytes. Synthetic fixture content
+  does not contain signed interview cursors. No permission to add real user data.
+
+Required negative controls before approval/execution:
+one changed decoded line/padding/declaration; duplicate/missing record or ID;
+cross-arm encoded file substitution; wrong source-semantic envelope; altered
+payload/compressed bytes with unchanged declared hash; over-limit or undersized
+payload; changed schema maxima; expired JobStore receipt; bad private modes;
+repeat fixture drift; candidate loaded/unloaded fixture mismatch. Each must fail
+before measured work. Retain actual encoding/decoding evidence from BOTH images.
+
+Minimal implementation after approval:
+one common decoded generator; one image-local genuine encoder/verifier; derived
+manifest verifier; narrow updates to diagnostic driver's fixture selection and
+comparison. Do not change mcp codecs, JobStore, RunStore, production limits or PR
+#836. Existing fixture_files() checks membership/hash but needs arm/source binding;
+the old shared single manifest is insufficient for this proposed representation.
+
+Remaining owner decisions: approve exact criterion change; choose global/per-host
+population separately; approve no-cost transport/retention and combined size bound;
+review exact final protocol implementation and actual-image validation. Pins stay
+baseline99c1586b and candidate960dd182; 1792 MiB and release/latency gates unchanged.
