@@ -259,9 +259,8 @@ function selfCheck() {
   const LIBRARY = 'prototype/scenarios/library/explore.mjs';
   const pass = 'process.exit(0);\n';
   const CATEGORIES = 'prototype/scenarios/genre-categories/categories.cjs';
-  // A shell that registers Categories, Find a sound and #760's instrument
-  // detail (whose files aren't in the build), and a manifest whose row 1 is
-  // done on the Categories scenario, which declares it.
+  // A shell that registers Categories and Find a sound, and a manifest whose
+  // row 1 is done on the Categories scenario, which declares it.
   const row = (n, status, scenario) => ({ n, id: `row-${n}`, status, scenario });
   const manifest = (...r) => JSON.stringify({ rows: r });
   const BASE = {
@@ -271,7 +270,6 @@ function selfCheck() {
     'prototype/app.js': [
       "const a = () => import('./features/genre-categories/categories.js');",
       "const b = () => import('./features/genre-targets/targets.js');",
-      "const c = () => import('./features/instrument-detail/detail.js');",
     ].join('\n'),
     'prototype/features/genre-categories/categories.js': 'export {};\n',
     'prototype/features/genre-targets/targets.js': 'export {};\n',
@@ -431,10 +429,6 @@ function selfCheck() {
           'its module prototype/features/genre-categories/categories.js is not in this build'
         ),
     },
-    'the #760 exception ends when its files arrive': {
-      files: { 'prototype/features/instrument-detail/detail.js': 'export {};\n' },
-      ok: (r) => r.status === 1 && says(r, 'instrument-detail is in this build now'),
-    },
     // Scenario files are their lanes': a comment that only mentions rows,
     // in the header or below it, is prose, not a declaration (#810 review of
     // 8345248ac).
@@ -583,11 +577,6 @@ function selfCheck() {
       check: 'a registered lane with no module fails',
       in: 'manifest',
       edits: [['fs.existsSync(path.join(root, module)),', 'true,']],
-    },
-    'the #760 exception never ends': {
-      check: 'the #760 exception ends when its files arrive',
-      in: 'manifest',
-      edits: [['expect(!arrived,', 'expect(true,']],
     },
     'any comment on rows is a declaration': {
       check: 'a comment that mentions rows is not a declaration',

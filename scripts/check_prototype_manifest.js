@@ -59,8 +59,7 @@
 // declare it, didn't run in this run, or didn't pass; or a lane app.js
 // registers has no module in this build or no scenario of it that passed in
 // this run (the runner's EXCLUDED can't excuse that, and the failure names
-// any exclusion that left the lane without one). KNOWN_UNBUILT is the one stated exception, #760's instrument
-// detail, and must leave once its files arrive.
+// any exclusion that left the lane without one).
 //
 //   node scripts/check_prototype_manifest.js
 
@@ -106,7 +105,6 @@ const rows = manifest.rows || [];
 // and the rows each declares. The declaration is one header line, before the
 // first line of code (a shebang, 'use strict', blank lines and comments come
 // first).
-const SCENARIOS_DIR = path.join(root, 'prototype', 'scenarios');
 const scenarioFiles = () => discoverScenarios(root).scenarios;
 // A line that sets out to declare rows: "// rows:", in any case or spacing.
 // Prose that mentions rows, in a scenario the lane's author wrote, is not one.
@@ -180,12 +178,6 @@ function registeredLanes() {
     module: `prototype/features/${m[1]}/${m[2]}`,
   }));
 }
-// Registered lanes whose module and scenario are not in this build. Each
-// entry must leave once either arrives.
-const KNOWN_UNBUILT = {
-  'instrument-detail':
-    '#760: registered on main; its detail.js and scenario arrive with a head that passes isolation rule 1',
-};
 
 const arg = (k) => {
   const a = process.argv.find((x) => x.startsWith(`--${k}=`));
@@ -424,7 +416,6 @@ function afterRun(file, runId) {
   // no passing scenario: EXCLUDED can't excuse a lane the shell registers.
   const skipped = Object.keys((results && results.excluded) || {});
   for (const { lane, module } of lanes) {
-    if (Object.hasOwn(KNOWN_UNBUILT, lane)) continue;
     expect(
       fs.existsSync(path.join(root, module)),
       `${lane} is registered in prototype/app.js, but its module ${module} is not in this build`
@@ -438,17 +429,6 @@ function afterRun(file, runId) {
           : '')
     );
   }
-  for (const [lane, reason] of Object.entries(KNOWN_UNBUILT)) {
-    const entry = lanes.find((l) => l.lane === lane);
-    expect(
-      !!entry,
-      `KNOWN_UNBUILT names ${lane}, which prototype/app.js does not register; remove it`
-    );
-    const arrived =
-      (entry && fs.existsSync(path.join(root, entry.module))) ||
-      fs.existsSync(path.join(SCENARIOS_DIR, lane));
-    expect(!arrived, `${lane} is in this build now; remove it from KNOWN_UNBUILT (${reason})`);
-  }
   if (problems.length) {
     console.error(
       `check_prototype_manifest --after-run: FAIL — ${problems.length} of ${checks} checks`
@@ -456,12 +436,10 @@ function afterRun(file, runId) {
     for (const p of problems) console.error(`  ✗ ${p}`);
     return 1;
   }
-  const unbuilt = Object.keys(KNOWN_UNBUILT);
   console.log(
     `check_prototype_manifest --after-run: ${checks}/${checks} checks pass — run ${runId}: ` +
       `${ran.size} scenario(s) ran; ${done.length} done row(s) proven by this run; ` +
-      `${lanes.length - unbuilt.length} registered lane(s), each with a passing scenario; ` +
-      `not in this build: ${unbuilt.map((l) => `${l} (${KNOWN_UNBUILT[l]})`).join(', ')}`
+      `${lanes.length} registered lane(s), each with a passing scenario`
   );
   return 0;
 }

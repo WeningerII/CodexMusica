@@ -24,17 +24,17 @@ const repo = path.resolve(__dirname, '../../..');
 const featurePath = 'prototype/features/instrument-detail/detail.js';
 const photos = {
   oud: [
-    'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/%C5%AAd_MET_DP340079.jpg/500px-%C5%AAd_MET_DP340079.jpg',
+    'https://thumb.wikimedia.invalid/wikipedia/commons/thumb/9/92/%C5%AAd_MET_DP340079.jpg/500px-%C5%AAd_MET_DP340079.jpg',
     'CC0',
     'Creator:Manol (Emmanuel Venios)',
-    'https://commons.wikimedia.org/wiki/File:%C5%AAd_MET_DP340079.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/9/92/%C5%AAd_MET_DP340079.jpg',
+    'https://commons.wikimedia.invalid/wiki/File:%C5%AAd_MET_DP340079.jpg',
+    'https://upload.wikimedia.invalid/wikipedia/commons/9/92/%C5%AAd_MET_DP340079.jpg',
   ],
   accordina: [
-    'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail',
+    'https://thumb.wikimedia.invalid/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail',
     'CC BY 2.5 Generic',
     'Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic',
-    'https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg',
+    'https://commons.wikimedia.invalid/wiki/File:Shure_SM58.jpg',
   ],
 };
 const oud = {
@@ -83,8 +83,8 @@ const described = {
   description:
     'Data owner for a positively credited auxiliary percussion role whose source does not identify the instrument family or playing mechanism. No drum, shaker, tambourine, construction, material or technique is inferred. Neutral axes are authored routing coordinates, not measured acoustic facts.',
   sources: [
-    'https://mencho.bandcamp.com/album/interiores',
-    'https://www.wuwm.com/arts-culture/2023-06-23/muna-tiny-desk-concert',
+    'https://mencho.bandcamp.invalid/album/interiores',
+    'https://www.wuwm.invalid/arts-culture/2023-06-23/muna-tiny-desk-concert',
   ],
 };
 records.described = {
