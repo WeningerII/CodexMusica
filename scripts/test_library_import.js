@@ -134,6 +134,25 @@ function fakeIndexedDB({ failAtWrite = 0 } = {}) {
     },
   };
 }
+test('import eligibility does not impose a two-to-twelve-word line gate', () => {
+  for (const text of [
+    'Alone',
+    'One two three four five six seven eight nine ten eleven twelve thirteen',
+    '[VERSE]\nAlone\n\nOne two three four five six seven eight nine ten eleven twelve thirteen',
+  ]) {
+    assert.deepEqual(api.eligibleForWriter(text, 'eng'), { eligible: true, reasons: [] });
+  }
+});
+test('removing the import word gate preserves language, row and character safeguards', () => {
+  assert.equal(api.eligibleForWriter('a'.repeat(200), 'en').eligible, true);
+  assert.match(api.eligibleForWriter('a'.repeat(201), 'en').reasons.join(' '), /200-character/);
+  assert.equal(api.eligibleForWriter(Array(463).fill('Alone').join('\n'), 'en-US').eligible, true);
+  assert.match(
+    api.eligibleForWriter(Array(464).fill('Alone').join('\n'), 'eng').reasons.join(' '),
+    /463-row/
+  );
+  assert.match(api.eligibleForWriter('Alone', 'fra').reasons.join(' '), /English/);
+});
 test('canonical SHA256 authenticates identity, exact text and every source notice', async () => {
   const value = await envelope();
   assert.equal(
