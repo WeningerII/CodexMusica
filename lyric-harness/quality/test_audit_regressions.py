@@ -264,6 +264,13 @@ class AuditRegressions(unittest.TestCase):
         #      undo restores, as #627's removed word lists do;
         #   3. refuses by name when the replay diverged (another draft).
         # No branch makes a writer request or rewrites the checkpoint.
+        #
+        # A QUESTION THAT OLD ALSO STATED THE 200-CHARACTER LINE LIMIT
+        # (2026-11-12, #851: the limit a question states rose to 512 after
+        # #626's rewording). The held question is therefore rendered as it
+        # was then, with both, and branch 1 undoes the two changes in turn,
+        # newest first. A question held between the two changes is
+        # `test_a_question_held_under_the_200_line_limit_replays` below.
         import quality.propose as PRM
         initial = ['original cat', 'original dog']
         accepted = ['original cat', 'accepted log']
@@ -272,8 +279,13 @@ class AuditRegressions(unittest.TestCase):
         real_render = PRM.render_line
         old_tail = LH._UNADMITTED_DEFAULT_TAIL_BEFORE
         new_tail = LH._UNADMITTED_DEFAULT_TAIL
-        held = lambda *a, **k: real_render(*a, **k) + '\nwhy: x — ' + old_tail
+        def render_at_200(*a, **k):
+            with patch.object(PRM, 'MAX_LINE_CHARS', 200):
+                return real_render(*a, **k)
+        held = lambda *a, **k: render_at_200(*a, **k) + '\nwhy: x — ' + old_tail
         now = lambda *a, **k: real_render(*a, **k) + '\nwhy: x — ' + new_tail
+        self.assertEqual(LH.legacy_question_texts('propose', now(b, initial))[-1],
+                         held(b, initial))
         unrestorable = lambda *a, **k: now(*a, **k) + '\n(no word list)'
         calls = []
         def writer(*args, **kwargs):
@@ -307,6 +319,63 @@ class AuditRegressions(unittest.TestCase):
                 self.assertNotIsInstance(diverged.exception, LH._QuestionChanged,
                                          '3. a diverged replay refuses by name')
                 self.assertEqual(cp.read_bytes(), before)
+            self.assertEqual(len(calls), 1, 'no branch made a writer request')
+
+    def test_a_question_held_under_the_200_line_limit_replays(self):
+        # 2026-11-12 (#851). The line limit a question states rose from 200
+        # characters to 512, which moves the bytes of every question. A
+        # checkpoint recorded while the question read "at most 200 characters"
+        # replays its answer on this build with no writer request
+        # (`LEGACY_QUESTION_RENDERINGS`, `_legacy_line_limit`). With that one
+        # entry taken out the same checkpoint parks instead, so the entry is
+        # what carries a run held across the change.
+        import quality.propose as PRM
+        initial = ['original cat', 'original dog']
+        accepted = ['original cat', 'accepted log']
+        b = Brief(2, initial[1])
+        b.round_no = 1
+        then = 'is at most 200 characters; a longer one is not accepted.'
+        now = 'is at most 512 characters; a longer one is not accepted.'
+        with patch.object(PRM, 'MAX_LINE_CHARS', 200):
+            held_line = PRM.render_line(b, initial)
+        now_line = PRM.render_line(b, initial)
+        self.assertEqual((held_line.count(then), held_line.count(now)), (1, 0))
+        self.assertEqual((now_line.count(then), now_line.count(now)), (0, 1))
+        # Undoing the change restores the old bytes exactly, for a line
+        # question and for a group question's "Each line is at most ...".
+        self.assertEqual(LH.legacy_question_texts('propose', now_line), [held_line])
+        self.assertEqual(
+            LH.legacy_question_texts('propose_group', '  Each line ' + now),
+            ['  Each line ' + then])
+        self.assertEqual(LH.legacy_question_texts('propose', 'no limit stated'), [])
+        calls = []
+        def writer(*args, **kwargs):
+            calls.append(True)
+            return accepted[1]
+        with tempfile.TemporaryDirectory() as tmp, \
+             patch.dict(os.environ, {'LYRIC_CHECKPOINT_PATH': str(Path(tmp)/'cp.json')}), \
+             contextlib.redirect_stdout(io.StringIO()):
+            with patch.object(PRM, 'MAX_LINE_CHARS', 200):
+                one, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
+                one.checkpoint(initial, 0, 'started')
+                self.assertEqual(one(b, initial, 0), accepted[1])
+                one.checkpoint(accepted, 1, 'accepted')
+            self.assertEqual(len(calls), 1)
+            cp = Path(tmp)/'cp.json'
+            before = cp.read_bytes()
+            replayed, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
+            self.assertEqual(replayed(b, initial, 0), accepted[1],
+                             'the answer recorded under the 200 wording replays')
+            self.assertEqual(len(calls), 1, 'no writer request was made')
+            others = tuple(e for e in LH.LEGACY_QUESTION_RENDERINGS
+                           if e[1] is not LH._legacy_line_limit)
+            self.assertEqual(len(others), len(LH.LEGACY_QUESTION_RENDERINGS) - 1)
+            with patch.object(LH, 'LEGACY_QUESTION_RENDERINGS', others):
+                without, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
+                with self.assertRaises(LH._QuestionChanged) as parked:
+                    without(b, initial, 0)
+                self.assertEqual(parked.exception.lines, accepted)
+            self.assertEqual(cp.read_bytes(), before)
             self.assertEqual(len(calls), 1, 'no branch made a writer request')
 
     def test_group_question_reworded_parks_and_a_diverged_group_refuses(self):
