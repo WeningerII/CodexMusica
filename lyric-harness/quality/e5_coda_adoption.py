@@ -10,6 +10,8 @@ The canon arm owns every corpus, fixed-span and control assertion. The random
 arms deal the unchanged sampler grid by index residue. Running canon and the
 complete random k/n matrix therefore asks exactly the same questions as the
 default command, with every sampler and both declarations retained.
+TEST_E5_CANON_WORKERS=2 optionally computes the two complete policy record
+lists in fresh spawned processes; the parent applies the original assertions.
 """
 import json
 import os
@@ -19,7 +21,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import lyric_harness as L
 from quality import chance_rate as CR
-from quality.near_relation_pricing import canon_records
+from quality.near_relation_pricing import SONNET_SCHEME as _CANON_SCHEME, canon_records
 
 MAX_LOSS_RATE = 0.005
 
@@ -43,6 +45,11 @@ def canon_report(lex, old, new):
     """All canon assertions, evaluated together over the complete corpus."""
     a = canon_records(lex, old)
     b = canon_records(lex, new)
+    return _compare_canon_records(lex, old, new, a, b)
+
+
+def _compare_canon_records(lex, old, new, a, b):
+    """Apply the original aggregate, fixed-span and control assertions."""
     aa, bb = admitted(a, old), admitted(b, new)
     lost = sorted(aa - bb)
     failures = []
@@ -96,6 +103,60 @@ def canon_report(lex, old, new):
             'failures': failures}
 
 
+def _canon_workers():
+    value = os.environ.get('TEST_E5_CANON_WORKERS', '1')
+    if value not in ('1', '2'):
+        raise ValueError('TEST_E5_CANON_WORKERS must be 1 or 2')
+    return int(value)
+
+
+def _canon_record_worker(task):
+    settings, reader_scheme = task
+    # Constructing the dictionary also initializes the process-local word
+    # inventory read by score(); unpickling a parent Lexicon would not.
+    with L.reader_scheme_scope(reader_scheme):
+        lex = L.Lexicon(reader_scheme=reader_scheme)
+        decl = L.Declaration(**settings)
+        return canon_records(lex, decl)
+
+
+def _validate_canon_records(records, population):
+    if not population or not isinstance(records, list) or len(records) != len(population):
+        raise ValueError('canon worker did not return the complete corpus')
+    fields = {'idx', 'lines', 'mandated', 'bearing', 'refused', 'pairs', 'base_violations'}
+    for idx, (record, lines) in enumerate(zip(records, population), 1):
+        if (not isinstance(record, dict) or set(record) != fields
+                or type(record['idx']) is not int or record['idx'] != idx
+                or record['lines'] != lines):
+            raise ValueError(f'canon worker changed corpus record {idx}')
+        mandated = [(i + 1, j + 1) for i in range(len(lines))
+                    for j in range(i + 1, len(lines))
+                    if L.same_scheme_class(_CANON_SCHEME[i], _CANON_SCHEME[j])]
+        # canon_records keeps bearing zero-based, unlike its reported pairs.
+        if (record['mandated'] != mandated or set(record['pairs']) != set(mandated)
+                or record['bearing'] != {i - 1 for pair in mandated for i in pair}
+                or not isinstance(record['refused'], set)
+                or not isinstance(record['base_violations'], set)):
+            raise ValueError(f'canon worker changed complete pair inventory {idx}')
+
+
+def _parallel_canon_records(lex, old, new):
+    from concurrent.futures import ProcessPoolExecutor
+    from dataclasses import asdict
+    import multiprocessing
+    import battery
+
+    population = battery.parse_sonnets(battery.corpus_path('sonnets.txt'))
+    tasks = [(asdict(decl), lex.reader_scheme) for decl in (old, new)]
+    with ProcessPoolExecutor(max_workers=2,
+                             mp_context=multiprocessing.get_context('spawn')) as pool:
+        futures = [pool.submit(_canon_record_worker, task) for task in tasks]
+        a, b = [future.result() for future in futures]
+    for records in (a, b):
+        _validate_canon_records(records, population)
+    return a, b
+
+
 def random_report(lex, old, new, samplers):
     """The unchanged before/after measurement and assertion for each cell."""
     rows, failures = [], []
@@ -127,10 +188,18 @@ def selected_samplers(part):
 
 def evaluate(part='all'):
     samplers = selected_samplers(part)
+    workers = _canon_workers()
     lex = L.Lexicon()
     old = L.Declaration(coda_empty_evidence='gift')
     new = L.Declaration(coda_empty_evidence='cannot_tell')
-    report = canon_report(lex, old, new) if part in ('all', 'canon') else {'failures': []}
+    if part in ('all', 'canon'):
+        if workers == 2:
+            a, b = _parallel_canon_records(lex, old, new)
+            report = _compare_canon_records(lex, old, new, a, b)
+        else:
+            report = canon_report(lex, old, new)
+    else:
+        report = {'failures': []}
     random = random_report(lex, old, new, samplers)
     # Preserve the unpartitioned report's field order and shape as well as its
     # values. Fragment reports name their exact work for CI evidence.
@@ -154,6 +223,7 @@ def main(argv=None):
         else:
             raise ValueError('usage: e5_coda_adoption.py [--part=canon|random-k/n]')
         selected_samplers(part)
+        _canon_workers()
     except ValueError as exc:
         print(f'REFUSED: {exc}', file=sys.stderr)
         return 2

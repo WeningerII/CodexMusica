@@ -3466,15 +3466,21 @@ jobs:
 
   # The first eight-shard run (43099681517) measured 332–541 s in the
   # module pool, then up to several minutes of serial fixed checks. Run those
-  # same twelve commands four-wide beside the module pool. Their runner owns
-  # one literal inventory, isolates writable caches, records every outcome and
-  # fails after all commands finish if any command failed. This adds one setup,
-  # rather than another setup for each check. Historical rulings follow.
+  # same twelve commands beside the module pool. Run 43129483401 measured a
+  # 729s four-slot evidence pool and a 597s canon command. Two fixed partitions
+  # retain every argv; the canon's two full policy passes share a four-slot
+  # weighted budget with other checks. Exact-once receipts join at suites-result.
+  # This adds two setups, rather than another setup for every check.
   suites-evidence:
     needs: [dup, gate]
     if: needs.dup.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
+    name: suites-evidence (shard ${{ matrix.shard }}/2)
     env:
       OMP_NUM_THREADS: '1'
       MKL_NUM_THREADS: '1'
@@ -3717,20 +3723,20 @@ jobs:
       # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
       # green -- against the "15+ minutes each" that kept them out until today.
 
-      - name: Every fixed calibration and evidence check, with complete outcomes
+      - name: Assigned fixed calibration and evidence checks, with complete outcomes
         if: ${{ always() }}
         run: >-
-          python3 scripts/run_suite_evidence.py --workers=4
+          python3 scripts/run_suite_evidence.py --shard=${{ matrix.shard }}/2 --workers=4
           --logs-dir="$RUNNER_TEMP/suite-evidence-logs"
-          --report="$RUNNER_TEMP/suite-evidence.json"
+          --report="$RUNNER_TEMP/suite-evidence-${{ matrix.shard }}.json"
       - name: Preserve every evidence command's log and outcome
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: suite-evidence
+          name: suite-evidence-${{ github.run_attempt }}-${{ matrix.shard }}
           path: |
             ${{ runner.temp }}/suite-evidence-logs/**/*.log
-            ${{ runner.temp }}/suite-evidence.json
+            ${{ runner.temp }}/suite-evidence-${{ matrix.shard }}.json
           if-no-files-found: error
           retention-days: 7
 
@@ -3791,6 +3797,20 @@ jobs:
             fi
           done
           [ "$failed" -eq 0 ] || exit 1
+
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11.16'
+          architecture: 'x64'
+      - name: Collect both evidence receipts from this workflow attempt
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: suite-evidence-${{ github.run_attempt }}-*
+          path: ${{ runner.temp }}/suite-evidence-records
+          merge-multiple: true
+      - name: Require every original evidence command exactly once and successful
+        run: python3 scripts/run_suite_evidence.py --verify-reports="$RUNNER_TEMP/suite-evidence-records" --shards=2
 
   # ── The revision pair, its own runner (SPLIT OUT 2026-08-18) ─────────────
   # It ran as the suites job's LAST step, sequential after the 49-suite

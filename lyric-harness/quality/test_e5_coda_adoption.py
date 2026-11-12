@@ -9,6 +9,7 @@ import io
 import os
 import sys
 import unittest
+from dataclasses import asdict
 from unittest import mock
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -136,6 +137,152 @@ class Fragments(unittest.TestCase):
                 with contextlib.redirect_stderr(io.StringIO()):
                     self.assertEqual(E.main([f'--part={bad}']), 2)
                 canon.assert_not_called()
+
+    def test_parallel_mode_keeps_every_original_report_and_failure(self):
+        defects = (None, 'admission', 'empty', 'default', 'refusal', 'fixed',
+                   'violations', 'control', 'gift', 'random')
+        for defect in defects:
+            for part in ('canon', 'all'):
+                with self.subTest(defect=defect, part=part), self.experiment(defect):
+                    def records(lex, old, new):
+                        return E.canon_records(lex, old), E.canon_records(lex, new)
+                    with mock.patch.dict(os.environ, TEST_E5_CANON_WORKERS='1'):
+                        serial = E.evaluate(part)
+                    with mock.patch.dict(os.environ, TEST_E5_CANON_WORKERS='2'), \
+                            mock.patch.object(E, '_parallel_canon_records', side_effect=records):
+                        parallel = E.evaluate(part)
+                    self.assertEqual(parallel, serial)
+
+    def test_public_canon_report_retains_arbitrary_passed_lexicon(self):
+        with self.experiment(), mock.patch.dict(os.environ, TEST_E5_CANON_WORKERS='2'), \
+                mock.patch.object(E, '_parallel_canon_records') as parallel:
+            lex = object()
+            old = E.L.Declaration(coda_empty_evidence='gift')
+            new = E.L.Declaration(coda_empty_evidence='cannot_tell')
+            with mock.patch.object(E, 'canon_records', wraps=E.canon_records) as records:
+                report = E.canon_report(lex, old, new)
+            self.assertEqual(records.call_args_list, [mock.call(lex, old), mock.call(lex, new)])
+            self.assertEqual(report['failures'], [])
+            parallel.assert_not_called()
+
+    def test_worker_constructs_fresh_lexicon_and_full_declaration(self):
+        decl = E.L.Declaration(coda_empty_evidence='gift', theta_rhyme=0.89,
+                               admit=('RHYME',), theta_by_relation={'CONSONANCE': 0.72})
+        lex, result = object(), object()
+        original_scheme = E.L.resolve_reader_scheme(None)
+
+        def construct(**kwargs):
+            self.assertEqual(E.L.resolve_reader_scheme(None), 'v1')
+            return lex
+
+        def observe(*args):
+            self.assertEqual(E.L.resolve_reader_scheme(None), 'v1')
+            return result
+
+        with mock.patch.object(E.L, 'Lexicon', side_effect=construct) as constructor, \
+                mock.patch.object(E, 'canon_records', side_effect=observe) as records:
+            self.assertIs(E._canon_record_worker((asdict(decl), 'v1')), result)
+        constructor.assert_called_once_with(reader_scheme='v1')
+        self.assertIs(records.call_args.args[0], lex)
+        self.assertEqual(records.call_args.args[1], decl)
+        self.assertEqual(E.L.resolve_reader_scheme(None), original_scheme)
+        with mock.patch.object(E.L, 'Lexicon', side_effect=construct), \
+                mock.patch.object(E, 'canon_records', side_effect=RuntimeError('records failed')):
+            with self.assertRaisesRegex(RuntimeError, 'records failed'):
+                E._canon_record_worker((asdict(decl), 'v1'))
+        self.assertEqual(E.L.resolve_reader_scheme(None), original_scheme)
+
+    def _complete_records(self):
+        population = [['cat'] * len(E._CANON_SCHEME), ['hat'] * len(E._CANON_SCHEME)]
+        records = []
+        for idx, lines in enumerate(population, 1):
+            mandated = [(i + 1, j + 1) for i in range(len(lines))
+                        for j in range(i + 1, len(lines))
+                        if E.L.same_scheme_class(E._CANON_SCHEME[i], E._CANON_SCHEME[j])]
+            records.append({'idx': idx, 'lines': lines[:], 'mandated': mandated,
+                            'bearing': set(range(len(lines))),
+                            'refused': set(), 'base_violations': set(),
+                            'pairs': {pair: ({'RHYME': 1.0}, 1.0, 'certain', ('perfect rhyme',))
+                                      for pair in mandated}})
+        return population, records
+
+    def test_parallel_collection_uses_spawn_full_settings_and_policy_order(self):
+        import battery
+        population, records = self._complete_records()
+        old = E.L.Declaration(coda_empty_evidence='gift', theta_rhyme=0.83)
+        new = E.L.Declaration(coda_empty_evidence='cannot_tell', theta_rhyme=0.91)
+        lex = mock.Mock(reader_scheme='v1')
+        pool = mock.MagicMock()
+        pool.submit.side_effect = [mock.Mock(result=mock.Mock(return_value=copy.deepcopy(records)))
+                                   for _ in range(2)]
+        with mock.patch('concurrent.futures.ProcessPoolExecutor') as executor, \
+                mock.patch.object(battery, 'parse_sonnets', return_value=population):
+            executor.return_value.__enter__.return_value = pool
+            a, b = E._parallel_canon_records(lex, old, new)
+        self.assertEqual((a, b), (records, records))
+        self.assertEqual(executor.call_args.kwargs['max_workers'], 2)
+        self.assertEqual(executor.call_args.kwargs['mp_context'].get_start_method(), 'spawn')
+        self.assertEqual(pool.submit.call_args_list, [
+            mock.call(E._canon_record_worker, (asdict(old), 'v1')),
+            mock.call(E._canon_record_worker, (asdict(new), 'v1'))])
+
+    def test_corrupt_or_incomplete_worker_inventory_is_refused(self):
+        population, records = self._complete_records()
+        E._validate_canon_records(records, population)
+        corruptions = []
+        corruptions.append(records[:-1])
+        corruptions.append(list(reversed(copy.deepcopy(records))))
+        for kind in ('idx', 'bool', 'line', 'mandated', 'pair', 'bearing',
+                     'one-based-bearing', 'field'):
+            changed = copy.deepcopy(records)
+            if kind == 'idx':
+                changed[1]['idx'] = 1
+            elif kind == 'bool':
+                changed[0]['idx'] = True
+            elif kind == 'line':
+                changed[0]['lines'][0] = 'unread corpus replacement'
+            elif kind == 'mandated':
+                changed[0]['mandated'].pop()
+            elif kind == 'pair':
+                changed[0]['pairs'].pop(next(iter(changed[0]['pairs'])))
+            elif kind == 'bearing':
+                changed[0]['bearing'].clear()
+            elif kind == 'one-based-bearing':
+                changed[0]['bearing'] = {i + 1 for i in changed[0]['bearing']}
+            else:
+                changed[0]['extra'] = 'unexpected'
+            corruptions.append(changed)
+        for changed in corruptions:
+            with self.subTest(changed=changed), self.assertRaises(ValueError):
+                E._validate_canon_records(changed, population)
+        with self.assertRaises(ValueError):
+            E._validate_canon_records([], [])
+
+    def test_worker_failure_propagates_after_both_policies_are_submitted(self):
+        import battery
+        population, records = self._complete_records()
+        pool = mock.MagicMock()
+        pool.submit.side_effect = [mock.Mock(result=mock.Mock(side_effect=RuntimeError('worker failed'))),
+                                   mock.Mock(result=mock.Mock(return_value=records))]
+        with mock.patch('concurrent.futures.ProcessPoolExecutor') as executor, \
+                mock.patch.object(battery, 'parse_sonnets', return_value=population):
+            executor.return_value.__enter__.return_value = pool
+            with self.assertRaisesRegex(RuntimeError, 'worker failed'):
+                E._parallel_canon_records(mock.Mock(reader_scheme='v2'),
+                                          E.L.Declaration(coda_empty_evidence='gift'),
+                                          E.L.Declaration(coda_empty_evidence='cannot_tell'))
+        self.assertEqual(pool.submit.call_count, 2)
+
+    def test_invalid_worker_count_refuses_before_lexicon_or_work(self):
+        for value in ('0', '3', '', '02', 'true', '1/2'):
+            with self.subTest(value=value), \
+                    mock.patch.dict(os.environ, TEST_E5_CANON_WORKERS=value), \
+                    mock.patch.object(E.L, 'Lexicon') as lex:
+                with self.assertRaisesRegex(ValueError, 'TEST_E5_CANON_WORKERS'):
+                    E.evaluate('canon')
+                with contextlib.redirect_stderr(io.StringIO()):
+                    self.assertEqual(E.main(['--part=canon']), 2)
+                lex.assert_not_called()
 
 
 if __name__ == '__main__':

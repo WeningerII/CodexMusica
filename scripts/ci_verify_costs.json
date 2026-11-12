@@ -35,7 +35,8 @@
     "These remain scheduling observations, not runtime bounds. Runtime can change with CPU contention and host speed. An unmeasured new leaf remains mandatory and receives 120 seconds.",
     "Values rounded to 0.0 seconds are clamped to 0.1 seconds.",
     "The runner-control command is unchanged but now also executes49 registrar controls,8 large pipe-output controls and24 Library inventory selections. Its weight is the maximum of prior hosted control timings and the actual expanded local14.948-second wall measurement, explicitly labeled as local changed-body evidence.",
-    "Native pronunciation, function disclosure identity and review mandate now each use2 registrar groups. All original callback argument/options/assertion ASTs and review before/after hooks are preserved; default commands retain whole-file registration order. New group weights take max(actual cold local group wall, sum of owned per-case maxima from all completed hosted/local cases plus5seconds). Existing optional released-runtime baseline skip/options are unchanged and are not claimed as executed-body evidence."
+    "Native pronunciation, function disclosure identity and review mandate now each use2 registrar groups. All original callback argument/options/assertion ASTs and review before/after hooks are preserved; default commands retain whole-file registration order. New group weights take max(actual cold local group wall, sum of owned per-case maxima from all completed hosted/local cases plus5seconds). Existing optional released-runtime baseline skip/options are unchanged and are not claimed as executed-body evidence.",
+    "The evidence orchestration contract leaf now executes both actual workflow coordinates and required report verification, plus8 Python weighted-process and receipt controls. Its changed body is weighted at the actual9.190-second local wall, replacing its prior2.0-second body observation; numerical children are stubbed in these orchestration controls and complete canon equivalence is measured separately."
   ],
   "seconds": {
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=1/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 21.533,
@@ -239,7 +240,7 @@
     "node scripts/regression_prefaces.js": 1.8,
     "node scripts/run_prototype_scenarios.js": 87.1,
     "node scripts/test_capacity_children.mjs": 2.5,
-    "node scripts/test_ci_sharding.js": 2.0,
+    "node scripts/test_ci_sharding.js": 9.19,
     "node scripts/test_library_import_browser.js": 1.6,
     "node scripts/test_library_import_shipped.js": 41.8,
     "node scripts/test_regression_shards.js": 1.7,
@@ -846,5 +847,22 @@
         "original_optional_skip_is_not_body_execution_evidence": true
       }
     ]
+  },
+  "evidence_orchestration_control_observation": {
+    "command": "node scripts/test_ci_sharding.js",
+    "wall_seconds": 9.19,
+    "prior_scheduling_seconds": 2.0,
+    "source_sha256": {
+      "scripts/test_ci_sharding.js": "de885fe51c5d837197619828d3d78045ddf4461fd4d7e6093446403ae259c294",
+      "scripts/run_suite_evidence.py": "c2bd6dffce3c6406fe3dd00774f8ac6fe219da4a240ec566781d5979406b33f7",
+      "scripts/test_run_suite_evidence.py": "3c7084b77528fabe46616d04fd740ed0fcafd121826b33d70b3118a4c1b8db09",
+      ".github/workflows/ci.yml": "ed08d69be0b5f1ce1494ecdca2605b3371024c0b4a3f58882796d856d61b4126",
+      "lyric-harness/quality/e5_coda_adoption.py": "2d90c4dc18e01b42106228bc2616e7850fa513f8d38dcf25a4cb515fb1225aeb"
+    },
+    "source_unchanged_during_run": true,
+    "node_version": "v24.19.0",
+    "python_version": "Python 3.12.14",
+    "measurement_context": "Local shared container; runner owner ran lightweight Python controls concurrently; all numerical evidence children were stubbed.",
+    "scheduled_seconds": 9.19
   }
 }

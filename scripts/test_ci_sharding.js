@@ -39,6 +39,7 @@ function checkMatrices(w) {
   matrix(jobs['verify-shard'], 8, 'verify');
   matrix(jobs.suites, 8, 'suites');
   matrix(jobs.faults, 6, 'faults');
+  matrix(jobs['suites-evidence'], 2, 'suites evidence');
   const verifyRun = command(jobs['verify-shard'], /run_parallel\.js test:ci:serial/);
   assert.equal(verifyRun.length, 1, 'verify must run one complete leaf partition per shard');
   assert.match(verifyRun[0].run, /--shard=\$\{\{\s*matrix\.shard\s*\}\}\/8\b/);
@@ -250,6 +251,7 @@ function checkSuitesAggregate(w) {
   const gates = runs(job).filter((step) => step.env?.SUITES_RESULT);
   assert.equal(gates.length, 1, 'suites aggregate must read both producer results');
   const gate = gates[0];
+  assert.equal(gate.if, undefined, 'suites producer result checks must remain unconditional');
   assert.equal(gate.env.SUITES_RESULT, '${{ needs.suites.result }}');
   assert.equal(gate.env.EVIDENCE_RESULT, '${{ needs.suites-evidence.result }}');
   for (const suites of ['success', 'failure', 'skipped', 'cancelled', ''])
@@ -270,6 +272,7 @@ function checkSuitesAggregate(w) {
 function checkEvidenceRunner(w) {
   const evidence = w.jobs['suites-evidence'];
   assert.ok(evidence, 'suites evidence must retain its independent producer');
+  matrix(evidence, 2, 'suites evidence');
   assert.deepEqual(evidence.needs, ['dup', 'gate']);
   assert.equal(evidence.if, "needs.dup.outputs.already_covered != 'true'");
   assert.ok(!evidence['continue-on-error']);
@@ -282,6 +285,8 @@ function checkEvidenceRunner(w) {
     poolPython.with,
     'both suites producers need the same Python runtime'
   );
+  assert.equal(python.with['python-version'], '3.11.16');
+  assert.equal(python.with.architecture, 'x64');
   for (const key of ['OMP_NUM_THREADS', 'MKL_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'SWEEP_WORKERS'])
     assert.equal(evidence.env[key], '1');
   const setup = allCommands(evidence);
@@ -293,15 +298,19 @@ function checkEvidenceRunner(w) {
   ])
     assert.ok(setup.includes(required), `suites evidence must retain setup for ${required}`);
   const invocations = command(evidence, /python3 scripts\/run_suite_evidence\.py/);
-  assert.equal(invocations.length, 1, 'the complete evidence runner must execute exactly once');
+  assert.equal(invocations.length, 1, 'each evidence shard must run one complete partition');
   assert.equal(
     invocations[0].if,
     '${{ always() }}',
     'setup failures must not hide evidence outcomes'
   );
+  assert.match(invocations[0].run, /--shard=\$\{\{\s*matrix\.shard\s*\}\}\/2\b/);
   assert.match(invocations[0].run, /--workers=4\b/);
   assert.match(invocations[0].run, /--logs-dir=/);
-  assert.match(invocations[0].run, /--report=/);
+  assert.ok(
+    invocations[0].run.includes('--report="$RUNNER_TEMP/suite-evidence-${{ matrix.shard }}.json"'),
+    'each evidence coordinate must write its own receipt'
+  );
   assert.doesNotMatch(invocations[0].run, /--only[=\s]/);
   const oldFixed =
     /(?:^|\n)\s*python3 quality\/(?:expected_drift|meter_bands|search_null|schema_end_reading|schema_window|door_census|chance_rate|e5_coda_adoption)\.py\b/;
@@ -313,9 +322,61 @@ function checkEvidenceRunner(w) {
     step.uses?.startsWith('actions/upload-artifact@')
   );
   assert.equal(artifacts.length, 1);
+  assert.equal(artifacts[0].if, '${{ !cancelled() }}');
+  assert.equal(
+    artifacts[0].with.name,
+    'suite-evidence-${{ github.run_attempt }}-${{ matrix.shard }}'
+  );
   assert.equal(artifacts[0].with['if-no-files-found'], 'error');
   assert.match(artifacts[0].with.path, /\*\*\/\*\.log/);
-  assert.match(artifacts[0].with.path, /suite-evidence\.json/);
+  assert.ok(
+    artifacts[0].with.path.includes('suite-evidence-${{ matrix.shard }}.json'),
+    'every evidence artifact must include its coordinate receipt'
+  );
+  assert.ok(
+    evidence.steps.indexOf(invocations[0]) < evidence.steps.indexOf(artifacts[0]),
+    'evidence receipts must be uploaded after execution'
+  );
+
+  const aggregate = w.jobs['suites-result'];
+  const checkout = aggregate.steps.filter((step) => step.uses?.startsWith('actions/checkout@'));
+  assert.equal(checkout.length, 1, 'evidence fan-in must verify against its own checkout');
+  const fanPython = aggregate.steps.filter((step) =>
+    step.uses?.startsWith('actions/setup-python@')
+  );
+  assert.equal(fanPython.length, 1, 'evidence fan-in must install its required Python runtime');
+  assert.deepEqual(fanPython[0].with, python.with);
+  const downloads = aggregate.steps.filter((step) =>
+    step.uses?.startsWith('actions/download-artifact@')
+  );
+  assert.equal(downloads.length, 1, 'suites gate must collect both evidence receipts');
+  const download = downloads[0];
+  assert.equal(
+    download.with.pattern,
+    'suite-evidence-${{ github.run_attempt }}-*',
+    'evidence fan-in must collect only this workflow attempt'
+  );
+  assert.equal(download.with.path, '${{ runner.temp }}/suite-evidence-records');
+  assert.equal(download.with['merge-multiple'], true);
+  assert.ok(!('run-id' in download.with), 'evidence receipts must come from this run');
+  const fans = command(aggregate, /run_suite_evidence\.py.*--verify-reports=/);
+  assert.equal(fans.length, 1, 'suites gate must verify both complete evidence receipts');
+  assert.match(fans[0].run, /--verify-reports="\$RUNNER_TEMP\/suite-evidence-records"/);
+  assert.match(fans[0].run, /--shards=2\b/);
+  assert.doesNotMatch(fans[0].run, /--only[=\s]/);
+  for (const step of [checkout[0], fanPython[0], download, fans[0]]) {
+    assert.equal(step.if, undefined, 'successful producers must require every receipt fan-in step');
+    assert.ok(!step['continue-on-error'], 'evidence receipt failures must fail the suites gate');
+  }
+  for (const [before, after] of [
+    [checkout[0], download],
+    [fanPython[0], fans[0]],
+    [download, fans[0]],
+  ])
+    assert.ok(
+      aggregate.steps.indexOf(before) < aggregate.steps.indexOf(after),
+      'receipt fan-in must follow checkout, runtime setup and receipt collection'
+    );
 
   const listing = spawnSync(PYTHON, ['scripts/run_suite_evidence.py', '--list-json'], {
     cwd: ROOT,
@@ -348,6 +409,16 @@ function checkEvidenceRunner(w) {
     expected.map(JSON.stringify).sort(),
     'fixed evidence registry must retain every original command exactly once'
   );
+  assert.deepEqual(
+    registry.partitions.map((part) => part.shard),
+    ['1/2', '2/2']
+  );
+  assert.deepEqual(
+    registry.partitions.flatMap((part) => part.names).sort(),
+    registry.commands.map((entry) => entry.name).sort(),
+    'declared evidence coordinates must form one complete disjoint inventory'
+  );
+  checkEvidenceReceipts(w, registry);
   // The companion controls execute this actual registry through subprocess
   // stubs, observe four slots, and prove one failure cannot hide later checks.
   const controls = spawnSync(PYTHON, ['scripts/test_run_suite_evidence.py'], {
@@ -355,6 +426,129 @@ function checkEvidenceRunner(w) {
     encoding: 'utf8',
   });
   assert.equal(controls.status, 0, controls.stdout + controls.stderr);
+}
+
+// Execute the workflow's actual commands. Only the numerical quality children
+// are replaced: the real runner creates both source-bound receipts and the real
+// fan-in verifies them, including planted missing/duplicate coordinates.
+function checkEvidenceReceipts(w, registry) {
+  const invocation = command(
+    w.jobs['suites-evidence'],
+    /python3 scripts\/run_suite_evidence\.py/
+  )[0];
+  const fanIn = command(w.jobs['suites-result'], /run_suite_evidence\.py.*--verify-reports=/)[0];
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'ci-evidence-receipts-'));
+  const callsPath = path.join(directory, 'calls.jsonl');
+  const interpreter = spawnSync(PYTHON, ['-c', 'import sys; print(sys.executable)'], {
+    cwd: ROOT,
+    encoding: 'utf8',
+  });
+  assert.equal(interpreter.status, 0, interpreter.stderr);
+  const checkout = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT, encoding: 'utf8' });
+  assert.equal(checkout.status, 0, checkout.stderr);
+  fs.writeFileSync(callsPath, '');
+  fs.writeFileSync(
+    path.join(directory, 'python3'),
+    `#!${process.execPath}
+'use strict';
+const fs=require('node:fs');
+const {spawnSync}=require('node:child_process');
+const args=process.argv.slice(2);
+if(args[0]==='scripts/run_suite_evidence.py') {
+  const result=spawnSync(process.env.CI_EVIDENCE_PYTHON,args,{env:process.env,stdio:'inherit'});
+  process.exit(result.status===null?1:result.status);
+}
+if(!args[0]?.startsWith('quality/')) throw Error('Unexpected evidence command: '+args.join(' '));
+fs.appendFileSync(process.env.CI_EVIDENCE_CALLS,JSON.stringify({shard:process.env.CI_EVIDENCE_SHARD,argv:['python3',...args],cwd:process.cwd()})+'\\n');
+`,
+    { mode: 0o755 }
+  );
+  const env = {
+    ...process.env,
+    ...w.jobs['suites-evidence'].env,
+    PATH: `${directory}:${process.env.PATH}`,
+    CI_EVIDENCE_PYTHON: interpreter.stdout.trim(),
+    CI_EVIDENCE_CALLS: callsPath,
+    GITHUB_SHA: checkout.stdout.trim(),
+    GITHUB_RUN_ID: '123456',
+    GITHUB_RUN_ATTEMPT: '9',
+  };
+  const calls = () =>
+    fs.readFileSync(callsPath, 'utf8').trim().split('\n').filter(Boolean).map(JSON.parse);
+  const run = (script, temporary = directory, extra = {}) => {
+    const result = spawnSync('bash', ['-eo', 'pipefail', '-c', script], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      env: { ...env, RUNNER_TEMP: temporary, ...extra },
+      timeout: 30000,
+    });
+    assert.equal(result.error, undefined, String(result.error));
+    assert.equal(result.signal, null, 'evidence command must exit normally');
+    return result;
+  };
+  try {
+    const collection = path.join(directory, 'suite-evidence-records');
+    fs.mkdirSync(collection);
+    const receipts = [];
+    for (const shard of [1, 2]) {
+      const temporary = path.join(directory, `shard-${shard}`);
+      fs.mkdirSync(temporary);
+      const script = invocation.run.replace(/\$\{\{\s*matrix\.shard\s*\}\}/g, String(shard));
+      const result = run(script, temporary, { CI_EVIDENCE_SHARD: String(shard) });
+      assert.equal(result.status, 0, result.stdout + result.stderr);
+      const file = path.join(temporary, `suite-evidence-${shard}.json`);
+      const report = JSON.parse(fs.readFileSync(file, 'utf8'));
+      assert.equal(report.success, true);
+      assert.ok(report.commands.length > 0, 'both evidence coordinates must execute work');
+      assert.ok(report.commands.every((entry) => entry.exit_code === 0));
+      assert.deepEqual(
+        report.commands.map((entry) => entry.name),
+        registry.partitions.find((part) => part.shard === `${shard}/2`).names,
+        'each evidence coordinate must execute its exact declared ordered inventory'
+      );
+      const observed = calls().filter((entry) => entry.shard === String(shard));
+      assert.deepEqual(
+        observed.map((entry) => JSON.stringify(entry.argv)).sort(),
+        report.commands.map((entry) => JSON.stringify(entry.argv)).sort(),
+        'each receipt must describe its actual command executions'
+      );
+      fs.copyFileSync(file, path.join(collection, path.basename(file)));
+      receipts.push(fs.readFileSync(file, 'utf8'));
+    }
+    assert.deepEqual(
+      calls()
+        .map((entry) => JSON.stringify(entry.argv))
+        .sort(),
+      registry.commands.map((entry) => JSON.stringify(entry.argv)).sort(),
+      'the two native coordinates must execute all twelve original argv exactly once'
+    );
+    assert.ok(calls().every((entry) => entry.cwd === path.join(ROOT, 'lyric-harness')));
+    const complete = run(fanIn.run);
+    assert.equal(complete.status, 0, complete.stdout + complete.stderr);
+
+    const second = path.join(collection, 'suite-evidence-2.json');
+    fs.rmSync(second);
+    const missing = run(fanIn.run);
+    assert.notEqual(missing.status, 0, 'evidence fan-in must reject a missing coordinate');
+    assert.match(missing.stdout + missing.stderr, /report|coordinate|shard|part/i);
+    fs.writeFileSync(second, receipts[0]);
+    const duplicate = run(fanIn.run);
+    assert.notEqual(duplicate.status, 0, 'evidence fan-in must reject duplicate coordinates');
+    assert.match(duplicate.stdout + duplicate.stderr, /report|coordinate|shard|part/i);
+    fs.writeFileSync(second, receipts[1]);
+    assert.equal(run(fanIn.run).status, 0, 'restoring both original receipts must pass');
+
+    const subset = run('python3 scripts/run_suite_evidence.py --list-json --only=e5-canon');
+    assert.equal(subset.status, 2, '--only must remain an unsupported subset selector');
+    assert.match(subset.stderr, /unrecognized arguments.*--only/);
+    assert.equal(
+      calls().length,
+      12,
+      'listing, report verification and refusals must run no checks'
+    );
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
 }
 
 checkMatrices(workflow);
@@ -372,6 +566,9 @@ const wrongFanIn = clone(workflow);
 const verifyFan = command(wrongFanIn.jobs.verify, /--verify-shards=/)[0];
 verifyFan.run = verifyFan.run.replace('--shards=8', '--shards=7');
 assert.throws(() => checkMatrices(wrongFanIn), /verify fan-in/);
+const missingEvidenceCoordinate = clone(workflow);
+missingEvidenceCoordinate.jobs['suites-evidence'].strategy.matrix.shard.pop();
+assert.throws(() => checkMatrices(missingEvidenceCoordinate), /suites evidence matrix/);
 const unadmittedBuild = clone(workflow);
 unadmittedBuild.jobs.faults.steps = unadmittedBuild.jobs.faults.steps.filter(
   (step) => !/artifact_build_cache\.js admit /.test(step.run || '')
@@ -384,6 +581,33 @@ assert.throws(() => checkInjectionAdmission(bypassedAdmission), /injection must 
 const missingEvidence = clone(workflow);
 delete missingEvidence.jobs['suites-evidence'];
 assert.throws(() => checkEvidenceRunner(missingEvidence), /independent producer/);
+const missingReceiptCollection = clone(workflow);
+missingReceiptCollection.jobs['suites-result'].steps = missingReceiptCollection.jobs[
+  'suites-result'
+].steps.filter((step) => !step.uses?.startsWith('actions/download-artifact@'));
+assert.throws(
+  () => checkEvidenceRunner(missingReceiptCollection),
+  /collect both evidence receipts/
+);
+const missingReceiptFanIn = clone(workflow);
+missingReceiptFanIn.jobs['suites-result'].steps = missingReceiptFanIn.jobs[
+  'suites-result'
+].steps.filter((step) => !/run_suite_evidence\.py.*--verify-reports=/.test(step.run || ''));
+assert.throws(
+  () => checkEvidenceRunner(missingReceiptFanIn),
+  /verify both complete evidence receipts/
+);
+const wrongEvidenceFanIn = clone(workflow);
+command(wrongEvidenceFanIn.jobs['suites-result'], /--verify-reports=/)[0].run = command(
+  wrongEvidenceFanIn.jobs['suites-result'],
+  /--verify-reports=/
+)[0].run.replace('--shards=2', '--shards=1');
+assert.throws(() => checkEvidenceRunner(wrongEvidenceFanIn), /--shards=2/);
+const wrongAttempt = clone(workflow);
+wrongAttempt.jobs['suites-result'].steps.find((step) =>
+  step.uses?.startsWith('actions/download-artifact@')
+).with.pattern = 'suite-evidence-*';
+assert.throws(() => checkEvidenceRunner(wrongAttempt), /only this workflow attempt/);
 const ignoredEvidence = clone(workflow);
 const aggregate = runs(ignoredEvidence.jobs['suites-result']).find(
   (step) => step.env?.SUITES_RESULT
@@ -393,6 +617,10 @@ aggregate.run = aggregate.run.replace(
   'for producer in SUITES;'
 );
 assert.throws(() => checkSuitesAggregate(ignoredEvidence), /suites aggregate must fail closed/);
+const skippedProducerResults = clone(workflow);
+runs(skippedProducerResults.jobs['suites-result']).find((step) => step.env?.SUITES_RESULT).if =
+  '${{ false }}';
+assert.throws(() => checkSuitesAggregate(skippedProducerResults), /remain unconditional/);
 const missingFixed = clone(workflow);
 missingFixed.jobs['verify-shard'].steps = missingFixed.jobs['verify-shard'].steps.filter(
   (step) => step.run !== 'npm run check:publish'
