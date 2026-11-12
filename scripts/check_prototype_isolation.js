@@ -262,8 +262,14 @@ const INSTRUMENT_FETCH = '`../api/instruments/${id}.json`';
 // A scenario (Node test code) may also name a host under a reserved test
 // domain (RFC 2606: .test, .example, .invalid), which never resolves; its
 // requests are answered by its own routing.
-const absoluteUrl = (text, { scenario = false } = {}) => {
+// One native navigation link, matching workbench.js listenHref. It is not
+// an allowed request: fetchProblems and browser interception remain unchanged.
+const INSTRUMENT_LISTEN_LINK =
+  "`https://www.youtube.com/results?search_query=${encodeURIComponent(name + ' musical instrument solo demonstration')}`";
+const absoluteUrl = (text, { scenario = false, instrumentListen = false } = {}) => {
   let t = text.replaceAll('http://www.w3.org/2000/svg', '');
+  if (instrumentListen && t.split(INSTRUMENT_LISTEN_LINK).length === 2)
+    t = t.replace(INSTRUMENT_LISTEN_LINK, '');
   if (scenario)
     t = t.replace(/(?:https?:)?\/\/[\w.-]+\.(?:test|example|invalid)(?::\d+)?(?=[/'"`\s]|$)/gi, '');
   return /(?:https?:)?\/\/[\w-]+\.[\w.-]+\//i.test(t);
@@ -464,6 +470,23 @@ function selfTest() {
     [moduleProblems('import(href)', ENGINE_FILE), 0],
     [fetchProblems('fetch(`../api/instruments/${id}.json`)', 'prototype/data.js'), 0],
     [fetchProblems('fetch(`../api/instruments/${id}.json`)', 'prototype/app.js'), 1],
+    [absoluteUrl(INSTRUMENT_LISTEN_LINK, { instrumentListen: true }) ? ['x'] : [], 0],
+    [absoluteUrl(INSTRUMENT_LISTEN_LINK) ? ['x'] : [], 1],
+    [
+      absoluteUrl(INSTRUMENT_LISTEN_LINK + ' https://evil.example.org/x', {
+        instrumentListen: true,
+      })
+        ? ['x']
+        : [],
+      1,
+    ],
+    [
+      absoluteUrl(INSTRUMENT_LISTEN_LINK + INSTRUMENT_LISTEN_LINK, { instrumentListen: true })
+        ? ['x']
+        : [],
+      1,
+    ],
+    [fetchProblems('fetch(' + INSTRUMENT_LISTEN_LINK + ')', 'prototype/data.js'), 1],
     [absoluteUrl('http://www.w3.org/2000/svg') ? ['x'] : [], 0],
     [absoluteUrl('http://www.w3.org/2000/svg https://example.org/x') ? ['x'] : [], 1],
     [absoluteUrl('//cdn.example.org/a.js') ? ['x'] : [], 1],
@@ -494,7 +517,10 @@ function staticChecks(base) {
     if (!/\.(html|js|mjs|cjs|css|json)$/.test(file)) continue;
     const text = fs.readFileSync(file, 'utf8');
     const scenario = SCENARIO.test(unixRel);
-    expect(!absoluteUrl(text, { scenario }), `${rel}: names an absolute or protocol-relative URL`);
+    expect(
+      !absoluteUrl(text, { scenario, instrumentListen: rel === 'prototype/data.js' }),
+      `${rel}: names an absolute or protocol-relative URL`
+    );
     expect(
       scenario || !/\b(XMLHttpRequest|WebSocket|EventSource|sendBeacon)\b/.test(text),
       `${rel}: opens a network channel other than fetch() of the static catalog`

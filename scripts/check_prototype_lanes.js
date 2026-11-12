@@ -39,6 +39,11 @@
 //   METHODS (#750). Opened, the reference doesn't count all of methods.json,
 //   or a search doesn't count what the native predicate (name, aliases,
 //   required capabilities) matches.
+//   GENRE INSTRUMENTS (#770). On an open genre the roster isn't the genre's
+//   instruments; an Add doesn't add that instrument to the genre's group with
+//   the shell's one sentence and the "Your recipe" line's count; Add the
+//   whole ensemble doesn't add the rest with its sentence; or Undo, through
+//   the shell's recipe store, doesn't put the count line back.
 //   ALL. A route change does not focus the panel heading, the page scrolls
 //   sideways at 320 px, or the page throws.
 //
@@ -683,6 +688,58 @@ async function genre(browser, srv) {
   await narrow.context.close();
 }
 
+async function genreInstruments(browser, srv) {
+  const boot = new Map(json('api', 'browse_boot.json').items.map((t) => [t.id, t]));
+  const t = boot.get('bluegrass');
+  const { context, page, errors } = await open(browser, srv, '#genre');
+  await page.evaluate(async () => (await import('/prototype/selection.js')).genre.set('bluegrass'));
+  const host = page.locator('[data-feature-host="genreinstruments"]');
+  await host.locator('.gi-add').first().waitFor({ timeout: 30000 });
+  const roster = await host.locator('.gi-inspect').allTextContents();
+  expect(
+    roster.length === t.instruments.length,
+    `genre instruments: the roster shows ${roster.length} of bluegrass's ${t.instruments.length}`
+  );
+  const line = page.locator('aside.recipe > p:not(.catalog)');
+  expect(
+    (await line.textContent()) === 'No instruments yet.',
+    `genre instruments: "Your recipe" reads "${await line.textContent()}" before any Add`
+  );
+  await host.locator('.gi-add').first().click();
+  await page.waitForFunction(
+    () =>
+      document.querySelector('aside.recipe > p:not(.catalog)').textContent ===
+      '1 instrument in Your recipe.',
+    null,
+    { timeout: 15000 }
+  );
+  expect(
+    (await status(page)) === `Added ${roster[0]} to ${t.name}`,
+    `genre instruments: one Add said "${await status(page)}"`
+  );
+  await host.locator('.gi-ensemble').click();
+  const total = `${t.instruments.length + 1} instruments in Your recipe.`;
+  await page.waitForFunction(
+    (want) => document.querySelector('aside.recipe > p:not(.catalog)').textContent === want,
+    total,
+    { timeout: 15000 }
+  );
+  expect(
+    (await status(page)) === `Imported ${t.name}`,
+    `genre instruments: the ensemble said "${await status(page)}"`
+  );
+  await page.evaluate(async () => {
+    const { recipe } = await import('/prototype/app.js');
+    recipe.port(['undo']).undo();
+  });
+  expect(
+    (await line.textContent()) === '1 instrument in Your recipe.',
+    `genre instruments: after Undo "Your recipe" reads "${await line.textContent()}"`
+  );
+  expect(!errors.length, `genre instruments: uncaught errors: ${errors.join(' | ')}`);
+  await context.close();
+}
+
 (async () => {
   const lanes = {
     library: 'prototype/features/library/explore.js',
@@ -691,6 +748,7 @@ async function genre(browser, srv) {
     credits: 'prototype/features/library-rights/census-credits.js',
     methods: 'prototype/features/library-methods/reference.js',
     genre: 'prototype/features/genre-detail/detail.js',
+    genreinstruments: 'prototype/features/genre-instruments/instruments.js',
   };
   const present = Object.keys(lanes).filter((l) => fs.existsSync(path.join(root, lanes[l])));
   const srv = await start({ root });
@@ -708,6 +766,7 @@ async function genre(browser, srv) {
       ['credits', credits],
       ['methods', methods],
       ['genre', genre],
+      ['genreinstruments', genreInstruments],
     ]) {
       if (!present.includes(lane)) continue;
       await run(browser, srv).catch((e) =>

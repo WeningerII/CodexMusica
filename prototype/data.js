@@ -1,4 +1,4 @@
-import { pageEngine } from './engine/load.js';
+import { pageEngine, loadEngine } from './engine/load.js';
 
 // What the shell loads for feature lanes (#670 slice P2). Lanes fetch
 // nothing themselves: every read is here, read-only, from committed files
@@ -555,4 +555,246 @@ export async function readingLines(record, { signal } = {}) {
     }
   }
   return Object.freeze(out);
+}
+
+// ── The Genre discovery hosts (#668 6665493327) ─────────────────────────────
+// What prototype/discovery.js ranks and counts: every genre in
+// api/browse_boot.json with its parent, cross-references and its 13 axes by
+// name (the file lists them in axisKeys order), and the page's own taxonomy,
+// glyphs and axis definitions from codex.html (prototype/engine/load.js).
+export async function loadGenreDiscovery() {
+  const [boot, engine] = await Promise.all([
+    fetch('../api/browse_boot.json').then(json),
+    pageEngine(),
+  ]);
+  const keys = boot.axisKeys || [];
+  const items = (boot.items || []).map((t) => ({
+    id: t.id,
+    name: t.name,
+    parent: t.parent || null,
+    crossRefs: Array.isArray(t.crossRefs) ? t.crossRefs : [],
+    axes: Object.fromEntries(keys.map((k, i) => [k, (t.axes || [])[i]])),
+  }));
+  return { items, page: engine };
+}
+
+// ── The Genre instruments lane (#770, #668 6647387849) ─────────────────────
+// A genre's whole roster, in order, as the genre page lists it
+// (src/pages/genre.js gpInstruments reads the light row's instruments): each
+// instrument's display name (InstLite's, which is Inst once the instrument
+// engine is in) and its glyph from the engine's image(). listenHref is null:
+// production's Listen link is a search on another site, and the prototype
+// names no address off its own origin. The engine is the recipe store's,
+// so once the store has started this waits on nothing. Its load failure
+// names no connection: the engine's page parse fails there too.
+export const GENRE_INSTRUMENT_MESSAGES = Object.freeze({
+  NOT_FOUND: GENRE_MESSAGES.NOT_FOUND,
+  LOAD_FAILED: 'This genre’s instruments couldn’t load. Try again.',
+});
+const rosterFail = (code) => Object.assign(new Error(GENRE_INSTRUMENT_MESSAGES[code]), { code });
+export async function loadGenreInstruments(id, { signal } = {}) {
+  let engine;
+  try {
+    engine = await waitFor(loadEngine(), signal);
+  } catch (e) {
+    if (e && e.name === 'AbortError') throw e;
+    throw rosterFail('LOAD_FAILED');
+  }
+  const live = typeof id === 'string' ? engine.Catalog.resolve(id) : null;
+  const t = live ? engine.Catalog.get(live) : null;
+  if (!t) throw rosterFail('NOT_FOUND');
+  const glyph = (i) => {
+    const svg = engine.image(i, 32);
+    return svg
+      ? `data:image/svg+xml,${encodeURIComponent(svg.replace('<svg ', `<svg xmlns="${SVG_NS}" `))}`
+      : null;
+  };
+  return Object.freeze({
+    id: live,
+    name: t.name,
+    instruments: Object.freeze(
+      (t.instruments || []).map((i) =>
+        Object.freeze({
+          id: i,
+          name: engine.Inst(i)?.name || i,
+          glyphUrl: glyph(i),
+          listenHref: null,
+        })
+      )
+    ),
+  });
+}
+
+// Catalog and Similar use the current page engine, never a separately ranked
+// fixture (#668 6647648469, 6647783903). Presentation grouping mirrors
+// src/pages/instrument.js IP_FILTER_GROUPS; predicates are the engine's own.
+export function instrumentCatalogLoader() {
+  let names = new Map();
+  let indexPromise = null;
+  const nameIndex = () => {
+    if (!indexPromise)
+      indexPromise = fetch('../api/instruments/index.json')
+        .then(json)
+        .then((index) => {
+          names = new Map(index.items.map((i) => [i.id, i.name]));
+          return index;
+        })
+        .catch(() => {
+          indexPromise = null;
+          throw instrumentFail('LOAD_FAILED');
+        });
+    return indexPromise;
+  };
+  let shared = null;
+  let loaded = null;
+  const groups = [
+    ['behaviour', 'Behaviour', ['sustained', 'decay']],
+    ['voicing', 'Voicing', ['polyphonic', 'monophonic']],
+    ['pitch', 'Pitch', ['pitched', 'noise', 'fixed_pitch', 'continuous_pitch']],
+    ['register', 'Register', ['low', 'high', 'wide_range']],
+    ['source', 'Sound source', ['acoustic', 'electric', 'electronic']],
+    ['expressive', 'Expressiveness', ['expressive']],
+  ];
+  const byName = new Intl.Collator('en', { sensitivity: 'base' }).compare;
+  const listen = (name) =>
+    `https://www.youtube.com/results?search_query=${encodeURIComponent(name + ' musical instrument solo demonstration')}`;
+  const load = () => {
+    if (!shared)
+      shared = Promise.all([
+        nameIndex(),
+        fetch('../api/instrument_images.json').then(json),
+        loadEngine(),
+      ])
+        .then(([index, images, engine]) => {
+          const raw = index.items.map(({ id }) => engine.Inst(id));
+          if (raw.some((i) => !i)) throw instrumentFail('LOAD_FAILED');
+          const order = new Map(
+            [...raw].sort((a, b) => byName(a.name, b.name)).map((i, n) => [i.id, n])
+          );
+          const propertyGroup = new Map(
+            groups.flatMap(([id, , keys]) => keys.map((key) => [key, id]))
+          );
+          const properties = engine.INSTRUMENT_FILTER_PILLS.map((p) => ({
+            ...p,
+            groupId: propertyGroup.get(p.id) || 'other',
+          }));
+          const photo = (id) =>
+            Array.isArray(images.instruments?.[id]) ? [...images.instruments[id]] : null;
+          const data = deepFreeze({
+            families: engine.INSTRUMENT_FAMILIES.map((f) => ({
+              id: f.id,
+              name: f.name,
+              classes: [
+                ...new Set(
+                  raw
+                    .filter((i) => i.family === f.id)
+                    .map((i) => i.class)
+                    .filter(Boolean)
+                ),
+              ]
+                .sort((a, b) => byName(human(a), human(b)))
+                .map((id) => ({ id, name: human(id) })),
+            })),
+            properties,
+            propertyGroups: [
+              ...groups.map(([id, name]) => ({ id, name })),
+              { id: 'other', name: 'More properties' },
+            ].filter((g) => properties.some((p) => p.groupId === g.id)),
+            sorts: [
+              { id: 'name', name: 'Name A–Z' },
+              { id: 'name-desc', name: 'Name Z–A' },
+              { id: 'parts', name: 'Most customizable' },
+            ],
+            items: raw.map((i) => ({
+              id: i.id,
+              name: i.name,
+              short: i.short || null,
+              familyId: i.family,
+              classId: i.class || null,
+              partCount: (i.parts || []).length,
+              nameOrder: order.get(i.id),
+              propertyIds: properties
+                .filter((p) => engine.passesInstrumentFilter(i, new Set([p.id])))
+                .map((p) => p.id),
+              listenHref: listen(i.name),
+              photo: photo(i.id),
+            })),
+          });
+          loaded = { engine, raw, ids: new Set(raw.map((i) => i.id)), photo, data };
+          return loaded;
+        })
+        .catch(() => {
+          shared = null;
+          loaded = null;
+          throw instrumentFail('LOAD_FAILED');
+        });
+    return shared;
+  };
+  const catalog = Object.freeze({
+    normalize(text) {
+      if (!loaded) throw instrumentFail('LOAD_FAILED');
+      return loaded.engine.normalizeSearch(text);
+    },
+    search(query) {
+      if (!loaded) throw instrumentFail('LOAD_FAILED');
+      const E = loaded.engine;
+      const q = E.normalizeSearch(query);
+      // Exact ipMatches search and ipRank tiers from the receiving page.
+      const matches = loaded.raw
+        .filter(
+          (i) =>
+            !q ||
+            E.normalizeSearch(i.name + ' ' + i.short + ' ' + i.id.replace(/_/g, ' ')).includes(q)
+        )
+        .map((i) => {
+          const byName = E.searchRank(q, E.normalizeSearch(i.name), [E.normalizeSearch(i.short)]);
+          const byId = E.searchRank(q, E.normalizeSearch(i.id.replace(/_/g, ' ')));
+          const rank =
+            byId < 0 || byId > 3
+              ? byName
+              : byName < 0
+                ? Math.max(1, byId) + 0.5
+                : Math.min(byName, Math.max(1, byId) + 0.5);
+          return { id: i.id, rank };
+        });
+      return deepFreeze({ normalizedQuery: q, matches });
+    },
+  });
+  return {
+    nameOf: (id) => names.get(id) || null,
+    async loadInstrumentNames({ signal } = {}) {
+      if (signal?.aborted) throw abortError();
+      await waitFor(nameIndex(), signal);
+    },
+    catalog,
+    async loadInstrumentCatalog({ signal } = {}) {
+      if (signal?.aborted) throw abortError();
+      return (await waitFor(load(), signal)).data;
+    },
+    async loadInstrumentSimilar(id, { signal } = {}) {
+      if (signal?.aborted) throw abortError();
+      const f = await waitFor(load(), signal);
+      if (typeof id !== 'string' || !f.ids.has(id)) throw instrumentFail('NOT_FOUND');
+      const E = f.engine;
+      return deepFreeze({
+        id,
+        name: E.Inst(id).name,
+        neighbours: E.findSimilarInstruments(id, 6).map((n) => {
+          const svg = E.image(n.id, 32);
+          return {
+            id: n.id,
+            name: n.name,
+            agreements: E.getMatchingInstrumentAxes(id, n.id, 2).map((m) =>
+              m.axis.name.toLowerCase()
+            ),
+            photo: f.photo(n.id),
+            glyphUrl: svg
+              ? `data:image/svg+xml,${encodeURIComponent(svg.replace('<svg ', `<svg xmlns="${SVG_NS}" `))}`
+              : null,
+            listenHref: listen(n.name),
+          };
+        }),
+      });
+    },
+  };
 }

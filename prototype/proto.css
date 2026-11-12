@@ -160,3 +160,15 @@ p {
   color: var(--fg);
   font: inherit;
 }
+
+/* Instrument's existing recipe region sits below its catalog/preview. Full
+   recipe controls are the separate binding/renderer slice (row 209 pending). */
+@media (min-width: 900px) {
+  body[data-recipe-presentation='dock'] .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  body[data-recipe-presentation='dock'] .recipe {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}

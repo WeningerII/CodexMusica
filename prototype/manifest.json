@@ -1,6 +1,6 @@
 {
   "source": "#670 treatment manifest (6622503880, on main 5901dde86), Keep* rows resolved and three Library gates corrected as noted per row",
-  "note": "One row per checklist item. scripts/check_prototype_manifest.js cross-checks rows 1-220 against tests/ui_capability_inventory.md and rows 221-280 against the Library feature matrix in docs/library-native-design.md. A row is pending until the slice that implements it names its scenario file.",
+  "note": "One row per checklist item. scripts/check_prototype_manifest.js cross-checks rows 1-220 against tests/ui_capability_inventory.md and rows 221-280 against the Library feature matrix in docs/library-native-design.md. A row is pending until the slice that implements it names its scenario file; it is done only when that scenario declares it in its header (\"// rows: N\") and passes in the same run of scripts/run_prototype_scenarios.js. A row's deviation records a deliberate, disclosed difference from production that a lane keeps: the lane file and the git blob it was accepted at (from its pinned head), the exact text, and the decision that kept it; the check fails if that file's bytes or the text change.",
   "rows": [
     {
       "n": 1,
@@ -1555,7 +1555,14 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": null,
+      "deviation": {
+        "pin": "1137c4ab3c3ccefe8a6f4f536d8f4a54f3dad90e",
+        "file": "prototype/features/genre-sound/sound.js",
+        "blob": "62acc9f016c8a373d6c204043f7b00af2210ec29",
+        "text": "Where the catalog has no value, this profile displays 0. That does not establish measured neutrality.",
+        "decision": "#767's Sound profile shows this sentence when an axis is unrecorded; production's Sound tab shows the 0 with no note (Don, #767 6662647284). Its author keeps it as a deliberate, disclosed deviation, so a substituted display zero can't claim measured neutrality (3PO, #767 6672211005 and #665 6672213120). Recorded here by R2 as promised in #665 6672275202, with the author's bytes unchanged. It doesn't complete row 170."
+      }
     },
     {
       "n": 171,
@@ -1763,7 +1770,7 @@
       "kind": "D",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-catalog/catalog.cjs"
     },
     {
       "n": 194,
@@ -1772,7 +1779,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-catalog/catalog.cjs"
     },
     {
       "n": 195,
@@ -1781,7 +1788,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-catalog/catalog.cjs"
     },
     {
       "n": 196,
@@ -1799,7 +1806,7 @@
       "kind": "D",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-catalog/catalog.cjs"
     },
     {
       "n": 198,
@@ -1819,7 +1826,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-configuration/parts.cjs"
     },
     {
       "n": 200,
@@ -1829,7 +1836,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-configuration/parts.cjs"
     },
     {
       "n": 201,
@@ -1839,7 +1846,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-character/character.cjs"
     },
     {
       "n": 202,
@@ -1849,7 +1856,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-environment/environment.cjs"
     },
     {
       "n": 203,
@@ -1859,7 +1866,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-environment/environment.cjs"
     },
     {
       "n": 204,
@@ -1869,7 +1876,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-signal/chain.cjs"
     },
     {
       "n": 205,
@@ -1879,7 +1886,7 @@
       "kind": "D",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-output/output.cjs"
     },
     {
       "n": 206,
@@ -1888,7 +1895,7 @@
       "kind": "D",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-actions/actions.cjs"
     },
     {
       "n": 207,
@@ -1897,7 +1904,7 @@
       "kind": "D",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-similar/similar.cjs"
     },
     {
       "n": 208,
@@ -1924,7 +1931,7 @@
       "kind": "D",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/media/lightbox.cjs"
     },
     {
       "n": 211,
@@ -1933,7 +1940,7 @@
       "kind": "M",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/media/lightbox.cjs"
     },
     {
       "n": 212,
@@ -1960,7 +1967,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-catalog/catalog.cjs"
     },
     {
       "n": 215,
@@ -1969,7 +1976,7 @@
       "kind": "W",
       "gate": "reach",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/instrument-catalog/catalog.cjs"
     },
     {
       "n": 216,
@@ -2141,7 +2148,7 @@
       "kind": "L",
       "gate": "check_library_page",
       "status": "pending",
-      "scenario": null
+      "scenario": "prototype/scenarios/library-metadata/sheet.cjs"
     },
     {
       "n": 235,

@@ -1,0 +1,112 @@
+.ic-character {
+  color: inherit;
+  font: inherit;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.ic-character [hidden] {
+  display: none !important;
+}
+.ic-character .ic-content {
+  display: grid;
+  gap: 0.75rem;
+}
+.ic-character p {
+  margin: 0;
+}
+.ic-character button,
+.ic-character input,
+.ic-character summary {
+  font: inherit;
+}
+.ic-character button,
+.ic-character input {
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+  background: transparent;
+  color: inherit;
+  padding: 0.5rem 0.7rem;
+  min-height: 2.75rem;
+}
+.ic-character button {
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.ic-character button[aria-disabled='true'] {
+  cursor: progress;
+  opacity: 0.7;
+}
+.ic-character button[aria-pressed='true'] {
+  box-shadow: inset 0 0 0 2px currentColor;
+  font-weight: bold;
+}
+.ic-character button:focus-visible,
+.ic-character summary:focus-visible,
+.ic-character input:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+.ic-character .ic-search {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.ic-character .ic-search input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.ic-character .ic-chips,
+.ic-character .ic-toolbar,
+.ic-character .ic-suggestion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.ic-character .ic-chip {
+  max-width: 100%;
+}
+.ic-character .ic-recents {
+  display: grid;
+  gap: 0.5rem;
+}
+.ic-character .ic-category {
+  border-top: 1px solid currentColor;
+  padding: 0.6rem 0;
+}
+.ic-character .ic-category summary {
+  cursor: pointer;
+  padding: 0.35rem 0;
+}
+.ic-character .ic-category h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1em;
+}
+.ic-character .ic-category .ic-chips {
+  margin-top: 0.5rem;
+}
+.ic-character .ic-help,
+.ic-character .ic-count {
+  font-size: 0.95em;
+}
+.ic-character .ic-error {
+  margin-block: 0.6rem;
+  font-weight: bold;
+}
+
+.ic-character .ic-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.ic-character .ic-glyph {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+}
+.ic-character .ic-chip-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
