@@ -72,11 +72,18 @@ import re
 __all__ = ["render_line", "parse_line", "render_group", "parse_group",
            "ModelProposer"]
 
-#: The longest line a writer's answer may carry. The connector admits no
-#: longer sung line, so the brief states the bound where the writer reads
-#: it and `ModelProposer` rejects a longer parse before it can enter the
-#: journal.
-MAX_LINE_CHARS = 200
+#: THE ONE LINE LIMIT: the longest line a writer's answer may carry, and the
+#: longest sung line the connector admits (`mcp/lyric_tools.js`
+#: MAX_LINE_CHARS). The brief states it where the writer reads it and
+#: `ModelProposer` rejects a longer parse before it can enter the journal.
+#: RAISED 200 -> 512 on 2026-11-12 (issue #851): the stored corpus has lines
+#: of 417 characters and 80 words, and at 200 the program refused to read
+#: them and could not have written one. It is one number on purpose: a line
+#: the tools will read is a line the writer may write. The journal's room for
+#: an answer did not grow with it (`lyric_harness.JOURNAL_LINE_CHARS`, and the
+#: byte rule beside it), and neither did the planner's own range of line
+#: lengths (`plan.PLANNED_LINE_CHARS`).
+MAX_LINE_CHARS = 512
 
 _FENCE_RE = re.compile(r"```[^\n]*\n(.*?)```", re.DOTALL)
 _LINE_MARK_RE = re.compile(r"^[ \t]*LINE[ \t]*:[ \t]*(.*)$",

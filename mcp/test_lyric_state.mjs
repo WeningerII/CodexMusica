@@ -307,7 +307,7 @@ try {
   narrow.retained_metadata = 'x'.repeat(
     WORKER_STATE_BYTES - 100 - Buffer.byteLength(JSON.stringify(workerState), 'utf8')
   );
-  // Within the 200-character line bound (a longer line is refused on its own
+  // Within the 512-character line bound (a longer line is refused on its own
   // before any journal arithmetic) and still past the 100 bytes left.
   const overflowAnswer = await a.callTool({
     name: 'lyric_revise',

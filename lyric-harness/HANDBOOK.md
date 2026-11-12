@@ -1584,6 +1584,12 @@ that all 5-12 and not replace it."* `DENSITY_OUT_OF_BAND` no longer exists,
 and the planner no longer reads the band — its beat-per-line ceiling is the
 one line limit kept, `propose.MAX_LINE_CHARS` characters (a syllable is at
 least one character), and a declared melody is not held to it.
+**THE LINE LIMIT IS 512 CHARACTERS SINCE 2026-11-12 (issue #851; it was
+200)**, for reading and for writing alike, because the corpus has lines of 417
+characters and 80 words and the program refused them. The planner's ceiling
+did not follow: it stays 200 beats under its own name,
+`plan.PLANNED_LINE_CHARS`, because it is the range new songs are planned in,
+not a limit on any line, and widening it redraws every plan.
 `meter_bands.ADOPTED` still carries the measured `DENSITY` figure as a
 measurement, which nothing enforces.
 **AND THE PROMINENCE BAND IS DELETED TOO (owner ruling 2026-10-01), with no

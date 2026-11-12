@@ -19,10 +19,11 @@ GENERATOR over a space the enforcement layers already grade:
 - METERS are derived from the cycle grammar — any beat count whose pulse
   grouping is a composition into 2s and 3s (the attested additive-meter
   vocabulary), at any bars-per-line and subdivision, FILTERED by one derived
-  envelope. CEILING, in BEATS: a line runs at most `MAX_LINE_CHARS` beats,
-  because a line is at most that many characters, a syllable is at least one
-  character, and a sung line carries at least one syllable per beat
-  (`BEATS_PER_SYLLABLE_MAX`, the one declared step in the chain). There is no
+  envelope. CEILING, in BEATS: a line runs at most `PLANNED_LINE_CHARS`
+  beats (200: a line of that many characters, a syllable at least one
+  character, a sung line at least one syllable per beat --
+  `BEATS_PER_SYLLABLE_MAX`, the one declared step in the chain; the line
+  limit itself rose to 512 on 2026-11-12 and the planner's range did not). There is no
   floor beyond the composition grammar's own two beats: a line of one
   syllable is a line. ~~BOTH OF ITS ENDS ARE THE SAME CALIBRATED BAND READ IN
   DIFFERENT UNITS (2026-08-23, `MISSING.md` M-81(B)): the ceiling the
@@ -159,7 +160,25 @@ from quality import schemes as SC
 from quality import relations as _RL
 from quality import floor as _FL
 from quality import slots as _SL
-from quality.propose import MAX_LINE_CHARS
+#: THE MOST BEATS THE PLANNER GIVES A LINE, as the character count it was
+#: derived from. Until 2026-11-12 this was `propose.MAX_LINE_CHARS`, the one
+#: line limit the harness keeps, imported here. Issue #851 raised that limit
+#: from 200 to 512 so the program reads and writes the long lines the corpus
+#: holds. The planner did NOT follow, on purpose. Its beat ceiling is not a
+#: limit on any line: it is the top of the range it DRAWS a line's beats
+#: from, and widening that range changes the shape of new songs, which the
+#: issue did not ask for. Measured over seeds 1-200 at 16 lines, a ceiling of
+#: 512 redrew the meters (seed 4's 2-beat line became 169 beats, seed 11's
+#: 421) and gave one plan in twelve a line of over 200 beats -- more
+#: syllables than ordinary words fit in 512 characters. At 200 beats the
+#: planner already reaches every line real text can make inside the new
+#: limit (ordinary English runs about three characters a syllable). So the
+#: number is kept here under its own name; `quality/test_plan.py` holds it
+#: at or under the line limit, so no planned line is one the writer would be
+#: refused. A line longer than a plan's slots is a finding for the grader,
+#: as it always was, never a refusal. To let the planner follow the limit,
+#: set this to `propose.MAX_LINE_CHARS`: one line.
+PLANNED_LINE_CHARS = 200
 from quality import narrative as _NV
 
 __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
@@ -392,10 +411,10 @@ FORM_TENDENCIES = {
 #: rule about what a line can be — a one-syllable line and a line of well
 #: over a hundred syllables are both real — and it is removed from the
 #: planner with no replacement.
-#:   * CEILING — a line runs at most `MAX_LINE_CHARS` BEATS: it is at most
-#:     that many characters (the one line limit the harness keeps), a
-#:     syllable is at least one character, and a sung line carries at least
-#:     one syllable per beat.
+#:   * CEILING — a line runs at most `PLANNED_LINE_CHARS` BEATS: a line of
+#:     that many characters (200, the line limit the harness kept until
+#:     2026-11-12; see the constant), a syllable at least one character, and
+#:     a sung line at least one syllable per beat.
 #:   * FLOOR — none beyond the composition grammar's two beats. A line must
 #:     hold at least one syllable, and every drawn line does.
 #: The step from syllables to beats is DECLARED and is
@@ -719,14 +738,14 @@ def _envelope():
     stanza = stanza_line_floor()
     # ~~TWO ENDS, ONE CALIBRATED BAND, TWO UNITS (`MISSING.md` M-81(B))~~ —
     # the `DENSITY` band left the planner 2026-09-28 by owner ruling. The
-    # ceiling is the most syllables a line can carry, which is the one line
-    # limit the harness keeps: `MAX_LINE_CHARS` characters, one syllable at
-    # least one character.
-    beats_hi = max(2, int(MAX_LINE_CHARS * BEATS_PER_SYLLABLE_MAX))
+    # ceiling is the most syllables the planner gives a line:
+    # `PLANNED_LINE_CHARS` (200, the line limit the harness kept until
+    # 2026-11-12, #851), one syllable at least one character.
+    beats_hi = max(2, int(PLANNED_LINE_CHARS * BEATS_PER_SYLLABLE_MAX))
     return {
         # BEATS PER LINE = bars_per_line x beats_per_bar, and it is the
         # quantity a listener hears as the length of the line. Ceiling
-        # DERIVED: a line carries at most `MAX_LINE_CHARS` syllables and at
+        # DERIVED: a line carries at most `PLANNED_LINE_CHARS` syllables and at
         # least `BEATS_PER_SYLLABLE_MAX` beat each, so it runs at most that
         # many beats. Floor: the composition grammar's own — no cycle has
         # fewer than 2 beats, and a line is at least one bar.
@@ -4539,11 +4558,9 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                                      f"then 1 of {_n_compositions_23(beats)} "
                                      f"groupings of {beats}. The line runs "
                                      f"{beats_pl} beat(s) — at most "
-                                     f"{MAX_LINE_CHARS}, the longest line "
-                                     f"in characters, since a syllable is "
-                                     f"at least one character and a sung "
-                                     f"line carries at least one syllable a "
-                                     f"beat — and holds {beats_pl * sub} "
+                                     f"{PLANNED_LINE_CHARS}, the most beats "
+                                     f"this planner gives a line "
+                                     f"— and holds {beats_pl * sub} "
                                      f"slot(s). The pair share follows from "
                                      f"how many ways each beat count "
                                      f"factorises. The denominator is drawn "

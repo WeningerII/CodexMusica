@@ -9032,7 +9032,47 @@ class _NeedProposal(Exception):
 #: (mcp/state_codec.js) move with it.
 JOURNAL_WORK_BYTES = 1024 * 1024
 JOURNAL_BYTES = (1024 + 64) * 1024
+#: THE LINE THE JOURNAL'S RESERVES ARE SIZED FOR. Until 2026-11-12 this was
+#: also the longest line an answer could carry; the two are separate numbers
+#: now (issue #851). LINE_CHARS below is the line limit; this one stays the
+#: basis of every reserve (`_journal_answer_reserve`, `_suspend`, the
+#: proposer's dispatch), so what a run has room to ask did not shrink when
+#: the limit rose. An answer longer than 200 characters is recorded when it
+#: fits the room a line was already given (`_line_fits_journal`), which any
+#: ordinary text of 512 characters does.
 JOURNAL_LINE_CHARS = 200
+#: THE ONE LINE LIMIT, in characters: the longest sung line a writer verb
+#: takes in a draft and the longest line an answer may carry. It is
+#: `quality.propose.MAX_LINE_CHARS` and the connector's MAX_LINE_CHARS
+#: (mcp/lyric_tools.js); quality/test_meter_digit_bound.py holds the three
+#: equal. RAISED 200 -> 512 on 2026-11-12 (issue #851).
+LINE_CHARS = 512
+#: The room one answered line has in the journal: its raw form, as UTF-8 with
+#: its marker, and its JSON form in each parsed copy. Both are what the
+#: reserves have always set aside for a 200-character line.
+ANSWER_LINE_RAW_BYTES = JOURNAL_LINE_CHARS * 4 + 16
+ANSWER_LINE_JSON_BYTES = JOURNAL_LINE_CHARS * 6 + 2
+
+
+def _line_fits_journal(text):
+    """Is this answered line inside the line limit AND the room reserved for it?
+
+    At most LINE_CHARS characters, and at most ANSWER_LINE_JSON_BYTES as a
+    JSON string. Every line of at most JOURNAL_LINE_CHARS characters passes
+    the second test whatever it holds, so nothing that was accepted before is
+    refused; a longer line passes it unless it is mostly characters that take
+    several bytes each (512 ASCII characters are 514 bytes)."""
+    return (isinstance(text, str) and len(text) <= LINE_CHARS
+            and len(json.dumps(text, ensure_ascii=False).encode("utf-8"))
+            <= ANSWER_LINE_JSON_BYTES)
+
+
+_ANSWER_LIMITS = (
+    f"INVALID_INTERVIEW_ANSWER: pending.answer must be a string within the "
+    f"line limits (each line at most {LINE_CHARS} characters and "
+    f"{ANSWER_LINE_RAW_BYTES} bytes as UTF-8, the room this run reserved for "
+    f"it); correct the answer and resume this same run. Accepted progress "
+    f"and the pending question are retained.")
 
 
 #: STATE KEYS MEASURED OUTSIDE THE WORKER JOURNAL'S CAPACITY
@@ -9094,8 +9134,9 @@ def _journal_admit(state, reserve=0, *, lines=None, path=None,
 
 
 def _journal_answer_reserve(count, copies=2):
-    # A parsed answer has <=200 Unicode code points per line. JSON's largest
-    # representation is six bytes per code point (escaped ASCII controls),
+    # A parsed answer's line is at most ANSWER_LINE_JSON_BYTES as JSON
+    # (`_line_fits_journal`): what 200 code points come to at JSON's largest
+    # representation, six bytes per code point (escaped ASCII controls),
     # larger than UTF-8's four bytes. Include array delimiters and record keys.
     return copies * count * (JOURNAL_LINE_CHARS * 6 + 8) + 4096
 
@@ -9428,10 +9469,8 @@ def _defer_proposer(path, lines=None):
                  else len(pending_record.get("members") or ()) if pending.get("kind") == "propose_group"
                  else 1)
         if (not isinstance(pending_answer, str)
-                or len(pending_answer.encode("utf-8")) > count * (200 * 4 + 16)):
-            _refuse("INVALID_INTERVIEW_ANSWER: pending.answer must be a string "
-                        "within the requested line limits; correct the answer and resume "
-                        "this same run. Accepted progress and the pending question are retained.")
+                or len(pending_answer.encode("utf-8")) > count * ANSWER_LINE_RAW_BYTES):
+            _refuse(_ANSWER_LIMITS)
     _journal_admit(st, lines=st["accepted_lines"], path=path,
                    ceiling=JOURNAL_BYTES)
     if st.get("new_run_required"):
@@ -9467,10 +9506,8 @@ def _defer_proposer(path, lines=None):
                  else len(rec.get("members") or ()) if pend["kind"] == "propose_group"
                  else 1)
         if (not isinstance(ans, str)
-                or len(ans.encode("utf-8")) > count * (200 * 4 + 16)):
-            _refuse("INVALID_INTERVIEW_ANSWER: pending.answer must be a string "
-                        "within the requested line limits; correct the answer and resume "
-                        "this same run. Accepted progress and the pending question are retained.")
+                or len(ans.encode("utf-8")) > count * ANSWER_LINE_RAW_BYTES):
+            _refuse(_ANSWER_LIMITS)
         # _suspend reserved this growth before asking the writer. Recheck an
         # externally supplied journal without consuming or changing its answer.
         folded_base = dict(st, pending=None)
@@ -9493,10 +9530,8 @@ def _defer_proposer(path, lines=None):
                                 "lines and needs every one back, each "
                                 "marker once and nothing else "
                                 "(quality/propose.py `parse_batch`)."])
-            if any(len(text) > JOURNAL_LINE_CHARS for text in parsed.values()):
-                _refuse("INVALID_INTERVIEW_ANSWER: pending.answer must be a string "
-                        "within the requested line limits; correct the answer and resume "
-                        "this same run. Accepted progress and the pending question are retained.")
+            if any(not _line_fits_journal(text) for text in parsed.values()):
+                _refuse(_ANSWER_LIMITS)
             for r in _recs:
                 r2 = dict(r)
                 # The whole row set was asked against ONE draft. Record its
@@ -9515,10 +9550,8 @@ def _defer_proposer(path, lines=None):
                                 "nobody proposed into the draft, and verify() "
                                 "cannot catch that — a mis-parsed line is just "
                                 "a changed line, which is what was asked for."])
-            if len(parsed) > JOURNAL_LINE_CHARS:
-                _refuse("INVALID_INTERVIEW_ANSWER: pending.answer must be a string "
-                        "within the requested line limits; correct the answer and resume "
-                        "this same run. Accepted progress and the pending question are retained.")
+            if not _line_fits_journal(parsed):
+                _refuse(_ANSWER_LIMITS)
             rec["text"] = parsed
             rec["batch"] = None  # known single question, including legacy pending singles
             st["answered"]["propose"].append(rec)
@@ -9535,10 +9568,8 @@ def _defer_proposer(path, lines=None):
                                 "L<n>: marker is required and each may "
                                 "appear once (quality/propose.py "
                                 "`parse_group`)."])
-            if any(len(text) > JOURNAL_LINE_CHARS for text in parsed):
-                _refuse("INVALID_INTERVIEW_ANSWER: pending.answer must be a string "
-                        "within the requested line limits; correct the answer and resume "
-                        "this same run. Accepted progress and the pending question are retained.")
+            if any(not _line_fits_journal(text) for text in parsed):
+                _refuse(_ANSWER_LIMITS)
             rec["new"] = list(parsed)
             st["answered"]["propose_group"].append(rec)
         st["pending"] = None
@@ -9688,7 +9719,7 @@ def _defer_proposer(path, lines=None):
         # Reserve the raw answer's worst JSON escaping and two parsed copies
         # (answered + outcome). Rejection details are measured before accepting.
         trial = dict(st, pending=pending)
-        reserve = count * (200 * 4 + 16) * 6 + _journal_answer_reserve(count)
+        reserve = count * ANSWER_LINE_RAW_BYTES * 6 + _journal_answer_reserve(count)
         _journal_admit(trial, reserve, lines=st["accepted_lines"], path=path, prior=st)
         st["pending"] = pending
         _snap = _snapshot()
@@ -10137,6 +10168,20 @@ def _legacy_unadmitted_tail(kind, prompt):
                           _UNADMITTED_DEFAULT_TAIL_BEFORE)
 
 
+#: The sentence each question ends on, as `quality/propose.py` words it
+#: (`render_line`: "The line is ..."; `render_group`: "Each line is ...").
+_LINE_LIMIT_TAIL = " characters; a longer one is not accepted."
+_LINE_LIMIT_NOW = f"is at most {LINE_CHARS}{_LINE_LIMIT_TAIL}"
+_LINE_LIMIT_BEFORE = f"is at most {JOURNAL_LINE_CHARS}{_LINE_LIMIT_TAIL}"
+
+
+def _legacy_line_limit(kind, prompt):
+    """-> the question as worded while the line limit it states was 200."""
+    if _LINE_LIMIT_NOW not in prompt:
+        return None
+    return prompt.replace(_LINE_LIMIT_NOW, _LINE_LIMIT_BEFORE)
+
+
 #: HOW A HELD RUN'S QUESTIONS WERE WORDED BEFORE, oldest change first
 #: (2026-10-27, #519 finding f). A checkpoint stores the hash of each question
 #: it asked and replays an answer only to the same question, so a change to a
@@ -10152,6 +10197,8 @@ def _legacy_unadmitted_tail(kind, prompt):
 LEGACY_QUESTION_RENDERINGS = (
     ("2026-10-27 grader: default-admit NO_RELATION tail",
      _legacy_unadmitted_tail),
+    ("2026-11-12 writer: the line limit a question states, 200 -> 512 (#851)",
+     _legacy_line_limit),
 )
 
 
@@ -10440,8 +10487,7 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
         texts = [answer] if kind == "propose" else answer
         if answer is not None and (not isinstance(texts, list)
                 or len(texts) != count
-                or any(not isinstance(text, str) or len(text) > JOURNAL_LINE_CHARS
-                       for text in texts)):
+                or any(not _line_fits_journal(text) for text in texts)):
             raise _JournalCapacity(state, current, path,
                                    "PROVIDER_PROPOSAL_TOO_LARGE")
         state["proposals"].append({"kind": kind,
@@ -15331,10 +15377,16 @@ def main():
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
-                if any(len(line) > 200 for line in lines):
-                    _refuse("RESOURCE_LIMIT: writer execution admits at most 200 "
-                            "characters per sung line, the connector's declared "
-                            "text capacity; no writer was started.")
+                # THE ONE LINE LIMIT (LINE_CHARS; 200 until issue #851,
+                # 2026-11-12), the same on `revise`, `finish` and `tryline`
+                # and the same for the draft and for every answer: a line
+                # the program will read is a line the writer may write. No
+                # word count is checked.
+                if any(len(line) > LINE_CHARS for line in lines):
+                    _refuse(f"RESOURCE_LIMIT: writer execution admits at most "
+                            f"{LINE_CHARS} characters per sung line, the "
+                            f"connector's declared text capacity; no writer "
+                            f"was started.")
                 if cmd == "tryline":
                     # `tryline DRAFT N "line" --seed=S` — THE PRE-FLIGHT
                     # (`MISSING.md` M-302). It answers ONE question, the one

@@ -54,8 +54,9 @@ const lines = [
 ];
 const document = `[VERSE]\n${lines.join('\n')}`;
 const binding = { document_sha256: 'a'.repeat(64), context_sha256: 'b'.repeat(64) };
-// One sung line over the tools' 200-character limit: lyric_recover refuses it.
-const unrecoverable = `[VERSE]\n${'la '.repeat(90)}and on`;
+// One sung line over the tools' 512-character limit (it was 200 until issue
+// #851): lyric_recover refuses it.
+const unrecoverable = `[VERSE]\n${'la '.repeat(180)}and on`;
 const context = (declarations, text = document) => ({
   version: 1,
   intent: 'review',

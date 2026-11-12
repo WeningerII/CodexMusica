@@ -105,7 +105,25 @@ const MAX_WORD_CHARS = 40;
 // writable capacity, `EXECUTABLE_MAX_LINES`) — DELETED 2026-09-28 by owner
 // ruling: every plan the planner draws can be written, graded and revised.
 export const MAX_LINES = 463;
-const MAX_LINE_CHARS = 200;
+// THE ONE LINE LIMIT, in code points: the longest line any lyric tool takes,
+// in a draft it is given to read or grade and in an answer the writer sends.
+// RAISED 200 -> 512 on 2026-11-12 (issue #851): the stored corpus has lines of
+// 417 characters and 80 words, and at 200 a pasted line of 201 was refused
+// whole and the writer could not have written one. It is one number on
+// purpose, for reading and writing alike; no word count is checked on either.
+// What moved with it: the per-line admission cap (meter_admission.js), the
+// harness's LINE_CHARS and quality/propose.py's MAX_LINE_CHARS. What did not:
+// the request's total (meter_admission.js: long lines spend more of the same
+// total), the room a run's journal gives one answered line (ANSWER_LINE_BYTES
+// below), and the planner's own range of line lengths (quality/plan.py).
+const MAX_LINE_CHARS = 512;
+// The journal's room for ONE ANSWERED LINE (lyric-harness/lyric_harness.py
+// ANSWER_LINE_RAW_BYTES less its 16-byte marker allowance, and
+// ANSWER_LINE_JSON_BYTES less the two quotes): what a 200-character line
+// could always take. An answered line must fit it as well as the character
+// limit, so a run's reserves hold; any ordinary text of 512 characters does.
+const ANSWER_LINE_UTF8_BYTES = 800;
+const ANSWER_LINE_JSON_BYTES = 1200;
 // Two closed vocabularies the schemas enumerate, checked the same way:
 // `quality/plan.py` PLAN_FORMS and `quality/rhyme_types.py` POSITION.
 export const PLAN_FORMS = ['open', 'verse-chorus'];
@@ -183,7 +201,8 @@ const MAX_WANT_CHARS = 80;
 // magnitude over the measured case, still bounding what a client can make
 // this server re-parse. The answered records themselves are small (the
 // fold keeps the record, never the prompt).
-const MAX_ANSWER_CHARS = 4000;
+// 20 lines' worth, as it was at 200 characters a line (4,000).
+const MAX_ANSWER_CHARS = 20 * MAX_LINE_CHARS;
 const MAX_STATE_CHARS = STATE_MAX_CHARS;
 
 // RAISED 90s -> 180s 2026-08-26: the whole-vocabulary default (M-116) made
@@ -2433,7 +2452,7 @@ function reviseDescription({ kitchen = false } = {}) {
     'went unjudged); when its stamp also names UNRESOLVED lines, the song is parked as well. Present an exit ' +
     '2 or 3 stop as parked or uncertified, never as finished — its note says what to do next. ' +
     'Budget fields (max_rounds, attempts, backtrack) are declared once per run; a ' +
-    `moved declaration is refused. Writer execution enforces ${MAX_LINE_CHARS} characters per sung line. ` +
+    `moved declaration is refused. Every sung line, in the draft and in each answer, is at most ${MAX_LINE_CHARS} characters. ` +
     'A journal_capacity stop preserves ' +
     'the exact journal and accepted draft and cannot resume; reduce the requested scope before independent ' +
     'new_run work. ';
@@ -3001,10 +3020,26 @@ export function registerLyricTools(server, tool) {
                   // The same bound `answers` states in its schema and the
                   // service writer's brief states, refused here before the
                   // loop runs rather than after it has spent an attempt.
-                  const long = answeredLines(a.answer).find((t) => t.length > MAX_LINE_CHARS);
+                  // Code points, as the schema and the harness count.
+                  const answered = answeredLines(a.answer);
+                  const long = answered.find((t) => [...t].length > MAX_LINE_CHARS);
                   if (long != null)
                     throw refuse(
-                      `ANSWER_TOO_LONG: an answered line is at most ${MAX_LINE_CHARS} characters and this one has ${long.length}. Nothing was run and the same question is still pending — answer it again with a shorter line.`
+                      `ANSWER_TOO_LONG: an answered line is at most ${MAX_LINE_CHARS} characters and this one has ${[...long].length}. Nothing was run and the same question is still pending — answer it again with a shorter line.`
+                    );
+                  // The room the run's journal reserved for one line (the
+                  // harness refuses the same line as INVALID_INTERVIEW_ANSWER
+                  // after the call has started). A line of at most 200
+                  // characters always fits; a longer one fits unless it is
+                  // mostly characters of several bytes each.
+                  const heavy = answered.find(
+                    (t) =>
+                      Buffer.byteLength(t, 'utf8') > ANSWER_LINE_UTF8_BYTES ||
+                      Buffer.byteLength(JSON.stringify(t), 'utf8') - 2 > ANSWER_LINE_JSON_BYTES
+                  );
+                  if (heavy != null)
+                    throw refuse(
+                      `ANSWER_TOO_LONG: an answered line is at most ${ANSWER_LINE_UTF8_BYTES} bytes as UTF-8, the room this run reserved for it, and this one is ${Buffer.byteLength(heavy, 'utf8')} (${[...heavy].length} characters). Nothing was run and the same question is still pending — answer it again with a shorter line.`
                     );
                   st.pending.answer = a.answer;
                 }

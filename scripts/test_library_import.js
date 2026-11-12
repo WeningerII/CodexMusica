@@ -144,8 +144,13 @@ test('import eligibility does not impose a two-to-twelve-word line gate', () => 
   }
 });
 test('removing the import word gate preserves language, row and character safeguards', () => {
-  assert.equal(api.eligibleForWriter('a'.repeat(200), 'en').eligible, true);
-  assert.match(api.eligibleForWriter('a'.repeat(201), 'en').reasons.join(' '), /200-character/);
+  // The one line limit is 512 characters (issue #851; it was 200), counted
+  // in code points as the lyric tools count them.
+  assert.equal(api.eligibleForWriter('a'.repeat(201), 'en').eligible, true);
+  assert.equal(api.eligibleForWriter('a'.repeat(512), 'en').eligible, true);
+  assert.match(api.eligibleForWriter('a'.repeat(513), 'en').reasons.join(' '), /512-character/);
+  assert.equal(api.eligibleForWriter('\u{1F3B5}'.repeat(512), 'en').eligible, true);
+  assert.equal(api.eligibleForWriter('\u{1F3B5}'.repeat(513), 'en').eligible, false);
   assert.equal(api.eligibleForWriter(Array(463).fill('Alone').join('\n'), 'en-US').eligible, true);
   assert.match(
     api.eligibleForWriter(Array(464).fill('Alone').join('\n'), 'eng').reasons.join(' '),

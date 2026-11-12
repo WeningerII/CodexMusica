@@ -9,6 +9,14 @@
 // paths' queue is the Python bridge's admission (`readerPythonBridge.admit`,
 // the call every lyric handler makes first); the /mcp queue is the session
 // store and its operation set.
+//
+// 2026-11-12 (#851): the line limit is 512 characters (it was 200) and the
+// per-line cap 769 (it was 301). The request total did not move: 139,363,
+// what 463 lines of 200 characters can reach. So this file has two witness
+// lines where it had one (see the fixtures), every per-line scenario sits at
+// the new boundary, and the tests marked (#851) hold what the rise changed:
+// where an over-long line is refused, that long lines spend the same total
+// sooner, and that a revision's answers are counted with their draft.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
@@ -20,6 +28,7 @@ import {
   RAW_ROWS_CAP,
   ADMISSION_MAX_LINES,
   ADMISSION_MAX_LINE_CHARS,
+  REQUEST_BUDGET_LINE_CHARS,
   ADMISSION_CAUSES,
   METER_LINE_RESPONSE_BYTES,
   METER_LINE_WRAPPER_BYTES,
@@ -44,16 +53,30 @@ import { draftFromText } from './lyric_text.js';
 // ── the values and their derivation ──────────────────────────────────────
 test('the caps are the confirmed values, derived from the connector ceilings', () => {
   assert.equal(ADMISSION_MAX_LINES, MAX_LINES);
-  // checkLines' own character ceiling: 200 code points pass, 201 refuse.
+  // checkLines' own character ceiling: 512 code points pass, 513 refuse.
+  assert.equal(ADMISSION_MAX_LINE_CHARS, 512);
   _argvInternals.checkLines(['x'.repeat(ADMISSION_MAX_LINE_CHARS)]);
   assert.throws(
     () => _argvInternals.checkLines(['x'.repeat(ADMISSION_MAX_LINE_CHARS + 1)]),
-    /line over 200 chars/
+    /line over 512 chars/
   );
-  assert.equal(METER_LINE_DIGITS_CAP, 301);
+  assert.equal(METER_LINE_DIGITS_CAP, 769);
   assert.equal(METER_LINE_DIGITS_CAP, Math.floor(1.5 * (ADMISSION_MAX_LINE_CHARS + 1)));
+  // 2026-11-12 (#851): this test held the request total to MAX_LINES times
+  // the per-line cap. That stopped being the design when the line limit rose
+  // and the total did not: the total is 463 lines at what a line of
+  // REQUEST_BUDGET_LINE_CHARS (200, the limit as it was) can reach, 463 × 301,
+  // and the per-line cap times the line ceiling is far over it.
+  assert.equal(REQUEST_BUDGET_LINE_CHARS, 200);
+  assert(REQUEST_BUDGET_LINE_CHARS <= ADMISSION_MAX_LINE_CHARS);
   assert.equal(METER_REQUEST_DIGITS_CAP, 139_363);
-  assert.equal(METER_REQUEST_DIGITS_CAP, MAX_LINES * METER_LINE_DIGITS_CAP);
+  assert.equal(
+    METER_REQUEST_DIGITS_CAP,
+    MAX_LINES * Math.floor(1.5 * (REQUEST_BUDGET_LINE_CHARS + 1))
+  );
+  assert.equal(METER_REQUEST_DIGITS_CAP, 463 * 301);
+  assert.equal(MAX_LINES * METER_LINE_DIGITS_CAP, 356_047);
+  assert(METER_REQUEST_DIGITS_CAP < MAX_LINES * METER_LINE_DIGITS_CAP);
   assert.equal(RAW_ROWS_CAP, 1_389);
   assert.equal(RAW_ROWS_CAP, 3 * MAX_LINES);
   assert.deepEqual(ADMISSION_CAUSES, ['raw_rows', 'meter_line_digits', 'meter_request_digits']);
@@ -61,7 +84,10 @@ test('the caps are the confirmed values, derived from the connector ceilings', (
 
 test('the per-line response figure includes the candidate rows (BB8 ruling 1)', () => {
   // Measured by lyric-harness/quality/test_meter_digit_bound.py against the
-  // recognizer core: 7,507 B with the candidate rows, 5,979 B without.
+  // recognizer core: 7,507 B with the candidate rows, 5,979 B without. That
+  // is a line of 301 digits, the 200-character line the request total is
+  // sized for; nothing is measured for a line of 302-769 digits (#851, the
+  // module's own note), and these figures did not move with the line limit.
   assert.equal(METER_LINE_RESPONSE_BYTES, 7_507);
   assert.equal(METER_LINE_WRAPPER_BYTES, 200);
   assert.equal(
@@ -74,15 +100,29 @@ test('the per-line response figure includes the candidate rows (BB8 ruling 1)', 
 });
 
 test('an undeclared line is costed at 1.5 digits per unit; the witness line is exactly at the cap', () => {
-  const witness = 'w '.repeat(99) + 'ws';
-  assert.equal([...witness].length, 200);
-  assert.equal(lineDigitBound(witness).bound, 301);
-  // Code points, as checkLines counts: 200 astral characters are 200 units.
-  assert.equal(lineDigitBound('\u{1F600}'.repeat(200)).bound, 301);
-  assert.equal(lineDigitBound('x'.repeat(201)).bound, 303);
-  // So no line the tools accept (<= 200 code points) is refused undeclared.
-  for (let n = 1; n <= 200; n++)
+  const witness = 'w '.repeat(255) + 'ws';
+  assert.equal([...witness].length, 512);
+  assert.equal(lineDigitBound(witness).bound, 769);
+  assert.equal(lineDigitBound(witness).bound, METER_LINE_DIGITS_CAP);
+  // Code points, as checkLines counts: 512 astral characters are 512 units.
+  assert.equal(lineDigitBound('\u{1F600}'.repeat(512)).bound, 769);
+  assert.equal(lineDigitBound('x'.repeat(513)).bound, 771);
+  // So no line the tools accept (<= 512 code points) is refused undeclared.
+  for (let n = 1; n <= ADMISSION_MAX_LINE_CHARS; n++)
     assert(lineDigitBound('a'.repeat(n)).bound <= METER_LINE_DIGITS_CAP);
+  // The witness as it was until 2026-11-12 (#851): 200 characters, 301
+  // digits. It is still admitted, well inside the per-line cap, and it is the
+  // line the request total is sized for (463 of them are the total).
+  const budget = 'w '.repeat(99) + 'ws';
+  assert.equal([...budget].length, 200);
+  assert.equal([...budget].length, REQUEST_BUDGET_LINE_CHARS);
+  assert.equal(lineDigitBound(budget).bound, 301);
+  assert.equal(lineDigitBound('\u{1F600}'.repeat(200)).bound, 301);
+  assert.equal(MAX_LINES * lineDigitBound(budget).bound, METER_REQUEST_DIGITS_CAP);
+  // One character past the old limit read 303 and was refused; it is a line
+  // like any other now.
+  assert.equal(lineDigitBound('x'.repeat(201)).bound, 303);
+  assert(303 <= METER_LINE_DIGITS_CAP);
 });
 
 test('a declared line: the stressed vowels of each declared reading plus 1.5 per undeclared unit', () => {
@@ -149,18 +189,52 @@ test('declarations are not merged by token number: one number under two numberin
   // 22 units less the four declared tokens' (6 + 2 + 6 + 2).
   assert.equal(b.undeclared_units, 6);
   assert.equal(b.bound, 521);
+  // 2026-11-12 (#851): 521 was over the per-line cap while that was 301, and
+  // this line was refused for it. At 769 it is admitted, so the refusal that
+  // only four separate rows can cause is shown on the same four rows at the
+  // head of a longer line (the reader cuts its head exactly as above; the
+  // words after it move no token number).
+  assert(b.bound <= METER_LINE_DIGITS_CAP);
+  assert.doesNotThrow(() => admitRecognitionArgs({ draft: [line], pronunciations: rows }));
+  const long = line + ' and the sea'.repeat(15);
+  const longRows = rows.map((r) => ({ ...r, line: long }));
+  const lb = lineDigitBound(
+    long,
+    longRows.map((r, i) => ({ index: i + 1, ...r }))
+  );
+  const units = [...long].length + 1;
+  assert.equal(units, 202);
+  assert.equal(lb.declared_digits, 512);
+  assert.equal(lb.undeclared_units, units - 16);
+  assert.equal(lb.bound, 791);
+  assert(lb.bound > METER_LINE_DIGITS_CAP);
+  // Merged by token number the four rows would be two tokens (256 digits,
+  // and the two shortest words' 4 units out of the rest): inside the cap. So
+  // the refusal below is the four rows counted as four.
+  assert(256 + Math.floor((3 * (units - 4)) / 2) <= METER_LINE_DIGITS_CAP);
   assert.throws(
-    () => admitRecognitionArgs({ draft: [line], pronunciations: rows }),
+    () => admitRecognitionArgs({ draft: [long], pronunciations: longRows }),
     (e) =>
       e.cause === 'meter_line_digits' &&
-      /L001 of `draft` could reach 521 .*\(P001 128, P002 128, P003 128, P004 128: 512 digits\)/.test(
+      /L001 of `draft` could reach 791 .*\(P001 128, P002 128, P003 128, P004 128: 512 digits\)/.test(
         e.message
-      )
+      ) &&
+      /the per-line cap is 769\./.test(e.message)
   );
 });
 
 // ── fixtures ─────────────────────────────────────────────────────────────
-const WITNESS = 'w '.repeat(99) + 'ws'; // 200 chars, bound 301
+// Two witness lines since 2026-11-12 (#851), where one line served both roles
+// while the request total was 463 of the per-line cap:
+//   WITNESS         512 characters, bound 769: the densest line admitted, and
+//                   the line every per-line scenario below is built on.
+//   BUDGET_WITNESS  200 characters, bound 301: the line the REQUEST TOTAL is
+//                   sized for. 463 of them are the total exactly.
+// What each fixture reads is asserted in the test right after this block, not
+// here: a top-level assertion that fails stops every later test from being
+// registered, and the run then reports only the tests above it.
+const WITNESS = 'w '.repeat(255) + 'ws';
+const BUDGET_WITNESS = 'w '.repeat(99) + 'ws';
 const decl = (line, vowels, token = 1, word = 'w') => ({
   line,
   token,
@@ -169,36 +243,103 @@ const decl = (line, vowels, token = 1, word = 'w') => ({
   basis: 'declared',
   source: 'admission fixture',
 });
-// Declaring token 1 (`w`, 2 units) with k vowels: 298 + k. k = 3 is the cap,
+const boundOf = (line, declarations = []) =>
+  lineDigitBound(
+    line,
+    declarations.map((d, i) => ({ index: i + 1, ...d }))
+  ).bound;
+const sumOf = (lines) => lines.reduce((n, line) => n + boundOf(line), 0);
+const fmt = (n) => n.toLocaleString('en-US');
+// Declaring token 1 (`w`, 2 units) with k vowels: 766 + k. k = 3 is the cap,
 // k = 4 is one over it.
 const AT_LINE = [decl(WITNESS, 3)];
 const OVER_LINE = [decl(WITNESS, 4)];
-assert.equal(lineDigitBound(WITNESS, [{ index: 1, ...AT_LINE[0] }]).bound, METER_LINE_DIGITS_CAP);
-assert.equal(
-  lineDigitBound(WITNESS, [{ index: 1, ...OVER_LINE[0] }]).bound,
-  METER_LINE_DIGITS_CAP + 1
-);
+const OVER_LINE_BOUND = METER_LINE_DIGITS_CAP + 1;
 // BB8 condition 1's line: its bound is over the cap, its real count is not
 // (one declared 128-vowel token and ordinary words; the reader reads the
-// declared reading and a few dozen dictionary syllables).
-const BOUND_ONLY = ('zyx ' + 'and the sea '.repeat(16)).trim();
+// declared reading and 126 one-syllable dictionary words). Rebuilt 2026-11-12
+// (#851) at 507 characters: at the 195 it had, its bound is 416, which the
+// cap of 769 admits.
+const BOUND_ONLY_WORDS = 3 * 42;
+const BOUND_ONLY = ('zyx ' + 'and the sea '.repeat(42)).trim();
 const BOUND_ONLY_DECL = [decl(BOUND_ONLY, 128, 1, 'zyx')];
-const boundOnly = lineDigitBound(BOUND_ONLY, [{ index: 1, ...BOUND_ONLY_DECL[0] }]).bound;
-assert(boundOnly > METER_LINE_DIGITS_CAP && 128 + 3 * 48 < METER_LINE_DIGITS_CAP);
+const boundOnly = boundOf(BOUND_ONLY, BOUND_ONLY_DECL);
+// A short line over the per-line cap by declaration alone: every one of its
+// one-letter tokens declared at the 128-phone ceiling a declaration has.
+// Seven are 896; six are 768, inside the cap. (While the cap was 301 these
+// scenarios used three, at 384.)
+const SEVEN = 'a a a a a a a';
+const SIX = 'a a a a a a';
+const eachTokenDeclared = (line, count, first = 1) =>
+  Array.from({ length: count }, (_, i) => decl(line, 128, first + i, 'a'));
+const SEVEN_DECL = eachTokenDeclared(SEVEN, 7);
+const P_SEVEN = 'P001, P002, P003, P004, P005, P006, P007';
 
 const rowsText = (n) => '\n'.repeat(n - 1) + 'the only sung line';
-// 463 lines at 301 is the request cap exactly; a further declared one-letter
-// line at one digit is one over it (only a continuation or a blueprint can
-// carry more than 463 lines past the schema).
-const AT_REQUEST = Array(MAX_LINES).fill(WITNESS);
+// 463 lines of 200 characters, at 301 each, are the request cap exactly; a
+// further declared one-letter line at one digit is one over it (only a
+// continuation or a blueprint can carry more than 463 lines past the schema).
+const AT_REQUEST = Array(MAX_LINES).fill(BUDGET_WITNESS);
 // The blueprint path also carries its one draft line (`a quiet line`, 19):
 // 462 × 301 + 282 + 19 is the request cap exactly.
 const DRAFT_LINE = 'a quiet line';
-assert.equal(lineDigitBound(DRAFT_LINE).bound, 19);
-const AT_REQUEST_BESIDE_DRAFT = [...Array(MAX_LINES - 1).fill(WITNESS), 'a'.repeat(187)];
-assert.equal(lineDigitBound('a'.repeat(187)).bound, 282);
+const AT_REQUEST_BESIDE_DRAFT = [...Array(MAX_LINES - 1).fill(BUDGET_WITNESS), 'a'.repeat(187)];
 const OVER_REQUEST = [...AT_REQUEST, 'a'];
 const OVER_REQUEST_DECL = [{ ...decl('a', 1, 1, 'a') }];
+// (#851) The same total in 512-character lines, which every path can carry:
+// 181 at 769 are 139,189 and fit; 182 are 139,958 and do not. With a
+// 115-character line (174) beside the 181 the draft is on the total exactly,
+// and with a 116-character one (175) it is one digit over.
+const LONG_LINES_FIT = Math.floor(METER_REQUEST_DIGITS_CAP / METER_LINE_DIGITS_CAP);
+const LONG_UNDER_REQUEST = Array(LONG_LINES_FIT).fill(WITNESS);
+const LONG_OVER_REQUEST = Array(LONG_LINES_FIT + 1).fill(WITNESS);
+const LONG_AT_REQUEST = [...LONG_UNDER_REQUEST, 'a'.repeat(115)];
+const LONG_ONE_OVER_REQUEST = [...LONG_UNDER_REQUEST, 'a'.repeat(116)];
+// (#851) A draft 21 digits under the total (462 × 301 + 280), and the answers
+// a revision could send beside it: 13 characters read 21 and land on the
+// total, 14 read 22 and are one digit over.
+const NEAR_REQUEST = [...Array(MAX_LINES - 1).fill(BUDGET_WITNESS), 'a'.repeat(186)];
+const ANSWER_FITS = 'a'.repeat(13);
+const ANSWER_OVER = 'a'.repeat(14);
+
+test('the fixtures read what the tests below take them to read', () => {
+  // Per line.
+  assert.equal([...WITNESS].length, ADMISSION_MAX_LINE_CHARS);
+  assert.equal(boundOf(WITNESS), METER_LINE_DIGITS_CAP);
+  assert.equal(boundOf(WITNESS, AT_LINE), METER_LINE_DIGITS_CAP);
+  assert.equal(boundOf(WITNESS, OVER_LINE), OVER_LINE_BOUND);
+  assert.equal(OVER_LINE_BOUND, 770);
+  assert.equal(boundOnly, 884);
+  assert(boundOnly > METER_LINE_DIGITS_CAP);
+  // Three syllables a word would still leave its real count inside the cap.
+  assert(128 + 3 * BOUND_ONLY_WORDS < METER_LINE_DIGITS_CAP);
+  assert([...BOUND_ONLY].length <= ADMISSION_MAX_LINE_CHARS);
+  assert.equal(boundOf(SEVEN, SEVEN_DECL), 896);
+  assert.equal(boundOf(SIX, eachTokenDeclared(SIX, 6)), 768);
+  assert(768 <= METER_LINE_DIGITS_CAP && 896 > METER_LINE_DIGITS_CAP);
+  // Per request, in the 200-character lines the total is sized for.
+  assert.equal([...BUDGET_WITNESS].length, REQUEST_BUDGET_LINE_CHARS);
+  assert.equal(boundOf(BUDGET_WITNESS), 301);
+  assert.equal(sumOf(AT_REQUEST), METER_REQUEST_DIGITS_CAP);
+  assert.equal(boundOf(DRAFT_LINE), 19);
+  assert.equal(boundOf('a'.repeat(187)), 282);
+  assert.equal(sumOf(AT_REQUEST_BESIDE_DRAFT) + boundOf(DRAFT_LINE), METER_REQUEST_DIGITS_CAP);
+  assert.equal(
+    sumOf(AT_REQUEST) + boundOf('a', OVER_REQUEST_DECL),
+    METER_REQUEST_DIGITS_CAP + 1
+  );
+  // Per request, in 512-character lines.
+  assert.equal(LONG_LINES_FIT, 181);
+  assert.equal(sumOf(LONG_UNDER_REQUEST), 139_189);
+  assert.equal(sumOf(LONG_OVER_REQUEST), 139_958);
+  assert.equal(sumOf(LONG_AT_REQUEST), METER_REQUEST_DIGITS_CAP);
+  assert.equal(sumOf(LONG_ONE_OVER_REQUEST), METER_REQUEST_DIGITS_CAP + 1);
+  // A revision's draft and its answers.
+  assert.equal(sumOf(NEAR_REQUEST), 139_342);
+  assert.equal(METER_REQUEST_DIGITS_CAP - sumOf(NEAR_REQUEST), 21);
+  assert.equal(boundOf(ANSWER_FITS), 21);
+  assert.equal(boundOf(ANSWER_OVER), 22);
+});
 
 const stateWire = (lines) =>
   encodeState({ version: 1, input_draft: lines, interview: true, connector_declarations: {} });
@@ -280,9 +421,12 @@ const LINE_ID = (path) =>
       ? 'The line "[^"]+", which P001 declares readings for, is a line of `blueprint.lines`, whose stored text no check reads,'
       : 'L001 of `[^`]+`';
 const AT_REQUEST_FOR = (path) => (path === 'blueprint' ? AT_REQUEST_BESIDE_DRAFT : AT_REQUEST);
-// The array paths cannot carry more than MAX_LINES items or a 201-character
+// The array paths cannot carry more than MAX_LINES items or a 513-character
 // item: the published schema refuses them before any handler. Their raw-row
-// and request caps are therefore reached only through the paths that can.
+// cap, and the request total at 464 lines, are therefore reached only through
+// the paths that can. Since #851 (2026-11-12) the request total is also
+// passed inside those ceilings, by 182 lines of 512 characters, and that is
+// checked on every path, the array and text paths included.
 const SCHEMA_BOUND = new Set(['draft[]', 'lines[]']);
 const TEXT_BOUND = new Set(['draft_text', 'lines_text', 'after_text', 'recover lines_text']);
 
@@ -343,11 +487,11 @@ test('every raw path: at the cap admitted, one over refused with RESOURCE_LIMIT 
       assert.match(
         over.text,
         new RegExp(
-          `${LINE_ID(path)}.*? could reach 302 syllable digits under its declared readings \\(P001 4: 4 digits\\)`
+          `${LINE_ID(path)}.*? could reach ${OVER_LINE_BOUND} syllable digits under its declared readings \\(P001 4: 4 digits\\)`
         )
       );
-      assert.match(over.text, /the per-line cap is 301/);
-      assert.doesNotMatch(over.text, /\bhas 302\b/);
+      assert.match(over.text, /the per-line cap is 769\./);
+      assert.doesNotMatch(over.text, /\bhas 770\b/);
       if (!SCHEMA_BOUND.has(path)) {
         // Raw rows.
         admitted(await call(path, rowsText(RAW_ROWS_CAP).split('\n')), path, 'rows at cap');
@@ -359,7 +503,8 @@ test('every raw path: at the cap admitted, one over refused with RESOURCE_LIMIT 
         );
       }
       if (!SCHEMA_BOUND.has(path) && !TEXT_BOUND.has(path)) {
-        // Per request: 463 × 301 admitted, one digit more refused.
+        // Per request, in the 200-character lines the total is sized for:
+        // 463 × 301 admitted, one digit more refused.
         admitted(await call(path, AT_REQUEST_FOR(path)), path, 'request at cap');
         const overRequest = await call(path, OVER_REQUEST, OVER_REQUEST_DECL);
         if (path === 'blueprint') {
@@ -369,6 +514,25 @@ test('every raw path: at the cap admitted, one over refused with RESOURCE_LIMIT 
           admitted(overRequest, path, 'blueprint past the request total');
           assert.equal(overRequest.queued, 1, overRequest.text);
         } else refused(overRequest, 'meter_request_digits', path, 'request over');
+      }
+      // Per request, in 512-character lines (#851): every path can carry
+      // these, the schema-bound arrays too. 181 × 769 is inside the total and
+      // admitted; 182 × 769 is over it, and it is the request total that
+      // refuses, since every one of the lines is inside the per-line cap.
+      admitted(await call(path, LONG_UNDER_REQUEST), path, '181 long lines');
+      const longOver = await call(path, LONG_OVER_REQUEST);
+      if (path === 'blueprint') {
+        admitted(longOver, path, 'a blueprint of long lines past the request total');
+        assert.equal(longOver.queued, 1, longOver.text);
+      } else {
+        refused(longOver, 'meter_request_digits', path, '182 long lines');
+        assert.match(
+          longOver.text,
+          path === 'after_text'
+            ? /`before_text` \(1 line, 19\) and `after_text` \(182 lines, 139,958\) together could reach 139,977 syllable digits; one request carries at most 139,363 /
+            : /\(182 lines, 139,958\) could reach 139,958 syllable digits; one request carries at most 139,363 /,
+          path
+        );
       }
     }
     // An admitted call goes on to the queue: the check is before it, not instead.
@@ -445,7 +609,7 @@ test('one decision rule: a line whose bound is over the cap but whose count is n
         continue;
       }
       const m = text.match(
-        /RESOURCE_LIMIT: meter_line_digits — (L\d{3}) of `[^`]+` (could reach [\d,]+ syllable digits under its declared readings \(P001 128: 128 digits\) and 1\.5 digits per unit for its [\d,]+ undeclared units; the per-line cap is 301\.)/
+        /RESOURCE_LIMIT: meter_line_digits — (L\d{3}) of `[^`]+` (could reach [\d,]+ syllable digits under its declared readings \(P001 128: 128 digits\) and 1\.5 digits per unit for its [\d,]+ undeclared units; the per-line cap is 769\.)/
       );
       assert(m, `${path}: ${text}`);
       seen.push(m[1] + ' ' + m[2]);
@@ -455,7 +619,7 @@ test('one decision rule: a line whose bound is over the cap but whose count is n
       arguments: { lines: [BOUND_ONLY], scheme: 'X', pronunciations: BOUND_ONLY_DECL },
     });
     const m = sessionText.match(
-      /RESOURCE_LIMIT: meter_line_digits — (L\d{3}) of `[^`]+` (could reach .*? cap is 301\.)/
+      /RESOURCE_LIMIT: meter_line_digits — (L\d{3}) of `[^`]+` (could reach .*? cap is 769\.)/
     );
     assert(m, sessionText);
     seen.push(m[1] + ' ' + m[2]);
@@ -469,8 +633,11 @@ test('one decision rule: a line whose bound is over the cap but whose count is n
 });
 
 test('the checks run in order: rows, then lines, then the request', () => {
-  // Over all three: rows decide. Over lines and request: lines decide.
-  const many = Array(RAW_ROWS_CAP + 1).fill('x'.repeat(250));
+  // Over all three: rows decide. Over lines and request: lines decide. Each
+  // row is one character past the line limit, the shortest undeclared line
+  // over the per-line cap (771).
+  const many = Array(RAW_ROWS_CAP + 1).fill('x'.repeat(ADMISSION_MAX_LINE_CHARS + 1));
+  assert(boundOf(many[0]) > METER_LINE_DIGITS_CAP);
   const code = (args) => {
     try {
       admitRecognitionArgs(args);
@@ -494,6 +661,9 @@ test('the checks run in order: rows, then lines, then the request', () => {
     cause({ state: stateWire(OVER_REQUEST), pronunciations: OVER_REQUEST_DECL }),
     'meter_request_digits'
   );
+  // (#851) Lines each inside the per-line cap and together over the total:
+  // the request decides, on an array the schema itself would pass.
+  assert.equal(cause({ draft: LONG_OVER_REQUEST }), 'meter_request_digits');
   // The order is the code's, not the fixture's: a set over rows refuses as
   // rows even when an earlier set is over a line.
   assert.equal(
@@ -520,10 +690,20 @@ test('the line sets are what the handler reads, continuations and declarations i
   assert.deepEqual(recognitionInputOf({ state: 'not a wire' }).sets, []);
   // `lines` as a count (the planning tools) is not a line set.
   assert.deepEqual(recognitionInputOf({ lines: 12 }).sets, []);
-  // A revision's answers are not a line set: ANSWER_TOO_LONG and the
-  // `answers` schema refuse them at 200 characters first, and a declared one
-  // is measured as a declared line (below).
-  assert.deepEqual(recognitionInputOf({ answer: 'x'.repeat(201) }).sets, []);
+  // 2026-11-12 (#851): until then a revision's answers were no line set at
+  // all (at 200 characters an answer could not carry a draft past the total),
+  // and this test held that. They are a line set now, on lyric_revise only:
+  // named for the field that carried them and marked `answers`, which is what
+  // adds them to the request total and keeps them out of the per-line check
+  // (ANSWER_TOO_LONG holds an answered line to the line limit, by name). The
+  // tests marked (#851) further down hold both. On any other tool, and where
+  // no tool is named, the fields are not read.
+  const answering = { answer: 'x'.repeat(ADMISSION_MAX_LINE_CHARS + 1) };
+  assert.deepEqual(recognitionInputOf(answering).sets, []);
+  assert.deepEqual(recognitionInputOf(answering, { tool: 'lyric_check' }).sets, []);
+  assert.deepEqual(recognitionInputOf(answering, { tool: 'lyric_revise' }).sets, [
+    { name: 'answer', family: null, rows: 1, lines: [answering.answer], answers: true },
+  ]);
   const refusedCause = (args) => {
     try {
       admitRecognitionArgs(args);
@@ -587,27 +767,43 @@ test('a declared line in no draft is measured: an answer cannot carry it past th
       (e) =>
         e.cause === 'meter_line_digits' &&
         // Ruling (4): the P index, and the declared line's text quoted.
+        // 766 for the 511 undeclared units and the 128 declared vowels.
         e.message.includes(
-          `The line ${JSON.stringify(WITNESS)}, which P001 declares readings for, is in no line set of this call, but an answer or a source reading can make it a sung line, and it could reach 426 `
+          `The line ${JSON.stringify(WITNESS)}, which P001 declares readings for, is in no line set of this call, but an answer or a source reading can make it a sung line, and it could reach 894 `
         ) &&
         !/\bL\d{3}\b/.test(e.message),
       JSON.stringify(Object.keys(args))
     );
-  // Reviewer A's answer: three 128-vowel rows on the answer's text.
-  const answer = 'a a a';
+  // Reviewer A's answer was three 128-vowel rows on the answer's text, 384:
+  // over the cap while that was 301. At 769 it takes seven rows (896); six
+  // (768) are inside the cap and the answer is admitted.
   assert.throws(
     () =>
       admitLyricCall('lyric_revise', {
         draft: ['one two', 'three four'],
-        answer,
-        pronunciations: [1, 2, 3].map((t) => decl(answer, 128, t, 'a')),
+        answer: SEVEN,
+        pronunciations: SEVEN_DECL,
       }),
-    /meter_line_digits — The line "a a a", which P001, P002, P003 declare readings for, .* could reach 384 /
+    new RegExp(
+      `meter_line_digits — The line "${SEVEN}", which ${P_SEVEN} declare readings for, .* could reach 896 `
+    )
   );
-  // A declared line no tool could ever sing (over 200 code points, or more
-  // than one row) is not a sung line, so it is not measured.
   assert.doesNotThrow(() =>
-    admitRecognitionArgs({ draft: [DRAFT_LINE], pronunciations: [decl('w '.repeat(101), 128)] })
+    admitLyricCall('lyric_revise', {
+      draft: ['one two', 'three four'],
+      answer: SIX,
+      pronunciations: eachTokenDeclared(SIX, 6),
+    })
+  );
+  // A declared line no tool could ever sing (over 512 code points, or more
+  // than one row) is not a sung line, so it is not measured: at 513
+  // characters this one would read 896 if it were. At 512 it is measured
+  // (`absent`, above).
+  const unsingable = 'w '.repeat(256) + 'w';
+  assert.equal([...unsingable].length, ADMISSION_MAX_LINE_CHARS + 1);
+  assert(boundOf(unsingable, [decl(unsingable, 128)]) > METER_LINE_DIGITS_CAP);
+  assert.doesNotThrow(() =>
+    admitRecognitionArgs({ draft: [DRAFT_LINE], pronunciations: [decl(unsingable, 128)] })
   );
   // On the raw engine the wrapper refuses it before the queue.
   const { client, close } = await rawClient();
@@ -630,8 +826,8 @@ test('a declared line in no draft is measured: an answer cannot carry it past th
 });
 
 test('lyric_recover: rows are measured as the source reader is handed them, and named by row', () => {
-  const ph = (t, line) => decl(line, 128, t, 'a');
-  const sung = 'a a a';
+  // Seven one-letter tokens, each declared at 128 vowels: 896 (the fixtures).
+  const sung = SEVEN;
   // Apparatus rows before the line: the refusal names row 3, not an L id the
   // source reader (which sets those rows aside) would not give. Sent as a
   // `lines` array, the row is the item's position (blank items included);
@@ -640,15 +836,15 @@ test('lyric_recover: rows are measured as the source reader is handed them, and 
     () =>
       admitLyricCall('lyric_recover', {
         lines: ['# credits', '', sung],
-        pronunciations: [1, 2, 3].map((t) => ph(t, sung)),
+        pronunciations: SEVEN_DECL,
       }),
-    /meter_line_digits — The line at row 3 of `lines` \(the row is the item's position in the array, counted from 1 with blank items included\) could reach 384 /
+    /meter_line_digits — The line at row 3 of `lines` \(the row is the item's position in the array, counted from 1 with blank items included\) could reach 896 /
   );
   assert.throws(
     () =>
       admitLyricCall('lyric_recover', {
         lines: ['# credits', '', sung],
-        pronunciations: [1, 2, 3].map((t) => ph(t, sung)),
+        pronunciations: SEVEN_DECL,
       }),
     (e) => !/pasted text/.test(e.message) && e.detail.line === 'row 3' && e.detail.set === 'lines'
   );
@@ -656,29 +852,33 @@ test('lyric_recover: rows are measured as the source reader is handed them, and 
     () =>
       admitLyricCall('lyric_recover', {
         lines_text: '# credits\n\n' + sung + '\n',
-        pronunciations: [1, 2, 3].map((t) => ph(t, sung)),
+        pronunciations: SEVEN_DECL,
       }),
-    /meter_line_digits — The line at row 3 of the pasted text \(rows are counted from the top, including headings and blank rows, so you can find it as pasted\) could reach 384 /
+    /meter_line_digits — The line at row 3 of the pasted text \(rows are counted from the top, including headings and blank rows, so you can find it as pasted\) could reach 896 /
   );
   // A declaration on the line as the source reader reads it (a bracket span
-  // resolved) is measured as a declared line.
-  const read = 'cafē a a a';
+  // resolved) is measured as a declared line: the seven declared tokens' 896
+  // and 7 for the 5 undeclared units of `cafē`.
+  const read = `cafē ${SEVEN}`;
+  const readDecl = eachTokenDeclared(read, 7, 2);
   assert.throws(
     () =>
       admitLyricCall('lyric_recover', {
-        lines: ['---', 'caf[=e] a a a'],
-        pronunciations: [2, 3, 4].map((t) => ph(t, read)),
+        lines: ['---', `caf[=e] ${SEVEN}`],
+        pronunciations: readDecl,
       }),
-    /meter_line_digits — The line "cafē a a a", which P001, P002, P003 declare readings for, .* could reach 391 /
+    new RegExp(
+      `meter_line_digits — The line "${read}", which ${P_SEVEN} declare readings for, .* could reach 903 `
+    )
   );
   // The same declarations on lyric_check, where the line is in the draft.
   assert.throws(
     () =>
       admitLyricCall('lyric_check', {
         lines: [read],
-        pronunciations: [2, 3, 4].map((t) => ph(t, read)),
+        pronunciations: readDecl,
       }),
-    /meter_line_digits — L001 of `lines` could reach 391 /
+    /meter_line_digits — L001 of `lines` could reach 903 /
   );
   // Blank rows of the paste are not measured lines; rows are still counted
   // (the final break ends the third row; it opens no fourth).
@@ -753,12 +953,11 @@ test('lyric_recover: a lone \\r is a row break in the pasted text, as on every o
   assert.equal(cause({ lines_text: 'a\r'.repeat(RAW_ROWS_CAP - 1) + 'a' }), null);
   assert.equal(cause({ lines_text: 'a\r'.repeat(RAW_ROWS_CAP) + 'a' }), 'raw_rows');
   // And the row a refusal names counts a lone \r as a break.
-  const sung = 'a a a';
   assert.throws(
     () =>
       admitLyricCall('lyric_recover', {
-        lines_text: `# credits\r---\r${sung}`,
-        pronunciations: [1, 2, 3].map((t) => decl(sung, 128, t, 'a')),
+        lines_text: `# credits\r---\r${SEVEN}`,
+        pronunciations: SEVEN_DECL,
       }),
     /meter_line_digits — The line at row 3 of the pasted text /
   );
@@ -818,8 +1017,10 @@ test('lyric_recover handler: 463 rows with a final break reach the verb, the fil
 });
 
 test("a blueprint's line text meets no per-line cap (BB8, #827): the same text as a draft line is refused", () => {
-  // Over the per-line bound with no declaration at all: 250 characters.
-  const LONG = 'a'.repeat(250);
+  // Over the per-line bound with no declaration at all: 513 characters, one
+  // past the line limit (771). Nothing shorter is: an undeclared line of 512
+  // reads 769 at most.
+  const LONG = 'a'.repeat(ADMISSION_MAX_LINE_CHARS + 1);
   assert(lineDigitBound(LONG).bound > METER_LINE_DIGITS_CAP);
   const measured = admitLyricCall('lyric_check', {
     lines: [DRAFT_LINE],
@@ -855,7 +1056,7 @@ test("a blueprint's line text meets no per-line cap (BB8, #827): the same text a
 // Every tool that takes a blueprint reaches the same exemption (lyric_grade
 // takes none): the tool wrapper and session submit both admit through
 // admitLyricCall.
-const LONG_BLUEPRINT_LINE = 'a'.repeat(250);
+const LONG_BLUEPRINT_LINE = 'a'.repeat(ADMISSION_MAX_LINE_CHARS + 1);
 const BLUEPRINT_CALLS = [
   ['lyric_check', { lines: [DRAFT_LINE], scheme: 'X', subdivision: 2 }],
   ['lyric_revise', { draft_text: DRAFT_LINE }],
@@ -905,15 +1106,16 @@ test('a long undeclared blueprint line is admitted on every tool that carries a 
 });
 
 test('a declaration on a blueprint line is refused as a blueprint line, not as a line in no set', () => {
-  const text = 'a a a';
-  const pronunciations = [1, 2, 3].map((t) => decl(text, 128, t, 'a'));
+  // Seven tokens at 128 declared vowels each, 896 (the fixtures).
+  const text = SEVEN;
+  const pronunciations = SEVEN_DECL;
   for (const [name, args] of BLUEPRINT_CALLS)
     assert.throws(
       () => admitLyricCall(name, { ...args, blueprint: blueprintOf([text]), pronunciations }),
       (e) =>
         e.cause === 'meter_line_digits' &&
         e.message.includes(
-          'The line "a a a", which P001, P002, P003 declare readings for, is a line of `blueprint.lines`, whose stored text no check reads, but an answer or a source reading can make it a sung line, and it could reach '
+          `The line "${SEVEN}", which ${P_SEVEN} declare readings for, is a line of \`blueprint.lines\`, whose stored text no check reads, but an answer or a source reading can make it a sung line, and it could reach 896 `
         ) &&
         !/in no line set/.test(e.message),
       name
