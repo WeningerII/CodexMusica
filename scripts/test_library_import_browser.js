@@ -54,7 +54,7 @@ test('real browser import commits atomically and a repeat after reload is a dupl
       draftId: 'draft:browser',
       createdAt: '2026-10-08T00:00:00Z',
       payload: {
-        text: 'The evening wind\nReturns the song',
+        text: 'Alone\nOne two three four five six seven eight nine ten eleven twelve thirteen\nReturns the song',
         title: 'Browser reading',
         language: 'eng',
         scope: 'whole',
@@ -87,6 +87,11 @@ test('real browser import commits atomically and a repeat after reload is a dupl
       'private-existing-run'
     );
     assert.equal(first.current.writer, null);
+    assert.equal(first.current.text, envelope.payload.text);
+    assert.deepEqual(first.current.meta.libraryOrigin.writingEligibility, {
+      eligible: true,
+      reasons: [],
+    });
     assert.deepEqual(first.current.meta.libraryOrigin.provenance.rights.notices, [
       'Mandatory source credit',
     ]);
