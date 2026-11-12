@@ -7233,8 +7233,12 @@ const STORE_CHECKS = {
   },
   // 27. Before the store starts, a selection change reaches nothing: no
   // throw, the listeners after the store's still run, no instrument data.
+  // On the default route, as the other checks that leave the store unstarted
+  // run (addGenre, retry, countLine). The Instrument route now shows lanes
+  // whose context() starts the store, so there the page's own start asks for
+  // api/engine.json while this check waits, and "before the store starts"
+  // holds or not by how fast the machine is.
   selection: {
-    opts: { hash: '#instrument' },
     run: async (page, p, ctx) => {
       const got = await inPage(page, async (S) => {
         const { instrument, recipe } = await S.boot({ start: false });
