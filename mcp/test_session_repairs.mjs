@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import test from 'node:test';
+import nativeTest from 'node:test';
 import { createRequire } from 'node:module';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
@@ -12,6 +12,9 @@ import { startRecipe, editRecipe, renderRecipe, ENV_FIELDS } from './engine.js';
 import { _verdictInternals } from './lyric_tools.js';
 const require = createRequire(import.meta.url);
 const W = require('../scripts/_workspace_ops.js');
+const { createRegistrar } = require('../scripts/ci_node_test_groups.js');
+const groupedTests = createRegistrar(nativeTest, 'mcp/test_session_repairs.mjs');
+const test = groupedTests.test;
 
 async function connect(session) {
   const server = buildServer({ task: { domain: 'lyrics' } });
@@ -2268,3 +2271,5 @@ test('a long list in a record or on a card costs a render linear time', () => {
   card[RECORD] = { fx: Array.from({ length: n }, () => 'tape_echo') };
   assert.deepEqual(W.envRecord(card), { fx: ['tape_echo'] }, 'one entry per id');
 });
+
+groupedTests.complete();

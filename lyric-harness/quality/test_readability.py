@@ -2073,48 +2073,30 @@ def test_the_default_doors_are_priced_where_they_answer():
           f"{rows[0]['relations']} {rows[0]['flags']}")
 
 
+# The complete pre-sharding runner inventory, in its original order.
+_SECTIONS = (
+    test_readable_pairs_are_untouched,
+    test_constructed_oov_final,
+    test_real_corpus_line,
+    test_nothing_was_lost_on_the_sonnets,
+    test_corpus_song_rate_is_pinned,
+    test_zero_syllable_word_has_no_anchor,
+    test_every_emitted_code_has_a_case,
+    test_the_manufactured_rhyme_is_refused,
+    test_the_letter_repertoire_is_declared_and_the_two_sites_agree,
+    test_interior_is_derived_by_position,
+    test_the_bracket_rules_are_declared_and_read,
+    test_the_bracketed_verse_convention_keeps_the_body,
+    test_a_wordless_score_says_identity_was_not_asked,
+    test_empty_coda_evidence_is_omitted,
+    test_the_assonance_profile_says_the_band_is_off,
+    test_the_default_doors_are_priced_where_they_answer,
+    test_a_spaced_enclitic_joins_its_word_and_an_elided_word_does_not,
+)
+
+
 if __name__ == "__main__":
-    for fn in (test_readable_pairs_are_untouched,
-               test_constructed_oov_final,
-               test_real_corpus_line,
-               test_nothing_was_lost_on_the_sonnets,
-               test_corpus_song_rate_is_pinned,
-               test_zero_syllable_word_has_no_anchor,
-               test_every_emitted_code_has_a_case,
-               test_the_manufactured_rhyme_is_refused,
-               test_the_letter_repertoire_is_declared_and_the_two_sites_agree,
-               test_interior_is_derived_by_position,
-               test_the_bracket_rules_are_declared_and_read,
-               test_the_bracketed_verse_convention_keeps_the_body,
-               # §13 was in the membership guard's list and not in this
-               # loop (2026-09-02): the guard reads the OTHER list, so a
-               # section listed there and dropped here printed the same
-               # `all pass` as one that ran. Listed here now.
-               test_a_wordless_score_says_identity_was_not_asked,
-               test_empty_coda_evidence_is_omitted,
-               test_the_assonance_profile_says_the_band_is_off,
-               test_the_default_doors_are_priced_where_they_answer,
-               test_a_spaced_enclitic_joins_its_word_and_an_elided_word_does_not):
-        fn()
-    _every_section_runs((
-        test_readable_pairs_are_untouched, test_constructed_oov_final,
-        test_real_corpus_line, test_nothing_was_lost_on_the_sonnets,
-        test_corpus_song_rate_is_pinned, test_zero_syllable_word_has_no_anchor,
-        test_every_emitted_code_has_a_case,
-        test_the_manufactured_rhyme_is_refused,
-        test_the_letter_repertoire_is_declared_and_the_two_sites_agree,
-        test_interior_is_derived_by_position,
-        test_the_bracket_rules_are_declared_and_read,
-        test_the_bracketed_verse_convention_keeps_the_body,
-        test_a_wordless_score_says_identity_was_not_asked,
-        test_empty_coda_evidence_is_omitted,
-        test_the_assonance_profile_says_the_band_is_off,
-        test_the_default_doors_are_priced_where_they_answer,
-        test_a_spaced_enclitic_joins_its_word_and_an_elided_word_does_not))
-    print("=" * 68)
-    if FAILURES:
-        print(f"{len(FAILURES)} FAILING:")
-        for f in FAILURES:
-            print(f"  - {f}")
-        sys.exit(1)
-    print("all readability / recorded-refusal regressions pass")
+    _every_section_runs(_SECTIONS)
+    from quality.shard import run_sections
+    sys.exit(run_sections(_SECTIONS, "TEST_READABILITY_SHARD", FAILURES,
+                          footer='all readability / recorded-refusal regressions pass'))

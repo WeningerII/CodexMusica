@@ -1,0 +1,1243 @@
+{
+  "schema_version": 1,
+  "repository": "WeningerII/CodexMusica",
+  "pull_request": 848,
+  "base_head": "1b2fdc0cd70b167ee398034eb325bda619a06a25",
+  "status": "local qualification passed; hosted qualification pending",
+  "captured_at": "2026-11-11T23:58:33.570931+00:00",
+  "prepared_sources_sha256": {
+    ".github/workflows/ci.yml": "2ba57141ecdae15afbd8e4fa63beea1cdd016e8bb774cf04b358d15bc03a1162",
+    "lyric-harness/quality/test_coverage_queue.py": "7a7ef5f80b90f46fb1df68f094142f53a466bd28f8ec5d9045d2edef5000bd7c",
+    "lyric-harness/quality/test_relations_null.py": "80ac4d21b9edb4738d4c44335e4db611b5ed503ba05fa24700aec442fc75dbd8",
+    "lyric-harness/quality/test_shard.py": "fc99ce795929d38b27bc2fd052c19dd577d209c93a03cd06d0cee961e3c0d80c",
+    "mcp/test_session_repairs.mjs": "33624f113d90d3793c77babd7622888e9155b02a097fbae43ef6c014f038ae55",
+    "scripts/run_parallel.js": "7de7ba225ad674c1edd7fb3e72e678991671af8521133e7bc20b872401621d35",
+    "scripts/test_run_parallel.js": "dee459513960cb3cc5896abf43d8f085a2e43c4d735d6727489bb1b4234c2467",
+    "scripts/ci_verify_costs.json": "54b998bbbd2b1f825deb0e8b0530cef4b3886cf803fcbe461bbb05f08a1b2770",
+    "scripts/ci_node_test_groups.js": "d9dbbbb121069a2d45ef51b344872923f0a35adbb78d4e5d69cd90ddebf0d6a0",
+    "scripts/ci_node_test_groups.json": "09f49a375b34597920be2b7efed58b7df09b7b492d92a12e6e92bdc77ba250db",
+    "scripts/test_ci_node_test_groups.js": "1114d959523fc77757afb281b9161890d7f1e147165307e80da53859b9ad1c86",
+    "scripts/test_run_parallel_list_output.js": "71f4cfd17dec3fd3324075869de3bcac6abf3e46c4be9c924a854039593cbc02"
+  },
+  "verify": {
+    "source_head": "1b2fdc0cd70b167ee398034eb325bda619a06a25",
+    "prepared_source_sha256": {
+      "mcp/test_session_repairs.mjs": "33624f113d90d3793c77babd7622888e9155b02a097fbae43ef6c014f038ae55",
+      "scripts/ci_node_test_groups.json": "09f49a375b34597920be2b7efed58b7df09b7b492d92a12e6e92bdc77ba250db",
+      "scripts/ci_node_test_groups.js": "d9dbbbb121069a2d45ef51b344872923f0a35adbb78d4e5d69cd90ddebf0d6a0"
+    },
+    "preservation": {
+      "original_test_count": 48,
+      "all_test_name_option_callback_argument_asts_identical": true,
+      "assertion_call_count": 335,
+      "all_assertion_call_asts_identical": true,
+      "default_registration_order_and_argument_identity_preserved": true,
+      "production_and_fixture_files_changed": false,
+      "unchanged_node_flags": ["--test-concurrency=1", "--test-timeout=120000"]
+    },
+    "controls": {
+      "group_registrar_controls_passed": 49,
+      "runner_ownership_fixture_negative_controls_passed": 41,
+      "eslint_passed": true,
+      "prettier_passed": true,
+      "diff_check_passed": true,
+      "large_pipe_output_controls_passed": 8,
+      "expanded_runner_control_leaf_local_seconds": 14.948,
+      "expanded_runner_control_leaf_scheduled_seconds": 14.948,
+      "large_pipe_output_fix_reviewed_independently": true
+    },
+    "actual_group_execution": {
+      "node_version": "v24.19.0",
+      "python_version": "Python 3.12.14",
+      "outer_workers": 3,
+      "wall_seconds": 32.82,
+      "tests": 48,
+      "all_cases_exactly_once": true,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "groups": [
+        {
+          "group": "native-creation",
+          "test_count": 1,
+          "seconds": 26.487,
+          "exit_code": 0
+        },
+        {
+          "group": "redrawn-seed",
+          "test_count": 1,
+          "seconds": 32.803,
+          "exit_code": 0
+        },
+        {
+          "group": "remaining",
+          "test_count": 46,
+          "seconds": 31.489,
+          "exit_code": 0
+        }
+      ]
+    },
+    "dependency_free_admission": {
+      "fresh_git_archive_checkout": true,
+      "root_and_connector_node_modules_absent": true,
+      "npm_installs": 0,
+      "leaf_count": 217,
+      "all_cost_keys_match_exact_leaf_inventory": true,
+      "inventory_exit_code": 0,
+      "inventory_seconds": 2.455,
+      "synthetic_fanin_exit_code": 0,
+      "synthetic_fanin_seconds": 2.281,
+      "negative_controls": [
+        {
+          "missing_group": "native-creation",
+          "exit_code": 1
+        },
+        {
+          "missing_group": "redrawn-seed",
+          "exit_code": 1
+        },
+        {
+          "missing_group": "remaining",
+          "exit_code": 1
+        },
+        {
+          "missing_library_partition": "24/24",
+          "exit_code": 1
+        },
+        {
+          "changed_identity": "scripts/ci_node_test_groups.json",
+          "exit_code": 1
+        },
+        {
+          "changed_identity": "scripts/ci_node_test_groups.js",
+          "exit_code": 1
+        },
+        {
+          "changed_identity": "mcp/test_session_repairs.mjs",
+          "exit_code": 1
+        }
+      ],
+      "synthetic_records_are_admission_controls_only": true
+    },
+    "scheduling_model": {
+      "workers_per_shard": 4,
+      "shards": 8,
+      "cost_estimator": "Unchanged leaves use max of three hosted observations. Library24-part costs sum per-ID max across three complete216-ID runs plus max3.502s process overhead. New session groups use max(local wall, sum per-case maxima across local+completed hosted cases plus5s process allowance); failed120.2s legacy file remains censored. Expanded runner-control body uses its actual local14.948s measurement instead of only older hosted timings.",
+      "pool_model_max_seconds": 436.0,
+      "per_shard": [
+        {
+          "shard": 1,
+          "pool_model_seconds": 436.0,
+          "third_hosted_non_regression_seconds": 82.0,
+          "pool_plus_same_shard_observed_overhead_seconds": 518.0
+        },
+        {
+          "shard": 2,
+          "pool_model_seconds": 391.596,
+          "third_hosted_non_regression_seconds": 90.0,
+          "pool_plus_same_shard_observed_overhead_seconds": 481.596
+        },
+        {
+          "shard": 3,
+          "pool_model_seconds": 371.541,
+          "third_hosted_non_regression_seconds": 155.0,
+          "pool_plus_same_shard_observed_overhead_seconds": 526.541
+        },
+        {
+          "shard": 4,
+          "pool_model_seconds": 371.6,
+          "third_hosted_non_regression_seconds": 72.0,
+          "pool_plus_same_shard_observed_overhead_seconds": 443.6
+        },
+        {
+          "shard": 5,
+          "pool_model_seconds": 371.776,
+          "third_hosted_non_regression_seconds": 99.0,
+          "pool_plus_same_shard_observed_overhead_seconds": 470.776
+        },
+        {
+          "shard": 6,
+          "pool_model_seconds": 371.596,
+          "third_hosted_non_regression_seconds": 75.0,
+          "pool_plus_same_shard_observed_overhead_seconds": 446.596
+        },
+        {
+          "shard": 7,
+          "pool_model_seconds": 371.617,
+          "third_hosted_non_regression_seconds": 81.0,
+          "pool_plus_same_shard_observed_overhead_seconds": 452.617
+        },
+        {
+          "shard": 8,
+          "pool_model_seconds": 371.538,
+          "third_hosted_non_regression_seconds": 80.0,
+          "pool_plus_same_shard_observed_overhead_seconds": 451.538
+        }
+      ],
+      "max_pool_plus_same_shard_observed_overhead_seconds": 526.541,
+      "separate_conservative_overhead_budget_seconds": 100,
+      "additional_once_only_gates_budget_shard3_seconds": 80,
+      "max_pool_plus_conservative_overhead_budget_seconds": 551.541,
+      "runner_queue_included_in_pool_or_overhead": false,
+      "notes": [
+        "Pool replay and setup budgets are estimates. New hosted execution must confirm runtime and current runner queues.",
+        "Third hosted non-regression includes setup, fixed gates, upload and post steps; it is not setup alone.",
+        "The third hosted verify failure was the original unpartitioned file hitting its existing120s cap, with43 completed tests; all48 cases have now actually passed across three unchanged-cap groups."
+      ],
+      "expanded_runner_control_weight_seconds": 14.948
+    },
+    "raw_provenance": {
+      "session-groups-actual-proof.json": "04588a01e31e009cc6f42ef598239c10b7d80cd83c2160659ca1e960eb5699f5",
+      "session-groups-source-invariants.json": "a33181c49fd9d8939e28ab53124bc377e37e20e0d9a260d846a86f25c3a9cd51",
+      "session-groups-hosted-case-costs.json": "8cd6bc6029c69c232d0d5d9efaf60d6bd9f2b9d60840b1a466ca9a8692c4a636",
+      "session-clean-fanin-proof.json": "3341b8a0da1cd70682d265c0c163fa3cc401e64fd3cfcc78845c936ba5379360",
+      "session-cost-replay.json": "a6b3292afe919597153c3e1c3131bc8f7e5e1e687c6fa58d48a66d187c50af42",
+      "library24-inventory-union-proof.json": "93f96df181270053756cbf24f702a4ef453876cfd8ff78c33580fc80dd1982dd",
+      "library24-clean-fanin-proof.json": "b1dab1d4d552e68341ad052dfc88403a40b8b57a582e739002510bbde94a88ac",
+      "library24-exact-cost-replay.json": "cb8f2265afde8c3922937251e08cca28a98caf0f5ebed613b8b024f505b37dbd",
+      "library-12-vs24-readonly-model.json": "d563e33e6f84fe7853e1bed16b5b86048e279936a9488e0a490a79e17ca272f7",
+      "runner-controls-expanded-timing.json": "2c6591d077999eab9b5c8a9e02ddb047b92ee2c0ae711417d3997446d29ed3fa",
+      "full217-pipe-output-proof.json": "72b3d1b64f8cac794d5969e81b7eb1e3c6832957e1802c1db2d1167f2437bfd3"
+    },
+    "remaining_blocker": "Fourth hosted CI proof, including the new24-way Library timing, setup and runner queues, has not run for this prepared change.",
+    "prepared_runner_sha256": "7de7ba225ad674c1edd7fb3e72e678991671af8521133e7bc20b872401621d35",
+    "prepared_cost_map_sha256": "54b998bbbd2b1f825deb0e8b0530cef4b3886cf803fcbe461bbb05f08a1b2770",
+    "library_partition_expansion": {
+      "partitions_before": 12,
+      "partitions_after": 24,
+      "same_inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+      "test_count": 216,
+      "tests_per_partition": 9,
+      "actual_helper_list_commands_passed": 24,
+      "all_ids_exactly_once": true,
+      "helper_and_library_test_sources_unchanged_from_HEAD": true,
+      "test_bodies_split": 0,
+      "additional_runners": 0,
+      "new_test_body_execution_claimed_for_24way": false,
+      "prior_actual_body_execution": {
+        "complete_tests_per_hosted_run": 216,
+        "runs": [43099681517, 43110418153, 43116866868],
+        "prior_partition_count": 12,
+        "original_inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008"
+      },
+      "largest_atomic_test_seconds": 351.775,
+      "former_observed_partition_floor_seconds": 480.5,
+      "new_estimated_partition_floor_seconds": 391.596,
+      "additional12_process_overhead_estimate_seconds": {
+        "median_observation": 25.908,
+        "maximum_observation": 42.024
+      },
+      "notes": [
+        "The same unchanged216 cases actually passed in each of three hosted12-part runs. The new24-way proof executes inventory selection only and checks complete/disjoint residue ownership; no heavy Library cases were rerun merely to prove arithmetic.",
+        "New per-command costs are estimates: sum each owned ID maximum across all3 hosted observations plus maximum measured3.502s non-test process/import/discovery overhead. Runner setup and queues are separate."
+      ]
+    },
+    "list_output_preservation": {
+      "fix": "Successful list modes return from the CommonJS module before any scheduling, allowing natural stdout drain. Output errors still fail.",
+      "actual_full_inventory_real_pipe_stdout_bytes": 68003,
+      "actual_full_inventory_leaves": 217,
+      "focused_controls": 8,
+      "covers": [
+        "complete JSON and text output over64KiB",
+        "one-tick deferred stdout writes",
+        "no leaf execution or result record from list mode",
+        "old immediate-exit mutations detected for both modes",
+        "asynchronous output errors exit nonzero"
+      ],
+      "independent_read_only_review_passed": true
+    }
+  },
+  "null_and_actual_shell": {
+    "status": "all local numeric, coverage and resource proofs pass; hosted qualification pending",
+    "sources_current_sha256": {
+      ".github/workflows/ci.yml": "2ba57141ecdae15afbd8e4fa63beea1cdd016e8bb774cf04b358d15bc03a1162",
+      "lyric-harness/quality/test_relations_null.py": "80ac4d21b9edb4738d4c44335e4db611b5ed503ba05fa24700aec442fc75dbd8",
+      "lyric-harness/quality/test_shard.py": "fc99ce795929d38b27bc2fd052c19dd577d209c93a03cd06d0cee961e3c0d80c"
+    },
+    "shell_tested_source_sha256": {
+      ".github/workflows/ci.yml": "2ba57141ecdae15afbd8e4fa63beea1cdd016e8bb774cf04b358d15bc03a1162",
+      "lyric-harness/quality/test_relations_null.py": "80ac4d21b9edb4738d4c44335e4db611b5ed503ba05fa24700aec442fc75dbd8",
+      "lyric-harness/quality/test_shard.py": "fc99ce795929d38b27bc2fd052c19dd577d209c93a03cd06d0cee961e3c0d80c"
+    },
+    "source_invariants": {
+      "original_check_assert_ASTs_retained": 99,
+      "current_check_assert_ASTs": 106,
+      "original_public_function_bodies_unchanged_except_extended_s17": [
+        "check",
+        "stream_of",
+        "s1_partition",
+        "s2_reader",
+        "s3_declarations",
+        "s4_prepare_per_replicate",
+        "s5_cleared",
+        "s6_false_clears",
+        "s7_unknown_step",
+        "s8_missing_corpus",
+        "s9_blockers",
+        "s10_missing_complete",
+        "s11_refused_replicates",
+        "s12_the_page_derivation_never_runs_on_a_token_join",
+        "s13_the_census_keeps_the_refusal_kind",
+        "s14_the_void_replicate_is_its_own_count",
+        "s15_blocker_kinds",
+        "s15_named_nulls_are_not_independent_evidence",
+        "s16_observation_is_shared_but_every_null_is_measured",
+        "main"
+      ],
+      "original_fixture_AST_unchanged": true,
+      "original_section_inventory_AST_unchanged": true,
+      "production_files_byte_identical_to_HEAD": {
+        "relations.py": "cd2d92b9ac66bf575e8d6f65bdcb3c1c74fe8fa4a51429223be096c446fed89c",
+        "relations_null.py": "eb3151d83628373b421c947910d2b4c1b208eefaade8b9591db226795dcf8d96"
+      },
+      "helper_source_sha256": "80ac4d21b9edb4738d4c44335e4db611b5ed503ba05fa24700aec442fc75dbd8"
+    },
+    "full_experiment": {
+      "corpus_lines": 40,
+      "schemas": 80,
+      "nulls": 4,
+      "schema_null_census_cells": 320,
+      "replicates": 1,
+      "seed": 20260811,
+      "result_or_refusal_rows": 284,
+      "per_slice_census_rows": 80,
+      "final_panel_census_rows": 80,
+      "complete_canonical_output_sha256": "75bb0563bf1643de892d2144aec05b09780d9b5c3c1e55765a134646f9c0cb7d",
+      "all_11_comparisons_exact": {
+        "schema_names": true,
+        "null_names": true,
+        "lines": true,
+        "stanzas": true,
+        "stanza_source": true,
+        "seed": true,
+        "replicates": true,
+        "results": true,
+        "census": true,
+        "panel_census": true,
+        "production_source_sha256": true
+      },
+      "census_only_excluded_field": "seconds; first actual coverage seconds retained unchanged in every reused null arm"
+    },
+    "reference": {
+      "seconds": 511.4526846690005,
+      "conditions": "unchanged production serial reference; shared container observation",
+      "original_realise_calls": 117,
+      "replicate_realise_calls": 148,
+      "records": "/tmp/ci-under-ten-evidence/panel-reuse/reference.json"
+    },
+    "optimized": {
+      "seconds": 155.3929246509997,
+      "conditions": "clean four-worker actual original s1 callback and aggregate assertions",
+      "original_realise_calls": 80,
+      "schemas_measured_once": 80,
+      "replicate_realise_calls": 148,
+      "live_schemas_each_measured_under_all_four_nulls": 37,
+      "worker_null_tasks": 16,
+      "maximum_retained_raw_schema_realisations": 1,
+      "raw_realisations_retained_or_transported": 0,
+      "maximum_exact_transport_payload_bytes": 12006,
+      "original_phase_receipts": [
+        {
+          "bytes": 12006,
+          "costs": {
+            "coverage": 2.9352959749958245,
+            "observation": 0.0017571509997651447
+          },
+          "peak_retained_schemas": 1,
+          "realised": {
+            "alliterative long line": 1,
+            "analysed rhyme": 1,
+            "consonance": 1,
+            "cynghanedd groes": 1,
+            "cynghanedd sain gadwynog": 1,
+            "dialect rhyme": 1,
+            "enjambed rhyme": 1,
+            "internal rhyme": 1,
+            "linked rhyme": 1,
+            "mosaic rhyme": 1,
+            "pantun ABAB": 1,
+            "paroemion": 1,
+            "proest": 1,
+            "qafiya (before the radif)": 1,
+            "reverse rhyme": 1,
+            "rime riche": 1,
+            "semirhyme": 1,
+            "syllabic rhyme": 1,
+            "transformative / bent rhyme": 1,
+            "trite rhyme": 1
+          },
+          "retained_realisations": 0,
+          "schemas": [
+            "rime riche",
+            "consonance",
+            "reverse rhyme",
+            "paroemion",
+            "semirhyme",
+            "syllabic rhyme",
+            "dialect rhyme",
+            "mosaic rhyme",
+            "enjambed rhyme",
+            "internal rhyme",
+            "linked rhyme",
+            "qafiya (before the radif)",
+            "analysed rhyme",
+            "alliterative long line",
+            "cynghanedd groes",
+            "cynghanedd sain gadwynog",
+            "proest",
+            "pantun ABAB",
+            "transformative / bent rhyme",
+            "trite rhyme"
+          ],
+          "seconds": 4.650190612999722,
+          "slice": "eng"
+        },
+        {
+          "bytes": 11413,
+          "costs": {
+            "coverage": 5.75882010800342,
+            "observation": 0.001608978001968353
+          },
+          "peak_retained_schemas": 1,
+          "realised": {
+            "Kalevala alliteration (weak)": 1,
+            "Middle Chinese end rhyme (\u540c\u7528 group)": 1,
+            "ablaut reduplication": 1,
+            "additive rhyme": 1,
+            "anadiplosis": 1,
+            "anaphora": 1,
+            "antanaclasis": 1,
+            "chain rhyme (interlocking scheme)": 1,
+            "cross rhyme": 1,
+            "cynghanedd groes o gyswllt": 1,
+            "cynghanedd sain drosgl": 1,
+            "dvitiyakshara-prasa": 1,
+            "eye rhyme": 1,
+            "holorhyme": 1,
+            "internal consonance": 1,
+            "light rhyme": 1,
+            "offbeat internal rhyme": 1,
+            "parechesis / general consonance": 1,
+            "polyptoton": 1,
+            "refrain by reference": 1
+          },
+          "retained_realisations": 0,
+          "schemas": [
+            "antanaclasis",
+            "parechesis / general consonance",
+            "Kalevala alliteration (weak)",
+            "additive rhyme",
+            "light rhyme",
+            "eye rhyme",
+            "polyptoton",
+            "holorhyme",
+            "ablaut reduplication",
+            "cross rhyme",
+            "anaphora",
+            "anadiplosis",
+            "chain rhyme (interlocking scheme)",
+            "dvitiyakshara-prasa",
+            "cynghanedd groes o gyswllt",
+            "cynghanedd sain drosgl",
+            "Middle Chinese end rhyme (\u540c\u7528 group)",
+            "offbeat internal rhyme",
+            "refrain by reference",
+            "internal consonance"
+          ],
+          "seconds": 8.63825030499902,
+          "slice": "eng"
+        },
+        {
+          "bytes": 11232,
+          "costs": {
+            "coverage": 6.07483780000257,
+            "observation": 0.0019531679990905104
+          },
+          "peak_retained_schemas": 1,
+          "realised": {
+            "Scots vowel-length rhyme (Aitken's Law)": 1,
+            "alliteration": 1,
+            "amphisbaenic rhyme": 1,
+            "apocopated rhyme": 1,
+            "blues AAB stanza": 1,
+            "cluster consonance / skothending span": 1,
+            "compound / phrasal rhyme": 1,
+            "cynghanedd draws": 1,
+            "cynghanedd sain lafarog": 1,
+            "family rhyme": 1,
+            "fourth lift must not alliterate": 1,
+            "head rhyme (positional)": 1,
+            "homoioteleuton": 1,
+            "internal assonance": 1,
+            "leonine rhyme": 1,
+            "monorhyme / leash": 1,
+            "repetition": 1,
+            "rhyming reduplication": 1,
+            "sung-delivery rhyme": 1,
+            "symploce": 1
+          },
+          "retained_realisations": 0,
+          "schemas": [
+            "repetition",
+            "cluster consonance / skothending span",
+            "alliteration",
+            "family rhyme",
+            "apocopated rhyme",
+            "amphisbaenic rhyme",
+            "homoioteleuton",
+            "compound / phrasal rhyme",
+            "rhyming reduplication",
+            "leonine rhyme",
+            "head rhyme (positional)",
+            "symploce",
+            "monorhyme / leash",
+            "fourth lift must not alliterate",
+            "cynghanedd draws",
+            "cynghanedd sain lafarog",
+            "Scots vowel-length rhyme (Aitken's Law)",
+            "blues AAB stanza",
+            "sung-delivery rhyme",
+            "internal assonance"
+          ],
+          "seconds": 8.994194596998568,
+          "slice": "eng"
+        },
+        {
+          "bytes": 11785,
+          "costs": {
+            "coverage": 62.784381320996545,
+            "observation": 0.008485312000630074
+          },
+          "peak_retained_schemas": 1,
+          "realised": {
+            "Kalevala alliteration (strong)": 1,
+            "assonance": 1,
+            "broken rhyme": 1,
+            "chain rhyme (rap)": 1,
+            "cynghanedd lusg": 1,
+            "cynghanedd sain": 1,
+            "epanalepsis": 1,
+            "epistrophe / radif": 1,
+            "exact reduplication": 1,
+            "historical rhyme": 1,
+            "incremental repetition": 1,
+            "interlaced rhyme": 1,
+            "monai": 1,
+            "multisyllabic rhyme": 1,
+            "pararhyme": 1,
+            "perfect rhyme": 1,
+            "rhyming slang": 1,
+            "subtractive rhyme": 1,
+            "wrenched rhyme": 1,
+            "\u5e73\u4ec4 tonal template": 1
+          },
+          "retained_realisations": 0,
+          "schemas": [
+            "perfect rhyme",
+            "assonance",
+            "pararhyme",
+            "Kalevala alliteration (strong)",
+            "subtractive rhyme",
+            "wrenched rhyme",
+            "historical rhyme",
+            "multisyllabic rhyme",
+            "broken rhyme",
+            "exact reduplication",
+            "interlaced rhyme",
+            "epistrophe / radif",
+            "epanalepsis",
+            "chain rhyme (rap)",
+            "monai",
+            "cynghanedd sain",
+            "cynghanedd lusg",
+            "\u5e73\u4ec4 tonal template",
+            "rhyming slang",
+            "incremental repetition"
+          ],
+          "seconds": 64.45871118499963,
+          "slice": "eng"
+        }
+      ],
+      "resource": {
+        "self_cpu_seconds": 0.30407399999999996,
+        "children_cpu_seconds": 464.90519,
+        "largest_child_peak_rss_kib": 234408
+      },
+      "aggregate_checks": {
+        "passed": [
+          "\u00a71 every declared schema gets exactly one row (empty panel)",
+          "\u00a71 every verdict is one of PANEL_VERDICTS",
+          "\u00a71 a schema no slice could ask still carries a REASON",
+          "parallel panel schema groups cover the registry exactly once",
+          "parallel panel eng: returned every schema exactly once",
+          "\u00a71 one real slice: still one row per schema",
+          "\u00a71 one real slice: the eng cell produces live rows"
+        ],
+        "failed": []
+      },
+      "records": "/tmp/ci-under-ten-evidence/panel-reuse/optimized.json",
+      "log": "/tmp/ci-under-ten-evidence/panel-reuse/optimized.log"
+    },
+    "focused_equivalence_and_failure_controls": {
+      "seconds": 9.613,
+      "cpu_affinity": [0],
+      "passed": 21,
+      "failed": [],
+      "exit_code": 0,
+      "helper_source_sha256": "80ac4d21b9edb4738d4c44335e4db611b5ed503ba05fa24700aec442fc75dbd8"
+    },
+    "shell_controls": {
+      "exit_code": 0,
+      "final_yaml_actual_shell_coordinate_controls_plus_external_mutation_seconds": 19.951,
+      "scope": "final-YAML actual shell and coordinate controls plus external admission mutation",
+      "final_yaml_control_log": "/tmp/ci-under-ten-evidence/panel-reuse/full-test-shard.log",
+      "earlier_full_13_registered_sections_plus_external_mutation_seconds": 32.326,
+      "earlier_full_13_registered_sections_log": "/tmp/ci-under-ten-evidence/panel-reuse/pre-final-list-full-test-shard.log",
+      "prior_shared_container_full_registered_module_seconds": 40.452,
+      "cost_model_note": "Final-YAML relevant shell and coordinate controls pass. Earlier full13section observations were40.452s shared-container, and\u226432.326s after delayedQueue controls (the32.326s total also includes an external negative mutation). Read-only scheduling model uses61s conservative budget.",
+      "runtime_states": [
+        {
+          "case": "delayed Queue after three ordinary modules",
+          "mode": "bash",
+          "calls": 119,
+          "peak_cpu_units": 4,
+          "foreground_four_worker_suites_exclusive": true,
+          "queue_workers": 2,
+          "ordinary_jobs_live_at_queue_start": 2,
+          "all_children_finished": true,
+          "raw_state": "/tmp/ci-under-ten-evidence/panel-reuse/final-list-scheduler-state/m244-pool-pzw4gum4/delayed-0.json"
+        },
+        {
+          "case": "delayed Queue after three ordinary modules",
+          "mode": "bash -o pipefail",
+          "calls": 119,
+          "peak_cpu_units": 4,
+          "foreground_four_worker_suites_exclusive": true,
+          "queue_workers": 2,
+          "ordinary_jobs_live_at_queue_start": 2,
+          "all_children_finished": true,
+          "raw_state": "/tmp/ci-under-ten-evidence/panel-reuse/final-list-scheduler-state/m244-pool-pzw4gum4/delayed-1.json"
+        },
+        {
+          "case": "delayed Queue after three ordinary modules",
+          "mode": "bash -e -o pipefail",
+          "calls": 119,
+          "peak_cpu_units": 4,
+          "foreground_four_worker_suites_exclusive": true,
+          "queue_workers": 2,
+          "ordinary_jobs_live_at_queue_start": 2,
+          "all_children_finished": true,
+          "raw_state": "/tmp/ci-under-ten-evidence/panel-reuse/final-list-scheduler-state/m244-pool-pzw4gum4/delayed-2.json"
+        },
+        {
+          "case": "actual eight-shard Queue owner5",
+          "mode": "bash",
+          "calls": 21,
+          "peak_cpu_units": 4,
+          "foreground_four_worker_suites_exclusive": true,
+          "queue_workers": 2,
+          "ordinary_jobs_live_at_queue_start": 1,
+          "all_children_finished": true,
+          "raw_state": "/tmp/ci-under-ten-evidence/panel-reuse/final-list-scheduler-state/m244-pool-pzw4gum4/resource-0.json"
+        },
+        {
+          "case": "actual eight-shard Queue owner5",
+          "mode": "bash -o pipefail",
+          "calls": 21,
+          "peak_cpu_units": 4,
+          "foreground_four_worker_suites_exclusive": true,
+          "queue_workers": 2,
+          "ordinary_jobs_live_at_queue_start": 0,
+          "all_children_finished": true,
+          "raw_state": "/tmp/ci-under-ten-evidence/panel-reuse/final-list-scheduler-state/m244-pool-pzw4gum4/resource-1.json"
+        },
+        {
+          "case": "actual eight-shard Queue owner5",
+          "mode": "bash -e -o pipefail",
+          "calls": 21,
+          "peak_cpu_units": 4,
+          "foreground_four_worker_suites_exclusive": true,
+          "queue_workers": 2,
+          "ordinary_jobs_live_at_queue_start": 0,
+          "all_children_finished": true,
+          "raw_state": "/tmp/ci-under-ten-evidence/panel-reuse/final-list-scheduler-state/m244-pool-pzw4gum4/resource-2.json"
+        }
+      ],
+      "negative_admission_mutation": {
+        "only_incoming_queue_reservation_removed_in_scratch_script": true,
+        "exit_code": 0,
+        "observed_peak": 5,
+        "registered_control_would_reject": true,
+        "state": "/tmp/ci-under-ten-evidence/panel-reuse/delayed-admission-mutant.json"
+      },
+      "raw_states": "/tmp/ci-under-ten-evidence/panel-reuse/scheduler-resource.json"
+    },
+    "remaining_blocker": "Hosted complete-job timing and mandatory hosted gates for the final candidate; no local correctness blocker.",
+    "final_named_inventory": {
+      "names": 119,
+      "unique": 119,
+      "unchanged_from_HEAD_inventory": true,
+      "list_sha256_newline_terminated_names": "400734adf136d38fa99a09beec0a7c379ff808da987a49781d3ef6e81d4cfc3b",
+      "queue_owner": 5,
+      "row1_coordinates": {
+        "relations_null": "1/8",
+        "g2p": "4/8",
+        "spans": "8/8",
+        "readability": "1/8",
+        "reader": "7/8",
+        "screen": "1/8"
+      },
+      "ordinary_owners": [13, 14, 15, 15, 15, 14, 14, 13],
+      "matrix_total_module_calls": 161
+    }
+  },
+  "coverage_queue": {
+    "passed": true,
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "source_sha256": "7a7ef5f80b90f46fb1df68f094142f53a466bd28f8ec5d9045d2edef5000bd7c",
+    "head": "1b2fdc0cd70b167ee398034eb325bda619a06a25",
+    "serial": {
+      "mode": "serial",
+      "exit_code": 0,
+      "wall_seconds": 276.1225566390003,
+      "peak": {
+        "processes": 1,
+        "busy_processes_over_10pct": 1,
+        "cpu_percent": 118.53151444392347,
+        "rss_kib": 447320
+      },
+      "queue_seconds": 145.72552369099867,
+      "census_seconds": 123.99867505799921,
+      "queue_result": {
+        "bytes": 1562396,
+        "file": "queue-148447-1.json",
+        "sha256": "834f2cedfe5c3ccdbb4e94089012e5cc447e844c349cc3d6f6fd21f274197af2"
+      },
+      "census_result": {
+        "bytes": 914,
+        "file": "census-148447-1.json",
+        "sha256": "ec2a44e61d82184935a3dbfb4ed2e928579332987dbbe9c3a9e11198db134354"
+      },
+      "dev_items": 6982,
+      "full_population_items": 8701,
+      "dev_files": 1184,
+      "both_queue_units_enumerations_exact": true,
+      "queue_full_dev_item_multiset_exact": true,
+      "queue_population_guard_exact": true,
+      "census_full_keep_paths_and_files_exact": true,
+      "runtime_writes_outside_proof_directory": [
+        {
+          "event": "open",
+          "flags": 655554,
+          "mode": null,
+          "path": "/tmp/iro4mk87"
+        },
+        {
+          "args": ["/tmp/iro4mk87", "-1"],
+          "event": "os.remove"
+        },
+        {
+          "args": ["/tmp/tmpj10t80i_", "448", "-1"],
+          "event": "os.mkdir"
+        },
+        {
+          "event": "open",
+          "flags": 524865,
+          "mode": "w",
+          "path": "/tmp/tmpj10t80i_/attested.txt"
+        },
+        {
+          "event": "open",
+          "flags": 524865,
+          "mode": "w",
+          "path": "/tmp/tmpj10t80i_/attested.txt"
+        }
+      ],
+      "no_runtime_repository_or_data_writes": true,
+      "source_and_all_population_split_lexical_input_hashes_unchanged": true,
+      "queue_pid": 148447,
+      "census_pid": 148447
+    },
+    "parallel": {
+      "mode": "parallel",
+      "exit_code": 0,
+      "wall_seconds": 207.64289365399964,
+      "peak": {
+        "processes": 4,
+        "busy_processes_over_10pct": 2,
+        "cpu_percent": 207.1210491104775,
+        "rss_kib": 954876
+      },
+      "queue_seconds": 148.4340781969986,
+      "census_seconds": 196.96770577699863,
+      "queue_result": {
+        "bytes": 1562396,
+        "file": "queue-153693-1.json",
+        "sha256": "834f2cedfe5c3ccdbb4e94089012e5cc447e844c349cc3d6f6fd21f274197af2"
+      },
+      "census_result": {
+        "bytes": 914,
+        "file": "census-153698-1.json",
+        "sha256": "ec2a44e61d82184935a3dbfb4ed2e928579332987dbbe9c3a9e11198db134354"
+      },
+      "dev_items": 6982,
+      "full_population_items": 8701,
+      "dev_files": 1184,
+      "both_queue_units_enumerations_exact": true,
+      "queue_full_dev_item_multiset_exact": true,
+      "queue_population_guard_exact": true,
+      "census_full_keep_paths_and_files_exact": true,
+      "runtime_writes_outside_proof_directory": [
+        {
+          "event": "open",
+          "flags": 524865,
+          "mode": "w",
+          "path": "13"
+        },
+        {
+          "event": "open",
+          "flags": 524865,
+          "mode": "w",
+          "path": "15"
+        },
+        {
+          "event": "open",
+          "flags": 655554,
+          "mode": null,
+          "path": "/tmp/b1fpdpm1"
+        },
+        {
+          "args": ["/tmp/b1fpdpm1", "-1"],
+          "event": "os.remove"
+        },
+        {
+          "args": ["/tmp/tmpdok41gv2", "448", "-1"],
+          "event": "os.mkdir"
+        },
+        {
+          "event": "open",
+          "flags": 524865,
+          "mode": "w",
+          "path": "/tmp/tmpdok41gv2/attested.txt"
+        },
+        {
+          "event": "open",
+          "flags": 524865,
+          "mode": "w",
+          "path": "/tmp/tmpdok41gv2/attested.txt"
+        }
+      ],
+      "no_runtime_repository_or_data_writes": true,
+      "source_and_all_population_split_lexical_input_hashes_unchanged": true,
+      "queue_pid": 153693,
+      "census_pid": 153698
+    },
+    "whole_queue_outputs_identical": true,
+    "whole_census_outputs_identical": true,
+    "complete_module_stdout_identical": true,
+    "all_original_seven_tests_passed_in_both_modes": true,
+    "real_spawned_worker_failure_propagates_nonzero_before_any_scan": true,
+    "note": "Observation-only wrappers record complete calls/outputs without subsetting or substituting results. Census worker guard happens before its timed census wrapper; its source call is bound by source_sha256. CPU samples include parent and resource tracker; only the two scan workers perform sustained parallel computation.",
+    "complete_input_inventory": {
+      "files": 1347,
+      "portable_sorted_json_sha256": "91ee24c51866df24f272952b0138486e0460e3df5b6bf82522569313f49f72fc",
+      "source_report_sha256": "832ca9b94ab14e8b2e03e15903df42e5750d55f49d15fa78d8700257e532a004",
+      "scope": "Every frozen song-population file plus split, CMU dictionary and subtitle lexical input; full mapping retained in the raw report."
+    }
+  },
+  "coverage_queue_independent_source_review": {
+    "public_function_inventory_unchanged": true,
+    "all_original_check_call_asts_unchanged": true,
+    "guard_test_body_unchanged": true,
+    "main_call_order_and_failure_gate_unchanged": true,
+    "production_queue_source_unchanged": true,
+    "original_public_functions": [
+      "check",
+      "test_attested_restriction",
+      "test_classes",
+      "test_dev_only",
+      "test_guard",
+      "test_identity",
+      "test_joint_sets",
+      "test_unreachable_blocker"
+    ],
+    "original_assertion_calls": 12,
+    "helper_only_new_private_functions": ["_dev_scan", "_parallel_dev_scans"]
+  },
+  "actual_source_suites_model": {
+    "actual_yaml_sha256": "2ba57141ecdae15afbd8e4fa63beea1cdd016e8bb774cf04b358d15bc03a1162",
+    "actual_named_list_sha256": "400734adf136d38fa99a09beec0a7c379ff808da987a49781d3ef6e81d4cfc3b",
+    "actual_Bash_inventory_proof": "fourth-suite-final-yaml-proof.json",
+    "proposal": "fourth-suite-final-proposal.json",
+    "actual_source_order_engine_sha256": "3a3373c6cfbd11fb9dc4e11c41cf4cba24d3a01f83ebf156c438b5700889abb9",
+    "actual_ordinary_owner_map": {
+      "reader_quotes": 1,
+      "floor_window": 1,
+      "nucleus": 1,
+      "comparator_pin": 1,
+      "pin_sweep": 1,
+      "corpus_taxonomy": 1,
+      "stub_resolution": 1,
+      "brief_provenance": 1,
+      "controls": 1,
+      "e5_coda_adoption": 1,
+      "english_text": 1,
+      "phon_fas": 1,
+      "phon_non": 1,
+      "lexicon_supplement": 2,
+      "null_shapes": 2,
+      "relation_index": 2,
+      "recover": 2,
+      "shard": 2,
+      "meter_strict": 2,
+      "production_journal": 2,
+      "within_item": 2,
+      "tempo": 2,
+      "meter": 2,
+      "positive_control": 2,
+      "band": 2,
+      "connection_schemas": 2,
+      "mandate_language": 2,
+      "backlog_status": 3,
+      "replay_memo": 3,
+      "mut_oracle": 3,
+      "narrative": 3,
+      "homeoteleuton": 3,
+      "song_function": 3,
+      "mosaic_rhyme": 3,
+      "source_identity": 3,
+      "sound_inventory": 3,
+      "declared_inputs": 3,
+      "figure_exhibits": 3,
+      "moby_convert": 3,
+      "rhyme_organization": 3,
+      "render_form": 3,
+      "matrix": 3,
+      "battery_rounds": 4,
+      "coverage_split": 4,
+      "production_revision": 4,
+      "mandate_relation": 4,
+      "audit_regressions": 4,
+      "schema_instance_evidence": 4,
+      "provenance": 4,
+      "align": 4,
+      "sequence_unread": 4,
+      "slots": 4,
+      "fit": 4,
+      "computational_audit": 4,
+      "phonology": 4,
+      "coda": 4,
+      "candidate_pair_projection": 4,
+      "coverage_queue": 5,
+      "structure_census": 5,
+      "capacity_receipt": 5,
+      "p2_full_floor": 5,
+      "placement": 5,
+      "schema_report": 5,
+      "door_census": 5,
+      "sentencehood": 5,
+      "taxonomy": 5,
+      "time_layer": 5,
+      "mut_band": 5,
+      "phon_msa": 5,
+      "pilot_frame": 5,
+      "type_canon": 5,
+      "verify_figures": 5,
+      "grid": 6,
+      "field_store": 6,
+      "writing_rhyme_bans": 6,
+      "meter_digit_bound": 6,
+      "cross_song": 6,
+      "capabilities": 6,
+      "melody": 6,
+      "nc_census": 6,
+      "cym": 6,
+      "function_disclosure": 6,
+      "data_row_claims": 6,
+      "phon_san": 6,
+      "register_audit": 6,
+      "relation_shapes": 6,
+      "gate_census": 7,
+      "bias_census": 7,
+      "fwer": 7,
+      "corpus_audit": 7,
+      "msa_fin": 7,
+      "relations": 7,
+      "meter_bands": 7,
+      "chance_rate": 7,
+      "production_harness": 7,
+      "suite_sweep": 7,
+      "interlocking_chain": 7,
+      "meter_honesty": 7,
+      "section_marks": 7,
+      "staging": 7,
+      "homograph": 8,
+      "high_report": 8,
+      "floor": 8,
+      "readings_seam": 8,
+      "propose": 8,
+      "production_data": 8,
+      "production_relations": 8,
+      "crosslinguistic": 8,
+      "phrase_commonplace": 8,
+      "structures": 8,
+      "ltc": 8,
+      "verify_entries": 8,
+      "expected_drift": 8
+    },
+    "actual_six_logical_offsets_from_executed_Bash": {
+      "relations_null": 0,
+      "g2p": 3,
+      "spans": 7,
+      "readability": 0,
+      "reader": 6,
+      "screen": 0
+    },
+    "actual_six_coordinate_maps_by_runner": {
+      "1": {
+        "relations_null": 1,
+        "g2p": 4,
+        "spans": 8,
+        "readability": 1,
+        "reader": 7,
+        "screen": 1
+      },
+      "2": {
+        "relations_null": 2,
+        "g2p": 5,
+        "spans": 1,
+        "readability": 2,
+        "reader": 8,
+        "screen": 2
+      },
+      "3": {
+        "relations_null": 3,
+        "g2p": 6,
+        "spans": 2,
+        "readability": 3,
+        "reader": 1,
+        "screen": 3
+      },
+      "4": {
+        "relations_null": 4,
+        "g2p": 7,
+        "spans": 3,
+        "readability": 4,
+        "reader": 2,
+        "screen": 4
+      },
+      "5": {
+        "relations_null": 5,
+        "g2p": 8,
+        "spans": 4,
+        "readability": 5,
+        "reader": 3,
+        "screen": 5
+      },
+      "6": {
+        "relations_null": 6,
+        "g2p": 1,
+        "spans": 5,
+        "readability": 6,
+        "reader": 4,
+        "screen": 6
+      },
+      "7": {
+        "relations_null": 7,
+        "g2p": 2,
+        "spans": 6,
+        "readability": 7,
+        "reader": 5,
+        "screen": 7
+      },
+      "8": {
+        "relations_null": 8,
+        "g2p": 3,
+        "spans": 7,
+        "readability": 8,
+        "reader": 6,
+        "screen": 8
+      }
+    },
+    "actual_queue_owner": 5,
+    "unique_modules": 119,
+    "ordinary_exact_once": 113,
+    "full_8way_observations": 161,
+    "all_six_bijections_pass": true,
+    "default119_and_native3_fallbacks_pass": true,
+    "existing_failure_gate_and_other_selected_work_preserved": true,
+    "Screen_only_private_cache_pass": true,
+    "incoming_and_live_Queue_admission_limit3_source_checks": true,
+    "Queue_two_workers_source_check": true,
+    "all_actual_source_order_model_scenarios_equal_proposal": true,
+    "all_background_interval_capacity_traces_max4": true,
+    "setup_post_margin_seconds": 60,
+    "observed_third_max_setup_post_seconds": 54,
+    "scenarios": [
+      {
+        "label": "actual-local-new-mode-costs",
+        "pool_seconds": [246.3929246509997, 491, 491, 491, 387, 491, 491, 492],
+        "max_including60_setup_seconds": 552
+      },
+      {
+        "label": "phase-based-primary-projections",
+        "pool_seconds": [441, 491, 491, 491, 472.005683836387, 491, 491, 492],
+        "max_including60_setup_seconds": 552
+      },
+      {
+        "label": "queue400-sensitivity",
+        "pool_seconds": [441, 491, 491, 491, 486, 491, 491, 492],
+        "max_including60_setup_seconds": 552
+      },
+      {
+        "label": "both400-sensitivity",
+        "pool_seconds": [491, 491, 491, 491, 486, 491, 491, 492],
+        "max_including60_setup_seconds": 552
+      },
+      {
+        "label": "queue425-sensitivity",
+        "pool_seconds": [441, 491, 491, 491, 491, 491, 491, 492],
+        "max_including60_setup_seconds": 552
+      },
+      {
+        "label": "both425-stress",
+        "pool_seconds": [516, 491, 491, 491, 491, 491, 491, 492],
+        "max_including60_setup_seconds": 576
+      }
+    ],
+    "source_files_sha256": {
+      "lyric-harness/quality/test_coverage_queue.py": "7a7ef5f80b90f46fb1df68f094142f53a466bd28f8ec5d9045d2edef5000bd7c",
+      "lyric-harness/quality/test_relations_null.py": "80ac4d21b9edb4738d4c44335e4db611b5ed503ba05fa24700aec442fc75dbd8",
+      "lyric-harness/quality/test_shard.py": "fc99ce795929d38b27bc2fd052c19dd577d209c93a03cd06d0cee961e3c0d80c"
+    },
+    "limitations": "Actual Bash validates owners, coordinates, complete inventory and failure behavior with inert children. Timings are frozen-cost source-order projections, not fourth hosted durations; fresh hosted qualification remains necessary. Runner admission queues are separate.",
+    "final_registered_actual_shell_controls": {
+      "proof": "panel-reuse/final-proof.json",
+      "seconds": 19.951,
+      "passed": true,
+      "six_runtime_capacity_traces_peak4": true,
+      "incoming_guard_removed_negative_peak5": true
+    }
+  },
+  "protected_workflow_review": {
+    "review": "final read-only source review",
+    "head": "1b2fdc0cd70b167ee398034eb325bda619a06a25",
+    "workflow_sha256": "2ba57141ecdae15afbd8e4fa63beea1cdd016e8bb774cf04b358d15bc03a1162",
+    "all_non_suites_jobs_unchanged": {
+      "dup": true,
+      "gate": true,
+      "capacity-proof": true,
+      "capacity-proof-result": true,
+      "lyrics-image": true,
+      "verify-shard": true,
+      "verify": true,
+      "freshness-build": true,
+      "faults": true,
+      "freshness": true,
+      "catalog": true,
+      "catalog-result": true,
+      "tandem": true,
+      "record": true,
+      "suites-evidence": true,
+      "suites-result": true,
+      "plan": true,
+      "plan-result": true,
+      "capacity": true,
+      "capacity-result": true,
+      "revision-loop": true,
+      "revision-loop-result": true,
+      "verbs": true,
+      "verbs-result": true,
+      "mutation": true,
+      "nightly": true,
+      "nightly-calibration": true
+    },
+    "top_level_unchanged": {
+      "name": true,
+      "permissions": true,
+      "on": true,
+      "concurrency": true
+    },
+    "inventory_count": 119,
+    "distinct_inventory_count": 119,
+    "same_119_module_multiset": true,
+    "expected_observations_across_eight": 161,
+    "six_repeated_modules": ["relations_null", "g2p", "spans", "readability", "reader", "screen"],
+    "ordinary_counts_per_runner": {
+      "1": 13,
+      "2": 14,
+      "3": 15,
+      "4": 15,
+      "5": 15,
+      "6": 14,
+      "7": 14,
+      "8": 13
+    },
+    "coverage_queue_owner": 5,
+    "queue_first_background_on_owner": true,
+    "named_list_matches_proposal": true,
+    "plan_named_list_sha256": "400734adf136d38fa99a09beec0a7c379ff808da987a49781d3ef6e81d4cfc3b",
+    "computed_named_list_sha256": "400734adf136d38fa99a09beec0a7c379ff808da987a49781d3ef6e81d4cfc3b",
+    "plan_applied_yaml_sha256": "2ba57141ecdae15afbd8e4fa63beea1cdd016e8bb774cf04b358d15bc03a1162",
+    "plan_queue_owner": 5,
+    "plan_giant_offsets": {
+      "relations_null": 0,
+      "g2p": 3,
+      "spans": 7,
+      "readability": 0,
+      "reader": 6,
+      "screen": 0
+    },
+    "source_has_incoming_queue_reservation": true,
+    "source_captures_full_pipeline_status": true,
+    "named_list_hash_serialization": "newline-delimited module names with final newline",
+    "named_list_hash_matches_proposal": true
+  },
+  "repository_validation": {
+    "root_lint_passed": true,
+    "changed_runner_controls_lint_and_format_passed": true,
+    "workflow_contracts_passed": true,
+    "canonical_map_check_passed": true,
+    "documented_commands_passed": 14,
+    "documented_behaviors_passed": 17,
+    "counter_check_before_regeneration": {
+      "exit_code": 1,
+      "findings": 1,
+      "only_expected_reference_bucket_migration": true
+    },
+    "canonical_counter_write": {
+      "exit_code": 0,
+      "rows_measured": 14,
+      "only_changed_row": "public symbols by where they are referenced",
+      "public_total_unchanged": 1724,
+      "tests_only": [503, 504],
+      "own_module_only": [639, 638],
+      "backlog_sha256": "2c566b33b369e02b83f0dde49049e6ce2cd92b1ef6ce837a3ee7f585123c436d"
+    },
+    "mandatory_hosted_counter_check_still_required": true
+  },
+  "raw_evidence_sha256": {
+    "session-fourth-local-proof.json": "2cacfe6fafe8727bcb9a532aedc70466037fb59b18249d371aae89f1e850493b",
+    "panel-reuse/final-proof.json": "2d86d1523d057a3e98836fb09f9d61fec16fbaab17aa11a822e5e23023a08c00",
+    "coverage-queue-parallel/full-equivalence-proof.json": "832ca9b94ab14e8b2e03e15903df42e5750d55f49d15fa78d8700257e532a004",
+    "fourth-suite-final-source-model-proof.json": "59820514bac6783ee95a3fc27a350aa0b04c786bd00792df6a76ba162b595630",
+    "fourth-final-shared-gates-review.json": "cf3aa07462b7b31005344d6b08ab6dc12da46dfbe327addfd04802d77eb513fe",
+    "fourth-queue-independent-ast-review.json": "b5004175ed548b6edf30797c8cf4894e5adb253686b1cfc8dce70511a27e53ce",
+    "full217-pipe-output-proof.json": "72b3d1b64f8cac794d5969e81b7eb1e3c6832957e1802c1db2d1167f2437bfd3",
+    "fourth-counters-check.log": "96df1406c4b15d909e27249947c07df7ee699e32834db6f75e32f07a4d8b4eeb",
+    "fourth-counters-write.log": "7126c3dc8fed2c5a2790aa03a79bcdfa1161a3631a470ce22eeefaaa5f300835",
+    "fourth-map-check.log": "cfc0b70e5de3e35fd905cc2b00d1424ae48b8250698ab3c7a3fa92e2a5e27773",
+    "fourth-docs-check.log": "5044b3552211bb715aaff35e3d2efa6b230bbc2b0b884e2c06c5fc12986a0b48",
+    "fourth-final-workflow-contracts.log": "21e26fc7b91774bbee7e9b26fa8dbd23f607ab34d7eb2c39ca8d0875b749eff3"
+  },
+  "limitations": [
+    "Local timings use Debian13/Node24/Python3.12; hosted qualification uses pinned Node22/Python3.11.16.",
+    "Null reference used one CPU/shared container; optimized path used four CPUs. Its reference timing is not a controlled speedup comparison.",
+    "Queue serial and parallel timings are shared-container observations with different process-local caches.",
+    "Library24 costs are per-test projections; exact ownership is proved locally and the new hosted run must execute all216 cases.",
+    "Synthetic receipts test admission/failure behavior and do not replace hosted execution.",
+    "Suite/verify replays and overhead margins are scheduling projections, not measured hosted passes or bounds.",
+    "Runner queues and shared-build dependency waits remain separate from whole-job execution."
+  ],
+  "remaining_blocker": "Fresh hosted run must execute all23 targets under600seconds and pass all12 required gates."
+}

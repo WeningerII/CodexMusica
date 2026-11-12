@@ -6,7 +6,7 @@
 // runTurn -> MCP -> the Python kitchen, with a scripted outer model that keeps
 // calling lyric_check. Nothing leaves 127.0.0.1.
 import assert from 'node:assert/strict';
-import { after, before, test } from 'node:test';
+import { after, before, test as nativeTest } from 'node:test';
 import { once } from 'node:events';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -19,6 +19,9 @@ import { createChatRouter, CHAT_LIMITS } from './chat.js';
 import { LIMITS } from './gemini_agent.js';
 import { buildServer } from './tools.js';
 import { _workerInternals } from './lyric_tools.js';
+import groupRegistry from '../scripts/ci_node_test_groups.js';
+const groupedTests = groupRegistry.createRegistrar(nativeTest, 'mcp/test_review_mandate.mjs');
+const test = groupedTests.test;
 
 // The Lyrics page's own code (src/pages/lyrics.js in check_lyrics_page.js's
 // unit context), so the /chat body this suite receives is read exactly as the
@@ -284,3 +287,5 @@ test('a review declaring a scheme and groups together answers one check and ends
   assert.match(mandate.reason, /scheme and rhyme groups/);
   assert.match(body.reply, /both a rhyme scheme and rhyme groups/);
 });
+
+groupedTests.complete();

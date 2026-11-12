@@ -3549,4 +3549,9 @@ class MirrorFixture(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    coordinate = os.environ.get("TEST_READER_SHARD", "").strip()
+    if coordinate:
+        sys.path.insert(0, str(ROOT.parent))
+        from scripts.run_unittest import main
+        sys.exit(main(["--module=quality.test_reader", "--shard=" + coordinate]))
     unittest.main()

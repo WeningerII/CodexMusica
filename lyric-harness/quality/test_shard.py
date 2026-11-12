@@ -128,7 +128,7 @@ def test_every_dealt_suite_calls_the_one_idiom():
     import re
     ci = open(os.path.join(HERE, "..", "..", ".github", "workflows",
                            "ci.yml"), encoding="utf-8").read()
-    dealt = sorted(set(re.findall(r"TEST_([A-Z_]+)_SHARD:", ci)))
+    dealt = sorted(set(re.findall(r"TEST_([A-Z_]+)_SHARD(?::|=)", ci)) - {"READER"})
     check("ci.yml deals at least the five suites this entry moved",
           {"VERBS", "PLAN", "REVISE", "LOOP", "CAPACITY"} <= set(dealt),
           str(dealt))
@@ -213,7 +213,7 @@ def test_no_section_reads_what_another_section_wrote():
 
     ci = open(os.path.join(HERE, "..", "..", ".github", "workflows",
                            "ci.yml"), encoding="utf-8").read()
-    dealt = sorted(set(re.findall(r"TEST_([A-Z_]+)_SHARD:", ci)))
+    dealt = sorted(set(re.findall(r"TEST_([A-Z_]+)_SHARD(?::|=)", ci)) - {"READER"})
     for name in dealt:
         path = os.path.join(HERE, f"test_{name.lower()}.py")
         found = handoffs(path) if os.path.exists(path) else [("(missing)", [], [])]
@@ -1020,38 +1020,368 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
     sections = [x.id for x in assignment.value.elts]
     check("every panel section is declared once", len(sections) == len(declared)
           and set(sections) == declared)
-    seen, section_seen = [], []
+    repeated = {"relations_null", "g2p", "spans", "readability", "reader", "screen"}
+    coordinate_names = ("relations_null", "g2p", "spans", "readability", "reader", "screen")
+    check("the named pool retains 119 distinct modules and six split suites",
+          len(names) == len(set(names)) == 119 and repeated <= set(names))
+    seen, section_seen, coordinates = [], [], {name: [] for name in repeated}
+    called_by_shard = {}
     with tempfile.TemporaryDirectory(prefix="m244-pool-") as tmp:
         stub = os.path.join(tmp, "python3")
         with open(stub, "w", encoding="utf-8") as f:
-            f.write('#!/bin/sh\nprintf "CALLED %s\\n" "$1"\n'
+            f.write('#!/bin/sh\n[ -z "$POOL_TRACE" ] || printf "%s\\n" "$1" >> "$POOL_TRACE"\n'
+                    'printf "CALLED %s\\n" "$1"\n'
+                    'printf "COORD %s %s %s %s %s %s\\n" "$TEST_RELATIONS_NULL_SHARD" '
+                    '"$TEST_G2P_SHARD" "$TEST_SPANS_SHARD" "$TEST_READABILITY_SHARD" "$TEST_READER_SHARD" "$TEST_SCREEN_SHARD"\n'
+                    'printf "CACHE %s %s %s\\n" "$1" "${XDG_CACHE_HOME-unset}" "${LYRIC_FIELD_STORE-unset}"\n'
+                    'printf "WORKERS %s %s\\n" "$1" "${TEST_COVERAGE_QUEUE_WORKERS-unset}"\n'
+                    'module="$1" /bin/sh -c \'printf "CHILD_CACHE %s %s %s\\n" "$module" "${XDG_CACHE_HOME-unset}" "${LYRIC_FIELD_STORE-unset}"\'\n'
                     '[ "$1" != "$FAIL_SUITE" ]\n')
         os.chmod(stub, 0o755)
         for k in range(1, n + 1):
             local = script.replace("/tmp/suites-failed", os.path.join(tmp, "failed"))
             local = local.replace("/tmp/suite-logs", os.path.join(tmp, "logs"))
             env = dict(os.environ, PATH=tmp + os.pathsep + os.environ.get("PATH", ""),
-                       SUITES_SHARD=str(k), SUITES_SHARDS=str(n), FAIL_SUITE="")
+                       SUITES_SHARD=str(k), SUITES_SHARDS=str(n), FAIL_SUITE="",
+                       TEST_RELATIONS_NULL_SHARD=f"{k}/{n}",
+                       TEST_READABILITY_SHARD="77/99", TEST_READER_SHARD="66/99",
+                       TEST_SCREEN_SHARD="55/99", XDG_CACHE_HOME=os.path.join(tmp, "shared-cache"),
+                       LYRIC_FIELD_STORE="1", POOL_TRACE="")
+            env.pop("TEST_COVERAGE_QUEUE_WORKERS", None)
             run = subprocess.run(["bash", "-c", local], env=env, capture_output=True, text=True)
             called = re.findall(r"^CALLED quality/test_(\w+)\.py$", run.stdout, re.M)
             check(f"pool shard {k}/{n} executes and includes its panel partition",
                   run.returncode == 0 and called.count("relations_null") == 1,
                   run.stderr[-300:])
             seen.extend(called)
+            called_by_shard[k] = called
+            workers = re.findall(r"^WORKERS (\S+) (\S+)$", run.stdout, re.M)
+            check(f"pool shard {k}/{n}: only Coverage Queue receives two scan workers",
+                  len(workers) == len(called)
+                  and all(value == ("2" if module == "quality/test_coverage_queue.py" else "unset")
+                          for module, value in workers))
+            coords = re.findall(r"^COORD (\d+/\d+) (\d+/\d+) (\d+/\d+) (\d+/\d+) (\d+/\d+) (\d+/\d+)$", run.stdout, re.M)
+            check(f"pool shard {k}/{n}: every child carries all six coordinates",
+                  len(coords) == len(called))
+            if coords:
+                for module, coordinate in zip(coordinate_names, coords[0]):
+                    coordinates[module].append(coordinate)
+            caches = re.findall(r"^CACHE (\S+) (\S+) (\S+)$", run.stdout, re.M)
+            children = re.findall(r"^CHILD_CACHE (\S+) (\S+) (\S+)$", run.stdout, re.M)
+            check(f"pool shard {k}/{n}: every child inherits its module's enabled field cache",
+                  len(caches) == len(called) and collections.Counter(caches) == collections.Counter(children)
+                  and all(enabled == "1" for _, _, enabled in caches))
+            screen_cache = [path for module, path, _ in caches if module == "quality/test_screen.py"]
+            check(f"pool shard {k}/{n}: only Screen gets a private cache directory",
+                  len(screen_cache) == 1 and screen_cache[0].startswith(os.path.join(tmp, "logs", "screen-cache-"))
+                  and os.path.isdir(screen_cache[0])
+                  and all(path == env["XDG_CACHE_HOME"] for module, path, _ in caches
+                          if module != "quality/test_screen.py"))
             _env(f"{k}/{n}")
             section_seen.extend(S.dealt(sections, "TEST_SHARD_PROBE")[0])
         counts = collections.Counter(seen)
         expected = collections.Counter(names)
-        expected["relations_null"] = n
-        check("the actual shell runs every other suite once, the panel once per shard", counts == expected)
+        for name in repeated:
+            expected[name] = n
+        check("the actual shell makes 161 calls: every ordinary suite once and every split suite once per shard",
+              counts == expected and len(seen) == 161)
+        for name, coords in coordinates.items():
+            check(f"{name}: rotated coordinates cover 1..{n} exactly once",
+                  collections.Counter(coords) == collections.Counter(f"{k}/{n}" for k in range(1, n + 1)))
         check("the panel's union contains every section exactly once",
               collections.Counter(section_seen) == collections.Counter(declared))
-        env["FAIL_SUITE"] = "quality/test_relations_null.py"
-        run = subprocess.run(["bash", "-c", local], env=env, capture_output=True, text=True)
-        check("a failed panel partition fails the real pool gate and names the suite",
-              run.returncode == 1 and "FAILING SUITES" in run.stdout
-              and "quality/test_relations_null.py" in run.stdout)
+        ordinary = next(name for name in called if name not in repeated)
+        shells = (["bash", "-c"], ["bash", "-o", "pipefail", "-c"],
+                  ["bash", "-e", "-o", "pipefail", "-c"])
+        coverage_owner = next(k for k, selected in called_by_shard.items() if "coverage_queue" in selected)
+        for shell in shells:
+            for name in sorted(repeated | {ordinary, "coverage_queue"}):
+                owner = coverage_owner if name == "coverage_queue" else n
+                env.update(SUITES_SHARD=str(owner), TEST_RELATIONS_NULL_SHARD=f"{owner}/{n}")
+                env["FAIL_SUITE"] = f"quality/test_{name}.py"
+                run = subprocess.run(shell + [local], env=env, capture_output=True, text=True)
+                check(f"{' '.join(shell)}: a failed {name} partition fails the real pool gate and names the suite",
+                      run.returncode == 1 and "FAILING SUITES" in run.stdout
+                      and env["FAIL_SUITE"] in run.stdout)
+                after = re.findall(r"^CALLED quality/test_(\w+)\.py$",
+                                   run.stdout.split("FAILING SUITES", 1)[0], re.M)
+                check(f"{' '.join(shell)}: failure in {name} does not omit another selected test module",
+                      collections.Counter(after) == collections.Counter(called_by_shard[owner]))
+        env.update(SUITES_SHARD=str(n), TEST_RELATIONS_NULL_SHARD=f"{n}/{n}")
+        # The child succeeded but its evidence writer failed. The separate
+        # trace proves all selected children still ran when tee drops stdout.
+        import shlex
+        import shutil
+        real_tee = shutil.which("tee")
+        tee_stub = os.path.join(tmp, "tee")
+        with open(tee_stub, "w", encoding="utf-8") as f:
+            f.write('#!/bin/sh\ncase "$1" in\n'
+                    '  */coverage_queue.log) cat >/dev/null; exit 23 ;;\n'
+                    '  *) exec ' + shlex.quote(real_tee) + ' "$@" ;;\nesac\n')
+        os.chmod(tee_stub, 0o755)
+        for index, shell in enumerate(shells):
+            trace = os.path.join(tmp, f"tee-trace-{index}")
+            env.update(SUITES_SHARD=str(coverage_owner),
+                       TEST_RELATIONS_NULL_SHARD=f"{coverage_owner}/{n}",
+                       FAIL_SUITE="", POOL_TRACE=trace)
+            run = subprocess.run(shell + [local], env=env, capture_output=True, text=True)
+            traced = re.findall(r"^quality/test_(\w+)\.py$", open(trace, encoding="utf-8").read(), re.M)
+            check(f"{' '.join(shell)}: a failed tee fails the obligation and still attempts every selected child",
+                  run.returncode == 1 and "FAILING SUITES" in run.stdout
+                  and "quality/test_coverage_queue.py" in run.stdout
+                  and collections.Counter(traced) == collections.Counter(called_by_shard[coverage_owner]))
+        os.remove(tee_stub)
+        env.update(SUITES_SHARD=str(n), TEST_RELATIONS_NULL_SHARD=f"{n}/{n}", POOL_TRACE="")
+        # A cache setup failure must be a failed Screen obligation, with the
+        # remaining selected modules still attempted. Plant it only at the
+        # real wrapper's mkdir call; the initial log-directory setup stays live.
+        blocked = local.replace('mkdir -p "$cache"', 'false')
+        check("the cache failure control plants the actual Screen mkdir call", blocked != local)
+        env["FAIL_SUITE"] = ""
+        run = subprocess.run(["bash", "-o", "pipefail", "-c", blocked], env=env,
+                             capture_output=True, text=True)
+        after = re.findall(r"^CALLED quality/test_(\w+)\.py$",
+                           run.stdout.split("FAILING SUITES", 1)[0], re.M)
+        check("an unusable Screen cache fails the gate and does not omit another module",
+              run.returncode == 1 and "quality/test_screen.py" in run.stdout
+              and collections.Counter(after) == collections.Counter(name for name in called if name != "screen"))
+        for total in (None, "1"):
+            env["FAIL_SUITE"] = ""
+            env.pop("SUITES_SHARD", None)
+            env.pop("SUITES_SHARDS", None)
+            env.pop("TEST_RELATIONS_NULL_SHARD", None)
+            if total is not None:
+                env.update(SUITES_SHARD="1", SUITES_SHARDS=total)
+            run = subprocess.run(["bash", "-o", "pipefail", "-c", local], env=env,
+                                 capture_output=True, text=True)
+            whole = re.findall(r"^CALLED quality/test_(\w+)\.py$", run.stdout, re.M)
+            check(f"pool with {total or 'unset'} shard count runs the whole 119-module inventory once",
+                  run.returncode == 0 and collections.Counter(whole) == collections.Counter(names))
+        # Actual child lifetimes, not a replay of the scheduling arithmetic.
+        # A recorder holds logical CPU slots while sleeping, so the real shell
+        # must reserve two for Coverage Queue and restore four ordinary slots.
+        import json
+        with open(stub, "w", encoding="utf-8") as f:
+            f.write("#!" + sys.executable + "\n" + textwrap.dedent('''\
+                import fcntl,json,os,pathlib,time
+                name=pathlib.Path(__import__('sys').argv[1]).stem.removeprefix('test_')
+                variable={'relations_null':'TEST_RELATIONS_NULL_WORKERS',
+                          'g2p':'TEST_G2P_WORKERS',
+                          'coverage_queue':'TEST_COVERAGE_QUEUE_WORKERS'}.get(name)
+                units=int(os.environ.get(variable,'1')) if variable else 1
+                path=pathlib.Path(os.environ['POOL_STATE'])
+                def record(event):
+                    with open(str(path)+'.lock','a') as lock:
+                        fcntl.flock(lock,fcntl.LOCK_EX)
+                        state=json.loads(path.read_text()) if path.exists() else {'active':{},'events':[]}
+                        active=state['active']; before=list(active.values())
+                        if event=='start': active[str(os.getpid())]={'name':name,'units':units}
+                        else: active.pop(str(os.getpid()))
+                        state['events'].append({'event':event,'name':name,'units':units,
+                            'before':before,'active':list(active.values()),
+                            'total':sum(item['units'] for item in active.values())})
+                        path.write_text(json.dumps(state))
+                record('start')
+                delayed=os.environ.get('POOL_DELAYED_NAMES','').split(',')
+                duration=(.35+.20*delayed.index(name) if name in delayed else
+                          .45 if name=='coverage_queue' else
+                          .03 if name in ('relations_null','g2p') else .02 if delayed[0] else .09)
+                try: time.sleep(duration)
+                finally: record('end')
+                '''))
+        for index, shell in enumerate(shells):
+            env.pop("POOL_DELAYED_NAMES", None)
+            state_path = os.path.join(tmp, f"resource-{index}.json")
+            env.update(SUITES_SHARDS=str(n), SUITES_SHARD=str(coverage_owner),
+                       TEST_RELATIONS_NULL_SHARD=f"{coverage_owner}/{n}",
+                       TEST_RELATIONS_NULL_WORKERS="4", TEST_G2P_WORKERS="4",
+                       POOL_STATE=state_path, FAIL_SUITE="")
+            run = subprocess.run(shell + [local], env=env, capture_output=True, text=True)
+            state = json.load(open(state_path, encoding="utf-8"))
+            events = state["events"]
+            starts = [event for event in events if event["event"] == "start"]
+            check(f"{' '.join(shell)}: resource recorder executes every selected module and finishes",
+                  run.returncode == 0 and not state["active"]
+                  and collections.Counter(event["name"] for event in starts)
+                  == collections.Counter(called_by_shard[coverage_owner]), run.stderr[-300:])
+            check(f"{' '.join(shell)}: each four-worker foreground suite drains the whole pool",
+                  all(not event["before"] and event["units"] == 4 for event in starts
+                      if event["name"] in ("relations_null", "g2p")))
+            check(f"{' '.join(shell)}: live Coverage Queue reserves two slots, total CPU width never exceeds four",
+                  max(event["total"] for event in events) == 4
+                  and any(event["total"] == 4 and len(event["active"]) == 3
+                          and any(item["name"] == "coverage_queue" and item["units"] == 2
+                                  for item in event["active"]) for event in events))
+            queue_end = next(i for i, event in enumerate(events)
+                             if event["name"] == "coverage_queue" and event["event"] == "end")
+            check(f"{' '.join(shell)}: after Coverage Queue exits the actual shell restores four ordinary slots",
+                  any(len(event["active"]) == event["total"] == 4
+                      for event in events[queue_end + 1:]))
+        # Future list edits can delay Queue until three ordinary jobs are
+        # already live. Exercise admission itself, with all 119 names retained.
+        first_three = [name for name in names if name not in repeated | {"coverage_queue"}][:3]
+        lead = ["relations_null", "g2p"] + first_three + ["coverage_queue"]
+        delayed_names = lead + [name for name in names if name not in lead]
+        match = re.search(r"for f in (.*?); do", local, re.S)
+        delayed_script = local[:match.start(1)] + " ".join(delayed_names) + local[match.end(1):]
+        check("delayed Queue control changes only order, retaining the whole named inventory",
+              collections.Counter(delayed_names) == collections.Counter(names))
+        for index, shell in enumerate(shells):
+            state_path = os.path.join(tmp, f"delayed-{index}.json")
+            env.update(SUITES_SHARDS="1", SUITES_SHARD="1", TEST_RELATIONS_NULL_SHARD="1/1",
+                       POOL_STATE=state_path, POOL_DELAYED_NAMES=",".join(first_three))
+            run = subprocess.run(shell + [delayed_script], env=env, capture_output=True, text=True)
+            state = json.load(open(state_path, encoding="utf-8"))
+            events = state["events"]
+            starts = [event for event in events if event["event"] == "start"]
+            queue_start = next(event for event in starts if event["name"] == "coverage_queue")
+            check(f"{' '.join(shell)}: delayed Queue waits for two free slots and every module still runs",
+                  run.returncode == 0 and not state["active"]
+                  and collections.Counter(event["name"] for event in starts) == collections.Counter(names)
+                  and max(event["total"] for event in events) == 4
+                  and queue_start["units"] == len(queue_start["before"]) == 2
+                  and {event["name"] for event in queue_start["before"]} <= set(first_three),
+                  run.stderr[-300:])
     _env(None)
+
+
+def test_split_suite_inventories_and_panel_work_are_complete():
+    """Pin the actual runner inventory and exercise the panel's real deal."""
+    import ast
+    import collections
+    print("\n12. large suite splits preserve their original runner inventory")
+    # These are the functions the pre-split entrypoints actually invoked.
+    # This explicit baseline catches a shortened tuple even if every shard
+    # agrees on the same omission.
+    expected = {
+        "spans": (
+            "test_the_original_bad_report_line", "test_every_syllable_knows_its_word",
+            "test_search_size_is_recorded", "test_a_tie_at_the_maximum_is_reported",
+            "test_provenance_is_absent_rather_than_invented", "test_the_consumers_print_it",
+            "test_the_oracle_does_not_move", "test_the_spans_cannot_be_separated_from_the_number",
+            "test_the_report_line_checks_its_own_claim", "test_a_hyphen_can_substitute_the_rhyme_word",
+            "test_the_sweep_runs_and_reports_three_counts", "test_the_refrain_stub_is_not_english",
+            "test_the_brief_does_not_print_one_finding_six_times"),
+        "readability": (
+            "test_readable_pairs_are_untouched", "test_constructed_oov_final",
+            "test_real_corpus_line", "test_nothing_was_lost_on_the_sonnets",
+            "test_corpus_song_rate_is_pinned", "test_zero_syllable_word_has_no_anchor",
+            "test_every_emitted_code_has_a_case", "test_the_manufactured_rhyme_is_refused",
+            "test_the_letter_repertoire_is_declared_and_the_two_sites_agree",
+            "test_interior_is_derived_by_position", "test_the_bracket_rules_are_declared_and_read",
+            "test_the_bracketed_verse_convention_keeps_the_body",
+            "test_a_wordless_score_says_identity_was_not_asked", "test_empty_coda_evidence_is_omitted",
+            "test_the_assonance_profile_says_the_band_is_off",
+            "test_the_default_doors_are_priced_where_they_answer",
+            "test_a_spaced_enclitic_joins_its_word_and_an_elided_word_does_not"),
+        "screen": (
+            "test_the_controls", "test_honesty_and_the_split", "test_no_drift",
+            "test_the_scaffold", "test_the_cli", "test_clean_answers_one_question",
+            "test_the_screen_asks_the_grades_question",
+            "test_the_screen_judges_a_drawn_schema_and_names_a_near_relation",
+            "test_the_screen_says_which_words_cannot_be_bound_at_a_token",
+            "test_named_judgment_survives_broad_uncertainty",
+            "test_screen_retains_partial_anchor_evidence",
+            "test_rime_riche_reads_the_words_own_onset"),
+    }
+    for name, want in expected.items():
+        tree = ast.parse(open(os.path.join(HERE, f"test_{name}.py"), encoding="utf-8").read())
+        assignment = next(node for node in tree.body if isinstance(node, ast.Assign)
+                          and any(isinstance(t, ast.Name) and t.id == "_SECTIONS" for t in node.targets))
+        got = [node.id for node in assignment.value.elts]
+        check(f"{name}: every pre-split runner call is retained once, in order", got == list(want))
+        sharded = next((node for node in tree.body if isinstance(node, ast.Assign)
+                        and any(isinstance(t, ast.Name) and t.id == "_SHARDED_SECTIONS"
+                                for t in node.targets)), None)
+        effective = [node.id for node in sharded.value.elts] if sharded else got
+        check(f"{name}: the actual sharded tuple retains every original section once",
+              collections.Counter(effective) == collections.Counter(want))
+        for n in (1, 3, 6, 8):
+            seen = []
+            for k in range(1, n + 1):
+                _env(f"{k}/{n}")
+                seen.extend(S.dealt(effective if n > 1 else got, "TEST_SHARD_PROBE")[0])
+            check(f"{name}: all {n} shard inventories retain every original section once",
+                  collections.Counter(seen) == collections.Counter(want))
+    _env(None)
+    tree = ast.parse(open(os.path.join(HERE, "test_g2p.py"), encoding="utf-8").read())
+    defined = {node.name for node in tree.body if isinstance(node, ast.FunctionDef)
+               and node.name.startswith("test_")}
+    scope = {name: name for name in defined}
+    assignments = [node for node in tree.body if isinstance(node, ast.Assign)
+                   and any(isinstance(t, ast.Name) and t.id in
+                           {"_SECTIONS", "_COST_FIRST", "_SHARDED_SECTIONS"} for t in node.targets)]
+    exec(compile(ast.Module(body=assignments, type_ignores=[]), "g2p runner inventory", "exec"), scope)
+    full, sharded = scope["_SECTIONS"], scope["_SHARDED_SECTIONS"]
+    check("g2p: default and cost-first sharded tuples each retain every defined test once",
+          collections.Counter(full) == collections.Counter(defined)
+          == collections.Counter(sharded))
+    seen = []
+    for k in range(1, 9):
+        _env(f"{k}/8")
+        seen.extend(S.dealt(sharded, "TEST_SHARD_PROBE")[0])
+    check("g2p: all eight effective cost-first shard inventories cover every test once",
+          collections.Counter(seen) == collections.Counter(full))
+    _env(None)
+    tree = ast.parse(open(os.path.join(HERE, "test_relations_null.py"), encoding="utf-8").read())
+    fn = next(node for node in tree.body if isinstance(node, ast.FunctionDef)
+              and node.name == "_schema_groups")
+    scope = {}
+    exec(compile(ast.Module(body=[fn], type_ignores=[]), "panel groups", "exec"), scope)
+    group = scope["_schema_groups"]
+    names = tuple(f"schema{i}" for i in range(97))
+    for width in (1, 2, 4, 8, 100):
+        chunks = group(names, width)
+        check(f"panel width {width}: every schema is executed once, no empty worker group",
+              all(chunks) and collections.Counter(n for c in chunks for n in c)
+              == collections.Counter(names))
+    try:
+        group(names, 0)
+    except ValueError:
+        refused = True
+    else:
+        refused = False
+    check("panel refuses zero workers instead of performing no test work", refused)
+
+
+def _test_pool_coordinate_modes():
+    """Execute the real YAML coordinate block with inherited stale values."""
+    import collections
+    import subprocess
+    import textwrap
+    print("\n13. pool coordinates preserve native and unsharded local runs")
+    job = _ci_jobs()["suites"]
+    start = job.index('          if [ "${SUITES_SHARDS:-1}" -eq 8 ]; then')
+    end = job.index('          for f in relations_null ', start)
+    script = textwrap.dedent(job[start:end])
+    names = ("G2P", "SPANS", "READER", "READABILITY", "SCREEN")
+    script += '\nprintf "%s|%s|%s|%s|%s\\n" ' + " ".join(
+        '"${TEST_' + name + '_SHARD-unset}"' for name in names) + "\n"
+    cases = [(None, None, "|".join(["unset"] * 5)), ("1", "1", "|".join(["unset"] * 5)),
+             ("3", "2", "|".join(["2/3"] * 5)), ("8", "1", "4/8|8/8|7/8|1/8|1/8")]
+    for total, index, want in cases:
+        env = dict(os.environ, **{f"TEST_{name}_SHARD": "77/99" for name in names})
+        env.pop("SUITES_SHARDS", None)
+        env.pop("SUITES_SHARD", None)
+        if total is not None:
+            env.update(SUITES_SHARDS=total, SUITES_SHARD=index)
+        result = subprocess.run(["bash", "-o", "pipefail", "-c", script],
+                                env=env, capture_output=True, text=True)
+        check(f"pool {index or 'unset'}/{total or 'unset'} overrides stale coordinates correctly",
+              result.returncode == 0 and result.stdout.strip() == want,
+              result.stdout.strip() + result.stderr)
+    coordinates = {name: [] for name in names}
+    for index in range(1, 9):
+        env = dict(os.environ, SUITES_SHARDS="8", SUITES_SHARD=str(index),
+                   **{f"TEST_{name}_SHARD": "77/99" for name in names})
+        result = subprocess.run(["bash", "-o", "pipefail", "-c", script],
+                                env=env, capture_output=True, text=True)
+        for name, coordinate in zip(names, result.stdout.strip().split("|")):
+            coordinates[name].append(coordinate)
+    expected = collections.Counter(f"{index}/8" for index in range(1, 9))
+    for name, observed in coordinates.items():
+        check(f"the eight {name} rotations still execute every coordinate exactly once",
+              collections.Counter(observed) == expected)
 
 
 if __name__ == "__main__":
@@ -1064,7 +1394,9 @@ if __name__ == "__main__":
                test_no_result_gate_calls_a_cancelled_run_a_failure,
                test_the_two_qualification_tables_cannot_drift_apart,
                test_the_backstop_can_still_reach_what_it_backs_up,
-               test_panel_sections_keep_the_pool_inventory_and_failure_gate):
+               test_panel_sections_keep_the_pool_inventory_and_failure_gate,
+               test_split_suite_inventories_and_panel_work_are_complete,
+               _test_pool_coordinate_modes):
         fn()
     print("=" * 62)
     if FAILURES:

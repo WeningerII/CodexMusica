@@ -79,11 +79,33 @@ for (const inst of C.INSTRUMENTS || [])
   for (const p of inst.parts || [])
     for (const v of p.variants || []) if (v.expanded) EXPANDED.add(`${inst.id}|${p.id}|${v.id}`);
 
+// A part is a disjoint CI ownership boundary. Without --part the standing
+// command still runs this entire suite, in its original order. The planner
+// fixture is initialized independently for revision and title checks; no part
+// inherits a warm worker, remembered run, or mocked fetch from another process.
+const PARTS = JSON.parse(
+  readFileSync(new URL('../scripts/ci_mcp_test_parts.json', import.meta.url), 'utf8')
+);
+const suiteStarted = performance.now();
+const partArg = process.argv.find((arg) => arg.startsWith('--part='));
+const PART = partArg ? partArg.slice('--part='.length) : null;
+if (process.argv.includes('--list-parts')) {
+  console.log(JSON.stringify(PARTS));
+  process.exit(0);
+}
+if ((partArg && !PARTS.includes(PART)) || (partArg && process.argv.includes('--checks-only'))) {
+  console.error(
+    `test.mjs: --part must name one of ${PARTS.join(', ')} and cannot accompany --checks-only`
+  );
+  process.exit(2);
+}
+const runs = (part) => PART === null || PART === part;
 let passed = 0;
 // Each check settles before another can replace process-global fetch or state.
 // Running these concurrently allowed one test to consume another test's model
 // response, hiding failures and producing order-dependent results.
 async function check(name, fn) {
+  if (!runs('offline')) return;
   try {
     await fn();
     console.log(`  ok  ${name}`);
@@ -7780,63 +7802,67 @@ if (/\\/actions\\/workflows\\/[^/]+\\/runs\\?/.test(url)) {
 }
 
 // SDK-dependent: only runs if @modelcontextprotocol/sdk is installed.
-try {
-  const { buildServer } = await import('./tools.js');
-  assert.ok(buildServer(), 'server constructed');
-  console.log('  ok  server builds with all tools');
-  passed++;
-} catch (err) {
-  if (/Cannot find package|Cannot find module/.test(err.message)) {
-    console.log('  --  server build skipped (SDK not installed in-container)');
-  } else {
-    console.error(`FAIL  server builds with all tools\n      ${err.message}`);
-    process.exitCode = 1;
+if (runs('offline')) {
+  try {
+    const { buildServer } = await import('./tools.js');
+    assert.ok(buildServer(), 'server constructed');
+    console.log('  ok  server builds with all tools');
+    passed++;
+  } catch (err) {
+    if (!PART && /Cannot find package|Cannot find module/.test(err.message)) {
+      console.log('  --  server build skipped (SDK not installed in-container)');
+    } else {
+      console.error(`FAIL  server builds with all tools\n      ${err.message}`);
+      process.exitCode = 1;
+    }
   }
-}
 
-// The refusal path end to end, in its own block so a failure here reports
-// itself rather than surfacing under the server-build label. Same SDK skip.
-try {
-  const express = (await import('express')).default;
-  const here = new URL('.', import.meta.url).pathname;
-  const sdkPath = (m) => import(require.resolve(m, { paths: [here] }));
-  const { buildServer } = await import('./tools.js');
-  const { Client } = await sdkPath('@modelcontextprotocol/sdk/client/index.js');
-  const { InMemoryTransport } = await sdkPath('@modelcontextprotocol/sdk/inMemory.js');
-  const { createChatRouter } = await import('./chat.js');
+  // The refusal path end to end, in its own block so a failure here reports
+  // itself rather than surfacing under the server-build label. Same SDK skip.
+  try {
+    const express = (await import('express')).default;
+    const here = new URL('.', import.meta.url).pathname;
+    const sdkPath = (m) => import(require.resolve(m, { paths: [here] }));
+    const { buildServer } = await import('./tools.js');
+    const { Client } = await sdkPath('@modelcontextprotocol/sdk/client/index.js');
+    const { InMemoryTransport } = await sdkPath('@modelcontextprotocol/sdk/inMemory.js');
+    const { createChatRouter } = await import('./chat.js');
 
-  const app = express();
-  app.use(express.json());
-  app.use(
-    await createChatRouter({
-      buildServer,
-      Client,
-      InMemoryTransport,
-      apiKey: 'test-key-never-used', // never spent: the router refuses before any call
-      model: '__no_such_model__',
-    })
-  );
-  const server = app.listen(0);
-  await new Promise((r) => server.once('listening', r));
-  const base = `http://127.0.0.1:${server.address().port}`;
-  const posted = await NET_FETCH(`${base}/chat`, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ message: 'hello' }),
-  });
-  const status = await (await NET_FETCH(`${base}/chat/status`)).json();
-  server.close();
+    const app = express();
+    app.use(express.json());
+    app.use(
+      await createChatRouter({
+        buildServer,
+        Client,
+        InMemoryTransport,
+        apiKey: 'test-key-never-used', // never spent: the router refuses before any call
+        model: '__no_such_model__',
+      })
+    );
+    const server = app.listen(0);
+    await new Promise((r) => server.once('listening', r));
+    const base = `http://127.0.0.1:${server.address().port}`;
+    const posted = await NET_FETCH(`${base}/chat`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ message: 'hello' }),
+    });
+    const status = await (await NET_FETCH(`${base}/chat/status`)).json();
+    server.close();
 
-  assert.equal(posted.status, 503, `expected 503 for an unpriced model, got ${posted.status}`);
-  assert.equal(status.enabled, false, '/chat/status must report enabled:false');
-  console.log('  ok  /chat refuses to spend on a model it cannot price');
-  passed++;
-} catch (err) {
-  if (/Cannot find package|Cannot find module/.test(err.message)) {
-    console.log('  --  /chat refusal check skipped (SDK not installed in-container)');
-  } else {
-    console.error(`FAIL  /chat refuses to spend on a model it cannot price\n      ${err.message}`);
-    process.exitCode = 1;
+    assert.equal(posted.status, 503, `expected 503 for an unpriced model, got ${posted.status}`);
+    assert.equal(status.enabled, false, '/chat/status must report enabled:false');
+    console.log('  ok  /chat refuses to spend on a model it cannot price');
+    passed++;
+  } catch (err) {
+    if (!PART && /Cannot find package|Cannot find module/.test(err.message)) {
+      console.log('  --  /chat refusal check skipped (SDK not installed in-container)');
+    } else {
+      console.error(
+        `FAIL  /chat refuses to spend on a model it cannot price\n      ${err.message}`
+      );
+      process.exitCode = 1;
+    }
   }
 }
 
@@ -7853,1451 +7879,1522 @@ if (process.argv.includes('--checks-only')) {
 // verbs through the bridge, staged the way the Docker build stages them.
 // The live half skips loudly when python3 or the network is absent, but in
 // CI both exist, so a skip there is a real signal in the log.
-try {
-  const here = new URL('.', import.meta.url).pathname;
-  const sdkPath = (m) => import(require.resolve(m, { paths: [here] }));
-  const { buildServer } = await import('./tools.js');
-  const { Client } = await sdkPath('@modelcontextprotocol/sdk/client/index.js');
-  const { InMemoryTransport } = await sdkPath('@modelcontextprotocol/sdk/inMemory.js');
-
-  const server = buildServer();
-  const [clientSide, serverSide] = InMemoryTransport.createLinkedPair();
-  const client = new Client({ name: 'lyric-check', version: '0' }, { capabilities: {} });
-  await Promise.all([server.connect(serverSide), client.connect(clientSide)]);
-  const { tools } = await client.listTools();
-  const lyric = tools.filter((t) => t.name.startsWith('lyric_'));
-  assert.deepEqual(
-    lyric.map((t) => t.name).sort(),
-    [
-      'lyric_check',
-      'lyric_grade',
-      'lyric_plan',
-      'lyric_recover',
-      'lyric_revise',
-      'lyric_screen',
-      'lyric_sweep',
-      'lyric_types',
-      'lyric_verify',
-    ],
-    'the nine lyric tools are advertised (M-195 added lyric_recover)'
-  );
-  for (const t of lyric) {
-    const writes = t.name === 'lyric_revise';
-    assert.equal(t.annotations?.readOnlyHint, !writes, `${t.name} declares its state effects`);
-    // No outside server reaches a model provider: only the website chat's
-    // server (buildServer({ kitchen: true })) lets the service writer answer.
-    assert.equal(t.annotations?.openWorldHint, false, `${t.name} declares no model access`);
-    assert.equal(t.annotations?.idempotentHint, !writes, `${t.name} declares replay semantics`);
-  }
-  console.log(
-    '  ok  lyric family advertised: 9 tools, revise declares its state effects and no model access'
-  );
-  passed++;
-
-  // DEPLOYMENT FRESHNESS HAS AN INSTRUMENT (M-127): check_live.mjs compares
-  // the surface a RUNNING server advertises against this tree's own, because
-  // on 2026-08-26 a live server was found serving a one-commit-stale
-  // lyric_sweep schema (12-want ceiling, no story_lineups) and NOTHING could
-  // have said so — every check in this repo ran against the code, none against
-  // the deployment. These checks prove the comparator FAILS in every direction
-  // it claims to detect; a differ that cannot fail is the vacuous-check defect
-  // this suite's own history warns about. The transport half (a real server
-  // answering over HTTP) is proven by running the instrument, not simulated
-  // here — the comparator is the half a network cannot exercise.
-  const { surfaceDrift } = await import('./check_live.mjs');
-  const surf = tools.map((t) => ({
-    name: t.name,
-    description: t.description,
-    inputSchema: t.inputSchema,
-  }));
-  assert.deepEqual(surfaceDrift(surf, surf), [], 'a surface matches itself — MATCH is reachable');
-  const dropped = surf.slice(1);
-  assert.ok(
-    surfaceDrift(surf, dropped).some((d) => d.tool === surf[0].name && /missing/.test(d.what)),
-    'a tool the live server lost is named as missing'
-  );
-  assert.ok(
-    surfaceDrift(dropped, surf).some(
-      (d) => d.tool === surf[0].name && /not in the tree/.test(d.what)
-    ),
-    'a tool only the live server has is named as extra'
-  );
-  const reworded = surf.map((t, i) => (i ? t : { ...t, description: `${t.description} (stale)` }));
-  assert.ok(
-    surfaceDrift(surf, reworded).some(
-      (d) => d.tool === surf[0].name && d.what === 'description differs'
-    ),
-    'a drifted description is named with its coordinate'
-  );
-  const reshaped = surf.map((t, i) =>
-    i ? t : { ...t, inputSchema: { ...t.inputSchema, maxItems: 999 } }
-  );
-  assert.ok(
-    surfaceDrift(surf, reshaped).some(
-      (d) => d.tool === surf[0].name && d.what === 'inputSchema differs'
-    ),
-    'a drifted schema is named with its coordinate — the exact shape the stale server wore'
-  );
-  const reordered = surf.map((t) => ({
-    ...t,
-    inputSchema: JSON.parse(JSON.stringify(t.inputSchema)),
-  }));
-  assert.deepEqual(
-    surfaceDrift(surf, reordered.reverse()),
-    [],
-    'neither tool order nor key order is drift — the comparison is canonical'
-  );
-  console.log(
-    '  ok  check_live: the freshness comparator fails in all four directions, and only those'
-  );
-  passed++;
-
-  // THE SURFACE IS NOT THE BUILD (M-230): the M-228/M-229 merge touched no
-  // tool, so the surface was byte-identical between the old process and the
-  // new and the battery's wait-for-live matched the OLD deployment on its
-  // first probe. commitDrift is the second half of the probe: /health's
-  // commit against the sha the caller expects. Unknown is not a match.
-  const { commitDrift } = await import('./check_live.mjs');
-  const full = '62215f575ee73068212dc0201346e09a2fc8e194';
-  assert.equal(commitDrift('', full), null, 'no expectation — the surface alone decides');
-  assert.equal(commitDrift(full, full), null, 'the same sha matches');
-  assert.equal(commitDrift(full.slice(0, 8), full), null, 'a short sha matches its full one');
-  assert.equal(
-    commitDrift(full, full.slice(0, 8).toUpperCase()),
-    null,
-    'case and length are not drift'
-  );
-  assert.match(
-    commitDrift(full, null),
-    /does not report a commit/,
-    'a server that does not say its commit is NOT a match — unknown is not equal'
-  );
-  assert.match(
-    commitDrift(full, 'b3928ddba7509365c2f09af27f7824935e3d0d6c'),
-    /serving b3928ddba750, not 62215f575ee7/,
-    'a different build is named by both shas'
-  );
-  assert.match(
-    commitDrift('62215', full),
-    /shorter than 7/,
-    'a five-character prefix is refused, not matched'
-  );
-  console.log(
-    '  ok  check_live: the build is compared beside the surface, and unknown is not a match'
-  );
-  passed++;
-
-  // LIVE: stage the lexicon exactly as the Docker build does, then drive
-  // the bridge with the control pair the ban was taught on, and one full
-  // plan->fill->grade round trip. These are the checks that catch a
-  // broken subprocess bridge, a wrong cwd, or an image missing python.
-  const { execFile } = await import('node:child_process');
-  const { promisify } = await import('node:util');
-  const run = promisify(execFile);
-  let staged = false;
+if (!runs('offline') || PART === null) {
   try {
-    await run('python3', ['-c', 'import lyric_harness; lyric_harness.fetch_data()'], {
-      cwd: new URL('../lyric-harness', import.meta.url).pathname,
-      timeout: 120_000,
-    });
-    staged = true;
-  } catch (err) {
-    console.log(
-      `  --  lyric LIVE checks skipped (python3/lexicon unavailable: ${String(err.message).slice(0, 80)})`
-    );
-  }
-  if (staged) {
-    // THE LIVE CHECKS DECLARE THEIR OWN CLOCK (2026-08-26). The SDK's
-    // DEFAULT_REQUEST_TIMEOUT_MSEC is 60_000 and the bridge emits no
-    // progress notifications to reset it — and the whole-vocabulary
-    // default (M-116) put a full plan->fill->grade round trip AT that
-    // cliff: ~61s wall on the CI runner that passed, MCP error -32001 on
-    // the one that didn't, the same call both times. A regression gate
-    // may not flip coins on runner speed, so every live lyric call rides
-    // an explicit RequestOptions timeout. ~~300s~~ AND THE 300s WAS THE
-    // SAME COIN ONE ROUNDING UP (M-218, 2026-09-03): run 33796842987's
-    // runner was ~13% slower than the green run before it (regression_
-    // recipes 351s -> 396s) and the seed-55 plan->grade call crossed 300s
-    // — `MCP error -32001: Request timed out`, the SDK's anonymous
-    // sentence, while the connector's own kill (`SUBPROCESS_TIMEOUT_MS`,
-    // budget.js's ONE budget, 600s) sat ABOVE it and never got to answer.
-    // A test clock under the connector's kill is M-165's wall-under-the-
-    // caller shape inside the test. So the clock is DERIVED, not spelled:
-    // the budget plus the bridge's own margin, so a call that outlives
-    // the budget is answered by the connector as `path: 'killed'`, a
-    // named verdict this file can read, and never by the SDK's timeout.
-    // This is still the TEST's clock only: production clients keep the
-    // SDK default, and the sweep-window budget in lyric_tools.js is still
-    // derived against 60s on purpose.
-    const LIVE_MARGIN_MS = 30_000;
-    const LIVE_OPTS = { timeout: TOOL_BUDGET_MS + LIVE_MARGIN_MS };
-    const callText = async (name, args) => {
-      const res = await client.callTool({ name, arguments: args }, undefined, LIVE_OPTS);
-      assert.ok(!res.isError, `${name} answered without isError`);
-      return JSON.parse(res.content[0].text);
-    };
-    const screened = await callText('lyric_screen', { words: ['hair', 'chair'] });
-    assert.equal(screened.exit_code, 0, 'screen exit 0 — the pair is an ANSWER');
-    // A screen answers at exit 0 while naming prohibited writing pairs.
-    assert.match(screened.report, /BANNED/, 'the writing ban reaches the whole stack');
-    console.log('  ok  lyric_screen live: hair/chair answered with its writing ban, exit 0');
-    passed++;
-    // EVERY RELATION THE PAIR STANDS IN, structured (the N-relation model):
-    // hair/chair is a perfect rhyme, so it stands in RHYME AND ASSONANCE AND
-    // CONSONANCE at once — a single label here would be the defect.
-    assert.ok(Array.isArray(screened.pairs) && screened.pairs.length === 1, 'one pair, structured');
-    const hc = screened.pairs[0];
-    assert.deepEqual([hc.a, hc.b], ['hair', 'chair']);
-    for (const rel of ['RHYME', 'ASSONANCE', 'CONSONANCE'])
-      assert.ok(hc.coarse_relations.includes(rel), `hair/chair stands in ${rel}`);
-    assert.ok(
-      hc.relations.length > hc.coarse_relations.length &&
-        hc.schema_relations.every((n) => hc.relations.includes(n)),
-      'the relation list carries the registry schemas beside the coarse relations'
-    );
-    assert.deepEqual(hc.codes, ['HOMEOTELEUTON'], 'the exact ban rides beside the relations');
-    assert.ok(!/CLEAN —/.test(screened.report), 'no CLEAN — RHYMES / DOES NOT RHYME verdict');
-    console.log('  ok  lyric_screen live: the pair carries every relation it stands in');
-    passed++;
+    const here = new URL('.', import.meta.url).pathname;
+    const sdkPath = (m) => import(require.resolve(m, { paths: [here] }));
+    const { buildServer } = await import('./tools.js');
+    const { Client } = await sdkPath('@modelcontextprotocol/sdk/client/index.js');
+    const { InMemoryTransport } = await sdkPath('@modelcontextprotocol/sdk/inMemory.js');
 
-    // THE HUMAN DOOR, LIVE (M-195, added 2026-09-02): an unmarked four-line
-    // paste through the real verb. The refusals must be read off the REAL
-    // render — the extractor's first pin passed on a shape the harness never
-    // printed, and only a live call could have said so.
-    const recovered = await callText('lyric_recover', {
-      lines: [
-        'The river took the bridge at dawn',
-        'and no one saw the water again',
-        'our cattle waded knee deep in silt',
-        'past every fence the county rebuilt',
-      ],
-    });
-    assert.equal(recovered.exit_code, 3, 'recover on an unmarked paste exits 3 — a work order');
-    assert.ok(
-      recovered.mandate && recovered.mandate.groups.length > 0,
-      'the recovered mandate rides the verdict'
-    );
-    const coords = recovered.refusals.map((r) => r.coordinate);
-    assert.ok(
-      coords.includes('sections') && coords.includes('meter'),
-      `the refusals are read off the real render: ${JSON.stringify(coords)}`
-    );
-    assert.ok(
-      recovered.refusals.find((r) => r.coordinate === 'sections').why.includes('Mark the sections'),
-      'and the reason travels with the coordinate'
-    );
-    console.log(
-      `  ok  lyric_recover live: unmarked paste exits 3, mandate + refusals ${JSON.stringify(coords)} on the verdict`
-    );
-    passed++;
-
-    // Current measured constructive seed176 control, shared by title and
-    // interview tests; the scaffolded24-line plan remains a separate negative.
-    // Seed 176 at a DECLARED 12 lines: the 31-line cap that made 12 its
-    // draw is deleted (owner ruling 2026-09-28), so every seed-176 call
-    // below states the length, and the lines are written for that plan.
-    // REPINNED 2026-10-04: the plan ties rhymes only at line ends now
-    // (1,2,3;4,5;6,7), so L3 ends ~~'cheap cologne'~~ 'afternoon'.
-    // RE-MEASURED 2026-10-21: under the owner's equal-weight beat draw seed
-    // 176 at 12 lines keeps its sections, returns (6,8;7,9) and hook (L6)
-    // and re-deals its meter (~~9/1~~ 2/4) and the intro's scheme, so the
-    // ends tie ~~1,2,3~~ 1,3;4,5;6,7. The draft is unchanged and still
-    // grades clean. Re-pinned for mandatory writing bans: balloon/afternoon
-    // shares -oon; strewn keeps the rhyme without a spelled-ending or modal ban.
-    const qualifiedDraft = [
-      'Buttons gleam where wheat was sown by a balloon',
-      "Bone cold, my mother's herbs came up in June",
-      'The kettle smells of smoke where leaves lie strewn',
-      'Blue shadows drag the doubt across the floor',
-      'Before the long drought we kept salt in the drawer',
-      'Each night the slow crawl wakes the rain',
-      'Those rough hands haul nets and mend the vein',
-      'Each night the slow crawl wakes the rain',
-      'Those rough hands haul nets and mend the vein',
-      'Bright napkins fold around a chipped blue plate',
-      'She swept the porch while winter filled the lane',
-      'A quiet lamp still burns beside the gate',
-    ];
-
-    // THE SHAPE IS READ FROM THE PLAN, NEVER REMEMBERED (2026-08-23).
-    // This block used to open `Seed 55 is Count to Five's shape: 22 lines,
-    // chorus lines 17-19 returning verbatim as 20-22` and build a 22-line
-    // draft to match. That was true of planner v1. Planner v2 re-derived
-    // every space it samples from, so seed 55 is 53 lines in 4 sections
-    // today -- and the check went red as `1 !== 2`, which is the SYMPTOM
-    // (`lyric_grade` returns one block when `plan --fill` produced no
-    // render) and names neither the seed nor the count. A grade whose
-    // draft is the wrong length REFUSES at exit 2, correctly; the test was
-    // the thing that was wrong.
-    //
-    // So the draft is built from the plan's OWN report: the line count and
-    // the return classes come back from `lyric_plan` on the same seed, and
-    // nothing here restates them. That is strictly stronger than the
-    // literal it replaces -- it proves the two-block contract for whatever
-    // shape the planner produces, it cannot go stale when the planner is
-    // re-derived, and it reads two coordinates (`lines`, `returns`) the
-    // hardcoded version never consulted.
-    // THE SEED IS SEARCHED FOR, NOT REMEMBERED (2026-08-24, `MISSING.md`
-    // M-106). This block asserts three TITLE codes, and every one of them is
-    // asked only of a plan that DECLARES A HOOK -- a hook is defined by
-    // RETURN, so a pattern whose functions all occur once declares none and
-    // the title question is never put. `seed: 55` was hardcoded here and had
-    // a hook until the length envelope was re-derived; it now draws six
-    // sections with no repeat, and the failure read "with no title the
-    // question is REFUSED, not answered" -- naming the title layer for a
-    // fact about the pattern. That is the SAME staleness this file's own
-    // comment above describes fixing once already, one coordinate over, so
-    // the fix is the same: ASK the report rather than remember the answer.
-    // MEASURED over 240 seeds: 59.6% of plans declared a hook before the
-    // re-derivation and 56.2% after, so this is a coin flip either way and
-    // was never a property of 55.
-    // AND THE LENGTH IS DECLARED, NOT DRAWN (M-239 / M-240, 2026-09-05).
-    // Since M-239 the planner's envelope is 12..447 lines and a DRAWN total
-    // has a median of 201, which puts this block's whole chain past two
-    // measured ceilings at once: the 77-schema default door refuses a draft
-    // that long at its pair guard (53 lines grade in 56 s, 108 in 330 s,
-    // 144 REFUSE), and the report itself outgrows the connector's 4 MiB
-    // output cap (MEASURED: `finish` on the 80-line fixture draft printed
-    // 8.56 MB after ~600 s; the 47-line one answered in 245 s; the 24-line
-    // one in 109 s and 0.47 MB). Hunting seeds for a short draw was the
-    // first repair and it was the wrong one — it left the block's cost to
-    // the dice. THE LENGTH IS A DECLARATION (M-241): every call in this
-    // block declares the SAME `lines`, so the plan, the grade and the
-    // revision are one shape and the block's runtime is a property of the
-    // test rather than of a seed. 24 is the smallest round figure that
-    // still draws multi-line sections and a hook; MEASURED, every seed of
-    // 1..5 declares a hook at this length, so the loop below now confirms
-    // the premise rather than searching for it.
-    const LIVE_LINES = 24;
-    // A HOOK AND A CHORUS RETURN ARE PLANNED ONLY FOR A RETURNING FORM
-    // (2026-10-27, D7: the default `open` form asks for neither), and this
-    // block's title checks need a hook, so every call declares
-    // `verse-chorus` — the plan, the grade and the revision one shape.
-    const LIVE_FORM = 'verse-chorus';
-    const withLines = (extra) => ({
-      seed: planSeed,
-      lines: LIVE_LINES,
-      form: LIVE_FORM,
-      ...extra,
-    });
-    let plannedRes = null;
-    let planSeed = null;
-    for (const candidate of [1, 2, 3, 4, 5]) {
-      const tryRes = await client.callTool(
-        { name: 'lyric_plan', arguments: { seed: candidate, lines: LIVE_LINES, form: LIVE_FORM } },
-        undefined,
-        LIVE_OPTS
-      );
-      assert.ok(!tryRes.isError, `lyric_plan answered without isError (seed ${candidate})`);
-      const declared = /-> (\d+) line\(s\)/.exec(tryRes.content[0].text);
-      assert.equal(
-        declared && Number(declared[1]),
-        LIVE_LINES,
-        'a declared length is the length that was drawn'
-      );
-      if (/is the hook/.test(tryRes.content[0].text)) {
-        plannedRes = tryRes;
-        planSeed = candidate;
-        break;
-      }
-    }
-    assert.ok(
-      plannedRes !== null,
-      'NO candidate seed declares a hook -- the premise of the title checks ' +
-        'below, and a fact about the PATTERN rather than about titles'
-    );
-    assert.equal(plannedRes.content.length, 2, 'plan returns two blocks: report, then verdict');
-    // M-219: the plan's verdict block says which path answered, how long it
-    // took and how many lines it drew — it used to say exit_code and meaning
-    // and nothing else, so no battery row ever carried the drawn shape.
-    const planVerdict = JSON.parse(plannedRes.content[1].text);
-    assert.ok(
-      ['warm', 'cold', 'cold-fallback'].includes(planVerdict.path),
-      `the plan verdict names its path (got ${planVerdict.path})`
-    );
-    assert.equal(typeof planVerdict.ms, 'number', 'and carries its wall time');
-    assert.ok(!('report' in planVerdict), 'and does not repeat block 0 as JSON');
-    const planReport = plannedRes.content[0].text;
-    const nLines = Number((planReport.match(/-> (\d+) line\(s\)/) || [])[1]);
-    assert.ok(nLines >= 4, `the plan declares its own line count (got ${nLines})`);
-    assert.equal(
-      planVerdict.plan_lines,
-      nLines,
-      'the verdict block carries the same line count the report prints'
-    );
-
-    // The bracket header rows ARE the shape, and their line counts must sum
-    // to the declared total -- an invariant of the report rather than a
-    // remembered section list, so a planner that re-derives its patterns
-    // still has to satisfy it.
-    const headers = [...planReport.matchAll(/\[([A-Z_]+) — (\d+) lines? — /g)];
-    assert.ok(headers.length > 0, 'the plan brief carries bracket section headers');
-    assert.equal(
-      headers.reduce((t, h) => t + Number(h[2]), 0),
-      nLines,
-      'the section headers account for every declared line'
-    );
-
-    // RETURNS is the plan's own verbatim-return declaration. `(none)` is an
-    // ordinary answer, not a missing one, so the draft honors whatever is
-    // there and asserts nothing about which it got.
-    const returnsMatch = planReport.match(/RETURNS: (.*)/);
-    assert.ok(returnsMatch, 'the plan report declares its return classes on a RETURNS line');
-    const returnsRaw = returnsMatch[1].trim();
-    const returnClasses =
-      returnsRaw === '(none)'
-        ? []
-        : returnsRaw.split(';').map((g) => g.split(',').map((n) => Number(n.trim())));
-
-    const bank = (
-      'stone rain door light road name glass train hill salt wire ' +
-      'bell coat dust song tide map north paper'
-    ).split(' ');
-    const draft = [];
-    for (let i = 1; i <= nLines; i++)
-      draft.push(`we carry the morning to the ${bank[(i - 1) % bank.length]}`);
-    // A declared return class is the SAME LINE, so every member after the
-    // first is that first line verbatim (1-based line numbers).
-    for (const cls of returnClasses)
-      for (const ln of cls.slice(1)) draft[ln - 1] = draft[cls[0] - 1];
-    // The Wide Room fix (2026-08-19): grade and plan lead with the
-    // deliverable as its OWN PLAIN-TEXT content block — the song, the plan
-    // report — and carry the JSON verdict second, because a render buried
-    // as an escaped JSON field is what a client model restyled to bare
-    // [SECTION] headers. Block 0 must parse as a song, not as JSON.
-    const gradedRes = await client.callTool(
-      { name: 'lyric_grade', arguments: withLines({ draft }) },
-      undefined,
-      LIVE_OPTS
-    );
-    assert.ok(!gradedRes.isError, 'lyric_grade answered without isError');
-    assert.equal(gradedRes.content.length, 2, 'grade returns two blocks: song, then verdict');
-    {
-      const gv = JSON.parse(gradedRes.content[1].text);
-      assert.ok(
-        ['warm', 'cold', 'cold-fallback'].includes(gv.path) && typeof gv.ms === 'number',
-        `the grade verdict names its path and time (got ${gv.path}, ${gv.ms})`
-      );
-    }
-    const song = gradedRes.content[0].text;
-    assert.ok(
-      // The plan's OWN first header, not a literal -- see the note above.
-      song.includes(`[${headers[0][1]} — ${headers[0][2]} line`) &&
-        !song.trimStart().startsWith('{'),
-      'block 0 is the SONG as plain text, the plan\u2019s own bracket headers intact'
-    );
-    // The provenance stamp is SERVER-written under the song, inside the
-    // verbatim block: seed + exit + banned-pair count reach the user even
-    // through a client that relays nothing else.
-    // REPINNED 2026-10-04, THE ANY-READING RULE reaches the meter
-    // (lyric-harness/HANDBOOK.md standing rule 5): the scaffold's unjudged
-    // obligations were meter lines ending on `wire` (W AY1 ER0 / W AY1 R),
-    // now judged on one whole reading. Every requested obligation is judged
-    // and the scaffold's flags still stand, so it is still a negative: exit
-    // 3 with its flags standing. ~~exit 2, certified false, coverage
-    // uncertified, refused obligations non-empty, stamp `exit 2`~~.
-    const gradeVerdict = JSON.parse(gradedRes.content[1].text);
-    assert.equal(
-      gradeVerdict.exit_code,
-      3,
-      'the scaffold draft is judged throughout and its flags stand'
-    );
-    // `certified` is the coverage's answer (every requested obligation
-    // judged); the standing flags are what exit 3 reports.
-    assert.equal(gradeVerdict.certified, true);
-    assert.equal(gradeVerdict.coverage.certified, true);
-    assert.deepEqual(gradeVerdict.coverage.refused_obligations, []);
-    assert.ok(
-      new RegExp(`\\[GRADED — seed ${planSeed} — exit 3, .+ — \\d+ banned pair\\(s\\)`).test(song),
-      'block 0 carries the same [GRADED — seed …] stamp as the authenticated verdict'
-    );
-    assert.ok(
-      /pairs?/i.test(gradeVerdict.report) || gradeVerdict.report.includes('REPORT'),
-      'a grade report came back in the verdict block'
-    );
-    console.log('  ok  lyric_grade live: two blocks — the song plain, the verdict JSON');
-    passed++;
-
-    // EACH GROUP DRAWS ONE TYPE (owner-approved plan, 2026-10-27, D1). The
-    // brief states each group's rule with no type name ("must satisfy rule
-    // R<n>"), and the grade — with `--relations=` off the plan — judges each
-    // group under the type it drew, so it announces one RELATION row per
-    // group. Pinned as an equality between the harness's own two reports.
-    const groupsInBrief = (planReport.match(/must satisfy rule R\d+/g) || []).length;
-    const oldWording = /must stand in at least one relation|any coarse relation/.test(planReport);
-    const judgedInGrade = (gradeVerdict.report.match(/RELATION: group /g) || []).length;
-    assert.ok(groupsInBrief > 0, 'the brief states a rule for each group');
-    assert.ok(!oldWording, 'the four-type wording is gone from the brief');
-    assert.equal(
-      judgedInGrade,
-      groupsInBrief,
-      'the grade judges every group under the type the plan drew for it'
-    );
-    console.log(
-      '  ok  lyric_grade live: ' + groupsInBrief + ' group(s), each judged under its drawn type'
-    );
-    passed++;
-
-    // `lyric_revise` — THE SEAM (M-154). The claims only this tool makes:
-    // a suspended call contains NO SONG anywhere in its output (the render
-    // exists structurally only past a stop condition of the loop), the
-    // question is the writer's brief, and the `state` blob round-trips —
-    // the server keeps nothing, so a re-call with the same unanswered state
-    // re-asks the SAME question rather than advancing or inventing one.
-    // M-221: `draft` is optional in the SCHEMA so the connector may fill it
-    // from the carried record; a client that carries nothing gets a refusal
-    // naming the parameter, never a run on an empty draft.
-    const noDraft = await client.callTool(
-      { name: 'lyric_revise', arguments: withLines({}) },
-      undefined,
-      LIVE_OPTS
-    );
-    assert.ok(noDraft.isError, 'lyric_revise with no draft and nothing carried refuses');
-    assert.ok(
-      /`draft` omitted and no draft is carried/.test(noDraft.content[0].text),
-      `the refusal names the draft (got: ${noDraft.content[0].text.slice(0, 120)})`
-    );
-    console.log(
-      '  ok  lyric_revise live: an omitted draft nothing carries refuses by name (M-221)'
-    );
-    passed++;
-    // The original 24-line seed1 fixture produced a 400KB nine-line prompt,
-    // before its first answer. Independent questions must split into fitting
-    // batches without discarding their constraints or ending the fresh run.
-    // ~~The batch was the FIRST question of the run~~ — since M-305 the brief
-    // reads the incident verdict for BOTH endpoints of a violated pair, so L1
-    // (the earlier endpoint of violated pairs in groups A and L) is a
-    // joint-conflict pivot and tier 2 asks its group rewrites before the batch
-    // door opens. MEASURED on this tree at the interview default (attempts 1):
-    // group [1,8,9,10,11], L1, group [2,8,13], L2, group [3,4,9,10,12], L3,
-    // group [4,6,7], L4, then the batch [5,6,11,14,15,17,20] on continuation
-    // 8 (334949 state bytes). ~~That M-305 walk~~ — REPINNED 2026-09-24 for
-    // M-309's N-relation model: the plan no longer draws a relation per group,
-    // so L1 is no longer a joint-conflict pivot and the batch
-    // [1,5,6,14,15,17,19] is again the FIRST question, on continuation 0
-    // (314780 state bytes; measured). ~~That walk too~~ — REPINNED 2026-10-01
-    // for the any-reading rule (CLAUDE.md standing rule 5): small words now
-    // anchor at declared slots, so the groups bound to `we`/`the`/`to` are
-    // judged instead of refused. MEASURED at the connector's own budget
-    // (attempts 1, backtrack 1): group [1,5,6,7,8,13], then L1, then the batch
-    // [2,14,15,17,19,21,23] on continuation 2 (133050 state bytes).
-    // ~~That walk~~ is NOT re-measured here since 2026-10-21: the owner's
-    // equal-weight beat draw re-deals seed 1 at 24 lines, and
-    // test_run_continuation.mjs measures its door opening on continuation 0
-    // at the harness's prefetch. Nothing below pins the walk before the door,
-    // so the claim measured here is unchanged.
-    // The walk below answers every question with the
-    // draft's own unchanged line(s) — exactly as test_run_continuation.mjs
-    // does, so no accepted edit can close an obligation — until the first
-    // propose_batch appears, and the claim is measured on THAT state. A run
-    // that never reaches the batch door within the bound is reported as such,
-    // never forced.
-    const SPLIT_WALK_BOUND = 12;
-    const splitMembers = (pending) =>
-      pending.kind === 'propose_batch'
-        ? pending.record.records.map((r) => r.line)
-        : pending.kind === 'propose_group'
-          ? pending.record.members
-          : [pending.record.line];
-    let splitRes = await client.callTool(
-      { name: 'lyric_revise', arguments: withLines({ draft }) },
-      undefined,
-      LIVE_OPTS
-    );
-    splitRes = await resumeStopped(client, splitRes, LIVE_OPTS);
-    assert.ok(!splitRes.isError, String(splitRes.content?.[0]?.text).slice(0, 800));
-    assert.equal(splitRes.content.length, 2, String(splitRes.content?.[0]?.text).slice(0, 800));
-    let splitVerdict = JSON.parse(splitRes.content[1].text);
-    assert.equal(splitVerdict.status, 'awaiting_proposal');
-    assert.equal(splitVerdict.exit_code, 4);
-    let splitState = decodeState(splitVerdict.state);
-    assert.deepEqual(splitState.accepted_lines, draft);
-    assert.deepEqual(splitState.answered.propose, []);
-    const splitWalk = [];
-    let splitHop = 0;
-    while (splitState.pending.kind !== 'propose_batch') {
-      const members = splitMembers(splitState.pending);
-      splitWalk.push(`${splitState.pending.kind}[${members.join(',')}]`);
-      assert.ok(
-        splitHop < SPLIT_WALK_BOUND,
-        `no propose_batch within ${SPLIT_WALK_BOUND} continuations: ${splitWalk.join(' → ')}`
-      );
-      const answer =
-        splitState.pending.kind === 'propose'
-          ? draft[members[0] - 1]
-          : members.map((n) => `L${n}: ${draft[n - 1]}`).join('\n');
-      splitRes = await client.callTool(
-        {
-          name: 'lyric_revise',
-          arguments: withLines({
-            run_id: splitVerdict.run_id,
-            run_revision: splitVerdict.run_revision,
-            answer,
-          }),
-        },
-        undefined,
-        LIVE_OPTS
-      );
-      assert.ok(
-        !splitRes.isError,
-        `continuation ${splitHop + 1} answered (got: ${String(splitRes.content?.[0]?.text).slice(0, 200)})`
-      );
-      // A safe-point stop is one block (the verdict alone), so the two-block
-      // question is asserted after the stop is resumed, not before it
-      // (CI run 37725585352 failed on that order, 2026-10-08).
-      splitRes = await resumeStopped(client, splitRes, LIVE_OPTS);
-      assert.equal(splitRes.content.length, 2);
-      splitVerdict = JSON.parse(splitRes.content[1].text);
-      assert.equal(splitVerdict.status, 'awaiting_proposal');
-      assert.equal(splitVerdict.exit_code, 4, 'the fresh run is not ended before the batch door');
-      splitState = decodeState(splitVerdict.state);
-      assert.deepEqual(splitState.accepted_lines, draft, 'unchanged answers fix nothing');
-      splitHop++;
-    }
-    assert.equal(splitState.pending.kind, 'propose_batch');
-    assert.ok(splitState.pending.record.records.length > 1);
-    // ~~records.length < 9~~ and ~~state < 384 * 1024~~ — REPINNED 2026-10-04
-    // with the raised record cap (JOURNAL_WORK_BYTES 1 MiB): this fixture's
-    // independent lines now fit one batch, so the split is no longer forced
-    // here; the bound that still holds is the cap itself.
-    assert.ok(Buffer.byteLength(JSON.stringify(splitState), 'utf8') < 1024 * 1024);
-    assert.ok(splitRes.content[0].text.includes(splitState.pending.prompt));
-    console.log(
-      `  ok  lyric_revise live: seed ${planSeed}, ${nLines} lines, first batch ` +
-        `[${splitState.pending.record.records.map((r) => r.line).join(',')}] ` +
-        `on continuation ${splitHop} after ${splitWalk.join(' → ') || '(nothing)'} ` +
-        `fits ${Buffer.byteLength(JSON.stringify(splitState), 'utf8')} state bytes without dropping a brief`
-    );
-    passed++;
-    const revisionSeed = 176;
-    const revisionDraft = [...qualifiedDraft];
-    // THE DEFECT IS L1 ENDING ON ITS GROUP PARTNER'S OWN WORD: a word rhymed
-    // with itself (REPEAT_IN_VERSE) in a group that requires class:RHYME
-    // (SCHEME_VIOLATION), so a fresh run suspends on L1 and a zero-attempt
-    // run stops at exit 3. ~~'Bone buttons gleam beneath the rain in June'~~
-    // ended on L2's 'June' while L2 shared L1's group; RE-MEASURED
-    // 2026-10-21, L1's partner is L3 now (1,3 above) and 'June' finishes
-    // clean, so L1 must end on L3's own word instead, the same defect.
-    // With the clean control now ending on strewn, the negative repeats strewn too.
-    // 2026-10-27 (D7): the returns and hook this draft is written for are
-    // planned only for a returning form, so every seed-176 call declares
-    // `verse-chorus`; under it the plan is unchanged (1,3;4,5;6,7, returns
-    // 6,8;7,9, hook L6).
-    revisionDraft[0] = 'Bone buttons gleam beneath the rain where leaves lie strewn';
-    const withRevision = (extra) => ({
-      seed: revisionSeed,
-      lines: 12,
-      form: 'verse-chorus',
-      relation: 'class:RHYME',
-      title: 'wakes the rain',
-      ...extra,
-    });
-    const rev1 = await client.callTool(
-      { name: 'lyric_revise', arguments: withRevision({ draft: revisionDraft }) },
-      undefined,
-      LIVE_OPTS
-    );
-    assert.ok(!rev1.isError, 'lyric_revise answered without isError');
-    assert.equal(
-      rev1.content.length,
-      2,
-      `revise returns two blocks: question, then verdict; got ${rev1.content[0]?.text.slice(0, 2500)}`
-    );
-    const q1 = rev1.content[0].text;
-    assert.ok(
-      q1.startsWith(
-        `[AWAITING PROPOSAL — seed ${revisionSeed} — 0 answer(s) on record — NO SONG YET]`
-      ),
-      'a fresh revision suspends awaiting the first proposal'
-    );
-    assert.ok(
-      !q1.includes('[FINISHED') && !q1.includes('THE SONG, PERFORMANCE ORDER'),
-      'NO render reaches a suspended response — the seam holds'
-    );
-    const rv1 = JSON.parse(rev1.content[1].text);
-    assert.equal(
-      rv1.exit_code,
-      4,
-      'suspension is exit 4, its own code — neither verdict nor failure'
-    );
-    assert.equal(rv1.status, 'awaiting_proposal', 'and says so in its own field');
-    // M-219: the SUSPENDED verdict is the common row of a real run (32 of
-    // round 11's 33) and it was built by hand without the path stamp.
-    assert.ok(
-      ['warm', 'cold', 'cold-fallback'].includes(rv1.path) && typeof rv1.ms === 'number',
-      `a suspended verdict names its path and time too (got ${rv1.path}, ${rv1.ms})`
-    );
-    const st1 = decodeState(rv1.state);
-    assert.ok(st1.pending && st1.pending.kind, 'the state carries the pending question');
-    assert.equal(
-      st1.connector_declarations.attempts,
-      1,
-      'the native journal preserves the actual default attempt budget'
-    );
-    assert.equal(st1.connector_declarations.backtrack, 1);
-    assert.equal(
-      st1.connector_declarations.max_rounds,
-      undefined,
-      'no round limit is declared by default'
-    );
-    // M-235: the row names the question left open; a first call folds nothing.
-    assert.equal(rv1.asked && rv1.asked.kind, st1.pending.kind, 'the row names the open question');
-    assert.equal(rv1.folded, null, 'a first call folds no answer');
-    assert.equal(typeof rv1.draft_fp, 'string', 'and fingerprints the draft');
-    // Round-trip: same state, no answer -> the SAME question, fast (the
-    // harness refuses to advance past an unanswered pending — that refusal
-    // IS the enforcement, and it must be idempotent or a retry would skip).
-    const rev2 = await client.callTool(
-      {
-        name: 'lyric_revise',
-        arguments: withRevision({
-          draft: revisionDraft,
-          state: rv1.state,
-          run_id: rv1.run_id,
-          run_revision: rv1.run_revision,
-        }),
-      },
-      undefined,
-      LIVE_OPTS
-    );
-    const rv2 = JSON.parse(rev2.content[1].text);
-    assert.equal(rv2.exit_code, 4, 'an unanswered state re-suspends');
-    assert.equal(
-      decodeState(rv2.state).pending.prompt,
-      st1.pending.prompt,
-      'and re-asks the IDENTICAL question — the loop is resumed, not re-imagined'
-    );
-    // An answer with no state to answer is refused by the tool itself.
-    // M-237: THE TOOL REMEMBERS THE RUN. An answer WITHOUT `state` on this
-    // seed continues it — the state and the draft are carried by the tool
-    // and the verdict says so; the run keeps its id.
-    const pend1 = st1.pending;
-    const answer1 =
-      pend1.kind === 'propose_batch'
-        ? pend1.record.records
-            .map((r) => `L${r.line}: ${revisionDraft[r.line - 1]} again`)
-            .join('\n')
-        : pend1.kind === 'propose_group'
-          ? pend1.record.members.map((n) => `L${n}: ${revisionDraft[n - 1]} again`).join('\n')
-          : `${revisionDraft[pend1.record.line - 1]} again`;
-    const rev3 = await client.callTool(
-      {
-        name: 'lyric_revise',
-        arguments: withRevision({
-          run_id: rv2.run_id,
-          run_revision: rv2.run_revision,
-          answer: answer1,
-        }),
-      },
-      undefined,
-      LIVE_OPTS
-    );
-    assert.ok(
-      !rev3.isError,
-      `an answer without state continues the remembered run (got: ${String(rev3.content?.[0]?.text).slice(0, 200)})`
-    );
-    const rv3 = JSON.parse(rev3.content[1].text);
-    assert.ok([0, 3, 4].includes(rv3.exit_code), `the run advanced (exit ${rv3.exit_code})`);
-    assert.equal(rv3.run_state_carried, true, 'the tool carried the state');
-    assert.equal(rv3.run_draft_carried, true, 'and the draft');
-    assert.equal(typeof rv1.run_id, 'string', 'the first call minted a run id');
-    assert.equal(rv3.run_id, rv1.run_id, 'the same run');
-    // A seed with NO remembered run: `answer` without `state` still refuses.
-    const revBad = await client.callTool(
-      {
-        name: 'lyric_revise',
-        arguments: {
-          seed: revisionSeed + 100000,
-          relation: 'class:RHYME',
-          draft: revisionDraft,
-          answer: 'a line',
-        },
-      },
-      undefined,
-      LIVE_OPTS
-    );
-    assert.ok(
-      revBad.isError,
-      '`answer` without `state` on a seed with no run refuses — there is no question it answers'
-    );
-    // `new_run` drops the record: zero answers, a different id.
-    const rev4 = await client.callTool(
-      { name: 'lyric_revise', arguments: withRevision({ draft: revisionDraft, new_run: true }) },
-      undefined,
-      LIVE_OPTS
-    );
-    assert.ok(
-      !rev4.isError,
-      `new_run opens a fresh run (got: ${String(rev4.content?.[0]?.text).slice(0, 200)})`
-    );
-    const rv4 = JSON.parse(rev4.content[1].text);
-    assert.equal(rv4.answers_on_record ?? 0, 0, 'a fresh run has no answers');
-    assert.notEqual(rv4.run_id, rv1.run_id, 'and a new id');
-    const { RUNS: actualRuns } = await import('./lyric_tools.js');
-    for (const [zeroDraft, expectedExit] of [
-      [revisionDraft, 3],
-      [qualifiedDraft, 0],
-    ]) {
-      const zeroRes = await client.callTool(
-        {
-          name: 'lyric_revise',
-          arguments: withRevision({
-            draft: zeroDraft,
-            new_run: true,
-            attempts: 0,
-            backtrack: 0,
-            max_rounds: 1,
-          }),
-        },
-        undefined,
-        LIVE_OPTS
-      );
-      assert.ok(!zeroRes.isError);
-      const zeroVerdict = JSON.parse(zeroRes.content.at(-1).text);
-      assert.equal(
-        zeroVerdict.exit_code,
-        expectedExit,
-        'zero attempts distinguishes a definite standing flag from a clean finish without requesting a proposal'
-      );
-      assert.equal(zeroVerdict.certified, true);
+    const server = buildServer();
+    const [clientSide, serverSide] = InMemoryTransport.createLinkedPair();
+    const client = new Client({ name: 'lyric-check', version: '0' }, { capabilities: {} });
+    await Promise.all([server.connect(serverSide), client.connect(clientSide)]);
+    const { tools } = await client.listTools();
+    const lyric = tools.filter((t) => t.name.startsWith('lyric_'));
+    if (runs('live-lookups')) {
       assert.deepEqual(
-        zeroVerdict.final_draft,
-        zeroDraft,
-        'no proposal changed the accepted draft'
+        lyric.map((t) => t.name).sort(),
+        [
+          'lyric_check',
+          'lyric_grade',
+          'lyric_plan',
+          'lyric_recover',
+          'lyric_revise',
+          'lyric_screen',
+          'lyric_sweep',
+          'lyric_types',
+          'lyric_verify',
+        ],
+        'the nine lyric tools are advertised (M-195 added lyric_recover)'
       );
-      assert.equal(
-        Object.hasOwn(zeroVerdict, 'asked'),
-        false,
-        'a stopped run carries no open question'
-      );
-      if (expectedExit === 3) {
-        const zeroRun = actualRuns.get(zeroVerdict.run_id);
-        assert.equal(
-          zeroRun.decl.attempts,
-          0,
-          'the actual handler preserves explicit zero instead of substituting the default'
-        );
-        assert.equal(zeroRun.decl.backtrack, 0);
-        assert.equal(zeroRun.decl.max_rounds, 1);
-      } else {
-        assert.equal(zeroVerdict.run_id, null, 'a clean fresh finish creates no parked capability');
+      for (const t of lyric) {
+        const writes = t.name === 'lyric_revise';
+        assert.equal(t.annotations?.readOnlyHint, !writes, `${t.name} declares its state effects`);
+        // No outside server reaches a model provider: only the website chat's
+        // server (buildServer({ kitchen: true })) lets the service writer answer.
+        assert.equal(t.annotations?.openWorldHint, false, `${t.name} declares no model access`);
+        assert.equal(t.annotations?.idempotentHint, !writes, `${t.name} declares replay semantics`);
       }
-    }
-    console.log(
-      '  ok  lyric_revise live: suspends with the question, no render, state round-trips'
-    );
-    passed++;
-
-    // THE WARM WORKER (M-155). The one claim that licenses it: the warm
-    // path answers with the COLD PATH'S EXACT BYTES — same stdout, same
-    // exit code — for every argv, including refusals, and a request served
-    // AFTER another verb's request is not poisoned by it (the cross-verb
-    // ordering below is the control). Then the operational half: the
-    // worker PERSISTS between requests (that persistence is the entire
-    // point — the memos live in it), and a killed worker costs one
-    // fallback answer, never a wrong one.
-    const { _workerInternals: WK } = await import('./lyric_tools.js');
-    assert.ok(WK.enabled, 'the warm path is on by default (LYRIC_WORKER=0 disables)');
-    const battery = [
-      ['screen', 'fire', 'desire'],
-      ['plan', '--seed=7', '--lines=22'],
-      ['screen', 'hair', 'chair'],
-      ['brief', 'no_such_file.txt', 'ABAB'], // a refusal, through both paths
-    ];
-    for (const argv of battery) {
-      const warm = await WK.runWarm(argv).catch(() => null);
-      const cold = await WK.runCold(argv);
-      assert.ok(warm, `warm path answered for ${argv[0]}`);
-      assert.equal(warm.code, cold.code, `${argv.join(' ')}: same exit code`);
-      assert.equal(warm.stdout, cold.stdout, `${argv.join(' ')}: byte-identical stdout`);
-    }
-    const pidBefore = WK.pid();
-    await WK.runWarm(['screen', 'fire', 'desire']);
-    assert.ok(
-      pidBefore !== null && WK.pid() === pidBefore,
-      'the worker persists across requests — the memos live in it'
-    );
-    WK.kill();
-    const after = await WK.runWarm(['screen', 'fire', 'desire']).catch(() => null);
-    const afterCold = await WK.runCold(['screen', 'fire', 'desire']);
-    assert.ok(
-      after && after.stdout === afterCold.stdout,
-      'a killed worker respawns and still answers with the cold bytes'
-    );
-    console.log(
-      '  ok  warm worker: byte-identical to cold on the battery, persists, survives a kill'
-    );
-    passed++;
-
-    // `title` REACHES THE PLAN (MISSING.md M-93), and the only shape that
-    // proves it is a DIFFERENCE between runs — accepting a field and
-    // dropping it looks identical from the outside. Three runs, because the
-    // coordinate moves TWO codes in opposite directions: undeclared leaves
-    // the question REFUSED, a title inside the hook answers it YES, and a
-    // title outside the hook answers NO and that answer is a FLAG.
-    //
-    // Every draft line here is `we carry the morning to the <word>` and the
-    // blueprint's hook is the draft line at the plan's own hook slot, so
-    // `carry the morning` is a contiguous run of words inside it under any
-    // seed. Containment is a normalised WORD-subsequence test, not a
-    // substring match, which is why the in-hook title is three whole words.
-    const titleReport = async (title) => {
-      const res = await client.callTool(
-        {
-          name: 'lyric_grade',
-          arguments: title === null ? withLines({ draft }) : withLines({ draft, title }),
-        },
-        undefined,
-        LIVE_OPTS
+      console.log(
+        '  ok  lyric family advertised: 9 tools, revise declares its state effects and no model access'
       );
-      assert.ok(!res.isError, `lyric_grade answered without isError (title=${title})`);
-      return JSON.parse(res.content[1].text);
-    };
-    const noTitle = await titleReport(null);
-    assert.ok(
-      noTitle.report.includes('TITLE_UNDECLARED'),
-      'with no title the question is REFUSED, not answered'
-    );
-    const inHook = await titleReport('carry the morning');
-    assert.ok(
-      !inHook.report.includes('TITLE_UNDECLARED'),
-      'declaring a title REMOVES the refusal — the field is read, not dropped'
-    );
-    assert.ok(
-      !inHook.report.includes('TITLE_NOT_IN_HOOK'),
-      'and a title that is a run of words inside the hook answers YES'
-    );
-    const outOfHook = await titleReport('zzz nowhere');
-    assert.ok(
-      outOfHook.report.includes('TITLE_NOT_IN_HOOK'),
-      'a title outside the hook answers NO'
-    );
-    assert.ok(
-      outOfHook.findings.some((f) => f.code === 'TITLE_NOT_IN_HOOK' && f.severity === 'flag')
-    );
-    // REPINNED 2026-10-04, THE ANY-READING RULE reaches the meter: the
-    // scaffold is judged throughout (see the grade above), so the title flag
-    // stands on certified coverage, exit 3. ~~exit 2, coverage uncertified~~.
-    // The unresolved case keeps a word no dictionary reads, which the ruling
-    // never guesses, and the same title flag still cannot override it.
-    assert.equal(outOfHook.exit_code, 3, 'the title flag stands on a fully judged scaffold');
-    assert.equal(outOfHook.coverage.certified, true);
-    const unreadableDraft = draft.map((line, i) =>
-      i === draft.length - 1 ? line.replace('the morning', 'the qzzxv') : line
-    );
-    const unresolvedRes = await client.callTool(
-      {
-        name: 'lyric_grade',
-        arguments: withLines({ draft: unreadableDraft, title: 'zzz nowhere' }),
-      },
-      undefined,
-      LIVE_OPTS
-    );
-    assert.ok(!unresolvedRes.isError);
-    const unresolved = JSON.parse(unresolvedRes.content[1].text);
-    assert.equal(
-      unresolved.exit_code,
-      2,
-      'a title flag cannot override unresolved scaffold obligations'
-    );
-    assert.equal(unresolved.coverage.certified, false);
-    assert.ok(unresolved.findings.some((f) => f.code === 'TITLE_NOT_IN_HOOK'));
-    // A separately qualified current seed controls clean0 versus flag3.
-    // The only difference is the title; requested coverage and every lyric
-    // remain identical. The unreadable scaffold above is the explicit
-    // unjudged case.
+      passed++;
 
-    const qualifiedTitle = async (title) => {
-      const result = await client.callTool(
-        {
-          name: 'lyric_grade',
-          arguments: {
-            seed: 176,
+      // DEPLOYMENT FRESHNESS HAS AN INSTRUMENT (M-127): check_live.mjs compares
+      // the surface a RUNNING server advertises against this tree's own, because
+      // on 2026-08-26 a live server was found serving a one-commit-stale
+      // lyric_sweep schema (12-want ceiling, no story_lineups) and NOTHING could
+      // have said so — every check in this repo ran against the code, none against
+      // the deployment. These checks prove the comparator FAILS in every direction
+      // it claims to detect; a differ that cannot fail is the vacuous-check defect
+      // this suite's own history warns about. The transport half (a real server
+      // answering over HTTP) is proven by running the instrument, not simulated
+      // here — the comparator is the half a network cannot exercise.
+      const { surfaceDrift } = await import('./check_live.mjs');
+      const surf = tools.map((t) => ({
+        name: t.name,
+        description: t.description,
+        inputSchema: t.inputSchema,
+      }));
+      assert.deepEqual(
+        surfaceDrift(surf, surf),
+        [],
+        'a surface matches itself — MATCH is reachable'
+      );
+      const dropped = surf.slice(1);
+      assert.ok(
+        surfaceDrift(surf, dropped).some((d) => d.tool === surf[0].name && /missing/.test(d.what)),
+        'a tool the live server lost is named as missing'
+      );
+      assert.ok(
+        surfaceDrift(dropped, surf).some(
+          (d) => d.tool === surf[0].name && /not in the tree/.test(d.what)
+        ),
+        'a tool only the live server has is named as extra'
+      );
+      const reworded = surf.map((t, i) =>
+        i ? t : { ...t, description: `${t.description} (stale)` }
+      );
+      assert.ok(
+        surfaceDrift(surf, reworded).some(
+          (d) => d.tool === surf[0].name && d.what === 'description differs'
+        ),
+        'a drifted description is named with its coordinate'
+      );
+      const reshaped = surf.map((t, i) =>
+        i ? t : { ...t, inputSchema: { ...t.inputSchema, maxItems: 999 } }
+      );
+      assert.ok(
+        surfaceDrift(surf, reshaped).some(
+          (d) => d.tool === surf[0].name && d.what === 'inputSchema differs'
+        ),
+        'a drifted schema is named with its coordinate — the exact shape the stale server wore'
+      );
+      const reordered = surf.map((t) => ({
+        ...t,
+        inputSchema: JSON.parse(JSON.stringify(t.inputSchema)),
+      }));
+      assert.deepEqual(
+        surfaceDrift(surf, reordered.reverse()),
+        [],
+        'neither tool order nor key order is drift — the comparison is canonical'
+      );
+      console.log(
+        '  ok  check_live: the freshness comparator fails in all four directions, and only those'
+      );
+      passed++;
+
+      // THE SURFACE IS NOT THE BUILD (M-230): the M-228/M-229 merge touched no
+      // tool, so the surface was byte-identical between the old process and the
+      // new and the battery's wait-for-live matched the OLD deployment on its
+      // first probe. commitDrift is the second half of the probe: /health's
+      // commit against the sha the caller expects. Unknown is not a match.
+      const { commitDrift } = await import('./check_live.mjs');
+      const full = '62215f575ee73068212dc0201346e09a2fc8e194';
+      assert.equal(commitDrift('', full), null, 'no expectation — the surface alone decides');
+      assert.equal(commitDrift(full, full), null, 'the same sha matches');
+      assert.equal(commitDrift(full.slice(0, 8), full), null, 'a short sha matches its full one');
+      assert.equal(
+        commitDrift(full, full.slice(0, 8).toUpperCase()),
+        null,
+        'case and length are not drift'
+      );
+      assert.match(
+        commitDrift(full, null),
+        /does not report a commit/,
+        'a server that does not say its commit is NOT a match — unknown is not equal'
+      );
+      assert.match(
+        commitDrift(full, 'b3928ddba7509365c2f09af27f7824935e3d0d6c'),
+        /serving b3928ddba750, not 62215f575ee7/,
+        'a different build is named by both shas'
+      );
+      assert.match(
+        commitDrift('62215', full),
+        /shorter than 7/,
+        'a five-character prefix is refused, not matched'
+      );
+      console.log(
+        '  ok  check_live: the build is compared beside the surface, and unknown is not a match'
+      );
+      passed++;
+    }
+
+    // LIVE: stage the lexicon exactly as the Docker build does, then drive
+    // the bridge with the control pair the ban was taught on, and one full
+    // plan->fill->grade round trip. These are the checks that catch a
+    // broken subprocess bridge, a wrong cwd, or an image missing python.
+    const { execFile } = await import('node:child_process');
+    const { promisify } = await import('node:util');
+    const run = promisify(execFile);
+    let staged = false;
+    try {
+      await run('python3', ['-c', 'import lyric_harness; lyric_harness.fetch_data()'], {
+        cwd: new URL('../lyric-harness', import.meta.url).pathname,
+        timeout: 120_000,
+      });
+      staged = true;
+    } catch (err) {
+      if (PART) throw err;
+      console.log(
+        `  --  lyric LIVE checks skipped (python3/lexicon unavailable: ${String(err.message).slice(0, 80)})`
+      );
+    }
+    if (staged) {
+      // THE LIVE CHECKS DECLARE THEIR OWN CLOCK (2026-08-26). The SDK's
+      // DEFAULT_REQUEST_TIMEOUT_MSEC is 60_000 and the bridge emits no
+      // progress notifications to reset it — and the whole-vocabulary
+      // default (M-116) put a full plan->fill->grade round trip AT that
+      // cliff: ~61s wall on the CI runner that passed, MCP error -32001 on
+      // the one that didn't, the same call both times. A regression gate
+      // may not flip coins on runner speed, so every live lyric call rides
+      // an explicit RequestOptions timeout. ~~300s~~ AND THE 300s WAS THE
+      // SAME COIN ONE ROUNDING UP (M-218, 2026-09-03): run 33796842987's
+      // runner was ~13% slower than the green run before it (regression_
+      // recipes 351s -> 396s) and the seed-55 plan->grade call crossed 300s
+      // — `MCP error -32001: Request timed out`, the SDK's anonymous
+      // sentence, while the connector's own kill (`SUBPROCESS_TIMEOUT_MS`,
+      // budget.js's ONE budget, 600s) sat ABOVE it and never got to answer.
+      // A test clock under the connector's kill is M-165's wall-under-the-
+      // caller shape inside the test. So the clock is DERIVED, not spelled:
+      // the budget plus the bridge's own margin, so a call that outlives
+      // the budget is answered by the connector as `path: 'killed'`, a
+      // named verdict this file can read, and never by the SDK's timeout.
+      // This is still the TEST's clock only: production clients keep the
+      // SDK default, and the sweep-window budget in lyric_tools.js is still
+      // derived against 60s on purpose.
+      const LIVE_MARGIN_MS = 30_000;
+      const LIVE_OPTS = { timeout: TOOL_BUDGET_MS + LIVE_MARGIN_MS };
+      const callText = async (name, args) => {
+        const res = await client.callTool({ name, arguments: args }, undefined, LIVE_OPTS);
+        assert.ok(!res.isError, `${name} answered without isError`);
+        return JSON.parse(res.content[0].text);
+      };
+      if (runs('live-lookups')) {
+        const screened = await callText('lyric_screen', { words: ['hair', 'chair'] });
+        assert.equal(screened.exit_code, 0, 'screen exit 0 — the pair is an ANSWER');
+        // A screen answers at exit 0 while naming prohibited writing pairs.
+        assert.match(screened.report, /BANNED/, 'the writing ban reaches the whole stack');
+        console.log('  ok  lyric_screen live: hair/chair answered with its writing ban, exit 0');
+        passed++;
+        // EVERY RELATION THE PAIR STANDS IN, structured (the N-relation model):
+        // hair/chair is a perfect rhyme, so it stands in RHYME AND ASSONANCE AND
+        // CONSONANCE at once — a single label here would be the defect.
+        assert.ok(
+          Array.isArray(screened.pairs) && screened.pairs.length === 1,
+          'one pair, structured'
+        );
+        const hc = screened.pairs[0];
+        assert.deepEqual([hc.a, hc.b], ['hair', 'chair']);
+        for (const rel of ['RHYME', 'ASSONANCE', 'CONSONANCE'])
+          assert.ok(hc.coarse_relations.includes(rel), `hair/chair stands in ${rel}`);
+        assert.ok(
+          hc.relations.length > hc.coarse_relations.length &&
+            hc.schema_relations.every((n) => hc.relations.includes(n)),
+          'the relation list carries the registry schemas beside the coarse relations'
+        );
+        assert.deepEqual(hc.codes, ['HOMEOTELEUTON'], 'the exact ban rides beside the relations');
+        assert.ok(!/CLEAN —/.test(screened.report), 'no CLEAN — RHYMES / DOES NOT RHYME verdict');
+        console.log('  ok  lyric_screen live: the pair carries every relation it stands in');
+        passed++;
+
+        // THE HUMAN DOOR, LIVE (M-195, added 2026-09-02): an unmarked four-line
+        // paste through the real verb. The refusals must be read off the REAL
+        // render — the extractor's first pin passed on a shape the harness never
+        // printed, and only a live call could have said so.
+        const recovered = await callText('lyric_recover', {
+          lines: [
+            'The river took the bridge at dawn',
+            'and no one saw the water again',
+            'our cattle waded knee deep in silt',
+            'past every fence the county rebuilt',
+          ],
+        });
+        assert.equal(recovered.exit_code, 3, 'recover on an unmarked paste exits 3 — a work order');
+        assert.ok(
+          recovered.mandate && recovered.mandate.groups.length > 0,
+          'the recovered mandate rides the verdict'
+        );
+        const coords = recovered.refusals.map((r) => r.coordinate);
+        assert.ok(
+          coords.includes('sections') && coords.includes('meter'),
+          `the refusals are read off the real render: ${JSON.stringify(coords)}`
+        );
+        assert.ok(
+          recovered.refusals
+            .find((r) => r.coordinate === 'sections')
+            .why.includes('Mark the sections'),
+          'and the reason travels with the coordinate'
+        );
+        console.log(
+          `  ok  lyric_recover live: unmarked paste exits 3, mandate + refusals ${JSON.stringify(coords)} on the verdict`
+        );
+        passed++;
+      }
+
+      // Current measured constructive seed176 control, shared by title and
+      // interview tests; the scaffolded24-line plan remains a separate negative.
+      // Seed 176 at a DECLARED 12 lines: the 31-line cap that made 12 its
+      // draw is deleted (owner ruling 2026-09-28), so every seed-176 call
+      // below states the length, and the lines are written for that plan.
+      // REPINNED 2026-10-04: the plan ties rhymes only at line ends now
+      // (1,2,3;4,5;6,7), so L3 ends ~~'cheap cologne'~~ 'afternoon'.
+      // RE-MEASURED 2026-10-21: under the owner's equal-weight beat draw seed
+      // 176 at 12 lines keeps its sections, returns (6,8;7,9) and hook (L6)
+      // and re-deals its meter (~~9/1~~ 2/4) and the intro's scheme, so the
+      // ends tie ~~1,2,3~~ 1,3;4,5;6,7. The draft is unchanged and still
+      // grades clean. Re-pinned for mandatory writing bans: balloon/afternoon
+      // shares -oon; strewn keeps the rhyme without a spelled-ending or modal ban.
+      const qualifiedDraft = [
+        'Buttons gleam where wheat was sown by a balloon',
+        "Bone cold, my mother's herbs came up in June",
+        'The kettle smells of smoke where leaves lie strewn',
+        'Blue shadows drag the doubt across the floor',
+        'Before the long drought we kept salt in the drawer',
+        'Each night the slow crawl wakes the rain',
+        'Those rough hands haul nets and mend the vein',
+        'Each night the slow crawl wakes the rain',
+        'Those rough hands haul nets and mend the vein',
+        'Bright napkins fold around a chipped blue plate',
+        'She swept the porch while winter filled the lane',
+        'A quiet lamp still burns beside the gate',
+      ];
+
+      // THE SHAPE IS READ FROM THE PLAN, NEVER REMEMBERED (2026-08-23).
+      // This block used to open `Seed 55 is Count to Five's shape: 22 lines,
+      // chorus lines 17-19 returning verbatim as 20-22` and build a 22-line
+      // draft to match. That was true of planner v1. Planner v2 re-derived
+      // every space it samples from, so seed 55 is 53 lines in 4 sections
+      // today -- and the check went red as `1 !== 2`, which is the SYMPTOM
+      // (`lyric_grade` returns one block when `plan --fill` produced no
+      // render) and names neither the seed nor the count. A grade whose
+      // draft is the wrong length REFUSES at exit 2, correctly; the test was
+      // the thing that was wrong.
+      //
+      // So the draft is built from the plan's OWN report: the line count and
+      // the return classes come back from `lyric_plan` on the same seed, and
+      // nothing here restates them. That is strictly stronger than the
+      // literal it replaces -- it proves the two-block contract for whatever
+      // shape the planner produces, it cannot go stale when the planner is
+      // re-derived, and it reads two coordinates (`lines`, `returns`) the
+      // hardcoded version never consulted.
+      // THE SEED IS SEARCHED FOR, NOT REMEMBERED (2026-08-24, `MISSING.md`
+      // M-106). This block asserts three TITLE codes, and every one of them is
+      // asked only of a plan that DECLARES A HOOK -- a hook is defined by
+      // RETURN, so a pattern whose functions all occur once declares none and
+      // the title question is never put. `seed: 55` was hardcoded here and had
+      // a hook until the length envelope was re-derived; it now draws six
+      // sections with no repeat, and the failure read "with no title the
+      // question is REFUSED, not answered" -- naming the title layer for a
+      // fact about the pattern. That is the SAME staleness this file's own
+      // comment above describes fixing once already, one coordinate over, so
+      // the fix is the same: ASK the report rather than remember the answer.
+      // MEASURED over 240 seeds: 59.6% of plans declared a hook before the
+      // re-derivation and 56.2% after, so this is a coin flip either way and
+      // was never a property of 55.
+      // AND THE LENGTH IS DECLARED, NOT DRAWN (M-239 / M-240, 2026-09-05).
+      // Since M-239 the planner's envelope is 12..447 lines and a DRAWN total
+      // has a median of 201, which puts this block's whole chain past two
+      // measured ceilings at once: the 77-schema default door refuses a draft
+      // that long at its pair guard (53 lines grade in 56 s, 108 in 330 s,
+      // 144 REFUSE), and the report itself outgrows the connector's 4 MiB
+      // output cap (MEASURED: `finish` on the 80-line fixture draft printed
+      // 8.56 MB after ~600 s; the 47-line one answered in 245 s; the 24-line
+      // one in 109 s and 0.47 MB). Hunting seeds for a short draw was the
+      // first repair and it was the wrong one — it left the block's cost to
+      // the dice. THE LENGTH IS A DECLARATION (M-241): every call in this
+      // block declares the SAME `lines`, so the plan, the grade and the
+      // revision are one shape and the block's runtime is a property of the
+      // test rather than of a seed. 24 is the smallest round figure that
+      // still draws multi-line sections and a hook; MEASURED, every seed of
+      // 1..5 declares a hook at this length, so the loop below now confirms
+      // the premise rather than searching for it.
+      if (runs('live-revision') || runs('live-title')) {
+        const LIVE_LINES = 24;
+        // A HOOK AND A CHORUS RETURN ARE PLANNED ONLY FOR A RETURNING FORM
+        // (2026-10-27, D7: the default `open` form asks for neither), and this
+        // block's title checks need a hook, so every call declares
+        // `verse-chorus` — the plan, the grade and the revision one shape.
+        const LIVE_FORM = 'verse-chorus';
+        const withLines = (extra) => ({
+          seed: planSeed,
+          lines: LIVE_LINES,
+          form: LIVE_FORM,
+          ...extra,
+        });
+        let plannedRes = null;
+        let planSeed = null;
+        for (const candidate of [1, 2, 3, 4, 5]) {
+          const tryRes = await client.callTool(
+            {
+              name: 'lyric_plan',
+              arguments: { seed: candidate, lines: LIVE_LINES, form: LIVE_FORM },
+            },
+            undefined,
+            LIVE_OPTS
+          );
+          assert.ok(!tryRes.isError, `lyric_plan answered without isError (seed ${candidate})`);
+          const declared = /-> (\d+) line\(s\)/.exec(tryRes.content[0].text);
+          assert.equal(
+            declared && Number(declared[1]),
+            LIVE_LINES,
+            'a declared length is the length that was drawn'
+          );
+          if (/is the hook/.test(tryRes.content[0].text)) {
+            plannedRes = tryRes;
+            planSeed = candidate;
+            break;
+          }
+        }
+        assert.ok(
+          plannedRes !== null,
+          'NO candidate seed declares a hook -- the premise of the title checks ' +
+            'below, and a fact about the PATTERN rather than about titles'
+        );
+        assert.equal(plannedRes.content.length, 2, 'plan returns two blocks: report, then verdict');
+        // M-219: the plan's verdict block says which path answered, how long it
+        // took and how many lines it drew — it used to say exit_code and meaning
+        // and nothing else, so no battery row ever carried the drawn shape.
+        const planVerdict = JSON.parse(plannedRes.content[1].text);
+        assert.ok(
+          ['warm', 'cold', 'cold-fallback'].includes(planVerdict.path),
+          `the plan verdict names its path (got ${planVerdict.path})`
+        );
+        assert.equal(typeof planVerdict.ms, 'number', 'and carries its wall time');
+        assert.ok(!('report' in planVerdict), 'and does not repeat block 0 as JSON');
+        const planReport = plannedRes.content[0].text;
+        const nLines = Number((planReport.match(/-> (\d+) line\(s\)/) || [])[1]);
+        assert.ok(nLines >= 4, `the plan declares its own line count (got ${nLines})`);
+        assert.equal(
+          planVerdict.plan_lines,
+          nLines,
+          'the verdict block carries the same line count the report prints'
+        );
+
+        // The bracket header rows ARE the shape, and their line counts must sum
+        // to the declared total -- an invariant of the report rather than a
+        // remembered section list, so a planner that re-derives its patterns
+        // still has to satisfy it.
+        const headers = [...planReport.matchAll(/\[([A-Z_]+) — (\d+) lines? — /g)];
+        assert.ok(headers.length > 0, 'the plan brief carries bracket section headers');
+        assert.equal(
+          headers.reduce((t, h) => t + Number(h[2]), 0),
+          nLines,
+          'the section headers account for every declared line'
+        );
+
+        // RETURNS is the plan's own verbatim-return declaration. `(none)` is an
+        // ordinary answer, not a missing one, so the draft honors whatever is
+        // there and asserts nothing about which it got.
+        const returnsMatch = planReport.match(/RETURNS: (.*)/);
+        assert.ok(returnsMatch, 'the plan report declares its return classes on a RETURNS line');
+        const returnsRaw = returnsMatch[1].trim();
+        const returnClasses =
+          returnsRaw === '(none)'
+            ? []
+            : returnsRaw.split(';').map((g) => g.split(',').map((n) => Number(n.trim())));
+
+        const bank = (
+          'stone rain door light road name glass train hill salt wire ' +
+          'bell coat dust song tide map north paper'
+        ).split(' ');
+        const draft = [];
+        for (let i = 1; i <= nLines; i++)
+          draft.push(`we carry the morning to the ${bank[(i - 1) % bank.length]}`);
+        // A declared return class is the SAME LINE, so every member after the
+        // first is that first line verbatim (1-based line numbers).
+        for (const cls of returnClasses)
+          for (const ln of cls.slice(1)) draft[ln - 1] = draft[cls[0] - 1];
+        if (runs('live-revision')) {
+          // The Wide Room fix (2026-08-19): grade and plan lead with the
+          // deliverable as its OWN PLAIN-TEXT content block — the song, the plan
+          // report — and carry the JSON verdict second, because a render buried
+          // as an escaped JSON field is what a client model restyled to bare
+          // [SECTION] headers. Block 0 must parse as a song, not as JSON.
+          const gradedRes = await client.callTool(
+            { name: 'lyric_grade', arguments: withLines({ draft }) },
+            undefined,
+            LIVE_OPTS
+          );
+          assert.ok(!gradedRes.isError, 'lyric_grade answered without isError');
+          assert.equal(gradedRes.content.length, 2, 'grade returns two blocks: song, then verdict');
+          {
+            const gv = JSON.parse(gradedRes.content[1].text);
+            assert.ok(
+              ['warm', 'cold', 'cold-fallback'].includes(gv.path) && typeof gv.ms === 'number',
+              `the grade verdict names its path and time (got ${gv.path}, ${gv.ms})`
+            );
+          }
+          const song = gradedRes.content[0].text;
+          assert.ok(
+            // The plan's OWN first header, not a literal -- see the note above.
+            song.includes(`[${headers[0][1]} — ${headers[0][2]} line`) &&
+              !song.trimStart().startsWith('{'),
+            'block 0 is the SONG as plain text, the plan\u2019s own bracket headers intact'
+          );
+          // The provenance stamp is SERVER-written under the song, inside the
+          // verbatim block: seed + exit + banned-pair count reach the user even
+          // through a client that relays nothing else.
+          // REPINNED 2026-10-04, THE ANY-READING RULE reaches the meter
+          // (lyric-harness/HANDBOOK.md standing rule 5): the scaffold's unjudged
+          // obligations were meter lines ending on `wire` (W AY1 ER0 / W AY1 R),
+          // now judged on one whole reading. Every requested obligation is judged
+          // and the scaffold's flags still stand, so it is still a negative: exit
+          // 3 with its flags standing. ~~exit 2, certified false, coverage
+          // uncertified, refused obligations non-empty, stamp `exit 2`~~.
+          const gradeVerdict = JSON.parse(gradedRes.content[1].text);
+          assert.equal(
+            gradeVerdict.exit_code,
+            3,
+            'the scaffold draft is judged throughout and its flags stand'
+          );
+          // `certified` is the coverage's answer (every requested obligation
+          // judged); the standing flags are what exit 3 reports.
+          assert.equal(gradeVerdict.certified, true);
+          assert.equal(gradeVerdict.coverage.certified, true);
+          assert.deepEqual(gradeVerdict.coverage.refused_obligations, []);
+          assert.ok(
+            new RegExp(`\\[GRADED — seed ${planSeed} — exit 3, .+ — \\d+ banned pair\\(s\\)`).test(
+              song
+            ),
+            'block 0 carries the same [GRADED — seed …] stamp as the authenticated verdict'
+          );
+          assert.ok(
+            /pairs?/i.test(gradeVerdict.report) || gradeVerdict.report.includes('REPORT'),
+            'a grade report came back in the verdict block'
+          );
+          console.log('  ok  lyric_grade live: two blocks — the song plain, the verdict JSON');
+          passed++;
+
+          // EACH GROUP DRAWS ONE TYPE (owner-approved plan, 2026-10-27, D1). The
+          // brief states each group's rule with no type name ("must satisfy rule
+          // R<n>"), and the grade — with `--relations=` off the plan — judges each
+          // group under the type it drew, so it announces one RELATION row per
+          // group. Pinned as an equality between the harness's own two reports.
+          const groupsInBrief = (planReport.match(/must satisfy rule R\d+/g) || []).length;
+          const oldWording = /must stand in at least one relation|any coarse relation/.test(
+            planReport
+          );
+          const judgedInGrade = (gradeVerdict.report.match(/RELATION: group /g) || []).length;
+          assert.ok(groupsInBrief > 0, 'the brief states a rule for each group');
+          assert.ok(!oldWording, 'the four-type wording is gone from the brief');
+          assert.equal(
+            judgedInGrade,
+            groupsInBrief,
+            'the grade judges every group under the type the plan drew for it'
+          );
+          console.log(
+            '  ok  lyric_grade live: ' +
+              groupsInBrief +
+              ' group(s), each judged under its drawn type'
+          );
+          passed++;
+
+          // `lyric_revise` — THE SEAM (M-154). The claims only this tool makes:
+          // a suspended call contains NO SONG anywhere in its output (the render
+          // exists structurally only past a stop condition of the loop), the
+          // question is the writer's brief, and the `state` blob round-trips —
+          // the server keeps nothing, so a re-call with the same unanswered state
+          // re-asks the SAME question rather than advancing or inventing one.
+          // M-221: `draft` is optional in the SCHEMA so the connector may fill it
+          // from the carried record; a client that carries nothing gets a refusal
+          // naming the parameter, never a run on an empty draft.
+          const noDraft = await client.callTool(
+            { name: 'lyric_revise', arguments: withLines({}) },
+            undefined,
+            LIVE_OPTS
+          );
+          assert.ok(noDraft.isError, 'lyric_revise with no draft and nothing carried refuses');
+          assert.ok(
+            /`draft` omitted and no draft is carried/.test(noDraft.content[0].text),
+            `the refusal names the draft (got: ${noDraft.content[0].text.slice(0, 120)})`
+          );
+          console.log(
+            '  ok  lyric_revise live: an omitted draft nothing carries refuses by name (M-221)'
+          );
+          passed++;
+          // The original 24-line seed1 fixture produced a 400KB nine-line prompt,
+          // before its first answer. Independent questions must split into fitting
+          // batches without discarding their constraints or ending the fresh run.
+          // ~~The batch was the FIRST question of the run~~ — since M-305 the brief
+          // reads the incident verdict for BOTH endpoints of a violated pair, so L1
+          // (the earlier endpoint of violated pairs in groups A and L) is a
+          // joint-conflict pivot and tier 2 asks its group rewrites before the batch
+          // door opens. MEASURED on this tree at the interview default (attempts 1):
+          // group [1,8,9,10,11], L1, group [2,8,13], L2, group [3,4,9,10,12], L3,
+          // group [4,6,7], L4, then the batch [5,6,11,14,15,17,20] on continuation
+          // 8 (334949 state bytes). ~~That M-305 walk~~ — REPINNED 2026-09-24 for
+          // M-309's N-relation model: the plan no longer draws a relation per group,
+          // so L1 is no longer a joint-conflict pivot and the batch
+          // [1,5,6,14,15,17,19] is again the FIRST question, on continuation 0
+          // (314780 state bytes; measured). ~~That walk too~~ — REPINNED 2026-10-01
+          // for the any-reading rule (CLAUDE.md standing rule 5): small words now
+          // anchor at declared slots, so the groups bound to `we`/`the`/`to` are
+          // judged instead of refused. MEASURED at the connector's own budget
+          // (attempts 1, backtrack 1): group [1,5,6,7,8,13], then L1, then the batch
+          // [2,14,15,17,19,21,23] on continuation 2 (133050 state bytes).
+          // ~~That walk~~ is NOT re-measured here since 2026-10-21: the owner's
+          // equal-weight beat draw re-deals seed 1 at 24 lines, and
+          // test_run_continuation.mjs measures its door opening on continuation 0
+          // at the harness's prefetch. Nothing below pins the walk before the door,
+          // so the claim measured here is unchanged.
+          // The walk below answers every question with the
+          // draft's own unchanged line(s) — exactly as test_run_continuation.mjs
+          // does, so no accepted edit can close an obligation — until the first
+          // propose_batch appears, and the claim is measured on THAT state. A run
+          // that never reaches the batch door within the bound is reported as such,
+          // never forced.
+          const SPLIT_WALK_BOUND = 12;
+          const splitMembers = (pending) =>
+            pending.kind === 'propose_batch'
+              ? pending.record.records.map((r) => r.line)
+              : pending.kind === 'propose_group'
+                ? pending.record.members
+                : [pending.record.line];
+          let splitRes = await client.callTool(
+            { name: 'lyric_revise', arguments: withLines({ draft }) },
+            undefined,
+            LIVE_OPTS
+          );
+          splitRes = await resumeStopped(client, splitRes, LIVE_OPTS);
+          assert.ok(!splitRes.isError, String(splitRes.content?.[0]?.text).slice(0, 800));
+          assert.equal(
+            splitRes.content.length,
+            2,
+            String(splitRes.content?.[0]?.text).slice(0, 800)
+          );
+          let splitVerdict = JSON.parse(splitRes.content[1].text);
+          assert.equal(splitVerdict.status, 'awaiting_proposal');
+          assert.equal(splitVerdict.exit_code, 4);
+          let splitState = decodeState(splitVerdict.state);
+          assert.deepEqual(splitState.accepted_lines, draft);
+          assert.deepEqual(splitState.answered.propose, []);
+          const splitWalk = [];
+          let splitHop = 0;
+          while (splitState.pending.kind !== 'propose_batch') {
+            const members = splitMembers(splitState.pending);
+            splitWalk.push(`${splitState.pending.kind}[${members.join(',')}]`);
+            assert.ok(
+              splitHop < SPLIT_WALK_BOUND,
+              `no propose_batch within ${SPLIT_WALK_BOUND} continuations: ${splitWalk.join(' → ')}`
+            );
+            const answer =
+              splitState.pending.kind === 'propose'
+                ? draft[members[0] - 1]
+                : members.map((n) => `L${n}: ${draft[n - 1]}`).join('\n');
+            splitRes = await client.callTool(
+              {
+                name: 'lyric_revise',
+                arguments: withLines({
+                  run_id: splitVerdict.run_id,
+                  run_revision: splitVerdict.run_revision,
+                  answer,
+                }),
+              },
+              undefined,
+              LIVE_OPTS
+            );
+            assert.ok(
+              !splitRes.isError,
+              `continuation ${splitHop + 1} answered (got: ${String(splitRes.content?.[0]?.text).slice(0, 200)})`
+            );
+            // A safe-point stop is one block (the verdict alone), so the two-block
+            // question is asserted after the stop is resumed, not before it
+            // (CI run 37725585352 failed on that order, 2026-10-08).
+            splitRes = await resumeStopped(client, splitRes, LIVE_OPTS);
+            assert.equal(splitRes.content.length, 2);
+            splitVerdict = JSON.parse(splitRes.content[1].text);
+            assert.equal(splitVerdict.status, 'awaiting_proposal');
+            assert.equal(
+              splitVerdict.exit_code,
+              4,
+              'the fresh run is not ended before the batch door'
+            );
+            splitState = decodeState(splitVerdict.state);
+            assert.deepEqual(splitState.accepted_lines, draft, 'unchanged answers fix nothing');
+            splitHop++;
+          }
+          assert.equal(splitState.pending.kind, 'propose_batch');
+          assert.ok(splitState.pending.record.records.length > 1);
+          // ~~records.length < 9~~ and ~~state < 384 * 1024~~ — REPINNED 2026-10-04
+          // with the raised record cap (JOURNAL_WORK_BYTES 1 MiB): this fixture's
+          // independent lines now fit one batch, so the split is no longer forced
+          // here; the bound that still holds is the cap itself.
+          assert.ok(Buffer.byteLength(JSON.stringify(splitState), 'utf8') < 1024 * 1024);
+          assert.ok(splitRes.content[0].text.includes(splitState.pending.prompt));
+          console.log(
+            `  ok  lyric_revise live: seed ${planSeed}, ${nLines} lines, first batch ` +
+              `[${splitState.pending.record.records.map((r) => r.line).join(',')}] ` +
+              `on continuation ${splitHop} after ${splitWalk.join(' → ') || '(nothing)'} ` +
+              `fits ${Buffer.byteLength(JSON.stringify(splitState), 'utf8')} state bytes without dropping a brief`
+          );
+          passed++;
+          const revisionSeed = 176;
+          const revisionDraft = [...qualifiedDraft];
+          // THE DEFECT IS L1 ENDING ON ITS GROUP PARTNER'S OWN WORD: a word rhymed
+          // with itself (REPEAT_IN_VERSE) in a group that requires class:RHYME
+          // (SCHEME_VIOLATION), so a fresh run suspends on L1 and a zero-attempt
+          // run stops at exit 3. ~~'Bone buttons gleam beneath the rain in June'~~
+          // ended on L2's 'June' while L2 shared L1's group; RE-MEASURED
+          // 2026-10-21, L1's partner is L3 now (1,3 above) and 'June' finishes
+          // clean, so L1 must end on L3's own word instead, the same defect.
+          // With the clean control now ending on strewn, the negative repeats strewn too.
+          // 2026-10-27 (D7): the returns and hook this draft is written for are
+          // planned only for a returning form, so every seed-176 call declares
+          // `verse-chorus`; under it the plan is unchanged (1,3;4,5;6,7, returns
+          // 6,8;7,9, hook L6).
+          revisionDraft[0] = 'Bone buttons gleam beneath the rain where leaves lie strewn';
+          const withRevision = (extra) => ({
+            seed: revisionSeed,
             lines: 12,
             form: 'verse-chorus',
-            draft: qualifiedDraft,
             relation: 'class:RHYME',
-            title,
-          },
-        },
-        undefined,
-        LIVE_OPTS
-      );
-      assert.ok(!result.isError);
-      assert.equal(result.content.length, 2);
-      return JSON.parse(result.content[1].text);
-    };
-    const qualifiedClean = await qualifiedTitle('wakes the rain');
-    const qualifiedFlag = await qualifiedTitle('zebra confetti');
-    assert.equal(qualifiedClean.exit_code, 0);
-    assert.equal(qualifiedClean.certified, true);
-    assert.deepEqual(
-      qualifiedClean.findings.filter((f) => f.severity === 'flag'),
-      []
-    );
-    assert.equal(qualifiedFlag.exit_code, 3);
-    assert.equal(qualifiedFlag.certified, true);
-    assert.deepEqual(qualifiedFlag.coverage, qualifiedClean.coverage);
-    assert.deepEqual(
-      qualifiedFlag.findings.filter((f) => f.severity === 'flag').map((f) => f.code),
-      ['TITLE_NOT_IN_HOOK']
-    );
-    console.log('  ok  lyric_grade live: --title reaches the plan, both directions');
-    passed++;
+            title: 'wakes the rain',
+            ...extra,
+          });
+          const rev1 = await client.callTool(
+            { name: 'lyric_revise', arguments: withRevision({ draft: revisionDraft }) },
+            undefined,
+            LIVE_OPTS
+          );
+          assert.ok(!rev1.isError, 'lyric_revise answered without isError');
+          assert.equal(
+            rev1.content.length,
+            2,
+            `revise returns two blocks: question, then verdict; got ${rev1.content[0]?.text.slice(0, 2500)}`
+          );
+          const q1 = rev1.content[0].text;
+          assert.ok(
+            q1.startsWith(
+              `[AWAITING PROPOSAL — seed ${revisionSeed} — 0 answer(s) on record — NO SONG YET]`
+            ),
+            'a fresh revision suspends awaiting the first proposal'
+          );
+          assert.ok(
+            !q1.includes('[FINISHED') && !q1.includes('THE SONG, PERFORMANCE ORDER'),
+            'NO render reaches a suspended response — the seam holds'
+          );
+          const rv1 = JSON.parse(rev1.content[1].text);
+          assert.equal(
+            rv1.exit_code,
+            4,
+            'suspension is exit 4, its own code — neither verdict nor failure'
+          );
+          assert.equal(rv1.status, 'awaiting_proposal', 'and says so in its own field');
+          // M-219: the SUSPENDED verdict is the common row of a real run (32 of
+          // round 11's 33) and it was built by hand without the path stamp.
+          assert.ok(
+            ['warm', 'cold', 'cold-fallback'].includes(rv1.path) && typeof rv1.ms === 'number',
+            `a suspended verdict names its path and time too (got ${rv1.path}, ${rv1.ms})`
+          );
+          const st1 = decodeState(rv1.state);
+          assert.ok(st1.pending && st1.pending.kind, 'the state carries the pending question');
+          assert.equal(
+            st1.connector_declarations.attempts,
+            1,
+            'the native journal preserves the actual default attempt budget'
+          );
+          assert.equal(st1.connector_declarations.backtrack, 1);
+          assert.equal(
+            st1.connector_declarations.max_rounds,
+            undefined,
+            'no round limit is declared by default'
+          );
+          // M-235: the row names the question left open; a first call folds nothing.
+          assert.equal(
+            rv1.asked && rv1.asked.kind,
+            st1.pending.kind,
+            'the row names the open question'
+          );
+          assert.equal(rv1.folded, null, 'a first call folds no answer');
+          assert.equal(typeof rv1.draft_fp, 'string', 'and fingerprints the draft');
+          // Round-trip: same state, no answer -> the SAME question, fast (the
+          // harness refuses to advance past an unanswered pending — that refusal
+          // IS the enforcement, and it must be idempotent or a retry would skip).
+          const rev2 = await client.callTool(
+            {
+              name: 'lyric_revise',
+              arguments: withRevision({
+                draft: revisionDraft,
+                state: rv1.state,
+                run_id: rv1.run_id,
+                run_revision: rv1.run_revision,
+              }),
+            },
+            undefined,
+            LIVE_OPTS
+          );
+          const rv2 = JSON.parse(rev2.content[1].text);
+          assert.equal(rv2.exit_code, 4, 'an unanswered state re-suspends');
+          assert.equal(
+            decodeState(rv2.state).pending.prompt,
+            st1.pending.prompt,
+            'and re-asks the IDENTICAL question — the loop is resumed, not re-imagined'
+          );
+          // An answer with no state to answer is refused by the tool itself.
+          // M-237: THE TOOL REMEMBERS THE RUN. An answer WITHOUT `state` on this
+          // seed continues it — the state and the draft are carried by the tool
+          // and the verdict says so; the run keeps its id.
+          const pend1 = st1.pending;
+          const answer1 =
+            pend1.kind === 'propose_batch'
+              ? pend1.record.records
+                  .map((r) => `L${r.line}: ${revisionDraft[r.line - 1]} again`)
+                  .join('\n')
+              : pend1.kind === 'propose_group'
+                ? pend1.record.members.map((n) => `L${n}: ${revisionDraft[n - 1]} again`).join('\n')
+                : `${revisionDraft[pend1.record.line - 1]} again`;
+          const rev3 = await client.callTool(
+            {
+              name: 'lyric_revise',
+              arguments: withRevision({
+                run_id: rv2.run_id,
+                run_revision: rv2.run_revision,
+                answer: answer1,
+              }),
+            },
+            undefined,
+            LIVE_OPTS
+          );
+          assert.ok(
+            !rev3.isError,
+            `an answer without state continues the remembered run (got: ${String(rev3.content?.[0]?.text).slice(0, 200)})`
+          );
+          const rv3 = JSON.parse(rev3.content[1].text);
+          assert.ok([0, 3, 4].includes(rv3.exit_code), `the run advanced (exit ${rv3.exit_code})`);
+          assert.equal(rv3.run_state_carried, true, 'the tool carried the state');
+          assert.equal(rv3.run_draft_carried, true, 'and the draft');
+          assert.equal(typeof rv1.run_id, 'string', 'the first call minted a run id');
+          assert.equal(rv3.run_id, rv1.run_id, 'the same run');
+          // A seed with NO remembered run: `answer` without `state` still refuses.
+          const revBad = await client.callTool(
+            {
+              name: 'lyric_revise',
+              arguments: {
+                seed: revisionSeed + 100000,
+                relation: 'class:RHYME',
+                draft: revisionDraft,
+                answer: 'a line',
+              },
+            },
+            undefined,
+            LIVE_OPTS
+          );
+          assert.ok(
+            revBad.isError,
+            '`answer` without `state` on a seed with no run refuses — there is no question it answers'
+          );
+          // `new_run` drops the record: zero answers, a different id.
+          const rev4 = await client.callTool(
+            {
+              name: 'lyric_revise',
+              arguments: withRevision({ draft: revisionDraft, new_run: true }),
+            },
+            undefined,
+            LIVE_OPTS
+          );
+          assert.ok(
+            !rev4.isError,
+            `new_run opens a fresh run (got: ${String(rev4.content?.[0]?.text).slice(0, 200)})`
+          );
+          const rv4 = JSON.parse(rev4.content[1].text);
+          assert.equal(rv4.answers_on_record ?? 0, 0, 'a fresh run has no answers');
+          assert.notEqual(rv4.run_id, rv1.run_id, 'and a new id');
+          const { RUNS: actualRuns } = await import('./lyric_tools.js');
+          for (const [zeroDraft, expectedExit] of [
+            [revisionDraft, 3],
+            [qualifiedDraft, 0],
+          ]) {
+            const zeroRes = await client.callTool(
+              {
+                name: 'lyric_revise',
+                arguments: withRevision({
+                  draft: zeroDraft,
+                  new_run: true,
+                  attempts: 0,
+                  backtrack: 0,
+                  max_rounds: 1,
+                }),
+              },
+              undefined,
+              LIVE_OPTS
+            );
+            assert.ok(!zeroRes.isError);
+            const zeroVerdict = JSON.parse(zeroRes.content.at(-1).text);
+            assert.equal(
+              zeroVerdict.exit_code,
+              expectedExit,
+              'zero attempts distinguishes a definite standing flag from a clean finish without requesting a proposal'
+            );
+            assert.equal(zeroVerdict.certified, true);
+            assert.deepEqual(
+              zeroVerdict.final_draft,
+              zeroDraft,
+              'no proposal changed the accepted draft'
+            );
+            assert.equal(
+              Object.hasOwn(zeroVerdict, 'asked'),
+              false,
+              'a stopped run carries no open question'
+            );
+            if (expectedExit === 3) {
+              const zeroRun = actualRuns.get(zeroVerdict.run_id);
+              assert.equal(
+                zeroRun.decl.attempts,
+                0,
+                'the actual handler preserves explicit zero instead of substituting the default'
+              );
+              assert.equal(zeroRun.decl.backtrack, 0);
+              assert.equal(zeroRun.decl.max_rounds, 1);
+            } else {
+              assert.equal(
+                zeroVerdict.run_id,
+                null,
+                'a clean fresh finish creates no parked capability'
+              );
+            }
+          }
+          console.log(
+            '  ok  lyric_revise live: suspends with the question, no render, state round-trips'
+          );
+          passed++;
 
-    // The pasted-song check answers at the brief verb's exit 0, but its
-    // structured flags and standing report must carry mandatory writing bans.
-    const checked = await callText('lyric_check', {
-      lines: ['dust settles on the kitchen chair', 'cold rain keeps combing through her hair'],
-      scheme: 'AA',
-    });
-    assert.equal(checked.exit_code, 0, 'check answered; exit 0 alone is not a clean verdict');
-    assert.equal(checked.banned_pairs, 1);
-    assert.deepEqual(
-      checked.banned.map(({ code, lines }) => [code, lines]),
-      [['HOMEOTELEUTON', [1, 2]]]
-    );
-    assert.deepEqual(
-      checked.findings.filter((f) => f.severity === 'flag').map((f) => [f.code, f.locations]),
-      [['HOMEOTELEUTON', [1, 2]]]
-    );
-    assert.ok(checked.standing.some((s) => s.includes('[FLAG] HOMEOTELEUTON')));
-    assert.match(
-      lyric.find((t) => t.name === 'lyric_check').description,
-      /mandatory HOMEOTELEUTON and MODAL_RHYME flags/
-    );
-    const cleanCheck = await callText('lyric_check', {
-      lines: ['dust settles on the kitchen chair', 'cold rain leaves nothing left to spare'],
-      scheme: 'AA',
-    });
-    assert.equal(cleanCheck.exit_code, 0);
-    assert.equal(cleanCheck.certified, true);
-    assert.equal(cleanCheck.banned_pairs, 0);
-    assert.deepEqual(cleanCheck.banned, []);
-    assert.deepEqual(
-      cleanCheck.findings.filter((f) => f.severity === 'flag'),
-      []
-    );
-    console.log('  ok  lyric_check live: mandatory ban stands; clean rhyme control has no flags');
-    passed++;
-    const survivingBan = await callText('lyric_verify', {
-      before: checked.final_draft,
-      after: checked.final_draft,
-      scheme: 'AA',
-    });
-    assert.equal(survivingBan.accepted, false);
-    assert.equal(survivingBan.findings_measured, false);
-    assert.equal(survivingBan.certified, false);
-    assert.ok(!Object.hasOwn(survivingBan, 'banned_pairs'));
-    assert.ok(!Object.hasOwn(survivingBan, 'flags'));
-    assert.ok(/one that survived the change untouched is not reported/.test(survivingBan.scope));
-    assert.ok(/introduces is in `new`/.test(survivingBan.scope));
+          // THE WARM WORKER (M-155). The one claim that licenses it: the warm
+          // path answers with the COLD PATH'S EXACT BYTES — same stdout, same
+          // exit code — for every argv, including refusals, and a request served
+          // AFTER another verb's request is not poisoned by it (the cross-verb
+          // ordering below is the control). Then the operational half: the
+          // worker PERSISTS between requests (that persistence is the entire
+          // point — the memos live in it), and a killed worker costs one
+          // fallback answer, never a wrong one.
+          const { _workerInternals: WK } = await import('./lyric_tools.js');
+          assert.ok(WK.enabled, 'the warm path is on by default (LYRIC_WORKER=0 disables)');
+          const battery = [
+            ['screen', 'fire', 'desire'],
+            ['plan', '--seed=7', '--lines=22'],
+            ['screen', 'hair', 'chair'],
+            ['brief', 'no_such_file.txt', 'ABAB'], // a refusal, through both paths
+          ];
+          for (const argv of battery) {
+            const warm = await WK.runWarm(argv).catch(() => null);
+            const cold = await WK.runCold(argv);
+            assert.ok(warm, `warm path answered for ${argv[0]}`);
+            assert.equal(warm.code, cold.code, `${argv.join(' ')}: same exit code`);
+            assert.equal(warm.stdout, cold.stdout, `${argv.join(' ')}: byte-identical stdout`);
+          }
+          const pidBefore = WK.pid();
+          await WK.runWarm(['screen', 'fire', 'desire']);
+          assert.ok(
+            pidBefore !== null && WK.pid() === pidBefore,
+            'the worker persists across requests — the memos live in it'
+          );
+          WK.kill();
+          const after = await WK.runWarm(['screen', 'fire', 'desire']).catch(() => null);
+          const afterCold = await WK.runCold(['screen', 'fire', 'desire']);
+          assert.ok(
+            after && after.stdout === afterCold.stdout,
+            'a killed worker respawns and still answers with the cold bytes'
+          );
+          console.log(
+            '  ok  warm worker: byte-identical to cold on the battery, persists, survives a kill'
+          );
+          passed++;
 
-    // `structures` REACHES lyric_check (MISSING.md M-103's flag, wired here).
-    // Mirrors quality/test_verbs.py §39: the binding assertion is a
-    // DIFFERENCE between two runs on ONE draft, because a field accepted and
-    // dropped is byte-identical to one never sent.
-    const stLines = [
-      'the night was cold and bright',
-      'we held each other tight',
-      'we walked beneath the sun',
-      'and rivers ran with silver',
-    ];
-    const plain = await callText('lyric_check', { lines: stLines, groups: '1,2;3,4' });
-    assert.equal(
-      plain.exit_code,
-      0,
-      'check answers at the brief verb exit even with unjudged pairs'
-    );
-    // REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule
-    // 5; measured, as test_verbs.py §39): sun/silver is JUDGED under the
-    // broad default now — no whole reading of the two words holds any
-    // relation — so the plain run certifies with a SCHEME_VIOLATION on
-    // [3, 4], and the declared alliteration below is still what removes it.
-    // superseded: certified false, refused_obligations ['rhyme:3:4:1'].
-    assert.equal(plain.certified, true, 'sun/silver is judged under the broad default');
-    assert.equal(plain.coverage.certified, true);
-    assert.deepEqual(plain.coverage.refused_obligations, []);
-    assert.deepEqual(
-      plain.findings
-        .filter((f) => f.severity === 'flag')
-        .map((f) => [f.code, f.locations])
-        .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)),
-      [
-        ['HOMEOTELEUTON', [1, 2]],
-        ['SCHEME_VIOLATION', [3, 4]],
-      ],
-      'and judged a violation under the default'
-    );
-    const structured = await callText('lyric_check', {
-      lines: stLines,
-      groups: '1,2;3,4',
-      structures: 'B:kalevala-alliteration',
-    });
-    assert.ok(
-      !structured.report.includes('SCHEME_VIOLATION'),
-      'and NOT one under the declared alliteration — the field is read, not dropped'
-    );
-    assert.equal(structured.exit_code, 0);
-    assert.deepEqual(
-      structured.findings.filter((f) => f.severity === 'flag').map((f) => [f.code, f.locations]),
-      [['HOMEOTELEUTON', [1, 2]]]
-    );
-    assert.equal(structured.coverage.certified, true);
-    assert.equal(structured.coverage.pairs_judged, 2);
-    const narrowed = await callText('lyric_check', {
-      lines: stLines,
-      groups: '1,2;3,4',
-      relation: 'class:RHYME',
-    });
-    assert.equal(
-      narrowed.exit_code,
-      0,
-      'check reports a definite violation at the brief verb exit'
-    );
-    assert.equal(narrowed.coverage.certified, true);
-    assert.deepEqual(
-      narrowed.findings
-        .filter((f) => f.severity === 'flag')
-        .map((f) => [f.code, f.locations])
-        .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)),
-      [
-        ['HOMEOTELEUTON', [1, 2]],
-        ['SCHEME_VIOLATION', [3, 4]],
-      ]
-    );
-    // The non-rhyme structured group B is not asked for a writing ban. The
-    // verdict names it without hiding group A's actual bright/tight ban.
-    assert.deepEqual(
-      structured.ban_not_asked.map((row) => row.lines),
-      [[3, 4]],
-      'the structured group B is named as not asked'
-    );
-    assert.equal(structured.banned_pairs, 1, 'group A retains its one writing ban');
-    const allStructured = await callText('lyric_check', {
-      lines: stLines,
-      groups: '1,2;3,4',
-      structures: 'A:kalevala-alliteration,B:kalevala-alliteration',
-    });
-    assert.equal(allStructured.banned_pairs, null, 'no pair asked: null, never a clean zero');
-    assert.match(allStructured.banned_pairs_reason, /not asked/);
-    assert.ok(
-      structured.structures_uncalibrated &&
-        structured.structures_uncalibrated.includes('kalevala-alliteration'),
-      'the verdict carries structures_uncalibrated, naming the row'
-    );
-    assert.ok(
-      /correctness is graded/i.test(structured.structures_uncalibrated) &&
-        /laziness is NOT graded/i.test(structured.structures_uncalibrated),
-      'the authenticated finding itself says correctness is graded and laziness is not'
-    );
-    const bogus = await callText('lyric_check', {
-      lines: stLines,
-      groups: '1,2',
-      structures: 'A:vibes',
-    });
-    assert.equal(bogus.exit_code, 2, 'an unknown row REFUSES rather than defaulting');
-    assert.ok(
-      bogus.report.includes('not a declared structure') && bogus.report.includes('58 structures'),
-      "...through the catalog's own message, with the vocabulary size in it"
-    );
-    // M-309: a group may require a relation AND a structure; both are
-    // judged and both must hold (M-102's refusal is retired).
-    const collide = await callText('lyric_check', {
-      lines: stLines,
-      groups: '1,2;3,4',
-      structures: 'B:kalevala-alliteration',
-      relation: 'type:pararhyme',
-    });
-    assert.notEqual(collide.exit_code, 2, 'a song-wide relation beside a structure is JUDGED');
-    assert.ok(
-      collide.report.includes('pararhyme') && collide.report.includes('kalevala-alliteration'),
-      '...under both the declared relation and the declared structure'
-    );
-    console.log('  ok  lyric_check live: --structures reaches the mandate, with its disclosure');
-    passed++;
+          // The SAME plan the draft above was built from -- re-calling the tool
+          // here ran the planner a second time on one seed and then asserted a
+          // remembered `[CHORUS — 3 lines —` against it, which is the stale
+          // literal repaired above wearing a second hat (doctrine 1: one
+          // definition per question). `plannedRes` is that call; this check owns
+          // the presentation contract, so it keeps its own assertions.
+          assert.ok(
+            planReport.includes(`[${headers[0][1]} — ${headers[0][2]} line`) &&
+              !planReport.trimStart().startsWith('{'),
+            'block 0 is the plan report as plain text, its own bracket headers intact'
+          );
+          assert.equal(
+            JSON.parse(plannedRes.content[1].text).exit_code,
+            0,
+            'plan verdict block reports exit 0'
+          );
+          console.log('  ok  lyric_plan live: two blocks — the report plain, the verdict JSON');
+          passed++;
+        }
 
-    // The SAME plan the draft above was built from -- re-calling the tool
-    // here ran the planner a second time on one seed and then asserted a
-    // remembered `[CHORUS — 3 lines —` against it, which is the stale
-    // literal repaired above wearing a second hat (doctrine 1: one
-    // definition per question). `plannedRes` is that call; this check owns
-    // the presentation contract, so it keeps its own assertions.
-    assert.ok(
-      planReport.includes(`[${headers[0][1]} — ${headers[0][2]} line`) &&
-        !planReport.trimStart().startsWith('{'),
-      'block 0 is the plan report as plain text, its own bracket headers intact'
-    );
-    assert.equal(
-      JSON.parse(plannedRes.content[1].text).exit_code,
-      0,
-      'plan verdict block reports exit 0'
-    );
-    console.log('  ok  lyric_plan live: two blocks — the report plain, the verdict JSON');
-    passed++;
+        if (runs('live-title')) {
+          // `title` REACHES THE PLAN (MISSING.md M-93), and the only shape that
+          // proves it is a DIFFERENCE between runs — accepting a field and
+          // dropping it looks identical from the outside. Three runs, because the
+          // coordinate moves TWO codes in opposite directions: undeclared leaves
+          // the question REFUSED, a title inside the hook answers it YES, and a
+          // title outside the hook answers NO and that answer is a FLAG.
+          //
+          // Every draft line here is `we carry the morning to the <word>` and the
+          // blueprint's hook is the draft line at the plan's own hook slot, so
+          // `carry the morning` is a contiguous run of words inside it under any
+          // seed. Containment is a normalised WORD-subsequence test, not a
+          // substring match, which is why the in-hook title is three whole words.
+          const titleReport = async (title) => {
+            const res = await client.callTool(
+              {
+                name: 'lyric_grade',
+                arguments: title === null ? withLines({ draft }) : withLines({ draft, title }),
+              },
+              undefined,
+              LIVE_OPTS
+            );
+            assert.ok(!res.isError, `lyric_grade answered without isError (title=${title})`);
+            return JSON.parse(res.content[1].text);
+          };
+          const noTitle = await titleReport(null);
+          assert.ok(
+            noTitle.report.includes('TITLE_UNDECLARED'),
+            'with no title the question is REFUSED, not answered'
+          );
+          const inHook = await titleReport('carry the morning');
+          assert.ok(
+            !inHook.report.includes('TITLE_UNDECLARED'),
+            'declaring a title REMOVES the refusal — the field is read, not dropped'
+          );
+          assert.ok(
+            !inHook.report.includes('TITLE_NOT_IN_HOOK'),
+            'and a title that is a run of words inside the hook answers YES'
+          );
+          const outOfHook = await titleReport('zzz nowhere');
+          assert.ok(
+            outOfHook.report.includes('TITLE_NOT_IN_HOOK'),
+            'a title outside the hook answers NO'
+          );
+          assert.ok(
+            outOfHook.findings.some((f) => f.code === 'TITLE_NOT_IN_HOOK' && f.severity === 'flag')
+          );
+          // REPINNED 2026-10-04, THE ANY-READING RULE reaches the meter: the
+          // scaffold is judged throughout (see the grade above), so the title flag
+          // stands on certified coverage, exit 3. ~~exit 2, coverage uncertified~~.
+          // The unresolved case keeps a word no dictionary reads, which the ruling
+          // never guesses, and the same title flag still cannot override it.
+          assert.equal(outOfHook.exit_code, 3, 'the title flag stands on a fully judged scaffold');
+          assert.equal(outOfHook.coverage.certified, true);
+          const unreadableDraft = draft.map((line, i) =>
+            i === draft.length - 1 ? line.replace('the morning', 'the qzzxv') : line
+          );
+          const unresolvedRes = await client.callTool(
+            {
+              name: 'lyric_grade',
+              arguments: withLines({ draft: unreadableDraft, title: 'zzz nowhere' }),
+            },
+            undefined,
+            LIVE_OPTS
+          );
+          assert.ok(!unresolvedRes.isError);
+          const unresolved = JSON.parse(unresolvedRes.content[1].text);
+          assert.equal(
+            unresolved.exit_code,
+            2,
+            'a title flag cannot override unresolved scaffold obligations'
+          );
+          assert.equal(unresolved.coverage.certified, false);
+          assert.ok(unresolved.findings.some((f) => f.code === 'TITLE_NOT_IN_HOOK'));
+          // A separately qualified current seed controls clean0 versus flag3.
+          // The only difference is the title; requested coverage and every lyric
+          // remain identical. The unreadable scaffold above is the explicit
+          // unjudged case.
 
-    // `lyric_sweep` — the seed search, bounded. The claims this tool makes
-    // that nothing else checks are: the bound is real, the windows COMPOSE
-    // (which is what makes a bound pagination rather than truncation), the
-    // vocabulary description is a checked restatement rather than a second
-    // copy, and it does not rank.
-    // The predicate is TIGHT so accepted_count > 0 keeps the checks
-    // non-vacuous. It does NOT promise to sit under the harness's printed
-    // ACCEPTED cap of 40: this comment used to say "240 seeds accept 28
-    // here, under the cap", and the 2026-08-28 seed remap (M-52's patter
-    // row) moved that to 41 — one over the cap on the spanning window while
-    // both halves fit, which is exactly the remembered-rate staleness the
-    // two-block check above was rebuilt to end. The membership check below
-    // therefore reads the verdict's own truncation disclosure instead of
-    // assuming the rate.
-    // THE CEILING IS READ FROM THE CONNECTOR, NOT RETYPED HERE (doctrine 1):
-    // a second copy of a derived bound is the copy that goes stale, which is
-    // exactly what the 2026-09-05 re-derivation found in this file.
-    const toolsSrc = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
-    const sweepCeil = /const MAX_SWEEP_SEEDS = (\d+);/.exec(toolsSrc);
-    assert.ok(sweepCeil, 'lyric_tools.js declares the sweep ceiling');
-    const MAX_SWEEP = Number(sweepCeil[1]);
-    assert.ok(MAX_SWEEP >= 8, `the ceiling is a usable window (got ${MAX_SWEEP})`);
-    const HALF = Math.floor(MAX_SWEEP / 2);
-    // REPINNED 2026-09-05 (`MISSING.md` M-239): the windows were
-    // ~~120 / 120 / 240~~ and the predicate ~~['lines>=24', 'lines<=28']~~.
-    // Both moved for the same reason and neither is a taste: the sweep's
-    // ceiling is 28 seeds now (a plan draws a median 201 lines under the
-    // derived envelope, so a seed costs ~510ms and the window that answers
-    // inside the client's clock is that much smaller), so a 120-seed call
-    // is REFUSED; and a five-value band out of 436 accepts ~1% of seeds,
-    // which over 28 draws is a coin toss rather than a check — the
-    // `accepted_count > 0` line above exists precisely so this block is not
-    // vacuous, and a predicate that usually accepts nothing would make it
-    // vacuous by luck. `lines>=24` rejects 12..23 and accepts the rest, so
-    // it is still a predicate doing work and the composition claim is
-    // unchanged.
-    const sweepA = await callText('lyric_sweep', {
-      seed_from: 1,
-      count: HALF,
-      want: ['lines>=24'],
-    });
-    assert.equal(sweepA.swept, HALF, 'the window is the one that was asked for');
-    assert.ok(sweepA.accepted_count > 0, 'and it found seeds, so this check is not vacuous');
-    assert.equal(
-      sweepA.window.next_seed_from,
-      1 + HALF,
-      'the next window starts where this one ended'
-    );
-    const sweepB = await callText('lyric_sweep', {
-      seed_from: 1 + HALF,
-      count: HALF,
-      want: ['lines>=24'],
-    });
-    const sweepAB = await callText('lyric_sweep', {
-      seed_from: 1,
-      count: 2 * HALF,
-      want: ['lines>=24'],
-    });
-    // COMPOSITION IS THE LOAD-BEARING CLAIM. A plan is a pure function of
-    // its seed, so two windows must equal the one that spans them — counts
-    // and membership both. Without this the bound is just truncation with a
-    // friendly name.
-    assert.equal(
-      sweepA.accepted_count + sweepB.accepted_count,
-      sweepAB.accepted_count,
-      'two windows accept exactly what the window spanning them accepts'
-    );
-    assert.equal(sweepA.planned + sweepB.planned, sweepAB.planned, '...and the planned counts add');
-    // MEMBERSHIP, under the disclosed cap. Every shown list is a PREFIX of
-    // its window's accepted seeds in seed order, so the span's shown list
-    // must be a prefix of its halves' concatenation whatever the cap cuts —
-    // strict equality is the cap-free special case, not a separate claim.
-    // The flag is charged per window against the two counts it relates, so
-    // a truncation can neither hide nor be claimed idly.
-    const concatShown = [...sweepA.accepted_shown, ...sweepB.accepted_shown];
-    assert.deepEqual(
-      concatShown.slice(0, sweepAB.accepted_shown.length),
-      sweepAB.accepted_shown,
-      '...and the shown seeds are the same, in the same order (the span is a prefix of its halves)'
-    );
-    for (const [label, w] of [
-      ['A', sweepA],
-      ['B', sweepB],
-      ['AB', sweepAB],
-    ])
-      assert.equal(
-        w.accepted_truncated === true,
-        w.accepted_shown.length < w.accepted_count,
-        `window ${label}'s truncation flag agrees with its own two counts`
-      );
-    if (!sweepAB.accepted_truncated)
-      assert.equal(
-        concatShown.length,
-        sweepAB.accepted_shown.length,
-        'no truncation claimed, so the halves and the span show identical lists'
-      );
-    // IT DOES NOT RANK, and the report says so in its own words.
-    assert.ok(
-      sweepAB.report.includes('does NOT rank') && sweepAB.report.includes('doctrine 19'),
-      'the report carries its own not-ranked disclosure'
-    );
-    for (const k of ['best', 'top', 'score', 'ranked'])
-      assert.ok(!(k in sweepAB), `the verdict carries no '${k}' key`);
-    assert.deepEqual(
-      [...sweepAB.accepted_shown].sort((x, y) => x - y),
-      sweepAB.accepted_shown,
-      'and the accepted seeds are in seed order'
-    );
-    // THE BOUND IS REAL AND NAMED.
-    const over = await client.callTool(
-      // REPINNED 2026-09-05 (M-239): ~~513~~, one past the old 512 ceiling.
-      { name: 'lyric_sweep', arguments: { seed_from: 1, count: MAX_SWEEP + 1 } },
-      undefined,
-      LIVE_OPTS
-    );
-    assert.ok(over.isError, 'a window past the ceiling is refused');
-    // THE VOCABULARY DESCRIPTION IS CHECKED, NOT TRUSTED. The harness prints
-    // the whole closed table when it refuses an undeclared name; every name
-    // it lists must appear in this tool's own `want` description, or the
-    // description is a second copy that has drifted.
-    const bogusWant = await callText('lyric_sweep', {
-      seed_from: 1,
-      count: 4,
-      want: ['zzz<=1'],
-    });
-    assert.equal(bogusWant.exit_code, 2, 'an undeclared predicate name REFUSES');
-    const declared = (bogusWant.report.match(/Declared: ([^.]*)\./) || [])[1];
-    assert.ok(declared, 'and the refusal prints the whole declared vocabulary');
-    // Read the ADVERTISED schema, not the module's export: what a client
-    // sees is what has to agree with the harness, and the SDK rewrites the
-    // schema on the way out.
-    const sweepTool = tools.find((t) => t.name === 'lyric_sweep');
-    const described = sweepTool.inputSchema.properties.want.description || '';
-    const missing = declared
-      .split(',')
-      .map((x) => x.trim())
-      .filter((x) => x && !described.includes(x));
-    assert.deepEqual(
-      missing,
-      [],
-      `every declared predicate name appears in the tool description (missing: ${missing})`
-    );
-    // TRUNCATION IS DISCLOSED, NOT SILENT. A no-predicate window accepts
-    // every seed that plans, so the printed list is cut at 40 and the count
-    // is not — a field holding 40 of N with no flag would be the silent
-    // substitution this repo refuses.
-    // REPINNED 2026-09-05 (M-239): ~~a 64-seed window, whose accepted list
-    // ran past the harness's printed cap of 40 and exercised the truncation
-    // disclosure live~~. THE CAP IS NOW OUT OF REACH THROUGH ONE CALL: the
-    // derived ceiling is 28 seeds, so no single window can accept 41, and
-    // the live surface can no longer show a truncated list. What is still
-    // checkable live is the SAME INVARIANT the three windows above are
-    // charged with — the flag agrees with the two counts — so it is checked
-    // here too rather than dropped, and the unreachability is stated rather
-    // than left as a check that quietly always passes (doctrine 48).
-    const wide = await callText('lyric_sweep', { seed_from: 1, count: MAX_SWEEP });
-    assert.equal(
-      wide.accepted_count,
-      MAX_SWEEP,
-      'with no predicate every seed that plans is accepted'
-    );
-    assert.equal(
-      wide.accepted_truncated === true,
-      wide.accepted_shown.length < wide.accepted_count,
-      "the full window's truncation flag agrees with its own two counts"
-    );
-    assert.equal(
-      wide.accepted_truncated,
-      false,
-      `and at the derived ceiling nothing is cut: ${MAX_SWEEP} accepted seeds sit under the harness cap of 40`
-    );
-    console.log('  ok  lyric_sweep live: bounded, composes, and does not rank');
-    passed++;
+          const qualifiedTitle = async (title) => {
+            const result = await client.callTool(
+              {
+                name: 'lyric_grade',
+                arguments: {
+                  seed: 176,
+                  lines: 12,
+                  form: 'verse-chorus',
+                  draft: qualifiedDraft,
+                  relation: 'class:RHYME',
+                  title,
+                },
+              },
+              undefined,
+              LIVE_OPTS
+            );
+            assert.ok(!result.isError);
+            assert.equal(result.content.length, 2);
+            return JSON.parse(result.content[1].text);
+          };
+          const qualifiedClean = await qualifiedTitle('wakes the rain');
+          const qualifiedFlag = await qualifiedTitle('zebra confetti');
+          assert.equal(qualifiedClean.exit_code, 0);
+          assert.equal(qualifiedClean.certified, true);
+          assert.deepEqual(
+            qualifiedClean.findings.filter((f) => f.severity === 'flag'),
+            []
+          );
+          assert.equal(qualifiedFlag.exit_code, 3);
+          assert.equal(qualifiedFlag.certified, true);
+          assert.deepEqual(qualifiedFlag.coverage, qualifiedClean.coverage);
+          assert.deepEqual(
+            qualifiedFlag.findings.filter((f) => f.severity === 'flag').map((f) => f.code),
+            ['TITLE_NOT_IN_HOOK']
+          );
+          console.log('  ok  lyric_grade live: --title reaches the plan, both directions');
+          passed++;
+        }
+      }
 
-    // `lyric_verify` — the other half of a revision round. The claims that
-    // needed their own checks are the two that would have been silently
-    // wrong under a reused verdictOf: the exit code does NOT carry the
-    // verdict, and this verb reports no banned pairs BY CONSTRUCTION.
-    //
-    // RELATION DECLARED 2026-08-26 (M-116 repin): under the
-    // whole-vocabulary default the pour/stone pair SATISFIES — its lines
-    // stand in the chain-rhyme schema — so the "violation" these checks
-    // revise stopped existing and the fix was correctly rejected as
-    // repairing nothing. These are LOOP-MECHANICS checks (accepted,
-    // fixed_count, targeted), so they declare class:RHYME, the same
-    // narrowing every loop-mechanics fixture in quality/ took: a declared
-    // relation silences the vocabulary default (M-126 defers to it), and
-    // it also makes `relation` a READ field on this verb rather than a
-    // parsed one. Validated at the CLI: violation restored, fix ACCEPTED
-    // (fixed 1, changed only [2]), no-op REJECTED, targeted flips the
-    // untargeted-rewrite verdict.
-    const V_RELATION = 'class:RHYME';
-    // MECHANICAL FIXTURE since 2026-10-27: the lines quoted an AI-written
-    // bank song deleted with the bank (owner-approved). Seeded dictionary
-    // words (quality/fixtures/seeded_lines.py's noun pool, seed
-    // '20261027:mcp-verify') before the three end words under test.
-    const vBefore = ['Interview pleasant mill owes pour', 'Choice tunnel yoga semester stone'];
-    const vGood = [vBefore[0], 'Choice tunnel yoga semester tore'];
-    const ok = await callText('lyric_verify', {
-      before: vBefore,
-      after: vGood,
-      groups: '1,2',
-      relation: V_RELATION,
-    });
-    assert.equal(ok.accepted, true, 'a revision that fixes the violation is ACCEPTED');
-    assert.equal(ok.fixed_count, 1, '...and the fixed count is reported');
-    // THE EXIT CODE IS 0 EITHER WAY. A connector reading exit_code would
-    // call a refused revision "no flag stands".
-    const bad = await callText('lyric_verify', {
-      before: vBefore,
-      after: vBefore,
-      groups: '1,2',
-      relation: V_RELATION,
-    });
-    assert.equal(bad.accepted, false, 'a no-op revision is REJECTED');
-    assert.equal(bad.exit_code, ok.exit_code, 'and BOTH exit with the same code');
-    assert.equal(bad.exit_code, 0, '...which is 0 — the verdict is an answer, not an error');
-    assert.ok(
-      /read accepted and reasons/i.test(bad.meaning) &&
-        /exit zero means the comparison answered/i.test(bad.meaning),
-      'the meaning distinguishes the comparison answer from accepting the change'
-    );
-    // IT IS A DIFF AND SAYS SO. verify cannot speak about a defect that
-    // survived the change untouched, so it must not carry banned_pairs —
-    // an absent banned_pairs here would read as "no banned pairs".
-    assert.ok(!('banned_pairs' in ok), 'no banned_pairs field: verify cannot answer that');
-    assert.ok(
-      /one that survived the change untouched is not reported/i.test(ok.scope) &&
-        /lyric_grade/.test(ok.scope),
-      '...and the scope field says so, pointing at the verb that can'
-    );
-    // TARGETED IS THE SOLE GATE on the untargeted-rewrite rejection, and
-    // the only shape that proves it is read is OPPOSITE verdicts on one diff.
-    const untargeted = [vGood[0].replace('Interview pleasant', 'Interview tunnel'), vGood[1]];
-    const free = await callText('lyric_verify', {
-      before: vBefore,
-      after: untargeted,
-      groups: '1,2',
-      relation: V_RELATION,
-    });
-    const scoped = await callText('lyric_verify', {
-      before: vBefore,
-      after: untargeted,
-      groups: '1,2',
-      relation: V_RELATION,
-      targeted: [2],
-    });
-    assert.notEqual(
-      free.accepted,
-      scoped.accepted,
-      'declaring targeted changes the verdict on the identical diff — the field is read'
-    );
-    assert.equal(scoped.accepted, false, '...and the run that named line 2 refuses the L1 rewrite');
-    console.log('  ok  lyric_verify live: accepted is the verdict, and targeted is read');
-    passed++;
-  }
-} catch (err) {
-  if (/Cannot find package|Cannot find module/.test(err.message)) {
-    console.log('  --  lyric family checks skipped (SDK not installed in-container)');
-  } else {
-    console.error(`FAIL  lyric family\n      ${err.stack || err.message}`);
-    process.exitCode = 1;
+      if (runs('live-lookups')) {
+        // The pasted-song check answers at the brief verb's exit 0, but its
+        // structured flags and standing report must carry mandatory writing bans.
+        const checked = await callText('lyric_check', {
+          lines: ['dust settles on the kitchen chair', 'cold rain keeps combing through her hair'],
+          scheme: 'AA',
+        });
+        assert.equal(checked.exit_code, 0, 'check answered; exit 0 alone is not a clean verdict');
+        assert.equal(checked.banned_pairs, 1);
+        assert.deepEqual(
+          checked.banned.map(({ code, lines }) => [code, lines]),
+          [['HOMEOTELEUTON', [1, 2]]]
+        );
+        assert.deepEqual(
+          checked.findings.filter((f) => f.severity === 'flag').map((f) => [f.code, f.locations]),
+          [['HOMEOTELEUTON', [1, 2]]]
+        );
+        assert.ok(checked.standing.some((s) => s.includes('[FLAG] HOMEOTELEUTON')));
+        assert.match(
+          lyric.find((t) => t.name === 'lyric_check').description,
+          /mandatory HOMEOTELEUTON and MODAL_RHYME flags/
+        );
+        const cleanCheck = await callText('lyric_check', {
+          lines: ['dust settles on the kitchen chair', 'cold rain leaves nothing left to spare'],
+          scheme: 'AA',
+        });
+        assert.equal(cleanCheck.exit_code, 0);
+        assert.equal(cleanCheck.certified, true);
+        assert.equal(cleanCheck.banned_pairs, 0);
+        assert.deepEqual(cleanCheck.banned, []);
+        assert.deepEqual(
+          cleanCheck.findings.filter((f) => f.severity === 'flag'),
+          []
+        );
+        console.log(
+          '  ok  lyric_check live: mandatory ban stands; clean rhyme control has no flags'
+        );
+        passed++;
+        const survivingBan = await callText('lyric_verify', {
+          before: checked.final_draft,
+          after: checked.final_draft,
+          scheme: 'AA',
+        });
+        assert.equal(survivingBan.accepted, false);
+        assert.equal(survivingBan.findings_measured, false);
+        assert.equal(survivingBan.certified, false);
+        assert.ok(!Object.hasOwn(survivingBan, 'banned_pairs'));
+        assert.ok(!Object.hasOwn(survivingBan, 'flags'));
+        assert.ok(
+          /one that survived the change untouched is not reported/.test(survivingBan.scope)
+        );
+        assert.ok(/introduces is in `new`/.test(survivingBan.scope));
+
+        // `structures` REACHES lyric_check (MISSING.md M-103's flag, wired here).
+        // Mirrors quality/test_verbs.py §39: the binding assertion is a
+        // DIFFERENCE between two runs on ONE draft, because a field accepted and
+        // dropped is byte-identical to one never sent.
+        const stLines = [
+          'the night was cold and bright',
+          'we held each other tight',
+          'we walked beneath the sun',
+          'and rivers ran with silver',
+        ];
+        const plain = await callText('lyric_check', { lines: stLines, groups: '1,2;3,4' });
+        assert.equal(
+          plain.exit_code,
+          0,
+          'check answers at the brief verb exit even with unjudged pairs'
+        );
+        // REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule
+        // 5; measured, as test_verbs.py §39): sun/silver is JUDGED under the
+        // broad default now — no whole reading of the two words holds any
+        // relation — so the plain run certifies with a SCHEME_VIOLATION on
+        // [3, 4], and the declared alliteration below is still what removes it.
+        // superseded: certified false, refused_obligations ['rhyme:3:4:1'].
+        assert.equal(plain.certified, true, 'sun/silver is judged under the broad default');
+        assert.equal(plain.coverage.certified, true);
+        assert.deepEqual(plain.coverage.refused_obligations, []);
+        assert.deepEqual(
+          plain.findings
+            .filter((f) => f.severity === 'flag')
+            .map((f) => [f.code, f.locations])
+            .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)),
+          [
+            ['HOMEOTELEUTON', [1, 2]],
+            ['SCHEME_VIOLATION', [3, 4]],
+          ],
+          'and judged a violation under the default'
+        );
+        const structured = await callText('lyric_check', {
+          lines: stLines,
+          groups: '1,2;3,4',
+          structures: 'B:kalevala-alliteration',
+        });
+        assert.ok(
+          !structured.report.includes('SCHEME_VIOLATION'),
+          'and NOT one under the declared alliteration — the field is read, not dropped'
+        );
+        assert.equal(structured.exit_code, 0);
+        assert.deepEqual(
+          structured.findings
+            .filter((f) => f.severity === 'flag')
+            .map((f) => [f.code, f.locations]),
+          [['HOMEOTELEUTON', [1, 2]]]
+        );
+        assert.equal(structured.coverage.certified, true);
+        assert.equal(structured.coverage.pairs_judged, 2);
+        const narrowed = await callText('lyric_check', {
+          lines: stLines,
+          groups: '1,2;3,4',
+          relation: 'class:RHYME',
+        });
+        assert.equal(
+          narrowed.exit_code,
+          0,
+          'check reports a definite violation at the brief verb exit'
+        );
+        assert.equal(narrowed.coverage.certified, true);
+        assert.deepEqual(
+          narrowed.findings
+            .filter((f) => f.severity === 'flag')
+            .map((f) => [f.code, f.locations])
+            .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)),
+          [
+            ['HOMEOTELEUTON', [1, 2]],
+            ['SCHEME_VIOLATION', [3, 4]],
+          ]
+        );
+        // The non-rhyme structured group B is not asked for a writing ban. The
+        // verdict names it without hiding group A's actual bright/tight ban.
+        assert.deepEqual(
+          structured.ban_not_asked.map((row) => row.lines),
+          [[3, 4]],
+          'the structured group B is named as not asked'
+        );
+        assert.equal(structured.banned_pairs, 1, 'group A retains its one writing ban');
+        const allStructured = await callText('lyric_check', {
+          lines: stLines,
+          groups: '1,2;3,4',
+          structures: 'A:kalevala-alliteration,B:kalevala-alliteration',
+        });
+        assert.equal(allStructured.banned_pairs, null, 'no pair asked: null, never a clean zero');
+        assert.match(allStructured.banned_pairs_reason, /not asked/);
+        assert.ok(
+          structured.structures_uncalibrated &&
+            structured.structures_uncalibrated.includes('kalevala-alliteration'),
+          'the verdict carries structures_uncalibrated, naming the row'
+        );
+        assert.ok(
+          /correctness is graded/i.test(structured.structures_uncalibrated) &&
+            /laziness is NOT graded/i.test(structured.structures_uncalibrated),
+          'the authenticated finding itself says correctness is graded and laziness is not'
+        );
+        const bogus = await callText('lyric_check', {
+          lines: stLines,
+          groups: '1,2',
+          structures: 'A:vibes',
+        });
+        assert.equal(bogus.exit_code, 2, 'an unknown row REFUSES rather than defaulting');
+        assert.ok(
+          bogus.report.includes('not a declared structure') &&
+            bogus.report.includes('58 structures'),
+          "...through the catalog's own message, with the vocabulary size in it"
+        );
+        // M-309: a group may require a relation AND a structure; both are
+        // judged and both must hold (M-102's refusal is retired).
+        const collide = await callText('lyric_check', {
+          lines: stLines,
+          groups: '1,2;3,4',
+          structures: 'B:kalevala-alliteration',
+          relation: 'type:pararhyme',
+        });
+        assert.notEqual(collide.exit_code, 2, 'a song-wide relation beside a structure is JUDGED');
+        assert.ok(
+          collide.report.includes('pararhyme') && collide.report.includes('kalevala-alliteration'),
+          '...under both the declared relation and the declared structure'
+        );
+        console.log(
+          '  ok  lyric_check live: --structures reaches the mandate, with its disclosure'
+        );
+        passed++;
+
+        // `lyric_sweep` — the seed search, bounded. The claims this tool makes
+        // that nothing else checks are: the bound is real, the windows COMPOSE
+        // (which is what makes a bound pagination rather than truncation), the
+        // vocabulary description is a checked restatement rather than a second
+        // copy, and it does not rank.
+        // The predicate is TIGHT so accepted_count > 0 keeps the checks
+        // non-vacuous. It does NOT promise to sit under the harness's printed
+        // ACCEPTED cap of 40: this comment used to say "240 seeds accept 28
+        // here, under the cap", and the 2026-08-28 seed remap (M-52's patter
+        // row) moved that to 41 — one over the cap on the spanning window while
+        // both halves fit, which is exactly the remembered-rate staleness the
+        // two-block check above was rebuilt to end. The membership check below
+        // therefore reads the verdict's own truncation disclosure instead of
+        // assuming the rate.
+        // THE CEILING IS READ FROM THE CONNECTOR, NOT RETYPED HERE (doctrine 1):
+        // a second copy of a derived bound is the copy that goes stale, which is
+        // exactly what the 2026-09-05 re-derivation found in this file.
+        const toolsSrc = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
+        const sweepCeil = /const MAX_SWEEP_SEEDS = (\d+);/.exec(toolsSrc);
+        assert.ok(sweepCeil, 'lyric_tools.js declares the sweep ceiling');
+        const MAX_SWEEP = Number(sweepCeil[1]);
+        assert.ok(MAX_SWEEP >= 8, `the ceiling is a usable window (got ${MAX_SWEEP})`);
+        const HALF = Math.floor(MAX_SWEEP / 2);
+        // REPINNED 2026-09-05 (`MISSING.md` M-239): the windows were
+        // ~~120 / 120 / 240~~ and the predicate ~~['lines>=24', 'lines<=28']~~.
+        // Both moved for the same reason and neither is a taste: the sweep's
+        // ceiling is 28 seeds now (a plan draws a median 201 lines under the
+        // derived envelope, so a seed costs ~510ms and the window that answers
+        // inside the client's clock is that much smaller), so a 120-seed call
+        // is REFUSED; and a five-value band out of 436 accepts ~1% of seeds,
+        // which over 28 draws is a coin toss rather than a check — the
+        // `accepted_count > 0` line above exists precisely so this block is not
+        // vacuous, and a predicate that usually accepts nothing would make it
+        // vacuous by luck. `lines>=24` rejects 12..23 and accepts the rest, so
+        // it is still a predicate doing work and the composition claim is
+        // unchanged.
+        const sweepA = await callText('lyric_sweep', {
+          seed_from: 1,
+          count: HALF,
+          want: ['lines>=24'],
+        });
+        assert.equal(sweepA.swept, HALF, 'the window is the one that was asked for');
+        assert.ok(sweepA.accepted_count > 0, 'and it found seeds, so this check is not vacuous');
+        assert.equal(
+          sweepA.window.next_seed_from,
+          1 + HALF,
+          'the next window starts where this one ended'
+        );
+        const sweepB = await callText('lyric_sweep', {
+          seed_from: 1 + HALF,
+          count: HALF,
+          want: ['lines>=24'],
+        });
+        const sweepAB = await callText('lyric_sweep', {
+          seed_from: 1,
+          count: 2 * HALF,
+          want: ['lines>=24'],
+        });
+        // COMPOSITION IS THE LOAD-BEARING CLAIM. A plan is a pure function of
+        // its seed, so two windows must equal the one that spans them — counts
+        // and membership both. Without this the bound is just truncation with a
+        // friendly name.
+        assert.equal(
+          sweepA.accepted_count + sweepB.accepted_count,
+          sweepAB.accepted_count,
+          'two windows accept exactly what the window spanning them accepts'
+        );
+        assert.equal(
+          sweepA.planned + sweepB.planned,
+          sweepAB.planned,
+          '...and the planned counts add'
+        );
+        // MEMBERSHIP, under the disclosed cap. Every shown list is a PREFIX of
+        // its window's accepted seeds in seed order, so the span's shown list
+        // must be a prefix of its halves' concatenation whatever the cap cuts —
+        // strict equality is the cap-free special case, not a separate claim.
+        // The flag is charged per window against the two counts it relates, so
+        // a truncation can neither hide nor be claimed idly.
+        const concatShown = [...sweepA.accepted_shown, ...sweepB.accepted_shown];
+        assert.deepEqual(
+          concatShown.slice(0, sweepAB.accepted_shown.length),
+          sweepAB.accepted_shown,
+          '...and the shown seeds are the same, in the same order (the span is a prefix of its halves)'
+        );
+        for (const [label, w] of [
+          ['A', sweepA],
+          ['B', sweepB],
+          ['AB', sweepAB],
+        ])
+          assert.equal(
+            w.accepted_truncated === true,
+            w.accepted_shown.length < w.accepted_count,
+            `window ${label}'s truncation flag agrees with its own two counts`
+          );
+        if (!sweepAB.accepted_truncated)
+          assert.equal(
+            concatShown.length,
+            sweepAB.accepted_shown.length,
+            'no truncation claimed, so the halves and the span show identical lists'
+          );
+        // IT DOES NOT RANK, and the report says so in its own words.
+        assert.ok(
+          sweepAB.report.includes('does NOT rank') && sweepAB.report.includes('doctrine 19'),
+          'the report carries its own not-ranked disclosure'
+        );
+        for (const k of ['best', 'top', 'score', 'ranked'])
+          assert.ok(!(k in sweepAB), `the verdict carries no '${k}' key`);
+        assert.deepEqual(
+          [...sweepAB.accepted_shown].sort((x, y) => x - y),
+          sweepAB.accepted_shown,
+          'and the accepted seeds are in seed order'
+        );
+        // THE BOUND IS REAL AND NAMED.
+        const over = await client.callTool(
+          // REPINNED 2026-09-05 (M-239): ~~513~~, one past the old 512 ceiling.
+          { name: 'lyric_sweep', arguments: { seed_from: 1, count: MAX_SWEEP + 1 } },
+          undefined,
+          LIVE_OPTS
+        );
+        assert.ok(over.isError, 'a window past the ceiling is refused');
+        // THE VOCABULARY DESCRIPTION IS CHECKED, NOT TRUSTED. The harness prints
+        // the whole closed table when it refuses an undeclared name; every name
+        // it lists must appear in this tool's own `want` description, or the
+        // description is a second copy that has drifted.
+        const bogusWant = await callText('lyric_sweep', {
+          seed_from: 1,
+          count: 4,
+          want: ['zzz<=1'],
+        });
+        assert.equal(bogusWant.exit_code, 2, 'an undeclared predicate name REFUSES');
+        const declared = (bogusWant.report.match(/Declared: ([^.]*)\./) || [])[1];
+        assert.ok(declared, 'and the refusal prints the whole declared vocabulary');
+        // Read the ADVERTISED schema, not the module's export: what a client
+        // sees is what has to agree with the harness, and the SDK rewrites the
+        // schema on the way out.
+        const sweepTool = tools.find((t) => t.name === 'lyric_sweep');
+        const described = sweepTool.inputSchema.properties.want.description || '';
+        const missing = declared
+          .split(',')
+          .map((x) => x.trim())
+          .filter((x) => x && !described.includes(x));
+        assert.deepEqual(
+          missing,
+          [],
+          `every declared predicate name appears in the tool description (missing: ${missing})`
+        );
+        // TRUNCATION IS DISCLOSED, NOT SILENT. A no-predicate window accepts
+        // every seed that plans, so the printed list is cut at 40 and the count
+        // is not — a field holding 40 of N with no flag would be the silent
+        // substitution this repo refuses.
+        // REPINNED 2026-09-05 (M-239): ~~a 64-seed window, whose accepted list
+        // ran past the harness's printed cap of 40 and exercised the truncation
+        // disclosure live~~. THE CAP IS NOW OUT OF REACH THROUGH ONE CALL: the
+        // derived ceiling is 28 seeds, so no single window can accept 41, and
+        // the live surface can no longer show a truncated list. What is still
+        // checkable live is the SAME INVARIANT the three windows above are
+        // charged with — the flag agrees with the two counts — so it is checked
+        // here too rather than dropped, and the unreachability is stated rather
+        // than left as a check that quietly always passes (doctrine 48).
+        const wide = await callText('lyric_sweep', { seed_from: 1, count: MAX_SWEEP });
+        assert.equal(
+          wide.accepted_count,
+          MAX_SWEEP,
+          'with no predicate every seed that plans is accepted'
+        );
+        assert.equal(
+          wide.accepted_truncated === true,
+          wide.accepted_shown.length < wide.accepted_count,
+          "the full window's truncation flag agrees with its own two counts"
+        );
+        assert.equal(
+          wide.accepted_truncated,
+          false,
+          `and at the derived ceiling nothing is cut: ${MAX_SWEEP} accepted seeds sit under the harness cap of 40`
+        );
+        console.log('  ok  lyric_sweep live: bounded, composes, and does not rank');
+        passed++;
+
+        // `lyric_verify` — the other half of a revision round. The claims that
+        // needed their own checks are the two that would have been silently
+        // wrong under a reused verdictOf: the exit code does NOT carry the
+        // verdict, and this verb reports no banned pairs BY CONSTRUCTION.
+        //
+        // RELATION DECLARED 2026-08-26 (M-116 repin): under the
+        // whole-vocabulary default the pour/stone pair SATISFIES — its lines
+        // stand in the chain-rhyme schema — so the "violation" these checks
+        // revise stopped existing and the fix was correctly rejected as
+        // repairing nothing. These are LOOP-MECHANICS checks (accepted,
+        // fixed_count, targeted), so they declare class:RHYME, the same
+        // narrowing every loop-mechanics fixture in quality/ took: a declared
+        // relation silences the vocabulary default (M-126 defers to it), and
+        // it also makes `relation` a READ field on this verb rather than a
+        // parsed one. Validated at the CLI: violation restored, fix ACCEPTED
+        // (fixed 1, changed only [2]), no-op REJECTED, targeted flips the
+        // untargeted-rewrite verdict.
+        const V_RELATION = 'class:RHYME';
+        // MECHANICAL FIXTURE since 2026-10-27: the lines quoted an AI-written
+        // bank song deleted with the bank (owner-approved). Seeded dictionary
+        // words (quality/fixtures/seeded_lines.py's noun pool, seed
+        // '20261027:mcp-verify') before the three end words under test.
+        const vBefore = ['Interview pleasant mill owes pour', 'Choice tunnel yoga semester stone'];
+        const vGood = [vBefore[0], 'Choice tunnel yoga semester tore'];
+        const ok = await callText('lyric_verify', {
+          before: vBefore,
+          after: vGood,
+          groups: '1,2',
+          relation: V_RELATION,
+        });
+        assert.equal(ok.accepted, true, 'a revision that fixes the violation is ACCEPTED');
+        assert.equal(ok.fixed_count, 1, '...and the fixed count is reported');
+        // THE EXIT CODE IS 0 EITHER WAY. A connector reading exit_code would
+        // call a refused revision "no flag stands".
+        const bad = await callText('lyric_verify', {
+          before: vBefore,
+          after: vBefore,
+          groups: '1,2',
+          relation: V_RELATION,
+        });
+        assert.equal(bad.accepted, false, 'a no-op revision is REJECTED');
+        assert.equal(bad.exit_code, ok.exit_code, 'and BOTH exit with the same code');
+        assert.equal(bad.exit_code, 0, '...which is 0 — the verdict is an answer, not an error');
+        assert.ok(
+          /read accepted and reasons/i.test(bad.meaning) &&
+            /exit zero means the comparison answered/i.test(bad.meaning),
+          'the meaning distinguishes the comparison answer from accepting the change'
+        );
+        // IT IS A DIFF AND SAYS SO. verify cannot speak about a defect that
+        // survived the change untouched, so it must not carry banned_pairs —
+        // an absent banned_pairs here would read as "no banned pairs".
+        assert.ok(!('banned_pairs' in ok), 'no banned_pairs field: verify cannot answer that');
+        assert.ok(
+          /one that survived the change untouched is not reported/i.test(ok.scope) &&
+            /lyric_grade/.test(ok.scope),
+          '...and the scope field says so, pointing at the verb that can'
+        );
+        // TARGETED IS THE SOLE GATE on the untargeted-rewrite rejection, and
+        // the only shape that proves it is read is OPPOSITE verdicts on one diff.
+        const untargeted = [vGood[0].replace('Interview pleasant', 'Interview tunnel'), vGood[1]];
+        const free = await callText('lyric_verify', {
+          before: vBefore,
+          after: untargeted,
+          groups: '1,2',
+          relation: V_RELATION,
+        });
+        const scoped = await callText('lyric_verify', {
+          before: vBefore,
+          after: untargeted,
+          groups: '1,2',
+          relation: V_RELATION,
+          targeted: [2],
+        });
+        assert.notEqual(
+          free.accepted,
+          scoped.accepted,
+          'declaring targeted changes the verdict on the identical diff — the field is read'
+        );
+        assert.equal(
+          scoped.accepted,
+          false,
+          '...and the run that named line 2 refuses the L1 rewrite'
+        );
+        console.log('  ok  lyric_verify live: accepted is the verdict, and targeted is read');
+        passed++;
+      }
+    }
+  } catch (err) {
+    if (!PART && /Cannot find package|Cannot find module/.test(err.message)) {
+      console.log('  --  lyric family checks skipped (SDK not installed in-container)');
+    } else {
+      console.error(`FAIL  lyric family\n      ${err.stack || err.message}`);
+      process.exitCode = 1;
+    }
   }
 }
 
@@ -9418,4 +9515,13 @@ await check(
   }
 );
 
-console.log(`\n${passed} checks passed${process.exitCode ? ' (with failures)' : ''}`);
+console.log(
+  `SUITE COST ${((performance.now() - suiteStarted) / 1000).toFixed(3)}s ${PART || 'whole'}`
+);
+if (PART && passed === 0) {
+  console.error(`FAIL  part ${PART} executed no checks`);
+  process.exitCode = 1;
+}
+console.log(
+  `\n${passed} checks passed${PART ? ` (part ${PART})` : ''}${process.exitCode ? ' (with failures)' : ''}`
+);

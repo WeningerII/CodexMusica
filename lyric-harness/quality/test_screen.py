@@ -605,20 +605,45 @@ def test_rime_riche_reads_the_words_own_onset():
           and LH._own_onset({"onset": ["T", "R"], "onset_own": ("R",)}) == ["R"])
 
 
+# The complete original runner order remains the default local command.
+_SECTIONS = (
+    test_the_controls,
+    test_honesty_and_the_split,
+    test_no_drift,
+    test_the_scaffold,
+    test_the_cli,
+    test_clean_answers_one_question,
+    test_the_screen_asks_the_grades_question,
+    test_the_screen_judges_a_drawn_schema_and_names_a_near_relation,
+    test_the_screen_says_which_words_cannot_be_bound_at_a_token,
+    test_named_judgment_survives_broad_uncertainty,
+    test_screen_retains_partial_anchor_evidence,
+    test_rime_riche_reads_the_words_own_onset,
+)
+
+# CI changes only the deal; section bodies and their aggregate checks stay whole.
+# Measured section costs keep the four longest sections solo. The other
+# eight are paired longest with shortest across the four two-section slots.
+_SHARDED_SECTIONS = (
+    test_the_cli,
+    test_the_controls,
+    test_honesty_and_the_split,
+    test_no_drift,
+    test_clean_answers_one_question,
+    test_named_judgment_survives_broad_uncertainty,
+    test_the_screen_asks_the_grades_question,
+    test_the_screen_judges_a_drawn_schema_and_names_a_near_relation,
+    test_rime_riche_reads_the_words_own_onset,
+    test_the_screen_says_which_words_cannot_be_bound_at_a_token,
+    test_the_scaffold,
+    test_screen_retains_partial_anchor_evidence,
+)
+
+
 if __name__ == "__main__":
-    for fn in (test_the_controls, test_honesty_and_the_split,
-               test_no_drift, test_the_scaffold, test_the_cli,
-               test_clean_answers_one_question,
-               test_the_screen_asks_the_grades_question,
-               test_the_screen_judges_a_drawn_schema_and_names_a_near_relation,
-               test_the_screen_says_which_words_cannot_be_bound_at_a_token,
-               test_named_judgment_survives_broad_uncertainty,
-               test_screen_retains_partial_anchor_evidence,
-               test_rime_riche_reads_the_words_own_onset):
-        fn()
-    print("=" * 62)
-    if FAILURES:
-        print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
-        sys.exit(1)
-    print("the screen is the grader at the front door — no private "
-          "instruments")
+    from quality.shard import run_sections, dealt
+    coordinate = dealt(_SECTIONS, "TEST_SCREEN_SHARD")[1]
+    sections = (_SHARDED_SECTIONS if coordinate and coordinate[1] > 1
+                else _SECTIONS)
+    sys.exit(run_sections(sections, "TEST_SCREEN_SHARD", FAILURES,
+                          footer='the screen is the grader at the front door — no private instruments'))
