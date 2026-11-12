@@ -20,6 +20,7 @@ import {
   isRecoveryOnly,
   recoveryWire,
   withNextCall,
+  withPlanLineage,
   withSweepNext,
 } from './lyric_workflow.js';
 import { decodeState } from './state_codec.js';
@@ -2733,6 +2734,9 @@ export async function runTurn({
           }
           recordCreation(task, fc.name, args, lyricVerdict, isError);
           result = withSweepNext(task, fc.name, result, lyr);
+          // Under a plan that replaced the task's first plan, the verdict says
+          // what this plan is not asked that the first was (#676).
+          result = withPlanLineage(task, fc.name, result);
           // Inside the JSON payload, never as a second block: a second block
           // would make block 0 a verbatim "presentation" in toFunctionResponse
           // and hand the model the workspace that path exists to strip.

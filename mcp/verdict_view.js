@@ -68,6 +68,9 @@ const KEPT = [
   'structures_uncalibrated',
   'final_draft_sha256',
   'lexicon',
+  // Present only under a plan that replaced the session's first plan: what
+  // that first plan asked and this one does not (lyric_workflow.js, #676).
+  'plan_lineage',
 ];
 
 // A coverage layer the request did not ask, named with what would ask it

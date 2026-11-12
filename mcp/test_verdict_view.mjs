@@ -719,6 +719,26 @@ test('the short verdict ends with the next call the grade names, and has none wi
   assert.equal(Object.hasOwn(out({ ...verdict, next: { call: 'x' } }), 'next'), false);
 });
 
+// Under a plan that replaced the session's first plan the verdict carries
+// `plan_lineage` (lyric_workflow.js, issue #676). The short verdict keeps it
+// whole: it is the only place a finished grade or revise says the song now
+// answers to a different contract than the one the session started with.
+test('the short verdict keeps the plan lineage whole, and has none on a first plan', () => {
+  const lineage = {
+    first_plan: { seed: 16, plan_sha256: 'a'.repeat(64) },
+    plans_recorded: 2,
+    declared_changes: [{ field: 'title', first: 'Salt and Rain', now: null }],
+    drawn_changes: [{ what: 'hook', first: true, now: false }],
+    note: 'PLAN REPLACED: this is not the first plan this session recorded (that was seed 16).',
+  };
+  const out = (v, tool) =>
+    JSON.parse(publicToolResult({ content: blocks(v) }, null, { tool }).content[1].text);
+  for (const tool of ['lyric_grade', 'lyric_revise']) {
+    assert.deepEqual(out({ ...verdict, plan_lineage: lineage }, tool).plan_lineage, lineage, tool);
+    assert.equal(Object.hasOwn(out(verdict, tool), 'plan_lineage'), false, `${tool} first plan`);
+  }
+});
+
 // THE NEXT STEP AFTER AN UNCERTIFIED STOP IS READ OFF WHAT WAS REFUSED
 // (coverage_advice.js, issue #676). The note used to recommend
 // `pronunciations` for every exit 2 with nothing open; a refused declaration

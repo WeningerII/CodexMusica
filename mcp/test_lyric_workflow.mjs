@@ -7,6 +7,8 @@ import {
   recordCreation,
   creationQualified,
   gradeVerdictQualifies,
+  planLineage,
+  withPlanLineage,
 } from './lyric_workflow.js';
 import { runTurn, LIMITS, declarationsFor } from './gemini_agent.js';
 import { _verdictInternals } from './lyric_tools.js';
@@ -908,4 +910,256 @@ test('a contradicted plan declaration names the recorded value, and leaving it o
   const revise = { seed: 16, draft };
   assert.equal(creationRefusal(t, 'lyric_revise', revise), null);
   assert.deepEqual(revise.pronunciations, pronunciations);
+});
+
+// ── #676: a replaced plan says what it is not asked that the first was ──────
+// The gate protects a recorded plan; an admitted new plan replaced it and
+// nothing on any later result said the contract had changed. These walk the
+// record with receipts in the planner's own shape.
+function lineagePlan(seed, { request = {}, plan = {} } = {}) {
+  const req = {
+    seed,
+    form: 'open',
+    lines: null,
+    relation: '',
+    functions: null,
+    title: '',
+    narrative: false,
+    wants: [],
+    ...request,
+  };
+  const p = {
+    plan_version: 3,
+    request: req,
+    total_lines: 2,
+    line_slots: [{}, {}],
+    sections: [{ name: 'VERSE' }],
+    relations: { A: 'schema:consonance' },
+    groups: '1,2',
+    returns: '',
+    hook_slot: null,
+    ...plan,
+  };
+  return { exit_code: 0, plan: p, plan_sha256: sha(p), plan_request: req };
+}
+// A first plan that asks for a returning form, a rhyme and a title, and the
+// plan a session falls back to after re-sweeping with none of it declared.
+const FIRST = {
+  sweep: { seed_from: 10, count: 2, form: 'verse-chorus', lines: 2 },
+  args: {
+    seed: 16,
+    form: 'verse-chorus',
+    lines: 2,
+    relation: 'class:RHYME',
+    title: 'Salt and Rain',
+  },
+  receipt: () =>
+    lineagePlan(16, {
+      request: {
+        form: 'verse-chorus',
+        lines: 2,
+        relation: 'class:RHYME',
+        title: 'Salt and Rain',
+      },
+      plan: {
+        relations: { A: 'class:RHYME', B: 'class:RHYME' },
+        groups: '1,2;1.head,2.head',
+        returns: '1,2',
+        hook_slot: 1,
+      },
+    }),
+};
+const SECOND = {
+  sweep: { seed_from: 20, count: 2 },
+  args: { seed: 21 },
+  receipt: () => lineagePlan(21),
+};
+function plannedTwice(t) {
+  recordCreation(t, 'lyric_sweep', FIRST.sweep, { exit_code: 0, accepted_shown: [16] });
+  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
+  const first = FIRST.receipt();
+  recordCreation(t, 'lyric_plan', FIRST.args, first);
+  assert.equal(t.workflow.plan.sha256, first.plan_sha256, 'the first plan is recorded');
+  assert.equal(planLineage(t), null, 'a session on its first plan has no lineage');
+  recordCreation(t, 'lyric_sweep', SECOND.sweep, { exit_code: 0, accepted_shown: [21] });
+  const second = SECOND.receipt();
+  recordCreation(t, 'lyric_plan', SECOND.args, second);
+  assert.equal(t.workflow.plan.sha256, second.plan_sha256, 'the replacement is recorded');
+  return { first, second };
+}
+
+test('a replaced plan carries what the first plan asked and this one does not (#676)', () => {
+  const t = fresh();
+  const { first } = plannedTwice(t);
+  const lineage = planLineage(t);
+  assert.deepEqual(lineage.first_plan, { seed: 16, plan_sha256: first.plan_sha256 });
+  assert.equal(lineage.plans_recorded, 2);
+  assert.deepEqual(lineage.declared_changes, [
+    { field: 'form', first: 'verse-chorus', now: 'open' },
+    { field: 'lines', first: 2, now: null },
+    { field: 'relation', first: 'class:RHYME', now: null },
+    { field: 'title', first: 'Salt and Rain', now: null },
+  ]);
+  assert.deepEqual(lineage.drawn_changes, [
+    { what: 'relation_types', first: ['class:RHYME'], now: ['schema:consonance'] },
+    { what: 'bound_groups', first: 2, now: 1 },
+    { what: 'returns', first: 1, now: 0 },
+    { what: 'hook', first: true, now: false },
+  ]);
+  assert.equal(
+    lineage.note,
+    'PLAN REPLACED: this is not the first plan this session recorded (that was seed 16). ' +
+      'It was declared differently — form verse-chorus → open; lines 2 → none; ' +
+      'relation class:RHYME → none; title Salt and Rain → none. ' +
+      'The planner bound a different shape — relation_types ["class:RHYME"] → ["schema:consonance"]; ' +
+      'bound_groups 2 → 1; returns 1 → 0; hook yes → no. ' +
+      'A grade or revise under this plan answers for this plan only: it does not show that what ' +
+      "the first plan asked was met. When you present the song, say which of the first plan's " +
+      'declarations it no longer answers to.'
+  );
+});
+
+test('the lineage rides the verdict of a plan, grade and revise, and nothing else (#676)', () => {
+  const t = fresh();
+  plannedTwice(t);
+  const song = { type: 'text', text: 'My kettle whistles by the stove' };
+  const verdict = { type: 'text', text: JSON.stringify({ exit_code: 0, certified: true }) };
+  for (const name of ['lyric_plan', 'lyric_grade', 'lyric_revise']) {
+    const out = withPlanLineage(t, name, { content: [song, verdict] });
+    assert.equal(out.content[0], song, 'the deliverable block is the same object');
+    const v = JSON.parse(out.content[1].text);
+    assert.deepEqual(v.plan_lineage, planLineage(t), name);
+    assert.equal(v.exit_code, 0);
+    assert.equal(v.certified, true);
+  }
+  // A one-block result that IS the verdict.
+  const one = withPlanLineage(t, 'lyric_plan', { content: [verdict] });
+  assert.ok(JSON.parse(one.content[0].text).plan_lineage);
+  // Unchanged: other tools, a refused call, a result with no verdict block.
+  for (const [name, result] of [
+    ['lyric_sweep', { content: [verdict] }],
+    ['lyric_screen', { content: [verdict] }],
+    ['lyric_check', { content: [verdict] }],
+    ['lyric_grade', { content: [verdict], isError: true }],
+    ['lyric_grade', { content: [song] }],
+    ['lyric_grade', { content: [{ type: 'text', text: '{"report":"no exit code"}' }] }],
+  ])
+    assert.equal(withPlanLineage(t, name, result), result, name);
+});
+
+test('no lineage on a first plan, a repeated plan, the first plan again, or an edit session (#676)', () => {
+  const single = fresh();
+  planned(single);
+  const verdict = { content: [{ type: 'text', text: '{"exit_code":0}' }] };
+  assert.equal(planLineage(single), null);
+  assert.equal(withPlanLineage(single, 'lyric_grade', verdict), verdict);
+  // The same plan recorded twice is one plan.
+  recordCreation(single, 'lyric_plan', planArgs, canonical());
+  assert.equal(planLineage(single), null);
+  assert.equal(single.workflow.first_plan.recorded, 1);
+
+  // Back on the first plan: nothing is owed to it any more.
+  const t = fresh();
+  plannedTwice(t);
+  assert.ok(planLineage(t));
+  recordCreation(t, 'lyric_plan', FIRST.args, FIRST.receipt());
+  assert.equal(planLineage(t), null, 'the first plan is the recorded plan again');
+  assert.equal(t.workflow.first_plan.recorded, 3);
+
+  // A failed re-plan leaves no recorded plan, so there is nothing to compare.
+  const failed = fresh();
+  plannedTwice(failed);
+  recordCreation(failed, 'lyric_plan', SECOND.args, { ...SECOND.receipt(), exit_code: 2 });
+  assert.equal(failed.workflow.plan, null);
+  assert.equal(planLineage(failed), null);
+
+  // Lyrics the user supplied are never planned.
+  const edit = { version: 2, domain: 'lyrics', phase: 'edit', brief: 'Fix my song.' };
+  assert.equal(planLineage(edit), null);
+  assert.equal(withPlanLineage(edit, 'lyric_revise', verdict), verdict);
+});
+
+test('same declarations under another seed: the drawn shape is named, no declaration is (#676)', () => {
+  const t = fresh();
+  recordCreation(t, 'lyric_sweep', SECOND.sweep, { exit_code: 0, accepted_shown: [21, 22] });
+  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
+  recordCreation(t, 'lyric_plan', { seed: 21 }, lineagePlan(21));
+  recordCreation(
+    t,
+    'lyric_plan',
+    { seed: 22 },
+    lineagePlan(22, { plan: { relations: { A: 'schema:anadiplosis' } } })
+  );
+  const lineage = planLineage(t);
+  assert.deepEqual(lineage.declared_changes, []);
+  assert.deepEqual(lineage.drawn_changes, [
+    { what: 'relation_types', first: ['schema:consonance'], now: ['schema:anadiplosis'] },
+  ]);
+  assert.equal(
+    lineage.note,
+    'PLAN REPLACED: this is not the first plan this session recorded (that was seed 21). ' +
+      'Its declarations are the same. ' +
+      'The planner bound a different shape — relation_types ["schema:consonance"] → ["schema:anadiplosis"]. ' +
+      'A grade or revise under this plan answers for this plan only: it does not show that what ' +
+      'the first plan asked was met.'
+  );
+});
+
+test('the first plan is compared, not the one before; a melody is never printed (#676)', () => {
+  const t = fresh();
+  const tune = '{"notes":[60,62]}';
+  const other = '{"notes":[60,64]}';
+  const withTune = (seed, melody, extra = {}) =>
+    lineagePlan(seed, { request: { melody: JSON.parse(melody), ...extra } });
+  recordCreation(
+    t,
+    'lyric_sweep',
+    { seed_from: 1, count: 1, melody: tune },
+    { exit_code: 0, accepted_shown: [1] }
+  );
+  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
+  recordCreation(
+    t,
+    'lyric_plan',
+    { seed: 1, melody: tune, title: 'Salt and Rain' },
+    withTune(1, tune, { title: 'Salt and Rain' })
+  );
+  // Step 1 drops the title; step 2 changes the tune. Each step alone is one
+  // change; against the FIRST plan the second step shows both.
+  recordCreation(t, 'lyric_plan', { seed: 1, melody: tune }, withTune(1, tune));
+  assert.deepEqual(
+    planLineage(t).declared_changes.map((c) => c.field),
+    ['title']
+  );
+  recordCreation(
+    t,
+    'lyric_sweep',
+    { seed_from: 2, count: 1, melody: other },
+    { exit_code: 0, accepted_shown: [2] }
+  );
+  recordCreation(t, 'lyric_plan', { seed: 2, melody: other }, withTune(2, other));
+  const lineage = planLineage(t);
+  assert.deepEqual(lineage.declared_changes, [
+    { field: 'title', first: 'Salt and Rain', now: null },
+    { field: 'melody', first: 'declared', now: 'declared (a different melody)' },
+  ]);
+  assert.equal(lineage.plans_recorded, 3);
+  assert.ok(!JSON.stringify(lineage).includes('60'), 'no melody text in the lineage');
+});
+
+test('a session saved before the record was kept takes the plan it holds as its first (#676)', () => {
+  const t = fresh();
+  recordCreation(t, 'lyric_sweep', FIRST.sweep, { exit_code: 0, accepted_shown: [16] });
+  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
+  recordCreation(t, 'lyric_plan', FIRST.args, FIRST.receipt());
+  delete t.workflow.first_plan; // as an older session was stored
+  assert.equal(planLineage(t), null);
+  recordCreation(t, 'lyric_sweep', SECOND.sweep, { exit_code: 0, accepted_shown: [21] });
+  recordCreation(t, 'lyric_plan', SECOND.args, SECOND.receipt());
+  const lineage = planLineage(t);
+  assert.equal(lineage.first_plan.seed, 16);
+  assert.deepEqual(
+    lineage.declared_changes.map((c) => c.field),
+    ['form', 'lines', 'relation', 'title']
+  );
 });
