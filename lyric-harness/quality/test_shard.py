@@ -1160,6 +1160,21 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
         # Actual child lifetimes, not a replay of the scheduling arithmetic.
         # A recorder holds logical CPU slots while sleeping, so the real shell
         # must reserve two for Coverage Queue and restore four ordinary slots.
+        # BOTH POOL STATES ARE A RENDEZVOUS, NOT A RACE, 2026-11-12. A recorder
+        # is live only from its own first line, and on a loaded runner starting
+        # the process outlasts the 90 ms it then sleeps, so modules the shell
+        # had admitted together were often never live together. The restore
+        # check failed that way in scheduled run 43206517940 (suites shard
+        # 2/8, one shell of three) and in 24 of 60 local replays beside eight
+        # busy processes, against none of 60 on an idle machine, with 12 to 14
+        # modules still to start after Queue exited every time; beside sixteen
+        # the reservation check failed too, 11 of 60. So a recorder now keeps
+        # its slot until the state it can still show has been recorded, or
+        # POOL_RENDEZVOUS_WAIT seconds have passed: while Queue is live, Queue
+        # and each ordinary module wait for Queue beside two ordinary modules;
+        # once Queue has exited, each ordinary module waits for four. A shell
+        # that admits fewer leaves them to wait out that bound and the check
+        # fails, which the planted defect below runs for the restore.
         import json
         with open(stub, "w", encoding="utf-8") as f:
             f.write("#!" + sys.executable + "\n" + textwrap.dedent('''\
@@ -1181,14 +1196,35 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
                             'before':before,'active':list(active.values()),
                             'total':sum(item['units'] for item in active.values())})
                         path.write_text(json.dumps(state))
+                def awaited():
+                    with open(str(path)+'.lock','a') as lock:
+                        fcntl.flock(lock,fcntl.LOCK_EX)
+                        events=json.loads(path.read_text())['events']
+                    queue=[i for i,event in enumerate(events) if event['name']=='coverage_queue']
+                    if len(queue)==1:
+                        return not any(event['total']==4 and len(event['active'])==3
+                                       and any(item['name']=='coverage_queue' for item in event['active'])
+                                       for event in events[queue[0]:])
+                    return len(queue)==2 and not any(len(event['active'])==event['total']==4
+                                                     for event in events[queue[1]+1:])
                 record('start')
                 delayed=os.environ.get('POOL_DELAYED_NAMES','').split(',')
                 duration=(.35+.20*delayed.index(name) if name in delayed else
                           .45 if name=='coverage_queue' else
                           .03 if name in ('relations_null','g2p') else .02 if delayed[0] else .09)
-                try: time.sleep(duration)
+                holds=not delayed[0] and name not in ('relations_null','g2p')
+                try:
+                    time.sleep(duration)
+                    deadline=time.monotonic()+float(os.environ.get('POOL_RENDEZVOUS_WAIT','5'))
+                    while holds and time.monotonic()<deadline and awaited(): time.sleep(.01)
                 finally: record('end')
                 '''))
+
+        def restored(events):
+            queue_end = next(i for i, event in enumerate(events)
+                             if event["name"] == "coverage_queue" and event["event"] == "end")
+            return any(len(event["active"]) == event["total"] == 4
+                       for event in events[queue_end + 1:])
         for index, shell in enumerate(shells):
             env.pop("POOL_DELAYED_NAMES", None)
             state_path = os.path.join(tmp, f"resource-{index}.json")
@@ -1212,11 +1248,23 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
                   and any(event["total"] == 4 and len(event["active"]) == 3
                           and any(item["name"] == "coverage_queue" and item["units"] == 2
                                   for item in event["active"]) for event in events))
-            queue_end = next(i for i, event in enumerate(events)
-                             if event["name"] == "coverage_queue" and event["event"] == "end")
             check(f"{' '.join(shell)}: after Coverage Queue exits the actual shell restores four ordinary slots",
-                  any(len(event["active"]) == event["total"] == 4
-                      for event in events[queue_end + 1:]))
+                  restored(events))
+        # Planted defect: this shell keeps Queue's reservation after Queue has
+        # exited, so it never admits a fourth ordinary module. Every module
+        # still runs; the restore check above is what has to notice.
+        stuck = local.replace('_limit=4\n', '_limit=4\n[ -z "$_coverage_pid" ] || _limit=3\n', 1)
+        check("the stuck-reservation control plants the actual admission limit", stuck != local)
+        state_path = os.path.join(tmp, "resource-stuck.json")
+        env.update(POOL_STATE=state_path, POOL_RENDEZVOUS_WAIT="0.3")
+        run = subprocess.run(shells[-1] + [stuck], env=env, capture_output=True, text=True)
+        env.pop("POOL_RENDEZVOUS_WAIT")
+        state = json.load(open(state_path, encoding="utf-8"))
+        check("a shell that keeps Queue's two slots after Queue exits runs every module and fails the restore check",
+              run.returncode == 0 and not state["active"]
+              and collections.Counter(event["name"] for event in state["events"] if event["event"] == "start")
+              == collections.Counter(called_by_shard[coverage_owner])
+              and not restored(state["events"]), run.stderr[-300:])
         # Future list edits can delay Queue until three ordinary jobs are
         # already live. Exercise admission itself, with all 119 names retained.
         first_three = [name for name in names if name not in repeated | {"coverage_queue"}][:3]
