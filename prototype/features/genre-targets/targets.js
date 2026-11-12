@@ -20,6 +20,8 @@ export function mount(host, ctx) {
   let snapshot;
   let disposed = false;
   let pending = null;
+  // Transient user intent only; targets and canonical labels stay shell-owned.
+  const intents = new Map();
   let unsubscribe = () => {};
   let focusVersion = 0;
   let restoringFocus = false;
@@ -60,7 +62,10 @@ export function mount(host, ctx) {
     for (const attr of [...old.attributes])
       if (!next.hasAttribute(attr.name)) old.removeAttribute(attr.name);
     for (const attr of [...next.attributes]) old.setAttribute(attr.name, attr.value);
-    if (old.tagName === 'INPUT') old.value = next.value;
+    if (old.tagName === 'INPUT')
+      old.value = intents.has(old.dataset.axis)
+        ? String(intents.get(old.dataset.axis).value)
+        : next.value;
     if (old.tagName === 'BUTTON') old._targetArgs = next._targetArgs;
     const signature = (node) =>
       node.nodeType === 3
@@ -81,6 +86,7 @@ export function mount(host, ctx) {
     if (disposed) return;
     const activeKey = root.contains(doc.activeElement) ? doc.activeElement.dataset.key : null;
     snapshot = ctx.targets.current();
+    if (snapshot.status !== 'ready') intents.clear();
     const body = el('div', 'genre-targets-body');
     root.setAttribute('aria-busy', String(snapshot.status === 'loading' || !!pending));
     if (snapshot.status !== 'ready') {
@@ -166,13 +172,16 @@ export function mount(host, ctx) {
     if (activeKey && !root.contains(doc.activeElement) && pending?.command !== 'match')
       focus(activeKey);
   }
-  async function command(name, args, focusKey, fallback = false) {
-    if (disposed || pending || snapshot.status !== 'ready') {
+  async function command(name, args, focusKey, fallback = false, owner = focusVersion) {
+    if (disposed || snapshot.status !== 'ready') {
       if (!disposed) render();
       return;
     }
+    if (name === 'apply') intents.set(args[0], { value: args[1], focusVersion: owner });
+    if (pending) return;
     const revision = snapshot.revision;
-    const operation = { command: name, focusVersion };
+    const intent = name === 'apply' ? intents.get(args[0]) : null;
+    const operation = { command: name, focusVersion: intent?.focusVersion ?? focusVersion };
     pending = operation;
     root.setAttribute('aria-busy', 'true');
     let acknowledgement;
@@ -183,6 +192,16 @@ export function mount(host, ctx) {
     } finally {
       if (!disposed && pending === operation) {
         pending = null;
+        const latest = ctx.targets.current();
+        const accepted =
+          acknowledgement &&
+          latest.status === 'ready' &&
+          acknowledgement.revision === latest.revision;
+        // A refusal or superseding revision cancels the entire pending gesture.
+        // Never replay an old gesture over a new profile or retry a refusal.
+        if (!accepted) intents.clear();
+        else if (name === 'apply' && intents.get(args[0])?.value === args[1])
+          intents.delete(args[0]);
         // A resolved command carries a revision, never a replacement snapshot.
         render();
         if (
@@ -191,6 +210,18 @@ export function mount(host, ctx) {
           name !== 'match'
         ) {
           focus(focusKey, fallback);
+        }
+        if (accepted) {
+          for (const [axis, queued] of intents) {
+            if (snapshot.targets.some((t) => t.axis === axis && t.value === queued.value)) {
+              intents.delete(axis);
+              continue;
+            }
+            // One new command for the latest unsent intent, at the settled revision.
+            // Preserve the original event's focus ownership, even after a blur.
+            command('apply', [axis, queued.value], 'axis:' + axis, false, queued.focusVersion);
+            break;
+          }
         }
       }
     }
@@ -252,6 +283,7 @@ export function mount(host, ctx) {
   function unmount() {
     if (disposed) return;
     disposed = true;
+    intents.clear();
     unsubscribe();
     events.abort();
     ctx.signal.removeEventListener('abort', unmount);
