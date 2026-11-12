@@ -3,8 +3,9 @@
 
 Four steps (docs/library-native-design.md, "Static builder"):
   1. the canonical catalog at lyric-harness/library/snapshot (the layout
-     library-site.yml uses; --rebuild-snapshot runs `library.catalog build`
-     there with the repository pin from library/catalog_sources.json);
+     library-parity.yml's pinned rebuild uses; --rebuild-snapshot runs
+     `library.catalog build` there with the repository pin from
+     library/catalog_sources.json);
   2. the unchanged verified site exporter over it, with the label registry and
      source records asserted attached (catalog_site_export silently attaches
      nothing when it cannot find them);

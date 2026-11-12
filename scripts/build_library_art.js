@@ -8,9 +8,11 @@
 // squares (1x and 2x of the frame's longer side), in AVIF and WebP, every file
 // at most 25,600 B (docs/library-native-design.md, "Layout", art renditions).
 //
-//   source   sites/library/public<image> for each entry of
-//            sites/library/lib/artwork.json (the old Site's own table; the
-//            originals stay there until the old Site is retired)
+//   source   assets/library/art-src/<basename of image> for each entry of
+//            assets/library/artwork.json (the old Site's own table and
+//            originals, moved here byte for byte when the old Site was
+//            removed from the repo on 2026-11-05, #659; `image` keeps the
+//            Site's own /art/<name> URL, so only its file name is used)
 //   output   assets/library/art/<id>-<width>.<avif|webp>
 //
 // Quality starts high and steps down only until a file fits the ceiling, and
@@ -27,8 +29,8 @@ const path = require('path');
 const sharp = require('sharp');
 
 const ROOT = path.join(__dirname, '..');
-const ARTWORK = path.join(ROOT, 'sites/library/lib/artwork.json');
-const PUBLIC = path.join(ROOT, 'sites/library/public');
+const ARTWORK = path.join(ROOT, 'assets/library/artwork.json');
+const SOURCE = path.join(ROOT, 'assets/library/art-src');
 const OUT = path.join(ROOT, 'assets/library/art');
 const WIDTHS = [240, 480];
 const CEILING = 25600;
@@ -80,7 +82,7 @@ async function main() {
   if (!CHECK) fs.mkdirSync(OUT, { recursive: true });
   for (const item of artwork) {
     if (!/^[a-z0-9-]+$/.test(item.id)) throw new Error(`unsafe artwork id: ${item.id}`);
-    const source = fs.readFileSync(path.join(PUBLIC, item.image));
+    const source = fs.readFileSync(path.join(SOURCE, path.posix.basename(item.image)));
     for (const width of WIDTHS) {
       for (const format of Object.keys(FORMATS)) {
         const name = `${item.id}-${width}.${format}`;

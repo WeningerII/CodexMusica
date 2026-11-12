@@ -14,7 +14,10 @@ const { execFileSync } = require('node:child_process');
 const { ROOT, classify } = require('./_build_closure.js');
 
 const MANIFEST = 'artifact-build.json';
-const VERSION = 1;
+// Version 1 inventoried api/ and codex.html alone. Lazy Library pages also
+// require the generated chunks beside them; admitting the smaller inventory
+// made a same-run handoff pass admission and fail the payload fault baseline.
+const VERSION = 2;
 const digest = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 
 function fingerprint(root = ROOT, runtime = process.versions) {
@@ -77,6 +80,33 @@ function inventory(dir) {
   read('api');
   read('codex.html');
   if (!rows.some(([p]) => p === 'api/index.json')) throw new Error('cached build has no API index');
+  const html = fs.readFileSync(path.join(dir, 'codex.html'), 'utf8');
+  const chunks = [
+    ...new Set([...html.matchAll(/["'](library\/code\/[^"'<>\s]+\.js)["']/g)].map((m) => m[1])),
+  ];
+  const library = path.join(dir, 'library');
+  let libraryStat;
+  try {
+    libraryStat = fs.lstatSync(library);
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+  }
+  if (chunks.length || libraryStat) {
+    // Check the ancestor too: lstat(library/code) would otherwise follow a
+    // symlink named library and inventory bytes outside this build directory.
+    if (!libraryStat?.isDirectory() || libraryStat.isSymbolicLink())
+      throw new Error('cached build is missing its generated library/code directory');
+    read('library/code');
+    const files = new Set(rows.map(([rel]) => rel));
+    for (const chunk of chunks) {
+      if (!/^library\/code\/[a-zA-Z0-9_.-]+\.js$/.test(chunk) || !files.has(chunk))
+        throw new Error(`cached build is missing a required Library chunk: ${chunk}`);
+    }
+    const required = new Set(chunks);
+    for (const file of files)
+      if (file.startsWith('library/code/') && !required.has(file))
+        throw new Error(`cached build has an unreferenced Library chunk: ${file}`);
+  }
   return rows;
 }
 

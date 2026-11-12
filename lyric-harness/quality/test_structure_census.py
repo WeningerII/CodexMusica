@@ -628,12 +628,30 @@ def test_the_population_is_a_language_parameter():
           and CEN.family_of(eng[-1]) == "whitman")
 
 
+def test_d1_whole_reading_coordinate():
+    import lyric_harness as LH
+    with LH.reader_scheme_scope("v1"):
+        phon, lex, decl = PH.get("eng"), LH.Lexicon(), LH.Declaration()
+        a, b = "office", "color"
+        check("D1 office/color merged structure remains undecided",
+              ST.get("masculine-rhyme").judge(a, b, phon=phon) is None)
+        check("D1 office/color holds under a whole v1 reading",
+              ST.judge("masculine-rhyme", a, b, phon=phon) is True)
+        aa, _, _ = LH.line_anchors(lex, a)
+        bb, _, _ = LH.line_anchors(lex, b)
+        score = LH.best_score(aa, bb, decl, a, b)
+        check("D1 office/color remains a coarse-engine rejection",
+              not LH.admits(score, decl.theta_rhyme, LH.RHYME_RELATIONS,
+                            decl.theta_by_relation))
+
+
 if __name__ == "__main__":
     SECTIONS = (test_rows, test_item_readers, test_cell_accounting,
                 test_constrained_tag, test_the_struck_tag_says_so,
                 test_tsv_roundtrip, test_checkpointing,
                 test_tokeniser_is_declared,
-                test_the_population_is_a_language_parameter)
+                test_the_population_is_a_language_parameter,
+                test_d1_whole_reading_coordinate)
     _every_section_runs(SECTIONS)
     for fn in SECTIONS:
         fn()

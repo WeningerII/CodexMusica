@@ -3035,11 +3035,14 @@ def test_the_whole_draft_half_reaches_the_report():
     # reading, so nothing is left unjudged and `song` answers with its two
     # standing whole-draft flags. ~~(2,)~~ and ~~"EXIT 2 — required checks
     # remain unjudged"~~, which named meter:COUNT_IS_A_LOWER_BOUND:L1 and :L3.
+    # Writing additionally flags the evidenced door/more pair on L4; the
+    # two whole-draft flags remain separately reported, not hidden by it.
     for verb, rc, out in (("brief", rc_b, out_b), ("song", rc_s, out_s)):
         answered = (0,) if verb == "brief" else (3,)
         check(f"`{verb}` keeps its exit contract on this incompletely specified draft (exit {' or '.join(map(str, answered))})",
               rc in answered and (verb != "song" or
-                                  "EXIT 3 — no per-line FLAG; 2 WHOLE-DRAFT FLAG(S)" in out),
+                                  "EXIT 3 — 1 FLAG finding(s) on 1 line(s) L4; 2 WHOLE-DRAFT FLAG(S)" in out
+                                  and "[FLAG] MODAL_RHYME" in out),
               f"rc {rc}")
         check(f"`{verb}` PRINTS HOOK_ABSENT — the whole point: this verb's "
               f"own banner says song-function joins the finding set, and "

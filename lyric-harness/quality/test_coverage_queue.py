@@ -72,13 +72,45 @@ def test_classes():
     check("each spelling lands in its class", got == want, got)
 
 
+def _dev_scan(kind):
+    """Run one complete instrument with its own dictionary in a fresh worker."""
+    if kind not in ("queue", "census"):
+        raise ValueError(f"unknown dev scan: {kind}")
+    from quality.coverage_census import build_lexicon
+    lex = build_lexicon("none", "none")
+    if kind == "queue":
+        return Q.blockers(lex)
+    from quality.coverage_split import checked_assignment
+    from quality import coverage_census as C
+    assignment, _meta = checked_assignment()
+    keep = {u for u, side in assignment.items() if side == "dev"}
+    paths = sorted({os.path.join(ROOT, u.split("#")[0]) for u in keep})
+    return C.census(paths, lex, keep=keep)
+
+
+def _parallel_dev_scans():
+    from concurrent.futures import ProcessPoolExecutor
+    import multiprocessing
+    with ProcessPoolExecutor(max_workers=2,
+                             mp_context=multiprocessing.get_context("spawn")) as pool:
+        queue = pool.submit(_dev_scan, "queue")
+        census = pool.submit(_dev_scan, "census")
+        return queue.result(), census.result()
+
+
 def test_dev_only():
     print("\n4. the queue reads the dev side only")
     from quality.coverage_split import read_split
     from quality.coverage_census import build_lexicon
     assignment, _meta = read_split()
-    lex = build_lexicon("none", "none")
-    items, nonlexical, _tokens, _case = Q.blockers(lex)
+    workers = os.environ.get("TEST_COVERAGE_QUEUE_WORKERS", "1")
+    if workers not in ("1", "2"):
+        raise ValueError("TEST_COVERAGE_QUEUE_WORKERS must be 1 or 2")
+    if workers == "2":
+        (items, nonlexical, _tokens, _case), rec = _parallel_dev_scans()
+    else:
+        lex = build_lexicon("none", "none")
+        items, nonlexical, _tokens, _case = Q.blockers(lex)
     dev = sum(1 for side in assignment.values() if side == "dev")
     check("it reads exactly the dev items of the frozen split",
           len(items) + nonlexical == dev,
@@ -86,7 +118,8 @@ def test_dev_only():
     from quality import coverage_census as C
     keep = {u for u, side in assignment.items() if side == "dev"}
     paths = sorted({os.path.join(ROOT, u.split("#")[0]) for u in keep})
-    rec = C.census(paths, lex, keep=keep)
+    if workers == "1":
+        rec = C.census(paths, lex, keep=keep)
     ready = sum(1 for s in items if not s)
     check("its ready count is the census's dev lookup readiness, and its "
           "no-endpoint items the census's", ready == rec["items_lookup_ready"]

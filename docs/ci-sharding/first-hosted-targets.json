@@ -1,0 +1,413 @@
+{
+  "schema_version": 1,
+  "repository": "WeningerII/CodexMusica",
+  "pull_request": 848,
+  "head_sha": "7c847fe0c145524e1edd4bdd4a63b7c403bce8ce",
+  "tree_sha": "100833238ce0167b59819a6477b5b980e1130f93",
+  "run_id": 43099681517,
+  "event": "pull_request",
+  "run_url": "https://github.com/WeningerII/CodexMusica/actions/runs/43099681517",
+  "captured_at": "2026-11-11T21:36:41.175865+00:00",
+  "run_status": "completed",
+  "run_conclusion": "failure",
+  "targets_complete": true,
+  "expected_target_count": 22,
+  "all_targets_passed": false,
+  "all_targets_passed_under_ten_minutes": false,
+  "required_gates_all_passed": false,
+  "definitions": {
+    "vector_order": "Ascending shard coordinate in each family.",
+    "api_elapsed_s": "Individual job completed_at minus started_at, including setup/post. This is the full target runtime, not just tests.",
+    "observed_step_span_s": "Earliest real setup step through final observed post/complete step. Preserved separately; API start differs from first step by0\u20131s.",
+    "setup_s": "Sum of timed prerequisite/checkout/install steps. Verify separately identifies fixed assertions before/after regression.",
+    "pool_s": "Full regression runner, named suites pool, or complete fault-injection step.",
+    "fixed_s": "Executed fixed assertions outside the pool. Fixed-step details below; no assertion was dropped.",
+    "post_and_artifact_s": "Timed post cleanup and record-upload steps.",
+    "queue_s": "Real job start minus job creation; queued started_at placeholders ignored.",
+    "dependency_wait_s": "Job creation minus workflow creation, including admission/upstream needs waits.",
+    "rounding": "Step timestamps have second resolution. Phase sums can differ from full elapsed because of interstep/runner overhead; full API elapsed is authoritative when consistent with observed steps."
+  },
+  "families": {
+    "verify": {
+      "shards": [1, 2, 3, 4, 5, 6, 7, 8],
+      "job_ids": [
+        130789533484, 130789533625, 130789533518, 130789533444, 130789533454, 130789533469,
+        130789533529, 130789533428
+      ],
+      "conclusions": [
+        "success",
+        "success",
+        "success",
+        "success",
+        "success",
+        "success",
+        "success",
+        "success"
+      ],
+      "api_elapsed_s": [434.0, 463.0, 289.0, 424.0, 428.0, 369.0, 380.0, 653.0],
+      "observed_step_span_s": [432.0, 459.0, 285.0, 419.0, 424.0, 366.0, 378.0, 650.0],
+      "setup_s": [61.0, 79.0, 65.0, 62.0, 72.0, 66.0, 55.0, 67.0],
+      "pool_s": [362.0, 371.0, 214.0, 347.0, 337.0, 288.0, 310.0, 496.0],
+      "fixed_s": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 74.0],
+      "post_and_artifact_s": [8.0, 9.0, 6.0, 10.0, 15.0, 12.0, 13.0, 13.0],
+      "queue_s": [3.0, 3.0, 3.0, 72.0, 2.0, 2.0, 180.0, 3.0],
+      "dependency_wait_s": [278.0, 278.0, 278.0, 278.0, 278.0, 278.0, 278.0, 278.0],
+      "api_start_to_first_step_s": [0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    },
+    "suites": {
+      "shards": [1, 2, 3, 4, 5, 6, 7, 8],
+      "job_ids": [
+        130789533672, 130789533826, 130789534210, 130789533842, 130789533814, 130789533919,
+        130789534029, 130789533935
+      ],
+      "conclusions": [
+        "success",
+        "success",
+        "success",
+        "success",
+        "success",
+        "success",
+        "success",
+        "success"
+      ],
+      "api_elapsed_s": [578.0, 587.0, 554.0, 561.0, 1155.0, 789.0, 665.0, 691.0],
+      "observed_step_span_s": [575.0, 583.0, 551.0, 557.0, 1147.0, 786.0, 662.0, 689.0],
+      "setup_s": [40.0, 41.0, 28.0, 40.0, 40.0, 41.0, 27.0, 37.0],
+      "pool_s": [535.0, 541.0, 522.0, 433.0, 541.0, 481.0, 338.0, 332.0],
+      "fixed_s": [0.0, 0.0, 0.0, 84.0, 566.0, 264.0, 296.0, 320.0],
+      "post_and_artifact_s": [0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0],
+      "queue_s": [3.0, 2.0, 181.0, 3.0, 3.0, 3.0, 169.0, 3.0],
+      "dependency_wait_s": [278.0, 278.0, 278.0, 278.0, 278.0, 278.0, 278.0, 278.0],
+      "api_start_to_first_step_s": [0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 0.0]
+    },
+    "faults": {
+      "shards": [1, 2, 3, 4, 5, 6],
+      "job_ids": [
+        130795989288, 130795989761, 130795989144, 130795989240, 130795989149, 130795989204
+      ],
+      "conclusions": ["failure", "failure", "success", "failure", "failure", "failure"],
+      "api_elapsed_s": [371.0, 352.0, 320.0, 453.0, 186.0, 351.0],
+      "observed_step_span_s": [366.0, 349.0, 318.0, 451.0, 183.0, 347.0],
+      "setup_s": [79.0, 63.0, 62.0, 65.0, 52.0, 65.0],
+      "pool_s": [285.0, 284.0, 245.0, 385.0, 130.0, 280.0],
+      "fixed_s": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      "post_and_artifact_s": [2.0, 2.0, 10.0, 1.0, 1.0, 2.0],
+      "queue_s": [8.0, 13.0, 2.0, 7.0, 3.0, 3.0],
+      "dependency_wait_s": [1046.0, 1046.0, 1046.0, 1046.0, 1046.0, 1046.0],
+      "api_start_to_first_step_s": [1.0, 1.0, 1.0, 0.0, 1.0, 1.0]
+    }
+  },
+  "fixed_steps": [
+    {
+      "family": "verify",
+      "shard": 1,
+      "name": "Prototype PRs leave codex.html and library/code/ untouched (check_prototype_isolation --base)",
+      "seconds": 1.0
+    },
+    {
+      "family": "verify",
+      "shard": 8,
+      "name": "Static API contract (committed api/ honors promises)",
+      "seconds": 4.0
+    },
+    {
+      "family": "verify",
+      "shard": 8,
+      "name": "Connector tool lists in docs match the served surface",
+      "seconds": 2.0
+    },
+    {
+      "family": "verify",
+      "shard": 8,
+      "name": "Preface lexicon hygiene (no dup/empty/production-dead tokens, no dup ids)",
+      "seconds": 1.0
+    },
+    {
+      "family": "verify",
+      "shard": 8,
+      "name": "Authoring dead-token gate (every preface token reaches a tradition-default card)",
+      "seconds": 4.0
+    },
+    {
+      "family": "verify",
+      "shard": 8,
+      "name": "Name isolation (no tradition's picks depend on another's name)",
+      "seconds": 14.0
+    },
+    {
+      "family": "verify",
+      "shard": 8,
+      "name": "Audit data quality",
+      "seconds": 12.0
+    },
+    {
+      "family": "verify",
+      "shard": 8,
+      "name": "Build codex.html (lazy shell + no-table-leak + byte-ceiling check)",
+      "seconds": 5.0
+    },
+    {
+      "family": "verify",
+      "shard": 8,
+      "name": "UI reachability",
+      "seconds": 14.0
+    },
+    {
+      "family": "verify",
+      "shard": 8,
+      "name": "Build the embedded codex.html (--check)",
+      "seconds": 18.0
+    },
+    {
+      "family": "suites",
+      "shard": 4,
+      "name": "E-5 empty-coda evidence compatibility, complete random samplers",
+      "seconds": 84.0
+    },
+    {
+      "family": "suites",
+      "shard": 5,
+      "name": "Song-profile calibration, against the drift that is RULED (not silenced)",
+      "seconds": 103.0
+    },
+    {
+      "family": "suites",
+      "shard": 5,
+      "name": "Span-search null, the shipped band against the measured crossover",
+      "seconds": 11.0
+    },
+    {
+      "family": "suites",
+      "shard": 5,
+      "name": "The schema door's end-rhyme reading, split from its satisfaction",
+      "seconds": 175.0
+    },
+    {
+      "family": "suites",
+      "shard": 5,
+      "name": "The schema door's rescues by line distance, and why the sonnets cannot answer",
+      "seconds": 172.0
+    },
+    {
+      "family": "suites",
+      "shard": 5,
+      "name": "Door census, every pair-satisfaction site against every relation",
+      "seconds": 5.0
+    },
+    {
+      "family": "suites",
+      "shard": 5,
+      "name": "E-5 empty-coda evidence compatibility, complete random samplers",
+      "seconds": 100.0
+    },
+    {
+      "family": "suites",
+      "shard": 6,
+      "name": "Meter-band adoption check, the shipped constants re-derived",
+      "seconds": 176.0
+    },
+    {
+      "family": "suites",
+      "shard": 6,
+      "name": "E-5 empty-coda evidence compatibility, complete random samplers",
+      "seconds": 88.0
+    },
+    {
+      "family": "suites",
+      "shard": 7,
+      "name": "Chance rate, the shipped door against random pairs",
+      "seconds": 193.0
+    },
+    {
+      "family": "suites",
+      "shard": 7,
+      "name": "E-5 empty-coda evidence compatibility, complete random samplers",
+      "seconds": 103.0
+    },
+    {
+      "family": "suites",
+      "shard": 8,
+      "name": "E-5 empty-coda evidence compatibility, canon",
+      "seconds": 320.0
+    }
+  ],
+  "fanins": {
+    "verify": {
+      "id": 130795096121,
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "failure",
+      "api_elapsed_s": 43.0,
+      "observed_step_span_s": 42.0,
+      "queue_s": 3.0,
+      "dependency_wait_s": 934.0,
+      "receipt_download_count": 8,
+      "ownership_verification_completed": false,
+      "failure": "Missing express during static MCP part inventory import; ownership verification did not run."
+    },
+    "suites-result": {
+      "id": 130799241474,
+      "name": "suites-result",
+      "status": "completed",
+      "conclusion": "success",
+      "api_elapsed_s": 3.0,
+      "observed_step_span_s": 1.0,
+      "queue_s": 2.0,
+      "dependency_wait_s": 1436.0,
+      "all_eight_module_jobs_passed": true,
+      "captured_module_processes": 154,
+      "captured_unique_modules": 119
+    },
+    "freshness": {
+      "id": 130799826907,
+      "name": "freshness",
+      "status": "completed",
+      "conclusion": "failure",
+      "api_elapsed_s": 31.0,
+      "observed_step_span_s": 29.0,
+      "queue_s": 2.0,
+      "dependency_wait_s": 1506.0,
+      "receipt_count": 6,
+      "expected_receipt_count": 6,
+      "class_count": 121,
+      "verdict_count": 121,
+      "class_counts_by_shard": [21, 20, 20, 20, 20, 20],
+      "partition_errors": 0,
+      "uncovered_promise_gates": 0,
+      "rejected_outcomes": 5,
+      "partition_coverage_passed": true,
+      "failure": "Five BASELINE-OVER controls failed because the transferred artifact omitted adjacent Library code chunks."
+    }
+  },
+  "required_gates": {
+    "gate": {
+      "id": 130786877978,
+      "status": "completed",
+      "conclusion": "success",
+      "api_elapsed_s": 267.0
+    },
+    "lyrics-image": {
+      "id": 130789533300,
+      "status": "completed",
+      "conclusion": "success",
+      "api_elapsed_s": 1681.0
+    },
+    "capacity-proof-result": {
+      "id": 130789995357,
+      "status": "completed",
+      "conclusion": "success",
+      "api_elapsed_s": 4.0
+    },
+    "verify": {
+      "id": 130795096121,
+      "status": "completed",
+      "conclusion": "failure",
+      "api_elapsed_s": 43.0
+    },
+    "freshness": {
+      "id": 130799826907,
+      "status": "completed",
+      "conclusion": "failure",
+      "api_elapsed_s": 31.0
+    },
+    "catalog-result": {
+      "id": 130791977293,
+      "status": "completed",
+      "conclusion": "success",
+      "api_elapsed_s": 4.0
+    },
+    "record": {
+      "id": 130789533175,
+      "status": "completed",
+      "conclusion": "success",
+      "api_elapsed_s": 936.0
+    },
+    "suites-result": {
+      "id": 130799241474,
+      "status": "completed",
+      "conclusion": "success",
+      "api_elapsed_s": 3.0
+    },
+    "plan-result": {
+      "id": 130795966530,
+      "status": "completed",
+      "conclusion": "success",
+      "api_elapsed_s": 2.0
+    },
+    "capacity-result": {
+      "id": 130790402428,
+      "status": "completed",
+      "conclusion": "success",
+      "api_elapsed_s": 3.0
+    },
+    "revision-loop-result": {
+      "id": 130796495972,
+      "status": "completed",
+      "conclusion": "success",
+      "api_elapsed_s": 3.0
+    },
+    "verbs-result": {
+      "id": 130795556191,
+      "status": "completed",
+      "conclusion": "success",
+      "api_elapsed_s": 2.0
+    }
+  },
+  "shared_build_producer": {
+    "id": 130789533383,
+    "name": "freshness-build",
+    "status": "completed",
+    "conclusion": "success",
+    "api_elapsed_s": 765.0,
+    "observed_step_span_s": 760.0,
+    "queue_s": 3.0,
+    "dependency_wait_s": 278.0
+  },
+  "failure_causes": [
+    {
+      "job": 130795096121,
+      "name": "verify",
+      "cause": "ERR_MODULE_NOT_FOUND express: fan-in expands mcp/test.mjs --list-parts, whose static import reaches job_store.js before connector dependencies are installed. All8 execution shards passed, but ownership fan-in never ran."
+    },
+    {
+      "family": "faults",
+      "cause": "Shared tar transferred api/, codex.html and receipt but omitted9 builder-emitted library/code chunks; admission inventory did not cover those adjacent chunks. Five budget-fault baseline controls failed check_payload_budget.js with BASELINE-OVER. Assertions remain unchanged.",
+      "failed_controls": [
+        {
+          "shard": 1,
+          "class": "inline-data-over-budget",
+          "classification": "BASELINE-OVER"
+        },
+        {
+          "shard": 2,
+          "class": "engine-over-budget",
+          "classification": "BASELINE-OVER"
+        },
+        {
+          "shard": 4,
+          "class": "plain-encoding",
+          "classification": "BASELINE-OVER"
+        },
+        {
+          "shard": 5,
+          "class": "page-over-budget",
+          "classification": "BASELINE-OVER"
+        },
+        {
+          "shard": 6,
+          "class": "critical-over-budget",
+          "classification": "BASELINE-OVER"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "First hosted candidate did not meet the goal and is not qualifying success. Five faults shards failed and verify fan-in failed; seven verify jobs and four suites jobs were below10min, while verify8 and suites5/6/7/8 exceeded it.",
+    "All203 verify leaf durations and all154 suites module observations were captured separately. The154 observations reconcile to114 ordinary modules once plus5 split modules on8 runners; every module process exited0.",
+    "Duplicate push success is excluded. This report describes final7c pull_request execution only.",
+    "Required gates are a timestamped snapshot; unfinished image/gates are not called passed. No manual cancel/rerun/dispatch by the monitor.",
+    "Raw all-page payloads, individual-job payloads, logs and capture history remain separate from this compact documentation artifact.",
+    "Freshness fan-in confirmed6/6 receipts,121classes,121verdicts with no partition or uncovered-promise errors; it correctly rejected the5 failing baseline controls.",
+    "Final workflow snapshot: completed failure; lyrics-image passed in1681s. Required verify/freshness gates failed as detailed; every other required gate passed. No unfinished gate is counted as success."
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "files": [
+    {
+      "source": "mcp/test_session_repairs.mjs",
+      "environment": "TEST_SESSION_REPAIRS_GROUP",
+      "groups": ["native-creation", "redrawn-seed", "remaining"],
+      "tests": [
+        {
+          "name": "native creation blocks bypass, records real sweep/screen/plan, survives reconnect",
+          "group": "native-creation"
+        },
+        {
+          "name": "a redrawn seed keeps its 64-bit candidates exact through sweep, plan and grade",
+          "group": "redrawn-seed"
+        },
+        {
+          "name": "moving a card changes primary order without rebuilding or mutating any card",
+          "group": "remaining"
+        },
+        {
+          "name": "explicit part descriptors survive before stock descriptors; losses are disclosed",
+          "group": "remaining"
+        },
+        {
+          "name": "#671 a pinned word printed only on another card is not disclosed, in any format",
+          "group": "remaining"
+        },
+        {
+          "name": "#671 a pinned word inside a longer word is not disclosed; a hyphenated compound is",
+          "group": "remaining"
+        },
+        {
+          "name": "#671 a pinned word in a chunk pooled from several cards is named as not attributable",
+          "group": "remaining"
+        },
+        {
+          "name": "#671 a pinned preface counts only in its own card segment, not on a card that shares it",
+          "group": "remaining"
+        },
+        {
+          "name": "#671 a preface printed in its own card head words of a merged chunk is printed (48g)",
+          "group": "remaining"
+        },
+        {
+          "name": "#671 a preface pooled with a card of the same label is still not attributable",
+          "group": "remaining"
+        },
+        {
+          "name": "#671 shared_with names the cards that share the words a pinned word is printed in",
+          "group": "remaining"
+        },
+        {
+          "name": "#671 a preface shed from one card of a merged chunk is not printed on that card only",
+          "group": "remaining"
+        },
+        {
+          "name": "#671 a same-label card is not given a word printed only in another card head words",
+          "group": "remaining"
+        },
+        {
+          "name": "partial authenticated measurement is not labelled as no harness answer",
+          "group": "remaining"
+        },
+        {
+          "name": "actual explicit-blueprint connector revision retains meter headers",
+          "group": "remaining"
+        },
+        {
+          "name": "every public recipe format obeys limits smaller than its genre header",
+          "group": "remaining"
+        },
+        {
+          "name": "mixing session_id with caller-managed state names the offending fields, and the schema says so first",
+          "group": "remaining"
+        },
+        {
+          "name": "the maintained client never keeps a stopped run as a pending question",
+          "group": "remaining"
+        },
+        {
+          "name": "the tree’s expected surface is built once per domain, not per connection",
+          "group": "remaining"
+        },
+        {
+          "name": "environment clear warnings distinguish cleared settings from retained non-rendered writes",
+          "group": "remaining"
+        },
+        {
+          "name": "environment warning accuracy preserves preface/write ordering disclosures",
+          "group": "remaining"
+        },
+        {
+          "name": "the record holds what set_environment wrote, on every surface that threads the workspace",
+          "group": "remaining"
+        },
+        {
+          "name": "the record is per card: no alias, no remap on a fresh-id import, nothing at workspace level",
+          "group": "remaining"
+        },
+        {
+          "name": "a card that shares the environment card id still warns for what it holds",
+          "group": "remaining"
+        },
+        {
+          "name": "an oversized record sent back is cut to what it can hold, on the raw endpoint",
+          "group": "remaining"
+        },
+        {
+          "name": "stock environment settings on other cards never warn, on any response",
+          "group": "remaining"
+        },
+        {
+          "name": "the AGENTS.md working order leaves no recurring warning, on any response",
+          "group": "remaining"
+        },
+        {
+          "name": "a written setting warns on its edit, then on every later response without `edit`",
+          "group": "remaining"
+        },
+        {
+          "name": "the warning clears when the setting is cleared, and stands when the seeded value is written",
+          "group": "remaining"
+        },
+        {
+          "name": "the same call before and after a record-only edit gives different warnings",
+          "group": "remaining"
+        },
+        {
+          "name": "a session repeat answers for its own workspace, record included",
+          "group": "remaining"
+        },
+        {
+          "name": "every record comes back exactly through each surface",
+          "group": "remaining"
+        },
+        {
+          "name": "a set_preface that re-derives a written setting takes it out: ENVIRONMENT_OVERWRITTEN once",
+          "group": "remaining"
+        },
+        {
+          "name": "ENVIRONMENT_OVERWRITTEN on the environment card speaks only for what a set_environment wrote there",
+          "group": "remaining"
+        },
+        {
+          "name": "a workspace with no record is silent on render and warns at edit time, as before",
+          "group": "remaining"
+        },
+        {
+          "name": "ENVIRONMENT_MOVED speaks only for settings a set_environment wrote",
+          "group": "remaining"
+        },
+        {
+          "name": "ENVIRONMENT_MOVED says which card the returned recipe renders from, or that none renders one",
+          "group": "remaining"
+        },
+        {
+          "name": "the environment moving to the written card is ENVIRONMENT_MOVED once, and its warning goes",
+          "group": "remaining"
+        },
+        {
+          "name": "a multi-select write warns while an item it added is still in the list",
+          "group": "remaining"
+        },
+        {
+          "name": "an effects list replaced or reordered warns while an item written into it is there",
+          "group": "remaining"
+        },
+        {
+          "name": "the causing edit and the standing state are one warning, not two",
+          "group": "remaining"
+        },
+        {
+          "name": "the warning recurs after the state is carried on: a new server, or another environment card",
+          "group": "remaining"
+        },
+        {
+          "name": "a value written on the environment card warns once another card takes the environment",
+          "group": "remaining"
+        },
+        {
+          "name": "following the advice ends the warning: a set_environment on the environment card settles the field",
+          "group": "remaining"
+        },
+        {
+          "name": "following ENVIRONMENT_MOVED after the documented order ends the warning on the old card",
+          "group": "remaining"
+        },
+        {
+          "name": "an effect restated on the environment card settles that effect, and a cleared list all of them",
+          "group": "remaining"
+        },
+        {
+          "name": "an empty effects list in an edit writes nothing and names no edit",
+          "group": "remaining"
+        },
+        {
+          "name": "a long list in a record or on a card costs a render linear time",
+          "group": "remaining"
+        }
+      ]
+    },
+    {
+      "source": "mcp/test_pronunciation_native.mjs",
+      "environment": "TEST_PRONUNCIATION_NATIVE_GROUP",
+      "groups": ["native-client", "edit-session"],
+      "tests": [
+        {
+          "name": "native client copies an actual voices option marker and ambiguous unmarked reuse refuses",
+          "group": "native-client"
+        },
+        {
+          "name": "edit sessions accept returned numbering through the authoritative continuation check",
+          "group": "edit-session"
+        }
+      ]
+    },
+    {
+      "source": "mcp/test_function_disclosure_identity.mjs",
+      "environment": "TEST_FUNCTION_DISCLOSURE_IDENTITY_GROUP",
+      "groups": ["plan-grade", "remaining"],
+      "tests": [
+        {
+          "name": "stored request and carry-forward retain raw bytes, order and duplicates",
+          "group": "remaining"
+        },
+        {
+          "name": "baseline argument comparison trims and sorts but does not equate aliases or case",
+          "group": "remaining"
+        },
+        {
+          "name": "stored plan hash rejects raw changes even where argument comparison permits them",
+          "group": "remaining"
+        },
+        {
+          "name": "plan_request must match the exact stored request independently of a valid hash",
+          "group": "remaining"
+        },
+        {
+          "name": "brief bytes remain part of the exact stored plan receipt",
+          "group": "remaining"
+        },
+        {
+          "name": "released runtime session and sealed caller state refuse before execution and recover exactly",
+          "group": "remaining"
+        },
+        {
+          "name": "real plan and grade agree on the whole brief-bearing plan hash",
+          "group": "plan-grade"
+        },
+        {
+          "name": "actual recurrence report reaches plan text only and grade retains its receipt",
+          "group": "remaining"
+        }
+      ]
+    },
+    {
+      "source": "mcp/test_review_mandate.mjs",
+      "environment": "TEST_REVIEW_MANDATE_GROUP",
+      "groups": ["declared-groups", "remaining"],
+      "tests": [
+        {
+          "name": "a review with no declared pattern answers one check, dispatches none and ends the turn",
+          "group": "remaining"
+        },
+        {
+          "name": "a review with declared groups still dispatches its lyric_check",
+          "group": "declared-groups"
+        },
+        {
+          "name": "a review (no declared pattern) whose model keeps checking before recovery is bounded",
+          "group": "remaining"
+        },
+        {
+          "name": "a review (declared groups) whose model keeps checking before recovery is bounded",
+          "group": "remaining"
+        },
+        {
+          "name": "a review whose recovery fails ends at the first check after it",
+          "group": "remaining"
+        },
+        {
+          "name": "a review whose model keeps retrying a failing recovery is bounded",
+          "group": "remaining"
+        },
+        {
+          "name": "a premature check does not stop a review whose recovery then succeeds",
+          "group": "remaining"
+        },
+        {
+          "name": "a review with a returns-only mandate dispatches its lyric_check",
+          "group": "remaining"
+        },
+        {
+          "name": "a review with a letter scheme dispatches its lyric_check",
+          "group": "remaining"
+        },
+        {
+          "name": "a review declaring a scheme and groups together answers one check and ends the turn",
+          "group": "remaining"
+        }
+      ]
+    }
+  ]
+}

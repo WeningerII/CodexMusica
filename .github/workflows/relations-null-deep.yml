@@ -24,15 +24,16 @@ name: Relations null deep tier (weekly, report-only)
 #     not a broken build. It finishes red only when it could not produce a
 #     verdict (refused, timed out, or crashed), and it opens an issue then too.
 #
-# THE SCHEDULE IS OFF UNTIL JOHN TURNS IT ON. The cost (about 78 CPU-minutes a
-# week) is approved, but the owner enables it. To enable it, uncomment the two
-# `schedule` lines below. Until then it runs only by hand (workflow_dispatch).
-# The minute is not :00, following ci.yml's note on contended cron minutes.
+# THE SCHEDULE IS ON. John turned it on on 2026-11-05, in R2's session (#776).
+# The cost was about 78 CPU-minutes a week, measured in a container; the first
+# hosted run took 51.8 minutes (#656 6668462710). It still runs by hand too
+# (workflow_dispatch). The minute is not :00, following ci.yml's note on
+# contended cron minutes.
 
 on:
   workflow_dispatch: {}
-  # schedule:
-  #   - cron: '41 5 * * 0'   # Sundays 05:41 UTC
+  schedule:
+    - cron: '41 5 * * 0' # Sundays 05:41 UTC
 
 permissions:
   contents: read

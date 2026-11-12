@@ -1,0 +1,262 @@
+{
+  "source_head": "e88a3cba432c02726c2e46af67f4dcd7b9587029",
+  "scope": "Split fixed suite evidence into two mandatory partitions and compute both full canon policy passes with cold spawn workers; unchanged production code, full assertion population and required gate names.",
+  "expected_target_counts": {
+    "verify": 8,
+    "suites_modules": 8,
+    "suites_evidence": 2,
+    "faults": 6
+  },
+  "required_gate_count": 12,
+  "prepared_source_sha256": {
+    ".github/workflows/ci.yml": "ed08d69be0b5f1ce1494ecdca2605b3371024c0b4a3f58882796d856d61b4126",
+    "lyric-harness/quality/e5_coda_adoption.py": "2d90c4dc18e01b42106228bc2616e7850fa513f8d38dcf25a4cb515fb1225aeb",
+    "lyric-harness/quality/test_e5_coda_adoption.py": "e49d9136038e35472345038f472d01c92978f7b7cd7939283b8754c1c8d85fd6",
+    "scripts/run_suite_evidence.py": "c2bd6dffce3c6406fe3dd00774f8ac6fe219da4a240ec566781d5979406b33f7",
+    "scripts/test_run_suite_evidence.py": "3c7084b77528fabe46616d04fd740ed0fcafd121826b33d70b3118a4c1b8db09",
+    "scripts/test_ci_sharding.js": "de885fe51c5d837197619828d3d78045ddf4461fd4d7e6093446403ae259c294",
+    "scripts/ci_verify_costs.json": "db4a414563fe7e480fcbca497935d785bda23c09da08b4e18ee6cf71699345c2"
+  },
+  "canon_complete_actual_equivalence": {
+    "complete": true,
+    "passed": true,
+    "started_at": "2026-11-12T01:24:16.164685+00:00",
+    "command": ["/tmp/codex-ci-venv/bin/python", "quality/e5_coda_adoption.py", "--part=canon"],
+    "cwd": "/workspace/ci-under-ten/lyric-harness",
+    "worker_environment": "TEST_E5_CANON_WORKERS=2",
+    "source_sha256": "2d90c4dc18e01b42106228bc2616e7850fa513f8d38dcf25a4cb515fb1225aeb",
+    "reference_profile": "reference-profile.json",
+    "parallel_wall_seconds": 133.07558299100128,
+    "reference_serial_wall_seconds": 206.38843064899993,
+    "raw_record_policies": [
+      {
+        "policy": "cannot_tell",
+        "declaration": {
+          "dialect": "cmudict (General American citation forms)",
+          "anchor": "last primary stress to end of unit",
+          "admit": ["ASSONANCE", "CONSONANCE", "PROMOTED_RHYME", "RHYME", "RIME_RICHE"],
+          "channel_weights": {
+            "nucleus": 0.5,
+            "coda": 0.35,
+            "stress": 0.15
+          },
+          "channel_weights_interior": {
+            "nucleus": 0.4,
+            "coda": 0.25,
+            "onset": 0.2,
+            "stress": 0.15
+          },
+          "trailing_syllable_penalty": 0.15,
+          "theta_rhyme": 0.75,
+          "theta_by_relation": {
+            "ASSONANCE": 0.75,
+            "CONSONANCE": 0.75
+          },
+          "conjunctive_band": true,
+          "theta_coda": 0.8,
+          "coda_empty_evidence": "cannot_tell",
+          "coda_agreement": "identity",
+          "coda_licence": [],
+          "coda_licence_final_only": true,
+          "theta_nucleus": 0.6,
+          "nucleus_agreement": "licensed",
+          "nucleus_licence": [["AH", "IH"]],
+          "nucleus_licence_unstressed_only": true,
+          "nucleus_licence_before_r": [["IH", "IY"]],
+          "scalar_alignment": "head",
+          "final_promotion": true,
+          "fitted": false,
+          "search": "max over every pronunciation span pair; k = candidates_a x candidates_b, recorded per pair as spans.search_k; uncorrected"
+        },
+        "reader_scheme": "v2",
+        "lexicon_object_id": 139991560517056,
+        "records": 152,
+        "wall_seconds": 118.30866519999836,
+        "cpu_seconds": 117.973161,
+        "peak_rss_kib": 412088,
+        "pickle_bytes": 184016,
+        "pickle_file": "records-cannot_tell-231005.pickle",
+        "pickle_sha256": "3eb221effe9c599a6cfcc101ac547e1096564104b6ba2e80ee82f868d4d5155d",
+        "pid": 231005,
+        "full_raw_records_equal_original": true,
+        "cold_process_known_words_initialized": true
+      },
+      {
+        "policy": "gift",
+        "declaration": {
+          "dialect": "cmudict (General American citation forms)",
+          "anchor": "last primary stress to end of unit",
+          "admit": ["ASSONANCE", "CONSONANCE", "PROMOTED_RHYME", "RHYME", "RIME_RICHE"],
+          "channel_weights": {
+            "nucleus": 0.5,
+            "coda": 0.35,
+            "stress": 0.15
+          },
+          "channel_weights_interior": {
+            "nucleus": 0.4,
+            "coda": 0.25,
+            "onset": 0.2,
+            "stress": 0.15
+          },
+          "trailing_syllable_penalty": 0.15,
+          "theta_rhyme": 0.75,
+          "theta_by_relation": {
+            "ASSONANCE": 0.75,
+            "CONSONANCE": 0.75
+          },
+          "conjunctive_band": true,
+          "theta_coda": 0.8,
+          "coda_empty_evidence": "gift",
+          "coda_agreement": "identity",
+          "coda_licence": [],
+          "coda_licence_final_only": true,
+          "theta_nucleus": 0.6,
+          "nucleus_agreement": "licensed",
+          "nucleus_licence": [["AH", "IH"]],
+          "nucleus_licence_unstressed_only": true,
+          "nucleus_licence_before_r": [["IH", "IY"]],
+          "scalar_alignment": "head",
+          "final_promotion": true,
+          "fitted": false,
+          "search": "max over every pronunciation span pair; k = candidates_a x candidates_b, recorded per pair as spans.search_k; uncorrected"
+        },
+        "reader_scheme": "v2",
+        "lexicon_object_id": 140224403830208,
+        "records": 152,
+        "wall_seconds": 124.40370235800219,
+        "cpu_seconds": 123.984161,
+        "peak_rss_kib": 412016,
+        "pickle_bytes": 184016,
+        "pickle_file": "records-gift-231008.pickle",
+        "pickle_sha256": "4695a739c8f456f2ec1b4ccf924984315cded04954d56c1cf98aa85fe7290dd6",
+        "pid": 231008,
+        "full_raw_records_equal_original": true,
+        "cold_process_known_words_initialized": true
+      }
+    ],
+    "both_full_raw_record_lists_exactly_equal_original": true,
+    "whole_report_bytes_exactly_equal_original": true,
+    "report_sha256": "54f6ce052073910a806257f86d5a0109436fb2775f50548208ca14be8bf4cf31",
+    "derived_corpus_record_count": 152,
+    "original_fixed_candidates": 12279,
+    "original_controls_and_aggregate_statements_AST_identical": "source-invariants.json",
+    "actual_spawn_workers": 2,
+    "cold_processes_construct_fresh_lexicons": true,
+    "peak_python_processes": 4,
+    "peak_busy_processes_over10pct": 2,
+    "peak_sampled_cpu_percent": 208.3546446407832,
+    "peak_rss_kib": 1048820,
+    "actual_worker_failure_exits_nonzero": true,
+    "worker_failure_exit_code": 1,
+    "no_repository_writes": true,
+    "sqlite_connections": 0,
+    "cache_files": 0,
+    "all_production_corpus_and_lexical_inputs_unchanged": true,
+    "timing_scope": "Local Python3.12 full proofs; hosted uses3.11.16. Equality is complete; timing ratio remains a local observation, not hosted qualification."
+  },
+  "canon_source_invariants": {
+    "original_canon_comparison_tail_AST_exact": true,
+    "unchanged_other_function_ASTs": ["admitted", "_row", "random_report", "selected_samplers"],
+    "public_function_inventory_unchanged": true,
+    "source_sha256": "2d90c4dc18e01b42106228bc2616e7850fa513f8d38dcf25a4cb515fb1225aeb",
+    "original_full_reference_manifests_both152_validate": true,
+    "zero_based_bearing_negative_control_retained": true,
+    "reader_scope_in_worker_constructor_and_records": true,
+    "reader_scope_restoration_success_and_failure_controls": true
+  },
+  "evidence_runner_controls": {
+    "kind": "sixth-evidence-runner-controls",
+    "passed": true,
+    "complete": true,
+    "head_at_local_validation": "e88a3cba432c02726c2e46af67f4dcd7b9587029",
+    "source_sha256": {
+      "scripts/run_suite_evidence.py": "c2bd6dffce3c6406fe3dd00774f8ac6fe219da4a240ec566781d5979406b33f7",
+      "scripts/test_run_suite_evidence.py": "3c7084b77528fabe46616d04fd740ed0fcafd121826b33d70b3118a4c1b8db09",
+      "lyric-harness/quality/e5_coda_adoption.py": "2d90c4dc18e01b42106228bc2616e7850fa513f8d38dcf25a4cb515fb1225aeb",
+      ".github/workflows/ci.yml": "ed08d69be0b5f1ce1494ecdca2605b3371024c0b4a3f58882796d856d61b4126"
+    },
+    "original_literal_argv_and_order_equal": true,
+    "inventory_count": 12,
+    "partition_counts": [7, 5],
+    "inventory_sha256": "b28e9b7b67acb533219da8f0362b102b9eecbbf741f73d9bc6606ac0f73c3417",
+    "controls": {
+      "tests": 8,
+      "failures": 0,
+      "elapsed_seconds": 6.261,
+      "log": "/tmp/ci-under-ten-evidence/sixth-runner-controls.log",
+      "actual_two_producer_and_fan_in_cli": true,
+      "complete_failure_continuation": true,
+      "source_drift_fails_after_all_selected_commands": true,
+      "resource_trace": {
+        "capacity": 4,
+        "weighted_peak": 4,
+        "ordinary_capacity_restored": true,
+        "incoming_canon_admission": true,
+        "delayed_setup_cannot_barge": true,
+        "single_cpu_default_serial": true
+      },
+      "private_enabled_cache_and_child_env": true,
+      "semantic_receipt_rejections": 23,
+      "unsealed_integrity_tamper_rejected": true
+    },
+    "qualification_limit": "Fake numerical children validate orchestration and receipts; full numerical E5 equality is separately measured by owner. Fresh hosted two-job qualification remains required.",
+    "workflow_contract_controls": {
+      "passed": true,
+      "elapsed_seconds": 9.19,
+      "registered_python_tests": 8,
+      "actual_two_yaml_producers_and_fan_in": true,
+      "missing_duplicate_and_only_rejected": true,
+      "required_result_combinations": 25,
+      "source_unchanged_during_fixtures": true,
+      "script_sha256": "de885fe5"
+    }
+  },
+  "actual_workflow_contract_controls": {
+    "captured_at": "2026-11-12T01:27:17.429034+00:00",
+    "command": "node scripts/test_ci_sharding.js",
+    "exit_code": 0,
+    "wall_seconds": 9.19,
+    "prior_scheduling_seconds": 2.0,
+    "exceeds_prior_weight": true,
+    "source_sha256": {
+      "scripts/test_ci_sharding.js": "de885fe51c5d837197619828d3d78045ddf4461fd4d7e6093446403ae259c294",
+      "scripts/run_suite_evidence.py": "c2bd6dffce3c6406fe3dd00774f8ac6fe219da4a240ec566781d5979406b33f7",
+      "scripts/test_run_suite_evidence.py": "3c7084b77528fabe46616d04fd740ed0fcafd121826b33d70b3118a4c1b8db09",
+      ".github/workflows/ci.yml": "ed08d69be0b5f1ce1494ecdca2605b3371024c0b4a3f58882796d856d61b4126",
+      "lyric-harness/quality/e5_coda_adoption.py": "2d90c4dc18e01b42106228bc2616e7850fa513f8d38dcf25a4cb515fb1225aeb"
+    },
+    "after_sha256": {
+      "scripts/test_ci_sharding.js": "de885fe51c5d837197619828d3d78045ddf4461fd4d7e6093446403ae259c294",
+      "scripts/run_suite_evidence.py": "c2bd6dffce3c6406fe3dd00774f8ac6fe219da4a240ec566781d5979406b33f7",
+      "scripts/test_run_suite_evidence.py": "3c7084b77528fabe46616d04fd740ed0fcafd121826b33d70b3118a4c1b8db09",
+      ".github/workflows/ci.yml": "ed08d69be0b5f1ce1494ecdca2605b3371024c0b4a3f58882796d856d61b4126",
+      "lyric-harness/quality/e5_coda_adoption.py": "2d90c4dc18e01b42106228bc2616e7850fa513f8d38dcf25a4cb515fb1225aeb"
+    },
+    "source_unchanged_during_run": true,
+    "node_version": "v24.19.0",
+    "python_version": "Python 3.12.14",
+    "stdout_path": "/tmp/ci-under-ten-evidence/sixth-ci-sharding-controls.stdout.txt",
+    "stderr_path": "/tmp/ci-under-ten-evidence/sixth-ci-sharding-controls.stderr.txt",
+    "measurement_context": "Local shared container; runner owner ran lightweight Python controls concurrently; all numerical evidence children were stubbed."
+  },
+  "independent_read_only_review": {
+    "material_issues_found": false,
+    "method": "Independent read-only YAML, runner, E5 and source/data staging review",
+    "original12argv_order_unchanged": true,
+    "two_partitions_complete_and_disjoint": true,
+    "required_producer_and_receipt_gates_fail_closed": true,
+    "native_event_checkout_same_merge_source": true,
+    "fingerprint_tracks_all_harness_source_and_data": true,
+    "staged_asset_paths_have_zero_tracked_intersections": true,
+    "no_tracked_harness_symlinks": true,
+    "runtime_outputs_excluded_from_fingerprint": true,
+    "original_canon_comparison_and_random_function_ASTs_identical": true,
+    "reader_scope_propagated": true
+  },
+  "validation": {
+    "eslint_passed": true,
+    "prettier_workflow_and_js_passed": true,
+    "diff_check_passed": true
+  },
+  "qualification_limit": "This complete local numerical equality and orchestration proof does not establish hosted timing. Fresh hosted execution must qualify all24 targets and all12 required gates. Queue/dependency waits remain separate; full workflow also includes longer image and recording jobs."
+}

@@ -313,6 +313,70 @@ def test_cliche_pair():
           "on couplets the repo's own perfect-rhyme table gives count zero")
 
 
+def test_disowned_types_are_not_written_on_the_writers_pair():
+    """#671 row 7 (BB8 6670984213, under #627 D6). The shipped 30 reached the
+    grade report by a second road: the `trite` quotient, through the
+    disowned `trite rhyme` schema, printed beside a FAILS on the writer's own
+    two words -- with `homoioteleuton`, the old same-spelled-ending ban,
+    beside it. R2's draft (6670845696 §2) through the real `song` verb."""
+    import json
+    import subprocess
+    import tempfile
+    from quality import relations as RL
+    print("\n6a. no disowned type is written onto the writer's pair")
+    # Read off the FIELD here, not through `RL.disowned`, so this check
+    # stands on its own against a tree without that helper.
+    disowned = sorted(n for n, s in RL.REGISTRY.items()
+                      if s.normative in ("forbidden", "deprecated"))
+    harness = os.path.join(HERE, "..", "lyric_harness.py")
+
+    def grade(a, b):
+        with tempfile.TemporaryDirectory() as tmp:
+            draft = os.path.join(tmp, "c.txt")
+            bp = os.path.join(tmp, "bp.json")
+            with open(draft, "w") as fh:
+                fh.write("The road runs long past the old mill gate\n"
+                         f"I walk alone and I carry the {a}\n"
+                         f"The night holds still with a slow {b}\n"
+                         "The dawn comes up and the morning is late\n")
+            subprocess.run([sys.executable, harness, "plan", "--seed=7",
+                            "--form=open", "--lines=4",
+                            "--input-format=literal", f"--fill={draft}",
+                            f"--out={bp}"], check=True, capture_output=True)
+            r = subprocess.run(
+                [sys.executable, harness, "song", bp, draft,
+                 "--input-format=literal", "--groups=2.endword,3.endword",
+                 "--relations=A:schema:cluster consonance / skothending span",
+                 "--subdivision", "4"], capture_output=True, text=True)
+        rows = r.stdout.splitlines()
+        result = [ln for ln in rows if ln.lstrip().startswith("lyric result:")]
+        text = "\n".join(ln for ln in rows if ln not in result)
+        return (r.returncode, text,
+                json.loads(result[-1].split("lyric result:", 1)[1]) if result else {})
+
+    code, text, result = grade("fire", "desire")
+    fails = [ln for ln in text.splitlines() if "FAILS L2-L3 (fire/desire)" in ln]
+    check("fire/desire still FAILS the declared relation (no verdict moves)",
+          code == 3 and len(fails) == 2, f"exit {code}, {len(fails)} FAILS lines")
+    check("...and its relation list names no disowned type",
+          fails and not any(n in ln for ln in fails for n in disowned),
+          fails[0][:200] if fails else "")
+    check("...while a type it does stand in is still listed",
+          fails and all("perfect rhyme" in ln for ln in fails))
+    ev = result.get("schema_instance_evidence") or {}
+    check("the published evidence carries no record of a disowned type",
+          not any(rec.get("schema_name") in disowned
+                  for rec in ev.get("records", ())),
+          "a disowned schema is not censused onto the writer's pairs")
+    check("...and names them as not requested, by the field",
+          sorted(ev.get("population", {}).get("not_requested_schemas", ()))
+          == disowned, str(ev.get("population", {}).get(
+              "not_requested_schemas")))
+    code, text, _ = grade("chair", "choir")
+    check("the chair/choir control is unchanged: exit 3, `consonance` only",
+          code == 3 and "FAILS L2-L3 (chair/choir): 0.315  consonance" in text)
+
+
 def test_cliche_pair_may_only_reject_where_it_was_measured():
     print("\n6b. a declared CLICHE_PAIR list runs at every length and rejects at one")
     # The shipped list is silent since 2026-10-27 (D6 on #519), so the length
@@ -1842,6 +1906,7 @@ if __name__ == "__main__":
                test_radif_is_not_a_repeat,
                test_the_licence_needs_the_fraction_not_the_bare_count,
                test_shared_suffix_needs_a_real_stem, test_cliche_pair,
+               test_disowned_types_are_not_written_on_the_writers_pair,
                test_cliche_pair_may_only_reject_where_it_was_measured,
                test_anaphora, test_anaphora_is_a_note_about_a_figure,
                test_thresholds_are_declared_not_hidden,

@@ -198,7 +198,7 @@ module.exports = [
     // the connector refuses a preface it cannot inverse-configure where the app
     // relabels without reshaping, so those pairs are skipped and counted.
     claim:
-      'an edit — set_variant, set_preface or set_environment — reshapes the card identically in the connector and the app, and the edited workspace renders byte-identically in every format',
+      "an edit — set_variant, set_preface or set_environment — reshapes the card identically in the connector and the app, the edited workspace renders byte-identically in every format, and the record of what set_environment wrote (envWritten) comes through the app's own edits untouched, and a card the app duplicates starts without it",
   },
   {
     id: 'connector-render-parity',
@@ -239,5 +239,13 @@ module.exports = [
     gate: 'check_cli_output.js',
     claim:
       'a read-only CLI writes the same bytes and returns the same exit code whether stdout is a file, a terminal or a pipe',
+  },
+  {
+    id: 'cli-stderr-complete',
+    doc: 'SKILL.md',
+    gate: 'check_cli_stderr.js',
+    claim:
+      'recipe.js writes the same stderr bytes and returns the same exit code whether stderr is a file or a pipe, and those bytes carry its literal note lines',
+    doc_terms: ['same stderr bytes', 'same exit code', 'file or a pipe'],
   },
 ];

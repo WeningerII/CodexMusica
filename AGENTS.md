@@ -69,7 +69,21 @@ Rich compression prioritizes explicitly pinned part descriptors. Inspect the ret
 `render_warnings` for requested words — part descriptors, prefaces, environment
 settings — absent from the actual output, and `render_scope` for the one shared
 environment and the card it comes from; neither a preface nor a chain description
-establishes a measured audio result.
+establishes a measured audio result. A pinned part descriptor counts as printed only as a
+whole word in its own card's segment of the output: the same word printed on another card,
+or inside a longer word, is `PINNED_DESCRIPTORS_NOT_LITERAL`. Where Rich or Prose merges
+cards that share a trailing word into one chunk, each card's preface is printed right before
+its own inner label (`cold humbucker-solid-body-electric street-pulsing
+dreadnought-acoustic guitar`), so those head words are that card's own, and a word printed
+only in another card's head is `NOT_LITERAL` for this one. A word printed only where the
+output cannot say which card it describes is `PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`, with the
+cards that share the words it is printed in under `shared_with`: in the part of a chunk that
+pools cards of the same label (those cards), in the trailing label or pooled descriptors a
+merged chunk's cards share (all of them), or in a render with no per-card segments. Neither may be reported as a part that survived. A pinned preface is
+judged the same way, as consecutive whole words: `EXPLICIT_PREFACE_NOT_LITERAL` when the
+card's own part does not print it (even if another card or the header does),
+`EXPLICIT_PREFACE_NOT_ATTRIBUTABLE` in those three cases. Present means printed in that card's part of the recipe, not that the
+edit put it there.
 
 A hosted **Model Context Protocol** server is the headless twin of the browser app — it
 exposes the full *editable* engine as tools. Seed a recipe from any tradition, then edit
@@ -105,17 +119,45 @@ pipeline plans and grades songs whose every line you write; no connector call re
   same card) — in all four formats. Instruments come from every card; the environment comes from
   one, and every response names it in `render_scope.environment_card`. So a space for the whole
   recording is a SINGLE `set_environment` edit, and `card` is optional there — omit it and it
-  lands on that card. Setting an environment on any other card writes fields nothing renders, and
-  the response says so (`ENVIRONMENT_NOT_RENDERED`). The environment lives on its card: removing or
-  moving that card hands the environment to the next card that has one, and a `set_preface` on it
-  re-derives its room, tuning and chain — `render_warnings` reports both (`ENVIRONMENT_MOVED`,
-  `ENVIRONMENT_OVERWRITTEN`), so put `set_environment` after `set_preface` in a batch.
+  lands on that card. Settings a `set_environment` wrote on a card that is not, or is no longer,
+  the environment card don't set the rendered environment. Every `edit_recipe` and
+  `render_recipe` response says so (`ENVIRONMENT_NOT_RENDERED`) while the card still holds them.
+  Its `edit` names the writing edit only on that edit's call. Only what a `set_environment` wrote
+  counts. Each card records it in the workspace (`envWritten`), so stock settings and settings a
+  `set_preface` re-derived never warn. A workspace saved without the record has nothing written,
+  so neither this warning nor `ENVIRONMENT_MOVED` nor `ENVIRONMENT_OVERWRITTEN` speaks for the
+  settings it already holds. The warning ends when any of these happens:
+  - the field is cleared there;
+  - a `set_preface` re-derives it;
+  - the card becomes the environment card;
+  - a `set_environment` on the environment card sets or clears that field. For `fx`, adding an
+    effect there settles that effect.
+
+  So repeating the edit without `card` ends it, which `scripts/check_env_advice.mjs` checks in
+  every tradition. The environment lives on its card: removing or moving that card hands the
+  environment to the next card that has one, and a `set_preface` on it re-derives its room,
+  tuning and chain. `render_warnings` reports both on the edit that does it. `ENVIRONMENT_MOVED`
+  covers settings a `set_environment` wrote there, and a `set_environment` that clears every
+  setting on the environment card so the next card's own settings render.
+  `ENVIRONMENT_OVERWRITTEN` covers settings a `set_environment` wrote that a `set_preface` then
+  re-derived, so a second `set_preface` replacing what the first derived says nothing; on any
+  other card it names the environment card. So put `set_environment` after `set_preface` in a
+  batch.
 - `set_variant` does exactly what picking a variant does in the app: it sets and pins the part (your
   choice is never reverted), and on a card whose preface is still auto-derived it re-derives the
   preface label from the new sound. A **material** part (woods, strings and other shared materials)
   also runs the inverse cascade a preface pick runs, so other parts of that card may move toward the
   preface — most edits move nothing else. Room, tuning and the chain never move. Batch a
-  `set_preface` first if you want to steer the cascade.
+  `set_preface` first if you want to steer the cascade. The `envWritten` record a `set_environment`
+  keeps on a card is also written by a pick in that card's environment editor in the app (the
+  Recording environment panel on the environment card, or any other card's own editor), which
+  records and settles exactly as a `set_environment` on that card does: a pick on the
+  environment card settles what it names on the other cards, and a pick on any other card
+  records the write there and settles nothing, so it is `ENVIRONMENT_NOT_RENDERED` as the
+  connector's own write there would be. Nothing else the app
+  does writes it, and a preface picked in the app drops the fields it re-derives, as
+  `set_preface` does. Its saves and exports carry it, and a card the app duplicates gets the values
+  without the record, since nothing was written on the copy.
   <!-- @promise: connector-edit-parity -->
 - **What each tool touches.** Recipe computation is deterministic and closed-world, and no tool on
   any connector surface reaches a model provider or the open web (`openWorldHint: false`

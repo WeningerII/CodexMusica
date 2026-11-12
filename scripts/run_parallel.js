@@ -35,30 +35,33 @@
 // only visible when something fails is a cost nobody sees, and the slowest
 // leaf is the floor no worker count can beat.
 //
-// SHARDS (2026-10-30). CI's `verify` step was this runner over 89 leaves:
-// 6,310 leaf-seconds, 29.4 min of wall on one four-vCPU machine (run
-// 41118387628), the second-longest job in PR CI. --shard=K/N deals the
-// flattened chain to N machines in a SNAKE (1,2,…,N,N,…,2,1,1,2,…) and keeps
-// the Kth hand. Not round-robin: the chain's costly leaves cluster, and on that
-// run's leaf costs a plain 1,2,1,2 deal gave 14.0 and 19.4 simulated minutes
-// where the snake gives 15.3 and 15.2 (the 748 s mcp/test.mjs is the floor).
-// The chain is still read from package.json, so a leaf added there lands on
-// exactly one shard with no second edit. --record=FILE writes the whole leaf
-// list and the ones this shard ran; `--verify-shards=DIR --shards=N` reads N
-// such records and fails unless the N lists are identical and every leaf ran
-// on exactly one shard, the same claim one unsharded run makes by itself.
-// --list prints the leaves (with --shard, each with its shard) and runs none.
+// SHARDS. --split-tests expands the package chain into independent commands: each file
+// of a Node test-runner batch (retaining its flags), 24 partitions of the
+// actual discovered unittest IDs, and the connector's declared integration
+// parts. The default unsharded serial commands remain available unchanged.
+// --costs=FILE schedules longest estimated leaves first across N*workers lanes;
+// without that flag the original snake deal remains. The timing file records
+// its measurement source and labels inherited estimates. New leaves are still
+// mandatory and use a conservative 120-second estimate until measured.
+//
+// --record=FILE writes the entire inventory, assigned commands, successful or
+// failed outcomes, source commit, and configuration digest. The fan-in rebuilds
+// the same inventory from its checkout, then refuses missing/extra/duplicate
+// commands or records, failed outcomes, and different source/configuration.
+// A Python partition also checks its discovered test-ID digest at execution.
 //
 // Usage: node scripts/run_parallel.js <script-name> [--workers=N] [--shard=K/N]
-//                                     [--record=FILE] [--list]
+//          [--split-tests] [--costs=FILE] [--record=FILE] [--list|--list-json]
 //        node scripts/run_parallel.js <script-name> --verify-shards=DIR --shards=N
+//          [--split-tests] [--costs=FILE] [--workers=N]
 // Exit 0 if every leaf succeeded, 1 otherwise, 2 on a bad chain or flag.
 
 'use strict';
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const { spawn } = require('child_process');
+const { spawn, execFileSync } = require('child_process');
+const { createHash } = require('crypto');
 
 const ROOT = path.join(__dirname, '..');
 const PKG = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
@@ -70,6 +73,10 @@ const WORKERS = (() => {
   const flag = argv.find((a) => a.startsWith('--workers='));
   const env = process.env.PARALLEL_WORKERS;
   const n = Number((flag && flag.split('=')[1]) || env || 0);
+  if ((flag || env) && (!Number.isInteger(n) || n < 1)) {
+    console.error('run_parallel: --workers/PARALLEL_WORKERS must be a positive integer');
+    process.exit(2);
+  }
   return n > 0 ? n : Math.min(4, os.cpus().length || 1);
 })();
 
@@ -90,10 +97,124 @@ const SHARD = (() => {
   return { k, n };
 })();
 const RECORD = typeof flag('record') === 'string' ? path.resolve(flag('record')) : null;
+if (flag('split-tests') !== undefined && flag('split-tests') !== true) {
+  console.error('run_parallel: --split-tests is a boolean flag with no value');
+  process.exit(2);
+}
 
 if (!NAME) {
   console.error('run_parallel: name a script to expand, e.g. `test:serial`');
   process.exit(2);
+}
+
+// Expand only command forms whose independent test ownership is explicit.
+// The serial package chain remains the definition: adding a test file or a
+// discovered unittest adds it here without maintaining a second list.
+const parents = new Map();
+const inventoryDigests = {};
+let nodeTestGroups;
+function expandCommand(command) {
+  // No flag preserves npm test's standing process boundaries and optional
+  // local SDK behavior. CI explicitly requests independently audited pieces.
+  if (!flag('split-tests')) {
+    parents.set(command, command);
+    return [command];
+  }
+  let expanded = [command];
+  const tokens = command.split(/\s+/);
+  if (
+    tokens[0] === 'node' &&
+    tokens[1] === '--test' &&
+    tokens
+      .slice(2)
+      .every((token) => /^--[\w-]+(?:=[\w.-]+)?$/.test(token) || /^[\w./-]+\.m?js$/.test(token))
+  ) {
+    const files = tokens.slice(2).filter((token) => !token.startsWith('--'));
+    const options = tokens.slice(2).filter((token) => token.startsWith('--'));
+    if (files.length) {
+      nodeTestGroups ||= require('./ci_node_test_groups.js').loadRegistry(ROOT);
+      Object.assign(inventoryDigests, nodeTestGroups.inventoryDigests);
+      expanded = files.flatMap((file) => {
+        const leaf = ['node', '--test', ...options, file].join(' ');
+        const grouped = nodeTestGroups.files.find((entry) => entry.source === file);
+        return grouped
+          ? grouped.groups.map((group) => `${grouped.environment}=${group} ${leaf}`)
+          : [leaf];
+      });
+    }
+  }
+  const discovery =
+    /^((?:[A-Z_]+=\S+\s+)*)python3 -m unittest discover -s ([\w./-]+) -p ([\w.*-]+)$/.exec(command);
+  if (discovery) {
+    const [, environment, directory, pattern] = discovery;
+    const inventory = JSON.parse(
+      execFileSync(
+        'python3',
+        [
+          path.join(ROOT, 'scripts/run_unittest.py'),
+          `--start-directory=${directory}`,
+          `--pattern=${pattern}`,
+          '--list-json',
+        ],
+        { cwd: ROOT, encoding: 'utf8' }
+      )
+    );
+    const count = Math.min(24, inventory.ids.length);
+    expanded = Array.from(
+      { length: count },
+      (_, i) =>
+        `${environment}python3 scripts/run_unittest.py --start-directory=${directory} --pattern=${pattern} --shard=${i + 1}/${count} --expect=${inventory.sha256}`
+    );
+  }
+  if (command === 'node scripts/regression_recipes.js') {
+    const inventory = JSON.parse(
+      execFileSync(
+        process.execPath,
+        [path.join(ROOT, 'scripts/regression_recipes.js'), '--list-shards=4'],
+        { cwd: ROOT, encoding: 'utf8' }
+      )
+    );
+    const owned = Array.isArray(inventory.shards)
+      ? inventory.shards.flatMap((part) => part.fixtures)
+      : [];
+    if (
+      inventory.version !== 1 ||
+      !/^[a-f0-9]{64}$/.test(inventory.sha256) ||
+      !Array.isArray(inventory.fixtures) ||
+      !inventory.fixtures.length ||
+      new Set(inventory.fixtures).size !== inventory.fixtures.length ||
+      new Set(owned).size !== owned.length ||
+      JSON.stringify([...owned].sort()) !== JSON.stringify([...inventory.fixtures].sort()) ||
+      JSON.stringify(inventory.shards.map((part) => part.shard)) !==
+        JSON.stringify(['1/4', '2/4', '3/4', '4/4'])
+    )
+      throw new Error(
+        'run_parallel: recipe shards are not one complete disjoint fixture inventory'
+      );
+    expanded = inventory.shards.map(
+      // The outer pool already owns four CPU lanes. Keep each recipe hand
+      // on one lane instead of nesting another one-Worker-per-core pool.
+      (part) => `REGRESSION_SERIAL=1 ${command} --shard=${part.shard} --expect=${inventory.sha256}`
+    );
+  }
+  if (command === 'node mcp/test.mjs') {
+    // Inventory must not import the connector: the fan-in intentionally has
+    // no installed SDK/express tree. The suite reads this same declaration.
+    const inventoryPath = 'scripts/ci_mcp_test_parts.json';
+    const inventoryText = fs.readFileSync(path.join(ROOT, inventoryPath), 'utf8');
+    const parts = JSON.parse(inventoryText);
+    inventoryDigests[inventoryPath] = createHash('sha256').update(inventoryText).digest('hex');
+    if (
+      !Array.isArray(parts) ||
+      parts.length === 0 ||
+      new Set(parts).size !== parts.length ||
+      parts.some((part) => typeof part !== 'string' || !/^[a-z-]+$/.test(part))
+    )
+      throw new Error('run_parallel: invalid connector part inventory');
+    expanded = parts.map((part) => `${command} --part=${part}`);
+  }
+  expanded.forEach((leaf) => parents.set(leaf, command));
+  return expanded;
 }
 
 // Flatten a script into leaf commands. A link of the form `npm run X` (with or
@@ -114,7 +235,7 @@ function flatten(name, seen) {
     if (!link) continue;
     const m = link.match(/^npm\s+run\s+(?:--silent\s+)?([\w:.-]+)$/);
     if (m) out.push(...flatten(m[1], here));
-    else out.push(link);
+    else out.push(...expandCommand(link));
   }
   return out;
 }
@@ -128,12 +249,85 @@ try {
 }
 
 const ALL = leaves;
-// The hand leaf i is dealt to, 1-based: a snake over rows of N.
-const hand = (i, n) => {
-  const p = i % n;
-  return Math.floor(i / n) % 2 === 0 ? p + 1 : n - p;
+if (new Set(ALL).size !== ALL.length) {
+  console.error('run_parallel: the expanded chain contains duplicate leaf commands');
+  process.exit(2);
+}
+const hash = (value) => createHash('sha256').update(value).digest('hex');
+const costsPath = flag('costs');
+let costText = '';
+let weights = {};
+try {
+  if (costsPath !== undefined) {
+    costText = fs.readFileSync(path.resolve(String(costsPath)), 'utf8');
+    weights = JSON.parse(costText).seconds;
+    if (
+      !weights ||
+      typeof weights !== 'object' ||
+      Array.isArray(weights) ||
+      Object.values(weights).some((value) => !Number.isFinite(value) || value <= 0)
+    )
+      throw new Error('costs must contain a seconds object with positive finite values');
+  }
+} catch (error) {
+  console.error(`run_parallel: invalid --costs: ${error.message}`);
+  process.exit(2);
+}
+const siblingCounts = new Map();
+for (const parent of parents.values())
+  siblingCounts.set(parent, (siblingCounts.get(parent) || 0) + 1);
+const estimate = (command) =>
+  weights[command] ||
+  (weights[parents.get(command)]
+    ? weights[parents.get(command)] / siblingCounts.get(parents.get(command))
+    : 120);
+const MANIFEST = hash(
+  JSON.stringify({
+    name: NAME,
+    leaves: ALL,
+    costs: hash(costText),
+    workers: WORKERS,
+    splitTests: flag('split-tests') === true,
+    inventoryDigests,
+  })
+);
+const SOURCE = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT, encoding: 'utf8' }).trim();
+// Without a timing file the standing snake deal is unchanged. With measured
+// costs, LPT deals to N*workers lanes, interleaved across N runners so their
+// largest leaves start together. New/unmeasured commands get a conservative
+// two-minute estimate and are still part of the exact inventory.
+function owners(n) {
+  if (!costText)
+    return ALL.map((_, i) => {
+      const position = i % n;
+      return Math.floor(i / n) % 2 === 0 ? position + 1 : n - position;
+    });
+  const loads = Array(n * WORKERS).fill(0);
+  const assigned = new Array(ALL.length);
+  const ordered = ALL.map((command, index) => ({
+    command,
+    index,
+    seconds: estimate(command),
+  })).sort((a, b) => b.seconds - a.seconds || a.index - b.index);
+  for (const leaf of ordered) {
+    let lane = 0;
+    for (let i = 1; i < loads.length; i++) if (loads[i] < loads[lane]) lane = i;
+    loads[lane] += leaf.seconds;
+    assigned[leaf.index] = (lane % n) + 1;
+  }
+  return assigned;
+}
+const assignments = new Map();
+const assignment = (n) => {
+  if (!assignments.has(n)) assignments.set(n, owners(n));
+  return assignments.get(n);
 };
-const dealt = (i) => !SHARD || hand(i, SHARD.n) === SHARD.k;
+function selected(k, n) {
+  const chosen = ALL.filter((_, i) => assignment(n)[i] === k);
+  return costText
+    ? chosen.sort((a, b) => estimate(b) - estimate(a) || ALL.indexOf(a) - ALL.indexOf(b))
+    : chosen;
+}
 
 if (flag('verify-shards') !== undefined) {
   const dir = String(flag('verify-shards'));
@@ -150,18 +344,39 @@ if (flag('verify-shards') !== undefined) {
   const want = Array.from({ length: n }, (_, i) => `${i + 1}/${n}`).sort();
   if (JSON.stringify(got) !== JSON.stringify(want))
     problems.push(`records are for shards [${got.join(', ')}], expected [${want.join(', ')}]`);
+  const owner = new Map();
   for (const r of recs) {
+    if (r.version !== 2 || r.manifest !== MANIFEST || r.source !== SOURCE)
+      problems.push(
+        `${r.shard} has a different source, manifest, worker count, or timing configuration`
+      );
     if (r.name !== NAME) problems.push(`${r.shard} expanded '${r.name}', not '${NAME}'`);
     if (JSON.stringify(r.leaves) !== JSON.stringify(ALL))
       problems.push(`${r.shard} saw a different leaf list from this checkout's '${NAME}'`);
-  }
-  const owner = new Map();
-  for (const r of recs)
-    for (const c of r.ran) {
-      if (owner.has(c)) problems.push(`'${c}' ran on both ${owner.get(c)} and ${r.shard}`);
-      else owner.set(c, r.shard);
+    const coordinate = /^(\d+)\/(\d+)$/.exec(String(r.shard));
+    const expected =
+      coordinate &&
+      Number(coordinate[2]) === n &&
+      Number(coordinate[1]) >= 1 &&
+      Number(coordinate[1]) <= n
+        ? selected(Number(coordinate[1]), n)
+        : null;
+    if (!expected || JSON.stringify(r.ran) !== JSON.stringify(expected))
+      problems.push(`${r.shard} did not execute its exact assigned leaf list`);
+    if (
+      !Array.isArray(r.outcomes) ||
+      JSON.stringify(r.outcomes.map((outcome) => outcome.cmd)) !== JSON.stringify(r.ran) ||
+      r.outcomes.some((outcome) => outcome.code !== 0)
+    )
+      problems.push(`${r.shard} has missing, unexpected, or failed leaf outcomes`);
+    for (const command of Array.isArray(r.ran) ? r.ran : []) {
+      if (!ALL.includes(command)) problems.push(`${r.shard} ran unexpected leaf '${command}'`);
+      if (owner.has(command))
+        problems.push(`'${command}' ran on both ${owner.get(command)} and ${r.shard}`);
+      else owner.set(command, r.shard);
     }
-  const unrun = ALL.filter((c) => !owner.has(c));
+  }
+  const unrun = ALL.filter((command) => !owner.has(command));
   if (unrun.length) problems.push(`no shard ran: ${unrun.join(' | ')}`);
   for (const r of recs) console.log(`  shard ${r.shard}: ran ${r.ran.length} of ${ALL.length}`);
   for (const p of problems) console.error(`  ✗ ${p}`);
@@ -175,12 +390,41 @@ if (flag('verify-shards') !== undefined) {
   process.exit(0);
 }
 
+if (flag('list-json')) {
+  console.log(
+    JSON.stringify({
+      name: NAME,
+      manifest: MANIFEST,
+      source: SOURCE,
+      inventoryDigests,
+      leaves: ALL.map((command, i) => ({
+        command,
+        parent: parents.get(command),
+        seconds: estimate(command),
+        shard: SHARD ? assignment(SHARD.n)[i] : null,
+      })),
+    })
+  );
+  // Returning from this CommonJS module prevents execution below while Node
+  // naturally drains a large inventory through an asynchronous stdout pipe.
+  return;
+}
 if (flag('list')) {
-  ALL.forEach((c, i) => console.log(SHARD ? `${hand(i, SHARD.n)}/${SHARD.n}\t${c}` : c));
-  process.exit(0);
+  ALL.forEach((c, i) => console.log(SHARD ? `${assignment(SHARD.n)[i]}/${SHARD.n}\t${c}` : c));
+  return;
 }
 
-leaves = ALL.filter((_, i) => dealt(i));
+leaves = SHARD
+  ? selected(SHARD.k, SHARD.n)
+  : costText
+    ? [...ALL].sort((a, b) => estimate(b) - estimate(a))
+    : ALL;
+if (costText) {
+  const unknown = ALL.filter((command) => !weights[command] && !weights[parents.get(command)]);
+  console.log(
+    `run_parallel: measured LPT schedule (${unknown.length} new leaves estimated at 120s each)`
+  );
+}
 if (SHARD && leaves.length === 0) {
   console.error(`run_parallel: shard ${SHARD.k}/${SHARD.n} of '${NAME}' was dealt no leaf`);
   process.exit(2);
@@ -229,7 +473,16 @@ function finish() {
     fs.writeFileSync(
       RECORD,
       JSON.stringify(
-        { name: NAME, shard: SHARD ? `${SHARD.k}/${SHARD.n}` : null, leaves: ALL, ran: leaves },
+        {
+          version: 2,
+          name: NAME,
+          source: SOURCE,
+          manifest: MANIFEST,
+          shard: SHARD ? `${SHARD.k}/${SHARD.n}` : null,
+          leaves: ALL,
+          ran: leaves,
+          outcomes: results.map(({ cmd, code, seconds }) => ({ cmd, code, seconds })),
+        },
         null,
         1
       ) + '\n'

@@ -1,5 +1,7 @@
-/* Actual shipped app fixture. Browser transport and provider requests stay local. */
-/* global window, document, UI, LY, LY_ACTIONS, $ui, app, chatState, _chatReset, uiSaveLyrics, pushHistory, lyRefresh, lyLibraryStore, lyMeta */
+/* Actual shipped app fixture. Provider requests stay local. The envelope
+   arrives through the shell's in-page handoff (uiOpenInLyrics), as the
+   Library tab's 'Open in Lyrics' sends it; there is no window handoff (#659). */
+/* global window, document, UI, LY, LY_ACTIONS, $ui, app, chatState, _chatReset, uiSaveLyrics, pushHistory, lyRefresh, lyLibraryStore, lyMeta, uiOpenInLyrics */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const http = require('node:http');
@@ -40,13 +42,7 @@ const api = require('../src/library-import.js');
     }
   }
   const html = fs.readFileSync(htmlPath);
-  const senderServer = http.createServer((_request, response) => {
-    response.setHeader('Content-Type', 'text/html;charset=utf-8');
-    response.end(
-      '<!doctype html><title>Library handoff fixture</title><script>window.messages=[];addEventListener("message",event=>messages.push(event.data));</script>'
-    );
-  });
-  const receiverServer = http.createServer((request, response) => {
+  const server = http.createServer((request, response) => {
     if (request.url.startsWith('/codex.html')) {
       response.setHeader('Content-Type', 'text/html;charset=utf-8');
       response.end(html);
@@ -57,12 +53,8 @@ const api = require('../src/library-import.js');
   });
   let browser;
   try {
-    await Promise.all([
-      new Promise((resolve) => senderServer.listen(0, '127.0.0.1', resolve)),
-      new Promise((resolve) => receiverServer.listen(0, '127.0.0.1', resolve)),
-    ]);
-    const senderOrigin = 'http://127.0.0.1:' + senderServer.address().port;
-    const receiverOrigin = 'http://127.0.0.1:' + receiverServer.address().port;
+    await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+    const origin = 'http://127.0.0.1:' + server.address().port;
     browser = await chromium.launch({
       executablePath: process.env.CHROMIUM_EXECUTABLE_PATH || undefined,
       headless: true,
@@ -74,32 +66,13 @@ const api = require('../src/library-import.js');
       if (route.request().method() === 'POST') providerPosts++;
       await route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' });
     });
-    await context.addInitScript((origin) => {
-      window.CODEX_LIBRARY_DEV_ORIGIN = origin;
-    }, senderOrigin);
-    const sender = await context.newPage();
-    await sender.goto(senderOrigin);
-    const nonce = 'c'.repeat(64);
-    const url =
-      receiverOrigin +
-      '/codex.html?cm_library_origin=' +
-      encodeURIComponent(senderOrigin) +
-      '&cm_library_nonce=' +
-      nonce +
-      '#lyrics';
-    const popupPromise = sender.waitForEvent('popup');
-    await sender.evaluate((url) => {
-      window.lyrics = window.open(url);
-    }, url);
-    const page = await popupPromise;
+    const page = await context.newPage();
     const errors = [];
     page.on('pageerror', (error) => errors.push(error.message));
+    await page.goto(origin + '/codex.html#lyrics');
     await page.waitForFunction(() => typeof UI !== 'undefined' && UI.ready && !!LY.model, null, {
       timeout: 60000,
     });
-    await sender.waitForFunction(() =>
-      window.messages.some((message) => message.type === 'codex-musica.library.ready')
-    );
     const before = await page.evaluate(() => {
       $ui('lyrics-draft').value = 'My existing private song\nKeep every older line';
       app.lyricMeta = {
@@ -169,14 +142,11 @@ const api = require('../src/library-import.js');
       },
     };
     envelope.digest = await api.envelopeDigest(envelope, webcrypto);
-    const transfer = { type: api.TYPES.transfer, version: 1, nonce, envelope };
-    await sender.evaluate(({ transfer, origin }) => window.lyrics.postMessage(transfer, origin), {
-      transfer,
-      origin: receiverOrigin,
-    });
-    await sender.waitForFunction(() =>
-      window.messages.some((message) => message.type === 'codex-musica.library.ack')
+    const opened = await page.evaluate(
+      async (envelope) => (await uiOpenInLyrics(envelope)).duplicate,
+      envelope
     );
+    assert.equal(opened, false);
     const imported = await page.evaluate(async () => ({
       text: app.lyrics,
       meta: lyMeta(),
@@ -219,35 +189,28 @@ const api = require('../src/library-import.js');
       envelope.payload.provenance.rights.notices
     );
 
-    // Browser reload followed by a repeat of the same handoff must re-ACK
-    // the existing copy without reactivating it or cloning another draft.
+    // Browser reload followed by a repeat of the same handoff must find the
+    // existing copy without reactivating it or cloning another draft.
     await page.reload();
     await page.waitForFunction(() => typeof UI !== 'undefined' && UI.ready && !!LY.model, null, {
       timeout: 60000,
     });
-    await sender.evaluate(({ transfer, origin }) => window.lyrics.postMessage(transfer, origin), {
-      transfer,
-      origin: receiverOrigin,
-    });
-    await sender.waitForFunction(
-      () =>
-        window.messages.filter((message) => message.type === 'codex-musica.library.ack').length ===
-        2
+    const repeated = await page.evaluate(
+      async (envelope) => (await uiOpenInLyrics(envelope)).duplicate,
+      envelope
     );
+    assert.equal(repeated, true);
     assert.equal(await page.evaluate(() => app.lyrics), envelope.payload.text);
     assert.equal(await page.evaluate(async () => (await lyLibraryStore.listDrafts()).length), 2);
     assert.equal(providerPosts, 0);
     assert.deepEqual(errors, []);
     await context.close();
     console.log(
-      'SHIPPED LIBRARY IMPORT: PASS — actual app activation, saved old continuation, no abort/reset/certification inheritance, mandatory export, reload replay and zero provider POSTs.'
+      'SHIPPED LIBRARY IMPORT: PASS — in-page handoff, actual app activation, saved old continuation, no abort/reset/certification inheritance, mandatory export, reload replay and zero provider POSTs.'
     );
   } finally {
     await browser?.close();
-    await Promise.all([
-      new Promise((resolve) => senderServer.close(resolve)),
-      new Promise((resolve) => receiverServer.close(resolve)),
-    ]);
+    await new Promise((resolve) => server.close(resolve));
     if (temporary) fs.rmSync(temporary, { recursive: true, force: true });
   }
 })().catch((error) => {

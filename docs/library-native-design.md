@@ -4,7 +4,7 @@
 
 Nothing in this document is approved. After R2 and 3PO agree, it goes to John, who makes the decisions listed under "Owner decisions". No implementation starts before then. This text states only the final contract. Earlier wording that a review round replaced has been removed, and "Review history" at the end traces each change to its finding.
 
-Tool names written without a directory are planned files under scripts/. For example, `check_library_data.js` is a planned `scripts/` file that does not exist yet. Line references are to `main` at `031b7de`.
+Tool names written without a directory are planned files under scripts/. Many have since been built, some under another name (the data gate is `scripts/check_library_data.py`), and some were never written; 'Gates and files' gives each one's status (#661). Line references are to `main` at `031b7de`.
 
 **How to review:** comment inline on this file in PR #519 (Files tab), or post typed comments on #519 (`[FINDING]`, `[QUESTION]`, `[VERDICT]`).
 
@@ -40,6 +40,7 @@ The Library becomes a native tab on codexmusica.com, as much a part of the site 
 - Colour: `--cm-route-library: var(--cm-green)` in src/theme.css:168-173 (defined in both themes; this is the Library's own #1e8e3e), plus a nav svg rule beside src/workbench.css:1245-1256.
 - At cutover:
   - delete `uiLibraryLink` (workbench.js:114-119) and its call (751);
+    - Status (#659): the cutover kept it for `CODEX_LIBRARY=0` builds only, still pointing at the old Site. It was deleted with the receiver below in the website-only follow-up to #811, along with its `.ui-nav-link` styles in workbench.css and `CMLibraryImport` in workbench.js's `/* global */`. No build links to another website now.
   - retarget the narrow-header rules (workbench.css:1300-1315, plus the `.ui-nav-link` selectors at 85,104,109,537,583,589,963,1215) to `button.cm-tab[data-view=library]`: icon-only at <=440px and 900-1099px, label kept in aria-label and title, target >=44px;
   - scripts/build_html.js:229 `PAGES += 'library'`.
 - Before cutover the entry exists only in two cases:
@@ -108,7 +109,7 @@ The Library becomes a native tab on codexmusica.com, as much a part of the site 
 - '← Works' calls `history.back()` when `history.state.libPrev` marks a Library list. Otherwise it pushes `#library/works` (the old previousLocation default).
 
 ### Recipe panel
-- `recipe:'sidebar'`: collapsed by default, sharing Lyrics' remembered preference (workbench.js:207-231). This keeps the one-workspace contract. New fault library-loses-recipe mirrors faults.js #37.
+- `recipe:'sidebar'`: collapsed by default, sharing Lyrics' remembered preference (workbench.js:207-231). This keeps the one-workspace contract. New fault library-loses-recipe mirrors faults.js #37. (Not built, #661: the only Library fault in `scripts/faults.js` is library-readable-regression.)
 - Below 900px it is the Recipe sheet, and `data-view='library'` joins the 60% phone-sheet rule (workbench.css:2350-2351).
 - While the deferred workspace boots, the panel shows a 'Loading your recipe…' `.cm-status` (`data-engine-pending='recipe'`) instead of card rows.
 
@@ -161,11 +162,12 @@ The Library becomes a native tab on codexmusica.com, as much a part of the site 
 - The Library never reads app.cards, compileRecipeStack, envCardOf, Engine, Catalog or chat state, and never derives declarations from a recipe.
 - The envelope from Library to Lyrics carries only Library text, the reader's own declarations and their provenance; it carries no recipe state.
 - `check_library_isolation.js` enforces this with a grep, plus an eslint no-restricted-globals rule over src/library/** and src/pages/library.js.
+  - Status (#661): the grep and the eslint rule were never built. Rule 1 is checked at run time by `scripts/check_library_rule1_isolation.js` (#733, in `test:app`). It watches app.cards, Engine, Catalog, chatState, the compiler entry points and recipe/chat storage on the exercised Library routes, with planted negative controls. That is evidence from those paths, not a proof. `scripts/check_library_shell.js` asserts that the handoff leaves the recipe empty.
 
 ### Gates that run outside the lazy build
 - The Library sections of `ui_reachability_check`, `check_workbench` and `check_mobile_layout` run against the **flagged lazy build**. `_pages_server.js` serves it with the fixture `library/data` tree and a local mcp server built on a fixture snapshot.
 - jsdom gets shims for DecompressionStream, IndexedDB and `crypto.subtle`, or those tests run in Playwright instead.
-- The feature matrix names the build each test runs in: lazy-flagged, embedded, Render (server tests) or production preview. `check_library_page` fails if a cited test id does not exist.
+- The feature matrix names the build each test runs in: lazy-flagged, embedded, Render (server tests) or production preview. `scripts/check_prototype_manifest.js` fails if a library ledger row's gate is not named in its matrix row or is absent from the repo (#661; `check_library_page` has no such check).
 
 ## Data plane
 
@@ -180,14 +182,14 @@ The Library becomes a native tab on codexmusica.com, as much a part of the site 
 ### Static builder
 New `build_library_data.py` calls a new lyric-harness/library/catalog_static_export.py, which runs four steps.
 1. `library.catalog build` into lyric-harness/library/snapshot (gitignored, .gitignore:54), with --repo-sha read from library/catalog_sources.json.
-   - This is the layout library-site.yml uses.
+   - This is the layout library-site.yml used (removed from the repo on 2026-11-05, #659); library-parity.yml's pinned 317c rebuild uses the same layout.
    - It fixes the verified label pitfall: pack_export reads `canonical_source.parent.parent/data/lyric_label_prefixes.json` and silently attaches {} otherwise (catalog_site_export.py:175-179). The 317c export measured in an earlier session had label_registry_sha256 None and no references.
 2. The unchanged verified exporter, run in order: export_snapshot, then pack_export, then attach_references(reference_dir=lyric-harness/library), then verify_export.
    - The builder asserts `derived_metadata.label_registry_sha256 == sha256(lyric-harness/data/lyric_label_prefixes.json)` and that the source_records and label_prefixes references are attached. This activates verify_export's held-body and held-label refusals (379-380) and its label identity check (319).
 3. Projection from the verified packs, not from the canonical files. Pack summaries are compact_summary + source_basis (line 249), and rows carry source_labels. The static data therefore equals what the approved Worker served.
 4. Deterministic output: canonical sorted JSON, gzip -9, mtime 0.
 
-The builder sits outside the three traced builders, so lyric-harness stays inert for check_build_closure (_build_closure.js:74-85). It has its own gate, `check_library_data`.
+The builder sits outside the three traced builders, so lyric-harness stays inert for check_build_closure (_build_closure.js:74-85). It has its own gate, `scripts/check_library_data.py`, which `scripts/build_library_data.py --check` runs in .github/workflows/library-data.yml.
 
 ### Layout: `library/data/`
 Sizes are measured on 317c by scratchpad r1design/measure_e.py and measure_f.py, plus an earlier collection and unit-shard measurement. PR 2 re-measures every figure after the review changes below and re-sets the budgets from the measurement.
@@ -255,7 +257,7 @@ Sizes are measured on 317c by scratchpad r1design/measure_e.py and measure_f.py,
 10. **methods.json** (copy of lyric-harness/library/methods.json, 278,001 B; registry_hash gated) and reader-result.schema.json. declaration-options.json is bundled into the analysis chunk.
 11. **Art renditions** in assets/library/art/<id>-{240,480}.{avif,webp}.
     - Derived by a new `build_library_art.js` using sharp (already a devDependency), byte-checked with --check, at most 25,600 B per file.
-    - The originals move from sites/library/public/art to assets/library/art-src. Measured: 1,734,318 B of originals become about 127 KB of WebP at 272px.
+    - The originals move from sites/library/public/art to assets/library/art-src (done 2026-11-05, #659, when sites/library was removed from the repo). Measured: 1,734,318 B of originals become about 127 KB of WebP at 272px.
 
 ### Where a reading's path key comes from
 - List rows (`w/`, `c/`), `u/` shards, search results and the tab's own links carry the `rev16-proj12` path key, and the head preload uses it directly.
@@ -280,6 +282,7 @@ Sizes are measured on 317c by scratchpad r1design/measure_e.py and measure_f.py,
 - The provenance download and the Lyrics envelope use `projected_from`. This keeps provenance working through Render outages.
 - A saved path may still open a retained revision. The reader binds its snapshot label to the current `u/` shard and catalog's matching `data_id`, and checks the full reading revision if the current path differs. A retained projection of the same revision remains exportable. If the revision differs or the binding cannot be verified, the saved text and source details stay readable, the snapshot is labelled unverified, and provenance download and Lyrics handoff refuse without inventing an origin or switching the reading.
 - The nightly `library-data` job regenerates catalog.json only when content changes. So `projected_from` can lag main's label, and that lag is documented.
+  - Status (#661): there is no nightly run and the job regenerates nothing. `.github/workflows/library-data.yml` runs on path-filtered pull requests and manual dispatch, and `scripts/build_library_data.py --check` fails when the committed `library/data` is stale; catalog.json's `projected_from` label is excepted from that comparison, so the lag remains.
 
 ### Totals and fetch rules
 - **Totals:** about 68 MB gz and about 28.9k files before the row-text additions (about +4 MB gz) and before retained generations, which add whatever changed in the last 30 days. The served tree goes from 713.3 MB to roughly 786 MB, under the 1 GB Pages limit. Gated by check_pages_size at <=950 MB and no file >=100 MB.
@@ -332,7 +335,7 @@ Pages publishes at merge (sync-pages on CI success). Render promotes after Produ
 - Analysis create for a newer static revision gets `409 STALE_READING {current_revision}`. The UI says the analysis server updates within a day and offers 'Notify me by retrying later'.
 - A search hit whose revision differs from the displayed revision lands by line_id, without span marks, and says so.
 - An export plan containing an id not yet on Render gets `409 SELECTION_UNAVAILABLE` naming those ids.
-- smoke_library_live reports the per-id skew count after each publish and promotion, and alerts if it is non-zero for more than 48 h.
+- smoke_library_live reports the per-id skew count after each publish and promotion, and alerts if it is non-zero for more than 48 h. (Not built, #661; see 'Where they run'.)
 
 ### Data-plane gates
 - `check_library_data` asserts that every file's embedded identity equals its path.
@@ -430,6 +433,7 @@ Without this split, removing the bridge secrets would silently disable public an
   - 7 viewers behind one IP, each running 2: the 7th is refused, as decision 4 states;
   - boundary users exactly at each limit and one over;
   - FIFO retry fairness under a held cap.
+- Status (#661): mcp/test_library_routes.mjs was never written. These are in `mcp/test_library_viewer_routes.mjs`: two outstanding per viewer, 3 viewers × 2 behind one address succeed and the 7th is refused, creates at 30/h per viewer and 120/h per address, controls at 120/h, and a resume admitted like a create. FIFO retry fairness under a held cap has no test.
 
 ### Quotas
 - Unchanged, and shared with reader-v1: 16 waiting, 1 running, 600 s leases, yields to lyric work, 30-day sliding retention, zero provider calls enforced in four layers.
@@ -586,7 +590,7 @@ PRIVACY.md and mcp/PRIVACY.md gain the cookie, its 30-day sliding life, the per-
 
 ### One server ZIP writer
 mcp/library_exports.js holds two parts:
-- mcp/library_zip.js: zip-stream.ts ported verbatim. STORED ZIP64 with data descriptors, flags 0x808, fixed 1980-01-01 DOS time, deterministic entry order, CRCs from Node 22 zlib.crc32.
+- The ZIP writer, ported from zip-stream.ts verbatim into mcp/library_exports.js (no separate library_zip.js was made): STORED ZIP64 with data descriptors, flags 0x808, fixed 1980-01-01 DOS time, deterministic entry order, CRCs from Node 22 zlib.crc32.
 - Ports of bodyPart, csvLines (CSV_FIELDS), provenance and credits from library-exports.ts:125-305.
 
 It reads canonical readings and wholly readable originals from the installed snapshot, entry sizes and CRCs from the search store's precomputed tables, and evidence from the reader store. There are no D1 leases, no R2 chunks, no step loop and no stored export records.
@@ -715,10 +719,10 @@ Change from the Worker, stated openly and disclosed in the release notes: there 
 - The Rights page states that Gutenberg admission is a USA public-domain statement.
 
 ### Determinism gates
-- PR 0 captures goldens by running the Worker's own TypeScript (library-exports.ts, zip-stream.ts) against the pinned 317c fixture: ZIP sha256 for fixed selections in all three formats, one analysis export, and the Worker's own provenance download bytes for a golden sample. The analysis-export golden needs a live reader job: library-site.yml runs the image's reader backend for one short poem (22-26 s of CPU).
+- PR 0 captures goldens by running the Worker's own TypeScript (library-exports.ts, zip-stream.ts) against the pinned 317c fixture: ZIP sha256 for fixed selections in all three formats, one analysis export, and the Worker's own provenance download bytes for a golden sample. The analysis-export golden needs a live reader job: library-site.yml (removed from the repo on 2026-11-05, #659) runs the image's reader backend for one short poem (22-26 s of CPU).
 - mcp/test_library_exports.mjs requires byte equality with the selection goldens, and an identical sha256 for the same plan made twice.
 - **The analysis-export golden is entry-level parity.** Every entry is byte-equal except `REQUEST.json`, which is compared field by field on reading_unit_id, reading_revision, declaration_set, requested_layers, requested_methods and snapshot_id.
-- **Provenance download:** byte-equal to the Worker's own provenance download bytes, including its enrichments (source_basis, labels, notices), for the golden sample, and byte-equal to a canonical rebuild with `snapshot_id = projected_from.snapshot_id` for every readable unit, in `check_library_data`.
+- **Provenance download:** byte-equal to the Worker's own provenance download bytes, including its enrichments (source_basis, labels, notices), for the golden sample, and byte-equal to a canonical rebuild with `snapshot_id = projected_from.snapshot_id` for every readable unit, in `check_library_data`. Status (#661): not built; `scripts/check_library_data.py` does not compare provenance downloads.
 - Corpus sha256 must equal package-manifest.json in qualify_reader.
 
 ## Lyrics handoff
@@ -750,11 +754,13 @@ The handoff stays in the same document and carries text only, through the receiv
 - The envelope carries only Library text and the reader's own declarations.
 - The handoff changes no recipe state, and Lyrics sends nothing back to the Library. Lyrics' own session handling (history, autosave) may read the workspace after the import, as it does after any import.
 - Enforced by `check_library_isolation.js` (no recipe identifiers in src/library/** or src/pages/library.js) and `test_library_import_inpage.js`. That test covers: round trip, digest, the five ids, rights and notices carried through 'Export source details', the previous draft preserved, an excerpt carrying only its lineage, Back returning to the reader, and the transfer cap.
+  - Status (#661): neither file was written. Rule 1 is checked at run time by `scripts/check_library_rule1_isolation.js` (#733, in `test:app`). The handoff is covered by `scripts/test_library_import.js` (the envelope digest over identity, text and notices; refusals; the atomic commit that keeps the previous draft) and `scripts/test_library_import_shipped.js` (the in-page `uiOpenInLyrics` handoff in the shipped app). The list above has not been matched item by item against those tests.
 
 ### Legacy receiver
 - SITE_ORIGIN, originAllowed, TYPES, HANDSHAKE_MS and createReceiver's opener path stay through cutover (PR 6), so the old Site's 'Open in Lyrics' keeps working until the move page replaces it.
 - PR 6c deletes them, and their tests in scripts/test_library_import*.js, immediately after John confirms the move page is live, or 7 days after cutover if it is not deployed. `TRANSFER_BYTES` stays, because the in-page handoff keeps the cap. Old-Site users then still have the bundle-download fallback.
 - That returns about 1.5-2 KB gz to the page, and `check_library_isolation` then asserts that no 'chatgpt' string remains in codex.html or library/code.
+- Status (#659): done in the website-only follow-up to #811, after John decided the old Site goes and the website never links to a chatgpt.site address. SITE_ORIGIN, originAllowed, TYPES, HANDSHAKE_MS, the URL-param/opener/sessionStorage path, `receive`/`stop`, the handshake bookkeeping in prepareCommit and commitImport, and lyrics.js's `devOrigin`/`onError`/nonce toast are gone. createReceiver keeps importEnvelope, its serial queue and `start()` (recovery only). The IndexedDB schema still creates the unused 'handshakes' store, so version 1 is the same for old and new databases. `test_library_import_inpage.js` and `check_library_isolation.js` were never written: the no-'chatgpt.site' guard is a test in `scripts/test_library_import.js` that scans every file git tracks, because GitHub Pages serves all of main (it matches an address, a host label before the domain, and exempts sites/library/ until #811 deletes it), and the in-page path is covered by the rewritten `test_library_import.js`, `test_library_import_browser.js` and `test_library_import_shipped.js`.
 - Bundles downloaded earlier still import through the file path, which has no origin check.
 - Existing Lyrics drafts with snapshotId 5226 are unaffected: Lyrics reads only provenance.workingCopy, and every 5226 id and revision is unchanged in 317c.
 
@@ -922,6 +928,8 @@ The margin `m` is John's to set (decision 5). Recommended: 0.45, which is <= 0.5
 
 **Records.** The old-Site fixtures, the modelled-delay table, the calibration runs and the current-route baselines are recorded in PR 0 (tests/perf/library-baseline.json: date, commit, runner, raw runs). After cutover the same harness runs against https://codexmusica.com, plus PageSpeed Insights n=5, archived in docs/library-performance.md.
 
+Status (#659): when the old Site was removed, the four old-Site `target` addresses in tests/perf/library-baseline.json became plain labels (`old Library Site /` and `old Library Site /read/…`), because GitHub Pages serves every file on main. The two files that timed the old Site, tests/perf/library-baseline-config.json and .github/workflows/library-perf-baseline.yml, were deleted then; the recorded numbers stay.
+
 ## Migration and retirement
 
 ### Existing private analysis jobs
@@ -998,15 +1006,17 @@ codexmusica.com never links to chatgpt.site after cutover.
 - The 5226 manifest and goldens stay as permanent fixtures.
 
 ### library-site.yml
+- Status 2026-11-05 (#659): library-site.yml and sites/library were removed from the repo; their last tree is at 92c9b318. The native parity replays of its library-goldens job (the 317c rebuild, the export with labels asserted, the search/metadata and selection-export replays) moved to library-parity.yml, job id unchanged. The Worker's own recapture and its census, export, isolation and package tests went with the Worker. Nothing recaptures the goldens now: library-parity.yml checks each one against the sha256 that tests/library/goldens/317c/capture.json records, and readings.jsonl.gz, which no native replay reads, is checked only that way. mcp/test_library_routes.mjs, named below, was never written.
 - PR 0 extends it to dump the Worker goldens, including one live reader job for the analysis-export golden.
 - PR 6b retargets it to the move page: typecheck, plus a test that the page maps every route and writes no capability.
 - PR 7 deletes it together with sites/library.
-- Its census, viewer-isolation and held-refusal coverage moves to mcp/test_library_routes.mjs and `check_library_data`.
+- Its census, viewer-isolation and held-refusal coverage was to move to mcp/test_library_routes.mjs and `check_library_data`. Status (#659/#661): mcp/test_library_routes.mjs was never written. Viewer isolation and held refusals are asserted in `mcp/test_library_viewer_routes.mjs` (another viewer's job, or no cookie, is 404; analysing a held reading is 403 READING_UNAVAILABLE) and `mcp/test_library_search.mjs` (held units get an empty snippet and no hit). `scripts/check_library_data.py` checks the readable set against the canonical index.
 
 ### SITE_ORIGIN receiver
 - Kept through cutover.
 - Deleted in PR 6c once the move page is confirmed live, or 7 days after cutover, together with its tests.
 - File-bundle import remains.
+- Status (#659): deleted without a move page, in the website-only follow-up to #811 (see Legacy receiver). Its tests were rewritten onto the in-page path.
 
 ### Bridge
 - After the move page ships: the `/internal/reader` router, reader_protocol.js, the raw-body capture for `/internal/reader`, and READER_BRIDGE_SECRET and READER_SITE_ID in the Render dashboard are removed in PR 7.
@@ -1076,38 +1086,41 @@ qualify_reader asserts the same total from Render's search store and the corpus 
 - Every static file references only readable ids, and no held or research id has any r/, c/, w/ or u/ presence, in the current generation or any retained one.
 - No original source is served statically.
 - Every r/ head carries required_attribution and notice refs whose shas exist and match.
-- **Label census:** the export's derived_metadata.label_registry_sha256 equals sha256(lyric-harness/data/lyric_label_prefixes.json) (348 declarations across 30 files), and the count of readable units with non-empty source_labels equals the figure pinned in tests/library/data-manifest.json. A build at the wrong path yields zero labels and fails.
-- **Row-content parity:** the static w/ and c/ rows equal a Python `sqlite3` run of the Worker's exact SQL over the same summaries, in order and in content: title, snippet, contributor_search, edition8, work8, completeness and availability.
-- **Summary parity:** the search store's 36,880 summaries equal pack_export's compact_summary + source_basis.
+- **Label census:** the export's derived_metadata.label_registry_sha256 equals sha256(lyric-harness/data/lyric_label_prefixes.json) (348 declarations across 30 files), and the count of readable units with non-empty source_labels equals the figure pinned in tests/library/data-manifest.json (never written, #661). A build at the wrong path yields zero labels and fails. Status (#661): the registry-hash and reference assertions are in `scripts/build_library_data.py`; the pinned count and tests/library/data-manifest.json were never added.
+- **Row-content parity:** the static w/ and c/ rows equal a Python `sqlite3` run of the Worker's exact SQL over the same summaries, in order and in content: title, snippet, contributor_search, edition8, work8, completeness and availability. Status (#661): not built; no gate runs the Worker SQL under `sqlite3`.
+- **Summary parity:** the search store's 36,880 summaries equal pack_export's compact_summary + source_basis. Status (#661): not built as a whole-store check. The nearest coverage is library-parity.yml, where `mcp/test_library_search_parity.mjs` replays every search and metadata golden on the pinned 317c, not all 36,880 summaries.
 - mcp/test_library_routes.mjs asserts:
   - held units get empty snippets and no search_hit;
   - held metadata has no body and no labels;
   - export and analysis refuse non-readable units (409 and 403);
   - SOURCES/ appears only for wholly readable sources.
-- Fault classes prove each gate fires: library-readable-regression (drop one 5226 id), library-held-body-served, library-count-drift, library-labels-missing, library-capability-leak.
+- These were planned for mcp/test_library_routes.mjs, which was never written (#661). As built: held units get an empty snippet and no search_hit (`mcp/test_library_search.mjs`); analysis of a held reading is 403 (`mcp/test_library_viewer_routes.mjs`); an export plan naming an unadmitted id is 409 SELECTION_UNAVAILABLE (`mcp/test_library_exports.mjs`); the ZIP layout writes one SOURCES/ entry per source (`mcp/test_library_exports.mjs`). Held metadata without body or labels has no named test.
+- Fault classes prove each gate fires: library-readable-regression (drop one 5226 id), library-held-body-served, library-count-drift, library-labels-missing, library-capability-leak. Status (#661): only library-readable-regression was built (scripts/faults.js, fault 39); the other four were not.
 
 ### Where they run
-1. **verify job**, every PR (cheap, over committed files): `check_library_regression --committed`, `check_library_data --committed`, `check_library_isolation`.
-2. **library-data job** (new; always reports, so it can be a required check):
-   - Exits early unless catalog inputs, the builders, library/data/** or tests/library/** changed. Also runs nightly.
+1. **verify job**, every PR (cheap, over committed files): `npm run check:library-regression` (committed mode; .github/workflows/ci.yml) and `scripts/check_pages_size.js`. Status (#661): both run in ci.yml's `gate` job, not `verify`. `check_library_data --committed` and `check_library_isolation` were not built; Rule 1 runs in `test:app` as `scripts/check_library_rule1_isolation.js`.
+2. **library-data job** (new; always reports, so it can be a required check): As built (#661): .github/workflows/library-data.yml, on path-filtered pull requests and on manual dispatch; no nightly run, and it reports only when its paths change, so it is not a required check (docs/branch-protection.md does not list it).
+   - Exits early unless catalog inputs, the builders, library/data/** or tests/library/** changed. Also runs nightly. (As built, #661: there is no early exit and no nightly run; the workflow's `paths` filter covers catalog inputs, the builders, library/data/** and assets/library/**, not tests/library/**.)
    - Catalog inputs: lyric-harness/corpus/**, data/{sources.tsv, authority.tsv, library_identity_registry.json*, calibration_work_editions.json, lyric_label_prefixes.json}, library/**, quality/{provenance.py, lyric_reader.py, populate_authority.py}, lyric_harness.py.
    - Rebuilds the snapshot (205 s), the export (339 s) and the projection; compares decompressed content with projected_from excluded; revalidates retained generations against current eligibility; reruns every gate on the fresh output. About 12-13 min and 0.7 GB RAM.
 3. **library-parity job** (path-filtered on mcp/library_* and lyric-harness/library/search_store.py; nightly):
-   - Sparse-checks out commit 031b7de's catalog inputs, as library-site.yml does with ceab2d61, rebuilding the pinned 317c exactly.
+   - Sparse-checks out commit 031b7de's catalog inputs, as library-site.yml did with ceab2d61 (removed from the repo on 2026-11-05, #659), rebuilding the pinned 317c exactly.
    - Runs the Node routes against the Worker goldens: at least 300 search queries (RTL, CJK, astral, ß, whitespace, 500-char cap, filters, offsets), readingPage samples including a header reading, hit projections, and ZIP sha256s.
+   - As built (2026-11-05, #659): .github/workflows/library-parity.yml, job id library-goldens. It is path-filtered on the goldens, search_store.py, mcp/library_search.js, mcp/library_casefold.json, mcp/library_exports.js, the two parity tests and itself, not on mcp/library_*. It has no nightly run. It replays the search, metadata and selection-export goldens only; no native readingPage replay was written, and the reading-page golden was only ever checked by the Worker's recapture, which went with the Worker.
 4. **lyrics-image job:** qualify_reader asserts per-id readable ⊇ baselines, the static/Render agreement, search totals, corpus --verify-existing, viewer isolation, memory, and the `store-load` and concurrent-heavy-request scenarios.
 5. **Post-publish smoke** (`smoke_library_live.js` after sync-pages and after deploy-connector):
    - live catalog.json census;
    - 50 random current r/ directories against the manifest;
    - Render `/library/v1/health` counts;
    - the per-id skew count.
+   - Status (#661): not built. No workflow runs a post-publish Library smoke, and a live smoke needs its own issue.
 
 ### CI and readiness
 Library qualification failures block image promotion in CI, but production `/ready` does not depend on the Library (no LIBRARY_REQUIRED). READER_REQUIRED=1 is pinned at cutover.
 
 ## Feature matrix
 
-Each row names an executable test in a build that can reach its data. "Lazy-flagged" is the `CODEX_LIBRARY=1` lazy build served by `_pages_server` with the fixture data tree and a local mcp server; "Render" is the server test suite or qualify_reader; "preview" is the production preview or the live comparison. Rate limits cited here are the proposed values in decision 4.
+Each row names an executable test in a build that can reach its data. "Lazy-flagged" is the `CODEX_LIBRARY=1` lazy build served by `_pages_server` with the fixture data tree and a local mcp server (as built, #661: `check_library_page.js` serves the committed `library/data/` and stubs every `/library/v1` route in the browser; no fixture tree or local mcp server was built); "Render" is the server test suite or qualify_reader; "preview" is the production preview or the live comparison. Rate limits cited here are the proposed values in decision 4.
 
 | # | Feature | Old behaviour | Native route | Data source | Test | Build |
 |---|---|---|---|---|---|---|
@@ -1124,7 +1137,7 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 | 11 | Filters sheet | Language, Availability (readable default/all/held/metadata_only/research_only/rejected), Completeness, Contributor, Sort; live apply; Clear resets all | #library/works?language=&availability=&completeness=&contributor=&sort= (.cm-panel sheet) | default view static w/title/*; language options from catalog.json's full recorded-language list; any non-default filter goes to Render search | `mcp/test_library_search.mjs` (sort, equality/all filters, collection membership, ASCII-only contributor lower and whitespace); `scripts/check_library_page.js` works scenario (unknown filter values dropped, sheet opens, Escape closes). Partial: full language-option parity and Clear resetting all filters are not asserted here. | Render; lazy-flagged |
 | 12 | Works pagination | 50 rows, Previous/Next, 'a–b of total', offset in URL | #library/works?offset=n and #library/collections/<id>?offset=n | static 100-row w/ files and 250-row c/ pages sliced client-side; Render next_offset for searches | check_library_page section pagination (Next pushes, Back restores offset and scroll); check_library_data row-content parity vs Worker SQL | lazy-flagged |
 | 13 | Works table, selection toggle, Select collection | Columns work/contributor/language/scope with snippet and contributor text; toggle disabled unless readable; readable row opens reader, other row opens metadata sheet; 'Select collection' | #library/works, #library/collections/<id> | w/ and c/ rows with snippet and contributor_search (static) or Render items; c/ head readable_ids; IndexedDB export-selection | check_library_page section works-table (snippet and contributor text shown as before; row routing by availability, held toggle disabled, Select collection adds every readable id); check_library_data row-content parity | lazy-flagged |
-| 14 | Metadata sheet for held units | Right sheet: availability badge + Value tree of source_path, availability_reason, source_basis, work_reviewed_equivalence | #library/works?availability=held\|all (.cm-panel); deep link to a held or demoted unit | Render search items / GET /library/v1/metadata/:id (compact_summary + source_basis + reading_revision, built from the full snapshot at image time); never static | check_library_data summary parity (store == pack_export summaries for 36,880 units); test_library_routes held-metadata-only (no body, snippet, search_hit or labels); check_library_page section held-sheet (deep link to a held unit shows the 'not readable' notice) | Render; lazy-flagged |
+| 14 | Metadata sheet for held units | Right sheet: availability badge + Value tree of source_path, availability_reason, source_basis, work_reviewed_equivalence | #library/works?availability=held\|all (.cm-panel); deep link to a held or demoted unit | Render search items / GET /library/v1/metadata/:id (compact_summary + source_basis + reading_revision, built from the full snapshot at image time); never static | summary parity was not built (#661); held metadata without body, snippet, search_hit or labels has no named test (test_library_routes was never written; `mcp/test_library_search.mjs` asserts the empty snippet and no hit); the deep link to a held unit has no named test (check_library_page has no held-sheet section, #661; its `works` section checks that a held-only collection says 'Nothing here is readable') | Render; lazy-flagged |
 | 15 | Sources & rights: catalog census | 9 manifest counts, metadata-only note, 'Inspect all recorded availability' | #library/rights | catalog.json census; button runs Render search availability=all | check_library_page section census (36,880 units, 25,525 readable, 11,354 held, 1 research-only); count gate | lazy-flagged |
 | 16 | Sources & rights: artwork credits | Credits, sources and notes for 8 artworks | #library/rights (+ card ⋮ and lightbox) | library/data/artwork.json, fetched only on these surfaces, never on the shelves path | check_library_page section credits (8 credits identical to artwork.json; no artwork.json request before shelves-ready); build_library_art --check | lazy-flagged |
 | 17 | Sources & rights: method reference | Collapsible list with client filter over name/definition/capabilities; MethodDetail | #library/rights (.cm-accordion) | static library/data/methods.json (registry_hash gated) + analysis chunk | check_library_page section method-reference (223 methods; filter equals old predicate); check_library_data methods hash | lazy-flagged |
@@ -1143,11 +1156,11 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 | 30 | Lens: Language | language_result tree | ?lens=language | Render evidence (fresh authorization) | check_library_page section lens-language | lazy-flagged |
 | 31 | Lens: Sources | Work/edition/contributors/metadata, rights + source_basis, required credits, engine identity, source labels, snapshot/revision/SHA256 | ?lens=sources | r/ head (source_labels, source_basis) + rights/meta shards + notices; 'Readings: snapshot X' from projected_from, 'Analysed on snapshot Y' from Render; revision equality via GET /library/v1/metadata/:id | check_library_page section lens-sources (Hafez MIT notice, Gutenberg terms, DCS credit, labels present on a labelled song; X ≠ Y explanation only after the metadata revision check); label census gate | lazy-flagged |
 | 32 | Analysis jobs: create | POST /api/library/analyses relayed by the Worker over the HMAC bridge; per-viewer idempotency | 'Analyze entire work' / per-method buttons | Render POST /library/v1/analyses (cookie viewer, server-filled snapshot, request sidecar, retained definitions) | `mcp/test_library_viewer_routes.mjs` (create/retry status, cookie/capability-body rules, request/stale/held refusals, viewer/IP/create/long-reading limits and races); `mcp/test_reader_job_store.mjs` (create conflict and queue bounds); `mcp/test_reader_store_bounds.mjs` (unknown usage refuses create). Partial: conflict, queue and recount assertions are partly store-level, not complete HTTP refusal-envelope coverage. | Render; lazy-flagged |
-| 33 | Analysis jobs: poll | GET jobs/{id} every 3 s while queued/running/deferred_requeue | inspector status | Render GET /library/v1/jobs/:id; 600/min per IP ceiling | `mcp/test_library_viewer_routes.mjs` (other/no viewer 404, GET never mints, 600/min read ceiling and recovery). Partial: client polling intervals, backoff, terminal stop and hidden/visible behavior are not asserted by this suite. | Render; lazy-flagged |
+| 33 | Analysis jobs: poll | GET jobs/{id} every 3 s while queued/running/deferred_requeue | inspector status | Render GET /library/v1/jobs/:id; 600/min per IP ceiling | `mcp/test_library_viewer_routes.mjs` (other/no viewer 404, GET never mints, 600/min read ceiling and recovery); `scripts/check_library_poll_schedule.js` (#736, in `test:app` since #783: `src/library/analysis.js` source in jsdom, not the shipped library/code chunk, under a fake clock and transport; 3 s polls through 120 s then 15 s, terminal states stop, deferred requeue keeps polling, a hidden tab pauses and a return after more than 60 s re-authorizes at once, bounded 503/429 retries honouring Retry-After, Check again). Partial: the schedule check runs in jsdom against a fake transport, not a browser against Render. | Render; lazy-flagged |
 | 34 | Analysis jobs: cancel | POST jobs/{id}/cancel with idempotency-key | Cancel button | Render POST /library/v1/jobs/:id/cancel; 120/h per viewer | `mcp/test_library_viewer_routes.mjs` (cancel key requirement, 200/cancelled and control limits); `mcp/test_reader_job_store.mjs` (cancel checkpoint fencing and durable control replay). Partial: repeated-cancel exact HTTP response and browser Cancel interaction are not asserted by these suites. | Render; lazy-flagged |
-| 35 | Analysis jobs: resume | POST jobs/{id}/resume from paused/cancelled/failed | Resume button | Render POST /library/v1/jobs/:id/resume; 120/h per viewer | `mcp/test_library_viewer_routes.mjs` (resume status and create-equivalent address/long-reading admission); `mcp/test_reader_job_store.mjs` (restart, resume identity and fencing). Partial: changed-identity refusal is store-level; its HTTP refusal and older-snapshot re-run UI are not asserted here. | Render |
-| 36 | Analysis jobs: delete | DELETE jobs/{id}, tombstone, related exports removed | Delete analysis | Render DELETE /library/v1/jobs/:id (request sidecar deleted with the job); 120/h per viewer | `mcp/test_library_viewer_routes.mjs` (DELETE 200, subsequent GET 410); `mcp/test_reader_job_store.mjs` (retention, repeat deletion and no redispatch). Partial: repeated-DELETE exact HTTP body and private-cache eviction are not asserted by these suites. | Render; lazy-flagged |
-| 37 | Evidence pages | manifest + results pages via verifiedPull with R2 cache; hydrateEvidence; EvidenceCard; Locate N lines | lenses 'Load more evidence · page n' | Render manifests/:sha, manifests/:sha/pages, pages/:sha (private, no-store; gzip-at-rest bytes served with Content-Encoding: gzip after phase B); client sha256 against the manifest named by a fresh job read; per-tab in-memory cache only | `mcp/test_library_viewer_routes.mjs` (private manifest/page reads, hashes, bounds and viewer isolation); `mcp/test_reader_job_store.mjs` (modified immutable bytes refuse); `mcp/test_reader_store_bounds.mjs` (plain/gzip, bombs and hash mismatches). Partial: corruption is asserted at store level, not the complete HTTP refusal envelope; browser tampered-response/private-cache acceptance is not established by these assertions. | Render; lazy-flagged |
+| 35 | Analysis jobs: resume | POST jobs/{id}/resume from paused/cancelled/failed | Resume button | Render POST /library/v1/jobs/:id/resume; 120/h per viewer | `mcp/test_library_viewer_routes.mjs` (resume status and create-equivalent address/long-reading admission; a changed engine identity is refused over HTTP with 409 STALE_READING and no dispatch, #754); `mcp/test_reader_job_store.mjs` (restart, resume identity and fencing); `scripts/check_library_page.js` retry section (#726: a job paused STALE_READING offers no Resume and says in a sentence to start a new whole-work analysis; an ordinary pause still offers Resume). Partial: the page check routes a paused job response; it does not start the replacement analysis. | Render |
+| 36 | Analysis jobs: delete | DELETE jobs/{id}, tombstone, related exports removed | Delete analysis | Render DELETE /library/v1/jobs/:id (request sidecar deleted with the job); 120/h per viewer | `mcp/test_library_viewer_routes.mjs` (DELETE 200, subsequent GET 410; a repeated DELETE returns the same exact body and the tombstone read is 410 RESULT_EXPIRED, #754); `mcp/test_reader_job_store.mjs` (retention, repeat deletion and no redispatch); `scripts/check_library_private_cache.js` (#753: in Chromium, after Delete and after a 404 or 410 job read, the per-tab manifest, evidence pages, cursor and offset are dropped and leave the panel, saved declarations are unchanged and no other storage key is written). Partial: the private-cache check runs wrapped source files, not the shipped library/code chunks, and does not inspect HTTP cache policy or browser disk. | Render; lazy-flagged |
+| 37 | Evidence pages | manifest + results pages via verifiedPull with R2 cache; hydrateEvidence; EvidenceCard; Locate N lines | lenses 'Load more evidence · page n' | Render manifests/:sha, manifests/:sha/pages, pages/:sha (private, no-store; gzip-at-rest bytes served with Content-Encoding: gzip after phase B); client sha256 against the manifest named by a fresh job read; per-tab in-memory cache only | `mcp/test_library_viewer_routes.mjs` (private manifest/page reads, hashes, bounds and viewer isolation; a corrupted page is a 503 STORAGE_CORRUPT JSON refusal with private, no-store, #754); `mcp/test_reader_job_store.mjs` (modified immutable bytes refuse); `mcp/test_reader_store_bounds.mjs` (plain/gzip, bombs and hash mismatches); `scripts/check_library_private_cache.js` (#753: evidence stays in the per-tab memory cache and is never written to device storage); `scripts/check_library_poll_schedule.js` (a page that fails its hash shows its own alert, apart from the job-read retries). Partial: the hash-failure case runs in jsdom with a fake transport; no browser check is fed a tampered evidence response over HTTP. | Render; lazy-flagged |
 | 38 | Earlier analyses | job ids in interpretation:{snapshot}:{id}:{revision} | Summary lens list | IndexedDB interpretation:{id}:{revision} + Render GET jobs/:id (fresh 200 on every activation) | check_library_page section earlier-analyses (404 reads 'earlier browser session' with re-run offer; Back/Forward after cookie loss renders nothing from memory) | lazy-flagged |
 | 39 | Latest evidence checkpoint | 'Load latest evidence checkpoint' when a newer manifest exists | inspector status | Render job.manifest_hash vs displayed hash | check_library_page section latest-checkpoint (fixture advances manifest_hash) | lazy-flagged |
 | 40 | Declarations editor | 482-line client editor; Apply saves to device and prompts re-run; Advanced JSON; Download | Annotate / 'Reading interpretations' in inspector | analysis chunk (+ declaration-options.json bundled); IndexedDB; import of old reading-declarations.json | check_library_page section declarations (scripted output equals old editor goldens; Apply sets declaration_set in POST; invalid JSON refused; Site file imports) | lazy-flagged |
@@ -1163,12 +1176,12 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 | 50 | Whole-corpus export: text | Prebuilt 63.6 MB (5226) in 8 R2 parts via an 'all' export | #library/rights 'Export readable corpus' (Text) | Render GET /library/v1/corpus/<package_sha16>/text.zip (73,439,381 B on 317c, Range, X-Library-SHA256); 6 GET starts at byte 0 per IP per day (including Range: bytes=0-), 2 concurrent globally | `mcp/test_library_corpus.mjs` (verified bytes/hash, immutable cache/ETag, old-URL refusal, ranges/If-Range/416, daily-start and concurrency limits, recovery). These are fixture HTTP assertions, not a live production smoke receipt. | Render |
 | 51 | Whole-corpus export: json | Prebuilt 305 MB (5226) in 37 parts | same panel (JSON) | Render /library/v1/corpus/<package_sha16>/json.zip (363,604,074 B on 317c) | qualify_reader sha256; no SOURCES entry for a withheld whole source | Render |
 | 52 | Whole-corpus export: csv | Prebuilt 117.5 MB (5226) in 15 parts | same panel (CSV) | Render /library/v1/corpus/<package_sha16>/csv.zip (140,958,923 B on 317c) | qualify_reader sha256; header equals CSV_FIELDS | Render |
-| 53 | Open in Lyrics (whole reading) | window.open + postMessage handshake to codex.html?cm_library_origin&nonce#lyrics; 8 MiB cap; bundle fallback | reader 'Open in Lyrics' to uiOpenInLyrics to push #lyrics (same tab, decision 10) | static r/ (every page, hash-verified) + shards + notices; Lyrics imports.library to lyLibraryReceiver.importEnvelope; 8 MiB TRANSFER_BYTES cap kept | `scripts/check_library_shell.js` (real in-page import, digest-tamper refusal, valid text, empty recipe stays empty; Back returns to Works, not the reading); `scripts/test_library_import.js` (atomic previous-draft/provenance preservation); `scripts/test_library_import_shipped.js` (previous draft/recipe/provenance via legacy window transport). Partial: all five reader-produced IDs plus rights/notices through the distinct source-details action, Back-to-reading, the over-cap in-page offer and Library read isolation remain unasserted by these suites. | lazy-flagged |
-| 54 | Open excerpt in Lyrics | Excerpt scope, lineage filtered, declarations [] | passage bar to #lyrics | in-page envelope | `scripts/check_library_page.js` reader scenario clicks the real excerpt action and checks selected-line substring inclusion. Partial: exact excerpt text, selected lineage and empty declarations remain unasserted. | lazy-flagged |
+| 53 | Open in Lyrics (whole reading) | Old Site: window.open + postMessage handshake to codex.html?cm_library_origin&nonce#lyrics (that receiver was removed in #659); 8 MiB cap; bundle fallback | reader 'Open in Lyrics' to uiOpenInLyrics to push #lyrics (same tab, decision 10) | static r/ (every page, hash-verified) + shards + notices; Lyrics imports.library to lyLibraryReceiver.importEnvelope; 8 MiB TRANSFER_BYTES cap kept | `scripts/check_library_shell.js` (real in-page import, digest-tamper refusal, valid text, empty recipe stays empty; Back returns to Works, not the reading); `scripts/test_library_import.js` (atomic previous-draft/provenance preservation); `scripts/test_library_import_shipped.js` (the shipped Lyrics page receives the envelope through uiOpenInLyrics, the in-page path since #659: previous draft, private continuation, recipe and provenance preserved); `scripts/test_library_reader_provenance.js` (the reader's own whole-reading envelope carries the verified snapshot and revision and passes validateEnvelope); `scripts/check_library_overcap_offer.js` (#752: over the cap the whole reading offers the bundle and an excerpt still opens; envelopes at the cap -1, 0 and +1; a receiver refusal downloads the exact envelope); `scripts/check_library_rule1_isolation.js` (#733: no monitored recipe, chat or saved-workspace read by Library code on the exercised routes, with planted negative controls). Partial: the over-cap check works at action level, without DOM mounting; the Rule-1 check is evidence from exercised paths, not a proof; all five IDs, rights and notices through 'Export source details' and Back to the reading are asserted on the excerpt path (row 54), not for a whole reading. | lazy-flagged |
+| 54 | Open excerpt in Lyrics | Excerpt scope, lineage filtered, declarations [] | passage bar to #lyrics | in-page envelope | `scripts/check_library_page.js` reader scenario (#769) clicks the real excerpt action and checks that Lyrics holds exactly the fixture excerpt, with scope excerpt, lineage equal to the selected rows, empty declarations, all five origin IDs and the fixture rights; the source-details download keeps them; Back restores the reading. | lazy-flagged |
 | 55 | Deep links | Path routes /, /works, /rights, /collections/:id, /read/:id with query state | codex.html#library[/works\|/rights\|/collections/<id>\|/read/<id>][?…] | shell uiRouteOf + page.route; u/<hh> shard when a reader link carries no path key | check_library_page section deep-links (each form cold-boots; snapshot=5226 link opens with no error; a link without a path key fetches the u/ shard, then the head; a held-only collection opens a Render search under its static title); check_ui_foundation K (sub-route survives boot; #genre…#lyrics and ?trad unchanged); move-page translation unit test | lazy-flagged |
 | 56 | Back/Forward | pushState/popstate; '← Works' previousLocation + scroll restore | uiSubroute push/replace; hashchange to page.route(sub,{pop}) | history.state libScroll/libPrev | check_library_page section history (Explore to collection to reading to lens to Back/Forward; Lyrics handoff then Back); inventory history-back-between-sections names five sections | lazy-flagged |
-| 57 | Device-persisted state (+ import from old Site) | IndexedDB codex-musica-library-v1 on chatgpt.site with snapshot-scoped keys; 'unsaved' notices | all #library routes; 'Import device data from the earlier Library' on #library/rights | IndexedDB codex-musica-library-v1 'state' store on codexmusica.com with snapshot-free keys (export-selection, position:{id}, interpretation:{id}:{revision}, shelf-position:{lang}, pending-export {format, ids}, analysis-export); no evidence store | check_library_page section device-state (each key persists; failure shows unsaved; import fixtures for every real old shape, revisions resolved through the 5226 manifest, all previous declaration sets carried, report lists every entry); check_library_isolation (no cookie or capability in storage) | lazy-flagged |
-| 58 | Your recipe on the Library route (one-workspace) | Not applicable (separate site) | #library with recipe:'sidebar' (collapsed default); 'Loading your recipe…' during deferred workspace | shell session (formats unchanged) | check_ui_foundation one-workspace on #library; fault library-loses-recipe; check_lazy_app (saved-session #library boot shows pending panel then cards, no EngineNotReadyError, navigation to every route before workspace ready works) | lazy-flagged |
+| 57 | Device-persisted state (+ import from old Site) | IndexedDB codex-musica-library-v1 on chatgpt.site with snapshot-scoped keys; 'unsaved' notices | all #library routes; 'Import device data from the earlier Library' on #library/rights | IndexedDB codex-musica-library-v1 'state' store on codexmusica.com with snapshot-free keys (export-selection, position:{id}, interpretation:{id}:{revision}, shelf-position:{lang}, pending-export {format, ids}, analysis-export); no evidence store | check_library_page section device-state (each key persists; failure shows unsaved; import fixtures for every real old shape, revisions resolved through the 5226 manifest, all previous declaration sets carried, report lists every entry): not built (#661), no such section exists, and the unsaved notice and the old-Site import have no test; no cookie or capability in storage: no whole-route test (check_library_isolation was never written); `scripts/check_library_private_cache.js` asserts, in its one analysis-panel scenario on wrapped source files, that the interpretation key is the only device write | lazy-flagged |
+| 58 | Your recipe on the Library route (one-workspace) | Not applicable (separate site) | #library with recipe:'sidebar' (collapsed default); 'Loading your recipe…' during deferred workspace | shell session (formats unchanged) | check_ui_foundation one-workspace on #library (not built, #661: `scripts/check_ui_foundation.js` only clicks the Library tab and checks the surface opens); fault library-loses-recipe was not built; `scripts/check_library_rule1_isolation.js` (#733) watches Library reads of the recipe on the exercised routes; check_lazy_app (saved-session #library boot shows pending panel then cards, no EngineNotReadyError, navigation to every route before workspace ready works): not built (#661), `scripts/check_lazy_app.js` has no #library boot scenario | lazy-flagged |
 | 59 | Design system and dark mode | Hard-coded light Google palette, no dark mode, own header | #surface-library scoped CSS on --cm-* tokens | src/theme.css tokens | check_ui_foundation D neutral dark surface; check_library_page renders every state light and dark | lazy-flagged |
 | 60 | Reader Method filter and reference | Method select filters evidence by method_id (reader.tsx:96,681,1044); the reader has its own Method reference list (1111), separate from the Rights page definition filter | #library/read/<id> inspector | static methods.json + Render evidence | check_library_page section reader-method-filter (predicate equals the old filter on fixture evidence; reference list equals the old reader list) | lazy-flagged |
 
@@ -1183,12 +1196,14 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 ### Added: data and art
 - library/data/**, including artwork.json and the retained generations: generated by `build_library_data.py` via the new lyric-harness/library/catalog_static_export.py.
 - assets/library/art/*.{avif,webp}: built by the new `build_library_art.js` (--check).
-- assets/library/art-src/* and assets/library/artwork.json: moved from sites/library.
+- assets/library/art-src/* and assets/library/artwork.json: moved from sites/library (done 2026-11-05, #659).
 
 ### Added: gates and tooling
+- Status (#661): built — `scripts/check_library_data.py` (not .js), `scripts/check_library_regression.js`, `scripts/check_library_page.js`, `scripts/check_library_perf.js` (run by hand only), `scripts/_pages_server.js`, `scripts/check_pages_size.js`, `mcp/reader_store_inflate.mjs`. Never written — check_library_isolation.js (Rule 1 is `scripts/check_library_rule1_isolation.js`), check_library_publish.js, smoke_library_live.js, test_library_import_inpage.js (the in-page path is covered by the rewritten `scripts/test_library_import*.js`).
 - `check_library_data.js`: count, per-id, rights, label census, row-content and summary parity, provenance byte-equality, embedded identity, page offsets, projection identity, retained-generation eligibility, Play target, collection coverage, size budgets.
 - `check_library_regression.js`.
-- `check_library_page.js`: Playwright over the flagged lazy build, with `_pages_server` and a local mcp server on a fixture snapshot built at test time from tests/library/fixture-sources.json (about 25 corpus files: sonnets, whitman, fas_hafez, a held ganjoor file, a DCS file, ltc, the generated research-only file, a labelled song file, one oversized header reading). Stages include generations, deep-offset, rights-correction, private-cache and the forced download errors. It fails if a feature-matrix test id does not exist.
+- `check_library_page.js`: Playwright over the flagged lazy build, with `_pages_server` and a local mcp server on a fixture snapshot built at test time from tests/library/fixture-sources.json (about 25 corpus files: sonnets, whitman, fas_hafez, a held ganjoor file, a DCS file, ltc, the generated research-only file, a labelled song file, one oversized header reading). Stages include generations, deep-offset, rights-correction, private-cache and the forced download errors.
+  - As built (#661): the fixture snapshot, tests/library/fixture-sources.json and the local mcp server were not built. The check serves the committed `library/data/` and stubs every `/library/v1` route in the browser with the shapes of the mcp route modules. Its sections are connections, explore, works, rights, reader, compare, focus, analysis, declarations, retained, retry, keys, credit, range, railpick, ax and fresh; generations, deep-offset, rights-correction and private-cache are not sections (private-cache is `scripts/check_library_private_cache.js`). Matrix rows that name another section of this file name a planned section that does not exist, and `scripts/check_prototype_manifest.js` checks only each row's ledger gate, so those clauses have no test. The missing-test-id check is `scripts/check_prototype_manifest.js`, not this file (#661).
 - `check_library_perf.js` and `_pages_server.js`.
 - `check_library_isolation.js`: rule 1; no x-reader-* or secret names; no cookie or capability in storage; after PR 6c, no 'chatgpt' in codex.html or library/code.
 - `check_library_publish.js`: check_atlas_publish-style servability.
@@ -1200,31 +1215,33 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 
 ### Added: test data
 - tests/library/units-5226b4fb.tsv.gz and tests/library/units-317c5afa.tsv.gz.
-- tests/library/id-map.json, eligibility-changes.json, revisions.json and data-manifest.json.
+- tests/library/id-map.json, eligibility-changes.json, revisions.json and data-manifest.json. Status (#661): the first three exist; data-manifest.json was never written.
 - tests/library/goldens/317c/** (Worker goldens, including the provenance download sample and the analysis export).
 - tests/perf/library-baseline.json and the pinned old-Site response fixtures.
+- Status (#659): the baseline's old-Site addresses are now plain labels, and its config (tests/perf/library-baseline-config.json) and workflow (.github/workflows/library-perf-baseline.yml) were deleted with the old Site (see Records).
 
 ### Added: Render and catalog
 - lyric-harness/library/search_store.py (with projection and ZIP entry tables) and lyric-harness/library/test_search_store.py.
 - mcp/library_routes.js (including the export-plan LRU), library_search.js, library_search_hit.js (port of search-hit.ts), library_exports.js, library_zip.js (port of zip-stream.ts) and library_viewer.js.
 - mcp/test_library_routes.mjs, mcp/test_library_exports.mjs and mcp/test_reader_store_bounds.mjs.
+- Status (#661): as built the routes are mcp/library_routes.js, library_viewer_routes.js, library_export_routes.js, library_export_worker.js, library_corpus_routes.js, library_admission.js, library_search.js and library_exports.js (which holds the ZIP writer); their tests are mcp/test_library_viewer_routes.mjs, test_library_search.mjs, test_library_exports.mjs and test_library_corpus.mjs. library_search_hit.js, library_zip.js, library_viewer.js, mcp/test_library_routes.mjs and test_search_store.py were not written under those names.
 
 ### Added: docs
-- docs/library.md: contract, hash grammar, data layout, refresh and retirement runbooks, including the ban on dashboard rollback past phase A once `store-format.json` exists, and the purge procedure.
-- docs/library-performance.md.
+- docs/library.md: contract, hash grammar, data layout, refresh and retirement runbooks, including the ban on dashboard rollback past phase A once `store-format.json` exists, and the purge procedure. (Not written, #661.)
+- docs/library-performance.md. (Not written, #661.)
 
 ### Changed: shell sources
 - src/workbench.js:
-  - UI_ROUTES fifth entry (flag-gated until cutover); uiLibraryLink removed;
+  - UI_ROUTES fifth entry (flag-gated until cutover); uiLibraryLink removed (done for every build in #659);
   - uiRouteOf at 156-163, 1011-1014 and 1047-1063; route and currentRoute hooks; imports registration;
   - new APIs uiSubroute, uiOpenInLyrics, uiEnsureWorkspace, uiLoadChunk;
   - deferred-workspace guards in uiStart (uiRestoreSession and renderAll queued);
-  - CMLibraryImport dropped from /* global */ in PR 6c.
+  - CMLibraryImport dropped from /* global */ in PR 6c (done, #659).
 - src/app.js: BOOT_ROUTE_LIBRARY; `_initApp(deferWorkspace)` guard clauses and `_initWorkspace()`; ENGINE_AT_BOOT and CATALOG_READY not awaited on #library, with the CATALOG_READY expression route-gated; the resize handler guarded until the workspace is ready; low-priority workspace fetches that pause during Library fetches; Engine.start and prose suppressed while view==='library'.
 - src/engine_preload.js: route test.
 - src/index.template.html: `<!--@LIBRARY_PRELOAD-->` marker; BOOT_PRELOAD emitted as a script; the preview flag read in the head boot script.
 - src/pages/lyrics.js: imports.library hook; the 'Library source' card icon becomes 'library'.
-- src/library-import.js: handshake removed in PR 6c; importEnvelope, validateEnvelope, canonical, envelopeDigest and the TRANSFER_BYTES cap kept.
+- src/library-import.js: handshake removed in PR 6c (done, #659); importEnvelope, validateEnvelope, canonical, envelopeDigest and the TRANSFER_BYTES cap kept.
 - src/theme.css: --cm-route-library.
 - src/workbench.css: nav icon colour, narrow rules retargeted (1300-1315 plus the listed selectors), 60% phone-sheet rule.
 
@@ -1255,24 +1272,24 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 - scripts/check_mobile_layout.js: view-library, Library search, filter, tabs, inspector, on the flagged lazy build.
 - scripts/check_layout_usability.js: five-entry header.
 - scripts/ui_reachability_check.js PRECONDITIONS ('library view', 'library reader', 'library analysis'), run on the flagged lazy build, and tests/ui_capability_inventory.md (navigation-library, one entry per feature row, five-section history, Counts).
-- scripts/faults.js: library-loses-recipe, library-held-body-served, library-chatgpt-link, library-boot-waits-catalog, library-capability-persisted, library-readable-regression, library-count-drift, library-labels-missing, library-capability-leak, library-chunk-stale.
-- scripts/test_library_import*.js: rewritten in PR 6c.
+- scripts/faults.js: library-loses-recipe, library-held-body-served, library-chatgpt-link, library-boot-waits-catalog, library-capability-persisted, library-readable-regression, library-count-drift, library-labels-missing, library-capability-leak, library-chunk-stale. Status (#661): only library-readable-regression (fault 39) was added.
+- scripts/test_library_import*.js: rewritten in PR 6c (done, #659).
 
 ### Changed: repo configuration
 - scripts/_build_closure.js: src/library/** as closure, library/code/** as output, library/data/** and tests/library/** in a library-data class inert to the Node builders.
 - scripts/check_artifact_fresh.js: library/code current plus every generation within 30 days, no stale extras.
 - .prettierignore: library/data, library/code, tests/library.
-- eslint.config.js: src/library as browser scripts, plus the no-restricted-globals isolation rule.
-- package.json scripts: build:library-data, check:library-data, check:library, test:library-routes, check:library-perf, assets:library-art; wired into test:serial and test:app.
+- eslint.config.js: src/library as browser scripts, plus the no-restricted-globals isolation rule. Status (#661): only a globalReturn parser setting for src/library/** was made; the isolation rule was not.
+- package.json scripts: build:library-data, check:library-data, check:library, test:library-routes, check:library-perf, assets:library-art; wired into test:serial and test:app. Status (#661): as built, `check:library-regression` (CI verify), `check:library-perf` (by hand) and `test:library` (in test:serial); the data and art builders run from .github/workflows/library-data.yml; the others were not added.
 
 ### Changed: CI and publishing
 - .github/workflows/ci.yml:
   - verify runs the --committed gates;
-  - new library-data, library-parity and library-perf jobs;
+  - new library-data, library-parity and library-perf jobs; (#661: library-data and library-parity are their own workflows; no library-perf job exists, and `scripts/check_library_perf.js` runs only by hand, `npm run check:library-perf`)
   - lyrics-image adds the qualify additions and a GHA buildx cache scoped to the library Dockerfile stage. The library stages are ordered before the per-run ARGs, so editing the Dockerfile keeps the capacity-receipt cache.
 - .github/workflows/sync-pages.yml and scripts/publish_guard.sh (+ check_publish_guard replay): publish library/code with codex.html and keep 30 days of chunk generations.
 - The deploy and qualification workflows (deploy-connector.yml among them): read the candidate image's reader-format label and refuse any image below `store-format.json`'s `min_reader`.
-- docs/branch-protection.md: library-data added as a required check.
+- docs/branch-protection.md: library-data added as a required check. (Not done, #661.)
 - docs/ui-foundation.md and docs/production-workbench.md: five routes, hash grammar, new APIs, first-visit chunk rule, deferred workspace.
 - Corpus PRs are serialized, then regenerated after rebase with `npm run build:library-data`, which is deterministic, because two concurrent corpus PRs both rewrite binary data files that cannot be merged by hand.
 
@@ -1289,7 +1306,7 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 - scripts/check_deploy_memory.js: band re-measured if the peak moves.
 
 ### Retired in PR 7
-sites/library/**, .github/workflows/library-site.yml, the Dockerfile approved-library stage, release_assets retention usage, test_retained_reader_catalog.py, mcp/README.md:246-253, /internal/reader with reader_protocol.js, and the READER_BRIDGE_SECRET and READER_SITE_ID dashboard secrets.
+sites/library/** and .github/workflows/library-site.yml were removed from the repo on 2026-11-05 (#659), ahead of the rest. Still to retire: the Dockerfile approved-library stage, release_assets retention usage, test_retained_reader_catalog.py, mcp/README.md:246-253, /internal/reader with reader_protocol.js, and the READER_BRIDGE_SECRET and READER_SITE_ID dashboard secrets.
 
 ## Risks
 
@@ -1297,7 +1314,7 @@ sites/library/**, .github/workflows/library-site.yml, the Dockerfile approved-li
 - **Script-inserted browse_boot preload.** Inserting it from a script hides it from the preload scanner, so existing routes could start that fetch slightly later. The existing-route A/B gate decides. The fallback restores the static link and accepts browse_boot on the #library path.
 - **GitHub Pages scale.** About 28.9k more files (from 35k to 64k, plus retained generations) and about 72 MB more (the tree grows from 713 to roughly 786 MB) could slow or time out pages-build-deployment. PR 2 lands the data alone and measures the deploy. check_pages_size caps the tree at 950 MB. Contingency: serve r/ from Render with one constant change. Optionally move docs/everynoise-integrations (280 MB) out of the served tree, which can be pre-approved if check_pages_size trips or the Pages deploy slows.
 - **How Pages serves .json.gz** (Content-Type and Content-Encoding) cannot be checked offline. Mitigations: a PR 0 probe file with a live header check, and a client magic-byte sniff with an inflate fallback.
-- **Pages/Render skew.** Pages publishes at merge, but Render promotes only after Production qualification. Units whose revision changed in a corpus PR therefore get STALE_READING on analysis, revision-mismatched search marks, or export 409s until promotion, typically up to a day. Revision addressing confines this to changed units, and smoke_library_live alerts if skew lasts more than 48 h.
+- **Pages/Render skew.** Pages publishes at merge, but Render promotes only after Production qualification. Units whose revision changed in a corpus PR therefore get STALE_READING on analysis, revision-mismatched search marks, or export 409s until promotion, typically up to a day. Revision addressing confines this to changed units, and smoke_library_live was to alert if skew lasted more than 48 h (not built, #661).
 - **Render capacity on one standard instance.** The search store and its tables add about 40-120 MB to the 1638 MiB bound, measured by qualify_reader. Public analysis can fill the 16-job queue. Corpus downloads (578 MB per full set) cost egress, and the image grows by about 0.7 GB with about 3-5 more minutes of build unless the library stage cache hits. Rate limits and the export-plan LRU are process-local and reset on deploy; an evicted plan re-plans transparently.
 - **Persistent-disk deploys on Render are not zero-downtime**, so search, held metadata, exports and analysis are briefly unavailable at each promotion. Reading, Explore, default Works lists, compare, provenance and the Lyrics handoff stay up because they are static.
 - **Reader storage quota.** Without phase B, capacity stays at about 100 analyses per 30 days at 256 MiB uncompressed. Phase B is a store migration. A dashboard rollback past phase A after `store-format.json` exists would bypass the workflow gate. A pre-A image cannot detect gzip objects, so the controls are the external deploy and rollback gate, the runbook's prohibition, and the verified inflate conversion before any pre-A rollback.
@@ -1312,7 +1329,7 @@ sites/library/**, .github/workflows/library-site.yml, the Dockerfile approved-li
 - **Rights surface moving to the main domain.** Held-unit titles that embed short body fragments (the ganjoor radif) appear through search, and Gutenberg texts admitted on a USA-only basis are served publicly. Both are unchanged from the approved Site but need John's explicit confirmation (decisions 8 and 9). The static projection stays strictly within verified eligibility, existing exposure never justifies widening it, and John's approval never substitutes for rights evidence.
 - **Pre-existing exposure outside the Library's scope.** Pages serves main verbatim, and held corpus files are tracked (for example lyric-harness/corpus/san_dcs_verse.txt and corpus/song/ltc_huajianji.txt). So held bodies are already fetchable at their repo paths, whatever the Library does. This is decision 15.
 - **Device-state migration depends on one Sites deploy that John runs.** Without it, old links break when the project is deleted, and selections and positions on the old origin are lost; only manual declaration files carry over.
-- **CI cost.** library-data takes about 12-13 min on catalog-input PRs, including lexicon PRs that touch sources.tsv; it passes without regeneration when content is unchanged. library-perf adds about 15 min on src PRs plus a nightly full matrix, and library-parity adds about 10 min when its paths change. Runner variance is handled by interleaved A/B runs and medians.
+- **CI cost.** library-data takes about 12-13 min on catalog-input PRs, including lexicon PRs that touch sources.tsv; it passes without regeneration when content is unchanged. library-perf would add about 15 min on src PRs plus a nightly full matrix (not built, #661), and library-parity adds about 10 min when its paths change. Runner variance is handled by interleaved A/B runs and medians.
 - **Parity quirks kept on purpose:** the art() substring rule (a Dickinson cover on 'Charles Monroe Dickinson') and Welsh-first shelf order. John may want them fixed after parity ships.
 
 ## Phasing
@@ -1321,7 +1338,7 @@ Principle: the published codex.html changes nothing user-visible until PR 6. Eve
 
 **PR 0: evidence (no behaviour change)**
 - tests/library/units-5226b4fb.tsv.gz and units-317c5afa.tsv.gz (every unit, pinned sha256), the empty ledgers, `check_library_regression.js` with the full classifier and id reconciliation, and fault library-readable-regression.
-- library-site.yml extended to capture Worker goldens on a pinned 317c rebuild from commit 031b7de's sparse catalog inputs: at least 300 search queries, readingPage and whole-reading samples (including a header reading), hit projections, ZIP sha256s for fixed text/json/csv selections, the Worker's own provenance download bytes for a golden sample, and one analysis export from a live reader job (one short poem, 22-26 s of CPU). Committed to tests/library/goldens/317c/.
+- library-site.yml (removed from the repo on 2026-11-05, #659; the native replays now run in library-parity.yml) extended to capture Worker goldens on a pinned 317c rebuild from commit 031b7de's sparse catalog inputs: at least 300 search queries, readingPage and whole-reading samples (including a header reading), hit projections, ZIP sha256s for fixed text/json/csv selections, the Worker's own provenance download bytes for a golden sample, and one analysis export from a live reader job (one short poem, 22-26 s of CPU). Committed to tests/library/goldens/317c/.
 - `check_library_perf.js` and `_pages_server.js` with the four-condition ready definition. The old Site's responses pinned as fixtures; old-Site server delay measured (n >= 30 per endpoint) into the modelled-delay table; the live calibration run (n = 9); the current-route baselines; all recorded in tests/perf/library-baseline.json.
 - A Pages probe file with a live .json.gz header check.
 - check_pages_size.
@@ -1334,7 +1351,7 @@ Principle: the published codex.html changes nothing user-visible until PR 6. Eve
 - CORS, rate limits as John decides them, the long-reading rule, and query redaction.
 - search_store.py in the assets stage; the cacheable library-downloads stage with package-hash corpus URLs.
 - qualify_reader additions, including `store-load` and the concurrent heavy-request scenario; mcp/test_reader_store_bounds.mjs.
-- test_library_routes and test_library_exports against the goldens; the library-parity job.
+- test_library_routes (never written, #661) and test_library_exports against the goldens; the library-parity job.
 - The check_workbench Library mock.
 - READER_RUNTIME.md, PRIVACY.md and mcp/PRIVACY.md amendments.
 - Measure the persistent disk's other occupants, so a quota raise can be quoted if John prefers it to phase B.
@@ -1346,7 +1363,7 @@ After phase A has run qualified in production, a later deploy sets `READER_STORE
 **PR 2: static data, live on Pages but unreferenced**
 - `build_library_data.py` and catalog_static_export.py (snapshot at lyric-harness/library/snapshot, labels asserted).
 - library/data/** for 317c in the `<rev16>-<proj12>` layout, with row text, all collections, artwork.json and the full language list; art renditions.
-- `check_library_data` (count, per-id, rights, label census, row-content and summary parity, identity, offsets, projection and retention gates, budgets) and `check_library_publish`.
+- `check_library_data` (count, per-id, rights, label census, row-content and summary parity, identity, offsets, projection and retention gates, budgets) and `check_library_publish` (never written, #661).
 - The library-data CI job made required; prettier, eslint and closure classification.
 - Measure the pages-build-deployment duration. If it fails or exceeds 7 min, switch r/ to the Render contingency before PR 4.
 - Re-measure catalog.json, collections.json, c/ and w/ sizes, and fix their budgets.
@@ -1381,13 +1398,14 @@ The stub and chunks ship in production codex.html. The route is reachable only v
 - Before the move page, the old Site announces the window in which users can export their analyses.
 
 **PR 6b: publish day (John runs the Sites deploy)**
-After the export window, the move page goes live (device-data export, redirects, 410 for the API), and library-site.yml is retargeted to it.
+After the export window, the move page goes live (device-data export, redirects, 410 for the API), and library-site.yml is retargeted to it. (Not done: library-site.yml was removed from the repo on 2026-11-05, #659.)
 
 **PR 6c: after the move page is confirmed live, or 7 days after cutover**
 Delete the SITE_ORIGIN handshake and rewrite test_library_import*.js. check_library_isolation then asserts that no 'chatgpt' string remains.
+Status (#659): done without a move page, in the website-only follow-up to #811. The no-'chatgpt.site' assertion lives in `scripts/test_library_import.js` and covers every tracked file, since Pages serves all of main; check_library_isolation was never written.
 
 **PR 7: retirement (at least 30 days after PR 6b, with John's go-ahead)**
-- Delete sites/library and library-site.yml.
+- Delete sites/library and library-site.yml. Done 2026-11-05 (#659), ahead of the rest of PR 7.
 - Drop 5226 retention (Dockerfile, release_assets, qualify_reader, test_retained_reader_catalog, mcp/README).
 - Drop /internal/reader, reader_protocol.js, READER_BRIDGE_SECRET and READER_SITE_ID.
 - John exports the `(job_id, viewer)` allowlist from D1. The purge dry-run lists exact matches, and the purge runs only after John confirms that exact count at action time.

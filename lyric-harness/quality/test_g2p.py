@@ -341,12 +341,14 @@ def test_heldout_split_is_declared_and_reproducible():
 # 9. THE REAL POPULATION — ground truth nobody here supplied
 # ---------------------------------------------------------------------------
 
-def _patched_battery(mode, extra=None, decl=None, *, with_refusal_details=False):
-    """Run the sonnet scheme check with `Lexicon.transcribe_word` routed
-    through the fallback. Returns (mandated, judged, refused, violations),
-    optionally followed by the actual refusal rows. `decl` declares the
-    door the arms grade under; None is the shipped default."""
-    import battery
+def _battery_piece(args):
+    """A disjoint set of complete sonnets, with the original reader patch.
+
+    Install the patch inside the child rather than relying on fork to carry
+    a parent's monkeypatch. The worker returns coordinates, not verdict
+    counts, so the existing aggregate assertions still compare the full sets.
+    """
+    sonnets, mode, extra, decl = args
     orig = lh.Lexicon.transcribe_word
     cache = {}
     if mode is not None:
@@ -363,10 +365,9 @@ def _patched_battery(mode, extra=None, decl=None, *, with_refusal_details=False)
             return cache[key]
         lh.Lexicon.transcribe_word = patched
     try:
-        sonnets = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))
         total = 0
         viol, refused, refusal_details = set(), set(), {}
-        for idx, sn in enumerate(sonnets, 1):
+        for idx, sn in sonnets:
             res = lh.check_scheme(LEX, sn, "ABABCDCDEFEFGG",
                                   decl or lh.Declaration())
             for v in res["violations"]:
@@ -378,8 +379,55 @@ def _patched_battery(mode, extra=None, decl=None, *, with_refusal_details=False)
             total += 7
     finally:
         lh.Lexicon.transcribe_word = orig
-    result = total, total - len(refused), refused, viol
-    return (*result, refusal_details) if with_refusal_details else result
+    return [idx for idx, _ in sonnets], total, refused, viol, refusal_details
+
+
+def _merge_battery_pieces(pieces, expected):
+    owned, total, refused, viol, details = [], 0, set(), set(), {}
+    for indices, count, ref, bad, rows in pieces:
+        owned.extend(indices)
+        total += count
+        refused.update(ref)
+        viol.update(bad)
+        details.update(rows)
+    if sorted(owned) != list(expected):
+        raise AssertionError("the battery workers did not run every sonnet exactly once")
+    return total, total - len(refused), refused, viol, details
+
+
+def _run_battery(sonnets, mode, extra, decl, workers):
+    numbered = list(enumerate(sonnets, 1))
+    pieces = [(numbered[k::workers], mode, extra, decl)
+              for k in range(min(workers, len(numbered)))]
+    if workers == 1:
+        results = map(_battery_piece, pieces)
+        return _merge_battery_pieces(results, range(1, len(numbered) + 1))
+    from concurrent.futures import ProcessPoolExecutor
+    import multiprocessing
+    with ProcessPoolExecutor(max_workers=workers,
+                             mp_context=multiprocessing.get_context("spawn")) as pool:
+        return _merge_battery_pieces(pool.map(_battery_piece, pieces),
+                                     range(1, len(numbered) + 1))
+
+
+def _patched_battery(mode, extra=None, decl=None, *, with_refusal_details=False):
+    """Run every sonnet under the declared reader and aggregate before judging.
+
+    TEST_G2P_WORKERS changes execution shape only. Unset keeps the original
+    serial run; CI can allocate a dedicated lane multiple workers without
+    splitting an aggregate assertion or reducing the battery population.
+    """
+    import battery
+    raw = os.environ.get("TEST_G2P_WORKERS", "1")
+    try:
+        workers = int(raw)
+    except ValueError:
+        raise ValueError("TEST_G2P_WORKERS must be a positive integer") from None
+    if workers < 1:
+        raise ValueError("TEST_G2P_WORKERS must be a positive integer")
+    sonnets = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))
+    result = _run_battery(sonnets, mode, extra, decl, workers)
+    return result if with_refusal_details else result[:4]
 
 
 # These are the original eleven lexical gaps left by the derived layers,
@@ -926,6 +974,34 @@ _SPLIT_HEADER = re.compile(
 def test_letter_rules_have_a_live_producer():
     print("\n21. data/g2p_letter_rules.tsv can still be regenerated")
     import tempfile
+    from unittest.mock import patch
+    entries = LEX.cmu_raw_entries
+    # Exercise the CLI producer without writing its default artifact. A
+    # test-only raw input would hide the same broken --train route again.
+    with patch.object(G, "train_letter_rules") as train:
+        G.main(["g2p.py", "--train"])
+    trained = train.call_args.args[0]
+    check("--train uses raw CMUdict, independent of derived accent readings",
+          trained == entries and trained["here"][0] != LEX.entries["here"][0],
+          "raw here: " + str(trained["here"][0])
+          + "; runtime here: " + str(LEX.entries["here"][0]))
+    # A one-word probe isolates the evaluation's gold coordinate: the raw
+    # reading must score exactly even though the runtime vowel is respelled.
+    class RawAnswer:
+        def __init__(self, hidden):
+            self.hidden = hidden
+            check("held-out fallback sees raw non-held-out dictionary entries",
+                  hidden.entries["near"] == entries["near"]
+                  and hidden.entries["near"] != LEX.entries["near"])
+
+        def read(self, word):
+            assert word not in self.hidden.entries
+            return G.Reading(tuple(entries[word][0]), "letter")
+
+    with patch.object(G, "_split_dict", return_value=([], ["here"])):
+        evaluated = G.evaluate_heldout(LEX, RawAnswer)
+    check("held-out gold uses the same raw CMUdict as --train",
+          evaluated["exact"] == 1 and evaluated["read"] == 1)
     shipped = G.LETTER_RULES_PATH
     check("the shipped rules exist and load", os.path.exists(shipped)
           and G.LetterRules(shipped).loaded, shipped)
@@ -940,7 +1016,7 @@ def test_letter_rules_have_a_live_producer():
                 break
             head += line
     m = _SPLIT_HEADER.search(head)
-    tr, ho = G._split_dict(LEX.entries)
+    tr, ho = G._split_dict(entries)
     check("the shipped file declares the split it was built on", m is not None,
           head.strip().splitlines()[1] if m else "NO SPLIT DECLARED")
     check("and that split is still the one the current dictionary produces",
@@ -957,7 +1033,7 @@ def test_letter_rules_have_a_live_producer():
     #    context back-off both execute on real data in about two seconds.
     #    NEVER writes to data/ -- the shipped artifact is not this test's to
     #    move.
-    sub = {w: LEX.entries[w] for w in sorted(LEX.entries)[::50]}
+    sub = {w: entries[w] for w in sorted(entries)[::50]}
     tmp = os.path.join(tempfile.mkdtemp(), "letter_rules_subset.tsv")
     G.train_letter_rules(sub, out_path=tmp, verbose=False)
     rules = G.LetterRules(tmp)
@@ -975,7 +1051,7 @@ def test_letter_rules_have_a_live_producer():
               "(65s over the whole training split)")
         return
     full = os.path.join(tempfile.mkdtemp(), "letter_rules_full.tsv")
-    G.train_letter_rules(LEX.entries, out_path=full, verbose=False)
+    G.train_letter_rules(entries, out_path=full, verbose=False)
     with open(shipped, "rb") as a, open(full, "rb") as b:
         same = a.read() == b.read()
     check("REGENERATED BYTE-IDENTICAL to the shipped file", same,
@@ -1117,34 +1193,68 @@ def test_the_counts_are_reachable_from_a_command_line():
           err.getvalue().strip() or f"rc={rc2}")
 
 
+def test_battery_worker_inventory():
+    """A missing/duplicated worker result must not weaken aggregate tests."""
+    print("\n24. parallel battery ownership is complete and disjoint")
+    first = ([1], 7, {(1, 1, 3)}, {(1, 2, 4)},
+             {(1, 1, 3): {"unreadable": ["unknown"]}})
+    second = ([2], 7, set(), {(2, 3, 5)}, {})
+    result = _merge_battery_pieces([first, second], range(1, 3))
+    check("all coordinate sets and refusal details survive aggregation",
+          result == (14, 13, {(1, 1, 3)}, {(1, 2, 4), (2, 3, 5)},
+                     {(1, 1, 3): {"unreadable": ["unknown"]}}))
+    for name, pieces in (("missing", [first]),
+                         ("duplicate", [first, first, second]),
+                         ("unexpected", [first, second, ([3], 7, set(), set(), {})])):
+        try:
+            _merge_battery_pieces(pieces, range(1, 3))
+        except AssertionError:
+            refused = True
+        else:
+            refused = False
+        check(f"{name} sonnet ownership fails before any aggregate assertion",
+              refused)
+
+
+_SECTIONS = (
+    test_default_is_off,
+    test_battery_is_unmoved,
+    test_every_reading_carries_its_layer,
+    test_refusal_survives,
+    test_known_answers,
+    test_elision_rows_all_apply,
+    test_dialect_is_refused_on_purpose,
+    test_heldout_split_is_declared_and_reproducible,
+    test_real_population_against_shakespeares_own_form,
+    test_letter_layer_costs_more_than_it_buys,
+    test_the_canary_is_still_refused_and_that_is_correct,
+    test_three_counts_are_three,
+    test_corpus_scale_counts,
+    test_lexicon_wiring_default_is_untouched,
+    test_lexicon_wiring_high_reads_the_known_layers,
+    test_lexicon_wiring_leaves_existing_heuristics_alone,
+    test_lexicon_wiring_apostrophe_survives_to_the_fallback,
+    test_lexicon_wiring_counts_are_inspectable,
+    test_lexicon_wiring_no_recursion,
+    test_lexicon_wiring_rejects_undeclared_modes,
+    test_letter_rules_have_a_live_producer,
+    test_three_counts_have_a_reporting_path,
+    test_the_counts_are_reachable_from_a_command_line,
+    test_battery_worker_inventory,
+)
+
+# Only CI's explicit shard coordinate changes section order. These three
+# complete battery arms dominate; dealing them first gives each its own lane.
+_COST_FIRST = (test_letter_layer_costs_more_than_it_buys,
+               test_real_population_against_shakespeares_own_form,
+               test_battery_is_unmoved)
+_SHARDED_SECTIONS = _COST_FIRST + tuple(fn for fn in _SECTIONS
+                                     if fn not in _COST_FIRST)
+
+
 if __name__ == "__main__":
-    test_default_is_off()
-    test_battery_is_unmoved()
-    test_every_reading_carries_its_layer()
-    test_refusal_survives()
-    test_known_answers()
-    test_elision_rows_all_apply()
-    test_dialect_is_refused_on_purpose()
-    test_heldout_split_is_declared_and_reproducible()
-    test_real_population_against_shakespeares_own_form()
-    test_letter_layer_costs_more_than_it_buys()
-    test_the_canary_is_still_refused_and_that_is_correct()
-    test_three_counts_are_three()
-    test_corpus_scale_counts()
-    test_lexicon_wiring_default_is_untouched()
-    test_lexicon_wiring_high_reads_the_known_layers()
-    test_lexicon_wiring_leaves_existing_heuristics_alone()
-    test_lexicon_wiring_apostrophe_survives_to_the_fallback()
-    test_lexicon_wiring_counts_are_inspectable()
-    test_lexicon_wiring_no_recursion()
-    test_lexicon_wiring_rejects_undeclared_modes()
-    test_letter_rules_have_a_live_producer()
-    test_three_counts_have_a_reporting_path()
-    test_the_counts_are_reachable_from_a_command_line()
-    print("=" * 70)
-    if FAILURES:
-        print(f"{len(FAILURES)} FAILING:")
-        for f_ in FAILURES:
-            print(f"  - {f_}")
-        sys.exit(1)
-    print("all g2p / fallback regressions pass")
+    from quality.shard import run_sections
+    sections = (_SHARDED_SECTIONS if os.environ.get("TEST_G2P_SHARD")
+                else _SECTIONS)
+    sys.exit(run_sections(sections, "TEST_G2P_SHARD", FAILURES,
+                          footer="all g2p / fallback regressions pass"))

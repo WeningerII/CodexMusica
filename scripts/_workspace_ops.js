@@ -56,13 +56,28 @@ function emptyWorkspace() {
 }
 
 // Deep-ish clone so an op never mutates the caller's workspace (state-passing).
+// The envWritten record (below) is copied too, as envRecord reads it (anything
+// else in it is dropped: copyEnvRecord), so the next workspace shares no
+// structure with the one it came from and carries no more than the record can
+// hold, whatever a caller sent back in it: an op, or a caller
+// holding either workspace, can change one card's record without reaching into
+// the other's (#671, BB8 6688635328, 2). Only `cards` is carried: a
+// workspace-level field is dropped here, so the record cannot live there.
 function clone(ws) {
   return {
-    cards: ((ws && ws.cards) || []).map((c) => ({
-      ...c,
-      parts: { ...(c.parts || {}) },
-      chain: { ...(c.chain || {}), fx: [...((c.chain && c.chain.fx) || [])] },
-    })),
+    cards: ((ws && ws.cards) || []).map((c) => {
+      const copy = {
+        ...c,
+        parts: { ...(c.parts || {}) },
+        chain: { ...(c.chain || {}), fx: [...((c.chain && c.chain.fx) || [])] },
+      };
+      if (c[ENV_RECORD] !== undefined) {
+        const record = copyEnvRecord(c[ENV_RECORD]);
+        if (record) copy[ENV_RECORD] = record;
+        else delete copy[ENV_RECORD];
+      }
+      return copy;
+    }),
   };
 }
 
@@ -323,6 +338,172 @@ function setVariant(ws, cardRef, partId, variantId) {
 // The fields `clear` may name: room, tuning, and every chain stage.
 const CLEARABLE = () => ['room', 'tuning', ...(C.CHAIN_SECTIONS || []).map((s) => s.id || s.stage)];
 
+// ── what set_environment wrote ────────────────────────────────────────────────
+//
+// `envWritten` on a card records the environment settings a set_environment
+// wrote on that card, as { field: value }: room and tuning by id, a single-select
+// chain stage by id, a multi-select stage (fx) as the list of items it added.
+// It is how the connector tells a setting a caller chose from one that came with
+// the card: a tradition's stock settings and the room, tuning and chain a
+// set_preface re-derives are not in it. mcp/engine.js reads it for
+// ENVIRONMENT_NOT_RENDERED, ENVIRONMENT_MOVED and ENVIRONMENT_OVERWRITTEN (#671,
+// BB8 6681659990 and 6685465828). A card the app duplicates starts without one:
+// the copy has the values, and nothing was written on it.
+//
+//   set_environment  records each value it writes; `clear`, or a null value,
+//                    takes the field out.
+//   set_environment  on the environment card also settles what it names there
+//                    on every other card: that field leaves their records (for
+//                    a multi-select stage, `clear` settles the whole list and an
+//                    added item settles that item only, since the list holds
+//                    several). The caller has now chosen what renders there, so
+//                    a write elsewhere no longer stands for an environment they
+//                    still want: repeating a misdirected edit without `card`, as
+//                    ENVIRONMENT_NOT_RENDERED advises, ends that warning, and a
+//                    later choice of the rendered room is not answered with
+//                    advice to copy the older one over it (#671 review).
+//   set_preface      takes out each field whose value its re-derivation changed.
+//                    A field it leaves as it was still holds what the caller
+//                    wrote, so it stays; that is the same set of fields
+//                    ENVIRONMENT_OVERWRITTEN lists, since it lists only values
+//                    that changed.
+//
+// It is additive. A card without the key (a seed, an added instrument, a
+// workspace saved before the record existed) has nothing recorded, and nothing
+// is ever inferred from its values. The record is plain JSON on the card itself:
+// not in `chain`, whose values decide which card is the environment card, and
+// not keyed by card id, which the app re-mints on import. It is absent when
+// empty, so a workspace no set_environment touched is the same bytes as before.
+// No renderer reads it, so no recipe byte depends on it. In the app, a pick in
+// any card's environment editor (the Recording environment panel on the
+// environment card, or another card's own editor) writes it as a
+// set_environment on that card does, settling only from the environment card
+// (recordEnvPick in src/app.js); nothing else there writes it, and a
+// preface pick there drops what it re-derived, as set_preface does below
+// (dropReDerivedEnv). clone() gives each card its own copy, and every op here still
+// assigns a fresh object rather than changing one in place.
+//
+// It holds field names and the catalog ids written under them, never a card id:
+// it travels with its card, so an import that mints fresh card ids (the app's
+// import, "Use recipe", a forked saved session) carries it with nothing to remap.
+// The values are needed, not only the names: an effect added to a multi-select
+// stage is settled per effect (BB8 6685465828, 1), and a single value holds only
+// while the card still stores it (envRecordHolds).
+const ENV_RECORD = 'envWritten';
+// A copy of a record, sharing no array or object with it: the record as envRecord
+// reads it, or undefined when that is empty (the card then carries no key). It is
+// the normalised record, never the raw value copied whole. The raw value comes off
+// the wire in a workspace the caller threads, and every op clones its workspace, so
+// copying it whole let one request carry megabytes of junk through every op of a
+// batch and back out in the workspace (#671 review). What is dropped is what no
+// reader uses: a key that is not an environment field, a value that is not a
+// catalog id of that field, a repeated item; so no warning moves.
+function copyEnvRecord(raw) {
+  const record = envRecord({ [ENV_RECORD]: raw });
+  return Object.keys(record).length ? record : undefined;
+}
+const isMultiStage = (field) =>
+  !!((C.CHAIN_SECTIONS || []).find((s) => (s.id || s.stage) === field) || {}).multiSelect;
+
+// The catalog ids a field can hold: a room, a tuning, or an item of that chain
+// stage, as set_environment validates them. Memoised per catalog table, which
+// does not change while a process runs (a rebuilt table gets a fresh set).
+const _fieldIds = new Map();
+function fieldIds(field) {
+  const table =
+    field === 'room'
+      ? C.ROOMS
+      : field === 'tuning'
+        ? C.TUNINGS
+        : ((C.CHAIN_SECTIONS || []).find((s) => (s.id || s.stage) === field) || {}).items;
+  const hit = _fieldIds.get(field);
+  if (hit && hit.table === table) return hit.ids;
+  const ids = new Set((table || []).map((x) => x && x.id).filter(Boolean));
+  _fieldIds.set(field, { table, ids });
+  return ids;
+}
+
+// The record as stored, read defensively: it comes off the wire inside a
+// workspace the caller threads, so anything but a known field holding catalog
+// ids of that field (the only values set_environment writes) is ignored. That
+// also bounds it: a multi-select list holds each of its stage's items at most
+// once, however long a list a caller sends back. Keys come back in CLEARABLE
+// order.
+function envRecord(card) {
+  const raw = card && card[ENV_RECORD];
+  const out = {};
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return out;
+  for (const field of CLEARABLE()) {
+    const value = raw[field];
+    const known = fieldIds(field);
+    if (isMultiStage(field)) {
+      const ids = Array.isArray(value) ? value.filter((x) => known.has(x)) : [];
+      if (ids.length) out[field] = [...new Set(ids)];
+    } else if (known.has(value)) out[field] = value;
+  }
+  return out;
+}
+
+// Store a record built by an op, as a fresh object (or no key when empty).
+function storeEnvRecord(card, record) {
+  const clean = envRecord({ [ENV_RECORD]: record });
+  if (Object.keys(clean).length) card[ENV_RECORD] = clean;
+  else delete card[ENV_RECORD];
+}
+
+// One environment field as the card holds it: an id or null, or a list for a
+// multi-select stage (absent reads as empty, as both renderers read it).
+function envFieldValue(card, field) {
+  if (field === 'room' || field === 'tuning') return (card && card[field]) || null;
+  const value = ((card && card.chain) || {})[field];
+  if (isMultiStage(field)) return Array.isArray(value) ? value : [];
+  return value || null;
+}
+const sameEnvValue = (a, b) =>
+  Array.isArray(a) || Array.isArray(b)
+    ? (a || []).join('\u0000') === (b || []).join('\u0000')
+    : (a || null) === (b || null);
+
+// Does the card still hold what was recorded for `field`? A single value while it
+// is the one stored; a multi-select write while any item it added is still in the
+// list, since a later effect is added beside it and does not replace it. A value
+// moved in place without a write (any set but a set_environment or a pick in
+// the app's panel) no longer holds.
+function envRecordHolds(card, field, value) {
+  const now = envFieldValue(card, field);
+  if (Array.isArray(now)) {
+    // A set, not includes(): the card's own list comes off the wire too, and a
+    // pairwise scan of two long lists is quadratic on every response.
+    const held = new Set(now);
+    return (Array.isArray(value) ? value : [value]).some((x) => held.has(x));
+  }
+  return value != null && now === value;
+}
+
+// A set_environment on the environment card settles, on every other card, what
+// it named there (the second set_environment rule above). `named` is per field:
+// true for a field it set or cleared outright, or the items it added to a
+// multi-select stage.
+function settleEnvRecords(next, envCard, named) {
+  for (const other of next.cards) {
+    if (other === envCard) continue;
+    const record = envRecord(other);
+    let moved = false;
+    for (const [field, what] of Object.entries(named)) {
+      if (!(field in record)) continue;
+      if (what === true) delete record[field];
+      else {
+        const left = record[field].filter((x) => !what.includes(x));
+        if (left.length === record[field].length) continue;
+        if (left.length) record[field] = left;
+        else delete record[field];
+      }
+      moved = true;
+    }
+    if (moved) storeEnvRecord(other, record);
+  }
+}
+
 // Set (or clear) a card's room, tuning and chain stages.
 //
 // WITH NO CARD it writes to the card the recipe renders its environment from —
@@ -350,6 +531,12 @@ function setEnvironment(ws, cardRef, { room, tuning, chain, clear } = {}) {
     card = findCard(next, cardRef);
     if (!card) throw noCard(next, cardRef);
   }
+  // What this edit writes, kept beside the values (envWritten, above). It is
+  // stored on the card once every value has been validated and written.
+  const record = envRecord(card);
+  // What it names, per field, for settleEnvRecords: true for a field set or
+  // cleared outright, or the items added to a multi-select stage.
+  const named = {};
   if (clear !== undefined) {
     const valid = CLEARABLE();
     const fields = Array.isArray(clear) ? clear : [clear];
@@ -358,6 +545,8 @@ function setEnvironment(ws, cardRef, { room, tuning, chain, clear } = {}) {
         throw new WorkspaceError(`Cannot clear "${field}". Clearable: ${valid.join(', ')}.`);
     }
     for (const field of fields) {
+      delete record[field];
+      named[field] = true;
       if (field === 'room' || field === 'tuning') {
         card[field] = null;
         continue;
@@ -376,6 +565,9 @@ function setEnvironment(ws, cardRef, { room, tuning, chain, clear } = {}) {
         `Unknown room: "${room}" (search_catalog types=["room"], or list_options kind="rooms").`
       );
     card.room = room;
+    if (room === null) delete record.room;
+    else record.room = room;
+    named.room = true;
   }
   if (tuning !== undefined) {
     if (tuning !== null && !(C.TUNINGS || []).find((t) => t.id === tuning))
@@ -383,6 +575,9 @@ function setEnvironment(ws, cardRef, { room, tuning, chain, clear } = {}) {
         `Unknown tuning: "${tuning}" (search_catalog types=["tuning"], or list_options kind="tunings").`
       );
     card.tuning = tuning;
+    if (tuning === null) delete record.tuning;
+    else record.tuning = tuning;
+    named.tuning = true;
   }
   if (chain && typeof chain === 'object') {
     // Validate to the same standard as room and tuning above. Unvalidated, a
@@ -437,6 +632,8 @@ function setEnvironment(ws, cardRef, { room, tuning, chain, clear } = {}) {
         // null clears the stage, matching the single-select clear path below.
         if (id === null) {
           card.chain[stage] = [];
+          delete record[stage];
+          named[stage] = true;
           continue;
         }
         // A bare string is a caller writing the single-select shape at a
@@ -465,12 +662,21 @@ function setEnvironment(ws, cardRef, { room, tuning, chain, clear } = {}) {
         const list = Array.isArray(card.chain[stage]) ? card.chain[stage].slice() : [];
         for (const one of ids) if (!list.includes(one)) list.push(one);
         card.chain[stage] = list;
+        // The record holds the items this edit and earlier ones added, an item
+        // that was already in the list included: the caller wrote it.
+        record[stage] = [...(record[stage] || []), ...ids];
+        if (named[stage] !== true && ids.length) named[stage] = [...(named[stage] || []), ...ids];
         continue;
       }
       if (id !== null && !known(id)) throw rejectId(id);
       card.chain[stage] = id;
+      if (id === null) delete record[stage];
+      else record[stage] = id;
+      named[stage] = true;
     }
   }
+  storeEnvRecord(card, record);
+  if (envCardOf(next.cards) === card) settleEnvRecords(next, card, named);
   return next;
 }
 
@@ -484,6 +690,7 @@ function setPreface(ws, cardRef, prefaceId) {
   const res = inverseConfigure(card, prefaceId);
   if (!res)
     throw new WorkspaceError(`Cannot apply preface "${prefaceId}" to "${card.instrumentId}"`);
+  const was = { room: card.room, tuning: card.tuning, chain: card.chain };
   card.parts = { ...res.config.parts };
   card.tuning = res.config.tuning;
   card.room = res.config.room;
@@ -496,6 +703,15 @@ function setPreface(ws, cardRef, prefaceId) {
   // restore values this call deliberately moved — the cascade handing back what
   // the user had asked it to replace.
   card.pinnedParts = [];
+  // A field the re-derivation changed no longer holds what a set_environment
+  // wrote, so it leaves the record (envWritten, above); one it left as it was
+  // keeps the caller's setting.
+  const record = envRecord(card);
+  const kept = Object.keys(record).filter((field) =>
+    sameEnvValue(envFieldValue(was, field), envFieldValue(card, field))
+  );
+  if (kept.length < Object.keys(record).length)
+    storeEnvRecord(card, Object.fromEntries(kept.map((field) => [field, record[field]])));
   return next;
 }
 
@@ -522,5 +738,11 @@ module.exports = {
   setPreface,
   render,
   findCard,
+  // The record of what set_environment wrote (envWritten, above): read and held
+  // here, so the engine's warnings and every gate share one definition of it.
+  ENV_RECORD,
+  envRecord,
+  envRecordHolds,
+  copyEnvRecord,
   WorkspaceError,
 };

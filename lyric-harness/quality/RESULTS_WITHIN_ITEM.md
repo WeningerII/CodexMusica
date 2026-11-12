@@ -1,5 +1,31 @@
 # Results — within-item respecification
 
+## Current Experiment 1 measurement — 2026-11-11
+
+The dated history and preregistration below are retained, but older Experiment 1
+values labelled "current" are superseded by this measurement. The within-item
+all-feature AUC moves ~~0.6182336182336182~~ → **0.6176638176638177**, and its
+predictability-only joint moves ~~0.7413105413105413~~ → **0.7407407407407407**.
+Both still render as **0.618 / 0.741**. Predictability advantage moves
+~~0.2433048433048433~~ → **0.245014245014245**; the other seven within-item
+per-feature AUCs hold.
+
+The absolute all-feature AUC is now **0.7578347578347578**, so the within-item
+reading remains lower by **0.140171**. No new seed-sweep median or permutation
+p-value was measured; the historical ones below are not current evidence.
+Experiment 2 was deleted on 2026-10-27 and has not been re-measured.
+
+Two cold runs at a6243929 each computed 264 vectors over the unchanged 15/117
+population. Current code reproduces scheduled run 43007837054; disabling only
+`Lexicon._derive_cmu_readings` restores all 35 previous checks with the same
+packages. This attributes the movement to the accent readings introduced by
+[ff556ae5](https://github.com/WeningerII/CodexMusica/commit/ff556ae583a815e3a9fd2d223963695ac41965be),
+not numerical dependency drift. The complete seven-number adoption and runtime
+coordinates are recorded in the 2026-11-11 section of `quality/RESULTS.md` and
+`quality/test_discriminate.py`. Post-adoption verification uses the newly computed
+fingerprint-matching cache, not a third cold extraction.
+
+
 > **WRITTEN 2026-08-09. REPINNED COLD 2026-08-13. REPINNED AGAIN 2026-08-22.
 > REPINNED A FOURTH TIME 2026-09-14. A FIFTH TIME 2026-09-17. AND A SIXTH TIME
 > 2026-09-26.**

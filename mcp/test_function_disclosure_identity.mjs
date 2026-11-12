@@ -2,8 +2,14 @@
 // Run: node --test mcp/test_function_disclosure_identity.mjs
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { test } from 'node:test';
+import { test as nativeTest } from 'node:test';
 import { recordCreation, creationRefusal } from './lyric_workflow.js';
+import groupRegistry from '../scripts/ci_node_test_groups.js';
+const groupedTests = groupRegistry.createRegistrar(
+  nativeTest,
+  'mcp/test_function_disclosure_identity.mjs'
+);
+const test = groupedTests.test;
 
 const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const functions = [' Pre-Chorus ', 'chorus', ' Pre-Chorus '];
@@ -342,3 +348,5 @@ test(
     assert.equal(task.workflow.plan, null);
   }
 );
+
+groupedTests.complete();

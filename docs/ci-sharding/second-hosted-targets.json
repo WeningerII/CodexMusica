@@ -1,0 +1,926 @@
+{
+  "schema_version": 2,
+  "repository": "WeningerII/CodexMusica",
+  "pull_request": 848,
+  "head_sha": "8e3d59ab5deb36b2ea4bbeeb54d8fe7baad2a16d",
+  "tree_sha": "8c9637a125b0433d6ffc3f114940da19cefd265d",
+  "run_id": 43110418153,
+  "event": "pull_request",
+  "run_url": "https://github.com/WeningerII/CodexMusica/actions/runs/43110418153",
+  "captured_at": "2026-11-11T22:48:06.425955+00:00",
+  "run_status": "completed",
+  "run_conclusion": "success",
+  "expected_target_counts": {
+    "verify": 8,
+    "suites_modules": 8,
+    "suites_evidence": 1,
+    "faults": 6
+  },
+  "targets_complete": true,
+  "all_targets_passed": true,
+  "all_targets_passed_under_ten_minutes": false,
+  "required_gates_all_passed": true,
+  "qualifying_pr_success": true,
+  "targets_at_or_over_ten_minutes": [
+    {
+      "id": 130826500586,
+      "name": "suites (shard 1/8)",
+      "status": "completed",
+      "api_elapsed_s": 639.0
+    },
+    {
+      "id": 130826500755,
+      "name": "suites (shard 2/8)",
+      "status": "completed",
+      "api_elapsed_s": 664.0
+    }
+  ],
+  "required_gates": [
+    {
+      "id": 130824684458,
+      "name": "gate",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:16:57Z",
+      "started_at": "2026-11-11T22:17:00Z",
+      "completed_at": "2026-11-11T22:20:36Z",
+      "api_elapsed_s": 216.0,
+      "observed_step_span_s": 212.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 4.0,
+      "dependency_wait_s": 6.0,
+      "ready_to_complete_s": 219.0,
+      "completed_after_gate_s": 0.0
+    },
+    {
+      "id": 130826499892,
+      "name": "lyrics-image",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:20:36Z",
+      "started_at": "2026-11-11T22:20:40Z",
+      "completed_at": "2026-11-11T22:48:04Z",
+      "api_elapsed_s": 1644.0,
+      "observed_step_span_s": 1641.0,
+      "queue_s": 4.0,
+      "queue_to_first_step_s": 5.0,
+      "dependency_wait_s": 225.0,
+      "ready_to_complete_s": 1648.0,
+      "completed_after_gate_s": 1648.0
+    },
+    {
+      "id": 130826957024,
+      "name": "capacity-proof-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:21:31Z",
+      "started_at": "2026-11-11T22:28:39Z",
+      "completed_at": "2026-11-11T22:28:42Z",
+      "api_elapsed_s": 3.0,
+      "observed_step_span_s": 0.0,
+      "queue_s": 428.0,
+      "queue_to_first_step_s": 429.0,
+      "dependency_wait_s": 280.0,
+      "ready_to_complete_s": 431.0,
+      "completed_after_gate_s": 486.0
+    },
+    {
+      "id": 130832625299,
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:33:07Z",
+      "started_at": "2026-11-11T22:33:10Z",
+      "completed_at": "2026-11-11T22:33:42Z",
+      "api_elapsed_s": 32.0,
+      "observed_step_span_s": 28.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 4.0,
+      "dependency_wait_s": 976.0,
+      "ready_to_complete_s": 35.0,
+      "completed_after_gate_s": 786.0
+    },
+    {
+      "id": 130833981762,
+      "name": "freshness",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:35:50Z",
+      "started_at": "2026-11-11T22:35:52Z",
+      "completed_at": "2026-11-11T22:36:33Z",
+      "api_elapsed_s": 41.0,
+      "observed_step_span_s": 28.0,
+      "queue_s": 2.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 1139.0,
+      "ready_to_complete_s": 43.0,
+      "completed_after_gate_s": 957.0
+    },
+    {
+      "id": 130832014471,
+      "name": "catalog-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:31:52Z",
+      "started_at": "2026-11-11T22:31:54Z",
+      "completed_at": "2026-11-11T22:31:57Z",
+      "api_elapsed_s": 3.0,
+      "observed_step_span_s": 0.0,
+      "queue_s": 2.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 901.0,
+      "ready_to_complete_s": 5.0,
+      "completed_after_gate_s": 681.0
+    },
+    {
+      "id": 130826499867,
+      "name": "record",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:20:36Z",
+      "started_at": "2026-11-11T22:20:39Z",
+      "completed_at": "2026-11-11T22:32:02Z",
+      "api_elapsed_s": 683.0,
+      "observed_step_span_s": 679.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 4.0,
+      "dependency_wait_s": 225.0,
+      "ready_to_complete_s": 686.0,
+      "completed_after_gate_s": 686.0
+    },
+    {
+      "id": 130835316615,
+      "name": "suites-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:38:38Z",
+      "started_at": "2026-11-11T22:38:41Z",
+      "completed_at": "2026-11-11T22:38:43Z",
+      "api_elapsed_s": 2.0,
+      "observed_step_span_s": 0.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 4.0,
+      "dependency_wait_s": 1307.0,
+      "ready_to_complete_s": 5.0,
+      "completed_after_gate_s": 1087.0
+    },
+    {
+      "id": 130832105298,
+      "name": "plan-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:32:03Z",
+      "started_at": "2026-11-11T22:32:06Z",
+      "completed_at": "2026-11-11T22:32:08Z",
+      "api_elapsed_s": 2.0,
+      "observed_step_span_s": 1.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 912.0,
+      "ready_to_complete_s": 5.0,
+      "completed_after_gate_s": 692.0
+    },
+    {
+      "id": 130827221038,
+      "name": "capacity-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:22:02Z",
+      "started_at": "2026-11-11T22:28:40Z",
+      "completed_at": "2026-11-11T22:28:43Z",
+      "api_elapsed_s": 3.0,
+      "observed_step_span_s": 0.0,
+      "queue_s": 398.0,
+      "queue_to_first_step_s": 399.0,
+      "dependency_wait_s": 311.0,
+      "ready_to_complete_s": 401.0,
+      "completed_after_gate_s": 487.0
+    },
+    {
+      "id": 130835124713,
+      "name": "revision-loop-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:38:14Z",
+      "started_at": "2026-11-11T22:38:16Z",
+      "completed_at": "2026-11-11T22:38:19Z",
+      "api_elapsed_s": 3.0,
+      "observed_step_span_s": 0.0,
+      "queue_s": 2.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 1283.0,
+      "ready_to_complete_s": 5.0,
+      "completed_after_gate_s": 1063.0
+    },
+    {
+      "id": 130833273930,
+      "name": "verbs-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:34:23Z",
+      "started_at": "2026-11-11T22:34:26Z",
+      "completed_at": "2026-11-11T22:34:28Z",
+      "api_elapsed_s": 2.0,
+      "observed_step_span_s": 1.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 1052.0,
+      "ready_to_complete_s": 5.0,
+      "completed_after_gate_s": 832.0
+    }
+  ],
+  "suites_all_nine": {
+    "expected_count": 9,
+    "complete": true,
+    "last_completion_after_gate_s": 1082.0,
+    "first_ready_to_last_complete_s": 1082.0,
+    "workflow_created_to_last_complete_s": 1307.0
+  },
+  "suites_evidence_commands": {
+    "expected_count": 12,
+    "measured_count": 12,
+    "commands": [
+      {
+        "name": "schema-end-reading",
+        "seconds": 198.55,
+        "exit": 0
+      },
+      {
+        "name": "chance-rate",
+        "seconds": 221.895,
+        "exit": 0
+      },
+      {
+        "name": "meter-bands",
+        "seconds": 251.837,
+        "exit": 0
+      },
+      {
+        "name": "e5-canon",
+        "seconds": 353.694,
+        "exit": 0
+      },
+      {
+        "name": "song-profile-calibration",
+        "seconds": 133.244,
+        "exit": 0
+      },
+      {
+        "name": "e5-random-1",
+        "seconds": 109.94,
+        "exit": 0
+      },
+      {
+        "name": "schema-window",
+        "seconds": 193.517,
+        "exit": 0
+      },
+      {
+        "name": "search-null",
+        "seconds": 13.411,
+        "exit": 0
+      },
+      {
+        "name": "door-census",
+        "seconds": 7.206,
+        "exit": 0
+      },
+      {
+        "name": "e5-random-4",
+        "seconds": 88.926,
+        "exit": 0
+      },
+      {
+        "name": "e5-random-3",
+        "seconds": 106.575,
+        "exit": 0
+      },
+      {
+        "name": "e5-random-2",
+        "seconds": 109.371,
+        "exit": 0
+      }
+    ],
+    "wall_s": 463.067,
+    "completed": 12,
+    "failed": 0,
+    "log_file": "candidate-log-130826499851.txt"
+  },
+  "coverage_evidence": {
+    "verify_expected_leaf_count": 203,
+    "verify_measured_leaf_rows": 203,
+    "verify_unique_measured_commands": 203,
+    "verify_hosted_fanin_exact_once_confirmed": true,
+    "verify_fanin_log_file": "candidate-log-130832625299.txt",
+    "library_expected_test_count": 216,
+    "library_hosted_test_rows": 216,
+    "library_hosted_unique_test_ids": 216,
+    "library_hosted_ids_match_expected_inventory": true,
+    "library_hosted_costs_file": "candidate-43110418153-library-test-costs.json",
+    "mcp_part_passed_counts": {
+      "offline": 179,
+      "live-revision": 7,
+      "live-title": 1,
+      "live-lookups": 10
+    },
+    "mcp_total_passed_checks": 197,
+    "runner_hosted_negative_controls_passed": true,
+    "suites_expected_module_observations": 154,
+    "suites_measured_module_observations": 154,
+    "suites_unique_modules": 119,
+    "suites_partitioned_module_counts": {
+      "g2p": 8,
+      "readability": 8,
+      "reader": 8,
+      "relations_null": 8,
+      "spans": 8
+    },
+    "suites_ordinary_module_count": 114,
+    "suites_ordinary_exact_once": true,
+    "suites_partitioned_modules_all_eight": true,
+    "suites_module_nonzero_exits": [],
+    "module_count_definition": "114 ordinary modules run once plus 5 sectioned giant modules run across 8 shards = 154 observations covering 119 unique modules; fixed evidence has 12 separate commands."
+  },
+  "fanins": {
+    "verify": {
+      "id": 130832625299,
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:33:07Z",
+      "started_at": "2026-11-11T22:33:10Z",
+      "completed_at": "2026-11-11T22:33:42Z",
+      "api_elapsed_s": 32.0,
+      "observed_step_span_s": 28.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 4.0,
+      "dependency_wait_s": 976.0,
+      "ready_to_complete_s": 35.0,
+      "completed_after_gate_s": 786.0
+    },
+    "suites-result": {
+      "id": 130835316615,
+      "name": "suites-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:38:38Z",
+      "started_at": "2026-11-11T22:38:41Z",
+      "completed_at": "2026-11-11T22:38:43Z",
+      "api_elapsed_s": 2.0,
+      "observed_step_span_s": 0.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 4.0,
+      "dependency_wait_s": 1307.0,
+      "ready_to_complete_s": 5.0,
+      "completed_after_gate_s": 1087.0
+    },
+    "freshness": {
+      "id": 130833981762,
+      "name": "freshness",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:35:50Z",
+      "started_at": "2026-11-11T22:35:52Z",
+      "completed_at": "2026-11-11T22:36:33Z",
+      "api_elapsed_s": 41.0,
+      "observed_step_span_s": 28.0,
+      "queue_s": 2.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 1139.0,
+      "ready_to_complete_s": 43.0,
+      "completed_after_gate_s": 957.0
+    }
+  },
+  "shared_build_producer": {
+    "id": 130826499962,
+    "name": "freshness-build",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-11T22:20:36Z",
+    "started_at": "2026-11-11T22:20:39Z",
+    "completed_at": "2026-11-11T22:27:31Z",
+    "api_elapsed_s": 412.0,
+    "observed_step_span_s": 409.0,
+    "queue_s": 3.0,
+    "queue_to_first_step_s": 4.0,
+    "dependency_wait_s": 225.0,
+    "ready_to_complete_s": 415.0,
+    "completed_after_gate_s": 415.0
+  },
+  "critical_path": {
+    "gate": {
+      "id": 130824684458,
+      "name": "gate",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:16:57Z",
+      "started_at": "2026-11-11T22:17:00Z",
+      "completed_at": "2026-11-11T22:20:36Z",
+      "api_elapsed_s": 216.0,
+      "observed_step_span_s": 212.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 4.0,
+      "dependency_wait_s": 6.0,
+      "ready_to_complete_s": 219.0,
+      "completed_after_gate_s": 0.0
+    },
+    "lyrics-image": {
+      "id": 130826499892,
+      "name": "lyrics-image",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:20:36Z",
+      "started_at": "2026-11-11T22:20:40Z",
+      "completed_at": "2026-11-11T22:48:04Z",
+      "api_elapsed_s": 1644.0,
+      "observed_step_span_s": 1641.0,
+      "queue_s": 4.0,
+      "queue_to_first_step_s": 5.0,
+      "dependency_wait_s": 225.0,
+      "ready_to_complete_s": 1648.0,
+      "completed_after_gate_s": 1648.0
+    },
+    "freshness-build": {
+      "id": 130826499962,
+      "name": "freshness-build",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:20:36Z",
+      "started_at": "2026-11-11T22:20:39Z",
+      "completed_at": "2026-11-11T22:27:31Z",
+      "api_elapsed_s": 412.0,
+      "observed_step_span_s": 409.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 4.0,
+      "dependency_wait_s": 225.0,
+      "ready_to_complete_s": 415.0,
+      "completed_after_gate_s": 415.0
+    },
+    "freshness": {
+      "id": 130833981762,
+      "name": "freshness",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:35:50Z",
+      "started_at": "2026-11-11T22:35:52Z",
+      "completed_at": "2026-11-11T22:36:33Z",
+      "api_elapsed_s": 41.0,
+      "observed_step_span_s": 28.0,
+      "queue_s": 2.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 1139.0,
+      "ready_to_complete_s": 43.0,
+      "completed_after_gate_s": 957.0
+    },
+    "record": {
+      "id": 130826499867,
+      "name": "record",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T22:20:36Z",
+      "started_at": "2026-11-11T22:20:39Z",
+      "completed_at": "2026-11-11T22:32:02Z",
+      "api_elapsed_s": 683.0,
+      "observed_step_span_s": 679.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 4.0,
+      "dependency_wait_s": 225.0,
+      "ready_to_complete_s": 686.0,
+      "completed_after_gate_s": 686.0
+    }
+  },
+  "critical_path_step_times": {
+    "lyrics-image": [
+      {
+        "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 22.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Reclaim unused hosted runner toolchains",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 90.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Build the deployed lyrics runtime",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 1213.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Offline image pipeline and restart recovery",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 141.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Capacity acceptance oracle counterexamples",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 13.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Qualify the reader against the exact production image",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 100.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Scan the exact tested image and gate fixable HIGH/CRITICAL findings",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 44.0,
+        "elapsed_so_far_s": null
+      }
+    ],
+    "record": [
+      {
+        "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 30.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Entry claims (the sentences in MISSING.md and BACKLOG.md, checked; plus repo paths and per-family rhyme-capacity figures quoted in prose)",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 50.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Committed counters against their measurement",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 156.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Mark coverage against RESULTS_MARK_COVERAGE.md's pins",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 34.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Span/label agreement against RESULTS_SPANS.md's headline",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 115.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Corpus audit against RESULTS_CORPUS_AUDIT.md's committed shape",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 82.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Pooled-Fisher H0 calibration still reads as the record describes",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 17.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "The positive control's own instrument (doctrine 31/76)",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 20.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Mutation list is well formed (static \u2014 no sweep, forks nothing)",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 26.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Hafez radif/q\u0101fiya rates against their committed values",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 12.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "The time layer is still mute, and for the recorded reason",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 68.0,
+        "elapsed_so_far_s": null
+      }
+    ],
+    "freshness-build": [
+      {
+        "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 24.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Build a fresh artifact from source",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 371.0,
+        "elapsed_so_far_s": null
+      }
+    ]
+  },
+  "workflow_created_at": "2026-11-11T22:16:51Z",
+  "workflow_admission_s": 1.0,
+  "workflow_updated_at": "2026-11-11T22:48:05Z",
+  "workflow_created_to_final_update_s": 1874.0,
+  "workflow_created_to_last_runner_complete_s": 1873.0,
+  "workflow_created_to_last_target_complete_s": 1307.0,
+  "last_target_completion_after_gate_s": 1082.0,
+  "runner_runtime": {
+    "completed_executed_jobs": 66,
+    "sum_completed_api_runner_seconds": 21914.0,
+    "sum_completed_api_runner_minutes": 365.233,
+    "sum_completed_plus_active_elapsed_runner_minutes_lower_bound": 365.233,
+    "final": true,
+    "definition": "Sum of full observed completed non-skipped job elapsed, divided by60 without per-job rounding. A runtime comparison, not an invoice or billing claim."
+  },
+  "target_runtime_minutes": 168.333,
+  "observed_active_job_peak": {
+    "lower_bound_jobs": 29,
+    "at": "2026-11-11T22:25:59+00:00",
+    "job_ids": [
+      130826499851, 130826499867, 130826499892, 130826499962, 130826500030, 130826500045,
+      130826500058, 130826500107, 130826500170, 130826500242, 130826500376, 130826500379,
+      130826500503, 130826500510, 130826500513, 130826500526, 130826500564, 130826500565,
+      130826500573, 130826500586, 130826500588, 130826500608, 130826500609, 130826500648,
+      130826500699, 130826500707, 130826500831, 130826500839, 130826500898
+    ],
+    "definition": "Maximum overlap of non-skipped actual first-to-last observed step intervals within this run (active intervals end at capture); excludes queued start placeholders. A lower bound on available concurrent runners, not a configured cap or entitlement. Final reconstruction uses completed step spans."
+  },
+  "largest_confirmed_job_queue": {
+    "name": "revision-loop (3/4)",
+    "id": 130826501320,
+    "seconds": 471.0
+  },
+  "largest_confirmed_target_queue": {
+    "name": "suites (shard 4/8)",
+    "id": 130826500746,
+    "seconds": 420.0
+  },
+  "concurrent_workload": {
+    "run_id": 43109309097,
+    "name": "Production qualification",
+    "branch": "main",
+    "head_prefix": "8b5edfaf",
+    "source_file": "concurrent-production-qualification-43109309097.json",
+    "captured_at": "2026-11-11T22:27:55.314353+00:00",
+    "reported_active_jobs": 11,
+    "note": "Another main-branch production qualification was active during candidate admission; runner queues are confounded by concurrent workload. This monitor did not modify that run. Counts from separate snapshots are not an exact combined concurrency entitlement."
+  },
+  "baseline_comparison": {
+    "run_id": 43081271970,
+    "event": "pull_request",
+    "url": "https://github.com/WeningerII/CodexMusica/actions/runs/43081271970",
+    "families": {
+      "verify": {
+        "api_elapsed_s": [1278.0, 1536.0],
+        "queue_s": [409.0, 443.0],
+        "ready_to_complete_s": [1687.0, 1979.0],
+        "last_completion_after_gate_s": 1979.0,
+        "first_ready_to_last_complete_s": 1979.0,
+        "workflow_created_to_last_complete_s": 2506.0
+      },
+      "suites_modules": {
+        "api_elapsed_s": [1532.0, 1239.0, 2160.0],
+        "queue_s": [485.0, 1334.0, 512.0],
+        "ready_to_complete_s": [2017.0, 2573.0, 2672.0],
+        "last_completion_after_gate_s": 2672.0,
+        "first_ready_to_last_complete_s": 2672.0,
+        "workflow_created_to_last_complete_s": 3199.0
+      },
+      "faults": {
+        "api_elapsed_s": [611.0, 626.0, 582.0],
+        "queue_s": [614.0, 1083.0, 881.0],
+        "ready_to_complete_s": [1225.0, 1709.0, 1463.0],
+        "last_completion_after_gate_s": 1998.0,
+        "first_ready_to_last_complete_s": 1709.0,
+        "workflow_created_to_last_complete_s": 2525.0
+      }
+    },
+    "runner_runtime": {
+      "completed_executed_jobs": 51,
+      "sum_completed_api_runner_seconds": 20815.0,
+      "sum_completed_api_runner_minutes": 346.917,
+      "sum_completed_plus_active_elapsed_runner_minutes_lower_bound": 346.917,
+      "final": true,
+      "definition": "Sum of full observed completed non-skipped job elapsed, divided by60 without per-job rounding. A runtime comparison, not an invoice or billing claim."
+    },
+    "target_runner_minutes": 159.4,
+    "candidate_target_runner_minutes_change": 8.933,
+    "candidate_target_runner_runtime_percent_change": 5.604,
+    "workflow_created_to_last_runner_complete_s": 3205.0,
+    "image_api_elapsed_s": 1705.0,
+    "record_api_elapsed_s": 951.0,
+    "caution": "Different runs share hosted runner supply with other workloads. This measures observed end-to-end delay; it does not isolate a causal queue reduction."
+  },
+  "notes": [
+    "Only this final-head pull_request run qualifies. The automatic duplicate push with legitimate skips is excluded.",
+    "No workflow was manually cancelled, rerun or dispatched by the evidence monitor.",
+    "Raw payloads/history/logs remain under /tmp/ci-under-ten-evidence; this compact report is separate.",
+    "Hosted runner cap/settings inventory returned403. Observed overlap is a lower bound, never an entitlement claim."
+  ],
+  "faults_hosted_coverage_proof": {
+    "source_file": "faults-hosted-second-analysis.json",
+    "coverage": {
+      "record_count": 6,
+      "class_count": 121,
+      "verdict_count": 121,
+      "all_caught": true,
+      "exact_ordinal_partition_verified": true,
+      "no_missing_or_duplicate_classes": true,
+      "counts_by_shard": [21, 20, 20, 20, 20, 20]
+    },
+    "injection_verdict_span_seconds": [281.73, 337.969, 241.53, 316.724, 148.455, 327.252],
+    "artifact": {
+      "run_id": 43110418153,
+      "head_sha": "8e3d59ab5deb36b2ea4bbeeb54d8fe7baad2a16d",
+      "artifact_id": 13897260581,
+      "artifact_name": "verified-fresh-build-1",
+      "zip_bytes": 17695333,
+      "zip_sha256": "a2b164b291889370a4f1ad188ab94b8146815e7a79c0974c0d0046f10b49ef02",
+      "github_artifact_digest_matches": true,
+      "tar_gz_bytes": 17695199,
+      "receipt_version": 2,
+      "source_runtime_fingerprint": "360566b095554e818cd45a4ea17150dceff15ceb6abcb7fce5ab4f514d8a5028",
+      "file_count": 10097,
+      "tar_inventory_exactly_matches_receipt": true,
+      "all_file_hashes_verified": true,
+      "required_html_chunk_count": 9,
+      "exact_html_chunk_closure": true
+    },
+    "record_proof_path": "/tmp/ci-under-ten-evidence/hosted-43110418153-fault-records/coverage-proof.json",
+    "artifact_proof_path": "/tmp/ci-under-ten-evidence/hosted-43110418153-artifact-proof.json"
+  },
+  "goal_satisfied": false,
+  "families": {
+    "verify": {
+      "expected_count": 8,
+      "missing": [],
+      "complete": true,
+      "last_completed_at": "2026-11-11T22:33:07Z",
+      "last_completion_after_gate_s": 751.0,
+      "first_ready_to_last_complete_s": 751.0,
+      "workflow_created_to_last_complete_s": 976.0,
+      "vectors": {
+        "api_elapsed_s": [511.0, 456.0, 466.0, 304.0, 433.0, 409.0, 369.0, 559.0],
+        "observed_step_span_s": [508.0, 453.0, 464.0, 300.0, 431.0, 406.0, 365.0, 556.0],
+        "setup_s": [59.0, 58.0, 70.0, 59.0, 58.0, 62.0, 62.0, 63.0],
+        "pool_s": [437.0, 386.0, 311.0, 233.0, 363.0, 332.0, 294.0, 482.0],
+        "fixed_s": [1.0, 0.0, 72.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "post_and_artifact_s": [11.0, 9.0, 11.0, 8.0, 10.0, 12.0, 9.0, 11.0],
+        "queue_s": [219.0, 158.0, 3.0, 202.0, 73.0, 71.0, 89.0, 192.0],
+        "queue_to_first_step_s": [220.0, 159.0, 3.0, 203.0, 74.0, 72.0, 90.0, 193.0],
+        "dependency_wait_s": [225.0, 225.0, 225.0, 225.0, 225.0, 225.0, 225.0, 225.0],
+        "ready_to_complete_s": [730.0, 614.0, 469.0, 506.0, 506.0, 480.0, 458.0, 751.0],
+        "completed_after_gate_s": [730.0, 614.0, 469.0, 506.0, 506.0, 480.0, 458.0, 751.0]
+      },
+      "maxima": {
+        "api_elapsed_s": 559.0,
+        "observed_step_span_s": 556.0,
+        "setup_s": 70.0,
+        "pool_s": 482.0,
+        "fixed_s": 72.0,
+        "post_and_artifact_s": 12.0,
+        "queue_s": 219.0,
+        "queue_to_first_step_s": 220.0,
+        "dependency_wait_s": 225.0,
+        "ready_to_complete_s": 751.0,
+        "completed_after_gate_s": 751.0
+      }
+    },
+    "suites_modules": {
+      "expected_count": 8,
+      "missing": [],
+      "complete": true,
+      "last_completed_at": "2026-11-11T22:38:38Z",
+      "last_completion_after_gate_s": 1082.0,
+      "first_ready_to_last_complete_s": 1082.0,
+      "workflow_created_to_last_complete_s": 1307.0,
+      "vectors": {
+        "api_elapsed_s": [639.0, 664.0, 384.0, 558.0, 460.0, 587.0, 261.0, 504.0],
+        "observed_step_span_s": [634.0, 660.0, 380.0, 553.0, 456.0, 583.0, 257.0, 500.0],
+        "setup_s": [45.0, 31.0, 42.0, 38.0, 40.0, 35.0, 38.0, 35.0],
+        "pool_s": [589.0, 629.0, 337.0, 515.0, 414.0, 547.0, 218.0, 464.0],
+        "fixed_s": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "post_and_artifact_s": [0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0],
+        "queue_s": [4.0, 418.0, 4.0, 420.0, 3.0, 4.0, 3.0, 4.0],
+        "queue_to_first_step_s": [5.0, 419.0, 4.0, 421.0, 4.0, 5.0, 4.0, 5.0],
+        "dependency_wait_s": [225.0, 225.0, 225.0, 225.0, 225.0, 225.0, 225.0, 225.0],
+        "ready_to_complete_s": [643.0, 1082.0, 388.0, 978.0, 463.0, 591.0, 264.0, 508.0],
+        "completed_after_gate_s": [643.0, 1082.0, 388.0, 978.0, 463.0, 591.0, 264.0, 508.0]
+      },
+      "maxima": {
+        "api_elapsed_s": 664.0,
+        "observed_step_span_s": 660.0,
+        "setup_s": 45.0,
+        "pool_s": 629.0,
+        "fixed_s": 0.0,
+        "post_and_artifact_s": 1.0,
+        "queue_s": 420.0,
+        "queue_to_first_step_s": 421.0,
+        "dependency_wait_s": 225.0,
+        "ready_to_complete_s": 1082.0,
+        "completed_after_gate_s": 1082.0
+      }
+    },
+    "suites_evidence": {
+      "expected_count": 1,
+      "missing": [],
+      "complete": true,
+      "last_completed_at": "2026-11-11T22:29:09Z",
+      "last_completion_after_gate_s": 513.0,
+      "first_ready_to_last_complete_s": 513.0,
+      "workflow_created_to_last_complete_s": 738.0,
+      "vectors": {
+        "api_elapsed_s": [506.0],
+        "observed_step_span_s": [503.0],
+        "setup_s": [38.0],
+        "pool_s": [464.0],
+        "fixed_s": [0.0],
+        "post_and_artifact_s": [1.0],
+        "queue_s": [7.0],
+        "queue_to_first_step_s": [8.0],
+        "dependency_wait_s": [225.0],
+        "ready_to_complete_s": [513.0],
+        "completed_after_gate_s": [513.0]
+      },
+      "maxima": {
+        "api_elapsed_s": 506.0,
+        "observed_step_span_s": 503.0,
+        "setup_s": 38.0,
+        "pool_s": 464.0,
+        "fixed_s": 0.0,
+        "post_and_artifact_s": 1.0,
+        "queue_s": 7.0,
+        "queue_to_first_step_s": 8.0,
+        "dependency_wait_s": 225.0,
+        "ready_to_complete_s": 513.0,
+        "completed_after_gate_s": 513.0
+      }
+    },
+    "faults": {
+      "expected_count": 6,
+      "missing": [],
+      "complete": true,
+      "last_completed_at": "2026-11-11T22:35:49Z",
+      "last_completion_after_gate_s": 913.0,
+      "first_ready_to_last_complete_s": 497.0,
+      "workflow_created_to_last_complete_s": 1138.0,
+      "vectors": {
+        "api_elapsed_s": [347.0, 403.0, 305.0, 375.0, 207.0, 393.0],
+        "observed_step_span_s": [344.0, 401.0, 302.0, 372.0, 205.0, 391.0],
+        "setup_s": [50.0, 50.0, 49.0, 47.0, 48.0, 51.0],
+        "pool_s": [284.0, 340.0, 243.0, 318.0, 150.0, 330.0],
+        "fixed_s": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "post_and_artifact_s": [10.0, 11.0, 10.0, 7.0, 7.0, 10.0],
+        "queue_s": [91.0, 94.0, 93.0, 93.0, 74.0, 73.0],
+        "queue_to_first_step_s": [92.0, 95.0, 94.0, 94.0, 74.0, 73.0],
+        "dependency_wait_s": [641.0, 641.0, 641.0, 641.0, 641.0, 641.0],
+        "ready_to_complete_s": [438.0, 497.0, 398.0, 468.0, 281.0, 466.0],
+        "completed_after_gate_s": [854.0, 913.0, 814.0, 884.0, 697.0, 882.0]
+      },
+      "maxima": {
+        "api_elapsed_s": 403.0,
+        "observed_step_span_s": 401.0,
+        "setup_s": 51.0,
+        "pool_s": 340.0,
+        "fixed_s": 0.0,
+        "post_and_artifact_s": 11.0,
+        "queue_s": 94.0,
+        "queue_to_first_step_s": 95.0,
+        "dependency_wait_s": 641.0,
+        "ready_to_complete_s": 497.0,
+        "completed_after_gate_s": 913.0
+      }
+    }
+  },
+  "definitions": {
+    "api_elapsed_s": "GitHub job.completed_at minus job.started_at; includes setup, tests, artifacts and post steps. Active jobs show elapsed so far.",
+    "observed_step_span_s": "Earliest actual setup-step start to latest observed step end, separately retained in case API started_at is a queue placeholder.",
+    "queue_s": "API job.started_at minus job.created_at; queued placeholders ignored. In a queued row this is a lower bound so far.",
+    "ready_to_complete_s": "Completed job.completed_at minus job.created_at: queue plus complete execution.",
+    "dependency_wait_s": "Job.created_at minus workflow.created_at; includes admission and upstream needs waits.",
+    "completed_after_gate_s": "Job completion minus completed gate timestamp. Family maxima include runner queues and all execution.",
+    "vector_order": "Ascending shard coordinate; suites_evidence is a separate one-job family.",
+    "ten_minute_test": "Every one of23 execution jobs must succeed with full API elapsed strictly below600s; this does not claim total workflow or family end-to-end below600s."
+  },
+  "detailed_report": "second-hosted-targets.json"
+}
