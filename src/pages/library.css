@@ -11,8 +11,8 @@
   gap: 4px;
   flex-wrap: wrap;
 }
-/* The one polite live region (libraryAnnounce): heard, not seen. */
-#surface-library .lib-live {
+/* One polite live region. Slow service loading is visible in this same region. */
+#surface-library .lib-live:not(.lib-loading) {
   position: absolute;
   width: 1px;
   height: 1px;

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Cheap adversarial checks for the production capacity qualification oracle."""
 import copy
+from functools import lru_cache
 import sys
 import json
 import hashlib
@@ -8,9 +9,19 @@ from pathlib import Path
 from lyrics_capacity_runtime import library_evidence_failures, runtime_evidence_failures, run_store_evidence_failures, queue_pressure_failures, ResidentRuntime
 import re
 import unittest
+from test_library_load_measurement import FirstLoad
 from unittest.mock import patch
 from check_lyrics_capacity import validate_measurement, percentile, terminate_measurement, MeasurementProgress
 from measure_verb_memory import _checkpoint_valid, _machine_result, CONTROL_TOKEN, assessment_coverage_valid
+
+
+@lru_cache(maxsize=1)
+def producer_source_identity():
+    from check_lyrics_capacity import source_identity, source_closure, ROOT
+    from merge_lyrics_capacity import runtime_modules
+    identity = source_identity()
+    projected = source_closure(harness_modules=runtime_modules(ROOT / 'lyric-harness'))
+    return {name: identity[name] for name in projected}
 
 
 def measured(mode='cold'):
@@ -454,6 +465,38 @@ class CapacitySourceIdentity(unittest.TestCase):
 class CapacitySourceClosure(unittest.TestCase):
     """The identity is every repository module the measured runtime loads,
     derived from its entry points, not a hand-picked list (#612/#664 R-3)."""
+
+    def test_checkout_projection_matches_the_assembled_source_tree(self):
+        import tempfile
+        import shutil
+        import check_lyrics_capacity as matrix
+        from merge_lyrics_capacity import runtime_modules
+        root = matrix.ROOT
+        shipped = set(runtime_modules(root / 'lyric-harness'))
+        full = matrix.source_closure()
+        projected = matrix.source_closure(harness_modules=shipped)
+        self.assertIn('lyric-harness/battery.py', full)
+        self.assertNotIn('lyric-harness/battery.py', projected)
+        expected = {name: hashlib.sha256((root / name).read_bytes()).hexdigest()
+                    for name in projected}
+        with tempfile.TemporaryDirectory() as tmp:
+            staged = Path(tmp)
+            # Reproduce the assembler's source selection, without assets,
+            # Docker, network, workloads or copying corpus content.
+            for name in full:
+                source = root / name
+                if name.startswith('lyric-harness/') and source not in shipped:
+                    continue
+                target = staged / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(source, target)
+            with patch.object(matrix, 'ROOT', staged):
+                actual = matrix.source_identity()
+                self.assertEqual(actual, expected)
+                # A missing shipped module must not silently shrink what the
+                # checkout validator expects from the measured image.
+                (staged / 'mcp/worker.py').unlink()
+                self.assertNotEqual(set(matrix.source_identity()), set(expected))
 
     def test_the_closure_covers_grid_and_the_old_hand_picked_list(self):
         from check_lyrics_capacity import source_closure, source_identity
@@ -935,7 +978,7 @@ class ShardedCapacityMerge(unittest.TestCase):
         from check_lyrics_capacity import LIMITS, MODES, SEEDS
         cells = [tuple(c) for c in cells]
         return {**{
-            'version': 1, 'status': 'passed', 'production_qualified': False,
+            'version': 1, 'library_mode': 'loaded', 'status': 'passed', 'production_qualified': False,
             'local_supplement': False, 'sizes': sorted({size for size, _ in cells}),
             'seeds': list(SEEDS), 'cells': [list(c) for c in cells],
             'scope': 'resource capacity with explicit refusal accounting; not lyric-quality certification',
@@ -945,10 +988,15 @@ class ShardedCapacityMerge(unittest.TestCase):
             'memory_trace': [{'lines': size, 'seed': seed, 'mode': mode,
                               'peak_bytes': 1000, 'current_bytes': 900}
                              for size, seed in cells for mode in MODES],
+            'library_load_memory_trace': [
+                {'phase': phase, 'metric': 'sampled_resident_first_load', 'peak_bytes': 1000,
+                 'instrumentation': {'sample_count': 2, 'peak_sample': {'resident_bytes': 1000}}}
+                for phase in ('library', 'library_recovery')],
             'summaries': [], 'failures': [],
             'leak_signature': {'boundaries': len(cells) * len(MODES),
                                'rose_at_every_boundary': False, 'judged_here': False},
-            'source_sha256': 'a' * 64, 'source_sha256_after': 'a' * 64,
+            'source_sha256': dict(producer_source_identity()),
+            'source_sha256_after': dict(producer_source_identity()),
         }, **over}
 
     @staticmethod
@@ -979,8 +1027,19 @@ class ShardedCapacityMerge(unittest.TestCase):
             self.assertGreaterEqual(len(cells), 2, f'{name} measures one cell; the leak signature could not run')
         self.assertEqual(len({name for name, _ in deal}), len(deal))
 
+    def test_first_load_evidence_is_required_and_retained_by_the_merger(self):
+        from merge_lyrics_capacity import merge_profile as merge
+        shards = self.complete()
+        report, failures = merge(shards)
+        self.assertFalse(failures)
+        self.assertEqual(len(report['library_load_memory_trace']), len(shards))
+        shards[0][1].pop('library_load_memory_trace')
+        report, failures = merge(shards)
+        self.assertFalse(report['production_qualified'])
+        self.assertTrue(any('first-load' in f for f in failures))
+
     def test_a_complete_consistent_matrix_qualifies(self):
-        from merge_lyrics_capacity import merge
+        from merge_lyrics_capacity import merge_profile as merge
         from check_lyrics_capacity import CELLS, MODES
         report, failures = merge(self.complete())
         self.assertEqual(failures, [])
@@ -996,7 +1055,7 @@ class ShardedCapacityMerge(unittest.TestCase):
         """A size whose seeds sit in two shards gets ONE row per (mode, verb),
         from the same function a single process uses -- not one partial row
         per shard, which is what concatenating shard summaries would give."""
-        from merge_lyrics_capacity import merge
+        from merge_lyrics_capacity import merge_profile as merge
         from check_lyrics_capacity import SIZES, MODES, summarize_measurements
         report, failures = merge(self.complete())
         self.assertEqual(failures, [])
@@ -1013,7 +1072,7 @@ class ShardedCapacityMerge(unittest.TestCase):
         two of the merger's cell guards with no case that reached them,
         because the coverage check fired first on the shape meant for them.
         """
-        from merge_lyrics_capacity import merge
+        from merge_lyrics_capacity import merge_profile as merge
         from check_lyrics_capacity import CELLS
         first_cell = tuple(self.complete()[0][1]['cells'][0])
 
@@ -1122,7 +1181,7 @@ class ShardedCapacityMerge(unittest.TestCase):
         the runtime, so it shows in EVERY shard; one shard's climb, with
         another shard falling, qualifies. Every shard climbing does not (the
         refusal list holds that case)."""
-        from merge_lyrics_capacity import merge
+        from merge_lyrics_capacity import merge_profile as merge
         shards = self.complete()
         name, pole = shards[0]
         shards[0] = (name, {**pole, 'leak_signature': {**pole['leak_signature'],
@@ -1152,6 +1211,85 @@ class ShardedCapacityMerge(unittest.TestCase):
         self.assertIs(merger.LIMITS, matrix.LIMITS)
         self.assertEqual(merger.EXPECTED_EXECUTIONS,
                          len(matrix.SIZES) * len(matrix.SEEDS) * 2)
+
+
+class LibraryProfileMerge(unittest.TestCase):
+    def complete(self):
+        rows = []
+        for mode in ('unloaded', 'loaded'):
+            for name, shard in ShardedCapacityMerge().complete():
+                shard['library_mode'] = mode
+                state = {'state': 'ready' if mode == 'loaded' else 'not_loaded',
+                         'corpus': 'verified' if mode == 'loaded' else 'absent', 'failures': []}
+                evidence = {**state, 'configured': True,
+                            'stores': {'search': True, 'export': True, 'corpus': True},
+                            'search_ready': mode == 'loaded',
+                            'first_search_s': 0.25 if mode == 'loaded' else None,
+                            'first_search_scope': 'cold request including store load' if mode == 'loaded' else 'not measured'}
+                shard['resident_runtime'] = {'library': dict(evidence), 'library_recovery': dict(evidence)}
+                for trace in shard['memory_trace']:
+                    trace.update(library_mode=mode, library_before=dict(state), library_after=dict(state))
+                if mode == 'unloaded':
+                    shard['library_load_memory_trace'] = []
+                rows.append((mode + name, shard))
+        return rows
+
+    def test_both_complete_profiles_are_required(self):
+        from merge_lyrics_capacity import merge
+        rows = self.complete()
+        report, failures = merge(rows)
+        self.assertEqual(failures, [])
+        self.assertTrue(report['production_qualified'])
+        self.assertEqual(set(report['library_profiles']), {'unloaded', 'loaded'})
+        self.assertEqual(len(report['library_profiles']['loaded']['resident_runtime']), 4)
+        self.assertFalse(merge(rows[:4])[0]['production_qualified'])
+
+    def test_source_maps_require_the_complete_producer_closure_and_valid_hashes(self):
+        from merge_lyrics_capacity import merge
+        identity = producer_source_identity()
+        path = next(iter(identity))
+        bad_maps = [None, 'a' * 64, {}, {**identity, path: None},
+                    {**identity, path: 'z' * 64}, {**identity, path: 'a' * 63},
+                    {key: value for key, value in identity.items() if key != path},
+                    {**identity, '../outside.py': 'a' * 64}]
+        for bad in bad_maps:
+            for field in ('source_sha256', 'source_sha256_after'):
+                with self.subTest(bad=bad, field=field):
+                    rows = self.complete()
+                    # Corrupt every shard equally: agreement alone is not provenance.
+                    for _, shard in rows:
+                        shard[field] = copy.deepcopy(bad)
+                    report, failures = merge(rows)
+                    self.assertFalse(report['production_qualified'])
+                    self.assertTrue(any('source identity' in f for f in failures))
+        for field in ('source_sha256', 'source_sha256_after'):
+            rows = self.complete()
+            rows[-1][1][field][path] = 'b' * 64
+            self.assertFalse(merge(rows)[0]['production_qualified'])
+
+    def test_profile_evidence_mutants_are_refused(self):
+        from merge_lyrics_capacity import merge
+        mutations = [
+            lambda s: s['memory_trace'].pop(),
+            lambda s: s['memory_trace'][0].update(peak_bytes=1792 * 1024**2 + 1),
+            lambda s: s['memory_trace'][0]['library_after'].update(state='not_loaded'),
+            lambda s: s['resident_runtime']['library_recovery'].update(corpus='verifying'),
+            lambda s: s['resident_runtime']['library'].update(first_search_s=float('nan')),
+            lambda s: s['resident_runtime']['library'].pop('first_search_s'),
+            lambda s: s['resident_runtime']['library']['stores'].update(search=False),
+            lambda s: s.update(source_sha256='b' * 64),
+            lambda s: s.update(limits={}),
+            lambda s: s.update(source_sha256=None, source_sha256_after=None),
+            lambda s: s['library_load_memory_trace'].pop(),
+        ]
+        for mutate in mutations:
+            with self.subTest(mutation=mutate):
+                rows = self.complete()
+                mutate(rows[-1][1])
+                self.assertFalse(merge(rows)[0]['production_qualified'])
+        rows = self.complete()
+        rows[0][1]['memory_trace'][0]['library_after']['state'] = 'ready'
+        self.assertFalse(merge(rows)[0]['production_qualified'])
 
 
 if __name__ == '__main__':

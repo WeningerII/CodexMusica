@@ -42,6 +42,7 @@ import { ReaderJobStore, readerStoreFormat } from './reader_job_store.js';
 import { ReaderScheduler, createCatalogResolver } from './reader_scheduler.js';
 import { createReaderRouter } from './reader_routes.js';
 import { LibrarySearch } from './library_search.js';
+import { createLibraryStoreLoader } from './library_store_loader.js';
 import { libraryPublicRouter, redactLibraryUrl } from './library_routes.js';
 import { libraryViewerRouter, isViewerPath, libraryErrorHandler } from './library_viewer_routes.js';
 import { ExportStore } from './library_exports.js';
@@ -316,7 +317,6 @@ const libraryAdmission = () =>
   (admissionState ||= createAdmission({
     store: readerStore,
     unitOf: (id) => {
-      loadLibraryStores();
       return librarySearch?.unit(id) ?? null;
     },
     fail: (code, message, status, extra) =>
@@ -365,7 +365,12 @@ const bridgeConfigured =
 if (readerScheduler && bridgeConfigured) {
   app.use(
     createReaderRouter({
-      admission: libraryAdmission(),
+      admission: {
+        async reserve(options) {
+          await loadLibraryStores();
+          return libraryAdmission().reserve(options);
+        },
+      },
       store: readerStore,
       scheduler: readerScheduler,
       secret: process.env.READER_BRIDGE_SECRET,
@@ -398,92 +403,27 @@ const readerReadiness = () => {
 // builds (LIBRARY_SEARCH_DIR); without one they answer 503. Public analysis is
 // reported available only while public analysis mounts the viewer routes.
 //
-// THE STORES LOAD ON FIRST USE, NOT AT STARTUP. Built before listen(), the
-// search and export stores (about 0.8 s of synchronous parsing and ~110 MB of
-// heap on one CPU, measured 2026-10-11) pushed the resident server past the
-// capacity matrix's 30 s startup gate: Production qualification runs 86 and 87
-// failed 4/4 and 3/4 cells with "Connection refused" while run 85, before the
-// Library merge, passed. Nothing on the startup path reads them, so the first
-// /library/v1 request (or the private bridge's admission) loads them, once,
-// synchronously: no request ever sees a half-loaded store. `libraryState`
-// reports `not_loaded`, then `ready` (every configured store loaded), `failed`
-// (a configured store is unusable; its routes answer 503, as when it is not
-// installed, and `libraryState.failures` names it) or `absent` (none
-// configured). GET /health reports it without loading anything.
+// Health checks do not load stores. Data requests share one same-process load,
+// including corpus verification, and a failed request can be retried afresh.
 let librarySearch = null;
 let libraryExports = null;
 let libraryCorpus = null;
-// `corpus` is the packages' background hash check: `absent` (not configured),
-// `verifying`, `verified`, or `failed` (which also fails the whole state).
-const libraryState = { state: 'not_loaded', failures: [], corpus: 'absent' };
-const libraryFailed = (store) => {
-  if (!libraryState.failures.includes(store)) libraryState.failures.push(store);
-  libraryState.state = 'failed';
-};
-function loadLibraryStores() {
-  if (libraryState.state !== 'not_loaded') return;
-  const failures = [];
-  const configured = ['LIBRARY_SEARCH_DIR', 'LIBRARY_EXPORT_DIR', 'LIBRARY_CORPUS_DIR'].some(
-    (name) => process.env[name]
-  );
-  if (process.env.LIBRARY_SEARCH_DIR) {
-    try {
-      librarySearch = new LibrarySearch(process.env.LIBRARY_SEARCH_DIR);
-    } catch (error) {
-      failures.push('search');
-      console.error('[library] the search store is unusable; search answers 503:', error.message);
-    }
-  }
-  // Public selection exports (uncredentialed), from the export store the
-  // image builds (LIBRARY_EXPORT_DIR); without one they answer 503.
-  if (process.env.LIBRARY_EXPORT_DIR) {
-    try {
-      libraryExports = new ExportStore(process.env.LIBRARY_EXPORT_DIR);
-    } catch (error) {
-      failures.push('exports');
-      console.error('[library] the export store is unusable; exports answer 503:', error.message);
-    }
-  }
-  // Whole-corpus packages (LIBRARY_CORPUS_DIR), installed only when they were
-  // built from the same snapshot the search and export stores serve; each is
-  // re-hashed in the background and answers 503 until it verifies.
-  if (process.env.LIBRARY_CORPUS_DIR) {
-    try {
-      const corpus = new CorpusPackages(process.env.LIBRARY_CORPUS_DIR);
-      const served = [librarySearch, libraryExports].filter(Boolean).map((s) => s.snapshotId);
-      if (served.some((id) => id !== corpus.snapshotId))
-        throw new Error('the packages were built from a different snapshot');
-      libraryCorpus = corpus;
-      libraryState.corpus = 'verifying';
-      // A package that fails its hash is never served (it answers 503), and
-      // the Library is reported failed rather than ready: deploy verification
-      // reads this state, so a corrupt package cannot pass as healthy.
-      corpus.verify().then(
-        (bad) => {
-          if (!bad.length) return void (libraryState.corpus = 'verified');
-          libraryState.corpus = 'failed';
-          libraryFailed('corpus');
-          console.error('[library] corpus packages failed verification:', bad.join(', '));
-        },
-        (error) => {
-          libraryState.corpus = 'failed';
-          libraryFailed('corpus');
-          console.error('[library] corpus verification failed:', error.message);
-        }
-      );
-    } catch (error) {
-      libraryState.corpus = 'failed';
-      failures.push('corpus');
-      console.error(
-        '[library] the corpus packages are unusable; corpus answers 503:',
-        error.message
-      );
-    }
-  }
-  for (const store of failures) libraryFailed(store);
-  // A verification that already failed (it cannot finish this early, but the
-  // order is not assumed) keeps the state failed.
-  if (libraryState.state !== 'failed') libraryState.state = configured ? 'ready' : 'absent';
+const libraryLoader = createLibraryStoreLoader({
+  ...(process.env.LIBRARY_SEARCH_DIR && {
+    search: () => new LibrarySearch(process.env.LIBRARY_SEARCH_DIR),
+  }),
+  ...(process.env.LIBRARY_EXPORT_DIR && {
+    exports: () => new ExportStore(process.env.LIBRARY_EXPORT_DIR),
+  }),
+  ...(process.env.LIBRARY_CORPUS_DIR && {
+    corpus: () => new CorpusPackages(process.env.LIBRARY_CORPUS_DIR),
+  }),
+});
+async function loadLibraryStores() {
+  const stores = await libraryLoader.load();
+  librarySearch = stores.search ?? null;
+  libraryExports = stores.exports ?? null;
+  libraryCorpus = stores.corpus ?? null;
 }
 // One download limiter for selection and analysis exports (decision 4).
 const libraryStreams = createStreamLimiter();
@@ -508,6 +448,15 @@ const LIBRARY_PUBLIC = process.env.LIBRARY_PUBLIC !== '0';
 // Every /library/v1 router, built once the stores have loaded (above), in the
 // order they always had: exports, corpus, the viewer routes, then the public
 // router.
+const libraryReaderRequirement = () =>
+  readerStoreFormat(
+    path.join(
+      path.resolve(
+        process.env.READER_RUNTIME_DIR || runtimeDir('reader-jobs') || '.runtime/reader-jobs'
+      ),
+      'reader-jobs-v1'
+    )
+  );
 function buildLibraryRouter() {
   const router = express.Router();
   router.use(
@@ -539,15 +488,10 @@ function buildLibraryRouter() {
   }
   router.use(
     libraryPublicRouter({
-      readerStoreRequirement: () =>
-        readerStoreFormat(
-          path.join(
-            path.resolve(process.env.READER_RUNTIME_DIR || runtimeDir('reader-jobs')),
-            'reader-jobs-v1'
-          )
-        ),
+      readerStoreRequirement: libraryReaderRequirement,
       search: librarySearch,
       corpus: libraryCorpus,
+      storeState: () => libraryLoader.health(),
       analysisAvailable: () =>
         LIBRARY_PUBLIC && Boolean(librarySearch) && readerReadiness().ready === true,
     })
@@ -555,10 +499,33 @@ function buildLibraryRouter() {
   return router;
 }
 let libraryRouter = null;
-app.use('/library/v1', (req, res, next) => {
-  loadLibraryStores();
-  libraryRouter ||= buildLibraryRouter();
-  libraryRouter(req, res, next);
+app.use('/library/v1', async (req, res, next) => {
+  // Explicit load=1 is for package discovery and loaded-data verification.
+  // An ordinary health read must neither allocate the stores nor erase failure.
+  if (/^\/health\/?$/i.test(req.path) && req.query.load !== '1') {
+    return libraryPublicRouter({
+      search: librarySearch,
+      corpus: libraryCorpus,
+      storeState: () => libraryLoader.health(),
+      readerStoreRequirement: libraryReaderRequirement,
+      analysisAvailable: () =>
+        LIBRARY_PUBLIC && Boolean(librarySearch) && readerReadiness().ready === true,
+    })(req, res, next);
+  }
+  try {
+    await loadLibraryStores();
+    libraryRouter ||= buildLibraryRouter();
+    libraryRouter(req, res, next);
+  } catch {
+    res.setHeader('Cache-Control', 'no-store');
+    res.status(503).json({
+      error: {
+        code: 'LIBRARY_UNAVAILABLE',
+        message: 'The Library could not answer.',
+        remedy: 'Retry explicitly.',
+      },
+    });
+  }
 });
 // After every /library/v1 router: errors raised before routing (a body that
 // does not parse) answer JSON, not Express's HTML page.
@@ -629,11 +596,7 @@ app.get('/health', (_req, res) => {
     reader: readerReadiness(),
     // The Library stores' load state (loadLibraryStores above). Reading it
     // never loads them: `not_loaded` until the first /library/v1 request.
-    library: {
-      state: libraryState.state,
-      failures: [...libraryState.failures],
-      corpus: libraryState.corpus,
-    },
+    library: libraryLoader.health(),
     // WHY THIS FIELD EXISTS (M-187(a)). Nothing measured whether the warm
     // worker is ENGAGED on the deployed box. check_live.mjs compares the
     // ADVERTISED surface, not the process answering it, and a warm answer and

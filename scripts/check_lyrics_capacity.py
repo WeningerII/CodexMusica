@@ -27,6 +27,7 @@ import tempfile
 import time
 from measure_verb_memory import assessment_coverage_valid
 from lyrics_capacity_runtime import ResidentRuntime, runtime_evidence_failures
+from library_load_measurement import sample_during_load, load_trace_failures
 
 ROOT = Path(__file__).resolve().parents[1]
 SIZES = (18, 24, 31)
@@ -587,7 +588,7 @@ def _script_literals(path):
     return found
 
 
-def source_closure():
+def source_closure(*, harness_modules=None):
     """-> sorted repository paths the measured runtime loads from its entry
     points: the Python import closure (static, so imports inside functions
     count), the relative JS import closure, and every script a member
@@ -598,10 +599,16 @@ def source_closure():
     `scripts/_loader.js` evaluates from references/*.js with readFileSync and
     new Function, and every data/ or corpus table. Two shards that agree on
     this identity ran the same code, not necessarily the same inputs."""
+    # The checkout merger can project the harness tree through the same
+    # runtime_modules inventory that Docker assembly uses. The producer's
+    # default still walks every source actually present in its measured image.
+    admitted = None if harness_modules is None else {Path(p).resolve() for p in harness_modules}
+    harness = ROOT / 'lyric-harness'
     seen, todo = set(), [ROOT / entry for entry in SOURCE_ENTRIES]
     while todo:
         path = todo.pop().resolve()
-        if path in seen or not path.is_file():
+        if (path in seen or not path.is_file() or
+                admitted is not None and harness in path.parents and path not in admitted):
             continue
         seen.add(path)
         if path.suffix == '.py':
@@ -637,6 +644,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--out', required=True)
     ap.add_argument('--local', action='store_true')
+    ap.add_argument('--library-mode', choices=('unloaded', 'loaded'), default='loaded')
     ap.add_argument('--cells', default=','.join(f'{size}:{seed}' for size, seed in CELLS),
                     help='the lines:seed cells of the declared matrix to measure, in order')
     args = ap.parse_args()
@@ -652,12 +660,12 @@ def main():
     # `cells` against CELLS, and refuses a shard whose `seeds` is not the
     # declared population or whose `sizes` does not describe its cells, so no
     # shard can quietly redefine the matrix.
-    report = {"version": 1, "status": "running", "production_qualified": False,
+    report = {"version": 1, "library_mode": args.library_mode, "status": "running", "production_qualified": False,
               "local_supplement": args.local, "sizes": sizes, "seeds": SEEDS,
               "cells": [list(cell) for cell in cells],
               "scope": "resource capacity with explicit refusal accounting; not lyric-quality certification",
               "limits": LIMITS, "isolation": isolation(), "measurements": [],
-              "memory_trace": [], "failures": [],
+              "memory_trace": [], "library_load_memory_trace": [], "failures": [],
               "source_sha256": source_identity()}
     before_events = memory_events()
     if not args.local and 'oom_kill' not in before_events:
@@ -667,7 +675,24 @@ def main():
     write_result(out, report)
     deadline = time.monotonic() + 60 * 60
     with tempfile.TemporaryDirectory(prefix='lyrics-capacity-') as tmp:
-        resident = ResidentRuntime(Path(tmp) / 'server')
+        def observe_library_load(key, load):
+            progress = MeasurementProgress(
+                'forced-load/' + key,
+                node_pid=lambda: resident.child.pid if resident.child is not None else None,
+                node_memory_path=resident.directory / 'node-memory.json')
+            try:
+                return sample_during_load(load, progress)
+            finally:
+                evidence = progress.instrumentation()
+                peak = evidence.get('peak_sample')
+                peak_bytes = peak.get('resident_bytes') if isinstance(peak, dict) else None
+                report['library_load_memory_trace'].append({
+                    'phase': key, 'metric': 'sampled_resident_first_load',
+                    'peak_bytes': peak_bytes, 'instrumentation': evidence})
+                if not args.local and (type(peak_bytes) is not int or
+                        peak_bytes > LIMITS['whole_runtime_peak_mib'] * 1024**2):
+                    report['failures'].append(f'{key}: missing or excessive first-load resident peak')
+        resident = ResidentRuntime(Path(tmp) / 'server', library_load_probe=observe_library_load, library_mode=args.library_mode)
         try:
             if not report['failures']:
                 report['resident_runtime'] = resident.start()
@@ -677,6 +702,7 @@ def main():
             for mode in MODES:
                 if report['failures']:
                     break
+                library_before = resident.health().get('library') or {}
                 target = Path(tmp) / f'{size}-{seed}-{mode}.json'
                 command = [sys.executable, str(ROOT / 'scripts/measure_verb_memory.py'),
                            f'--seed={seed}', f'--lines={size}', '--verb=both', f'--json={target}']
@@ -751,6 +777,9 @@ def main():
                 boundary_resident, boundary_current = progress.sample()
                 progress.report_peak()
                 report['memory_trace'].append({
+                    'library_mode': args.library_mode,
+                    'library_before': library_before,
+                    'library_after': resident.health().get('library') or {},
                     'lines': size, 'seed': seed, 'mode': mode,
                     'peak_bytes': progress.resident_peak,
                     'current_bytes': boundary_resident,
@@ -763,7 +792,7 @@ def main():
         try:
             if report.get('resident_runtime', {}).get('startup_ok'):
                 report['resident_runtime'] = resident.finish()
-                report['failures'] += runtime_evidence_failures(report['resident_runtime'], local=args.local)
+                report['failures'] += runtime_evidence_failures(report['resident_runtime'], local=args.local, library_mode=args.library_mode)
             else:
                 report['failures'].append('combined-runtime capacity was not measured')
         except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as error:
@@ -774,6 +803,9 @@ def main():
                 source = Path(tmp) / 'server' / name
                 if source.exists():
                     out.with_name(out.stem + '-' + name).write_text(source.read_text()[-131072:])
+    if not args.local and args.library_mode == 'loaded':
+        report['failures'] += load_trace_failures(
+            report['library_load_memory_trace'], LIMITS['whole_runtime_peak_mib'] * 1024**2)
     after_events = memory_events()
     if after_events.get('oom_kill', 0) > before_events.get('oom_kill', 0):
         report['failures'].append('cgroup recorded an OOM kill during the matrix')
@@ -825,8 +857,7 @@ def main():
                   summaries=summarize_measurements(report['measurements']),
                   memory_events_before=before_events, memory_events_after=after_events,
                   cgroup_peak_bytes=read('/sys/fs/cgroup/memory.peak'),
-                  production_qualified=not report['failures'] and not args.local
-                                       and sorted(cells) == sorted(CELLS))
+                  production_qualified=False)
     write_result(out, report)
     print(json.dumps({k: report[k] for k in ('status','production_qualified','failures')}, sort_keys=True))
     return 1 if report['failures'] else 0

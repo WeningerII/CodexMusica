@@ -198,7 +198,7 @@ def queue_pressure_failures(record, expected, *, local=False, isolated=False):
 LIBRARY_STORES = ('search', 'export', 'corpus')
 
 
-def library_evidence_failures(library, key):
+def library_evidence_failures(library, key, *, library_mode="loaded"):
     # The Library load after startup and after recovery (load_library) is
     # required evidence, not optional: an absent record is a failure, never a
     # pass (3PO's #544 review). Any configured store counts, exports alone
@@ -209,6 +209,14 @@ def library_evidence_failures(library, key):
             or any(type(v) is not bool for v in library['stores'].values())
             or library['configured'] != any(library['stores'].values())):
         return [f'the Library load evidence is missing or malformed ({key})']
+    if library_mode == 'unloaded':
+        expected = 'not_loaded' if library['configured'] else 'absent'
+        if (library.get('state') != expected or library.get('failures') != [] or
+                library.get('corpus') != 'absent' or library.get('search_ready') is not False):
+            return [f'the Library was loaded or failed in the unloaded profile ({key})']
+        return []
+    if library_mode != 'loaded':
+        return ['unknown Library profile']
     if not library['configured']:
         return [] if library.get('state') == 'absent' else [f'an unconfigured Library reported {library.get("state")!r} ({key})']
     failures = []
@@ -216,12 +224,12 @@ def library_evidence_failures(library, key):
         failures.append(f'the configured Library stores were not resident ({key}): {library.get("state")!r} {library.get("failures")!r}')
     if library['stores']['search'] and library.get('search_ready') is not True:
         failures.append(f'the configured Library search store was not ready ({key})')
-    if library['stores']['corpus'] and library.get('corpus') not in ('verifying', 'verified'):
+    if library['stores']['corpus'] and library.get('corpus') != 'verified':
         failures.append(f'the configured Library corpus packages were {library.get("corpus")!r} ({key})')
     return failures
 
 
-def runtime_evidence_failures(record, *, local=False, require_concurrent=True):
+def runtime_evidence_failures(record, *, local=False, require_concurrent=True, library_mode="loaded"):
     def number(value):
         return type(value) in (int, float) and math.isfinite(value)
     failures = []
@@ -234,7 +242,7 @@ def runtime_evidence_failures(record, *, local=False, require_concurrent=True):
     if record.get('errors'):
         failures.extend(record['errors'])
     for key in ('library', 'library_recovery'):
-        failures.extend(library_evidence_failures(record.get(key), key))
+        failures.extend(library_evidence_failures(record.get(key), key, library_mode=library_mode))
     failures.extend(run_store_evidence_failures(record.get('run_store', {})))
     if any(type(record.get(key)) is not int or record[key] < minimum for key, minimum in (('probe_count', 2), ('replays', 2), ('catalog_reads', 1))):
         failures.append('resident server HTTP traffic/recovery evidence is incomplete')
@@ -278,7 +286,11 @@ def queue_evidence_extends(evidence, recorded):
 
 
 class ResidentRuntime:
-    def __init__(self, directory):
+    def __init__(self, directory, *, library_load_probe=None, library_mode="loaded"):
+        if library_mode not in ("loaded", "unloaded"):
+            raise ValueError("unknown Library profile")
+        self.library_mode = library_mode
+        self.library_load_probe = library_load_probe
         self.directory = Path(directory)
         self.directory.mkdir(parents=True, exist_ok=True)
         with socket.socket() as listener:
@@ -403,6 +415,11 @@ class ResidentRuntime:
             raise RuntimeError('resident server does not have healthy durable lyrics initialization')
         if self.record.get('build') is not None and self.record['build'] != health.get('build'):
             raise RuntimeError('resident server build/assets changed during the measured workload')
+        if self.library_mode == 'unloaded':
+            state = health.get('library') or {}
+            configured = any(os.environ.get(f'LIBRARY_{name.upper()}_DIR') for name in LIBRARY_STORES)
+            if state != {'state': 'not_loaded' if configured else 'absent', 'failures': [], 'corpus': 'absent'}:
+                raise RuntimeError('unloaded Library profile changed state during workload')
         self.record['node_version'] = health.get('build', {}).get('node')
         self.record['build'] = health.get('build')
         return health
@@ -487,14 +504,23 @@ class ResidentRuntime:
         started = time.monotonic()
         # Outside the startup gate, so a cold read of the stores (hundreds of MB)
         # gets a minute rather than a replay's ten seconds.
+        # A cold first search includes the store load. Timing a search after
+        # load=1 would disguise the latency cost as a warmed request.
+        first_path = '/library/v1/search?limit=1' if stores['search'] else '/library/v1/health?load=1'
+        load = lambda: self.request('GET', first_path, timeout=LIBRARY_LOAD_SECONDS)
+        if self.library_mode == 'loaded':
+            self.library_load_probe(key, load) if self.library_load_probe else load()
+        first_search_s = time.monotonic() - started if stores['search'] and self.library_mode == 'loaded' else None
         library = self.request('GET', '/library/v1/health', timeout=LIBRARY_LOAD_SECONDS)
         state = self.health().get('library') or {}
         self.record[key] = {'configured': any(stores.values()), 'stores': stores,
                             'state': state.get('state'), 'failures': state.get('failures'),
                             'corpus': state.get('corpus'),
                             'search_ready': library.get('search_ready') is True,
-                            'load_s': time.monotonic() - started}
-        failures = library_evidence_failures(self.record[key], key)
+                            'load_s': time.monotonic() - started,
+                            'first_search_s': first_search_s,
+                            'first_search_scope': 'cold request including store load' if first_search_s is not None else 'not measured'}
+        failures = library_evidence_failures(self.record[key], key, library_mode=self.library_mode)
         if failures:
             raise RuntimeError('; '.join(failures))
         self.sample()

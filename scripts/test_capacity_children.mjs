@@ -19,7 +19,12 @@ import fs from 'node:fs';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { setTimeout as sleep } from 'node:timers/promises';
-import { childRow, instrumentChildren, memoryPublisher } from './lyrics_capacity_queue.mjs';
+import {
+  childRow,
+  instrumentChildren,
+  memoryPublisher,
+  draftJsonBytes,
+} from './lyrics_capacity_queue.mjs';
 
 const problems = [];
 const check = (label, fn) => {
@@ -31,6 +36,42 @@ const check = (label, fn) => {
     console.error(`  FAIL  ${label}  — ${e.message}`);
   }
 };
+
+check('draft byte counts match JSON exactly including escapes and Unicode', () => {
+  for (const lines of [
+    [],
+    [''],
+    ['a', 'b'],
+    ['"', '\\', '\n', '\u0000'],
+    ['é', '😀', '\ud800', '\udfff'],
+    Array(256).fill('Ā'.repeat(4096)),
+  ]) {
+    assert.equal(draftJsonBytes(lines), Buffer.byteLength(JSON.stringify(lines)));
+  }
+  for (const bad of [null, {}, 'text', [null], [1], new Array(2)]) {
+    assert.throws(() => draftJsonBytes(bad), TypeError);
+  }
+});
+
+check('observation serializes only individual lines and notices same-size mutations', () => {
+  const lines = Array(256).fill('Ā'.repeat(4096));
+  const expected = Buffer.byteLength(JSON.stringify(lines));
+  const stringify = JSON.stringify;
+  let largest = 0;
+  JSON.stringify = (value) => {
+    assert.equal(typeof value, 'string', 'must not allocate a serialized whole draft');
+    largest = Math.max(largest, value.length);
+    return stringify(value);
+  };
+  try {
+    assert.equal(draftJsonBytes(lines), expected);
+    lines[0] = 'a'.repeat(4096);
+    assert.equal(draftJsonBytes(lines), expected - 4096, 'never reuse a cached count');
+    assert.equal(largest, 4096);
+  } finally {
+    JSON.stringify = stringify;
+  }
+});
 
 check('a pid that cannot exist samples as UNKNOWN, never as an empty inventory', () => {
   assert.equal(instrumentChildren(0), null);

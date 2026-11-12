@@ -492,13 +492,14 @@ test('an unusable store is reported failed, by name, and its routes answer 503',
   assert.doesNotMatch(server.log(), /search store is unusable/, 'nothing loaded at startup');
   const res = await fetch(`${server.base}/library/v1/search?q=love`);
   assert.equal(res.status, 503);
-  assert.equal((await res.json()).error.code, 'SEARCH_UNAVAILABLE');
+  assert.equal((await res.json()).error.code, 'LIBRARY_UNAVAILABLE');
   assert.deepEqual(await server.library(), {
     state: 'failed',
     failures: ['search'],
     corpus: 'absent',
   });
-  assert.match(server.log(), /search store is unusable/);
+  await fetch(`${server.base}/library/v1/health`);
+  assert.equal((await server.library()).state, 'failed');
 });
 
 test('with no Library store configured the state is absent after first use', async (t) => {
@@ -551,7 +552,7 @@ async function settledCorpus(server) {
 
 test('verified corpus packages leave the Library ready', async (t) => {
   const server = await spawnServer(t, { LIBRARY_CORPUS_DIR: corpusPackages(t) });
-  assert.equal((await fetch(`${server.base}/library/v1/health`)).status, 200);
+  assert.equal((await fetch(`${server.base}/library/v1/health?load=1`)).status, 200);
   assert.deepEqual(await settledCorpus(server), {
     state: 'ready',
     failures: [],
@@ -561,11 +562,112 @@ test('verified corpus packages leave the Library ready', async (t) => {
 
 test('a corpus package that fails its hash marks the Library failed, by name', async (t) => {
   const server = await spawnServer(t, { LIBRARY_CORPUS_DIR: corpusPackages(t, { corrupt: true }) });
-  assert.equal((await fetch(`${server.base}/library/v1/health`)).status, 200);
+  assert.equal((await fetch(`${server.base}/library/v1/health?load=1`)).status, 503);
   assert.deepEqual(await settledCorpus(server), {
     state: 'failed',
     failures: ['corpus'],
     corpus: 'failed',
   });
-  assert.match(server.log(), /corpus packages failed verification/);
+  assert.equal(
+    (await (await fetch(`${server.base}/library/v1/health`)).json()).search_ready,
+    false
+  );
+});
+
+test('public health observes unloaded stores and concurrent first searches return complete data', async (t) => {
+  const { dir } = build(t, [item('u1', {}, 'love and more')]);
+  const server = await spawnServer(t, { LIBRARY_SEARCH_DIR: dir });
+  for (let i = 0; i < 2; i++) {
+    const health = await (await fetch(`${server.base}/library/v1/health`)).json();
+    assert.equal(health.search_ready, false);
+    assert.equal(health.stores.state, 'not_loaded');
+    assert.equal(health.counts, null);
+    assert.equal(health.snapshot_id, null);
+  }
+  const responses = await Promise.all(
+    [1, 2].map(() => fetch(`${server.base}/library/v1/search?q=love`))
+  );
+  for (const response of responses) {
+    assert.equal(response.status, 200);
+    assert.deepEqual(ids(await response.json()), ['u1']);
+  }
+});
+
+test('a failed first load can recover on explicit retry after the store is repaired', async (t) => {
+  const { dir } = build(t, [item('u1', {}, 'love and more')]);
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'library-retry-'));
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  const missing = path.join(root, 'store');
+  const server = await spawnServer(t, { LIBRARY_SEARCH_DIR: missing });
+  assert.equal((await fetch(`${server.base}/library/v1/search?q=love`)).status, 503);
+  fs.cpSync(dir, missing, { recursive: true });
+  await fetch(`${server.base}/library/v1/health`);
+  assert.equal((await server.library()).state, 'failed');
+  const responses = await Promise.all(
+    [1, 2].map(() => fetch(`${server.base}/library/v1/search?q=love`))
+  );
+  for (const response of responses) {
+    assert.equal(response.status, 200);
+    assert.deepEqual(ids(await response.json()), ['u1']);
+  }
+  assert.equal((await server.library()).state, 'ready');
+});
+
+test('constructor closes metadata descriptor when projection is unavailable', (t) => {
+  const { dir } = build(t, [item('u1', {}, 'text')]);
+  fs.unlinkSync(path.join(dir, 'projection.bin'));
+  const before = fs.readdirSync('/proc/self/fd').length;
+  for (let i = 0; i < 3; i++) assert.throws(() => new LibrarySearch(dir), /ENOENT/);
+  assert.equal(fs.readdirSync('/proc/self/fd').length, before);
+});
+
+test('body windows preserve first matches, UTF-8 positions and unit boundaries', (t) => {
+  const { store, dir } = build(t, [item('u1', {}, 'text')]);
+  assert.equal(store.body, undefined, 'the corpus body must not remain in a resident Buffer');
+  const window = 1024 * 1024;
+  const texts = [
+    '',
+    'x'.repeat(window - 2) + '🌊needle' + 'x'.repeat(window) + 'needle',
+    '',
+    'ab',
+    'cd',
+    'needle🌊needle',
+    'é'.repeat(window) + 'needle',
+    '',
+  ];
+  const parts = texts.map((s) => Buffer.from(s));
+  const offsets = [0];
+  for (const part of parts) offsets.push(offsets.at(-1) + part.length);
+  fs.writeFileSync(path.join(dir, 'body.bin'), Buffer.concat(parts));
+  store.offsets.body = Uint32Array.from(offsets);
+  const originalRead = fs.readSync;
+  const lengths = [];
+  fs.readSync = function (fd, buf, offset, length, position) {
+    if (fd === store.bodyFd) lengths.push(length);
+    // Exercise short reads too, including in the middle of a UTF-8 character.
+    return originalRead(fd, buf, offset, Math.min(length, 65537), position);
+  };
+  t.after(() => {
+    fs.readSync = originalRead;
+  });
+  for (const query of ['needle', '🌊needle', 'é', 'abcd', 'absent', 'x🌊', '🌊n']) {
+    const needle = Buffer.from(query);
+    const want = new Map();
+    parts.forEach((part, i) => {
+      const at = part.indexOf(needle);
+      if (at >= 0) want.set(i, at);
+    });
+    assert.deepEqual(store._matches('body', needle, new Map()), want, query);
+  }
+  const prefix = texts[6].indexOf('needle');
+  assert.equal(
+    store._bodyCodePoints(offsets[6], offsets[6] + Buffer.byteLength(texts[6].slice(0, prefix))),
+    window
+  );
+  assert.ok(
+    Math.max(...lengths) <= window + 10,
+    'reads remain bounded independently of corpus size'
+  );
+  fs.truncateSync(path.join(dir, 'body.bin'), 0);
+  assert.throws(() => store._matches('body', Buffer.from('needle'), new Map()), /truncated/);
 });

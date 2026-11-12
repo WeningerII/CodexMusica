@@ -228,15 +228,10 @@ const absolute = (lib, url) => new URL(url, lib.api.replace(/\/library\/v1\/?$/,
 let health = null;
 async function corpusInfo(lib, fresh = false) {
   if (!health || fresh)
-    health = fetch(lib.api + '/health', {
-      credentials: 'omit',
-      cache: fresh ? 'no-store' : 'default',
-    })
-      .then((r) => (r.ok ? r.json() : Promise.reject(Error('health ' + r.status))))
-      .catch((e) => {
-        health = null;
-        throw e;
-      });
+    health = lib.get('/health?load=1').catch((e) => {
+      health = null;
+      throw e;
+    });
   return (await health).corpus || {};
 }
 

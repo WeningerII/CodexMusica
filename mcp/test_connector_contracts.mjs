@@ -991,7 +991,7 @@ test('the session guide names the one block that carries the workspace', async (
   }
 });
 
-test('a production deploy is verified with the Library stores loaded, not merely configured', () => {
+test('loaded-data verification requires loaded stores, not merely configured stores', () => {
   const library = {
     search_ready: true,
     snapshot_id: 'a'.repeat(64),
@@ -1179,4 +1179,35 @@ test('sweep counts come from the machine record, not report prose; prose only fo
   );
   assert.equal(partial.swept, undefined);
   assert.equal(partial.meaning, 'kept');
+});
+
+test('startup accepts explicit unloaded health but it cannot satisfy loaded-data verification', () => {
+  const state = { state: 'not_loaded', failures: [], corpus: 'absent' };
+  const library = {
+    stores: state,
+    search_ready: false,
+    snapshot_id: null,
+    counts: null,
+    _http_status: 200,
+  };
+  assert.deepEqual(libraryDrift(library, { library: state }, { requireLoaded: false }), []);
+  assert.ok(libraryDrift(library, { library: state }).length);
+  for (const patch of [
+    { state: 'failed' },
+    { state: 'loading' },
+    { failures: ['search'] },
+    { corpus: 'failed' },
+  ]) {
+    assert.ok(
+      libraryDrift(library, { library: { ...state, ...patch } }, { requireLoaded: false }).length
+    );
+  }
+  assert.ok(
+    libraryDrift({ ...library, _http_status: 503 }, { library: state }, { requireLoaded: false })
+      .length
+  );
+  assert.ok(
+    libraryDrift({ ...library, search_ready: true }, { library: state }, { requireLoaded: false })
+      .length
+  );
 });

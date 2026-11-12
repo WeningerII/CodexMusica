@@ -127,11 +127,29 @@ async function liveSurface(url) {
 
 // The Library's stores load on first use (mcp/server_http.js), never at
 // startup, so a deploy verified only against /health would pass with them
-// configured but never loaded. Asking /library/v1/health IS that first use on
-// the deployed process; /health read after it must then say every configured
-// store loaded and every corpus package verified. Checked on the
-// production-image path (--image-manifest).
-export function libraryDrift(library, health) {
+// configured but never loaded. Ordinary deployment health accepts an explicitly
+// unloaded state. Loaded-data callers use /library/v1/health?load=1 and keep
+// requireLoaded=true, requiring every configured store and verified package.
+export function libraryDrift(library, health, { requireLoaded = true } = {}) {
+  // Startup may be healthy without allocating stores. This is never evidence
+  // of loaded data; explicit forced-load verification retains the strict path.
+  if (
+    !requireLoaded &&
+    library?.stores?.state === 'not_loaded' &&
+    health?.library?.state === 'not_loaded' &&
+    library.search_ready === false &&
+    library.snapshot_id === null &&
+    library.counts === null &&
+    library.stores.corpus === 'absent' &&
+    health.library.corpus === 'absent' &&
+    Array.isArray(library.stores.failures) &&
+    library.stores.failures.length === 0 &&
+    Array.isArray(health.library.failures) &&
+    health.library.failures.length === 0 &&
+    (library._http_status == null || library._http_status === 200)
+  )
+    return [];
+
   const drift = [];
   if (
     (library?._http_status != null && library._http_status !== 200) ||
@@ -250,7 +268,14 @@ async function main() {
       }))
     );
     const library = await endpointJson(url, '/library/v1/health', { allowFailure: true });
-    drift.push(...libraryDrift(library, await endpointJson(url, '/health')));
+    const libraryProblems = libraryDrift(library, await endpointJson(url, '/health'), {
+      requireLoaded: false,
+    });
+    drift.push(...libraryProblems);
+    if (!libraryProblems.length && library.stores?.state === 'not_loaded')
+      console.log(
+        'Library startup healthy; stores not loaded; loaded-data verification not performed.'
+      );
   }
   if (requireReady || configFlag) {
     const ready = await endpointJson(url, '/ready', { allowFailure: true });

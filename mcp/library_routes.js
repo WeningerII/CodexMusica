@@ -48,6 +48,7 @@ const PRONUNCIATION_NUMBERINGS = Object.freeze(['v1', 'v1+voices', 'v2', 'v2+voi
 export function libraryPublicRouter({
   search,
   analysisAvailable = () => false,
+  storeState = () => null,
   readerStoreRequirement = () => ({ min_reader: 'unknown' }),
   corpus = null,
   windows = new Windows(),
@@ -99,6 +100,7 @@ export function libraryPublicRouter({
     res.setHeader('Cache-Control', 'no-cache');
     res.json({
       contract: 1,
+      stores: storeState(),
       snapshot_id: search ? search.snapshotId : null,
       readable_ids_sha256: search ? search.store.readable_ids_sha256 : null,
       counts: search

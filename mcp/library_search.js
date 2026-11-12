@@ -20,6 +20,7 @@ import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
 const FOLD = require('./library_casefold.json');
+const BODY_WINDOW_BYTES = 1024 * 1024;
 const PAGE_BYTES = 2 * 1024 * 1024;
 const COLUMNS = ['title', 'contributor', 'contributor_lower', 'body', 'metadata'];
 export const SEARCH_LIMIT = 100;
@@ -64,24 +65,53 @@ export class LibrarySearch {
     COLUMNS.forEach((name, c) => {
       this.offsets[name] = new Uint32Array(table.buffer, table.byteOffset + c * (n + 1) * 4, n + 1);
     });
-    for (const name of ['title', 'contributor', 'contributor_lower', 'body']) {
+    for (const name of ['title', 'contributor', 'contributor_lower']) {
       this[name] = read(`${name}.bin`);
       if (this[name].length !== this.offsets[name][n])
         throw new Error(`Library search store column ${name} is truncated`);
     }
-    for (const name of ['metadata', 'projection']) {
-      const size = fs.statSync(path.join(directory, `${name}.bin`)).size;
-      if (name === 'metadata' && size !== this.offsets.metadata[n])
-        throw new Error('Library search store metadata is truncated');
-      this[`${name}Fd`] = fs.openSync(path.join(directory, `${name}.bin`), 'r');
+    try {
+      for (const name of ['body', 'metadata', 'projection']) {
+        const size = fs.statSync(path.join(directory, `${name}.bin`)).size;
+        if (name !== 'projection' && size !== this.offsets[name][n])
+          throw new Error(`Library search store ${name} is truncated`);
+        this[`${name}Fd`] = fs.openSync(path.join(directory, `${name}.bin`), 'r');
+      }
+    } catch (error) {
+      this.close();
+      throw error;
     }
   }
   close() {
-    fs.closeSync(this.metadataFd);
-    fs.closeSync(this.projectionFd);
+    for (const name of ['bodyFd', 'metadataFd', 'projectionFd']) {
+      if (this[name] !== undefined) {
+        fs.closeSync(this[name]);
+        this[name] = undefined;
+      }
+    }
   }
   get snapshotId() {
     return this.store.snapshot_id;
+  }
+  // Keep the body on disk. Searches reuse a bounded window instead of retaining
+  // the entire corpus alongside the loaded lyric runtime and run cache.
+  _readBody(buf, offset, length) {
+    let got = 0;
+    while (got < length) {
+      const n = fs.readSync(this.bodyFd, buf, got, length - got, offset + got);
+      if (n <= 0) throw new LibraryError('STORAGE_CORRUPT', 'The search store is truncated.', 503);
+      got += n;
+    }
+    return buf.subarray(0, length);
+  }
+  _bodyCodePoints(start, end, buf = Buffer.allocUnsafe(Math.min(BODY_WINDOW_BYTES, end - start))) {
+    let count = 0;
+    while (start < end) {
+      const chunk = this._readBody(buf, start, Math.min(buf.length, end - start));
+      count += codePoints(chunk, 0, chunk.length);
+      start += chunk.length;
+    }
+    return count;
   }
   _readInflated(fd, offset, length) {
     const buf = Buffer.allocUnsafe(length);
@@ -118,13 +148,27 @@ export class LibrarySearch {
   // offset inside that unit (SQLite instr: the first occurrence).
   _matches(name, needle, into) {
     if (!needle.length) throw new Error('an empty needle matches every unit');
-    const buf = this[name],
-      off = this.offsets[name],
+    const disk = name === 'body';
+    const off = this.offsets[name],
       n = off.length - 1;
-    let from = 0;
+    const buf = disk ? Buffer.allocUnsafe(BODY_WINDOW_BYTES + needle.length - 1) : this[name];
+    let from = 0,
+      windowStart = -1,
+      window = buf;
     for (;;) {
-      const at = buf.indexOf(needle, from);
-      if (at < 0) return into;
+      if (from >= off[n]) return into;
+      // Overlap by needle.length - 1 so a match crossing a window is not lost.
+      if (disk && (windowStart < 0 || from + needle.length > windowStart + window.length)) {
+        windowStart = from;
+        window = this._readBody(buf, from, Math.min(buf.length, off[n] - from));
+      }
+      const found = window.indexOf(needle, disk ? from - windowStart : from);
+      if (found < 0) {
+        if (!disk || windowStart + window.length === off[n]) return into;
+        from = windowStart + BODY_WINDOW_BYTES;
+        continue;
+      }
+      const at = found + (disk ? windowStart : 0);
       // The unit holding byte `at`: the last i with off[i] <= at.
       let lo = 0,
         hi = n - 1;
@@ -284,19 +328,29 @@ export class LibrarySearch {
       total++;
     }
     const qLength = Array.from(q).length;
-    const body = this.body,
-      bo = this.offsets.body;
+    const bo = this.offsets.body;
+    const snippetBuffer = Buffer.allocUnsafe(720);
+    let positionBuffer;
     const items = page.map((i) => {
       const item = this.metadata(i);
       // instr(r.body, q): 0 for no match; q is never empty here when it counts.
       const at = q ? bodyAt.get(i) : undefined;
-      const position = at === undefined ? 0 : codePoints(body, bo[i], bo[i] + at) + 1;
+      const position =
+        at === undefined
+          ? 0
+          : this._bodyCodePoints(
+              bo[i],
+              bo[i] + at,
+              (positionBuffer ??= Buffer.allocUnsafe(BODY_WINDOW_BYTES))
+            ) + 1;
       const hit =
         q && position > 0 && item.availability === 'readable'
           ? this._projectHit(i, position - 1, qLength)
           : null;
       // substr(r.body, 1, 180): 180 code points fit in 720 UTF-8 bytes.
-      const snippet = Array.from(body.toString('utf8', bo[i], Math.min(bo[i] + 720, bo[i + 1])))
+      const snippet = Array.from(
+        this._readBody(snippetBuffer, bo[i], Math.min(720, bo[i + 1] - bo[i])).toString('utf8')
+      )
         .slice(0, 180)
         .join('');
       return { ...item, snippet: hit?.snippet ?? snippet, search_hit: hit };
