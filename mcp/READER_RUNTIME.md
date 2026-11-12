@@ -23,17 +23,34 @@ reader adds no resident Python process and yields when writing work queues.
 | `LIBRARY_CORPUS_DIR`          | The whole-corpus packages `python -m library.catalog_downloads SNAPSHOT OUT` builds (run from lyric-harness). Installed only when built from the snapshot the search and export stores serve; without it, corpus downloads answer 503. |
 | `LIBRARY_PUBLIC`              | On by default since the native Library tab shipped: mounts the credentialed `/library/v1` viewer routes (analysis). `0` turns them off. |
 
-The server loads the three Library stores on first use (the first `/library/v1`
-request, or the private bridge's admission), never before `listen()`: built at
-startup they pushed the resident server past the capacity matrix's 30 s startup
-gate on one CPU (Production qualification runs 86 and 87). `GET /health` reports
-`library.state` without loading anything: `not_loaded`, then `ready` (every
-configured store loaded), `failed` (`library.failures` names each unusable store;
-its routes answer 503) or `absent` (none configured); `library.corpus` is the
-packages' background hash check (`absent`, `verifying`, `verified`, or `failed`,
-which also fails the state). `GET /library/v1/health` loads them and reports
-`search_ready`. Deploy verification (`check_live.mjs --image-manifest`) requires
-`ready`, no failures and a `verified` corpus.
+The server loads the three Library stores on first use, never before `listen()`:
+built at startup they pushed the resident server past the capacity matrix's 30 s
+startup gate on one CPU (Production qualification runs 86 and 87). First use is
+the first `/library/v1` request other than an ordinary health read, a
+`GET /library/v1/health?load=1`, or the private bridge's admission. One load
+serves every caller: concurrent first requests share it, and the stores are
+published together only once every configured store has loaded, their snapshots
+agree and the corpus packages match their recorded hashes. A failed load
+publishes nothing and its request answers 503 `LIBRARY_UNAVAILABLE`; the next
+request that loads starts a fresh load.
+
+`GET /health` reports `library.state` without loading anything: `absent` (none
+configured), `not_loaded`, `loading`, `ready`, or `failed` (`library.failures`
+names each unusable store, or `snapshot`, `corpus` or `cleanup`).
+`library.corpus` is the packages' hash check inside that load: `absent` (none
+configured, or nothing loaded yet), `verifying`, `verified`, or `failed`, which
+also fails the load. `GET /library/v1/health` reports the same state under
+`stores`, also without loading: until a load has succeeded `search_ready` is
+false and `snapshot_id` and `counts` are null. With `?load=1` it loads first.
+
+Deploy verification (`check_live.mjs --image-manifest`) passes a server whose
+stores are healthy and not yet loaded, and prints that loaded-data verification
+was not performed. In any other state it requires `ready`, no failures and a
+`verified` corpus. A passing deploy therefore does not show that the installed
+Library data loads. To show that, read `/library/v1/health?load=1`, then
+`/health`, and hold both to those three requirements (`libraryDrift` in
+`mcp/check_live.mjs`, with its default `requireLoaded`); no workflow does this
+against the deployed service.
 
 Use the existing immutable image assembly, qualification and promotion pipeline.
 Install the same canonical catalog snapshot on the Site and Render. A separate
