@@ -4773,6 +4773,13 @@ def fill_plan(plan, lines):
         # a hand-written blueprint with `hooks` and no `hook_slot` is graded
         # exactly as before.
         "hook_slot": plan.get("hook_slot") or None,
+        # WHY THERE IS NO SLOT, WHEN THERE IS NONE (issue #676, 2026-11-12).
+        # The plan's own sentence, carried so the grader can tell a hook the
+        # PLAN declined to declare from one a writer forgot: with a declared
+        # title the second is a requested question left unanswered, and the
+        # first is a question nobody asked (`Reviser._function_findings`).
+        # "" when a slot was declared, exactly as the plan writes it.
+        "hook_slot_refused": plan.get("hook_slot_refused") or "",
         "sections": [dict(s) for s in plan["sections"]],
         "lines": [{"text": got[s["line"] - 1], "bar": s["bar"],
                    "beat": s["beat"], "duration": s["duration"],
@@ -5128,6 +5135,15 @@ def writer_brief(plan):
                    f"back with its section.")
     elif plan.get("hook_slot_refused"):
         out.append(f"NO HOOK IS DECLARED: {plan['hook_slot_refused']}.")
+        if plan.get("title"):
+            # A TITLE ON A PLAN WITH NO HOOK NAMES THE SONG AND ASKS NOTHING
+            # ELSE (issue #676, 2026-11-12). Said here because the writer
+            # reads this brief, and the grader now keeps the same promise
+            # (`Reviser._function_findings`): the title question needs a
+            # hook to be asked of, and this plan declares none.
+            out.append(f"The title {plan['title']!r} names the song. \"Is "
+                       f"the title in the hook?\" is not asked of this plan, "
+                       f"because it declares no hook.")
     return "\n".join(out)
 
 

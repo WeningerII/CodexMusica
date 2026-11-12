@@ -32,6 +32,7 @@ import { probeReaderScheme } from './reader_scheduler.js';
 import { requestContext } from './execution_context.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 import { admitRecognitionArgs, pastedRowsOf } from './meter_admission.js';
+import { declarationAdvice, uncertifiedAdvice } from './coverage_advice.js';
 export { draftFromText } from './lyric_text.js';
 import {
   assessmentCoverageValid,
@@ -1666,7 +1667,7 @@ const titleField = z
   .max(MAX_LINE_CHARS)
   .optional()
   .describe(
-    'The song\'s title, CARRIED into the blueprint and never inferred. Declaring one answers "is the title in the hook?" instead of leaving it refused as TITLE_UNDECLARED — and the answer can be NO: TITLE_NOT_IN_HOOK is a whole-draft FLAG (counted in whole_flags), so a title whose words are not a contiguous run inside the hook line (or the hook inside the title) keeps the draft from grading clean — lyric_grade exits 3 on it, or 2 when coverage is also incomplete. Containment is a normalised WORD-subsequence test in either direction, not a substring match. A title with more words than the hook can never be answered YES by any draft and is refused as TITLE_LONGER_THAN_HOOK rather than charged. Omit it and the question is reported as TITLE_UNDECLARED, not answered.'
+    'The song\'s title, CARRIED into the blueprint and never inferred. Declaring one answers "is the title in the hook?" instead of leaving it refused as TITLE_UNDECLARED — and the answer can be NO: TITLE_NOT_IN_HOOK is a whole-draft FLAG (counted in whole_flags), so a title whose words are not a contiguous run inside the hook line (or the hook inside the title) keeps the draft from grading clean — lyric_grade exits 3 on it, or 2 when coverage is also incomplete. Containment is a normalised WORD-subsequence test in either direction, not a substring match. A title with more words than the hook can never be answered YES by any draft and is refused as TITLE_LONGER_THAN_HOOK rather than charged. Omit it and the question is reported as TITLE_UNDECLARED, not answered — which holds nothing back. A title is OPTIONAL: declare one only when the user gave or asked for one. On a plan that declares no hook (the `open` form declares none) a title only names the song — the question is not asked and nothing is held back for it.'
   );
 
 // THE CLI GLOBALS THE CHAT SURFACE COULD NOT SPELL (M-189, 2026-09-01).
@@ -2528,9 +2529,10 @@ export function registerLyricTools(server, tool) {
         'comes after an accepted lyric_sweep and one successful lyric_screen, and ' +
         "must repeat the accepted sweep's form, lines, functions and melody and pass the sweep's `want` list as `wants`; " +
         '`wants` conditions the draw (the planner draws until they hold), so the planned shape satisfies them and can differ ' +
-        "from the shape the sweep tested. Declaring a `title` answers 'is the title in the hook?' instead of leaving it " +
-        "refused — and the answer can be NO, which is a FLAG, so write the hook line to contain the title's words as a " +
-        "contiguous run. The tool result's first text block is the plan report and writer brief: when showing the shape, " +
+        "from the shape the sweep tested. A `title` is optional. On a plan with a hook slot, declaring one answers 'is the " +
+        "title in the hook?' — and the answer can be NO, which is a FLAG, so write the hook line to contain the title's words as a " +
+        'contiguous run. On a plan with no hook slot (the `open` form declares none) a title only names the song and that ' +
+        "question is not asked. The tool result's first text block is the plan report and writer brief: when showing the shape, " +
         'keep the bracket header rows exactly as written (they carry lines/bars/meter/pickup). The second block is the ' +
         'verdict.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_plan,
@@ -3463,9 +3465,17 @@ export function registerLyricTools(server, tool) {
                       ? rewriteNote
                       : r.code === 2 && linesOpen
                         ? '\n\nNOT FINISHED: this stop left lines open and its coverage uncertified — present it as parked.' +
-                          rewriteNote
+                          rewriteNote +
+                          // A refused declaration stands beside the open
+                          // lines and no rewrite of them reaches it (#676).
+                          (declarationAdvice(verdict)
+                            ? '\n\n' + declarationAdvice(verdict, { also: true })
+                            : '')
                         : r.code === 2
-                          ? '\n\nNOT CERTIFIED: no line is open, but coverage is incomplete (see `coverage`) — present it as uncertified, not finished. Resolve the unread words with `pronunciations` (lyric_grade lists the options; never guess a reading), grade again, and start a new run with `new_run: true`.'
+                          ? // The next step is read off what was refused (#676):
+                            // a declaration is not cleared by a pronunciation.
+                            '\n\nNOT CERTIFIED: no line is open, but coverage is incomplete (see `coverage`) — present it as uncertified, not finished. ' +
+                            uncertifiedAdvice(verdict)
                           : '';
                   return {
                     content: [
@@ -3899,9 +3909,9 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'to be (`lines`, `functions`, `want` as a filter), and nothing they did not ask for, and it returns the seeds that hold, in seed order, unranked; (1) lyric_screen ' +
     "the word pairs you mean to write BEFORE writing; (2) lyric_plan with an accepted seed and the sweep's form, lines, functions and melody " +
     '(and its `want` list as `wants`, which conditions the draw) for a complete shape (sections, meter — often ' +
-    "not 4/4, each group's relation and placement, hook slot) and write to its brief, honoring the verbatim returns — declare the `title` " +
-    'here if the song has one, because an undeclared title leaves "is the title in the hook?" REFUSED and a ' +
-    'declared one that is not a run of words inside the hook line is a FLAG; (3) lyric_grade with the SAME seed ' +
+    "not 4/4, each group's relation and placement, hook slot) and write to its brief, honoring the verbatim returns — a `title` is " +
+    'optional: declare it here only when the user gave or asked for one. On a plan with a hook slot a declared title that is not a ' +
+    'run of words inside the hook line is a FLAG; on a plan with no hook slot it only names the song; (3) lyric_grade with the SAME seed ' +
     `AND THE SAME PLAN DECLARATIONS (${PLAN_DECLARATIONS} — ` +
     (kitchen
       ? 'this chat restores every declaration its plan recorded, so leave out any you are unsure of, and ' +

@@ -3436,6 +3436,28 @@ class Reviser:
         hs = bp.get("hook_slot") if isinstance(bp, dict) else None
         return hs if isinstance(hs, int) and not isinstance(hs, bool) else None
 
+    @staticmethod
+    def _blueprint_hook_declined(blueprint):
+        """-> the PLAN'S OWN REASON for declaring no hook, else "".
+
+        `plan.make_plan` writes `hook_slot_refused` whenever it declines to
+        name a hook slot (the form asks for no return, or nothing in the
+        drawn pattern comes back) and `plan.fill_plan` carries that sentence
+        into the blueprint (issue #676, 2026-11-12). A hand-written
+        blueprint has no such field and answers "", so nothing about it
+        changes. `blueprint` is a dict or a path, as for
+        `_blueprint_hook_slot`."""
+        import json
+        bp = blueprint
+        if not isinstance(bp, dict):
+            try:
+                with open(bp, encoding="utf-8") as fh:
+                    bp = json.load(fh)
+            except (OSError, ValueError, TypeError):
+                return ""
+        why = bp.get("hook_slot_refused") if isinstance(bp, dict) else ""
+        return why.strip() if isinstance(why, str) else ""
+
     def _function_findings(self, lines, blueprint, coverage_out=None):
         """-> [Finding], all whole-draft. `quality/grid.py`'s FUNCTION layer
         (verse/chorus/bridge/hook/return) read off the SAME blueprint
@@ -3510,6 +3532,10 @@ class Reviser:
             hooks = [lines[_hs - 1]]
         rep = GR.song_function_report(song, hooks=hooks,
                                       rhyme_key=GR.rime_cmudict(self.lex))
+        # The plan's own reason for declaring no hook, or "" (see the note
+        # at `unasked` below). Read once: the coverage rows and the refusal
+        # note both speak from it.
+        plan_declined = "" if hooks else self._blueprint_hook_declined(blueprint)
         if coverage_out is not None:
             # REQUESTED IS DECIDED PER REFUSAL, NOT PER LAYER (report Q20's
             # repair, narrowed 2026-09-23). `song_function_report` asks the
@@ -3538,8 +3564,26 @@ class Reviser:
             # harness could not answer, which is exactly what Q20 required
             # coverage to carry. With no title declared either, no hook
             # question was asked of the draft at all.
+            #
+            # AND WITH A TITLE, WHEN THE PLAN ITSELF DECLARED NO HOOK (issue
+            # #676, 2026-11-12). The paragraph above was written for a
+            # blueprint a WRITER declared: a title and no hook there is an
+            # omission the writer can repair by naming the hook. A PLANNED
+            # song is different in kind. Under a form that asks for no
+            # return the planner declines to name a hook slot and says why
+            # (`hook_slot_refused`; D7, 2026-10-27: "no hook check unless
+            # the request asks for one"), and the verbs give a planned song
+            # no way to declare one afterwards -- so a title on such a plan
+            # turned the planner's own decision into a refused obligation
+            # that no choice of words could answer, and every titled song
+            # under the default form stopped at exit 2 for good (ten of the
+            # twenty audited trials reached it; seven could only leave by
+            # re-planning). A gate may only demand what some draft could
+            # supply (M-84, M-86). The title is still carried as the song's
+            # name; the question is disclosed as `not_requested`, with the
+            # plan's reason on the refusal note, never as answered.
             unasked = set(NO_SUBJECT_REFUSALS)
-            if not song.title:
+            if not song.title or plan_declined:
                 unasked.add("HOOK_UNDECLARED")
             requested = any(section.declared for section in song.sections) or bool(hooks)
             blocking = [r for r in rep["refusals"] if r.code not in unasked]
@@ -3584,7 +3628,17 @@ class Reviser:
                 f.code, f.severity,
                 f.message, f.evidence, [], subject=getattr(f, "subject", ())))
         for r in rep["refusals"]:
-            whole.append(Finding(r.code, "note", r.message, r.evidence,
+            evidence = r.evidence
+            if r.code == "HOOK_UNDECLARED" and plan_declined and song.title:
+                # Say what became of the title, on the note that explains
+                # the missing hook -- a reader of the report must not have
+                # to infer that the title question went unasked (#676).
+                evidence = (
+                    f"{evidence} The plan declared no hook: {plan_declined}. "
+                    f"The title {song.title!r} is carried as the song's "
+                    f"name; 'is the title in the hook?' was not asked, and "
+                    f"is not counted as answered.")
+            whole.append(Finding(r.code, "note", r.message, evidence,
                                  sorted({f.line for f in r.failed_words if f.line is not None})))
 
         # THE SHAPE LAYER, JOINED 2026-08-14, and it names the one defect this

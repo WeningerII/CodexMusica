@@ -1694,6 +1694,159 @@ def test_the_contrast_witness_names_its_words():
           out[-1500:])
 
 
+def test_a_titled_plan_with_no_hook_can_finish():
+    """ISSUE #676, 2026-11-12. A TITLE ON A PLAN THAT DECLARES NO HOOK.
+
+    Under a form that asks for no return (`open`, the connector's default)
+    the planner declares no hook and says why. `Reviser._function_findings`
+    treated a declared title as a request for "is the title in the hook?",
+    so the planner's own decision became a refused obligation: every titled
+    song under the default form stopped at exit 2, and no choice of words
+    could move it. Seven of the twenty audited trials could only leave by
+    re-planning, which is how their rhyme requirements came to change.
+
+    The earlier tests could not see it because each one stepped around the
+    combination: the title tests search for a plan that declares a hook, and
+    the open-form tests declare no title. This one is the matrix -- form x
+    title -- on the real planner and the real grader, then the same song
+    through the real `finish` verb, with the title as the only difference.
+    """
+    import subprocess
+    import tempfile
+    from quality import plan as P
+    from quality.revise import Reviser
+    print("\n14. a titled plan with no hook can finish (#676)")
+    rv = Reviser()
+    title = "Salt and Rain"
+
+    def graded(plan, strip=()):
+        lines = ["The harbor wakes before the gulls arrive"] * plan["total_lines"]
+        bp = P.fill_plan(plan, lines)
+        for key in strip:
+            bp.pop(key, None)
+        cov = []
+        found = rv._function_findings(lines, bp, cov)
+        return bp, cov, found
+
+    def row(cov, code):
+        return [c["status"] for c in cov if c.get("code") == code]
+
+    def fn_status(cov):
+        return next(c["status"] for c in cov if c["id"] == "function:draft")
+
+    for form in ("open", "verse-chorus"):
+        for t in (None, title):
+            plan = P.make_plan(1, form=form, lines=16, relation="class:RHYME",
+                               title=t)
+            bp, cov, found = graded(plan)
+            has_hook = bool(plan.get("hook_slot"))
+            check(f"{form!r}, title {t!r}: the function layer is ANSWERED — a "
+                  f"planner-admitted declaration is never a refusal no draft "
+                  f"could clear",
+                  fn_status(cov) == "answered",
+                  f"function:draft={fn_status(cov)} "
+                  f"hook_slot={plan.get('hook_slot')}")
+            check(f"{form!r}, title {t!r}: the missing hook is "
+                  + ("not a question at all (a slot is declared)" if has_hook
+                     else "DISCLOSED as not requested, never as answered"),
+                  row(cov, "HOOK_UNDECLARED") == ([] if has_hook
+                                                  else ["not_requested"]),
+                  str(row(cov, "HOOK_UNDECLARED")))
+            check(f"{form!r}, title {t!r}: the blueprint carries the plan's "
+                  f"own reason, and only when it declared no hook",
+                  bool(bp["hook_slot_refused"]) == (not has_hook)
+                  and bp["hook_slot_refused"] == plan["hook_slot_refused"],
+                  repr(bp["hook_slot_refused"])[:120])
+
+    plan = P.make_plan(1, form="open", lines=16, relation="class:RHYME",
+                       title=title)
+    _bp, cov, found = graded(plan)
+    note = next(f for f in found if f.code == "HOOK_UNDECLARED")
+    check("the refusal note says what became of the title, so a reader of "
+          "the report does not have to infer that the question went unasked",
+          note.severity == "note" and repr(title) in note.evidence
+          and "was not asked" in note.evidence
+          and plan["hook_slot_refused"] in note.evidence,
+          note.evidence[-220:])
+    brief = plan["writer_brief"]
+    check("the writer's brief says it too, in the place the writer reads",
+          f"The title {title!r} names the song." in brief
+          and "is not asked of this plan" in brief)
+    check("...and says nothing of the kind without a title, or when a hook "
+          "IS declared (then the title question is live, as before)",
+          "names the song" not in P.make_plan(
+              1, form="open", lines=16, relation="class:RHYME")["writer_brief"]
+          and "names the song" not in P.make_plan(
+              1, form="verse-chorus", lines=16, relation="class:RHYME",
+              title=title)["writer_brief"])
+
+    # THE MUTATION, and the control that keeps the old rule where it belongs.
+    # Take the plan's reason off the blueprint and it is the blueprint a
+    # WRITER declared by hand: a title, and no hook. That is an omission the
+    # writer can repair, the question was asked, and it must still refuse.
+    _bp, cov_hand, _found = graded(plan, strip=("hook_slot_refused",))
+    check("CONTROL: a blueprint with a title, no hook and NO plan reason "
+          "(a hand-declared one) still refuses — the rule moved for the "
+          "planner's decision and for nothing else",
+          fn_status(cov_hand) == "refused"
+          and row(cov_hand, "HOOK_UNDECLARED") == ["refused"],
+          f"function:draft={fn_status(cov_hand)} "
+          f"{row(cov_hand, 'HOOK_UNDECLARED')}")
+
+    # THE SAME SONG THROUGH THE VERB. Four lines written for seed 7's open
+    # plan (groups 2,3 under class:RHYME; `chair`/`spare` is screened clean).
+    # Before the repair the titled run ended
+    # `exit 2 — UNCERTIFIED … function:draft, function:HOOK_UNDECLARED:3`.
+    draft_lines = ["The harbor wakes before the gulls arrive",
+                   "Dust settles on the kitchen chair",
+                   "Cold rain leaves nothing left to spare",
+                   "We fold the nets and walk the road back home"]
+    harness = os.path.join(ROOT, "lyric_harness.py")
+
+    def finish(*extra):
+        with tempfile.TemporaryDirectory() as tmp:
+            draft = os.path.join(tmp, "open4.txt")
+            with open(draft, "w", encoding="utf-8") as fh:
+                fh.write("\n".join(draft_lines) + "\n")
+            proc = subprocess.run(
+                [sys.executable, "-B", harness, "finish", draft, "--seed=7",
+                 "--form=open", "--lines=4", "--relation=RHYME",
+                 "--attempts=0", "--backtrack=0", "--max-rounds=1", *extra],
+                cwd=ROOT, capture_output=True, text=True, timeout=600)
+        rows = [ln for ln in proc.stdout.splitlines()
+                if ln.lstrip().startswith("lyric result:")]
+        result = (json.loads(rows[-1].split("lyric result:", 1)[1])
+                  if rows else {})
+        return proc.returncode, proc.stdout, result
+
+    rc0, _out0, plain = finish()
+    rc1, out1, titled = finish(f"--title={title}")
+    cov1 = titled.get("coverage", {})
+    check("CONTROL: the untitled song finishes clean (exit 0, certified)",
+          rc0 == 0 and plain.get("stop_reason") == "SUCCESS"
+          and plain.get("coverage", {}).get("certified") is True,
+          f"rc={rc0} {plain.get('stop_reason')}")
+    check("THE SAME SONG WITH A TITLE finishes clean too: exit 0, SUCCESS, "
+          "certified, nothing refused, the draft untouched",
+          rc1 == 0 and titled.get("status") == "finished"
+          and titled.get("stop_reason") == "SUCCESS"
+          and cov1.get("certified") is True
+          and cov1.get("refused_obligations") == []
+          and titled.get("whole_flags") == []
+          and titled.get("final_draft") == draft_lines,
+          f"rc={rc1} {titled.get('stop_reason')} "
+          f"refused={cov1.get('refused_obligations')}")
+    hook_rows = [o for o in cov1.get("obligations", [])
+                 if o.get("code") == "HOOK_UNDECLARED"]
+    check("...and its coverage still lists the hook question, as NOT "
+          "REQUESTED — clean is not earned by hiding the row",
+          [o.get("status") for o in hook_rows] == ["not_requested"],
+          str(hook_rows))
+    check("...and the stamp is the clean one",
+          "[FINISHED — seed 7 — exit 0 — SUCCESS" in out1,
+          out1.strip().splitlines()[-1][:160] if out1.strip() else "")
+
+
 if __name__ == "__main__":
     for fn in (test_function_is_declared_and_never_inferred,
                test_the_questions_that_needed_a_function,
@@ -1708,7 +1861,8 @@ if __name__ == "__main__":
                test_answer_and_call_response_relations,
                test_the_contrast_truth_table,
                test_the_contrast_truth_table_reaches_certification,
-               test_the_contrast_witness_names_its_words):
+               test_the_contrast_witness_names_its_words,
+               test_a_titled_plan_with_no_hook_can_finish):
         fn()
     print("=" * 70)
     if FAILURES:

@@ -718,3 +718,124 @@ test('the short verdict ends with the next call the grade names, and has none wi
     assert.equal(Object.hasOwn(out(verdict, tool), 'next'), false, `${tool} without next`);
   assert.equal(Object.hasOwn(out({ ...verdict, next: { call: 'x' } }), 'next'), false);
 });
+
+// THE NEXT STEP AFTER AN UNCERTIFIED STOP IS READ OFF WHAT WAS REFUSED
+// (coverage_advice.js, issue #676). The note used to recommend
+// `pronunciations` for every exit 2 with nothing open; a refused declaration
+// with no unread word in the draft got advice that could not clear it.
+test('an uncertified stop is told what can clear it, by what was actually refused', async () => {
+  const { uncertifiedAdvice, declarationAdvice, refusedByRemedy, READING_ADVICE } =
+    await import('./coverage_advice.js');
+  const hookNote = {
+    ...note('HOOK_UNDECLARED', []),
+    message: 'no hook was declared, so no hook question was asked',
+  };
+  // No flag, no ban, no unread word: only the hook declaration is refused.
+  const declarationOnly = {
+    exit_code: 2,
+    findings: [hookNote],
+    coverage: {
+      certified: false,
+      obligations: [
+        { id: 'function:draft', layer: 'function', status: 'refused' },
+        {
+          id: 'function:HOOK_UNDECLARED:3',
+          layer: 'function',
+          status: 'refused',
+          code: 'HOOK_UNDECLARED',
+        },
+        {
+          id: 'function:SINGLE_INSTANCE:1',
+          layer: 'function',
+          status: 'not_requested',
+          code: 'SINGLE_INSTANCE',
+        },
+        { id: 'shape:draft', layer: 'shape', status: 'answered' },
+      ],
+      refused_obligations: ['function:draft', 'function:HOOK_UNDECLARED:3'],
+    },
+  };
+  const said = uncertifiedAdvice(declarationOnly);
+  assert.match(said, /^What was not judged is a DECLARATION, not a word: /);
+  assert.ok(
+    said.includes(
+      'function: HOOK_UNDECLARED — no hook was declared, so no hook question was asked'
+    ),
+    'the refused declaration is named with the grader’s own message for it'
+  );
+  assert.ok(!said.includes(READING_ADVICE), 'no unread word, so no pronunciation step');
+  assert.ok(
+    !said.includes('function:draft'),
+    'the layer aggregate is not listed beside the row that explains it'
+  );
+  assert.ok(
+    !said.includes('SINGLE_INSTANCE'),
+    'a question nobody asked is not presented as something to clear'
+  );
+  assert.match(said, /No rewrite of a line and no `pronunciations` entry can clear it/);
+  assert.match(said, /present the song as uncertified/);
+  assert.deepEqual(refusedByRemedy(declarationOnly), {
+    reading: false,
+    declarations: [
+      'function: HOOK_UNDECLARED — no hook was declared, so no hook question was asked',
+    ],
+    other: [],
+  });
+
+  // CONTROL: an unread word alone keeps the note exactly as it has always read.
+  const wordOnly = {
+    exit_code: 2,
+    findings: [],
+    coverage: {
+      certified: false,
+      obligations: [
+        { id: 'rhyme:1:2:0', layer: 'rhyme', status: 'refused' },
+        {
+          id: 'function:END_WORD_UNREADABLE:L2',
+          layer: 'function',
+          status: 'refused',
+          code: 'END_WORD_UNREADABLE',
+          line: 2,
+          token: 5,
+          word: 'qzzxv',
+        },
+      ],
+      refused_obligations: ['rhyme:1:2:0', 'function:END_WORD_UNREADABLE:L2'],
+    },
+  };
+  assert.equal(
+    uncertifiedAdvice(wordOnly),
+    'Resolve the unread words with `pronunciations` (lyric_grade lists the options; never guess a reading), grade again, and start a new run with `new_run: true`.'
+  );
+  assert.equal(declarationAdvice(wordOnly), '', 'and names no declaration');
+
+  // Both at once: each cause gets its own step, and neither is dropped.
+  const both = {
+    ...declarationOnly,
+    coverage: {
+      ...declarationOnly.coverage,
+      obligations: [...declarationOnly.coverage.obligations, ...wordOnly.coverage.obligations],
+    },
+  };
+  const saidBoth = uncertifiedAdvice(both);
+  assert.match(saidBoth, /^Part of what was not judged is a DECLARATION, not a word: /);
+  assert.ok(saidBoth.includes(`${READING_ADVICE}.`));
+  assert.match(declarationAdvice(both, { also: true }), /^ALSO NOT JUDGED, and no rewrite will/);
+
+  // Only the id list (a short or older record): still read, never dropped.
+  assert.match(
+    uncertifiedAdvice({ coverage: { refused_obligations: ['meter:L1'] } }),
+    /^Resolve the unread words/
+  );
+  // A refused row that names neither a word nor a declaration is pointed at.
+  assert.equal(
+    uncertifiedAdvice({
+      coverage: { obligations: [{ id: 'setting:draft', layer: 'setting', status: 'refused' }] },
+    }),
+    'Read `coverage` for the refused obligation(s) setting:draft. After any change, grade again, and start a new run with `new_run: true`.'
+  );
+  // Nothing on record to read a cause from: no cause is guessed.
+  const blind = uncertifiedAdvice({});
+  assert.ok(!blind.includes('pronunciations'), 'a word is not blamed without a refused word');
+  assert.match(blind, /^Read `coverage` for what was not judged/);
+});
