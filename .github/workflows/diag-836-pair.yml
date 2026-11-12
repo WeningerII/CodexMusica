@@ -98,7 +98,9 @@ jobs:
           CELLS: ${{ matrix.cells }}
           NAME: ${{ matrix.name }}
         run: |
-          set -uo pipefail
+          # The step shell is `bash -e`; a gate run may exit non-zero (that is
+          # data, recorded below), so exit-on-error must be off here.
+          set +e -uo pipefail
           mkdir -p evidence
           run_arm() {  # $1 label  $2 tree/image  $3 library-mode flag or ''  $4 round
             local label=$1 tree=$2 flag=$3 rnd=$4 out="evidence/$NAME-$1-r$4.json"
@@ -125,7 +127,7 @@ jobs:
       - name: Cold first Library search, five pairs, alternating order
         timeout-minutes: 40
         run: |
-          set -uo pipefail
+          set +e -uo pipefail
           probe() {  # $1 tree  $2 rep
             docker run --rm --network=none --cpus=1 --memory=2g --memory-swap=2g --pids-limit=256 \
               --mount "type=bind,src=$GITHUB_WORKSPACE/$1/scripts,dst=/app/scripts,readonly" \
