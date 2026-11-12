@@ -11,6 +11,18 @@ import { performance } from 'node:perf_hooks';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { _workerInternals, lyricCapacity } from '../mcp/lyric_tools.js';
 
+// Count the exact JSON wire size without allocating a serialized whole draft.
+// The capacity fixture retains dense arrays of strings; refuse other shapes.
+export function draftJsonBytes(lines) {
+  if (!Array.isArray(lines)) throw new TypeError('Expected a draft array');
+  let size = 2 + Math.max(0, lines.length - 1);
+  for (const line of lines) {
+    if (typeof line !== 'string') throw new TypeError('Expected a draft line string');
+    size += Buffer.byteLength(JSON.stringify(line));
+  }
+  return size;
+}
+
 function cgroupBytes(name) {
   try {
     const raw = fs.readFileSync('/sys/fs/cgroup/' + name, 'utf8').trim();

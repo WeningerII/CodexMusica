@@ -1,6 +1,6 @@
 name: Production capacity matrix
 
-# The 18-execution CPU/memory capacity matrix over the tested lyrics image,
+# The two-profile, 36-execution CPU/memory capacity matrix over the tested lyrics image,
 # dealt by (lines, seed) cell across runners instead of across three 1-CPU
 # lanes on one runner (M-282). Called by production-qualification.yml since
 # the 2026-09-17 placement decision; every shard rebuilds from the same
@@ -58,9 +58,13 @@ on:
 permissions:
   contents: read
 
+# Both profiles keep every store configured, in fresh containers. Unloaded
+# proves no Library data path ran; loaded forces first search and verifies
+# corpus bytes before the same 18 workloads. No limit or timeout is raised.
+# This doubles shard jobs from four to eight; execution requires reviewed design.
 jobs:
   shard:
-    name: cells ${{ matrix.name }}
+    name: cells ${{ matrix.shard.name }}-${{ matrix.library_mode }}
     runs-on: ubuntu-latest
     # The pole shard MEASURED ~19 min at three-lane speed and should be under
     # that alone; an unseeded rebuild adds the ~10-min proof (M-267). 50 is
@@ -70,7 +74,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
+        library_mode: [unloaded, loaded]
+        shard:
           - name: pole
             cells: 31:20260910,24:20260909
           - name: upper
@@ -132,8 +137,9 @@ jobs:
         timeout-minutes: 40
         env:
           TESTED_IMAGE: ${{ steps.image.outputs.image_id }}
-          CELLS: ${{ matrix.cells }}
-          NAME: ${{ matrix.name }}
+          CELLS: ${{ matrix.shard.cells }}
+          NAME: ${{ matrix.shard.name }}-${{ matrix.library_mode }}
+          LIBRARY_MODE: ${{ matrix.library_mode }}
         run: |
           set -euo pipefail
           mkdir -p capacity-evidence
@@ -142,7 +148,7 @@ jobs:
             --mount "type=bind,src=$GITHUB_WORKSPACE/scripts,dst=/app/scripts,readonly" \
             --mount "type=bind,src=$GITHUB_WORKSPACE/capacity-evidence,dst=/evidence" \
             --workdir=/app --entrypoint=python3 "$TESTED_IMAGE" \
-            /app/scripts/check_lyrics_capacity.py --cells="$CELLS" \
+            /app/scripts/check_lyrics_capacity.py --cells="$CELLS" --library-mode="$LIBRARY_MODE" \
             --out="/evidence/capacity-$NAME.json" \
             > "capacity-evidence/shard-$NAME.log" 2>&1
           rc=$?
@@ -154,7 +160,7 @@ jobs:
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
-          name: lyrics-capacity-${{ matrix.name }}-${{ github.run_attempt }}
+          name: lyrics-capacity-${{ matrix.shard.name }}-${{ matrix.library_mode }}-${{ github.run_attempt }}
           path: capacity-evidence/
           if-no-files-found: error
           retention-days: 30
@@ -196,17 +202,21 @@ jobs:
           ls -l capacity-artifacts
           python3 scripts/select_capacity_shards.py --repo="$GITHUB_REPOSITORY" \
             --run-id="$GITHUB_RUN_ID" --attempt="$GITHUB_RUN_ATTEMPT" --sha="$GITHUB_SHA" \
-            --shards=pole,upper,middle,rest --artifacts-dir=capacity-artifacts \
+            --shards=pole-unloaded,upper-unloaded,middle-unloaded,rest-unloaded,pole-loaded,upper-loaded,middle-loaded,rest-loaded --artifacts-dir=capacity-artifacts \
             --out-dir=capacity-evidence --provenance=capacity-evidence/shard-provenance.json
       - name: One matrix out of every shard, or a refusal that names the shard
         run: |
           set -euo pipefail
           ls -l capacity-evidence
           python3 scripts/merge_lyrics_capacity.py \
-            capacity-evidence/capacity-pole.json \
-            capacity-evidence/capacity-upper.json \
-            capacity-evidence/capacity-middle.json \
-            capacity-evidence/capacity-rest.json \
+            capacity-evidence/capacity-pole-unloaded.json \
+            capacity-evidence/capacity-upper-unloaded.json \
+            capacity-evidence/capacity-middle-unloaded.json \
+            capacity-evidence/capacity-rest-unloaded.json \
+            capacity-evidence/capacity-pole-loaded.json \
+            capacity-evidence/capacity-upper-loaded.json \
+            capacity-evidence/capacity-middle-loaded.json \
+            capacity-evidence/capacity-rest-loaded.json \
             --provenance=capacity-evidence/shard-provenance.json \
             --out=capacity-evidence/capacity.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

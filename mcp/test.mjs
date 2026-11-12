@@ -5421,6 +5421,8 @@ await check('validation: actionable errors', () => {
       'mcp/test_paid_budget.mjs': 'offline shared spending admission regressions',
       'mcp/test_python_bridge.mjs': 'offline worker lifecycle regressions',
       'mcp/test_reader_job_store.mjs': 'offline durable Library reader job regressions',
+      'mcp/test_library_store_loader.mjs':
+        'offline shared-load, retry and store cleanup regressions',
       'mcp/test_library_search.mjs': 'offline Library search store, engine and route regressions',
       'mcp/test_library_search_parity.mjs':
         'replays the Worker search goldens against a built store (library-parity.yml)',

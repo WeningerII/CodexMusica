@@ -77,6 +77,7 @@ Connector:
 | PLAN_TTL_MS | 3,600,000 | `../mcp/library_export_routes.js` |
 | PLAN_CAP | 2,000 | `../mcp/library_export_routes.js` |
 | PLAN_BYTES | 9,437,184 (9,216 KB) | `../mcp/library_export_routes.js` |
+| BODY_WINDOW_BYTES | 1,048,576 (1,024 KB) | `../mcp/library_search.js` |
 | PAGE_BYTES | 2,097,152 (2,048 KB) | `../mcp/library_search.js` |
 | SEARCH_LIMIT | 100 | `../mcp/library_search.js` |
 | MAX_AGE | 2,592,000 | `../mcp/library_viewer_routes.js` |

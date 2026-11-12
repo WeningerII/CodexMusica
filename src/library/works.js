@@ -20,6 +20,81 @@
 /* global esc, icon, showToast, uiEmptyState, uiSubroute, LIBRARY, libraryAnnounce */
 'use strict';
 
+// One visible, polite status for concurrent service requests. A quick request
+// never announces loading; the last settlement clears only our own message.
+const serviceGroups = new Map();
+let serviceOwner = null;
+const LOADING_LIBRARY = 'Loading the Library…';
+function beginServiceRequest() {
+  const sub = LIBRARY.sub;
+  let group = serviceGroups.get(sub);
+  if (!group) {
+    group = { count: 0, timer: null, region: null };
+    serviceGroups.set(sub, group);
+  }
+  group.count++;
+  if (!group.timer && serviceOwner !== group) {
+    group.timer = setTimeout(() => {
+      group.timer = null;
+      if (!group.count || LIBRARY.sub !== sub) return;
+      group.region = document.getElementById('library-live');
+      if (group.region) {
+        serviceOwner = group;
+        group.region.classList.add('lib-loading');
+        group.region.textContent = LOADING_LIBRARY;
+      }
+    }, 1000);
+  }
+  return () => {
+    if (--group.count) return;
+    clearTimeout(group.timer);
+    serviceGroups.delete(sub);
+    if (serviceOwner === group) {
+      group.region.classList.remove('lib-loading');
+      if (group.region.textContent === LOADING_LIBRARY) group.region.textContent = '';
+      serviceOwner = null;
+    }
+  };
+}
+
+async function api(base, path, opts = {}, credentials = 'omit') {
+  const finishLoading = beginServiceRequest();
+  try {
+    const { body, method, headers, raw, signal } = opts;
+    const init = {
+      method: method || (body !== undefined ? 'POST' : 'GET'),
+      credentials,
+      signal,
+      headers: { ...(headers || {}) },
+    };
+    if (body !== undefined) {
+      init.body = typeof body === 'string' ? body : JSON.stringify(body);
+      if (typeof body !== 'string') init.headers['content-type'] = 'application/json';
+    }
+    const res = await fetch(base + path, init);
+    if (raw) return res;
+    const text = await res.text();
+    let data = null;
+    try {
+      data = text ? JSON.parse(text) : null;
+    } catch {
+      data = { error: text };
+    }
+    if (!res.ok) {
+      const error = Error(
+        (data && (data.error?.message || data.message || data.error)) ||
+          `Library service ${res.status}`
+      );
+      error.status = res.status;
+      error.body = data;
+      throw error;
+    }
+    return data;
+  } finally {
+    finishLoading();
+  }
+}
+
 const PAGE = 50;
 const LANGUAGE_NAMES = {
   eng: 'English',
@@ -1092,4 +1167,5 @@ return {
   parse,
   format,
   collection,
+  api,
 };

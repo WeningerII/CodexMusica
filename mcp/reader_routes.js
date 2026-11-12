@@ -284,7 +284,7 @@ export function createReaderRouter({
       if (request.idempotency_key && request.idempotency_key !== req.readerAuth.idempotency)
         throw fail('IDEMPOTENCY_CONFLICT', 'The body and signed idempotency keys disagree.', 409);
       const replay = store.hasCreate(req.readerAuth.viewer, req.readerAuth.idempotency);
-      const held = replay ? null : admission?.reserve({ unitId: request.reading_unit_id });
+      const held = replay ? null : await admission?.reserve({ unitId: request.reading_unit_id });
       let result;
       try {
         result = await createAnalysisJob({
@@ -320,7 +320,7 @@ export function createReaderRouter({
     '/internal/reader/jobs/:id/resume',
     handler(async (req, res) => {
       const record = authorized(req);
-      const held = admission?.reserve({
+      const held = await admission?.reserve({
         unitId: record.request?.reading_unit_id,
         except: record.id,
       });

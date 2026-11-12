@@ -51,12 +51,16 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
+sys.path.insert(0, str(ROOT / 'lyric-harness'))
 
 # The declared population, read from the ONE place that declares it (doctrine 1).
 # Retyping 18/24/31 here is how a merger and a matrix come to disagree about
 # what "complete" means.
 from check_lyrics_capacity import (CELLS, LEAK_MIN_BOUNDARIES, LIMITS, MODES,  # noqa: E402
-                                   SEEDS, SIZES, summarize_measurements)
+                                   SEEDS, SIZES, summarize_measurements, source_closure)
+
+from library_load_measurement import load_trace_failures
+from quality.release_assets import runtime_modules
 
 EXPECTED_EXECUTIONS = len(CELLS) * len(MODES)
 #: Fewer boundaries than this and the leak signature never ran (doctrine 20).
@@ -65,7 +69,7 @@ MIN_TRACE_PER_SHARD = LEAK_MIN_BOUNDARIES
 #: Fields every shard must agree on. `source_sha256` is the load-bearing one:
 #: it is what makes three separate measurements evidence about ONE runtime.
 SHARED = ('source_sha256', 'source_sha256_after', 'limits', 'seeds',
-          'scope', 'version')
+          'scope', 'version', 'library_mode')
 
 
 def load(path):
@@ -75,7 +79,7 @@ def load(path):
         raise ValueError(f'{path}: unreadable capacity shard: {error}') from None
 
 
-def merge(shards):
+def merge_profile(shards):
     """-> (report, failures). A non-empty `failures` means NOT qualified."""
     failures = []
     if not shards:
@@ -107,6 +111,11 @@ def merge(shards):
                         f'{sorted(CELLS)}, each exactly once')
 
     for name, shard in shards:
+        if shard.get('library_mode') == 'loaded':
+            failures.extend(f'{name}: {error}' for error in load_trace_failures(
+                shard.get('library_load_memory_trace'), LIMITS['whole_runtime_peak_mib'] * 1024**2))
+        elif shard.get('library_mode') != 'unloaded' or shard.get('library_load_memory_trace') != []:
+            failures.append(f'{name}: invalid unloaded profile or unexpected load samples')
         if shard.get('status') != 'passed':
             failures.append(f"{name}: status is {shard.get('status')!r}, not 'passed'")
         for failure in shard.get('failures') or []:
@@ -190,6 +199,7 @@ def merge(shards):
     report = {
         'version': 1,
         'scope': first.get('scope'),
+        'library_mode': first.get('library_mode'),
         'sharded': True,
         'shards': [{'file': name, 'cells': shard.get('cells'), 'sizes': shard.get('sizes')}
                    for name, shard in shards],
@@ -202,9 +212,11 @@ def merge(shards):
         'isolation': {name: shard.get('isolation') for name, shard in shards},
         'measurements': measurements,
         'memory_trace': trace,
+        'library_load_memory_trace': {name: shard.get('library_load_memory_trace') for name, shard in shards},
         # Re-derived over the union, by the one function that derives them: a
         # size whose seeds were dealt to two containers gets one row here.
         'summaries': summarize_measurements(measurements),
+        'resident_runtime': {name: shard.get('resident_runtime') for name, shard in shards},
         'cgroup_peak_bytes': {name: shard.get('cgroup_peak_bytes') for name, shard in shards},
         'whole_runtime_peak_bytes': {name: shard.get('whole_runtime_peak_bytes')
                                      for name, shard in shards},
@@ -215,6 +227,75 @@ def merge(shards):
     report['status'] = 'failed' if failures else 'passed'
     report['production_qualified'] = not failures
     return report, failures
+
+
+def merge(shards):
+    """Both complete populations are mandatory; one passing profile is insufficient."""
+    import math
+    import re
+    failures, profiles = [], {}
+    if not shards:
+        return {}, ['no capacity shards were supplied']
+    # The producer records a path -> SHA-256 map, not a digest of the map.
+    # Derive the expected closure from the Docker assembler's module inventory,
+    # not research/build-only modules present solely in the checkout.
+    # Require its complete runtime closure as well as valid hashes; equally
+    # incomplete maps across every shard must not qualify production.
+    expected_sources = set(source_closure(harness_modules=runtime_modules(ROOT / 'lyric-harness')))
+    def valid_identity(value):
+        return (isinstance(value, dict) and bool(value) and set(value) == expected_sources
+                and all(isinstance(digest, str) and re.fullmatch(r'[0-9a-f]{64}', digest)
+                        for digest in value.values()))
+    for name, shard in shards:
+        if any(not valid_identity(shard.get(key)) for key in ('source_sha256', 'source_sha256_after')):
+            failures.append(f'{name}: missing or malformed source identity')
+        if shard.get('limits') != LIMITS:
+            failures.append(f'{name}: declared capacity limits differ from required limits')
+        if shard.get('library_mode') not in ('loaded', 'unloaded'):
+            failures.append(f'{name}: unknown or missing Library profile')
+    for mode in ('unloaded', 'loaded'):
+        selected = [(name, shard) for name, shard in shards if shard.get('library_mode') == mode]
+        profile, problems = merge_profile(selected)
+        profile['profile_qualified'] = profile.pop('production_qualified', False)
+        profiles[mode] = profile
+        failures.extend(f'{mode}: {error}' for error in problems)
+        for name, shard in selected:
+            traces = shard.get('memory_trace') or []
+            trace_cells = [(row.get('lines'), row.get('seed'), row.get('mode')) for row in traces]
+            workload_cells = [(row.get('lines'), row.get('seed'), row.get('mode')) for row in shard.get('measurements') or []]
+            if sorted(trace_cells) != sorted(workload_cells):
+                failures.append(f'{name}: memory samples do not cover the exact workloads')
+            for row in shard.get('memory_trace') or []:
+                peak = row.get('peak_bytes')
+                if type(peak) is not int or not 0 < peak <= LIMITS['whole_runtime_peak_mib'] * 1024**2:
+                    failures.append(f'{name}: missing or excessive per-cell resident peak')
+                expected = {'state': 'not_loaded' if mode == 'unloaded' else 'ready',
+                            'failures': [], 'corpus': 'absent' if mode == 'unloaded' else 'verified'}
+                if (row.get('library_mode') != mode or row.get('library_before') != expected or
+                        row.get('library_after') != expected):
+                    failures.append(f'{name}: workload does not prove its declared Library state')
+            for phase in ('library', 'library_recovery'):
+                evidence = (shard.get('resident_runtime') or {}).get(phase)
+                from lyrics_capacity_runtime import library_evidence_failures
+                failures.extend(f'{name}: {error}' for error in library_evidence_failures(evidence, phase, library_mode=mode))
+                timing = evidence.get('first_search_s') if isinstance(evidence, dict) else None
+                if mode == 'loaded' and (type(timing) not in (int, float) or not math.isfinite(timing) or timing < 0 or evidence.get('first_search_scope') != 'cold request including store load'):
+                    failures.append(f'{name}: missing or invalid cold first-search timing ({phase})')
+                if mode == 'unloaded' and (timing is not None or (isinstance(evidence, dict) and evidence.get('first_search_scope') != 'not measured')):
+                    failures.append(f'{name}: unloaded profile claims a measured first search ({phase})')
+                if not isinstance(evidence, dict) or evidence.get('stores') != {'search': True, 'export': True, 'corpus': True}:
+                    failures.append(f'{name}: production Library stores must remain configured in both profiles')
+    first = shards[0][1]
+    for name, shard in shards:
+        for field in SHARED:
+            if field != 'library_mode' and shard.get(field) != first.get(field):
+                failures.append(f'{name}: {field} differs across Library profiles')
+    return {'version': 2, 'scope': first.get('scope'), 'limits': LIMITS,
+            'source_sha256': first.get('source_sha256'),
+            'source_sha256_after': first.get('source_sha256_after'),
+            'library_profiles': profiles, 'failures': failures,
+            'status': 'failed' if failures else 'passed',
+            'production_qualified': not failures}, failures
 
 
 def main(argv=None):

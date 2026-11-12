@@ -46,7 +46,7 @@ const coverage = {
   refused_obligations: [],
 };
 
-async function httpFixture() {
+async function httpFixture({ admission } = {}) {
   const directory = await mkdtemp(path.join(tmpdir(), 'reader-http-'));
   const store = new ReaderJobStore({ directory });
   const app = express();
@@ -59,6 +59,7 @@ async function httpFixture() {
   );
   app.use(
     createReaderRouter({
+      admission,
       store,
       scheduler: { kick() {} },
       secret,
@@ -796,5 +797,65 @@ test('a dispatch refused while usage is recounted is logged and retried until co
   } finally {
     scheduler.stop();
     await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test('private create awaits lazy admission before creating a job and releases its reservation', async () => {
+  let enter, finish;
+  const entered = new Promise((resolve) => {
+    enter = resolve;
+  });
+  const ready = new Promise((resolve) => {
+    finish = resolve;
+  });
+  let commits = 0,
+    releases = 0;
+  const f = await httpFixture({
+    admission: {
+      reserve: async () => {
+        enter();
+        await ready;
+        return {
+          commit() {
+            commits++;
+          },
+          release() {
+            releases++;
+          },
+        };
+      },
+    },
+  });
+  try {
+    const response = f.call('POST', '/internal/reader/jobs', { input: request });
+    await entered;
+    assert.equal(f.store.records.size, 0);
+    finish();
+    assert.equal((await response).status, 202);
+    assert.equal(commits, 1);
+    assert.equal(releases, 1);
+  } finally {
+    finish();
+    await f.close();
+  }
+});
+
+test('private create does not queue when lazy admission fails and a later retry can recover', async () => {
+  let failed = true;
+  const f = await httpFixture({
+    admission: {
+      reserve: async () => {
+        if (failed) throw Object.assign(Error('The Library could not answer.'), { status: 503 });
+        return { commit() {}, release() {} };
+      },
+    },
+  });
+  try {
+    assert.equal((await f.call('POST', '/internal/reader/jobs', { input: request })).status, 503);
+    assert.equal(f.store.records.size, 0);
+    failed = false;
+    assert.equal((await f.call('POST', '/internal/reader/jobs', { input: request })).status, 202);
+  } finally {
+    await f.close();
   }
 });
