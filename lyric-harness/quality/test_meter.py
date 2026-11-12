@@ -9,6 +9,8 @@ confidently is worse than a refusal, and that is the behaviour this file pins.
 Run: python3 quality/test_meter.py
 """
 
+import copy
+import json
 import os
 import sys
 import unittest
@@ -365,6 +367,45 @@ class MetricComplexityTests(unittest.TestCase):
                     reader(bp)
 
 
+class RolePresenceGuardTests(unittest.TestCase):
+    """A blueprint line that carries `role` is refused, whatever the value.
+
+    Nothing reads a line role yet, so accepting the key would let a caller
+    believe it had been honoured. The refusal names the line and leaves the
+    blueprint untouched.
+    """
+
+    def test_shared_presence_guard(self):
+        from quality.meter import validate_blueprint
+        for raw in ('refrain', '', None, {}, [], 17):
+            bp = {'sections': [], 'lines': [{'role': raw}]}
+            before = copy.deepcopy(bp)
+            with self.subTest(raw=raw), self.assertRaisesRegex(
+                    ValueError,
+                    r"^line 1: `role` isn't supported yet, so this blueprint was not accepted\. "
+                    r"Remove `role` from this line and send it again\."):
+                validate_blueprint(bp)
+            self.assertEqual(bp, before)
+
+    def test_presence_guard_checks_later_lines_and_line_number(self):
+        from quality.meter import validate_blueprint
+        for index in (1, 2):
+            for raw in ('refrain', 'burden', '', None, {}, [], 17):
+                bp = {'sections': [], 'lines': [{} for _ in range(index)] + [{'role': raw}]}
+                with self.subTest(index=index, raw=raw), self.assertRaisesRegex(
+                        ValueError, rf"^line {index + 1}: `role` isn't supported yet"):
+                    validate_blueprint(bp)
+
+    def test_legacy_blueprint_raw_serialization_preserved(self):
+        from quality.meter import validate_blueprint
+        raw = (' {"sections": [{"name": "verse", "bars": 1, "meter": {"beats": 4, "unit": 4}}], '
+               '"lines": [{"bar": 1, "beat": 1, "duration": 4}]}\n')
+        blueprint = json.loads(raw)
+        before = copy.deepcopy(blueprint)
+        validate_blueprint(blueprint)
+        self.assertEqual(blueprint, before)
+
+
 if __name__ == "__main__":
     for fn in (test_duration_is_an_exact_rational,
                test_the_grouping_space_is_compositions,
@@ -380,5 +421,7 @@ if __name__ == "__main__":
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
         sys.exit(1)
     print("all metric-cycle regressions pass")
-    result = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(MetricComplexityTests))
+    suite = unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(case)
+                               for case in (MetricComplexityTests, RolePresenceGuardTests))
+    result = unittest.TextTestRunner(verbosity=2).run(suite)
     sys.exit(0 if result.wasSuccessful() else 1)
