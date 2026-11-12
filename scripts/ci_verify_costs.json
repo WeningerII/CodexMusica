@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "source_run": "https://github.com/WeningerII/CodexMusica/actions/runs/43116866868",
-  "source_head": "1b2fdc0cd70b167ee398034eb325bda619a06a25",
-  "source_checkout": "479ab6f794daee8ee6a05d66c3cbcb4830a22401",
+  "source_run": "https://github.com/WeningerII/CodexMusica/actions/runs/43124724813",
+  "source_head": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+  "source_checkout": "e560e1d85591195b2d3d38919f0dae03e585ab06",
   "source_runs": [
     {
       "run": "https://github.com/WeningerII/CodexMusica/actions/runs/43099681517",
@@ -18,28 +18,34 @@
       "run": "https://github.com/WeningerII/CodexMusica/actions/runs/43116866868",
       "head": "1b2fdc0cd70b167ee398034eb325bda619a06a25",
       "checkout": "479ab6f794daee8ee6a05d66c3cbcb4830a22401"
+    },
+    {
+      "run": "https://github.com/WeningerII/CodexMusica/actions/runs/43124724813",
+      "head": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+      "checkout": "e560e1d85591195b2d3d38919f0dae03e585ab06"
     }
   ],
-  "estimator": "Unchanged leaves use the maximum of three hosted observations; new Library partitions use summed per-ID hosted maxima plus measured maximum process overhead; local serial recipe and session-group measurements retain labeled hosted aliases and completed per-case costs",
+  "estimator": "Per-command maximum of four hosted observations where complete; Library24-part inherited per-ID estimates are retained conservatively with actual fourth-run walls; new grouped files use actual cold-process local walls and completed per-case maxima plus5s; censored file timeouts are excluded as complete costs",
   "notes": [
-    "All 217 mandatory leaf commands are retained. Unchanged commands use the largest measured wall duration from the three hosted verify matrices. The third session-repairs whole-file observation ended at its unchanged 120-second cap and is excluded as a complete cost.",
-    "Library now uses24 partitions of the same216 sorted unittest IDs,9 IDs per partition. These24 command costs are estimates: sum the maximum observed duration of each owned test across three complete hosted216-ID runs, then add the maximum observed partition overhead3.502 seconds. That overhead is wall minus per-test timings and includes process/import/discovery, fixture and logging costs; it is not runner setup. No Library test body changed or was split.",
+    "All220 mandatory leaf commands are retained. Unchanged commands use the largest complete measured wall duration across four hosted verify matrices. The third session-repairs and fourth native-pronunciation file timeouts remain censored evidence; they are never complete timings.",
+    "Library retains24 partitions of the same216 sorted unittest IDs,9 IDs per partition. Its weights retain conservative sums of per-ID maxima from three complete hosted12-part runs plus3.502 seconds maximum measured process overhead, and take the maximum with each actual successful fourth-run24-part command wall. All24 actual summaries passed9 tests without skips.",
     "The four recipe commands request the existing inline path with REGRESSION_SERIAL=1. Their weights take the maximum of actual local serial measurements, the third hosted serial observation, and the first two hosted parallel-mode observations; those first two observations are labeled as aliases, not hosted measurements of serial mode.",
     "The local four-process serial proof counted every original computation and snapshot comparison, including duplicate fixture rows, with zero nested Worker attempts. Other container CPU activity was present during portions of that proof.",
     "The three new session-repairs group weights take the larger of actual local group wall time and the sum of the largest observed cost of each owned case plus five seconds for a fresh Node/connector process. Costs of the 43 completed cases from the timed-out third file are retained only as completed per-case observations; its 120.2-second cancelled file is censored evidence, not a full-group timing.",
     "These remain scheduling observations, not runtime bounds. Runtime can change with CPU contention and host speed. An unmeasured new leaf remains mandatory and receives 120 seconds.",
     "Values rounded to 0.0 seconds are clamped to 0.1 seconds.",
-    "The runner-control command is unchanged but now also executes49 registrar controls,8 large pipe-output controls and24 Library inventory selections. Its weight is the maximum of prior hosted control timings and the actual expanded local14.948-second wall measurement, explicitly labeled as local changed-body evidence."
+    "The runner-control command is unchanged but now also executes49 registrar controls,8 large pipe-output controls and24 Library inventory selections. Its weight is the maximum of prior hosted control timings and the actual expanded local14.948-second wall measurement, explicitly labeled as local changed-body evidence.",
+    "Native pronunciation, function disclosure identity and review mandate now each use2 registrar groups. All original callback argument/options/assertion ASTs and review before/after hooks are preserved; default commands retain whole-file registration order. New group weights take max(actual cold local group wall, sum of owned per-case maxima from all completed hosted/local cases plus5seconds). Existing optional released-runtime baseline skip/options are unchanged and are not claimed as executed-body evidence."
   ],
   "seconds": {
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=1/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 21.533,
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=10/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 164.012,
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=11/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 39.343,
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=12/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 391.596,
-    "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=13/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 188.195,
+    "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=13/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 190.9,
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=14/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 69.217,
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=15/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 43.473,
-    "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=16/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 28.637,
+    "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=16/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 32.2,
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=17/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 196.096,
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=18/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 163.15,
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=19/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 10.074,
@@ -47,8 +53,8 @@
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=20/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 71.012,
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=21/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 20.231,
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=22/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 20.309,
-    "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=23/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 40.927,
-    "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=24/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 100.313,
+    "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=23/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 42.5,
+    "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=24/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 117.4,
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=3/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 25.294,
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=4/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 39.699,
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=5/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 114.212,
@@ -60,27 +66,30 @@
     "REGRESSION_SERIAL=1 node scripts/regression_recipes.js --shard=2/4 --expect=fc072ab663cb1c1dd05fffeb0050b672861c151079968949891a667acc0103ad": 234.967,
     "REGRESSION_SERIAL=1 node scripts/regression_recipes.js --shard=3/4 --expect=fc072ab663cb1c1dd05fffeb0050b672861c151079968949891a667acc0103ad": 229.6,
     "REGRESSION_SERIAL=1 node scripts/regression_recipes.js --shard=4/4 --expect=fc072ab663cb1c1dd05fffeb0050b672861c151079968949891a667acc0103ad": 249.8,
+    "TEST_FUNCTION_DISCLOSURE_IDENTITY_GROUP=plan-grade node --test --test-concurrency=1 --test-timeout=120000 mcp/test_function_disclosure_identity.mjs": 79.516,
+    "TEST_FUNCTION_DISCLOSURE_IDENTITY_GROUP=remaining node --test --test-concurrency=1 --test-timeout=120000 mcp/test_function_disclosure_identity.mjs": 39.369,
+    "TEST_PRONUNCIATION_NATIVE_GROUP=edit-session node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_native.mjs": 39.393,
+    "TEST_PRONUNCIATION_NATIVE_GROUP=native-client node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_native.mjs": 97.919,
+    "TEST_REVIEW_MANDATE_GROUP=declared-groups node --test --test-concurrency=1 --test-timeout=120000 mcp/test_review_mandate.mjs": 48.898,
+    "TEST_REVIEW_MANDATE_GROUP=remaining node --test --test-concurrency=1 --test-timeout=120000 mcp/test_review_mandate.mjs": 52.234,
     "TEST_SESSION_REPAIRS_GROUP=native-creation node --test --test-concurrency=1 --test-timeout=120000 mcp/test_session_repairs.mjs": 43.528,
-    "TEST_SESSION_REPAIRS_GROUP=redrawn-seed node --test --test-concurrency=1 --test-timeout=120000 mcp/test_session_repairs.mjs": 50.092,
+    "TEST_SESSION_REPAIRS_GROUP=redrawn-seed node --test --test-concurrency=1 --test-timeout=120000 mcp/test_session_repairs.mjs": 56.4,
     "TEST_SESSION_REPAIRS_GROUP=remaining node --test --test-concurrency=1 --test-timeout=120000 mcp/test_session_repairs.mjs": 46.687,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_battery_repairs.mjs": 0.3,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_chat_production.mjs": 30.9,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_chatgpt.mjs": 27.8,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_chatgpt_harness.mjs": 37.3,
-    "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_chatgpt_revise.mjs": 32.9,
-    "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_connector_contracts.mjs": 19.3,
+    "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_chatgpt_revise.mjs": 38.3,
+    "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_connector_contracts.mjs": 20.6,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_connector_http.mjs": 57.7,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_creation_attempts.mjs": 3.0,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_creation_next.mjs": 50.1,
-    "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_function_disclosure_identity.mjs": 104.0,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_lyric_workflow.mjs": 0.9,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_meter_admission.mjs": 3.9,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_checkpoint.mjs": 56.9,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_choices.mjs": 11.8,
-    "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_native.mjs": 111.1,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_refusal_promise.mjs": 3.7,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_release_gates.mjs": 3.8,
-    "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_review_mandate.mjs": 86.0,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_review_only.mjs": 4.2,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_revise_kitchen_finished.mjs": 36.3,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_revise_repeat_guard.mjs": 0.6,
@@ -88,42 +97,42 @@
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_state_codec.mjs": 1.9,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_verdict_view.mjs": 2.7,
     "node --test --test-concurrency=1 mcp/test_battery_archive.mjs": 1.0,
-    "node --test --test-concurrency=1 mcp/test_battery_lifecycle.mjs": 19.8,
+    "node --test --test-concurrency=1 mcp/test_battery_lifecycle.mjs": 20.3,
     "node --test --test-concurrency=1 mcp/test_battery_storage.mjs": 14.0,
     "node --test --test-concurrency=1 mcp/test_job_store.mjs": 13.8,
     "node --test --test-concurrency=1 mcp/test_lookup_queue.mjs": 3.5,
-    "node --test --test-concurrency=1 mcp/test_lyric_state.mjs": 3.1,
+    "node --test --test-concurrency=1 mcp/test_lyric_state.mjs": 3.4,
     "node --test --test-concurrency=1 mcp/test_paid_budget.mjs": 0.7,
     "node --test --test-concurrency=1 mcp/test_python_bridge.mjs": 89.2,
-    "node --test --test-concurrency=1 mcp/test_turn_lifecycle.mjs": 2.1,
+    "node --test --test-concurrency=1 mcp/test_turn_lifecycle.mjs": 2.2,
     "node --test mcp/test_chatgpt_parked.mjs": 111.2,
     "node --test mcp/test_continuation_audit.mjs": 234.6,
     "node --test mcp/test_high_report.mjs": 292.1,
-    "node --test mcp/test_lexicon_basis.mjs": 116.1,
+    "node --test mcp/test_lexicon_basis.mjs": 120.4,
     "node --test mcp/test_library_corpus.mjs": 75.1,
     "node --test mcp/test_library_exports.mjs": 41.0,
     "node --test mcp/test_library_search.mjs": 17.2,
     "node --test mcp/test_library_viewer_routes.mjs": 16.5,
-    "node --test mcp/test_loop_redesign.mjs": 25.0,
+    "node --test mcp/test_loop_redesign.mjs": 27.2,
     "node --test mcp/test_lyrics_evidence_binding.mjs": 36.7,
     "node --test mcp/test_prompt_provenance.mjs": 3.8,
-    "node --test mcp/test_reader_client.mjs": 9.5,
+    "node --test mcp/test_reader_client.mjs": 9.6,
     "node --test mcp/test_reader_integration.mjs": 1.3,
     "node --test mcp/test_reader_job_store.mjs": 20.6,
     "node --test mcp/test_reader_store_bounds.mjs": 7.5,
     "node --test mcp/test_reader_store_gzip.mjs": 2.1,
-    "node --test mcp/test_session_coverage_ids.mjs": 331.1,
+    "node --test mcp/test_session_coverage_ids.mjs": 359.7,
     "node --test scripts/check_library_overcap_offer.js": 1.5,
     "node --test scripts/check_library_poll_schedule.js": 5.2,
     "node --test scripts/test_atlas_controls.js": 20.0,
     "node --test scripts/test_atlas_tiles.js": 0.3,
     "node --test scripts/test_card_descriptor_semantics.js": 0.3,
-    "node --test scripts/test_cli_contract.js": 86.8,
+    "node --test scripts/test_cli_contract.js": 90.6,
     "node --test scripts/test_connection_adapter.js": 1.4,
     "node --test scripts/test_connection_bindings.js": 2.2,
     "node --test scripts/test_connection_contracts.js": 3.8,
     "node --test scripts/test_connection_families.js": 0.1,
-    "node --test scripts/test_connection_interaction.js": 0.2,
+    "node --test scripts/test_connection_interaction.js": 0.3,
     "node --test scripts/test_connection_reading_fixture.js": 0.2,
     "node --test scripts/test_connection_reading_ui.js": 1.6,
     "node --test scripts/test_connection_views.js": 6.2,
@@ -151,14 +160,14 @@
     "node scripts/_gen_voice_parts.js --check": 0.1,
     "node scripts/app_recipe_regression.js": 31.8,
     "node scripts/build_atlas_basemap.js --check": 0.3,
-    "node scripts/build_atlas_geo.js --check": 0.8,
+    "node scripts/build_atlas_geo.js --check": 1.1,
     "node scripts/build_atlas_tree.js --check": 2.4,
-    "node scripts/build_descriptor_df.js --check": 1.8,
+    "node scripts/build_descriptor_df.js --check": 1.9,
     "node scripts/build_favicon.js --check": 1.2,
     "node scripts/build_nav_glyphs.js --check": 0.2,
     "node scripts/build_signatures.js --check": 0.7,
     "node scripts/check_aliases.js": 46.7,
-    "node scripts/check_app_parity.js": 211.9,
+    "node scripts/check_app_parity.js": 213.6,
     "node scripts/check_atlas_focus_browser.js": 9.5,
     "node scripts/check_atlas_publish.js": 0.2,
     "node scripts/check_atlas_publish.js --self-test": 0.1,
@@ -170,31 +179,31 @@
     "node scripts/check_connection_acceptance_browser.js --dark --require-arrows --reader-mode": 172.8,
     "node scripts/check_connection_layout_browser.js": 16.0,
     "node scripts/check_connector_contract.js": 3.9,
-    "node scripts/check_connector_parity.js": 1.6,
+    "node scripts/check_connector_parity.js": 1.9,
     "node scripts/check_deploy_memory.js": 0.1,
     "node scripts/check_duplicates.js": 4.5,
-    "node scripts/check_earth_tiles.js": 0.7,
+    "node scripts/check_earth_tiles.js": 0.9,
     "node scripts/check_edit_differential.js": 26.0,
     "node scripts/check_edit_parity.js": 20.1,
-    "node scripts/check_engine_codec.js": 14.1,
+    "node scripts/check_engine_codec.js": 15.2,
     "node scripts/check_env_advice.mjs": 212.6,
     "node scripts/check_everynoise_pilot.js": 11.2,
-    "node scripts/check_file_protocol_browser.js": 66.5,
+    "node scripts/check_file_protocol_browser.js": 66.7,
     "node scripts/check_gap_fill.js": 58.4,
-    "node scripts/check_genre_bound_iconic.js": 1.5,
+    "node scripts/check_genre_bound_iconic.js": 1.7,
     "node scripts/check_genre_focus_browser.js": 11.5,
     "node scripts/check_genre_hydration_browser.js": 16.5,
     "node scripts/check_geographic_expansion.js": 6.0,
-    "node scripts/check_geographic_round2.js": 2.8,
+    "node scripts/check_geographic_round2.js": 2.9,
     "node scripts/check_glyph_skin.js": 0.1,
     "node scripts/check_layout_geometry.js": 0.8,
     "node scripts/check_layout_usability.js": 334.0,
     "node scripts/check_lazy_app.js": 298.2,
-    "node scripts/check_library_no_decompression.js --self-test": 14.7,
+    "node scripts/check_library_no_decompression.js --self-test": 15.3,
     "node scripts/check_library_page.js": 330.6,
-    "node scripts/check_library_private_cache.js": 4.1,
+    "node scripts/check_library_private_cache.js": 4.2,
     "node scripts/check_library_rule1_isolation.js": 21.5,
-    "node scripts/check_library_shell.js": 60.3,
+    "node scripts/check_library_shell.js": 65.1,
     "node scripts/check_locale_invariance.js": 352.5,
     "node scripts/check_lyrics_focus_browser.js": 8.3,
     "node scripts/check_lyrics_gate.js": 78.9,
@@ -203,15 +212,15 @@
     "node scripts/check_lyrics_integration.js": 34.9,
     "node scripts/check_lyrics_natural_resize.js": 68.9,
     "node scripts/check_lyrics_page.js": 436.0,
-    "node scripts/check_lyrics_readable_lines.js": 22.9,
+    "node scripts/check_lyrics_readable_lines.js": 25.4,
     "node scripts/check_lyrics_sections_focus_browser.js": 12.5,
-    "node scripts/check_lyrics_viewport.js": 53.6,
-    "node scripts/check_lyrics_writing.js": 33.6,
-    "node scripts/check_map_atlas_missing_served.js": 40.0,
+    "node scripts/check_lyrics_viewport.js": 53.9,
+    "node scripts/check_lyrics_writing.js": 45.9,
+    "node scripts/check_map_atlas_missing_served.js": 47.3,
     "node scripts/check_minified_equivalence.js": 59.1,
     "node scripts/check_mobile_layout.js": 101.8,
     "node scripts/check_name_isolation.js": 26.1,
-    "node scripts/check_navigation_focus_browser.js": 7.2,
+    "node scripts/check_navigation_focus_browser.js": 8.8,
     "node scripts/check_payload_budget.js": 0.5,
     "node scripts/check_prototype_engine.js": 10.5,
     "node scripts/check_prototype_hosts.js": 22.0,
@@ -226,15 +235,15 @@
     "node scripts/check_workbench.js": 306.4,
     "node scripts/check_workspace_ops.js": 6.1,
     "node scripts/equivalence.js": 28.8,
-    "node scripts/eval_capabilities.js": 123.3,
+    "node scripts/eval_capabilities.js": 127.5,
     "node scripts/regression_prefaces.js": 1.8,
     "node scripts/run_prototype_scenarios.js": 87.1,
     "node scripts/test_capacity_children.mjs": 2.5,
     "node scripts/test_ci_sharding.js": 2.0,
-    "node scripts/test_library_import_browser.js": 1.2,
-    "node scripts/test_library_import_shipped.js": 38.0,
-    "node scripts/test_regression_shards.js": 1.3,
-    "node scripts/test_run_parallel.js": 14.948,
+    "node scripts/test_library_import_browser.js": 1.6,
+    "node scripts/test_library_import_shipped.js": 41.8,
+    "node scripts/test_regression_shards.js": 1.7,
+    "node scripts/test_run_parallel.js": 18.2,
     "python3 lyric-harness/quality/test_computational_audit.py": 24.4,
     "python3 lyric-harness/quality/test_gutenberg_import.py": 38.4,
     "python3 lyric-harness/quality/test_gutenberg_next_import.py": 32.4,
@@ -482,222 +491,360 @@
         "tests": 9,
         "summed_per_id_maximum_seconds": 18.031,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 21.533
+        "estimated_seconds": 21.533,
+        "fourth_hosted_actual_seconds": 21.1,
+        "scheduled_seconds": 21.533
       },
       {
         "part": "2/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 43.491,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 46.993
+        "estimated_seconds": 46.993,
+        "fourth_hosted_actual_seconds": 21.7,
+        "scheduled_seconds": 46.993
       },
       {
         "part": "3/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 21.792,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 25.294
+        "estimated_seconds": 25.294,
+        "fourth_hosted_actual_seconds": 15.6,
+        "scheduled_seconds": 25.294
       },
       {
         "part": "4/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 36.197,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 39.699
+        "estimated_seconds": 39.699,
+        "fourth_hosted_actual_seconds": 38.3,
+        "scheduled_seconds": 39.699
       },
       {
         "part": "5/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 110.71,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 114.212
+        "estimated_seconds": 114.212,
+        "fourth_hosted_actual_seconds": 96.3,
+        "scheduled_seconds": 114.212
       },
       {
         "part": "6/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 26.768,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 30.27
+        "estimated_seconds": 30.27,
+        "fourth_hosted_actual_seconds": 29.5,
+        "scheduled_seconds": 30.27
       },
       {
         "part": "7/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 52.381,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 55.883
+        "estimated_seconds": 55.883,
+        "fourth_hosted_actual_seconds": 28.8,
+        "scheduled_seconds": 55.883
       },
       {
         "part": "8/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 60.963,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 64.465
+        "estimated_seconds": 64.465,
+        "fourth_hosted_actual_seconds": 27.0,
+        "scheduled_seconds": 64.465
       },
       {
         "part": "9/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 18.189,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 21.691
+        "estimated_seconds": 21.691,
+        "fourth_hosted_actual_seconds": 17.6,
+        "scheduled_seconds": 21.691
       },
       {
         "part": "10/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 160.51,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 164.012
+        "estimated_seconds": 164.012,
+        "fourth_hosted_actual_seconds": 132.7,
+        "scheduled_seconds": 164.012
       },
       {
         "part": "11/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 35.841,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 39.343
+        "estimated_seconds": 39.343,
+        "fourth_hosted_actual_seconds": 36.1,
+        "scheduled_seconds": 39.343
       },
       {
         "part": "12/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 388.094,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 391.596
+        "estimated_seconds": 391.596,
+        "fourth_hosted_actual_seconds": 237.6,
+        "scheduled_seconds": 391.596
       },
       {
         "part": "13/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 184.693,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 188.195
+        "estimated_seconds": 188.195,
+        "fourth_hosted_actual_seconds": 190.9,
+        "scheduled_seconds": 190.9
       },
       {
         "part": "14/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 65.715,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 69.217
+        "estimated_seconds": 69.217,
+        "fourth_hosted_actual_seconds": 41.0,
+        "scheduled_seconds": 69.217
       },
       {
         "part": "15/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 39.971,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 43.473
+        "estimated_seconds": 43.473,
+        "fourth_hosted_actual_seconds": 35.2,
+        "scheduled_seconds": 43.473
       },
       {
         "part": "16/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 25.135,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 28.637
+        "estimated_seconds": 28.637,
+        "fourth_hosted_actual_seconds": 32.2,
+        "scheduled_seconds": 32.2
       },
       {
         "part": "17/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 192.594,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 196.096
+        "estimated_seconds": 196.096,
+        "fourth_hosted_actual_seconds": 160.3,
+        "scheduled_seconds": 196.096
       },
       {
         "part": "18/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 159.648,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 163.15
+        "estimated_seconds": 163.15,
+        "fourth_hosted_actual_seconds": 128.6,
+        "scheduled_seconds": 163.15
       },
       {
         "part": "19/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 6.572,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 10.074
+        "estimated_seconds": 10.074,
+        "fourth_hosted_actual_seconds": 4.4,
+        "scheduled_seconds": 10.074
       },
       {
         "part": "20/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 67.51,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 71.012
+        "estimated_seconds": 71.012,
+        "fourth_hosted_actual_seconds": 32.1,
+        "scheduled_seconds": 71.012
       },
       {
         "part": "21/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 16.729,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 20.231
+        "estimated_seconds": 20.231,
+        "fourth_hosted_actual_seconds": 20.2,
+        "scheduled_seconds": 20.231
       },
       {
         "part": "22/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 16.807,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 20.309
+        "estimated_seconds": 20.309,
+        "fourth_hosted_actual_seconds": 17.1,
+        "scheduled_seconds": 20.309
       },
       {
         "part": "23/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 37.425,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 40.927
+        "estimated_seconds": 40.927,
+        "fourth_hosted_actual_seconds": 42.5,
+        "scheduled_seconds": 42.5
       },
       {
         "part": "24/24",
         "tests": 9,
         "summed_per_id_maximum_seconds": 96.811,
         "process_overhead_seconds": 3.502,
-        "estimated_seconds": 100.313
+        "estimated_seconds": 100.313,
+        "fourth_hosted_actual_seconds": 117.4,
+        "scheduled_seconds": 117.4
       }
-    ]
+    ],
+    "first_actual24_partition_run": 43124724813,
+    "all24_summaries_passed9_without_skips": true,
+    "actual24_part_maximum_seconds": 237.6,
+    "actual24_part_proof_sha256": "38e1ea1bcd75eaeb4602a0fac312d0e86c51ebf9c1830209fef2bc14caadfd54"
   },
   "expanded_runner_control_observation": {
     "command": "node scripts/test_run_parallel.js",
-    "local_seconds": 14.948,
-    "scheduled_seconds": 14.948,
-    "previous_hosted_maximum_seconds": 7.8,
-    "prior_hosted_observations": [
-      {
-        "run": 43099681517,
-        "job": 130789533518,
-        "seconds": 4.3,
-        "legacy_control_body": true
-      },
-      {
-        "run": 43110418153,
-        "job": 130826500564,
-        "seconds": 6.9,
-        "legacy_control_body": true
-      },
-      {
-        "run": 43116866868,
-        "job": 130848685922,
-        "seconds": 7.8,
-        "legacy_control_body": true
-      }
-    ],
-    "previous_local_before_pipe_controls": {
-      "seconds": 14.457,
-      "source_sha256": {
-        "scripts/test_run_parallel.js": "50828b21d954f7dae72df82ebdee7bfa810248bb507b9c21ad880fa07e220fb6",
-        "scripts/test_ci_node_test_groups.js": "1114d959523fc77757afb281b9161890d7f1e147165307e80da53859b9ad1c86",
-        "scripts/run_parallel.js": "d897fba08371ac3d3cddb2f650953c2b0917edc9b45699defe640c37cc49a180",
-        "scripts/run_unittest.py": "b38cce061506c39e5b249cd30f985683a6b24c120ec173661002442fc6192468"
-      }
+    "actual_expanded_local_seconds": 14.804,
+    "scheduled_seconds": 18.2,
+    "actual_fourth_hosted_prior49_control_body_seconds": 18.2,
+    "registrar_controls": 60,
+    "large_pipe_output_controls": 8,
+    "runner_controls": 41,
+    "source_sha256": {
+      "scripts/test_run_parallel.js": "78d6b0bc902abf60631239dcd9807b439872f6b59f67cbe7ffd5df845f867638",
+      "scripts/test_ci_node_test_groups.js": "0e79256ae31332ebcc50820678fb5dddbbc4196eb4d3f3b1326cec09b9cabaf9",
+      "scripts/test_run_parallel_list_output.js": "71f4cfd17dec3fd3324075869de3bcac6abf3e46c4be9c924a854039593cbc02",
+      "scripts/run_parallel.js": "7de7ba225ad674c1edd7fb3e72e678991671af8521133e7bc20b872401621d35",
+      "scripts/ci_node_test_groups.js": "d9dbbbb121069a2d45ef51b344872923f0a35adbb78d4e5d69cd90ddebf0d6a0",
+      "scripts/ci_node_test_groups.json": "0996401ce698cbc087309c83fb60ac6b34eca7fde0143ce76416f7c5f5d54304"
     },
     "node_version": "v24.19.0",
     "python_version": "Python 3.12.14",
-    "registrar_controls_passed": 49,
-    "large_pipe_output_controls_passed": 8,
-    "library_inventory_selections": 24,
-    "runner_controls_passed": 41,
-    "exit_code": 0,
-    "source_sha256": {
-      "scripts/test_run_parallel.js": "dee459513960cb3cc5896abf43d8f085a2e43c4d735d6727489bb1b4234c2467",
-      "scripts/test_ci_node_test_groups.js": "1114d959523fc77757afb281b9161890d7f1e147165307e80da53859b9ad1c86",
-      "scripts/test_run_parallel_list_output.js": "71f4cfd17dec3fd3324075869de3bcac6abf3e46c4be9c924a854039593cbc02",
-      "scripts/run_parallel.js": "7de7ba225ad674c1edd7fb3e72e678991671af8521133e7bc20b872401621d35",
-      "scripts/run_unittest.py": "b38cce061506c39e5b249cd30f985683a6b24c120ec173661002442fc6192468"
-    },
-    "proof_sha256": "2c6591d077999eab9b5c8a9e02ddb047b92ee2c0ae711417d3997446d29ed3fa",
+    "proof_sha256": "e45df8aa518473afc7b4eccdffe4fc176e3476158af113c50b2db1ad1e8836a2",
     "notes": [
-      "Local wall measurement includes49 registrar controls,8 large pipe-output controls,24 actual Python Library inventory selections and41 runner ownership/fixture/negative controls. Other CPU-intensive suite proofs may be running; this is a labeled scheduling observation, not a hosted runtime bound."
+      "Current body adds11 multi-file registrar controls and generic four-file expansion checks. The larger18.2s prior hosted wall is retained conservatively over actual current14.804s local wall; it is labeled prior-body evidence."
+    ]
+  },
+  "new_capped_group_observation": {
+    "source_head": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+    "source_sha256": {
+      "scripts/ci_node_test_groups.json": "0996401ce698cbc087309c83fb60ac6b34eca7fde0143ce76416f7c5f5d54304",
+      "scripts/ci_node_test_groups.js": "d9dbbbb121069a2d45ef51b344872923f0a35adbb78d4e5d69cd90ddebf0d6a0",
+      "mcp/test_pronunciation_native.mjs": "357e3f93d3a618a8ab077ac899ad38d89fc9a38b68e9ec463ad26e86f5dcda1d",
+      "mcp/test_function_disclosure_identity.mjs": "ba390dc1f72c159a97fecca3954b260fb045d3f156cf497d9c6dd38dbf0fa0e6",
+      "mcp/test_review_mandate.mjs": "227d02b7bca3c84991219f1501fdf32e5b606a9669b0d432c76a6288371489c7"
+    },
+    "proof_sha256": "34927fa471fde223e5b1c5e2a1c1e4a35fa49d7f4e98eec73c90f0b7dfd177b7",
+    "preservation_proof_sha256": "351b2fe3b4a703e8295143a58b82067cf4b1afffcbb6bb9603f7c4876b3b29c9",
+    "node_version": "v24.19.0",
+    "python_version": "Python 3.12.14",
+    "maximum_outer_processes": 4,
+    "registered_names_exactly_once": 20,
+    "required_cases_passed": 19,
+    "original_optional_baseline_skips": 1,
+    "new_skips": 0,
+    "failed": 0,
+    "cancelled": 0,
+    "unchanged_timeout_ms": 120000,
+    "legacy_native_timeout": {
+      "run": 43124724813,
+      "job": 130875204100,
+      "seconds": 120.2,
+      "complete": false,
+      "completed_first_callback_seconds": 92.919055906,
+      "remaining_callback_cancelled": true
+    },
+    "groups": [
+      {
+        "source": "mcp/test_pronunciation_native.mjs",
+        "group": "native-client",
+        "command": "TEST_PRONUNCIATION_NATIVE_GROUP=native-client node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_native.mjs",
+        "registered_test_count": 1,
+        "required_passes": 1,
+        "unchanged_optional_baseline_skips": 0,
+        "actual_local_cold_process_seconds": 65.068,
+        "sum_per_case_maximum_completed_observation_seconds": 92.919056,
+        "process_allowance_seconds": 5,
+        "measured_local_process_noncase_seconds": 0.253323,
+        "scheduled_seconds": 97.919,
+        "original_optional_skip_is_not_body_execution_evidence": false
+      },
+      {
+        "source": "mcp/test_function_disclosure_identity.mjs",
+        "group": "plan-grade",
+        "command": "TEST_FUNCTION_DISCLOSURE_IDENTITY_GROUP=plan-grade node --test --test-concurrency=1 --test-timeout=120000 mcp/test_function_disclosure_identity.mjs",
+        "registered_test_count": 1,
+        "required_passes": 1,
+        "unchanged_optional_baseline_skips": 0,
+        "actual_local_cold_process_seconds": 55.302,
+        "sum_per_case_maximum_completed_observation_seconds": 74.516121,
+        "process_allowance_seconds": 5,
+        "measured_local_process_noncase_seconds": 4.091735,
+        "scheduled_seconds": 79.516,
+        "original_optional_skip_is_not_body_execution_evidence": false
+      },
+      {
+        "source": "mcp/test_review_mandate.mjs",
+        "group": "remaining",
+        "command": "TEST_REVIEW_MANDATE_GROUP=remaining node --test --test-concurrency=1 --test-timeout=120000 mcp/test_review_mandate.mjs",
+        "registered_test_count": 9,
+        "required_passes": 9,
+        "unchanged_optional_baseline_skips": 0,
+        "actual_local_cold_process_seconds": 41.746,
+        "sum_per_case_maximum_completed_observation_seconds": 47.23357,
+        "process_allowance_seconds": 5,
+        "measured_local_process_noncase_seconds": 4.078445,
+        "scheduled_seconds": 52.234,
+        "original_optional_skip_is_not_body_execution_evidence": false
+      },
+      {
+        "source": "mcp/test_review_mandate.mjs",
+        "group": "declared-groups",
+        "command": "TEST_REVIEW_MANDATE_GROUP=declared-groups node --test --test-concurrency=1 --test-timeout=120000 mcp/test_review_mandate.mjs",
+        "registered_test_count": 1,
+        "required_passes": 1,
+        "unchanged_optional_baseline_skips": 0,
+        "actual_local_cold_process_seconds": 48.224,
+        "sum_per_case_maximum_completed_observation_seconds": 43.898098,
+        "process_allowance_seconds": 5,
+        "measured_local_process_noncase_seconds": 4.325902,
+        "scheduled_seconds": 48.898,
+        "original_optional_skip_is_not_body_execution_evidence": false
+      },
+      {
+        "source": "mcp/test_pronunciation_native.mjs",
+        "group": "edit-session",
+        "command": "TEST_PRONUNCIATION_NATIVE_GROUP=edit-session node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_native.mjs",
+        "registered_test_count": 1,
+        "required_passes": 1,
+        "unchanged_optional_baseline_skips": 0,
+        "actual_local_cold_process_seconds": 24.434,
+        "sum_per_case_maximum_completed_observation_seconds": 34.393417,
+        "process_allowance_seconds": 5,
+        "measured_local_process_noncase_seconds": 0.157078,
+        "scheduled_seconds": 39.393,
+        "original_optional_skip_is_not_body_execution_evidence": false
+      },
+      {
+        "source": "mcp/test_function_disclosure_identity.mjs",
+        "group": "remaining",
+        "command": "TEST_FUNCTION_DISCLOSURE_IDENTITY_GROUP=remaining node --test --test-concurrency=1 --test-timeout=120000 mcp/test_function_disclosure_identity.mjs",
+        "registered_test_count": 7,
+        "required_passes": 6,
+        "unchanged_optional_baseline_skips": 1,
+        "actual_local_cold_process_seconds": 23.759,
+        "sum_per_case_maximum_completed_observation_seconds": 34.36936,
+        "process_allowance_seconds": 5,
+        "measured_local_process_noncase_seconds": 2.015148,
+        "scheduled_seconds": 39.369,
+        "original_optional_skip_is_not_body_execution_evidence": true
+      }
     ]
   }
 }

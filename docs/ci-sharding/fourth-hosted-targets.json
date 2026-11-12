@@ -1,0 +1,1651 @@
+{
+  "schema_version": 2,
+  "repository": "WeningerII/CodexMusica",
+  "pull_request": 848,
+  "head_sha": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+  "tree_sha": "baf29ba4fceaa0d801f226a0cc7be9ff8f565e1a",
+  "run_id": 43124724813,
+  "event": "pull_request",
+  "execution_source": {
+    "checked_out_commit_sha": "e560e1d85591195b2d3d38919f0dae03e585ab06",
+    "checked_out_tree_sha": "baf29ba4fceaa0d801f226a0cc7be9ff8f565e1a",
+    "parents": [
+      "8b5edfaf3ce7385cf96a8aa36f7b7a103e6c3175",
+      "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900"
+    ],
+    "published_head_tree_matches_executed_tree": true,
+    "metadata_file": "fourth-executed-merge.json",
+    "head_vs_merge_comparison_file": "fourth-head-vs-merge.json",
+    "checkout_log_file": "candidate-log-130873824466.txt"
+  },
+  "run_url": "https://github.com/WeningerII/CodexMusica/actions/runs/43124724813",
+  "captured_at": "2026-11-12T00:40:06.512328+00:00",
+  "run_status": "completed",
+  "run_conclusion": "failure",
+  "expected_target_counts": {
+    "verify": 8,
+    "suites_modules": 8,
+    "suites_evidence": 1,
+    "faults": 6
+  },
+  "targets_complete": true,
+  "all_targets_passed": false,
+  "all_targets_passed_under_ten_minutes": false,
+  "required_gates_all_passed": false,
+  "qualifying_pr_success": false,
+  "targets_at_or_over_ten_minutes": [],
+  "required_gates": [
+    {
+      "id": 130873824466,
+      "name": "gate",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:05:47Z",
+      "started_at": "2026-11-12T00:05:49Z",
+      "completed_at": "2026-11-12T00:09:00Z",
+      "api_elapsed_s": 191.0,
+      "observed_step_span_s": 187.0,
+      "queue_s": 2.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 6.0,
+      "ready_to_complete_s": 193.0,
+      "completed_after_gate_s": 0.0
+    },
+    {
+      "id": 130875203903,
+      "name": "lyrics-image",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:09:00Z",
+      "started_at": "2026-11-12T00:09:03Z",
+      "completed_at": "2026-11-12T00:40:01Z",
+      "api_elapsed_s": 1858.0,
+      "observed_step_span_s": 1856.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 4.0,
+      "dependency_wait_s": 199.0,
+      "ready_to_complete_s": 1861.0,
+      "completed_after_gate_s": 1861.0
+    },
+    {
+      "id": 130875991042,
+      "name": "capacity-proof-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:10:51Z",
+      "started_at": "2026-11-12T00:12:21Z",
+      "completed_at": "2026-11-12T00:12:25Z",
+      "api_elapsed_s": 4.0,
+      "observed_step_span_s": 1.0,
+      "queue_s": 90.0,
+      "queue_to_first_step_s": 91.0,
+      "dependency_wait_s": 310.0,
+      "ready_to_complete_s": 94.0,
+      "completed_after_gate_s": 205.0
+    },
+    {
+      "id": 130879883608,
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-11-12T00:20:09Z",
+      "started_at": "2026-11-12T00:20:12Z",
+      "completed_at": "2026-11-12T00:20:51Z",
+      "api_elapsed_s": 39.0,
+      "observed_step_span_s": 37.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 868.0,
+      "ready_to_complete_s": 42.0,
+      "completed_after_gate_s": 711.0
+    },
+    {
+      "id": 130882962666,
+      "name": "freshness",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:27:38Z",
+      "started_at": "2026-11-12T00:27:41Z",
+      "completed_at": "2026-11-12T00:28:13Z",
+      "api_elapsed_s": 32.0,
+      "observed_step_span_s": 29.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 1317.0,
+      "ready_to_complete_s": 35.0,
+      "completed_after_gate_s": 1153.0
+    },
+    {
+      "id": 130876672357,
+      "name": "catalog-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:12:28Z",
+      "started_at": "2026-11-12T00:12:31Z",
+      "completed_at": "2026-11-12T00:12:34Z",
+      "api_elapsed_s": 3.0,
+      "observed_step_span_s": 0.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 4.0,
+      "dependency_wait_s": 407.0,
+      "ready_to_complete_s": 6.0,
+      "completed_after_gate_s": 214.0
+    },
+    {
+      "id": 130875203691,
+      "name": "record",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:09:00Z",
+      "started_at": "2026-11-12T00:09:02Z",
+      "completed_at": "2026-11-12T00:20:57Z",
+      "api_elapsed_s": 715.0,
+      "observed_step_span_s": 712.0,
+      "queue_s": 2.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 199.0,
+      "ready_to_complete_s": 717.0,
+      "completed_after_gate_s": 717.0
+    },
+    {
+      "id": 130879149902,
+      "name": "suites-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:18:22Z",
+      "started_at": "2026-11-12T00:18:25Z",
+      "completed_at": "2026-11-12T00:18:27Z",
+      "api_elapsed_s": 2.0,
+      "observed_step_span_s": 1.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 761.0,
+      "ready_to_complete_s": 5.0,
+      "completed_after_gate_s": 567.0
+    },
+    {
+      "id": 130880469937,
+      "name": "plan-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:21:35Z",
+      "started_at": "2026-11-12T00:21:37Z",
+      "completed_at": "2026-11-12T00:21:40Z",
+      "api_elapsed_s": 3.0,
+      "observed_step_span_s": 0.0,
+      "queue_s": 2.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 954.0,
+      "ready_to_complete_s": 5.0,
+      "completed_after_gate_s": 760.0
+    },
+    {
+      "id": 130875788555,
+      "name": "capacity-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:10:23Z",
+      "started_at": "2026-11-12T00:12:21Z",
+      "completed_at": "2026-11-12T00:12:24Z",
+      "api_elapsed_s": 3.0,
+      "observed_step_span_s": 0.0,
+      "queue_s": 118.0,
+      "queue_to_first_step_s": 119.0,
+      "dependency_wait_s": 282.0,
+      "ready_to_complete_s": 121.0,
+      "completed_after_gate_s": 204.0
+    },
+    {
+      "id": 130880236189,
+      "name": "revision-loop-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:21:01Z",
+      "started_at": "2026-11-12T00:21:03Z",
+      "completed_at": "2026-11-12T00:21:05Z",
+      "api_elapsed_s": 2.0,
+      "observed_step_span_s": 0.0,
+      "queue_s": 2.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 920.0,
+      "ready_to_complete_s": 4.0,
+      "completed_after_gate_s": 725.0
+    },
+    {
+      "id": 130879533127,
+      "name": "verbs-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:19:18Z",
+      "started_at": "2026-11-12T00:19:21Z",
+      "completed_at": "2026-11-12T00:19:24Z",
+      "api_elapsed_s": 3.0,
+      "observed_step_span_s": 1.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 817.0,
+      "ready_to_complete_s": 6.0,
+      "completed_after_gate_s": 624.0
+    }
+  ],
+  "suites_all_nine": {
+    "expected_count": 9,
+    "complete": true,
+    "last_completion_after_gate_s": 562.0,
+    "first_ready_to_last_complete_s": 562.0,
+    "workflow_created_to_last_complete_s": 761.0
+  },
+  "suites_evidence_commands": {
+    "expected_count": 12,
+    "measured_count": 12,
+    "commands": [
+      {
+        "name": "schema-end-reading",
+        "seconds": 166.216,
+        "exit": 0
+      },
+      {
+        "name": "chance-rate",
+        "seconds": 174.93,
+        "exit": 0
+      },
+      {
+        "name": "meter-bands",
+        "seconds": 194.31,
+        "exit": 0
+      },
+      {
+        "name": "song-profile-calibration",
+        "seconds": 98.164,
+        "exit": 0
+      },
+      {
+        "name": "e5-random-1",
+        "seconds": 86.293,
+        "exit": 0
+      },
+      {
+        "name": "e5-canon",
+        "seconds": 297.805,
+        "exit": 0
+      },
+      {
+        "name": "schema-window",
+        "seconds": 155.632,
+        "exit": 0
+      },
+      {
+        "name": "search-null",
+        "seconds": 11.607,
+        "exit": 0
+      },
+      {
+        "name": "door-census",
+        "seconds": 4.835,
+        "exit": 0
+      },
+      {
+        "name": "e5-random-2",
+        "seconds": 78.553,
+        "exit": 0
+      },
+      {
+        "name": "e5-random-3",
+        "seconds": 80.235,
+        "exit": 0
+      },
+      {
+        "name": "e5-random-4",
+        "seconds": 76.146,
+        "exit": 0
+      }
+    ],
+    "wall_s": 373.952,
+    "completed": 12,
+    "failed": 0,
+    "log_file": "candidate-log-130875203862.txt"
+  },
+  "coverage_evidence": {
+    "verify_expected_leaf_count": 217,
+    "verify_measured_leaf_rows": 217,
+    "verify_unique_measured_commands": 217,
+    "verify_hosted_fanin_exact_once_confirmed": false,
+    "verify_fanin_conclusion": "failure",
+    "verify_all_execution_shards_succeeded": false,
+    "verify_fanin_log_file": "candidate-log-130879883608.txt",
+    "library_expected_test_count": 216,
+    "library_hosted_test_rows": 216,
+    "library_hosted_unique_test_ids": 216,
+    "library_hosted_ids_match_expected_inventory": true,
+    "library_hosted_costs_file": "candidate-43124724813-library-test-costs.json",
+    "mcp_part_passed_counts": {
+      "offline": 179,
+      "live-lookups": 10,
+      "live-revision": 7,
+      "live-title": 1
+    },
+    "mcp_total_passed_checks": 197,
+    "runner_hosted_negative_control_counts": [41],
+    "suites_expected_module_observations": 161,
+    "suites_measured_module_observations": 161,
+    "suites_unique_modules": 119,
+    "suites_partitioned_module_counts": {
+      "g2p": 8,
+      "readability": 8,
+      "reader": 8,
+      "relations_null": 8,
+      "screen": 8,
+      "spans": 8
+    },
+    "suites_ordinary_module_count": 113,
+    "suites_ordinary_exact_once": true,
+    "suites_partitioned_modules_all_eight": true,
+    "suites_module_nonzero_exits": [],
+    "module_count_definition": "113 ordinary modules run once plus 6 sectioned giant modules run across 8 shards = 161 observations covering 119 unique modules; fixed evidence has 12 separate commands."
+  },
+  "fanins": {
+    "verify": {
+      "id": 130879883608,
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-11-12T00:20:09Z",
+      "started_at": "2026-11-12T00:20:12Z",
+      "completed_at": "2026-11-12T00:20:51Z",
+      "api_elapsed_s": 39.0,
+      "observed_step_span_s": 37.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 868.0,
+      "ready_to_complete_s": 42.0,
+      "completed_after_gate_s": 711.0
+    },
+    "suites-result": {
+      "id": 130879149902,
+      "name": "suites-result",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:18:22Z",
+      "started_at": "2026-11-12T00:18:25Z",
+      "completed_at": "2026-11-12T00:18:27Z",
+      "api_elapsed_s": 2.0,
+      "observed_step_span_s": 1.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 761.0,
+      "ready_to_complete_s": 5.0,
+      "completed_after_gate_s": 567.0
+    },
+    "freshness": {
+      "id": 130882962666,
+      "name": "freshness",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:27:38Z",
+      "started_at": "2026-11-12T00:27:41Z",
+      "completed_at": "2026-11-12T00:28:13Z",
+      "api_elapsed_s": 32.0,
+      "observed_step_span_s": 29.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 1317.0,
+      "ready_to_complete_s": 35.0,
+      "completed_after_gate_s": 1153.0
+    }
+  },
+  "shared_build_producer": {
+    "id": 130875203756,
+    "name": "freshness-build",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-12T00:09:00Z",
+    "started_at": "2026-11-12T00:09:02Z",
+    "completed_at": "2026-11-12T00:19:50Z",
+    "api_elapsed_s": 648.0,
+    "observed_step_span_s": 645.0,
+    "queue_s": 2.0,
+    "queue_to_first_step_s": 3.0,
+    "dependency_wait_s": 199.0,
+    "ready_to_complete_s": 650.0,
+    "completed_after_gate_s": 650.0
+  },
+  "critical_path": {
+    "gate": {
+      "id": 130873824466,
+      "name": "gate",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:05:47Z",
+      "started_at": "2026-11-12T00:05:49Z",
+      "completed_at": "2026-11-12T00:09:00Z",
+      "api_elapsed_s": 191.0,
+      "observed_step_span_s": 187.0,
+      "queue_s": 2.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 6.0,
+      "ready_to_complete_s": 193.0,
+      "completed_after_gate_s": 0.0
+    },
+    "lyrics-image": {
+      "id": 130875203903,
+      "name": "lyrics-image",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:09:00Z",
+      "started_at": "2026-11-12T00:09:03Z",
+      "completed_at": "2026-11-12T00:40:01Z",
+      "api_elapsed_s": 1858.0,
+      "observed_step_span_s": 1856.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 4.0,
+      "dependency_wait_s": 199.0,
+      "ready_to_complete_s": 1861.0,
+      "completed_after_gate_s": 1861.0
+    },
+    "freshness-build": {
+      "id": 130875203756,
+      "name": "freshness-build",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:09:00Z",
+      "started_at": "2026-11-12T00:09:02Z",
+      "completed_at": "2026-11-12T00:19:50Z",
+      "api_elapsed_s": 648.0,
+      "observed_step_span_s": 645.0,
+      "queue_s": 2.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 199.0,
+      "ready_to_complete_s": 650.0,
+      "completed_after_gate_s": 650.0
+    },
+    "freshness": {
+      "id": 130882962666,
+      "name": "freshness",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:27:38Z",
+      "started_at": "2026-11-12T00:27:41Z",
+      "completed_at": "2026-11-12T00:28:13Z",
+      "api_elapsed_s": 32.0,
+      "observed_step_span_s": 29.0,
+      "queue_s": 3.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 1317.0,
+      "ready_to_complete_s": 35.0,
+      "completed_after_gate_s": 1153.0
+    },
+    "record": {
+      "id": 130875203691,
+      "name": "record",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T00:09:00Z",
+      "started_at": "2026-11-12T00:09:02Z",
+      "completed_at": "2026-11-12T00:20:57Z",
+      "api_elapsed_s": 715.0,
+      "observed_step_span_s": 712.0,
+      "queue_s": 2.0,
+      "queue_to_first_step_s": 3.0,
+      "dependency_wait_s": 199.0,
+      "ready_to_complete_s": 717.0,
+      "completed_after_gate_s": 717.0
+    }
+  },
+  "critical_path_step_times": {
+    "lyrics-image": [
+      {
+        "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 22.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Reclaim unused hosted runner toolchains",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 70.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Build the deployed lyrics runtime",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 1427.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Offline image pipeline and restart recovery",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 149.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Capacity acceptance oracle counterexamples",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 13.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Qualify the reader against the exact production image",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 105.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Scan the exact tested image and gate fixable HIGH/CRITICAL findings",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 43.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 11.0,
+        "elapsed_so_far_s": null
+      }
+    ],
+    "record": [
+      {
+        "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 30.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 11.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Entry claims (the sentences in MISSING.md and BACKLOG.md, checked; plus repo paths and per-family rhyme-capacity figures quoted in prose)",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 51.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Committed counters against their measurement",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 160.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Mark coverage against RESULTS_MARK_COVERAGE.md's pins",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 35.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Span/label agreement against RESULTS_SPANS.md's headline",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 116.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Corpus audit against RESULTS_CORPUS_AUDIT.md's committed shape",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 81.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Pooled-Fisher H0 calibration still reads as the record describes",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 17.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "The positive control's own instrument (doctrine 31/76)",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 21.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Mutation list is well formed (static \u2014 no sweep, forks nothing)",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 46.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Hafez radif/q\u0101fiya rates against their committed values",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 12.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "The time layer is still mute, and for the recorded reason",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 69.0,
+        "elapsed_so_far_s": null
+      }
+    ],
+    "freshness-build": [
+      {
+        "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 22.0,
+        "elapsed_so_far_s": null
+      },
+      {
+        "name": "Build a fresh artifact from source",
+        "status": "completed",
+        "conclusion": "success",
+        "seconds": 605.0,
+        "elapsed_so_far_s": null
+      }
+    ]
+  },
+  "workflow_created_at": "2026-11-12T00:05:41Z",
+  "workflow_admission_s": 0.0,
+  "workflow_updated_at": "2026-11-12T00:40:02Z",
+  "workflow_created_to_final_update_s": 2061.0,
+  "workflow_created_to_last_runner_complete_s": 2060.0,
+  "workflow_created_to_last_target_complete_s": 1317.0,
+  "last_target_completion_after_gate_s": 1118.0,
+  "runner_runtime": {
+    "completed_executed_jobs": 66,
+    "sum_completed_api_runner_seconds": 22281.0,
+    "sum_completed_api_runner_minutes": 371.35,
+    "sum_completed_plus_active_elapsed_runner_minutes_lower_bound": 371.35,
+    "final": true,
+    "definition": "Sum of full observed completed non-skipped job elapsed, divided by60 without per-job rounding. A runtime comparison, not an invoice or billing claim."
+  },
+  "target_runtime_minutes": 158.417,
+  "observed_active_job_peak": {
+    "lower_bound_jobs": 40,
+    "at": "2026-11-12T00:09:04+00:00",
+    "job_ids": [
+      130875203691, 130875203756, 130875203774, 130875203790, 130875203814, 130875203850,
+      130875203862, 130875203903, 130875203906, 130875203913, 130875203919, 130875203938,
+      130875203955, 130875203968, 130875203972, 130875203974, 130875203978, 130875203983,
+      130875203998, 130875204040, 130875204049, 130875204059, 130875204074, 130875204075,
+      130875204077, 130875204080, 130875204084, 130875204086, 130875204087, 130875204089,
+      130875204112, 130875204115, 130875204133, 130875204159, 130875204180, 130875204211,
+      130875204213, 130875204223, 130875204370, 130875204402
+    ],
+    "definition": "Maximum overlap of non-skipped actual first-to-last observed step intervals within this run (active intervals end at capture); excludes queued start placeholders. A lower bound on available concurrent runners, not a configured cap or entitlement. Final reconstruction uses completed step spans."
+  },
+  "largest_confirmed_job_queue": {
+    "name": "verify (shard 5/8)",
+    "id": 130875204235,
+    "seconds": 201.0
+  },
+  "largest_confirmed_target_queue": {
+    "name": "verify (shard 5/8)",
+    "id": 130875204235,
+    "seconds": 201.0
+  },
+  "concurrent_workload": {
+    "source_file": "fourth-concurrent-runs.json",
+    "captured_at": "2026-11-12T00:06:07.492895+00:00",
+    "reported_other_in_progress_runs": [],
+    "note": "Read-only repository run-list snapshot during admission; absence of other reported in-progress runs does not establish a hosted runner cap or exclude external runner demand.",
+    "peak_snapshot": null,
+    "late_campaign_overlap": null
+  },
+  "baseline_comparison": {
+    "run_id": 43081271970,
+    "event": "pull_request",
+    "url": "https://github.com/WeningerII/CodexMusica/actions/runs/43081271970",
+    "families": {
+      "verify": {
+        "api_elapsed_s": [1278.0, 1536.0],
+        "queue_s": [409.0, 443.0],
+        "ready_to_complete_s": [1687.0, 1979.0],
+        "last_completion_after_gate_s": 1979.0,
+        "first_ready_to_last_complete_s": 1979.0,
+        "workflow_created_to_last_complete_s": 2506.0
+      },
+      "suites_modules": {
+        "api_elapsed_s": [1532.0, 1239.0, 2160.0],
+        "queue_s": [485.0, 1334.0, 512.0],
+        "ready_to_complete_s": [2017.0, 2573.0, 2672.0],
+        "last_completion_after_gate_s": 2672.0,
+        "first_ready_to_last_complete_s": 2672.0,
+        "workflow_created_to_last_complete_s": 3199.0
+      },
+      "faults": {
+        "api_elapsed_s": [611.0, 626.0, 582.0],
+        "queue_s": [614.0, 1083.0, 881.0],
+        "ready_to_complete_s": [1225.0, 1709.0, 1463.0],
+        "last_completion_after_gate_s": 1998.0,
+        "first_ready_to_last_complete_s": 1709.0,
+        "workflow_created_to_last_complete_s": 2525.0
+      }
+    },
+    "runner_runtime": {
+      "completed_executed_jobs": 51,
+      "sum_completed_api_runner_seconds": 20815.0,
+      "sum_completed_api_runner_minutes": 346.917,
+      "sum_completed_plus_active_elapsed_runner_minutes_lower_bound": 346.917,
+      "final": true,
+      "definition": "Sum of full observed completed non-skipped job elapsed, divided by60 without per-job rounding. A runtime comparison, not an invoice or billing claim."
+    },
+    "target_runner_minutes": 159.4,
+    "candidate_target_runner_minutes_change": -0.983,
+    "candidate_target_runner_runtime_percent_change": -0.617,
+    "workflow_created_to_last_runner_complete_s": 3205.0,
+    "image_api_elapsed_s": 1705.0,
+    "record_api_elapsed_s": 951.0,
+    "caution": "Different runs share hosted runner supply with other workloads. This measures observed end-to-end delay; it does not isolate a causal queue reduction."
+  },
+  "notes": [
+    "Only this final-head pull_request run qualifies. The automatic duplicate push with legitimate skips is excluded.",
+    "No workflow was manually cancelled, rerun or dispatched by the evidence monitor.",
+    "Raw payloads/history/logs remain under /tmp/ci-under-ten-evidence; this compact report is separate.",
+    "Hosted runner cap/settings inventory returned403. Observed overlap is a lower bound, never an entitlement claim."
+  ],
+  "faults_hosted_coverage_proof": {
+    "source_file": "faults-hosted-fourth-analysis.json",
+    "coverage": {
+      "record_count": 6,
+      "class_count": 121,
+      "verdict_count": 121,
+      "all_caught": true,
+      "exact_ordinal_partition_verified": true,
+      "no_missing_or_duplicate_classes": true,
+      "counts_by_shard": [21, 20, 20, 20, 20, 20],
+      "current_checkout_class_inventory_matches": true
+    },
+    "injection_verdict_span_seconds": [178.876, 347.487, 245.044, 391.129, 177.883, 223.97],
+    "artifact": {
+      "run_id": 43124724813,
+      "head_sha": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+      "artifact_id": 13903348019,
+      "artifact_name": "verified-fresh-build-1",
+      "zip_bytes": 17700563,
+      "zip_sha256": "01e18577a9428b1da7ce3e9f5184bcc47e4fd45ea116b4ea834b0c542377cdd3",
+      "github_artifact_digest_matches": true,
+      "tar_gz_bytes": 17700614,
+      "receipt_version": 2,
+      "source_runtime_fingerprint": "00177816abbe09fad1bcfdefb8dacea5a17b5c9d296927c2f4b2296045abc6e9",
+      "file_count": 10097,
+      "tar_inventory_exactly_matches_receipt": true,
+      "all_file_hashes_verified": true,
+      "required_html_chunk_count": 9,
+      "exact_html_chunk_closure": true,
+      "audit_method": "single sequential TAR pass, r|gz",
+      "audit_completed_at": "2026-11-12T00:21:43.985365+00:00",
+      "audit_elapsed_seconds": 0.875
+    },
+    "record_proof_path": "/tmp/ci-under-ten-evidence/hosted-43124724813-fault-records/coverage-proof.json",
+    "artifact_proof_path": "/tmp/ci-under-ten-evidence/hosted-43124724813-artifact-proof.json"
+  },
+  "goal_satisfied": false,
+  "performance_goal_status": "failed_tests",
+  "failure_causes": [
+    {
+      "id": 130875204100,
+      "name": "verify (shard 7/8)",
+      "conclusion": "failure",
+      "log_file": "candidate-log-130875204100.txt",
+      "failed_steps": [
+        "Regression (recipes, prefaces, slots, app), locale invariance, edit differential and the CLI pipe -- every leaf concurrently"
+      ],
+      "failed_leaf_commands": [
+        {
+          "command": "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_native.mjs",
+          "seconds": 120.2,
+          "exit": 1
+        }
+      ],
+      "cause": "The unchanged120000ms file timeout fired after the first native-pronunciation case passed. The second required case did not complete; Node reports one cancellation, zero skipped tests. The required verify fan-in correctly rejects this incomplete run.",
+      "declared_required_cases": 2,
+      "completed_required_cases": 1,
+      "cancelled": 1,
+      "skipped": 0,
+      "timeout_ms": 120000,
+      "reported_file_duration_ms": 120032.228245,
+      "first_case_ms": 92919.055906,
+      "censored_failed_leaf_seconds": 120.2,
+      "prior_complete_file_seconds": [98.1, 111.1, 105.2]
+    }
+  ],
+  "reader_hosted_coverage": {
+    "source_file": "fourth-reader-hosted-proof.json",
+    "complete": true,
+    "expected_reader_test_count": 109,
+    "reader_inventory_sha256": "6f380fa3290f2fdfdbb8bf66f752dc1241e7bbb149f5d3d5c38ad6f50b9aac8a",
+    "completed_suite_count": 8,
+    "reader_coordinates_seen": ["1/8", "2/8", "3/8", "4/8", "5/8", "6/8", "7/8", "8/8"],
+    "observed_non_skipped_outer_count": 102,
+    "observed_existing_outer_helper_skips": 7,
+    "observed_successful_isolated_child_count": 7,
+    "observed_logical_test_count": 109,
+    "all_109_logical_ids_executed_exactly_once": true
+  },
+  "producer_stage_comparison_file": "fourth-producer-stage-comparison.json",
+  "recipe_serial_coverage": {
+    "published_head": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+    "published_recipe_source_sha256": "4fdd84e636008b33d2ae378be3e8167bcb640617638302d139022c7fe310d298",
+    "published_snapshot_sha256": "a3718001b4fca64c7209e91db94da5a82143bed7d5bd63606e0d8f28d42a9f25",
+    "local_instrumented_proof_file": "recipe-serial-resource-proof.json",
+    "local_proof_source_matches_published_blob": true,
+    "local_proof_snapshot_matches_published_blob": true,
+    "local_complete": true,
+    "local_all_raw_calls_matched": true,
+    "expected_raw_computations": 1174,
+    "expected_unique_fixture_ids": 1149,
+    "local_all_unique_ids_owned_once": true,
+    "local_worker_constructions_by_part": [0, 0, 0, 0],
+    "hosted_part_inventory_counts": [
+      {
+        "part": "1/4",
+        "fixture_ids": 288,
+        "total_ids": 1149
+      },
+      {
+        "part": "2/4",
+        "fixture_ids": 287,
+        "total_ids": 1149
+      },
+      {
+        "part": "3/4",
+        "fixture_ids": 287,
+        "total_ids": 1149
+      },
+      {
+        "part": "4/4",
+        "fixture_ids": 287,
+        "total_ids": 1149
+      }
+    ],
+    "hosted_total_fixture_ids": 1149,
+    "hosted_serial_leaf_commands": [
+      "REGRESSION_SERIAL=1 node scripts/regression_recipes.js --shard=1/4 --expect=fc072ab663cb1c1dd05fffeb0050b672861c151079968949891a667acc0103ad",
+      "REGRESSION_SERIAL=1 node scripts/regression_recipes.js --shard=2/4 --expect=fc072ab663cb1c1dd05fffeb0050b672861c151079968949891a667acc0103ad",
+      "REGRESSION_SERIAL=1 node scripts/regression_recipes.js --shard=3/4 --expect=fc072ab663cb1c1dd05fffeb0050b672861c151079968949891a667acc0103ad",
+      "REGRESSION_SERIAL=1 node scripts/regression_recipes.js --shard=4/4 --expect=fc072ab663cb1c1dd05fffeb0050b672861c151079968949891a667acc0103ad"
+    ],
+    "note": "1174 raw calls and zero nested Workers were measured in the unchanged-source local instrumented proof. Hosted logs directly report four serial command successes and 1149 unique snapshot IDs; raw calls are source-bound rather than re-instrumented in hosted CI."
+  },
+  "session_repairs_hosted_coverage": {
+    "published_head": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+    "source_blob_ref": "a056803a029dfaaa8e6f1814dce6c156d5b9985f",
+    "local_proof_file": "session-fourth-local-proof.json",
+    "immutable_published_proof_path": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900:docs/ci-sharding/fourth-local-proof.json#verify",
+    "source_sha256": {
+      "mcp/test_session_repairs.mjs": "33624f113d90d3793c77babd7622888e9155b02a097fbae43ef6c014f038ae55",
+      "scripts/ci_node_test_groups.json": "09f49a375b34597920be2b7efed58b7df09b7b492d92a12e6e92bdc77ba250db",
+      "scripts/ci_node_test_groups.js": "d9dbbbb121069a2d45ef51b344872923f0a35adbb78d4e5d69cd90ddebf0d6a0"
+    },
+    "prepared_proof_hashes_match": true,
+    "prepared_runner_hash_match": true,
+    "prepared_cost_map_hash_match": true,
+    "preservation": {
+      "original_test_count": 48,
+      "all_test_name_option_callback_argument_asts_identical": true,
+      "assertion_call_count": 335,
+      "all_assertion_call_asts_identical": true,
+      "default_registration_order_and_argument_identity_preserved": true,
+      "production_and_fixture_files_changed": false,
+      "unchanged_node_flags": ["--test-concurrency=1", "--test-timeout=120000"]
+    },
+    "expected_test_count": 48,
+    "expected_groups": ["native-creation", "redrawn-seed", "remaining"],
+    "observed_groups": [
+      {
+        "group": "redrawn-seed",
+        "job": 130875203971,
+        "seconds": 56.4,
+        "exit": 0,
+        "command": "TEST_SESSION_REPAIRS_GROUP=redrawn-seed node --test --test-concurrency=1 --test-timeout=120000 mcp/test_session_repairs.mjs",
+        "unchanged_node_flags_present": true,
+        "passed_test_names": [
+          "a redrawn seed keeps its 64-bit candidates exact through sweep, plan and grade"
+        ],
+        "passed_count": 1,
+        "expected_count": 1,
+        "exact_expected_tests": true,
+        "unexpected_test_names": [],
+        "tap_totals": {
+          "tests": 1,
+          "pass": 1,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "group": "native-creation",
+        "job": 130875203999,
+        "seconds": 39.4,
+        "exit": 0,
+        "command": "TEST_SESSION_REPAIRS_GROUP=native-creation node --test --test-concurrency=1 --test-timeout=120000 mcp/test_session_repairs.mjs",
+        "unchanged_node_flags_present": true,
+        "passed_test_names": [
+          "native creation blocks bypass, records real sweep/screen/plan, survives reconnect"
+        ],
+        "passed_count": 1,
+        "expected_count": 1,
+        "exact_expected_tests": true,
+        "unexpected_test_names": [],
+        "tap_totals": {
+          "tests": 1,
+          "pass": 1,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "group": "remaining",
+        "job": 130875204000,
+        "seconds": 37.4,
+        "exit": 0,
+        "command": "TEST_SESSION_REPAIRS_GROUP=remaining node --test --test-concurrency=1 --test-timeout=120000 mcp/test_session_repairs.mjs",
+        "unchanged_node_flags_present": true,
+        "passed_test_names": [
+          "moving a card changes primary order without rebuilding or mutating any card",
+          "explicit part descriptors survive before stock descriptors; losses are disclosed",
+          "#671 a pinned word printed only on another card is not disclosed, in any format",
+          "#671 a pinned word inside a longer word is not disclosed; a hyphenated compound is",
+          "#671 a pinned word in a chunk pooled from several cards is named as not attributable",
+          "#671 a pinned preface counts only in its own card segment, not on a card that shares it",
+          "#671 a preface printed in its own card head words of a merged chunk is printed (48g)",
+          "#671 a preface pooled with a card of the same label is still not attributable",
+          "#671 shared_with names the cards that share the words a pinned word is printed in",
+          "#671 a preface shed from one card of a merged chunk is not printed on that card only",
+          "#671 a same-label card is not given a word printed only in another card head words",
+          "partial authenticated measurement is not labelled as no harness answer",
+          "actual explicit-blueprint connector revision retains meter headers",
+          "every public recipe format obeys limits smaller than its genre header",
+          "mixing session_id with caller-managed state names the offending fields, and the schema says so first",
+          "the maintained client never keeps a stopped run as a pending question",
+          "the tree\u2019s expected surface is built once per domain, not per connection",
+          "environment clear warnings distinguish cleared settings from retained non-rendered writes",
+          "environment warning accuracy preserves preface/write ordering disclosures",
+          "the record holds what set_environment wrote, on every surface that threads the workspace",
+          "the record is per card: no alias, no remap on a fresh-id import, nothing at workspace level",
+          "a card that shares the environment card id still warns for what it holds",
+          "an oversized record sent back is cut to what it can hold, on the raw endpoint",
+          "stock environment settings on other cards never warn, on any response",
+          "the AGENTS.md working order leaves no recurring warning, on any response",
+          "a written setting warns on its edit, then on every later response without `edit`",
+          "the warning clears when the setting is cleared, and stands when the seeded value is written",
+          "the same call before and after a record-only edit gives different warnings",
+          "a session repeat answers for its own workspace, record included",
+          "every record comes back exactly through each surface",
+          "a set_preface that re-derives a written setting takes it out: ENVIRONMENT_OVERWRITTEN once",
+          "ENVIRONMENT_OVERWRITTEN on the environment card speaks only for what a set_environment wrote there",
+          "a workspace with no record is silent on render and warns at edit time, as before",
+          "ENVIRONMENT_MOVED speaks only for settings a set_environment wrote",
+          "ENVIRONMENT_MOVED says which card the returned recipe renders from, or that none renders one",
+          "the environment moving to the written card is ENVIRONMENT_MOVED once, and its warning goes",
+          "a multi-select write warns while an item it added is still in the list",
+          "an effects list replaced or reordered warns while an item written into it is there",
+          "the causing edit and the standing state are one warning, not two",
+          "the warning recurs after the state is carried on: a new server, or another environment card",
+          "a value written on the environment card warns once another card takes the environment",
+          "following the advice ends the warning: a set_environment on the environment card settles the field",
+          "following ENVIRONMENT_MOVED after the documented order ends the warning on the old card",
+          "an effect restated on the environment card settles that effect, and a cleared list all of them",
+          "an empty effects list in an edit writes nothing and names no edit",
+          "a long list in a record or on a card costs a render linear time"
+        ],
+        "passed_count": 46,
+        "expected_count": 46,
+        "exact_expected_tests": true,
+        "unexpected_test_names": [],
+        "tap_totals": {
+          "tests": 46,
+          "pass": 46,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      }
+    ],
+    "observed_passed_tests": 48,
+    "unique_passed_tests": 48,
+    "all48_exactly_once": true,
+    "missing_test_names": [],
+    "duplicate_test_names": [],
+    "note": "Each unchanged-cap Node group is parsed from its own primary runner log block. The default48-case order/options/callback ASTs and335 assertion ASTs were preserved in the source-bound local proof."
+  },
+  "library24_hosted_coverage": {
+    "expected_parts": 24,
+    "expected_test_ids": 216,
+    "expected_inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+    "commands": [
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=10/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875203932,
+        "part": 10,
+        "parts": 24,
+        "seconds": 132.7,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=20/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875203932,
+        "part": 20,
+        "parts": 24,
+        "seconds": 32.1,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=3/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875203932,
+        "part": 3,
+        "parts": 24,
+        "seconds": 15.6,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=19/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875203932,
+        "part": 19,
+        "parts": 24,
+        "seconds": 4.4,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=18/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875203949,
+        "part": 18,
+        "parts": 24,
+        "seconds": 128.6,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=12/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875203949,
+        "part": 12,
+        "parts": 24,
+        "seconds": 237.6,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=22/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875203949,
+        "part": 22,
+        "parts": 24,
+        "seconds": 17.1,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=4/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875203971,
+        "part": 4,
+        "parts": 24,
+        "seconds": 38.3,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=21/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875203971,
+        "part": 21,
+        "parts": 24,
+        "seconds": 20.2,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=2/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875203999,
+        "part": 2,
+        "parts": 24,
+        "seconds": 21.7,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=24/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875203999,
+        "part": 24,
+        "parts": 24,
+        "seconds": 117.4,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=17/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875204000,
+        "part": 17,
+        "parts": 24,
+        "seconds": 160.3,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=5/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875204066,
+        "part": 5,
+        "parts": 24,
+        "seconds": 96.3,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=8/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875204066,
+        "part": 8,
+        "parts": 24,
+        "seconds": 27.0,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=7/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875204066,
+        "part": 7,
+        "parts": 24,
+        "seconds": 28.8,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=15/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875204066,
+        "part": 15,
+        "parts": 24,
+        "seconds": 35.2,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=9/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875204066,
+        "part": 9,
+        "parts": 24,
+        "seconds": 17.6,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=13/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875204100,
+        "part": 13,
+        "parts": 24,
+        "seconds": 190.9,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=14/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875204100,
+        "part": 14,
+        "parts": 24,
+        "seconds": 41.0,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=6/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875204100,
+        "part": 6,
+        "parts": 24,
+        "seconds": 29.5,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=23/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875204235,
+        "part": 23,
+        "parts": 24,
+        "seconds": 42.5,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=11/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875204235,
+        "part": 11,
+        "parts": 24,
+        "seconds": 36.1,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=16/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875204235,
+        "part": 16,
+        "parts": 24,
+        "seconds": 32.2,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      },
+      {
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=1/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "job": 130875204235,
+        "part": 1,
+        "parts": 24,
+        "seconds": 21.1,
+        "exit": 0,
+        "inventory_sha256": "aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "measured_test_ids": 9,
+        "expected_test_ids": 9,
+        "actual_ids_match_exact_residue": true
+      }
+    ],
+    "all24_commands_succeeded": true,
+    "all216_original_ids_once": true
+  },
+  "screen_hosted_coverage": {
+    "published_head": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+    "published_source_sha256": "9c95915b084673ec15f50493e68435f2aa577ea87702d0f368cd0f518012e9af",
+    "expected_sections": [
+      "test_the_controls",
+      "test_honesty_and_the_split",
+      "test_no_drift",
+      "test_the_scaffold",
+      "test_the_cli",
+      "test_clean_answers_one_question",
+      "test_the_screen_asks_the_grades_question",
+      "test_the_screen_judges_a_drawn_schema_and_names_a_near_relation",
+      "test_the_screen_says_which_words_cannot_be_bound_at_a_token",
+      "test_named_judgment_survives_broad_uncertainty",
+      "test_screen_retains_partial_anchor_evidence",
+      "test_rime_riche_reads_the_words_own_onset"
+    ],
+    "expected_count": 12,
+    "section_body_ast_unchanged_from_third_candidate": true,
+    "observed_sections": [
+      {
+        "name": "test_honesty_and_the_split",
+        "seconds": 38.5,
+        "job": 130875204040,
+        "suite_shard": "suites (shard 3/8)"
+      },
+      {
+        "name": "test_the_scaffold",
+        "seconds": 14.6,
+        "job": 130875204040,
+        "suite_shard": "suites (shard 3/8)"
+      },
+      {
+        "name": "test_the_screen_judges_a_drawn_schema_and_names_a_near_relation",
+        "seconds": 83.0,
+        "job": 130875204049,
+        "suite_shard": "suites (shard 8/8)"
+      },
+      {
+        "name": "test_named_judgment_survives_broad_uncertainty",
+        "seconds": 110.7,
+        "job": 130875204075,
+        "suite_shard": "suites (shard 6/8)"
+      },
+      {
+        "name": "test_clean_answers_one_question",
+        "seconds": 97.5,
+        "job": 130875204077,
+        "suite_shard": "suites (shard 5/8)"
+      },
+      {
+        "name": "test_screen_retains_partial_anchor_evidence",
+        "seconds": 26.8,
+        "job": 130875204086,
+        "suite_shard": "suites (shard 4/8)"
+      },
+      {
+        "name": "test_no_drift",
+        "seconds": 25.3,
+        "job": 130875204086,
+        "suite_shard": "suites (shard 4/8)"
+      },
+      {
+        "name": "test_the_screen_asks_the_grades_question",
+        "seconds": 99.4,
+        "job": 130875204112,
+        "suite_shard": "suites (shard 7/8)"
+      },
+      {
+        "name": "test_the_controls",
+        "seconds": 34.7,
+        "job": 130875204213,
+        "suite_shard": "suites (shard 2/8)"
+      },
+      {
+        "name": "test_the_screen_says_which_words_cannot_be_bound_at_a_token",
+        "seconds": 18.6,
+        "job": 130875204213,
+        "suite_shard": "suites (shard 2/8)"
+      },
+      {
+        "name": "test_the_cli",
+        "seconds": 53.6,
+        "job": 130875204402,
+        "suite_shard": "suites (shard 1/8)"
+      },
+      {
+        "name": "test_rime_riche_reads_the_words_own_onset",
+        "seconds": 23.2,
+        "job": 130875204402,
+        "suite_shard": "suites (shard 1/8)"
+      }
+    ],
+    "observed_count": 12,
+    "unique_observed_count": 12,
+    "all_twelve_exactly_once": true,
+    "missing_sections": [],
+    "duplicate_sections": [],
+    "note": "Screen section names and timings are extracted from the SECTION COST block immediately before the unchanged Screen footer in each hosted module log."
+  },
+  "null_panel_hosted_coverage": {
+    "source_file": "fourth-null-hosted-proof.json",
+    "proof_sha256": "6efd515b8d1f46eed1503b01b66dee53363b7b5714022eecd49a1fdca48d0d6e",
+    "scalar_findings": {
+      "schema_version": 1,
+      "run_id": 43124724813,
+      "head_sha": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+      "executed_checkout_sha": "e560e1d85591195b2d3d38919f0dae03e585ab06",
+      "executed_tree_sha": "baf29ba4fceaa0d801f226a0cc7be9ff8f565e1a",
+      "local_tested_commit": "a056803a029dfaaa8e6f1814dce6c156d5b9985f",
+      "complete": true,
+      "passed": true,
+      "available_receipts_passed": true,
+      "captured_at": "2026-11-12T00:23:24.749215+00:00",
+      "run_url": "https://github.com/WeningerII/CodexMusica/actions/runs/43124724813",
+      "scope": "hosted null-panel source/input/assertion/section/realisation completeness; exact full numeric output comparison is separately local on identical source",
+      "hosted_all_18_sections_exactly_once": true,
+      "hosted_available_section_count": 18,
+      "hosted_all_null_modules_exit_zero_and_zero_failed_assertions": true,
+      "hosted_runtime_assertion_pass_receipts": 137
+    },
+    "source_binding_valid": true,
+    "complete": true,
+    "passed": true
+  },
+  "coverage_queue_hosted_coverage": {
+    "source_file": "fourth-coverage-queue-hosted-proof.json",
+    "proof_sha256": "683822c1f5446b289a4788d5360e028c36a8a257d474f01e4b7062acb65c6877",
+    "scalar_findings": {
+      "run_id": 43124724813,
+      "head_sha": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+      "executed_checkout_sha": "e560e1d85591195b2d3d38919f0dae03e585ab06",
+      "executed_tree_sha": "baf29ba4fceaa0d801f226a0cc7be9ff8f565e1a",
+      "complete": true,
+      "passed": true,
+      "scope": "Hosted Coverage Queue module, source/equivalence binding, and owner5 declared slot-budget timing.",
+      "job_id": 130875204077,
+      "job_url": "https://github.com/WeningerII/CodexMusica/actions/runs/43124724813/job/130875204077",
+      "suite_job_seconds": 456.0,
+      "suite_pool_seconds": 419.0,
+      "queue_reported_seconds": 281,
+      "queue_timestamp_elapsed_seconds": 280.783708,
+      "expected_original_tests": 7,
+      "observed_original_tests": 7,
+      "expected_original_checks": 12,
+      "observed_original_pass_checks": 12,
+      "all_original_tests_and_checks_passed": true,
+      "remaining_blocker": null,
+      "limitations": "This proof covers Coverage Queue and suite5 resource reservation. It does not assert whole-run success. Physical worker/process/CPU telemetry and complete result digests are not emitted by the hosted module; worker mode and per-scan completeness are source-established, supported by the bound complete local equivalence audit."
+    },
+    "source_binding_valid": true,
+    "complete": true,
+    "passed": true
+  },
+  "independent_proofs_complete": {
+    "source_tree": true,
+    "verify217": false,
+    "library216_in24": true,
+    "session48": true,
+    "reader109": true,
+    "screen12": true,
+    "suites119": true,
+    "evidence12": true,
+    "mcp197": true,
+    "recipes1174": true,
+    "faults121": true,
+    "null_panel": true,
+    "coverage_queue": true
+  },
+  "all_independent_proofs_complete": false,
+  "all23_api_elapsed_under600_without_outcome_requirement": true,
+  "target_success_count": 22,
+  "target_failure_count": 1,
+  "required_gate_success_count": 11,
+  "families": {
+    "verify": {
+      "expected_count": 8,
+      "missing": [],
+      "complete": true,
+      "last_completed_at": "2026-11-12T00:20:09Z",
+      "last_completion_after_gate_s": 669.0,
+      "first_ready_to_last_complete_s": 669.0,
+      "workflow_created_to_last_complete_s": 868.0,
+      "vectors": {
+        "api_elapsed_s": [353.0, 370.0, 463.0, 429.0, 468.0, 392.0, 409.0, 397.0],
+        "observed_step_span_s": [350.0, 367.0, 461.0, 423.0, 463.0, 390.0, 407.0, 393.0],
+        "setup_s": [57.0, 55.0, 62.0, 74.0, 74.0, 63.0, 59.0, 93.0],
+        "pool_s": [283.0, 303.0, 313.0, 339.0, 378.0, 318.0, 347.0, 292.0],
+        "fixed_s": [1.0, 0.0, 75.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "post_and_artifact_s": [8.0, 9.0, 11.0, 10.0, 11.0, 9.0, 1.0, 8.0],
+        "queue_s": [73.0, 176.0, 113.0, 134.0, 201.0, 85.0, 193.0, 168.0],
+        "queue_to_first_step_s": [73.0, 177.0, 114.0, 136.0, 202.0, 86.0, 194.0, 169.0],
+        "dependency_wait_s": [199.0, 199.0, 199.0, 199.0, 199.0, 199.0, 199.0, 199.0],
+        "ready_to_complete_s": [426.0, 546.0, 576.0, 563.0, 669.0, 477.0, 602.0, 565.0],
+        "completed_after_gate_s": [426.0, 546.0, 576.0, 563.0, 669.0, 477.0, 602.0, 565.0]
+      },
+      "maxima": {
+        "api_elapsed_s": 468.0,
+        "observed_step_span_s": 463.0,
+        "setup_s": 93.0,
+        "pool_s": 378.0,
+        "fixed_s": 75.0,
+        "post_and_artifact_s": 11.0,
+        "queue_s": 201.0,
+        "queue_to_first_step_s": 202.0,
+        "dependency_wait_s": 199.0,
+        "ready_to_complete_s": 669.0,
+        "completed_after_gate_s": 669.0
+      }
+    },
+    "suites_modules": {
+      "expected_count": 8,
+      "missing": [],
+      "complete": true,
+      "last_completed_at": "2026-11-12T00:18:22Z",
+      "last_completion_after_gate_s": 562.0,
+      "first_ready_to_last_complete_s": 562.0,
+      "workflow_created_to_last_complete_s": 761.0,
+      "vectors": {
+        "api_elapsed_s": [406.0, 404.0, 476.0, 420.0, 456.0, 474.0, 529.0, 560.0],
+        "observed_step_span_s": [402.0, 402.0, 471.0, 417.0, 452.0, 470.0, 525.0, 557.0],
+        "setup_s": [35.0, 43.0, 38.0, 39.0, 33.0, 36.0, 36.0, 35.0],
+        "pool_s": [367.0, 359.0, 433.0, 378.0, 419.0, 433.0, 489.0, 521.0],
+        "fixed_s": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "post_and_artifact_s": [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0],
+        "queue_s": [3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 2.0],
+        "queue_to_first_step_s": [4.0, 3.0, 4.0, 4.0, 4.0, 4.0, 4.0, 3.0],
+        "dependency_wait_s": [199.0, 199.0, 199.0, 199.0, 199.0, 199.0, 199.0, 199.0],
+        "ready_to_complete_s": [409.0, 407.0, 479.0, 423.0, 459.0, 477.0, 532.0, 562.0],
+        "completed_after_gate_s": [409.0, 407.0, 479.0, 423.0, 459.0, 477.0, 532.0, 562.0]
+      },
+      "maxima": {
+        "api_elapsed_s": 560.0,
+        "observed_step_span_s": 557.0,
+        "setup_s": 43.0,
+        "pool_s": 521.0,
+        "fixed_s": 0.0,
+        "post_and_artifact_s": 1.0,
+        "queue_s": 3.0,
+        "queue_to_first_step_s": 4.0,
+        "dependency_wait_s": 199.0,
+        "ready_to_complete_s": 562.0,
+        "completed_after_gate_s": 562.0
+      }
+    },
+    "suites_evidence": {
+      "expected_count": 1,
+      "missing": [],
+      "complete": true,
+      "last_completed_at": "2026-11-12T00:15:58Z",
+      "last_completion_after_gate_s": 418.0,
+      "first_ready_to_last_complete_s": 418.0,
+      "workflow_created_to_last_complete_s": 617.0,
+      "vectors": {
+        "api_elapsed_s": [416.0],
+        "observed_step_span_s": [412.0],
+        "setup_s": [37.0],
+        "pool_s": [374.0],
+        "fixed_s": [1.0],
+        "post_and_artifact_s": [0.0],
+        "queue_s": [2.0],
+        "queue_to_first_step_s": [3.0],
+        "dependency_wait_s": [199.0],
+        "ready_to_complete_s": [418.0],
+        "completed_after_gate_s": [418.0]
+      },
+      "maxima": {
+        "api_elapsed_s": 416.0,
+        "observed_step_span_s": 412.0,
+        "setup_s": 37.0,
+        "pool_s": 374.0,
+        "fixed_s": 1.0,
+        "post_and_artifact_s": 0.0,
+        "queue_s": 2.0,
+        "queue_to_first_step_s": 3.0,
+        "dependency_wait_s": 199.0,
+        "ready_to_complete_s": 418.0,
+        "completed_after_gate_s": 418.0
+      }
+    },
+    "faults": {
+      "expected_count": 6,
+      "missing": [],
+      "complete": true,
+      "last_completed_at": "2026-11-12T00:27:38Z",
+      "last_completion_after_gate_s": 1118.0,
+      "first_ready_to_last_complete_s": 468.0,
+      "workflow_created_to_last_complete_s": 1317.0,
+      "vectors": {
+        "api_elapsed_s": [241.0, 423.0, 413.0, 465.0, 257.0, 284.0],
+        "observed_step_span_s": [238.0, 420.0, 410.0, 462.0, 254.0, 282.0],
+        "setup_s": [52.0, 60.0, 153.0, 58.0, 62.0, 49.0],
+        "pool_s": [181.0, 349.0, 247.0, 394.0, 180.0, 226.0],
+        "fixed_s": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "post_and_artifact_s": [5.0, 11.0, 10.0, 10.0, 12.0, 6.0],
+        "queue_s": [3.0, 3.0, 3.0, 3.0, 3.0, 3.0],
+        "queue_to_first_step_s": [4.0, 4.0, 4.0, 4.0, 4.0, 3.0],
+        "dependency_wait_s": [849.0, 849.0, 849.0, 849.0, 849.0, 849.0],
+        "ready_to_complete_s": [244.0, 426.0, 416.0, 468.0, 260.0, 287.0],
+        "completed_after_gate_s": [894.0, 1076.0, 1066.0, 1118.0, 910.0, 937.0]
+      },
+      "maxima": {
+        "api_elapsed_s": 465.0,
+        "observed_step_span_s": 462.0,
+        "setup_s": 153.0,
+        "pool_s": 394.0,
+        "fixed_s": 0.0,
+        "post_and_artifact_s": 12.0,
+        "queue_s": 3.0,
+        "queue_to_first_step_s": 4.0,
+        "dependency_wait_s": 849.0,
+        "ready_to_complete_s": 468.0,
+        "completed_after_gate_s": 1118.0
+      }
+    }
+  },
+  "definitions": {
+    "api_elapsed_s": "GitHub job.completed_at minus job.started_at; includes setup, tests, artifacts and post steps. Active jobs show elapsed so far.",
+    "observed_step_span_s": "Earliest actual setup-step start to latest observed step end, separately retained in case API started_at is a queue placeholder.",
+    "queue_s": "API job.started_at minus job.created_at; queued placeholders ignored. In a queued row this is a lower bound so far.",
+    "ready_to_complete_s": "Completed job.completed_at minus job.created_at: queue plus complete execution.",
+    "dependency_wait_s": "Job.created_at minus workflow.created_at; includes admission and upstream needs waits.",
+    "completed_after_gate_s": "Job completion minus completed gate timestamp. Family maxima include runner queues and all execution.",
+    "vector_order": "Ascending shard coordinate; suites_evidence is a separate one-job family.",
+    "ten_minute_test": "Every one of23 execution jobs must succeed with full API elapsed strictly below600s; this does not claim total workflow or family end-to-end below600s."
+  },
+  "detailed_report": "fourth-hosted-targets.json"
+}

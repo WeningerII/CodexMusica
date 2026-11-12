@@ -296,33 +296,33 @@ try {
     .scripts['test:production:offline'].split('&&')[0]
     .trim();
   const productionFiles = productionCommand.split(/\s+/).filter((token) => token.endsWith('.mjs'));
-  const groupedFile = 'mcp/test_session_repairs.mjs';
-  const grouped = require('./ci_node_test_groups.js')
-    .loadRegistry()
-    .files.find((file) => file.source === groupedFile);
+  const groupedFiles = require('./ci_node_test_groups.js').loadRegistry().files;
   assert.deepEqual(
     offline.map((command) => command.split(' ').at(-1)),
-    productionFiles.flatMap((file) =>
-      file === groupedFile ? grouped.groups.map(() => file) : [file]
-    )
+    productionFiles.flatMap((file) => {
+      const grouped = groupedFiles.find((entry) => entry.source === file);
+      return grouped ? grouped.groups.map(() => file) : [file];
+    })
   );
   assert.ok(
     offline.every((command) =>
-      /^(?:TEST_SESSION_REPAIRS_GROUP=[a-z-]+ )?node --test --test-concurrency=1 --test-timeout=120000 /.test(
+      /^(?:TEST_[A-Z_]+=[a-z-]+ )?node --test --test-concurrency=1 --test-timeout=120000 /.test(
         command
       )
     )
   );
-  assert.deepEqual(
-    offline
-      .filter((command) => command.endsWith(groupedFile))
-      .map((command) => command.split(' ')[0]),
-    grouped.groups.map((group) => `${grouped.environment}=${group}`)
-  );
+  for (const grouped of groupedFiles) {
+    assert.deepEqual(
+      offline
+        .filter((command) => command.endsWith(grouped.source))
+        .map((command) => command.split(' ')[0]),
+      grouped.groups.map((group) => `${grouped.environment}=${group}`)
+    );
+    assert.ok(full.inventoryDigests[grouped.source]);
+  }
   assert.ok(ordinary.includes(productionCommand), 'default whole-file batch remains unchanged');
   assert.ok(full.inventoryDigests['scripts/ci_node_test_groups.json']);
   assert.ok(full.inventoryDigests['scripts/ci_node_test_groups.js']);
-  assert.ok(full.inventoryDigests[groupedFile]);
   assert.ok(
     offline.every(
       (command) => command.split(' ').filter((token) => token.endsWith('.mjs')).length === 1

@@ -1,0 +1,890 @@
+{
+  "source_head": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+  "scope": "CI-only registrar grouping for native pronunciation, function disclosure identity and review mandate; default whole-file commands unchanged.",
+  "prepared_source_sha256": {
+    "mcp/test_session_repairs.mjs": "33624f113d90d3793c77babd7622888e9155b02a097fbae43ef6c014f038ae55",
+    "mcp/test_pronunciation_native.mjs": "357e3f93d3a618a8ab077ac899ad38d89fc9a38b68e9ec463ad26e86f5dcda1d",
+    "mcp/test_function_disclosure_identity.mjs": "ba390dc1f72c159a97fecca3954b260fb045d3f156cf497d9c6dd38dbf0fa0e6",
+    "mcp/test_review_mandate.mjs": "227d02b7bca3c84991219f1501fdf32e5b606a9669b0d432c76a6288371489c7",
+    "scripts/ci_node_test_groups.json": "0996401ce698cbc087309c83fb60ac6b34eca7fde0143ce76416f7c5f5d54304",
+    "scripts/ci_node_test_groups.js": "d9dbbbb121069a2d45ef51b344872923f0a35adbb78d4e5d69cd90ddebf0d6a0",
+    "scripts/test_ci_node_test_groups.js": "0e79256ae31332ebcc50820678fb5dddbbc4196eb4d3f3b1326cec09b9cabaf9",
+    "scripts/test_run_parallel_list_output.js": "71f4cfd17dec3fd3324075869de3bcac6abf3e46c4be9c924a854039593cbc02",
+    "scripts/run_parallel.js": "7de7ba225ad674c1edd7fb3e72e678991671af8521133e7bc20b872401621d35",
+    "scripts/test_run_parallel.js": "78d6b0bc902abf60631239dcd9807b439872f6b59f67cbe7ffd5df845f867638",
+    "scripts/ci_verify_costs.json": "1a67eeaabd7b281b70c20297b204206e467405726b35027f3a85c578f925cf9c"
+  },
+  "preservation": {
+    "files": [
+      {
+        "file": "mcp/test_pronunciation_native.mjs",
+        "original_source_sha256": "688585983529b4c661b3f756bab498dc18b0d0a49bf90f576c1f72a2626b6294",
+        "grouped_source_sha256": "357e3f93d3a618a8ab077ac899ad38d89fc9a38b68e9ec463ad26e86f5dcda1d",
+        "original_test_registration_callsite_count": 2,
+        "all_test_name_options_callback_argument_asts_identical": true,
+        "assertion_call_count": 43,
+        "all_assertion_call_asts_identical": true,
+        "native_hook_callsite_count": 0,
+        "all_native_before_after_hook_asts_identical": true
+      },
+      {
+        "file": "mcp/test_function_disclosure_identity.mjs",
+        "original_source_sha256": "b96a5d4c101d7dfcb12ea5358c6d1b3b6e96d18aba77a0acf7663852d2ae048e",
+        "grouped_source_sha256": "ba390dc1f72c159a97fecca3954b260fb045d3f156cf497d9c6dd38dbf0fa0e6",
+        "original_test_registration_callsite_count": 8,
+        "all_test_name_options_callback_argument_asts_identical": true,
+        "assertion_call_count": 57,
+        "all_assertion_call_asts_identical": true,
+        "native_hook_callsite_count": 0,
+        "all_native_before_after_hook_asts_identical": true
+      },
+      {
+        "file": "mcp/test_review_mandate.mjs",
+        "original_source_sha256": "fa55455d5681dba8fef69a9b76be0a8a9b1c7e997200ae857da095d12529bdc2",
+        "grouped_source_sha256": "227d02b7bca3c84991219f1501fdf32e5b606a9669b0d432c76a6288371489c7",
+        "original_test_registration_callsite_count": 8,
+        "all_test_name_options_callback_argument_asts_identical": true,
+        "assertion_call_count": 52,
+        "all_assertion_call_asts_identical": true,
+        "native_hook_callsite_count": 2,
+        "all_native_before_after_hook_asts_identical": true
+      }
+    ],
+    "total_original_test_registration_callsites": 18,
+    "runtime_test_declarations": 20,
+    "all_name_option_callback_argument_asts_identical": true,
+    "assertion_call_count": 152,
+    "all_assertion_call_asts_identical": true,
+    "native_review_before_after_hook_callsites": 2,
+    "all_native_hook_asts_identical": true,
+    "production_fixture_workflow_package_files_changed_by_this_task": false,
+    "default_registration_order_and_argument_identity_preserved": true,
+    "unchanged_node_flags": ["--test-concurrency=1", "--test-timeout=120000"],
+    "existing_optional_released_runtime_baseline_skip_options_preserved": true,
+    "independent_entire_executable_ast_review_passed": true
+  },
+  "controls": {
+    "registrar_controls_passed": 60,
+    "large_pipe_output_controls_passed": 8,
+    "runner_ownership_fixture_negative_controls_passed": 41,
+    "library_inventory_selections": 24,
+    "actual_expanded_control_leaf_local_seconds": 14.804,
+    "scheduled_control_leaf_seconds": 18.2,
+    "prior_published_control_body_fourth_hosted_seconds": 18.2,
+    "eslint_passed": true,
+    "prettier_passed": true,
+    "diff_check_passed": true
+  },
+  "actual_group_execution": {
+    "source_head": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+    "node_version": "v24.19.0",
+    "python_version": "Python 3.12.14",
+    "maximum_outer_processes": 4,
+    "wall_seconds": 72.004,
+    "groups": [
+      {
+        "source": "mcp/test_pronunciation_native.mjs",
+        "group": "native-client",
+        "command": "TEST_PRONUNCIATION_NATIVE_GROUP=native-client node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_native.mjs",
+        "seconds": 65.068,
+        "exit_code": 0,
+        "counters": {
+          "tests": 1,
+          "pass": 1,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "source": "mcp/test_function_disclosure_identity.mjs",
+        "group": "plan-grade",
+        "command": "TEST_FUNCTION_DISCLOSURE_IDENTITY_GROUP=plan-grade node --test --test-concurrency=1 --test-timeout=120000 mcp/test_function_disclosure_identity.mjs",
+        "seconds": 55.302,
+        "exit_code": 0,
+        "counters": {
+          "tests": 1,
+          "pass": 1,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "source": "mcp/test_review_mandate.mjs",
+        "group": "remaining",
+        "command": "TEST_REVIEW_MANDATE_GROUP=remaining node --test --test-concurrency=1 --test-timeout=120000 mcp/test_review_mandate.mjs",
+        "seconds": 41.746,
+        "exit_code": 0,
+        "counters": {
+          "tests": 9,
+          "pass": 9,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "source": "mcp/test_review_mandate.mjs",
+        "group": "declared-groups",
+        "command": "TEST_REVIEW_MANDATE_GROUP=declared-groups node --test --test-concurrency=1 --test-timeout=120000 mcp/test_review_mandate.mjs",
+        "seconds": 48.224,
+        "exit_code": 0,
+        "counters": {
+          "tests": 1,
+          "pass": 1,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "source": "mcp/test_pronunciation_native.mjs",
+        "group": "edit-session",
+        "command": "TEST_PRONUNCIATION_NATIVE_GROUP=edit-session node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_native.mjs",
+        "seconds": 24.434,
+        "exit_code": 0,
+        "counters": {
+          "tests": 1,
+          "pass": 1,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "source": "mcp/test_function_disclosure_identity.mjs",
+        "group": "remaining",
+        "command": "TEST_FUNCTION_DISCLOSURE_IDENTITY_GROUP=remaining node --test --test-concurrency=1 --test-timeout=120000 mcp/test_function_disclosure_identity.mjs",
+        "seconds": 23.759,
+        "exit_code": 0,
+        "counters": {
+          "tests": 7,
+          "pass": 6,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 1,
+          "todo": 0
+        }
+      }
+    ],
+    "all20_declarations_owned_exactly_once": true,
+    "all19_required_cases_actually_passed_exactly_once": true,
+    "required_passes": 19,
+    "original_optional_baseline_skips": 1,
+    "new_skips": 0,
+    "failed": 0,
+    "cancelled": 0,
+    "cold_process_startup_and_original_fixture_lifecycle_included": true,
+    "sole_original_optional_skip": {
+      "source": "mcp/test_function_disclosure_identity.mjs",
+      "name": "released runtime session and sealed caller state refuse before execution and recover exactly",
+      "original_source_sha256": "b96a5d4c101d7dfcb12ea5358c6d1b3b6e96d18aba77a0acf7663852d2ae048e",
+      "unchanged_option_source": "{ skip: !process.env.FUNCTION_DISCLOSURE_BASELINE_ROOT, timeout: 120000 }",
+      "environment_variable_absent_in_actual_probe": true,
+      "allowed_skip_count": 1,
+      "notes": [
+        "This exact standing optional released-runtime baseline is the sole allowed skip among the20new grouped declarations. Any other skip is rejected by the actual proof."
+      ]
+    }
+  },
+  "capped_file_census": {
+    "source_runs": [43099681517, 43110418153, 43116866868, 43124724813],
+    "source_file_count": 25,
+    "all_fourth_verify_logs_included": true,
+    "files": [
+      {
+        "source": "mcp/test_pronunciation_native.mjs",
+        "max_complete_command_seconds": 111.1,
+        "max_observed_command_seconds_including_censored": 120.2,
+        "max_completed_atomic_case_seconds": 92.919056,
+        "observed_case_names": 2,
+        "censored_observations": [
+          {
+            "run": 43124724813,
+            "job": 130875204100,
+            "wall_seconds": 120.2,
+            "cancelled": 1
+          }
+        ],
+        "new2group_split": true
+      },
+      {
+        "source": "mcp/test_function_disclosure_identity.mjs",
+        "max_complete_command_seconds": 110.9,
+        "max_observed_command_seconds_including_censored": 110.9,
+        "max_completed_atomic_case_seconds": 74.516121,
+        "observed_case_names": 8,
+        "censored_observations": [],
+        "new2group_split": true
+      },
+      {
+        "source": "mcp/test_session_repairs.mjs",
+        "max_complete_command_seconds": 104.6,
+        "max_observed_command_seconds_including_censored": 120.2,
+        "max_completed_atomic_case_seconds": 54.459608,
+        "observed_case_names": 48,
+        "censored_observations": [
+          {
+            "run": 43116866868,
+            "job": 130848685989,
+            "wall_seconds": 120.2,
+            "cancelled": 1
+          }
+        ],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_review_mandate.mjs",
+        "max_complete_command_seconds": 86.0,
+        "max_observed_command_seconds_including_censored": 86.0,
+        "max_completed_atomic_case_seconds": 40.809324,
+        "observed_case_names": 10,
+        "censored_observations": [],
+        "new2group_split": true
+      },
+      {
+        "source": "mcp/test_connector_http.mjs",
+        "max_complete_command_seconds": 57.7,
+        "max_observed_command_seconds_including_censored": 57.7,
+        "max_completed_atomic_case_seconds": 31.03928,
+        "observed_case_names": 6,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_pronunciation_checkpoint.mjs",
+        "max_complete_command_seconds": 56.9,
+        "max_observed_command_seconds_including_censored": 56.9,
+        "max_completed_atomic_case_seconds": 56.727743,
+        "observed_case_names": 1,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_creation_next.mjs",
+        "max_complete_command_seconds": 50.1,
+        "max_observed_command_seconds_including_censored": 50.1,
+        "max_completed_atomic_case_seconds": 27.718125,
+        "observed_case_names": 10,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_chatgpt_revise.mjs",
+        "max_complete_command_seconds": 38.3,
+        "max_observed_command_seconds_including_censored": 38.3,
+        "max_completed_atomic_case_seconds": 20.065904,
+        "observed_case_names": 2,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_chatgpt_harness.mjs",
+        "max_complete_command_seconds": 37.3,
+        "max_observed_command_seconds_including_censored": 37.3,
+        "max_completed_atomic_case_seconds": 20.152836,
+        "observed_case_names": 2,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_revise_kitchen_finished.mjs",
+        "max_complete_command_seconds": 36.3,
+        "max_observed_command_seconds_including_censored": 36.3,
+        "max_completed_atomic_case_seconds": 21.447591,
+        "observed_case_names": 5,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_chat_production.mjs",
+        "max_complete_command_seconds": 30.9,
+        "max_observed_command_seconds_including_censored": 30.9,
+        "max_completed_atomic_case_seconds": 19.076786,
+        "observed_case_names": 37,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_chatgpt.mjs",
+        "max_complete_command_seconds": 27.8,
+        "max_observed_command_seconds_including_censored": 27.8,
+        "max_completed_atomic_case_seconds": 11.43134,
+        "observed_case_names": 41,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_connector_contracts.mjs",
+        "max_complete_command_seconds": 20.6,
+        "max_observed_command_seconds_including_censored": 20.6,
+        "max_completed_atomic_case_seconds": 8.92177,
+        "observed_case_names": 31,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_pronunciation_choices.mjs",
+        "max_complete_command_seconds": 11.8,
+        "max_observed_command_seconds_including_censored": 11.8,
+        "max_completed_atomic_case_seconds": 11.125026,
+        "observed_case_names": 7,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_runtime_assets.mjs",
+        "max_complete_command_seconds": 5.9,
+        "max_observed_command_seconds_including_censored": 5.9,
+        "max_completed_atomic_case_seconds": 3.393896,
+        "observed_case_names": 20,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_review_only.mjs",
+        "max_complete_command_seconds": 4.2,
+        "max_observed_command_seconds_including_censored": 4.2,
+        "max_completed_atomic_case_seconds": 1.703908,
+        "observed_case_names": 1,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_meter_admission.mjs",
+        "max_complete_command_seconds": 3.9,
+        "max_observed_command_seconds_including_censored": 3.9,
+        "max_completed_atomic_case_seconds": 0.809256,
+        "observed_case_names": 23,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_release_gates.mjs",
+        "max_complete_command_seconds": 3.8,
+        "max_observed_command_seconds_including_censored": 3.8,
+        "max_completed_atomic_case_seconds": 3.278788,
+        "observed_case_names": 17,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_refusal_promise.mjs",
+        "max_complete_command_seconds": 3.7,
+        "max_observed_command_seconds_including_censored": 3.7,
+        "max_completed_atomic_case_seconds": 1.2938,
+        "observed_case_names": 5,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_creation_attempts.mjs",
+        "max_complete_command_seconds": 3.0,
+        "max_observed_command_seconds_including_censored": 3.0,
+        "max_completed_atomic_case_seconds": 0.760454,
+        "observed_case_names": 6,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_verdict_view.mjs",
+        "max_complete_command_seconds": 2.7,
+        "max_observed_command_seconds_including_censored": 2.7,
+        "max_completed_atomic_case_seconds": 0.007407,
+        "observed_case_names": 22,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_state_codec.mjs",
+        "max_complete_command_seconds": 1.9,
+        "max_observed_command_seconds_including_censored": 1.9,
+        "max_completed_atomic_case_seconds": 1.825954,
+        "observed_case_names": 1,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_lyric_workflow.mjs",
+        "max_complete_command_seconds": 0.9,
+        "max_observed_command_seconds_including_censored": 0.9,
+        "max_completed_atomic_case_seconds": 0.00839,
+        "observed_case_names": 23,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_revise_repeat_guard.mjs",
+        "max_complete_command_seconds": 0.6,
+        "max_observed_command_seconds_including_censored": 0.6,
+        "max_completed_atomic_case_seconds": 0.083149,
+        "observed_case_names": 12,
+        "censored_observations": [],
+        "new2group_split": false
+      },
+      {
+        "source": "mcp/test_battery_repairs.mjs",
+        "max_complete_command_seconds": 0.3,
+        "max_observed_command_seconds_including_censored": 0.3,
+        "max_completed_atomic_case_seconds": 0.002805,
+        "observed_case_names": 5,
+        "censored_observations": [],
+        "new2group_split": false
+      }
+    ],
+    "notes": [
+      "Session-repairs historical whole-file104.6s/timeout is already split into3 groups; fourth actual groups56.4/39.4/37.4s passed.",
+      "Native first case92.919s is the largest remaining observed atomic case in this capped family; it stays intact below the unchanged120s cap. There is no test-body split.",
+      "Other unsplit files all have complete measured walls below70s. Identity fourth110.9s is proactively split alongside native and review86s."
+    ]
+  },
+  "dependency_free_admission": {
+    "root_node_modules_absent": true,
+    "connector_node_modules_absent": true,
+    "leaf_count": 220,
+    "all_cost_keys_match_exact_leaf_inventory": true,
+    "stdout_bytes_through_actual_pipe": 71420,
+    "inventory_seconds": 2.609,
+    "inventory_exit_code": 0,
+    "synthetic_fanin_seconds": 1.316,
+    "synthetic_fanin_exit_code": 0,
+    "required_registrar_group_commands": 9,
+    "negative_controls": [
+      {
+        "kind": "missing",
+        "command": "TEST_REVIEW_MANDATE_GROUP=declared-groups node --test --test-concurrency=1 --test-timeout=120000 mcp/test_review_mandate.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "missing",
+        "command": "TEST_REVIEW_MANDATE_GROUP=remaining node --test --test-concurrency=1 --test-timeout=120000 mcp/test_review_mandate.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "missing",
+        "command": "TEST_FUNCTION_DISCLOSURE_IDENTITY_GROUP=plan-grade node --test --test-concurrency=1 --test-timeout=120000 mcp/test_function_disclosure_identity.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "missing",
+        "command": "TEST_FUNCTION_DISCLOSURE_IDENTITY_GROUP=remaining node --test --test-concurrency=1 --test-timeout=120000 mcp/test_function_disclosure_identity.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "missing",
+        "command": "TEST_SESSION_REPAIRS_GROUP=native-creation node --test --test-concurrency=1 --test-timeout=120000 mcp/test_session_repairs.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "missing",
+        "command": "TEST_SESSION_REPAIRS_GROUP=redrawn-seed node --test --test-concurrency=1 --test-timeout=120000 mcp/test_session_repairs.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "missing",
+        "command": "TEST_SESSION_REPAIRS_GROUP=remaining node --test --test-concurrency=1 --test-timeout=120000 mcp/test_session_repairs.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "missing",
+        "command": "TEST_PRONUNCIATION_NATIVE_GROUP=native-client node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_native.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "missing",
+        "command": "TEST_PRONUNCIATION_NATIVE_GROUP=edit-session node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_native.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "missing",
+        "command": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=24/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008",
+        "exit_code": 1
+      },
+      {
+        "kind": "duplicate",
+        "command": "TEST_PRONUNCIATION_NATIVE_GROUP=edit-session node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_native.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "failed",
+        "command": "TEST_PRONUNCIATION_NATIVE_GROUP=edit-session node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_native.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "changed_identity",
+        "source": "scripts/ci_node_test_groups.json",
+        "exit_code": 1
+      },
+      {
+        "kind": "changed_identity",
+        "source": "scripts/ci_node_test_groups.js",
+        "exit_code": 1
+      },
+      {
+        "kind": "changed_identity",
+        "source": "mcp/test_session_repairs.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "changed_identity",
+        "source": "mcp/test_pronunciation_native.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "changed_identity",
+        "source": "mcp/test_function_disclosure_identity.mjs",
+        "exit_code": 1
+      },
+      {
+        "kind": "changed_identity",
+        "source": "mcp/test_review_mandate.mjs",
+        "exit_code": 1
+      }
+    ]
+  },
+  "scheduling_model": {
+    "shards": 8,
+    "workers_per_shard": 4,
+    "leaf_count": 220,
+    "pool_model_seconds": [436.0, 391.596, 377.593, 377.593, 377.7, 377.712, 377.7, 377.6],
+    "pool_model_max_seconds": 436.0,
+    "separate_common_setup_post_budget_seconds": 100,
+    "additional_once_only_gates_budget_shard3_seconds": 80,
+    "max_pool_plus_conservative_overhead_budget_seconds": 557.593,
+    "runner_queues_included": false,
+    "bins": [
+      {
+        "shard": 1,
+        "leaves": 25,
+        "pool_model_seconds": 436.0,
+        "lanes_seconds": [436.0, 377.509, 377.616, 377.643],
+        "critical_leaf": "node scripts/check_lyrics_page.js"
+      },
+      {
+        "shard": 2,
+        "leaves": 24,
+        "pool_model_seconds": 391.596,
+        "lanes_seconds": [391.596, 377.476, 377.581, 377.55],
+        "critical_leaf": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=12/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008"
+      },
+      {
+        "shard": 3,
+        "leaves": 25,
+        "pool_model_seconds": 377.593,
+        "lanes_seconds": [377.4, 377.587, 377.4, 377.593],
+        "critical_leaf": "node --test mcp/test_session_coverage_ids.mjs"
+      },
+      {
+        "shard": 4,
+        "leaves": 28,
+        "pool_model_seconds": 377.593,
+        "lanes_seconds": [377.5, 377.47, 377.593, 377.51],
+        "critical_leaf": "node scripts/check_locale_invariance.js"
+      },
+      {
+        "shard": 5,
+        "leaves": 30,
+        "pool_model_seconds": 377.7,
+        "lanes_seconds": [377.6, 377.7, 377.498, 377.474],
+        "critical_leaf": "node scripts/check_layout_usability.js"
+      },
+      {
+        "shard": 6,
+        "leaves": 29,
+        "pool_model_seconds": 377.712,
+        "lanes_seconds": [377.6, 377.495, 377.712, 377.565],
+        "critical_leaf": "node scripts/check_library_page.js"
+      },
+      {
+        "shard": 7,
+        "leaves": 28,
+        "pool_model_seconds": 377.7,
+        "lanes_seconds": [377.4, 377.467, 377.534, 377.7],
+        "critical_leaf": "node mcp/test.mjs --part=live-title"
+      },
+      {
+        "shard": 8,
+        "leaves": 31,
+        "pool_model_seconds": 377.6,
+        "lanes_seconds": [377.6, 377.6, 377.483, 377.412],
+        "critical_leaf": "node mcp/test.mjs --part=live-revision"
+      }
+    ],
+    "notes": [
+      "Model uses complete max4 hosted command observations, conservative prior Library per-ID estimates and actual fourth24-part walls, plus actual local cold-process group evidence.",
+      "The failed fourth native whole-file120.2s observation is censored; only its completed first92.919s case contributes case cost.",
+      "Setup/post budget and runner queues are separate from pool estimates. New hosted execution and current queues remain unproven."
+    ]
+  },
+  "fourth_hosted_coverage_retained": {
+    "run_id": 43124724813,
+    "head_sha": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+    "actual_merge_checkout_sha": "e560e1d85591195b2d3d38919f0dae03e585ab06",
+    "published_tree_sha": "baf29ba4fceaa0d801f226a0cc7be9ff8f565e1a",
+    "all217_commands_seen_exactly_once": true,
+    "successful_leaves": 216,
+    "failed_native_leaves": 1,
+    "library_ids_exactly_once": 216,
+    "library_partition_summaries": 24,
+    "each_library_summary_passed": 9,
+    "library_unexpected_skips": 0,
+    "actual_library_max_partition_seconds": 237.6,
+    "session_cases_exactly_once": 48,
+    "session_skips_or_cancels": 0,
+    "reader_logical_ids_exactly_once": 109,
+    "reader_original_outer_stub_skips": 7,
+    "reader_isolated_child_receipts": 7,
+    "reader_guard_bytes": 1073741824,
+    "required_verify_fanin_failed_as_expected_on_native_timeout": true
+  },
+  "raw_provenance": {
+    "fifth-capped-groups-actual-proof.json": "34927fa471fde223e5b1c5e2a1c1e4a35fa49d7f4e98eec73c90f0b7dfd177b7",
+    "fifth-capped-source-preservation-proof.json": "351b2fe3b4a703e8295143a58b82067cf4b1afffcbb6bb9603f7c4876b3b29c9",
+    "fifth-runner-controls-timing.json": "e45df8aa518473afc7b4eccdffe4fc176e3476158af113c50b2db1ad1e8836a2",
+    "fifth-clean-fanin-proof.json": "451cea236ec35fa915efa59f1dccd17a0cba2e03f6a5e2ede4f088e53f8009b8",
+    "fifth-verify-cost-replay.json": "fe2e9643a580dd9a20299969517dd00035cddf4c84a31a022ad5999a33fd989e",
+    "fourth-capped-mcp-audit.json": "e4221602359081e860a35fae2a09199d5ba118e46c7f905ee3deecb95c83b002",
+    "fourth-verify-hosted-proof.json": "38e1ea1bcd75eaeb4602a0fac312d0e86c51ebf9c1830209fef2bc14caadfd54",
+    "fourth-session-hosted-proof.json": "3cbcff2339fb71cbccb6c0028650530ae18d6ee4f4df3260085d609ed76a72c7",
+    "fourth-reader-hosted-proof.json": "1815ef09a9bd036285b37b303a00df2421a81ea2244a55973c25ae2bbb5a77f4",
+    "fifth-independent-group-source-review.json": "82c77ec262ad1733556d8e304356c038fddd785f0505d3cc289dd262f4667463"
+  },
+  "remaining_blockers": [
+    "Fifth hosted CI has not run for this prepared change, so new hosted execution/setup/queue timings and required gates remain unproven.",
+    "Root is waiting for the fourth image job to finish naturally before moving the branch. This verifier performed no rerun/cancel/dispatch or branch mutation."
+  ],
+  "schema_version": 1,
+  "repository": "WeningerII/CodexMusica",
+  "pull_request": 848,
+  "captured_at": "2026-11-12T00:33:32.023103+00:00",
+  "independent_group_source_review": {
+    "review": "independent fifth grouping source and existing runtime evidence audit",
+    "source_head": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+    "files": [
+      {
+        "source": "mcp/test_pronunciation_native.mjs",
+        "original_sha256": "688585983529b4c661b3f756bab498dc18b0d0a49bf90f576c1f72a2626b6294",
+        "grouped_sha256": "357e3f93d3a618a8ab077ac899ad38d89fc9a38b68e9ec463ad26e86f5dcda1d",
+        "complete_executable_ast_preserved_after_removing_only_registrar_wrapper": true,
+        "test_callsite_count": 2,
+        "runtime_declaration_count": 2,
+        "test_name_options_callback_asts_unchanged": true,
+        "assertion_count": 43,
+        "assertion_asts_unchanged": true,
+        "before_after_hook_count_including_per_test_hooks": 0,
+        "hook_asts_unchanged": true,
+        "default_declaration_order_unchanged": true,
+        "registry_exactly_matches_original_declarations": true,
+        "groups": [
+          {
+            "group": "native-client",
+            "seconds": 65.068,
+            "tests": 1,
+            "pass": 1,
+            "skipped": 0,
+            "exit_code": 0
+          },
+          {
+            "group": "edit-session",
+            "seconds": 24.434,
+            "tests": 1,
+            "pass": 1,
+            "skipped": 0,
+            "exit_code": 0
+          }
+        ],
+        "test_option_properties": []
+      },
+      {
+        "source": "mcp/test_function_disclosure_identity.mjs",
+        "original_sha256": "b96a5d4c101d7dfcb12ea5358c6d1b3b6e96d18aba77a0acf7663852d2ae048e",
+        "grouped_sha256": "ba390dc1f72c159a97fecca3954b260fb045d3f156cf497d9c6dd38dbf0fa0e6",
+        "complete_executable_ast_preserved_after_removing_only_registrar_wrapper": true,
+        "test_callsite_count": 8,
+        "runtime_declaration_count": 8,
+        "test_name_options_callback_asts_unchanged": true,
+        "assertion_count": 57,
+        "assertion_asts_unchanged": true,
+        "before_after_hook_count_including_per_test_hooks": 2,
+        "hook_asts_unchanged": true,
+        "default_declaration_order_unchanged": true,
+        "registry_exactly_matches_original_declarations": true,
+        "groups": [
+          {
+            "group": "plan-grade",
+            "seconds": 55.302,
+            "tests": 1,
+            "pass": 1,
+            "skipped": 0,
+            "exit_code": 0
+          },
+          {
+            "group": "remaining",
+            "seconds": 23.759,
+            "tests": 7,
+            "pass": 6,
+            "skipped": 1,
+            "exit_code": 0
+          }
+        ],
+        "test_option_properties": [
+          {
+            "type": "Property",
+            "method": false,
+            "shorthand": false,
+            "computed": false,
+            "key": {
+              "type": "Identifier",
+              "name": "skip"
+            },
+            "value": {
+              "type": "UnaryExpression",
+              "operator": "!",
+              "prefix": true,
+              "argument": {
+                "type": "MemberExpression",
+                "object": {
+                  "type": "MemberExpression",
+                  "object": {
+                    "type": "Identifier",
+                    "name": "process"
+                  },
+                  "property": {
+                    "type": "Identifier",
+                    "name": "env"
+                  },
+                  "computed": false,
+                  "optional": false
+                },
+                "property": {
+                  "type": "Identifier",
+                  "name": "FUNCTION_DISCLOSURE_BASELINE_ROOT"
+                },
+                "computed": false,
+                "optional": false
+              }
+            },
+            "kind": "init"
+          },
+          {
+            "type": "Property",
+            "method": false,
+            "shorthand": false,
+            "computed": false,
+            "key": {
+              "type": "Identifier",
+              "name": "timeout"
+            },
+            "value": {
+              "type": "Literal",
+              "value": 120000
+            },
+            "kind": "init"
+          },
+          {
+            "type": "Property",
+            "method": false,
+            "shorthand": false,
+            "computed": false,
+            "key": {
+              "type": "Identifier",
+              "name": "timeout"
+            },
+            "value": {
+              "type": "Literal",
+              "value": 120000
+            },
+            "kind": "init"
+          },
+          {
+            "type": "Property",
+            "method": false,
+            "shorthand": false,
+            "computed": false,
+            "key": {
+              "type": "Identifier",
+              "name": "timeout"
+            },
+            "value": {
+              "type": "Literal",
+              "value": 120000
+            },
+            "kind": "init"
+          }
+        ]
+      },
+      {
+        "source": "mcp/test_review_mandate.mjs",
+        "original_sha256": "fa55455d5681dba8fef69a9b76be0a8a9b1c7e997200ae857da095d12529bdc2",
+        "grouped_sha256": "227d02b7bca3c84991219f1501fdf32e5b606a9669b0d432c76a6288371489c7",
+        "complete_executable_ast_preserved_after_removing_only_registrar_wrapper": true,
+        "test_callsite_count": 8,
+        "runtime_declaration_count": 10,
+        "test_name_options_callback_asts_unchanged": true,
+        "assertion_count": 52,
+        "assertion_asts_unchanged": true,
+        "before_after_hook_count_including_per_test_hooks": 2,
+        "hook_asts_unchanged": true,
+        "default_declaration_order_unchanged": true,
+        "registry_exactly_matches_original_declarations": true,
+        "groups": [
+          {
+            "group": "remaining",
+            "seconds": 41.746,
+            "tests": 9,
+            "pass": 9,
+            "skipped": 0,
+            "exit_code": 0
+          },
+          {
+            "group": "declared-groups",
+            "seconds": 48.224,
+            "tests": 1,
+            "pass": 1,
+            "skipped": 0,
+            "exit_code": 0
+          }
+        ],
+        "test_option_properties": []
+      }
+    ],
+    "total_test_callsites": 18,
+    "total_runtime_declarations": 20,
+    "total_assertions": 152,
+    "total_passes": 19,
+    "total_existing_skips": 1,
+    "no_new_skip_or_timeout_changes": true,
+    "helper_source_unchanged": true,
+    "runtime_evidence_path": "/tmp/ci-under-ten-evidence/fifth-capped-groups-actual-proof.json",
+    "limitations": [
+      "Existing local runtime measurements include isolated process/import/worker startup for each group; native Node22/Python3.11 hosted timing remains to be confirmed.",
+      "Original optional released-runtime baseline condition and120000ms timeout remain; its enabled path is not timed by these baseline-absent runs."
+    ],
+    "new_runtime_probes_performed": false,
+    "previous_registry_entries_unchanged": true,
+    "registry_sha256": "0996401ce698cbc087309c83fb60ac6b34eca7fde0143ce76416f7c5f5d54304"
+  },
+  "unchanged_suite_and_fault_source": {
+    "workflow_sha256": "2ba57141ecdae15afbd8e4fa63beea1cdd016e8bb774cf04b358d15bc03a1162",
+    "suite_named_plan": "suites-plan.json",
+    "fourth_hosted_run": 43124724813,
+    "fourth_head": "d51bc5fcb47f5098f0c8d0a84d09c09a7f9fb900",
+    "suite_jobs_passed": 8,
+    "suite_job_max_seconds": 560,
+    "fixed_evidence_seconds": 416,
+    "fault_jobs_passed": 6,
+    "fault_job_max_seconds": 465,
+    "all121_faults_caught_exactly_once": true,
+    "null_hosted_full_proof_sha256": "6efd515b8d1f46eed1503b01b66dee53363b7b5714022eecd49a1fdca48d0d6e",
+    "queue_hosted_full_proof_sha256": "683822c1f5446b289a4788d5360e028c36a8a257d474f01e4b7062acb65c6877",
+    "fault_hosted_full_proof_sha256": "a9b52ff7acac05e2e3070b2493072b4c1f4641c9afb3cca12ba33e897150cadb",
+    "unchanged_proof_is_not_a_fifth_run_substitute": true
+  },
+  "hosted_qualification_pending": true
+}

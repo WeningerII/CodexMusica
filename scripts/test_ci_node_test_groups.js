@@ -66,10 +66,10 @@ const spy = () => {
   };
   return { nativeTest, calls, hooks, result };
 };
-const setup = (env = {}) => {
+const setup = (env = {}, target = source) => {
   const native = spy();
   const output = [];
-  const registrar = createRegistrar(native.nativeTest, source, {
+  const registrar = createRegistrar(native.nativeTest, target, {
     root,
     env,
     write: (line) => output.push(String(line)),
@@ -308,6 +308,193 @@ if (inventory.files.length !== 1) throw new Error('fixture inventory was not loa
       { cwd: root, encoding: 'utf8' }
     );
     assert.equal(child.status, 0, child.stderr);
+  });
+
+  // Two valid files must remain independent even when both selectors are set
+  // and a test name happens to be shared between their declaration inventories.
+  const secondSource = 'mcp/test_second_fixture.mjs';
+  const secondPath = path.join(root, secondSource);
+  const secondText = '// Independent second inventory fixture; no connector dependencies.\n';
+  const secondDeclarations = [
+    { name: 'first case', group: 'native' },
+    { name: 'native second', group: 'native' },
+    { name: 'native third', group: 'other' },
+  ];
+  const secondCallbacks = secondDeclarations.map(() => () => {});
+  const secondOptions = { concurrency: false, timeout: 4321 };
+  const multipleRegistry = clone(baseRegistry);
+  multipleRegistry.files.push({
+    source: secondSource,
+    environment: 'TEST_SECOND_FIXTURE_GROUP',
+    groups: ['native', 'other'],
+    tests: secondDeclarations,
+  });
+  fs.writeFileSync(secondPath, secondText);
+  writeRegistry(multipleRegistry);
+  const registerSecond = (registrar) =>
+    secondDeclarations.map((entry, index) =>
+      index % 2 === 0
+        ? registrar.test(entry.name, secondOptions, secondCallbacks[index])
+        : registrar.test(entry.name, secondCallbacks[index])
+    );
+  const assertSecondCalls = (registrar, expectedNames) => {
+    assert.deepEqual(
+      registrar.calls.map((args) => args[0]),
+      expectedNames
+    );
+    for (const args of registrar.calls) {
+      const index = secondDeclarations.findIndex((entry) => entry.name === args[0]);
+      assert.equal(args.at(-1), secondCallbacks[index]);
+      assert.equal(args.length, index % 2 === 0 ? 3 : 2);
+      if (index % 2 === 0) assert.equal(args[1], secondOptions);
+    }
+  };
+
+  check('valid multiple-file inventory binds both sources independently', () => {
+    const inventory = loadRegistry(root);
+    assert.equal(inventory.files.length, 2);
+    assert.deepEqual(
+      inventory.files.map((file) => file.source),
+      [source, secondSource]
+    );
+    for (const [name, text] of [
+      [source, sourceText],
+      [secondSource, secondText],
+    ]) {
+      const file = inventory.files.find((entry) => entry.source === name);
+      const digest = crypto.createHash('sha256').update(text).digest('hex');
+      assert.equal(file.sourceSha256, digest);
+      assert.equal(inventory.inventoryDigests[name], digest);
+      assert.match(file.fingerprint, /^[a-f0-9]{64}$/);
+    }
+    assert.notEqual(inventory.files[0].fingerprint, inventory.files[1].fingerprint);
+    assert.deepEqual(loadRegistry(root), inventory);
+  });
+  check('each file defaults to its own exact declarations despite a foreign selector', () => {
+    const first = setup({ TEST_SECOND_FIXTURE_GROUP: 'native' });
+    assert.deepEqual(
+      registerAll(first),
+      declarations.map(() => first.result)
+    );
+    first.complete();
+    first.hooks[0]();
+    assert.deepEqual(
+      first.calls.map((args) => args[0]),
+      declarations.map((entry) => entry.name)
+    );
+    first.calls.forEach((args, index) => {
+      assert.equal(args.at(-1), callbacks[index]);
+      if (index % 2 === 0) assert.equal(args[1], options);
+    });
+    const second = setup({ TEST_FIXTURE_GROUP: 'first' }, secondSource);
+    assert.deepEqual(
+      registerSecond(second),
+      secondDeclarations.map(() => second.result)
+    );
+    second.complete();
+    second.hooks[0]();
+    assertSecondCalls(
+      second,
+      secondDeclarations.map((entry) => entry.name)
+    );
+    assert.equal(first.output.length, 0);
+    assert.equal(second.output.length, 0);
+  });
+  check('second-file groups preserve exact arguments and complete disjoint ownership', () => {
+    const union = [];
+    const file = loadRegistry(root).files.find((entry) => entry.source === secondSource);
+    for (const group of file.groups) {
+      const registrar = setup({ TEST_SECOND_FIXTURE_GROUP: group }, secondSource);
+      assert.deepEqual(
+        registerSecond(registrar),
+        secondDeclarations.map((entry) => (entry.group === group ? registrar.result : undefined))
+      );
+      const expected = secondDeclarations
+        .filter((entry) => entry.group === group)
+        .map((entry) => entry.name);
+      assert.deepEqual(registrar.complete(), expected);
+      registrar.hooks[0]();
+      assertSecondCalls(registrar, expected);
+      assert.equal(registrar.output.length, 1);
+      assert.deepEqual(JSON.parse(registrar.output[0].slice('CI_NODE_TEST_GROUP '.length)), {
+        source: secondSource,
+        group,
+        source_sha256: file.sourceSha256,
+        fingerprint: file.fingerprint,
+        declared_count: secondDeclarations.length,
+        selected_names: expected,
+      });
+      union.push(...expected);
+    }
+    assert.equal(new Set(union).size, secondDeclarations.length);
+    assert.deepEqual(union.sort(), secondDeclarations.map((entry) => entry.name).sort());
+  });
+  check('simultaneous selectors route each registrar by its source and environment', () => {
+    const env = { TEST_FIXTURE_GROUP: 'second', TEST_SECOND_FIXTURE_GROUP: 'native' };
+    const first = setup(env);
+    const second = setup(env, secondSource);
+    registerAll(first);
+    registerSecond(second);
+    assert.deepEqual(first.complete(), ['second case']);
+    assert.deepEqual(second.complete(), ['first case', 'native second']);
+    first.hooks[0]();
+    second.hooks[0]();
+    assert.deepEqual(first.calls, [['second case', callbacks[1]]]);
+    assertSecondCalls(second, ['first case', 'native second']);
+    assert.equal(JSON.parse(first.output[0].slice('CI_NODE_TEST_GROUP '.length)).source, source);
+    assert.equal(
+      JSON.parse(second.output[0].slice('CI_NODE_TEST_GROUP '.length)).source,
+      secondSource
+    );
+  });
+  refuse('first-file selector cannot route to another valid file group', () =>
+    setup({ TEST_FIXTURE_GROUP: 'native', TEST_SECOND_FIXTURE_GROUP: 'native' })
+  );
+  refuse('second-file selector cannot route to another valid file group', () =>
+    setup({ TEST_FIXTURE_GROUP: 'first', TEST_SECOND_FIXTURE_GROUP: 'first' }, secondSource)
+  );
+  refuse('unknown source cannot fall back to either valid selected file', () =>
+    setup(
+      { TEST_FIXTURE_GROUP: 'first', TEST_SECOND_FIXTURE_GROUP: 'native' },
+      'mcp/test_unknown.mjs'
+    )
+  );
+  refuse('first source refuses another file declaration', () => {
+    const registrar = setup();
+    registrar.test('native second', secondCallbacks[1]);
+  });
+  refuse('second source refuses first-file order after a shared name', () => {
+    const registrar = setup({}, secondSource);
+    registrar.test('first case', secondCallbacks[0]);
+    registrar.test('second case', callbacks[1]);
+  });
+  check(
+    'changing the second source changes its binding while retaining the first source binding',
+    () => {
+      const before = loadRegistry(root);
+      fs.appendFileSync(secondPath, '// second source changed\n');
+      const after = loadRegistry(root);
+      assert.equal(after.files[0].fingerprint, before.files[0].fingerprint);
+      assert.notEqual(after.files[1].fingerprint, before.files[1].fingerprint);
+      assert.equal(after.inventoryDigests[source], before.inventoryDigests[source]);
+      assert.notEqual(after.inventoryDigests[secondSource], before.inventoryDigests[secondSource]);
+      fs.writeFileSync(secondPath, secondText);
+    }
+  );
+  check('second-file metadata changes invalidate both shared registry fingerprints', () => {
+    const before = loadRegistry(root);
+    const changed = clone(multipleRegistry);
+    changed.files[1].tests[1].group = 'other';
+    writeRegistry(changed);
+    const after = loadRegistry(root);
+    for (let index = 0; index < 2; index++) {
+      assert.equal(after.files[index].sourceSha256, before.files[index].sourceSha256);
+      assert.notEqual(after.files[index].fingerprint, before.files[index].fingerprint);
+    }
+    assert.notEqual(
+      after.inventoryDigests['scripts/ci_node_test_groups.json'],
+      before.inventoryDigests['scripts/ci_node_test_groups.json']
+    );
   });
   console.log(`CI Node test-group controls: ${checks} passed`);
 } finally {

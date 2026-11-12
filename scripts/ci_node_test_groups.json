@@ -199,6 +199,107 @@
           "group": "remaining"
         }
       ]
+    },
+    {
+      "source": "mcp/test_pronunciation_native.mjs",
+      "environment": "TEST_PRONUNCIATION_NATIVE_GROUP",
+      "groups": ["native-client", "edit-session"],
+      "tests": [
+        {
+          "name": "native client copies an actual voices option marker and ambiguous unmarked reuse refuses",
+          "group": "native-client"
+        },
+        {
+          "name": "edit sessions accept returned numbering through the authoritative continuation check",
+          "group": "edit-session"
+        }
+      ]
+    },
+    {
+      "source": "mcp/test_function_disclosure_identity.mjs",
+      "environment": "TEST_FUNCTION_DISCLOSURE_IDENTITY_GROUP",
+      "groups": ["plan-grade", "remaining"],
+      "tests": [
+        {
+          "name": "stored request and carry-forward retain raw bytes, order and duplicates",
+          "group": "remaining"
+        },
+        {
+          "name": "baseline argument comparison trims and sorts but does not equate aliases or case",
+          "group": "remaining"
+        },
+        {
+          "name": "stored plan hash rejects raw changes even where argument comparison permits them",
+          "group": "remaining"
+        },
+        {
+          "name": "plan_request must match the exact stored request independently of a valid hash",
+          "group": "remaining"
+        },
+        {
+          "name": "brief bytes remain part of the exact stored plan receipt",
+          "group": "remaining"
+        },
+        {
+          "name": "released runtime session and sealed caller state refuse before execution and recover exactly",
+          "group": "remaining"
+        },
+        {
+          "name": "real plan and grade agree on the whole brief-bearing plan hash",
+          "group": "plan-grade"
+        },
+        {
+          "name": "actual recurrence report reaches plan text only and grade retains its receipt",
+          "group": "remaining"
+        }
+      ]
+    },
+    {
+      "source": "mcp/test_review_mandate.mjs",
+      "environment": "TEST_REVIEW_MANDATE_GROUP",
+      "groups": ["declared-groups", "remaining"],
+      "tests": [
+        {
+          "name": "a review with no declared pattern answers one check, dispatches none and ends the turn",
+          "group": "remaining"
+        },
+        {
+          "name": "a review with declared groups still dispatches its lyric_check",
+          "group": "declared-groups"
+        },
+        {
+          "name": "a review (no declared pattern) whose model keeps checking before recovery is bounded",
+          "group": "remaining"
+        },
+        {
+          "name": "a review (declared groups) whose model keeps checking before recovery is bounded",
+          "group": "remaining"
+        },
+        {
+          "name": "a review whose recovery fails ends at the first check after it",
+          "group": "remaining"
+        },
+        {
+          "name": "a review whose model keeps retrying a failing recovery is bounded",
+          "group": "remaining"
+        },
+        {
+          "name": "a premature check does not stop a review whose recovery then succeeds",
+          "group": "remaining"
+        },
+        {
+          "name": "a review with a returns-only mandate dispatches its lyric_check",
+          "group": "remaining"
+        },
+        {
+          "name": "a review with a letter scheme dispatches its lyric_check",
+          "group": "remaining"
+        },
+        {
+          "name": "a review declaring a scheme and groups together answers one check and ends the turn",
+          "group": "remaining"
+        }
+      ]
     }
   ]
 }

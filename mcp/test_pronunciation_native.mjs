@@ -1,5 +1,8 @@
-import test from 'node:test';
+import nativeTest from 'node:test';
 import assert from 'node:assert/strict';
+import groupRegistry from '../scripts/ci_node_test_groups.js';
+const groupedTests = groupRegistry.createRegistrar(nativeTest, 'mcp/test_pronunciation_native.mjs');
+const test = groupedTests.test;
 
 test('native client copies an actual voices option marker and ambiguous unmarked reuse refuses', async () => {
   const { InMemoryTransport } = await import('@modelcontextprotocol/sdk/inMemory.js');
@@ -275,3 +278,5 @@ test('edit sessions accept returned numbering through the authoritative continua
     await _workerInternals.kill();
   }
 });
+
+groupedTests.complete();
