@@ -1025,13 +1025,16 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
     check("the named pool retains 119 distinct modules and six split suites",
           len(names) == len(set(names)) == 119 and repeated <= set(names))
     seen, section_seen, coordinates = [], [], {name: [] for name in repeated}
+    called_by_shard = {}
     with tempfile.TemporaryDirectory(prefix="m244-pool-") as tmp:
         stub = os.path.join(tmp, "python3")
         with open(stub, "w", encoding="utf-8") as f:
-            f.write('#!/bin/sh\nprintf "CALLED %s\\n" "$1"\n'
+            f.write('#!/bin/sh\n[ -z "$POOL_TRACE" ] || printf "%s\\n" "$1" >> "$POOL_TRACE"\n'
+                    'printf "CALLED %s\\n" "$1"\n'
                     'printf "COORD %s %s %s %s %s %s\\n" "$TEST_RELATIONS_NULL_SHARD" '
                     '"$TEST_G2P_SHARD" "$TEST_SPANS_SHARD" "$TEST_READABILITY_SHARD" "$TEST_READER_SHARD" "$TEST_SCREEN_SHARD"\n'
                     'printf "CACHE %s %s %s\\n" "$1" "${XDG_CACHE_HOME-unset}" "${LYRIC_FIELD_STORE-unset}"\n'
+                    'printf "WORKERS %s %s\\n" "$1" "${TEST_COVERAGE_QUEUE_WORKERS-unset}"\n'
                     'module="$1" /bin/sh -c \'printf "CHILD_CACHE %s %s %s\\n" "$module" "${XDG_CACHE_HOME-unset}" "${LYRIC_FIELD_STORE-unset}"\'\n'
                     '[ "$1" != "$FAIL_SUITE" ]\n')
         os.chmod(stub, 0o755)
@@ -1043,13 +1046,20 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
                        TEST_RELATIONS_NULL_SHARD=f"{k}/{n}",
                        TEST_READABILITY_SHARD="77/99", TEST_READER_SHARD="66/99",
                        TEST_SCREEN_SHARD="55/99", XDG_CACHE_HOME=os.path.join(tmp, "shared-cache"),
-                       LYRIC_FIELD_STORE="1")
+                       LYRIC_FIELD_STORE="1", POOL_TRACE="")
+            env.pop("TEST_COVERAGE_QUEUE_WORKERS", None)
             run = subprocess.run(["bash", "-c", local], env=env, capture_output=True, text=True)
             called = re.findall(r"^CALLED quality/test_(\w+)\.py$", run.stdout, re.M)
             check(f"pool shard {k}/{n} executes and includes its panel partition",
                   run.returncode == 0 and called.count("relations_null") == 1,
                   run.stderr[-300:])
             seen.extend(called)
+            called_by_shard[k] = called
+            workers = re.findall(r"^WORKERS (\S+) (\S+)$", run.stdout, re.M)
+            check(f"pool shard {k}/{n}: only Coverage Queue receives two scan workers",
+                  len(workers) == len(called)
+                  and all(value == ("2" if module == "quality/test_coverage_queue.py" else "unset")
+                          for module, value in workers))
             coords = re.findall(r"^COORD (\d+/\d+) (\d+/\d+) (\d+/\d+) (\d+/\d+) (\d+/\d+) (\d+/\d+)$", run.stdout, re.M)
             check(f"pool shard {k}/{n}: every child carries all six coordinates",
                   len(coords) == len(called))
@@ -1081,8 +1091,13 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
         check("the panel's union contains every section exactly once",
               collections.Counter(section_seen) == collections.Counter(declared))
         ordinary = next(name for name in called if name not in repeated)
-        for shell in (["bash", "-c"], ["bash", "-o", "pipefail", "-c"]):
-            for name in sorted(repeated | {ordinary}):
+        shells = (["bash", "-c"], ["bash", "-o", "pipefail", "-c"],
+                  ["bash", "-e", "-o", "pipefail", "-c"])
+        coverage_owner = next(k for k, selected in called_by_shard.items() if "coverage_queue" in selected)
+        for shell in shells:
+            for name in sorted(repeated | {ordinary, "coverage_queue"}):
+                owner = coverage_owner if name == "coverage_queue" else n
+                env.update(SUITES_SHARD=str(owner), TEST_RELATIONS_NULL_SHARD=f"{owner}/{n}")
                 env["FAIL_SUITE"] = f"quality/test_{name}.py"
                 run = subprocess.run(shell + [local], env=env, capture_output=True, text=True)
                 check(f"{' '.join(shell)}: a failed {name} partition fails the real pool gate and names the suite",
@@ -1091,7 +1106,32 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
                 after = re.findall(r"^CALLED quality/test_(\w+)\.py$",
                                    run.stdout.split("FAILING SUITES", 1)[0], re.M)
                 check(f"{' '.join(shell)}: failure in {name} does not omit another selected test module",
-                      collections.Counter(after) == collections.Counter(called))
+                      collections.Counter(after) == collections.Counter(called_by_shard[owner]))
+        env.update(SUITES_SHARD=str(n), TEST_RELATIONS_NULL_SHARD=f"{n}/{n}")
+        # The child succeeded but its evidence writer failed. The separate
+        # trace proves all selected children still ran when tee drops stdout.
+        import shlex
+        import shutil
+        real_tee = shutil.which("tee")
+        tee_stub = os.path.join(tmp, "tee")
+        with open(tee_stub, "w", encoding="utf-8") as f:
+            f.write('#!/bin/sh\ncase "$1" in\n'
+                    '  */coverage_queue.log) cat >/dev/null; exit 23 ;;\n'
+                    '  *) exec ' + shlex.quote(real_tee) + ' "$@" ;;\nesac\n')
+        os.chmod(tee_stub, 0o755)
+        for index, shell in enumerate(shells):
+            trace = os.path.join(tmp, f"tee-trace-{index}")
+            env.update(SUITES_SHARD=str(coverage_owner),
+                       TEST_RELATIONS_NULL_SHARD=f"{coverage_owner}/{n}",
+                       FAIL_SUITE="", POOL_TRACE=trace)
+            run = subprocess.run(shell + [local], env=env, capture_output=True, text=True)
+            traced = re.findall(r"^quality/test_(\w+)\.py$", open(trace, encoding="utf-8").read(), re.M)
+            check(f"{' '.join(shell)}: a failed tee fails the obligation and still attempts every selected child",
+                  run.returncode == 1 and "FAILING SUITES" in run.stdout
+                  and "quality/test_coverage_queue.py" in run.stdout
+                  and collections.Counter(traced) == collections.Counter(called_by_shard[coverage_owner]))
+        os.remove(tee_stub)
+        env.update(SUITES_SHARD=str(n), TEST_RELATIONS_NULL_SHARD=f"{n}/{n}", POOL_TRACE="")
         # A cache setup failure must be a failed Screen obligation, with the
         # remaining selected modules still attempted. Plant it only at the
         # real wrapper's mkdir call; the initial log-directory setup stays live.
@@ -1117,6 +1157,91 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
             whole = re.findall(r"^CALLED quality/test_(\w+)\.py$", run.stdout, re.M)
             check(f"pool with {total or 'unset'} shard count runs the whole 119-module inventory once",
                   run.returncode == 0 and collections.Counter(whole) == collections.Counter(names))
+        # Actual child lifetimes, not a replay of the scheduling arithmetic.
+        # A recorder holds logical CPU slots while sleeping, so the real shell
+        # must reserve two for Coverage Queue and restore four ordinary slots.
+        import json
+        with open(stub, "w", encoding="utf-8") as f:
+            f.write("#!" + sys.executable + "\n" + textwrap.dedent('''\
+                import fcntl,json,os,pathlib,time
+                name=pathlib.Path(__import__('sys').argv[1]).stem.removeprefix('test_')
+                variable={'relations_null':'TEST_RELATIONS_NULL_WORKERS',
+                          'g2p':'TEST_G2P_WORKERS',
+                          'coverage_queue':'TEST_COVERAGE_QUEUE_WORKERS'}.get(name)
+                units=int(os.environ.get(variable,'1')) if variable else 1
+                path=pathlib.Path(os.environ['POOL_STATE'])
+                def record(event):
+                    with open(str(path)+'.lock','a') as lock:
+                        fcntl.flock(lock,fcntl.LOCK_EX)
+                        state=json.loads(path.read_text()) if path.exists() else {'active':{},'events':[]}
+                        active=state['active']; before=list(active.values())
+                        if event=='start': active[str(os.getpid())]={'name':name,'units':units}
+                        else: active.pop(str(os.getpid()))
+                        state['events'].append({'event':event,'name':name,'units':units,
+                            'before':before,'active':list(active.values()),
+                            'total':sum(item['units'] for item in active.values())})
+                        path.write_text(json.dumps(state))
+                record('start')
+                delayed=os.environ.get('POOL_DELAYED_NAMES','').split(',')
+                duration=(.35+.20*delayed.index(name) if name in delayed else
+                          .45 if name=='coverage_queue' else
+                          .03 if name in ('relations_null','g2p') else .02 if delayed[0] else .09)
+                try: time.sleep(duration)
+                finally: record('end')
+                '''))
+        for index, shell in enumerate(shells):
+            env.pop("POOL_DELAYED_NAMES", None)
+            state_path = os.path.join(tmp, f"resource-{index}.json")
+            env.update(SUITES_SHARDS=str(n), SUITES_SHARD=str(coverage_owner),
+                       TEST_RELATIONS_NULL_SHARD=f"{coverage_owner}/{n}",
+                       TEST_RELATIONS_NULL_WORKERS="4", TEST_G2P_WORKERS="4",
+                       POOL_STATE=state_path, FAIL_SUITE="")
+            run = subprocess.run(shell + [local], env=env, capture_output=True, text=True)
+            state = json.load(open(state_path, encoding="utf-8"))
+            events = state["events"]
+            starts = [event for event in events if event["event"] == "start"]
+            check(f"{' '.join(shell)}: resource recorder executes every selected module and finishes",
+                  run.returncode == 0 and not state["active"]
+                  and collections.Counter(event["name"] for event in starts)
+                  == collections.Counter(called_by_shard[coverage_owner]), run.stderr[-300:])
+            check(f"{' '.join(shell)}: each four-worker foreground suite drains the whole pool",
+                  all(not event["before"] and event["units"] == 4 for event in starts
+                      if event["name"] in ("relations_null", "g2p")))
+            check(f"{' '.join(shell)}: live Coverage Queue reserves two slots, total CPU width never exceeds four",
+                  max(event["total"] for event in events) == 4
+                  and any(event["total"] == 4 and len(event["active"]) == 3
+                          and any(item["name"] == "coverage_queue" and item["units"] == 2
+                                  for item in event["active"]) for event in events))
+            queue_end = next(i for i, event in enumerate(events)
+                             if event["name"] == "coverage_queue" and event["event"] == "end")
+            check(f"{' '.join(shell)}: after Coverage Queue exits the actual shell restores four ordinary slots",
+                  any(len(event["active"]) == event["total"] == 4
+                      for event in events[queue_end + 1:]))
+        # Future list edits can delay Queue until three ordinary jobs are
+        # already live. Exercise admission itself, with all 119 names retained.
+        first_three = [name for name in names if name not in repeated | {"coverage_queue"}][:3]
+        lead = ["relations_null", "g2p"] + first_three + ["coverage_queue"]
+        delayed_names = lead + [name for name in names if name not in lead]
+        match = re.search(r"for f in (.*?); do", local, re.S)
+        delayed_script = local[:match.start(1)] + " ".join(delayed_names) + local[match.end(1):]
+        check("delayed Queue control changes only order, retaining the whole named inventory",
+              collections.Counter(delayed_names) == collections.Counter(names))
+        for index, shell in enumerate(shells):
+            state_path = os.path.join(tmp, f"delayed-{index}.json")
+            env.update(SUITES_SHARDS="1", SUITES_SHARD="1", TEST_RELATIONS_NULL_SHARD="1/1",
+                       POOL_STATE=state_path, POOL_DELAYED_NAMES=",".join(first_three))
+            run = subprocess.run(shell + [delayed_script], env=env, capture_output=True, text=True)
+            state = json.load(open(state_path, encoding="utf-8"))
+            events = state["events"]
+            starts = [event for event in events if event["event"] == "start"]
+            queue_start = next(event for event in starts if event["name"] == "coverage_queue")
+            check(f"{' '.join(shell)}: delayed Queue waits for two free slots and every module still runs",
+                  run.returncode == 0 and not state["active"]
+                  and collections.Counter(event["name"] for event in starts) == collections.Counter(names)
+                  and max(event["total"] for event in events) == 4
+                  and queue_start["units"] == len(queue_start["before"]) == 2
+                  and {event["name"] for event in queue_start["before"]} <= set(first_three),
+                  run.stderr[-300:])
     _env(None)
 
 
@@ -1233,7 +1358,7 @@ def _test_pool_coordinate_modes():
     script += '\nprintf "%s|%s|%s|%s|%s\\n" ' + " ".join(
         '"${TEST_' + name + '_SHARD-unset}"' for name in names) + "\n"
     cases = [(None, None, "|".join(["unset"] * 5)), ("1", "1", "|".join(["unset"] * 5)),
-             ("3", "2", "|".join(["2/3"] * 5)), ("8", "1", "4/8|8/8|7/8|2/8|1/8")]
+             ("3", "2", "|".join(["2/3"] * 5)), ("8", "1", "4/8|8/8|7/8|1/8|1/8")]
     for total, index, want in cases:
         env = dict(os.environ, **{f"TEST_{name}_SHARD": "77/99" for name in names})
         env.pop("SUITES_SHARDS", None)

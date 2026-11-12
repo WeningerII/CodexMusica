@@ -36,7 +36,7 @@
 // leaf is the floor no worker count can beat.
 //
 // SHARDS. --split-tests expands the package chain into independent commands: each file
-// of a Node test-runner batch (retaining its flags), twelve partitions of the
+// of a Node test-runner batch (retaining its flags), 24 partitions of the
 // actual discovered unittest IDs, and the connector's declared integration
 // parts. The default unsharded serial commands remain available unchanged.
 // --costs=FILE schedules longest estimated leaves first across N*workers lanes;
@@ -112,6 +112,7 @@ if (!NAME) {
 // discovered unittest adds it here without maintaining a second list.
 const parents = new Map();
 const inventoryDigests = {};
+let nodeTestGroups;
 function expandCommand(command) {
   // No flag preserves npm test's standing process boundaries and optional
   // local SDK behavior. CI explicitly requests independently audited pieces.
@@ -130,8 +131,17 @@ function expandCommand(command) {
   ) {
     const files = tokens.slice(2).filter((token) => !token.startsWith('--'));
     const options = tokens.slice(2).filter((token) => token.startsWith('--'));
-    if (files.length > 1)
-      expanded = files.map((file) => ['node', '--test', ...options, file].join(' '));
+    if (files.length) {
+      nodeTestGroups ||= require('./ci_node_test_groups.js').loadRegistry(ROOT);
+      Object.assign(inventoryDigests, nodeTestGroups.inventoryDigests);
+      expanded = files.flatMap((file) => {
+        const leaf = ['node', '--test', ...options, file].join(' ');
+        const grouped = nodeTestGroups.files.find((entry) => entry.source === file);
+        return grouped
+          ? grouped.groups.map((group) => `${grouped.environment}=${group} ${leaf}`)
+          : [leaf];
+      });
+    }
   }
   const discovery =
     /^((?:[A-Z_]+=\S+\s+)*)python3 -m unittest discover -s ([\w./-]+) -p ([\w.*-]+)$/.exec(command);
@@ -149,7 +159,7 @@ function expandCommand(command) {
         { cwd: ROOT, encoding: 'utf8' }
       )
     );
-    const count = Math.min(12, inventory.ids.length);
+    const count = Math.min(24, inventory.ids.length);
     expanded = Array.from(
       { length: count },
       (_, i) =>
@@ -395,11 +405,13 @@ if (flag('list-json')) {
       })),
     })
   );
-  process.exit(0);
+  // Returning from this CommonJS module prevents execution below while Node
+  // naturally drains a large inventory through an asynchronous stdout pipe.
+  return;
 }
 if (flag('list')) {
   ALL.forEach((c, i) => console.log(SHARD ? `${assignment(SHARD.n)[i]}/${SHARD.n}\t${c}` : c));
-  process.exit(0);
+  return;
 }
 
 leaves = SHARD

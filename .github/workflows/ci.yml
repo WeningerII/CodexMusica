@@ -3280,13 +3280,13 @@ jobs:
           echo "shard ${SUITES_SHARD:-1}/${SUITES_SHARDS:-1}:" \
                "solo='${_mine:-none}' pool=${_pool_k}/${_pool_n}"
           # These six bijections separate the measured foreground and long
-          # single-process sections. Logical offsets from run 43110418153:
-          # null 0, G2P 3, Reader 6, spans 7, readability 1, Screen 0.
+          # single-process sections. Balance uses all three hosted profiles:
+          # null 0, G2P 3, Reader 6, spans 7, readability 0, Screen 0.
           if [ "${SUITES_SHARDS:-1}" -eq 8 ]; then
             export TEST_G2P_SHARD="$(( (${SUITES_SHARD:-1} - 1 + 3) % 8 + 1 ))/8"
             export TEST_READER_SHARD="$(( (${SUITES_SHARD:-1} - 1 + 6) % 8 + 1 ))/8"
             export TEST_SPANS_SHARD="$(( (${SUITES_SHARD:-1} - 1 + 7) % 8 + 1 ))/8"
-            export TEST_READABILITY_SHARD="$(( (${SUITES_SHARD:-1} - 1 + 1) % 8 + 1 ))/8"
+            export TEST_READABILITY_SHARD="$(( (${SUITES_SHARD:-1} - 1 + 0) % 8 + 1 ))/8"
             export TEST_SCREEN_SHARD="${SUITES_SHARD:-1}/8"
           elif [ "${SUITES_SHARDS:-1}" -gt 1 ]; then
             export TEST_G2P_SHARD="${SUITES_SHARD:-1}/${SUITES_SHARDS}"
@@ -3298,26 +3298,26 @@ jobs:
             unset TEST_G2P_SHARD TEST_READER_SHARD TEST_SPANS_SHARD TEST_READABILITY_SHARD TEST_SCREEN_SHARD
           fi
           # One authoritative named inventory, ordered by measured work before
-          # residue dealing. Each runner owns 14–15 ordinary modules; all six
+          # residue dealing. Each runner owns 13–15 ordinary modules; all six
           # large modules deal their own complete section/test-ID inventories.
-          for f in relations_null g2p spans readability reader screen null_shapes production_revision \
-               production_relations narrative coverage_queue homograph replay_memo mandate_relation \
-               relation_index high_report msa_fin grid bias_census floor mut_oracle structure_census fwer \
-               gate_census phrase_commonplace homeoteleuton field_store capacity_receipt coverage_split \
-               cross_song provenance meter_digit_bound chance_rate propose audit_regressions \
-               writing_rhyme_bans lexicon_supplement sequence_unread capabilities source_identity band \
-               mosaic_rhyme recover production_data song_function reader_quotes fit placement register_audit \
-               relations sound_inventory corpus_audit readings_seam p2_full_floor cym melody data_row_claims \
-               slots meter_strict schema_report schema_instance_evidence time_layer function_disclosure \
-               declared_inputs stub_resolution nc_census floor_window door_census align ltc taxonomy \
-               production_harness expected_drift figure_exhibits structures sentencehood meter_bands nucleus \
-               mut_band computational_audit battery_rounds meter suite_sweep shard production_journal \
-               comparator_pin interlocking_chain section_marks type_canon moby_convert tempo \
-               rhyme_organization crosslinguistic mandate_language candidate_pair_projection relation_shapes \
-               backlog_status phon_fas render_form phonology within_item connection_schemas english_text \
-               phon_san pilot_frame phon_non coda pin_sweep meter_honesty verify_entries verify_figures \
-               staging e5_coda_adoption controls matrix corpus_taxonomy positive_control phon_msa \
-               brief_provenance; do
+          _coverage_pid=""
+          for f in relations_null g2p backlog_status battery_rounds coverage_queue spans reader readability \
+               screen lexicon_supplement replay_memo coverage_split structure_census grid gate_census \
+               homograph reader_quotes null_shapes mut_oracle production_revision capacity_receipt \
+               field_store bias_census high_report floor_window relation_index narrative mandate_relation \
+               p2_full_floor writing_rhyme_bans fwer floor nucleus recover homeoteleuton audit_regressions \
+               placement meter_digit_bound corpus_audit readings_seam comparator_pin shard song_function \
+               schema_instance_evidence schema_report cross_song msa_fin propose pin_sweep meter_strict \
+               mosaic_rhyme provenance door_census capabilities relations production_data corpus_taxonomy \
+               production_journal source_identity align sentencehood melody meter_bands production_relations \
+               stub_resolution within_item sound_inventory sequence_unread taxonomy nc_census chance_rate \
+               crosslinguistic brief_provenance tempo declared_inputs slots time_layer cym production_harness \
+               phrase_commonplace controls meter figure_exhibits fit mut_band function_disclosure suite_sweep \
+               structures e5_coda_adoption positive_control moby_convert computational_audit phon_msa \
+               data_row_claims meter_honesty ltc english_text band rhyme_organization phonology pilot_frame \
+               phon_san interlocking_chain verify_entries phon_fas connection_schemas render_form coda \
+               type_canon register_audit section_marks expected_drift phon_non mandate_language matrix \
+               candidate_pair_projection verify_figures relation_shapes staging; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured
@@ -3369,7 +3369,17 @@ jobs:
                   [ "$_owner" -eq "$_pool_k" ] || continue ;;
               esac
             fi
-            while [ "$(jobs -rp | wc -l)" -ge 4 ]; do
+            # Coverage Queue runs two complete independent scans. Reserve
+            # two slots before its launch and while its known background job
+            # is live; afterwards the pool returns to four ordinary modules.
+            while :; do
+              _running=$(jobs -rp)
+              _limit=4
+              [ "$f" != coverage_queue ] || _limit=3
+              for _pid in $_running; do
+                [ "$_pid" != "$_coverage_pid" ] || _limit=3
+              done
+              [ "$(wc -w <<< "$_running")" -ge "$_limit" ] || break
               wait -n
             done
             # THE OUTPUT IS ALSO KEPT PER SUITE, 2026-08-23. Four-wide
@@ -3386,7 +3396,11 @@ jobs:
               echo "── quality/test_$f.py"
               local started=$SECONDS
               local status
+              local -a pipeline_status
               local -a command_env=("TEST_PLAN_WORKERS=$_w")
+              if [ "$f" = coverage_queue ]; then
+                command_env+=("TEST_COVERAGE_QUEUE_WORKERS=2")
+              fi
               if [ "$f" = screen ]; then
                 # Keep this module's enabled SQLite cache private; its CLI
                 # children inherit the same path. Other modules keep their
@@ -3400,11 +3414,16 @@ jobs:
                 command_env+=("XDG_CACHE_HOME=$cache")
               fi
               # The conditional keeps errexit from hiding the failure record;
-              # PIPESTATUS preserves the Python result with or without pipefail.
+              # Capture both results: a lost evidence log must also fail.
               if env "${command_env[@]}" python3 "quality/test_$f.py" 2>&1 | tee "/tmp/suite-logs/$f.log"; then
-                status=${PIPESTATUS[0]}
+                pipeline_status=("${PIPESTATUS[@]}")
               else
-                status=${PIPESTATUS[0]}
+                pipeline_status=("${PIPESTATUS[@]}")
+              fi
+              status=${pipeline_status[0]}
+              [ "$status" -ne 0 ] || status=${pipeline_status[1]}
+              if [ "${pipeline_status[1]}" -ne 0 ]; then
+                echo "Cannot retain quality/test_$f.py log (tee exit ${pipeline_status[1]})" >&2
               fi
               echo "SUITE COST $((SECONDS-started))s quality/test_$f.py (exit $status)"
               [ "$status" -eq 0 ] || echo "$f" >> /tmp/suites-failed
@@ -3416,6 +3435,9 @@ jobs:
                 # four-wide pool first, giving them the same CPU allowance.
                 wait
                 run_suite ;;
+              coverage_queue)
+                run_suite &
+                _coverage_pid=$! ;;
               *) run_suite & ;;
             esac
           done

@@ -120,24 +120,148 @@ def _schema_groups(names, workers):
     return [tuple(names[k::workers]) for k in range(min(workers, len(names)))]
 
 
-def _panel_schema_worker(task):
-    """Run the real sweep, with every null and replicate, for this schema set."""
-    import time
-    sl, names = task[:2]
-    nulls = task[2] if len(task) > 2 else tuple(name for name in N.NULLS if name != "identity")
-    t0 = time.monotonic()
+def _panel_ground(sl, names):
+    """Exact, task-local inputs; no observation survives an input change."""
     lines, stanzas, source, refused_marks, refusal = sl.read_grounded(ROOT)
     if refusal is not None:
         raise RuntimeError(str(refusal))
+    signature = {
+        "slice": (sl.name, sl.path, sl.language, sl.limit, sl.reader,
+                  tuple(sl.declare), sl.note),
+        "lines": tuple(lines), "stanzas": None if stanzas is None else tuple(stanzas),
+        "source": source, "refused_marks": refused_marks,
+        "schemas": tuple(names), "seed": N.SEED, "replicates": 1,
+        "statistics": tuple(N.SWEEP_STATISTICS), "keep": ("true", "none"),
+        "chans": None, "budget": None, "derived_only": False,
+    }
+    return lines, stanzas, source, signature
+
+
+def _panel_payload_bytes(payload):
+    """Only small records/scalars cross spawn; reject retained realisations."""
+    from dataclasses import asdict
+    import pickle
+    def _plain(value):
+        if value is None or type(value) in (str, int, float, bool):
+            return True
+        if isinstance(value, (N.Coverage, R.Refusal)):
+            return _plain(asdict(value))
+        if type(value) in (tuple, list):
+            return all(_plain(item) for item in value)
+        if type(value) is dict:
+            return all(_plain(key) and _plain(item) for key, item in value.items())
+        return False
+    if not _plain(payload):
+        raise ValueError("parallel panel payload retained a non-scalar instrument object")
+    return len(pickle.dumps(payload, protocol=pickle.HIGHEST_PROTOCOL))
+
+
+def _prepare_panel_schema_worker(task):
+    """Measure the original once, then send only its census and statistics.
+
+    Coverage and observation ask exactly the same realisation of the prepared
+    identity stream. Reuse that result only within this schema, then release
+    it. Every null replicate remains a separate production realisation.
+    """
+    import random
+    import time
+    sl, names = task
+    t0 = time.monotonic()
+    lines, stanzas, source, signature = _panel_ground(sl, names)
+    toks = [R.tokenise(line) for line in lines if line.strip()]
+    st0 = N._stream_of(N.NULLS["identity"].fn(toks, random.Random(N.SEED)),
+                      get_phonology(sl.language), sl.language, sl.prepare(), stanzas, source)
+    census, observations, realised = [], {}, {}
+    costs = {"coverage": 0.0, "observation": 0.0}
+    original_realise = R.realise
+    cache, active = {}, None
+    peak_retained = 0
+    def _original_once(schema, stream, *args, **kwargs):
+        nonlocal peak_retained
+        if (stream is not st0 or schema is not R.REGISTRY[active]
+                or args or kwargs != {"keep": signature["keep"]}):
+            raise ValueError("parallel panel original realisation coordinates changed")
+        if active not in cache:
+            cache[active] = original_realise(schema, stream, *args, **kwargs)
+            realised[active] = realised.get(active, 0) + 1
+            peak_retained = max(peak_retained, len(cache))
+        return cache[active]
+    R.realise = _original_once
+    try:
+        for active in names:
+            schema = R.REGISTRY[active]
+            start = time.monotonic()
+            cs = N.coverage(st0, schemas={active: schema}, budget=None,
+                            keep=signature["keep"])
+            costs["coverage"] += time.monotonic() - start
+            census.extend(cs)
+            if cs[0].verdict in ("controlled", "extendable", "cannot_fail"):
+                snames = tuple(sn for sn in N.SWEEP_STATISTICS
+                               if not N.statistic_degeneracy(schema, sn))
+                if snames:
+                    start = time.monotonic()
+                    observations[(active, snames)] = N._measure(
+                        st0, schema, [N.STATISTICS[sn] for sn in snames],
+                        keep=signature["keep"])
+                    costs["observation"] += time.monotonic() - start
+            # No raw Instance list remains when the next schema starts, and
+            # no stream, phonology, schema or declaration closure is sent.
+            cache.clear()
+    finally:
+        cache.clear()
+        R.realise = original_realise
+    if realised != {name: 1 for name in names}:
+        raise ValueError("parallel panel did not measure each original schema exactly once")
+    payload = {"signature": signature, "census": tuple(census),
+               "observations": observations, "realised": realised,
+               "peak_retained_schemas": peak_retained,
+               "retained_realisations": len(cache), "costs": costs,
+               "seconds": time.monotonic() - t0}
+    payload["bytes"] = 0
+    while True:
+        measured = _panel_payload_bytes(payload)
+        if measured == payload["bytes"]:
+            break
+        payload["bytes"] = measured
+    return payload
+
+
+def _panel_schema_worker(task):
+    """Run the real sweep, with every null and replicate, for this schema set."""
+    import time
+    import copy
+    import json
+    sl, names = task[:2]
+    nulls = task[2] if len(task) > 2 else tuple(name for name in N.NULLS if name != "identity")
+    prepared = task[3] if len(task) > 3 else None
+    t0 = time.monotonic()
+    lines, stanzas, source, signature = _panel_ground(sl, names)
+    if prepared is not None:
+        _panel_payload_bytes(prepared)
+        if prepared["signature"] != signature:
+            raise ValueError("parallel panel original input signature changed")
+        if tuple(c.schema for c in prepared["census"]) != tuple(names):
+            raise ValueError("parallel panel prepared census inventory changed")
     # Measure the repeated work explicitly: a null split can save wall time
     # while redoing observation setup, so its actual cost must be visible.
     costs = {"coverage": 0.0, "observation": 0.0, "replicates": 0.0}
     observation = []
-    coverage, measure = N.coverage, N._measure
+    coverage, measure, realise = N.coverage, N._measure, R.realise
+    realised = {"original": {}, "replicates": {}}
     def timed_coverage(stream, *args, **kwargs):
+        if prepared is not None and observation:
+            raise ValueError("parallel panel established more than one original stream")
         observation.append(stream)
         start = time.monotonic()
         try:
+            if prepared is not None:
+                if (args or tuple(kwargs.get("schemas", ())) != tuple(names)
+                        or kwargs.get("budget") is not None
+                        or kwargs.get("keep") != signature["keep"]
+                        or kwargs.get("chans") is not None
+                        or tuple(kwargs.get("statistics", ())) != signature["statistics"]):
+                    raise ValueError("parallel panel prepared coverage coordinates changed")
+                return list(prepared["census"])
             return coverage(stream, *args, **kwargs)
         finally:
             costs["coverage"] += time.monotonic() - start
@@ -145,10 +269,22 @@ def _panel_schema_worker(task):
         key = "observation" if any(stream is item for item in observation) else "replicates"
         start = time.monotonic()
         try:
+            if prepared is not None and key == "observation":
+                schema, statistics = args[:2]
+                if args[2:] != (None, signature["keep"]) or kwargs:
+                    raise ValueError("parallel panel prepared observation coordinates changed")
+                coordinate = (schema.name, tuple(s.name for s in statistics))
+                if coordinate not in prepared["observations"]:
+                    raise ValueError("parallel panel prepared observation is missing: " + schema.name)
+                return copy.deepcopy(prepared["observations"][coordinate])
             return measure(stream, *args, **kwargs)
         finally:
             costs[key] += time.monotonic() - start
-    N.coverage, N._measure = timed_coverage, timed_measure
+    def _counted_realise(schema, stream, *args, **kwargs):
+        key = "original" if any(stream is item for item in observation) else "replicates"
+        realised[key][schema.name] = realised[key].get(schema.name, 0) + 1
+        return realise(schema, stream, *args, **kwargs)
+    N.coverage, N._measure, R.realise = timed_coverage, timed_measure, _counted_realise
     try:
         results, census = N.sweep(
             lines, get_phonology(sl.language), sl.language,
@@ -156,9 +292,12 @@ def _panel_schema_worker(task):
             n=1, budget=None, prepare=sl.prepare(), nulls=nulls,
             stanzas=stanzas, stanza_source=source)
     finally:
-        N.coverage, N._measure = coverage, measure
+        N.coverage, N._measure, R.realise = coverage, measure, realise
+    if prepared is not None and realised["original"]:
+        raise ValueError("parallel panel repeated an original realisation")
     print(f"PANEL PHASE {','.join(nulls)}: "
           + " ".join(f"{name}={seconds:.1f}s" for name, seconds in costs.items()), flush=True)
+    print("PANEL REALISATIONS " + json.dumps({"nulls": nulls, **realised}, sort_keys=True), flush=True)
     return results, census, time.monotonic() - t0, nulls
 
 
@@ -201,8 +340,10 @@ def _merge_panel_parts(parts, names):
 def _partition_panel_sweep(panel):
     """Test-only parallel execution; the full production panel is still checked.
 
-    Tasks partition both schemas and null algorithms. Every schema/null pair
-    uses the original seed and replicate count in the real production sweep.
+    Tasks partition both schemas and null algorithms. An original's census
+    and observed statistics are measured once before its independent nulls.
+    Every schema/null pair uses the original seed and replicate count in the
+    real production sweep; only the unchanged original measurement is reused.
     The parent verifies all coordinates and identical census semantics across
     null arms before combining the full panel and applying the original checks.
     Serial remains the default for local callers and unsupported platforms.
@@ -212,8 +353,9 @@ def _partition_panel_sweep(panel):
         raise ValueError("TEST_RELATIONS_NULL_WORKERS must be positive")
     if workers == 1:
         return N.panel_sweep(root=ROOT, n=1, budget=None, panel=panel)
-    from concurrent.futures import ProcessPoolExecutor
+    from concurrent.futures import ProcessPoolExecutor, wait, FIRST_COMPLETED
     import multiprocessing
+    import json
     from collections import Counter
     groups = _schema_groups(tuple(R.REGISTRY), workers)
     check("parallel panel schema groups cover the registry exactly once",
@@ -224,7 +366,28 @@ def _partition_panel_sweep(panel):
         for sl in panel:
             nulls = tuple(name for name in N.NULLS if name != "identity")
             tasks = [(sl, group, (null,)) for group in groups for null in nulls]
-            parts = list(pool.map(_panel_schema_worker, tasks))
+            pending = {pool.submit(_prepare_panel_schema_worker, (sl, group)):
+                       ("original", group, None) for group in groups}
+            completed = {}
+            while pending:
+                done, _ = wait(pending, return_when=FIRST_COMPLETED)
+                for future in done:
+                    kind, group, null = pending.pop(future)
+                    result = future.result()
+                    if kind == "original":
+                        print("PANEL ORIGINAL " + json.dumps({
+                            "slice": sl.name, "schemas": group,
+                            "seconds": result["seconds"], "costs": result["costs"],
+                            "realised": result["realised"], "bytes": result["bytes"],
+                            "peak_retained_schemas": result["peak_retained_schemas"],
+                            "retained_realisations": result["retained_realisations"],
+                        }, sort_keys=True), flush=True)
+                        for null in nulls:
+                            child = pool.submit(_panel_schema_worker, (sl, group, (null,), result))
+                            pending[child] = ("null", group, null)
+                    else:
+                        completed[(group, null)] = result
+            parts = [completed[(group, ns[0])] for _, group, ns in tasks]
             rows, census = _merge_panel_parts(parts, tuple(R.REGISTRY))
             check(f"parallel panel {sl.name}: returned every schema exactly once",
                   len(census) == len(R.REGISTRY))
@@ -1064,6 +1227,83 @@ def s17_parallel_panel_preserves_the_full_experiment():
         else:
             refused = False
         check(f"{label} refuses instead of changing the experiment", refused)
+
+    # The same real experiment with printed stanza ground and both declaration
+    # steps: the original may be shared, every null must derive its own frame.
+    from collections import Counter
+    with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8") as f:
+        f.write("\n".join(FIXTURE[:2]) + "\n\n" + "\n".join(FIXTURE[2:]) + "\n")
+        f.flush()
+        declared = N.Slice("parallel-declared-control", f.name, "eng", 4,
+                           declare=("caesura:searched", "refrain:all_lines"))
+        declared_names = names + ("leonine rhyme", "epistrophe / radif", "monorhyme / leash")
+        reference = _panel_schema_worker((declared, declared_names))
+        calls, phase = [], "original"
+        original_realise = R.realise
+        def _traced_realise(schema, stream, *args, **kwargs):
+            calls.append((phase, schema.name))
+            return original_realise(schema, stream, *args, **kwargs)
+        R.realise = _traced_realise
+        try:
+            prepared = _prepare_panel_schema_worker((declared, declared_names))
+            cached = []
+            for phase in nulls:
+                cached.append(_panel_schema_worker((declared, declared_names, (phase,), prepared)))
+        finally:
+            R.realise = original_realise
+        merged, merged_census = _merge_panel_parts(cached, declared_names)
+        check("prepared declaration/stanza results equal the unchanged production sweep exactly",
+              canonical(merged) == canonical(reference[0]))
+        check("prepared declaration/stanza census keeps every semantic field",
+              census_values(merged_census) == census_values(reference[1]))
+        check("every null carries the first real coverage measurement, never cache replay timing",
+              all([c.seconds for c in part[1]] == [c.seconds for c in prepared["census"]]
+                  for part in cached))
+        live = {name for (name, _), (values, refusal) in prepared["observations"].items()
+                if values is not None and refusal is None}
+        expected_calls = Counter(("original", name) for name in declared_names)
+        expected_calls.update((null, name) for null in nulls for name in live)
+        check("realisation census measures each original once and every independent null separately",
+              Counter(calls) == expected_calls)
+        check("original preparation retains at most one schema and transports no raw realisations",
+              prepared["peak_retained_schemas"] <= 1 and prepared["retained_realisations"] == 0
+              and prepared["realised"] == {name: 1 for name in declared_names}
+              and _panel_payload_bytes(prepared) > 0)
+        wrong_signature = copy.deepcopy(prepared)
+        wrong_signature["signature"]["seed"] += 1
+        missing_observation = copy.deepcopy(prepared)
+        missing_observation["observations"].pop(next(iter(missing_observation["observations"])))
+        wrong_census = copy.deepcopy(prepared)
+        wrong_census["census"] = wrong_census["census"][:-1]
+        retained_object = copy.deepcopy(prepared)
+        retained_object["raw"] = R.REGISTRY[declared_names[0]]
+        for label, bad in (("changed original signature", wrong_signature),
+                           ("missing observed statistics", missing_observation),
+                           ("incomplete prepared census", wrong_census),
+                           ("retained instrument object", retained_object)):
+            try:
+                _panel_schema_worker((declared, declared_names, (nulls[0],), bad))
+            except ValueError:
+                refused = True
+            else:
+                refused = False
+            check(f"{label} refuses rather than silently recalculating or dropping work", refused)
+        original_sweep = N.sweep
+        def _duplicate_coverage(*args, **kwargs):
+            result = original_sweep(*args, **kwargs)
+            N.coverage(object(), schemas=kwargs["schemas"])
+            return result
+        N.sweep = _duplicate_coverage
+        try:
+            try:
+                _panel_schema_worker((declared, declared_names, (nulls[0],), prepared))
+            except ValueError:
+                refused = True
+            else:
+                refused = False
+        finally:
+            N.sweep = original_sweep
+        check("a second coverage stream cannot reclassify a replicate as the original", refused)
 
 
 _SECTIONS = (

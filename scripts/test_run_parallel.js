@@ -7,6 +7,8 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
+require('./test_ci_node_test_groups.js');
+require('./test_run_parallel_list_output.js');
 const root = path.join(__dirname, '..');
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'ci-leaves-'));
 const run = (args) =>
@@ -159,8 +161,27 @@ try {
   checks++;
   assert.equal(
     commands.filter((command) => command.includes('scripts/run_unittest.py ')).length,
-    12
+    24
   );
+  checks++;
+  const libraryCommands = commands.filter((command) =>
+    command.includes('scripts/run_unittest.py ')
+  );
+  const libraryIds = [];
+  let completeLibraryIds;
+  for (const command of libraryCommands) {
+    const args = command.slice(command.indexOf('scripts/run_unittest.py')).split(' ');
+    const listed = spawnSync('python3', [...args, '--list-json'], { cwd: root, encoding: 'utf8' });
+    assert.equal(listed.status, 0, listed.stderr);
+    const inventory = JSON.parse(listed.stdout);
+    if (completeLibraryIds) assert.deepEqual(inventory.ids, completeLibraryIds);
+    else completeLibraryIds = inventory.ids;
+    assert.ok(command.endsWith(`--expect=${inventory.sha256}`));
+    assert.equal(inventory.selected.length, 9);
+    libraryIds.push(...inventory.selected);
+  }
+  assert.equal(new Set(libraryIds).size, libraryIds.length);
+  assert.deepEqual(libraryIds.sort(), completeLibraryIds);
   checks++;
   const recipes = commands.filter((command) =>
     command.startsWith('REGRESSION_SERIAL=1 node scripts/regression_recipes.js --shard=')
@@ -275,15 +296,33 @@ try {
     .scripts['test:production:offline'].split('&&')[0]
     .trim();
   const productionFiles = productionCommand.split(/\s+/).filter((token) => token.endsWith('.mjs'));
+  const groupedFile = 'mcp/test_session_repairs.mjs';
+  const grouped = require('./ci_node_test_groups.js')
+    .loadRegistry()
+    .files.find((file) => file.source === groupedFile);
   assert.deepEqual(
     offline.map((command) => command.split(' ').at(-1)),
-    productionFiles
+    productionFiles.flatMap((file) =>
+      file === groupedFile ? grouped.groups.map(() => file) : [file]
+    )
   );
   assert.ok(
     offline.every((command) =>
-      command.startsWith('node --test --test-concurrency=1 --test-timeout=120000 ')
+      /^(?:TEST_SESSION_REPAIRS_GROUP=[a-z-]+ )?node --test --test-concurrency=1 --test-timeout=120000 /.test(
+        command
+      )
     )
   );
+  assert.deepEqual(
+    offline
+      .filter((command) => command.endsWith(groupedFile))
+      .map((command) => command.split(' ')[0]),
+    grouped.groups.map((group) => `${grouped.environment}=${group}`)
+  );
+  assert.ok(ordinary.includes(productionCommand), 'default whole-file batch remains unchanged');
+  assert.ok(full.inventoryDigests['scripts/ci_node_test_groups.json']);
+  assert.ok(full.inventoryDigests['scripts/ci_node_test_groups.js']);
+  assert.ok(full.inventoryDigests[groupedFile]);
   assert.ok(
     offline.every(
       (command) => command.split(' ').filter((token) => token.endsWith('.mjs')).length === 1
