@@ -12,6 +12,7 @@ Numeric caps and budgets: module-level constants in the harness files that ran f
 | JOURNAL_WORK_BYTES | 1,048,576 (1,024 KB) | `lyric_harness.py` |
 | JOURNAL_BYTES | 1,114,112 (1,088 KB) | `lyric_harness.py` |
 | JOURNAL_LINE_CHARS | 200 | `lyric_harness.py` |
+| LINE_CHARS | 512 | `lyric_harness.py` |
 | MATTR_WINDOW | 50 | `quality/features.py` |
 | MAX_EXPANDED_POSITIONS | 100,000 | `quality/meter.py` |
 | MAX_FIT_DP_CELLS | 1,000,000 | `quality/meter.py` |
@@ -29,11 +30,12 @@ Numeric caps and budgets: module-level constants in the harness files that ran f
 | RADIF_MAX_TOKENS | 6 | `quality/phonology/fas.py` |
 | RIME_DEPTH | 1 | `quality/phonology/fin.py` |
 | RIME_DEPTH | 1 | `quality/phonology/msa.py` |
+| PLANNED_LINE_CHARS | 200 | `quality/plan.py` |
 | BEATS_PER_SYLLABLE_MAX | 1 | `quality/plan.py` |
 | EXACT_ENUM_MAX | 10 | `quality/plan.py` |
 | PATTERN_ATTEMPTS | 200 | `quality/plan.py` |
 | MAX_CHOICES | 128 | `quality/pronunciation.py` |
-| MAX_LINE_CHARS | 200 | `quality/propose.py` |
+| MAX_LINE_CHARS | 512 | `quality/propose.py` |
 | _PHONE_MIX_CAP | 4,096 | `quality/relations.py` |
 | _WVP_MEMO_CAP | 32 | `quality/relations.py` |
 | _RESOLVE_MEMO_CAP | 20,000 | `quality/relations.py` |
@@ -84,20 +86,22 @@ Connector:
 | MAX_WORDS | 12 | `../mcp/lyric_tools.js` |
 | MAX_WORD_CHARS | 40 | `../mcp/lyric_tools.js` |
 | MAX_LINES | 463 | `../mcp/lyric_tools.js` |
-| MAX_LINE_CHARS | 200 | `../mcp/lyric_tools.js` |
+| MAX_LINE_CHARS | 512 | `../mcp/lyric_tools.js` |
+| ANSWER_LINE_UTF8_BYTES | 800 | `../mcp/lyric_tools.js` |
+| ANSWER_LINE_JSON_BYTES | 1,200 (1 KB) | `../mcp/lyric_tools.js` |
 | MAX_MANDATE_CHARS | 65,536 | `../mcp/lyric_tools.js` |
 | MAX_SWEEP_SEEDS | 28 | `../mcp/lyric_tools.js` |
 | MAX_WANTS | 13 | `../mcp/lyric_tools.js` |
 | MAX_WANT_CHARS | 80 | `../mcp/lyric_tools.js` |
-| MAX_ANSWER_CHARS | 4,000 | `../mcp/lyric_tools.js` |
 | MAX_OUTPUT_BYTES | 9,437,184 (9,216 KB) | `../mcp/lyric_tools.js` |
 | LOOKUP_MAX_ADMITTED | 8 | `../mcp/lyric_tools.js` |
 | CONNECTOR_ATTEMPTS | 1 | `../mcp/lyric_tools.js` |
 | KITCHEN_ATTEMPTS | 3 | `../mcp/lyric_tools.js` |
 | REFUSAL_HEADLINE_MAX | 400 | `../mcp/lyric_tools.js` |
 | ADMISSION_MAX_LINES | 463 | `../mcp/meter_admission.js` |
-| ADMISSION_MAX_LINE_CHARS | 200 | `../mcp/meter_admission.js` |
-| METER_LINE_DIGITS_CAP | 301 | `../mcp/meter_admission.js` |
+| ADMISSION_MAX_LINE_CHARS | 512 | `../mcp/meter_admission.js` |
+| REQUEST_BUDGET_LINE_CHARS | 200 | `../mcp/meter_admission.js` |
+| METER_LINE_DIGITS_CAP | 769 | `../mcp/meter_admission.js` |
 | METER_REQUEST_DIGITS_CAP | 139,363 | `../mcp/meter_admission.js` |
 | RAW_ROWS_CAP | 1,389 | `../mcp/meter_admission.js` |
 | METER_LINE_RESPONSE_BYTES | 7,507 (7 KB) | `../mcp/meter_admission.js` |

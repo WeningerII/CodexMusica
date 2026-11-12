@@ -249,7 +249,6 @@ const boundOf = (line, declarations = []) =>
     declarations.map((d, i) => ({ index: i + 1, ...d }))
   ).bound;
 const sumOf = (lines) => lines.reduce((n, line) => n + boundOf(line), 0);
-const fmt = (n) => n.toLocaleString('en-US');
 // Declaring token 1 (`w`, 2 units) with k vowels: 766 + k. k = 3 is the cap,
 // k = 4 is one over it.
 const AT_LINE = [decl(WITNESS, 3)];
@@ -324,10 +323,7 @@ test('the fixtures read what the tests below take them to read', () => {
   assert.equal(boundOf(DRAFT_LINE), 19);
   assert.equal(boundOf('a'.repeat(187)), 282);
   assert.equal(sumOf(AT_REQUEST_BESIDE_DRAFT) + boundOf(DRAFT_LINE), METER_REQUEST_DIGITS_CAP);
-  assert.equal(
-    sumOf(AT_REQUEST) + boundOf('a', OVER_REQUEST_DECL),
-    METER_REQUEST_DIGITS_CAP + 1
-  );
+  assert.equal(sumOf(AT_REQUEST) + boundOf('a', OVER_REQUEST_DECL), METER_REQUEST_DIGITS_CAP + 1);
   // Per request, in 512-character lines.
   assert.equal(LONG_LINES_FIT, 181);
   assert.equal(sumOf(LONG_UNDER_REQUEST), 139_189);
@@ -1248,9 +1244,15 @@ test('mutant guards: check order, declared-only lines, the draft at its largest,
       return e.cause;
     }
   };
-  // (5) Per line before per request: one line over 301 AND a total over
-  // 139,363 is refused for the line.
-  assert.equal(cause({ state: stateWire([...AT_REQUEST, 'x'.repeat(250)]) }), 'meter_line_digits');
+  // (5) Per line before per request: one line over 769 AND a total over
+  // 139,363 is refused for the line. (A line of 513 characters is 771; while
+  // the cap was 301 this was a line of 250.)
+  assert.equal(lineDigitBound('x'.repeat(513)).bound, METER_LINE_DIGITS_CAP + 2);
+  assert.equal(cause({ state: stateWire([...AT_REQUEST, 'x'.repeat(513)]) }), 'meter_line_digits');
+  assert.equal(
+    cause({ state: stateWire([...AT_REQUEST, 'x'.repeat(512)]) }),
+    'meter_request_digits'
+  );
   // (6) Declared-only lines stay out of the total: a draft at exactly
   // 139,363 plus a declared line in no draft is admitted.
   const elsewhere = 'a line no draft holds';
@@ -1293,15 +1295,16 @@ test('mutant guards: check order, declared-only lines, the draft at its largest,
   ]);
   assert.equal(reversed.undeclared_units, units - 4);
   // (10) A declared line of more than one row can never be sung, so it is
-  // not measured, even far over the cap.
+  // not measured, even far over the cap. (800 declared digits against the cap
+  // of 769; while the cap was 301 this was 400.)
   for (const br of ['\n', '\r', '\r\n', '\u2028', '\u2029'])
     assert.equal(
-      cause({ draft: [DRAFT_LINE], pronunciations: [decl(`a${br}b`, 400, 1, 'a')] }),
+      cause({ draft: [DRAFT_LINE], pronunciations: [decl(`a${br}b`, 800, 1, 'a')] }),
       null,
       JSON.stringify(br)
     );
   assert.equal(
-    cause({ draft: [DRAFT_LINE], pronunciations: [decl('a b', 400, 1, 'a')] }),
+    cause({ draft: [DRAFT_LINE], pronunciations: [decl('a b', 800, 1, 'a')] }),
     'meter_line_digits'
   );
 });
@@ -1319,7 +1322,7 @@ test('a run this process holds is measured with what it carries in; an export is
           run_revision: rec.revision,
           answer: DRAFT_LINE,
         }),
-      /meter_line_digits — L001 of `draft` could reach 302 /
+      new RegExp(`meter_line_digits — L001 of \`draft\` could reach ${OVER_LINE_BOUND} `)
     );
     // A checkpoint run carries its replay_draft, not the displayed draft.
     const replayed = RUNS.put('admission-test-replay', {
@@ -1518,7 +1521,9 @@ test('/mcp: a revision continuation and a resume are refused with their carried 
     () => sessions.submit(first.operation_id, 'lyrics', 'lyric_revise', { answer: DRAFT_LINE }),
     (e) =>
       e.code === 'RESOURCE_LIMIT' &&
-      /meter_line_digits — L001 of `draft` could reach 302 /.test(e.message)
+      new RegExp(`meter_line_digits — L001 of \`draft\` could reach ${OVER_LINE_BOUND} `).test(
+        e.message
+      )
   );
   assert.equal(sessions.queued.size, 0);
   assert.deepEqual(executed, ['lyric_revise']);
