@@ -1,0 +1,62 @@
+.instrument-detail {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 1rem;
+  color: inherit;
+  font: inherit;
+  overflow-wrap: anywhere;
+}
+.instrument-detail * {
+  box-sizing: border-box;
+}
+.instrument-detail-hero {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.instrument-detail-hero > div:first-child {
+  min-width: 0;
+}
+.instrument-detail h2 {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+.instrument-detail p {
+  line-height: 1.6;
+}
+.instrument-detail-media {
+  flex: 0 0 auto;
+}
+.instrument-detail img {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+}
+.instrument-detail button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.5rem;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+.instrument-detail a {
+  color: inherit;
+  text-decoration: underline;
+  display: inline-block;
+  min-height: 24px;
+}
+.instrument-detail :focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+@media (max-width: 390px) {
+  .instrument-detail-hero {
+    flex-direction: column;
+  }
+}
