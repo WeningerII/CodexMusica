@@ -1,5 +1,5 @@
 /* exported CMLibraryImport */
-/* global module, require */
+/* global module */
 /* Library working-copy transport. No source edits, grading, recipe work or
    network dispatch. An import is activated only after a durable, atomic draft
    commit. Envelopes arrive in-page (the Library tab's uiOpenInLyrics) or from
@@ -99,11 +99,6 @@
       fail('Library import digest does not match its content.');
     return clone(raw);
   }
-  const lyricTokens = () =>
-    root.CMLyricTokens ||
-    (typeof require === 'function'
-      ? require('./lyric-tokens.js')
-      : fail('The lyric reader is not loaded.'));
   function eligibleForWriter(text, language) {
     const reasons = [];
     const rows = text.split(/\r\n?|\n/);
@@ -117,17 +112,8 @@
       );
     if (rows.some((line) => line.length > 200))
       reasons.push('At least one row exceeds the writing workflow’s 200-character limit.');
-    if (
-      rows.some((line) => {
-        if (!line.trim() || /^\[[^\]]*\]$/.test(line.trim())) return false;
-        // The grader's own word count (src/lyric-tokens.js mirrors it).
-        const words = lyricTokens().lineTokens(line, true);
-        return words.length < 2 || words.length > 12;
-      })
-    )
-      reasons.push(
-        'The writing workflow accepts 2–12 sung words per line. The full reading is retained.'
-      );
+    // Import eligibility is transport admission, not a creative line-length rule.
+    // Word-count calibration belongs to the grader; it must not disable Review.
     return { eligible: reasons.length === 0, reasons };
   }
   function importedDraft(envelope, now) {
