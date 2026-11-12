@@ -1,0 +1,146 @@
+name: 'Diagnostic: #836 paired before/after (never merged)'
+
+# ONE-OFF, NEVER-MERGED DIAGNOSTIC for #612 / #836's remaining acceptance
+# (#612 comments 6691299041, 6691304719, 6691318666, 6691659223): the gate's
+# own cells, measured before and after #836 ON THE SAME RUNNER, plus the cold
+# first Library search before and after.
+#
+#   before = 85b0dd40c2 (main just before #836; the stores load on first use,
+#            and the gate's harness loads them right after startup)
+#   after  = a65b65dee1 (#836's merge; `--library-mode` unloaded and loaded)
+#
+# Each shard job builds BOTH images from their own trees and runs that shard's
+# cells with each arm's own scripts/, exactly as capacity-matrix.yml does
+# (`--cpus=1 --memory=2g --network=none`, same mounts, same checker). Two
+# rounds, order reversed in the second (B, AU, AL then AL, AU, B), so a drift
+# over the job's lifetime cannot favour one arm. Then five cold first-search
+# pairs, alternating which arm goes first. Every number is printed to the log
+# as `DIAG836 ...` lines (artifacts are also kept).
+#
+# It changes no gate, ceiling, timeout or shipped file; it cannot deploy
+# (deploy-connector.yml accepts main only); it makes no paid call (the
+# containers have no network and use the offline key placeholder).
+on:
+  push:
+    branches: [r2/836-pair]
+    paths: ['.github/workflows/diag-836-pair.yml', 'diag836/**']
+  workflow_dispatch: {}
+permissions:
+  contents: read
+concurrency:
+  group: diag-836-pair
+  cancel-in-progress: false
+
+env:
+  BEFORE_SHA: 85b0dd40c2c5e56410c265d0a0af68b00cf72773
+  AFTER_SHA: a65b65dee173fb97609e61c85535171baa2ddbe9
+
+jobs:
+  shard:
+    name: pair ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: pole
+            cells: 31:20260910,24:20260909
+          - name: upper
+            cells: 24:20260910,24:20260908
+          - name: middle
+            cells: 31:20260908,18:20260909
+          - name: rest
+            cells: 31:20260909,18:20260910,18:20260908
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          path: diag
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ env.BEFORE_SHA }}
+          path: before
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ env.AFTER_SHA }}
+          path: after
+      - name: Runner identity
+        run: |
+          set -euo pipefail
+          echo "DIAG836 HOST $(jq -cn --arg name '${{ matrix.name }}' --arg runner "$RUNNER_NAME" \
+            --arg image "${ImageVersion:-?}" --arg region "$(curl -s -m 5 -H Metadata:true 'http://169.254.169.254/metadata/instance/compute/location?api-version=2021-02-01&format=text' || echo ?)" \
+            --arg cpu "$(grep -m1 'model name' /proc/cpuinfo | cut -d: -f2 | xargs)" --arg nproc "$(nproc)" \
+            --arg mem "$(grep MemTotal /proc/meminfo | awk '{print $2}')" \
+            '{shard:$name,runner:$runner,image:$image,region:$region,cpu:$cpu,nproc:$nproc,mem_kib:$mem}')"
+          git -C before rev-parse HEAD; git -C after rev-parse HEAD
+      - name: Reclaim unused hosted runner toolchains
+        run: |
+          set -euo pipefail
+          sudo rm -rf -- /usr/local/lib/android /usr/share/dotnet /opt/ghc /usr/local/.ghcup
+          df -B1 / /var/lib/docker
+      - name: Build both arms' images
+        timeout-minutes: 80
+        run: |
+          set -euo pipefail
+          for arm in before after; do
+            sha=$(git -C "$arm" rev-parse HEAD)
+            ( cd "$arm" && docker build --platform=linux/amd64 --build-arg RENDER_GIT_COMMIT="$sha" \
+                --build-arg BUILD_RELEASE_ID="${{ github.repository_id }}:${{ github.run_id }}:${{ github.run_attempt }}:diag836-$arm" \
+                -f mcp/Dockerfile -t "diag836-$arm" . > "../build-$arm.log" 2>&1 ) || { tail -100 "build-$arm.log"; exit 1; }
+            echo "DIAG836 IMAGE $arm $sha $(docker image inspect --format='{{.Id}}' diag836-$arm)"
+            grep -E 'CAPACITY (RECEIPT REUSED|VERIFIED:)' "build-$arm.log" | head -3 || true
+            docker builder prune -af > /dev/null || true
+          done
+          df -B1 / /var/lib/docker
+      - name: Gate cells, two rounds per arm, order reversed in round 2
+        timeout-minutes: 240
+        env:
+          CELLS: ${{ matrix.cells }}
+          NAME: ${{ matrix.name }}
+        run: |
+          set -uo pipefail
+          mkdir -p evidence
+          run_arm() {  # $1 label  $2 tree/image  $3 library-mode flag or ''  $4 round
+            local label=$1 tree=$2 flag=$3 rnd=$4 out="evidence/$NAME-$1-r$4.json"
+            local t0=$(date +%s)
+            docker run --rm --network=none --cpus=1 --memory=2g --memory-swap=2g --pids-limit=256 \
+              --mount "type=bind,src=$GITHUB_WORKSPACE/$tree/scripts,dst=/app/scripts,readonly" \
+              --mount "type=bind,src=$GITHUB_WORKSPACE/evidence,dst=/evidence" \
+              --workdir=/app --entrypoint=python3 "diag836-$tree" \
+              /app/scripts/check_lyrics_capacity.py --cells="$CELLS" $flag \
+              --out="/evidence/$NAME-$label-r$rnd.json" > "evidence/$NAME-$label-r$rnd.log" 2>&1
+            local rc=$?
+            echo "::group::$NAME $label round $rnd (rc=$rc, $(( $(date +%s) - t0 ))s)"
+            grep -E '^Capacity (peak sample|startup trace)|"status"' "evidence/$NAME-$label-r$rnd.log" || true
+            echo '::endgroup::'
+            python3 -I diag/diag836/summarize.py "$out" "$label" "$rnd" "$rc"
+          }
+          run_arm B  before ''                        1
+          run_arm AU after  '--library-mode=unloaded' 1
+          run_arm AL after  '--library-mode=loaded'   1
+          run_arm AL after  '--library-mode=loaded'   2
+          run_arm AU after  '--library-mode=unloaded' 2
+          run_arm B  before ''                        2
+          exit 0
+      - name: Cold first Library search, five pairs, alternating order
+        timeout-minutes: 40
+        run: |
+          set -uo pipefail
+          probe() {  # $1 tree  $2 rep
+            docker run --rm --network=none --cpus=1 --memory=2g --memory-swap=2g --pids-limit=256 \
+              --mount "type=bind,src=$GITHUB_WORKSPACE/$1/scripts,dst=/app/scripts,readonly" \
+              --mount "type=bind,src=$GITHUB_WORKSPACE/diag/diag836,dst=/diag,readonly" \
+              --workdir=/app --entrypoint=python3 "diag836-$1" /diag/first_search_probe.py "$1" "$2" 2>&1 \
+              | grep -E '^DIAG836|Error|Traceback' || echo "DIAG836 FIRST_SEARCH {\"arm\":\"$1\",\"rep\":$2,\"error\":\"no output\"}"
+          }
+          for rep in 1 2 3 4 5; do
+            if [ $((rep % 2)) = 1 ]; then probe before $rep; probe after $rep; else probe after $rep; probe before $rep; fi
+          done
+          exit 0
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: diag836-${{ matrix.name }}
+          path: evidence/
+          if-no-files-found: warn
+          retention-days: 14
