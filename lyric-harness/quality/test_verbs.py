@@ -5483,11 +5483,15 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
         fh.write("\n".join(lines) + "\n")
     # Written for seed 176's verse-chorus plan; declared since #671 took
     # away the CLI's own default form.
-    common = ["--seed=176", "--form=verse-chorus", "--lines=12", "--relation=RHYME", "--attempts=0",
+    # ~~--seed=176~~ -> 10067 (2026-11-13, measured): the planner draws from
+    # all 22 section functions, so seed 176 re-deals; 10067 is the first
+    # verse-chorus seed at 12 lines these unchanged lines grade clean on
+    # (ends tied 1,2,3;6,7, with 6->8 and 7->9 returned).
+    common = ["--seed=10067", "--form=verse-chorus", "--lines=12", "--relation=RHYME", "--attempts=0",
               "--backtrack=0", "--max-rounds=1"]
     rc, out, _ = run("finish", draft, "--title=zebra confetti", *common)
     result = _machine_result(out)
-    st = re.search(r"\[FINISHED — seed 176 — exit (\d) — (\w+) after (\d+) "
+    st = re.search(r"\[FINISHED — seed 10067 — exit (\d) — (\w+) after (\d+) "
                    r"round\(s\) — ([^\]]+)\]", out)
     check("the current seed plan is filled and every requested obligation is judged",
           result.get("status") == "finished" and result.get("final_draft") == lines

@@ -8238,6 +8238,12 @@ if (!runs('offline') || PART === null) {
       // ends tie ~~1,2,3~~ 1,3;4,5;6,7. The draft is unchanged and still
       // grades clean. Re-pinned for mandatory writing bans: balloon/afternoon
       // shares -oon; strewn keeps the rhyme without a spelled-ending or modal ban.
+      // ~~seed 176~~ -> SEED 10067, RE-MEASURED 2026-11-13: the planner draws
+      // from all 22 section functions (refrain and burden are ordinary
+      // sections, owner ruling), so seed 176 at 12 lines re-deals. Seed 10067
+      // is the first verse-chorus seed at 12 lines whose plan this unchanged
+      // draft grades clean on: returns 6,8;7,9 and hook L6 as before, ends
+      // tied 1,2,3;6,7 (scanned 0-11999 with the grade run on each candidate).
       const qualifiedDraft = [
         'Buttons gleam where wheat was sown by a balloon',
         "Bone cold, my mother's herbs came up in June",
@@ -8622,7 +8628,7 @@ if (!runs('offline') || PART === null) {
               `fits ${Buffer.byteLength(JSON.stringify(splitState), 'utf8')} state bytes without dropping a brief`
           );
           passed++;
-          const revisionSeed = 176;
+          const revisionSeed = 10067;
           const revisionDraft = [...qualifiedDraft];
           // THE DEFECT IS L1 ENDING ON ITS GROUP PARTNER'S OWN WORD: a word rhymed
           // with itself (REPEAT_IN_VERSE) in a group that requires class:RHYME
@@ -8997,7 +9003,7 @@ if (!runs('offline') || PART === null) {
               {
                 name: 'lyric_grade',
                 arguments: {
-                  seed: 176,
+                  seed: 10067,
                   lines: 12,
                   form: 'verse-chorus',
                   draft: qualifiedDraft,

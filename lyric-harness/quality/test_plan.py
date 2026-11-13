@@ -242,9 +242,9 @@ def test_the_denominator_is_drawn():
     # Only seed 5 changes under #676; seed 11 now witnesses /4.
     # ~~(0, 4, 11, 6, 7, 16, 18)~~ — REPINNED 2026-11-13 with the meters
     # above: 0 is /64 (with 2s only), 1 /8, 2 /1 (with a 3 in its bar),
-    # 4 /16, 7 /32, 8 /4 and 11 /2, each the first default seed of its
+    # 4 /16, 5 /32, 8 /4 and 11 /2, each the first default seed of its
     # denominator.
-    for k in (0, 1, 2, 4, 7, 8, 11):
+    for k in (0, 1, 2, 4, 5, 8, 11):
         p, m, units = _sig(k)
         _units[m["unit"]] = (k, m["beats"], tuple(m["groups"]))
     check("every declarable denominator is reachable from default plans",
@@ -4832,7 +4832,7 @@ def test_the_seed_redraw():
     # ~~2025 (two refusals)~~ -> ~~6417~~ (2026-10-27, D7's re-dealt
     # stream) -> 2330 (the same day, once a redraw keeps the first draw's
     # length): no default seed in 0-2329 needs more than one redraw; 2330
-    # (2026-11-13: over 0-3033, 73 seeds need one redraw and 3 need two)
+    # (2026-11-13: over 0-3033, 76 seeds need one redraw and 3 need two)
     # needs two (measured over 0-11999: 323 seeds need one, 9 need two).
     # ~~2330~~ -> 1861 (2026-11-13, the 22-function roster): the first
     # default seed that needs two redraws.

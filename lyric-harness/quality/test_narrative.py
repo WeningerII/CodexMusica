@@ -428,20 +428,20 @@ def test_measured_seeds():
     # functions (`refrain` and `burden` are ordinary sections, owner ruling),
     # so a 22-cell grammar re-deals every body draw, as it did when `patter`
     # entered. ~~ZEROS = (20, 38, 42, 52, 58, 60, 67, 73, 81, 86, 89)~~:
-    # eleven zeros become seven; 4 and 56 become zero, 89 becomes positive.
+    # eleven zeros become nine; 4 and 56 become zero, 89 becomes positive.
     # The census over seeds 1-40 holds at 38 admit / 2 zero.
-    ZEROS = (4, 12, 56, 66, 73, 85, 94)
-    pins = {1:20054016, 6:10838016, 7:166464, 9:188640,
-            15:6871628906496, 19:3092810563584000, 23:11600, 24:8957952,
+    ZEROS = (4, 12, 56, 62, 67, 73, 82, 85, 94)
+    pins = {1:2825912320, 6:10838016, 7:166464, 9:188640,
+            15:334453800960, 19:13369344, 23:11600, 24:8957952,
             25:52258406400, 27:212526080, 28:5248, 30:23353344, 31:246016,
-            34:479232, 39:24768, 77:15360, 89:2746368,
-            41:29655040, 59:144506880,
+            34:479232, 39:24768, 77:235008000, 89:66060288,
+            41:276480, 59:144506880,
             **{seed: 0 for seed in ZEROS}}
     got = {}
     for seed, want in sorted(pins.items()):
         fns = [s["function"] for s in P.make_plan(seed, form="verse-chorus")["sections"]]
         got[seed] = N.count_lineups(fns)
-    check("all eighteen historical seeds and all seven current zero "
+    check("all eighteen historical seeds and all nine current zero "
           "exemplars re-derive exactly under the plan envelope",
           got == pins and set(historical_pins_2026_09_05) <= set(pins), got)
     # A SEED THE JOINT GATE REFUSES FOR `NO_FREE_WORD` ALONE HAS NO PLAN
@@ -467,7 +467,7 @@ def test_measured_seeds():
     # 55 refuses here~~ — since option (b) (2026-10-22) a draw the joint gate
     # refuses is redrawn, so NO seed refuses and the denominator is all 100
     # again; any refusal fails this check.
-    check("the complete current 100-seed denominator has exactly seven "
+    check("the complete current 100-seed denominator has exactly nine "
           "zero shapes, two of them among the first forty, over all 100 "
           "plans with no seed refused",
           {seed for seed, count in sweep.items() if count == 0} == set(ZEROS)
@@ -520,7 +520,8 @@ def test_measured_seeds():
     # length-1 prefix counts 0 for a reason that is not a refusal.
     check("actual current zeros distinguish opening refusals from a refusal "
           "at the third section",
-          at == {4: 1, 12: 1, 56: 1, 66: 1, 73: 1, 85: 1, 94: 3},
+          at == {4: 1, 12: 1, 56: 1, 62: 1, 67: 1, 73: 1, 82: 1, 85: 1,
+                 94: 3},
           at)
     check("seed 94's depth 3 is RESOLVE without prior COMPLICATE",
           shapes[94][:3] == ["drop", "chorus", "false_ending"]

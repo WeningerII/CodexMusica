@@ -4130,24 +4130,32 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         order = list(kinds)
         rng.shuffle(order)
         shape = tuple(counts[f] for f in order)
-        drawn = _partition_uniform(shape, total - (_min_section - 1) * sum(shape), rng)
-        if drawn is not None:
+        # A TAG IS "a short repeated fragment" (its row): no longer than any
+        # other sung part of this song, and graded by the same rule
+        # (`TAG_NOT_SHORT`). THE PARTITION is what is redrawn for it, not the
+        # shape: abandoning the shape left a tag in one plan in twenty,
+        # because most partitions hand the tag more lines than some other
+        # part. A shape with no tag draws its partition once, as before.
+        for _tag_try in range(PATTERN_ATTEMPTS if "tag" in order else 1):
+            drawn = _partition_uniform(shape, total - (_min_section - 1) * sum(shape), rng)
+            if drawn is None:
+                break
             drawn = [k + _min_section - 1 for k in drawn]
+            ks = {f: 0 for f in dict.fromkeys(funcs)}
+            for fn, k in zip(order, drawn):
+                ks[fn] = k
+            if not (ks.get("tag") and any(0 < v < ks["tag"]
+                                          for f, v in ks.items()
+                                          if f != "tag")):
+                break
+        else:
+            continue
         if drawn is None:
             # This (pattern, total) pair admits no assignment at all — every
             # kind needs at least one line per instance and the total cannot
             # cover them, or the arithmetic leaves no whole remainder.
             # Rejected, never rounded: a rounded total is a length the floor
             # was not asked about.
-            continue
-        ks = {f: 0 for f in dict.fromkeys(funcs)}
-        for fn, k in zip(order, drawn):
-            ks[fn] = k
-        # A TAG IS "a short repeated fragment" (its row): no longer than any
-        # other sung part of this song. Redrawn, like every other refusal in
-        # this loop, and graded by the same rule (`TAG_NOT_SHORT`).
-        if ks.get("tag") and any(0 < v < ks["tag"] for f, v in ks.items()
-                                 if f != "tag"):
             continue
         # PHRASES FOR THE WORDLESS SECTIONS, from the SAME per-section
         # envelope. They consume no lines — they carry no words — so they
