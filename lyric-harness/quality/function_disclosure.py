@@ -103,9 +103,49 @@ def function_contract_explanations():
     by the assessment. In particular, do not append these as obligation rows.
     """
     return {
-        "convention": "Convention: musical advice; never withholds certification.",
-        "declared": "Declared: the user or chosen form asked for it; an unjudged obligation can withhold certification.",
-        "structural_repair": "Occurrence, order and grid changes require manual structural editing, redeclaration or replanning, followed by recheck; rewriting words alone does not repair them.",
-        "word_repair": "Explicit Return identity obligations are separate from advisory function return measurements. Existing copy/rewrite operations may repair word identity; recheck the declared obligation.",
-        "measurement": "Acoustic properties are not verified from text. A label or resolved name does not establish a performed musical result.",
+        "convention": "Convention: musical advice. It never withholds certification.",
+        "declared": "Declared: you, or the form you chose, asked for this. If it couldn't be judged, it can withhold certification.",
+        "structural_repair": "Structural repair: if a problem is how often a section occurs, its order or its bars, fix it by editing the structure, changing the declaration or replanning, then check again. Rewriting words alone won't fix it.",
+        "word_repair": "Word repair: a declared Return asks for the same words to come back. Copying or rewriting the words can fix that; check the declaration again afterwards. This is separate from the advisory measurement of how much a section returns.",
+        "measurement": "Acoustic properties aren't verified from text. A section's label or resolved name doesn't show how it sounds when performed.",
     }
+
+
+def function_capabilities():
+    """One row per registered function: what declaring it gets asked.
+
+    The capability ledger of issue #676 (comment 6587459008) as data read off
+    the registry, so it cannot go stale beside it. Display metadata like the
+    rest of this module: nothing is checked here, and a row describes the
+    checks that exist, not a result for any song.
+
+    placement              "checked" when the registry row makes a placement
+                           claim the report asks; "refused" when the row
+                           records why no claim is made; "no claim" otherwise.
+    recurrence, returns_as the row's own convention.
+    contrast_measured      the functions this one is measured against.
+    contrast_not_checked   the functions the convention expects it to differ
+                           from that nothing measures.
+    not_verified_from_text what the name promises about the performance.
+    line_role              "refused" for the two line-kind names: marking a
+                           blueprint line with `role` is not accepted yet.
+    """
+    rows = []
+    for name, spec in grid.SECTION_FUNCTIONS.items():
+        placed = bool(spec.boundary or spec.requires or spec.adjacent_after
+                      or spec.adjacent_before or spec.needs_before
+                      or spec.needs_after)
+        rows.append({
+            "function": name,
+            "kind": spec.kind,
+            "placement": ("checked" if placed else
+                          "refused" if spec.placement_refused else "no claim"),
+            "recurrence": spec.recurrence,
+            "returns_as": spec.returns_as,
+            "contrast_measured": [b for a, b in grid.MEASURED_CONTRASTS if a == name],
+            "contrast_not_checked": [o for o in spec.contrasts_with
+                                     if (name, o) not in grid.MEASURED_CONTRASTS],
+            "not_verified_from_text": spec.unverified,
+            "line_role": "refused" if spec.kind == "line" else "",
+        })
+    return rows

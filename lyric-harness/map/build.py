@@ -261,7 +261,39 @@ def rules_md():
                "only when the original function endpoint maps to that complete physical token. "
                "They do not change endpoint selection, add dictionary readings or change "
                "the perfect-rime policy.")
+    out += section_types_md()
     return "\n".join(out) + "\n"
+
+
+def section_types_md():
+    """The section types and what declaring each one gets checked, from the
+    registry (`quality/function_disclosure.py`), so the page cannot drift."""
+    from quality.function_disclosure import function_capabilities
+    rows = function_capabilities()
+    out = ["\n## Section types\n",
+           f"What declaring each of the {len(rows)} section types gets checked "
+           "(from `function_capabilities` in `quality/function_disclosure.py`). "
+           "**Placement**: `checked` means the type has a rule about where it sits, and a "
+           "draft that breaks it gets a note; `no claim` means it may sit anywhere; `refused` "
+           "means the registry records why no rule is made. **Contrast**: the one contrast "
+           "measured is the bridge against the verse; the next column names the sections "
+           "the convention expects this one to differ from that nothing measures. **Not "
+           "verified from text**: what the name promises about the performance, which words "
+           "on a bar grid cannot show. A grade says both, as `CONTRAST_NOT_CHECKED` and "
+           "`EFFECT_NOT_VERIFIED` rows with status `not_requested`: they are counted as "
+           "neither answered nor refused and never stop a song. `refrain` and `burden` are "
+           "kinds of line: a section may be labelled or declared with either name, and "
+           "marking a line itself (`role` on a blueprint line) is refused for now.\n",
+           "| type | kind | placement | recurrence | returns as | contrast measured | "
+           "contrast expected, not checked | not verified from text |",
+           "|---|---|---|---|---|---|---|---|"]
+    for r in rows:
+        out.append(
+            f"| {r['function']} | {r['kind']} | {r['placement']} | {r['recurrence']} | "
+            f"{r['returns_as']} | {', '.join(r['contrast_measured']) or '—'} | "
+            f"{', '.join(r['contrast_not_checked']) or '—'} | "
+            f"{r['not_verified_from_text'] or '—'} |")
+    return out
 
 
 # ---------------------------------------------------------------- limits
@@ -458,7 +490,7 @@ def index_md(sections, ran, trace):
         "| section | what it answers | tokens |",
         "|---|---|---:|",
         f"| `map/song-path.md` | which functions run for each tool, and where the time goes | {ktok(sizes['song-path'])} |",
-        f"| `map/rules.md` | every finding code, its severity, and whether it can stop a song | {ktok(sizes['rules'])} |",
+        f"| `map/rules.md` | every finding code, its severity, and whether it can stop a song; the section types and what each gets checked | {ktok(sizes['rules'])} |",
         f"| `map/limits.md` | every numeric cap, budget and time limit, with its file | {ktok(sizes['limits'])} |",
         f"| `map/files.md` | which files the song program uses, which it never loads, sizes | {ktok(sizes['files'])} |",
         f"| `map/timings.md` | seconds per tool call on the reference song | {ktok(sizes['timings'])} |",

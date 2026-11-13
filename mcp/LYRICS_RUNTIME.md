@@ -237,6 +237,13 @@ The checks run in this order:
    139,363) and `after` (1 line, 19) together could reach 139,382 syllable
    digits; one request carries at most 139,363") and each set it left out.
 
+**Marking a line as a refrain or burden is refused for now.** A `blueprint`
+line that carries `role` is not accepted, and the whole blueprint is refused
+with it: "line N: `role` isn't supported yet, so this blueprint was not
+accepted. Remove `role` from this line and send it again." A section may still
+be labelled or declared `refrain` or `burden`; that names the section and marks
+no line inside it.
+
 **What counts as a line set.** Each of the following is one line set:
 
 - `draft`, `draft_text`, `lines`, `lines_text`, `before`, `after` and the text

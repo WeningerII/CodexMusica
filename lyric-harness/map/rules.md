@@ -82,3 +82,32 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | UNIFORM_LINE_LENGTH | note | — | floor.py |
 
 Function reading refusals: `END_WORD_UNREADABLE` blocks requested function coverage, not a quality flag. Concrete failures carry `function:END_WORD_UNREADABLE:LN` plus the failed word, sung-token position (null when unmapped) and exact lyric text. Diagnostic coordinates do not change the stable line obligation or whole-refusal identity. `function:draft` retains the aggregate refusal. A comparison without a draft coordinate remains explicitly unlocated; its section-local line is not a draft line number. Mixed failures retain known line obligations plus a separate `location_scope: section_local` record for unlocated words. Occurrence declarations bind exact text and sung-token position only when the original function endpoint maps to that complete physical token. They do not change endpoint selection, add dictionary readings or change the perfect-rime policy.
+
+## Section types
+
+What declaring each of the 22 section types gets checked (from `function_capabilities` in `quality/function_disclosure.py`). **Placement**: `checked` means the type has a rule about where it sits, and a draft that breaks it gets a note; `no claim` means it may sit anywhere; `refused` means the registry records why no rule is made. **Contrast**: the one contrast measured is the bridge against the verse; the next column names the sections the convention expects this one to differ from that nothing measures. **Not verified from text**: what the name promises about the performance, which words on a bar grid cannot show. A grade says both, as `CONTRAST_NOT_CHECKED` and `EFFECT_NOT_VERIFIED` rows with status `not_requested`: they are counted as neither answered nor refused and never stop a song. `refrain` and `burden` are kinds of line: a section may be labelled or declared with either name, and marking a line itself (`role` on a blueprint line) is refused for now.
+
+| type | kind | placement | recurrence | returns as | contrast measured | contrast expected, not checked | not verified from text |
+|---|---|---|---|---|---|---|---|
+| intro | section | checked | once | n/a | — | — | — |
+| verse | section | no claim | returns | new words | — | — | — |
+| prechorus | section | checked | returns | varied | — | verse, chorus | — |
+| chorus | section | no claim | returns | verbatim | — | verse | — |
+| postchorus | section | checked | returns | verbatim | — | chorus | — |
+| refrain | line | no claim | returns | verbatim | — | — | — |
+| burden | line | checked | returns | verbatim | — | — | — |
+| bridge | section | no claim | once | n/a | verse | chorus | — |
+| breakdown | section | no claim | open | varied | — | — | whether the arrangement thins |
+| build | section | no claim | open | varied | — | — | whether tension rises |
+| drop | section | refused | returns | varied | — | — | whether it lands as an arrival |
+| vamp | section | no claim | open | varied | — | — | whether a musical figure repeats under it |
+| patter | section | no claim | returns | new words | — | chorus | — |
+| turnaround | section | checked | returns | verbatim | — | — | — |
+| interlude | section | checked | open | n/a | — | — | — |
+| solo | section | no claim | open | n/a | — | — | — |
+| tag | section | refused | returns | verbatim | — | — | — |
+| hook | section | no claim | returns | verbatim | — | — | — |
+| coda | section | checked | once | n/a | — | — | — |
+| outro | section | checked | once | n/a | — | — | — |
+| false_ending | section | checked | once | n/a | — | — | — |
+| reprise | section | checked | once | varied | — | — | — |
