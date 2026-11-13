@@ -284,6 +284,15 @@ on the number of words in a line. The planner's own range of line lengths did
 not change (`quality.plan.PLANNED_LINE_CHARS`): it is the range new songs are
 planned in, not a limit on any line.
 
+A long line costs about what the same words cost in shorter lines. Measured
+through `lyric_check` on 2026-11-12: a 417-character, 80-word line with its
+two neighbours, 15 seconds; a 512-character line of 171 short words, 12
+seconds; 454 words as six lines of about 400 characters, 150 seconds, and as
+57 lines of eight words, 98 seconds; 902 words as twelve lines of about 400
+characters, 552 seconds. A call's time follows the song's total word count,
+and the ten-minute limit on a tool call (`TOOL_BUDGET_MS` in `mcp/budget.js`)
+is unchanged: a check of about 900 words is at that limit.
+
 **How a line's digits are counted.** The figure is an upper bound computed
 without the lexicon. It is the stressed vowels of every reading the call
 declares on the line, plus 1.5 digits per unit for the rest. Declarations are

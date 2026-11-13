@@ -9174,17 +9174,33 @@ def _token_figures(schema, stream):
     -> [(line, FigureMembers, verdict)], verdict True or None (a False
     tuple is not a finding). Members are the line's tokens in printed order;
     each labelled edge is evaluated between the two tokens it names through
-    the edge's own schema, and the tuple's verdict is `tri_and` of them."""
-    import itertools
-    import math
+    the edge's own schema, and the tuple's verdict is `tri_and` of them.
+
+    SEARCHED, NOT ENUMERATED (2026-11-12, #851). The answer is the one that
+    reading every ordered tuple gives, in the same order; what changed is the
+    work. A line may now be 512 characters, and an 80-word line has 1.6
+    million four-word tuples: evaluating each tuple's edges afresh was 40
+    seconds a call on such a line, and 80 on a 100-word one. Two things hold
+    of the definition and are all the search uses. An edge's answer depends
+    on the two words it names and on nothing else in the tuple, so it is
+    evaluated once per pair of words and remembered for the line. And one
+    False edge discards the tuple, so the words are bound in printed order
+    and an edge is asked as soon as both of its words are bound: a failed
+    edge ends every tuple that would have shared those words, unvisited.
+    """
     n = schema.figure.nodes
     edges_def = [(ai, bi, _token_edge_schema(lab, schema))
                  for ai, bi, lab in schema.figure.edges]
+    # The edges that can be asked once member j is bound, in declared order.
+    ready = [[] for _ in range(n)]
+    for k, (ai, bi, _edge) in enumerate(edges_def):
+        ready[max(ai, bi)].append(k)
     by_line = {}
     for (li, ti), ids in stream.tokens.items():
         if ids:
             by_line.setdefault(li, []).append(ti)
     span_memo, result = {}, []
+    failed = object()
 
     def span(rule, li, ti):
         key = (rule, li, ti)
@@ -9199,30 +9215,54 @@ def _token_figures(schema, stream):
 
     for li in sorted(by_line):
         toks = sorted(by_line[li])
-        for members in itertools.combinations(toks, n):
-            edges, values = FigureMembers((li,)), []
-            edges.tokens = members
-            for ai, bi, (sch, extra) in edges_def:
+        edge_memo = {}
+        members, held = [None] * n, [None] * len(edges_def)
+
+        def edge(k):
+            """-> `failed`, or (Instance, verdict); (None, None) where a
+            word's span cannot be read, which leaves the edge unanswered."""
+            ai, bi, (sch, extra) = edges_def[k]
+            key = (k, members[ai], members[bi])
+            got = edge_memo.get(key)
+            if got is None:
                 sa = span(sch.spans[0], li, members[ai])
                 sb = span(sch.spans[-1], li, members[bi])
                 if sa is None or sb is None:
-                    values.append(None)
-                    continue
-                e = evaluate(sch, sa, sb, stream)
-                if e is None:
-                    values.append(False)
-                    break
-                v = e.verdict
-                if extra is not None and v is not False \
-                        and not extra(sa, sb, stream):
-                    v = False
-                edges.append(replace(e, schema=schema.name, verdict=v))
-                values.append(v)
-                if v is False:
-                    break
-            verdict = tri_and(values)
-            if verdict is not False:
-                result.append((li, edges, verdict))
+                    got = (None, None)
+                else:
+                    e = evaluate(sch, sa, sb, stream)
+                    v = False if e is None else e.verdict
+                    if extra is not None and v is not False \
+                            and not extra(sa, sb, stream):
+                        v = False
+                    got = failed if v is False else (e, v)
+                edge_memo[key] = got
+            return got
+
+        def bind(j, first):
+            # Leave room for the members still to bind, so that every prefix
+            # tried is the start of at least one whole tuple.
+            for i in range(first, len(toks) - (n - j) + 1):
+                members[j] = toks[i]
+                for k in ready[j]:
+                    held[k] = edge(k)
+                    if held[k] is failed:
+                        break
+                else:
+                    if j + 1 < n:
+                        bind(j + 1, i + 1)
+                        continue
+                    edges = FigureMembers((li,))
+                    edges.tokens = tuple(members)
+                    for e, v in held:
+                        if e is not None:
+                            edges.append(replace(e, schema=schema.name,
+                                                 verdict=v))
+                    verdict = tri_and(v for _e, v in held)
+                    if verdict is not False:
+                        result.append((li, edges, verdict))
+
+        bind(0, 0)
     return result
 
 
