@@ -81,10 +81,13 @@ test('a redrawn seed keeps its 64-bit candidates exact through sweep, plan and g
   // seed 1204 two~~ — RE-MEASURED 2026-10-27 under the per-group type draw (D1) and the
   // `open` default form (D7): at 12 lines seeds 21 and 89 each need one redraw, no seed in
   // 0..2999 needs two, and seed 21 with a want takes the wants path.
+  // ~~seed 21~~ — RE-MEASURED 2026-11-13: the planner draws from all 22 section functions
+  // (refrain and burden are ordinary sections, owner ruling), so every stream re-deals. At 12
+  // lines seeds 1 and 89 each need one redraw, and still no seed in 0..2999 needs two.
   for (const { seed, want, grade } of [
-    { seed: 21, grade: true },
+    { seed: 1, grade: true },
     { seed: 89 },
-    { seed: 21, want: 'group<=99' },
+    { seed: 1, want: 'group<=99' },
   ]) {
     const c = await connect();
     try {

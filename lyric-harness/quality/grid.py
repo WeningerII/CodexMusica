@@ -3862,6 +3862,14 @@ def song_function_report(song, hooks=(), rhyme_key=None,
         cf, cr, cch = bridge_contrast(song, cfn, (other,),
                                       convention=convention,
                                       rhyme_key=rhyme_key)
+        # ONE SEPARATING CHANNEL ANSWERS THE QUESTION. A channel left
+        # unmeasured (an unread end word, no rhyme key) cannot turn "they
+        # differ" into anything else, so it is not a refusal here; it stays
+        # one where no measured channel separates and the answer is unknown.
+        # Without this a verse and a chorus with one unreadable word were
+        # told a DECLARATION went unjudged (`mcp/test_session_repairs.mjs`).
+        if cch.get("_separating"):
+            cr = [r for r in cr if r.code != "CHANNEL_NOT_MEASURED"]
         if not cch.get("_not_applicable"):
             ask_one(cf, cr)
     # WHAT A ROW'S DESCRIPTION PROMISES AND NO FIELD CARRIED (2026-11-13,

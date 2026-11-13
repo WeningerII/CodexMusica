@@ -218,7 +218,12 @@ def test_the_denominator_is_drawn():
     # #676: seeds 5 and 45 previously repeated once functions. Their stream
     # must change; scanning 0..302 gives new first witnesses 39 and 302.
     # Seeds 61 and 199 were valid already and remain unchanged.
-    for k, want in ((39, "3/4"), (61, "2/2"), (302, "5/4"), (199, "7/4")):
+    # ~~39 (3/4), 61 (2/2), 302 (5/4), 199 (7/4)~~ — REPINNED 2026-11-13: the
+    # planner draws from all 22 section functions (`refrain` and `burden`
+    # are ordinary sections, owner ruling), so every seed's stream re-deals;
+    # each seed below is again the first default seed in that meter,
+    # re-measured by running `make_plan` over seeds 0-218.
+    for k, want in ((17, "3/4"), (50, "2/2"), (130, "5/4"), (218, "7/4")):
         p, m, units = _sig(k)
         check(f"default plan seed {k} is in {want}, and the brief says so",
               f"{m['beats']}/{m['unit']}" == want and len(units) == 1
@@ -235,7 +240,11 @@ def test_the_denominator_is_drawn():
     # above: 0 is /64, 4 /2, 5 /4, 6 /8, 7 /1 (with 2s only), 16 /32 and
     # 18 /16, and among them 4 is /2 with a 3 in its bar.
     # Only seed 5 changes under #676; seed 11 now witnesses /4.
-    for k in (0, 4, 11, 6, 7, 16, 18):
+    # ~~(0, 4, 11, 6, 7, 16, 18)~~ — REPINNED 2026-11-13 with the meters
+    # above: 0 is /64 (with 2s only), 1 /8, 2 /1 (with a 3 in its bar),
+    # 4 /16, 7 /32, 8 /4 and 11 /2, each the first default seed of its
+    # denominator.
+    for k in (0, 1, 2, 4, 7, 8, 11):
         p, m, units = _sig(k)
         _units[m["unit"]] = (k, m["beats"], tuple(m["groups"]))
     check("every declarable denominator is reachable from default plans",
@@ -4331,8 +4340,11 @@ def test_the_delegated_rulings(FAILURES=None):
           f"{m_redrawn or 'none'})")
     # #676 moves only draws that repeated once functions. Mutant 26 now
     # redraws too: pin all three exclusions and the remaining population.
-    check("...exactly mutants 2, 16 and 26 redraw, none refuse; 37 compared",
-          m_redrawn == [2, 16, 26] and m_refused == [] and len(mutant) == 37,
+    # REPINNED 2026-11-13 (measured): the planner draws from all 22 section
+    # functions, so every stream re-deals; ~~mutants 2, 16 and 26 redraw; 37
+    # compared~~ -> mutant 12 alone redraws and 39 are compared.
+    check("...exactly mutant 12 redraws, none refuse; 39 compared",
+          m_redrawn == [12] and m_refused == [] and len(mutant) == 39,
           f"compared {len(mutant)}, redrawn {m_redrawn}, refused {m_refused}")
     check("...and EXACTLY the seeds whose first admissible pattern lacked a "
           "second chorus moved — rejection sampling leaves every accepted "
@@ -4820,6 +4832,7 @@ def test_the_seed_redraw():
     # ~~2025 (two refusals)~~ -> ~~6417~~ (2026-10-27, D7's re-dealt
     # stream) -> 2330 (the same day, once a redraw keeps the first draw's
     # length): no default seed in 0-2329 needs more than one redraw; 2330
+    # (2026-11-13: over 0-3033, 73 seeds need one redraw and 3 need two)
     # needs two (measured over 0-11999: 323 seeds need one, 9 need two).
     # ~~2330~~ -> 1861 (2026-11-13, the 22-function roster): the first
     # default seed that needs two redraws.
