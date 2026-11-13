@@ -16,7 +16,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from quality import grid as G
 from quality import plan as P
 from quality.function_disclosure import (
-    disclose_functions, disclose_section, function_contract_explanations,
+    disclose_functions, disclose_section, function_capabilities,
+    function_contract_explanations,
 )
 
 
@@ -194,11 +195,11 @@ class FunctionDisclosureTests(unittest.TestCase):
                                 G.Section('Verse', 8, function='verse')])
         before = G.song_function_report(song)
         prose = function_contract_explanations()
-        self.assertEqual(prose['convention'], 'Convention: musical advice; never withholds certification.')
-        self.assertEqual(prose['declared'], 'Declared: the user or chosen form asked for it; an unjudged obligation can withhold certification.')
-        self.assertEqual(prose['structural_repair'], 'Occurrence, order and grid changes require manual structural editing, redeclaration or replanning, followed by recheck; rewriting words alone does not repair them.')
-        self.assertEqual(prose['word_repair'], 'Explicit Return identity obligations are separate from advisory function return measurements. Existing copy/rewrite operations may repair word identity; recheck the declared obligation.')
-        self.assertEqual(prose['measurement'], 'Acoustic properties are not verified from text. A label or resolved name does not establish a performed musical result.')
+        self.assertEqual(prose['convention'], 'Convention: musical advice. It never withholds certification.')
+        self.assertEqual(prose['declared'], "Declared: you, or the form you chose, asked for this. If it couldn't be judged, it can withhold certification.")
+        self.assertEqual(prose['structural_repair'], "Structural repair: if a problem is how often a section occurs, its order or its bars, fix it by editing the structure, changing the declaration or replanning, then check again. Rewriting words alone won't fix it.")
+        self.assertEqual(prose['word_repair'], 'Word repair: a declared Return asks for the same words to come back. Copying or rewriting the words can fix that; check the declaration again afterwards. This is separate from the advisory measurement of how much a section returns.')
+        self.assertEqual(prose['measurement'], "Acoustic properties aren't verified from text. A section's label or resolved name doesn't show how it sounds when performed.")
         self.assertEqual(G.song_function_report(song), before)
         self.assertTrue(any(f.code == 'SECTION_NOT_AT_BOUNDARY' for f in before['findings']))
         self.assertEqual(set(prose), {'convention', 'declared', 'structural_repair', 'word_repair', 'measurement'})
@@ -509,6 +510,249 @@ print(json.dumps([P.make_plan(**c) for c in json.loads(os.environ['P1B_CASES'])]
             current = run(seed)
             self.assertEqual(current, baseline)
             self.assertEqual(hashlib.sha256(current).hexdigest(), hashlib.sha256(baseline).hexdigest())
+
+
+def _song(*functions):
+    return G.Song(sections=[G.Section(f'S{i}', 8, function=f)
+                            for i, f in enumerate(functions)])
+
+
+class NotAskedTests(unittest.TestCase):
+    """Issue #676 gaps 3 and 5. What the convention expects of the declared
+    sections and nothing asks is said, instead of sitting under 'answered'."""
+
+    CONTRAST = 'CONTRAST_NOT_CHECKED'
+    EFFECT = 'EFFECT_NOT_VERIFIED'
+
+    def test_one_contrast_is_measured_and_the_report_asks_exactly_that_one(self):
+        import inspect
+        params = inspect.signature(G.bridge_contrast).parameters
+        self.assertEqual(G.MEASURED_CONTRASTS, (('bridge', 'verse'),))
+        self.assertEqual(G.MEASURED_CONTRASTS,
+                         tuple((params['function'].default, against)
+                               for against in params['against'].default))
+        calls, real = [], G.bridge_contrast
+
+        def spy(*args, **kwargs):
+            calls.append((args, kwargs))
+            return real(*args, **kwargs)
+        with patch.object(G, 'bridge_contrast', spy):
+            G.song_function_report(_song('verse', 'prechorus', 'chorus', 'bridge'))
+        # One call, on the defaults: no other pair is put to it.
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(len(calls[0][0]), 1)
+        self.assertFalse({'function', 'against'} & set(calls[0][1]))
+
+    def test_unmeasured_contrasts_are_named_when_both_sides_are_declared(self):
+        rep = G.song_function_report(_song('verse', 'prechorus', 'chorus', 'bridge'))
+        self.assertEqual([g.code for g in rep['not_asked']], [self.CONTRAST])
+        gap = rep['not_asked'][0]
+        self.assertEqual(
+            gap.message,
+            'not checked: whether the prechorus differs from the verse and the chorus; '
+            'whether the chorus differs from the verse; '
+            'whether the bridge differs from the chorus')
+        self.assertEqual(
+            gap.evidence,
+            'The convention expects these sections to differ, and nothing here measures '
+            'whether they do. The one contrast measured is the bridge against the verse. '
+            'This is advice left unasked: it is not a finding against the draft, and it is '
+            'counted as neither answered nor refused.')
+
+    def test_nothing_is_said_where_nothing_was_expected_or_all_of_it_was_asked(self):
+        for functions in (('chorus',),            # the verse side is not declared
+                          ('verse', 'bridge'),    # the one measured pair
+                          ('verse', 'intro'),     # no contrast in the convention
+                          ('postchorus', 'verse')):
+            with self.subTest(functions=functions):
+                self.assertEqual(G.song_function_report(_song(*functions))['not_asked'], [])
+        # A label nobody declared a function on declares nothing.
+        labelled = G.Song(sections=[G.Section('Chorus', 8), G.Section('Verse', 8),
+                                    G.Section('Build', 4)])
+        self.assertEqual(G.song_function_report(labelled)['not_asked'], [])
+
+    def test_effects_a_name_promises_are_named_as_not_verified_from_text(self):
+        rep = G.song_function_report(_song('verse', 'breakdown', 'build', 'drop', 'vamp'))
+        self.assertEqual([g.code for g in rep['not_asked']], [self.EFFECT])
+        gap = rep['not_asked'][0]
+        self.assertEqual(
+            gap.message,
+            'not verified from text: breakdown (whether the arrangement thins); '
+            'build (whether tension rises); drop (whether it lands as an arrival); '
+            'vamp (whether a musical figure repeats under it)')
+        self.assertEqual(
+            gap.evidence,
+            'The name promises something about the performance, and the words on a bar '
+            'grid cannot show it. Placement, recurrence and return are still asked of '
+            'these sections.')
+        one = G.song_function_report(_song('verse', 'build', 'build'))['not_asked']
+        self.assertEqual([g.message for g in one],
+                         ['not verified from text: build (whether tension rises)'])
+        self.assertTrue(one[0].evidence.endswith('still asked of this section.'))
+
+    def test_unasked_is_in_none_of_the_counts_and_is_no_finding_or_refusal(self):
+        song = _song('verse', 'chorus', 'build')
+        rep = G.song_function_report(song)
+        self.assertEqual([g.code for g in rep['not_asked']], [self.CONTRAST, self.EFFECT])
+        with patch.object(G, 'not_asked', lambda _song: []):
+            bare = G.song_function_report(song)
+        for key in ('asked', 'answered', 'refused', 'refusal_records', 'findings',
+                    'refusals', 'contrast'):
+            self.assertEqual(rep[key], bare[key], key)
+        self.assertEqual(rep['asked'], rep['answered'] + rep['refused'])
+        codes = {f.code for f in rep['findings']} | {r.code for r in rep['refusals']}
+        self.assertFalse(codes & {self.CONTRAST, self.EFFECT})
+
+    def test_the_grade_discloses_them_as_not_requested_rows_and_nothing_else_moves(self):
+        from quality.revise import Reviser
+        meter = {'beats': 4, 'unit': 4}
+        sections = [dict(name='Verse', function='verse', bars=2, start_bar=1, meter=meter),
+                    dict(name='Chorus', function='chorus', bars=2, start_bar=3, meter=meter),
+                    dict(name='Build', function='build', bars=2, start_bar=5, meter=meter)]
+        texts = ['the river runs beside the road', 'and carries what the hills have owed',
+                 'come down come down to the water', 'come down come down to the sea',
+                 'the cold wind rises in the pines', 'and every window holds a light']
+        blueprint = {'sections': sections,
+                     'lines': [dict(text=t, bar=i + 1, beat=1, duration=4)
+                               for i, t in enumerate(texts)]}
+        cov = []
+        findings = Reviser()._function_findings(texts, blueprint, coverage_out=cov)
+        rows = {o['id']: o for o in cov}
+        gaps = {g.code: g for g in G.not_asked(G.song_from_blueprint(blueprint)[0])}
+        self.assertEqual(set(gaps), {self.CONTRAST, self.EFFECT})
+        for code, gap in gaps.items():
+            self.assertEqual(rows[f'function:{code}:draft'],
+                             {'id': f'function:{code}:draft', 'layer': 'function',
+                              'status': 'not_requested', 'code': code,
+                              'message': gap.message, 'evidence': gap.evidence})
+        self.assertEqual(rows[f'function:{self.CONTRAST}:draft']['message'],
+                         'not checked: whether the chorus differs from the verse')
+        # No finding carries them: nothing was measured, so nothing is noted.
+        self.assertFalse({f.code for f in findings} & set(gaps))
+        # Everything else is what it was without the disclosure.
+        with patch.object(G, 'not_asked', lambda _song: []):
+            bare = []
+            bare_findings = Reviser()._function_findings(texts, blueprint, coverage_out=bare)
+        self.assertEqual([o for o in cov if o.get('code') not in gaps], bare)
+        self.assertEqual([(f.code, f.severity, f.message) for f in findings],
+                         [(f.code, f.severity, f.message) for f in bare_findings])
+
+    def test_the_function_verb_prints_them_with_the_measurement_sentence(self):
+        meter = {'beats': 4, 'unit': 4}
+        blueprint = {'sections': [
+            dict(name='Verse', function='verse', bars=2, start_bar=1, meter=meter),
+            dict(name='Chorus', function='chorus', bars=2, start_bar=3, meter=meter),
+            dict(name='Drop', function='drop', bars=2, start_bar=5, meter=meter)],
+            'lines': []}
+        import tempfile
+        harness = Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'bp.json'
+            path.write_text(json.dumps(blueprint))
+            done = subprocess.run([sys.executable, '-B', 'lyric_harness.py', 'function', str(path)],
+                                  cwd=harness, capture_output=True, text=True, timeout=300)
+        self.assertEqual(done.returncode, 0, done.stdout + done.stderr)
+        out = done.stdout
+        self.assertIn('  NOT ASKED CONTRAST_NOT_CHECKED: not checked: whether the chorus '
+                      'differs from the verse\n', out)
+        self.assertIn('  NOT ASKED EFFECT_NOT_VERIFIED: not verified from text: drop '
+                      '(whether it lands as an arrival)\n', out)
+        self.assertIn('      ' + function_contract_explanations()['measurement'] + '\n', out)
+
+
+class CapabilityTableTests(unittest.TestCase):
+    """The #676 capability ledger (comment 6587459008) as data read off the
+    registry and held to what the report does."""
+
+    #: (function, kind, placement, recurrence, returns_as, measured against,
+    #:  expected and not checked, not verified from text, line role)
+    TABLE = [
+        ('intro', 'section', 'checked', 'once', 'n/a', [], [], '', ''),
+        ('verse', 'section', 'no claim', 'returns', 'new words', [], [], '', ''),
+        ('prechorus', 'section', 'checked', 'returns', 'varied', [], ['verse', 'chorus'], '', ''),
+        ('chorus', 'section', 'no claim', 'returns', 'verbatim', [], ['verse'], '', ''),
+        ('postchorus', 'section', 'checked', 'returns', 'verbatim', [], ['chorus'], '', ''),
+        ('refrain', 'line', 'no claim', 'returns', 'verbatim', [], [], '', 'refused'),
+        ('burden', 'line', 'checked', 'returns', 'verbatim', [], [], '', 'refused'),
+        ('bridge', 'section', 'no claim', 'once', 'n/a', ['verse'], ['chorus'], '', ''),
+        ('breakdown', 'section', 'no claim', 'open', 'varied', [], [],
+         'whether the arrangement thins', ''),
+        ('build', 'section', 'no claim', 'open', 'varied', [], [], 'whether tension rises', ''),
+        ('drop', 'section', 'refused', 'returns', 'varied', [], [],
+         'whether it lands as an arrival', ''),
+        ('vamp', 'section', 'no claim', 'open', 'varied', [], [],
+         'whether a musical figure repeats under it', ''),
+        ('patter', 'section', 'no claim', 'returns', 'new words', [], ['chorus'], '', ''),
+        ('turnaround', 'section', 'checked', 'returns', 'verbatim', [], [], '', ''),
+        ('interlude', 'section', 'checked', 'open', 'n/a', [], [], '', ''),
+        ('solo', 'section', 'no claim', 'open', 'n/a', [], [], '', ''),
+        ('tag', 'section', 'refused', 'returns', 'verbatim', [], [], '', ''),
+        ('hook', 'section', 'no claim', 'returns', 'verbatim', [], [], '', ''),
+        ('coda', 'section', 'checked', 'once', 'n/a', [], [], '', ''),
+        ('outro', 'section', 'checked', 'once', 'n/a', [], [], '', ''),
+        ('false_ending', 'section', 'checked', 'once', 'n/a', [], [], '', ''),
+        ('reprise', 'section', 'checked', 'once', 'varied', [], [], '', ''),
+    ]
+    KEYS = ('function', 'kind', 'placement', 'recurrence', 'returns_as', 'contrast_measured',
+            'contrast_not_checked', 'not_verified_from_text', 'line_role')
+
+    def test_every_registered_function_has_one_row_and_the_rows_are_these(self):
+        rows = function_capabilities()
+        self.assertEqual([r['function'] for r in rows], list(G.SECTION_FUNCTIONS))
+        self.assertEqual(len(rows), 22)
+        self.assertEqual([tuple(r[k] for k in self.KEYS) for r in rows], self.TABLE)
+        self.assertEqual([set(r) for r in rows], [set(self.KEYS)] * 22)
+
+    def test_the_placement_column_is_what_the_placement_check_does(self):
+        names = list(G.SECTION_FUNCTIONS)
+        for row in function_capabilities():
+            fn = row['function']
+            # Alone, in the middle, at each end, and beside every other name:
+            # a row with a claim is charged somewhere, a row without never is.
+            orders = [[fn], ['verse', fn, 'verse'], [fn, 'verse'], ['verse', fn]]
+            orders += [[other, fn, other] for other in names]
+            charged = any(index == order.index(fn)
+                          for order in orders
+                          for _code, index, _evidence in G.placement_findings(order)
+                          if order[index] == fn)
+            with self.subTest(function=fn):
+                self.assertEqual(charged, row['placement'] == 'checked')
+                self.assertEqual(bool(G.SECTION_FUNCTIONS[fn].placement_refused),
+                                 row['placement'] == 'refused')
+
+    def test_the_contrast_and_effect_columns_are_what_the_report_says(self):
+        for row in function_capabilities():
+            fn = row['function']
+            others = row['contrast_measured'] + row['contrast_not_checked']
+            gaps = {g.code: g for g in
+                    G.song_function_report(_song(fn, *others))['not_asked']}
+            with self.subTest(function=fn):
+                self.assertEqual(sorted(others),
+                                 sorted(G.SECTION_FUNCTIONS[fn].contrasts_with))
+                if row['contrast_not_checked']:
+                    self.assertIn(
+                        f"whether the {fn} differs from the "
+                        + ' and the '.join(row['contrast_not_checked']),
+                        gaps['CONTRAST_NOT_CHECKED'].message)
+                elif fn not in ('verse', 'chorus'):
+                    self.assertNotIn('CONTRAST_NOT_CHECKED', gaps)
+                if row['not_verified_from_text']:
+                    self.assertIn(f"{fn} ({row['not_verified_from_text']})",
+                                  gaps['EFFECT_NOT_VERIFIED'].message)
+                else:
+                    self.assertNotIn('EFFECT_NOT_VERIFIED', gaps)
+
+    def test_a_line_role_is_refused_for_the_two_line_kind_names(self):
+        from quality import meter as M
+        self.assertEqual([r['function'] for r in function_capabilities() if r['line_role']],
+                         ['refrain', 'burden'])
+        for role in ('refrain', 'burden'):
+            blueprint = {'sections': [dict(name='Verse', function='verse', bars=2,
+                                           start_bar=1, meter={'beats': 4, 'unit': 4})],
+                         'lines': [dict(text='one line', bar=1, beat=1, duration=4, role=role)]}
+            with self.subTest(role=role), self.assertRaises(ValueError) as refused:
+                M.validate_blueprint(blueprint)
+            self.assertIn("`role` isn't supported yet", str(refused.exception))
 
 
 if __name__ == '__main__':

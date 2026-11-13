@@ -85,6 +85,8 @@ const NOT_CHECKED = {
 // One line per distinct thing not checked. An obligation that carries a
 // `code` (function:FUNCTION_UNDECLARED:0) is named by it and by the finding
 // that says what it means; a layer row (setting:draft) by what would ask it.
+// A question that was never put has no finding, so its row carries the
+// grader's sentence itself (function:CONTRAST_NOT_CHECKED:draft, #676).
 function notCheckedOf(verdict) {
   const findings = Array.isArray(verdict.findings) ? verdict.findings : [];
   const out = new Set();
@@ -92,7 +94,8 @@ function notCheckedOf(verdict) {
     if (o.status !== 'not_requested') continue;
     if (o.code) {
       const f = findings.find((x) => x.code === o.code);
-      out.add(`${o.layer}: ${o.code}` + (f?.message ? ` — ${f.message}` : ''));
+      const said = f?.message || o.message;
+      out.add(`${o.layer}: ${o.code}` + (said ? ` — ${said}` : ''));
     } else out.add(NOT_CHECKED[o.layer] ?? `${o.layer}: not requested`);
   }
   return [...out];

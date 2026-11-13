@@ -13247,6 +13247,15 @@ def main():
                 print(f"      {r.evidence}")
         for row in GR.contrast_lines(rep.get("contrast")):
             print(f"  {row}")
+        # What the convention expects of these sections that nothing above
+        # asked (#676): in none of the three counts, and said so here rather
+        # than left for the reader to infer from a label.
+        for gap in rep.get("not_asked", ()):
+            print(f"  NOT ASKED {gap.code}: {gap.message}")
+            print(f"      {gap.evidence}")
+            if gap.code == "EFFECT_NOT_VERIFIED":
+                from quality.function_disclosure import function_contract_explanations
+                print(f"      {function_contract_explanations()['measurement']}")
         for fn, rets in rep["returns"].items():
             for a, b, ret in rets:
                 print(f"  -- {fn}: {a.name} -> {b.name}")

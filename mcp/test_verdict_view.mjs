@@ -703,6 +703,46 @@ test('not_checked names a coded obligation by its code and finding, once', () =>
   ]);
 });
 
+// A question that was never put has no finding to quote, so its coverage row
+// carries the grader's own sentence (quality/revise.py, #676): the short
+// verdict prints that, and a finding's message still wins where one exists.
+test('not_checked prints an unasked question from the sentence its own row carries', () => {
+  const live = {
+    ...verdict,
+    coverage: {
+      certified: true,
+      refused_obligations: [],
+      obligations: [
+        { id: 'function:draft', layer: 'function', status: 'answered' },
+        {
+          id: 'function:CONTRAST_NOT_CHECKED:draft',
+          layer: 'function',
+          status: 'not_requested',
+          code: 'CONTRAST_NOT_CHECKED',
+          message: 'not checked: whether the chorus differs from the verse',
+          evidence: 'The one contrast measured is the bridge against the verse.',
+        },
+        {
+          id: 'function:EFFECT_NOT_VERIFIED:draft',
+          layer: 'function',
+          status: 'not_requested',
+          code: 'EFFECT_NOT_VERIFIED',
+          message: 'not verified from text: build (whether tension rises)',
+          evidence: '',
+        },
+        { id: 'meter:draft', layer: 'meter', status: 'answered' },
+        { id: 'slot_grid:draft', layer: 'slot_grid', status: 'answered' },
+        { id: 'setting:draft', layer: 'setting', status: 'answered' },
+      ],
+    },
+  };
+  const short = JSON.parse(sessionView('lyric_revise', blocks(live))[1].text);
+  assert.deepEqual(short.not_checked, [
+    'function: CONTRAST_NOT_CHECKED — not checked: whether the chorus differs from the verse',
+    'function: EFFECT_NOT_VERIFIED — not verified from text: build (whether tension rises)',
+  ]);
+});
+
 // A grade at exit 0 or 3 that the creation gate records names the call that
 // takes this exact draft on (lyric_tools.js sets `next`). The short verdict
 // copies it as its last field and never invents one.

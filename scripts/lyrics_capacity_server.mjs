@@ -57,16 +57,33 @@ function maximum(accepts) {
 const draftSchema = LYRIC_TOOL_SCHEMAS.lyric_revise.draft;
 const maxLines = maximum((n) => draftSchema.safeParse(Array(n).fill('x')).success);
 const maxChars = maximum((n) => draftSchema.safeParse(['x'.repeat(n)]).success);
+// THE DRAFTS FILL THE CACHE'S TEXT BUDGET, NOT THE SCHEMA'S ENVELOPE (#851).
+// Until the line limit rose the two were one figure: RUNS.cap records of two
+// drafts of maxLines lines of maxChars characters. They are apart now: the
+// schema admits a line of 512 characters and the cache keeps the text it
+// always kept (run_store.js RUN_TEXT_BUDGET), so a load sized by the schema
+// would be evicted as it went in. The worst case the cache can hold is its
+// budget spent across every record it may keep, in the most strings a draft
+// may have: RUNS.cap records, maxLines lines in each draft, each line the
+// length that spends the budget exactly. The load is checked to be that: every
+// record kept, and the budget full to the unit.
+const fillChars = RUNS.textBudget / (RUNS.cap * 2 * maxLines);
+if (!Number.isSafeInteger(fillChars) || fillChars < 1 || fillChars > maxChars)
+  throw new Error('Capacity fixture cannot spend the RunStore text budget in whole schema lines');
+function assertBudgetFull() {
+  if (RUNS.size() !== RUNS.cap || RUNS.text() !== RUNS.textBudget)
+    throw new Error('Capacity fixture did not fill the RunStore to its record cap and text budget');
+}
 let workerMin = Infinity,
   workerMax = 0,
   declarationMin = Infinity;
 if (mode === '--prepare') {
   for (let index = 0; index < RUNS.cap; index++) {
     // Distinct non-Latin-1 strings prevent the load from being a shared ASCII
-    // backing string. The schema payload envelope is conservative: it is not
-    // an assertion that the writer supports the full inspection line domain.
-    const draft = Array.from({ length: maxLines }, () => noise(maxChars - 1) + '\u0100');
-    const replay = Array.from({ length: maxLines }, () => noise(maxChars - 1) + '\u0100');
+    // backing string. The payload envelope is conservative: it is not an
+    // assertion that the writer supports the full inspection line domain.
+    const draft = Array.from({ length: maxLines }, () => noise(fillChars - 1) + '\u0100');
+    const replay = Array.from({ length: maxLines }, () => noise(fillChars - 1) + '\u0100');
     draftSchema.parse(draft);
     draftSchema.parse(replay);
     const decl = { writer: 'interview', title: `capacity cache ${index}`, capacity_padding: '' };
@@ -107,6 +124,7 @@ if (mode === '--prepare') {
       capacity_fixture: true,
     });
   }
+  assertBudgetFull();
 
   // Random/gzip fixture generation is bounded preparation, not production
   // startup. The actual server only loads these prepared bytes into RUNS.
@@ -114,6 +132,7 @@ if (mode === '--prepare') {
     version: 1,
     maxLines,
     maxChars,
+    fillChars,
     workerMin,
     workerMax,
     declarationMin,
@@ -142,6 +161,7 @@ if (
   prepared.version !== 1 ||
   prepared.maxLines !== maxLines ||
   prepared.maxChars !== maxChars ||
+  prepared.fillChars !== fillChars ||
   prepared.records.length !== RUNS.cap
 )
   throw new Error('Prepared RunStore load has drifted');
@@ -160,6 +180,8 @@ for (const row of prepared.records) RUNS.put(row.key, row);
 // The records are held only by the actual singleton after loading. Discard
 // the preparer's parsed container and raw bytes before the heavy workload.
 prepared.records = null;
+assertBudgetFull();
+const loadedTextUnits = RUNS.text();
 enterPhase('prepared_loaded');
 
 let probes = 0;
@@ -179,6 +201,12 @@ function snapshot() {
     max_records: RUNS.cap,
     max_lines_per_draft: maxLines,
     max_chars_per_line: maxChars,
+    // What the load held when it went in, against the cache's budget. Real
+    // runs replace fixture records during the matrix, so the live figure
+    // falls; the load itself is what must have been full.
+    fill_chars_per_line: fillChars,
+    loaded_text_units: loadedTextUnits,
+    text_budget_units: RUNS.textBudget,
     worker_bytes_min: workerMin,
     worker_bytes_max: workerMax,
     worker_max_bytes: WORKER_STATE_BYTES,
@@ -201,7 +229,7 @@ function snapshot() {
         'Idle bridge snapshot; separate queue-pressure evidence proves measured admission/retention/overflow/cancellation. No queued execution throughput claim.',
     },
     scope:
-      'Actual singleton RunStore at its record cap, two distinct codec payloads per record near worker decoded capacity, schema-bounded draft/replay arrays and declarations. Synthetic cache stress; no writer success, replay or full inspection-domain production claim.',
+      'Actual singleton RunStore at its record cap and its lyric text budget, two distinct codec payloads per record near worker decoded capacity, draft/replay arrays of the schema line count that spend the budget exactly, and declarations. Synthetic cache stress; no writer success, replay or full inspection-domain production claim.',
   };
   fs.writeFileSync(evidencePath + '.tmp', JSON.stringify(record) + '\n', { mode: 0o600 });
   fs.renameSync(evidencePath + '.tmp', evidencePath);

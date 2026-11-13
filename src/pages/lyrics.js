@@ -2853,7 +2853,17 @@ function lyRunChecks(model) {
         actions: [['ly-tab', 'Open review', 'file-check', 'review']],
       });
     const unasked = coverage.obligations.filter((o) => o.status === 'not_requested');
-    if (unasked.length)
+    if (unasked.length) {
+      // #676: a row that carries its own sentence (a contrast nothing
+      // measured, an effect words cannot show) is said here, not only counted.
+      // The sentence is the run's; a row without one adds nothing.
+      const said = [
+        ...new Set(
+          unasked
+            .map((o) => (typeof o.message === 'string' ? o.message.trim() : ''))
+            .filter(Boolean)
+        ),
+      ].map((m) => `${m[0].toUpperCase()}${m.slice(1)}${/[.!?]$/.test(m) ? '' : '.'}`);
       add({
         id: 'cov:unasked',
         tone: 'note',
@@ -2861,9 +2871,13 @@ function lyRunChecks(model) {
         title: `${uiCount(unasked.length, 'check')} not requested`,
         where: 'Writer run',
         lines: [],
-        text: 'Disclosed by the run and not asked of this song; they are neither passed nor failed.',
+        text: [
+          'Disclosed by the run and not asked of this song; they are neither passed nor failed.',
+          ...said,
+        ].join(' '),
         actions: [['ly-tab', 'Open review', 'file-check', 'review']],
       });
+    }
   }
   for (const t of run.tools || [])
     for (const f of [].concat(t.folded || []))

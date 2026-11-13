@@ -1654,6 +1654,65 @@ await check('validation: actionable errors', () => {
         assert.equal(st.get('seed:2#bbbb').seed, 2, 'the last touched record survives');
         t = 2000;
         assert.equal(st.size(), 0, 'the TTL forgets an idle run');
+        // THE TEXT BUDGET (#851). The cache keeps a fixed amount of lyric
+        // text, and a long draft takes more of it.
+        const { RUN_CAP, RUN_TEXT_BUDGET, runTextUnits } = await import('./run_store.js');
+        const { ADMISSION_MAX_LINES, ADMISSION_MAX_LINE_CHARS, REQUEST_BUDGET_LINE_CHARS } =
+          await import('./meter_admission.js');
+        assert.equal(
+          RUN_TEXT_BUDGET,
+          RUN_CAP * 2 * ADMISSION_MAX_LINES * REQUEST_BUDGET_LINE_CHARS,
+          'the budget is what the cache held before the line limit rose'
+        );
+        const song = (chars) => Array(ADMISSION_MAX_LINES).fill('\u0100'.repeat(chars));
+        const filled = (chars, n, store = new RunStore()) => {
+          for (let i = 0; i < n; i++)
+            store.put(`k${i}`, { draft: song(chars), replay_draft: song(chars), run_id: `r${i}` });
+          return store;
+        };
+        assert.equal(
+          runTextUnits({ draft: ['ab', 'c'], replay_draft: ['\u0100'], state: 'xxxx' }),
+          4,
+          'both drafts are counted in UTF-16 units, and nothing else is'
+        );
+        const before = filled(REQUEST_BUDGET_LINE_CHARS, RUN_CAP);
+        assert.equal(before.size(), RUN_CAP, 'every record that fitted before still fits');
+        assert.equal(before.text(), RUN_TEXT_BUDGET, 'and that load is the budget exactly');
+        before.put('one more', { draft: ['x'], replay_draft: ['x'], run_id: 'small' });
+        assert.equal(before.size(), RUN_CAP);
+        assert.equal(before.get('r0'), null, 'the count cap still evicts the coldest');
+        const long = filled(ADMISSION_MAX_LINE_CHARS, RUN_CAP);
+        const fit = Math.floor(
+          RUN_TEXT_BUDGET / (2 * ADMISSION_MAX_LINES * ADMISSION_MAX_LINE_CHARS)
+        );
+        assert.equal(fit, 25);
+        assert.equal(long.size(), fit, 'the longest drafts take more of the same room');
+        assert.ok(long.text() <= RUN_TEXT_BUDGET);
+        assert.equal(long.get(`r${RUN_CAP - fit - 1}`), null, 'coldest first');
+        assert.equal(long.get(`r${RUN_CAP - fit}`).run_id, `r${RUN_CAP - fit}`);
+        assert.equal(long.get(`r${RUN_CAP - 1}`).run_id, `r${RUN_CAP - 1}`, 'the newest is kept');
+        // A locked run is exempt, as it is from the count cap, and the next
+        // coldest goes instead.
+        const tight = new RunStore({ textBudget: 10 });
+        tight.put('a', { draft: ['12345'], run_id: 'a' });
+        const release = tight.acquire('a');
+        tight.put('b', { draft: ['12345'], run_id: 'b' });
+        tight.put('c', { draft: ['12345'], run_id: 'c' });
+        assert.deepEqual(
+          [...tight.map.keys()],
+          ['a', 'c'],
+          'the locked record outlives a colder turn'
+        );
+        release();
+        tight.put('d', { draft: ['12345'], run_id: 'd' });
+        assert.deepEqual([...tight.map.keys()], ['c', 'd']);
+        // A record measured once is measured again when its draft is replaced.
+        const again = new RunStore({ textBudget: 10 });
+        again.put('a', { draft: ['12345'], run_id: 'a' });
+        again.put('a', { draft: ['1234567890'], run_id: 'a' });
+        assert.equal(again.text(), 10);
+        again.put('b', { draft: ['1'], run_id: 'b' });
+        assert.deepEqual([...again.map.keys()], ['b']);
         assert.equal(runKeyOf({ seed: 7 }), 'seed:7');
         assert.equal(runKeyOf({ scheme: 'ABAB' }), 'mandate:["ABAB",null,null,null,null]');
         assert.equal(runKeyOf({}), null);

@@ -28,6 +28,13 @@
 // is as it was. One thing therefore stopped following from the caps alone and
 // is checked instead: A REVISION'S ANSWERS, below.
 //
+// WHAT THE SERVER KEEPS BETWEEN CALLS IS BOUNDED SEPARATELY (2026-11-13). The
+// total bounds what one request asks the reader to read, not the characters
+// of a draft: a declared reading takes its word's units out of the total, and
+// a draft can grow inside one call (the website writer, below; one answer to
+// a line a verbatim return repeats). So the drafts the run cache keeps are
+// held to their own budget, in one place: run_store.js RUN_TEXT_BUDGET.
+//
 // ONE DECISION RULE ON EVERY PATH (BB8 condition 1). A line's digit figure is
 // an UPPER BOUND computed here, in Node, without the lexicon: the stressed
 // vowels of each reading the request DECLARES for one of its tokens, plus 1.5

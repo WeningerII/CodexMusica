@@ -55,11 +55,17 @@ def run_store_evidence_failures(record):
     keys = ('pid', 'probes', 'records', 'max_records', 'worker_bytes_min',
             'worker_bytes_max', 'worker_max_bytes', 'declaration_bytes_min',
             'declaration_max_bytes', 'state_wire_bytes', 'checkpoint_wire_bytes',
-            'draft_bytes', 'declaration_bytes', 'max_lines_per_draft', 'max_chars_per_line')
+            'draft_bytes', 'declaration_bytes', 'max_lines_per_draft', 'max_chars_per_line',
+            'fill_chars_per_line', 'loaded_text_units', 'text_budget_units')
     if not all(positive_int(key) for key in keys):
         return ['actual RunStore load has missing or invalid measurements']
     if record['records'] != record['max_records']:
         failures.append('actual RunStore did not retain its declared record cap')
+    # The cache keeps a fixed amount of lyric text (run_store.js RUN_TEXT_BUDGET),
+    # and the load is its worst case only if it went in full: every record, and
+    # the budget spent to the unit.
+    if record['loaded_text_units'] != record['text_budget_units']:
+        failures.append('actual RunStore load did not fill its lyric text budget')
     if not .99 * record['worker_max_bytes'] <= record['worker_bytes_min'] <= record['worker_bytes_max'] <= record['worker_max_bytes']:
         failures.append('retained worker payloads did not reach their declared decoded ceiling')
     if not .99 * record['declaration_max_bytes'] <= record['declaration_bytes_min'] <= record['declaration_max_bytes']:

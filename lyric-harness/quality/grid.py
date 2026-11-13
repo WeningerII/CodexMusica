@@ -380,13 +380,27 @@ class FunctionSpec:
     #: (MISSING.md D-2)". The value is read off the declaration, not invented
     #: beside it.
     kind: str = "section"
+    #: WHAT THIS ROW'S GLOSS SAYS OF THE PERFORMANCE THAT WORDS ON A BAR GRID
+    #: CANNOT SHOW (issue #676 gap 5, 2026-11-13). `breakdown` "strips the
+    #: arrangement back" and `build` "raises tension": each is a claim about
+    #: what is PLAYED, and this module reads a declared grid and the words set
+    #: on it. Placement, recurrence and return are asked of such a section
+    #: like any other. The effect its name promises is not, and until this
+    #: field nothing said so: the label printed, the layer read "answered",
+    #: and a reader could take the thinning or the arrival as checked.
+    #: "" means the gloss makes no such claim. `not_asked` is the reader.
+    #: The four rows that carry it are the four the team's ledger names
+    #: (#676 comment 6587459008); `patter`'s density is a different case,
+    #: measurable and uncalibrated, and is not claimed here.
+    unverified: str = ""
 
 
 def _spec(name, gloss, recurrence, returns_as, contrasts_with=(),
           aliases=(), boundary="", requires=(), adjacent_after="",
           adjacent_before="", needs_before=False, needs_after=False,
           placement_evidence="", placement_refused="", kind="section",
-          narrower=(), specialises="", specialises_evidence=""):
+          narrower=(), specialises="", specialises_evidence="",
+          unverified=""):
     return FunctionSpec(name, gloss, recurrence, returns_as, contrasts_with,
                         aliases=aliases, narrower=narrower,
                         specialises=specialises,
@@ -396,7 +410,8 @@ def _spec(name, gloss, recurrence, returns_as, contrasts_with=(),
                         adjacent_before=adjacent_before,
                         needs_before=needs_before, needs_after=needs_after,
                         placement_evidence=placement_evidence,
-                        placement_refused=placement_refused, kind=kind)
+                        placement_refused=placement_refused, kind=kind,
+                        unverified=unverified)
 
 
 #: THE VOCABULARY. D-1 asked for it by name. Every entry is declared here and
@@ -493,8 +508,10 @@ SECTION_FUNCTIONS = {s.name: s for s in (
               differentia_field="bars", differentia_value=8,
               evidence="a middle-8 is a bridge whose bar count happens "
                        "to be 8"),)),
-    _spec("breakdown", "strips the arrangement back", "open", "varied"),
-    _spec("build", "raises tension toward a return", "open", "varied"),
+    _spec("breakdown", "strips the arrangement back", "open", "varied",
+          unverified="whether the arrangement thins"),
+    _spec("build", "raises tension toward a return", "open", "varied",
+          unverified="whether tension rises"),
     # REFUSED IN BOTH DIRECTIONS, and the asymmetry is why. `drop`'s gloss
     # defines it BY REFERENCE to a build, which is not the same as requiring
     # one -- a drop can arrive without a formal build section. And `build`'s
@@ -503,6 +520,7 @@ SECTION_FUNCTIONS = {s.name: s for s in (
     # without citing a row that is not its own. An owner ruling, not a
     # reading.
     _spec("drop", "the arrival a build points at", "returns", "varied",
+          unverified="whether it lands as an arrival",
           placement_refused="'the arrival a build points at' defines a drop "
                             "by reference to a build without requiring one, "
                             "and `build`'s own gloss names no drop. The edge "
@@ -524,7 +542,8 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           # pair as a PREFERRED unit, which is what a ruling nobody made
           # was buying
           ),
-    _spec("vamp", "a repeating figure held open", "open", "varied"),
+    _spec("vamp", "a repeating figure held open", "open", "varied",
+          unverified="whether a musical figure repeats under it"),
     # THE 22nd FUNCTION, ENTERED ON A PRINTED WITNESS (M-52, 2026-08-28).
     # The evidence rule the corpus taxonomy demands, satisfied twice over by
     # one file: `eng_hall_ws_gilbert.txt` carries the SOURCE'S OWN centred
@@ -3620,6 +3639,84 @@ def contrast_lines(channels, function="bridge", against=("verse",)):
     return out
 
 
+#: THE CONTRASTS THIS MODULE MEASURES, as (function, against). There is one.
+#: `contrasts_with` on a registry row is what the CONVENTION expects of five
+#: functions (prechorus, chorus, postchorus, bridge, patter); `bridge_contrast`
+#: is the only measurement, and `song_function_report` puts one pair to it.
+#: `test_song_function` holds this to that call, so the two cannot drift.
+MEASURED_CONTRASTS = (("bridge", "verse"),)
+
+
+@dataclass(frozen=True)
+class Unasked:
+    """Something the registry says of a DECLARED function that no question in
+    `song_function_report` reads. Not a finding (nothing was measured) and
+    not a refusal (nothing was asked): it is in none of the three counts."""
+    code: str
+    message: str
+    evidence: str = ""
+
+
+def not_asked(song):
+    """What this song's declared functions are expected to do that nothing
+    here asks -> [Unasked], at most one per code (issue #676 gaps 3 and 5).
+
+    CONTRAST_NOT_CHECKED  the registry expects a contrast between two
+        functions this song declares, and the pair is not in
+        `MEASURED_CONTRASTS`. Only pairs with BOTH sides declared: contrast
+        is a relation, and a side nobody declared is `bridge_contrast`'s
+        NO_COMPARATOR, not this.
+    EFFECT_NOT_VERIFIED   a declared function whose gloss claims something
+        about the performance (`FunctionSpec.unverified`).
+
+    The messages open with the two reason categories the team agreed for
+    exactly these cases (#676 comment 6586644079): "not checked" and "not
+    verified from text".
+
+    WHY IT IS REPORTED AND NOT MEASURED. `bridge_contrast` takes any function
+    and any comparator, so asking the other pairs is one loop. That loop
+    would raise a new note on most songs with a verse and a chorus, on
+    channels calibrated for none of those pairs, and which pairs deserve a
+    measurement is an open scope question (issue #803). What could not wait
+    was the silence: the convention's expectation sat in the registry,
+    nothing read it, and the layer still printed "answered".
+    """
+    declared = list(dict.fromkeys(
+        s.function for s in song.sections
+        if s.declared and s.function in SECTION_FUNCTIONS))
+    out = []
+    pairs = []
+    for fn in declared:
+        others = [o for o in SECTION_FUNCTIONS[fn].contrasts_with
+                  if o in declared and (fn, o) not in MEASURED_CONTRASTS]
+        if others:
+            pairs.append(f"whether the {fn} differs from the "
+                         + " and the ".join(others))
+    if pairs:
+        measured = "; ".join(f"the {a} against the {b}"
+                             for a, b in MEASURED_CONTRASTS)
+        out.append(Unasked(
+            "CONTRAST_NOT_CHECKED",
+            "not checked: " + "; ".join(pairs),
+            f"The convention expects these sections to differ, and nothing "
+            f"here measures whether they do. The one contrast measured is "
+            f"{measured}. This is advice left unasked: it is not a finding "
+            f"against the draft, and it is counted as neither answered nor "
+            f"refused."))
+    effects = [(fn, SECTION_FUNCTIONS[fn].unverified) for fn in declared
+               if SECTION_FUNCTIONS[fn].unverified]
+    if effects:
+        out.append(Unasked(
+            "EFFECT_NOT_VERIFIED",
+            "not verified from text: "
+            + "; ".join(f"{fn} ({what})" for fn, what in effects),
+            "The name promises something about the performance, and the "
+            "words on a bar grid cannot show it. Placement, recurrence and "
+            "return are still asked of "
+            + ("this section." if len(effects) == 1 else "these sections.")))
+    return out
+
+
 def song_function_report(song, hooks=(), rhyme_key=None,
                          convention=POPULAR_SONG, decl=None):
     """Every function-dependent question, asked once. -> dict.
@@ -3785,6 +3882,10 @@ def song_function_report(song, hooks=(), rhyme_key=None,
             #: two are different questions and folding them into one dict
             #: would make a caller unable to tell them apart.
             "reprises": reprises, "contrast": ch,
+            #: what the registry expects of this song's declared functions
+            #: that nothing above asks (`not_asked`). Outside the three
+            #: counts by construction: an unasked question is in none of them.
+            "not_asked": not_asked(song),
             "asked": asked, "answered": asked - refused_questions,
             "refused": refused_questions,
             #: how many refusal RECORDS the refused questions produced. Never
@@ -4715,6 +4816,7 @@ __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
            "POPULAR_SONG", "function_profile", "return_findings",
            "reprise_findings",
            "bridge_contrast", "song_function_report", "Refusal",
+           "MEASURED_CONTRASTS", "Unasked", "not_asked",
            # repetition with variation -- MISSING.md A-2, D-3
            "VARIATION_KINDS", "VariationDeclaration", "Return",
            "compare_returns", "normalise_line", "tokens",

@@ -6879,6 +6879,97 @@ async function browserChecks(chromium) {
       await ctx.close();
     });
 
+    // ── J17. A check that was not asked says what it was (#676) ─────────────
+    // A run discloses a contrast nothing measured and an effect words cannot
+    // show as `not_requested` rows that carry their own sentence. The page used
+    // to count them and say no more. It prints each sentence once, as a note;
+    // a row without a sentence is still counted and adds no words.
+    await step('J17. unasked checks say what was not asked', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT);
+      const contrast = 'not checked: whether the chorus differs from the verse';
+      const effect = 'not verified from text: breakdown (whether the arrangement thins)';
+      const row = (name, extra) => ({
+        name,
+        seed: null,
+        error: null,
+        not_run: false,
+        exit_code: null,
+        status: null,
+        certified: null,
+        coverage: null,
+        banned_pairs: null,
+        refusal: null,
+        ...extra,
+      });
+      await sendReview(page, q, {
+        reply: 'Review needs input. This is not song certification.',
+        history: [],
+        sig: 'fixture',
+        task: { domain: 'lyrics', phase: 'edit' },
+        artifact: null,
+        completion: null,
+        stopped: null,
+        assessment: {
+          status: 'input',
+          certified: false,
+          binding: null,
+          coverage: {
+            certified: false,
+            obligations: [
+              { id: 'pronunciation:2', status: 'refused', reason: 'More than one reading.' },
+              {
+                id: 'function:CONTRAST_NOT_CHECKED:draft',
+                layer: 'function',
+                status: 'not_requested',
+                code: 'CONTRAST_NOT_CHECKED',
+                message: contrast,
+              },
+              {
+                id: 'function:EFFECT_NOT_VERIFIED:draft',
+                layer: 'function',
+                status: 'not_requested',
+                code: 'EFFECT_NOT_VERIFIED',
+                message: effect,
+              },
+              // The same sentence twice is said once; a row with none is counted only.
+              { id: 'function:again', layer: 'function', status: 'not_requested', message: effect },
+              { id: 'shape:NO_COMPARATOR', layer: 'shape', status: 'not_requested' },
+            ],
+          },
+          standing: [],
+        },
+        tools: [row('lyric_recover', { exit_code: 3 }), row('lyric_check', { exit_code: 2 })],
+      });
+      const shown = await page.evaluate(() => ({
+        items: lyItems().map((i) => [i.id, i.tone, i.title, i.text]),
+        review: (LY_ACTIONS['ly-tab']('review'), $ui('ly-panel-review').innerText),
+      }));
+      const card = shown.items.find(([id]) => id === 'cov:unasked');
+      const want =
+        'Disclosed by the run and not asked of this song; they are neither passed nor failed. ' +
+        'Not checked: whether the chorus differs from the verse. ' +
+        'Not verified from text: breakdown (whether the arrangement thins).';
+      check(
+        card && card[1] === 'note' && card[2] === '4 checks not requested' && card[3] === want,
+        `the unasked card does not say what was not asked: ${JSON.stringify(card || shown.items)}`
+      );
+      check(
+        shown.review.includes('Not checked: whether the chorus differs from the verse.') &&
+          shown.review.includes(
+            'Not verified from text: breakdown (whether the arrangement thins).'
+          ),
+        `the review panel does not print the sentences: ${shown.review.slice(0, 600)}`
+      );
+      check(
+        !shown.items.some(
+          ([id, tone]) => tone !== 'note' && /CONTRAST_NOT_CHECKED|EFFECT_NOT_VERIFIED/.test(id)
+        ),
+        `an unasked check is shown as an issue or as missing input: ${JSON.stringify(shown.items)}`
+      );
+      await ctx.close();
+    });
+
     // 10. A saved request the server no longer keeps never strands the page.
     // The page re-arms the last exchange's receipt on every load; receipts
     // expire, and a 404 used to leave "outcome unknown" forever, hiding
@@ -7905,6 +7996,11 @@ async function browserChecks(chromium) {
                   (await structuralState(page)).text === after.text,
                   'repeated drop Redo did not restore text/declarations'
                 );
+                // Undo and Redo set the draft, and the page redraws these rows
+                // 120 ms later (lyRefresh's debounce). Run that redraw now: one
+                // that lands while the next drag is aiming at a handle replaces
+                // the row it aimed at, and the drag never reaches its drop.
+                await page.evaluate(() => lyRefresh(true));
               }
             }
             check(q.calls.length === 0, 'repeated drop sent a provider request');
@@ -7972,7 +8068,7 @@ async function browserChecks(chromium) {
                 })
               );
               // Native history handoff is separately owned; preserve its behavior.
-              if (!phone && to !== 1)
+              if (!phone && to !== 1) {
                 for (const action of ['undo', 'redo']) {
                   await page.locator(`#btn-${action}`).click();
                   check(
@@ -7987,6 +8083,11 @@ async function browserChecks(chromium) {
                     `${action} after Move changed text restoration`
                   );
                 }
+                // The same delayed redraw as in the drop step above. Run it
+                // before the next focus and Enter, or it can replace the
+                // focused Move button and the Enter moves nothing.
+                await page.evaluate(() => lyRefresh(true));
+              }
             }
             check(q.calls.length === 0, 'keyboard selection checks sent a provider request');
           } finally {

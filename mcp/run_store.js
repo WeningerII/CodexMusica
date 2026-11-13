@@ -22,6 +22,38 @@ import { DEFAULT_FORM } from './lyric_workflow.js';
 
 export const RUN_TTL_MS = 6 * 60 * 60 * 1000;
 export const RUN_CAP = 64;
+// THE CACHE'S ROOM FOR LYRIC TEXT (issue #851, 2026-11-13). A record keeps two
+// drafts outside its state: the accepted one and the one the run replays from.
+// While a line was at most 200 characters a draft was at most 463 lines of
+// 200, so RUN_CAP alone bounded the text this cache could hold. A line may be
+// 512 characters now, and no rule on a request bounds a KEPT draft below 463
+// of those: the website writer and one answer to a repeated line both grow a
+// draft inside one call, and a declared reading takes its word out of the
+// request total (meter_admission.js). The capacity matrix fills this cache to
+// its worst case, and on the first build with the longer line that worst case
+// was 2.56 times the text and went over the memory limit.
+//
+// So the room is stated, and it is what it was: RUN_CAP records of two drafts
+// of 463 lines of 200 characters, in UTF-16 code units (what a string costs in
+// memory, two bytes each at most). A long draft takes more of the same room.
+// Records are forgotten least recently used first until the text fits, exactly
+// as the count cap forgets them, and a forgotten record loses nothing a client
+// that passes `state` back still holds (the header). Every set of records that
+// fitted before the line limit rose still fits; in the worst case 25 records
+// of 463 lines of 512 characters are kept instead of 64.
+// Written as a number so the limits map lists it; mcp/test.mjs holds it to
+// RUN_CAP × 2 × ADMISSION_MAX_LINES × REQUEST_BUDGET_LINE_CHARS.
+export const RUN_TEXT_BUDGET = 11_852_800;
+if (RUN_TEXT_BUDGET !== RUN_CAP * 2 * 463 * 200)
+  throw new Error('run_store: the text budget no longer matches its derivation');
+const draftUnits = (lines) => {
+  if (!Array.isArray(lines)) return 0;
+  let units = 0;
+  for (const line of lines) if (typeof line === 'string') units += line.length;
+  return units;
+};
+// The lyric text one record keeps outside its state, in UTF-16 code units.
+export const runTextUnits = (rec) => draftUnits(rec?.draft) + draftUnits(rec?.replay_draft);
 
 // The fields that are a call's ANSWER to a run, never its declaration —
 // the wrapper's RUN_ANSWER_FIELDS plus the tool-only ones.
@@ -288,6 +320,7 @@ export class RunStore {
   constructor({
     ttlMs = RUN_TTL_MS,
     cap = RUN_CAP,
+    textBudget = RUN_TEXT_BUDGET,
     now = () => Date.now(),
     ledger = new RunLedger(null, { now }),
     // How a continuation wire is identified in the ledger: by its content,
@@ -297,11 +330,29 @@ export class RunStore {
   } = {}) {
     this.ttlMs = ttlMs;
     this.cap = cap;
+    this.textBudget = textBudget;
     this.now = now;
     this.ledger = ledger;
     this.wireKey = (w) => (typeof w === 'string' ? wireKey(w) : null);
     this.locks = new Set();
     this.map = new Map(); // opaque run_id -> record, insertion order = recency
+    // record -> its text, measured once per pair of draft arrays: the sweep
+    // runs on every get and put, and a full cache holds ~59,000 lines.
+    this.measured = new WeakMap();
+  }
+  _text(r) {
+    const hit = this.measured.get(r);
+    if (hit && hit.draft === r.draft && hit.replay === r.replay_draft) return hit.units;
+    const units = runTextUnits(r);
+    this.measured.set(r, { draft: r.draft, replay: r.replay_draft, units });
+    return units;
+  }
+  // The lyric text the cache holds now, in UTF-16 code units.
+  text() {
+    this._sweep();
+    let units = 0;
+    for (const r of this.map.values()) units += this._text(r);
+    return units;
   }
   // What the ledger knows of a run this store no longer holds (or null).
   mark(runId) {
@@ -338,6 +389,18 @@ export class RunStore {
     for (const k of this.map.keys()) {
       if (this.map.size <= this.cap) break;
       if (!this.locks.has(k)) this.map.delete(k);
+    }
+    // The text budget, in the same order and under the same exemption. At
+    // most PYTHON_MAX_ADMITTED (16) runs are locked at once, and 16 records of
+    // the largest drafts are inside the budget, so it is always reachable.
+    let units = 0;
+    for (const r of this.map.values()) units += this._text(r);
+    if (units <= this.textBudget) return;
+    for (const [k, r] of this.map) {
+      if (units <= this.textBudget) break;
+      if (this.locks.has(k)) continue;
+      this.map.delete(k);
+      units -= this._text(r);
     }
   }
   get(runId) {

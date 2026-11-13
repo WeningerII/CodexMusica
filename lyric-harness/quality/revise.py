@@ -3621,6 +3621,24 @@ class Reviser:
                              "token": f.token, "word": f.word, "text": f.text}
                             for f in unlocated]
                     coverage_out.append(record)
+                # WHAT THE REGISTRY EXPECTS OF THESE SECTIONS AND NOTHING ASKED
+                # (issue #676 gaps 3 and 5, 2026-11-13). `function:draft` reads
+                # "answered" when every question PUT was answered. The
+                # convention also expects a chorus to differ from its verse,
+                # and a `build` to raise tension, and neither was put: one
+                # contrast is measured (the bridge against the verse) and no
+                # acoustic effect can be read off words. Until now the layer's
+                # "answered" covered that silence. These are disclosed the way
+                # NO_COMPARATOR already is, as `not_requested` rows carrying a
+                # code -- with the grader's sentence on the row itself, since
+                # nothing was measured and so there is no finding to carry it.
+                # A `not_requested` row is never counted as answered or
+                # refused and never withholds certification.
+                for gap in rep.get("not_asked", ()):
+                    coverage_out.append({"id": f"function:{gap.code}:draft",
+                                         "layer": "function", "status": "not_requested",
+                                         "code": gap.code, "message": gap.message,
+                                         "evidence": gap.evidence})
             coverage_out.append({"id": "shape:draft", "layer": "shape", "status": "answered"})
         whole = []
         for f in rep["findings"]:
