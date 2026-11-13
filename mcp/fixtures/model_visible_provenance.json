@@ -287,6 +287,46 @@
       "reason": "An optional member of the blueprint JSON shape the description spells out."
     },
     {
+      "literal": "refrain",
+      "category": "field-or-value",
+      "at": [
+        "lyric_revise input.properties.blueprint.description",
+        "lyric_verify input.properties.blueprint.description",
+        "lyric_check input.properties.blueprint.description"
+      ],
+      "contexts": [
+        "with it. A line may also carry \"role\": \"refrain\" or \"burden\". A role says what the line"
+      ],
+      "declared_in": [
+        {
+          "file": "lyric-harness/quality/line_roles.py",
+          "as": "value",
+          "field": "ROLES"
+        }
+      ],
+      "reason": "One of the two values a blueprint line's optional role takes."
+    },
+    {
+      "literal": "burden",
+      "category": "field-or-value",
+      "at": [
+        "lyric_revise input.properties.blueprint.description",
+        "lyric_verify input.properties.blueprint.description",
+        "lyric_check input.properties.blueprint.description"
+      ],
+      "contexts": [
+        "line may also carry \"role\": \"refrain\" or \"burden\". A role says what the line is and asks"
+      ],
+      "declared_in": [
+        {
+          "file": "lyric-harness/quality/line_roles.py",
+          "as": "value",
+          "field": "ROLES"
+        }
+      ],
+      "reason": "One of the two values a blueprint line's optional role takes."
+    },
+    {
       "literal": "browse",
       "category": "field-or-value",
       "at": ["systemInstruction"],

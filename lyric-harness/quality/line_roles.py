@@ -14,7 +14,9 @@ from .grid import GridFinding, Unasked, as_function
 
 #: The two roles a line can be marked with. `burden` is never folded into
 #: `refrain`: the registry keeps them as two rows and so does every report.
-ROLES = ('refrain', 'burden')
+#: Written without brackets on purpose: `mcp/test_prompt_provenance.mjs`
+#: looks here for both names as values of ROLES, and reads `= 'x', 'y'`.
+ROLES = 'refrain', 'burden'
 
 
 def canonical_role(raw, line):
