@@ -10,10 +10,23 @@
 //                        set, before blank rows and [SECTION] markers are
 //                        dropped. Ids never move: the sung lines are numbered
 //                        L001… after normalising, whatever the rows around them.
-//   meter_line_digits    METER_LINE_DIGITS_CAP = floor(1.5 × (200 + 1)) = 301
+//   meter_line_digits    METER_LINE_DIGITS_CAP = floor(1.5 × (512 + 1)) = 769
 //                        syllable digits per normalised line.
 //   meter_request_digits METER_REQUEST_DIGITS_CAP = 463 × 301 = 139,363 digits over
-//                        the normalised lines of one request (below).
+//                        the normalised lines of one request (below): what
+//                        463 lines of 200 characters could reach.
+//
+// THE LINE LIMIT ROSE; THE REQUEST TOTAL DID NOT (issue #851, 2026-11-12).
+// Until then a line was at most 200 characters, its cap was 301, and the
+// request total was simply 463 of those. The line limit is 512 now, for
+// reading and for writing alike (`lyric_tools.js` MAX_LINE_CHARS): the stored
+// corpus has lines of 417 characters and 80 words, and a line of 201 was
+// refused whole. The total a request may carry stays where it was, sized for
+// REQUEST_BUDGET_LINE_CHARS = 200: a long line spends more of the same total,
+// so a request of long lines carries fewer of them, and every byte figure
+// derived from the total (the state a run carries, the journal, the response)
+// is as it was. One thing therefore stopped following from the caps alone and
+// is checked instead: A REVISION'S ANSWERS, below.
 //
 // ONE DECISION RULE ON EVERY PATH (BB8 condition 1). A line's digit figure is
 // an UPPER BOUND computed here, in Node, without the lexicon: the stressed
@@ -22,7 +35,7 @@
 // separator that ends a token. No token the reader can produce reads more
 // than 1.5 digits per unit (the derivation; the gate is
 // lyric-harness/quality/test_meter_digit_bound.py), so a line with no
-// declaration is never over 301 at 200 characters. A declared line can be
+// declaration is never over 769 at 512 characters. A declared line can be
 // refused although its real count would fit; that is accepted, and the
 // refusal says the line COULD REACH the figure, never that it has it. No
 // other path counts digits another way.
@@ -58,12 +71,24 @@
 // keeps one whose line is in no draft (it is reported stale, not refused); a
 // revision's answer, or the source reading of a recovered row, can make that
 // text a sung line later. So every distinct declared line that could ever be
-// sung (at most 200 code points, one row) is also measured, against the
-// per-line cap only: with every line that can be sung at or under 301 and at
-// most 463 of them, no request passes 139,363 that way. A revision's
-// `answer`/`answers` then need no set of their own: an undeclared answer is
-// refused at 200 characters (ANSWER_TOO_LONG and the `answers` schema) and so
-// stays inside the cap, and a declared one is a declared line.
+// sung (at most 512 code points, one row) is also measured, against the
+// per-line cap only. An undeclared answer is refused over 512 characters
+// (ANSWER_TOO_LONG and the `answers` schema) and so stays inside the per-line
+// cap, and a declared one is a declared line.
+//
+// A REVISION'S ANSWERS. An answer replaces a line, and the line it replaces
+// may have counted less, so a revised draft can outgrow the draft that was
+// admitted. While a line's cap was 301 that could not pass the request total
+// (463 × 301 is the total). At 769 it can, so the answers a `lyric_revise`
+// call carries are measured WITH the draft they will be folded into: the
+// draft's bound plus every answered line's bound must be inside the total,
+// counting nothing off for the lines replaced. A call over it is refused
+// before anything runs, with the question still pending, so a shorter answer
+// continues the run; and the draft a run carries forward is then inside the
+// total on its next call, because each call that grew it was admitted this
+// way. (The website chat's own writer answers inside one call and is not
+// measured here; a run it grows past the total is refused on its next
+// continuation, by name, with its accepted draft kept for recover_only.)
 //
 // ONE TOTAL PER REQUEST (BB8 ruling 2). The per-request cap is over every line
 // whose recognition the response carries: the draft (whichever of its
@@ -84,7 +109,10 @@ import { decodeState } from './state_codec.js';
 // MAX_LINE_CHARS). Kept literal so this module imports nothing from the tool
 // registry; mcp/test_meter_admission.mjs holds the two equal.
 export const ADMISSION_MAX_LINES = 463;
-export const ADMISSION_MAX_LINE_CHARS = 200;
+export const ADMISSION_MAX_LINE_CHARS = 512;
+// The line length the REQUEST TOTAL is sized for: the line limit as it was
+// before #851. Not a limit on any line.
+export const REQUEST_BUDGET_LINE_CHARS = 200;
 // 1.5 digits per unit, as the exact ratio 3/2 so no float rounding enters.
 export const DIGITS_PER_UNIT = Object.freeze({ numerator: 3, denominator: 2 });
 const atRate = (units) =>
@@ -92,19 +120,21 @@ const atRate = (units) =>
 // The three caps, written as numbers so the limits map lists them
 // (lyric-harness/map/limits.md); the tests hold each to its derivation.
 // floor(1.5 × (ADMISSION_MAX_LINE_CHARS + 1)):
-export const METER_LINE_DIGITS_CAP = 301;
-// ADMISSION_MAX_LINES × METER_LINE_DIGITS_CAP:
+export const METER_LINE_DIGITS_CAP = 769;
+// ADMISSION_MAX_LINES × floor(1.5 × (REQUEST_BUDGET_LINE_CHARS + 1)) = 463 × 301:
 export const METER_REQUEST_DIGITS_CAP = 139_363;
 // 3 × ADMISSION_MAX_LINES:
 export const RAW_ROWS_CAP = 1_389;
 if (
   METER_LINE_DIGITS_CAP !== atRate(ADMISSION_MAX_LINE_CHARS + 1) ||
-  METER_REQUEST_DIGITS_CAP !== ADMISSION_MAX_LINES * METER_LINE_DIGITS_CAP ||
+  METER_REQUEST_DIGITS_CAP !== ADMISSION_MAX_LINES * atRate(REQUEST_BUDGET_LINE_CHARS + 1) ||
+  REQUEST_BUDGET_LINE_CHARS > ADMISSION_MAX_LINE_CHARS ||
   RAW_ROWS_CAP !== 3 * ADMISSION_MAX_LINES
 )
   throw new Error('meter_admission: a cap no longer matches its derivation');
 // WHAT ONE ADMITTED LINE COSTS A RESPONSE (BB8 ruling 1). The largest
-// recognition one line at the per-line cap can add to the default view,
+// recognition one line of 301 digits (a 200-character line, the line the
+// request total is sized for) can add to the default view,
 // JSON-escaped as the bounded payload measures it, CANDIDATE ROWS INCLUDED:
 // 7,507 B, at 301 digits (5,979 B without the candidate rows). Measured by
 // lyric-harness/quality/test_meter_digit_bound.py over every surface the
@@ -114,6 +144,13 @@ if (
 // 463 lines are 3,568,341 B, 42.5% of the 8 MiB default-view budget, before
 // the response envelope, which is not measured yet. None of the caps above
 // depends on it.
+// NOT MEASURED FOR A LONGER LINE (#851): the recognizer core these figures
+// were measured on (#751) is not on this head, so what a line of 302-769
+// digits adds to a response has no figure here. The request total did not
+// move, so the 463-line figure below still bounds every request whose
+// per-line cost grows no faster than its digits; whether the core's does is
+// for test_meter_digit_bound.py to measure, over 1-769 digits, the day the
+// core is importable. It fails then rather than pass on the old range.
 export const METER_LINE_RESPONSE_BYTES = 7_507;
 export const METER_LINE_WRAPPER_BYTES = 200;
 // ADMISSION_MAX_LINES × (METER_LINE_RESPONSE_BYTES + METER_LINE_WRAPPER_BYTES):
@@ -289,6 +326,28 @@ export function recognitionInputOf(args = {}, { tool = null } = {}) {
     const held = decoded.connector_declarations?.pronunciations;
     if (!carried && Array.isArray(held)) carried = held;
   }
+  // A REVISION'S ANSWERS (the header): each answered line, measured with the
+  // draft it will be folded into. `answers` is one {line, text} per asked
+  // line; `answer` is one line, or one `L<n>: text` row per asked line.
+  if (tool === 'lyric_revise') {
+    const answered = [];
+    if (Array.isArray(args.answers))
+      for (const row of args.answers)
+        if (typeof row?.text === 'string' && row.text.trim()) answered.push(row.text.trim());
+    if (typeof args.answer === 'string')
+      for (const row of args.answer.split(/\r\n|\r|\n/)) {
+        const text = row.trim().replace(/^(?:L\s*\d+\s*[:.]|LINE\s*:)\s*/i, '');
+        if (text) answered.push(text);
+      }
+    if (answered.length)
+      sets.push({
+        name: Array.isArray(args.answers) ? 'answers' : 'answer',
+        family: null,
+        rows: answered.length,
+        lines: answered,
+        answers: true,
+      });
+  }
   // A blueprint's stored line texts are rows the call carries, so they meet
   // the raw-row cap; but nothing recognises their text (the meter and
   // function passes fit the DRAFT's lines to the blueprint's placements; only
@@ -354,6 +413,7 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
     ...(set.declaredOnly ? { declared_only: true } : {}),
     ...(set.unrecognised ? { unrecognised: true, outside_total: true } : {}),
     ...(set.byRow ? { by_row: true } : {}),
+    ...(set.answers ? { answers: true } : {}),
     lines: set.lines.map((text, i) => {
       const bound = lineDigitBound(text, declarations);
       const id = set.declaredOnly
@@ -365,7 +425,10 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
     }),
   }));
   for (const set of measured)
-    for (const line of set.unrecognised ? [] : set.lines)
+    // An answered line is held to the line limit by its own refusal
+    // (ANSWER_TOO_LONG), which names the answer; it is measured here for the
+    // request total only.
+    for (const line of set.unrecognised || set.answers ? [] : set.lines)
       if (line.bound > METER_LINE_DIGITS_CAP) {
         const how = line.contributing.length
           ? `under its declared readings (${line.contributing
@@ -409,6 +472,7 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
       family: set.family,
       lines: set.lines.length,
       bound: set.lines.reduce((n, l) => n + l.bound, 0),
+      ...(set.answers ? { answers: true } : {}),
     };
     if (set.family !== 'draft') songs.push(song);
     else if (!draft || song.bound > draft.bound) draft = song;
@@ -431,14 +495,19 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
           )
           .join('; ')}.`
       : '';
+    const answering = songs.some((s) => s.answers);
+    const answerNote = answering
+      ? ' The answered lines are counted with the draft they would be folded into, and nothing is taken off for the lines they replace. Nothing was run and the same question is still pending: answer it again with shorter lines.'
+      : '';
     throw new AdmissionRefusal(
       'meter_request_digits',
-      `${parts}${songs.length > 1 ? ' together' : ''} could reach ${fmt(total)} syllable digits; one request carries at most ${fmt(METER_REQUEST_DIGITS_CAP)} (the per-request cap). This is an upper bound, not a count.${notCounted}`,
+      `${parts}${songs.length > 1 ? ' together' : ''} could reach ${fmt(total)} syllable digits; one request carries at most ${fmt(METER_REQUEST_DIGITS_CAP)} (the per-request cap). This is an upper bound, not a count.${answerNote}${notCounted}`,
       {
         sets: songs.map((s) => s.name),
         not_counted: left.map((s) => s.name),
         bound: total,
         cap: METER_REQUEST_DIGITS_CAP,
+        ...(answering ? { answers: true } : {}),
       }
     );
   }

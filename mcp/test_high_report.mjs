@@ -616,13 +616,27 @@ test('lyric_revise: a pasted run refuses plan declarations, a long answer, and f
       first.content[0].text,
       /CONTINUE: call lyric_revise with `run_id`, `run_revision` 1 and `answer/
     );
+    // The one line limit is 512 characters (issue #851; it was 200), for an
+    // answered line as for a draft line.
     const tooLong = await raw({
       run_id: v1.run_id,
       run_revision: v1.run_revision,
-      answer: 'x'.repeat(201),
+      answer: 'x'.repeat(513),
     });
     assert.ok(tooLong.isError);
     assert.match(tooLong.content[0].text, /ANSWER_TOO_LONG/);
+    assert.match(tooLong.content[0].text, /at most 512 characters/);
+    // Inside the character limit, an answered line must also fit the room the
+    // run reserved for it (800 bytes as UTF-8): 300 three-byte characters do
+    // not, and the refusal says which limit it was.
+    const tooWide = await raw({
+      run_id: v1.run_id,
+      run_revision: v1.run_revision,
+      answer: '\u4e2d'.repeat(300),
+    });
+    assert.ok(tooWide.isError);
+    assert.match(tooWide.content[0].text, /ANSWER_TOO_LONG/);
+    assert.match(tooWide.content[0].text, /at most 800 bytes as UTF-8/);
     // State continuation must suspend again, leaving a real note to follow.
     const next = await raw({ state: v1.state, answer: 'The stars were cold and so were we 0' });
     assert.ok(!next.isError, next.content[0].text);

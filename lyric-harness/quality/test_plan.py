@@ -1042,18 +1042,38 @@ def test_the_measure():
 
     # The envelope floor is DERIVED, not copied (the calibration chain).
     # REPOINTED 2026-09-28: the density band is deleted by owner ruling and
-    # nothing replaced it; the ceiling is the one line limit the harness
-    # keeps.
-    check("NEITHER END OF THE ENVELOPE IS A LITERAL (`MISSING.md` M-81(B), "
-          "doctrine 91): the BEATS ceiling is the longest line in characters "
-          "(`propose.MAX_LINE_CHARS`) times `BEATS_PER_SYLLABLE_MAX` — a "
-          "syllable is at least one character and a sung line carries at "
-          "least one syllable a beat — and the SLOTS floor is one slot, "
-          "because a line holds at least one syllable. Detach either and "
-          "this fails",
-          b_line == PLN.MAX_LINE_CHARS * PLN.BEATS_PER_SYLLABLE_MAX
+    # nothing replaced it; the ceiling was the one line limit the harness
+    # kept.
+    # REPOINTED 2026-11-12 (issue #851): that line limit rose from 200 to
+    # 512 so long lines are read and written, and the planner's range did
+    # NOT follow -- widening it changes the shape of new songs, which the
+    # issue did not ask for (`plan.PLANNED_LINE_CHARS` says why, with the
+    # measurement). So the ceiling is the planner's own named constant, and
+    # what is held here is (a) the envelope is still derived from it and
+    # from nothing else, (b) it is the number the envelope has always had,
+    # and (c) it never passes the line limit, so the planner cannot plan a
+    # line the writer would be refused.
+    check("NEITHER END OF THE ENVELOPE IS WRITTEN INTO THE DRAW (`MISSING.md` "
+          "M-81(B), doctrine 91): the BEATS ceiling is the planner's one "
+          "named line ceiling (`plan.PLANNED_LINE_CHARS`) times "
+          "`BEATS_PER_SYLLABLE_MAX` — a syllable is at least one character "
+          "and a sung line carries at least one syllable a beat — and the "
+          "SLOTS floor is one slot, because a line holds at least one "
+          "syllable. Detach either and this fails",
+          b_line == PLN.PLANNED_LINE_CHARS * PLN.BEATS_PER_SYLLABLE_MAX
           and lo == 1,
           f"beats ceiling {b_line}, slots floor {lo}")
+    from quality import propose as _propose_limit
+    check("...the planner's line ceiling is the 200 the envelope has always "
+          "had, and it is AT OR UNDER the one line limit the harness keeps "
+          "(`propose.MAX_LINE_CHARS`, 512 since issue #851): raising the "
+          "limit moved no plan, and no planned line is longer than a line "
+          "the writer may send",
+          PLN.PLANNED_LINE_CHARS == 200
+          and PLN.PLANNED_LINE_CHARS <= _propose_limit.MAX_LINE_CHARS == 512
+          and not hasattr(PLN, "MAX_LINE_CHARS"),
+          f"planner {PLN.PLANNED_LINE_CHARS}, line limit "
+          f"{_propose_limit.MAX_LINE_CHARS}")
     check("...and the SLOTS ceiling is not declared beside them — it FOLLOWS "
           "from the beats ceiling and the finest grid this vocabulary models, "
           "which is what makes the old `SLOTS_CEILING_X` unnecessary rather "
@@ -1577,15 +1597,16 @@ def test_the_measure():
             elif n.value.id in ("_NV", "NV"):
                 nar_names.add(n.attr)
     # `meter_bands` LEFT 2026-09-28: the planner read only its `DENSITY`
-    # band, which the owner deleted. `propose` JOINED the same day, and it
-    # may name ONLY `MAX_LINE_CHARS` — the one line limit the harness keeps,
-    # which is now the envelope's beat ceiling. `propose.py` imports only
-    # `re` at module level and opens no file (checked below).
-    check("plan.py imports exactly {schemes, propose, structures, grid, "
+    # band, which the owner deleted. `propose` JOINED the same day, for
+    # `MAX_LINE_CHARS` alone, and LEFT 2026-11-12 (issue #851): the line
+    # limit rose and the planner's range stayed, so the planner keeps its
+    # ceiling under its own name (`PLANNED_LINE_CHARS`) and imports nothing
+    # from `propose`. One import fewer between the writer and the dice.
+    check("plan.py imports exactly {schemes, structures, grid, "
           "floor, slots, relations, narrative, melody, rhyme_types, function_disclosure} from quality and "
           "opens NO file — the corpus cannot reach the dice (the owner's "
           "move-37 rule)",
-          subs == {"schemes", "propose", "structures", "grid", "floor",
+          subs == {"schemes", "structures", "grid", "floor",
                    "slots", "relations", "narrative", "melody",
                    "rhyme_types", "function_disclosure"}
           and opens == 0,
@@ -1598,11 +1619,22 @@ def test_the_measure():
     prop_tree = ast.parse(_inspect.getsource(_propose))
     prop_top = {a.name for n in prop_tree.body
                 if isinstance(n, ast.Import) for a in n.names}
-    check("...and from `propose` ONLY the line-length limit, from a module "
-          "whose own top-level imports are `re` alone",
-          prop_names == {"MAX_LINE_CHARS"} and prop_top == {"re"}
-          and not any(isinstance(n, ast.ImportFrom) for n in prop_tree.body),
-          f"names {sorted(prop_names)}, propose imports {sorted(prop_top)}")
+    # The planner's ceiling is ONE module-level integer, assigned once and
+    # by a literal, so the number cannot be re-derived from the writer's
+    # limit (or from anything else) without this check seeing it.
+    ceilings = [n for n in tree.body if isinstance(n, ast.Assign)
+                and any(isinstance(t, ast.Name) and t.id == "PLANNED_LINE_CHARS"
+                        for t in n.targets)]
+    check("...and from `propose` NOTHING: the planner's line ceiling is its "
+          "own constant, assigned once at module level by a literal; "
+          "`propose` itself still imports `re` alone at its top level",
+          prop_names == set() and prop_top == {"re"}
+          and not any(isinstance(n, ast.ImportFrom) for n in prop_tree.body)
+          and len(ceilings) == 1
+          and isinstance(ceilings[0].value, ast.Constant)
+          and ceilings[0].value.value == 200,
+          f"names {sorted(prop_names)}, propose imports {sorted(prop_top)}, "
+          f"{len(ceilings)} assignment(s) of PLANNED_LINE_CHARS")
     # M-304's report resolves an explicitly declared class/type/schema name.
     # The resolver reads namespace tables only. Admit that one function in
     # audible_share, never the module, a word classifier or a sampler import.

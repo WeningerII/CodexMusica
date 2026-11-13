@@ -660,6 +660,107 @@ test('actual explicit-blueprint connector revision retains meter headers', async
   }
 });
 
+// ISSUE #676. The note after an uncertified stop used to recommend
+// `pronunciations` whatever was refused. A hand-declared title with no hook is
+// a refused DECLARATION with no unread word in the draft, so that advice could
+// not clear it. Real server, real harness; the title is the only difference
+// between the first two runs, and an unreadable word between the last two.
+test('an uncertified stop names the refused declaration and does not blame pronunciations for it', async () => {
+  const server = buildServer({ task: { domain: 'lyrics' } });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  await server.connect(a);
+  const c = await connectConnector({ task: { domain: 'lyrics', phase: 'edit' }, transport: b });
+  const revise = async (draft, extra = {}) => {
+    const blueprint = {
+      ...extra,
+      sections: [
+        {
+          name: 'verse',
+          function: 'verse',
+          start_bar: 1,
+          bars: 1,
+          meter: { beats: 4, unit: 4, groups: [2, 2] },
+        },
+        {
+          name: 'chorus',
+          function: 'chorus',
+          start_bar: 2,
+          bars: 1,
+          meter: { beats: 7, unit: 8, groups: [3, 2, 2] },
+        },
+      ],
+      lines: draft.map((text, i) => ({
+        text,
+        bar: i + 1,
+        beat: 1,
+        duration: i ? 7 : 4,
+        section: i ? 'chorus' : 'verse',
+      })),
+    };
+    const result = await c.call('lyric_revise', {
+      draft,
+      blueprint: JSON.stringify(blueprint),
+      scheme: 'AA',
+      relation: 'class:ASSONANCE',
+      subdivision: 4,
+      writer: 'interview',
+      max_rounds: 1,
+      attempts: 0,
+      backtrack: 0,
+    });
+    assert(!result.isError, JSON.stringify(result));
+    return { text: result.content[0].text, verdict: JSON.parse(result.content[1].text) };
+  };
+  const READING = 'Resolve the unread words with `pronunciations`';
+  try {
+    const clean = ['My kettle whistles by the stove', 'Your fingers brush my heavy coat'];
+    const plain = await revise(clean);
+    assert.equal(plain.verdict.exit_code, 0, 'CONTROL: the untitled song finishes clean');
+    assert.equal(plain.verdict.certified, true);
+
+    // The same song with a title and no declared hook: nothing is flagged and
+    // every word is read, yet "is the title in the hook?" has nothing to be
+    // asked of. A writer declared this blueprint, so it is still refused.
+    const titled = await revise(clean, { title: 'Kettle and Coat' });
+    assert.equal(titled.verdict.exit_code, 2);
+    assert.equal(titled.verdict.certified, false);
+    assert.deepEqual(titled.verdict.coverage.refused_obligations, [
+      'function:draft',
+      'function:HOOK_UNDECLARED:3',
+    ]);
+    assert.match(titled.text, /NOT CERTIFIED: no line is open/);
+    assert.match(
+      titled.text,
+      /What was not judged is a DECLARATION, not a word: function: HOOK_UNDECLARED — no hook was declared/
+    );
+    assert.ok(
+      !titled.text.includes(READING),
+      'no word went unread, so the pronunciation step is not offered'
+    );
+    assert.match(titled.text, /present it as uncertified, not finished/);
+
+    // An unreadable word leaves a line open: that stop keeps its rewrite
+    // step, and names no declaration because none is refused.
+    const unread = ['My kettle whistles by the stove', 'Your fingers brush my heavy qzzxv'];
+    const word = await revise(unread);
+    assert.equal(word.verdict.exit_code, 2);
+    assert.match(word.text, /NOT FINISHED: this stop left lines open/);
+    assert.ok(!word.text.includes('DECLARATION'), 'a refused word is not called a declaration');
+
+    // Both at once: the open line keeps its rewrite step, and the note says
+    // the declaration stands beside it and no rewrite reaches it.
+    const bothCauses = await revise(unread, { title: 'Kettle and Coat' });
+    assert.equal(bothCauses.verdict.exit_code, 2);
+    assert.match(bothCauses.text, /NOT FINISHED: this stop left lines open/);
+    assert.match(
+      bothCauses.text,
+      /ALSO NOT JUDGED, and no rewrite will change it — a DECLARATION, not a word: function: HOOK_UNDECLARED/
+    );
+  } finally {
+    await c.close();
+  }
+});
+
 test('every public recipe format obeys limits smaller than its genre header', () => {
   const ws = W.seed(['garage_rock', 'delta_blues']);
   for (const format of ['rich', 'prose', 'tags', 'compact']) {

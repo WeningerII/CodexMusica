@@ -1584,6 +1584,28 @@ that all 5-12 and not replace it."* `DENSITY_OUT_OF_BAND` no longer exists,
 and the planner no longer reads the band — its beat-per-line ceiling is the
 one line limit kept, `propose.MAX_LINE_CHARS` characters (a syllable is at
 least one character), and a declared melody is not held to it.
+**THE LINE LIMIT IS 512 CHARACTERS SINCE 2026-11-12 (issue #851; it was
+200)**, for reading and for writing alike, because the corpus has lines of 417
+characters and 80 words and the program refused them. The planner's ceiling
+did not follow: it stays 200 beats under its own name,
+`plan.PLANNED_LINE_CHARS`, because it is the range new songs are planned in,
+not a limit on any line, and widening it redraws every plan.
+**AND A LONG LINE COSTS WHAT ITS WORDS COST (same day, same issue).**
+`relations._token_figures` read every ordered tuple of a line's words and
+evaluated each tuple's edges afresh: an 80-word line is 1.6 million four-word
+tuples, 40 seconds a call, and a 512-character line of 171 short words ran
+out the 600 s tool budget and came back interrupted. It is a search now: an
+edge is evaluated once per pair of words, and a failed edge ends every tuple
+that shares those words. The answer is the exhaustive one, in the same order;
+X12 of `quality/test_relations.py` holds it to the tuple-by-tuple reading and
+COUNTS the evaluations rather than timing them. Measured through
+`lyric_check`: the 417-character corpus line with its two neighbours, 54 s to
+15 s; 171 words in 512 characters, interrupted at 600 s to 12 s. What is left
+follows the SONG's word count, about its square, however the lines are cut:
+the same 454 words take 98 s as 57 lines of eight words and 150 s as six
+lines of about 400 characters, and 902 words as twelve such lines take 552 s,
+which is the edge of the 600 s budget. That is `realise` evaluating every
+candidate pair of every schema, and it is not changed here.
 `meter_bands.ADOPTED` still carries the measured `DENSITY` figure as a
 measurement, which nothing enforces.
 **AND THE PROMINENCE BAND IS DELETED TOO (owner ruling 2026-10-01), with no

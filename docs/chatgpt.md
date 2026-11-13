@@ -56,7 +56,9 @@ verdict — exit code, meaning, certification and stop fields, `blocking` (one l
 flag or banned pair standing, and per line a requested obligation could not be judged
 on), a count of notes with `notes_by_code` (the count by kind), `not_checked`
 (each coverage layer the request did not ask, such as the syllable-to-pulse setting), and,
-after a grade at exit 0 or 3, `next` (the call that takes this exact draft on).
+after a grade at exit 0 or 3, `next` (the call that takes this exact draft on). Under a plan
+that replaced the session's first plan, the plan, grade and revise results also carry
+`plan_lineage`: what the first plan declared and the planner bound that this one does not.
 `get_operation` with `detail` (`findings`, `report`,
 `coverage`, `pronunciations` or `full`, optionally narrowed by `lines`) returns the
 rest of that verdict from the stored result. A read of an

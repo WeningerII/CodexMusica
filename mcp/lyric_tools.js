@@ -32,6 +32,7 @@ import { probeReaderScheme } from './reader_scheduler.js';
 import { requestContext } from './execution_context.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 import { admitRecognitionArgs, pastedRowsOf } from './meter_admission.js';
+import { declarationAdvice, uncertifiedAdvice } from './coverage_advice.js';
 export { draftFromText } from './lyric_text.js';
 import {
   assessmentCoverageValid,
@@ -104,7 +105,25 @@ const MAX_WORD_CHARS = 40;
 // writable capacity, `EXECUTABLE_MAX_LINES`) — DELETED 2026-09-28 by owner
 // ruling: every plan the planner draws can be written, graded and revised.
 export const MAX_LINES = 463;
-const MAX_LINE_CHARS = 200;
+// THE ONE LINE LIMIT, in code points: the longest line any lyric tool takes,
+// in a draft it is given to read or grade and in an answer the writer sends.
+// RAISED 200 -> 512 on 2026-11-12 (issue #851): the stored corpus has lines of
+// 417 characters and 80 words, and at 200 a pasted line of 201 was refused
+// whole and the writer could not have written one. It is one number on
+// purpose, for reading and writing alike; no word count is checked on either.
+// What moved with it: the per-line admission cap (meter_admission.js), the
+// harness's LINE_CHARS and quality/propose.py's MAX_LINE_CHARS. What did not:
+// the request's total (meter_admission.js: long lines spend more of the same
+// total), the room a run's journal gives one answered line (ANSWER_LINE_BYTES
+// below), and the planner's own range of line lengths (quality/plan.py).
+const MAX_LINE_CHARS = 512;
+// The journal's room for ONE ANSWERED LINE (lyric-harness/lyric_harness.py
+// ANSWER_LINE_RAW_BYTES less its 16-byte marker allowance, and
+// ANSWER_LINE_JSON_BYTES less the two quotes): what a 200-character line
+// could always take. An answered line must fit it as well as the character
+// limit, so a run's reserves hold; any ordinary text of 512 characters does.
+const ANSWER_LINE_UTF8_BYTES = 800;
+const ANSWER_LINE_JSON_BYTES = 1200;
 // Two closed vocabularies the schemas enumerate, checked the same way:
 // `quality/plan.py` PLAN_FORMS and `quality/rhyme_types.py` POSITION.
 export const PLAN_FORMS = ['open', 'verse-chorus'];
@@ -182,7 +201,8 @@ const MAX_WANT_CHARS = 80;
 // magnitude over the measured case, still bounding what a client can make
 // this server re-parse. The answered records themselves are small (the
 // fold keeps the record, never the prompt).
-const MAX_ANSWER_CHARS = 4000;
+// 20 lines' worth, as it was at 200 characters a line (4,000).
+const MAX_ANSWER_CHARS = 20 * MAX_LINE_CHARS;
 const MAX_STATE_CHARS = STATE_MAX_CHARS;
 
 // RAISED 90s -> 180s 2026-08-26: the whole-vocabulary default (M-116) made
@@ -1666,7 +1686,7 @@ const titleField = z
   .max(MAX_LINE_CHARS)
   .optional()
   .describe(
-    'The song\'s title, CARRIED into the blueprint and never inferred. Declaring one answers "is the title in the hook?" instead of leaving it refused as TITLE_UNDECLARED — and the answer can be NO: TITLE_NOT_IN_HOOK is a whole-draft FLAG (counted in whole_flags), so a title whose words are not a contiguous run inside the hook line (or the hook inside the title) keeps the draft from grading clean — lyric_grade exits 3 on it, or 2 when coverage is also incomplete. Containment is a normalised WORD-subsequence test in either direction, not a substring match. A title with more words than the hook can never be answered YES by any draft and is refused as TITLE_LONGER_THAN_HOOK rather than charged. Omit it and the question is reported as TITLE_UNDECLARED, not answered.'
+    'The song\'s title, CARRIED into the blueprint and never inferred. Declaring one answers "is the title in the hook?" instead of leaving it refused as TITLE_UNDECLARED — and the answer can be NO: TITLE_NOT_IN_HOOK is a whole-draft FLAG (counted in whole_flags), so a title whose words are not a contiguous run inside the hook line (or the hook inside the title) keeps the draft from grading clean — lyric_grade exits 3 on it, or 2 when coverage is also incomplete. Containment is a normalised WORD-subsequence test in either direction, not a substring match. A title with more words than the hook can never be answered YES by any draft and is refused as TITLE_LONGER_THAN_HOOK rather than charged. Omit it and the question is reported as TITLE_UNDECLARED, not answered — which holds nothing back. A title is OPTIONAL: declare one only when the user gave or asked for one. On a plan that declares no hook (the `open` form declares none) a title only names the song — the question is not asked and nothing is held back for it.'
   );
 
 // THE CLI GLOBALS THE CHAT SURFACE COULD NOT SPELL (M-189, 2026-09-01).
@@ -2432,7 +2452,7 @@ function reviseDescription({ kitchen = false } = {}) {
     'went unjudged); when its stamp also names UNRESOLVED lines, the song is parked as well. Present an exit ' +
     '2 or 3 stop as parked or uncertified, never as finished — its note says what to do next. ' +
     'Budget fields (max_rounds, attempts, backtrack) are declared once per run; a ' +
-    `moved declaration is refused. Writer execution enforces ${MAX_LINE_CHARS} characters per sung line. ` +
+    `moved declaration is refused. Every sung line, in the draft and in each answer, is at most ${MAX_LINE_CHARS} characters. ` +
     'A journal_capacity stop preserves ' +
     'the exact journal and accepted draft and cannot resume; reduce the requested scope before independent ' +
     'new_run work. ';
@@ -2528,9 +2548,10 @@ export function registerLyricTools(server, tool) {
         'comes after an accepted lyric_sweep and one successful lyric_screen, and ' +
         "must repeat the accepted sweep's form, lines, functions and melody and pass the sweep's `want` list as `wants`; " +
         '`wants` conditions the draw (the planner draws until they hold), so the planned shape satisfies them and can differ ' +
-        "from the shape the sweep tested. Declaring a `title` answers 'is the title in the hook?' instead of leaving it " +
-        "refused — and the answer can be NO, which is a FLAG, so write the hook line to contain the title's words as a " +
-        "contiguous run. The tool result's first text block is the plan report and writer brief: when showing the shape, " +
+        "from the shape the sweep tested. A `title` is optional. On a plan with a hook slot, declaring one answers 'is the " +
+        "title in the hook?' — and the answer can be NO, which is a FLAG, so write the hook line to contain the title's words as a " +
+        'contiguous run. On a plan with no hook slot (the `open` form declares none) a title only names the song and that ' +
+        "question is not asked. The tool result's first text block is the plan report and writer brief: when showing the shape, " +
         'keep the bracket header rows exactly as written (they carry lines/bars/meter/pickup). The second block is the ' +
         'verdict.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_plan,
@@ -2999,10 +3020,26 @@ export function registerLyricTools(server, tool) {
                   // The same bound `answers` states in its schema and the
                   // service writer's brief states, refused here before the
                   // loop runs rather than after it has spent an attempt.
-                  const long = answeredLines(a.answer).find((t) => t.length > MAX_LINE_CHARS);
+                  // Code points, as the schema and the harness count.
+                  const answered = answeredLines(a.answer);
+                  const long = answered.find((t) => [...t].length > MAX_LINE_CHARS);
                   if (long != null)
                     throw refuse(
-                      `ANSWER_TOO_LONG: an answered line is at most ${MAX_LINE_CHARS} characters and this one has ${long.length}. Nothing was run and the same question is still pending — answer it again with a shorter line.`
+                      `ANSWER_TOO_LONG: an answered line is at most ${MAX_LINE_CHARS} characters and this one has ${[...long].length}. Nothing was run and the same question is still pending — answer it again with a shorter line.`
+                    );
+                  // The room the run's journal reserved for one line (the
+                  // harness refuses the same line as INVALID_INTERVIEW_ANSWER
+                  // after the call has started). A line of at most 200
+                  // characters always fits; a longer one fits unless it is
+                  // mostly characters of several bytes each.
+                  const heavy = answered.find(
+                    (t) =>
+                      Buffer.byteLength(t, 'utf8') > ANSWER_LINE_UTF8_BYTES ||
+                      Buffer.byteLength(JSON.stringify(t), 'utf8') - 2 > ANSWER_LINE_JSON_BYTES
+                  );
+                  if (heavy != null)
+                    throw refuse(
+                      `ANSWER_TOO_LONG: an answered line is at most ${ANSWER_LINE_UTF8_BYTES} bytes as UTF-8, the room this run reserved for it, and this one is ${Buffer.byteLength(heavy, 'utf8')} (${[...heavy].length} characters). Nothing was run and the same question is still pending — answer it again with a shorter line.`
                     );
                   st.pending.answer = a.answer;
                 }
@@ -3463,9 +3500,17 @@ export function registerLyricTools(server, tool) {
                       ? rewriteNote
                       : r.code === 2 && linesOpen
                         ? '\n\nNOT FINISHED: this stop left lines open and its coverage uncertified — present it as parked.' +
-                          rewriteNote
+                          rewriteNote +
+                          // A refused declaration stands beside the open
+                          // lines and no rewrite of them reaches it (#676).
+                          (declarationAdvice(verdict)
+                            ? '\n\n' + declarationAdvice(verdict, { also: true })
+                            : '')
                         : r.code === 2
-                          ? '\n\nNOT CERTIFIED: no line is open, but coverage is incomplete (see `coverage`) — present it as uncertified, not finished. Resolve the unread words with `pronunciations` (lyric_grade lists the options; never guess a reading), grade again, and start a new run with `new_run: true`.'
+                          ? // The next step is read off what was refused (#676):
+                            // a declaration is not cleared by a pronunciation.
+                            '\n\nNOT CERTIFIED: no line is open, but coverage is incomplete (see `coverage`) — present it as uncertified, not finished. ' +
+                            uncertifiedAdvice(verdict)
                           : '';
                   return {
                     content: [
@@ -3899,9 +3944,9 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'to be (`lines`, `functions`, `want` as a filter), and nothing they did not ask for, and it returns the seeds that hold, in seed order, unranked; (1) lyric_screen ' +
     "the word pairs you mean to write BEFORE writing; (2) lyric_plan with an accepted seed and the sweep's form, lines, functions and melody " +
     '(and its `want` list as `wants`, which conditions the draw) for a complete shape (sections, meter — often ' +
-    "not 4/4, each group's relation and placement, hook slot) and write to its brief, honoring the verbatim returns — declare the `title` " +
-    'here if the song has one, because an undeclared title leaves "is the title in the hook?" REFUSED and a ' +
-    'declared one that is not a run of words inside the hook line is a FLAG; (3) lyric_grade with the SAME seed ' +
+    "not 4/4, each group's relation and placement, hook slot) and write to its brief, honoring the verbatim returns — a `title` is " +
+    'optional: declare it here only when the user gave or asked for one. On a plan with a hook slot a declared title that is not a ' +
+    'run of words inside the hook line is a FLAG; on a plan with no hook slot it only names the song; (3) lyric_grade with the SAME seed ' +
     `AND THE SAME PLAN DECLARATIONS (${PLAN_DECLARATIONS} — ` +
     (kitchen
       ? 'this chat restores every declaration its plan recorded, so leave out any you are unsure of, and ' +

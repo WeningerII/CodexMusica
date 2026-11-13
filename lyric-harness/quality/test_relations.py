@@ -4189,6 +4189,172 @@ def test_every_schema_judges_and_no_differ_only_excludes():
           == ("perfect rhyme",))
 
 
+# ---------------------------------------------------------------------------
+# X12. A LONG LINE'S TOKEN FIGURES ARE SEARCHED, NOT ENUMERATED (2026-11-12)
+# ---------------------------------------------------------------------------
+
+def test_a_token_figure_search_is_the_exhaustive_answer():
+    """X12. `_token_figures` finds the sain figures of a line by search, and
+    what it returns is what reading every ordered tuple returns (#851).
+
+    A line may now be 512 characters. Reading every ordered tuple of a line's
+    words, and evaluating each tuple's edges afresh, cost an 80-word line
+    1.6 million four-word tuples and 40 seconds a call; a 100-word line, 80.
+    The claims: (a) the search's answer is the exhaustive one -- the same
+    tuples in the same order, with the same edges and verdicts -- on lines
+    that hold each of the four figures, lines that hold none, a repeated
+    word, and a word whose span cannot be read; (b) on a 112-word line no
+    two words are evaluated twice for one edge, COUNTED, not timed.
+    """
+    print("\nX12. a line's token figures: the search returns the exhaustive "
+          "answer, and evaluates a pair of words once per edge")
+    import itertools
+    from quality.phonology import get as _get
+    shapes = [R.REGISTRY[n] for n in R.TOKEN_MEMBER_SHAPES]
+
+    def spans_of(sch, li, ta, tb, stream):
+        got = []
+        for rule, ti in ((sch.spans[0], ta), (sch.spans[-1], tb)):
+            try:
+                found = list(R._spans_at(rule, stream,
+                                         stream.tokens.get((li, ti), ()),
+                                         f"L{li}.T{ti}"))
+            except R.NoReferent:
+                found = []
+            got.append(found[0] if found else None)
+        return got
+
+    def exhaustive(schema, stream):
+        """The definition, read off one ordered tuple at a time."""
+        defs = [(ai, bi, R._token_edge_schema(lab, schema))
+                for ai, bi, lab in schema.figure.edges]
+        by_line, out = {}, []
+        for (li, ti), ids in stream.tokens.items():
+            if ids:
+                by_line.setdefault(li, []).append(ti)
+        for li in sorted(by_line):
+            for members in itertools.combinations(sorted(by_line[li]),
+                                                  schema.figure.nodes):
+                edges, values = [], []
+                for ai, bi, (sch, extra) in defs:
+                    sa, sb = spans_of(sch, li, members[ai], members[bi],
+                                      stream)
+                    if sa is None or sb is None:
+                        values.append(None)
+                        continue
+                    e = R.evaluate(sch, sa, sb, stream)
+                    v = False if e is None else e.verdict
+                    if extra is not None and v is not False \
+                            and not extra(sa, sb, stream):
+                        v = False
+                    values.append(v)
+                    if v is False:
+                        break
+                    edges.append(dataclasses.replace(e, schema=schema.name,
+                                                     verdict=v))
+                if R.tri_and(values) is not False:
+                    out.append((li, (li + 1,), members, edges,
+                                R.tri_and(values)))
+        return out
+
+    def searched(schema, stream):
+        return [(li, e.members, e.tokens, list(e), v)
+                for li, e, v in R._token_figures(schema, stream)]
+
+    cases = [
+        ("cym", ["Y gŵr wrth y dŵr a'i dyrau", "Mae'r ferch yn wych"]),
+        ("cym", ["Y marchog dyledog daid", "Y marchog blodeuog blaid"]),
+        ("eng", ["old eight ate in arms", "the cat sat by the door"]),
+        ("eng", ["a dog delivered log today", "the cat combined that kind"]),
+        ("eng", ["he delivered a deliberate determined defeat to the "
+                 "deceit"]),
+        ("eng", ["she said the red bread fed the dead and led the bled to "
+                 "bed instead of spreading dread ahead"]),
+        ("eng", ["la la la la la la la la la la"]),
+        ("eng", ["a", "", "an owl", "ate eight apples in arms on ice"]),
+    ]
+    differing, held, verdicts, tuples = [], set(), set(), 0
+    for lang, lines in cases:
+        st = R.build_stream(lines, _get(lang), declaration={"language": lang})
+        for sch in shapes:
+            want, got = exhaustive(sch, st), searched(sch, st)
+            tuples += len(want)
+            if want != got:
+                differing.append((sch.name, lines[0]))
+            if want:
+                held.add(sch.name)
+            verdicts |= {v for *_rest, v in want}
+    check("the search returns the exhaustive answer -- tuples, order, edges "
+          "and verdicts -- and the lines compared hold every one of the four "
+          "figures, some settled and some undecided",
+          not differing and held == set(R.TOKEN_MEMBER_SHAPES)
+          and verdicts == {True, None},
+          f"{tuples} figure(s) over {len(cases)} draft(s); differing "
+          f"{differing}; held {sorted(held)}; verdicts {verdicts}")
+
+    # A word whose span cannot be read leaves its edges unanswered (None),
+    # not failed: the tuple survives undecided. Blank one word for both sides.
+    st = R.build_stream(cases[5][1], _get("eng"),
+                        declaration={"language": "eng"})
+    real_spans = R._spans_at
+
+    def unread(rule, stream, ids, origin):
+        return [] if origin == "L0.T4" else real_spans(rule, stream, ids,
+                                                       origin)
+    R._spans_at = unread
+    try:
+        blank = [(exhaustive(s, st), searched(s, st)) for s in shapes]
+    finally:
+        R._spans_at = real_spans
+    through = [t for want, _got in blank for t in want if 4 in t[2]]
+    check("...and with one word unreadable: its tuples survive undecided, "
+          "the same in both",
+          all(want == got for want, got in blank) and through
+          and all(t[4] is None for t in through),
+          f"{len(through)} tuple(s) through the unread word")
+
+    # (b) COUNTED. 112 words in 472 characters: a legal line.
+    long_line = (
+        "the old man sat by the sea and saw the sun go down on the bay as "
+        "the tide ran out past the reef and the gulls came in low to feed "
+        "on the sand where the kids had dug for clams all day and left a "
+        "pail and a red spade and one small shoe that the sea took back "
+        "when the moon rose high and white on the cold dark swell and he "
+        "sang a song of a ship that sailed for home with a hold of tea and "
+        "silk and gold and was lost in a gale off the cape with all hands "
+        "and no one saw it go")
+    st = R.build_stream([long_line], _get("eng"),
+                        declaration={"language": "eng"})
+    words = len([1 for (_li, _ti), ids in st.tokens.items() if ids])
+    pairs = words * (words - 1) // 2
+    real_evaluate, calls, found = R.evaluate, {}, 0
+
+    def counting(schema, a, b, stream, *rest):
+        key = (schema.name, schema.spans, a.idx, b.idx)
+        calls[key] = calls.get(key, 0) + 1
+        return real_evaluate(schema, a, b, stream, *rest)
+    R.evaluate = counting
+    try:
+        spent = []
+        for sch in shapes:
+            calls.clear()
+            found += len(R._token_figures(sch, st))
+            spent.append((sch.name, sum(calls.values()), len(calls),
+                          len(sch.figure.edges) * pairs))
+    finally:
+        R.evaluate = real_evaluate
+    check("on a 112-word line each edge evaluates a pair of words at most "
+          "once, where the exhaustive reading visits every tuple",
+          len(long_line) <= 512 and words == 112 and found > 0
+          and all(0 < n == distinct <= bound
+                  for _name, n, distinct, bound in spent)
+          and words * (words - 1) * (words - 2) // 6 > 10 * max(
+              bound for *_rest, bound in spent),
+          f"{words} words, {found} figure(s); per figure (evaluations, "
+          f"distinct, bound) {[s[1:] for s in spent]}; three-word tuples "
+          f"{words * (words - 1) * (words - 2) // 6}")
+
+
 if __name__ == "__main__":
     test_inventory()
     test_p0_unreadable_final_token()
@@ -4230,6 +4396,7 @@ if __name__ == "__main__":
     test_a_remembered_edge_is_the_evaluated_one()
     test_the_pair_guard_refuses_before_it_evaluates()
     test_every_schema_judges_and_no_differ_only_excludes()
+    test_a_token_figure_search_is_the_exhaustive_answer()
     print("=" * 66)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

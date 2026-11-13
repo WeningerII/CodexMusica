@@ -4,7 +4,13 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 import { assertToolTask, instructionsForTask, taskDomain } from './task_contract.js';
 import { TOOL_BUDGET_MS, TOOL_DELIVERY_MARGIN_MS } from './budget.js';
-import { creationRefusal, recordCreation, withNextCall, withSweepNext } from './lyric_workflow.js';
+import {
+  creationRefusal,
+  recordCreation,
+  withNextCall,
+  withPlanLineage,
+  withSweepNext,
+} from './lyric_workflow.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import {
   expectedSurface,
@@ -195,8 +201,14 @@ export async function connectConnector({
               continuation = { seed: args.seed, args: next };
             }
           }
-          // A create session's sweep names the call the gate admits next.
-          return withSweepNext(workflowTask, name, result, continuation);
+          // A create session's sweep names the call the gate admits next; a
+          // result under a plan that replaced the session's first plan says
+          // what that plan is not asked that the first was (#676).
+          return withPlanLineage(
+            workflowTask,
+            name,
+            withSweepNext(workflowTask, name, result, continuation)
+          );
         } finally {
           inFlight = false;
         }

@@ -169,7 +169,11 @@ with patch.object(lh, "CMUDICT_PATH", "/missing-cmudict.dict"), patch.object(lh,
             result, records = run_cli(*args)
             self.assertEqual(result.returncode, 4, result.stdout + result.stderr)
             original = json.loads(state.read_text())
-            for bad in (["not a line"], "x" * 260, "x" * (512 * 1024)):
+            # The one line limit is 512 characters (issue #851; it was 200):
+            # 513 is refused, and so is a line inside the character limit
+            # that does not fit the room the run reserved for it (300
+            # three-byte characters are 900 bytes; the room is 816).
+            for bad in (["not a line"], "x" * 513, "\u4e2d" * 300, "x" * (512 * 1024)):
                 current = json.loads(json.dumps(original))
                 current["pending"]["answer"] = bad
                 state.write_text(json.dumps(current))
@@ -177,7 +181,19 @@ with patch.object(lh, "CMUDICT_PATH", "/missing-cmudict.dict"), patch.object(lh,
                 result, records = run_cli(*args)
                 self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
                 self.assertIn("INVALID_INTERVIEW_ANSWER", result.stdout)
+                self.assertIn("at most 512 characters and 816 bytes", result.stdout)
                 self.assertEqual(state.read_bytes(), before)
+            # A long line is an answer like any other: 417 characters, the
+            # longest line in the corpus, is recorded and the run goes on.
+            long_line = ("I left the basket underneath the oak and walked " * 9)[:417].rstrip()
+            self.assertGreater(len(long_line), 400)
+            current = json.loads(json.dumps(original))
+            current["pending"]["answer"] = long_line
+            state.write_text(json.dumps(current))
+            result, records = run_cli(*args)
+            self.assertNotIn("JOURNAL_CAPACITY", result.stdout)
+            self.assertNotIn("INVALID_INTERVIEW_ANSWER", result.stdout)
+            self.assertIn(long_line, state.read_text())
             original["pending"]["answer"] = "I left the basket underneath the oak"
             state.write_text(json.dumps(original))
             result, records = run_cli(*args)

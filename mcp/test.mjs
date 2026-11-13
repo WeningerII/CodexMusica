@@ -1244,10 +1244,39 @@ await check('validation: actionable errors', () => {
       'a draft line is bounded in code points, as the schema and the harness count',
       () => {
         const emoji = '\u{1F3B5}';
-        AV.checkLines([emoji.repeat(200)]); // 400 UTF-16 units, 200 code points
-        assert.equal(S.lyric_grade.draft.safeParse([emoji.repeat(200)]).success, true);
-        assert.throws(() => AV.checkLines([emoji.repeat(201)]), /line over 200 chars/);
-        assert.throws(() => AV.checkLines(['x'.repeat(201)]), /line over 200 chars/);
+        // The one line limit is 512 code points (issue #851; it was 200).
+        AV.checkLines([emoji.repeat(512)]); // 1,024 UTF-16 units, 512 code points
+        assert.equal(S.lyric_grade.draft.safeParse([emoji.repeat(512)]).success, true);
+        assert.throws(() => AV.checkLines([emoji.repeat(513)]), /line over 512 chars/);
+        assert.throws(() => AV.checkLines(['x'.repeat(513)]), /line over 512 chars/);
+        // ONE limit, for reading and for writing: every tool that takes
+        // lines takes the same longest line, in a draft and in an answer.
+        const long = 'x'.repeat(512);
+        for (const [tool, field] of [
+          ['lyric_grade', 'draft'],
+          ['lyric_check', 'lines'],
+          ['lyric_recover', 'lines'],
+          ['lyric_verify', 'before'],
+          ['lyric_verify', 'after'],
+          ['lyric_revise', 'draft'],
+        ]) {
+          assert.equal(S[tool][field].safeParse([long]).success, true, `${tool}.${field} 512`);
+          assert.equal(
+            S[tool][field].safeParse([long + 'x']).success,
+            false,
+            `${tool}.${field} 513`
+          );
+        }
+        assert.equal(
+          S.lyric_revise.answers.safeParse([{ line: 1, text: long }]).success,
+          true,
+          'an answered line of 512'
+        );
+        assert.equal(
+          S.lyric_revise.answers.safeParse([{ line: 1, text: long + 'x' }]).success,
+          false,
+          'an answered line of 513'
+        );
       }
     );
     await check(

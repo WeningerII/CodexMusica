@@ -3196,6 +3196,9 @@ jobs:
       #   letter layer by exact search) and fails if any token exceeds it;
       #   it reads the cmudict this job stages and needs numpy, installed
       #   above; about 100 CPU-s on R2's run; label 116 to 117
+      #   (2026-11-12, #851: the line limit rose from 200 to 512 characters,
+      #   so its exact search of the letter layer runs to 512 letters; 125 s
+      #   wall on a 4-vCPU machine, up from 57 s)
       - name: The 119 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02; bias_census 2026-11-03; meter_strict 2026-11-04; function_disclosure 2026-11-04; p2_full_floor 2026-11-06; meter_digit_bound 2026-11-06)
         working-directory: lyric-harness
         env:

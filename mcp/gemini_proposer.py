@@ -95,6 +95,9 @@ MAX_RESPONSE_BYTES = 1024 * 1024
 #: as any group the planner draws. The provider's output ceiling bounds the
 #: token allowance instead (`required_tokens` in `_post`).
 MAX_OUTPUT_TOKENS = 65536
+# The journal's room for one answered line as UTF-8, marker included
+# (lyric_harness.ANSWER_LINE_RAW_BYTES). It did not move when the line limit
+# rose to 512 characters (#851): 512 ASCII characters are 512 bytes.
 MAX_PROPOSAL_BYTES_PER_LINE = 200 * 4 + 16  # UTF-8 lyric plus L<number> marker
 OUTPUT_TOKENS_PER_LINE = 1024
 MAX_TOKEN_COUNT = 9007199254740991  # same integer domain as the JS ledger

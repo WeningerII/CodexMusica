@@ -6,13 +6,22 @@
 
 THE CLAIM. No token the reader can produce reads more syllable digits than
 1.5 per unit, a unit being one character or the separator that ends a token.
-A 200-character line has 201 units, so no line reads more than
-floor(1.5 x 201) = 301 digits, and `mcp/meter_admission.js` sets
-METER_LINE_DIGITS_CAP to exactly that, with no slack (R2, #665 6692298979;
-confirmed by BB8, 6692374129). Its per-request cap (463 x 301) and its
-declared-line bound (declared vowels plus 1.5 per undeclared unit) rest on the
-same ratio. If a lexicon, rule-table or fallback change raises the ratio, this
-suite fails, and the cap is raised in the same change.
+A line of N characters has N + 1 units, so no line reads more than
+floor(1.5 x (N + 1)) digits, and `mcp/meter_admission.js` sets
+METER_LINE_DIGITS_CAP to exactly that for the line limit, with no slack (R2,
+#665 6692298979; confirmed by BB8, 6692374129). Its declared-line bound
+(declared vowels plus 1.5 per undeclared unit) rests on the same ratio. If a
+lexicon, rule-table or fallback change raises the ratio, this suite fails,
+and the cap is raised in the same change.
+
+THE LINE LIMIT IS 512 CHARACTERS (2026-11-12, issue #851; it was 200). A
+512-character line has 513 units, so the per-line cap is floor(1.5 x 513) =
+769. The per-request cap did NOT rise with it: it stays 463 x 301 = 139,363,
+what 463 lines of 200 characters can read (`REQUEST_BUDGET_LINE_CHARS`), so
+the room a request's result, state and journal are sized for is unchanged.
+Both are held below (`test_caps_mirror`), with the harness's own line limit
+(`lyric_harness.LINE_CHARS`) and the writer's (`propose.MAX_LINE_CHARS`), so
+the one limit cannot be raised in one place and left behind in another.
 
 WHAT IS RE-DERIVED HERE, every run, over the files whose sha256 is pinned:
   1. the dictionary: every reading of every CMUdict key and every reviewed
@@ -27,20 +36,26 @@ WHAT IS RE-DERIVED HERE, every run, over the files whose sha256 is pinned:
      the real reader; the spelling normalisations never shorten a word;
   4. the elision table, every entry, through the real reader;
   5. the letter-to-sound layer: an exact search over its 5-character
-     contexts for every token length 1-200 (dynamic programming over the
-     last four letters), its emission checked against `LetterRules.read`;
+     contexts for every token length up to the line limit (dynamic
+     programming over the last four letters), its emission checked against
+     `LetterRules.read`;
   6. single code points through the real reader, alone and as a separator
      between two `w`s: ASCII, every code point that case-maps or
      compatibility-normalises to ASCII, and every format character (the
      classes the full scan found reading anything); `--full`: all of Unicode;
-  7. the witness line `"w " x 99 + "ws"` reads exactly 301 in all six modes,
-     so the cap is the maximum and not merely an upper bound;
+  7. the witness line `"w " x 255 + "ws"` (512 characters) reads exactly 769
+     in all six modes, so the cap is the maximum and not merely an upper
+     bound; and `"w " x 99 + "ws"` (200 characters) reads exactly 301, the
+     line the per-request cap is sized for;
   8. what one admitted line costs a response (BB8 ruling 1): the largest
      recognition the core can return for a line of 1-301 digits, JSON-escaped
      as the bounded payload measures it, CANDIDATE ROWS INCLUDED, equals
      `METER_LINE_RESPONSE_BYTES` (7,507 B) in `mcp/meter_admission.js`, and
      falls below it without the candidate rows, so a change that drops them
-     from the figure fails. Measured whenever the recognizer core
+     from the figure fails. That figure is the 301-digit line's, the line the
+     per-request cap is sized for; a line may now read up to 769 digits, and
+     what such a line costs a response is measured and printed beside it
+     (not pinned: no constant claims it). Measured whenever the recognizer core
      (`quality/meter_recognize.py`, #751) is importable, or the file named by
      METER_RECOGNIZE_MODULE; until the core lands the check reports SKIP.
      Only the core's own absence skips: an ImportError raised inside the core
@@ -91,6 +106,14 @@ PINNED = (
 )
 PINNED_FILE = os.path.join(HERE, "fixtures", "meter_digit_bound_pins.json")
 
+#: The one line limit, in characters, and what a line of it can read
+#: (floor(1.5 x 513)). Pinned here as literals so a change to any of the four
+#: places that spell the limit fails `test_caps_mirror` until all four move.
+LINE_LIMIT = 512
+LINE_DIGITS = 769
+#: The line length the per-request cap is sized for (unchanged by #851).
+BUDGET_LINE = 200
+
 
 def sha256(path):
     with open(path, "rb") as fh:
@@ -123,6 +146,35 @@ def test_caps_mirror():
     a_chars = int(re.search(r"export const ADMISSION_MAX_LINE_CHARS = (\d+);", src).group(1))
     check("admission mirrors MAX_LINES and MAX_LINE_CHARS", (a_lines, a_chars) == (lines, chars),
           f"{(a_lines, a_chars)} vs {(lines, chars)}")
+    # ONE LINE LIMIT (#851). The connector's, the admission mirror's, the
+    # harness's and the writer's are four spellings of the same number; a
+    # reader that takes a line the writer refuses, or the reverse, is the
+    # defect the issue closed.
+    import quality.propose as PR
+    check(f"one line limit: connector, admission, harness and writer all say {LINE_LIMIT}",
+          (chars, a_chars, LH.LINE_CHARS, PR.MAX_LINE_CHARS, PR.ModelProposer.MAX_LINE_CHARS)
+          == (LINE_LIMIT,) * 5,
+          str((chars, a_chars, LH.LINE_CHARS, PR.MAX_LINE_CHARS,
+               PR.ModelProposer.MAX_LINE_CHARS)))
+
+    def const(name):
+        return int(re.search(rf"export const {name} = ([\d_]+);", src).group(1).replace("_", ""))
+    budget = const("REQUEST_BUDGET_LINE_CHARS")
+    check(f"the per-line cap is floor(1.5 x ({LINE_LIMIT} + 1)) = {LINE_DIGITS}",
+          const("METER_LINE_DIGITS_CAP") == 3 * (a_chars + 1) // 2 == LINE_DIGITS,
+          str(const("METER_LINE_DIGITS_CAP")))
+    check("the per-request cap is unchanged: 463 lines of 200 characters, 463 x 301 = 139,363",
+          (budget, const("METER_REQUEST_DIGITS_CAP"))
+          == (BUDGET_LINE, a_lines * (3 * (BUDGET_LINE + 1) // 2)) and
+          const("METER_REQUEST_DIGITS_CAP") == 139_363,
+          str((budget, const("METER_REQUEST_DIGITS_CAP"))))
+    # The journal's room for one answered line is still sized on 200
+    # characters; what the limit admits beyond that is admitted only when it
+    # fits that room (`_line_fits_journal`).
+    check("the journal's reserve basis is unchanged (200), and an answered line's room follows it",
+          (LH.JOURNAL_LINE_CHARS, LH.ANSWER_LINE_RAW_BYTES, LH.ANSWER_LINE_JSON_BYTES)
+          == (200, 816, 1202),
+          str((LH.JOURNAL_LINE_CHARS, LH.ANSWER_LINE_RAW_BYTES, LH.ANSWER_LINE_JSON_BYTES)))
     check("DIGITS_PER_UNIT is 3/2",
           re.search(r"DIGITS_PER_UNIT = Object\.freeze\(\{ numerator: 3, denominator: 2 \}\)", src)
           is not None)
@@ -362,18 +414,18 @@ def test_letter_layer():
     best = {1: max(emit(c) for c in syms[:26])}
     cur = np.full((A,) * 4, NEG, dtype=np.int32)
     cur[H, H][np.ix_(letters, letters)] = 0
-    for n in range(2, 201):
+    for n in range(2, LINE_LIMIT + 1):
         f1 = step(cur, [D])
         f2 = step(f1, [D])
         best[n] = int(f2.max())
-        if n < 200:
+        if n < LINE_LIMIT:
             cur = step(cur, letters)
     check("the search reproduces a known word's maximum (n=2..4 by brute force)",
           all(best[n] == max(emit("".join(t)) for t in __import__("itertools").product(
               syms[:26], repeat=n)) for n in (2, 3)))
     bad = [(n, b) for n, b in best.items() if not within(b, n + 1)]
     worst = max(best.items(), key=lambda kv: kv[1] / (kv[0] + 1))
-    check(f"letter-to-sound: no token of 1-200 letters over 1.5 per unit "
+    check(f"letter-to-sound: no token of 1-{LINE_LIMIT} letters over 1.5 per unit "
           f"(worst n={worst[0]}: {worst[1]} vowels, {worst[1] / (worst[0] + 1):.3f})",
           not bad, str(bad[:10]))
 
@@ -527,13 +579,25 @@ def test_response_bytes():
           bare < got, f"{bare:,} B without them, {got:,} B with them")
     check("463 lines of it, with the wrapper, fit the 8 MiB default view",
           463 * (got + wrapper) <= 8 * 1024 * 1024, f"{463 * (got + wrapper):,} B")
+    # A line may now read up to 769 digits (#851). No constant claims what
+    # such a line costs a response, so nothing is pinned; the figure is
+    # measured and printed so the first head that carries the core shows it.
+    wide, at = response_bytes(M, digits_cap=LINE_DIGITS)
+    print(f"     a line of up to {LINE_DIGITS} digits costs at most {wide:,} B (at {at} digits); "
+          f"the pinned {pinned:,} B is the 301-digit line's")
 
 
 def test_witness():
+    line = "w " * ((LINE_LIMIT - 2) // 2) + "ws"
+    got = {f"{s}/{f}": digits(line, s, f) for s, f in MODES}
+    check(f"the witness line is {LINE_LIMIT} characters and reads exactly {LINE_DIGITS} "
+          "in all six modes",
+          len(line) == LINE_LIMIT and set(got.values()) == {LINE_DIGITS}, str(got))
+    # The line the per-request cap is sized for: 463 of these sit exactly on it.
     line = "w " * 99 + "ws"
     got = {f"{s}/{f}": digits(line, s, f) for s, f in MODES}
-    check("the witness line is 200 characters and reads exactly 301 in all six modes",
-          len(line) == 200 and set(got.values()) == {301}, str(got))
+    check("the request budget's line is 200 characters and reads exactly 301 in all six modes",
+          len(line) == BUDGET_LINE and set(got.values()) == {301}, str(got))
 
 
 if __name__ == "__main__":

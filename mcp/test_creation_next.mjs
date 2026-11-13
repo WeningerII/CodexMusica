@@ -995,3 +995,72 @@ test(
     }
   }
 );
+
+// #676: a session that plans a returning, rhymed, titled song and then plans
+// again with none of that declared is admitted, as before. What changed is
+// that the replacement's own result, and the grade under it, now say so. The
+// real harness on a real /mcp session: two sweeps, a screen, two plans and a
+// grade read back as the short verdict.
+test(
+  'the real chain: a replaced plan says what it is not asked that the first was, on the plan and on the grade',
+  { timeout: 420_000 },
+  async (t) => {
+    const directory = mkdtempSync(join(tmpdir(), 'plan-lineage-'));
+    t.after(() => rmSync(directory, { recursive: true, force: true }));
+    const sessions = new WorkflowSessions({ store: new JobStore(directory) });
+    let session_id = sessions.open('lyrics').session_id;
+    const run = async (name, args) => {
+      const q = sessions.submit(session_id, 'lyrics', name, args);
+      await sessions.wait(q.operation_id);
+      const r = sessions.status(q.operation_id, 'lyrics');
+      if (r.session_id) session_id = r.session_id;
+      assert(!r.tool_error, `${name}: ${JSON.stringify(r).slice(0, 2000)}`);
+      return verdictOf(r.tool_result);
+    };
+    const asked = { lines: 12, form: 'verse-chorus' };
+    const sweep1 = await run('lyric_sweep', { seed_from: 31, count: 1, ...asked });
+    const seed1 = sweep1.accepted_shown[0];
+    await run('lyric_screen', { words: ['stove', 'coat'], relation: 'class:RHYME' });
+    const plan1 = await run('lyric_plan', {
+      seed: seed1,
+      ...asked,
+      relation: 'class:RHYME',
+      title: 'Kettle and Coat',
+    });
+    assert.equal(plan1.exit_code, 0, JSON.stringify(plan1).slice(0, 2000));
+    assert.equal(Object.hasOwn(plan1, 'plan_lineage'), false, 'a first plan has no lineage');
+
+    // Swept again with only the length declared, and planned.
+    const sweep2 = await run('lyric_sweep', { seed_from: 31, count: 1, lines: 12 });
+    const seed2 = sweep2.accepted_shown[0];
+    const plan2 = await run('lyric_plan', { seed: seed2, lines: 12 });
+    assert.equal(plan2.exit_code, 0, JSON.stringify(plan2).slice(0, 2000));
+    const lineage = plan2.plan_lineage;
+    assert(lineage, 'the replacement plan carries its lineage');
+    assert.deepEqual(lineage.first_plan, { seed: seed1, plan_sha256: plan1.plan_sha256 });
+    assert.equal(lineage.plans_recorded, 2);
+    assert.deepEqual(lineage.declared_changes, [
+      { field: 'form', first: 'verse-chorus', now: 'open' },
+      { field: 'relation', first: 'class:RHYME', now: null },
+      { field: 'title', first: 'Kettle and Coat', now: null },
+    ]);
+    // The first plan planned a hook and returning lines; `open` plans neither.
+    const drawn = Object.fromEntries(lineage.drawn_changes.map((c) => [c.what, c]));
+    assert.deepEqual(drawn.hook, { what: 'hook', first: true, now: false });
+    assert.equal(drawn.returns.now, 0);
+    assert.match(lineage.note, /^PLAN REPLACED: this is not the first plan this session recorded/);
+    assert.match(lineage.note, /title Kettle and Coat → none/);
+
+    // The grade under the replacement, read back as the short verdict.
+    const lines = plan2.plan.total_lines;
+    const draft = Array.from(
+      { length: lines },
+      (_, i) =>
+        `The kettle sings beside the stove at number ${['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen'][i % 16]}`
+    );
+    const graded = await run('lyric_grade', { seed: seed2, draft });
+    assert(Number.isInteger(graded.exit_code), JSON.stringify(graded).slice(0, 2000));
+    assert.deepEqual(graded.plan_lineage, lineage, 'the grade carries the same lineage');
+    assert(Array.isArray(graded.blocking), 'this is the short verdict');
+  }
+);

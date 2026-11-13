@@ -327,20 +327,25 @@
       "literal": "is the title in the hook?",
       "category": "quoted-check",
       "at": [
-        "instructions",
-        "lyric_plan description",
         "lyric_plan input.properties.title.description",
         "lyric_grade input.properties.title.description",
-        "lyric_revise input.properties.title.description",
-        "systemInstruction"
+        "lyric_revise input.properties.title.description"
       ],
       "contexts": [
-        "one, because an undeclared title leaves \"is the title in the hook?\" REFUSED and a declared one that is not",
-        "sweep tested. Declaring a `title` answers 'is the title in the hook?' instead of leaving it refused — and the",
         "and never inferred. Declaring one answers \"is the title in the hook?\" instead of leaving it refused as TITLE_UNDECLARED"
       ],
       "about": "refused",
       "reason": "The engine's own TITLE_UNDECLARED / TITLE_NOT_IN_HOOK question, quoted so the model knows what declaring a title answers."
+    },
+    {
+      "literal": "is the title in the hook?",
+      "category": "quoted-check",
+      "at": ["lyric_plan description"],
+      "contexts": [
+        "with a hook slot, declaring one answers 'is the title in the hook?' — and the answer can be NO, which is a FLAG"
+      ],
+      "about": "FLAG",
+      "reason": "The engine's own TITLE_NOT_IN_HOOK question, quoted where the plan says a title is optional and that the question exists only on a plan with a hook slot (#676)."
     },
     {
       "literal": "looks done",

@@ -2365,11 +2365,26 @@ class LegacyReplay(unittest.TestCase):
                         f"slot(s), {h + 2} row(s) held)")
             return _memo_line.sub(bump, text)
 
+        # THE LINE LIMIT A QUESTION STATES ROSE AFTER THIS CAPTURE (2026-11-12,
+        # #851). The recorded question reads "The line is at most 200
+        # characters; a longer one is not accepted." and this build prints
+        # 512. Only that sentence is advanced on the recorded side, and each
+        # question recorded carries it exactly once. That a run held under the
+        # 200 wording still replays its answer is proven on a checkpoint that
+        # differs by this rewording alone, in test_audit_regressions'
+        # `test_a_question_held_under_the_200_line_limit_replays`.
+        _limit_then = "The line is at most 200 characters; a longer one is not accepted."
+        _limit_now = "The line is at most 512 characters; a longer one is not accepted."
+
+        def with_851(text):
+            return text.replace(_limit_then, _limit_now)
+
         def recorded(rec):
             rec = dict(rec)
             if isinstance(rec.get("pending"), dict) and "prompt" in rec["pending"]:
+                self.assertEqual(rec["pending"]["prompt"].count(_limit_then), 1)
                 rec["pending"] = {**rec["pending"],
-                                  "prompt": without_d6(rec["pending"]["prompt"])}
+                                  "prompt": with_851(without_d6(rec["pending"]["prompt"]))}
             return rec
 
         def norm(stdout):
@@ -2403,8 +2418,8 @@ class LegacyReplay(unittest.TestCase):
             with self.subTest(state=rec["name"]):
                 self.assertEqual(r.returncode, rec["replay_exit"], r.stdout[-600:])
                 got = norm(r.stdout.replace(str(work), "<WORK>"))
-                self.assertEqual(got, norm(with_m323(without_d6(
-                    rec["replay_stdout"]))))
+                self.assertEqual(got, norm(with_851(with_m323(without_d6(
+                    rec["replay_stdout"])))))
                 result = json.loads([l for l in r.stdout.splitlines()
                                      if l.startswith("  lyric result: ")][-1]
                                     [len("  lyric result: "):])
@@ -2418,7 +2433,8 @@ class LegacyReplay(unittest.TestCase):
                     self.assertEqual((result["cursor_resumed"], result["cursor_stripped"]),
                                      (False, "run_key"))
                     # ... so the identical-file resume is not what it equals
-                    self.assertNotEqual(got, norm(without_d6(rec["resume_stdout"])))
+                    self.assertNotEqual(got, norm(with_851(without_d6(
+                        rec["resume_stdout"]))))
                 else:
                     self.assertEqual(norm(rec["resume_stdout"]), norm(rec["replay_stdout"]))
                 self.assertIn('"reader_scheme":"v1"', r.stdout)

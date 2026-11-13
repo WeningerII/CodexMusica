@@ -110,8 +110,11 @@
       reasons.push(
         'This reading exceeds the writing workflow’s 463-row limit. Choose an eligible excerpt explicitly.'
       );
-    if (rows.some((line) => line.length > 200))
-      reasons.push('At least one row exceeds the writing workflow’s 200-character limit.');
+    // The one line limit the lyric tools keep: 512 characters, counted as
+    // they count them (code points). It was 200 until issue #851; the
+    // longest lines in the Library's own corpus run past 400.
+    if (rows.some((line) => line.length > 512 && Array.from(line).length > 512))
+      reasons.push('At least one row exceeds the writing workflow’s 512-character limit.');
     // Import eligibility is transport admission, not a creative line-length rule.
     // Word-count calibration belongs to the grader; it must not disable Review.
     return { eligible: reasons.length === 0, reasons };

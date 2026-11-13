@@ -217,14 +217,18 @@ The checks run in this order:
    ids are not affected: the sung lines are numbered `L001`… after blank rows
    and markers are dropped, so 500 blank rows and one sung line make one line,
    `L001`.
-2. **`meter_line_digits`.** A sung line may have at most 301 syllable digits,
-   floor(1.5 × 201).
+2. **`meter_line_digits`.** A sung line may have at most 769 syllable digits,
+   floor(1.5 × 513): what a line at the 512-character limit can read.
 3. **`meter_request_digits`.** One request may carry at most 139,363 digits in
-   total (463 × 301), over every line whose recognition the response carries:
+   total, over every line whose recognition the response carries:
    the draft once, at the largest of its spellings (the call's own draft and a
    continuation's `input_draft` and `accepted_lines` are one song), plus
-   `lyric_verify`'s `before` and `after` and `lyric_recover`'s rows, added
-   together. A `blueprint`'s stored line texts are not in the total: every
+   `lyric_verify`'s `before` and `after` and `lyric_recover`'s rows, and the
+   answered lines a `lyric_revise` call carries, added together. The total is
+   463 × 301: what 463 lines of 200 characters can read
+   (`REQUEST_BUDGET_LINE_CHARS`). It did not rise when the line limit did, so
+   a request of long lines carries fewer of them (181 lines at the per-line
+   cap) and every size derived from the total is unchanged. A `blueprint`'s stored line texts are not in the total: every
    lyric tool fits the draft's own lines to the blueprint's placements and
    never reads that text, so they meet only the raw-row cap: neither the
    per-line cap nor this total applies to them. If any path ever reads that
@@ -252,16 +256,42 @@ The checks run in this order:
   row and opens no blank row after it, in the check and in the handler alike,
   so 463 sung rows with a final break are 463 rows;
 - every distinct line a pronunciation declares that could be sung (at most
-  200 characters, one row), checked against the per-line cap only. The harness
+  512 characters, one row), checked against the per-line cap only. The harness
   keeps a declaration whose line is in no draft (it reports it stale), and an
   answer or a source reading can make that line sung later, so it is measured
   even when no draft holds it. Its refusal names the declaration by its P
   index and quotes the line's text; it has no L id, because the line is not
   sung.
 
-A revision's answered lines are not a separate line set. An undeclared answer
-over 200 characters is refused before any work, and a declared one is measured
-as a declared line.
+**A revision's answers.** An answered line over 512 characters is refused
+before any work (`ANSWER_TOO_LONG`), as a draft line is; so is one that does
+not fit the room a run reserved for it (800 bytes as UTF-8, which any ordinary
+512-character text fits). A declared answer is also measured as a declared
+line. Because an answer can be longer than the line it replaces, the answered
+lines of a `lyric_revise` call (`answers`, or the rows of `answer`) are counted
+in the request total with the draft they will be folded into, and nothing is
+taken off for the lines they replace. A call over the total is refused before
+anything runs, with the same question still pending, so shorter lines continue
+the run. They are not held to the per-line cap a second time.
+
+**One line limit.** A line is at most 512 characters (code points) wherever a
+lyric tool takes one: `draft`, `lines`, `before`, `after`, the rows
+`lyric_recover` reads, an answered line, a line the service writer proposes,
+and the harness's own verbs (`lyric_harness.LINE_CHARS`,
+`quality.propose.MAX_LINE_CHARS`). It was 200 until 2026-11-12 (issue #851);
+the stored corpus has lines of 417 characters and 80 words. There is no limit
+on the number of words in a line. The planner's own range of line lengths did
+not change (`quality.plan.PLANNED_LINE_CHARS`): it is the range new songs are
+planned in, not a limit on any line.
+
+A long line costs about what the same words cost in shorter lines. Measured
+through `lyric_check` on 2026-11-12: a 417-character, 80-word line with its
+two neighbours, 15 seconds; a 512-character line of 171 short words, 12
+seconds; 454 words as six lines of about 400 characters, 150 seconds, and as
+57 lines of eight words, 98 seconds; 902 words as twelve lines of about 400
+characters, 552 seconds. A call's time follows the song's total word count,
+and the ten-minute limit on a tool call (`TOOL_BUDGET_MS` in `mcp/budget.js`)
+is unchanged: a check of about 900 words is at that limit.
 
 **How a line's digits are counted.** The figure is an upper bound computed
 without the lexicon. It is the stressed vowels of every reading the call
@@ -271,7 +301,8 @@ two tokens, and the harness applies both. A
 unit is one character, or the separator that ends a token.
 
 - No token the reader can produce reads more than 1.5 digits per unit, so a
-  line of 200 characters without declarations is never refused.
+  line of 512 characters without declarations is never refused by the per-line
+  cap.
   `lyric-harness/quality/test_meter_digit_bound.py` re-derives that ratio over
   the pinned lexicon, rule tables and fallback layers.
 - A line with declarations can be refused even if its real count would fit.
@@ -282,9 +313,12 @@ unit is one character, or the separator that ends a token.
 Every path uses this same rule.
 
 **What one admitted line costs a response.** The largest recognition the
-recognizer core can return for one line at the per-line cap, JSON-escaped as
+recognizer core can return for one line of 301 digits (the line the request
+total is sized for), JSON-escaped as
 the bounded payload measures it and with its candidate rows included, is
 7,507 B (`METER_LINE_RESPONSE_BYTES`; 5,979 B without the candidate rows).
+Nothing is measured yet for a line of 302 to 769 digits: the core is not on
+the branch, and the gate prints that figure the first time it is.
 With 200 B per line for the withheld wrapper, 463 such lines are 3,568,341 B
 (`METER_REQUEST_RESPONSE_BYTES`), 42.5% of the 8 MiB default-view budget,
 before the response envelope, which is not measured yet. None of the three

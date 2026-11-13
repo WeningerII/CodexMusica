@@ -452,6 +452,146 @@ export function gradeVerdictQualifies(verdict) {
   );
 }
 
+// WHAT A PLAN ASKS OF THE DRAFT, IN A FORM TWO PLANS CAN BE COMPARED ON
+// (issue #676, 2026-11-12).
+//
+// The gate above protects a RECORDED plan: a grade or revise that contradicts
+// it is refused. It did nothing about a plan being REPLACED. Any admitted
+// lyric_plan clears the plan, the grade and the run and records the new one,
+// so a session could plan a rhymed, titled, returning song, fail to finish
+// it, sweep again with less declared, plan that, and finish — and nothing on
+// the final result said the song now answers to a different contract. In the
+// twenty audited trials several "successes" were exactly that.
+//
+// Replacing a plan is not a fault: the first plan may have been the mistake.
+// What was missing is the record. So the session keeps what its FIRST recorded
+// plan asked, and every plan, grade and revise result under a plan that
+// replaced it carries `plan_lineage`: what was declared then and is not now,
+// and what the planner bound then and does not now. Nothing is refused and no
+// declaration is added; the result simply cannot be read as answering for the
+// first plan any more.
+//
+// Two kinds of difference, kept apart because they are different facts:
+//   declared — what the CALLER asked (every plan declaration but the seed,
+//              which names a draw and is not a requirement);
+//   drawn    — what the PLANNER bound from it: total lines, the relation types
+//              its groups are judged on, how many groups are bound, how many
+//              lines return, whether a hook is planned.
+// A melody is never printed, only whether one was declared and whether it is
+// the same one.
+const DECLARED_FIELDS = PLAN_FIELDS.filter((key) => key !== 'seed');
+const cells = (value) =>
+  String(value || '')
+    .split(';')
+    .map((cell) => cell.trim())
+    .filter(Boolean);
+function planAsks(p) {
+  const declared = {};
+  for (const key of DECLARED_FIELDS) {
+    const value = norm(key, p.request?.[key]);
+    declared[key] = key === 'melody' ? (unset(value) ? null : hash(value)) : value;
+  }
+  return {
+    declared,
+    drawn: {
+      lines: p.total_lines,
+      relation_types: [...new Set(Object.values(p.relations || {}).map(String))].sort(),
+      bound_groups: cells(p.groups).length,
+      returns: cells(p.returns).length,
+      hook: p.hook_slot !== null && p.hook_slot !== undefined && p.hook_slot !== '',
+    },
+  };
+}
+const shownDeclaration = (key, value) =>
+  unset(value)
+    ? null
+    : key === 'melody'
+      ? 'declared'
+      : key === 'narrative'
+        ? narrativeArgument(value)
+        : value;
+const said = (value) =>
+  value === null || value === undefined
+    ? 'none'
+    : typeof value === 'string'
+      ? value
+      : typeof value === 'boolean'
+        ? value
+          ? 'yes'
+          : 'no'
+        : JSON.stringify(value);
+
+// -> null when the recorded plan IS the session's first plan (or nothing is
+// recorded to compare), else what this plan is not asked that the first was.
+export function planLineage(task) {
+  if (!create(task)) return null;
+  const w = task.workflow;
+  const first = w?.first_plan;
+  if (!w?.plan || !first?.asks || first.sha256 === w.plan.sha256) return null;
+  if (task.plan?.sha256 !== w.plan.sha256 || !task.plan.result) return null;
+  const now = planAsks(task.plan.result);
+  const declared = DECLARED_FIELDS.filter(
+    (key) => !same(first.asks.declared[key], now.declared[key])
+  ).map((key) => {
+    const was = shownDeclaration(key, first.asks.declared[key]);
+    const is = shownDeclaration(key, now.declared[key]);
+    return {
+      field: key,
+      first: was,
+      // Two different melodies both read "declared"; say they differ.
+      now: key === 'melody' && was && is ? 'declared (a different melody)' : is,
+    };
+  });
+  const drawn = Object.keys(now.drawn)
+    .filter((key) => !same(first.asks.drawn[key], now.drawn[key]))
+    .map((key) => ({ what: key, first: first.asks.drawn[key], now: now.drawn[key] }));
+  const changes = (rows, name) =>
+    rows.map((row) => `${row[name]} ${said(row.first)} → ${said(row.now)}`).join('; ');
+  const note =
+    `PLAN REPLACED: this is not the first plan this session recorded (that was seed ${first.seed}). ` +
+    (declared.length
+      ? `It was declared differently — ${changes(declared, 'field')}. `
+      : 'Its declarations are the same. ') +
+    (drawn.length ? `The planner bound a different shape — ${changes(drawn, 'what')}. ` : '') +
+    'A grade or revise under this plan answers for this plan only: it does not show that what the first plan asked was met' +
+    (declared.length
+      ? ". When you present the song, say which of the first plan's declarations it no longer answers to."
+      : '.');
+  return {
+    first_plan: { seed: first.seed, plan_sha256: first.sha256 },
+    plans_recorded: first.recorded,
+    declared_changes: declared,
+    drawn_changes: drawn,
+    note,
+  };
+}
+
+// A plan, grade or revise result under a replaced plan carries the lineage in
+// its verdict (the JSON block with an exit code). Every other result, and
+// every result in a session still on its first plan, passes through unchanged.
+const LINEAGE_TOOLS = new Set(['lyric_plan', 'lyric_grade', 'lyric_revise']);
+export function withPlanLineage(task, name, result) {
+  if (!LINEAGE_TOOLS.has(name) || !result || result.isError || !Array.isArray(result.content))
+    return result;
+  const lineage = planLineage(task);
+  if (!lineage) return result;
+  let changed = false;
+  const content = result.content.map((block) => {
+    if (changed || block?.type !== 'text') return block;
+    let v;
+    try {
+      v = JSON.parse(block.text);
+    } catch {
+      return block;
+    }
+    if (!v || typeof v !== 'object' || Array.isArray(v) || !Number.isInteger(v.exit_code))
+      return block;
+    changed = true;
+    return { ...block, text: JSON.stringify({ ...v, plan_lineage: lineage }) };
+  });
+  return changed ? { ...result, content } : result;
+}
+
 export function recordCreation(task, name, args, verdict, isError = false) {
   if (isRecoveryOnly(name, args)) return;
   const w = workflowFor(task);
@@ -474,6 +614,16 @@ export function recordCreation(task, name, args, verdict, isError = false) {
       delete w.screen_attempt;
     } else w.screen_attempt = attemptOf(verdict);
   } else if (name === 'lyric_plan') {
+    // A session recorded before lineage was kept holds a plan and no first
+    // plan: the plan it holds is its first (#676).
+    if (!w.first_plan && w.plan && task.plan?.sha256 === w.plan.sha256 && task.plan.result)
+      w.first_plan = {
+        sha256: w.plan.sha256,
+        seed: w.plan.request.seed,
+        asks: planAsks(task.plan.result),
+        last: w.plan.sha256,
+        recorded: 1,
+      };
     w.plan = null;
     w.grade = null;
     w.started = null;
@@ -506,6 +656,21 @@ export function recordCreation(task, name, args, verdict, isError = false) {
       result: structuredClone(p),
       sha256: verdict.plan_sha256,
     };
+    // What the session's FIRST plan asked is kept for good; a later plan is
+    // compared with it (planLineage), never with the plan just before it, so
+    // a chain of small steps cannot walk away from the first contract unseen.
+    if (!w.first_plan)
+      w.first_plan = {
+        sha256: verdict.plan_sha256,
+        seed: p.request.seed,
+        asks: planAsks(p),
+        last: verdict.plan_sha256,
+        recorded: 1,
+      };
+    else if (w.first_plan.last !== verdict.plan_sha256) {
+      w.first_plan.recorded += 1;
+      w.first_plan.last = verdict.plan_sha256;
+    }
   } else if (name === 'lyric_grade') {
     w.grade = null;
     if (

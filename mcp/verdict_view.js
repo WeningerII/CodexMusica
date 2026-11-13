@@ -21,6 +21,7 @@
 // read re-projects the stored result with nothing recomputed.
 import { createHash } from 'node:crypto';
 import { isStanding } from './lyric_tools.js';
+import { obligationLines } from './coverage_advice.js';
 
 export const SHORT_VIEW_TOOLS = new Set(['lyric_grade', 'lyric_revise', 'lyric_screen']);
 export const DETAIL_PARTS = ['full', 'findings', 'report', 'coverage', 'pronunciations', 'pairs'];
@@ -67,6 +68,9 @@ const KEPT = [
   'structures_uncalibrated',
   'final_draft_sha256',
   'lexicon',
+  // Present only under a plan that replaced the session's first plan: what
+  // that first plan asked and this one does not (lyric_workflow.js, #676).
+  'plan_lineage',
 ];
 
 // A coverage layer the request did not ask, named with what would ask it
@@ -96,18 +100,10 @@ function notCheckedOf(verdict) {
 
 export const sha256 = (text) => createHash('sha256').update(text, 'utf8').digest('hex');
 
-// The lines a refused obligation id names, in the grader's own spelling:
-// `rhyme:I:J:K` and `return:I:J` name lines I and J, `prominence:LN` and
-// `meter:CODE:LN` and `function:CODE:TN:LN` name line N. The same reading as the harness's
-// quality/pronunciation.py refused_lines; any other id names no line.
-export function obligationLines(id) {
-  const p = String(id).split(':');
-  if (['rhyme', 'return'].includes(p[0]) && /^\d+$/.test(p[1] ?? '') && /^\d+$/.test(p[2] ?? ''))
-    return [Number(p[1]), Number(p[2])];
-  if (['prominence', 'meter', 'function'].includes(p[0]) && /^L\d+$/.test(p.at(-1)))
-    return [Number(p.at(-1).slice(1))];
-  return null;
-}
+// The lines a refused obligation id names live in coverage_advice.js (a pure
+// module, so the tool surface can read the same spelling without importing
+// this file); re-exported here for the callers that always took it from here.
+export { obligationLines };
 
 // The first clause of a finding's evidence carries its numbers
 // ("7 syllables, 6 slots"); the rest is its provenance, which stays in detail.
