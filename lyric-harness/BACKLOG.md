@@ -1531,6 +1531,8 @@ until ruled.
    `refrain` carry `kind="line"`, so a placement question on either asks
    about the wrong kind of object. The derived set is a superset of the
    four, so every banked predicate keeps working.
+   SUPERSEDED IN PART 2026-11-13 (owner): the `kind` label is gone and
+   `burden` and `refrain` are sections, so the profile asks about all 22.
 5. ~~**M-111 — may a check read `songs/` at screen time to disclose
    cross-song word reuse?** The songs register rules songs are NOT
    corpus; the measured concentration (10 content words shared by ≥4 of
@@ -1646,7 +1648,7 @@ until ruled.
     nobody has measured to what. Rule which, if any, are worth paying
     for; until then the artifact stays RHYME-only and says so on every
     row.
-17. **M-52 — does the planner VOLUNTEER an attached burden?** `burden`
+17. ~~**M-52 — does the planner VOLUNTEER an attached burden?** `burden`
     is the corpus's most-attested function (1,580 printed blocks, every
     one after a verse) and `refrain` opens songs 709 times; both are
     LINE-kind by M-56's ruling, so the span grammar correctly never
@@ -1656,7 +1658,13 @@ until ruled.
     `end_rhyme_groups` species) that attaches a burden line-group to
     each verse instance when declared. Rule whether it is wanted; until
     then the two functions stay writer-declared and the M-52 close
-    records why that is not a gap.
+    records why that is not a gap.~~
+    RULED BY THE OWNER 2026-11-13: `refrain` and `burden` are ordinary
+    sections, each a short part under its own heading, and the "line,
+    not section" label is removed because it helped nobody. The
+    planner draws both from the table like every other row, a burden
+    after a verse as its row says, and under a returning form they
+    come back word for word. No line-layer pass was built.
 18. **M-192 — should END-BOUND groups draw their relation from the
     AUDIBLE subset?** MEASURED 2026-09-01 over seeds 1-40: of 250
     end-bound groups, 74 draw a relation heard as end rhyme (29.6%), 27

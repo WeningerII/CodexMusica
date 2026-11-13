@@ -2199,15 +2199,19 @@ def test_the_writers_declaration():
               "contain one is not a novel structure but a contradiction "
               "(M-54's `requires`)",
               "REQUIRES" in str(e) and "chorus" in str(e), str(e)[:80])
-    try:
-        P.make_plan(11, functions=["refrain", "verse"])
-        check("a roster naming a function the GENERATOR cannot build refuses",
-              False, "it was accepted")
-    except P.PlanRefused as e:
-        check("a roster naming a function the vocabulary declares and this "
-              "GENERATOR cannot build refuses rather than silently dropping "
-              "it — `refrain` is a real function and not a buildable section "
-              "(M-56)", "cannot BUILD" in str(e))
+    # ~~`refrain` refused here as "not a buildable section (M-56)"~~. The
+    # owner ruled 2026-11-13 that `refrain` and `burden` are ordinary
+    # sections, so a roster naming either is BUILT, and every function the
+    # vocabulary declares is one the generator can draw.
+    for _line_no_more in ("refrain", "burden"):
+        _p = P.make_plan(11, functions=[_line_no_more, "verse"])
+        check(f"a roster naming `{_line_no_more}` is planned like any other "
+              "section: only the named functions appear, and it is in "
+              "the roster the generator draws from",
+              {s["function"] for s in _p["sections"]}
+              <= {_line_no_more, "verse"}
+              and _line_no_more in GENERATOR_ROSTER,
+              str([s["function"] for s in _p["sections"]]))
     check("the declaration is DETERMINISTIC with the seed, like every other "
           "free choice here",
           P.make_plan(11, relation="type:rime riche",
@@ -4740,7 +4744,10 @@ def test_the_seed_redraw():
     # ~~55~~ -> 30 (2026-10-27): the default form is `open` and the length
     # is drawn once (D7), so the stream re-deals; seed 30 is the first
     # default seed whose own draw the gate refuses for NO_FREE_WORD alone.
-    FAIL_SEED = 30
+    # ~~30~~ -> 42 (2026-11-13): the planner draws from all 22 functions
+    # (`refrain` and `burden` are ordinary sections, owner ruling), so the
+    # stream re-deals again; 42 is now the first such seed.
+    FAIL_SEED = 42
 
     # (1) AN ACTUAL FAILING SEED, RAW PLAN AGAINST SWEEP.
     try:
@@ -4814,11 +4821,13 @@ def test_the_seed_redraw():
     # stream) -> 2330 (the same day, once a redraw keeps the first draw's
     # length): no default seed in 0-2329 needs more than one redraw; 2330
     # needs two (measured over 0-11999: 323 seeds need one, 9 need two).
-    p2 = make_plan(seed=2330)
+    # ~~2330~~ -> 1861 (2026-11-13, the 22-function roster): the first
+    # default seed that needs two redraws.
+    p2 = make_plan(seed=1861)
     r2 = (p2["choices"].get("seed_redraw") or {}).get("refused", [])
     check("...a seed needing several redraws discloses EVERY refused "
           "candidate, in order, the first being the caller's own seed",
-          len(r2) == 2 and r2[0]["seed"] == "2330"
+          len(r2) == 2 and r2[0]["seed"] == "1861"
           and len({x["seed"] for x in r2}) == 2
           and all(x["codes"] and x["findings"] for x in r2),
           f"refused {[(x['seed'], x['codes']) for x in r2]}")

@@ -424,18 +424,24 @@ def test_measured_seeds():
               N.count_lineups(shape) == enumerated_lineups(shape) == count)
     # Previously 13 zeros: 41, 56, 59 become positive; 20 becomes zero.
     # All 100 plans still ship. Zero story line-ups are not PlanRefused.
-    ZEROS = (20, 38, 42, 52, 58, 60, 67, 73, 81, 86, 89)
-    pins = {1:13602816, 4:94679040000, 6:24938496, 7:173260800,
-            9:10849383088128, 15:394496, 19:417600, 23:4625856, 24:102336,
-            25:170560, 27:6240, 28:23762003558400, 30:391680000, 31:63232,
-            34:1917665280, 39:15206400, 77:24440832, 89:0,
-            41:8165376, 56:716161269104640, 59:1899776,
+    # REPINNED 2026-11-13 (measured): the planner draws from all 22
+    # functions (`refrain` and `burden` are ordinary sections, owner ruling),
+    # so a 22-cell grammar re-deals every body draw, as it did when `patter`
+    # entered. ~~ZEROS = (20, 38, 42, 52, 58, 60, 67, 73, 81, 86, 89)~~:
+    # eleven zeros become seven; 4 and 56 become zero, 89 becomes positive.
+    # The census over seeds 1-40 holds at 38 admit / 2 zero.
+    ZEROS = (4, 12, 56, 66, 73, 85, 94)
+    pins = {1:20054016, 6:10838016, 7:166464, 9:188640,
+            15:6871628906496, 19:3092810563584000, 23:11600, 24:8957952,
+            25:52258406400, 27:212526080, 28:5248, 30:23353344, 31:246016,
+            34:479232, 39:24768, 77:15360, 89:2746368,
+            41:29655040, 59:144506880,
             **{seed: 0 for seed in ZEROS}}
     got = {}
     for seed, want in sorted(pins.items()):
         fns = [s["function"] for s in P.make_plan(seed, form="verse-chorus")["sections"]]
         got[seed] = N.count_lineups(fns)
-    check("all eighteen historical seeds and all eleven current zero "
+    check("all eighteen historical seeds and all seven current zero "
           "exemplars re-derive exactly under the plan envelope",
           got == pins and set(historical_pins_2026_09_05) <= set(pins), got)
     # A SEED THE JOINT GATE REFUSES FOR `NO_FREE_WORD` ALONE HAS NO PLAN
@@ -461,7 +467,7 @@ def test_measured_seeds():
     # 55 refuses here~~ — since option (b) (2026-10-22) a draw the joint gate
     # refuses is redrawn, so NO seed refuses and the denominator is all 100
     # again; any refusal fails this check.
-    check("the complete current 100-seed denominator has exactly eleven "
+    check("the complete current 100-seed denominator has exactly seven "
           "zero shapes, two of them among the first forty, over all 100 "
           "plans with no seed refused",
           {seed for seed, count in sweep.items() if count == 0} == set(ZEROS)
@@ -508,14 +514,17 @@ def test_measured_seeds():
     # REPINNED 2026-10-27 (D7's single length draw): no seed in 1-100
     # collapses at the fourth section now (~~69: 4, 95: 4~~); that depth is
     # covered by the declared shapes below.
-    check("actual current zeros distinguish opening refusals from refusals "
-          "at the second and third sections",
-          at == {20: 2, 38: 1, 42: 3, 52: 3, 58: 1, 60: 1,
-                 67: 1, 73: 1, 81: 1, 86: 1, 89: 1},
+    # REPINNED 2026-11-13 (the 22-function roster): no seed in 1-100
+    # collapses at the second section now (~~20: 2~~); that depth joins the
+    # declared shapes below. Seed 12 opens on a wordless `solo`, whose
+    # length-1 prefix counts 0 for a reason that is not a refusal.
+    check("actual current zeros distinguish opening refusals from a refusal "
+          "at the third section",
+          at == {4: 1, 12: 1, 56: 1, 66: 1, 73: 1, 85: 1, 94: 3},
           at)
-    check("seed 20's depth 2 is RESOLVE without prior COMPLICATE",
-          shapes[20][:2] == ["intro", "false_ending"]
-          and N.count_lineups(shapes[20][:1]) > 0
+    check("seed 94's depth 3 is RESOLVE without prior COMPLICATE",
+          shapes[94][:3] == ["drop", "chorus", "false_ending"]
+          and N.count_lineups(shapes[94][:2]) > 0
           and N.count_lineups(["build", "false_ending"]) > 0)
     check("former zero 56 starts wordless; its old depth 1 was not a sung refusal",
           displaced_shapes[56][0].split()[:2] == ["solo", "false_ending"]
@@ -525,7 +534,7 @@ def test_measured_seeds():
     # The old seeded depth 3/4/5 exemplars no longer belong to the zero class.
     # Keep the actual semantic clauses covered at each missing depth with
     # declared shapes and positive controls, rather than claiming dice saw it.
-    for depth in (3,4,5):
+    for depth in (2,3,4,5):
         shape = ["intro"] + ["chorus"] * (depth-2) + ["false_ending"]
         check(f"declared depth {depth} has a legal prefix, refuses RESOLVE "
               "without COMPLICATE, and admits after an actual build",
@@ -677,11 +686,15 @@ def test_the_wired_draw():
     #: ('1.endword,2.endword,4.endword,5.endword;6,7;13.endword,14.endword;
     #: 17.head,18.head') and 5 -> 4 labels; lines and the narrative draw do
     #: not move.
-    check("seed 31 draws 18 lines, with an 81-character groups spelling "
-          "placed by type and 4 labels; the capped 12/79/0 draw is recorded "
+    #: REPINNED 2026-11-13 (measured, the 22-function roster): seed 31's
+    #: roster re-deals to [intro, chorus, verse, verse, prechorus, chorus,
+    #: coda], so the cover moves with it: 81 -> 125 characters and 4 -> 5
+    #: labels; the line count holds at 18.
+    check("seed 31 draws 18 lines, with a 125-character groups spelling "
+          "placed by type and 5 labels; the capped 12/79/0 draw is recorded "
           "above",
           pl["total_lines"] == 18
-          and len(pl["groups"]) == 81 and len(pl["relations"]) == 4,
+          and len(pl["groups"]) == 125 and len(pl["relations"]) == 5,
           f"lines {pl['total_lines']}, groups {len(pl['groups'])}, labels {len(pl['relations'])}")
     nar = pl["narrative"]
     #: REPINNED 2026-09-05 (M-239) WITH THE LENGTH: seed 31's roster is
@@ -692,7 +705,7 @@ def test_the_wired_draw():
     #: ~~lineups 136448, 8 atoms, 7 junctions~~ -> 63232, 7, 6.
     check("the collapse is RECORDED: mode drawn, the exact line-up "
           "count disclosed, one atom per sung section, one junction "
-          "per seam", nar["mode"] == "drawn" and nar["lineups"] == 63232
+          "per seam", nar["mode"] == "drawn" and nar["lineups"] == 246016
           and len(nar["atoms"]) == 7 and len(nar["junctions"]) == 6)
     check("the drawn line-up VALIDATES under the one shared validator",
           N.validate_lineup([sec["function"] for sec in pl["sections"]],
@@ -723,7 +736,10 @@ def test_the_wired_draw():
     # ~~seed 20~~ -> seed 89 (2026-09-28): the current sweep's sung
     # false-ending opening refusal (roster opens false_ending, prechorus,
     # chorus; collapse depth 1).
-    pzero = P.make_plan(89, form="verse-chorus")
+    # ~~seed 89~~ -> seed 4 (2026-11-13, the 22-function roster): the same
+    # kind, a sung false-ending opening refusal (roster opens false_ending,
+    # solo, bridge; collapse depth 1).
+    pzero = P.make_plan(4, form="verse-chorus")
     check("a zero-shape seed DISCLOSES and still ships: mode none, "
           "lineups 0, the brief says nothing is asked of the meaning "
           "axis, and the sound plan is intact",
@@ -827,13 +843,16 @@ def test_the_wired_draw():
     # ~~1..3 around seed 2~~ -> 37..39 around seed 38 (2026-10-27, D7's
     # single length draw re-dealt seed 2): seed 38 opens on false_ending, a
     # sung opener whose every face is illegal at the opening (RESOLVE).
-    res = P.sweep(range(37, 40),
+    # ~~37..39 around seed 38~~ -> 3..5 around seed 4 (2026-11-13, the
+    # 22-function roster re-dealt seed 38): seed 4 is the same kind, a
+    # false_ending-first opening refusal, between two positive shapes.
+    res = P.sweep(range(3, 6),
                   wants=[P.parse_sweep_want("story_lineups>=1")],
                   form="verse-chorus")
-    check("the seed filter actually accepts 37 and 39 and rejects 38, the "
+    check("the seed filter actually accepts 3 and 5 and rejects 4, the "
           "current false_ending-first opening refusal; both positive and "
           "negative arms execute",
-          res["accepted"] == [37, 39], res["accepted"])
+          res["accepted"] == [3, 5], res["accepted"])
 
 
 
