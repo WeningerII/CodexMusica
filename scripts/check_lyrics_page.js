@@ -7996,6 +7996,11 @@ async function browserChecks(chromium) {
                   (await structuralState(page)).text === after.text,
                   'repeated drop Redo did not restore text/declarations'
                 );
+                // Undo and Redo set the draft, and the page redraws these rows
+                // 120 ms later (lyRefresh's debounce). Run that redraw now: one
+                // that lands while the next drag is aiming at a handle replaces
+                // the row it aimed at, and the drag never reaches its drop.
+                await page.evaluate(() => lyRefresh(true));
               }
             }
             check(q.calls.length === 0, 'repeated drop sent a provider request');
@@ -8063,7 +8068,7 @@ async function browserChecks(chromium) {
                 })
               );
               // Native history handoff is separately owned; preserve its behavior.
-              if (!phone && to !== 1)
+              if (!phone && to !== 1) {
                 for (const action of ['undo', 'redo']) {
                   await page.locator(`#btn-${action}`).click();
                   check(
@@ -8078,6 +8083,11 @@ async function browserChecks(chromium) {
                     `${action} after Move changed text restoration`
                   );
                 }
+                // The same delayed redraw as in the drop step above. Run it
+                // before the next focus and Enter, or it can replace the
+                // focused Move button and the Enter moves nothing.
+                await page.evaluate(() => lyRefresh(true));
+              }
             }
             check(q.calls.length === 0, 'keyboard selection checks sent a provider request');
           } finally {
