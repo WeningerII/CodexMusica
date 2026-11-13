@@ -43,6 +43,7 @@ def retained_runs():
         state_wire_bytes=28000000,checkpoint_wire_bytes=28000000,
         draft_bytes=12000000,declaration_bytes=2097088,
         max_lines_per_draft=447,max_chars_per_line=200,all_codec_roundtrips_verified=True,
+        fill_chars_per_line=200,loaded_text_units=11852800,text_budget_units=11852800,
         queue=dict(maxAdmitted=16,maxInputBytes=33554432,admitted=0,admittedBytes=0,
                    queued=0,active=False,exercised=False))
 
@@ -276,7 +277,12 @@ class CapacityOracle(unittest.TestCase):
         for patch in ({'records':63},{'records':float('nan')},{'worker_bytes_min':1},
                       {'worker_bytes_max':500000},{'declaration_bytes_min':1},
                       {'all_codec_roundtrips_verified':False},{'state_wire_bytes':0},
-                      {'checkpoint_wire_bytes':None},{'queue':{}}):
+                      {'checkpoint_wire_bytes':None},{'queue':{}},
+                      # The load must have filled the cache's lyric text budget:
+                      # one unit short is not its worst case, and a missing
+                      # figure is not a measurement.
+                      {'loaded_text_units':11852799},{'text_budget_units':None},
+                      {'fill_chars_per_line':0}):
             broken=retained_runs(); broken.update(patch)
             self.assertTrue(run_store_evidence_failures(broken), patch)
         broken=retained_runs(); broken['queue']['active']=True

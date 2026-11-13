@@ -591,6 +591,15 @@ are kept 30 days within a cap of 5,000 runs and 5,000 wires. So, with nothing ru
 - while the ledger cannot be read or saved, every continuation refuses
   (`RUN_LEDGER_UNAVAILABLE`); a fresh run on a draft is unaffected.
 
+The cached record is a convenience, never the run. The server drops it after six
+hours idle, once 64 more recent runs are cached, or once the lyric text the cache
+keeps would pass a fixed amount (`RUN_TEXT_BUDGET` in `mcp/run_store.js`: what 64
+runs of 463 lines of 200 characters hold, so only drafts of longer lines reach it
+before the count does; 25 runs of 463 lines of 512 characters fit). The least
+recently used record goes first and a run whose call is in progress is never
+dropped. A dropped record loses nothing a caller that passes `state` back still
+holds.
+
 Limits: replay prevention is bounded, not unlimited. A run the ledger never saw
 (from before it shipped) continues as before, and so does one it has dropped — the
 oldest entry is evicted first: a paid run once 20,000 newer paid entries exist, any

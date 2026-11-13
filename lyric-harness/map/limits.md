@@ -118,6 +118,7 @@ Connector:
 | READER_BODY_BYTES | 2,097,152 (2,048 KB) | `../mcp/reader_protocol.js` |
 | RUN_TTL_MS | 21,600,000 | `../mcp/run_store.js` |
 | RUN_CAP | 64 | `../mcp/run_store.js` |
+| RUN_TEXT_BUDGET | 11,852,800 | `../mcp/run_store.js` |
 | LEDGER_RETAIN_MS | 2,592,000,000 | `../mcp/run_store.js` |
 | LEDGER_CAP | 5,000 | `../mcp/run_store.js` |
 | LEDGER_PAID_CAP | 20,000 | `../mcp/run_store.js` |
