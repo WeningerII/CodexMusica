@@ -20,7 +20,7 @@ House rules: never abbreviate project names (Codex Musica, Pantheon Registry, De
 
 New song: `lyric_sweep` (pick a seed) → `lyric_screen` (test rhyme words) → `lyric_plan` (song shape and rhyme plan) → write the draft → `lyric_grade` → `lyric_revise` (asks for replacement lines until it stops). Pasted lyrics: `lyric_recover` → `lyric_check` → `lyric_revise` → `lyric_verify`.
 
-Slowest call per tool on the 16-line reference song (2026-11-09, limit 600s per call): `lyric_sweep` 3s, `lyric_screen` 16s, `lyric_plan` 1s, `lyric_grade` 13s, `lyric_revise` 7s, `lyric_recover` 3s, `lyric_check` 10s, `lyric_verify` 7s, `lyric_types` 5s.
+Slowest call per tool on the 16-line reference song (2026-11-13, limit 600s per call): `lyric_sweep` 4s, `lyric_screen` 12s, `lyric_plan` 1s, `lyric_grade` 15s, `lyric_revise` 8s, `lyric_recover` 4s, `lyric_check` 11s, `lyric_verify` 6s, `lyric_types` 5s.
 
 ## Map sections (read only what the task needs)
 
