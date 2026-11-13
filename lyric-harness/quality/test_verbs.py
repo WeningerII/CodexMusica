@@ -6292,11 +6292,18 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           str(sorted(targets2)))
     check("...and its mates are untouched", after2[1:] == lines[1:])
 
-    # (c) THE VERB ITSELF, on a real plan. Seed 7 under `verse-chorus`
+    # (c) THE VERB ITSELF, on a real plan. Seed 566 under `verse-chorus`
     #     (declared since #671 took away the CLI's own default form)
     #     declares RETURNS 2,3, so
     #     asking about L3 must move L2 with it — the mirroring reaching the
     #     command line, not just the library.
+    #     RE-MEASURED 2026-11-13: the planner draws from the whole section
+    #     table now (owner's ruling: refrain and burden are ordinary
+    #     sections), so every seed plans a different song. Seed 566 plans
+    #     the six sections seed 7 used to plan, at the same sizes
+    #     (prechorus, chorus, chorus, two-line postchorus, six-line verse,
+    #     coda) with the same single return; every value below is measured
+    #     on it. Superseded: seed 7 throughout this test.
     tmpd = tempfile.mkdtemp()
     draft = os.path.join(tmpd, "d12.txt")
     _io.open(draft, "w", encoding="utf-8").write(
@@ -6307,7 +6314,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
         "carry the cold stone\nmarry the old bone\n"
         "quiet folds a wing\ngrief is a small thing\n")
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
-                     "--seed=7", "--form=verse-chorus", "--lines=12", expect_rc=0)
+                     "--seed=566", "--form=verse-chorus", "--lines=12", expect_rc=0)
     row = _machine_result(out)
     check("the verb ACCEPTS a good candidate at exit 0", rc == 0, out[-400:])
     check("...and reports the return class as what it MOVED",
@@ -6329,9 +6336,11 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # ride out separately (doctrine 79): what was fixed, what new FLAG
     # rejected it, and what new NOTE did not.
     # One hundred syllables ("area" x33, then "king") in a bar of ~~99/8
-    # with a one-beat pickup~~ 11/64 with a half-beat pickup (re-measured
+    # with a one-beat pickup~~ ~~11/64 with a half-beat pickup~~ (re-measured
     # 2026-10-21: the beat count is drawn under the owner's equal-weight
-    # default now, and the unit last): more syllables than slots, so the
+    # default now, and the unit last) a 23-beat line, eight bars of 3/16
+    # with a one-beat pickup (re-measured 2026-11-13 on seed 566): more
+    # syllables than slots, so the
     # meter layer's
     # SLOTS_EXCEEDED rejects it, and the end word newly collides with the
     # free L11/L12 ('wing', 'thing') — a new NOTE beside the new FLAG.
@@ -6339,7 +6348,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # band, which the owner deleted that day; before that, "a" by the
     # syllable band, deleted 2026-09-28.)
     long_line = " ".join(["area"] * 33 + ["king"])
-    rc, out, _ = run("tryline", draft, "1", long_line, "--seed=7", "--form=verse-chorus",
+    rc, out, _ = run("tryline", draft, "1", long_line, "--seed=566", "--form=verse-chorus",
                      "--lines=12", expect_rc=3)
     row = _machine_result(out)
     check("a candidate that trades one defect for another is REJECTED at "
@@ -6361,14 +6370,14 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # (d) THE REFUSALS — a question about a line that does not exist is not a
     #     rejected candidate (doctrine 20), so it refuses rather than says no.
     rc, out, _ = run("tryline", draft, "99", "some line",
-                     "--seed=7", "--form=verse-chorus", "--lines=12", expect_rc=2)
+                     "--seed=566", "--form=verse-chorus", "--lines=12", expect_rc=2)
     check("a line number outside the draft REFUSES at 2, never 'rejected'",
           rc == 2 and "REFUSED" in out, out[-200:])
     rc, out, _ = run("tryline", draft, "notanumber", "some line",
-                     "--seed=7", "--form=verse-chorus", "--lines=12", expect_rc=2)
+                     "--seed=566", "--form=verse-chorus", "--lines=12", expect_rc=2)
     check("a non-numeric line number REFUSES by name", rc == 2, out[-200:])
     rc, out, _ = run("tryline", draft, "3", "  ",
-                     "--seed=7", "--form=verse-chorus", "--lines=12", expect_rc=2)
+                     "--seed=566", "--form=verse-chorus", "--lines=12", expect_rc=2)
     check("an empty candidate REFUSES — it is not a revision", rc == 2,
           out[-200:])
 
@@ -6401,7 +6410,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # check needs: the batch below is re-measured under it, not assumed.
     REL = "--relation=RHYME"
     st = os.path.join(tmpd, "state.json")
-    rc, out, _ = run("finish", draft, "--seed=7", "--form=verse-chorus", "--lines=12", REL,
+    rc, out, _ = run("finish", draft, "--seed=566", "--form=verse-chorus", "--lines=12", REL,
                      f"--propose=defer:{st}", expect_rc=4)
     with _io.open(st, encoding="utf-8") as fh:
         stj = json.load(fh)
@@ -6424,28 +6433,31 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # RE-MEASURED 2026-10-27 (D6 on #519): a note no longer makes a group
     # violated, so L8 is independent of L3 and L5 again and joins the batch:
     # ~~[3, 5]~~ [3, 5, 8].
+    # RE-MEASURED 2026-11-13 on seed 566 (above): the ends tie 4,5;6,8,11;9,10
+    # under the declared relation, and L10 stands independent of the other
+    # three, so it joins the batch: ~~[3, 5, 8]~~ [3, 5, 8, 10].
     check("the loop suspends on the fixture with a batch open",
           rc == 4 and pend.get("kind") == "propose_batch"
-          and members == [3, 5, 8],
+          and members == [3, 5, 8, 10],
           f"{rc} {pend.get('kind')} {members}")
     # while nothing has moved, the state and the file are the same draft.
     # ~~'Stay by the door and pray'~~ — 'pray' is in L5's forbidden modal
     # head for 'way' on this plan; 'holiday' is in the offered field.
     rc, out, _ = run("tryline", draft, "5", "Stay by the door until the holiday",
-                     "--seed=7", "--form=verse-chorus", "--lines=12", REL, f"--propose=defer:{st}",
+                     "--seed=566", "--form=verse-chorus", "--lines=12", REL, f"--propose=defer:{st}",
                      expect_rc=0)
     row = _machine_result(out)
     check("asked through the state, the verb says WHICH draft it read and "
           "that nothing has moved yet",
           rc == 0 and row.get("against") == "state"
           and row.get("moved_since_handed_in") == []
-          and row.get("open_question") == [3, 5, 8]
+          and row.get("open_question") == [3, 5, 8, 10]
           and "AGAINST: the loop's CURRENT draft" in out
-          and "OPEN   : the loop's open question is L3, L5, L8" in out,
+          and "OPEN   : the loop's open question is L3, L5, L8, L10" in out,
           out[-600:])
     l5_before = bool(row.get("accepted"))
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
-                     "--seed=7", "--form=verse-chorus", "--lines=12", REL, "--propose=stub",
+                     "--seed=566", "--form=verse-chorus", "--lines=12", REL, "--propose=stub",
                      expect_rc=2)
     check("a proposer spelling on tryline REFUSES — defer:PATH is the one "
           "value it takes", rc == 2 and "defer:PATH" in out, out[-300:])
@@ -6455,12 +6467,12 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     ol[0] = "the water holds the night"
     _io.open(other, "w", encoding="utf-8").write("\n".join(ol) + "\n")
     rc, out, _ = run("tryline", other, "3", "nothing here is very still",
-                     "--seed=7", "--form=verse-chorus", "--lines=12", REL, f"--propose=defer:{st}",
+                     "--seed=566", "--form=verse-chorus", "--lines=12", REL, f"--propose=defer:{st}",
                      expect_rc=2)
     check("a state started on a DIFFERENT handed-in draft REFUSES by name",
           rc == 2 and "DIFFERENT handed-in draft" in out, out[-300:])
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
-                     "--seed=7", "--form=verse-chorus", "--lines=12", REL,
+                     "--seed=566", "--form=verse-chorus", "--lines=12", REL,
                      f"--propose=defer:{os.path.join(tmpd, 'nope.json')}",
                      expect_rc=2)
     check("a state that does not exist REFUSES — nothing has been briefed",
@@ -6474,14 +6486,19 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # (above), so its row goes; the fold is unchanged (measured).
     # L8 joined the batch 2026-10-27; it is answered with its own line,
     # which verify rejects as fixing nothing, so the fold is L3 and L5.
+    # L10 joined the batch 2026-11-13 (seed 566, above); it too is answered
+    # with its own line, and the fold is unchanged (measured): L3 and L5
+    # accepted, L8 rejected as fixing nothing and asked again.
     with _io.open(draft, encoding="utf-8") as fh:
-        l8_own = fh.read().splitlines()[7]
+        own = fh.read().splitlines()
+    l8_own, l10_own = own[7], own[9]
     stj["pending"]["answer"] = ("L3: nothing here is very still\n"
                                 "L5: Stay by the door until the holiday\n"
-                                f"L8: {l8_own}")
+                                f"L8: {l8_own}\n"
+                                f"L10: {l10_own}")
     with _io.open(st, "w", encoding="utf-8") as fh:
         json.dump(stj, fh)
-    rc, out, _ = run("finish", draft, "--seed=7", "--form=verse-chorus", "--lines=12", REL,
+    rc, out, _ = run("finish", draft, "--seed=566", "--form=verse-chorus", "--lines=12", REL,
                      f"--propose=defer:{st}", expect_rc=4)
     with _io.open(st, encoding="utf-8") as fh:
         stj = json.load(fh)
@@ -6502,7 +6519,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           verdicts.get(3) is True, str(verdicts))
     # NOW the file is a draft the loop no longer holds
     rc, out, _ = run("tryline", draft, "9", "carry the cold light",
-                     "--seed=7", "--form=verse-chorus", "--lines=12", REL, expect_rc=2)
+                     "--seed=566", "--form=verse-chorus", "--lines=12", REL, expect_rc=2)
     check("asked against the FILE once the state has moved past it, the "
           "verb REFUSES and names the state to ask instead",
           rc == 2 and "past this file" in out and st in out, out[-400:])
@@ -6511,7 +6528,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # about here moves to L10, which the loop does not have open; that is
     # what the second check is about.
     rc, out, _ = run("tryline", draft, "10", "marry the old light",
-                     "--seed=7", "--form=verse-chorus", "--lines=12", REL, f"--propose=defer:{st}")
+                     "--seed=566", "--form=verse-chorus", "--lines=12", REL, f"--propose=defer:{st}")
     row = _machine_result(out)
     check("asked through the state, it answers against the CURRENT draft "
           "and says which lines moved",
@@ -6552,7 +6569,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     with _io.open(bad, "w", encoding="utf-8") as fh:
         json.dump(bj, fh)
     rc, out, _ = run("tryline", draft, "9", "carry the cold light",
-                     "--seed=7", "--form=verse-chorus", "--lines=12", REL, f"--propose=defer:{bad}",
+                     "--seed=566", "--form=verse-chorus", "--lines=12", REL, f"--propose=defer:{bad}",
                      expect_rc=2)
     check("a state whose open brief was asked on a different draft than "
           "it now holds REFUSES rather than reads a verdict off it",
@@ -6660,7 +6677,14 @@ def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
               # REPINNED 2026-10-04, MEASURED: ~~10~~ -> 4 mandated, 4/0. The
               # plan ties rhymes only at line ends now (2,3;4,5;8,9;10,11 —
               # owner's ruling); the two meter refusals still stand.
-              and coverage.get("pairs_mandated") == 4
+              # REPINNED 2026-11-13, MEASURED by this run: ~~4 mandated,
+              # 4/0~~ -> 5 mandated, 5/0. The planner draws from all 22
+              # section functions (`refrain` and `burden` are ordinary
+              # sections, owner ruling), so seed 2003 at 12 lines re-deals
+              # (intro-verse-chorus-chorus-postchorus-coda, ends tied
+              # 3,4;8,11 and heads 9,10,12). The claim is unchanged: the
+              # declined run is not certified and names its one refusal.
+              and coverage.get("pairs_mandated") == 5
               # REPINNED 2026-09-22 (N-relation model), MEASURED by this
               # run: ~~3/6~~ -> 2/7. The reading-consensus check is
               # membership over the pair's relation SET now, so one more
@@ -6675,7 +6699,7 @@ def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
               # certify: the meter layer's two refusals, present before the
               # ruling too, are what stand. superseded: judged 3, refused 7
               # (rhyme:2:3:0/1, 8:9:4/5/6, 10:11:7/9) plus prominence:L2.
-              and coverage.get("pairs_judged") == 4
+              and coverage.get("pairs_judged") == 5
               and coverage.get("pairs_refused") == 0
               # REPINNED 2026-10-04, THE ANY-READING RULE reaches the meter,
               # MEASURED by this run: L2's `every` is judged on one whole
