@@ -84,8 +84,7 @@ def _n_section_kind():
     size, derived so a 23rd function moves this suite's SUBJECT and not
     a literal (the ~~14~~ ~~19~~ ladder is at the roster check)."""
     from quality import grid as _GR
-    return sum(1 for sp in _GR.SECTION_FUNCTIONS.values()
-               if sp.kind == "section")
+    return len(_GR.SECTION_FUNCTIONS)
 
 
 def check(name, cond, detail=""):

@@ -587,6 +587,15 @@ DISPOSITION = {
     "RETURN_LOCKED": "CONVENTION",
     "RETURNS_WITH_SAME_WORDS": "CONVENTION",
     "BRIDGE_IS_A_VERSE": "CONVENTION",
+    # The six below entered 2026-11-13 with the owner's ruling that no row of
+    # the section vocabulary stays prose: each is what a row's own words say
+    # of the section, graded the way its siblings above are.
+    "RETURNS_WITH_NEW_WORDS": "CONVENTION",
+    "CONTRAST_ABSENT": "CONVENTION",
+    "CODA_REPEATS_EARLIER_LINES": "CONVENTION",
+    "REPRISE_BRINGS_NOTHING_BACK": "CONVENTION",
+    "TAG_NOT_SHORT": "CONVENTION",
+    "PATTER_NOT_DENSER": "CONVENTION",
     "CROSS_FUNCTION_REPRISE": "CONVENTION",
     "SINGLE_USE_RECURRED": "CONVENTION",
     "HOOK_CONFINED": "CONVENTION",
@@ -822,7 +831,12 @@ def by_disposition(c=None):
 # REPINNED 2026-10-04: the owner emptied `loop.MANDATORY_PURSUE`, so its four
 # note codes (HOMEOTELEUTON, MODAL_RHYME, PREDICTABLE_RHYME, SHARED_SUFFIX)
 # stop gating and each carries a DEMOTED ruling: 74/23/51 -> 74/19/55.
-PINNED = {'codes': 74, 'gated': 19, 'disclosed_only': 55, 'undecidable': 0,
+# REPINNED 2026-11-13: the owner ruled that no row of the section vocabulary
+# stays prose. Six notes join, one per promise a row made that nothing
+# graded: RETURNS_WITH_NEW_WORDS, CONTRAST_ABSENT, CODA_REPEATS_EARLIER_LINES,
+# REPRISE_BRINGS_NOTHING_BACK, TAG_NOT_SHORT, PATTER_NOT_DENSER. None gates;
+# no existing code or disposition moves: 74/19/55 -> 80/19/61.
+PINNED = {'codes': 80, 'gated': 19, 'disclosed_only': 61, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

@@ -65,12 +65,8 @@ def disclose_section(section):
                       and label_reading["canonical"] != grid.UNDECLARED)
         out["label_recognized"] = recognized
         if recognized:
-            kind = grid.SECTION_FUNCTIONS[label_reading["canonical"]].kind
             out["explanation"] = (
-                f"section labelled {label!r}; no line {label_reading['canonical']} declared"
-                if kind == "line" else
-                f"label {label!r} recognised; no section function declared or checked"
-            )
+                f"label {label!r} recognised; no section function declared or checked")
         else:
             out["explanation"] = (
                 f"label {label!r} not recognised; no section function checked")
@@ -82,13 +78,9 @@ def disclose_section(section):
             grid.song_from_blueprint({"sections": [deepcopy(raw)], "lines": []})
         except ValueError as exc:
             out["declaration_refusal"] = str(exc)
-    line_kind = grid.SECTION_FUNCTIONS.get(reading["canonical"])
     out["explanation"] = (
         "refused: " + out["declaration_refusal"]
         if out["declaration_refusal"] is not None else
-        f"Blueprint reader accepts {raw.get('function')!r}, a line-kind name, on this section; "
-        "no contained line role is declared and no section-function assessment has run."
-        if line_kind is not None and line_kind.kind == "line" else
         "This section on its own passed declaration validation (bars, meter and specialisation); "
         "its lines, placement, return and contrast were not checked."
     )
@@ -124,11 +116,7 @@ def function_capabilities():
                            records why no claim is made; "no claim" otherwise.
     recurrence, returns_as the row's own convention.
     contrast_measured      the functions this one is measured against.
-    contrast_not_checked   the functions the convention expects it to differ
-                           from that nothing measures.
     not_verified_from_text what the name promises about the performance.
-    line_role              "refused" for the two line-kind names: marking a
-                           blueprint line with `role` is not accepted yet.
     """
     rows = []
     for name, spec in grid.SECTION_FUNCTIONS.items():
@@ -137,15 +125,11 @@ def function_capabilities():
                       or spec.needs_after)
         rows.append({
             "function": name,
-            "kind": spec.kind,
             "placement": ("checked" if placed else
                           "refused" if spec.placement_refused else "no claim"),
             "recurrence": spec.recurrence,
             "returns_as": spec.returns_as,
             "contrast_measured": [b for a, b in grid.MEASURED_CONTRASTS if a == name],
-            "contrast_not_checked": [o for o in spec.contrasts_with
-                                     if (name, o) not in grid.MEASURED_CONTRASTS],
             "not_verified_from_text": spec.unverified,
-            "line_role": "refused" if spec.kind == "line" else "",
         })
     return rows

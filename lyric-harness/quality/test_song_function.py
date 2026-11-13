@@ -187,17 +187,12 @@ def test_the_questions_that_needed_a_function():
     # to equal the derivation, and the day the vocabulary gains a section it
     # would stop doing so.
     fns = G.profile_functions()
-    kinds = {G.SECTION_FUNCTIONS[f].kind for f in fns}
-    check("the profile asks its two questions of SECTIONS only (M-101)",
-          kinds == {"section"},
-          f"{len(fns)} names, kinds {sorted(kinds)} -- `bars_until_first_X` is "
-          "a placement question and a bar offset is not a fact about a line")
-    check("the two LINE-kind functions are excluded BY DECLARATION (M-54's "
-          "fourth residue, answered by derivation)",
-          "burden" not in fns and "refrain" not in fns
-          and G.SECTION_FUNCTIONS["burden"].kind == "line"
-          and G.SECTION_FUNCTIONS["refrain"].kind == "line",
-          "burden and refrain are a refrain line or couplet, not a span")
+    check("the profile asks its two questions of EVERY function: `refrain` "
+          "and `burden` are ordinary sections (owner ruling 2026-11-13) and "
+          "no row carries a `kind` label any more",
+          "burden" in fns and "refrain" in fns
+          and not hasattr(G.SECTION_FUNCTIONS["refrain"], "kind"),
+          f"{len(fns)} names")
     check("the derivation is a SUPERSET of the four it replaced, so every "
           "banked predicate keeps working",
           {"chorus", "prechorus", "bridge", "hook"} <= set(fns),
@@ -205,9 +200,8 @@ def test_the_questions_that_needed_a_function():
           f"{G.SECTION_FUNCTIONS['bridge'].recurrence!r} -- the fact that the "
           "shipped four were never 'the sections that come back'")
     check("the membership is READ, not typed: it equals the vocabulary's own "
-          "section rows",
-          fns == tuple(sorted(n for n, sp in G.SECTION_FUNCTIONS.items()
-                              if sp.kind == "section")),
+          "rows",
+          fns == tuple(sorted(G.SECTION_FUNCTIONS)),
           "red the day a tuple is hardcoded back in, or a section is added to "
           "the vocabulary and the profile stops asking about it")
     for fn in fns:

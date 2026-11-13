@@ -28,7 +28,9 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | ANACRUSIS | note | — | fit.py |
 | ANAPHORA_DECLARED | note | — | floor.py |
 | BRIDGE_IS_A_VERSE | note | — | grid.py |
+| CODA_REPEATS_EARLIER_LINES | note | — | grid.py |
 | COLLISION_CUT_IS_SCALAR_ONLY | note | — | revise.py |
+| CONTRAST_ABSENT | note | — | grid.py |
 | CROSS_FUNCTION_REPRISE | note | — | grid.py |
 | CROWDED | note | — | fit.py |
 | DOWNBEAT_LOCKED | note | — | grid.py |
@@ -49,6 +51,7 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | METER_LOCKED | note | — | grid.py |
 | MODAL_RHYME | note | — | revise.py |
 | OVERLAPPING_SPANS | note | — | fit.py |
+| PATTER_NOT_DENSER | note | — | grid.py |
 | PHRASE_LENGTH_LOCKED | note | — | grid.py |
 | PREDICTABLE_RHYME | note | — | floor.py |
 | PROMINENCE_CANNOT_ALIGN | note | — | fit.py |
@@ -57,6 +60,8 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | QUATRAIN_LOCK | note | — | grid.py |
 | RADIF_LICENSED | note | — | floor.py |
 | REFRAIN_REPEAT | note | — | revise.py |
+| REPRISE_BRINGS_NOTHING_BACK | note | — | grid.py |
+| RETURNS_WITH_NEW_WORDS | note | — | grid.py |
 | RETURNS_WITH_SAME_WORDS | note | — | grid.py |
 | RETURN_LENGTH_DRIFT | note | — | grid.py |
 | RETURN_LOCKED | note | — | grid.py |
@@ -76,6 +81,7 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | SPARSE | note | — | fit.py |
 | STACKED_LINE | note | — | sentencehood.py |
 | STRUCTURE_UNCALIBRATED | note | — | revise.py |
+| TAG_NOT_SHORT | note | — | grid.py |
 | TUPLET_REQUIRED | note | — | fit.py |
 | UNCOVERED_BARS | note | — | fit.py |
 | UNIFORM_ANACRUSIS | note | — | grid.py |
@@ -85,29 +91,29 @@ Function reading refusals: `END_WORD_UNREADABLE` blocks requested function cover
 
 ## Section types
 
-What declaring each of the 22 section types gets checked (from `function_capabilities` in `quality/function_disclosure.py`). **Placement**: `checked` means the type has a rule about where it sits, and a draft that breaks it gets a note; `no claim` means it may sit anywhere; `refused` means the registry records why no rule is made. **Contrast**: the one contrast measured is the bridge against the verse; the next column names the sections the convention expects this one to differ from that nothing measures. **Not verified from text**: what the name promises about the performance, which words on a bar grid cannot show. A grade says both, as `CONTRAST_NOT_CHECKED` and `EFFECT_NOT_VERIFIED` rows with status `not_requested`: they are counted as neither answered nor refused and never stop a song. `refrain` and `burden` are kinds of line: a section may be labelled or declared with either name, and marking a line itself (`role` on a blueprint line) is refused for now.
+What declaring each of the 22 section types gets checked (from `function_capabilities` in `quality/function_disclosure.py`). **Placement**: `checked` means the type has a rule about where it sits, and a draft that breaks it gets a note; `no claim` means it may sit anywhere; `refused` means the registry records why no rule is made. **Returns as**: `verbatim` types are planned as exact repeats when the form asks for a return, and a grade notes one that comes back with different words; `new words` types get a note when they come back unchanged. **Contrast measured**: the sections this one is measured against whenever a song declares both. **Not verified from text**: what the name promises about the performance, which words on a bar grid cannot show; a grade says so as an `EFFECT_NOT_VERIFIED` row with status `not_requested`, counted as neither answered nor refused. Every type is a section: the planner draws all of them.
 
-| type | kind | placement | recurrence | returns as | contrast measured | contrast expected, not checked | not verified from text |
-|---|---|---|---|---|---|---|---|
-| intro | section | checked | once | n/a | — | — | — |
-| verse | section | no claim | returns | new words | — | — | — |
-| prechorus | section | checked | returns | varied | — | verse, chorus | — |
-| chorus | section | no claim | returns | verbatim | — | verse | — |
-| postchorus | section | checked | returns | verbatim | — | chorus | — |
-| refrain | line | no claim | returns | verbatim | — | — | — |
-| burden | line | checked | returns | verbatim | — | — | — |
-| bridge | section | no claim | once | n/a | verse | chorus | — |
-| breakdown | section | no claim | open | varied | — | — | whether the arrangement thins |
-| build | section | no claim | open | varied | — | — | whether tension rises |
-| drop | section | refused | returns | varied | — | — | whether it lands as an arrival |
-| vamp | section | no claim | open | varied | — | — | whether a musical figure repeats under it |
-| patter | section | no claim | returns | new words | — | chorus | — |
-| turnaround | section | checked | returns | verbatim | — | — | — |
-| interlude | section | checked | open | n/a | — | — | — |
-| solo | section | no claim | open | n/a | — | — | — |
-| tag | section | refused | returns | verbatim | — | — | — |
-| hook | section | no claim | returns | verbatim | — | — | — |
-| coda | section | checked | once | n/a | — | — | — |
-| outro | section | checked | once | n/a | — | — | — |
-| false_ending | section | checked | once | n/a | — | — | — |
-| reprise | section | checked | once | varied | — | — | — |
+| type | placement | recurrence | returns as | contrast measured | not verified from text |
+|---|---|---|---|---|---|
+| intro | checked | once | n/a | — | — |
+| verse | no claim | returns | new words | — | — |
+| prechorus | checked | returns | varied | verse, chorus | — |
+| chorus | no claim | returns | verbatim | verse | — |
+| postchorus | checked | returns | verbatim | chorus | — |
+| refrain | no claim | returns | verbatim | — | — |
+| burden | checked | returns | verbatim | — | — |
+| bridge | no claim | once | n/a | verse, chorus | — |
+| breakdown | no claim | open | varied | — | whether the arrangement thins |
+| build | no claim | open | varied | — | whether tension rises |
+| drop | refused | returns | varied | — | whether it lands as an arrival |
+| vamp | no claim | open | varied | — | whether a musical figure repeats under it |
+| patter | no claim | returns | new words | chorus | — |
+| turnaround | checked | returns | verbatim | — | — |
+| interlude | checked | open | n/a | — | — |
+| solo | no claim | open | n/a | — | — |
+| tag | refused | returns | verbatim | — | — |
+| hook | no claim | returns | verbatim | — | — |
+| coda | checked | once | n/a | — | — |
+| outro | checked | once | n/a | — | — |
+| false_ending | checked | once | n/a | — | — |
+| reprise | checked | once | varied | — | — |
