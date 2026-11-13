@@ -13256,6 +13256,20 @@ def main():
             if gap.code == "EFFECT_NOT_VERIFIED":
                 from quality.function_disclosure import function_contract_explanations
                 print(f"      {function_contract_explanations()['measurement']}")
+        # Each line the blueprint marks `refrain` or `burden`, stated back
+        # with its own spelling and the section that holds it (#676). This
+        # verb reads no `--returns=`, and says so: "no Return is declared"
+        # below is about this call, not about the song's revise flags.
+        marked = rep["line_roles"]["declarations"]
+        if marked:
+            print("  line roles (this verb reads no --returns=, so no Return "
+                  "is declared here):")
+        for d in marked:
+            spelled = "" if d["raw"] == d["role"] else f" (written {d['raw']!r})"
+            print(f"    L{d['line']}: {d['role']}{spelled}, in section "
+                  f"{d['container'] + 1} "
+                  f"{song.sections[d['container']].name!r}")
+            print(f"      {d['disclosure']}")
         for fn, rets in rep["returns"].items():
             for a, b, ret in rets:
                 print(f"  -- {fn}: {a.name} -> {b.name}")

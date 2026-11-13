@@ -28,6 +28,7 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | ANACRUSIS | note | — | fit.py |
 | ANAPHORA_DECLARED | note | — | floor.py |
 | BRIDGE_IS_A_VERSE | note | — | grid.py |
+| BURDEN_POSITION | note | — | line_roles.py |
 | COLLISION_CUT_IS_SCALAR_ONLY | note | — | revise.py |
 | CROSS_FUNCTION_REPRISE | note | — | grid.py |
 | CROWDED | note | — | fit.py |
@@ -42,6 +43,7 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | HOOK_CONFINED | note | — | grid.py |
 | LATE_ENTRY | note | — | fit.py |
 | LEXICAL_REPETITION_DECLARED | note | — | floor.py |
+| LINE_ROLE_ONCE | note | — | line_roles.py |
 | MANDATE_EXCUSED_BY_OVERLAP | note | — | revise.py |
 | MANDATE_GROUPS_INDISTINGUISHABLE | note | — | revise.py |
 | MANDATE_NOT_INDEPENDENT | note | — | revise.py |
@@ -85,7 +87,7 @@ Function reading refusals: `END_WORD_UNREADABLE` blocks requested function cover
 
 ## Section types
 
-What declaring each of the 22 section types gets checked (from `function_capabilities` in `quality/function_disclosure.py`). **Placement**: `checked` means the type has a rule about where it sits, and a draft that breaks it gets a note; `no claim` means it may sit anywhere; `refused` means the registry records why no rule is made. **Contrast**: the one contrast measured is the bridge against the verse; the next column names the sections the convention expects this one to differ from that nothing measures. **Not verified from text**: what the name promises about the performance, which words on a bar grid cannot show. A grade says both, as `CONTRAST_NOT_CHECKED` and `EFFECT_NOT_VERIFIED` rows with status `not_requested`: they are counted as neither answered nor refused and never stop a song. `refrain` and `burden` are kinds of line: a section may be labelled or declared with either name, and marking a line itself (`role` on a blueprint line) is refused for now.
+What declaring each of the 22 section types gets checked (from `function_capabilities` in `quality/function_disclosure.py`). **Placement**: `checked` means the type has a rule about where it sits, and a draft that breaks it gets a note; `no claim` means it may sit anywhere; `refused` means the registry records why no rule is made. **Contrast**: the one contrast measured is the bridge against the verse; the next column names the sections the convention expects this one to differ from that nothing measures. **Not verified from text**: what the name promises about the performance, which words on a bar grid cannot show. A grade says both, as `CONTRAST_NOT_CHECKED` and `EFFECT_NOT_VERIFIED` rows with status `not_requested`: they are counted as neither answered nor refused and never stop a song. `refrain` and `burden` are kinds of line: a section may be labelled or declared with either name, and a blueprint line may be marked with either (`role`). A mark says what the line is and asks for no repeat: two lines marked alike are compared only where one declared Return holds them, and otherwise the grade says so in a `ROLE_MATCH_NOT_CHECKED` row with status `not_requested`. The planner never marks a line.
 
 | type | kind | placement | recurrence | returns as | contrast measured | contrast expected, not checked | not verified from text |
 |---|---|---|---|---|---|---|---|

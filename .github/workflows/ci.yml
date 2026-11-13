@@ -3199,7 +3199,14 @@ jobs:
       #   (2026-11-12, #851: the line limit rose from 200 to 512 characters,
       #   so its exact search of the letter layer runs to 512 letters; 125 s
       #   wall on a 4-vCPU machine, up from 57 s)
-      - name: The 119 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02; bias_census 2026-11-03; meter_strict 2026-11-04; function_disclosure 2026-11-04; p2_full_floor 2026-11-06; meter_digit_bound 2026-11-06)
+      #   p2_line_roles joined 2026-11-13 with #676: a blueprint line marked
+      #   `refrain` or `burden`, from the validator through the function
+      #   report, the revise loop's coverage rows, the command line and the
+      #   rendered song; it reads the cmudict this job stages; 95 s wall on
+      #   a 4-vCPU machine (most of it the verbs it runs as child processes);
+      #   last in the list so every other suite keeps its shard; label 119
+      #   to 120
+      - name: The 120 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02; bias_census 2026-11-03; meter_strict 2026-11-04; function_disclosure 2026-11-04; p2_full_floor 2026-11-06; meter_digit_bound 2026-11-06; p2_line_roles 2026-11-13)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -3320,7 +3327,8 @@ jobs:
                data_row_claims meter_honesty ltc english_text band rhyme_organization phonology pilot_frame \
                phon_san interlocking_chain verify_entries phon_fas connection_schemas render_form coda \
                type_canon register_audit section_marks expected_drift phon_non mandate_language matrix \
-               candidate_pair_projection verify_figures relation_shapes staging; do
+               candidate_pair_projection verify_figures relation_shapes staging \
+               p2_line_roles; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured

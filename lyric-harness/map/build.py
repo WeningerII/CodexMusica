@@ -282,8 +282,12 @@ def section_types_md():
            "on a bar grid cannot show. A grade says both, as `CONTRAST_NOT_CHECKED` and "
            "`EFFECT_NOT_VERIFIED` rows with status `not_requested`: they are counted as "
            "neither answered nor refused and never stop a song. `refrain` and `burden` are "
-           "kinds of line: a section may be labelled or declared with either name, and "
-           "marking a line itself (`role` on a blueprint line) is refused for now.\n",
+           "kinds of line: a section may be labelled or declared with either name, and a "
+           "blueprint line may be marked with either (`role`). A mark says what the line is "
+           "and asks for no repeat: two lines marked alike are compared only where one "
+           "declared Return holds them, and otherwise the grade says so in a "
+           "`ROLE_MATCH_NOT_CHECKED` row with status `not_requested`. The planner never "
+           "marks a line.\n",
            "| type | kind | placement | recurrence | returns as | contrast measured | "
            "contrast expected, not checked | not verified from text |",
            "|---|---|---|---|---|---|---|---|"]

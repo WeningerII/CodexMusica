@@ -606,6 +606,14 @@ DISPOSITION = {
     "SECTION_REQUIREMENT_ABSENT": "NO_MOVE",
     "RETURN_NEVER_RETURNS": "NO_MOVE",
     "ELABORATION_UNGROUNDED": "NO_MOVE",
+    # A line marked `refrain` or `burden` (#676, `quality/line_roles.py`).
+    # Which lines carry a mark, and where a marked line sits, are facts
+    # about the blueprint: no rewrite of a line's words moves either. The
+    # team's ruling on the issue is that a role used once is a note and
+    # never a flag, and that a burden's position is stated for this draft
+    # and no convention about it becomes a defect.
+    "LINE_ROLE_ONCE": "NO_MOVE",
+    "BURDEN_POSITION": "NO_MOVE",
     # THE TWO THAT ARE NOT SETTLED, and they are the reason this table has a
     # seventh word. `HOOK_ABSENT` is a FLAG on the argument that the writer
     # supplied the exact hook TEXT and its presence is factual with no
@@ -822,7 +830,10 @@ def by_disposition(c=None):
 # REPINNED 2026-10-04: the owner emptied `loop.MANDATORY_PURSUE`, so its four
 # note codes (HOMEOTELEUTON, MODAL_RHYME, PREDICTABLE_RHYME, SHARED_SUFFIX)
 # stop gating and each carries a DEMOTED ruling: 74/23/51 -> 74/19/55.
-PINNED = {'codes': 74, 'gated': 19, 'disclosed_only': 55, 'undecidable': 0,
+# REPINNED 2026-11-13: a blueprint line may be marked `refrain` or `burden`
+# (#676). Two notes joined, both ruled NO_MOVE above: LINE_ROLE_ONCE and
+# BURDEN_POSITION. No gate and no other disposition moves: 74/19/55 -> 76/19/57.
+PINNED = {'codes': 76, 'gated': 19, 'disclosed_only': 57, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

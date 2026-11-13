@@ -170,6 +170,10 @@ class Line:
     beat: Fraction = Fraction(1)
     duration: Fraction = Fraction(4)
     section: str = ""
+    #: `role` as the blueprint line spelled it ("refrain", "burden" or an
+    #: alias of one), or "" when the line carries no `role` key. Nothing
+    #: here defaults it: an unmarked line stays undeclared (#676).
+    role: str = ""
 
     def __post_init__(self):
         object.__setattr__ if False else None
@@ -1043,10 +1047,11 @@ class Song:
     #: Directed discourse links; None is undeclared, () explicitly empty.
     line_relations: object = None
 
-    def line_relation_report(self):
-        from quality.line_relations import line_relation_report
-        if not self.line_relations:
-            return line_relation_report(self.line_relations, [], [])
+    def line_blocks(self):
+        """-> the index of each line's section, in line order; None where a
+        line has no one section (a name no section carries once, and a bar
+        no one of them holds). A section's index is its place in
+        `self.sections`, so two sections that share a name stay two."""
         blocks = []
         for line in self.lines:
             hits = [i for i, s in enumerate(self.sections) if s.name == line.section]
@@ -1054,8 +1059,15 @@ class Song:
                 hits = [i for i in (hits or range(len(self.sections)))
                         if self.sections[i].start_bar <= line.bar <= self.sections[i].end_bar]
             blocks.append(hits[0] if len(hits) == 1 else None)
+        return blocks
+
+    def line_relation_report(self):
+        from quality.line_relations import line_relation_report
+        if not self.line_relations:
+            return line_relation_report(self.line_relations, [], [])
         return line_relation_report(self.line_relations,
-                                    [line.text for line in self.lines], blocks)
+                                    [line.text for line in self.lines],
+                                    self.line_blocks())
 
     tempo: TempoMap = field(default_factory=TempoMap)
 
@@ -1294,7 +1306,8 @@ def song_from_blueprint(obj, assume_meter=None):
         lines.append(Line(text=l.get("text", ""), bar=int(l["bar"]),
                           beat=_frac(l.get("beat", 1)),
                           duration=_frac(l.get("duration", 4)),
-                          section=s.name if s else ""))
+                          section=s.name if s else "",
+                          role=l.get("role", "")))
     from quality.line_relations import read_line_relations
     from quality.tempo import from_blueprint as read_tempo
     section_indices = {id(sec): i for i, sec in enumerate(secs)}
@@ -1388,6 +1401,13 @@ SEVERITY = {
     "SECTION_NOT_ADJACENT": "note",
     "SECTION_NOT_AT_BOUNDARY": "note",
     "SECTION_REQUIREMENT_ABSENT": "note",
+    # A LINE MARKED `refrain` OR `burden` (#676, `quality/line_roles.py`).
+    # NOTES, and they stay notes: a mark is part of the DECLARATION, so no
+    # rewrite of a line's words moves either one. A role asks for no repeat,
+    # and the registry's "a burden is printed after a stanza" is a count of
+    # a corpus, not a rule for a draft, so neither becomes a defect.
+    "BURDEN_POSITION": "note",
+    "LINE_ROLE_ONCE": "note",
 }
 
 #: The severity a code carries when this table has never heard of it. NOT
@@ -3718,8 +3738,14 @@ def not_asked(song):
 
 
 def song_function_report(song, hooks=(), rhyme_key=None,
-                         convention=POPULAR_SONG, decl=None):
+                         convention=POPULAR_SONG, decl=None, returns=()):
     """Every function-dependent question, asked once. -> dict.
+
+    `returns` is the caller's declared whole-line verbatim Return classes,
+    as tuples of one-based line numbers. It is read by ONE thing, the line
+    roles: it decides whether two lines marked `refrain` are said to be
+    judged by a Return or said to be not checked. This report compares no
+    words for a Return; the Return check does, where one is declared.
 
     Three counts, always, and they are not interchangeable: questions ASKED,
     questions ANSWERED, questions REFUSED (doctrine 79).
@@ -3873,9 +3899,20 @@ def song_function_report(song, hooks=(), rhyme_key=None,
         ask_one(f, r)
     f, r = hook_findings(song, hooks)
     ask_one(f, r)
+    # THE LINES MARKED `refrain` OR `burden` (#676). Not a question, so it
+    # is in none of the three counts: a role declares what a line IS and
+    # licenses no comparison. What it adds is each mark stated back, two
+    # notes (a role used once; where a burden sits) and, where marked lines
+    # are tied by no one Return, a row saying their match was not checked.
+    from quality.line_roles import song_role_report
+    roles = song_role_report(song, returns)
+    findings.extend(roles["findings"])
     return {"profile": prof, "findings": findings, "refusals": refusals,
             "returns": detail,
             "line_relations": song.line_relation_report(),
+            #: {"declarations", "notes", "findings", "not_checked"} for the
+            #: lines carrying `role`; every list empty when none does.
+            "line_roles": roles,
             #: {(later, earlier): [(earlier_section, later_section, Return)]}
             #: -- a SEPARATE key from `returns`, which is keyed by one
             #: function and holds that function's agreement with itself. The
@@ -3885,7 +3922,7 @@ def song_function_report(song, hooks=(), rhyme_key=None,
             #: what the registry expects of this song's declared functions
             #: that nothing above asks (`not_asked`). Outside the three
             #: counts by construction: an unasked question is in none of them.
-            "not_asked": not_asked(song),
+            "not_asked": not_asked(song) + roles["not_checked"],
             "asked": asked, "answered": asked - refused_questions,
             "refused": refused_questions,
             #: how many refusal RECORDS the refused questions produced. Never

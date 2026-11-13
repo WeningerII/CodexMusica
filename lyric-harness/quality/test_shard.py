@@ -1022,8 +1022,8 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
           and set(sections) == declared)
     repeated = {"relations_null", "g2p", "spans", "readability", "reader", "screen"}
     coordinate_names = ("relations_null", "g2p", "spans", "readability", "reader", "screen")
-    check("the named pool retains 119 distinct modules and six split suites",
-          len(names) == len(set(names)) == 119 and repeated <= set(names))
+    check("the named pool retains 120 distinct modules and six split suites",
+          len(names) == len(set(names)) == 120 and repeated <= set(names))
     seen, section_seen, coordinates = [], [], {name: [] for name in repeated}
     called_by_shard = {}
     with tempfile.TemporaryDirectory(prefix="m244-pool-") as tmp:
@@ -1083,8 +1083,8 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
         expected = collections.Counter(names)
         for name in repeated:
             expected[name] = n
-        check("the actual shell makes 161 calls: every ordinary suite once and every split suite once per shard",
-              counts == expected and len(seen) == 161)
+        check("the actual shell makes 162 calls: every ordinary suite once and every split suite once per shard",
+              counts == expected and len(seen) == 162)
         for name, coords in coordinates.items():
             check(f"{name}: rotated coordinates cover 1..{n} exactly once",
                   collections.Counter(coords) == collections.Counter(f"{k}/{n}" for k in range(1, n + 1)))
@@ -1155,7 +1155,7 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
             run = subprocess.run(["bash", "-o", "pipefail", "-c", local], env=env,
                                  capture_output=True, text=True)
             whole = re.findall(r"^CALLED quality/test_(\w+)\.py$", run.stdout, re.M)
-            check(f"pool with {total or 'unset'} shard count runs the whole 119-module inventory once",
+            check(f"pool with {total or 'unset'} shard count runs the whole 120-module inventory once",
                   run.returncode == 0 and collections.Counter(whole) == collections.Counter(names))
         # Actual child lifetimes, not a replay of the scheduling arithmetic.
         # A recorder holds logical CPU slots while sleeping, so the real shell
@@ -1266,7 +1266,7 @@ def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
               == collections.Counter(called_by_shard[coverage_owner])
               and not restored(state["events"]), run.stderr[-300:])
         # Future list edits can delay Queue until three ordinary jobs are
-        # already live. Exercise admission itself, with all 119 names retained.
+        # already live. Exercise admission itself, with all 120 names retained.
         first_three = [name for name in names if name not in repeated | {"coverage_queue"}][:3]
         lead = ["relations_null", "g2p"] + first_three + ["coverage_queue"]
         delayed_names = lead + [name for name in names if name not in lead]

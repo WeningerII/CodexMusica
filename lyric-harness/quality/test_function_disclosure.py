@@ -672,8 +672,10 @@ class CapabilityTableTests(unittest.TestCase):
         ('prechorus', 'section', 'checked', 'returns', 'varied', [], ['verse', 'chorus'], '', ''),
         ('chorus', 'section', 'no claim', 'returns', 'verbatim', [], ['verse'], '', ''),
         ('postchorus', 'section', 'checked', 'returns', 'verbatim', [], ['chorus'], '', ''),
-        ('refrain', 'line', 'no claim', 'returns', 'verbatim', [], [], '', 'refused'),
-        ('burden', 'line', 'checked', 'returns', 'verbatim', [], [], '', 'refused'),
+        ('refrain', 'line', 'no claim', 'returns', 'verbatim', [], [], '',
+         'marked by hand; not planned'),
+        ('burden', 'line', 'checked', 'returns', 'verbatim', [], [], '',
+         'marked by hand; not planned'),
         ('bridge', 'section', 'no claim', 'once', 'n/a', ['verse'], ['chorus'], '', ''),
         ('breakdown', 'section', 'no claim', 'open', 'varied', [], [],
          'whether the arrangement thins', ''),
@@ -742,17 +744,29 @@ class CapabilityTableTests(unittest.TestCase):
                 else:
                     self.assertNotIn('EFFECT_NOT_VERIFIED', gaps)
 
-    def test_a_line_role_is_refused_for_the_two_line_kind_names(self):
+    def test_a_line_role_is_read_for_the_two_line_kind_names_and_no_other(self):
         from quality import meter as M
         self.assertEqual([r['function'] for r in function_capabilities() if r['line_role']],
                          ['refrain', 'burden'])
-        for role in ('refrain', 'burden'):
-            blueprint = {'sections': [dict(name='Verse', function='verse', bars=2,
-                                           start_bar=1, meter={'beats': 4, 'unit': 4})],
-                         'lines': [dict(text='one line', bar=1, beat=1, duration=4, role=role)]}
-            with self.subTest(role=role), self.assertRaises(ValueError) as refused:
-                M.validate_blueprint(blueprint)
-            self.assertIn("`role` isn't supported yet", str(refused.exception))
+
+        def marked(role):
+            return {'sections': [dict(name='Verse', function='verse', bars=2,
+                                      start_bar=1, meter={'beats': 4, 'unit': 4})],
+                    'lines': [dict(text='one line', bar=1, beat=1, duration=4, role=role)]}
+        for row in function_capabilities():
+            role, blueprint = row['function'], marked(row['function'])
+            with self.subTest(role=role):
+                if row['line_role']:
+                    M.validate_blueprint(blueprint)
+                    song, _hooks = G.song_from_blueprint(blueprint)
+                    self.assertEqual(song.lines[0].role, role)
+                    continue
+                with self.assertRaises(ValueError) as refused:
+                    M.validate_blueprint(blueprint)
+                self.assertEqual(
+                    str(refused.exception),
+                    f"line 1: `role` is {role!r}, which isn't a line role. "
+                    'Write "refrain" or "burden", or remove `role` from this line.')
 
 
 if __name__ == '__main__':

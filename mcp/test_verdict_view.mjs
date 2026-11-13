@@ -743,6 +743,37 @@ test('not_checked prints an unasked question from the sentence its own row carri
   ]);
 });
 
+// A line role (#676): lines marked alike that no one declared return holds
+// are not compared. The harness says so in one row with no finding
+// (quality/line_roles.py), and the short verdict prints that row's sentence.
+test('not_checked prints the row for marked lines that nothing compared', () => {
+  const said =
+    'not checked: whether lines 2 and 4, both marked refrain, match (no Return is declared for them)';
+  const live = {
+    ...verdict,
+    coverage: {
+      certified: true,
+      refused_obligations: [],
+      obligations: [
+        { id: 'function:draft', layer: 'function', status: 'not_requested' },
+        {
+          id: 'function:ROLE_MATCH_NOT_CHECKED:draft',
+          layer: 'function',
+          status: 'not_requested',
+          code: 'ROLE_MATCH_NOT_CHECKED',
+          message: said,
+          evidence: 'A role says what a line is. It declares no Return.',
+        },
+        { id: 'meter:draft', layer: 'meter', status: 'answered' },
+        { id: 'slot_grid:draft', layer: 'slot_grid', status: 'answered' },
+        { id: 'setting:draft', layer: 'setting', status: 'answered' },
+      ],
+    },
+  };
+  const short = JSON.parse(sessionView('lyric_revise', blocks(live))[1].text);
+  assert.ok(short.not_checked.includes(`function: ROLE_MATCH_NOT_CHECKED — ${said}`));
+});
+
 // A grade at exit 0 or 3 that the creation gate records names the call that
 // takes this exact draft on (lyric_tools.js sets `next`). The short verdict
 // copies it as its last field and never invents one.

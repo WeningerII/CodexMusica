@@ -27,7 +27,7 @@ Slowest call per tool on the 16-line reference song (2026-11-09, limit 600s per 
 | section | what it answers | tokens |
 |---|---|---:|
 | `map/song-path.md` | which functions run for each tool, and where the time goes | 3.9k |
-| `map/rules.md` | every finding code, its severity, and whether it can stop a song; the section types and what each gets checked | 2.2k |
+| `map/rules.md` | every finding code, its severity, and whether it can stop a song; the section types and what each gets checked | 2.3k |
 | `map/limits.md` | every numeric cap, budget and time limit, with its file | 2k |
 | `map/files.md` | which files the song program uses, which it never loads, sizes | 3.3k |
 | `map/timings.md` | seconds per tool call on the reference song | <1k |
