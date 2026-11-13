@@ -111,11 +111,6 @@ def function_contract_explanations():
     }
 
 
-#: What `function_capabilities` says of the two line-kind names. One string
-#: so the ledger, the map page and their tests cannot spell it three ways.
-LINE_ROLE = "marked by hand; not planned"
-
-
 def function_capabilities():
     """One row per registered function: what declaring it gets asked.
 
@@ -132,10 +127,8 @@ def function_capabilities():
     contrast_not_checked   the functions the convention expects it to differ
                            from that nothing measures.
     not_verified_from_text what the name promises about the performance.
-    line_role              for the two line-kind names: a blueprint line
-                           may be marked with it (`role`), and the planner
-                           never marks one, so the mark is always the
-                           writer's own.
+    line_role              "refused" for the two line-kind names: marking a
+                           blueprint line with `role` is not accepted yet.
     """
     rows = []
     for name, spec in grid.SECTION_FUNCTIONS.items():
@@ -153,6 +146,6 @@ def function_capabilities():
             "contrast_not_checked": [o for o in spec.contrasts_with
                                      if (name, o) not in grid.MEASURED_CONTRASTS],
             "not_verified_from_text": spec.unverified,
-            "line_role": LINE_ROLE if spec.kind == "line" else "",
+            "line_role": "refused" if spec.kind == "line" else "",
         })
     return rows

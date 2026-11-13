@@ -237,28 +237,12 @@ The checks run in this order:
    139,363) and `after` (1 line, 19) together could reach 139,382 syllable
    digits; one request carries at most 139,363") and each set it left out.
 
-**Marking a line as a refrain or burden.** A `blueprint` line may carry
-`"role": "refrain"` or `"role": "burden"` (or a spelling the section-function
-vocabulary already resolves to one of them). The mark says what the line is.
-It asks for no repeat, declares no return and makes no hook:
-
-- Lines marked alike are compared only where one declared return (`returns`)
-  holds them all. Otherwise nothing is found against the draft, and the result
-  carries one `not_requested` coverage row, `ROLE_MATCH_NOT_CHECKED`, whose
-  sentence reads, for example, "not checked: whether lines 2 and 4, both marked
-  refrain, match (no Return is declared for them)". The short verdict prints
-  it under `not_checked`.
-- A role used on one line only, and where a line marked `burden` sits, are
-  notes (`LINE_ROLE_ONCE`, `BURDEN_POSITION`). They never hold a song back.
-- Any other value is refused with the line named: "line N: `role` is 'verse',
-  which isn't a line role. Write "refrain" or "burden", or remove `role` from
-  this line." The harness says this, so the call is admitted before it is
-  refused.
-- The planner marks no line: a seeded run's blueprint carries no `role`.
-
-A section may still be labelled or declared `refrain` or `burden`; that names
-the section and marks no line inside it. The Library's form reading does not
-read a line role and refuses a setting line that carries one.
+**Marking a line as a refrain or burden is refused for now.** A `blueprint`
+line that carries `role` is not accepted, and the whole blueprint is refused
+with it: "line N: `role` isn't supported yet, so this blueprint was not
+accepted. Remove `role` from this line and send it again." A section may still
+be labelled or declared `refrain` or `burden`; that names the section and marks
+no line inside it.
 
 **What counts as a line set.** Each of the following is one line set:
 

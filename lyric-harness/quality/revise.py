@@ -3458,8 +3458,7 @@ class Reviser:
         why = bp.get("hook_slot_refused") if isinstance(bp, dict) else ""
         return why.strip() if isinstance(why, str) else ""
 
-    def _function_findings(self, lines, blueprint, coverage_out=None,
-                           returns=()):
+    def _function_findings(self, lines, blueprint, coverage_out=None):
         """-> [Finding], all whole-draft. `quality/grid.py`'s FUNCTION layer
         (verse/chorus/bridge/hook/return) read off the SAME blueprint
         `_meter_findings` already requires.
@@ -3531,13 +3530,8 @@ class Reviser:
         _hs = self._blueprint_hook_slot(blueprint)
         if _hs is not None and 1 <= _hs <= len(lines):
             hooks = [lines[_hs - 1]]
-        # `returns`: the mandate's whole-line verbatim Return classes. The
-        # report reads them for one thing: whether lines marked `refrain` or
-        # `burden` are said to be judged by a Return (`returns_check` in
-        # `inspect` does the judging) or said to be not checked (#676).
         rep = GR.song_function_report(song, hooks=hooks,
-                                      rhyme_key=GR.rime_cmudict(self.lex),
-                                      returns=returns)
+                                      rhyme_key=GR.rime_cmudict(self.lex))
         # The plan's own reason for declaring no hook, or "" (see the note
         # at `unasked` below). Read once: the coverage rows and the refusal
         # note both speak from it.
@@ -3627,32 +3621,24 @@ class Reviser:
                              "token": f.token, "word": f.word, "text": f.text}
                             for f in unlocated]
                     coverage_out.append(record)
-            # WHAT THE REGISTRY EXPECTS OF THESE SECTIONS AND NOTHING ASKED
-            # (issue #676 gaps 3 and 5, 2026-11-13). `function:draft` reads
-            # "answered" when every question PUT was answered. The
-            # convention also expects a chorus to differ from its verse,
-            # and a `build` to raise tension, and neither was put: one
-            # contrast is measured (the bridge against the verse) and no
-            # acoustic effect can be read off words. Until now the layer's
-            # "answered" covered that silence. These are disclosed the way
-            # NO_COMPARATOR already is, as `not_requested` rows carrying a
-            # code -- with the grader's sentence on the row itself, since
-            # nothing was measured and so there is no finding to carry it.
-            # A `not_requested` row is never counted as answered or
-            # refused and never withholds certification.
-            #
-            # OUTSIDE `if requested:` SINCE THE LINE ROLES (#676). The two
-            # registry rows above arise only from a declared section, which
-            # is `requested` itself, so nothing moved for them. The third,
-            # ROLE_MATCH_NOT_CHECKED, arises from `role` on lines alone: a
-            # draft with two lines marked refrain and no section function
-            # asked nothing of this layer, and its report still has to say
-            # the two were not compared.
-            for gap in rep.get("not_asked", ()):
-                coverage_out.append({"id": f"function:{gap.code}:draft",
-                                     "layer": "function", "status": "not_requested",
-                                     "code": gap.code, "message": gap.message,
-                                     "evidence": gap.evidence})
+                # WHAT THE REGISTRY EXPECTS OF THESE SECTIONS AND NOTHING ASKED
+                # (issue #676 gaps 3 and 5, 2026-11-13). `function:draft` reads
+                # "answered" when every question PUT was answered. The
+                # convention also expects a chorus to differ from its verse,
+                # and a `build` to raise tension, and neither was put: one
+                # contrast is measured (the bridge against the verse) and no
+                # acoustic effect can be read off words. Until now the layer's
+                # "answered" covered that silence. These are disclosed the way
+                # NO_COMPARATOR already is, as `not_requested` rows carrying a
+                # code -- with the grader's sentence on the row itself, since
+                # nothing was measured and so there is no finding to carry it.
+                # A `not_requested` row is never counted as answered or
+                # refused and never withholds certification.
+                for gap in rep.get("not_asked", ()):
+                    coverage_out.append({"id": f"function:{gap.code}:draft",
+                                         "layer": "function", "status": "not_requested",
+                                         "code": gap.code, "message": gap.message,
+                                         "evidence": gap.evidence})
             coverage_out.append({"id": "shape:draft", "layer": "shape", "status": "answered"})
         whole = []
         for f in rep["findings"]:
@@ -4640,10 +4626,7 @@ class Reviser:
                 for f in fs:
                     add(ln, f)
             whole.extend(m_whole)
-            whole.extend(self._function_findings(
-                lines, blueprint, coverage_out=_function_coverage,
-                returns=tuple(tuple(r.lines) for r in m.returns
-                              if not r.placed and r.verbatim is True)))
+            whole.extend(self._function_findings(lines, blueprint, coverage_out=_function_coverage))
         else:
             _function_coverage = [{"id": layer + ":draft", "layer": layer,
                                    "status": "not_requested"}

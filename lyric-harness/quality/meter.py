@@ -127,16 +127,9 @@ def validate_blueprint(obj):
         if not isinstance(rows, list) or any(not isinstance(r, dict) for r in rows):
             raise ValueError(f"blueprint {field} must be an array of objects")
         guard_expansion(len(rows), f"blueprint {field}", MAX_BLUEPRINT_ITEMS)
-    # A line may carry `role`: "refrain" or "burden", or an alias the function
-    # vocabulary reads as one. Anything else under that key is refused with
-    # its value named; a line with no key stays undeclared (#676). The
-    # vocabulary is `quality/grid.py`'s, and it is loaded only for a line
-    # that carries the key: a blueprint with no role loads what it always
-    # did, which is how `quality/fit.py` reads one without that module.
     for index, line in enumerate(lines, 1):
         if "role" in line:
-            from quality.line_roles import canonical_role
-            canonical_role(line["role"], index)
+            raise ValueError(f"line {index}: `role` isn't supported yet, so this blueprint was not accepted. Remove `role` from this line and send it again.")
     if lines and not sections:
         raise ValueError("blueprint lines require at least one declared section")
     spans, cursor, total_bars = [], 1, 0

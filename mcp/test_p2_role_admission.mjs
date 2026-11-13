@@ -1,12 +1,6 @@
-// A blueprint line's `role` at the connector (#676). The schemas pass it through
-// untouched and the harness is the one place that judges it, so every value
-// here, a role or not, is admitted and reaches the worker with the caller's
-// own bytes. Real schemas and MCP dispatch; the worker boundary is
-// intercepted, so nothing here grades a line (lyric-harness/quality/
-// test_p2_line_roles.py does that).
+// Reconstructed P2 guards: real schemas and MCP dispatch; no lexical grading.
 // Synthetic encoded continuations are NOT historical journals or signed-cursor roundtrips.
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { z } from 'zod';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
@@ -27,14 +21,13 @@ const base = {
 };
 const cases = [
   ['absent', undefined],
-  ['refrain', 'refrain'],
-  ['burden', 'burden'],
-  ['another spelling', 'Refrain'],
+  ['string', 'refrain'],
   ['empty', ''],
   ['null', null],
   ['object', { kind: 'refrain' }],
-  ['number', 17],
 ];
+const refusal =
+  /line 1: `role` isn't supported yet, so this blueprint was not accepted\. Remove `role` from this line and send it again\./;
 function inputs(name, role, index = 0) {
   const bp = structuredClone(base);
   while (bp.lines.length <= index) bp.lines.push(structuredClone(base.lines[0]));
@@ -57,30 +50,51 @@ for (const [name, role] of cases) {
       const before = structuredClone(args);
       const result = z.object(LYRIC_TOOL_SCHEMAS[tool]).safeParse(args);
       assert.deepEqual(args, before);
-      assert.equal(result.success, true);
-      assert.equal(result.data.blueprint, args.blueprint);
+      if (name === 'absent') {
+        assert.equal(result.success, true);
+        assert.equal(result.data.blueprint, args.blueprint);
+      } else {
+        assert.equal(result.success, false);
+        assert.match(result.error.message, refusal);
+      }
     });
   }
   test(`restored declaration schema: ${name}`, () => {
     const decl = declarationsOf(calls.lyric_revise);
     const before = structuredClone(decl);
     const read = () => declarationsOf(z.object(KITCHEN_REVISE_SCHEMA).parse(decl));
-    assert.equal(read().blueprint, decl.blueprint);
-    assert.deepEqual(movedDeclarations(read(), { blueprint: decl.blueprint }), []);
-    assert.equal(
-      movedDeclarations(read(), { blueprint: decl.blueprint.replace('We hold', 'We guard') })[0]
-        .field,
-      'blueprint'
-    );
-    // The mark is part of what was declared: changing it alone, with every
-    // word and placement kept, is a changed blueprint.
-    const other = inputs('present', role === 'burden' ? 'refrain' : 'burden').lyric_revise;
-    assert.equal(movedDeclarations(read(), { blueprint: other.blueprint })[0].field, 'blueprint');
+    if (name === 'absent') {
+      assert.equal(read().blueprint, decl.blueprint);
+      assert.deepEqual(movedDeclarations(read(), { blueprint: decl.blueprint }), []);
+      assert.equal(
+        movedDeclarations(read(), { blueprint: decl.blueprint.replace('We hold', 'We guard') })[0]
+          .field,
+        'blueprint'
+      );
+    } else assert.throws(read, refusal);
     assert.deepEqual(decl, before);
   });
 }
 
-test('real MCP admission: the worker is handed the blueprint as it was sent', async (t) => {
+for (const index of [1, 2]) {
+  for (const role of ['refrain', 'burden', '', null, {}, [], 17]) {
+    const expected = new RegExp(`line ${index + 1}: ` + "`role` isn't supported yet");
+    const calls = inputs('present', role, index);
+    test(`later-line schemas: line ${index + 1}, ${JSON.stringify(role)}`, () => {
+      for (const [tool, args] of Object.entries(calls)) {
+        const result = z.object(LYRIC_TOOL_SCHEMAS[tool]).safeParse(args);
+        assert.equal(result.success, false);
+        assert.match(result.error.message, expected);
+      }
+      assert.throws(
+        () => z.object(KITCHEN_REVISE_SCHEMA).parse(declarationsOf(calls.lyric_revise)),
+        expected
+      );
+    });
+  }
+}
+
+test('real MCP admission and synthetic continuation rejection', async (t) => {
   const server = buildServer({ kitchen: true });
   const client = new Client(
     { name: 'reconstructed-p2-admission', version: '1' },
@@ -91,8 +105,7 @@ test('real MCP admission: the worker is handed the blueprint as it was sent', as
     originalRun = bridge.runVerb;
   const key = process.env.GEMINI_API_KEY;
   let admissions = 0,
-    operations = 0,
-    handed = null;
+    operations = 0;
   const boundary = /P2_EXTERNAL_WORKER_BOUNDARY/;
   function idle() {
     const capacity = bridge.capacity();
@@ -106,7 +119,6 @@ test('real MCP admission: the worker is handed the blueprint as it was sent', as
     const before = structuredClone(args),
       a = admissions,
       w = operations;
-    handed = null;
     const result = await client.callTool({ name: tool, arguments: args });
     assert.deepEqual(args, before, 'raw caller blueprint/envelope untouched');
     assert.equal(result.isError, true);
@@ -114,7 +126,6 @@ test('real MCP admission: the worker is handed the blueprint as it was sent', as
     assert.equal(admissions - a, admitted);
     assert.equal(operations - w, worked);
     idle();
-    return handed;
   }
   try {
     delete process.env.GEMINI_API_KEY;
@@ -122,23 +133,20 @@ test('real MCP admission: the worker is handed the blueprint as it was sent', as
       admissions++;
       return originalAdmit(...args);
     };
-    // Only the external worker boundary is intercepted; never fake a passing
-    // result. The blueprint file the worker was pointed at is read here,
-    // before the call's temporary directory is removed.
-    bridge.runVerb = async (argv) => {
+    // Only the external worker boundary is intercepted; never fake a passing result.
+    bridge.runVerb = async () => {
       operations++;
-      const flag = argv.find((x) => typeof x === 'string' && x.startsWith('--blueprint='));
-      handed = flag ? readFileSync(flag.slice('--blueprint='.length), 'utf8') : null;
       throw new Error('P2_EXTERNAL_WORKER_BOUNDARY');
     };
     await Promise.all([client.connect(c), server.connect(s)]);
     idle();
-    for (const [name, role] of cases) {
-      const calls = inputs(name, role);
+    for (const [name, role] of [...cases, ['malformed number', 17]]) {
+      const calls = inputs(name, role),
+        absent = name === 'absent';
       for (const [tool, args] of Object.entries(calls)) {
-        await t.test(`handler ${tool}: ${name}`, async () => {
-          assert.equal(await call(tool, args, boundary, 1, 1), args.blueprint);
-        });
+        await t.test(`handler ${tool}: ${name}`, () =>
+          call(tool, args, absent ? boundary : refusal, absent ? 1 : 0, absent ? 1 : 0)
+        );
       }
       for (const field of ['state', 'checkpoint']) {
         await t.test(`${field}: ${name}`, async () => {
@@ -156,20 +164,19 @@ test('real MCP admission: the worker is handed the blueprint as it was sent', as
           const before = structuredClone(decoded),
             wire = encodeState(decoded);
           assert.deepEqual(decoded, before);
-          // A continuation restores the blueprint it was declared with, mark
-          // and all. The website writer's checkpoint stops before the worker
-          // for want of its key, as it does with no mark.
-          const kitchen = field === 'checkpoint';
-          const got = await call(
+          const expected = !absent
+            ? refusal
+            : field === 'checkpoint'
+              ? /writer 'kitchen' needs the service's GEMINI_API_KEY and it is unset here/
+              : boundary;
+          // Restore reparse happens inside withTempDir: a reservation precedes refusal.
+          await call(
             'lyric_revise',
             { [field]: wire },
-            kitchen
-              ? /writer 'kitchen' needs the service's GEMINI_API_KEY and it is unset here/
-              : boundary,
+            expected,
             1,
-            kitchen ? 0 : 1
+            absent && field === 'state' ? 1 : 0
           );
-          if (!kitchen) assert.equal(got, calls.lyric_revise.blueprint);
         });
       }
     }
@@ -192,17 +199,15 @@ test('real MCP admission: the worker is handed the blueprint as it was sent', as
       });
     }
     for (const index of [1, 2]) {
+      const expected = new RegExp(`line ${index + 1}: ` + "`role` isn't supported yet");
       for (const [tool, args] of Object.entries(inputs('present', 'burden', index))) {
-        await t.test(`later-line handler ${tool}: line ${index + 1}`, async () => {
-          const got = await call(tool, args, boundary, 1, 1);
-          assert.equal(got, args.blueprint);
-          assert.deepEqual(
-            JSON.parse(got).lines.map((line) => line.role),
-            [...Array(index).fill(undefined), 'burden']
-          );
-        });
+        await t.test(`later-line handler ${tool}: line ${index + 1}`, () =>
+          call(tool, args, expected, 0, 0)
+        );
       }
     }
+    assert.equal(admissions, 17);
+    assert.equal(operations, 4);
   } finally {
     bridge.admit = originalAdmit;
     bridge.runVerb = originalRun;

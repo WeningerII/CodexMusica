@@ -406,13 +406,6 @@ def _setting(source, sung, sections, declarations, phon):
             raise InvalidDeclaration("setting line must belong to its concrete form section")
         if not {"bar", "beat", "duration"} <= line.keys():
             raise InvalidDeclaration("setting line requires explicit bar, beat and duration")
-        if "role" in line:
-            # A line role (#676) is read by the grade, which says what it did
-            # not compare. This reading has no place for that sentence, so it
-            # refuses the mark rather than read past it.
-            raise InvalidDeclaration(
-                f"setting line {lid}: `role` isn't read in a Library setting yet, so this "
-                "setting was not accepted. Remove `role` from this line and send it again.")
         line["text"], line["section"] = by_id[lid]["text"], sid
         line_order.append(lid)
     song, _hooks = G.song_from_blueprint(bp)  # shared specialization/shape validation

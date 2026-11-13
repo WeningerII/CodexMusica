@@ -168,7 +168,6 @@ try {
     command.includes('scripts/run_unittest.py ')
   );
   const libraryIds = [];
-  const librarySizes = [];
   let completeLibraryIds;
   for (const command of libraryCommands) {
     const args = command.slice(command.indexOf('scripts/run_unittest.py')).split(' ');
@@ -178,14 +177,9 @@ try {
     if (completeLibraryIds) assert.deepEqual(inventory.ids, completeLibraryIds);
     else completeLibraryIds = inventory.ids;
     assert.ok(command.endsWith(`--expect=${inventory.sha256}`));
-    librarySizes.push(inventory.selected.length);
+    assert.equal(inventory.selected.length, 9);
     libraryIds.push(...inventory.selected);
   }
-  // 217 tests dealt over 24 shards: one shard holds ten, the other twenty-three nine.
-  assert.deepEqual(
-    librarySizes.sort((a, b) => a - b),
-    [...Array(23).fill(9), 10]
-  );
   assert.equal(new Set(libraryIds).size, libraryIds.length);
   assert.deepEqual(libraryIds.sort(), completeLibraryIds);
   checks++;

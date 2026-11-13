@@ -357,29 +357,6 @@ class FormReaderTests(unittest.TestCase):
         as_text = analyze_form(work, {"setting": {"source": "s", "sections": sections, "lines": written}})
         self.assertEqual(as_text["rhythm"]["setting"], plain["rhythm"]["setting"])
 
-    def test_a_line_role_in_a_setting_is_refused_by_name(self):
-        # A blueprint line may be marked `refrain` or `burden` (#676). The
-        # grade reads the mark and says what it did not compare; this reading
-        # has no place for that sentence, so it refuses the mark, whatever
-        # its value, and names the line.
-        work = source(["[VERSE]", "Vaka vanha Väinämöinen", "Laula kultainen käkönen"])
-        sections = [{"id": "l1:block", "bars": 4, "meter": {"beats": 7, "unit": 8, "groups": [2, 2, 3]}}]
-        for role in ("refrain", "burden", "", None, 17):
-            lines = [{"line_id": "l2", "section_id": "l1:block", "bar": 1, "beat": 1, "duration": 7},
-                     {"line_id": "l3", "section_id": "l1:block", "bar": 2, "beat": 1, "duration": 7,
-                      "role": role}]
-            declaration = {"setting": {"source": "s", "sections": sections, "lines": lines}}
-            before = copy.deepcopy(declaration)
-            with self.subTest(role=role), self.assertRaisesRegex(
-                    InvalidDeclaration,
-                    r"^INVALID_DECLARATION: setting line l3: `role` isn't read in a Library "
-                    r"setting yet, so this setting was not accepted\. Remove `role` from this "
-                    r"line and send it again\.$"):
-                analyze_form(work, declaration)
-            self.assertEqual(declaration, before)
-        del lines[1]["role"]
-        analyze_form(work, {"setting": {"source": "s", "sections": sections, "lines": lines}})
-
     def test_empty_lines_array_reads_the_same_rows_as_the_session(self):
         # `analysis._source_lines` falls back to the text when `lines` is
         # empty; the form layer read the same source as having no lines.

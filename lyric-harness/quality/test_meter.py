@@ -367,56 +367,34 @@ class MetricComplexityTests(unittest.TestCase):
                     reader(bp)
 
 
-class LineRoleGuardTests(unittest.TestCase):
-    """A blueprint line may carry `role`: "refrain" or "burden", nothing else.
+class RolePresenceGuardTests(unittest.TestCase):
+    """A blueprint line that carries `role` is refused, whatever the value.
 
-    The validator is the first reader of the key. It accepts the two roles in
-    any spelling the function vocabulary reads as one of them, refuses every
-    other value with the value and its line named, and leaves the blueprint as
-    it was either way. What a role then means is `quality/line_roles.py`'s
-    (`test_p2_line_roles.py`).
+    Nothing reads a line role yet, so accepting the key would let a caller
+    believe it had been honoured. The refusal names the line and leaves the
+    blueprint untouched.
     """
 
-    @staticmethod
-    def _blueprint(count, index, raw):
-        lines = [{'text': 'x', 'bar': n + 1, 'beat': 1, 'duration': 4} for n in range(count)]
-        lines[index]['role'] = raw
-        return {'sections': [{'name': 'verse', 'bars': count,
-                              'meter': {'beats': 4, 'unit': 4}}], 'lines': lines}
-
-    def test_the_two_roles_are_accepted_on_any_line(self):
+    def test_shared_presence_guard(self):
         from quality.meter import validate_blueprint
-        for index in (0, 1, 2):
-            for raw in ('refrain', 'burden', 'Refrain', ' burden '):
-                bp = self._blueprint(index + 1, index, raw)
-                before = copy.deepcopy(bp)
-                with self.subTest(index=index, raw=raw):
+        for raw in ('refrain', '', None, {}, [], 17):
+            bp = {'sections': [], 'lines': [{'role': raw}]}
+            before = copy.deepcopy(bp)
+            with self.subTest(raw=raw), self.assertRaisesRegex(
+                    ValueError,
+                    r"^line 1: `role` isn't supported yet, so this blueprint was not accepted\. "
+                    r"Remove `role` from this line and send it again\."):
+                validate_blueprint(bp)
+            self.assertEqual(bp, before)
+
+    def test_presence_guard_checks_later_lines_and_line_number(self):
+        from quality.meter import validate_blueprint
+        for index in (1, 2):
+            for raw in ('refrain', 'burden', '', None, {}, [], 17):
+                bp = {'sections': [], 'lines': [{} for _ in range(index)] + [{'role': raw}]}
+                with self.subTest(index=index, raw=raw), self.assertRaisesRegex(
+                        ValueError, rf"^line {index + 1}: `role` isn't supported yet"):
                     validate_blueprint(bp)
-                    self.assertEqual(bp, before)
-
-    def test_any_other_value_is_refused_with_its_value_and_its_line(self):
-        from quality.meter import validate_blueprint
-        for index in (0, 1, 2):
-            for raw in ('', None, {}, [], 17, 'verse', 'chorus', 'hook', 'refrain burden'):
-                bp = self._blueprint(index + 1, index, raw)
-                before = copy.deepcopy(bp)
-                with self.subTest(index=index, raw=raw):
-                    with self.assertRaises(ValueError) as refused:
-                        validate_blueprint(bp)
-                    self.assertEqual(
-                        str(refused.exception),
-                        f"line {index + 1}: `role` is {raw!r}, which isn't a line role. "
-                        'Write "refrain" or "burden", or remove `role` from this line.')
-                    self.assertEqual(bp, before)
-
-    def test_a_refused_role_is_named_before_a_missing_section(self):
-        # The old guard spoke first, ahead of every other refusal, and a
-        # caller fixing a blueprint still hears about the role first.
-        from quality.meter import validate_blueprint
-        with self.assertRaisesRegex(ValueError, r"^line 1: `role` is 17, which isn't a line role"):
-            validate_blueprint({'sections': [], 'lines': [{'role': 17}]})
-        with self.assertRaisesRegex(ValueError, r'^blueprint lines require at least one declared section$'):
-            validate_blueprint({'sections': [], 'lines': [{'role': 'refrain'}]})
 
     def test_legacy_blueprint_raw_serialization_preserved(self):
         from quality.meter import validate_blueprint
@@ -444,6 +422,6 @@ if __name__ == "__main__":
         sys.exit(1)
     print("all metric-cycle regressions pass")
     suite = unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(case)
-                               for case in (MetricComplexityTests, LineRoleGuardTests))
+                               for case in (MetricComplexityTests, RolePresenceGuardTests))
     result = unittest.TextTestRunner(verbosity=2).run(suite)
     sys.exit(0 if result.wasSuccessful() else 1)
