@@ -363,15 +363,27 @@ class FrequencyLayer:
         key = s.name
         if key in self._song:
             return self._song[key]
-        end = collections.defaultdict(collections.Counter)
-        pair = collections.defaultdict(lambda: collections.defaultdict(
-            collections.Counter))
+        # STORED COMPACTLY (2026-11-14). These two tables are read by every
+        # grade in which a mandated pair rhymes, which is every real song, and
+        # they stay in a warm worker. Built as nested Counters with a fresh
+        # string per cell and each pair held once per direction, they cost
+        # about 98 MB of the grade's peak (measured: the capacity check's
+        # 31-line filler song, 569 MB as shipped, 667 MB once its line ends
+        # rhyme). The numbers are unchanged; only the storage is: every word
+        # and author is one shared string, the per-author counts are plain
+        # dicts, and a pair's counts are ONE dict reached from both words.
+        # Nothing may write to a table after this returns.
+        keep = sys.intern
+        end = collections.defaultdict(dict)
+        pair = collections.defaultdict(dict)
         units = set()
         for (word, author), count in _count_rows(
                 os.path.join(DATA, "song_endword_en.tsv"), ("word", "author", "count")):
-            if author in end[word]:
+            word, author = keep(word), keep(author)
+            per = end[word]
+            if author in per:
                 raise ValueError("song_endword_en.tsv: duplicate word/author row")
-            end[word][author] = count
+            per[author] = count
             units.add(author)
         for (a, b, author), count in _count_rows(
                 os.path.join(DATA, "song_rhymepair_en.tsv"), ("a", "b", "author", "count")):
@@ -379,10 +391,13 @@ class FrequencyLayer:
                 raise ValueError("song_rhymepair_en.tsv: pair must have canonical a < b")
             if author not in end.get(a, {}) or author not in end.get(b, {}):
                 raise ValueError("song_rhymepair_en.tsv: pair lacks its word/author end counts")
-            if author in pair[a][b]:
+            a, b, author = keep(a), keep(b), keep(author)
+            by_author = pair[a].get(b)
+            if by_author is None:
+                by_author = pair[a][b] = pair[b][a] = {}
+            if author in by_author:
                 raise ValueError("song_rhymepair_en.tsv: duplicate pair/author row")
-            pair[a][b][author] = count
-            pair[b][a][author] = count
+            by_author[author] = count
         self._song[key] = (end, pair, units)
         return self._song[key]
 
