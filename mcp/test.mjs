@@ -375,6 +375,31 @@ await check('an environment that stops rendering is reported, not lost silently'
   assert.equal(over.environment_card, leftBehind.render_scope.environment_card);
 });
 
+await check('#671 B2-B8/C5/C7: recipe text states facts, not steers', async () => {
+  const src = ['tools.js', 'schemas.js', 'engine.js']
+    .map((f) => readFileSync(new URL(`./${f}`, import.meta.url), 'utf8'))
+    .join('\n');
+  for (const steer of [
+    /never derives declarations/,
+    /SCAFFOLD/,
+    /reach for|ANY stylistic|EACH instrument|not just once/,
+    /every word the user said/,
+    /usually best omitted|Narrow it rather|which knob/,
+    /Do not claim/,
+    /Batch edits in one/,
+  ])
+    assert.doesNotMatch(src, steer);
+  const { expectedSurface } = await import('./surface_contract.js');
+  const said = async (task) => (await expectedSurface(task)).init.instructions;
+  assert.match(await said(null), /refuses the other family \(SESSION_SCOPE\)/);
+  for (const domain of ['recipe', 'lyrics'])
+    assert.doesNotMatch(await said({ domain }), /SESSION_SCOPE|separate tasks/);
+  // C7: the seed's `guidance` is the one intent-to-edit map, without the batch steer.
+  const g = E.startRecipe({ traditions: ['bluegrass'] }).guidance;
+  assert.match(g, /set_preface per instrument/);
+  assert.doesNotMatch(g, /Batch/);
+});
+
 await check('set_preface after set_environment reports the environment it replaced', () => {
   // Same batch, same card: the preface cascade re-derives the room, as the app's
   // preface pick does. The ordering is documented; the response says so too.
@@ -689,54 +714,45 @@ await check('edits that would do nothing, or undo the recipe, are refused with a
   assert.ok(swap.recipe.startsWith('Bluegrass, '));
 });
 
-await check(
-  'the AGENTS.md working order names real steps, and the batched edit it describes works',
-  () => {
-    // The guide once carried a worked example whose ids named a tradition and an
-    // instrument that never existed. It now states the order with no example
-    // request (agents writing lyrics read it too), so this pins the order it
-    // states and runs one batched edit of that shape against the engine.
-    const doc = readFileSync(new URL('../AGENTS.md', import.meta.url), 'utf8');
-    const order = doc.slice(
-      doc.indexOf('The order of a typical exchange'),
-      doc.indexOf('edit call, done.')
-    );
-    for (const quoted of [
-      '`search_catalog`',
-      '`start_recipe`',
-      '`search_prefaces`',
-      '`edit_recipe`',
-      '`set_environment`',
-      'the environment edit last',
-      'with no `card`',
-    ])
-      assert.ok(order.includes(quoted), `the working order no longer says ${quoted}`);
-    for (const example of ['murder ballad', '"bitter"', '"dreamy"', 'haunted'])
-      assert.ok(!doc.includes(example), `AGENTS.md carries the recipe example ${example}`);
-    assert.ok(
-      E.searchCatalog({ query: 'appalachian ballad' }).items.some(
-        (x) => x.id === 'appalachian_folk'
-      )
-    );
-    assert.equal(E.searchPrefaces({ query: 'haunted' }).items[0].id, 'haunting');
-    assert.equal(E.searchPrefaces({ query: 'submerged' }).items[0].id, 'drowning');
-    const mic = E.searchCatalog({ query: 'underwater' }).items[0];
-    assert.deepEqual([mic.id, mic.stage], ['hydrophone_piezo', 'mic']);
-    const s = E.startRecipe({ traditions: ['appalachian_folk'] });
-    const r = E.editRecipe({
-      workspace: thread(s.workspace),
-      edits: [
-        { action: 'set_preface', card: 'voice', preface: 'haunting' },
-        { action: 'set_preface', card: 'banjo_5_string', preface: 'drowning' },
-        { action: 'set_environment', chain: { mic: 'hydrophone_piezo' } },
-      ],
-    });
-    assert.match(r.recipe, /haunting voice/);
-    assert.match(r.recipe, /drowning five-string-banjo/);
-    assert.match(r.recipe, /hydrophone/);
-    assert.deepEqual(r.render_warnings, []);
-  }
-);
+await check('the seed guidance names real steps, and a batched edit of that shape works', () => {
+  // The guide once carried a worked example whose ids named a tradition and an
+  // instrument that never existed. The intent-to-edit map now has one copy,
+  // the seeded recipe's `guidance` (#671 C7; AGENTS.md and llms.txt point to
+  // it), so this pins the steps it names and runs one batched edit of that
+  // shape against the engine.
+  const doc = readFileSync(new URL('../AGENTS.md', import.meta.url), 'utf8');
+  const order = E.startRecipe({ traditions: ['appalachian_folk'] }).guidance;
+  for (const named of [
+    'set_preface',
+    'search_prefaces',
+    'set_variant',
+    'get_instrument',
+    'set_environment once for the whole recording',
+  ])
+    assert.ok(order.includes(named), `the seed guidance no longer says ${named}`);
+  for (const example of ['murder ballad', '"bitter"', '"dreamy"', 'haunted'])
+    assert.ok(!doc.includes(example), `AGENTS.md carries the recipe example ${example}`);
+  assert.ok(
+    E.searchCatalog({ query: 'appalachian ballad' }).items.some((x) => x.id === 'appalachian_folk')
+  );
+  assert.equal(E.searchPrefaces({ query: 'haunted' }).items[0].id, 'haunting');
+  assert.equal(E.searchPrefaces({ query: 'submerged' }).items[0].id, 'drowning');
+  const mic = E.searchCatalog({ query: 'underwater' }).items[0];
+  assert.deepEqual([mic.id, mic.stage], ['hydrophone_piezo', 'mic']);
+  const s = E.startRecipe({ traditions: ['appalachian_folk'] });
+  const r = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_preface', card: 'voice', preface: 'haunting' },
+      { action: 'set_preface', card: 'banjo_5_string', preface: 'drowning' },
+      { action: 'set_environment', chain: { mic: 'hydrophone_piezo' } },
+    ],
+  });
+  assert.match(r.recipe, /haunting voice/);
+  assert.match(r.recipe, /drowning five-string-banjo/);
+  assert.match(r.recipe, /hydrophone/);
+  assert.deepEqual(r.render_warnings, []);
+});
 
 await check('`changed` reports what shows: no preface noise, no empty fx on a new card', () => {
   const s = E.startRecipe({ traditions: ['garage_rock'] });

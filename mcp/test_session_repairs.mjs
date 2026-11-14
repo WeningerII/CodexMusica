@@ -278,7 +278,8 @@ test('#671 a pinned word in a chunk pooled from several cards is named as not at
   // `stride` is in the descriptors the merged chunk pools, after the colon, not
   // in the tack piano's own head words (`tack`), and the meaning says so.
   assert.match(w.meaning, /only in the words one segment shares among the cards it merges/);
-  assert.match(w.meaning, /Do not claim they survived on this card/);
+  // #671 C5: the meaning ends at the fact.
+  assert.match(w.meaning, /does not say which card they describe\.$/);
   // Tags keeps each piano in its own chunk (and gives explicit parts no trim
   // priority), so there the word is plainly lost from the card's own chunk.
   const tags = renderRecipe({ workspace, format: 'tags' });
@@ -313,7 +314,7 @@ test('#671 a pinned preface counts only in its own card segment, not on a card t
   assert.deepEqual(prefaceWarnings(hidden), [[upright, 'EXPLICIT_PREFACE_NOT_LITERAL']]);
   const w = hidden.render_warnings.find((x) => x.code === 'EXPLICIT_PREFACE_NOT_LITERAL');
   assert.equal(w.preface, 'raging');
-  assert.match(w.meaning, /Do not claim it survived/);
+  assert.match(w.meaning, /does not count\.$/);
   // Rich at 150 sheds both pianos' prefaces from their shared chunk.
   const shed = renderRecipe({ workspace, format: 'rich', max_chars: 150 });
   assert.match(

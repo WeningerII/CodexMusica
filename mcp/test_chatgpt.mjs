@@ -698,7 +698,7 @@ test('one connection exposes both workflows, preserving independent sessions acr
   assert(client.getInstructions().endsWith('\n' + rawGuide));
   for (const phrase of [
     /NO coherence fences/,
-    /never guess ids/,
+    /an unknown id is refused/,
     // ~~/UNSKIPPABLE/~~ — the ban is report-only since 2026-10-04 (owner's ruling).
     // ~~/reported as notes: they hold no/~~ — the guide names no system ban
     // to the writer (2026-10-27, D6).
@@ -785,7 +785,7 @@ test("F4: a new song's order, its length and how to continue sit inside the guid
       assertInWindow(text, phrase, where);
     // ...without pushing the recipe rule out where both families are served.
     if (where !== '/mcp/chatgpt/lyrics')
-      assertInWindow(text, 'follow with edit_recipe before presenting', where);
+      assertInWindow(text, 'a card with no `changed` field is the stock default', where);
   }
 });
 
@@ -799,7 +799,7 @@ test('F3: on the session connector, a request to write a song is a lyric request
       "Use the tools the user's request calls for: a request to write a song is a lyric request, a recipe request does not start lyrics, and a combined request uses both.",
       where
     );
-    assertInWindow(text, 'follow with edit_recipe before presenting', where);
+    assertInWindow(text, 'a card with no `changed` field is the stock default', where);
   }
   // Nowhere else: a later ruling for these surfaces has to change this test on purpose.
   const elsewhere = {
