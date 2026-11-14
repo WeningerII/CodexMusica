@@ -626,7 +626,7 @@ function shape(ws, params = {}, meta = {}) {
         code: 'PINNED_DESCRIPTORS_NOT_LITERAL',
         descriptors: missing,
         meaning:
-          "Explicit part descriptors are absent, as whole words, from this card's own part of this output (in a chunk that merges cards, its own words and the words they share); compression may have trimmed them, and the same word printed on another card or in the header does not count. Do not claim they survived.",
+          "Explicit part descriptors are absent, as whole words, from this card's own part of this output (in a chunk that merges cards, its own words and the words they share); compression may have trimmed them, and the same word printed on another card or in the header does not count.",
       });
     if (unattributed.length) {
       const { why, ...shared } = unattributedOf(
@@ -641,7 +641,7 @@ function shape(ws, params = {}, meta = {}) {
         code: 'PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE',
         descriptors: unattributed,
         ...shared,
-        meaning: `These explicit part descriptors are printed, but ${why}, so the output does not say which card they describe. Do not claim they survived on this card.`,
+        meaning: `These explicit part descriptors are printed, but ${why}, so the output does not say which card they describe.`,
       });
     }
     // A pinned preface is judged by the same rule (#671, BB8 6676262617): the
@@ -660,7 +660,7 @@ function shape(ws, params = {}, meta = {}) {
         code: 'EXPLICIT_PREFACE_NOT_LITERAL',
         preface,
         meaning:
-          "This card's pinned preface is absent, as whole words, from this card's own part of this output (in a chunk that merges cards, its own words and the words they share); compression may have shed it or hidden the card, and the same word printed on another card or in the header does not count. Do not claim it survived.",
+          "This card's pinned preface is absent, as whole words, from this card's own part of this output (in a chunk that merges cards, its own words and the words they share); compression may have shed it or hidden the card, and the same word printed on another card or in the header does not count.",
       });
     if (UNATTRIBUTED.includes(prefacePlace)) {
       const { why, ...shared } = unattributedOf(ws.cards, index, segment, [prefacePlace]);
@@ -670,7 +670,7 @@ function shape(ws, params = {}, meta = {}) {
         code: 'EXPLICIT_PREFACE_NOT_ATTRIBUTABLE',
         preface,
         ...shared,
-        meaning: `This card's pinned preface is printed, but ${why}, so the output does not say which card it describes. Do not claim it survived on this card.`,
+        meaning: `This card's pinned preface is printed, but ${why}, so the output does not say which card it describes.`,
       });
     }
   }
@@ -690,7 +690,7 @@ function shape(ws, params = {}, meta = {}) {
         instrument: environment.instrumentId,
         code: 'ENVIRONMENT_NOT_LITERAL',
         items,
-        meaning: `These environment settings are on ${cardLabel(ws.cards, environment)}, the card the recipe takes its environment from, but their names are absent from this output; compression removes environment chunks first. Do not claim they survived.`,
+        meaning: `These environment settings are on ${cardLabel(ws.cards, environment)}, the card the recipe takes its environment from, but their names are absent from this output; compression removes environment chunks first.`,
       });
   }
   for (const w of meta.warnings || []) out.render_warnings.push(w);
@@ -704,8 +704,7 @@ function shape(ws, params = {}, meta = {}) {
       `set_preface per instrument (${(C.PREFACE_LEXICON || []).length} moods via search_prefaces), ` +
       `set_variant per part (see get_instrument), set_environment once for the whole recording (any of ` +
       `${(C.ROOMS || []).length} rooms / ${(C.TUNINGS || []).length} tunings / any chain stage — ` +
-      `no era or region fences), add/remove instruments and traditions. ` +
-      `Batch edits in one edit_recipe call.`;
+      `no era or region fences), add/remove instruments and traditions.`;
   }
   return out;
 }
