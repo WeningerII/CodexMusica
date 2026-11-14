@@ -740,7 +740,10 @@ test('an uncertified stop names the refused declaration and does not blame pronu
       !titled.text.includes(READING),
       'no word went unread, so the pronunciation step is not offered'
     );
-    assert.match(titled.text, /present it as uncertified, not finished/);
+    assert.match(
+      titled.text,
+      /NOT CERTIFIED: no line is open, but coverage is incomplete \(see `coverage`\)\. /
+    );
 
     // An unreadable word leaves a line open: that stop keeps its rewrite
     // step, and names no declaration because none is refused.
