@@ -4,6 +4,7 @@ line-up counter. The tables transcribe NARRATIVE_DESIGN.md as RULED
 MODULE's internal consistency and the counter's behavior, so a later
 ruling's row edit moves pins loudly instead of silently."""
 
+import json
 import itertools
 import math
 import os
@@ -713,10 +714,19 @@ def test_the_wired_draw():
                             nar["atoms"], nar["junctions"]) == [])
     check("the draw is deterministic with the seed",
           P.make_plan(31, form="verse-chorus")["narrative"] == nar)
-    check("the brief carries the story plan in writer's words, nothing "
-          "about the harness",
-          "Story plan" in pl["writer_brief"]
-          and "ANCHOR" not in pl["writer_brief"])
+    # REPINNED 2026-11-14 (#671 A1-A2): the brief used to gloss each atom
+    # and junction in writer's words, a steer no grader backs. It carries
+    # the drawn triples as data now, tagged as a record that is not graded.
+    _rec = next((l for l in pl["writer_brief"].splitlines()
+                 if l.startswith(P.STORY_RECORD_TAG)), "")
+    check("the brief carries the story plan as its own triples, tagged as a "
+          "record the draft's meaning is not graded against, and no gloss "
+          "of what a section must mean",
+          json.loads(_rec[len(P.STORY_RECORD_TAG):] or "{}") == {
+              "mode": "drawn", "atoms": nar["atoms"],
+              "junctions": nar["junctions"]}
+          and "keeps returning" not in pl["writer_brief"]
+          and "enters from" not in pl["writer_brief"], _rec[:200])
     #: SEED 4 -> SEED 11 (M-133) -> SEED 9, 2026-08-28 (M-52's close):
     #: each vocabulary or envelope move re-deals which seed draws a
     #: zero-shape, and the carrier is re-chosen from the measured zero
@@ -742,11 +752,13 @@ def test_the_wired_draw():
     # solo, bridge; collapse depth 1).
     pzero = P.make_plan(4, form="verse-chorus")
     check("a zero-shape seed DISCLOSES and still ships: mode none, "
-          "lineups 0, the brief says nothing is asked of the meaning "
-          "axis, and the sound plan is intact",
+          "lineups 0, the brief's story record reads mode none (#671 A3), "
+          "and the sound plan is intact",
           pzero["narrative"]["mode"] == "none"
           and pzero["narrative"]["lineups"] == 0
-          and "NO STORY PLAN" in pzero["writer_brief"] and pzero["groups"])
+          and P.STORY_RECORD_TAG + '{"mode": "none"}'
+          in pzero["writer_brief"]
+          and "meaning axis" not in pzero["writer_brief"] and pzero["groups"])
     lu = {"atoms": nar["atoms"], "junctions": nar["junctions"]}
     pd = P.make_plan(31, form="verse-chorus", narrative=lu)
     check("a DECLARED line-up is carried, never resampled",
@@ -803,9 +815,9 @@ def test_the_wired_draw():
           "--narrative=off prints no story plan, the declared grammar "
           "lands in the brief, and an illegal declaration refuses at "
           "exit 2 naming the row",
-          off.returncode == 0 and "Story plan" not in off.stdout
+          off.returncode == 0 and P.STORY_RECORD_TAG not in off.stdout
           and dec.returncode == 0
-          and "Story plan" in dec.stdout
+          and P.STORY_RECORD_TAG in dec.stdout
           and "the writer declared the line-up" in dec.stdout
           and bad.returncode == 2
           and "cannot carry TURN" in bad.stdout + bad.stderr,

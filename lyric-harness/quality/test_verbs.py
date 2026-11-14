@@ -4360,6 +4360,27 @@ def test_what_the_command_line_prints_is_what_it_means():
     check("the sweep's NEXT line carries every declaration it planned under",
           "--relation=type:assonance" in nxt and "'--title=Two Rivers'" in nxt
           and "--narrative=off" in nxt, nxt)
+    # THE WANTS RIDE THE NEXT LINE TOO (#671 C1): without them the printed
+    # plan is not the request the sweep judged. Planned under them, the
+    # accepted seed keeps the shape the sweep judged (the want was already
+    # satisfied) and the plan records the want it was asked under.
+    import shlex as _shlex
+    from quality import plan as _PLw
+    rc, out, _ = run("plan", "--sweep=0-20", "--lines=12", "--want=sections>=3")
+    nxt = next((ln for ln in out.splitlines() if "NEXT:" in ln), "")
+    _argv = _shlex.split(nxt.split("NEXT: python3 lyric_harness.py ", 1)[-1])
+    _seed = int(next(a for a in _argv if a.startswith("--seed="))[7:])
+    _swept = _PLw.make_plan(_seed, lines=12)
+    _next = _PLw.make_plan(_seed, lines=12, wants=["sections>=3"])
+    check("the sweep's NEXT line carries its --want, and that plan keeps the "
+          "swept seed's shape",
+          "'--want=sections>=3'" in nxt
+          and all(_next[k] == _swept[k]
+                  for k in ("sections", "line_slots", "total_lines")), nxt)
+    check("...and the plan records the want, in request and brief selection",
+          _next["request"]["wants"] == ["sections>=3"]
+          and _next["choices"]["brief_selection"]["wants"] == ["sections>=3"],
+          _next["request"]["wants"])
     rc, out, _ = run("screen", "love", "dove", "--relation=schema:internal rhyme")
     # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660: the screen
     # tests the positions each type uses): ~~REFUSED for a schema two line

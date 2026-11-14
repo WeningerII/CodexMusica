@@ -2379,6 +2379,21 @@ class LegacyReplay(unittest.TestCase):
         def with_851(text):
             return text.replace(_limit_then, _limit_now)
 
+        # THIS BUILD'S QUESTION LOST ITS PROSE AFTER THE 851 STEP (2026-11-14,
+        # #671 pass 2, A9-A13). That change's own undo
+        # (`LEGACY_QUESTION_RENDERINGS`, `_legacy_671_prose`) is applied to
+        # THIS build's side, so both sides read as the 851 wording; it
+        # restores the old bytes exactly or replay would not accept it.
+        def undo_671(text):
+            return LH._legacy_671_prose("propose", text) or text
+
+        def undo_671_state(state):
+            state = dict(state)
+            if isinstance(state.get("pending"), dict) and "prompt" in state["pending"]:
+                state["pending"] = {**state["pending"],
+                                    "prompt": undo_671(state["pending"]["prompt"])}
+            return state
+
         def recorded(rec):
             rec = dict(rec)
             if isinstance(rec.get("pending"), dict) and "prompt" in rec["pending"]:
@@ -2417,7 +2432,7 @@ class LegacyReplay(unittest.TestCase):
                                capture_output=True, text=True, env=env, cwd=ROOT, timeout=900)
             with self.subTest(state=rec["name"]):
                 self.assertEqual(r.returncode, rec["replay_exit"], r.stdout[-600:])
-                got = norm(r.stdout.replace(str(work), "<WORK>"))
+                got = norm(undo_671(r.stdout.replace(str(work), "<WORK>")))
                 self.assertEqual(got, norm(with_851(with_m323(without_d6(
                     rec["replay_stdout"])))))
                 result = json.loads([l for l in r.stdout.splitlines()
@@ -2442,7 +2457,7 @@ class LegacyReplay(unittest.TestCase):
                 written = json.loads(state.read_text(encoding="utf-8"))
                 self.assertEqual(written["reader_scheme"], "v1")
                 self.assertNotIn("reader_scheme", written["answered"])
-                self.assertEqual(strip(written),
+                self.assertEqual(strip(undo_671_state(written)),
                                  strip(recorded(json.loads(rec["replay_written"]))))
 
     def test_an_explicit_other_scheme_refuses_to_resume(self):

@@ -40,6 +40,9 @@ import {
   gradeVerdictQualifies,
   PLAN_FIELDS,
   READING_FIELDS,
+  gradeNext,
+  SWEEP_NEXT,
+  sweepNextLine,
 } from './lyric_workflow.js';
 import {
   applyLexiconBasis,
@@ -348,7 +351,7 @@ const EXIT_MEANING = {
   2: 'REFUSED — turned down without a verdict; `refusal` and the report name why',
   // ~~or banned pair~~ dropped 2026-10-04 (owner's ruling): banned pairs are
   // reported as notes and no longer move an exit code.
-  3: 'answered — at least one FLAG stands; the report names the lines',
+  3: 'answered — at least one FLAG stands; `blocking` (or the report) names the lines',
   4: "SUSPENDED — the loop is waiting for a writer's answer; neither a verdict nor a failure",
   // A call nearing its deadline stops itself between steps instead of being
   // killed (LOOP_REDESIGN.md §2.3b; owner ruling Q3, 2026-10-02). It asks
@@ -1581,7 +1584,7 @@ const seedField = z
   .min(-2147483648)
   .max(2147483647)
   .describe(
-    "REQUIRED declared seed — any integer. Same seed and same declarations, same plan, byte for byte; a different seed is a different song shape. Pick one and keep it for the whole song. A new song's seed comes from lyric_sweep's accepted list, which sweeps non-negative seeds; a creation session plans only such a seed."
+    "REQUIRED declared seed — any integer. Same seed and same declarations, same plan, byte for byte; a different seed is a different song shape. A new song's seed comes from lyric_sweep's accepted list, which sweeps non-negative seeds; a creation session plans only such a seed."
   );
 
 const formField = z
@@ -1686,7 +1689,7 @@ const titleField = z
   .max(MAX_LINE_CHARS)
   .optional()
   .describe(
-    'The song\'s title, CARRIED into the blueprint and never inferred. Declaring one answers "is the title in the hook?" instead of leaving it refused as TITLE_UNDECLARED — and the answer can be NO: TITLE_NOT_IN_HOOK is a whole-draft FLAG (counted in whole_flags), so a title whose words are not a contiguous run inside the hook line (or the hook inside the title) keeps the draft from grading clean — lyric_grade exits 3 on it, or 2 when coverage is also incomplete. Containment is a normalised WORD-subsequence test in either direction, not a substring match. A title with more words than the hook can never be answered YES by any draft and is refused as TITLE_LONGER_THAN_HOOK rather than charged. Omit it and the question is reported as TITLE_UNDECLARED, not answered — which holds nothing back. A title is OPTIONAL: declare one only when the user gave or asked for one. On a plan that declares no hook (the `open` form declares none) a title only names the song — the question is not asked and nothing is held back for it.'
+    'The song\'s title, CARRIED into the blueprint and never inferred. Declaring one answers "is the title in the hook?" instead of leaving it refused as TITLE_UNDECLARED — and the answer can be NO: TITLE_NOT_IN_HOOK is a whole-draft FLAG (counted in whole_flags), so a title whose words are not a contiguous run inside the hook line (or the hook inside the title) keeps the draft from grading clean — lyric_grade exits 3 on it, or 2 when coverage is also incomplete. Containment is a normalised WORD-subsequence test in either direction, not a substring match. A title with more words than the hook can never be answered YES by any draft and is refused as TITLE_LONGER_THAN_HOOK rather than charged. Omit it and the question is reported as TITLE_UNDECLARED, not answered — which holds nothing back. A title is OPTIONAL. On a plan that declares no hook (the `open` form declares none) a title only names the song — the question is not asked and nothing is held back for it.'
   );
 
 // THE CLI GLOBALS THE CHAT SURFACE COULD NOT SPELL (M-189, 2026-09-01).
@@ -1776,16 +1779,14 @@ const pronunciationField = z
           .string()
           .min(1)
           .max(1000)
-          .describe(
-            'Who chose this reading and why, or the supplied pronunciation source. Never silently guess.'
-          ),
+          .describe('Who chose this reading and why, or the supplied pronunciation source.'),
       })
       .strict()
   )
   .max(128)
   .optional()
   .describe(
-    'Explicit occurrence pronunciations, selected from pronunciation_options returned by grade/check, or supplied with a stated source. Rerun grade after choosing; the choice resolves a reading, not a pass. Carry unchanged through a revision run; regrade and start a new run to change declarations.'
+    'Explicit occurrence pronunciations, selected from pronunciation_options returned by grade/check, or supplied with a stated source. Rerun grade after choosing; the choice resolves a reading, not a pass. A revision run keeps the declarations it started with; changed declarations need a new grade and a new run.'
   );
 
 const melodyField = z
@@ -1793,7 +1794,7 @@ const melodyField = z
   .max(65536)
   .optional()
   .describe(
-    'Declared repeating monophonic phrase as JSON text of the shape {"meter":{"beats":B,"unit":U,"groups":[G,…]},"bars":N,"subdivision":S,"notes":[{"pitch_hz":HZ,"ticks":T},…]}. Repeat once per lyric line. Hz permits any tuning; null pitch is a rest. It is a plan declaration: the same seed can draw a different shape with a melody than without, so carry it unchanged to grade and revise. Underlay and pitch performance are not certified.'
+    'Declared repeating monophonic phrase as JSON text of the shape {"meter":{"beats":B,"unit":U,"groups":[G,…]},"bars":N,"subdivision":S,"notes":[{"pitch_hz":HZ,"ticks":T},…]}. Repeat once per lyric line. Hz permits any tuning; null pitch is a rest. It is a plan declaration: the same seed can draw a different shape with a melody than without. Underlay and pitch performance are not certified.'
   );
 
 const narrativeField = z
@@ -2007,7 +2008,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_WANTS)
       .optional()
       .describe(
-        "Declared structural predicates that CONDITION the planner's draw — the same NAME<=N / NAME>=N / NAME=VALUE vocabulary as lyric_sweep's `want`, in a different role: the planner draws until they hold, so a seed planned with wants can be a different shape from the same seed planned without them. Carry unchanged to grade and revise; the plan discloses selection. In a creation session, pass the accepted sweep's `want` list here unchanged."
+        "Declared structural predicates that CONDITION the planner's draw — the same NAME<=N / NAME>=N / NAME=VALUE vocabulary as lyric_sweep's `want`, in a different role: the planner draws until they hold, so a seed planned with wants can be a different shape from the same seed planned without them; `choices.seed_redraw` discloses a conditioned draw. A creation session requires the accepted sweep's `want` list here."
       ),
     seed: seedField,
     form: formField,
@@ -2118,7 +2119,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_STATE_CHARS)
       .optional()
       .describe(
-        'The opaque, versioned interview state returned previously, VERBATIM. It carries the original replay input and the exact declarations even after the run cache expires, so passing it back with answer/answers continues the run with no other field; when it is the latest state of a run this tool still holds, that run continues and keeps its run_id. Never edit the envelope. Old contract states require explicit recovery rather than replay under changed semantics. Omit on the first call.'
+        'The opaque, versioned interview state returned previously, VERBATIM. It carries the original replay input and the exact declarations even after the run cache expires, so passing it back with answer/answers continues the run with no other field; when it is the latest state of a run this tool still holds, that run continues and keeps its run_id. An altered envelope is refused. Old contract states require explicit recovery rather than replay under changed semantics. Omit on the first call.'
       ),
     checkpoint: z
       .string()
@@ -2223,7 +2224,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_WANTS)
       .optional()
       .describe(
-        "What you want the shape to be, as predicates: NAME<=N, NAME>=N, or NAME=VALUE. A FILTER over each seed's plan as drawn without these predicates — not lyric_plan's `wants`, which conditions the draw itself. The vocabulary is CLOSED and an undeclared name refuses BY NAME, printing the whole table. Function-specific counts: sections.F=N, min_lines.F=N, max_lines.F=N, for F any declared section function (absence reads zero). Counts (answer <=, >=, =): lines, sections, lines_per_section (smallest SUNG section), group (deepest rhyme group), n_sounds (how many DISTINCT rhyme sounds the drawn scheme asks the song to find), adjacencies (how many adjacent line pairs the scheme asks to share a sound), crossings (how many pairs INTERLEAVE — ABAB rather than the nested ABBA), bars_per_line, beats_per_line, slots_per_line, hook (line number, 0 if none), returns (how many verbatim-return classes), pins_per_line (most words any line is bound at), bound_words_per_line (the MEAN words bound per line, over every line — the DENSITY coordinate, and the one that answers a fraction: `pins_per_line` is a per-line CAP, so it asks whether EVERY line is under k and at song length nearly every draw puts some line at the ceiling), story_lineups (how many legal story line-ups the shape admits — story_lineups>=1 filters for shapes that can carry a story at all). Function-valued (answer '=' only, comma-separated names): uses=F,G means BOTH were drawn; before=F,G means the first F precedes the first G, and is FALSE rather than an error if either is absent. Omit entirely and every seed that plans is accepted, which is honest and useless — there is no default, because a sweep does not decide what you want."
+        "What you want the shape to be, as predicates: NAME<=N, NAME>=N, or NAME=VALUE. A FILTER over each seed's plan as drawn without these predicates — not lyric_plan's `wants`, which conditions the draw itself. The vocabulary is CLOSED and an undeclared name refuses BY NAME, printing the whole table. Function-specific counts: sections.F=N, min_lines.F=N, max_lines.F=N, for F any declared section function (absence reads zero). Counts (answer <=, >=, =): lines, sections, lines_per_section (smallest SUNG section), group (deepest rhyme group), n_sounds (how many DISTINCT rhyme sounds the drawn scheme asks the song to find), adjacencies (how many adjacent line pairs the scheme asks to share a sound), crossings (how many pairs INTERLEAVE — ABAB rather than the nested ABBA), bars_per_line, beats_per_line, slots_per_line, hook (line number, 0 if none), returns (how many verbatim-return classes), pins_per_line (most words any line is bound at), bound_words_per_line (the MEAN words bound per line, over every line — the DENSITY coordinate, and the one that answers a fraction: `pins_per_line` is a per-line CAP, so it asks whether EVERY line is under k and at song length nearly every draw puts some line at the ceiling), story_lineups (how many legal story line-ups the shape admits — story_lineups>=1 filters for shapes that can carry a story at all). Function-valued (answer '=' only, comma-separated names): uses=F,G means BOTH were drawn; before=F,G means the first F precedes the first G, and is FALSE rather than an error if either is absent. Omit entirely and every seed that plans is accepted; there is no default."
       ),
     form: formField,
     lines: linesField,
@@ -2449,8 +2450,8 @@ function reviseDescription({ kitchen = false } = {}) {
     'coverage is finished. Exit 3 names the lines still open, or — with no line open — the WHOLE-DRAFT ' +
     'FLAG(S) standing: a PARKED song either way; `status` says which of the two, and `loop_whole_flag_codes` ' +
     'names the flags. Exit 2 means coverage was not certified (`coverage` and `certified` say which pairs ' +
-    'went unjudged); when its stamp also names UNRESOLVED lines, the song is parked as well. Present an exit ' +
-    '2 or 3 stop as parked or uncertified, never as finished — its note says what to do next. ' +
+    'went unjudged); when its stamp also names UNRESOLVED lines, the song is parked as well. An exit 2 or 3 ' +
+    'stop is not finished; its note names the next call. ' +
     'Budget fields (max_rounds, attempts, backtrack) are declared once per run; a ' +
     `moved declaration is refused. Every sung line, in the draft and in each answer, is at most ${MAX_LINE_CHARS} characters. ` +
     'A journal_capacity stop preserves ' +
@@ -2478,21 +2479,6 @@ function reviseDescription({ kitchen = false } = {}) {
   return common + (kitchen ? chat : interview);
 }
 
-// The grade verdict's `next`: the call that takes this exact draft on. Set
-// only at exit 0 or 3 on a grade the creation gate records as a receipt
-// (gradeVerdictQualifies). At exit 2 the gate admits two moves (choose
-// readings and grade again, or revise as an uncertifiable repair), so no
-// single call is named there.
-function gradeNext(code) {
-  return (
-    (code === 0 ? 'To finish it, call' : 'Call') +
-    " lyric_revise with this exact draft, unchanged, and this grade's seed and declarations" +
-    (code === 0 ? '' : '; its revise loop works on the flagged lines') +
-    '. Add new_run: true if a revise run is still open. If you change any line yourself instead, ' +
-    'grade the changed draft with lyric_grade before starting a revision.'
-  );
-}
-
 // ── registration ───────────────────────────────────────────────────────────
 
 export function registerLyricTools(server, tool) {
@@ -2512,8 +2498,8 @@ export function registerLyricTools(server, tool) {
         'Scope: this screens bare candidate words on fixed carrier lines, not the eventual lyric lines; coarse relations ' +
         'search anchor spans and may differ in full-line context. ' +
         'Only lyric_grade on the exact planned draft establishes whether its actual bindings satisfy the mandate. ' +
-        'In a creation session one successful lyric_screen after lyric_sweep is a required step before lyric_plan; ' +
-        'the session records that the step ran, not which words — screen the pairs you mean to write. ' +
+        'In a creation session one successful lyric_screen after lyric_sweep is required before lyric_plan; ' +
+        'the session records that the step ran, not which words. ' +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_screen,
     },
@@ -2542,13 +2528,13 @@ export function registerLyricTools(server, tool) {
         'The PLANNING phase: seed in, a complete song shape out — sections with bars/meter/pickup, a rhyme plan, verbatim-return ' +
         `rules, a hook slot, and a writer brief to write to. Deterministic: the same seed and the same declarations (${PLAN_DECLARATIONS}) ` +
         'always return the same plan, and every free choice is disclosed beside the space it was drawn from (meters come from a ' +
-        'derived cycle grammar and are often not 4/4). It writes NO WORDS: the writer (model or human) writes to the brief, then ' +
-        'lyric_grade checks the draft against this same plan. CHOOSE THE SEED WITH lyric_sweep, not by trying a few: declare what ' +
-        "the shape must be and take one of the seeds that hold (the working order's step 0). In a creation session the plan " +
+        'derived cycle grammar). It writes NO WORDS: the writer (model or human) writes to the brief, then ' +
+        'lyric_grade checks the draft against this same plan. lyric_sweep returns the seeds whose shape holds what it ' +
+        'declares. In a creation session the plan ' +
         'comes after an accepted lyric_sweep and one successful lyric_screen, and ' +
         "must repeat the accepted sweep's form, lines, functions and melody and pass the sweep's `want` list as `wants`; " +
-        '`wants` conditions the draw (the planner draws until they hold), so the planned shape satisfies them and can differ ' +
-        "from the shape the sweep tested. A `title` is optional. On a plan with a hook slot, declaring one answers 'is the " +
+        "for a seed the sweep accepted under the same declarations, the plan is that seed's shape; `choices.seed_redraw` " +
+        "appears only when the draw was conditioned. A `title` is optional. On a plan with a hook slot, declaring one answers 'is the " +
         "title in the hook?' — and the answer can be NO, which is a FLAG, so write the hook line to contain the title's words as a " +
         'contiguous run. On a plan with no hook slot (the `open` form declares none) a title only names the song and that ' +
         "question is not asked. The tool result's first text block is the plan report and writer brief: when showing the shape, " +
@@ -2601,12 +2587,10 @@ export function registerLyricTools(server, tool) {
         `lyric_plan (${PLAN_DECLARATIONS} — every one that was declared there must be declared here, or a DIFFERENT ` +
         "plan is graded), fills it with the draft, and grades — each group's relation, verbatim returns, meter fit, section " +
         `functions, the slop floor — under the reading declarations (${READING_DECLARATIONS}), which lyric_revise then ` +
-        "carries unchanged. THE TOOL RESULT'S FIRST TEXT BLOCK IS THE GRADED DRAFT rendered in performance order — an " +
-        'INTERIM artifact, never a finished song (finishing is lyric_revise, whose [FINISHED …] stamp only exists past a ' +
-        'stop condition of the revise loop): when presenting it, reproduce that block CHARACTER FOR CHARACTER, exactly ' +
-        "as you present a recipe string — the bracket headers carry each section's lines, bars, meter and pickup, and " +
-        'restyling them to bare [SECTION] deletes the measurements the format exists to carry, and the [GRADED — seed …] ' +
-        'stamp line under the song is part of the block. The second block is the verdict — READ IT, NOT THE EXIT CODE: ' +
+        "carries unchanged. The tool result's first text block is the graded draft in performance order under its " +
+        "bracket headers (each section's lines, bars, meter and pickup) and the [GRADED — seed …] stamp. It is not a " +
+        'finished song: finished means `certified` true at lyric_revise exit 0, which its [FINISHED …] stamp shows. ' +
+        'The second block is the verdict — READ IT, NOT THE EXIT CODE: ' +
         'measurement_status "graded" means the draft was measured; certified and coverage say whether every mandated ' +
         'pair and requested layer was judged (coverage.refused_obligations names what was not); flags and whole_flags ' +
         'count the FLAGS standing (defects). The code follows from those: 0 is measured and certified with no flag; ' +
@@ -2614,15 +2598,10 @@ export function registerLyricTools(server, tool) {
         'measured with coverage incomplete (flags may stand too) or refused with nothing measured (refusal names why). ' +
         'The stamp says which. HOMEOTELEUTON and MODAL_RHYME are mandatory writing flags, not advisory notes; ' +
         'revision cannot introduce them and a flagged draft cannot finish cleanly. NOTES are measurements, not defects. ' +
-        (server.kitchen
-          ? 'To finish the song or fix flagged lines, send this exact graded draft, unchanged, to ' +
-            'lyric_revise with the same seed and declarations; the service writer revises. If you ' +
-            'change any line yourself, grade the changed draft first. A parked run continues as its ' +
-            'own note says. '
-          : "At exit 0 or 3 the verdict's `next` names the next call: send this exact draft, " +
-            'unchanged, to lyric_revise, which finishes a clean draft and runs the revise loop on ' +
-            'flagged lines. If you rewrite lines yourself, grade the rewrite before starting a ' +
-            'revision. ') +
+        "At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this exact draft, " +
+        'unchanged, and `next_call` is that call as {tool, args}; a session sets `args.new_run` when ' +
+        "a run is open or this plan's run has started. " +
+        (server.kitchen ? 'The service writer answers that lyric_revise run. ' : '') +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_grade,
     },
@@ -2683,8 +2662,20 @@ export function registerLyricTools(server, tool) {
         const verdict = verdictOf(p3);
         verdict.plan_sha256 = createHash('sha256').update(JSON.stringify(plan)).digest('hex');
         verdict.plan_request = plan.request;
-        if ([0, 3].includes(verdict.exit_code) && gradeVerdictQualifies(verdict))
+        // The grade verdict's `next`: the call that takes this exact draft on.
+        // Set only at exit 0 or 3 on a grade the creation gate records as a
+        // receipt (gradeVerdictQualifies). At exit 2 the gate admits two moves
+        // (choose readings and grade again, or revise as an uncertifiable
+        // repair), so no single call is named there. `next_call` is the same
+        // call as {tool, args}; a session replaces both with the call its
+        // receipts admit (withSweepNext in lyric_workflow.js).
+        if ([0, 3].includes(verdict.exit_code) && gradeVerdictQualifies(verdict)) {
+          verdict.next_call = {
+            tool: 'lyric_revise',
+            args: { seed: plan.request?.seed ?? a.seed },
+          };
           verdict.next = gradeNext(verdict.exit_code);
+        }
         // The SONG leads as its own plain-text block so a client presents
         // it instead of reformatting escaped JSON — the Wide Room
         // screenshot (2026-08-19) showed a Claude client rewriting the
@@ -3097,10 +3088,12 @@ export function registerLyricTools(server, tool) {
                 throw refuse('scheme must be letters only, one per line (X = free line)');
               if (!seeded && hasGroups && !MANDATE_RE.test(a.groups))
                 throw refuse(
-                  "groups must be line numbers like '1,3;2,4', optionally naming a place"
+                  "groups must be line numbers like '<line>,<line>;<line>,<line>', optionally naming a place"
                 );
               if (!seeded && a.returns && !RETURNS_RE.test(a.returns))
-                throw refuse("returns must be members like '5,13;6,14' or '1.head,3.head'");
+                throw refuse(
+                  "returns must be members like '<line>,<line>;<line>,<line>' or '<line>.head,<line>.head'"
+                );
               if (!seeded && a.structures && !STRUCTURES_RE.test(a.structures))
                 throw refuse("structures must be 'LABEL:name' pairs, comma-separated");
               if (a.blueprint != null && a.subdivision == null)
@@ -3499,7 +3492,7 @@ export function registerLyricTools(server, tool) {
                     r.code === 3
                       ? rewriteNote
                       : r.code === 2 && linesOpen
-                        ? '\n\nNOT FINISHED: this stop left lines open and its coverage uncertified — present it as parked.' +
+                        ? '\n\nNOT FINISHED: this stop left lines open and its coverage uncertified.' +
                           rewriteNote +
                           // A refused declaration stands beside the open
                           // lines and no rewrite of them reaches it (#676).
@@ -3509,7 +3502,7 @@ export function registerLyricTools(server, tool) {
                         : r.code === 2
                           ? // The next step is read off what was refused (#676):
                             // a declaration is not cleared by a pronunciation.
-                            '\n\nNOT CERTIFIED: no line is open, but coverage is incomplete (see `coverage`) — present it as uncertified, not finished. ' +
+                            '\n\nNOT CERTIFIED: no line is open, but coverage is incomplete (see `coverage`). ' +
                             uncertifiedAdvice(verdict)
                           : '';
                   return {
@@ -3601,8 +3594,8 @@ export function registerLyricTools(server, tool) {
         "consecutive seeds and returns the ones that hold. `want` is a FILTER over each seed's plan as drawn without " +
         "it; lyric_plan's `wants` is a different thing — it conditions the draw. IT DOES NOT RANK: the accepted seeds " +
         'come back in seed order and carry no score, because a floor enforces and does not order the region it ' +
-        'already passed, and an argmax over a swept parameter is biased toward whichever end has more freedom. Pick ' +
-        'from the list on taste, then call lyric_plan with that seed and the same form, lines, functions and melody; ' +
+        'already passed, and an argmax over a swept parameter is biased toward whichever end has more freedom. Plan ' +
+        'any seed in `accepted_shown` with the same form, lines, functions and melody; ' +
         "a creation session requires them, this `want` list as lyric_plan's `wants`, and one successful lyric_screen " +
         'before the plan. FOUR COUNTS, NEVER ' +
         'SUMMED: swept, planned, planner_refused and accepted_count (accepted_shown lists the accepted seeds) — ' +
@@ -3639,6 +3632,18 @@ export function registerLyricTools(server, tool) {
       if (a.melody !== undefined) args.push(`--melody=${a.melody}`);
       const r = await runVerb(args);
       const v = verdictOf(r);
+      // The harness's NEXT line carries every flag the sweep planned under;
+      // publishedReport keeps only its seed, so the line is rebuilt here from
+      // this sweep's own declarations (#671, C2).
+      const seed = typeof v.report === 'string' ? SWEEP_NEXT.exec(v.report) : null;
+      if (seed)
+        v.report = v.report.replace(
+          SWEEP_NEXT,
+          sweepNextLine(
+            { form: a.form, lines: a.lines, functions: a.functions, melody: a.melody, want: wants },
+            Number(/seed (-?\d+)/.exec(seed[0])[1])
+          )
+        );
       return sweepVerdict(v, r, { from, n });
     }
   );
@@ -3676,9 +3681,13 @@ export function registerLyricTools(server, tool) {
         if (hasScheme && !SCHEME_RE.test(a.scheme))
           throw refuse('scheme must be letters only, one per line (X = free line)');
         if (hasGroups && !MANDATE_RE.test(a.groups))
-          throw refuse("groups must be line numbers like '1,3;2,4', optionally naming a place");
+          throw refuse(
+            "groups must be line numbers like '<line>,<line>;<line>,<line>', optionally naming a place"
+          );
         if (a.returns && !RETURNS_RE.test(a.returns))
-          throw refuse("returns must be members like '5,13;6,14' or '1.head,3.head'");
+          throw refuse(
+            "returns must be members like '<line>,<line>;<line>,<line>' or '<line>.head,<line>.head'"
+          );
         const bPath = path.join(dir, 'before.txt');
         const aPath = path.join(dir, 'after.txt');
         await writeFile(bPath, a.before.join('\n') + '\n', 'utf8');
@@ -3740,7 +3749,7 @@ export function registerLyricTools(server, tool) {
         '`returns` (N.PLACE,N.PLACE). Derived coordinates are NOT independent of the grader: a recovered web graded ' +
         'at the same cut cannot fail on rhyme, and the report says so. `placements` narrows the cover: the default ' +
         "placement set's cover grows with the square of the line count and grading it can take much of the shared " +
-        'deadline, so naming fewer places in `placements` is the practical cover for a long paste. ' +
+        'deadline, so naming fewer places in `placements` covers a long paste. ' +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_recover,
     },
@@ -3814,13 +3823,15 @@ export function registerLyricTools(server, tool) {
           throw refuse('scheme must be letters only, one per line (X = free line)');
         if (hasGroups && !MANDATE_RE.test(a.groups))
           throw refuse(
-            "groups must be line numbers like '1,3;2,4', each optionally " +
-              "naming a place in its line — '1,3.head;2,4' binds line 3's " +
-              "FIRST word to line 1's last. Places: end (the default), " +
+            "groups must be line numbers like '<line>,<line>;<line>,<line>', each optionally " +
+              "naming a place in its line — '<line>,<line>.head' binds the second line's " +
+              "FIRST word to the first line's last. Places: end (the default), " +
               'endword, head, headrime, line, or T<n> for the n-th word'
           );
         if (a.returns && !RETURNS_RE.test(a.returns))
-          throw refuse("returns must be members like '5,13;6,14' or '1.head,3.head'");
+          throw refuse(
+            "returns must be members like '<line>,<line>;<line>,<line>' or '<line>.head,<line>.head'"
+          );
         // CHARSET ONLY, and the vocabulary is deliberately NOT restated here.
         // The catalog is 58 rows and 33 aliases whose names carry '(', ')',
         // ',' and '-'; a second copy of a closed vocabulary in JS is the copy
@@ -3930,8 +3941,7 @@ export function registerLyricTools(server, tool) {
 //: the live instructions), so the two surfaces stay one description.
 export function lyricInstructions({ kitchen = false } = {}) {
   return (
-    ' BESIDE THE RECIPES, AND NEVER TOUCHING THEM, the lyric_* family is a songwriting ' +
-    'system. The program plans and grades; ' +
+    ' The lyric_* family is a songwriting system. The program plans and grades; ' +
     (kitchen
       ? "on this chat surface the service's own writer answers the revise loop's questions. "
       : 'you write every line — the service never writes lyrics for an outside caller. ') +
@@ -3939,38 +3949,30 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'and lyric_grade judges it against that relation. Planning draws no coarse relation. ' +
     'A group graded without a plan, with neither a declared song-wide relation nor a group_types entry for that group, is judged against every coarse relation and every registry schema, ' +
     'and is satisfied when, for each pair, the words it binds stand in at least one ' +
-    '(another word in the line relating does not count). Full figures and refused obligations remain explicit. The working order that produces ' +
-    'one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare what the user asked the shape ' +
-    'to be (`lines`, `functions`, `want` as a filter), and nothing they did not ask for, and it returns the seeds that hold, in seed order, unranked; (1) lyric_screen ' +
-    "the word pairs you mean to write BEFORE writing; (2) lyric_plan with an accepted seed and the sweep's form, lines, functions and melody " +
-    '(and its `want` list as `wants`, which conditions the draw) for a complete shape (sections, meter — often ' +
-    "not 4/4, each group's relation and placement, hook slot) and write to its brief, honoring the verbatim returns — a `title` is " +
-    'optional: declare it here only when the user gave or asked for one. On a plan with a hook slot a declared title that is not a ' +
-    'run of words inside the hook line is a FLAG; on a plan with no hook slot it only names the song; (3) lyric_grade with the SAME seed ' +
+    '(another word in the line relating does not count). Full figures and refused obligations remain explicit. A new ' +
+    'song: lyric_sweep returns the seeds whose plan holds the declared `lines`, `functions` and `want`, in seed order, ' +
+    'unranked; lyric_screen reports the relations of word pairs, and a screen is required before the plan; ' +
+    "lyric_plan with an accepted seed and the sweep's form, lines, functions, melody and `want` list (as `wants`) " +
+    "returns a complete shape (sections, meter, each group's relation and placement, hook slot, verbatim returns) " +
+    'and the brief to write to. A `title` is optional; on a plan with a hook slot a declared title that is not a ' +
+    'run of words inside the hook line is a FLAG, and on a plan with no hook slot it only names the song. lyric_grade takes the SAME seed ' +
     `AND THE SAME PLAN DECLARATIONS (${PLAN_DECLARATIONS} — ` +
     (kitchen
-      ? 'this chat restores every declaration its plan recorded, so leave out any you are unsure of, and ' +
-        'never add one lyric_plan was not given) '
-      : 'a session restores every one its plan recorded and refuses one lyric_plan was not given, so ' +
-        'leave that one out; without a session, a declaration dropped here grades a different plan) ') +
-    `and the draft, under the reading declarations (${READING_DECLARATIONS}) — its render is the INTERIM graded ` +
-    'draft, and the [GRADED — seed …] stamp under it is a grade, not a finish; (4) lyric_revise with the SAME ' +
-    'seed and declarations — it drives the revise loop and returns a song ONLY past a stop condition, under a ' +
-    '[FINISHED — seed … — exit …] stamp, ' +
+      ? 'this chat restores every declaration its plan recorded and refuses one lyric_plan was not given) '
+      : 'a session restores every one its plan recorded and refuses one lyric_plan was not given; ' +
+        'without a session, a declaration dropped here grades a different plan) ') +
+    `and the draft, under the reading declarations (${READING_DECLARATIONS}), and returns the graded draft under a ` +
+    '[GRADED — seed …] stamp, which is a grade, not a finish. lyric_revise with the SAME seed and declarations drives ' +
+    'the revise loop and returns a song ONLY past a stop condition, under a [FINISHED — seed … — exit …] stamp, ' +
     (kitchen
       ? "the service's writer answering every question, so ONE call returns the stop condition. "
-      : 'the loop asks one question per suspended call and you answer it (`answer`, or `answers` for a batch or group), called repeatedly until it stops. ') +
-    'THE FINISHED SONG COMES FROM lyric_revise AND NOWHERE ELSE, and only at exit 0 with certified coverage: ' +
-    'a song presented without its [FINISHED …] stamp is an interim draft and must be presented as one, a stop ' +
-    'at exit 2 or 3 is parked or uncertified (its note says what to do next), and stopping at step (3) ' +
-    'because the draft "looks done" is the exact hand-wash the loop exists to end — the loop, not you, ' +
-    'says when revision is over. ' +
-    'PRESENTATION IS PART OF THE CONTRACT: the first text block of a lyric_grade result, and of a lyric_revise ' +
-    'result at a stop condition, is the song under its bracket headers and stamp — reproduce the song and its ' +
-    'stamp character for character, exactly as you reproduce a recipe string; the bracket headers ([NAME — N ' +
-    'lines — B bars of METER, PICKUP]) are measurements, restyling them to a bare [NAME] deletes what the ' +
-    "format exists to carry, and the stamp line under the song reaches the user with it. lyric_plan's first block " +
-    'is its plan report and brief: keep its bracket header rows exactly as written when you show the shape. For ' +
+      : 'the loop asking one question per suspended call (`answer`, or `answers` for a batch or group) until it stops. ') +
+    "The sweep's NEXT line, a grade verdict's `next` and each CREATION_* refusal name the next call; a create " +
+    'session refuses any other (CREATION_*). The first text block of a lyric_grade result, and of a lyric_revise ' +
+    'result at a stop condition, is the deliverable: the song under its bracket headers ([NAME — N lines — B bars ' +
+    'of METER, PICKUP], which are measurements) and its stamp. Finished means `certified` true at lyric_revise ' +
+    "exit 0, which the stamp shows. lyric_plan's first block is its plan report and brief, under the same bracket " +
+    'header rows. For ' +
     'lyrics a user pastes, the SAME steps as a planned song: lyric_recover FIRST to structure them (blank stanza ' +
     'breaks as empty entries, [SECTION] rows as they are; fewer `placements` for a long paste) — ' +
     'it hands back the sung `lines`, the `mandate` (groups/returns) numbered over them, and the ' +
@@ -3980,16 +3982,14 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'bare lyric_check on a paste is the rhyme and floor layers only, and its verdict says so. lyric_verify ' +
     'judges a CHANGE to one, which is the other half of a revision round: read its `accepted`, not its exit ' +
     'code, and remember it is a DIFF that cannot report a defect surviving untouched. FLAGS are defects; ' +
-    'NOTES are measurements and are not to be ' +
-    '"fixed". A verdict carrying structures_uncalibrated is the third thing to read: correctness IS graded for ' +
+    'NOTES are measurements. A verdict carrying structures_uncalibrated is the third thing to read: correctness IS graded for ' +
     'that declared structure and laziness is NOT. For unresolved ' +
     'pronunciation, read pronunciation_options from grade/check (it lists the lines a refused obligation names; ' +
     'total counts every ambiguous word), select the intended dictionary reading or ' +
-    "supply ARPABET with an honest source in pronunciations, then regrade. Copy each option's numbering marker unchanged with its token; never invent one for held unmarked choices. Choices bind exact line text and " +
-    'token position, including every verbatim chorus return. Never choose phones just to pass a check. A ' +
+    "supply ARPABET with its source in pronunciations, then regrade. Copy each option's numbering marker unchanged with its token; never invent one for held unmarked choices. Choices bind exact line text and " +
+    'token position, including every verbatim chorus return. A ' +
     'revision can remove an original occurrence; its reading is retained as retired and never applied to ' +
     'changed text. New text is graded independently. Supplying new readings during revision requires regrading ' +
-    'and a new run. Recipes describe the SOUND, lyric tools govern the WORDS; the conversation is the only place ' +
-    'they meet.'
+    'and a new run.'
   );
 }

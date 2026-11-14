@@ -175,23 +175,16 @@ export function lyricContextText(context) {
     parts.push(
       'CREATIVE GUIDANCE — what the song is for. Guidance only: nothing grades a draft against it.'
     );
-    if (context.intent === 'review')
-      parts.push(
-        'REVIEW ONLY: call lyric_recover then lyric_check. Do not revise or produce replacement lyrics. Report findings and missing coverage; a review is not a finished song.'
-      );
     if (context.brief?.trim()) parts.push(`Brief: ${context.brief.trim()}`);
     for (const n of context.notes || []) parts.push(`Section note — ${n.section}: ${n.note}`);
   }
   parts.push(
-    'THE COMMITTED DOCUMENT — exactly as the page holds it: section headers carry declared size, bars, meter and pickup; [SETUP — …] rows are page declarations and are not sung; do not send [SETUP] rows to a lyric tool as lines.',
+    'THE COMMITTED DOCUMENT — exactly as the page holds it: section headers carry declared size, bars, meter and pickup; [SETUP — …] rows are page declarations, not sung lines; a draft sent to a lyric tool drops every bracket-only row.',
     '<<<DOCUMENT',
     context.document,
     'DOCUMENT>>>'
   );
   if (context.declarations && Object.keys(context.declarations).length)
-    parts.push(
-      'EXACT DECLARATIONS for the lyric tools (never guess a reading that is not chosen): ' +
-        JSON.stringify(context.declarations)
-    );
+    parts.push('EXACT DECLARATIONS for the lyric tools: ' + JSON.stringify(context.declarations));
   return parts.join('\n');
 }

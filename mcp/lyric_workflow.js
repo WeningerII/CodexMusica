@@ -129,6 +129,13 @@ const norm = (key, value) =>
               ? null
               : (value ?? null);
 const create = (task) => task?.domain === 'lyrics' && task.phase !== 'edit';
+const edit = (task) => task?.domain === 'lyrics' && task.phase === 'edit';
+// The calls that make a new song: a sweep, a plan, and a grade or revise of a
+// seeded plan. An edit session refuses them, the mirror of the create
+// session's refusal of lyric_check and lyric_recover (issue #671, B1).
+const newSongCall = (name, args) =>
+  ['lyric_sweep', 'lyric_plan'].includes(name) ||
+  (['lyric_grade', 'lyric_revise'].includes(name) && args?.seed != null);
 const answered = (v) => v && Number.isInteger(v.exit_code) && [0, 3].includes(v.exit_code);
 // A screen or grade that ran but left no receipt is kept as an ATTEMPT beside
 // the receipts: what it exited with, and a flag for the one cause the refusal
@@ -341,6 +348,8 @@ function recordedField(key, request, lines) {
 // tool dispatch. Returned refusals consume no tool/provider operation.
 export function creationRefusal(task, name, args, lyric = null) {
   if (isRecoveryOnly(name, args)) return null;
+  if (edit(task) && newSongCall(name, args))
+    return `CREATION_PLAN: ${name}${args?.seed != null ? ' with a seed' : ''} is for a new song, and a new song needs begin_lyrics phase 'create'. This session is phase 'edit', for lyrics the user supplied: structure them with lyric_recover, grade them with lyric_check, and revise them with lyric_revise without a seed.`;
   const w = workflowFor(task);
   if (!w || !name.startsWith('lyric_')) return null;
   if (name === 'lyric_sweep') return null;
@@ -553,10 +562,7 @@ export function planLineage(task) {
       ? `It was declared differently — ${changes(declared, 'field')}. `
       : 'Its declarations are the same. ') +
     (drawn.length ? `The planner bound a different shape — ${changes(drawn, 'what')}. ` : '') +
-    'A grade or revise under this plan answers for this plan only: it does not show that what the first plan asked was met' +
-    (declared.length
-      ? ". When you present the song, say which of the first plan's declarations it no longer answers to."
-      : '.');
+    'A grade or revise under this plan answers for this plan only: it does not show that what the first plan asked was met.';
   return {
     first_plan: { seed: first.seed, plan_sha256: first.sha256 },
     plans_recorded: first.recorded,
@@ -785,14 +791,12 @@ export function formatNextCall(next) {
   if (!next) return null;
   const { tool, args } = next;
   if (tool === 'lyric_sweep')
-    return 'NEXT: lyric_sweep, declaring the form, lines, functions, melody and want you mean to plan with.';
+    return "NEXT: lyric_sweep; the plan repeats the sweep's form, lines, functions, melody and `want`.";
   if (tool === 'lyric_plan') {
     const parts = Object.entries(args).map(([k, v]) => `${k} ${argumentText(v)}`);
     if (next.melody) parts.push("melody: the sweep's melody unchanged");
     const plan = `lyric_plan with ${parts.join(', ')}.`;
-    return next.first
-      ? `NEXT: lyric_screen with the word pairs you mean to write, then ${plan}`
-      : `NEXT: ${plan}`;
+    return next.first ? `NEXT: lyric_screen, then ${plan}` : `NEXT: ${plan}`;
   }
   if (tool === 'lyric_grade')
     return `NEXT: lyric_grade with seed ${args.seed} and the complete ${next.lines}-line draft.`;
@@ -818,15 +822,79 @@ export function withNextCall(text, task, carried, name) {
 }
 
 // A create session's successful lyric_sweep: the report's "NEXT: lyric_plan
-// with seed N" line (written by the harness, published by lyric_tools.js)
-// becomes the call the gate admits, worked out after this sweep's receipt is
-// recorded. Every other result passes through unchanged.
-const SWEEP_NEXT = /NEXT: lyric_plan with seed -?\d+[^\n]*/;
-export function withSweepNext(task, name, result, carried) {
-  if (name !== 'lyric_sweep' || !result || result.isError || !Array.isArray(result.content))
-    return result;
+// with seed N" line (published by lyric_tools.js from the sweep's own
+// arguments) becomes the call the gate admits, worked out after this sweep's
+// receipt is recorded. A create session's lyric_grade verdict that names a
+// `next` gets the call its receipts admit instead (withGradeNext). Every
+// other result passes through unchanged.
+export const SWEEP_NEXT = /NEXT: (?:lyric_screen, then )?lyric_plan with seed -?\d+[^\n]*/;
+// A raw lyric_sweep's NEXT line: the plan call for its first accepted seed,
+// built exactly as a session builds it from a fresh sweep receipt (#671, C2).
+export function sweepNextLine(args, seed) {
+  const task = { domain: 'lyrics', phase: 'create' };
+  workflowFor(task).sweeps.push({ args: structuredClone(args), accepted: [seed] });
+  return formatNextCall(nextCreationCall(task, null, 'lyric_plan'));
+}
+// THE GRADE VERDICT'S NEXT STEP (#671, B9/C4). `next` is the sentence a
+// caller reads; `next_call` is the same call as {tool, args}. A raw grade
+// knows only its own plan: lyric_revise with its seed. A session reads its
+// receipts after this grade is recorded: no receipt for this plan, or a held
+// run (an uncertified parked run, an unknown-outcome proposal), names none;
+// a carried run, or a run this plan already started, makes it a new run, as
+// the stop's CONTINUE note says.
+export function gradeNext(code, newRun = false) {
+  return (
+    (code === 0 ? 'To finish it, call' : 'Call') +
+    " lyric_revise with this exact draft, unchanged, and this grade's seed and declarations" +
+    (newRun ? ', with new_run: true' : '') +
+    (code === 0 ? '' : '; its revise loop works on the flagged lines') +
+    '. If you change any line yourself instead, ' +
+    'grade the changed draft with lyric_grade before starting a revision.'
+  );
+}
+export function gradedNextCall(task, carried) {
   const w = workflowFor(task);
-  if (!w || !w.sweeps.length) return result;
+  if (!w?.plan || w.grade?.plan_sha256 !== w.plan.sha256) return null;
+  const move = carriedMove(carried);
+  if (move === 'hold') return null;
+  const newRun = move != null || w.started?.plan_sha256 === w.plan.sha256;
+  return {
+    tool: 'lyric_revise',
+    args: { seed: w.plan.request.seed, ...(newRun ? { new_run: true } : {}) },
+  };
+}
+function withGradeNext(task, result, carried) {
+  let changed = false;
+  const content = result.content.map((block) => {
+    if (changed || block?.type !== 'text') return block;
+    let v;
+    try {
+      v = JSON.parse(block.text);
+    } catch {
+      return block;
+    }
+    if (!v || typeof v !== 'object' || !Number.isInteger(v.exit_code) || !v.next) return block;
+    changed = true;
+    const { next: _text, next_call: _call, ...rest } = v;
+    const call = gradedNextCall(task, carried);
+    return {
+      ...block,
+      text: JSON.stringify(
+        call
+          ? { ...rest, next_call: call, next: gradeNext(v.exit_code, !!call.args.new_run) }
+          : rest
+      ),
+    };
+  });
+  return changed ? { ...result, content } : result;
+}
+export function withSweepNext(task, name, result, carried) {
+  if (!['lyric_sweep', 'lyric_grade'].includes(name)) return result;
+  if (!result || result.isError || !Array.isArray(result.content)) return result;
+  const w = workflowFor(task);
+  if (!w) return result;
+  if (name === 'lyric_grade') return withGradeNext(task, result, carried);
+  if (!w.sweeps.length) return result;
   // A held run (an uncertified parked run, an unknown-outcome proposal) gets
   // no NEXT; the harness's own "lyric_plan with seed N" line is removed too,
   // since the surface refuses that plan.

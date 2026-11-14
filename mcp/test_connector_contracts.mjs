@@ -1052,21 +1052,13 @@ test('lyric_grade names the next call per surface, and kitchen revise sends the 
   };
   const chat = await describe(true);
   const outside = await describe(false);
-  assert.ok(
-    chat.grade.includes(
-      'To finish the song or fix flagged lines, send this exact graded draft, unchanged, to ' +
-        'lyric_revise with the same seed and declarations; the service writer revises. If you ' +
-        'change any line yourself, grade the changed draft first. A parked run continues as its ' +
-        'own note says.'
-    )
-  );
-  assert.ok(
-    outside.grade.includes(
-      "At exit 0 or 3 the verdict's `next` names the next call: send this exact draft, " +
-        'unchanged, to lyric_revise, which finishes a clean draft and runs the revise loop on ' +
-        'flagged lines. If you rewrite lines yourself, grade the rewrite before starting a revision.'
-    )
-  );
+  // One `next` sentence on every surface (#671 B9); the chat adds its writer.
+  const next =
+    "At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this exact draft, " +
+    'unchanged, and `next_call` is that call as {tool, args}; a session sets `args.new_run` when ' +
+    "a run is open or this plan's run has started.";
+  for (const d of [chat.grade, outside.grade]) assert.ok(d.includes(next), d);
+  assert.ok(chat.grade.includes(next + ' The service writer answers that lyric_revise run.'));
   assert.doesNotMatch(outside.grade, /service writer|kitchen/i);
   for (const d of [chat.grade, outside.grade])
     assert.doesNotMatch(d, /Revise the flagged lines only and call again/);

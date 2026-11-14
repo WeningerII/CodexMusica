@@ -375,6 +375,31 @@ await check('an environment that stops rendering is reported, not lost silently'
   assert.equal(over.environment_card, leftBehind.render_scope.environment_card);
 });
 
+await check('#671 B2-B8/C5/C7: recipe text states facts, not steers', async () => {
+  const src = ['tools.js', 'schemas.js', 'engine.js']
+    .map((f) => readFileSync(new URL(`./${f}`, import.meta.url), 'utf8'))
+    .join('\n');
+  for (const steer of [
+    /never derives declarations/,
+    /SCAFFOLD/,
+    /reach for|ANY stylistic|EACH instrument|not just once/,
+    /every word the user said/,
+    /usually best omitted|Narrow it rather|which knob/,
+    /Do not claim/,
+    /Batch edits in one/,
+  ])
+    assert.doesNotMatch(src, steer);
+  const { expectedSurface } = await import('./surface_contract.js');
+  const said = async (task) => (await expectedSurface(task)).init.instructions;
+  assert.match(await said(null), /refuses the other family \(SESSION_SCOPE\)/);
+  for (const domain of ['recipe', 'lyrics'])
+    assert.doesNotMatch(await said({ domain }), /SESSION_SCOPE|separate tasks/);
+  // C7: the seed's `guidance` is the one intent-to-edit map, without the batch steer.
+  const g = E.startRecipe({ traditions: ['bluegrass'] }).guidance;
+  assert.match(g, /set_preface per instrument/);
+  assert.doesNotMatch(g, /Batch/);
+});
+
 await check('set_preface after set_environment reports the environment it replaced', () => {
   // Same batch, same card: the preface cascade re-derives the room, as the app's
   // preface pick does. The ordering is documented; the response says so too.
@@ -689,54 +714,45 @@ await check('edits that would do nothing, or undo the recipe, are refused with a
   assert.ok(swap.recipe.startsWith('Bluegrass, '));
 });
 
-await check(
-  'the AGENTS.md working order names real steps, and the batched edit it describes works',
-  () => {
-    // The guide once carried a worked example whose ids named a tradition and an
-    // instrument that never existed. It now states the order with no example
-    // request (agents writing lyrics read it too), so this pins the order it
-    // states and runs one batched edit of that shape against the engine.
-    const doc = readFileSync(new URL('../AGENTS.md', import.meta.url), 'utf8');
-    const order = doc.slice(
-      doc.indexOf('The order of a typical exchange'),
-      doc.indexOf('edit call, done.')
-    );
-    for (const quoted of [
-      '`search_catalog`',
-      '`start_recipe`',
-      '`search_prefaces`',
-      '`edit_recipe`',
-      '`set_environment`',
-      'the environment edit last',
-      'with no `card`',
-    ])
-      assert.ok(order.includes(quoted), `the working order no longer says ${quoted}`);
-    for (const example of ['murder ballad', '"bitter"', '"dreamy"', 'haunted'])
-      assert.ok(!doc.includes(example), `AGENTS.md carries the recipe example ${example}`);
-    assert.ok(
-      E.searchCatalog({ query: 'appalachian ballad' }).items.some(
-        (x) => x.id === 'appalachian_folk'
-      )
-    );
-    assert.equal(E.searchPrefaces({ query: 'haunted' }).items[0].id, 'haunting');
-    assert.equal(E.searchPrefaces({ query: 'submerged' }).items[0].id, 'drowning');
-    const mic = E.searchCatalog({ query: 'underwater' }).items[0];
-    assert.deepEqual([mic.id, mic.stage], ['hydrophone_piezo', 'mic']);
-    const s = E.startRecipe({ traditions: ['appalachian_folk'] });
-    const r = E.editRecipe({
-      workspace: thread(s.workspace),
-      edits: [
-        { action: 'set_preface', card: 'voice', preface: 'haunting' },
-        { action: 'set_preface', card: 'banjo_5_string', preface: 'drowning' },
-        { action: 'set_environment', chain: { mic: 'hydrophone_piezo' } },
-      ],
-    });
-    assert.match(r.recipe, /haunting voice/);
-    assert.match(r.recipe, /drowning five-string-banjo/);
-    assert.match(r.recipe, /hydrophone/);
-    assert.deepEqual(r.render_warnings, []);
-  }
-);
+await check('the seed guidance names real steps, and a batched edit of that shape works', () => {
+  // The guide once carried a worked example whose ids named a tradition and an
+  // instrument that never existed. The intent-to-edit map now has one copy,
+  // the seeded recipe's `guidance` (#671 C7; AGENTS.md and llms.txt point to
+  // it), so this pins the steps it names and runs one batched edit of that
+  // shape against the engine.
+  const doc = readFileSync(new URL('../AGENTS.md', import.meta.url), 'utf8');
+  const order = E.startRecipe({ traditions: ['appalachian_folk'] }).guidance;
+  for (const named of [
+    'set_preface',
+    'search_prefaces',
+    'set_variant',
+    'get_instrument',
+    'set_environment once for the whole recording',
+  ])
+    assert.ok(order.includes(named), `the seed guidance no longer says ${named}`);
+  for (const example of ['murder ballad', '"bitter"', '"dreamy"', 'haunted'])
+    assert.ok(!doc.includes(example), `AGENTS.md carries the recipe example ${example}`);
+  assert.ok(
+    E.searchCatalog({ query: 'appalachian ballad' }).items.some((x) => x.id === 'appalachian_folk')
+  );
+  assert.equal(E.searchPrefaces({ query: 'haunted' }).items[0].id, 'haunting');
+  assert.equal(E.searchPrefaces({ query: 'submerged' }).items[0].id, 'drowning');
+  const mic = E.searchCatalog({ query: 'underwater' }).items[0];
+  assert.deepEqual([mic.id, mic.stage], ['hydrophone_piezo', 'mic']);
+  const s = E.startRecipe({ traditions: ['appalachian_folk'] });
+  const r = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_preface', card: 'voice', preface: 'haunting' },
+      { action: 'set_preface', card: 'banjo_5_string', preface: 'drowning' },
+      { action: 'set_environment', chain: { mic: 'hydrophone_piezo' } },
+    ],
+  });
+  assert.match(r.recipe, /haunting voice/);
+  assert.match(r.recipe, /drowning five-string-banjo/);
+  assert.match(r.recipe, /hydrophone/);
+  assert.deepEqual(r.render_warnings, []);
+});
 
 await check('`changed` reports what shows: no preface noise, no empty fx on a new card', () => {
   const s = E.startRecipe({ traditions: ['garage_rock'] });
@@ -2614,60 +2630,20 @@ await check('validation: actionable errors', () => {
       'nothing to say → no block at all'
     );
   });
-  // ── M-162: the skipped-steps reminder (owner's go 2026-09-06) ───────────
-  await check(
-    'the skipped-steps note names what the transcript has not called, and leaves when it has',
-    () => {
-      const { lyricCallsOnRecord, SKIPPED_STEPS_NOTE } = _agentInternals;
-      const surface = { instructions: 'BASE INSTRUCTIONS' };
-      const call = (name) => ({ role: 'model', parts: [{ functionCall: { name, args: {} } }] });
-      const user = { role: 'user', parts: [{ text: 'write me a song' }] };
-      // the scanner reads model functionCalls only, lyric_* only
-      const rec = lyricCallsOnRecord([user, call('search_catalog'), call('lyric_plan')]);
-      assert.deepEqual([...rec], ['lyric_plan'], 'model lyric_* calls, nothing else');
-      assert.equal(lyricCallsOnRecord(null).size, 0, 'no transcript → empty record, never a throw');
-      // nothing on record → both steps named, in front of the base bytes
-      const t0 = buildSystemInstruction(surface, null, new Set()).parts[0].text;
-      assert.ok(t0.startsWith('BASE INSTRUCTIONS'), 'the base instructions survive in front');
-      assert.ok(
-        t0.includes('lyric_sweep') && t0.includes('lyric_screen'),
-        'both missing steps named'
-      );
-      assert.ok(!t0.includes('already been called'), 'no plan yet → no "already" clause');
-      // plan called first, neither step → the note says so
-      const t1 = buildSystemInstruction(surface, null, new Set(['lyric_plan'])).parts[0].text;
-      assert.ok(
-        t1.includes('lyric_plan has already been called without them'),
-        'a plan without the steps is named as such'
-      );
-      // one step on record → only the other is named
-      const t2 = buildSystemInstruction(surface, null, new Set(['lyric_sweep'])).parts[0].text;
-      assert.ok(
-        t2.includes('lyric_screen') && !/no successful lyric_sweep/.test(t2),
-        'only the missing step is named'
-      );
-      // both on record → the base bytes, exactly: the note is gone
-      const t3 = buildSystemInstruction(surface, null, new Set(['lyric_sweep', 'lyric_screen']));
-      assert.equal(t3.parts[0].text, 'BASE INSTRUCTIONS', 'both steps on record → no note');
-      assert.equal(SKIPPED_STEPS_NOTE(new Set(['lyric_sweep', 'lyric_screen'])), null);
-      // no record handed in → the two-argument contract is untouched
-      assert.equal(
-        buildSystemInstruction(surface, null).parts[0].text,
-        'BASE INSTRUCTIONS',
-        'record omitted → no note'
-      );
-      // it composes with the M-158 reminder: note first, then the suspended run
-      const both = buildSystemInstruction(
-        surface,
-        { seed: 7, state: encodeState({ pending: { kind: 'propose' } }) },
-        new Set()
-      ).parts[0].text;
-      assert.ok(
-        both.indexOf('WORKING ORDER') < both.indexOf('SUSPENDED'),
-        'skipped-steps note precedes the suspended-run note'
-      );
+  // ── #671 B16: the skipped-steps note is gone; the host's creation gate
+  // refuses an out-of-order call, so no task carries a WORKING ORDER note ──
+  await check('no task, create or edit, carries a WORKING ORDER note', () => {
+    const surface = { instructions: '=== LYRICS TASK ===\nBASE INSTRUCTIONS' };
+    for (const task of [
+      null,
+      { domain: 'lyrics', phase: 'create' },
+      { domain: 'lyrics', phase: 'edit' },
+    ]) {
+      const text = buildSystemInstruction(surface, null, task).parts[0].text;
+      assert.ok(!/WORKING ORDER/.test(text), JSON.stringify(task));
+      assert.ok(!/remain authoritative|Stay in this domain/.test(text), JSON.stringify(task));
     }
-  );
+  });
   // ── M-254: kitchen cooks — the chat surface never answers a revise question ──
   await check(
     'the chat surface sends every lyric_revise call as writer:kitchen and strips the interview fields',
@@ -3517,8 +3493,8 @@ await check('validation: actionable errors', () => {
           'a tool that carries no state is untouched'
         );
         assert.ok(
-          /Do NOT send `draft`/.test(requests[1].systemInstruction.parts[0].text),
-          'the suspended-run reminder says not to send it'
+          /the draft\s+and the state are carried/.test(requests[1].systemInstruction.parts[0].text),
+          'the suspended-run reminder says the draft is carried'
         );
         assert.ok(
           !/same arguments/.test(requests[1].systemInstruction.parts[0].text),
@@ -4156,16 +4132,12 @@ await check('validation: actionable errors', () => {
           'the reminder names no field the model cannot send'
         );
         assert.ok(!/SUSPENDED/.test(si), 'a parked run is not a suspended one');
-        // exit 0: no RUN reminder on the last hop. The skipped-steps note
-        // (M-162) is a different reminder and correctly stands here: this
-        // transcript planned and revised without ever sweeping or screening.
+        // exit 0: no RUN reminder on the last hop, and no skipped-steps note
+        // (removed, #671 B16).
         const last = requests[5].systemInstruction.parts[0].text;
         assert.ok(last.startsWith('BASE'), 'the base instructions lead');
         assert.ok(!/PARKED|SUSPENDED/.test(last), 'exit 0: no run reminder on the last hop');
-        assert.ok(
-          /WORKING ORDER/.test(last),
-          'M-162: the transcript never swept or screened, so that note stands'
-        );
+        assert.ok(!/WORKING ORDER/.test(last), 'no skipped-steps note');
         // Pure helpers.
         assert.equal(_ip(null), false);
         assert.equal(
@@ -4439,10 +4411,10 @@ await check('validation: actionable errors', () => {
     const assigns = src.match(/body\.systemInstruction\s*=\s*(\w+)/g) || [];
     assert.equal(assigns.length, 1, 'exactly one assignment site');
     assert.ok(
-      /const si = buildSystemInstruction\(\s*surface,\s*lyr,\s*task \? completedSteps : lyricCallsOnRecord\(contents\),\s*task\s*\)/.test(
+      /const si = buildSystemInstruction\(\s*surface,\s*lyr,\s*task,\s*limits\.maxSteps\s*\)/.test(
         src
       ),
-      'and it is fed by the builder, per hop, from the live carried state AND the live transcript (M-162)'
+      'and it is fed by the builder, per hop, from the live carried state'
     );
   });
 
@@ -4928,10 +4900,12 @@ await check('validation: actionable errors', () => {
       assert.equal(out.task.customized, true);
       assert.equal(out.reply, out.calls.at(-1).recipe);
     });
-    await check('the recipe instructions ask for all lookups in one step, then one edit', () => {
+    await check('the recipe instructions state the hop budget the turn declares', () => {
       const text = siText(requests[0]);
-      assert.match(text, /issue EVERY lookup the request needs together in ONE step/);
-      assert.match(text, /ONE batched edit_recipe call/);
+      assert.match(
+        text,
+        /Hop budget: 12 \(limits\.maxSteps\); every call in one response runs in one hop\./
+      );
       assert.ok(
         requests.every((b) => mode(b) === 'AUTO'),
         'every hop is AUTO'

@@ -117,7 +117,7 @@ export const editSchema = z.object({
     .optional()
     .describe(
       'Card reference (the `card` id from a prior response, or an instrument id) — for remove_instrument / set_variant / ' +
-        'set_preface / move_instrument. OPTIONAL for set_environment, and usually best omitted: the recipe renders one ' +
+        'set_preface / move_instrument. OPTIONAL for set_environment: the recipe renders one ' +
         'environment, taken from render_scope.environment_card, and an omitted card writes there — "record the whole thing ' +
         'in X" is one edit. Naming another card stores a setting no format renders.'
     ),
@@ -135,8 +135,8 @@ export const editSchema = z.object({
     .optional()
     .describe(
       "Preface id — for set_preface (see search_prefaces). Deterministically re-derives the card's parts, room, tuning and " +
-        'chain toward it, then labels it verbatim. On the environment card this replaces an environment set earlier, so ' +
-        'put set_environment after set_preface.'
+        'chain toward it, then labels it verbatim. On the environment card, after a set_environment, it overwrites that ' +
+        'environment (render_warnings: ENVIRONMENT_OVERWRITTEN).'
     ),
   room: z
     .string()
@@ -306,10 +306,7 @@ export const TOOL_SCHEMAS = {
   }),
   get_instrument: z.object({
     id: z.string().describe('Instrument id (see search_catalog).'),
-    part: z
-      .string()
-      .optional()
-      .describe('Show only this part. Use when you already know which knob you are turning.'),
+    part: z.string().optional().describe('Show only this part.'),
     query: z
       .string()
       .max(MAX_QUERY_CHARS)
