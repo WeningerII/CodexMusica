@@ -360,26 +360,6 @@ class FunctionSpec:
     #: them identically would be doctrine 20 in a dataclass. Mutually
     #: exclusive with every claim field above.
     placement_refused: str = ""
-    #: WHAT KIND OF OBJECT THIS FUNCTION IS — `MISSING.md` M-56, closed
-    #: 2026-08-22. Three values:
-    #:
-    #:   "section"   a SPAN of lines the planner can draw as a cell.
-    #:   "line"      a returning LINE or couplet inside or after a stanza.
-    #:               Not a span, so a cell grammar can never draw one and a
-    #:               placement coordinate on one would answer a question about
-    #:               the wrong kind of object.
-    #:   "fragment"  a phrase, shorter than a line.
-    #:
-    #: THIS WAS ALREADY DECIDED AND ONLY EVER WRITTEN IN PROSE, which is the
-    #: defect doctrine 48 names: `quality/plan.py`'s roster comment excluded
-    #: `refrain`/`burden` as "line-level per their own glosses" and `hook` as
-    #: "properly a fragment", and nothing could read that. Now the glosses'
-    #: own words are the field: `refrain` says "a returning line or couplet
-    #: INSIDE or after a stanza, not a standalone section"; `burden` says "a
-    #: refrain sung by all"; `hook` says "A hook is properly a FRAGMENT
-    #: (MISSING.md D-2)". The value is read off the declaration, not invented
-    #: beside it.
-    kind: str = "section"
     #: WHAT THIS ROW'S GLOSS SAYS OF THE PERFORMANCE THAT WORDS ON A BAR GRID
     #: CANNOT SHOW (issue #676 gap 5, 2026-11-13). `breakdown` "strips the
     #: arrangement back" and `build` "raises tension": each is a claim about
@@ -398,7 +378,7 @@ class FunctionSpec:
 def _spec(name, gloss, recurrence, returns_as, contrasts_with=(),
           aliases=(), boundary="", requires=(), adjacent_after="",
           adjacent_before="", needs_before=False, needs_after=False,
-          placement_evidence="", placement_refused="", kind="section",
+          placement_evidence="", placement_refused="",
           narrower=(), specialises="", specialises_evidence="",
           unverified=""):
     return FunctionSpec(name, gloss, recurrence, returns_as, contrasts_with,
@@ -410,7 +390,7 @@ def _spec(name, gloss, recurrence, returns_as, contrasts_with=(),
                         adjacent_before=adjacent_before,
                         needs_before=needs_before, needs_after=needs_after,
                         placement_evidence=placement_evidence,
-                        placement_refused=placement_refused, kind=kind,
+                        placement_refused=placement_refused,
                         unverified=unverified)
 
 
@@ -439,15 +419,13 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           "of it", "returns", "verbatim", ("chorus",),
           requires=("chorus",), adjacent_after="chorus",
           placement_evidence="returns immediately after the chorus"),
-    _spec("refrain", "a returning line or couplet INSIDE or after a stanza, "
-          "not a standalone section", "returns", "verbatim",
-          # KIND READ OFF THIS ROW'S OWN GLOSS (M-56, 2026-08-22): "a
-          # returning LINE or couplet ... NOT a standalone section". A cell
-          # grammar draws spans, so it can never draw this, and that is not a
-          # gap in the planner — it is this function being a different kind of
-          # object. `quality/plan.py` had the same sentence in a comment
-          # nothing could read.
-          kind="line"),
+    # AN ORDINARY SECTION (owner ruling 2026-11-13): a short part of a line
+    # or two under its own heading, drawn by the planner and graded like
+    # every other row. The "line, not section" label this row and `burden`
+    # carried from M-56 is gone; a refrain written as the last line of a
+    # verse is a repeated line, which a declared return already covers.
+    _spec("refrain", "a short returning section, a line or couplet that "
+          "comes back after a stanza", "returns", "verbatim"),
     # THE POSITION CLAUSE WAS FALSE AND THE COUNT WAS STALE -- both repaired
     # 2026-08-21 against the corpus this row describes.  It read "often
     # printed before the first stanza": MEASURED, **1,580 of 1,580 [BURDEN]
@@ -464,11 +442,6 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           "collapsing them would delete a distinction ~~1,776~~ 1,580 blocks "
           "already carry (doctrine 24)",
           "returns", "verbatim",
-          # SAME KIND AS `refrain`, and for the reason this row's own gloss
-          # gives: a burden IS "a refrain sung by all". Its placement claim
-          # (after a verse, 1,580 of 1,580) is about where the LINE is
-          # printed, not about a span the planner draws.
-          kind="line",
           # BOTH STATEMENTS AT ONCE (M-57): a burden is a KIND of refrain
           # AND keeps its own row. The alias route could only say the two
           # were identical; separate rows alone could only say they were
@@ -1348,6 +1321,8 @@ SEVERITY = {
     "HOOK_ABSENT": "flag",
     # THE CONVENTION MEASUREMENTS — notes on purpose, every one.
     "BRIDGE_IS_A_VERSE": "note",
+    "CODA_REPEATS_EARLIER_LINES": "note",
+    "CONTRAST_ABSENT": "note",
     "CROSS_FUNCTION_REPRISE": "note",
     "DOWNBEAT_LOCKED": "note",
     "ELABORATION_UNGROUNDED": "note",
@@ -1356,6 +1331,9 @@ SEVERITY = {
     "METER_LOCKED": "note",
     "PHRASE_LENGTH_LOCKED": "note",
     "QUATRAIN_LOCK": "note",
+    "PATTER_NOT_DENSER": "note",
+    "REPRISE_BRINGS_NOTHING_BACK": "note",
+    "RETURNS_WITH_NEW_WORDS": "note",
     "RETURNS_WITH_SAME_WORDS": "note",
     "RETURN_LENGTH_DRIFT": "note",
     "RETURN_LOCKED": "note",
@@ -1365,6 +1343,7 @@ SEVERITY = {
     "RETURN_SLOT_DRIFT": "note",
     "SECTION_LENGTH_LOCKED": "note",
     "SINGLE_USE_RECURRED": "note",
+    "TAG_NOT_SHORT": "note",
     "TITLE_NOT_IN_HOOK": "flag",
     "UNIFORM_ANACRUSIS": "note",
     # THE PLACEMENT LAYER (M-54). These four reach `GridFinding` through the
@@ -2788,29 +2767,17 @@ def profile_functions():
     The membership is now READ OFF THE VOCABULARY, and the rule is the profile's
     own two questions. `has_<fn>` asks whether a function is present and
     `bars_until_first_<fn>` asks WHERE it first lands, so the profile may ask
-    about exactly those functions that are sections -- the objects a bar offset
-    is a fact about. That is `kind == "section"`, declared per row since M-56.
+    about every function the vocabulary declares. All of them are sections
+    (owner ruling 2026-11-13; the `kind` label M-56 put on `refrain` and
+    `burden` is gone), so the membership is the whole table.
 
-    Two facts measured 2026-09-18 decide this against the shipped tuple, and
-    both are readable off `SECTION_FUNCTIONS` without running anything. `bridge`
-    is one of the hand-written four and carries `recurrence="once"`, so the four
-    were never "the sections that come back" whatever else they were. And
-    `burden` and `refrain` carry `kind="line"` -- they are a refrain line or
-    couplet, not a span -- so a bar offset on either answers a question about
-    the wrong kind of object, which is M-54's fourth residue answered here by
-    derivation rather than by a second hand-written list.
-
-    The derived membership is a SUPERSET of the four it replaces, so every
-    banked predicate keeps working and no key a reader depends on disappears;
-    what moves is that the profile grows from four names to the twenty the
-    vocabulary declares as sections. The two alternative readings are declined
-    with their reason: measuring the marked corpus would let that corpus's
-    editorial bias (MISSING.md K-1a, where one anthology supplies 23.0% of all
-    repeat blocks) pick the vocabulary, and naming the twenty by hand would
-    rebuild the same unwritten threshold one list over.
+    `bridge` is one of the hand-written four and carries `recurrence="once"`,
+    so the four were never "the sections that come back" whatever else they
+    were. The derived membership is a SUPERSET of the four it replaces, so
+    every banked predicate keeps working and no key a reader depends on
+    disappears.
     """
-    return tuple(sorted(name for name, spec in SECTION_FUNCTIONS.items()
-                        if spec.kind == "section"))
+    return tuple(sorted(SECTION_FUNCTIONS))
 
 
 def _locate_failure(song, first, again, result, refusal):
@@ -3127,6 +3094,17 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
             f"same tune; identical words are a chorus's job. This is the "
             f"mirror of BRIDGE_IS_A_VERSE and it is a finding about the "
             f"LABEL, not about the lines."))
+    changed = [(a, b) for a, b, r in rets
+               if "VERBATIM" not in r.qualities and r.kind != "STUB"]
+    if spec.returns_as == "verbatim" and changed:
+        findings.append(GridFinding(
+            "RETURNS_WITH_NEW_WORDS",
+            f"the {fn} does not come back word for word",
+            f"{len(changed)} of {len(rets)} return(s) change the words: "
+            + "; ".join(f"bars {a.start_bar}-{a.end_bar} against bars "
+                        f"{b.start_bar}-{b.end_bar}" for a, b in changed)
+            + f". A {fn} returns verbatim by its own row in the vocabulary; "
+              f"this is the mirror of RETURNS_WITH_SAME_WORDS."))
     if (spec.returns_as == "verbatim"
             and len(rets) >= convention.return_lock_min - 1
             and same_words
@@ -3393,7 +3371,7 @@ _CHANNEL_WORDS = {"meter": "meter", "bars": "bar count",
 
 
 def bridge_contrast(song, function="bridge", against=("verse",),
-                    convention=POPULAR_SONG, rhyme_key=None):
+                    convention=POPULAR_SONG, rhyme_key=None, _ref=None):
     """Does the bridge actually contrast, or is it a verse wearing a label?
     -> (findings, refusals, channels).
 
@@ -3404,7 +3382,8 @@ def bridge_contrast(song, function="bridge", against=("verse",),
     fn = as_function(function)
     findings, refusals = [], []
     br = song.instances_of(fn)
-    ref = [s for a in against for s in song.instances_of(a)]
+    ref = (list(_ref) if _ref is not None else
+           [s for a in against for s in song.instances_of(a)])
     if not br:
         refusals.append(Refusal(
             "FUNCTION_UNDECLARED", f"no section declares {fn!r}",
@@ -3547,7 +3526,9 @@ def bridge_contrast(song, function="bridge", against=("verse",),
             f"neither shown to contrast nor shown to be a {against[0]}."))
     if not separating and tested:
         findings.append(GridFinding(
-            "BRIDGE_IS_A_VERSE",
+            ("BRIDGE_IS_A_VERSE"
+             if (fn, tuple(against)) == ("bridge", ("verse",))
+             else "CONTRAST_ABSENT"),
             f"no measured channel establishes separation of the {fn} from "
             f"the {'/'.join(against)}",
             f"channels measured: {tested}; none separated"
@@ -3563,6 +3544,21 @@ def bridge_contrast(song, function="bridge", against=("verse",),
               f"judged. This finding concerns the {fn} LABEL under this "
               f"convention, not full musical equivalence."))
     channels["_separating"] = separating
+    # EACH COMPARATOR ON ITS OWN (2026-11-13). The channels above pool every
+    # verse into one value, so a bridge that copied verse 1 word for word
+    # "separated" from the verses on line length, 7 words against a pooled
+    # 6.75, because verse 2 ran one word short. A section that matches any
+    # single instance on every measured channel is that section again.
+    if _ref is None and not findings and len(ref) > 1:
+        for one in ref:
+            f1, _r1, _c1 = bridge_contrast(song, function, against, convention,
+                                           rhyme_key, _ref=[one])
+            if f1:
+                findings.append(GridFinding(
+                    f1[0].code, f1[0].message,
+                    f"measured against {one.name!r} alone (bars "
+                    f"{one.start_bar}-{one.end_bar}): {f1[0].evidence}"))
+                break
     return findings, refusals, channels
 
 
@@ -3644,7 +3640,9 @@ def contrast_lines(channels, function="bridge", against=("verse",)):
 #: functions (prechorus, chorus, postchorus, bridge, patter); `bridge_contrast`
 #: is the only measurement, and `song_function_report` puts one pair to it.
 #: `test_song_function` holds this to that call, so the two cannot drift.
-MEASURED_CONTRASTS = (("bridge", "verse"),)
+MEASURED_CONTRASTS = tuple((fn, other)
+                           for fn, sp in SECTION_FUNCTIONS.items()
+                           for other in sp.contrasts_with)
 
 
 @dataclass(frozen=True)
@@ -3685,24 +3683,6 @@ def not_asked(song):
         s.function for s in song.sections
         if s.declared and s.function in SECTION_FUNCTIONS))
     out = []
-    pairs = []
-    for fn in declared:
-        others = [o for o in SECTION_FUNCTIONS[fn].contrasts_with
-                  if o in declared and (fn, o) not in MEASURED_CONTRASTS]
-        if others:
-            pairs.append(f"whether the {fn} differs from the "
-                         + " and the ".join(others))
-    if pairs:
-        measured = "; ".join(f"the {a} against the {b}"
-                             for a, b in MEASURED_CONTRASTS)
-        out.append(Unasked(
-            "CONTRAST_NOT_CHECKED",
-            "not checked: " + "; ".join(pairs),
-            f"The convention expects these sections to differ, and nothing "
-            f"here measures whether they do. The one contrast measured is "
-            f"{measured}. This is advice left unasked: it is not a finding "
-            f"against the draft, and it is counted as neither answered nor "
-            f"refused."))
     effects = [(fn, SECTION_FUNCTIONS[fn].unverified) for fn in declared
                if SECTION_FUNCTIONS[fn].unverified]
     if effects:
@@ -3871,6 +3851,98 @@ def song_function_report(song, hooks=(), rhyme_key=None,
     # does not arise: in none of the three counts.
     if not ch.get("_not_applicable"):
         ask_one(f, r)
+    # EVERY OTHER PAIR THE TABLE NAMES (2026-11-13, owner: no row's promise
+    # stays prose). Asked only where the song declares both sides: contrast
+    # is a relation, and a side nobody declared is not a missing contrast.
+    for cfn, other in MEASURED_CONTRASTS:
+        if (cfn, other) == ("bridge", "verse"):
+            continue
+        if not song.instances_of(cfn) or not song.instances_of(other):
+            continue
+        cf, cr, cch = bridge_contrast(song, cfn, (other,),
+                                      convention=convention,
+                                      rhyme_key=rhyme_key)
+        # ONE SEPARATING CHANNEL ANSWERS THE QUESTION. A channel left
+        # unmeasured (an unread end word, no rhyme key) cannot turn "they
+        # differ" into anything else, so it is not a refusal here; it stays
+        # one where no measured channel separates and the answer is unknown.
+        # Without this a verse and a chorus with one unreadable word were
+        # told a DECLARATION went unjudged (`mcp/test_session_repairs.mjs`).
+        if cch.get("_separating"):
+            cr = [r for r in cr if r.code != "CHANNEL_NOT_MEASURED"]
+        if not cch.get("_not_applicable"):
+            ask_one(cf, cr)
+    # WHAT A ROW'S DESCRIPTION PROMISES AND NO FIELD CARRIED (2026-11-13,
+    # owner: none of them stays prose). Four rows, one rule each, every rule
+    # relative to the song's own sections so no number is chosen for it.
+    def _lines_again(sec):
+        before = {normalise_line(l.text) for other in song.sections
+                  if other.start_bar < sec.start_bar
+                  for l in song.lines_in(other)} - {""}
+        return [l.text for l in song.lines_in(sec)
+                if normalise_line(l.text) in before]
+
+    def _sung(sec):
+        return [l for l in song.lines_in(sec) if normalise_line(l.text)]
+
+    # A CODA IS "a closing section with its own material".
+    for coda in song.instances_of("coda"):
+        again = _lines_again(coda)
+        if again:
+            ask_one([GridFinding(
+                "CODA_REPEATS_EARLIER_LINES",
+                f"the coda repeats {len(again)} line(s) from earlier in "
+                f"the song",
+                f"{again!r}. A coda closes the song with its own material "
+                f"by its own row in the vocabulary; lines that come back "
+                f"are a reprise or a final chorus.")], [])
+    # A REPRISE IS "a declared return of earlier material".
+    for rep in song.instances_of("reprise"):
+        if _sung(rep) and not _lines_again(rep):
+            ask_one([GridFinding(
+                "REPRISE_BRINGS_NOTHING_BACK",
+                "the reprise brings back no line from earlier in the song",
+                f"{rep.name!r}, bars {rep.start_bar}-{rep.end_bar}: none of "
+                f"its {len(_sung(rep))} line(s) occurs before it. A reprise "
+                f"is a return of earlier material by its own row in the "
+                f"vocabulary; a section of all-new lines is a verse or a "
+                f"coda.")], [])
+    # A TAG IS "a short repeated fragment": no longer than any other sung
+    # section of the song.
+    others = [len(_sung(sec)) for sec in song.sections
+              if sec.declared and sec.function != "tag" and _sung(sec)]
+    for tag in song.instances_of("tag"):
+        if others and len(_sung(tag)) > min(others):
+            ask_one([GridFinding(
+                "TAG_NOT_SHORT",
+                f"the tag runs {len(_sung(tag))} line(s), longer than "
+                f"another section of this song",
+                f"{tag.name!r}, bars {tag.start_bar}-{tag.end_bar}; the "
+                f"shortest other sung section runs {min(others)} line(s). A "
+                f"tag is a short fragment by its own row in the "
+                f"vocabulary.")], [])
+    # PATTER IS "rapid-delivery ... the syllable-dense half of a patter
+    # song": more words to the beat than every other sung function here.
+    def _density(fn):
+        ls = [l for sec in song.instances_of(fn) for l in _sung(sec)]
+        beats = sum(float(l.duration) for l in ls)
+        return sum(len(tokens(l.text)) for l in ls) / beats if beats else None
+    if song.instances_of("patter") and _density("patter") is not None:
+        rest = {fn: _density(fn) for fn in
+                dict.fromkeys(sec.function for sec in song.sections
+                              if sec.declared and sec.function != "patter")}
+        rest = {fn: d for fn, d in rest.items() if d is not None}
+        slower = [fn for fn, d in rest.items() if d >= _density("patter")]
+        if slower:
+            ask_one([GridFinding(
+                "PATTER_NOT_DENSER",
+                f"the patter is not the most densely worded part: "
+                f"{', '.join(sorted(slower))} carries as many words to the "
+                f"beat or more",
+                f"patter {_density('patter'):.2f} words per beat; "
+                + ", ".join(f"{fn} {rest[fn]:.2f}" for fn in sorted(slower))
+                + ". Patter is the rapid, densely worded part by its own "
+                  "row in the vocabulary.")], [])
     f, r = hook_findings(song, hooks)
     ask_one(f, r)
     return {"profile": prof, "findings": findings, "refusals": refusals,

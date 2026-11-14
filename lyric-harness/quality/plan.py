@@ -2719,32 +2719,30 @@ def joint_findings(plan):
 #: SLOT below (a hook is properly a fragment)."~~
 #:
 #: DERIVED, NOT LISTED — 2026-08-22, owner ruling "all 21 working". The
-#: paragraph above was doing two different jobs and only one of them was
-#: sound. The sound half is a KIND distinction and it is now a FIELD
-#: (`FunctionSpec.kind`, `MISSING.md` M-56): `refrain` and `burden` are
-#: line-level by their own glosses, so a cell grammar that draws SPANS can
-#: never draw one, and that is not a gap. The unsound half was four functions
-#: excluded for "ordering machinery beyond the cell grammar" — `postchorus`,
-#: `false_ending`, `reprise`, `turnaround` — when the ordering machinery had
-#: ALREADY BEEN BUILT: `grid.placement_findings` enforces `requires`,
-#: `adjacent_after`, `adjacent_before`, `needs_before` and `needs_after`, and
-#: `_sample_pattern` already rejection-samples on it. Every one of those four
-#: declares exactly such a constraint and it was being enforced by a
-#: hand-written omission instead. `hook` was excluded as "properly a
-#: fragment", which its own gloss contradicts in as many words: "this entry
-#: covers the post-chorus-hook case where a WHOLE SECTION carries it" — the
-#: fragment is the separate `Hook` object.
+#: paragraph above excluded functions by hand. Four of them (`postchorus`,
+#: `false_ending`, `reprise`, `turnaround`) were excluded for "ordering
+#: machinery beyond the cell grammar" when that machinery had ALREADY BEEN
+#: BUILT: `grid.placement_findings` enforces `requires`, `adjacent_after`,
+#: `adjacent_before`, `needs_before` and `needs_after`, and `_sample_pattern`
+#: already rejection-samples on it. `hook` was excluded as "properly a
+#: fragment", which its own gloss contradicts: "this entry covers the
+#: post-chorus-hook case where a WHOLE SECTION carries it".
+#:
+#: `refrain` and `burden` WERE STILL HELD OUT until 2026-11-13 by a `kind`
+#: label ("line", not "section") that M-56 read off the refrain row's own
+#: description. The owner ruled that day that the two are ordinary sections,
+#: a short part under its own heading, and that the label helped nobody. The
+#: label is gone and the roster is the whole table.
 #:
 #: So the roster is READ OFF THE VOCABULARY and cannot drift from it.
 def _derive_roster():
-    """-> the section-kind function names. LAZY IMPORT, like every other
+    """-> every function name in the vocabulary. LAZY IMPORT, like every other
     `grid` reach in this file: `quality/test_plan.py` §4's move-37 guard
     reads this module's AST and allows `grid` only for a named symbol set,
     and a module-level `import grid` would also make `import plan` pay for
     `grid`'s three file opens."""
     from quality import grid as _GR
-    return tuple(n for n, sp in sorted(_GR.SECTION_FUNCTIONS.items())
-                 if sp.kind == "section")
+    return tuple(sorted(_GR.SECTION_FUNCTIONS))
 
 
 GENERATOR_ROSTER = _derive_roster()
@@ -2789,7 +2787,17 @@ WORDLESS_FUNCTIONS = ZERO_LINE_FUNCTIONS
 
 #: Functions whose later instances RETURN VERBATIM (their contract's
 #: `returns_as`): the plan realises them as return classes.
-VERBATIM_RETURNERS = frozenset({"chorus", "tag"})
+def _derive_verbatim_returners():
+    """-> every function whose row says it returns verbatim. Read off the
+    table (2026-11-13): this was the hand-typed pair `chorus`, `tag`, so the
+    planner gave `postchorus`, `turnaround` and `hook` new words on every
+    return while their rows and the grader said word for word."""
+    from quality import grid as _GR
+    return frozenset(n for n, sp in _GR.SECTION_FUNCTIONS.items()
+                     if sp.returns_as == "verbatim")
+
+
+VERBATIM_RETURNERS = _derive_verbatim_returners()
 
 #: The cell grammar: a body is 2..6 cells; each cell is a short run the
 #: vocabulary's own adjacencies license (a prechorus is BEFORE a chorus by
@@ -2823,8 +2831,7 @@ VERBATIM_RETURNERS = frozenset({"chorus", "tag"})
 def _derive_cells():
     """-> the cell grammar, from the vocabulary's own adjacency fields."""
     from quality import grid as _GR
-    fns = {n: sp for n, sp in _GR.SECTION_FUNCTIONS.items()
-           if sp.kind == "section"}
+    fns = dict(_GR.SECTION_FUNCTIONS)
     cells = {(n,) for n in fns}
     for n, sp in fns.items():
         b = getattr(sp, "adjacent_before", "")
@@ -4123,9 +4130,26 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         order = list(kinds)
         rng.shuffle(order)
         shape = tuple(counts[f] for f in order)
-        drawn = _partition_uniform(shape, total - (_min_section - 1) * sum(shape), rng)
-        if drawn is not None:
+        # A TAG IS "a short repeated fragment" (its row): no longer than any
+        # other sung part of this song, and graded by the same rule
+        # (`TAG_NOT_SHORT`). THE PARTITION is what is redrawn for it, not the
+        # shape: abandoning the shape left a tag in one plan in twenty,
+        # because most partitions hand the tag more lines than some other
+        # part. A shape with no tag draws its partition once, as before.
+        for _tag_try in range(PATTERN_ATTEMPTS if "tag" in order else 1):
+            drawn = _partition_uniform(shape, total - (_min_section - 1) * sum(shape), rng)
+            if drawn is None:
+                break
             drawn = [k + _min_section - 1 for k in drawn]
+            ks = {f: 0 for f in dict.fromkeys(funcs)}
+            for fn, k in zip(order, drawn):
+                ks[fn] = k
+            if not (ks.get("tag") and any(0 < v < ks["tag"]
+                                          for f, v in ks.items()
+                                          if f != "tag")):
+                break
+        else:
+            continue
         if drawn is None:
             # This (pattern, total) pair admits no assignment at all — every
             # kind needs at least one line per instance and the total cannot
@@ -4133,9 +4157,6 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             # Rejected, never rounded: a rounded total is a length the floor
             # was not asked about.
             continue
-        ks = {f: 0 for f in dict.fromkeys(funcs)}
-        for fn, k in zip(order, drawn):
-            ks[fn] = k
         # PHRASES FOR THE WORDLESS SECTIONS, from the SAME per-section
         # envelope. They consume no lines — they carry no words — so they
         # are not part of the partition above, but they are not free either:
@@ -4346,6 +4367,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     bar, line_no = 1, 1
     counts = {}
     first_seen = {}
+    sung_first = {}
     groups, returns = [], []
     _section_blocks = []
     for fn in funcs:
@@ -4374,6 +4396,14 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             continue
         # A RETURN ONLY WHEN THE FORM ASKS FOR ONE (D7, 2026-10-27): under
         # `open` a second chorus is new lines with groups of their own.
+        # A REPRISE IS "a declared return of earlier material, later and
+        # changed" (its row): its first line comes back from the first
+        # chorus, or from the song's opening line where no chorus precedes
+        # it, and the rest of it is new. Graded by the same rule
+        # (`REPRISE_BRINGS_NOTHING_BACK`).
+        if fn == "reprise" and first > 1 and form_asks_return(form):
+            returns.append([sung_first.get("chorus", 1), first])
+        sung_first.setdefault(fn, first)
         if (fn in VERBATIM_RETURNERS and fn in first_seen
                 and form_asks_return(form)):
             returns.extend([first_seen[fn] + i, first + i]
@@ -4466,7 +4496,10 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # NO HOOK UNLESS THE FORM ASKS FOR A RETURN (D7, 2026-10-27): a hook slot
     # is checked at grade time (`HOOK_ABSENT`), so under `open` none is
     # declared, and the plan says why.
-    for pool in ((verbatim, recurs) if form_asks_return(form) else ()):
+    # A `hook` section "IS the hook" (its row): when one returns, the hook
+    # line is in it.
+    for pool in (({"hook"} & verbatim, verbatim, recurs)
+                 if form_asks_return(form) else ()):
         for s in line_slots:
             if s["function"] in pool:
                 hook_slot = s["line"]
@@ -5147,6 +5180,19 @@ def writer_brief(plan):
     for fn in sorted(rets):
         out.append(f"Every {fn} after the first repeats the first {fn} "
                    f"word for word, line for line.")
+    _fn_of = {sl["line"]: sl["function"] for sl in plan.get("line_slots", ())}
+    for pair in str(plan.get("returns") or "").split(";"):
+        a, _, b = pair.partition(",")
+        if b.strip().isdigit() and _fn_of.get(int(b)) == "reprise":
+            out.append(f"Line {int(b)} opens the reprise by repeating line "
+                       f"{int(a)} word for word; the rest of the reprise is "
+                       f"new.")
+    if any(sec["function"] == "patter" for sec in plan["sections"]):
+        out.append("Patter lines carry more words to the beat than the "
+                   "lines of every other part.")
+    if any(sec["function"] == "tag" for sec in plan["sections"]):
+        out.append("The tag is no longer than any other sung part of the "
+                   "song.")
     if plan.get("hook_slot"):
         out.append(f"Line {plan['hook_slot']} is the hook line; it comes "
                    f"back with its section.")

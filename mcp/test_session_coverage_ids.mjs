@@ -35,22 +35,25 @@ test('two checks refusing one end word leave unique coverage ids and a grade rec
         })
         .find((value) => Number.isInteger(value.exit_code));
     const sw = verdict(
-      await c.call('lyric_sweep', { seed_from: 16, count: 1, lines: 24, form: VC })
+      await c.call('lyric_sweep', { seed_from: 6, count: 1, lines: 24, form: VC })
     );
-    assert.deepEqual(sw.accepted_shown, [16]);
+    assert.deepEqual(sw.accepted_shown, [6]);
     await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
-    await c.call('lyric_plan', { seed: 16, lines: 24, form: VC });
-    // Seed 16 at 24 lines: drop, verse, chorus (L3-L5), prechorus, chorus, outro. Only L3,
+    await c.call('lyric_plan', { seed: 6, lines: 24, form: VC });
+    // Seed 6 at 24 lines: verse, chorus (L7-L12), prechorus, chorus, outro. Only L7,
     // the first chorus line, ends on a word the phonology cannot read.
+    // RE-MEASURED 2026-11-13: the planner draws from the whole section table now (owner's
+    // ruling: refrain and burden are ordinary sections), so every seed plans a different
+    // song. Superseded: seed 16, whose chorus opened on L3.
     const draft = Array.from(
       { length: 24 },
-      (_, i) => `the road I remember turns again ${i === 2 ? 'zorblax' : 'tonight'}`
+      (_, i) => `the road I remember turns again ${i === 6 ? 'zorblax' : 'tonight'}`
     );
-    const grade = verdict(await c.call('lyric_grade', { seed: 16, form: VC, draft }));
+    const grade = verdict(await c.call('lyric_grade', { seed: 6, form: VC, draft }));
     assert.equal(grade.measurement_status, 'graded');
-    // The chorus return and the outro's reprise both refuse L3 ...
+    // Two overlapping checks both refuse L7 ...
     const refusing = grade.findings.filter(
-      (f) => f.code === 'END_WORD_UNREADABLE' && f.locations.includes(3)
+      (f) => f.code === 'END_WORD_UNREADABLE' && f.locations.includes(7)
     );
     assert.equal(refusing.length, 2, JSON.stringify(refusing));
     // ... and the coverage still holds one row per id, so the receipt is recorded.
@@ -62,7 +65,7 @@ test('two checks refusing one end word leave unique coverage ids and a grade rec
     assert(c.snapshot().task.workflow.grade, JSON.stringify(grade.coverage.refused_obligations));
     // ... and revision starts on that exact draft: the user-visible symptom was
     // CREATION_GRADE here (3PO 6345764378). attempts 0 stops at the first stop.
-    const revised = await c.call('lyric_revise', { seed: 16, form: VC, draft, attempts: 0 });
+    const revised = await c.call('lyric_revise', { seed: 6, form: VC, draft, attempts: 0 });
     assert(!revised.isError, JSON.stringify(revised.content?.[0]?.text).slice(0, 400));
     assert(Number.isInteger(verdict(revised).exit_code));
   } finally {
@@ -72,17 +75,21 @@ test('two checks refusing one end word leave unique coverage ids and a grade rec
 
 test('an end word refused by two or three overlapping checks keeps one id', async () => {
   // P9's wider triggers (Jony, #519 6347183132 section 18 and 6347336795; 3PO 6347213438):
-  // overlapping checks, each with its own dedup set, refuse the same located end word. Seed 7
-  // at 24 lines (intro, chorus, ..., outro): outro->intro and outro->chorus both refuse L24, no
-  // repeated chorus needed. Seed 9 at 24 lines: three checks refuse L8. Measured against the
-  // revise.py this branch started from: two and three identical rows, and no grade receipt.
+  // overlapping checks, each with its own dedup set, refuse the same located end word. Seed 22
+  // at 24 lines (intro, ..., chorus, ..., outro): outro->intro and outro->chorus both reach L24.
+  // Seed 82 at 24 lines (chorus on L8, a second chorus, a reprise, an outro): three checks reach
+  // L8. Measured against the revise.py this branch started from, on the seeds this test first
+  // named (7 and 9): two and three identical rows, and no grade receipt.
+  // RE-MEASURED 2026-11-13: the planner draws from the whole section table now (owner's ruling:
+  // refrain and burden are ordinary sections), so every seed plans a different song; seeds 22
+  // and 82 are the ones that plan these two shapes today. Superseded: seeds 7 and 9.
   // Each row also names its PREMISE (Don 6348656619): the line's function and the sections
   // whose overlapping checks reach it, so a later plan change that moves them fails here
   // instead of passing without exercising the bug. The findings count cannot serve: the
   // refusals are already merged into one finding per line; only the coverage rows doubled.
   for (const [seed, line, fn, needs] of [
-    [7, 24, 'outro', ['intro', 'chorus', 'outro']],
-    [9, 8, 'chorus', ['chorus', 'chorus', 'reprise', 'outro']],
+    [22, 24, 'outro', ['intro', 'chorus', 'outro']],
+    [82, 8, 'chorus', ['chorus', 'chorus', 'reprise', 'outro']],
   ]) {
     const c = await connect();
     try {

@@ -157,7 +157,7 @@ def _sections(source, physical, sung, declarations):
             spec = G.SECTION_FUNCTIONS.get(function)
             current = {"id": f"{row['id']}:block", "name": match.group(1),
                        "base": base, "instance": index, "function": function or None,
-                       "kind": spec.kind if spec else "source_block", "line_ids": [],
+                       "kind": "section" if spec else "source_block", "line_ids": [],
                        "source_ranges": _ranges(row), "voice": voice or None,
                        "annotation": str(raw).strip()[match.end():].strip(),
                        "basis": "source", "source": f"source line {row['physical_line']}",
@@ -237,7 +237,7 @@ def _sections(source, physical, sung, declarations):
         if sid in declared_ids:
             raise InvalidDeclaration("declared section IDs must be unique")
         declared_ids.add(sid)
-        if spec and spec.kind == "section":
+        if spec:
             for lid in line_ids:
                 if lid in occupied:
                     raise InvalidDeclaration("declared section ranges must not overlap")
@@ -247,7 +247,7 @@ def _sections(source, physical, sung, declarations):
         if special and item.get("bars") is not None and item["bars"] != special[0].differentia_value:
             raise InvalidDeclaration(f"{raw_function} requires {special[0].differentia_field}={special[0].differentia_value}")
         value = {"id": sid, "name": item.get("name", sid), "function": function or None,
-                 "raw_function": item.get("function"), "kind": spec.kind if spec else "source_block",
+                 "raw_function": item.get("function"), "kind": "section" if spec else "source_block",
                  "line_ids": list(line_ids), "source": item["source"], "basis": "reader_declared",
                  "source_ranges": [r for lid in line_ids for r in _ranges(by_id[lid])],
                  "voice": item.get("voice"), "bars": None, "meter": None,

@@ -179,15 +179,14 @@ def test_planner_derives():
           # 2026-08-28 when `patter` entered as the 22nd function (M-52)
           # and the pinned 19 went stale the way every vocabulary-count
           # literal does: the expected value is now the vocabulary's own
-          # section-kind count, so a 23rd function moves this check's
-          # SUBJECT and not its spelling. The line-kind functions
-          # (`refrain`, `burden`) cannot be drawn as spans at all, which
-          # is what subtracting them from the vocabulary size states.
+          # size, so a 23rd function moves this check's SUBJECT and not its
+          # spelling. Every function is a section since 2026-11-13 (owner
+          # ruling: `refrain` and `burden` are ordinary sections), so the
+          # planner must reach the whole vocabulary.
           len(emitted & set(GR.SECTION_FUNCTIONS))
-          == sum(1 for sp in GR.SECTION_FUNCTIONS.values()
-                 if sp.kind == "section"),
+          == len(GR.SECTION_FUNCTIONS),
           f"{len(emitted)} functions emitted of "
-          f"{sum(1 for sp in GR.SECTION_FUNCTIONS.values() if sp.kind == 'section')} section-kind")
+          f"{len(GR.SECTION_FUNCTIONS)} in the vocabulary")
     check("the sampler REFUSES rather than hanging if the constraints and "
           "the cell grammar do not intersect — rejection sampling is uniform "
           "over the accepted set, and a bound is what keeps it terminating",
@@ -218,8 +217,16 @@ def test_grader_reaches_it():
           "`song_function_report`'s own counting docstring records what "
           "happens when a question is counted per record instead "
           "(`asked 3, answered -1`)",
+          # THE SAME THREE FUNCTIONS IN BOTH ORDERS (2026-11-13). `clean`
+          # above has no chorus, and since every contrast the table names is
+          # asked where a song declares both sides, a song with a verse and
+          # a chorus is asked one question more than a song without. The
+          # subject here is the ORDER, so the order is all that differs.
           GR.song_function_report(song)["asked"]
-          == GR.song_function_report(clean)["asked"],
+          == GR.song_function_report(GR.Song(sections=(
+              GR.Section("a", 4, function="verse"),
+              GR.Section("b", 4, function="chorus"),
+              GR.Section("c", 4, function="outro"))))["asked"],
           f"{GR.song_function_report(song)['asked']} either way")
 
 

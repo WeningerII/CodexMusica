@@ -740,9 +740,15 @@ def test_the_three_counts_all_count_questions():
     s2.lines = [Line(f"line {i} hold the line", bar=1 + 4 * i)
                 for i in range(5)]
     rep2 = song_function_report(s2, hooks=["hold the line"])
+    # THREE CONTRAST QUESTIONS SINCE 2026-11-13, each refused ONCE: every
+    # pair the table names is asked where the song declares both sides, and
+    # this song declares bridge/verse, chorus/verse and bridge/chorus. Its
+    # five lines are one line repeated, so no measured channel separates
+    # any pair and the unread rhyme channel leaves each answer unknown.
     check("a partly-refused question is one refused question, not several",
           rep2["asked"] == rep2["answered"] + rep2["refused"]
-          and rep2["refused"] == 1,
+          and rep2["refused"] == 3
+          and {x.code for x in rep2["refusals"]} == {"CHANNEL_NOT_MEASURED"},
           f"asked {rep2['asked']}, answered {rep2['answered']}, refused "
           f"{rep2['refused']}: {[x.code for x in rep2['refusals']]} — no "
           f"rhyme key was declared, so `rhyme_inventory` was not measured")
@@ -829,9 +835,16 @@ def test_the_ask_gate_reaches_every_function_that_is_expected_once():
     # gains nothing" is a claim about FINDINGS and it still holds. A count
     # that moves because a new question is genuinely put is a repin, not a
     # regression (doctrine 58/91).
+    # REPINNED (5, 4, 1) -> (7, 6, 1), 2026-11-13: the chorus/verse and
+    # bridge/chorus contrasts are now asked (the table names them and the
+    # owner ruled that no row's promise stays prose), and on this fixture a
+    # measured channel separates both pairs, which answers each question
+    # whatever the undeclared rhyme key left unread. The one refusal is the
+    # bridge/verse question's, as before. THE FINDING LIST IS UNMOVED,
+    # asserted above.
     check("same refusals, and the same three counts",
           [r.code for r in real["refusals"]] == ["CHANNEL_NOT_MEASURED"]
-          and (real["asked"], real["answered"], real["refused"]) == (5, 4, 1),
+          and (real["asked"], real["answered"], real["refused"]) == (7, 6, 1),
           f"asked {real['asked']}, answered {real['answered']}, refused "
           f"{real['refused']}")
 
@@ -1555,7 +1568,7 @@ def test_a_reprise_is_a_relation_between_two_DIFFERENT_functions():
           not real["reprises"]
           and [f.code for f in real["findings"]]
           == ["RETURN_LOCKED", "HOOK_CONFINED", "TITLE_NOT_IN_HOOK"]
-          and (real["asked"], real["answered"], real["refused"]) == (5, 4, 1),
+          and (real["asked"], real["answered"], real["refused"]) == (7, 6, 1),
           f"pairs asked: {sorted(real['reprises'])}; asked {real['asked']} "
           f"answered {real['answered']} refused {real['refused']} — the same "
           f"three counts section 19 pins, unchanged by this layer")

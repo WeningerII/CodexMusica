@@ -131,7 +131,7 @@ def build_registry() -> dict:
         spec = GR.SECTION_FUNCTIONS[name]
         methods.append({"id": method_id("function", name), "namespace": "function", "name": name,
                         "reader_requestable": False, "reader_surface": "form_result",
-                        "scope": spec.kind, "definition": spec.gloss,
+                        "scope": "section", "definition": spec.gloss,
                         "aliases": list(spec.aliases), "conditions": json_safe(spec)})
     capabilities = sorted({c for s in RL.REGISTRY.values() for c in s.capabilities()})
     result = {"contract_version": CONTRACT_VERSION, "methods": methods, "profiles": profiles,

@@ -45,7 +45,7 @@ class FunctionDisclosureTests(unittest.TestCase):
             self.assertEqual(row['explanation'],
                              'No label supplied; no section function declared or checked.')
 
-    def test_line_kind_acceptance_is_not_a_contained_role(self):
+    def test_refrain_and_burden_are_ordinary_section_declarations(self):
         for name in ('refrain', 'burden'):
             section = {'name': 'Label', 'function': name, 'bars': 8,
                        'meter': {'beats': 4, 'unit': 4}}
@@ -53,9 +53,11 @@ class FunctionDisclosureTests(unittest.TestCase):
             self.assertEqual(song.sections[0].function, name)
             row = disclose_section(section)
             self.assertIsNone(row['declaration_refusal'])
-            self.assertEqual(row['explanation'],
-                             f"Blueprint reader accepts {name!r}, a line-kind name, on this section; "
-                             'no contained line role is declared and no section-function assessment has run.')
+            # Owner ruling 2026-11-13: the two are sections like any other,
+            # so they read exactly as `verse` or `chorus` does here.
+            self.assertEqual(row['explanation'], disclose_section(
+                dict(section, function='verse'))['explanation'])
+            self.assertNotIn('line', row['explanation'].replace('its lines', ''))
 
     def test_raw_order_duplicates_spelling_semantic_and_scoped_alias(self):
         raw = [' Pre-Chorus ', 'instrumental-break', ' English_Song::BREAK ',
@@ -90,7 +92,7 @@ class FunctionDisclosureTests(unittest.TestCase):
         cases = [
             ('Intro', True, "label 'Intro' recognised; no section function declared or checked"),
             ('Introduction', False, "label 'Introduction' not recognised; no section function checked"),
-            ('Refrain', True, "section labelled 'Refrain'; no line refrain declared"),
+            ('Refrain', True, "label 'Refrain' recognised; no section function declared or checked"),
             ('chorus2', False, "label 'chorus2' not recognised; no section function checked"),
         ]
         for label, recognized, explanation in cases:
@@ -282,11 +284,28 @@ class WriterDisclosureTests(unittest.TestCase):
 
     def test_refusal_precedes_brief_and_disclosure(self):
         for name in ('Introduction', 'sonata::bridge', 'unknown_scope::bridge',
-                     'middle-eight', 'refrain', 'burden'):
+                     'middle-eight'):
             with self.subTest(name=name), \
                     patch.object(P, 'writer_brief', side_effect=AssertionError('brief ran')):
                 with self.assertRaises(P.PlanRefused):
                     P.make_plan(11, functions=['verse', name], lines=24)
+
+    def test_refrain_and_burden_are_planned_like_any_other_section(self):
+        # Owner ruling 2026-11-13. They were refused here as "line-kind".
+        for name in ('refrain', 'burden'):
+            with self.subTest(name=name):
+                plan = P.make_plan(11, functions=['verse', name], lines=24)
+                self.assertLessEqual({s['function'] for s in plan['sections']},
+                                     {'verse', name})
+        drawn = set()
+        for seed in range(1, 60):
+            sections = P.make_plan(seed, form='verse-chorus')['sections']
+            order = [s['function'] for s in sections]
+            drawn |= set(order)
+            for i, fn in enumerate(order):
+                if fn == 'burden':
+                    self.assertEqual(order[i - 1] if i else None, 'verse', (seed, order))
+        self.assertLessEqual({'refrain', 'burden'}, drawn)
 
     def _process_plans(self, hashseed, baseline=None):
         program = """
@@ -524,13 +543,11 @@ class NotAskedTests(unittest.TestCase):
     CONTRAST = 'CONTRAST_NOT_CHECKED'
     EFFECT = 'EFFECT_NOT_VERIFIED'
 
-    def test_one_contrast_is_measured_and_the_report_asks_exactly_that_one(self):
-        import inspect
-        params = inspect.signature(G.bridge_contrast).parameters
-        self.assertEqual(G.MEASURED_CONTRASTS, (('bridge', 'verse'),))
+    def test_every_contrast_the_table_names_is_measured_and_asked(self):
         self.assertEqual(G.MEASURED_CONTRASTS,
-                         tuple((params['function'].default, against)
-                               for against in params['against'].default))
+                         tuple((fn, other) for fn, spec in G.SECTION_FUNCTIONS.items()
+                               for other in spec.contrasts_with))
+        self.assertIn(('bridge', 'verse'), G.MEASURED_CONTRASTS)
         calls, real = [], G.bridge_contrast
 
         def spy(*args, **kwargs):
@@ -538,26 +555,37 @@ class NotAskedTests(unittest.TestCase):
             return real(*args, **kwargs)
         with patch.object(G, 'bridge_contrast', spy):
             G.song_function_report(_song('verse', 'prechorus', 'chorus', 'bridge'))
-        # One call, on the defaults: no other pair is put to it.
-        self.assertEqual(len(calls), 1)
-        self.assertEqual(len(calls[0][0]), 1)
-        self.assertFalse({'function', 'against'} & set(calls[0][1]))
+        # One call per pair with both sides declared. The calls that measure
+        # one comparator instance on its own carry `_ref` and are not pairs.
+        asked = [(a[1], a[2][0]) if len(a) > 1 else ('bridge', 'verse')
+                 for a, k in calls if '_ref' not in k]
+        declared = {'verse', 'prechorus', 'chorus', 'bridge'}
+        self.assertEqual(sorted(asked),
+                         sorted(pair for pair in G.MEASURED_CONTRASTS
+                                if set(pair) <= declared))
+        self.assertEqual(len(asked), 5)
 
-    def test_unmeasured_contrasts_are_named_when_both_sides_are_declared(self):
+    def test_no_contrast_is_left_unasked(self):
         rep = G.song_function_report(_song('verse', 'prechorus', 'chorus', 'bridge'))
-        self.assertEqual([g.code for g in rep['not_asked']], [self.CONTRAST])
-        gap = rep['not_asked'][0]
-        self.assertEqual(
-            gap.message,
-            'not checked: whether the prechorus differs from the verse and the chorus; '
-            'whether the chorus differs from the verse; '
-            'whether the bridge differs from the chorus')
-        self.assertEqual(
-            gap.evidence,
-            'The convention expects these sections to differ, and nothing here measures '
-            'whether they do. The one contrast measured is the bridge against the verse. '
-            'This is advice left unasked: it is not a finding against the draft, and it is '
-            'counted as neither answered nor refused.')
+        self.assertEqual(rep['not_asked'], [])
+
+    def test_a_section_that_copies_one_comparator_is_not_a_contrast(self):
+        # A bridge that is the first verse again used to pass: pooled over
+        # both verses the line length read 6.75 words against its 7.
+        meter = {'beats': 4, 'unit': 4}
+        v1 = ['I walk the road beside the sea', 'The wind is all that follows me']
+        v2 = ['The harbor bells ring out at nine', 'I pour another glass of wine']
+        rows = [('verse', v1), ('verse', v2), ('bridge', v1)]
+        sections, lines, bar = [], [], 1
+        for i, (fn, texts) in enumerate(rows):
+            sections.append(dict(name=f'S{i}', function=fn, bars=2, start_bar=bar, meter=meter))
+            for t in texts:
+                lines.append(dict(text=t, bar=bar, beat=1, duration=4))
+                bar += 1
+        song, _ = G.song_from_blueprint({'sections': sections, 'lines': lines})
+        findings, _refusals, _channels = G.bridge_contrast(song)
+        self.assertEqual([f.code for f in findings], ['BRIDGE_IS_A_VERSE'])
+        self.assertIn("measured against 'S0' alone", findings[0].evidence)
 
     def test_nothing_is_said_where_nothing_was_expected_or_all_of_it_was_asked(self):
         for functions in (('chorus',),            # the verse side is not declared
@@ -593,7 +621,7 @@ class NotAskedTests(unittest.TestCase):
     def test_unasked_is_in_none_of_the_counts_and_is_no_finding_or_refusal(self):
         song = _song('verse', 'chorus', 'build')
         rep = G.song_function_report(song)
-        self.assertEqual([g.code for g in rep['not_asked']], [self.CONTRAST, self.EFFECT])
+        self.assertEqual([g.code for g in rep['not_asked']], [self.EFFECT])
         with patch.object(G, 'not_asked', lambda _song: []):
             bare = G.song_function_report(song)
         for key in ('asked', 'answered', 'refused', 'refusal_records', 'findings',
@@ -619,14 +647,13 @@ class NotAskedTests(unittest.TestCase):
         findings = Reviser()._function_findings(texts, blueprint, coverage_out=cov)
         rows = {o['id']: o for o in cov}
         gaps = {g.code: g for g in G.not_asked(G.song_from_blueprint(blueprint)[0])}
-        self.assertEqual(set(gaps), {self.CONTRAST, self.EFFECT})
+        self.assertEqual(set(gaps), {self.EFFECT})
         for code, gap in gaps.items():
             self.assertEqual(rows[f'function:{code}:draft'],
                              {'id': f'function:{code}:draft', 'layer': 'function',
                               'status': 'not_requested', 'code': code,
                               'message': gap.message, 'evidence': gap.evidence})
-        self.assertEqual(rows[f'function:{self.CONTRAST}:draft']['message'],
-                         'not checked: whether the chorus differs from the verse')
+        self.assertNotIn(f'function:{self.CONTRAST}:draft', rows)
         # No finding carries them: nothing was measured, so nothing is noted.
         self.assertFalse({f.code for f in findings} & set(gaps))
         # Everything else is what it was without the disclosure.
@@ -653,8 +680,7 @@ class NotAskedTests(unittest.TestCase):
                                   cwd=harness, capture_output=True, text=True, timeout=300)
         self.assertEqual(done.returncode, 0, done.stdout + done.stderr)
         out = done.stdout
-        self.assertIn('  NOT ASKED CONTRAST_NOT_CHECKED: not checked: whether the chorus '
-                      'differs from the verse\n', out)
+        self.assertNotIn('CONTRAST_NOT_CHECKED', out)
         self.assertIn('  NOT ASKED EFFECT_NOT_VERIFIED: not verified from text: drop '
                       '(whether it lands as an arrival)\n', out)
         self.assertIn('      ' + function_contract_explanations()['measurement'] + '\n', out)
@@ -664,37 +690,35 @@ class CapabilityTableTests(unittest.TestCase):
     """The #676 capability ledger (comment 6587459008) as data read off the
     registry and held to what the report does."""
 
-    #: (function, kind, placement, recurrence, returns_as, measured against,
-    #:  expected and not checked, not verified from text, line role)
+    #: (function, placement, recurrence, returns_as, measured against,
+    #:  not verified from text)
     TABLE = [
-        ('intro', 'section', 'checked', 'once', 'n/a', [], [], '', ''),
-        ('verse', 'section', 'no claim', 'returns', 'new words', [], [], '', ''),
-        ('prechorus', 'section', 'checked', 'returns', 'varied', [], ['verse', 'chorus'], '', ''),
-        ('chorus', 'section', 'no claim', 'returns', 'verbatim', [], ['verse'], '', ''),
-        ('postchorus', 'section', 'checked', 'returns', 'verbatim', [], ['chorus'], '', ''),
-        ('refrain', 'line', 'no claim', 'returns', 'verbatim', [], [], '', 'refused'),
-        ('burden', 'line', 'checked', 'returns', 'verbatim', [], [], '', 'refused'),
-        ('bridge', 'section', 'no claim', 'once', 'n/a', ['verse'], ['chorus'], '', ''),
-        ('breakdown', 'section', 'no claim', 'open', 'varied', [], [],
-         'whether the arrangement thins', ''),
-        ('build', 'section', 'no claim', 'open', 'varied', [], [], 'whether tension rises', ''),
-        ('drop', 'section', 'refused', 'returns', 'varied', [], [],
-         'whether it lands as an arrival', ''),
-        ('vamp', 'section', 'no claim', 'open', 'varied', [], [],
-         'whether a musical figure repeats under it', ''),
-        ('patter', 'section', 'no claim', 'returns', 'new words', [], ['chorus'], '', ''),
-        ('turnaround', 'section', 'checked', 'returns', 'verbatim', [], [], '', ''),
-        ('interlude', 'section', 'checked', 'open', 'n/a', [], [], '', ''),
-        ('solo', 'section', 'no claim', 'open', 'n/a', [], [], '', ''),
-        ('tag', 'section', 'refused', 'returns', 'verbatim', [], [], '', ''),
-        ('hook', 'section', 'no claim', 'returns', 'verbatim', [], [], '', ''),
-        ('coda', 'section', 'checked', 'once', 'n/a', [], [], '', ''),
-        ('outro', 'section', 'checked', 'once', 'n/a', [], [], '', ''),
-        ('false_ending', 'section', 'checked', 'once', 'n/a', [], [], '', ''),
-        ('reprise', 'section', 'checked', 'once', 'varied', [], [], '', ''),
+        ('intro', 'checked', 'once', 'n/a', [], ''),
+        ('verse', 'no claim', 'returns', 'new words', [], ''),
+        ('prechorus', 'checked', 'returns', 'varied', ['verse', 'chorus'], ''),
+        ('chorus', 'no claim', 'returns', 'verbatim', ['verse'], ''),
+        ('postchorus', 'checked', 'returns', 'verbatim', ['chorus'], ''),
+        ('refrain', 'no claim', 'returns', 'verbatim', [], ''),
+        ('burden', 'checked', 'returns', 'verbatim', [], ''),
+        ('bridge', 'no claim', 'once', 'n/a', ['verse', 'chorus'], ''),
+        ('breakdown', 'no claim', 'open', 'varied', [], 'whether the arrangement thins'),
+        ('build', 'no claim', 'open', 'varied', [], 'whether tension rises'),
+        ('drop', 'refused', 'returns', 'varied', [], 'whether it lands as an arrival'),
+        ('vamp', 'no claim', 'open', 'varied', [],
+         'whether a musical figure repeats under it'),
+        ('patter', 'no claim', 'returns', 'new words', ['chorus'], ''),
+        ('turnaround', 'checked', 'returns', 'verbatim', [], ''),
+        ('interlude', 'checked', 'open', 'n/a', [], ''),
+        ('solo', 'no claim', 'open', 'n/a', [], ''),
+        ('tag', 'refused', 'returns', 'verbatim', [], ''),
+        ('hook', 'no claim', 'returns', 'verbatim', [], ''),
+        ('coda', 'checked', 'once', 'n/a', [], ''),
+        ('outro', 'checked', 'once', 'n/a', [], ''),
+        ('false_ending', 'checked', 'once', 'n/a', [], ''),
+        ('reprise', 'checked', 'once', 'varied', [], ''),
     ]
-    KEYS = ('function', 'kind', 'placement', 'recurrence', 'returns_as', 'contrast_measured',
-            'contrast_not_checked', 'not_verified_from_text', 'line_role')
+    KEYS = ('function', 'placement', 'recurrence', 'returns_as', 'contrast_measured',
+            'not_verified_from_text')
 
     def test_every_registered_function_has_one_row_and_the_rows_are_these(self):
         rows = function_capabilities()
@@ -723,29 +747,22 @@ class CapabilityTableTests(unittest.TestCase):
     def test_the_contrast_and_effect_columns_are_what_the_report_says(self):
         for row in function_capabilities():
             fn = row['function']
-            others = row['contrast_measured'] + row['contrast_not_checked']
+            others = row['contrast_measured']
             gaps = {g.code: g for g in
                     G.song_function_report(_song(fn, *others))['not_asked']}
             with self.subTest(function=fn):
                 self.assertEqual(sorted(others),
                                  sorted(G.SECTION_FUNCTIONS[fn].contrasts_with))
-                if row['contrast_not_checked']:
-                    self.assertIn(
-                        f"whether the {fn} differs from the "
-                        + ' and the '.join(row['contrast_not_checked']),
-                        gaps['CONTRAST_NOT_CHECKED'].message)
-                elif fn not in ('verse', 'chorus'):
-                    self.assertNotIn('CONTRAST_NOT_CHECKED', gaps)
+                self.assertNotIn('CONTRAST_NOT_CHECKED', gaps)
                 if row['not_verified_from_text']:
                     self.assertIn(f"{fn} ({row['not_verified_from_text']})",
                                   gaps['EFFECT_NOT_VERIFIED'].message)
                 else:
                     self.assertNotIn('EFFECT_NOT_VERIFIED', gaps)
 
-    def test_a_line_role_is_refused_for_the_two_line_kind_names(self):
+    def test_a_role_on_a_blueprint_line_is_still_refused(self):
+        # Refrain and burden are sections; nothing marks a single line.
         from quality import meter as M
-        self.assertEqual([r['function'] for r in function_capabilities() if r['line_role']],
-                         ['refrain', 'burden'])
         for role in ('refrain', 'burden'):
             blueprint = {'sections': [dict(name='Verse', function='verse', bars=2,
                                            start_bar=1, meter={'beats': 4, 'unit': 4})],

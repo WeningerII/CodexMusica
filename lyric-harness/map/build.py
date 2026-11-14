@@ -275,23 +275,22 @@ def section_types_md():
            "(from `function_capabilities` in `quality/function_disclosure.py`). "
            "**Placement**: `checked` means the type has a rule about where it sits, and a "
            "draft that breaks it gets a note; `no claim` means it may sit anywhere; `refused` "
-           "means the registry records why no rule is made. **Contrast**: the one contrast "
-           "measured is the bridge against the verse; the next column names the sections "
-           "the convention expects this one to differ from that nothing measures. **Not "
-           "verified from text**: what the name promises about the performance, which words "
-           "on a bar grid cannot show. A grade says both, as `CONTRAST_NOT_CHECKED` and "
-           "`EFFECT_NOT_VERIFIED` rows with status `not_requested`: they are counted as "
-           "neither answered nor refused and never stop a song. `refrain` and `burden` are "
-           "kinds of line: a section may be labelled or declared with either name, and "
-           "marking a line itself (`role` on a blueprint line) is refused for now.\n",
-           "| type | kind | placement | recurrence | returns as | contrast measured | "
-           "contrast expected, not checked | not verified from text |",
-           "|---|---|---|---|---|---|---|---|"]
+           "means the registry records why no rule is made. **Returns as**: `verbatim` types "
+           "are planned as exact repeats when the form asks for a return, and a grade notes "
+           "one that comes back with different words; `new words` types get a note when they "
+           "come back unchanged. **Contrast measured**: the sections this one is measured "
+           "against whenever a song declares both. **Not verified from text**: what the name "
+           "promises about the performance, which words on a bar grid cannot show; a grade "
+           "says so as an `EFFECT_NOT_VERIFIED` row with status `not_requested`, counted as "
+           "neither answered nor refused. Every type is a section: the planner draws all of "
+           "them.\n",
+           "| type | placement | recurrence | returns as | contrast measured | "
+           "not verified from text |",
+           "|---|---|---|---|---|---|"]
     for r in rows:
         out.append(
-            f"| {r['function']} | {r['kind']} | {r['placement']} | {r['recurrence']} | "
+            f"| {r['function']} | {r['placement']} | {r['recurrence']} | "
             f"{r['returns_as']} | {', '.join(r['contrast_measured']) or '—'} | "
-            f"{', '.join(r['contrast_not_checked']) or '—'} | "
             f"{r['not_verified_from_text'] or '—'} |")
     return out
 

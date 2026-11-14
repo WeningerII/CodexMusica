@@ -9925,6 +9925,16 @@ one adjudicated against this entry's reading with the argument recorded
 where the roster is derived. Nothing was built for this close; the work
 was finding that the build existed.
 
+**REVERSED BY THE OWNER 2026-11-13.** The owner's ruling on 2026-08-22 was
+"all 21 working". The `kind` label delivered it as nineteen drawn and two
+held out, on the strength of the refrain row's own description, and the
+owner had not been asked. Asked on 2026-11-13, the owner ruled that
+`refrain` and `burden` are ordinary sections, each a short part under its
+own heading, and that the "line versus section" wording was doing no good
+for anyone. `FunctionSpec.kind` and its three readers (`plan._derive_roster`,
+`plan._derive_cells`, `grid.profile_functions`) are removed; the planner
+draws all 22 rows. `hook` is unaffected: it was already a section.
+
 ### M-57 · `FunctionSpec.aliases` models SYNONYMY, and three of its five claims are SUBSUMPTION — so the specialisation is accepted at the door and discarded `CLOSED` 2026-08-28 — the claim is kept, the differentia is checked, a mismatch refuses, and burden states its genus while keeping its row
 **Raised by the owner 2026-08-22: "While all middle eights are bridges, not all
 bridges are middle eights… same deal with refrain and chorus if I'm not
