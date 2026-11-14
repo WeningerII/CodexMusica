@@ -63,4 +63,4 @@ def melody_brief(melody):
                        for n in melody['notes'])
     return [f"MELODY FIRST: repeat this declared phrase for each lyric line; {melody['subdivision']} ticks per beat.",
             events,
-            'Write to this tune. Syllable-to-note underlay and pitch performance are not certified; the grader checks the declared line grid.']
+            'Syllable-to-note underlay and pitch performance are not certified; the grader checks the declared line grid.']

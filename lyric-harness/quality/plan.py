@@ -4399,9 +4399,11 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # A REPRISE IS "a declared return of earlier material, later and
         # changed" (its row): its first line comes back from the first
         # chorus, or from the song's opening line where no chorus precedes
-        # it, and the rest of it is new. Graded by the same rule
-        # (`REPRISE_BRINGS_NOTHING_BACK`).
-        if fn == "reprise" and first > 1 and form_asks_return(form):
+        # it. That is the function's own definition, not the form's, so it
+        # is planned IN EVERY FORM (#671 A7): `REPRISE_BRINGS_NOTHING_BACK`
+        # grades a reprise under `open` too, and a plan that gave it no
+        # return pair drew that note on a draft written to its brief.
+        if fn == "reprise" and first > 1:
             returns.append([sung_first.get("chorus", 1), first])
         sung_first.setdefault(fn, first)
         if (fn in VERBATIM_RETURNERS and fn in first_seen
@@ -5091,6 +5093,20 @@ def _pulse_rows(sec, slot):
             f"      {stress}"]
 
 
+#: The brief row that carries `plan["narrative"]` as data.
+STORY_RECORD_TAG = "Story record (the draft's meaning is not graded against it): "
+
+#: The shape codes that grade a declared hook line (`grid.hook_findings`).
+HOOK_CODES = ("HOOK_ABSENT", "HOOK_DOES_NOT_RECUR", "HOOK_CONFINED")
+
+
+def _graded(codes):
+    """-> "CODE (severity), ..." for shape codes, each severity read from
+    `grid.severity_of`, the one table that rules on them."""
+    from quality import grid as _GR
+    return ", ".join(f"{c} ({_GR.severity_of(c)})" for c in codes)
+
+
 def writer_brief(plan):
     """The plan as a blind writer's seed — shape and rhyme plan, nothing
     about the harness (the coverage experiment's bias rule, kept)."""
@@ -5144,58 +5160,38 @@ def writer_brief(plan):
         from quality.melody import melody_brief
         out.extend(melody_brief(plan["melody"]))
     out.extend(group_rules(plan))
+    # THE STORY LAYER IS A RECORD, NOT A GATE (#671 A1-A3): the planner and
+    # the sweep consume the drawn line-up, but no grader judges a draft's
+    # meaning against it, so the brief carries its triples as data, tagged
+    # so, rather than a gloss telling each section what to mean.
     nar = plan.get("narrative") or {}
-    if nar.get("mode") in ("drawn", "declared"):
-        atom_say = {
-            "ESTABLISH": "puts the world and its cast in place",
-            "COMPLICATE": "lets the pressure in",
-            "TURN": "flips the reading of everything before it",
-            "DWELL": "holds the moment and deepens it, without advancing",
-            "ANCHOR": "is the fixed claim the song keeps returning to",
-            "JUDGE": "is a compressed verdict on what has happened",
-            "RESOLVE": "cashes the standing pressure",
-            "DEPART": "is the leave-taking"}
-        junc_say = {
-            "THEREFORE": "because of", "BUT": "against",
-            "AND_THEN": "after", "MEANWHILE": "elsewhere during",
-            "ELABORATE": "deeper into",
-            "JUXTAPOSE": "set beside (connection unstated)"}
-        names = [s["name"] for s in plan["sections"]]
-        inbound = {b: (a, j) for a, b, j in nar["junctions"]}
-        out.append("Story plan (one job per sung section; each enters "
-                   "from the section before it as stated):")
-        for idx, _fn, atom in nar["atoms"]:
-            line = f"  {names[idx]} {atom_say[atom]}"
-            if idx in inbound:
-                a, j = inbound[idx]
-                line += f" — {junc_say[j]} {names[a]}"
-            out.append(line)
-    elif nar.get("mode") == "none":
-        out.append("NO STORY PLAN: this shape carries no legal story "
-                   "line-up, so nothing is asked of the meaning axis.")
-    rets = {fn for fn in VERBATIM_RETURNERS
-            if plan.get("returns")
-            and sum(1 for s in plan["sections"]
-                    if s["function"] == fn) >= 2}
+    if nar.get("mode") in ("drawn", "declared", "none"):
+        out.append(STORY_RECORD_TAG + json.dumps(
+            {k: nar[k] for k in ("mode", "atoms", "junctions") if k in nar}))
+    # READ OFF THE RETURN PAIRS THEMSELVES: a reprise's pair is planned in
+    # every form, so "the plan has returns" no longer says a chorus does.
+    _fn_of = {sl["line"]: sl["function"] for sl in plan.get("line_slots", ())}
+    _pairs = [(mem[0], b) for mem in (
+        [int(x) for x in cls.split(",") if x.strip()]
+        for cls in str(plan.get("returns") or "").split(";")) for b in mem[1:]]
+    rets = {_fn_of.get(b) for a, b in _pairs
+            if _fn_of.get(b) in VERBATIM_RETURNERS
+            and _fn_of.get(a) == _fn_of.get(b)}
     for fn in sorted(rets):
         out.append(f"Every {fn} after the first repeats the first {fn} "
                    f"word for word, line for line.")
-    _fn_of = {sl["line"]: sl["function"] for sl in plan.get("line_slots", ())}
-    for pair in str(plan.get("returns") or "").split(";"):
-        a, _, b = pair.partition(",")
-        if b.strip().isdigit() and _fn_of.get(int(b)) == "reprise":
+    for a, b in _pairs:
+        if _fn_of.get(b) == "reprise":
             out.append(f"Line {int(b)} opens the reprise by repeating line "
-                       f"{int(a)} word for word; the rest of the reprise is "
-                       f"new.")
+                       f"{int(a)} word for word.")
+    # A CONVENTION CHECK IS PRINTED AS ITS CODE AND SEVERITY (#671 A4-A6),
+    # read from `grid.SEVERITY`, never as a sentence about the song.
     if any(sec["function"] == "patter" for sec in plan["sections"]):
-        out.append("Patter lines carry more words to the beat than the "
-                   "lines of every other part.")
-    if any(sec["function"] == "tag" for sec in plan["sections"]):
-        out.append("The tag is no longer than any other sung part of the "
-                   "song.")
+        out.append("Patter graded by: " + _graded(("PATTER_NOT_DENSER",)))
     if plan.get("hook_slot"):
-        out.append(f"Line {plan['hook_slot']} is the hook line; it comes "
-                   f"back with its section.")
+        out.append(f"Line {plan['hook_slot']} is the hook line. Graded by: "
+                   + _graded(HOOK_CODES + (("TITLE_NOT_IN_HOOK",)
+                                           if plan.get("title") else ())))
     elif plan.get("hook_slot_refused"):
         out.append(f"NO HOOK IS DECLARED: {plan['hook_slot_refused']}.")
         if plan.get("title"):

@@ -1410,9 +1410,14 @@ def test_the_measure():
     # harness cleanup (no code anywhere called it; its "THE ONE READER"
     # docstring was false -- `plan.py` reads `placement_findings`), so the
     # allow-list stops naming a function that no longer exists.
+    # `severity_of` JOINED 2026-11-14 (#671 A4-A5): the writer brief prints
+    # a hook or patter row as the codes that grade it with their severities,
+    # read from `grid.SEVERITY` rather than restated. It is a lookup in a
+    # declared table: it opens nothing and reads no corpus.
     ALLOWED_FROM_GRID = {"SECTION_FUNCTIONS", "FunctionSpec", "as_function",
                          "placement_findings",
-                         "specialisation_of", "UnknownFunction"}
+                         "specialisation_of", "UnknownFunction",
+                         "severity_of"}
     # `floor` JOINED THE ALLOW-LIST 2026-08-23, ON THE SAME ARGUMENT AS
     # `meter_bands` AND WITH THE SAME RE-TIGHTENING AS `grid`. The owner's
     # standing rule is that no hard number may sit in the generator, and the
@@ -5227,12 +5232,35 @@ def test_the_type_draw():
     opens = [make_plan(seed, lines=104) for seed in range(1, 9)]
     vcs = [make_plan(seed, lines=104, form="verse-chorus")
            for seed in range(1, 9)]
-    check("an open plan carries no verbatim return and no hook, and says "
-          "why there is no hook",
-          all(not p["returns"] and not p["hook_slot"]
+    # REPINNED 2026-11-14 (#671 A7): a REPRISE's return pair is planned in
+    # every form -- its first line comes back from the first chorus before
+    # it, else from line 1 -- so an open plan's returns are exactly those
+    # pairs. No chorus returns under `open`, and the hook stays undeclared.
+    def _reprise_pairs(p):
+        want, seen_chorus = [], None
+        for sec in p["sections"]:
+            ls = [sl["line"] for sl in p["line_slots"]
+                  if sl["section"] == sec["name"]]
+            if not ls:
+                continue
+            if sec["function"] == "reprise" and ls[0] > 1:
+                want.append(f"{seen_chorus or 1},{ls[0]}")
+            if sec["function"] == "chorus" and seen_chorus is None:
+                seen_chorus = ls[0]
+        return ";".join(want)
+    opens_with_reprise = [p for p in (make_plan(seed) for seed in range(1, 41))
+                          if any(sec["function"] == "reprise"
+                                 for sec in p["sections"])]
+    check("an open plan's only verbatim returns are its reprises' pairs, at "
+          "the exact source and target lines, and it declares no hook and "
+          "says why",
+          all(p["returns"] == _reprise_pairs(p) and not p["hook_slot"]
               and p["hook_slot_refused"]
-              and "word for word" not in p["writer_brief"] for p in opens),
-          [(p["returns"][:20], p["hook_slot"]) for p in opens][:3])
+              and "line for line" not in p["writer_brief"]
+              for p in opens + opens_with_reprise)
+          and any(p["returns"] for p in opens_with_reprise),
+          [(p["returns"][:20], _reprise_pairs(p)[:20], p["hook_slot"])
+           for p in opens + opens_with_reprise][:4])
     check("a verse-chorus plan still returns its chorus with a hook line",
           all(p["returns"] and p["hook_slot"] for p in vcs),
           [(bool(p["returns"]), p["hook_slot"]) for p in vcs])
@@ -5577,8 +5605,14 @@ class OnceGeneration(unittest.TestCase):
             ('verse-chorus', ['verse', 'chorus'], 11, True),
             ('verse-chorus', ['verse', 'chorus', 'false_ending', 'reprise'], 2, True),
         ]
-        for form, roster, seed, positive in rows:
+        for form, roster, seed, positive_row in rows:
             for atom in ('hook>=1', 'returns>=1'):
+                # REPINNED 2026-11-14 (#671 A7): a reprise's return pair is
+                # planned in every form, so under `open` a roster with a
+                # reprise now holds `returns>=1` -- through the reprise, with
+                # every once function still drawn once.
+                positive = (True if form == 'open' and 'reprise' in roster
+                            and atom == 'returns>=1' else positive_row)
                 with self.subTest(form=form, roster=roster, atom=atom):
                     self.assertEqual(self.policy(roster, atom), {})
                     if positive is not True:
