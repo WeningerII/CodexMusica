@@ -300,7 +300,7 @@ function parseNext(text, ctx) {
   let line = m[1];
   const calls = [];
   if (line.startsWith('lyric_sweep')) return [['lyric_sweep', clone(ctx.sweepArgs)]];
-  if (line.startsWith('lyric_screen with the word pairs you mean to write, then ')) {
+  if (line.startsWith('lyric_screen, then ')) {
     calls.push(['lyric_screen', { words: ['stove', 'coat'] }]);
     line = line.slice(line.indexOf(', then ') + ', then '.length);
   }
@@ -416,7 +416,7 @@ test('the derivation reads the receipts: plan coordinates, later pages, re-plans
   // A sweep and no screen: the screen, then the plan with every coordinate.
   assert.equal(
     formatNextCall(nextCreationCall(clone(at.swept), null, 'lyric_plan')),
-    'NEXT: lyric_screen with the word pairs you mean to write, then lyric_plan with seed 16, ' +
+    'NEXT: lyric_screen, then lyric_plan with seed 16, ' +
       'form "aaba", lines 2, functions "verse,chorus", wants ["before=verse,chorus","lines<=30"], ' +
       "melody: the sweep's melody unchanged."
   );
@@ -438,11 +438,11 @@ test('the derivation reads the receipts: plan coordinates, later pages, re-plans
   const none = states('none');
   assert.equal(
     formatNextCall(nextCreationCall(clone(none.at.swept), null, 'lyric_plan')),
-    'NEXT: lyric_screen with the word pairs you mean to write, then lyric_plan with seed 16.'
+    'NEXT: lyric_screen, then lyric_plan with seed 16.'
   );
   assert.equal(
     formatNextCall(nextCreationCall(clone(none.at.empty), null, 'lyric_screen')),
-    'NEXT: lyric_sweep, declaring the form, lines, functions, melody and want you mean to plan with.'
+    "NEXT: lyric_sweep; the plan repeats the sweep's form, lines, functions, melody and `want`."
   );
   const runs = carriedRuns(planArgs);
   assert.match(
@@ -496,8 +496,7 @@ test('edit sessions, recipe tasks, other texts and raw results pass through unch
   const got = withSweepNext(clone(at.swept), 'lyric_sweep', sweep, null);
   assert.equal(
     JSON.parse(got.content[0].text).report,
-    'ACCEPTED\n    NEXT: lyric_screen with the word pairs you mean to write, then lyric_plan with seed 16, ' +
-      'wants ["lines<=30"].\n'
+    'ACCEPTED\n    NEXT: lyric_screen, then lyric_plan with seed 16, ' + 'wants ["lines<=30"].\n'
   );
 });
 
@@ -798,7 +797,7 @@ test('/chat: a sweep result shows the derived NEXT to the model', async () => {
   }
   assert.equal(
     seen.report,
-    'ACCEPTED\n      16, 17\n    NEXT: lyric_screen with the word pairs you mean to write, then lyric_plan ' +
+    'ACCEPTED\n      16, 17\n    NEXT: lyric_screen, then lyric_plan ' +
       'with seed 16, form "aaba", lines 2, functions "verse,chorus", wants ["before=verse,chorus","lines<=30"], ' +
       "melody: the sweep's melody unchanged.\n"
   );
@@ -840,11 +839,114 @@ test('/chat: a sweep during an unknown-outcome proposal shows no plan line at al
 });
 
 // ── 4. The real harness: the client and a /mcp session ─────────────────────
+// #671 B9/C4: a grade verdict keeps its `next` sentence and gains `next_call`,
+// the same call as {tool, args}. A session (the maintained client) and /chat
+// read their receipts after the grade is recorded; a raw grade knows only its
+// seed.
+test('a grade verdict names its next call from the receipts, in a session and in /chat', () => {
+  const graded = (task, carried) => {
+    const p = planReceipt(SHAPES.none, 16);
+    const v = { ...gradeReceipt(p), next: 'raw sentence', next_call: { tool: 'x', args: {} } };
+    const result = {
+      content: [
+        { type: 'text', text: 'the rendered song' },
+        { type: 'text', text: JSON.stringify(v) },
+      ],
+    };
+    return JSON.parse(withSweepNext(task, 'lyric_grade', result, carried).content[1].text);
+  };
+  const { at } = states('none');
+  const runs = carriedRuns((seed) => ({ seed }));
+  // No run yet: lyric_revise with the seed, no new_run.
+  const first = graded(clone(at.graded), null);
+  assert.deepEqual(first.next_call, { tool: 'lyric_revise', args: { seed: 16 } });
+  assert.match(first.next, /^Call lyric_revise with this exact draft, unchanged/);
+  assert.doesNotMatch(first.next, /new_run/);
+  // A run open (the client's continuation, /chat's suspended record), or
+  // stopped under this plan: a new run, as the stop's CONTINUE note says.
+  for (const carried of [runs.client.answer, runs.chat.suspended, runs.chat.parked, null]) {
+    const v = graded(clone(at.started), carried);
+    assert.deepEqual(v.next_call, { tool: 'lyric_revise', args: { seed: 16, new_run: true } });
+    assert.match(v.next, /, with new_run: true/);
+  }
+  // A held run, or a grade with no receipt for this plan, names none.
+  for (const [task, carried] of [
+    [at.started, runs.chat.uncertified_parked],
+    [at.planned, null],
+  ]) {
+    const v = graded(clone(task), carried);
+    assert.equal(Object.hasOwn(v, 'next'), false);
+    assert.equal(Object.hasOwn(v, 'next_call'), false);
+  }
+  // An edit session and a raw call keep the raw grade's own fields.
+  const edit = graded({ domain: 'lyrics', phase: 'edit' }, null);
+  assert.equal(edit.next, 'raw sentence');
+});
+
+// #671 B1: an edit session refuses the calls that make a new song, as a
+// create session refuses lyric_check and lyric_recover. The supplied-lyrics
+// path, and a recovery export, stay open.
+test('an edit session refuses a new song and keeps the supplied-lyrics path', () => {
+  const edit = () => ({ domain: 'lyrics', phase: 'edit' });
+  for (const [name, args] of [
+    ['lyric_sweep', { seed_from: 0, count: 5 }],
+    ['lyric_plan', { seed: 1 }],
+    ['lyric_grade', { seed: 1, draft }],
+    ['lyric_revise', { seed: 1, draft }],
+    // A held seeded run: the session restores its seed before the gate reads it.
+    ['lyric_revise', { seed: 1, answer: 'x', state: 'carried-state' }],
+  ]) {
+    const refusal = creationRefusal(edit(), name, args);
+    assert.match(refusal, /^CREATION_PLAN: .*begin_lyrics phase 'create'/, name);
+    assert.equal(withNextCall(refusal, edit(), null, name), refusal, 'no NEXT in an edit session');
+  }
+  for (const [name, args] of [
+    ['lyric_recover', { lines: draft }],
+    ['lyric_check', { lines: draft, scheme: 'AA' }],
+    ['lyric_screen', { words: ['stove', 'coat'] }],
+    ['lyric_verify', { before: draft, after: draft, scheme: 'AA' }],
+    ['lyric_revise', { lines: draft, scheme: 'AA' }],
+    ['lyric_revise', { seed: 1, recover_only: true, state: 'x' }],
+  ])
+    assert.equal(creationRefusal(edit(), name, args), null, name);
+});
+
+// #671 C2: a raw sweep's NEXT carries the sweep's own declarations — lines
+// and wants — not the seed alone.
+test(
+  'a raw lyric_sweep names the plan call with its lines and wants',
+  { timeout: 300_000 },
+  async () => {
+    const raw = buildServer({ task: { domain: 'lyrics' } });
+    const [ra, rb] = InMemoryTransport.createLinkedPair();
+    await raw.connect(ra);
+    const client = new Client({ name: 'raw', version: '1' }, { capabilities: {} });
+    await client.connect(rb);
+    try {
+      const r = await client.callTool({
+        name: 'lyric_sweep',
+        arguments: { seed_from: 0, count: 20, lines: 12, want: ['sections>=3'] },
+      });
+      const { report, accepted_shown } = JSON.parse(r.content[0].text);
+      assert.match(
+        report,
+        new RegExp(
+          `NEXT: lyric_screen, then lyric_plan with seed ${accepted_shown[0]}, lines 12, wants \\["sections>=3"\\]\\.`
+        )
+      );
+    } finally {
+      await client.close();
+      await raw.close();
+    }
+  }
+);
+
 test(
   "the real chain: the sweep's NEXT is followed, a plan before the screen names the screen, then the plan is admitted",
   { timeout: 300_000 },
   async (t) => {
-    // Raw /mcp/lyrics (no client): the harness's own line, unchanged.
+    // Raw /mcp/lyrics (no client): the line rebuilt from the sweep's own
+    // arguments (#671, C2), the same call a fresh session names.
     const raw = buildServer({ task: { domain: 'lyrics' } });
     const [ra, rb] = InMemoryTransport.createLinkedPair();
     await raw.connect(ra);
@@ -859,10 +961,12 @@ test(
       await rawClient.close();
       await raw.close();
     }
-    const rawLine = /NEXT: lyric_plan with seed (\d+)$/m.exec(rawReport);
+    const rawLine = /NEXT: lyric_screen, then lyric_plan with seed (\d+), lines 12\.$/m.exec(
+      rawReport
+    );
     assert(rawLine, rawReport);
     const seed = Number(rawLine[1]);
-    const expected = `NEXT: lyric_screen with the word pairs you mean to write, then lyric_plan with seed ${seed}, lines 12.`;
+    const expected = `NEXT: lyric_screen, then lyric_plan with seed ${seed}, lines 12.`;
     const ctx = { sweepArgs };
 
     // /chat: the same real sweep through runTurn, whose wrapper rewrites the

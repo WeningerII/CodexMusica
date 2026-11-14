@@ -65,12 +65,16 @@ test('a parked new song continues exactly as its note says', { timeout: 300_000 
     'grade the complete rewritten draft with lyric_grade, then call lyric_revise with that exact draft and new_run: true';
   const plain = (text) => text.replaceAll('`', '');
   assert(plain(note).includes(procedure), note);
-  // The plugin skill hosts load gives the same procedure, word for word.
+  // The plugin skill hosts load defers to that note rather than restating it.
   const skill = readFileSync(
     new URL('../plugins/codex-musica/skills/lyric-workflows/SKILL.md', import.meta.url),
     'utf8'
   );
-  assert(plain(skill).includes(procedure));
+  assert(plain(skill).includes("If a run has stopped, follow the stop's CONTINUE/NEXT line"));
+  // A regrade after the stop names the same call as the note: new_run: true.
+  const regraded = verdictOf((await run('lyric_grade', { seed, draft })).tool_result);
+  assert.deepEqual(regraded.next_call, { tool: 'lyric_revise', args: { seed, new_run: true } });
+  assert.match(regraded.next, /, with new_run: true/);
   const rewritten = draft.map((line) =>
     line === 'Morning light' ? 'Morning comes in slow' : line
   );
@@ -124,6 +128,9 @@ test(
     assert([0, 3].includes(short.exit_code), JSON.stringify(short));
     assert.equal(Object.keys(short).at(-1), 'next', JSON.stringify(short));
     assert.match(short.next, /lyric_revise with this exact draft, unchanged/);
+    // No run is open yet: the graded draft, without new_run (#671, C4).
+    assert.deepEqual(short.next_call, { tool: 'lyric_revise', args: { seed } });
+    assert.doesNotMatch(short.next, /new_run/);
     const rewritten = draft.map((line) =>
       line === 'Morning light' ? 'Morning comes in slow' : line
     );
@@ -134,7 +141,11 @@ test(
     assert(!opened.tool_error, JSON.stringify(opened));
     const open = verdictOf(opened.tool_result);
     assert.equal(open.exit_code, 4, 'the interview run is open: it asks its first question');
-    await run('lyric_grade', { seed, draft: rewritten });
+    const regraded = await run('lyric_grade', { seed, draft: rewritten });
+    // A run is open: the grade's next says new_run (#671, C4).
+    const reread = verdictOf(regraded.tool_result);
+    assert.deepEqual(reread.next_call, { tool: 'lyric_revise', args: { seed, new_run: true } });
+    assert.match(reread.next, /, with new_run: true/);
     const kept = await run('lyric_revise', { seed, draft: rewritten });
     assert.match(text(kept), /CREATION_CONTINUATION: draft differs from the recorded run/);
     const fresh = await run('lyric_revise', { seed, draft: rewritten, new_run: true });

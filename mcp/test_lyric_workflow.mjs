@@ -1014,8 +1014,7 @@ test('a replaced plan carries what the first plan asked and this one does not (#
       'The planner bound a different shape — relation_types ["class:RHYME"] → ["schema:consonance"]; ' +
       'bound_groups 2 → 1; returns 1 → 0; hook yes → no. ' +
       'A grade or revise under this plan answers for this plan only: it does not show that what ' +
-      "the first plan asked was met. When you present the song, say which of the first plan's " +
-      'declarations it no longer answers to.'
+      'the first plan asked was met.'
   );
 });
 

@@ -29,10 +29,18 @@
     {
       "literal": "certified",
       "category": "field-or-value",
-      "at": ["lyric_revise description", "lyric_check description"],
+      "at": [
+        "lyric_revise description",
+        "lyric_check description",
+        "lyric_grade description",
+        "instructions",
+        "systemInstruction"
+      ],
       "contexts": [
         "coverage was not certified (`coverage` and `certified` say which pairs went unjudged); when its",
-        "`flags` and `whole_flags` for what stands, `certified` and `coverage` for whether every declared"
+        "`flags` and `whole_flags` for what stands, `certified` and `coverage` for whether every declared",
+        "is not a finished song: finished means `certified` true at lyric_revise exit 0, which its",
+        "measurements) and its stamp. Finished means `certified` true at lyric_revise exit 0, which the"
       ],
       "declared_in": [
         {
@@ -106,10 +114,16 @@
     {
       "literal": "next",
       "category": "field-or-value",
-      "at": ["lyric_grade description", "get_operation description"],
+      "at": [
+        "instructions",
+        "lyric_grade description",
+        "get_operation description",
+        "systemInstruction"
+      ],
       "contexts": [
-        "not defects. At exit 0 or 3 the verdict's `next` names the next call: send this exact draft,",
-        "ask), and, after a grade at exit 0 or 3, `next` (the call that takes this exact draft on);"
+        "not defects. At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this",
+        "ask), and, after a grade at exit 0 or 3, `next` (the call that takes this exact draft on);",
+        "The sweep's NEXT line, a grade verdict's `next` and each CREATION_* refusal name the next"
       ],
       "declared_in": [
         {
@@ -346,26 +360,6 @@
       ],
       "about": "FLAG",
       "reason": "The engine's own TITLE_NOT_IN_HOOK question, quoted where the plan says a title is optional and that the question exists only on a plan with a hook slot (#676)."
-    },
-    {
-      "literal": "looks done",
-      "category": "quoted-check",
-      "at": ["instructions", "systemInstruction"],
-      "contexts": [
-        "stopping at step (3) because the draft \"looks done\" is the exact hand-wash the loop exists"
-      ],
-      "about": "hand-wash",
-      "reason": "Quotes the stopping mistake the loop exists to prevent; it names no song content."
-    },
-    {
-      "literal": "fixed",
-      "category": "quoted-check",
-      "at": ["instructions", "systemInstruction"],
-      "contexts": [
-        "NOTES are measurements and are not to be \"fixed\". A verdict carrying structures_uncalibrated"
-      ],
-      "about": "NOTES are measurements",
-      "reason": "Scare quotes: notes are measurements and are not to be 'fixed'."
     },
     {
       "literal": "nothing flagged",
