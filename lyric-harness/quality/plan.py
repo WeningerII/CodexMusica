@@ -1918,7 +1918,13 @@ def _channel_clause(c):
     where = _SCOPE_WORDS.get(c.scope, c.scope)
     pred = c.predicate
     kind = type(pred).__name__
-    if kind in ("Agree", "SequenceEqual"):
+    if kind == "SequenceEqual" and getattr(pred, "reverse_b", False):
+        # The check reads Q's sequence in reverse (relations.SequenceEqual), so
+        # the sentence has to say so: without it the writer is told "the same
+        # sounds in order", writes a homophone pair, and the grader refuses it
+        # (2026-11-14, live retest: a group stalled on exactly that).
+        s = f"P's {what} are Q's read from last to first, {where}"
+    elif kind in ("Agree", "SequenceEqual"):
         s = f"P and Q have the same {what} {where}"
     elif kind == "Differ":
         s = f"P and Q have different {what} {where}"
