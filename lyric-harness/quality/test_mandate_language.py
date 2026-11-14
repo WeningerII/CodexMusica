@@ -1317,7 +1317,12 @@ def test_line_count_cannot_fire_through_the_reviser():
     ok("coverage regression has its own refusal gate, separate from the "
        "finding severity budget: unknown does not become an artistic FLAG",
        'if out["coverage_regressions"]:' in rsrc
-       and '"; unknown is neither a violation nor a repaired obligation"' in rsrc)
+       # The wording lives in propose.VERIFY_REJECTIONS since #671 A10;
+       # verify() writes it through verify_reason("obligation_refused").
+       and '"obligation_refused",' in rsrc
+       and "unknown is neither a violation nor a repaired obligation"
+       in __import__("quality.propose", fromlist=["VERIFY_REJECTIONS"])
+       .VERIFY_REJECTIONS["obligation_refused"])
     ok("and it could not reject a revision even as a flag: `verify()` "
        "refuses a line-count change outright and inspects BOTH sides with "
        "ONE mandate, so this finding is identical before and after and "

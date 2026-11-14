@@ -561,7 +561,8 @@ await check('actual HTTP and SDK preserve signed continuation and stop on discon
       'lyric_revise',
       {
         inputSchema: {
-          seed: z.number(),
+          seed: z.number().optional(),
+          scheme: z.string().optional(),
           draft: z.array(z.string()).optional(),
           draft_text: z.string().optional(),
           form: z.string().optional(),
@@ -639,8 +640,9 @@ await check('actual HTTP and SDK preserve signed continuation and stop on discon
         phase,
         'lyric_revise',
         phase === 'park'
-          ? { seed: 16, draft: ['original A', 'original B'], form: 'couplet' }
-          : { seed: 16, draft_text: 'rewritten A\noriginal B', form: 'sonnet' }
+          ? // An edit session revises supplied lyrics without a seed (#671 B1).
+            { scheme: 'AB', draft: ['original A', 'original B'], form: 'couplet' }
+          : { scheme: 'AB', draft_text: 'rewritten A\noriginal B', form: 'sonnet' }
       ),
     ]);
   };
