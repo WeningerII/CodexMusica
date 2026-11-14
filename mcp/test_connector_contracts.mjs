@@ -1055,8 +1055,9 @@ test('lyric_grade names the next call per surface, and kitchen revise sends the 
   // One `next` sentence on every surface (#671 B9); the chat adds its writer.
   const next =
     "At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this exact draft, " +
-    'unchanged, and `next_call` is that call as {tool, args}; a session sets `args.new_run` when ' +
-    "a run is open or this plan's run has started.";
+    "unchanged. `next_call` names that call's tool and the arguments the server sets: `seed`, and " +
+    "`new_run` in a session when a run is open or this plan's run has started. It is not the whole " +
+    'call: send this exact draft and its declarations with it.';
   for (const d of [chat.grade, outside.grade]) assert.ok(d.includes(next), d);
   assert.ok(chat.grade.includes(next + ' The service writer answers that lyric_revise run.'));
   assert.doesNotMatch(outside.grade, /service writer|kitchen/i);

@@ -2599,8 +2599,9 @@ export function registerLyricTools(server, tool) {
         'The stamp says which. HOMEOTELEUTON and MODAL_RHYME are mandatory writing flags, not advisory notes; ' +
         'revision cannot introduce them and a flagged draft cannot finish cleanly. NOTES are measurements, not defects. ' +
         "At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this exact draft, " +
-        'unchanged, and `next_call` is that call as {tool, args}; a session sets `args.new_run` when ' +
-        "a run is open or this plan's run has started. " +
+        "unchanged. `next_call` names that call's tool and the arguments the server sets: `seed`, and " +
+        "`new_run` in a session when a run is open or this plan's run has started. It is not the whole " +
+        'call: send this exact draft and its declarations with it. ' +
         (server.kitchen ? 'The service writer answers that lyric_revise run. ' : '') +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_grade,
@@ -2666,9 +2667,10 @@ export function registerLyricTools(server, tool) {
         // Set only at exit 0 or 3 on a grade the creation gate records as a
         // receipt (gradeVerdictQualifies). At exit 2 the gate admits two moves
         // (choose readings and grade again, or revise as an uncertifiable
-        // repair), so no single call is named there. `next_call` is the same
-        // call as {tool, args}; a session replaces both with the call its
-        // receipts admit (withSweepNext in lyric_workflow.js).
+        // repair), so no single call is named there. `next_call` carries the
+        // tool and the arguments the server sets (seed, and new_run in a
+        // session), not the draft or declarations; a session replaces both
+        // with the call its receipts admit (withSweepNext in lyric_workflow.js).
         if ([0, 3].includes(verdict.exit_code) && gradeVerdictQualifies(verdict)) {
           verdict.next_call = {
             tool: 'lyric_revise',
