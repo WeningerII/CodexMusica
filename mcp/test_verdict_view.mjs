@@ -749,10 +749,17 @@ test('not_checked prints an unasked question from the sentence its own row carri
 test('the short verdict ends with the next call the grade names, and has none without one', () => {
   const next =
     "Call lyric_revise with this exact draft, unchanged, and this grade's seed and declarations.";
+  const next_call = { tool: 'lyric_revise', args: { seed: 3 } };
   const out = (v, tool = 'lyric_grade') =>
     JSON.parse(publicToolResult({ content: blocks(v) }, null, { tool }).content[1].text);
   const withNext = out({ ...verdict, next });
   assert.equal(withNext.next, next);
+  assert.equal(Object.hasOwn(withNext, 'next_call'), false, 'no next_call without one');
+  const withCall = out({ ...verdict, next, next_call });
+  assert.deepEqual(withCall.next_call, next_call);
+  assert.equal(Object.keys(withCall).at(-1), 'next', 'next stays the last field');
+  assert.deepEqual(Object.keys(withCall).slice(-2), ['next_call', 'next']);
+  assert.equal(Object.hasOwn(out({ ...verdict, next_call: 'x' }), 'next_call'), false);
   assert.equal(Object.keys(withNext).at(-1), 'next', 'next is the last field');
   for (const tool of ['lyric_grade', 'lyric_revise'])
     assert.equal(Object.hasOwn(out(verdict, tool), 'next'), false, `${tool} without next`);
@@ -833,7 +840,10 @@ test('an uncertified stop is told what can clear it, by what was actually refuse
     'a question nobody asked is not presented as something to clear'
   );
   assert.match(said, /No rewrite of a line and no `pronunciations` entry can clear it/);
-  assert.match(said, /present the song as uncertified/);
+  assert.match(
+    said,
+    /only changing what was declared can \(the blueprint or plan declaration that finding names\)\./
+  );
   assert.deepEqual(refusedByRemedy(declarationOnly), {
     reading: false,
     declarations: [
@@ -865,7 +875,7 @@ test('an uncertified stop is told what can clear it, by what was actually refuse
   };
   assert.equal(
     uncertifiedAdvice(wordOnly),
-    'Resolve the unread words with `pronunciations` (lyric_grade lists the options; never guess a reading), grade again, and start a new run with `new_run: true`.'
+    'Resolve the unread words with `pronunciations` (lyric_grade lists the options), grade again, and start a new run with `new_run: true`.'
   );
   assert.equal(declarationAdvice(wordOnly), '', 'and names no declaration');
 

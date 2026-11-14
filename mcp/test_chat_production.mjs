@@ -17,6 +17,8 @@ import { createChatRouter, CHAT_LIMITS } from './chat.js';
 import { continuationSemanticIdentity, recoverState, STATE_DECODED_BYTES } from './state_codec.js';
 import { buildServer as buildRealServer } from './tools.js';
 import { RUNS, _verdictInternals } from './lyric_tools.js';
+import { recordCreation } from './lyric_workflow.js';
+import { LEXICON_MANIFEST } from './lexicon_basis.js';
 
 const nativeFetch = globalThis.fetch;
 const instructions =
@@ -56,6 +58,89 @@ const task = (domain) => ({
   turns: 0,
 });
 const sha = (value) => crypto.createHash('sha256').update(value).digest('hex');
+
+// A new song's task: a seeded grade or revise is a create-phase call (an edit
+// session refuses it, #671 B1), so a test that sends one holds the receipts a
+// create session records — sweep, screen, plan, and a grade of `draft`, plus
+// a started revision when `started`. `request` overrides plan declarations.
+const V1 = LEXICON_MANIFEST.versions.find((v) => v.id === 'v1');
+const planOf = (lines, request = {}) => {
+  const req = {
+    seed: 16,
+    form: 'open',
+    lines: null,
+    relation: null,
+    functions: null,
+    title: null,
+    narrative: null,
+    wants: [],
+    ...request,
+  };
+  const plan = {
+    plan_version: 3,
+    request: req,
+    total_lines: lines,
+    line_slots: Array.from({ length: lines }, () => ({})),
+    sections: [{ name: 'VERSE' }],
+  };
+  return { plan, plan_sha256: sha(JSON.stringify(plan)) };
+};
+// The verdict fields a lyric_grade receipt needs (gradeVerdictQualifies).
+const gradeFields = (draft, request = {}) => ({
+  measurement_status: 'graded',
+  certified: false,
+  coverage: {
+    scope: 'requested_layers',
+    certified: false,
+    pairs_mandated: 1,
+    pairs_judged: 0,
+    pairs_refused: 1,
+    obligations: [
+      { id: 'floor:draft', layer: 'floor', status: 'answered' },
+      { id: 'rhyme:1:2:A', layer: 'rhyme', status: 'refused' },
+    ],
+    refused_obligations: ['rhyme:1:2:A'],
+  },
+  lexicon: { supplement_id: V1.id, sha256: V1.sha256 },
+  plan_sha256: planOf(draft.length, request).plan_sha256,
+  final_draft: draft,
+  final_draft_sha256: sha(JSON.stringify(draft)),
+});
+function newSong(draft, { request = {}, graded = true, started = false } = {}) {
+  const t = { ...task('lyrics'), phase: 'create' };
+  // The shape the real planner's request takes: undeclared fields are null.
+  const { form, title } = { form: 'open', title: null, ...request };
+  recordCreation(
+    t,
+    'lyric_sweep',
+    { seed_from: 16, count: 1, form },
+    {
+      exit_code: 0,
+      accepted_shown: [16],
+    }
+  );
+  recordCreation(t, 'lyric_screen', { words: ['a', 'b'] }, { exit_code: 0 });
+  const { plan, plan_sha256 } = planOf(draft.length, request);
+  recordCreation(
+    t,
+    'lyric_plan',
+    { seed: 16, form, ...(title ? { title } : {}) },
+    {
+      exit_code: 0,
+      plan,
+      plan_sha256,
+      plan_request: plan.request,
+    }
+  );
+  assert(t.workflow.plan, 'the plan receipt records');
+  if (graded) {
+    const args = { seed: 16, draft, form, ...(title ? { title } : {}) };
+    recordCreation(t, 'lyric_grade', args, { exit_code: 3, ...gradeFields(draft, request) });
+    assert(t.workflow.grade, 'the grade receipt records');
+  }
+  if (started) recordCreation(t, 'lyric_revise', { seed: 16, draft }, { exit_code: 3 });
+  return t;
+}
 
 function verificationFixture() {
   const before = ['a small café', 'an old door'];
@@ -580,7 +665,7 @@ test('certified delivery uses the exact authoritative artifact and binds full dr
   try {
     const out = await runTurn({
       ...opts,
-      task: task('lyrics'),
+      task: newSong(draft),
       callTool: async () => ({
         content: [
           {
@@ -618,7 +703,7 @@ test('parked verdict defeats a later model finished claim and a later request ca
   try {
     const out = await runTurn({
       ...opts,
-      task: task('lyrics'),
+      task: newSong(['old']),
       callTool: async () => ({
         content: [
           {
@@ -670,8 +755,8 @@ test('an unfinished grade reaches the page as its rendered song and title; a lat
           certified: false,
           measurement_status: 'graded',
           status: 'graded',
-          final_draft: draft,
-          final_draft_sha256: sha(JSON.stringify(draft)),
+          ...gradeFields(draft, { title: 'Porch Light' }),
+          status: 'graded',
         }),
       },
     ],
@@ -691,7 +776,7 @@ test('an unfinished grade reaches the page as its rendered song and title; a lat
         declarations: [...surface.declarations, { name: 'lyric_grade', parameters: {} }],
       },
       limits: { ...opts.limits, maxSteps: 4 },
-      task: task('lyrics'),
+      task: newSong(draft, { request: { title: 'Porch Light' }, graded: false }),
       callTool: async (name) =>
         name === 'lyric_grade'
           ? graded
@@ -1620,6 +1705,8 @@ test('every tool family the chat calls is sent only declared arguments, its own 
         fc('edit_recipe', { edits: [{ action: 'set_environment', room: 'stone_cathedral' }] }),
       ],
     },
+    // Supplied lyrics (an edit task), then a new song (a create task, whose
+    // seeded calls an edit task refuses, #671 B1).
     {
       domain: 'lyrics',
       calls: [
@@ -1627,6 +1714,12 @@ test('every tool family the chat calls is sent only declared arguments, its own 
         fc('lyric_check', { lines_text: draft.join('\n') }),
         fc('lyric_recover', { lines_text: draft.join('\n') }),
         fc('lyric_verify', { before_text: draft.join('\n'), after_text: draft.join('\n') }),
+      ],
+    },
+    {
+      domain: 'lyrics',
+      created: true,
+      calls: [
         fc('lyric_grade', { seed: 16, title: 'Porch Light', draft_text: draft.join('\n') }),
         fc('lyric_revise', { seed: 16, answer: 'keep it' }),
       ],
@@ -1655,7 +1748,12 @@ test('every tool family the chat calls is sent only declared arguments, its own 
         ...opts,
         surface: live,
         writer: 'kitchen',
-        task: task(turn.domain),
+        task: turn.created
+          ? newSong(draft, {
+              request: { form: 'verse-chorus', title: 'Porch Light' },
+              started: true,
+            })
+          : task(turn.domain),
         lyric: turn.lyric,
         userText: 'Every family.',
         limits: { ...LIMITS, maxSteps: 2, maxTurnMs: 120000, maxTurnUsd: 0 },
@@ -2233,7 +2331,7 @@ test('only a returned revise result supersedes progress, not an error or unrelat
       const calls = [];
       await runTurn({
         ...opts,
-        task: task('lyrics'),
+        task: newSong(['original']),
         surface: {
           ...surface,
           declarations: [

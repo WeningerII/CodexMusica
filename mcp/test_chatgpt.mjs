@@ -778,7 +778,7 @@ test("F4: a new song's order, its length and how to continue sit inside the guid
     for (const phrase of [
       "begin_lyrics phase 'create' is for a new song",
       'lyric_sweep, lyric_screen, lyric_plan, write every line, lyric_grade on that exact draft, lyric_revise',
-      "To set a length, declare an exact `lines` count on the sweep and carry the sweep's declarations unchanged to the plan.",
+      'A length is an exact `lines` count declared on the sweep.',
       'continue from the session_id in the completed receipt, even when the tool refused; a refusal without one names its own next step.',
       'holding the next session_id; an immediate refusal has none.',
     ])
@@ -789,14 +789,16 @@ test("F4: a new song's order, its length and how to continue sit inside the guid
   }
 });
 
-test('F3: on the session connector, a request to write a song is a lyric request', async (t) => {
+// #671 B2: the routing sentence is replaced by the one fact a session
+// enforces, that it refuses the other family's tools (SESSION_SCOPE).
+test('F3: on the session connector, a session refuses the other family (SESSION_SCOPE)', async (t) => {
   const sessions = new WorkflowSessions({ store: new JobStore() });
   const surfaces = sessionSurfaces(sessions);
   for (const where of ['/mcp', '/mcp/chatgpt']) {
     const { text } = await guideOf(t, surfaces[where]);
     assertInWindow(
       text,
-      "Use the tools the user's request calls for: a request to write a song is a lyric request, a recipe request does not start lyrics, and a combined request uses both.",
+      "A session refuses the other family's tools (SESSION_SCOPE); keep each workflow's latest session_id separately.",
       where
     );
     assertInWindow(text, 'a card with no `changed` field is the stock default', where);
@@ -1199,7 +1201,10 @@ test('each surface describes its own session mechanics, and only where they appl
     );
     assert.doesNotMatch(prefix(find(tools, 'lyric_grade')), /run_id|run_revision/);
     // The phase is chosen by this argument, and the text says so.
-    assert.match(find(tools, 'begin_lyrics').description, /only for lyrics the user supplied/);
+    assert.match(
+      find(tools, 'begin_lyrics').description,
+      /Phase 'edit' is for lyrics the user supplied: it skips those receipts and refuses lyric_sweep, lyric_plan/
+    );
     assert.match(find(tools, 'get_operation').description, /tool_error: true/);
   }
   // A caller-managed mode exists only on the compatibility surface.
@@ -1451,7 +1456,7 @@ test('detail reads the finished result itself: a revise paused on a question has
   assert.ok(sessions.status(graded.operation_id, 'lyrics', { detail: 'findings', lines: [3] }));
 });
 
-test('get_operation refuses a detail or lines the operation cannot serve; an edit grade of an unplanned song names lyric_recover', async (t) => {
+test('get_operation refuses a detail or lines the operation cannot serve; an edit grade of an unplanned song is refused toward lyric_recover', async (t) => {
   const { store } = storeFor(t);
   const sessions = new WorkflowSessions({ store });
   const client = await connect(t, 'lyrics', sessions);
@@ -1481,8 +1486,9 @@ test('get_operation refuses a detail or lines the operation cannot serve; an edi
   const bare = await read(swept.operation_id, { lines: [1] });
   assert.match(text(bare), /^DETAIL_REQUIRED: /);
 
-  // An edit session's grade of a 4-line pasted song: the refusal now names the
-  // call that works, and a detail it lacks is refused rather than null.
+  // An edit session's seeded grade of a 4-line pasted song: the gate refuses
+  // it before dispatch (#671 B1) and names the supplied-lyrics calls, and a
+  // detail it lacks is refused rather than null.
   const edit = data(await call(client, 'begin_lyrics', { phase: 'edit' }));
   const draft = [
     'the river runs beneath the town',
@@ -1495,11 +1501,10 @@ test('get_operation refuses a detail or lines the operation cannot serve; an edi
   );
   await sessions.wait(graded.operation_id);
   const verdict = data(await read(graded.operation_id));
-  const short = JSON.parse(verdict.tool_result.content.at(-1).text);
-  assert.equal(short.exit_code, 2);
+  assert.equal(verdict.tool_error, true, JSON.stringify(verdict));
   assert.match(
-    short.refusal,
-    /must be the same song\. These are lyrics this session did not plan: read them with lyric_recover, then grade them with lyric_check/
+    verdict.tool_result.content[0].text,
+    /^CREATION_PLAN: lyric_grade with a seed is for a new song, and a new song needs begin_lyrics phase 'create'\. .*structure them with lyric_recover, grade them with lyric_check/
   );
   const pairs = await read(graded.operation_id, { detail: 'pairs' });
   assert.match(

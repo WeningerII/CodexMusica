@@ -124,14 +124,14 @@ const WORKFLOWS = [
 // sentinel marks where they go, and is removed before the contract is read.
 const USER_WORDS = 'USER-SUPPLIED-BRIEF-SENTINEL';
 const CHAT_STATES = [
-  ['no task', null, null, null],
-  ['recipe, browse', null, null, { domain: 'recipe', phase: 'browse' }],
-  ['recipe, create', null, null, { domain: 'recipe', phase: 'create' }],
-  ['lyrics, empty transcript', null, new Set(), { domain: 'lyrics', phase: 'create' }],
+  ['no task', null, null],
+  ['recipe, browse', null, { domain: 'recipe', phase: 'browse' }],
+  ['recipe, create', null, { domain: 'recipe', phase: 'create' }],
+  ['recipe, create, with a hop budget', null, { domain: 'recipe', phase: 'create' }, 12],
+  ['lyrics, empty transcript', null, { domain: 'lyrics', phase: 'create' }],
   [
     'lyrics, page context with a brief',
     null,
-    new Set(),
     {
       domain: 'lyrics',
       phase: 'create',
@@ -141,12 +141,11 @@ const CHAT_STATES = [
   [
     'lyrics, edit (review)',
     null,
-    new Set(),
     { domain: 'lyrics', phase: 'edit', lyric_context: { intent: 'review' } },
   ],
-  ['parked run', { parked: true, seed: 7, open: ['3'] }, new Set(), { domain: 'lyrics' }],
-  ['uncertain proposal', { uncertain_proposal: true }, new Set(), { domain: 'lyrics' }],
-  ['resumable run', { resumable: true }, new Set(), { domain: 'lyrics' }],
+  ['parked run', { parked: true, seed: 7, open: ['3'] }, { domain: 'lyrics' }],
+  ['uncertain proposal', { uncertain_proposal: true }, { domain: 'lyrics' }],
+  ['resumable run', { resumable: true }, { domain: 'lyrics' }],
 ];
 
 const strings = []; // { surface, where, text }
@@ -193,8 +192,8 @@ test.before(async () => {
     collect(label, got);
   }
   const surface = { instructions: chatServer.instructions };
-  for (const [label, lyr, record, task] of CHAT_STATES) {
-    const si = _agentInternals.buildSystemInstruction(surface, lyr, record, task);
+  for (const [label, lyr, task, maxSteps] of CHAT_STATES) {
+    const si = _agentInternals.buildSystemInstruction(surface, lyr, task, maxSteps);
     const text = (si?.parts || []).map((p) => p.text).join('\n');
     strings.push({
       surface: `chat system instruction (${label})`,

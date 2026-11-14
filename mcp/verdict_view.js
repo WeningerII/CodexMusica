@@ -367,7 +367,14 @@ export function sessionView(tool, content, { detail, lines } = {}) {
   );
   if (verdict.coverage) short.not_checked = notCheckedOf(verdict);
   short.detail = DETAIL_NOTE;
-  // The grade's own next call (exit 0 or 3), copied last; never invented here.
+  // The grade's own next call (exit 0 or 3), copied last; never invented
+  // here. `next_call` is the same call as {tool, args} (#671, B9).
+  if (
+    verdict.next_call &&
+    typeof verdict.next_call === 'object' &&
+    typeof verdict.next_call.tool === 'string'
+  )
+    short.next_call = verdict.next_call;
   if (typeof verdict.next === 'string') short.next = verdict.next;
   return [content[0], { type: 'text', text: JSON.stringify(short) }];
 }
