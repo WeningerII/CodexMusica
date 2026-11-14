@@ -909,6 +909,26 @@ test('an edit session refuses a new song and keeps the supplied-lyrics path', ()
     ['lyric_revise', { seed: 1, recover_only: true, state: 'x' }],
   ])
     assert.equal(creationRefusal(edit(), name, args), null, name);
+  // A held seeded run is refused even when the caller leaves the seed out:
+  // the SDK's continuation and the chat's carried record both name it (3PO).
+  for (const held of [{ args: { seed: 1 } }, { seed: 1 }, { decl: { seed: 1 } }]) {
+    for (const args of [{ answer: 'x' }, { state: 'carried-state' }, { draft }]) {
+      const refusal = creationRefusal(edit(), 'lyric_revise', args, held);
+      assert.match(refusal, /^CREATION_PLAN: lyric_revise with a seed .*phase 'create'/);
+    }
+    // Recovery still exports it, and a fresh seedless run is still the edit route.
+    assert.equal(
+      creationRefusal(edit(), 'lyric_revise', { recover_only: true, state: 'x' }, held),
+      null
+    );
+    assert.equal(
+      creationRefusal(edit(), 'lyric_revise', { lines: draft, scheme: 'AA', new_run: true }, held),
+      null
+    );
+  }
+  // A held seedless run continues as before.
+  for (const held of [{ args: { scheme: 'AA' } }, { seed: null, key: 'mandate:x' }])
+    assert.equal(creationRefusal(edit(), 'lyric_revise', { answer: 'x' }, held), null);
 });
 
 // #671 C2: a raw sweep's NEXT carries the sweep's own declarations — lines

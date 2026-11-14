@@ -136,6 +136,13 @@ const edit = (task) => task?.domain === 'lyrics' && task.phase === 'edit';
 const newSongCall = (name, args) =>
   ['lyric_sweep', 'lyric_plan'].includes(name) ||
   (['lyric_grade', 'lyric_revise'].includes(name) && args?.seed != null);
+// The seed of the run a host is holding, whichever shape holds it: the SDK's
+// continuation (`args`), or the chat's carried record (`seed`, `decl`). A
+// revise that continues a held seeded run is a new-song call even when the
+// caller leaves the seed out, because the run's own state carries it.
+const heldSeed = (lyric) => lyric?.args?.seed ?? lyric?.seed ?? lyric?.decl?.seed ?? null;
+const continuesSeededRun = (name, args, lyric) =>
+  name === 'lyric_revise' && !args?.new_run && heldSeed(lyric) != null;
 const answered = (v) => v && Number.isInteger(v.exit_code) && [0, 3].includes(v.exit_code);
 // A screen or grade that ran but left no receipt is kept as an ATTEMPT beside
 // the receipts: what it exited with, and a flag for the one cause the refusal
@@ -348,8 +355,8 @@ function recordedField(key, request, lines) {
 // tool dispatch. Returned refusals consume no tool/provider operation.
 export function creationRefusal(task, name, args, lyric = null) {
   if (isRecoveryOnly(name, args)) return null;
-  if (edit(task) && newSongCall(name, args))
-    return `CREATION_PLAN: ${name}${args?.seed != null ? ' with a seed' : ''} is for a new song, and a new song needs begin_lyrics phase 'create'. This session is phase 'edit', for lyrics the user supplied: structure them with lyric_recover, grade them with lyric_check, and revise them with lyric_revise without a seed.`;
+  if (edit(task) && (newSongCall(name, args) || continuesSeededRun(name, args, lyric)))
+    return `CREATION_PLAN: ${name}${args?.seed != null || heldSeed(lyric) != null ? ' with a seed' : ''} is for a new song, and a new song needs begin_lyrics phase 'create'. This session is phase 'edit', for lyrics the user supplied: structure them with lyric_recover, grade them with lyric_check, and revise them with lyric_revise without a seed.`;
   const w = workflowFor(task);
   if (!w || !name.startsWith('lyric_')) return null;
   if (name === 'lyric_sweep') return null;
@@ -836,7 +843,8 @@ export function sweepNextLine(args, seed) {
   return formatNextCall(nextCreationCall(task, null, 'lyric_plan'));
 }
 // THE GRADE VERDICT'S NEXT STEP (#671, B9/C4). `next` is the sentence a
-// caller reads; `next_call` is the same call as {tool, args}. A raw grade
+// caller reads; `next_call` is its tool and the args the server sets (seed,
+// new_run), not the whole call. A raw grade
 // knows only its own plan: lyric_revise with its seed. A session reads its
 // receipts after this grade is recorded: no receipt for this plan, or a held
 // run (an uncertified parked run, an unknown-outcome proposal), names none;
