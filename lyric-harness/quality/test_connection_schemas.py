@@ -314,6 +314,25 @@ def test_planner():
     words = PLN._channel_clause(IC.channels[1])
     check("the rule wording names the guard", "present in both P and Q"
           in words, words)
+    # A check that reads Q in reverse must say so to the writer. Walks every
+    # registered rule, so a second reversed rule cannot ship without wording.
+    reversed_rules, plain_saying_it = [], []
+    for name, sch in R.REGISTRY.items():
+        for c in sch.channels or ():
+            said = "read from last to first" in PLN._channel_clause(c)
+            if getattr(c.predicate, "reverse_b", False):
+                reversed_rules.append((name, said))
+            elif said:
+                plain_saying_it.append(name)
+    check("a rule whose check reads Q in reverse tells the writer so",
+          reversed_rules == [("amphisbaenic rhyme", True)], reversed_rules)
+    check("...and no other rule's wording says it", not plain_saying_it,
+          plain_saying_it)
+    amph = PLN.type_rule(R.REGISTRY["amphisbaenic rhyme"])
+    check("the amphisbaenic sentence the writer reads",
+          "P's sounds in order are Q's read from last to first, taken as one "
+          "sequence" in amph
+          and not any("have the same sounds" in s for s in amph), amph)
 
 
 
