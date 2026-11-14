@@ -1,6 +1,6 @@
 # Timings
 
-One run of the reference song (`map/song.txt`, 16 lines, seed 0) through the connector with the warm Python worker, 2026-11-09. Each call's limit is 600 s. Revise questions were answered mechanically, so the song is not the point; the times are. Regenerate: `node map/trace.mjs && python3 map/build.py`.
+One run of a supplied song (16 lines, seed 0) through the connector with the warm Python worker, 2026-11-09. Each call's limit is 600 s. Revise questions were answered mechanically, so the song is not the point; the times are. Regenerate: `node map/trace.mjs --song=FILE && python3 map/build.py`.
 
 | # | flow | tool | seconds | exit | result |
 |---:|---|---|---:|---:|---|

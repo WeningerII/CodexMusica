@@ -2,8 +2,8 @@
 """Generate the lyric harness map: the small index every session loads
 (lyric-harness/CLAUDE.md) and the sections it points to (map/*.md).
 
-Everything here is derived from the code and from one traced run of the
-reference song, never written by hand, so it cannot drift from the code.
+Everything here is derived from the code and from one traced run of a song
+supplied to map/trace.mjs, never written by hand, so it cannot drift from the code.
 
   python3 map/build.py                 rewrite the index and the sections
   python3 map/build.py --from-profile  also rebuild the song path from
@@ -220,10 +220,10 @@ def song_path_from(stats_by_tool):
         out.append("\nMost time spent inside the function itself: " + ", ".join(
             f"`{keys[f]}` {st[f][2] / self_total:.0%}" for f in top) + "\n")
     head = ("# Song path\n\nWhat runs when each lyric tool is called, from one profiled run of "
-            "the reference song (`map/song.txt`, 16 lines) through the connector, every call in "
+            "a supplied song (`node map/trace.mjs --song=FILE`) through the connector, every call in "
             "a fresh Python process, so start-up (loading the pronunciation dictionary and "
             "tables) shows up in each tool. The deployed connector keeps one warm process and "
-            "pays it once. Regenerate: `node map/trace.mjs --profile && python3 map/build.py "
+            "pays it once. Regenerate: `node map/trace.mjs --song=FILE --profile && python3 map/build.py "
             "--from-profile`.\n")
     return head + "\n".join(out) + "\n", sorted(ran)
 
@@ -338,7 +338,7 @@ def limits_md(files_that_ran):
                 js.append((os.path.relpath(f, ROOT), m.group(1), v))
     out = ["# Limits\n",
            "Numeric caps and budgets: module-level constants in the harness files that ran "
-           "for the reference song, and in the connector (`mcp/`). Name, value, file. "
+           "for the traced song, and in the connector (`mcp/`). Name, value, file. "
            "Byte values are also shown in KB.\n",
            "| constant | value | file |", "|---|---:|---|"]
 
@@ -378,7 +378,7 @@ def files_md(ran_files, imported, reach, opened):
         c[1] += size
     out = ["# Files\n",
            "Everything tracked under `lyric-harness/`, sized in tokens (bytes ÷ 3.6, rounded). "
-           "**ran** = at least one function in the file ran for the reference song.\n",
+           "**ran** = at least one function in the file ran for the traced song.\n",
            "| part | files | tokens |", "|---|---:|---:|"]
     out += [f"| {k} | {n} | {ktok(b)} |" for k, (n, b) in sorted(cats.items(), key=lambda kv: -kv[1][1])]
     corpus = [f for f in opened if f.startswith("corpus/")]
@@ -405,11 +405,11 @@ def files_md(ran_files, imported, reach, opened):
 def timings_md():
     t = json.load(open(os.path.join(MAP, "trace.json")))
     out = ["# Timings\n",
-           f"One run of the reference song (`map/song.txt`, {t['song_lines']} lines, seed "
+           f"One run of a supplied song ({t['song_lines']} lines, seed "
            f"{t['seed']}) through the connector with the {t['worker']} Python worker, "
            f"{t['generated'][:10]}. Each call's limit is {t['tool_budget_ms'] // 1000} s. "
            "Revise questions were answered mechanically, so the song is not the point; "
-           "the times are. Regenerate: `node map/trace.mjs && python3 map/build.py`.\n",
+           "the times are. Regenerate: `node map/trace.mjs --song=FILE && python3 map/build.py`.\n",
            "| # | flow | tool | seconds | exit | result |", "|---:|---|---|---:|---:|---|"]
     for c in t["calls"]:
         res = c.get("stop") or c.get("status") or (
@@ -481,7 +481,7 @@ def index_md(sections, ran, trace):
         "`lyric_revise` (asks for replacement lines until it stops). Pasted lyrics: "
         "`lyric_recover` → `lyric_check` → `lyric_revise` → `lyric_verify`.",
         "",
-        f"Slowest call per tool on the 16-line reference song ({trace['generated'][:10]}, "
+        f"Slowest call per tool in the last traced run ({trace['generated'][:10]}, "
         f"limit {trace['tool_budget_ms'] // 1000}s per call): {verbs}.",
         "",
         "## Map sections (read only what the task needs)",
@@ -492,7 +492,7 @@ def index_md(sections, ran, trace):
         f"| `map/rules.md` | every finding code, its severity, and whether it can stop a song; the section types and what each gets checked | {ktok(sizes['rules'])} |",
         f"| `map/limits.md` | every numeric cap, budget and time limit, with its file | {ktok(sizes['limits'])} |",
         f"| `map/files.md` | which files the song program uses, which it never loads, sizes | {ktok(sizes['files'])} |",
-        f"| `map/timings.md` | seconds per tool call on the reference song | {ktok(sizes['timings'])} |",
+        f"| `map/timings.md` | seconds per tool call in the last traced run | {ktok(sizes['timings'])} |",
         "",
         "## Reading code without filling the context",
         "",

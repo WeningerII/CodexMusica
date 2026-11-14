@@ -1,12 +1,12 @@
 # Files
 
-Everything tracked under `lyric-harness/`, sized in tokens (bytes ÷ 3.6, rounded). **ran** = at least one function in the file ran for the reference song.
+Everything tracked under `lyric-harness/`, sized in tokens (bytes ÷ 3.6, rounded). **ran** = at least one function in the file ran for the traced song.
 
 | part | files | tokens |
 |---|---:|---:|
 | saved measurement results | 818 | 13,000k |
 | corpus (raw verse, measured offline) | 2327 | 11,000k |
-| other files | 182 | 11,000k |
+| other files | 181 | 11,000k |
 | data tables (read at run time) | 39 | 7,500k |
 | Python: tests | 167 | 1,600k |
 | notes and records (.md) | 129 | 1,500k |
