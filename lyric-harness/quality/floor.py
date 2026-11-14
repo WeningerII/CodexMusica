@@ -1807,7 +1807,14 @@ _DEFAULT_LEXICON = None
 def _default_lexicon():
     global _DEFAULT_LEXICON
     if _DEFAULT_LEXICON is None:
-        _DEFAULT_LEXICON = _lh.Lexicon()
+        # ONE COPY, NOT TWO (2026-11-14). This used to load its own
+        # `Lexicon()`; the English phonology already holds one built with the
+        # same settings, and a second copy of the pronunciation dictionary
+        # cost every grading process about 65 MB (measured: 644 -> 577 MB on
+        # the capacity check's 31-line song, together with the same change in
+        # `quality/morphology.py`; the grade's report is unchanged).
+        from quality.phonology import eng as _eng
+        _DEFAULT_LEXICON = _eng._lexicon()
     return _DEFAULT_LEXICON
 
 
