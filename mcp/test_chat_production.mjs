@@ -754,7 +754,6 @@ test('an unfinished grade reaches the page as its rendered song and title; a lat
           exit_code: 3,
           certified: false,
           measurement_status: 'graded',
-          status: 'graded',
           ...gradeFields(draft, { title: 'Porch Light' }),
           status: 'graded',
         }),
