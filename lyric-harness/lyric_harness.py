@@ -10182,6 +10182,93 @@ def _legacy_line_limit(kind, prompt):
     return prompt.replace(_LINE_LIMIT_NOW, _LINE_LIMIT_BEFORE)
 
 
+#: The rejection rows `quality/propose.py` printed from `VERIFY_REJECTIONS`
+#: when #671 pass 2 introduced them, FROZEN: an undo restores one change's
+#: bytes, so it may not read a table a later change can move.
+_REJECTION_ROWS_671 = "\n".join(f"  {i}. {t}" for i, t in enumerate((
+    "line count changed <before> -> <after>; the loop revises lines, it does "
+    "not restructure the draft",
+    "explicit targets must be nonempty integer line numbers within the "
+    "normalized draft",
+    "lines <lines> were changed but not targeted; revise flagged lines only",
+    "previously judged required check(s) became refused: <checks>",
+    "previously judged obligation(s) became refused: <pairs>; unknown is "
+    "neither a violation nor a repaired obligation",
+    "introduced a prohibited writing rhyme pair; HOMEOTELEUTON and "
+    "MODAL_RHYME cannot be traded for a repair",
+    "nothing was fixed",
+    "introduced <n> new flagged finding(s) <flags> while fixing <fixed>; a "
+    "revision may not trade one defect for another"), start=1))
+_ENFORCES_671 = ("  Reviser.verify rejects an answer with the first of these "
+                 "reasons that applies:\n" + _REJECTION_ROWS_671)
+_LINE_ENFORCED_671 = re.compile(
+    r"  ONE line back, and it replaces L(\d+)\. The draft stays (\d+) lines\. "
+    r"ONLY (L\d+(?:, L\d+)*) changes \(declared returns are mirrored\)\. "
+    r"allow_net_new: 0 by default\.\n" + re.escape(_ENFORCES_671))
+_GROUP_ENFORCED_671 = re.compile(
+    r"  (\d+) line\(s\) back — one for each of (L\d+(?:, L\d+)*)\. The draft "
+    r"stays (\d+) lines\. ONLY (L\d+(?:, L\d+)*) change\. allow_net_new: 0 by "
+    r"default\.\n" + re.escape(_ENFORCES_671))
+_HOMEOTELEUTON_TAIL_671 = (
+    " The near relations the taxonomy names (declared via Declaration.admit) "
+    "are the palette that keeps this ban from closing the class: reach for a "
+    "differently-spelled partner or a declared near rhyme, not the next word "
+    "in the same spelling family.")
+
+
+def _legacy_671_prose(kind, prompt):
+    """-> the question as worded before #671 pass 2 cut its prose (A9-A13):
+    the whole-draft WORSE sentence, "leave that word alone", the meaning
+    sentences, the HOMEOTELEUTON advice and the hand-written enforced rules."""
+    text = prompt
+    for now, then in (
+            ("in this single edit.\n",
+             "in this single edit.\n  The grader reads them too: a revision "
+             "that makes one WORSE is rejected.\n"),
+            ("so fix the violated place.",
+             "so fix the violated place and keep the word at any place that "
+             "holds."),
+            ("reading judgeable. If the current reading",
+             "reading judgeable. Keep the intended meaning; do not invent a "
+             "pronunciation to obtain a pass. If the current reading"),
+            ("Preserve the line count, placement and all declared relations.\n"
+             "Clear the following whole-draft requirements.",
+             "Preserve the song's meaning, line count, placement and all "
+             "declared relations.\nChange only what is needed to clear the "
+             "following whole-draft requirements."),
+            ("  a new FLAG under rule 8 below.", "  a new FLAG under item 3 below.")):
+        text = text.replace(now, then)
+    text = re.sub(r"( — HOLDS as written(?: \(NOTE [^)\n]*\))?)$",
+                  r"\1; leave that word alone", text, flags=re.M)
+    text = re.sub(r"(rhyme on the SAME SPELLED ENDING \([^\n]*?\)) — banned "
+                  r"before any frequency judgment",
+                  r"\1 — the laziest class, banned before any frequency "
+                  r"judgment", text)
+    text = re.sub(r"(evidence: spelled rime '[^'\n]*' on both sides\.)$",
+                  lambda m: m.group(1) + _HOMEOTELEUTON_TAIL_671, text,
+                  flags=re.M)
+    text = _LINE_ENFORCED_671.sub(lambda m: (
+        f"  1. ONE line back, and it replaces L{m[1]}. The draft stays {m[2]} "
+        f"lines — a different\n     line count is rejected outright: this loop "
+        f"revises lines, it does not restructure\n     the draft.\n  2. ONLY "
+        f"{m[3]} changes (declared returns are mirrored). Any other line that "
+        f"comes back different is rejected\n     outright, whatever else the "
+        f"revision achieved.\n  3. The line must FIX at least one finding. A "
+        f"rewrite that is differently defective\n     is rejected as 'nothing "
+        f"was fixed'.\n  4. It may not trade one defect for another: new FLAG "
+        f"findings anywhere in the draft\n     — including on lines you did "
+        f"not touch — reject it once they exceed the declared\n     "
+        f"`allow_net_new` (0 by default). New NOTES do not reject."), text)
+    text = _GROUP_ENFORCED_671.sub(lambda m: (
+        f"  1. {m[1]} line(s) back — one for each of {m[2]}. The draft stays "
+        f"{m[3]} lines.\n  2. ONLY {m[4]} change. Every other line must come "
+        f"back\n     byte-identical, or the revision is rejected outright.\n  "
+        f"3. The rewrite must FIX something. It may not trade one defect for "
+        f"another: new FLAG\n     findings anywhere in the draft reject it (new "
+        f"NOTES do not)."), text)
+    return None if text == prompt else text
+
+
 #: HOW A HELD RUN'S QUESTIONS WERE WORDED BEFORE, oldest change first
 #: (2026-10-27, #519 finding f). A checkpoint stores the hash of each question
 #: it asked and replays an answer only to the same question, so a change to a
@@ -10199,6 +10286,8 @@ LEGACY_QUESTION_RENDERINGS = (
      _legacy_unadmitted_tail),
     ("2026-11-12 writer: the line limit a question states, 200 -> 512 (#851)",
      _legacy_line_limit),
+    ("2026-11-14 writer: #671 pass 2 cuts prose from the question (A9-A13)",
+     _legacy_671_prose),
 )
 
 

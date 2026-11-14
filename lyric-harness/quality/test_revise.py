@@ -4840,10 +4840,14 @@ def test_a_holding_pair_with_a_pursued_note_is_not_violated():
           and "asks to change" not in str(held)
           and "VIOLATED" not in str(held), str(held))
     prompt = PR.render_line(held, bad)
-    check("the writer prompt says the same: HOLDS as written, leave that "
-          "word alone, and not 'this is the word to change'",
-          "— HOLDS as written (NOTE SHARED_SUFFIX); leave that word alone"
-          in prompt and "the word to change" not in prompt
+    # REPINNED 2026-11-14 (#671 A11): HOLDS is the status; the instruction
+    # that followed it ("leave that word alone") is gone -- only breaking
+    # the group rejects.
+    check("the writer prompt says the same: HOLDS as written, with no "
+          "instruction after it, and not 'this is the word to change'",
+          "— HOLDS as written (NOTE SHARED_SUFFIX)\n" in prompt
+          and "leave that word alone" not in prompt
+          and "the word to change" not in prompt
           and "asks to change" not in prompt, prompt[:600])
     after = list(lines)
     after[1] = "and fell asleep across the dead"

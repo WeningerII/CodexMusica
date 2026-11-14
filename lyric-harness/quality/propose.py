@@ -34,10 +34,9 @@ loads a lexicon this file has no use for. A `Brief`, a `Finding` and a
 three-field stand-in renders and a real one renders the same way.
 
 WHAT THE PROMPT PROMISES IS ONLY WHAT `verify()` ENFORCES. Everything under
-"WHAT THE GRADER ENFORCES" below is a rejection rule read off
-`Reviser.verify` (quality/revise.py) and stated in the same order it fires:
-line count, untargeted lines, the modal exclusion, "nothing was fixed", net
-new FLAGS. A prompt that promised more than that would be teaching a model
+"WHAT THE GRADER ENFORCES" below is a row of `VERIFY_REJECTIONS`, the table
+`Reviser.verify` (quality/revise.py) writes its reasons from, in the order
+it applies them. A prompt that promised more than that would be teaching a model
 to satisfy a rubric nobody grades. Two things the prompt therefore says out
 loud rather than implying:
 
@@ -84,6 +83,52 @@ __all__ = ["render_line", "parse_line", "render_group", "parse_group",
 #: byte rule beside it), and neither did the planner's own range of line
 #: lengths (`plan.PLANNED_LINE_CHARS`).
 MAX_LINE_CHARS = 512
+
+#: EVERY REJECTION `Reviser.verify` RETURNS, in the order it applies them
+#: (#671 A10). ONE TABLE, READ TWICE: `verify` writes each reason with
+#: `verify_reason`, and the "WHAT THE GRADER ENFORCES" block lists the same
+#: rows with each `{field}` shown as `<field>`, so the writer's list and the
+#: checks cannot drift. It lives here because this module imports nothing
+#: from `quality.revise`; the grader imports it from here.
+VERIFY_REJECTIONS = {
+    "line_count": "line count changed {before} -> {after}; the loop revises "
+                  "lines, it does not restructure the draft",
+    "bad_targets": "explicit targets must be nonempty integer line numbers "
+                   "within the normalized draft",
+    "untargeted": "lines {lines} were changed but not targeted; revise "
+                  "flagged lines only",
+    "required_check_refused": "previously judged required check(s) became "
+                              "refused: {checks}",
+    "obligation_refused": "previously judged obligation(s) became refused: "
+                          "{pairs}; unknown is neither a violation nor a "
+                          "repaired obligation",
+    "writing_ban": "introduced a prohibited writing rhyme pair; "
+                   "HOMEOTELEUTON and MODAL_RHYME cannot be traded for a "
+                   "repair",
+    "nothing_fixed": "nothing was fixed",
+    "new_flags": "introduced {n} new flagged finding(s) {flags} while fixing "
+                 "{fixed}; a revision may not trade one defect for another",
+}
+
+
+def verify_reason(key, **fields):
+    """-> the reason `Reviser.verify` returns for one `VERIFY_REJECTIONS` row."""
+    return VERIFY_REJECTIONS[key].format(**fields)
+
+
+class _Placeholders(dict):
+    def __missing__(self, key):
+        return f"<{key}>"
+
+
+def _rejection_rows(indent="  "):
+    """-> [str], the `VERIFY_REJECTIONS` rows as the writer reads them."""
+    return [f"{indent}{i}. {text.format_map(_Placeholders())}"
+            for i, text in enumerate(VERIFY_REJECTIONS.values(), start=1)]
+
+
+#: The row a new FLAG rejects under, by number, for the sentences that cite it.
+NEW_FLAGS_ROW = list(VERIFY_REJECTIONS).index("new_flags") + 1
 
 _FENCE_RE = re.compile(r"```[^\n]*\n(.*?)```", re.DOTALL)
 _LINE_MARK_RE = re.compile(r"^[ \t]*LINE[ \t]*:[ \t]*(.*)$",
@@ -240,8 +285,6 @@ def _whole_block(whole, indent="  "):
         f"constraints while changing only the permitted lines.",
         f"{indent}A permitted rewrite may improve or clear a whole-draft "
         f"finding; it is not required to clear every one in this single edit.",
-        f"{indent}The grader reads them too: a revision that makes one "
-        f"WORSE is rejected.",
     ]
     out.extend(_finding_lines(whole, indent=indent))
     return out
@@ -292,12 +335,11 @@ def _mandate_block(brief, indent="  "):
             standing += "; unresolved readings are not evidence that this word holds"
         elif lab in noted:
             standing = (f" — HOLDS as written (NOTE "
-                        f"{', '.join(tuple(noted[lab]))}); leave that word "
-                        f"alone")
+                        f"{', '.join(tuple(noted[lab]))})")
         elif violated:
             standing = (" — VIOLATED, this is the word to change"
                         if lab in violated else
-                        " — HOLDS as written; leave that word alone")
+                        " — HOLDS as written")
         if lab in rets:
             # A DECLARED RETURN IS NOT A RHYME GROUP, and this said it was —
             # defect E, 2026-08-16. `Mandate.requirement` answers
@@ -324,8 +366,7 @@ def _mandate_block(brief, indent="  "):
             out.append(f"{indent}This line binds at {len(places)} "
                        f"PLACES, listed above: each place is its own word "
                        f"answering its own group(s), so fix the "
-                       f"violated place and keep the word at any place "
-                       f"that holds.")
+                       f"violated place.")
         else:
             out.append(f"{indent}This line is a PIVOT: it is in "
                        f"{len(must_answer)} groups and must answer EVERY "
@@ -342,39 +383,22 @@ def _mandate_block(brief, indent="  "):
 
 def _enforced_block(line_no, n_lines, indent="  ", word_name="end word",
                     targets=None):
-    """-> [str]. The rejection rules of `Reviser.verify`, in the order that
-    method applies them, and NOTHING ELSE.
+    """-> [str]. This question's coordinates, then the rejection rules of
+    `Reviser.verify` as `VERIFY_REJECTIONS` holds them, and NOTHING ELSE.
 
-    Each numbered item below is one early return in `verify()`: line count,
-    untargeted lines, "nothing was fixed", net-new flags. `allow_net_new` is named rather than quoted as a number —
-    it is a `ReviseDeclaration` coordinate and a `Brief` does not carry it,
-    so this file cannot see the value the caller actually set.
-
-    `word_name` is `slot_phrase`'s answer, passed rather than re-derived
-    because this block has no `Brief` and a second reading of the placement
-    is a second definition of it (doctrine 1). Its default is the spelling
-    every pre-placement mandate produces, so an omitted argument renders the
-    sentence this block has always rendered.
+    `allow_net_new` is named rather than quoted as a number — it is a
+    `ReviseDeclaration` coordinate and a `Brief` does not carry it, so this
+    file cannot see the value the caller actually set. `word_name` is kept
+    for the callers that pass it; no row reads it.
     """
     return [
-        f"{indent}1. ONE line back, and it replaces L{line_no}. The draft "
-        f"stays {n_lines} lines — a different",
-        f"{indent}   line count is rejected outright: this loop revises "
-        f"lines, it does not restructure",
-        f"{indent}   the draft.",
-        f"{indent}2. ONLY {', '.join('L%d' % n for n in (targets or (line_no,)))} "
-        f"changes (declared returns are mirrored). Any other line that comes back "
-        f"different is rejected",
-        f"{indent}   outright, whatever else the revision achieved.",
-        f"{indent}3. The line must FIX at least one finding. A rewrite that "
-        f"is differently defective",
-        f"{indent}   is rejected as 'nothing was fixed'.",
-        f"{indent}4. It may not trade one defect for another: new FLAG "
-        f"findings anywhere in the draft",
-        f"{indent}   — including on lines you did not touch — reject it once "
-        f"they exceed the declared",
-        f"{indent}   `allow_net_new` (0 by default). New NOTES do not "
-        f"reject.",
+        f"{indent}ONE line back, and it replaces L{line_no}. The draft stays "
+        f"{n_lines} lines. ONLY "
+        f"{', '.join('L%d' % n for n in (targets or (line_no,)))} changes "
+        f"(declared returns are mirrored). allow_net_new: 0 by default.",
+        f"{indent}Reviser.verify rejects an answer with the first of these "
+        f"reasons that applies:",
+        *_rejection_rows(indent),
     ]
 
 
@@ -620,7 +644,6 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
            for f in findings):
         out.append("  An unjudged required check is UNKNOWN, not a lyric violation. "
                    "A replacement can make the declared anchor or reading judgeable. "
-                   "Keep the intended meaning; do not invent a pronunciation to obtain a pass. "
                    "If the current reading is intentional, no rewrite fixes it: whatever "
                    "line comes back is graded as the replacement. The remedy is an explicit "
                    "reading declaration and a regrade, outside this question.")
@@ -809,8 +832,8 @@ def render_group(group_brief):
     g = group_brief
     if getattr(g, "whole_repair", False):
         out = ["REPAIR THE DECLARED REQUIREMENTS", "",
-               "Preserve the song's meaning, line count, placement and all declared relations.",
-               "Change only what is needed to clear the following whole-draft requirements."]
+               "Preserve the line count, placement and all declared relations.",
+               "Clear the following whole-draft requirements."]
         out.extend(_finding_lines(g.whole))
         out.extend(["", "DECLARED MANDATE", g.mandate_description, "", "CURRENT DRAFT"])
         out.extend(_draft_block(g.lines))
@@ -909,7 +932,7 @@ def render_group(group_brief):
                        f"still hold: whatever L{a_no} moves")
             out.append(f"  to has to answer them as well, and a new bound "
                        f"word that breaks one of them is")
-            out.append("  a new FLAG under item 3 below.")
+            out.append(f"  a new FLAG under rule {NEW_FLAGS_ROW} below.")
             out.append("")
 
     out.append(f"  The {k} lines are COUPLED: whatever each binds on must "
@@ -919,16 +942,14 @@ def render_group(group_brief):
     out.append("")
 
     out.append("WHAT THE GRADER ENFORCES ON YOUR ANSWER")
-    out.append(f"  1. {k} line(s) back — one for each of "
+    out.append(f"  {k} line(s) back — one for each of "
                f"{', '.join(f'L{n}' for n in members)}. The draft stays "
-               f"{len(lines)} lines.")
-    out.append(f"  2. ONLY {', '.join(f'L{n}' for n in members)} change. "
-               f"Every other line must come back")
-    out.append("     byte-identical, or the revision is rejected outright.")
-    out.append("  3. The rewrite must FIX something. It may not trade one "
-               "defect for another: new FLAG")
-    out.append("     findings anywhere in the draft reject it (new NOTES do "
-               "not).")
+               f"{len(lines)} lines. ONLY "
+               f"{', '.join(f'L{n}' for n in members)} change. "
+               f"allow_net_new: 0 by default.")
+    out.append("  Reviser.verify rejects an answer with the first of these "
+               "reasons that applies:")
+    out.extend(_rejection_rows())
     out.append("")
 
     out.append("HOW TO ANSWER")
