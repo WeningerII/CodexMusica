@@ -39,8 +39,6 @@ absolute `references/` path. `node` and `jq` are available.
 | "Check / fix this recipe or arrangement" | §6 Validation checklist |
 | Error, ambiguous name, missing field, anachronism, broken ref | §7 Efficiency + failure modes |
 
-Hard rule: **anything you emit (recipe or arrangement) MUST pass §6 before you return it.**
-
 ---
 
 ## 1. Data model at a glance
@@ -349,9 +347,7 @@ Each reuses `const db = require('./q.js')`. Run from the package root or with
    # <room id> | <cluster> | <descriptor>/<descriptor>/<descriptor>
    ```
    (List clusters with `[...new Set(db.ROOMS.map(r=>r.cluster))]`.)
-3. **Tuning** (usually one): start from `tradition.tuning` (often the default equal-temperament tuning). Mixing
-   tuning *families* (one family vs another, read from `descriptors`/`sub`) is a
-   hard flag unless intentional.
+3. **Tuning** (usually one): start from `tradition.tuning` (often the default equal-temperament tuning).
 
 ### 3d. Voice & preface lexicon (descriptor enrichment)
 
@@ -399,7 +395,7 @@ flags below are verified; run from the repo root.
 | Recipe for one tradition | `node scripts/recipe.js --tradition <id>` |
 | Staple multiple traditions (order = lead order) | `node scripts/recipe.js --traditions <id1>,<id2>` |
 | Weighted blend of two (0=A … 1=B) | `node scripts/recipe.js --diff --weight=0.7 <idA> <idB>` |
-| Best-fit tradition for an axis target | `node scripts/recipe.js --axis-target "harm:2,density:2,intensity:2"` |
+| Best-fit tradition for an axis target | `node scripts/recipe.js --axis-target "harm:<number>,density:<number>,intensity:<number>"` |
 | **Customize** a part's variant | `node scripts/recipe.js --tradition <id> --swap-variant=<inst>:<part>:<variant>` |
 | **Delete** instrument(s) from the ensemble | `node scripts/recipe.js --tradition <id> --exclude-instrument=<id>,<id>` |
 | **Add** instrument(s) beyond the roster | `node scripts/recipe.js --tradition <id> --add-instrument=<id>` |
@@ -585,7 +581,7 @@ setTimeout(()=>{
   `compileRecipeStack(cards, format, {})`. Tweak, then compile.
 - The chain shape is `{fx:[],amp,pre,comp,eq,console,mic,medium}`; set a stage's
   gear by id, e.g. `card.chain={...card.chain, mic:'<mic id>', medium:'<medium id>'}`.
-- **Validate the result against §6** before returning it (≤1000 chars, no proper
+- **Check the result against §6** (≤1000 chars, no proper
   names, ids resolve). The four formats all honor the ceiling via the same trim
   cascade.
 - Iterate: build 2-3 variants (e.g. with/without a stapled tradition, or different
@@ -600,7 +596,7 @@ Emit **one of two** shapes depending on the ask.
 
 ### 4A. Recipe string (default for "make / recipe / how to record")
 
-A single descriptor-stack string. Constraints (all enforced by §6):
+A single descriptor-stack string. Constraints (listed in §6):
 - ≤ **1000 characters** (a ceiling, not a target; trim the last category first if over).
 - No prose, connectives, or labels. Period between category groups; commas within.
 - **No axis values** printed. **No artist/band/composer/exemplar names** — those live
@@ -634,7 +630,7 @@ Emit exactly this shape. **Required:** `meta.title`, and each `ensemble[]` item'
   "tuning_id": "<tuning id>",
   "aesthetic_id": null,                                  // optional; must resolve if present
   "recipe": "classic <region> <era> <tradition name>, …",   // the §4A string
-  "validation": { "checked": true, "issues": [] }        // checked MUST be true; issues empty (or all soft)
+  "validation": { "checked": true, "issues": [] }        // soft findings from §6, if any
 }
 ```
 
@@ -674,8 +670,8 @@ chain uses archetype `<archetype id>`'s components (which **supersede**
 the tradition's inline `chain_*` per §4B): `mic=<mic id>`, `pre=<pre id>`,
 `console=<console id>`, `comp=<comp id>`, `eq=<eq id>`,
 `medium=<medium id>`. The recipe contains none of the tradition's exemplars.
-Caveat: variants are family-part-level, so the §6
-validator confirms a `variant_id` belongs to its part but cannot judge musical idiom —
+Caveat: variants are family-part-level, so §6.3
+confirms a `variant_id` belongs to its part but cannot judge musical idiom —
 choose idiomatic variants yourself.)
 
 ---
@@ -836,7 +832,7 @@ key, tradition with no extras, and bad extras `parent` yield `DUP_INST <instrume
 
 ---
 
-## 6. Validation checklist (run before every return)
+## 6. Validation checklist
 
 Run IN ORDER. Stop and fix on any hard failure; record soft items in
 `validation.issues`. Then set `validation.checked = true`.
@@ -849,61 +845,11 @@ Run IN ORDER. Stop and fix on any hard failure; record soft items in
    are free vocab → soft, not hard.)
 3. **Part valid for instrument** — every `part_id ∈ db.partsFor(instrument_id)`, and
    `variant_id` belongs to that part.
-4. **Tuning coherence** — all tunings in use share a family (read `descriptors`/`sub`);
-   mixing tunings from different families is a hard flag unless intentional.
-5. **Era/region coherence** — if a tradition is named, the room/archetype/aesthetic eras
-   and regions are consistent with its `lineage`; flag obvious anachronisms as soft.
-6. **No exemplar/proper names in `recipe`** — none of the tradition's `exemplars[]` (or
+4. **No exemplar/proper names in `recipe`** — none of the tradition's `exemplars[]` (or
    archetype `exemplar_studios[]`) appears in the output; no axis numbers printed.
-7. **Recipe budget** — `recipe.length ≤ 1000`; catalog defaults dropped.
-8. **Nothing left unlooked-at** — every id emitted was checked by ≥1 rule above;
+5. **Recipe budget** — `recipe.length ≤ 1000`; catalog defaults dropped.
+6. **Nothing left unlooked-at** — every id emitted was checked by ≥1 rule above;
    `validation.issues` lists every soft finding; no placeholder/TODO ids.
-
-### Verified arrangement validator
-
-```js
-// validate.js — CODEX_REF=/abs/references node validate.js arrangement.json
-const db = require('./q.js'), fs = require('fs');
-const A = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
-const hard = [], soft = [];
-const partsIndex = id => { const m = {}; db.partsFor(id).forEach(p => m[p.id] = p); return m; };
-if (!A.meta || !A.meta.title) hard.push('meta.title missing');
-const trads = A.meta ? (A.meta.tradition ? [A.meta.tradition] : (A.meta.blend || [])) : [];
-trads.forEach(t => { if (!db.byTrad[t]) hard.push('unknown tradition ' + t); });
-(A.ensemble || []).forEach((c, n) => {
-  const i = db.byInst[c.instrument_id];
-  if (!i) { hard.push('chair ' + n + ': unknown instrument ' + c.instrument_id); return; }
-  const pm = partsIndex(c.instrument_id);
-  (c.parts || []).forEach(pp => {
-    const p = pm[pp.part_id];
-    if (!p) { hard.push('chair ' + n + ': ' + i.id + ' has no part ' + pp.part_id); return; }
-    if (pp.variant_id && !(p.variants || []).some(v => v.id === pp.variant_id))
-      hard.push('chair ' + n + ': variant ' + pp.variant_id + ' not in ' + pp.part_id);
-  });
-});
-if (A.room_id && !db.byRoom[A.room_id]) hard.push('unknown room ' + A.room_id);
-if (A.tuning_id && !db.byTuning[A.tuning_id]) hard.push('unknown tuning ' + A.tuning_id);
-if (A.aesthetic_id && !db.byAes[A.aesthetic_id]) hard.push('unknown aesthetic ' + A.aesthetic_id);
-if (A.chain && A.chain.archetype_id && !db.byArch[A.chain.archetype_id])
-  soft.push('archetype not in CHAIN_ARCHETYPES (free-vocab if intentional): ' + A.chain.archetype_id);
-if (typeof A.recipe === 'string') {
-  if (A.recipe.length > 1000) hard.push('recipe over 1000 chars (' + A.recipe.length + ')');
-  trads.forEach(tid => (db.extras[tid] ? db.extras[tid].exemplars || [] : []).forEach(name => {
-    const base = String(name).split(/[—\-(]/)[0].trim();
-    if (base.length > 3 && A.recipe.includes(base)) hard.push('recipe leaks exemplar name: ' + base);
-  }));
-}
-console.log(JSON.stringify({ ok: hard.length === 0, hard, soft, recipeLen: (A.recipe || '').length }, null, 1));
-```
-On the §4 worked example: `{"ok":true,"hard":[],"soft":[],"recipeLen":<length>}` (verified on a real arrangement of this shape).
-On a deliberately broken arrangement (unknown instrument `NOPE`; a `<part>` part the
-instrument can't take; a real `<part>` part with a bogus
-`acoustic_moonwalk` variant; unknown room/tuning/aesthetic; a made-up archetype; and a
-recipe containing one of the tradition's exemplar names) it returns `ok:false` with hard items
-`unknown instrument NOPE`, `chair 1: <instrument id> has no part <part>`,
-`chair 2: variant acoustic_moonwalk not in <part>`, `unknown room room_NOPE`,
-`unknown tuning tuning_NOPE`, `unknown aesthetic aesthetic_NOPE`, `recipe leaks exemplar
-name: <exemplar>`, and the made-up archetype in `soft` (verified).
 
 ---
 
@@ -936,16 +882,12 @@ name: <exemplar>`, and the made-up archetype in `soft` (verified).
   variant when their `applies_to` scopes are disjoint (e.g. `percussion_technique` has
   separate defaults for drum kit, hand drums, mallets). Only overlapping defaults are bugs.
 - **Exemplar leakage**: the most common output error is letting an artist/band/studio
-  name from `exemplars[]`/`exemplar_studios[]` into the recipe. The §6 validator catches
-  it — always run it.
+  name from `exemplars[]`/`exemplar_studios[]` into the recipe (§6.4).
 - **Anachronism / incoherence**: data is descriptive and occasionally non-literal
   (names, `lineage`). Don't "fix" the dataset; surface the mismatch as a soft
   `validation.issues` note and proceed with the ids.
 - **`PREFACE_LEXICON` is not a parts/conflicts table**: it's vocal/character token
   bundles. Don't expect `targets`, `ops`, or `conflicts` fields.
-
-When in doubt, re-run §6's `validate.js`. A clean `{"ok":true,"hard":[]}` (with any
-issues confined to `soft`) is the bar for returning any output.
 
 ---
 
@@ -1184,16 +1126,17 @@ merged across cards. One shared sonic environment for the whole recipe. Conseque
   engine cannot show a tuning conflict because it only ever emits one env tuning. If you stapled
   incompatible-tuning traditions on purpose, fine; if not, the recipe won't warn you.
 
-### 9.4c The engine is PERMISSIVE — it never validates your ids; §6 checks are mandatory
+### 9.4c The raw `compileRecipeStack` is PERMISSIVE — it never validates your ids
 
 Verified by feeding deliberately-broken cards: an invalid part-variant id, a nonexistent tuning, and a
 nonexistent room were all **silently dropped** (no throw, no raw id in the output — the valid parts still
 rendered). A preface force-locked to a zero-overlap value was **held verbatim** (locks are absolute), and
 **locked duplicates are NOT deduped** — three cards locked to the same preface all render it (dedup only
 governs `prefaceAuto !== false` cards). Takeaways:
-- The engine will not reject or flag a bad id; it just omits it. A recipe can **silently lack** a tuning
-  or part you thought you set. So §6's "all ids resolve" is **mandatory, not optional** — validate before
-  emitting.
+- `compileRecipeStack` will not reject or flag a bad id; it just omits it. A recipe can **silently lack** a
+  tuning or part you thought you set. The connector (`edit_recipe`) and `scripts/recipe.js` do refuse an
+  unknown id, so this applies only when you call `compileRecipeStack` on cards you built yourself:
+  check §6's "all ids resolve" first.
 - You *can* deliberately force duplicate prefaces by locking them (dedup won't touch locked cards).
 - Empty card set → `compileRecipeStack` returns `''` (all formats). Guard against emitting an empty recipe
   after a delete-to-empty. Conversely, a **sparse** recipe is *verbose*, not short: the trim cascade
@@ -1212,11 +1155,8 @@ instrumentation, recording technology**. Then:
    `{traditionId, tuning, room, chain}` from a sibling (§9.3b).
 3. **Period accuracy — align ALL THREE era-bearing axes** (§9.3): (a) signal **chain** to the period
    archetype's components, (b) **room** to a period-appropriate space, (c) era-bearing **part variants**
-   (don't trust modern defaults). Cross-check the rendered recipe for stray modern tokens
-   (`grep -oE '(19|20)[0-9]{2}'`-style sanity on the output) — a 1949 song must not contain "1980s".
+   (don't trust modern defaults).
 4. **Tuning** — set to the tradition's vocabulary tuning or the default equal-temperament tuning.
-   If two cards use tunings from different families, that's a hard flag
-   unless intentional (§6.4).
 5. **Voice** — if voiced, set `voice_register / voice_quality / voice_vibrato` (and the era-bearing
    `voice_multitrack_stack` / `voice_processing_chain`) to match the singer; don't leave the modern-pop
    defaults.
