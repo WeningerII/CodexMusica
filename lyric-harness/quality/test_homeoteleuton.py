@@ -159,6 +159,18 @@ def test_pair_verdicts():
           "the last group: singing/ringing share 'inging', still banned",
           R._spelled_rime("singing") == R._spelled_rime("ringing")
           == "inging")
+    # THE BAN STAYS AND ITS ADVICE IS GONE (#671 A13): the finding a writer
+    # is quoted carries the code, the pair and the spelled rime, and no
+    # adjective or "reach for" steer.
+    ban = R.earned_pair_ban({"why": None, "relations": ["PERFECT"],
+                             "lines": (1, 3), "endwords": ("store", "wore"),
+                             "label": "A"})
+    check("store/wore is still HOMEOTELEUTON, and its message and evidence "
+          "state the measurement only",
+          ban is not None and ban.code == "HOMEOTELEUTON"
+          and ban.evidence == "spelled rime 'ore' on both sides."
+          and "laziest" not in ban.message and "reach for" not in ban.evidence,
+          ban and (ban.message, ban.evidence))
 
 
 def test_pursuit_is_mandatory():

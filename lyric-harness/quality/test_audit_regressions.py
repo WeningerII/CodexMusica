@@ -279,9 +279,12 @@ class AuditRegressions(unittest.TestCase):
         real_render = PRM.render_line
         old_tail = LH._UNADMITTED_DEFAULT_TAIL_BEFORE
         new_tail = LH._UNADMITTED_DEFAULT_TAIL
+        # ...AND BEFORE #671 PASS 2 CUT THE QUESTION'S PROSE (2026-11-14), so
+        # the held rendering has that rewording undone as well.
         def render_at_200(*a, **k):
             with patch.object(PRM, 'MAX_LINE_CHARS', 200):
-                return real_render(*a, **k)
+                text = real_render(*a, **k)
+            return LH._legacy_671_prose('propose', text) or text
         held = lambda *a, **k: render_at_200(*a, **k) + '\nwhy: x — ' + old_tail
         now = lambda *a, **k: real_render(*a, **k) + '\nwhy: x — ' + new_tail
         self.assertEqual(LH.legacy_question_texts('propose', now(b, initial))[-1],
@@ -321,6 +324,26 @@ class AuditRegressions(unittest.TestCase):
                 self.assertEqual(cp.read_bytes(), before)
             self.assertEqual(len(calls), 1, 'no branch made a writer request')
 
+    def test_the_671_rewording_undoes_to_the_old_question(self):
+        # 2026-11-14 (#671 pass 2, A9-A13): the question lost its prose and
+        # its enforced rules became `VERIFY_REJECTIONS` rows. The newest
+        # undo restores the earlier wording, so a run held across the change
+        # still replays (`LEGACY_QUESTION_RENDERINGS`).
+        import quality.propose as PRM
+        b = Brief(2, 'original dog')
+        now_line = PRM.render_line(b, ['original cat', 'original dog'])
+        older = LH.legacy_question_texts('propose', now_line)[0]
+        self.assertIn('Reviser.verify rejects an answer', now_line)
+        self.assertNotIn('Reviser.verify rejects an answer', older)
+        self.assertIn('  1. ONE line back, and it replaces L2. The draft stays 2 '
+                      'lines — a different', older)
+        self.assertIn('New NOTES do not reject.', older)
+        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-1][1], LH._legacy_671_prose)
+        # The undo reads a FROZEN copy of the rows it replaced; while the
+        # table is unchanged the two agree, and a later change to the table
+        # needs its own entry.
+        self.assertEqual('\n'.join(PRM._rejection_rows()), LH._REJECTION_ROWS_671)
+
     def test_a_question_held_under_the_200_line_limit_replays(self):
         # 2026-11-12 (#851). The line limit a question states rose from 200
         # characters to 512, which moves the bytes of every question. A
@@ -336,14 +359,22 @@ class AuditRegressions(unittest.TestCase):
         b.round_no = 1
         then = 'is at most 200 characters; a longer one is not accepted.'
         now = 'is at most 512 characters; a longer one is not accepted.'
+        # A QUESTION HELD UNDER THE 200 LIMIT WAS WORDED BEFORE #671 PASS 2
+        # TOO (2026-11-14, `_legacy_671_prose`), so the held bytes are this
+        # build's question at 200 with that later rewording undone.
+        real_render = PRM.render_line
+        def worded_then(*args, **kwargs):
+            text = real_render(*args, **kwargs)
+            return LH._legacy_671_prose('propose', text) or text
         with patch.object(PRM, 'MAX_LINE_CHARS', 200):
-            held_line = PRM.render_line(b, initial)
+            held_line = worded_then(b, initial)
         now_line = PRM.render_line(b, initial)
         self.assertEqual((held_line.count(then), held_line.count(now)), (1, 0))
         self.assertEqual((now_line.count(then), now_line.count(now)), (0, 1))
         # Undoing the change restores the old bytes exactly, for a line
         # question and for a group question's "Each line is at most ...".
-        self.assertEqual(LH.legacy_question_texts('propose', now_line), [held_line])
+        self.assertEqual(LH.legacy_question_texts('propose', now_line),
+                         [worded_then(b, initial), held_line])
         self.assertEqual(
             LH.legacy_question_texts('propose_group', '  Each line ' + now),
             ['  Each line ' + then])
@@ -355,7 +386,8 @@ class AuditRegressions(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp, \
              patch.dict(os.environ, {'LYRIC_CHECKPOINT_PATH': str(Path(tmp)/'cp.json')}), \
              contextlib.redirect_stdout(io.StringIO()):
-            with patch.object(PRM, 'MAX_LINE_CHARS', 200):
+            with patch.object(PRM, 'MAX_LINE_CHARS', 200), \
+                    patch.object(PRM, 'render_line', worded_then):
                 one, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
                 one.checkpoint(initial, 0, 'started')
                 self.assertEqual(one(b, initial, 0), accepted[1])
