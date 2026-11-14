@@ -1,8 +1,9 @@
-// Runs the reference song (map/song.txt) through every lyric tool, the way an
-// MCP client calls them, and writes map/trace.json. map/build.py reads it.
+// Runs a song you supply through every lyric tool, the way an MCP client calls
+// them, and writes map/trace.json. map/build.py reads it. The repository keeps
+// no song of its own for this (#671): pass a plain-text file, one line per line.
 //
-//   node lyric-harness/map/trace.mjs            timings (warm worker, as deployed)
-//   node lyric-harness/map/trace.mjs --profile  also profile each harness process
+//   node lyric-harness/map/trace.mjs --song=FILE            timings (warm worker, as deployed)
+//   node lyric-harness/map/trace.mjs --song=FILE --profile  also profile each harness process
 //
 // --profile runs every call in its own Python process (LYRIC_WORKER=0) with a
 // profiling hook on PYTHONPATH, so each call leaves one cProfile file in map/.prof/.
@@ -17,6 +18,11 @@ const MAP = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(MAP, '..', '..');
 const MCP = path.join(ROOT, 'mcp');
 const PROFILE = process.argv.includes('--profile');
+const SONG_ARG = process.argv.find((a) => a.startsWith('--song='));
+if (!SONG_ARG) {
+  console.error('usage: node lyric-harness/map/trace.mjs --song=FILE [--profile]');
+  process.exit(2);
+}
 const PROF_DIR = path.join(MAP, '.prof');
 const SITECUSTOMIZE = `"""Profile one harness process for map/build.py's trace. Inert unless
 SONG_MAP_PROFILE names a directory; map/trace.mjs writes this file and
@@ -81,7 +87,7 @@ const [a, b] = InMemoryTransport.createLinkedPair();
 await Promise.all([client.connect(a), server.connect(b)]);
 
 const song = fs
-  .readFileSync(path.join(MAP, 'song.txt'), 'utf8')
+  .readFileSync(path.resolve(SONG_ARG.slice('--song='.length)), 'utf8')
   .split('\n')
   .filter((l) => l.trim());
 const LINES = song.length;

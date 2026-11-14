@@ -1,6 +1,6 @@
 # Limits
 
-Numeric caps and budgets: module-level constants in the harness files that ran for the reference song, and in the connector (`mcp/`). Name, value, file. Byte values are also shown in KB.
+Numeric caps and budgets: module-level constants in the harness files that ran for the traced song, and in the connector (`mcp/`). Name, value, file. Byte values are also shown in KB.
 
 | constant | value | file |
 |---|---:|---|
