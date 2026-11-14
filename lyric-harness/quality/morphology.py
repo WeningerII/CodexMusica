@@ -273,7 +273,12 @@ def _known_words(words=None):
     if _KNOWN is None:
         try:
             import lyric_harness as _lh
-            _lex = _lh.Lexicon()
+            # Only the frequency ranks are read here, so take them from the
+            # lexicon the English phonology already holds (2026-11-14):
+            # loading a whole second pronunciation dictionary for them was
+            # tens of megabytes held for one loop.
+            from quality.phonology import eng as _eng
+            _lex = _eng._lexicon()
             # THE FREQUENCY LIST, NOT THE PRONOUNCING DICTIONARY, and the
             # difference is the whole productivity test. CMUdict lists 126,052
             # headwords including every proper noun and interjection, so
