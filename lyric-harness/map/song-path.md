@@ -1,6 +1,6 @@
 # Song path
 
-What runs when each lyric tool is called, from one profiled run of the reference song (`map/song.txt`, 16 lines) through the connector, every call in a fresh Python process, so start-up (loading the pronunciation dictionary and tables) shows up in each tool. The deployed connector keeps one warm process and pays it once. Regenerate: `node map/trace.mjs --profile && python3 map/build.py --from-profile`.
+What runs when each lyric tool is called, from one profiled run of a supplied song (`node map/trace.mjs --song=FILE`) through the connector, every call in a fresh Python process, so start-up (loading the pronunciation dictionary and tables) shows up in each tool. The deployed connector keeps one warm process and pays it once. Regenerate: `node map/trace.mjs --song=FILE --profile && python3 map/build.py --from-profile`.
 
 ## lyric_sweep
 
