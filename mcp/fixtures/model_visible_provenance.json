@@ -122,11 +122,8 @@
     {
       "literal": "recipe",
       "category": "field-or-value",
-      "at": ["edit_recipe description", "systemInstruction"],
-      "contexts": [
-        "word the user said, then present the final `recipe` string VERBATIM.",
-        "ACTIVE TASK (chosen by the user and held by the host): {\"domain\":\"recipe\""
-      ],
+      "at": ["systemInstruction"],
+      "contexts": ["ACTIVE TASK (chosen by the user and held by the host): {\"domain\":\"recipe\""],
       "declared_in": [
         {
           "file": "mcp/engine.js",
@@ -190,7 +187,7 @@
       "category": "field-or-value",
       "at": ["get_instrument description"],
       "contexts": [
-        "reports its full `variant_count` and sets `truncated` when you are seeing a slice. Narrow it"
+        "reports its full `variant_count` and sets `truncated` when you are seeing a slice. `query` filters"
       ],
       "declared_in": [
         {
@@ -199,6 +196,19 @@
         }
       ],
       "reason": "A field of the tool's own verdict or result (`truncated`), named so the model reads it."
+    },
+    {
+      "literal": "changed",
+      "category": "field-or-value",
+      "at": ["instructions", "start_recipe description", "systemInstruction"],
+      "contexts": ["a card with no `changed` field is the stock default"],
+      "declared_in": [
+        {
+          "file": "mcp/engine.js",
+          "as": "key"
+        }
+      ],
+      "reason": "A field of the tool's own result (`changed`), named so the model reads it (#671 B3)."
     },
     {
       "literal": "unreadable",
@@ -402,7 +412,7 @@
       "category": "quoted-check",
       "at": ["start_recipe description"],
       "contexts": [
-        "identical to what a human sees in the app (\"Current Recipe\"). This is the SCAFFOLD, not the finished"
+        "identical to what a human sees in the app (\"Current Recipe\"); a card with no `changed` field is the stock default"
       ],
       "about": "app",
       "reason": "The app's panel label, so the model knows the recipe string is the one a person sees."
