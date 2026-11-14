@@ -12539,8 +12539,7 @@ def main():
                     print(f"    WANT {nm}{op}{val} — {gloss}")
             else:
                 print("    (no predicate declared, so every seed that plans "
-                      "at all is accepted — honest and useless, and there is "
-                      "no default: a sweep does not decide what you want)")
+                      "at all is accepted; there is no default predicate)")
             # THREE COUNTS, NEVER SUMMED (doctrine 79). `refused` is the
             # planner turning a request down — an unattainable length, or a
             # seed whose every redraw the joint gate refused (since option
@@ -12621,7 +12620,7 @@ def main():
                   + "".join(f" {_shlex.quote(f'--{k}={v}')}" for k, v in (
                       ("relation", relation), ("group-types", group_types_raw),
                       ("title", title), ("narrative", narrative_raw),
-                      ("melody", melody_raw))
+                      ("melody", melody_raw), ("want", want_raw))
                       if v is not None))
             _lyric_result(status="swept", exit=0,
                           sweep={**record, "outcome": "accepted"})
