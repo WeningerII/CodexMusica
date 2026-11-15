@@ -58,7 +58,16 @@ The five runs overlapped from about 19:35 to 20:04 UTC on 15 November. The host'
 - 20:02:10: killed for running out of memory again. Back at 20:02:17.
 - After the last agent stopped: memory about 0.4 GB, health check answering.
 
-Both kills came while the 444-line grade was running or had just been resumed. That it alone is the cause is not shown here.
+Both kills came while the 444-line grade was running or had just been resumed.
+
+## One long grade, measured alone
+
+Run on a development machine, not on the live server, on main `f022397c44`: the same seed and form the agent drew (444 lines, ten sections), filled with a placeholder draft that keeps the plan's own repeats, graded once with the command the plan verb prints.
+
+- Memory of the grading process: 0.9 GB after 70 seconds, 1.27 GB after 213 seconds, 1.59 GB after 381 seconds, 1.85 GB after 1,094 seconds. Largest value recorded: 1,874 MB.
+- Time: 1,143 seconds (19 minutes) to finish. Exit 2 (coverage incomplete on the placeholder words).
+
+The live server has 2 GB in all and rested at 1.39 to 1.40 GB before the test. So this one grade does not fit on it, alone, whatever else is running. The connector runs one harness job at a time (`mcp/python_bridge.js`, the `pump` function), so the kills were not two heavy jobs side by side.
 
 ## Totals
 
