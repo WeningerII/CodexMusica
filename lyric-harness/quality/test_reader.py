@@ -2379,6 +2379,34 @@ class LegacyReplay(unittest.TestCase):
         def with_851(text):
             return text.replace(_limit_then, _limit_now)
 
+        # THE SECTION-TYPE ROW GAINED ITS SENTENCE AFTER THIS CAPTURE
+        # (2026-11-15, #676). A run with no blueprint puts no song-function
+        # question, and the coverage row for that layer now says why: a
+        # heading is only a label. The recorded run that reached its final
+        # report printed that row three times, once in the COVERAGE line and
+        # once in each machine record, each time without the sentence. Only
+        # that row is advanced on the recorded side, by exactly those three,
+        # and a state whose replay prints no report is untouched. Nothing
+        # about resuming moves: the sentence is on a `not_requested` row,
+        # which is in no count and withholds nothing.
+        _label = ("section types were not checked: no section is declared "
+                  "as a verse, chorus or any other type, and a heading is "
+                  "only a label. A blueprint that gives each section a "
+                  "function asks these checks")
+        _row_then = ('{"id": "function:draft", "layer": "function", '
+                     '"status": "not_requested"}',
+                     '{"id":"function:draft","layer":"function",'
+                     '"status":"not_requested"}')
+        _row_now = ('{"id": "function:draft", "layer": "function", '
+                    f'"message": "{_label}", "status": "not_requested"}}',
+                    '{"id":"function:draft","layer":"function",'
+                    f'"message":"{_label}","status":"not_requested"}}')
+
+        def with_676_label(text):
+            for then, now in zip(_row_then, _row_now):
+                text = text.replace(then, now)
+            return text
+
         # THIS BUILD'S QUESTION LOST ITS PROSE AFTER THE 851 STEP (2026-11-14,
         # #671 pass 2, A9-A13). That change's own undo
         # (`LEGACY_QUESTION_RENDERINGS`, `_legacy_671_prose`) is applied to
@@ -2400,6 +2428,14 @@ class LegacyReplay(unittest.TestCase):
                 self.assertEqual(rec["pending"]["prompt"].count(_limit_then), 1)
                 rec["pending"] = {**rec["pending"],
                                   "prompt": with_851(without_d6(rec["pending"]["prompt"]))}
+            # A state written at the end of a run holds its coverage, and so
+            # the same row (`with_676_label` above).
+            if isinstance(rec.get("coverage"), dict):
+                _bare = {"id": "function:draft", "layer": "function",
+                         "status": "not_requested"}
+                rec["coverage"] = {**rec["coverage"], "obligations": [
+                    {**o, "message": _label} if o == _bare else o
+                    for o in rec["coverage"].get("obligations", [])]}
             return rec
 
         def norm(stdout):
@@ -2433,8 +2469,11 @@ class LegacyReplay(unittest.TestCase):
             with self.subTest(state=rec["name"]):
                 self.assertEqual(r.returncode, rec["replay_exit"], r.stdout[-600:])
                 got = norm(undo_671(r.stdout.replace(str(work), "<WORK>")))
-                self.assertEqual(got, norm(with_851(with_m323(without_d6(
-                    rec["replay_stdout"])))))
+                self.assertEqual(
+                    [rec["replay_stdout"].count(t) for t in _row_then],
+                    [1, 2] if rec["name"] == "suspended+answer" else [0, 0])
+                self.assertEqual(got, norm(with_676_label(with_851(with_m323(
+                    without_d6(rec["replay_stdout"]))))))
                 result = json.loads([l for l in r.stdout.splitlines()
                                      if l.startswith("  lyric result: ")][-1]
                                     [len("  lyric result: "):])

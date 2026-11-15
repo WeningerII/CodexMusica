@@ -743,6 +743,35 @@ test('not_checked prints an unasked question from the sentence its own row carri
   ]);
 });
 
+// A layer row may carry the grader's sentence too (quality/revise.py, #676):
+// `function:draft` when no section declares a function says a heading is only
+// a label. It is printed in place of "not requested"; a layer row without one
+// reads as it always has.
+test('not_checked prints a layer row from the sentence its own row carries', () => {
+  const said =
+    'section types were not checked: no section is declared as a verse, chorus or any other type, and a heading is only a label';
+  const live = {
+    ...verdict,
+    coverage: {
+      certified: true,
+      refused_obligations: [],
+      obligations: [
+        { id: 'function:draft', layer: 'function', status: 'not_requested', message: said },
+        { id: 'shape:draft', layer: 'shape', status: 'not_requested' },
+        { id: 'meter:draft', layer: 'meter', status: 'not_requested' },
+        { id: 'slot_grid:draft', layer: 'slot_grid', status: 'answered' },
+        { id: 'setting:draft', layer: 'setting', status: 'answered' },
+      ],
+    },
+  };
+  const short = JSON.parse(sessionView('lyric_revise', blocks(live))[1].text);
+  assert.deepEqual(short.not_checked, [
+    `function: ${said}`,
+    'shape: not requested',
+    'meter: no blueprint declared',
+  ]);
+});
+
 // A grade at exit 0 or 3 that the creation gate records names the call that
 // takes this exact draft on (lyric_tools.js sets `next`). The short verdict
 // copies it as its last field and never invents one.

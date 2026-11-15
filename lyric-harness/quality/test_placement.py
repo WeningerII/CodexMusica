@@ -207,6 +207,24 @@ def test_grader_reaches_it():
     check("...and the finding QUOTES the gloss that licensed the rule, so a "
           "reader can check the claim rather than take it",
           hits and "closes the song" in hits[0].evidence)
+    # WHAT MOVES IT IS SAID ON THE NOTE (issue #676, 2026-11-15). A section's
+    # place is the declaration's, which is why this is a note and the revise
+    # loop opens no line for it. The note used to name the rule and stop.
+    _bridge_first = GR.Song(sections=(GR.Section("a", 4, function="bridge"),
+                                      GR.Section("b", 4, function="verse")))
+    _all = hits + [f for f in GR.song_function_report(_bridge_first)["findings"]
+                   if f.code in GR.PLACEMENT_CODES]
+    check("...and every placement note says no rewrite moves the section and "
+          "names the two things that do, as a fact and not as advice, on "
+          "the outro in the middle and on a bridge that opens the song alike",
+          len(_all) == 2
+          and {f.code for f in _all} == {"SECTION_NOT_AT_BOUNDARY",
+                                         "SECTION_AT_EDGE"}
+          and all(f.message.endswith(
+                      "no rewrite of its lines moves it, its order or its "
+                      "declared function does") for f in _all)
+          and all(GR.severity_of(f.code) == "note" for f in _all),
+          str([(f.code, f.message) for f in _all]))
     clean = GR.Song(sections=(GR.Section("a", 4, function="intro"),
                               GR.Section("b", 4, function="verse"),
                               GR.Section("c", 4, function="outro")))

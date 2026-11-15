@@ -212,6 +212,18 @@ NO_SUBJECT_REFUSALS = frozenset({"SINGLE_INSTANCE", "FUNCTION_UNDECLARED",
                                  "NO_COMPARATOR", "REPRISE_SIDE_UNDECLARED",
                                  "TITLE_UNDECLARED"})
 
+#: What the `function:draft` coverage row says when NO section declares a
+#: function, so the song-function questions were never put (issue #676,
+#: owner's word 2026-11-15). The row used to carry a status and nothing
+#: else, which a reader of a draft with section headings took for "checked".
+#: A heading names a section. It declares nothing. One sentence for both
+#: ways of getting here: no blueprint at all, or a blueprint none of whose
+#: sections declares a function.
+_SECTION_TYPES_NOT_CHECKED = (
+    "section types were not checked: no section is declared as a verse, "
+    "chorus or any other type, and a heading is only a label. A blueprint "
+    "that gives each section a function asks these checks")
+
 #: Score at or above which two lines that share NO group are reported as an
 #: unintended rhyme. IMPORTED from `lyric_harness` since 2026-08-16 rather
 #: than re-declared here: this comment already said "the two must not
@@ -3617,7 +3629,9 @@ class Reviser:
             blocking = [r for r in rep["refusals"] if r.code not in unasked]
             coverage_out.append({"id": "function:draft", "layer": "function",
                                  "status": ("refused" if blocking else "answered")
-                                 if requested else "not_requested"})
+                                 if requested else "not_requested",
+                                 **({} if requested else
+                                    {"message": _SECTION_TYPES_NOT_CHECKED})})
             if requested:
                 seen_located = set()
                 for index, refusal in enumerate(rep["refusals"]):
@@ -4650,9 +4664,12 @@ class Reviser:
             whole.extend(m_whole)
             whole.extend(self._function_findings(lines, blueprint, coverage_out=_function_coverage))
         else:
-            _function_coverage = [{"id": layer + ":draft", "layer": layer,
-                                   "status": "not_requested"}
-                                  for layer in ("function", "shape")]
+            _function_coverage = [
+                {"id": "function:draft", "layer": "function",
+                 "status": "not_requested",
+                 "message": _SECTION_TYPES_NOT_CHECKED},
+                {"id": "shape:draft", "layer": "shape",
+                 "status": "not_requested"}]
         # No calibrated band is enforced any more (owner rulings 2026-09-28
         # and 2026-10-01; see `_band_findings`): it only fills the M-115
         # stress-run disclosure below.
