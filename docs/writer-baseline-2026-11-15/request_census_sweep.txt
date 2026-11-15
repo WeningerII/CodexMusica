@@ -1,0 +1,11 @@
+requests 200, one sweep window of 28 seeds each, seconds 405
+script errors: 0 []
+requests for which the window accepts at least one seed: 98 of 200
+  stated ['form only']: 25 of 25 found
+  stated ['beats_per_line']: 25 of 33 found
+  stated ['beats_per_line', 'lines']: 13 of 29 found
+  stated ['beats_per_line', 'lines', 'sections']: 0 of 22 found
+  stated ['beats_per_line', 'sections']: 1 of 26 found
+  stated ['lines']: 19 of 19 found
+  stated ['lines', 'sections']: 6 of 25 found
+  stated ['sections']: 9 of 21 found

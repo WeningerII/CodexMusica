@@ -1,0 +1,4077 @@
+{
+ "frozen": "stage 0 cases; reuse this file after every stage, never redraw into it",
+ "commit": "f022397c440e83fa984f6aa09220a0e360706f16",
+ "caps": {
+  "lines": 24,
+  "beats": 16
+ },
+ "versions": {
+  "draw_script": "f1a4aa2c69fe24d1",
+  "this_script": "15bb9dd3696d07bd",
+  "plan.py": "1e4a0b6f453d7ff4",
+  "grid.py": "a6ba77e9897b1e77",
+  "schemes.py": "2f5cb26a3a8d84af"
+ },
+ "cases": [
+  {
+   "case": 1,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "prechorus": 3
+    },
+    "beats_per_line": 13,
+    "scheme": {
+     "section": "bridge",
+     "named_row": [
+      0,
+      1,
+      0,
+      1
+     ]
+    },
+    "pattern": "SWWWSSSSSSSWSSSW"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 3 prechorus. Beats per line: 13. Rhyme scheme for each bridge: the scheme the scheme table names (0, 1, 0, 1). Stress pattern for every line, S strong and W weak, one syllable to a position: SWWWSSSSSSSWSSSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 2,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 8,
+    "sections": {
+     "bridge": 3
+    },
+    "pattern": "WSSSW"
+   },
+   "request": "Write a song. Form: open. Total lines: 8. Sections: exactly 3 bridge. Stress pattern for every line, S strong and W weak, one syllable to a position: WSSSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 3,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 3 sections each need a line and the request states 2 lines",
+   "answer_key": {
+    "form": "open",
+    "lines": 2,
+    "sections": {
+     "breakdown": 3
+    },
+    "scheme": {
+     "section": "tag",
+     "named_row": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      2,
+      3,
+      4,
+      2,
+      3,
+      4
+     ]
+    },
+    "pattern": "WWWS"
+   },
+   "request": "Write a song. Form: open. Total lines: 2. Sections: exactly 3 breakdown. Rhyme scheme for each tag: the scheme the scheme table names (0, 1, 1, 0, 0, 1, 1, 0, 2, 3, 4, 2, 3, 4). Stress pattern for every line, S strong and W weak, one syllable to a position: WWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 4,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 3
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 3. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 2,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 5,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "reprise": 1
+    },
+    "pattern": "SSWWW"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 1 reprise. Stress pattern for every line, S strong and W weak, one syllable to a position: SSWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 7,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 6,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 14,
+    "scheme": {
+     "section": "postchorus",
+     "named_row": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1
+     ]
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 14. Rhyme scheme for each postchorus: the scheme the scheme table names (0, 0, 0, 1, 0, 1). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 7,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "solo": 2,
+     "bridge": 1
+    },
+    "beats_per_line": 15,
+    "scheme": {
+     "section": "outro",
+     "named_row": [
+      0,
+      0,
+      1,
+      0
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Sections: exactly 1 bridge, exactly 2 solo. Beats per line: 15. Rhyme scheme for each outro: the scheme the scheme table names (0, 0, 1, 0). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 8,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "interlude": 1
+    },
+    "beats_per_line": 15,
+    "scheme": {
+     "section": "prechorus",
+     "letters": "ABBCCCDC"
+    }
+   },
+   "request": "Write a song. Form: open. Sections: exactly 1 interlude. Beats per line: 15. Rhyme scheme for each prechorus: the letter scheme ABBCCCDC. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 9,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "turnaround": 3
+    },
+    "scheme": {
+     "section": "patter",
+     "named_row": [
+      0,
+      1,
+      1,
+      2
+     ]
+    },
+    "pattern": "SWWWWSWWSWW"
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 3 turnaround. Rhyme scheme for each patter: the scheme the scheme table names (0, 1, 1, 2). Stress pattern for every line, S strong and W weak, one syllable to a position: SWWWWSWWSWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 10,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 16,
+    "scheme": {
+     "section": "intro",
+     "letters": "AA"
+    },
+    "pattern": "WWSSWSWWWSWS"
+   },
+   "request": "Write a song. Form: open. Beats per line: 16. Rhyme scheme for each intro: the letter scheme AA. Stress pattern for every line, S strong and W weak, one syllable to a position: WWSSWSWWWSWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 11,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "scheme": {
+     "section": "verse",
+     "named_row": [
+      0,
+      0,
+      1,
+      0
+     ]
+    },
+    "pattern": "SWSSSWSWWW"
+   },
+   "request": "Write a song. Form: verse-chorus. Rhyme scheme for each verse: the scheme the scheme table names (0, 0, 1, 0). Stress pattern for every line, S strong and W weak, one syllable to a position: SWSSSWSWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 12,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 11,
+    "pattern": "WSW"
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 11. Stress pattern for every line, S strong and W weak, one syllable to a position: WSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 13,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "lines": 16,
+    "sections": {
+     "drop": 3,
+     "patter": 3
+    },
+    "scheme": {
+     "section": "coda",
+     "letters": "AABABBB"
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 16. Sections: exactly 3 drop, exactly 3 patter. Rhyme scheme for each coda: the letter scheme AABABBB. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 14,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "open",
+    "lines": 7,
+    "sections": {
+     "reprise": 3,
+     "bridge": 1
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 7. Sections: exactly 1 bridge, exactly 3 reprise. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 15,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 15,
+    "scheme": {
+     "section": "vamp",
+     "letters": "AABBCDD"
+    },
+    "pattern": "SWWWSSSWWWWWWS"
+   },
+   "request": "Write a song. Form: open. Beats per line: 15. Rhyme scheme for each vamp: the letter scheme AABBCDD. Stress pattern for every line, S strong and W weak, one syllable to a position: SWWWSSSWWWWWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 2,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 16,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "open",
+    "lines": 19,
+    "beats_per_line": 8
+   },
+   "request": "Write a song. Form: open. Total lines: 19. Beats per line: 8. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 2,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 17,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 13
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 13. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 18,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 17,
+    "beats_per_line": 9
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 17. Beats per line: 9. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 19,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 13,
+    "pattern": "WWWSSSWSWWW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 13. Stress pattern for every line, S strong and W weak, one syllable to a position: WWWSSSWSWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 20,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 15,
+    "pattern": "SSSSWS"
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 15. Stress pattern for every line, S strong and W weak, one syllable to a position: SSSSWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 21,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "turnaround": 2
+    },
+    "beats_per_line": 15,
+    "scheme": {
+     "section": "false_ending",
+     "letters": "ABACDCD"
+    }
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 turnaround. Beats per line: 15. Rhyme scheme for each false_ending: the letter scheme ABACDCD. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 22,
+   "group": "states only the form",
+   "expected_outcome": "a finished song at exit 0; everything but the form shown as drawn",
+   "answer_key": {
+    "form": "verse-chorus"
+   },
+   "request": "Write a song. Form: verse-chorus. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 23,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "lines": 21,
+    "sections": {
+     "verse": 1,
+     "refrain": 2
+    },
+    "scheme": {
+     "section": "drop",
+     "letters": "AABBCDED"
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 21. Sections: exactly 2 refrain, exactly 1 verse. Rhyme scheme for each drop: the letter scheme AABBCDED. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 24,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 19,
+    "beats_per_line": 3,
+    "pattern": "SW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 19. Beats per line: 3. Stress pattern for every line, S strong and W weak, one syllable to a position: SW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 25,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 21,
+    "sections": {
+     "tag": 1
+    },
+    "beats_per_line": 4,
+    "scheme": {
+     "section": "tag",
+     "letters": "AAAABACA"
+    },
+    "pattern": "SWWSSW"
+   },
+   "request": "Write a song. Form: open. Total lines: 21. Sections: exactly 1 tag. Beats per line: 4. Rhyme scheme for each tag: the letter scheme AAAABACA. Stress pattern for every line, S strong and W weak, one syllable to a position: SWWSSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 26,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "postchorus": 2,
+     "prechorus": 1
+    },
+    "beats_per_line": 3,
+    "scheme": {
+     "section": "hook",
+     "named_row": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      2,
+      3,
+      2,
+      3,
+      2,
+      3
+     ]
+    },
+    "pattern": "SWWSSSSWWS"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 postchorus, exactly 1 prechorus. Beats per line: 3. Rhyme scheme for each hook: the scheme the scheme table names (0, 1, 1, 0, 0, 1, 1, 0, 2, 3, 2, 3, 2, 3). Stress pattern for every line, S strong and W weak, one syllable to a position: SWWSSSSWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 27,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "burden": 3
+    },
+    "pattern": "WSSW"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 3 burden. Stress pattern for every line, S strong and W weak, one syllable to a position: WSSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 28,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "burden": 1
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 1 burden. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 13,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 29,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 14,
+    "sections": {
+     "false_ending": 2
+    },
+    "scheme": {
+     "section": "tag",
+     "letters": "ABAAB"
+    },
+    "pattern": "SW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 14. Sections: exactly 2 false_ending. Rhyme scheme for each tag: the letter scheme ABAAB. Stress pattern for every line, S strong and W weak, one syllable to a position: SW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 30,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "lines": 14,
+    "beats_per_line": 14,
+    "scheme": {
+     "section": "prechorus",
+     "named_row": [
+      0,
+      1,
+      2
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 14. Beats per line: 14. Rhyme scheme for each prechorus: the scheme the scheme table names (0, 1, 2). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 31,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "open",
+    "lines": 23,
+    "sections": {
+     "chorus": 2
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 23. Sections: exactly 2 chorus. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 32,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "lines": 16,
+    "beats_per_line": 10,
+    "scheme": {
+     "section": "build",
+     "named_row": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      2,
+      1,
+      2,
+      2,
+      3,
+      2,
+      3,
+      4,
+      4
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 16. Beats per line: 10. Rhyme scheme for each build: the scheme the scheme table names (0, 1, 0, 1, 1, 2, 1, 2, 2, 3, 2, 3, 4, 4). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 33,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "lines": 18,
+    "scheme": {
+     "section": "postchorus",
+     "named_row": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      2,
+      2
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 18. Rhyme scheme for each postchorus: the scheme the scheme table names (0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 2, 2). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 34,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 6,
+    "scheme": {
+     "section": "build",
+     "letters": "AABCDB"
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 6. Rhyme scheme for each build: the letter scheme AABCDB. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 35,
+   "group": "states only the form",
+   "expected_outcome": "a finished song at exit 0; everything but the form shown as drawn",
+   "answer_key": {
+    "form": "verse-chorus"
+   },
+   "request": "Write a song. Form: verse-chorus. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 36,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 3 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "outro": 3
+    },
+    "beats_per_line": 8,
+    "scheme": {
+     "section": "prechorus",
+     "named_row": [
+      0,
+      1,
+      2,
+      0
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Sections: exactly 3 outro. Beats per line: 8. Rhyme scheme for each prechorus: the scheme the scheme table names (0, 1, 2, 0). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 37,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 23,
+    "sections": {
+     "bridge": 3
+    },
+    "scheme": {
+     "section": "reprise",
+     "letters": "AAAB"
+    },
+    "pattern": "SSSSSSSW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 23. Sections: exactly 3 bridge. Rhyme scheme for each reprise: the letter scheme AAAB. Stress pattern for every line, S strong and W weak, one syllable to a position: SSSSSSSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 38,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 2
+   },
+   "request": "Write a song. Form: open. Beats per line: 2. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 2,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 39,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 12,
+    "pattern": "WSSSSWWSS"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 12. Stress pattern for every line, S strong and W weak, one syllable to a position: WSSSSWWSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 40,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 13,
+    "beats_per_line": 6,
+    "scheme": {
+     "section": "coda",
+     "named_row": [
+      0,
+      1,
+      0,
+      1,
+      1
+     ]
+    },
+    "pattern": "SWWSWWWWS"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 13. Beats per line: 6. Rhyme scheme for each coda: the scheme the scheme table names (0, 1, 0, 1, 1). Stress pattern for every line, S strong and W weak, one syllable to a position: SWWSWWWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 41,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 19,
+    "beats_per_line": 7,
+    "scheme": {
+     "section": "burden",
+     "named_row": [
+      0,
+      1,
+      2,
+      0,
+      1,
+      2
+     ]
+    },
+    "pattern": "SSW"
+   },
+   "request": "Write a song. Form: open. Total lines: 19. Beats per line: 7. Rhyme scheme for each burden: the scheme the scheme table names (0, 1, 2, 0, 1, 2). Stress pattern for every line, S strong and W weak, one syllable to a position: SSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 42,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 2 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "coda": 2,
+     "intro": 3
+    },
+    "beats_per_line": 2
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 coda, exactly 3 intro. Beats per line: 2. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 43,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 3,
+    "sections": {
+     "breakdown": 1,
+     "solo": 1
+    },
+    "scheme": {
+     "section": "intro",
+     "named_row": [
+      0,
+      1,
+      0,
+      1,
+      2,
+      3,
+      2,
+      3
+     ]
+    },
+    "pattern": "SWSS"
+   },
+   "request": "Write a song. Form: open. Total lines: 3. Sections: exactly 1 breakdown, exactly 1 solo. Rhyme scheme for each intro: the scheme the scheme table names (0, 1, 0, 1, 2, 3, 2, 3). Stress pattern for every line, S strong and W weak, one syllable to a position: SWSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 44,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 15,
+    "sections": {
+     "build": 3,
+     "burden": 3
+    },
+    "beats_per_line": 8
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 15. Sections: exactly 3 build, exactly 3 burden. Beats per line: 8. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 45,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 7,
+    "pattern": "SSWWW"
+   },
+   "request": "Write a song. Form: open. Beats per line: 7. Stress pattern for every line, S strong and W weak, one syllable to a position: SSWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 46,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "scheme": {
+     "section": "patter",
+     "letters": "ABB"
+    }
+   },
+   "request": "Write a song. Form: open. Rhyme scheme for each patter: the letter scheme ABB. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 47,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "scheme": {
+     "section": "vamp",
+     "letters": "AAABBA"
+    }
+   },
+   "request": "Write a song. Form: open. Rhyme scheme for each vamp: the letter scheme AAABBA. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 48,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 14,
+    "beats_per_line": 7,
+    "pattern": "WWSSWSWSWW"
+   },
+   "request": "Write a song. Form: open. Total lines: 14. Beats per line: 7. Stress pattern for every line, S strong and W weak, one syllable to a position: WWSSWSWSWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 2,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 49,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 6,
+    "scheme": {
+     "section": "vamp",
+     "letters": "ABBBCDE"
+    },
+    "pattern": "SWWSWWWSSSWWW"
+   },
+   "request": "Write a song. Form: open. Beats per line: 6. Rhyme scheme for each vamp: the letter scheme ABBBCDE. Stress pattern for every line, S strong and W weak, one syllable to a position: SWWSWWWSSSWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 50,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 7,
+    "pattern": "SWW"
+   },
+   "request": "Write a song. Form: open. Beats per line: 7. Stress pattern for every line, S strong and W weak, one syllable to a position: SWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 51,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "open",
+    "lines": 11
+   },
+   "request": "Write a song. Form: open. Total lines: 11. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 52,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 3 sections asked for the one first boundary slot",
+   "answer_key": {
+    "form": "open",
+    "lines": 5,
+    "sections": {
+     "intro": 3,
+     "outro": 1
+    },
+    "beats_per_line": 11,
+    "scheme": {
+     "section": "outro",
+     "named_row": [
+      0,
+      1,
+      2,
+      1
+     ]
+    },
+    "pattern": "SS"
+   },
+   "request": "Write a song. Form: open. Total lines: 5. Sections: exactly 3 intro, exactly 1 outro. Beats per line: 11. Rhyme scheme for each outro: the scheme the scheme table names (0, 1, 2, 1). Stress pattern for every line, S strong and W weak, one syllable to a position: SS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 53,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "scheme": {
+     "section": "solo",
+     "letters": "AAA"
+    },
+    "pattern": "SWSW"
+   },
+   "request": "Write a song. Form: open. Rhyme scheme for each solo: the letter scheme AAA. Stress pattern for every line, S strong and W weak, one syllable to a position: SWSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 54,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 14,
+    "scheme": {
+     "section": "interlude",
+     "named_row": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      2,
+      2
+     ]
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 14. Rhyme scheme for each interlude: the scheme the scheme table names (0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 2, 2). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 55,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 11,
+    "scheme": {
+     "section": "burden",
+     "named_row": [
+      0,
+      0,
+      1,
+      1
+     ]
+    },
+    "pattern": "WWSWWSWSSW"
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 11. Rhyme scheme for each burden: the scheme the scheme table names (0, 0, 1, 1). Stress pattern for every line, S strong and W weak, one syllable to a position: WWSWWSWSSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 56,
+   "group": "states only the form",
+   "expected_outcome": "a finished song at exit 0; everything but the form shown as drawn",
+   "answer_key": {
+    "form": "open"
+   },
+   "request": "Write a song. Form: open. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 57,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 2 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "open",
+    "lines": 24,
+    "sections": {
+     "outro": 2
+    },
+    "beats_per_line": 4,
+    "pattern": "SSWWWSSWWWSSWWW"
+   },
+   "request": "Write a song. Form: open. Total lines: 24. Sections: exactly 2 outro. Beats per line: 4. Stress pattern for every line, S strong and W weak, one syllable to a position: SSWWWSSWWWSSWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 58,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 3,
+    "pattern": "WWSWWWWWSWWSWS"
+   },
+   "request": "Write a song. Form: open. Total lines: 3. Stress pattern for every line, S strong and W weak, one syllable to a position: WWSWWWWWSWWSWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 59,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "open",
+    "lines": 11,
+    "sections": {
+     "bridge": 3
+    },
+    "beats_per_line": 4
+   },
+   "request": "Write a song. Form: open. Total lines: 11. Sections: exactly 3 bridge. Beats per line: 4. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 60,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "postchorus": 3,
+     "verse": 3
+    },
+    "scheme": {
+     "section": "turnaround",
+     "letters": "ABBBAABA"
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 3 postchorus, exactly 3 verse. Rhyme scheme for each turnaround: the letter scheme ABBBAABA. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 61,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "lines": 14,
+    "sections": {
+     "tag": 2
+    },
+    "scheme": {
+     "section": "bridge",
+     "letters": "ABCBBA"
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 14. Sections: exactly 2 tag. Rhyme scheme for each bridge: the letter scheme ABCBBA. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 62,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 6,
+    "scheme": {
+     "section": "bridge",
+     "named_row": [
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 6. Rhyme scheme for each bridge: the scheme the scheme table names (0, 0, 0, 1). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 63,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 4,
+    "beats_per_line": 11,
+    "pattern": "SWWWSSW"
+   },
+   "request": "Write a song. Form: open. Total lines: 4. Beats per line: 11. Stress pattern for every line, S strong and W weak, one syllable to a position: SWWWSSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 64,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "turnaround": 1
+    },
+    "beats_per_line": 2,
+    "scheme": {
+     "section": "interlude",
+     "letters": "AAABAC"
+    }
+   },
+   "request": "Write a song. Form: open. Sections: exactly 1 turnaround. Beats per line: 2. Rhyme scheme for each interlude: the letter scheme AAABAC. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 65,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "scheme": {
+     "section": "turnaround",
+     "named_row": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      2,
+      3,
+      3,
+      2,
+      4,
+      4
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Rhyme scheme for each turnaround: the scheme the scheme table names (0, 1, 1, 0, 0, 1, 1, 0, 2, 3, 3, 2, 4, 4). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 66,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "verse": 3,
+     "interlude": 1
+    },
+    "scheme": {
+     "section": "burden",
+     "named_row": [
+      0,
+      1,
+      2
+     ]
+    },
+    "pattern": "SSWWSSSSWSSSWSW"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 1 interlude, exactly 3 verse. Rhyme scheme for each burden: the scheme the scheme table names (0, 1, 2). Stress pattern for every line, S strong and W weak, one syllable to a position: SSWWSSSSWSSSWSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 67,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 21,
+    "sections": {
+     "drop": 1
+    },
+    "beats_per_line": 3,
+    "scheme": {
+     "section": "bridge",
+     "named_row": [
+      0,
+      1,
+      2,
+      0
+     ]
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 21. Sections: exactly 1 drop. Beats per line: 3. Rhyme scheme for each bridge: the scheme the scheme table names (0, 1, 2, 0). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 68,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 15,
+    "pattern": "SWSWSSWWWS"
+   },
+   "request": "Write a song. Form: open. Beats per line: 15. Stress pattern for every line, S strong and W weak, one syllable to a position: SWSWSSWWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 2,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 69,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 21,
+    "beats_per_line": 15,
+    "pattern": "WSWWSWWW"
+   },
+   "request": "Write a song. Form: open. Total lines: 21. Beats per line: 15. Stress pattern for every line, S strong and W weak, one syllable to a position: WSWWSWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 70,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 3 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 18,
+    "sections": {
+     "coda": 3,
+     "postchorus": 1
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 18. Sections: exactly 3 coda, exactly 1 postchorus. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 71,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "vamp": 1,
+     "verse": 1
+    },
+    "beats_per_line": 4,
+    "pattern": "WS"
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 1 vamp, exactly 1 verse. Beats per line: 4. Stress pattern for every line, S strong and W weak, one syllable to a position: WS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 72,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 2 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "verse": 2,
+     "coda": 2
+    },
+    "scheme": {
+     "section": "reprise",
+     "named_row": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      2,
+      1,
+      2,
+      2
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 coda, exactly 2 verse. Rhyme scheme for each reprise: the scheme the scheme table names (0, 1, 0, 1, 1, 2, 1, 2, 2). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 73,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "solo": 1,
+     "burden": 1
+    },
+    "beats_per_line": 12
+   },
+   "request": "Write a song. Form: open. Sections: exactly 1 burden, exactly 1 solo. Beats per line: 12. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 74,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 3 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "verse": 1,
+     "coda": 3
+    },
+    "beats_per_line": 8
+   },
+   "request": "Write a song. Form: open. Sections: exactly 3 coda, exactly 1 verse. Beats per line: 8. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 75,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "outro": 1
+    },
+    "scheme": {
+     "section": "breakdown",
+     "letters": "AABCBCC"
+    },
+    "pattern": "SWSSWWS"
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 1 outro. Rhyme scheme for each breakdown: the letter scheme AABCBCC. Stress pattern for every line, S strong and W weak, one syllable to a position: SWSSWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 6,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 76,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 12,
+    "scheme": {
+     "section": "build",
+     "letters": "AAB"
+    },
+    "pattern": "SWSWWSSSWSSWSW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 12. Rhyme scheme for each build: the letter scheme AAB. Stress pattern for every line, S strong and W weak, one syllable to a position: SWSWWSSSWSSWSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 77,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "scheme": {
+     "section": "build",
+     "letters": "AAAAABB"
+    },
+    "pattern": "WWWSWSWWWWW"
+   },
+   "request": "Write a song. Form: open. Rhyme scheme for each build: the letter scheme AAAAABB. Stress pattern for every line, S strong and W weak, one syllable to a position: WWWSWSWWWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 78,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 24,
+    "scheme": {
+     "section": "turnaround",
+     "named_row": [
+      0,
+      0,
+      1,
+      1
+     ]
+    },
+    "pattern": "WWSWSSWSSS"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 24. Rhyme scheme for each turnaround: the scheme the scheme table names (0, 0, 1, 1). Stress pattern for every line, S strong and W weak, one syllable to a position: WWSWSSWSSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 79,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "lines": 21,
+    "scheme": {
+     "section": "build",
+     "named_row": [
+      0,
+      0,
+      1,
+      1
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 21. Rhyme scheme for each build: the scheme the scheme table names (0, 0, 1, 1). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 80,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "pattern": "SWW"
+   },
+   "request": "Write a song. Form: open. Stress pattern for every line, S strong and W weak, one syllable to a position: SWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 81,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "scheme": {
+     "section": "interlude",
+     "letters": "AAABAAB"
+    },
+    "pattern": "SWSWSWSWWWWSWWWW"
+   },
+   "request": "Write a song. Form: verse-chorus. Rhyme scheme for each interlude: the letter scheme AAABAAB. Stress pattern for every line, S strong and W weak, one syllable to a position: SWSWSWSWWWWSWWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 82,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 12,
+    "scheme": {
+     "section": "burden",
+     "letters": "ABBBB"
+    },
+    "pattern": "SSWSSWSSWWWWW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 12. Rhyme scheme for each burden: the letter scheme ABBBB. Stress pattern for every line, S strong and W weak, one syllable to a position: SSWSSWSSWWWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 83,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 2 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 19,
+    "sections": {
+     "coda": 2
+    },
+    "pattern": "WSSSW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 19. Sections: exactly 2 coda. Stress pattern for every line, S strong and W weak, one syllable to a position: WSSSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 84,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "scheme": {
+     "section": "drop",
+     "named_row": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      2,
+      3,
+      3,
+      2,
+      4,
+      4
+     ]
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Rhyme scheme for each drop: the scheme the scheme table names (0, 1, 1, 0, 0, 1, 1, 0, 2, 3, 3, 2, 4, 4). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 85,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "lines": 4,
+    "sections": {
+     "false_ending": 2
+    },
+    "scheme": {
+     "section": "interlude",
+     "named_row": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      2,
+      1,
+      2,
+      2,
+      3,
+      2,
+      3,
+      4,
+      4
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 4. Sections: exactly 2 false_ending. Rhyme scheme for each interlude: the scheme the scheme table names (0, 1, 0, 1, 1, 2, 1, 2, 2, 3, 2, 3, 4, 4). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 86,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 5,
+    "pattern": "WSSSWWS"
+   },
+   "request": "Write a song. Form: open. Beats per line: 5. Stress pattern for every line, S strong and W weak, one syllable to a position: WSSSWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 87,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 20,
+    "sections": {
+     "solo": 1
+    },
+    "beats_per_line": 6,
+    "scheme": {
+     "section": "build",
+     "named_row": [
+      0,
+      1,
+      2,
+      2
+     ]
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 20. Sections: exactly 1 solo. Beats per line: 6. Rhyme scheme for each build: the scheme the scheme table names (0, 1, 2, 2). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 88,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "refrain": 1
+    },
+    "pattern": "SSWW"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 1 refrain. Stress pattern for every line, S strong and W weak, one syllable to a position: SSWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 4,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 89,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 17,
+    "sections": {
+     "drop": 2,
+     "vamp": 3
+    },
+    "beats_per_line": 7,
+    "pattern": "WSWSWSSWWS"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 17. Sections: exactly 2 drop, exactly 3 vamp. Beats per line: 7. Stress pattern for every line, S strong and W weak, one syllable to a position: WSWSWSSWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 90,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "false_ending": 2,
+     "intro": 1
+    },
+    "beats_per_line": 12,
+    "scheme": {
+     "section": "burden",
+     "named_row": [
+      0,
+      0,
+      1,
+      1,
+      2,
+      2
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 false_ending, exactly 1 intro. Beats per line: 12. Rhyme scheme for each burden: the scheme the scheme table names (0, 0, 1, 1, 2, 2). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 91,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 13,
+    "sections": {
+     "turnaround": 3,
+     "solo": 3
+    },
+    "beats_per_line": 13,
+    "pattern": "SS"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 13. Sections: exactly 3 solo, exactly 3 turnaround. Beats per line: 13. Stress pattern for every line, S strong and W weak, one syllable to a position: SS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 92,
+   "group": "states only the form",
+   "expected_outcome": "a finished song at exit 0; everything but the form shown as drawn",
+   "answer_key": {
+    "form": "open"
+   },
+   "request": "Write a song. Form: open. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 93,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "chorus": 2
+    },
+    "beats_per_line": 10,
+    "scheme": {
+     "section": "refrain",
+     "named_row": [
+      0,
+      1,
+      1,
+      2
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 chorus. Beats per line: 10. Rhyme scheme for each refrain: the scheme the scheme table names (0, 1, 1, 2). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 94,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 18,
+    "beats_per_line": 3
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 18. Beats per line: 3. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 95,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "lines": 16,
+    "sections": {
+     "drop": 1
+    },
+    "scheme": {
+     "section": "tag",
+     "letters": "AAAB"
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 16. Sections: exactly 1 drop. Rhyme scheme for each tag: the letter scheme AAAB. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 96,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "interlude": 2
+    },
+    "beats_per_line": 11,
+    "scheme": {
+     "section": "vamp",
+     "letters": "ABCDACCB"
+    },
+    "pattern": "WWSSSSS"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 interlude. Beats per line: 11. Rhyme scheme for each vamp: the letter scheme ABCDACCB. Stress pattern for every line, S strong and W weak, one syllable to a position: WWSSSSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 97,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 12,
+    "sections": {
+     "reprise": 1,
+     "hook": 1
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 12. Sections: exactly 1 hook, exactly 1 reprise. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 98,
+   "group": "states only the form",
+   "expected_outcome": "a finished song at exit 0; everything but the form shown as drawn",
+   "answer_key": {
+    "form": "verse-chorus"
+   },
+   "request": "Write a song. Form: verse-chorus. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 99,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "open",
+    "lines": 6,
+    "beats_per_line": 12
+   },
+   "request": "Write a song. Form: open. Total lines: 6. Beats per line: 12. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 100,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "tag": 1,
+     "solo": 2
+    },
+    "scheme": {
+     "section": "turnaround",
+     "named_row": [
+      0,
+      1,
+      0,
+      0
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 solo, exactly 1 tag. Rhyme scheme for each turnaround: the scheme the scheme table names (0, 1, 0, 0). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 101,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 3,
+    "beats_per_line": 15,
+    "pattern": "SSSWWSWSWSSSWS"
+   },
+   "request": "Write a song. Form: open. Total lines: 3. Beats per line: 15. Stress pattern for every line, S strong and W weak, one syllable to a position: SSSWWSWSWSSSWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 102,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 9,
+    "scheme": {
+     "section": "interlude",
+     "named_row": [
+      0,
+      0,
+      1,
+      2,
+      2,
+      1,
+      3,
+      3,
+      1
+     ]
+    },
+    "pattern": "WWWSWWSWSS"
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 9. Rhyme scheme for each interlude: the scheme the scheme table names (0, 0, 1, 2, 2, 1, 3, 3, 1). Stress pattern for every line, S strong and W weak, one syllable to a position: WWWSWWSWSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 103,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 21,
+    "beats_per_line": 16,
+    "scheme": {
+     "section": "refrain",
+     "letters": "ABACAD"
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 21. Beats per line: 16. Rhyme scheme for each refrain: the letter scheme ABACAD. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 104,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 15,
+    "sections": {
+     "build": 2
+    },
+    "beats_per_line": 3,
+    "scheme": {
+     "section": "chorus",
+     "named_row": [
+      0,
+      1,
+      1,
+      2
+     ]
+    },
+    "pattern": "WSSSWSWSWWSSSW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 15. Sections: exactly 2 build. Beats per line: 3. Rhyme scheme for each chorus: the scheme the scheme table names (0, 1, 1, 2). Stress pattern for every line, S strong and W weak, one syllable to a position: WSSSWSWSWWSSSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 105,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "build": 1,
+     "hook": 1
+    },
+    "beats_per_line": 13,
+    "pattern": "WSS"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 1 build, exactly 1 hook. Beats per line: 13. Stress pattern for every line, S strong and W weak, one syllable to a position: WSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 106,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 7,
+    "scheme": {
+     "section": "drop",
+     "letters": "AA"
+    }
+   },
+   "request": "Write a song. Form: open. Beats per line: 7. Rhyme scheme for each drop: the letter scheme AA. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 107,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 3 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 18,
+    "sections": {
+     "drop": 3,
+     "coda": 3
+    },
+    "scheme": {
+     "section": "reprise",
+     "letters": "ABBBBBAB"
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 18. Sections: exactly 3 coda, exactly 3 drop. Rhyme scheme for each reprise: the letter scheme ABBBBBAB. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 108,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "pattern": "WWSWSSWSSWWSWWW"
+   },
+   "request": "Write a song. Form: verse-chorus. Stress pattern for every line, S strong and W weak, one syllable to a position: WWSWSSWSSWWSWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 109,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 17,
+    "pattern": "WSWSSWSSSSWWS"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 17. Stress pattern for every line, S strong and W weak, one syllable to a position: WSWSSWSSSSWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 110,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 2 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "outro": 2,
+     "vamp": 2
+    },
+    "beats_per_line": 3,
+    "pattern": "WW"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 outro, exactly 2 vamp. Beats per line: 3. Stress pattern for every line, S strong and W weak, one syllable to a position: WW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 111,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 10,
+    "beats_per_line": 5,
+    "scheme": {
+     "section": "intro",
+     "letters": "AAB"
+    },
+    "pattern": "SSSWSS"
+   },
+   "request": "Write a song. Form: open. Total lines: 10. Beats per line: 5. Rhyme scheme for each intro: the letter scheme AAB. Stress pattern for every line, S strong and W weak, one syllable to a position: SSSWSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 112,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "patter": 1,
+     "refrain": 3
+    },
+    "beats_per_line": 10,
+    "scheme": {
+     "section": "solo",
+     "named_row": [
+      0,
+      1,
+      0,
+      1,
+      2,
+      1,
+      2,
+      1,
+      3,
+      1,
+      3,
+      1
+     ]
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 1 patter, exactly 3 refrain. Beats per line: 10. Rhyme scheme for each solo: the scheme the scheme table names (0, 1, 0, 1, 2, 1, 2, 1, 3, 1, 3, 1). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 113,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "vamp": 1,
+     "hook": 3
+    },
+    "beats_per_line": 14,
+    "pattern": "SSSSSSSS"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 3 hook, exactly 1 vamp. Beats per line: 14. Stress pattern for every line, S strong and W weak, one syllable to a position: SSSSSSSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 114,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 12,
+    "sections": {
+     "postchorus": 2
+    },
+    "beats_per_line": 6,
+    "scheme": {
+     "section": "tag",
+     "letters": "AABBAB"
+    },
+    "pattern": "SSWSSSWS"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 12. Sections: exactly 2 postchorus. Beats per line: 6. Rhyme scheme for each tag: the letter scheme AABBAB. Stress pattern for every line, S strong and W weak, one syllable to a position: SSWSSSWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 115,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 23
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 23. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 116,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "turnaround": 2,
+     "chorus": 2
+    },
+    "scheme": {
+     "section": "intro",
+     "letters": "ABAAAB"
+    }
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 chorus, exactly 2 turnaround. Rhyme scheme for each intro: the letter scheme ABAAAB. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 117,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "open",
+    "lines": 2
+   },
+   "request": "Write a song. Form: open. Total lines: 2. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 118,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 22,
+    "sections": {
+     "drop": 3
+    },
+    "beats_per_line": 10,
+    "scheme": {
+     "section": "turnaround",
+     "named_row": [
+      0,
+      1,
+      2,
+      2
+     ]
+    },
+    "pattern": "SSS"
+   },
+   "request": "Write a song. Form: open. Total lines: 22. Sections: exactly 3 drop. Beats per line: 10. Rhyme scheme for each turnaround: the scheme the scheme table names (0, 1, 2, 2). Stress pattern for every line, S strong and W weak, one syllable to a position: SSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 119,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 12,
+    "beats_per_line": 6,
+    "scheme": {
+     "section": "turnaround",
+     "named_row": [
+      0,
+      0,
+      1,
+      1,
+      2,
+      2
+     ]
+    },
+    "pattern": "SWSW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 12. Beats per line: 6. Rhyme scheme for each turnaround: the scheme the scheme table names (0, 0, 1, 1, 2, 2). Stress pattern for every line, S strong and W weak, one syllable to a position: SWSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 120,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "scheme": {
+     "section": "vamp",
+     "letters": "ABBBACC"
+    },
+    "pattern": "WWWSSW"
+   },
+   "request": "Write a song. Form: open. Rhyme scheme for each vamp: the letter scheme ABBBACC. Stress pattern for every line, S strong and W weak, one syllable to a position: WWWSSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 121,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "turnaround": 1
+    },
+    "scheme": {
+     "section": "postchorus",
+     "letters": "ABABCDE"
+    },
+    "pattern": "WSWWSSWSSWW"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 1 turnaround. Rhyme scheme for each postchorus: the letter scheme ABABCDE. Stress pattern for every line, S strong and W weak, one syllable to a position: WSWWSSWSSWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 4,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 122,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 14,
+    "sections": {
+     "burden": 1
+    },
+    "beats_per_line": 5,
+    "pattern": "WWWWWWSSWW"
+   },
+   "request": "Write a song. Form: open. Total lines: 14. Sections: exactly 1 burden. Beats per line: 5. Stress pattern for every line, S strong and W weak, one syllable to a position: WWWWWWSSWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 123,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "scheme": {
+     "section": "drop",
+     "letters": "ABBBA"
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Rhyme scheme for each drop: the letter scheme ABBBA. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 124,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "scheme": {
+     "section": "bridge",
+     "letters": "AB"
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Rhyme scheme for each bridge: the letter scheme AB. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 125,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "bridge": 1,
+     "chorus": 2
+    },
+    "pattern": "SSWWWSWWW"
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 1 bridge, exactly 2 chorus. Stress pattern for every line, S strong and W weak, one syllable to a position: SSWWWSWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 7,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 126,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 24,
+    "sections": {
+     "hook": 1
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 24. Sections: exactly 1 hook. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 2,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 127,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "scheme": {
+     "section": "build",
+     "named_row": [
+      0,
+      1,
+      0,
+      2
+     ]
+    },
+    "pattern": "SSSSSWSSWSSWS"
+   },
+   "request": "Write a song. Form: open. Rhyme scheme for each build: the scheme the scheme table names (0, 1, 0, 2). Stress pattern for every line, S strong and W weak, one syllable to a position: SSSSSWSSWSSWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 128,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "lines": 9,
+    "beats_per_line": 6,
+    "scheme": {
+     "section": "patter",
+     "letters": "AA"
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 9. Beats per line: 6. Rhyme scheme for each patter: the letter scheme AA. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 129,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "pattern": "WSS"
+   },
+   "request": "Write a song. Form: open. Stress pattern for every line, S strong and W weak, one syllable to a position: WSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 130,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 11,
+    "sections": {
+     "refrain": 1,
+     "false_ending": 2
+    },
+    "scheme": {
+     "section": "intro",
+     "letters": "AAABABBC"
+    },
+    "pattern": "WWSSWS"
+   },
+   "request": "Write a song. Form: open. Total lines: 11. Sections: exactly 2 false_ending, exactly 1 refrain. Rhyme scheme for each intro: the letter scheme AAABABBC. Stress pattern for every line, S strong and W weak, one syllable to a position: WWSSWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 131,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 15,
+    "scheme": {
+     "section": "turnaround",
+     "letters": "AAAAB"
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 15. Rhyme scheme for each turnaround: the letter scheme AAAAB. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 132,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 12,
+    "pattern": "SSWSWSWSWSSS"
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 12. Stress pattern for every line, S strong and W weak, one syllable to a position: SSWSWSWSWSSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 133,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 18
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 18. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 134,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 5,
+    "scheme": {
+     "section": "intro",
+     "named_row": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "pattern": "WWWSWWW"
+   },
+   "request": "Write a song. Form: open. Beats per line: 5. Rhyme scheme for each intro: the scheme the scheme table names (0, 0, 0, 0). Stress pattern for every line, S strong and W weak, one syllable to a position: WWWSWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 135,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "tag": 2
+    },
+    "beats_per_line": 14,
+    "scheme": {
+     "section": "tag",
+     "named_row": [
+      0,
+      1,
+      1,
+      1
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 tag. Beats per line: 14. Rhyme scheme for each tag: the scheme the scheme table names (0, 1, 1, 1). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 136,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 16,
+    "beats_per_line": 6,
+    "pattern": "WSWSSW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 16. Beats per line: 6. Stress pattern for every line, S strong and W weak, one syllable to a position: WSWSSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 137,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 20,
+    "beats_per_line": 2,
+    "scheme": {
+     "section": "drop",
+     "letters": "ABBBBA"
+    },
+    "pattern": "SWSSWSWS"
+   },
+   "request": "Write a song. Form: open. Total lines: 20. Beats per line: 2. Rhyme scheme for each drop: the letter scheme ABBBBA. Stress pattern for every line, S strong and W weak, one syllable to a position: SWSSWSWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 138,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 23,
+    "sections": {
+     "build": 1,
+     "solo": 1
+    },
+    "beats_per_line": 7,
+    "pattern": "SWSWSWSSWSSSS"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 23. Sections: exactly 1 build, exactly 1 solo. Beats per line: 7. Stress pattern for every line, S strong and W weak, one syllable to a position: SWSWSWSSWSSSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 139,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 16,
+    "scheme": {
+     "section": "chorus",
+     "named_row": [
+      0,
+      0,
+      0,
+      1
+     ]
+    },
+    "pattern": "SSSWWS"
+   },
+   "request": "Write a song. Form: open. Beats per line: 16. Rhyme scheme for each chorus: the scheme the scheme table names (0, 0, 0, 1). Stress pattern for every line, S strong and W weak, one syllable to a position: SSSWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 140,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "solo": 1
+    },
+    "beats_per_line": 2,
+    "scheme": {
+     "section": "intro",
+     "letters": "ABBBAB"
+    },
+    "pattern": "WWSSSSWSSWWWSS"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 1 solo. Beats per line: 2. Rhyme scheme for each intro: the letter scheme ABBBAB. Stress pattern for every line, S strong and W weak, one syllable to a position: WWSSSSWSSWWWSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 141,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 2,
+    "scheme": {
+     "section": "tag",
+     "letters": "ABBBCCD"
+    },
+    "pattern": "SWWSWWWWSSWWSWW"
+   },
+   "request": "Write a song. Form: open. Beats per line: 2. Rhyme scheme for each tag: the letter scheme ABBBCCD. Stress pattern for every line, S strong and W weak, one syllable to a position: SWWSWWWWSSWWSWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 2,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 142,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 4,
+    "scheme": {
+     "section": "vamp",
+     "named_row": [
+      0,
+      1,
+      2,
+      0,
+      1,
+      2
+     ]
+    },
+    "pattern": "SSWSWWS"
+   },
+   "request": "Write a song. Form: open. Total lines: 4. Rhyme scheme for each vamp: the scheme the scheme table names (0, 1, 2, 0, 1, 2). Stress pattern for every line, S strong and W weak, one syllable to a position: SSWSWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 143,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 12,
+    "sections": {
+     "intro": 1,
+     "postchorus": 1
+    },
+    "pattern": "SSWWWWWWWWWSS"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 12. Sections: exactly 1 intro, exactly 1 postchorus. Stress pattern for every line, S strong and W weak, one syllable to a position: SSWWWWWWWWWSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 5,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 144,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "prechorus": 2,
+     "drop": 1
+    },
+    "scheme": {
+     "section": "hook",
+     "named_row": [
+      0,
+      1,
+      2,
+      2
+     ]
+    },
+    "pattern": "WS"
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 1 drop, exactly 2 prechorus. Rhyme scheme for each hook: the scheme the scheme table names (0, 1, 2, 2). Stress pattern for every line, S strong and W weak, one syllable to a position: WS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 145,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 3 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "coda": 3
+    },
+    "scheme": {
+     "section": "chorus",
+     "named_row": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1
+     ]
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 3 coda. Rhyme scheme for each chorus: the scheme the scheme table names (0, 0, 0, 1, 0, 1). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 146,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 12,
+    "pattern": "SWWWWSWWWWSSSWWS"
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 12. Stress pattern for every line, S strong and W weak, one syllable to a position: SWWWWSWWWWSSSWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 147,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 7,
+    "sections": {
+     "solo": 2,
+     "prechorus": 3
+    },
+    "beats_per_line": 12,
+    "pattern": "SWWWWWSSWSWSSS"
+   },
+   "request": "Write a song. Form: open. Total lines: 7. Sections: exactly 3 prechorus, exactly 2 solo. Beats per line: 12. Stress pattern for every line, S strong and W weak, one syllable to a position: SWWWWWSSWSWSSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 148,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 3 sections asked for the one first boundary slot",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "bridge": 3,
+     "intro": 3
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 3 bridge, exactly 3 intro. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 149,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 10
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 10. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 150,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 14,
+    "beats_per_line": 16
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 14. Beats per line: 16. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 151,
+   "group": "states only the form",
+   "expected_outcome": "a finished song at exit 0; everything but the form shown as drawn",
+   "answer_key": {
+    "form": "open"
+   },
+   "request": "Write a song. Form: open. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 152,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 17,
+    "beats_per_line": 4,
+    "scheme": {
+     "section": "reprise",
+     "letters": "AAAA"
+    },
+    "pattern": "WW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 17. Beats per line: 4. Rhyme scheme for each reprise: the letter scheme AAAA. Stress pattern for every line, S strong and W weak, one syllable to a position: WW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 2,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 153,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 22,
+    "sections": {
+     "coda": 1,
+     "drop": 2
+    },
+    "scheme": {
+     "section": "interlude",
+     "named_row": [
+      0,
+      1,
+      2,
+      0,
+      1,
+      2
+     ]
+    },
+    "pattern": "SWSSWSSSSWSWWWW"
+   },
+   "request": "Write a song. Form: open. Total lines: 22. Sections: exactly 1 coda, exactly 2 drop. Rhyme scheme for each interlude: the scheme the scheme table names (0, 1, 2, 0, 1, 2). Stress pattern for every line, S strong and W weak, one syllable to a position: SWSSWSSSSWSWWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 154,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 2 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 19,
+    "sections": {
+     "drop": 1,
+     "outro": 2
+    },
+    "beats_per_line": 4,
+    "scheme": {
+     "section": "intro",
+     "letters": "AAAAB"
+    },
+    "pattern": "WWWWSSSSW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 19. Sections: exactly 1 drop, exactly 2 outro. Beats per line: 4. Rhyme scheme for each intro: the letter scheme AAAAB. Stress pattern for every line, S strong and W weak, one syllable to a position: WWWWSSSSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 155,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 10,
+    "beats_per_line": 14,
+    "scheme": {
+     "section": "intro",
+     "letters": "ABAACBD"
+    },
+    "pattern": "WSWWWSWSSSWS"
+   },
+   "request": "Write a song. Form: open. Total lines: 10. Beats per line: 14. Rhyme scheme for each intro: the letter scheme ABAACBD. Stress pattern for every line, S strong and W weak, one syllable to a position: WSWWWSWSSSWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 156,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 22,
+    "sections": {
+     "postchorus": 2,
+     "prechorus": 1
+    },
+    "beats_per_line": 16
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 22. Sections: exactly 2 postchorus, exactly 1 prechorus. Beats per line: 16. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 157,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "outro": 1
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 1 outro. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 6,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 158,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "chorus": 2,
+     "turnaround": 1
+    },
+    "pattern": "WSSSS"
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 2 chorus, exactly 1 turnaround. Stress pattern for every line, S strong and W weak, one syllable to a position: WSSSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 5,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 159,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "open",
+    "lines": 6,
+    "sections": {
+     "outro": 1,
+     "refrain": 2
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 6. Sections: exactly 1 outro, exactly 2 refrain. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 160,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "lines": 22,
+    "sections": {
+     "tag": 3,
+     "vamp": 2
+    },
+    "beats_per_line": 6,
+    "scheme": {
+     "section": "refrain",
+     "letters": "AAAAAB"
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 22. Sections: exactly 3 tag, exactly 2 vamp. Beats per line: 6. Rhyme scheme for each refrain: the letter scheme AAAAAB. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 161,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "refrain": 3,
+     "hook": 2
+    },
+    "beats_per_line": 2,
+    "scheme": {
+     "section": "burden",
+     "named_row": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      2,
+      2
+     ]
+    },
+    "pattern": "WSWSWSS"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 hook, exactly 3 refrain. Beats per line: 2. Rhyme scheme for each burden: the scheme the scheme table names (0, 1, 0, 1, 1, 2, 2). Stress pattern for every line, S strong and W weak, one syllable to a position: WSWSWSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 162,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "lines": 15,
+    "sections": {
+     "drop": 1
+    },
+    "beats_per_line": 4,
+    "scheme": {
+     "section": "drop",
+     "letters": "AAAA"
+    }
+   },
+   "request": "Write a song. Form: open. Total lines: 15. Sections: exactly 1 drop. Beats per line: 4. Rhyme scheme for each drop: the letter scheme AAAA. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 163,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 21,
+    "beats_per_line": 14,
+    "pattern": "SWWS"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 21. Beats per line: 14. Stress pattern for every line, S strong and W weak, one syllable to a position: SWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 164,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 24,
+    "beats_per_line": 2,
+    "pattern": "SSWWWWSWS"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 24. Beats per line: 2. Stress pattern for every line, S strong and W weak, one syllable to a position: SSWWWWSWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 3,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 165,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "pattern": "SWSSSWWSSWS"
+   },
+   "request": "Write a song. Form: verse-chorus. Stress pattern for every line, S strong and W weak, one syllable to a position: SWSSSWWSSWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 166,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 13,
+    "scheme": {
+     "section": "refrain",
+     "named_row": [
+      0,
+      1,
+      1,
+      0
+     ]
+    },
+    "pattern": "SSWSSWWWSS"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 13. Rhyme scheme for each refrain: the scheme the scheme table names (0, 1, 1, 0). Stress pattern for every line, S strong and W weak, one syllable to a position: SSWSSWWWSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 167,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 6
+   },
+   "request": "Write a song. Form: open. Beats per line: 6. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 168,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 8,
+    "pattern": "SWS"
+   },
+   "request": "Write a song. Form: open. Beats per line: 8. Stress pattern for every line, S strong and W weak, one syllable to a position: SWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 169,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "scheme": {
+     "section": "refrain",
+     "letters": "ABBBCDEE"
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Rhyme scheme for each refrain: the letter scheme ABBBCDEE. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 170,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "interlude": 3
+    },
+    "scheme": {
+     "section": "outro",
+     "letters": "ABCDD"
+    }
+   },
+   "request": "Write a song. Form: open. Sections: exactly 3 interlude. Rhyme scheme for each outro: the letter scheme ABCDD. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 171,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 20,
+    "scheme": {
+     "section": "bridge",
+     "letters": "ABAACBD"
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 20. Rhyme scheme for each bridge: the letter scheme ABAACBD. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 172,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 6,
+    "scheme": {
+     "section": "solo",
+     "letters": "AAB"
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 6. Rhyme scheme for each solo: the letter scheme AAB. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 173,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 2 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "outro": 2
+    },
+    "scheme": {
+     "section": "reprise",
+     "named_row": [
+      0,
+      1,
+      0,
+      1,
+      1
+     ]
+    }
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 outro. Rhyme scheme for each reprise: the scheme the scheme table names (0, 1, 0, 1, 1). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 174,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 18,
+    "scheme": {
+     "section": "burden",
+     "letters": "AAB"
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 18. Rhyme scheme for each burden: the letter scheme AAB. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 175,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 6,
+    "sections": {
+     "turnaround": 2,
+     "drop": 2
+    },
+    "scheme": {
+     "section": "false_ending",
+     "named_row": [
+      0,
+      1,
+      1,
+      2
+     ]
+    },
+    "pattern": "WSWSSWWSS"
+   },
+   "request": "Write a song. Form: open. Total lines: 6. Sections: exactly 2 drop, exactly 2 turnaround. Rhyme scheme for each false_ending: the scheme the scheme table names (0, 1, 1, 2). Stress pattern for every line, S strong and W weak, one syllable to a position: WSWSSWWSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 176,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 18,
+    "sections": {
+     "interlude": 1
+    },
+    "beats_per_line": 7,
+    "pattern": "SW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 18. Sections: exactly 1 interlude. Beats per line: 7. Stress pattern for every line, S strong and W weak, one syllable to a position: SW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 177,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 19,
+    "beats_per_line": 13,
+    "scheme": {
+     "section": "outro",
+     "letters": "ABCDEF"
+    },
+    "pattern": "WS"
+   },
+   "request": "Write a song. Form: open. Total lines: 19. Beats per line: 13. Rhyme scheme for each outro: the letter scheme ABCDEF. Stress pattern for every line, S strong and W weak, one syllable to a position: WS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 178,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 7,
+    "pattern": "WWSSSSWSW"
+   },
+   "request": "Write a song. Form: open. Beats per line: 7. Stress pattern for every line, S strong and W weak, one syllable to a position: WWSSSSWSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 179,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 3 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "outro": 3
+    },
+    "beats_per_line": 5,
+    "scheme": {
+     "section": "patter",
+     "letters": "ABBAA"
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 3 outro. Beats per line: 5. Rhyme scheme for each patter: the letter scheme ABBAA. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 180,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 4
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 4. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 181,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 2 sections asked for the one first boundary slot",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "intro": 2
+    },
+    "beats_per_line": 5
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 intro. Beats per line: 5. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 182,
+   "group": "contradicts itself",
+   "expected_outcome": "refused, naming the declaration to change: 2 sections asked for the one last boundary slot",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 17,
+    "sections": {
+     "turnaround": 2,
+     "coda": 2
+    },
+    "pattern": "WWSSSW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 17. Sections: exactly 2 coda, exactly 2 turnaround. Stress pattern for every line, S strong and W weak, one syllable to a position: WWSSSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 183,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "beats_per_line": 4,
+    "scheme": {
+     "section": "intro",
+     "named_row": [
+      0,
+      1,
+      2,
+      2
+     ]
+    },
+    "pattern": "SW"
+   },
+   "request": "Write a song. Form: verse-chorus. Beats per line: 4. Rhyme scheme for each intro: the scheme the scheme table names (0, 1, 2, 2). Stress pattern for every line, S strong and W weak, one syllable to a position: SW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 184,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "patter": 2,
+     "prechorus": 1
+    },
+    "beats_per_line": 14
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 patter, exactly 1 prechorus. Beats per line: 14. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 185,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 20,
+    "beats_per_line": 16
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 20. Beats per line: 16. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 1
+   }
+  },
+  {
+   "case": 186,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 13,
+    "pattern": "SSSWWSSWWSSWW"
+   },
+   "request": "Write a song. Form: open. Beats per line: 13. Stress pattern for every line, S strong and W weak, one syllable to a position: SSSWWSSWWSSWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 187,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "lines": 14,
+    "sections": {
+     "turnaround": 1,
+     "intro": 1
+    },
+    "pattern": "WWSW"
+   },
+   "request": "Write a song. Form: open. Total lines: 14. Sections: exactly 1 intro, exactly 1 turnaround. Stress pattern for every line, S strong and W weak, one syllable to a position: WWSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 2,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 188,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "breakdown": 1,
+     "bridge": 2
+    },
+    "beats_per_line": 6,
+    "scheme": {
+     "section": "breakdown",
+     "letters": "ABABA"
+    },
+    "pattern": "SWSSWWSSSWWWWS"
+   },
+   "request": "Write a song. Form: open. Sections: exactly 1 breakdown, exactly 2 bridge. Beats per line: 6. Rhyme scheme for each breakdown: the letter scheme ABABA. Stress pattern for every line, S strong and W weak, one syllable to a position: SWSSWWSSSWWWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 189,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "pattern": "WWWWWWSWSWSWWSSS"
+   },
+   "request": "Write a song. Form: open. Stress pattern for every line, S strong and W weak, one syllable to a position: WWWWWWSWSWSWWSSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 190,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "sections": {
+     "coda": 1,
+     "false_ending": 3
+    },
+    "scheme": {
+     "section": "turnaround",
+     "letters": "ABBCCBDC"
+    },
+    "pattern": "SSWSWWWS"
+   },
+   "request": "Write a song. Form: verse-chorus. Sections: exactly 1 coda, exactly 3 false_ending. Rhyme scheme for each turnaround: the letter scheme ABBCCBDC. Stress pattern for every line, S strong and W weak, one syllable to a position: SSWSWWWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 191,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 4,
+    "scheme": {
+     "section": "intro",
+     "letters": "AABBA"
+    },
+    "pattern": "WSSWWSWWW"
+   },
+   "request": "Write a song. Form: open. Beats per line: 4. Rhyme scheme for each intro: the letter scheme AABBA. Stress pattern for every line, S strong and W weak, one syllable to a position: WSSWWSWWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 192,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "open",
+    "beats_per_line": 5,
+    "pattern": "SSSSWSSSS"
+   },
+   "request": "Write a song. Form: open. Beats per line: 5. Stress pattern for every line, S strong and W weak, one syllable to a position: SSSSWSSSS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 193,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 13,
+    "sections": {
+     "chorus": 2
+    },
+    "scheme": {
+     "section": "intro",
+     "named_row": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+     ]
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 13. Sections: exactly 2 chorus. Rhyme scheme for each intro: the scheme the scheme table names (0, 1, 0, 1, 0, 1). Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 194,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 23,
+    "beats_per_line": 7,
+    "scheme": {
+     "section": "chorus",
+     "named_row": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      2,
+      1,
+      2,
+      2,
+      3,
+      2,
+      3,
+      4,
+      4
+     ]
+    },
+    "pattern": "WWWWSSSWSSWSSSWW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 23. Beats per line: 7. Rhyme scheme for each chorus: the scheme the scheme table names (0, 1, 0, 1, 1, 2, 1, 2, 2, 3, 2, 3, 4, 4). Stress pattern for every line, S strong and W weak, one syllable to a position: WWWWSSSWSSWSSSWW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 2,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 195,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme, pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 24,
+    "sections": {
+     "hook": 3,
+     "solo": 2
+    },
+    "beats_per_line": 3,
+    "scheme": {
+     "section": "refrain",
+     "letters": "AAABA"
+    },
+    "pattern": "SSWSWSW"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 24. Sections: exactly 3 hook, exactly 2 solo. Beats per line: 3. Rhyme scheme for each refrain: the letter scheme AAABA. Stress pattern for every line, S strong and W weak, one syllable to a position: SSWSWSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 196,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "pattern": "WSSWWSW"
+   },
+   "request": "Write a song. Form: verse-chorus. Stress pattern for every line, S strong and W weak, one syllable to a position: WSSWWSW. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 28,
+    "planner_seeds_that_plan_of_3": 3
+   }
+  },
+  {
+   "case": 197,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: pattern",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 24,
+    "sections": {
+     "hook": 1
+    },
+    "beats_per_line": 15,
+    "pattern": "SSWWSSWSWS"
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 24. Sections: exactly 1 hook. Beats per line: 15. Stress pattern for every line, S strong and W weak, one syllable to a position: SSWWSSWSWS. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 198,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "open",
+    "sections": {
+     "drop": 2,
+     "prechorus": 3
+    },
+    "beats_per_line": 9
+   },
+   "request": "Write a song. Form: open. Sections: exactly 2 drop, exactly 3 prechorus. Beats per line: 9. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 0,
+    "planner_seeds_that_plan_of_3": 0
+   }
+  },
+  {
+   "case": 199,
+   "group": "supported and fits together",
+   "expected_outcome": "a finished song at exit 0 whose final plan matches the answer key",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 21,
+    "beats_per_line": 8
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 21. Beats per line: 8. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 2,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  },
+  {
+   "case": 200,
+   "group": "asks for something not supported yet",
+   "expected_outcome": "refused, naming what is not supported yet: scheme",
+   "answer_key": {
+    "form": "verse-chorus",
+    "lines": 19,
+    "beats_per_line": 10,
+    "scheme": {
+     "section": "outro",
+     "letters": "AABCD"
+    }
+   },
+   "request": "Write a song. Form: verse-chorus. Total lines: 19. Beats per line: 10. Rhyme scheme for each outro: the letter scheme AABCD. Anything not stated above is not asked for: draw it.",
+   "baseline": {
+    "first_sweep_accepts": 1,
+    "planner_seeds_that_plan_of_3": 2
+   }
+  }
+ ],
+ "agent_run_cases": [
+  1,
+  3,
+  4,
+  14,
+  22
+ ]
+}

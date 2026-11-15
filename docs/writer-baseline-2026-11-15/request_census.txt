@@ -1,0 +1,18 @@
+requests 200, planner seeds each 3, seconds 86
+requests whose declarable part plans on at least one planner seed: 140 of 200
+  stated ['form only']: 25 of 25 plan
+  stated ['beats_per_line']: 32 of 33 plan
+  stated ['beats_per_line', 'lines']: 29 of 29 plan
+  stated ['beats_per_line', 'lines', 'sections']: 7 of 22 plan
+  stated ['beats_per_line', 'sections']: 6 of 26 plan
+  stated ['lines']: 19 of 19 plan
+  stated ['lines', 'sections']: 7 of 25 plan
+  stated ['sections']: 15 of 21 plan
+  never planned x43: no accepted plan in the bounded draws
+  never planned x2: sections.outro=3 can't be met: the shared last boundary slot allows at most 1 section; req
+  never planned x2: sections.outro=2 can't be met: the shared last boundary slot allows at most 1 section; req
+  never planned x1: sections.coda=2; sections.intro=3 can't be met: the shared first boundary slot allows at m
+  never planned x1: sections.intro=3; sections.outro=1 can't be met: the shared first boundary slot allows at 
+  never planned x1: sections.coda=3; sections.postchorus=1 can't be met: the shared last boundary slot allows 
+  never planned x1: sections.coda=2; sections.verse=2 can't be met: the shared last boundary slot allows at mo
+  never planned x1: sections.coda=3; sections.verse=1 can't be met: the shared last boundary slot allows at mo
