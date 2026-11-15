@@ -328,7 +328,9 @@ print(json.dumps([plan.make_plan(**case) for case in cases]))
         cases.extend([{'seed': 12, 'lines': 24,
                        'functions': ['verse', 'chorus', 'bridge']},
                       {'seed': 11, 'lines': 24, 'functions': ['verse']}])
-        cases.append({'seed': 11, 'lines': 24, 'functions': ['bridge'],
+        # A verse beside the bridge since 2026-11-15: a bridge needs a
+        # section before it, so a roster of bridges alone plans nothing.
+        cases.append({'seed': 11, 'lines': 24, 'functions': ['verse', 'bridge'],
                       'wants': ['sections.bridge=4']})
         env = dict(os.environ, PYTHONHASHSEED=str(hashseed),
                    DISCLOSURE_CASES=json.dumps(cases))
@@ -431,7 +433,9 @@ class RecurrenceReportTests(unittest.TestCase):
              wants=['sections=4', 'sections.false_ending<=2', 'sections.reprise<=2']),
         dict(seed=11, form='open', lines=24, functions=['verse', 'reprise'],
              wants=['sections=4', 'sections.verse<=1']),
-        dict(seed=11, form='open', lines=24, functions=['bridge'],
+        # A verse beside the bridge since 2026-11-15 (a bridge needs a section
+        # before it); the lifted `once` preference is still the bridge's.
+        dict(seed=11, form='open', lines=24, functions=['verse', 'bridge'],
              wants=['sections.bridge=4']),
         dict(seed=11, form='open', lines=24, functions=['verse', 'chorus', 'false_ending', 'reprise'],
              wants=['sections.false_ending=2']),
@@ -477,7 +481,7 @@ class RecurrenceReportTests(unittest.TestCase):
             target = Path(tmp) / 'plan.json'
             for roster, wants, expected in [
                 ('verse', '', ''),
-                ('bridge', 'sections.bridge=4',
+                ('verse,bridge', 'sections.bridge=4',
                  '    bridge ×4: the request specifies sections.bridge=4.\n'),
             ]:
                 args = ['plan', '--seed=11', '--lines=24', '--functions=' + roster,
@@ -700,7 +704,9 @@ class CapabilityTableTests(unittest.TestCase):
         ('postchorus', 'checked', 'returns', 'verbatim', ['chorus'], ''),
         ('refrain', 'no claim', 'returns', 'verbatim', [], ''),
         ('burden', 'checked', 'returns', 'verbatim', [], ''),
-        ('bridge', 'no claim', 'once', 'n/a', ['verse', 'chorus'], ''),
+        # 2026-11-15 (owner's ruling): a bridge needs a section before it,
+        # so its placement is a claim the planner and the grader check.
+        ('bridge', 'checked', 'once', 'n/a', ['verse', 'chorus'], ''),
         ('breakdown', 'no claim', 'open', 'varied', [], 'whether the arrangement thins'),
         ('build', 'no claim', 'open', 'varied', [], 'whether tension rises'),
         ('drop', 'refused', 'returns', 'varied', [], 'whether it lands as an arrival'),
