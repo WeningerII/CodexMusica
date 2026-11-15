@@ -5557,6 +5557,8 @@ await check('validation: actionable errors', () => {
         'offline regressions for refusals after a screen or grade that left no receipt',
       'mcp/test_refusal_promise.mjs':
         'offline table holding every session refusal to naming the call that works',
+      'mcp/test_parked_lines.mjs':
+        'offline regressions holding a parked rewrite to the lines that can fix it',
       'mcp/test_pronunciation_choices.mjs': 'offline occurrence pronunciation contract regressions',
       'mcp/test_pronunciation_native.mjs':
         'offline real native pronunciation continuation regressions',

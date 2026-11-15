@@ -938,7 +938,11 @@ function PARKED_RUN_NOTE(lyr) {
     '. The song is NOT finished and cannot be presented as finished.' +
     standing +
     ' No question is pending. The ONLY way forward: ' +
-    'REWRITE the flagged line(s) yourself (new words), keep every other line byte-identical, and call lyric_revise ' +
+    'REWRITE the flagged line(s) yourself (new words); ' +
+    (parkedChangeable(lyr)
+      ? `only line(s) ${parkedChangeable(lyr).join(', ')} may change, and a draft that changes any other line is refused; `
+      : 'any line may change; ') +
+    'then call lyric_revise ' +
     `again with \`seed\` and \`draft_text\`: the FULL song as ONE plain string, one line per row, newline-separated${n ? ` (all ${n} lines, in order)` : ''} — ` +
     'a string, NOT an array (the array is where your calls have broken). ' +
     "The run's declarations are carried for you: send the rewritten draft and the seed only. Do NOT " +
@@ -1174,6 +1178,60 @@ function sameDraft(a, b) {
     a.every((l, i) => String(l).trim() === String(b[i]).trim())
   );
 }
+function declaredReturns(args, planReturns) {
+  for (const r of [args?.returns, planReturns])
+    if (typeof r === 'string' && r.trim()) return r.trim();
+  return null;
+}
+// THE LINES A PARKED REWRITE MAY CHANGE (#853, stage T; 3PO's closure). The
+// open lines; every line a verbatim return ties to one of them, taken to its
+// closure as the revise loop takes it (quality/loop.py, the atomic group);
+// and with no return declared, every line whose text is an open line's text
+// in the parked draft (a held verbatim return is identical text). A
+// whole-draft flag opens every line, as the loop's whole-draft question does.
+// null means every line may change.
+export function parkedChangeable(lyr) {
+  if (Array.isArray(lyr?.whole) && lyr.whole.length) return null;
+  const open = (Array.isArray(lyr?.open) ? lyr.open : []).filter(Number.isInteger);
+  if (!open.length) return null;
+  const allowed = new Set(open);
+  const classes =
+    typeof lyr.returns === 'string'
+      ? lyr.returns
+          .split(';')
+          .map((c) =>
+            c
+              .split(',')
+              .map((m) => parseInt(String(m).trim(), 10))
+              .filter(Number.isInteger)
+          )
+          .filter((c) => c.length > 1)
+      : null;
+  if (classes) {
+    for (let grew = true; grew; ) {
+      grew = false;
+      for (const c of classes)
+        if (c.some((l) => allowed.has(l)) && c.some((l) => !allowed.has(l))) {
+          c.forEach((l) => allowed.add(l));
+          grew = true;
+        }
+    }
+  } else if (Array.isArray(lyr.draft)) {
+    const texts = new Set(open.map((l) => String(lyr.draft[l - 1] ?? '').trim()));
+    lyr.draft.forEach((t, i) => {
+      if (texts.has(String(t).trim())) allowed.add(i + 1);
+    });
+  }
+  return [...allowed].sort((a, b) => a - b);
+}
+function changedOutside(lyr, draft) {
+  const allowed = parkedChangeable(lyr);
+  if (allowed == null || !Array.isArray(lyr?.draft) || draft.length !== lyr.draft.length) return [];
+  const ok = new Set(allowed);
+  return draft
+    .map((l, i) => (String(l).trim() !== String(lyr.draft[i]).trim() && !ok.has(i + 1) ? i + 1 : null))
+    .filter((n) => n != null);
+}
 function parkedRefusal(lyr, name, args) {
   if (lyr.uncertified)
     return name === 'lyric_revise' || WANDER_ALWAYS.has(name)
@@ -1196,6 +1254,9 @@ function parkedRefusal(lyr, name, args) {
     return `${head}, and this call omits the draft — a parked run is continued by a REWRITTEN draft (\`draft_text\`), which only you can write.${tail}`;
   if (sameDraft(args.draft, lyr.draft))
     return `${head}, and this call re-sends the SAME draft that parked — the loop is deterministic and would park again on the same lines.${tail}`;
+  const outside = changedOutside(lyr, args.draft);
+  if (outside.length)
+    return `${head}, and this call changes line(s) ${outside.join(', ')}, which are not open: a parked rewrite may change only line(s) ${parkedChangeable(lyr).join(', ')}.${tail}`;
   return null;
 }
 
@@ -1285,7 +1346,7 @@ export function renderedSong(result) {
   return end < 0 ? null : lines.slice(0, end + 1).join('\n');
 }
 
-function carryState(prev, toolName, args, verdict, surface) {
+function carryState(prev, toolName, args, verdict, surface, planReturns = null) {
   if (!surface.stateTools?.has(toolName)) return prev;
   const key = stateKey(args);
   if (key == null) return prev;
@@ -1392,6 +1453,10 @@ function carryState(prev, toolName, args, verdict, surface) {
       open: Array.isArray(verdict.loop_unresolved_lines) ? verdict.loop_unresolved_lines : [],
       whole: Array.isArray(verdict.loop_whole_flag_codes) ? verdict.loop_whole_flag_codes : [],
       standing: Array.isArray(verdict.standing) ? verdict.standing.slice(0, 24) : [],
+      // The run's declared verbatim returns (a pasted song's own `returns`,
+      // or the recorded plan's), so a parked rewrite may change an open
+      // line's word-for-word partners with it (#853). Present only when known.
+      ...(declaredReturns(args, planReturns) ? { returns: declaredReturns(args, planReturns) } : {}),
     };
   }
   if (code === 0 && prev && carriedKey(prev) === key) return null;
@@ -2758,7 +2823,8 @@ export async function runTurn({
               next_recovery_part: payload.next_recovery_part ?? null,
             };
           }
-          if (!recoveryOnly) lyr = carryState(lyr, fc.name, args, lyricVerdict, surface);
+          if (!recoveryOnly)
+            lyr = carryState(lyr, fc.name, args, lyricVerdict, surface, task?.plan?.result?.returns);
           // Only a returned revision carrying its draft or continuation replaces
           // its worker journal. An error exchange (or a later unrelated tool)
           // must retain accepted progress whose final result never arrived.
