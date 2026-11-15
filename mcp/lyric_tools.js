@@ -1474,6 +1474,15 @@ function recoverContinuationOnly(args) {
 // `--fallback=` takes a value, and the CLI reads both before dispatch, so
 // they cannot ride `planArgs` (which lands after the verb). Every handler
 // that grades a draft spreads this in front of its verb.
+// THE INSTANCE REPORT IS NOT BUILT UNLESS IT WILL BE READ (2026-11-15).
+// The harness recomputes `schema_instance_evidence` at report time, over every
+// registry schema: 1,014 of 1,198 profiled seconds on a 100-line grade. Its
+// one reader is the Lyrics page's inspection view, and that view accepts only
+// a review's lyric_check (it needs the request binding only that call gets).
+// So lyric_check builds it when the call asks (`evidence: true`), and a grade
+// or a revise, whose copy no reader could use, does not build it.
+const NO_INSTANCE_EVIDENCE = '--no-instance-evidence';
+
 function globalsFor(a) {
   // The basis is resolved before the verb is spelled. lyric_revise resolves
   // it itself, after carrying its run's record in (`continuing`); every other
@@ -2707,7 +2716,7 @@ export function registerLyricTools(server, tool) {
         // artifact, so the comment kept asserting a correspondence that had
         // stopped holding. It is an EQUALITY, not a description, and
         // `mcp/test.mjs` pins it now rather than trusting it (doctrine 48).
-        const songArgs = [...globalsFor(a), 'song', bpPath, draftPath];
+        const songArgs = [...globalsFor(a), NO_INSTANCE_EVIDENCE, 'song', bpPath, draftPath];
         if (plan.groups) songArgs.push(`--groups=${plan.groups}`);
         if (plan.returns) songArgs.push(`--returns=${plan.returns}`);
         // The relation comes off the PLAN, not off the tool call, for the
@@ -3195,13 +3204,14 @@ export function registerLyricTools(server, tool) {
               if (seeded) {
                 args = [
                   ...globalsFor(a),
+                  NO_INSTANCE_EVIDENCE,
                   'finish',
                   draftPath,
                   ...planArgs(a),
                   `--propose=${proposeSpec}`,
                 ];
               } else {
-                args = [...globalsFor(a), 'revise', draftPath];
+                args = [...globalsFor(a), NO_INSTANCE_EVIDENCE, 'revise', draftPath];
                 if (hasScheme) args.push(a.scheme);
                 if (hasGroups) args.push(`--groups=${a.groups}`);
                 if (a.returns) args.push(`--returns=${a.returns}`);
@@ -3925,7 +3935,13 @@ export function registerLyricTools(server, tool) {
           throw refuse(
             '`blueprint` needs `subdivision` — the slot questions refuse rather than assume a grid'
           );
-        const args = [...globalsFor(a), 'brief', draftPath];
+        // The instance report is built only for the call that asked for it.
+        const args = [
+          ...globalsFor(a),
+          ...(a.evidence === true ? [] : [NO_INSTANCE_EVIDENCE]),
+          'brief',
+          draftPath,
+        ];
         if (hasScheme) args.push(a.scheme);
         if (hasGroups) args.push(`--groups=${a.groups}`);
         if (a.returns) args.push(`--returns=${a.returns}`);
@@ -3952,16 +3968,17 @@ export function registerLyricTools(server, tool) {
         }
         const r = await runVerb(args);
         const v = verdictOf(r);
-        if (v.schema_instance_evidence) {
-          if (a.evidence === true) {
+        if (a.evidence === true) {
+          if (v.schema_instance_evidence) {
             const invocation = checkEvidenceInvocation(r, a);
             if (invocation)
               v.schema_instance_evidence = { ...v.schema_instance_evidence, invocation };
-          } else {
-            delete v.schema_instance_evidence;
-            v.evidence_omitted =
-              '`schema_instance_evidence` is left out of this result; call lyric_check again with evidence: true to include it.';
           }
+        } else if (v.findings_measured) {
+          // Not built, so there is none to delete: every measured check says
+          // how to get it.
+          v.evidence_omitted =
+            '`schema_instance_evidence` is left out of this result; call lyric_check again with evidence: true to include it.';
         }
         v.blueprint_declared = a.blueprint != null;
         return applyCheckExit(v);

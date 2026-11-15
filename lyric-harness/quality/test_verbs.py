@@ -1848,6 +1848,34 @@ def test_every_flag_value_refuses_in_one_shape():
     rc, out, _ = run("--voices", "score", "cat", "--", "hat")
     check("and the flag itself still works, unchanged",
           rc == 0 and "RHYME" in out)
+    # The third bare global flag (2026-11-15). It leaves ONE key out of the
+    # record and moves nothing else: the report it names is recomputed after
+    # grading, so a run that will not read it does not pay for it.
+    rc, out, _ = run("--no-instance-evidence=1", "score", "cat", "--", "hat")
+    check("`--no-instance-evidence=1` REFUSES at exit 2, as the other bare "
+          "global flags do",
+          rc == 2 and "takes NO value" in out,
+          (out.strip().splitlines() or [""])[0][:110])
+    with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
+                                     encoding="utf-8") as fh:
+        fh.write("the lamp is burning on the window sill\n"
+                 "the river keeps on moving past the mill\n")
+    try:
+        rc_a, out_a, _ = run("brief", fh.name, "--groups=1,2")
+        rc_b, out_b, _ = run("--no-instance-evidence", "brief", fh.name,
+                             "--groups=1,2")
+    finally:
+        os.unlink(fh.name)
+    with_report, without = _machine_result(out_a), _machine_result(out_b)
+    rest = {k: v for k, v in with_report.items()
+            if k != "schema_instance_evidence"}
+    check("`--no-instance-evidence` leaves the instance report out of the "
+          "record and changes nothing else in it",
+          rc_a == rc_b and with_report.get("status") == "graded"
+          and "schema_instance_evidence" in with_report
+          and "schema_instance_evidence" not in without and rest == without,
+          f"rc {rc_a}/{rc_b}; differing keys "
+          f"{sorted(k for k in set(rest) | set(without) if rest.get(k) != without.get(k))}")
     rc, out, _ = run("schme", "ABAB")
     check("an unknown VERB refuses at exit 2 too — it used to print one "
           "line and return success",

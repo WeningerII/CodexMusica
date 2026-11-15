@@ -8397,6 +8397,14 @@ if (!runs('offline') || PART === null) {
               ['warm', 'cold', 'cold-fallback'].includes(gv.path) && typeof gv.ms === 'number',
               `the grade verdict names its path and time (got ${gv.path}, ${gv.ms})`
             );
+            // The instance report is built only for a lyric_check that asks
+            // for it: on a grade no reader could use it, and building it was
+            // most of a long draft's running time.
+            assert.equal(
+              gv.schema_instance_evidence,
+              undefined,
+              'a grade builds no instance report'
+            );
           }
           const song = gradedRes.content[0].text;
           assert.ok(
