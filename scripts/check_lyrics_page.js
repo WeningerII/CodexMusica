@@ -4481,7 +4481,38 @@ async function browserChecks(chromium) {
         /the writer asked a question/.test(asking.said) && !/exit|lyric_/.test(asking.said),
         `a waiting revise is read as codes: ${JSON.stringify(asking.said)}`
       );
+      // Exit 2 has two meanings on a check. One that measured the lines and
+      // could not judge all of them counted its flags and refused nothing;
+      // one that was refused measured nothing and says why.
+      const checkAt2 = (row) => ({
+        ...unfinished(),
+        tools: [{ name: 'lyric_check', exit_code: 2, certified: false, ...row }],
+      });
       await ctx.close();
+      // Each on a fresh page, so no earlier run stands between it and its reply.
+      const saidAfter = async (row) => {
+        const fresh = await boot();
+        await setDraft(fresh.page, DRAFT);
+        await sendReview(fresh.page, fresh.q, checkAt2(row));
+        const said = await fresh.page.evaluate(
+          () =>
+            [...document.querySelectorAll('#chat-log .chat-msg-engine')]
+              .pop()
+              ?.querySelector('.chat-count-sr')?.textContent || ''
+        );
+        await fresh.ctx.close();
+        return said;
+      };
+      const unjudged = await saidAfter({ flags: 0, refusal: null });
+      check(
+        /a check did not certify the draft/.test(unjudged) && !/refused/.test(unjudged),
+        `a check that could not judge everything is read as refused: ${JSON.stringify(unjudged)}`
+      );
+      const refusedCheck = await saidAfter({ flags: null, refusal: 'REFUSED' });
+      check(
+        /a step was refused/.test(refusedCheck),
+        `a refused check is not read as refused: ${JSON.stringify(refusedCheck)}`
+      );
     });
     await step('3. waiting run, independent work', async () => {
       const { ctx, page, q } = await boot({ theme: 'dark' });
