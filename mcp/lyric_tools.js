@@ -2440,6 +2440,17 @@ export const LYRIC_TOOL_SCHEMAS = {
       .describe(
         'Verbatim-return classes by line numbers, written N,N;N,N — each later line must repeat the first of its class word for word. Optional, joins groups.'
       ),
+    // THE ONE LARGE FIELD IS ASKED FOR (owner's plan, stage 1, 2026-11-15).
+    // `schema_instance_evidence` was 143,737 of a two-line check's 148,999
+    // characters, and nothing a caller does with a check's verdict reads it:
+    // the Lyrics page's inspection view does, through the website chat, whose
+    // agent asks on every check (gemini_agent.js).
+    evidence: z
+      .boolean()
+      .optional()
+      .describe(
+        'true adds `schema_instance_evidence` to the result: every schema instance behind the verdict, by far the largest field. Left out by default; the verdict, findings and coverage are complete without it.'
+      ),
   },
   lyric_types: {
     word_a: z.string().max(MAX_WORD_CHARS).describe('First word of the pair.'),
@@ -3868,7 +3879,8 @@ export function registerLyricTools(server, tool) {
         'says what to do. Read `flags` and `whole_flags` for ' +
         'what stands, `certified` and `coverage` for whether every declared pair and requested layer was judged ' +
         '(coverage.refused_obligations names what was not), and `unreadable` (a count) with `unreadable_findings` ' +
-        '(the findings) for what the lexicon could not read. ' +
+        '(the findings) for what the lexicon could not read. `schema_instance_evidence` is left out unless ' +
+        '`evidence` is true. ' +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_check,
     },
@@ -3941,9 +3953,15 @@ export function registerLyricTools(server, tool) {
         const r = await runVerb(args);
         const v = verdictOf(r);
         if (v.schema_instance_evidence) {
-          const invocation = checkEvidenceInvocation(r, a);
-          if (invocation)
-            v.schema_instance_evidence = { ...v.schema_instance_evidence, invocation };
+          if (a.evidence === true) {
+            const invocation = checkEvidenceInvocation(r, a);
+            if (invocation)
+              v.schema_instance_evidence = { ...v.schema_instance_evidence, invocation };
+          } else {
+            delete v.schema_instance_evidence;
+            v.evidence_omitted =
+              '`schema_instance_evidence` is left out of this result; call lyric_check again with evidence: true to include it.';
+          }
         }
         v.blueprint_declared = a.blueprint != null;
         return applyCheckExit(v);

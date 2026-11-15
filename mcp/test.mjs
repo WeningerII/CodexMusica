@@ -9038,6 +9038,21 @@ if (!runs('offline') || PART === null) {
           [['HOMEOTELEUTON', [1, 2]]]
         );
         assert.ok(checked.standing.some((s) => s.includes('[FLAG] HOMEOTELEUTON')));
+        // The Lyrics page's banned-pairs card says what the engine just showed
+        // above: every banned pair it counted is a flag. If the engine stops
+        // flagging them, this is the sentence to change with it.
+        assert.equal(
+          checked.banned_pairs,
+          checked.findings.filter(
+            (f) => f.severity === 'flag' && checked.banned.some((b) => b.code === f.code)
+          ).length
+        );
+        assert.ok(
+          readFileSync(new URL('../src/pages/lyrics.js', import.meta.url), 'utf8').includes(
+            "text: 'Each banned pair is a flag. The song is not finished while one stands.'"
+          ),
+          'the page card states the same thing'
+        );
         assert.match(
           lyric.find((t) => t.name === 'lyric_check').description,
           /mandatory HOMEOTELEUTON and MODAL_RHYME flags/
@@ -9056,6 +9071,38 @@ if (!runs('offline') || PART === null) {
         );
         assert.equal(cleanCheck.next, undefined, 'a clean check names no next step');
         assert.equal(cleanCheck.next_call, undefined);
+        // The one large field is asked for. Left out, the result says how to
+        // ask; asked for, it is the whole report with its invocation, and
+        // nothing else in the verdict differs.
+        assert.equal(cleanCheck.schema_instance_evidence, undefined);
+        assert.match(cleanCheck.evidence_omitted, /lyric_check again with evidence: true/);
+        const withEvidence = await callText('lyric_check', {
+          lines: ['dust settles on the kitchen chair', 'cold rain leaves nothing left to spare'],
+          scheme: 'AA',
+          evidence: true,
+        });
+        assert.equal(withEvidence.schema_instance_evidence?.version, 1);
+        assert.equal(withEvidence.schema_instance_evidence.invocation?.tool, 'lyric_check');
+        assert.equal(
+          withEvidence.schema_instance_evidence.invocation.declarations.evidence,
+          undefined,
+          'asking for the report declares nothing about the lyrics'
+        );
+        assert.equal(withEvidence.evidence_omitted, undefined);
+        const sizeOf = (v) => JSON.stringify(v).length;
+        assert.ok(
+          sizeOf(cleanCheck) * 5 < sizeOf(withEvidence),
+          `the default result is the small one (${sizeOf(cleanCheck)} against ${sizeOf(withEvidence)})`
+        );
+        {
+          const { schema_instance_evidence: _e, ...rest } = withEvidence;
+          const { evidence_omitted: _o, ...plain } = cleanCheck;
+          for (const timing of ['ms', 'retained', 'tool_deadline', 'path', 'journal_id']) {
+            delete rest[timing];
+            delete plain[timing];
+          }
+          assert.deepEqual(rest, plain, 'the verdict is the same with and without the report');
+        }
         // The third outcome: something could not be judged. The end word is
         // generated, not chosen: nine consonants from a fixed rule, which no
         // dictionary reads.

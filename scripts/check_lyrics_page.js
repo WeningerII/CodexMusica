@@ -1066,6 +1066,9 @@ function unitTypeEndToEnd() {
       lines: c.context.document.split('\n').filter((l) => l.trim() && !/^\[.*\]$/.test(l.trim())),
       groups: c.context.declarations.groups,
       group_types: c.context.declarations.group_types,
+      // The mandate each check was judged under is read from its instance
+      // evidence below, and a check leaves that out unless the call asks.
+      evidence: true,
     },
   }));
   calls.push(

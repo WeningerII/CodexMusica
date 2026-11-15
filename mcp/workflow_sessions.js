@@ -226,7 +226,7 @@ function checkDetail(record, result, detail, lines) {
     );
   if (!parts)
     throw new Error(
-      `DETAIL_NOT_APPLICABLE: detail applies to a finished lyric_grade, lyric_revise or lyric_screen; this operation is ${tool || 'not a tool call'}. ${plain}`
+      `DETAIL_NOT_APPLICABLE: detail applies to a finished lyric_grade, lyric_revise, lyric_check or lyric_screen; this operation is ${tool || 'not a tool call'}. ${plain}`
     );
   if (record.state !== 'completed' || !result)
     throw new Error(
@@ -247,7 +247,7 @@ function checkDetail(record, result, detail, lines) {
   if (!lines?.length) return;
   if (!LINE_PARTS.includes(detail) || tool === 'lyric_screen')
     throw new Error(
-      `LINES_NOT_APPLICABLE: lines narrows only ${LINE_PARTS.join(', ')} on a lyric_grade or lyric_revise; detail "${detail}" on a ${tool} has nothing per line. Omit lines.`
+      `LINES_NOT_APPLICABLE: lines narrows only ${LINE_PARTS.join(', ')} on a lyric_grade, lyric_revise or lyric_check; detail "${detail}" on a ${tool} has nothing per line. Omit lines.`
     );
   const args = record.intent.action?.arguments || {};
   const count =

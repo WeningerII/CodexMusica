@@ -2450,6 +2450,12 @@ export async function runTurn({
           delete args.answer;
           delete args.answers;
         }
+        // The Lyrics page's inspection view reads a check's instance evidence
+        // out of this chat's reply, and the check leaves that field out unless
+        // the call asks (lyric_tools.js, `evidence`). So this chat asks on
+        // every check, whatever the model sent.
+        if (fc.name === 'lyric_check' && Object.hasOwn(checkProperties, 'evidence'))
+          args.evidence = true;
         const creationError = creationRefusal(task, fc.name, args, lyr);
         if (creationError) {
           // The model reads the next call the gate admits (P2 F1); the calls
