@@ -10,7 +10,8 @@ const draftOf = (n) => Array.from({ length: n }, (_, i) => `line ${i + 1}`);
 const parked = (fields) => ({ parked: true, seed: 1, key: 'seed:1', ...fields });
 const revise = (draft) => ({ seed: 1, draft });
 const refusal = (lyr, draft) => wanderRefusal(lyr, 'lyric_revise', revise(draft));
-const change = (draft, lines) => draft.map((t, i) => (lines.includes(i + 1) ? `${t} rewritten` : t));
+const change = (draft, lines) =>
+  draft.map((t, i) => (lines.includes(i + 1) ? `${t} rewritten` : t));
 
 // A small deterministic generator so every case is reproducible by its seed.
 function rng(seed) {

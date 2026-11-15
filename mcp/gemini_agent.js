@@ -1229,7 +1229,9 @@ function changedOutside(lyr, draft) {
   if (allowed == null || !Array.isArray(lyr?.draft) || draft.length !== lyr.draft.length) return [];
   const ok = new Set(allowed);
   return draft
-    .map((l, i) => (String(l).trim() !== String(lyr.draft[i]).trim() && !ok.has(i + 1) ? i + 1 : null))
+    .map((l, i) =>
+      String(l).trim() !== String(lyr.draft[i]).trim() && !ok.has(i + 1) ? i + 1 : null
+    )
     .filter((n) => n != null);
 }
 function parkedRefusal(lyr, name, args) {
@@ -1456,7 +1458,9 @@ function carryState(prev, toolName, args, verdict, surface, planReturns = null) 
       // The run's declared verbatim returns (a pasted song's own `returns`,
       // or the recorded plan's), so a parked rewrite may change an open
       // line's word-for-word partners with it (#853). Present only when known.
-      ...(declaredReturns(args, planReturns) ? { returns: declaredReturns(args, planReturns) } : {}),
+      ...(declaredReturns(args, planReturns)
+        ? { returns: declaredReturns(args, planReturns) }
+        : {}),
     };
   }
   if (code === 0 && prev && carriedKey(prev) === key) return null;
@@ -2824,7 +2828,14 @@ export async function runTurn({
             };
           }
           if (!recoveryOnly)
-            lyr = carryState(lyr, fc.name, args, lyricVerdict, surface, task?.plan?.result?.returns);
+            lyr = carryState(
+              lyr,
+              fc.name,
+              args,
+              lyricVerdict,
+              surface,
+              task?.plan?.result?.returns
+            );
           // Only a returned revision carrying its draft or continuation replaces
           // its worker journal. An error exchange (or a later unrelated tool)
           // must retain accepted progress whose final result never arrived.
