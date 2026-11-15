@@ -1123,7 +1123,7 @@ WRITING_POLICY = "rhyme-bans-v1"
 
 def _ban_pairs(keys):
     """-> the banned pair(s) among `Reviser.verify`'s finding identities, as
-    the writer reads them: ``L1 'chair' / L4 'prayer' (MODAL_RHYME)``.
+    the writer reads them: ``L<line> '<word>' / L<line> '<word>' (<code>)``.
 
     A rejection that says only "a prohibited pair" leaves the writer guessing
     which two words (2026-11-14, live retest: seven answers in a row each
