@@ -307,7 +307,9 @@ test(
   { timeout: 120000 },
   async (t) => {
     const client = await connection(t);
-    const args = { seed: 11, lines: 24, functions: 'bridge', wants: ['sections.bridge=4'] };
+    // The roster opens on a verse: a bridge needs a section before it (owner's
+    // ruling, 2026-11-15), so a roster that is a bridge alone is refused.
+    const args = { seed: 11, lines: 24, functions: 'verse,bridge', wants: ['sections.bridge=4'] };
     const result = await client.callTool({ name: 'lyric_plan', arguments: args });
     assert.notEqual(result.isError, true, JSON.stringify(result));
     const planned = verdictOf(result);
@@ -335,7 +337,7 @@ test(
     recordCreation(
       task,
       'lyric_sweep',
-      { lines: 24, functions: 'bridge', want: args.wants },
+      { lines: 24, functions: 'verse,bridge', want: args.wants },
       { exit_code: 0, accepted_shown: [11] }
     );
     recordCreation(task, 'lyric_screen', { words: ['rain', 'train'] }, { exit_code: 0 });

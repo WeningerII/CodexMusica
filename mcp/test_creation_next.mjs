@@ -1142,7 +1142,12 @@ test(
       return verdictOf(r.tool_result);
     };
     const asked = { lines: 12, form: 'verse-chorus' };
-    const sweep1 = await run('lyric_sweep', { seed_from: 31, count: 1, ...asked });
+    // SWEPT FROM 32, NOT 31 (re-measured 2026-11-15). A chorus that recurs is
+    // repeated line for line in every form since the owner's ruling of that
+    // day, and seed 31's `open` plan draws its chorus twice, so it plans the
+    // same returns the first plan did and has no drop to report. Seed 32's
+    // `open` plan draws no section twice.
+    const sweep1 = await run('lyric_sweep', { seed_from: 32, count: 1, ...asked });
     const seed1 = sweep1.accepted_shown[0];
     await run('lyric_screen', { words: ['stove', 'coat'], relation: 'class:RHYME' });
     const plan1 = await run('lyric_plan', {
@@ -1155,7 +1160,7 @@ test(
     assert.equal(Object.hasOwn(plan1, 'plan_lineage'), false, 'a first plan has no lineage');
 
     // Swept again with only the length declared, and planned.
-    const sweep2 = await run('lyric_sweep', { seed_from: 31, count: 1, lines: 12 });
+    const sweep2 = await run('lyric_sweep', { seed_from: 32, count: 1, lines: 12 });
     const seed2 = sweep2.accepted_shown[0];
     const plan2 = await run('lyric_plan', { seed: seed2, lines: 12 });
     assert.equal(plan2.exit_code, 0, JSON.stringify(plan2).slice(0, 2000));
@@ -1168,7 +1173,8 @@ test(
       { field: 'relation', first: 'class:RHYME', now: null },
       { field: 'title', first: 'Kettle and Coat', now: null },
     ]);
-    // The first plan planned a hook and returning lines; `open` plans neither.
+    // The first plan planned a hook and returning lines; this `open` plan
+    // declares no hook and repeats no section, so it plans neither.
     const drawn = Object.fromEntries(lineage.drawn_changes.map((c) => [c.what, c]));
     assert.deepEqual(drawn.hook, { what: 'hook', first: true, now: false });
     assert.equal(drawn.returns.now, 0);
