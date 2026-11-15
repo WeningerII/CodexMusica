@@ -19732,7 +19732,7 @@ function _chatRenderReply(payload,request) {
       // verdict only the model ever saw protects nobody. Recipe tools have
       // neither and keep the bare name.
       const banned = typeof t.banned_pairs === 'number' && t.banned_pairs > 0;
-      // Banned pairs no longer raise the alert (2026-10-04, owner's ruling): they are notes.
+      // A banned pair is a flag on a writing path, so the exit code below already raises the alert.
       chip.className = 'chat-tool' + (t.error ? ' is-error' : typeof t.exit_code === 'number' && (t.exit_code !== 0 || t.certified === false) ? ' is-alert' : '');
       let label = t.name;
       if (typeof t.exit_code === 'number') label += ` · exit ${t.exit_code}`;
@@ -19740,7 +19740,7 @@ function _chatRenderReply(payload,request) {
       chip.textContent = label;
       if (t.error) chip.title = t.error;
       else if (banned)
-        chip.title = `${t.banned_pairs} banned pair(s) — reported as notes; they do not stop the song finishing`;
+        chip.title = `${t.banned_pairs} banned pair(s) — each is a flag; the song is not finished while one stands`;
       trace.appendChild(chip);
     }
     // One spoken summary: in the log's speaker order (.chat-sr) and the
@@ -19796,7 +19796,9 @@ function _chatToolsPlain(tools) {
     else if (typeof t.exit_code === 'number' && t.exit_code !== 0)
       n = /revise/.test(t.name || '') && t.exit_code === 3 ? 'the writer asked a question'
         : t.exit_code === 3 ? 'a check found an open problem'
-          : t.exit_code === 2 ? 'a step was refused'
+          // A check that measured the lines and could not judge all of them
+          // exits 2 as a refusal does; it counted its flags and refused nothing.
+          : t.exit_code === 2 ? (t.certified === false && !t.refusal && typeof t.flags === 'number' ? 'a check did not certify the draft' : 'a step was refused')
             : 'a step did not finish';
     else if (t.certified === false) n = 'a check did not certify the draft';
     if (n && !notes.includes(n)) notes.push(n);

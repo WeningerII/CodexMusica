@@ -23,7 +23,12 @@ import { createHash } from 'node:crypto';
 import { isStanding } from './lyric_tools.js';
 import { obligationLines } from './coverage_advice.js';
 
-export const SHORT_VIEW_TOOLS = new Set(['lyric_grade', 'lyric_revise', 'lyric_screen']);
+export const SHORT_VIEW_TOOLS = new Set([
+  'lyric_grade',
+  'lyric_revise',
+  'lyric_screen',
+  'lyric_check',
+]);
 export const DETAIL_PARTS = ['full', 'findings', 'report', 'coverage', 'pronunciations', 'pairs'];
 // The detail parts each finished tool actually has. Any other part used to be
 // answered rather than refused: a sweep returned its summary for every part, a
@@ -32,6 +37,7 @@ export const DETAIL_PARTS = ['full', 'findings', 'report', 'coverage', 'pronunci
 export const DETAIL_FOR = {
   lyric_grade: ['findings', 'report', 'coverage', 'pronunciations', 'full'],
   lyric_revise: ['findings', 'report', 'coverage', 'pronunciations', 'full'],
+  lyric_check: ['findings', 'report', 'coverage', 'pronunciations', 'full'],
   lyric_screen: ['pairs', 'findings', 'report', 'full'],
 };
 // The parts `lines` narrows (detailOf); on any other part it would be ignored.
@@ -240,6 +246,21 @@ function verdictAt(content) {
   }
 }
 
+// THE CHECK (owner's plan, stage 1, 2026-11-15). A measured check is ONE
+// block, its verdict: the caller pasted the lyrics, so no song block leads it.
+// It gets the short verdict a grade gets; a refusal keeps its shape.
+function checkAt(content) {
+  if (content.length !== 1) return -1;
+  try {
+    const v = JSON.parse(content[0].text);
+    return Number.isInteger(v?.exit_code) && v.findings_measured === true ? 0 : -1;
+  } catch {
+    return -1;
+  }
+}
+const verdictIndex = (tool, content) =>
+  tool === 'lyric_check' ? checkAt(content) : verdictAt(content);
+
 // THE SCREEN (2026-09-30). A finished screen is ONE block: its verdict, the
 // report table and every pair it screened, each with every relation, every
 // schema and every schema that could not decide at the pair. Ten words are 45
@@ -341,7 +362,7 @@ function screenView(content, detail) {
 export function verdictShape(tool, content) {
   if (!Array.isArray(content)) return { ready: false, lines: null };
   if (tool === 'lyric_screen') return { ready: screenAt(content) >= 0, lines: null };
-  const at = verdictAt(content);
+  const at = verdictIndex(tool, content);
   if (at < 0) return { ready: false, lines: null };
   const draft = JSON.parse(content[at].text).final_draft;
   return { ready: true, lines: Array.isArray(draft) && draft.length ? draft.length : null };
@@ -350,7 +371,7 @@ export function verdictShape(tool, content) {
 export function sessionView(tool, content, { detail, lines } = {}) {
   if (!SHORT_VIEW_TOOLS.has(tool)) return content;
   if (tool === 'lyric_screen') return screenAt(content) < 0 ? content : screenView(content, detail);
-  const at = verdictAt(content);
+  const at = verdictIndex(tool, content);
   if (at < 0 || detail === 'full') return content;
   const verdict = JSON.parse(content[at].text);
   if (detail) return [{ type: 'text', text: JSON.stringify(detailOf(verdict, detail, lines)) }];
@@ -381,7 +402,8 @@ export function sessionView(tool, content, { detail, lines } = {}) {
   )
     short.next_call = verdict.next_call;
   if (typeof verdict.next === 'string') short.next = verdict.next;
-  return [content[0], { type: 'text', text: JSON.stringify(short) }];
+  // The blocks before the verdict (a grade's song) stay exactly as stored.
+  return [...content.slice(0, at), { type: 'text', text: JSON.stringify(short) }];
 }
 
 export function detailOf(verdict, part, lines) {

@@ -2450,6 +2450,12 @@ export async function runTurn({
           delete args.answer;
           delete args.answers;
         }
+        // The Lyrics page's inspection view reads a check's instance evidence
+        // out of this chat's reply, and the check leaves that field out unless
+        // the call asks (lyric_tools.js, `evidence`). So this chat asks on
+        // every check, whatever the model sent.
+        if (fc.name === 'lyric_check' && Object.hasOwn(checkProperties, 'evidence'))
+          args.evidence = true;
         const creationError = creationRefusal(task, fc.name, args, lyr);
         if (creationError) {
           // The model reads the next call the gate admits (P2 F1); the calls
@@ -2592,7 +2598,11 @@ export async function runTurn({
             const refused =
               uncheckedDeclarations.length > 0 ||
               isError ||
-              v?.exit_code === 2 ||
+              // A refusal with nothing measured. A measured check now also
+              // exits 2 when its coverage is incomplete (lyric_tools.js,
+              // applyCheckExit); that case is read from `coverage` below, as
+              // it was when the check exited 0.
+              (v?.exit_code === 2 && v?.findings_measured !== true) ||
               v?.coverage?.refused_obligations?.length > 0 ||
               (v?.coverage?.obligations || []).some((o) => o.status === 'refused');
             const flags = (v?.flags || 0) + (v?.whole_flags || 0);
@@ -2649,7 +2659,10 @@ export async function runTurn({
             !recoveryOnly &&
             !isError &&
             fc.name.startsWith('lyric_') &&
-            (lyricVerdict?.exit_code ?? 0) !== 2
+            // A check that measured the draft is a completed step whatever
+            // its exit: 2 on a check means coverage incomplete, not refused.
+            ((lyricVerdict?.exit_code ?? 0) !== 2 ||
+              (fc.name === 'lyric_check' && lyricVerdict?.findings_measured === true))
           ) {
             completedSteps.add(fc.name);
             if (task) {

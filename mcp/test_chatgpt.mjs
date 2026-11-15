@@ -1456,6 +1456,85 @@ test('detail reads the finished result itself: a revise paused on a question has
   assert.ok(sessions.status(graded.operation_id, 'lyrics', { detail: 'findings', lines: [3] }));
 });
 
+// A check in a session (owner's plan, stage 1): the finished operation is read
+// as the short verdict, its parts with `detail`, and the one large field only
+// in `full` — and there only when the check call asked for it.
+test('a finished lyric_check is read as the short verdict, and its parts with detail', async (t) => {
+  const { store } = storeFor(t);
+  const lines = ['one line', 'two line', 'three line'];
+  const finding = { code: 'F', severity: 'flag', message: 'm', evidence: 'e', locations: [2] };
+  const verdict = {
+    exit_code: 3,
+    meaning: 'answered — 1 per-line and 0 whole-draft flag(s) stand',
+    findings_measured: true,
+    certified: true,
+    findings: [finding],
+    report: 'r'.repeat(4000),
+    coverage: { certified: true, obligations: [], refused_obligations: [] },
+    final_draft: lines,
+    next: 'Call lyric_revise with these same lines.',
+    next_call: { tool: 'lyric_revise', args: {} },
+  };
+  const evidence = { version: 1, records: ['x'.repeat(40000)] };
+  const sessions = new WorkflowSessions({
+    store,
+    execute: async (session, _name, args) => ({
+      session,
+      result: {
+        content: [
+          {
+            type: 'text',
+            text: JSON.stringify(
+              args.evidence === true ? { ...verdict, schema_instance_evidence: evidence } : verdict
+            ),
+          },
+        ],
+      },
+    }),
+  });
+  const read = (id, view) => sessions.status(id, 'lyrics', view).tool_result.content;
+  const opened = sessions.open('lyrics');
+  const asked = sessions.submit(opened.session_id, 'lyrics', 'lyric_check', {
+    lines,
+    scheme: 'AAA',
+    evidence: true,
+  });
+  await sessions.wait(asked.operation_id);
+  const published = read(asked.operation_id);
+  assert.equal(published.length, 1, 'a check is one block');
+  const short = JSON.parse(published[0].text);
+  assert.equal(short.exit_code, 3);
+  assert.deepEqual(short.blocking, ['L2: F — m (e)']);
+  assert.deepEqual(short.next_call, verdict.next_call);
+  for (const left of ['schema_instance_evidence', 'report', 'findings', 'coverage'])
+    assert.equal(short[left], undefined, left);
+  assert.ok(published[0].text.length < 2000, `short: ${published[0].text.length} characters`);
+  assert.deepEqual(JSON.parse(read(asked.operation_id, { detail: 'findings' })[0].text).findings, [
+    finding,
+  ]);
+  assert.equal(
+    JSON.parse(read(asked.operation_id, { detail: 'report' })[0].text).report,
+    verdict.report
+  );
+  assert.deepEqual(
+    JSON.parse(read(asked.operation_id, { detail: 'findings', lines: [1] })[0].text).findings,
+    []
+  );
+  assert.deepEqual(
+    JSON.parse(read(asked.operation_id, { detail: 'full' })[0].text).schema_instance_evidence,
+    evidence,
+    'asked for on the call, so the whole result holds it'
+  );
+  assert.throws(
+    () => sessions.status(asked.operation_id, 'lyrics', { detail: 'pairs' }),
+    /^Error: DETAIL_NOT_APPLICABLE: a lyric_check has detail findings, report, coverage, pronunciations, full; "pairs"/
+  );
+  assert.throws(
+    () => sessions.status(asked.operation_id, 'lyrics', { detail: 'findings', lines: [4] }),
+    /^Error: LINES_OUT_OF_RANGE: this lyric_check's song has 3 line\(s\); line\(s\) 4/
+  );
+});
+
 test('get_operation refuses a detail or lines the operation cannot serve; an edit grade of an unplanned song is refused toward lyric_recover', async (t) => {
   const { store } = storeFor(t);
   const sessions = new WorkflowSessions({ store });

@@ -270,8 +270,15 @@ async function review(env, stage) {
     transportIncomplete: false,
   });
   const accounting = reviewAccounting(reply?.payload, tool, after);
+  // The check's exit is its verdict: 0 when nothing stands, 3 when a flag does.
+  // The restored-divergent stage has edited one line of the Return, so the
+  // Return no longer comes back word for word and a flag stands there.
   if (accounting.completedCheck)
-    assert.equal(tool.exit_code, 0, 'this fixture must complete lyric_check at exit 0');
+    assert.equal(
+      tool.exit_code,
+      stage.endsWith(':restored-divergent') ? 3 : 0,
+      'this fixture completes lyric_check at exit 0, and at exit 3 once its Return diverges'
+    );
   if (accounting.completedCheck) {
     assert.equal(
       tool.coverage?.obligations?.find((o) => o.id === 'return:1:3')?.status,

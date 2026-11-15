@@ -30,7 +30,14 @@ export function checkEvidenceInvocation(result, args) {
     Object.entries(args).filter(
       ([key, value]) =>
         value !== undefined &&
-        !['lines', 'lines_text', 'lexicon_supplement', 'lexicon_supplement_sha256'].includes(key)
+        // `evidence` asks for this report; it declares nothing about the lyrics.
+        ![
+          'lines',
+          'lines_text',
+          'lexicon_supplement',
+          'lexicon_supplement_sha256',
+          'evidence',
+        ].includes(key)
     )
   );
   declarations.voices = args.voices === true;
