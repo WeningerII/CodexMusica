@@ -882,6 +882,9 @@ function withGradeNext(task, result, carried) {
       return block;
     }
     if (!v || typeof v !== 'object' || !Number.isInteger(v.exit_code) || !v.next) return block;
+    // At exit 2 `next` names words to change and no call (a measured draft
+    // that could not all be judged): there is no call to replace, so it stays.
+    if (v.exit_code === 2) return block;
     changed = true;
     const { next: _text, next_call: _call, ...rest } = v;
     const call = gradedNextCall(task, carried);

@@ -805,7 +805,8 @@ REPAIRABLE_UNJUDGED = frozenset({"SCHEME_UNREADABLE", "PROMINENCE_UNDECIDED"})
 def _unjudged_on(brief):
     """Unknown checks this line can change, rather than its readable mate."""
     return any(f.code in REPAIRABLE_UNJUDGED and
-               (not f.subject or f.subject[0] != "unreadable_anchor" or
+               (not f.subject or f.subject[0] not in (
+                   "unreadable_anchor", "unanchored_member") or
                 brief.line_no in f.subject[1:]) for f in brief.findings)
 
 

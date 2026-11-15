@@ -32,7 +32,13 @@ import { probeReaderScheme } from './reader_scheduler.js';
 import { requestContext } from './execution_context.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 import { admitRecognitionArgs, pastedRowsOf } from './meter_admission.js';
-import { declarationAdvice, refusedByRemedy, uncertifiedAdvice } from './coverage_advice.js';
+import {
+  declarationAdvice,
+  refusedByRemedy,
+  uncertifiedAdvice,
+  unjudgedWordLines,
+  unjudgedWords,
+} from './coverage_advice.js';
 export { draftFromText } from './lyric_text.js';
 import {
   assessmentCoverageValid,
@@ -1243,17 +1249,28 @@ function checkNext(v) {
       'its revise loop works on the flagged lines. If you change any line yourself instead, ' +
       'call lyric_check again on the changed lines.'
     );
+  return unjudgedNext(v, 'Then call lyric_check again with the same declaration.');
+}
+
+// WHAT TO DO ABOUT A MEASURED DRAFT THAT COULD NOT ALL BE JUDGED (exit 2), on
+// a check and on a grade alike. Read off the refused rows: a word named with
+// its line and its cause comes first, a declaration no rewrite can clear is
+// named as one, and the pronunciation step is offered only where a reading
+// could be the remedy (a word the dictionary lacks, or readings that
+// disagree), never for a word that lacks the place its type reads.
+function unjudgedNext(v, again) {
   const { reading, declarations, other } = refusedByRemedy(v);
-  const parts = [];
+  const words = unjudgedWords(v);
+  const parts = unjudgedWordLines(v);
   if (declarations.length) parts.push(declarationAdvice(v));
   if (other.length)
     parts.push(`Read \`coverage\` for the refused obligation(s) ${other.join(', ')}.`);
-  if (reading)
+  if (reading && (words.unread.length || words.readings))
     parts.push(
       'Some words could not be read: declare them with `pronunciations` or `lexicon_supplement`, or change those words.'
     );
   if (!parts.length) parts.push('Read `coverage` for what was not judged.');
-  parts.push('Then call lyric_check again with the same declaration.');
+  parts.push(again);
   return parts.join(' ');
 }
 
@@ -2692,7 +2709,9 @@ export function registerLyricTools(server, tool) {
         "At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this exact draft, " +
         "unchanged. `next_call` names that call's tool and the arguments the server sets: `seed`, and " +
         "`new_run` in a session when a run is open or this plan's run has started. It is not the whole " +
-        'call: send this exact draft and its declarations with it. ' +
+        'call: send this exact draft and its declarations with it. At exit 2 `next` names each word ' +
+        'that could not be judged, with its line and what to change, and then the lyric_grade call ' +
+        'that judges the changed draft. ' +
         (server.kitchen ? 'The service writer answers that lyric_revise run. ' : '') +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_grade,
@@ -2768,6 +2787,22 @@ export function registerLyricTools(server, tool) {
             args: { seed: plan.request?.seed ?? a.seed },
           };
           verdict.next = gradeNext(verdict.exit_code);
+        } else if (
+          verdict.exit_code === 2 &&
+          verdict.measurement_status === 'graded' &&
+          verdict.certified !== true
+        ) {
+          // A measured draft that could not all be judged named no next step,
+          // and its cause sat inside a result of several hundred thousand
+          // characters. `next` names each word with its line and its cause.
+          // No `next_call`: the remedy is a change to the words or to what is
+          // declared, and only the caller can make it.
+          verdict.next = unjudgedNext(
+            verdict,
+            (verdict.flags || 0) + (verdict.whole_flags || 0)
+              ? 'The flags in `standing` need a change too. Then call lyric_grade again with the complete changed draft and the same seed and declarations.'
+              : 'Then call lyric_grade again with the complete changed draft and the same seed and declarations.'
+          );
         }
         // The SONG leads as its own plain-text block so a client presents
         // it instead of reformatting escaped JSON — the Wide Room

@@ -86,6 +86,73 @@ export function refusedByRemedy(verdict) {
   return { reading, declarations, other };
 }
 
+// WHICH WORDS, WHEN THE RECORD SAYS (2026-11-15, a 100-line song on a drawn
+// plan). Two unjudged rows read the same to a caller and need opposite
+// remedies. A word the dictionary lacks needs a reading. A word that lacks
+// the place its group's type reads (a final unstressed syllable, in a word
+// that ends stressed) has readings and none of them has the place: choosing
+// among them cannot help, and the short verdict listed that line's
+// two-reading words beside it as if it could. The remedy is another word, or
+// a declared reading that has the place. The grader sends that member as data
+// (a finding whose `subject` is `unanchored_member` and then line, word and
+// place for each member), and this reads it.
+// -> { unanchored: [{line, word, how}], unread: [{line, word}], readings }:
+// `readings` is whether a word-bound row is explained by neither list.
+export function unjudgedWords(verdict) {
+  const findings = Array.isArray(verdict?.findings) ? verdict.findings : [];
+  const listed = Array.isArray(verdict?.coverage?.refused_obligations)
+    ? verdict.coverage.refused_obligations.filter((id) => typeof id === 'string')
+    : [];
+  const rows = listed.map((id) => obligationLines(id)).filter(Boolean);
+  const refusedLines = new Set(rows.flat());
+  const unanchored = [];
+  const seen = new Set();
+  for (const f of findings) {
+    const s = f?.subject;
+    if (!Array.isArray(s) || s[0] !== 'unanchored_member') continue;
+    for (let i = 1; i + 2 < s.length; i += 3) {
+      const [line, word, how] = [s[i], s[i + 1], s[i + 2]];
+      if (!Number.isInteger(line) || typeof word !== 'string' || typeof how !== 'string') continue;
+      const key = `${line}\u0000${word}\u0000${how}`;
+      if (seen.has(key) || !refusedLines.has(line)) continue;
+      seen.add(key);
+      unanchored.push({ line, word, how });
+    }
+  }
+  const unread = [];
+  const items = Array.isArray(verdict?.pronunciation_options?.items)
+    ? verdict.pronunciation_options.items
+    : [];
+  for (const o of items) {
+    if (!Array.isArray(o?.dictionary_readings) || o.dictionary_readings.length !== 0) continue;
+    for (const line of o.matching_lines || []) {
+      const key = `${line}\u0000${o.word}`;
+      if (seen.has(key) || !refusedLines.has(line)) continue;
+      seen.add(key);
+      unread.push({ line, word: o.word });
+    }
+  }
+  const named = new Set([...unanchored, ...unread].map((m) => m.line));
+  const readings = rows.some((lines) => !lines.some((n) => named.has(n)));
+  return { unanchored, unread, readings };
+}
+
+// -> the sentences that name those words, one per word, in line order.
+export function unjudgedWordLines(verdict) {
+  const { unanchored, unread } = unjudgedWords(verdict);
+  return [
+    ...unanchored.map((m) => [
+      m.line,
+      `L${m.line}: change '${m.word}', or declare a reading for it with \`pronunciations\`. ` +
+        `Its group's type reads the word ${m.how}, and no dictionary reading of '${m.word}' ` +
+        'has such a place.',
+    ]),
+    ...unread.map((u) => [u.line, `L${u.line}: '${u.word}' has no dictionary reading.`]),
+  ]
+    .sort((a, b) => a[0] - b[0])
+    .map(([, text]) => text);
+}
+
 // -> the sentence that names the refused DECLARATIONS and says what can and
 // cannot clear them, or '' when none is refused. `also` words it for a note
 // that has already said something else is open.

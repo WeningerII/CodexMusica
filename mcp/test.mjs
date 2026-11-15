@@ -8423,6 +8423,31 @@ if (!runs('offline') || PART === null) {
               'a grade builds no instance report'
             );
           }
+          // A measured draft that could not all be judged says which word and
+          // what to do next; before this it named no next step, and the word
+          // sat inside a result of several hundred thousand characters. The
+          // word is generated, not chosen: nine consonants from a fixed rule.
+          {
+            const unread = Array.from(
+              { length: 9 },
+              (_, i) => 'bcdfghjklmnpqrstvwxz'[(7 * i * i + 3 * i + 11) % 20]
+            ).join('');
+            const withGap = draft.slice();
+            withGap[0] = `${unread} ${withGap[0]}`;
+            const res = await client.callTool(
+              { name: 'lyric_grade', arguments: withLines({ draft: withGap }) },
+              undefined,
+              LIVE_OPTS
+            );
+            const uv = JSON.parse(res.content[1].text);
+            assert.equal(uv.exit_code, 2, 'an unread word leaves the grade uncertified');
+            assert.ok(
+              uv.next.includes(`L1: '${unread}' has no dictionary reading.`),
+              `the next step names the unread word and its line (got ${uv.next})`
+            );
+            assert.match(uv.next, /Then call lyric_grade again with the complete changed draft/);
+            assert.equal(uv.next_call, undefined, 'no single call is named at exit 2');
+          }
           const song = gradedRes.content[0].text;
           assert.ok(
             // The plan's OWN first header, not a literal -- see the note above.
@@ -9148,6 +9173,11 @@ if (!runs('offline') || PART === null) {
         assert.match(unjudged.next, /could not be read: declare them with `pronunciations`/);
         assert.match(unjudged.next, /call lyric_check again with the same declaration/);
         assert.equal(unjudged.next_call, undefined, 'no single call is named at exit 2');
+        // The word is named with its line, so nobody has to search for it.
+        assert.ok(
+          unjudged.next.startsWith(`L1: '${unreadWord}' has no dictionary reading.`),
+          `the next step names the unread word and its line (got ${unjudged.next})`
+        );
         console.log(
           '  ok  lyric_check live: exit 3 with a standing ban, exit 2 when a pair is not judged, exit 0 when clean'
         );

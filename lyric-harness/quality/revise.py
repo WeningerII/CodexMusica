@@ -2238,6 +2238,55 @@ class Reviser:
                         # classification is indeterminate. A refusal, never a no
                         # — reading it as a failure charges the writer for a word
                         # the engine cannot pronounce (doctrine 79).
+                        #
+                        # WHICH MEMBER, WHEN IT IS KNOWN (2026-11-15). A type
+                        # read at a place the bound word does not have (a final
+                        # unstressed syllable, in a word that ends stressed)
+                        # was reported as this same sentence, and the lines'
+                        # words with two readings were listed beside it: a
+                        # writer was sent to choose among dictionary readings,
+                        # none of which has the place. The member, its word and
+                        # the place the type reads are named, and only that
+                        # line is offered for repair. What is checked is every
+                        # whole DICTIONARY reading: a declared reading can
+                        # supply the place (--pronunciations, basis declared),
+                        # and the sentence says so.
+                        _un = ()
+                        if _via_pair:
+                            _un = _R_ref.pair_unanchored_any(
+                                _R_ref.declared_token_schema(
+                                    _R_ref.REGISTRY[_sch_name],
+                                    promote=self._promote()), _stream,
+                                (i - 1, _ti), (j - 1, _tj),
+                                _reading_build(_R_ref))
+                        if _un:
+                            from quality.plan import span_read_words as _read
+                            _named = [((i, ew_i), (j, ew_j))[n] + (_read(rule),)
+                                      for n, rule in _un]
+                            refusals.append({
+                                "lines": (i, j),
+                                "endwords": (ew_i, ew_j),
+                                "unreadable": [],
+                                "groups": [m.labels[k]],
+                                "cause": "anchor",
+                                "repair_lines": [ln for ln, _, _ in _named],
+                                "unanchored": _named,
+                                "reason": (
+                                    f"the declared relation {want!r} reads "
+                                    + " and ".join(
+                                        f"L{ln} {w!r} {how}"
+                                        for ln, w, how in _named)
+                                    + ", and no dictionary reading of the word "
+                                      "has such a place, so the pair was never "
+                                      "compared — REFUSED, not failed "
+                                      "(doctrine 79). To clear it, change the "
+                                      "word, or declare a reading that has "
+                                      "that place (--pronunciations)")})
+                            refused.add((i, j, k))
+                            unknown.add((i, k))
+                            unknown.add((j, k))
+                            _refused_here = True
+                            break
                         refusals.append({
                             "lines": (i, j),
                             "endwords": (ew_i, ew_j),
@@ -2265,6 +2314,22 @@ class Reviser:
                                   f"— judged by the named-type engine at that "
                                   f"relation's own coordinate, not by the scalar "
                                   f"comparator's admit set"))
+                        if _via_pair:
+                            # WHICH CLAUSE (2026-11-15). The rule is several
+                            # clauses and the writer was told only that the
+                            # pair fails it. Each part that says no on its
+                            # own is named in the brief's own words.
+                            _dsch = _R_ref.declared_token_schema(
+                                _R_ref.REGISTRY[_sch_name],
+                                promote=self._promote())
+                            _parts = _R_ref.pair_failed_parts_any(
+                                _dsch, _stream, (i - 1, _ti), (j - 1, _tj),
+                                _reading_build(_R_ref))
+                            if _parts:
+                                from quality.plan import failed_clauses as _fc
+                                why += ("; where P is on L%d and Q on L%d, it "
+                                        "fails: %s" % (i, j, "; ".join(
+                                            _fc(_dsch, _parts))))
                     if why is not None:
                         break
                 if _refused_here:
@@ -4264,8 +4329,16 @@ class Reviser:
                      f"not read a declared rhyme anchor, so this rhyme is UNKNOWN rather "
                      f"than absent"),
                     r["reason"], [i, j], groups=tuple(r["groups"]),
-                    subject=("unreadable_anchor", *r["repair_lines"])
-                    if r.get("repair_lines") else ()))
+                    # An unanchored member travels as data: the tag, then
+                    # (line, word, where the type reads it) per member, so the
+                    # connector words its own advice from the record and
+                    # parses no sentence. The loop reads the lines out of
+                    # either tag (`loop._unjudged_on`).
+                    subject=(("unanchored_member",
+                              *(x for row in r["unanchored"] for x in row))
+                             if r.get("unanchored") else
+                             ("unreadable_anchor", *r["repair_lines"])
+                             if r.get("repair_lines") else ())))
         # THE READABILITY REPORT, JOINED — AND IT IS THE SAME LAYER AS THE
         # BLOCK ABOVE, WHICH IS WHY IT SITS HERE.
         #

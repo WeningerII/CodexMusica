@@ -10727,6 +10727,162 @@ def pair_satisfies_any(schema, stream, at_a, at_b, build,
     return (None if saw_none else False), None
 
 
+def _declared_members(schema, stream, at_a, at_b):
+    """-> [member 1's candidate spans, member 2's] at the declared words, built
+    as `pair_satisfies` builds them, or None when a line or a word is missing
+    or the shape is one `pair_satisfies` refuses by name. A member whose
+    anchor names nothing in its word (`NoReferent`, or no span) is an EMPTY
+    list. It judges nothing."""
+    if not pair_scope_representable(schema) or not pair_bindable(schema):
+        return None
+    members = []
+    for (li, t), rule in ((at_a, schema.spans[0]), (at_b, schema.spans[-1])):
+        if li < 0 or li >= len(stream.lines) or not stream.lines[li]:
+            return None
+        if t < 0:
+            t = ((len(stream.lexical_tokens[li]) if stream.lexical_tokens
+                  else stream.units[stream.lines[li][-1]].line_tokens) + t)
+        ids = stream.tokens.get((li, t))
+        if not ids:
+            return None
+        try:
+            members.append(list(_spans_at(rule, stream, ids, f"L{li}.T{t}")))
+        except NoReferent:
+            members.append([])
+    return members
+
+
+def pair_unanchored(schema, stream, at_a, at_b):
+    """Which declared member gives `pair_satisfies` nothing to compare.
+
+    -> [(0 | 1, member rule)] for each member whose declared word is in the
+    stream and reads, and in which the schema's own member anchor names
+    nothing: a word with no final unstressed syllable under a type read
+    there. [] when both members supply spans, when a line or a word is
+    missing (the unread-word disclosure names that), and for the shapes
+    `pair_satisfies` refuses by name. A None from `pair_satisfies` with []
+    here came from the judgement itself.
+    """
+    members = _declared_members(schema, stream, at_a, at_b)
+    if members is None:
+        return []
+    return [(n, rule) for n, (cand, rule) in enumerate(
+        zip(members, (schema.spans[0], schema.spans[-1]))) if not cand]
+
+
+def pair_failed_parts(schema, stream, at_a, at_b, chans=DEFAULT_CHANNELS):
+    """Which parts of the schema say NO at the declared pair, for a writer.
+
+    -> [("channel", i) | ("unmatched",) | ("identity", i)], `i` indexing
+    `schema.channels` / `schema.identity`. Over the candidate span pairs the
+    judge (`evaluate`) answers False on, each part is judged ALONE by that
+    same judge, and the pair with the fewest parts saying no is the answer:
+    the nearest miss, which is the one a writer can act on. Placement is not
+    asked: the declared slot overrides it, as in `pair_satisfies`. [] when a
+    member supplies no span or no candidate pair is a plain no.
+    """
+    members = _declared_members(schema, stream, at_a, at_b)
+    if not members or not all(members):
+        return []
+    sch = _pair_schema_unplaced(schema)
+    best = []
+    for sa in members[0]:
+        for sb in members[1]:
+            if sa.idx == sb.idx:
+                continue
+            whole = evaluate(sch, sa, sb, stream, chans)
+            if whole is None or whole.verdict is not False:
+                continue
+
+            def says_no(one):
+                inst = evaluate(one, sa, sb, stream, chans)
+                return inst is not None and inst.verdict is False
+
+            parts = [("channel", i) for i, cr in enumerate(sch.channels)
+                     if cr.required and says_no(replace(
+                         sch, channels=(cr,), identity=(),
+                         unmatched="exclude"))]
+            if sch.unmatched != "exclude" and says_no(
+                    replace(sch, channels=(), identity=())):
+                parts.append(("unmatched",))
+            parts += [("identity", i) for i, ir in enumerate(sch.identity)
+                      if says_no(replace(sch, channels=(), identity=(ir,),
+                                         unmatched="exclude"))]
+            if parts and (not best or len(parts) < len(best)):
+                best = parts
+    return best
+
+
+def pair_failed_parts_any(schema, stream, at_a, at_b, build,
+                          cap=READING_COMBO_CAP):
+    """`pair_failed_parts` under the any-reading rule: the nearest miss over
+    this stream and over every whole reading of the two bound words, tried
+    exactly as `pair_satisfies_any` tries them."""
+    best = pair_failed_parts(schema, stream, at_a, at_b)
+    toks = set()
+    for li, t in (at_a, at_b):
+        words = (stream.lexical_tokens[li]
+                 if stream.lexical_tokens and 0 <= li < len(
+                     stream.lexical_tokens) else ())
+        toks.add((li, t if t >= 0 else len(words) + t))
+    combos, _complete = reading_combos(stream, toks, cap)
+    with _line_read_scope():
+        for combo in combos or ():
+            phon2 = pinned_phonology(stream, combo)
+            if phon2 is None:
+                continue
+            s2 = build(phon2)
+            ta = _remap_token(stream, s2, at_a[0], at_a[1])
+            tb = _remap_token(stream, s2, at_b[0], at_b[1])
+            if ta is None or tb is None:
+                continue
+            parts = pair_failed_parts(schema, s2, (at_a[0], ta),
+                                      (at_b[0], tb))
+            if parts and (not best or len(parts) < len(best)):
+                best = parts
+    return best
+
+
+def pair_unanchored_any(schema, stream, at_a, at_b, build,
+                        cap=READING_COMBO_CAP):
+    """`pair_unanchored` under the any-reading rule: a member is named only
+    when its anchor names nothing under EVERY whole reading of the two bound
+    words, so no pronunciation choice supplies it and the remedy is another
+    word. [] as soon as one reading anchors every member, or when not every
+    combination could be tried.
+    """
+    first = pair_unanchored(schema, stream, at_a, at_b)
+    if not first:
+        return []
+    toks = set()
+    for li, t in (at_a, at_b):
+        words = (stream.lexical_tokens[li]
+                 if stream.lexical_tokens and 0 <= li < len(
+                     stream.lexical_tokens) else ())
+        toks.add((li, t if t >= 0 else len(words) + t))
+    combos, complete = reading_combos(stream, toks, cap)
+    if not combos:
+        return first               # one reading each: this stream is it
+    if not complete:
+        return []
+    still = {n for n, _ in first}
+    with _line_read_scope():
+        for combo in combos:
+            phon2 = pinned_phonology(stream, combo)
+            if phon2 is None:
+                return []
+            s2 = build(phon2)
+            ta = _remap_token(stream, s2, at_a[0], at_a[1])
+            tb = _remap_token(stream, s2, at_b[0], at_b[1])
+            if ta is None or tb is None:
+                return []
+            still &= {n for n, _ in pair_unanchored(
+                schema, s2, (at_a[0], ta), (at_b[0], tb))}
+            if not still:
+                return []
+    return [(n, rule) for n, rule in first if n in still]
+
+
 # ---------------------------------------------------------------------------
 # THE SHARED CHANNEL READ (2026-10-30; the contract agreed on PR #637, and
 # the "Shared reads" part of the interior schema contract). One span pair's
