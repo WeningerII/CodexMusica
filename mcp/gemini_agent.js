@@ -1256,10 +1256,21 @@ function parkedRefusal(lyr, name, args) {
     return `${head}, and this call omits the draft — a parked run is continued by a REWRITTEN draft (\`draft_text\`), which only you can write.${tail}`;
   if (sameDraft(args.draft, lyr.draft))
     return `${head}, and this call re-sends the SAME draft that parked — the loop is deterministic and would park again on the same lines.${tail}`;
-  const outside = changedOutside(lyr, args.draft);
-  if (outside.length)
-    return `${head}, and this call changes line(s) ${outside.join(', ')}, which are not open: a parked rewrite may change only line(s) ${parkedChangeable(lyr).join(', ')}.${tail}`;
   return null;
+}
+// Checked AFTER the repeat guard (runTurn), so work already done gets that
+// guard's answer and only a new rewrite is held to the lines that can fix it.
+export function parkedLinesRefusal(lyr, name, args) {
+  if (name !== 'lyric_revise' || !isParked(lyr) || lyr.uncertified || !Array.isArray(args?.draft))
+    return null;
+  if (sameDraft(args.draft, lyr.input_draft)) return null;
+  const outside = changedOutside(lyr, args.draft);
+  if (!outside.length) return null;
+  const who = typeof lyr.seed === 'number' ? `seed ${lyr.seed}` : 'the declared mandate';
+  return (
+    `REFUSED by the connector: a lyric_revise run for ${who} is PARKED at exit 3, and this call changes line(s) ` +
+    `${outside.join(', ')}, which are not open: a parked rewrite may change only line(s) ${parkedChangeable(lyr).join(', ')}.`
+  );
 }
 
 function uncertifiedRunNote() {
@@ -1461,6 +1472,9 @@ function carryState(prev, toolName, args, verdict, surface, planReturns = null) 
       ...(declaredReturns(args, planReturns)
         ? { returns: declaredReturns(args, planReturns) }
         : {}),
+      // The draft this run was opened on. Re-sending it is the same input,
+      // not a rewrite of the parked song; the repeat guard judges it.
+      ...(Array.isArray(args.draft) ? { input_draft: args.draft } : {}),
     };
   }
   if (code === 0 && prev && carriedKey(prev) === key) return null;
@@ -2568,6 +2582,21 @@ export async function runTurn({
             refused_by_connector: true,
             repeat_of: earlierRevise?.where ?? null,
             error: note,
+          });
+          if (onEvent) onEvent({ type: 'tool', name: fc.name, isError: true, refused: true });
+          responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+          continue;
+        }
+        const linesRefusal = revising && !freshRun ? parkedLinesRefusal(lyr, fc.name, args) : null;
+        if (linesRefusal) {
+          result = { isError: true, content: [{ type: 'text', text: `Error: ${linesRefusal}` }] };
+          calls.push({
+            name: fc.name,
+            args,
+            isError: true,
+            not_run: true,
+            refused_by_connector: true,
+            error: linesRefusal,
           });
           if (onEvent) onEvent({ type: 'tool', name: fc.name, isError: true, refused: true });
           responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });

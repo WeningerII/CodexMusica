@@ -4,12 +4,12 @@
 // length, return classes and open lines; no line of verse is used.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parkedChangeable, wanderRefusal, _agentInternals } from './gemini_agent.js';
+import { parkedChangeable, parkedLinesRefusal, _agentInternals } from './gemini_agent.js';
 
 const draftOf = (n) => Array.from({ length: n }, (_, i) => `line ${i + 1}`);
 const parked = (fields) => ({ parked: true, seed: 1, key: 'seed:1', ...fields });
 const revise = (draft) => ({ seed: 1, draft });
-const refusal = (lyr, draft) => wanderRefusal(lyr, 'lyric_revise', revise(draft));
+const refusal = (lyr, draft) => parkedLinesRefusal(lyr, 'lyric_revise', revise(draft));
 const change = (draft, lines) =>
   draft.map((t, i) => (lines.includes(i + 1) ? `${t} rewritten` : t));
 
@@ -33,6 +33,14 @@ test('the open line alone may change; any other line is refused, named', () => {
   const r = refusal(lyr, change(draft, [3, 5]));
   assert.match(r, /changes line\(s\) 5, which are not open/);
   assert.match(r, /may change only line\(s\) 3\b/);
+});
+
+test('re-sending the draft the run opened on is left to the repeat guard', () => {
+  const input = draftOf(4);
+  const draft = change(input, [2]);
+  const lyr = parked({ draft, input_draft: input, open: [1], whole: [] });
+  assert.equal(refusal(lyr, input), null);
+  assert.match(refusal(lyr, change(draft, [3])), /changes line\(s\) 3\b/);
 });
 
 test('a declared verbatim return opens its partners, to closure', () => {

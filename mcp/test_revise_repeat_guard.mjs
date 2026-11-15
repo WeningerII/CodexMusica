@@ -161,7 +161,9 @@ test('every spelling the tools read as the same song is the same work (3PO 63937
 
 test('the key is the dispatched work: changed effective declarations, answers and new_run run (§2)', async () => {
   // A changed draft runs.
-  const changed = [draft[0], 'My kettle hums beside the stove'];
+  // Rewritten at the open line, on the song the run stopped on (#853: a
+  // parked rewrite may change only the lines that can fix it).
+  const changed = ['Your fingers brush my winter coat', accepted[1]];
   assert.equal(
     (
       await turn([
