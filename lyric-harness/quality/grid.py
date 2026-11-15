@@ -3842,11 +3842,19 @@ def song_function_report(song, hooks=(), rhyme_key=None,
     # construction" is not "null"). Caught by `test_song_function` 8b, whose
     # whole subject is that an undeclared song "answers nothing", and by
     # `test_grid` §18 on three unnamed sections.
+    #
+    # THE NOTE SAYS WHAT MOVES IT (issue #676, owner's word 2026-11-15). The
+    # paragraph above is why this is a note: no rewrite moves a section. The
+    # writer was never told so. The finding named the section and its rule
+    # and stopped, which left a reader to try the one thing that cannot work.
+    # Stated as the fact the code already acts on, not as advice.
     _placed = [s.function if s.declared else None for s in song.sections]
     if any(_placed):
         pf = [GridFinding(code,
                           f"section {i + 1} sits where its own definition "
-                          f"says it cannot", evidence)
+                          f"says it cannot; no rewrite of its lines moves "
+                          f"it, its order or its declared function does",
+                          evidence)
               for code, i, evidence in placement_findings(_placed)]
         ask_one(pf, [])
     f, r, ch = bridge_contrast(song, convention=convention,
