@@ -1841,6 +1841,61 @@ def test_a_titled_plan_with_no_hook_can_finish():
           out1.strip().splitlines()[-1][:160] if out1.strip() else "")
 
 
+def test_a_heading_is_only_a_label_and_the_row_says_so():
+    """ISSUE #676, 2026-11-15. THE SECTION-TYPE ROW SAYS WHY IT WAS NOT ASKED.
+
+    A pasted song's `[Chorus]` heading is a label. With no section declaring
+    a function the song-function questions are never put, and the coverage
+    row for that layer carried a status and nothing else: the connector
+    printed `function: not requested` and the Lyrics page counted it among
+    "checks not requested" without a word. A writer who had headed a section
+    could read that as checked. The row now carries the grader's sentence,
+    which both surfaces already print for a row that has one.
+    """
+    from quality import revise as RV
+    print("\n15. a heading is only a label, and the coverage row says so (#676)")
+    rv = RV.Reviser()
+    lines = ["The harbor wakes before the gulls arrive",
+             "A kettle hums and morning comes alive",
+             "Hold the light until the tide comes in",
+             "Hold the light and let the day begin"]
+
+    def fn_row(cov):
+        return next(c for c in cov if c["id"] == "function:draft")
+
+    bare = fn_row(rv.inspect(lines, "AABB")["coverage"]["obligations"])
+    check("with NO blueprint the row is not_requested and says a heading is "
+          "only a label and what would ask the checks",
+          bare["status"] == "not_requested"
+          and bare.get("message") == RV._SECTION_TYPES_NOT_CHECKED
+          and "a heading is only a label" in bare["message"]
+          and "A blueprint that gives each section a function" in bare["message"],
+          bare)
+
+    def bp(function):
+        return {"sections": [dict(name="Chorus", bars=4, start_bar=1,
+                                  meter={"beats": 4, "unit": 4},
+                                  **({"function": function} if function else {}))],
+                "lines": [dict(text=t, bar=i + 1, beat=1, duration=4)
+                          for i, t in enumerate(lines)]}
+
+    cov = []
+    rv._function_findings(lines, bp(None), coverage_out=cov)
+    named = fn_row(cov)
+    check("a blueprint whose section is NAMED Chorus and declares no "
+          "function gets the same row and the same sentence: the name is a "
+          "label there too",
+          named["status"] == "not_requested"
+          and named.get("message") == RV._SECTION_TYPES_NOT_CHECKED, named)
+    cov = []
+    rv._function_findings(lines, bp("chorus"), coverage_out=cov)
+    declared = fn_row(cov)
+    check("...and a section that DECLARES its function is asked, so the row "
+          "carries no such sentence",
+          declared["status"] != "not_requested" and "message" not in declared,
+          declared)
+
+
 if __name__ == "__main__":
     for fn in (test_function_is_declared_and_never_inferred,
                test_the_questions_that_needed_a_function,
@@ -1856,7 +1911,8 @@ if __name__ == "__main__":
                test_the_contrast_truth_table,
                test_the_contrast_truth_table_reaches_certification,
                test_the_contrast_witness_names_its_words,
-               test_a_titled_plan_with_no_hook_can_finish):
+               test_a_titled_plan_with_no_hook_can_finish,
+               test_a_heading_is_only_a_label_and_the_row_says_so):
         fn()
     print("=" * 70)
     if FAILURES:

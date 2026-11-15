@@ -86,7 +86,9 @@ const NOT_CHECKED = {
 // `code` (function:FUNCTION_UNDECLARED:0) is named by it and by the finding
 // that says what it means; a layer row (setting:draft) by what would ask it.
 // A question that was never put has no finding, so its row carries the
-// grader's sentence itself (function:CONTRAST_NOT_CHECKED:draft, #676).
+// grader's sentence itself (function:CONTRAST_NOT_CHECKED:draft, #676). A
+// layer row may carry one too (function:draft when no section declares a
+// function): it is the grader's, and it is said rather than "not requested".
 function notCheckedOf(verdict) {
   const findings = Array.isArray(verdict.findings) ? verdict.findings : [];
   const out = new Set();
@@ -96,7 +98,9 @@ function notCheckedOf(verdict) {
       const f = findings.find((x) => x.code === o.code);
       const said = f?.message || o.message;
       out.add(`${o.layer}: ${o.code}` + (said ? ` — ${said}` : ''));
-    } else out.add(NOT_CHECKED[o.layer] ?? `${o.layer}: not requested`);
+    } else if (typeof o.message === 'string' && o.message.trim())
+      out.add(`${o.layer}: ${o.message.trim()}`);
+    else out.add(NOT_CHECKED[o.layer] ?? `${o.layer}: not requested`);
   }
   return [...out];
 }
