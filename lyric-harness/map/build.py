@@ -233,13 +233,25 @@ def rules_md():
     sys.path.insert(0, HARNESS)
     from quality import gate_census
     from quality.loop import MANDATORY_PURSUE
+    from quality.revise import WRITING_BAN_CODES
     census = gate_census.census()
-    rows = sorted(census.items(), key=lambda kv: (kv[1]["verdict"] != "GATED", kv[0]))
+    # A code the census files as a note can still stop a song: the writing
+    # bans are raised as flags on every writing path. Read from the list the
+    # code itself uses, so this table cannot say "stops nothing" about them.
+    for code in WRITING_BAN_CODES:
+        if code in census:
+            census[code] = dict(census[code],
+                                gates=[*census[code]["gates"], "WRITING_BAN_CODES"],
+                                severities=[*census[code]["severities"], "flag when writing"])
+    rows = sorted(census.items(),
+                  key=lambda kv: (kv[1]["verdict"] != "GATED" and not kv[1]["gates"], kv[0]))
     out = ["# Rules\n",
            "Every finding code the harness can emit (from `quality/gate_census.py`). "
            "**Stops a song** says what can refuse on it: a flag fails grading and holds the "
            "line open in revise; `MANDATORY_PURSUE` (`quality/loop.py`) holds a line open on a "
-           "note; `LENGTH_GATE_CODES` (`quality/floor.py`) blocks exit 0. "
+           "note; `LENGTH_GATE_CODES` (`quality/floor.py`) blocks exit 0; "
+           "`WRITING_BAN_CODES` (`quality/revise.py`) raises its codes as flags whenever "
+           "a song is written or checked. "
            "Codes marked nothing are reported and stop nothing.\n",
            f"Held open even as notes (`MANDATORY_PURSUE`): "
            f"{', '.join(sorted(MANDATORY_PURSUE)) or 'none (emptied 2026-10-04, owner ruling)'}.\n",

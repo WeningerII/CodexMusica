@@ -9013,13 +9013,21 @@ if (!runs('offline') || PART === null) {
       }
 
       if (runs('live-lookups')) {
-        // The pasted-song check answers at the brief verb's exit 0, but its
-        // structured flags and standing report must carry mandatory writing bans.
+        // The pasted-song check takes its exit from its verdict, as the grade
+        // does (owner's ruling, 2026-11-15): a standing mandatory writing ban is
+        // exit 3 and names the revise call, a pair nobody could judge is exit 2
+        // and says what to declare, and only a clean check is exit 0.
         const checked = await callText('lyric_check', {
           lines: ['dust settles on the kitchen chair', 'cold rain keeps combing through her hair'],
           scheme: 'AA',
         });
-        assert.equal(checked.exit_code, 0, 'check answered; exit 0 alone is not a clean verdict');
+        assert.equal(checked.exit_code, 3, 'a standing flag is exit 3 on a check, as on a grade');
+        assert.match(checked.meaning, /1 per-line and 0 whole-draft flag\(s\) stand/);
+        assert.deepEqual(checked.next_call, { tool: 'lyric_revise', args: {} });
+        assert.match(
+          checked.next,
+          /lyric_revise with these same lines and this same declaration, and no seed/
+        );
         assert.equal(checked.banned_pairs, 1);
         assert.deepEqual(
           checked.banned.map(({ code, lines }) => [code, lines]),
@@ -9046,8 +9054,30 @@ if (!runs('offline') || PART === null) {
           cleanCheck.findings.filter((f) => f.severity === 'flag'),
           []
         );
+        assert.equal(cleanCheck.next, undefined, 'a clean check names no next step');
+        assert.equal(cleanCheck.next_call, undefined);
+        // The third outcome: something could not be judged. The end word is
+        // generated, not chosen: nine consonants from a fixed rule, which no
+        // dictionary reads.
+        const unreadWord = Array.from(
+          { length: 9 },
+          (_, i) => 'bcdfghjklmnpqrstvwxz'[(7 * i * i + 3 * i + 11) % 20]
+        ).join('');
+        const unjudged = await callText('lyric_check', {
+          lines: [
+            `dust settles on the kitchen ${unreadWord}`,
+            'cold rain leaves nothing left to spare',
+          ],
+          scheme: 'AA',
+        });
+        assert.equal(unjudged.exit_code, 2, 'a pair nobody could judge is exit 2, never 0');
+        assert.equal(unjudged.certified, false);
+        assert.match(unjudged.meaning, /coverage INCOMPLETE/);
+        assert.match(unjudged.next, /could not be read: declare them with `pronunciations`/);
+        assert.match(unjudged.next, /call lyric_check again with the same declaration/);
+        assert.equal(unjudged.next_call, undefined, 'no single call is named at exit 2');
         console.log(
-          '  ok  lyric_check live: mandatory ban stands; clean rhyme control has no flags'
+          '  ok  lyric_check live: exit 3 with a standing ban, exit 2 when a pair is not judged, exit 0 when clean'
         );
         passed++;
         const survivingBan = await callText('lyric_verify', {
@@ -9076,11 +9106,7 @@ if (!runs('offline') || PART === null) {
           'and rivers ran with silver',
         ];
         const plain = await callText('lyric_check', { lines: stLines, groups: '1,2;3,4' });
-        assert.equal(
-          plain.exit_code,
-          0,
-          'check answers at the brief verb exit even with unjudged pairs'
-        );
+        assert.equal(plain.exit_code, 3, 'a judged pair that breaks its scheme is a flag: exit 3');
         // REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule
         // 5; measured, as test_verbs.py §39): sun/silver is JUDGED under the
         // broad default now — no whole reading of the two words holds any
@@ -9110,7 +9136,7 @@ if (!runs('offline') || PART === null) {
           !structured.report.includes('SCHEME_VIOLATION'),
           'and NOT one under the declared alliteration — the field is read, not dropped'
         );
-        assert.equal(structured.exit_code, 0);
+        assert.equal(structured.exit_code, 3, 'the ban on lines 1 and 2 still stands');
         assert.deepEqual(
           structured.findings
             .filter((f) => f.severity === 'flag')
@@ -9124,11 +9150,7 @@ if (!runs('offline') || PART === null) {
           groups: '1,2;3,4',
           relation: 'class:RHYME',
         });
-        assert.equal(
-          narrowed.exit_code,
-          0,
-          'check reports a definite violation at the brief verb exit'
-        );
+        assert.equal(narrowed.exit_code, 3, 'a definite violation is exit 3');
         assert.equal(narrowed.coverage.certified, true);
         assert.deepEqual(
           narrowed.findings

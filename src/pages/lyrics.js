@@ -2761,14 +2761,16 @@ function lyRunChecks(model) {
     if (typeof t.banned_pairs === 'number' && t.banned_pairs > 0)
       add({
         id: `banned:${t.name}`,
-        tone: 'note',
+        tone: 'issue',
         category: 'Banned pairs',
         title: uiCount(t.banned_pairs, 'banned pair'),
         where: t.name,
         lines: [],
-        // Was 'The two-tier ban is unskippable: this song is not finished while they
-        // stand.' — report-only since 2026-10-04 (owner's ruling).
-        text: 'Reported as notes. They do not stop the song finishing.',
+        // A banned pair is a flag on every writing path (`WRITING_BAN_CODES`
+        // in the harness's quality/revise.py). The sentence that said
+        // 'Reported as notes. They do not stop the song finishing.' was wrong
+        // from the day that list was added.
+        text: 'Each banned pair is a flag. The song is not finished while one stands.',
         actions: [],
       });
     // A call the host answered without running it is not a failed check.

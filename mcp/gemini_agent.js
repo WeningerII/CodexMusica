@@ -2592,7 +2592,11 @@ export async function runTurn({
             const refused =
               uncheckedDeclarations.length > 0 ||
               isError ||
-              v?.exit_code === 2 ||
+              // A refusal with nothing measured. A measured check now also
+              // exits 2 when its coverage is incomplete (lyric_tools.js,
+              // applyCheckExit); that case is read from `coverage` below, as
+              // it was when the check exited 0.
+              (v?.exit_code === 2 && v?.findings_measured !== true) ||
               v?.coverage?.refused_obligations?.length > 0 ||
               (v?.coverage?.obligations || []).some((o) => o.status === 'refused');
             const flags = (v?.flags || 0) + (v?.whole_flags || 0);
@@ -2649,7 +2653,10 @@ export async function runTurn({
             !recoveryOnly &&
             !isError &&
             fc.name.startsWith('lyric_') &&
-            (lyricVerdict?.exit_code ?? 0) !== 2
+            // A check that measured the draft is a completed step whatever
+            // its exit: 2 on a check means coverage incomplete, not refused.
+            ((lyricVerdict?.exit_code ?? 0) !== 2 ||
+              (fc.name === 'lyric_check' && lyricVerdict?.findings_measured === true))
           ) {
             completedSteps.add(fc.name);
             if (task) {

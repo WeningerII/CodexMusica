@@ -32,7 +32,7 @@ import { probeReaderScheme } from './reader_scheduler.js';
 import { requestContext } from './execution_context.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 import { admitRecognitionArgs, pastedRowsOf } from './meter_admission.js';
-import { declarationAdvice, uncertifiedAdvice } from './coverage_advice.js';
+import { declarationAdvice, refusedByRemedy, uncertifiedAdvice } from './coverage_advice.js';
 export { draftFromText } from './lyric_text.js';
 import {
   assessmentCoverageValid,
@@ -349,8 +349,11 @@ const EXIT_MEANING = {
   // resource, into a refusal at 2 — anything still reaching 1 is a crash).
   1: 'CRASHED — not an answer; the harness died before reaching a verdict, stderr follows',
   2: 'REFUSED — turned down without a verdict; `refusal` and the report name why',
-  // ~~or banned pair~~ dropped 2026-10-04 (owner's ruling): banned pairs are
-  // reported as notes and no longer move an exit code.
+  // A banned rhyme pair needs no words of its own here: on every writing path
+  // the two ban codes are raised as FLAGS (`WRITING_BAN_CODES` in
+  // quality/revise.py), so a ban is counted in `flags` and exits 3 as any
+  // other flag does. ~~banned pairs are reported as notes and no longer move
+  // an exit code~~ (2026-10-04) described the code before that list existed.
   3: 'answered — at least one FLAG stands; `blocking` (or the report) names the lines',
   4: "SUSPENDED — the loop is waiting for a writer's answer; neither a verdict nor a failure",
   // A call nearing its deadline stops itself between steps instead of being
@@ -725,8 +728,9 @@ function loopStatusOf(code, verdict) {
       verdict.whole_flags === 0 &&
       verdict.loop_unresolved === 0 &&
       verdict.loop_whole_flags === 0 &&
-      // ~~verdict.banned_pairs === 0 &&~~ dropped 2026-10-04 (owner's ruling):
-      // banned pairs are reported, not a condition of finishing.
+      // `banned_pairs` is not asked a second time: on a writing path a ban
+      // is a FLAG (`WRITING_BAN_CODES`), so `flags === 0` above already
+      // means no ban stands.
       Array.isArray(verdict.final_draft) &&
       verdict.final_draft.length > 0
       ? 'finished_clean'
@@ -1196,6 +1200,62 @@ function verdictOf(r) {
   return v;
 }
 
+// THE CHECK'S EXIT, READ FROM ITS VERDICT (owner's ruling, 2026-11-15). The
+// `brief` verb exits 0 whenever it answers, so a pasted song with a standing
+// flag, or with a pair nobody could judge, came back exit 0, and a caller who
+// read the code read "nothing wrong". The check publishes the exits the grade
+// publishes, read from the same verdict fields: 2 when coverage is
+// incomplete, 3 when a flag stands, 0 when nothing stands. Coverage is asked
+// first, as `song` asks it. The verb and its record are unchanged, and a
+// result with no measured findings keeps the exit and meaning it had.
+function applyCheckExit(v) {
+  if (v.exit_code !== 0 || v.findings_measured !== true) return v;
+  const flags = v.flags || 0;
+  const whole = v.whole_flags || 0;
+  const standing = `${flags} per-line and ${whole} whole-draft flag(s) stand`;
+  if (v.certified !== true) {
+    v.exit_code = 2;
+    v.meaning =
+      'measured — coverage INCOMPLETE, uncertified (coverage.refused_obligations names what was not judged); ' +
+      (flags || whole ? standing : 'no flag stands on what was judged');
+  } else if (flags || whole) {
+    v.exit_code = 3;
+    v.meaning = `answered — ${standing}`;
+  }
+  if (v.exit_code !== 0) {
+    v.next = checkNext(v);
+    if (v.exit_code === 3) v.next_call = { tool: 'lyric_revise', args: {} };
+  }
+  return v;
+}
+
+// The check's `next`, in the caller's words. At 3 it is the revise call the
+// pasted-lyrics route already has (no seed). At 2 it is read off the refused
+// rows, as the revise stop's note is (coverage_advice.js): a declaration no
+// rewrite can clear is named as one, and unread words are sent to
+// `pronunciations`. No single call is named at 2, because the remedy is a
+// change to what is declared and only the caller can make it.
+function checkNext(v) {
+  if (v.exit_code === 3)
+    return (
+      'Call lyric_revise with these same lines and this same declaration, and no seed; ' +
+      'its revise loop works on the flagged lines. If you change any line yourself instead, ' +
+      'call lyric_check again on the changed lines.'
+    );
+  const { reading, declarations, other } = refusedByRemedy(v);
+  const parts = [];
+  if (declarations.length) parts.push(declarationAdvice(v));
+  if (other.length)
+    parts.push(`Read \`coverage\` for the refused obligation(s) ${other.join(', ')}.`);
+  if (reading)
+    parts.push(
+      'Some words could not be read: declare them with `pronunciations` or `lexicon_supplement`, or change those words.'
+    );
+  if (!parts.length) parts.push('Read `coverage` for what was not judged.');
+  parts.push('Then call lyric_check again with the same declaration.');
+  return parts.join(' ');
+}
+
 // THE GRADE'S STAMP, SPELLED FROM ITS VERDICT. `song`'s exit 2 is shared by a
 // refusal (nothing measured) and a measured draft whose coverage is
 // incomplete, and a stamp read off the code alone called both "refused". The
@@ -1216,8 +1276,8 @@ function gradeStamp(seed, v) {
         : 'no FLAG stands'
     );
     if (v.banned_pairs === null) parts.push('two-tier ban not asked');
-    // ~~if (nBanned) parts.push('banned pairs UNSKIPPABLE, not finished');~~
-    // dropped 2026-10-04 (owner's ruling): the count below still reports them.
+    // A standing ban is one of the FLAGS counted above on a writing path
+    // (`WRITING_BAN_CODES`); the count below names how many of them are bans.
     state = parts.join(', ');
   }
   return `[GRADED — seed ${seed} — exit ${v.exit_code}, ${state} — ${nBanned} banned pair(s)]`;
@@ -3803,8 +3863,9 @@ export function registerLyricTools(server, tool) {
         'After lyric_recover, pass its `lines` ' +
         'with its mandate, so the line numbers name the same lines. A declaration is REQUIRED: nothing declared means ' +
         'nothing mandated, and "nothing flagged" about that would be a vacuous pass. FLAGS are defects with line ' +
-        'numbers; everything else is reported as notes, which are measurements. THE EXIT CODE IS NOT THE VERDICT: this verb ' +
-        'exits 0 whenever it answers, with flags standing or coverage incomplete. Read `flags` and `whole_flags` for ' +
+        'numbers; everything else is reported as notes, which are measurements. The exit code is the verdict, as on ' +
+        'lyric_grade: 0 when nothing stands, 3 when a FLAG stands, 2 when coverage is incomplete; at 3 and at 2 `next` ' +
+        'says what to do. Read `flags` and `whole_flags` for ' +
         'what stands, `certified` and `coverage` for whether every declared pair and requested layer was judged ' +
         '(coverage.refused_obligations names what was not), and `unreadable` (a count) with `unreadable_findings` ' +
         '(the findings) for what the lexicon could not read. ' +
@@ -3885,7 +3946,7 @@ export function registerLyricTools(server, tool) {
             v.schema_instance_evidence = { ...v.schema_instance_evidence, invocation };
         }
         v.blueprint_declared = a.blueprint != null;
-        return v;
+        return applyCheckExit(v);
       })
   );
 

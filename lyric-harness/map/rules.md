@@ -1,6 +1,6 @@
 # Rules
 
-Every finding code the harness can emit (from `quality/gate_census.py`). **Stops a song** says what can refuse on it: a flag fails grading and holds the line open in revise; `MANDATORY_PURSUE` (`quality/loop.py`) holds a line open on a note; `LENGTH_GATE_CODES` (`quality/floor.py`) blocks exit 0. Codes marked nothing are reported and stop nothing.
+Every finding code the harness can emit (from `quality/gate_census.py`). **Stops a song** says what can refuse on it: a flag fails grading and holds the line open in revise; `MANDATORY_PURSUE` (`quality/loop.py`) holds a line open on a note; `LENGTH_GATE_CODES` (`quality/floor.py`) blocks exit 0; `WRITING_BAN_CODES` (`quality/revise.py`) raises its codes as flags whenever a song is written or checked. Codes marked nothing are reported and stop nothing.
 
 Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ruling).
 
@@ -10,10 +10,12 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | BEAT_OUTSIDE_CYCLE | flag | severity flag | fit.py |
 | CLICHE_PAIR | flag | severity flag | floor.py |
 | FUNCTION_WORD_HEAVY | flag | severity flag | floor.py |
+| HOMEOTELEUTON | note/flag when writing | WRITING_BAN_CODES | revise.py |
 | HOOK_ABSENT | flag | severity flag | grid.py |
 | HOOK_DOES_NOT_RECUR | flag | severity flag | grid.py |
 | LEXICAL_MONOTONY | flag | severity flag | floor.py |
 | MATTR_WINDOW_UNCALIBRATED | note | LENGTH_GATE_CODES | floor.py |
+| MODAL_RHYME | note/flag when writing | WRITING_BAN_CODES | revise.py |
 | OUT_OF_CALIBRATED_LENGTH | note | LENGTH_GATE_CODES | floor.py |
 | OVERRUNS_SECTION | flag | severity flag | fit.py |
 | REPEAT_IN_VERSE | flag | severity flag | floor.py |
@@ -40,7 +42,6 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | FLOOR_LOCUS_SCOPE | note | — | revise.py |
 | GROUPS_DECLARED_RETURN | note | — | revise.py |
 | HEADS_EXCEED_UNITS | note | — | fit.py |
-| HOMEOTELEUTON | note | — | revise.py |
 | HOOK_CONFINED | note | — | grid.py |
 | LATE_ENTRY | note | — | fit.py |
 | LEXICAL_REPETITION_DECLARED | note | — | floor.py |
@@ -49,7 +50,6 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | MANDATE_NOT_INDEPENDENT | note | — | revise.py |
 | MANDATE_SCOPE_DECLARED | note | — | revise.py |
 | METER_LOCKED | note | — | grid.py |
-| MODAL_RHYME | note | — | revise.py |
 | OVERLAPPING_SPANS | note | — | fit.py |
 | PATTER_NOT_DENSER | note | — | grid.py |
 | PHRASE_LENGTH_LOCKED | note | — | grid.py |
