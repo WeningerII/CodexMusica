@@ -13348,8 +13348,8 @@ def main():
             print(f"  NOT ASKED {gap.code}: {gap.message}")
             print(f"      {gap.evidence}")
             if gap.code == "EFFECT_NOT_VERIFIED":
-                from quality.function_disclosure import function_contract_explanations
-                print(f"      {function_contract_explanations()['measurement']}")
+                from quality.function_disclosure import NOT_VERIFIED_FROM_TEXT
+                print(f"      {NOT_VERIFIED_FROM_TEXT}")
         for fn, rets in rep["returns"].items():
             for a, b, ret in rets:
                 print(f"  -- {fn}: {a.name} -> {b.name}")

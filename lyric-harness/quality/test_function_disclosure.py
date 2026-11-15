@@ -16,8 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from quality import grid as G
 from quality import plan as P
 from quality.function_disclosure import (
-    disclose_functions, disclose_section, function_capabilities,
-    function_contract_explanations,
+    NOT_VERIFIED_FROM_TEXT, disclose_functions, function_capabilities,
 )
 
 
@@ -34,30 +33,14 @@ class FunctionDisclosureTests(unittest.TestCase):
                 row['raw']['function'].append('changed')
             self.assertEqual(value, before)
 
-    def test_no_label_preserves_missing_blank_and_nonstring_inputs(self):
-        for section in ({}, {'name': None}, {'name': ''}, {'name': ' \t '},
-                        {'name': 123}, {'name': ['Intro']}):
-            before = copy.deepcopy(section)
-            row = disclose_section(section)
-            self.assertEqual(row['raw'], before)
-            self.assertEqual(section, before)
-            self.assertIsNone(row['label_recognized'])
-            self.assertEqual(row['explanation'],
-                             'No label supplied; no section function declared or checked.')
-
     def test_refrain_and_burden_are_ordinary_section_declarations(self):
-        for name in ('refrain', 'burden'):
+        # Owner ruling 2026-11-13: the two are sections like any other, so
+        # the blueprint reader takes them exactly as it takes `verse`.
+        for name in ('refrain', 'burden', 'verse'):
             section = {'name': 'Label', 'function': name, 'bars': 8,
                        'meter': {'beats': 4, 'unit': 4}}
             song, _ = G.song_from_blueprint({'sections': [section], 'lines': []})
             self.assertEqual(song.sections[0].function, name)
-            row = disclose_section(section)
-            self.assertIsNone(row['declaration_refusal'])
-            # Owner ruling 2026-11-13: the two are sections like any other,
-            # so they read exactly as `verse` or `chorus` does here.
-            self.assertEqual(row['explanation'], disclose_section(
-                dict(section, function='verse'))['explanation'])
-            self.assertNotIn('line', row['explanation'].replace('its lines', ''))
 
     def test_raw_order_duplicates_spelling_semantic_and_scoped_alias(self):
         raw = [' Pre-Chorus ', 'instrumental-break', ' English_Song::BREAK ',
@@ -88,85 +71,10 @@ class FunctionDisclosureTests(unittest.TestCase):
         for row in rows:
             self.assertEqual(row['explanation'], 'refused: ' + row['refusal'])
 
-    def test_heading_is_never_a_declaration(self):
-        cases = [
-            ('Intro', True, "label 'Intro' recognised; no section function declared or checked"),
-            ('Introduction', False, "label 'Introduction' not recognised; no section function checked"),
-            ('Refrain', True, "label 'Refrain' recognised; no section function declared or checked"),
-            ('chorus2', False, "label 'chorus2' not recognised; no section function checked"),
-        ]
-        for label, recognized, explanation in cases:
-            with self.subTest(label=label):
-                with patch.object(G, 'song_from_blueprint', side_effect=AssertionError('not declared')):
-                    row = disclose_section({'name': label})
-                self.assertIs(row['label_recognized'], recognized)
-                self.assertEqual(row['function']['canonical'], '')
-                self.assertEqual(row['explanation'], explanation)
-                self.assertIsNone(row['declaration_refusal'])
-
-    def test_empty_and_absent_declarations_remain_distinguishable_in_raw(self):
-        for function in (None, '', '   '):
-            section = {'name': 'Chorus', 'function': function}
-            row = disclose_section(section)
-            self.assertEqual(row['raw'], section)
-            self.assertEqual(row['function']['canonical'], '')
-        self.assertNotIn('function', disclose_section({'name': 'Chorus'})['raw'])
-
-    def test_supplied_refused_function_is_not_an_unknown_label(self):
-        row = disclose_section({'name': 'Intro', 'function': 'Introduction'})
-        self.assertIsNone(row['label_recognized'])
-        self.assertIsNone(row['function']['canonical'])
-        self.assertTrue(row['declaration_refusal'].startswith(
-            "'Introduction' is not a declared section function."))
-        self.assertEqual(row['explanation'], 'refused: ' + row['declaration_refusal'])
-
-    def test_explicit_blueprint_specialization_is_separate_from_name_resolution(self):
-        for bars in (8, 13):
-            section = {'name': '  Middle Eight  ', 'function': ' Middle-Eight ',
-                       'bars': bars, 'meter': {'beats': 4, 'unit': 4},
-                       'source': {'labels': ['raw', 'raw']}}
-            before = copy.deepcopy(section)
-            row = disclose_section(section)
-            self.assertEqual(section, before)
-            self.assertEqual(row['raw'], before)
-            self.assertEqual(row['function']['canonical'], 'bridge')
-            self.assertEqual(row['function']['specialised_as'], 'middle-eight')
-            if bars == 8:
-                self.assertIsNone(row['declaration_refusal'])
-                self.assertEqual(row['explanation'], 'This section on its own passed declaration validation (bars, meter and specialisation); its lines, placement, return and contrast were not checked.')
-            else:
-                self.assertIn("declared 'middle-eight' with bars=13", row['declaration_refusal'])
-                self.assertIn('bars == 8', row['declaration_refusal'])
-                with self.assertRaises(G.SpecialisationMismatch) as caught:
-                    G.song_from_blueprint({'sections': [section], 'lines': []})
-                self.assertEqual(row['declaration_refusal'], str(caught.exception))
-            row['raw']['source']['labels'].append('mutation probe')
-            self.assertEqual(section, before)
-
-    def test_missing_grid_is_not_reported_as_validated(self):
-        row = disclose_section({'name': 'Middle', 'function': 'middle-eight', 'bars': 8})
-        self.assertIn('declares no time signature', row['declaration_refusal'])
-        self.assertTrue(row['explanation'].startswith('refused: '))
-
-    def test_scoped_blueprint_keeps_its_name_reading_and_raw_declaration(self):
-        section = {'name': 'Break', 'function': ' English_Song::BREAK ',
-                   'bars': 4, 'meter': {'beats': 4, 'unit': 4}}
-        row = disclose_section(section)
-        self.assertEqual(row['raw']['function'], ' English_Song::BREAK ')
-        self.assertEqual(row['function']['canonical'], 'interlude')
-        self.assertIsNone(row['declaration_refusal'])
-        section['function'] = 'sonata::bridge'
-        row = disclose_section(section)
-        self.assertIsNone(row['function']['canonical'])
-        self.assertIn('REFUSED rather than mapped to another tradition.', row['declaration_refusal'])
-
     def test_helper_does_not_run_planning_or_function_assessment(self):
         with patch.object(P, 'make_plan', side_effect=AssertionError('planner ran')), \
                 patch.object(G, 'song_function_report', side_effect=AssertionError('assessment ran')):
             disclose_functions(['middle-eight', 'Introduction'])
-            disclose_section({'name': 'M', 'function': 'middle-eight', 'bars': 8,
-                              'meter': {'beats': 4, 'unit': 4}})
-            function_contract_explanations()
 
     def test_existing_resolver_and_planner_contracts(self):
         self.assertEqual(G.as_function(' Pre-Chorus '), 'prechorus')
@@ -192,19 +100,16 @@ class FunctionDisclosureTests(unittest.TestCase):
         self.assertEqual(json.dumps(plan, sort_keys=True), before)
         self.assertEqual(functions, [' verse ', 'reprise', 'reprise'])
 
-    def test_explanations_do_not_classify_or_change_existing_assessment(self):
-        song = G.Song(sections=[G.Section('Ending', 8, function='outro'),
-                                G.Section('Verse', 8, function='verse')])
-        before = G.song_function_report(song)
-        prose = function_contract_explanations()
-        self.assertEqual(prose['convention'], 'Convention: musical advice. It never withholds certification.')
-        self.assertEqual(prose['declared'], "Declared: you, or the form you chose, asked for this. If it couldn't be judged, it can withhold certification.")
-        self.assertEqual(prose['structural_repair'], "Structural repair: if a problem is how often a section occurs, its order or its bars, fix it by editing the structure, changing the declaration or replanning, then check again. Rewriting words alone won't fix it.")
-        self.assertEqual(prose['word_repair'], 'Word repair: a declared Return asks for the same words to come back. Copying or rewriting the words can fix that; check the declaration again afterwards. This is separate from the advisory measurement of how much a section returns.')
-        self.assertEqual(prose['measurement'], "Acoustic properties aren't verified from text. A section's label or resolved name doesn't show how it sounds when performed.")
-        self.assertEqual(G.song_function_report(song), before)
-        self.assertTrue(any(f.code == 'SECTION_NOT_AT_BOUNDARY' for f in before['findings']))
-        self.assertEqual(set(prose), {'convention', 'declared', 'structural_repair', 'word_repair', 'measurement'})
+    def test_the_one_standing_sentence_is_the_one_the_function_verb_prints(self):
+        # The four other sentences this module held were printed nowhere and
+        # went with `disclose_section` (issue #676, 2026-11-15). What they
+        # were for is tested where it is now said: the placement note in
+        # `test_placement.py` and the `function:draft` row in
+        # `test_song_function.py`.
+        self.assertEqual(NOT_VERIFIED_FROM_TEXT, "Acoustic properties aren't verified from text. A section's label or resolved name doesn't show how it sounds when performed.")
+        from quality import function_disclosure as FD
+        self.assertEqual(sorted(n for n in vars(FD) if not n.startswith('_') and n not in ('deepcopy', 'grid')),
+                         ['NOT_VERIFIED_FROM_TEXT', 'disclose_functions', 'function_capabilities'])
 
 
 class WriterDisclosureTests(unittest.TestCase):
@@ -687,7 +592,7 @@ class NotAskedTests(unittest.TestCase):
         self.assertNotIn('CONTRAST_NOT_CHECKED', out)
         self.assertIn('  NOT ASKED EFFECT_NOT_VERIFIED: not verified from text: drop '
                       '(whether it lands as an arrival)\n', out)
-        self.assertIn('      ' + function_contract_explanations()['measurement'] + '\n', out)
+        self.assertIn('      ' + NOT_VERIFIED_FROM_TEXT + '\n', out)
 
 
 class CapabilityTableTests(unittest.TestCase):
