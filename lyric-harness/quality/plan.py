@@ -329,12 +329,13 @@ FORM_RECURS = {
 
 
 def form_asks_return(form):
-    """-> does `form` ask for a section to come back word for word, with a
-    hook line in it? Only a form `FORM_RECURS` names a returner for
-    (owner-approved plan, D7, 2026-10-27: no required chorus return and no
-    hook check unless the request asks for one). Under `open` a function
-    drawn twice is planned twice, each instance with its own lines and
-    groups, and no line is declared the hook."""
+    """-> does `form` REQUIRE a section to come back, with a hook line in it?
+    Only a form `FORM_RECURS` names a returner for (owner-approved plan, D7,
+    2026-10-27: no required chorus return and no hook check unless the
+    request asks for one). Under `open` no section has to recur and no line
+    is declared the hook. What a section does WHEN it recurs is its own
+    row's, not the form's (owner's ruling, 2026-11-15): a function whose row
+    returns verbatim comes back word for word in every form."""
     return bool(FORM_RECURS.get(form))
 
 
@@ -1398,6 +1399,17 @@ def _domain_cap(sch):
         cap = 2
         why = ("its rule asks the later member of every pair to run on past "
                "the earlier one, which three members cannot all do")
+    # A RULE THAT READS ONE MEMBER IN REVERSE BINDS TWO LINES (owner's ruling,
+    # 2026-11-15). A group is judged pair by pair, so three members would
+    # each have to be the other two read backwards: all three one sound that
+    # is the same in both directions. The planner dealt such a group of five
+    # (seed 65, 12 lines, verse-chorus); no draft can meet it.
+    if (any(c.required and getattr(c.predicate, "reverse_b", False)
+            for c in sch.channels or ()) and (cap is None or cap > 2)):
+        cap = 2
+        why = ("its rule reads one member of every pair from last to first, "
+               "so three members would all have to sound the same forwards "
+               "and backwards")
     return cap, why
 
 
@@ -4400,8 +4412,14 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         bar += n_bars
         if k == 0:
             continue
-        # A RETURN ONLY WHEN THE FORM ASKS FOR ONE (D7, 2026-10-27): under
-        # `open` a second chorus is new lines with groups of their own.
+        # A SECTION WHOSE ROW RETURNS VERBATIM COMES BACK WORD FOR WORD IN
+        # EVERY FORM (owner's ruling, 2026-11-15, replacing the half of D7,
+        # 2026-10-27, that planned a second chorus under `open` as new
+        # lines). The form decides whether a section MUST recur
+        # (`FORM_RECURS`) and whether a hook is declared; what a chorus does
+        # when it recurs is `FunctionSpec.returns_as`, the same in any form.
+        # Both chat sessions of the 2026-11-14 retests ran under `open` and
+        # delivered two choruses with no word in common.
         # A REPRISE IS "a declared return of earlier material, later and
         # changed" (its row): its first line comes back from the first
         # chorus, or from the song's opening line where no chorus precedes
@@ -4412,8 +4430,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         if fn == "reprise" and first > 1:
             returns.append([sung_first.get("chorus", 1), first])
         sung_first.setdefault(fn, first)
-        if (fn in VERBATIM_RETURNERS and fn in first_seen
-                and form_asks_return(form)):
+        if fn in VERBATIM_RETURNERS and fn in first_seen:
             returns.extend([first_seen[fn] + i, first + i]
                            for i in range(k))
         else:

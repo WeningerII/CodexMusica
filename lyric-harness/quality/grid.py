@@ -467,6 +467,14 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           # function with no differentia.
           aliases=("departure-section", "departure section",
                    "departure_section"),
+          # A BRIDGE NEEDS A SECTION BEFORE IT (owner's ruling, 2026-11-15).
+          # The row has always said it CONTRASTS, with the verse and the
+          # chorus, and a contrast with nothing before it is not one: both
+          # live retests of 2026-11-14 planned a bridge as the song's first
+          # section. The same field `turnaround`, `interlude` and `reprise`
+          # use, so the planner refuses the pattern and the grader notes it.
+          needs_before=True,
+          placement_evidence="appears once and CONTRASTS",
           # THE GLOSS HAS ARGUED THIS SINCE THE ROW WAS WRITTEN and the
           # alias route was accepting the claim and discarding it —
           # `Section(bars=13, function='middle-eight')` stored 'bridge',

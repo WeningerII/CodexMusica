@@ -223,7 +223,13 @@ def test_the_denominator_is_drawn():
     # are ordinary sections, owner ruling), so every seed's stream re-deals;
     # each seed below is again the first default seed in that meter,
     # re-measured by running `make_plan` over seeds 0-218.
-    for k, want in ((17, "3/4"), (50, "2/2"), (130, "5/4"), (218, "7/4")):
+    # ~~17 (3/4), 50 (2/2), 130 (5/4), 218 (7/4)~~ — REPINNED 2026-11-15
+    # (owner's rulings: a bridge needs a section before it, and a section
+    # whose row returns verbatim returns in every form, `open` included), so
+    # a seed that drew either re-deals. 17 and 218 hold; 56 and 135 are
+    # again the first default seed in their meter, re-measured by running
+    # `make_plan` over seeds 0-419.
+    for k, want in ((17, "3/4"), (56, "2/2"), (135, "5/4"), (218, "7/4")):
         p, m, units = _sig(k)
         check(f"default plan seed {k} is in {want}, and the brief says so",
               f"{m['beats']}/{m['unit']}" == want and len(units) == 1
@@ -4063,6 +4069,38 @@ def test_the_overhang_group():
           "cap on every group)",
           RL.unsatisfiable_pairs(RL.REGISTRY["consonance"], 9) == 0
           and RL.group_satisfiable(RL.REGISTRY["consonance"], 9))
+    # A RULE THAT READS ONE MEMBER IN REVERSE BINDS TWO LINES (owner's
+    # ruling, 2026-11-15). A group is judged pair by pair, so three members
+    # would each have to be the other two read backwards. The same cap the
+    # overhang types get, read off the rule's own predicate.
+    _rev = lambda sc: any(c.required and getattr(c.predicate, "reverse_b", False)
+                          for c in sc.channels or ())
+    _plain_seq = [n for n, sc in RL.REGISTRY.items() if not _rev(sc) and any(
+        type(c.predicate).__name__ == "SequenceEqual" for c in sc.channels or ())]
+    AMPH = RL.REGISTRY["amphisbaenic rhyme"]
+    check("a type whose rule reads one member in reverse is capped at two "
+          "members and says why; it is the only such type, and a sequence "
+          "rule read forwards is not capped for it",
+          sorted(n for n, sc in RL.REGISTRY.items() if _rev(sc))
+          == ["amphisbaenic rhyme"]
+          and PLN._domain_cap(AMPH)[0] == 2
+          and "last to first" in PLN._domain_cap(AMPH)[1]
+          and _plain_seq
+          and all("last to first" not in PLN._domain_cap(RL.REGISTRY[n])[1]
+                  for n in _plain_seq),
+          PLN._domain_cap(AMPH))
+    _p65 = make_plan(65, lines=12, form="verse-chorus")
+    _amph = [g["lines"] for g in _p65["choices"]["relations"]["groups"]
+             if g["type"] == "amphisbaenic rhyme"]
+    check("seed 65 at 12 lines under verse-chorus dealt that type to FIVE "
+          "lines before the cap (the 2026-11-14 live plan); it binds a pair "
+          "now, and no default plan over seeds 1-40 binds it to three",
+          _amph and all(len(g) == 2 for g in _amph)
+          and not any(len(g["lines"]) > 2
+                      for k in range(1, 41)
+                      for g in make_plan(k)["choices"]["relations"]["groups"]
+                      if g["type"] == "amphisbaenic rhyme"),
+          _amph)
     #: A declared overhang schema binds every group. ~~The planner must
     #: REFUSE a plan with a 3+ group~~ — since 2026-10-27 (D3) the type
     #: shapes its own groups (`plan._carve`): a 3+ block is cut to the pairs
@@ -4764,7 +4802,11 @@ def test_the_seed_redraw():
     # ~~30~~ -> 42 (2026-11-13): the planner draws from all 22 functions
     # (`refrain` and `burden` are ordinary sections, owner ruling), so the
     # stream re-deals again; 42 is now the first such seed.
-    FAIL_SEED = 42
+    # ~~42~~ -> 369 (2026-11-15): under `open` a section whose row returns
+    # verbatim now returns (owner's ruling), so seed 42's stream re-deals
+    # and its own draw is refused for a second code as well; 369 is the
+    # first default seed refused for NO_FREE_WORD alone, over seeds 0-419.
+    FAIL_SEED = 369
 
     # (1) AN ACTUAL FAILING SEED, RAW PLAN AGAINST SWEEP.
     try:
@@ -5234,33 +5276,56 @@ def test_the_type_draw():
            for seed in range(1, 9)]
     # REPINNED 2026-11-14 (#671 A7): a REPRISE's return pair is planned in
     # every form -- its first line comes back from the first chorus before
-    # it, else from line 1 -- so an open plan's returns are exactly those
-    # pairs. No chorus returns under `open`, and the hook stays undeclared.
-    def _reprise_pairs(p):
-        want, seen_chorus = [], None
+    # it, else from line 1.
+    # REPINNED 2026-11-15 (owner's ruling): a section whose ROW returns
+    # verbatim comes back word for word in every form too, so an open
+    # plan's returns are exactly the reprises' pairs and those sections'
+    # line-for-line pairs, in section order. ~~No chorus returns under
+    # `open`~~; the hook stays undeclared, which is the form's half of D7.
+    def _expected_returns(p):
+        want, first_of, verbatim = [], {}, False
         for sec in p["sections"]:
             ls = [sl["line"] for sl in p["line_slots"]
                   if sl["section"] == sec["name"]]
             if not ls:
                 continue
-            if sec["function"] == "reprise" and ls[0] > 1:
-                want.append(f"{seen_chorus or 1},{ls[0]}")
-            if sec["function"] == "chorus" and seen_chorus is None:
-                seen_chorus = ls[0]
-        return ";".join(want)
-    opens_with_reprise = [p for p in (make_plan(seed) for seed in range(1, 41))
+            fn = sec["function"]
+            if fn == "reprise" and ls[0] > 1:
+                want.append(f"{first_of.get('chorus', 1)},{ls[0]}")
+            if fn in PLN.VERBATIM_RETURNERS and fn in first_of:
+                want.extend(f"{first_of[fn] + i},{ln}"
+                            for i, ln in enumerate(ls))
+                verbatim = True
+            first_of.setdefault(fn, ls[0])
+        return ";".join(want), verbatim
+    opens_40 = [make_plan(seed) for seed in range(1, 41)]
+    opens_with_reprise = [p for p in opens_40
                           if any(sec["function"] == "reprise"
                                  for sec in p["sections"])]
-    check("an open plan's only verbatim returns are its reprises' pairs, at "
-          "the exact source and target lines, and it declares no hook and "
-          "says why",
-          all(p["returns"] == _reprise_pairs(p) and not p["hook_slot"]
+    opens_with_verbatim = [p for p in opens_40 if _expected_returns(p)[1]]
+    check("an open plan's returns are exactly its reprises' pairs and the "
+          "line-for-line pairs of each section whose row returns verbatim, "
+          "at the exact source and target lines; the brief says 'line for "
+          "line' exactly when one does; and it declares no hook and says why",
+          all(p["returns"] == _expected_returns(p)[0] and not p["hook_slot"]
               and p["hook_slot_refused"]
-              and "line for line" not in p["writer_brief"]
-              for p in opens + opens_with_reprise)
-          and any(p["returns"] for p in opens_with_reprise),
-          [(p["returns"][:20], _reprise_pairs(p)[:20], p["hook_slot"])
-           for p in opens + opens_with_reprise][:4])
+              and ("line for line" in p["writer_brief"])
+              == _expected_returns(p)[1]
+              for p in opens + opens_40)
+          and any(p["returns"] for p in opens_with_reprise)
+          and opens_with_verbatim
+          and any(not _expected_returns(p)[1] for p in opens_40),
+          [(p["returns"][:20], _expected_returns(p)[0][:20], p["hook_slot"])
+           for p in opens + opens_40][:4])
+    # A BRIDGE NEEDS A SECTION BEFORE IT (owner's ruling, 2026-11-15): both
+    # live retests of 2026-11-14 planned one as the song's first section.
+    _all = opens + opens_40 + vcs
+    check("no plan opens on a bridge, in either form, and plans still draw "
+          "one after another section",
+          not any(p["sections"][0]["function"] == "bridge" for p in _all)
+          and any(sec["function"] == "bridge" and i > 0
+                  for p in _all for i, sec in enumerate(p["sections"])),
+          sorted({p["sections"][0]["function"] for p in _all}))
     check("a verse-chorus plan still returns its chorus with a hook line",
           all(p["returns"] and p["hook_slot"] for p in vcs),
           [(bool(p["returns"]), p["hook_slot"]) for p in vcs])
@@ -5558,7 +5623,9 @@ class OnceGeneration(unittest.TestCase):
         rows = [
             (11, 'open', ['false_ending', 'reprise'], ['sections=4', 'sections.false_ending<=2', 'sections.reprise<=2']),
             (11, 'open', ['verse', 'reprise'], ['sections=4', 'sections.verse<=1']),
-            (11, 'open', ['bridge'], ['sections.bridge=4']),
+            # A verse beside the bridge since 2026-11-15: a bridge needs a
+            # section before it, so a roster of bridges alone plans nothing.
+            (11, 'open', ['verse', 'bridge'], ['sections.bridge=4']),
             (11, 'open', ['verse', 'chorus', 'false_ending', 'reprise'], ['sections.false_ending=2']),
             (2, 'verse-chorus', ['verse', 'chorus', 'false_ending', 'reprise'], ['sections.reprise=2']),
         ]
@@ -5598,7 +5665,7 @@ class OnceGeneration(unittest.TestCase):
     def test_hook_and_return_coordinates_do_not_lift_once(self):
         rows = [
             ('open', ['false_ending', 'reprise'], 11, False),
-            ('open', ['bridge', 'reprise'], 11, False),
+            ('open', ['verse', 'bridge', 'reprise'], 11, False),
             ('open', ['verse', 'chorus'], 11, False),
             ('open', ['verse', 'chorus', 'false_ending', 'reprise'], 11, False),
             ('verse-chorus', ['false_ending', 'reprise'], 11, None),
@@ -5611,8 +5678,15 @@ class OnceGeneration(unittest.TestCase):
                 # planned in every form, so under `open` a roster with a
                 # reprise now holds `returns>=1` -- through the reprise, with
                 # every once function still drawn once.
-                positive = (True if form == 'open' and 'reprise' in roster
-                            and atom == 'returns>=1' else positive_row)
+                # REPINNED 2026-11-15 (owner's rulings): a section whose row
+                # returns verbatim returns in every form, so under `open` a
+                # roster with one (the chorus here) holds `returns>=1` too;
+                # `hook>=1` still refuses there. And a bridge needs a section
+                # before it, so the bridge row's roster gains a verse.
+                positive = (True if form == 'open' and atom == 'returns>=1'
+                            and ('reprise' in roster
+                                 or set(roster) & set(PLN.VERBATIM_RETURNERS))
+                            else positive_row)
                 with self.subTest(form=form, roster=roster, atom=atom):
                     self.assertEqual(self.policy(roster, atom), {})
                     if positive is not True:
@@ -5678,8 +5752,14 @@ class OnceGeneration(unittest.TestCase):
                                            max_cells=len(body))
                 self.assertEqual(actual, body)
         # Singleton once roster still has a feasible one-section plan.
-        self.assertEqual(PLN._sample_pattern(random.Random(0), roster=('bridge',),
-                                          max_cells=1), ('bridge',))
+        # ~~('bridge',)~~ -> ('intro',) (2026-11-15): a bridge needs a section
+        # before it now, so a bridge alone is refused, as a reprise alone is.
+        self.assertEqual(PLN._sample_pattern(random.Random(0), roster=('intro',),
+                                          max_cells=1), ('intro',))
+        with patch.object(PLN, 'PATTERN_ATTEMPTS', 2):
+            with self.assertRaisesRegex(PLN.PlanRefused, '2 draws.*bridge'):
+                PLN._sample_pattern(random.Random(0), roster=('bridge',),
+                                    max_cells=1)
 
     def test_infeasible_roster_refuses_without_widening(self):
         # Reprise needs a predecessor, but two reprises violate once.

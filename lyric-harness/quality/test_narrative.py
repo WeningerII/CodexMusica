@@ -431,19 +431,27 @@ def test_measured_seeds():
     # entered. ~~ZEROS = (20, 38, 42, 52, 58, 60, 67, 73, 81, 86, 89)~~:
     # eleven zeros become nine; 4 and 56 become zero, 89 becomes positive.
     # The census over seeds 1-40 holds at 38 admit / 2 zero.
-    ZEROS = (4, 12, 56, 62, 67, 73, 82, 85, 94)
+    # REPINNED 2026-11-15 (measured; owner's ruling that a bridge needs a
+    # section before it): ~~ZEROS = (4, 12, 56, 62, 67, 73, 82, 85, 94)~~.
+    # Seeds 56, 73 and 82 each OPENED ON A BRIDGE, which is why they counted
+    # zero; the planner refuses that pattern now and re-deals them, and all
+    # three are positive. No other seed in 1-100 changes shape. Their old
+    # shapes stay below as authored input (`BRIDGE_FIRST`).
+    ZEROS = (4, 12, 62, 67, 85, 94)
     pins = {1:2825912320, 6:10838016, 7:166464, 9:188640,
             15:334453800960, 19:13369344, 23:11600, 24:8957952,
             25:52258406400, 27:212526080, 28:5248, 30:23353344, 31:246016,
             34:479232, 39:24768, 77:235008000, 89:66060288,
             41:276480, 59:144506880,
+            56:47513600, 73:13099008000, 82:389850071040,
             **{seed: 0 for seed in ZEROS}}
     got = {}
     for seed, want in sorted(pins.items()):
         fns = [s["function"] for s in P.make_plan(seed, form="verse-chorus")["sections"]]
         got[seed] = N.count_lineups(fns)
-    check("all eighteen historical seeds and all nine current zero "
-          "exemplars re-derive exactly under the plan envelope",
+    check("all eighteen historical seeds, the three former bridge-first "
+          "zeros and all six current zero exemplars re-derive exactly under "
+          "the plan envelope",
           got == pins and set(historical_pins_2026_09_05) <= set(pins), got)
     # A SEED THE JOINT GATE REFUSES FOR `NO_FREE_WORD` ALONE HAS NO PLAN
     # (2026-10-21). Under the owner's equal-weight beat draw a two-beat line
@@ -468,7 +476,7 @@ def test_measured_seeds():
     # 55 refuses here~~ — since option (b) (2026-10-22) a draw the joint gate
     # refuses is redrawn, so NO seed refuses and the denominator is all 100
     # again; any refusal fails this check.
-    check("the complete current 100-seed denominator has exactly nine "
+    check("the complete current 100-seed denominator has exactly six "
           "zero shapes, two of them among the first forty, over all 100 "
           "plans with no seed refused",
           {seed for seed, count in sweep.items() if count == 0} == set(ZEROS)
@@ -521,9 +529,32 @@ def test_measured_seeds():
     # length-1 prefix counts 0 for a reason that is not a refusal.
     check("actual current zeros distinguish opening refusals from a refusal "
           "at the third section",
-          at == {4: 1, 12: 1, 56: 1, 62: 1, 67: 1, 73: 1, 82: 1, 85: 1,
-                 94: 3},
+          at == {4: 1, 12: 1, 62: 1, 67: 1, 85: 1, 94: 3},
           at)
+    # THE THREE SHAPES THE BRIDGE RULE DISPLACED, KEPT AS AUTHORED INPUT
+    # (2026-11-15). Each opened on a bridge and the story layer already
+    # counted it zero at the first section; the placement check refuses the
+    # same thing now, so the planner no longer deals it.
+    from quality.grid import placement_findings
+    BRIDGE_FIRST = {
+        56: "bridge vamp verse prechorus chorus hook chorus outro",
+        73: "bridge build drop chorus postchorus verse burden reprise refrain "
+            "breakdown chorus postchorus verse burden",
+        82: "bridge drop tag chorus postchorus breakdown hook breakdown chorus "
+            "postchorus hook chorus postchorus prechorus chorus patter verse "
+            "solo build hook breakdown coda",
+    }
+    check("the three displaced bridge-first shapes still count zero at the "
+          "first section, the placement check refuses each, and no seed in "
+          "1-100 opens on a bridge",
+          all(N.count_lineups(sp.split()) == 0
+              and N.count_lineups(sp.split()[:1]) == 0
+              and ("SECTION_AT_EDGE", 0) in [(c, i) for c, i, _ in
+                                             placement_findings(sp.split())]
+              and shapes[seed] != sp.split()
+              for seed, sp in BRIDGE_FIRST.items())
+          and not any(shape[0] == "bridge" for shape in shapes.values()),
+          {seed: shapes[seed][:2] for seed in BRIDGE_FIRST})
     check("seed 94's depth 3 is RESOLVE without prior COMPLICATE",
           shapes[94][:3] == ["drop", "chorus", "false_ending"]
           and N.count_lineups(shapes[94][:2]) > 0

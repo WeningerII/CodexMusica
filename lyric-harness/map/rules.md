@@ -102,7 +102,7 @@ What declaring each of the 22 section types gets checked (from `function_capabil
 | postchorus | checked | returns | verbatim | chorus | — |
 | refrain | no claim | returns | verbatim | — | — |
 | burden | checked | returns | verbatim | — | — |
-| bridge | no claim | once | n/a | verse, chorus | — |
+| bridge | checked | once | n/a | verse, chorus | — |
 | breakdown | no claim | open | varied | — | whether the arrangement thins |
 | build | no claim | open | varied | — | whether tension rises |
 | drop | refused | returns | varied | — | whether it lands as an arrival |
