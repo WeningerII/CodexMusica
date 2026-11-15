@@ -1119,22 +1119,26 @@ process.exit(0);`,
     return;
   }
   const violated = (r) => r.standing.some((f) => /SCHEME_VIOLATION/.test(f));
+  // The check's exit is its verdict: 3 when a flag stands, 2 when coverage is
+  // incomplete, 0 when clean. A refusal is exit 2 WITH a `refusal`; a check
+  // that measured the lines carries none.
+  const answered = (r) => [0, 2, 3].includes(r.exit) && !r.refusal;
   const [held, other, heads, twinTypes, secondOccurrence, plan, refused, ...lone] = out;
   check(
     held.exit === 0 && !held.refusal && !violated(held),
     `a link whose type reads the first word failed on lines whose first words agree: ${JSON.stringify(held)}`
   );
   check(
-    other.exit === 0 && violated(other),
+    other.exit === 3 && violated(other),
     `the same lines passed under a type read at the last word: ${JSON.stringify(other)}`
   );
   check(
-    heads.exit === 0 && violated(heads),
+    heads.exit === 3 && violated(heads),
     `lines whose first words differ passed under the first-word type: ${JSON.stringify(heads)}`
   );
   const judged = (r) => JSON.stringify([r.mandate?.groups, r.mandate?.relations]);
   check(
-    twinTypes.exit === 0 &&
+    answered(twinTypes) &&
       !violated(twinTypes) &&
       judged(twinTypes) ===
         JSON.stringify([
@@ -1147,7 +1151,7 @@ process.exit(0);`,
     `two links on the same lines did not keep a type each: ${JSON.stringify(twinTypes)}`
   );
   check(
-    secondOccurrence.exit === 0 &&
+    answered(secondOccurrence) &&
       judged(secondOccurrence) ===
         JSON.stringify([
           [
