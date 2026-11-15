@@ -36,7 +36,7 @@ export function obligationLines(id) {
 
 // The pronunciation step, word for word as the note has always printed it.
 export const READING_ADVICE =
-  'Resolve the unread words with `pronunciations` (lyric_grade lists the options; never guess a reading)';
+  'Resolve the unread words with `pronunciations` (lyric_grade lists the options)';
 const AGAIN = 'grade again, and start a new run with `new_run: true`';
 
 // -> { reading, declarations, other }: the refused rows of a verdict's
@@ -98,12 +98,11 @@ export function declarationAdvice(verdict, { also = false } = {}) {
     : `${reading ? 'Part of what' : 'What'} was not judged is ${one ? 'a DECLARATION' : 'DECLARATIONS'}, not ${one ? 'a word' : 'words'}`;
   return (
     `${lead}: ${declarations.join('; ')}. No rewrite of a line and no \`pronunciations\` entry can clear ${one ? 'it' : 'them'}; ` +
-    `only changing what was declared can (the blueprint or plan declaration ${one ? 'that finding names' : 'those findings name'}). ` +
-    `If the declaration is what the user asked for, keep it, present the song as uncertified and say which question went unjudged.`
+    `only changing what was declared can (the blueprint or plan declaration ${one ? 'that finding names' : 'those findings name'}).`
   );
 }
 
-// -> the sentence(s) that follow "present it as uncertified, not finished."
+// -> the sentence(s) that follow "NOT CERTIFIED: … (see `coverage`)."
 // For a stop whose only refused rows are about words this is the note as it
 // has always read.
 export function uncertifiedAdvice(verdict) {

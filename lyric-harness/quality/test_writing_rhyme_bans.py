@@ -145,6 +145,37 @@ class WritingRhymeBanTests(unittest.TestCase):
                             for f in result["new_findings"]))
         self.assertFalse(result["accepted"], result["reasons"])
 
+    def test_rejection_names_the_pair_the_answer_introduced(self):
+        # The writer must be able to tell WHICH two words were refused. The
+        # reason names the pair this answer made, with its lines and code,
+        # and no other word.
+        r = Reviser(lex=self.reader.lex, writing=True,
+                    rdecl=ReviseDeclaration(allow_net_new=100))
+        result = r.verify(SAME + CLEAN, CLEAN + MODAL, pair_mandate(4),
+                          targeted={1, 2, 3, 4})
+        self.assertFalse(result["accepted"], result["reasons"])
+        reason = result["reasons"][0]
+        self.assertIn("introduced a prohibited writing rhyme pair: "
+                      "L3 'obey' / L4 'away' (MODAL_RHYME);", reason)
+        self.assertNotIn("night", reason)      # the pair it REPAIRED is not named
+        again = r.verify(SAME, OTHER_SAME, self.m, targeted={1, 2})
+        self.assertIn("L1 'hair' / L2 'chair' (HOMEOTELEUTON)",
+                      again["reasons"][0])
+        # One entry per pair of words: the same two words on other lines
+        # (a mirrored return, a second group) or under both codes are one row.
+        from quality.revise import _ban_pairs
+        key = lambda line, code, a, b, sa, sb, g: (
+            line, code, "flag", (int(sa), int(sb)), (g,),
+            ("rhyme-bans-v1", a, b, sa, sb))
+        self.assertEqual(
+            _ban_pairs({key(4, "HOMEOTELEUTON", "chair", "air", "1", "4", "A"),
+                       key(16, "HOMEOTELEUTON", "chair", "air", "13", "16", "A"),
+                       key(4, "MODAL_RHYME", "air", "chair", "4", "1", "B"),
+                       key(6, "MODAL_RHYME", "air", "there", "4", "6", "A"),
+                       (2, "SCHEME_VIOLATION", "flag", (1, 2), ("A",), ())}),
+            "L1 'chair' / L4 'air' (HOMEOTELEUTON, MODAL_RHYME), "
+            "L4 'air' / L6 'there' (MODAL_RHYME)")
+
     def test_positive_repair_can_leave_an_existing_ban_for_next_step(self):
         self.assertFalse(bans(self.writer.inspect(CLEAN, self.m)))
         result = self.writer.verify(SAME, CLEAN, self.m, targeted={1, 2})

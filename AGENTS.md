@@ -79,7 +79,7 @@ only in another card's head is `NOT_LITERAL` for this one. A word printed only w
 output cannot say which card it describes is `PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`, with the
 cards that share the words it is printed in under `shared_with`: in the part of a chunk that
 pools cards of the same label (those cards), in the trailing label or pooled descriptors a
-merged chunk's cards share (all of them), or in a render with no per-card segments. Neither may be reported as a part that survived. A pinned preface is
+merged chunk's cards share (all of them), or in a render with no per-card segments. A pinned preface is
 judged the same way, as consecutive whole words: `EXPLICIT_PREFACE_NOT_LITERAL` when the
 card's own part does not print it (even if another card or the header does),
 `EXPLICIT_PREFACE_NOT_ATTRIBUTABLE` in those three cases. Present means printed in that card's part of the recipe, not that the
@@ -99,8 +99,7 @@ pipeline plans and grades songs whose every line you write; no connector call re
 - **Lyric tools:** `lyric_sweep`, `lyric_screen`, `lyric_plan`, `lyric_grade`, `lyric_revise`, `lyric_recover`, `lyric_check`, `lyric_verify`, `lyric_types`.
   A new song: `begin_lyrics` → `lyric_sweep` → `lyric_screen` → `lyric_plan` → write the draft →
   `lyric_grade` → `lyric_revise` (answer each question it asks until it stops). To set a length,
-  declare an exact `lines` count on the sweep and carry the sweep's declarations unchanged to the
-  plan. Lyrics the user pasted: `begin_lyrics {phase:"edit"}` → `lyric_recover` → `lyric_check` → `lyric_revise` without a seed.
+  declare an exact `lines` count on the sweep. Lyrics the user pasted: `begin_lyrics {phase:"edit"}` → `lyric_recover` → `lyric_check` → `lyric_revise` without a seed.
 - **Session controls** (on `/mcp`): `begin_lyrics`, `get_operation`, `resume_operation`.
   A finished `lyric_grade` or `lyric_revise` read with `get_operation` is the song and a short
   verdict: status fields, `blocking` (what stands, and each line a requested obligation could not
@@ -143,14 +142,12 @@ pipeline plans and grades songs whose every line you write; no connector call re
   setting on the environment card so the next card's own settings render.
   `ENVIRONMENT_OVERWRITTEN` covers settings a `set_environment` wrote that a `set_preface` then
   re-derived, so a second `set_preface` replacing what the first derived says nothing; on any
-  other card it names the environment card. So put `set_environment` after `set_preface` in a
-  batch.
+  other card it names the environment card.
 - `set_variant` does exactly what picking a variant does in the app: it sets and pins the part (your
   choice is never reverted), and on a card whose preface is still auto-derived it re-derives the
   preface label from the new sound. A **material** part (woods, strings and other shared materials)
   also runs the inverse cascade a preface pick runs, so other parts of that card may move toward the
-  preface — most edits move nothing else. Room, tuning and the chain never move. Batch a
-  `set_preface` first if you want to steer the cascade. The `envWritten` record a `set_environment`
+  preface — most edits move nothing else. Room, tuning and the chain never move. The `envWritten` record a `set_environment`
   keeps on a card is also written by a pick in that card's environment editor in the app (the
   Recording environment panel on the environment card, or any other card's own editor), which
   records and settles exactly as a `set_environment` on that card does: a pick on the
@@ -212,16 +209,8 @@ pipeline plans and grades songs whose every line you write; no connector call re
 read-only. Editing needs the connector; there is no HTTP fallback that edits.
 
 **The default seed is scaffolding, not the answer.** `start_recipe` returns a
-tradition's stock cards; the tool's job is to push them toward the user's words.
-Map intent to edits — each mapping below is one `edit_recipe` op:
-
-| The user said… | Do this |
-|---|---|
-| a mood / feel / aesthetic word | `search_prefaces` → `set_preface` on **each** instrument it should color — this re-derives that instrument's physical settings toward the word |
-| specific gear / material / technique | `get_instrument` → `set_variant` |
-| a space, era, or medium | `set_environment` with no `card` — one edit for the whole recording; any room, tuning, or chain stage |
-| an instrument to add or drop | `add_instrument` / `remove_instrument` — any instrument fits any tradition |
-| another style to fold in | `add_tradition` / `remove_tradition` |
+tradition's stock cards, and its `guidance` field maps the user's words to `edit_recipe`
+actions.
 
 **There are no coherence fences.** Nothing is anachronistic, out-of-region, or
 physically impossible here — recipes are *words for audio generation*, so any
@@ -231,13 +220,6 @@ keep or override, never a wall. Every id-valid combination renders; an edit is
 refused only for an unknown id, a misspelled field, or doing nothing (a tradition
 already in the recipe, an environment edit with nothing to set, a batch that
 leaves no cards), and the refusal names what to do instead.
-
-The order of a typical exchange: `search_catalog` with the user's style words →
-`start_recipe` with the tradition ids it returns → one `search_prefaces` per mood word and
-one `search_catalog` per gear, space or medium word → one `edit_recipe` holding every
-`set_preface`, `set_variant` and `set_environment` they resolve to — the environment edit last,
-and with no `card`, because it is the whole recording's → present the returned `recipe`
-verbatim. One search per user-word, one batched edit call, done.
 
 Use the connector for *composition*; the static JSON above is the browse layer —
 read it when you only need a tradition's default recipe as reference.
@@ -257,7 +239,7 @@ cd CodexMusica && npm ci
 node scripts/recipe.js --traditions <id>,<id>                      # blend genres
 node scripts/recipe.js --tradition <id> --exclude-instrument=<instrument id> --swap-variant=<instrument>:<part>:<variant>
 node scripts/recipe.js --diff --weight=0.6 <id> <id>               # weighted blend
-node scripts/recipe.js --axis-target "harm:1,density:2,intensity:2"
+node scripts/recipe.js --axis-target "harm:<number>,density:<number>,intensity:<number>"
 npm run validate                                                   # reference-integrity check
 ```
 

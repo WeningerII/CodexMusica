@@ -535,10 +535,14 @@ def test_whole_draft_findings_are_context_not_a_task():
     check("both codes are present with their EVIDENCE -- the evidence is "
           "the only place the measurement lives",
           all(f.code in block and f.evidence in block for f in WHOLE))
-    check("the block permits improvement within the target scope, preserves "
-          "the no-worsening rule, and does not demand every whole finding clear at once",
+    # REPINNED 2026-11-14 (#671 A9): "a revision that makes one WORSE is
+    # rejected" promised a rejection `verify` does not make (only new FLAGS
+    # reject), so it is gone and its absence is pinned.
+    check("the block permits improvement within the target scope, does not "
+          "promise a WORSE rejection verify does not make, and does not demand "
+          "every whole finding clear at once",
           "may improve or clear" in block and "only the permitted lines" in block
-          and "not required to clear every one" in block and "WORSE is rejected" in block
+          and "not required to clear every one" in block and "WORSE" not in block
           and "none of them can be fixed" not in block and "no one-line rewrite clears" not in block)
     check("with no whole findings the section is absent, not an empty "
           "heading",
@@ -574,11 +578,60 @@ def test_a_pivot_and_a_joint_conflict_are_stated():
     # green against a prompt that has quietly reverted to the flat claim.
     check("the constraints are stated: one line, no other line, fix "
           "something, and no FORBIDDEN rule",
+          # REPINNED 2026-11-14 (#671 A10): the rules are the rows of
+          # `VERIFY_REJECTIONS`, the table `verify` writes its reasons from.
           all(s in p for s in ("ONE line back", "ONLY L3 changes",
-                               "3. The line must FIX at least one finding",
-                               "4. It may not trade one defect"))
+                               "7. nothing was fixed",
+                               "8. introduced <n> new flagged finding(s)"))
           and "FORBIDDEN" not in p,
           [l.strip() for l in p.splitlines() if l.strip()[:2] in ("1.", "3.")])
+
+
+def test_the_enforced_rules_are_verifys_own_reasons():
+    print("\n4c. ENFORCED — every rejection `Reviser.verify` returns is a row "
+          "of the one table the prompt lists (#671 A10)")
+    import ast
+    import inspect
+    import textwrap
+    from quality import propose as PR
+    from quality import revise as RV
+    tree = ast.parse(textwrap.dedent(inspect.getsource(RV.Reviser.verify)))
+    keys, bare = [], []
+    for node in sorted((n for n in ast.walk(tree) if hasattr(n, "lineno")),
+                       key=lambda n: n.lineno):
+        if not (isinstance(node, ast.If)
+                and any(isinstance(st, ast.Return) for st in node.body)):
+            continue
+        for st in node.body:
+            if (isinstance(st, ast.Expr) and isinstance(st.value, ast.Call)
+                    and getattr(st.value.func, "attr", "") == "append"):
+                arg = st.value.args[0]
+                call = arg.left if isinstance(arg, ast.BinOp) else arg
+                if (isinstance(call, ast.Call)
+                        and getattr(call.func, "id", "") == "verify_reason"):
+                    keys.append(call.args[0].value)
+                else:
+                    bare.append(ast.unparse(arg)[:80])
+    check("every early return in verify writes its reason from "
+          "VERIFY_REJECTIONS, one row each, in the table's order",
+          keys == list(PR.VERIFY_REJECTIONS) and not bare,
+          f"keys {keys}, bare {bare}")
+    rows = PR._rejection_rows()
+    line_q = render_line(PLAIN_BRIEF, DRAFT)
+    group_q = render_group(PB(pivot_line_no=3, pivot_text=DRAFT[2],
+                              pivot_word="dream", anchors=(), label="A",
+                              members=(1, 3), brief=PIVOT_BRIEF, lines=DRAFT,
+                              attempt=0, reasons=None, whole=()))
+    check("the line question and the group question list every row, with "
+          "each field a <placeholder>",
+          len(rows) == len(PR.VERIFY_REJECTIONS)
+          and all(r in line_q and r in group_q for r in rows)
+          and "<before> -> <after>" in line_q, rows[:2])
+    check("a reason verify writes is the row with its fields filled",
+          PR.verify_reason("line_count", before=4, after=3)
+          == "line count changed 4 -> 3; the loop revises lines, it does not "
+             "restructure the draft", PR.verify_reason("line_count",
+                                                       before=4, after=3))
 
 
 # -- 5. parsing ---------------------------------------------------------
@@ -900,9 +953,13 @@ def test_group_prompt_states_the_tier2_situation():
           "— which is a stronger statement than making none it gets wrong",
           _bad7 == [] and _seen7 == 0,
           f"{_seen7} status-quo claim(s) inspected, {len(_bad7)} false")
-    check("the group rules are three, with no predictability rule",
-          "  3. The rewrite must FIX something" in p
-          and "most predictable" not in p and "  4." not in p)
+    # REPINNED 2026-11-14 (#671 A10): the group rules are the
+    # `VERIFY_REJECTIONS` rows, the same list the line question prints.
+    from quality.propose import _rejection_rows
+    check("the group rules are verify's own rejection rows, with no "
+          "predictability rule",
+          all(r in p for r in _rejection_rows())
+          and "most predictable" not in p)
     check("the coupling is stated: the two picks must stand in a relation "
           "with each other",
           "must stand in a relation" in p and "COUPLED" in p)
@@ -1478,6 +1535,7 @@ if __name__ == "__main__":
                test_reasons_reach_the_prompt,
                test_whole_draft_findings_are_context_not_a_task,
                test_a_pivot_and_a_joint_conflict_are_stated,
+               test_the_enforced_rules_are_verifys_own_reasons,
                test_parse_accepts_the_supported_shapes,
                test_parse_group_needs_every_marker,
                test_group_prompt_states_the_tier2_situation,

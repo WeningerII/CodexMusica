@@ -194,6 +194,15 @@ row({
   reach: async (r) => r.call('lyric_check', { session_id: r.seed('lyrics'), lines: draft }),
 });
 row({
+  code: 'CREATION_PLAN',
+  where:
+    'lyric_workflow.js: a new-song call (here lyric_plan) in a supplied-lyrics session (#671 B1)',
+  shape: 'receipt',
+  phrases: ["begin_lyrics phase 'create'", 'lyric_recover', 'lyric_check'],
+  reach: async (r) =>
+    r.call('lyric_plan', { session_id: r.seed('lyrics', undefined, { phase: 'edit' }), seed: 16 }),
+});
+row({
   code: 'CREATION_ORDER',
   where: 'lyric_workflow.js: plan before sweep and screen',
   shape: 'receipt',
@@ -991,10 +1000,10 @@ test('each refusal arrives in the shape the receipt sentence promises', async ()
   // The init text's receipt sentence (workflow_tools.js) against the rows a
   // published schema reaches: either change to it shows here.
   console.log(`receipt split, published schema: ${JSON.stringify(shapes)}`);
-  assert.deepEqual(shapes, { receipt: 21, bare: 24 });
+  assert.deepEqual(shapes, { receipt: 22, bare: 24 });
 });
 
-test('every coded refusal in the source has a row, and the gate has 12 texts', () => {
+test('every coded refusal in the source has a row, and the gate has 13 texts', () => {
   const rowsFor = (code) => ROWS.filter((r) => r.code === code).length;
   const sessions = source('./workflow_sessions.js');
   const sites = {};
@@ -1026,7 +1035,7 @@ test('every coded refusal in the source has a row, and the gate has 12 texts', (
       .match(/[`'"]CREATION_[A-Z]+: [^`'"$]*/g)
       .map((s) => s.slice(1));
   const gate = literals('./lyric_workflow.js');
-  assert.equal(gate.length, 12, gate.join('\n'));
+  assert.equal(gate.length, 13, gate.join('\n'));
   const client = literals('./client.js');
   assert.equal(client.length, 2, client.join('\n'));
   for (const prefix of [...gate, ...client]) {

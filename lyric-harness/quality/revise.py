@@ -1121,6 +1121,34 @@ WRITING_BAN_CODES = frozenset({"HOMEOTELEUTON", "MODAL_RHYME"})
 WRITING_POLICY = "rhyme-bans-v1"
 
 
+def _ban_pairs(keys):
+    """-> the banned pair(s) among `Reviser.verify`'s finding identities, as
+    the writer reads them: ``L<line> '<word>' / L<line> '<word>' (<code>)``.
+
+    A rejection that says only "a prohibited pair" leaves the writer guessing
+    which two words (2026-11-14, live retest: seven answers in a row each
+    made a new banned pair). This names the pair the answer itself made and
+    nothing else: no menu, no list of other words. An identity is (line,
+    code, severity, locations, groups, subject), and a writing ban's subject
+    is (policy, word_i, word_j, slot_i, slot_j), set where the ban is raised.
+    ONE ENTRY PER PAIR OF WORDS: a mirrored return or a second group repeats
+    the same two words elsewhere, and both codes can hold of one pair, so a
+    pair is named once, at its first lines, with every code that refused it."""
+    rows = {}
+    for _, code, _, locs, _, subject in sorted(keys):
+        if code not in WRITING_BAN_CODES:
+            continue
+        if len(subject) >= 5:
+            w_i, w_j, s_i, s_j = subject[1:5]
+            key = tuple(sorted((w_i, w_j)))
+            text = f"L{s_i} {w_i!r} / L{s_j} {w_j!r}"
+        else:
+            key = text = "/".join(f"L{i}" for i in locs)
+        rows.setdefault(key, (text, set()))[1].add(code)
+    return ", ".join(f"{text} ({', '.join(sorted(codes))})"
+                     for text, codes in rows.values())
+
+
 class Reviser:
     """Grades a draft, briefs a revision, and verifies the result."""
 
@@ -3839,15 +3867,9 @@ class Reviser:
                 "HOMEOTELEUTON", "note",
                 f"L{i}/L{j} rhyme on the SAME SPELLED ENDING "
                 f"({v['endwords'][0]!r}/{v['endwords'][1]!r}, both "
-                f"-{ri}) — the laziest class, banned before any "
-                f"frequency judgment",
-                f"spelled rime {ri!r} on both sides. The near "
-                f"relations the taxonomy names (declared via "
-                f"Declaration.admit) are the palette that keeps this "
-                f"ban from closing the class: reach for a "
-                f"differently-spelled partner or a declared near "
-                f"rhyme, not the next word in the same spelling "
-                f"family.", [i, j], (v["label"],))
+                f"-{ri}) — banned before any frequency judgment",
+                f"spelled rime {ri!r} on both sides.", [i, j],
+                (v["label"],))
         # TIER 2 — the ~~frequency~~ EVIDENCE-GATED ban over the
         # differently-spelled remainder (2026-09-24, `MISSING.md` M-310:
         # only partners the song table has seen answer the call, at most
@@ -5718,7 +5740,7 @@ class Reviser:
         # THE TWO-TIER BAN (owner's rule, 2026-08-18). Tier 1: HOMEOTELEUTON
         # — a candidate whose SPELLED RIME equals any call word's
         # (`lyric_harness.spelled_rime`) was found by pattern-matching the
-        # ending, the laziest class there is. Ranked beneath everything and
+        # ending. Ranked beneath everything and
         # banned whatever the corpus says. Tier 2: ~~the top
         # `modal_exclusion` most-predictable of the DIFFERENTLY-SPELLED
         # remainder~~ AT MOST `modal_exclusion` of the DIFFERENTLY-SPELLED
@@ -6725,15 +6747,15 @@ class Reviser:
         cancels out of the diff, same as one that is absent because it is
         genuinely clean.
         """
+        from quality.propose import verify_reason           # noqa: PLC0415
         if self._pronunciation_origin is None:
             self = self.for_revision(before)
         out = {"accepted": False, "reasons": [],
                "blueprint_declared": blueprint is not None}
         m = self.mandate(before, mandate)
         if len(before) != len(after):
-            out["reasons"].append(
-                f"line count changed {len(before)} -> {len(after)}; the loop "
-                f"revises lines, it does not restructure the draft")
+            out["reasons"].append(verify_reason(
+                "line_count", before=len(before), after=len(after)))
             return out
         changed = {i + 1 for i in range(len(before))
                    if before[i].strip() != after[i].strip()}
@@ -6741,14 +6763,12 @@ class Reviser:
             targeted = set(targeted)
             if not targeted or any(type(n) is not int or not 1 <= n <= len(before)
                                    for n in targeted):
-                out["reasons"].append("explicit targets must be nonempty integer "
-                                      "line numbers within the normalized draft")
+                out["reasons"].append(verify_reason("bad_targets"))
                 return out
             stray = changed - targeted
             if stray:
-                out["reasons"].append(
-                    f"lines {sorted(stray)} were changed but not targeted; "
-                    f"revise flagged lines only")
+                out["reasons"].append(verify_reason(
+                    "untargeted", lines=sorted(stray)))
                 return out
         f_before = self.inspect(before, m, profile=profile,
                                 blueprint=blueprint, subdivision=subdivision,
@@ -6839,38 +6859,35 @@ class Reviser:
         out["mandate"] = m
         out["independent"] = m.independent()
         if layer_regressions:
-            out["reasons"].append("previously judged required check(s) became refused: " +
-                                  ", ".join(layer_regressions))
+            out["reasons"].append(verify_reason(
+                "required_check_refused", checks=", ".join(layer_regressions)))
             return out
         if out["coverage_regressions"]:
-            out["reasons"].append(
-                "previously judged obligation(s) became refused: "
-                + ", ".join(f"L{i}/L{j} in group {m.labels[k]}"
-                            for i, j, k in out["coverage_regressions"])
-                + "; unknown is neither a violation nor a repaired obligation")
+            out["reasons"].append(verify_reason(
+                "obligation_refused",
+                pairs=", ".join(f"L{i}/L{j} in group {m.labels[k]}"
+                                for i, j, k in out["coverage_regressions"])))
             return out
         out["mandate"] = m
         out["independent"] = m.independent()
 
         if self.writing and any(k[1] in WRITING_BAN_CODES for k in new_flags):
-            out["reasons"].append(
-                "introduced a prohibited writing rhyme pair; "
-                "HOMEOTELEUTON and MODAL_RHYME cannot be traded for a repair")
+            out["reasons"].append(verify_reason(
+                "writing_ban", pairs=_ban_pairs(new_flags)))
             return out
 
         if not fixed:
             out["reasons"].append(
-                "nothing was fixed"
+                verify_reason("nothing_fixed")
                 + (f" — the only finding(s) removed were {sorted(broken)}, "
                    f"which record a requirement or licence HOLDING, so "
                    f"ending one is a regression and not a repair"
                    if broken else ""))
             return out
         if sum(new[k] for k in new_flags) > self.rdecl.allow_net_new:
-            out["reasons"].append(
-                f"introduced {len(new_flags)} new flagged finding(s) "
-                f"{sorted(new_flags)} while fixing {len(fixed)}; a revision "
-                f"may not trade one defect for another")
+            out["reasons"].append(verify_reason(
+                "new_flags", n=len(new_flags), flags=sorted(new_flags),
+                fixed=len(fixed)))
             return out
         out["accepted"] = True
         note_disclosure = (f", disclosing {len(out['new_notes'])} new "

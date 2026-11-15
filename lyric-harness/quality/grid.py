@@ -2553,10 +2553,7 @@ def hook_findings(song, hooks=(), title=None):
                     f"the hook returns {len(occ)} times and never leaves one "
                     f"function",
                     f"{h.text!r} occurs only in {sorted(declared)[0]!r} "
-                    f"sections, at bars {_bars_of(occ)}. A hook that leaks "
-                    f"into a verse or a bridge is placed; one that only ever "
-                    f"appears where it is expected is a section, not a "
-                    f"hook.",
+                    f"sections, at bars {_bars_of(occ)}.",
                 subject=("hook", hook_index)))
 
     if not title:

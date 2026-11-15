@@ -50,8 +50,9 @@ const CMD_RE = /node\s+scripts\/([A-Za-z0-9_]+\.js)[^\n`]*/g;
 // <part>:<variant>`). So that every documented FORM still runs, the argument
 // roles below are filled here, at check time, from one coherent fixture derived
 // from the catalog (a tradition, two of its instruments, a part with a
-// non-default variant on a third, and a second tradition). Only these roles
-// are filled; a command with any other placeholder stays illustrative.
+// non-default variant on a third, and a second tradition), and each `<number>`
+// in an --axis-target is filled with 1. Only these roles are filled; a command
+// with any other placeholder stays illustrative.
 function recipeFixture() {
   const C = require('./_loader.js');
   const inst = new Map(C.INSTRUMENTS.map((i) => [i.id, i]));
@@ -87,7 +88,8 @@ function fillRecipeRoles(cmd) {
     .replace(/--exclude-instrument=<[^<>]+>/g, `--exclude-instrument=${F.ex1}`)
     .replace(/--traditions <[^<>]+>,<[^<>]+>/g, `--traditions ${F.t},${F.t2}`)
     .replace(/(--diff(?: --weight=[0-9.]+)?) <[^<>]+> <[^<>]+>/g, `$1 ${F.t} ${F.t2}`)
-    .replace(/--tradition(=| )<[^<>]+>/g, `--tradition$1${F.t}`);
+    .replace(/--tradition(=| )<[^<>]+>/g, `--tradition$1${F.t}`)
+    .replace(/(--axis-target "[^"]*)/g, (m) => m.replace(/<number>/g, '1'));
 }
 
 const cmds = new Map(); // normalized command -> "file:line" of first occurrence

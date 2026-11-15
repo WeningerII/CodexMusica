@@ -702,8 +702,6 @@ export const _agentInternals = {
   chatWriter,
   loopFields,
   PARKED_RUN_NOTE,
-  SKIPPED_STEPS_NOTE,
-  lyricCallsOnRecord,
   parkedRefusal,
   toFunctionResponse,
   suspendedSeed,
@@ -889,62 +887,6 @@ export async function buildSurface(client) {
   };
 }
 
-// ── THE SKIPPED-STEPS REMINDER (M-162, owner's go 2026-09-06) ──────────────
-// The model skipped lyric_sweep and lyric_screen in 2 of 2 battery rounds
-// that reached it, opening with lyric_plan on a hand-round seed (9999) —
-// against the standing rule that NOTHING SKIPS A STEP: sweep → screen → plan
-// → write → grade → revise to a stop condition. The server cannot REFUSE at
-// the tool door (a deliberate seed from an MCP client is a legitimate
-// declaration), so the cure is M-158's own shape one step earlier: a
-// MECHANICAL note in the systemInstruction, present while the transcript
-// holds no lyric_sweep and no lyric_screen call, naming the steps not yet
-// taken, rebuilt every hop from the live record so it disappears the moment
-// either lands. It STATES and never blocks. Chat surface only — this driver
-// is the chat surface; MCP clients never pass through it. Held for the
-// owner's go rather than shipped when designed, because a nudge the server
-// writes into every conversation is a policy; the go came 2026-09-06.
-const LYRIC_STEPS_BEFORE_PLAN = ['lyric_sweep', 'lyric_screen'];
-
-/** The lyric_* tool names the transcript's model turns have called so far. */
-export function lyricCallsOnRecord(contents) {
-  const seen = new Set();
-  for (const entry of contents || []) {
-    if (!entry || entry.role !== 'model') continue;
-    for (const part of entry.parts || []) {
-      const name = part?.functionCall?.name;
-      if (typeof name === 'string' && name.startsWith('lyric_')) seen.add(name);
-    }
-  }
-  return seen;
-}
-
-function SKIPPED_STEPS_NOTE(record) {
-  const missing = LYRIC_STEPS_BEFORE_PLAN.filter((n) => !record.has(n));
-  if (!missing.length) return null;
-  const planned = record.has('lyric_plan') || record.has('lyric_revise');
-  const what = {
-    lyric_sweep:
-      'lyric_sweep chooses the seed by declaring the shape you want — a hand-round seed is a guess the sweep exists to replace',
-    lyric_screen:
-      'lyric_screen reports the relations of the word pairs you mean to write, BEFORE you write',
-  };
-  return (
-    'WORKING ORDER (mechanical reminder): this conversation has no successful ' +
-    missing.join(' or ') +
-    ' yet. Nothing skips a step — sweep, then screen, then plan, then write, then grade, then revise to a stop condition. ' +
-    missing.map((n) => what[n]).join('; ') +
-    '. ' +
-    (planned
-      ? 'lyric_plan has already been called without ' +
-        (missing.length === 2 ? 'them' : 'it') +
-        ': screen the word pairs you mean to write before writing a line, and sweep before planning again. '
-      : '') +
-    'This note goes away once ' +
-    (missing.length === 2 ? 'both are' : 'it is') +
-    ' on the record.'
-  );
-}
-
 // ── THE SUSPENDED-RUN REMINDER (M-158) ────────────────────────────────────
 // The flash battery's first MODEL-level finding (single-song run,
 // 2026-08-29 00:37Z, transcript in the run's own job log): the model answers
@@ -967,14 +909,9 @@ function SKIPPED_STEPS_NOTE(record) {
 // draft is carried with the record; the continuing call is seed + answer.
 const SUSPENDED_RUN_NOTE = (seed) =>
   `A lyric_revise run for ${typeof seed === 'number' ? `seed ${seed}` : seed} is SUSPENDED, awaiting an answer. ` +
-  'Nothing you write in chat reaches the harness: the run advances ONLY ' +
-  'when you call lyric_revise again with `seed` and `answer` (or `answers`) — NOTHING ELSE. ' +
-  'When the question asked about SEVERAL lines at once, send `answers` instead of `answer`: ' +
-  'one {line, text} object per asked line, every one required, nothing else. ' +
-  'Do NOT send `draft`: the draft and the state are carried for you, and a ' +
-  're-sent draft is where the call has broken before. Put the line(s) in the ' +
-  "tool call's `answer`/`answers` field — do not print them as your reply. The song " +
-  'cannot finish until the loop reaches a stop condition through that tool.';
+  'The run advances when lyric_revise is called with `seed` and `answer`, or `answers` ' +
+  '(one {line, text} object per asked line, every one required) when the question asked ' +
+  'about several lines; the draft and the state are carried.';
 
 // THE PARKED-RUN REMINDER (M-232, round 18). A run that reached exit 3 is
 // PARKED: no question is pending, the loop said a round of the same kind
@@ -1001,8 +938,7 @@ function PARKED_RUN_NOTE(lyr) {
     '. The song is NOT finished and cannot be presented as finished.' +
     standing +
     ' No question is pending. The ONLY way forward: ' +
-    'REWRITE the flagged line(s) yourself (new words — screen the pairs with ' +
-    'lyric_screen first), keep every other line byte-identical, and call lyric_revise ' +
+    'REWRITE the flagged line(s) yourself (new words), keep every other line byte-identical, and call lyric_revise ' +
     `again with \`seed\` and \`draft_text\`: the FULL song as ONE plain string, one line per row, newline-separated${n ? ` (all ${n} lines, in order)` : ''} — ` +
     'a string, NOT an array (the array is where your calls have broken). ' +
     "The run's declarations are carried for you: send the rewritten draft and the seed only. Do NOT " +
@@ -1267,10 +1203,10 @@ function uncertifiedRunNote() {
   return (
     'The lyric_revise run is UNCERTIFIED at exit 2 (no question pending). ' +
     'Preserve its accepted draft and inspect the returned coverage and lyric_grade pronunciation options. ' +
-    "Copy each pronunciation option's numbering marker unchanged with its token; never stamp unmarked held choices. Resolve only readings you can establish explicitly; do not guess pronunciations or rewrite nonexistent open lines. " +
+    "Copy each pronunciation option's numbering marker unchanged with its token. " +
     // A parked run is never set aside behind the person's back (the Lyrics
     // page's Writer tab); only an explicit new_run starts independent work.
-    'Do not start new work on your own. The person can choose Start independent work on the Writer tab, which keeps this run under History. ' +
+    'The person can choose Start independent work on the Writer tab, which keeps this run under History. ' +
     'Only if they ask you to continue here, grade the retained draft with lyric_grade under the resolved declarations, then call lyric_revise with that exact draft and `new_run: true`. ' +
     'This result is not a certified song.'
   );
@@ -1478,10 +1414,8 @@ function carriedKey(lyr) {
 // all of them), so a request's lookups cost one hop when they are issued
 // together. The recipe instructions say so, and the last hops of a recipe
 // turn are restricted to the tools that finish it.
-const RECIPE_BATCH_NOTE =
-  'Work in as few steps as possible: issue EVERY lookup the request needs together in ONE step ' +
-  '(several search_catalog, search_prefaces and get_instrument calls in the same response, one per ' +
-  'word or phrase), then apply all of them in ONE batched edit_recipe call.';
+const RECIPE_BATCH_NOTE = (maxSteps) =>
+  `Hop budget: ${maxSteps} (limits.maxSteps); every call in one response runs in one hop.`;
 
 // A RECIPE TURN ENDS WITH A RECIPE WHENEVER ONE CAN BE MADE (owner,
 // 2026-09-26: "always return a recipe"). Whatever ended the turn — the step
@@ -1542,24 +1476,22 @@ function appendModelNote(contents, text) {
   else contents.push({ role: 'model', parts: [{ text }] });
 }
 
-// `record` is the Set `lyricCallsOnRecord` returns for the live transcript.
-// Omitted (null) means "no record to read" and no skipped-steps note is
-// written — the two-argument contract every earlier caller and test holds.
-function buildSystemInstruction(surface, lyr, record = null, task = null) {
+// `maxSteps` is the turn's declared hop budget (`limits.maxSteps`), stated to
+// a recipe task as a number; the live chat declares none.
+function buildSystemInstruction(surface, lyr, task = null, maxSteps = null) {
   const seed = suspendedSeed(lyr);
   const text = [
     task ? instructionsForTask(surface.instructions || '', task.domain) : surface.instructions,
     task
-      ? `ACTIVE TASK (chosen by the user and held by the host): ${JSON.stringify({ ...task, artifact: undefined, lyric_context: undefined, completed_revise_keys: undefined })}. Stay in this domain. The brief and current plan remain authoritative even when observations have been pruned.`
+      ? `ACTIVE TASK (chosen by the user and held by the host): ${JSON.stringify({ ...task, artifact: undefined, lyric_context: undefined, completed_revise_keys: undefined })}.`
       : null,
     task?.domain === 'lyrics' && task.lyric_context ? lyricContextText(task.lyric_context) : null,
     task?.domain === 'recipe'
       ? task.phase === 'browse'
-        ? 'Return the requested stock Rich recipe verbatim, at most 1000 characters. Only recording recipe tools are available for this task.'
-        : 'Customize the recording with edit_recipe before returning its final Rich recipe verbatim, at most 1000 characters. Only recording recipe tools are available for this task. ' +
-          RECIPE_BATCH_NOTE
+        ? 'Return the requested stock Rich recipe, at most 1000 characters. Only recording recipe tools are available for this task.'
+        : 'Customize the recording with edit_recipe before returning its final Rich recipe, at most 1000 characters. Only recording recipe tools are available for this task.' +
+          (maxSteps == null ? '' : ' ' + RECIPE_BATCH_NOTE(maxSteps))
       : null,
-    record && (!task || task.domain === 'lyrics') ? SKIPPED_STEPS_NOTE(record) : null,
     seed == null ? null : SUSPENDED_RUN_NOTE(seed),
     isParked(lyr) ? PARKED_RUN_NOTE(lyr) : null,
     lyr?.uncertain_proposal
@@ -2030,15 +1962,8 @@ export async function runTurn({
       if (interruption(step)) break;
       body.contents = contents;
       // Rebuilt per hop from the LIVE carried state (M-158): `lyr` moves when
-      // a harvest lands mid-turn, and the reminder must move with it. The
-      // skipped-steps note (M-162) reads the transcript the same way, so it
-      // disappears on the hop after a sweep or a screen lands.
-      const si = buildSystemInstruction(
-        surface,
-        lyr,
-        task ? completedSteps : lyricCallsOnRecord(contents),
-        task
-      );
+      // a harvest lands mid-turn, and the reminder must move with it.
+      const si = buildSystemInstruction(surface, lyr, task, limits.maxSteps);
       // Per hop, like the reminder: the record can appear mid-turn (M-226).
       body.tools = [
         {

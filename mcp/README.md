@@ -308,7 +308,7 @@ request against the retained snapshot as well as the current catalog.
 `lyric_grade` and `lyric_check` return `pronunciation_options` from the actual
 English dictionary, with exact line text, one-based sung-token positions,
 pronunciations, syllable counts, stress, and all matching line numbers. Select
-what the word means in the lyric; do not choose a reading merely to remove a flag.
+what the word means in the lyric.
 For example, the noun *record* in this chorus is declared as:
 
 ```json
@@ -326,8 +326,7 @@ For example, the noun *record* in this chorus is declared as:
 
 Pass the choices when grading, then revise. The maintained creation client and
 Gemini workflow restore omitted graded pronunciation/fallback/voices settings.
-A conflicting setting requires another grade. Suspended runs freeze these
-settings; changing them requires regrading and starting `new_run: true`.
+A conflicting setting requires another grade.
 
 A choice applies to every verbatim occurrence of its exact line, including
 chorus returns. It never becomes a global dictionary entry. Editing the line

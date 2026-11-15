@@ -29,10 +29,18 @@
     {
       "literal": "certified",
       "category": "field-or-value",
-      "at": ["lyric_revise description", "lyric_check description"],
+      "at": [
+        "lyric_revise description",
+        "lyric_check description",
+        "lyric_grade description",
+        "instructions",
+        "systemInstruction"
+      ],
       "contexts": [
         "coverage was not certified (`coverage` and `certified` say which pairs went unjudged); when its",
-        "`flags` and `whole_flags` for what stands, `certified` and `coverage` for whether every declared"
+        "`flags` and `whole_flags` for what stands, `certified` and `coverage` for whether every declared",
+        "is not a finished song: finished means `certified` true at lyric_revise exit 0, which its",
+        "measurements) and its stamp. Finished means `certified` true at lyric_revise exit 0, which the"
       ],
       "declared_in": [
         {
@@ -106,10 +114,16 @@
     {
       "literal": "next",
       "category": "field-or-value",
-      "at": ["lyric_grade description", "get_operation description"],
+      "at": [
+        "instructions",
+        "lyric_grade description",
+        "get_operation description",
+        "systemInstruction"
+      ],
       "contexts": [
-        "not defects. At exit 0 or 3 the verdict's `next` names the next call: send this exact draft,",
-        "ask), and, after a grade at exit 0 or 3, `next` (the call that takes this exact draft on);"
+        "not defects. At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this",
+        "ask), and, after a grade at exit 0 or 3, `next` (the call that takes this exact draft on);",
+        "The sweep's NEXT line, a grade verdict's `next` and each CREATION_* refusal name the next"
       ],
       "declared_in": [
         {
@@ -122,11 +136,8 @@
     {
       "literal": "recipe",
       "category": "field-or-value",
-      "at": ["edit_recipe description", "systemInstruction"],
-      "contexts": [
-        "word the user said, then present the final `recipe` string VERBATIM.",
-        "ACTIVE TASK (chosen by the user and held by the host): {\"domain\":\"recipe\""
-      ],
+      "at": ["systemInstruction"],
+      "contexts": ["ACTIVE TASK (chosen by the user and held by the host): {\"domain\":\"recipe\""],
       "declared_in": [
         {
           "file": "mcp/engine.js",
@@ -190,7 +201,7 @@
       "category": "field-or-value",
       "at": ["get_instrument description"],
       "contexts": [
-        "reports its full `variant_count` and sets `truncated` when you are seeing a slice. Narrow it"
+        "reports its full `variant_count` and sets `truncated` when you are seeing a slice. `query` filters"
       ],
       "declared_in": [
         {
@@ -199,6 +210,19 @@
         }
       ],
       "reason": "A field of the tool's own verdict or result (`truncated`), named so the model reads it."
+    },
+    {
+      "literal": "changed",
+      "category": "field-or-value",
+      "at": ["instructions", "start_recipe description", "systemInstruction"],
+      "contexts": ["a card with no `changed` field is the stock default"],
+      "declared_in": [
+        {
+          "file": "mcp/engine.js",
+          "as": "key"
+        }
+      ],
+      "reason": "A field of the tool's own result (`changed`), named so the model reads it (#671 B3)."
     },
     {
       "literal": "unreadable",
@@ -348,26 +372,6 @@
       "reason": "The engine's own TITLE_NOT_IN_HOOK question, quoted where the plan says a title is optional and that the question exists only on a plan with a hook slot (#676)."
     },
     {
-      "literal": "looks done",
-      "category": "quoted-check",
-      "at": ["instructions", "systemInstruction"],
-      "contexts": [
-        "stopping at step (3) because the draft \"looks done\" is the exact hand-wash the loop exists"
-      ],
-      "about": "hand-wash",
-      "reason": "Quotes the stopping mistake the loop exists to prevent; it names no song content."
-    },
-    {
-      "literal": "fixed",
-      "category": "quoted-check",
-      "at": ["instructions", "systemInstruction"],
-      "contexts": [
-        "NOTES are measurements and are not to be \"fixed\". A verdict carrying structures_uncalibrated"
-      ],
-      "about": "NOTES are measurements",
-      "reason": "Scare quotes: notes are measurements and are not to be 'fixed'."
-    },
-    {
       "literal": "nothing flagged",
       "category": "quoted-check",
       "at": ["lyric_check description"],
@@ -402,7 +406,7 @@
       "category": "quoted-check",
       "at": ["start_recipe description"],
       "contexts": [
-        "identical to what a human sees in the app (\"Current Recipe\"). This is the SCAFFOLD, not the finished"
+        "identical to what a human sees in the app (\"Current Recipe\"); a card with no `changed` field is the stock default"
       ],
       "about": "app",
       "reason": "The app's panel label, so the model knows the recipe string is the one a person sees."

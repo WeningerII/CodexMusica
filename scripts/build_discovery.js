@@ -86,14 +86,11 @@ anything you want to change, and do not expect the two strings to match.
 Do NOT fetch codex.html: it is a multi-megabyte browser GUI, it will blow your context or
 fail to load, and it contains no instructions for you.
 
-The default seed is SCAFFOLDING, not the answer: after start_recipe, push it toward the
-user's words with edit_recipe. Mood/aesthetic word -> search_prefaces then set_preface on
-each instrument it should color; specific gear/material/technique -> get_instrument then
-set_variant; space/era/medium -> set_environment; roster -> add/remove instruments and
-traditions. There are NO coherence fences — nothing is anachronistic, out-of-region, or
-physically impossible (it is words for audio generation); the researched defaults are
-flavor to keep or override, and every id-valid combination renders. Batch edits in one
-call; present the FINAL recipe verbatim.
+The default seed is SCAFFOLDING, not the answer: start_recipe returns a tradition's stock
+cards, and its \`guidance\` field maps the user's words to edit_recipe actions. There are
+NO coherence fences — nothing is anachronistic, out-of-region, or physically impossible
+(it is words for audio generation); the researched defaults are flavor to keep or
+override, and every id-valid combination renders. Present the FINAL recipe verbatim.
 
 ## Pre-compiled catalog (static JSON — bulk reads, no editing)
 One recipe per tradition, pre-compiled at build time. Use it to read the whole catalog
@@ -125,7 +122,7 @@ and add/edit/delete catalog entries — runs from the repo. An agent with a shel
     cd CodexMusica && npm ci
     node scripts/recipe.js --traditions <id>,<id> --exclude-instrument=<instrument id>
     node scripts/recipe.js --diff --weight=0.6 <id> <id>
-    node scripts/recipe.js --axis-target "harm:1,density:2,intensity:2"
+    node scripts/recipe.js --axis-target "harm:<number>,density:<number>,intensity:<number>"
 
 See SKILL.md in the repo for the complete contract (data model, all flags, CRUD,
 validation). Source: https://github.com/WeningerII/CodexMusica
