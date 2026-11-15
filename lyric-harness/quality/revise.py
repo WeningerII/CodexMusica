@@ -1121,6 +1121,34 @@ WRITING_BAN_CODES = frozenset({"HOMEOTELEUTON", "MODAL_RHYME"})
 WRITING_POLICY = "rhyme-bans-v1"
 
 
+def _ban_pairs(keys):
+    """-> the banned pair(s) among `Reviser.verify`'s finding identities, as
+    the writer reads them: ``L1 'chair' / L4 'prayer' (MODAL_RHYME)``.
+
+    A rejection that says only "a prohibited pair" leaves the writer guessing
+    which two words (2026-11-14, live retest: seven answers in a row each
+    made a new banned pair). This names the pair the answer itself made and
+    nothing else: no menu, no list of other words. An identity is (line,
+    code, severity, locations, groups, subject), and a writing ban's subject
+    is (policy, word_i, word_j, slot_i, slot_j), set where the ban is raised.
+    ONE ENTRY PER PAIR OF WORDS: a mirrored return or a second group repeats
+    the same two words elsewhere, and both codes can hold of one pair, so a
+    pair is named once, at its first lines, with every code that refused it."""
+    rows = {}
+    for _, code, _, locs, _, subject in sorted(keys):
+        if code not in WRITING_BAN_CODES:
+            continue
+        if len(subject) >= 5:
+            w_i, w_j, s_i, s_j = subject[1:5]
+            key = tuple(sorted((w_i, w_j)))
+            text = f"L{s_i} {w_i!r} / L{s_j} {w_j!r}"
+        else:
+            key = text = "/".join(f"L{i}" for i in locs)
+        rows.setdefault(key, (text, set()))[1].add(code)
+    return ", ".join(f"{text} ({', '.join(sorted(codes))})"
+                     for text, codes in rows.values())
+
+
 class Reviser:
     """Grades a draft, briefs a revision, and verifies the result."""
 
@@ -6844,7 +6872,8 @@ class Reviser:
         out["independent"] = m.independent()
 
         if self.writing and any(k[1] in WRITING_BAN_CODES for k in new_flags):
-            out["reasons"].append(verify_reason("writing_ban"))
+            out["reasons"].append(verify_reason(
+                "writing_ban", pairs=_ban_pairs(new_flags)))
             return out
 
         if not fixed:

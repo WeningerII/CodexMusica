@@ -343,6 +343,20 @@ class AuditRegressions(unittest.TestCase):
         # table is unchanged the two agree, and a later change to the table
         # needs its own entry.
         self.assertEqual('\n'.join(PRM._rejection_rows()), LH._REJECTION_ROWS_671)
+        # A QUOTED rejection names the banned pair now (same step). Undone,
+        # it is the one fixed sentence a held run was asked under.
+        named = ("introduced a prohibited writing rhyme pair: L1 'chair' / "
+                 "L4 'prayer' (MODAL_RHYME); HOMEOTELEUTON and MODAL_RHYME "
+                 "cannot be traded for a repair")
+        fixed = ("introduced a prohibited writing rhyme pair; HOMEOTELEUTON "
+                 "and MODAL_RHYME cannot be traded for a repair")
+        quoted = PRM.render_line(b, ['original cat', 'original dog'],
+                                 attempt=1, reasons=[named])
+        self.assertIn(f"  - {named}", quoted)
+        undone = LH.legacy_question_texts('propose', quoted)[0]
+        self.assertIn(f"  - {fixed}", undone)
+        self.assertNotIn("prayer", undone)
+        self.assertNotIn("<pairs>", undone)
 
     def test_a_question_held_under_the_200_line_limit_replays(self):
         # 2026-11-12 (#851). The line limit a question states rose from 200

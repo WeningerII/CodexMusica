@@ -10194,8 +10194,8 @@ _REJECTION_ROWS_671 = "\n".join(f"  {i}. {t}" for i, t in enumerate((
     "previously judged required check(s) became refused: <checks>",
     "previously judged obligation(s) became refused: <pairs>; unknown is "
     "neither a violation nor a repaired obligation",
-    "introduced a prohibited writing rhyme pair; HOMEOTELEUTON and "
-    "MODAL_RHYME cannot be traded for a repair",
+    "introduced a prohibited writing rhyme pair: <pairs>; HOMEOTELEUTON "
+    "and MODAL_RHYME cannot be traded for a repair",
     "nothing was fixed",
     "introduced <n> new flagged finding(s) <flags> while fixing <fixed>; a "
     "revision may not trade one defect for another"), start=1))
@@ -10266,6 +10266,12 @@ def _legacy_671_prose(kind, prompt):
         f"3. The rewrite must FIX something. It may not trade one defect for "
         f"another: new FLAG\n     findings anywhere in the draft reject it (new "
         f"NOTES do not)."), text)
+    # A QUOTED REJECTION NAMES THE PAIR IT REFUSED (same step, 2026-11-14);
+    # before, that reason was one fixed sentence. After the two blocks above,
+    # so the row of the rules table (`<pairs>`) is already gone.
+    text = re.sub(r"(introduced a prohibited writing rhyme pair): [^\n]*?(; "
+                  r"HOMEOTELEUTON and MODAL_RHYME cannot be traded for a "
+                  r"repair)", r"\1\2", text)
     return None if text == prompt else text
 
 

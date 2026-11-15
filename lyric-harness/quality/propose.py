@@ -102,7 +102,7 @@ VERIFY_REJECTIONS = {
     "obligation_refused": "previously judged obligation(s) became refused: "
                           "{pairs}; unknown is neither a violation nor a "
                           "repaired obligation",
-    "writing_ban": "introduced a prohibited writing rhyme pair; "
+    "writing_ban": "introduced a prohibited writing rhyme pair: {pairs}; "
                    "HOMEOTELEUTON and MODAL_RHYME cannot be traded for a "
                    "repair",
     "nothing_fixed": "nothing was fixed",
@@ -438,6 +438,11 @@ def _attempt_block(attempt, reasons, indent="  ", prior=None,
         # THE REJECTED TEXT IS NOT QUOTED (2026-10-27, D8 on #519): a
         # revision carries the current draft and the requirements, never a
         # rejected attempt. The grader's reasons name findings, not lyrics.
+        # ONE EXCEPTION (2026-11-14, on the owner's instruction that the
+        # rejection identify the pair): a writing-ban reason names the two
+        # END WORDS of the pair it refused, because a ban the writer cannot
+        # identify is re-made on the next answer. Nothing else of the
+        # rejected line is quoted.
         out.append(f"{indent}Your {what} in ROUND "
                    f"{_pr if _pr is not None else '?'} was REJECTED. "
                    f"The grader's reasons, verbatim:")
