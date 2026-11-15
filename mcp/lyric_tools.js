@@ -41,6 +41,7 @@ import {
   PLAN_FIELDS,
   READING_FIELDS,
   gradeNext,
+  planNext,
   SWEEP_NEXT,
   sweepNextLine,
 } from './lyric_workflow.js';
@@ -2619,7 +2620,8 @@ export function registerLyricTools(server, tool) {
         'contiguous run. On a plan with no hook slot (the `open` form declares none) a title only names the song and that ' +
         "question is not asked. The tool result's first text block is the plan report and writer brief: when showing the shape, " +
         'keep the bracket header rows exactly as written (they carry lines/bars/meter/pickup). The second block is the ' +
-        'verdict.',
+        "verdict. Its `next` names the next call, lyric_grade on the complete draft; `next_call` names that call's tool " +
+        'and the argument the server sets, `seed`.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_plan,
     },
     (a) =>
@@ -2645,6 +2647,15 @@ export function registerLyricTools(server, tool) {
           // by hand, so a plan row never said which path answered or how
           // many lines the plan drew: round 9's "large drawn shape" stayed
           // an inference through round 11 for this reason (M-219).
+          // The plan verdict's `next`: the call that takes this plan on. The
+          // closing lines cut above were the CLI's way to say it; this is the
+          // connector's. A session replaces both with the call its receipts
+          // admit (withSweepNext in lyric_workflow.js).
+          verdict.next_call = {
+            tool: 'lyric_grade',
+            args: { seed: plan.request?.seed ?? a.seed },
+          };
+          verdict.next = planNext(verdict.next_call, verdict.plan_lines ?? plan.line_slots?.length);
           const { report: _report, ...stamped } = verdict;
           return {
             content: [

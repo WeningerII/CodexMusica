@@ -8343,6 +8343,23 @@ if (!runs('offline') || PART === null) {
           nLines,
           'the verdict block carries the same line count the report prints'
         );
+        // Writer plan, stage 2: a finished plan names the call that takes it
+        // on. The report's closing lines (the CLI's own way to say it) are cut,
+        // and before this nothing replaced them.
+        assert.deepEqual(
+          planVerdict.next_call,
+          { tool: 'lyric_grade', args: { seed: planSeed } },
+          'the plan verdict names its next call as data'
+        );
+        assert.ok(
+          planVerdict.next.includes('lyric_grade') &&
+            planVerdict.next.includes(`${nLines}-line draft`),
+          `and as a sentence that names the grade and the draft's length (got ${planVerdict.next})`
+        );
+        assert.ok(
+          !/WROTE plan|python3/.test(planReport),
+          'the report still ends before the CLI apparatus'
+        );
 
         // The bracket header rows ARE the shape, and their line counts must sum
         // to the declared total -- an invariant of the report rather than a
