@@ -9,7 +9,7 @@ qualification.
 ## Current contracts
 
 * Native SDK client: new lyrics default to creation mode and use the same
-  sweep → screen → program plan → exact-draft grade → revise receipt checks as
+  sweep → program plan → screen → exact-draft grade → revise receipt checks as
   the Gemini host. A model cannot replace the plan with a hand-authored mandate.
   Discovery is available, and an explicit host `phase: 'edit'` permits
   work on an existing song. In the maintained client only the host selects that
@@ -61,7 +61,7 @@ Use the same session file throughout a new song:
 node scripts/connector_client.mjs --task=lyrics --session-file=/tmp/song-session.json --call=lyric_sweep --args-file=/tmp/sweep.json --out=/tmp/sweep-result.json
 ```
 
-Continue with screen, plan, grade and revise using that file. For pasted-song
+Continue with plan, screen, grade and revise using that file. For pasted-song
 editing, explicitly choose `--phase=edit`. SDK users retain the connection, or
 privately persist `connection.snapshot()` and supply it as `session` on reconnect.
 This is trusted host state, not a tool argument to offer the model.
@@ -107,7 +107,7 @@ headers, function-specific predicates, and meter fallback.
 
 `npm run qualify:session:workflow` replays a checked-in draft
 (`docs/session-repair-evidence/`) through the maintained client and real sweep,
-screen, plan, grade and interview revision tools. It uses no paid model and does
+plan, screen, grade and interview revision tools. It uses no paid model and does
 not alter continuation state. Evidence is written beside the checked-in draft.
 The replay checks that every section header survives and that lower-bound meter
 refusals on names with no dictionary entry disappear under explicitly selected

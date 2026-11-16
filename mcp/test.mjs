@@ -5553,6 +5553,9 @@ await check('validation: actionable errors', () => {
         'offline lyrics creation order and task authorization regressions',
       'mcp/test_creation_next.mjs':
         'creation-order NEXT derivation regressions, offline and on the real lyric harness, executed by CI',
+      'mcp/test_statements.mjs':
+        'new-song statement gate and plan statements regressions, offline and on the real lyric harness, executed by CI',
+      'mcp/statement_fixture.mjs': 'test fixture: sweep arguments that state every new-song thing',
       'mcp/test_creation_attempts.mjs':
         'offline regressions for refusals after a screen or grade that left no receipt',
       'mcp/test_status_census.mjs':

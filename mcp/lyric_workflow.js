@@ -8,6 +8,36 @@ import { refusedByRemedy } from './coverage_advice.js';
 // DEFAULT_FORM): `open` requires no section function and no return.
 export const DEFAULT_FORM = 'open';
 
+// STATE IT OR SAY DRAW (writer plan, stage 3). A new song's lyric_sweep states
+// each of these things: a value in its field, a sweep `want` on one of its
+// `wants` names (a name ending `.*` stands for that name with any section
+// function), or, where `draw` is true, its field named in `draw`. There is no
+// draw over forms, so form takes a name. The `wants` names are the planner's
+// own (`quality/plan.py` SWEEP_MEASURES), checked there by test_high_report.
+export const STATEABLE = Object.freeze([
+  { thing: 'form', field: 'form', draw: false, wants: [] },
+  { thing: 'length', field: 'lines', draw: true, wants: ['lines'] },
+  { thing: 'sections', field: 'functions', draw: true, wants: ['sections', 'sections.*'] },
+  { thing: 'rhyme', field: 'relation', draw: true, wants: [] },
+  { thing: 'time', field: 'melody', draw: true, wants: ['beats_per_line'] },
+]);
+export const DRAWABLE = Object.freeze(STATEABLE.filter((r) => r.draw).map((r) => r.field));
+// What no field or want can state yet: the planner draws it every time.
+export const NOT_STATEABLE_YET = Object.freeze([
+  { thing: 'rhyme scheme', what: "the letter scheme of each section's lines" },
+  { thing: 'stress pattern', what: 'which syllables of a line are stressed' },
+]);
+// One row per planner form (`quality/plan.py` PLAN_FORMS): the functions it
+// requires (FORM_REQUIRES), the ones that must come back (FORM_RECURS), and
+// its fewest lines (min of fillable_line_counts). Pinned to the planner by
+// test_high_report; PLAN_FORMS (lyric_tools.js) is read from it.
+export const FORM_ROWS = Object.freeze([
+  { form: 'open', requires: [], recurs: [], min_lines: 2 },
+  { form: 'verse-chorus', requires: ['chorus', 'verse'], recurs: ['chorus'], min_lines: 12 },
+]);
+// The planner's length floor is the smallest form's fewest lines.
+export const LINES_FLOOR = Math.min(...FORM_ROWS.map((r) => r.min_lines));
+
 const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const list = (value) =>
   (Array.isArray(value) ? value : String(value || '').split(','))
@@ -170,8 +200,8 @@ const attemptFacts = (a) =>
 const screenAttemptNote = (a) =>
   ` lyric_screen ran in this session but did not answer${attemptFacts(a) ? ` (${attemptFacts(a)})` : ''}` +
   (a.cause === 'overflow'
-    ? ': it printed more than this connector can carry, so screening the same request again returns the same result. A plan needs one lyric_screen that answers (exit 0 or 3): call lyric_screen again with a smaller request.'
-    : '; its report names why. A plan needs one lyric_screen that answers (exit 0 or 3): call lyric_screen again once that cause is fixed.');
+    ? ': it printed more than this connector can carry, so screening the same request again returns the same result. A grade needs one lyric_screen under its plan that answers (exit 0 or 3): call lyric_screen again with a smaller request.'
+    : '; its report names why. A grade needs one lyric_screen under its plan that answers (exit 0 or 3): call lyric_screen again once that cause is fixed.');
 // The song's length is the user's: a size limit is reported as this
 // session's limit, never answered by asking for a shorter song.
 // `sent` is whether this call carried the draft the attempt ran on: a revise
@@ -280,19 +310,56 @@ export function workflowFor(task) {
 }
 
 // The coordinates a plan must repeat from the sweep that accepted its seed.
-export const SWEEP_COORDINATES = ['form', 'lines', 'functions', 'melody'];
+// `relation` joined them with the sweep's own `relation` (stage 3); a sweep
+// saved before that, which states no relation, does not bind the plan's.
+export const SWEEP_COORDINATES = ['form', 'lines', 'functions', 'relation', 'melody'];
 // The `wants` a creation session requires a plan to carry for a sweep: today,
 // that sweep's `want` list. The one place the rule is read, by the gate and
 // by the call it names (nextCreationCall).
 const sweepWants = (sweep) => list(sweep.args.want);
+const coordinatesOf = (s) =>
+  SWEEP_COORDINATES.filter(
+    (k) => k !== 'relation' || s.args.relation !== undefined || list(s.args.draw).includes(k)
+  );
+// A relation as the planner reads it: the namespace and the name each
+// matched without case or outer spaces (`rhyme_types.resolve_relation`; no
+// namespace holds two names that differ only in case, checked by
+// test_statements). `same` on the raw strings refused a plan whose request
+// holds the planner's spelling of the relation the call sent.
+const relationKey = (value) => {
+  const text = value === undefined || value === null ? '' : String(value).trim();
+  if (!text) return null;
+  const at = text.indexOf(':');
+  return at < 0
+    ? text.toLowerCase()
+    : `${text.slice(0, at).trim().toLowerCase()}:${text
+        .slice(at + 1)
+        .trim()
+        .toLowerCase()}`;
+};
+const sameField = (key, a, b) =>
+  key === 'relation' ? relationKey(a) === relationKey(b) : same(norm(key, a), norm(key, b));
+// A declaration sent against the one a plan's request recorded for it: the
+// same, or for a relation sent with no namespace, the namespace the planner
+// resolved it to (it refuses a bare name two namespaces hold).
+const sameDeclared = (key, sent, recorded) => {
+  if (sameField(key, sent, recorded)) return true;
+  const bare = key === 'relation' ? relationKey(sent) : null;
+  const planned = bare && !bare.includes(':') ? relationKey(recorded) : null;
+  return !!planned && planned.slice(planned.indexOf(':') + 1) === bare;
+};
 
-function sweepFor(w, args) {
+// `anyForm`: a plan that leaves its form out takes the form of the newest
+// sweep that matches it otherwise.
+function sweepFor(w, args, { anyForm = false } = {}) {
   return [...w.sweeps]
     .reverse()
     .find(
       (s) =>
         s.accepted.includes(args.seed) &&
-        SWEEP_COORDINATES.every((k) => same(norm(k, args[k]), norm(k, s.args[k]))) &&
+        coordinatesOf(s).every(
+          (k) => (anyForm && k === 'form') || sameField(k, args[k], s.args[k])
+        ) &&
         same(list(args.wants), sweepWants(s))
     );
 }
@@ -308,6 +375,134 @@ const planArgument = (key, value) =>
         ? JSON.stringify(value)
         : structuredClone(value);
 const unset = (v) => v === null || v === '' || (Array.isArray(v) && !v.length);
+
+// ── State it or say draw ───────────────────────────────────────────────────
+const joined = (items, word = 'and') =>
+  items.length < 2
+    ? items.join('')
+    : `${items.slice(0, -1).join(', ')} ${word} ${items[items.length - 1]}`;
+// `draw` as one list: each name once, in table order (a name outside the
+// table, which the schema refuses, after them).
+export const drawList = (value) => {
+  const named = new Set(list(value));
+  return [...DRAWABLE.filter((f) => named.delete(f)), ...[...named].sort()];
+};
+const hasValue = (args, field) => args?.[field] !== undefined && !unset(args[field]);
+const wantName = (want) =>
+  String(want)
+    .split(/<=|>=|=/)[0]
+    .trim();
+const wantStates = (row, want) =>
+  row.wants.some((k) =>
+    k.endsWith('.*')
+      ? wantName(want).startsWith(k.slice(0, -1)) && wantName(want).length > k.length - 1
+      : wantName(want) === k
+  );
+// -> for one call's arguments: each STATEABLE row with how this call said it
+// ('value', 'want', 'draw' or null) and the wants that said it, the rows it
+// does not say, and the drawable fields it gives both a value and a draw.
+// `wantKey` is the sweep's `want` or the plan's `wants`.
+export function statementsOf(args, wantKey = 'want') {
+  const drawn = new Set(list(args?.draw));
+  const wants = Array.isArray(args?.[wantKey]) ? args[wantKey].map(String) : [];
+  const rows = STATEABLE.map((row) => {
+    const by = wants.filter((w) => wantStates(row, w));
+    const said = hasValue(args, row.field)
+      ? 'value'
+      : by.length
+        ? 'want'
+        : row.draw && drawn.has(row.field)
+          ? 'draw'
+          : null;
+    return { row, said, wants: by };
+  });
+  return {
+    rows,
+    missing: rows.filter((s) => !s.said).map((s) => s.row),
+    conflict: DRAWABLE.filter((f) => drawn.has(f) && hasValue(args, f)),
+  };
+}
+const rowName = (r) => (r.thing === r.field ? r.field : `${r.thing} (${r.field})`);
+const wantLabel = (k) => (k.endsWith('.*') ? `${k.slice(0, -1)}F` : k);
+// `floor` false leaves out the form's fewest lines: published schema text
+// states no line count (test_prompt_provenance); a refusal states it.
+export const formRowText = (f, floor = true) => {
+  const needs = [
+    ...f.requires.map((fn) => (f.recurs.includes(fn) ? `${fn} at least twice` : fn)),
+    ...f.recurs.filter((fn) => !f.requires.includes(fn)).map((fn) => `${fn} at least twice`),
+    ...(floor && f.min_lines > LINES_FLOOR ? [`at least ${f.min_lines} lines`] : []),
+  ];
+  return `${f.form}, which requires ${needs.length ? joined(needs) : 'nothing'}`;
+};
+const NOT_YET_TEXT = joined(NOT_STATEABLE_YET.map((r) => `${r.thing} (${r.what})`));
+const named = STATEABLE.filter((r) => !r.draw).map((r) => r.field);
+const STATEMENT_RULE =
+  `a new song's lyric_sweep states each of ${joined(STATEABLE.map(rowName))}: a value, or the field named in \`draw\` ` +
+  `(${joined(named)} takes a name; there is no draw over ${joined(named.map((f) => `${f}s`))}). ` +
+  `A \`want\` on ${joined(
+    STATEABLE.filter((r) => r.wants.length).map(
+      (r) => `${joined(r.wants.map(wantLabel), 'or')} states ${r.thing}`
+    )
+  )}.`;
+// -> the refusal of a value and a draw for the same field, or null.
+export function statementConflict(fields, code = 'CREATION_STATEMENT') {
+  if (!fields.length) return null;
+  return `${code}: ${joined(fields)} ${fields.length === 1 ? 'has a value and is' : 'each have a value and are'} also named in \`draw\`; send one of the two${fields.length === 1 ? '' : ' for each'}. Nothing ran.`;
+}
+// -> a new-song sweep's refusal for what it does not state, or null.
+export function statementRefusal(args) {
+  const { missing, conflict } = statementsOf(args);
+  if (conflict.length) return statementConflict(conflict);
+  if (!missing.length) return null;
+  const forms = missing.some((r) => !r.draw)
+    ? ` ${named.map((f) => f[0].toUpperCase() + f.slice(1)).join(', ')} takes one name: ${FORM_ROWS.map(formRowText).join('; ')}.`
+    : '';
+  return (
+    `CREATION_STATEMENT: ${STATEMENT_RULE} This call leaves out ${joined(missing.map(rowName))}. Nothing ran.` +
+    forms +
+    ` Cannot be stated yet, so tell the person: ${NOT_YET_TEXT}.`
+  );
+}
+// What each thing is in a plan, read from the plan's own fields. A list a
+// song can lengthen is given each name once, in the order the plan first
+// holds it, with its count: the short view does not grow with the song.
+const onceEach = (names) => [...new Set(names)];
+const PLAN_VALUE = {
+  form: (p) => p?.request?.form ?? null,
+  lines: (p) => p?.total_lines ?? null,
+  functions: (p) => {
+    const drawn = p?.choices?.pattern?.functions || [];
+    return { functions: onceEach(drawn), sections: drawn.length };
+  },
+  relation: (p) => {
+    const groups = p?.choices?.relations?.groups || [];
+    return { types: onceEach(groups.map((g) => g.type)), groups: groups.length };
+  },
+  melody: (p) => ({
+    meter: p?.choices?.meter?.value ?? null,
+    beats_per_line: p?.choices?.meter?.beats_per_line ?? null,
+    bars_per_line: p?.choices?.bars_per_line ?? null,
+    subdivision: p?.choices?.subdivision ?? null,
+  }),
+};
+export const STATEMENT_FIELDS = Object.freeze(Object.keys(PLAN_VALUE));
+// -> the plan result's `statements`: how the plan call (with what a session
+// carried from its sweep) said each thing, and what the plan holds for it.
+// 'unsaid' is a call that said nothing of it (the raw engine, or a session
+// whose sweep was recorded before this rule); form says 'default' instead.
+export function planStatements(args, plan) {
+  return {
+    version: 1,
+    rows: statementsOf(args, 'wants').rows.map(({ row, said, wants }) => ({
+      thing: row.thing,
+      field: row.field,
+      said: said || (row.draw ? 'unsaid' : 'default'),
+      ...(said === 'want' ? { wants } : {}),
+      value: PLAN_VALUE[row.field](plan),
+    })),
+    not_stateable: NOT_STATEABLE_YET.map((r) => ({ ...r })),
+  };
+}
 
 // What the recorded sweeps hold, for a plan the gate refused, newest first and
 // bounded (the newest SHOWN_SWEEPS sweeps, the first SHOWN_SEEDS seeds of
@@ -337,9 +532,7 @@ function recordedSweeps(w, args) {
       `Recorded sweeps that accepted seed ${args.seed}, newest first: ` +
       shown
         .map((s, i) => {
-          const differs = SWEEP_COORDINATES.filter(
-            (k) => !same(norm(k, args[k]), norm(k, s.args[k]))
-          );
+          const differs = coordinatesOf(s).filter((k) => !sameField(k, args[k], s.args[k]));
           if (!same(list(args.wants), sweepWants(s))) differs.push("wants (the sweep's `want`)");
           return `(${i + 1}) ${sweepCoordinates(s)}; this call differs in ${differs.join(', ')}`;
         })
@@ -386,11 +579,17 @@ export function creationRefusal(task, name, args, lyric = null) {
     return `CREATION_PLAN: ${name}${args?.seed != null || heldSeed(lyric) != null ? ' with a seed' : ''} is for a new song, and a new song needs begin_lyrics phase 'create'. This session is phase 'edit', for lyrics the user supplied: structure them with lyric_recover, grade them with lyric_check, and revise them with lyric_revise without a seed.`;
   const w = workflowFor(task);
   if (!w || !name.startsWith('lyric_')) return null;
-  if (name === 'lyric_sweep') return null;
+  // STATE IT OR SAY DRAW (stage 3): every new-song sweep states each
+  // STATEABLE thing, and none twice. Refused before dispatch: nothing runs.
+  if (name === 'lyric_sweep') return statementRefusal(args);
+  // THE WORD-CHECK FOLLOWS THE PLAN (writer plan, stage 3; the owner's ruling
+  // of 15 Nov 2026). It was forced before the plan, where no rhyming line was
+  // known yet. Its receipt now names the plan it ran under, and a grade needs
+  // the receipt of its own plan, so a replacement plan needs a new one.
   if (name === 'lyric_screen')
-    return w.sweeps.length
+    return w.plan
       ? null
-      : 'CREATION_ORDER: execute a successful lyric_sweep before screening.';
+      : "CREATION_ORDER: a new song's lyric_screen comes after its lyric_plan, and its receipt is recorded for that plan. Call lyric_sweep, then lyric_plan, before lyric_screen.";
   // lyric_verify is a diff of one revision and records nothing, so it serves a
   // new song's revision rounds too. lyric_check and lyric_recover grade or
   // structure a draft without the plan, which would route around the plan and
@@ -400,16 +599,26 @@ export function creationRefusal(task, name, args, lyric = null) {
       return `CREATION_PLAN: ${name} is for lyrics the user supplied. In this new-song session, grade your draft with lyric_grade (same seed and declarations as lyric_plan); for lyrics the user supplied, call begin_lyrics with phase 'edit'.`;
     return null;
   }
-  if (!w.sweeps.length || !w.screen)
-    return (
-      'CREATION_ORDER: execute a successful lyric_sweep and a successful lyric_screen before planning or writing a new song.' +
-      (w.sweeps.length && w.screen_attempt ? screenAttemptNote(w.screen_attempt) : '')
-    );
+  if (!w.sweeps.length)
+    return 'CREATION_ORDER: execute a successful lyric_sweep before planning or writing a new song.';
   if (name === 'lyric_plan') {
-    return sweepFor(w, args)
-      ? null
-      : "CREATION_PLAN: plan a seed an accepted lyric_sweep returned, with that sweep's form, lines, functions and melody, and its `want` list as `wants`. " +
-          recordedSweeps(w, args);
+    const conflict = statementConflict(statementsOf(args, 'wants').conflict);
+    if (conflict) return conflict;
+    const s = sweepFor(w, args, { anyForm: args.form === undefined });
+    if (!s)
+      return (
+        `CREATION_PLAN: plan a seed an accepted lyric_sweep returned, with that sweep's ${joined(SWEEP_COORDINATES)}, and its \`want\` list as \`wants\`. ` +
+        recordedSweeps(w, args)
+      );
+    // What the sweep stated goes with the plan: its form (a plan that leaves
+    // it out plans the sweep's form) and its `draw`, a sweep-time statement:
+    // the plan's record says what the sweep drew, whatever the plan sends.
+    // Neither changes a plan byte.
+    if (args.form === undefined && s.args.form) args.form = planArgument('form', s.args.form);
+    const drawn = drawList(s.args.draw);
+    if (drawn.length) args.draw = drawn;
+    else delete args.draw;
+    return null;
   }
   if (!w.plan)
     return 'CREATION_PLAN: execute lyric_plan successfully before grading or revising a new song.';
@@ -418,7 +627,7 @@ export function creationRefusal(task, name, args, lyric = null) {
     return `CREATION_PLAN: hand-authored mandate or placement fields cannot replace the canonical program plan. This call sent ${handAuthored.join(', ')}, which the recorded plan supplies: send this same call again without ${handAuthored.length === 1 ? 'it' : 'them'}.`;
   const request = w.plan.request;
   for (const key of PLAN_FIELDS) {
-    if (args[key] !== undefined && !same(norm(key, args[key]), norm(key, request[key])))
+    if (args[key] !== undefined && !sameDeclared(key, args[key], request[key]))
       return `CREATION_PLAN: ${key} differs from the recorded program plan. ${recordedField(key, request, w.plan.lines)}`;
     if (
       args[key] === undefined &&
@@ -450,6 +659,24 @@ export function creationRefusal(task, name, args, lyric = null) {
     w.started?.plan_sha256 === w.plan.sha256 &&
     (lyric.seed === request.seed || lyric.decl?.seed === request.seed);
   const gradedDraft = w.grade?.plan_sha256 === w.plan.sha256 ? w.grade : null;
+  if (
+    w.grade_attempt?.cause === 'plan_changed' &&
+    w.grade_attempt.plan_sha256 === w.plan.sha256 &&
+    !continuing &&
+    (name === 'lyric_grade' || (name === 'lyric_revise' && !gradedDraft))
+  )
+    return `CREATION_ORDER: lyric_grade rebuilt seed ${request.seed}'s plan and got a different plan from the one on record (the planner changed after lyric_plan ran), so no grade under the recorded plan can be written. Call lyric_plan again with seed ${request.seed}; then lyric_screen and lyric_grade under the new plan.`;
+  // The word-check is asked for once, at the grade (and of a revise that has
+  // no grade under this plan, whose next call is that grade). A run or a
+  // grade already standing under this plan is not sent back to it.
+  if (
+    w.screen?.plan_sha256 !== w.plan.sha256 &&
+    (name === 'lyric_grade' || (name === 'lyric_revise' && !continuing && !gradedDraft))
+  )
+    return (
+      'CREATION_ORDER: lyric_grade needs one answered lyric_screen under this plan, and none is on record for it.' +
+      (w.screen_attempt?.plan_sha256 === w.plan.sha256 ? screenAttemptNote(w.screen_attempt) : '')
+    );
   if (name === 'lyric_revise' && !continuing && !(Array.isArray(args.draft) && args.draft.length)) {
     if (!gradedDraft)
       return (
@@ -749,16 +976,19 @@ export function recordCreation(task, name, args, verdict, isError = false) {
     verdict.accepted_shown.length
   ) {
     const accepted = verdict.accepted_shown.filter(Number.isInteger);
-    // A later sweep page keeps the screen receipt: the screen step records
-    // that candidate words were screened in this session, and nothing it
-    // checked depends on which sweep window the seed came from.
     if (accepted.length)
       w.sweeps = [...w.sweeps, { args: structuredClone(args), accepted }].slice(-8);
-  } else if (name === 'lyric_screen' && w.sweeps.length) {
+  } else if (name === 'lyric_screen' && w.plan) {
+    // The screen receipt names the plan it ran under: the grade's gate reads
+    // it for its own plan, so a replacement plan needs a new one.
     if (answered(verdict)) {
-      w.screen = { words: structuredClone(args.words || []), relation: args.relation ?? null };
+      w.screen = {
+        words: structuredClone(args.words || []),
+        relation: args.relation ?? null,
+        plan_sha256: w.plan.sha256,
+      };
       delete w.screen_attempt;
-    } else w.screen_attempt = attemptOf(verdict);
+    } else w.screen_attempt = { ...attemptOf(verdict), plan_sha256: w.plan.sha256 };
   } else if (name === 'lyric_plan') {
     // A session recorded before lineage was kept holds a plan and no first
     // plan: the plan it holds is its first (#676).
@@ -782,14 +1012,14 @@ export function recordCreation(task, name, args, verdict, isError = false) {
       verdict.plan_sha256 !== hash(p) ||
       !p.request ||
       !same(p.request, verdict.plan_request) ||
-      !PLAN_FIELDS.every((key) => same(norm(key, args[key]), norm(key, p.request[key]))) ||
+      !PLAN_FIELDS.every((key) => sameDeclared(key, args[key], p.request[key])) ||
       !Number.isInteger(p.total_lines) ||
       !Array.isArray(p.line_slots) ||
       p.line_slots.length !== p.total_lines ||
       !Array.isArray(p.sections) ||
       !p.sections.length ||
-      !sweepFor(w, p.request) ||
-      !w.screen
+      // The relation the gate matched to the sweep is the one sent.
+      !sweepFor(w, { ...p.request, relation: args.relation ?? p.request.relation })
     )
       return;
     w.plan = {
@@ -852,6 +1082,15 @@ export function recordCreation(task, name, args, verdict, isError = false) {
         plan_sha256: w.plan.sha256,
         draft_sha256: hash(args.draft ?? null),
       });
+    // The grade builds this seed's plan again. A planner deployed since
+    // lyric_plan ran builds a different one, and no grade under the recorded
+    // plan can be written: the way on is a new plan, not the same grade.
+    if (
+      w.grade_attempt &&
+      typeof verdict.plan_sha256 === 'string' &&
+      verdict.plan_sha256 !== w.plan.sha256
+    )
+      w.grade_attempt.cause = 'plan_changed';
   } else if (name === 'lyric_revise' && w.plan && [0, 3, 4].includes(verdict.exit_code)) {
     w.started = { plan_sha256: w.plan.sha256 };
   }
@@ -890,21 +1129,33 @@ function carriedMove(carried) {
     : 'answer';
 }
 
-export function nextCreationCall(task, carried, name) {
+// `args` are the refused call's own, when there is one: a sweep refused for
+// what it leaves out or states twice is answered by that sweep again, with
+// the rows it left out or the fields it stated twice (data, never a value).
+export function nextCreationCall(task, carried, name, args = null) {
   const w = workflowFor(task);
   if (!w) return null;
   const move = carriedMove(carried);
   if (move === 'hold') return null;
+  if (name === 'lyric_sweep' && args) {
+    const { missing, conflict } = statementsOf(args);
+    if (conflict.length) return { tool: 'lyric_sweep', args: {}, missing: [], conflict };
+    if (missing.length) return { tool: 'lyric_sweep', args: {}, missing, conflict: [] };
+  }
   if (!w.sweeps.length) return { tool: 'lyric_sweep', args: {} };
-  if (!w.screen || !w.plan || name === 'lyric_plan') {
+  const stale =
+    w.plan &&
+    w.grade_attempt?.cause === 'plan_changed' &&
+    w.grade_attempt.plan_sha256 === w.plan.sha256;
+  if (!w.plan || name === 'lyric_plan' || stale) {
     const s = w.sweeps[w.sweeps.length - 1];
-    const args = { seed: s.accepted[0] };
+    const args = { seed: stale ? w.plan.request.seed : s.accepted[0] };
     if (s.args.form) args.form = planArgument('form', s.args.form);
     if (s.args.lines != null) args.lines = planArgument('lines', s.args.lines);
     if (list(s.args.functions).length) args.functions = planArgument('functions', s.args.functions);
+    if (!unset(s.args.relation ?? null)) args.relation = planArgument('relation', s.args.relation);
     if (sweepWants(s).length) args.wants = sweepWants(s);
     return {
-      ...(w.screen ? {} : { first: 'lyric_screen' }),
       tool: 'lyric_plan',
       args,
       melody: s.args.melody !== undefined && s.args.melody !== null,
@@ -927,6 +1178,10 @@ export function nextCreationCall(task, carried, name) {
       recorded: Array.isArray(w.grade.draft),
       lines,
     };
+  // The grade's gate asks for this plan's word-check first. The screen's
+  // words are the writer's, so the call names none; `seed` is the grade's.
+  if (w.screen?.plan_sha256 !== w.plan.sha256)
+    return { tool: 'lyric_screen', args: {}, seed, lines };
   return { tool: 'lyric_grade', args: { seed }, draft: 'complete', lines };
 }
 
@@ -935,14 +1190,26 @@ const argumentText = (v) => (typeof v === 'number' ? String(v) : JSON.stringify(
 export function formatNextCall(next) {
   if (!next) return null;
   const { tool, args } = next;
-  if (tool === 'lyric_sweep')
-    return "NEXT: lyric_sweep; the plan repeats the sweep's form, lines, functions, melody and `want`.";
+  if (tool === 'lyric_sweep') {
+    const plan = `the plan repeats the sweep's ${joined([...SWEEP_COORDINATES, '`want`'])}`;
+    if (next.conflict?.length)
+      return `NEXT: lyric_sweep with ${joined(next.conflict)} as a value or in \`draw\`, not both; ${plan}.`;
+    const rows = next.missing?.length ? next.missing : STATEABLE;
+    const drawn = rows.filter((r) => r.draw).map((r) => r.field);
+    const names = rows.filter((r) => !r.draw).map((r) => r.field);
+    const how = !drawn.length
+      ? 'as one name'
+      : `${rows.length > 1 ? 'each ' : ''}as a value or in \`draw\`` +
+        (names.length ? ` (${joined(names)} as one name)` : '');
+    return `NEXT: lyric_sweep stating ${joined(rows.map((r) => r.field))}, ${how}; ${plan}.`;
+  }
   if (tool === 'lyric_plan') {
     const parts = Object.entries(args).map(([k, v]) => `${k} ${argumentText(v)}`);
     if (next.melody) parts.push("melody: the sweep's melody unchanged");
-    const plan = `lyric_plan with ${parts.join(', ')}.`;
-    return next.first ? `NEXT: lyric_screen, then ${plan}` : `NEXT: ${plan}`;
+    return `NEXT: lyric_plan with ${parts.join(', ')}.`;
   }
+  if (tool === 'lyric_screen')
+    return `NEXT: lyric_screen with candidate words for this plan's rhymes; then lyric_grade with seed ${next.seed} and the complete ${next.lines}-line draft.`;
   if (tool === 'lyric_grade')
     return `NEXT: lyric_grade with seed ${args.seed} and the complete ${next.lines}-line draft.`;
   if (next.continues === 'answer')
@@ -965,9 +1232,9 @@ export function formatNextCall(next) {
 // A CREATION_* text keeps its code and words first; the derived NEXT follows
 // after a space. Any other text, and every text outside a create session,
 // passes through unchanged.
-export function withNextCall(text, task, carried, name) {
+export function withNextCall(text, task, carried, name, args = null) {
   if (typeof text !== 'string' || !text.startsWith('CREATION_')) return text;
-  const line = formatNextCall(nextCreationCall(task, carried, name));
+  const line = formatNextCall(nextCreationCall(task, carried, name, args));
   return line ? `${text} ${line}` : text;
 }
 
@@ -1017,7 +1284,7 @@ export function outcomeOf(tool, v, args = {}) {
       ? v.next_call
       : null;
   if (tool === 'lyric_sweep') {
-    if (code === 0) return takeOn(callOf('lyric_screen'));
+    if (code === 0) return takeOn(callOf('lyric_plan'));
     // Nothing planned or kept. A cause in a seed's own draw is answered by
     // the next window; a cause in the request is answered by changing it.
     const reasons = Array.isArray(v.planner_refusals) ? v.planner_refusals : [];
@@ -1042,7 +1309,7 @@ export function outcomeOf(tool, v, args = {}) {
   }
   if (tool === 'lyric_screen')
     return [0, 3].includes(code)
-      ? takeOn(callOf('lyric_plan'))
+      ? takeOn(callOf('lyric_grade'))
       : choose('writer', callOf('lyric_screen'));
   if (tool === 'lyric_plan') {
     if (code === 0 && named) return takeOn(named);
@@ -1180,22 +1447,15 @@ export function sessionOutcome(task, name, v, carried, args = {}) {
       return { ...base, call: callOf('lyric_revise', { new_run: true }) };
     return base.call.tool === 'lyric_revise' ? { ...base, call: callOf('lyric_revise') } : base;
   }
-  // What the caller reaches for next. After a sweep that is the plan once a
-  // screen is on record; after a stop it is the grade of the rewritten draft
-  // (a host that carries the stopped run is handed its rewrite call instead).
-  const reach =
-    name === 'lyric_sweep'
-      ? w.screen
-        ? 'lyric_plan'
-        : 'lyric_screen'
-      : stopped && base.call.tool === 'lyric_revise'
-        ? 'lyric_grade'
-        : base.call.tool;
-  if (reach === 'lyric_screen' && name !== 'lyric_sweep') return base;
-  const n = nextCreationCall(task, carried, reach === 'lyric_plan' ? 'lyric_plan' : reach);
+  // What the caller reaches for next. After a stop it is the grade of the
+  // rewritten draft (a host that carries the stopped run is handed its
+  // rewrite call instead). The receipts then name the call the gate admits:
+  // a grade reached for under a plan with no word-check is that word-check.
+  const reach = stopped && base.call.tool === 'lyric_revise' ? 'lyric_grade' : base.call.tool;
+  const n = nextCreationCall(task, carried, reach);
   // A held run (stopped uncertified): whether to go on here is the person's.
   if (!n) return choose('person', callOf('lyric_grade', { seed: w.plan?.request.seed }));
-  return { ...base, call: n.first ? callOf(n.first) : { tool: n.tool, args: n.args } };
+  return { ...base, call: { tool: n.tool, args: n.args } };
 }
 // A window the planner refused whole, or one that planned and kept no seed,
 // on a host that keeps receipts: the verdict states the count its outcome was
@@ -1277,7 +1537,7 @@ export const withSessionOutcome = (task, name, result, carried, args = {}) =>
 // receipt is recorded. A create session's lyric_grade verdict that names a
 // `next` gets the call its receipts admit instead (withGradeNext). Every
 // other result passes through unchanged.
-export const SWEEP_NEXT = /NEXT: (?:lyric_screen, then )?lyric_plan with seed -?\d+[^\n]*/;
+export const SWEEP_NEXT = /NEXT: lyric_plan with seed -?\d+[^\n]*/;
 // A raw lyric_sweep's NEXT line: the plan call for its first accepted seed,
 // built exactly as a session builds it from a fresh sweep receipt (#671, C2).
 export function sweepNextLine(args, seed) {
@@ -1374,15 +1634,14 @@ export function planNext(call, lines) {
 // (`plan_refusal.scope`, the exception's class). "Another seed" is said only
 // for the first: a fault in the request is refused the same way on every
 // seed. The second sentence states the gate's own rule for what a changed
-// request needs (the plan repeats the sweep's form, lines, functions, melody
-// and `want`).
+// request needs (the plan repeats the sweep's SWEEP_COORDINATES and `want`).
 export function planRefusedNext(scope) {
   return scope === 'seed'
     ? 'This refusal is about what this seed drew, not about the request: another seed under the ' +
         'same declarations may plan. Call lyric_sweep for further seeds, then lyric_plan with one ' +
         'it accepts.'
     : 'This refusal is about the request itself: every seed is refused the same way until what ' +
-        '`refusal` names changes. A change to the form, lines, functions, melody or `want` needs ' +
+        `\`refusal\` names changes. A change to the ${joined([...SWEEP_COORDINATES, '`want`'], 'or')} needs ` +
         'a new lyric_sweep first; any other change goes to lyric_plan again with this seed.';
 }
 function withPlanNext(task, result, carried) {
@@ -1402,7 +1661,7 @@ function withPlanNext(task, result, carried) {
     changed = true;
     const { next: _text, next_call: _call, ...rest } = v;
     const call = nextCreationCall(task, carried);
-    const admitted = call && !call.first && ['lyric_grade', 'lyric_revise'].includes(call.tool);
+    const admitted = call && ['lyric_screen', 'lyric_grade', 'lyric_revise'].includes(call.tool);
     return {
       ...block,
       text: JSON.stringify(

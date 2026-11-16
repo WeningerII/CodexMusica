@@ -43,12 +43,23 @@ export { draftFromText } from './lyric_text.js';
 import {
   assessmentCoverageValid,
   DEFAULT_FORM,
+  DRAWABLE,
+  drawList,
+  FORM_ROWS,
+  formRowText,
+  LINES_FLOOR,
+  NOT_STATEABLE_YET,
+  planStatements,
+  STATEABLE,
+  statementConflict,
+  statementsOf,
   gradeVerdictQualifies,
   PLAN_FIELDS,
   READING_FIELDS,
   gradeNext,
   planNext,
   planRefusedNext,
+  SWEEP_COORDINATES,
   SWEEP_NEXT,
   sweepNextLine,
   noneKeptMeaning,
@@ -138,7 +149,7 @@ const ANSWER_LINE_UTF8_BYTES = 800;
 const ANSWER_LINE_JSON_BYTES = 1200;
 // Two closed vocabularies the schemas enumerate, checked the same way:
 // `quality/plan.py` PLAN_FORMS and `quality/rhyme_types.py` POSITION.
-export const PLAN_FORMS = ['open', 'verse-chorus'];
+export const PLAN_FORMS = FORM_ROWS.map((r) => r.form);
 // The connector always sends a form: DEFAULT_FORM (`lyric_workflow.js`) when
 // none is named. The raw CLI's own default is the same `open` (#724).
 export const TYPE_POSITIONS = ['end', 'internal', 'leonine', 'cross', 'head', 'holorhyme'];
@@ -1689,11 +1700,13 @@ const seedField = z
     "REQUIRED declared seed — any integer. Same seed and same declarations, same plan, byte for byte; a different seed is a different song shape. A new song's seed comes from lyric_sweep's accepted list, which sweeps non-negative seeds; a creation session plans only such a seed."
   );
 
+// Built from FORM_ROWS (stage 3): each form with what it requires, and no
+// default offered. A new-song sweep must name one (creationRefusal).
 const formField = z
   .enum(PLAN_FORMS)
   .optional()
   .describe(
-    `The song form: ${PLAN_FORMS.join(', ')} (the planner's forms; default ${DEFAULT_FORM}, which requires no section function and no return).`
+    `The song form, one name: ${FORM_ROWS.map((f) => formRowText(f, false)).join('; ')}. There is no draw over forms: a new-song session's lyric_sweep needs one.`
   );
 
 const linesField = z
@@ -1707,12 +1720,36 @@ const linesField = z
   // ~~.min(12)~~ -> 2 (2026-10-27, D7): 12 was the verse-chorus form's
   // floor, and the default form `open` plans any total from 2 (one group of
   // two lines); a verse-chorus request below 12 is refused by the planner.
-  .min(2)
+  .min(LINES_FLOOR)
   .max(MAX_LINES)
   .optional()
   .describe(
-    `Exact total line count to request, at least 2 and at most ${MAX_LINES} (the planner's envelope; the verse-chorus form needs at least 12). Every plan can be written, graded and revised. Omit to let the planner choose.`
+    `Exact total line count, at least ${LINES_FLOOR} and at most ${MAX_LINES} (the planner's envelope; a form that requires sections needs more, and the plan refuses a count under its floor). Every plan can be written, graded and revised. A new-song session's lyric_sweep needs this, a \`want\` on lines, or \`lines\` in \`draw\`.`
   );
+
+// STATE IT OR SAY DRAW (stage 3). The things a new song states, read from
+// STATEABLE (lyric_workflow.js): a name here says the planner draws it.
+const joinedNames = (xs) =>
+  xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`;
+const drawField = (role) =>
+  z
+    .array(z.enum(DRAWABLE))
+    .max(DRAWABLE.length)
+    .optional()
+    .describe(
+      `Fields the planner draws, named here instead of given a value: ${joinedNames([...DRAWABLE])}. ` +
+        `A new-song session's lyric_sweep states each of ${joinedNames(STATEABLE.map((r) => r.field))}: a value, ` +
+        `a \`want\` (${STATEABLE.filter((r) => r.wants.length)
+          .map(
+            (r) =>
+              `${r.wants.map((k) => (k.endsWith('.*') ? `${k.slice(0, -1)}F` : k)).join(' or ')} for ${r.field}`
+          )
+          .join(
+            ', '
+          )}), or its name here (${joinedNames(STATEABLE.filter((r) => !r.draw).map((r) => r.field))} takes a value). A value and its name here together refuse. ` +
+        role +
+        ` Not stateable yet: ${joinedNames(NOT_STATEABLE_YET.map((r) => r.thing))}.`
+    );
 
 // THE WRITER'S DECLARATION (MISSING.md M-55). Neither field is sampled here
 // and neither has a default: an omitted field means NOBODY SAID.
@@ -2121,6 +2158,9 @@ export const LYRIC_TOOL_SCHEMAS = {
     title: titleField,
     narrative: narrativeField,
     melody: melodyField,
+    draw: drawField(
+      "A session carries the sweep's `draw` to its plan, so a plan need not repeat it; the plan result says how each thing was stated."
+    ),
   },
   lyric_grade: {
     wants: z
@@ -2331,7 +2371,9 @@ export const LYRIC_TOOL_SCHEMAS = {
     form: formField,
     lines: linesField,
     functions: functionsField,
+    relation: relationField,
     melody: melodyField,
+    draw: drawField('Repeats are read once.'),
   },
   lyric_verify: {
     before: draftField
@@ -2612,8 +2654,8 @@ export function registerLyricTools(server, tool) {
         'Scope: this screens bare candidate words on fixed carrier lines, not the eventual lyric lines; coarse relations ' +
         'search anchor spans and may differ in full-line context. ' +
         'Only lyric_grade on the exact planned draft establishes whether its actual bindings satisfy the mandate. ' +
-        'In a creation session one successful lyric_screen after lyric_sweep is required before lyric_plan; ' +
-        'the session records that the step ran, not which words. ' +
+        'In a creation session lyric_screen comes after lyric_plan, and one successful lyric_screen under a plan is ' +
+        "required before that plan's lyric_grade; the session records that the step ran and under which plan, not which words. " +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_screen,
     },
@@ -2645,20 +2687,22 @@ export function registerLyricTools(server, tool) {
         'derived cycle grammar). It writes NO WORDS: the writer (model or human) writes to the brief, then ' +
         'lyric_grade checks the draft against this same plan. lyric_sweep returns the seeds whose shape holds what it ' +
         'declares. In a creation session the plan ' +
-        'comes after an accepted lyric_sweep and one successful lyric_screen, and ' +
-        "must repeat the accepted sweep's form, lines, functions and melody and pass the sweep's `want` list as `wants`; " +
+        'comes after an accepted lyric_sweep, and ' +
+        `must repeat the accepted sweep's ${joinedNames(SWEEP_COORDINATES)} and pass the sweep's \`want\` list as \`wants\`; ` +
         "for a seed the sweep accepted under the same declarations, the plan is that seed's shape; `choices.seed_redraw` " +
         "appears only when the draw was conditioned. A `title` is optional. On a plan with a hook slot, declaring one answers 'is the " +
         "title in the hook?' — and the answer can be NO, which is a FLAG, so write the hook line to contain the title's words as a " +
         'contiguous run. On a plan with no hook slot (the `open` form declares none) a title only names the song and that ' +
         "question is not asked. The tool result's first text block is the plan report and writer brief: when showing the shape, " +
         'keep the bracket header rows exactly as written (they carry lines/bars/meter/pickup). The second block is the ' +
-        "verdict. Its `next` names the next call, lyric_grade on the complete draft; `next_call` names that call's tool " +
-        'and the argument the server sets, `seed`.',
+        "verdict. Its `next` names the next call: lyric_grade on the complete draft, or in a creation session this plan's " +
+        "lyric_screen, which its grade needs first. `next_call` names that call's tool and the arguments the server sets.",
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_plan,
     },
     (a) =>
       withTempDir(async (dir) => {
+        const conflict = statementConflict(statementsOf(a, 'wants').conflict, 'STATEMENT_CONFLICT');
+        if (conflict) throw refuse(conflict);
         const r = await runVerb(['plan', ...planArgs(a), `--out=${path.join(dir, 'plan.json')}`]);
         const verdict = verdictOf(r);
         // Same presentation-first shape as lyric_grade: the report (plan
@@ -2674,6 +2718,9 @@ export function registerLyricTools(server, tool) {
           verdict.plan = plan;
           verdict.plan_sha256 = createHash('sha256').update(JSON.stringify(plan)).digest('hex');
           verdict.plan_request = plan.request;
+          // How each thing a new song states was stated, and what the plan
+          // holds for it (stage 3). `draw` never reaches the planner.
+          verdict.statements = planStatements({ ...a, draw: drawList(a.draw) }, plan);
           // The verdict block carries everything verdictOf stamped — path,
           // ms, plan_lines (M-216) — and not the report, which is block 0.
           // This block used to re-spell the verdict as {exit_code, meaning}
@@ -3745,16 +3792,16 @@ export function registerLyricTools(server, tool) {
     {
       title: 'Find seeds whose shape matches what you want',
       description:
-        'Under the same declarations (form, lines, functions, melody) a plan is a function of its seed, so choosing a ' +
+        `Under the same declarations (${SWEEP_COORDINATES.join(', ')}) a plan is a function of its seed, so choosing a ` +
         'seed is choosing a shape — and guessing one is how a writer ends up accepting whatever the first seed drew. ' +
         'Declare what you want (predicates over coordinates the plan already discloses) and this plans a WINDOW of ' +
         "consecutive seeds and returns the ones that hold. `want` is a FILTER over each seed's plan as drawn without " +
         "it; lyric_plan's `wants` is a different thing — it conditions the draw. IT DOES NOT RANK: the accepted seeds " +
         'come back in seed order and carry no score, because a floor enforces and does not order the region it ' +
         'already passed, and an argmax over a swept parameter is biased toward whichever end has more freedom. Plan ' +
-        'any seed in `accepted_shown` with the same form, lines, functions and melody; ' +
-        "a creation session requires them, this `want` list as lyric_plan's `wants`, and one successful lyric_screen " +
-        'before the plan. FOUR COUNTS, NEVER ' +
+        `any seed in \`accepted_shown\` with the same ${joinedNames(SWEEP_COORDINATES)}; ` +
+        "a creation session requires them and this `want` list as lyric_plan's `wants`. " +
+        `In a new-song session the sweep states each of ${joinedNames(STATEABLE.map((r) => r.field))} (see \`draw\`). FOUR COUNTS, NEVER ` +
         'SUMMED: swept, planned, planner_refused and accepted_count (accepted_shown lists the accepted seeds) — ' +
         'planner_refused is the planner turning a request down (an unbuildable roster, an unattainable length) and ' +
         'is NOT a predicate rejecting a shape, so with `planned 0` the predicates never ran; sweep_outcome names ' +
@@ -3786,7 +3833,12 @@ export function registerLyricTools(server, tool) {
       args.push(`--form=${a.form || DEFAULT_FORM}`);
       if (a.lines != null) args.push(`--lines=${a.lines}`);
       if (a.functions) args.push(`--functions=${a.functions}`);
+      if (a.relation) args.push(`--relation=${a.relation}`);
       if (a.melody !== undefined) args.push(`--melody=${a.melody}`);
+      // Raw engine: a value and a draw for one field refuse; nothing is
+      // required (a session's gate requires every statement).
+      const conflict = statementConflict(statementsOf(a).conflict, 'STATEMENT_CONFLICT');
+      if (conflict) throw refuse(conflict);
       const r = await runVerb(args);
       const v = verdictOf(r);
       // The harness's NEXT line carries every flag the sweep planned under;
@@ -3797,7 +3849,14 @@ export function registerLyricTools(server, tool) {
         v.report = v.report.replace(
           SWEEP_NEXT,
           sweepNextLine(
-            { form: a.form, lines: a.lines, functions: a.functions, melody: a.melody, want: wants },
+            {
+              form: a.form,
+              lines: a.lines,
+              functions: a.functions,
+              relation: a.relation,
+              melody: a.melody,
+              want: wants,
+            },
             Number(/seed (-?\d+)/.exec(seed[0])[1])
           )
         );
@@ -4127,10 +4186,11 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'and is satisfied when, for each pair, the words it binds stand in at least one ' +
     '(another word in the line relating does not count). Full figures and refused obligations remain explicit. A new ' +
     'song: lyric_sweep returns the seeds whose plan holds the declared `lines`, `functions` and `want`, in seed order, ' +
-    'unranked; lyric_screen reports the relations of word pairs, and a screen is required before the plan; ' +
-    "lyric_plan with an accepted seed and the sweep's form, lines, functions, melody and `want` list (as `wants`) " +
+    'unranked; ' +
+    `lyric_plan with an accepted seed and the sweep's ${SWEEP_COORDINATES.join(', ')} and \`want\` list (as \`wants\`) ` +
     "returns a complete shape (sections, meter, each group's relation and placement, hook slot, verbatim returns) " +
-    'and the brief to write to. A `title` is optional; on a plan with a hook slot a declared title that is not a ' +
+    'and the brief to write to; lyric_screen reports the relations of word pairs, and a creation session requires ' +
+    'one under the plan before its grade. A `title` is optional; on a plan with a hook slot a declared title that is not a ' +
     'run of words inside the hook line is a FLAG, and on a plan with no hook slot it only names the song. lyric_grade takes the SAME seed ' +
     `AND THE SAME PLAN DECLARATIONS (${PLAN_DECLARATIONS} — ` +
     (kitchen

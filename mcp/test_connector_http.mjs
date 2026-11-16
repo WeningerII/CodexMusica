@@ -15,6 +15,7 @@ import { renderRecipe } from './engine.js';
 import { canonicalJSON } from './reader_scheduler.js';
 import { ReaderJobStore } from './reader_job_store.js';
 import { signReaderRequest } from './reader_routes.js';
+import { stated } from './statement_fixture.mjs';
 
 async function freePort() {
   const listener = createServer();
@@ -386,12 +387,12 @@ test(
         });
         const queued = await shared.callTool({
           name: 'lyric_sweep',
-          arguments: {
+          arguments: stated({
             session_id: initial.structuredContent.session_id,
             seed_from: 31,
             count: 1,
             lines: 12,
-          },
+          }),
         });
         assert.equal(queued.structuredContent.status, 'pending');
         operation_id = queued.structuredContent.operation_id;

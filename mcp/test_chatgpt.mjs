@@ -9,6 +9,7 @@ import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { JobStore } from './job_store.js';
 import { WorkflowSessions, SESSION_STORE_LIMITS, publicToolResult } from './workflow_sessions.js';
 import { buildWorkflowServer } from './workflow_tools.js';
+import { stated } from './statement_fixture.mjs';
 import { buildServer } from './tools.js';
 import { startRecipe, editRecipe, renderRecipe } from './engine.js';
 import { requestContext } from './execution_context.js';
@@ -187,7 +188,11 @@ test('lyrics run independently of the submitting MCP connection', async (t) => {
   // The caller writes every line: no outside session names the service writer.
   assert.equal(store.get(initial.session_id).response.body.session.writer, 'interview');
   const queued = data(
-    await call(client, 'lyric_sweep', { session_id: initial.session_id, seed_from: 31, count: 1 })
+    await call(
+      client,
+      'lyric_sweep',
+      stated({ session_id: initial.session_id, seed_from: 31, count: 1 })
+    )
   );
   assert.equal(queued.status, 'pending');
   await client.close();
@@ -804,7 +809,7 @@ test("F4: a new song's order, its length and how to continue sit inside the guid
     const { text } = await guideOf(t, build);
     for (const phrase of [
       "begin_lyrics phase 'create' is for a new song",
-      'lyric_sweep, lyric_screen, lyric_plan, write every line, lyric_grade on that exact draft, lyric_revise',
+      'lyric_sweep, lyric_plan, lyric_screen, write every line, lyric_grade on that exact draft, lyric_revise',
       'A length is an exact `lines` count declared on the sweep.',
       'continue from the session_id in the completed receipt, even when the tool refused; a refusal without one names its own next step.',
       'holding the next session_id; an immediate refusal has none.',
@@ -1630,12 +1635,11 @@ test('get_operation refuses a detail or lines the operation cannot serve; an edi
   // parts, every part returned its summary.
   const begun = data(await call(client, 'begin_lyrics', { phase: 'create' }));
   const swept = data(
-    await call(client, 'lyric_sweep', {
-      session_id: begun.session_id,
-      seed_from: 1,
-      count: 1,
-      lines: 12,
-    })
+    await call(
+      client,
+      'lyric_sweep',
+      stated({ session_id: begun.session_id, seed_from: 1, count: 1, lines: 12 })
+    )
   );
   await sessions.wait(swept.operation_id);
   assert.equal(data(await read(swept.operation_id)).status, 'completed');

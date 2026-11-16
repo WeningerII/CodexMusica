@@ -160,7 +160,8 @@ export async function connectConnector({
           }
           const refusal = creationRefusal(workflowTask, name, args, continuation);
           // The refusal names the next call the gate admits (P2 F1).
-          if (refusal) throw new Error(withNextCall(refusal, workflowTask, continuation, name));
+          if (refusal)
+            throw new Error(withNextCall(refusal, workflowTask, continuation, name, args));
         } catch (error) {
           // Durable hosts can distinguish a rejected request from an unknown
           // outcome after dispatch. This flag never comes from model arguments.

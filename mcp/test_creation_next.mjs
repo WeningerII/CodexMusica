@@ -4,14 +4,14 @@
 // sweep shapes, sends wrong moves, and follows each NEXT the way a caller
 // would: through the gate alone, through the real client, and through /chat's
 // own wander and parked refusals with a stubbed model. The last case runs the
-// real harness (sweep, screen, plan; no grade, so about 26 s here) on the
+// real harness (sweep, plan, screen; no grade, so about 26 s here) on the
 // client and on a /mcp session, so it runs in test:production:offline, whose
 // CI job stages the tagger the harness reads, as test_chatgpt_parked.mjs does.
 
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { createHash } from 'node:crypto';
-import { mkdtempSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
@@ -19,6 +19,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import {
   SWEEP_COORDINATES,
   creationRefusal,
+  creationQualified,
   recordCreation,
   nextCreationCall,
   formatNextCall,
@@ -35,6 +36,7 @@ import { connectConnector } from './client.js';
 import { buildServer } from './tools.js';
 import { JobStore } from './job_store.js';
 import { WorkflowSessions, verdictOf } from './workflow_sessions.js';
+import { stated } from './statement_fixture.mjs';
 
 const sha = (v) => createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const clone = (v) => structuredClone(v);
@@ -43,11 +45,19 @@ const rewritten = ['My kettle sings beside the stove', 'Your fingers brush my he
 const other = ['A different opening line', 'A different closing line'];
 const melody = '{"notes":[60,62]}';
 
-// Three sweep shapes: no want, want only, and every coordinate declared.
+// A relation from the planner's eligible types (the table the Lyrics page
+// reads, written from `type_eligibility`), picked by seed.
+const ELIGIBLE = JSON.parse(
+  readFileSync(new URL('../src/pages/lyric_types.json', import.meta.url), 'utf8')
+).types.map((t) => `schema:${t[1]}`);
+const relation = ELIGIBLE[16 % ELIGIBLE.length];
+// Three sweep shapes: nothing declared, want only, and every coordinate
+// declared. Each sweep states form, length, sections, rhyme and time (stage
+// 3): what a shape leaves out is drawn (statement_fixture.mjs).
 const SHAPES = {
-  none: { sweep: {}, plan: {}, request: {} },
+  none: { sweep: stated({}), plan: {}, request: {} },
   want: {
-    sweep: { want: ['lines<=30'] },
+    sweep: stated({ want: ['lines<=30'] }),
     plan: { wants: ['lines<=30'] },
     request: { wants: ['lines<=30'] },
   },
@@ -56,6 +66,7 @@ const SHAPES = {
       form: 'aaba',
       lines: 2,
       functions: 'verse,chorus',
+      relation,
       melody,
       want: ['lines<=30', 'before=verse,chorus'],
     },
@@ -63,6 +74,7 @@ const SHAPES = {
       form: 'aaba',
       lines: 2,
       functions: 'verse,chorus',
+      relation,
       melody,
       wants: ['before=verse,chorus', 'lines<=30'],
     },
@@ -70,11 +82,17 @@ const SHAPES = {
       form: 'aaba',
       lines: 2,
       functions: ['verse', 'chorus'],
+      relation,
       melody: { notes: [60, 62] },
       wants: ['before=verse,chorus', 'lines<=30'],
     },
   },
 };
+
+// The sweep's NEXT before any sweep, and the form a stated shape names.
+const SWEEP_LINE =
+  "NEXT: lyric_sweep stating form, lines, functions, relation and melody, each as a value or in `draw` (form as one name); the plan repeats the sweep's form, lines, functions, relation, melody and `want`.";
+const FORM = JSON.stringify(SHAPES.none.sweep.form);
 
 function planReceipt(shape, seed) {
   const request = {
@@ -150,12 +168,18 @@ function states(shapeName) {
   at.empty = clone(t);
   recordCreation(t, 'lyric_sweep', sweepArgs, { exit_code: 0, accepted_shown: [16, 17] });
   at.swept = clone(t);
-  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
-  at.screened = clone(t);
+  // The plan is recorded with no word-check; the word-check is recorded for it.
   const p = planReceipt(shape, 16);
   recordCreation(t, 'lyric_plan', planArgs(16), p);
   assert(t.workflow.plan, `${shapeName}: the plan receipt records`);
   at.planned = clone(t);
+  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
+  assert.equal(
+    t.workflow.screen?.plan_sha256,
+    p.plan_sha256,
+    `${shapeName}: the screen receipt records for its plan`
+  );
+  at.screened = clone(t);
   const later = clone(t);
   recordCreation(
     later,
@@ -177,6 +201,7 @@ function states(shapeName) {
   recordCreation(replan, 'lyric_revise', { seed: 16, draft }, { exit_code: 0 });
   recordCreation(replan, 'lyric_plan', planArgs(17), planReceipt(shape, 17));
   assert.equal(replan.workflow.plan?.request.seed, 17, `${shapeName}: the re-plan records`);
+  // The screen on record is the first plan's: the re-plan has none of its own.
   at.replanned = replan;
   return { at, sweepArgs, planArgs, shape };
 }
@@ -276,11 +301,12 @@ const wrongMoves = (planArgs) => [
   ['lyric_revise', { seed: 16, draft: other, new_run: true }],
 ];
 
-// The thirteen texts creationRefusal can return, by their fixed words.
+// The fourteen texts creationRefusal can return, by their fixed words.
 const GATE_TEXTS = [
-  /^CREATION_ORDER: execute a successful lyric_sweep before screening\.$/,
+  /^CREATION_ORDER: a new song's lyric_screen comes after its lyric_plan, and its receipt is recorded for that plan\. Call lyric_sweep, then lyric_plan, before lyric_screen\.$/,
   /^CREATION_PLAN: lyric_(check|recover) is for lyrics the user supplied\./,
-  /^CREATION_ORDER: execute a successful lyric_sweep and a successful lyric_screen before planning/,
+  /^CREATION_ORDER: execute a successful lyric_sweep before planning or writing a new song\.$/,
+  /^CREATION_ORDER: lyric_grade needs one answered lyric_screen under this plan, and none is on record for it\./,
   /^CREATION_PLAN: plan a seed an accepted lyric_sweep returned/,
   /^CREATION_PLAN: execute lyric_plan successfully before grading or revising/,
   /^CREATION_PLAN: hand-authored mandate or placement fields/,
@@ -299,23 +325,31 @@ const gateText = (text) => GATE_TEXTS.findIndex((re) => re.test(text));
 function parseNext(text, ctx) {
   const m = /(?:^| )NEXT: (.*)$/s.exec(text);
   assert(m, `no NEXT in: ${text}`);
-  let line = m[1];
-  const calls = [];
+  const line = m[1];
   if (line.startsWith('lyric_sweep')) return [['lyric_sweep', clone(ctx.sweepArgs)]];
-  if (line.startsWith('lyric_screen, then ')) {
-    calls.push(['lyric_screen', { words: ['stove', 'coat'] }]);
-    line = line.slice(line.indexOf(', then ') + ', then '.length);
-  }
   if (line.startsWith('lyric_plan with ')) {
     const args = {};
     const re =
-      /\b(seed|form|lines|functions|wants) (-?\d+|"(?:[^"\\]|\\.)*"|\[(?:"(?:[^"\\]|\\.)*"(?:,"(?:[^"\\]|\\.)*")*)?\])/g;
+      /\b(seed|form|lines|functions|relation|wants) (-?\d+|"(?:[^"\\]|\\.)*"|\[(?:"(?:[^"\\]|\\.)*"(?:,"(?:[^"\\]|\\.)*")*)?\])/g;
     for (const [, key, value] of line.matchAll(re)) args[key] = JSON.parse(value);
     if (line.includes("melody: the sweep's melody unchanged")) args.melody = ctx.sweepArgs.melody;
-    calls.push(['lyric_plan', args]);
-    return calls;
+    return [['lyric_plan', args]];
   }
   let r;
+  // A plan with no word-check under it: the screen, with the caller's own
+  // words, then the grade the line names.
+  if (
+    (r =
+      /^lyric_screen with candidate words for this plan's rhymes; then lyric_grade with seed (-?\d+) and the complete (\d+)-line draft\.$/.exec(
+        line
+      ))
+  ) {
+    assert.equal(Number(r[2]), draft.length);
+    return [
+      ['lyric_screen', { words: ['stove', 'coat'] }],
+      ['lyric_grade', { seed: Number(r[1]), draft: ctx.newDraft }],
+    ];
+  }
   if ((r = /^lyric_grade with seed (-?\d+) and the complete (\d+)-line draft\.$/.exec(line))) {
     assert.equal(Number(r[2]), draft.length);
     return [['lyric_grade', { seed: Number(r[1]), draft: ctx.newDraft }]];
@@ -426,16 +460,273 @@ test('every gate refusal in every state names a NEXT the gate admits', (t) => {
   t.diagnostic(`gate: ${tally.followed} refusals followed and admitted`);
 });
 
+// ── 1b. The word-check follows the plan ─────────────────────────────────────
+// A create session enforces sweep, plan, screen, grade, revise. The screen's
+// receipt names the plan it ran under, and a grade needs the receipt of its
+// own plan. Each walk is built from recordCreation alone, and every refusal's
+// NEXT is parsed and sent back through the gate.
+const LINES = ['<line 1>', '<line 2>'];
+const WORDS = { words: ['stove', 'coat'] };
+const SCREEN_AFTER_PLAN =
+  "CREATION_ORDER: a new song's lyric_screen comes after its lyric_plan, and its receipt is recorded for that plan. Call lyric_sweep, then lyric_plan, before lyric_screen.";
+const GRADE_NEEDS_SCREEN =
+  'CREATION_ORDER: lyric_grade needs one answered lyric_screen under this plan, and none is on record for it.';
+// The call a plan with no word-check under it names: after "NEXT: " in a
+// refusal, after "Call " in the plan verdict's `next`.
+const screenThenGradeCall = (seed, lines = LINES.length) =>
+  `lyric_screen with candidate words for this plan's rhymes; then lyric_grade with seed ${seed} and the complete ${lines}-line draft.`;
+const screenThenGrade = (seed, lines) => `NEXT: ${screenThenGradeCall(seed, lines)}`;
+const WALK = { sweepArgs: stated({ seed_from: 10, count: 10 }), newDraft: LINES, graded: LINES };
+// A task that has swept and planned seed 16, with no screen.
+function sweptAndPlanned() {
+  const t = fresh();
+  recordCreation(t, 'lyric_sweep', WALK.sweepArgs, { exit_code: 0, accepted_shown: [16, 17] });
+  const p = planReceipt(SHAPES.none, 16);
+  recordCreation(t, 'lyric_plan', { seed: 16 }, p);
+  return { t, p };
+}
+// The refusal as a caller reads it, with each call its NEXT names sent through
+// the gate: all must be admitted. A screen it names is recorded as answered.
+function followNext(task, refusal, name, ctx = WALK) {
+  const text = withNextCall(refusal, task, null, name);
+  for (const [n, a] of parseNext(text, ctx)) {
+    assert.equal(creationRefusal(task, n, clone(a), null), null, `${n}, after: ${text}`);
+    if (n === 'lyric_screen') recordCreation(task, n, a, { exit_code: 0 });
+  }
+  return text;
+}
+
+test('the word-check follows the plan: a screen before it and a grade without it are refused, and each NEXT is admitted', () => {
+  const shape = SHAPES.want;
+  const ctx = { ...WALK, sweepArgs: { seed_from: 10, count: 10, ...shape.sweep } };
+  const t = fresh();
+  // Nothing on record: the screen is refused, and its NEXT is the sweep.
+  assert.equal(creationRefusal(t, 'lyric_screen', clone(WORDS)), SCREEN_AFTER_PLAN);
+  assert.equal(
+    followNext(t, SCREEN_AFTER_PLAN, 'lyric_screen', ctx),
+    `${SCREEN_AFTER_PLAN} ${SWEEP_LINE}`
+  );
+  // A sweep and no plan: the same refusal, and its NEXT is the plan.
+  recordCreation(t, 'lyric_sweep', ctx.sweepArgs, { exit_code: 0, accepted_shown: [16, 17] });
+  assert.equal(creationRefusal(t, 'lyric_screen', clone(WORDS)), SCREEN_AFTER_PLAN);
+  assert.equal(
+    followNext(t, SCREEN_AFTER_PLAN, 'lyric_screen', ctx),
+    `${SCREEN_AFTER_PLAN} NEXT: lyric_plan with seed 16, form ${FORM}, wants ["lines<=30"].`
+  );
+  // A screen that ran all the same leaves nothing: there is no plan to record it for.
+  recordCreation(t, 'lyric_screen', WORDS, { exit_code: 0 });
+  recordCreation(t, 'lyric_screen', WORDS, { exit_code: 2 });
+  assert.equal(t.workflow.screen, null);
+  assert.equal(t.workflow.screen_attempt, undefined);
+  // The plan is admitted and recorded with no screen.
+  const planArgs = { seed: 16, ...shape.plan };
+  assert.equal(creationRefusal(t, 'lyric_plan', clone(planArgs)), null);
+  const p = planReceipt(shape, 16);
+  recordCreation(t, 'lyric_plan', planArgs, p);
+  assert.equal(t.workflow.plan?.sha256, p.plan_sha256);
+  // The grade, and a revise with nothing graded under the plan, are refused
+  // for the screen, with or without a draft.
+  for (const [name, args] of [
+    ['lyric_grade', { seed: 16, draft: LINES }],
+    ['lyric_grade', { seed: 16 }],
+    ['lyric_revise', { seed: 16, draft: LINES }],
+    ['lyric_revise', { seed: 16 }],
+  ])
+    assert.equal(creationRefusal(t, name, clone(args)), GRADE_NEEDS_SCREEN, name);
+  // Followed: the screen is admitted and recorded for this plan, then the grade is admitted.
+  assert.equal(
+    followNext(t, GRADE_NEEDS_SCREEN, 'lyric_grade', ctx),
+    `${GRADE_NEEDS_SCREEN} ${screenThenGrade(16)}`
+  );
+  assert.deepEqual(t.workflow.screen, {
+    words: ['stove', 'coat'],
+    relation: null,
+    plan_sha256: p.plan_sha256,
+  });
+  assert.equal(creationRefusal(t, 'lyric_grade', { seed: 16, draft: LINES }), null);
+});
+
+test('a replacement plan needs a word-check of its own before its grade', () => {
+  const { t, p: a } = sweptAndPlanned();
+  recordCreation(t, 'lyric_screen', WORDS, { exit_code: 0 });
+  assert.equal(t.workflow.screen?.plan_sha256, a.plan_sha256);
+  assert.equal(creationRefusal(t, 'lyric_grade', { seed: 16, draft: LINES }), null);
+  // Plan B is admitted with no screen of its own, and replaces plan A.
+  const b = planReceipt(SHAPES.none, 17);
+  assert.notEqual(b.plan_sha256, a.plan_sha256);
+  assert.equal(creationRefusal(t, 'lyric_plan', { seed: 17 }), null);
+  recordCreation(t, 'lyric_plan', { seed: 17 }, b);
+  assert.equal(t.workflow.plan?.sha256, b.plan_sha256);
+  // The screen on record is plan A's: plan B's grade is refused until its own.
+  assert.equal(t.workflow.screen.plan_sha256, a.plan_sha256);
+  assert.equal(creationRefusal(t, 'lyric_grade', { seed: 17, draft: LINES }), GRADE_NEEDS_SCREEN);
+  assert.equal(
+    followNext(t, GRADE_NEEDS_SCREEN, 'lyric_grade'),
+    `${GRADE_NEEDS_SCREEN} ${screenThenGrade(17)}`
+  );
+  assert.equal(t.workflow.screen.plan_sha256, b.plan_sha256);
+  assert.equal(creationRefusal(t, 'lyric_grade', { seed: 17, draft: LINES }), null);
+  // The same plan recorded again is the same plan: its screen still stands.
+  recordCreation(t, 'lyric_plan', { seed: 17 }, b);
+  assert.equal(creationRefusal(t, 'lyric_grade', { seed: 17, draft: LINES }), null);
+});
+
+test('a planner changed between plan and grade: the grade names a new plan, and the way on through a new plan is admitted', () => {
+  const { t, p } = sweptAndPlanned();
+  recordCreation(t, 'lyric_screen', WORDS, { exit_code: 0 });
+  // The grade builds seed 16's plan again, and a deployed planner builds a
+  // different one: no receipt can be written under the recorded plan.
+  const rebuilt = planReceipt(SHAPES.none, 16);
+  rebuilt.plan.sections = [{ name: 'VERSE' }, { name: 'VERSE' }];
+  rebuilt.plan_sha256 = sha(rebuilt.plan);
+  assert.notEqual(rebuilt.plan_sha256, p.plan_sha256);
+  recordCreation(t, 'lyric_grade', { seed: 16, draft: LINES }, gradeReceipt(rebuilt, LINES));
+  assert.equal(t.workflow.grade, null);
+  assert.equal(t.workflow.grade_attempt.cause, 'plan_changed');
+  const CHANGED =
+    "CREATION_ORDER: lyric_grade rebuilt seed 16's plan and got a different plan from the one on record (the planner changed after lyric_plan ran), so no grade under the recorded plan can be written. Call lyric_plan again with seed 16; then lyric_screen and lyric_grade under the new plan.";
+  // Grading again, or revising with nothing graded, is refused with the way on.
+  for (const [name, args] of [
+    ['lyric_grade', { seed: 16, draft: LINES }],
+    ['lyric_revise', { seed: 16 }],
+    ['lyric_revise', { seed: 16, draft: LINES }],
+  ])
+    assert.equal(creationRefusal(t, name, clone(args)), CHANGED, name);
+  assert.equal(
+    followNext(t, CHANGED, 'lyric_grade'),
+    `${CHANGED} NEXT: lyric_plan with seed 16, form ${FORM}.`
+  );
+  // The new plan replaces the old one; its own screen, then its grade, are admitted.
+  recordCreation(t, 'lyric_plan', { seed: 16 }, rebuilt);
+  assert.equal(t.workflow.plan.sha256, rebuilt.plan_sha256);
+  assert.equal(creationRefusal(t, 'lyric_grade', { seed: 16, draft: LINES }), GRADE_NEEDS_SCREEN);
+  followNext(t, GRADE_NEEDS_SCREEN, 'lyric_grade');
+  assert.equal(creationRefusal(t, 'lyric_grade', { seed: 16, draft: LINES }), null);
+  recordCreation(t, 'lyric_grade', { seed: 16, draft: LINES }, gradeReceipt(rebuilt, LINES));
+  assert.equal(t.workflow.grade?.plan_sha256, rebuilt.plan_sha256);
+});
+
+test('a word-check that ran under this plan and did not answer adds its note; one under another plan does not', () => {
+  const { t, p } = sweptAndPlanned();
+  const NOTE = ' lyric_screen ran in this session but did not answer (exit 2)';
+  const NEEDS = 'A grade needs one lyric_screen under its plan that answers (exit 0 or 3): ';
+  recordCreation(t, 'lyric_screen', WORDS, { exit_code: 2, refusal: '<why>' });
+  assert.equal(t.workflow.screen, null, 'an attempt is not a receipt');
+  assert.deepEqual(t.workflow.screen_attempt, {
+    exit_code: 2,
+    cause: 'other',
+    plan_sha256: p.plan_sha256,
+  });
+  const told = creationRefusal(t, 'lyric_grade', { seed: 16, draft: LINES });
+  assert.equal(
+    told,
+    `${GRADE_NEEDS_SCREEN}${NOTE}; its report names why. ${NEEDS}call lyric_screen again once that cause is fixed.`
+  );
+  // One that printed past what the connector carries names a smaller request.
+  recordCreation(t, 'lyric_screen', WORDS, {
+    exit_code: 2,
+    refusal: '<screen> printed more than this connector can carry',
+  });
+  assert.equal(
+    creationRefusal(t, 'lyric_revise', { seed: 16 }),
+    `${GRADE_NEEDS_SCREEN}${NOTE}: it printed more than this connector can carry, so screening the same request again returns the same result. ${NEEDS}call lyric_screen again with a smaller request.`
+  );
+  // The NEXT is the same call; once the screen answers, the note and the refusal go.
+  assert.equal(followNext(t, told, 'lyric_grade'), `${told} ${screenThenGrade(16)}`);
+  assert.equal(t.workflow.screen_attempt, undefined);
+  assert.equal(creationRefusal(t, 'lyric_grade', { seed: 16, draft: LINES }), null);
+  // An attempt under plan A says nothing about plan B.
+  const { t: u, p: a } = sweptAndPlanned();
+  recordCreation(u, 'lyric_screen', WORDS, { exit_code: 2, refusal: '<why>' });
+  recordCreation(u, 'lyric_plan', { seed: 17 }, planReceipt(SHAPES.none, 17));
+  assert.equal(u.workflow.screen_attempt.plan_sha256, a.plan_sha256);
+  assert.equal(creationRefusal(u, 'lyric_grade', { seed: 17, draft: LINES }), GRADE_NEEDS_SCREEN);
+});
+
+test('a session opened before the screen named its plan: one screen at the grade, and what already stands is not sent back', () => {
+  // Receipts as recordCreation writes them, then the screen receipt as a
+  // session stored before this change holds it: with no plan named.
+  const stored = (...steps) => {
+    const { t, p } = sweptAndPlanned();
+    recordCreation(t, 'lyric_screen', WORDS, { exit_code: 0 });
+    for (const [name, verdict] of steps)
+      recordCreation(t, name, { seed: 16, draft: LINES }, verdict(p));
+    delete t.workflow.screen.plan_sha256;
+    assert.deepEqual(t.workflow.screen, { words: ['stove', 'coat'], relation: null });
+    return t;
+  };
+  const grade = ['lyric_grade', (p) => gradeReceipt(p, LINES)];
+  // Planned, never graded: refused once at the grade, admitted after one screen.
+  const planned = stored();
+  assert.equal(
+    creationRefusal(planned, 'lyric_grade', { seed: 16, draft: LINES }),
+    GRADE_NEEDS_SCREEN
+  );
+  assert.equal(
+    followNext(planned, GRADE_NEEDS_SCREEN, 'lyric_grade'),
+    `${GRADE_NEEDS_SCREEN} ${screenThenGrade(16)}`
+  );
+  assert.equal(planned.workflow.screen.plan_sha256, planned.workflow.plan.sha256);
+  assert.equal(creationRefusal(planned, 'lyric_grade', { seed: 16, draft: LINES }), null);
+  // A grade already under the plan: a revise takes the graded draft from the
+  // record, and the next call the receipts name is that revise. No new screen.
+  const graded = stored(grade);
+  assert.ok(graded.workflow.grade, 'the grade receipt records');
+  const taken = { seed: 16 };
+  assert.equal(creationRefusal(graded, 'lyric_revise', taken), null);
+  assert.deepEqual(taken.draft, LINES);
+  assert.equal(creationRefusal(graded, 'lyric_revise', { seed: 16, draft: LINES }), null);
+  assert.equal(
+    formatNextCall(nextCreationCall(clone(graded), null, 'lyric_revise')),
+    'NEXT: lyric_revise with seed 16 and no draft; the 2-line draft lyric_grade graded is taken from the record. ' +
+      'To change a line, grade the changed draft first.'
+  );
+  assert.deepEqual(graded.workflow.screen, { words: ['stove', 'coat'], relation: null });
+  // A run under way continues without one.
+  const running = stored(grade, ['lyric_revise', () => ({ exit_code: 4 })]);
+  assert.equal(
+    creationRefusal(
+      running,
+      'lyric_revise',
+      { seed: 16, draft: LINES, answer: '<answer>' },
+      { seed: 16 }
+    ),
+    null
+  );
+  // A finished song stays qualified.
+  const finished = stored(grade, ['lyric_revise', () => ({ exit_code: 0 })]);
+  assert.equal(creationQualified(finished), true);
+});
+
 test('the derivation reads the receipts: plan coordinates, later pages, re-plans, held runs', () => {
   const { at, planArgs } = states('every');
-  // A sweep and no screen: the screen, then the plan with every coordinate.
+  // A sweep and no plan: the plan with every coordinate, and no screen first.
   assert.equal(
     formatNextCall(nextCreationCall(clone(at.swept), null, 'lyric_plan')),
-    'NEXT: lyric_screen, then lyric_plan with seed 16, ' +
-      'form "aaba", lines 2, functions "verse,chorus", wants ["before=verse,chorus","lines<=30"], ' +
+    'NEXT: lyric_plan with seed 16, ' +
+      `form "aaba", lines 2, functions "verse,chorus", relation ${JSON.stringify(relation)}, wants ["before=verse,chorus","lines<=30"], ` +
       "melody: the sweep's melody unchanged."
   );
-  assert.deepEqual(SWEEP_COORDINATES, ['form', 'lines', 'functions', 'melody']);
+  // A plan with no word-check under it: the screen, then the grade it is for.
+  // The call names no words (they are the writer's); the seed is the grade's.
+  assert.deepEqual(nextCreationCall(clone(at.planned), null, 'lyric_grade'), {
+    tool: 'lyric_screen',
+    args: {},
+    seed: 16,
+    lines: 2,
+  });
+  for (const reached of ['lyric_grade', 'lyric_revise', undefined])
+    assert.equal(
+      formatNextCall(nextCreationCall(clone(at.planned), null, reached)),
+      "NEXT: lyric_screen with candidate words for this plan's rhymes; " +
+        'then lyric_grade with seed 16 and the complete 2-line draft.'
+    );
+  // The screen on record under the plan: the grade.
+  assert.equal(
+    formatNextCall(nextCreationCall(clone(at.screened), null, 'lyric_grade')),
+    'NEXT: lyric_grade with seed 16 and the complete 2-line draft.'
+  );
+  assert.deepEqual(SWEEP_COORDINATES, ['form', 'lines', 'functions', 'relation', 'melody']);
   // A later sweep page: the plan the caller is reaching for is that page's.
   assert.match(
     formatNextCall(nextCreationCall(clone(at.later_page), null, 'lyric_plan')),
@@ -446,18 +737,27 @@ test('the derivation reads the receipts: plan coordinates, later pages, re-plans
     formatNextCall(nextCreationCall(clone(at.later_page), null, 'lyric_grade')),
     'NEXT: lyric_grade with seed 16 and the complete 2-line draft.'
   );
+  // A re-plan: the screen on record is the first plan's, so the new plan's
+  // grade is reached through a screen of its own.
   assert.equal(
     formatNextCall(nextCreationCall(clone(at.replanned), null, 'lyric_revise')),
+    "NEXT: lyric_screen with candidate words for this plan's rhymes; " +
+      'then lyric_grade with seed 17 and the complete 2-line draft.'
+  );
+  const rescreened = clone(at.replanned);
+  recordCreation(rescreened, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
+  assert.equal(
+    formatNextCall(nextCreationCall(rescreened, null, 'lyric_revise')),
     'NEXT: lyric_grade with seed 17 and the complete 2-line draft.'
   );
   const none = states('none');
   assert.equal(
     formatNextCall(nextCreationCall(clone(none.at.swept), null, 'lyric_plan')),
-    'NEXT: lyric_screen, then lyric_plan with seed 16.'
+    `NEXT: lyric_plan with seed 16, form ${FORM}.`
   );
   assert.equal(
     formatNextCall(nextCreationCall(clone(none.at.empty), null, 'lyric_screen')),
-    "NEXT: lyric_sweep; the plan repeats the sweep's form, lines, functions, melody and `want`."
+    SWEEP_LINE
   );
   const runs = carriedRuns(planArgs);
   assert.match(
@@ -525,7 +825,7 @@ test('edit sessions, recipe tasks, other texts and raw results pass through unch
   const got = withSweepNext(clone(at.swept), 'lyric_sweep', sweep, null);
   assert.equal(
     JSON.parse(got.content[0].text).report,
-    'ACCEPTED\n    NEXT: lyric_screen, then lyric_plan with seed 16, ' + 'wants ["lines<=30"].\n'
+    `ACCEPTED\n    NEXT: lyric_plan with seed 16, form ${FORM}, wants ["lines<=30"].\n`
   );
 });
 
@@ -826,8 +1126,8 @@ test('/chat: a sweep result shows the derived NEXT to the model', async () => {
   }
   assert.equal(
     seen.report,
-    'ACCEPTED\n      16, 17\n    NEXT: lyric_screen, then lyric_plan ' +
-      'with seed 16, form "aaba", lines 2, functions "verse,chorus", wants ["before=verse,chorus","lines<=30"], ' +
+    'ACCEPTED\n      16, 17\n    NEXT: lyric_plan ' +
+      `with seed 16, form "aaba", lines 2, functions "verse,chorus", relation ${JSON.stringify(relation)}, wants ["before=verse,chorus","lines<=30"], ` +
       "melody: the sweep's melody unchanged.\n"
   );
 });
@@ -917,10 +1217,12 @@ test('a grade verdict names its next call from the receipts, in a session and in
     assert.match(v.next, run);
     assert.deepEqual(Object.keys(v.next_call), ['tool', 'args']);
   }
-  // A held run, or a grade with no receipt for this plan, names none.
+  // A held run, or a grade with no receipt for this plan (with or without the
+  // plan's word-check on record), names none.
   for (const [task, carried] of [
     [at.started, runs.chat.uncertified_parked],
     [at.planned, null],
+    [at.screened, null],
   ]) {
     const v = graded(clone(task), carried);
     assert.equal(Object.hasOwn(v, 'next'), false);
@@ -953,8 +1255,23 @@ test('a plan verdict names its next call from the receipts, in a session and in 
     Number.isInteger(lines) && lines > 0,
     `the plan receipt holds its line count (${lines})`
   );
-  // A plan with nothing graded under it: write the lines, then the grade.
-  const first = planned(clone(at.planned), null);
+  // A plan with no word-check under it, as a plan just recorded is: the
+  // screen, which its grade needs first. The call names no words.
+  const unscreened = planned(clone(at.planned), null);
+  assert.deepEqual(unscreened.next_call, { tool: 'lyric_screen', args: {} });
+  assert.equal(
+    unscreened.next,
+    "Call lyric_screen with candidate words for this plan's rhymes; " +
+      `then lyric_grade with seed 16 and the complete ${lines}-line draft.`
+  );
+  assert.equal(
+    unscreened.next,
+    planNext(nextCreationCall(clone(at.planned), null), lines),
+    'the sentence is the NEXT line the gate prints'
+  );
+  // The word-check already on record under this same plan, and nothing
+  // graded under it: write the lines, then the grade.
+  const first = planned(clone(at.screened), null);
   assert.deepEqual(first.next_call, { tool: 'lyric_grade', args: { seed: 16 } });
   assert.equal(first.next, planNext(first.next_call, lines));
   assert.ok(first.next.includes(`Write the ${lines} lines`) && first.next.includes('lyric_grade'));
@@ -962,10 +1279,11 @@ test('a plan verdict names its next call from the receipts, in a session and in 
   const regraded = planned(clone(at.graded), null);
   assert.equal(regraded.next_call.tool, 'lyric_revise');
   assert.match(regraded.next, /^Call lyric_revise with seed 16 /);
-  // A held run names none, and neither does a session that has not admitted
-  // a plan yet (no accepted sweep, or no screen).
+  // A held run names none, and neither does a session whose receipts hold no
+  // plan (no accepted sweep, or a plan that was not recorded).
   for (const [task, carried] of [
     [at.started, runs.chat.uncertified_parked],
+    [at.empty, null],
     [at.swept, null],
   ]) {
     const v = planned(clone(task), carried);
@@ -1045,7 +1363,7 @@ test(
       assert.match(
         report,
         new RegExp(
-          `NEXT: lyric_screen, then lyric_plan with seed ${accepted_shown[0]}, lines 12, wants \\["sections>=3"\\]\\.`
+          `NEXT: lyric_plan with seed ${accepted_shown[0]}, lines 12, wants \\["sections>=3"\\]\\.`
         )
       );
     } finally {
@@ -1056,7 +1374,7 @@ test(
 );
 
 test(
-  "the real chain: the sweep's NEXT is followed, a plan before the screen names the screen, then the plan is admitted",
+  "the real chain: the sweep's NEXT is followed, a screen before the plan names the plan, and the plan names the screen its grade needs",
   { timeout: 300_000 },
   async (t) => {
     // Raw /mcp/lyrics (no client): the line rebuilt from the sweep's own
@@ -1066,7 +1384,7 @@ test(
     await raw.connect(ra);
     const rawClient = new Client({ name: 'raw', version: '1' }, { capabilities: {} });
     await rawClient.connect(rb);
-    const sweepArgs = { seed_from: 31, count: 1, lines: 12 };
+    const sweepArgs = stated({ seed_from: 31, count: 1, lines: 12 });
     let rawReport;
     try {
       const r = await rawClient.callTool({ name: 'lyric_sweep', arguments: sweepArgs });
@@ -1075,13 +1393,16 @@ test(
       await rawClient.close();
       await raw.close();
     }
-    const rawLine = /NEXT: lyric_screen, then lyric_plan with seed (\d+), lines 12\.$/m.exec(
-      rawReport
-    );
+    const rawLine = new RegExp(
+      `NEXT: lyric_plan with seed (\\d+), form ${FORM}, lines 12\\.$`,
+      'm'
+    ).exec(rawReport);
     assert(rawLine, rawReport);
     const seed = Number(rawLine[1]);
-    const expected = `NEXT: lyric_screen, then lyric_plan with seed ${seed}, lines 12.`;
+    const expected = `NEXT: lyric_plan with seed ${seed}, form ${FORM}, lines 12.`;
     const ctx = { sweepArgs };
+    const words = { ...WORDS, relation: 'class:ASSONANCE' };
+    const placeholders = (lines) => Array.from({ length: lines }, (_, i) => `<line ${i + 1}>`);
 
     // /chat: the same real sweep through runTurn, whose wrapper rewrites the
     // report the model reads.
@@ -1125,18 +1446,33 @@ test(
       const report = JSON.parse(swept.content[0].text).report;
       assert(report.includes(expected), report);
       assert(!/NEXT: lyric_plan with seed \d+$/m.test(report), report);
-      const [, [, plan]] = parseNext(report.match(/NEXT: .*$/m)[0], ctx);
-      assert.deepEqual(plan, { seed, lines: 12 });
+      const [[, plan]] = parseNext(report.match(/NEXT: .*$/m)[0], ctx);
+      assert.deepEqual(plan, { seed, form: sweepArgs.form, lines: 12 });
+      // A screen before the plan is refused, and names the plan.
       await assert.rejects(
-        c.call('lyric_plan', plan),
-        (e) =>
-          e.message ===
-          `CREATION_ORDER: execute a successful lyric_sweep and a successful lyric_screen before planning or writing a new song. ${expected}`
+        c.call('lyric_screen', words),
+        (e) => e.message === `${SCREEN_AFTER_PLAN} ${expected}`
       );
-      await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
       const planned = await c.call('lyric_plan', plan);
       assert(!planned.isError, JSON.stringify(planned));
-      assert(c.snapshot().task.workflow.plan, 'the plan NEXT named is admitted and recorded');
+      const recorded = c.snapshot().task.workflow.plan;
+      assert(recorded, 'the plan NEXT named is admitted and recorded, with no screen');
+      // The plan's verdict names the screen its grade needs first.
+      const v = verdictOf(planned);
+      assert.deepEqual(v.next_call, { tool: 'lyric_screen', args: {} });
+      assert.equal(v.next, `Call ${screenThenGradeCall(seed, recorded.lines)}`);
+      // A grade before that screen is refused, and names the screen, then the grade.
+      const lines = placeholders(recorded.lines);
+      await assert.rejects(
+        c.call('lyric_grade', { seed, draft: lines }),
+        (e) => e.message === `${GRADE_NEEDS_SCREEN} ${screenThenGrade(seed, recorded.lines)}`
+      );
+      // Followed: the screen is admitted and recorded for the plan, and the
+      // gate then admits the grade (not run here).
+      await c.call('lyric_screen', words);
+      const held = c.snapshot().task;
+      assert.equal(held.workflow.screen?.plan_sha256, held.workflow.plan.sha256);
+      assert.equal(creationRefusal(clone(held), 'lyric_grade', { seed, draft: lines }), null);
     } finally {
       await c.close();
       await server.close();
@@ -1154,15 +1490,28 @@ test(
       if (r.session_id) session_id = r.session_id;
       return r;
     };
+    const text = (r) => r.tool_result.content.map((block) => block.text).join('\n');
     const swept = await run('lyric_sweep', sweepArgs);
     assert(verdictOf(swept.tool_result).report.includes(expected), JSON.stringify(swept));
-    const early = await run('lyric_plan', { seed, lines: 12 });
-    const text = early.tool_result.content.map((block) => block.text).join('\n');
-    assert(text.includes(`before planning or writing a new song. ${expected}`), text);
-    await run('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
+    const early = await run('lyric_screen', words);
+    assert(text(early).includes(`${SCREEN_AFTER_PLAN} ${expected}`), text(early));
     const planned = await run('lyric_plan', { seed, lines: 12 });
     assert(!planned.tool_error, JSON.stringify(planned));
-    assert.equal(verdictOf(planned.tool_result).exit_code, 0, JSON.stringify(planned));
+    const v = verdictOf(planned.tool_result);
+    assert.equal(v.exit_code, 0, JSON.stringify(planned));
+    assert.deepEqual(v.next_call, { tool: 'lyric_screen', args: {} });
+    assert.equal(v.next, `Call ${screenThenGradeCall(seed, v.plan_lines)}`);
+    const lines = placeholders(v.plan_lines);
+    const ungated = await run('lyric_grade', { seed, draft: lines });
+    assert(
+      text(ungated).includes(`${GRADE_NEEDS_SCREEN} ${screenThenGrade(seed, v.plan_lines)}`),
+      text(ungated)
+    );
+    const screened = await run('lyric_screen', words);
+    assert(!screened.tool_error, JSON.stringify(screened));
+    const kept = sessions.record(session_id, 'lyrics').session.native.task;
+    assert.equal(kept.workflow.screen?.plan_sha256, kept.workflow.plan.sha256);
+    assert.equal(creationRefusal(clone(kept), 'lyric_grade', { seed, draft: lines }), null);
   }
 );
 
@@ -1193,11 +1542,11 @@ test(
           want: wants,
         });
         const seed = sweep.accepted_shown[0];
-        await call('lyric_screen', { words: ['rain', 'train'] });
         const plan = await call('lyric_plan', { seed, lines: 12, wants });
         assert.deepEqual(plan.plan_request.wants, wants);
         assert(task.workflow.plan, 'a successful plan must be recorded before grading');
         assert.equal(task.workflow.plan.sha256, plan.plan_sha256);
+        await call('lyric_screen', { words: ['rain', 'train'] });
         assert.equal(
           creationRefusal(task, 'lyric_grade', {
             seed,
@@ -1217,8 +1566,8 @@ test(
 // #676: a session that plans a returning, rhymed, titled song and then plans
 // again with none of that declared is admitted, as before. What changed is
 // that the replacement's own result, and the grade under it, now say so. The
-// real harness on a real /mcp session: two sweeps, a screen, two plans and a
-// grade read back as the short verdict.
+// real harness on a real /mcp session: two sweeps, two plans, a screen under
+// each, and a grade read back as the short verdict.
 test(
   'the real chain: a replaced plan says what it is not asked that the first was, on the plan and on the grade',
   { timeout: 420_000 },
@@ -1241,9 +1590,13 @@ test(
     // day, and seed 31's `open` plan draws its chorus twice, so it plans the
     // same returns the first plan did and has no drop to report. Seed 32's
     // `open` plan draws no section twice.
-    const sweep1 = await run('lyric_sweep', { seed_from: 32, count: 1, ...asked });
+    // The plan's relation is the sweep's own (stage 3: relation is a sweep
+    // coordinate); what else the sweep leaves out it draws.
+    const sweep1 = await run(
+      'lyric_sweep',
+      stated({ seed_from: 32, count: 1, ...asked, relation: 'class:RHYME' })
+    );
     const seed1 = sweep1.accepted_shown[0];
-    await run('lyric_screen', { words: ['stove', 'coat'], relation: 'class:RHYME' });
     const plan1 = await run('lyric_plan', {
       seed: seed1,
       ...asked,
@@ -1252,9 +1605,10 @@ test(
     });
     assert.equal(plan1.exit_code, 0, JSON.stringify(plan1).slice(0, 2000));
     assert.equal(Object.hasOwn(plan1, 'plan_lineage'), false, 'a first plan has no lineage');
+    await run('lyric_screen', { words: ['stove', 'coat'], relation: 'class:RHYME' });
 
     // Swept again with only the length declared, and planned.
-    const sweep2 = await run('lyric_sweep', { seed_from: 32, count: 1, lines: 12 });
+    const sweep2 = await run('lyric_sweep', stated({ seed_from: 32, count: 1, lines: 12 }));
     const seed2 = sweep2.accepted_shown[0];
     const plan2 = await run('lyric_plan', { seed: seed2, lines: 12 });
     assert.equal(plan2.exit_code, 0, JSON.stringify(plan2).slice(0, 2000));
@@ -1275,7 +1629,9 @@ test(
     assert.match(lineage.note, /^PLAN REPLACED: this is not the first plan this session recorded/);
     assert.match(lineage.note, /title Kettle and Coat → none/);
 
-    // The grade under the replacement, read back as the short verdict.
+    // The grade under the replacement, read back as the short verdict. The
+    // screen on record is the first plan's: the replacement gets its own first.
+    await run('lyric_screen', { words: ['stove', 'coat'] });
     // The session publishes a plan without its structured copy; the count is its own field.
     const lines = plan2.plan_lines;
     const draft = Array.from(

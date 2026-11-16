@@ -4,6 +4,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { connectConnector } from './client.js';
+import { stated } from './statement_fixture.mjs';
 import { instructionsForTask } from './task_contract.js';
 import { withExecutionContext } from './execution_context.js';
 import { takeLines, LYRIC_TOOL_SCHEMAS, _verdictInternals } from './lyric_tools.js';
@@ -213,7 +214,7 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
     try {
       const kept = [];
       for (let from = 0; kept.length < 5; from += 2) {
-        const r = await host.call('lyric_sweep', { seed_from: from, count: 2, functions });
+        const r = await host.call('lyric_sweep', stated({ seed_from: from, count: 2, functions }));
         kept.push(JSON.parse(r.content.find((b) => b.text.startsWith('{')).text));
       }
       assert.deepEqual(

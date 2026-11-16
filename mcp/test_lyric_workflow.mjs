@@ -12,6 +12,7 @@ import {
 } from './lyric_workflow.js';
 import { runTurn, LIMITS, declarationsFor } from './gemini_agent.js';
 import { _verdictInternals } from './lyric_tools.js';
+import { stated } from './statement_fixture.mjs';
 
 const sha = (v) => createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const fresh = () => ({
@@ -19,9 +20,12 @@ const fresh = () => ({
   domain: 'lyrics',
   phase: 'create',
   brief: 'New love song.',
-  completedSteps: ['lyric_sweep', 'lyric_screen', 'lyric_plan', 'lyric_grade'],
+  completedSteps: ['lyric_sweep', 'lyric_plan', 'lyric_screen', 'lyric_grade'],
 });
-const sweepArgs = { seed_from: 10, count: 10, want: ['lines<=30'] };
+// Every new-song sweep states each STATEABLE thing (stage 3); what this one
+// leaves out is drawn.
+const SWEEP_BASE = { seed_from: 10, count: 10, want: ['lines<=30'] };
+const sweepArgs = stated(SWEEP_BASE);
 const planArgs = { seed: 16, wants: ['lines<=30'] };
 const draft = ['My kettle whistles by the stove', 'Your fingers brush my heavy coat'];
 function planReceipt(seed = 16) {
@@ -85,12 +89,15 @@ function gradeReceipt(p, lines = draft, { code = 3, coverage = assessmentCoverag
 }
 function preplan(t) {
   recordCreation(t, 'lyric_sweep', sweepArgs, { exit_code: 0, accepted_shown: [16, 17] });
-  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
 }
+// The word-check follows the plan, and its receipt is recorded for that plan.
+const screened = (t) =>
+  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
 function planned(t) {
   preplan(t);
   const p = canonical();
   recordCreation(t, 'lyric_plan', planArgs, p);
+  screened(t);
   return p;
 }
 
@@ -117,24 +124,26 @@ test('only accepted sweep seeds and unchanged declared structural predicates rea
     assert.match(creationRefusal(t, 'lyric_plan', args), /CREATION_PLAN/);
 });
 
-test('a later sweep page keeps the screen receipt, so its seed plans without a re-screen', () => {
-  // Paging the sweep used to wipe the screen receipt, forcing a screen of
-  // any words at all (nothing checks which) before the new page's seed could
-  // be planned. The screen records that the step ran in this session.
+test('a later sweep page keeps the screen receipt of the recorded plan, and its seed plans without a screen', () => {
+  // Paging the sweep used to wipe the screen receipt. The receipt names the
+  // plan it ran under, and a sweep leaves it alone: the recorded plan's grade
+  // is still admitted, and the new page's seed plans with no screen first.
   const t = fresh();
-  preplan(t);
+  const p = planned(t);
   recordCreation(
     t,
     'lyric_sweep',
     { ...sweepArgs, seed_from: 20 },
     { exit_code: 0, accepted_shown: [22] }
   );
+  assert.equal(t.workflow.screen.plan_sha256, p.plan_sha256);
+  assert.equal(creationRefusal(t, 'lyric_grade', { seed: 16, draft }), null);
   assert.equal(creationRefusal(t, 'lyric_plan', { seed: 22, wants: planArgs.wants }), null);
   // The refusal for a plan that does not repeat the sweep names every field
   // the receipt compares, melody included.
   assert.match(
     creationRefusal(t, 'lyric_plan', { seed: 22, wants: planArgs.wants, melody: '{}' }),
-    /form, lines, functions and melody, and its `want` list as `wants`/
+    /form, lines, functions, relation and melody, and its `want` list as `wants`/
   );
 });
 
@@ -281,6 +290,7 @@ test('explicit narrative survives canonical plan receipts and omitted continuati
   const declared = { ...planArgs, narrative: 'establish, resolve / therefore' };
   recordCreation(t, 'lyric_plan', declared, p);
   assert.ok(t.workflow.plan);
+  screened(t);
   const gradeArgs = { seed: 16, draft };
   assert.equal(creationRefusal(t, 'lyric_grade', gradeArgs), null);
   assert.equal(gradeArgs.narrative, 'ESTABLISH,RESOLVE/THEREFORE');
@@ -529,13 +539,13 @@ test('kitchen declarations retain the recovery export door during suspended and 
   }
 });
 
-test('actual driver qualifies only successful sweep-screen-program-plan-exact-grade-revise sequence', async () => {
+test('actual driver qualifies only successful sweep-program-plan-screen-exact-grade-revise sequence', async () => {
   const p = canonical();
   const artifact = draft.join('\n') + '\n[FINISHED]';
   const actions = [
     fc('lyric_sweep', sweepArgs),
-    fc('lyric_screen', { words: ['stove', 'coat'] }),
     fc('lyric_plan', planArgs),
+    fc('lyric_screen', { words: ['stove', 'coat'] }),
     fc('lyric_grade', { seed: 16, draft }),
     fc('lyric_revise', { seed: 16, draft }),
   ];
@@ -619,17 +629,15 @@ test('creation carries melody and refuses a changed tune', () => {
     subdivision: 1,
     notes: [{ pitch_hz: 432.5, ticks: 8 }],
   };
-  recordCreation(
-    t,
-    'lyric_sweep',
-    { ...sweepArgs, melody: JSON.stringify(melody) },
-    { exit_code: 0, accepted_shown: [16] }
-  );
-  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
+  recordCreation(t, 'lyric_sweep', stated({ ...SWEEP_BASE, melody: JSON.stringify(melody) }), {
+    exit_code: 0,
+    accepted_shown: [16],
+  });
   const p = canonical();
   p.plan.request.melody = melody;
   p.plan_sha256 = sha(p.plan);
   recordCreation(t, 'lyric_plan', { ...planArgs, melody: JSON.stringify(melody) }, p);
+  screened(t);
   const args = { ...planArgs, draft };
   creationRefusal(t, 'lyric_grade', args);
   assert.deepEqual(JSON.parse(args.melody), melody);
@@ -840,7 +848,7 @@ test('a refused plan says what the recorded sweeps hold, bounded, and never prin
   assert.ok(
     differs.includes(
       'Recorded sweeps that accepted seed 16, newest first: (1) form open, lines none, ' +
-        'functions none, melody none, want ["lines<=30"]; this call differs in lines, ' +
+        'functions none, relation none, melody none, want ["lines<=30"]; this call differs in lines, ' +
         "wants (the sweep's `want`)."
     ),
     differs
@@ -852,7 +860,14 @@ test('a refused plan says what the recorded sweeps hold, bounded, and never prin
   recordCreation(
     t,
     'lyric_sweep',
-    { seed_from: 20, count: 10, lines: 12, functions: 'verse,chorus', melody, want: ['a=b,c'] },
+    stated({
+      seed_from: 20,
+      count: 10,
+      lines: 12,
+      functions: 'verse,chorus',
+      melody,
+      want: ['a=b,c'],
+    }),
     { exit_code: 0, accepted_shown: [21, 22, 23, 24, 25, 26, 27] }
   );
   const none = creationRefusal(t, 'lyric_plan', { seed: 99 });
@@ -860,21 +875,19 @@ test('a refused plan says what the recorded sweeps hold, bounded, and never prin
     none.includes(
       'No recorded sweep accepted seed 99. Recorded sweeps, newest first: ' +
         '(1) accepted seeds [21,22,23,24,25] and 2 more; form open, lines 12, ' +
-        'functions ["chorus","verse"], melody declared, want ["a=b,c"]; ' +
+        'functions ["chorus","verse"], relation none, melody declared, want ["a=b,c"]; ' +
         '(2) accepted seeds [16,17]; form open, lines none, functions none, ' +
-        'melody none, want ["lines<=30"].'
+        'relation none, melody none, want ["lines<=30"].'
     ),
     none
   );
   assert.ok(!none.includes('secret_melody_marker'), 'a melody is never printed');
   // Bounded: the newest three sweeps, and how many older ones were left out.
   for (const from of [30, 40, 50])
-    recordCreation(
-      t,
-      'lyric_sweep',
-      { seed_from: from, count: 1 },
-      { exit_code: 0, accepted_shown: [from + 1] }
-    );
+    recordCreation(t, 'lyric_sweep', stated({ seed_from: from, count: 1 }), {
+      exit_code: 0,
+      accepted_shown: [from + 1],
+    });
   const bounded = creationRefusal(t, 'lyric_plan', { seed: 99 });
   assert.match(bounded, /\(1\) accepted seeds \[51\].*\(3\) accepted seeds \[31\]/);
   assert.ok(!bounded.includes('[21,'), bounded);
@@ -962,7 +975,13 @@ function lineagePlan(seed, { request = {}, plan = {} } = {}) {
 // A first plan that asks for a returning form, a rhyme and a title, and the
 // plan a session falls back to after re-sweeping with none of it declared.
 const FIRST = {
-  sweep: { seed_from: 10, count: 2, form: 'verse-chorus', lines: 2 },
+  sweep: stated({
+    seed_from: 10,
+    count: 2,
+    form: 'verse-chorus',
+    lines: 2,
+    relation: 'class:RHYME',
+  }),
   args: {
     seed: 16,
     form: 'verse-chorus',
@@ -987,16 +1006,16 @@ const FIRST = {
     }),
 };
 const SECOND = {
-  sweep: { seed_from: 20, count: 2 },
+  sweep: stated({ seed_from: 20, count: 2 }),
   args: { seed: 21 },
   receipt: () => lineagePlan(21),
 };
 function plannedTwice(t) {
   recordCreation(t, 'lyric_sweep', FIRST.sweep, { exit_code: 0, accepted_shown: [16] });
-  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
   const first = FIRST.receipt();
   recordCreation(t, 'lyric_plan', FIRST.args, first);
   assert.equal(t.workflow.plan.sha256, first.plan_sha256, 'the first plan is recorded');
+  screened(t);
   assert.equal(planLineage(t), null, 'a session on its first plan has no lineage');
   recordCreation(t, 'lyric_sweep', SECOND.sweep, { exit_code: 0, accepted_shown: [21] });
   const second = SECOND.receipt();
@@ -1098,8 +1117,8 @@ test('no lineage on a first plan, a repeated plan, the first plan again, or an e
 test('same declarations under another seed: the drawn shape is named, no declaration is (#676)', () => {
   const t = fresh();
   recordCreation(t, 'lyric_sweep', SECOND.sweep, { exit_code: 0, accepted_shown: [21, 22] });
-  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
   recordCreation(t, 'lyric_plan', { seed: 21 }, lineagePlan(21));
+  screened(t);
   recordCreation(
     t,
     'lyric_plan',
@@ -1127,19 +1146,17 @@ test('the first plan is compared, not the one before; a melody is never printed 
   const other = '{"notes":[60,64]}';
   const withTune = (seed, melody, extra = {}) =>
     lineagePlan(seed, { request: { melody: JSON.parse(melody), ...extra } });
-  recordCreation(
-    t,
-    'lyric_sweep',
-    { seed_from: 1, count: 1, melody: tune },
-    { exit_code: 0, accepted_shown: [1] }
-  );
-  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
+  recordCreation(t, 'lyric_sweep', stated({ seed_from: 1, count: 1, melody: tune }), {
+    exit_code: 0,
+    accepted_shown: [1],
+  });
   recordCreation(
     t,
     'lyric_plan',
     { seed: 1, melody: tune, title: 'Salt and Rain' },
     withTune(1, tune, { title: 'Salt and Rain' })
   );
+  screened(t);
   // Step 1 drops the title; step 2 changes the tune. Each step alone is one
   // change; against the FIRST plan the second step shows both.
   recordCreation(t, 'lyric_plan', { seed: 1, melody: tune }, withTune(1, tune));
@@ -1147,12 +1164,10 @@ test('the first plan is compared, not the one before; a melody is never printed 
     planLineage(t).declared_changes.map((c) => c.field),
     ['title']
   );
-  recordCreation(
-    t,
-    'lyric_sweep',
-    { seed_from: 2, count: 1, melody: other },
-    { exit_code: 0, accepted_shown: [2] }
-  );
+  recordCreation(t, 'lyric_sweep', stated({ seed_from: 2, count: 1, melody: other }), {
+    exit_code: 0,
+    accepted_shown: [2],
+  });
   recordCreation(t, 'lyric_plan', { seed: 2, melody: other }, withTune(2, other));
   const lineage = planLineage(t);
   assert.deepEqual(lineage.declared_changes, [
@@ -1166,8 +1181,8 @@ test('the first plan is compared, not the one before; a melody is never printed 
 test('a session saved before the record was kept takes the plan it holds as its first (#676)', () => {
   const t = fresh();
   recordCreation(t, 'lyric_sweep', FIRST.sweep, { exit_code: 0, accepted_shown: [16] });
-  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
   recordCreation(t, 'lyric_plan', FIRST.args, FIRST.receipt());
+  screened(t);
   delete t.workflow.first_plan; // as an older session was stored
   assert.equal(planLineage(t), null);
   recordCreation(t, 'lyric_sweep', SECOND.sweep, { exit_code: 0, accepted_shown: [21] });

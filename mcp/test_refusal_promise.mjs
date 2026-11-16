@@ -14,7 +14,8 @@ import { createHash, randomBytes } from 'node:crypto';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { LEXICON_MANIFEST } from './lexicon_basis.js';
-import { recordCreation } from './lyric_workflow.js';
+import { FORM_ROWS, recordCreation } from './lyric_workflow.js';
+import { stated } from './statement_fixture.mjs';
 import { _verdictInternals } from './lyric_tools.js';
 import { JobStore } from './job_store.js';
 import { INTEGRATION, WorkflowSessions, executeNative } from './workflow_sessions.js';
@@ -26,7 +27,7 @@ const sha = (v) => createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const hex = () => randomBytes(32).toString('hex');
 const draft = ['My kettle whistles by the stove', 'Your fingers brush my heavy coat'];
 const other = ['A different opening line', 'A different closing line'];
-const sweepArgs = { seed_from: 10, count: 10, want: ['lines<=30'] };
+const sweepArgs = stated({ seed_from: 10, count: 10, want: ['lines<=30'] });
 const planArgs = { seed: 16, wants: ['lines<=30'] };
 
 function planReceipt() {
@@ -83,11 +84,16 @@ const gradeReceipt = (p, lines = draft) => ({
 // Receipts recorded on a session's native task, as the client records them.
 const swept = (t) =>
   recordCreation(t, 'lyric_sweep', sweepArgs, { exit_code: 0, accepted_shown: [16, 17] });
-function planned(t) {
+// Swept and planned: the word-check follows the plan, so none is on record yet.
+function unscreened(t) {
   swept(t);
-  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
   const p = planReceipt();
   recordCreation(t, 'lyric_plan', planArgs, p);
+  return p;
+}
+function planned(t) {
+  const p = unscreened(t);
+  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
   return p;
 }
 function graded(t) {
@@ -180,9 +186,9 @@ const row = (spec) => ROWS.push(spec);
 // --- The creation gate (lyric_workflow.js), through the real client.
 row({
   code: 'CREATION_ORDER',
-  where: 'lyric_workflow.js: screen before a sweep',
+  where: 'lyric_workflow.js: screen before a plan',
   shape: 'receipt',
-  phrases: ['lyric_sweep'],
+  phrases: ['lyric_sweep', 'lyric_plan'],
   reach: async (r) =>
     r.call('lyric_screen', { session_id: r.seed('lyrics'), words: ['stove', 'coat'] }),
 });
@@ -204,22 +210,78 @@ row({
 });
 row({
   code: 'CREATION_ORDER',
-  where: 'lyric_workflow.js: plan before sweep and screen',
+  where: 'lyric_workflow.js: plan before a sweep',
   shape: 'receipt',
-  phrases: ['lyric_sweep', 'lyric_screen'],
+  phrases: ['lyric_sweep'],
   reach: async (r) => r.call('lyric_plan', { session_id: r.seed('lyrics'), seed: 16 }),
+});
+// Stage 3: a new-song sweep states form, length, sections, rhyme and time.
+row({
+  code: 'CREATION_STATEMENT',
+  where: 'lyric_workflow.js: a new-song sweep that leaves a thing out',
+  shape: 'receipt',
+  phrases: ['NEXT: lyric_sweep stating', 'in `draw`'],
+  reach: async (r) =>
+    r.call('lyric_sweep', { session_id: r.seed('lyrics'), seed_from: 0, count: 1 }),
+});
+row({
+  code: 'CREATION_STATEMENT',
+  where: 'lyric_workflow.js: a new-song sweep that gives one field a value and a draw',
+  shape: 'receipt',
+  phrases: ['send one of the two', 'NEXT: lyric_sweep with lines as a value or in `draw`'],
+  reach: async (r) =>
+    r.call('lyric_sweep', {
+      session_id: r.seed('lyrics'),
+      seed_from: 0,
+      count: 1,
+      ...stated({}),
+      lines: FORM_ROWS[0].min_lines,
+    }),
 });
 row({
   code: 'CREATION_ORDER',
-  where: 'lyric_workflow.js: plan after a screen that ran but did not answer (F8)',
+  where: 'lyric_workflow.js: grade with no screen under the plan',
   shape: 'receipt',
-  phrases: ['call lyric_screen again'],
+  phrases: ['lyric_screen', 'then lyric_grade with seed 16'],
   reach: async (r) =>
-    r.call('lyric_plan', {
+    r.call('lyric_grade', { session_id: r.seed('lyrics', lyrics(unscreened)), seed: 16, draft }),
+});
+row({
+  code: 'CREATION_ORDER',
+  where: 'lyric_workflow.js: grade after the planner changed between plan and grade',
+  shape: 'receipt',
+  phrases: ['Call lyric_plan again with seed 16', 'NEXT: lyric_plan with seed 16'],
+  reach: async (r) =>
+    r.call('lyric_grade', {
       session_id: r.seed(
         'lyrics',
         lyrics((t) => {
-          swept(t);
+          unscreened(t);
+          const plan = t.workflow.plan.sha256;
+          t.workflow.screen = { words: ['stove', 'coat'], relation: null, plan_sha256: plan };
+          t.workflow.grade_attempt = {
+            plan_sha256: plan,
+            draft_sha256: 'f'.repeat(64),
+            exit_code: 3,
+            cause: 'plan_changed',
+          };
+        })
+      ),
+      seed: 16,
+      draft,
+    }),
+});
+row({
+  code: 'CREATION_ORDER',
+  where: 'lyric_workflow.js: grade after a screen under the plan that ran but did not answer (F8)',
+  shape: 'receipt',
+  phrases: ['call lyric_screen again'],
+  reach: async (r) =>
+    r.call('lyric_grade', {
+      session_id: r.seed(
+        'lyrics',
+        lyrics((t) => {
+          unscreened(t);
           recordCreation(
             t,
             'lyric_screen',
@@ -229,6 +291,7 @@ row({
         })
       ),
       seed: 16,
+      draft,
     }),
 });
 row({
@@ -238,13 +301,7 @@ row({
   phrases: ['lyric_sweep'],
   reach: async (r) =>
     r.call('lyric_plan', {
-      session_id: r.seed(
-        'lyrics',
-        lyrics((t) => {
-          swept(t);
-          recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
-        })
-      ),
+      session_id: r.seed('lyrics', lyrics(swept)),
       seed: 99,
     }),
 });
@@ -255,13 +312,7 @@ row({
   phrases: ['lyric_plan'],
   reach: async (r) =>
     r.call('lyric_grade', {
-      session_id: r.seed(
-        'lyrics',
-        lyrics((t) => {
-          swept(t);
-          recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
-        })
-      ),
+      session_id: r.seed('lyrics', lyrics(swept)),
       seed: 16,
       draft,
     }),
@@ -1021,10 +1072,10 @@ test('each refusal arrives in the shape the receipt sentence promises', async ()
   // The init text's receipt sentence (workflow_tools.js) against the rows a
   // published schema reaches: either change to it shows here.
   console.log(`receipt split, published schema: ${JSON.stringify(shapes)}`);
-  assert.deepEqual(shapes, { receipt: 23, bare: 24 });
+  assert.deepEqual(shapes, { receipt: 27, bare: 24 });
 });
 
-test('every coded refusal in the source has a row, and the gate has 14 texts', () => {
+test('every coded refusal in the source has a row, and the gate has 17 texts', () => {
   const rowsFor = (code) => ROWS.filter((r) => r.code === code).length;
   const sessions = source('./workflow_sessions.js');
   const sites = {};
@@ -1056,7 +1107,7 @@ test('every coded refusal in the source has a row, and the gate has 14 texts', (
       .match(/[`'"]CREATION_[A-Z]+: [^`'"$]*/g)
       .map((s) => s.slice(1));
   const gate = literals('./lyric_workflow.js');
-  assert.equal(gate.length, 14, gate.join('\n'));
+  assert.equal(gate.length, 17, gate.join('\n'));
   const client = literals('./client.js');
   assert.equal(client.length, 2, client.join('\n'));
   for (const prefix of [...gate, ...client]) {

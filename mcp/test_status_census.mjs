@@ -30,9 +30,12 @@ import { LEXICON_MANIFEST } from './lexicon_basis.js';
 import { _verdictInternals } from './lyric_tools.js';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { stated } from './statement_fixture.mjs';
 import {
+  FORM_ROWS,
   OUTCOME_ACTORS,
   OUTCOME_KINDS,
+  STATEABLE,
   creationRefusal,
   noneKeptMeaning,
   outcomeOf,
@@ -68,7 +71,7 @@ const CASES = [
     'a sweep that accepted a seed',
     'lyric_sweep',
     { exit_code: 0, sweep_outcome: 'accepted', accepted_shown: [7] },
-    { kind: 'next_call', by: 'writer', call: call('lyric_screen') },
+    { kind: 'next_call', by: 'writer', call: call('lyric_plan') },
   ],
   [
     'a sweep whose every seed the planner refused for the seed’s own draw',
@@ -113,13 +116,13 @@ const CASES = [
     'a word-check with no banned pair',
     'lyric_screen',
     { exit_code: 0, pairs: [] },
-    { kind: 'next_call', by: 'writer', call: call('lyric_plan') },
+    { kind: 'next_call', by: 'writer', call: call('lyric_grade') },
   ],
   [
     'a word-check that names a banned pair',
     'lyric_screen',
     { exit_code: 3, pairs: [] },
-    { kind: 'next_call', by: 'writer', call: call('lyric_plan') },
+    { kind: 'next_call', by: 'writer', call: call('lyric_grade') },
   ],
   [
     'a word-check that was refused',
@@ -487,7 +490,7 @@ test('the raw engine publishes the outcome on real results', { timeout: 600_000 
     );
     assert.equal(sweep.exit_code, 0);
     assert.deepEqual(sweep.outcome, outcomeOf('lyric_sweep', sweep));
-    assert.equal(sweep.outcome.call.tool, 'lyric_screen');
+    assert.equal(sweep.outcome.call.tool, 'lyric_plan');
     const seed = sweep.accepted_shown[0];
     const plan = verdictOf(await client.callTool({ name: 'lyric_plan', arguments: { seed } }));
     assert.equal(plan.exit_code, 0);
@@ -845,9 +848,9 @@ function started() {
       accepted_shown: [16, 17],
     }
   );
-  recordCreation(t, 'lyric_screen', { words: ['<word>', '<word>'] }, { exit_code: 0 });
   const p = planReceipt();
   recordCreation(t, 'lyric_plan', { seed: 16, wants: ['lines<=30'] }, p);
+  recordCreation(t, 'lyric_screen', { words: ['<word>', '<word>'] }, { exit_code: 0 });
   recordCreation(t, 'lyric_grade', { seed: 16, draft: LINES }, gradeReceipt(p));
   recordCreation(t, 'lyric_revise', { seed: 16, draft: LINES }, { exit_code: 3 });
   assert.ok(t.workflow.started, 'the receipts record');
@@ -968,6 +971,73 @@ test('a host that keeps receipts names the call its own gate admits', () => {
     );
     assert.equal(refusal, null, `${what}: the gate admits the named call`);
   }
+});
+
+// THE WORD-CHECK FOLLOWS THE PLAN. A new song's calls come in the order sweep,
+// plan, word-check, grade. The verdict alone names the next tool in that
+// order. A host that keeps receipts names the call its gate admits, so a
+// grade reached for under a plan with no word-check is that word-check.
+const nextCall = (c) => ({ kind: 'next_call', by: 'writer', call: c });
+test('the verdict alone: a kept sweep names the plan, an answered word-check names the grade', () => {
+  const sweep = { exit_code: 0, sweep_outcome: 'accepted', accepted_shown: [16, 17] };
+  assert.deepEqual(outcomeOf('lyric_sweep', sweep), nextCall(call('lyric_plan')));
+  // Answered with no banned pair, and answered naming one.
+  for (const exit_code of [0, 3])
+    assert.deepEqual(
+      outcomeOf('lyric_screen', { exit_code, pairs: [] }),
+      nextCall(call('lyric_grade')),
+      `exit ${exit_code}`
+    );
+});
+
+test('a host that keeps receipts: after the plan the call is the word-check, and after the word-check the grade', () => {
+  const t = { domain: 'lyrics', phase: 'create' };
+  const sweepArgs = { seed_from: 10, count: 10, want: ['lines<=30'] };
+  const sweep = { exit_code: 0, sweep_outcome: 'accepted', accepted_shown: [16, 17] };
+  recordCreation(t, 'lyric_sweep', sweepArgs, sweep);
+  // After the sweep: the plan, with the seed and the sweep's own wants. Sent
+  // as named, it is admitted with no word-check on record.
+  const planCall = call('lyric_plan', { seed: 16, wants: ['lines<=30'] });
+  assert.deepEqual(
+    sessionOutcome(structuredClone(t), 'lyric_sweep', sweep, null, sweepArgs),
+    nextCall(planCall)
+  );
+  assert.equal(creationRefusal(t, planCall.tool, structuredClone(planCall.args)), null);
+  const p = planReceipt();
+  recordCreation(t, 'lyric_plan', planCall.args, p);
+  assert.equal(t.workflow.plan?.sha256, p.plan_sha256, 'the plan records with no word-check');
+  // After the plan: the word-check, whichever call the verdict itself names
+  // (the raw plan's grade, or the word-check a session has already put there).
+  for (const named of [call('lyric_grade', { seed: 16 }), call('lyric_screen')]) {
+    const verdict = { ...p, next: '<sentence>', next_call: named };
+    assert.deepEqual(outcomeOf('lyric_plan', verdict), nextCall(named));
+    assert.deepEqual(
+      sessionOutcome(structuredClone(t), 'lyric_plan', verdict, null, planCall.args),
+      nextCall(call('lyric_screen')),
+      `the plan verdict names ${named.tool}`
+    );
+  }
+  // The grade is refused until then. The word-check, sent as named with the
+  // words only the caller can supply, is admitted.
+  assert.match(
+    creationRefusal(structuredClone(t), 'lyric_grade', { seed: 16, draft: LINES }),
+    /^CREATION_ORDER: lyric_grade needs one answered lyric_screen under this plan/
+  );
+  const words = { words: ['<word>', '<word>'] };
+  assert.equal(
+    creationRefusal(t, 'lyric_screen', { ...call('lyric_screen').args, ...words }),
+    null
+  );
+  const screened = { exit_code: 0, pairs: [] };
+  recordCreation(t, 'lyric_screen', words, screened);
+  // After the word-check: the grade, with the plan's seed. Sent as named with
+  // the draft, it is admitted.
+  const afterScreen = sessionOutcome(structuredClone(t), 'lyric_screen', screened, null, words);
+  assert.deepEqual(afterScreen, nextCall(call('lyric_grade', { seed: 16 })));
+  assert.equal(
+    creationRefusal(t, afterScreen.call.tool, { ...afterScreen.call.args, draft: LINES }),
+    null
+  );
 });
 
 // PART 4. A SESSION RECEIPT WITH NO VERDICT. A real session server over a real
@@ -1293,6 +1363,50 @@ test('a retired id is followed to its successor, or the workflow is opened again
   assert.equal(receiptOf(successor).operation_id, child.operation_id);
 });
 
+// Stage 3: a sweep that leaves a thing out waits on the person, with the rows
+// it leaves out as data; one that gives a field a value and a draw is the
+// writer's to settle. Each outcome, followed with what it lists, is admitted.
+test('a new-song sweep refused for its statements is a decision, with the rows or fields as data', async (t) => {
+  const sessions = new WorkflowSessions({ store: storeFor(t).store });
+  const client = await sessionClient(t, sessions);
+  const settled = async (receipt) => {
+    await sessions.wait(receipt.operation_id);
+    return send(client, 'get_operation', { operation_id: receipt.operation_id });
+  };
+  const opened = await send(client, 'begin_lyrics', {});
+  const left = await settled(
+    await send(client, 'lyric_sweep', { session_id: opened.session_id, seed_from: 0, count: 1 })
+  );
+  assert.equal(left.tool_error, true);
+  assert.deepEqual(left.outcome, {
+    kind: 'decision',
+    by: 'person',
+    call: { tool: 'lyric_sweep', args: {} },
+    missing: STATEABLE.map(({ thing, field, draw }) => ({ thing, field, draw })),
+  });
+  const twice = await settled(
+    await send(client, 'lyric_sweep', {
+      session_id: left.session_id,
+      ...stated({ seed_from: 0, count: 1 }),
+      lines: FORM_ROWS[0].min_lines,
+    })
+  );
+  assert.equal(twice.tool_error, true);
+  assert.deepEqual(twice.outcome, {
+    kind: 'decision',
+    by: 'writer',
+    call: { tool: 'lyric_sweep', args: {} },
+    conflict: ['lines'],
+  });
+  for (const kind of [twice.outcome.kind, left.outcome.kind])
+    assert.ok(OUTCOME_KINDS.includes(kind));
+  // Followed with every listed row stated: the gate admits it (it queues).
+  const next = await follow(client, twice, stated({ seed_from: 0, count: 1 }));
+  assert.notEqual(next.isError, true);
+  assert.equal(receiptOf(next).status, 'pending');
+  await sessions.wait(receiptOf(next).operation_id);
+});
+
 test('a call refused in a new-song session names the call its gate admits', async (t) => {
   const sessions = new WorkflowSessions({
     store: storeFor(t).store,
@@ -1346,12 +1460,13 @@ test(
     for (let seed = 1; seed <= 6; seed++) {
       let at = await send(client, 'begin_lyrics', {});
       at = await settled(
-        await send(client, 'lyric_sweep', { session_id: at.session_id, seed_from: seed, count: 1 })
+        await send(
+          client,
+          'lyric_sweep',
+          stated({ session_id: at.session_id, seed_from: seed, count: 1 })
+        )
       );
       assert.equal(at.tool_error, undefined, at.tool_result.content[0].text.slice(0, 300));
-      at = await settled(
-        await send(client, 'lyric_screen', { session_id: at.session_id, words: ['aa', 'bb'] })
-      );
       const plan = await settled(
         await send(client, 'lyric_plan', { session_id: at.session_id, seed })
       );
@@ -1362,14 +1477,29 @@ test(
       longest = Math.max(longest, v.plan_lines);
       // The verdict carries no structured copy, and its size does not follow the plan.
       assert.equal(Object.hasOwn(v, 'plan'), false);
-      assert.ok(verdictBlock.text.length < 2000, `seed ${seed}: ${verdictBlock.text.length}`);
+      // `statements` (stage 3) is bounded by its own tables, not by the song:
+      // each relation type once, each section function once.
+      const statementChars = JSON.stringify(v.statements).length;
+      assert.ok(
+        verdictBlock.text.length - statementChars < 2000,
+        `seed ${seed}: ${verdictBlock.text.length}`
+      );
+      const rows = Object.fromEntries(v.statements.rows.map((r) => [r.field, r.value]));
+      assert.equal(new Set(rows.relation.types).size, rows.relation.types.length, 'each type once');
+      assert.equal(
+        new Set(rows.functions.functions).size,
+        rows.functions.functions.length,
+        'each function once'
+      );
       assert.ok(
         brief.text.length + verdictBlock.text.length < DROPPED / 2,
         `seed ${seed}: ${v.plan_lines} lines publish ${brief.text.length + verdictBlock.text.length} characters`
       );
-      // Who acts next is on it, and the brief is the stored brief.
+      // Who acts next is on it, and the brief is the stored brief. The call
+      // is the word-check this plan's grade needs first.
       assert.equal(v.outcome.kind, 'next_call');
       assert.deepEqual(v.outcome.call, v.next_call);
+      assert.deepEqual(v.next_call, { tool: 'lyric_screen', args: {} });
       assert.equal(typeof v.next, 'string');
       const full = await send(client, 'get_operation', {
         operation_id: plan.operation_id,
@@ -1425,12 +1555,11 @@ test(
     let read = null;
     for (const fn of roster) {
       const opened = await send(client, 'begin_lyrics', {});
-      const queued = await send(client, 'lyric_sweep', {
-        session_id: opened.session_id,
-        seed_from: 0,
-        count: 2,
-        functions: fn,
-      });
+      const queued = await send(
+        client,
+        'lyric_sweep',
+        stated({ session_id: opened.session_id, seed_from: 0, count: 2, functions: fn })
+      );
       await sessions.wait(queued.operation_id);
       const done_ = await send(client, 'get_operation', { operation_id: queued.operation_id });
       const v = JSON.parse(done_.tool_result.content[0].text);

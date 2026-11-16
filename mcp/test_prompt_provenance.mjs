@@ -35,7 +35,7 @@
 //      with no words in it — or a reviewed row covers THAT occurrence.
 //   3. An unquoted "a, b, c, …" list of words is covered by reviewed rows.
 //   4. No numeric song shape ("N lines", "lines<=N", …) is stated.
-//   5. A stated default form is DEFAULT_FORM, and DEFAULT_FORM is `open`.
+//   5. No surface offers a default form (stage 3), and DEFAULT_FORM is `open`.
 //   6. No word list or ban is stated to the writer (#627).
 //   7. Nothing #629 removed comes back, anywhere in this text.
 //   8. search_prefaces descriptions name no catalog preface ids (#671).
@@ -535,7 +535,10 @@ test('4. no numeric song shape is stated', () => {
   assert.deepEqual(bad, [], 'a line count or shape was stated to a model');
 });
 
-test('5. a stated default form is DEFAULT_FORM, and that is open', () => {
+// STATE IT OR SAY DRAW (stage 3): no surface offers a default form any more.
+// A new-song sweep names its form; the raw engine still plans DEFAULT_FORM
+// when none is named, and says nothing about it.
+test('5. no surface offers a default form, and DEFAULT_FORM is open', () => {
   assert.equal(
     DEFAULT_FORM,
     'open',
@@ -547,8 +550,7 @@ test('5. a stated default form is DEFAULT_FORM, and that is open', () => {
   );
   const said = [];
   for (const s of unique()) for (const m of s.text.matchAll(re)) said.push([m[1], where(s)]);
-  assert.ok(said.length > 0, 'no surface states the default form; this check reads nothing');
-  for (const [form, at] of said) assert.equal(form, DEFAULT_FORM, `${at} states default ${form}`);
+  assert.deepEqual(said, [], 'a surface offers a default form');
 });
 
 test('6. no word list or ban is stated to the writer (#627)', () => {

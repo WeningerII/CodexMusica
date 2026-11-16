@@ -69,7 +69,7 @@ returned, not that a song is certified. The envelope's `resumable` describes an
 interrupted operation; a completed lyric tool's own verdict describes whether its
 revision can continue through `lyric_revise`.
 
-Creation executes sweep → screen → plan → exact-draft grade → revise through
+Creation executes sweep → plan → screen → exact-draft grade → revise through
 the maintained client. To set a length, declare an exact `lines` count on the
 sweep and carry the sweep's declarations unchanged to the plan. A request to
 write a song is a lyric request. The server persists executed receipts and rejects skipped
@@ -192,7 +192,7 @@ installed plugin for these conversations:
 | --- | --- |
 | “Blend delta blues with dream pop; give the voice a worn sound.” | Catalog IDs resolved; both traditions retained; requested voice edits appear in the exact engine recipe and warnings are read. |
 | “Make that prose,” then change the shared room or move the primary instrument. | Same session/workspace continues; explicit view and edits match the browser engine; output stays at most 1,000 characters in all four formats. |
-| Create a new song with stated structural wants. | Actual sweep, successful screen, plan, exact-draft grade and revision receipts; declarations preserved across calls. |
+| Create a new song with stated structural wants. | Actual sweep, plan, successful screen under that plan, exact-draft grade and revision receipts; declarations preserved across calls. |
 | Check/revise supplied existing lyrics. | Edit phase; actual coverage and stop/certification reported; ChatGPT answers every revise question. |
 | Disconnect while lyric work is pending, then reconnect. | Poll retrieves the same operation without repeating it; latest session continues the task. |
 | Restart after a safe checkpoint or an unknown provider outcome. | Safe explicit resume preserves accepted work; unknown outcome exports the draft and blocks replay. |

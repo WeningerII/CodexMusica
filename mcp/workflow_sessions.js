@@ -129,7 +129,7 @@ const storeAdmissionRefusal = (error, maxRecords, domain) => {
 // - refused, in a new-song session: the call the creation gate admits next,
 //   the same data its NEXT line is printed from.
 const act = (kind, tool, args = {}) => ({ kind, by: 'writer', call: { tool, args } });
-function receiptOutcome(receipt, session, domain) {
+function receiptOutcome(receipt, session, domain, args = null) {
   const id = receipt.operation_id;
   if (receipt.status === 'pending') return act('next_call', 'get_operation', { operation_id: id });
   if (receipt.status === 'retired') {
@@ -163,9 +163,27 @@ function receiptOutcome(receipt, session, domain) {
     const next = nextCreationCall(
       clone(session.native?.task ?? null),
       session.native?.continuation,
-      receipt.tool
+      receipt.tool,
+      args
     );
-    if (next) return act('next_call', next.first ?? next.tool, next.first ? {} : next.args);
+    // A sweep refused for what it leaves out: what the song is to be is the
+    // person's to say, so the sweep waits on their answer. The rows it left
+    // out travel as data. A value stated twice is the writer's to settle.
+    if (next?.missing?.length)
+      return {
+        kind: 'decision',
+        by: 'person',
+        call: { tool: next.tool, args: next.args },
+        missing: next.missing.map(({ thing, field, draw }) => ({ thing, field, draw })),
+      };
+    if (next?.conflict?.length)
+      return {
+        kind: 'decision',
+        by: 'writer',
+        call: { tool: next.tool, args: next.args },
+        conflict: [...next.conflict],
+      };
+    if (next) return act('next_call', next.tool, next.args);
   }
   return null;
 }
@@ -1039,7 +1057,7 @@ export class WorkflowSessions {
         record.proposer_usage?.accounting_unknown
       ),
     };
-    const outcome = receiptOutcome(receipt, session, domain);
+    const outcome = receiptOutcome(receipt, session, domain, record.intent.action?.arguments);
     return outcome ? { ...receipt, outcome } : receipt;
   }
 

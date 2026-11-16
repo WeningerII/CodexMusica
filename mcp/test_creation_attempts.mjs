@@ -8,12 +8,13 @@ import { createHash, randomBytes } from 'node:crypto';
 import { LEXICON_MANIFEST } from './lexicon_basis.js';
 import { creationRefusal, recordCreation, creationQualified } from './lyric_workflow.js';
 import { _verdictInternals } from './lyric_tools.js';
+import { stated } from './statement_fixture.mjs';
 import { JobStore } from './job_store.js';
 import { INTEGRATION, WorkflowSessions, executeNative } from './workflow_sessions.js';
 
 const sha = (v) => createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const fresh = () => ({ domain: 'lyrics', phase: 'create' });
-const sweepArgs = { seed_from: 10, count: 10, want: ['lines<=30'] };
+const sweepArgs = stated({ seed_from: 10, count: 10, want: ['lines<=30'] });
 const planArgs = { seed: 16, wants: ['lines<=30'] };
 const draft = ['My kettle whistles by the stove', 'Your fingers brush my heavy coat'];
 const other = ['A different opening line', 'A different closing line'];
@@ -82,23 +83,30 @@ const crashVerdict = () =>
 function swept(t) {
   recordCreation(t, 'lyric_sweep', sweepArgs, { exit_code: 0, accepted_shown: [16, 17] });
 }
-function planned(t) {
+// Swept and planned: the word-check follows the plan, so none is on record yet.
+function unscreened(t) {
   swept(t);
-  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
   const p = planReceipt();
   recordCreation(t, 'lyric_plan', planArgs, p);
   assert.ok(t.workflow.plan);
   return p;
 }
+function planned(t) {
+  const p = unscreened(t);
+  recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 0 });
+  assert.equal(t.workflow.screen.plan_sha256, p.plan_sha256);
+  return p;
+}
 const revise = (t, lines = draft) => creationRefusal(t, 'lyric_revise', { seed: 16, draft: lines });
+const grade = (t) => creationRefusal(t, 'lyric_grade', { seed: 16, draft });
 
 test('a screen that ran but did not answer is told apart from a screen never run', () => {
   const t = fresh();
-  swept(t);
-  const never = creationRefusal(t, 'lyric_plan', planArgs);
+  unscreened(t);
+  const never = grade(t);
   assert.equal(
     never,
-    'CREATION_ORDER: execute a successful lyric_sweep and a successful lyric_screen before planning or writing a new song.'
+    'CREATION_ORDER: lyric_grade needs one answered lyric_screen under this plan, and none is on record for it.'
   );
   recordCreation(
     t,
@@ -107,18 +115,18 @@ test('a screen that ran but did not answer is told apart from a screen never run
     _verdictInternals.verdictOf({ code: 2, stdout: '  REFUSED — no tagger\n', stderr: '' })
   );
   assert.equal(t.workflow.screen, null);
-  const told = creationRefusal(t, 'lyric_plan', planArgs);
+  const told = grade(t);
   assert.ok(told.startsWith(never), told);
   assert.match(told, /lyric_screen ran in this session but did not answer \(exit 2/);
   assert.match(told, /its report names why/);
   assert.match(told, /call lyric_screen again once that cause is fixed/);
   // An overflowing screen names a smaller request: the same one overflows again.
   recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, overflowVerdict());
-  assert.match(creationRefusal(t, 'lyric_plan', planArgs), /with a smaller request/);
-  // A screen that answers removes the attempt, and the plan is admitted.
+  assert.match(grade(t), /with a smaller request/);
+  // A screen that answers removes the attempt, and the grade is admitted.
   recordCreation(t, 'lyric_screen', { words: ['stove', 'coat'] }, { exit_code: 3 });
   assert.equal(t.workflow.screen_attempt, undefined);
-  assert.equal(creationRefusal(t, 'lyric_plan', planArgs), null);
+  assert.equal(grade(t), null);
 });
 
 test('an overflowing grade tells the next revise of that draft, and only that draft', () => {
@@ -185,7 +193,7 @@ test('a tool error or a missing verdict records nothing, attempt included', () =
     'CREATION_GRADE: lyric_grade must answer for this exact draft and canonical plan before revision starts.'
   );
   const s = fresh();
-  swept(s);
+  unscreened(s);
   recordCreation(s, 'lyric_screen', { words: ['a'] }, overflowVerdict(), true);
   assert.equal(s.workflow.screen_attempt, undefined);
 });
@@ -208,7 +216,7 @@ test('the store refusing a measured grade as too large is told, and the next rev
     };
   };
   const sessions = new WorkflowSessions({ store, execute });
-  // Seed a new-song session that has swept, screened and planned.
+  // Seed a new-song session that has swept, planned and screened.
   const session = sessions.fresh('lyrics');
   planned(session.native.task);
   const id = randomBytes(32).toString('hex');

@@ -13,9 +13,9 @@ Every lyric tool except `lyric_types` (a lookup that answers at once) needs the 
 
 ## New song
 
-1. Call `lyric_sweep` with the user's target length in `lines` and the section roster in `functions`; use `want` predicates only to filter the shapes those declarations draw. Retain the declared form, lines, functions, melody and the `want` list (it becomes `lyric_plan`'s `wants`); inspect accepted seeds in their returned order.
-2. Screen candidate end words with `lyric_screen`. A refusal is not a successful screening.
-3. Call `lyric_plan` with an accepted seed and the same structural requirements. Carry declared title and rhyme relation when supplied. Read the returned plan and writer brief; a refused plan does not authorize drafting.
+1. Call `lyric_sweep` stating form, `lines`, `functions`, `relation` and `melody`: what the user asked for as the value, and each thing they left open named in `draw` (form always takes a name; ask the user). Use `want` predicates only to filter the shapes those declarations draw. Retain the declared form, lines, functions, relation, melody and the `want` list (it becomes `lyric_plan`'s `wants`); inspect accepted seeds in their returned order.
+2. Call `lyric_plan` with an accepted seed and the sweep's form, `lines`, `functions`, `relation`, `melody` and `want` list (as `wants`). Carry a declared title when supplied. Read the returned plan and writer brief; a refused plan does not authorize drafting.
+3. Screen candidate end words for that plan's rhymes with `lyric_screen`. The session records the screen under this plan, and the plan's grade needs it; a new plan needs its own screen. A refusal is not a successful screening.
 4. Write the complete draft to that plan, preserving line counts, returns and section functions. Grade the exact draft with `lyric_grade` under the same declarations. The service restores omitted plan coordinates and refuses contradictory ones.
 5. Call `lyric_revise` only after the exact draft has been graded. Keep the same session. Each suspended call asks one question: answer the requested lines through `answer` (one line) or `answers` (one `{line, text}` per asked line); continuation state stays on the service. Repeat until the loop reaches a stop condition.
 

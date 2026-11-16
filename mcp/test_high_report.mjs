@@ -15,7 +15,13 @@ import {
   LYRIC_TOOL_SCHEMAS,
   KITCHEN_REVISE_SCHEMA,
 } from './lyric_tools.js';
-import { PLAN_FIELDS, READING_FIELDS } from './lyric_workflow.js';
+import {
+  FORM_ROWS,
+  LINES_FLOOR,
+  PLAN_FIELDS,
+  READING_FIELDS,
+  STATEABLE,
+} from './lyric_workflow.js';
 import { runRefusal } from './run_store.js';
 import { buildSurface, declarationsFor } from './gemini_agent.js';
 import { instructionsForTask } from './task_contract.js';
@@ -262,7 +268,12 @@ test('published capacities and vocabularies match the harness they describe', ()
         'import json\n' +
           'from quality import plan, rhyme_types\n' +
           'print(json.dumps({"max_lines": plan.ENVELOPE["total_lines"][1], ' +
-          '"forms": list(plan.PLAN_FORMS), "positions": list(rhyme_types.POSITION)}))',
+          '"min_lines": plan.ENVELOPE["total_lines"][0], ' +
+          '"forms": list(plan.PLAN_FORMS), "positions": list(rhyme_types.POSITION), ' +
+          '"form_rows": [{"form": f, "requires": sorted(plan.FORM_REQUIRES.get(f, ())), ' +
+          '"recurs": sorted(plan.FORM_RECURS.get(f, ())), ' +
+          '"min_lines": min(plan.fillable_line_counts(f))} for f in plan.PLAN_FORMS], ' +
+          '"measures": sorted(plan.SWEEP_MEASURES), "roster": sorted(plan.GENERATOR_ROSTER)}))',
       ],
       { cwd: HARNESS, encoding: 'utf8' }
     )
@@ -272,6 +283,21 @@ test('published capacities and vocabularies match the harness they describe', ()
   assert.equal(PUBLISHED_MAX_LINES(), read.max_lines, 'the planner envelope');
   assert.deepEqual(PLAN_FORMS, read.forms, 'the planner forms');
   assert.deepEqual(TYPE_POSITIONS, read.positions, 'the rhyme-type positions');
+  // Stage 3: the form rows the sweep refusal and `form` are built from, the
+  // length floor, and every want name a STATEABLE row reads (a name ending
+  // `.*` stands for that name with each function the planner can draw).
+  assert.deepEqual(
+    FORM_ROWS.map((r) => ({ ...r, requires: [...r.requires], recurs: [...r.recurs] })),
+    read.form_rows,
+    'the planner form rows'
+  );
+  assert.equal(LINES_FLOOR, read.min_lines, 'the planner length floor');
+  for (const row of STATEABLE)
+    for (const k of row.wants) {
+      const names = k.endsWith('.*') ? read.roster.map((f) => k.slice(0, -1) + f) : [k];
+      for (const name of names)
+        assert.ok(read.measures.includes(name), `${row.thing}: ${name} is not a sweep measure`);
+    }
 });
 
 // Every published lyric string, on every surface a lyric tool is built for.

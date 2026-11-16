@@ -488,8 +488,8 @@ def index_md(sections, ran, trace):
         "",
         "## How a song moves through the tools",
         "",
-        "New song: `lyric_sweep` (pick a seed) → `lyric_screen` (test rhyme words) → "
-        "`lyric_plan` (song shape and rhyme plan) → write the draft → `lyric_grade` → "
+        "New song: `lyric_sweep` (pick a seed) → `lyric_plan` (song shape and rhyme plan) → "
+        "`lyric_screen` (test rhyme words for that plan) → write the draft → `lyric_grade` → "
         "`lyric_revise` (asks for replacement lines until it stops). Pasted lyrics: "
         "`lyric_recover` → `lyric_check` → `lyric_revise` → `lyric_verify`.",
         "",

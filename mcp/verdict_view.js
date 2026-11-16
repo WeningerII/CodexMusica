@@ -419,6 +419,7 @@ const PLAN_KEPT = [
   'plan_sha256',
   'plan_request',
   'plan_lineage',
+  'statements',
 ];
 const PLAN_DETAIL_NOTE =
   'The brief above is the whole plan a writer writes to. The structured plan (its slots, ' +
