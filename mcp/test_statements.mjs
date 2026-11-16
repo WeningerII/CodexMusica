@@ -27,6 +27,7 @@ import {
   STATEABLE,
   STATEMENT_FIELDS,
   SWEEP_COORDINATES,
+  ASK_PERSON,
   creationRefusal,
   nextCreationCall,
   planRefusedNext,
@@ -41,7 +42,7 @@ import { connectConnector } from './client.js';
 import { JobStore } from './job_store.js';
 import { WorkflowSessions, verdictOf } from './workflow_sessions.js';
 import { buildWorkflowServer } from './workflow_tools.js';
-import { runTurn, LIMITS } from './gemini_agent.js';
+import { runTurn, LIMITS, buildSurface } from './gemini_agent.js';
 import { stated } from './statement_fixture.mjs';
 
 // ── The planner's own tables, read once ─────────────────────────────────────
@@ -56,7 +57,8 @@ const P = JSON.parse(
         '"fillable": {f: sorted(P.fillable_line_counts(f)) for f in P.PLAN_FORMS}, ' +
         '"requires": {f: list(P.FORM_REQUIRES.get(f, ())) for f in P.PLAN_FORMS}, ' +
         '"roster": sorted(P.GENERATOR_ROSTER), "types": list(P.eligible_types()), ' +
-        '"beats": list(P.ENVELOPE["beats_per_line"])}))',
+        '"beats": list(P.ENVELOPE["beats_per_line"]), ' +
+        '"registry": list(P._RL.REGISTRY)}))',
     ],
     { cwd: HARNESS, encoding: 'utf8' }
   )
@@ -680,6 +682,7 @@ test(
       await assert.rejects(c.call('lyric_sweep', missingArgs), (e) => {
         assert.equal(e.beforeDispatch, true);
         assert.match(e.message, /^CREATION_STATEMENT: .* NEXT: lyric_sweep stating /s);
+        assert.ok(e.message.includes(ASK_PERSON), 'the refusal says to ask the person');
         return true;
       });
       assert.equal(dispatched, 0, 'nothing was dispatched');
@@ -701,6 +704,55 @@ test(
     }
   }
 );
+
+// RHYME IS SAID PER GROUP. A sweep that drew the rhyme, then a plan that
+// declares one group's type: the plan's own record says which groups were
+// declared, and the statements row says the same.
+test(
+  "after a drawn-rhyme sweep, a plan with group_types records each group's rhyme as the plan chose it",
+  { timeout: 240_000 },
+  async () => {
+    const server = buildServer({ task: { domain: 'lyrics' } });
+    const [a, b] = InMemoryTransport.createLinkedPair();
+    await server.connect(a);
+    const c = await connectConnector({ task: 'lyrics', transport: b });
+    try {
+      const sweep = stated({ seed_from: 3, count: 1 });
+      assert.ok(statementsOfDraw(sweep).includes('relation'), 'the sweep draws the rhyme');
+      const swept = await c.call('lyric_sweep', sweep);
+      const seed = JSON.parse(swept.content[0].text).accepted_shown[0];
+      const first = JSON.parse((await c.call('lyric_plan', { seed })).content[1].text);
+      const groups = first.plan.choices.relations.groups;
+      // One group, picked by seed, declared with the type the plan drew for it.
+      const start = Math.floor(rng(seed)() * groups.length);
+      const order = groups.map((_, i) => (start + i) % groups.length);
+      let v = null;
+      for (const i of order) {
+        const group_types = [{ group: i + 1, type: P.registry.indexOf(groups[i].type) }];
+        const res = await c.call('lyric_plan', { seed, group_types });
+        if (res.content.length !== 2) continue;
+        v = JSON.parse(res.content[1].text);
+        if (v.exit_code === 0) break;
+        v = null;
+      }
+      assert.ok(v, 'one group declared by its drawn type plans');
+      const own = v.plan.choices.relations.groups;
+      const declared = own.filter((g) => g.chosen_from === 'declared').map((g) => g.group);
+      assert.ok(declared.length >= 1, 'the plan records a declared group');
+      const row = v.statements.rows.find((x) => x.field === 'relation');
+      assert.equal(row.said, declared.length === own.length ? 'value' : 'mixed');
+      assert.deepEqual(row.declared_groups, declared);
+      // The plan with no group_types said the rhyme the way its sweep did.
+      const plain = first.statements.rows.find((x) => x.field === 'relation');
+      assert.equal(plain.said, 'draw');
+      assert.equal(Object.hasOwn(plain, 'declared_groups'), false);
+    } finally {
+      await c.close();
+      await server.close();
+    }
+  }
+);
+const statementsOfDraw = (args) => (Array.isArray(args.draw) ? args.draw : []);
 
 test(
   'through the SDK client and the real planner, a relation the planner respells records the plan its NEXT names',
@@ -773,6 +825,10 @@ for (const [surfaceName, build] of [
       const refused = await send('lyric_sweep', { session_id: open.session_id, ...missingArgs });
       assert.equal(refused.tool_error, true);
       assert.match(refused.tool_result.content[0].text, /^CREATION_STATEMENT: /);
+      assert.ok(
+        refused.tool_result.content[0].text.includes(ASK_PERSON),
+        'the refusal says to ask the person'
+      );
       assert.deepEqual(refused.outcome, {
         kind: 'decision',
         by: 'person',
@@ -800,11 +856,17 @@ for (const [surfaceName, build] of [
     }
   );
 
+// THE PERSON CHOOSES. On the website chat an unstated sweep is refused with
+// what it leaves out and the instruction to ask the person; the model reads
+// the same rule in its own system prompt. A model that asks ends the turn
+// with nothing run or recorded. The person's answer, sent as said, reaches
+// the sweep and the plan unchanged, and nothing the person did not say is
+// filled in.
 test(
-  'the website chat: an unstated sweep reaches the model as a refusal and runs nothing; a stated one plans and records',
+  'the website chat: an unstated sweep is refused, the model asks the person and nothing runs; their stated choices reach the sweep and the plan',
   { timeout: 300_000 },
   async () => {
-    const server = buildServer({ task: { domain: 'lyrics' } });
+    const server = buildServer({ task: { domain: 'lyrics' }, kitchen: true });
     const [a, b] = InMemoryTransport.createLinkedPair();
     await server.connect(a);
     const client = new Client({ name: 'chat-statements', version: '1' }, { capabilities: {} });
@@ -824,43 +886,87 @@ test(
         .contents.at(-1)
         .parts.map((p) => p.functionResponse)
         .filter(Boolean);
-    const names = ['lyric_sweep', 'lyric_screen', 'lyric_plan', 'lyric_grade', 'lyric_revise'];
-    const surface = {
-      instructions: '=== RECIPE TASK === Recipes. === LYRICS TASK === Lyrics.',
-      declarations: names.map((name) => ({ name, parameters: { type: 'object', properties: {} } })),
-      workspaceTools: new Set(),
-      stateTools: new Set(['lyric_revise']),
-    };
-    const dispatched = [];
-    const seen = [];
+    const surface = await buildSurface(client);
+    // What the person says, drawn by seed from the planner's tables: a form
+    // and a length, and a draw for the rest.
+    const r = rng(29);
+    const form = pick(r, P.forms);
+    const lines = pick(
+      r,
+      P.fillable[form].filter((n) => n <= 24)
+    );
+    const choices = { form, lines, draw: DRAWABLE.filter((f) => f !== 'lines') };
+    let dispatched = [];
+    let seen = [];
+    let prompts = [];
+    let script = [];
     let step = 0;
     globalThis.fetch = async (_url, init) => {
-      step++;
-      if (step > 1) seen.push(...responses(init).map((r) => r.response));
-      if (step === 1) return reply([fc('lyric_sweep', missingArgs)]);
-      if (step === 2) return reply([fc('lyric_sweep', completeArgs)]);
-      if (step === 3) return reply([fc('lyric_plan', { seed: seen.at(-1).accepted_shown[0] })]);
-      return reply([{ text: 'done' }]);
+      const body = JSON.parse(init.body);
+      prompts.push(body.systemInstruction?.parts?.[0]?.text ?? '');
+      if (step > 0) seen.push(...responses(init).map((x) => x.response));
+      return reply(script[step++](seen));
     };
-    try {
-      const out = await runTurn({
+    const turn = (task, userText) =>
+      runTurn({
         apiKey: 'offline',
         surface,
-        userText: 'A new song.',
+        userText,
         limits: { ...LIMITS, maxSteps: 6, maxTurnMs: 240_000, maxTurnUsd: 0 },
-        task: fresh(),
+        task,
         callTool: (n, args) => {
-          dispatched.push(n);
+          dispatched.push([n, structuredClone(args)]);
           return client.callTool({ name: n, arguments: args });
         },
       });
+    try {
+      // Turn 1: the person states nothing. The model sweeps without choices,
+      // is refused, and asks the person.
+      script = [
+        () => [fc('lyric_sweep', missingArgs)],
+        () => [{ text: 'Which form, length, sections, rhyme and time do you want?' }],
+        () => [{ text: 'unused' }],
+      ];
+      const asked = await turn(fresh(), 'A new song.');
+      assert.equal(step, 2, 'the turn ended on the question');
       assert.match(seen[0].error, /^CREATION_STATEMENT: .* NEXT: lyric_sweep stating /s);
-      assert.deepEqual(dispatched, ['lyric_sweep', 'lyric_plan'], 'the refused sweep ran nothing');
+      assert.ok(seen[0].error.includes(ASK_PERSON), seen[0].error);
+      assert.ok(prompts[0].includes("are the person's to choose"), 'the system prompt says so');
+      assert.ok(prompts[0].includes(STATEABLE.map((x) => x.thing).at(-1)), prompts[0]);
+      assert.deepEqual(dispatched, [], 'nothing ran');
+      assert.deepEqual(asked.task.workflow?.sweeps ?? [], [], 'no sweep is recorded');
+      assert.equal(asked.task.workflow?.plan ?? null, null, 'no plan');
+      // Turn 2: the person answers. The model sends their choices as said.
+      dispatched = [];
+      seen = [];
+      prompts = [];
+      step = 0;
+      script = [
+        () => [fc('lyric_sweep', { seed_from: 3, count: 1, ...choices })],
+        (got) => [fc('lyric_plan', { seed: got.at(-1).accepted_shown[0], form, lines })],
+        () => [{ text: 'done' }],
+      ];
+      const said = `${form}, ${lines} lines, and draw the rest.`;
+      const out = await turn(asked.task, said);
+      assert.deepEqual(
+        dispatched.map(([n]) => n),
+        ['lyric_sweep', 'lyric_plan']
+      );
+      const sweep = dispatched[0][1];
+      for (const k of ['form', 'lines']) assert.equal(sweep[k], choices[k], k);
+      assert.deepEqual(sweep.draw, choices.draw);
+      const recorded = out.task.workflow.sweeps.at(-1).args;
+      for (const k of ['form', 'lines']) assert.equal(recorded[k], choices[k], `recorded ${k}`);
+      for (const k of ['functions', 'relation', 'melody'])
+        assert.equal(recorded[k], undefined, `nothing filled in for ${k}`);
+      const v = seen.at(-1).verdict;
+      assert.equal(v.plan_request.form, form, 'the plan has the form the person chose');
       assert.ok(out.task.workflow.plan?.sha256, 'the plan is recorded');
       assert.deepEqual(
-        seen.at(-1).verdict.statements.rows.map((x) => x.said),
-        ['value', 'draw', 'draw', 'draw', 'draw']
+        v.statements.rows.map((x) => [x.field, x.said]),
+        STATEABLE.map((x) => [x.field, ['form', 'lines'].includes(x.field) ? 'value' : 'draw'])
       );
+      assert.equal(v.statements.rows.find((x) => x.field === 'lines').value, lines);
     } finally {
       globalThis.fetch = nativeFetch;
       await client.close();

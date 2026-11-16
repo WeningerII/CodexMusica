@@ -467,6 +467,10 @@ export function statementConflict(fields, code = 'CREATION_STATEMENT') {
   if (!fields.length) return null;
   return `${code}: ${joined(fields)} ${fields.length === 1 ? 'has a value and is' : 'each have a value and are'} also named in \`draw\`; send one of the two${fields.length === 1 ? '' : ' for each'}. Nothing ran.`;
 }
+// What is left out is the person's to choose: the writer asks them, and a
+// draw is a choice the person makes too.
+export const ASK_PERSON =
+  'Ask the person for each one they have not said; a draw is theirs to choose too. Do not choose for them.';
 // -> a new-song sweep's refusal for what it does not state, or null.
 export function statementRefusal(args) {
   const { missing, conflict } = statementsOf(args);
@@ -477,6 +481,7 @@ export function statementRefusal(args) {
     : '';
   return (
     `CREATION_STATEMENT: ${STATEMENT_RULE} This call leaves out ${joined(missing.map(rowName))}. Nothing ran.` +
+    ` ${ASK_PERSON}` +
     forms +
     ` Cannot be stated yet, so tell the person: ${NOT_YET_TEXT}.`
   );
@@ -508,16 +513,34 @@ export const STATEMENT_FIELDS = Object.freeze(Object.keys(PLAN_VALUE));
 // carried from its sweep) said each thing, and what the plan holds for it.
 // 'unsaid' is a call that said nothing of it (the raw engine, or a session
 // whose sweep was recorded before this rule); form says 'default' instead.
+// RHYME IS SAID PER GROUP. `group_types` declares some groups' types; the
+// plan records, per group, whether its type was declared (`chosen_from`
+// "declared") or drawn. When the groups do not all agree with what the call
+// said, the row says 'value' (every group declared) or 'mixed', and lists
+// the groups whose type was declared.
+const DECLARED = 'declared';
+function rhymeSaid(said, plan) {
+  const groups = plan?.choices?.relations?.groups || [];
+  const declared = groups.filter((g) => g.chosen_from === DECLARED).map((g) => g.group);
+  if (!groups.length || !declared.length || said === 'value') return { said };
+  if (declared.length === groups.length) return { said: 'value', declared };
+  return { said: 'mixed', declared };
+}
 export function planStatements(args, plan) {
   return {
     version: 1,
-    rows: statementsOf(args, 'wants').rows.map(({ row, said, wants }) => ({
-      thing: row.thing,
-      field: row.field,
-      said: said || (row.draw ? 'unsaid' : 'default'),
-      ...(said === 'want' ? { wants } : {}),
-      value: PLAN_VALUE[row.field](plan),
-    })),
+    rows: statementsOf(args, 'wants').rows.map(({ row, said, wants }) => {
+      const base = said || (row.draw ? 'unsaid' : 'default');
+      const rhyme = row.field === 'relation' ? rhymeSaid(base, plan) : { said: base };
+      return {
+        thing: row.thing,
+        field: row.field,
+        said: rhyme.said,
+        ...(said === 'want' ? { wants } : {}),
+        ...(rhyme.declared ? { declared_groups: rhyme.declared } : {}),
+        value: PLAN_VALUE[row.field](plan),
+      };
+    }),
     not_stateable: NOT_STATEABLE_YET.map((r) => ({ ...r })),
   };
 }
@@ -1132,7 +1155,9 @@ export function creationQualified(task) {
 // the receipts, the carried run (the client's continuation, or /chat's carried
 // record) and the tool the caller was trying to reach. It names a tool and
 // the arguments the receipts fix, never a draft, title, narrative or melody
-// text, and leaves the other plan declarations for the gate to restore.
+// text in its NEXT line, and leaves the other plan declarations for the gate
+// to restore. A sweep's melody rides in `args`, since the plan gate cannot
+// restore it.
 // -> null outside a create session, and for a carried record /chat will not
 // continue in this task (an uncertified parked run, an unknown-outcome
 // proposal), whose way on is the person's choice.
@@ -1167,22 +1192,26 @@ export function nextCreationCall(task, carried, name, args = null) {
     w.grade_attempt.plan_sha256 === w.plan.sha256;
   // A stale plan is planned again under the sweep it was recorded under: its
   // seed belongs to that sweep, and another sweep's coordinates would refuse
-  // it. With no such sweep on record, the way on is a new sweep.
-  const from = stale ? planSweep(w) : w.sweeps[w.sweeps.length - 1];
-  if (stale && !from) return { tool: 'lyric_sweep', args: {} };
+  // it. With no such sweep on record, the newest sweep's own seed and
+  // coordinates are the plan the gate admits.
+  const own = stale ? planSweep(w) : null;
   if (!w.plan || name === 'lyric_plan' || stale) {
-    const s = from;
-    const args = { seed: stale ? w.plan.request.seed : s.accepted[0] };
+    const s = own || w.sweeps[w.sweeps.length - 1];
+    const args = { seed: own ? w.plan.request.seed : s.accepted[0] };
     if (s.args.form) args.form = planArgument('form', s.args.form);
     if (s.args.lines != null) args.lines = planArgument('lines', s.args.lines);
     if (list(s.args.functions).length) args.functions = planArgument('functions', s.args.functions);
     if (!unset(s.args.relation ?? null)) args.relation = planArgument('relation', s.args.relation);
     if (sweepWants(s).length) args.wants = sweepWants(s);
-    return {
-      tool: 'lyric_plan',
-      args,
-      melody: s.args.melody !== undefined && s.args.melody !== null,
-    };
+    // The sweep's melody goes in the call as the sweep sent it: the gate
+    // refuses a plan whose melody differs from its sweep's, and a caller
+    // that follows only the call has no other copy. The NEXT line prints
+    // no melody text (formatNextCall).
+    const declared = s.args.melody !== undefined && s.args.melody !== null;
+    if (declared)
+      args.melody =
+        typeof s.args.melody === 'string' ? s.args.melody : planArgument('melody', s.args.melody);
+    return { tool: 'lyric_plan', args, melody: declared };
   }
   const seed = w.plan.request.seed;
   const lines = w.plan.lines;
@@ -1227,7 +1256,9 @@ export function formatNextCall(next) {
     return `NEXT: lyric_sweep stating ${joined(rows.map((r) => r.field))}, ${how}; ${plan}.`;
   }
   if (tool === 'lyric_plan') {
-    const parts = Object.entries(args).map(([k, v]) => `${k} ${argumentText(v)}`);
+    const parts = Object.entries(args)
+      .filter(([k]) => k !== 'melody')
+      .map(([k, v]) => `${k} ${argumentText(v)}`);
     if (next.melody) parts.push("melody: the sweep's melody unchanged");
     return `NEXT: lyric_plan with ${parts.join(', ')}.`;
   }

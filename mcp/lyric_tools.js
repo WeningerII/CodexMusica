@@ -4203,6 +4203,10 @@ export function lyricInstructions({ kitchen = false } = {}) {
     (kitchen
       ? "the service's writer answering every question, so ONE call returns the stop condition. "
       : 'the loop asking one question per suspended call (`answer`, or `answers` for a batch or group) until it stops. ') +
+    (kitchen
+      ? `A new song's ${joinedNames(STATEABLE.map((r) => r.thing))} are the person's to choose. If they have not said one, ask them and end the turn; ` +
+        'do not choose it or draw it for them. Send what they chose as they said it. '
+      : '') +
     "The sweep's NEXT line, a grade verdict's `next` and each CREATION_* refusal name the next call; a create " +
     'session refuses any other (CREATION_*). The first text block of a lyric_grade result, and of a lyric_revise ' +
     'result at a stop condition, is the deliverable: the song under its bracket headers ([NAME — N lines — B bars ' +

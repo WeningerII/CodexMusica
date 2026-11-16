@@ -27,6 +27,7 @@ import {
   withNextCall,
   withSweepNext,
   planNext,
+  sessionOutcome,
 } from './lyric_workflow.js';
 import { runTurn, LIMITS } from './gemini_agent.js';
 import { _verdictInternals } from './lyric_tools.js';
@@ -607,7 +608,7 @@ test('a planner changed between plan and grade: the grade names a new plan, and 
   assert.equal(t.workflow.grade?.plan_sha256, rebuilt.plan_sha256);
 });
 
-test('a stale plan is planned again under its own sweep, not the newest one, and with none on record the way on is a sweep', () => {
+test('a stale plan is planned again under its own sweep, not the newest one, and with none on record under the newest sweep', () => {
   // Two sweeps that differ in length; the lengths come from the form table.
   const row = FORM_ROWS.find((r) => r.form === SHAPES.none.sweep.form);
   const [own, other] = [row.min_lines, row.min_lines + 1];
@@ -640,9 +641,23 @@ test('a stale plan is planned again under its own sweep, not the newest one, and
       null,
       JSON.stringify(next.args)
     );
-    // A session that no longer holds that sweep is sent to a sweep, not to a plan it refuses.
+    // A session that no longer holds that sweep plans the newest sweep's own
+    // seed and coordinates, which the gate admits; so does a later sweep.
     t.workflow.sweeps = t.workflow.sweeps.slice(1);
-    assert.deepEqual(nextCreationCall(t, null, 'lyric_grade'), { tool: 'lyric_sweep', args: {} });
+    for (const fresh_ of [null, stated({ seed_from: 100, count: 2, lines: own })]) {
+      if (fresh_) recordCreation(t, 'lyric_sweep', fresh_, { exit_code: 0, accepted_shown: [100] });
+      const newest = t.workflow.sweeps[t.workflow.sweeps.length - 1];
+      for (const after of ['lyric_grade', 'lyric_sweep', 'lyric_plan']) {
+        const n = nextCreationCall(t, null, after);
+        assert.equal(n.tool, 'lyric_plan', after);
+        assert.equal(n.args.seed, newest.accepted[0], after);
+        assert.equal(
+          creationRefusal(t, 'lyric_plan', clone(n.args), null),
+          null,
+          JSON.stringify(n.args)
+        );
+      }
+    }
   }
 });
 
@@ -736,6 +751,30 @@ test('a session opened before the screen named its plan: one screen at the grade
   // A finished song stays qualified.
   const finished = stored(grade, ['lyric_revise', () => ({ exit_code: 0 })]);
   assert.equal(creationQualified(finished), true);
+});
+
+// A HOST'S OUTCOME CALL IS FOLLOWED AS DATA. A client that reads only
+// `outcome.call` sends exactly its tool and args, with nothing added from the
+// NEXT line's prose, and the gate admits it: the sweep's melody is in it.
+test("a host's outcome call after a sweep is admitted as sent, the sweep's melody included", () => {
+  const verdict = { exit_code: 0, sweep_outcome: 'accepted', accepted_shown: [16, 17] };
+  for (const shape of Object.keys(SHAPES)) {
+    const { at, sweepArgs } = states(shape);
+    const out = sessionOutcome(clone(at.swept), 'lyric_sweep', verdict, null, sweepArgs);
+    assert.equal(out.kind, 'next_call', shape);
+    assert.equal(out.call.tool, 'lyric_plan', shape);
+    assert.deepEqual(Object.keys(out.call).sort(), ['args', 'tool'], shape);
+    const task = clone(at.swept);
+    assert.equal(creationRefusal(task, out.call.tool, clone(out.call.args)), null, shape);
+    assert.equal(
+      out.call.args.melody,
+      sweepArgs.melody,
+      `${shape}: the call carries the sweep's own melody, or none`
+    );
+    // Recorded as sent, the plan stands as the session's plan.
+    recordCreation(task, 'lyric_plan', clone(out.call.args), planReceipt(SHAPES[shape], 16));
+    assert.ok(task.workflow.plan, `${shape}: the plan records`);
+  }
 });
 
 test('the derivation reads the receipts: plan coordinates, later pages, re-plans, held runs', () => {

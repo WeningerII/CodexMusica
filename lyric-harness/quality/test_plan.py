@@ -5995,6 +5995,91 @@ def test_the_stop_rules():
           f"{PLN.WRITING_BAN_PARTNERS} vs "
           f"{_RV.ReviseDeclaration().modal_exclusion}")
 
+    # WHAT EACH ROW COUNTS AS A WORD, read off its grader's own tokenizer:
+    # the floor's rows count with the tokenizer a `SlopFloor` itself holds
+    # (`self.qf._tokens`, floor.py's `n_tok`), the stacked-draft row with
+    # `sentencehood._tokens`. Each mark is probed between two letters, and
+    # an accented letter between two plain ones.
+    floor_ = _F.SlopFloor()
+    tokenizer_of = {c: floor_.qf._tokens for c in (
+        "OUT_OF_CALIBRATED_LENGTH",) + PLN.LENGTH_LIMIT_CODES}
+    tokenizer_of["STACKED_DRAFT"] = _SH._tokens
+    probes = {"straight_apostrophe": "a'b", "curly_apostrophe": "a\u2019b",
+              "hyphen": "a-b", "accented": "a\u00e9b"}
+    words_bad = []
+    for code, row in PLN.STOP_RULES.items():
+        tok = tokenizer_of.get(code)
+        read = ({k: len(tok(v)) == 1 for k, v in probes.items()}
+                if tok else None)
+        if row.get("words") != read:
+            words_bad.append((code, row.get("words"), read))
+    check("...and each row that counts words carries what its grader's "
+          "tokenizer keeps inside a word, probed from that tokenizer, and "
+          "no other row carries one", not words_bad, words_bad)
+    # The stated unit says what the probes found, mark by mark.
+    unit_bad = []
+    for code, row in PLN.STOP_RULES.items():
+        if not row.get("words"):
+            continue
+        unit = PLN._limit_word_unit(row["words"])
+        kept, _, split = unit.partition(" splits it")[0].partition(
+            " stays inside it")
+        for k, mark in (("hyphen", "a hyphen"),):
+            if (mark in kept) != row["words"][k] or (
+                    mark in split) == row["words"][k]:
+                unit_bad.append((code, k, unit))
+        if (("a run of letters" in unit) != row["words"]["accented"]):
+            unit_bad.append((code, "accented", unit))
+        for k in ("straight_apostrophe", "curly_apostrophe"):
+            mark = ("an apostrophe" if row["words"]["straight_apostrophe"]
+                    == row["words"]["curly_apostrophe"]
+                    else "a " + k.replace("_", " "))
+            if (mark in kept) != row["words"][k]:
+                unit_bad.append((code, k, unit))
+    check("...and each row's stated word unit says what its tokenizer "
+          "keeps and what splits a word", not unit_bad, unit_bad)
+
+    # THE WORD A LINE OPENS ON, read off the anaphora row's own reader
+    # (`SlopFloor._anaphora`): two lines open on one word when their rate
+    # is 1. A mark is trimmed when it is cut at both ends of a word.
+    import string
+
+    def _same_opening(a, b):
+        return floor_._anaphora([a, b])[0] == 1.0
+    marks = sorted(set(string.punctuation) | set(
+        "\u2018\u2019\u201c\u201d\u2014\u2013\u2026\u00ab\u00bb"))
+    read_open = {
+        "trimmed": {m for m in marks if _same_opening(m + "ab", "ab")
+                    and _same_opening("ab" + m, "ab")},
+        "case_folded": _same_opening("Ab", "ab"),
+        "apostrophes_folded": _same_opening("a\u2019b", "a'b")}
+    split_on_space = (_same_opening("ab cd", "ab ef")
+                      and not _same_opening("ab-cd", "ab"))
+    open_rows = {c for c, r in PLN.STOP_RULES.items() if "opening" in r}
+    opening = PLN.STOP_RULES["ANAPHORA_OVERLOAD"].get("opening") or {}
+    got_open = dict(opening, trimmed=set(opening.get("trimmed", "")))
+    check("...and the anaphora row carries how its reader takes the word a "
+          "line opens on, probed from `SlopFloor._anaphora`, and no other "
+          "row carries one", open_rows == {"ANAPHORA_OVERLOAD"}
+          and split_on_space and got_open == read_open
+          and len(opening.get("trimmed", "")) == len(read_open["trimmed"]),
+          (open_rows, split_on_space, got_open, read_open))
+    said_open = PLN._limit_opening_word(opening)
+    open_bad = [m for m in read_open["trimmed"]
+                if f" {m} " not in said_open and f" {m} cut" not in said_open]
+    if "everything before its first space" not in said_open:
+        open_bad.append("first space")
+    if ("in any case" in said_open) != read_open["case_folded"]:
+        open_bad.append("case")
+    if ("a curly apostrophe and a straight one make different words"
+            in said_open) == read_open["apostrophes_folded"]:
+        open_bad.append("apostrophes")
+    for mark, chars in (("a quote mark", '"\u201c'), ("a bracket", "([")):
+        if (mark in said_open) != (not set(chars) & read_open["trimmed"]):
+            open_bad.append(mark)
+    check("...and the anaphora row's stated opening word says what that "
+          "reader cuts, keeps and folds", not open_bad, (open_bad, said_open))
+
     # THE NEVER ROWS: each stated reason, checked against the code.
     never = {c for c, r in PLN.STOP_RULES.items() if r["applies"] == "never"}
     fit_never = {"ZERO_DURATION", "BEAT_OUTSIDE_CYCLE",
@@ -6036,7 +6121,7 @@ def test_the_stop_rules():
 
     mis_rows, mis_nums, not_last, fit_hits, hook_bad, pair_bad = \
         [], [], [], [], [], []
-    clause_bad = []
+    clause_bad, units_scoped = [], []
     seen = Counter()
     pair_counts = Counter()
     reviser = _RV.Reviser()
@@ -6064,11 +6149,26 @@ def test_the_stop_rules():
                 or lines_b[-len(block):] != block):
             not_last.append(tag)
             continue
-        rows = {}
+        rows, unit_lines = {}, {}
         for ln in block[1:]:
             m = re.match(r"^  ([A-Z][A-Z_]+) \((flag|ungraded)\): (.*)\.$", ln)
             if m:
                 rows[m.group(1)] = (m.group(2), m.group(3))
+            u = re.match(r"^  In ([A-Z_, ]+?(?: and [A-Z_]+)?), (a word is "
+                         r"[^.]*)\.", ln)
+            if u:
+                for c in re.split(r", | and ", u.group(1)):
+                    unit_lines[c] = u.group(2)
+            elif not m:
+                # A sentence that is neither a row nor a scoped word unit
+                # would be read as holding for every row.
+                units_scoped.append((tag, "unscoped", ln[:60]))
+        # EACH ROW THAT COUNTS WORDS IS NAMED IN THE ONE SENTENCE THAT STATES
+        # ITS OWN UNIT, and no row is told another grader's unit.
+        unit_want = {c: PLN._limit_word_unit(PLN.STOP_RULES[c]["words"])
+                     for c in rows if PLN.STOP_RULES[c].get("words")}
+        if unit_lines != unit_want:
+            units_scoped.append((tag, unit_lines, unit_want))
         # WHEN EACH ROW APPLIES, recomputed from the plan and the grader.
         gs = [g.split(",") for g in p["groups"].split(";")]
         rets = ([[int(x) for x in r.split(",")]
@@ -6137,7 +6237,8 @@ def test_the_stop_rules():
         if len(fpairs) >= 2:
             want.add("REPEAT_IN_VERSE")
         seen.update(want)
-        if set(rows) != want or len(rows) != len(block) - 2:
+        if set(rows) != want or len(rows) != len(block) - 1 - len(
+                set(unit_lines.values())):
             mis_rows.append((tag, sorted(set(rows) ^ want)))
             continue
         # EACH NUMBER, the grader's own, computed here independently.
@@ -6147,7 +6248,8 @@ def test_the_stop_rules():
             caps = sorted({max(c for c in range(n + 1) if not c / n > t)
                            for t in limits["anaphora_max"]})
             exp["ANAPHORA_OVERLOAD"] = [
-                f"more than {_span(caps, str)} of the {n} lines open"]
+                f"more than {_span(caps, str)} of the {n} lines open",
+                f"({said_open})"]
         if "FUNCTION_WORD_HEAVY" in want:
             exp["FUNCTION_WORD_HEAVY"] = [
                 f"more than {_span(limits['function_word_ratio_max'], _pct)}"
@@ -6212,6 +6314,9 @@ def test_the_stop_rules():
           f"refused {refused}")
     check("...and its rows are exactly the rules whose condition holds for "
           "the plan", not mis_rows, mis_rows[:3])
+    check("...and each row that counts words is named in the sentence that "
+          "states its own grader's word unit, on every drawn plan",
+          not units_scoped, units_scoped[:3])
     check("...and every row the spread is meant to reach is reached: the "
           "stacked-draft floor, returns, a hook, a titled hook and the "
           "floor-pair row",

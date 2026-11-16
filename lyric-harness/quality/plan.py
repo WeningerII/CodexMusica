@@ -5253,18 +5253,48 @@ WRITING_BAN_PARTNERS = 6
 #: `_STOP_LIMITS` that words the rule with the grader's own numbers. A row
 #: whose `applies` is `never` carries `never`, the stated reason it cannot
 #: fire on a planned song; `test_plan.test_the_stop_rules` checks each reason
-#: against the code and holds the keys equal to the census.
+#: against the code and holds the keys equal to the census. A row that counts
+#: words carries `words`, what its grader's own tokenizer keeps inside a word
+#: (`features.QualityFeatures._tokens` for the floor's rows,
+#: `sentencehood._tokens` for the stacked-draft row); this module may not
+#: import either, so test_plan probes each tokenizer and holds the copy equal.
+#: The anaphora row also carries `opening`, how `floor.SlopFloor._anaphora`
+#: reads the word a line opens on (its first space-split piece, with the
+#: `trimmed` marks cut from its ends); test_plan probes that reader too.
 STOP_RULES = {
     "OUT_OF_CALIBRATED_LENGTH": {"applies": "always", "stop": "ungraded",
-                                 "limit": "length_reach"},
+                                 "limit": "length_reach",
+                                 "words": {"accented": True,
+                                           "straight_apostrophe": True,
+                                           "curly_apostrophe": True,
+                                           "hyphen": True}},
     "ANAPHORA_OVERLOAD": {"applies": "always", "stop": "flag",
-                          "limit": "openings"},
+                          "limit": "openings",
+                          "words": {"accented": True,
+                                    "straight_apostrophe": True,
+                                    "curly_apostrophe": True,
+                                    "hyphen": True},
+                          "opening": {"trimmed": ",.;:!?\u2014-",
+                                      "case_folded": True,
+                                      "apostrophes_folded": False}},
     "FUNCTION_WORD_HEAVY": {"applies": "always", "stop": "flag",
-                            "limit": "grammar_words"},
+                            "limit": "grammar_words",
+                            "words": {"accented": True,
+                                      "straight_apostrophe": True,
+                                      "curly_apostrophe": True,
+                                      "hyphen": True}},
     "LEXICAL_MONOTONY": {"applies": "always", "stop": "flag",
-                         "limit": "variety"},
+                         "limit": "variety",
+                         "words": {"accented": True,
+                                   "straight_apostrophe": True,
+                                   "curly_apostrophe": True,
+                                   "hyphen": True}},
     "STACKED_DRAFT": {"applies": "stacked_min_lines", "stop": "flag",
-                      "limit": "stacked"},
+                      "limit": "stacked",
+                      "words": {"accented": False,
+                                "straight_apostrophe": True,
+                                "curly_apostrophe": False,
+                                "hyphen": False}},
     "SLOTS_EXCEEDED": {"applies": "sung_lines", "stop": "flag",
                        "limit": "syllables"},
     "SCHEME_VIOLATION": {"applies": "groups", "stop": "flag",
@@ -5457,6 +5487,50 @@ def _pct(v):
     return f"{100 * v:.1f}%"
 
 
+def _limit_word_unit(words):
+    """-> what one `words` copy in `STOP_RULES` counts as a word, in the
+    brief's words."""
+    letters = "letters" if words["accented"] else "the letters a to z"
+    marks = [("a straight apostrophe", words["straight_apostrophe"]),
+             ("a curly apostrophe", words["curly_apostrophe"]),
+             ("a hyphen", words["hyphen"])]
+    if words["straight_apostrophe"] == words["curly_apostrophe"]:
+        marks = [("an apostrophe", words["straight_apostrophe"]), marks[2]]
+    kept = [m for m, k in marks if k]
+    split = [m for m, k in marks if not k]
+    parts = []
+    if kept:
+        parts.append(f"{' or '.join(kept)} stays inside it")
+    if split:
+        parts.append(f"{' or '.join(split)} splits it")
+    return f"a word is a run of {letters}; " + ", and ".join(parts)
+
+
+def _limit_opening_word(opening):
+    """-> how the anaphora row reads the word a line opens on, from its
+    `opening` copy in `STOP_RULES`, in the brief's words."""
+    marks = list(opening["trimmed"])
+    cut = " ".join(marks[:-1]) + " and " + marks[-1] if len(marks) > 1 \
+        else "".join(marks)
+    text = "for this row, the word a line opens on is everything before " \
+           "its first space"
+    if opening["case_folded"]:
+        text += ", in any case"
+    if marks:
+        text += f", with the marks {cut} cut from its ends"
+    kept = []
+    if not ({'"', "\u201c", "\u201d"} & set(marks)):
+        kept.append("a quote mark")
+    if not ({"(", ")", "[", "]"} & set(marks)):
+        kept.append("a bracket")
+    if kept:
+        text += f"; any other mark, such as {' or '.join(kept)}, stays on it"
+    if not opening["apostrophes_folded"]:
+        text += ", and a curly apostrophe and a straight one make different " \
+                "words"
+    return text
+
+
 def _limit_length_reach(plan):
     live = [p for p in _FL.PROFILES if not p.superseded_by]
     lo = min(p.band()[0] for p in live)
@@ -5471,8 +5545,9 @@ def _limit_openings(plan):
     if not vals:
         return None
     caps = sorted({_opening_cap(v, n) for v in vals})
+    opening = _limit_opening_word(STOP_RULES["ANAPHORA_OVERLOAD"]["opening"])
     text = (f"more than {_span(caps, str)} of the {n} lines open on the "
-            f"same word")
+            f"same word ({opening})")
     if _matched_openings(plan):
         text += ("; a note instead when the lines this plan requires to "
                  "match account for it")
@@ -5623,11 +5698,22 @@ def _stop_block(plan):
     lo, hi = _word_count_band(plan)
     tlo, thi = tokens_per_line_band()
     out = [STOP_BLOCK_HEAD]
-    if any(code in LENGTH_LIMIT_CODES for code, _k, _t in rows):
-        out.append(f"  Words are runs of letters; an apostrophe or hyphen "
-                   f"stays inside its word. Limits given as a range depend "
-                   f"on the finished song's word count; they are read at "
-                   f"{tlo:g} to {thi:g} words a line ({lo} to {hi} words).")
+    # WHAT A WORD IS, PER ROW: each row that counts words is told its own
+    # grader's unit, and one sentence names the rows it holds for.
+    units = {}
+    for code, _k, _t in rows:
+        words = STOP_RULES[code].get("words")
+        if words:
+            units.setdefault(_limit_word_unit(words), []).append(code)
+    for unit, codes in units.items():
+        named = (codes[0] if len(codes) == 1 else
+                 ", ".join(codes[:-1]) + " and " + codes[-1])
+        line = f"  In {named}, {unit}."
+        if any(code in LENGTH_LIMIT_CODES for code in codes):
+            line += (f" Limits given as a range depend on the finished "
+                     f"song's word count; they are read at {tlo:g} to "
+                     f"{thi:g} words a line ({lo} to {hi} words).")
+        out.append(line)
     for code, kind, text in rows:
         out.append(f"  {code} ({kind}): {text}.")
     return out
