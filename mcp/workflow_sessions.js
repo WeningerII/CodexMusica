@@ -18,7 +18,7 @@ import {
 } from './state_codec.js';
 import { HTTP_REQUEST_BYTES, jsonBytes } from './payload_limits.js';
 import { sessionView, verdictShape, DETAIL_FOR, LINE_PARTS, LINE_TOOLS } from './verdict_view.js';
-import { nextCreationCall } from './lyric_workflow.js';
+import { droppedOf, nextCreationCall } from './lyric_workflow.js';
 
 // Persisted namespace from the first release: keep existing capabilities recoverable.
 export const INTEGRATION = 'chatgpt-v1';
@@ -129,7 +129,7 @@ const storeAdmissionRefusal = (error, maxRecords, domain) => {
 // - refused, in a new-song session: the call the creation gate admits next,
 //   the same data its NEXT line is printed from.
 const act = (kind, tool, args = {}) => ({ kind, by: 'writer', call: { tool, args } });
-function receiptOutcome(receipt, session, domain, args = null) {
+export function receiptOutcome(receipt, session, domain, args = null) {
   const id = receipt.operation_id;
   if (receipt.status === 'pending') return act('next_call', 'get_operation', { operation_id: id });
   if (receipt.status === 'retired') {
@@ -182,6 +182,15 @@ function receiptOutcome(receipt, session, domain, args = null) {
         by: 'writer',
         call: { tool: next.tool, args: next.args },
         conflict: [...next.conflict],
+      };
+    // A plan call that cannot carry a declaration the person made (it named
+    // another seed's groups): whether to go on without it is theirs.
+    if (next?.dropped?.length)
+      return {
+        kind: 'decision',
+        by: 'person',
+        call: { tool: next.tool, args: next.args },
+        dropped: droppedOf(next),
       };
     if (next) return act('next_call', next.tool, next.args);
   }

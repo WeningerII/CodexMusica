@@ -80,10 +80,11 @@ const resultShape = {
         .array(z.object({ thing: z.string(), field: z.string(), draw: z.boolean() }))
         .optional(),
       conflict: z.array(z.string()).optional(),
+      dropped: z.array(z.object({ field: z.string(), from_seed: z.number() })).optional(),
     })
     .optional()
     .describe(
-      "Who acts next when this receipt has no finished tool result to say it (the operation is pending, interrupted or retired, or its tool refused in a new-song session): `kind` is next_call, decision or unknown, `by` is writer or person, and `call` is the tool with the arguments this server knows. On unknown, `call` is a read and nothing is sent again. A new-song lyric_sweep refused for what it leaves out lists those rows in `missing`; one that gives a field a value and a draw lists the fields in `conflict`. A finished lyric tool says the same in its own verdict's `outcome`."
+      "Who acts next when this receipt has no finished tool result to say it (the operation is pending, interrupted or retired, or its tool refused in a new-song session): `kind` is next_call, decision or unknown, `by` is writer or person, and `call` is the tool with the arguments this server knows. On unknown, `call` is a read and nothing is sent again. A new-song lyric_sweep refused for what it leaves out lists those rows in `missing`; one that gives a field a value and a draw lists the fields in `conflict`; a plan call that cannot carry a declaration the person made lists it in `dropped`, and is the person's decision. A finished lyric tool says the same in its own verdict's `outcome`."
     ),
 };
 const readOnly = {

@@ -1353,6 +1353,9 @@ export const OUTCOME_ACTORS = Object.freeze(['writer', 'person']);
 const callOf = (tool, args = {}) => ({ tool, args });
 const takeOn = (call) => ({ kind: 'next_call', by: 'writer', call });
 const choose = (by, call) => ({ kind: 'decision', by, call });
+// The declarations a plan call leaves out, as an outcome lists them.
+export const droppedOf = (n) =>
+  (n?.dropped || []).map((field) => ({ field, from_seed: n.from_seed }));
 // A refused declaration is what was ASKED (a title with no hook to be asked
 // of, a hook in sections that declare no function): no rewrite and no reading
 // moves it, so the choice is the person's. Anything refused about words is
@@ -1543,6 +1546,10 @@ export function sessionOutcome(task, name, v, carried, args = {}) {
   const n = nextCreationCall(task, carried, reach);
   // A held run (stopped uncertified): whether to go on here is the person's.
   if (!n) return choose('person', callOf('lyric_grade', { seed: w.plan?.request.seed }));
+  // A plan call that cannot carry a declaration the person made is theirs to
+  // take on, with what it leaves out as data.
+  if (n.dropped?.length)
+    return { ...choose('person', { tool: n.tool, args: n.args }), dropped: droppedOf(n) };
   return { ...base, call: { tool: n.tool, args: n.args } };
 }
 // A window the planner refused whole, or one that planned and kept no seed,

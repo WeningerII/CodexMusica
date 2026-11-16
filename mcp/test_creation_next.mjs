@@ -37,7 +37,7 @@ import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import { connectConnector } from './client.js';
 import { buildServer } from './tools.js';
 import { JobStore } from './job_store.js';
-import { WorkflowSessions, verdictOf } from './workflow_sessions.js';
+import { WorkflowSessions, verdictOf, receiptOutcome } from './workflow_sessions.js';
 import { stated } from './statement_fixture.mjs';
 
 const sha = (v) => createHash('sha256').update(JSON.stringify(v)).digest('hex');
@@ -700,6 +700,25 @@ test('a stale plan planned again keeps the title and per-group types it declared
     /no group_types: the recorded plan's group_types named seed 31's groups/
   );
   assert.equal(creationRefusal(t, 'lyric_plan', clone(moved.args), null), null);
+  // The published outcome says the same as data, and leaves going on without
+  // them to the person: after the sweep, and on a refused tool's receipt.
+  const dropped = [{ field: 'group_types', from_seed: 31 }];
+  const verdict = { exit_code: 0, sweep_outcome: 'accepted', accepted_shown: [100] };
+  const after = sessionOutcome(clone(t), 'lyric_sweep', verdict, null, other);
+  assert.equal(after.kind, 'decision');
+  assert.equal(after.by, 'person');
+  assert.deepEqual(after.dropped, dropped);
+  assert.equal(creationRefusal(clone(t), after.call.tool, clone(after.call.args), null), null);
+  const receipt = receiptOutcome(
+    { operation_id: 'x', status: 'completed', tool_error: true, tool: 'lyric_grade' },
+    { task: { domain: 'lyrics' }, native: { task: clone(t) } },
+    'lyrics',
+    { seed: 31, draft: LINES }
+  );
+  assert.equal(receipt.kind, 'decision');
+  assert.equal(receipt.by, 'person');
+  assert.deepEqual(receipt.dropped, dropped);
+  assert.equal(creationRefusal(clone(t), receipt.call.tool, clone(receipt.call.args), null), null);
 });
 
 test('a word-check that ran under this plan and did not answer adds its note; one under another plan does not', () => {
