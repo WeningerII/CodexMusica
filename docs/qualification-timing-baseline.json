@@ -1,0 +1,1526 @@
+{
+  "measurement": "Historical completed full GitHub Actions runs, including queue/setup and handoff; not a candidate speedup measurement.",
+  "runs": [
+    {
+      "run_id": 43907577701,
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/43907577701",
+      "commit": "49765bbb3b16a9b3548a556434f0891108c021ac",
+      "conclusion": "success",
+      "created_at": "2026-11-16T16:26:49Z",
+      "completed_at": "2026-11-16T17:09:17Z",
+      "total_elapsed_s": 2548.0,
+      "jobs": [
+        {
+          "id": 133440462533,
+          "name": "capacity-proof / verify",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:26:56Z",
+          "completed_at": "2026-11-16T16:27:53Z",
+          "elapsed_s": 57.0,
+          "steps": []
+        },
+        {
+          "id": 133440462900,
+          "name": "capacity-matrix / cells upper-unloaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:26:55Z",
+          "completed_at": "2026-11-16T17:07:11Z",
+          "elapsed_s": 2416.0,
+          "steps": [
+            {
+              "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+              "elapsed_s": 780.0
+            },
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 87.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1100.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 444.0
+            }
+          ]
+        },
+        {
+          "id": 133440463309,
+          "name": "capacity-matrix / cells middle-unloaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:26:55Z",
+          "completed_at": "2026-11-16T16:57:44Z",
+          "elapsed_s": 1849.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 70.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1235.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 503.0
+            }
+          ]
+        },
+        {
+          "id": 133440463360,
+          "name": "capacity-matrix / cells pole-unloaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:26:55Z",
+          "completed_at": "2026-11-16T16:56:17Z",
+          "elapsed_s": 1762.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 87.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1133.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 507.0
+            }
+          ]
+        },
+        {
+          "id": 133440463370,
+          "name": "capacity-matrix / cells upper-loaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:26:55Z",
+          "completed_at": "2026-11-16T16:59:46Z",
+          "elapsed_s": 1971.0,
+          "steps": [
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1346.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 558.0
+            }
+          ]
+        },
+        {
+          "id": 133440463443,
+          "name": "capacity-matrix / cells rest-loaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:26:55Z",
+          "completed_at": "2026-11-16T16:58:16Z",
+          "elapsed_s": 1881.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 84.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1112.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 650.0
+            }
+          ]
+        },
+        {
+          "id": 133440463468,
+          "name": "capacity-matrix / cells rest-unloaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:26:56Z",
+          "completed_at": "2026-11-16T16:53:42Z",
+          "elapsed_s": 1606.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 75.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 936.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 553.0
+            }
+          ]
+        },
+        {
+          "id": 133440463471,
+          "name": "capacity-matrix / cells pole-loaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:26:55Z",
+          "completed_at": "2026-11-16T16:56:12Z",
+          "elapsed_s": 1757.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 111.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1106.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 510.0
+            }
+          ]
+        },
+        {
+          "id": 133440463472,
+          "name": "capacity-matrix / cells middle-loaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:26:55Z",
+          "completed_at": "2026-11-16T16:59:07Z",
+          "elapsed_s": 1932.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 72.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1221.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 611.0
+            }
+          ]
+        },
+        {
+          "id": 133441132321,
+          "name": "qualification-capacity-proof",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:28:00Z",
+          "elapsed_s": 3.0,
+          "steps": []
+        },
+        {
+          "id": 133441135586,
+          "name": "qualification-mutation-6",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:35:12Z",
+          "elapsed_s": 435.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 388.0
+            }
+          ]
+        },
+        {
+          "id": 133441135615,
+          "name": "qualification-mutation-7",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:49:47Z",
+          "elapsed_s": 1310.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 1265.0
+            }
+          ]
+        },
+        {
+          "id": 133441135636,
+          "name": "qualification-mutation-3",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:33:56Z",
+          "elapsed_s": 359.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 307.0
+            }
+          ]
+        },
+        {
+          "id": 133441135643,
+          "name": "qualification-mutation-1",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:33:06Z",
+          "elapsed_s": 309.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 262.0
+            }
+          ]
+        },
+        {
+          "id": 133441135666,
+          "name": "qualification-mutation-5",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:58Z",
+          "completed_at": "2026-11-16T16:34:15Z",
+          "elapsed_s": 377.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 311.0
+            }
+          ]
+        },
+        {
+          "id": 133441135762,
+          "name": "qualification-mutation-12",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:56:27Z",
+          "elapsed_s": 1710.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 1664.0
+            }
+          ]
+        },
+        {
+          "id": 133441135763,
+          "name": "qualification-mutation-9",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:49:09Z",
+          "elapsed_s": 1272.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 1214.0
+            }
+          ]
+        },
+        {
+          "id": 133441135764,
+          "name": "qualification-mutation-10",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:48:45Z",
+          "elapsed_s": 1248.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 1175.0
+            }
+          ]
+        },
+        {
+          "id": 133441135766,
+          "name": "qualification-mutation-4",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:58Z",
+          "completed_at": "2026-11-16T16:34:20Z",
+          "elapsed_s": 382.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 325.0
+            }
+          ]
+        },
+        {
+          "id": 133441135771,
+          "name": "qualification-short",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:30:16Z",
+          "elapsed_s": 139.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 74.0
+            }
+          ]
+        },
+        {
+          "id": 133441135773,
+          "name": "qualification-mutation-11",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:46:25Z",
+          "elapsed_s": 1108.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 1064.0
+            }
+          ]
+        },
+        {
+          "id": 133441135785,
+          "name": "qualification-mutation-8",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:58:10Z",
+          "elapsed_s": 1813.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 1764.0
+            }
+          ]
+        },
+        {
+          "id": 133441135786,
+          "name": "qualification-mutation-13",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:46:17Z",
+          "elapsed_s": 1100.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 1028.0
+            }
+          ]
+        },
+        {
+          "id": 133441135809,
+          "name": "qualification-mutation-16",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:34:14Z",
+          "elapsed_s": 377.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 319.0
+            }
+          ]
+        },
+        {
+          "id": 133441135834,
+          "name": "qualification-mutation-15",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:58Z",
+          "completed_at": "2026-11-16T16:33:00Z",
+          "elapsed_s": 302.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 242.0
+            }
+          ]
+        },
+        {
+          "id": 133441135920,
+          "name": "qualification-mutation-2",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:32:18Z",
+          "elapsed_s": 261.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 213.0
+            }
+          ]
+        },
+        {
+          "id": 133441135952,
+          "name": "qualification-mutation-14",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:58Z",
+          "completed_at": "2026-11-16T16:47:27Z",
+          "elapsed_s": 1169.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 1108.0
+            }
+          ]
+        },
+        {
+          "id": 133441136086,
+          "name": "qualification-curves",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:30:27Z",
+          "elapsed_s": 150.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 103.0
+            }
+          ]
+        },
+        {
+          "id": 133441136493,
+          "name": "qualification-song",
+          "conclusion": "success",
+          "started_at": "2026-11-16T16:27:57Z",
+          "completed_at": "2026-11-16T16:30:15Z",
+          "elapsed_s": 138.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 89.0
+            }
+          ]
+        },
+        {
+          "id": 133466450718,
+          "name": "capacity-matrix / merge",
+          "conclusion": "success",
+          "started_at": "2026-11-16T17:07:14Z",
+          "completed_at": "2026-11-16T17:08:00Z",
+          "elapsed_s": 46.0,
+          "steps": []
+        },
+        {
+          "id": 133466976781,
+          "name": "qualification-capacity-matrix",
+          "conclusion": "success",
+          "started_at": "2026-11-16T17:08:04Z",
+          "completed_at": "2026-11-16T17:08:09Z",
+          "elapsed_s": 5.0,
+          "steps": []
+        },
+        {
+          "id": 133467076977,
+          "name": "qualification-result",
+          "conclusion": "success",
+          "started_at": "2026-11-16T17:08:12Z",
+          "completed_at": "2026-11-16T17:08:54Z",
+          "elapsed_s": 42.0,
+          "steps": []
+        },
+        {
+          "id": 133467564558,
+          "name": "deploy-after-dispatch",
+          "conclusion": "success",
+          "started_at": "2026-11-16T17:08:57Z",
+          "completed_at": "2026-11-16T17:09:17Z",
+          "elapsed_s": 20.0,
+          "steps": []
+        }
+      ]
+    },
+    {
+      "run_id": 43846433133,
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/43846433133",
+      "commit": "a52cdf1ebe86bb4df3feedf4a16b5e175a707bed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T10:10:28Z",
+      "completed_at": "2026-11-16T10:49:06Z",
+      "total_elapsed_s": 2318.0,
+      "jobs": [
+        {
+          "id": 133227651375,
+          "name": "capacity-matrix / cells middle-unloaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:10:33Z",
+          "completed_at": "2026-11-16T10:34:36Z",
+          "elapsed_s": 1443.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 104.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 905.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 390.0
+            }
+          ]
+        },
+        {
+          "id": 133227651733,
+          "name": "capacity-matrix / cells pole-loaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:10:32Z",
+          "completed_at": "2026-11-16T10:39:27Z",
+          "elapsed_s": 1735.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 64.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1118.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 521.0
+            }
+          ]
+        },
+        {
+          "id": 133227651747,
+          "name": "capacity-matrix / cells rest-loaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:10:32Z",
+          "completed_at": "2026-11-16T10:44:04Z",
+          "elapsed_s": 2012.0,
+          "steps": [
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1174.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 753.0
+            }
+          ]
+        },
+        {
+          "id": 133227651769,
+          "name": "capacity-matrix / cells pole-unloaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:10:32Z",
+          "completed_at": "2026-11-16T10:42:49Z",
+          "elapsed_s": 1937.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 100.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1208.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 600.0
+            }
+          ]
+        },
+        {
+          "id": 133227651889,
+          "name": "capacity-matrix / cells upper-loaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:10:32Z",
+          "completed_at": "2026-11-16T10:43:49Z",
+          "elapsed_s": 1997.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 98.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1287.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 583.0
+            }
+          ]
+        },
+        {
+          "id": 133227651907,
+          "name": "capacity-proof / verify",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:10:32Z",
+          "completed_at": "2026-11-16T10:11:16Z",
+          "elapsed_s": 44.0,
+          "steps": []
+        },
+        {
+          "id": 133227651913,
+          "name": "capacity-matrix / cells rest-unloaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:10:32Z",
+          "completed_at": "2026-11-16T10:47:10Z",
+          "elapsed_s": 2198.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 91.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1223.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 838.0
+            }
+          ]
+        },
+        {
+          "id": 133227651939,
+          "name": "capacity-matrix / cells middle-loaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:10:32Z",
+          "completed_at": "2026-11-16T10:33:03Z",
+          "elapsed_s": 1351.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 76.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 870.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 376.0
+            }
+          ]
+        },
+        {
+          "id": 133227651995,
+          "name": "capacity-matrix / cells upper-unloaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:10:32Z",
+          "completed_at": "2026-11-16T10:35:01Z",
+          "elapsed_s": 1469.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 100.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 958.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 388.0
+            }
+          ]
+        },
+        {
+          "id": 133228054902,
+          "name": "qualification-capacity-proof",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:19Z",
+          "completed_at": "2026-11-16T10:11:21Z",
+          "elapsed_s": 2.0,
+          "steps": []
+        },
+        {
+          "id": 133228055060,
+          "name": "qualification-mutation-7",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:19Z",
+          "completed_at": "2026-11-16T10:21:42Z",
+          "elapsed_s": 623.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 537.0
+            }
+          ]
+        },
+        {
+          "id": 133228055074,
+          "name": "qualification-mutation-10",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:20Z",
+          "completed_at": "2026-11-16T10:21:35Z",
+          "elapsed_s": 615.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 552.0
+            }
+          ]
+        },
+        {
+          "id": 133228055079,
+          "name": "qualification-mutation-16",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:20Z",
+          "completed_at": "2026-11-16T10:14:28Z",
+          "elapsed_s": 188.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 125.0
+            }
+          ]
+        },
+        {
+          "id": 133228055087,
+          "name": "qualification-mutation-2",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:20Z",
+          "completed_at": "2026-11-16T10:15:26Z",
+          "elapsed_s": 246.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 185.0
+            }
+          ]
+        },
+        {
+          "id": 133228055095,
+          "name": "qualification-mutation-9",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:19Z",
+          "completed_at": "2026-11-16T10:40:05Z",
+          "elapsed_s": 1726.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 1636.0
+            }
+          ]
+        },
+        {
+          "id": 133228055098,
+          "name": "qualification-mutation-14",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:20Z",
+          "completed_at": "2026-11-16T10:20:56Z",
+          "elapsed_s": 576.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 514.0
+            }
+          ]
+        },
+        {
+          "id": 133228055111,
+          "name": "qualification-mutation-12",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:20Z",
+          "completed_at": "2026-11-16T10:20:52Z",
+          "elapsed_s": 572.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 505.0
+            }
+          ]
+        },
+        {
+          "id": 133228055114,
+          "name": "qualification-curves",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:20Z",
+          "completed_at": "2026-11-16T10:13:24Z",
+          "elapsed_s": 124.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 65.0
+            }
+          ]
+        },
+        {
+          "id": 133228055123,
+          "name": "qualification-mutation-15",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:19Z",
+          "completed_at": "2026-11-16T10:14:03Z",
+          "elapsed_s": 164.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 117.0
+            }
+          ]
+        },
+        {
+          "id": 133228055124,
+          "name": "qualification-mutation-4",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:19Z",
+          "completed_at": "2026-11-16T10:15:40Z",
+          "elapsed_s": 261.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 212.0
+            }
+          ]
+        },
+        {
+          "id": 133228055125,
+          "name": "qualification-mutation-3",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:20Z",
+          "completed_at": "2026-11-16T10:15:04Z",
+          "elapsed_s": 224.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 160.0
+            }
+          ]
+        },
+        {
+          "id": 133228055145,
+          "name": "qualification-mutation-5",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:19Z",
+          "completed_at": "2026-11-16T10:14:59Z",
+          "elapsed_s": 220.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 176.0
+            }
+          ]
+        },
+        {
+          "id": 133228055147,
+          "name": "qualification-short",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:19Z",
+          "completed_at": "2026-11-16T10:14:18Z",
+          "elapsed_s": 179.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 115.0
+            }
+          ]
+        },
+        {
+          "id": 133228055155,
+          "name": "qualification-song",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:19Z",
+          "completed_at": "2026-11-16T10:13:16Z",
+          "elapsed_s": 117.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 76.0
+            }
+          ]
+        },
+        {
+          "id": 133228055188,
+          "name": "qualification-mutation-13",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:19Z",
+          "completed_at": "2026-11-16T10:27:46Z",
+          "elapsed_s": 987.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 937.0
+            }
+          ]
+        },
+        {
+          "id": 133228055189,
+          "name": "qualification-mutation-1",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:19Z",
+          "completed_at": "2026-11-16T10:17:59Z",
+          "elapsed_s": 400.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 331.0
+            }
+          ]
+        },
+        {
+          "id": 133228055304,
+          "name": "qualification-mutation-11",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:19Z",
+          "completed_at": "2026-11-16T10:26:54Z",
+          "elapsed_s": 935.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 875.0
+            }
+          ]
+        },
+        {
+          "id": 133228055363,
+          "name": "qualification-mutation-8",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:19Z",
+          "completed_at": "2026-11-16T10:23:51Z",
+          "elapsed_s": 752.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 696.0
+            }
+          ]
+        },
+        {
+          "id": 133228055396,
+          "name": "qualification-mutation-6",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:11:20Z",
+          "completed_at": "2026-11-16T10:14:58Z",
+          "elapsed_s": 218.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 157.0
+            }
+          ]
+        },
+        {
+          "id": 133246404279,
+          "name": "capacity-matrix / merge",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:47:13Z",
+          "completed_at": "2026-11-16T10:47:54Z",
+          "elapsed_s": 41.0,
+          "steps": []
+        },
+        {
+          "id": 133246770682,
+          "name": "qualification-capacity-matrix",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:47:57Z",
+          "completed_at": "2026-11-16T10:48:01Z",
+          "elapsed_s": 4.0,
+          "steps": []
+        },
+        {
+          "id": 133246828835,
+          "name": "qualification-result",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:48:04Z",
+          "completed_at": "2026-11-16T10:48:47Z",
+          "elapsed_s": 43.0,
+          "steps": []
+        },
+        {
+          "id": 133247210487,
+          "name": "deploy-after-dispatch",
+          "conclusion": "success",
+          "started_at": "2026-11-16T10:48:50Z",
+          "completed_at": "2026-11-16T10:49:05Z",
+          "elapsed_s": 15.0,
+          "steps": []
+        }
+      ]
+    },
+    {
+      "run_id": 43828223079,
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/43828223079",
+      "commit": "a52cdf1ebe86bb4df3feedf4a16b5e175a707bed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T08:03:26Z",
+      "completed_at": "2026-11-16T08:41:59Z",
+      "total_elapsed_s": 2313.0,
+      "jobs": [
+        {
+          "id": 133166999761,
+          "name": "capacity-proof / verify",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:03:30Z",
+          "completed_at": "2026-11-16T08:04:24Z",
+          "elapsed_s": 54.0,
+          "steps": []
+        },
+        {
+          "id": 133166999964,
+          "name": "capacity-matrix / cells upper-loaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:03:29Z",
+          "completed_at": "2026-11-16T08:34:53Z",
+          "elapsed_s": 1884.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 77.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1219.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 559.0
+            }
+          ]
+        },
+        {
+          "id": 133167000095,
+          "name": "capacity-matrix / cells middle-loaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:03:29Z",
+          "completed_at": "2026-11-16T08:35:36Z",
+          "elapsed_s": 1927.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 93.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1242.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 562.0
+            }
+          ]
+        },
+        {
+          "id": 133167000121,
+          "name": "capacity-matrix / cells pole-loaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:03:30Z",
+          "completed_at": "2026-11-16T08:40:21Z",
+          "elapsed_s": 2211.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 98.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1321.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 739.0
+            }
+          ]
+        },
+        {
+          "id": 133167000132,
+          "name": "capacity-matrix / cells upper-unloaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:03:30Z",
+          "completed_at": "2026-11-16T08:34:29Z",
+          "elapsed_s": 1859.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 92.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1195.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 546.0
+            }
+          ]
+        },
+        {
+          "id": 133167000137,
+          "name": "capacity-matrix / cells pole-unloaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:03:30Z",
+          "completed_at": "2026-11-16T08:26:25Z",
+          "elapsed_s": 1375.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 93.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 869.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 381.0
+            }
+          ]
+        },
+        {
+          "id": 133167000187,
+          "name": "capacity-matrix / cells middle-unloaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:03:29Z",
+          "completed_at": "2026-11-16T08:34:31Z",
+          "elapsed_s": 1862.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 74.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1221.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 537.0
+            }
+          ]
+        },
+        {
+          "id": 133167000273,
+          "name": "capacity-matrix / cells rest-loaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:03:30Z",
+          "completed_at": "2026-11-16T08:37:46Z",
+          "elapsed_s": 2056.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 77.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1207.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 744.0
+            }
+          ]
+        },
+        {
+          "id": 133167000314,
+          "name": "capacity-matrix / cells rest-unloaded",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:03:30Z",
+          "completed_at": "2026-11-16T08:37:35Z",
+          "elapsed_s": 2045.0,
+          "steps": [
+            {
+              "name": "Reclaim unused hosted runner toolchains",
+              "elapsed_s": 80.0
+            },
+            {
+              "name": "Build the tested lyrics runtime for this shard",
+              "elapsed_s": 1198.0
+            },
+            {
+              "name": "Measure this shard's cells at the deployed envelope",
+              "elapsed_s": 737.0
+            }
+          ]
+        },
+        {
+          "id": 133167384753,
+          "name": "qualification-capacity-proof",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:26Z",
+          "completed_at": "2026-11-16T08:04:30Z",
+          "elapsed_s": 4.0,
+          "steps": []
+        },
+        {
+          "id": 133167385277,
+          "name": "qualification-mutation-2",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:26Z",
+          "completed_at": "2026-11-16T08:09:01Z",
+          "elapsed_s": 275.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 226.0
+            }
+          ]
+        },
+        {
+          "id": 133167385280,
+          "name": "qualification-mutation-9",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:28Z",
+          "completed_at": "2026-11-16T08:14:21Z",
+          "elapsed_s": 593.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 527.0
+            }
+          ]
+        },
+        {
+          "id": 133167385297,
+          "name": "qualification-mutation-1",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:27Z",
+          "completed_at": "2026-11-16T08:09:18Z",
+          "elapsed_s": 291.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 246.0
+            }
+          ]
+        },
+        {
+          "id": 133167385320,
+          "name": "qualification-mutation-10",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:27Z",
+          "completed_at": "2026-11-16T08:14:17Z",
+          "elapsed_s": 590.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 533.0
+            }
+          ]
+        },
+        {
+          "id": 133167385352,
+          "name": "qualification-mutation-3",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:27Z",
+          "completed_at": "2026-11-16T08:10:20Z",
+          "elapsed_s": 353.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 295.0
+            }
+          ]
+        },
+        {
+          "id": 133167385354,
+          "name": "qualification-mutation-5",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:27Z",
+          "completed_at": "2026-11-16T08:10:19Z",
+          "elapsed_s": 352.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 314.0
+            }
+          ]
+        },
+        {
+          "id": 133167385358,
+          "name": "qualification-mutation-8",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:26Z",
+          "completed_at": "2026-11-16T08:24:42Z",
+          "elapsed_s": 1216.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 1168.0
+            }
+          ]
+        },
+        {
+          "id": 133167385389,
+          "name": "qualification-mutation-11",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:27Z",
+          "completed_at": "2026-11-16T08:14:10Z",
+          "elapsed_s": 583.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 516.0
+            }
+          ]
+        },
+        {
+          "id": 133167385406,
+          "name": "qualification-mutation-6",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:28Z",
+          "completed_at": "2026-11-16T08:08:19Z",
+          "elapsed_s": 231.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 164.0
+            }
+          ]
+        },
+        {
+          "id": 133167385421,
+          "name": "qualification-mutation-7",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:27Z",
+          "completed_at": "2026-11-16T08:21:41Z",
+          "elapsed_s": 1034.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 987.0
+            }
+          ]
+        },
+        {
+          "id": 133167385435,
+          "name": "qualification-mutation-4",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:27Z",
+          "completed_at": "2026-11-16T08:13:49Z",
+          "elapsed_s": 562.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 479.0
+            }
+          ]
+        },
+        {
+          "id": 133167385471,
+          "name": "qualification-mutation-12",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:28Z",
+          "completed_at": "2026-11-16T08:21:42Z",
+          "elapsed_s": 1034.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 963.0
+            }
+          ]
+        },
+        {
+          "id": 133167385499,
+          "name": "qualification-mutation-13",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:27Z",
+          "completed_at": "2026-11-16T08:12:25Z",
+          "elapsed_s": 478.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 428.0
+            }
+          ]
+        },
+        {
+          "id": 133167385604,
+          "name": "qualification-song",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:27Z",
+          "completed_at": "2026-11-16T08:07:10Z",
+          "elapsed_s": 163.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 118.0
+            }
+          ]
+        },
+        {
+          "id": 133167385631,
+          "name": "qualification-short",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:28Z",
+          "completed_at": "2026-11-16T08:06:43Z",
+          "elapsed_s": 135.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 76.0
+            }
+          ]
+        },
+        {
+          "id": 133167385654,
+          "name": "qualification-mutation-16",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:27Z",
+          "completed_at": "2026-11-16T08:09:24Z",
+          "elapsed_s": 297.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 248.0
+            }
+          ]
+        },
+        {
+          "id": 133167385671,
+          "name": "qualification-mutation-14",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:27Z",
+          "completed_at": "2026-11-16T08:22:00Z",
+          "elapsed_s": 1053.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 985.0
+            }
+          ]
+        },
+        {
+          "id": 133167385693,
+          "name": "qualification-curves",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:27Z",
+          "completed_at": "2026-11-16T08:07:13Z",
+          "elapsed_s": 166.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 106.0
+            }
+          ]
+        },
+        {
+          "id": 133167385696,
+          "name": "qualification-mutation-15",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:04:27Z",
+          "completed_at": "2026-11-16T08:07:27Z",
+          "elapsed_s": 180.0,
+          "steps": [
+            {
+              "name": "Complete the exact comparison within its existing command budget",
+              "elapsed_s": 120.0
+            }
+          ]
+        },
+        {
+          "id": 133183024829,
+          "name": "capacity-matrix / merge",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:40:24Z",
+          "completed_at": "2026-11-16T08:41:05Z",
+          "elapsed_s": 41.0,
+          "steps": []
+        },
+        {
+          "id": 133183367429,
+          "name": "qualification-capacity-matrix",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:41:08Z",
+          "completed_at": "2026-11-16T08:41:12Z",
+          "elapsed_s": 4.0,
+          "steps": []
+        },
+        {
+          "id": 133183416770,
+          "name": "qualification-result",
+          "conclusion": "success",
+          "started_at": "2026-11-16T08:41:15Z",
+          "completed_at": "2026-11-16T08:41:58Z",
+          "elapsed_s": 43.0,
+          "steps": []
+        },
+        {
+          "id": 133183774834,
+          "name": "deploy-after-dispatch",
+          "conclusion": "skipped",
+          "started_at": "2026-11-16T08:41:59Z",
+          "completed_at": "2026-11-16T08:41:58Z",
+          "elapsed_s": -1.0,
+          "steps": []
+        }
+      ]
+    }
+  ],
+  "candidate_total_elapsed_s": null,
+  "target_achieved": false,
+  "stage_0_hold": "unchanged",
+  "remaining_bottleneck": "Run 43907577701 mutation-8: baseline 931s, total sweep 1719.1s; test_revise baseline 891.3s. More shards alone cannot divide this single suite."
+}
