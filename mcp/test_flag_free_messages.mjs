@@ -626,6 +626,16 @@ const CASES = [
   ['lyric_types', { word_a: 'a--b', word_b: 'coat' }, /'a--b' is not a single bare word/],
   ['lyric_check', { lines: two, groups: '1,2', subdivision: 4 }, /`subdivision` needs `blueprint`/],
   [
+    'lyric_verify',
+    { before_text: two.join('\n'), after_text: two.join('\n'), groups: '1,2', subdivision: 4 },
+    /`subdivision` needs `blueprint`/,
+  ],
+  [
+    'lyric_revise',
+    { draft_text: two.join('\n'), groups: '1,2', subdivision: 4 },
+    /`subdivision` needs `blueprint`/,
+  ],
+  [
     'lyric_plan',
     { seed: 3, melody: 'not a phrase' },
     /`melody` requires a valid phrase JSON object/,
@@ -698,15 +708,53 @@ test(
   }
 );
 
-// And row by row: every message in quality/plan.py, held to both rules. Its
-// own todo until the planner rewording lands; then fold plan.py back into
-// `literals` and delete this test (Andrej's review of #871, should-fix 3).
+// And row by row: every message in quality/plan.py. Until the planner
+// rewording lands (Andrej's, planner-file rule), the messages that still name
+// a flag are pinned here by text, without their line: a NEW one fails now,
+// and one that is reworded must leave this list, so it never goes stale
+// (Andrej's re-check of #871). The todo below holds the whole file to both
+// rules and reports what is left; when the list is empty, fold plan.py back
+// into `literals` and delete both tests.
+const PLANNER_KNOWN = [
+  "[*] --groups: group {} declares {} over {} declared word(s) ({}). That schema's own placement rule is {}",
+  '[*] --groups: group {} declares {} over {} members ({}), every one of them at the DEFAULT slot — the lin',
+  '[*] --seed: plan requires --seed=N — an explicit integer seed',
+  '[*] --seed: plan requires --seed=N — the pattern, the meter and every scheme are free choices, and a f',
+  '[*] --form: --form={} is declared and BLOCKED: {}',
+  '[*] --form: --form={} is not a declared form. Declared: {}; declared-but-blocked: {}.',
+  "[*] --lines: --lines={} is outside the planner's envelope [{}, {}]. The envelope bounds what the planne",
+  '[*] --relation: --relation={} is not declarable: {}',
+  '[*] --functions: --functions names {}: {}',
+  '[*] --functions: --functions names {}, a specialisation of {} whose claim is {} == {}. This planner draws {',
+  '[*] --functions: --functions names {} and there is no such section function. The vocabulary is `quality.gri',
+  '[*] --functions: --functions names {}, which the vocabulary declares but this planner cannot BUILD. Its ros',
+  '[*] --functions: --functions asks for {} and not for {} — and {} REQUIRES {} by definition ({}). A section ',
+  '[*] --form, --functions: --form={} requires {}, and the declared roster {} can draw none of {}. Declare them in --f',
+  '[*] --subdivision: --subdivision {}',
+];
+const plannerKey = (finding) => finding.replace(/^\S+:\d+ /, '');
+
+test("the planner's messages name no flag beyond the known ones", () => {
+  const rows = plannerLiterals();
+  assert.ok(rows.length, 'quality/plan.py is scanned');
+  const found = [...flagFindings(rows), ...fieldFindings(rows)].map(plannerKey);
+  assert.deepEqual(
+    found.filter((f) => !PLANNER_KNOWN.includes(f)),
+    [],
+    'a new planner message names a flag or a field its tool does not take'
+  );
+  assert.deepEqual(
+    PLANNER_KNOWN.filter((k) => !found.includes(k)),
+    [],
+    'reworded: remove it from PLANNER_KNOWN'
+  );
+});
+
 test(
   "the planner's messages, row by row, name fields, not flags",
   { todo: "quality/plan.py's messages: Andrej rewords them after #871 (planner-file rule)" },
   () => {
     const rows = plannerLiterals();
-    assert.ok(rows.length, 'quality/plan.py is scanned');
     assert.deepEqual([...flagFindings(rows), ...fieldFindings(rows)], []);
   }
 );
