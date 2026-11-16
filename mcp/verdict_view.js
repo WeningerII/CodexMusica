@@ -28,8 +28,19 @@ export const SHORT_VIEW_TOOLS = new Set([
   'lyric_revise',
   'lyric_screen',
   'lyric_check',
+  'lyric_plan',
+  'lyric_sweep',
 ]);
-export const DETAIL_PARTS = ['full', 'findings', 'report', 'coverage', 'pronunciations', 'pairs'];
+export const DETAIL_PARTS = [
+  'full',
+  'findings',
+  'report',
+  'coverage',
+  'pronunciations',
+  'pairs',
+  'plan',
+  'refusals',
+];
 // The detail parts each finished tool actually has. Any other part used to be
 // answered rather than refused: a sweep returned its summary for every part, a
 // screen returned `null` for coverage, and a grade `null` for pairs, so a caller
@@ -39,9 +50,13 @@ export const DETAIL_FOR = {
   lyric_revise: ['findings', 'report', 'coverage', 'pronunciations', 'full'],
   lyric_check: ['findings', 'report', 'coverage', 'pronunciations', 'full'],
   lyric_screen: ['pairs', 'findings', 'report', 'full'],
+  lyric_plan: ['plan', 'full'],
+  lyric_sweep: ['refusals', 'report', 'full'],
 };
 // The parts `lines` narrows (detailOf); on any other part it would be ignored.
 export const LINE_PARTS = ['findings', 'coverage', 'pronunciations'];
+// The tools whose verdict is about a song's lines, so `lines` can narrow it.
+export const LINE_TOOLS = ['lyric_grade', 'lyric_revise', 'lyric_check'];
 
 // A requested obligation is unjudged because a reading was undecided or a
 // word could not be read: these are the findings that say which, per line.
@@ -384,6 +399,113 @@ function screenView(content, detail) {
   return [{ type: 'text', text: JSON.stringify(short) }];
 }
 
+// THE PLAN (writer plan, stage 2). A finished plan is TWO blocks: the brief the
+// writer writes to, and a verdict that carries the structured plan, which
+// restates the brief as data (its slots, its choices, the brief's own text
+// again). A 443-line plan measured 36,422 characters of brief and 112,569 of
+// verdict; stage 0's agents drew plans of 100,520, 114,773 and 167,847
+// characters, their client delivered none of them, and one agent wrote 444
+// lines without ever seeing its plan. The session keeps the plan and the grade
+// takes the seed, so nothing a writer does next reads the structured copy. The
+// session view is the brief, exactly as stored, and the verdict's own fields
+// without that copy; `detail` "plan" returns it.
+const PLAN_KEPT = [
+  'exit_code',
+  'meaning',
+  'measurement_status',
+  'certified',
+  'lexicon',
+  'plan_lines',
+  'plan_sha256',
+  'plan_request',
+  'plan_lineage',
+];
+const PLAN_DETAIL_NOTE =
+  'The brief above is the whole plan a writer writes to. The structured plan (its slots, ' +
+  'choices and groups as data) is kept with the operation: get_operation with this ' +
+  'operation_id and detail "plan" or "full" returns it.';
+function planAt(content) {
+  if (content.length !== 2) return -1;
+  try {
+    JSON.parse(content[0].text);
+    return -1;
+  } catch {
+    /* block 0 is the brief */
+  }
+  try {
+    const v = JSON.parse(content[1].text);
+    return Number.isInteger(v?.exit_code) && v.plan && typeof v.plan === 'object' ? 1 : -1;
+  } catch {
+    return -1;
+  }
+}
+function planView(content, detail) {
+  const at = planAt(content);
+  if (at < 0 || detail === 'full') return content;
+  const v = JSON.parse(content[at].text);
+  if (detail)
+    return [
+      {
+        type: 'text',
+        text: JSON.stringify({ exit_code: v.exit_code, detail, plan: v.plan }),
+      },
+    ];
+  const short = {};
+  for (const key of PLAN_KEPT) if (v[key] !== undefined) short[key] = v[key];
+  short.detail = PLAN_DETAIL_NOTE;
+  if (v.outcome && typeof v.outcome === 'object') short.outcome = v.outcome;
+  if (v.next_call && typeof v.next_call === 'object' && typeof v.next_call.tool === 'string')
+    short.next_call = v.next_call;
+  if (typeof v.next === 'string') short.next = v.next;
+  return [...content.slice(0, at), { type: 'text', text: JSON.stringify(short) }];
+}
+
+// THE SWEEP (writer plan, stage 2). A sweep's verdict is one small block, and
+// the session publishes it whole but for one thing: each planner reason's
+// complete text. The reason itself is the refusal's first line; the lines
+// after it (what the draw refused on, what to change) are kept with the
+// operation, and `detail` "refusals" returns every reason with them. Before
+// this a sweep had no detail at all, and its reason arrived cut off mid-word.
+const SWEEP_DETAIL_NOTE =
+  'Each planner reason above is the first line of that refusal. get_operation with this ' +
+  'operation_id and detail "refusals" returns every reason with its complete text; "report" ' +
+  'returns the engine report and "full" the whole verdict.';
+function sweepAt(content) {
+  if (content.length !== 1) return -1;
+  try {
+    const v = JSON.parse(content[0].text);
+    return Number.isInteger(v?.exit_code) && Number.isInteger(v.swept) ? 0 : -1;
+  } catch {
+    return -1;
+  }
+}
+function sweepView(content, detail) {
+  if (sweepAt(content) < 0 || detail === 'full') return content;
+  const v = JSON.parse(content[0].text);
+  const reasons = Array.isArray(v.planner_refusals) ? v.planner_refusals : [];
+  if (detail) {
+    const out = { exit_code: v.exit_code, detail };
+    if (detail === 'refusals') out.planner_refusals = reasons;
+    else out.report = v.report ?? null;
+    return [{ type: 'text', text: JSON.stringify(out) }];
+  }
+  if (!reasons.some((g) => g && typeof g.text === 'string')) return content;
+  const { outcome, next_call, next, ...rest } = v;
+  return [
+    {
+      type: 'text',
+      text: JSON.stringify({
+        ...rest,
+        planner_refusals: reasons.map(({ text: _text, ...g }) => g),
+        detail: SWEEP_DETAIL_NOTE,
+        ...(outcome !== undefined ? { outcome } : {}),
+        ...(next_call !== undefined ? { next_call } : {}),
+        ...(next !== undefined ? { next } : {}),
+      }),
+    },
+  ];
+}
+
 // What a finished result can serve to `detail`, read from the result itself:
 // whether it carries a verdict with parts at all (a revise suspended on a
 // question, at exit 4, does not), and how many lines its song has. The count is
@@ -394,6 +516,8 @@ function screenView(content, detail) {
 export function verdictShape(tool, content) {
   if (!Array.isArray(content)) return { ready: false, lines: null };
   if (tool === 'lyric_screen') return { ready: screenAt(content) >= 0, lines: null };
+  if (tool === 'lyric_plan') return { ready: planAt(content) >= 0, lines: null };
+  if (tool === 'lyric_sweep') return { ready: sweepAt(content) >= 0, lines: null };
   const at = verdictIndex(tool, content);
   if (at < 0) return { ready: false, lines: null };
   const draft = JSON.parse(content[at].text).final_draft;
@@ -403,6 +527,8 @@ export function verdictShape(tool, content) {
 export function sessionView(tool, content, { detail, lines } = {}) {
   if (!SHORT_VIEW_TOOLS.has(tool)) return content;
   if (tool === 'lyric_screen') return screenAt(content) < 0 ? content : screenView(content, detail);
+  if (tool === 'lyric_plan') return planView(content, detail);
+  if (tool === 'lyric_sweep') return sweepView(content, detail);
   const at = verdictIndex(tool, content);
   if (at < 0 || detail === 'full') return content;
   const verdict = JSON.parse(content[at].text);

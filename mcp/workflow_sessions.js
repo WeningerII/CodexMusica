@@ -17,7 +17,7 @@ import {
   recoverState,
 } from './state_codec.js';
 import { HTTP_REQUEST_BYTES, jsonBytes } from './payload_limits.js';
-import { sessionView, verdictShape, DETAIL_FOR, LINE_PARTS } from './verdict_view.js';
+import { sessionView, verdictShape, DETAIL_FOR, LINE_PARTS, LINE_TOOLS } from './verdict_view.js';
 import { nextCreationCall } from './lyric_workflow.js';
 
 // Persisted namespace from the first release: keep existing capabilities recoverable.
@@ -288,6 +288,7 @@ export function continueNote(footnote, task = null) {
 // the call that works: before, it was ignored (a sweep answered every part with
 // its summary) or answered with null or [] (a coverage read on a screen, lines
 // past the end of the song), which reads as "there is nothing there".
+const orList = (xs) => `${xs.slice(0, -1).join(', ')} or ${xs[xs.length - 1]}`;
 function checkDetail(record, result, detail, lines) {
   const tool = record.intent.action?.tool;
   const parts = DETAIL_FOR[tool];
@@ -298,7 +299,7 @@ function checkDetail(record, result, detail, lines) {
     );
   if (!parts)
     throw new Error(
-      `DETAIL_NOT_APPLICABLE: detail applies to a finished lyric_grade, lyric_revise, lyric_check or lyric_screen; this operation is ${tool || 'not a tool call'}. ${plain}`
+      `DETAIL_NOT_APPLICABLE: detail applies to a finished ${orList(Object.keys(DETAIL_FOR))}; this operation is ${tool || 'not a tool call'}. ${plain}`
     );
   if (record.state !== 'completed' || !result)
     throw new Error(
@@ -317,9 +318,9 @@ function checkDetail(record, result, detail, lines) {
       `DETAIL_NOT_READY: this ${tool} finished without a verdict to take apart (a revise awaiting answers, at exit 4, or a refusal); it has no detail parts. Call get_operation without detail, and answer its question if it asks one.`
     );
   if (!lines?.length) return;
-  if (!LINE_PARTS.includes(detail) || tool === 'lyric_screen')
+  if (!LINE_PARTS.includes(detail) || !LINE_TOOLS.includes(tool))
     throw new Error(
-      `LINES_NOT_APPLICABLE: lines narrows only ${LINE_PARTS.join(', ')} on a lyric_grade, lyric_revise or lyric_check; detail "${detail}" on a ${tool} has nothing per line. Omit lines.`
+      `LINES_NOT_APPLICABLE: lines narrows only ${LINE_PARTS.join(', ')} on a ${orList(LINE_TOOLS)}; detail "${detail}" on a ${tool} has nothing per line. Omit lines.`
     );
   const args = record.intent.action?.arguments || {};
   const count =

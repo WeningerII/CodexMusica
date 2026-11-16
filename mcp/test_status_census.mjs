@@ -1236,3 +1236,83 @@ test('a call refused in a new-song session names the call its gate admits', asyn
   assert.notEqual(next.isError, true);
   assert.equal(receiptOf(next).status, 'pending');
 });
+
+// ── A plan reaches the caller at any length ─────────────────────────────────
+// Stage 0's agents drew plans whose results were 100,520, 114,773 and 167,847
+// characters; their client delivered none of them. Real sessions over the
+// first seeds, undeclared so the planner draws the length.
+test(
+  'a session publishes a plan as its brief and a verdict that does not grow with it',
+  { timeout: 900_000 },
+  async (t) => {
+    const sessions = new WorkflowSessions({ store: storeFor(t).store });
+    const client = await sessionClient(t, sessions);
+    const settled = async (receipt) => {
+      await sessions.wait(receipt.operation_id);
+      return send(client, 'get_operation', { operation_id: receipt.operation_id });
+    };
+    // The smallest plan result a client is known to have dropped.
+    const DROPPED = 100_520;
+    let longest = 0;
+    for (let seed = 1; seed <= 6; seed++) {
+      let at = await send(client, 'begin_lyrics', {});
+      at = await settled(
+        await send(client, 'lyric_sweep', { session_id: at.session_id, seed_from: seed, count: 1 })
+      );
+      assert.equal(at.tool_error, undefined, at.tool_result.content[0].text.slice(0, 300));
+      at = await settled(
+        await send(client, 'lyric_screen', { session_id: at.session_id, words: ['aa', 'bb'] })
+      );
+      const plan = await settled(
+        await send(client, 'lyric_plan', { session_id: at.session_id, seed })
+      );
+      assert.equal(plan.status, 'completed');
+      const [brief, verdictBlock] = plan.tool_result.content;
+      assert.equal(plan.tool_result.content.length, 2);
+      const v = JSON.parse(verdictBlock.text);
+      longest = Math.max(longest, v.plan_lines);
+      // The verdict carries no structured copy, and its size does not follow the plan.
+      assert.equal(Object.hasOwn(v, 'plan'), false);
+      assert.ok(verdictBlock.text.length < 2000, `seed ${seed}: ${verdictBlock.text.length}`);
+      assert.ok(
+        brief.text.length + verdictBlock.text.length < DROPPED / 2,
+        `seed ${seed}: ${v.plan_lines} lines publish ${brief.text.length + verdictBlock.text.length} characters`
+      );
+      // Who acts next is on it, and the brief is the stored brief.
+      assert.equal(v.outcome.kind, 'next_call');
+      assert.deepEqual(v.outcome.call, v.next_call);
+      assert.equal(typeof v.next, 'string');
+      const full = await send(client, 'get_operation', {
+        operation_id: plan.operation_id,
+        detail: 'full',
+      });
+      assert.equal(full.tool_result.content[0].text, brief.text);
+      const stored = JSON.parse(full.tool_result.content[1].text);
+      assert.equal(stored.plan.total_lines, v.plan_lines);
+      // The structured copy is still there to read, alone.
+      const part = await send(client, 'get_operation', {
+        operation_id: plan.operation_id,
+        detail: 'plan',
+      });
+      assert.deepEqual(JSON.parse(part.tool_result.content[0].text), {
+        exit_code: 0,
+        detail: 'plan',
+        plan: stored.plan,
+      });
+      // A part a plan does not have is refused by name, and `lines` narrows no plan.
+      for (const [args, code] of [
+        [{ detail: 'report' }, /^DETAIL_NOT_APPLICABLE: a lyric_plan has detail plan, full/],
+        [{ detail: 'plan', lines: [1] }, /^LINES_NOT_APPLICABLE: /],
+      ]) {
+        const refused = await client.callTool({
+          name: 'get_operation',
+          arguments: { operation_id: plan.operation_id, ...args },
+        });
+        assert.equal(refused.isError, true);
+        assert.match(refused.content[0].text, code);
+      }
+    }
+    // The draws reached a long plan, so the bound was met at length.
+    assert.ok(longest >= 400, `the longest plan drawn has ${longest} lines`);
+  }
+);
