@@ -1056,7 +1056,7 @@ class Placement:
                         f"rather than asserting one and "
                         f"`conventional_grouping()` is labelled a convention "
                         f"(doctrine 19); this refuses for the same reason. "
-                        f"Declare `groups` on the section's meter."),
+                        f"Declare `meter.groups` on the section in the blueprint."),
                 ends_with="declaring the grouping on the section's meter — a "
                           "declaration, not a measurement")
         return h
@@ -1520,7 +1520,7 @@ def fit_line(text, placement, phon=None, subdivision=None, assume=None,
                     f"REACHING THIS STATE NOW REQUIRES SOMEBODY TO HAVE NAMED "
                     f"THEMSELVES: an undeclared signature with no assumption "
                     f"REFUSES at the reader rather than falling to common "
-                    f"time, the same way the `groups` half of this same "
+                    f"time, the same way the `meter.groups` half of this same "
                     f"declaration has always refused "
                     f"(UNDECLARED_GROUPING)."),
             ends_with=(f"adding \"meter\": {{\"beats\": N, \"unit\": D}} "

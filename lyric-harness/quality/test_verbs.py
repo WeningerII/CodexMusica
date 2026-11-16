@@ -5711,10 +5711,10 @@ def test_the_pasted_song_has_the_same_door_as_a_planned_one():
     song = os.path.join(HERE, "fixtures", "twin_bank_17.txt")
     rc, out, _ = run("recover", song)
     check("`recover` on a banked song exits 3 — the meter is REFUSED, a "
-          "work order and not a failure — and prints the two CLI flags",
+          "work order and not a failure — and prints the two declarations",
           rc == 3 and "MANDATE SPELLING" in out
-          and re.search(r"^\s*--groups=\S+", out, re.M)
-          and re.search(r"^\s*--returns=6,9;6,14", out, re.M)
+          and re.search(r"^\s*groups: \S+", out, re.M)
+          and re.search(r"^\s*returns: 6,9;6,14", out, re.M)
           and "EXIT 3" in out and "meter" in out,
           f"rc {rc}; " + out[out.find("MANDATE SPELLING"):][:160])
     rc, out, _ = run("recover", song, "--bogus", expect_rc=2)

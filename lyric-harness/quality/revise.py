@@ -2281,7 +2281,7 @@ class Reviser:
                                       "compared — REFUSED, not failed "
                                       "(doctrine 79). To clear it, change the "
                                       "word, or declare a reading that has "
-                                      "that place (--pronunciations)")})
+                                      "that place (`pronunciations`)")})
                             refused.add((i, j, k))
                             unknown.add((i, k))
                             unknown.add((j, k))
@@ -2363,7 +2363,7 @@ class Reviser:
                                        f"compares — UNDECIDED, not failed "
                                        f"(doctrine 79). Choose the intended "
                                        f"reading from pronunciation_options, "
-                                       f"declare it with --pronunciations, and "
+                                       f"declare it in `pronunciations`, and "
                                        f"regrade"
                                        if _by_readings else
                                        f"the declared structure {struct!r} has "
