@@ -3,9 +3,9 @@ name: Production capacity matrix
 # The two-profile, 36-execution CPU/memory capacity matrix over the tested lyrics image,
 # dealt by (lines, seed) cell across runners instead of across three 1-CPU
 # lanes on one runner (M-282). Called by production-qualification.yml since
-# the 2026-09-17 placement decision; every shard rebuilds from the same
-# tree and the merger requires every shard's `source_sha256` to agree, so the
-# four measurements are evidence about ONE runtime.
+# the 2026-09-17 placement decision. All eight shards reuse the verified
+# exact-commit CI image, or all take the historical rebuild path when no CI
+# image is selected. The merger requires every source fingerprint to agree.
 #
 # WHY THIS LEFT `lyrics-image`, MEASURED. CI run 34711856241 (main 87480ab7,
 # 2026-09-12): the job took 23.1 min of the run's 34.9 -- build 0.5 (admitted
@@ -50,9 +50,9 @@ name: Production capacity matrix
 # may run without a completed CI image, so a seed is only an optimization:
 # the image admits a current receipt or measures a fresh proof. The historical
 # seeded rebuild measured ~40 s (M-267); a hit here is not assumed. The
-# merger's `source_sha256` equality is what makes four builds
-# one runtime, and `BUILD_RELEASE_ID` is the same string in every shard so
-# the four images carry one release identity.
+# merger's `source_sha256` equality makes the fallback builds one runtime;
+# their shared `BUILD_RELEASE_ID` binds that qualification attempt. Reused
+# images retain the selected CI attempt's release identity instead.
 on:
   workflow_call: {}
 permissions:
@@ -86,6 +86,7 @@ jobs:
     permissions:
       contents: read
       actions: read
+      packages: read
     runs-on: ubuntu-latest
     # The pole shard MEASURED ~19 min at three-lane speed and should be under
     # that alone; an unseeded rebuild adds the ~10-min proof (M-267). 50 is
@@ -158,11 +159,13 @@ jobs:
         id: reused
         timeout-minutes: 10
         env:
+          GH_TOKEN: ${{ github.token }}
           IMAGE_REFERENCE: ${{ steps.admitted.outputs.reference }}
           IMAGE_REPOSITORY: ${{ vars.RENDER_IMAGE_REPOSITORY }}
           VERIFIED_RELEASE_ID: ${{ needs.image-source.outputs.release_id }}
         run: |
           set -euo pipefail
+          printf '%s' "$GH_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
           docker pull --platform=linux/amd64 "$IMAGE_REFERENCE"
           node scripts/qualification_image.mjs inspect verified-image/lyrics-image.json
       - name: Build the tested lyrics runtime for this shard

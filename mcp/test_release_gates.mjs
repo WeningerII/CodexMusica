@@ -1255,3 +1255,172 @@ test('qualification image selection without trusted evidence leaves the rebuild 
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test('qualification image CLI verifies checkout source and inspected immutable image', async () => {
+  const { runtimeSourceFingerprint } = await import('./build_identity.js');
+  const dir = mkdtempSync(join(tmpdir(), 'qualification-cli-'));
+  try {
+    const manifest = {
+      version: 1,
+      commit: sha,
+      repository: 'ghcr.io/owner/repo/lyrics',
+      repository_source_sha256: runtimeSourceFingerprint(),
+      image_id: `sha256:${'c'.repeat(64)}`,
+      digest: `sha256:${'d'.repeat(64)}`,
+      build: {
+        commit: sha,
+        release_id: '1:12:2:lyrics-image',
+        source_sha256: 'e'.repeat(64),
+        assets_sha256: 'f'.repeat(64),
+        asset_manifest_sha256: '1'.repeat(64),
+        node: 'v22.23.4',
+        python: '3.11.2',
+        nltk: '3.9.1',
+      },
+    };
+    const file = join(dir, 'manifest.json'),
+      output = join(dir, 'output'),
+      calls = join(dir, 'calls');
+    const localId = `sha256:${'2'.repeat(64)}`;
+    const reference = `${manifest.repository}@${manifest.digest}`;
+    const info = [{ Id: localId, RepoDigests: [reference] }];
+    const docker = join(dir, 'docker');
+    writeFileSync(
+      docker,
+      `#!${process.execPath}\nconst fs = require('node:fs');\nconst args = process.argv.slice(2);\nfs.appendFileSync(${JSON.stringify(calls)}, JSON.stringify(args) + '\\n');\nconsole.log(JSON.stringify(args[0] === 'image' ? ${JSON.stringify(info)} : JSON.parse(fs.readFileSync(${JSON.stringify(join(dir, 'build.json'))}, 'utf8'))));\n`,
+      { mode: 0o700 }
+    );
+    const env = {
+      ...process.env,
+      GITHUB_SHA: sha,
+      IMAGE_REPOSITORY: manifest.repository,
+      VERIFIED_RELEASE_ID: manifest.build.release_id,
+      GITHUB_OUTPUT: output,
+      PATH: `${dir}:${process.env.PATH}`,
+    };
+    const invoke = (verb) => {
+      writeFileSync(file, JSON.stringify(manifest));
+      writeFileSync(output, '');
+      return spawnSync(process.execPath, ['scripts/qualification_image.mjs', verb, file], {
+        cwd: join(import.meta.dirname, '..'),
+        encoding: 'utf8',
+        env,
+      });
+    };
+    let result = invoke('admit');
+    assert.equal(result.status, 0, result.stderr);
+    assert.equal(readFileSync(output, 'utf8'), `reference=${reference}\n`);
+    manifest.repository_source_sha256 = '0'.repeat(64);
+    result = invoke('admit');
+    assert.notEqual(result.status, 0);
+    assert.equal(readFileSync(output, 'utf8'), '');
+    manifest.repository_source_sha256 = runtimeSourceFingerprint();
+    writeFileSync(join(dir, 'build.json'), JSON.stringify(manifest.build));
+    result = invoke('inspect');
+    assert.equal(result.status, 0, result.stderr);
+    assert.equal(readFileSync(output, 'utf8'), `image_id=${localId}\n`);
+    const commands = readFileSync(calls, 'utf8').trim().split('\n').map(JSON.parse);
+    assert.deepEqual(commands[0], ['image', 'inspect', reference]);
+    assert.deepEqual(commands[1].slice(0, 5), [
+      'run',
+      '--rm',
+      '--network=none',
+      '--entrypoint=node',
+      localId,
+    ]);
+    writeFileSync(
+      join(dir, 'build.json'),
+      JSON.stringify({ ...manifest.build, release_id: 'stale' })
+    );
+    result = invoke('inspect');
+    assert.notEqual(result.status, 0);
+    assert.equal(readFileSync(output, 'utf8'), '');
+    const { checkPulledImage } = await import('../scripts/qualification_image.mjs');
+    assert.throws(() => checkPulledImage(manifest, 'latest', manifest.build, [reference]));
+    assert.throws(() =>
+      checkPulledImage(manifest, localId, manifest.build, [
+        `ghcr.io/fork/repo/lyrics@${manifest.digest}`,
+      ])
+    );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('qualification select CLI binds the successful CI run and attempt to the release identity', async () => {
+  const { createServer } = await import('node:http');
+  const { spawn } = await import('node:child_process');
+  const requests = [];
+  const server = createServer((req, res) => {
+    requests.push(req.url);
+    res.setHeader('content-type', 'application/json');
+    if (req.url.includes('/workflows/ci.yml/runs?'))
+      res.end(JSON.stringify({ workflow_runs: [run] }));
+    else if (req.url === '/repos/owner/repo/actions/runs/12/attempts/2/jobs?per_page=100&page=1')
+      res.end(JSON.stringify({ jobs, total_count: jobs.length }));
+    else {
+      res.statusCode = 404;
+      res.end('{}');
+    }
+  });
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  const dir = mkdtempSync(join(tmpdir(), 'qualification-select-'));
+  try {
+    const output = join(dir, 'output');
+    const child = spawn(process.execPath, ['scripts/qualification_image.mjs', 'select'], {
+      cwd: join(import.meta.dirname, '..'),
+      env: {
+        ...process.env,
+        GH_TOKEN: 'fixture-token',
+        GITHUB_SHA: sha,
+        GITHUB_REPOSITORY: repository,
+        GITHUB_REPOSITORY_ID: '1',
+        GITHUB_OUTPUT: output,
+        GITHUB_API_URL: `http://127.0.0.1:${server.address().port}`,
+      },
+    });
+    let stderr = '';
+    child.stdout.resume();
+    child.stderr.on('data', (chunk) => {
+      stderr += chunk;
+    });
+    const code = await new Promise((resolve, reject) => {
+      child.on('error', reject);
+      child.on('close', resolve);
+    });
+    assert.equal(code, 0, stderr);
+    assert.equal(readFileSync(output, 'utf8'), 'run_id=12\nrelease_id=1:12:2:lyrics-image\n');
+    assert.equal(requests.length, 2);
+    assert.match(requests[0], new RegExp(`head_sha=${sha}&event=push&branch=main`));
+  } finally {
+    await new Promise((resolve) => server.close(resolve));
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('qualification workflow authorizes private image pulls and keeps reuse fail closed', () => {
+  const workflow = readFileSync(
+    join(import.meta.dirname, '..', '.github/workflows/capacity-matrix.yml'),
+    'utf8'
+  );
+  const caller = readFileSync(
+    join(import.meta.dirname, '..', '.github/workflows/production-qualification.yml'),
+    'utf8'
+  );
+  const shard = workflow.match(/^ {2}shard:\n[\s\S]*?(?=^ {2}[\w-]+:)/m)[0];
+  const call = caller.match(/^ {2}capacity-matrix:\n[\s\S]*?(?=^ {2}[\w-]+:)/m)[0];
+  assert.match(shard, /permissions:\n {6}contents: read\n {6}actions: read\n {6}packages: read/);
+  assert.match(call, /permissions:\n {6}contents: read\n {6}actions: read\n {6}packages: read/);
+  const pull = shard.match(/ {6}- name: Pull and verify[\s\S]*?(?= {6}- name:)/)[0];
+  assert.match(pull, /if: needs.image-source.outputs.run_id != ''/);
+  assert.match(pull, /GH_TOKEN: \$\{\{ github.token \}\}/);
+  assert(pull.indexOf('docker login ghcr.io') < pull.indexOf('docker pull'));
+  assert.match(pull, /--password-stdin/);
+  assert.match(pull, /set -euo pipefail/);
+  assert.match(pull, /qualification_image.mjs inspect/);
+  assert.doesNotMatch(shard, /continue-on-error/);
+  assert.match(
+    shard,
+    /Build the tested lyrics runtime for this shard\n {8}if: needs.image-source.outputs.run_id == ''/
+  );
+});
