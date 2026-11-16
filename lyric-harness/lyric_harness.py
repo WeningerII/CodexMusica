@@ -8378,6 +8378,23 @@ def _lyric_run_record(say_memo, say_proposer, plan=None):
     return out
 
 
+MANDATE_FIELDS = frozenset({"groups", "returns", "structures", "relation",
+                            "group_types"})
+
+
+def _as_field(flag):
+    """`--group-types=` -> "`group_types`": a declaration named by its field.
+
+    A refusal the connector can return names what its caller can SEND, and
+    a connector caller sends fields, not flags (stage T, #871). On the
+    command line the flag is the same word with `--` and `-` for `_`. Only
+    a mandate flag a connector field carries becomes a field; any other stays
+    its flag: `--cliques` is command-line only, and `--relations=` is what the
+    connector builds from a plan, which no caller field carries."""
+    name = flag.lstrip("-").rstrip("=").replace("-", "_")
+    return f"`{name}`" if name in MANDATE_FIELDS else flag
+
+
 def _refuse(msg, sides=(), detail=(), machine=None):
     """Print the ONE refusal shape and exit 2. Never returns.
 
@@ -8518,7 +8535,7 @@ def _subdivision_or_refuse(FT, raw, source):
     try:
         return FT.Subdivision(slots_per_pulse=int(raw), source=source)
     except ValueError as e:
-        _refuse(f"--subdivision wants a positive whole number of slots per "
+        _refuse(f"`subdivision` wants a positive whole number of slots per "
                 f"pulse; got {raw!r} ({e}). It is a DECLARED coordinate with "
                 f"no default -- omit it entirely and the slot questions "
                 f"refuse rather than assume a sixteenth-note grid.")
@@ -10901,7 +10918,7 @@ def _parse_melody_flag(raw):
     try:
         return validate_melody(json.loads(raw))
     except (ValueError, TypeError) as exc:
-        _refuse(f"--melody requires a valid phrase JSON object: {exc}")
+        _refuse(f"`melody` requires a valid phrase JSON object: {exc}")
 
 
 def _parse_group_types_flag(raw):
@@ -10917,10 +10934,10 @@ def _parse_group_types_flag(raw):
     try:
         value = json.loads(raw)
     except ValueError as exc:
-        _refuse(f"--group-types requires a JSON list of {{group, type}}: "
+        _refuse(f"`group_types` requires a JSON list of {{group, type}}: "
                 f"{exc}")
     if not isinstance(value, list):
-        _refuse(f"--group-types requires a JSON list of {{group, type}}; got "
+        _refuse(f"`group_types` requires a JSON list of {{group, type}}; got "
                 f"{type(value).__name__}")
     return value
 
@@ -10948,7 +10965,7 @@ def _parse_narrative_flag(raw):
             if junc:
                 _refuse("the FIRST section takes no inbound "
                         "junction — nothing precedes it",
-                        detail=["--narrative=ATOM,ATOM/JUNCTION,"
+                        detail=["`narrative` reads ATOM,ATOM/JUNCTION,"
                                 "... — the opening cell is a "
                                 "bare atom"])
         else:
@@ -11986,7 +12003,7 @@ def main():
         for ax in ("identity", "stress", "position", "boundary", "length",
                    "realisation"):
             if ax == "position" and position is not None:
-                print(f"  position: {position} (DECLARED by `--position=`, "
+                print(f"  position: {position} (DECLARED by `position`, "
                       f"as a mandate declares it for a line-final group — "
                       f"asserted, not measured from a line)")
                 continue
@@ -12085,24 +12102,24 @@ def main():
         try:
             declared = RC.parse_placements(spec) if spec is not None else None
         except _SLr.SlotUnsupported as exc:
-            _refuse(f"recover --placements={spec!r}: {exc}")
+            _refuse(f"recover `placements` {spec!r}: {exc}")
         try:
             rec = RC.recover_file(rest[0], lex=lex, decl=decl,
                                   placements=declared, input_format=input_format)
         except OSError as e:
             _refuse(f"recover {rest[0]!r} — {e.strerror or e}")
         print(RC.render(rec))
-        # THE MANDATE SPELLING, PRINTED AS THE TWO FLAGS (M-195): the render
-        # carries it inside the `mandate_spelling` coordinate's prose; a
-        # caller hands these two lines to `brief`/`revise` verbatim, and the
-        # connector's `lyric_recover` reads them off exactly this block.
+        # THE MANDATE SPELLING, PRINTED AS THE TWO DECLARATIONS (M-195): the
+        # render carries it inside the `mandate_spelling` coordinate's prose.
+        # Named by field, not flag (stage T): a connector caller reads this
+        # report, while `lyric_recover` takes the mandate off the record.
         ms = rec.get("mandate_spelling") or {}
-        print("  MANDATE SPELLING (the cover as the two CLI flags — hand "
-              "them to brief/revise; `--groups=` charges a REPEAT edge as "
-              "a violation, `--returns=` is the only spelling that holds "
-              "one):")
-        print(f"    --groups={ms.get('--groups=', '')}")
-        print(f"    --returns={ms.get('--returns=', '')}")
+        print("  MANDATE SPELLING (the cover as the two declarations `groups` "
+              "and `returns`, for lyric_check and lyric_revise; `groups` charges a "
+              "REPEAT edge as a violation, `returns` is the only "
+              "declaration that holds one):")
+        print(f"    groups: {ms.get('--groups=', '')}")
+        print(f"    returns: {ms.get('--returns=', '')}")
         # THE NEXT COMMAND, SPELLED (2026-09-02): `plan` prints GRADE IT and
         # this door printed only "hand them to brief/revise" — the tier-A
         # verification of M-195 named the gap. Quoted, so the line pastes.
@@ -12114,8 +12131,8 @@ def main():
         if ms.get('--returns='):
             _gi.append(_shlex.quote(f"--returns={ms['--returns=']}"))
         print(f"  GRADE IT: {' '.join(_gi)}")
-        print("      (`revise FILE MANDATE --propose=defer:STATE.json` is the "
-              "same mandate driven to a stop condition and stamped)")
+        print("      (lyric_revise drives the same mandate to a stop condition "
+              "and stamps it)")
         _refs = rec.refusals()
         # THE MACHINE RECORD: the sung lines the mandate is numbered over,
         # the rows the reader set aside, the two flags and every refusal WITH
@@ -12184,7 +12201,7 @@ def main():
             try:
                 _canon_s, _kind_s = _RT_s.resolve_relation(screen_rel)
             except _RT_s.RelationRefused as e:
-                _refuse(f"screen --relation={screen_rel!r} names no "
+                _refuse(f"screen `relation` {screen_rel!r} names no "
                         f"declarable relation: {e}")
             if _kind_s == "schema":
                 # ~~a schema is judged over LINES — which do not exist yet at
@@ -12198,7 +12215,7 @@ def main():
                 from quality import relations as _RL_s
                 _sch = _RL_s.REGISTRY[_canon_s]
                 if not _RL_s.pair_bindable(_sch):
-                    _refuse(f"screen --relation={screen_rel!r} names a "
+                    _refuse(f"screen `relation` {screen_rel!r} names a "
                             f"schema no single declared token can bind "
                             f"(`relations.pair_bindable`): its member span "
                             f"is searched or wider than a token, so judging "
@@ -13847,8 +13864,13 @@ def main():
         sub_arg = _flag_value(args, "--subdivision")
         subdivision = _subdivision_or_refuse(
             FT, sub_arg,
-            "lyric_harness.py brief/verify/revise --subdivision, an "
-            "explicit decision by whoever ran the command")
+            # On `song` and `finish` the connector sends the plan's own
+            # subdivision (lyric_grade and a seeded lyric_revise take no
+            # `subdivision` field), so the source says where it came from.
+            ("the subdivision the plan declared"
+             if cmd in ("song", "finish") else
+             "the `subdivision` declared to lyric_check, lyric_verify or "
+             "lyric_revise, an explicit decision by whoever made the call"))
         # THE SAME `=`-SPELLING HOLE `fit` HAD, on the same flag, three verbs
         # wide: `--isochronous=true` was stripped from `args` by the
         # `_FLAG_NAMES` pass below (its base matches) and then read by
@@ -13947,7 +13969,7 @@ def main():
         # that DECLARES first, the side that was HANDED IN after it.
         sides = []
         if bp_path:
-            sides.append(("DECLARED  --blueprint=", bp_path))
+            sides.append(("DECLARED  `blueprint`", bp_path))
 
         def _say_blueprint():
             """Printed only once a mandate spec is known to be present —
@@ -14301,7 +14323,7 @@ def main():
                     if not part:
                         continue
                     if ":" not in part:
-                        _refuse(f"--structures entry {part!r} has no ':' — "
+                        _refuse(f"`structures` entry {part!r} has no ':' — "
                                 f"the spelling is LABEL:NAME (group label "
                                 f"or 1-based index, then a catalog row "
                                 f"name or alias)")
@@ -14411,29 +14433,29 @@ def main():
                 # A letter string BESIDE a flag. Refused rather than ignored:
                 # silently dropping it is the very defect this block closes.
                 _refuse(f"mandate {tail[0]!r} was handed in beside "
-                        f"{' '.join(names)}, and a letter scheme cannot be "
+                        f"{' '.join(_as_field(n) for n in names)}, and a letter scheme cannot be "
                         f"combined with either",
                         detail=["a letter is a property of a LINE (doctrine "
                                 "2), so it cannot carry an overlapping group "
                                 "or a return class.",
-                                "spell the whole mandate as --groups= and/or "
-                                "--returns=."])
+                                "declare the whole mandate as `groups` and/or "
+                                "`returns`."])
 
             g = _groups(by["--groups="], "groups") if "--groups=" in by else []
             r = _groups(by["--returns="], "returns") if "--returns=" in by else []
             for flag, val in (("--structures=", st), ("--relations=", rl)):
                 if val is not None and not (g or r):
-                    _refuse(f"{flag} was handed in with no groups to "
+                    _refuse(f"{_as_field(flag)} was handed in with no groups to "
                             f"annotate — declare the mandate it speaks about "
-                            f"(a letter scheme, --groups= and/or --returns=)")
+                            f"(a letter scheme, `groups` and/or `returns`)")
             if gt is not None:
                 far = sorted(k for k in gt if k > len(g))
                 if far:
-                    _refuse(f"--group-types names group "
-                            f"{', '.join(map(str, far))}, and --groups= "
+                    _refuse(f"`group_types` names group "
+                            f"{', '.join(map(str, far))}, and `groups` "
                             f"sends {len(g)} group(s)",
                             detail=["a group is numbered by its place in "
-                                    "--groups=, a repeated group counted "
+                                    "`groups`, a repeated group counted "
                                     "again"])
                 # A group on fewer than two lines mandates nothing, and
                 # `_normalise_groups` lets it go FREE without a word -- which
@@ -14442,7 +14464,7 @@ def main():
                 lone = [k for k in sorted(gt)
                         if len({str(m).split(".")[0] for m in g[k - 1]}) < 2]
                 if lone:
-                    _refuse("--group-types chooses a type for "
+                    _refuse("`group_types` chooses a type for "
                             + "; ".join(f"group {k} ({','.join(g[k - 1])})"
                                         for k in lone)
                             + ", which names fewer than two lines",
@@ -14532,7 +14554,9 @@ def main():
                 _prs = m.pairs()
             elif isinstance(m, list) and m and isinstance(m[0], list):
                 _grps, _lab = list(m), []
-                _n, _src = n_lines, "declared (--groups=)"
+                _n, _src = n_lines, ("declared by the plan"
+                                     if cmd in ("song", "finish")
+                                     else "declared (`groups`)")
                 # `Mandate.pairs` CALLED, never respelled. It is a pure
                 # function of `.groups` and a bare cover has those, so the
                 # count here and the count on the decorated call move
@@ -16478,8 +16502,9 @@ def cli():
                         "pair guard (`relations.realise`, max_pairs). "
                         "MEASURED on the planner's fixture draft: 53 lines "
                         "56 s, 108 lines 330 s, 144 lines refused.",
-                        "declare a relation per group (`--relation=` / "
-                        "`--relations=`) so the registry is not searched "
+                        "declare `relation` (one for every group), or "
+                        "with a `groups` mandate `group_types` (one per "
+                        "group), so the registry is not searched "
                         "song-wide; the song keeps the length it was asked "
                         "for. A whole-vocabulary judgment that scales "
                         "is `MISSING.md` M-240, open."])

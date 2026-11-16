@@ -115,12 +115,12 @@ def parse_placements(spec):
             SL.parse_slot(f"1.{name}")
         except SL.SlotUnsupported as exc:
             raise SL.SlotUnsupported(
-                f"--placements names {name!r}, which this module cannot "
+                f"`placements` names {name!r}, which this module cannot "
                 f"resolve to a span of a line: {exc}") from None
         out.append(name)
     if not out:
         raise SL.SlotUnsupported(
-            "--placements was declared and names no placement. An empty "
+            "`placements` was declared and names no placement. An empty "
             "declaration is not the default; say nothing to get "
             f"{list(RECOVERABLE_PLACEMENTS)}.")
     return tuple(out)
@@ -312,8 +312,9 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
           "2026-08-23). Counting gives the syllables per line reported "
           "above, and a grid inferred from them would be this harness "
           "declaring a meter on the writer's behalf and then grading them "
-          "against it. Declare one with --blueprint= and every meter check "
-          "runs")
+          "against it. Declare one as `blueprint` with its `subdivision` where "
+          "the lines are graded (lyric_check, lyric_revise or lyric_verify) "
+          "and every meter check runs")
 
     # 5. THE WEB. The cover over PLACEMENTS, not over line ends — which is
     #    the whole reason this module is written now rather than in terms of
@@ -420,12 +421,13 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
            "--returns=": ";".join(f"{e['a']},{e['b']}"
                                   for e in bare_repeats)},
           "derived",
-          f"the cover as the two CLI mandate flags, split on whether each "
-          f"edge's relation set holds REPEAT: {len(rhymes)} edge(s) to `--groups=` and "
-          f"{len(bare_repeats)} line-level REPEAT class(es) to `--returns=`, "
-          f"which is the ONLY spelling under which identity is the "
+          f"the cover as the two mandate declarations for lyric_check and "
+          f"lyric_revise, split on whether each "
+          f"edge's relation set holds REPEAT: {len(rhymes)} edge(s) to `groups` and "
+          f"{len(bare_repeats)} line-level REPEAT class(es) to `returns`, "
+          f"which is the ONLY declaration under which identity is the "
           f"REQUIREMENT rather than the violation. Handing the WHOLE web to "
-          f"`--groups=` charges one SCHEME_VIOLATION per REPEAT edge; this "
+          f"`groups` charges one SCHEME_VIOLATION per REPEAT edge; this "
           f"split is what makes the doctrine-14 claim below true")
     if placed_repeats:
         # WHY THESE ARE NOT SPELLED INTO `--returns=`, although a placed
@@ -442,7 +444,7 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
         r.put("repeats_at_a_placement", len(placed_repeats), "REFUSED",
               f"{len(placed_repeats)} recovered REPEAT edge(s) bind at a "
               f"PLACEMENT ({_shown}{_more}) and are not in the mandate "
-              f"spelling. A placed return IS spellable — `--returns=` takes "
+              f"spelling. A placed return IS spellable — `returns` (on lyric_check and lyric_revise) takes "
               f"members such as `1.head,3.head` — but this cover's REPEAT is "
               f"the same word as the lexicon reads it (so `You` ~ `you`), "
               f"while the placed-return judge compares the word as written "
@@ -453,7 +455,7 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
               f"They are not flattened to line numbers either: `4.head ~ "
               f"8.head` spelled `4 ~ 8` declares an identity between two line "
               f"ENDS this module never measured. Declare the placed returns "
-              f"the song means in `--returns=`")
+              f"the song means in `returns`")
     _cut_said = (f"at theta {theta}, DECLARED by the caller"
                  if theta_declared else
                  f"at the cut the grader judges each pair at "
@@ -528,7 +530,7 @@ def render(r):
         out.append(f"  PLACEMENTS SEARCHED: {', '.join(places)}")
         out.append("      the web is over these and no others — a placement "
                    "not searched is not a placement the text lacks "
-                   "(doctrine 20). `--placements=` declares otherwise; "
+                   "(doctrine 20). `placements` declares otherwise; "
                    "`quality/recover.py`'s `RECOVERABLE_PLACEMENTS` is the "
                    "default and the argument for it.")
         out.append("")
