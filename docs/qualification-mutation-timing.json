@@ -47,6 +47,64 @@
   ],
   "full_qualification_elapsed_s": null,
   "under_30_minutes_established": false,
+  "qr2": [
+    {
+      "mode": "serial",
+      "wall_s": 646.1043793559998,
+      "result": {
+        "name": "QR2",
+        "layer": "value",
+        "file": "quality/revise.py",
+        "rationale": "Doctrine 9's ENTIRE mechanism disabled at its one implementation point: `joint_field`/`modal_field` forbid nothing, `Brief.forbidden_modal` is empty for every line (TRUE AS WRITTEN since 2026-08-16 and not before it: until the incumbent moved to its own field this list still held one entry per briefed line at k=0, so the sentence was accidentally wrong about a mutation it was accidentally right about \u2014 the kill behaviour never moved, because rule 3's rejection is already dead at k=0), and `verify()`'s rule-3 modal check can therefore never fire. `modal_exclusion=0` is a reachable declared setting on purpose \u2014 CLAUDE.md says so, and says it is NOT the default \u2014 so this mutation is precisely 'the demonstrable defect became the shipped behaviour'. Doctrine 48: a principle is only real once it is mechanical, and this deletes the mechanism while leaving the prose.",
+        "subset_declared": ["quality/test_revise.py", "quality/test_loop.py"],
+        "subset_missing_from_green": [],
+        "scope_run": "subset",
+        "tests_run": ["quality/test_loop.py", "quality/test_revise.py"],
+        "escalation": "declared",
+        "caught_by": {
+          "quality/test_revise.py": {
+            "status": "FAIL",
+            "detail": "4 FAILING: ...the internal ranking still knows it is the modal partner, so the silence is the removed check and not a changed ranking, moving to a word the internal ranking calls most predictable is NOT rejected for that: no `modal_violations`, no 'took the modal candidate' reason, and the fixed/new accounting runs, `modal_head` is the head `modal_field` returns, unchanged, EXACT: every one of the"
+          }
+        },
+        "load_sensitive": {},
+        "refused_by": {},
+        "survived": false,
+        "indeterminate": false,
+        "seconds": 1128.3
+      },
+      "source_pristine": true
+    },
+    {
+      "mode": "parallel",
+      "wall_s": 460.323078593,
+      "result": {
+        "name": "QR2",
+        "layer": "value",
+        "file": "quality/revise.py",
+        "rationale": "Doctrine 9's ENTIRE mechanism disabled at its one implementation point: `joint_field`/`modal_field` forbid nothing, `Brief.forbidden_modal` is empty for every line (TRUE AS WRITTEN since 2026-08-16 and not before it: until the incumbent moved to its own field this list still held one entry per briefed line at k=0, so the sentence was accidentally wrong about a mutation it was accidentally right about \u2014 the kill behaviour never moved, because rule 3's rejection is already dead at k=0), and `verify()`'s rule-3 modal check can therefore never fire. `modal_exclusion=0` is a reachable declared setting on purpose \u2014 CLAUDE.md says so, and says it is NOT the default \u2014 so this mutation is precisely 'the demonstrable defect became the shipped behaviour'. Doctrine 48: a principle is only real once it is mechanical, and this deletes the mechanism while leaving the prose.",
+        "subset_declared": ["quality/test_revise.py", "quality/test_loop.py"],
+        "subset_missing_from_green": [],
+        "scope_run": "subset",
+        "tests_run": ["quality/test_loop.py", "quality/test_revise.py"],
+        "escalation": "declared",
+        "caught_by": {
+          "quality/test_revise.py": {
+            "status": "FAIL",
+            "detail": "shard 1/2: FAIL 4 FAILING: ...the internal ranking still knows it is the modal partner, so the silence is the removed check and not a changed ranking, moving to a word the internal ranking calls most predictable is NOT rejected for that: no `modal_violations`, no 'took the modal candidate' reason, and the fixed/new accounting runs, `modal_head` is the head `modal_field` returns, unchanged, EXACT: every one of the"
+          }
+        },
+        "load_sensitive": {},
+        "refused_by": {},
+        "survived": false,
+        "indeterminate": false,
+        "seconds": 762.5
+      },
+      "source_pristine": true
+    }
+  ],
+  "qr2_same_detection_and_complete_declared_scope": true,
+  "qr2_timing_caveat": "The workspace client restarted/reconnected during the serial QR2 run. The Docker container survived and both outcomes are retained, but elapsed times are diagnostic, not a clean performance comparison.",
   "evidence_sha256": {
     "benchmark.json": "1c1c4925fe562227668fab7010c49b16a108fbdf003ef8c61595979cd9f36343",
     "benchmark.py": "32c6bd3e013d1d54ad4147b6801db3c059235617f11202924b6672f773f396f6",
@@ -56,6 +114,7 @@
     "loop-parallel-2-2.stdout": "1a0ef3a730c9d215974ae37956cb7d2ef3d33adbd490ecca79309714bd5843ab",
     "loop-serial-all.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "loop-serial-all.stdout": "be9998d3133be58c0c146d38584fb30adbf27d61ee9fc5753f826c8416045247",
+    "mutant-benchmark.json": "29189757eef56b7dca733d7c25b40b9358625cf83cb34dc60f3f4250c0a6dd29",
     "mutant_benchmark.py": "dfdaff9d5c63de0d6e9b125452862b937e9a246c90c176e7214afc50112431b7",
     "revise-parallel-1-2.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "revise-parallel-1-2.stdout": "30fad2a9fb4ee5ce2dc67a88a8d24d5fbb404e5d954daaee6eb4113f8f8bada8",
