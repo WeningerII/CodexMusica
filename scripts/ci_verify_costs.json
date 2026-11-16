@@ -89,6 +89,7 @@
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_meter_admission.mjs": 3.9,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_checkpoint.mjs": 56.9,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_choices.mjs": 11.8,
+    "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_parked_lines.mjs": 1.2,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_refusal_promise.mjs": 3.7,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_release_gates.mjs": 3.8,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_review_only.mjs": 4.2,
