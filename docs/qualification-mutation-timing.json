@@ -29,7 +29,7 @@
       "serial_s": 611.0289552290001,
       "parallel_s": 426.977895173,
       "reduction_percent": 30.121495631417638,
-      "sections": "64",
+      "sections": 64,
       "checks": 399,
       "identical_assertion_census": true,
       "statuses": ["PASS", "PASS"]
@@ -39,7 +39,7 @@
       "serial_s": 468.60756760999993,
       "parallel_s": 260.06340022099994,
       "reduction_percent": 44.50294485268781,
-      "sections": "29",
+      "sections": 29,
       "checks": 267,
       "identical_assertion_census": true,
       "statuses": ["PASS", "PASS"]
@@ -269,5 +269,24 @@
       "artifact_id": 14274037604,
       "artifact_sha256": "28148fd054ebf202595b1699404be9f7c4d3bf55bbf737116d231b90b2884a80"
     }
+  },
+  "evidence_archive": {
+    "path": "docs/qualification-mutation-evidence.tar.gz",
+    "sha256": "3e2f866bedfc1040c41d3f183492eabc90cf82b26c97ef9e72450c6f77a5f2d9",
+    "scope": "Raw local suite/QR2 study files named by evidence_sha256; not current-head hosted qualification"
+  },
+  "superseded_local_shard7_trial": {
+    "head_sha": "c58dfcaece32472ecc6a4ad737b7e5637a60c741",
+    "exit_code": 1,
+    "full_shard_pass": false,
+    "reason": "Static shadow check test_shard.py requires jq, absent from the test-only image. No failed check was suppressed.",
+    "baseline_pass": 10,
+    "baseline_revise_s": 579.8,
+    "baseline_loop_s": 436.7,
+    "sweep_elapsed_s": 1351.8,
+    "mutations_caught": 4,
+    "indeterminate": 0,
+    "escalations": 0,
+    "scope": "Diagnostic only; predates R2 review fixes and is not a valid complete-shard timing result"
   }
 }

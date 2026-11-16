@@ -246,7 +246,10 @@ HARNESS_DIRNAME = os.path.basename(ROOT)
 #: would recurse. It is excluded here and it also refuses to run when it sees
 #: LYRIC_MUTATE_ACTIVE in the environment -- two independent guards, because
 #: one of them is a list somebody will edit.
-EXCLUDE_TESTS = {os.path.join("quality", "test_mutation.py")}
+# The parallel-runner controls also test this instrument, not a mutation
+# target. CI runs them directly; their timing fixtures are never detectors.
+EXCLUDE_TESTS = {os.path.join("quality", "test_mutation.py"),
+                 os.path.join("quality", "test_mutation_parallel.py")}
 
 #: Tests whose verdict depends on WALL CLOCK, and which therefore cannot be
 #: trusted while other processes are on the machine. Derived by grep, not by
@@ -1816,7 +1819,10 @@ def run_complete_suite(tree, rel_path, env, timeout):
     count = 2 if shard_env else 1
 
     def run(index):
-        child_env = dict(env)
+        # A mutation detector always asks its complete inventory. Ambient CI
+        # coordinates must not narrow either the first pass or confirmation.
+        child_env = {key: value for key, value in env.items()
+                     if not (key.startswith("TEST_") and key.endswith("_SHARD"))}
         if shard_env:
             child_env[shard_env] = f"{index}/{count}"
         try:
@@ -1837,8 +1843,12 @@ def run_complete_suite(tree, rel_path, env, timeout):
         results = list(pool.map(run, range(1, count + 1)))
     severity = {"PASS": 0, "FAIL": 1, "ERROR": 2, "TIMEOUT": 3}
     status = max((s for s, _ in results), key=severity.__getitem__)
-    tail = " | ".join(f"shard {i}/{count}: {s} {detail}"
-                      for i, (s, detail) in enumerate(results, 1) if s != "PASS")
+    parts = [(f"shard {i}/{count}: {s} ", detail)
+             for i, (s, detail) in enumerate(results, 1) if s != "PASS"]
+    # Keep each half's status/cause inside the report's existing 400-char cap.
+    budget = ((400 - sum(len(prefix) for prefix, _ in parts)
+               - 3 * max(0, len(parts) - 1)) // len(parts)) if parts else 0
+    tail = " | ".join(prefix + detail[:budget] for prefix, detail in parts)
     return status, tail
 
 
@@ -1849,6 +1859,8 @@ def run_test(tree, rel_path, timeout=None):
     means an assertion in that file disagreed with the mutant, ERROR means the
     mutant broke the file badly enough that it could not run. Both count as
     caught; only FAIL means somebody wrote a check.
+    Seconds measure complete-suite wall time, not the sum of partition CPU
+    times. The declared per-suite deadline is unchanged for each child.
     """
     timeout = bound_for(rel_path, timeout)
     env = dict(os.environ)
@@ -1867,6 +1879,10 @@ def run_test(tree, rel_path, timeout=None):
 
 def _test_result(p, dt):
     """Read the same exit and diagnostic evidence on first and isolated runs."""
+    if p.returncode < 0:
+        # An interrupted process never supplied a verdict. Use the existing
+        # incomplete-run path (confirmation, then REFUSED), never a catch.
+        return "TIMEOUT", dt, f"terminated by signal {-p.returncode}; no completed verdict"
     if p.returncode == 0:
         return "PASS", dt, ""
     err = (p.stderr or b"").decode("utf-8", "replace")
@@ -1939,23 +1955,18 @@ def confirm_failure(tree, rel_path, timeout=None, attempts=3, observations=None)
             env["PYTHONHASHSEED"] = str(SEED)
             env["PYTHONDONTWRITEBYTECODE"] = "1"
             env["LYRIC_MUTATE_ACTIVE"] = "1"
-            try:
-                p = subprocess.run([sys.executable, rel_path], cwd=tree,
-                                   env=env, capture_output=True,
-                                   timeout=timeout)
-            except subprocess.TimeoutExpired:
+            status, detail = run_complete_suite(tree, rel_path, env, timeout)
+            seconds = round(time.monotonic() - started, 1)
+            if status == "TIMEOUT":
                 timed_out += 1
-                last = (f"isolated attempt {attempt + 1} timed out "
-                        f"after {timeout:g}s")
+                last = f"isolated attempt {attempt + 1}: {detail}"
                 if observations is not None:
                     observations.append({"status": "TIMEOUT",
-                        "seconds": round(time.monotonic() - started, 1),
+                        "seconds": seconds,
                         "detail": last})
                 continue
         finally:
             GATE.release_exclusive()
-        status, seconds, detail = _test_result(
-            p, round(time.monotonic() - started, 1))
         if observations is not None:
             observations.append({"status": status, "seconds": seconds,
                                  "detail": detail})
