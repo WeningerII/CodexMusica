@@ -2930,7 +2930,9 @@ def test_the_loop_suspends_instead_of_guessing():
           and st["accepted_lines"] == [original[0], answer])
     check("a converged run has no pending request and names its stop and original draft",
           st["pending"] is None and st["complete"]["stop"] == "success"
-          and st["complete"]["exit"] == 0 and len(st["complete"]["draft"]) == 12)
+          and st["complete"]["exit"] == 0 and len(st["complete"]["draft"]) == 12
+          and st["complete"]["flagged_lines"] == []
+          and "pass_flagged_lines" not in st)
     check("every answer names the draft it was requested against",
           all(len(r.get("draft", "")) == 12 for r in st["answered"]["propose"]))
     rc6, out6, _ = run("revise", draft, *mand, f"--propose=defer:{state}")
@@ -2986,6 +2988,10 @@ def test_the_loop_pursues_a_note_it_can_brief():
           and base_result.get("rounds", 0) >= 1
           and base_bans == ban_codes
           and {3, 4} <= set(base_result.get("unresolved_lines", []))
+          # the flagged subset, published beside the open lines (Refs #665):
+          # every open line here carries a mandatory writing-ban flag
+          and base_result.get("flagged_lines")
+          == base_result.get("unresolved_lines")
           and base_result.get("final_draft") == MODAL_DRAFT,
           f"rc {rc1}; stop {base_result.get('stop')}; bans {sorted(base_bans)}")
 
