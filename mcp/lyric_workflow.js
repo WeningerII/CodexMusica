@@ -2,6 +2,7 @@
 // arguments and completedSteps are never evidence that a step occurred.
 import { createHash } from 'node:crypto';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
+import { refusedByRemedy } from './coverage_advice.js';
 
 // The form a plan request gets when it names none (`quality/plan.py`
 // DEFAULT_FORM): `open` requires no section function and no return.
@@ -173,16 +174,42 @@ const screenAttemptNote = (a) =>
     : '; its report names why. A plan needs one lyric_screen that answers (exit 0 or 3): call lyric_screen again once that cause is fixed.');
 // The song's length is the user's: a size limit is reported as this
 // session's limit, never answered by asking for a shorter song.
-const gradeAttemptNote = (a, lines) => {
+// `sent` is whether this call carried the draft the attempt ran on: a revise
+// that sent none can only be told about the draft last sent to lyric_grade.
+const gradeAttemptNote = (a, lines, sent = true) => {
   const facts = attemptFacts(a) ? ` (${attemptFacts(a)})` : '';
   const limit =
     "that limit is this session's, not the song's: report it to the user with the song's length unchanged";
+  const exact = sent ? 'this exact draft' : 'the draft last sent to it';
+  const same = sent ? 'this same draft' : 'that same draft';
+  const it = sent ? 'this draft' : 'that draft';
   if (a.cause === 'not_kept')
-    return ` lyric_grade measured this exact draft${facts}, but its result was over the size this session can keep, so nothing it produced was kept and no grade receipt was written. Grading this same draft again returns the same result: ${limit}, or call lyric_grade on a different draft of this plan (it may be too large as well).`;
+    return ` lyric_grade measured ${exact}${facts}, but its result was over the size this session can keep, so nothing it produced was kept and no grade receipt was written. Grading ${same} again returns the same result: ${limit}, or call lyric_grade on a different draft of this plan (it may be too large as well).`;
   if (a.cause === 'overflow')
-    return ` lyric_grade ran on this exact draft but did not answer with a grade receipt${facts}: it printed more than this connector can carry. Grading this same draft again returns the same result: ${limit}, or grade a different draft of this plan's ${lines} lines. Neither is known to be a cure.`;
-  return ` lyric_grade ran on this exact draft but did not answer with a grade receipt${facts}; its report names why. Read that report for the cause, then call lyric_grade again on this draft once it is fixed.`;
+    return ` lyric_grade ran on ${exact} but did not answer with a grade receipt${facts}: it printed more than this connector can carry. Grading ${same} again returns the same result: ${limit}, or grade a different draft of this plan's ${lines} lines. Neither is known to be a cure.`;
+  return ` lyric_grade ran on ${exact} but did not answer with a grade receipt${facts}; its report names why. Read that report for the cause, then call lyric_grade again on ${it} once it is fixed.`;
 };
+// A revise sent a draft other than the one graded under the plan. `graded` is
+// the grade receipt; one recorded before the draft's text was kept holds its
+// fingerprint only, so no line can be named and no draft taken from it.
+const SHOWN_DIFFERING = 12;
+function notTheGradedDraft(graded, draft, seed) {
+  const kept = Array.isArray(graded.draft);
+  const at = kept
+    ? draft.map((line, i) => (line === graded.draft[i] ? 0 : i + 1)).filter(Boolean)
+    : [];
+  const shown = at.slice(0, SHOWN_DIFFERING).join(', ');
+  const where = !at.length
+    ? ''
+    : at.length === 1
+      ? `: line ${shown} differs`
+      : `: lines ${shown}${at.length > SHOWN_DIFFERING ? ` and ${at.length - SHOWN_DIFFERING} more` : ''} differ`;
+  return (
+    ` This draft is not the one lyric_grade graded under this plan${where}.` +
+    (kept ? ' To revise the graded draft, send this call again without a draft.' : '') +
+    ` To keep this draft, call lyric_grade with seed ${seed} and this draft first.`
+  );
+}
 // The handler validates the original envelope and forbids all execution fields.
 // A requested export must reach it unchanged, even when malformed, and never
 // counts as planning, repair or completed work.
@@ -410,6 +437,33 @@ export function creationRefusal(task, name, args, lyric = null) {
       return 'CREATION_DRAFT: conflicting draft and draft_text; send one exact draft representation.';
     args.draft = draft;
   }
+  // A REVISE AFTER A GRADE (writer plan, stage 2). The plan's declarations are
+  // restored from the record above; the draft was not, so a caller had to send
+  // the whole graded draft again unchanged. The grade receipt keeps the draft's
+  // text now, and a revise that starts a run without a draft takes it from
+  // there. A run under way keeps its own draft: the graded one is where that
+  // run STARTED, and the host restores the run's draft before this gate.
+  const continuing =
+    name === 'lyric_revise' &&
+    !args.new_run &&
+    lyric &&
+    w.started?.plan_sha256 === w.plan.sha256 &&
+    (lyric.seed === request.seed || lyric.decl?.seed === request.seed);
+  const gradedDraft = w.grade?.plan_sha256 === w.plan.sha256 ? w.grade : null;
+  if (name === 'lyric_revise' && !continuing && !(Array.isArray(args.draft) && args.draft.length)) {
+    if (!gradedDraft)
+      return (
+        `CREATION_GRADE: no graded draft is on record for this plan, and this call sent none. Call lyric_grade with seed ${request.seed} and the complete ${w.plan.lines}-line draft; lyric_revise then takes that graded draft from the record.` +
+        (w.grade_attempt?.plan_sha256 === w.plan.sha256
+          ? gradeAttemptNote(w.grade_attempt, w.plan.lines, false)
+          : '')
+      );
+    if (Array.isArray(gradedDraft.draft)) {
+      args.draft = structuredClone(gradedDraft.draft);
+      // An empty `draft_text` sent beside it is not a second draft.
+      delete args.draft_text;
+    }
+  }
   if (!Array.isArray(args.draft) || !args.draft.length)
     return (
       'CREATION_DRAFT: the exact complete draft is required. Send this same call again with ' +
@@ -419,11 +473,6 @@ export function creationRefusal(task, name, args, lyric = null) {
   if (args.draft.length !== w.plan.lines)
     return `CREATION_DRAFT: the draft line count differs from the canonical program plan. The plan has ${w.plan.lines} lines and this draft has ${args.draft.length}: send this same call again with a draft of ${w.plan.lines} lines.`;
   if (name === 'lyric_grade') return null;
-  const continuing =
-    !args.new_run &&
-    lyric &&
-    w.started?.plan_sha256 === w.plan.sha256 &&
-    (lyric.seed === request.seed || lyric.decl?.seed === request.seed);
   if (continuing) return null;
   if (
     !w.grade ||
@@ -432,6 +481,9 @@ export function creationRefusal(task, name, args, lyric = null) {
   )
     return (
       'CREATION_GRADE: lyric_grade must answer for this exact draft and canonical plan before revision starts.' +
+      // Another draft IS graded under this plan: say which lines differ and
+      // name both ways on, so a change is neither revised unseen nor lost.
+      (gradedDraft ? notTheGradedDraft(gradedDraft, args.draft, request.seed) : '') +
       (w.grade_attempt?.plan_sha256 === w.plan.sha256 &&
       w.grade_attempt.draft_sha256 === hash(args.draft)
         ? gradeAttemptNote(w.grade_attempt, w.plan.lines)
@@ -605,10 +657,91 @@ export function withPlanLineage(task, name, result) {
   return changed ? { ...result, content } : result;
 }
 
+// SEEDS THE PLANNER REFUSED IN A ROW (writer plan, stage 2; the rule is R2's).
+// `refused_sweep` counts the seeds of consecutive windows the planner refused
+// whole under one request: the sweep's arguments apart from where the window
+// starts and how wide it is. Any other sweep result, or a changed request,
+// ends the count.
+const sweepRequest = (args) => {
+  const { seed_from: _from, count: _count, ...request } = args || {};
+  return JSON.stringify(Object.fromEntries(Object.entries(request).sort()));
+};
+// The 95% bound on the share of seeds that plan, when none of `seeds` did.
+export const planShareBound = (seeds) => 1 - 0.05 ** (1 / seeds);
+// "Sweep again" stops being the next call when, even at that bound, a further
+// window of `count` seeds is more likely than not to find no plan:
+// 1 - (1 - bound)^count < 1/2, which is 1 - 0.05^(count / seeds) < 1/2. The
+// test is the same for every window size: it is first true after the fifth
+// refused window. (Counting expected plans instead, bound x count < 1, is
+// true after ONE seed for a window of one.)
+const sweepingIsSpent = (seeds, count) =>
+  Number.isInteger(seeds) &&
+  seeds > 0 &&
+  Number.isInteger(count) &&
+  count > 0 &&
+  1 - 0.05 ** (count / seeds) < 0.5;
+
+// WHAT A WINDOW THAT KEPT NO SEED SAYS (writer plan, stage 2). The paragraph
+// was one fixed string: it told a caller who had declared `lines` to declare
+// it "if you have not", and pointed at held_by without saying a count. It is
+// now built from the verdict and the call:
+// - each predicate's own count, said, so the one that never holds is seen;
+// - the 95% bound that no seed kept leaves on the share of seeds kept;
+// - advice only for what the call did not declare;
+// - `row`, from a host that keeps receipts: the windows swept in a row under
+//   this request, and whether a further one is more likely than not to keep
+//   none. Then sweeping on is no longer offered.
+const orList = (xs) =>
+  xs.length < 3 ? xs.join(' or ') : `${xs.slice(0, -1).join(', ')}, or ${xs[xs.length - 1]}`;
+export function noneKeptMeaning(v, declared = {}, row = null) {
+  const pct = (x) => `${(100 * x).toFixed(1)}%`;
+  const held = (Array.isArray(v.held_by) ? v.held_by : [])
+    .map((h) => `${h.want} on ${h.held}`)
+    .join('; ');
+  const advice = [];
+  if (!declared.lines)
+    advice.push(
+      'declare a target length in `lines` (an undeclared length is drawn long, so a length cap rarely holds)'
+    );
+  if (!declared.functions) advice.push('declare the section roster in `functions`');
+  if (!row?.spent) advice.push('continue from next_seed_from');
+  return (
+    'no seed in THIS WINDOW satisfies every predicate.' +
+    (held ? ` Each predicate held on its own, of the ${v.planned} planned: ${held}.` : '') +
+    (typeof v.accept_share_bound === 'number'
+      ? ` None of the ${v.swept} seed(s) swept was kept, so at most ${pct(v.accept_share_bound)} of seeds are kept under this request (95% bound).`
+      : '') +
+    (row && row.seeds > v.swept
+      ? ` Across the windows swept in a row under this request, none of the ${row.seeds} seeds was kept: at most ${pct(row.bound)} of seeds are kept (95% bound).`
+      : '') +
+    (row?.spent
+      ? ' A further window of this size is more likely than not to keep none, so sweeping on is not offered.'
+      : '') +
+    (advice.length
+      ? ` Before dropping a predicate: ${orList(advice)}.`
+      : ' What is left is to change or drop a predicate.')
+  );
+}
 export function recordCreation(task, name, args, verdict, isError = false) {
   if (isRecoveryOnly(name, args)) return;
   const w = workflowFor(task);
   if (!w || isError || !verdict) return;
+  if (name === 'lyric_sweep') {
+    const request = sweepRequest(args);
+    if (verdict.sweep_outcome === 'planner refused every seed' && Number.isInteger(verdict.swept))
+      w.refused_sweep = {
+        request,
+        seeds: (w.refused_sweep?.request === request ? w.refused_sweep.seeds : 0) + verdict.swept,
+      };
+    else delete w.refused_sweep;
+    // The same count for windows that planned and kept no seed.
+    if (verdict.sweep_outcome === 'no seed kept' && Number.isInteger(verdict.swept))
+      w.unkept_sweep = {
+        request,
+        seeds: (w.unkept_sweep?.request === request ? w.unkept_sweep.seeds : 0) + verdict.swept,
+      };
+    else delete w.unkept_sweep;
+  }
   if (
     name === 'lyric_sweep' &&
     verdict.exit_code === 0 &&
@@ -697,6 +830,9 @@ export function recordCreation(task, name, args, verdict, isError = false) {
       w.grade = {
         plan_sha256: w.plan.sha256,
         draft_sha256: verdict.final_draft_sha256,
+        // The text beside its fingerprint: a revise that sends no draft takes
+        // it from here (creationRefusal).
+        draft: structuredClone(verdict.final_draft),
         coverage_certified: verdict.coverage.certified,
         ...(Array.isArray(verdict.pronunciations) &&
         !same(verdict.pronunciations, args.pronunciations ?? [])
@@ -787,6 +923,8 @@ export function nextCreationCall(task, carried, name) {
       tool: 'lyric_revise',
       args: { seed, ...(move ? { new_run: true } : {}) },
       draft: 'graded',
+      // The record holds the graded draft's text: the call needs no draft.
+      recorded: Array.isArray(w.grade.draft),
       lines,
     };
   return { tool: 'lyric_grade', args: { seed }, draft: 'complete', lines };
@@ -813,6 +951,11 @@ export function formatNextCall(next) {
     return `NEXT: lyric_revise with seed ${args.seed} to resume the interrupted run; the recorded run supplies its draft and declarations.`;
   if (next.continues === 'rewrite')
     return `NEXT: lyric_revise with seed ${args.seed} and the complete rewritten ${next.lines}-line draft as draft_text.`;
+  if (next.recorded)
+    return (
+      `NEXT: lyric_revise with seed ${args.seed}${args.new_run ? ', new_run: true' : ''} and no draft; the ${next.lines}-line draft lyric_grade graded is taken from the record. ` +
+      'To change a line, grade the changed draft first.'
+    );
   return (
     `NEXT: lyric_revise with seed ${args.seed}${args.new_run ? ', new_run: true' : ''} and the exact ${next.lines}-line draft lyric_grade graded. ` +
     'To change a line, grade the changed draft first.'
@@ -827,6 +970,306 @@ export function withNextCall(text, task, carried, name) {
   const line = formatNextCall(nextCreationCall(task, carried, name));
   return line ? `${text} ${line}` : text;
 }
+
+// WHO ACTS NEXT, AS DATA (writer plan, stage 2). A result's next step was
+// told four ways: a `next` sentence with `next_call` (plan, grade, check), a
+// "NEXT:" line inside a report (sweep), a paragraph after the song (a revise
+// stop), or nothing (screen, recover, verify, every refused verdict). A
+// caller could not tell a stop that needs a call from one that needs a
+// choice, or from one whose result is not known. Every result that carries a
+// verdict now carries `outcome`, one of four kinds:
+//   next_call  nothing is left to choose: `call` takes the work on.
+//   decision   a choice comes first. `by` says whose: the WRITER's (which
+//              words, which answer, which reading to declare) or the
+//              PERSON's (what they asked for must change, or work they
+//              started must be given up). `call` is the call that takes the
+//              answer once it is made.
+//   unknown    what the last action did is not known. `call`, when there is
+//              one, only READS what happened; the action is never repeated
+//              on this outcome.
+//   finished   the finished-revise record. Never a clean grade or check.
+// `call` is {tool, args}: the tool and the arguments the server sets, never
+// a draft or an answer. Where a verdict already names its call (`next_call`),
+// that same object is used, so the two cannot disagree; the `next` sentence
+// keeps its form. This reads only the verdict. A session reads its receipts
+// afterwards and replaces what they change (sessionOutcome).
+export const OUTCOME_KINDS = Object.freeze(['next_call', 'decision', 'unknown', 'finished']);
+export const OUTCOME_ACTORS = Object.freeze(['writer', 'person']);
+const callOf = (tool, args = {}) => ({ tool, args });
+const takeOn = (call) => ({ kind: 'next_call', by: 'writer', call });
+const choose = (by, call) => ({ kind: 'decision', by, call });
+// A refused declaration is what was ASKED (a title with no hook to be asked
+// of, a hook in sections that declare no function): no rewrite and no reading
+// moves it, so the choice is the person's. Anything refused about words is
+// the writer's. Read off the refused rows as the advice is (coverage_advice).
+function declarationOnly(v) {
+  const { reading, declarations, other } = refusedByRemedy(v);
+  return declarations.length > 0 && !reading && !other.length;
+}
+export function outcomeOf(tool, v, args = {}) {
+  if (!v || typeof v !== 'object' || !Number.isInteger(v.exit_code)) return null;
+  const code = v.exit_code;
+  // The harness died: nothing says what it did, and the same call dies the
+  // same way. There is no record to read on the raw engine.
+  if (code === 1) return { kind: 'unknown', by: 'writer', call: null };
+  const named =
+    v.next_call && typeof v.next_call === 'object' && typeof v.next_call.tool === 'string'
+      ? v.next_call
+      : null;
+  if (tool === 'lyric_sweep') {
+    if (code === 0) return takeOn(callOf('lyric_screen'));
+    // Nothing planned or kept. A cause in a seed's own draw is answered by
+    // the next window; a cause in the request is answered by changing it.
+    const reasons = Array.isArray(v.planner_refusals) ? v.planner_refusals : [];
+    const from = v.window?.next_seed_from;
+    // A reason about a seed's own draw leaves open that another seed plans,
+    // so the next window is the next call. One window cannot say more: with
+    // no plan in N seeds the share of seeds that plan is under
+    // 1 - 0.05^(1/N) (95%), and at that share a further window of the same
+    // size finds a plan 95 times in 100. The verdict states the bound
+    // (`plan_share_bound`); a host that keeps receipts adds the windows up
+    // (sessionOutcome).
+    if (
+      v.sweep_outcome === 'planner refused every seed' &&
+      reasons.some((g) => g?.scope === 'seed') &&
+      Number.isInteger(from)
+    )
+      return takeOn(callOf('lyric_sweep', { seed_from: from }));
+    return choose(
+      v.sweep_outcome === 'arguments refused' ? 'writer' : 'person',
+      callOf('lyric_sweep')
+    );
+  }
+  if (tool === 'lyric_screen')
+    return [0, 3].includes(code)
+      ? takeOn(callOf('lyric_plan'))
+      : choose('writer', callOf('lyric_screen'));
+  if (tool === 'lyric_plan') {
+    if (code === 0 && named) return takeOn(named);
+    // Refused for what this seed drew: the sweep finds another seed. Refused
+    // for the request: the declaration is the person's to change.
+    return v.plan_refusal?.scope === 'seed'
+      ? takeOn(callOf('lyric_sweep'))
+      : choose('person', callOf('lyric_sweep'));
+  }
+  if (tool === 'lyric_grade' || tool === 'lyric_check') {
+    if ([0, 3].includes(code) && named) return takeOn(named);
+    // A clean check of lyrics the person supplied names no next step and no
+    // call: nothing stands, and what happens next is theirs to say (they may
+    // have asked only for the check). Naming lyric_revise here invited a run
+    // nobody asked for (R2's note on pull request 869).
+    if (
+      tool === 'lyric_check' &&
+      code === 0 &&
+      v.findings_measured === true &&
+      v.certified === true
+    )
+      return choose('person', null);
+    // Measured and not all judged, or refused: words to change or a reading
+    // to declare, then the same tool again.
+    return choose(declarationOnly(v) ? 'person' : 'writer', callOf(tool));
+  }
+  if (tool === 'lyric_recover')
+    return code === 0
+      ? takeOn(callOf('lyric_check'))
+      : choose('writer', callOf(code === 3 ? 'lyric_check' : 'lyric_recover'));
+  if (tool === 'lyric_verify') return choose('writer', callOf('lyric_revise'));
+  if (tool === 'lyric_revise') {
+    // The tool that grades a changed draft: lyric_grade for a seeded plan,
+    // lyric_check for lyrics the person supplied (a revise with no seed). A
+    // continuing call's seed is restored into `args` by the handler.
+    const regrade = args?.seed != null ? 'lyric_grade' : 'lyric_check';
+    const run =
+      typeof v.run_id === 'string' && v.run_revision != null
+        ? { run_id: v.run_id, run_revision: v.run_revision }
+        : {};
+    if (v.status === 'recovered_artifact' || v.status === 'journal_capacity')
+      return choose('person', callOf('lyric_revise', { new_run: true }));
+    // A provider answer whose arrival is not known: the journal export reads
+    // what was kept and replays nothing.
+    if (v.uncertain_proposal === true || v.status === 'uncertain_proposal')
+      return {
+        kind: 'unknown',
+        by: 'writer',
+        call: callOf('lyric_revise', { recover_only: true }),
+      };
+    if (code === 4) return choose('writer', callOf('lyric_revise', run));
+    if (code === 5 || v.status === 'interrupted') return takeOn(callOf('lyric_revise', run));
+    if (code === 0)
+      return v.status === 'finished_clean'
+        ? { kind: 'finished' }
+        : choose(declarationOnly(v) ? 'person' : 'writer', callOf(regrade));
+    // Stopped with something open. At exit 3 the run takes a rewritten draft;
+    // an uncertified stop (exit 2) is not continued, so the rewritten draft
+    // is graded and starts a new run.
+    if (code === 3) return choose('writer', callOf('lyric_revise', run));
+    const open =
+      (typeof v.loop_unresolved === 'number' && v.loop_unresolved > 0) ||
+      (Array.isArray(v.loop_whole_flag_codes) && v.loop_whole_flag_codes.length > 0);
+    return choose(!open && declarationOnly(v) ? 'person' : 'writer', callOf(regrade));
+  }
+  return null;
+}
+// Attach it to the verdict block of a tool result (the block whose JSON has an
+// integer exit_code). A result with no verdict (a thrown refusal's text)
+// passes through: its text names the call that works (test_refusal_promise).
+export function withOutcome(tool, result, args = {}, derive = outcomeOf) {
+  if (!tool.startsWith('lyric_') || !result || !Array.isArray(result.content)) return result;
+  let changed = false;
+  const content = result.content.map((block) => {
+    if (changed || block?.type !== 'text') return block;
+    let v;
+    try {
+      v = JSON.parse(block.text);
+    } catch {
+      return block;
+    }
+    const outcome = derive(tool, v, args);
+    if (!outcome) return block;
+    changed = true;
+    // Kept ahead of `next_call` and `next`, which stay the verdict's last
+    // fields where they exist.
+    const { next_call, next, ...rest } = v;
+    return {
+      ...block,
+      text: JSON.stringify({
+        ...rest,
+        outcome,
+        ...(next_call !== undefined ? { next_call } : {}),
+        ...(next !== undefined ? { next } : {}),
+      }),
+    };
+  });
+  return changed ? { ...result, content } : result;
+}
+
+// A HOST THAT KEEPS RECEIPTS (the maintained client behind a /mcp session, the
+// website chat) knows what the verdict cannot: which call its own gate admits
+// next. The kind and the actor stay the verdict's; the call is the one
+// nextCreationCall derives from the receipts and the carried run, which is
+// what a refusal's NEXT is printed from, so the two name the same call.
+// `carried` is the run the host holds AFTER this result.
+export function sessionOutcome(task, name, v, carried, args = {}) {
+  const base = outcomeOf(name, v, args);
+  if (!base || base.kind === 'finished' || base.kind === 'unknown' || !base.call) return base;
+  // An unknown-outcome proposal is held: nothing is repeated, whatever tool
+  // answered. The journal export reads what was kept.
+  if (carried?.uncertain_proposal)
+    return { kind: 'unknown', by: 'writer', call: callOf('lyric_revise', { recover_only: true }) };
+  if (base.call.tool === 'lyric_sweep') {
+    // The receipts add up what one window cannot: when the seeds refused in a
+    // row leave a further window more likely than not to find no plan,
+    // sweeping again is no longer the next call and the request is the
+    // person's to change.
+    const refused = workflowFor(task)?.refused_sweep;
+    return name === 'lyric_sweep' &&
+      base.kind === 'next_call' &&
+      sweepingIsSpent(refused?.seeds, v.window?.count)
+      ? choose('person', callOf('lyric_sweep'))
+      : base;
+  }
+  if (base.call.args.new_run) return base;
+  const w = workflowFor(task);
+  const stopped =
+    name === 'lyric_revise' && ![4, 5].includes(v.exit_code) && v.status !== 'interrupted';
+  if (!w) {
+    // Lyrics the person supplied. A stop ends the run on a host that does not
+    // carry it, and the rewritten draft starts a new one.
+    if (name !== 'lyric_revise') return base;
+    if (stopped && base.call.tool === 'lyric_revise' && carriedMove(carried) !== 'rewrite')
+      return { ...base, call: callOf('lyric_revise', { new_run: true }) };
+    return base.call.tool === 'lyric_revise' ? { ...base, call: callOf('lyric_revise') } : base;
+  }
+  // What the caller reaches for next. After a sweep that is the plan once a
+  // screen is on record; after a stop it is the grade of the rewritten draft
+  // (a host that carries the stopped run is handed its rewrite call instead).
+  const reach =
+    name === 'lyric_sweep'
+      ? w.screen
+        ? 'lyric_plan'
+        : 'lyric_screen'
+      : stopped && base.call.tool === 'lyric_revise'
+        ? 'lyric_grade'
+        : base.call.tool;
+  if (reach === 'lyric_screen' && name !== 'lyric_sweep') return base;
+  const n = nextCreationCall(task, carried, reach === 'lyric_plan' ? 'lyric_plan' : reach);
+  // A held run (stopped uncertified): whether to go on here is the person's.
+  if (!n) return choose('person', callOf('lyric_grade', { seed: w.plan?.request.seed }));
+  return { ...base, call: n.first ? callOf(n.first) : { tool: n.tool, args: n.args } };
+}
+// A window the planner refused whole, or one that planned and kept no seed,
+// on a host that keeps receipts: the verdict states the count its outcome was
+// worked out from. One window's own bound is already in `window_meaning`;
+// this adds the windows empty in a row under the same request.
+function withRefusedInARow(task, name, result, args = {}) {
+  const w = name === 'lyric_sweep' ? workflowFor(task) : null;
+  const refused = w?.refused_sweep;
+  const unkept = w?.unkept_sweep;
+  if ((!refused && !unkept) || !result || result.isError || !Array.isArray(result.content))
+    return result;
+  let changed = false;
+  const content = result.content.map((block) => {
+    if (changed || block?.type !== 'text') return block;
+    let v;
+    try {
+      v = JSON.parse(block.text);
+    } catch {
+      return block;
+    }
+    if (!v || !Number.isInteger(v.swept)) return block;
+    // A window that planned and kept no seed: its paragraph is rebuilt with
+    // the windows swept in a row, and stops offering a further window once
+    // one is more likely than not to keep none.
+    if (unkept && v.sweep_outcome === 'no seed kept') {
+      changed = true;
+      const bound = Math.round(planShareBound(unkept.seeds) * 1e4) / 1e4;
+      const spent = sweepingIsSpent(unkept.seeds, v.window?.count);
+      const { outcome, next_call, next, ...rest } = v;
+      return {
+        ...block,
+        text: JSON.stringify({
+          ...rest,
+          window_meaning: noneKeptMeaning(
+            v,
+            { lines: args?.lines != null, functions: args?.functions != null },
+            { seeds: unkept.seeds, bound, spent }
+          ),
+          unkept_in_a_row: { seeds: unkept.seeds, accept_share_bound: bound, spent },
+          ...(outcome !== undefined ? { outcome } : {}),
+          ...(next_call !== undefined ? { next_call } : {}),
+          ...(next !== undefined ? { next } : {}),
+        }),
+      };
+    }
+    if (!refused || v.sweep_outcome !== 'planner refused every seed') return block;
+    changed = true;
+    const bound = Math.round(planShareBound(refused.seeds) * 1e4) / 1e4;
+    const { next_call, next, ...rest } = v;
+    return {
+      ...block,
+      text: JSON.stringify({
+        ...rest,
+        ...(refused.seeds > v.swept && typeof v.window_meaning === 'string'
+          ? {
+              window_meaning:
+                v.window_meaning +
+                ` Across the windows refused in a row under this request, none of the ${refused.seeds} seeds planned: at most ${(100 * bound).toFixed(1)}% of seeds plan (95% bound).`,
+            }
+          : {}),
+        refused_in_a_row: { seeds: refused.seeds, plan_share_bound: bound },
+        ...(next_call !== undefined ? { next_call } : {}),
+        ...(next !== undefined ? { next } : {}),
+      }),
+    };
+  });
+  return changed ? { ...result, content } : result;
+}
+export const withSessionOutcome = (task, name, result, carried, args = {}) =>
+  task?.domain === 'lyrics'
+    ? withOutcome(name, withRefusedInARow(task, name, result, args), args, (tool, v, a) =>
+        sessionOutcome(task, tool, v, carried, a)
+      )
+    : result;
 
 // A create session's successful lyric_sweep: the report's "NEXT: lyric_plan
 // with seed N" line (published by lyric_tools.js from the sweep's own
@@ -850,11 +1293,17 @@ export function sweepNextLine(args, seed) {
 // run (an uncertified parked run, an unknown-outcome proposal), names none;
 // a carried run, or a run this plan already started, makes it a new run, as
 // the stop's CONTINUE note says.
-export function gradeNext(code, newRun = false) {
+export function gradeNext(code, newRun = false, recorded = false) {
   return (
     (code === 0 ? 'To finish it, call' : 'Call') +
-    " lyric_revise with this exact draft, unchanged, and this grade's seed and declarations" +
-    (newRun ? ', with new_run: true' : '') +
+    // A host that keeps the grade receipt holds the graded draft: the call
+    // sends none, so no line can change between the grade and the revise.
+    (recorded
+      ? " lyric_revise with this grade's seed" +
+        (newRun ? ', new_run: true' : '') +
+        ' and no draft: the graded draft and its declarations are taken from the record'
+      : " lyric_revise with this exact draft, unchanged, and this grade's seed and declarations" +
+        (newRun ? ', with new_run: true' : '')) +
     (code === 0 ? '' : '; its revise loop works on the flagged lines') +
     '. If you change any line yourself instead, ' +
     'grade the changed draft with lyric_grade before starting a revision.'
@@ -869,6 +1318,7 @@ export function gradedNextCall(task, carried) {
   return {
     tool: 'lyric_revise',
     args: { seed: w.plan.request.seed, ...(newRun ? { new_run: true } : {}) },
+    recorded: Array.isArray(w.grade.draft),
   };
 }
 function withGradeNext(task, result, carried) {
@@ -892,7 +1342,11 @@ function withGradeNext(task, result, carried) {
       ...block,
       text: JSON.stringify(
         call
-          ? { ...rest, next_call: call, next: gradeNext(v.exit_code, !!call.args.new_run) }
+          ? {
+              ...rest,
+              next_call: { tool: call.tool, args: call.args },
+              next: gradeNext(v.exit_code, !!call.args.new_run, call.recorded),
+            }
           : rest
       ),
     };
@@ -915,6 +1369,22 @@ export function planNext(call, lines) {
     );
   return formatNextCall({ ...call, lines }).replace(/^NEXT: /, 'Call ');
 }
+// A REFUSED PLAN'S NEXT STEP (writer plan, stage 2). The planner records
+// whether it refused what this seed drew or the request itself
+// (`plan_refusal.scope`, the exception's class). "Another seed" is said only
+// for the first: a fault in the request is refused the same way on every
+// seed. The second sentence states the gate's own rule for what a changed
+// request needs (the plan repeats the sweep's form, lines, functions, melody
+// and `want`).
+export function planRefusedNext(scope) {
+  return scope === 'seed'
+    ? 'This refusal is about what this seed drew, not about the request: another seed under the ' +
+        'same declarations may plan. Call lyric_sweep for further seeds, then lyric_plan with one ' +
+        'it accepts.'
+    : 'This refusal is about the request itself: every seed is refused the same way until what ' +
+        '`refusal` names changes. A change to the form, lines, functions, melody or `want` needs ' +
+        'a new lyric_sweep first; any other change goes to lyric_plan again with this seed.';
+}
 function withPlanNext(task, result, carried) {
   let changed = false;
   const content = result.content.map((block) => {
@@ -926,6 +1396,9 @@ function withPlanNext(task, result, carried) {
       return block;
     }
     if (!v || typeof v !== 'object' || !Number.isInteger(v.exit_code) || !v.next) return block;
+    // A refused plan's `next` is about the refusal and is true on every
+    // host: it is kept. Only a finished plan's call is the receipts' to name.
+    if (v.exit_code !== 0) return block;
     changed = true;
     const { next: _text, next_call: _call, ...rest } = v;
     const call = nextCreationCall(task, carried);

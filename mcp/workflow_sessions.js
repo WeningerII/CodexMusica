@@ -17,7 +17,8 @@ import {
   recoverState,
 } from './state_codec.js';
 import { HTTP_REQUEST_BYTES, jsonBytes } from './payload_limits.js';
-import { sessionView, verdictShape, DETAIL_FOR, LINE_PARTS } from './verdict_view.js';
+import { sessionView, verdictShape, DETAIL_FOR, LINE_PARTS, LINE_TOOLS } from './verdict_view.js';
+import { nextCreationCall } from './lyric_workflow.js';
 
 // Persisted namespace from the first release: keep existing capabilities recoverable.
 export const INTEGRATION = 'chatgpt-v1';
@@ -33,6 +34,10 @@ export const SESSION_STORE_LIMITS = Object.freeze({
   maxPayloadRecords: 2048,
   maxBytes: 64 * 1024 * 1024,
 });
+
+// How often a pending operation is read again, and so how often a call the
+// store had no room for is sent again while work is running.
+const PENDING_POLL_SECONDS = 5;
 
 const capability = () => randomBytes(32).toString('hex');
 const definedArgs = (args) =>
@@ -63,13 +68,35 @@ const storeAdmissionRefusal = (error, maxRecords, domain) => {
       ),
       { code: 'JOB_CAPACITY', status: 503, beforeDispatch: true }
     );
-  if (error?.code === 'JOB_CAPACITY')
+  // HOW LONG TO WAIT (writer plan, stage 2). The store says what holds the
+  // room: running operations, whose end has no known time, so the wait is the
+  // interval a pending operation is polled at; or, with none running,
+  // interrupted receipts holding accepted lines, whose oldest expiry is a time.
+  // The same wait rides as data in the refusal's JSON block.
+  if (error?.code === 'JOB_CAPACITY') {
+    const wait = error.running
+      ? { running: error.running, retry_after_seconds: PENDING_POLL_SECONDS }
+      : error.retry_at != null
+        ? { retry_at: new Date(error.retry_at).toISOString() }
+        : null;
     return Object.assign(
       new Error(
-        'SESSION_STORE_FULL: Insufficient recovery-store capacity for this operation: the store is full of work it must keep, running operations and interrupted ones holding accepted lines. Retry this same call once one of them completes or its receipt expires; nothing was queued and no saved session was retired.'
+        'SESSION_STORE_FULL: Insufficient recovery-store capacity for this operation: the store is full of work it must keep, running operations and interrupted ones holding accepted lines. ' +
+          (wait?.running
+            ? `${wait.running} operation(s) are running now, and room is made when one finishes, which has no known time: retry this same call in ${PENDING_POLL_SECONDS} seconds, and each ${PENDING_POLL_SECONDS} seconds after that until it is admitted`
+            : wait
+              ? `None is running: retry this same call after ${wait.retry_at}, when the oldest interrupted one expires`
+              : 'Retry this same call once one of them completes or its receipt expires') +
+          '; nothing was queued and no saved session was retired.'
       ),
-      { code: 'JOB_CAPACITY', status: 503, beforeDispatch: true }
+      {
+        code: 'JOB_CAPACITY',
+        status: 503,
+        beforeDispatch: true,
+        ...(wait ? { receipt: wait } : {}),
+      }
     );
+  }
   if (error?.code === 'JOB_RECORDS_FULL')
     return Object.assign(
       new Error(
@@ -88,6 +115,60 @@ const storeAdmissionRefusal = (error, maxRecords, domain) => {
     );
   return error;
 };
+// WHO ACTS NEXT ON A RECEIPT WITH NO VERDICT (writer plan, stage 2). A finished
+// lyric tool says it in its verdict's `outcome`. A receipt that is still
+// running, was interrupted, was retired, or whose tool refused has no verdict,
+// so it says it here, from what the receipt and the session already hold:
+// - running: read it again; the call is never sent a second time;
+// - interrupted: resume it, only when it is resumable;
+// - interrupted and not resumable: the writer chooses the draft to keep (the
+//   receipt's accepted_draft or its own) and sends the call
+//   CONTINUATION_UNCERTAIN names; when a writer request may already have been
+//   charged, nothing is repeated and the call is the read of this record;
+// - retired: its successor is read, or the workflow is opened again;
+// - refused, in a new-song session: the call the creation gate admits next,
+//   the same data its NEXT line is printed from.
+const act = (kind, tool, args = {}) => ({ kind, by: 'writer', call: { tool, args } });
+function receiptOutcome(receipt, session, domain) {
+  const id = receipt.operation_id;
+  if (receipt.status === 'pending') return act('next_call', 'get_operation', { operation_id: id });
+  if (receipt.status === 'retired') {
+    if (receipt.successor_id)
+      return act('next_call', 'get_operation', { operation_id: receipt.successor_id });
+    return domain === 'lyrics'
+      ? act('next_call', 'begin_lyrics')
+      : domain === 'recipe'
+        ? act('next_call', 'start_recipe')
+        : { kind: 'decision', by: 'writer' };
+  }
+  if (receipt.status === 'interrupted') {
+    // Cut by a process restart twice in a row, the operation and its resume:
+    // the same work has not survived twice, so a third try is the person's
+    // choice. The call that takes the answer is still the resume.
+    if (receipt.resumable && receipt.restarts_in_a_row >= 2)
+      return {
+        kind: 'decision',
+        by: 'person',
+        call: { tool: 'resume_operation', args: { operation_id: id } },
+      };
+    if (receipt.resumable) return act('next_call', 'resume_operation', { operation_id: id });
+    if (receipt.uncertain_proposal || receipt.tool !== 'lyric_revise' || !receipt.session_id)
+      return act('unknown', 'get_operation', { operation_id: id });
+    return session?.task?.phase === 'edit'
+      ? act('decision', 'lyric_revise', { new_run: true })
+      : act('decision', 'lyric_grade');
+  }
+  if (receipt.tool_error && session?.task?.domain === 'lyrics') {
+    // On a copy: reading the creation receipts fills in an empty workflow.
+    const next = nextCreationCall(
+      clone(session.native?.task ?? null),
+      session.native?.continuation,
+      receipt.tool
+    );
+    if (next) return act('next_call', next.first ?? next.tool, next.first ? {} : next.args);
+  }
+  return null;
+}
 const restartStep = (domain) =>
   domain === 'recipe'
     ? 'Call start_recipe to open a new recipe session.'
@@ -216,6 +297,7 @@ export function continueNote(footnote, task = null) {
 // the call that works: before, it was ignored (a sweep answered every part with
 // its summary) or answered with null or [] (a coverage read on a screen, lines
 // past the end of the song), which reads as "there is nothing there".
+const orList = (xs) => `${xs.slice(0, -1).join(', ')} or ${xs[xs.length - 1]}`;
 function checkDetail(record, result, detail, lines) {
   const tool = record.intent.action?.tool;
   const parts = DETAIL_FOR[tool];
@@ -226,7 +308,7 @@ function checkDetail(record, result, detail, lines) {
     );
   if (!parts)
     throw new Error(
-      `DETAIL_NOT_APPLICABLE: detail applies to a finished lyric_grade, lyric_revise, lyric_check or lyric_screen; this operation is ${tool || 'not a tool call'}. ${plain}`
+      `DETAIL_NOT_APPLICABLE: detail applies to a finished ${orList(Object.keys(DETAIL_FOR))}; this operation is ${tool || 'not a tool call'}. ${plain}`
     );
   if (record.state !== 'completed' || !result)
     throw new Error(
@@ -245,9 +327,9 @@ function checkDetail(record, result, detail, lines) {
       `DETAIL_NOT_READY: this ${tool} finished without a verdict to take apart (a revise awaiting answers, at exit 4, or a refusal); it has no detail parts. Call get_operation without detail, and answer its question if it asks one.`
     );
   if (!lines?.length) return;
-  if (!LINE_PARTS.includes(detail) || tool === 'lyric_screen')
+  if (!LINE_PARTS.includes(detail) || !LINE_TOOLS.includes(tool))
     throw new Error(
-      `LINES_NOT_APPLICABLE: lines narrows only ${LINE_PARTS.join(', ')} on a lyric_grade, lyric_revise or lyric_check; detail "${detail}" on a ${tool} has nothing per line. Omit lines.`
+      `LINES_NOT_APPLICABLE: lines narrows only ${LINE_PARTS.join(', ')} on a ${orList(LINE_TOOLS)}; detail "${detail}" on a ${tool} has nothing per line. Omit lines.`
     );
   const args = record.intent.action?.arguments || {};
   const count =
@@ -297,8 +379,12 @@ export function publicToolResult(result, task = null, view = {}) {
       };
     } catch {
       // Keep the song verbatim; replace only the raw connector's continuation
-      // footnote, which otherwise names an internal run capability.
-      const text = block.text.replace(/\n\nCONTINUE: [\s\S]*$/, (footnote) =>
+      // footnote, which otherwise names an internal run capability. The
+      // footnote is ONE paragraph: it ends at the next blank line, and what
+      // the engine printed after it (the advice about a refused declaration)
+      // is kept. Replacing to the end of the text dropped that advice in
+      // every session.
+      const text = block.text.replace(/\n\nCONTINUE: (?:(?!\n\n)[\s\S])*/, (footnote) =>
         continueNote(footnote, task)
       );
       return { type: 'text', text: privateRun(text) };
@@ -506,6 +592,26 @@ export class WorkflowSessions {
         'The scorer, its lexical data or its runtime changed after this session was recorded, and its receipts cannot be replayed under the new ones. lyric_revise with this session_id and recover_only: true exports the lyrics and journal it holds; then call begin_lyrics for a new session.'
       );
     }
+  }
+
+  // HOW MANY PROCESS RESTARTS IN A ROW cut this operation and the operations
+  // it was resumed from (writer plan, stage 2). Stage 0: the server was killed
+  // for memory while one long grade ran, the agent resumed it as its receipt
+  // said, and the resume was killed the same way; the receipt read
+  // "interrupted, resumable" both times, and a third resume would have been a
+  // third kill. A resume names the operation it resumes (continuation_id), so
+  // the count is read off the records; nothing new is stored.
+  restartsInARow(record) {
+    let count = 0;
+    for (
+      let r = record;
+      r?.state === 'interrupted' && r.interruption === 'process_restarted';
+      r = this.lookup(r.intent.continuation_id)
+    ) {
+      count++;
+      if (r.intent?.action?.resumed !== true) break;
+    }
+    return count;
   }
 
   // Whether an interrupted operation can continue with resume_operation.
@@ -872,8 +978,8 @@ export class WorkflowSessions {
 
   status(id, domain, { detail, lines } = {}) {
     const found = this.lookup(id);
-    if (found?.state === 'retired')
-      return {
+    if (found?.state === 'retired') {
+      const retired = {
         operation_id: id,
         status: 'retired',
         interruption: found.interruption ?? 'receipt_payload_retired',
@@ -887,11 +993,14 @@ export class WorkflowSessions {
         expires_at: found.updated_at + this.store.ttlMs,
         uncertain_proposal: false,
       };
+      return { ...retired, outcome: receiptOutcome(retired, null, domain) };
+    }
     const { record, session } = this.record(id, domain);
     const result = record.response?.body?.result;
     if (detail !== undefined || lines?.length) checkDetail(record, result, detail, lines);
     const accepted = record.progress?.accepted_lines ?? record.checkpoint?.accepted_lines;
     const resumable = this.resumable(record, session);
+    const restarts = this.restartsInARow(record);
     // The id continues the workflow when its operation finished, or when it was
     // interrupted and cannot resume (new work then starts from before it). A
     // start_recipe that failed opened nothing to continue.
@@ -899,7 +1008,7 @@ export class WorkflowSessions {
       record.state === 'completed'
         ? !(record.intent.action?.tool === 'start_recipe' && !session.workspace)
         : record.state === 'interrupted' && !resumable && !this.store.failure;
-    return {
+    const receipt = {
       operation_id: id,
       status: record.state,
       ...(continues ? { session_id: id } : {}),
@@ -917,7 +1026,8 @@ export class WorkflowSessions {
       ...(result?.isError ? { tool_error: true } : {}),
       ...(accepted ? { accepted_draft: accepted } : {}),
       ...(record.interruption ? { interruption: record.interruption } : {}),
-      ...(record.state === 'pending' ? { retry_after_seconds: 5 } : {}),
+      ...(restarts ? { restarts_in_a_row: restarts } : {}),
+      ...(record.state === 'pending' ? { retry_after_seconds: PENDING_POLL_SECONDS } : {}),
       resumable,
       durable: this.store.durable,
       retention_ms: this.store.ttlMs,
@@ -929,6 +1039,8 @@ export class WorkflowSessions {
         record.proposer_usage?.accounting_unknown
       ),
     };
+    const outcome = receiptOutcome(receipt, session, domain);
+    return outcome ? { ...receipt, outcome } : receipt;
   }
 
   async wait(id) {

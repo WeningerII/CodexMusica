@@ -18,6 +18,7 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import * as E from './engine.js';
 import { TOOL_SCHEMAS } from './schemas.js';
 import { registerLyricTools, lyricInstructions, admitLyricCall } from './lyric_tools.js';
+import { withOutcome } from './lyric_workflow.js';
 import { withExecutionContext, childExecutionContext } from './execution_context.js';
 import { performance } from 'node:perf_hooks';
 import { TOOL_BUDGET_MS } from './budget.js';
@@ -168,8 +169,11 @@ function tool(server, name, config, fn) {
       // lyric_grade leads with the SONG as plain text so a client presents
       // it rather than reformatting escaped JSON; the Wide Room screenshot,
       // 2026-08-19, is why). Anything else gets the JSON wrapping.
-      if (out && Array.isArray(out.content)) return out;
-      return jsonResult(out);
+      // Every lyric result that carries a verdict says who acts next, as
+      // data (`outcome`, lyric_workflow.js): one place, so no handler can
+      // return a verdict without it.
+      if (out && Array.isArray(out.content)) return withOutcome(name, out, args ?? {});
+      return withOutcome(name, jsonResult(out), args ?? {});
     } catch (err) {
       const msg = err && err.message ? err.message : String(err);
       return { content: [{ type: 'text', text: `Error: ${msg}` }], isError: true };

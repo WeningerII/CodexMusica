@@ -492,6 +492,33 @@ test('private result envelopes are hidden without changing the song or verdict',
   for (const field of ['state', 'workspace', 'checkpoint']) assert(!(field in verdict));
 });
 
+// In a session the raw engine's CONTINUE paragraph is replaced with the
+// procedure that works there. What the engine printed AFTER that paragraph
+// (the advice about a refused declaration, which no rewrite of a line
+// reaches) was replaced along with it, so a session caller never read it
+// (writer plan, stage 2).
+test('a session replaces the continue paragraph and keeps what is printed after it', () => {
+  const after = '<advice printed after the continue paragraph>\nits second line\n\n<one more>';
+  const head = '<song>\n\nNOT FINISHED: <why>.';
+  const publish = (note, tail, task) =>
+    publicToolResult(
+      { content: [{ type: 'text', text: `${head}\n\nCONTINUE: ${note}${tail}` }] },
+      task
+    ).content[0].text;
+  for (const [note, task] of [
+    ['no question is pending. <raw procedure>\nits second line.', null],
+    ['no question is pending. <raw procedure>\nits second line.', { phase: 'edit' }],
+    ['<raw procedure> with `state` passed back verbatim.', null],
+  ]) {
+    const bare = publish(note, '', task);
+    assert.ok(bare.startsWith(`${head}\n\nCONTINUE: `), bare);
+    assert.ok(!bare.includes('<raw procedure>') && !bare.includes('second line'), bare);
+    // The same paragraph is written whether or not anything follows it, and
+    // what follows is kept to the letter.
+    assert.equal(publish(note, `\n\n${after}`, task), `${bare}\n\n${after}`);
+  }
+});
+
 test('outside lyric sessions never hand revision to the service writer', async (t) => {
   // Owner's rule (2026-09-27): the service's Gemini writer runs only where
   // Gemini writes the whole song — the website chat. A lyrics session opens on
@@ -1356,7 +1383,12 @@ test('P8: with 16 lyric slots on the real 64 MiB store, a call that cannot fit r
   const refused = (error) =>
     error.code === 'JOB_CAPACITY' &&
     error.status === 503 &&
-    /^SESSION_STORE_FULL: .*Retry this same call/.test(error.message) &&
+    /^SESSION_STORE_FULL: /.test(error.message) &&
+    // It says what the wait is on and how long (writer plan, stage 2): three
+    // operations are running, so the wait is the pending poll interval.
+    /3 operation\(s\) are running now.* retry this same call in 5 seconds/.test(error.message) &&
+    error.receipt?.running === 3 &&
+    error.receipt?.retry_after_seconds === 5 &&
     /nothing was queued and no saved session was retired/.test(error.message);
   assert.throws(() => sessions.open('lyrics'), refused);
   assert.throws(
@@ -1369,6 +1401,58 @@ test('P8: with 16 lyric slots on the real 64 MiB store, a call that cannot fit r
   for (const release of releases) release();
   for (const op of running) await sessions.wait(op.operation_id);
   assert.equal(sessions.open('lyrics').status, 'completed');
+});
+
+test('a full store with nothing running names the time the same call is admitted', async (t) => {
+  // The room is held by interrupted operations carrying accepted lines, which
+  // are never retired for space. The refusal names when the oldest expires,
+  // as text and as data, and the same call is admitted at that time.
+  let clock = 1_000_000;
+  const KB = 1024;
+  const store = new JobStore(null, {
+    maxBytes: 192 * KB,
+    maxRecordBytes: 64 * KB,
+    ttlMs: 60_000,
+    now: () => clock,
+  });
+  const sessions = new WorkflowSessions({
+    store,
+    execute: async () => {
+      requestContext().onCheckpoint(checkpoint({ accepted_lines: ['x'.repeat(40 * KB)] }));
+      throw new Error('connection lost before the next checkpoint');
+    },
+  });
+  const interrupted = [];
+  for (let i = 0; i < 4; i++) {
+    clock += 1000;
+    const opened = sessions.open('lyrics');
+    const op = sessions.submit(opened.session_id, 'lyrics', 'lyric_revise', {});
+    await sessions.wait(op.operation_id);
+    assert.equal(sessions.status(op.operation_id, 'lyrics').status, 'interrupted');
+    interrupted.push(store.get(op.operation_id).updated_at);
+  }
+  clock += 1000;
+  const due = Math.min(...interrupted) + 60_000;
+  const client = await connect(t, null, sessions);
+  const refused = await call(client, 'begin_lyrics', {});
+  assert.equal(refused.isError, true);
+  const text = refused.content[0].text;
+  assert.match(text, /^SESSION_STORE_FULL: /);
+  assert.ok(
+    text.includes(`None is running: retry this same call after ${new Date(due).toISOString()}`),
+    text
+  );
+  assert.doesNotMatch(text, /retry this same call in \d+ seconds/);
+  assert.deepEqual(JSON.parse(refused.content[1].text), {
+    retry_at: new Date(due).toISOString(),
+    tool_error: true,
+  });
+  // One millisecond early it is still refused; at the named time it is admitted.
+  clock = due - 1;
+  assert.equal((await call(client, 'begin_lyrics', {})).isError, true);
+  clock = due;
+  const admitted = await call(client, 'begin_lyrics', {});
+  assert.notEqual(admitted.isError, true, admitted.content[0].text);
 });
 
 test('P8: a record over the per-record cap is refused as too large, never told to wait', () => {
@@ -1542,7 +1626,8 @@ test('get_operation refuses a detail or lines the operation cannot serve; an edi
   const read = (operation_id, extra) => call(client, 'get_operation', { operation_id, ...extra });
   const text = (r) => r.content.map((c) => c.text).join('\n');
 
-  // A sweep has no detail parts: every part used to return its summary.
+  // A sweep serves its own parts and refuses the rest by name: before it had
+  // parts, every part returned its summary.
   const begun = data(await call(client, 'begin_lyrics', { phase: 'create' }));
   const swept = data(
     await call(client, 'lyric_sweep', {
@@ -1554,14 +1639,28 @@ test('get_operation refuses a detail or lines the operation cannot serve; an edi
   );
   await sessions.wait(swept.operation_id);
   assert.equal(data(await read(swept.operation_id)).status, 'completed');
-  for (const detail of ['findings', 'report', 'coverage', 'pronunciations', 'full', 'pairs']) {
+  for (const detail of ['findings', 'coverage', 'pronunciations', 'pairs', 'plan']) {
     const r = await read(swept.operation_id, { detail });
     assert.equal(r.isError, true, `sweep detail ${detail}`);
     assert.match(
       text(r),
-      /^DETAIL_NOT_APPLICABLE: .*lyric_sweep\. Call get_operation without detail/
+      /^DETAIL_NOT_APPLICABLE: a lyric_sweep has detail refusals, report, full; /
     );
   }
+  for (const detail of ['refusals', 'report', 'full']) {
+    const r = await read(swept.operation_id, { detail });
+    assert.notEqual(r.isError, true, `sweep detail ${detail}: ${text(r).slice(0, 200)}`);
+  }
+  assert.match(
+    text(await read(swept.operation_id, { detail: 'report', lines: [1] })),
+    /^LINES_NOT_APPLICABLE: lines narrows only findings, coverage, pronunciations on a lyric_grade, lyric_revise or lyric_check; detail "report" on a lyric_sweep/
+  );
+  // An operation that is not one of those tools has no detail at all.
+  const none = await read(begun.session_id, { detail: 'report' });
+  assert.match(
+    text(none),
+    /^DETAIL_NOT_APPLICABLE: detail applies to a finished lyric_grade, lyric_revise, lyric_check, lyric_screen, lyric_plan or lyric_sweep; this operation is not a tool call\. Call get_operation without detail/
+  );
   const bare = await read(swept.operation_id, { lines: [1] });
   assert.match(text(bare), /^DETAIL_REQUIRED: /);
 

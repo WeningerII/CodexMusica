@@ -48,8 +48,10 @@ import {
   READING_FIELDS,
   gradeNext,
   planNext,
+  planRefusedNext,
   SWEEP_NEXT,
   sweepNextLine,
+  noneKeptMeaning,
 } from './lyric_workflow.js';
 import {
   applyLexiconBasis,
@@ -1117,6 +1119,11 @@ function verdictOf(r) {
       'measured — coverage incomplete; this is an uncertified draft, not a successful song';
   if (r.code === 2 && record.status === 'refused' && typeof record.refusal === 'string')
     v.refusal = record.refusal;
+  // A refused plan's kind, from the planner's own record: about what this
+  // seed drew (another seed may plan) or about the request (every seed is
+  // refused the same way), with a joint refusal's codes and findings.
+  if (r.code === 2 && record.status === 'refused' && record.plan_refusal?.version === 1)
+    v.plan_refusal = record.plan_refusal;
   if (typeof record.memo_state === 'string') v.memo_state = record.memo_state;
   // Why a saved position could not be used, when one existed (owner's ruling
   // 2026-10-02, Q5; LOOP_REDESIGN.md §2.0). `replayed_answers` and
@@ -1597,7 +1604,7 @@ function extractSweepCounts(stdout) {
 // record (an earlier release) falls back to the counts its report prints;
 // that is the only prose-derived count.
 const SWEEP_COUNTS = ['swept', 'planned', 'planner_refused', 'accepted_count'];
-function sweepVerdict(v, r, { from, n }) {
+function sweepVerdict(v, r, { from, n, declared = {} }) {
   const sweep =
     r.lyric_result?.version === 1 && r.lyric_result.sweep?.version === 1
       ? r.lyric_result.sweep
@@ -1612,18 +1619,26 @@ function sweepVerdict(v, r, { from, n }) {
     v.window = { seed_from: from, count: n, next_seed_from: from + n };
     // What emptied the window, as the planner and the predicates said.
     const reasons = Array.isArray(sweep?.planner_refusals) ? sweep.planner_refusals : [];
+    // What "no seed planned" says about the next seed: the harness records
+    // the 95% bound on the share of seeds that plan (1 - 0.05^(1/N) for N
+    // swept seeds). The meaning states it and `outcome` weighs it.
+    const bound = typeof sweep?.plan_share_bound === 'number' ? sweep.plan_share_bound : null;
+    if (bound != null) v.plan_share_bound = bound;
     if (v.planned === 0)
       v.window_meaning = reasons.some((g) => g.scope === 'seed')
-        ? "the planner refused every seed in this window, and at least one reason is about that seed's own draw, so other seeds under the same declaration may plan; the predicates never ran."
+        ? "the planner refused every seed in this window, and at least one reason is about that seed's own draw, so another seed under the same declaration may plan; the predicates never ran." +
+          (bound != null
+            ? ` None of the ${v.swept} seed(s) planned, so at most ${(100 * bound).toFixed(1)}% of seeds plan under this request (95% bound).`
+            : '')
         : reasons.length
           ? 'the planner refused every seed in this window for a reason about the request itself, so another window will refuse the same way until the request changes; the predicates never ran.'
           : 'the planner refused every seed in this window; the predicates never ran.';
-    else if (r.code === 2)
-      v.window_meaning =
-        'no seed in THIS WINDOW satisfies every predicate. Before dropping a predicate: declare ' +
-        'a target length in `lines` if you have not (an undeclared length is drawn long, so a ' +
-        'length cap rarely holds), declare the section roster in `functions`, or continue from ' +
-        'next_seed_from; held_by says how many planned seeds held each predicate on its own.';
+    else if (r.code === 2) {
+      if (typeof sweep?.accept_share_bound === 'number')
+        v.accept_share_bound = sweep.accept_share_bound;
+      if (Array.isArray(sweep?.held_by)) v.held_by = sweep.held_by.slice(0, 24);
+      v.window_meaning = noneKeptMeaning(v, declared);
+    }
   }
   v.sweep_outcome = sweep?.outcome ?? null;
   if (sweep) {
@@ -2566,8 +2581,9 @@ function reviseDescription({ kitchen = false } = {}) {
     'continues it. To start again on a different draft, grade that draft first, then ' +
     'send it with `new_run: true`. ';
   const chat =
-    'ON THIS SURFACE THE SERVICE WRITER ANSWERS: send the exact draft lyric_grade graded, unchanged, and ' +
-    'the declarations; one call runs the ' +
+    'ON THIS SURFACE THE SERVICE WRITER ANSWERS: after lyric_grade, send the seed and no draft, and the ' +
+    'graded draft and its declarations are taken from the record; a draft sent with the call must be ' +
+    'that exact draft, unchanged. One call runs the ' +
     'loop to a stop condition, the writer answering each question (a group question asks for every line of ' +
     'the group at once). An interrupted call records a checkpoint that the next lyric_revise call for the ' +
     'same song resumes (the chat carries it for you), with `final_draft` as the exact accepted lines and ' +
@@ -2681,6 +2697,10 @@ export function registerLyricTools(server, tool) {
             ],
           };
         }
+        // A refused plan says whether another seed can help, from the
+        // planner's own record and never from its sentence.
+        if (r.code === 2 && verdict.plan_refusal)
+          verdict.next = planRefusedNext(verdict.plan_refusal.scope);
         return verdict;
       })
   );
@@ -2708,8 +2728,9 @@ export function registerLyricTools(server, tool) {
         'revision cannot introduce them and a flagged draft cannot finish cleanly. NOTES are measurements, not defects. ' +
         "At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this exact draft, " +
         "unchanged. `next_call` names that call's tool and the arguments the server sets: `seed`, and " +
-        "`new_run` in a session when a run is open or this plan's run has started. It is not the whole " +
-        'call: send this exact draft and its declarations with it. ' +
+        "`new_run` in a session when a run is open or this plan's run has started. `next_call` is not " +
+        'the whole call: `next` says what to send with it, which is this exact draft and its declarations, or ' +
+        "no draft where the grade's record holds them (a session, the website chat). " +
         (server.kitchen ? 'The service writer answers that lyric_revise run. ' : '') +
         'At exit 2 `next` names each word that could not be judged, with its line and what to ' +
         'change, and then the lyric_grade call that judges the changed draft. ' +
@@ -3617,12 +3638,19 @@ export function registerLyricTools(server, tool) {
                     (Array.isArray(verdict.loop_whole_flag_codes) &&
                       verdict.loop_whole_flag_codes.length > 0);
                   const rewriteNote = `\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with \`run_id\`, \`run_revision\`${verdict.run_revision != null ? ` ${verdict.run_revision}` : ''} and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`${verdict.run_id ? ` (run ${verdict.run_id}; \`new_run: true\` starts independently)` : ''}.`;
+                  // AN UNCERTIFIED STOP IS NOT CONTINUED: its run record is
+                  // saved `uncertified`, and the run ledger refuses every call
+                  // on it (run_store.js). This stop printed the parked run's
+                  // note all the same, naming a call that was then refused.
+                  // Its way on is the one the ledger's refusal names: the
+                  // rewritten draft is graded and starts a new run.
+                  const regradeNote = `\n\nCONTINUE: no question is pending, and this run ends here. Rewrite the open line(s), grade the complete rewritten draft with ${a.seed != null ? 'lyric_grade' : 'lyric_check'}, then call lyric_revise with that exact draft and \`new_run: true\`.`;
                   const parkNote =
                     r.code === 3
                       ? rewriteNote
                       : r.code === 2 && linesOpen
                         ? '\n\nNOT FINISHED: this stop left lines open and its coverage uncertified.' +
-                          rewriteNote +
+                          regradeNote +
                           // A refused declaration stands beside the open
                           // lines and no rewrite of them reaches it (#676).
                           (declarationAdvice(verdict)
@@ -3773,7 +3801,11 @@ export function registerLyricTools(server, tool) {
             Number(/seed (-?\d+)/.exec(seed[0])[1])
           )
         );
-      return sweepVerdict(v, r, { from, n });
+      return sweepVerdict(v, r, {
+        from,
+        n,
+        declared: { lines: a.lines != null, functions: a.functions != null },
+      });
     }
   );
 

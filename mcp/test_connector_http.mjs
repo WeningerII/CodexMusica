@@ -2,6 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
+import { Agent as HttpAgent, get as httpGet } from 'node:http';
 import { createServer } from 'node:net';
 import { mkdtempSync, mkdirSync, rmSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -117,6 +118,32 @@ test(
       assert(health?.ok, output);
       const healthBody = await health.json();
       assert.equal(healthBody.commit, 'a'.repeat(40));
+      // A CONNECTION LEFT IDLE IS STILL OPEN WHEN IT IS USED AGAIN (writer plan,
+      // stage 2). The host's proxy keeps its connections to this process and
+      // reuses them. Node closes an idle one after 5 seconds unless told
+      // otherwise, and a request sent on a connection the server is closing is
+      // answered 502 by the proxy: the host's own documentation names this
+      // cause and this remedy. A pending operation is polled every 5 seconds,
+      // which is that timeout to the second. Started here, read at the end.
+      const idleReuse = (async () => {
+        const agent = new HttpAgent({ keepAlive: true, maxSockets: 1 });
+        const once = () =>
+          new Promise((resolve, reject) => {
+            const req = httpGet(`${base}/ready`, { agent }, (res) => {
+              res.resume();
+              res.once('end', () => resolve(req.reusedSocket));
+            });
+            req.once('error', reject);
+          });
+        try {
+          assert.equal(await once(), false);
+          await new Promise((resolve) => setTimeout(resolve, 6500));
+          return await once();
+        } finally {
+          agent.destroy();
+        }
+      })();
+      idleReuse.catch(() => {});
       // Connector sessions have their own store, sized apart from /chat's.
       assert.equal(healthBody.recovery.sessions.durable, true);
       assert.equal(healthBody.recovery.sessions.healthy, true);
@@ -435,6 +462,11 @@ test(
       const code = await new Promise((resolve) => checker.once('exit', resolve));
       assert.equal(code, 3, checkOutput);
       assert.match(checkOutput, /lyrics capability is unavailable/);
+      assert.equal(
+        await idleReuse,
+        true,
+        'a connection idle for 6.5 seconds was closed by the server before it was used again'
+      );
     } finally {
       try {
         await stopHTTP(child, exited, () => output);

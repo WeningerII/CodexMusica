@@ -460,6 +460,53 @@ class PronunciationChoices(unittest.TestCase):
                              {'groups': '1.T3,2.T3', 'numbering': 'v2'})
             self.assertTrue(records[-1]['numbering_notices'])
 
+    def test_an_unresolved_position_says_what_the_line_holds(self):
+        # A position no numbering resolves is refused by what the line holds
+        # there and by where the declared word is: the two things a caller can
+        # change. "declare numbering" is said only where a numbering decides it
+        # (stage 0's agents were told it for a miscounted position, and no
+        # numbering moves one). Lines are drawn by seed from the dictionary.
+        import random
+        lex = copy.copy(self.base.with_reader_scheme('v2'))
+        lex._numbering_guard = True
+        lex._numbering_notices = []
+        pool = sorted(w for w in lex.entries if w.isalpha() and w.islower() and 3 <= len(w) <= 8)
+
+        def refusal(*args):
+            with self.assertRaises(ValueError) as refused:
+                P.numbered_token(*args)
+            said = str(refused.exception)
+            self.assertNotIn('declare numbering', said)
+            return said
+
+        for seed in range(40):
+            rng = random.Random(seed)
+            words = rng.sample(pool, rng.randint(3, 9))
+            line, count = ' '.join(words), len(words)
+            absent = rng.choice([w for w in pool if w not in words])
+            p, q = rng.sample(range(1, count + 1), 2)
+            past = count + 1 + rng.randrange(5)
+            for numbering in (None, 'v1', 'v2'):
+                with self.subTest(seed=seed, numbering=numbering):
+                    said = refusal(line, p, lex, numbering, words[q - 1])
+                    self.assertIn(f'{words[q - 1]!r} declared; token {p} there is {words[p - 1]!r}', said)
+                    self.assertIn(f'{words[q - 1]!r} is token {q}', said)
+                    said = refusal(line, p, lex, numbering, absent)
+                    self.assertIn(f'{absent!r} declared; token {p} there is {words[p - 1]!r}', said)
+                    self.assertIn(f'no sung token of this line is {absent!r}', said)
+                    for word in (words[0], None):
+                        self.assertIn(f'the line has {count} sung tokens',
+                                      refusal(line, past, lex, numbering, word))
+                    # A resolved position is untouched.
+                    self.assertEqual(P.numbered_token(line, p, lex, numbering, words[p - 1]), p)
+            # A position the declared numbering holds and the reader cuts
+            # another way: the refusal lists the reader's own positions.
+            a, b, c = rng.sample(pool, 3)
+            with self.subTest(seed=seed, cut='differently'):
+                said = refusal(f'{a}--{b} {c}', 1, lex, 'v1', None)
+                self.assertIn(f"{a + '--' + b!r} at v1 token 1", said)
+                self.assertIn(f'1 {a!r}, 2 {b!r}, 3 {c!r}', said)
+
     def test_private_numbering_normalization_compares_physical_occurrences(self):
         import json, os, subprocess, tempfile
         with tempfile.TemporaryDirectory() as directory:

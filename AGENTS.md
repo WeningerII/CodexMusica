@@ -112,6 +112,9 @@ pipeline plans and grades songs whose every line you write; no connector call re
   `coverage`, `pronunciations` or `full`, narrowed by `lines`) returns the rest. A finished
   `lyric_check` is the same short verdict with no song, and takes the same `detail`. A finished
   `lyric_screen` is one line per pair and the report's counts; `detail` `pairs` returns every pair.
+  A finished `lyric_plan` is its brief, whole, and its verdict without the structured copy of
+  that brief (`detail` `plan` returns the copy). A finished `lyric_sweep` gives each planner
+  reason as the refusal's first line; `detail` `refusals` returns each with its complete text.
 - `render_recipe` takes `format`: `rich` (default), `tags`, `prose`, `compact`. Every one of
   them returns the byte-identical string the app shows for the same workspace.
   <!-- @promise: connector-render-parity -->

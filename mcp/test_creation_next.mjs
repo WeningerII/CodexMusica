@@ -276,7 +276,7 @@ const wrongMoves = (planArgs) => [
   ['lyric_revise', { seed: 16, draft: other, new_run: true }],
 ];
 
-// The twelve texts creationRefusal can return, by their fixed words.
+// The thirteen texts creationRefusal can return, by their fixed words.
 const GATE_TEXTS = [
   /^CREATION_ORDER: execute a successful lyric_sweep before screening\.$/,
   /^CREATION_PLAN: lyric_(check|recover) is for lyrics the user supplied\./,
@@ -289,6 +289,7 @@ const GATE_TEXTS = [
   /^CREATION_DRAFT: the exact complete draft is required\./,
   /^CREATION_DRAFT: the draft line count differs/,
   /^CREATION_GRADE: lyric_grade must answer for this exact draft/,
+  /^CREATION_GRADE: no graded draft is on record for this plan, and this call sent none\./,
   /^CREATION_GRADE: \w+ differs from the graded reading/,
 ];
 const gateText = (text) => GATE_TEXTS.findIndex((re) => re.test(text));
@@ -332,6 +333,19 @@ function parseNext(text, ctx) {
     assert.equal(Number(r[2]), draft.length);
     return [['lyric_revise', { seed: Number(r[1]), draft_text: rewritten.join('\n') }]];
   }
+  // The record holds the graded draft: the call sends none, and the gate
+  // fills it in (writer plan, stage 2).
+  if (
+    (r =
+      /^lyric_revise with seed (-?\d+)(, new_run: true)? and no draft; the (\d+)-line draft lyric_grade graded is taken from the record\. To change a line, grade the changed draft first\.$/.exec(
+        line
+      ))
+  ) {
+    assert.equal(Number(r[3]), draft.length);
+    return [['lyric_revise', { seed: Number(r[1]), ...(r[2] ? { new_run: true } : {}) }]];
+  }
+  // A grade receipt written before the draft's text was kept: the caller
+  // sends the graded draft again.
   if (
     (r =
       /^lyric_revise with seed (-?\d+)(, new_run: true)? and the exact (\d+)-line draft lyric_grade graded\. To change a line, grade the changed draft first\.$/.exec(
@@ -461,9 +475,23 @@ test('the derivation reads the receipts: plan coordinates, later pages, re-plans
   // A carried run that does not continue the plan: a fresh run, said so.
   assert.equal(
     formatNextCall(nextCreationCall(clone(at.graded), runs.client.answer, 'lyric_revise')),
-    'NEXT: lyric_revise with seed 16, new_run: true and the exact 2-line draft lyric_grade graded. ' +
+    'NEXT: lyric_revise with seed 16, new_run: true and no draft; the 2-line draft lyric_grade graded is taken from the record. ' +
       'To change a line, grade the changed draft first.'
   );
+  // A grade receipt written before the draft's text was kept holds only its
+  // fingerprint: the caller is still told to send the graded draft, and that
+  // call is admitted.
+  const legacy = clone(at.graded);
+  delete legacy.workflow.grade.draft;
+  const told = formatNextCall(nextCreationCall(legacy, null, 'lyric_revise'));
+  assert.equal(
+    told,
+    'NEXT: lyric_revise with seed 16 and the exact 2-line draft lyric_grade graded. ' +
+      'To change a line, grade the changed draft first.'
+  );
+  const ctx = { newDraft: draft, graded: draft };
+  for (const [name, args] of parseNext(told, ctx))
+    assert.equal(creationRefusal(legacy, name, args, null), null);
 });
 
 test('edit sessions, recipe tasks, other texts and raw results pass through unchanged', () => {
@@ -604,7 +632,7 @@ test('the client names both CREATION_CONTINUATION texts with an admitted NEXT', 
       at.graded,
       null,
       { seed: 16, draft, state: 'forged' },
-      'CREATION_CONTINUATION: this session has no receipt for that run. Send lyric_revise without `state` or `checkpoint`; to start a run, grade the draft with lyric_grade, then call lyric_revise with that exact draft. NEXT: lyric_revise with seed 16 and the exact 2-line draft lyric_grade graded. To change a line, grade the changed draft first.',
+      'CREATION_CONTINUATION: this session has no receipt for that run. Send lyric_revise without `state` or `checkpoint`; to start a run, grade the draft with lyric_grade, then call lyric_revise with that exact draft. NEXT: lyric_revise with seed 16 and no draft; the 2-line draft lyric_grade graded is taken from the record. To change a line, grade the changed draft first.',
     ],
   ]) {
     const dispatched = [];
@@ -861,14 +889,33 @@ test('a grade verdict names its next call from the receipts, in a session and in
   // No run yet: lyric_revise with the seed, no new_run.
   const first = graded(clone(at.graded), null);
   assert.deepEqual(first.next_call, { tool: 'lyric_revise', args: { seed: 16 } });
-  assert.match(first.next, /^Call lyric_revise with this exact draft, unchanged/);
-  assert.doesNotMatch(first.next, /new_run/);
+  // The receipt holds the graded draft, so the call sends none.
+  assert.match(
+    first.next,
+    /^Call lyric_revise with this grade's seed and no draft: the graded draft and its declarations are taken from the record; /
+  );
+  assert.doesNotMatch(first.next, /new_run|this exact draft/);
   // A run open (the client's continuation, /chat's suspended record), or
   // stopped under this plan: a new run, as the stop's CONTINUE note says.
   for (const carried of [runs.client.answer, runs.chat.suspended, runs.chat.parked, null]) {
     const v = graded(clone(at.started), carried);
     assert.deepEqual(v.next_call, { tool: 'lyric_revise', args: { seed: 16, new_run: true } });
-    assert.match(v.next, /, with new_run: true/);
+    assert.match(v.next, /^Call lyric_revise with this grade's seed, new_run: true and no draft: /);
+  }
+  // A grade receipt written before the draft's text was kept: the caller
+  // sends the graded draft again, as the sentence always said.
+  for (const [state, run] of [
+    [
+      'graded',
+      /^Call lyric_revise with this exact draft, unchanged, and this grade's seed and declarations; /,
+    ],
+    ['started', /^Call lyric_revise with this exact draft, unchanged, .*, with new_run: true; /],
+  ]) {
+    const legacy = clone(at[state]);
+    delete legacy.workflow.grade.draft;
+    const v = graded(legacy, null);
+    assert.match(v.next, run);
+    assert.deepEqual(Object.keys(v.next_call), ['tool', 'args']);
   }
   // A held run, or a grade with no receipt for this plan, names none.
   for (const [task, carried] of [
@@ -1229,7 +1276,8 @@ test(
     assert.match(lineage.note, /title Kettle and Coat → none/);
 
     // The grade under the replacement, read back as the short verdict.
-    const lines = plan2.plan.total_lines;
+    // The session publishes a plan without its structured copy; the count is its own field.
+    const lines = plan2.plan_lines;
     const draft = Array.from(
       { length: lines },
       (_, i) =>

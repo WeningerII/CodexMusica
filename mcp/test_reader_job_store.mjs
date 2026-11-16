@@ -9,6 +9,7 @@ import {
   ReaderJobStore,
   READER_LIMITS,
   CONTROL_RECEIPT_CAP,
+  READINESS_PROBE_MS,
   decodeStoredObject,
 } from './reader_job_store.js';
 import { canonicalJSON, createCatalogResolver } from './reader_scheduler.js';
@@ -1959,4 +1960,67 @@ test('the replay window of an over-full record is chosen by `at`, not stored pos
     before
   );
   assert.deepEqual(loaded.inspect(id), before, 'the newest key replays though stored first');
+});
+
+// readiness() is what /health reads, and the host asks /health every few
+// seconds. Each read took the writer lock and ran the write probe: five
+// synchronous fsyncs, which on the live disk held every other request for 0.95
+// to 3.0 seconds per health check (the service's own request log, 15 Nov 2026).
+test('a readiness read runs the write probe at most once per READINESS_PROBE_MS', (t) => {
+  let clock = 1_000_000;
+  const { store } = fixture(t, { now: () => clock });
+  let syncs = 0;
+  let opens = 0;
+  const real = { fsyncSync: fs.fsyncSync, openSync: fs.openSync };
+  fs.fsyncSync = (...args) => (syncs++, real.fsyncSync(...args));
+  fs.openSync = (...args) => (opens++, real.openSync(...args));
+  t.after(() => Object.assign(fs, real));
+  const read = () => {
+    syncs = 0;
+    opens = 0;
+    const fields = store.readiness();
+    return { fields, syncs, opens };
+  };
+  // The first read probes: the lock file, the probe file, and the directory three times.
+  const first = read();
+  assert.equal(first.syncs, 5);
+  assert.equal(first.fields.durable, true);
+  // Every read inside the interval answers the same fields and touches no file.
+  for (const at of [1, 4_999, 5_000, READINESS_PROBE_MS - 1]) {
+    clock = 1_000_000 + at;
+    const again = read();
+    assert.deepEqual(again.fields, first.fields);
+    assert.deepEqual([again.syncs, again.opens], [0, 0], `${at} ms after the probe`);
+  }
+  // At the interval the probe runs again, and its pass stands for the next one.
+  clock = 1_000_000 + READINESS_PROBE_MS;
+  assert.equal(read().syncs, 5);
+  clock += READINESS_PROBE_MS - 1;
+  assert.equal(read().syncs, 0);
+  // A clock that went back does not keep an old pass alive.
+  clock = 500_000;
+  assert.equal(read().syncs, 5);
+});
+
+test('a failed write probe is never remembered as a pass', (t) => {
+  let clock = 1_000_000;
+  let failing = false;
+  const { store } = fixture(t, {
+    now: () => clock,
+    faultInjector: (stage, info) => {
+      if (failing && info?.kind === 'probe' && stage === 'temporary_written')
+        throw new Error('<disk fault>');
+    },
+  });
+  assert.equal(store.readiness().durable, true);
+  // The next due probe fails: the read refuses, and so does every read after
+  // it, inside the interval or not.
+  clock += READINESS_PROBE_MS;
+  failing = true;
+  assert.throws(() => store.readiness(), { code: 'STORAGE_UNAVAILABLE' });
+  failing = false;
+  for (const later of [1, READINESS_PROBE_MS - 1, READINESS_PROBE_MS]) {
+    clock += later;
+    assert.throws(() => store.readiness(), { code: 'STORAGE_UNAVAILABLE' });
+  }
 });

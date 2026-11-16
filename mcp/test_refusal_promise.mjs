@@ -308,13 +308,34 @@ row({
   reach: async (r) =>
     r.call('lyric_grade', { session_id: r.seed('lyrics', lyrics(planned)), seed: 16 }),
 });
+// A revise that sends no draft takes the graded one from the grade receipt
+// (writer plan, stage 2), so it is refused only when there is none to take:
+// nothing graded under the plan, or a receipt written before the draft's text
+// was kept beside its fingerprint.
+row({
+  code: 'CREATION_GRADE',
+  where: 'lyric_workflow.js: no draft (lyric_revise) and nothing graded under the plan',
+  shape: 'receipt',
+  phrases: ['Call lyric_grade with seed 16', 'the complete 2-line draft'],
+  reach: async (r) =>
+    r.call('lyric_revise', { session_id: r.seed('lyrics', lyrics(planned)), seed: 16 }),
+});
 row({
   code: 'CREATION_DRAFT',
-  where: 'lyric_workflow.js: no draft (lyric_revise)',
+  where: 'lyric_workflow.js: no draft (lyric_revise), the grade receipt holds no draft text',
   shape: 'receipt',
   phrases: ['Send this same call again', 'the exact draft lyric_grade graded', '`draft_text`'],
   reach: async (r) =>
-    r.call('lyric_revise', { session_id: r.seed('lyrics', lyrics(graded)), seed: 16 }),
+    r.call('lyric_revise', {
+      session_id: r.seed(
+        'lyrics',
+        lyrics((t) => {
+          graded(t);
+          delete t.workflow.grade.draft;
+        })
+      ),
+      seed: 16,
+    }),
 });
 row({
   code: 'CREATION_DRAFT',
@@ -332,7 +353,7 @@ row({
   code: 'CREATION_GRADE',
   where: 'lyric_workflow.js: revise a draft no grade answered for',
   shape: 'receipt',
-  phrases: ['lyric_grade'],
+  phrases: ['send this call again without a draft', 'call lyric_grade with seed 16 and this draft'],
   reach: async (r) =>
     r.call('lyric_revise', {
       session_id: r.seed('lyrics', lyrics(graded)),
@@ -1000,10 +1021,10 @@ test('each refusal arrives in the shape the receipt sentence promises', async ()
   // The init text's receipt sentence (workflow_tools.js) against the rows a
   // published schema reaches: either change to it shows here.
   console.log(`receipt split, published schema: ${JSON.stringify(shapes)}`);
-  assert.deepEqual(shapes, { receipt: 22, bare: 24 });
+  assert.deepEqual(shapes, { receipt: 23, bare: 24 });
 });
 
-test('every coded refusal in the source has a row, and the gate has 13 texts', () => {
+test('every coded refusal in the source has a row, and the gate has 14 texts', () => {
   const rowsFor = (code) => ROWS.filter((r) => r.code === code).length;
   const sessions = source('./workflow_sessions.js');
   const sites = {};
@@ -1035,7 +1056,7 @@ test('every coded refusal in the source has a row, and the gate has 13 texts', (
       .match(/[`'"]CREATION_[A-Z]+: [^`'"$]*/g)
       .map((s) => s.slice(1));
   const gate = literals('./lyric_workflow.js');
-  assert.equal(gate.length, 13, gate.join('\n'));
+  assert.equal(gate.length, 14, gate.join('\n'));
   const client = literals('./client.js');
   assert.equal(client.length, 2, client.join('\n'));
   for (const prefix of [...gate, ...client]) {
@@ -1043,5 +1064,5 @@ test('every coded refusal in the source has a row, and the gate has 13 texts', (
     assert.ok(rowsFor(code), `${prefix}: no row`);
   }
   assert.equal(rowsFor('CREATION_DRAFT'), 4);
-  assert.ok(rowsFor('CREATION_PLAN') >= 5 && rowsFor('CREATION_GRADE') >= 3);
+  assert.ok(rowsFor('CREATION_PLAN') >= 5 && rowsFor('CREATION_GRADE') >= 4);
 });

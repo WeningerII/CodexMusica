@@ -753,6 +753,31 @@ test('an uncertified stop names the refused declaration and does not blame pronu
     assert.equal(word.verdict.exit_code, 2);
     assert.match(word.text, /NOT FINISHED: this stop left lines open/);
     assert.ok(!word.text.includes('DECLARATION'), 'a refused word is not called a declaration');
+    // The stop's CONTINUE paragraph names a call the engine admits (writer
+    // plan, stage 2). It used to print the parked run's note, naming the run
+    // and a rewritten draft, and the run ledger refuses every call on an
+    // uncertified run: sent as that note said, it is refused.
+    assert.match(
+      word.text,
+      /\n\nCONTINUE: no question is pending, and this run ends here\. Rewrite the open line\(s\), grade the complete rewritten draft with lyric_check, then call lyric_revise with that exact draft and `new_run: true`\./
+    );
+    assert.doesNotMatch(word.text, /CONTINUE: [^\n]*run_revision/);
+    assert.equal(typeof word.verdict.run_id, 'string');
+    const asItSaid = await c.call('lyric_revise', {
+      run_id: word.verdict.run_id,
+      run_revision: word.verdict.run_revision,
+      draft_text: ['My kettle whistles by the stove', 'Your fingers brush my heavy cloak'].join(
+        '\n'
+      ),
+    });
+    assert.equal(asItSaid.isError, true);
+    assert.match(asItSaid.content[0].text, /UNCERTIFIED at exit 2/);
+    // And as data: the writer's choice of words, then the check of the changed lines.
+    assert.deepEqual(word.verdict.outcome, {
+      kind: 'decision',
+      by: 'writer',
+      call: { tool: 'lyric_check', args: {} },
+    });
 
     // Both at once: the open line keeps its rewrite step, and the note says
     // the declaration stands beside it and no rewrite reaches it.

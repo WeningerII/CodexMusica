@@ -18,6 +18,7 @@ import { LYRIC_TOOL_SCHEMAS, MAX_LINES } from './lyric_tools.js';
 import { expectedSurface } from './surface_contract.js';
 import { executeNative, publicToolResult } from './workflow_sessions.js';
 import { DETAIL_PARTS } from './verdict_view.js';
+import { OUTCOME_ACTORS } from './lyric_workflow.js';
 import { CONNECTOR_VERSION } from './contract_version.js';
 
 // /mcp is the endpoint the discovery card and server.json describe, so it
@@ -55,6 +56,12 @@ const resultShape = {
   interruption: z.string().optional(),
   note: z.string().optional(),
   retry_after_seconds: z.number().optional(),
+  restarts_in_a_row: z
+    .number()
+    .optional()
+    .describe(
+      'On an operation interrupted by a process restart: how many restarts in a row cut it and the operations it was resumed from. At 2 or more the same work has not survived twice, and `outcome` gives the choice to resume again to the person.'
+    ),
   resumable: z.boolean(),
   durable: z.boolean(),
   retention_ms: z
@@ -64,6 +71,16 @@ const resultShape = {
     ),
   expires_at: z.number().optional().describe('Epoch milliseconds when retention_ms runs out.'),
   uncertain_proposal: z.boolean(),
+  outcome: z
+    .object({
+      kind: z.enum(['next_call', 'decision', 'unknown']),
+      by: z.enum(OUTCOME_ACTORS),
+      call: z.object({ tool: z.string(), args: z.object({}).passthrough() }).optional(),
+    })
+    .optional()
+    .describe(
+      "Who acts next when this receipt has no finished tool result to say it (the operation is pending, interrupted or retired, or its tool refused in a new-song session): `kind` is next_call, decision or unknown, `by` is writer or person, and `call` is the tool with the arguments this server knows. On unknown, `call` is a read and nothing is sent again. A finished lyric tool says the same in its own verdict's `outcome`."
+    ),
 };
 const readOnly = {
   readOnlyHint: true,
@@ -252,14 +269,14 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
     {
       title: 'Read a saved operation',
       description:
-        "Read an operation (or any session) by its id; this never dispatches work. pending: poll again after retry_after_seconds. completed: the content leads with the tool's own result blocks, private state withheld — present the deliverable from them exactly — and ends with the receipt. A finished lyric_grade or lyric_revise publishes the song and a SHORT verdict: its status fields, `blocking` (one line per flag or banned pair standing, and per line a requested obligation could not be judged on), a count of notes with `notes_by_code`, `not_checked` (the coverage layers the request did not ask), and, after a grade at exit 0 or 3, `next` (the call that takes this exact draft on); `detail` returns the rest (findings, report, coverage, pronunciations, or full). A finished lyric_check publishes the same SHORT verdict with no song, and takes the same `detail`. Under a plan that replaced the session's first plan it also carries `plan_lineage` (what that plan asked and this one does not). A finished lyric_screen publishes one line per pair and the report's counts; `detail` returns pairs (every pair in full), report or full. Either way the receipt's session_id is the next step's; a refused call reads tool_error: true, and its session_id continues the session as it was before that call. interrupted: when resumable is true, call resume_operation; otherwise accepted_draft holds the accepted lyrics, lyric_revise with recover_only: true exports the journal, and session_id (when present) starts new work from before the interruption. retired: the saved state is gone; open a new session. If successor_id is present, read it first: an older id cannot branch the workflow. Ids are private capabilities.",
+        "Read an operation (or any session) by its id; this never dispatches work. When the host fails a call in transport (a 502 answer, a dropped connection), nothing says whether it was queued: send the same call again with the same session_id and arguments. A call that was queued is answered with that same operation and is never run twice. pending: poll again after retry_after_seconds. completed: the content leads with the tool's own result blocks, private state withheld — present the deliverable from them exactly — and ends with the receipt. A finished lyric_grade or lyric_revise publishes the song and a SHORT verdict: its status fields, `blocking` (one line per flag or banned pair standing, and per line a requested obligation could not be judged on), a count of notes with `notes_by_code`, `not_checked` (the coverage layers the request did not ask), and, after a grade at exit 0 or 3, `next` (the call that takes this exact draft on); `detail` returns the rest (findings, report, coverage, pronunciations, or full). A finished lyric_check publishes the same SHORT verdict with no song, and takes the same `detail`. Under a plan that replaced the session's first plan it also carries `plan_lineage` (what that plan asked and this one does not). A finished lyric_screen publishes one line per pair and the report's counts; `detail` returns pairs (every pair in full), report or full. A finished lyric_plan publishes its brief whole and the verdict without the structured copy of that brief; `detail` returns plan (that copy) or full. A finished lyric_sweep is published whole but for each planner reason's text after its first line; `detail` returns refusals (every reason with its complete text), report or full. Either way the receipt's session_id is the next step's; a refused call reads tool_error: true, and its session_id continues the session as it was before that call. interrupted: when resumable is true, call resume_operation (restarts_in_a_row counts the process restarts in a row that cut it and its resumes; at 2 or more, resuming again is the person's choice); otherwise accepted_draft holds the accepted lyrics, lyric_revise with recover_only: true exports the journal, and session_id (when present) starts new work from before the interruption. retired: the saved state is gone; open a new session. If successor_id is present, read it first: an older id cannot branch the workflow. Ids are private capabilities.",
       inputSchema: z.object({
         operation_id: id,
         detail: z
           .enum(DETAIL_PARTS)
           .optional()
           .describe(
-            "For a finished lyric_grade, lyric_revise, lyric_check or lyric_screen only: return this part of the verdict instead of the short one — findings (every finding in full), report (the engine report), coverage (every requested obligation), pronunciations (the declared readings and the reading options), pairs (a screen's every pair in full), or full (the whole verdict and the song). Omit it for the short verdict."
+            "For a finished lyric_grade, lyric_revise, lyric_check, lyric_screen, lyric_plan or lyric_sweep only: return this part of the verdict instead of the short one — findings (every finding in full), report (the engine report), coverage (every requested obligation), pronunciations (the declared readings and the reading options), pairs (a screen's every pair in full), plan (a plan's structured copy: slots, choices and groups as data), refusals (a sweep's every planner reason with its complete text), or full (the whole verdict and the song). Omit it for the short verdict."
           ),
         lines: z
           .array(z.number().int().min(1))

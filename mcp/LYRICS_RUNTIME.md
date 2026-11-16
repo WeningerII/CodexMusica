@@ -155,7 +155,10 @@ is refused, before any work is queued, as:
 
 - `SESSION_STORE_FULL` (`code` `JOB_CAPACITY`): insufficient capacity because the store is
   full of work it must keep, running operations and interrupted receipts holding accepted
-  lines. Retry the same call once one completes or its receipt expires.
+  lines. It says how long to wait, in its text and as data in the JSON block after it. With
+  operations running, room is made when one finishes, which has no known time: `running`
+  (how many) and `retry_after_seconds` (the interval a pending operation is polled at).
+  With none running, `retry_at`: when the oldest interrupted receipt expires.
 - `SESSION_RECORD_TOO_LARGE` (`code` `JOB_CAPACITY`): one record of the admission, such as
   the parent with its successor link, would be over the per-record cap. Free room or
   waiting does not change that, so it asks for a smaller request or a new session, never a retry.

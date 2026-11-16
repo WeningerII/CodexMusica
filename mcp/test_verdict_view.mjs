@@ -12,6 +12,7 @@ import {
   blockingOf,
   obligationLines,
   DETAIL_PARTS,
+  verdictShape,
 } from './verdict_view.js';
 import { publicToolResult } from './workflow_sessions.js';
 import { isStanding } from './lyric_tools.js';
@@ -175,6 +176,8 @@ test('detail returns the part asked for, narrowed to lines when given', () => {
     'coverage',
     'pronunciations',
     'pairs',
+    'plan',
+    'refusals',
   ]);
   const content = blocks();
   assert.deepEqual(sessionView('lyric_grade', content, { detail: 'full' }), content);
@@ -396,6 +399,116 @@ test('only a screened result is shortened, and only for lyric_screen', () => {
   const short = publicToolResult(stored, null, { tool: 'lyric_screen' });
   assert.equal(JSON.parse(short.content[0].text).report, undefined);
   assert.equal(JSON.parse(short.content[0].text).pairs.length, 3);
+});
+
+// ── The plan and the sweep (writer plan, stage 2) ──────────────────────────
+// Placeholders only: the view copies fields, it reads no plan.
+const planVerdict = (over = {}) => ({
+  exit_code: 0,
+  meaning: '<meaning>',
+  measurement_status: 'planned',
+  certified: false,
+  plan_lines: 3,
+  plan: { total_lines: 3, line_slots: ['<slot>', '<slot>', '<slot>'], writer_brief: '<brief>' },
+  plan_sha256: 'a'.repeat(64),
+  plan_request: { seed: 1 },
+  outcome: { kind: 'next_call', by: 'writer', call: { tool: 'lyric_grade', args: { seed: 1 } } },
+  next_call: { tool: 'lyric_grade', args: { seed: 1 } },
+  next: '<sentence>',
+  ...over,
+});
+const planBlocks = (v = planVerdict()) => [
+  { type: 'text', text: '<brief>' },
+  { type: 'text', text: JSON.stringify(v) },
+];
+
+test('a finished plan publishes its brief whole and a verdict without the structured copy', () => {
+  const content = planBlocks();
+  const out = sessionView('lyric_plan', content);
+  assert.equal(out.length, 2);
+  assert.equal(out[0], content[0], 'the brief is the stored block itself');
+  const short = JSON.parse(out[1].text);
+  assert.equal(Object.hasOwn(short, 'plan'), false);
+  for (const key of ['exit_code', 'meaning', 'plan_lines', 'plan_sha256', 'plan_request'])
+    assert.deepEqual(short[key], planVerdict()[key], key);
+  assert.match(short.detail, /detail "plan" or "full"/);
+  // Who acts, then the call, then the sentence: `next` stays last.
+  assert.deepEqual(Object.keys(short).slice(-3), ['outcome', 'next_call', 'next']);
+  // The verdict's size does not follow the plan's.
+  const long = planVerdict({ plan: { total_lines: 3, line_slots: Array(5000).fill('<slot>') } });
+  assert.equal(sessionView('lyric_plan', planBlocks(long))[1].text.length, out[1].text.length);
+  // The lineage of a replaced plan rides the short verdict.
+  const lineage = { first_plan: { seed: 0 } };
+  assert.deepEqual(
+    JSON.parse(
+      sessionView('lyric_plan', planBlocks(planVerdict({ plan_lineage: lineage })))[1].text
+    ).plan_lineage,
+    lineage
+  );
+});
+
+test('plan detail returns the structured plan or the whole result; a refused plan keeps its shape', () => {
+  const content = planBlocks();
+  assert.deepEqual(sessionView('lyric_plan', content, { detail: 'full' }), content);
+  assert.deepEqual(JSON.parse(sessionView('lyric_plan', content, { detail: 'plan' })[0].text), {
+    exit_code: 0,
+    detail: 'plan',
+    plan: planVerdict().plan,
+  });
+  const refused = [
+    { type: 'text', text: JSON.stringify({ exit_code: 2, refusal: '<refusal>', next: '<next>' }) },
+  ];
+  assert.deepEqual(sessionView('lyric_plan', refused), refused);
+  assert.deepEqual(verdictShape('lyric_plan', refused), { ready: false, lines: null });
+  assert.deepEqual(verdictShape('lyric_plan', content), { ready: true, lines: null });
+  // Only a plan is read as one.
+  assert.deepEqual(sessionView('lyric_types', content), content);
+});
+
+const sweepVerdict = (over = {}) => ({
+  exit_code: 2,
+  meaning: '<meaning>',
+  report: '<report>',
+  swept: 2,
+  planned: 0,
+  planner_refusals: [
+    { scope: 'seed', reason: '<first line>', text: '<first line>\n<second line>', seeds: [0] },
+    { scope: 'request', reason: '<other>', text: '<other>', seeds: [1] },
+  ],
+  window_meaning: '<window>',
+  outcome: { kind: 'decision', by: 'person', call: { tool: 'lyric_sweep', args: {} } },
+  next: '<sentence>',
+  ...over,
+});
+
+test('a sweep publishes each planner reason as its first line; detail returns the complete text', () => {
+  const content = [{ type: 'text', text: JSON.stringify(sweepVerdict()) }];
+  const short = JSON.parse(sessionView('lyric_sweep', content)[0].text);
+  assert.deepEqual(
+    short.planner_refusals,
+    sweepVerdict().planner_refusals.map(({ text: _text, ...g }) => g)
+  );
+  assert.match(short.detail, /detail "refusals"/);
+  assert.equal(short.report, '<report>', 'the report stays in the default view');
+  assert.deepEqual(Object.keys(short).slice(-2), ['outcome', 'next']);
+  const part = (detail) => JSON.parse(sessionView('lyric_sweep', content, { detail })[0].text);
+  assert.deepEqual(part('refusals'), {
+    exit_code: 2,
+    detail: 'refusals',
+    planner_refusals: sweepVerdict().planner_refusals,
+  });
+  assert.deepEqual(part('report'), { exit_code: 2, detail: 'report', report: '<report>' });
+  assert.deepEqual(sessionView('lyric_sweep', content, { detail: 'full' }), content);
+  // A sweep with nothing withheld is published as stored, with no note about detail.
+  const accepted = [
+    { type: 'text', text: JSON.stringify(sweepVerdict({ exit_code: 0, planner_refusals: [] })) },
+  ];
+  assert.deepEqual(sessionView('lyric_sweep', accepted), accepted);
+  assert.deepEqual(verdictShape('lyric_sweep', accepted), { ready: true, lines: null });
+  // An arguments refusal has no counts and keeps its shape.
+  const refused = [{ type: 'text', text: JSON.stringify({ exit_code: 2, refusal: '<refusal>' }) }];
+  assert.deepEqual(sessionView('lyric_sweep', refused), refused);
+  assert.deepEqual(verdictShape('lyric_sweep', refused), { ready: false, lines: null });
 });
 
 test('a stopped revise names the session continuation, not run_id or state', () => {

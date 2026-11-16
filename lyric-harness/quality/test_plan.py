@@ -5097,6 +5097,118 @@ def test_a_request_refusal_is_the_requests():
               acc and not moved, (acc, moved))
 
 
+def test_a_refusal_names_what_was_sent():
+    print("\n— a refusal names each declaration it read, and none that was "
+          "not sent; 'another seed' is said only for a seed's own draw "
+          "(writer plan, stage 2)")
+    # THREE REFUSALS NAMED NOTHING THEY READ, OR A THING NOBODY SENT. After
+    # 500 draws the planner said "try another seed, drop --lines, or declare
+    # the shape by hand" whether or not a length had been declared, and never
+    # named the roster or the predicates that had; two request refusals said
+    # "declared line constraints" and "declared section/group bounds" and
+    # named none. Requests are DRAWN from the planner's own tables: every
+    # one-function roster, rosters and lengths drawn by seed, and the
+    # predicates that put a bound below what a song needs. No request here is
+    # a named form.
+    import random
+    from quality.plan import (ENVELOPE, GENERATOR_ROSTER, PlanRefused,
+                              SeedRefused, make_plan)
+    rng = random.Random(20261116)
+    names = sorted(GENERATOR_ROSTER)
+    t_lo, t_hi = ENVELOPE["total_lines"]
+    requests = [{"functions": [fn]} for fn in names]
+    for _ in range(16):
+        requests.append({"functions": rng.sample(names, rng.choice((1, 2))),
+                         "lines": rng.randint(t_lo, t_hi)})
+    for want in ("sections<=0", "sections=0", "group<=1", "group=1",
+                 f"lines>={t_hi + 1}", f"lines<={t_lo - 1}"):
+        requests.append({"wants": [want]})
+        requests.append({"wants": [want], "lines": rng.randint(t_lo, t_hi)})
+    # A predicate no candidate can hold: every candidate runs out of draws,
+    # and the refusal that follows is about the REQUEST. It quotes each
+    # candidate's reason, and must not quote the advice that goes with one.
+    requests.append({"wants": [f"lines_per_section>={t_hi + 1}"]})
+    seen = {"draws": 0, "lines": 0, "bounds": 0, "candidates": 0, "other": 0,
+            "planned": 0}
+    wrong = []
+    refused = []
+    for kw in requests:
+        try:
+            make_plan(seed=1, **kw)
+            seen["planned"] += 1
+            continue
+        except PlanRefused as exc:
+            msg, of_seed = str(exc), isinstance(exc, SeedRefused)
+        if "wants" not in kw:
+            refused.append((kw, msg, of_seed))
+        roster, lines = kw.get("functions"), kw.get("lines")
+        wants = kw.get("wants", [])
+        # Never a declaration that was not sent.
+        if lines is None and "--lines" in msg:
+            wrong.append((kw, "names --lines, which was not sent"))
+        if roster is None and "--functions" in msg:
+            wrong.append((kw, "names --functions, which was not sent"))
+        # "Another seed" only where the refusal is about a seed's own draw.
+        if not of_seed and ("another seed" in msg.lower()
+                            or "other seeds" in msg.lower()):
+            wrong.append((kw, "a request refusal sends the caller to "
+                              "another seed"))
+        first = msg.split("\n", 1)[0]
+        if first.startswith("500 seeded draws found no plan for "):
+            seen["draws"] += 1
+            sent = ([f"--functions={','.join(roster)}"] if roster else []) + (
+                [f"--lines={lines}"] if lines is not None else []) + [
+                f"want {w}" for w in wants]
+            missing = [d for d in sent if d not in first]
+            if not of_seed or missing or "drop --lines" in msg:
+                wrong.append((kw, "500 draws", missing))
+            # The pattern draw's own reason is kept, and it names the roster.
+            if "The section-pattern draw refused " in msg and roster and (
+                    f"under the declared roster {sorted(roster)}" not in msg):
+                wrong.append((kw, "pattern reason does not name the roster"))
+        elif first.startswith("the declared line constraints have no "
+                              "feasible total: "):
+            seen["lines"] += 1
+            read = ([f"--lines={lines}"] if lines is not None else []) + [
+                f"want {w}" for w in wants if w.startswith("lines")]
+            if of_seed or [d for d in read if d not in first]:
+                wrong.append((kw, "line constraints", first[:160]))
+        elif " cannot carry the required song mandate" in first:
+            seen["bounds"] += 1
+            if of_seed or [w for w in wants if f"want {w}" not in first]:
+                wrong.append((kw, "bounds", first[:160]))
+        elif first.startswith("brief predicates found no accepted plan"):
+            seen["candidates"] += 1
+            if of_seed or [w for w in wants if w not in first] or (
+                    "500 seeded draws found no plan for" not in first):
+                wrong.append((kw, "candidates", first[:160]))
+        else:
+            seen["other"] += 1
+    check("every drawn request that refuses names what it read and nothing "
+          "that was not sent, and each of the three refusals was reached",
+          not wrong and seen["draws"] and seen["lines"] and seen["bounds"]
+          and seen["candidates"] and seen["planned"], (seen, wrong[:4]))
+    # A SWEEP QUOTES THE REFUSAL'S FIRST LINE WHOLE. It was cut at 240
+    # characters, mid-word. Every roster request above that refuses is swept
+    # at the same seed: the group's reason is the first line of what
+    # `make_plan` raises, its text is all of it, and its scope is the
+    # exception's class.
+    from quality.plan import sweep
+    cut = []
+    longest = 0
+    for kw, msg, of_seed in refused:
+        groups = sweep([1], **kw)["refusals"]
+        first = msg.split("\n", 1)[0]
+        longest = max(longest, len(first))
+        if groups != [{"scope": "seed" if of_seed else "request",
+                       "reason": first, "text": msg, "seeds": [1]}]:
+            cut.append((kw, groups))
+    check("a swept refusal's reason is the refusal's whole first line, with "
+          "the complete text beside it (one of them is over 240 characters)",
+          refused and not cut and longest > 240,
+          (len(refused), longest, cut[:2]))
+
+
 def test_satisfied_wants_remain_in_the_request():
     """Keeping the swept shape must keep its declared planning predicates."""
     base = make_plan(seed=31, lines=12)
@@ -5841,6 +5953,7 @@ _SECTIONS = (
     test_the_type_draw,
     test_a_chosen_type_reaches_the_grader,
     test_once_generation,
+    test_a_refusal_names_what_was_sent,
 )
 
 if __name__ == "__main__":

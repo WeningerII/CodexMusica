@@ -101,7 +101,12 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
     );
     assert.equal(empty.held_by[1].held, 28);
     assert.match(empty.meaning, /^REFUSED — the harness answered: 28 of 28/);
-    assert.match(empty.window_meaning, /held_by says how many/);
+    // Each predicate's own count is said, not pointed at.
+    assert.match(
+      empty.window_meaning,
+      /Each predicate held on its own, of the 28 planned: lines<=24 on 0; uses=verse,chorus on 28; /
+    );
+    assert.match(empty.window_meaning, /at most \d+\.\d% of seeds are kept under this request/);
     assert.match(empty.window_meaning, /declare a target length in `lines`/);
     assert.doesNotMatch(empty.window_meaning, /acceptance rate/);
     assert.doesNotMatch(empty.report, /unreachable in this range/);
@@ -116,6 +121,128 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
     assert.match(request.window_meaning, /a reason about the request itself/);
     assert.doesNotMatch(request.window_meaning, /unbuildable/);
     assert.match(request.meaning, /^REFUSED — the planner refused all 3 seed\(s\)/);
+    // WHO ACTS NEXT FOLLOWS THE REASON'S KIND (writer plan, stage 2). A
+    // window refused for the request names no other seed: the request is the
+    // person's to change.
+    assert.doesNotMatch(request.window_meaning, /may plan/);
+    assert.doesNotMatch(request.report, /try other seeds|may plan/);
+    assert.deepEqual(request.outcome, {
+      kind: 'decision',
+      by: 'person',
+      call: { tool: 'lyric_sweep', args: {} },
+    });
+    // A single plan under the same request records the same kind, as data.
+    const plan = async (planArgs) =>
+      JSON.parse(
+        (await c.client.callTool({ name: 'lyric_plan', arguments: planArgs })).content[0].text
+      );
+    const refusedPlan = await plan({ seed: 0, functions: 'verse,prechorus' });
+    assert.equal(refusedPlan.exit_code, 2);
+    assert.deepEqual(refusedPlan.plan_refusal, { version: 1, scope: 'request' });
+    assert.match(refusedPlan.next, /^This refusal is about the request itself: every seed is/);
+    assert.deepEqual(refusedPlan.outcome, request.outcome);
+
+    // A window refused for what each seed drew. The roster is found in the
+    // planner's own table: the first one-function roster whose window the
+    // planner refuses for the seed's own draw.
+    const { execFileSync } = await import('node:child_process');
+    const roster = execFileSync(
+      'python3',
+      ['-c', "import quality.plan as P; print(','.join(sorted(P.GENERATOR_ROSTER)))"],
+      { cwd: new URL('../lyric-harness/', import.meta.url), encoding: 'utf8' }
+    )
+      .trim()
+      .split(',');
+    let own = null;
+    let functions = null;
+    for (const fn of roster) {
+      const v = await sweep({ seed_from: 0, count: 2, functions: fn });
+      if (
+        v.sweep_outcome === 'planner refused every seed' &&
+        v.planner_refusals.every((g) => g.scope === 'seed')
+      ) {
+        own = v;
+        functions = fn;
+        break;
+      }
+    }
+    assert(own, "some one-function roster is refused for the seed's own draw");
+    // The reason is the refusal's whole first line: it was cut at 240
+    // characters, mid-word. The lines after it ride beside it as `text`.
+    for (const g of own.planner_refusals) {
+      assert.doesNotMatch(g.reason, /\n/);
+      assert.match(g.reason, /[.)]$/, `the reason stops mid-sentence: ${g.reason.slice(-40)}`);
+      assert.ok(g.text.startsWith(g.reason + '\n'), g.text);
+    }
+    // No plan in 2 seeds: at most 1 - 0.05^(1/2) of seeds plan. A further
+    // seed is still as likely to plan as not, so the sweep goes on.
+    const share = (n) => Math.round((1 - 0.05 ** (1 / n)) * 1e4) / 1e4;
+    assert.equal(own.plan_share_bound, share(2));
+    assert.match(
+      own.window_meaning,
+      new RegExp(
+        `another seed under the same declaration may plan; the predicates never ran\\. None of the 2 seed\\(s\\) planned, so at most ${(100 * share(2)).toFixed(1)}% of seeds plan under this request \\(95% bound\\)\\.`
+      )
+    );
+    assert.deepEqual(own.outcome, {
+      kind: 'next_call',
+      by: 'writer',
+      call: { tool: 'lyric_sweep', args: { seed_from: 2 } },
+    });
+    // One window cannot settle it, whatever its size: the engine keeps no
+    // memory of earlier windows, so it names the next one and states the bound.
+    const wide = await sweep({ seed_from: 0, count: 5, functions });
+    assert.equal(wide.plan_share_bound, share(5));
+    assert.deepEqual(wide.outcome, {
+      kind: 'next_call',
+      by: 'writer',
+      call: { tool: 'lyric_sweep', args: { seed_from: 5 } },
+    });
+    // A host that keeps receipts adds the windows up (the SDK client, which a
+    // session and the chat run through), here over a local server. After
+    // the fifth refused window a further one is more likely than not to find
+    // no plan even at the bound, and the request becomes the person's to
+    // change.
+    const hostServer = buildServer({ task: { domain: 'lyrics', phase: 'create' } });
+    const [ha, hb] = InMemoryTransport.createLinkedPair();
+    await hostServer.connect(ha);
+    const host = await connectConnector({
+      task: { domain: 'lyrics', phase: 'create' },
+      transport: hb,
+    });
+    try {
+      const kept = [];
+      for (let from = 0; kept.length < 5; from += 2) {
+        const r = await host.call('lyric_sweep', { seed_from: from, count: 2, functions });
+        kept.push(JSON.parse(r.content.find((b) => b.text.startsWith('{')).text));
+      }
+      assert.deepEqual(
+        kept.map((v) => [v.refused_in_a_row.seeds, v.outcome.kind, v.outcome.by]),
+        [
+          [2, 'next_call', 'writer'],
+          [4, 'next_call', 'writer'],
+          [6, 'next_call', 'writer'],
+          [8, 'next_call', 'writer'],
+          [10, 'decision', 'person'],
+        ]
+      );
+      assert.match(
+        kept[4].window_meaning,
+        /Across the windows refused in a row under this request, none of the 10 seeds planned/
+      );
+    } finally {
+      await host.close();
+    }
+    // And a single plan on that roster: about this seed, so the sweep is next.
+    const ownPlan = await plan({ seed: 0, functions });
+    assert.equal(ownPlan.exit_code, 2);
+    assert.equal(ownPlan.plan_refusal.scope, 'seed');
+    assert.match(ownPlan.next, /^This refusal is about what this seed drew, not about the request/);
+    assert.deepEqual(ownPlan.outcome, {
+      kind: 'next_call',
+      by: 'writer',
+      call: { tool: 'lyric_sweep', args: {} },
+    });
 
     const args = await sweep({ seed_from: 0, count: 2, want: ['vibes<=3'] });
     assert.equal(args.exit_code, 2);
@@ -1056,16 +1183,21 @@ test('lyric_grade names the next call per surface, and kitchen revise sends the 
   const next =
     "At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this exact draft, " +
     "unchanged. `next_call` names that call's tool and the arguments the server sets: `seed`, and " +
-    "`new_run` in a session when a run is open or this plan's run has started. It is not the whole " +
-    'call: send this exact draft and its declarations with it.';
+    "`new_run` in a session when a run is open or this plan's run has started. `next_call` is not " +
+    'the whole call: `next` says what to send with it, which is this exact draft and its declarations, or ' +
+    "no draft where the grade's record holds them (a session, the website chat).";
   for (const d of [chat.grade, outside.grade]) assert.ok(d.includes(next), d);
   assert.ok(chat.grade.includes(next + ' The service writer answers that lyric_revise run.'));
   assert.doesNotMatch(outside.grade, /service writer|kitchen/i);
   for (const d of [chat.grade, outside.grade])
     assert.doesNotMatch(d, /Revise the flagged lines only and call again/);
+  // The chat holds the grade's record: the call sends no draft, and one that
+  // sends a draft must send the graded one (writer plan, stage 2).
   assert.ok(
     chat.revise.includes(
-      'send the exact draft lyric_grade graded, unchanged, and the declarations; one call runs'
+      'after lyric_grade, send the seed and no draft, and the graded draft and its declarations ' +
+        'are taken from the record; a draft sent with the call must be that exact draft, unchanged. ' +
+        'One call runs'
     )
   );
   assert.doesNotMatch(chat.revise, /grade the changed draft first|its own note says/);
@@ -1105,7 +1237,7 @@ test('sweep counts come from the machine record, not report prose; prose only fo
     noProse.meaning,
     'REFUSED — the harness answered: 3 of 4 seed(s) planned and none held every predicate'
   );
-  assert.match(noProse.window_meaning, /held_by says how many/);
+  assert.match(noProse.window_meaning, /Each predicate held on its own, of the 3 planned: /);
   assert.doesNotMatch(JSON.stringify(noProse), /undefined/);
   // An accepted record whose count line was reworded still gets its seed list.
   const reworded = sweepVerdict(

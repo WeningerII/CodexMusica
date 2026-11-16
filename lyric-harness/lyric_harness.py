@@ -12600,7 +12600,12 @@ def main():
                           + ", ".join(str(x) for x in ss)
                           + (f" and {more} more" if more > 0 else "")
                           + f": {g['reason']}")
+                    # `text`: the refusal's lines after the first, kept
+                    # for a reader who asks (a session's detail read); only
+                    # where there are any.
                     reasons.append({"scope": g["scope"], "reason": g["reason"],
+                                    **({"text": g["text"]} if g.get("text")
+                                       and g["text"] != g["reason"] else {}),
                                     "seeds": ss, "more_seeds": max(0, more)})
                 if len(res["refusals"]) > 12:
                     print(f"      … and {len(res['refusals']) - 12} more "
@@ -12614,24 +12619,71 @@ def main():
                       "accepted_count": len(res["accepted"]),
                       "held_by": held_by, "planner_refusals": reasons}
             if not res["accepted"] and not res["planned"]:
+                # "TRY OTHER SEEDS" IS SAID ONLY FOR A REASON ABOUT A SEED
+                # (writer plan, stage 2). This line used to end "or try other
+                # seeds" whatever the reasons were, so a window refused for a
+                # fault in the request sent its caller to sweep again.
+                #
+                # AND WHAT "NO SEED PLANNED" SAYS ABOUT THE NEXT SEED. A
+                # reason about one seed's draw leaves open that another seed
+                # plans; none of N doing so bounds how often that happens.
+                # With no plan in N independent seeds, the share of seeds
+                # that plan is below 1 - 0.05**(1/N) at 95% confidence (the
+                # exact one-sided bound; about 3/N). It is printed and
+                # recorded, so "sweep again" is weighed and not assumed.
+                scopes = {g["scope"] for g in res["refusals"]}
+                bound = 1.0 - 0.05 ** (1.0 / res["seeds"])
+                odds = (f"none of the {res['seeds']} seed(s) planned, so at "
+                        f"most {100.0 * bound:.1f}% of seeds plan under this "
+                        f"request (95% bound)")
+                way_on = (
+                    "every reason above is about the request: change what "
+                    "it names; other seeds are refused the same way"
+                    if scopes == {"request"} else
+                    "every reason above is about that seed's own draw: "
+                    f"another seed may plan; {odds}"
+                    if scopes == {"seed"} else
+                    "change what a request-scope reason names; a seed-scope "
+                    "reason is about that seed's own draw, and another seed "
+                    f"may plan; {odds}")
                 _refuse(
                     f"the planner refused every seed in {lo}..{hi - 1}",
                     detail=["no seed planned, so no predicate ran; the "
                             "reasons above say whether the request or each "
                             "seed was refused",
-                            "fix what a request-scope reason names, or try "
-                            "other seeds"],
+                            way_on],
                     machine={"sweep": {**record,
+                                       "plan_share_bound": round(bound, 4),
                                        "outcome": "planner refused every seed"}})
             if not res["accepted"]:
+                # WHAT "NONE KEPT" SAYS ABOUT THE NEXT WINDOW (writer plan,
+                # stage 2). Stage 0's agents swept 7, 15 and 22 windows on
+                # "widen the range, or drop a predicate" and nothing said
+                # how little a further window could hold. With no seed kept
+                # in N swept, the share of seeds this request keeps is below
+                # 1 - 0.05**(1/N) at 95% confidence (the same one-sided
+                # bound as for a window no seed planned in). And the
+                # predicate to look at is named: the one that held on its
+                # own least often, from the counts already printed.
+                bound = 1.0 - 0.05 ** (1.0 / res["seeds"])
+                low = min((h["held"] for h in held_by), default=0)
+                least = [h["want"] for h in held_by if h["held"] == low]
                 _refuse(
                     f"no seed in {lo}..{hi - 1} satisfies every declared "
                     f"predicate",
                     detail=[f"{res['planned']} seed(s) planned and none held "
                             f"every predicate; the HELD ALONE counts above "
                             f"say how many held each one",
+                            f"none of the {res['seeds']} seed(s) swept was "
+                            f"kept, so at most {100.0 * bound:.1f}% of seeds "
+                            f"are kept under this request (95% bound)",
+                            *([f"held on its own least often ({low} of the "
+                               f"{res['planned']} planned): "
+                               + "; ".join(least)] if least else []),
                             "widen the range, or drop a predicate"],
-                    machine={"sweep": {**record, "outcome": "no seed kept"}})
+                    machine={"sweep": {**record,
+                                       "accept_share_bound": round(bound, 4),
+                                       "outcome": "no seed kept"}})
             print(f"    ACCEPTED (in seed order — this does NOT rank them; "
                   f"doctrine 7 enforces a floor and does not order the "
                   f"permitted region, and an argmax over a swept parameter "
@@ -12666,7 +12718,22 @@ def main():
                 seed=int(seed) if seed is not None else None,
                 wants=[w for w in str(want_raw or "").split(";") if w.strip()], **plan_kw)
         except PLN.PlanRefused as e:
-            _refuse(str(e))
+            # THE REFUSAL'S KIND, AS DATA (writer plan, stage 2). The planner
+            # already knows whether it refused what this SEED drew or the
+            # REQUEST itself: that is the exception's class, and the sweep
+            # has read it since P3 F3 (`plan._sweep_one`, the same test).
+            # A single plan printed the sentence alone, so its caller could
+            # not tell "another seed may plan" from "every seed refuses the
+            # same way" without reading prose. A joint refusal's codes and
+            # per-line findings ride with it.
+            record = {"version": 1,
+                      "scope": ("seed" if isinstance(e, PLN.SeedRefused)
+                                else "request")}
+            if getattr(e, "codes", ()):
+                record["codes"] = list(e.codes)
+            if getattr(e, "findings", ()):
+                record["findings"] = [dict(f) for f in e.findings][:24]
+            _refuse(str(e), machine={"plan_refusal": record})
         except ValueError:
             _refuse("plan --seed and --lines take integers")
         pat = the_plan["choices"]["pattern"]

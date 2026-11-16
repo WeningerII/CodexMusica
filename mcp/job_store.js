@@ -390,11 +390,27 @@ export class JobStore {
         ),
         { code: 'JOB_CAPACITY', status: 503, oversize: true }
       );
+    // WHAT THE WAIT IS ON. Running work finishes when it finishes, so there is
+    // no time to give for it, only that it is running. With none running, the
+    // room is held by interrupted receipts carrying accepted lines, and the
+    // oldest one's expiry is a known time (as recordsFull() gives).
+    let running = 0;
+    let earliest = null;
+    for (const r of this.records.values()) {
+      if (r.state === 'pending') running++;
+      else if (r.state === 'interrupted' && (earliest == null || r.updated_at < earliest))
+        earliest = r.updated_at;
+    }
     return Object.assign(
       new Error(
         'Job storage capacity exceeded; active work and interrupted receipts holding accepted lines cannot be evicted, so nothing was retired'
       ),
-      { code: 'JOB_CAPACITY', status: 503 }
+      {
+        code: 'JOB_CAPACITY',
+        status: 503,
+        running,
+        ...(running || earliest == null ? {} : { retry_at: earliest + this.ttlMs }),
+      }
     );
   }
 

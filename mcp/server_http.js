@@ -971,6 +971,29 @@ const httpServer = app.listen(PORT, () => {
   );
   startupTrace('listening');
 });
+// AN IDLE CONNECTION STAYS OPEN LONGER THAN A CALLER WAITS BETWEEN CALLS
+// (writer plan, stage 2). The host's proxy keeps its connections to this
+// process and reuses them. Node closes an idle connection after 5 seconds by
+// default, and a request the proxy sends on a connection this process is
+// closing comes back to the caller as 502 Bad Gateway: the host's
+// troubleshooting page names this cause for a Node service and this remedy
+// (raise keepAliveTimeout and headersTimeout). A pending operation is polled
+// every 5 seconds, which is that default to the second.
+//
+// MEASURED, 15 Nov 2026 (docs/writer-baseline-2026-11-15/agent_runs.md). The
+// host answered 93 requests with 502 in half an hour. This process logged no
+// 5xx and no aborted request in those minutes: every POST to /mcp that
+// reached it was answered 200. From 20:02 to 20:08 the host returned 47 502s
+// while 2 POSTs to /mcp reached this process, and 17 GETs to /health sent
+// through the same proxy in those minutes were all answered 200. A proxy
+// sends a GET again when a reused connection turns out closed; it does not
+// send a POST again. The proxy's own log is not available to confirm it, so
+// the check is the host's 502 count once this is live.
+//
+// Two minutes is longer than any wait a caller is told to make; the header
+// timeout must stay above it.
+httpServer.keepAliveTimeout = 120_000;
+httpServer.headersTimeout = 125_000;
 
 let shuttingDown = false;
 function shutdown() {

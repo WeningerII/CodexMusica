@@ -251,3 +251,88 @@ test('the store refusing a measured grade as too large is told, and the next rev
   assert.match(refusal, /Grading this same draft again returns the same result/);
   assert.doesNotMatch(refusal, /shorter draft|plan fewer lines/);
 });
+
+// A REVISE AFTER A GRADE (writer plan, stage 2). The gate restored every plan
+// declaration from its own record and, for the draft, kept only a fingerprint:
+// the caller had to send the whole graded draft again, unchanged, and one that
+// changed a line was refused without being told which call keeps the change.
+// The graded draft's text is now kept beside its fingerprint.
+test('a revise after a grade takes the graded draft from the record', () => {
+  const t = fresh();
+  const p = planned(t);
+  // Nothing graded under this plan: the refusal says what is missing and names
+  // the call that supplies it.
+  const none = creationRefusal(t, 'lyric_revise', { seed: 16 });
+  assert.equal(
+    none,
+    'CREATION_GRADE: no graded draft is on record for this plan, and this call sent none. ' +
+      'Call lyric_grade with seed 16 and the complete 2-line draft; lyric_revise then takes ' +
+      'that graded draft from the record.'
+  );
+  // A grade that ran and left no receipt is told apart from one never run.
+  recordCreation(t, 'lyric_grade', { seed: 16, draft }, crashVerdict());
+  const crashed = creationRefusal(t, 'lyric_revise', { seed: 16 });
+  assert.ok(crashed.startsWith(none), crashed);
+  assert.match(
+    crashed,
+    /lyric_grade ran on the draft last sent to it but did not answer with a grade receipt \(exit -1/
+  );
+  assert.doesNotMatch(crashed, /this exact draft|this same draft|this draft/);
+
+  recordCreation(t, 'lyric_grade', { seed: 16, draft }, gradeReceipt(p));
+  assert.deepEqual(t.workflow.grade.draft, draft);
+  // No draft sent: the graded one is used, as a copy.
+  const args = { seed: 16 };
+  assert.equal(creationRefusal(t, 'lyric_revise', args), null);
+  assert.deepEqual(args.draft, draft);
+  assert.notEqual(args.draft, t.workflow.grade.draft);
+  // The graded draft sent again is admitted, as before.
+  assert.equal(revise(t), null);
+  // A different draft is refused: the lines that differ are named, and so are
+  // both ways on, so the change is neither revised unseen nor thrown away.
+  const one = [draft[0], other[1]];
+  assert.equal(
+    revise(t, one),
+    'CREATION_GRADE: lyric_grade must answer for this exact draft and canonical plan before revision starts. ' +
+      'This draft is not the one lyric_grade graded under this plan: line 2 differs. ' +
+      'To revise the graded draft, send this call again without a draft. ' +
+      'To keep this draft, call lyric_grade with seed 16 and this draft first.'
+  );
+  assert.match(revise(t, other), /: lines 1, 2 differ\. /);
+
+  // A grade recorded before the text was kept holds a fingerprint only: no
+  // draft can be taken from it, and neither refusal offers that.
+  delete t.workflow.grade.draft;
+  assert.match(
+    creationRefusal(t, 'lyric_revise', { seed: 16 }),
+    /^CREATION_DRAFT: the exact complete draft is required\. Send this same call again with the exact draft lyric_grade graded/
+  );
+  assert.equal(
+    revise(t, one),
+    'CREATION_GRADE: lyric_grade must answer for this exact draft and canonical plan before revision starts. ' +
+      'This draft is not the one lyric_grade graded under this plan. ' +
+      'To keep this draft, call lyric_grade with seed 16 and this draft first.'
+  );
+  assert.equal(revise(t), null);
+});
+
+// A run that is under way keeps its own draft: the graded draft is the one
+// the run STARTED from, and filling it in would answer a pending question
+// against a draft the run has already moved on from.
+test('a continuing run with no draft is not handed the graded draft', () => {
+  const t = fresh();
+  const p = planned(t);
+  recordCreation(t, 'lyric_grade', { seed: 16, draft }, gradeReceipt(p));
+  recordCreation(t, 'lyric_revise', { seed: 16, draft }, { exit_code: 4 });
+  const carried = { seed: 16 };
+  const args = { seed: 16, answer: '<line>' };
+  assert.match(
+    creationRefusal(t, 'lyric_revise', args, carried),
+    /^CREATION_DRAFT: the exact complete draft is required\./
+  );
+  assert.equal(args.draft, undefined);
+  // A new run under the same plan starts from the graded draft again.
+  const again = { seed: 16, new_run: true };
+  assert.equal(creationRefusal(t, 'lyric_revise', again, carried), null);
+  assert.deepEqual(again.draft, draft);
+});
