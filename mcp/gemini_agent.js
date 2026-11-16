@@ -1183,44 +1183,62 @@ function declaredReturns(args, planReturns) {
     if (typeof r === 'string' && r.trim()) return r.trim();
   return null;
 }
-// THE LINES A PARKED REWRITE MAY CHANGE (#853, stage T; 3PO's closure). The
-// open lines; every line a verbatim return ties to one of them, taken to its
-// closure as the revise loop takes it (quality/loop.py, the atomic group);
-// and with no return declared, every line whose text is an open line's text
-// in the parked draft (a held verbatim return is identical text). A
-// whole-draft flag opens every line, as the loop's whole-draft question does.
-// null means every line may change.
+// The run's rhyme groups as `N,N;N,N` (a member may name its place, N.PLACE):
+// a pasted song's own `groups`, its letter `scheme` (one letter per line, X
+// free), or the recorded plan's.
+function declaredGroups(args, planGroups) {
+  if (typeof args?.groups === 'string' && args.groups.trim()) return args.groups.trim();
+  if (typeof args?.scheme === 'string' && args.scheme.trim()) {
+    const by = {};
+    [...args.scheme.trim()].forEach((ch, i) => {
+      if (ch !== 'X' && ch !== 'x') (by[ch] ||= []).push(i + 1);
+    });
+    const cells = Object.values(by).filter((c) => c.length > 1);
+    return cells.length ? cells.map((c) => c.join(',')).join(';') : null;
+  }
+  return typeof planGroups === 'string' && planGroups.trim() ? planGroups.trim() : null;
+}
+const linesOf = (spec) =>
+  typeof spec === 'string'
+    ? spec
+        .split(';')
+        .map((c) =>
+          c
+            .split(',')
+            .map((m) => parseInt(String(m).trim(), 10))
+            .filter(Number.isInteger)
+        )
+        .filter((c) => c.length > 1)
+    : [];
+// THE LINES A PARKED REWRITE MAY CHANGE (#853, stage T). What the revise
+// loop's own repair may move (quality/loop.py, the group question): the open
+// lines, every member of a declared rhyme group an open line is in (the loop
+// rewrites the group jointly; Andrej on #866), and every line a verbatim
+// return ties to any of those, all taken to closure. With no return
+// declared, a line whose sung text is an open line's text counts as its
+// return. A whole-draft flag opens every line, as the loop's whole-draft
+// question does. null means every line may change.
 export function parkedChangeable(lyr) {
   if (Array.isArray(lyr?.whole) && lyr.whole.length) return null;
   const open = (Array.isArray(lyr?.open) ? lyr.open : []).filter(Number.isInteger);
   if (!open.length) return null;
   const allowed = new Set(open);
-  const classes =
-    typeof lyr.returns === 'string'
-      ? lyr.returns
-          .split(';')
-          .map((c) =>
-            c
-              .split(',')
-              .map((m) => parseInt(String(m).trim(), 10))
-              .filter(Number.isInteger)
-          )
-          .filter((c) => c.length > 1)
-      : null;
-  if (classes) {
-    for (let grew = true; grew; ) {
-      grew = false;
-      for (const c of classes)
-        if (c.some((l) => allowed.has(l)) && c.some((l) => !allowed.has(l))) {
-          c.forEach((l) => allowed.add(l));
-          grew = true;
-        }
-    }
-  } else if (Array.isArray(lyr.draft)) {
-    const texts = new Set(open.map((l) => String(lyr.draft[l - 1] ?? '').trim()));
-    lyr.draft.forEach((t, i) => {
-      if (texts.has(String(t).trim())) allowed.add(i + 1);
-    });
+  const groups = linesOf(lyr.groups);
+  const returns = linesOf(lyr.returns);
+  if (!returns.length && Array.isArray(lyr.draft)) {
+    const sung = normalizeDraftLines(lyr.draft);
+    const byText = {};
+    sung.forEach((t, i) => (byText[t] ||= []).push(i + 1));
+    returns.push(...Object.values(byText).filter((c) => c.length > 1));
+  }
+  for (const c of groups) if (c.some((l) => allowed.has(l))) c.forEach((l) => allowed.add(l));
+  for (let grew = true; grew; ) {
+    grew = false;
+    for (const c of returns)
+      if (c.some((l) => allowed.has(l)) && c.some((l) => !allowed.has(l))) {
+        c.forEach((l) => allowed.add(l));
+        grew = true;
+      }
   }
   return [...allowed].sort((a, b) => a - b);
 }
@@ -1369,7 +1387,7 @@ export function renderedSong(result) {
   return end < 0 ? null : lines.slice(0, end + 1).join('\n');
 }
 
-function carryState(prev, toolName, args, verdict, surface, planReturns = null) {
+function carryState(prev, toolName, args, verdict, surface, plan = null) {
   if (!surface.stateTools?.has(toolName)) return prev;
   const key = stateKey(args);
   if (key == null) return prev;
@@ -1479,9 +1497,12 @@ function carryState(prev, toolName, args, verdict, surface, planReturns = null) 
       // The run's declared verbatim returns (a pasted song's own `returns`,
       // or the recorded plan's), so a parked rewrite may change an open
       // line's word-for-word partners with it (#853). Present only when known.
-      ...(declaredReturns(args, planReturns)
-        ? { returns: declaredReturns(args, planReturns) }
+      ...(declaredReturns(args, plan?.returns)
+        ? { returns: declaredReturns(args, plan?.returns) }
         : {}),
+      // Its rhyme groups, so a parked rewrite may move an open line's group
+      // with it, as the loop's group question does (#853).
+      ...(declaredGroups(args, plan?.groups) ? { groups: declaredGroups(args, plan?.groups) } : {}),
       // The draft this run was opened on. Re-sending it is the same input,
       // not a rewrite of the parked song; the repeat guard judges it.
       ...(Array.isArray(args.draft) ? { input_draft: args.draft } : {}),
@@ -2880,14 +2901,7 @@ export async function runTurn({
             };
           }
           if (!recoveryOnly)
-            lyr = carryState(
-              lyr,
-              fc.name,
-              args,
-              lyricVerdict,
-              surface,
-              task?.plan?.result?.returns
-            );
+            lyr = carryState(lyr, fc.name, args, lyricVerdict, surface, task?.plan?.result);
           // Only a returned revision carrying its draft or continuation replaces
           // its worker journal. An error exchange (or a later unrelated tool)
           // must retain accepted progress whose final result never arrived.

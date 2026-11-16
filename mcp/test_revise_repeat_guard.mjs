@@ -515,34 +515,57 @@ test('completion receipts are carried by the first checkpoint after a finished r
 // A blank row or a bracketed header in the array is dropped by the revise
 // tool's own normalisation, so it must not move the parked-line comparison:
 // the decorated closed-line rewrite is refused exactly like the bare one.
+// Line 3 is in no group and no return, so it is closed; line 2 shares line
+// 1's group, so the loop's group question may move it (Andrej on #866).
+const three = ['Placeholder line one', 'Placeholder line two', 'Placeholder line three'];
+const threeDecl = { groups: '1,2', relation: 'class:ASSONANCE' };
+const parkedThree = () =>
+  verdict({
+    exit_code: 3,
+    status: 'stopped_with_open_lines',
+    certified: false,
+    loop_unresolved_lines: [1],
+    final_draft: three,
+  });
+const rewrite = (lines) => three.map((t, i) => (lines.includes(i + 1) ? `${t} rewritten` : t));
 test('a parked rewrite of a closed line is refused with or without array decoration', async () => {
-  const closed = [accepted[0], 'A closed placeholder line rewritten'];
+  const first = { draft: three, ...threeDecl };
+  const closed = rewrite([1, 3]);
   for (const sendDraft of [closed, ['', ...closed], ['[SECTION]', ...closed]]) {
-    const { out, dispatched } = await turn([
-      { draft, ...decl },
-      { draft: sendDraft, ...decl },
-    ]);
+    const { out, dispatched } = await turn([first, { draft: sendDraft, ...threeDecl }], {
+      tool: parkedThree,
+    });
     assert.equal(
       dispatched,
       1,
       `only the first revise reaches the tool: ${JSON.stringify(sendDraft)}`
     );
-    assert.match(out.calls[1].error || '', /changes line\(s\) 2, which are not open/);
+    assert.match(out.calls[1].error || '', /changes line\(s\) 3, which are not open/);
   }
   // A genuine change of sung-line count is refused by name, not admitted.
-  const { out, dispatched } = await turn([
-    { draft, ...decl },
-    { draft: [...accepted, 'An added placeholder line'], ...decl },
-  ]);
+  const { out, dispatched } = await turn(
+    [first, { draft: [...three, 'An added placeholder line'], ...threeDecl }],
+    { tool: parkedThree }
+  );
   assert.equal(dispatched, 1);
-  assert.match(out.calls[1].error || '', /sends 3 sung line\(s\) for a 2-line song/);
-  // The open line, decorated or not, still reaches the tool.
-  const open = ['A rewritten open placeholder line', accepted[1]];
+  assert.match(out.calls[1].error || '', /sends 4 sung line\(s\) for a 3-line song/);
+  // The open line and its group partner, decorated or not, still reach the tool.
+  const open = rewrite([1, 2]);
   for (const sendDraft of [open, ['[SECTION]', '', ...open]]) {
-    const r = await turn([
-      { draft, ...decl },
-      { draft: sendDraft, ...decl },
-    ]);
-    assert.equal(r.dispatched, 2, `the open-line rewrite runs: ${JSON.stringify(sendDraft)}`);
+    const r = await turn([first, { draft: sendDraft, ...threeDecl }], { tool: parkedThree });
+    assert.equal(r.dispatched, 2, `the open group's rewrite runs: ${JSON.stringify(sendDraft)}`);
   }
+  // A letter scheme declares the same group: line 3 (X) is still closed.
+  const schemeDecl = { scheme: 'AAX', relation: 'class:ASSONANCE' };
+  const s = await turn(
+    [
+      { draft: three, ...schemeDecl },
+      { draft: closed, ...schemeDecl },
+    ],
+    {
+      tool: parkedThree,
+    }
+  );
+  assert.equal(s.dispatched, 1);
+  assert.match(s.out.calls[1].error || '', /changes line\(s\) 3, which are not open/);
 });

@@ -114,3 +114,30 @@ test('drawn by seed: allowed changes pass, one change outside is refused', () =>
     }
   }
 });
+
+// THE LOOP'S GROUP QUESTION REWRITES THE OPEN LINE'S WHOLE RHYME GROUP
+// (quality/loop.py; Andrej on #866), so a parked rewrite may too.
+test("an open line opens its declared rhyme group, then that group's returns", () => {
+  const draft = draftOf(8);
+  // Two open lines in a four-line group: re-rhyming all four is allowed.
+  const four = parked({ draft, open: [1, 2], whole: [], groups: '1,2,3,4' });
+  assert.deepEqual(parkedChangeable(four), [1, 2, 3, 4]);
+  assert.equal(refusal(four, change(draft, [1, 2, 3, 4])), null);
+  assert.match(refusal(four, change(draft, [1, 5])), /changes line\(s\) 5\b/);
+  // A plan's members name their place; a group partner's return comes too.
+  const placed = parked({
+    draft,
+    open: [3],
+    whole: [],
+    groups: '3.endword,4.endword;6.endword,7.T2',
+    returns: '4,8',
+  });
+  assert.deepEqual(parkedChangeable(placed), [3, 4, 8]);
+  // A group the open line is not in stays closed.
+  assert.match(refusal(placed, change(draft, [3, 6])), /changes line\(s\) 6\b/);
+});
+
+test("identical sung text is read after the tool's own normalisation", () => {
+  const lyr = parked({ draft: ['[V]', 'line a', 'line b', '', 'line a'], open: [1], whole: [] });
+  assert.deepEqual(parkedChangeable(lyr), [1, 3]);
+});
