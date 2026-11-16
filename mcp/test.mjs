@@ -5561,6 +5561,8 @@ await check('validation: actionable errors', () => {
         'offline table holding every session refusal to naming the call that works',
       'mcp/test_parked_lines.mjs':
         'offline regressions holding a parked rewrite to the lines that can fix it',
+      'mcp/test_flag_free_messages.mjs':
+        'offline gate: a message a connector verb can send names fields, not flags',
       'mcp/test_pronunciation_choices.mjs': 'offline occurrence pronunciation contract regressions',
       'mcp/test_pronunciation_native.mjs':
         'offline real native pronunciation continuation regressions',
