@@ -2,6 +2,7 @@
 // arguments and completedSteps are never evidence that a step occurred.
 import { createHash } from 'node:crypto';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
+import { refusedByRemedy } from './coverage_advice.js';
 
 // The form a plan request gets when it names none (`quality/plan.py`
 // DEFAULT_FORM): `open` requires no section function and no return.
@@ -887,6 +888,149 @@ export function withNextCall(text, task, carried, name) {
   if (typeof text !== 'string' || !text.startsWith('CREATION_')) return text;
   const line = formatNextCall(nextCreationCall(task, carried, name));
   return line ? `${text} ${line}` : text;
+}
+
+// WHO ACTS NEXT, AS DATA (writer plan, stage 2). A result's next step was
+// told four ways: a `next` sentence with `next_call` (plan, grade, check), a
+// "NEXT:" line inside a report (sweep), a paragraph after the song (a revise
+// stop), or nothing (screen, recover, verify, every refused verdict). A
+// caller could not tell a stop that needs a call from one that needs a
+// choice, or from one whose result is not known. Every result that carries a
+// verdict now carries `outcome`, one of four kinds:
+//   next_call  nothing is left to choose: `call` takes the work on.
+//   decision   a choice comes first. `by` says whose: the WRITER's (which
+//              words, which answer, which reading to declare) or the
+//              PERSON's (what they asked for must change, or work they
+//              started must be given up). `call` is the call that takes the
+//              answer once it is made.
+//   unknown    what the last action did is not known. `call`, when there is
+//              one, only READS what happened; the action is never repeated
+//              on this outcome.
+//   finished   the finished-revise record. Never a clean grade or check.
+// `call` is {tool, args}: the tool and the arguments the server sets, never
+// a draft or an answer. Where a verdict already names its call (`next_call`),
+// that same object is used, so the two cannot disagree; the `next` sentence
+// keeps its form. This reads only the verdict. A session reads its receipts
+// afterwards and replaces what they change (sessionOutcome).
+export const OUTCOME_KINDS = Object.freeze(['next_call', 'decision', 'unknown', 'finished']);
+export const OUTCOME_ACTORS = Object.freeze(['writer', 'person']);
+const callOf = (tool, args = {}) => ({ tool, args });
+const takeOn = (call) => ({ kind: 'next_call', by: 'writer', call });
+const choose = (by, call) => ({ kind: 'decision', by, call });
+// A refused declaration is what was ASKED (a title with no hook to be asked
+// of, a hook in sections that declare no function): no rewrite and no reading
+// moves it, so the choice is the person's. Anything refused about words is
+// the writer's. Read off the refused rows as the advice is (coverage_advice).
+function declarationOnly(v) {
+  const { reading, declarations, other } = refusedByRemedy(v);
+  return declarations.length > 0 && !reading && !other.length;
+}
+export function outcomeOf(tool, v) {
+  if (!v || typeof v !== 'object' || !Number.isInteger(v.exit_code)) return null;
+  const code = v.exit_code;
+  // The harness died: nothing says what it did, and the same call dies the
+  // same way. There is no record to read on the raw engine.
+  if (code === 1) return { kind: 'unknown', by: 'writer', call: null };
+  const named =
+    v.next_call && typeof v.next_call === 'object' && typeof v.next_call.tool === 'string'
+      ? v.next_call
+      : null;
+  if (tool === 'lyric_sweep') {
+    if (code === 0) return takeOn(callOf('lyric_screen'));
+    // Nothing planned or kept. A cause in a seed's own draw is answered by
+    // the next window; a cause in the request is answered by changing it.
+    const reasons = Array.isArray(v.planner_refusals) ? v.planner_refusals : [];
+    const from = v.window?.next_seed_from;
+    if (
+      v.sweep_outcome === 'planner refused every seed' &&
+      reasons.some((g) => g?.scope === 'seed') &&
+      Number.isInteger(from)
+    )
+      return takeOn(callOf('lyric_sweep', { seed_from: from }));
+    return choose(
+      v.sweep_outcome === 'arguments refused' ? 'writer' : 'person',
+      callOf('lyric_sweep')
+    );
+  }
+  if (tool === 'lyric_screen')
+    return [0, 3].includes(code)
+      ? takeOn(callOf('lyric_plan'))
+      : choose('writer', callOf('lyric_screen'));
+  if (tool === 'lyric_plan')
+    return code === 0 && named ? takeOn(named) : choose('person', callOf('lyric_sweep'));
+  if (tool === 'lyric_grade' || tool === 'lyric_check') {
+    if ([0, 3].includes(code) && named) return takeOn(named);
+    // A clean check of lyrics the person supplied names no next step: nothing
+    // stands, and whether to take them on to the finishing revise is theirs
+    // to say (they may have asked only for the check).
+    if (
+      tool === 'lyric_check' &&
+      code === 0 &&
+      v.findings_measured === true &&
+      v.certified === true
+    )
+      return choose('person', callOf('lyric_revise'));
+    // Measured and not all judged, or refused: words to change or a reading
+    // to declare, then the same tool again.
+    return choose(declarationOnly(v) ? 'person' : 'writer', callOf(tool));
+  }
+  if (tool === 'lyric_recover')
+    return code === 0
+      ? takeOn(callOf('lyric_check'))
+      : choose('writer', callOf(code === 3 ? 'lyric_check' : 'lyric_recover'));
+  if (tool === 'lyric_verify') return choose('writer', callOf('lyric_revise'));
+  if (tool === 'lyric_revise') {
+    const run =
+      typeof v.run_id === 'string' && v.run_revision != null
+        ? { run_id: v.run_id, run_revision: v.run_revision }
+        : {};
+    if (v.status === 'recovered_artifact' || v.status === 'journal_capacity')
+      return choose('person', callOf('lyric_revise', { new_run: true }));
+    // A provider answer whose arrival is not known: the journal export reads
+    // what was kept and replays nothing.
+    if (v.uncertain_proposal === true || v.status === 'uncertain_proposal')
+      return {
+        kind: 'unknown',
+        by: 'writer',
+        call: callOf('lyric_revise', { recover_only: true }),
+      };
+    if (code === 4) return choose('writer', callOf('lyric_revise', run));
+    if (code === 5 || v.status === 'interrupted') return takeOn(callOf('lyric_revise', run));
+    if (code === 0)
+      return v.status === 'finished_clean'
+        ? { kind: 'finished' }
+        : choose(declarationOnly(v) ? 'person' : 'writer', callOf('lyric_grade'));
+    // Stopped with something open. At exit 3 the run takes a rewritten draft;
+    // an uncertified stop (exit 2) is not continued, so the rewritten draft
+    // is graded and starts a new run.
+    if (code === 3) return choose('writer', callOf('lyric_revise', run));
+    const open =
+      (typeof v.loop_unresolved === 'number' && v.loop_unresolved > 0) ||
+      (Array.isArray(v.loop_whole_flag_codes) && v.loop_whole_flag_codes.length > 0);
+    return choose(!open && declarationOnly(v) ? 'person' : 'writer', callOf('lyric_grade'));
+  }
+  return null;
+}
+// Attach it to the verdict block of a tool result (the block whose JSON has an
+// integer exit_code). A result with no verdict (a thrown refusal's text)
+// passes through: its text names the call that works (test_refusal_promise).
+export function withOutcome(tool, result) {
+  if (!tool.startsWith('lyric_') || !result || !Array.isArray(result.content)) return result;
+  let changed = false;
+  const content = result.content.map((block) => {
+    if (changed || block?.type !== 'text') return block;
+    let v;
+    try {
+      v = JSON.parse(block.text);
+    } catch {
+      return block;
+    }
+    const outcome = outcomeOf(tool, v);
+    if (!outcome) return block;
+    changed = true;
+    return { ...block, text: JSON.stringify({ ...v, outcome }) };
+  });
+  return changed ? { ...result, content } : result;
 }
 
 // A create session's successful lyric_sweep: the report's "NEXT: lyric_plan

@@ -5555,6 +5555,8 @@ await check('validation: actionable errors', () => {
         'creation-order NEXT derivation regressions, offline and on the real lyric harness, executed by CI',
       'mcp/test_creation_attempts.mjs':
         'offline regressions for refusals after a screen or grade that left no receipt',
+      'mcp/test_status_census.mjs':
+        'status census: every lyric result says who acts next, as a table and on the real raw engine',
       'mcp/test_refusal_promise.mjs':
         'offline table holding every session refusal to naming the call that works',
       'mcp/test_pronunciation_choices.mjs': 'offline occurrence pronunciation contract regressions',
