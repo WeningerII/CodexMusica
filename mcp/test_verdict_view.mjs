@@ -210,13 +210,53 @@ test('only a measured grade or stopped revise is shortened', () => {
     single,
     'a one-block result keeps its shape'
   );
-  assert.deepEqual(sessionView('lyric_check', blocks()), blocks(), 'check keeps its shape');
   assert.deepEqual(sessionView('lyric_verify', blocks()), blocks(), 'verify keeps its shape');
   const noJson = [
     { type: 'text', text: song },
     { type: 'text', text: 'plain' },
   ];
   assert.deepEqual(sessionView('lyric_grade', noJson), noJson);
+});
+
+// A check is one block, its verdict (the caller pasted the lyrics, so no song
+// leads it). Measured, it is published as the short verdict a grade gets; the
+// one large field is in no short view, and `detail` returns the rest.
+test('a measured check publishes the short verdict in one block', () => {
+  const checkVerdict = {
+    ...verdict,
+    next: 'Call lyric_revise with these same lines.',
+    next_call: { tool: 'lyric_revise', args: {} },
+    schema_instance_evidence: { version: 1, records: ['r'.repeat(20000)] },
+  };
+  delete checkVerdict.presentation_text;
+  delete checkVerdict.song_at_stop;
+  const stored = [{ type: 'text', text: JSON.stringify(checkVerdict) }];
+  const out = sessionView('lyric_check', stored);
+  assert.equal(out.length, 1, 'one block in, one block out');
+  const short = JSON.parse(out[0].text);
+  assert.equal(short.exit_code, 3);
+  assert.deepEqual(short.blocking, blockingOf(checkVerdict), 'what stands, as a grade lists it');
+  assert.equal(short.notes, findings.filter((f) => !isStanding(f)).length);
+  assert.deepEqual(short.next_call, { tool: 'lyric_revise', args: {} });
+  assert.equal(short.next, checkVerdict.next);
+  for (const left of ['schema_instance_evidence', 'report', 'findings', 'coverage'])
+    assert.equal(short[left], undefined, `${left} is read with detail`);
+  assert.ok(out[0].text.length < stored[0].text.length / 5, 'the short view is the small one');
+  assert.deepEqual(sessionView('lyric_check', stored, { detail: 'full' }), stored);
+  for (const detail of ['findings', 'report', 'coverage', 'pronunciations'])
+    assert.deepEqual(
+      JSON.parse(sessionView('lyric_check', stored, { detail })[0].text),
+      detailOf(checkVerdict, detail)
+    );
+  // Not measured (a refusal), or not the check's one-block shape: unchanged.
+  const refused = [
+    {
+      type: 'text',
+      text: JSON.stringify({ exit_code: 2, refusal: 'r', findings_measured: false }),
+    },
+  ];
+  assert.deepEqual(sessionView('lyric_check', refused), refused, 'a refusal keeps its shape');
+  assert.deepEqual(sessionView('lyric_check', blocks()), blocks(), 'two blocks are not a check');
 });
 
 test('the session publishes the short view only when it names the tool', () => {

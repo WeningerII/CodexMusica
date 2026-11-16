@@ -496,7 +496,7 @@ test('writing bans follow bound words, a clean pair passes, and unknown names li
       lines: ['Night falls on the quiet town', 'Light fills the empty room'],
       groups: '1.head,2.head',
     });
-    assert.equal(placed.exit_code, 0, 'the check answers even when writing flags stand');
+    assert.equal(placed.exit_code, 3, 'a standing writing flag is exit 3 on a check');
     assert.equal(placed.banned_pairs, 1);
     assert.deepEqual(
       placed.banned.map(({ code, lines }) => [code, lines]),
@@ -519,7 +519,7 @@ test('writing bans follow bound words, a clean pair passes, and unknown names li
       groups: '1,2',
       structures: 'A:perfect-rhyme',
     });
-    assert.equal(structured.exit_code, 0);
+    assert.equal(structured.exit_code, 3);
     assert.equal(structured.certified, true);
     assert.equal(structured.banned_pairs, 1);
     assert.deepEqual(

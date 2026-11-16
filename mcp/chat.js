@@ -905,9 +905,9 @@ export async function createChatRouter({
         cards: lastRecipe?.cards || null,
         // exit_code and banned_pairs ride along for the lyric verbs (null for
         // the recipe tools) so the page's tool chips can show the verdict the
-        // model may not relay — ~~the two-tier ban is unskippable~~ (report-only
-        // since 2026-10-04, owner's ruling), and a count
-        // only the model ever saw protects nobody.
+        // model may not relay. A banned pair is a FLAG on every writing path
+        // (`WRITING_BAN_CODES` in quality/revise.py) and stops a song as any
+        // flag does, and a count only the model ever saw protects nobody.
         // The loop record and the answer count join them for the same reason
         // one layer out (M-169): the flash battery records this array verbatim
         // and it IS the project's record of a production run, so a field

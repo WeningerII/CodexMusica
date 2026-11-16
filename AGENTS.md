@@ -110,6 +110,7 @@ pipeline plans and grades songs whose every line you write; no connector call re
   `plan_lineage`: what the first plan declared and the planner bound that this one does not.
   `get_operation` with `detail` (`findings`, `report`,
   `coverage`, `pronunciations` or `full`, narrowed by `lines`) returns the rest. A finished
+  `lyric_check` is the same short verdict with no song, and takes the same `detail`. A finished
   `lyric_screen` is one line per pair and the report's counts; `detail` `pairs` returns every pair.
 - `render_recipe` takes `format`: `rich` (default), `tags`, `prose`, `compact`. Every one of
   them returns the byte-identical string the app shows for the same workspace.

@@ -9015,13 +9015,21 @@ if (!runs('offline') || PART === null) {
       }
 
       if (runs('live-lookups')) {
-        // The pasted-song check answers at the brief verb's exit 0, but its
-        // structured flags and standing report must carry mandatory writing bans.
+        // The pasted-song check takes its exit from its verdict, as the grade
+        // does (owner's ruling, 2026-11-15): a standing mandatory writing ban is
+        // exit 3 and names the revise call, a pair nobody could judge is exit 2
+        // and says what to declare, and only a clean check is exit 0.
         const checked = await callText('lyric_check', {
           lines: ['dust settles on the kitchen chair', 'cold rain keeps combing through her hair'],
           scheme: 'AA',
         });
-        assert.equal(checked.exit_code, 0, 'check answered; exit 0 alone is not a clean verdict');
+        assert.equal(checked.exit_code, 3, 'a standing flag is exit 3 on a check, as on a grade');
+        assert.match(checked.meaning, /1 per-line and 0 whole-draft flag\(s\) stand/);
+        assert.deepEqual(checked.next_call, { tool: 'lyric_revise', args: {} });
+        assert.match(
+          checked.next,
+          /lyric_revise with these same lines and this same declaration, and no seed/
+        );
         assert.equal(checked.banned_pairs, 1);
         assert.deepEqual(
           checked.banned.map(({ code, lines }) => [code, lines]),
@@ -9032,6 +9040,21 @@ if (!runs('offline') || PART === null) {
           [['HOMEOTELEUTON', [1, 2]]]
         );
         assert.ok(checked.standing.some((s) => s.includes('[FLAG] HOMEOTELEUTON')));
+        // The Lyrics page's banned-pairs card says what the engine just showed
+        // above: every banned pair it counted is a flag. If the engine stops
+        // flagging them, this is the sentence to change with it.
+        assert.equal(
+          checked.banned_pairs,
+          checked.findings.filter(
+            (f) => f.severity === 'flag' && checked.banned.some((b) => b.code === f.code)
+          ).length
+        );
+        assert.ok(
+          readFileSync(new URL('../src/pages/lyrics.js', import.meta.url), 'utf8').includes(
+            "text: 'Each banned pair is a flag. The song is not finished while one stands.'"
+          ),
+          'the page card states the same thing'
+        );
         assert.match(
           lyric.find((t) => t.name === 'lyric_check').description,
           /mandatory HOMEOTELEUTON and MODAL_RHYME flags/
@@ -9048,8 +9071,62 @@ if (!runs('offline') || PART === null) {
           cleanCheck.findings.filter((f) => f.severity === 'flag'),
           []
         );
+        assert.equal(cleanCheck.next, undefined, 'a clean check names no next step');
+        assert.equal(cleanCheck.next_call, undefined);
+        // The one large field is asked for. Left out, the result says how to
+        // ask; asked for, it is the whole report with its invocation, and
+        // nothing else in the verdict differs.
+        assert.equal(cleanCheck.schema_instance_evidence, undefined);
+        assert.match(cleanCheck.evidence_omitted, /lyric_check again with evidence: true/);
+        const withEvidence = await callText('lyric_check', {
+          lines: ['dust settles on the kitchen chair', 'cold rain leaves nothing left to spare'],
+          scheme: 'AA',
+          evidence: true,
+        });
+        assert.equal(withEvidence.schema_instance_evidence?.version, 1);
+        assert.equal(withEvidence.schema_instance_evidence.invocation?.tool, 'lyric_check');
+        assert.equal(
+          withEvidence.schema_instance_evidence.invocation.declarations.evidence,
+          undefined,
+          'asking for the report declares nothing about the lyrics'
+        );
+        assert.equal(withEvidence.evidence_omitted, undefined);
+        const sizeOf = (v) => JSON.stringify(v).length;
+        assert.ok(
+          sizeOf(cleanCheck) * 5 < sizeOf(withEvidence),
+          `the default result is the small one (${sizeOf(cleanCheck)} against ${sizeOf(withEvidence)})`
+        );
+        {
+          const { schema_instance_evidence: _e, ...rest } = withEvidence;
+          const { evidence_omitted: _o, ...plain } = cleanCheck;
+          for (const timing of ['ms', 'retained', 'tool_deadline', 'path', 'journal_id']) {
+            delete rest[timing];
+            delete plain[timing];
+          }
+          assert.deepEqual(rest, plain, 'the verdict is the same with and without the report');
+        }
+        // The third outcome: something could not be judged. The end word is
+        // generated, not chosen: nine consonants from a fixed rule, which no
+        // dictionary reads.
+        const unreadWord = Array.from(
+          { length: 9 },
+          (_, i) => 'bcdfghjklmnpqrstvwxz'[(7 * i * i + 3 * i + 11) % 20]
+        ).join('');
+        const unjudged = await callText('lyric_check', {
+          lines: [
+            `dust settles on the kitchen ${unreadWord}`,
+            'cold rain leaves nothing left to spare',
+          ],
+          scheme: 'AA',
+        });
+        assert.equal(unjudged.exit_code, 2, 'a pair nobody could judge is exit 2, never 0');
+        assert.equal(unjudged.certified, false);
+        assert.match(unjudged.meaning, /coverage INCOMPLETE/);
+        assert.match(unjudged.next, /could not be read: declare them with `pronunciations`/);
+        assert.match(unjudged.next, /call lyric_check again with the same declaration/);
+        assert.equal(unjudged.next_call, undefined, 'no single call is named at exit 2');
         console.log(
-          '  ok  lyric_check live: mandatory ban stands; clean rhyme control has no flags'
+          '  ok  lyric_check live: exit 3 with a standing ban, exit 2 when a pair is not judged, exit 0 when clean'
         );
         passed++;
         const survivingBan = await callText('lyric_verify', {
@@ -9078,11 +9155,7 @@ if (!runs('offline') || PART === null) {
           'and rivers ran with silver',
         ];
         const plain = await callText('lyric_check', { lines: stLines, groups: '1,2;3,4' });
-        assert.equal(
-          plain.exit_code,
-          0,
-          'check answers at the brief verb exit even with unjudged pairs'
-        );
+        assert.equal(plain.exit_code, 3, 'a judged pair that breaks its scheme is a flag: exit 3');
         // REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule
         // 5; measured, as test_verbs.py §39): sun/silver is JUDGED under the
         // broad default now — no whole reading of the two words holds any
@@ -9112,7 +9185,7 @@ if (!runs('offline') || PART === null) {
           !structured.report.includes('SCHEME_VIOLATION'),
           'and NOT one under the declared alliteration — the field is read, not dropped'
         );
-        assert.equal(structured.exit_code, 0);
+        assert.equal(structured.exit_code, 3, 'the ban on lines 1 and 2 still stands');
         assert.deepEqual(
           structured.findings
             .filter((f) => f.severity === 'flag')
@@ -9126,11 +9199,7 @@ if (!runs('offline') || PART === null) {
           groups: '1,2;3,4',
           relation: 'class:RHYME',
         });
-        assert.equal(
-          narrowed.exit_code,
-          0,
-          'check reports a definite violation at the brief verb exit'
-        );
+        assert.equal(narrowed.exit_code, 3, 'a definite violation is exit 3');
         assert.equal(narrowed.coverage.certified, true);
         assert.deepEqual(
           narrowed.findings
