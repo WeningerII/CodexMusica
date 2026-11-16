@@ -18,6 +18,7 @@ import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import {
   SWEEP_COORDINATES,
+  FORM_ROWS,
   creationRefusal,
   creationQualified,
   recordCreation,
@@ -604,6 +605,45 @@ test('a planner changed between plan and grade: the grade names a new plan, and 
   assert.equal(creationRefusal(t, 'lyric_grade', { seed: 16, draft: LINES }), null);
   recordCreation(t, 'lyric_grade', { seed: 16, draft: LINES }, gradeReceipt(rebuilt, LINES));
   assert.equal(t.workflow.grade?.plan_sha256, rebuilt.plan_sha256);
+});
+
+test('a stale plan is planned again under its own sweep, not the newest one, and with none on record the way on is a sweep', () => {
+  // Two sweeps that differ in length; the lengths come from the form table.
+  const row = FORM_ROWS.find((r) => r.form === SHAPES.none.sweep.form);
+  const [own, other] = [row.min_lines, row.min_lines + 1];
+  for (const relation of [undefined, 'draw']) {
+    const t = fresh();
+    const first = stated({ seed_from: 30, count: 2, lines: own });
+    const later = stated({ seed_from: 32, count: 2, lines: other });
+    if (relation) {
+      first.draw = [...new Set([...(first.draw || []), 'relation'])];
+      later.draw = [...new Set([...(later.draw || []), 'relation'])];
+    }
+    recordCreation(t, 'lyric_sweep', first, { exit_code: 0, accepted_shown: [31] });
+    const p = planReceipt({ request: { form: first.form, lines: own } }, 31);
+    recordCreation(t, 'lyric_plan', { seed: 31, form: first.form, lines: own }, p);
+    assert.equal(t.workflow.plan?.sha256, p.plan_sha256);
+    recordCreation(t, 'lyric_sweep', later, { exit_code: 0, accepted_shown: [32] });
+    recordCreation(t, 'lyric_screen', WORDS, { exit_code: 0 });
+    const rebuilt = planReceipt({ request: { form: first.form, lines: own } }, 31);
+    rebuilt.plan.sections = [{ name: 'VERSE' }, { name: 'VERSE' }];
+    rebuilt.plan_sha256 = sha(rebuilt.plan);
+    recordCreation(t, 'lyric_grade', { seed: 31, draft: LINES }, gradeReceipt(rebuilt, LINES));
+    assert.equal(t.workflow.grade_attempt.cause, 'plan_changed');
+    // The named plan carries the stale plan's own sweep's length, and is admitted.
+    const next = nextCreationCall(t, null, 'lyric_grade');
+    assert.equal(next.tool, 'lyric_plan');
+    assert.equal(next.args.seed, 31);
+    assert.equal(next.args.lines, own);
+    assert.equal(
+      creationRefusal(t, 'lyric_plan', clone(next.args), null),
+      null,
+      JSON.stringify(next.args)
+    );
+    // A session that no longer holds that sweep is sent to a sweep, not to a plan it refuses.
+    t.workflow.sweeps = t.workflow.sweeps.slice(1);
+    assert.deepEqual(nextCreationCall(t, null, 'lyric_grade'), { tool: 'lyric_sweep', args: {} });
+  }
 });
 
 test('a word-check that ran under this plan and did not answer adds its note; one under another plan does not', () => {

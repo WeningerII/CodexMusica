@@ -364,6 +364,24 @@ function sweepFor(w, args, { anyForm = false } = {}) {
     );
 }
 
+// The newest sweep the recorded plan matches: it accepted the plan's seed,
+// and each of its coordinates and its `want` list is the plan request's (the
+// planner's own spelling of a relation the sweep sent bare included).
+function planSweep(w) {
+  const r = w.plan?.request;
+  if (!r) return null;
+  return (
+    [...w.sweeps]
+      .reverse()
+      .find(
+        (s) =>
+          s.accepted.includes(r.seed) &&
+          coordinatesOf(s).every((k) => sameDeclared(k, s.args[k], r[k])) &&
+          same(list(r.wants), sweepWants(s))
+      ) || null
+  );
+}
+
 // A recorded plan declaration in the argument form the tools take, as the
 // gate writes it back when a call leaves the declaration out.
 const planArgument = (key, value) =>
@@ -1147,8 +1165,13 @@ export function nextCreationCall(task, carried, name, args = null) {
     w.plan &&
     w.grade_attempt?.cause === 'plan_changed' &&
     w.grade_attempt.plan_sha256 === w.plan.sha256;
+  // A stale plan is planned again under the sweep it was recorded under: its
+  // seed belongs to that sweep, and another sweep's coordinates would refuse
+  // it. With no such sweep on record, the way on is a new sweep.
+  const from = stale ? planSweep(w) : w.sweeps[w.sweeps.length - 1];
+  if (stale && !from) return { tool: 'lyric_sweep', args: {} };
   if (!w.plan || name === 'lyric_plan' || stale) {
-    const s = w.sweeps[w.sweeps.length - 1];
+    const s = from;
     const args = { seed: stale ? w.plan.request.seed : s.accepted[0] };
     if (s.args.form) args.form = planArgument('form', s.args.form);
     if (s.args.lines != null) args.lines = planArgument('lines', s.args.lines);
