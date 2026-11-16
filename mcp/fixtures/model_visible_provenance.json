@@ -116,13 +116,17 @@
       "category": "field-or-value",
       "at": [
         "instructions",
+        "lyric_plan description",
         "lyric_grade description",
         "lyric_check description",
         "get_operation description",
         "systemInstruction"
       ],
       "contexts": [
+        "lines/bars/meter/pickup). The second block is the verdict. Its `next` names the next call, lyric_grade on the",
         "not defects. At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this",
+        "and its declarations with it. At exit 2 `next` names each word that could not be judged,",
+        "answers that lyric_revise run. At exit 2 `next` names each word that could not be judged,",
         "when coverage is incomplete; at 3 and at 2 `next` says what to do. Read `flags` and `whole_flags`",
         "ask), and, after a grade at exit 0 or 3, `next` (the call that takes this exact draft on);",
         "The sweep's NEXT line, a grade verdict's `next` and each CREATION_* refusal name the next"

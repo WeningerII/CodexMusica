@@ -978,3 +978,83 @@ test('an uncertified stop is told what can clear it, by what was actually refuse
   assert.ok(!blind.includes('pronunciations'), 'a word is not blamed without a refused word');
   assert.match(blind, /^Read `coverage` for what was not judged/);
 });
+
+// A 100-line song on a drawn plan (2026-11-15). A pair left unjudged because
+// one bound word lacks the place its group's type reads was listed with that
+// line's two-reading words, as if choosing among them could help; and a pair
+// that failed its rule named no clause of it. The grader now sends the member
+// as data (`subject`: `unanchored_member`, then line, word and place) and the
+// clause in its evidence; the short verdict and the next step read both.
+test('an unjudged pair names the word that lacks its place, and a failed pair its clause', async () => {
+  const { unjudgedWords, unjudgedWordLines } = await import('./coverage_advice.js');
+  const options = (line, word, readings) => ({
+    word,
+    matching_lines: [line],
+    dictionary_readings: Array.from({ length: readings }, () => ({})),
+  });
+  const v = {
+    exit_code: 2,
+    findings: [
+      {
+        code: 'SCHEME_UNREADABLE',
+        severity: 'note',
+        message: '<message>',
+        evidence: '<evidence>',
+        locations: [4, 9],
+        subject: ['unanchored_member', 9, '<word>', '<place>'],
+      },
+      {
+        code: 'SCHEME_VIOLATION',
+        severity: 'flag',
+        message: '<fails>',
+        evidence:
+          "<lead> — <how judged>; where P is on L2 and Q on L3, it fails: <clause one>; <clause two> (score 0.5; '<a>' ~ '<b>')",
+        locations: [2, 3],
+      },
+    ],
+    coverage: { refused_obligations: ['rhyme:4:9:0', 'meter:<CODE>:L6', 'prominence:L7'] },
+    pronunciation_options: {
+      items: [
+        options(4, '<two readings>', 2),
+        options(9, '<also two>', 2),
+        options(6, '<unread>', 0),
+        options(7, '<seven>', 2),
+      ],
+    },
+  };
+  assert.deepEqual(unjudgedWords(v), {
+    unanchored: [{ line: 9, word: '<word>', how: '<place>' }],
+    unread: [{ line: 6, word: '<unread>' }],
+    readings: true,
+  });
+  assert.deepEqual(unjudgedWordLines(v), [
+    "L6: '<unread>' has no dictionary reading.",
+    "L9: change '<word>', or declare a reading for it with `pronunciations`. Its group's type reads the word <place>, and no dictionary reading of '<word>' has such a place.",
+  ]);
+  const blocking = blockingOf(v);
+  const at = (n) => blocking.find((b) => b.startsWith(`L${n}: not judged`));
+  for (const n of [4, 9]) {
+    assert.ok(
+      at(n).includes(
+        "no dictionary reading of L9 '<word>' has a place to be read <place>, which this group's type needs: change the word, or declare a reading that has it"
+      ),
+      at(n)
+    );
+    assert.ok(
+      !at(n).includes('more than one reading'),
+      `choosing among dictionary readings cannot help: ${at(n)}`
+    );
+  }
+  assert.ok(at(7).includes('words with more than one reading: L7 <seven>'), at(7));
+  assert.ok(at(6).includes('no dictionary reading listed: L6 <unread>'), at(6));
+  assert.ok(
+    blocking[0].endsWith(
+      "; compared '<a>' ~ '<b>'; where P is on L2 and Q on L3, it fails: <clause one>; <clause two>"
+    ),
+    blocking[0]
+  );
+  // A member named for a line nothing refused is not advice about this verdict.
+  const elsewhere = structuredClone(v);
+  elsewhere.findings[0].subject[1] = 40;
+  assert.deepEqual(unjudgedWords(elsewhere).unanchored, []);
+});

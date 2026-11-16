@@ -24,6 +24,7 @@ import {
   formatNextCall,
   withNextCall,
   withSweepNext,
+  planNext,
 } from './lyric_workflow.js';
 import { runTurn, LIMITS } from './gemini_agent.js';
 import { _verdictInternals } from './lyric_tools.js';
@@ -880,6 +881,52 @@ test('a grade verdict names its next call from the receipts, in a session and in
   }
   // An edit session and a raw call keep the raw grade's own fields.
   const edit = graded({ domain: 'lyrics', phase: 'edit' }, null);
+  assert.equal(edit.next, 'raw sentence');
+});
+
+// Writer plan, stage 2: a finished plan names the call that takes it on. The
+// CLI's closing lines are cut from the plan report and nothing replaced them.
+// As with the grade, a session reads its receipts after the plan is recorded.
+test('a plan verdict names its next call from the receipts, in a session and in /chat', () => {
+  const planned = (task, carried) => {
+    const p = planReceipt(SHAPES.none, 16);
+    const v = { exit_code: 0, ...p, next: 'raw sentence', next_call: { tool: 'x', args: {} } };
+    const result = {
+      content: [
+        { type: 'text', text: 'the plan report' },
+        { type: 'text', text: JSON.stringify(v) },
+      ],
+    };
+    return JSON.parse(withSweepNext(task, 'lyric_plan', result, carried).content[1].text);
+  };
+  const { at } = states('none');
+  const runs = carriedRuns((seed) => ({ seed }));
+  const lines = at.planned.workflow.plan.lines;
+  assert.ok(
+    Number.isInteger(lines) && lines > 0,
+    `the plan receipt holds its line count (${lines})`
+  );
+  // A plan with nothing graded under it: write the lines, then the grade.
+  const first = planned(clone(at.planned), null);
+  assert.deepEqual(first.next_call, { tool: 'lyric_grade', args: { seed: 16 } });
+  assert.equal(first.next, planNext(first.next_call, lines));
+  assert.ok(first.next.includes(`Write the ${lines} lines`) && first.next.includes('lyric_grade'));
+  // A grade already stands under this same plan: the revise, on the graded draft.
+  const regraded = planned(clone(at.graded), null);
+  assert.equal(regraded.next_call.tool, 'lyric_revise');
+  assert.match(regraded.next, /^Call lyric_revise with seed 16 /);
+  // A held run names none, and neither does a session that has not admitted
+  // a plan yet (no accepted sweep, or no screen).
+  for (const [task, carried] of [
+    [at.started, runs.chat.uncertified_parked],
+    [at.swept, null],
+  ]) {
+    const v = planned(clone(task), carried);
+    assert.equal(Object.hasOwn(v, 'next'), false);
+    assert.equal(Object.hasOwn(v, 'next_call'), false);
+  }
+  // An edit session and a raw call keep the raw plan's own fields.
+  const edit = planned({ domain: 'lyrics', phase: 'edit' }, null);
   assert.equal(edit.next, 'raw sentence');
 });
 

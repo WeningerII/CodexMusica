@@ -8343,6 +8343,23 @@ if (!runs('offline') || PART === null) {
           nLines,
           'the verdict block carries the same line count the report prints'
         );
+        // Writer plan, stage 2: a finished plan names the call that takes it
+        // on. The report's closing lines (the CLI's own way to say it) are cut,
+        // and before this nothing replaced them.
+        assert.deepEqual(
+          planVerdict.next_call,
+          { tool: 'lyric_grade', args: { seed: planSeed } },
+          'the plan verdict names its next call as data'
+        );
+        assert.ok(
+          planVerdict.next.includes('lyric_grade') &&
+            planVerdict.next.includes(`${nLines}-line draft`),
+          `and as a sentence that names the grade and the draft's length (got ${planVerdict.next})`
+        );
+        assert.ok(
+          !/WROTE plan|python3/.test(planReport),
+          'the report still ends before the CLI apparatus'
+        );
 
         // The bracket header rows ARE the shape, and their line counts must sum
         // to the declared total -- an invariant of the report rather than a
@@ -8397,6 +8414,39 @@ if (!runs('offline') || PART === null) {
               ['warm', 'cold', 'cold-fallback'].includes(gv.path) && typeof gv.ms === 'number',
               `the grade verdict names its path and time (got ${gv.path}, ${gv.ms})`
             );
+            // The instance report is built only for a lyric_check that asks
+            // for it: on a grade no reader could use it, and building it was
+            // most of a long draft's running time.
+            assert.equal(
+              gv.schema_instance_evidence,
+              undefined,
+              'a grade builds no instance report'
+            );
+          }
+          // A measured draft that could not all be judged says which word and
+          // what to do next; before this it named no next step, and the word
+          // sat inside a result of several hundred thousand characters. The
+          // word is generated, not chosen: nine consonants from a fixed rule.
+          {
+            const unread = Array.from(
+              { length: 9 },
+              (_, i) => 'bcdfghjklmnpqrstvwxz'[(7 * i * i + 3 * i + 11) % 20]
+            ).join('');
+            const withGap = draft.slice();
+            withGap[0] = `${unread} ${withGap[0]}`;
+            const res = await client.callTool(
+              { name: 'lyric_grade', arguments: withLines({ draft: withGap }) },
+              undefined,
+              LIVE_OPTS
+            );
+            const uv = JSON.parse(res.content[1].text);
+            assert.equal(uv.exit_code, 2, 'an unread word leaves the grade uncertified');
+            assert.ok(
+              uv.next.includes(`L1: '${unread}' has no dictionary reading.`),
+              `the next step names the unread word and its line (got ${uv.next})`
+            );
+            assert.match(uv.next, /Then call lyric_grade again with the complete changed draft/);
+            assert.equal(uv.next_call, undefined, 'no single call is named at exit 2');
           }
           const song = gradedRes.content[0].text;
           assert.ok(
@@ -9123,6 +9173,11 @@ if (!runs('offline') || PART === null) {
         assert.match(unjudged.next, /could not be read: declare them with `pronunciations`/);
         assert.match(unjudged.next, /call lyric_check again with the same declaration/);
         assert.equal(unjudged.next_call, undefined, 'no single call is named at exit 2');
+        // The word is named with its line, so nobody has to search for it.
+        assert.ok(
+          unjudged.next.startsWith(`L1: '${unreadWord}' has no dictionary reading.`),
+          `the next step names the unread word and its line (got ${unjudged.next})`
+        );
         console.log(
           '  ok  lyric_check live: exit 3 with a standing ban, exit 2 when a pair is not judged, exit 0 when clean'
         );

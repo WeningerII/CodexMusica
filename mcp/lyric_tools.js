@@ -32,7 +32,13 @@ import { probeReaderScheme } from './reader_scheduler.js';
 import { requestContext } from './execution_context.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 import { admitRecognitionArgs, pastedRowsOf } from './meter_admission.js';
-import { declarationAdvice, refusedByRemedy, uncertifiedAdvice } from './coverage_advice.js';
+import {
+  declarationAdvice,
+  refusedByRemedy,
+  uncertifiedAdvice,
+  unjudgedWordLines,
+  unjudgedWords,
+} from './coverage_advice.js';
 export { draftFromText } from './lyric_text.js';
 import {
   assessmentCoverageValid,
@@ -41,6 +47,7 @@ import {
   PLAN_FIELDS,
   READING_FIELDS,
   gradeNext,
+  planNext,
   SWEEP_NEXT,
   sweepNextLine,
 } from './lyric_workflow.js';
@@ -1242,17 +1249,28 @@ function checkNext(v) {
       'its revise loop works on the flagged lines. If you change any line yourself instead, ' +
       'call lyric_check again on the changed lines.'
     );
+  return unjudgedNext(v, 'Then call lyric_check again with the same declaration.');
+}
+
+// WHAT TO DO ABOUT A MEASURED DRAFT THAT COULD NOT ALL BE JUDGED (exit 2), on
+// a check and on a grade alike. Read off the refused rows: a word named with
+// its line and its cause comes first, a declaration no rewrite can clear is
+// named as one, and the pronunciation step is offered only where a reading
+// could be the remedy (a word the dictionary lacks, or readings that
+// disagree), never for a word that lacks the place its type reads.
+function unjudgedNext(v, again) {
   const { reading, declarations, other } = refusedByRemedy(v);
-  const parts = [];
+  const words = unjudgedWords(v);
+  const parts = unjudgedWordLines(v);
   if (declarations.length) parts.push(declarationAdvice(v));
   if (other.length)
     parts.push(`Read \`coverage\` for the refused obligation(s) ${other.join(', ')}.`);
-  if (reading)
+  if (reading && (words.unread.length || words.readings))
     parts.push(
       'Some words could not be read: declare them with `pronunciations` or `lexicon_supplement`, or change those words.'
     );
   if (!parts.length) parts.push('Read `coverage` for what was not judged.');
-  parts.push('Then call lyric_check again with the same declaration.');
+  parts.push(again);
   return parts.join(' ');
 }
 
@@ -1474,6 +1492,15 @@ function recoverContinuationOnly(args) {
 // `--fallback=` takes a value, and the CLI reads both before dispatch, so
 // they cannot ride `planArgs` (which lands after the verb). Every handler
 // that grades a draft spreads this in front of its verb.
+// THE INSTANCE REPORT IS NOT BUILT UNLESS IT WILL BE READ (2026-11-15).
+// The harness recomputes `schema_instance_evidence` at report time, over every
+// registry schema: 1,014 of 1,198 profiled seconds on a 100-line grade. Its
+// one reader is the Lyrics page's inspection view, and that view accepts only
+// a review's lyric_check (it needs the request binding only that call gets).
+// So lyric_check builds it when the call asks (`evidence: true`), and a grade
+// or a revise, whose copy no reader could use, does not build it.
+const NO_INSTANCE_EVIDENCE = '--no-instance-evidence';
+
 function globalsFor(a) {
   // The basis is resolved before the verb is spelled. lyric_revise resolves
   // it itself, after carrying its run's record in (`continuing`); every other
@@ -2610,7 +2637,8 @@ export function registerLyricTools(server, tool) {
         'contiguous run. On a plan with no hook slot (the `open` form declares none) a title only names the song and that ' +
         "question is not asked. The tool result's first text block is the plan report and writer brief: when showing the shape, " +
         'keep the bracket header rows exactly as written (they carry lines/bars/meter/pickup). The second block is the ' +
-        'verdict.',
+        "verdict. Its `next` names the next call, lyric_grade on the complete draft; `next_call` names that call's tool " +
+        'and the argument the server sets, `seed`.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_plan,
     },
     (a) =>
@@ -2636,6 +2664,15 @@ export function registerLyricTools(server, tool) {
           // by hand, so a plan row never said which path answered or how
           // many lines the plan drew: round 9's "large drawn shape" stayed
           // an inference through round 11 for this reason (M-219).
+          // The plan verdict's `next`: the call that takes this plan on. The
+          // closing lines cut above were the CLI's way to say it; this is the
+          // connector's. A session replaces both with the call its receipts
+          // admit (withSweepNext in lyric_workflow.js).
+          verdict.next_call = {
+            tool: 'lyric_grade',
+            args: { seed: plan.request?.seed ?? a.seed },
+          };
+          verdict.next = planNext(verdict.next_call, verdict.plan_lines ?? plan.line_slots?.length);
           const { report: _report, ...stamped } = verdict;
           return {
             content: [
@@ -2674,6 +2711,8 @@ export function registerLyricTools(server, tool) {
         "`new_run` in a session when a run is open or this plan's run has started. It is not the whole " +
         'call: send this exact draft and its declarations with it. ' +
         (server.kitchen ? 'The service writer answers that lyric_revise run. ' : '') +
+        'At exit 2 `next` names each word that could not be judged, with its line and what to ' +
+        'change, and then the lyric_grade call that judges the changed draft. ' +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_grade,
     },
@@ -2707,7 +2746,7 @@ export function registerLyricTools(server, tool) {
         // artifact, so the comment kept asserting a correspondence that had
         // stopped holding. It is an EQUALITY, not a description, and
         // `mcp/test.mjs` pins it now rather than trusting it (doctrine 48).
-        const songArgs = [...globalsFor(a), 'song', bpPath, draftPath];
+        const songArgs = [...globalsFor(a), NO_INSTANCE_EVIDENCE, 'song', bpPath, draftPath];
         if (plan.groups) songArgs.push(`--groups=${plan.groups}`);
         if (plan.returns) songArgs.push(`--returns=${plan.returns}`);
         // The relation comes off the PLAN, not off the tool call, for the
@@ -2748,6 +2787,22 @@ export function registerLyricTools(server, tool) {
             args: { seed: plan.request?.seed ?? a.seed },
           };
           verdict.next = gradeNext(verdict.exit_code);
+        } else if (
+          verdict.exit_code === 2 &&
+          verdict.measurement_status === 'graded' &&
+          verdict.certified !== true
+        ) {
+          // A measured draft that could not all be judged named no next step,
+          // and its cause sat inside a result of several hundred thousand
+          // characters. `next` names each word with its line and its cause.
+          // No `next_call`: the remedy is a change to the words or to what is
+          // declared, and only the caller can make it.
+          verdict.next = unjudgedNext(
+            verdict,
+            (verdict.flags || 0) + (verdict.whole_flags || 0)
+              ? 'The flags in `standing` need a change too. Then call lyric_grade again with the complete changed draft and the same seed and declarations.'
+              : 'Then call lyric_grade again with the complete changed draft and the same seed and declarations.'
+          );
         }
         // The SONG leads as its own plain-text block so a client presents
         // it instead of reformatting escaped JSON — the Wide Room
@@ -3195,13 +3250,14 @@ export function registerLyricTools(server, tool) {
               if (seeded) {
                 args = [
                   ...globalsFor(a),
+                  NO_INSTANCE_EVIDENCE,
                   'finish',
                   draftPath,
                   ...planArgs(a),
                   `--propose=${proposeSpec}`,
                 ];
               } else {
-                args = [...globalsFor(a), 'revise', draftPath];
+                args = [...globalsFor(a), NO_INSTANCE_EVIDENCE, 'revise', draftPath];
                 if (hasScheme) args.push(a.scheme);
                 if (hasGroups) args.push(`--groups=${a.groups}`);
                 if (a.returns) args.push(`--returns=${a.returns}`);
@@ -3925,7 +3981,13 @@ export function registerLyricTools(server, tool) {
           throw refuse(
             '`blueprint` needs `subdivision` — the slot questions refuse rather than assume a grid'
           );
-        const args = [...globalsFor(a), 'brief', draftPath];
+        // The instance report is built only for the call that asked for it.
+        const args = [
+          ...globalsFor(a),
+          ...(a.evidence === true ? [] : [NO_INSTANCE_EVIDENCE]),
+          'brief',
+          draftPath,
+        ];
         if (hasScheme) args.push(a.scheme);
         if (hasGroups) args.push(`--groups=${a.groups}`);
         if (a.returns) args.push(`--returns=${a.returns}`);
@@ -3952,16 +4014,17 @@ export function registerLyricTools(server, tool) {
         }
         const r = await runVerb(args);
         const v = verdictOf(r);
-        if (v.schema_instance_evidence) {
-          if (a.evidence === true) {
+        if (a.evidence === true) {
+          if (v.schema_instance_evidence) {
             const invocation = checkEvidenceInvocation(r, a);
             if (invocation)
               v.schema_instance_evidence = { ...v.schema_instance_evidence, invocation };
-          } else {
-            delete v.schema_instance_evidence;
-            v.evidence_omitted =
-              '`schema_instance_evidence` is left out of this result; call lyric_check again with evidence: true to include it.';
           }
+        } else if (v.findings_measured) {
+          // Not built, so there is none to delete: every measured check says
+          // how to get it.
+          v.evidence_omitted =
+            '`schema_instance_evidence` is left out of this result; call lyric_check again with evidence: true to include it.';
         }
         v.blueprint_declared = a.blueprint != null;
         return applyCheckExit(v);

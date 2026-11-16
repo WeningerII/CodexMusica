@@ -882,6 +882,9 @@ function withGradeNext(task, result, carried) {
       return block;
     }
     if (!v || typeof v !== 'object' || !Number.isInteger(v.exit_code) || !v.next) return block;
+    // At exit 2 `next` names words to change and no call (a measured draft
+    // that could not all be judged): there is no call to replace, so it stays.
+    if (v.exit_code === 2) return block;
     changed = true;
     const { next: _text, next_call: _call, ...rest } = v;
     const call = gradedNextCall(task, carried);
@@ -896,12 +899,59 @@ function withGradeNext(task, result, carried) {
   });
   return changed ? { ...result, content } : result;
 }
+// THE PLAN VERDICT'S NEXT STEP (writer plan, stage 2). The CLI's closing
+// lines (the path it wrote, the python commands that grade it) are cut from
+// the plan report, and nothing named the call that replaces them: a caller
+// holding a finished plan was told nothing. `next` is the sentence a caller
+// reads; `next_call` is its tool and the args the server sets. A raw plan
+// knows only itself: lyric_grade with its seed. A session reads its receipts
+// after this plan is recorded, as a grade does: a held run names no call, and
+// a run or a grade already standing under this same plan names lyric_revise.
+export function planNext(call, lines) {
+  if (call.tool === 'lyric_grade')
+    return (
+      `Write the ${lines} lines to the brief, then call lyric_grade with the complete ` +
+      `${lines}-line draft and this plan's seed and declarations.`
+    );
+  return formatNextCall({ ...call, lines }).replace(/^NEXT: /, 'Call ');
+}
+function withPlanNext(task, result, carried) {
+  let changed = false;
+  const content = result.content.map((block) => {
+    if (changed || block?.type !== 'text') return block;
+    let v;
+    try {
+      v = JSON.parse(block.text);
+    } catch {
+      return block;
+    }
+    if (!v || typeof v !== 'object' || !Number.isInteger(v.exit_code) || !v.next) return block;
+    changed = true;
+    const { next: _text, next_call: _call, ...rest } = v;
+    const call = nextCreationCall(task, carried);
+    const admitted = call && !call.first && ['lyric_grade', 'lyric_revise'].includes(call.tool);
+    return {
+      ...block,
+      text: JSON.stringify(
+        admitted
+          ? {
+              ...rest,
+              next_call: { tool: call.tool, args: call.args },
+              next: planNext(call, call.lines),
+            }
+          : rest
+      ),
+    };
+  });
+  return changed ? { ...result, content } : result;
+}
 export function withSweepNext(task, name, result, carried) {
-  if (!['lyric_sweep', 'lyric_grade'].includes(name)) return result;
+  if (!['lyric_sweep', 'lyric_plan', 'lyric_grade'].includes(name)) return result;
   if (!result || result.isError || !Array.isArray(result.content)) return result;
   const w = workflowFor(task);
   if (!w) return result;
   if (name === 'lyric_grade') return withGradeNext(task, result, carried);
+  if (name === 'lyric_plan') return withPlanNext(task, result, carried);
   if (!w.sweeps.length) return result;
   // A held run (an uncertified parked run, an unknown-outcome proposal) gets
   // no NEXT; the harness's own "lyric_plan with seed N" line is removed too,

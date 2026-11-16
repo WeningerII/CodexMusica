@@ -431,6 +431,16 @@ def _version_of(path, sha256):
     return None
 
 
+#: The merged rules tables this process has built, by scheme and rows: equal
+#: tables are ONE object. A long-lived worker builds a lexicon per call, and
+#: `LH._rules_bearing` indexes a rules table by its identity and keeps the
+#: index. A fresh copy per call was therefore a fresh index per call, never
+#: released: 12-20 MB a call, measured on 30 screens in one worker
+#: (2026-11-15). Like the table CMUdict's own readings share, it is never
+#: mutated.
+_MERGED_RULES = {}
+
+
 class SupplementedLexicon(LH.Lexicon):
     """`Lexicon` plus the reviewed supplement. See the module docstring."""
 
@@ -503,6 +513,12 @@ class SupplementedLexicon(LH.Lexicon):
                 # The row's own phones respelled: still reachable for a
                 # `basis: dictionary` choice through `dictionary_readings`.
                 self._supplement_raw.setdefault(word, []).append(phones)
+        key = (derive, tuple((row["word"], tuple(row["phones"])) for row in self._rows))
+        kept = _MERGED_RULES.get(key)
+        if kept is not None and kept == rules:
+            rules = kept
+        else:
+            _MERGED_RULES[key] = rules
         self.reading_rules = rules
         self.cmu_entries = cmu
         self.entries = merged

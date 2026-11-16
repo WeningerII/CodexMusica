@@ -4355,6 +4355,146 @@ def test_a_token_figure_search_is_the_exhaustive_answer():
           f"{words * (words - 1) * (words - 2) // 6}")
 
 
+def test_a_refused_pair_names_its_word_and_its_clause():
+    """A PAIR THE RULE REFUSES SAYS WHY (2026-11-15, a 100-line song on a
+    drawn plan).
+
+    Two answers gave a writer nothing to act on. A pair was left UNJUDGED
+    because one bound word lacks the place its type reads, and the report
+    said "a member the phonology refuses, or an indeterminate classification"
+    and listed that line's two-reading words. A pair FAILED its rule and the
+    report named the rule and no clause of it. `pair_unanchored_any` names
+    the member and `pair_failed_parts_any` the parts that say no, the grader
+    says both back in the brief's own words (`plan.span_read_words`,
+    `plan.failed_clauses`), and the unanchored member travels as data on the
+    finding. No pair below is chosen: the words are drawn by seed, and every
+    registry row that binds one word per member is asked.
+    """
+    print("\na refused pair names its word and its clause")
+    import json
+    import random
+    import subprocess
+    import tempfile
+    from quality import plan as PL
+    from quality.revise import relation_phonology_for
+    lex = lh.Lexicon()
+    phon = relation_phonology_for(lex)
+    names = list(R.REGISTRY)
+    rows = [n for n in names if R.pair_bindable(R.REGISTRY[n])
+            and R.pair_scope_representable(R.REGISTRY[n])]
+    stray = []
+    for n in rows:
+        sch = R.REGISTRY[n]
+        rule = PL.type_rule(sch)
+        parts = ([("channel", i) for i, c in enumerate(sch.channels)
+                  if c.required]
+                 + ([("unmatched",)] if sch.unmatched != "exclude" else [])
+                 + [("identity", i) for i in range(len(sch.identity))])
+        stray += [(n, p) for p in parts
+                  if PL.failed_clauses(sch, [p])[0] not in rule]
+        stray += [(n, var) for var, r in (("P", sch.spans[0]),
+                                          ("Q", sch.spans[-1]))
+                  if not PL._span_words(r, var).endswith(PL.span_read_words(r))]
+    check(f"every part of all {len(rows)} one-word-per-member rows is said "
+          "back in a clause of that row's own rule, and each member's place "
+          "in the brief's own words", bool(rows) and not stray, stray[:4])
+
+    rng = random.Random(20261115)
+    words = sorted(w for w in lex.entries if w.isalpha() and 3 <= len(w) <= 9)
+    draws = [(rng.choice(words), rng.choice(words)) for _ in range(12)]
+    lacking, failing, unnamed, judged = [], [], [], []
+    for a, b in draws:
+        lines = [c.format(w=w) for c, w in zip(lh._SCREEN_CARRIERS, (a, b))]
+        stream = R.build_stream(lines, phon, declaration={"language": "eng"})
+        build = R.cached_builder(lambda ph, lines=lines: R.build_stream(
+            lines, ph, declaration={"language": "eng"}))
+        for n in rows:
+            sch = R.declared_token_schema(R.REGISTRY[n])
+            ans, _ = R.pair_satisfies_any(sch, stream, (0, -1), (1, -1), build)
+            if isinstance(ans, R.Refusal):
+                continue
+            un = R.pair_unanchored_any(sch, stream, (0, -1), (1, -1), build)
+            if un:
+                lacking.append((n, a, b, un))
+                if ans is not None:
+                    judged.append((n, a, b, ans))
+            if ans is False:
+                parts = R.pair_failed_parts_any(sch, stream, (0, -1), (1, -1),
+                                                build)
+                (failing if parts else unnamed).append((n, a, b, parts))
+    check(f"a member that supplies no span is never a judged pair "
+          f"({len(lacking)} drawn case(s) over "
+          f"{len({x[0] for x in lacking})} row(s))",
+          bool(lacking) and not judged, judged[:3])
+    check(f"every plain no names at least one part that says no "
+          f"({len(failing)} drawn case(s) over "
+          f"{len({x[0] for x in failing})} row(s), {len(unnamed)} unnamed)",
+          len({x[0] for x in failing}) > len(rows) // 2 and not unnamed,
+          unnamed[:3])
+
+    def graded(n, a, b):
+        with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
+                                         encoding="utf-8") as fh:
+            fh.write("".join(c.format(w=w) + "\n"
+                             for c, w in zip(lh._SCREEN_CARRIERS, (a, b))))
+        try:
+            p = subprocess.run(
+                [sys.executable, "lyric_harness.py", "--no-instance-evidence",
+                 "brief", fh.name, "--groups=1.endword,2.endword",
+                 "--group-types=" + json.dumps(
+                     [{"group": 1, "type": names.index(n)}])],
+                cwd=os.path.dirname(os.path.abspath(lh.__file__)),
+                capture_output=True, text=True, timeout=600)
+        finally:
+            os.unlink(fh.name)
+        rec = [json.loads(x.split("lyric result: ", 1)[1])
+               for x in p.stdout.splitlines() if "lyric result: " in x]
+        return (rec[-1].get("findings") or []) if rec else []
+
+    said = None
+    for n, a, b, un in lacking[:4]:
+        notes = [f for f in graded(n, a, b)
+                 if f["code"] == "SCHEME_UNREADABLE"
+                 and (f.get("subject") or [""])[0] == "unanchored_member"]
+        if notes:
+            said = (n, a, b, un, notes[0])
+            break
+    ok = False
+    if said:
+        n, a, b, un, note = said
+        want = [x for m, rule in un
+                for x in (m + 1, (a, b)[m], PL.span_read_words(rule))]
+        ok = (note["subject"][1:] == want
+              and all(PL.span_read_words(rule) in note["evidence"]
+                      and repr((a, b)[m]) in note["evidence"]
+                      for m, rule in un)
+              and "change the word" in note["evidence"])
+    check("the grader says it: the unjudged pair's note names the line, the "
+          "word and the place its type reads, as data and in the sentence",
+          ok, said and (said[0], said[4]["subject"], said[4]["evidence"][:160]))
+
+    said = None
+    for n, a, b, parts in failing[:4]:
+        notes = [f for f in graded(n, a, b)
+                 if f["code"] == "SCHEME_VIOLATION"
+                 and "it fails: " in f["evidence"]]
+        if notes:
+            said = (n, notes[0]["evidence"])
+            break
+    ok = False
+    if said:
+        n, evidence = said
+        tail = evidence.split("it fails: ", 1)[1].split(" (score ", 1)[0]
+        rule = PL.type_rule(R.declared_token_schema(R.REGISTRY[n]))
+        left = tail
+        for clause in sorted(rule, key=len, reverse=True):
+            left = left.replace(clause, "")
+        ok = bool(tail) and not left.strip("; ")
+    check("...and the failed pair's finding names the clause(s) it fails, "
+          "each one a clause of that row's own rule",
+          ok, said and (said[0], said[1][:260]))
+
+
 if __name__ == "__main__":
     test_inventory()
     test_p0_unreadable_final_token()
@@ -4397,6 +4537,7 @@ if __name__ == "__main__":
     test_the_pair_guard_refuses_before_it_evaluates()
     test_every_schema_judges_and_no_differ_only_excludes()
     test_a_token_figure_search_is_the_exhaustive_answer()
+    test_a_refused_pair_names_its_word_and_its_clause()
     print("=" * 66)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

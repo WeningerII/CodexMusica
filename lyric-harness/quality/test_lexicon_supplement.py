@@ -750,13 +750,47 @@ def test_screen_reads_the_supplement():
           out[-300:])
 
 
+def test_a_lexicon_per_call_keeps_one_rule_index():
+    """15. A LONG-LIVED WORKER BUILDS A LEXICON PER CALL (2026-11-15).
+    `LH._rules_bearing` indexes a lexicon's rules table by the table's
+    identity and keeps the index. Each supplemented lexicon made its own copy
+    of the table, so every call left one more index behind and none was ever
+    released: the worker grew 12-20 MB a call. Equal tables are one object
+    now, so a lexicon per call asks the index it already holds."""
+    print("\n15. a lexicon per call keeps one rule index, not one per call")
+    for version in (row["id"] for row in S.load_versions()["versions"]):
+        first = S.SupplementedLexicon(version=version)
+        word = next(iter(first.reading_rules))[0]
+        LH._rules_bearing(first, word)
+        held = len(LH._RULES_BY_WORD)
+        answers = set()
+        for _ in range(3):
+            lex = S.SupplementedLexicon(version=version)
+            answers.add(frozenset(LH._rules_bearing(lex, word)))
+            check(f"{version}: a second lexicon shares the first one's rules table",
+                  lex.reading_rules is first.reading_rules)
+        check(f"{version}: three more lexicons add no index "
+              f"({held} held before, {len(LH._RULES_BY_WORD)} after)",
+              len(LH._RULES_BY_WORD) == held)
+        check(f"{version}: and the answer is the same from each",
+              answers == {frozenset(LH._rules_bearing(first, word))}, answers)
+    plain_rules = PLAIN.reading_rules
+    check("CONTROL: the plain lexicon's table is not the supplemented one, and "
+          "the supplement's own readings are still in the supplemented table only",
+          SUPP.reading_rules is not plain_rules
+          and len(SUPP.reading_rules) >= len(plain_rules)
+          and all(k in SUPP.reading_rules for k in list(plain_rules)[:50]),
+          (len(SUPP.reading_rules), len(plain_rules)))
+
+
 def main():
     for fn in (test_shipped_file, test_contract_refusals,
                test_plain_lexicon_untouched, test_derivation_reads_cmudict_alone,
                test_whole_before_piece, test_witnesses, test_reading_sources,
                test_identities_move, test_tokenizer_keys, test_consumer_paths,
                test_cli, test_versions, test_reviewed_v2,
-               test_screen_reads_the_supplement):
+               test_screen_reads_the_supplement,
+               test_a_lexicon_per_call_keeps_one_rule_index):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0

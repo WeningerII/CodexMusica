@@ -21,7 +21,7 @@
 // read re-projects the stored result with nothing recomputed.
 import { createHash } from 'node:crypto';
 import { isStanding } from './lyric_tools.js';
-import { obligationLines } from './coverage_advice.js';
+import { obligationLines, unjudgedWords } from './coverage_advice.js';
 
 export const SHORT_VIEW_TOOLS = new Set([
   'lyric_grade',
@@ -128,6 +128,14 @@ function head(evidence) {
 }
 const comparedPair = (evidence) =>
   (typeof evidence === 'string' && evidence.match(/'[^']+' ~ '[^']+'/)?.[0]) || '';
+// The clause(s) of its rule a failed pair fails, as the grader words them
+// (revise.py: "where P is on L.. and Q on L.., it fails: ..."). The head
+// above stops before it, and it is the one part of the evidence a writer can
+// act on.
+const failedClause = (evidence) =>
+  (typeof evidence === 'string' &&
+    evidence.match(/; (where P is on L\d+ and Q on L\d+, it fails: .+?)(?: \(score |$)/)?.[1]) ||
+  '';
 const lineList = (lines) => 'L' + [...new Set(lines)].sort((a, b) => a - b).join('/');
 
 export function blockingOf(verdict) {
@@ -137,15 +145,17 @@ export function blockingOf(verdict) {
   for (const f of findings.filter(isStanding)) {
     const h = head(f.evidence);
     const pair = comparedPair(f.evidence);
-    const key = [f.code, f.message, h, pair].join('\u0000');
-    if (!same.has(key)) same.set(key, { f, h, pair, lines: [] });
+    const clause = failedClause(f.evidence);
+    const key = [f.code, f.message, h, pair, clause].join('\u0000');
+    if (!same.has(key)) same.set(key, { f, h, pair, clause, lines: [] });
     same.get(key).lines.push(...(f.locations || []));
   }
-  for (const { f, h, pair, lines } of same.values())
+  for (const { f, h, pair, clause, lines } of same.values())
     out.push(
       `${lines.length ? lineList(lines) : 'whole draft'}: ${f.code} — ${f.message}` +
         (h ? ` (${h})` : '') +
-        (pair ? `; compared ${pair}` : '')
+        (pair ? `; compared ${pair}` : '') +
+        (clause ? `; ${clause}` : '')
     );
   const perLine = new Map();
   const unplaced = [];
@@ -171,6 +181,7 @@ export function blockingOf(verdict) {
     }
   }
   const options = verdict.pronunciation_options?.items || [];
+  const { unanchored } = unjudgedWords(verdict);
   for (const n of [...perLine.keys()].sort((a, b) => a - b)) {
     const e = perLine.get(n);
     const why = [
@@ -208,12 +219,31 @@ export function blockingOf(verdict) {
           ? `token ${o.token} '${o.word}'`
           : `endpoint '${o.word}' (no sung-token position)`
       );
+    // A member that lacks the place its group's type reads is the cause,
+    // named as the grader sent it, and no dictionary reading has it: when
+    // that is all this line was refused for, the two-reading words are not
+    // listed as if choosing among them could help (a 100-line song,
+    // 2026-11-15). Another word clears it, or a declared reading that has
+    // the place.
+    const pairLines = [n, ...e.partners];
+    const lacking = unanchored.filter((m) => pairLines.includes(m.line));
+    const onlyLacking = lacking.length > 0 && e.kinds.size === 1 && e.kinds.has('rhyme');
     out.push(
       `L${n}: not judged — ${[...e.kinds].join(', ')}` +
         (e.partners.size ? ` with ${lineList([...e.partners])}` : '') +
         (why.length ? ` (${why.join(', ')})` : '') +
+        (lacking.length
+          ? `; ${lacking
+              .map(
+                (m) =>
+                  `no dictionary reading of L${m.line} '${m.word}' has a place to be read ${m.how}, which this group's type needs: change the word, or declare a reading that has it`
+              )
+              .join('; ')}`
+          : '') +
         (failures.length ? `; unreadable: ${[...new Set(failures)].join(', ')}` : '') +
-        (words.length ? `; words with more than one reading: ${words.join('; ')}` : '') +
+        (words.length && !onlyLacking
+          ? `; words with more than one reading: ${words.join('; ')}`
+          : '') +
         (unknown.length ? `; no dictionary reading listed: ${unknown.join('; ')}` : '')
     );
   }

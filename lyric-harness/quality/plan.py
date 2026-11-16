@@ -1910,19 +1910,31 @@ def _span_words(rule, var):
     where = {"line_final_token": "the last word of its line",
              "line_initial_token": "the first word of its line",
              "any_token": "the word at its stated position"}.get(locus, locus)
-    read = {("last_stressed", "to_word_end"):
-                "from its last stressed syllable to the end of the word",
-            ("word_start", "to_word_end"): "whole",
-            ("word_start", "whole"): "whole",
-            ("word_end", "whole"): "whole",
-            ("word_start", 1): "at its first syllable",
-            ("word_end", 1): "at its last syllable",
-            ("final_unstressed", 1): "at its final unstressed syllable",
-            ("penult", 1): "at its second-to-last syllable",
-            ("word_start", "to_frame_edge"):
-                "from its first syllable to the end of the line",
-            }.get((anchor, mag), f"from {anchor} over {mag}")
-    return f"{var} is {where}, read {read}"
+    return f"{var} is {where}, read {span_read_words(rule)}"
+
+
+#: Where in its word a member is read, by (anchor, magnitude). ONE table: the
+#: brief says it to the writer, and the grader says it back when a word has
+#: no such place (`revise.py`, the unanchored-member refusal).
+_SPAN_READ = {
+    ("last_stressed", "to_word_end"):
+        "from its last stressed syllable to the end of the word",
+    ("word_start", "to_word_end"): "whole",
+    ("word_start", "whole"): "whole",
+    ("word_end", "whole"): "whole",
+    ("word_start", 1): "at its first syllable",
+    ("word_end", 1): "at its last syllable",
+    ("final_unstressed", 1): "at its final unstressed syllable",
+    ("penult", 1): "at its second-to-last syllable",
+    ("word_start", "to_frame_edge"):
+        "from its first syllable to the end of the line",
+}
+
+
+def span_read_words(rule):
+    """-> how a member rule reads its word, in the brief's own words."""
+    anchor, mag = rule.anchor, rule.magnitude
+    return _SPAN_READ.get((anchor, mag), f"from {anchor} over {mag}")
 
 
 def _channel_clause(c):
@@ -2013,6 +2025,35 @@ _IDENTITY_WORDS = {
 }
 
 
+_UNMATCHED_WORDS = {
+    "forbid": "neither P nor Q runs on past the lined-up part",
+    "require_a": ("P runs on with one or more syllables past the "
+                  "lined-up part, and Q does not"),
+    "require_b": ("Q runs on with one or more syllables past the "
+                  "lined-up part, and P does not"),
+}
+
+
+def _identity_clause(i):
+    return _IDENTITY_WORDS.get((i.level, type(i.predicate).__name__),
+                               f"{i.level} {type(i.predicate).__name__}")
+
+
+def failed_clauses(sch, parts):
+    """-> the rule's own clause, as `type_rule` words it for the brief, for
+    each part `relations.pair_failed_parts` names: what the grader says back
+    to a writer whose pair the rule refused."""
+    out = []
+    for part in parts:
+        if part[0] == "channel":
+            out.append(_channel_clause(sch.channels[part[1]]))
+        elif part[0] == "unmatched":
+            out.append(_UNMATCHED_WORDS[sch.unmatched])
+        elif part[0] == "identity":
+            out.append(_identity_clause(sch.identity[part[1]]))
+    return out
+
+
 def type_rule(sch):
     """-> the clauses of one type's rule, generated from its formal fields.
     Variables: N and M are two lines of the group (N first), P the bound
@@ -2020,12 +2061,7 @@ def type_rule(sch):
     out = [_span_words(sch.spans[0], "P"), _span_words(sch.spans[-1], "Q"),
            _ALIGN_WORDS.get(sch.align, f"P and Q are aligned by {sch.align}")]
     out += [_channel_clause(c) for c in sch.channels or ()]
-    out += [{"forbid": "neither P nor Q runs on past the lined-up part",
-             "require_a": ("P runs on with one or more syllables past the "
-                           "lined-up part, and Q does not"),
-             "require_b": ("Q runs on with one or more syllables past the "
-                           "lined-up part, and P does not")}[sch.unmatched]
-            ] if sch.unmatched != "exclude" else []
+    out += [_UNMATCHED_WORDS[sch.unmatched]] if sch.unmatched != "exclude" else []
     for p in sch.placement or ():
         if p.kind == "line_gap_at_most":
             out.append(f"line M comes at most {p.args[0]} line(s) after line N")
@@ -2033,8 +2069,7 @@ def type_rule(sch):
         out.append(_PLACE_WORDS.get((p.kind, bool(p.polarity)),
                                     f"{'not ' if not p.polarity else ''}{p.kind}"))
     for i in sch.identity or ():
-        out.append(_IDENTITY_WORDS.get((i.level, type(i.predicate).__name__),
-                                       f"{i.level} {type(i.predicate).__name__}"))
+        out.append(_identity_clause(i))
     fig = sch.figure
     if fig.canonical_quantifier() == "forall":
         out.append("this holds for every two lines of the group"

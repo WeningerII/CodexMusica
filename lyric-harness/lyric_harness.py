@@ -7798,6 +7798,12 @@ scoring exactly as it always has been, which is the correct reading for
 this repo's own corpus/song/ (traditional literary asides, not vocal
 attribution) and for anyone not writing in this notation.
 
+--no-instance-evidence, BEFORE any verb, a bare flag like --voices: the
+record this run prints carries no `schema_instance_evidence`. That report is
+recomputed after grading, over every registry schema, and is most of a long
+draft's running time. Nothing else in the record changes. Omitted by default
+-- the record carries the report exactly as before.
+
 --reader-scheme=v1|v2, BEFORE any verb: how the English reader cuts a line
 into words. v2 (new work): one cut on every surface; NFC; `4ever`, `1999`
 and `Catch-22` are whole numeral tokens, refused unless a pronunciation is
@@ -8339,6 +8345,9 @@ def _ban_bindings(found, findings, *, writing=False):
 #: (quality/song_profile_calibration.py), and moving the comparator discards
 #: the predictability memo (standing rule 4). A refusal carries no basis.
 _LEXICON_IDENTITY = None
+#: Whether this call's record carries the schema instance report. Set once per
+#: call, where the global flags are read (`--no-instance-evidence`).
+_REPORT = {"instance_evidence": True}
 
 
 def _lexicon_kw():
@@ -11046,6 +11055,21 @@ def main():
         "(a second voice, a group) rather than a non-sung stage direction")
     if voices:
         args = [a for a in args if a != "--voices"]
+
+    # --no-instance-evidence is a GLOBAL, bare-presence flag like --voices.
+    # The whole-vocabulary instance report (quality/schema_instance_evidence,
+    # `for_grade`) is recomputed at report time, over every registry schema.
+    # On a 100-line grade it was 1,014 of 1,198 profiled seconds (2026-11-15),
+    # and its only reader is the Lyrics page's inspection view, through a
+    # review's check. A caller that will not read it says so here, and the
+    # record then carries none, exactly as it carries none under reader scheme
+    # v1. Omitted, nothing changes. Set on every call: the worker runs many
+    # calls in one process.
+    _REPORT["instance_evidence"] = not _bare_flag_or_refuse(
+        args, "--no-instance-evidence",
+        "that this run's record carries no schema instance report")
+    if not _REPORT["instance_evidence"]:
+        args = [a for a in args if a != "--no-instance-evidence"]
 
     # --lexicon-supplement=<id|none> is a GLOBAL reading coordinate, built
     # once, here, like --voices. It names a FROZEN version of the reviewed
@@ -14650,7 +14674,8 @@ def main():
                         **({"schema_instance_evidence": _report_instances(
                             rv, lines, found["mandate"], blueprint=blueprint,
                             provenance={**_lexicon_kw(), "voices": not lex.strip_parens})}
-                           if resolve_reader_scheme(None) == "v2" else {}),
+                           if resolve_reader_scheme(None) == "v2"
+                           and _REPORT["instance_evidence"] else {}),
                         "pronunciations": lex.pronunciations,
                         **_numbering_kw(),
                         "pronunciation_options": reading_options(lex, lines, found["coverage"]),
@@ -16032,7 +16057,8 @@ def main():
                     **({"schema_instance_evidence": _finished_instances(
                         rv, result.lines, rv.mandate(result.lines, scheme),
                         blueprint=bp_path, provenance={**_lexicon_kw(), "voices": not lex.strip_parens})}
-                       if resolve_reader_scheme(None) == "v2" else {}),
+                       if resolve_reader_scheme(None) == "v2"
+                       and _REPORT["instance_evidence"] else {}),
                     "pronunciations": lex.pronunciations,
                     **_numbering_kw(),
                     "pronunciation_options": reading_options(lex, result.lines, _coverage),
