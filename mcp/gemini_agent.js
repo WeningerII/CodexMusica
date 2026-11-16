@@ -702,6 +702,8 @@ export const _agentInternals = {
   chatWriter,
   loopFields,
   PARKED_RUN_NOTE,
+  schemeGroups,
+  declaredGroups,
   parkedRefusal,
   toFunctionResponse,
   suspendedSeed,
@@ -1186,14 +1188,42 @@ function declaredReturns(args, planReturns) {
 // The run's rhyme groups as `N,N;N,N` (a member may name its place, N.PLACE):
 // a pasted song's own `groups`, its letter `scheme` (one letter per line, X
 // free), or the recorded plan's.
+// The harness's rhyme partition of a scheme string (quality/schemes.py
+// `parse`), as lists of 1-based lines. Whitespace is dropped and every other
+// character is a line. A superscript, a `^` or mixed case selects the refrain
+// reading (`parse_refrain`): a mark after a line is skipped, case is folded,
+// and X, `.` and any non-letter are unrhymed. Otherwise (`parse`) a line is a
+// character with its digits, keyed with them, case folded, X and `.` unrhymed.
+const SUPERSCRIPT = '⁰¹²³⁴⁵⁶⁷⁸⁹';
+const isDigit = (c) => /\p{Nd}/u.test(c);
+const isLetter = (c) => /\p{L}/u.test(c);
+function schemeGroups(text) {
+  const t = [...String(text)].filter((c) => !/\s/u.test(c));
+  const letters = t.filter(isLetter);
+  const refrain =
+    t.some((c) => c === '^' || SUPERSCRIPT.includes(c)) ||
+    (letters.some((c) => c !== c.toLowerCase()) && letters.some((c) => c !== c.toUpperCase()));
+  const by = new Map();
+  let line = 0;
+  for (let i = 0; i < t.length; ) {
+    const c = t[i];
+    let j = i + 1;
+    if (refrain && t[j] === '^') j += 1;
+    while (j < t.length && (isDigit(t[j]) || (refrain && SUPERSCRIPT.includes(t[j])))) j += 1;
+    const tok = refrain ? c : t.slice(i, j).join('');
+    i = j;
+    line += 1;
+    if (c.toUpperCase() === 'X' || c === '.' || (refrain && !isLetter(c))) continue;
+    const key = tok.toUpperCase();
+    if (!by.has(key)) by.set(key, []);
+    by.get(key).push(line);
+  }
+  return [...by.values()];
+}
 function declaredGroups(args, planGroups) {
   if (typeof args?.groups === 'string' && args.groups.trim()) return args.groups.trim();
   if (typeof args?.scheme === 'string' && args.scheme.trim()) {
-    const by = {};
-    [...args.scheme.trim()].forEach((ch, i) => {
-      if (ch !== 'X' && ch !== 'x') (by[ch] ||= []).push(i + 1);
-    });
-    const cells = Object.values(by).filter((c) => c.length > 1);
+    const cells = schemeGroups(args.scheme).filter((c) => c.length > 1);
     return cells.length ? cells.map((c) => c.join(',')).join(';') : null;
   }
   return typeof planGroups === 'string' && planGroups.trim() ? planGroups.trim() : null;
@@ -1227,11 +1257,17 @@ export function parkedChangeable(lyr) {
   const returns = linesOf(lyr.returns);
   if (!returns.length && Array.isArray(lyr.draft)) {
     const sung = normalizeDraftLines(lyr.draft);
-    const byText = {};
-    sung.forEach((t, i) => (byText[t] ||= []).push(i + 1));
-    returns.push(...Object.values(byText).filter((c) => c.length > 1));
+    const byText = new Map();
+    sung.forEach((t, i) => {
+      if (!byText.has(t)) byText.set(t, []);
+      byText.get(t).push(i + 1);
+    });
+    returns.push(...[...byText.values()].filter((c) => c.length > 1));
   }
-  for (const c of groups) if (c.some((l) => allowed.has(l))) c.forEach((l) => allowed.add(l));
+  // Each ORIGINAL open line's groups, as the loop selects them for its group
+  // question, so the result does not depend on the order groups are written.
+  const openSet = new Set(open);
+  for (const c of groups) if (c.some((l) => openSet.has(l))) c.forEach((l) => allowed.add(l));
   for (let grew = true; grew; ) {
     grew = false;
     for (const c of returns)

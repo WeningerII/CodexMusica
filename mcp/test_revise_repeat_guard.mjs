@@ -14,6 +14,7 @@ import {
   reviseRepeatKey,
   completedRevises,
   MAX_COMPLETED_REVISE_KEYS,
+  _agentInternals,
 } from './gemini_agent.js';
 
 const nativeFetch = globalThis.fetch;
@@ -568,4 +569,99 @@ test('a parked rewrite of a closed line is refused with or without array decorat
   );
   assert.equal(s.dispatched, 1);
   assert.match(s.out.calls[1].error || '', /changes line\(s\) 3, which are not open/);
+});
+
+// 3PO 6904924023: the changeable set does not depend on the order groups are
+// declared in, survives line text that names an object property, and folds a
+// scheme's case the way the harness does.
+const parkedOn = (lines) => () =>
+  verdict({
+    exit_code: 3,
+    status: 'stopped_with_open_lines',
+    certified: false,
+    loop_unresolved_lines: [1],
+    final_draft: lines,
+  });
+const rewriteOf = (lines, at) => lines.map((t, i) => (at.includes(i + 1) ? `${t} rewritten` : t));
+const second = async (lines, decl, sendDraft) =>
+  turn(
+    [
+      { draft: lines, ...decl },
+      { draft: sendDraft, ...decl },
+    ],
+    { tool: parkedOn(lines) }
+  );
+
+test('declared groups give the same changeable lines in either order', async () => {
+  const four = ['Placeholder one', 'Placeholder two', 'Placeholder three', 'Placeholder four'];
+  for (const groups of ['1,2;2,3', '2,3;1,2']) {
+    const decl = { groups, relation: 'class:ASSONANCE' };
+    const ok = await second(four, decl, rewriteOf(four, [1, 2]));
+    assert.equal(ok.dispatched, 2, `${groups}: the open line's group runs`);
+    const no = await second(four, decl, rewriteOf(four, [1, 2, 3]));
+    assert.equal(no.dispatched, 1, `${groups}: a group the open line is not in stays closed`);
+    assert.match(no.out.calls[1].error || '', /changes line\(s\) 3, which are not open/);
+  }
+});
+
+test('line text that names an object property is read as text', async () => {
+  const props = ['constructor', 'toString', '__proto__', 'constructor', 'hasOwnProperty'];
+  // A group away from the open line keys the run; line 4 is line 1's text.
+  const decl = { groups: '2,5', relation: 'class:ASSONANCE' };
+  const ok = await second(props, decl, rewriteOf(props, [1, 4]));
+  assert.equal(ok.dispatched, 2, 'the open line and its identical partner run');
+  for (const at of [[2], [3], [5]]) {
+    const no = await second(props, decl, rewriteOf(props, [1, ...at]));
+    assert.equal(no.dispatched, 1);
+    assert.match(no.out.calls[1].error || '', new RegExp(`changes line\\(s\\) ${at[0]}, which`));
+  }
+});
+
+test('a mixed-case scheme keeps its rhyme partners', async () => {
+  for (const scheme of ['aAX', 'AaX', 'a A x', 'A^1a¹X']) {
+    const decl = { scheme, relation: 'class:ASSONANCE' };
+    const ok = await second(three, decl, rewrite([1, 2]));
+    assert.equal(ok.dispatched, 2, `${scheme}: lines 1 and 2 rhyme`);
+    const no = await second(three, decl, rewrite([1, 3]));
+    assert.equal(no.dispatched, 1, `${scheme}: line 3 is unrhymed`);
+  }
+});
+
+test("the scheme reader agrees with the harness's parse, drawn by seed", async () => {
+  const { execFileSync } = await import('node:child_process');
+  const { schemeGroups } = _agentInternals;
+  const alphabet = ['a', 'b', 'c', 'A', 'B', 'C', 'x', 'X', '.', '-', '1', '2', '^', '¹', ' '];
+  let s = 7;
+  const r = () => (s = (s * 1103515245 + 12345) >>> 0) / 2 ** 32;
+  const schemes = Array.from({ length: 400 }, () =>
+    Array.from(
+      { length: 1 + Math.floor(r() * 12) },
+      () => alphabet[Math.floor(r() * alphabet.length)]
+    ).join('')
+  ).filter((t) => /\S/.test(t));
+  const codes = JSON.parse(
+    execFileSync(
+      'python3',
+      [
+        '-B',
+        '-c',
+        'import json,sys; from quality.schemes import parse; print(json.dumps([parse(t) for t in json.load(sys.stdin)]))',
+      ],
+      { cwd: 'lyric-harness', encoding: 'utf8', input: JSON.stringify(schemes) }
+    )
+  );
+  schemes.forEach((t, k) => {
+    const want = new Map();
+    codes[k].forEach((c, i) => (want.has(c) ? want.get(c) : want.set(c, []).get(c)).push(i + 1));
+    const pairs = (cells) =>
+      cells
+        .filter((c) => c.length > 1)
+        .map((c) => c.join(','))
+        .sort();
+    assert.deepEqual(
+      pairs(schemeGroups(t)),
+      pairs([...want.values()]),
+      `scheme ${JSON.stringify(t)}`
+    );
+  });
 });
