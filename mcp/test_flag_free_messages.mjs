@@ -162,10 +162,23 @@ const UNREACHABLE = [
     reason: "quality/recover.py's own command line, which the connector never runs",
   },
 ];
-// On lyric_grade the mandate and the meter come from the plan, not from the
-// caller, and the plan writes them well-formed: a refusal of a malformed one
-// cannot reach a grade caller, so naming these fields there is not advice.
-const PLAN_CARRIED = new Set(['groups', 'returns', 'structures', 'blueprint', 'subdivision']);
+// On `song` (lyric_grade) and `finish` (a seeded lyric_revise) the mandate
+// and the meter come from the plan, never from the caller: the connector
+// refuses them on a seeded revise (lyric_tools.js, "a seeded run takes its
+// mandate and its blueprint OFF THE PLAN"), and the plan writes them
+// well-formed. A refusal of a malformed one cannot reach a caller of those
+// two verbs, so the shared mandate messages are not advice there; on brief,
+// verify and an unseeded revise they are, and are held to the field rule.
+const PLAN_CARRIED = new Set([
+  'scheme',
+  'groups',
+  'returns',
+  'numbering',
+  'structures',
+  'blueprint',
+  'subdivision',
+]);
+const PLAN_VERBS = new Set(['song', 'finish']);
 
 const literals = () =>
   JSON.parse(
@@ -184,7 +197,6 @@ const isCommand = (text) => /^\s*(NEXT: )?python3 lyric_harness\.py /.test(text)
 const flagsIn = (text) =>
   [...text.matchAll(/--([a-z][a-z-]+)/g)].map((m) => m[1]).filter((f) => CONNECTOR_FLAGS.has(f));
 const exemption = (text) => UNREACHABLE.find((row) => text.includes(row.phrase));
-const toolsOf = (verbs) => [...new Set(verbs.flatMap((v) => VERB_TOOLS[v] || []))];
 
 function flagFindings(rows) {
   const out = [];
@@ -209,10 +221,12 @@ function fieldFindings(rows) {
     const words = Object.keys(VERB_WORDS).filter((w) => new RegExp(`\\b${w}\\b`).test(row.text));
     const alsoNamed = words.flatMap((w) => VERB_WORDS[w]);
     for (const field of named)
-      for (const tool of toolsOf(row.verbs))
-        if (tool === 'lyric_grade' && PLAN_CARRIED.has(field)) continue;
-        else if (!fieldsOf(tool).has(field) && !alsoNamed.some((t) => fieldsOf(t).has(field)))
-          out.push(`${row.file}:${row.line} [${row.verbs}] \`${field}\` is not a field of ${tool}`);
+      for (const verb of row.verbs) {
+        if (PLAN_VERBS.has(verb) && PLAN_CARRIED.has(field)) continue;
+        for (const tool of VERB_TOOLS[verb] || [])
+          if (!fieldsOf(tool).has(field) && !alsoNamed.some((t) => fieldsOf(t).has(field)))
+            out.push(`${row.file}:${row.line} [${verb}] \`${field}\` is not a field of ${tool}`);
+      }
   }
   return out;
 }
