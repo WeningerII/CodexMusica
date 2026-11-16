@@ -164,6 +164,9 @@ if __name__ == '__main__':
 test('queue deadline includes waiting and expired work never starts', async () => {
   const f = await fixture({ timeoutMs: 700 });
   try {
+    // Start the worker before the clock: a cold Python start on a busy runner
+    // must not eat the first job's window. What is timed is the queue.
+    assert.equal((await f.runVerb(['sleep', '0', 'warm'])).code, 0);
     const started = performance.now();
     const results = await Promise.all([
       f.runVerb(['sleep', '.4', 'first']),
@@ -174,7 +177,7 @@ test('queue deadline includes waiting and expired work never starts', async () =
     assert.equal(results[1].code, -1);
     assert.equal(results[2].code, -1);
     assert.ok(performance.now() - started < 1500);
-    assert.equal((await f.events()).length, 2);
+    assert.equal((await f.events()).length, 3);
   } finally {
     await f.close();
   }
