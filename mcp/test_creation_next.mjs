@@ -661,6 +661,47 @@ test('a stale plan is planned again under its own sweep, not the newest one, and
   }
 });
 
+test('a stale plan planned again keeps the title and per-group types it declared, and says when it cannot keep them', () => {
+  const row = FORM_ROWS.find((r) => r.form === SHAPES.none.sweep.form);
+  const own = row.min_lines;
+  const declared = { title: '<title>', group_types: [{ group: 1, type: 2 }] };
+  const t = fresh();
+  const sweep = stated({ seed_from: 30, count: 2, lines: own });
+  recordCreation(t, 'lyric_sweep', sweep, { exit_code: 0, accepted_shown: [31] });
+  const p = planReceipt({ request: { form: sweep.form, lines: own, ...declared } }, 31);
+  recordCreation(t, 'lyric_plan', { seed: 31, form: sweep.form, lines: own, ...declared }, p);
+  assert.equal(t.workflow.plan?.sha256, p.plan_sha256);
+  recordCreation(t, 'lyric_screen', WORDS, { exit_code: 0 });
+  const rebuilt = planReceipt({ request: { form: sweep.form, lines: own, ...declared } }, 31);
+  rebuilt.plan.sections = [{ name: 'VERSE' }, { name: 'VERSE' }];
+  rebuilt.plan_sha256 = sha(rebuilt.plan);
+  recordCreation(t, 'lyric_grade', { seed: 31, draft: LINES }, gradeReceipt(rebuilt, LINES));
+  // The published call carries what the plan declared, and the gate admits it.
+  const next = nextCreationCall(t, null, 'lyric_grade');
+  assert.equal(next.args.title, declared.title);
+  assert.deepEqual(next.args.group_types, declared.group_types);
+  assert.equal(creationRefusal(t, 'lyric_plan', clone(next.args), null), null);
+  // The NEXT line names them without printing the title's text.
+  const line = formatNextCall(next);
+  assert.ok(!line.includes(declared.title), line);
+  assert.match(line, /title: the plan's title unchanged/);
+  // Under another seed the title still holds; the group types, which named
+  // the old seed's groups, are not carried, and the call says so.
+  t.workflow.sweeps = [];
+  const other = stated({ seed_from: 100, count: 2, lines: own });
+  recordCreation(t, 'lyric_sweep', other, { exit_code: 0, accepted_shown: [100] });
+  const moved = nextCreationCall(t, null, 'lyric_grade');
+  assert.equal(moved.args.seed, 100);
+  assert.equal(moved.args.title, declared.title);
+  assert.equal(moved.args.group_types, undefined);
+  assert.deepEqual(moved.dropped, ['group_types']);
+  assert.match(
+    formatNextCall(moved),
+    /no group_types: the recorded plan's group_types named seed 31's groups/
+  );
+  assert.equal(creationRefusal(t, 'lyric_plan', clone(moved.args), null), null);
+});
+
 test('a word-check that ran under this plan and did not answer adds its note; one under another plan does not', () => {
   const { t, p } = sweptAndPlanned();
   const NOTE = ' lyric_screen ran in this session but did not answer (exit 2)';

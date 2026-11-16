@@ -60,6 +60,9 @@ export const PLAN_FIELDS = [
   'melody',
   'wants',
 ];
+// What a plan declares that no sweep carries: kept when a stale plan is
+// planned again (nextCreationCall).
+const PLAN_ONLY_KEPT = ['title', 'narrative', 'group_types'];
 export const READING_FIELDS = [
   'pronunciations',
   'fallback',
@@ -1211,7 +1214,32 @@ export function nextCreationCall(task, carried, name, args = null) {
     if (declared)
       args.melody =
         typeof s.args.melody === 'string' ? s.args.melody : planArgument('melody', s.args.melody);
-    return { tool: 'lyric_plan', args, melody: declared };
+    // A stale plan is the person's: what it declared that no sweep carries
+    // (its title, narrative and per-group types) goes in the call too, so
+    // planning it again changes none of their choices. The group types name
+    // the old seed's groups, so under another seed they are not carried, and
+    // the call says so.
+    const kept = [];
+    const dropped = [];
+    if (stale) {
+      const r = w.plan.request;
+      for (const key of PLAN_ONLY_KEPT) {
+        if (unset(r[key] ?? null) || r[key] === false) continue;
+        if (key === 'group_types' && !own) {
+          dropped.push(key);
+          continue;
+        }
+        args[key] = planArgument(key, r[key]);
+        kept.push(key);
+      }
+    }
+    return {
+      tool: 'lyric_plan',
+      args,
+      melody: declared,
+      ...(kept.length ? { kept } : {}),
+      ...(dropped.length ? { dropped, from_seed: w.plan.request.seed } : {}),
+    };
   }
   const seed = w.plan.request.seed;
   const lines = w.plan.lines;
@@ -1256,10 +1284,16 @@ export function formatNextCall(next) {
     return `NEXT: lyric_sweep stating ${joined(rows.map((r) => r.field))}, ${how}; ${plan}.`;
   }
   if (tool === 'lyric_plan') {
+    const quiet = new Set(['melody', ...(next.kept || [])]);
     const parts = Object.entries(args)
-      .filter(([k]) => k !== 'melody')
+      .filter(([k]) => !quiet.has(k))
       .map(([k, v]) => `${k} ${argumentText(v)}`);
     if (next.melody) parts.push("melody: the sweep's melody unchanged");
+    for (const key of next.kept || []) parts.push(`${key}: the plan's ${key} unchanged`);
+    for (const key of next.dropped || [])
+      parts.push(
+        `no ${key}: the recorded plan's ${key} named seed ${next.from_seed}'s groups, so state them again for this plan if they still apply`
+      );
     return `NEXT: lyric_plan with ${parts.join(', ')}.`;
   }
   if (tool === 'lyric_screen')
