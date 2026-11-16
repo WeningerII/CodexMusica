@@ -492,6 +492,33 @@ test('private result envelopes are hidden without changing the song or verdict',
   for (const field of ['state', 'workspace', 'checkpoint']) assert(!(field in verdict));
 });
 
+// In a session the raw engine's CONTINUE paragraph is replaced with the
+// procedure that works there. What the engine printed AFTER that paragraph
+// (the advice about a refused declaration, which no rewrite of a line
+// reaches) was replaced along with it, so a session caller never read it
+// (writer plan, stage 2).
+test('a session replaces the continue paragraph and keeps what is printed after it', () => {
+  const after = '<advice printed after the continue paragraph>\nits second line\n\n<one more>';
+  const head = '<song>\n\nNOT FINISHED: <why>.';
+  const publish = (note, tail, task) =>
+    publicToolResult(
+      { content: [{ type: 'text', text: `${head}\n\nCONTINUE: ${note}${tail}` }] },
+      task
+    ).content[0].text;
+  for (const [note, task] of [
+    ['no question is pending. <raw procedure>\nits second line.', null],
+    ['no question is pending. <raw procedure>\nits second line.', { phase: 'edit' }],
+    ['<raw procedure> with `state` passed back verbatim.', null],
+  ]) {
+    const bare = publish(note, '', task);
+    assert.ok(bare.startsWith(`${head}\n\nCONTINUE: `), bare);
+    assert.ok(!bare.includes('<raw procedure>') && !bare.includes('second line'), bare);
+    // The same paragraph is written whether or not anything follows it, and
+    // what follows is kept to the letter.
+    assert.equal(publish(note, `\n\n${after}`, task), `${bare}\n\n${after}`);
+  }
+});
+
 test('outside lyric sessions never hand revision to the service writer', async (t) => {
   // Owner's rule (2026-09-27): the service's Gemini writer runs only where
   // Gemini writes the whole song — the website chat. A lyrics session opens on

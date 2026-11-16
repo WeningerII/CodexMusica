@@ -297,8 +297,12 @@ export function publicToolResult(result, task = null, view = {}) {
       };
     } catch {
       // Keep the song verbatim; replace only the raw connector's continuation
-      // footnote, which otherwise names an internal run capability.
-      const text = block.text.replace(/\n\nCONTINUE: [\s\S]*$/, (footnote) =>
+      // footnote, which otherwise names an internal run capability. The
+      // footnote is ONE paragraph: it ends at the next blank line, and what
+      // the engine printed after it (the advice about a refused declaration)
+      // is kept. Replacing to the end of the text dropped that advice in
+      // every session.
+      const text = block.text.replace(/\n\nCONTINUE: (?:(?!\n\n)[\s\S])*/, (footnote) =>
         continueNote(footnote, task)
       );
       return { type: 'text', text: privateRun(text) };
