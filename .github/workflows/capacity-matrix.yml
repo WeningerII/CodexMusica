@@ -45,7 +45,7 @@ name: Production capacity matrix
 # shape `scripts/test_lyrics_capacity.py`'s refusal list names, and it
 # re-derives `production_qualified` rather than copying it from any shard.
 #
-# THE IMAGE IS REBUILT PER SHARD, NOT PULLED. `lyrics-image` publishes the
+# HISTORICAL BUILD PATH (retained below as the fallback): `lyrics-image` publishes the
 # tested image only on a main push and only after its own checks. Qualification
 # may run without a completed CI image, so a seed is only an optimization:
 # the image admits a current receipt or measures a fresh proof. The historical
@@ -63,8 +63,29 @@ permissions:
 # corpus bytes before the same 18 workloads. No limit or timeout is raised.
 # This doubles shard jobs from four to eight; execution requires reviewed design.
 jobs:
+  image-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      run_id: ${{ steps.select.outputs.run_id }}
+      release_id: ${{ steps.select.outputs.release_id }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - name: Select successful main CI at this exact commit, or rebuild
+        id: select
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/qualification_image.mjs select
+
   shard:
     name: cells ${{ matrix.shard.name }}-${{ matrix.library_mode }}
+    needs: image-source
+    permissions:
+      contents: read
+      actions: read
     runs-on: ubuntu-latest
     # The pole shard MEASURED ~19 min at three-lane speed and should be under
     # that alone; an unseeded rebuild adds the ~10-min proof (M-267). 50 is
@@ -93,7 +114,7 @@ jobs:
       # disposable Android and .NET SDKs go; the tool cache, Docker layers,
       # workspace and every runtime/proof input stay.
       - name: Reclaim unused hosted runner toolchains
-        if: runner.environment == 'github-hosted'
+        if: runner.environment == 'github-hosted' && needs.image-source.outputs.run_id == ''
         run: |
           set -euo pipefail
           df -B1 / /var/lib/docker
@@ -105,6 +126,7 @@ jobs:
       # The same seed prefix `lyrics-image` uses. It may contain an earlier
       # CI run's receipt; only the image's own Python decides its validity.
       - name: Restore the newest capacity receipt banked on this branch or main
+        if: needs.image-source.outputs.run_id == ''
         id: proof
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
@@ -112,7 +134,39 @@ jobs:
           key: lyrics-proof-v1-${{ hashFiles('mcp/Dockerfile', 'mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}-${{ github.sha }}
           restore-keys: |
             lyrics-proof-v1-${{ hashFiles('mcp/Dockerfile', 'mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}-
+      # Reuse only a fully verified main CI run at this exact SHA, never a tag
+      # or an earlier commit. Missing CI takes the historical build path. Once
+      # selected, missing/corrupt artifacts or image drift fail closed. Neither
+      # path reuses capacity measurements: every cell below runs again.
+      - name: Download the exact verified CI image manifest
+        if: needs.image-source.outputs.run_id != ''
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: lyrics-image
+          run-id: ${{ needs.image-source.outputs.run_id }}
+          github-token: ${{ github.token }}
+          path: verified-image
+      - name: Admit the manifest against this checkout and verified CI attempt
+        if: needs.image-source.outputs.run_id != ''
+        id: admitted
+        env:
+          IMAGE_REPOSITORY: ${{ vars.RENDER_IMAGE_REPOSITORY }}
+          VERIFIED_RELEASE_ID: ${{ needs.image-source.outputs.release_id }}
+        run: node scripts/qualification_image.mjs admit verified-image/lyrics-image.json
+      - name: Pull and verify the immutable CI-tested image
+        if: needs.image-source.outputs.run_id != ''
+        id: reused
+        timeout-minutes: 10
+        env:
+          IMAGE_REFERENCE: ${{ steps.admitted.outputs.reference }}
+          IMAGE_REPOSITORY: ${{ vars.RENDER_IMAGE_REPOSITORY }}
+          VERIFIED_RELEASE_ID: ${{ needs.image-source.outputs.release_id }}
+        run: |
+          set -euo pipefail
+          docker pull --platform=linux/amd64 "$IMAGE_REFERENCE"
+          node scripts/qualification_image.mjs inspect verified-image/lyrics-image.json
       - name: Build the tested lyrics runtime for this shard
+        if: needs.image-source.outputs.run_id == ''
         id: image
         timeout-minutes: 30
         env:
@@ -136,7 +190,7 @@ jobs:
       - name: Measure this shard's cells at the deployed envelope
         timeout-minutes: 40
         env:
-          TESTED_IMAGE: ${{ steps.image.outputs.image_id }}
+          TESTED_IMAGE: ${{ steps.reused.outputs.image_id || steps.image.outputs.image_id }}
           CELLS: ${{ matrix.shard.cells }}
           NAME: ${{ matrix.shard.name }}-${{ matrix.library_mode }}
           LIBRARY_MODE: ${{ matrix.library_mode }}
