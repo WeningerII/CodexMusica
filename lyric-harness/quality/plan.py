@@ -4070,7 +4070,15 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                 k for k in _GRADEABLE if k >= n} if op == ">=" else {
                 k for k in _GRADEABLE if k == n}
     if not _GRADEABLE or (lines is not None and lines not in _GRADEABLE):
-        raise PlanRefused("declared line constraints have no feasible total")
+        # NAMES WHAT IT READ (writer plan, stage 2). This said "declared line
+        # constraints have no feasible total" and named none of them, so the
+        # caller could not tell which declaration to change.
+        _read = ([f"--lines={lines}"] if lines is not None else []) + [
+            f"want {n}{op}{v}" for n, op, v in _wants if n == "lines"]
+        raise PlanRefused(
+            "the declared line constraints have no feasible total: "
+            + ("; ".join(_read) if _read else f"--form={form} alone")
+            + f" leave(s) no line count the form {form!r} can be planned at")
     _STANZA = stanza_line_floor()
     _min_section = max([1] + [int(v) for n, op, v in _wants
                              if n == "lines_per_section" and op in (">=", "=")])
@@ -4080,7 +4088,16 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     _max_group = min([float("inf")] + [int(v) for n, op, v in _wants
                              if n == "group" and op in ("<=", "=")])
     if _max_sections < 1 or _max_group < 2:
-        raise PlanRefused("declared section/group bounds cannot carry the required song mandate")
+        # NAMES THE BOUND IT READ (writer plan, stage 2): the predicate, not
+        # "section/group bounds".
+        _read = [f"want {n}{op}{v}" for n, op, v in _wants
+                 if op in ("<=", "=") and (
+                     (n == "sections" and int(v) < 1)
+                     or (n == "group" and int(v) < 2))]
+        raise PlanRefused(
+            "the declared " + "; ".join(_read) + " cannot carry the required "
+            "song mandate: a plan has at least 1 section and one rhyme group "
+            "of at least 2 lines")
     k_lo, k_hi = ENVELOPE["lines_per_section"]
     # THE LENGTH IS DRAWN ONCE (owner-approved plan, D7, 2026-10-27). Until
     # now every rejected shape redrew the TOTAL as well, and a long total is
@@ -4105,6 +4122,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         total = rng.choice(sorted(_GRADEABLE))
     if _drawn is not None:
         _drawn["total"] = total
+    _pattern_refused, _pattern_reason = 0, ""
     for _attempt in range(500):
         # THE LENGTH FIRST. It is the coordinate that decides what the floor
         # can grade, so it is drawn from the gradeable set before anything
@@ -4143,7 +4161,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         try:
             funcs = _sample_pattern(rng, roster, form=form,
                                     max_cells=_cells_hi, relaxed=recurrence)
-        except PlanRefused:
+        except PlanRefused as _exc:
             # A REJECTED DRAW, NOT A REFUSED REQUEST. `_sample_pattern`
             # raises when it cannot find an admissible pattern within the
             # cell ceiling it was given, and that ceiling is THIS attempt's
@@ -4152,6 +4170,11 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             # rejection sampler, so the honest move is to draw another total;
             # letting the inner refusal escape would report a request as
             # impossible on the strength of one unlucky length.
+            # COUNTED, AND ITS REASON KEPT (writer plan, stage 2), for the
+            # refusal after the loop: that reason names the declared roster
+            # and form, and it used to be dropped here.
+            _pattern_refused += 1
+            _pattern_reason = str(_exc)
             continue
         s_lo, s_hi = ENVELOPE["sections"]
         if not s_lo <= len(funcs) <= min(s_hi, _max_sections):
@@ -4276,14 +4299,38 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             if _gaps else
             " with no uncalibrated run inside it — the lyric-sheet profile "
             "grades every length in the span with teeth")
+        # WHAT WAS SENT, AND NOTHING THAT WAS NOT (writer plan, stage 2).
+        # This ended "try another seed, drop --lines, or declare the shape
+        # by hand" whatever the request was: it named a length nobody had
+        # declared, never named the roster or the predicates that were, and
+        # sent a request no seed can plan under (measured: 7 of 62 drawn
+        # rosters, every seed tried) back to the dice. The first line now
+        # names each declaration the draws were held to. The second keeps
+        # the pattern draw's own reason and says when another seed is the
+        # answer and when it is not. The class is unchanged: one seed's 500
+        # draws cannot tell the two apart, and a sweep counts the seeds.
+        _sent = ([f"--functions={','.join(roster)}"] if roster is not None
+                 else []) + (
+            [f"--lines={lines}"] if lines is not None else []) + (
+            [f"--form={form}"] if form != DEFAULT_FORM else []) + [
+            f"want {n}{op}{v}" for n, op, v in _wants]
+        _pattern = (
+            f"The section-pattern draw refused {_pattern_refused} of the "
+            f"500: {_pattern_reason.split('. ')[0].rstrip('.')}. "
+            if _pattern_refused else "")
         raise SeedRefused(
-            f"500 seeded draws found no plan matching the request inside "
-            f"the envelope (sections {ENVELOPE['sections']}, lines/section "
-            f"{ENVELOPE['lines_per_section']}, total {ENVELOPE['total_lines']}"
-            f"{_gap_clause}"
-            f"{', exact total ' + str(lines) if lines is not None else ''}) "
-            f"— try another seed, drop --lines, or declare the shape by "
-            f"hand.")
+            "500 seeded draws found no plan for "
+            + ("; ".join(_sent) if _sent
+               else "this seed, with nothing declared beyond it")
+            + f" inside the envelope (sections {ENVELOPE['sections']}, "
+            f"lines/section {ENVELOPE['lines_per_section']}, total "
+            f"{ENVELOPE['total_lines']}{_gap_clause}"
+            f"{', exact total ' + str(lines) if lines is not None else ''})."
+            f"\n{_pattern}Another seed may plan. "
+            + ("If every seed of a sweep is refused this way, the request is "
+               "what refuses: change a declaration named here, or declare "
+               "the shape by hand."
+               if _sent else "Or declare the shape by hand."))
 
     if melody is not None:
         from quality.melody import validate_melody
