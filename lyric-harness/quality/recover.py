@@ -312,9 +312,9 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
           "2026-08-23). Counting gives the syllables per line reported "
           "above, and a grid inferred from them would be this harness "
           "declaring a meter on the writer's behalf and then grading them "
-          "against it. Declare one as `blueprint` where the lines are graded "
-          "(lyric_check, lyric_revise or lyric_verify) and every meter "
-          "check runs")
+          "against it. Declare one as `blueprint` with its `subdivision` where "
+          "the lines are graded (lyric_check, lyric_revise or lyric_verify) "
+          "and every meter check runs")
 
     # 5. THE WEB. The cover over PLACEMENTS, not over line ends — which is
     #    the whole reason this module is written now rather than in terms of

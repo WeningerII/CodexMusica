@@ -11,8 +11,11 @@ verb. A helper function, or anything else outside `main`, can be called from
 any verb, so its verbs are ["*"]. A module the verbs import for their
 messages is given its verbs whole (MODULE_VERBS).
 
-WHAT A STRING IS. A plain literal, or one f-string read whole, each
-interpolation shown as {}. Docstrings are left out: they are read by people,
+WHAT A STRING IS. A plain literal, one f-string read whole, or a `+` of
+string parts read whole, each interpolation shown as {}. Not modelled: an
+early `return` (a later string is still given the verbs that returned), a
+`match` statement, and a message assembled by `%`, `.format()` or a list
+`join` (each part is read on its own). Docstrings are left out: they are read by people,
 not sent. A message built from a variable at run time is only as visible
 here as its fixed parts; mcp/test_flag_free_messages.mjs runs the real tools
 for those.
@@ -37,7 +40,9 @@ def _cmd_test(test):
     nothing else, so the `else` branch is the complement too."""
     if isinstance(test, ast.UnaryOp) and isinstance(test.op, ast.Not):
         inner = _cmd_test(test.operand)
-        return (inner[0], not inner[1], inner[2]) if inner else None
+        # Only an exact test can be complemented: `not (cmd == X and y)`
+        # still runs for X whenever y is false.
+        return (inner[0], not inner[1], True) if inner and inner[2] else None
     if (isinstance(test, ast.Compare) and isinstance(test.left, ast.Name)
             and test.left.id == 'cmd' and len(test.ops) == 1):
         op, right = test.ops[0], test.comparators[0]
@@ -82,6 +87,11 @@ def _universe(main):
 
 
 def _text(node):
+    if isinstance(node, ast.BinOp) and isinstance(node.op, ast.Add):
+        left, right = _text(node.left), _text(node.right)
+        if left is not None or right is not None:
+            return (left if left is not None else '{}') + (right if right is not None else '{}')
+        return None
     if isinstance(node, ast.JoinedStr):
         return ''.join(v.value if isinstance(v, ast.Constant) else '{}'
                        for v in node.values)
@@ -130,7 +140,7 @@ def scan(path, name, fixed=None):
                 walk(ch, orelse)
             return
         if emit(node, ['*'] if ctx is None else ctx):
-            if isinstance(node, ast.JoinedStr):
+            if isinstance(node, (ast.JoinedStr, ast.BinOp)):
                 return
         for ch in ast.iter_child_nodes(node):
             walk(ch, ctx)

@@ -8378,13 +8378,20 @@ def _lyric_run_record(say_memo, say_proposer, plan=None):
     return out
 
 
+MANDATE_FIELDS = frozenset({"groups", "returns", "structures", "relation",
+                            "group_types"})
+
+
 def _as_field(flag):
     """`--group-types=` -> "`group_types`": a declaration named by its field.
 
     A refusal the connector can return names what its caller can SEND, and
     a connector caller sends fields, not flags (stage T, #871). On the
-    command line the flag is the same word with `--` and `-` for `_`."""
-    return "`" + flag.lstrip("-").rstrip("=").replace("-", "_") + "`"
+    command line the flag is the same word with `--` and `-` for `_`. Only
+    a mandate flag a connector field carries becomes a field; any other
+    (`--cliques`, `--relations=`) is a command-line spelling and stays one."""
+    name = flag.lstrip("-").rstrip("=").replace("-", "_")
+    return f"`{name}`" if name in MANDATE_FIELDS else flag
 
 
 def _refuse(msg, sides=(), detail=(), machine=None):
@@ -8446,7 +8453,7 @@ def _value_in_vocabulary_or_refuse(flag, value, vocabulary, why=""):
     """
     if value in vocabulary:
         return value
-    _refuse(f"{_as_field(flag)} wants one of {', '.join(sorted(vocabulary))}; got "
+    _refuse(f"{flag} wants one of {', '.join(sorted(vocabulary))}; got "
             f"{value!r}." + (f" {why}" if why else ""))
 
 
@@ -16487,8 +16494,9 @@ def cli():
                         "pair guard (`relations.realise`, max_pairs). "
                         "MEASURED on the planner's fixture draft: 53 lines "
                         "56 s, 108 lines 330 s, 144 lines refused.",
-                        "declare `relation` (one for every group) or "
-                        "`group_types` (one per group) so the registry is not searched "
+                        "declare `relation` (one for every group), or "
+                        "with a `groups` mandate `group_types` (one per "
+                        "group), so the registry is not searched "
                         "song-wide; the song keeps the length it was asked "
                         "for. A whole-vocabulary judgment that scales "
                         "is `MISSING.md` M-240, open."])
