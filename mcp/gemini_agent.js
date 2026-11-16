@@ -1021,18 +1021,24 @@ const RECOVERY_FIELDS = new Set(['recover_only', 'recovery_part', 'checkpoint'])
 // model has neither parameter (INTERVIEW_FIELDS) — the adapter injects both
 // from the carried record — and the paragraph reached it unchanged, beside a
 // system note naming the call it can make (PARKED_RUN_NOTE). It is replaced by
-// that call. A paragraph that names no run field is the model's to read as
+// that call, and by the same lines the parked check holds a rewrite to
+// (`parkedChangeable`, #853), so the paragraph, the note and the refusal say
+// one thing. A paragraph that names no run field is the model's to read as
 // written, and so is every paragraph under the interview writer, whose
 // declaration has the fields.
-export function chatContinue(result, writer = chatWriter()) {
+export function chatContinue(result, writer = chatWriter(), lyr = null) {
   const block = result?.content?.[0];
   if (writer !== 'kitchen' || block?.type !== 'text' || typeof block.text !== 'string')
     return result;
+  const may = isParked(lyr) ? parkedChangeable(lyr) : null;
   const text = block.text.replace(/\n\nCONTINUE: (?:(?!\n\n)[\s\S])*/, (note) =>
     /no question is pending/.test(note) && /`run_id`/.test(note)
-      ? '\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise ' +
-        'with the same seed or mandate and `draft_text` (the full song as ONE ' +
-        'newline-separated string); the run is carried for you.'
+      ? '\n\nCONTINUE: no question is pending. Rewrite the open line(s); ' +
+        (may
+          ? `only line(s) ${may.join(', ')} may change, and the line count stays. `
+          : 'any line may change. ') +
+        'Then call lyric_revise with the same seed or mandate and `draft_text` (the full song ' +
+        'as ONE newline-separated string); the run is carried for you.'
       : note
   );
   return text === block.text
@@ -2970,7 +2976,7 @@ export async function runTurn({
           // the call is the one this chat's gate admits for the run it now
           // holds (writer plan, stage 2).
           result = withSessionOutcome(task, fc.name, result, lyr, args);
-          result = chatContinue(result, writer);
+          result = chatContinue(result, writer, lyr);
           // Only a returned revision carrying its draft or continuation replaces
           // its worker journal. An error exchange (or a later unrelated tool)
           // must retain accepted progress whose final result never arrived.
