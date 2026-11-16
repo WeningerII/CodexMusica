@@ -14,6 +14,7 @@ import {
   reviseRepeatKey,
   completedRevises,
   MAX_COMPLETED_REVISE_KEYS,
+  _agentInternals,
 } from './gemini_agent.js';
 
 const nativeFetch = globalThis.fetch;
@@ -161,7 +162,9 @@ test('every spelling the tools read as the same song is the same work (3PO 63937
 
 test('the key is the dispatched work: changed effective declarations, answers and new_run run (§2)', async () => {
   // A changed draft runs.
-  const changed = [draft[0], 'My kettle hums beside the stove'];
+  // Rewritten at the open line, on the song the run stopped on (#853: a
+  // parked rewrite may change only the lines that can fix it).
+  const changed = ['Your fingers brush my winter coat', accepted[1]];
   assert.equal(
     (
       await turn([
@@ -507,4 +510,158 @@ test('completion receipts are carried by the first checkpoint after a finished r
     result.out.task.completed_revise_keys
   );
   assert.equal(checkpoints[0].task.completed_revise_keys.length, 1);
+});
+
+// A PARKED REWRITE IS JUDGED ON THE SUNG LINES THE TOOL READS (3PO on #866).
+// A blank row or a bracketed header in the array is dropped by the revise
+// tool's own normalisation, so it must not move the parked-line comparison:
+// the decorated closed-line rewrite is refused exactly like the bare one.
+// Line 3 is in no group and no return, so it is closed; line 2 shares line
+// 1's group, so the loop's group question may move it (Andrej on #866).
+const three = ['Placeholder line one', 'Placeholder line two', 'Placeholder line three'];
+const threeDecl = { groups: '1,2', relation: 'class:ASSONANCE' };
+const parkedThree = () =>
+  verdict({
+    exit_code: 3,
+    status: 'stopped_with_open_lines',
+    certified: false,
+    loop_unresolved_lines: [1],
+    final_draft: three,
+  });
+const rewrite = (lines) => three.map((t, i) => (lines.includes(i + 1) ? `${t} rewritten` : t));
+test('a parked rewrite of a closed line is refused with or without array decoration', async () => {
+  const first = { draft: three, ...threeDecl };
+  const closed = rewrite([1, 3]);
+  for (const sendDraft of [closed, ['', ...closed], ['[SECTION]', ...closed]]) {
+    const { out, dispatched } = await turn([first, { draft: sendDraft, ...threeDecl }], {
+      tool: parkedThree,
+    });
+    assert.equal(
+      dispatched,
+      1,
+      `only the first revise reaches the tool: ${JSON.stringify(sendDraft)}`
+    );
+    assert.match(out.calls[1].error || '', /changes line\(s\) 3, which are not open/);
+  }
+  // A genuine change of sung-line count is refused by name, not admitted.
+  const { out, dispatched } = await turn(
+    [first, { draft: [...three, 'An added placeholder line'], ...threeDecl }],
+    { tool: parkedThree }
+  );
+  assert.equal(dispatched, 1);
+  assert.match(out.calls[1].error || '', /sends 4 sung line\(s\) for a 3-line song/);
+  // The open line and its group partner, decorated or not, still reach the tool.
+  const open = rewrite([1, 2]);
+  for (const sendDraft of [open, ['[SECTION]', '', ...open]]) {
+    const r = await turn([first, { draft: sendDraft, ...threeDecl }], { tool: parkedThree });
+    assert.equal(r.dispatched, 2, `the open group's rewrite runs: ${JSON.stringify(sendDraft)}`);
+  }
+  // A letter scheme declares the same group: line 3 (X) is still closed.
+  const schemeDecl = { scheme: 'AAX', relation: 'class:ASSONANCE' };
+  const s = await turn(
+    [
+      { draft: three, ...schemeDecl },
+      { draft: closed, ...schemeDecl },
+    ],
+    {
+      tool: parkedThree,
+    }
+  );
+  assert.equal(s.dispatched, 1);
+  assert.match(s.out.calls[1].error || '', /changes line\(s\) 3, which are not open/);
+});
+
+// 3PO 6904924023: the changeable set does not depend on the order groups are
+// declared in, survives line text that names an object property, and folds a
+// scheme's case the way the harness does.
+const parkedOn = (lines) => () =>
+  verdict({
+    exit_code: 3,
+    status: 'stopped_with_open_lines',
+    certified: false,
+    loop_unresolved_lines: [1],
+    final_draft: lines,
+  });
+const rewriteOf = (lines, at) => lines.map((t, i) => (at.includes(i + 1) ? `${t} rewritten` : t));
+const second = async (lines, decl, sendDraft) =>
+  turn(
+    [
+      { draft: lines, ...decl },
+      { draft: sendDraft, ...decl },
+    ],
+    { tool: parkedOn(lines) }
+  );
+
+test('declared groups give the same changeable lines in either order', async () => {
+  const four = ['Placeholder one', 'Placeholder two', 'Placeholder three', 'Placeholder four'];
+  for (const groups of ['1,2;2,3', '2,3;1,2']) {
+    const decl = { groups, relation: 'class:ASSONANCE' };
+    const ok = await second(four, decl, rewriteOf(four, [1, 2]));
+    assert.equal(ok.dispatched, 2, `${groups}: the open line's group runs`);
+    const no = await second(four, decl, rewriteOf(four, [1, 2, 3]));
+    assert.equal(no.dispatched, 1, `${groups}: a group the open line is not in stays closed`);
+    assert.match(no.out.calls[1].error || '', /changes line\(s\) 3, which are not open/);
+  }
+});
+
+test('line text that names an object property is read as text', async () => {
+  const props = ['constructor', 'toString', '__proto__', 'constructor', 'hasOwnProperty'];
+  // A group away from the open line keys the run; line 4 is line 1's text.
+  const decl = { groups: '2,5', relation: 'class:ASSONANCE' };
+  const ok = await second(props, decl, rewriteOf(props, [1, 4]));
+  assert.equal(ok.dispatched, 2, 'the open line and its identical partner run');
+  for (const at of [[2], [3], [5]]) {
+    const no = await second(props, decl, rewriteOf(props, [1, ...at]));
+    assert.equal(no.dispatched, 1);
+    assert.match(no.out.calls[1].error || '', new RegExp(`changes line\\(s\\) ${at[0]}, which`));
+  }
+});
+
+test('a mixed-case scheme keeps its rhyme partners', async () => {
+  for (const scheme of ['aAX', 'AaX', 'a A x', 'A^1a¹X']) {
+    const decl = { scheme, relation: 'class:ASSONANCE' };
+    const ok = await second(three, decl, rewrite([1, 2]));
+    assert.equal(ok.dispatched, 2, `${scheme}: lines 1 and 2 rhyme`);
+    const no = await second(three, decl, rewrite([1, 3]));
+    assert.equal(no.dispatched, 1, `${scheme}: line 3 is unrhymed`);
+  }
+});
+
+test("the scheme reader agrees with the harness's parse, drawn by seed", async () => {
+  const { execFileSync } = await import('node:child_process');
+  const { schemeGroups } = _agentInternals;
+  const alphabet = ['a', 'b', 'c', 'A', 'B', 'C', 'x', 'X', '.', '-', '1', '2', '^', '¹', ' '];
+  let s = 7;
+  const r = () => (s = (s * 1103515245 + 12345) >>> 0) / 2 ** 32;
+  const schemes = Array.from({ length: 400 }, () =>
+    Array.from(
+      { length: 1 + Math.floor(r() * 12) },
+      () => alphabet[Math.floor(r() * alphabet.length)]
+    ).join('')
+  ).filter((t) => /\S/.test(t));
+  const codes = JSON.parse(
+    execFileSync(
+      'python3',
+      [
+        '-B',
+        '-c',
+        'import json,sys; from quality.schemes import parse; print(json.dumps([parse(t) for t in json.load(sys.stdin)]))',
+      ],
+      { cwd: 'lyric-harness', encoding: 'utf8', input: JSON.stringify(schemes) }
+    )
+  );
+  schemes.forEach((t, k) => {
+    const want = new Map();
+    codes[k].forEach((c, i) => (want.has(c) ? want.get(c) : want.set(c, []).get(c)).push(i + 1));
+    const pairs = (cells) =>
+      cells
+        .filter((c) => c.length > 1)
+        .map((c) => c.join(','))
+        .sort();
+    assert.deepEqual(
+      pairs(schemeGroups(t)),
+      pairs([...want.values()]),
+      `scheme ${JSON.stringify(t)}`
+    );
+  });
 });

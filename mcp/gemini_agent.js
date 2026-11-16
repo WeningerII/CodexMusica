@@ -703,6 +703,8 @@ export const _agentInternals = {
   chatWriter,
   loopFields,
   PARKED_RUN_NOTE,
+  schemeGroups,
+  declaredGroups,
   parkedRefusal,
   toFunctionResponse,
   suspendedSeed,
@@ -939,7 +941,11 @@ function PARKED_RUN_NOTE(lyr) {
     '. The song is NOT finished and cannot be presented as finished.' +
     standing +
     ' No question is pending. The ONLY way forward: ' +
-    'REWRITE the flagged line(s) yourself (new words), keep every other line byte-identical, and call lyric_revise ' +
+    'REWRITE the flagged line(s) yourself (new words); ' +
+    (parkedChangeable(lyr)
+      ? `only line(s) ${parkedChangeable(lyr).join(', ')} may change, and a draft that changes any other line is refused; `
+      : 'any line may change; ') +
+    'then call lyric_revise ' +
     `again with \`seed\` and \`draft_text\`: the FULL song as ONE plain string, one line per row, newline-separated${n ? ` (all ${n} lines, in order)` : ''} — ` +
     'a string, NOT an array (the array is where your calls have broken). ' +
     "The run's declarations are carried for you: send the rewritten draft and the seed only. Do NOT " +
@@ -1200,6 +1206,120 @@ function sameDraft(a, b) {
     a.every((l, i) => String(l).trim() === String(b[i]).trim())
   );
 }
+function declaredReturns(args, planReturns) {
+  for (const r of [args?.returns, planReturns])
+    if (typeof r === 'string' && r.trim()) return r.trim();
+  return null;
+}
+// The run's rhyme groups as `N,N;N,N` (a member may name its place, N.PLACE):
+// a pasted song's own `groups`, its letter `scheme` (one letter per line, X
+// free), or the recorded plan's.
+// The harness's rhyme partition of a scheme string (quality/schemes.py
+// `parse`), as lists of 1-based lines. Whitespace is dropped and every other
+// character is a line. A superscript, a `^` or mixed case selects the refrain
+// reading (`parse_refrain`): a mark after a line is skipped, case is folded,
+// and X, `.` and any non-letter are unrhymed. Otherwise (`parse`) a line is a
+// character with its digits, keyed with them, case folded, X and `.` unrhymed.
+const SUPERSCRIPT = '⁰¹²³⁴⁵⁶⁷⁸⁹';
+const isDigit = (c) => /\p{Nd}/u.test(c);
+const isLetter = (c) => /\p{L}/u.test(c);
+function schemeGroups(text) {
+  const t = [...String(text)].filter((c) => !/\s/u.test(c));
+  const letters = t.filter(isLetter);
+  const refrain =
+    t.some((c) => c === '^' || SUPERSCRIPT.includes(c)) ||
+    (letters.some((c) => c !== c.toLowerCase()) && letters.some((c) => c !== c.toUpperCase()));
+  const by = new Map();
+  let line = 0;
+  for (let i = 0; i < t.length; ) {
+    const c = t[i];
+    let j = i + 1;
+    if (refrain && t[j] === '^') j += 1;
+    while (j < t.length && (isDigit(t[j]) || (refrain && SUPERSCRIPT.includes(t[j])))) j += 1;
+    const tok = refrain ? c : t.slice(i, j).join('');
+    i = j;
+    line += 1;
+    if (c.toUpperCase() === 'X' || c === '.' || (refrain && !isLetter(c))) continue;
+    const key = tok.toUpperCase();
+    if (!by.has(key)) by.set(key, []);
+    by.get(key).push(line);
+  }
+  return [...by.values()];
+}
+function declaredGroups(args, planGroups) {
+  if (typeof args?.groups === 'string' && args.groups.trim()) return args.groups.trim();
+  if (typeof args?.scheme === 'string' && args.scheme.trim()) {
+    const cells = schemeGroups(args.scheme).filter((c) => c.length > 1);
+    return cells.length ? cells.map((c) => c.join(',')).join(';') : null;
+  }
+  return typeof planGroups === 'string' && planGroups.trim() ? planGroups.trim() : null;
+}
+const linesOf = (spec) =>
+  typeof spec === 'string'
+    ? spec
+        .split(';')
+        .map((c) =>
+          c
+            .split(',')
+            .map((m) => parseInt(String(m).trim(), 10))
+            .filter(Number.isInteger)
+        )
+        .filter((c) => c.length > 1)
+    : [];
+// THE LINES A PARKED REWRITE MAY CHANGE (#853, stage T). What the revise
+// loop's own repair may move (quality/loop.py, the group question): the open
+// lines, every member of a declared rhyme group an open line is in (the loop
+// rewrites the group jointly; Andrej on #866), and every line a verbatim
+// return ties to any of those, all taken to closure. With no return
+// declared, a line whose sung text is an open line's text counts as its
+// return. A whole-draft flag opens every line, as the loop's whole-draft
+// question does. null means every line may change.
+export function parkedChangeable(lyr) {
+  if (Array.isArray(lyr?.whole) && lyr.whole.length) return null;
+  const open = (Array.isArray(lyr?.open) ? lyr.open : []).filter(Number.isInteger);
+  if (!open.length) return null;
+  const allowed = new Set(open);
+  const groups = linesOf(lyr.groups);
+  const returns = linesOf(lyr.returns);
+  if (!returns.length && Array.isArray(lyr.draft)) {
+    const sung = normalizeDraftLines(lyr.draft);
+    const byText = new Map();
+    sung.forEach((t, i) => {
+      if (!byText.has(t)) byText.set(t, []);
+      byText.get(t).push(i + 1);
+    });
+    returns.push(...[...byText.values()].filter((c) => c.length > 1));
+  }
+  // Each ORIGINAL open line's groups, as the loop selects them for its group
+  // question, so the result does not depend on the order groups are written.
+  const openSet = new Set(open);
+  for (const c of groups) if (c.some((l) => openSet.has(l))) c.forEach((l) => allowed.add(l));
+  for (let grew = true; grew; ) {
+    grew = false;
+    for (const c of returns)
+      if (c.some((l) => allowed.has(l)) && c.some((l) => !allowed.has(l))) {
+        c.forEach((l) => allowed.add(l));
+        grew = true;
+      }
+  }
+  return [...allowed].sort((a, b) => a - b);
+}
+// Compared on the sung lines the tool itself reads (`normalizeDraftLines`,
+// the same normalisation `takeLines` applies), so a blank row or a bracketed
+// header in the array cannot shift the comparison (3PO on #866).
+function changedOutside(lyr, draft) {
+  const allowed = parkedChangeable(lyr);
+  if (allowed == null || !Array.isArray(lyr?.draft)) return { outside: [] };
+  const before = normalizeDraftLines(lyr.draft);
+  const after = normalizeDraftLines(draft);
+  if (after.length !== before.length) return { outside: [], count: [before.length, after.length] };
+  const ok = new Set(allowed);
+  return {
+    outside: after
+      .map((l, i) => (l !== before[i] && !ok.has(i + 1) ? i + 1 : null))
+      .filter((n) => n != null),
+  };
+}
 function parkedRefusal(lyr, name, args) {
   if (lyr.uncertified)
     return name === 'lyric_revise' || WANDER_ALWAYS.has(name)
@@ -1207,7 +1327,9 @@ function parkedRefusal(lyr, name, args) {
       : null;
   const who = typeof lyr.seed === 'number' ? `seed ${lyr.seed}` : 'the declared mandate';
   const open = Array.isArray(lyr.open) && lyr.open.length ? lyr.open.join(', ') : 'none';
-  const tail = ` Continue it: rewrite the open line(s) (${open}) and call lyric_revise with \`seed\` and \`draft_text\` (the full song as ONE newline-separated string) and nothing else. The song cannot finish through any other call.`;
+  const may = parkedChangeable(lyr);
+  const scope = may ? `; only line(s) ${may.join(', ')} may change` : '';
+  const tail = ` Continue it: rewrite the open line(s) (${open})${scope}, and call lyric_revise with \`seed\` and \`draft_text\` (the full song as ONE newline-separated string) and nothing else. The song cannot finish through any other call.`;
   const head = `REFUSED by the connector: a lyric_revise run for ${who} is PARKED at exit 3 (no question pending)`;
   if (WANDER_ALWAYS.has(name)) return `${head}, and ${name} starts another song.${tail}`;
   if (WANDER_KEYED.has(name)) {
@@ -1223,6 +1345,24 @@ function parkedRefusal(lyr, name, args) {
   if (sameDraft(args.draft, lyr.draft))
     return `${head}, and this call re-sends the SAME draft that parked — the loop is deterministic and would park again on the same lines.${tail}`;
   return null;
+}
+// Checked AFTER the repeat guard (runTurn), so work already done gets that
+// guard's answer and only a new rewrite is held to the lines that can fix it.
+export function parkedLinesRefusal(lyr, name, args) {
+  if (name !== 'lyric_revise' || !isParked(lyr) || lyr.uncertified || !Array.isArray(args?.draft))
+    return null;
+  if (
+    Array.isArray(lyr.input_draft) &&
+    sameDraft(normalizeDraftLines(args.draft), normalizeDraftLines(lyr.input_draft))
+  )
+    return null;
+  const { outside, count } = changedOutside(lyr, args.draft);
+  const who = typeof lyr.seed === 'number' ? `seed ${lyr.seed}` : 'the declared mandate';
+  const head = `REFUSED by the connector: a lyric_revise run for ${who} is PARKED at exit 3, and this call`;
+  if (count)
+    return `${head} sends ${count[1]} sung line(s) for a ${count[0]}-line song: a parked rewrite keeps the line count and may change only line(s) ${parkedChangeable(lyr).join(', ')}.`;
+  if (!outside.length) return null;
+  return `${head} changes line(s) ${outside.join(', ')}, which are not open: a parked rewrite may change only line(s) ${parkedChangeable(lyr).join(', ')}.`;
 }
 
 function uncertifiedRunNote() {
@@ -1311,7 +1451,7 @@ export function renderedSong(result) {
   return end < 0 ? null : lines.slice(0, end + 1).join('\n');
 }
 
-function carryState(prev, toolName, args, verdict, surface) {
+function carryState(prev, toolName, args, verdict, surface, plan = null) {
   if (!surface.stateTools?.has(toolName)) return prev;
   const key = stateKey(args);
   if (key == null) return prev;
@@ -1418,6 +1558,18 @@ function carryState(prev, toolName, args, verdict, surface) {
       open: Array.isArray(verdict.loop_unresolved_lines) ? verdict.loop_unresolved_lines : [],
       whole: Array.isArray(verdict.loop_whole_flag_codes) ? verdict.loop_whole_flag_codes : [],
       standing: Array.isArray(verdict.standing) ? verdict.standing.slice(0, 24) : [],
+      // The run's declared verbatim returns (a pasted song's own `returns`,
+      // or the recorded plan's), so a parked rewrite may change an open
+      // line's word-for-word partners with it (#853). Present only when known.
+      ...(declaredReturns(args, plan?.returns)
+        ? { returns: declaredReturns(args, plan?.returns) }
+        : {}),
+      // Its rhyme groups, so a parked rewrite may move an open line's group
+      // with it, as the loop's group question does (#853).
+      ...(declaredGroups(args, plan?.groups) ? { groups: declaredGroups(args, plan?.groups) } : {}),
+      // The draft this run was opened on. Re-sending it is the same input,
+      // not a rewrite of the parked song; the repeat guard judges it.
+      ...(Array.isArray(args.draft) ? { input_draft: args.draft } : {}),
     };
   }
   if (code === 0 && prev && carriedKey(prev) === key) return null;
@@ -2536,6 +2688,21 @@ export async function runTurn({
           responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
           continue;
         }
+        const linesRefusal = revising && !freshRun ? parkedLinesRefusal(lyr, fc.name, args) : null;
+        if (linesRefusal) {
+          result = { isError: true, content: [{ type: 'text', text: `Error: ${linesRefusal}` }] };
+          calls.push({
+            name: fc.name,
+            args,
+            isError: true,
+            not_run: true,
+            refused_by_connector: true,
+            error: linesRefusal,
+          });
+          if (onEvent) onEvent({ type: 'tool', name: fc.name, isError: true, refused: true });
+          responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+          continue;
+        }
         // Counted at admission, before the call is sent: a revise that then
         // fails or times out may still have used the writer.
         if (revising) usage.reviseDispatched++;
@@ -2797,7 +2964,8 @@ export async function runTurn({
               next_recovery_part: payload.next_recovery_part ?? null,
             };
           }
-          if (!recoveryOnly) lyr = carryState(lyr, fc.name, args, lyricVerdict, surface);
+          if (!recoveryOnly)
+            lyr = carryState(lyr, fc.name, args, lyricVerdict, surface, task?.plan?.result);
           // Who acts next, as data, read after the carried run is updated:
           // the call is the one this chat's gate admits for the run it now
           // holds (writer plan, stage 2).
