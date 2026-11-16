@@ -2709,10 +2709,10 @@ export function registerLyricTools(server, tool) {
         "At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this exact draft, " +
         "unchanged. `next_call` names that call's tool and the arguments the server sets: `seed`, and " +
         "`new_run` in a session when a run is open or this plan's run has started. It is not the whole " +
-        'call: send this exact draft and its declarations with it. At exit 2 `next` names each word ' +
-        'that could not be judged, with its line and what to change, and then the lyric_grade call ' +
-        'that judges the changed draft. ' +
+        'call: send this exact draft and its declarations with it. ' +
         (server.kitchen ? 'The service writer answers that lyric_revise run. ' : '') +
+        'At exit 2 `next` names each word that could not be judged, with its line and what to ' +
+        'change, and then the lyric_grade call that judges the changed draft. ' +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_grade,
     },
