@@ -28,10 +28,13 @@ import { requestContext } from './execution_context.js';
 import { continuationSemanticIdentity } from './state_codec.js';
 import { LEXICON_MANIFEST } from './lexicon_basis.js';
 import { _verdictInternals } from './lyric_tools.js';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import {
   OUTCOME_ACTORS,
   OUTCOME_KINDS,
   creationRefusal,
+  noneKeptMeaning,
   outcomeOf,
   planShareBound,
   recordCreation,
@@ -596,6 +599,181 @@ test('a session states the seeds refused in a row beside the outcome it worked o
   // `next` stays the last field, with the outcome ahead of it.
   assert.deepEqual(Object.keys(second).slice(-2), ['outcome', 'next']);
 });
+
+// ── A window that planned and kept no seed ──────────────────────────────────
+// Stage 0's agents swept 7, 15 and 22 windows on one fixed paragraph. It told a
+// caller who had declared `lines` to declare it "if you have not", pointed at
+// the counts without saying one, and offered a further window without end.
+test('a window that kept no seed says each count, and offers only what was not done', () => {
+  const window = (count, held) => ({
+    exit_code: 2,
+    sweep_outcome: 'no seed kept',
+    swept: count,
+    planned: count,
+    held_by: held.map((k, i) => ({ want: `<predicate ${i}>`, held: k })),
+    accept_share_bound: Math.round(planShareBound(count) * 1e4) / 1e4,
+    window: { seed_from: 0, count, next_seed_from: count },
+  });
+  for (let count = 1; count <= 64; count++) {
+    const v = window(count, [0, count - 1, count]);
+    for (const lines of [false, true])
+      for (const functions of [false, true]) {
+        const said = noneKeptMeaning(v, { lines, functions });
+        // Each predicate's own count is said, of the planned.
+        assert.ok(
+          said.includes(
+            `Each predicate held on its own, of the ${count} planned: <predicate 0> on 0; <predicate 1> on ${count - 1}; <predicate 2> on ${count}.`
+          ),
+          said
+        );
+        assert.ok(
+          said.includes(
+            `None of the ${count} seed(s) swept was kept, so at most ${(100 * v.accept_share_bound).toFixed(1)}% of seeds are kept under this request (95% bound).`
+          ),
+          said
+        );
+        // Advice is offered only for what the call did not declare.
+        assert.equal(said.includes('`lines`'), !lines, said);
+        assert.equal(said.includes('`functions`'), !functions, said);
+        assert.doesNotMatch(said, /if you have not/);
+        // One window cannot rule out the next, so it is still offered.
+        assert.match(said, /continue from next_seed_from\.$/);
+      }
+  }
+});
+
+test('a session adds up the windows that kept no seed, and stops offering another', () => {
+  const change = { kind: 'decision', by: 'person', call: call('lyric_sweep') };
+  for (let count = 1; count <= 64; count++) {
+    const task = { domain: 'lyrics', phase: 'create' };
+    const args = { form: '<form>', lines: 12, want: ['<predicate>'] };
+    let seeds = 0;
+    let stopped = null;
+    const publish = (from, sent = args) => {
+      const v = {
+        exit_code: 2,
+        sweep_outcome: 'no seed kept',
+        swept: count,
+        planned: count,
+        held_by: [{ want: '<predicate>', held: 0 }],
+        accept_share_bound: Math.round(planShareBound(count) * 1e4) / 1e4,
+        window: { seed_from: from, count, next_seed_from: from + count },
+        window_meaning: noneKeptMeaning({ swept: count, planned: count }, {}),
+        next: '<sentence>',
+      };
+      const call_ = { ...sent, seed_from: from, count };
+      recordCreation(task, 'lyric_sweep', call_, v);
+      return JSON.parse(
+        withSessionOutcome(
+          task,
+          'lyric_sweep',
+          { content: [{ type: 'text', text: JSON.stringify(v) }] },
+          null,
+          call_
+        ).content[0].text
+      );
+    };
+    for (let k = 1; k <= 8 && stopped == null; k++) {
+      const out = publish(seeds);
+      seeds += count;
+      const spent = 1 - (1 - planShareBound(seeds)) ** count < 0.5;
+      const bound = Math.round(planShareBound(seeds) * 1e4) / 1e4;
+      assert.deepEqual(
+        out.unkept_in_a_row,
+        { seeds, accept_share_bound: bound, spent },
+        `${count} seed(s) a window, window ${k}`
+      );
+      // Whose move it is does not change: a predicate is the person's to drop.
+      assert.deepEqual(out.outcome, change);
+      // The second window on states the sum; a spent run stops offering another.
+      assert.equal(
+        out.window_meaning.includes(
+          `Across the windows swept in a row under this request, none of the ${seeds} seeds was kept: at most ${(100 * bound).toFixed(1)}% of seeds are kept (95% bound).`
+        ),
+        k > 1,
+        out.window_meaning
+      );
+      assert.equal(out.window_meaning.includes('continue from next_seed_from'), !spent);
+      assert.equal(out.window_meaning.includes('sweeping on is not offered'), spent);
+      // `lines` was declared on every call, so it is never advised.
+      assert.equal(out.window_meaning.includes('`lines`'), false, out.window_meaning);
+      assert.deepEqual(Object.keys(out).slice(-2), ['outcome', 'next']);
+      if (spent) stopped = k;
+    }
+    // The same number of windows whatever their size, as for refused windows.
+    assert.equal(stopped, 5, `${count} seed(s) a window`);
+    // A changed request starts the count again.
+    assert.equal(publish(0, { ...args, lines: 13 }).unkept_in_a_row.seeds, count);
+    // So does a window that kept a seed.
+    recordCreation(
+      task,
+      'lyric_sweep',
+      { ...args, lines: 13, seed_from: 0, count },
+      { exit_code: 0, sweep_outcome: 'accepted', accepted_shown: [0], swept: count }
+    );
+    assert.equal(task.workflow.unkept_sweep, undefined);
+  }
+});
+
+// Real sweeps, the requests drawn by seed from the planner's own roster.
+test(
+  'real windows that keep no seed carry their counts and their bound',
+  { timeout: 900_000 },
+  async () => {
+    const roster = JSON.parse(
+      execFileSync(
+        'python3',
+        ['-c', 'import json, quality.plan as P; print(json.dumps(sorted(P.GENERATOR_ROSTER)))'],
+        { cwd: fileURLToPath(new URL('../lyric-harness', import.meta.url)), encoding: 'utf8' }
+      )
+    );
+    // A small seeded generator, so the draws repeat.
+    let state = 20261116;
+    const draw = (n) => {
+      state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
+      return state % n;
+    };
+    const { client, close } = await rawClient();
+    let kept_none = 0;
+    try {
+      for (let i = 0; i < 12; i++) {
+        const fn = roster[draw(roster.length)];
+        const other = roster[draw(roster.length)];
+        const count = 2 + draw(4);
+        const args = {
+          // More instances of one function than a drawn pattern holds, and one of another.
+          want: [`sections.${fn}=${7 + draw(3)}`, `sections.${other}>=1`],
+          seed_from: draw(50),
+          count,
+          ...(i % 2 ? { lines: 8 + draw(33) } : {}),
+        };
+        const r = await client.callTool({ name: 'lyric_sweep', arguments: args });
+        const v = JSON.parse(r.content[r.content.length - 1].text);
+        if (v.sweep_outcome !== 'no seed kept') continue;
+        kept_none++;
+        assert.equal(v.accept_share_bound, Math.round(planShareBound(v.swept) * 1e4) / 1e4);
+        assert.equal(v.window_meaning, noneKeptMeaning(v, { lines: args.lines != null }));
+        for (const h of v.held_by)
+          assert.ok(v.window_meaning.includes(`${h.want} on ${h.held}`), v.window_meaning);
+        assert.equal(v.window_meaning.includes('`lines`'), args.lines == null);
+        // The terminal report says the same bound and names the least-held predicate.
+        assert.match(
+          v.report,
+          /at most \d+\.\d% of seeds are kept under this request \(95% bound\)/
+        );
+        const low = Math.min(...v.held_by.map((h) => h.held));
+        assert.ok(
+          v.report.includes(`held on its own least often (${low} of the ${v.planned} planned): `),
+          v.report
+        );
+        assert.deepEqual(v.outcome, { kind: 'decision', by: 'person', call: call('lyric_sweep') });
+      }
+    } finally {
+      await close();
+    }
+    assert.ok(kept_none >= 6, `only ${kept_none} of 12 drawn windows kept no seed`);
+  }
+);
 
 // ── A host that keeps receipts: the call is the one its gate admits ─────────
 // The real walk through a /mcp session is in mcp/test_chatgpt_parked.mjs (its

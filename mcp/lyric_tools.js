@@ -51,6 +51,7 @@ import {
   planRefusedNext,
   SWEEP_NEXT,
   sweepNextLine,
+  noneKeptMeaning,
 } from './lyric_workflow.js';
 import {
   applyLexiconBasis,
@@ -1603,7 +1604,7 @@ function extractSweepCounts(stdout) {
 // record (an earlier release) falls back to the counts its report prints;
 // that is the only prose-derived count.
 const SWEEP_COUNTS = ['swept', 'planned', 'planner_refused', 'accepted_count'];
-function sweepVerdict(v, r, { from, n }) {
+function sweepVerdict(v, r, { from, n, declared = {} }) {
   const sweep =
     r.lyric_result?.version === 1 && r.lyric_result.sweep?.version === 1
       ? r.lyric_result.sweep
@@ -1632,12 +1633,12 @@ function sweepVerdict(v, r, { from, n }) {
         : reasons.length
           ? 'the planner refused every seed in this window for a reason about the request itself, so another window will refuse the same way until the request changes; the predicates never ran.'
           : 'the planner refused every seed in this window; the predicates never ran.';
-    else if (r.code === 2)
-      v.window_meaning =
-        'no seed in THIS WINDOW satisfies every predicate. Before dropping a predicate: declare ' +
-        'a target length in `lines` if you have not (an undeclared length is drawn long, so a ' +
-        'length cap rarely holds), declare the section roster in `functions`, or continue from ' +
-        'next_seed_from; held_by says how many planned seeds held each predicate on its own.';
+    else if (r.code === 2) {
+      if (typeof sweep?.accept_share_bound === 'number')
+        v.accept_share_bound = sweep.accept_share_bound;
+      if (Array.isArray(sweep?.held_by)) v.held_by = sweep.held_by.slice(0, 24);
+      v.window_meaning = noneKeptMeaning(v, declared);
+    }
   }
   v.sweep_outcome = sweep?.outcome ?? null;
   if (sweep) {
@@ -3800,7 +3801,11 @@ export function registerLyricTools(server, tool) {
             Number(/seed (-?\d+)/.exec(seed[0])[1])
           )
         );
-      return sweepVerdict(v, r, { from, n });
+      return sweepVerdict(v, r, {
+        from,
+        n,
+        declared: { lines: a.lines != null, functions: a.functions != null },
+      });
     }
   );
 

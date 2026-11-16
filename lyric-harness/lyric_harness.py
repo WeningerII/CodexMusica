@@ -12651,14 +12651,34 @@ def main():
                                        "plan_share_bound": round(bound, 4),
                                        "outcome": "planner refused every seed"}})
             if not res["accepted"]:
+                # WHAT "NONE KEPT" SAYS ABOUT THE NEXT WINDOW (writer plan,
+                # stage 2). Stage 0's agents swept 7, 15 and 22 windows on
+                # "widen the range, or drop a predicate" and nothing said
+                # how little a further window could hold. With no seed kept
+                # in N swept, the share of seeds this request keeps is below
+                # 1 - 0.05**(1/N) at 95% confidence (the same one-sided
+                # bound as for a window no seed planned in). And the
+                # predicate to look at is named: the one that held on its
+                # own least often, from the counts already printed.
+                bound = 1.0 - 0.05 ** (1.0 / res["seeds"])
+                low = min((h["held"] for h in held_by), default=0)
+                least = [h["want"] for h in held_by if h["held"] == low]
                 _refuse(
                     f"no seed in {lo}..{hi - 1} satisfies every declared "
                     f"predicate",
                     detail=[f"{res['planned']} seed(s) planned and none held "
                             f"every predicate; the HELD ALONE counts above "
                             f"say how many held each one",
+                            f"none of the {res['seeds']} seed(s) swept was "
+                            f"kept, so at most {100.0 * bound:.1f}% of seeds "
+                            f"are kept under this request (95% bound)",
+                            *([f"held on its own least often ({low} of the "
+                               f"{res['planned']} planned): "
+                               + "; ".join(least)] if least else []),
                             "widen the range, or drop a predicate"],
-                    machine={"sweep": {**record, "outcome": "no seed kept"}})
+                    machine={"sweep": {**record,
+                                       "accept_share_bound": round(bound, 4),
+                                       "outcome": "no seed kept"}})
             print(f"    ACCEPTED (in seed order — this does NOT rank them; "
                   f"doctrine 7 enforces a floor and does not order the "
                   f"permitted region, and an argmax over a swept parameter "

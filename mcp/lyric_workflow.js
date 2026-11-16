@@ -681,6 +681,47 @@ const sweepingIsSpent = (seeds, count) =>
   count > 0 &&
   1 - 0.05 ** (count / seeds) < 0.5;
 
+// WHAT A WINDOW THAT KEPT NO SEED SAYS (writer plan, stage 2). The paragraph
+// was one fixed string: it told a caller who had declared `lines` to declare
+// it "if you have not", and pointed at held_by without saying a count. It is
+// now built from the verdict and the call:
+// - each predicate's own count, said, so the one that never holds is seen;
+// - the 95% bound that no seed kept leaves on the share of seeds kept;
+// - advice only for what the call did not declare;
+// - `row`, from a host that keeps receipts: the windows swept in a row under
+//   this request, and whether a further one is more likely than not to keep
+//   none. Then sweeping on is no longer offered.
+const orList = (xs) =>
+  xs.length < 3 ? xs.join(' or ') : `${xs.slice(0, -1).join(', ')}, or ${xs[xs.length - 1]}`;
+export function noneKeptMeaning(v, declared = {}, row = null) {
+  const pct = (x) => `${(100 * x).toFixed(1)}%`;
+  const held = (Array.isArray(v.held_by) ? v.held_by : [])
+    .map((h) => `${h.want} on ${h.held}`)
+    .join('; ');
+  const advice = [];
+  if (!declared.lines)
+    advice.push(
+      'declare a target length in `lines` (an undeclared length is drawn long, so a length cap rarely holds)'
+    );
+  if (!declared.functions) advice.push('declare the section roster in `functions`');
+  if (!row?.spent) advice.push('continue from next_seed_from');
+  return (
+    'no seed in THIS WINDOW satisfies every predicate.' +
+    (held ? ` Each predicate held on its own, of the ${v.planned} planned: ${held}.` : '') +
+    (typeof v.accept_share_bound === 'number'
+      ? ` None of the ${v.swept} seed(s) swept was kept, so at most ${pct(v.accept_share_bound)} of seeds are kept under this request (95% bound).`
+      : '') +
+    (row && row.seeds > v.swept
+      ? ` Across the windows swept in a row under this request, none of the ${row.seeds} seeds was kept: at most ${pct(row.bound)} of seeds are kept (95% bound).`
+      : '') +
+    (row?.spent
+      ? ' A further window of this size is more likely than not to keep none, so sweeping on is not offered.'
+      : '') +
+    (advice.length
+      ? ` Before dropping a predicate: ${orList(advice)}.`
+      : ' What is left is to change or drop a predicate.')
+  );
+}
 export function recordCreation(task, name, args, verdict, isError = false) {
   if (isRecoveryOnly(name, args)) return;
   const w = workflowFor(task);
@@ -693,6 +734,13 @@ export function recordCreation(task, name, args, verdict, isError = false) {
         seeds: (w.refused_sweep?.request === request ? w.refused_sweep.seeds : 0) + verdict.swept,
       };
     else delete w.refused_sweep;
+    // The same count for windows that planned and kept no seed.
+    if (verdict.sweep_outcome === 'no seed kept' && Number.isInteger(verdict.swept))
+      w.unkept_sweep = {
+        request,
+        seeds: (w.unkept_sweep?.request === request ? w.unkept_sweep.seeds : 0) + verdict.swept,
+      };
+    else delete w.unkept_sweep;
   }
   if (
     name === 'lyric_sweep' &&
@@ -1149,13 +1197,16 @@ export function sessionOutcome(task, name, v, carried, args = {}) {
   if (!n) return choose('person', callOf('lyric_grade', { seed: w.plan?.request.seed }));
   return { ...base, call: n.first ? callOf(n.first) : { tool: n.tool, args: n.args } };
 }
-// A window the planner refused whole, on a host that keeps receipts: the
-// verdict states the count its outcome was worked out from. One window's own
-// bound is already in `window_meaning`; this adds the windows refused in a
-// row under the same request, once there is more than one.
-function withRefusedInARow(task, name, result) {
-  const refused = name === 'lyric_sweep' ? workflowFor(task)?.refused_sweep : null;
-  if (!refused || !result || result.isError || !Array.isArray(result.content)) return result;
+// A window the planner refused whole, or one that planned and kept no seed,
+// on a host that keeps receipts: the verdict states the count its outcome was
+// worked out from. One window's own bound is already in `window_meaning`;
+// this adds the windows empty in a row under the same request.
+function withRefusedInARow(task, name, result, args = {}) {
+  const w = name === 'lyric_sweep' ? workflowFor(task) : null;
+  const refused = w?.refused_sweep;
+  const unkept = w?.unkept_sweep;
+  if ((!refused && !unkept) || !result || result.isError || !Array.isArray(result.content))
+    return result;
   let changed = false;
   const content = result.content.map((block) => {
     if (changed || block?.type !== 'text') return block;
@@ -1165,8 +1216,32 @@ function withRefusedInARow(task, name, result) {
     } catch {
       return block;
     }
-    if (!v || v.sweep_outcome !== 'planner refused every seed' || !Number.isInteger(v.swept))
-      return block;
+    if (!v || !Number.isInteger(v.swept)) return block;
+    // A window that planned and kept no seed: its paragraph is rebuilt with
+    // the windows swept in a row, and stops offering a further window once
+    // one is more likely than not to keep none.
+    if (unkept && v.sweep_outcome === 'no seed kept') {
+      changed = true;
+      const bound = Math.round(planShareBound(unkept.seeds) * 1e4) / 1e4;
+      const spent = sweepingIsSpent(unkept.seeds, v.window?.count);
+      const { outcome, next_call, next, ...rest } = v;
+      return {
+        ...block,
+        text: JSON.stringify({
+          ...rest,
+          window_meaning: noneKeptMeaning(
+            v,
+            { lines: args?.lines != null, functions: args?.functions != null },
+            { seeds: unkept.seeds, bound, spent }
+          ),
+          unkept_in_a_row: { seeds: unkept.seeds, accept_share_bound: bound, spent },
+          ...(outcome !== undefined ? { outcome } : {}),
+          ...(next_call !== undefined ? { next_call } : {}),
+          ...(next !== undefined ? { next } : {}),
+        }),
+      };
+    }
+    if (!refused || v.sweep_outcome !== 'planner refused every seed') return block;
     changed = true;
     const bound = Math.round(planShareBound(refused.seeds) * 1e4) / 1e4;
     const { next_call, next, ...rest } = v;
@@ -1191,7 +1266,7 @@ function withRefusedInARow(task, name, result) {
 }
 export const withSessionOutcome = (task, name, result, carried, args = {}) =>
   task?.domain === 'lyrics'
-    ? withOutcome(name, withRefusedInARow(task, name, result), args, (tool, v, a) =>
+    ? withOutcome(name, withRefusedInARow(task, name, result, args), args, (tool, v, a) =>
         sessionOutcome(task, tool, v, carried, a)
       )
     : result;
