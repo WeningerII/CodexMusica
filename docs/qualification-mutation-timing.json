@@ -122,5 +122,152 @@
     "revise-parallel-2-2.stdout": "dcc0a0153459a210d7449c1bcd5b7c59d19ba39e09fda1345aa4dd22edc95496",
     "revise-serial-all.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "revise-serial-all.stdout": "4b2b4262399326b162a4ea7f2eb40e4d8d7d76ed4d8649cf5aad17495042ffba"
+  },
+  "image_reuse_only_qualification": {
+    "run_id": 43956655274,
+    "run_attempt": 1,
+    "commit": "2b96c3d1686f0e48f5eedca292309f488c23c64c",
+    "event": "workflow_dispatch",
+    "status": "completed",
+    "conclusion": "success",
+    "complete_job_inventory": true,
+    "job_count": 34,
+    "created_at": "2026-11-16T21:06:29Z",
+    "last_job_completed_at": "2026-11-16T21:40:34+00:00",
+    "full_elapsed_s": 2045.0,
+    "reuse_cells": [
+      {
+        "job": "capacity-matrix / cells pole-loaded",
+        "pull": "success",
+        "rebuild": "skipped"
+      },
+      {
+        "job": "capacity-matrix / cells upper-unloaded",
+        "pull": "success",
+        "rebuild": "skipped"
+      },
+      {
+        "job": "capacity-matrix / cells upper-loaded",
+        "pull": "success",
+        "rebuild": "skipped"
+      },
+      {
+        "job": "capacity-matrix / cells rest-unloaded",
+        "pull": "success",
+        "rebuild": "skipped"
+      },
+      {
+        "job": "capacity-matrix / cells middle-loaded",
+        "pull": "success",
+        "rebuild": "skipped"
+      },
+      {
+        "job": "capacity-matrix / cells pole-unloaded",
+        "pull": "success",
+        "rebuild": "skipped"
+      },
+      {
+        "job": "capacity-matrix / cells rest-loaded",
+        "pull": "success",
+        "rebuild": "skipped"
+      },
+      {
+        "job": "capacity-matrix / cells middle-unloaded",
+        "pull": "success",
+        "rebuild": "skipped"
+      }
+    ],
+    "all_eight_reused": true,
+    "critical_jobs": [
+      {
+        "name": "deploy-after-dispatch",
+        "conclusion": "success",
+        "workflow_finish_s": 2045.0,
+        "job_elapsed_s": 12.0
+      },
+      {
+        "name": "qualification-result",
+        "conclusion": "success",
+        "workflow_finish_s": 2030.0,
+        "job_elapsed_s": 36.0
+      },
+      {
+        "name": "qualification-mutation-7",
+        "conclusion": "success",
+        "workflow_finish_s": 1991.0,
+        "job_elapsed_s": 1930.0
+      },
+      {
+        "name": "qualification-mutation-14",
+        "conclusion": "success",
+        "workflow_finish_s": 1665.0,
+        "job_elapsed_s": 1604.0
+      },
+      {
+        "name": "qualification-mutation-10",
+        "conclusion": "success",
+        "workflow_finish_s": 1363.0,
+        "job_elapsed_s": 1302.0
+      },
+      {
+        "name": "qualification-mutation-9",
+        "conclusion": "success",
+        "workflow_finish_s": 1255.0,
+        "job_elapsed_s": 1194.0
+      },
+      {
+        "name": "qualification-mutation-8",
+        "conclusion": "success",
+        "workflow_finish_s": 1246.0,
+        "job_elapsed_s": 1185.0
+      },
+      {
+        "name": "qualification-mutation-11",
+        "conclusion": "success",
+        "workflow_finish_s": 1223.0,
+        "job_elapsed_s": 1162.0
+      },
+      {
+        "name": "qualification-mutation-13",
+        "conclusion": "success",
+        "workflow_finish_s": 1187.0,
+        "job_elapsed_s": 1126.0
+      },
+      {
+        "name": "qualification-capacity-matrix",
+        "conclusion": "success",
+        "workflow_finish_s": 1098.0,
+        "job_elapsed_s": 3.0
+      },
+      {
+        "name": "capacity-matrix / merge",
+        "conclusion": "success",
+        "workflow_finish_s": 1093.0,
+        "job_elapsed_s": 47.0
+      },
+      {
+        "name": "capacity-matrix / cells rest-unloaded",
+        "conclusion": "success",
+        "workflow_finish_s": 1043.0,
+        "job_elapsed_s": 990.0
+      }
+    ],
+    "qualification_receipt_verified": true,
+    "under_30_minutes_established": false,
+    "baseline_elapsed_s": 2548,
+    "improvement_s": 503,
+    "improvement_percent": 19.74,
+    "run_url": "https://github.com/WeningerII/CodexMusica/actions/runs/43956655274",
+    "critical_shard": {
+      "component": "mutation-7",
+      "mutants": ["M7", "M21", "QR1", "QG4"],
+      "baseline_test_files": 10,
+      "baseline_revise_s": 814.2,
+      "baseline_loop_s": 705.3,
+      "sweep_elapsed_s": 1835,
+      "escalations": 0,
+      "artifact_id": 14274037604,
+      "artifact_sha256": "28148fd054ebf202595b1699404be9f7c4d3bf55bbf737116d231b90b2884a80"
+    }
   }
 }
