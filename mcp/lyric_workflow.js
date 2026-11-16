@@ -657,10 +657,43 @@ export function withPlanLineage(task, name, result) {
   return changed ? { ...result, content } : result;
 }
 
+// SEEDS THE PLANNER REFUSED IN A ROW (writer plan, stage 2; the rule is R2's).
+// `refused_sweep` counts the seeds of consecutive windows the planner refused
+// whole under one request: the sweep's arguments apart from where the window
+// starts and how wide it is. Any other sweep result, or a changed request,
+// ends the count.
+const sweepRequest = (args) => {
+  const { seed_from: _from, count: _count, ...request } = args || {};
+  return JSON.stringify(Object.fromEntries(Object.entries(request).sort()));
+};
+// The 95% bound on the share of seeds that plan, when none of `seeds` did.
+export const planShareBound = (seeds) => 1 - 0.05 ** (1 / seeds);
+// "Sweep again" stops being the next call when, even at that bound, a further
+// window of `count` seeds is more likely than not to find no plan:
+// 1 - (1 - bound)^count < 1/2, which is 1 - 0.05^(count / seeds) < 1/2. The
+// test is the same for every window size: it is first true after the fifth
+// refused window. (Counting expected plans instead, bound x count < 1, is
+// true after ONE seed for a window of one.)
+const sweepingIsSpent = (seeds, count) =>
+  Number.isInteger(seeds) &&
+  seeds > 0 &&
+  Number.isInteger(count) &&
+  count > 0 &&
+  1 - 0.05 ** (count / seeds) < 0.5;
+
 export function recordCreation(task, name, args, verdict, isError = false) {
   if (isRecoveryOnly(name, args)) return;
   const w = workflowFor(task);
   if (!w || isError || !verdict) return;
+  if (name === 'lyric_sweep') {
+    const request = sweepRequest(args);
+    if (verdict.sweep_outcome === 'planner refused every seed' && Number.isInteger(verdict.swept))
+      w.refused_sweep = {
+        request,
+        seeds: (w.refused_sweep?.request === request ? w.refused_sweep.seeds : 0) + verdict.swept,
+      };
+    else delete w.refused_sweep;
+  }
   if (
     name === 'lyric_sweep' &&
     verdict.exit_code === 0 &&
@@ -941,6 +974,13 @@ export function outcomeOf(tool, v, args = {}) {
     // the next window; a cause in the request is answered by changing it.
     const reasons = Array.isArray(v.planner_refusals) ? v.planner_refusals : [];
     const from = v.window?.next_seed_from;
+    // A reason about a seed's own draw leaves open that another seed plans,
+    // so the next window is the next call. One window cannot say more: with
+    // no plan in N seeds the share of seeds that plan is under
+    // 1 - 0.05^(1/N) (95%), and at that share a further window of the same
+    // size finds a plan 95 times in 100. The verdict states the bound
+    // (`plan_share_bound`); a host that keeps receipts adds the windows up
+    // (sessionOutcome).
     if (
       v.sweep_outcome === 'planner refused every seed' &&
       reasons.some((g) => g?.scope === 'seed') &&
@@ -956,8 +996,14 @@ export function outcomeOf(tool, v, args = {}) {
     return [0, 3].includes(code)
       ? takeOn(callOf('lyric_plan'))
       : choose('writer', callOf('lyric_screen'));
-  if (tool === 'lyric_plan')
-    return code === 0 && named ? takeOn(named) : choose('person', callOf('lyric_sweep'));
+  if (tool === 'lyric_plan') {
+    if (code === 0 && named) return takeOn(named);
+    // Refused for what this seed drew: the sweep finds another seed. Refused
+    // for the request: the declaration is the person's to change.
+    return v.plan_refusal?.scope === 'seed'
+      ? takeOn(callOf('lyric_sweep'))
+      : choose('person', callOf('lyric_sweep'));
+  }
   if (tool === 'lyric_grade' || tool === 'lyric_check') {
     if ([0, 3].includes(code) && named) return takeOn(named);
     // A clean check of lyrics the person supplied names no next step: nothing
@@ -1061,7 +1107,19 @@ export function sessionOutcome(task, name, v, carried, args = {}) {
   // answered. The journal export reads what was kept.
   if (carried?.uncertain_proposal)
     return { kind: 'unknown', by: 'writer', call: callOf('lyric_revise', { recover_only: true }) };
-  if (base.call.args.new_run || base.call.tool === 'lyric_sweep') return base;
+  if (base.call.tool === 'lyric_sweep') {
+    // The receipts add up what one window cannot: when the seeds refused in a
+    // row leave a further window more likely than not to find no plan,
+    // sweeping again is no longer the next call and the request is the
+    // person's to change.
+    const refused = workflowFor(task)?.refused_sweep;
+    return name === 'lyric_sweep' &&
+      base.kind === 'next_call' &&
+      sweepingIsSpent(refused?.seeds, v.window?.count)
+      ? choose('person', callOf('lyric_sweep'))
+      : base;
+  }
+  if (base.call.args.new_run) return base;
   const w = workflowFor(task);
   const stopped =
     name === 'lyric_revise' && ![4, 5].includes(v.exit_code) && v.status !== 'interrupted';
@@ -1090,9 +1148,51 @@ export function sessionOutcome(task, name, v, carried, args = {}) {
   if (!n) return choose('person', callOf('lyric_grade', { seed: w.plan?.request.seed }));
   return { ...base, call: n.first ? callOf(n.first) : { tool: n.tool, args: n.args } };
 }
+// A window the planner refused whole, on a host that keeps receipts: the
+// verdict states the count its outcome was worked out from. One window's own
+// bound is already in `window_meaning`; this adds the windows refused in a
+// row under the same request, once there is more than one.
+function withRefusedInARow(task, name, result) {
+  const refused = name === 'lyric_sweep' ? workflowFor(task)?.refused_sweep : null;
+  if (!refused || !result || result.isError || !Array.isArray(result.content)) return result;
+  let changed = false;
+  const content = result.content.map((block) => {
+    if (changed || block?.type !== 'text') return block;
+    let v;
+    try {
+      v = JSON.parse(block.text);
+    } catch {
+      return block;
+    }
+    if (!v || v.sweep_outcome !== 'planner refused every seed' || !Number.isInteger(v.swept))
+      return block;
+    changed = true;
+    const bound = Math.round(planShareBound(refused.seeds) * 1e4) / 1e4;
+    const { next_call, next, ...rest } = v;
+    return {
+      ...block,
+      text: JSON.stringify({
+        ...rest,
+        ...(refused.seeds > v.swept && typeof v.window_meaning === 'string'
+          ? {
+              window_meaning:
+                v.window_meaning +
+                ` Across the windows refused in a row under this request, none of the ${refused.seeds} seeds planned: at most ${(100 * bound).toFixed(1)}% of seeds plan (95% bound).`,
+            }
+          : {}),
+        refused_in_a_row: { seeds: refused.seeds, plan_share_bound: bound },
+        ...(next_call !== undefined ? { next_call } : {}),
+        ...(next !== undefined ? { next } : {}),
+      }),
+    };
+  });
+  return changed ? { ...result, content } : result;
+}
 export const withSessionOutcome = (task, name, result, carried, args = {}) =>
   task?.domain === 'lyrics'
-    ? withOutcome(name, result, args, (tool, v, a) => sessionOutcome(task, tool, v, carried, a))
+    ? withOutcome(name, withRefusedInARow(task, name, result), args, (tool, v, a) =>
+        sessionOutcome(task, tool, v, carried, a)
+      )
     : result;
 
 // A create session's successful lyric_sweep: the report's "NEXT: lyric_plan
@@ -1193,6 +1293,22 @@ export function planNext(call, lines) {
     );
   return formatNextCall({ ...call, lines }).replace(/^NEXT: /, 'Call ');
 }
+// A REFUSED PLAN'S NEXT STEP (writer plan, stage 2). The planner records
+// whether it refused what this seed drew or the request itself
+// (`plan_refusal.scope`, the exception's class). "Another seed" is said only
+// for the first: a fault in the request is refused the same way on every
+// seed. The second sentence states the gate's own rule for what a changed
+// request needs (the plan repeats the sweep's form, lines, functions, melody
+// and `want`).
+export function planRefusedNext(scope) {
+  return scope === 'seed'
+    ? 'This refusal is about what this seed drew, not about the request: another seed under the ' +
+        'same declarations may plan. Call lyric_sweep for further seeds, then lyric_plan with one ' +
+        'it accepts.'
+    : 'This refusal is about the request itself: every seed is refused the same way until what ' +
+        '`refusal` names changes. A change to the form, lines, functions, melody or `want` needs ' +
+        'a new lyric_sweep first; any other change goes to lyric_plan again with this seed.';
+}
 function withPlanNext(task, result, carried) {
   let changed = false;
   const content = result.content.map((block) => {
@@ -1204,6 +1320,9 @@ function withPlanNext(task, result, carried) {
       return block;
     }
     if (!v || typeof v !== 'object' || !Number.isInteger(v.exit_code) || !v.next) return block;
+    // A refused plan's `next` is about the refusal and is true on every
+    // host: it is kept. Only a finished plan's call is the receipts' to name.
+    if (v.exit_code !== 0) return block;
     changed = true;
     const { next: _text, next_call: _call, ...rest } = v;
     const call = nextCreationCall(task, carried);

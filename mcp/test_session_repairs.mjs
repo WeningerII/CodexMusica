@@ -759,7 +759,7 @@ test('an uncertified stop names the refused declaration and does not blame pronu
     // uncertified run: sent as that note said, it is refused.
     assert.match(
       word.text,
-      /\n\nCONTINUE: no question is pending, and this run is not continued\. Rewrite the open line\(s\), grade the complete rewritten draft with lyric_check, then call lyric_revise with that exact draft and `new_run: true`\./
+      /\n\nCONTINUE: no question is pending, and this run ends here\. Rewrite the open line\(s\), grade the complete rewritten draft with lyric_check, then call lyric_revise with that exact draft and `new_run: true`\./
     );
     assert.doesNotMatch(word.text, /CONTINUE: [^\n]*run_revision/);
     assert.equal(typeof word.verdict.run_id, 'string');

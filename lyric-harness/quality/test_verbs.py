@@ -4437,6 +4437,63 @@ def test_what_the_command_line_prints_is_what_it_means():
                   rc != 0 and "unexpected positional" in out, out[-300:])
 
 
+def test_a_refused_window_says_what_its_reasons_allow():
+    print("\n62. A WINDOW THE PLANNER REFUSED SAYS WHAT ITS REASONS ALLOW — "
+          "'another seed' only for a seed's own draw, with the bound that "
+          "no plan in N seeds leaves (writer plan, stage 2)")
+    # EVERY ROW OF THE ROSTER TABLE, ONE FUNCTION AT A TIME: a roster of one
+    # function either plans or is refused, and each refused window is held
+    # to the same four things. (1) The record carries the 95% bound on the
+    # share of seeds that plan when none of N did, 1 - 0.05**(1/N). (2) The
+    # last line says "may plan" only where a reason is about a seed's own
+    # draw, and then states that bound. (3) A single plan on the window's
+    # first seed records the same kind of refusal the sweep printed for it.
+    # (4) No row is skipped: each one is counted as planned or refused.
+    import quality.plan as _PLN
+    _n, _lo = 3, 0
+    _bound = round(1.0 - 0.05 ** (1.0 / _n), 4)
+    _seen = {"planned": 0, "seed": 0, "request": 0}
+    _wrong = []
+    for _fn in sorted(_PLN.GENERATOR_ROSTER):
+        rc, out, _ = run("plan", f"--sweep={_lo}-{_lo + _n}",
+                         f"--functions={_fn}")
+        rec = (_machine_result(out) or {}).get("sweep") or {}
+        if rec.get("outcome") != "planner refused every seed":
+            _seen["planned"] += 1
+            if "plan_share_bound" in rec:
+                _wrong.append((_fn, "a window that planned carries a bound"))
+            continue
+        scopes = {g["scope"] for g in rec.get("planner_refusals", [])}
+        last = [l for l in out.splitlines() if "every reason" in l
+                or "request-scope reason" in l]
+        if rec.get("plan_share_bound") != _bound:
+            _wrong.append((_fn, "bound", rec.get("plan_share_bound")))
+        if scopes == {"request"}:
+            _seen["request"] += 1
+            if not last or "may plan" in last[0]:
+                _wrong.append((_fn, "request window says may plan", last))
+        else:
+            _seen["seed"] += 1
+            if not last or "may plan" not in last[0] or (
+                    f"none of the {_n} seed(s) planned, so at most "
+                    f"{100.0 * (1.0 - 0.05 ** (1.0 / _n)):.1f}% of seeds plan"
+                    not in last[0]):
+                _wrong.append((_fn, "seed window omits the bound", last))
+        rc1, out1, _ = run("plan", f"--seed={_lo}", f"--functions={_fn}",
+                           expect_rc=2)
+        one = (_machine_result(out1) or {}).get("plan_refusal") or {}
+        first = [g["scope"] for g in rec.get("planner_refusals", [])
+                 if _lo in g.get("seeds", [])]
+        if one.get("version") != 1 or [one.get("scope")] != first:
+            _wrong.append((_fn, "plan record", one, first))
+    check("...every one-function roster's window either plans or is refused "
+          "with the bound recorded, 'may plan' said only for a seed's own "
+          "draw, and a single plan recording the same kind of refusal",
+          not _wrong and sum(_seen.values()) == len(_PLN.GENERATOR_ROSTER)
+          and _seen["planned"] and (_seen["seed"] or _seen["request"]),
+          (_seen, _wrong[:4]))
+
+
 def test_the_seed_sweep_is_reachable_from_the_command_line():
     print("\n40. THE SEED SWEEP is a VERB, not a scratch script "
           "(`MISSING.md` M-82)")
@@ -4591,6 +4648,14 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
           and "request — seed(s) 0, 1, 2" in out
           and (rec.get("sweep") or {}).get("outcome")
           == "planner refused every seed", (rec.get("sweep") or {}))
+    # WHAT THE WINDOW SAYS NEXT FOLLOWS ITS REASONS (writer plan, stage 2).
+    # Its last line used to end "or try other seeds" whatever the reasons
+    # were, so a window refused for a fault in the request sent its caller
+    # to sweep again. The window above was refused for the request.
+    check("...a window refused for the request sends nobody to another seed",
+          "other seeds are refused the same way" in out
+          and "may plan" not in out and "try other seeds" not in out,
+          [l for l in out.splitlines() if "every reason" in l][:1])
     rc, out, _ = run("plan", "--sweep=0-4", "--lines=16")
     rec = _machine_result(out) or {}
     check("...and a sweep that keeps seeds writes its own record, status "
@@ -6895,6 +6960,7 @@ if __name__ == "__main__":
         test_what_the_command_line_prints_is_what_it_means,
         test_the_comparator_and_the_meter_flags_reach_the_graders,
         test_both_meter_coordinates_are_disclosed_and_collisions_are_typed,
+        test_a_refused_window_says_what_its_reasons_allow,
         test_brief_refuses_instead_of_tracebacking,
         test_blueprint_mismatch_refuses_on_every_verb,
         test_propose_selects_who_writes_the_line,

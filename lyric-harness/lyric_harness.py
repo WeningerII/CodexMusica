@@ -12614,14 +12614,41 @@ def main():
                       "accepted_count": len(res["accepted"]),
                       "held_by": held_by, "planner_refusals": reasons}
             if not res["accepted"] and not res["planned"]:
+                # "TRY OTHER SEEDS" IS SAID ONLY FOR A REASON ABOUT A SEED
+                # (writer plan, stage 2). This line used to end "or try other
+                # seeds" whatever the reasons were, so a window refused for a
+                # fault in the request sent its caller to sweep again.
+                #
+                # AND WHAT "NO SEED PLANNED" SAYS ABOUT THE NEXT SEED. A
+                # reason about one seed's draw leaves open that another seed
+                # plans; none of N doing so bounds how often that happens.
+                # With no plan in N independent seeds, the share of seeds
+                # that plan is below 1 - 0.05**(1/N) at 95% confidence (the
+                # exact one-sided bound; about 3/N). It is printed and
+                # recorded, so "sweep again" is weighed and not assumed.
+                scopes = {g["scope"] for g in res["refusals"]}
+                bound = 1.0 - 0.05 ** (1.0 / res["seeds"])
+                odds = (f"none of the {res['seeds']} seed(s) planned, so at "
+                        f"most {100.0 * bound:.1f}% of seeds plan under this "
+                        f"request (95% bound)")
+                way_on = (
+                    "every reason above is about the request: change what "
+                    "it names; other seeds are refused the same way"
+                    if scopes == {"request"} else
+                    "every reason above is about that seed's own draw: "
+                    f"another seed may plan; {odds}"
+                    if scopes == {"seed"} else
+                    "change what a request-scope reason names; a seed-scope "
+                    "reason is about that seed's own draw, and another seed "
+                    f"may plan; {odds}")
                 _refuse(
                     f"the planner refused every seed in {lo}..{hi - 1}",
                     detail=["no seed planned, so no predicate ran; the "
                             "reasons above say whether the request or each "
                             "seed was refused",
-                            "fix what a request-scope reason names, or try "
-                            "other seeds"],
+                            way_on],
                     machine={"sweep": {**record,
+                                       "plan_share_bound": round(bound, 4),
                                        "outcome": "planner refused every seed"}})
             if not res["accepted"]:
                 _refuse(
@@ -12666,7 +12693,22 @@ def main():
                 seed=int(seed) if seed is not None else None,
                 wants=[w for w in str(want_raw or "").split(";") if w.strip()], **plan_kw)
         except PLN.PlanRefused as e:
-            _refuse(str(e))
+            # THE REFUSAL'S KIND, AS DATA (writer plan, stage 2). The planner
+            # already knows whether it refused what this SEED drew or the
+            # REQUEST itself: that is the exception's class, and the sweep
+            # has read it since P3 F3 (`plan._sweep_one`, the same test).
+            # A single plan printed the sentence alone, so its caller could
+            # not tell "another seed may plan" from "every seed refuses the
+            # same way" without reading prose. A joint refusal's codes and
+            # per-line findings ride with it.
+            record = {"version": 1,
+                      "scope": ("seed" if isinstance(e, PLN.SeedRefused)
+                                else "request")}
+            if getattr(e, "codes", ()):
+                record["codes"] = list(e.codes)
+            if getattr(e, "findings", ()):
+                record["findings"] = [dict(f) for f in e.findings][:24]
+            _refuse(str(e), machine={"plan_refusal": record})
         except ValueError:
             _refuse("plan --seed and --lines take integers")
         pat = the_plan["choices"]["pattern"]

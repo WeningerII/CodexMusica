@@ -48,6 +48,7 @@ import {
   READING_FIELDS,
   gradeNext,
   planNext,
+  planRefusedNext,
   SWEEP_NEXT,
   sweepNextLine,
 } from './lyric_workflow.js';
@@ -1117,6 +1118,11 @@ function verdictOf(r) {
       'measured — coverage incomplete; this is an uncertified draft, not a successful song';
   if (r.code === 2 && record.status === 'refused' && typeof record.refusal === 'string')
     v.refusal = record.refusal;
+  // A refused plan's kind, from the planner's own record: about what this
+  // seed drew (another seed may plan) or about the request (every seed is
+  // refused the same way), with a joint refusal's codes and findings.
+  if (r.code === 2 && record.status === 'refused' && record.plan_refusal?.version === 1)
+    v.plan_refusal = record.plan_refusal;
   if (typeof record.memo_state === 'string') v.memo_state = record.memo_state;
   // Why a saved position could not be used, when one existed (owner's ruling
   // 2026-10-02, Q5; LOOP_REDESIGN.md §2.0). `replayed_answers` and
@@ -1612,9 +1618,17 @@ function sweepVerdict(v, r, { from, n }) {
     v.window = { seed_from: from, count: n, next_seed_from: from + n };
     // What emptied the window, as the planner and the predicates said.
     const reasons = Array.isArray(sweep?.planner_refusals) ? sweep.planner_refusals : [];
+    // What "no seed planned" says about the next seed: the harness records
+    // the 95% bound on the share of seeds that plan (1 - 0.05^(1/N) for N
+    // swept seeds). The meaning states it and `outcome` weighs it.
+    const bound = typeof sweep?.plan_share_bound === 'number' ? sweep.plan_share_bound : null;
+    if (bound != null) v.plan_share_bound = bound;
     if (v.planned === 0)
       v.window_meaning = reasons.some((g) => g.scope === 'seed')
-        ? "the planner refused every seed in this window, and at least one reason is about that seed's own draw, so other seeds under the same declaration may plan; the predicates never ran."
+        ? "the planner refused every seed in this window, and at least one reason is about that seed's own draw, so another seed under the same declaration may plan; the predicates never ran." +
+          (bound != null
+            ? ` None of the ${v.swept} seed(s) planned, so at most ${(100 * bound).toFixed(1)}% of seeds plan under this request (95% bound).`
+            : '')
         : reasons.length
           ? 'the planner refused every seed in this window for a reason about the request itself, so another window will refuse the same way until the request changes; the predicates never ran.'
           : 'the planner refused every seed in this window; the predicates never ran.';
@@ -2682,6 +2696,10 @@ export function registerLyricTools(server, tool) {
             ],
           };
         }
+        // A refused plan says whether another seed can help, from the
+        // planner's own record and never from its sentence.
+        if (r.code === 2 && verdict.plan_refusal)
+          verdict.next = planRefusedNext(verdict.plan_refusal.scope);
         return verdict;
       })
   );
@@ -2709,8 +2727,8 @@ export function registerLyricTools(server, tool) {
         'revision cannot introduce them and a flagged draft cannot finish cleanly. NOTES are measurements, not defects. ' +
         "At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this exact draft, " +
         "unchanged. `next_call` names that call's tool and the arguments the server sets: `seed`, and " +
-        "`new_run` in a session when a run is open or this plan's run has started. It is not the whole " +
-        'call: `next` says what to send with it, which is this exact draft and its declarations, or ' +
+        "`new_run` in a session when a run is open or this plan's run has started. `next_call` is not " +
+        'the whole call: `next` says what to send with it, which is this exact draft and its declarations, or ' +
         "no draft where the grade's record holds them (a session, the website chat). " +
         (server.kitchen ? 'The service writer answers that lyric_revise run. ' : '') +
         'At exit 2 `next` names each word that could not be judged, with its line and what to ' +
@@ -3625,7 +3643,7 @@ export function registerLyricTools(server, tool) {
                   // note all the same, naming a call that was then refused.
                   // Its way on is the one the ledger's refusal names: the
                   // rewritten draft is graded and starts a new run.
-                  const regradeNote = `\n\nCONTINUE: no question is pending, and this run is not continued. Rewrite the open line(s), grade the complete rewritten draft with ${a.seed != null ? 'lyric_grade' : 'lyric_check'}, then call lyric_revise with that exact draft and \`new_run: true\`.`;
+                  const regradeNote = `\n\nCONTINUE: no question is pending, and this run ends here. Rewrite the open line(s), grade the complete rewritten draft with ${a.seed != null ? 'lyric_grade' : 'lyric_check'}, then call lyric_revise with that exact draft and \`new_run: true\`.`;
                   const parkNote =
                     r.code === 3
                       ? rewriteNote

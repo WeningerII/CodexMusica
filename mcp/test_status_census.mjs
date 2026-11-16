@@ -33,9 +33,11 @@ import {
   OUTCOME_KINDS,
   creationRefusal,
   outcomeOf,
+  planShareBound,
   recordCreation,
   sessionOutcome,
   withOutcome,
+  withSessionOutcome,
 } from './lyric_workflow.js';
 
 const RUN = { run_id: '<run>', run_revision: 3 };
@@ -134,6 +136,18 @@ const CASES = [
     'lyric_plan',
     { exit_code: 2, refusal: '<why>' },
     { kind: 'decision', by: 'person', call: call('lyric_sweep') },
+  ],
+  [
+    'a plan refused for the request itself',
+    'lyric_plan',
+    { exit_code: 2, refusal: '<why>', plan_refusal: { version: 1, scope: 'request' } },
+    { kind: 'decision', by: 'person', call: call('lyric_sweep') },
+  ],
+  [
+    'a plan refused for what its seed drew',
+    'lyric_plan',
+    { exit_code: 2, refusal: '<why>', plan_refusal: { version: 1, scope: 'seed' } },
+    { kind: 'next_call', by: 'writer', call: call('lyric_sweep') },
   ],
   // ── lyric_grade ──
   [
@@ -483,6 +497,104 @@ test('the raw engine publishes the outcome on real results', { timeout: 600_000 
   } finally {
     await close();
   }
+});
+
+test('windows the planner refused whole: one window names the next; a host that keeps receipts adds them up', () => {
+  const refusedWindow = (from, count) => ({
+    exit_code: 2,
+    sweep_outcome: 'planner refused every seed',
+    planner_refusals: [{ scope: 'seed', reason: '<reason>' }],
+    window: { seed_from: from, count, next_seed_from: from + count },
+    swept: count,
+    plan_share_bound: Math.round(planShareBound(count) * 1e4) / 1e4,
+  });
+  const sweepOn = (from) => ({
+    kind: 'next_call',
+    by: 'writer',
+    call: call('lyric_sweep', { seed_from: from }),
+  });
+  const change = { kind: 'decision', by: 'person', call: call('lyric_sweep') };
+  // Every window size the tool admits; no size is special.
+  for (let count = 1; count <= 64; count++) {
+    // The raw engine reads one window, and one window cannot say more than
+    // "another seed may plan": at its own bound a further window of the same
+    // size finds a plan 95 times in 100.
+    assert.deepEqual(outcomeOf('lyric_sweep', refusedWindow(0, count)), sweepOn(count));
+    // A host that keeps receipts counts the seeds refused in a row under one
+    // request. Sweeping on stops being the next call at the first window
+    // after which a further one is more likely than not to find no plan
+    // (1 - 0.05^(count / seeds) < 1/2), and not before.
+    const task = { domain: 'lyrics', phase: 'create' };
+    const args = { form: '<form>', want: ['<predicate>'] };
+    let seeds = 0;
+    let stopped = null;
+    for (let k = 1; k <= 8 && stopped == null; k++) {
+      const from = seeds;
+      const v = refusedWindow(from, count);
+      recordCreation(task, 'lyric_sweep', { ...args, seed_from: from, count }, v);
+      seeds += count;
+      const spent = 1 - (1 - planShareBound(seeds)) ** count < 0.5;
+      assert.deepEqual(
+        sessionOutcome(task, 'lyric_sweep', v, null, {}),
+        spent ? change : sweepOn(seeds),
+        `${count} seed(s) a window, window ${k}`
+      );
+      if (spent) stopped = k;
+    }
+    // The same number of windows whatever their size.
+    assert.equal(stopped, 5, `${count} seed(s) a window`);
+    // A changed request starts the count again, and so does a window that planned.
+    const again = refusedWindow(0, count);
+    recordCreation(task, 'lyric_sweep', { ...args, lines: 12, seed_from: 0, count }, again);
+    assert.deepEqual(sessionOutcome(task, 'lyric_sweep', again, null, {}), sweepOn(count));
+    recordCreation(
+      task,
+      'lyric_sweep',
+      { ...args, seed_from: 0, count },
+      { exit_code: 0, sweep_outcome: 'accepted', accepted_shown: [0], swept: count }
+    );
+    assert.equal(task.workflow.refused_sweep, undefined);
+  }
+});
+
+test('a session states the seeds refused in a row beside the outcome it worked out from them', () => {
+  const task = { domain: 'lyrics', phase: 'create' };
+  const window = (from) => ({
+    exit_code: 2,
+    sweep_outcome: 'planner refused every seed',
+    planner_refusals: [{ scope: 'seed', reason: '<reason>' }],
+    window: { seed_from: from, count: 4, next_seed_from: from + 4 },
+    swept: 4,
+    window_meaning: '<one window>',
+    next: '<sentence>',
+  });
+  const published = (from) => {
+    const v = window(from);
+    recordCreation(task, 'lyric_sweep', { seed_from: from, count: 4 }, v);
+    const out = withSessionOutcome(
+      task,
+      'lyric_sweep',
+      { content: [{ type: 'text', text: JSON.stringify(v) }] },
+      null,
+      {}
+    );
+    return JSON.parse(out.content[0].text);
+  };
+  const first = published(0);
+  assert.deepEqual(first.refused_in_a_row, {
+    seeds: 4,
+    plan_share_bound: Math.round(planShareBound(4) * 1e4) / 1e4,
+  });
+  assert.equal(first.window_meaning, '<one window>', 'one window adds no second sentence');
+  assert.equal(first.outcome.kind, 'next_call');
+  const second = published(4);
+  assert.equal(second.refused_in_a_row.seeds, 8);
+  assert.match(
+    second.window_meaning,
+    /^<one window> Across the windows refused in a row under this request, none of the 8 seeds planned: at most \d+\.\d% of seeds plan \(95% bound\)\.$/
+  );
+  // `next` stays the last field, with the outcome ahead of it.
+  assert.deepEqual(Object.keys(second).slice(-2), ['outcome', 'next']);
 });
 
 // ── A host that keeps receipts: the call is the one its gate admits ─────────
