@@ -12092,10 +12092,10 @@ def main():
         except OSError as e:
             _refuse(f"recover {rest[0]!r} — {e.strerror or e}")
         print(RC.render(rec))
-        # THE MANDATE SPELLING, PRINTED AS THE TWO FLAGS (M-195): the render
-        # carries it inside the `mandate_spelling` coordinate's prose; a
-        # caller hands these two lines to `brief`/`revise` verbatim, and the
-        # connector's `lyric_recover` reads them off exactly this block.
+        # THE MANDATE SPELLING, PRINTED AS THE TWO DECLARATIONS (M-195): the
+        # render carries it inside the `mandate_spelling` coordinate's prose.
+        # Named by field, not flag (stage T): a connector caller reads this
+        # report, while `lyric_recover` takes the mandate off the record.
         ms = rec.get("mandate_spelling") or {}
         print("  MANDATE SPELLING (the cover as the two declarations `groups` "
               "and `returns`, for check and revise; `groups` charges a "
