@@ -8388,8 +8388,9 @@ def _as_field(flag):
     A refusal the connector can return names what its caller can SEND, and
     a connector caller sends fields, not flags (stage T, #871). On the
     command line the flag is the same word with `--` and `-` for `_`. Only
-    a mandate flag a connector field carries becomes a field; any other
-    (`--cliques`, `--relations=`) is a command-line spelling and stays one."""
+    a mandate flag a connector field carries becomes a field; any other stays
+    its flag: `--cliques` is command-line only, and `--relations=` is what the
+    connector builds from a plan, which no caller field carries."""
     name = flag.lstrip("-").rstrip("=").replace("-", "_")
     return f"`{name}`" if name in MANDATE_FIELDS else flag
 
@@ -12130,8 +12131,8 @@ def main():
         if ms.get('--returns='):
             _gi.append(_shlex.quote(f"--returns={ms['--returns=']}"))
         print(f"  GRADE IT: {' '.join(_gi)}")
-        print("      (revise drives the same mandate to a stop condition and "
-              "stamps it)")
+        print("      (lyric_revise drives the same mandate to a stop condition "
+              "and stamps it)")
         _refs = rec.refusals()
         # THE MACHINE RECORD: the sung lines the mandate is numbered over,
         # the rows the reader set aside, the two flags and every refusal WITH
@@ -13863,8 +13864,13 @@ def main():
         sub_arg = _flag_value(args, "--subdivision")
         subdivision = _subdivision_or_refuse(
             FT, sub_arg,
-            "the `subdivision` declared to brief, verify or revise, an "
-            "explicit decision by whoever made the call")
+            # On `song` and `finish` the connector sends the plan's own
+            # subdivision (lyric_grade and a seeded lyric_revise take no
+            # `subdivision` field), so the source says where it came from.
+            ("the subdivision the plan declared"
+             if cmd in ("song", "finish") else
+             "the `subdivision` declared to lyric_check, lyric_verify or "
+             "lyric_revise, an explicit decision by whoever made the call"))
         # THE SAME `=`-SPELLING HOLE `fit` HAD, on the same flag, three verbs
         # wide: `--isochronous=true` was stripped from `args` by the
         # `_FLAG_NAMES` pass below (its base matches) and then read by
@@ -14548,7 +14554,9 @@ def main():
                 _prs = m.pairs()
             elif isinstance(m, list) and m and isinstance(m[0], list):
                 _grps, _lab = list(m), []
-                _n, _src = n_lines, "declared (`groups`)"
+                _n, _src = n_lines, ("declared by the plan"
+                                     if cmd in ("song", "finish")
+                                     else "declared (`groups`)")
                 # `Mandate.pairs` CALLED, never respelled. It is a pure
                 # function of `.groups` and a bare cover has those, so the
                 # count here and the count on the decorated call move
@@ -15485,7 +15493,7 @@ def main():
                                 "that search by hand and worse (five of five "
                                 "guesses came back BANNED on the run that "
                                 "earned this gate)",
-                                "answer through the revise loop, which "
+                                "answer through `--propose=defer:PATH`, which "
                                 "issues a brief per open line and folds your "
                                 "answer",
                                 "or declare why not: `--unbriefed=REASON` "

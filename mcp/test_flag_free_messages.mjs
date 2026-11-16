@@ -38,7 +38,8 @@ const VERB_TOOLS = {
   recover: ['lyric_recover'],
   screen: ['lyric_screen'],
   types: ['lyric_types'],
-  plan: ['lyric_plan', 'lyric_sweep'],
+  // lyric_grade runs `plan` too and passes its refusal back (lyric_tools.js).
+  plan: ['lyric_plan', 'lyric_sweep', 'lyric_grade'],
 };
 const CONNECTOR_VERBS = Object.keys(VERB_TOOLS);
 // A seeded lyric_revise (`finish`) refuses these and takes them off the plan
@@ -118,6 +119,8 @@ const UNREACHABLE = [
   {
     phrase: 'declare a different shape by declaring a different plan',
     flags: ['form', 'lines', 'relation', 'group-types', 'functions', 'title', 'narrative'],
+    file: 'lyric_harness.py',
+    verbs: ['finish'],
     reason: 'the same refusal; finish takes the shape off the plan',
   },
   { phrase: 'finish --seed and --lines take integers', reason: TYPED },
@@ -215,6 +218,12 @@ const UNREACHABLE = [
     reason:
       'the connector sends the checksum only beside a supplement that is not none (lexicon_basis.js lexiconGlobals)',
   },
+  {
+    phrase: '`--fallback=high|low` asks the question',
+    file: 'quality/g2p.py',
+    reason:
+      'printed only when no fallback is declared, and the harness calls this report only when one is (lyric_harness.py, the fallback disclosure)',
+  },
 ];
 
 // A field named where a verb's tool does not take it, and why that mention is
@@ -252,17 +261,6 @@ const NOT_ADVICE = [
     verbs: ['song', 'finish'],
     fields: ['groups', 'returns', 'structures', 'group_types'],
     reason: PLAN_MANDATE,
-  },
-  {
-    phrase: 'declared (`groups`)',
-    verbs: ['song', 'finish'],
-    reason:
-      'a provenance label printed for a mandate the caller sent; on these two verbs the plan sent it',
-  },
-  {
-    phrase: '`subdivision` declared to brief, verify or revise',
-    verbs: ['song', 'finish'],
-    reason: 'the provenance of a subdivision; on these two verbs it comes off the plan',
   },
   {
     phrase: 'DECLARED  `blueprint`',
@@ -307,6 +305,37 @@ const NOT_ADVICE = [
     reason:
       'names a `groups` mandate only as the condition for `group_types`; on these two verbs the plan supplies the mandate',
   },
+  {
+    phrase: 'is the rhyme-bearing subset as LINE INDICES',
+    file: 'quality/relations.py',
+    verbs: CONNECTOR_VERBS,
+    fields: ['lines'],
+    reason:
+      'names a Python argument of relations.py, raised for a programming error; no caller field is meant',
+  },
+  {
+    phrase: "a group's `relation` must be",
+    file: 'quality/schemes.py',
+    verbs: CONNECTOR_VERBS,
+    reason:
+      'refuses the JSON mapping spelling of a group, which no connector field can send (`groups` is a plain string the connector validates)',
+  },
+  {
+    phrase: 'declare a reading that has that place',
+    file: 'quality/revise.py',
+    verbs: ['screen', 'types', 'plan'],
+    fields: ['pronunciations'],
+    reason:
+      'a refusal of a mandated pair while grading a draft, which screen, types and plan never do',
+  },
+  {
+    phrase: 'Choose the intended reading from pronunciation_options',
+    file: 'quality/revise.py',
+    verbs: ['screen', 'types', 'plan'],
+    fields: ['pronunciations'],
+    reason:
+      'a refusal of a mandated pair while grading a draft, which screen, types and plan never do',
+  },
 ];
 
 // The fields a NOT_ADVICE row excuses: its `fields`, or those its phrase
@@ -314,14 +343,20 @@ const NOT_ADVICE = [
 const adviceFields = (rule) =>
   new Set(rule.fields || [...rule.phrase.matchAll(/`([a-z_][a-z0-9_]*)`/g)].map((m) => m[1]));
 
-const literals = () =>
-  JSON.parse(
+let scanned;
+const allLiterals = () =>
+  (scanned ??= JSON.parse(
     execFileSync('python3', ['-I', '-W', 'ignore', 'scripts/message_literals.py', root], {
       cwd: root,
       encoding: 'utf8',
       maxBuffer: 64 * 1024 * 1024,
     })
-  );
+  ));
+// quality/plan.py is Andrej's under the planner-file rule; its messages are
+// held by the planner todo below until his rewording lands, then here.
+const PLANNER_FILE = 'quality/plan.py';
+const literals = () => allLiterals().filter((r) => r.file !== PLANNER_FILE);
+const plannerLiterals = () => allLiterals().filter((r) => r.file === PLANNER_FILE);
 // A usage line, printed for a malformed command line: it starts with `usage:`.
 const isUsage = (text) => /^\s*(REFUSED — )?usage:/i.test(text);
 // Argument-parsing constants (`'--lines='`), not sentences.
@@ -331,7 +366,12 @@ const isToken = (text) => /^\s*(--[a-z][a-z0-9-]*(=(\{\})?)?\s*)+$/.test(text);
 const isCommand = (text) => /^\s*(NEXT: )?python3 lyric_harness\.py /.test(text);
 const verbsOf = (row) =>
   row.verbs.includes('*') ? CONNECTOR_VERBS : row.verbs.filter((v) => v in VERB_TOOLS);
-const matches = (rule, text) => (rule.exact ? text === rule.phrase : text.includes(rule.phrase));
+// A row may be scoped to a file and to verbs; unscoped, it matches anywhere.
+const scoped = (rule, row) =>
+  (!rule.file || rule.file === row.file) &&
+  (!rule.verbs || verbsOf(row).some((v) => rule.verbs.includes(v)));
+const matches = (rule, text, row) =>
+  (rule.exact ? text === rule.phrase : text.includes(rule.phrase)) && (!row || scoped(rule, row));
 const exempted = (rule) =>
   new Set(rule.flags === 'all' ? CONNECTOR_FLAGS : rule.flags || flagsIn(rule.phrase));
 
@@ -341,7 +381,7 @@ function flagFindings(rows) {
     if (!verbsOf(row).length || isUsage(row.text) || isToken(row.text) || isCommand(row.text))
       continue;
     const covered = new Set(
-      UNREACHABLE.filter((r) => matches(r, row.text)).flatMap((r) => [...exempted(r)])
+      UNREACHABLE.filter((r) => matches(r, row.text, row)).flatMap((r) => [...exempted(r)])
     );
     const flags = flagsIn(row.text).filter((f) => !covered.has(f));
     if (flags.length)
@@ -356,7 +396,7 @@ function flagFindings(rows) {
 // lyric_x", or a list in parentheses. A tool merely mentioned is no target.
 const sendsTo = (text, tool) =>
   new RegExp(
-    `(?:\\b(?:on|to|with|for|through|use|call)\\s+|\\()(?:lyric_[a-z]+(?:,\\s*|\\s+(?:and|or)\\s+))*${tool}\\b`
+    `(?<!\\bnot )(?:\\b(?:on|to|with|for|through|use|call)\\s+|\\()(?:lyric_[a-z]+(?:,\\s*|\\s+(?:and|or)\\s+))*${tool}\\b`
   ).test(text);
 
 // A tool the message sends the caller to accepts the field: in the current
@@ -406,7 +446,7 @@ test('every exemption has a reason and still matches a message it is needed for'
   for (const rule of UNREACHABLE) {
     assert.ok(rule.reason && rule.reason.length > 20, `${rule.phrase}: a reason`);
     assert.ok(exempted(rule).size, `${rule.phrase}: names the flags it exempts`);
-    const hits = rows.filter((r) => matches(rule, r.text));
+    const hits = rows.filter((r) => matches(rule, r.text, r));
     assert.ok(hits.length, `${rule.phrase}: still a message`);
     assert.ok(
       hits.some((r) => flagsIn(r.text).some((f) => exempted(rule).has(f))),
@@ -473,6 +513,7 @@ test('the rules catch planted messages of each kind', () => {
     { file: 'x', line: 26, verbs: ['recover'], text: 'declare `groups` on lyric_revise' },
     { file: 'x', line: 27, verbs: ['recover'], text: 'declare `groups` on lyric_check' },
     { file: 'x', line: 28, verbs: ['recover'], text: 'declare `pronunciations` on lyric_revise' },
+    { file: 'x', line: 29, verbs: ['recover'], text: 'declare `groups` (not for lyric_check)' },
   ];
   assert.deepEqual(
     flagFindings(planted).map((f) => f.split(' ')[0]),
@@ -491,6 +532,7 @@ test('the rules catch planted messages of each kind', () => {
     'x:24',
     'x:25',
     'x:26',
+    'x:29',
   ])
     assert.ok(fields.includes(hit), hit);
   for (const ok of ['x:12', 'x:14', 'x:15', 'x:18', 'x:23', 'x:27', 'x:28'])
@@ -510,6 +552,7 @@ test('the rules catch planted messages of each kind', () => {
         "        print('the else')",
         "    if cmd == 'recover':",
         "        print('recover only')",
+        "    label = 'the plan' if cmd in ('song', 'finish') else 'the caller'",
       ].join('\n')
     );
     const got = JSON.parse(
@@ -528,6 +571,8 @@ test('the rules catch planted messages of each kind', () => {
     assert.ok(verbsFor('the else').includes('song'), 'an inexact or keeps song in its else');
     assert.ok(!verbsFor('the else').includes('brief'), 'brief, exact, leaves the else');
     assert.deepEqual(verbsFor('recover only'), ['recover']);
+    assert.ok(!verbsFor('the caller').includes('song'), 'an inline else leaves the verbs it names');
+    assert.ok(verbsFor('the plan').includes('song'), 'an inline body keeps them');
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -579,6 +624,7 @@ const CASES = [
     /screen `relation` 'class:NO_SUCH_RELATION' names no declarable relation/,
   ],
   ['lyric_types', { word_a: 'a--b', word_b: 'coat' }, /'a--b' is not a single bare word/],
+  ['lyric_check', { lines: two, groups: '1,2', subdivision: 4 }, /`subdivision` needs `blueprint`/],
   [
     'lyric_plan',
     { seed: 3, melody: 'not a phrase' },
@@ -649,5 +695,18 @@ test(
     } finally {
       await close();
     }
+  }
+);
+
+// And row by row: every message in quality/plan.py, held to both rules. Its
+// own todo until the planner rewording lands; then fold plan.py back into
+// `literals` and delete this test (Andrej's review of #871, should-fix 3).
+test(
+  "the planner's messages, row by row, name fields, not flags",
+  { todo: "quality/plan.py's messages: Andrej rewords them after #871 (planner-file rule)" },
+  () => {
+    const rows = plannerLiterals();
+    assert.ok(rows.length, 'quality/plan.py is scanned');
+    assert.deepEqual([...flagFindings(rows), ...fieldFindings(rows)], []);
   }
 );

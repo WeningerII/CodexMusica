@@ -3247,6 +3247,12 @@ export function registerLyricTools(server, tool) {
                 );
               if (!seeded && a.structures && !STRUCTURES_RE.test(a.structures))
                 throw refuse("structures must be 'LABEL:name' pairs, comma-separated");
+              // The reverse used to be dropped without a word: the field was
+              // only sent inside the blueprint branch (#871, Andrej's review).
+              if (a.subdivision != null && a.blueprint == null)
+                throw refuse(
+                  '`subdivision` needs `blueprint` — send `blueprint` too, or drop `subdivision`; without a blueprint nothing reads it'
+                );
               if (a.blueprint != null && a.subdivision == null)
                 throw refuse(
                   '`blueprint` needs `subdivision` — the slot questions refuse rather than assume a grid'
@@ -3868,6 +3874,10 @@ export function registerLyricTools(server, tool) {
         // untargeted-rewrite rejection. This repo has already recorded what
         // happens when it is parsed and not read: `targeted = None` left the
         // whole verb suite green.
+        if (a.subdivision != null && a.blueprint == null)
+          throw refuse(
+            '`subdivision` needs `blueprint` — send `blueprint` too, or drop `subdivision`; without a blueprint nothing reads it'
+          );
         if (a.blueprint != null && a.subdivision == null)
           throw refuse('`blueprint` needs `subdivision` — verify must use the declared grid');
         if (a.blueprint != null) {
@@ -4011,6 +4021,10 @@ export function registerLyricTools(server, tool) {
           );
         const draftPath = path.join(dir, 'draft.txt');
         await writeFile(draftPath, a.lines.join('\n') + '\n', 'utf8');
+        if (a.subdivision != null && a.blueprint == null)
+          throw refuse(
+            '`subdivision` needs `blueprint` — send `blueprint` too, or drop `subdivision`; without a blueprint nothing reads it'
+          );
         if (a.blueprint != null && a.subdivision == null)
           throw refuse(
             '`blueprint` needs `subdivision` — the slot questions refuse rather than assume a grid'

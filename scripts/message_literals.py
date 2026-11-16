@@ -27,10 +27,18 @@ import json
 import os
 import sys
 
-MODULE_VERBS = {
-    'quality/revise.py': ['song', 'brief', 'finish', 'revise', 'verify'],
-    'quality/recover.py': ['recover'],
-}
+def _quality_modules(node):
+    """-> the `quality.X` module names an import statement brings in."""
+    names = []
+    if isinstance(node, ast.ImportFrom) and node.module:
+        if node.module == 'quality':
+            names = [a.name for a in node.names]
+        elif node.module.startswith('quality.'):
+            names = [node.module.split('.')[1]]
+    elif isinstance(node, ast.Import):
+        names = [a.name.split('.')[1] for a in node.names
+                 if a.name.startswith('quality.')]
+    return names
 
 
 def _cmd_test(test):
@@ -118,7 +126,10 @@ def _docstrings(tree):
     return out
 
 
-def scan(path, name, fixed=None):
+def scan(path, name, fixed=None, imports=None):
+    """-> the strings of one file. `imports`, when given, collects each
+    quality module the file imports with the verbs that can reach the import
+    (None: any verb)."""
     tree = ast.parse(open(path, encoding='utf-8').read())
     docs = _docstrings(tree)
     out = []
@@ -133,6 +144,22 @@ def scan(path, name, fixed=None):
 
     def walk(node, ctx):
         """ctx: the set of verbs that can reach `node`, or None for any."""
+        if isinstance(node, ast.IfExp):
+            # `a if cmd in (...) else b` narrows its two values the way an
+            # `if` narrows its two branches.
+            t = _cmd_test(node.test)
+            walk(node.test, ctx)
+            if t and ctx is not None:
+                verbs, positive, exact, else_drop = t
+                if positive:
+                    body, orelse = ctx & verbs, ctx - else_drop
+                else:
+                    body, orelse = ctx - verbs, (ctx & verbs if exact else ctx)
+            else:
+                body = orelse = ctx
+            walk(node.body, body)
+            walk(node.orelse, orelse)
+            return
         if isinstance(node, ast.If):
             t = _cmd_test(node.test)
             walk(node.test, ctx)
@@ -149,6 +176,12 @@ def scan(path, name, fixed=None):
             for ch in node.orelse:
                 walk(ch, orelse)
             return
+        if imports is not None:
+            for mod in _quality_modules(node):
+                if ctx is None or imports.get(mod, set()) is None:
+                    imports[mod] = None
+                else:
+                    imports[mod] = imports.get(mod, set()) | ctx
         if emit(node, ['*'] if ctx is None else ctx):
             if isinstance(node, (ast.JoinedStr, ast.BinOp)):
                 return
@@ -169,12 +202,45 @@ def scan(path, name, fixed=None):
     return out
 
 
+def scan_all(root):
+    """-> every string of lyric_harness.py and of every quality module it
+    imports, directly or through another quality module. A module's verbs are
+    those of the branches that import it (an import outside every branch, or
+    in a helper, gives any verb); a module imported by another inherits the
+    importer's verbs."""
+    imports = {}
+    rows = scan(os.path.join(root, 'lyric_harness.py'), 'lyric_harness.py', imports=imports)
+    done = {}
+    queue = list(imports)
+    while queue:
+        mod = queue.pop()
+        verbs = imports[mod]
+        if mod in done and (done[mod] is None or (verbs is not None and verbs <= done[mod])):
+            continue
+        done[mod] = None if verbs is None or done.get(mod, set()) is None \
+            else done.get(mod, set()) | verbs
+        path = os.path.join(root, 'quality', mod + '.py')
+        if not os.path.exists(path):
+            continue
+        inner = {}
+        scan(path, f'quality/{mod}.py', None if done[mod] is None else done[mod], inner)
+        for sub_mod in inner:
+            v = done[mod]
+            if v is None or imports.get(sub_mod, set()) is None:
+                imports[sub_mod] = None
+            else:
+                imports[sub_mod] = imports.get(sub_mod, set()) | v
+            queue.append(sub_mod)
+    for mod, verbs in done.items():
+        path = os.path.join(root, 'quality', mod + '.py')
+        if os.path.exists(path):
+            rows += scan(path, f'quality/{mod}.py', verbs)
+    return rows
+
+
 def main(argv):
     root = os.path.join(argv[1] if len(argv) > 1 else '.', 'lyric-harness')
-    rows = scan(os.path.join(root, 'lyric_harness.py'), 'lyric_harness.py')
-    for p, verbs in MODULE_VERBS.items():
-        rows += scan(os.path.join(root, p), p, verbs)
-    json.dump(rows, sys.stdout)
+    json.dump(scan_all(root), sys.stdout)
 
 
 if __name__ == '__main__':
