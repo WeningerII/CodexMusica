@@ -1276,7 +1276,8 @@ test(
     assert.match(lineage.note, /title Kettle and Coat → none/);
 
     // The grade under the replacement, read back as the short verdict.
-    const lines = plan2.plan.total_lines;
+    // The session publishes a plan without its structured copy; the count is its own field.
+    const lines = plan2.plan_lines;
     const draft = Array.from(
       { length: lines },
       (_, i) =>

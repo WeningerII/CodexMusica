@@ -101,7 +101,12 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
     );
     assert.equal(empty.held_by[1].held, 28);
     assert.match(empty.meaning, /^REFUSED — the harness answered: 28 of 28/);
-    assert.match(empty.window_meaning, /held_by says how many/);
+    // Each predicate's own count is said, not pointed at.
+    assert.match(
+      empty.window_meaning,
+      /Each predicate held on its own, of the 28 planned: lines<=24 on 0; uses=verse,chorus on 28; /
+    );
+    assert.match(empty.window_meaning, /at most \d+\.\d% of seeds are kept under this request/);
     assert.match(empty.window_meaning, /declare a target length in `lines`/);
     assert.doesNotMatch(empty.window_meaning, /acceptance rate/);
     assert.doesNotMatch(empty.report, /unreachable in this range/);
@@ -1225,7 +1230,7 @@ test('sweep counts come from the machine record, not report prose; prose only fo
     noProse.meaning,
     'REFUSED — the harness answered: 3 of 4 seed(s) planned and none held every predicate'
   );
-  assert.match(noProse.window_meaning, /held_by says how many/);
+  assert.match(noProse.window_meaning, /Each predicate held on its own, of the 3 planned: /);
   assert.doesNotMatch(JSON.stringify(noProse), /undefined/);
   // An accepted record whose count line was reworded still gets its seed list.
   const reworded = sweepVerdict(
