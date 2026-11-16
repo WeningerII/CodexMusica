@@ -213,7 +213,7 @@ const CASES = [
     'a check with nothing standing',
     'lyric_check',
     { exit_code: 0, findings_measured: true, certified: true },
-    { kind: 'decision', by: 'person', call: call('lyric_revise') },
+    { kind: 'decision', by: 'person', call: null },
   ],
   [
     'a check with a flag standing',

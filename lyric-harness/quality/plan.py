@@ -3766,8 +3766,13 @@ def make_plan(seed, form=None, lines=None, relation=None,
     attempts = []
     for candidate_seed, plan in _want_candidates(seed, kw):
         if isinstance(plan, Exception):
+            # THE FACT, NOT THE ADVICE (writer plan, stage 2). A candidate's
+            # refusal is quoted by its first line. The line after it says
+            # "Another seed may plan", which is true of one candidate and
+            # would be false in the mouth of the refusal below: that one is
+            # about the request, after 64 candidates.
             attempts.append({"seed": str(candidate_seed), "status": "refused",
-                             "reason": str(plan)})
+                             "reason": str(plan).split("\n", 1)[0]})
             continue
         failed = ["".join(w) for w in parsed if not sweep_holds(plan, w)]
         attempts.append({"seed": str(candidate_seed),

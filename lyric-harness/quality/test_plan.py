@@ -5124,7 +5124,12 @@ def test_a_refusal_names_what_was_sent():
                  f"lines>={t_hi + 1}", f"lines<={t_lo - 1}"):
         requests.append({"wants": [want]})
         requests.append({"wants": [want], "lines": rng.randint(t_lo, t_hi)})
-    seen = {"draws": 0, "lines": 0, "bounds": 0, "other": 0, "planned": 0}
+    # A predicate no candidate can hold: every candidate runs out of draws,
+    # and the refusal that follows is about the REQUEST. It quotes each
+    # candidate's reason, and must not quote the advice that goes with one.
+    requests.append({"wants": [f"lines_per_section>={t_hi + 1}"]})
+    seen = {"draws": 0, "lines": 0, "bounds": 0, "candidates": 0, "other": 0,
+            "planned": 0}
     wrong = []
     for kw in requests:
         try:
@@ -5169,12 +5174,17 @@ def test_a_refusal_names_what_was_sent():
             seen["bounds"] += 1
             if of_seed or [w for w in wants if f"want {w}" not in first]:
                 wrong.append((kw, "bounds", first[:160]))
+        elif first.startswith("brief predicates found no accepted plan"):
+            seen["candidates"] += 1
+            if of_seed or [w for w in wants if w not in first] or (
+                    "500 seeded draws found no plan for" not in first):
+                wrong.append((kw, "candidates", first[:160]))
         else:
             seen["other"] += 1
     check("every drawn request that refuses names what it read and nothing "
           "that was not sent, and each of the three refusals was reached",
           not wrong and seen["draws"] and seen["lines"] and seen["bounds"]
-          and seen["planned"], (seen, wrong[:4]))
+          and seen["candidates"] and seen["planned"], (seen, wrong[:4]))
 
 
 def test_satisfied_wants_remain_in_the_request():

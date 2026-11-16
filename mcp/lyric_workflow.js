@@ -1006,16 +1006,17 @@ export function outcomeOf(tool, v, args = {}) {
   }
   if (tool === 'lyric_grade' || tool === 'lyric_check') {
     if ([0, 3].includes(code) && named) return takeOn(named);
-    // A clean check of lyrics the person supplied names no next step: nothing
-    // stands, and whether to take them on to the finishing revise is theirs
-    // to say (they may have asked only for the check).
+    // A clean check of lyrics the person supplied names no next step and no
+    // call: nothing stands, and what happens next is theirs to say (they may
+    // have asked only for the check). Naming lyric_revise here invited a run
+    // nobody asked for (R2's note on pull request 869).
     if (
       tool === 'lyric_check' &&
       code === 0 &&
       v.findings_measured === true &&
       v.certified === true
     )
-      return choose('person', callOf('lyric_revise'));
+      return choose('person', null);
     // Measured and not all judged, or refused: words to change or a reading
     // to declare, then the same tool again.
     return choose(declarationOnly(v) ? 'person' : 'writer', callOf(tool));
