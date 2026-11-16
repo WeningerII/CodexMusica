@@ -1802,6 +1802,44 @@ def bound_for(rel_path, default=None):
     return max(SUITE_TIMEOUT.get(rel_path, 0), default)
 
 
+# These suites already partition their complete section inventory in CI.
+# Run both halves here, rather than selecting one CI shard. The mutation
+# verdict still represents the entire suite, including every failing half.
+SUITE_SHARDS = {
+    "quality/test_revise.py": "TEST_REVISE_SHARD",
+    "quality/test_loop.py": "TEST_LOOP_SHARD",
+}
+
+
+def run_complete_suite(tree, rel_path, env, timeout):
+    shard_env = SUITE_SHARDS.get(rel_path)
+    count = 2 if shard_env else 1
+
+    def run(index):
+        child_env = dict(env)
+        if shard_env:
+            child_env[shard_env] = f"{index}/{count}"
+        try:
+            p = subprocess.run([sys.executable, rel_path], cwd=tree,
+                               env=child_env, capture_output=True, timeout=timeout)
+            status, _, tail = _test_result(p, 0)
+            return status, tail
+        except subprocess.TimeoutExpired:
+            return "TIMEOUT", f"timed out after {timeout:g}s (this suite's declared bound)"
+
+    if count == 1:
+        return run(1)
+    with futures.ThreadPoolExecutor(max_workers=count) as pool:
+        # Consume every result: a caught mutant never suppresses another
+        # half's timeout/error, and a green half never substitutes for both.
+        results = list(pool.map(run, range(1, count + 1)))
+    severity = {"PASS": 0, "FAIL": 1, "ERROR": 2, "TIMEOUT": 3}
+    status = max((s for s, _ in results), key=severity.__getitem__)
+    tail = " | ".join(f"shard {i}/{count}: {s} {detail}"
+                      for i, (s, detail) in enumerate(results, 1) if s != "PASS")
+    return status, tail
+
+
 def run_test(tree, rel_path, timeout=None):
     """-> (status, seconds, tail-of-output). status in PASS/FAIL/ERROR/TIMEOUT.
 
@@ -1818,17 +1856,11 @@ def run_test(tree, rel_path, timeout=None):
     GATE.acquire_shared()
     t0 = time.monotonic()
     try:
-        p = subprocess.run([sys.executable, rel_path], cwd=tree, env=env,
-                           capture_output=True, timeout=timeout)
-    except subprocess.TimeoutExpired:
-        # THE BOUND IS NAMED. It is per-suite now, so "timed out" alone leaves
-        # a reader guessing which ceiling was in force (`MISSING.md` M-30).
-        return ("TIMEOUT", round(time.monotonic() - t0, 1),
-                f"timed out after {timeout:g}s (this suite's declared bound)")
+        status, tail = run_complete_suite(tree, rel_path, env, timeout)
     finally:
         GATE.release_shared()
     dt = round(time.monotonic() - t0, 1)
-    return _test_result(p, dt)
+    return status, dt, tail
 
 
 def _test_result(p, dt):

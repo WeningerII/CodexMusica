@@ -1,0 +1,67 @@
+{
+  "scope": "Local complete-suite and QR2-only timing experiment; not production qualification",
+  "inputs": {
+    "scope": "Local serial versus two-partition suite study; not a complete qualification or hosted-runner timing claim",
+    "base_commit": "49765bbb3b16a9b3548a556434f0891108c021ac",
+    "image": "ghcr.io/weningerii/codexmusica/lyrics@sha256:cb55a4e7219bd78b2ff285a4788bfa9d41d6073ad0cd046af92a954e28395974",
+    "limits": {
+      "cpus": 4,
+      "memory": "6g",
+      "memory_swap": "6g",
+      "pids": 256,
+      "network": "none"
+    },
+    "python": "3.11.2",
+    "suite_deadlines_seconds": {
+      "quality/test_revise.py": 1600,
+      "quality/test_loop.py": 900
+    },
+    "files": {
+      "lyric-harness/quality/mutate.py": "29a373178d1e7ec7d26190762e08657c280520b7df181a8eccc3606eef17ec4b",
+      "lyric-harness/quality/test_revise.py": "8fb9a9d7a2614f4a5896baa841204db93df617654a4d63f73c9005c69bc2ccfc",
+      "lyric-harness/quality/test_loop.py": "9edbc4b3314e11fbc6e6639615e12cfad55113a94fb60b02359fa3668013020c",
+      "lyric-harness/quality/test_mutation_parallel.py": "05c519c2e26621c6f37d2858635dabb636e6ea48a0c3d669878de8ef718c2a20"
+    }
+  },
+  "suites": [
+    {
+      "suite": "revise",
+      "serial_s": 611.0289552290001,
+      "parallel_s": 426.977895173,
+      "reduction_percent": 30.121495631417638,
+      "sections": "64",
+      "checks": 399,
+      "identical_assertion_census": true,
+      "statuses": ["PASS", "PASS"]
+    },
+    {
+      "suite": "loop",
+      "serial_s": 468.60756760999993,
+      "parallel_s": 260.06340022099994,
+      "reduction_percent": 44.50294485268781,
+      "sections": "29",
+      "checks": 267,
+      "identical_assertion_census": true,
+      "statuses": ["PASS", "PASS"]
+    }
+  ],
+  "full_qualification_elapsed_s": null,
+  "under_30_minutes_established": false,
+  "evidence_sha256": {
+    "benchmark.json": "1c1c4925fe562227668fab7010c49b16a108fbdf003ef8c61595979cd9f36343",
+    "benchmark.py": "32c6bd3e013d1d54ad4147b6801db3c059235617f11202924b6672f773f396f6",
+    "loop-parallel-1-2.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "loop-parallel-1-2.stdout": "2ffe4efdccd8ec20e6b0db3286965d9afabcae2b607318613ad80a4a5bc05650",
+    "loop-parallel-2-2.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "loop-parallel-2-2.stdout": "1a0ef3a730c9d215974ae37956cb7d2ef3d33adbd490ecca79309714bd5843ab",
+    "loop-serial-all.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "loop-serial-all.stdout": "be9998d3133be58c0c146d38584fb30adbf27d61ee9fc5753f826c8416045247",
+    "mutant_benchmark.py": "dfdaff9d5c63de0d6e9b125452862b937e9a246c90c176e7214afc50112431b7",
+    "revise-parallel-1-2.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "revise-parallel-1-2.stdout": "30fad2a9fb4ee5ce2dc67a88a8d24d5fbb404e5d954daaee6eb4113f8f8bada8",
+    "revise-parallel-2-2.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "revise-parallel-2-2.stdout": "dcc0a0153459a210d7449c1bcd5b7c59d19ba39e09fda1345aa4dd22edc95496",
+    "revise-serial-all.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "revise-serial-all.stdout": "4b2b4262399326b162a4ea7f2eb40e4d8d7d76ed4d8649cf5aad17495042ffba"
+  }
+}
