@@ -8378,6 +8378,15 @@ def _lyric_run_record(say_memo, say_proposer, plan=None):
     return out
 
 
+def _as_field(flag):
+    """`--group-types=` -> "`group_types`": a declaration named by its field.
+
+    A refusal the connector can return names what its caller can SEND, and
+    a connector caller sends fields, not flags (stage T, #871). On the
+    command line the flag is the same word with `--` and `-` for `_`."""
+    return "`" + flag.lstrip("-").rstrip("=").replace("-", "_") + "`"
+
+
 def _refuse(msg, sides=(), detail=(), machine=None):
     """Print the ONE refusal shape and exit 2. Never returns.
 
@@ -8437,7 +8446,7 @@ def _value_in_vocabulary_or_refuse(flag, value, vocabulary, why=""):
     """
     if value in vocabulary:
         return value
-    _refuse(f"{flag} wants one of {', '.join(sorted(vocabulary))}; got "
+    _refuse(f"{_as_field(flag)} wants one of {', '.join(sorted(vocabulary))}; got "
             f"{value!r}." + (f" {why}" if why else ""))
 
 
@@ -8518,7 +8527,7 @@ def _subdivision_or_refuse(FT, raw, source):
     try:
         return FT.Subdivision(slots_per_pulse=int(raw), source=source)
     except ValueError as e:
-        _refuse(f"--subdivision wants a positive whole number of slots per "
+        _refuse(f"`subdivision` wants a positive whole number of slots per "
                 f"pulse; got {raw!r} ({e}). It is a DECLARED coordinate with "
                 f"no default -- omit it entirely and the slot questions "
                 f"refuse rather than assume a sixteenth-note grid.")
@@ -10901,7 +10910,7 @@ def _parse_melody_flag(raw):
     try:
         return validate_melody(json.loads(raw))
     except (ValueError, TypeError) as exc:
-        _refuse(f"--melody requires a valid phrase JSON object: {exc}")
+        _refuse(f"`melody` requires a valid phrase JSON object: {exc}")
 
 
 def _parse_group_types_flag(raw):
@@ -10917,10 +10926,10 @@ def _parse_group_types_flag(raw):
     try:
         value = json.loads(raw)
     except ValueError as exc:
-        _refuse(f"--group-types requires a JSON list of {{group, type}}: "
+        _refuse(f"`group_types` requires a JSON list of {{group, type}}: "
                 f"{exc}")
     if not isinstance(value, list):
-        _refuse(f"--group-types requires a JSON list of {{group, type}}; got "
+        _refuse(f"`group_types` requires a JSON list of {{group, type}}; got "
                 f"{type(value).__name__}")
     return value
 
@@ -12098,7 +12107,7 @@ def main():
         # report, while `lyric_recover` takes the mandate off the record.
         ms = rec.get("mandate_spelling") or {}
         print("  MANDATE SPELLING (the cover as the two declarations `groups` "
-              "and `returns`, for check and revise; `groups` charges a "
+              "and `returns`, for lyric_check and lyric_revise; `groups` charges a "
               "REPEAT edge as a violation, `returns` is the only "
               "declaration that holds one):")
         print(f"    groups: {ms.get('--groups=', '')}")
@@ -13947,7 +13956,7 @@ def main():
         # that DECLARES first, the side that was HANDED IN after it.
         sides = []
         if bp_path:
-            sides.append(("DECLARED  --blueprint=", bp_path))
+            sides.append(("DECLARED  `blueprint`", bp_path))
 
         def _say_blueprint():
             """Printed only once a mandate spec is known to be present —
@@ -14411,7 +14420,7 @@ def main():
                 # A letter string BESIDE a flag. Refused rather than ignored:
                 # silently dropping it is the very defect this block closes.
                 _refuse(f"mandate {tail[0]!r} was handed in beside "
-                        f"{' '.join(names)}, and a letter scheme cannot be "
+                        f"{' '.join(_as_field(n) for n in names)}, and a letter scheme cannot be "
                         f"combined with either",
                         detail=["a letter is a property of a LINE (doctrine "
                                 "2), so it cannot carry an overlapping group "
@@ -14423,7 +14432,7 @@ def main():
             r = _groups(by["--returns="], "returns") if "--returns=" in by else []
             for flag, val in (("--structures=", st), ("--relations=", rl)):
                 if val is not None and not (g or r):
-                    _refuse(f"{flag} was handed in with no groups to "
+                    _refuse(f"{_as_field(flag)} was handed in with no groups to "
                             f"annotate — declare the mandate it speaks about "
                             f"(a letter scheme, `groups` and/or `returns`)")
             if gt is not None:
@@ -16478,8 +16487,8 @@ def cli():
                         "pair guard (`relations.realise`, max_pairs). "
                         "MEASURED on the planner's fixture draft: 53 lines "
                         "56 s, 108 lines 330 s, 144 lines refused.",
-                        "declare a relation per group (`--relation=` / "
-                        "`--relations=`) so the registry is not searched "
+                        "declare `relation` (one for every group) or "
+                        "`group_types` (one per group) so the registry is not searched "
                         "song-wide; the song keeps the length it was asked "
                         "for. A whole-vocabulary judgment that scales "
                         "is `MISSING.md` M-240, open."])

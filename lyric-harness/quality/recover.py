@@ -313,7 +313,8 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
           "above, and a grid inferred from them would be this harness "
           "declaring a meter on the writer's behalf and then grading them "
           "against it. Declare one as `blueprint` where the lines are graded "
-          "(check, revise or verify) and every meter check runs")
+          "(lyric_check, lyric_revise or lyric_verify) and every meter "
+          "check runs")
 
     # 5. THE WEB. The cover over PLACEMENTS, not over line ends — which is
     #    the whole reason this module is written now rather than in terms of
@@ -420,7 +421,8 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
            "--returns=": ";".join(f"{e['a']},{e['b']}"
                                   for e in bare_repeats)},
           "derived",
-          f"the cover as the two mandate declarations for check and revise, split on whether each "
+          f"the cover as the two mandate declarations for lyric_check and "
+          f"lyric_revise, split on whether each "
           f"edge's relation set holds REPEAT: {len(rhymes)} edge(s) to `groups` and "
           f"{len(bare_repeats)} line-level REPEAT class(es) to `returns`, "
           f"which is the ONLY declaration under which identity is the "
@@ -442,7 +444,7 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
         r.put("repeats_at_a_placement", len(placed_repeats), "REFUSED",
               f"{len(placed_repeats)} recovered REPEAT edge(s) bind at a "
               f"PLACEMENT ({_shown}{_more}) and are not in the mandate "
-              f"spelling. A placed return IS spellable — `returns` (on check and revise) takes "
+              f"spelling. A placed return IS spellable — `returns` (on lyric_check and lyric_revise) takes "
               f"members such as `1.head,3.head` — but this cover's REPEAT is "
               f"the same word as the lexicon reads it (so `You` ~ `you`), "
               f"while the placed-return judge compares the word as written "
