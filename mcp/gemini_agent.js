@@ -1224,15 +1224,21 @@ export function parkedChangeable(lyr) {
   }
   return [...allowed].sort((a, b) => a - b);
 }
+// Compared on the sung lines the tool itself reads (`normalizeDraftLines`,
+// the same normalisation `takeLines` applies), so a blank row or a bracketed
+// header in the array cannot shift the comparison (3PO on #866).
 function changedOutside(lyr, draft) {
   const allowed = parkedChangeable(lyr);
-  if (allowed == null || !Array.isArray(lyr?.draft) || draft.length !== lyr.draft.length) return [];
+  if (allowed == null || !Array.isArray(lyr?.draft)) return { outside: [] };
+  const before = normalizeDraftLines(lyr.draft);
+  const after = normalizeDraftLines(draft);
+  if (after.length !== before.length) return { outside: [], count: [before.length, after.length] };
   const ok = new Set(allowed);
-  return draft
-    .map((l, i) =>
-      String(l).trim() !== String(lyr.draft[i]).trim() && !ok.has(i + 1) ? i + 1 : null
-    )
-    .filter((n) => n != null);
+  return {
+    outside: after
+      .map((l, i) => (l !== before[i] && !ok.has(i + 1) ? i + 1 : null))
+      .filter((n) => n != null),
+  };
 }
 function parkedRefusal(lyr, name, args) {
   if (lyr.uncertified)
@@ -1263,14 +1269,18 @@ function parkedRefusal(lyr, name, args) {
 export function parkedLinesRefusal(lyr, name, args) {
   if (name !== 'lyric_revise' || !isParked(lyr) || lyr.uncertified || !Array.isArray(args?.draft))
     return null;
-  if (sameDraft(args.draft, lyr.input_draft)) return null;
-  const outside = changedOutside(lyr, args.draft);
-  if (!outside.length) return null;
+  if (
+    Array.isArray(lyr.input_draft) &&
+    sameDraft(normalizeDraftLines(args.draft), normalizeDraftLines(lyr.input_draft))
+  )
+    return null;
+  const { outside, count } = changedOutside(lyr, args.draft);
   const who = typeof lyr.seed === 'number' ? `seed ${lyr.seed}` : 'the declared mandate';
-  return (
-    `REFUSED by the connector: a lyric_revise run for ${who} is PARKED at exit 3, and this call changes line(s) ` +
-    `${outside.join(', ')}, which are not open: a parked rewrite may change only line(s) ${parkedChangeable(lyr).join(', ')}.`
-  );
+  const head = `REFUSED by the connector: a lyric_revise run for ${who} is PARKED at exit 3, and this call`;
+  if (count)
+    return `${head} sends ${count[1]} sung line(s) for a ${count[0]}-line song: a parked rewrite keeps the line count and may change only line(s) ${parkedChangeable(lyr).join(', ')}.`;
+  if (!outside.length) return null;
+  return `${head} changes line(s) ${outside.join(', ')}, which are not open: a parked rewrite may change only line(s) ${parkedChangeable(lyr).join(', ')}.`;
 }
 
 function uncertifiedRunNote() {

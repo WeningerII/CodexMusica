@@ -510,3 +510,39 @@ test('completion receipts are carried by the first checkpoint after a finished r
   );
   assert.equal(checkpoints[0].task.completed_revise_keys.length, 1);
 });
+
+// A PARKED REWRITE IS JUDGED ON THE SUNG LINES THE TOOL READS (3PO on #866).
+// A blank row or a bracketed header in the array is dropped by the revise
+// tool's own normalisation, so it must not move the parked-line comparison:
+// the decorated closed-line rewrite is refused exactly like the bare one.
+test('a parked rewrite of a closed line is refused with or without array decoration', async () => {
+  const closed = [accepted[0], 'A closed placeholder line rewritten'];
+  for (const sendDraft of [closed, ['', ...closed], ['[SECTION]', ...closed]]) {
+    const { out, dispatched } = await turn([
+      { draft, ...decl },
+      { draft: sendDraft, ...decl },
+    ]);
+    assert.equal(
+      dispatched,
+      1,
+      `only the first revise reaches the tool: ${JSON.stringify(sendDraft)}`
+    );
+    assert.match(out.calls[1].error || '', /changes line\(s\) 2, which are not open/);
+  }
+  // A genuine change of sung-line count is refused by name, not admitted.
+  const { out, dispatched } = await turn([
+    { draft, ...decl },
+    { draft: [...accepted, 'An added placeholder line'], ...decl },
+  ]);
+  assert.equal(dispatched, 1);
+  assert.match(out.calls[1].error || '', /sends 3 sung line\(s\) for a 2-line song/);
+  // The open line, decorated or not, still reaches the tool.
+  const open = ['A rewritten open placeholder line', accepted[1]];
+  for (const sendDraft of [open, ['[SECTION]', '', ...open]]) {
+    const r = await turn([
+      { draft, ...decl },
+      { draft: sendDraft, ...decl },
+    ]);
+    assert.equal(r.dispatched, 2, `the open-line rewrite runs: ${JSON.stringify(sendDraft)}`);
+  }
+});
