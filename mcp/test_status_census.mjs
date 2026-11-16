@@ -1049,6 +1049,22 @@ test('a running operation is read again and never sent again; a dropped connecti
   assert.equal(finished.status, 'completed');
   assert.equal(finished.session_id, queued.operation_id);
   assert.equal(dispatched, 1, 'the work ran once');
+  // WHEN THE HOST FAILS A CALL the server cannot speak, so the step is in what
+  // an agent has already read: the description of the tool that reads an
+  // operation. (Not the session guide: a host shows its first 4,096
+  // characters, and they are full.) The step is the same call again. It is
+  // that operation, finished or not, and the work is not run a second time.
+  const described = (await client.listTools()).tools.find((x) => x.name === 'get_operation');
+  assert.ok(
+    described.description.includes(
+      'When the host fails a call in transport (a 502 answer, a dropped connection), nothing says whether it was queued: send the same call again with the same session_id and arguments. A call that was queued is answered with that same operation and is never run twice.'
+    ),
+    described.description
+  );
+  const again = await send(client, 'lyric_sweep', sweep);
+  assert.equal(again.operation_id, queued.operation_id);
+  assert.equal(again.status, 'completed');
+  assert.equal(dispatched, 1, 'the work still ran once');
 });
 
 test('an interrupted operation is resumed only when that is safe', async (t) => {
@@ -1163,6 +1179,79 @@ test('an interrupted operation is resumed only when that is safe', async (t) => 
   const record = receiptOf(await follow(client, unknown));
   assert.deepEqual(record.accepted_draft, ['<accepted line>']);
   assert.equal(record.outcome.kind, 'unknown');
+});
+
+// Stage 0, two runs: the server was killed for memory while one long grade
+// ran; the agent resumed it as told; the resume was killed the same way. The
+// receipt said "interrupted, resumable" both times.
+test('an operation cut by a process restart says how many in a row; after two, resuming is the person’s choice', async (t) => {
+  const { store, directory } = storeFor(t);
+  const never = () => new Promise(() => {});
+  let sessions = new WorkflowSessions({ store, execute: never });
+  let client = await sessionClient(t, sessions);
+  const opened = await send(client, 'begin_lyrics', {});
+  const queued = await send(client, 'lyric_sweep', {
+    session_id: opened.session_id,
+    seed_from: 1,
+    count: 1,
+  });
+  assert.equal(queued.status, 'pending');
+  assert.equal(queued.restarts_in_a_row, undefined);
+  // The process dies while it runs, and a new one opens the same store.
+  const restart = async (execute) => {
+    sessions = new WorkflowSessions({ store: new JobStore(directory), execute });
+    client = await sessionClient(t, sessions);
+  };
+  await restart(never);
+  const once = await send(client, 'get_operation', { operation_id: queued.operation_id });
+  assert.equal(once.status, 'interrupted');
+  assert.equal(once.interruption, 'process_restarted');
+  assert.equal(once.resumable, true);
+  assert.equal(once.restarts_in_a_row, 1);
+  // One restart: resume it. The call is admitted on the restarted server.
+  const resume = { tool: 'resume_operation', args: { operation_id: queued.operation_id } };
+  assert.deepEqual(once.outcome, { kind: 'next_call', by: 'writer', call: resume });
+  const resumed = receiptOf(await follow(client, once));
+  assert.equal(resumed.status, 'pending');
+  // The resume is cut the same way.
+  await restart(async (session, name) => ({ session, result: done(name) }));
+  const twice = await send(client, 'get_operation', { operation_id: resumed.operation_id });
+  assert.equal(twice.status, 'interrupted');
+  assert.equal(twice.resumable, true);
+  assert.equal(twice.restarts_in_a_row, 2);
+  // Two in a row: the same work has not survived twice, so going on is the
+  // person's choice. The call that takes the answer is still the resume.
+  assert.deepEqual(twice.outcome, {
+    kind: 'decision',
+    by: 'person',
+    call: { tool: 'resume_operation', args: { operation_id: resumed.operation_id } },
+  });
+  // And when the person says yes, the resume works: admitted, run once, finished.
+  const third = receiptOf(await follow(client, twice));
+  assert.equal(third.status, 'pending');
+  await sessions.wait(third.operation_id);
+  const finished = await send(client, 'get_operation', { operation_id: third.operation_id });
+  assert.equal(finished.status, 'completed');
+  assert.equal(finished.restarts_in_a_row, undefined);
+  assert.equal(finished.tool_result.content[0].text, '<lyric_sweep result>');
+  // An interruption that is not a restart counts none.
+  const cutting = new WorkflowSessions({
+    store: storeFor(t).store,
+    execute: async () => {
+      throw new Error('connection lost');
+    },
+  });
+  const other = await sessionClient(t, cutting);
+  const begun = await send(other, 'begin_lyrics', { phase: 'edit' });
+  const lost = await send(other, 'lyric_revise', {
+    session_id: begun.session_id,
+    draft: ['<line>'],
+  });
+  await cutting.wait(lost.operation_id);
+  const read = await send(other, 'get_operation', { operation_id: lost.operation_id });
+  assert.equal(read.status, 'interrupted');
+  assert.notEqual(read.interruption, 'process_restarted');
+  assert.equal(read.restarts_in_a_row, undefined);
 });
 
 test('a retired id is followed to its successor, or the workflow is opened again', async (t) => {

@@ -18,6 +18,8 @@ export const READER_LIMITS = Object.freeze({
 // earliest appended first); the new receipt is always kept. A key whose receipt
 // was dropped is a new control again (mcp/READER_RUNTIME.md).
 export const CONTROL_RECEIPT_CAP = 256;
+// How long one passed write probe answers readiness() for (see readiness()).
+export const READINESS_PROBE_MS = 60_000;
 const HASH = /^[a-f0-9]{64}$/;
 const ID = /^reader_[a-f0-9]{64}$/;
 const STATES = new Set([
@@ -2044,18 +2046,33 @@ export class ReaderJobStore {
     fs.unlinkSync(file);
     syncDirectory(this.directory);
   }
+  // THE WRITE PROBE RUNS AT MOST ONCE PER READINESS_PROBE_MS (writer plan,
+  // stage 2). readiness() is what /health reads, and the host asks /health
+  // every few seconds. Each read took the writer lock and ran the probe: five
+  // fsyncs (the lock file, the probe file, and the directory three times),
+  // every one synchronous. On the live service's disk that held the event loop
+  // for 0.95 to 3.0 seconds per health check (its own request log, 15 Nov
+  // 2026), so every other request waited behind it, and a health check that
+  // answers late is one of the two causes the host documents for its 502s.
+  // A passed probe now stands for READINESS_PROBE_MS, and a read inside that
+  // time touches no file. A latched failure still refuses at once, and a probe
+  // that fails latches it, so a failure is never remembered as a pass.
   readiness() {
+    const fields = () => ({
+      durable: true,
+      namespace: 'reader-jobs-v1',
+      bytes: this.usage,
+      usage_known: this.usage !== null,
+      max_bytes: this.maxBytes,
+      lease_ms: this.leaseMs,
+      retention_ms: this.ttlMs,
+    });
+    const since = this._probedAt == null ? null : this.now() - this._probedAt;
+    if (!this.failure && since != null && since >= 0 && since < READINESS_PROBE_MS) return fields();
     return this._open(() => {
       this._probe();
-      return {
-        durable: true,
-        namespace: 'reader-jobs-v1',
-        bytes: this.usage,
-        usage_known: this.usage !== null,
-        max_bytes: this.maxBytes,
-        lease_ms: this.leaseMs,
-        retention_ms: this.ttlMs,
-      };
+      this._probedAt = this.now();
+      return fields();
     });
   }
 }

@@ -1626,7 +1626,8 @@ test('get_operation refuses a detail or lines the operation cannot serve; an edi
   const read = (operation_id, extra) => call(client, 'get_operation', { operation_id, ...extra });
   const text = (r) => r.content.map((c) => c.text).join('\n');
 
-  // A sweep has no detail parts: every part used to return its summary.
+  // A sweep serves its own parts and refuses the rest by name: before it had
+  // parts, every part returned its summary.
   const begun = data(await call(client, 'begin_lyrics', { phase: 'create' }));
   const swept = data(
     await call(client, 'lyric_sweep', {
@@ -1638,14 +1639,28 @@ test('get_operation refuses a detail or lines the operation cannot serve; an edi
   );
   await sessions.wait(swept.operation_id);
   assert.equal(data(await read(swept.operation_id)).status, 'completed');
-  for (const detail of ['findings', 'report', 'coverage', 'pronunciations', 'full', 'pairs']) {
+  for (const detail of ['findings', 'coverage', 'pronunciations', 'pairs', 'plan']) {
     const r = await read(swept.operation_id, { detail });
     assert.equal(r.isError, true, `sweep detail ${detail}`);
     assert.match(
       text(r),
-      /^DETAIL_NOT_APPLICABLE: .*lyric_sweep\. Call get_operation without detail/
+      /^DETAIL_NOT_APPLICABLE: a lyric_sweep has detail refusals, report, full; /
     );
   }
+  for (const detail of ['refusals', 'report', 'full']) {
+    const r = await read(swept.operation_id, { detail });
+    assert.notEqual(r.isError, true, `sweep detail ${detail}: ${text(r).slice(0, 200)}`);
+  }
+  assert.match(
+    text(await read(swept.operation_id, { detail: 'report', lines: [1] })),
+    /^LINES_NOT_APPLICABLE: lines narrows only findings, coverage, pronunciations on a lyric_grade, lyric_revise or lyric_check; detail "report" on a lyric_sweep/
+  );
+  // An operation that is not one of those tools has no detail at all.
+  const none = await read(begun.session_id, { detail: 'report' });
+  assert.match(
+    text(none),
+    /^DETAIL_NOT_APPLICABLE: detail applies to a finished lyric_grade, lyric_revise, lyric_check, lyric_screen, lyric_plan or lyric_sweep; this operation is not a tool call\. Call get_operation without detail/
+  );
   const bare = await read(swept.operation_id, { lines: [1] });
   assert.match(text(bare), /^DETAIL_REQUIRED: /);
 

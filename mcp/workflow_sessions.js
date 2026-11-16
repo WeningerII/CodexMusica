@@ -142,6 +142,15 @@ function receiptOutcome(receipt, session, domain) {
         : { kind: 'decision', by: 'writer' };
   }
   if (receipt.status === 'interrupted') {
+    // Cut by a process restart twice in a row, the operation and its resume:
+    // the same work has not survived twice, so a third try is the person's
+    // choice. The call that takes the answer is still the resume.
+    if (receipt.resumable && receipt.restarts_in_a_row >= 2)
+      return {
+        kind: 'decision',
+        by: 'person',
+        call: { tool: 'resume_operation', args: { operation_id: id } },
+      };
     if (receipt.resumable) return act('next_call', 'resume_operation', { operation_id: id });
     if (receipt.uncertain_proposal || receipt.tool !== 'lyric_revise' || !receipt.session_id)
       return act('unknown', 'get_operation', { operation_id: id });
@@ -585,6 +594,26 @@ export class WorkflowSessions {
     }
   }
 
+  // HOW MANY PROCESS RESTARTS IN A ROW cut this operation and the operations
+  // it was resumed from (writer plan, stage 2). Stage 0: the server was killed
+  // for memory while one long grade ran, the agent resumed it as its receipt
+  // said, and the resume was killed the same way; the receipt read
+  // "interrupted, resumable" both times, and a third resume would have been a
+  // third kill. A resume names the operation it resumes (continuation_id), so
+  // the count is read off the records; nothing new is stored.
+  restartsInARow(record) {
+    let count = 0;
+    for (
+      let r = record;
+      r?.state === 'interrupted' && r.interruption === 'process_restarted';
+      r = this.lookup(r.intent.continuation_id)
+    ) {
+      count++;
+      if (r.intent?.action?.resumed !== true) break;
+    }
+    return count;
+  }
+
   // Whether an interrupted operation can continue with resume_operation.
   resumable(record, session) {
     if (record.state !== 'interrupted' || this.store.failure) return false;
@@ -971,6 +1000,7 @@ export class WorkflowSessions {
     if (detail !== undefined || lines?.length) checkDetail(record, result, detail, lines);
     const accepted = record.progress?.accepted_lines ?? record.checkpoint?.accepted_lines;
     const resumable = this.resumable(record, session);
+    const restarts = this.restartsInARow(record);
     // The id continues the workflow when its operation finished, or when it was
     // interrupted and cannot resume (new work then starts from before it). A
     // start_recipe that failed opened nothing to continue.
@@ -996,6 +1026,7 @@ export class WorkflowSessions {
       ...(result?.isError ? { tool_error: true } : {}),
       ...(accepted ? { accepted_draft: accepted } : {}),
       ...(record.interruption ? { interruption: record.interruption } : {}),
+      ...(restarts ? { restarts_in_a_row: restarts } : {}),
       ...(record.state === 'pending' ? { retry_after_seconds: PENDING_POLL_SECONDS } : {}),
       resumable,
       durable: this.store.durable,

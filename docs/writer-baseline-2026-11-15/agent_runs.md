@@ -60,6 +60,22 @@ The five runs overlapped from about 19:35 to 20:04 UTC on 15 November. The host'
 
 Both kills came while the 444-line grade was running or had just been resumed.
 
+## The Bad Gateway answers, measured afterwards (16 November)
+
+Read from the host's records and the service's own request log for 15 November. Nothing was run on the live server for this.
+
+- The host counted 93 answers with status 502 in three bursts: 37 from 19:40 to 19:44 (before any restart), 9 from 19:53 to 19:56, and 47 from 20:02 to 20:07.
+- The service's own log for those three stretches has no 5xx and no aborted request. Every call to `/mcp` that reached it was answered 200 (93, 19 and 2 calls). So the 502s were given by the host's proxy for calls the service never saw.
+- From 20:02 to 20:08 the host gave 47 502s while 2 calls to `/mcp` reached the service. In the same minutes 17 plain reads of `/health` sent through the same proxy were all answered 200.
+- The host's troubleshooting page names two causes of a 502 for a service like this one. One is a Node server whose idle-connection timeout is too low. This server used Node's default, 5 seconds, which is also the interval a pending operation is polled at. A proxy sends a read again when a reused connection turns out closed and does not send a write again, which is the pattern above.
+- The other cause it names is a health check that answers late (over 5 seconds, for 15 seconds in a row). Each health check here made five synchronous disk syncs and took 0.87 to 4.8 seconds inside the service (median 1.1), and nothing else was answered while one ran. Four in a row took 3.5 to 4.8 seconds at 19:41. Health checks were answering in about a second during the second and third bursts, so this cause does not explain those.
+- Also seen: a call that queues a lyric operation takes about a second inside the service (sweep: 0.9 to 4.9 seconds, median 1.1), and nothing else is answered meanwhile. A read of an operation takes about 5 milliseconds.
+- After the 19:52 restart the service was listening within a second, and a `resume_operation` call was admitted 34 seconds later. The resumed grade was the one that ran out of memory again at 20:02.
+
+Not proven: the host's proxy log is not available, so the idle-connection cause is the reading that fits every burst, not a recorded fact. The check is the host's 502 count once the fix is live.
+
+The counts from the service's log were computed by script from a hand copy of 510 log lines (the log tool returns no file), with checks that each page's line count and each call's start line matched.
+
 ## One long grade, measured alone
 
 Run on a development machine, not on the live server, on main `f022397c44`: the same seed and form the agent drew (444 lines, ten sections), filled with a placeholder draft that keeps the plan's own repeats, graded once with the command the plan verb prints.
