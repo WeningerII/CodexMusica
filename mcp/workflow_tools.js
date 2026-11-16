@@ -18,6 +18,7 @@ import { LYRIC_TOOL_SCHEMAS, MAX_LINES } from './lyric_tools.js';
 import { expectedSurface } from './surface_contract.js';
 import { executeNative, publicToolResult } from './workflow_sessions.js';
 import { DETAIL_PARTS } from './verdict_view.js';
+import { OUTCOME_ACTORS } from './lyric_workflow.js';
 import { CONNECTOR_VERSION } from './contract_version.js';
 
 // /mcp is the endpoint the discovery card and server.json describe, so it
@@ -64,6 +65,16 @@ const resultShape = {
     ),
   expires_at: z.number().optional().describe('Epoch milliseconds when retention_ms runs out.'),
   uncertain_proposal: z.boolean(),
+  outcome: z
+    .object({
+      kind: z.enum(['next_call', 'decision', 'unknown']),
+      by: z.enum(OUTCOME_ACTORS),
+      call: z.object({ tool: z.string(), args: z.object({}).passthrough() }).optional(),
+    })
+    .optional()
+    .describe(
+      "Who acts next when this receipt has no finished tool result to say it (the operation is pending, interrupted or retired, or its tool refused in a new-song session): `kind` is next_call, decision or unknown, `by` is writer or person, and `call` is the tool with the arguments this server knows. On unknown, `call` is a read and nothing is sent again. A finished lyric tool says the same in its own verdict's `outcome`."
+    ),
 };
 const readOnly = {
   readOnlyHint: true,

@@ -18,6 +18,7 @@ import {
 } from './state_codec.js';
 import { HTTP_REQUEST_BYTES, jsonBytes } from './payload_limits.js';
 import { sessionView, verdictShape, DETAIL_FOR, LINE_PARTS } from './verdict_view.js';
+import { nextCreationCall } from './lyric_workflow.js';
 
 // Persisted namespace from the first release: keep existing capabilities recoverable.
 export const INTEGRATION = 'chatgpt-v1';
@@ -88,6 +89,51 @@ const storeAdmissionRefusal = (error, maxRecords, domain) => {
     );
   return error;
 };
+// WHO ACTS NEXT ON A RECEIPT WITH NO VERDICT (writer plan, stage 2). A finished
+// lyric tool says it in its verdict's `outcome`. A receipt that is still
+// running, was interrupted, was retired, or whose tool refused has no verdict,
+// so it says it here, from what the receipt and the session already hold:
+// - running: read it again; the call is never sent a second time;
+// - interrupted: resume it, only when it is resumable;
+// - interrupted and not resumable: the writer chooses the draft to keep (the
+//   receipt's accepted_draft or its own) and sends the call
+//   CONTINUATION_UNCERTAIN names; when a writer request may already have been
+//   charged, nothing is repeated and the call is the read of this record;
+// - retired: its successor is read, or the workflow is opened again;
+// - refused, in a new-song session: the call the creation gate admits next,
+//   the same data its NEXT line is printed from.
+const act = (kind, tool, args = {}) => ({ kind, by: 'writer', call: { tool, args } });
+function receiptOutcome(receipt, session, domain) {
+  const id = receipt.operation_id;
+  if (receipt.status === 'pending') return act('next_call', 'get_operation', { operation_id: id });
+  if (receipt.status === 'retired') {
+    if (receipt.successor_id)
+      return act('next_call', 'get_operation', { operation_id: receipt.successor_id });
+    return domain === 'lyrics'
+      ? act('next_call', 'begin_lyrics')
+      : domain === 'recipe'
+        ? act('next_call', 'start_recipe')
+        : { kind: 'decision', by: 'writer' };
+  }
+  if (receipt.status === 'interrupted') {
+    if (receipt.resumable) return act('next_call', 'resume_operation', { operation_id: id });
+    if (receipt.uncertain_proposal || receipt.tool !== 'lyric_revise' || !receipt.session_id)
+      return act('unknown', 'get_operation', { operation_id: id });
+    return session?.task?.phase === 'edit'
+      ? act('decision', 'lyric_revise', { new_run: true })
+      : act('decision', 'lyric_grade');
+  }
+  if (receipt.tool_error && session?.task?.domain === 'lyrics') {
+    // On a copy: reading the creation receipts fills in an empty workflow.
+    const next = nextCreationCall(
+      clone(session.native?.task ?? null),
+      session.native?.continuation,
+      receipt.tool
+    );
+    if (next) return act('next_call', next.first ?? next.tool, next.first ? {} : next.args);
+  }
+  return null;
+}
 const restartStep = (domain) =>
   domain === 'recipe'
     ? 'Call start_recipe to open a new recipe session.'
@@ -876,8 +922,8 @@ export class WorkflowSessions {
 
   status(id, domain, { detail, lines } = {}) {
     const found = this.lookup(id);
-    if (found?.state === 'retired')
-      return {
+    if (found?.state === 'retired') {
+      const retired = {
         operation_id: id,
         status: 'retired',
         interruption: found.interruption ?? 'receipt_payload_retired',
@@ -891,6 +937,8 @@ export class WorkflowSessions {
         expires_at: found.updated_at + this.store.ttlMs,
         uncertain_proposal: false,
       };
+      return { ...retired, outcome: receiptOutcome(retired, null, domain) };
+    }
     const { record, session } = this.record(id, domain);
     const result = record.response?.body?.result;
     if (detail !== undefined || lines?.length) checkDetail(record, result, detail, lines);
@@ -903,7 +951,7 @@ export class WorkflowSessions {
       record.state === 'completed'
         ? !(record.intent.action?.tool === 'start_recipe' && !session.workspace)
         : record.state === 'interrupted' && !resumable && !this.store.failure;
-    return {
+    const receipt = {
       operation_id: id,
       status: record.state,
       ...(continues ? { session_id: id } : {}),
@@ -933,6 +981,8 @@ export class WorkflowSessions {
         record.proposer_usage?.accounting_unknown
       ),
     };
+    const outcome = receiptOutcome(receipt, session, domain);
+    return outcome ? { ...receipt, outcome } : receipt;
   }
 
   async wait(id) {

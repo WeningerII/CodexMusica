@@ -8,12 +8,24 @@
 // Part 1 judges the verdict alone (the raw engine reads nothing else).
 // Part 2 sends real calls through the raw engine and reads `outcome` off what
 // comes back, so the field is known to be wired and not only derivable.
+// Part 3 is a host that keeps receipts: the call it names is sent through its
+// real gate. Part 4 is a session's receipt with no verdict (running,
+// interrupted, retired, refused), read and followed through a real session
+// server.
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { createHash } from 'node:crypto';
+import { mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { JobStore } from './job_store.js';
+import { WorkflowSessions } from './workflow_sessions.js';
+import { buildWorkflowServer } from './workflow_tools.js';
+import { requestContext } from './execution_context.js';
+import { continuationSemanticIdentity } from './state_codec.js';
 import { LEXICON_MANIFEST } from './lexicon_basis.js';
 import { _verdictInternals } from './lyric_tools.js';
 import {
@@ -666,4 +678,271 @@ test('a host that keeps receipts names the call its own gate admits', () => {
     );
     assert.equal(refusal, null, `${what}: the gate admits the named call`);
   }
+});
+
+// PART 4. A SESSION RECEIPT WITH NO VERDICT. A real session server over a real
+// store; only the engine behind it is a stand-in, so an operation can be held
+// running, cut off, or refused on purpose. Each receipt's `outcome` is read,
+// then the call it names is sent as named and must be admitted.
+function storeFor(t, options) {
+  const directory = mkdtempSync(join(tmpdir(), 'census-sessions-'));
+  t.after(() => rmSync(directory, { recursive: true, force: true }));
+  return { directory, store: new JobStore(directory, options) };
+}
+async function sessionClient(t, sessions) {
+  const server = await buildWorkflowServer({ domain: 'lyrics', sessions });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'census-sessions', version: '1' }, { capabilities: {} });
+  await server.connect(a);
+  await client.connect(b);
+  t.after(async () => {
+    await client.close();
+    await server.close();
+  });
+  return client;
+}
+const receiptOf = (result) => {
+  assert(result.structuredContent, JSON.stringify(result).slice(0, 600));
+  return result.structuredContent;
+};
+const send = async (client, name, args) =>
+  receiptOf(await client.callTool({ name, arguments: args }));
+// The call an outcome names, sent as named from the session the receipt gives.
+const follow = (client, receipt, extra = {}) => {
+  const { tool, args } = receipt.outcome.call;
+  const session = ['get_operation', 'resume_operation', 'begin_lyrics'].includes(tool)
+    ? {}
+    : { session_id: receipt.session_id };
+  return client.callTool({ name: tool, arguments: { ...session, ...args, ...extra } });
+};
+const done = (name) => ({ content: [{ type: 'text', text: `<${name} result>` }] });
+
+test('a running operation is read again and never sent again; a dropped connection reads it too', async (t) => {
+  let release;
+  const gate = new Promise((resolve) => {
+    release = resolve;
+  });
+  let dispatched = 0;
+  const sessions = new WorkflowSessions({
+    store: storeFor(t).store,
+    execute: async (session, name) => {
+      dispatched++;
+      await gate;
+      return { session, result: done(name) };
+    },
+  });
+  let client = await sessionClient(t, sessions);
+  const opened = await send(client, 'begin_lyrics', {});
+  const sweep = { session_id: opened.session_id, seed_from: 1, count: 1 };
+  const queued = await send(client, 'lyric_sweep', sweep);
+  assert.equal(queued.status, 'pending');
+  const poll = {
+    kind: 'next_call',
+    by: 'writer',
+    call: { tool: 'get_operation', args: { operation_id: queued.operation_id } },
+  };
+  assert.deepEqual(queued.outcome, poll);
+  // The same call sent twice is the same operation, still to be read.
+  const twice = await send(client, 'lyric_sweep', sweep);
+  assert.equal(twice.operation_id, queued.operation_id);
+  assert.deepEqual(twice.outcome, poll);
+  // Followed while it runs: admitted, and it says the same again.
+  const reading = receiptOf(await follow(client, queued));
+  assert.equal(reading.status, 'pending');
+  assert.deepEqual(reading.outcome, poll);
+  // The connection drops; the operation finishes; the named read still works.
+  await client.close();
+  release();
+  await sessions.wait(queued.operation_id);
+  client = await sessionClient(t, sessions);
+  const finished = receiptOf(await follow(client, queued));
+  assert.equal(finished.status, 'completed');
+  assert.equal(finished.session_id, queued.operation_id);
+  assert.equal(dispatched, 1, 'the work ran once');
+});
+
+test('an interrupted operation is resumed only when that is safe', async (t) => {
+  // Resumable: a receipt written before dispatch is what a crash leaves.
+  const { store, directory } = storeFor(t);
+  let sessions = new WorkflowSessions({
+    store,
+    execute: async (session, name) => ({ session, result: done(name) }),
+  });
+  const opened = sessions.open('lyrics');
+  const parent = store.get(opened.session_id);
+  const cut = 'c'.repeat(64);
+  store.begin(
+    cut,
+    {
+      request_id: cut,
+      continuation_id: opened.session_id,
+      integration: parent.intent.integration,
+      action: { tool: 'lyric_sweep', arguments: { seed_from: 1, count: 1 }, resumed: false },
+    },
+    {},
+    { session: parent.response.body.session }
+  );
+  sessions = new WorkflowSessions({
+    store: new JobStore(directory),
+    execute: async (session, name) => ({ session, result: done(name) }),
+  });
+  let client = await sessionClient(t, sessions);
+  const safe = await send(client, 'get_operation', { operation_id: cut });
+  assert.equal(safe.status, 'interrupted');
+  assert.equal(safe.resumable, true);
+  assert.deepEqual(safe.outcome, {
+    kind: 'next_call',
+    by: 'writer',
+    call: { tool: 'resume_operation', args: { operation_id: cut } },
+  });
+  const resumed = receiptOf(await follow(client, safe));
+  await sessions.wait(resumed.operation_id);
+  assert.equal(
+    (await send(client, 'get_operation', { operation_id: resumed.operation_id })).status,
+    'completed'
+  );
+
+  // Not resumable: a revise cut off with no safe position. The writer chooses
+  // the draft to keep; the call that takes it is named per kind of session.
+  for (const [phase, call, extra] of [
+    ['create', { tool: 'lyric_grade', args: {} }, { seed: 1, draft: ['<line>'] }],
+    ['edit', { tool: 'lyric_revise', args: { new_run: true } }, { draft: ['<line>'] }],
+  ]) {
+    let lost = true;
+    const cutting = new WorkflowSessions({
+      store: storeFor(t).store,
+      execute: async (session, name) => {
+        if (name === 'lyric_revise' && lost) {
+          lost = false;
+          throw new Error('connection lost');
+        }
+        return { session, result: done(name) };
+      },
+    });
+    client = await sessionClient(t, cutting);
+    const begun = await send(client, 'begin_lyrics', { phase });
+    const revise = await send(client, 'lyric_revise', {
+      session_id: begun.session_id,
+      draft: ['<line>'],
+      ...(phase === 'create' ? { seed: 1 } : {}),
+    });
+    await cutting.wait(revise.operation_id);
+    const read = await send(client, 'get_operation', { operation_id: revise.operation_id });
+    assert.equal(read.status, 'interrupted', phase);
+    assert.equal(read.resumable, false, phase);
+    assert.deepEqual(read.outcome, { kind: 'decision', by: 'writer', call }, phase);
+    const next = await follow(client, read, extra);
+    assert.notEqual(next.isError, true, `${phase}: ${JSON.stringify(next).slice(0, 400)}`);
+    assert.equal(receiptOf(next).status, 'pending', phase);
+  }
+
+  // A writer request that may already have been charged: read, never repeat.
+  const uncertain = new WorkflowSessions({
+    store: storeFor(t).store,
+    execute: async () => {
+      requestContext().onCheckpoint({
+        version: 1,
+        status: 'proposing',
+        input_draft: ['<line>'],
+        accepted_lines: ['<accepted line>'],
+        answered: { propose: [], propose_group: [] },
+        connector_declarations: { seed: 1, writer: 'interview' },
+        connector_semantic_identity: continuationSemanticIdentity(),
+      });
+      requestContext().onProposerUsage({ in_flight: true });
+      throw new Error('connection lost after the writer request was sent');
+    },
+  });
+  client = await sessionClient(t, uncertain);
+  const held = await send(client, 'begin_lyrics', { phase: 'edit' });
+  const op = await send(client, 'lyric_revise', {
+    session_id: held.session_id,
+    draft: ['<line>'],
+  });
+  await uncertain.wait(op.operation_id);
+  const unknown = await send(client, 'get_operation', { operation_id: op.operation_id });
+  assert.equal(unknown.status, 'interrupted');
+  assert.equal(unknown.uncertain_proposal, true);
+  assert.equal(unknown.resumable, false);
+  assert.deepEqual(unknown.outcome, {
+    kind: 'unknown',
+    by: 'writer',
+    call: { tool: 'get_operation', args: { operation_id: op.operation_id } },
+  });
+  // The read it names is admitted, and what was accepted is in it.
+  const record = receiptOf(await follow(client, unknown));
+  assert.deepEqual(record.accepted_draft, ['<accepted line>']);
+  assert.equal(record.outcome.kind, 'unknown');
+});
+
+test('a retired id is followed to its successor, or the workflow is opened again', async (t) => {
+  const store = storeFor(t, { maxPayloadRecords: 2 }).store;
+  const sessions = new WorkflowSessions({
+    store,
+    execute: async (session, name) => ({ session, result: done(name) }),
+  });
+  const client = await sessionClient(t, sessions);
+  // No successor: three sessions opened, the store keeps two.
+  const first = sessions.open('lyrics');
+  sessions.open('lyrics');
+  sessions.open('lyrics');
+  const gone = await send(client, 'get_operation', { operation_id: first.session_id });
+  assert.equal(gone.status, 'retired');
+  assert.deepEqual(gone.outcome, {
+    kind: 'next_call',
+    by: 'writer',
+    call: { tool: 'begin_lyrics', args: {} },
+  });
+  const reopened = receiptOf(await follow(client, gone));
+  assert.equal(reopened.status, 'completed');
+  // A successor: the session advanced before its saved state was retired.
+  const parent = sessions.open('lyrics');
+  const child = sessions.submit(parent.session_id, 'lyrics', 'lyric_sweep', { seed_from: 1 });
+  await sessions.wait(child.operation_id);
+  sessions.open('lyrics');
+  sessions.open('lyrics');
+  const advanced = await send(client, 'get_operation', { operation_id: parent.session_id });
+  assert.equal(advanced.status, 'retired');
+  assert.equal(advanced.successor_id, child.operation_id);
+  assert.deepEqual(advanced.outcome, {
+    kind: 'next_call',
+    by: 'writer',
+    call: { tool: 'get_operation', args: { operation_id: child.operation_id } },
+  });
+  const successor = await follow(client, advanced);
+  assert.notEqual(successor.isError, true);
+  assert.equal(receiptOf(successor).operation_id, child.operation_id);
+});
+
+test('a call refused in a new-song session names the call its gate admits', async (t) => {
+  const sessions = new WorkflowSessions({
+    store: storeFor(t).store,
+    execute: async (session, name) =>
+      name === 'lyric_grade'
+        ? {
+            session,
+            result: { isError: true, content: [{ type: 'text', text: 'Error: <refusal>' }] },
+          }
+        : { session, result: done(name) },
+  });
+  const client = await sessionClient(t, sessions);
+  const opened = await send(client, 'begin_lyrics', {});
+  const refused = await send(client, 'lyric_grade', {
+    session_id: opened.session_id,
+    seed: 1,
+    draft: ['<line>'],
+  });
+  await sessions.wait(refused.operation_id);
+  const read = await send(client, 'get_operation', { operation_id: refused.operation_id });
+  assert.equal(read.status, 'completed');
+  assert.equal(read.tool_error, true);
+  // Nothing is on record yet, so the gate's next call is the sweep.
+  assert.deepEqual(read.outcome, {
+    kind: 'next_call',
+    by: 'writer',
+    call: { tool: 'lyric_sweep', args: {} },
+  });
+  const next = await follow(client, read, { seed_from: 1, count: 1 });
+  assert.notEqual(next.isError, true);
+  assert.equal(receiptOf(next).status, 'pending');
 });
