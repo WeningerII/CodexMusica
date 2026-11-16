@@ -1171,8 +1171,8 @@ test('lyric_grade names the next call per surface, and kitchen revise sends the 
   const next =
     "At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this exact draft, " +
     "unchanged. `next_call` names that call's tool and the arguments the server sets: `seed`, and " +
-    "`new_run` in a session when a run is open or this plan's run has started. It is not the whole " +
-    'call: `next` says what to send with it, which is this exact draft and its declarations, or ' +
+    "`new_run` in a session when a run is open or this plan's run has started. `next_call` is not " +
+    'the whole call: `next` says what to send with it, which is this exact draft and its declarations, or ' +
     "no draft where the grade's record holds them (a session, the website chat).";
   for (const d of [chat.grade, outside.grade]) assert.ok(d.includes(next), d);
   assert.ok(chat.grade.includes(next + ' The service writer answers that lyric_revise run.'));
