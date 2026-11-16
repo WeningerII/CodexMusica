@@ -14817,47 +14817,16 @@ def main():
                 from quality.floor import LENGTH_GATE_CODES
                 ungraded = [f for f in whole
                             if f.code in LENGTH_GATE_CODES]
-                # THE BAN, COUNTED APART FROM BOTH (doctrine 79 — now four
-                # counts and still never a sum). `loop.MANDATORY_PURSUE` is
-                # the two-tier ban plus the codes the owner has since made
-                # unskippable, and its enforcement lived ONLY inside the
-                # revise loop: a line is held open there until it clears.
-                # MEASURED 2026-08-23 on `hair`/`chair` under `--groups=1,2`
-                # — the canonical tier-1 pair — the grading verb exited **0**
-                # with `HOMEOTELEUTON` printed as a note, while `revise` on
-                # the identical draft exited **3**, NO_PROGRESS, L2 held.
-                # So CLAUDE.md's own sentence, *"the ban is unskippable at
-                # any exit code"*, was true of the loop and false of the
-                # verb, and a song could be certified without the ban ever
-                # being applied to it (`MISSING.md` M-88).
-                #
-                # ENDED 2026-10-04 (owner's ruling): MANDATORY_PURSUE is
-                # empty, so `banned_lines` is always empty and the ban no
-                # longer moves this verb's exit code; the pairs are still
-                # reported as notes. The history below is kept as it was.
-                #
-                # IT MOVES THE EXIT CODE AND NOTHING ELSE, which is the whole
-                # design. The severity is untouched and `verify()` is
-                # untouched, because re-typing one of these as a FLAG is the
-                # `MODAL_RHYME` error this repo already paid for: doctrine 7
-                # says a floor may not order the region it already passed,
-                # and a pair that RHYMES is inside it. `LENGTH_GATE_CODES`
-                # above is the precedent — a note the verb may not exit 0 on.
-                from quality.loop import MANDATORY_PURSUE
-                banned_lines = sorted({ln for (c, _sv), items in groups.items()
-                                       if c in MANDATORY_PURSUE
-                                       for ln, _f in items})
-                banned_codes = sorted({c for (c, _sv) in groups
-                                       if c in MANDATORY_PURSUE})
+                # The two writing rhyme bans (`quality.revise.WRITING_BAN_CODES`)
+                # are raised as FLAGS on this writing path, so the flag gate
+                # below counts them; they need no gate of their own.
                 return {"briefed": len(briefs), "flags": n_flag,
                         "notes": n_note, "flagged_lines": flagged_lines,
                         "rolled_codes": len(rolled),
                         "rolled_findings": rolled_n,
                         "whole": len(whole), "whole_flags": len(whole_flags),
                         "ungraded_length": len(ungraded),
-                        "coverage": found["coverage"],
-                        "banned_lines": banned_lines,
-                        "banned_codes": banned_codes}
+                        "coverage": found["coverage"]}
 
             def _print_whole():
                 """BELOW the per-line half on purpose: `inspect()`'s own
@@ -16295,34 +16264,6 @@ def main():
                   f"measurement handed back, never a defect (doctrine 96/79)")
             sys.exit(3)
 
-        # THE BAN GATE (2026-08-23, `MISSING.md` M-88). A draft with no flag
-        # and a standing banned pair used to exit 0, which made the ban
-        # skippable by choosing the grading verb over the loop.
-        #
-        # IT SITS AFTER THE FLAG GATE, AND FOR A DAY THE COMMENT SAYING SO
-        # SAT ABOVE CODE THAT PUT IT FIRST — caught by `test_verbs.py` §16
-        # on the first CI run that could start jobs. Both gates exit 3, so
-        # the ORDER decides only which sentence a caller reads, and a
-        # flagged draft must read its flags: a flag is a defect the writer
-        # can act on line by line, while the ban names a pair to screen.
-        # Preempting the stronger signal with the narrower one is a
-        # rendering decision moving what a verdict SAYS (doctrine 91).
-        if cmd == "song" and song_counts and song_counts.get("banned_lines"):
-            _bc = ", ".join(song_counts["banned_codes"])
-            _bl = line_range(song_counts["banned_lines"])
-            print(f"\n  EXIT 3 — the two-tier ban STANDS on "
-                  f"{len(song_counts['banned_lines'])} line(s) {_bl}: {_bc}. "
-                  f"These are NOTES and stay notes — the severity is not "
-                  f"changed and `verify()` is untouched, because a pair that "
-                  f"RHYMES sits inside the region a floor may not re-order "
-                  f"(doctrine 7). What changes is that a run carrying one "
-                  f"MAY NOT EXIT 0, the same shape `LENGTH_GATE_CODES` "
-                  f"already has. Until now the ban was enforced only inside "
-                  f"`revise`, so a song could be certified here without it "
-                  f"ever being applied. Clear them with "
-                  f"`revise FILE MANDATE`, or screen the pair before writing "
-                  f"with `screen WORD WORD`.")
-            sys.exit(3)
     elif cmd == "demo":
         print("DECLARATION")
         print(decl.show())
