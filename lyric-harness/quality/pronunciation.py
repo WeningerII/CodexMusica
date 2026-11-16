@@ -124,8 +124,27 @@ def numbered_token(line, token, lex, numbering=None, word=None):
         origin = now or old
     hits = [i + 1 for i, item in enumerate(dst) if origin is not None and item == origin]
     if len(hits) != 1:
-        raise ValueError(f'cannot resolve token {token} in {line!r} under {current}: '
-                         'no unique token has the same word and raw pieces; declare numbering')
+        # No numbering moves a position that holds another word, so the refusal
+        # says what the caller can change: what the line holds at that position,
+        # and where the declared word is. (It said "declare numbering" for all
+        # of these, and no numbering resolves any of them.)
+        mark = numbering or current
+        rows = tokens(mark)
+        if origin is not None:
+            held = ', '.join(f'{i + 1} {item[0]!r}' for i, item in enumerate(dst))
+            raise ValueError(f'cannot resolve token {token} in {line!r} under {current}: '
+                             f'{origin[0]!r} at {mark} token {token} is not one sung token under '
+                             f'{current}, whose tokens are {held}; name the position under {current}')
+        there = (f'token {token} there is {rows[token - 1][0]!r}'
+                 if type(token) is int and 1 <= token <= len(rows)
+                 else f'the line has {len(rows)} sung tokens')
+        if word is None:
+            raise ValueError(f'cannot resolve token {token} in {line!r} under {mark}: {there}')
+        found = [str(i + 1) for i, item in enumerate(rows) if item[0] == word]
+        raise ValueError(f'cannot resolve token {token} in {line!r} under {mark}: '
+                         f'{word!r} declared; {there}; '
+                         + (f'{word!r} is token {", ".join(found)}' if found
+                            else f'no sung token of this line is {word!r}'))
     if hits[0] != token:
         notices = getattr(lex, '_numbering_notices', None)
         if notices is not None:
