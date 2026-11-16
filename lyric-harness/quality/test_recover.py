@@ -139,7 +139,7 @@ def test_meter_is_refused():
           "declaring a meter on the writer's behalf and then grading them "
           "against it", how == "REFUSED" and m["meter"] is None)
     check("and the refusal names the remedy (declare one) rather than "
-          "stating a limitation", "--blueprint" in why, why[:90])
+          "stating a limitation", "`blueprint`" in why, why[:90])
     check("the refusal does NOT reach for audio — counting is this "
           "project's instrument and the owner's ban on the other is "
           "standing", "audio" not in why.lower())
