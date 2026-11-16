@@ -238,6 +238,32 @@ test('a parked kitchen run (exit 3) records its key; the identical repeat is not
   const done = completedRevises(a.body.history).get(K);
   assert.equal(done?.status, 'stopped_with_open_lines');
   assert.equal(done?.exit_code, 3);
+  // THE MODEL READS THE STOP IN THE FIELDS IT CAN SEND (writer plan, stage 2).
+  // The engine writes its continue paragraph for a caller that holds the run
+  // (`run_id`, `run_revision`); under the service writer this model has
+  // neither parameter, and the paragraph reached it unchanged, beside a system
+  // note naming a different call.
+  assert.match(
+    rawResults.at(-1).content[0].text,
+    /\n\nCONTINUE: no question is pending\. [^\n]*`run_id`, `run_revision`/,
+    'the engine wrote it for a caller that holds the run'
+  );
+  const read = a.modelRequests
+    .at(-1)
+    .contents.flatMap((c) => c.parts || [])
+    .map((p) => p.functionResponse)
+    .find((f) => f?.name === 'lyric_revise').response;
+  assert.doesNotMatch(read.presentation, /run_id|run_revision/);
+  assert.match(
+    read.presentation,
+    /\n\nCONTINUE: no question is pending\. Rewrite the open line\(s\) and call lyric_revise with the same seed or mandate and `draft_text` \(the full song as ONE newline-separated string\); the run is carried for you\./
+  );
+  // And as data: who acts next, with which call, as this host's gate admits it.
+  assert.deepEqual(read.verdict.outcome, {
+    kind: 'decision',
+    by: 'writer',
+    call: { tool: 'lyric_revise', args: {} },
+  });
   // The carried parked run refuses the unchanged draft first (wanderRefusal
   // runs before the repeat guard); either way nothing is dispatched.
   const repeat = await chat(ask, { prior: a.body, calls: [parkedArgs] });

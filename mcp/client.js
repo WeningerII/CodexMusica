@@ -10,6 +10,7 @@ import {
   withNextCall,
   withPlanLineage,
   withSweepNext,
+  withSessionOutcome,
 } from './lyric_workflow.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import {
@@ -204,10 +205,18 @@ export async function connectConnector({
           // A create session's sweep names the call the gate admits next; a
           // result under a plan that replaced the session's first plan says
           // what that plan is not asked that the first was (#676).
-          return withPlanLineage(
+          // Last, who acts next as data: the verdict's kind and actor, with
+          // the call this session's receipts admit (writer plan, stage 2).
+          return withSessionOutcome(
             workflowTask,
             name,
-            withSweepNext(workflowTask, name, result, continuation)
+            withPlanLineage(
+              workflowTask,
+              name,
+              withSweepNext(workflowTask, name, result, continuation)
+            ),
+            continuation,
+            args
           );
         } finally {
           inFlight = false;

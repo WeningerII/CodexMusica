@@ -379,6 +379,8 @@ function screenView(content, detail) {
     .map((l) => l.trim())
     .filter((l) => /^\d+ banned, \d+ refused, /.test(l) || l.startsWith('NAMED COUNTS:'));
   short.detail = SCREEN_DETAIL_NOTE;
+  // Who acts next, as data: after a screen that answered, the plan.
+  if (v.outcome && typeof v.outcome === 'object') short.outcome = v.outcome;
   return [{ type: 'text', text: JSON.stringify(short) }];
 }
 
@@ -422,6 +424,9 @@ export function sessionView(tool, content, { detail, lines } = {}) {
   );
   if (verdict.coverage) short.not_checked = notCheckedOf(verdict);
   short.detail = DETAIL_NOTE;
+  // Who acts next, as data (lyric_workflow.js, outcomeOf): the verdict's
+  // own field, copied ahead of the call and the sentence that say the same.
+  if (verdict.outcome && typeof verdict.outcome === 'object') short.outcome = verdict.outcome;
   // The grade's own next call (exit 0 or 3), copied last; never invented
   // here. `next_call` is its tool and the args the server sets, not the whole
   // call (#671, B9).

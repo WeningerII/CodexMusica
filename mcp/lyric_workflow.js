@@ -925,7 +925,7 @@ function declarationOnly(v) {
   const { reading, declarations, other } = refusedByRemedy(v);
   return declarations.length > 0 && !reading && !other.length;
 }
-export function outcomeOf(tool, v) {
+export function outcomeOf(tool, v, args = {}) {
   if (!v || typeof v !== 'object' || !Number.isInteger(v.exit_code)) return null;
   const code = v.exit_code;
   // The harness died: nothing says what it did, and the same call dies the
@@ -980,6 +980,10 @@ export function outcomeOf(tool, v) {
       : choose('writer', callOf(code === 3 ? 'lyric_check' : 'lyric_recover'));
   if (tool === 'lyric_verify') return choose('writer', callOf('lyric_revise'));
   if (tool === 'lyric_revise') {
+    // The tool that grades a changed draft: lyric_grade for a seeded plan,
+    // lyric_check for lyrics the person supplied (a revise with no seed). A
+    // continuing call's seed is restored into `args` by the handler.
+    const regrade = args?.seed != null ? 'lyric_grade' : 'lyric_check';
     const run =
       typeof v.run_id === 'string' && v.run_revision != null
         ? { run_id: v.run_id, run_revision: v.run_revision }
@@ -999,7 +1003,7 @@ export function outcomeOf(tool, v) {
     if (code === 0)
       return v.status === 'finished_clean'
         ? { kind: 'finished' }
-        : choose(declarationOnly(v) ? 'person' : 'writer', callOf('lyric_grade'));
+        : choose(declarationOnly(v) ? 'person' : 'writer', callOf(regrade));
     // Stopped with something open. At exit 3 the run takes a rewritten draft;
     // an uncertified stop (exit 2) is not continued, so the rewritten draft
     // is graded and starts a new run.
@@ -1007,14 +1011,14 @@ export function outcomeOf(tool, v) {
     const open =
       (typeof v.loop_unresolved === 'number' && v.loop_unresolved > 0) ||
       (Array.isArray(v.loop_whole_flag_codes) && v.loop_whole_flag_codes.length > 0);
-    return choose(!open && declarationOnly(v) ? 'person' : 'writer', callOf('lyric_grade'));
+    return choose(!open && declarationOnly(v) ? 'person' : 'writer', callOf(regrade));
   }
   return null;
 }
 // Attach it to the verdict block of a tool result (the block whose JSON has an
 // integer exit_code). A result with no verdict (a thrown refusal's text)
 // passes through: its text names the call that works (test_refusal_promise).
-export function withOutcome(tool, result) {
+export function withOutcome(tool, result, args = {}, derive = outcomeOf) {
   if (!tool.startsWith('lyric_') || !result || !Array.isArray(result.content)) return result;
   let changed = false;
   const content = result.content.map((block) => {
@@ -1025,13 +1029,71 @@ export function withOutcome(tool, result) {
     } catch {
       return block;
     }
-    const outcome = outcomeOf(tool, v);
+    const outcome = derive(tool, v, args);
     if (!outcome) return block;
     changed = true;
-    return { ...block, text: JSON.stringify({ ...v, outcome }) };
+    // Kept ahead of `next_call` and `next`, which stay the verdict's last
+    // fields where they exist.
+    const { next_call, next, ...rest } = v;
+    return {
+      ...block,
+      text: JSON.stringify({
+        ...rest,
+        outcome,
+        ...(next_call !== undefined ? { next_call } : {}),
+        ...(next !== undefined ? { next } : {}),
+      }),
+    };
   });
   return changed ? { ...result, content } : result;
 }
+
+// A HOST THAT KEEPS RECEIPTS (the maintained client behind a /mcp session, the
+// website chat) knows what the verdict cannot: which call its own gate admits
+// next. The kind and the actor stay the verdict's; the call is the one
+// nextCreationCall derives from the receipts and the carried run, which is
+// what a refusal's NEXT is printed from, so the two name the same call.
+// `carried` is the run the host holds AFTER this result.
+export function sessionOutcome(task, name, v, carried, args = {}) {
+  const base = outcomeOf(name, v, args);
+  if (!base || base.kind === 'finished' || base.kind === 'unknown' || !base.call) return base;
+  // An unknown-outcome proposal is held: nothing is repeated, whatever tool
+  // answered. The journal export reads what was kept.
+  if (carried?.uncertain_proposal)
+    return { kind: 'unknown', by: 'writer', call: callOf('lyric_revise', { recover_only: true }) };
+  if (base.call.args.new_run || base.call.tool === 'lyric_sweep') return base;
+  const w = workflowFor(task);
+  const stopped =
+    name === 'lyric_revise' && ![4, 5].includes(v.exit_code) && v.status !== 'interrupted';
+  if (!w) {
+    // Lyrics the person supplied. A stop ends the run on a host that does not
+    // carry it, and the rewritten draft starts a new one.
+    if (name !== 'lyric_revise') return base;
+    if (stopped && base.call.tool === 'lyric_revise' && carriedMove(carried) !== 'rewrite')
+      return { ...base, call: callOf('lyric_revise', { new_run: true }) };
+    return base.call.tool === 'lyric_revise' ? { ...base, call: callOf('lyric_revise') } : base;
+  }
+  // What the caller reaches for next. After a sweep that is the plan once a
+  // screen is on record; after a stop it is the grade of the rewritten draft
+  // (a host that carries the stopped run is handed its rewrite call instead).
+  const reach =
+    name === 'lyric_sweep'
+      ? w.screen
+        ? 'lyric_plan'
+        : 'lyric_screen'
+      : stopped && base.call.tool === 'lyric_revise'
+        ? 'lyric_grade'
+        : base.call.tool;
+  if (reach === 'lyric_screen' && name !== 'lyric_sweep') return base;
+  const n = nextCreationCall(task, carried, reach === 'lyric_plan' ? 'lyric_plan' : reach);
+  // A held run (stopped uncertified): whether to go on here is the person's.
+  if (!n) return choose('person', callOf('lyric_grade', { seed: w.plan?.request.seed }));
+  return { ...base, call: n.first ? callOf(n.first) : { tool: n.tool, args: n.args } };
+}
+export const withSessionOutcome = (task, name, result, carried, args = {}) =>
+  task?.domain === 'lyrics'
+    ? withOutcome(name, result, args, (tool, v, a) => sessionOutcome(task, tool, v, carried, a))
+    : result;
 
 // A create session's successful lyric_sweep: the report's "NEXT: lyric_plan
 // with seed N" line (published by lyric_tools.js from the sweep's own

@@ -22,6 +22,7 @@ import {
   withNextCall,
   withPlanLineage,
   withSweepNext,
+  withSessionOutcome,
 } from './lyric_workflow.js';
 import { decodeState } from './state_codec.js';
 import { requestContext } from './execution_context.js';
@@ -1007,6 +1008,31 @@ const INTERVIEW_FIELDS = new Set([
   'run_revision',
 ]);
 const RECOVERY_FIELDS = new Set(['recover_only', 'recovery_part', 'checkpoint']);
+
+// THE MODEL READS A STOP IN THE FIELDS IT CAN SEND (writer plan, stage 2). The
+// engine writes a parked run's continue paragraph for a caller that holds the
+// run: it names `run_id` and `run_revision`. Under the service writer this
+// model has neither parameter (INTERVIEW_FIELDS) — the adapter injects both
+// from the carried record — and the paragraph reached it unchanged, beside a
+// system note naming the call it can make (PARKED_RUN_NOTE). It is replaced by
+// that call. A paragraph that names no run field is the model's to read as
+// written, and so is every paragraph under the interview writer, whose
+// declaration has the fields.
+export function chatContinue(result, writer = chatWriter()) {
+  const block = result?.content?.[0];
+  if (writer !== 'kitchen' || block?.type !== 'text' || typeof block.text !== 'string')
+    return result;
+  const text = block.text.replace(/\n\nCONTINUE: (?:(?!\n\n)[\s\S])*/, (note) =>
+    /no question is pending/.test(note) && /`run_id`/.test(note)
+      ? '\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise ' +
+        'with the same seed or mandate and `draft_text` (the full song as ONE ' +
+        'newline-separated string); the run is carried for you.'
+      : note
+  );
+  return text === block.text
+    ? result
+    : { ...result, content: [{ ...block, text }, ...result.content.slice(1)] };
+}
 
 export function declarationsFor(surface, lyr, writer = chatWriter()) {
   const base =
@@ -2772,6 +2798,11 @@ export async function runTurn({
             };
           }
           if (!recoveryOnly) lyr = carryState(lyr, fc.name, args, lyricVerdict, surface);
+          // Who acts next, as data, read after the carried run is updated:
+          // the call is the one this chat's gate admits for the run it now
+          // holds (writer plan, stage 2).
+          result = withSessionOutcome(task, fc.name, result, lyr, args);
+          result = chatContinue(result, writer);
           // Only a returned revision carrying its draft or continuation replaces
           // its worker journal. An error exchange (or a later unrelated tool)
           // must retain accepted progress whose final result never arrived.

@@ -172,8 +172,8 @@ function tool(server, name, config, fn) {
       // Every lyric result that carries a verdict says who acts next, as
       // data (`outcome`, lyric_workflow.js): one place, so no handler can
       // return a verdict without it.
-      if (out && Array.isArray(out.content)) return withOutcome(name, out);
-      return withOutcome(name, jsonResult(out));
+      if (out && Array.isArray(out.content)) return withOutcome(name, out, args ?? {});
+      return withOutcome(name, jsonResult(out), args ?? {});
     } catch (err) {
       const msg = err && err.message ? err.message : String(err);
       return { content: [{ type: 'text', text: `Error: ${msg}` }], isError: true };

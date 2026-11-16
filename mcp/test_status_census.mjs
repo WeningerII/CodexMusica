@@ -13,7 +13,18 @@ import { test } from 'node:test';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
-import { OUTCOME_ACTORS, OUTCOME_KINDS, outcomeOf, withOutcome } from './lyric_workflow.js';
+import { createHash } from 'node:crypto';
+import { LEXICON_MANIFEST } from './lexicon_basis.js';
+import { _verdictInternals } from './lyric_tools.js';
+import {
+  OUTCOME_ACTORS,
+  OUTCOME_KINDS,
+  creationRefusal,
+  outcomeOf,
+  recordCreation,
+  sessionOutcome,
+  withOutcome,
+} from './lyric_workflow.js';
 
 const RUN = { run_id: '<run>', run_revision: 3 };
 // A coverage record with one refused row. `row` decides whose choice it is:
@@ -357,8 +368,19 @@ test('every case carries one of the four outcomes, with its actor and its call',
   const reached = new Set();
   for (const [what, tool, verdict, want] of CASES) {
     assert.ok(served.has(tool), `${what}: ${tool} is served`);
-    const got = outcomeOf(tool, verdict);
+    // A revise for a seeded plan; the same stop with no seed is a revise of
+    // lyrics the person supplied, and the tool that grades a changed draft
+    // is then lyric_check.
+    const got = outcomeOf(tool, verdict, tool === 'lyric_revise' ? { seed: 7 } : {});
     assert.deepEqual(got, want, what);
+    if (tool === 'lyric_revise') {
+      const supplied = outcomeOf(tool, verdict, {});
+      assert.deepEqual(
+        supplied,
+        want.call?.tool === 'lyric_grade' ? { ...want, call: call('lyric_check') } : want,
+        `${what}, on supplied lyrics`
+      );
+    }
     assert.ok(OUTCOME_KINDS.includes(got.kind), what);
     reached.add(got.kind);
     if (got.kind === 'finished') {
@@ -448,5 +470,200 @@ test('the raw engine publishes the outcome on real results', { timeout: 600_000 
     assert.equal(verdictOf(types)?.outcome, undefined);
   } finally {
     await close();
+  }
+});
+
+// ── A host that keeps receipts: the call is the one its gate admits ─────────
+// The real walk through a /mcp session is in mcp/test_chatgpt_parked.mjs (its
+// own leaf: it runs the real harness for a minute). Here are the states that
+// walk does not reach, built from receipts as the client records them, each
+// followed through the gate itself (creationRefusal): a named call the gate
+// refuses fails the row.
+const sha = (v) => createHash('sha256').update(JSON.stringify(v)).digest('hex');
+const LINES = ['<line one>', '<line two>'];
+const REWRITTEN = ['<line one, rewritten>', '<line two>'];
+function planReceipt(seed = 16) {
+  const request = {
+    seed,
+    form: 'open',
+    lines: null,
+    relation: '',
+    functions: null,
+    title: '',
+    narrative: null,
+    wants: ['lines<=30'],
+  };
+  const plan = {
+    plan_version: 3,
+    request,
+    total_lines: 2,
+    line_slots: [{}, {}],
+    sections: [{ name: '<SECTION>' }],
+  };
+  return { exit_code: 0, plan, plan_sha256: sha(plan), plan_request: request };
+}
+const V1 = LEXICON_MANIFEST.versions.find((v) => v.id === 'v1');
+const gradeReceipt = (p) => ({
+  ..._verdictInternals.verdictOf({
+    code: 3,
+    stdout: '',
+    stderr: '',
+    lyric_result: {
+      version: 1,
+      status: 'graded',
+      command: 'song',
+      coverage: {
+        scope: 'requested_layers',
+        certified: true,
+        pairs_mandated: 1,
+        pairs_judged: 1,
+        pairs_refused: 0,
+        obligations: [
+          { id: 'floor:draft', layer: 'floor', status: 'answered' },
+          { id: 'rhyme:1:2:A', layer: 'rhyme', status: 'answered' },
+        ],
+        refused_obligations: [],
+      },
+      final_draft: LINES,
+      findings: [],
+      lexicon: { supplement_id: V1.id, sha256: V1.sha256 },
+    },
+  }),
+  plan_sha256: p.plan_sha256,
+});
+// A new-song task whose revision has started and stopped.
+function started() {
+  const t = { domain: 'lyrics', phase: 'create' };
+  recordCreation(
+    t,
+    'lyric_sweep',
+    { seed_from: 10, count: 10, want: ['lines<=30'] },
+    {
+      exit_code: 0,
+      accepted_shown: [16, 17],
+    }
+  );
+  recordCreation(t, 'lyric_screen', { words: ['<word>', '<word>'] }, { exit_code: 0 });
+  const p = planReceipt();
+  recordCreation(t, 'lyric_plan', { seed: 16, wants: ['lines<=30'] }, p);
+  recordCreation(t, 'lyric_grade', { seed: 16, draft: LINES }, gradeReceipt(p));
+  recordCreation(t, 'lyric_revise', { seed: 16, draft: LINES }, { exit_code: 3 });
+  assert.ok(t.workflow.started, 'the receipts record');
+  return t;
+}
+const parkedRun = (extra = {}) => ({
+  key: 'seed:16',
+  seed: 16,
+  parked: true,
+  exit_code: 3,
+  uncertified: false,
+  draft: LINES,
+  final_draft: LINES,
+  decl: { seed: 16 },
+  open: [1],
+  whole: [],
+  ...extra,
+});
+const STOP = { exit_code: 3, status: 'stopped_with_open_lines', loop_unresolved: 1 };
+const EDIT = { domain: 'lyrics', phase: 'edit' };
+
+test('a host that keeps receipts names the call its own gate admits', () => {
+  const rows = [
+    // [what, task, tool, verdict, the run the host holds after it, args, outcome, the call as sent]
+    [
+      'a stop in a session that does not carry the run: grade the rewritten draft',
+      started(),
+      'lyric_revise',
+      STOP,
+      null,
+      { seed: 16 },
+      { kind: 'decision', by: 'writer', call: call('lyric_grade', { seed: 16 }) },
+      { draft: REWRITTEN },
+    ],
+    [
+      'a stop the chat carries: the rewritten draft goes to the same run',
+      started(),
+      'lyric_revise',
+      STOP,
+      parkedRun(),
+      { seed: 16 },
+      { kind: 'decision', by: 'writer', call: call('lyric_revise', { seed: 16 }) },
+      { draft: REWRITTEN },
+    ],
+    [
+      'a stop held uncertified: whether to go on here is the person’s',
+      started(),
+      'lyric_revise',
+      { exit_code: 2, status: 'uncertified', loop_unresolved: 1, coverage: coverage(WORD_ROW) },
+      parkedRun({ exit_code: null, uncertified: true }),
+      { seed: 16 },
+      { kind: 'decision', by: 'person', call: call('lyric_grade', { seed: 16 }) },
+      { draft: REWRITTEN },
+    ],
+    [
+      'a proposal with an unknown outcome, whatever tool answers next',
+      started(),
+      'lyric_grade',
+      { exit_code: 3, next: '<sentence>', next_call: call('lyric_revise', { seed: 16 }) },
+      { key: 'seed:16', seed: 16, uncertain_proposal: true, checkpoint: '<checkpoint>' },
+      { seed: 16 },
+      { kind: 'unknown', by: 'writer', call: call('lyric_revise', { recover_only: true }) },
+      null,
+    ],
+    [
+      'supplied lyrics: a check with a flag',
+      EDIT,
+      'lyric_check',
+      { exit_code: 3, next: '<sentence>', next_call: call('lyric_revise') },
+      null,
+      {},
+      { kind: 'next_call', by: 'writer', call: call('lyric_revise') },
+      { draft: LINES },
+    ],
+    [
+      'supplied lyrics: a stop in a session that does not carry the run',
+      EDIT,
+      'lyric_revise',
+      STOP,
+      null,
+      {},
+      { kind: 'decision', by: 'writer', call: call('lyric_revise', { new_run: true }) },
+      { draft: REWRITTEN },
+    ],
+    [
+      'supplied lyrics: a pending question',
+      EDIT,
+      'lyric_revise',
+      { exit_code: 4, status: 'awaiting_proposal', ...RUN },
+      { args: { draft: LINES, state: '<state>' } },
+      {},
+      { kind: 'decision', by: 'writer', call: call('lyric_revise') },
+      { answer: '<line>' },
+    ],
+    [
+      'supplied lyrics: an uncertified stop is checked again',
+      EDIT,
+      'lyric_revise',
+      { exit_code: 2, status: 'uncertified', loop_unresolved: 0, coverage: coverage(WORD_ROW) },
+      null,
+      {},
+      { kind: 'decision', by: 'writer', call: call('lyric_check') },
+      { lines: REWRITTEN },
+    ],
+  ];
+  for (const [what, task, tool, verdict, carried, args, want, sent] of rows) {
+    const got = sessionOutcome(structuredClone(task), tool, verdict, carried, args);
+    assert.deepEqual(got, want, what);
+    // The outcome never shows a run's private id: a session withholds it.
+    assert.doesNotMatch(JSON.stringify(got), /run_id|run_revision/, what);
+    if (!sent) continue;
+    // Sent as named, with the words only the caller can supply: admitted.
+    const refusal = creationRefusal(
+      structuredClone(task),
+      got.call.tool,
+      { ...got.call.args, ...sent },
+      got.call.tool === 'lyric_revise' && !got.call.args.new_run ? carried : null
+    );
+    assert.equal(refusal, null, `${what}: the gate admits the named call`);
   }
 });

@@ -3619,12 +3619,19 @@ export function registerLyricTools(server, tool) {
                     (Array.isArray(verdict.loop_whole_flag_codes) &&
                       verdict.loop_whole_flag_codes.length > 0);
                   const rewriteNote = `\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with \`run_id\`, \`run_revision\`${verdict.run_revision != null ? ` ${verdict.run_revision}` : ''} and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`${verdict.run_id ? ` (run ${verdict.run_id}; \`new_run: true\` starts independently)` : ''}.`;
+                  // AN UNCERTIFIED STOP IS NOT CONTINUED: its run record is
+                  // saved `uncertified`, and the run ledger refuses every call
+                  // on it (run_store.js). This stop printed the parked run's
+                  // note all the same, naming a call that was then refused.
+                  // Its way on is the one the ledger's refusal names: the
+                  // rewritten draft is graded and starts a new run.
+                  const regradeNote = `\n\nCONTINUE: no question is pending, and this run is not continued. Rewrite the open line(s), grade the complete rewritten draft with ${a.seed != null ? 'lyric_grade' : 'lyric_check'}, then call lyric_revise with that exact draft and \`new_run: true\`.`;
                   const parkNote =
                     r.code === 3
                       ? rewriteNote
                       : r.code === 2 && linesOpen
                         ? '\n\nNOT FINISHED: this stop left lines open and its coverage uncertified.' +
-                          rewriteNote +
+                          regradeNote +
                           // A refused declaration stands beside the open
                           // lines and no rewrite of them reaches it (#676).
                           (declarationAdvice(verdict)
