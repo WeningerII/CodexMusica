@@ -35,6 +35,10 @@ export const SESSION_STORE_LIMITS = Object.freeze({
   maxBytes: 64 * 1024 * 1024,
 });
 
+// How often a pending operation is read again, and so how often a call the
+// store had no room for is sent again while work is running.
+const PENDING_POLL_SECONDS = 5;
+
 const capability = () => randomBytes(32).toString('hex');
 const definedArgs = (args) =>
   Object.fromEntries(Object.entries(args || {}).filter(([, v]) => v !== undefined));
@@ -64,13 +68,35 @@ const storeAdmissionRefusal = (error, maxRecords, domain) => {
       ),
       { code: 'JOB_CAPACITY', status: 503, beforeDispatch: true }
     );
-  if (error?.code === 'JOB_CAPACITY')
+  // HOW LONG TO WAIT (writer plan, stage 2). The store says what holds the
+  // room: running operations, whose end has no known time, so the wait is the
+  // interval a pending operation is polled at; or, with none running,
+  // interrupted receipts holding accepted lines, whose oldest expiry is a time.
+  // The same wait rides as data in the refusal's JSON block.
+  if (error?.code === 'JOB_CAPACITY') {
+    const wait = error.running
+      ? { running: error.running, retry_after_seconds: PENDING_POLL_SECONDS }
+      : error.retry_at != null
+        ? { retry_at: new Date(error.retry_at).toISOString() }
+        : null;
     return Object.assign(
       new Error(
-        'SESSION_STORE_FULL: Insufficient recovery-store capacity for this operation: the store is full of work it must keep, running operations and interrupted ones holding accepted lines. Retry this same call once one of them completes or its receipt expires; nothing was queued and no saved session was retired.'
+        'SESSION_STORE_FULL: Insufficient recovery-store capacity for this operation: the store is full of work it must keep, running operations and interrupted ones holding accepted lines. ' +
+          (wait?.running
+            ? `${wait.running} operation(s) are running now, and room is made when one finishes, which has no known time: retry this same call in ${PENDING_POLL_SECONDS} seconds, and each ${PENDING_POLL_SECONDS} seconds after that until it is admitted`
+            : wait
+              ? `None is running: retry this same call after ${wait.retry_at}, when the oldest interrupted one expires`
+              : 'Retry this same call once one of them completes or its receipt expires') +
+          '; nothing was queued and no saved session was retired.'
       ),
-      { code: 'JOB_CAPACITY', status: 503, beforeDispatch: true }
+      {
+        code: 'JOB_CAPACITY',
+        status: 503,
+        beforeDispatch: true,
+        ...(wait ? { receipt: wait } : {}),
+      }
     );
+  }
   if (error?.code === 'JOB_RECORDS_FULL')
     return Object.assign(
       new Error(
@@ -969,7 +995,7 @@ export class WorkflowSessions {
       ...(result?.isError ? { tool_error: true } : {}),
       ...(accepted ? { accepted_draft: accepted } : {}),
       ...(record.interruption ? { interruption: record.interruption } : {}),
-      ...(record.state === 'pending' ? { retry_after_seconds: 5 } : {}),
+      ...(record.state === 'pending' ? { retry_after_seconds: PENDING_POLL_SECONDS } : {}),
       resumable,
       durable: this.store.durable,
       retention_ms: this.store.ttlMs,

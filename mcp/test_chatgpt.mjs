@@ -1383,7 +1383,12 @@ test('P8: with 16 lyric slots on the real 64 MiB store, a call that cannot fit r
   const refused = (error) =>
     error.code === 'JOB_CAPACITY' &&
     error.status === 503 &&
-    /^SESSION_STORE_FULL: .*Retry this same call/.test(error.message) &&
+    /^SESSION_STORE_FULL: /.test(error.message) &&
+    // It says what the wait is on and how long (writer plan, stage 2): three
+    // operations are running, so the wait is the pending poll interval.
+    /3 operation\(s\) are running now.* retry this same call in 5 seconds/.test(error.message) &&
+    error.receipt?.running === 3 &&
+    error.receipt?.retry_after_seconds === 5 &&
     /nothing was queued and no saved session was retired/.test(error.message);
   assert.throws(() => sessions.open('lyrics'), refused);
   assert.throws(
@@ -1396,6 +1401,58 @@ test('P8: with 16 lyric slots on the real 64 MiB store, a call that cannot fit r
   for (const release of releases) release();
   for (const op of running) await sessions.wait(op.operation_id);
   assert.equal(sessions.open('lyrics').status, 'completed');
+});
+
+test('a full store with nothing running names the time the same call is admitted', async (t) => {
+  // The room is held by interrupted operations carrying accepted lines, which
+  // are never retired for space. The refusal names when the oldest expires,
+  // as text and as data, and the same call is admitted at that time.
+  let clock = 1_000_000;
+  const KB = 1024;
+  const store = new JobStore(null, {
+    maxBytes: 192 * KB,
+    maxRecordBytes: 64 * KB,
+    ttlMs: 60_000,
+    now: () => clock,
+  });
+  const sessions = new WorkflowSessions({
+    store,
+    execute: async () => {
+      requestContext().onCheckpoint(checkpoint({ accepted_lines: ['x'.repeat(40 * KB)] }));
+      throw new Error('connection lost before the next checkpoint');
+    },
+  });
+  const interrupted = [];
+  for (let i = 0; i < 4; i++) {
+    clock += 1000;
+    const opened = sessions.open('lyrics');
+    const op = sessions.submit(opened.session_id, 'lyrics', 'lyric_revise', {});
+    await sessions.wait(op.operation_id);
+    assert.equal(sessions.status(op.operation_id, 'lyrics').status, 'interrupted');
+    interrupted.push(store.get(op.operation_id).updated_at);
+  }
+  clock += 1000;
+  const due = Math.min(...interrupted) + 60_000;
+  const client = await connect(t, null, sessions);
+  const refused = await call(client, 'begin_lyrics', {});
+  assert.equal(refused.isError, true);
+  const text = refused.content[0].text;
+  assert.match(text, /^SESSION_STORE_FULL: /);
+  assert.ok(
+    text.includes(`None is running: retry this same call after ${new Date(due).toISOString()}`),
+    text
+  );
+  assert.doesNotMatch(text, /retry this same call in \d+ seconds/);
+  assert.deepEqual(JSON.parse(refused.content[1].text), {
+    retry_at: new Date(due).toISOString(),
+    tool_error: true,
+  });
+  // One millisecond early it is still refused; at the named time it is admitted.
+  clock = due - 1;
+  assert.equal((await call(client, 'begin_lyrics', {})).isError, true);
+  clock = due;
+  const admitted = await call(client, 'begin_lyrics', {});
+  assert.notEqual(admitted.isError, true, admitted.content[0].text);
 });
 
 test('P8: a record over the per-record cap is refused as too large, never told to wait', () => {
