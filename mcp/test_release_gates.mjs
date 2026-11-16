@@ -1160,39 +1160,81 @@ test('qualification artifact cannot cross source, attempt or incomplete calibrat
 test('qualification image reuse binds source, commit, repository and CI attempt', async () => {
   const { admitImage, checkPulledImage } = await import('../scripts/qualification_image.mjs');
   const source = 'b'.repeat(64);
-  const options = { sha, repository: 'ghcr.io/owner/repo/lyrics', releaseId: '1:12:2:lyrics-image', source };
+  const options = {
+    sha,
+    repository: 'ghcr.io/owner/repo/lyrics',
+    releaseId: '1:12:2:lyrics-image',
+    source,
+  };
   const manifest = {
-    version: 1, commit: sha, repository: options.repository,
+    version: 1,
+    commit: sha,
+    repository: options.repository,
     repository_source_sha256: source,
-    image_id: `sha256:${'c'.repeat(64)}`, digest: `sha256:${'d'.repeat(64)}`,
+    image_id: `sha256:${'c'.repeat(64)}`,
+    digest: `sha256:${'d'.repeat(64)}`,
     build: {
-      commit: sha, release_id: options.releaseId, source_sha256: 'e'.repeat(64),
-      assets_sha256: 'f'.repeat(64), asset_manifest_sha256: '1'.repeat(64),
-      node: 'v22.23.4', python: '3.11.2', nltk: '3.9.1',
+      commit: sha,
+      release_id: options.releaseId,
+      source_sha256: 'e'.repeat(64),
+      assets_sha256: 'f'.repeat(64),
+      asset_manifest_sha256: '1'.repeat(64),
+      node: 'v22.23.4',
+      python: '3.11.2',
+      nltk: '3.9.1',
     },
   };
   assert.equal(admitImage(manifest, options), `${options.repository}@${manifest.digest}`);
   const digests = [`${options.repository}@${manifest.digest}`];
-  assert.equal(checkPulledImage(manifest, manifest.image_id, manifest.build, digests), manifest.image_id);
+  assert.equal(
+    checkPulledImage(manifest, manifest.image_id, manifest.build, digests),
+    manifest.image_id
+  );
   const classicId = `sha256:${'2'.repeat(64)}`;
   assert.equal(checkPulledImage(manifest, classicId, manifest.build, digests), classicId);
   assert.throws(() => admitImage(manifest, { ...options, releaseId: undefined }));
   for (const change of [
-    m => { m.commit = '2'.repeat(40); },
-    m => { m.build.commit = '2'.repeat(40); },
-    m => { m.repository = 'ghcr.io/fork/repo/lyrics'; },
-    m => { m.repository_source_sha256 = '2'.repeat(64); },
-    m => { m.build.release_id = '1:12:1:lyrics-image'; },
-    m => { m.digest = 'latest'; },
-    m => { delete m.image_id; },
+    (m) => {
+      m.commit = '2'.repeat(40);
+    },
+    (m) => {
+      m.build.commit = '2'.repeat(40);
+    },
+    (m) => {
+      m.repository = 'ghcr.io/fork/repo/lyrics';
+    },
+    (m) => {
+      m.repository_source_sha256 = '2'.repeat(64);
+    },
+    (m) => {
+      m.build.release_id = '1:12:1:lyrics-image';
+    },
+    (m) => {
+      m.digest = 'latest';
+    },
+    (m) => {
+      delete m.image_id;
+    },
   ]) {
-    const bad = structuredClone(manifest); change(bad);
+    const bad = structuredClone(manifest);
+    change(bad);
     assert.throws(() => admitImage(bad, options));
   }
   assert.throws(() => checkPulledImage(manifest, manifest.image_id, manifest.build, []));
-  assert.throws(() => checkPulledImage(manifest, manifest.image_id, manifest.build, [`${options.repository}@sha256:${'3'.repeat(64)}`]));
+  assert.throws(() =>
+    checkPulledImage(manifest, manifest.image_id, manifest.build, [
+      `${options.repository}@sha256:${'3'.repeat(64)}`,
+    ])
+  );
   for (const field of Object.keys(manifest.build)) {
-    assert.throws(() => checkPulledImage(manifest, manifest.image_id, { ...manifest.build, [field]: 'changed' }, digests));
+    assert.throws(() =>
+      checkPulledImage(
+        manifest,
+        manifest.image_id,
+        { ...manifest.build, [field]: 'changed' },
+        digests
+      )
+    );
   }
 });
 
@@ -1202,11 +1244,14 @@ test('qualification image selection without trusted evidence leaves the rebuild 
     const output = join(dir, 'outputs');
     writeFileSync(output, '');
     const result = spawnSync(process.execPath, ['scripts/qualification_image.mjs', 'select'], {
-      cwd: join(import.meta.dirname, '..'), encoding: 'utf8',
+      cwd: join(import.meta.dirname, '..'),
+      encoding: 'utf8',
       env: { ...process.env, GH_TOKEN: '', GITHUB_OUTPUT: output },
     });
     assert.equal(result.status, 0, result.stderr);
     assert.equal(readFileSync(output, 'utf8'), '');
     assert.match(result.stdout, /rebuild required/);
-  } finally { rmSync(dir, { recursive: true, force: true }); }
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });

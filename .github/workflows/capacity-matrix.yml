@@ -114,7 +114,7 @@ jobs:
       # disposable Android and .NET SDKs go; the tool cache, Docker layers,
       # workspace and every runtime/proof input stay.
       - name: Reclaim unused hosted runner toolchains
-        if: runner.environment == 'github-hosted' && needs.image-source.outputs.run_id == ''
+        if: runner.environment == 'github-hosted'
         run: |
           set -euo pipefail
           df -B1 / /var/lib/docker
