@@ -359,6 +359,17 @@ const sendsTo = (text, tool) =>
     `(?:\\b(?:on|to|with|for|through|use|call)\\s+|\\()(?:lyric_[a-z]+(?:,\\s*|\\s+(?:and|or)\\s+))*${tool}\\b`
   ).test(text);
 
+// A tool the message sends the caller to accepts the field: in the current
+// mode when it is the verb's own tool, and in EVERY mode when it is another
+// tool, since the message cannot know which mode that call will be in (a
+// lyric_revise named from elsewhere may be seeded or not).
+const targetAccepts = (verb, tool, target, field) =>
+  target === tool
+    ? accepts(verb, tool, field)
+    : target === 'lyric_revise'
+      ? accepts('finish', target, field) && accepts('revise', target, field)
+      : fieldsOf(target).has(field);
+
 function fieldFindings(rows) {
   const out = [];
   for (const row of rows) {
@@ -370,7 +381,11 @@ function fieldFindings(rows) {
     for (const field of named)
       for (const verb of verbsOf(row))
         for (const tool of VERB_TOOLS[verb]) {
-          if (accepts(verb, tool, field) || targets.some((t) => accepts(t, t, field))) continue;
+          if (
+            accepts(verb, tool, field) ||
+            targets.some((t) => targetAccepts(verb, tool, t, field))
+          )
+            continue;
           if (
             NOT_ADVICE.find(
               (r) =>
@@ -453,15 +468,33 @@ test('the rules catch planted messages of each kind', () => {
     { file: 'x', line: 21, verbs: ['plan'], text: 'declare `lexicon_supplement_sha256` again' },
     { file: 'x', line: 22, verbs: ['revise'], text: 'declare `form` again' },
     { file: 'x', line: 23, verbs: ['finish'], text: 'declare `form` again' },
+    { file: 'x', line: 24, verbs: ['revise'], text: 'declare `form` on lyric_revise' },
+    { file: 'x', line: 25, verbs: ['finish'], text: 'declare `groups` on lyric_revise' },
+    { file: 'x', line: 26, verbs: ['recover'], text: 'declare `groups` on lyric_revise' },
+    { file: 'x', line: 27, verbs: ['recover'], text: 'declare `groups` on lyric_check' },
+    { file: 'x', line: 28, verbs: ['recover'], text: 'declare `pronunciations` on lyric_revise' },
   ];
   assert.deepEqual(
     flagFindings(planted).map((f) => f.split(' ')[0]),
     ['x:1', 'x:2', 'x:3', 'x:4', 'x:5']
   );
   const fields = fieldFindings(planted).map((f) => f.split(' ')[0]);
-  for (const hit of ['x:11', 'x:13', 'x:16', 'x:17', 'x:19', 'x:20', 'x:21', 'x:22'])
+  for (const hit of [
+    'x:11',
+    'x:13',
+    'x:16',
+    'x:17',
+    'x:19',
+    'x:20',
+    'x:21',
+    'x:22',
+    'x:24',
+    'x:25',
+    'x:26',
+  ])
     assert.ok(fields.includes(hit), hit);
-  for (const ok of ['x:12', 'x:14', 'x:15', 'x:18', 'x:23']) assert.ok(!fields.includes(ok), ok);
+  for (const ok of ['x:12', 'x:14', 'x:15', 'x:18', 'x:23', 'x:27', 'x:28'])
+    assert.ok(!fields.includes(ok), ok);
   // The scanner keeps an `else` reachable for a verb an inexact `or` part
   // may not take: `(cmd == 'song' and ready) or cmd == 'brief'`.
   const dir = mkdtempSync(path.join(tmpdir(), 'flag-free-'));
