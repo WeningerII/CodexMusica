@@ -1825,6 +1825,8 @@ def run_complete_suite(tree, rel_path, env, timeout):
             status, _, tail = _test_result(p, 0)
             return status, tail
         except subprocess.TimeoutExpired:
+            # THE BOUND IS NAMED. It is per-suite now, so "timed out" alone leaves
+            # a reader guessing which ceiling was in force (`MISSING.md` M-30).
             return "TIMEOUT", f"timed out after {timeout:g}s (this suite's declared bound)"
 
     if count == 1:
