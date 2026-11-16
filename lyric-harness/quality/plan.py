@@ -5227,6 +5227,412 @@ def _graded(codes):
     return ", ".join(f"{c} ({_GR.severity_of(c)})" for c in codes)
 
 
+#: COPIES OF TWO GRADER NUMBERS THIS MODULE MAY NOT IMPORT (the move-37
+#: import guard in `test_plan.test_the_measure` keeps `sentencehood` and
+#: `revise` out of the planner). `test_plan.test_the_stop_rules` holds each
+#: copy equal to the grader's own value, so they cannot drift apart.
+#: `sentencehood.ADOPTED`, the stacked-draft gate's adopted numbers.
+STACKED_DRAFT_ADOPTED = {
+    "FUNC_SHARE_MAX": 0.15,
+    "COMMAS_PER_TOKEN_MIN": 0.15,
+    "MIN_TOKENS": 4,
+    "STACKED_FRACTION_MAX": 0.125,
+    "MIN_LINES": 8,
+}
+#: `revise.ReviseDeclaration.modal_exclusion`: at most this many partners
+#: per word are banned by the second writing ban.
+WRITING_BAN_PARTNERS = 6
+
+#: EVERY RULE THAT CAN STOP A PLANNED SONG, one row per blocking code (the
+#: gate census's GATED codes plus the reviser's writing bans), as data:
+#: `applies` names the condition in `_STOP_APPLIES` under which the rule can
+#: stop THIS plan's song, `stop` says how it stops it (`flag`: the grade
+#: stands and the song is held back; `ungraded`: the length checks do not
+#: run and the draft cannot pass, though the other findings stand;
+#: `grid`: read from `grid.severity_of`), and `limit` names the function in
+#: `_STOP_LIMITS` that words the rule with the grader's own numbers. A row
+#: whose `applies` is `never` carries `never`, the stated reason it cannot
+#: fire on a planned song; `test_plan.test_the_stop_rules` checks each reason
+#: against the code and holds the keys equal to the census.
+STOP_RULES = {
+    "OUT_OF_CALIBRATED_LENGTH": {"applies": "always", "stop": "ungraded",
+                                 "limit": "length_reach"},
+    "ANAPHORA_OVERLOAD": {"applies": "always", "stop": "flag",
+                          "limit": "openings"},
+    "FUNCTION_WORD_HEAVY": {"applies": "always", "stop": "flag",
+                            "limit": "grammar_words"},
+    "LEXICAL_MONOTONY": {"applies": "always", "stop": "flag",
+                         "limit": "variety"},
+    "STACKED_DRAFT": {"applies": "stacked_min_lines", "stop": "flag",
+                      "limit": "stacked"},
+    "SLOTS_EXCEEDED": {"applies": "sung_lines", "stop": "flag",
+                       "limit": "syllables"},
+    "SCHEME_VIOLATION": {"applies": "groups", "stop": "flag",
+                         "limit": "group_rule"},
+    "RETURN_NOT_VERBATIM": {"applies": "returns", "stop": "flag",
+                            "limit": "returns"},
+    "HOOK_DOES_NOT_RECUR": {"applies": "hook_slot", "stop": "grid",
+                            "limit": "hook_recurs"},
+    "TITLE_NOT_IN_HOOK": {"applies": "hook_slot_and_title", "stop": "grid",
+                          "limit": "title_in_hook"},
+    "REPEAT_IN_VERSE": {"applies": "floor_pairs", "stop": "flag",
+                        "limit": "same_end_word"},
+    "HOMEOTELEUTON": {"applies": "groups", "stop": "flag",
+                      "limit": "same_spelled_ending"},
+    "MODAL_RHYME": {"applies": "groups", "stop": "flag",
+                    "limit": "common_partner"},
+    "ZERO_DURATION": {"applies": "never", "stop": "flag", "never":
+                      "the plan gives every line a length above zero"},
+    "BEAT_OUTSIDE_CYCLE": {"applies": "never", "stop": "flag", "never":
+                           "the plan starts every line inside its bar"},
+    "START_BEFORE_SECTION": {"applies": "never", "stop": "flag", "never":
+                             "the plan starts no line before its section"},
+    "OVERRUNS_SECTION": {"applies": "never", "stop": "flag", "never":
+                         "the plan ends every line inside its section"},
+    "START_OFF_GRID": {"applies": "never", "stop": "flag", "never":
+                       "the plan starts every line on a slot of its grid"},
+    "HOOK_ABSENT": {"applies": "never", "stop": "grid", "never":
+                    "the hook is the draft's own hook line, so it is always "
+                    "there, and a plan with no hook line asks for no hook"},
+    "CLICHE_PAIR": {"applies": "never", "stop": "flag", "never":
+                    "the default declaration lists no banned pairs"},
+    "MATTR_WINDOW_UNCALIBRATED": {"applies": "never", "stop": "ungraded",
+                                  "never": "the default window is the "
+                                           "calibrated one"},
+}
+
+#: How each kind of stop reads in the brief.
+STOP_KINDS = {"flag": "flag", "ungraded": "ungraded"}
+
+
+def _stop_kind(code):
+    """-> "flag" or "ungraded" for one `STOP_RULES` row."""
+    kind = STOP_RULES[code]["stop"]
+    if kind == "grid":
+        from quality import grid as _GR
+        kind = _GR.severity_of(code)
+    return STOP_KINDS[kind]
+
+
+def _floor_pairs(plan):
+    """-> the line pairs the grader hands the floor for this plan: the
+    plan's mandated pairs bound at both plain line ends, under the default
+    structure, under no declared schema whose spans are not both the plain
+    end span, and not a verbatim return. The same reading
+    `revise._floor_pair_groups` makes, held equal to it by test_plan. A
+    schema is read through `_schema_of`, so `rhyme_types` stays confined
+    to `audible_share` (`test_plan.test_the_measure`)."""
+    from quality import structures as _ST
+    groups = [[x for x in g.split(",")]
+              for g in str(plan.get("groups") or "").split(";") if g.strip()]
+    if not groups:
+        return []
+    rets = ([[int(x) for x in r.split(",")]
+             for r in plan["returns"].split(";")]
+            if plan.get("returns") else None)
+    m = SC.mandate(groups, n_lines=plan["total_lines"], returns=rets,
+                   relations=plan.get("relations"),
+                   default_relation=plan.get("relation"))
+    end = _SL.parse_slot("1.end").rule
+    ident = {(i, j) for i, j, *_ in m.return_pairs()}
+    out = set()
+    for i, j, k in m.pairs():
+        if ((i, j) in ident
+                or not _SL.is_default_spelling(_SL.spell_slot(m.slot_of(k, i)))
+                or not _SL.is_default_spelling(_SL.spell_slot(m.slot_of(k, j)))
+                or m.structure_of(k) != _ST.DEFAULT):
+            continue
+        rels = (tuple(m.relations_of(k)) if hasattr(m, "relations_of")
+                else ((m.relation_of(k),) if m.relation_of(k) else ()))
+        off_end = any(sch is not None and sch.spans != (end, end)
+                      for _nm, sch in (_schema_of(w) for w in rels))
+        if not off_end:
+            out.add((i, j))
+    return sorted(out)
+
+
+def _verbatim_classes(plan):
+    """-> True when the plan has verbatim returns: the lines the floor
+    drops as copies before it judges vocabulary (`revise._floor_for`)."""
+    return bool(plan.get("returns"))
+
+
+def _matched_openings(plan):
+    """-> True when the plan names lines the floor counts as one opening
+    (`revise._floor_for`): verbatim returns, or a group under the one
+    schema that asks its lines to open alike."""
+    return _verbatim_classes(plan) or any(
+        str(v) == "schema:anaphora"
+        for v in (plan.get("relations") or {}).values()) or (
+        str(plan.get("relation") or "") == "schema:anaphora")
+
+
+_STOP_APPLIES = {
+    "always": lambda plan: True,
+    "never": lambda plan: False,
+    "groups": lambda plan: bool(str(plan.get("groups") or "").strip()),
+    "returns": lambda plan: bool(plan.get("returns")),
+    "hook_slot": lambda plan: bool(plan.get("hook_slot")),
+    "hook_slot_and_title": lambda plan: bool(plan.get("hook_slot")
+                                             and plan.get("title")),
+    "stacked_min_lines": lambda plan: (plan["total_lines"]
+                                       >= STACKED_DRAFT_ADOPTED["MIN_LINES"]),
+    "sung_lines": lambda plan: bool(plan.get("line_slots")),
+    # A FLOOR PAIR FLAG NEEDS TWO PAIRS: with one pair the floor declines to
+    # tell a repeated ending from a refrain and writes a note
+    # (`floor.SlopFloor`, "only one rhyme pair here").
+    "floor_pairs": lambda plan: len(_floor_pairs(plan)) >= 2,
+}
+
+
+def _word_count_band(plan):
+    """-> (lo, hi) words in the whole song at the planner's own
+    `tokens_per_line_band()`, the reading `_head_cap` makes."""
+    lo, hi = tokens_per_line_band()
+    n = plan["total_lines"]
+    return int(math.ceil(lo * n)), int(math.floor(hi * n))
+
+
+def _covering_profile(n_tokens, n_lines):
+    """-> the floor profile that grades a draft of `n_tokens` words and
+    `n_lines` lines AS A FLAG, or None: `floor.declaration_for`'s choice
+    among the profiles that cover the length (exact), read from
+    `floor.PROFILES`. Outside every covering profile the three length
+    limits are notes or do not run, so they stop nothing there."""
+    covering = [p for p in _FL.PROFILES
+                if not p.superseded_by and p.covers(n_tokens)]
+    if not covering:
+        return None
+    exact_unit = [p for p in covering if p.n_lines == n_lines]
+    if exact_unit:
+        return exact_unit[0]
+    sheet = [p for p in covering if not p.n_lines]
+    return (sheet or covering)[0]
+
+
+def _length_limits(plan, key):
+    """-> sorted distinct values of the floor's `key` limit over every word
+    count in `_word_count_band(plan)` where it can flag, read through
+    `floor.FloorDeclaration().resolve`. Empty when none can."""
+    decl = _FL.FloorDeclaration()
+    lo, hi = _word_count_band(plan)
+    vals = set()
+    for n in range(lo, hi + 1):
+        prof = _covering_profile(n, plan["total_lines"])
+        if prof is None:
+            continue
+        v = decl.resolve(key, prof, n)
+        if v is not None:
+            vals.add(v)
+    return sorted(vals)
+
+
+def _span(vals, fmt):
+    """-> "A" or "A to B" for the smallest and largest of `vals`."""
+    a, b = fmt(min(vals)), fmt(max(vals))
+    return a if a == b else f"{a} to {b}"
+
+
+def _opening_cap(thr, n_lines):
+    """-> the most lines of `n_lines` that may open on one word under the
+    share `thr`, by the grader's own comparison (share > thr flags)."""
+    return max(c for c in range(n_lines + 1) if not c / n_lines > thr)
+
+
+def _stacked_floor(n_lines):
+    """-> the fewest stacked lines of `n_lines` that stop the song, by the
+    grader's own comparison (share >= the adopted fraction)."""
+    frac = STACKED_DRAFT_ADOPTED["STACKED_FRACTION_MAX"]
+    return min(c for c in range(n_lines + 1) if c / n_lines >= frac)
+
+
+#: What the floor and the stacked-line test count as grammar words: the
+#: closed-class tags (`features.FUNCTION_TAGS`), named in plain words.
+GRAMMAR_WORDS = ("grammar words (determiners, pronouns, prepositions, "
+                 "conjunctions, modal verbs, question words, particles, "
+                 "interjections)")
+
+
+def _pct(v):
+    return f"{100 * v:.1f}%"
+
+
+def _limit_length_reach(plan):
+    live = [p for p in _FL.PROFILES if not p.superseded_by]
+    lo = min(p.band()[0] for p in live)
+    hi = max(p.band()[1] for p in live)
+    return (f"fewer than {lo} or more than {hi} words in the whole song "
+            f"leave the draft ungraded")
+
+
+def _limit_openings(plan):
+    n = plan["total_lines"]
+    vals = _length_limits(plan, "anaphora_max")
+    if not vals:
+        return None
+    caps = sorted({_opening_cap(v, n) for v in vals})
+    text = (f"more than {_span(caps, str)} of the {n} lines open on the "
+            f"same word")
+    if _matched_openings(plan):
+        text += ("; a note instead when the lines this plan requires to "
+                 "match account for it")
+    return text
+
+
+def _limit_grammar_words(plan):
+    vals = _length_limits(plan, "function_word_ratio_max")
+    if not vals:
+        return None
+    return (f"more than {_span(vals, _pct)} of the song's words are "
+            f"{GRAMMAR_WORDS}")
+
+
+def _limit_variety(plan):
+    vals = _length_limits(plan, "mattr_min")
+    if not vals:
+        return None
+    w = _FL.FloorDeclaration().mattr_window
+    whole = (f" (over the whole song at {w} words or fewer)"
+             if _word_count_band(plan)[0] <= w else "")
+    text = (f"the song's distinct words per word, averaged over each run of "
+            f"{w} words{whole}, fall below "
+            f"{_span(vals, lambda v: f'{v:.3f}')}")
+    if _verbatim_classes(plan):
+        text += ("; a note instead when the lines left after dropping "
+                 "word-for-word copies pass")
+    return text
+
+
+def _limit_stacked(plan):
+    a = STACKED_DRAFT_ADOPTED
+    n = plan["total_lines"]
+    return (f"{_stacked_floor(n)} or more of the {n} lines are word lists: "
+            f"{a['MIN_TOKENS']} or more words, no finite verb (a verb with a "
+            f"tense, a modal, or a command form), at most "
+            f"{_pct(a['FUNC_SHARE_MAX'])} grammar words, "
+            f"and at least {a['COMMAS_PER_TOKEN_MIN']} commas per word")
+
+
+def _limit_syllables(plan):
+    caps = []
+    for sec in plan["sections"]:
+        slots = [s for s in plan["line_slots"] if s["section"] == sec["name"]]
+        if slots:
+            caps.append(int(line_syllable_ceiling(
+                slots[0]["duration"] * plan["subdivision"])))
+    return (f"a line has more syllables than the \"up to\" number under its "
+            f"section ({_span(caps, str)} here)")
+
+
+def _limit_group_rule(plan):
+    # NOTHING MORE IS SAID ABOUT A REPEATED WORD: the grader charges one
+    # only when the pair already fails its group's rule (`Reviser.inspect`
+    # skips every verdict with no `why`), and many drawn rules ask for it.
+    return "two lines of a group do not meet that group's rule above"
+
+
+def _limit_returns(plan):
+    return ("a line that must come back is not its first time word for "
+            "word (case, punctuation and spacing aside)")
+
+
+def _limit_hook_recurs(plan):
+    return (f"the words of line {plan['hook_slot']}, in order, are not found "
+            f"in another line")
+
+
+def _limit_title_in_hook(plan):
+    return (f"the title's words, in order, are not inside line "
+            f"{plan['hook_slot']}; a title longer than that line leaves "
+            f"this check unjudged, so the draft cannot pass")
+
+
+def _limit_same_end_word(plan):
+    frac = _FL.FloorDeclaration().radif_min_pair_fraction
+    return (f"two paired line ends close on the same word or words and that "
+            f"close ends no other pair; or, under a close shared by at least "
+            f"{100 * frac:g}% of the pairs, the words just before it are the "
+            f"same too")
+
+
+def _limit_same_spelled_ending(plan):
+    return ("two paired words whose endings sound alike are also spelled "
+            "the same from the stressed vowel on")
+
+
+def _limit_common_partner(plan):
+    return (f"two paired words whose endings sound alike, where one is "
+            f"among the {WRITING_BAN_PARTNERS} or fewer differently spelled "
+            f"partners most often paired with the other in songs")
+
+
+_STOP_LIMITS = {
+    "length_reach": _limit_length_reach,
+    "openings": _limit_openings,
+    "grammar_words": _limit_grammar_words,
+    "variety": _limit_variety,
+    "stacked": _limit_stacked,
+    "syllables": _limit_syllables,
+    "group_rule": _limit_group_rule,
+    "returns": _limit_returns,
+    "hook_recurs": _limit_hook_recurs,
+    "title_in_hook": _limit_title_in_hook,
+    "same_end_word": _limit_same_end_word,
+    "same_spelled_ending": _limit_same_spelled_ending,
+    "common_partner": _limit_common_partner,
+}
+
+#: The three limits that move with the finished song's word count.
+LENGTH_LIMIT_CODES = ("ANAPHORA_OVERLOAD", "FUNCTION_WORD_HEAVY",
+                      "LEXICAL_MONOTONY")
+
+
+def stop_rules_for(plan):
+    """-> [(code, kind, text)] for every `STOP_RULES` row that can stop THIS
+    plan's song, in table order. A length-limit row whose limit can flag at
+    no word count in the planner's band is left out: there it stops
+    nothing."""
+    rows = []
+    for code, row in STOP_RULES.items():
+        if not _STOP_APPLIES[row["applies"]](plan):
+            continue
+        text = _STOP_LIMITS[row["limit"]](plan)
+        if text is None:
+            continue
+        rows.append((code, _stop_kind(code), text))
+    return rows
+
+
+#: The block's first line, which `test_plan` finds the block by.
+#: `ungraded` is the length gate: the checks that read the song's length
+#: do not run, every other layer's findings stand, and the draft cannot
+#: pass (`lyric_harness.py`, "The rhyme, meter and structure layers above
+#: DID report").
+STOP_BLOCK_HEAD = ("What stops this song (flag: the grade stands and the "
+                   "song is held back; ungraded: the checks that read the "
+                   "song's length do not run, the other findings stand, and "
+                   "the draft cannot pass):")
+
+
+def _stop_block(plan):
+    """-> the brief's last block: one row per rule that can stop this
+    plan's song, CODE first, then what stops it and its limit."""
+    rows = stop_rules_for(plan)
+    if not rows:
+        return []
+    lo, hi = _word_count_band(plan)
+    tlo, thi = tokens_per_line_band()
+    out = [STOP_BLOCK_HEAD]
+    if any(code in LENGTH_LIMIT_CODES for code, _k, _t in rows):
+        out.append(f"  Words are runs of letters; an apostrophe or hyphen "
+                   f"stays inside its word. Limits given as a range depend "
+                   f"on the finished song's word count; they are read at "
+                   f"{tlo:g} to {thi:g} words a line ({lo} to {hi} words).")
+    for code, kind, text in rows:
+        out.append(f"  {code} ({kind}): {text}.")
+    return out
+
+
 def writer_brief(plan):
     """The plan as a blind writer's seed — shape and rhyme plan, nothing
     about the harness (the coverage experiment's bias rule, kept)."""
@@ -5323,6 +5729,9 @@ def writer_brief(plan):
             out.append(f"The title {plan['title']!r} names the song. \"Is "
                        f"the title in the hook?\" is not asked of this plan, "
                        f"because it declares no hook.")
+    # WHAT CAN STOP THIS SONG, LAST (stage 3 box 1): one row per blocking
+    # code that applies to this plan, each limit the grader's own number.
+    out.extend(_stop_block(plan))
     return "\n".join(out)
 
 
