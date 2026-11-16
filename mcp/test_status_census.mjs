@@ -1405,3 +1405,65 @@ test(
     assert.ok(longest >= 400, `the longest plan drawn has ${longest} lines`);
   }
 );
+
+// ── A refused window's reason, whole, and its complete text on request ──────
+// A real session. The roster is found in the planner's own table: the first
+// one-function roster whose window is refused for what each seed drew.
+test(
+  'a session gives a refused window’s reasons whole, and their complete text as a detail',
+  { timeout: 900_000 },
+  async (t) => {
+    const roster = JSON.parse(
+      execFileSync(
+        'python3',
+        ['-c', 'import json, quality.plan as P; print(json.dumps(sorted(P.GENERATOR_ROSTER)))'],
+        { cwd: fileURLToPath(new URL('../lyric-harness', import.meta.url)), encoding: 'utf8' }
+      )
+    );
+    const sessions = new WorkflowSessions({ store: storeFor(t).store });
+    const client = await sessionClient(t, sessions);
+    let read = null;
+    for (const fn of roster) {
+      const opened = await send(client, 'begin_lyrics', {});
+      const queued = await send(client, 'lyric_sweep', {
+        session_id: opened.session_id,
+        seed_from: 0,
+        count: 2,
+        functions: fn,
+      });
+      await sessions.wait(queued.operation_id);
+      const done_ = await send(client, 'get_operation', { operation_id: queued.operation_id });
+      const v = JSON.parse(done_.tool_result.content[0].text);
+      if (v.sweep_outcome !== 'planner refused every seed') continue;
+      if (!v.planner_refusals.every((g) => g.scope === 'seed')) continue;
+      read = { receipt: done_, v };
+      break;
+    }
+    assert(read, "some one-function roster is refused for the seed's own draw");
+    // Published: each reason whole, no second copy of its text, and the note
+    // that says where the rest is.
+    for (const g of read.v.planner_refusals) {
+      assert.match(g.reason, /[.)]$/, g.reason.slice(-40));
+      assert.equal(Object.hasOwn(g, 'text'), false);
+    }
+    assert.match(read.v.detail, /detail "refusals"/);
+    // Who acts stays after the note, as on every short view.
+    const keys = Object.keys(read.v);
+    assert.ok(keys.indexOf('detail') < keys.indexOf('outcome'), keys.join(','));
+    // The detail read: the same reasons, each with the refusal's later lines.
+    const detail = await send(client, 'get_operation', {
+      operation_id: read.receipt.operation_id,
+      detail: 'refusals',
+    });
+    const part = JSON.parse(detail.tool_result.content[0].text);
+    assert.deepEqual(Object.keys(part), ['exit_code', 'detail', 'planner_refusals']);
+    assert.deepEqual(
+      part.planner_refusals.map(({ text: _text, ...g }) => g),
+      read.v.planner_refusals
+    );
+    for (const g of part.planner_refusals) {
+      assert.ok(g.text.startsWith(g.reason + '\n'), g.text);
+      assert.ok(g.text.split('\n').length >= 2);
+    }
+  }
+);

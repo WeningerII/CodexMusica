@@ -12600,7 +12600,12 @@ def main():
                           + ", ".join(str(x) for x in ss)
                           + (f" and {more} more" if more > 0 else "")
                           + f": {g['reason']}")
+                    # `text`: the refusal's lines after the first, kept
+                    # for a reader who asks (a session's detail read); only
+                    # where there are any.
                     reasons.append({"scope": g["scope"], "reason": g["reason"],
+                                    **({"text": g["text"]} if g.get("text")
+                                       and g["text"] != g["reason"] else {}),
                                     "seeds": ss, "more_seeds": max(0, more)})
                 if len(res["refusals"]) > 12:
                     print(f"      … and {len(res['refusals']) - 12} more "

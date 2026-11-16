@@ -5131,6 +5131,7 @@ def test_a_refusal_names_what_was_sent():
     seen = {"draws": 0, "lines": 0, "bounds": 0, "candidates": 0, "other": 0,
             "planned": 0}
     wrong = []
+    refused = []
     for kw in requests:
         try:
             make_plan(seed=1, **kw)
@@ -5138,6 +5139,8 @@ def test_a_refusal_names_what_was_sent():
             continue
         except PlanRefused as exc:
             msg, of_seed = str(exc), isinstance(exc, SeedRefused)
+        if "wants" not in kw:
+            refused.append((kw, msg, of_seed))
         roster, lines = kw.get("functions"), kw.get("lines")
         wants = kw.get("wants", [])
         # Never a declaration that was not sent.
@@ -5185,6 +5188,25 @@ def test_a_refusal_names_what_was_sent():
           "that was not sent, and each of the three refusals was reached",
           not wrong and seen["draws"] and seen["lines"] and seen["bounds"]
           and seen["candidates"] and seen["planned"], (seen, wrong[:4]))
+    # A SWEEP QUOTES THE REFUSAL'S FIRST LINE WHOLE. It was cut at 240
+    # characters, mid-word. Every roster request above that refuses is swept
+    # at the same seed: the group's reason is the first line of what
+    # `make_plan` raises, its text is all of it, and its scope is the
+    # exception's class.
+    from quality.plan import sweep
+    cut = []
+    longest = 0
+    for kw, msg, of_seed in refused:
+        groups = sweep([1], **kw)["refusals"]
+        first = msg.split("\n", 1)[0]
+        longest = max(longest, len(first))
+        if groups != [{"scope": "seed" if of_seed else "request",
+                       "reason": first, "text": msg, "seeds": [1]}]:
+            cut.append((kw, groups))
+    check("a swept refusal's reason is the refusal's whole first line, with "
+          "the complete text beside it (one of them is over 240 characters)",
+          refused and not cut and longest > 240,
+          (len(refused), longest, cut[:2]))
 
 
 def test_satisfied_wants_remain_in_the_request():

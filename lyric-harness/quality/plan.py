@@ -3560,10 +3560,11 @@ def sweep(seeds, wants=(), **plan_kw):
     many planned seeds `wants[i]` held for ON ITS OWN, in declared order: a
     window a combination empties shows no zero, but a predicate that alone
     holds for none does. `refusals` groups the refused seeds by the
-    planner's reason (its first line, at most 240 characters) and its scope,
-    "seed" for a `SeedRefused` (another seed may plan) or "request" for any
-    other refusal (another window refuses the same way until the request
-    changes), each group's seeds in seed order.
+    planner's reason (its first line, whole) and its scope, "seed" for a
+    `SeedRefused` (another seed may plan) or "request" for any other refusal
+    (another window refuses the same way until the request changes), each
+    group's seeds in seed order; `text` is the complete refusal of the
+    group's first seed, for the lines after the first.
 
     A PLAN IS A PURE FUNCTION OF ITS REQUEST, including the seed and count
     policy. This returns SEEDS and no plans: the caller repeats the same
@@ -3602,9 +3603,12 @@ def sweep(seeds, wants=(), **plan_kw):
     groups = {}
     for s, st, _, why in rows:
         if st == "refused":
-            groups.setdefault(why, []).append(s)
-    refusals = [{"scope": scope, "reason": reason, "seeds": ss}
-                for (scope, reason), ss in groups.items()]
+            scope, reason, text = why
+            groups.setdefault((scope, reason),
+                              {"text": text, "seeds": []})["seeds"].append(s)
+    refusals = [{"scope": scope, "reason": reason, "text": g["text"],
+                 "seeds": g["seeds"]}
+                for (scope, reason), g in groups.items()]
     return {"accepted": accepted, "planned": planned, "refused": refused,
             "wants": wants, "seeds": len(seeds), "passed": passed,
             "refusals": refusals}
@@ -3615,7 +3619,8 @@ def _sweep_one(job):
 
     `held` is each predicate's own result, every one evaluated rather than
     stopping at the first failure; `why` is (scope, first line of the
-    reason) for a refusal. Module-level so a worker process can reach it;
+    reason, the whole reason) for a refusal. Module-level so a worker process
+    can reach it;
     returns plain data so a refusal travels back with its reason rather
     than as an exception stripped of its seed."""
     s, wants, plan_kw = job
@@ -3623,7 +3628,12 @@ def _sweep_one(job):
         p = make_plan(seed=s, _recurrence_wants=wants, **plan_kw)
     except PlanRefused as exc:
         scope = "seed" if isinstance(exc, SeedRefused) else "request"
-        return (s, "refused", [], (scope, str(exc).split("\n", 1)[0][:240]))
+        # THE REASON IS THE REFUSAL'S WHOLE FIRST LINE (writer plan, stage 2).
+        # It was cut at 240 characters, which is mid-word in every refusal a
+        # one-function roster draws: a caller read "...with tee" and could
+        # ask for no more. The complete text travels beside it.
+        text = str(exc)
+        return (s, "refused", [], (scope, text.split("\n", 1)[0], text))
     return (s, "planned", [sweep_holds(p, w) for w in wants], None)
 
 

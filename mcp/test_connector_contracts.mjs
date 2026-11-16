@@ -167,6 +167,13 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
       }
     }
     assert(own, "some one-function roster is refused for the seed's own draw");
+    // The reason is the refusal's whole first line: it was cut at 240
+    // characters, mid-word. The lines after it ride beside it as `text`.
+    for (const g of own.planner_refusals) {
+      assert.doesNotMatch(g.reason, /\n/);
+      assert.match(g.reason, /[.)]$/, `the reason stops mid-sentence: ${g.reason.slice(-40)}`);
+      assert.ok(g.text.startsWith(g.reason + '\n'), g.text);
+    }
     // No plan in 2 seeds: at most 1 - 0.05^(1/2) of seeds plan. A further
     // seed is still as likely to plan as not, so the sweep goes on.
     const share = (n) => Math.round((1 - 0.05 ** (1 / n)) * 1e4) / 1e4;
