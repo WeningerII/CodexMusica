@@ -238,7 +238,9 @@ const MAX_OUTPUT_BYTES = 9 * 1024 * 1024;
 // A word that reaches argv: letters, apostrophes, internal hyphens. The
 // leading character is constrained separately so no input can grow into a
 // flag; there is no shell (execFile), so this is belt on top of braces.
-const WORD_RE = /^[A-Za-z][A-Za-z'’‘ʼ-]*$/;
+// Never two hyphens in a row: `--` is the separator `lyric_types` puts
+// between its two words, and a word holding one split into three (#871).
+const WORD_RE = /^[A-Za-z](?:[A-Za-z'’‘ʼ]|-(?!-))*$/;
 // Mandate strings (--groups=/--returns=). A member is a LINE NUMBER, or a
 // line and a PLACE IN IT since 2026-08-23 — `3.head`, `3.T2`, `3.end`,
 // `3.endword`, `3.line`, `3.headrime` (`quality/slots.py`). The owner's
@@ -1382,7 +1384,7 @@ function checkWords(words) {
     if (w.length > MAX_WORD_CHARS) throw refuse(`word too long: ${w.slice(0, 20)}…`);
     if (!WORD_RE.test(w))
       throw refuse(
-        `'${w}' is not a single bare word (letters/apostrophes/hyphens, no leading '-')`
+        `'${w}' is not a single bare word (letters, apostrophes and single hyphens; no leading '-', no '--')`
       );
   }
 }
@@ -2048,7 +2050,7 @@ export function answerFromRows(rows, pending) {
 // THE VERDICT'S EXTRACTORS, exported for mcp/test.mjs to drive on synthetic
 // reports (M-186): a live check proves one draft; the unit cases prove the
 // regexes against every spelling the harness prints.
-export const _argvInternals = { globalsFor, planArgs, checkLines };
+export const _argvInternals = { globalsFor, planArgs, checkLines, PLAN_ONLY_FIELDS };
 
 export const _verdictInternals = {
   sweepVerdict,

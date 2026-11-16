@@ -34,15 +34,19 @@ MODULE_VERBS = {
 
 
 def _cmd_test(test):
-    """-> (verbs, positive, exact) for a test about `cmd`, else None.
+    """-> (verbs, positive, exact, else_drop) for a test about `cmd`, else None.
 
-    positive: the body runs when cmd IS one of verbs. exact: the test says
-    nothing else, so the `else` branch is the complement too."""
+    positive: the body runs only when cmd IS one of verbs. exact: the test
+    says nothing else, so the `else` branch is the complement too. else_drop:
+    for a positive test, the verbs that can never reach its `else` (all of
+    them when exact; only the exact parts' of an `or`)."""
     if isinstance(test, ast.UnaryOp) and isinstance(test.op, ast.Not):
         inner = _cmd_test(test.operand)
         # Only an exact test can be complemented: `not (cmd == X and y)`
         # still runs for X whenever y is false.
-        return (inner[0], not inner[1], True) if inner and inner[2] else None
+        if not inner or not inner[2]:
+            return None
+        return (inner[0], False, True, None) if inner[1] else (inner[0], True, True, inner[0])
     if (isinstance(test, ast.Compare) and isinstance(test.left, ast.Name)
             and test.left.id == 'cmd' and len(test.ops) == 1):
         op, right = test.ops[0], test.comparators[0]
@@ -53,9 +57,9 @@ def _cmd_test(test):
         else:
             return None
         if isinstance(op, (ast.Eq, ast.In)):
-            return verbs, True, True
+            return verbs, True, True, verbs
         if isinstance(op, (ast.NotEq, ast.NotIn)):
-            return verbs, False, True
+            return verbs, False, True, None
         return None
     if isinstance(test, ast.BoolOp):
         parts = [_cmd_test(v) for v in test.values]
@@ -64,7 +68,11 @@ def _cmd_test(test):
             return None
         if isinstance(test.op, ast.Or) and len(cmd_parts) == len(parts) \
                 and all(p[1] for p in cmd_parts):
-            return set().union(*(p[0] for p in cmd_parts)), True, True
+            # Exact only if every part is: `(cmd == X and y) or cmd == Z`
+            # can fall to the `else` for X whenever y is false.
+            return (set().union(*(p[0] for p in cmd_parts)), True,
+                    all(p[2] for p in cmd_parts),
+                    set().union(*(p[0] for p in cmd_parts if p[2])))
         if isinstance(test.op, ast.And):
             pos = [p for p in cmd_parts if p[1]]
             if pos:
@@ -72,7 +80,7 @@ def _cmd_test(test):
                 for p in cmd_parts:
                     if not p[1]:
                         verbs -= p[0]
-                return verbs, True, False
+                return verbs, True, False, set()
         return None
     return None
 
@@ -129,9 +137,11 @@ def scan(path, name, fixed=None):
             t = _cmd_test(node.test)
             walk(node.test, ctx)
             if t and ctx is not None:
-                verbs, positive, exact = t
-                body = ctx & verbs if positive else ctx - verbs
-                orelse = (ctx - verbs if positive else ctx & verbs) if exact else ctx
+                verbs, positive, exact, else_drop = t
+                if positive:
+                    body, orelse = ctx & verbs, ctx - else_drop
+                else:
+                    body, orelse = ctx - verbs, (ctx & verbs if exact else ctx)
             else:
                 body = orelse = ctx
             for ch in node.body:
