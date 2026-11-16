@@ -130,3 +130,4 @@ Connector:
 | WORKER_STATE_BYTES | 1,114,112 (1,088 KB) | `../mcp/state_codec.js` |
 | STATE_DECODED_BYTES | 1,179,648 (1,152 KB) | `../mcp/state_codec.js` |
 | CONNECTOR_DECLARATION_BYTES | 32,768 (32 KB) | `../mcp/state_codec.js` |
+| PENDING_POLL_SECONDS | 5 | `../mcp/workflow_sessions.js` |
