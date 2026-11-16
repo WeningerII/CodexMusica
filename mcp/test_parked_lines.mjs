@@ -141,3 +141,9 @@ test("identical sung text is read after the tool's own normalisation", () => {
   const lyr = parked({ draft: ['[V]', 'line a', 'line b', '', 'line a'], open: [1], whole: [] });
   assert.deepEqual(parkedChangeable(lyr), [1, 3]);
 });
+
+test('a parked refusal names the lines the rewrite may change', () => {
+  const { parkedRefusal } = _agentInternals;
+  const lyr = parked({ draft: draftOf(6), open: [2], whole: [], groups: '2,5' });
+  assert.match(parkedRefusal(lyr, 'lyric_revise', {}), /only line\(s\) 2, 5 may change/);
+});

@@ -1301,7 +1301,9 @@ function parkedRefusal(lyr, name, args) {
       : null;
   const who = typeof lyr.seed === 'number' ? `seed ${lyr.seed}` : 'the declared mandate';
   const open = Array.isArray(lyr.open) && lyr.open.length ? lyr.open.join(', ') : 'none';
-  const tail = ` Continue it: rewrite the open line(s) (${open}) and call lyric_revise with \`seed\` and \`draft_text\` (the full song as ONE newline-separated string) and nothing else. The song cannot finish through any other call.`;
+  const may = parkedChangeable(lyr);
+  const scope = may ? `; only line(s) ${may.join(', ')} may change` : '';
+  const tail = ` Continue it: rewrite the open line(s) (${open})${scope}, and call lyric_revise with \`seed\` and \`draft_text\` (the full song as ONE newline-separated string) and nothing else. The song cannot finish through any other call.`;
   const head = `REFUSED by the connector: a lyric_revise run for ${who} is PARKED at exit 3 (no question pending)`;
   if (WANDER_ALWAYS.has(name)) return `${head}, and ${name} starts another song.${tail}`;
   if (WANDER_KEYED.has(name)) {
