@@ -5524,7 +5524,7 @@ def _limit_opening_word(opening):
     if not ({"(", ")", "[", "]"} & set(marks)):
         kept.append("a bracket")
     if kept:
-        text += f"; any other mark, such as {' or '.join(kept)}, stays on it"
+        text += f"; every other mark stays on it, {' and '.join(kept)} among them"
     if not opening["apostrophes_folded"]:
         text += ", and a curly apostrophe and a straight one make different " \
                 "words"
