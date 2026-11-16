@@ -1057,15 +1057,20 @@ test('lyric_grade names the next call per surface, and kitchen revise sends the 
     "At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this exact draft, " +
     "unchanged. `next_call` names that call's tool and the arguments the server sets: `seed`, and " +
     "`new_run` in a session when a run is open or this plan's run has started. It is not the whole " +
-    'call: send this exact draft and its declarations with it.';
+    'call: `next` says what to send with it, which is this exact draft and its declarations, or ' +
+    "no draft where the grade's record holds them (a session, the website chat).";
   for (const d of [chat.grade, outside.grade]) assert.ok(d.includes(next), d);
   assert.ok(chat.grade.includes(next + ' The service writer answers that lyric_revise run.'));
   assert.doesNotMatch(outside.grade, /service writer|kitchen/i);
   for (const d of [chat.grade, outside.grade])
     assert.doesNotMatch(d, /Revise the flagged lines only and call again/);
+  // The chat holds the grade's record: the call sends no draft, and one that
+  // sends a draft must send the graded one (writer plan, stage 2).
   assert.ok(
     chat.revise.includes(
-      'send the exact draft lyric_grade graded, unchanged, and the declarations; one call runs'
+      'after lyric_grade, send the seed and no draft, and the graded draft and its declarations ' +
+        'are taken from the record; a draft sent with the call must be that exact draft, unchanged. ' +
+        'One call runs'
     )
   );
   assert.doesNotMatch(chat.revise, /grade the changed draft first|its own note says/);

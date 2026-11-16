@@ -2566,8 +2566,9 @@ function reviseDescription({ kitchen = false } = {}) {
     'continues it. To start again on a different draft, grade that draft first, then ' +
     'send it with `new_run: true`. ';
   const chat =
-    'ON THIS SURFACE THE SERVICE WRITER ANSWERS: send the exact draft lyric_grade graded, unchanged, and ' +
-    'the declarations; one call runs the ' +
+    'ON THIS SURFACE THE SERVICE WRITER ANSWERS: after lyric_grade, send the seed and no draft, and the ' +
+    'graded draft and its declarations are taken from the record; a draft sent with the call must be ' +
+    'that exact draft, unchanged. One call runs the ' +
     'loop to a stop condition, the writer answering each question (a group question asks for every line of ' +
     'the group at once). An interrupted call records a checkpoint that the next lyric_revise call for the ' +
     'same song resumes (the chat carries it for you), with `final_draft` as the exact accepted lines and ' +
@@ -2709,7 +2710,8 @@ export function registerLyricTools(server, tool) {
         "At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this exact draft, " +
         "unchanged. `next_call` names that call's tool and the arguments the server sets: `seed`, and " +
         "`new_run` in a session when a run is open or this plan's run has started. It is not the whole " +
-        'call: send this exact draft and its declarations with it. ' +
+        'call: `next` says what to send with it, which is this exact draft and its declarations, or ' +
+        "no draft where the grade's record holds them (a session, the website chat). " +
         (server.kitchen ? 'The service writer answers that lyric_revise run. ' : '') +
         'At exit 2 `next` names each word that could not be judged, with its line and what to ' +
         'change, and then the lyric_grade call that judges the changed draft. ' +

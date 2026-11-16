@@ -173,16 +173,42 @@ const screenAttemptNote = (a) =>
     : '; its report names why. A plan needs one lyric_screen that answers (exit 0 or 3): call lyric_screen again once that cause is fixed.');
 // The song's length is the user's: a size limit is reported as this
 // session's limit, never answered by asking for a shorter song.
-const gradeAttemptNote = (a, lines) => {
+// `sent` is whether this call carried the draft the attempt ran on: a revise
+// that sent none can only be told about the draft last sent to lyric_grade.
+const gradeAttemptNote = (a, lines, sent = true) => {
   const facts = attemptFacts(a) ? ` (${attemptFacts(a)})` : '';
   const limit =
     "that limit is this session's, not the song's: report it to the user with the song's length unchanged";
+  const exact = sent ? 'this exact draft' : 'the draft last sent to it';
+  const same = sent ? 'this same draft' : 'that same draft';
+  const it = sent ? 'this draft' : 'that draft';
   if (a.cause === 'not_kept')
-    return ` lyric_grade measured this exact draft${facts}, but its result was over the size this session can keep, so nothing it produced was kept and no grade receipt was written. Grading this same draft again returns the same result: ${limit}, or call lyric_grade on a different draft of this plan (it may be too large as well).`;
+    return ` lyric_grade measured ${exact}${facts}, but its result was over the size this session can keep, so nothing it produced was kept and no grade receipt was written. Grading ${same} again returns the same result: ${limit}, or call lyric_grade on a different draft of this plan (it may be too large as well).`;
   if (a.cause === 'overflow')
-    return ` lyric_grade ran on this exact draft but did not answer with a grade receipt${facts}: it printed more than this connector can carry. Grading this same draft again returns the same result: ${limit}, or grade a different draft of this plan's ${lines} lines. Neither is known to be a cure.`;
-  return ` lyric_grade ran on this exact draft but did not answer with a grade receipt${facts}; its report names why. Read that report for the cause, then call lyric_grade again on this draft once it is fixed.`;
+    return ` lyric_grade ran on ${exact} but did not answer with a grade receipt${facts}: it printed more than this connector can carry. Grading ${same} again returns the same result: ${limit}, or grade a different draft of this plan's ${lines} lines. Neither is known to be a cure.`;
+  return ` lyric_grade ran on ${exact} but did not answer with a grade receipt${facts}; its report names why. Read that report for the cause, then call lyric_grade again on ${it} once it is fixed.`;
 };
+// A revise sent a draft other than the one graded under the plan. `graded` is
+// the grade receipt; one recorded before the draft's text was kept holds its
+// fingerprint only, so no line can be named and no draft taken from it.
+const SHOWN_DIFFERING = 12;
+function notTheGradedDraft(graded, draft, seed) {
+  const kept = Array.isArray(graded.draft);
+  const at = kept
+    ? draft.map((line, i) => (line === graded.draft[i] ? 0 : i + 1)).filter(Boolean)
+    : [];
+  const shown = at.slice(0, SHOWN_DIFFERING).join(', ');
+  const where = !at.length
+    ? ''
+    : at.length === 1
+      ? `: line ${shown} differs`
+      : `: lines ${shown}${at.length > SHOWN_DIFFERING ? ` and ${at.length - SHOWN_DIFFERING} more` : ''} differ`;
+  return (
+    ` This draft is not the one lyric_grade graded under this plan${where}.` +
+    (kept ? ' To revise the graded draft, send this call again without a draft.' : '') +
+    ` To keep this draft, call lyric_grade with seed ${seed} and this draft first.`
+  );
+}
 // The handler validates the original envelope and forbids all execution fields.
 // A requested export must reach it unchanged, even when malformed, and never
 // counts as planning, repair or completed work.
@@ -410,6 +436,33 @@ export function creationRefusal(task, name, args, lyric = null) {
       return 'CREATION_DRAFT: conflicting draft and draft_text; send one exact draft representation.';
     args.draft = draft;
   }
+  // A REVISE AFTER A GRADE (writer plan, stage 2). The plan's declarations are
+  // restored from the record above; the draft was not, so a caller had to send
+  // the whole graded draft again unchanged. The grade receipt keeps the draft's
+  // text now, and a revise that starts a run without a draft takes it from
+  // there. A run under way keeps its own draft: the graded one is where that
+  // run STARTED, and the host restores the run's draft before this gate.
+  const continuing =
+    name === 'lyric_revise' &&
+    !args.new_run &&
+    lyric &&
+    w.started?.plan_sha256 === w.plan.sha256 &&
+    (lyric.seed === request.seed || lyric.decl?.seed === request.seed);
+  const gradedDraft = w.grade?.plan_sha256 === w.plan.sha256 ? w.grade : null;
+  if (name === 'lyric_revise' && !continuing && !(Array.isArray(args.draft) && args.draft.length)) {
+    if (!gradedDraft)
+      return (
+        `CREATION_GRADE: no graded draft is on record for this plan, and this call sent none. Call lyric_grade with seed ${request.seed} and the complete ${w.plan.lines}-line draft; lyric_revise then takes that graded draft from the record.` +
+        (w.grade_attempt?.plan_sha256 === w.plan.sha256
+          ? gradeAttemptNote(w.grade_attempt, w.plan.lines, false)
+          : '')
+      );
+    if (Array.isArray(gradedDraft.draft)) {
+      args.draft = structuredClone(gradedDraft.draft);
+      // An empty `draft_text` sent beside it is not a second draft.
+      delete args.draft_text;
+    }
+  }
   if (!Array.isArray(args.draft) || !args.draft.length)
     return (
       'CREATION_DRAFT: the exact complete draft is required. Send this same call again with ' +
@@ -419,11 +472,6 @@ export function creationRefusal(task, name, args, lyric = null) {
   if (args.draft.length !== w.plan.lines)
     return `CREATION_DRAFT: the draft line count differs from the canonical program plan. The plan has ${w.plan.lines} lines and this draft has ${args.draft.length}: send this same call again with a draft of ${w.plan.lines} lines.`;
   if (name === 'lyric_grade') return null;
-  const continuing =
-    !args.new_run &&
-    lyric &&
-    w.started?.plan_sha256 === w.plan.sha256 &&
-    (lyric.seed === request.seed || lyric.decl?.seed === request.seed);
   if (continuing) return null;
   if (
     !w.grade ||
@@ -432,6 +480,9 @@ export function creationRefusal(task, name, args, lyric = null) {
   )
     return (
       'CREATION_GRADE: lyric_grade must answer for this exact draft and canonical plan before revision starts.' +
+      // Another draft IS graded under this plan: say which lines differ and
+      // name both ways on, so a change is neither revised unseen nor lost.
+      (gradedDraft ? notTheGradedDraft(gradedDraft, args.draft, request.seed) : '') +
       (w.grade_attempt?.plan_sha256 === w.plan.sha256 &&
       w.grade_attempt.draft_sha256 === hash(args.draft)
         ? gradeAttemptNote(w.grade_attempt, w.plan.lines)
@@ -697,6 +748,9 @@ export function recordCreation(task, name, args, verdict, isError = false) {
       w.grade = {
         plan_sha256: w.plan.sha256,
         draft_sha256: verdict.final_draft_sha256,
+        // The text beside its fingerprint: a revise that sends no draft takes
+        // it from here (creationRefusal).
+        draft: structuredClone(verdict.final_draft),
         coverage_certified: verdict.coverage.certified,
         ...(Array.isArray(verdict.pronunciations) &&
         !same(verdict.pronunciations, args.pronunciations ?? [])
@@ -787,6 +841,8 @@ export function nextCreationCall(task, carried, name) {
       tool: 'lyric_revise',
       args: { seed, ...(move ? { new_run: true } : {}) },
       draft: 'graded',
+      // The record holds the graded draft's text: the call needs no draft.
+      recorded: Array.isArray(w.grade.draft),
       lines,
     };
   return { tool: 'lyric_grade', args: { seed }, draft: 'complete', lines };
@@ -813,6 +869,11 @@ export function formatNextCall(next) {
     return `NEXT: lyric_revise with seed ${args.seed} to resume the interrupted run; the recorded run supplies its draft and declarations.`;
   if (next.continues === 'rewrite')
     return `NEXT: lyric_revise with seed ${args.seed} and the complete rewritten ${next.lines}-line draft as draft_text.`;
+  if (next.recorded)
+    return (
+      `NEXT: lyric_revise with seed ${args.seed}${args.new_run ? ', new_run: true' : ''} and no draft; the ${next.lines}-line draft lyric_grade graded is taken from the record. ` +
+      'To change a line, grade the changed draft first.'
+    );
   return (
     `NEXT: lyric_revise with seed ${args.seed}${args.new_run ? ', new_run: true' : ''} and the exact ${next.lines}-line draft lyric_grade graded. ` +
     'To change a line, grade the changed draft first.'
@@ -850,11 +911,17 @@ export function sweepNextLine(args, seed) {
 // run (an uncertified parked run, an unknown-outcome proposal), names none;
 // a carried run, or a run this plan already started, makes it a new run, as
 // the stop's CONTINUE note says.
-export function gradeNext(code, newRun = false) {
+export function gradeNext(code, newRun = false, recorded = false) {
   return (
     (code === 0 ? 'To finish it, call' : 'Call') +
-    " lyric_revise with this exact draft, unchanged, and this grade's seed and declarations" +
-    (newRun ? ', with new_run: true' : '') +
+    // A host that keeps the grade receipt holds the graded draft: the call
+    // sends none, so no line can change between the grade and the revise.
+    (recorded
+      ? " lyric_revise with this grade's seed" +
+        (newRun ? ', new_run: true' : '') +
+        ' and no draft: the graded draft and its declarations are taken from the record'
+      : " lyric_revise with this exact draft, unchanged, and this grade's seed and declarations" +
+        (newRun ? ', with new_run: true' : '')) +
     (code === 0 ? '' : '; its revise loop works on the flagged lines') +
     '. If you change any line yourself instead, ' +
     'grade the changed draft with lyric_grade before starting a revision.'
@@ -869,6 +936,7 @@ export function gradedNextCall(task, carried) {
   return {
     tool: 'lyric_revise',
     args: { seed: w.plan.request.seed, ...(newRun ? { new_run: true } : {}) },
+    recorded: Array.isArray(w.grade.draft),
   };
 }
 function withGradeNext(task, result, carried) {
@@ -892,7 +960,11 @@ function withGradeNext(task, result, carried) {
       ...block,
       text: JSON.stringify(
         call
-          ? { ...rest, next_call: call, next: gradeNext(v.exit_code, !!call.args.new_run) }
+          ? {
+              ...rest,
+              next_call: { tool: call.tool, args: call.args },
+              next: gradeNext(v.exit_code, !!call.args.new_run, call.recorded),
+            }
           : rest
       ),
     };

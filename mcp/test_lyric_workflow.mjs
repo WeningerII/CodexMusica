@@ -729,10 +729,18 @@ test('grade receipt accepts its exact normalized reading alias without accepting
   );
 });
 
-test('a grade or revise with no usable draft is refused with the CREATION_DRAFT text', () => {
-  // Option B (John's ruling): the session keeps requiring the draft and the
-  // text says how to send it. Whole string, anchored at both ends; the NEXT
-  // clause is appended later, at the client and /chat seams.
+test('a grade with no usable draft is refused with the CREATION_DRAFT text; a revise takes the graded draft', () => {
+  // Option B (John's ruling, on record by 2026-10-25): the session keeps
+  // requiring the draft and the text says how to send it. Whole string,
+  // anchored at both ends; the NEXT clause is appended later, at the client
+  // and /chat seams. That holds for lyric_grade, unchanged.
+  //
+  // CHANGED 2026-11-16 for lyric_revise (writer plan, stage 2): a revise that
+  // sends no draft was refused with this text and told to send the graded
+  // draft again. A caller that re-sent it changed a line both times it tried
+  // and was refused both times. The grade receipt now keeps the graded
+  // draft's text, and a revise that sends none takes it from there. The old
+  // refusal stays for a receipt that holds no text (written before this).
   const remedy = (draft) =>
     new RegExp(
       `^CREATION_DRAFT: the exact complete draft is required\\. Send this same call again with ${draft} as \`draft\` \\(one line per item\\) or \`draft_text\` \\(one newline-separated string\\)\\.$`
@@ -759,17 +767,26 @@ test('a grade or revise with no usable draft is refused with the CREATION_DRAFT 
   recordCreation(t, 'lyric_grade', { seed: 16, draft }, gradeReceipt(p));
   const graded = structuredClone(t.workflow.grade);
   assert.ok(graded);
-  for (const shape of [{}, { draft_text: '' }]) {
-    assert.match(
-      creationRefusal(t, 'lyric_revise', { ...planArgs, ...shape }),
-      remedy('the exact draft lyric_grade graded'),
-      JSON.stringify(shape)
-    );
+  for (const shape of [{}, { draft_text: '' }, { draft: [] }]) {
+    const args = { ...planArgs, ...shape };
+    assert.equal(creationRefusal(t, 'lyric_revise', args), null, JSON.stringify(shape));
+    assert.deepEqual(args.draft, draft, 'the graded draft is the one revised');
+    assert.equal(Object.hasOwn(args, 'draft_text'), false);
     assert.deepEqual(t.workflow.grade, graded, 'the grade receipt is unchanged');
     assert.equal(t.workflow.started, null, 'no revision was started');
   }
+  // A receipt that holds the fingerprint and no text: the old refusal.
+  const old = structuredClone(t);
+  delete old.workflow.grade.draft;
+  for (const shape of [{}, { draft_text: '' }])
+    assert.match(
+      creationRefusal(old, 'lyric_revise', { ...planArgs, ...shape }),
+      remedy('the exact draft lyric_grade graded'),
+      JSON.stringify(shape)
+    );
   // Control: the same revise with the exact graded draft is admitted.
   assert.equal(creationRefusal(t, 'lyric_revise', { ...planArgs, draft }), null);
+  assert.equal(creationRefusal(old, 'lyric_revise', { ...planArgs, draft }), null);
 });
 
 test('the grade-receipt verdict predicate holds exactly when a grade receipt is written', () => {

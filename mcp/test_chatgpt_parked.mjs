@@ -74,7 +74,17 @@ test('a parked new song continues exactly as its note says', { timeout: 300_000 
   // A regrade after the stop names the same call as the note: new_run: true.
   const regraded = verdictOf((await run('lyric_grade', { seed, draft })).tool_result);
   assert.deepEqual(regraded.next_call, { tool: 'lyric_revise', args: { seed, new_run: true } });
-  assert.match(regraded.next, /, with new_run: true/);
+  // The session holds the graded draft, so the call it names sends none
+  // (writer plan, stage 2).
+  assert.match(
+    regraded.next,
+    /^Call lyric_revise with this grade's seed, new_run: true and no draft: /
+  );
+  // Followed to the letter, with no draft: the graded draft is the one
+  // revised, and the same draft stops on the same lines.
+  const again = await run('lyric_revise', { seed, new_run: true, ...budget });
+  assert(!again.tool_error, JSON.stringify(again));
+  assert.equal(verdictOf(again.tool_result).exit_code, 3, JSON.stringify(again));
   const rewritten = draft.map((line) =>
     line === 'Morning light' ? 'Morning comes in slow' : line
   );
@@ -127,7 +137,10 @@ test(
     const short = verdictOf(graded.tool_result);
     assert([0, 3].includes(short.exit_code), JSON.stringify(short));
     assert.equal(Object.keys(short).at(-1), 'next', JSON.stringify(short));
-    assert.match(short.next, /lyric_revise with this exact draft, unchanged/);
+    assert.match(
+      short.next,
+      /lyric_revise with this grade's seed and no draft: the graded draft and its declarations are taken from the record/
+    );
     // No run is open yet: the graded draft, without new_run (#671, C4).
     assert.deepEqual(short.next_call, { tool: 'lyric_revise', args: { seed } });
     assert.doesNotMatch(short.next, /new_run/);
@@ -136,8 +149,9 @@ test(
     );
     const edited = await run('lyric_revise', { seed, draft: rewritten });
     assert.match(text(edited), /CREATION_GRADE: lyric_grade must answer/);
-    // As `next` says: this exact draft, unchanged, with the grade's seed.
-    const opened = await run('lyric_revise', { seed, draft });
+    // As `next` says: the grade's seed and no draft. The refused call above
+    // changed nothing, so the graded draft is still the one on record.
+    const opened = await run('lyric_revise', { seed });
     assert(!opened.tool_error, JSON.stringify(opened));
     const open = verdictOf(opened.tool_result);
     assert.equal(open.exit_code, 4, 'the interview run is open: it asks its first question');
@@ -145,7 +159,7 @@ test(
     // A run is open: the grade's next says new_run (#671, C4).
     const reread = verdictOf(regraded.tool_result);
     assert.deepEqual(reread.next_call, { tool: 'lyric_revise', args: { seed, new_run: true } });
-    assert.match(reread.next, /, with new_run: true/);
+    assert.match(reread.next, /seed, new_run: true and no draft: /);
     const kept = await run('lyric_revise', { seed, draft: rewritten });
     assert.match(text(kept), /CREATION_CONTINUATION: draft differs from the recorded run/);
     const fresh = await run('lyric_revise', { seed, draft: rewritten, new_run: true });
