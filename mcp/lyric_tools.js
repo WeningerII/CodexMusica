@@ -491,7 +491,7 @@ function briefRefusal(res) {
   if (res.reason === 'unminted_wire')
     return (
       'BRIEF_REQUIRED: the state or checkpoint this call carries is not one this server returned, ' +
-      'and the song it holds is one a live revise run flagged lines in, so its lines cannot be taken ' +
+      'and the song it holds is one in which a live revise run protects lines, so its lines cannot be taken ' +
       "as that run's. Nothing was run. Call lyric_revise with `new_run: true` and this draft, or " +
       'continue with the state or checkpoint the last lyric_revise returned.'
     );

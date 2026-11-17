@@ -14,13 +14,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { connectConnector } from './client.js';
-import {
-  BRIEFS,
-  RUNS,
-  LYRIC_TOOL_SCHEMAS,
-  _argvInternals,
-  _verdictInternals,
-} from './lyric_tools.js';
+import { RUNS, LYRIC_TOOL_SCHEMAS, _argvInternals, _verdictInternals } from './lyric_tools.js';
 import { decodeState, encodeState } from './state_codec.js';
 import { creationRefusal, recordCreation } from './lyric_workflow.js';
 import {
@@ -327,19 +321,6 @@ test(
       delete stripped.connector_declarations.lexicon_supplement;
       delete stripped.connector_declarations.lexicon_supplement_sha256;
       assert.equal(stripped.lexicon?.supplement_id, DEFAULT.id, 'the worker state records it');
-      // A hand-edited copy of a live run's state is a wire this server never
-      // returned, for a song a live brief entry knows: the brief gate refuses it.
-      const tampered = await revise(c, { state: encodeState(stripped), answer: 'I hold you.' });
-      assert.equal(tampered.isError, true);
-      assert.match(
-        text(tampered),
-        /BRIEF_REQUIRED: the state or checkpoint this call carries is not one this server returned/
-      );
-      // A real state from before the lexicon field predates the brief ledger and
-      // its 3 h window, so no live entry knows its song. Model that by forgetting
-      // the entries this test's own runs left, so the legacy paths below are
-      // reached rather than the forged-wire refusal.
-      for (const id of [first.run_id, fromState.run_id]) BRIEFS.forget({ runId: id });
       const mismatched = await revise(c, {
         state: encodeState(stripped),
         answer: 'I hold you.',
@@ -360,7 +341,6 @@ test(
         const run = verdictOf(await revise(c, OPEN));
         assert.equal(run.exit_code, 4, JSON.stringify(run).slice(0, 600));
         RUNS.del(run.run_id); // as for the first run: continued from its state alone
-        BRIEFS.forget({ runId: run.run_id }); // a legacy wire no live entry knows
         return legacyOf(run.state);
       };
       const legacyWire = legacyOf(first.state);

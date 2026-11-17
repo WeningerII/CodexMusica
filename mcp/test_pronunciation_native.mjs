@@ -172,7 +172,18 @@ test('native client copies an actual voices option marker and ambiguous unmarked
     assert.equal(decodeState(again.state).connector_declarations.groups, start.groups);
     RUNS.map.clear();
     await _workerInternals.kill();
-    // A returned state still continues after the run record is lost.
+    const unsealed = decodeState(again.state);
+    delete unsealed.cursor_seal;
+    const unsupportedAlias = await client.call('lyric_revise', {
+      state: encodeState(unsealed),
+      ...again.numbered_mandate,
+      pronunciations: again.pronunciations,
+    });
+    assert.equal(
+      parsed(unsupportedAlias).exit_code,
+      4,
+      'unsealed equivalent coordinates are checked independently by Python'
+    );
     const replay = parsed(
       await client.call('lyric_revise', {
         state: again.state,
@@ -185,33 +196,7 @@ test('native client copies an actual voices option marker and ambiguous unmarked
       decodeState(replay.state).connector_declarations.pronunciations,
       start.pronunciations
     );
-    // A state with its cursor seal removed is one this server never returned
-    // (it seals the cursor or drops it). While a live brief entry knows the
-    // song, the forged-wire rule refuses it.
-    const unsealed = decodeState(again.state);
-    delete unsealed.cursor_seal;
-    const unsealedArgs = {
-      state: encodeState(unsealed),
-      ...again.numbered_mandate,
-      pronunciations: again.pronunciations,
-    };
-    const forgedRefusal = await client.call('lyric_revise', unsealedArgs);
-    assert.equal(forgedRefusal.isError, true, JSON.stringify(forgedRefusal).slice(0, 500));
-    const refusedText = forgedRefusal.content.map((b) => b.text || '').join('\n');
-    assert.match(refusedText, /BRIEF_REQUIRED/);
-    assert.match(refusedText, /not one this server returned/);
-    // For a song no live entry knows (an expired entry, a reset store, another
-    // process), Python still checks the numbering coordinates on its own.
-    const { BRIEFS } = await import('./lyric_tools.js');
-    BRIEFS.resetForTests();
-    const unsupportedAlias = await client.call('lyric_revise', unsealedArgs);
-    assert.equal(
-      parsed(unsupportedAlias).exit_code,
-      4,
-      'unsealed equivalent coordinates are checked independently by Python'
-    );
   } finally {
-    (await import('./lyric_tools.js')).BRIEFS.resetForTests();
     await client.close();
     await server.close();
     await _workerInternals.kill();

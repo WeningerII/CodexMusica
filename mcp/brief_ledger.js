@@ -510,10 +510,13 @@ export class BriefLedger {
             }
       }
     }
-    // A wire this server did not return, for a song a live entry knows, is
-    // refused outright even where its lines pass: its records (what it says
-    // was asked and answered) are not the run's own.
-    if (wireList.length && !exempt && cands.length)
+    // A wire this server did not return, for a song a live entry protects
+    // lines in, is refused outright even where its lines pass: its records
+    // (what it says was asked and answered) are not the run's own, and could
+    // free those lines at capture. An entry that protects nothing has nothing
+    // a forged record could free, so it does not refuse the wire.
+    const guards = cands.some((e) => e.prot.length > 0 || e.undo.length > 0);
+    if (wireList.length && !exempt && guards)
       return {
         ok: false,
         reason: 'unminted_wire',

@@ -218,6 +218,11 @@ test('an unminted wire for a known song is refused; a minted one is exempt', asy
   assert.deepEqual(ok.inherited.prot, [1]);
   // An unknown song with an unknown wire is admitted.
   assert.equal(b.check({ lineSets: [song('other')], wires: ['x'] }).ok, true);
+  // A known song in which no line is protected has nothing a forged record
+  // could free, so its unminted wire is admitted too.
+  const plain = song('s6plain');
+  await b.capture({ runId: 'r6p', cur: plain, input: plain, flagged: [], wire: 'wire-plain' });
+  assert.equal(b.check({ lineSets: [plain], wires: ['wire-forged-2'] }).ok, true);
 });
 
 test('inheritance: a no-op run cannot launder protection away', async () => {
