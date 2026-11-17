@@ -9,6 +9,7 @@ import { connectConnector } from './client.js';
 import { BRIEFS, RUNS, _workerInternals, _verdictInternals } from './lyric_tools.js';
 import { _agentInternals } from './gemini_agent.js';
 import { decodeState, encodeState } from './state_codec.js';
+import { stated } from './statement_fixture.mjs';
 
 const peers = [];
 async function connect(native = false, session = null) {
@@ -502,9 +503,9 @@ test('F07: uncertified results retain their exit code and actionable coverage re
 
 test('F08: native creation carries server revisions through repeated answers and reconnect', async () => {
   let c = await connect(true);
-  verdict(await c.call('lyric_sweep', { seed_from: 31, count: 1, lines: 12 }));
-  verdict(await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' }));
+  verdict(await c.call('lyric_sweep', stated({ seed_from: 31, count: 1, lines: 12 })));
   verdict(await c.call('lyric_plan', { seed: 31, lines: 12 }));
+  verdict(await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' }));
   const draft = Array(12).fill('The kettle whistles by the stove');
   verdict(await c.call('lyric_grade', { seed: 31, lines: 12, draft }));
   let v = verdict(

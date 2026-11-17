@@ -19941,12 +19941,14 @@ const CHAT_POLL_VISIBLE_MS = 2000;
 const CHAT_POLL_HIDDEN_MS = 5000;
 const CHAT_POLL_MAX_MS = 30000;
 const _chatPoll = { timer: 0, inflight: false, request_id: null, failures: 0 };
-// The stage a receipt shows, named for what the writer is doing now.
+// The stage a receipt shows, named for what the writer is doing now. The same
+// mapping as the server's progressView (mcp/job_store.js): a new song's
+// word-check follows its plan, so a screen reads as drafting, as the plan does.
 function _chatStageOf(tool) {
   if (!tool) return null;
   const verb = String(tool).replace(/^lyric_/, '');
-  if (['sweep', 'screen'].includes(verb)) return 'planning';
-  if (verb === 'plan') return 'drafting';
+  if (verb === 'sweep') return 'planning';
+  if (['plan', 'screen'].includes(verb)) return 'drafting';
   if (['grade', 'check', 'verify', 'recover', 'types'].includes(verb)) return 'checking';
   if (verb === 'revise') return 'revising';
   return 'working';

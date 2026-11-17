@@ -25,6 +25,7 @@ import {
   NONE,
   UNAVAILABLE,
 } from './lexicon_basis.js';
+import { stated } from './statement_fixture.mjs';
 
 const V1 = LEXICON_MANIFEST.versions.find((v) => v.id === 'v1');
 const DEFAULT = LEXICON_MANIFEST.versions.find((v) => v.id === LEXICON_MANIFEST.default);
@@ -419,11 +420,12 @@ test(
     let c = await open();
     try {
       const swept = JSON.parse(
-        (await c.call('lyric_sweep', { seed_from: 31, count: 1, lines: 12 })).content[0].text
+        (await c.call('lyric_sweep', stated({ seed_from: 31, count: 1, lines: 12 }))).content[0]
+          .text
       );
       const seed = swept.accepted_shown[0];
-      await c.call('lyric_screen', { words: ['stove', 'coat'] });
       await c.call('lyric_plan', { seed, lines: 12 });
+      await c.call('lyric_screen', { words: ['stove', 'coat'] });
       const lines = Array(12).fill('The kettle whistles by the stove');
       const graded = verdictOf(await c.call('lyric_grade', { seed, draft_text: lines.join('\n') }));
       assert.deepEqual(graded.lexicon, { supplement_id: DEFAULT.id, sha256: DEFAULT.sha256 });

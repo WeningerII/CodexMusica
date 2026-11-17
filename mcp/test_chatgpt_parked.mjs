@@ -1,7 +1,7 @@
 // The parked new song's continuation, on the REAL lyric harness: a revise
 // that stops with open lines says how to go on, skipping the grade it names is
 // refused, and following it starts a new run. It walks the whole creation
-// order (sweep, screen, plan, grade, revise, grade, revise): 55-60 s here, of
+// order (sweep, plan, screen, grade, revise, grade, revise): 55-60 s here, of
 // which the first grade is about 29 s (a second grade of the same draft is
 // 4 s), and 85 s to past 120 s on a CI runner beside other leaves.
 //
@@ -19,6 +19,7 @@ import { join } from 'node:path';
 import { JobStore } from './job_store.js';
 import { WorkflowSessions, verdictOf } from './workflow_sessions.js';
 import { BRIEFS } from './lyric_tools.js';
+import { stated } from './statement_fixture.mjs';
 
 function storeFor(t) {
   const directory = mkdtempSync(join(tmpdir(), 'chatgpt-mcp-'));
@@ -36,10 +37,10 @@ test('a parked new song continues exactly as its note says', { timeout: 300_000 
     if (r.session_id) session_id = r.session_id;
     return r;
   };
-  const swept = await run('lyric_sweep', { seed_from: 31, count: 1, lines: 12 });
+  const swept = await run('lyric_sweep', stated({ seed_from: 31, count: 1, lines: 12 }));
   const seed = verdictOf(swept.tool_result).accepted_shown[0];
-  await run('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
   await run('lyric_plan', { seed, lines: 12 });
+  await run('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
   const draft = [
     'The kettle hums a low and steady tone',
     'I hear it singing when I am alone',
@@ -138,26 +139,30 @@ test(
     // who acts next as data, and the call it names is the one sent next. A
     // call the session did not admit would fail the step that follows it.
     const outcome = (r) => verdictOf(r.tool_result).outcome;
-    const swept = await run('lyric_sweep', { seed_from: 31, count: 1, lines: 12 });
+    const sweepArgs = stated({ seed_from: 31, count: 1, lines: 12 });
+    const swept = await run('lyric_sweep', sweepArgs);
     const seed = verdictOf(swept.tool_result).accepted_shown[0];
+    // After the sweep, the plan: the seed and the sweep's own form and length.
     assert.deepEqual(outcome(swept), {
+      kind: 'next_call',
+      by: 'writer',
+      call: { tool: 'lyric_plan', args: { seed, form: sweepArgs.form, lines: 12 } },
+    });
+    const planned = await run(outcome(swept).call.tool, outcome(swept).call.args);
+    assert(!planned.tool_error, JSON.stringify(planned));
+    // After the plan, the word-check its grade needs: the words are the writer's.
+    assert.deepEqual(outcome(planned), {
       kind: 'next_call',
       by: 'writer',
       call: { tool: 'lyric_screen', args: {} },
     });
-    const screened = await run(outcome(swept).call.tool, {
+    const screened = await run(outcome(planned).call.tool, {
       words: ['stove', 'coat'],
       relation: 'class:ASSONANCE',
     });
-    // After the screen, the plan: the seed and the sweep's own length.
+    assert(!screened.tool_error, JSON.stringify(screened));
+    // After the word-check, the grade with the plan's seed.
     assert.deepEqual(outcome(screened), {
-      kind: 'next_call',
-      by: 'writer',
-      call: { tool: 'lyric_plan', args: { seed, lines: 12 } },
-    });
-    const planned = await run(outcome(screened).call.tool, outcome(screened).call.args);
-    assert(!planned.tool_error, JSON.stringify(planned));
-    assert.deepEqual(outcome(planned), {
       kind: 'next_call',
       by: 'writer',
       call: { tool: 'lyric_grade', args: { seed } },

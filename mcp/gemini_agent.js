@@ -2553,7 +2553,9 @@ export async function runTurn({
           // row keeps the gate's own text, which the battery groups by.
           result = {
             isError: true,
-            content: [{ type: 'text', text: withNextCall(creationError, task, lyr, fc.name) }],
+            content: [
+              { type: 'text', text: withNextCall(creationError, task, lyr, fc.name, args) },
+            ],
           };
           calls.push({
             name: fc.name,

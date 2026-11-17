@@ -10,6 +10,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { JobStore } from './job_store.js';
 import { WorkflowSessions, verdictOf } from './workflow_sessions.js';
+import { stated } from './statement_fixture.mjs';
 
 function storeFor(t) {
   const directory = mkdtempSync(join(tmpdir(), 'chatgpt-mcp-'));
@@ -17,7 +18,7 @@ function storeFor(t) {
   return { directory, store: new JobStore(directory) };
 }
 
-test('real lyric sweep, screen and plan receipts persist between operations', async (t) => {
+test('real lyric sweep, plan and screen receipts persist between operations', async (t) => {
   const { store, directory } = storeFor(t);
   let sessions = new WorkflowSessions({ store });
   let session_id = sessions.open('lyrics').session_id;
@@ -29,19 +30,25 @@ test('real lyric sweep, screen and plan receipts persist between operations', as
     session_id = r.session_id;
     return verdictOf(r.tool_result);
   };
-  const swept = await run('lyric_sweep', { seed_from: 31, count: 1, lines: 12 });
+  const swept = await run('lyric_sweep', stated({ seed_from: 31, count: 1, lines: 12 }));
   assert.equal(swept.exit_code, 0);
   const seed = swept.accepted_shown[0];
   assert(Number.isInteger(seed));
+  // Each receipt is read back by a server opened afresh on the same store:
+  // the screen needs the plan's, and the revise below needs both.
+  sessions = new WorkflowSessions({ store: new JobStore(directory) });
+  const planned = await run('lyric_plan', { seed, lines: 12 });
+  assert.equal(planned.exit_code, 0);
+  assert(sessions.store.get(session_id).response.body.session.native.task.workflow.plan);
+  sessions = new WorkflowSessions({ store: new JobStore(directory) });
   const screened = await run('lyric_screen', {
     words: ['stove', 'coat'],
     relation: 'class:ASSONANCE',
   });
   assert.equal(screened.exit_code, 0, JSON.stringify(screened));
+  const kept = sessions.store.get(session_id).response.body.session.native.task.workflow;
+  assert.equal(kept.screen?.plan_sha256, kept.plan.sha256);
   sessions = new WorkflowSessions({ store: new JobStore(directory) });
-  const planned = await run('lyric_plan', { seed, lines: 12 });
-  assert.equal(planned.exit_code, 0);
-  assert(sessions.store.get(session_id).response.body.session.native.task.workflow.plan);
   const q = sessions.submit(session_id, 'lyrics', 'lyric_revise', {
     seed,
     draft: Array(12).fill('The kettle whistles by the stove'),

@@ -61,7 +61,7 @@ const sha = (value) => crypto.createHash('sha256').update(value).digest('hex');
 
 // A new song's task: a seeded grade or revise is a create-phase call (an edit
 // session refuses it, #671 B1), so a test that sends one holds the receipts a
-// create session records — sweep, screen, plan, and a grade of `draft`, plus
+// create session records — sweep, plan, screen, and a grade of `draft`, plus
 // a started revision when `started`. `request` overrides plan declarations.
 const V1 = LEXICON_MANIFEST.versions.find((v) => v.id === 'v1');
 const planOf = (lines, request = {}) => {
@@ -119,7 +119,6 @@ function newSong(draft, { request = {}, graded = true, started = false } = {}) {
       accepted_shown: [16],
     }
   );
-  recordCreation(t, 'lyric_screen', { words: ['a', 'b'] }, { exit_code: 0 });
   const { plan, plan_sha256 } = planOf(draft.length, request);
   recordCreation(
     t,
@@ -133,6 +132,8 @@ function newSong(draft, { request = {}, graded = true, started = false } = {}) {
     }
   );
   assert(t.workflow.plan, 'the plan receipt records');
+  recordCreation(t, 'lyric_screen', { words: ['a', 'b'] }, { exit_code: 0 });
+  assert.equal(t.workflow.screen?.plan_sha256, plan_sha256, 'the screen receipt records');
   if (graded) {
     const args = { seed: 16, draft, form, ...(title ? { title } : {}) };
     recordCreation(t, 'lyric_grade', args, { exit_code: 3, ...gradeFields(draft, request) });
@@ -526,8 +527,9 @@ test('a lyrics task carries the page context: validated, signed into the task, s
     });
   const call = (name) => ({ role: 'model', parts: [{ functionCall: { name, args: {} } }] });
   assert.equal(running([]).stage, null);
-  assert.equal(running([call('lyric_sweep'), call('lyric_screen')]).stage, 'planning');
-  assert.equal(running([call('lyric_plan')]).stage, 'drafting');
+  assert.equal(running([call('lyric_sweep')]).stage, 'planning');
+  assert.equal(running([call('lyric_sweep'), call('lyric_plan')]).stage, 'drafting');
+  assert.equal(running([call('lyric_plan'), call('lyric_screen')]).stage, 'drafting');
   assert.equal(running([call('lyric_plan'), call('lyric_grade')]).stage, 'checking');
   const kitchen = running([call('lyric_revise')], {
     status: 'proposing',
@@ -535,6 +537,72 @@ test('a lyrics task carries the page context: validated, signed into the task, s
     accepted_lines: ['a', 'b'],
   });
   assert.deepEqual([kitchen.stage, kitchen.round, kitchen.accepted_lines], ['revising', 2, 2]);
+});
+
+// THE STAGES OF A NEW SONG, IN THE ORDER THE SESSION ENFORCES: sweep, plan,
+// word-check, grade, revise. The page shows the stage the last lyric tool on
+// record names. The word-check follows the plan, while the lines are being
+// written to it, so it reads as drafting; before the plan there is only the
+// sweep.
+test('the progress view names each stage of a new song in the order its calls come', async () => {
+  const { progressView } = await import('./job_store.js');
+  const call = (name) => ({ role: 'model', parts: [{ functionCall: { name, args: {} } }] });
+  const order = [
+    ['lyric_sweep', 'planning'],
+    ['lyric_plan', 'drafting'],
+    ['lyric_screen', 'drafting'],
+    ['lyric_grade', 'checking'],
+    ['lyric_revise', 'revising'],
+  ];
+  const record = (history, state = 'pending') => ({
+    request_id: 'c'.repeat(64),
+    state,
+    created_at: 1,
+    updated_at: 2,
+    checkpoint: { history },
+  });
+  const history = [];
+  for (const [tool, stage] of order) {
+    history.push(call(tool));
+    const view = progressView(record([...history]));
+    assert.deepEqual([view.tool, view.stage], [tool, stage], `after ${tool}`);
+    // The last tool on record names the stage, whatever came before it.
+    assert.equal(progressView(record([call(tool)])).stage, stage, `${tool} alone`);
+  }
+  assert.equal(progressView(record(history, 'completed')).stage, 'finished');
+});
+
+// ONE STAGE PER RECEIPT, WHICHEVER SIDE READS IT. The page reads the stage off
+// a full receipt itself when the server sends no progress view (an earlier
+// server), with its own copy of the mapping (src/app.js _chatStageOf). Both
+// copies must name the same stage for every lyric tool the service registers,
+// for a name that is not one, and with or without the kitchen's progress.
+test("the page's own stage reading matches the server's progress view for every lyric tool", async () => {
+  const { progressView } = await import('./job_store.js');
+  const { LYRIC_TOOL_SCHEMAS } = await import('./lyric_tools.js');
+  const page = browser().context._chatProgressOf;
+  assert.equal(typeof page, 'function');
+  const call = (name) => ({ role: 'model', parts: [{ functionCall: { name, args: {} } }] });
+  const tools = Object.keys(LYRIC_TOOL_SCHEMAS);
+  assert.ok(tools.length > 0);
+  for (const tool of [...tools, 'not_a_lyric_tool', null])
+    for (const progress of [null, { status: 'proposing', round: 1, accepted_lines: [] }])
+      for (const state of ['pending', 'completed']) {
+        const record = {
+          request_id: 'c'.repeat(64),
+          state,
+          created_at: 1,
+          updated_at: 2,
+          checkpoint: { history: tool ? [call(tool)] : [] },
+          progress,
+        };
+        const server = progressView(record);
+        const shown = page(record);
+        assert.equal(shown.stage, server.stage, `${tool} ${state} ${progress ? 'kitchen' : ''}`);
+        assert.equal(shown.tool, server.tool);
+        // A server view passes through the page unchanged in its stage.
+        assert.equal(page(server).stage, server.stage);
+      }
 });
 
 test('recipe task excludes lyric instructions and declarations and rejects wrong-family dispatch', async () => {
@@ -830,7 +898,7 @@ test('canonical brief, accepted instructions, current plan and step history surv
     turns: 20,
     instructions: ['Keep the man deeply in love.'],
     plan: { id: 'unique-plan', detail: 'only plan' },
-    completedSteps: ['lyric_sweep', 'lyric_screen', 'lyric_plan'],
+    completedSteps: ['lyric_sweep', 'lyric_plan', 'lyric_screen'],
   };
   const history = [
     { role: 'user', parts: [{ text: 'original' }] },

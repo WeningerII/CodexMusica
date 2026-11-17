@@ -4,6 +4,7 @@ import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { connectConnector } from './client.js';
 import { buildServer } from './tools.js';
 import { BRIEFS } from './lyric_tools.js';
+import { stated } from './statement_fixture.mjs';
 
 // P9's session cases (duplicate coverage rows for one end word), split from
 // test_session_repairs.mjs: together they run about 90 s on the real harness,
@@ -44,11 +45,11 @@ test('two checks refusing one end word leave unique coverage ids and a grade rec
         })
         .find((value) => Number.isInteger(value.exit_code));
     const sw = verdict(
-      await c.call('lyric_sweep', { seed_from: 6, count: 1, lines: 24, form: VC })
+      await c.call('lyric_sweep', stated({ seed_from: 6, count: 1, lines: 24, form: VC }))
     );
     assert.deepEqual(sw.accepted_shown, [6]);
-    await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
     await c.call('lyric_plan', { seed: 6, lines: 24, form: VC });
+    await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
     // Seed 6 at 24 lines: verse, chorus (L7-L12), prechorus, chorus, outro. Only L7,
     // the first chorus line, ends on a word the phonology cannot read.
     // RE-MEASURED 2026-11-13: the planner draws from the whole section table now (owner's
@@ -114,11 +115,11 @@ test('an end word refused by two or three overlapping checks keeps one id', asyn
           })
           .find((value) => Number.isInteger(value.exit_code));
       const sw = verdict(
-        await c.call('lyric_sweep', { seed_from: seed, count: 1, lines: 24, form: VC })
+        await c.call('lyric_sweep', stated({ seed_from: seed, count: 1, lines: 24, form: VC }))
       );
       assert.deepEqual(sw.accepted_shown, [seed]);
-      await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
       const { plan } = verdict(await c.call('lyric_plan', { seed, lines: 24, form: VC }));
+      await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
       assert.equal(plan.line_slots.find((l) => l.line === line).function, fn, `seed ${seed}`);
       const fns = plan.sections.map((x) => x.function);
       for (const f of new Set(needs))

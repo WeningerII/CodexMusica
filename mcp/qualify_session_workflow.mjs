@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { connectConnector } from './client.js';
+import { stated } from './statement_fixture.mjs';
 const server = buildServer({ task: { domain: 'lyrics' } });
 const [a, b] = InMemoryTransport.createLinkedPair();
 await server.connect(a);
@@ -52,18 +53,26 @@ async function call(name, args) {
   return { result, verdict };
 }
 try {
-  const { verdict: swept } = await call('lyric_sweep', {
-    seed_from: 5691,
-    count: 1,
-    lines: 30,
-    functions: decl.functions,
-    want: decl.wants,
-  });
-  // Stop at the sweep when it keeps nothing, not one call later at the screen.
+  // A new song's sweep states form, length, sections, rhyme and time (stage
+  // 3): the relation is the plan's own, a `want` on beats_per_line states
+  // time, and the form is the one this plan has always planned.
+  const { verdict: swept } = await call(
+    'lyric_sweep',
+    stated({
+      seed_from: 5691,
+      count: 1,
+      lines: 30,
+      functions: decl.functions,
+      relation: decl.relation,
+      want: decl.wants,
+    })
+  );
+  // Stop at the sweep when it keeps nothing, not one call later at the plan.
   assert.equal(swept.exit_code, 0, JSON.stringify(swept));
   assert(swept.accepted_shown?.includes(5691), JSON.stringify(swept.accepted_shown));
-  await call('lyric_screen', { words: ['prize', 'time'], relation: decl.relation });
+  // The word-check follows the plan, and its receipt is recorded for it.
   await call('lyric_plan', decl);
+  await call('lyric_screen', { words: ['prize', 'time'], relation: decl.relation });
   const draft = (
     await fs.readFile(
       new URL('../docs/session-repair-evidence/moonshots-draft.txt', import.meta.url),

@@ -6,6 +6,18 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — a new song's word-check comes after its plan; a session saved before this release screens once more
+
+A new-song session now runs `lyric_sweep`, `lyric_plan`, `lyric_screen`, and the screen's
+receipt names the plan it ran under; `lyric_grade` needs a screen receipt for its own plan.
+A session saved before this release holds a screen receipt from before its plan, which names
+no plan, so its next grade is refused until `lyric_screen` runs again under the recorded
+plan. Where this release's planner builds that session's plan differently, the grade after
+that screen reports the plan changed and names `lyric_plan`, so such a session runs one
+screen and one grade before planning again. The old receipt is not accepted for the
+recorded plan: it was answered before any rhyming line was planned, which is what the
+new order corrects.
+
 ### Fixed — a setting `set_environment` wrote where it does not render is said while it stands; the environment warnings speak only for what it wrote (#671)
 
 `ENVIRONMENT_NOT_RENDERED` was said only on the `edit_recipe` call that wrote the setting,

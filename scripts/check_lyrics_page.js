@@ -712,6 +712,31 @@ function unitTypePlacement() {
   );
 }
 
+// D. A new song sends no declaration (stage 3): the page has no setting for
+// any of the connector's STATEABLE things, so it cannot tell one the person
+// left open from one they typed, and a `draw` here reads to the writer as an
+// exact declaration. An edit keeps the declarations its document holds.
+async function unitNewSongDraw() {
+  stage = 'D. new song declares nothing';
+  const { run, app } = lyricsUnitContext();
+  app.lyricMeta = { version: 1, brief: '', notes: {}, drafts: {}, ui: {} };
+  const { STATEABLE } = await import(path.join(ROOT, 'mcp/lyric_workflow.js'));
+  const model = run('lyParse(__t)', { __t: '[VERSE]\nA\nB' });
+  const fresh = JSON.parse(
+    JSON.stringify(run('lyContext(__m, { document: false })', { __m: model }))
+  );
+  check(
+    ['draw', ...STATEABLE.map((r) => r.field)].every((k) => !Object.hasOwn(fresh.declarations, k)),
+    `a new song's request declares what the page has no setting for: ${JSON.stringify(fresh.declarations)}`
+  );
+  const editing = JSON.parse(
+    JSON.stringify(run('lyContext(__m, { document: true })', { __m: model }))
+  );
+  check(
+    !Object.hasOwn(editing.declarations, 'draw'),
+    `an edit's request carries a draw: ${JSON.stringify(editing.declarations)}`
+  );
+}
 function unitTypeMenu() {
   stage = 'T. type menu';
   const { run, draft, app } = lyricsUnitContext();
@@ -8622,6 +8647,7 @@ async function browserChecks(chromium) {
     unitTypePlacement();
     unitTypeMenu();
     unitTypeEndToEnd();
+    await unitNewSongDraw();
     await unitSavedReadings();
     await unitVoicesBasis();
     await unitPolicyA();

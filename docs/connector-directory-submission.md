@@ -141,9 +141,10 @@ listed under **Read / write** above.
      → the re-rendered recipe and the next `session_id`.
    - `render_recipe` with the latest `session_id` and `format: "prose"`.
    - `lyric_types` with `word_a` and `word_b` set to any two words of your own → answers at once.
-   - `begin_lyrics` → `lyric_sweep` with that `session_id`, `seed_from: 0`, `count: 5`,
-     and, if you like, an exact `lines` count and a `functions` list of your own → poll `get_operation` with the returned `operation_id`
-     until it is completed.
+   - `begin_lyrics` → `lyric_sweep` with that `session_id`, `seed_from: 0`, `count: 5`, a `form`
+     named in its schema, and each of `lines`, `functions`, `relation` and `melody` given a value of
+     your own or named in `draw` (the session refuses a sweep that leaves one out) → poll
+     `get_operation` with the returned `operation_id` until it is completed.
 
 Lookups are side-effect-free. Session tools write only the caller's own session;
 repeating a call with the same `session_id` and arguments returns the same operation.

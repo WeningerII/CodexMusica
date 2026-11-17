@@ -76,10 +76,15 @@ const resultShape = {
       kind: z.enum(['next_call', 'decision', 'unknown']),
       by: z.enum(OUTCOME_ACTORS),
       call: z.object({ tool: z.string(), args: z.object({}).passthrough() }).optional(),
+      missing: z
+        .array(z.object({ thing: z.string(), field: z.string(), draw: z.boolean() }))
+        .optional(),
+      conflict: z.array(z.string()).optional(),
+      dropped: z.array(z.object({ field: z.string(), from_seed: z.number() })).optional(),
     })
     .optional()
     .describe(
-      "Who acts next when this receipt has no finished tool result to say it (the operation is pending, interrupted or retired, or its tool refused in a new-song session): `kind` is next_call, decision or unknown, `by` is writer or person, and `call` is the tool with the arguments this server knows. On unknown, `call` is a read and nothing is sent again. A finished lyric tool says the same in its own verdict's `outcome`."
+      "Who acts next when this receipt has no finished tool result to say it (the operation is pending, interrupted or retired, or its tool refused in a new-song session): `kind` is next_call, decision or unknown, `by` is writer or person, and `call` is the tool with the arguments this server knows. On unknown, `call` is a read and nothing is sent again. A new-song lyric_sweep refused for what it leaves out lists those rows in `missing`; one that gives a field a value and a draw lists the fields in `conflict`; a plan call that cannot carry a declaration the person made lists it in `dropped`, and is the person's decision. A finished lyric tool says the same in its own verdict's `outcome`."
     ),
 };
 const readOnly = {
@@ -147,7 +152,7 @@ function sessionGuide(domains, compatibility) {
       ? 'Lyric calls queue a background operation and return its operation_id (lyric_types, a lookup, answers at once and takes no session): poll get_operation until it is no longer pending, never submit to a session while its operation is pending, and continue from the session_id in the completed receipt, even when the tool refused; a refusal without one names its own next step.'
       : null,
     lyrics
-      ? "begin_lyrics phase 'create' is for a new song, in the order the server enforces: lyric_sweep, lyric_screen, lyric_plan, write every line, lyric_grade on that exact draft, lyric_revise. A length is an exact `lines` count declared on the sweep. Phase 'edit' is for lyrics the user supplied: it skips those receipts and refuses lyric_sweep, lyric_plan and a seeded lyric_grade or lyric_revise (CREATION_PLAN)."
+      ? "begin_lyrics phase 'create' is for a new song, in the order the server enforces: lyric_sweep, lyric_plan, lyric_screen, write every line, lyric_grade on that exact draft, lyric_revise. A length is `lines`, a `lines` want or a draw of it. Phase 'edit' is for lyrics the user supplied: it skips those receipts and refuses lyric_sweep, lyric_plan and a seeded lyric_grade or lyric_revise (CREATION_PLAN)."
       : null,
     'An interrupted operation continues with resume_operation only when resumable is true. Every refusal names the call that works instead. Session and operation ids are private: keep them out of what you show the user.',
     compatibility
@@ -316,7 +321,7 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
       {
         title: 'Begin a lyric task',
         description:
-          "Open a private Codex Musica lyrics session and return its session_id. Phase 'create' (the default) is for a new song: the session enforces sweep → screen → plan → exact-draft grade → revise from receipts the server records. Phase 'edit' is for lyrics the user supplied: it skips those receipts and refuses lyric_sweep, lyric_plan and a seeded lyric_grade or lyric_revise. The phase is fixed for the session. You write every line; the service plans and grades, and lyric_revise asks you each question it needs answered. No lyric call reaches a model provider or spends money.",
+          "Open a private Codex Musica lyrics session and return its session_id. Phase 'create' (the default) is for a new song: the session enforces sweep → plan → screen → exact-draft grade → revise from receipts the server records. Phase 'edit' is for lyrics the user supplied: it skips those receipts and refuses lyric_sweep, lyric_plan and a seeded lyric_grade or lyric_revise. The phase is fixed for the session. You write every line; the service plans and grades, and lyric_revise asks you each question it needs answered. No lyric call reaches a model provider or spends money.",
         inputSchema: z.object({
           phase: z
             .enum(['create', 'edit'])
