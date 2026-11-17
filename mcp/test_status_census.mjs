@@ -641,8 +641,15 @@ test('a window that kept no seed says each count, and offers only what was not d
         );
         // Advice is offered only for what the call did not declare.
         assert.equal(said.includes('`lines`'), lines !== true, said);
-        // A drawn length is advised in place of its draw, never beside it.
+        // A drawn length is the person's to change: the writer is told to ask,
+        // and a value is named only in place of the draw, never beside it.
         assert.equal(said.includes('in place of `lines` in `draw`'), lines === 'draw', said);
+        assert.equal(
+          said.includes('ask the person whether to state a length'),
+          lines === 'draw',
+          said
+        );
+        assert.equal(said.includes('declare a target length'), lines === false, said);
         assert.equal(said.includes('`functions`'), !functions, said);
         assert.doesNotMatch(said, /if you have not/);
         // One window cannot rule out the next, so it is still offered.
@@ -839,13 +846,19 @@ test('a window that kept no seed advises a length to a call that only bounds it;
         const drawn = draw.includes('lines');
         assert.equal(
           out.window_meaning.includes('declare a target length in `lines`'),
-          !pins,
+          !pins && !drawn,
           `${want} ${draw} session`
         );
         assert.equal(
           out.window_meaning.includes('in place of `lines` in `draw`'),
           !pins && drawn,
           `${want} ${draw} session`
+        );
+        // A drawn length under a cap is put to the person, not replaced.
+        assert.equal(
+          out.window_meaning.includes('ask the person whether to state a length'),
+          !pins && drawn,
+          `${want} ${draw} session asks`
         );
         // The call the advice describes states the length once: a value
         // beside the draw is STATEMENT_CONFLICT, a value in its place is not.
