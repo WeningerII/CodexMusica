@@ -1,0 +1,1051 @@
+{
+  "Strophic": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Every verse",
+        "children": [
+          "Recurring tune",
+          "Changing words"
+        ]
+      }
+    ]
+  },
+  "Strophic with refrain": {
+    "mode": "Pattern",
+    "tree": [
+      {
+        "label": "Each verse",
+        "children": [
+          "Changing text",
+          {
+            "label": "Fixed ending",
+            "children": [
+              "Refrain line or couplet"
+            ]
+          }
+        ]
+      }
+    ],
+    "related": [
+      "Strophic"
+    ]
+  },
+  "Modified strophic": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Verses",
+        "children": [
+          "Recurring tune",
+          {
+            "label": "One altered verse",
+            "children": [
+              "Changed melody or key"
+            ]
+          }
+        ]
+      }
+    ],
+    "related": [
+      "Strophic"
+    ]
+  },
+  "Narrative story song": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Story verses",
+        "children": [
+          "Events progress in time",
+          "Often ABCB or AABB quatrains",
+          "Refrain may recur",
+          "Last verse may turn the story"
+        ]
+      }
+    ]
+  },
+  "AABA 32-bar": {
+    "mode": "Pattern",
+    "tree": [
+      {
+        "label": "32 bars",
+        "children": [
+          "A · 8 bars",
+          "A · 8 bars, new words",
+          "B · 8-bar bridge",
+          "A · 8-bar return"
+        ]
+      }
+    ],
+    "related": [
+      "Extended AABA",
+      "Verse-refrain with introductory verse"
+    ]
+  },
+  "Extended AABA": {
+    "mode": "Pattern",
+    "tree": [
+      {
+        "label": "Initial cycle",
+        "children": [
+          "A",
+          "A",
+          "B",
+          "A"
+        ]
+      },
+      {
+        "label": "Extension",
+        "children": [
+          "B · bridge or solo",
+          "A · return"
+        ]
+      },
+      "Optional title tag"
+    ],
+    "related": [
+      "AABA 32-bar"
+    ]
+  },
+  "ABAC 32-bar": {
+    "mode": "Pattern",
+    "tree": [
+      {
+        "label": "32 bars",
+        "children": [
+          "A",
+          "B · continuation",
+          "A",
+          "C · title ending"
+        ]
+      }
+    ],
+    "related": [
+      "Verse-refrain with introductory verse"
+    ]
+  },
+  "Verse-refrain with introductory verse": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Introductory verse",
+        "children": [
+          "Scene-setting",
+          "Often 16 bars",
+          "May be omitted"
+        ]
+      },
+      {
+        "label": "Main refrain",
+        "children": [
+          "16 or 32 bars",
+          "Common shapes: AABA or ABAC"
+        ]
+      }
+    ],
+    "related": [
+      "AABA 32-bar",
+      "ABAC 32-bar"
+    ]
+  },
+  "12-bar blues": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "12-bar stanza",
+        "children": [
+          "A · statement",
+          "A · restatement",
+          "B · rhyming answer"
+        ]
+      },
+      "Optional solo between stanzas"
+    ],
+    "related": [
+      "8-bar blues",
+      "16-bar blues"
+    ]
+  },
+  "8-bar blues": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "8-bar stanza · alternative shapes",
+        "children": [
+          {
+            "label": "Statement and answer",
+            "children": [
+              "Statement",
+              "Answer"
+            ]
+          },
+          {
+            "label": "Couplet with refrain",
+            "children": [
+              "Couplet",
+              "Short refrain"
+            ]
+          }
+        ]
+      }
+    ],
+    "related": [
+      "12-bar blues",
+      "16-bar blues"
+    ]
+  },
+  "16-bar blues": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "16-bar stanza",
+        "children": [
+          "Four lines",
+          "AAAB is one option"
+        ]
+      },
+      {
+        "label": "Possible larger setting",
+        "children": [
+          "Stop-time verse",
+          "12-bar refrain"
+        ]
+      }
+    ],
+    "related": [
+      "8-bar blues",
+      "12-bar blues"
+    ]
+  },
+  "Simple verse-chorus": {
+    "mode": "Pattern",
+    "tree": [
+      {
+        "label": "Cycle · same chords",
+        "children": [
+          "Verse",
+          "Fixed title chorus"
+        ]
+      }
+    ],
+    "related": [
+      "Contrasting verse-chorus"
+    ]
+  },
+  "Contrasting verse-chorus": {
+    "mode": "Pattern",
+    "tree": [
+      {
+        "label": "Alternating sections",
+        "children": [
+          "Verse",
+          "Chorus · contrasting harmony and melody"
+        ]
+      }
+    ],
+    "related": [
+      "Simple verse-chorus"
+    ]
+  },
+  "Verse-prechorus-chorus": {
+    "mode": "Pattern",
+    "tree": [
+      {
+        "label": "Repeating cycle",
+        "children": [
+          "Verse",
+          "Prechorus · build",
+          "Chorus · release"
+        ]
+      }
+    ],
+    "related": [
+      "Verse-chorus with post-chorus"
+    ]
+  },
+  "Verse-chorus-bridge": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "First cycle",
+        "children": [
+          "Verse",
+          "Chorus"
+        ]
+      },
+      {
+        "label": "Second cycle",
+        "children": [
+          "Verse",
+          "Chorus"
+        ]
+      },
+      "Bridge",
+      "Final chorus or choruses"
+    ],
+    "related": [
+      "Verse-chorus with solo"
+    ]
+  },
+  "Verse-chorus with post-chorus": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Repeated cycle",
+        "children": [
+          "Verse",
+          "Prechorus",
+          "Chorus",
+          "Post-chorus"
+        ]
+      },
+      "Bridge",
+      "Final chorus"
+    ],
+    "related": [
+      "Verse-prechorus-chorus"
+    ]
+  },
+  "Chorus-first": {
+    "mode": "Pattern",
+    "tree": [
+      "Opening chorus or hook",
+      {
+        "label": "Verse-chorus cycle",
+        "children": [
+          "Verse",
+          "Chorus"
+        ]
+      }
+    ]
+  },
+  "Verse-chorus with solo": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Core cycle",
+        "children": [
+          "Verse",
+          "Chorus"
+        ]
+      },
+      {
+        "label": "Solo placement · alternatives",
+        "children": [
+          "In place of the bridge",
+          "Alongside the bridge"
+        ]
+      }
+    ],
+    "related": [
+      "Verse-chorus-bridge"
+    ]
+  },
+  "Binary": {
+    "mode": "Pattern",
+    "tree": [
+      {
+        "label": "Two main parts",
+        "children": [
+          "A · first part",
+          "B · second part"
+        ]
+      }
+    ]
+  },
+  "Ternary": {
+    "mode": "Pattern",
+    "tree": [
+      {
+        "label": "Three sections",
+        "children": [
+          "A",
+          "B · contrast",
+          "A · sometimes shortened"
+        ]
+      }
+    ],
+    "related": [
+      "Da capo aria"
+    ]
+  },
+  "Bar form": {
+    "mode": "Pattern",
+    "tree": [
+      {
+        "label": "Stanza",
+        "children": [
+          {
+            "label": "Matching openings",
+            "children": [
+              "Stollen",
+              "Stollen"
+            ]
+          },
+          "Longer closing Abgesang"
+        ]
+      }
+    ]
+  },
+  "Rondo": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Returning main section",
+        "children": [
+          "A alternates with contrasting episodes"
+        ]
+      },
+      {
+        "label": "Examples",
+        "children": [
+          "A B A C A",
+          "A B A C A B A"
+        ]
+      }
+    ]
+  },
+  "Arch": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Outward",
+        "children": [
+          "A",
+          "B"
+        ]
+      },
+      "C · climax",
+      {
+        "label": "Return",
+        "children": [
+          "B",
+          "A"
+        ]
+      }
+    ]
+  },
+  "Through-composed": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Successive new sections",
+        "children": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    ]
+  },
+  "Multi-part suite": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "One track",
+        "children": [
+          "Sub-song",
+          "Transition",
+          "Next sub-song",
+          "Optional opening-theme return"
+        ]
+      }
+    ]
+  },
+  "Medley": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Songs or excerpts",
+        "children": [
+          "First song or excerpt",
+          "Join",
+          "Next song or excerpt"
+        ]
+      }
+    ]
+  },
+  "Quodlibet": {
+    "mode": "Example",
+    "tree": [
+      "First tune alone",
+      "Second tune alone",
+      "Both tunes sung together"
+    ]
+  },
+  "Contrafactum": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Existing tune",
+        "children": [
+          {
+            "label": "New text fits",
+            "children": [
+              "Stanza",
+              "Rhyme points",
+              "Stresses"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "List song": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "List verses",
+        "children": [
+          "Rhymed items",
+          "Returning title or refrain"
+        ]
+      }
+    ]
+  },
+  "Patter song": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Catalog alternation",
+        "children": [
+          "Fast, rhyme-dense verse",
+          "Slower refrain"
+        ]
+      }
+    ]
+  },
+  "Music-hall song": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Each cycle",
+        "children": [
+          "8-line verse",
+          "Singalong chorus"
+        ]
+      },
+      {
+        "label": "Between cycles",
+        "children": [
+          "Optional spoken patter"
+        ]
+      }
+    ]
+  },
+  "Parlour ballad": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Two or three verses",
+        "children": [
+          {
+            "label": "Each 8-line verse",
+            "children": [
+              "Verse text",
+              "Title refrain"
+            ]
+          }
+        ]
+      }
+    ],
+    "related": [
+      "Strophic with refrain"
+    ]
+  },
+  "Song-and-dance number": {
+    "mode": "Example",
+    "tree": [
+      "Intro verse",
+      "32-bar refrain",
+      "Instrumental dance break",
+      {
+        "label": "Final refrain",
+        "children": [
+          "Refrain · optional key rise",
+          "Closing button"
+        ]
+      }
+    ]
+  },
+  "Musical scene": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Materials woven into the scene",
+        "children": [
+          "Song sections",
+          "Sung dialogue",
+          "Underscored speech"
+        ]
+      },
+      {
+        "label": "Returning material",
+        "children": [
+          "Altered themes"
+        ]
+      }
+    ]
+  },
+  "Duet dialogue song": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Verse exchange",
+        "children": [
+          "Singer A",
+          "Singer B answers"
+        ]
+      },
+      {
+        "label": "Chorus",
+        "children": [
+          "Both singers"
+        ]
+      },
+      {
+        "label": "Bridge",
+        "children": [
+          "Traded lines"
+        ]
+      }
+    ]
+  },
+  "Recitative": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Sung declamation",
+        "children": [
+          "Speech-like delivery",
+          "Irregular line lengths"
+        ]
+      },
+      {
+        "label": "Function in this entry",
+        "children": [
+          "Moves action between set songs"
+        ]
+      }
+    ],
+    "related": [
+      "Arioso"
+    ]
+  },
+  "Arioso": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Short melodic passage",
+        "children": [
+          "Recitative-like delivery",
+          "Aria-like melody"
+        ]
+      }
+    ],
+    "related": [
+      "Recitative"
+    ]
+  },
+  "Da capo aria": {
+    "mode": "Pattern",
+    "tree": [
+      {
+        "label": "First presentation",
+        "children": [
+          "A · first text",
+          "B · contrasting text"
+        ]
+      },
+      "A · ornamented return"
+    ],
+    "related": [
+      "Ternary"
+    ]
+  },
+  "Melodrama": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Continuous music",
+        "children": [
+          "Rhythmic speech",
+          "Optional singing"
+        ]
+      }
+    ]
+  },
+  "Ballad opera": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Dramatic materials",
+        "children": [
+          "Spoken dialogue",
+          {
+            "label": "Interpolated airs",
+            "children": [
+              "New words fitted to familiar tunes"
+            ]
+          }
+        ]
+      }
+    ],
+    "related": [
+      "Contrafactum"
+    ]
+  },
+  "Masque": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Catalog sequence",
+        "children": [
+          "Antimasque · grotesque dances",
+          "Main masque",
+          "Revels",
+          "Closing song"
+        ]
+      }
+    ]
+  },
+  "Song cycle": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "One story or theme",
+        "children": [
+          "Separate songs in order",
+          "Each song has its own form"
+        ]
+      }
+    ]
+  },
+  "Cantata": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Movement types",
+        "children": [
+          "Recitative",
+          "Aria",
+          "Duet",
+          "Chorus"
+        ]
+      },
+      "Usual close · chorus"
+    ],
+    "related": [
+      "Recitative",
+      "Oratorio libretto"
+    ]
+  },
+  "Oratorio libretto": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Sacred narrative in parts",
+        "children": [
+          {
+            "label": "Vocal forms",
+            "children": [
+              "Recitative",
+              "Aria",
+              "Chorus"
+            ]
+          },
+          "Unstaged setting"
+        ]
+      }
+    ],
+    "related": [
+      "Recitative",
+      "Cantata"
+    ]
+  },
+  "Head arrangement": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Arrangement method",
+        "children": [
+          "Worked out by the players",
+          "Retained in memory"
+        ]
+      },
+      {
+        "label": "Catalog performance example",
+        "children": [
+          "Head",
+          "Solos over the same chords",
+          "Head returns with tag"
+        ]
+      }
+    ]
+  },
+  "Vocalese": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Instrumental solo as source",
+        "children": [
+          "Retain the note sequence",
+          "Fit new words to that sequence"
+        ]
+      }
+    ]
+  },
+  "Barbershop tag": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Close-harmony ending",
+        "children": [
+          "Held note",
+          "Catalog example · 2–4 lines"
+        ]
+      }
+    ]
+  },
+  "Hip-hop verse-hook": {
+    "mode": "Example",
+    "tree": [
+      "Optional intro",
+      {
+        "label": "Alternating cycle",
+        "children": [
+          "Rap verse · usually 16 bars",
+          "Repeated hook · 8 bars"
+        ]
+      },
+      "Optional outro"
+    ],
+    "related": [
+      "Hookless rap track"
+    ]
+  },
+  "Hookless rap track": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "One or more long verses",
+        "children": [
+          "No hook",
+          "Beat may switch"
+        ]
+      }
+    ],
+    "related": [
+      "Hip-hop verse-hook"
+    ]
+  },
+  "Posse cut": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Verse ownership",
+        "children": [
+          "One verse per rapper",
+          "Successive turns"
+        ]
+      },
+      {
+        "label": "Hook",
+        "children": [
+          "Shared hook optional"
+        ]
+      }
+    ]
+  },
+  "Battle rap": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Alternating rounds",
+        "children": [
+          "Two rappers",
+          "Usually three turns each"
+        ]
+      },
+      {
+        "label": "Within a round",
+        "children": [
+          "Set-ups and punchlines",
+          "Strongest line closes"
+        ]
+      }
+    ]
+  },
+  "Freestyle / cypher": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Freestyle in this entry",
+        "children": [
+          "Improvisation over a loop",
+          "No fixed sections"
+        ]
+      },
+      {
+        "label": "Cypher exchange",
+        "children": [
+          "Performers take turns",
+          "Hand off between turns"
+        ]
+      }
+    ]
+  },
+  "DJ toasting": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Over the riddim",
+        "children": [
+          "Rhymed chants",
+          "Shout-outs",
+          "Recurring hook"
+        ]
+      }
+    ]
+  },
+  "EDM build-drop": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "8- or 16-bar blocks",
+        "children": [
+          "Intro",
+          {
+            "label": "First cycle",
+            "children": [
+              "Verse or breakdown",
+              "Build",
+              "Drop"
+            ]
+          },
+          {
+            "label": "Second cycle",
+            "children": [
+              "Breakdown",
+              "Build",
+              "Drop"
+            ]
+          },
+          "Outro"
+        ]
+      }
+    ]
+  },
+  "Vamp / riff form": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Repeating riff",
+        "children": [
+          "Short chants",
+          "Occasional refrain"
+        ]
+      },
+      {
+        "label": "Break",
+        "children": [
+          "Groove drops out"
+        ]
+      }
+    ]
+  },
+  "Gospel verse-chorus-vamp": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Before the vamp",
+        "children": [
+          "Verse and chorus",
+          "Bridge optional"
+        ]
+      },
+      {
+        "label": "Rising vamp",
+        "children": [
+          "Lead ad-libs over repeated choir phrase"
+        ]
+      },
+      "Choral tag"
+    ]
+  },
+  "Calypso": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Repeating cycle",
+        "children": [
+          "Topical or narrative verse",
+          "Fixed chorus"
+        ]
+      }
+    ],
+    "related": [
+      "Extempo"
+    ]
+  },
+  "Extempo": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Contest exchange",
+        "children": [
+          "First singer improvises",
+          "Second singer answers"
+        ]
+      }
+    ],
+    "related": [
+      "Calypso"
+    ]
+  },
+  "Jingle": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "15–60-second example",
+        "children": [
+          "Set-up",
+          "Hook",
+          "Sung brand tag"
+        ]
+      }
+    ]
+  },
+  "Terrace chant": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Recurring chant",
+        "children": [
+          "2–4 lines",
+          "Usually an existing tune",
+          "Optional leader"
+        ]
+      }
+    ]
+  },
+  "Cheerleading cheer": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Cheer materials",
+        "children": [
+          "Rhymed couplets",
+          "Spelled letters",
+          "Squad and crowd exchange"
+        ]
+      },
+      "Closing shout"
+    ],
+    "related": [
+      "Call-and-response"
+    ]
+  }
+}

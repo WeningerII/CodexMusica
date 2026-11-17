@@ -1,0 +1,658 @@
+{
+  "Strophic": {
+    "status": "supported",
+    "note": "Catalog line 27. The strophe repeats its music while its words change. Those features coexist in each verse; they are not two successive spans. Introductory or closing material need not change that principle.",
+    "edges": [],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/aaba-and-strophic-form/"
+    ]
+  },
+  "Strophic with refrain": {
+    "status": "supported",
+    "note": "Catalog line 28. The changing text and the stable ending occur inside the same verse. The source permits a final line or couplet. This diagram describes a tail refrain; other placements also occur.",
+    "edges": [
+      {
+        "target": "Strophic",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "The verse follows the repeated strophic music and adds recurring text at its end."
+      }
+    ],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/aaba-and-strophic-form/"
+    ]
+  },
+  "Modified strophic": {
+    "status": "supported",
+    "note": "Catalog line 29. A recurring strophe supplies the norm against which one verse changes melody or key. The altered verse is often last but has no prescribed place here.",
+    "edges": [
+      {
+        "target": "Strophic",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "The modified verse is audible against a repeated strophic model."
+      }
+    ],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/aaba-and-strophic-form/"
+    ]
+  },
+  "Narrative story song": {
+    "status": "supported",
+    "note": "Catalog line 30. Verses advance the story. ABCB and AABB are common quatrain schemes in this entry; refrain and terminal twist are possible, with no fixed number of verses.",
+    "edges": [],
+    "refs": []
+  },
+  "AABA 32-bar": {
+    "status": "supported",
+    "note": "Catalog line 31. Four equal eight-bar sections yield the named 32-bar return. Title placement describes A’s text, not a distinct section; title lyric is typical rather than a universal AABA test.",
+    "edges": [
+      {
+        "target": "Extended AABA",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "The target extends a complete AABA cycle by adding another B and A."
+      },
+      {
+        "target": "Verse-refrain with introductory verse",
+        "kind": "other",
+        "status": "supported",
+        "evidence": "AABA may serve as the refrain inside that larger form; the larger song is not inside AABA."
+      }
+    ],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/aaba-and-strophic-form/"
+    ]
+  },
+  "Extended AABA": {
+    "status": "supported",
+    "note": "Catalog line 32. The AABA cycle gains another bridge and final A. The second B may be a solo, and a title tag may follow. Extension does not establish the bar length of every instance.",
+    "edges": [
+      {
+        "target": "AABA 32-bar",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "The source names AABA as the underlying cycle; additional sections extend it."
+      }
+    ],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/aaba-and-strophic-form/"
+    ]
+  },
+  "ABAC 32-bar": {
+    "status": "supported",
+    "note": "Catalog line 33. The source specifies 32 bars overall, with B continuing the first A, the return of A, and the title at the new C ending. It gives no bar count for each part.",
+    "edges": [
+      {
+        "target": "Verse-refrain with introductory verse",
+        "kind": "other",
+        "status": "supported",
+        "evidence": "The other row identifies ABAC as a possible main refrain after an introductory verse."
+      }
+    ],
+    "refs": []
+  },
+  "Verse-refrain with introductory verse": {
+    "status": "supported",
+    "note": "Catalog line 34. An introductory verse may be cut in performance. The main refrain can be 16 or 32 bars; AABA and ABAC are alternative common shapes. The source does not pair just one length with one shape.",
+    "edges": [
+      {
+        "target": "AABA 32-bar",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "A main refrain may use the catalog’s 32-bar AABA structure."
+      },
+      {
+        "target": "ABAC 32-bar",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "ABAC is an explicitly named alternative refrain shape."
+      }
+    ],
+    "refs": []
+  },
+  "12-bar blues": {
+    "status": "supported",
+    "note": "Catalog line 35. AAB organizes the words of this lyric example across a 12-bar cycle. The repeat may change slightly and the answer rhymes. Twelve bars alone do not entail words or a particular rhyme; solos can intervene between stanzas.",
+    "edges": [
+      {
+        "target": "8-bar blues",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "The source places the eight-bar and twelve-bar lyric cycles in the blues family, with different durations and text patterns."
+      },
+      {
+        "target": "16-bar blues",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "The sixteen-bar row describes a lengthened blues stanza; both use recurring cycles with different bar counts."
+      }
+    ],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/blues-melodies-and-the-blues-scale/"
+    ]
+  },
+  "8-bar blues": {
+    "status": "partial",
+    "note": "Catalog line 36. Two alternatives are explicit: statement and answer, or a couplet with short refrain. The separate two-lines field does not resolve whether that refrain occupies an additional lyric line. No count is assigned to that alternative.",
+    "edges": [
+      {
+        "target": "12-bar blues",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "Both are short blues cycles, but the twelve-bar row gives a three-line AAB example and this row gives two possible text plans."
+      },
+      {
+        "target": "16-bar blues",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "Both rows name blues stanza lengths and explicitly offer contrasting text plans."
+      }
+    ],
+    "refs": []
+  },
+  "16-bar blues": {
+    "status": "partial",
+    "note": "Catalog line 37. AAAB is a specific quatrain scheme, whereas “a quatrain” states only the line count. The unschemed four-line option is left open. A stop-time verse before a 12-bar refrain is an optional larger arrangement, not a mandatory subdivision.",
+    "edges": [
+      {
+        "target": "8-bar blues",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "The two blues cycles contrast in duration and stated lyric arrangements."
+      },
+      {
+        "target": "12-bar blues",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "A sixteen-bar cycle is distinguished from a twelve-bar cycle; the source also allows a separate twelve-bar refrain."
+      }
+    ],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/back-matter/glossary/"
+    ]
+  },
+  "Simple verse-chorus": {
+    "status": "supported",
+    "note": "Catalog line 38. The verse and recurring title chorus alternate over shared harmony. Words such as “same chords” describe the relation across sections rather than a third section.",
+    "edges": [
+      {
+        "target": "Contrasting verse-chorus",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "Both alternate verses and choruses. The source distinguishes shared harmony from harmonic and melodic contrast."
+      }
+    ],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+    ]
+  },
+  "Contrasting verse-chorus": {
+    "status": "supported",
+    "note": "Catalog line 39. The chorus differs melodically and harmonically. The catalog’s higher, fuller chorus is a characteristic sound, not an additional nested unit.",
+    "edges": [
+      {
+        "target": "Simple verse-chorus",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "The simple case shares the verse harmony while this row depends on sectional contrast."
+      }
+    ],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+    ]
+  },
+  "Verse-prechorus-chorus": {
+    "status": "supported",
+    "note": "Catalog line 40. The prechorus builds from verse toward chorus within the cycle. The 2–4-line figure belongs to this catalog example; prechorus function alone does not prescribe a line count.",
+    "edges": [
+      {
+        "target": "Verse-chorus with post-chorus",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The catalog’s post-chorus example contains the same verse–prechorus–chorus unit before its additional tag."
+      }
+    ],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+    ]
+  },
+  "Verse-chorus-bridge": {
+    "status": "partial",
+    "note": "Catalog line 41. The full prose maps to ABABCB if A is verse, B chorus and C bridge. The listed ABCABCDC alias lacks a letter key and does not follow that mapping. Only the described example is encoded.",
+    "edges": [
+      {
+        "target": "Verse-chorus with solo",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "The instrumental solo can take the bridge’s place or coexist with it, according to the target row."
+      }
+    ],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+    ]
+  },
+  "Verse-chorus with post-chorus": {
+    "status": "supported",
+    "note": "Catalog line 42. The catalog models a cycle with prechorus and post-chorus, then bridge and chorus. A post-chorus follows a chorus; its presence alone does not require all the other sections in that example.",
+    "edges": [
+      {
+        "target": "Verse-prechorus-chorus",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The verse, prechorus and chorus cycle is present in the specific catalog example."
+      }
+    ],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+    ]
+  },
+  "Chorus-first": {
+    "status": "supported",
+    "note": "Catalog line 43. A chorus or hook opens the song; the row specifies a verse–chorus cycle afterward but no exact count of returns.",
+    "edges": [],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+    ]
+  },
+  "Verse-chorus with solo": {
+    "status": "supported",
+    "note": "Catalog line 44. The form can replace a bridge with an instrumental solo or place the solo beside a bridge. “Beside” specifies no before/after order.",
+    "edges": [
+      {
+        "target": "Verse-chorus-bridge",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "The bridge form provides the explicit reference point for the two solo placements."
+      }
+    ],
+    "refs": []
+  },
+  "Binary": {
+    "status": "contested",
+    "note": "Catalog line 45. The catalog repeats the A–B pair. Jarvis documents two reprises often repeated separately, yielding AABB rather than ABAB. Both accounts support two main parts; the diagram represents those parts without a universal repeat instruction.",
+    "edges": [],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/binary-form/"
+    ]
+  },
+  "Ternary": {
+    "status": "supported",
+    "note": "Catalog line 46. A contrasting middle lies between the first A and its return. The final A may be shortened.",
+    "edges": [
+      {
+        "target": "Da capo aria",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The aria’s A–B–ornamented A realization shares the ternary return; equal text and music section counts are unnecessary."
+      }
+    ],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/back-matter/glossary/"
+    ]
+  },
+  "Bar form": {
+    "status": "supported",
+    "note": "Catalog line 47. The two matching Stollen form the opening pair within each stanza. The closing Abgesang contrasts and is longer in this source.",
+    "edges": [],
+    "refs": []
+  },
+  "Rondo": {
+    "status": "supported",
+    "note": "Catalog line 48. The returning A separates episodes. ABACA and ABACABA are explicitly offered as alternative examples, so C or a fixed number of episodes is not a required ending condition.",
+    "edges": [],
+    "refs": []
+  },
+  "Arch": {
+    "status": "supported",
+    "note": "Catalog line 49. The outward sections, central climax and reversed return are correctly nested for the listed ABCBA example. The row describes mirror ordering, not a required five-section count.",
+    "edges": [],
+    "refs": []
+  },
+  "Through-composed": {
+    "status": "supported",
+    "note": "Catalog line 50. The diagram is one four-section example. The constraint applies to the recurrence of entire sections, not to all rhythmic or motivic resemblances.",
+    "edges": [],
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/back-matter/glossary/"
+    ]
+  },
+  "Multi-part suite": {
+    "status": "supported",
+    "note": "Catalog line 51. Several internally formed sub-songs share one track with joins between them; a return of the opening theme is optional and the number of sub-songs is unspecified.",
+    "edges": [],
+    "refs": []
+  },
+  "Medley": {
+    "status": "supported",
+    "note": "Catalog line 52. Several whole songs or excerpts occur in succession. The diagram uses two illustrative items; no two-song ceiling, fixed excerpt length or universal joining device follows.",
+    "edges": [],
+    "refs": []
+  },
+  "Quodlibet": {
+    "status": "partial",
+    "note": "Catalog line 53. The row specifically stages two songs separately and then combines them. That is a partner-song example. A performed Goldberg Variation 30 also combines familiar tunes; it does not establish separate full statements as required preliminaries. Combined voices occupy the same instant; the final arc now denotes their shared span.",
+    "edges": [],
+    "refs": [
+      "https://www.bachvereniging.nl/en/bwv/bwv-988"
+    ]
+  },
+  "Contrafactum": {
+    "status": "supported",
+    "note": "Catalog line 54. The source describes new words fitted to existing music. Stanza shape, rhyme points and stresses are concurrent text-fitting constraints for the catalog example, not a sequence of sung sections.",
+    "edges": [],
+    "refs": []
+  },
+  "List song": {
+    "status": "supported",
+    "note": "Catalog line 55. The item list is the substance of the verses, tied by a recurrent title or refrain. Neither line placement nor the number of items is fixed.",
+    "edges": [],
+    "refs": []
+  },
+  "Patter song": {
+    "status": "partial",
+    "note": "Catalog line 56. Rapid, densely rhymed delivery is the described technique. The slower returning refrain and possible acceleration belong to the supplied example; this source alone cannot establish either as essential to all patter songs.",
+    "edges": [],
+    "refs": []
+  },
+  "Music-hall song": {
+    "status": "partial",
+    "note": "Catalog line 57. The row supplies an eight-line verse and fixed singalong chorus, with optional patter between. This is a catalog scenario for music-hall repertoire; no evidence in the row makes that length compulsory across the genre.",
+    "edges": [],
+    "refs": []
+  },
+  "Parlour ballad": {
+    "status": "partial",
+    "note": "Catalog line 58. The title refrain ends each eight-line verse in the catalog’s two- or three-verse scenario. This is an example of the genre; the row does not specify identical music in every verse.",
+    "edges": [
+      {
+        "target": "Strophic with refrain",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Both entries put a recurring refrain inside the verse ending. The parlour-ballad row does not establish the repeated-tune requirement for strophic identity."
+      }
+    ],
+    "refs": []
+  },
+  "Song-and-dance number": {
+    "status": "partial",
+    "note": "Catalog line 59. The stage-number scenario orders introductory verse, 32-bar refrain, dance break and returned refrain capped by a button. A key rise is optional. The catalog gives one arrangement, not an exhaustive grammar of dance numbers.",
+    "edges": [],
+    "refs": []
+  },
+  "Musical scene": {
+    "status": "supported",
+    "note": "Catalog line 60. Song, sung dialogue and underscored speech intertwine with action. The rule groups materials without assigning an unsupported order to the scene or the return of a theme.",
+    "edges": [],
+    "refs": []
+  },
+  "Duet dialogue song": {
+    "status": "supported",
+    "note": "Catalog line 61. The row orders the first two verse roles, gives the chorus to both singers and assigns trading to the bridge. It does not fix the location of every chorus or bridge. The role view avoids enforcing the literal display order.",
+    "edges": [],
+    "refs": []
+  },
+  "Recitative": {
+    "status": "supported",
+    "note": "Catalog line 62. Speech-like delivery in irregular sung lines is the defining material here. Separation of set songs is a common context in the row rather than a full-work sequence.",
+    "edges": [
+      {
+        "target": "Arioso",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "The target compares arioso with recitative explicitly, distinguishing its more melodic delivery."
+      }
+    ],
+    "refs": []
+  },
+  "Arioso": {
+    "status": "supported",
+    "note": "Catalog line 63. The passage lies between recitative and aria in delivery. These are qualities of one passage, not first and second sections of arioso.",
+    "edges": [
+      {
+        "target": "Recitative",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "The row uses recitative as one end of the continuum contrasted with aria-like melody."
+      }
+    ],
+    "refs": []
+  },
+  "Da capo aria": {
+    "status": "supported",
+    "note": "Catalog line 64. The first A and B use the two text parts; A is then performed again with ornamentation. Text divisions and performed sections must not be counted as if they were the same object.",
+    "edges": [
+      {
+        "target": "Ternary",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The three performed sections realize an ABA return despite the two-part text."
+      }
+    ],
+    "refs": []
+  },
+  "Melodrama": {
+    "status": "supported",
+    "note": "Catalog line 65. The speech overlaps a continuous musical accompaniment and may turn into song. The rule view does not imply that the accompaniment stops during speech.",
+    "edges": [],
+    "refs": []
+  },
+  "Ballad opera": {
+    "status": "supported",
+    "note": "Catalog line 66. Spoken scenes are interrupted by airs using new words to familiar melodies. The text/music relation is inside an air, not a sequence of two sounding sections.",
+    "edges": [
+      {
+        "target": "Contrafactum",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The catalog’s interpolated airs apply the target’s technique of setting new words to a preexisting tune."
+      }
+    ],
+    "refs": []
+  },
+  "Masque": {
+    "status": "partial",
+    "note": "Catalog line 67. Songs and spoken verse are media throughout the masque; the catalog does not name an opening song-and-speech module. Antimasque, main masque, revels and close are an example from the row, not a requirement for every masque.",
+    "edges": [],
+    "refs": []
+  },
+  "Song cycle": {
+    "status": "supported",
+    "note": "Catalog line 68. A sequence of separate songs has its own ordering under a common theme or narrative. Internal form belongs to each song, with no fixed movement count here.",
+    "edges": [],
+    "refs": []
+  },
+  "Cantata": {
+    "status": "supported",
+    "note": "Catalog line 69. Recitative, aria, duet and chorus are movement types available in the catalog’s cantata. They do not have to occur in the printed order. A closing chorus is described as usual.",
+    "edges": [
+      {
+        "target": "Recitative",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The cantata row explicitly includes recitatives among its movement types."
+      },
+      {
+        "target": "Oratorio libretto",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The descriptions both include recitative, aria and chorus; they give no derivation of one genre from the other."
+      }
+    ],
+    "refs": []
+  },
+  "Oratorio libretto": {
+    "status": "supported",
+    "note": "Catalog line 70. The sacred narrative is divided into parts containing vocal forms. The row specifies an unstaged dramatic setting but no order or number for recitatives, arias or choruses.",
+    "edges": [
+      {
+        "target": "Recitative",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The libretto’s vocal forms explicitly include recitative."
+      },
+      {
+        "target": "Cantata",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The two rows name recitative, aria and chorus as available movement types."
+      }
+    ],
+    "refs": []
+  },
+  "Head arrangement": {
+    "status": "contested",
+    "note": "Catalog line 71. The row describes a head–solos–head performance. The Library of Congress identifies head arrangement as an arrangement worked out by musicians and retained in memory. The two concepts may coexist but have no necessary sectional equivalence.",
+    "edges": [
+      {
+        "target": "AABA 32-bar",
+        "kind": "contains",
+        "status": "ambiguous",
+        "evidence": "AABA is an optional head shape in the catalog performance example. The entry gives no 32-bar guarantee, and a memorized head arrangement does not require that form."
+      }
+    ],
+    "refs": [
+      "https://www.loc.gov/programs/national-recording-preservation-board/recording-registry/descriptions-and-essays/?loclr=blogloc"
+    ]
+  },
+  "Vocalese": {
+    "status": "contested",
+    "note": "Catalog line 72. The NEA describes Hendricks’s vocalese through the relation of words to an instrumental solo. The catalog adds an initial head; that complete song order does not define the technique. The rule model shows the mapping.",
+    "edges": [
+      {
+        "target": "Head arrangement",
+        "kind": "shares-feature",
+        "status": "rejected",
+        "evidence": "Neither fitting words to a solo nor working out an arrangement from memory entails the other. A jazz setting or a solo alone does not justify this relationship."
+      }
+    ],
+    "refs": [
+      "https://www.arts.gov/honors/jazz/jon-hendricks"
+    ]
+  },
+  "Barbershop tag": {
+    "status": "partial",
+    "note": "Catalog line 73. The short held-note ending is the catalog’s 2–4-line tag example. This source does not demonstrate that every barbershop tag has that line count.",
+    "edges": [],
+    "refs": []
+  },
+  "Hip-hop verse-hook": {
+    "status": "supported",
+    "note": "Catalog line 74. The row gives an eight-bar hook and a typically sixteen-bar rap verse, with eight-, twelve- and twenty-four-bar verse alternatives and optional framing. The lengths characterize this example, not all rap.",
+    "edges": [
+      {
+        "target": "Hookless rap track",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "The central contrast is between a repeating hook in this row and its explicit absence in the other."
+      }
+    ],
+    "refs": []
+  },
+  "Hookless rap track": {
+    "status": "supported",
+    "note": "Catalog line 75. One or more long verses proceed without a hook. Beat switches are optional; the catalog’s “often 32 bars or more” does not create a lower bound.",
+    "edges": [
+      {
+        "target": "Hip-hop verse-hook",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "A hookless run of verses contrasts with the other row’s recurring verse–hook alternation."
+      }
+    ],
+    "refs": []
+  },
+  "Posse cut": {
+    "status": "supported",
+    "note": "Catalog line 76. The defining organization distributes verses successively to different rappers. A shared hook may be present, but the row gives no location for it. An unordered rule avoids making the hook a closing event.",
+    "edges": [],
+    "refs": []
+  },
+  "Battle rap": {
+    "status": "partial",
+    "note": "Catalog line 77. Two rappers alternate. Three rounds each is customary in this row, not compulsory. Set-ups and punchlines can recur within a verse; only the climactic final line has an assigned position here.",
+    "edges": [],
+    "refs": []
+  },
+  "Freestyle / cypher": {
+    "status": "partial",
+    "note": "Catalog line 78. Freestyle describes improvisation here; cypher adds turn-taking among performers. The catalog describes an underlying loop but provides no fixed sections. It does not show that all freestyle is a group exchange.",
+    "edges": [],
+    "refs": []
+  },
+  "DJ toasting": {
+    "status": "supported",
+    "note": "Catalog line 79. Chants, shout-outs and a returning hook occur over the riddim. The row establishes no fixed verse size or hook location, so a rule view is appropriate.",
+    "edges": [],
+    "refs": []
+  },
+  "EDM build-drop": {
+    "status": "partial",
+    "note": "Catalog line 80. The specified intro, two build/drop cycles and outro give one dance arrangement. A verse and a breakdown are alternatives within the first cycle. No evidence in the row requires this count or these bar lengths across EDM.",
+    "edges": [],
+    "refs": []
+  },
+  "Vamp / riff form": {
+    "status": "supported",
+    "note": "Catalog line 81. The riff supplies the repeating ground, with chants and occasional refrain. A break interrupts the groove; its position and duration are deliberately unspecified.",
+    "edges": [],
+    "refs": []
+  },
+  "Gospel verse-chorus-vamp": {
+    "status": "supported",
+    "note": "Catalog line 82. The source orders verse and chorus before an extended vamp and closing tag. It allows a bridge somewhere before the vamp without locking its position. Lead improvisation and repeated choir material occur simultaneously.",
+    "edges": [],
+    "refs": []
+  },
+  "Calypso": {
+    "status": "partial",
+    "note": "Catalog line 83. Topical or storytelling verses and a fixed chorus form the row’s calypso example. Its usual eight-line verse count is descriptive. The entry gives no basis for a universal genre-wide pattern.",
+    "edges": [
+      {
+        "target": "Extempo",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "The other row specifically identifies extempo as improvised calypso, establishing a variant relation."
+      }
+    ],
+    "refs": []
+  },
+  "Extempo": {
+    "status": "supported",
+    "note": "Catalog line 84. A contest with two singers trading improvised topical calypso stanzas is an example. The source distinguishes contest exchange from the broader fact of improvisation.",
+    "edges": [
+      {
+        "target": "Calypso",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "The catalog explicitly calls extempo improvised calypso."
+      }
+    ],
+    "refs": []
+  },
+  "Jingle": {
+    "status": "partial",
+    "note": "Catalog line 85. The source’s short advertising example proceeds from set-up to hook to a sung brand tag. The 15–60-second field is the given example range, not a test for every jingle.",
+    "edges": [],
+    "refs": []
+  },
+  "Terrace chant": {
+    "status": "supported",
+    "note": "Catalog line 86. A short text repeats; the catalog usually borrows an existing tune and sometimes supplies a caller. The leader is an optional performer, not an extra line at the end of the chant.",
+    "edges": [],
+    "refs": []
+  },
+  "Cheerleading cheer": {
+    "status": "supported",
+    "note": "Catalog line 87. Couplets, spelling and exchange describe the cheer’s materials, with a shout at the end. No interior order or compulsory count is stated.",
+    "edges": [
+      {
+        "target": "Call-and-response",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The squad–crowd exchange instantiates alternating calling and responding in this catalog example; it does not make the entire cheer a historically derived form."
+      }
+    ],
+    "refs": []
+  }
+}

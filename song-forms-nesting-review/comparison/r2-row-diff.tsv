@@ -1,0 +1,365 @@
+group	source_line	comment_line	catalog_title	r2_title	changed_fields	before_after
+A	27	39	Strophic	Strophic	identical	{}
+A	28	40	Strophic with refrain	Strophic with refrain	identical	{}
+A	29	41	Modified strophic	Modified strophic	identical	{}
+A	30	42	Narrative story song	Narrative story song	identical	{}
+A	31	43	AABA 32-bar	AABA 32-bar	identical	{}
+A	32	44	Extended AABA	Extended AABA	identical	{}
+A	33	45	ABAC 32-bar	ABAC 32-bar	identical	{}
+A	34	46	Verse-refrain with introductory verse	Verse-refrain with introductory verse	identical	{}
+A	35	47	12-bar blues	12-bar blues	description	"{""description"": [""Each stanza has three lines over 12 bars. Line 1 makes a statement, line 2 repeats it, and line 3 answers it with a rhyme. Stanzas repeat with new words, often with solos between. The same AAB stanza is also used as a poem form (Hughes, Sterling Brown)."", ""Each stanza has three lines over 12 bars. Line 1 makes a statement, line 2 repeats it, and line 3 answers it with a rhyme. Stanzas repeat with new words, often with solos between. The same AAB stanza is also used as a poem form.""]}"
+A	36	48	8-bar blues	8-bar blues	identical	{}
+A	37	49	16-bar blues	16-bar blues	identical	{}
+A	38	50	Simple verse-chorus	Simple verse-chorus	identical	{}
+A	39	51	Contrasting verse-chorus	Contrasting verse-chorus	identical	{}
+A	40	52	Verse-prechorus-chorus	Verse-prechorus-chorus	identical	{}
+A	41	53	Verse-chorus-bridge	Verse-chorus-bridge	identical	{}
+A	42	54	Verse-chorus with post-chorus	Verse-chorus with post-chorus	identical	{}
+A	43	55	Chorus-first	Chorus-first	identical	{}
+A	44	56	Verse-chorus with solo	Verse-chorus with solo	identical	{}
+A	45	57	Binary	Binary	identical	{}
+A	46	58	Ternary	Ternary	identical	{}
+A	47	59	Bar form	Bar form	identical	{}
+A	48	60	Rondo	Rondo	identical	{}
+A	49	61	Arch	Arch	identical	{}
+A	50	62	Through-composed	Through-composed	identical	{}
+A	51	63	Multi-part suite	Multi-part suite	identical	{}
+A	52	64	Medley	Medley	identical	{}
+A	53	65	Quodlibet	Quodlibet	identical	{}
+A	54	66	Contrafactum	Contrafactum	identical	{}
+A	55	67	List song	List song	identical	{}
+A	56	68	Patter song	Patter song	identical	{}
+A	57	69	Music-hall song	Music-hall song	identical	{}
+A	58	70	Parlour ballad	Parlour ballad	identical	{}
+A	59	71	Song-and-dance number	Song-and-dance number	identical	{}
+A	60	72	Musical scene	Musical scene	identical	{}
+A	61	73	Duet dialogue song	Duet dialogue song	identical	{}
+A	62	74	Recitative	Recitative	identical	{}
+A	63	75	Arioso	Arioso	identical	{}
+A	64	76	Da capo aria	Da capo aria	identical	{}
+A	65	77	Melodrama	Melodrama	identical	{}
+A	66	78	Ballad opera	Ballad opera	identical	{}
+A	67	79	Masque	Masque	identical	{}
+A	68	80	Song cycle	Song cycle	identical	{}
+A	69	81	Cantata	Cantata	identical	{}
+A	70	82	Oratorio libretto	Oratorio libretto	identical	{}
+A	71	83	Head arrangement	Head arrangement	identical	{}
+A	72	84	Vocalese	Vocalese	identical	{}
+A	73	85	Barbershop tag	Barbershop tag	identical	{}
+A	74	86	Hip-hop verse-hook	Hip-hop verse-hook	identical	{}
+A	75	87	Hookless rap track	Hookless rap track	identical	{}
+A	76	88	Posse cut	Posse cut	identical	{}
+A	77	89	Battle rap	Battle rap	identical	{}
+A	78	90	Freestyle / cypher	Freestyle / cypher	identical	{}
+A	79	91	DJ toasting	DJ toasting	identical	{}
+A	80	92	EDM build-drop	EDM build-drop	identical	{}
+A	81	93	Vamp / riff form	Vamp / riff form	identical	{}
+A	82	94	Gospel verse-chorus-vamp	Gospel verse-chorus-vamp	identical	{}
+A	83	95	Calypso	Calypso	identical	{}
+A	84	96	Extempo	Extempo	identical	{}
+A	85	97	Jingle	Jingle	identical	{}
+A	86	98	Terrace chant	Terrace chant	identical	{}
+A	87	99	Cheerleading cheer	Cheerleading cheer	identical	{}
+B	93	105	Traditional ballad	Traditional ballad	identical	{}
+B	94	106	Long-measure ballad	Long-measure ballad	identical	{}
+B	95	107	Ballad with internal refrain	Ballad with internal refrain	identical	{}
+B	96	108	Incremental-repetition ballad	Incremental-repetition ballad	identical	{}
+B	97	109	Broadside ballad	Broadside ballad	identical	{}
+B	98	110	Come-all-ye	Come-all-ye	identical	{}
+B	99	111	Goodnight ballad	Goodnight ballad	identical	{}
+B	100	112	Blues ballad	Blues ballad	identical	{}
+B	101	113	Talking blues	Talking blues	identical	{}
+B	102	114	Bothy ballad	Bothy ballad	identical	{}
+B	103	115	Forebitter	Forebitter	identical	{}
+B	104	116	Cante fable	Cante fable	identical	{}
+B	105	117	Mummers' play verse	Mummers' play verse	identical	{}
+B	106	118	Calling-on song	Calling-on song	identical	{}
+B	107	119	Luck-visit / begging song	Luck-visit / begging song	identical	{}
+B	108	120	Street cry	Street cry	identical	{}
+B	109	121	Dirge / lament	Dirge / lament	identical	{}
+B	110	122	Call-and-response	Call-and-response	identical	{}
+B	111	123	Halyard shanty	Halyard shanty	identical	{}
+B	112	124	Short-drag shanty	Short-drag shanty	identical	{}
+B	113	125	Capstan shanty	Capstan shanty	identical	{}
+B	114	126	Stamp-and-go shanty	Stamp-and-go shanty	identical	{}
+B	115	127	Pumping shanty	Pumping shanty	identical	{}
+B	116	128	Hammer song / chain-gang song	Hammer song / chain-gang song	identical	{}
+B	117	129	Field holler	Field holler	identical	{}
+B	118	130	Waulking song	Waulking song	identical	{}
+B	119	131	Military cadence	Military cadence	identical	{}
+B	120	132	Echo song	Echo song	identical	{}
+B	121	133	Zipper song	Zipper song	identical	{}
+B	122	134	Cumulative song	Cumulative song	identical	{}
+B	123	135	Counting song	Counting song	identical	{}
+B	124	136	Countdown song	Countdown song	identical	{}
+B	125	137	Riddle song	Riddle song	identical	{}
+B	126	138	Nonsense-refrain song	Nonsense-refrain song	identical	{}
+B	127	139	Lullaby	Lullaby	identical	{}
+B	128	140	Nursery rhyme	Nursery rhyme	identical	{}
+B	129	141	Counting-out rhyme	Counting-out rhyme	identical	{}
+B	130	142	Skipping / clapping rhyme	Skipping / clapping rhyme	identical	{}
+B	131	143	Singing game	Singing game	identical	{}
+B	132	144	Finger play	Finger play	identical	{}
+B	133	145	Dandling rhyme	Dandling rhyme	identical	{}
+B	134	146	Playground taunt	Playground taunt	identical	{}
+B	135	147	Tongue twister	Tongue twister	identical	{}
+B	136	148	Dozens	Dozens	identical	{}
+B	137	149	Toast (oral narrative)	Toast (oral narrative)	identical	{}
+B	138	150	Square-dance singing call	Square-dance singing call	identical	{}
+B	139	151	Square-dance patter call	Square-dance patter call	identical	{}
+B	140	152	Round	Round	identical	{}
+B	141	153	Catch	Catch	identical	{}
+B	142	154	Canon	Canon	identical	{}
+B	143	155	Madrigal	Madrigal	identical	{}
+B	144	156	Ballett	Ballett	identical	{}
+B	145	157	Canzonet	Canzonet	identical	{}
+B	146	158	Ayre	Ayre	identical	{}
+B	147	159	Consort song	Consort song	identical	{}
+B	148	160	Three-man's song	Three-man's song	identical	{}
+B	149	161	Glee	Glee	identical	{}
+B	150	162	Part-song (Victorian)	Part-song (Victorian)	identical	{}
+B	151	163	Elizabethan stage jig	Elizabethan stage jig	identical	{}
+B	152	164	Medieval carol with burden	Medieval carol with burden	identical	{}
+B	153	165	Lullay carol	Lullay carol	identical	{}
+B	154	166	Christmas carol	Christmas carol	identical	{}
+B	155	167	Macaronic carol / song	Macaronic carol / song	identical	{}
+B	156	168	Metrical hymn	Metrical hymn	identical	{}
+B	157	169	Hymn with refrain	Hymn with refrain	identical	{}
+B	158	170	Gospel song (Sankey)	Gospel song (Sankey)	identical	{}
+B	159	171	Camp-meeting song	Camp-meeting song	identical	{}
+B	160	172	Praise chorus	Praise chorus	identical	{}
+B	161	173	Spiritual	Spiritual	identical	{}
+B	162	174	Ring shout	Ring shout	identical	{}
+B	163	175	Shaker gift song	Shaker gift song	identical	{}
+B	164	176	Table grace (sung)	Table grace (sung)	identical	{}
+B	165	177	Ostinato chant (Taizé)	Ostinato chant (Taizé)	identical	{}
+B	166	178	Metrical psalm	Metrical psalm	identical	{}
+B	167	179	Lined-out hymn	Lined-out hymn	identical	{}
+B	168	180	Anglican chant	Anglican chant	identical	{}
+B	169	181	Psalm with antiphon	Psalm with antiphon	identical	{}
+B	170	182	Responsorial psalm	Responsorial psalm	identical	{}
+B	171	183	Responsory	Responsory	identical	{}
+B	172	184	Litany	Litany	identical	{}
+B	173	185	Versicles and responses	Versicles and responses	identical	{}
+B	174	186	Canticle	Canticle	identical	{}
+B	175	187	Doxology	Doxology	identical	{}
+B	176	188	Full anthem	Full anthem	identical	{}
+B	177	189	Verse anthem	Verse anthem	identical	{}
+B	178	190	Fuging tune	Fuging tune	identical	{}
+B	179	191	Shape-note anthem	Shape-note anthem	identical	{}
+B	180	192	Mass setting (English)	Mass setting (English)	identical	{}
+B	181	193	Anglican service	Anglican service	identical	{}
+C	187	199	Petrarchan sonnet	Petrarchan sonnet	identical	{}
+C	188	200	Sicilian sonnet	Sicilian sonnet	identical	{}
+C	189	201	Miltonic sonnet	Miltonic sonnet	identical	{}
+C	190	202	Shakespearean sonnet	Shakespearean sonnet	identical	{}
+C	191	203	Spenserian sonnet	Spenserian sonnet	identical	{}
+C	192	204	Terza rima sonnet	Terza rima sonnet	identical	{}
+C	193	205	Curtal sonnet	Curtal sonnet	description	"{""description"": [""6 lines ABCABC, then 4½ lines ending on a short half-line (Hopkins)."", ""6 lines ABCABC, then 4½ lines ending on a short half-line.""]}"
+C	194	206	Caudate sonnet	Caudate sonnet	identical	{}
+C	195	207	Meredithian sonnet	Meredithian sonnet	identical	{}
+C	196	208	Onegin stanza	Onegin stanza	identical	{}
+C	197	209	Bref double	Bref double	identical	{}
+C	198	210	Sonnenizio	Sonnenizio	identical	{}
+C	199	211	American sonnet	American sonnet	identical	{}
+C	200	212	Duplex	Duplex	identical	{}
+C	201	213	Kyrielle sonnet	Kyrielle sonnet	identical	{}
+C	202	214	Crown of sonnets	Crown of sonnets	identical	{}
+C	203	215	Heroic crown	Heroic crown	identical	{}
+C	204	216	Sonnet sequence	Sonnet sequence	identical	{}
+C	205	217	Villanelle	Villanelle	identical	{}
+C	206	218	Terzanelle	Terzanelle	identical	{}
+C	207	219	Sestina	Sestina	identical	{}
+C	208	220	Double sestina	Double sestina	description	"{""description"": [""12-line stanzas with 12 end-words (Swinburne), or a sestina run twice (Sidney). Ends with an envoi."", ""12-line stanzas with 12 end-words; or a sestina run twice. Ends with an envoi.""]}"
+C	209	221	Tritina	Tritina	identical	{}
+C	210	222	Rondeau	Rondeau	identical	{}
+C	211	223	Rondeau prime	Rondeau prime	identical	{}
+C	212	224	Rondine	Rondine	identical	{}
+C	213	225	Rondeau redoublé	Rondeau redoublé	identical	{}
+C	214	226	Rondel	Rondel	identical	{}
+C	215	227	Roundel	Roundel	description	"{""description"": [""Stanzas of 4, 3 and 4 lines (abaR bab abaR). The refrain comes from the start of line 1 (Swinburne)."", ""Stanzas of 4, 3 and 4 lines (abaR bab abaR). The refrain comes from the start of line 1.""]}"
+C	216	228	Rondelet	Rondelet	identical	{}
+C	217	229	Roundelay	Roundelay	identical	{}
+C	218	230	Triolet	Triolet	identical	{}
+C	219	231	Ballade	Ballade	identical	{}
+C	220	232	Ten-line ballade	Ten-line ballade	identical	{}
+C	221	233	Double ballade	Double ballade	identical	{}
+C	222	234	Ballade à double refrain	Ballade à double refrain	identical	{}
+C	223	235	Chant royal	Chant royal	identical	{}
+C	224	236	Virelai	Virelai	identical	{}
+C	225	237	Virelai nouveau	Virelai nouveau	identical	{}
+C	226	238	Lai	Lai	identical	{}
+C	227	239	Kyrielle	Kyrielle	identical	{}
+C	228	240	Quatern	Quatern	identical	{}
+C	229	241	Canzone	Canzone	identical	{}
+C	230	242	Ballata	Ballata	identical	{}
+C	231	243	Stornello	Stornello	identical	{}
+C	232	244	Glosa	Glosa	identical	{}
+C	233	245	Ovillejo	Ovillejo	identical	{}
+C	234	246	Pantoum	Pantoum	identical	{}
+C	235	247	Pantun	Pantun	identical	{}
+C	236	248	Ghazal	Ghazal	identical	{}
+C	237	249	Qasida	Qasida	identical	{}
+C	238	250	Haiku	Haiku	identical	{}
+C	239	251	Senryu	Senryu	identical	{}
+C	240	252	Tanka	Tanka	identical	{}
+C	241	253	Kyoka	Kyoka	identical	{}
+C	242	254	Katauta	Katauta	identical	{}
+C	243	255	Sedoka	Sedoka	identical	{}
+C	244	256	Somonka	Somonka	identical	{}
+C	245	257	Choka	Choka	identical	{}
+C	246	258	Dodoitsu	Dodoitsu	identical	{}
+C	247	259	Gogyohka	Gogyohka	identical	{}
+C	248	260	Renga / renku	Renga / renku	identical	{}
+C	249	261	Rengay	Rengay	identical	{}
+C	250	262	Haibun	Haibun	identical	{}
+C	251	263	Tanka prose	Tanka prose	identical	{}
+C	252	264	Sijo	Sijo	identical	{}
+C	253	265	Tanaga	Tanaga	identical	{}
+C	254	266	Luc bat	Luc bat	identical	{}
+C	255	267	Than-bauk	Than-bauk	identical	{}
+C	256	268	Cherita	Cherita	identical	{}
+C	257	269	Englyn	Englyn	identical	{}
+C	258	270	Cywydd deuair hirion	Cywydd deuair hirion	identical	{}
+C	259	271	Clogyrnach	Clogyrnach	identical	{}
+C	260	272	Gwawdodyn	Gwawdodyn	identical	{}
+C	261	273	Hir a thoddaid	Hir a thoddaid	identical	{}
+C	262	274	Byr a thoddaid	Byr a thoddaid	identical	{}
+C	263	275	Awdl gywydd	Awdl gywydd	identical	{}
+C	264	276	Cyhydedd hir	Cyhydedd hir	identical	{}
+C	265	277	Rhupunt	Rhupunt	identical	{}
+C	266	278	Irish syllabic quatrains	Irish syllabic quatrains	identical	{}
+C	267	279	Pindaric ode	Pindaric ode	identical	{}
+C	268	280	Limerick	Limerick	identical	{}
+C	269	281	Clerihew	Clerihew	identical	{}
+C	270	282	Double dactyl	Double dactyl	identical	{}
+C	271	283	Ruthless rhyme	Ruthless rhyme	identical	{}
+C	272	284	Cinquain (Crapsey)	Cinquain	title	"{""title"": [""Cinquain (Crapsey)"", ""Cinquain""]}"
+C	273	285	Didactic cinquain	Didactic cinquain	identical	{}
+C	274	286	Diamante	Diamante	identical	{}
+C	275	287	Tetractys	Tetractys	identical	{}
+C	276	288	Nonet	Nonet	identical	{}
+C	277	289	Etheree	Etheree	identical	{}
+C	278	290	Fib	Fib	identical	{}
+C	279	291	Lanterne	Lanterne	identical	{}
+C	280	292	Shadorma	Shadorma	identical	{}
+C	281	293	Hay(na)ku	Hay(na)ku	identical	{}
+C	282	294	Lune	Lune	identical	{}
+C	283	295	American sentence	American sentence	identical	{}
+C	284	296	Monostich	Monostich	identical	{}
+C	285	297	Sevenling	Sevenling	identical	{}
+C	286	298	Kwansaba	Kwansaba	identical	{}
+C	287	299	Zeno	Zeno	identical	{}
+C	288	300	Abecedarian	Abecedarian	identical	{}
+C	289	301	Golden shovel	Golden shovel	identical	{}
+C	290	302	Bop	Bop	identical	{}
+C	291	303	Paradelle	Paradelle	identical	{}
+D	297	309	Couplet	Couplet	identical	{}
+D	298	310	Heroic couplet	Heroic couplet	description	"{""description"": [""Rhymed iambic pentameter pairs, often each a complete sentence (Pope, Dryden)."", ""Rhymed iambic pentameter pairs, often each a complete sentence.""]}"
+D	299	311	Octosyllabic couplet	Octosyllabic couplet	description	"{""description"": [""Rhymed 8-syllable pairs (Marvell, medieval romance)."", ""Rhymed 8-syllable pairs.""]}"
+D	300	312	Hudibrastic verse	Hudibrastic verse	identical	{}
+D	301	313	Alexandrine couplet	Alexandrine couplet	identical	{}
+D	302	314	Fourteener	Fourteener	identical	{}
+D	303	315	Poulter's measure	Poulter's measure	identical	{}
+D	304	316	Elegiac couplet	Elegiac couplet	identical	{}
+D	305	317	Skeltonic verse	Skeltonic verse	identical	{}
+D	306	318	Tumbling verse	Tumbling verse	identical	{}
+D	307	319	Leonine verse	Leonine verse	identical	{}
+D	308	320	Tercet	Tercet	identical	{}
+D	309	321	Triplet	Triplet	identical	{}
+D	310	322	Sicilian tercet	Sicilian tercet	identical	{}
+D	311	323	Terza rima	Terza rima	identical	{}
+D	312	324	Quatrain	Quatrain	identical	{}
+D	313	325	Ballad stanza	Ballad stanza	identical	{}
+D	314	326	Common metre (CM)	Common metre (CM)	description	"{""description"": [""Iambic 8-6-8-6 syllables, abab or abcb (\""Amazing Grace\"", Dickinson)."", ""Iambic 8-6-8-6 syllables, abab or abcb.""]}"
+D	315	327	Common metre double (CMD)	Common metre double (CMD)	identical	{}
+D	316	328	Long metre (LM)	Long metre (LM)	identical	{}
+D	317	329	Long metre double (LMD)	Long metre double (LMD)	identical	{}
+D	318	330	Short metre (SM)	Short metre (SM)	identical	{}
+D	319	331	Short metre double (SMD)	Short metre double (SMD)	identical	{}
+D	320	332	Hallelujah metre	Hallelujah metre	identical	{}
+D	321	333	Trochaic hymn metres	Trochaic hymn metres	identical	{}
+D	322	334	Other named hymn metres	Other named hymn metres	identical	{}
+D	323	335	Heroic quatrain	Heroic quatrain	identical	{}
+D	324	336	In Memoriam stanza	In Memoriam stanza	description	"{""description"": [""Tetrameter abba (Tennyson)."", ""Tetrameter abba.""]}"
+D	325	337	Rubaiyat stanza	Rubaiyat stanza	identical	{}
+D	326	338	Monorhymed quatrain	Monorhymed quatrain	identical	{}
+D	327	339	Redondilla	Redondilla	identical	{}
+D	328	340	Sapphic stanza	Sapphic stanza	identical	{}
+D	329	341	Alcaic stanza	Alcaic stanza	identical	{}
+D	330	342	Asclepiad stanza	Asclepiad stanza	description	"{""description"": [""Quatrains built on the choriambic Asclepiad line (Auden)."", ""Quatrains built on the choriambic Asclepiad line.""]}"
+D	331	343	Quintain	Quintain	identical	{}
+D	332	344	Sestet / sixain	Sestet / sixain	identical	{}
+D	333	345	Venus and Adonis stanza	Venus and Adonis stanza	identical	{}
+D	334	346	Burns stanza	Burns stanza	identical	{}
+D	335	347	Tail-rhyme stanza	Tail-rhyme stanza	identical	{}
+D	336	348	Rhyme royal	Rhyme royal	identical	{}
+D	337	349	Septet	Septet	identical	{}
+D	338	350	Ottava rima	Ottava rima	description	"{""description"": [""Pentameter abababcc, with a turn in the couplet (Byron)."", ""Pentameter abababcc, with a turn in the couplet.""]}"
+D	339	351	Sicilian octave	Sicilian octave	identical	{}
+D	340	352	Rispetto	Rispetto	identical	{}
+D	341	353	Monk's Tale stanza	Monk's Tale stanza	identical	{}
+D	342	354	Octave / huitain	Octave / huitain	identical	{}
+D	343	355	Spenserian stanza	Spenserian stanza	identical	{}
+D	344	356	Dizain	Dizain	identical	{}
+D	345	357	Décima espinela	Décima espinela	identical	{}
+D	346	358	Keatsian ode stanza	Keatsian ode stanza	identical	{}
+D	347	359	Christ's Kirk stanza	Christ's Kirk stanza	identical	{}
+D	348	360	Pearl stanza	Pearl stanza	identical	{}
+D	349	361	Cherry and Slae stanza	Cherry and Slae stanza	identical	{}
+D	350	362	Bob and wheel	Bob and wheel	identical	{}
+D	351	363	Horatian ode	Horatian ode	identical	{}
+D	352	364	Blank verse	Blank verse	identical	{}
+D	353	365	Alliterative verse	Alliterative verse	identical	{}
+D	354	366	Accentual verse	Accentual verse	identical	{}
+D	355	367	Sprung rhythm	Sprung rhythm	description	"{""description"": [""Counted by stresses only, so stresses can sit side by side (Hopkins)."", ""Counted by stresses only, so stresses can sit side by side.""]}"
+D	356	368	Syllabic verse	Syllabic verse	identical	{}
+D	357	369	Accentual hexameter	Accentual hexameter	identical	{}
+D	358	370	Quantitative verse	Quantitative verse	identical	{}
+D	359	371	Hendecasyllabics	Hendecasyllabics	identical	{}
+D	360	372	Galliambic	Galliambic	description	"{""description"": [""Rapid many-syllable lines with a central break (Tennyson's \""Boädicea\"")."", ""Rapid many-syllable lines with a central break.""]}"
+D	361	373	Anacreontic verse	Anacreontic verse	identical	{}
+E	367	379	Free verse	Free verse	identical	{}
+E	368	380	Prose poem	Prose poem	identical	{}
+E	369	381	Projective verse	Projective verse	identical	{}
+E	370	382	Triadic line	Triadic line	identical	{}
+E	371	383	Irregular ode	Irregular ode	identical	{}
+E	372	384	Elegy	Elegy	identical	{}
+E	373	385	Epigram	Epigram	identical	{}
+E	374	386	Epitaph	Epitaph	identical	{}
+E	375	387	Greeting-card verse	Greeting-card verse	identical	{}
+E	376	388	Verse epistle	Verse epistle	identical	{}
+E	377	389	Dramatic monologue	Dramatic monologue	description	"{""description"": [""One speaker, not the poet, talking to a silent listener (Browning)."", ""One speaker, not the poet, talking to a silent listener.""]}"
+E	378	390	Eclogue	Eclogue	identical	{}
+E	379	391	Debate poem	Debate poem	identical	{}
+E	380	392	Tenson	Tenson	identical	{}
+E	381	393	Flyting	Flyting	identical	{}
+E	382	394	Aisling	Aisling	identical	{}
+E	383	395	Metrical charm	Metrical charm	identical	{}
+E	384	396	Riddle poem	Riddle poem	identical	{}
+E	385	397	Gnomic verse	Gnomic verse	identical	{}
+E	386	398	Macaronic verse	Macaronic verse	identical	{}
+E	387	399	Epic	Epic	identical	{}
+E	388	400	Verse novel	Verse novel	identical	{}
+E	389	401	Verse drama	Verse drama	identical	{}
+E	390	402	Emblem poem	Emblem poem	identical	{}
+E	391	403	Zuihitsu	Zuihitsu	identical	{}
+E	392	404	Haiga	Haiga	identical	{}
+E	393	405	Pattern poem	Pattern poem	description	"{""description"": [""Lines whose lengths draw the subject's shape (Herbert's \""Easter Wings\"")."", ""Lines whose lengths draw the subject's shape.""]}"
+E	394	406	Concrete poetry	Concrete poetry	identical	{}
+E	395	407	Contrapuntal poem	Contrapuntal poem	identical	{}
+E	396	408	Reverso	Reverso	identical	{}
+E	397	409	Palindrome poem	Palindrome poem	identical	{}
+E	398	410	Acrostic	Acrostic	identical	{}
+E	399	411	Mesostic	Mesostic	identical	{}
+E	400	412	Lipogram	Lipogram	identical	{}
+E	401	413	Univocalic	Univocalic	identical	{}
+E	402	414	Tautogram	Tautogram	identical	{}
+E	403	415	Rhopalic verse	Rhopalic verse	identical	{}
+E	404	416	Pilish	Pilish	identical	{}
+E	405	417	Bouts-rimés	Bouts-rimés	identical	{}
+E	406	418	Cento	Cento	identical	{}
+E	407	419	Found poem	Found poem	identical	{}
+E	408	420	Erasure poem	Erasure poem	identical	{}
+E	409	421	Cut-up poem	Cut-up poem	identical	{}
+E	410	422	Exquisite corpse	Exquisite corpse	identical	{}

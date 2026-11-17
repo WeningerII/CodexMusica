@@ -1,0 +1,44 @@
+{
+  "source_rows": 364,
+  "row_counts": {
+    "A": 61,
+    "B": 89,
+    "C": 105,
+    "D": 65,
+    "E": 44
+  },
+  "status": {
+    "supported": 232,
+    "partial": 106,
+    "contested": 26
+  },
+  "changed_models": 252,
+  "fields_changed": {
+    "mode": 123,
+    "tree": 206,
+    "related": 53
+  },
+  "edge_verdicts": {
+    "supported": 260,
+    "ambiguous": 7,
+    "rejected": 10
+  },
+  "edge_changes": {
+    "retained": 200,
+    "removed": 7,
+    "withheld": 10,
+    "added": 60
+  },
+  "supported_kinds": {
+    "variant": 68,
+    "other": 6,
+    "contains": 100,
+    "comparison": 22,
+    "shares-feature": 64
+  },
+  "forms_with_additional_reference": 172,
+  "distinct_reference_urls": 130,
+  "r2_identical_records": 349,
+  "source_sha256": "c2b6bfb4d73611eba7e455ab8d2e2c455092fb8277909faa718a702e3b49233c",
+  "r2_comment": "https://github.com/WeningerII/CodexMusica/pull/665#issuecomment-6964243074"
+}

@@ -1,0 +1,823 @@
+{
+  "Couplet": {
+    "status": "partial",
+    "note": "The catalog describes the rhymed, same-meter instance. The broader couplet is a consecutive two-line unit; rhyme and equal meter are not universal.",
+    "edges": [],
+    "refs": [
+      "https://poets.org/glossary/couplet"
+    ]
+  },
+  "Heroic couplet": {
+    "status": "supported",
+    "note": "Each member of the pair is iambic pentameter. End-stopping and a complete sentence are possible rather than mandatory.",
+    "edges": [
+      {
+        "target": "Couplet",
+        "kind": "variant",
+        "evidence": "Both pentameter line endings rhyme in the heroic pair.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://poets.org/glossary/couplet"
+    ]
+  },
+  "Octosyllabic couplet": {
+    "status": "supported",
+    "note": "Two successive eight-syllable lines share an end rhyme. The catalog fixes syllable count without specifying every foot.",
+    "edges": [
+      {
+        "target": "Couplet",
+        "kind": "variant",
+        "evidence": "Eight syllables per line specialize the rhymed pair.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://poets.org/glossary/couplet"
+    ]
+  },
+  "Hudibrastic verse": {
+    "status": "supported",
+    "note": "The comic pair follows the octosyllabic couplet; forced or extended rhymes are a characteristic technique.",
+    "edges": [
+      {
+        "target": "Octosyllabic couplet",
+        "kind": "variant",
+        "evidence": "The Hudibrastic comic rhymes occur within octosyllabic pairs.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://poets.org/glossary/couplet"
+    ]
+  },
+  "Alexandrine couplet": {
+    "status": "supported",
+    "note": "The catalog's two twelve-syllable lines rhyme. Its medial pause belongs within each line, not between the pair.",
+    "edges": [
+      {
+        "target": "Couplet",
+        "kind": "variant",
+        "evidence": "Two alexandrines make the rhymed pair in this entry.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Fourteener": {
+    "status": "partial",
+    "note": "A fourteener is one fourteen-syllable line. The catalog supplies a paired setting; breaking each line after eight produces the 8–6–8–6 quatrain.",
+    "edges": [
+      {
+        "target": "Couplet",
+        "kind": "comparison",
+        "evidence": "Fourteener names a line. In the paired example, two such lines form a rhymed couplet.",
+        "status": "supported"
+      },
+      {
+        "target": "Ballad stanza",
+        "kind": "comparison",
+        "evidence": "Dividing a rhyming pair of fourteeners at 8+6 yields a four-line ballad-meter setting.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://www.poetryfoundation.org/education/glossary/fourteener"
+    ]
+  },
+  "Poulter's measure": {
+    "status": "supported",
+    "note": "The pair comprises one twelve-syllable line and one fourteen-syllable line with a shared end rhyme. Its members have different lengths.",
+    "edges": [
+      {
+        "target": "Couplet",
+        "kind": "variant",
+        "evidence": "Poulter pairs the 12- and 14-syllable lines with one rhyme while alternating their meters.",
+        "status": "supported"
+      },
+      {
+        "target": "Fourteener",
+        "kind": "contains",
+        "evidence": "The second line of each Poulter pair is a fourteen-syllable line.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://www.poetryfoundation.org/education/glossary/fourteener"
+    ]
+  },
+  "Elegiac couplet": {
+    "status": "supported",
+    "note": "An elegiac distich orders hexameter before pentameter. In the classical model the latter has two matching-length halves separated at a word boundary. The catalog marks rhyme as unusual.",
+    "edges": [
+      {
+        "target": "Couplet",
+        "kind": "variant",
+        "evidence": "The elegiac distich is a two-line unit even though its members differ in meter and typically do not rhyme.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://poets.org/glossary/couplet",
+      "https://dcc.dickinson.edu/ovid-amores/scansion"
+    ]
+  },
+  "Skeltonic verse": {
+    "status": "supported",
+    "note": "A run sustains one end rhyme across short irregular lines. The source fixes neither the run length nor a larger stanza.",
+    "edges": [],
+    "refs": []
+  },
+  "Tumbling verse": {
+    "status": "supported",
+    "note": "The catalog's Tudor example uses loosely measured four-stress rhymed pairs. Exact syllable counts are unspecified.",
+    "edges": [
+      {
+        "target": "Couplet",
+        "kind": "variant",
+        "evidence": "This catalog entry explicitly groups its four-stress lines in rhymed pairs.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Leonine verse": {
+    "status": "supported",
+    "note": "One end rhyme pairs with the word immediately before the mid-line pause. Both rhyme positions are inside a single line.",
+    "edges": [],
+    "refs": []
+  },
+  "Tercet": {
+    "status": "supported",
+    "note": "The defining unit has three lines. The source leaves their rhymes and meter open.",
+    "edges": [],
+    "refs": []
+  },
+  "Triplet": {
+    "status": "supported",
+    "note": "All three ends rhyme AAA. This specifies a monorhymed instance of the general three-line unit.",
+    "edges": [
+      {
+        "target": "Tercet",
+        "kind": "variant",
+        "evidence": "The triplet adds one shared rhyme to a three-line stanza.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Sicilian tercet": {
+    "status": "supported",
+    "note": "The middle rhyme differs from the two outside rhymes. All three lines are in pentameter.",
+    "edges": [
+      {
+        "target": "Tercet",
+        "kind": "variant",
+        "evidence": "The Sicilian tercet sets three pentameter lines to ABA.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Terza rima": {
+    "status": "supported",
+    "note": "Each tercet's middle rhyme becomes the next tercet's outside rhyme. Three displayed tercets illustrate the chain; one line or a couplet can close it. The two possible endings share a single closing position.",
+    "edges": [
+      {
+        "target": "Tercet",
+        "kind": "contains",
+        "evidence": "ABA, BCB and subsequent links are successive three-line units.",
+        "status": "supported"
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "evidence": "The catalog permits a couplet as an alternative ending to the single line.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Quatrain": {
+    "status": "supported",
+    "note": "Four lines define this stanza. The multiple listed rhyme schemes are alternatives.",
+    "edges": [],
+    "refs": []
+  },
+  "Ballad stanza": {
+    "status": "supported",
+    "note": "The catalog's four alternating four- and three-stress lines rhyme ABCB. A refrain or burden is optional; its precise placement is unspecified.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "variant",
+        "evidence": "Four lines in alternating stress lengths form the ballad stanza.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://www.poetryfoundation.org/education/glossary/fourteener"
+    ]
+  },
+  "Common metre (CM)": {
+    "status": "supported",
+    "note": "The catalog prescribes alternating eight- and six-syllable iambic lines. ABAB and ABCB are alternative rhymings of those same lines.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "variant",
+        "evidence": "Four lines carry the complete 8–6–8–6 unit.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://www.poetryfoundation.org/education/glossary/common-measure"
+    ]
+  },
+  "Common metre double (CMD)": {
+    "status": "supported",
+    "note": "Two complete common-meter quatrains make one eight-line unit. Both halves retain the 8–6–8–6 line lengths.",
+    "edges": [
+      {
+        "target": "Common metre (CM)",
+        "kind": "contains",
+        "evidence": "One doubled stanza includes two complete common-meter quatrains in succession.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Long metre (LM)": {
+    "status": "supported",
+    "note": "Four iambic tetrameter lines account for the 8–8–8–8 hymn-meter designation.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "variant",
+        "evidence": "Four iambic tetrameter lines make the single long-meter stanza.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Long metre double (LMD)": {
+    "status": "supported",
+    "note": "Two long-meter quatrains make one stanza, each preserving all four eight-syllable lines.",
+    "edges": [
+      {
+        "target": "Long metre (LM)",
+        "kind": "contains",
+        "evidence": "The doubled stanza consists of two long-meter quatrains.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Short metre (SM)": {
+    "status": "supported",
+    "note": "The alias 6.6.8.6 identifies the four line lengths and explains why the third line is longer.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "variant",
+        "evidence": "The four counts 6–6–8–6 fill one stanza.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Short metre double (SMD)": {
+    "status": "supported",
+    "note": "Two complete short-meter quatrains each repeat 6–6–8–6.",
+    "edges": [
+      {
+        "target": "Short metre (SM)",
+        "kind": "contains",
+        "evidence": "Two copies of the four-line short-meter unit make the doubled form.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Hallelujah metre": {
+    "status": "supported",
+    "note": "The first four lines are six syllables and alternate ABAB. A pair of eight-syllable C lines closes the six-line unit.",
+    "edges": [
+      {
+        "target": "Sestet / sixain",
+        "kind": "variant",
+        "evidence": "The catalog's 6.6.6.6.8.8 stanza comprises six lines.",
+        "status": "supported"
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "evidence": "The two final C-rhymed eight-syllable lines form the terminal pair.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Trochaic hymn metres": {
+    "status": "supported",
+    "note": "The four alias entries give two count patterns, each in single and doubled forms. The alternatives are not successive sections.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "evidence": "Each single hymn pattern has four lines; doubled versions repeat the complete four-line unit.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Other named hymn metres": {
+    "status": "supported",
+    "note": "The aliases supply seven alternative syllable recipes. A dot separates lines, and D doubles the first four-line recipe.",
+    "edges": [],
+    "refs": []
+  },
+  "Heroic quatrain": {
+    "status": "supported",
+    "note": "Four pentameter lines alternate ABAB. The name elegiac stanza here denotes this English stanza, distinct from the classical elegiac distich.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "variant",
+        "evidence": "The heroic stanza constrains four pentameter lines to ABAB.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "In Memoriam stanza": {
+    "status": "supported",
+    "note": "Four tetrameter lines enclose the B pair inside A endings. ABBA describes rhyme and does not itself split the quatrain into separate stanzas.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "variant",
+        "evidence": "Four tetrameter lines carry the In Memoriam stanza's enclosing rhyme.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Rubaiyat stanza": {
+    "status": "supported",
+    "note": "The catalog specifies AABA. In the optional linked variant the B of one stanza sets the main rhyme of the next. The optional link belongs to line 3, not to a fifth time slot.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "variant",
+        "evidence": "Each AABA rubaiyat stanza remains a four-line unit when several are linked.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Monorhymed quatrain": {
+    "status": "supported",
+    "note": "All four lines use one rhyme; the catalog calls for a new rhyme when another stanza begins. A change of rhyme between stanzas is a relation, not an extra leaf after line four.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "variant",
+        "evidence": "All four lines of an individual quatrain share one rhyme.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Redondilla": {
+    "status": "supported",
+    "note": "This row supplies the octosyllabic ABBA redondilla. Its enclosing rhyme is the one used for the two four-line ends of the espinela examined here.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "variant",
+        "evidence": "The named Spanish pattern here comprises four octosyllables in ABBA order.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://lectambulos.com/algunas-consideraciones-sobre-la-decima-y-su-uso-contemporaneo/"
+    ]
+  },
+  "Sapphic stanza": {
+    "status": "partial",
+    "note": "Three eleven-syllable lines followed by a five-syllable Adonic line describe the catalog's ordinary Sapphic stanza. The numbers alone do not specify Aeolic quantity.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "variant",
+        "evidence": "The three longer Sapphics and short Adonic occupy four line positions.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://www.inusum.com/horace/odes/horace-odes-meters.html"
+    ]
+  },
+  "Alcaic stanza": {
+    "status": "contested",
+    "note": "The catalog's 11–11–9–10 counts agree with the Alcaic template. Its double dactyl belongs at the start of the last line, not at the line ending.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "variant",
+        "evidence": "The alcaic strophe contains exactly four lines with unequal lengths.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://www.inusum.com/horace/odes/horace-odes-meters.html",
+      "https://rpo.library.utoronto.ca/content/milton-0"
+    ]
+  },
+  "Asclepiad stanza": {
+    "status": "partial",
+    "note": "Four Asclepiads are one attested setting. Other arrangements mix Asclepiads and shorter Aeolic lines. The catalog does not identify a single variant for every setting.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "variant",
+        "evidence": "The catalog explicitly treats four-line settings; their individual line types may differ.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://www.inusum.com/horace/odes/horace-odes-meters.html",
+      "https://www.poetryfoundation.org/poets/horace"
+    ]
+  },
+  "Quintain": {
+    "status": "supported",
+    "note": "The grouping requires five lines. Its listed rhyme patterns are examples, not mandatory internal divisions.",
+    "edges": [],
+    "refs": []
+  },
+  "Sestet / sixain": {
+    "status": "supported",
+    "note": "The grouping requires six lines. The catalog gives several possible rhyme schemes.",
+    "edges": [],
+    "refs": []
+  },
+  "Venus and Adonis stanza": {
+    "status": "supported",
+    "note": "Six pentameter lines have four alternating end rhymes ABAB followed by the rhyming CC pair.",
+    "edges": [
+      {
+        "target": "Sestet / sixain",
+        "kind": "variant",
+        "evidence": "The four ABAB lines and the two C lines make one six-line stanza.",
+        "status": "supported"
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "evidence": "The fifth and sixth pentameter lines rhyme CC.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://poets.org/glossary/couplet"
+    ]
+  },
+  "Burns stanza": {
+    "status": "supported",
+    "note": "AAABAB fixes the six rhyme positions. The fourth and sixth lines are shorter and share B.",
+    "edges": [
+      {
+        "target": "Sestet / sixain",
+        "kind": "variant",
+        "evidence": "The two short tag lines occupy positions four and six of the six-line stanza.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Tail-rhyme stanza": {
+    "status": "supported",
+    "note": "The six-line instance divides into two long rhymed pairs, each followed by a short tail. The tails rhyme with one another.",
+    "edges": [
+      {
+        "target": "Sestet / sixain",
+        "kind": "variant",
+        "evidence": "Two three-line pair-and-tail groups account for all six lines.",
+        "status": "supported"
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "evidence": "The opening lines of each group are a long rhyming pair.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Rhyme royal": {
+    "status": "supported",
+    "note": "Seven pentameter lines rhyme ABABBCC with a closing couplet. The specific seven-line scheme distinguishes it from the catalog's catch-all Septet entry.",
+    "edges": [
+      {
+        "target": "Septet",
+        "kind": "shares-feature",
+        "evidence": "Both entries have seven lines; the catalog reserves its catch-all Septet row for other seven-line patterns.",
+        "status": "supported"
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "evidence": "The two final pentameter lines rhyme CC.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://chaucer.fas.harvard.edu/pages/rime-royal",
+      "https://poets.org/glossary/couplet"
+    ]
+  },
+  "Septet": {
+    "status": "supported",
+    "note": "This catalog heading collects other seven-line stanzas. It does not prescribe a meter, rhyme scheme, or seven-line form with priority over the named ones.",
+    "edges": [],
+    "refs": []
+  },
+  "Ottava rima": {
+    "status": "supported",
+    "note": "The English example comprises six alternating pentameter lines then the closing rhymed pair, ABABABCC. The Italian source tradition uses different line lengths.",
+    "edges": [
+      {
+        "target": "Octave / huitain",
+        "kind": "variant",
+        "evidence": "Ottava rima is an eight-line stanza; this link concerns octave, not the specific French huitain rhyme scheme.",
+        "status": "supported"
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "evidence": "The last two lines form a rhymed CC pair after the alternating six.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://www.poetryfoundation.org/education/glossary/ottava-rima",
+      "https://poets.org/glossary/couplet"
+    ]
+  },
+  "Sicilian octave": {
+    "status": "supported",
+    "note": "An eight-line stanza alternates AB throughout. No further internal division is specified in this row.",
+    "edges": [
+      {
+        "target": "Octave / huitain",
+        "kind": "variant",
+        "evidence": "Its eight alternating lines satisfy the octave's line count; they do not use the catalog's narrower huitain scheme.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Rispetto": {
+    "status": "partial",
+    "note": "The catalog's ABABCCDD setting has four alternating lines then two rhymed pairs. The row does not establish that setting as the sole possible rispetto.",
+    "edges": [
+      {
+        "target": "Octave / huitain",
+        "kind": "variant",
+        "evidence": "The eight lines of the listed rispetto form an octave, without the French huitain's additional requirements.",
+        "status": "supported"
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "evidence": "The ABABCCDD example ends in successive CC and DD rhyme pairs.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Monk's Tale stanza": {
+    "status": "supported",
+    "note": "The eight-line ABABBCBC pattern matches the Chaucerian stanza. The octave comparison refers to length; the catalog's stricter huitain variant adds a syllable requirement.",
+    "edges": [
+      {
+        "target": "Octave / huitain",
+        "kind": "variant",
+        "evidence": "Its eight lines form an octave; matching the huitain rhyme letters does not establish the same meter.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://chaucer.fas.harvard.edu/pages/rime-royal"
+    ]
+  },
+  "Octave / huitain": {
+    "status": "supported",
+    "note": "An octave groups eight lines. The huitain example adds eight syllables per line and ABABBCBC; those extra properties do not apply to every octave.",
+    "edges": [],
+    "refs": []
+  },
+  "Spenserian stanza": {
+    "status": "supported",
+    "note": "Eight pentameter lines and one longer alexandrine carry the nine rhyme positions ABABBCBCC. The final alexandrine is one line rather than a pair.",
+    "edges": [
+      {
+        "target": "Alexandrine couplet",
+        "kind": "shares-feature",
+        "evidence": "Both use alexandrine lines. The Spenserian stanza incorporates one, whereas the paired form uses two.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Dizain": {
+    "status": "supported",
+    "note": "Ten line endings follow ABABBCCDCD. The row gives no smaller sectional boundaries.",
+    "edges": [],
+    "refs": []
+  },
+  "Décima espinela": {
+    "status": "partial",
+    "note": "Ten octosyllabic lines rhyme ABBAACCDDC. A documented internal reading is two enclosing-rhyme quatrains joined by two bridge lines. This is one analysis, and décima also names a broader family.",
+    "edges": [
+      {
+        "target": "Redondilla",
+        "kind": "contains",
+        "evidence": "The documented 4+2+4 reading places ABBA and CDDC redondillas on each side of two bridge lines.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://lectambulos.com/algunas-consideraciones-sobre-la-decima-y-su-uso-contemporaneo/"
+    ]
+  },
+  "Keatsian ode stanza": {
+    "status": "partial",
+    "note": "Keats's Nightingale uses the ten-line template ABABCDECDE. To Autumn has eleven-line stanzas; the ten-line model is an example, not a requirement for Keatsian odes.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "evidence": "In the ten-line Nightingale example the first four lines form the opening ABAB quatrain.",
+        "status": "supported"
+      },
+      {
+        "target": "Sestet / sixain",
+        "kind": "contains",
+        "evidence": "In the ten-line Nightingale example a six-line CDECDE unit follows the quatrain.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://poets.org/poem/ode-nightingale",
+      "https://poets.org/poem/autumn"
+    ]
+  },
+  "Christ's Kirk stanza": {
+    "status": "contested",
+    "note": "The printed Christis Kirk opens its stanzas with eight alternating lines, then a bob and a refrain. The refrain text varies, so the catalog's proposed final words are not obligatory.",
+    "edges": [],
+    "refs": [
+      "https://www.gutenberg.org/files/49790/49790-h/49790-h.htm"
+    ]
+  },
+  "Pearl stanza": {
+    "status": "contested",
+    "note": "The twelve-line rhyme scheme is secure. In Pearl one section has six stanzas; link words recur in the next opening line without having to be its first word. Editors also differ on how strictly to scan the line.",
+    "edges": [],
+    "refs": [
+      "https://metseditions.org/read/xValxRNCgNKt8zWuj0xwTVYx3Yz9rd",
+      "https://the-orb.arlima.net/textbooks/anthology/middleenganon/zatta.html"
+    ]
+  },
+  "Cherry and Slae stanza": {
+    "status": "supported",
+    "note": "Montgomerie's opening stanzas demonstrate a six-line AABCCB group then alternating DEDE and FGFG. The last four lines alternate short and longer lines. This diagram describes that example.",
+    "edges": [
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "evidence": "The first two and fourth and fifth lines rhyme in pairs in the printed Montgomerie example.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://www.gutenberg.org/files/49790/49790-h/49790-h.htm"
+    ]
+  },
+  "Bob and wheel": {
+    "status": "supported",
+    "note": "The long alliterative passage leads into a short bob and a four-line wheel. The bob contributes the first A of the five-line ABABA closing group.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "evidence": "The four-line wheel follows the bob and completes the five-line rhyme group.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Horatian ode": {
+    "status": "supported",
+    "note": "The recurring unit is a short stanza of the same design. The source supplies neither a stanza count nor one required internal meter.",
+    "edges": [],
+    "refs": []
+  },
+  "Blank verse": {
+    "status": "supported",
+    "note": "The catalog's English pattern consists of unrhymed iambic pentameter lines. Grouping into verse paragraphs is one layout; dramatic dialogue also uses blank verse.",
+    "edges": [],
+    "refs": [
+      "https://poets.org/glossary/blank-verse"
+    ]
+  },
+  "Alliterative verse": {
+    "status": "supported",
+    "note": "The catalog specifies the Old English type: two half-lines linked by alliteration across the break. It supplies no fixed stanza length.",
+    "edges": [],
+    "refs": []
+  },
+  "Accentual verse": {
+    "status": "partial",
+    "note": "A fixed count of main stresses permits unstressed material to vary. The source's alias dolnik needs qualification: Russian dolnik trimeter specifically constrains the intervals between accents.",
+    "edges": [],
+    "refs": [
+      "https://www.mathnet.ru/php/archive.phtml?jrnid=tvp&option_lang=eng&paperid=4652&wshow=paper"
+    ]
+  },
+  "Sprung rhythm": {
+    "status": "supported",
+    "note": "Hopkins counts feet beginning in one stress; successive stresses can touch, and weak syllables can follow. He also describes exceptions to the usual one-to-four-syllable foot.",
+    "edges": [
+      {
+        "target": "Accentual verse",
+        "kind": "shares-feature",
+        "evidence": "Both count stresses. Hopkins also gives specific foot shapes and exceptional licenses for sprung rhythm.",
+        "status": "supported"
+      }
+    ],
+    "refs": [
+      "https://www.gutenberg.org/cache/epub/22403/pg22403.html"
+    ]
+  },
+  "Syllabic verse": {
+    "status": "supported",
+    "note": "Syllables determine the line measurement. Any recurring sequence of line lengths is specific to the poem, not required by the general category.",
+    "edges": [],
+    "refs": []
+  },
+  "Accentual hexameter": {
+    "status": "supported",
+    "note": "The English meter counts six stresses in a largely dactylic line. Six groups each containing exactly three syllables would overstate the rule.",
+    "edges": [
+      {
+        "target": "Accentual verse",
+        "kind": "variant",
+        "evidence": "Its organizing count is six metrical stresses; an unstressed syllable total alone does not set the line.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  },
+  "Quantitative verse": {
+    "status": "supported",
+    "note": "Here syllable length distinguishes long from short. A chosen metrical scheme arranges them; the umbrella term has no single fixed sequence.",
+    "edges": [],
+    "refs": [
+      "https://dcc.dickinson.edu/ovid-amores/scansion"
+    ]
+  },
+  "Hendecasyllabics": {
+    "status": "partial",
+    "note": "The source specifically names Catullan, unrhymed eleven-syllable lines. The row's syllable total alone does not specify a complete Phalaecian quantity pattern.",
+    "edges": [],
+    "refs": [
+      "https://www.gutenberg.org/files/18867/18867-h/18867-h.htm"
+    ]
+  },
+  "Galliambic": {
+    "status": "partial",
+    "note": "The central division and two spans of a fast many-syllable line are supported. The catalog gives no complete quantitative formula for its cited English imitation.",
+    "edges": [],
+    "refs": [
+      "https://www.gutenberg.org/files/18867/18867-h/18867-h.htm"
+    ]
+  },
+  "Anacreontic verse": {
+    "status": "supported",
+    "note": "The catalog's example uses a rhyming pair of seven-syllable lines. Themes of wine and love describe subject matter, not additional sections.",
+    "edges": [
+      {
+        "target": "Couplet",
+        "kind": "variant",
+        "evidence": "The seven-syllable lines in this catalog example are grouped in rhymed pairs.",
+        "status": "supported"
+      }
+    ],
+    "refs": []
+  }
+}

@@ -1,0 +1,611 @@
+{
+  "Free verse": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "No prescribed meter or rhyme",
+        "children": [
+          "Line breaks",
+          "Cadence",
+          "Repetition when used"
+        ]
+      }
+    ]
+  },
+  "Prose poem": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Prose paragraph",
+        "children": [
+          "Sentences without verse line breaks"
+        ]
+      }
+    ]
+  },
+  "Projective verse": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Spacing across the page",
+        "children": [
+          "Breath",
+          "Pace of thought"
+        ]
+      }
+    ]
+  },
+  "Triadic line": {
+    "mode": "Pattern",
+    "tree": [
+      {
+        "label": "Stepped unit",
+        "children": [
+          "First segment",
+          "Indented second segment",
+          "Further-indented third segment"
+        ]
+      }
+    ]
+  },
+  "Irregular ode": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Stanzas vary with content",
+        "children": [
+          "Length",
+          "Rhyme"
+        ]
+      }
+    ]
+  },
+  "Elegy": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Traditional course of mourning",
+        "children": [
+          "Lament",
+          "Praise",
+          "Consolation"
+        ]
+      }
+    ]
+  },
+  "Epigram": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "One pointed thought",
+        "children": [
+          "Brief verse",
+          "Often turns at the close"
+        ]
+      }
+    ]
+  },
+  "Epitaph": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Verse inscription",
+        "children": [
+          "Brief commemoration",
+          "May address a passer-by"
+        ]
+      }
+    ]
+  },
+  "Greeting-card verse": {
+    "mode": "Example",
+    "tree": [
+      "Optional opening rhymed quatrain",
+      {
+        "label": "Closing rhymed quatrain",
+        "children": [
+          "Lines 1–3",
+          "Line 4 · wish"
+        ]
+      }
+    ],
+    "related": [
+      "Quatrain"
+    ]
+  },
+  "Verse epistle": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Letter",
+        "children": [
+          "Address",
+          "Body",
+          "Sign-off"
+        ]
+      }
+    ]
+  },
+  "Dramatic monologue": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Dramatic address",
+        "children": [
+          "One speaking persona",
+          "A silent listener"
+        ]
+      }
+    ]
+  },
+  "Eclogue": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Pastoral exchange in the catalog",
+        "children": [
+          "Speeches or song-contest stanzas",
+          "Shepherds take turns"
+        ]
+      }
+    ]
+  },
+  "Debate poem": {
+    "mode": "Example",
+    "tree": [
+      "Narrative frame",
+      {
+        "label": "Alternating argument",
+        "children": [
+          "First voice",
+          "Reply from second voice",
+          "Further turns as needed"
+        ]
+      },
+      "Judgement"
+    ]
+  },
+  "Tenson": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Debate on one question",
+        "children": [
+          "Two poets take turns",
+          "Matching stanzas"
+        ]
+      }
+    ],
+    "related": [
+      "Debate poem"
+    ]
+  },
+  "Flyting": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Exchange of insults",
+        "children": [
+          "Two poets take turns",
+          "Rhymed stanzas"
+        ]
+      }
+    ],
+    "related": [
+      "Dozens"
+    ]
+  },
+  "Aisling": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Dream encounter",
+        "children": [
+          "Ireland personified as a woman",
+          {
+            "label": "Speech in the catalog example",
+            "children": [
+              "Lament",
+              "Prophecy"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "Metrical charm": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Ritual performance",
+        "children": [
+          "Directions for actions",
+          "Spoken alliterative formula",
+          "Closing prayer in the catalog example"
+        ]
+      }
+    ]
+  },
+  "Riddle poem": {
+    "mode": "Example",
+    "tree": [
+      "Object describes itself in disguise",
+      "Challenge to name it"
+    ],
+    "related": [
+      "Riddle song"
+    ]
+  },
+  "Gnomic verse": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Sequence of maxims",
+        "children": [
+          "One or two lines per maxim"
+        ]
+      }
+    ]
+  },
+  "Macaronic verse": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Language mixture",
+        "children": [
+          "English in this catalog",
+          "At least one other language"
+        ]
+      }
+    ]
+  },
+  "Epic": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Long heroic narrative",
+        "children": [
+          "Books or cantos may divide the story",
+          "An invocation often opens a classical epic"
+        ]
+      }
+    ]
+  },
+  "Verse novel": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Novel in verse",
+        "children": [
+          "Narrative chapters in the catalog example"
+        ]
+      }
+    ]
+  },
+  "Verse drama": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Play",
+        "children": [
+          {
+            "label": "Acts",
+            "children": [
+              {
+                "label": "Scenes",
+                "children": [
+                  "Verse spoken by assigned voices"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "Emblem poem": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Emblem",
+        "children": [
+          "Motto",
+          "Picture",
+          "Explanatory verse"
+        ]
+      }
+    ]
+  },
+  "Zuihitsu": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Possible interwoven material",
+        "children": [
+          "Lists",
+          "Prose fragments",
+          "Verse lines"
+        ]
+      }
+    ]
+  },
+  "Haiga": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "One composition",
+        "children": [
+          "Image",
+          "Three-line haiku on or beside it"
+        ]
+      }
+    ],
+    "related": [
+      "Haiku"
+    ]
+  },
+  "Pattern poem": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Subject’s shape",
+        "children": [
+          "Traced by the lengths of the lines"
+        ]
+      }
+    ],
+    "related": [
+      "Concrete poetry"
+    ]
+  },
+  "Concrete poetry": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Meaning",
+        "children": [
+          "Carried by the layout on the page"
+        ]
+      }
+    ]
+  },
+  "Contrapuntal poem": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Two-column layout",
+        "children": [
+          "Left-hand text",
+          "Right-hand text"
+        ]
+      },
+      {
+        "label": "Choose a reading",
+        "children": [
+          "Down the left column",
+          "Down the right column",
+          "Across the rows"
+        ]
+      }
+    ],
+    "related": [
+      "Concrete poetry"
+    ]
+  },
+  "Reverso": {
+    "mode": "Pattern",
+    "tree": [
+      {
+        "label": "First half",
+        "children": [
+          "Lines in original order"
+        ]
+      },
+      {
+        "label": "Second half · new meaning",
+        "children": [
+          "Same lines in reverse order"
+        ]
+      }
+    ],
+    "related": [
+      "Palindrome poem"
+    ]
+  },
+  "Palindrome poem": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Same in either direction",
+        "children": [
+          {
+            "label": "Possible unit",
+            "children": [
+              "Letter",
+              "Word",
+              "Line"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "Acrostic": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Choose the letter positions",
+        "children": [
+          "Initial letters · acrostic",
+          "Final letters · telestich",
+          "Both edges · double acrostic"
+        ]
+      }
+    ],
+    "related": [
+      "Abecedarian"
+    ]
+  },
+  "Mesostic": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Vertical spine",
+        "children": [
+          "One interior letter in each line",
+          "Read the letters downward"
+        ]
+      }
+    ],
+    "related": [
+      "Acrostic"
+    ]
+  },
+  "Lipogram": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Whole text",
+        "children": [
+          "Exclude the chosen letter or letters"
+        ]
+      }
+    ]
+  },
+  "Univocalic": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Vowel inventory",
+        "children": [
+          "Only one vowel throughout"
+        ]
+      }
+    ],
+    "related": [
+      "Lipogram"
+    ]
+  },
+  "Tautogram": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Every word",
+        "children": [
+          "Same initial letter"
+        ]
+      }
+    ]
+  },
+  "Rhopalic verse": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Choose a growth unit",
+        "children": [
+          "Successive words get longer",
+          "Or successive lines get longer"
+        ]
+      },
+      {
+        "label": "Catalog increment",
+        "children": [
+          "One chosen unit at each step"
+        ]
+      }
+    ]
+  },
+  "Pilish": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Word lengths encode π",
+        "children": [
+          "Basic · ten letters encode zero",
+          "Standard · long words may encode two digits"
+        ]
+      }
+    ]
+  },
+  "Bouts-rimés": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Given end-rhymes",
+        "children": [
+          "One line per rhyme",
+          "Follow the list in order"
+        ]
+      }
+    ]
+  },
+  "Cento": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Entire poem",
+        "children": [
+          "Lines borrowed from other poets"
+        ]
+      }
+    ],
+    "related": [
+      "Found poem"
+    ]
+  },
+  "Found poem": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Existing language",
+        "children": [
+          "Select source text",
+          "Reframe it as poetry"
+        ]
+      }
+    ]
+  },
+  "Erasure poem": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Source text",
+        "children": [
+          "Erase or obscure portions",
+          "Retain the words of the new poem"
+        ]
+      }
+    ],
+    "related": [
+      "Found poem"
+    ]
+  },
+  "Cut-up poem": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Source text",
+        "children": [
+          "Cut into fragments",
+          "Rearrange fragments"
+        ]
+      }
+    ],
+    "related": [
+      "Found poem"
+    ]
+  },
+  "Exquisite corpse": {
+    "mode": "Rule",
+    "tree": [
+      {
+        "label": "Catalog’s line-by-line version",
+        "children": [
+          "Read only the previous line",
+          "Add one line",
+          "Pass to the next writer"
+        ]
+      }
+    ]
+  }
+}

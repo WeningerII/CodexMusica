@@ -1,0 +1,1534 @@
+{
+  "scope": {
+    "source_catalog": "english-forms.md, five actual tables A–E, 364 rows",
+    "catalog_sha256": "c2b6bfb4d73611eba7e455ab8d2e2c455092fb8277909faa718a702e3b49233c",
+    "checked": "2026-11-17",
+    "indexes": [
+      {
+        "name": "Academy of American Poets · Glossary of Poetic Terms",
+        "url": "https://poets.org/glossary",
+        "headwords": 163,
+        "boundaries": "Every displayed index entry from Abecedarian through Zuihitsu, including unlinked entries. The index mixes forms, devices, meters, movements, roles and genres."
+      },
+      {
+        "name": "Poetry at Harvard · Glossary of Poetic Genres",
+        "url": "https://poetry.harvard.edu/glossary-poetic-genres",
+        "headwords": 35,
+        "boundaries": "Every main glossary heading from allegory through verse epistle. Related words mentioned in descriptions were not counted as headings."
+      }
+    ],
+    "coverage_limit": "198 index occurrences before cross-index deduplication; neither page is a census of English song and verse forms. Individual linked entries served as evidence rather than a recursively expanded discovery index.",
+    "matching": "Checked normalized and original names, aliases, catalog definitions and source-described differences. Nearest examples are comparisons only; a comparison does not assert historical descent or equivalence.",
+    "classification": "Distinct organization and distinct constraint are operational gaps. Rhetorical organization is separately recorded. Subject/occasion genres and existing umbrellas do not supply a unique diagram. English adoption unverified means a source documents the originating-language form but the checked evidence has not established an English-original adaptation."
+  },
+  "comparison_items": {
+    "Verbless Poetry": {
+      "classification": "distinct constraint",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Verbless Poetry",
+          "url": "https://poets.org/glossary/verbless-poetry"
+        }
+      ],
+      "definition": "All the words in the poem avoid the verb category.",
+      "attestation": "The Academy identifies Ezra Pound’s In a Station of the Metro as an English example.",
+      "nearest_catalog_title": "Lipogram",
+      "nearest_catalog_line": 400,
+      "catalog_distinction": "Lipogram excludes written letters; it never excludes a part of speech. Applying the new constraint would require a convention for ambiguous participles."
+    },
+    "List Poem": {
+      "classification": "distinct organization",
+      "sources": [
+        {
+          "title": "Academy of American Poets · List Poem",
+          "url": "https://poets.org/glossary/list-poem"
+        }
+      ],
+      "definition": "An inventory, ordered or developed to make the poem, can supply its entire form.",
+      "attestation": "Christopher Smart’s cat passage in Jubilate Agno is an example on the Academy page.",
+      "nearest_catalog_title": "List song",
+      "nearest_catalog_line": 55,
+      "catalog_distinction": "List song ties its catalogue to a recurring sung title or refrain. Neither a refrain nor a melody is inherent to catalog verse."
+    },
+    "Blazon": {
+      "classification": "rhetorical organization",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Blazon",
+          "url": "https://poets.org/glossary/blazon"
+        },
+        {
+          "title": "Poetry at Harvard · Blason",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "A descriptive inventory addresses a beloved feature by feature, frequently through comparisons.",
+      "attestation": "The Academy cites an English passage in Spenser’s Epithalamium. A blazon can occupy part of a larger work.",
+      "nearest_catalog_title": "List song",
+      "nearest_catalog_line": 55,
+      "catalog_distinction": "The subject-specific enumeration goes beyond generic listing; the evidence does not require musical sections, a fixed body-part order or a sonnet."
+    },
+    "Aubade": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Aubade",
+          "url": "https://poets.org/glossary/aubade"
+        },
+        {
+          "title": "Poetry at Harvard · Aubade",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "A dawn lyric or song, often framing the end of a night together and impending separation.",
+      "attestation": "The Academy cites Donne’s The Sun Rising as an English example that resists the expected parting.",
+      "nearest_catalog_title": "Elegy",
+      "nearest_catalog_line": 372,
+      "catalog_distinction": "Elegy can express loss but does not supply the dawn address. The tradition does not dictate stanza count or require a separation."
+    },
+    "Ars Poetica": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Ars Poetica",
+          "url": "https://poets.org/glossary/ars-poetica"
+        }
+      ],
+      "definition": "A poem centers on the art or practice of writing poetry.",
+      "attestation": "The Academy identifies Pope’s An Essay on Criticism as an English instance.",
+      "nearest_catalog_title": "Verse epistle",
+      "nearest_catalog_line": 376,
+      "catalog_distinction": "The subject can occur in an epistle or other forms; the epistle’s letter structure is optional."
+    },
+    "Ekphrasis": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Ekphrasis",
+          "url": "https://poets.org/glossary/ekphrasis"
+        },
+        {
+          "title": "Poetry at Harvard · Ekphrasis",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "A poem describes, interprets or otherwise responds to visual art.",
+      "attestation": "The Academy cites Keats’s Ode on a Grecian Urn and Sasha Pimentel’s The Kiss.",
+      "nearest_catalog_title": "Emblem poem",
+      "nearest_catalog_line": 390,
+      "catalog_distinction": "An emblem joins an image, motto and verse. An ekphrastic work can refer to an artwork without reproducing it."
+    },
+    "Fragment": {
+      "classification": "open-form or procedure",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Fragment",
+          "url": "https://poets.org/glossary/fragment"
+        }
+      ],
+      "definition": "A deliberately partial or discontinuous poem can make its incompleteness part of the composition.",
+      "attestation": "The Academy names Coleridge’s Kubla Khan and earlier Romantic fragment titles.",
+      "nearest_catalog_title": "Zuihitsu",
+      "nearest_catalog_line": 391,
+      "catalog_distinction": "A zuihitsu can include fragments but does not subsume deliberate fragment poetry. Accidental textual loss is a different use of the word."
+    },
+    "Fable": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Fable",
+          "url": "https://poets.org/glossary/fable"
+        },
+        {
+          "title": "Poetry at Harvard · Fable",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "Short narrative, often with personified agents, which carries a lesson. Only verse realizations are pertinent here.",
+      "attestation": "The Academy names Emerson’s Fable and Bodenheim’s Rattlesnake Mountain Fable II.",
+      "nearest_catalog_title": "Cante fable",
+      "nearest_catalog_line": 104,
+      "catalog_distinction": "Cante fable mixes spoken prose and sung insertions; an English verse fable can consist entirely of verse."
+    },
+    "Doha": {
+      "classification": "English adoption unverified",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Doha",
+          "url": "https://poets.org/glossary/doha"
+        }
+      ],
+      "definition": "A self-contained South Asian couplet with asymmetrically divided lines.",
+      "attestation": "The Academy supplies South Asian examples by Kabir, Nanak and Tulsidas. An original English implementation was not established in this pass.",
+      "nearest_catalog_title": "Couplet",
+      "nearest_catalog_line": 297,
+      "catalog_distinction": "A generic couplet does not encode the divisions. The summary and detailed wording differ about where the count applies; verify the traditional weight unit and English convention before encoding."
+    },
+    "Oríkì": {
+      "classification": "English adoption unverified",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Oríkì",
+          "url": "https://poets.org/glossary/oriki"
+        }
+      ],
+      "definition": "Yorùbá oral praise poetry strings together identifying praise names or epithets.",
+      "attestation": "The Academy gives an English rendering of a traditional oríkì. The index entry does not establish a particular English-original formal convention.",
+      "nearest_catalog_title": "Canticle",
+      "nearest_catalog_line": 174,
+      "catalog_distinction": "The catalog’s canticle is a sacred text; it cannot substitute for this distinct, culturally situated tradition of naming."
+    },
+    "Bhakti Poetry": {
+      "classification": "English adoption unverified",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Bhakti Poetry",
+          "url": "https://poets.org/glossary/bhakti-poetry"
+        }
+      ],
+      "definition": "A family of South Asian devotional traditions, with diverse languages and practices.",
+      "attestation": "The Academy traces vernacular Indian traditions and singers. An original English-language structural subtype was not established here.",
+      "nearest_catalog_title": "Metrical hymn",
+      "nearest_catalog_line": 156,
+      "catalog_distinction": "A metrical hymn has its own stanza and tune conventions. Shared devotion cannot establish a shared form."
+    },
+    "Nocturne": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Nocturne",
+          "url": "https://poets.org/glossary/nocturne"
+        }
+      ],
+      "definition": "A lyric organized around night or a night scene.",
+      "attestation": "The Academy identifies Donne’s A Nocturnal upon S. Lucy’s Day as an English example.",
+      "nearest_catalog_title": "Elegy",
+      "nearest_catalog_line": 372,
+      "catalog_distinction": "An elegy can also be a nocturne, but mourning imposes no nighttime setting and night imposes no stanza shape."
+    },
+    "Praise Poem": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Praise Poem",
+          "url": "https://poets.org/glossary/praise-poem"
+        }
+      ],
+      "definition": "Verse praising or thanking a subject.",
+      "attestation": "The Academy cites W. S. Merwin’s Thanks alongside Elizabeth Alexander’s Praise Song for the Day.",
+      "nearest_catalog_title": "Praise chorus",
+      "nearest_catalog_line": 160,
+      "catalog_distinction": "A praise chorus repeats a sung refrain; a praise poem need not be sung, sacred or repetitive."
+    },
+    "Inaugural Poem": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Inaugural Poem",
+          "url": "https://poets.org/glossary/inaugural-poem"
+        }
+      ],
+      "definition": "A poem written or delivered for an inauguration.",
+      "attestation": "The Academy has a dedicated English-language presidential-inauguration entry.",
+      "nearest_catalog_title": "Verse epistle",
+      "nearest_catalog_line": 376,
+      "catalog_distinction": "Public occasion supplies the classification. Direct address can feature, but no letter or stanza form is entailed."
+    },
+    "Occasional Poem": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Occasional Poem",
+          "url": "https://poets.org/glossary/occasional-poem"
+        },
+        {
+          "title": "Poetry at Harvard · Occasional verse",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "Verse responding to a specific occasion or event.",
+      "attestation": "Both indexes recognize this public or personal occasion category.",
+      "nearest_catalog_title": "Greeting-card verse",
+      "nearest_catalog_line": 375,
+      "catalog_distinction": "Greeting-card verse serves some occasions but adds a short patterned delivery; the umbrella allows many structures."
+    },
+    "Nonsense verse": {
+      "classification": "umbrella with represented subtypes",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Nonsense verse",
+          "url": "https://poets.org/glossary/nonsense-verse"
+        }
+      ],
+      "definition": "Whimsical verse works through sound, invented language or semantic incongruity.",
+      "attestation": "The Academy features Lear and Carroll’s Jabberwocky.",
+      "nearest_catalog_title": "Nonsense-refrain song",
+      "nearest_catalog_line": 126,
+      "catalog_distinction": "A nonsense refrain is narrower than an entire nonsense poem. Limerick and Nursery rhyme already cover some examples."
+    },
+    "Chance Operations": {
+      "classification": "open-form or procedure",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Chance Operations",
+          "url": "https://poets.org/glossary/chance-operations"
+        }
+      ],
+      "definition": "Chance determines selected compositional decisions.",
+      "attestation": "The Academy documents chance procedures in its dedicated entry.",
+      "nearest_catalog_title": "Cut-up poem",
+      "nearest_catalog_line": 409,
+      "catalog_distinction": "A cut-up physically divides and reorders source text, which can be done deliberately. A chance operation need not use cut text."
+    },
+    "Madrigal": {
+      "classification": "existing title, variant coverage",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Madrigal",
+          "url": "https://poets.org/glossary/madrigal"
+        }
+      ],
+      "definition": "The term covers several musical and verse traditions, including an early Italian tercet-and-couplet practice.",
+      "attestation": "The Academy distinguishes Italian prototypes and later freer English madrigals, and supplies an Elizabethan English text.",
+      "nearest_catalog_title": "Madrigal",
+      "nearest_catalog_line": 143,
+      "catalog_distinction": "Row 143 describes the English sung setting. The added historical text pattern must not be imposed on every English madrigal."
+    },
+    "Blues Poem": {
+      "classification": "existing structure under another name",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Blues Poem",
+          "url": "https://poets.org/glossary"
+        }
+      ],
+      "definition": "Verse using blues idiom and, in one common practice, an AAB stanza.",
+      "attestation": "The catalog itself names Hughes and Sterling Brown in its 12-bar blues row.",
+      "nearest_catalog_title": "12-bar blues",
+      "nearest_catalog_line": 35,
+      "catalog_distinction": "Index as a search name or umbrella first. AAB as poetry is already explicit; avoid treating every blues poem as twelve bars."
+    },
+    "Epithalamion": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Poetry at Harvard · Epithalamion",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        },
+        {
+          "title": "Academy of American Poets · Blazon",
+          "url": "https://poets.org/glossary/blazon"
+        }
+      ],
+      "definition": "A song or poem for a wedding.",
+      "attestation": "Harvard lists the genre. The Academy’s Blazon entry quotes Spenser’s English Epithalamium.",
+      "nearest_catalog_title": "Greeting-card verse",
+      "nearest_catalog_line": 375,
+      "catalog_distinction": "A wedding song has a specific occasion with no requirement for a greeting card’s rhyme or quatrain count."
+    },
+    "Palinode": {
+      "classification": "rhetorical organization",
+      "sources": [
+        {
+          "title": "Poetry at Harvard · Palinode",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        },
+        {
+          "title": "Sasha Steensen · Palinode",
+          "url": "https://www.poetryfoundation.org/poems/55601/palinode"
+        }
+      ],
+      "definition": "A poem retracts or revises an earlier assertion, often in dialogue with an earlier poem.",
+      "attestation": "Harvard defines the term. The Poetry Foundation publishes Sasha Steensen’s English poem Palinode.",
+      "nearest_catalog_title": "Verse epistle",
+      "nearest_catalog_line": 376,
+      "catalog_distinction": "A letter can recant, but a palinode can take other shapes. Its relation to the earlier statement is constitutive."
+    },
+    "Georgic": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Poetry at Harvard · Georgic",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "Verse centered on agricultural work, land management or husbandry.",
+      "attestation": "Harvard lists the georgic alongside pastoral traditions.",
+      "nearest_catalog_title": "Eclogue",
+      "nearest_catalog_line": 378,
+      "catalog_distinction": "A pastoral singing dialogue and georgic agricultural labor are distinct conventions. Neither supplies a fixed georgic stanza."
+    },
+    "Paean": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Poetry at Harvard · Paean",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "A song of triumph or joyful acclaim.",
+      "attestation": "Harvard lists the paean as a song genre.",
+      "nearest_catalog_title": "Praise chorus",
+      "nearest_catalog_line": 160,
+      "catalog_distinction": "An extant praise chorus may serve a different religious purpose; a paean need not cycle a chorus."
+    },
+    "Panegyric": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Poetry at Harvard · Panegyric",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "An encomium in poem or song praising a particular subject.",
+      "attestation": "Harvard lists it. The Academy’s Praise Poem entry describes a related broader category.",
+      "nearest_catalog_title": "Praise chorus",
+      "nearest_catalog_line": 160,
+      "catalog_distinction": "Its praising function is more relevant than any sectional pattern. Review alongside Praise Poem to avoid manufacturing a duplicate form."
+    },
+    "Romance": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Poetry at Harvard · Romance",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "A medieval or chivalric adventure tale can be written in verse.",
+      "attestation": "Harvard identifies medieval verse romances and the Spanish ballad tradition.",
+      "nearest_catalog_title": "Narrative story song",
+      "nearest_catalog_line": 30,
+      "catalog_distinction": "Narrative story song gives a sung story shape. Adventure, historical genre and manner of narration do not mandate that shape."
+    },
+    "Light verse": {
+      "classification": "umbrella with represented subtypes",
+      "sources": [
+        {
+          "title": "Poetry at Harvard · Light verse",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "A broad category of playful or comic verse.",
+      "attestation": "Harvard explicitly describes a range extending across nonsense and song.",
+      "nearest_catalog_title": "Clerihew",
+      "nearest_catalog_line": 269,
+      "catalog_distinction": "Clerihew, Limerick and Double dactyl are represented shapes within its range."
+    },
+    "Invective": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Poetry at Harvard · Invective",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "A sustained denunciation or verbal attack.",
+      "attestation": "Harvard lists invective, specifying abusive personal denunciation.",
+      "nearest_catalog_title": "Flyting",
+      "nearest_catalog_line": 381,
+      "catalog_distinction": "Flyting requires an exchange between opponents; invective may be only one voice."
+    },
+    "Parody": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Poetry at Harvard · Parody",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "Comic imitation of an identifiable model.",
+      "attestation": "Harvard lists parody as a genre.",
+      "nearest_catalog_title": "Contrafactum",
+      "nearest_catalog_line": 54,
+      "catalog_distinction": "Contrafactum already includes parody lyric as an alias for fitting fresh words to an old tune. Broader literary parody need not reuse a tune."
+    },
+    "Satire": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Poetry at Harvard · Satire",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "Ridicule that directs attention toward a perceived fault.",
+      "attestation": "Harvard lists satire as a genre.",
+      "nearest_catalog_title": "Epigram",
+      "nearest_catalog_line": 373,
+      "catalog_distinction": "An epigram can be satirical, but satire can organize a long work in many verse forms."
+    },
+    "Tragedy": {
+      "classification": "umbrella with represented subtypes",
+      "sources": [
+        {
+          "title": "Poetry at Harvard · Tragedy",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "A dramatic genre traditionally associated with a protagonist’s downfall.",
+      "attestation": "Harvard tracks its origins in Greek verse drama.",
+      "nearest_catalog_title": "Verse drama",
+      "nearest_catalog_line": 389,
+      "catalog_distinction": "Verse drama already supplies acts, scenes and voices. Tragedy distinguishes the dramatic action rather than prescribing a new verse layout."
+    },
+    "Pastoral": {
+      "classification": "umbrella with represented subtypes",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Pastoral",
+          "url": "https://poets.org/glossary"
+        },
+        {
+          "title": "Poetry at Harvard · Pastoral",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "Poetry concerned with the rural world and its representation.",
+      "attestation": "Both glossaries identify an extended pastoral tradition.",
+      "nearest_catalog_title": "Eclogue",
+      "nearest_catalog_line": 378,
+      "catalog_distinction": "Eclogue and pastoral elegy are represented. A pastoral umbrella would organize multiple existing and possible forms."
+    },
+    "Allegory": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Allegory",
+          "url": "https://poets.org/glossary"
+        },
+        {
+          "title": "Poetry at Harvard · Allegory",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "Narrative conveys a second sustained level of meaning.",
+      "attestation": "Both indexes recognize allegory; Harvard explicitly includes it among genres.",
+      "nearest_catalog_title": "Emblem poem",
+      "nearest_catalog_line": 390,
+      "catalog_distinction": "Emblems can be allegorical. A sustained allegory does not require a picture or motto and may take numerous forms."
+    },
+    "Nature Poetry": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Nature Poetry",
+          "url": "https://poets.org/glossary/nature-poetry"
+        }
+      ],
+      "definition": "Poems engaging with nature or the environment.",
+      "attestation": "The Academy indexes this thematic category.",
+      "nearest_catalog_title": "Eclogue",
+      "nearest_catalog_line": 378,
+      "catalog_distinction": "Eclogues can discuss the environment but use additional pastoral conventions."
+    },
+    "Political Poetry": {
+      "classification": "genre or occasion",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Political Poetry",
+          "url": "https://poets.org/glossary/political-poetry"
+        }
+      ],
+      "definition": "Political content cuts across many formal designs.",
+      "attestation": "The Academy indexes political poetry. The catalog includes the specific Irish vision tradition.",
+      "nearest_catalog_title": "Aisling",
+      "nearest_catalog_line": 382,
+      "catalog_distinction": "An aisling exemplifies only one tradition; political speech alone supplies no stanza formula."
+    },
+    "Lyric Poetry": {
+      "classification": "umbrella with represented subtypes",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Lyric Poetry",
+          "url": "https://poets.org/glossary"
+        },
+        {
+          "title": "Poetry at Harvard · Lyric",
+          "url": "https://poetry.harvard.edu/glossary-poetic-genres"
+        }
+      ],
+      "definition": "A wide historical category of often brief, voiced or musical poems.",
+      "attestation": "Both indexes describe lyric as a large category.",
+      "nearest_catalog_title": "Petrarchan sonnet",
+      "nearest_catalog_line": 187,
+      "catalog_distinction": "Many cataloged forms can be lyric; the selected sonnet is an example, not a synonym."
+    },
+    "Poetic Contest": {
+      "classification": "umbrella with represented subtypes",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Poetic Contest",
+          "url": "https://poets.org/glossary"
+        }
+      ],
+      "definition": "A verse-based contest between speakers.",
+      "attestation": "The Academy indexes poetic contest and the catalog contains specific contest structures.",
+      "nearest_catalog_title": "Tenson",
+      "nearest_catalog_line": 380,
+      "catalog_distinction": "Tenson, Flyting and Battle rap establish different turn-taking conventions; the umbrella introduces no single new pattern."
+    },
+    "Incantation": {
+      "classification": "umbrella with represented subtypes",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Incantation",
+          "url": "https://poets.org/glossary"
+        }
+      ],
+      "definition": "Repeated utterance used to invoke or enact a ritual effect.",
+      "attestation": "The Academy identifies the ritual or magical function.",
+      "nearest_catalog_title": "Metrical charm",
+      "nearest_catalog_line": 383,
+      "catalog_distinction": "The catalog’s metrical charm is an example; incantation alone does not require its directions or closing prayer."
+    },
+    "Aphorism": {
+      "classification": "umbrella with represented subtypes",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Aphorism",
+          "url": "https://poets.org/glossary"
+        }
+      ],
+      "definition": "Compact formulation of an observation or maxim.",
+      "attestation": "The Academy identifies its instructive function.",
+      "nearest_catalog_title": "Gnomic verse",
+      "nearest_catalog_line": 385,
+      "catalog_distinction": "Gnomic verse already permits one- or two-line maxims. Aphorisms in prose do not establish another verse shape."
+    },
+    "Proverb": {
+      "classification": "umbrella with represented subtypes",
+      "sources": [
+        {
+          "title": "Academy of American Poets · Proverb",
+          "url": "https://poets.org/glossary"
+        }
+      ],
+      "definition": "Short saying conveying a general truth.",
+      "attestation": "The Academy indexes proverb by its expressive function.",
+      "nearest_catalog_title": "Gnomic verse",
+      "nearest_catalog_line": 385,
+      "catalog_distinction": "The gnomic entry expressly covers poetic sequences of maxims. A proverb need not be verse."
+    }
+  },
+  "index_disposition": {
+    "Academy of American Poets": [
+      {
+        "term": "Abecedarian",
+        "disposition": "catalog title",
+        "catalog": "Abecedarian"
+      },
+      {
+        "term": "Acrostic",
+        "disposition": "catalog title",
+        "catalog": "Acrostic"
+      },
+      {
+        "term": "Aisling",
+        "disposition": "catalog title",
+        "catalog": "Aisling"
+      },
+      {
+        "term": "Allegory",
+        "disposition": "genre or occasion",
+        "detail": "Allegory"
+      },
+      {
+        "term": "Alliteration",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Allusion",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Anapest",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Anaphora",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Anthropomorphism",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Aphorism",
+        "disposition": "umbrella with represented subtypes",
+        "detail": "Aphorism"
+      },
+      {
+        "term": "Apostrophe",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Ars Poetica",
+        "disposition": "genre or occasion",
+        "detail": "Ars Poetica"
+      },
+      {
+        "term": "Assonance",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Aubade",
+        "disposition": "genre or occasion",
+        "detail": "Aubade"
+      },
+      {
+        "term": "Augmentation",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Ballad",
+        "disposition": "represented family",
+        "catalog": "Traditional ballad"
+      },
+      {
+        "term": "Ballade",
+        "disposition": "catalog title",
+        "catalog": "Ballade"
+      },
+      {
+        "term": "Bhakti Poetry",
+        "disposition": "English adoption unverified",
+        "detail": "Bhakti Poetry"
+      },
+      {
+        "term": "Bird Song",
+        "disposition": "influence or subject"
+      },
+      {
+        "term": "Blank Verse",
+        "disposition": "catalog title",
+        "catalog": "Blank verse"
+      },
+      {
+        "term": "Blazon",
+        "disposition": "rhetorical organization",
+        "detail": "Blazon"
+      },
+      {
+        "term": "Blues Poem",
+        "disposition": "existing structure under another name",
+        "detail": "Blues Poem"
+      },
+      {
+        "term": "Bop",
+        "disposition": "catalog title",
+        "catalog": "Bop"
+      },
+      {
+        "term": "Caesura",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Canto",
+        "disposition": "division of a work"
+      },
+      {
+        "term": "Cento",
+        "disposition": "catalog title",
+        "catalog": "Cento"
+      },
+      {
+        "term": "Chance Operations",
+        "disposition": "open-form or procedure",
+        "detail": "Chance Operations"
+      },
+      {
+        "term": "Chiasmus",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Cinquain",
+        "disposition": "represented family",
+        "catalog": "Quintain"
+      },
+      {
+        "term": "Clerihew",
+        "disposition": "catalog title",
+        "catalog": "Clerihew"
+      },
+      {
+        "term": "Closed Form",
+        "disposition": "theoretical umbrella"
+      },
+      {
+        "term": "Concrete Poetry",
+        "disposition": "catalog title",
+        "catalog": "Concrete poetry"
+      },
+      {
+        "term": "Connotation",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Consonance",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Contrapuntal",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Contrapuntal poem"
+      },
+      {
+        "term": "Couplet",
+        "disposition": "catalog title",
+        "catalog": "Couplet"
+      },
+      {
+        "term": "Dactyl",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Denotation",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Diminution",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Dirge",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Dirge / lament"
+      },
+      {
+        "term": "Doha",
+        "disposition": "English adoption unverified",
+        "detail": "Doha"
+      },
+      {
+        "term": "Duplex",
+        "disposition": "catalog title",
+        "catalog": "Duplex"
+      },
+      {
+        "term": "Eclogue",
+        "disposition": "catalog title",
+        "catalog": "Eclogue"
+      },
+      {
+        "term": "Ekphrasis",
+        "disposition": "genre or occasion",
+        "detail": "Ekphrasis"
+      },
+      {
+        "term": "Elegy",
+        "disposition": "catalog title",
+        "catalog": "Elegy"
+      },
+      {
+        "term": "Elision",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Elliptical Poetry",
+        "disposition": "style or tendency"
+      },
+      {
+        "term": "End-Stopped Line",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Enjambment",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Epic",
+        "disposition": "catalog title",
+        "catalog": "Epic"
+      },
+      {
+        "term": "Epigram",
+        "disposition": "catalog title",
+        "catalog": "Epigram"
+      },
+      {
+        "term": "Epigraph",
+        "disposition": "component"
+      },
+      {
+        "term": "Epistolary Poem",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Verse epistle"
+      },
+      {
+        "term": "Erasure",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Erasure poem"
+      },
+      {
+        "term": "Exquisite Corpse",
+        "disposition": "catalog title",
+        "catalog": "Exquisite corpse"
+      },
+      {
+        "term": "Fable",
+        "disposition": "genre or occasion",
+        "detail": "Fable"
+      },
+      {
+        "term": "Figurative Meaning",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Filídh",
+        "disposition": "role or rank"
+      },
+      {
+        "term": "Form",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Found Poem",
+        "disposition": "catalog title",
+        "catalog": "Found poem"
+      },
+      {
+        "term": "Fragment",
+        "disposition": "open-form or procedure",
+        "detail": "Fragment"
+      },
+      {
+        "term": "Free Verse",
+        "disposition": "catalog title",
+        "catalog": "Free verse"
+      },
+      {
+        "term": "Futurism",
+        "disposition": "movement"
+      },
+      {
+        "term": "Ghazal",
+        "disposition": "catalog title",
+        "catalog": "Ghazal"
+      },
+      {
+        "term": "Glosa",
+        "disposition": "catalog title",
+        "catalog": "Glosa"
+      },
+      {
+        "term": "Golden Shovel",
+        "disposition": "catalog title",
+        "catalog": "Golden shovel"
+      },
+      {
+        "term": "Haibun",
+        "disposition": "catalog title",
+        "catalog": "Haibun"
+      },
+      {
+        "term": "Haiku",
+        "disposition": "catalog title",
+        "catalog": "Haiku"
+      },
+      {
+        "term": "Hudibrastic Verse",
+        "disposition": "catalog title",
+        "catalog": "Hudibrastic verse"
+      },
+      {
+        "term": "Hymn",
+        "disposition": "represented family",
+        "catalog": "Metrical hymn"
+      },
+      {
+        "term": "Hyperbole",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Iamb",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Iambic Pentameter",
+        "disposition": "metrical measure"
+      },
+      {
+        "term": "Idiom",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Imagery",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Inaugural Poem",
+        "disposition": "genre or occasion",
+        "detail": "Inaugural Poem"
+      },
+      {
+        "term": "Incantation",
+        "disposition": "umbrella with represented subtypes",
+        "detail": "Incantation"
+      },
+      {
+        "term": "Irony",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Lament",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Dirge / lament"
+      },
+      {
+        "term": "Limerick",
+        "disposition": "catalog title",
+        "catalog": "Limerick"
+      },
+      {
+        "term": "Line",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "List Poem",
+        "disposition": "distinct organization",
+        "detail": "List Poem"
+      },
+      {
+        "term": "Litany",
+        "disposition": "catalog title",
+        "catalog": "Litany"
+      },
+      {
+        "term": "Lullaby",
+        "disposition": "catalog title",
+        "catalog": "Lullaby"
+      },
+      {
+        "term": "Lyric Poetry",
+        "disposition": "umbrella with represented subtypes",
+        "detail": "Lyric Poetry"
+      },
+      {
+        "term": "Madrigal",
+        "disposition": "existing title, variant coverage",
+        "detail": "Madrigal"
+      },
+      {
+        "term": "Metaphor",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Meter",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Metonymy",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Monostich",
+        "disposition": "catalog title",
+        "catalog": "Monostich"
+      },
+      {
+        "term": "Naked Poetry",
+        "disposition": "style or tendency"
+      },
+      {
+        "term": "Nature Poetry",
+        "disposition": "genre or occasion",
+        "detail": "Nature Poetry"
+      },
+      {
+        "term": "Negative Capability",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Nocturne",
+        "disposition": "genre or occasion",
+        "detail": "Nocturne"
+      },
+      {
+        "term": "Nonsense verse",
+        "disposition": "umbrella with represented subtypes",
+        "detail": "Nonsense verse"
+      },
+      {
+        "term": "Occasional Poem",
+        "disposition": "genre or occasion",
+        "detail": "Occasional Poem"
+      },
+      {
+        "term": "Octave",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Octave / huitain"
+      },
+      {
+        "term": "Ode",
+        "disposition": "represented family",
+        "catalog": "Irregular ode"
+      },
+      {
+        "term": "Onomatopoeia",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Open Form",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Free verse"
+      },
+      {
+        "term": "Oral-Formulaic Method",
+        "disposition": "compositional method"
+      },
+      {
+        "term": "Organic Form",
+        "disposition": "theoretical principle"
+      },
+      {
+        "term": "Oríkì",
+        "disposition": "English adoption unverified",
+        "detail": "Oríkì"
+      },
+      {
+        "term": "Pantoum",
+        "disposition": "catalog title",
+        "catalog": "Pantoum"
+      },
+      {
+        "term": "Paradox",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Pastoral",
+        "disposition": "umbrella with represented subtypes",
+        "detail": "Pastoral"
+      },
+      {
+        "term": "Persona Poem",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Dramatic monologue"
+      },
+      {
+        "term": "Personification",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Poetic Contest",
+        "disposition": "umbrella with represented subtypes",
+        "detail": "Poetic Contest"
+      },
+      {
+        "term": "Poetic Diction",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Poetry",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Point of View",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Political Poetry",
+        "disposition": "genre or occasion",
+        "detail": "Political Poetry"
+      },
+      {
+        "term": "Praise Poem",
+        "disposition": "genre or occasion",
+        "detail": "Praise Poem"
+      },
+      {
+        "term": "Prose Poem",
+        "disposition": "catalog title",
+        "catalog": "Prose poem"
+      },
+      {
+        "term": "Proverb",
+        "disposition": "umbrella with represented subtypes",
+        "detail": "Proverb"
+      },
+      {
+        "term": "Prosody",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Pun",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Quatrain",
+        "disposition": "catalog title",
+        "catalog": "Quatrain"
+      },
+      {
+        "term": "Refrain",
+        "disposition": "component"
+      },
+      {
+        "term": "Renga",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Renga / renku"
+      },
+      {
+        "term": "Repetition",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Rhyme",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Rhyme Scheme",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Riddle",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Riddle poem"
+      },
+      {
+        "term": "Rising Meter",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Rondeau",
+        "disposition": "catalog title",
+        "catalog": "Rondeau"
+      },
+      {
+        "term": "Sapphic",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Sapphic stanza"
+      },
+      {
+        "term": "Saudade",
+        "disposition": "affective theme"
+      },
+      {
+        "term": "Scansion",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Senryū",
+        "disposition": "catalog title",
+        "catalog": "Senryu"
+      },
+      {
+        "term": "Septet",
+        "disposition": "catalog title",
+        "catalog": "Septet"
+      },
+      {
+        "term": "Sestet",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Sestet / sixain"
+      },
+      {
+        "term": "Sestina",
+        "disposition": "catalog title",
+        "catalog": "Sestina"
+      },
+      {
+        "term": "Sijo",
+        "disposition": "catalog title",
+        "catalog": "Sijo"
+      },
+      {
+        "term": "Simile",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Slant Rhyme",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Sonnet",
+        "disposition": "represented family",
+        "catalog": "Petrarchan sonnet"
+      },
+      {
+        "term": "Speaker",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Spondee",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Stanza",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Stress",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Surrealism",
+        "disposition": "movement"
+      },
+      {
+        "term": "Syllable",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Syllabic Verse",
+        "disposition": "catalog title",
+        "catalog": "Syllabic verse"
+      },
+      {
+        "term": "Symbol",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Synecdoche",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Synesthesia",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Syntax",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Tanka",
+        "disposition": "catalog title",
+        "catalog": "Tanka"
+      },
+      {
+        "term": "Tercet",
+        "disposition": "catalog title",
+        "catalog": "Tercet"
+      },
+      {
+        "term": "Terza Rima",
+        "disposition": "catalog title",
+        "catalog": "Terza rima"
+      },
+      {
+        "term": "Tlamatine",
+        "disposition": "role or rank"
+      },
+      {
+        "term": "Tone",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Translation",
+        "disposition": "creative process"
+      },
+      {
+        "term": "Triolet",
+        "disposition": "catalog title",
+        "catalog": "Triolet"
+      },
+      {
+        "term": "Trochee",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Verbless Poetry",
+        "disposition": "distinct constraint",
+        "detail": "Verbless Poetry"
+      },
+      {
+        "term": "Verse Novel",
+        "disposition": "catalog title",
+        "catalog": "Verse novel"
+      },
+      {
+        "term": "Villanelle",
+        "disposition": "catalog title",
+        "catalog": "Villanelle"
+      },
+      {
+        "term": "Voice",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Volta",
+        "disposition": "term, technique, or component; no freestanding form established"
+      },
+      {
+        "term": "Zuihitsu",
+        "disposition": "catalog title",
+        "catalog": "Zuihitsu"
+      }
+    ],
+    "Poetry at Harvard": [
+      {
+        "term": "Allegory",
+        "disposition": "genre or occasion",
+        "detail": "Allegory"
+      },
+      {
+        "term": "Aubade",
+        "disposition": "genre or occasion",
+        "detail": "Aubade"
+      },
+      {
+        "term": "Ballad",
+        "disposition": "represented family",
+        "catalog": "Traditional ballad"
+      },
+      {
+        "term": "Blason",
+        "disposition": "rhetorical organization",
+        "detail": "Blazon"
+      },
+      {
+        "term": "Cento",
+        "disposition": "catalog title",
+        "catalog": "Cento"
+      },
+      {
+        "term": "Dirge",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Dirge / lament"
+      },
+      {
+        "term": "Dramatic monologue",
+        "disposition": "catalog title",
+        "catalog": "Dramatic monologue"
+      },
+      {
+        "term": "Eclogue",
+        "disposition": "catalog title",
+        "catalog": "Eclogue"
+      },
+      {
+        "term": "Ekphrasis",
+        "disposition": "genre or occasion",
+        "detail": "Ekphrasis"
+      },
+      {
+        "term": "Elegy",
+        "disposition": "catalog title",
+        "catalog": "Elegy"
+      },
+      {
+        "term": "Epic",
+        "disposition": "catalog title",
+        "catalog": "Epic"
+      },
+      {
+        "term": "Epigram",
+        "disposition": "catalog title",
+        "catalog": "Epigram"
+      },
+      {
+        "term": "Epitaph",
+        "disposition": "catalog title",
+        "catalog": "Epitaph"
+      },
+      {
+        "term": "Epithalamion",
+        "disposition": "genre or occasion",
+        "detail": "Epithalamion"
+      },
+      {
+        "term": "Fable",
+        "disposition": "genre or occasion",
+        "detail": "Fable"
+      },
+      {
+        "term": "Georgic",
+        "disposition": "genre or occasion",
+        "detail": "Georgic"
+      },
+      {
+        "term": "Hymn",
+        "disposition": "represented family",
+        "catalog": "Metrical hymn"
+      },
+      {
+        "term": "Invective",
+        "disposition": "genre or occasion",
+        "detail": "Invective"
+      },
+      {
+        "term": "Lament",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Dirge / lament"
+      },
+      {
+        "term": "Light verse",
+        "disposition": "umbrella with represented subtypes",
+        "detail": "Light verse"
+      },
+      {
+        "term": "Lyric",
+        "disposition": "umbrella with represented subtypes",
+        "detail": "Lyric Poetry"
+      },
+      {
+        "term": "Masque",
+        "disposition": "catalog title",
+        "catalog": "Masque"
+      },
+      {
+        "term": "Occasional verse",
+        "disposition": "genre or occasion",
+        "detail": "Occasional Poem"
+      },
+      {
+        "term": "Ode",
+        "disposition": "represented family",
+        "catalog": "Irregular ode"
+      },
+      {
+        "term": "Paean",
+        "disposition": "genre or occasion",
+        "detail": "Paean"
+      },
+      {
+        "term": "Palinode",
+        "disposition": "rhetorical organization",
+        "detail": "Palinode"
+      },
+      {
+        "term": "Panegyric",
+        "disposition": "genre or occasion",
+        "detail": "Panegyric"
+      },
+      {
+        "term": "Parody",
+        "disposition": "genre or occasion",
+        "detail": "Parody"
+      },
+      {
+        "term": "Pastoral",
+        "disposition": "umbrella with represented subtypes",
+        "detail": "Pastoral"
+      },
+      {
+        "term": "Psalm",
+        "disposition": "represented family",
+        "catalog": "Metrical psalm"
+      },
+      {
+        "term": "Riddle",
+        "disposition": "equivalent catalog coverage",
+        "catalog": "Riddle poem"
+      },
+      {
+        "term": "Romance",
+        "disposition": "genre or occasion",
+        "detail": "Romance"
+      },
+      {
+        "term": "Satire",
+        "disposition": "genre or occasion",
+        "detail": "Satire"
+      },
+      {
+        "term": "Tragedy",
+        "disposition": "umbrella with represented subtypes",
+        "detail": "Tragedy"
+      },
+      {
+        "term": "Verse epistle",
+        "disposition": "catalog title",
+        "catalog": "Verse epistle"
+      }
+    ]
+  }
+}

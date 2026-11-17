@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="theme-color" content="#faf9f6"><title>Song Forms</title><link rel="icon" href="./mark.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css"></head>
+<body><a href="#work" class="skip">Skip to selected form</a>
+<header class="mast"><div class="mastinner"><a class="brand" href="#" aria-label="Song Forms home"><img width="36" height="36" alt="" src="./mark.svg"><span>Song Forms</span></a><button id="searchOpen" type="button" class="searchtrigger"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.6"/><path d="m16 16 5 5"/></svg><span>Find a form</span><kbd>/</kbd></button></div></header>
+<div class="layout"><aside class="rail" aria-label="Catalog"><h2>Form families</h2><nav id="families" aria-label="Browse form families"></nav><button class="alllink" id="all" type="button">Browse all forms <span aria-hidden="true">→</span></button></aside>
+<main id="work" tabindex="-1"><div class="crumbrow"><button type="button" id="family"></button><div class="pager"><button aria-label="Previous form" title="Previous form" type="button" id="prev">←</button><button aria-label="Next form" title="Next form" type="button" id="next">→</button></div></div>
+<h1 id="title" tabindex="-1"></h1>
+<section aria-labelledby="structureTitle"><div class="sectop"><h2 id="structureTitle">Structure</h2><span id="mode"></span></div><div id="diagram"></div></section>
+<section class="connections" aria-labelledby="connectionsTitle"><div class="sectop"><h2 id="connectionsTitle">Connections</h2></div><div id="relations"></div></section>
+<button type="button" class="sourcelink" id="sourceOpen">View source entry <span aria-hidden="true">→</span></button>
+</main></div>
+<dialog id="finder" aria-labelledby="findTitle"><div class="dialoghead"><h2 id="findTitle">Browse forms</h2><button class="close" type="button" aria-label="Close form browser">×</button></div><div class="findercontrols"><label class="visuallyhidden" for="query">Search by form, alias or structure</label><input id="query" type="search" placeholder="Search forms, aliases, or structures" autocomplete="off"><label class="visuallyhidden" for="filter">Form family</label><select id="filter"></select></div><p id="count" aria-live="polite"></p><div id="results"></div></dialog>
+<dialog id="source" aria-labelledby="sourceTitle"><div class="dialoghead"><h2 id="sourceTitle">Source entry</h2><button type="button" class="close" aria-label="Close source entry">×</button></div><div id="sourceBody"></div></dialog>
+<script src="./catalog.js"></script><script src="./diagram.js"></script><script src="./relations.js"></script><script src="./app.js"></script></body></html>

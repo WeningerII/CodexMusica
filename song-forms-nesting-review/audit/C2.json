@@ -1,0 +1,516 @@
+{
+  "Kyoka": {
+    "status": "supported",
+    "note": "The comic tanka inherits the traditional count. Counts refer to Japanese sound units; English syllable-count versions are adaptations.",
+    "edges": [
+      {
+        "target": "Tanka",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "The catalog defines kyoka as a comic tanka."
+      }
+    ],
+    "refs": [
+      "https://www.pref.nara.lg.jp/manyo/en/manyo-shu/index.html",
+      "https://www.hsa-haiku.org/hsa-definitions.html"
+    ]
+  },
+  "Katauta": {
+    "status": "supported",
+    "note": "The source gives 5–7–7 and describes the question as frequent. An answer belongs to a possible larger exchange.",
+    "edges": [
+      {
+        "target": "Sedoka",
+        "kind": "other",
+        "status": "supported",
+        "evidence": "Katauta is a constituent of sedoka; the sedoka row specifies two."
+      }
+    ],
+    "refs": [
+      "https://www.pref.nara.lg.jp/manyo/en/manyo-shu/index.html",
+      "https://www.hsa-haiku.org/hsa-definitions.html"
+    ]
+  },
+  "Sedoka": {
+    "status": "supported",
+    "note": "The two 5–7–7 units give six phrases. Question and answer are frequent roles rather than obligatory speech acts.",
+    "edges": [
+      {
+        "target": "Katauta",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The two 5–7–7 units are explicitly called katauta."
+      }
+    ],
+    "refs": [
+      "https://www.pref.nara.lg.jp/manyo/en/manyo-shu/index.html",
+      "https://www.hsa-haiku.org/hsa-definitions.html"
+    ]
+  },
+  "Somonka": {
+    "status": "supported",
+    "note": "The catalog identifies two voices' tanka. Each has upper and lower phrases; the second replies to the first.",
+    "edges": [
+      {
+        "target": "Tanka",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "Declaration and reply each take the form of a tanka."
+      }
+    ],
+    "refs": [
+      "https://www.pref.nara.lg.jp/manyo/en/manyo-shu/index.html",
+      "https://www.hsa-haiku.org/hsa-definitions.html"
+    ]
+  },
+  "Choka": {
+    "status": "supported",
+    "note": "Nara confirms repeating 5–7 and a 5–7–7 close; the catalog makes the following tanka envoi optional.",
+    "edges": [
+      {
+        "target": "Tanka",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The catalog names tanka as an optional envoi."
+      }
+    ],
+    "refs": [
+      "https://www.pref.nara.lg.jp/manyo/en/manyo-shu/index.html",
+      "https://www.hsa-haiku.org/hsa-definitions.html"
+    ]
+  },
+  "Dodoitsu": {
+    "status": "supported",
+    "note": "The four counts total 26. Wry tone, love and work are common tendencies without a reserved place in the sequence.",
+    "edges": [],
+    "refs": [
+      "https://www.hsa-haiku.org/hsa-definitions.html"
+    ]
+  },
+  "Gogyohka": {
+    "status": "supported",
+    "note": "Kusakabe permits a phrase or breath boundary, with rare four- or six-line exceptions. Five one-breath lines would be too narrow.",
+    "edges": [],
+    "refs": [
+      "https://5gyohka.com/wp5/enta/"
+    ]
+  },
+  "Renga / renku": {
+    "status": "supported",
+    "note": "Renga covers linked verse; Carley treats renku as a particular linked-verse practice with link and shift. Kasen is a 36-verse layout within it. Its four sides are nested in two folios, while its opening, development and close span 6, 24 and 6 verses.",
+    "edges": [],
+    "refs": [
+      "https://www.pref.nara.lg.jp/manyo/en/manyo-shu/index.html",
+      "https://sites.google.com/site/worldhaikureview2/whr-archives/renku"
+    ]
+  },
+  "Rengay": {
+    "status": "contested",
+    "note": "Welch gives 16 lines for two poets and 15 for three. The catalog applies 16 to both. A–C identify voices; both versions sustain one theme.",
+    "edges": [
+      {
+        "target": "Haiku",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The creator recommends haiku or haiku-like material. A haiku is not obligatory in each position."
+      },
+      {
+        "target": "Renga / renku",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "Welch describes rengay as a consciously thematic alternative to renga or renku."
+      }
+    ],
+    "refs": [
+      "https://www.rengay.com/rengay-essays/learning-rengay/rengay-on-haikupedia"
+    ]
+  },
+  "Haibun": {
+    "status": "supported",
+    "note": "The catalog permits closing with a haiku or interleaving haiku and prose. The HSA identifies linkage between the two as a defining relationship.",
+    "edges": [
+      {
+        "target": "Haiku",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The named verse component is one or more haiku."
+      }
+    ],
+    "refs": [
+      "https://www.hsa-haiku.org/hsa-definitions.html"
+    ]
+  },
+  "Tanka prose": {
+    "status": "supported",
+    "note": "The two labels identify co-present media. The source supplies no fixed order or total number of tanka.",
+    "edges": [
+      {
+        "target": "Tanka",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The row names tanka as the verse component interwoven with prose."
+      }
+    ],
+    "refs": []
+  },
+  "Sijo": {
+    "status": "supported",
+    "note": "Sejong describes two phrases per rhetorical line and two segments per phrase; the 14–16 syllables are approximate. English printing can split the units over six lines.",
+    "edges": [],
+    "refs": [
+      "https://www.sejongculturalsociety.org/writing/current/resources/sijo_guide.php"
+    ]
+  },
+  "Tanaga": {
+    "status": "supported",
+    "note": "The catalog describes the traditional four seven-syllable lines on a single rhyme. The four marks apply to line endings.",
+    "edges": [
+      {
+        "target": "Monorhymed quatrain",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Both catalog rows specify four lines with one end rhyme; tanaga also specifies the syllable count."
+      }
+    ],
+    "refs": []
+  },
+  "Luc bat": {
+    "status": "supported",
+    "note": "In the standard chain the sixth positions rhyme; the eight-syllable line's ending supplies the rhyme carried into the next pair.",
+    "edges": [],
+    "refs": [
+      "https://vanvn.vn/ve-dep-tho-luc-bat/"
+    ]
+  },
+  "Than-bauk": {
+    "status": "supported",
+    "note": "The SUNY glossary locates the rhyme at syllables four, three and two of the three four-syllable lines.",
+    "edges": [],
+    "refs": [
+      "https://milnepublishing.geneseo.edu/naming-the-unnameable/back-matter/key-terms/"
+    ]
+  },
+  "Cherita": {
+    "status": "supported",
+    "note": "The catalog and ai li's publication show a six-line story in stanzas of one, two and three lines. The diagram assigns no compulsory narrative beats.",
+    "edges": [],
+    "refs": [
+      "https://www.thecherita.com/articles/"
+    ]
+  },
+  "Englyn": {
+    "status": "supported",
+    "note": "The Welsh glossary distinguishes milwr, penfyr and unodl union, and identifies the final couplet in unodl union. The three catalogued examples do not exhaust the family.",
+    "edges": [
+      {
+        "target": "Cywydd deuair hirion",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "Specifically englyn unodl union closes with a cywydd deuair hirion couplet."
+      }
+    ],
+    "refs": [
+      "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+    ]
+  },
+  "Cywydd deuair hirion": {
+    "status": "supported",
+    "note": "The unit has two rhyming seven-syllable lines with contrasting final accent. Neither order of stressed and unstressed endings is prescribed.",
+    "edges": [
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The form is built of two-line rhyming units with equal syllable counts."
+      }
+    ],
+    "refs": [
+      "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+    ]
+  },
+  "Clogyrnach": {
+    "status": "supported",
+    "note": "The catalog prints six segments. The Welsh glossary groups them into two eight-syllable lines and one 16-syllable tail. The diagram shows the divisions within that tail.",
+    "edges": [],
+    "refs": [
+      "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+    ]
+  },
+  "Gwawdodyn": {
+    "status": "supported",
+    "note": "The catalog shows gwawdodyn byr. The Welsh lesson also documents hir, with four nine-syllable lines before its closing toddaid.",
+    "edges": [],
+    "refs": [
+      "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/gwers/13.html"
+    ]
+  },
+  "Hir a thoddaid": {
+    "status": "contested",
+    "note": "The source separates line six from the first five. The Welsh lesson groups the common six-line version into four opening lines plus a long toddaid couplet and documents other stanza lengths.",
+    "edges": [],
+    "refs": [
+      "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/gwers/13.html"
+    ]
+  },
+  "Byr a thoddaid": {
+    "status": "contested",
+    "note": "The catalog gives an 8+8 unit with a 10+9 unit and four lines overall. The Welsh glossary describes four eight-syllable lines with a toddaid; the university dictionary specifies a short toddaid. The common components can be shown; exact count, length and order should stay open.",
+    "edges": [
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "status": "ambiguous",
+        "evidence": "Both the catalog and Welsh references describe a two-line toddaid among the constituents; meter and rhyme placement differ from the generic catalog couplet."
+      }
+    ],
+    "refs": [
+      "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/",
+      "https://www.scribd.com/document/1000245506/GPC0018-02"
+    ]
+  },
+  "Awdl gywydd": {
+    "status": "supported",
+    "note": "The Welsh glossary takes a seven-syllable couplet as the unit. Its first end rhyme strikes inside its second line. Two such units produce the catalog's four-line layout.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The catalog's four-line presentation groups two metrical couplets in a quatrain."
+      }
+    ],
+    "refs": [
+      "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+    ]
+  },
+  "Cyhydedd hir": {
+    "status": "supported",
+    "note": "The documented unit is nineteen syllables in four parts. The source shows two such groups; an invariant eight separate lines would misstate the unit.",
+    "edges": [],
+    "refs": [
+      "https://gwrando.cymru/",
+      "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+    ]
+  },
+  "Rhupunt": {
+    "status": "supported",
+    "note": "Welsh teaching examples distinguish 12-syllable short lines from 16-syllable long lines. Internal divisions and the shared line-ending rhyme are distinct.",
+    "edges": [],
+    "refs": [
+      "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+    ]
+  },
+  "Irish syllabic quatrains": {
+    "status": "contested",
+    "note": "The bundled meters differ. Maynooth illustrates seven-syllable deibhidhe and rannaigheacht mhór, but séadna has 8–7–8–7. O’Halloran documents alternating end-word lengths in ae freislighe. The catalog gives dúnadh separately as a poem-wide closure.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The listed Irish measures use quatrains despite differences between their syllable counts."
+      }
+    ],
+    "refs": [
+      "https://macmorris.maynoothuniversity.ie/what-is-bardic-poetry",
+      "https://doi.org/10.3828/sh.2023.2"
+    ]
+  },
+  "Pindaric ode": {
+    "status": "supported",
+    "note": "The antistrophe matches the preceding strophe's metrical design. The contrasting epode closes the triad; total triad count is open.",
+    "edges": [],
+    "refs": []
+  },
+  "Limerick": {
+    "status": "supported",
+    "note": "The catalog's five-line template puts three beats in lines one, two and five, two in the others, and the same A rhyme on the punchline.",
+    "edges": [],
+    "refs": []
+  },
+  "Clerihew": {
+    "status": "supported",
+    "note": "The row defines the comic biographical subject, irregular meter, name in the opening and AABB end rhymes. No additional constraints on syllable totals.",
+    "edges": [],
+    "refs": []
+  },
+  "Double dactyl": {
+    "status": "contested",
+    "note": "The source oversimplifies the meter. The Poetry Foundation's description gives full pairs of dactyls in the first three lines per stanza, shorter rhyming fourth lines, and one single-word double dactyl, usually in line six.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "There are two four-line stanzas."
+      }
+    ],
+    "refs": [
+      "https://www.poetryfoundation.org/education/glossary/double-dactyl"
+    ]
+  },
+  "Ruthless rhyme": {
+    "status": "supported",
+    "note": "The catalog's deadpan AABB quatrain is one template. Graham's original collection treats ruthless rhymes as a broader body of work; its contents vary in length and rhyme.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The catalog's Little Willie pattern is a single quatrain; Graham's larger collection has other shapes."
+      }
+    ],
+    "refs": [
+      "https://www.gutenberg.org/cache/epub/35051/pg35051-images.html"
+    ]
+  },
+  "Cinquain (Crapsey)": {
+    "status": "supported",
+    "note": "The American cinquain entry assigns 2, 4, 6, 8 and 2 syllables to consecutive lines. No word-class pattern is specified.",
+    "edges": [],
+    "refs": []
+  },
+  "Didactic cinquain": {
+    "status": "supported",
+    "note": "The row defines line roles through a noun, adjectives, participles and a four-word phrase; the final synonym refers back to the opening noun.",
+    "edges": [],
+    "refs": []
+  },
+  "Diamante": {
+    "status": "supported",
+    "note": "The catalogued opposite-subject variant has seven lines. The word count increases to a four-word center then falls symmetrically; the catalog gives no word-class schedule.",
+    "edges": [],
+    "refs": []
+  },
+  "Tetractys": {
+    "status": "supported",
+    "note": "The initial syllable counts rise one to four. The fifth line has ten syllables rather than continuing the arithmetic progression.",
+    "edges": [],
+    "refs": []
+  },
+  "Nonet": {
+    "status": "supported",
+    "note": "Nine syllabic lines descend from nine syllables to one. The row specifies no rhyme or multi-stanza division.",
+    "edges": [],
+    "refs": []
+  },
+  "Etheree": {
+    "status": "supported",
+    "note": "The catalogued version increases from one syllable through ten, over ten lines, without rhyme requirements.",
+    "edges": [],
+    "refs": []
+  },
+  "Fib": {
+    "status": "supported",
+    "note": "The catalog gives six Fibonacci counts. The diagram displays those six; it does not infer a fixed length for every extended Fibonacci poem.",
+    "edges": [],
+    "refs": []
+  },
+  "Lanterne": {
+    "status": "supported",
+    "note": "The final one-syllable line follows the four-syllable peak, matching the catalog's sharp taper.",
+    "edges": [],
+    "refs": []
+  },
+  "Shadorma": {
+    "status": "supported",
+    "note": "The source gives six consecutive syllabic counts, including identical third and fourth counts of three.",
+    "edges": [],
+    "refs": []
+  },
+  "Hay(na)ku": {
+    "status": "supported",
+    "note": "The source explicitly permits two directions. Each alternative counts words across three lines, with six words in either version.",
+    "edges": [],
+    "refs": []
+  },
+  "Lune": {
+    "status": "supported",
+    "note": "Kelly's 5–3–5 counts syllables. Collom's 3–5–3 counts words. The two three-line shapes are alternatives.",
+    "edges": [],
+    "refs": [
+      "https://poetry.arizona.edu/education/curriculum/crafting-lune-poems"
+    ]
+  },
+  "American sentence": {
+    "status": "supported",
+    "note": "The catalog gives one line containing 17 syllables. This is also a specific one-line construction; no additional lines may be inferred.",
+    "edges": [
+      {
+        "target": "Monostich",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "A seventeen-syllable, one-line poem meets the catalog's definition of a monostich."
+      }
+    ],
+    "refs": []
+  },
+  "Monostich": {
+    "status": "supported",
+    "note": "One line constitutes the whole poem in this row. The related American sentence is a particular one-line form rather than a metrical requirement.",
+    "edges": [
+      {
+        "target": "American sentence",
+        "kind": "other",
+        "status": "supported",
+        "evidence": "American sentence is an example of a form that is always a monostich in this catalog."
+      }
+    ],
+    "refs": []
+  },
+  "Sevenling": {
+    "status": "supported",
+    "note": "The source specifies two tercets, each featuring three items, and a twist in the single closing line. It does not distribute items one per line.",
+    "edges": [
+      {
+        "target": "Tercet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The two opening stanzas are explicitly tercets."
+      }
+    ],
+    "refs": []
+  },
+  "Kwansaba": {
+    "status": "contested",
+    "note": "The creator's account preserves seven lines and seven words per line while allowing names, foreign terms and quotations to exceed seven letters. The catalog states the word limit without these exceptions.",
+    "edges": [],
+    "refs": [
+      "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002214912"
+    ]
+  },
+  "Zeno": {
+    "status": "supported",
+    "note": "The first eight-syllable line precedes three 4–2–1 groups. All three closing one-syllable lines rhyme.",
+    "edges": [],
+    "refs": []
+  },
+  "Abecedarian": {
+    "status": "supported",
+    "note": "The initial letters proceed alphabetically. The source allows the organizing unit to be a stanza, so 26 letter positions do not guarantee 26 printed lines.",
+    "edges": [],
+    "refs": []
+  },
+  "Golden shovel": {
+    "status": "supported",
+    "note": "The borrowed line's successive words control successive new line endings. Its length in words controls the new line count. Displaying an epigraph is not inferred as mandatory.",
+    "edges": [],
+    "refs": []
+  },
+  "Bop": {
+    "status": "supported",
+    "note": "The common three-stanza design has 6+8+6 argument lines with recurring refrains. Weaver's final rhetorical step can document a failed attempt at resolution. The Academy also records variants.",
+    "edges": [],
+    "refs": [
+      "https://poets.org/glossary/bop"
+    ]
+  },
+  "Paradelle": {
+    "status": "supported",
+    "note": "Collins's rules distinguish the first three stanzas' repeated pairs and two-line recombination from the final six-line recombination. Each must draw all and only its permitted words. The six-line count scopes the recombination; it is not a separate event.",
+    "edges": [],
+    "refs": [
+      "https://poetsonline.org/archive/arch_paradelle.html"
+    ]
+  }
+}

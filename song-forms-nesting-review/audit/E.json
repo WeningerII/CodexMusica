@@ -1,0 +1,418 @@
+{
+  "Free verse": {
+    "status": "supported",
+    "note": "Catalog line 367. Meter and rhyme are unconstrained. Local rhythm, repeated words and line breaks can shape the poem without setting a mandatory sequence.",
+    "edges": [],
+    "refs": [
+      "https://poets.org/glossary"
+    ]
+  },
+  "Prose poem": {
+    "status": "supported",
+    "note": "Catalog line 368. Sentences are arranged in prose paragraphs. A paragraph wrapping on a screen has no bearing on deliberate verse lineation.",
+    "edges": [],
+    "refs": []
+  },
+  "Projective verse": {
+    "status": "supported",
+    "note": "Catalog line 369. The row ties a line’s placement and extent to breath and thought. It specifies neither a breath count nor a fixed succession of page positions.",
+    "edges": [],
+    "refs": []
+  },
+  "Triadic line": {
+    "status": "partial",
+    "note": "Catalog line 370. The documented invariant is a stepped three-part unit. Equating every unit with a complete sentence would add a syntactic requirement.",
+    "edges": [],
+    "refs": [
+      "https://www.poetryfoundation.org/education/glossary/triadic-stepped-line"
+    ]
+  },
+  "Irregular ode": {
+    "status": "supported",
+    "note": "Catalog line 371. Stanza length and rhyme can change within the ode. Neither the repeating Horatian stanza nor the Pindaric triad is a required parent structure.",
+    "edges": [],
+    "refs": []
+  },
+  "Elegy": {
+    "status": "supported",
+    "note": "Catalog line 372. Lament, praise and consolation describe a traditional rhetorical progression. They need not divide an elegy into three stanzas.",
+    "edges": [],
+    "refs": [
+      "https://poets.org/glossary/elegy"
+    ]
+  },
+  "Epigram": {
+    "status": "supported",
+    "note": "Catalog line 373. Brevity and a pointed thought define the type. A final turn and two to four lines illustrate one realization. The Academy also documents single epigrammatic sayings.",
+    "edges": [],
+    "refs": [
+      "https://poets.org/glossary/epigram"
+    ]
+  },
+  "Epitaph": {
+    "status": "partial",
+    "note": "Catalog line 374. A short commemorative inscription may address a passer-by. The row’s two-to-four-line range describes this catalog example and cannot establish a universal length.",
+    "edges": [],
+    "refs": [
+      "https://poets.org/glossary/elegy"
+    ]
+  },
+  "Greeting-card verse": {
+    "status": "supported",
+    "note": "Catalog line 375. The row gives one or two four-line stanzas with an ending wish. The wish belongs within the closing quatrain and adds no extra line.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "Rows 375 and 312. The greeting-card example explicitly consists of one or two quatrains; each has four lines."
+      }
+    ],
+    "refs": []
+  },
+  "Verse epistle": {
+    "status": "supported",
+    "note": "Catalog line 376. Direct address as a letter is the organizing device. A salutation, body and sign-off are one possible arrangement; the medium can use any verse form.",
+    "edges": [],
+    "refs": [
+      "https://poets.org/glossary/epistolary-poem"
+    ]
+  },
+  "Dramatic monologue": {
+    "status": "supported",
+    "note": "Catalog line 377. The speaking persona and implied silent listener occupy different roles. Only the persona speaks; these are concurrent conditions of address.",
+    "edges": [],
+    "refs": []
+  },
+  "Eclogue": {
+    "status": "partial",
+    "note": "Catalog line 378. The row describes a traditional pastoral exchange. Modern eclogues can extend the form beyond dialogue between shepherds. No stanza count is given.",
+    "edges": [],
+    "refs": [
+      "https://poets.org/glossary/eclogue"
+    ]
+  },
+  "Debate poem": {
+    "status": "partial",
+    "note": "Catalog line 379. Frame, debate and verdict describe the supplied scenario. Speaker turns can repeat freely; a particular number of stanzas and a judgement in every tradition are unestablished.",
+    "edges": [],
+    "refs": []
+  },
+  "Tenson": {
+    "status": "supported",
+    "note": "Catalog line 380. Two poetic voices exchange matched stanzas about a question. No prologue, referee or required verdict is established.",
+    "edges": [
+      {
+        "target": "Debate poem",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Rows 380 and 379. Both alternate argumentative voices. The tenson additionally matches stanza forms; the frame and adjudication in the debate-poem example are not inherited."
+      }
+    ],
+    "refs": []
+  },
+  "Flyting": {
+    "status": "supported",
+    "note": "Catalog line 381. The row supports a reciprocal exchange of insults in verse. It specifies no fixed round count or number of lines.",
+    "edges": [
+      {
+        "target": "Dozens",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Rows 381 and 136. Both involve alternating insults. The Dozens row specifically gives rhymed couplets; flyting does not require a couplet for each turn."
+      }
+    ],
+    "refs": []
+  },
+  "Aisling": {
+    "status": "partial",
+    "note": "Catalog line 382. The central event is a vision of Ireland personified. Lament and prophecy describe speech in this example. The Academy records a political aisling ending in despair, so a consoling prediction is not compulsory.",
+    "edges": [],
+    "refs": [
+      "https://poets.org/glossary/aisling"
+    ]
+  },
+  "Metrical charm": {
+    "status": "partial",
+    "note": "Catalog line 383. The Old English Poetry Project shows directions and spoken formulas interleaved in different ways. The catalog’s closing prayer is one treatment and directions need not be words of the incantation.",
+    "edges": [],
+    "refs": [
+      "https://oldenglishpoetry.camden.rutgers.edu/the-metrical-charms/"
+    ]
+  },
+  "Riddle poem": {
+    "status": "supported",
+    "note": "Catalog line 384. The object voice and closing request model a documented Old English riddle pattern. Other riddles communicate a mystery without either feature.",
+    "edges": [
+      {
+        "target": "Riddle song",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Rows 384 and 125. Both conceal an answer in a verbal puzzle. The song adds answer stanzas; the poem example ends by asking the listener to guess."
+      }
+    ],
+    "refs": [
+      "https://poets.org/glossary/riddle",
+      "https://www.exeter-cathedral.org.uk/interpretation/codex-exoniensis/"
+    ]
+  },
+  "Gnomic verse": {
+    "status": "supported",
+    "note": "Catalog line 385. The row strings together self-contained maxims of one or two lines. It leaves their number and any shared stanza structure open.",
+    "edges": [],
+    "refs": []
+  },
+  "Macaronic verse": {
+    "status": "supported",
+    "note": "Catalog line 386. The constraint mixes languages within a poem. The catalog’s English-language scope explains the English component; language switches may occur in any section.",
+    "edges": [],
+    "refs": []
+  },
+  "Epic": {
+    "status": "supported",
+    "note": "Catalog line 387. A long narrative may be divided into books or cantos. The classical opening invocation belongs inside the telling; the Academy identifies it as frequent in Greek and Latin works.",
+    "edges": [],
+    "refs": [
+      "https://poets.org/glossary/epic"
+    ]
+  },
+  "Verse novel": {
+    "status": "supported",
+    "note": "Catalog line 388. The row’s chapters contain verse narrative. Onegin stanzas can fill a verse novel, as the Onegin entry explicitly says; no uniform stanza form is required.",
+    "edges": [],
+    "refs": []
+  },
+  "Verse drama": {
+    "status": "supported",
+    "note": "Catalog line 389. The row nests scenes inside acts inside the play. Voices are assigned within scenes, without specifying a fixed number of roles, acts or speeches.",
+    "edges": [],
+    "refs": []
+  },
+  "Emblem poem": {
+    "status": "supported",
+    "note": "Catalog line 390. Motto, picture and explanatory verse are parts of one emblem. The arrangement depicts a composite work; no mandatory timing or line counts are implied.",
+    "edges": [],
+    "refs": [
+      "https://liverpooluniversitypress.manifoldapp.org/projects/using-primary-sources/resource-collection/social-class/resource/emblem-andrea-alciato-easily-deflected-from-right-course-1531"
+    ]
+  },
+  "Zuihitsu": {
+    "status": "supported",
+    "note": "Catalog line 391. Lists, prose fragments and lines are available kinds of material. Their order and number remain free; the links between them can be associative.",
+    "edges": [],
+    "refs": []
+  },
+  "Haiga": {
+    "status": "supported",
+    "note": "Catalog line 392. Poem and image form a single composition. The three-line count in this catalog applies to its English haiku, not to an additional caption or image section.",
+    "edges": [
+      {
+        "target": "Haiku",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "Rows 392 and 238. The row explicitly places a haiku on or next to an image."
+      }
+    ],
+    "refs": []
+  },
+  "Pattern poem": {
+    "status": "supported",
+    "note": "Catalog line 393. The lengths of the written lines give the depicted subject a visible outline. The particular silhouette depends on the work.",
+    "edges": [
+      {
+        "target": "Concrete poetry",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Rows 393 and 394. Both use visible arrangement to convey meaning. The pattern-poem row specifies a recognizable outline, a stronger requirement than the concrete-poetry row."
+      }
+    ],
+    "refs": []
+  },
+  "Concrete poetry": {
+    "status": "supported",
+    "note": "Catalog line 394. Spatial disposition carries meaning. No particular silhouette, line scheme or linear reading path is required by the row.",
+    "edges": [],
+    "refs": []
+  },
+  "Contrapuntal poem": {
+    "status": "partial",
+    "note": "Catalog line 395 gives two adjacent texts and three reading routes. Columns are displayed as elements of a single page; row-wise or column-wise traversal is a separate choice. The Academy allows two or more texts and variable routes. Novák’s study of Desmond Egan illustrates independently readable parallel columns without making row-wise combination mandatory.",
+    "edges": [
+      {
+        "target": "Concrete poetry",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Rows 395 and 394. The Academy compares their deliberate visual arrangement; the contrapuntal example additionally encodes multiple readings."
+      }
+    ],
+    "refs": [
+      "https://poets.org/glossary/contrapuntal",
+      "https://doi.org/10.18778/1505-9057.52.20"
+    ]
+  },
+  "Reverso": {
+    "status": "supported",
+    "note": "Catalog line 396. The inventor describes two halves using identical lines in opposite order. Capitalization and punctuation may change to produce the new meaning.",
+    "edges": [
+      {
+        "target": "Palindrome poem",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "Rows 396 and 397. Both invite a reverse reading. The reverso reverses whole lines to change meaning; a palindrome preserves its unit sequence under reversal."
+      }
+    ],
+    "refs": [
+      "https://www.chipublib.org/blogs/post/marilyn-singer-qa/"
+    ]
+  },
+  "Palindrome poem": {
+    "status": "supported",
+    "note": "Catalog line 397. Symmetry is tested at one chosen level: letter, word or line. Those are alternatives rather than three successive passages.",
+    "edges": [],
+    "refs": []
+  },
+  "Acrostic": {
+    "status": "supported",
+    "note": "Catalog line 398 groups three mechanisms. The Academy verifies the initial-letter form, Toronto the last-letter telestich, and the Oxford dictionary entry the simultaneous initial-and-final double acrostic. The graphic now offers these as three alternatives; a double acrostic can spell a different word at each edge.",
+    "edges": [
+      {
+        "target": "Abecedarian",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Rows 398 and 288 organize initials across successive units. A simple acrostic spells a chosen message; the abecedarian follows the alphabet and may use stanza initials. The Academy explicitly associates the two."
+      }
+    ],
+    "refs": [
+      "https://poets.org/poem/acrostic",
+      "https://poets.org/glossary/acrostic",
+      "https://rpo.library.utoronto.ca/glossary/telestich",
+      "https://classic.net.bible.org/lexicon.php/dictionary.php?word=Acrostic"
+    ]
+  },
+  "Mesostic": {
+    "status": "supported",
+    "note": "Catalog line 399. Successive lines contribute interior letters to the vertical spine. It need not run through the geometric center of every line.",
+    "edges": [
+      {
+        "target": "Acrostic",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Rows 399 and 398. Both spell a vertical word from successive lines. The Poetry Foundation distinguishes Cage’s interior placement from the acrostic’s edge."
+      }
+    ],
+    "refs": [
+      "https://www.poetryfoundation.org/poets/john-cage"
+    ]
+  },
+  "Lipogram": {
+    "status": "supported",
+    "note": "Catalog line 400. The excluded letter constrains the complete text. The catalog demonstrates one forbidden letter; standard lipograms may exclude several.",
+    "edges": [],
+    "refs": [
+      "https://www.oulipo.net/fr/contraintes/monovocalisme"
+    ]
+  },
+  "Univocalic": {
+    "status": "supported",
+    "note": "Catalog line 401. Only one written vowel is available. Oulipo treats this as a specific lipogram that excludes all other vowels.",
+    "edges": [
+      {
+        "target": "Lipogram",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "Rows 401 and 400. Oulipo explicitly defines monovocalism as a lipogram excluding every vowel but one."
+      }
+    ],
+    "refs": [
+      "https://www.oulipo.net/fr/contraintes/monovocalisme"
+    ]
+  },
+  "Tautogram": {
+    "status": "supported",
+    "note": "Catalog line 402. The chosen initial letter is repeated at the level of individual words. It need not be the first letter of every line only.",
+    "edges": [],
+    "refs": []
+  },
+  "Rhopalic verse": {
+    "status": "partial",
+    "note": "Catalog line 403. The catalog combines word-growth and line-growth traditions. Toronto describes increasing lines; Oulipo gives a specific single-word, letter-count snowball. A unit must be chosen before applying the rule.",
+    "edges": [],
+    "refs": [
+      "https://rpo.library.utoronto.ca/glossary/r",
+      "https://www.oulipo.net/fr/contraintes/boule-de-neige"
+    ]
+  },
+  "Pilish": {
+    "status": "partial",
+    "note": "Catalog line 404. The row specifies π as the target but leaves digit encoding open. In Keith’s Basic Pilish ten letters encode zero; Standard Pilish also allows one long word to encode two digits.",
+    "edges": [],
+    "refs": [
+      "https://cadaeic.net/pilish.htm"
+    ]
+  },
+  "Bouts-rimés": {
+    "status": "supported",
+    "note": "Catalog line 405. The externally supplied list fixes the sequence of line endings, with one line per entry. It does not specify the subject or verse meter.",
+    "edges": [],
+    "refs": []
+  },
+  "Cento": {
+    "status": "supported",
+    "note": "Catalog line 406. Previously written poetic lines are assembled into a new whole. The borrowed units are full lines, not simply common words or topical quotations.",
+    "edges": [
+      {
+        "target": "Found poem",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Rows 406 and 407. Both compose with existing text. A cento sources poetic lines, while found poetry also admits source material from outside poetry."
+      }
+    ],
+    "refs": [
+      "https://poets.org/glossary/cento"
+    ]
+  },
+  "Found poem": {
+    "status": "supported",
+    "note": "Catalog line 407. The catalog’s non-poetic source with new line breaks is one case. The Academy includes poetry as a source and permits rearrangement.",
+    "edges": [],
+    "refs": [
+      "https://poets.org/glossary/found-poem"
+    ]
+  },
+  "Erasure poem": {
+    "status": "supported",
+    "note": "Catalog line 408. The operative step hides or removes portions of a source so the retained words compose the new piece. It does not fix a deletion percentage.",
+    "edges": [
+      {
+        "target": "Found poem",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "Rows 408 and 407. The Academy explicitly classifies erasure as found poetry formed through subtraction."
+      }
+    ],
+    "refs": [
+      "https://poets.org/glossary/erasure"
+    ]
+  },
+  "Cut-up poem": {
+    "status": "supported",
+    "note": "Catalog line 409. Cutting a source and reordering fragments are the two operations shown. This procedure does not require the remaining material to keep its source order.",
+    "edges": [
+      {
+        "target": "Found poem",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Rows 409 and 407. The cut-up reorders source material; the Academy’s definition of found poetry also allows reordering."
+      }
+    ],
+    "refs": []
+  },
+  "Exquisite corpse": {
+    "status": "partial",
+    "note": "Catalog line 410. The row describes the last-line-visible variant. The Academy also records folded-paper word contributions where earlier text is concealed. The extent of visibility depends on the agreed game.",
+    "edges": [],
+    "refs": [
+      "https://poets.org/glossary/exquisite-corpse"
+    ]
+  }
+}

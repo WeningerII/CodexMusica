@@ -1,0 +1,1124 @@
+{
+  "Petrarchan sonnet": {
+    "tree": [
+      {
+        "label": "Octave",
+        "children": [
+          "ABBAABBA"
+        ]
+      },
+      {
+        "label": "Sestet · turn at line 9",
+        "children": [
+          "CDECDE or CDCDCD"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Miltonic sonnet"
+    ]
+  },
+  "Sicilian sonnet": {
+    "tree": [
+      {
+        "label": "Octave",
+        "children": [
+          "ABABABAB"
+        ]
+      },
+      {
+        "label": "Sestet",
+        "children": [
+          "CDECDE or CDCDCD"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Miltonic sonnet": {
+    "tree": [
+      {
+        "label": "Octave",
+        "children": [
+          "ABBAABBA"
+        ]
+      },
+      {
+        "label": "Sestet · syntax continues",
+        "children": [
+          "CDECDE or CDCDCD"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Petrarchan sonnet"
+    ]
+  },
+  "Shakespearean sonnet": {
+    "tree": [
+      {
+        "label": "Quatrain 1",
+        "children": [
+          "ABAB"
+        ]
+      },
+      {
+        "label": "Quatrain 2",
+        "children": [
+          "CDCD"
+        ]
+      },
+      {
+        "label": "Quatrain 3",
+        "children": [
+          "EFEF"
+        ]
+      },
+      {
+        "label": "Couplet",
+        "children": [
+          "GG"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Quatrain",
+      "Couplet"
+    ]
+  },
+  "Spenserian sonnet": {
+    "tree": [
+      {
+        "label": "Quatrain 1",
+        "children": [
+          "ABAB"
+        ]
+      },
+      {
+        "label": "Quatrain 2",
+        "children": [
+          "BCBC"
+        ]
+      },
+      {
+        "label": "Quatrain 3",
+        "children": [
+          "CDCD"
+        ]
+      },
+      {
+        "label": "Couplet",
+        "children": [
+          "EE"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Quatrain",
+      "Couplet"
+    ]
+  },
+  "Terza rima sonnet": {
+    "tree": [
+      {
+        "label": "Chained tercets",
+        "children": [
+          "ABA",
+          "BCB",
+          "CDC",
+          "DED"
+        ]
+      },
+      {
+        "label": "Couplet",
+        "children": [
+          "EE"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Terza rima",
+      "Couplet"
+    ]
+  },
+  "Curtal sonnet": {
+    "tree": [
+      {
+        "label": "Opening six lines",
+        "children": [
+          "ABCABC"
+        ]
+      },
+      {
+        "label": "Closing section",
+        "children": [
+          "4 full lines",
+          "Half-line"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Caudate sonnet": {
+    "tree": [
+      "14-line sonnet",
+      {
+        "label": "Tail · one or more",
+        "children": [
+          "Half-line",
+          "Couplet"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Couplet"
+    ]
+  },
+  "Meredithian sonnet": {
+    "tree": [
+      {
+        "label": "Quatrain 1",
+        "children": [
+          "ABBA"
+        ]
+      },
+      {
+        "label": "Quatrain 2",
+        "children": [
+          "CDDC"
+        ]
+      },
+      {
+        "label": "Quatrain 3",
+        "children": [
+          "EFFE"
+        ]
+      },
+      {
+        "label": "Quatrain 4",
+        "children": [
+          "GHHG"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Quatrain"
+    ]
+  },
+  "Onegin stanza": {
+    "tree": [
+      {
+        "label": "14 tetrameter lines",
+        "children": [
+          "aBaB",
+          "ccDD",
+          "eFFe",
+          "GG"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Verse novel"
+    ]
+  },
+  "Bref double": {
+    "tree": [
+      {
+        "label": "Quatrains 1–3",
+        "children": [
+          "Each ends on rhyme c"
+        ]
+      },
+      {
+        "label": "Couplet",
+        "children": [
+          "Rhymes a and b"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Quatrain",
+      "Couplet"
+    ]
+  },
+  "Sonnenizio": {
+    "tree": [
+      {
+        "label": "Opening line",
+        "children": [
+          "Borrow a sonnet line"
+        ]
+      },
+      {
+        "label": "Lines 2–12",
+        "children": [
+          "Repeat one borrowed word in each"
+        ]
+      },
+      {
+        "label": "Closing couplet",
+        "children": [
+          "Keep the repeated word"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Couplet"
+    ]
+  },
+  "American sonnet": {
+    "tree": [
+      {
+        "label": "About 14 lines",
+        "children": [
+          "Turn",
+          "Loose rhyme or none"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Duplex": {
+    "tree": [
+      {
+        "label": "Seven linked couplets",
+        "children": [
+          {
+            "label": "At every join",
+            "children": [
+              "Rewrite the second line as the next opening"
+            ]
+          },
+          {
+            "label": "Final line",
+            "children": [
+              "Echo the first line"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Kyrielle sonnet": {
+    "tree": [
+      {
+        "label": "Three quatrains",
+        "children": [
+          "End each with a refrain"
+        ]
+      },
+      {
+        "label": "Closing couplet",
+        "children": [
+          "Pair the two refrain lines"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Kyrielle",
+      "Quatrain",
+      "Couplet"
+    ]
+  },
+  "Crown of sonnets": {
+    "tree": [
+      {
+        "label": "Seven linked sonnets",
+        "children": [
+          {
+            "label": "At every join",
+            "children": [
+              "The last line opens the next sonnet"
+            ]
+          },
+          {
+            "label": "Final line",
+            "children": [
+              "Repeat the opening line"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Heroic crown": {
+    "tree": [
+      {
+        "label": "14 linked sonnets",
+        "children": [
+          "Keep their opening lines"
+        ]
+      },
+      {
+        "label": "Sonnet 15",
+        "children": [
+          "Assemble those lines in order"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Crown of sonnets"
+    ]
+  },
+  "Sonnet sequence": {
+    "tree": [
+      {
+        "label": "Numbered sonnets",
+        "children": [
+          "14 lines each",
+          "Shared theme",
+          "Independent endings"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Villanelle": {
+    "tree": [
+      {
+        "label": "Opening tercet",
+        "children": [
+          "A₁ b A₂"
+        ]
+      },
+      {
+        "label": "Next four tercets",
+        "children": [
+          "a b A₁",
+          "a b A₂",
+          "a b A₁",
+          "a b A₂"
+        ]
+      },
+      {
+        "label": "Closing quatrain",
+        "children": [
+          "a b A₁ A₂"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Tercet",
+      "Quatrain"
+    ]
+  },
+  "Terzanelle": {
+    "tree": [
+      {
+        "label": "Linked tercets",
+        "children": [
+          "Carry each middle line into the next tercet"
+        ]
+      },
+      {
+        "label": "Villanelle refrains",
+        "children": [
+          "Return within the 19-line form"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Villanelle",
+      "Terza rima"
+    ]
+  },
+  "Sestina": {
+    "tree": [
+      {
+        "label": "Six 6-line stanzas",
+        "children": [
+          "Rotate the six end-words"
+        ]
+      },
+      {
+        "label": "3-line envoi",
+        "children": [
+          "Use all six end-words"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Double sestina": {
+    "tree": [
+      {
+        "label": "Swinburne variant",
+        "children": [
+          "12-line stanzas",
+          "12 rotating end-words",
+          "Envoi"
+        ]
+      },
+      {
+        "label": "Sidney variant",
+        "children": [
+          "Run the sestina twice",
+          "Closing envoi"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Sestina"
+    ]
+  },
+  "Tritina": {
+    "tree": [
+      {
+        "label": "Three tercets",
+        "children": [
+          "Rotate three end-words"
+        ]
+      },
+      {
+        "label": "1-line envoi",
+        "children": [
+          "Use all three end-words"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Tercet"
+    ]
+  },
+  "Rondeau": {
+    "tree": [
+      {
+        "label": "Stanza 1",
+        "children": [
+          "aabba"
+        ]
+      },
+      {
+        "label": "Stanza 2",
+        "children": [
+          "aabR"
+        ]
+      },
+      {
+        "label": "Stanza 3",
+        "children": [
+          "aabbaR"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Rondine",
+      "Rondeau prime"
+    ]
+  },
+  "Rondeau prime": {
+    "tree": [
+      {
+        "label": "7-line stanza",
+        "children": [
+          "abbaabR"
+        ]
+      },
+      {
+        "label": "6-line stanza",
+        "children": [
+          "abbabR"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Rondeau"
+    ]
+  },
+  "Rondine": {
+    "tree": [
+      {
+        "label": "7-line stanza",
+        "children": [
+          "abaabbR"
+        ]
+      },
+      {
+        "label": "5-line stanza",
+        "children": [
+          "abbaR"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Rondeau"
+    ]
+  },
+  "Rondeau redoublé": {
+    "tree": [
+      {
+        "label": "Opening quatrain",
+        "children": [
+          "Four refrain lines"
+        ]
+      },
+      {
+        "label": "Quatrains 2–5",
+        "children": [
+          "End on line 1",
+          "End on line 2",
+          "End on line 3",
+          "End on line 4"
+        ]
+      },
+      {
+        "label": "Closing quintet",
+        "children": [
+          "End on the opening half-line"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Quatrain",
+      "Rondeau"
+    ]
+  },
+  "Rondel": {
+    "tree": [
+      {
+        "label": "Three stanzas",
+        "children": [
+          "Two rhymes",
+          "Lines 7–8 repeat lines 1–2",
+          "Closing line repeats line 1"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Roundel": {
+    "tree": [
+      {
+        "label": "Stanza 1",
+        "children": [
+          "abaR"
+        ]
+      },
+      {
+        "label": "Stanza 2",
+        "children": [
+          "bab"
+        ]
+      },
+      {
+        "label": "Stanza 3",
+        "children": [
+          "abaR"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Rondelet": {
+    "tree": [
+      {
+        "label": "Seven lines",
+        "children": [
+          "AbAabbA"
+        ]
+      },
+      {
+        "label": "Refrain A",
+        "children": [
+          "4 syllables",
+          "Lines 1, 3 and 7"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Roundelay": {
+    "tree": [
+      {
+        "label": "Repeating unit",
+        "children": [
+          "Short stanza",
+          "Refrain line or couplet"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Triolet": {
+    "tree": [
+      {
+        "label": "Eight lines",
+        "children": [
+          "ABaAabAB"
+        ]
+      },
+      {
+        "label": "Two refrains",
+        "children": [
+          "A · lines 1, 4 and 7",
+          "B · lines 2 and 8"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Ballade": {
+    "tree": [
+      {
+        "label": "Three 8-line stanzas",
+        "children": [
+          "ababbcbC"
+        ]
+      },
+      {
+        "label": "4-line envoi",
+        "children": [
+          "Same three rhymes",
+          "End on refrain C"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Double ballade",
+      "Ten-line ballade",
+      "Ballade à double refrain"
+    ]
+  },
+  "Ten-line ballade": {
+    "tree": [
+      {
+        "label": "Three 10-line stanzas",
+        "children": [
+          "End on refrain D"
+        ]
+      },
+      {
+        "label": "5-line envoi",
+        "children": [
+          "End on refrain D"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Ballade"
+    ]
+  },
+  "Double ballade": {
+    "tree": [
+      {
+        "label": "Six stanzas",
+        "children": [
+          "8 or 10 lines each",
+          "Shared refrain"
+        ]
+      },
+      "Optional envoi"
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Ballade"
+    ]
+  },
+  "Ballade à double refrain": {
+    "tree": [
+      {
+        "label": "Each stanza",
+        "children": [
+          "Refrain at line 4",
+          "Refrain at line 8"
+        ]
+      },
+      {
+        "label": "Envoi",
+        "children": [
+          "Return to both refrains"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Ballade"
+    ]
+  },
+  "Chant royal": {
+    "tree": [
+      {
+        "label": "Five 11-line stanzas",
+        "children": [
+          "Five rhymes",
+          "Refrain E"
+        ]
+      },
+      {
+        "label": "5-line envoi",
+        "children": [
+          "Return to refrain E"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Virelai": {
+    "tree": [
+      {
+        "label": "Repeated short-line stanzas",
+        "children": [
+          "Two rhymes per stanza",
+          "Minor rhyme becomes the next major rhyme"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Virelai nouveau": {
+    "tree": [
+      {
+        "label": "Opening refrain",
+        "children": [
+          "Line 1",
+          "Line 2"
+        ]
+      },
+      {
+        "label": "Stanzas",
+        "children": [
+          "Alternate the two refrain endings"
+        ]
+      },
+      {
+        "label": "Closing refrain",
+        "children": [
+          "Reunite both lines"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Virelai"
+    ]
+  },
+  "Lai": {
+    "tree": [
+      {
+        "label": "9-line stanza",
+        "children": [
+          {
+            "label": "aab · repeated three times",
+            "children": [
+              "5 syllables",
+              "5 syllables",
+              "2 syllables"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Kyrielle": {
+    "tree": [
+      {
+        "label": "Repeating quatrain",
+        "children": [
+          "Three 8-syllable lines",
+          "8-syllable refrain"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Quatrain",
+      "Kyrielle sonnet"
+    ]
+  },
+  "Quatern": {
+    "tree": [
+      {
+        "label": "Quatrain 1",
+        "children": [
+          "Refrain at line 1"
+        ]
+      },
+      {
+        "label": "Quatrain 2",
+        "children": [
+          "Refrain at line 2"
+        ]
+      },
+      {
+        "label": "Quatrain 3",
+        "children": [
+          "Refrain at line 3"
+        ]
+      },
+      {
+        "label": "Quatrain 4",
+        "children": [
+          "Refrain at line 4"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Quatrain"
+    ]
+  },
+  "Canzone": {
+    "tree": [
+      {
+        "label": "5–7 matching stanzas",
+        "children": [
+          "Strict version · five 12-line stanzas"
+        ]
+      },
+      {
+        "label": "Short envoi",
+        "children": [
+          "Strict version · 5 lines"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Ballata": {
+    "tree": [
+      "Opening refrain",
+      {
+        "label": "Stanza",
+        "children": [
+          "Matching part 1",
+          "Matching part 2",
+          "Turn toward refrain"
+        ]
+      },
+      "Refrain returns"
+    ],
+    "mode": "Pattern"
+  },
+  "Stornello": {
+    "tree": [
+      {
+        "label": "Three lines",
+        "children": [
+          "Short opening line",
+          "Longer middle line",
+          "Longer line rhyming with the first"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Glosa": {
+    "tree": [
+      "Borrowed 4-line epigraph",
+      {
+        "label": "Four 10-line stanzas",
+        "children": [
+          "Close on epigraph line 1",
+          "Close on epigraph line 2",
+          "Close on epigraph line 3",
+          "Close on epigraph line 4"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": []
+  },
+  "Ovillejo": {
+    "tree": [
+      {
+        "label": "Three echo couplets",
+        "children": [
+          "Long line",
+          "Short echo"
+        ]
+      },
+      {
+        "label": "Closing quatrain",
+        "children": [
+          "Last line gathers all three echoes"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Couplet",
+      "Quatrain"
+    ]
+  },
+  "Pantoum": {
+    "tree": [
+      {
+        "label": "ABAB quatrains",
+        "children": [
+          "Lines 2 and 4 become the next lines 1 and 3"
+        ]
+      },
+      {
+        "label": "Closing line",
+        "children": [
+          "Repeat the opening line"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Quatrain"
+    ]
+  },
+  "Pantun": {
+    "tree": [
+      {
+        "label": "ABAB quatrain",
+        "children": [
+          {
+            "label": "Image couplet",
+            "children": [
+              "A",
+              "B"
+            ]
+          },
+          {
+            "label": "Meaning couplet",
+            "children": [
+              "A",
+              "B"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Quatrain"
+    ]
+  },
+  "Ghazal": {
+    "tree": [
+      {
+        "label": "5–15 standalone couplets",
+        "children": [
+          {
+            "label": "Opening couplet",
+            "children": [
+              "Both lines end with rhyme and radif"
+            ]
+          },
+          {
+            "label": "Intervening couplets",
+            "children": [
+              "Each second line ends with rhyme and radif"
+            ]
+          },
+          {
+            "label": "Final couplet",
+            "children": [
+              "Second line keeps the pattern",
+              "Name the poet"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Qasida": {
+    "tree": [
+      {
+        "label": "Ode · monorhymed couplets",
+        "children": [
+          "Nostalgic prelude",
+          "Journey",
+          "Praise or satire"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Haiku": {
+    "tree": [
+      {
+        "label": "Traditional syllable pattern",
+        "children": [
+          "5",
+          "7",
+          "5"
+        ]
+      },
+      {
+        "label": "Two images",
+        "children": [
+          "Season word",
+          "Cut"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Senryu"
+    ]
+  },
+  "Senryu": {
+    "tree": [
+      {
+        "label": "Haiku shape",
+        "children": [
+          "Three lines",
+          "Traditional 5–7–5"
+        ]
+      },
+      {
+        "label": "Subject",
+        "children": [
+          "Human nature",
+          "Often wry"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Haiku"
+    ]
+  },
+  "Tanka": {
+    "tree": [
+      {
+        "label": "Five lines",
+        "children": [
+          "5",
+          "7",
+          "5",
+          "7",
+          "7"
+        ]
+      },
+      {
+        "label": "Movement",
+        "children": [
+          "Image",
+          "Turn"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  }
+}

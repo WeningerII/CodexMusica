@@ -1,0 +1,1342 @@
+{
+  "Traditional ballad": {
+    "tree": [
+      {
+        "label": "Ballad stanza · repeat",
+        "children": [
+          "A",
+          "B",
+          "C",
+          "B"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Ballad stanza"
+    ]
+  },
+  "Long-measure ballad": {
+    "tree": [
+      {
+        "label": "Alternative stanza shapes",
+        "children": [
+          {
+            "label": "Quatrain · four stresses per line",
+            "children": [
+              "A",
+              "A",
+              "B",
+              "B"
+            ]
+          },
+          {
+            "label": "Couplet",
+            "children": [
+              "14-syllable line",
+              "14-syllable line"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Fourteener",
+      "Quatrain"
+    ]
+  },
+  "Ballad with internal refrain": {
+    "tree": [
+      {
+        "label": "Within each stanza",
+        "children": [
+          {
+            "label": "Alternating lines",
+            "children": [
+              "Story line",
+              "Fixed refrain"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Traditional ballad"
+    ]
+  },
+  "Incremental-repetition ballad": {
+    "tree": [
+      {
+        "label": "Recurring stanza",
+        "children": [
+          {
+            "label": "Repeat the frame",
+            "children": [
+              "Keep shared wording",
+              "Change one phrase"
+            ]
+          }
+        ]
+      },
+      "Final reveal"
+    ],
+    "mode": "Rule",
+    "related": [
+      "Traditional ballad"
+    ]
+  },
+  "Broadside ballad": {
+    "tree": [
+      "Address listeners",
+      {
+        "label": "Story stanzas",
+        "children": [
+          "Known air throughout"
+        ]
+      },
+      "Closing moral"
+    ],
+    "mode": "Pattern"
+  },
+  "Come-all-ye": {
+    "tree": [
+      "Call to listeners",
+      {
+        "label": "Narrative",
+        "children": [
+          "Story stanzas"
+        ]
+      },
+      "Moral or farewell"
+    ],
+    "mode": "Pattern"
+  },
+  "Goodnight ballad": {
+    "tree": [
+      {
+        "label": "Confession and warning",
+        "children": [
+          "First-person voice"
+        ]
+      },
+      "Farewell stanza"
+    ],
+    "mode": "Pattern"
+  },
+  "Blues ballad": {
+    "tree": [
+      {
+        "label": "Each stanza",
+        "children": [
+          "Narrative fragment",
+          "Recurring refrain line"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Talking blues": {
+    "tree": [
+      {
+        "label": "Stanza over a guitar figure",
+        "children": [
+          "Half-spoken couplet or quatrain",
+          "Spoken punchline"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Couplet",
+      "Quatrain"
+    ]
+  },
+  "Bothy ballad": {
+    "tree": [
+      {
+        "label": "Recurring unit",
+        "children": [
+          {
+            "label": "Story stanza",
+            "children": [
+              "A",
+              "A",
+              "B",
+              "B"
+            ]
+          },
+          "Optional nonsense couplet"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Couplet"
+    ]
+  },
+  "Forebitter": {
+    "tree": [
+      {
+        "label": "Leisure ballad",
+        "children": [
+          "Sailors’ song",
+          "Optional chorus"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Cante fable": {
+    "tree": [
+      {
+        "label": "Spoken story",
+        "children": [
+          "Narration",
+          "Short sung verses at key moments"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Mummers' play verse": {
+    "tree": [
+      "Character entrances",
+      {
+        "label": "Conflict",
+        "children": [
+          "Fight",
+          "Death",
+          "Doctor’s revival"
+        ]
+      },
+      "Collection speech"
+    ],
+    "mode": "Pattern"
+  },
+  "Calling-on song": {
+    "tree": [
+      {
+        "label": "Introductions",
+        "children": [
+          "One named dancer per stanza"
+        ]
+      },
+      "Call for dancing or money"
+    ],
+    "mode": "Pattern"
+  },
+  "Luck-visit / begging song": {
+    "tree": [
+      {
+        "label": "Visit",
+        "children": [
+          "Greeting and blessing",
+          "Custom explained",
+          "Request for a gift"
+        ]
+      },
+      "Chorus usual"
+    ],
+    "mode": "Rule"
+  },
+  "Street cry": {
+    "tree": [
+      {
+        "label": "Repeat",
+        "children": [
+          "Sales phrase · 1–2 lines"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Dirge / lament": {
+    "tree": [
+      {
+        "label": "Mourning song",
+        "children": [
+          "Short stanzas",
+          "Repeated cry or burden"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Call-and-response": {
+    "tree": [
+      {
+        "label": "Exchange · repeat",
+        "children": [
+          "Leader’s line",
+          "Group reply"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Halyard shanty": {
+    "tree": [
+      {
+        "label": "Verse",
+        "children": [
+          "Solo",
+          "Crew",
+          "Solo",
+          "Crew"
+        ]
+      },
+      "Optional chorus between verses"
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Short-drag shanty": {
+    "tree": [
+      "Solo line",
+      {
+        "label": "Short crew line",
+        "children": [
+          "One stressed pull word"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Capstan shanty": {
+    "tree": [
+      {
+        "label": "Verse",
+        "children": [
+          {
+            "label": "Line pairs",
+            "children": [
+              "Solo",
+              "Crew"
+            ]
+          }
+        ]
+      },
+      "Grand chorus after each verse"
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Stamp-and-go shanty": {
+    "tree": [
+      {
+        "label": "Continuous exchange",
+        "children": [
+          "Solo",
+          "Crew"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Pumping shanty": {
+    "tree": [
+      {
+        "label": "Long solo verse",
+        "children": [
+          {
+            "label": "After every couplet",
+            "children": [
+              "Solo couplet",
+              "Chorus"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response",
+      "Couplet"
+    ]
+  },
+  "Hammer song / chain-gang song": {
+    "tree": [
+      {
+        "label": "Exchange",
+        "children": [
+          "Short lead line",
+          "Fixed reply at the stroke"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Field holler": {
+    "tree": [
+      {
+        "label": "Solo calls",
+        "children": [
+          "Phrase",
+          "Pause",
+          "Next phrase"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Waulking song": {
+    "tree": [
+      {
+        "label": "Cycle",
+        "children": [
+          "Leader’s line",
+          "Group’s nonsense-syllable answer"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Military cadence": {
+    "tree": [
+      {
+        "label": "In step",
+        "children": [
+          "Leader’s chant",
+          "Group repeats or answers"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Echo song": {
+    "tree": [
+      {
+        "label": "Exchange",
+        "children": [
+          "Leader’s line",
+          "Group echoes it word for word"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Zipper song": {
+    "tree": [
+      {
+        "label": "Verse template",
+        "children": [
+          "Fixed wording",
+          "New word in the same slot"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Cumulative song": {
+    "tree": [
+      {
+        "label": "Each new verse",
+        "children": [
+          "Add one item",
+          "Repeat prior items newest first"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Counting song": {
+    "tree": [
+      {
+        "label": "Numbered chain",
+        "children": [
+          "New number",
+          "Count back to one"
+        ]
+      },
+      "Fixed closing tag"
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Cumulative song"
+    ]
+  },
+  "Countdown song": {
+    "tree": [
+      {
+        "label": "Verse template",
+        "children": [
+          "Repeat the frame",
+          "Subtract one each time"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Riddle song": {
+    "tree": [
+      {
+        "label": "First group",
+        "children": [
+          "Riddle stanzas"
+        ]
+      },
+      {
+        "label": "Second group",
+        "children": [
+          "Answers in the same order"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Nonsense-refrain song": {
+    "tree": [
+      {
+        "label": "Song",
+        "children": [
+          "Verses",
+          "Nonsense-syllable refrain"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Lullaby": {
+    "tree": [
+      {
+        "label": "Framing refrain",
+        "children": [
+          "Soothing refrain",
+          "Short repetitive quatrains",
+          "Soothing refrain returns"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Quatrain"
+    ]
+  },
+  "Nursery rhyme": {
+    "tree": [
+      {
+        "label": "One common quatrain",
+        "children": [
+          "A",
+          "A",
+          "B",
+          "B"
+        ]
+      }
+    ],
+    "mode": "Example",
+    "related": [
+      "Quatrain"
+    ]
+  },
+  "Counting-out rhyme": {
+    "tree": [
+      {
+        "label": "Chant · 2–6 lines",
+        "children": [
+          "One beat per child",
+          "Final elimination word"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Skipping / clapping rhyme": {
+    "tree": [
+      {
+        "label": "Strict-beat verse",
+        "children": [
+          "Couplets or quatrains"
+        ]
+      },
+      "Counting or spelling tail"
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Couplet",
+      "Quatrain"
+    ]
+  },
+  "Singing game": {
+    "tree": [
+      {
+        "label": "Verse cycle",
+        "children": [
+          "Named action",
+          "Fixed chorus between verses"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Finger play": {
+    "tree": [
+      {
+        "label": "Rhyme · 4–8 lines",
+        "children": [
+          "Gesture for each line",
+          "Body part changes in later verses"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Dandling rhyme": {
+    "tree": [
+      {
+        "label": "Chant · 4–8 lines",
+        "children": [
+          "Speed up",
+          "Drop line"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Playground taunt": {
+    "tree": [
+      {
+        "label": "Repeat",
+        "children": [
+          "Sing-song jeer · 1–2 lines"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Tongue twister": {
+    "tree": [
+      {
+        "label": "1–4 lines",
+        "children": [
+          "Closely similar sounds"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Dozens": {
+    "tree": [
+      {
+        "label": "Trade insults",
+        "children": [
+          "First player’s couplet",
+          "Second player’s answering couplet"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Couplet"
+    ]
+  },
+  "Toast (oral narrative)": {
+    "tree": [
+      "Set opening",
+      {
+        "label": "Recited story",
+        "children": [
+          "Four-beat rhymed couplets"
+        ]
+      },
+      "Closing brag"
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Couplet"
+    ]
+  },
+  "Square-dance singing call": {
+    "tree": [
+      "Opening",
+      {
+        "label": "Main figures",
+        "children": [
+          "One for each couple"
+        ]
+      },
+      "Break",
+      "Closer"
+    ],
+    "mode": "Pattern"
+  },
+  "Square-dance patter call": {
+    "tree": [
+      {
+        "label": "Over the music",
+        "children": [
+          "Continuous rhymed chant",
+          "Dance instructions"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Round": {
+    "tree": [
+      {
+        "label": "Looping melody",
+        "children": [
+          "First voice enters",
+          "Other voices enter in turn",
+          "Each voice loops"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Canon"
+    ]
+  },
+  "Catch": {
+    "tree": [
+      {
+        "label": "Comic round",
+        "children": [
+          "Staggered entries",
+          "Overlapping words make puns"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Round"
+    ]
+  },
+  "Canon": {
+    "tree": [
+      {
+        "label": "Imitation",
+        "children": [
+          "First voice",
+          "Following voice at fixed delay"
+        ]
+      },
+      "Set ending"
+    ],
+    "mode": "Rule",
+    "related": [
+      "Round"
+    ]
+  },
+  "Madrigal": {
+    "tree": [
+      {
+        "label": "Through-composed setting",
+        "children": [
+          "Short lyric",
+          "Last line repeated"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Through-composed"
+    ]
+  },
+  "Ballett": {
+    "tree": [
+      {
+        "label": "Each half-stanza",
+        "children": [
+          "Sung text",
+          "Fa-la-la ending"
+        ]
+      },
+      "Repeat each half"
+    ],
+    "mode": "Pattern"
+  },
+  "Canzonet": {
+    "tree": [
+      {
+        "label": "Strophic song",
+        "children": [
+          "2–3 voices",
+          "Repeated sections"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Strophic"
+    ]
+  },
+  "Ayre": {
+    "tree": [
+      {
+        "label": "Recurring stanza",
+        "children": [
+          "Solo voice and lute",
+          "Same stanza shape"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Strophic"
+    ]
+  },
+  "Consort song": {
+    "tree": [
+      {
+        "label": "Strophic solo",
+        "children": [
+          "Voice and viols"
+        ]
+      },
+      "Full group repeats final lines"
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Strophic"
+    ]
+  },
+  "Three-man's song": {
+    "tree": [
+      {
+        "label": "Strophic song",
+        "children": [
+          "Three voices",
+          "Refrain"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Strophic"
+    ]
+  },
+  "Glee": {
+    "tree": [
+      {
+        "label": "Through-composed part-song",
+        "children": [
+          "Contrasting sections",
+          "Unaccompanied voices"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Through-composed"
+    ]
+  },
+  "Part-song (Victorian)": {
+    "tree": [
+      {
+        "label": "Strophic setting",
+        "children": [
+          "Poem stanzas",
+          "Choir in chords"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Strophic"
+    ]
+  },
+  "Elizabethan stage jig": {
+    "tree": [
+      {
+        "label": "Comic afterpiece",
+        "children": [
+          "Ballad stanzas",
+          "Several tunes",
+          "Dancing characters"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Ballad stanza"
+    ]
+  },
+  "Medieval carol with burden": {
+    "tree": [
+      "Opening burden · 2–4 lines",
+      {
+        "label": "Repeat",
+        "children": [
+          "Stanza · AAAB or AABB",
+          "Burden returns"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Lullay carol": {
+    "tree": [
+      {
+        "label": "Carol",
+        "children": [
+          "Lullay burden",
+          "Optional dialogue"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Medieval carol with burden"
+    ]
+  },
+  "Christmas carol": {
+    "tree": [
+      {
+        "label": "Hymn-like stanzas",
+        "children": [
+          "Short refrain or chorus"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Macaronic carol / song": {
+    "tree": [
+      {
+        "label": "Language changes",
+        "children": [
+          "English and Latin",
+          "Refrain is a common switch point"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Macaronic verse"
+    ]
+  },
+  "Metrical hymn": {
+    "tree": [
+      {
+        "label": "Recurring stanzas",
+        "children": [
+          "Named syllable metre",
+          "One tune"
+        ]
+      },
+      "Optional closing doxology"
+    ],
+    "mode": "Rule",
+    "related": [
+      "Strophic",
+      "Common metre (CM)",
+      "Long metre (LM)",
+      "Short metre (SM)",
+      "Doxology"
+    ]
+  },
+  "Hymn with refrain": {
+    "tree": [
+      {
+        "label": "Repeat",
+        "children": [
+          "Metrical stanza",
+          "Fixed refrain"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Metrical hymn"
+    ]
+  },
+  "Gospel song (Sankey)": {
+    "tree": [
+      {
+        "label": "Repeat",
+        "children": [
+          "Verse · 4 lines",
+          "Title chorus · 4 lines"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Camp-meeting song": {
+    "tree": [
+      {
+        "label": "Hymn with inserted refrain",
+        "children": [
+          "After each line or stanza",
+          "Short recurring refrain"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Metrical hymn"
+    ]
+  },
+  "Praise chorus": {
+    "tree": [
+      {
+        "label": "Repeat",
+        "children": [
+          "Short stanza · 4–8 lines"
+        ]
+      },
+      "Closing tag"
+    ],
+    "mode": "Pattern"
+  },
+  "Spiritual": {
+    "tree": [
+      "Framing chorus",
+      {
+        "label": "Leader and group exchange",
+        "children": [
+          "Leader’s AAAB verse",
+          "Group’s answer"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Ring shout": {
+    "tree": [
+      {
+        "label": "Accelerating cycle",
+        "children": [
+          "Improvised lead line",
+          "Fixed group reply"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Shaker gift song": {
+    "tree": [
+      {
+        "label": "Repeat",
+        "children": [
+          "One stanza · 4–8 lines"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Table grace (sung)": {
+    "tree": [
+      {
+        "label": "Rhymed stanza of thanks",
+        "children": [
+          "2–4 lines",
+          "May be sung as a round"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Round"
+    ]
+  },
+  "Ostinato chant (Taizé)": {
+    "tree": [
+      {
+        "label": "Simultaneous parts",
+        "children": [
+          "Looped chant · 1–4 lines",
+          "Cantor verses above"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Metrical psalm": {
+    "tree": [
+      {
+        "label": "Psalm paraphrase",
+        "children": [
+          "Common-metre stanzas",
+          "One tune"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Common metre (CM)"
+    ]
+  },
+  "Lined-out hymn": {
+    "tree": [
+      {
+        "label": "Line by line",
+        "children": [
+          "Leader speaks or chants",
+          "Congregation sings it back"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Anglican chant": {
+    "tree": [
+      {
+        "label": "Repeating chant formula",
+        "children": [
+          {
+            "label": "Prose verse",
+            "children": [
+              "First half",
+              "Second half after colon"
+            ]
+          }
+        ]
+      },
+      "Gloria Patri"
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Doxology"
+    ]
+  },
+  "Psalm with antiphon": {
+    "tree": [
+      "Antiphon",
+      {
+        "label": "Alternating verses",
+        "children": [
+          "First choir side",
+          "Second choir side"
+        ]
+      },
+      "Doxology",
+      "Antiphon returns"
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Doxology"
+    ]
+  },
+  "Responsorial psalm": {
+    "tree": [
+      {
+        "label": "Opening",
+        "children": [
+          "Cantor’s response",
+          "Everyone repeats"
+        ]
+      },
+      {
+        "label": "Verse and response",
+        "children": [
+          "Cantor’s verse",
+          "Everyone’s response"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Responsory": {
+    "tree": [
+      {
+        "label": "Respond",
+        "children": [
+          "First half",
+          "Second half"
+        ]
+      },
+      "Verse",
+      "Second half of respond returns"
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Litany": {
+    "tree": [
+      {
+        "label": "Repeat",
+        "children": [
+          "Petition",
+          "Same response"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Versicles and responses": {
+    "tree": [
+      {
+        "label": "Paired lines · repeat",
+        "children": [
+          "Leader",
+          "Congregation"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Call-and-response"
+    ]
+  },
+  "Canticle": {
+    "tree": [
+      {
+        "label": "Fixed text",
+        "children": [
+          "Chanted or set through"
+        ]
+      },
+      "Closing doxology"
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Doxology"
+    ]
+  },
+  "Doxology": {
+    "tree": [
+      {
+        "label": "One stanza of praise",
+        "children": [
+          "4 lines",
+          "Standalone or hymn ending"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Metrical hymn"
+    ]
+  },
+  "Full anthem": {
+    "tree": [
+      {
+        "label": "Full choir",
+        "children": [
+          "Through-composed sacred text"
+        ]
+      },
+      "Closing Amen"
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Through-composed"
+    ]
+  },
+  "Verse anthem": {
+    "tree": [
+      {
+        "label": "Alternation",
+        "children": [
+          "Solo verse",
+          "Full choir section"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Fuging tune": {
+    "tree": [
+      {
+        "label": "Hymn stanza",
+        "children": [
+          "First half sung together",
+          {
+            "label": "Second half repeats",
+            "children": [
+              "Voices enter in turn"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Shape-note anthem": {
+    "tree": [
+      {
+        "label": "Through-composed scripture",
+        "children": [
+          "Chordal sections",
+          "Fuging sections"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Through-composed"
+    ]
+  },
+  "Mass setting (English)": {
+    "tree": [
+      {
+        "label": "Movements",
+        "children": [
+          "Kyrie",
+          "Gloria",
+          "Creed",
+          "Sanctus / Benedictus",
+          "Agnus Dei"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Anglican service": {
+    "tree": [
+      {
+        "label": "First canticle",
+        "children": [
+          "Text",
+          "Glory be"
+        ]
+      },
+      {
+        "label": "Second canticle",
+        "children": [
+          "Text",
+          "Glory be"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Canticle",
+      "Doxology"
+    ]
+  }
+}

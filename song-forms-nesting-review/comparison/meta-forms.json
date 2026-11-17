@@ -1,0 +1,666 @@
+{
+  "source_inventory": "https://github.com/WeningerII/CodexMusica/issues/676#issuecomment-6562698364",
+  "source_group": "Meta-terms and formal types",
+  "term_count": 62,
+  "catalog": "song-forms/english-forms.md, five data tables, 364 actual form rows; line numbers are one-based in the original",
+  "method": "All 62 supplied labels, in original order, compared with catalog titles, aliases and structure descriptions. A related item or return device is not an automatic synonym. A missing umbrella, a whole form, an inner pattern, a tonal scheme, a performance convention and a scope question are recorded separately. External references adjudicate named distinctions; a bare catalog match is checked directly against its cited line(s). An empty citation list makes no independent repertory claim.",
+  "terms": [
+    {
+      "term": "Module",
+      "disposition": "analytic vocabulary",
+      "catalog_lines": [],
+      "detail": "A module is a unit from which a form is assembled. The term alone specifies neither a sequence nor a complete lyric.",
+      "refs": [
+        "https://openmusictheory.github.io/popRockForm-functions"
+      ]
+    },
+    {
+      "term": "Rotation",
+      "disposition": "analytic vocabulary",
+      "catalog_lines": [
+        41,
+        42
+      ],
+      "detail": "Rotation can describe a pass through a recurring series of sections. Hudson’s second verse–chorus rotation in “Master of Puppets” is a specific analysis; rotation by itself prescribes no song form.",
+      "refs": [
+        "https://www.mtosmt.org/issues/mto.21.27.1/mto.21.27.1.hudson.php"
+      ]
+    },
+    {
+      "term": "Cycle",
+      "disposition": "analytic vocabulary",
+      "catalog_lines": [
+        40,
+        42,
+        68
+      ],
+      "detail": "A pass through a repeating unit is present in several rows. “Song cycle” on line 68 means an ordered collection of independent songs, a different scale and sense.",
+      "refs": [
+        "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+      ]
+    },
+    {
+      "term": "Formal function",
+      "disposition": "analytic vocabulary",
+      "catalog_lines": [],
+      "detail": "A passage’s role in its context is a classification dimension, not a whole-piece blueprint.",
+      "refs": [
+        "https://openmusictheory.github.io/popRockForm-functions"
+      ]
+    },
+    {
+      "term": "Framing function",
+      "disposition": "analytic vocabulary",
+      "catalog_lines": [
+        34,
+        51
+      ],
+      "detail": "Opening and closing material frames a larger structure. A framing role does not determine what lies between the boundaries.",
+      "refs": [
+        "https://viva.pressbooks.pub/openmusictheory/chapter/aaba-and-strophic-form/"
+      ]
+    },
+    {
+      "term": "Initiating function",
+      "disposition": "analytic vocabulary",
+      "catalog_lines": [],
+      "detail": "Initiating describes a beginning function. It can be assigned at several hierarchical levels without implying a fixed song type.",
+      "refs": [
+        "https://openmusictheory.github.io/popRockForm-functions"
+      ]
+    },
+    {
+      "term": "Medial function",
+      "disposition": "analytic vocabulary",
+      "catalog_lines": [],
+      "detail": "Medial describes a position or function between initiation and conclusion. Sections with different content can fulfill the role.",
+      "refs": [
+        "https://openmusictheory.github.io/popRockForm-functions"
+      ]
+    },
+    {
+      "term": "Concluding function",
+      "disposition": "analytic vocabulary",
+      "catalog_lines": [],
+      "detail": "Concluding describes a local or global ending function; it does not prescribe a complete form.",
+      "refs": [
+        "https://openmusictheory.github.io/popRockForm-functions"
+      ]
+    },
+    {
+      "term": "Primary module",
+      "disposition": "analytic vocabulary",
+      "catalog_lines": [],
+      "detail": "Open Music Theory treats the chorus as the primary module in verse–chorus form and strophe as primary in AABA. The role depends on the form, so it does not create a new whole song.",
+      "refs": [
+        "https://openmusictheory.github.io/popRockForm.html"
+      ]
+    },
+    {
+      "term": "Secondary module",
+      "disposition": "analytic vocabulary",
+      "catalog_lines": [],
+      "detail": "Open Music Theory calls the verse a secondary module in verse–chorus form. That role within one analytical model is not a complete song structure.",
+      "refs": [
+        "https://openmusictheory.github.io/popRockForm.html"
+      ]
+    },
+    {
+      "term": "Auxiliary module",
+      "disposition": "analytic vocabulary",
+      "catalog_lines": [],
+      "detail": "Auxiliary describes noncore material in a form, such as an intro or coda. It belongs on a part or relation.",
+      "refs": [
+        "https://viva.pressbooks.pub/openmusictheory/chapter/aaba-and-strophic-form/"
+      ]
+    },
+    {
+      "term": "Loose verse",
+      "disposition": "analytic qualifier",
+      "catalog_lines": [
+        38,
+        39
+      ],
+      "detail": "Loose describes the formal organization attributed to a verse. No fixed sectional template follows, and the catalog’s simple/contrasting distinction is about different properties.",
+      "scope": "An operational definition of looseness is needed before tagging individual songs.",
+      "refs": []
+    },
+    {
+      "term": "Tight chorus",
+      "disposition": "analytic qualifier",
+      "catalog_lines": [
+        38,
+        39
+      ],
+      "detail": "Tight characterizes a chorus or contrast with a verse. It is independent of the underlying verse–chorus plan.",
+      "scope": "No English song row is established by the qualifier itself.",
+      "refs": []
+    },
+    {
+      "term": "SRDC",
+      "disposition": "missing nested pattern",
+      "catalog_lines": [],
+      "detail": "The statement–restatement–departure–conclusion model describes a commonly analyzed phrase or section organization. Nobile gives early Beatles examples. It can operate above that level, so retain the level of each instance.",
+      "scope": "Document and diagram as an internal schema. It is not automatically an additional whole song.",
+      "refs": [
+        "https://www.mtosmt.org/issues/mto.11.17.3/mto.11.17.3.nobile.html",
+        "https://academic.oup.com/book/33667/chapter/288217357"
+      ]
+    },
+    {
+      "term": "Compound",
+      "disposition": "analytic vocabulary",
+      "catalog_lines": [
+        31,
+        32,
+        41
+      ],
+      "detail": "“Compound” specifies more than one level of grouping, not which groups. Compound AABA is a concrete problematic alias on line 32.",
+      "refs": [
+        "https://www.mtosmt.org/issues/mto.21.27.1/mto.21.27.1.hudson.php"
+      ]
+    },
+    {
+      "term": "Strophic form",
+      "disposition": "represented",
+      "catalog_lines": [
+        27
+      ],
+      "detail": "Same tune returns across successive verses; “form” adds no new entry.",
+      "refs": [
+        "https://viva.pressbooks.pub/openmusictheory/chapter/aaba-and-strophic-form/"
+      ]
+    },
+    {
+      "term": "Modified strophic",
+      "disposition": "represented",
+      "catalog_lines": [
+        29
+      ],
+      "detail": "The name matches directly. One or more musically altered strophes do not create another catalog identity.",
+      "refs": [
+        "https://viva.pressbooks.pub/openmusictheory/chapter/aaba-and-strophic-form/"
+      ]
+    },
+    {
+      "term": "Verse-chorus form",
+      "disposition": "missing catalog umbrella",
+      "catalog_lines": [
+        12,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "detail": "The planner overview already names verse-chorus; multiple catalog entries specialize it, but none of the 364 catalog rows supplies a general selectable verse–chorus parent.",
+      "scope": "Catalog navigation gap; not an absent planner feature.",
+      "refs": [
+        "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+      ]
+    },
+    {
+      "term": "Simple verse form",
+      "disposition": "covered synonym",
+      "catalog_lines": [
+        27
+      ],
+      "detail": "Covach’s simple-verse terminology denotes the repeating single-strophe layout here. Add a search synonym while retaining the scholarly distinction between repeating underlying harmony and literally identical melody.",
+      "refs": [
+        "https://digital.library.unt.edu/ark%3A/67531/metadc822808/m1/48/"
+      ]
+    },
+    {
+      "term": "Simple verse-chorus form",
+      "disposition": "covered synonym",
+      "catalog_lines": [
+        38
+      ],
+      "detail": "The catalog uses Simple verse-chorus and defines shared underlying chords.",
+      "refs": [
+        "https://openmusictheory.github.io/popRockForm.html"
+      ]
+    },
+    {
+      "term": "Contrasting verse-chorus form",
+      "disposition": "covered synonym",
+      "catalog_lines": [
+        39
+      ],
+      "detail": "Same category as Contrasting verse-chorus.",
+      "refs": [
+        "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+      ]
+    },
+    {
+      "term": "Verse-refrain form",
+      "disposition": "covered synonym",
+      "catalog_lines": [
+        28,
+        34
+      ],
+      "detail": "The verse-refrain name is already the alias of Strophic with refrain. Line 34 uses a historically different “refrain” for the main section following an introductory verse.",
+      "refs": [
+        "https://viva.pressbooks.pub/openmusictheory/chapter/aaba-and-strophic-form/"
+      ]
+    },
+    {
+      "term": "Binary",
+      "disposition": "represented",
+      "catalog_lines": [
+        45
+      ],
+      "detail": "Binary is named. Its repeat-sign and repeat-order disagreement is documented separately rather than counted as a missing form.",
+      "refs": [
+        "https://viva.pressbooks.pub/openmusictheory/chapter/binary-form/"
+      ]
+    },
+    {
+      "term": "Ternary",
+      "disposition": "represented",
+      "catalog_lines": [
+        46
+      ],
+      "detail": "The ABA category is present under Ternary.",
+      "refs": []
+    },
+    {
+      "term": "Rondo",
+      "disposition": "represented",
+      "catalog_lines": [
+        48
+      ],
+      "detail": "The catalog includes a central recurring section alternating with episodes and lists ABACA and ABACABA.",
+      "refs": []
+    },
+    {
+      "term": "Arch form",
+      "disposition": "covered synonym",
+      "catalog_lines": [
+        49
+      ],
+      "detail": "Arch already expresses the mirror arrangement.",
+      "refs": []
+    },
+    {
+      "term": "Through-composed",
+      "disposition": "represented",
+      "catalog_lines": [
+        50
+      ],
+      "detail": "Through-composition is named. The row’s “nothing repeats” is insufficient for published through-composed classes that share themes without repeating whole sections.",
+      "refs": [
+        "https://www.mtosmt.org/issues/mto.11.17.3/mto.11.17.3.osborn.php"
+      ]
+    },
+    {
+      "term": "Accumulative form",
+      "disposition": "missing texture process",
+      "catalog_lines": [
+        81,
+        122
+      ],
+      "detail": "Spicer distinguishes building a groove through successive entries of its layers. This can organize an opening or section of a larger song. The cumulative lyrics in line 122 and persistence of one riff in line 81 do not imply this process. A texture may accumulate within an otherwise ordinary verse–chorus form.",
+      "scope": "Account for musical layers and time scale; lyrics alone cannot verify it.",
+      "refs": [
+        "https://doi.org/10.1017/S1478572204000052"
+      ]
+    },
+    {
+      "term": "Cumulative form",
+      "disposition": "polysemous",
+      "catalog_lines": [
+        122,
+        123
+      ],
+      "detail": "The folk add-on-text meaning is present as Cumulative song. The music-theory meaning in Spicer and Burkholder concerns earlier fragments coming together in a later thematic culmination; it is a distinct process.",
+      "scope": "Represent both explicitly; do not add a duplicate for the folk sense.",
+      "refs": [
+        "https://doi.org/10.1017/S1478572204000052"
+      ]
+    },
+    {
+      "term": "Terminally climactic form",
+      "disposition": "missing whole-song form",
+      "catalog_lines": [
+        38,
+        39,
+        50
+      ],
+      "detail": "Osborn identifies a new, thematically independent climax heard only at the end, following an earlier expectation established by the song. A last louder chorus is insufficient. His study distinguishes two-part, three-part and extended designs.",
+      "scope": "Strong specific English-language song candidate.",
+      "refs": [
+        "https://doi.org/10.1525/mts.2013.35.1.23"
+      ]
+    },
+    {
+      "term": "Telos form",
+      "disposition": "analytic principle",
+      "catalog_lines": [
+        40,
+        42,
+        80
+      ],
+      "detail": "Nobile calls this the telos principle. It models directed section functions over a verse–prechorus–chorus cycle, including subversions; it is not a synonym of Osborn’s once-only terminal climax.",
+      "refs": [
+        "https://www.mtosmt.org/issues/mto.22.28.3/mto.22.28.3.nobile.html",
+        "https://doi.org/10.1525/mts.2013.35.1.23"
+      ]
+    },
+    {
+      "term": "Sonata-allegro",
+      "disposition": "scope evidence needed",
+      "catalog_lines": [],
+      "detail": "Sonata-allegro has its own formal sense, but this comparison has not documented an English-text vocal example and an appropriate representation of tonal functions. Do not count the omission as an English lyric form on name alone.",
+      "scope": "Wider musical form; candidate for a separate, sourced vocal repertoire check.",
+      "refs": []
+    },
+    {
+      "term": "Twelve-bar blues",
+      "disposition": "covered synonym",
+      "catalog_lines": [
+        35
+      ],
+      "detail": "Spelled-out and numeral names denote the same twelve-bar entry.",
+      "refs": []
+    },
+    {
+      "term": "Sixteen-bar blues",
+      "disposition": "covered synonym",
+      "catalog_lines": [
+        37
+      ],
+      "detail": "Spelled-out and numeral names denote the same sixteen-bar entry.",
+      "refs": []
+    },
+    {
+      "term": "Eight-bar blues",
+      "disposition": "covered synonym",
+      "catalog_lines": [
+        36
+      ],
+      "detail": "Spelled-out and numeral names denote the same eight-bar entry.",
+      "refs": []
+    },
+    {
+      "term": "Rhythm changes",
+      "disposition": "missing harmonic schema",
+      "catalog_lines": [
+        31,
+        54
+      ],
+      "detail": "The named family is based on the chord changes to Gershwin’s “I Got Rhythm”. AABA is a sectional outline shared by unrelated tunes, while line 54’s new words on an existing tune represent a different reuse mechanism.",
+      "scope": "Ground it as a harmonic schema and preserve the distinction between a jazz contrafact and a new text set to an existing tune.",
+      "refs": [
+        "https://www.jazzinamerica.org/jazzresources/glossary/q/zz"
+      ]
+    },
+    {
+      "term": "Bar form (Stollen, Stollen, Abgesang)",
+      "disposition": "represented",
+      "catalog_lines": [
+        47
+      ],
+      "detail": "Both Stollen and the contrasting Abgesang are named by the existing entry.",
+      "refs": []
+    },
+    {
+      "term": "Ritornello form",
+      "disposition": "missing recurring-section scheme",
+      "catalog_lines": [
+        64,
+        70,
+        231
+      ],
+      "detail": "The ritornello that recurs between solo entries is audible and identified by exact listening times in Handel’s English-text “Every Valley.” The alias ritornello on Stornello denotes a different three-line verse type.",
+      "scope": "English vocal evidence exists; represent the recurring orchestral material and vocal episodes, which may belong inside a larger aria.",
+      "refs": [
+        "https://pressbooks.cuny.edu/understandingmusicbmcc/chapter/5-music-of-george-frideric-handel-1685-1759/"
+      ]
+    },
+    {
+      "term": "Da capo",
+      "disposition": "polysemous",
+      "catalog_lines": [
+        46,
+        64
+      ],
+      "detail": "Da capo is a return-to-the-beginning direction. Its aria realization already has a named entry; “da capo” in isolation is not another song type.",
+      "refs": []
+    },
+    {
+      "term": "Segno",
+      "disposition": "notation",
+      "catalog_lines": [],
+      "detail": "The segno is a notational reference point for navigation; it does not specify a complete arrangement.",
+      "refs": []
+    },
+    {
+      "term": "Coda sign",
+      "disposition": "notation",
+      "catalog_lines": [],
+      "detail": "The coda sign is a navigation marker. A coda section and the sign itself are different objects.",
+      "refs": []
+    },
+    {
+      "term": "Vuelta",
+      "disposition": "scope evidence needed",
+      "catalog_lines": [],
+      "detail": "Vuelta can designate a return or a part in a tradition-specific stanza/refrain structure. The label alone does not identify which tradition, complete form, or English-language realization was intended.",
+      "scope": "Require a score or performer edition and identification of the language and structural level.",
+      "refs": []
+    },
+    {
+      "term": "Copla-estribillo",
+      "disposition": "scope evidence needed",
+      "catalog_lines": [
+        28
+      ],
+      "detail": "Copla–estribillo describes a possible stanza/refrain relationship; a translated gloss alone cannot identify it with every English verse–refrain example or specify the ordering of a particular traditional realization.",
+      "scope": "A concrete English-text setting and a specialist source for the intended tradition remain to be checked.",
+      "refs": []
+    },
+    {
+      "term": "Son montuno structure",
+      "disposition": "scope evidence needed",
+      "catalog_lines": [
+        110
+      ],
+      "detail": "Cuban son can move into a responsive montuno section; the generic Call-and-response row covers a relationship but not the son design. “Son montuno” also names a style.",
+      "scope": "This inquiry did not verify an English-text example with an unambiguous complete design.",
+      "refs": [
+        "https://scalar.usc.edu/works/music-in-global-america/music-of-cuba-and-cuban-music-in-usa-1900-1960.72",
+        "https://folkways.si.edu/folk-music-of-cuba/world/music/album/smithsonian"
+      ]
+    },
+    {
+      "term": "Kirtan structure",
+      "disposition": "tradition requiring narrower form",
+      "catalog_lines": [
+        110
+      ],
+      "detail": "Kirtan describes a devotional performance tradition. A documented Padavali Kirtan recording identifies a specific regional practice; repeating a response alone cannot establish one invariant song plan for all kirtan.",
+      "scope": "Verify a particular subform and English-text setting independently.",
+      "refs": [
+        "https://folkways.si.edu/swapan-boral/padavali-kirtan/india-sacred-world/music/album/smithsonian"
+      ]
+    },
+    {
+      "term": "Qawwali structure",
+      "disposition": "tradition requiring narrower form",
+      "catalog_lines": [],
+      "detail": "Qawwali is a Sufi musical tradition and performance practice. The award documentation recognizes its practitioners; it supplies no universal ordered section grammar for English lyrics.",
+      "scope": "Specific repertoire and performance segmentation are required.",
+      "refs": [
+        "https://www.akdn.org/en/resources-media/whats-new/news-release/winners-of-2025-aga-khan-music-awards-announced"
+      ]
+    },
+    {
+      "term": "Gharana structure",
+      "disposition": "lineage",
+      "catalog_lines": [],
+      "detail": "Gharana indicates an artistic lineage or school. Multiple forms may circulate within a gharana, so no whole-song diagram follows.",
+      "refs": [
+        "https://darbar.org/glossary-of-indian-music-terms/"
+      ]
+    },
+    {
+      "term": "Sthayi-antara form",
+      "disposition": "scope evidence needed",
+      "catalog_lines": [],
+      "detail": "Sthayi and antara identify two compositional sections in North Indian practice. Treat the two-part organization on its own terms, not as an automatic alias for the catalog’s Western Binary row.",
+      "scope": "An English-language work and a tradition-specific delineation of the repeat/return remain unverified.",
+      "refs": [
+        "https://darbar.org/glossary-of-indian-music-terms/",
+        "https://www.saareymusic.com/glossary/bandish"
+      ]
+    },
+    {
+      "term": "Pallavi-anupallavi-charanam",
+      "disposition": "scope evidence needed",
+      "catalog_lines": [],
+      "detail": "Darbar describes pallavi, an optional anupallavi, and charanam in a kriti. A source-attested sectional design is present, but English-text eligibility has not been verified in this pass.",
+      "scope": "Retain the optional middle section; do not assert all compositions or repertoires follow the full three-part pattern.",
+      "refs": [
+        "https://darbar.org/an-introduction-to-carnatic-music-south-indias-classical-tradition/"
+      ]
+    },
+    {
+      "term": "Bandish",
+      "disposition": "tradition requiring narrower form",
+      "catalog_lines": [],
+      "detail": "A bandish is a fixed composition in Hindustani practice. The category can supply material for elaboration, but by itself fixes neither all larger performance sections nor an English-language text.",
+      "scope": "Verify the compositional subtype, structure and language of a concrete example.",
+      "refs": [
+        "https://www.saareymusic.com/glossary/bandish",
+        "https://darbar.org/glossary-of-indian-music-terms/"
+      ]
+    },
+    {
+      "term": "Jor",
+      "disposition": "instrumental section",
+      "catalog_lines": [],
+      "detail": "Jor is a pulsed phase of an instrumental raga presentation; a performance stage alone is not a missing English lyric form.",
+      "refs": [
+        "https://darbar.org/glossary-of-indian-music-terms/"
+      ]
+    },
+    {
+      "term": "Jhala",
+      "disposition": "instrumental section",
+      "catalog_lines": [],
+      "detail": "Jhala is a fast climactic phase typically discussed in instrumental performance. Treat it at the performance-section level.",
+      "refs": [
+        "https://darbar.org/glossary-of-indian-music-terms/"
+      ]
+    },
+    {
+      "term": "Gat",
+      "disposition": "instrumental composition",
+      "catalog_lines": [],
+      "detail": "A gat is a fixed instrumental composition in the raga tradition. It can anchor improvisation, but a textless gat supplies no lyric sequence.",
+      "refs": [
+        "https://darbar.org/glossary-of-indian-music-terms/"
+      ]
+    },
+    {
+      "term": "Tihai",
+      "disposition": "rhythmic device",
+      "catalog_lines": [],
+      "detail": "Tihai is a rhythmic pattern articulated three times to produce an arrival. Its scale can vary. It is a cadential device rather than an independent English lyric form.",
+      "refs": [
+        "https://darbar.org/glossary-of-indian-music-terms/"
+      ]
+    },
+    {
+      "term": "Head-solos-head",
+      "disposition": "terminology conflation",
+      "catalog_lines": [
+        71
+      ],
+      "detail": "Head–solos–head appears as an alias and as the catalog example, so the musical sequence has already been discussed. It needs its own conceptual identity: a head arrangement concerns how the players devise and remember an arrangement.",
+      "scope": "Jazz performance envelope distinct from the form of the tune played inside one chorus.",
+      "refs": [
+        "https://www.jazzinamerica.org/StudentHandout/8/2",
+        "https://www.loc.gov/programs/national-recording-preservation-board/recording-registry/descriptions-and-essays/?loclr=blogloc"
+      ]
+    },
+    {
+      "term": "Blowing changes",
+      "disposition": "harmonic performance practice",
+      "catalog_lines": [
+        71
+      ],
+      "detail": "“Changes” are the chord progression used while improvising. Playing over the changes neither requires a specific length nor identifies a distinct whole-song scheme.",
+      "refs": [
+        "https://www.jazzinamerica.org/jazzresources/glossary/a/i",
+        "https://www.jazzinamerica.org/jazzresources/glossary/q/zz"
+      ]
+    },
+    {
+      "term": "Loop-based form",
+      "disposition": "umbrella requiring definition",
+      "catalog_lines": [
+        78,
+        81,
+        140,
+        165
+      ],
+      "detail": "The catalog already includes loops serving rap, groove-based songs, rounds and ostinato chants. The time unit, material repeated and role at the song level determine whether two instances share a form.",
+      "scope": "Useful process/facet; one new template for every possible loop would be unsound.",
+      "refs": []
+    },
+    {
+      "term": "Track form",
+      "disposition": "insufficient definition",
+      "catalog_lines": [],
+      "detail": "“Track form” does not identify one ordered schema, theorist, recording or decision rule here. No concrete addition is warranted from the phrase alone.",
+      "refs": []
+    },
+    {
+      "term": "Layered form",
+      "disposition": "umbrella requiring definition",
+      "catalog_lines": [
+        53,
+        81,
+        165
+      ],
+      "detail": "These entries involve simultaneous materials, riffs and chants over ostinati. Layering alone neither dictates the entry order nor guarantees Spicer’s accumulative technique.",
+      "refs": [
+        "https://doi.org/10.1017/S1478572204000052"
+      ]
+    },
+    {
+      "term": "Additive form",
+      "disposition": "polysemous",
+      "catalog_lines": [
+        122
+      ],
+      "detail": "Adding lyrics in a chain is already represented, as is the more general possibility of layers accruing in music theory. “Additive” can also refer to rhythm. Identify what is added and at what scale.",
+      "refs": [
+        "https://doi.org/10.1017/S1478572204000052"
+      ]
+    },
+    {
+      "term": "Subtractive form",
+      "disposition": "process requiring evidence",
+      "catalog_lines": [],
+      "detail": "Dropping successive layers is a plausible process, but this inventory gives no named canonical vocal form, exact decrement, or qualifying English example; do not infer one by reversing an accumulative diagram.",
+      "refs": []
+    },
+    {
+      "term": "Beat-driven form",
+      "disposition": "insufficient definition",
+      "catalog_lines": [
+        74,
+        78,
+        80,
+        81
+      ],
+      "detail": "“Beat-driven” distinguishes multiple arrangements by musical emphasis rather than by a sequence of sections. The catalog already has several different beat-centered examples.",
+      "refs": []
+    }
+  ]
+}

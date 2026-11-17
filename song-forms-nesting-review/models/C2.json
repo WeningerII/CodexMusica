@@ -1,0 +1,1169 @@
+{
+  "Kyoka": {
+    "tree": [
+      {
+        "label": "Comic tanka",
+        "children": [
+          {
+            "label": "Upper phrase",
+            "children": [
+              "5 sound units",
+              "7 sound units",
+              "5 sound units"
+            ]
+          },
+          {
+            "label": "Lower phrase",
+            "children": [
+              "7 sound units",
+              "7 sound units"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Tanka"
+    ]
+  },
+  "Katauta": {
+    "tree": [
+      {
+        "label": "Katauta · often a question",
+        "children": [
+          "5 sound units",
+          "7 sound units",
+          "7 sound units"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Sedoka"
+    ]
+  },
+  "Sedoka": {
+    "tree": [
+      {
+        "label": "First katauta · often a question",
+        "children": [
+          "5 sound units",
+          "7 sound units",
+          "7 sound units"
+        ]
+      },
+      {
+        "label": "Second katauta · often an answer",
+        "children": [
+          "5 sound units",
+          "7 sound units",
+          "7 sound units"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Katauta"
+    ]
+  },
+  "Somonka": {
+    "tree": [
+      {
+        "label": "Declaration · tanka",
+        "children": [
+          {
+            "label": "Upper phrase",
+            "children": [
+              "5–7–5 sound units"
+            ]
+          },
+          {
+            "label": "Lower phrase",
+            "children": [
+              "7–7 sound units"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Reply · tanka",
+        "children": [
+          {
+            "label": "Upper phrase",
+            "children": [
+              "5–7–5 sound units"
+            ]
+          },
+          {
+            "label": "Lower phrase",
+            "children": [
+              "7–7 sound units"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Tanka"
+    ]
+  },
+  "Choka": {
+    "tree": [
+      {
+        "label": "Body",
+        "children": [
+          {
+            "label": "Repeating pair",
+            "children": [
+              "5 sound units",
+              "7 sound units"
+            ]
+          },
+          {
+            "label": "Closing phrase",
+            "children": [
+              "5 sound units",
+              "7 sound units",
+              "7 sound units"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Optional envoi",
+        "children": [
+          "Tanka"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Tanka"
+    ]
+  },
+  "Dodoitsu": {
+    "tree": [
+      {
+        "label": "Traditional count",
+        "children": [
+          "7 sound units",
+          "7 sound units",
+          "7 sound units",
+          "5 sound units"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Gogyohka": {
+    "tree": [
+      {
+        "label": "Typically five lines",
+        "children": [
+          {
+            "label": "Each line",
+            "children": [
+              "One phrase",
+              "Break at a phrase or breath boundary"
+            ]
+          },
+          "No fixed syllable count"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Renga / renku": {
+    "tree": [
+      {
+        "label": "Alternating verses",
+        "children": [
+          "Long verse · 5–7–5 traditional sound units",
+          "Short verse · 7–7 traditional sound units"
+        ]
+      },
+      {
+        "label": "Link and shift",
+        "children": [
+          "Link to the previous verse",
+          "Shift away from the verse before it"
+        ]
+      },
+      {
+        "label": "Kasen · 36 verses",
+        "children": [
+          {
+            "label": "First folio",
+            "children": [
+              "Front · 6 verses",
+              "Back · 12 verses"
+            ]
+          },
+          {
+            "label": "Second folio",
+            "children": [
+              "Front · 12 verses",
+              "Back · 6 verses"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Rengay": {
+    "tree": [
+      {
+        "label": "Six linked verses · one theme",
+        "children": [
+          {
+            "label": "Two poets · 16 lines",
+            "children": [
+              "A · 3 lines",
+              "B · 2 lines",
+              "A · 3 lines",
+              "B · 3 lines",
+              "A · 2 lines",
+              "B · 3 lines"
+            ]
+          },
+          {
+            "label": "Three poets · 15 lines",
+            "children": [
+              "A · 3 lines",
+              "B · 2 lines",
+              "C · 3 lines",
+              "A · 2 lines",
+              "B · 3 lines",
+              "C · 2 lines"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Haiku",
+      "Renga / renku"
+    ]
+  },
+  "Haibun": {
+    "tree": [
+      {
+        "label": "Choose a placement",
+        "children": [
+          {
+            "label": "In sequence",
+            "children": [
+              "Prose",
+              "Haiku"
+            ]
+          },
+          {
+            "label": "Interwoven",
+            "children": [
+              "Prose and haiku"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Haiku"
+    ]
+  },
+  "Tanka prose": {
+    "tree": [
+      {
+        "label": "Interwoven",
+        "children": [
+          "Prose",
+          "Tanka"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Tanka"
+    ]
+  },
+  "Sijo": {
+    "tree": [
+      {
+        "label": "Theme · about 14–16 syllables",
+        "children": [
+          {
+            "label": "First phrase",
+            "children": [
+              "Two segments"
+            ]
+          },
+          {
+            "label": "Second phrase",
+            "children": [
+              "Two segments"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Development · about 14–16 syllables",
+        "children": [
+          {
+            "label": "First phrase",
+            "children": [
+              "Two segments"
+            ]
+          },
+          {
+            "label": "Second phrase",
+            "children": [
+              "Two segments"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Twist and close · about 14–16 syllables",
+        "children": [
+          {
+            "label": "First phrase",
+            "children": [
+              "Two segments"
+            ]
+          },
+          {
+            "label": "Second phrase",
+            "children": [
+              "Two segments"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Tanaga": {
+    "tree": [
+      {
+        "label": "Four lines · one rhyme",
+        "children": [
+          "7 syllables · A",
+          "7 syllables · A",
+          "7 syllables · A",
+          "7 syllables · A"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Monorhymed quatrain"
+    ]
+  },
+  "Luc bat": {
+    "tree": [
+      {
+        "label": "Repeating pair",
+        "children": [
+          {
+            "label": "Six-syllable line",
+            "children": [
+              "Position 6 · rhyme A"
+            ]
+          },
+          {
+            "label": "Eight-syllable line",
+            "children": [
+              "Position 6 · rhyme A",
+              "Position 8 · next rhyme"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Following pair",
+        "children": [
+          "Six-syllable line takes the carried rhyme"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Than-bauk": {
+    "tree": [
+      {
+        "label": "Three four-syllable lines",
+        "children": [
+          "Line 1 · rhyme on syllable 4",
+          "Line 2 · rhyme on syllable 3",
+          "Line 3 · rhyme on syllable 2"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Cherita": {
+    "tree": [
+      {
+        "label": "Story",
+        "children": [
+          {
+            "label": "First stanza",
+            "children": [
+              "1 line"
+            ]
+          },
+          {
+            "label": "Second stanza",
+            "children": [
+              "2 lines"
+            ]
+          },
+          {
+            "label": "Third stanza",
+            "children": [
+              "3 lines"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Englyn": {
+    "tree": [
+      {
+        "label": "Catalogued variants",
+        "children": [
+          {
+            "label": "Milwr",
+            "children": [
+              "7 · 7 · 7 syllables",
+              "One main rhyme"
+            ]
+          },
+          {
+            "label": "Penfyr",
+            "children": [
+              "Short toddaid",
+              "Seven-syllable line"
+            ]
+          },
+          {
+            "label": "Unodl union",
+            "children": [
+              "Short toddaid · 10 + 6",
+              "Cywydd couplet · 7 + 7"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Cywydd deuair hirion"
+    ]
+  },
+  "Cywydd deuair hirion": {
+    "tree": [
+      {
+        "label": "Rhyming pair · opposite stress endings",
+        "children": [
+          "7 syllables",
+          "7 syllables"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Couplet"
+    ]
+  },
+  "Clogyrnach": {
+    "tree": [
+      {
+        "label": "Opening pair",
+        "children": [
+          "8 syllables · A",
+          "8 syllables · A"
+        ]
+      },
+      {
+        "label": "16-syllable tail",
+        "children": [
+          "5 syllables · B",
+          "5 syllables · B",
+          "3 syllables · B",
+          "3 syllables · A"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Gwawdodyn": {
+    "tree": [
+      {
+        "label": "Alternative patterns",
+        "children": [
+          {
+            "label": "Byr",
+            "children": [
+              {
+                "label": "Opening",
+                "children": [
+                  "Two 9-syllable lines"
+                ]
+              },
+              {
+                "label": "Closing toddaid",
+                "children": [
+                  "10 syllables",
+                  "9 syllables"
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Hir",
+            "children": [
+              {
+                "label": "Opening",
+                "children": [
+                  "Four 9-syllable lines"
+                ]
+              },
+              {
+                "label": "Closing toddaid",
+                "children": [
+                  "10 syllables",
+                  "9 syllables"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Hir a thoddaid": {
+    "tree": [
+      {
+        "label": "Opening · common six-line version",
+        "children": [
+          "Four 10-syllable lines"
+        ]
+      },
+      {
+        "label": "Long toddaid",
+        "children": [
+          "10 syllables",
+          "10 syllables"
+        ]
+      }
+    ],
+    "mode": "Example"
+  },
+  "Byr a thoddaid": {
+    "tree": [
+      {
+        "label": "Eight-syllable material",
+        "children": [
+          "Cyhydedd fer"
+        ]
+      },
+      {
+        "label": "Linked two-line unit",
+        "children": [
+          "Toddaid · accounts differ on length"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Awdl gywydd": {
+    "tree": [
+      {
+        "label": "First pair",
+        "children": [
+          "7 syllables · ends on linking rhyme",
+          "7 syllables · internal echo and main end rhyme"
+        ]
+      },
+      {
+        "label": "Second pair",
+        "children": [
+          "7 syllables · ends on linking rhyme",
+          "7 syllables · internal echo and main end rhyme"
+        ]
+      }
+    ],
+    "mode": "Example",
+    "related": [
+      "Quatrain"
+    ]
+  },
+  "Cyhydedd hir": {
+    "tree": [
+      {
+        "label": "19-syllable unit",
+        "children": [
+          "5 syllables · A",
+          "5 syllables · A",
+          "5 syllables · A",
+          "4 syllables · main rhyme"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Rhupunt": {
+    "tree": [
+      {
+        "label": "Alternative long-line lengths",
+        "children": [
+          {
+            "label": "Byr · 12 syllables",
+            "children": [
+              "Three 4-syllable sections"
+            ]
+          },
+          {
+            "label": "Hir · 16 syllables",
+            "children": [
+              "Four 4-syllable sections"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Rhyme",
+        "children": [
+          "Internal sections echo",
+          "Line endings carry the main rhyme"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Irish syllabic quatrains": {
+    "tree": [
+      {
+        "label": "Named examples",
+        "children": [
+          {
+            "label": "Deibhidhe",
+            "children": [
+              "7 · 7 · 7 · 7 syllables",
+              "Rhyming pairs"
+            ]
+          },
+          {
+            "label": "Rannaigheacht mhór",
+            "children": [
+              "7 · 7 · 7 · 7 syllables",
+              "Internal rhyme and alliteration"
+            ]
+          },
+          {
+            "label": "Séadna",
+            "children": [
+              "8 · 7 · 8 · 7 syllables",
+              "Lines 2 and 4 rhyme"
+            ]
+          },
+          {
+            "label": "Ae freislighe",
+            "children": [
+              "7 · 7 · 7 · 7 syllables",
+              "Lines 1 and 3 · three-syllable end words",
+              "Lines 2 and 4 · two-syllable end words"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Whole poem",
+        "children": [
+          "Catalog describes a return to the opening word"
+        ]
+      }
+    ],
+    "mode": "Rule",
+    "related": [
+      "Quatrain"
+    ]
+  },
+  "Pindaric ode": {
+    "tree": [
+      {
+        "label": "Triad",
+        "children": [
+          "Strophe",
+          "Antistrophe · matching pattern",
+          "Epode · different pattern"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Limerick": {
+    "tree": [
+      {
+        "label": "Five anapestic lines",
+        "children": [
+          "3 beats · A",
+          "3 beats · A",
+          "2 beats · B",
+          "2 beats · B",
+          "3 beats · A · punchline"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Clerihew": {
+    "tree": [
+      {
+        "label": "Comic biography · irregular meter",
+        "children": [
+          "A · opens on a name",
+          "A",
+          "B",
+          "B"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Double dactyl": {
+    "tree": [
+      {
+        "label": "First quatrain",
+        "children": [
+          "Nonsense phrase · two dactyls",
+          "Name · two dactyls",
+          "Two dactyls",
+          "Short line · end rhyme A"
+        ]
+      },
+      {
+        "label": "Second quatrain",
+        "children": [
+          "Two dactyls",
+          "Two dactyls · often one word",
+          "Two dactyls",
+          "Short line · end rhyme A"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Quatrain"
+    ]
+  },
+  "Ruthless rhyme": {
+    "tree": [
+      {
+        "label": "Deadpan account of a gruesome death",
+        "children": [
+          "A",
+          "A",
+          "B",
+          "B · deadpan close"
+        ]
+      }
+    ],
+    "mode": "Example",
+    "related": [
+      "Quatrain"
+    ]
+  },
+  "Cinquain (Crapsey)": {
+    "tree": [
+      {
+        "label": "Five lines",
+        "children": [
+          "2 syllables",
+          "4 syllables",
+          "6 syllables",
+          "8 syllables",
+          "2 syllables"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Didactic cinquain": {
+    "tree": [
+      {
+        "label": "Five lines",
+        "children": [
+          "Noun",
+          "Two adjectives",
+          "Three -ing verbs",
+          "Four-word phrase",
+          "Synonym of opening noun"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Diamante": {
+    "tree": [
+      {
+        "label": "Subject to opposite",
+        "children": [
+          "1 word",
+          "2 words",
+          "3 words",
+          "4 words",
+          "3 words",
+          "2 words",
+          "1 word"
+        ]
+      }
+    ],
+    "mode": "Example"
+  },
+  "Tetractys": {
+    "tree": [
+      {
+        "label": "Five lines",
+        "children": [
+          "1 syllable",
+          "2 syllables",
+          "3 syllables",
+          "4 syllables",
+          "10 syllables"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Nonet": {
+    "tree": [
+      {
+        "label": "Nine lines",
+        "children": [
+          "9 syllables",
+          "8 syllables",
+          "7 syllables",
+          "6 syllables",
+          "5 syllables",
+          "4 syllables",
+          "3 syllables",
+          "2 syllables",
+          "1 syllable"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Etheree": {
+    "tree": [
+      {
+        "label": "Ten lines",
+        "children": [
+          "1 syllable",
+          "2 syllables",
+          "3 syllables",
+          "4 syllables",
+          "5 syllables",
+          "6 syllables",
+          "7 syllables",
+          "8 syllables",
+          "9 syllables",
+          "10 syllables"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Fib": {
+    "tree": [
+      {
+        "label": "Fibonacci sequence",
+        "children": [
+          "1 syllable",
+          "1 syllable",
+          "2 syllables",
+          "3 syllables",
+          "5 syllables",
+          "8 syllables"
+        ]
+      }
+    ],
+    "mode": "Example"
+  },
+  "Lanterne": {
+    "tree": [
+      {
+        "label": "Five lines",
+        "children": [
+          "1 syllable",
+          "2 syllables",
+          "3 syllables",
+          "4 syllables",
+          "1 syllable"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Shadorma": {
+    "tree": [
+      {
+        "label": "Six lines",
+        "children": [
+          "3 syllables",
+          "5 syllables",
+          "3 syllables",
+          "3 syllables",
+          "7 syllables",
+          "5 syllables"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Hay(na)ku": {
+    "tree": [
+      {
+        "label": "Choose a pattern",
+        "children": [
+          {
+            "label": "Ascending",
+            "children": [
+              "1 word",
+              "2 words",
+              "3 words"
+            ]
+          },
+          {
+            "label": "Reversed",
+            "children": [
+              "3 words",
+              "2 words",
+              "1 word"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Lune": {
+    "tree": [
+      {
+        "label": "Choose a variant",
+        "children": [
+          {
+            "label": "Kelly",
+            "children": [
+              "5 syllables",
+              "3 syllables",
+              "5 syllables"
+            ]
+          },
+          {
+            "label": "Collom",
+            "children": [
+              "3 words",
+              "5 words",
+              "3 words"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "American sentence": {
+    "tree": [
+      {
+        "label": "Single line",
+        "children": [
+          "17 syllables"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Monostich"
+    ]
+  },
+  "Monostich": {
+    "tree": [
+      "One line"
+    ],
+    "mode": "Pattern",
+    "related": [
+      "American sentence"
+    ]
+  },
+  "Sevenling": {
+    "tree": [
+      {
+        "label": "First tercet",
+        "children": [
+          "Three items"
+        ]
+      },
+      {
+        "label": "Second tercet",
+        "children": [
+          "Three items"
+        ]
+      },
+      {
+        "label": "Close",
+        "children": [
+          "One twist line"
+        ]
+      }
+    ],
+    "mode": "Pattern",
+    "related": [
+      "Tercet"
+    ]
+  },
+  "Kwansaba": {
+    "tree": [
+      {
+        "label": "Seven lines",
+        "children": [
+          {
+            "label": "Each line",
+            "children": [
+              "7 words"
+            ]
+          },
+          {
+            "label": "Words",
+            "children": [
+              "Normally up to 7 letters",
+              "Exceptions for names, foreign terms and quotations"
+            ]
+          }
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Zeno": {
+    "tree": [
+      "8-syllable opening",
+      {
+        "label": "First descent",
+        "children": [
+          "4 syllables",
+          "2 syllables",
+          "1 syllable · A"
+        ]
+      },
+      {
+        "label": "Second descent",
+        "children": [
+          "4 syllables",
+          "2 syllables",
+          "1 syllable · A"
+        ]
+      },
+      {
+        "label": "Third descent",
+        "children": [
+          "4 syllables",
+          "2 syllables",
+          "1 syllable · A"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  },
+  "Abecedarian": {
+    "tree": [
+      {
+        "label": "Alphabet in order",
+        "children": [
+          "A opens the first line or stanza",
+          "Successive letters open successive units",
+          "Z opens the last"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Golden shovel": {
+    "tree": [
+      {
+        "label": "Borrowed line",
+        "children": [
+          "One new line per source word",
+          "Use successive source words as endings"
+        ]
+      }
+    ],
+    "mode": "Rule"
+  },
+  "Bop": {
+    "tree": [
+      {
+        "label": "First movement",
+        "children": [
+          "Problem · 6 lines",
+          "Refrain"
+        ]
+      },
+      {
+        "label": "Second movement",
+        "children": [
+          "Exploration · 8 lines",
+          "Same refrain"
+        ]
+      },
+      {
+        "label": "Third movement",
+        "children": [
+          "Resolution or failed attempt · 6 lines",
+          "Same refrain"
+        ]
+      }
+    ],
+    "mode": "Example"
+  },
+  "Paradelle": {
+    "tree": [
+      {
+        "label": "First three stanzas · each",
+        "children": [
+          {
+            "label": "Opening four lines",
+            "children": [
+              "Line A",
+              "Repeat A",
+              "Line B",
+              "Repeat B"
+            ]
+          },
+          {
+            "label": "Closing couplet",
+            "children": [
+              "Recombine all and only the source words"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Fourth stanza · six lines",
+        "children": [
+          "Recombine all and only the preceding stanzas’ words"
+        ]
+      }
+    ],
+    "mode": "Pattern"
+  }
+}

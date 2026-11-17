@@ -1,0 +1,429 @@
+{
+  "Extended AABA": {
+    "aliases": "AABABA",
+    "reason": "Catalog line 32. AABABA matches the catalogued extended return. Compound AABA describes internal formal organization, often entire verse–chorus units inside A sections.",
+    "refs": [
+      "https://www.mtosmt.org/issues/mto.21.27.1/mto.21.27.1.hudson.php"
+    ]
+  },
+  "Verse-refrain with introductory verse": {
+    "aliases": "–",
+    "reason": "Catalog line 34. The history and staging of Tin Pan Alley or minstrel repertory do not define the optional introductory verse and main refrain combination.",
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/aaba-and-strophic-form/"
+    ]
+  },
+  "12-bar blues": {
+    "aliases": "–",
+    "reason": "Catalog line 35. AAB describes the words of a blues stanza. Twelve bars measure a musical cycle; the source's 16-bar example also uses a stretched blues stanza.",
+    "refs": [
+      "https://www.loc.gov/static/programs/national-recording-preservation-board/documents/Ma-Rainey.pdf"
+    ]
+  },
+  "Simple verse-chorus": {
+    "aliases": "–",
+    "reason": "Catalog line 38. ABAB states alternation without the shared harmonic plan distinguishing simple from contrasting verse–chorus.",
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+    ]
+  },
+  "Verse-prechorus-chorus": {
+    "aliases": "verse-lift-chorus",
+    "reason": "Catalog line 40. Channel and climb label the preparatory section rather than the three-section cycle.",
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+    ]
+  },
+  "Verse-chorus-bridge": {
+    "aliases": "ABABCB",
+    "reason": "Catalog line 41. ABABCB maps A to verse, B to chorus and C to bridge; the second formula ABCABCDC has four symbols with no mapping to the stated three sections.",
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+    ]
+  },
+  "Verse-chorus with post-chorus": {
+    "aliases": "–",
+    "reason": "Catalog line 42. Modern pop form does not identify a post-chorus; other catalog entries also describe contemporary pop layouts.",
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+    ]
+  },
+  "Chorus-first": {
+    "aliases": "–",
+    "reason": "Catalog line 43. A hook can occur outside a chorus. Opening on a hook alone does not establish that the chorus comes first.",
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+    ]
+  },
+  "Verse-chorus with solo": {
+    "aliases": "–",
+    "reason": "Catalog line 44. ‘Rock or country form with a break’ gives a stylistic context and optional break; a break need not be the solo described by this form.",
+    "refs": []
+  },
+  "Multi-part suite": {
+    "aliases": "song suite",
+    "reason": "Catalog line 51. Mini-opera and epic describe other entities. The catalog explicitly defines Epic elsewhere by a heroic narrative, while a suite consists of linked sub-songs.",
+    "refs": []
+  },
+  "Contrafactum": {
+    "aliases": "–",
+    "reason": "Catalog line 54. Fitting new words to an existing tune is the defining procedure, not a second name. Parody lyric adds a purpose not required by the definition.",
+    "refs": []
+  },
+  "Music-hall song": {
+    "aliases": "–",
+    "reason": "Catalog line 57. Comic song and chorus song describe categories beyond the music-hall repertoire. The source itself allows narrative as well as comic verses.",
+    "refs": []
+  },
+  "Song-and-dance number": {
+    "aliases": "–",
+    "reason": "Catalog line 59. Production number need not encode this particular dance break and return. The original entry specifies both.",
+    "refs": []
+  },
+  "Musical scene": {
+    "aliases": "song scene",
+    "reason": "Catalog line 60. Extended number describes length and does not by itself identify the combination of dialogue, speech and song.",
+    "refs": []
+  },
+  "Duet dialogue song": {
+    "aliases": "trading-verses duet",
+    "reason": "Catalog line 61. An answer song can be a separate recording answering an earlier song. Trading verses describes the two voices inside the entry's single performance.",
+    "refs": [
+      "https://www.loc.gov/programs/national-recording-preservation-board/recording-registry/descriptions-and-essays/"
+    ]
+  },
+  "Melodrama": {
+    "aliases": "–",
+    "reason": "Catalog line 65. Spoken over music describes the technique rather than an alternate title for the form.",
+    "refs": []
+  },
+  "Head arrangement": {
+    "aliases": "–",
+    "reason": "Catalog line 71. Head–solos–head describes a performance sequence. A head arrangement is devised and remembered by the musicians and can use different sequences.",
+    "refs": [
+      "https://www.loc.gov/programs/national-recording-preservation-board/recording-registry/descriptions-and-essays/"
+    ]
+  },
+  "Hip-hop verse-hook": {
+    "aliases": "–",
+    "reason": "Catalog line 74. 16-and-8 names one bar-count pattern; the source explicitly permits other verse lengths. Rap song form also includes hookless tracks in this catalog.",
+    "refs": []
+  },
+  "Battle rap": {
+    "aliases": "rap battle",
+    "reason": "Catalog line 77. Written battle narrows the creation method. The source describes a contest, not a requirement that it be written.",
+    "refs": []
+  },
+  "Vamp / riff form": {
+    "aliases": "groove form",
+    "reason": "Catalog line 81. Funk jam denotes a genre-specific example of a groove built on a repeating riff.",
+    "refs": []
+  },
+  "Gospel verse-chorus-vamp": {
+    "aliases": "–",
+    "reason": "Catalog line 82. Drive section and quartet drive describe the gospel vamp portion of the sequence, not the entire verse–chorus–vamp form.",
+    "refs": []
+  },
+  "Traditional ballad": {
+    "aliases": "popular ballad",
+    "reason": "Catalog line 93. Child ballad refers specifically to the body collected and classified by Francis James Child; traditional ballads exist beyond that collection.",
+    "refs": [
+      "https://www.loc.gov/collections/songs-of-america/articles-and-essays/musical-styles/traditional/francis-james-child/"
+    ]
+  },
+  "Long-measure ballad": {
+    "aliases": "–",
+    "reason": "Catalog line 94. Couplet ballad names only the couplet presentation. The source explicitly also includes four-line stanzas.",
+    "refs": []
+  },
+  "Incremental-repetition ballad": {
+    "aliases": "–",
+    "reason": "Catalog line 96. A question-and-answer exchange is frequent rather than required. Lord Randal and Edward are individual ballads.",
+    "refs": []
+  },
+  "Luck-visit / begging song": {
+    "aliases": "–",
+    "reason": "Catalog line 107. Wassailing, souling, pace-egging, wren songs and May carols are distinct customs or associated songs. The catalog groups them by the door-to-door visit.",
+    "refs": []
+  },
+  "Dirge / lament": {
+    "aliases": "–",
+    "reason": "Catalog line 109. Keen and coronach identify particular lament traditions. The heading covers mourning songs more broadly.",
+    "refs": []
+  },
+  "Zipper song": {
+    "aliases": "substitution song",
+    "reason": "Catalog line 121. Slot is the place where a word changes in the verse template. It is a component of the operation.",
+    "refs": []
+  },
+  "Cumulative song": {
+    "aliases": "chain, add-on song",
+    "reason": "Catalog line 122. Twelve Days, Old Lady and House That Jack Built are examples, not additional names for the form.",
+    "refs": []
+  },
+  "Counting song": {
+    "aliases": "number song",
+    "reason": "Catalog line 123. Green Grow the Rushes O and Dilly Song identify particular songs in the counting repertoire.",
+    "refs": []
+  },
+  "Countdown song": {
+    "aliases": "subtractive song",
+    "reason": "Catalog line 124. Ten Green Bottles is the named song example, not an alternate name for countdown songs.",
+    "refs": []
+  },
+  "Nonsense-refrain song": {
+    "aliases": "–",
+    "reason": "Catalog line 126. A diddling chorus is a possible refrain; the enclosing song includes other material.",
+    "refs": []
+  },
+  "Counting-out rhyme": {
+    "aliases": "dip",
+    "reason": "Catalog line 129. Eeny-meeny identifies a particular traditional rhyme or incipit; others use different words.",
+    "refs": []
+  },
+  "Skipping / clapping rhyme": {
+    "aliases": "–",
+    "reason": "Catalog line 130. Jump-rope rhyme describes the skipping subtype. The catalog combines rope and clapping games under one heading.",
+    "refs": []
+  },
+  "Singing game": {
+    "aliases": "–",
+    "reason": "Catalog line 131. Ring games and play-party songs are specific kinds of games or repertoire rather than names for every singing game.",
+    "refs": []
+  },
+  "Finger play": {
+    "aliases": "–",
+    "reason": "Catalog line 132. Action rhyme covers movements by many parts of the body; a finger play is a narrower gestural case.",
+    "refs": []
+  },
+  "Madrigal": {
+    "aliases": "–",
+    "reason": "Catalog line 143. English madrigal qualifies a national repertoire within the broader heading. The catalog's remit already specifies English-language material.",
+    "refs": []
+  },
+  "Part-song (Victorian)": {
+    "aliases": "–",
+    "reason": "Catalog line 150. Partsong is a spelling of the general term. The catalog's Madrigal and Ballett rows also call those works part-songs. The unqualified spelling cannot identify the Victorian subtype uniquely.",
+    "refs": []
+  },
+  "Metrical hymn": {
+    "aliases": "–",
+    "reason": "Catalog line 156. ‘Hymn in CM, LM, SM and other metres’ lists alternative metres within the form.",
+    "refs": []
+  },
+  "Camp-meeting song": {
+    "aliases": "–",
+    "reason": "Catalog line 159. Wandering refrain names material that can travel among songs. It is not an alternate name for a complete camp-meeting song.",
+    "refs": []
+  },
+  "Praise chorus": {
+    "aliases": "worship chorus",
+    "reason": "Catalog line 160. Scripture chorus narrows the text source. The entry can also be defined by a short repeating praise text and tag.",
+    "refs": []
+  },
+  "Metrical psalm": {
+    "aliases": "–",
+    "reason": "Catalog line 166. Psalm paraphrase does not specify verse, meter or a tune; the catalogued type imposes metrical stanzas.",
+    "refs": []
+  },
+  "Anglican chant": {
+    "aliases": "–",
+    "reason": "Catalog line 168. A pointed psalm is text marked for chanting. The chant itself supplies the repeated musical formula.",
+    "refs": [
+      "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+    ]
+  },
+  "Psalm with antiphon": {
+    "aliases": "–",
+    "reason": "Catalog line 169. Psalm tone is the melodic formula for chanting verses. The antiphon is a different constituent of the whole.",
+    "refs": []
+  },
+  "Litany": {
+    "aliases": "–",
+    "reason": "Catalog line 172. Intercession is a purpose shared by many prayers. A litany here uses a sequence of petitions and responses.",
+    "refs": [
+      "https://www.episcopalchurch.org/glossary/?gpage=3&per_page=100"
+    ]
+  },
+  "Canticle": {
+    "aliases": "–",
+    "reason": "Catalog line 174. Magnificat, Nunc Dimittis and Te Deum are distinct service texts within the canticle repertoire.",
+    "refs": [
+      "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+    ]
+  },
+  "Doxology": {
+    "aliases": "–",
+    "reason": "Catalog line 175. Gloria Patri and Ken's doxology are individual texts; the praise formula is the category.",
+    "refs": [
+      "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+    ]
+  },
+  "Shape-note anthem": {
+    "aliases": "–",
+    "reason": "Catalog line 179. Sacred Harp anthem refers to repertoire associated with one named hymnal and tradition. The heading identifies the notation, a broader criterion.",
+    "refs": []
+  },
+  "Anglican service": {
+    "aliases": "–",
+    "reason": "Catalog line 181. Great Service and Short Service designate different settings or subtypes within the heading.",
+    "refs": []
+  },
+  "American sonnet": {
+    "aliases": "–",
+    "reason": "Catalog line 199. The source explicitly permits loose rhyme as well as no rhyme. Unrhymed sonnet fails as an equivalent for that range.",
+    "refs": []
+  },
+  "Tanka": {
+    "aliases": "–",
+    "reason": "Catalog line 240. Waka can denote tanka in later usage, but historically is broader. The Academy identifies tanka as a form of waka.",
+    "refs": [
+      "https://poets.org/glossary/tanka"
+    ]
+  },
+  "Renga / renku": {
+    "aliases": "–",
+    "reason": "Catalog line 248. Haikai no renga qualifies one development of linked verse; kasen specifies a 36-verse layout. Neither is interchangeable with the bundled heading.",
+    "refs": [
+      "https://sites.google.com/site/worldhaikureview2/whr-archives/renku"
+    ]
+  },
+  "Englyn": {
+    "aliases": "–",
+    "reason": "Catalog line 257. Penfyr, milwr and unodl union are distinct englyn forms with different templates.",
+    "refs": [
+      "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+    ]
+  },
+  "Byr a thoddaid": {
+    "aliases": "–",
+    "reason": "Catalog line 262. Toddaid is a constituent two-line unit; the whole form also includes cyhydedd fer material.",
+    "refs": [
+      "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+    ]
+  },
+  "Irish syllabic quatrains": {
+    "aliases": "–",
+    "reason": "Catalog line 266. Deibhidhe, rannaigheacht, séadna and ae freislighe are individual meters with different rhythms or rhyme conditions.",
+    "refs": [
+      "https://macmorris.maynoothuniversity.ie/what-is-bardic-poetry",
+      "https://doi.org/10.3828/sh.2023.2"
+    ]
+  },
+  "Couplet": {
+    "aliases": "–",
+    "reason": "Catalog line 297. Rhymed couplet qualifies a common subtype. While definitions vary, the Academy explicitly permits unrhymed couplets; this catalog's elegiac couplet row also says usually unrhymed.",
+    "refs": [
+      "https://poets.org/glossary/couplet",
+      "https://www.poetryfoundation.org/education/glossary/Couplet"
+    ]
+  },
+  "Heroic couplet": {
+    "aliases": "riding rhyme",
+    "reason": "Catalog line 298. Closed describes the syntax ending with the pair; heroic specifies iambic pentameter. Heroic couplets can enjamb.",
+    "refs": [
+      "https://www.poetryfoundation.org/education/glossary/Couplet"
+    ]
+  },
+  "Octosyllabic couplet": {
+    "aliases": "–",
+    "reason": "Catalog line 299. Eight syllables measures length; tetrameter counts four feet. The counts coincide in some meters only.",
+    "refs": []
+  },
+  "Fourteener": {
+    "aliases": "–",
+    "reason": "Catalog line 302. Fourteen syllables is the source's length requirement; heptameter counts feet and does not on its own specify fourteen syllables.",
+    "refs": []
+  },
+  "Tercet": {
+    "aliases": "–",
+    "reason": "Catalog line 308. Triad broadly means a set of three. The Pindaric ode entry, for example, uses triad for strophe, antistrophe and epode rather than a three-line stanza.",
+    "refs": []
+  },
+  "Sicilian tercet": {
+    "aliases": "–",
+    "reason": "Catalog line 310. Enclosed tercet states ABA rhyme. It does not establish the pentameter required by the catalog row.",
+    "refs": []
+  },
+  "Common metre (CM)": {
+    "aliases": "8.6.8.6",
+    "reason": "Catalog line 314. Hymn metre describes a family that also includes Long metre and Short metre. Retain the common-metre count as a lookup notation.",
+    "refs": []
+  },
+  "Trochaic hymn metres": {
+    "aliases": "–",
+    "reason": "Catalog line 321. The listed numerical patterns are alternative named realizations of the family, not aliases of the aggregate.",
+    "refs": []
+  },
+  "Other named hymn metres": {
+    "aliases": "–",
+    "reason": "Catalog line 322. The seven distinct syllabic recipes catalogue members of an otherwise unspecified group, not seven names for one meter.",
+    "refs": []
+  },
+  "In Memoriam stanza": {
+    "aliases": "–",
+    "reason": "Catalog line 324. Envelope quatrain identifies its enclosing ABBA rhyme; the In Memoriam stanza also specifies tetrameter.",
+    "refs": []
+  },
+  "Sapphic stanza": {
+    "aliases": "11.11.11.5",
+    "reason": "Catalog line 328. Sapphic hymn stanza is a hymnic use. Preserve the displayed count as shorthand for this source's line-length pattern, without assigning every such hymn the classical meter.",
+    "refs": []
+  },
+  "Décima espinela": {
+    "aliases": "–",
+    "reason": "Catalog line 345. Décima covers more ten-line stanzas than the specific espinela with its ABBAACCDDC scheme.",
+    "refs": [
+      "https://lectambulos.com/algunas-consideraciones-sobre-la-decima-y-su-uso-contemporaneo/"
+    ]
+  },
+  "Alliterative verse": {
+    "aliases": "–",
+    "reason": "Catalog line 353. Old English line is one historical realization of emphasis through alliteration. It does not name all alliterative verse.",
+    "refs": []
+  },
+  "Accentual verse": {
+    "aliases": "stress metre",
+    "reason": "Catalog line 354. Dolnik imposes restrictions on the intervals between strong stresses. The broader catalog form permits variable intervening syllables.",
+    "refs": [
+      "https://www.mathnet.ru/php/archive.phtml?jrnid=tvp&option_lang=eng&paperid=4652&wshow=paper"
+    ]
+  },
+  "Elegy": {
+    "aliases": "lament",
+    "reason": "Catalog line 372. Pastoral elegy qualifies one elegiac tradition rather than naming all elegies.",
+    "refs": []
+  },
+  "Eclogue": {
+    "aliases": "–",
+    "reason": "Catalog line 378. An exchange of shepherds' speeches is the catalog's pastoral setup. Amoebean dialogue identifies alternating responses; it does not identify the whole pastoral genre.",
+    "refs": []
+  },
+  "Aisling": {
+    "aliases": "–",
+    "reason": "Catalog line 382. Vision poem is broader than the source's specific Irish encounter and prophecy.",
+    "refs": []
+  },
+  "Gnomic verse": {
+    "aliases": "–",
+    "reason": "Catalog line 385. Maxims are the short statements collected in a gnomic poem. A maxim is not necessarily verse.",
+    "refs": []
+  },
+  "Pattern poem": {
+    "aliases": "shaped poem",
+    "reason": "Catalog line 393. An altar poem arranges its text in a particular shape. Other shapes, including the wings in the source's own example, remain pattern poems.",
+    "refs": []
+  },
+  "Acrostic": {
+    "aliases": "–",
+    "reason": "Catalog line 398. Double acrostic and telestich distinguish positional mechanisms, rather than renaming an ordinary initial-letter acrostic.",
+    "refs": [
+      "https://poets.org/poem/acrostic"
+    ]
+  },
+  "Exquisite corpse": {
+    "aliases": "–",
+    "reason": "Catalog line 410. Collaborative verse names a broad process shared with rengay and other entries. Exquisite corpse also limits how much prior text each contributor sees.",
+    "refs": []
+  }
+}

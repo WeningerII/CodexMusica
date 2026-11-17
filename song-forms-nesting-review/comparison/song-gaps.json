@@ -1,0 +1,264 @@
+{
+  "references_checked": [
+    {
+      "ref": "https://openmusictheory.github.io/popRockForm.html",
+      "scope": "Every named section-heading category on the pop/rock overview: strophic, 32-bar AABA, verse–chorus, simple verse–chorus, super-simple verse–chorus."
+    },
+    {
+      "ref": "https://academic.oup.com/book/33667",
+      "scope": "All three separately titled verse–chorus designs in chapters 6–8 compared with the catalog: sectional, continuous, and verse–prechorus–chorus."
+    },
+    {
+      "ref": "https://www.mtosmt.org/issues/mto.11.17.3/mto.11.17.3.osborn.php",
+      "scope": "All four through-composed archetypes across the two axes in Osborn’s study. Individual example works were not surveyed exhaustively."
+    },
+    {
+      "ref": "https://doi.org/10.1525/mts.2013.35.1.23",
+      "scope": "All three terminally climactic archetypes named in Osborn’s original abstract."
+    },
+    {
+      "ref": "https://www.mtosmt.org/issues/mto.21.27.1/mto.21.27.1.hudson.php",
+      "scope": "Compound AABA and its riff-oriented variation, not every diagram in the metal corpus."
+    },
+    {
+      "ref": "https://www.jazzinamerica.org/jazzresources/glossary/a/i",
+      "scope": "Selected jazz glossary prototypes. AABC has a documented English-text example; an abstract string alone does not establish a new form."
+    },
+    {
+      "ref": "https://www.irvingberlin.com/broadway",
+      "scope": "Targeted theater check of the estate’s counterpoint-duet terminology; no claim to an exhaustive survey of English theater."
+    }
+  ],
+  "catalog_count": 364,
+  "method": "Gap candidates compare source-backed formal mechanism to catalog content, not just absent names. Includes supported normalization and nesting changes; this is not a list of 15 independent missing songs or 15 new enum values.",
+  "scope_limit": "A finite comparison of the supplied inventory and stated references. This does not exhaust all possible song forms, all productions, all English versions of non-English repertoires, or all scholarly interpretations.",
+  "findings": [
+    {
+      "name": "Terminally climactic form",
+      "level": "Whole song",
+      "action": "Add a separately identifiable family",
+      "catalog_lines": [
+        38,
+        39,
+        50
+      ],
+      "evidence": "Osborn’s actual song analyses distinguish a thematically new, once-only final climax from the expected high point. The paper includes two-part, three-part and extended subclasses. A loud final chorus, a coda, and a terminal climax are not interchangeable. Relate the new family to verse–chorus and through-composed structures only when a particular realization warrants it.",
+      "refs": [
+        "https://doi.org/10.1525/mts.2013.35.1.23",
+        "https://academic.oup.com/book/8275/chapter-abstract/153878627"
+      ]
+    },
+    {
+      "name": "General verse–chorus",
+      "level": "Catalog umbrella",
+      "action": "Add parent or entry point; reuse planner identity",
+      "catalog_lines": [
+        12,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "evidence": "One of three principal pop families in the OMT overview. The top planner table contains “verse-chorus,” but the five catalog data tables only expose realizations. Do not create another competing planner enum.",
+      "refs": [
+        "https://openmusictheory.github.io/popRockForm.html",
+        "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
+      ]
+    },
+    {
+      "name": "Compound AABA with riff-based variants",
+      "level": "Whole-song hierarchy",
+      "action": "Correct the alias and expose the two-level analysis",
+      "catalog_lines": [
+        31,
+        32,
+        41,
+        51,
+        81
+      ],
+      "evidence": "The source row for Extended AABA calls the linear AABABA expansion compound. In Hudson’s model an A supersection contains multiple sections, often a verse–chorus rotation. B contrasts, and A material returns, sometimes compressed. The existing verse–chorus–bridge row can realize such a hierarchy; it lacks the typed relationship and the broad range. Hudson’s transcription of Metallica’s “Master of Puppets,” examples 1–5, provides a riff-based case. Extending a cycle with BA, sustaining one riff, and joining independent sub-songs are distinct mechanisms.",
+      "refs": [
+        "https://www.mtosmt.org/issues/mto.21.27.1/mto.21.27.1.hudson.php",
+        "https://academic.oup.com/book/33667/chapter/288217357"
+      ]
+    },
+    {
+      "name": "Head–solos–head",
+      "level": "Whole performance around a tune",
+      "action": "Split the existing conflation; preserve the example",
+      "catalog_lines": [
+        71,
+        72
+      ],
+      "evidence": "The Hancock Institute glossary places the head at the opening and closing choruses, while soloists improvise over passes through a tune’s changes. The Library of Congress describes Basie’s head arrangements by their collective development and memorization. The catalog has the correct performance outline under the other name; the gap is conceptual, not a wholly absent sequence. A band can play this layout from a written arrangement, and no fixed head shape or solo count follows.",
+      "refs": [
+        "https://www.jazzinamerica.org/StudentHandout/8/2",
+        "https://www.jazzinamerica.org/jazzresources/glossary/a/i",
+        "https://www.loc.gov/programs/national-recording-preservation-board/recording-registry/descriptions-and-essays/?loclr=blogloc"
+      ]
+    },
+    {
+      "name": "SRDC",
+      "level": "Nested thematic pattern",
+      "action": "Add an analysis option with its hierarchical level",
+      "catalog_lines": [],
+      "evidence": "Nobile’s transcriptions of early Beatles songs and analysis of continuous verse–chorus organize material into statement, restatement or response, departure and conclusion. D can contrast within a verse; it need not be the bridge of the whole song. Preserve the actual reading and source terminology.",
+      "refs": [
+        "https://www.mtosmt.org/issues/mto.11.17.3/mto.11.17.3.nobile.html",
+        "https://academic.oup.com/book/33667/chapter/288217357"
+      ]
+    },
+    {
+      "name": "Accumulative texture and cumulative thematic culmination",
+      "level": "Formal process at section or piece scale",
+      "action": "Distinguish both from cumulative-text lyric forms",
+      "catalog_lines": [
+        81,
+        122,
+        123
+      ],
+      "evidence": "Spicer’s texture build adds components of a groove over time, frequently in just one section. In the thematic sense, preceding fragments only resolve into their complete idea later. The folk catalog row instead adds a text item and repeats earlier items. These have distinct inputs, evidence and applicable scale.",
+      "refs": [
+        "https://doi.org/10.1017/S1478572204000052"
+      ]
+    },
+    {
+      "name": "Ritornello with solo episodes",
+      "level": "Organization of a movement or aria",
+      "action": "Add a typed recurring-material schema",
+      "catalog_lines": [
+        64,
+        70,
+        231
+      ],
+      "evidence": "A time-indexed listening guide for the English aria “Every Valley” in Handel’s Messiah identifies orchestral returns alternating with vocal entries. A syllable count cannot discover those instrumental spans. Stornello’s alternative Italian name does not implement this design.",
+      "refs": [
+        "https://pressbooks.cuny.edu/understandingmusicbmcc/chapter/5-music-of-george-frideric-handel-1685-1759/"
+      ]
+    },
+    {
+      "name": "Rhythm changes",
+      "level": "Harmonic template",
+      "action": "Separate harmonic identity from section layout",
+      "catalog_lines": [
+        31,
+        54
+      ],
+      "evidence": "Hancock’s glossary identifies the progression inherited from “I Got Rhythm.” Tunes may share these changes without sharing a melody; unrelated AABA songs do not thereby become rhythm changes. Separate this reuse from replacing lyrics on an existing tune.",
+      "refs": [
+        "https://www.jazzinamerica.org/jazzresources/glossary/q/zz"
+      ]
+    },
+    {
+      "name": "Super-simple verse–chorus",
+      "level": "Subtype within verse–chorus",
+      "action": "Add searchable subtype and governing condition",
+      "catalog_lines": [
+        38,
+        39
+      ],
+      "evidence": "The OMT overview lists an additional subtype attributed to Summach. Verse and chorus retain both their harmonic progression and melody, whereas the catalog’s Simple verse–chorus row specifies only shared chords. Requiring the two shared properties supplies a meaningful stronger condition.",
+      "refs": [
+        "https://openmusictheory.github.io/popRockForm.html"
+      ]
+    },
+    {
+      "name": "Sectional and continuous verse–chorus",
+      "level": "Two analyses of inter-section syntax",
+      "action": "Add as analytic variants or facets; keep Covach’s distinctions independent",
+      "catalog_lines": [
+        38,
+        39,
+        40
+      ],
+      "evidence": "Nobile distinguishes harmonic closure and independence from a progression that spans verse and chorus. The catalog’s simple-versus-contrasting distinction asks a different question about whether sections use the same chords. The same composition can therefore require both descriptions.",
+      "refs": [
+        "https://academic.oup.com/book/33667",
+        "https://academic.oup.com/book/33667/chapter/288217228",
+        "https://academic.oup.com/book/33667/chapter/288217357"
+      ]
+    },
+    {
+      "name": "AABC jazz standard",
+      "level": "Whole tune under one established analysis",
+      "action": "Add searchable pattern with attribution and a vocal example",
+      "catalog_lines": [
+        31,
+        33,
+        46
+      ],
+      "evidence": "The Hancock Institute expressly labels “Autumn Leaves” AABC, next to AABA and ABAC examples. The Library of Congress documents the English lyrics by Johnny Mercer. The last two contrasting phrases need not always be grouped or lettered identically across analysts. Neither AABA nor ABAC captures the published reading.",
+      "refs": [
+        "https://www.jazzinamerica.org/jazzresources/glossary/a/i",
+        "https://blogs.loc.gov/music/2026/11/autumn-standards/"
+      ]
+    },
+    {
+      "name": "Through-composition with and without higher-level grouping and thematic continuity",
+      "level": "Four subtypes within through-composition",
+      "action": "Extend the existing row; do not clone generic suite entries",
+      "catalog_lines": [
+        50,
+        51,
+        81
+      ],
+      "evidence": "Osborn crosses one-part versus multi-part grouping with monothematic versus polythematic relationships. No required return of a complete section does not imply that related themes cannot recur. Article examples include the riff succession in Drowningman’s “Black Tie Knife Fight” and groups in Emery’s “In a Lose, Lose Situation.” Use those independent axes, and allow the lack of a supported higher grouping.",
+      "refs": [
+        "https://www.mtosmt.org/issues/mto.11.17.3/mto.11.17.3.osborn.php"
+      ]
+    },
+    {
+      "name": "Rotation, reprise and riff organization",
+      "level": "Hierarchy and return relations",
+      "action": "Encode evidence-backed relations, not a generic new “reprise form”",
+      "catalog_lines": [
+        19,
+        31,
+        32,
+        41,
+        46,
+        48,
+        49,
+        50,
+        81
+      ],
+      "evidence": "An A may return after a contrasting B, individual riffs can articulate boundaries, and an altered or shortened rotation can keep its identity. Hudson provides encoded examples and competing segmentations. The word reprise alone cannot distinguish this from ternary, rondo or another specific return pattern; the original catalog expressly excludes reprise as an independent form.",
+      "refs": [
+        "https://www.mtosmt.org/issues/mto.21.27.1/mto.21.27.1.hudson.php",
+        "https://www.mtosmt.org/issues/mto.11.17.3/mto.11.17.3.osborn.php"
+      ]
+    },
+    {
+      "name": "Anti-telos chorus and delayed drop",
+      "level": "Nested expressive variant",
+      "action": "Add as a possible reading of an existing cycle",
+      "catalog_lines": [
+        40,
+        42,
+        80
+      ],
+      "evidence": "Nobile contrasts ordinary buildup with an anti-telos chorus that withdraws energy, using Ariana Grande’s “Problem.” The article’s Example 33 shows a later drop in “Closer.” Not all low-energy choruses have this relation, and not all delayed drops imply it. Distinguish the location of lyrical arrival from the textural one.",
+      "refs": [
+        "https://www.mtosmt.org/issues/mto.22.28.3/mto.22.28.3.nobile.html"
+      ]
+    },
+    {
+      "name": "Theatrical counterpoint duet",
+      "level": "Existing scenario with missing search terminology",
+      "action": "Add a theater-specific related name, without declaring every quodlibet equivalent",
+      "catalog_lines": [
+        53,
+        61,
+        395
+      ],
+      "evidence": "The Irving Berlin estate calls “Simple Melody/Musical Demon” a counterpoint duet and “An Old-Fashioned Wedding” a counterpoint song. The independent-tunes-together scenario already appears under Quodlibet. The role-exchange model for Duet dialogue song and the separate literary Contrapuntal poem are not substitutes for two independent simultaneously sung melodies. Treat the names as overlapping: an exact musical reading for a specific production requires its score.",
+      "refs": [
+        "https://www.irvingberlin.com/broadway",
+        "https://www.irvingberlin.com/stage"
+      ]
+    }
+  ]
+}
