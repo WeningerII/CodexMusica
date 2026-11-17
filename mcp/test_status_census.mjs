@@ -621,7 +621,9 @@ test('a window that kept no seed says each count, and offers only what was not d
   });
   for (let count = 1; count <= 64; count++) {
     const v = window(count, [0, count - 1, count]);
-    for (const lines of [false, true])
+    // `lines` is 'draw' when a draw leaves the length to the planner under a
+    // want that does not pin it (noneKeptDeclared).
+    for (const lines of [false, true, 'draw'])
       for (const functions of [false, true]) {
         const said = noneKeptMeaning(v, { lines, functions });
         // Each predicate's own count is said, of the planned.
@@ -638,7 +640,9 @@ test('a window that kept no seed says each count, and offers only what was not d
           said
         );
         // Advice is offered only for what the call did not declare.
-        assert.equal(said.includes('`lines`'), !lines, said);
+        assert.equal(said.includes('`lines`'), lines !== true, said);
+        // A drawn length is advised in place of its draw, never beside it.
+        assert.equal(said.includes('in place of `lines` in `draw`'), lines === 'draw', said);
         assert.equal(said.includes('`functions`'), !functions, said);
         assert.doesNotMatch(said, /if you have not/);
         // One window cannot rule out the next, so it is still offered.
@@ -809,26 +813,49 @@ test('a window that kept no seed advises a length to a call that only bounds it;
         false,
         `${want} states the length to the gate`
       );
-      // The raw sweep's advice reads noneKeptDeclared.
+      // The raw sweep's advice reads noneKeptDeclared; a draw of the length
+      // beside a want that does not pin it leaves the length drawn.
       assert.equal(noneKeptDeclared({ want }).lines, pins, `${want} raw`);
-      // The session's advice, through its own rewrite.
-      const task = { domain: 'lyrics', phase: 'create' };
-      const call_ = { form: '<form>', draw: ['functions'], want, seed_from: 0, count: 4 };
-      recordCreation(task, 'lyric_sweep', call_, v(0));
-      const out = JSON.parse(
-        withSessionOutcome(
-          task,
-          'lyric_sweep',
-          { content: [{ type: 'text', text: JSON.stringify(v(0)) }] },
-          null,
-          call_
-        ).content[0].text
-      );
       assert.equal(
-        out.window_meaning.includes('declare a target length in `lines`'),
-        !pins,
-        `${want} session`
+        noneKeptDeclared({ want, draw: ['lines'] }).lines,
+        pins || 'draw',
+        `${want} raw, drawn`
       );
+      // The session's advice, through its own rewrite, with the length left
+      // out of `draw` and in it.
+      for (const draw of [['functions'], ['functions', 'lines']]) {
+        const task = { domain: 'lyrics', phase: 'create' };
+        const call_ = { form: '<form>', draw, want, seed_from: 0, count: 4 };
+        recordCreation(task, 'lyric_sweep', call_, v(0));
+        const out = JSON.parse(
+          withSessionOutcome(
+            task,
+            'lyric_sweep',
+            { content: [{ type: 'text', text: JSON.stringify(v(0)) }] },
+            null,
+            call_
+          ).content[0].text
+        );
+        const drawn = draw.includes('lines');
+        assert.equal(
+          out.window_meaning.includes('declare a target length in `lines`'),
+          !pins,
+          `${want} ${draw} session`
+        );
+        assert.equal(
+          out.window_meaning.includes('in place of `lines` in `draw`'),
+          !pins && drawn,
+          `${want} ${draw} session`
+        );
+        // The call the advice describes states the length once: a value
+        // beside the draw is STATEMENT_CONFLICT, a value in its place is not.
+        if (!pins && drawn) {
+          const beside = { ...call_, lines: 1 };
+          const inPlace = { ...beside, draw: draw.filter((f) => f !== 'lines') };
+          assert.deepEqual(statementsOf(beside).conflict, ['lines'], `${want} beside`);
+          assert.deepEqual(statementsOf(inPlace).conflict, [], `${want} in place`);
+        }
+      }
     }
 });
 

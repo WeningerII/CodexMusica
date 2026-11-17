@@ -5333,8 +5333,14 @@ STOP_RULES = {
     # the brief with the reason each cannot fire on a graded song.
     "PROMINENCE_UNDECIDED": {"applies": "never", "stop": "unjudged",
                              "layer": "meter", "never":
-                             "no reader the grader uses leaves a syllable's "
-                             "stress undecided (`fit.INERT`)"},
+                             "a word whose dictionary readings disagree on "
+                             "a syllable's stress gives its line more than "
+                             "one whole reading, and `fit.fit_line` judges "
+                             "the line one whole reading at a time "
+                             "(`LineUnits.candidates`), each with every "
+                             "stress decided; no phonology the grader uses "
+                             "leaves a stress undecided any other way "
+                             "(`fit.INERT`)"},
     "BEATGRID_INCOMPLETE": {"applies": "never", "stop": "unjudged",
                             "layer": "meter", "never":
                             "only a declared beat map with a gap raises it, "
@@ -5693,10 +5699,25 @@ def _limit_title_in_hook(plan):
 UNJUDGED_UNTIL = ("until each such word is changed or a reading of it is "
                   "declared in `pronunciations` on lyric_grade")
 
-#: What the meter rows mean by a word with no reading: one `fit.read_line`
-#: refuses as out of its lexicon, or as a numeral (a run with a digit).
-UNREAD_WORD = ("a word with no reading (one the dictionary does not list, or "
-               "one written with a digit)")
+#: What the meter rows mean by a word the grader cannot read: one
+#: `fit.read_line` refuses as a numeral (a run with a digit), or as out of
+#: its lexicon, which it reads part by part across a hyphen
+#: (`Lexicon.word_pieces`), through the dictionary and the `fallback` the
+#: grade sets (`English.parses`). Under a supplement version
+#: (`SupplementedLexicon.word_pieces`) a hyphenated word the dictionary
+#: lists whole is one word.
+UNREAD_WORD = ("a word the grader cannot read (one written with a digit, or "
+               "one with a part between hyphens, or with no hyphen the whole "
+               "word, that neither the dictionary nor `fallback` on "
+               "lyric_grade, where set, reads; under a `lexicon_supplement` "
+               "version on lyric_grade, a hyphenated word the dictionary "
+               "lists whole is read whole)")
+
+#: The meter rows' other way out: a word with no digit that `fallback`
+#: reads is read (`Lexicon(fallback=...)`); a numeral reads only through a
+#: declared reading.
+FALLBACK_UNTIL = ("or, for a word written with no digit, until `fallback` on "
+                  "lyric_grade reads it")
 
 #: What `voices` on lyric_grade changes: the grader then reads the words in
 #: parentheses (`Lexicon(strip_parens=not voices)`), and by default it
@@ -5720,15 +5741,16 @@ def _limit_nothing_read(plan):
     return (f"no word of a line is read: every word of it is {UNREAD_WORD}, "
             f"or it is {NO_SUNG_WORD}; that line's syllable count is left "
             f"unjudged, and the draft cannot pass "
-            f"{UNJUDGED_UNTIL}, or, on {NO_SUNG_WORD}, until a word is "
+            f"{UNJUDGED_UNTIL}, {FALLBACK_UNTIL}, or, on {NO_SUNG_WORD}, "
+            f"until a word is "
             f"written outside them or, where its words are in parentheses, "
             f"`voices` is set on lyric_grade")
 
 
 def _limit_unjudged_line(plan):
-    return (f"a line holds {UNREAD_WORD} beside a word that has one; that "
+    return (f"a line holds {UNREAD_WORD} beside a word it reads; that "
             f"line's syllable count is left unjudged, and the draft cannot "
-            f"pass {UNJUDGED_UNTIL}")
+            f"pass {UNJUDGED_UNTIL}, {FALLBACK_UNTIL}")
 
 
 def _limit_same_end_word(plan):

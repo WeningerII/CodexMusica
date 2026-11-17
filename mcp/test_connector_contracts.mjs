@@ -114,7 +114,7 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
     assert.doesNotMatch(empty.window_meaning, /declare the section roster in `functions`/);
     assert.match(
       empty.window_meaning,
-      /Before dropping a predicate: declare a target length in `lines` \(an undeclared length is drawn long, so a length cap rarely holds\) or continue from next_seed_from\.$/
+      /Before dropping a predicate: declare a target length in `lines` \(a length the planner is not sent is drawn long, so a length cap rarely holds\) or continue from next_seed_from\.$/
     );
     assert.doesNotMatch(empty.window_meaning, /acceptance rate/);
     assert.doesNotMatch(empty.report, /unreachable in this range/);

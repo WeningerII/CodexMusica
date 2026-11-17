@@ -6067,7 +6067,7 @@ def test_the_stop_rules():
     case_said = {
         "NOTHING_READ": "every word of it is " + PLN.UNREAD_WORD,
         "COUNT_IS_A_LOWER_BOUND": PLN.UNREAD_WORD
-        + " beside a word that has one"}
+        + " beside a word it reads"}
 
     def _code_of(obligation):
         # `meter:<CODE>:L<n>` names its code; a `rhyme:` obligation does not.
@@ -6130,8 +6130,13 @@ def test_the_stop_rules():
                "punctuation only": ("".join(
                    _ru.choice(marks) for _ in range(_ru.randint(1, 4))),
                    False)}
-    nothing_text = PLN._STOP_LIMITS[PLN.STOP_RULES["NOTHING_READ"]["limit"]](
-        p_u)
+    # A named row's limit text, or "" when the row is gone, so a deleted row
+    # fails the checks that read it and the later checks still run.
+    def _limit_text(code):
+        limit = PLN._STOP_LIMITS.get(PLN.STOP_RULES.get(code, {}).get("limit"))
+        return limit(p_u) if limit else ""
+
+    nothing_text = _limit_text("NOTHING_READ")
     no_sung_bad = []
     for label, (text, voices_reads) in no_sung.items():
         lines = list(clean)
@@ -6155,6 +6160,110 @@ def test_the_stop_rules():
           "them or, where its words are in parentheses, `voices` is set on "
           "lyric_grade" in nothing_text,
           (no_sung_bad, nothing_text))
+    # WHAT THE GRADER CANNOT READ, read off its own reader. The free line's
+    # first word is swapped for each word drawn below (a listed word, two
+    # listed words joined by a hyphen that the dictionary does not list
+    # whole, a listed word joined to the unlisted string, the unlisted
+    # string, the digits) and graded under the plan's blueprint with no
+    # `fallback` and with each one the grader takes (`quality.g2p`'s
+    # confidences below the dictionary's own). The line's meter obligation
+    # is refused exactly when UNREAD_WORD's rule says the word is unread: it
+    # is written with a digit, or a part of it between hyphens (the whole
+    # word, with none) is read by neither the dictionary nor that fallback
+    # (`English.parses`, the reader `fit.read_line` asks). The draw holds a
+    # hyphenated word the dictionary does not list that the grader reads,
+    # and a word only a fallback reads; the meter rows name `fallback` as a
+    # way out.
+    from quality import g2p as _G2P
+    from quality.phonology.eng import English as _Eng
+    _rw = _rnd.Random(free_u * 7919 + n_free)
+    listed = sorted(w for w in reviser.lex.entries if w.isalpha())
+    a_w, b_w = _rw.choice(listed), _rw.choice(listed)
+    while f"{a_w}-{b_w}" in reviser.lex.entries:
+        b_w = _rw.choice(listed)
+    drawn_words = [a_w, f"{a_w}-{b_w}", f"{a_w}-{nonword}", nonword, digits]
+    fallbacks = [None] + sorted(
+        {c for c in _G2P.CONFIDENCE.values()} - {"certain"},
+        key=lambda c: -_G2P.CONFIDENCE_RANK[c])
+    plain = _Eng(fallback=None, lexicon=reviser.lex)
+    read_bad, read_by = [], set()
+    for fb in fallbacks:
+        lex_fb = reviser.lex if fb is None else _LH.Lexicon(fallback=fb)
+        phon_fb = _Eng(fallback=fb, lexicon=lex_fb)
+        for word in drawn_words:
+            parts = re.split(r"[-\u2011]", word)
+            unread = bool(re.search(r"\d", word)) or any(
+                not any(plain.parses(x)) and not any(phon_fb.parses(x))
+                for x in parts)
+            words = clean[free_u - 1].split(" ")
+            words[0] = word
+            lines = list(clean)
+            lines[free_u - 1] = " ".join(words)
+            cov, _fr = _graded(lines, lex_fb, True)
+            refused = (f"meter:COUNT_IS_A_LOWER_BOUND:L{free_u}"
+                       in cov["refused_obligations"])
+            if refused != unread or cov["certified"] == unread:
+                read_bad.append((fb, word, unread, cov["refused_obligations"]))
+            if not unread:
+                read_by.add((word, fb))
+    count_text = _limit_text("COUNT_IS_A_LOWER_BOUND")
+    check("...and a word the meter rows call unread is one the grader "
+          "leaves unread: written with a digit, or with a part between "
+          "hyphens that neither the dictionary nor the `fallback` set on "
+          "lyric_grade reads, under each fallback; a hyphenated word read "
+          "part by part and a word only a fallback reads are drawn, and "
+          "both rows name `fallback` as a way out",
+          not read_bad
+          and f"{a_w}-{b_w}" not in reviser.lex.entries
+          and (f"{a_w}-{b_w}", None) in read_by
+          and any((nonword, fb) in read_by for fb in fallbacks[1:])
+          and (nonword, None) not in read_by
+          and all(k in PLN.UNREAD_WORD for k in (
+              "written with a digit", "between hyphens",
+              "`fallback` on lyric_grade"))
+          and PLN.FALLBACK_UNTIL in count_text
+          and PLN.FALLBACK_UNTIL in nothing_text
+          and "`fallback`" in PLN.FALLBACK_UNTIL,
+          (read_bad, sorted(read_by, key=str), PLN.UNREAD_WORD))
+    # Under each shipped `lexicon_supplement` version (the connector fills
+    # in the manifest's default for new work) the grader keeps a hyphenated
+    # word whole when the dictionary lists it whole
+    # (`SupplementedLexicon.word_pieces`): a drawn listed one with a part
+    # neither reader reads is refused under `Reviser`'s own lexicon and read
+    # under the version, and UNREAD_WORD says so.
+    from quality import lexicon_supplement as _LSUP
+    whole_bad = []
+    for vrow in _LSUP.load_versions()["versions"]:
+        lex_s = _LSUP.SupplementedLexicon(version=vrow["id"])
+        plain_s = _Eng(fallback=None, lexicon=lex_s)
+        whole = sorted(
+            w for w in lex_s.entries
+            if "-" in w and re.fullmatch(r"[a-z]+(?:-[a-z]+)+", w)
+            and any(not any(plain_s.parses(x)) and not any(plain.parses(x))
+                    for x in w.split("-")))
+        if not whole:
+            whole_bad.append((vrow["id"], "no such entry"))
+            continue
+        word = _rw.choice(whole)
+        words = clean[free_u - 1].split(" ")
+        words[0] = word
+        lines = list(clean)
+        lines[free_u - 1] = " ".join(words)
+        key = f"meter:COUNT_IS_A_LOWER_BOUND:L{free_u}"
+        cov_b, _fr = _graded(lines, reviser.lex, True)
+        cov_s, _fr = _graded(lines, lex_s, True)
+        if (key not in cov_b["refused_obligations"]
+                or key in cov_s["refused_obligations"]
+                or not cov_s["certified"]):
+            whole_bad.append((vrow["id"], word, cov_b["refused_obligations"],
+                              cov_s["refused_obligations"]))
+    check("...and under a `lexicon_supplement` version a hyphenated word "
+          "the dictionary lists whole is read whole, as UNREAD_WORD says",
+          not whole_bad
+          and "a hyphenated word the dictionary lists whole is read whole"
+          in PLN.UNREAD_WORD
+          and "`lexicon_supplement`" in PLN.UNREAD_WORD,
+          (whole_bad, PLN.UNREAD_WORD))
     # Every layer and every meter code the grader refuses for words with no
     # reading has its row: what the probes refuse, read off the grader,
     # against the rows that can fire.
@@ -6198,8 +6307,50 @@ def test_the_stop_rules():
           (sorted(meter_src), sorted(meter_rows)))
     never_meter = {c for c in meter_rows
                    if PLN.STOP_RULES[c]["applies"] == "never"}
-    # PROMINENCE_UNDECIDED: fit declares the branch inert, no reader
-    # producing its input. BEATGRID_INCOMPLETE: raised only in
+    # PROMINENCE_UNDECIDED, read off the grader's reader: words drawn by
+    # seed from the dictionary until three leave a syllable's stress
+    # undecided in `fit.read_line` (their readings disagree on it). Each
+    # such line has more than one whole reading (`LineUnits.disputed`),
+    # every whole reading `fit.fit_line` judges (`LineUnits.candidates`)
+    # has each stress decided, and the line as `fit_line` judges it files
+    # no PROMINENCE_UNDECIDED, though the same units with the whole
+    # readings taken away do: the branch is live, and judging one whole
+    # reading at a time is what keeps it from firing. No other reader the
+    # grader uses gives a syllable undecided stress: every parse of every
+    # drawn word has its stress decided, and `fit.INERT` declares the
+    # phonology side inert. The row's reason says both.
+    import dataclasses as _dc
+    places_u = _FT.from_blueprint(fill_plan(p_u, clean))[1]
+    phon_g = _Eng(fallback=None, lexicon=reviser.lex)
+    _rp = _rnd.Random(len(listed) + free_u)
+    undecided, parses_ok, drawn_n = [], True, 0
+    while len(undecided) < 3 and drawn_n < 20000:
+        word = _rp.choice(listed)
+        drawn_n += 1
+        parses_ok = parses_ok and all(
+            _FT._resolve_prominence(sy.prominence) is not None
+            for reading in phon_g.parses(word) for sy in reading)
+        line = clean[free_u - 1].split(" ")
+        line[0] = word
+        lu = _FT.read_line(" ".join(line), phon=phon_g)
+        if lu.prominence_undecided:
+            undecided.append((word, lu))
+    prom_bad = []
+    for word, lu in undecided:
+        kw = dict(subdivision=sub_u)
+        codes = {r.code for r in _FT.fit_line(
+            lu, places_u[free_u - 1], phon=phon_g, **kw).refusals}
+        bare = {r.code for r in _FT.fit_line(
+            _dc.replace(lu, segments=()), places_u[free_u - 1],
+            phon=phon_g, **kw).refusals}
+        if not (lu.disputed
+                and not any(c.prominence_undecided for c in lu.candidates())
+                and "PROMINENCE_UNDECIDED" not in codes
+                and "PROMINENCE_UNDECIDED" in bare):
+            prom_bad.append((word, sorted(codes), sorted(bare)))
+    prom_reason = PLN.STOP_RULES.get("PROMINENCE_UNDECIDED", {}).get(
+        "never", "")
+    # BEATGRID_INCOMPLETE: raised only in
     # `_read_beatgrid`, which runs only on a declared beat map, and no
     # `fit_line` call in the grader passes one.
     import warnings as _wn
@@ -6211,8 +6362,12 @@ def test_the_stop_rules():
                  if isinstance(n, _ast.Call)
                  and getattr(n.func, "attr", None) in ("fit_line", "fit_song")]
     never_ok = {
-        "PROMINENCE_UNDECIDED": "fit.PROMINENCE_UNDECIDED" in {
-            e.field for e in _FT.INERT},
+        "PROMINENCE_UNDECIDED": (
+            len(undecided) == 3 and not prom_bad and parses_ok
+            and "fit.PROMINENCE_UNDECIDED" in {e.field for e in _FT.INERT}
+            and all(k in prom_reason for k in (
+                "one whole reading at a time", "`LineUnits.candidates`",
+                "`fit.INERT`"))),
         "BEATGRID_INCOMPLETE": (
             '"BEATGRID_INCOMPLETE"' in _inspect.getsource(_FT._read_beatgrid)
             and _inspect.getsource(_FT).count('"BEATGRID_INCOMPLETE"') == 1
@@ -6227,7 +6382,8 @@ def test_the_stop_rules():
     check("...and each meter code that cannot fire on a graded song is a "
           "never row whose reason holds in the code", never_meter
           and all(never_ok.get(c) for c in never_meter),
-          {c: never_ok.get(c) for c in never_meter})
+          ({c: never_ok.get(c) for c in never_meter}, prom_bad,
+           [w for w, _lu in undecided], parses_ok))
     check("...and each unjudged row is the note the grader files on the "
           "lines it names when a word there has no reading, in the row's "
           "coverage layer under its own code, where the coverage is not "
@@ -6378,7 +6534,7 @@ def test_the_stop_rules():
     split_on_space = (_same_opening("ab cd", "ab ef")
                       and not _same_opening("ab-cd", "ab"))
     open_rows = {c for c, r in PLN.STOP_RULES.items() if "opening" in r}
-    opening = PLN.STOP_RULES["ANAPHORA_OVERLOAD"].get("opening") or {}
+    opening = PLN.STOP_RULES.get("ANAPHORA_OVERLOAD", {}).get("opening") or {}
     got_open = dict(opening, trimmed=set(opening.get("trimmed", "")))
     check("...and the anaphora row carries how its reader takes the word a "
           "line opens on, probed from `SlopFloor._anaphora`, and no other "

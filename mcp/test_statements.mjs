@@ -987,9 +987,11 @@ test(
   { timeout: 240_000 },
   async () => {
     // The real SDK client over the real server: the sweep and the plan send
-    // the roster one way, and the grade and every revise call send it
-    // reversed. The run opens on the plan's spelling; each continuing call is
-    // carried on that spelling, not refused as a moved declaration.
+    // the roster, the wants, the melody and the relation one way, and the
+    // grade and every revise call send the roster and the wants reversed,
+    // the melody's keys reordered and the relation in upper case. The run
+    // opens on the plan's spelling; each continuing call is carried on that
+    // spelling, not refused as a moved declaration.
     const server = buildServer({ task: { domain: 'lyrics' } });
     const [a, b] = InMemoryTransport.createLinkedPair();
     await server.connect(a);
@@ -1016,24 +1018,33 @@ test(
       );
       const functions = P.requires[form];
       const lines = Math.min(...P.fillable[form]);
+      // Two count measures that hold on every plan, their names read from
+      // the STATEABLE rows; a melody and a relation drawn by a seed of
+      // their own, so the draws above and below are unchanged.
+      const r2 = rng(9301);
+      const names = STATEABLE.flatMap((row) => row.wants).filter(
+        (k) => !k.endsWith('.*') && !['uses', 'before'].includes(k)
+      );
+      const first = pick(r2, names);
+      const wants = [
+        first,
+        pick(
+          r2,
+          names.filter((n) => n !== first)
+        ),
+      ].map((n) => `${n}>=0`);
+      const melody = groupedMelody(r2);
+      const relation = `type:${pick(r2, P.types)}`;
+      const declared = { form, lines, functions: functions.join(','), melody, relation };
       const sweep = verdict(
         await c.call(
           'lyric_sweep',
-          stated({
-            seed_from: Math.floor(r() * 1000),
-            count: 4,
-            form,
-            lines,
-            functions: functions.join(','),
-          })
+          stated({ seed_from: Math.floor(r() * 1000), count: 4, ...declared, want: wants })
         ),
         'sweep'
       );
       const seed = sweep.accepted_shown[0];
-      verdict(
-        await c.call('lyric_plan', { seed, form, lines, functions: functions.join(',') }),
-        'plan'
-      );
+      verdict(await c.call('lyric_plan', { seed, ...declared, wants }), 'plan');
       const plan = c.snapshot().task.workflow.plan;
       verdict(await c.call('lyric_screen', { words: DRAWABLE.slice(0, 2) }), 'screen');
       // Each line is words drawn by seed from the harness dictionary, each
@@ -1058,7 +1069,18 @@ test(
       const draft = Array.from({ length: plan.lines }, () =>
         Array.from({ length: 4 }, () => pick(r, words)).join(' ')
       );
-      const respelled = { seed, form, lines, functions: reversed(functions).join(',') };
+      const respelled = {
+        seed,
+        form,
+        lines,
+        functions: reversed(functions).join(','),
+        melody: JSON.stringify(reorderedKeys(JSON.parse(melody))),
+        relation: relation.toUpperCase(),
+        wants: reversed(wants),
+      };
+      for (const k of ['functions', 'melody', 'relation'])
+        assert.notEqual(respelled[k], declared[k], k);
+      assert.notDeepEqual(respelled.wants, wants);
       verdict(await c.call('lyric_grade', { ...respelled, draft }), 'grade');
       assert.equal(
         c.snapshot().task.workflow.grade?.plan_sha256,
@@ -1077,11 +1099,18 @@ test(
         'revise'
       );
       assert.equal(v.exit_code, 4, JSON.stringify(v).slice(0, 600));
-      assert.equal(
-        c.snapshot().continuation.args.functions,
-        functions.join(','),
-        'the run opens on the spelling the plan recorded'
-      );
+      const recorded = {
+        functions: plan.request.functions.join(','),
+        melody: JSON.stringify(plan.request.melody),
+        relation: plan.request.relation,
+        wants: plan.request.wants,
+      };
+      for (const [k, spelled] of Object.entries(recorded))
+        assert.deepEqual(
+          c.snapshot().continuation.args[k],
+          spelled,
+          `the run opens on the spelling the plan recorded: ${k}`
+        );
       let answered = 0;
       for (let i = 0; i < 2 && v.exit_code === 4; i++) {
         const rows =

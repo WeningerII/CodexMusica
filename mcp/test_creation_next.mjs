@@ -755,6 +755,11 @@ test('a grade or revise that sends a recorded declaration in another spelling ru
       assert.equal(creationRefusal(t, name, args), null, `${name} ${key}`);
       assert.deepEqual(args[key], recorded[key], `${name} ${key}`);
     }
+    // A section function's name keeps its case: the roster in upper case is
+    // another roster.
+    const upper = { seed: 16, draft: LINES, functions: recorded.functions.toUpperCase() };
+    assert.notEqual(upper.functions, recorded.functions);
+    assert.match(creationRefusal(t, name, upper), /^CREATION_PLAN: functions differs/, name);
   }
 });
 

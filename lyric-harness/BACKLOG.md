@@ -1929,7 +1929,7 @@ for what follows is debt paydown; this section is the grooming that orders
 it.
 
 **The order, and the argument for it.** The songwriting working order is
-sweep → screen → plan → write → grade → revise, and the 2026-09-05 connector
+sweep → plan → screen → write → grade → revise, and the 2026-09-05 connector
 session (M-245..M-247) showed where it is weakest: a plan whose shape is
 legal and is not a song, a writer handed no move, and a grade that refused
 its own registry's example. So the order below puts the song path first and
