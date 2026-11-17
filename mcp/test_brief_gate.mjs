@@ -24,7 +24,14 @@ import { BRIEFS, RUNS } from './lyric_tools.js';
 import { withExecutionContext } from './execution_context.js';
 import { encodeState, decodeState } from './state_codec.js';
 import { JobStore } from './job_store.js';
-import { WorkflowSessions, briefNote, verdictOf as sessionVerdict } from './workflow_sessions.js';
+import {
+  WorkflowSessions,
+  briefNote,
+  executeNative,
+  verdictOf as sessionVerdict,
+} from './workflow_sessions.js';
+import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
+import { continuationSemanticIdentity } from './state_codec.js';
 import { BRIEF_RETAIN_MS } from './brief_ledger.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -376,6 +383,15 @@ test('G18: a forged journal is refused for a song a live run knows, so its recor
   const r = await call({ state: encodeState(forged), answer: FIX });
   assert.ok(refused(r), text(r).slice(0, 800));
   assert.match(text(r), /not one this server returned/);
+  // Andrej's item 9: it says what the entry holds, and, as this call sent only
+  // a state, names the song to send rather than "this draft".
+  assert.match(text(r), /keeps lines it flagged without asking about them, so/);
+  assert.doesNotMatch(text(r), /replaced/);
+  assert.match(
+    text(r),
+    /`new_run: true` and, as `draft_text`, the song this state or checkpoint holds/
+  );
+  assert.doesNotMatch(text(r), /this draft/);
   for (const line of [...INPUT, FIX, 'Moon'])
     assert.doesNotMatch(text(r), new RegExp(`\\b${line}\\b`), 'no lyric text in a refusal');
   // Line 3 is still protected.
@@ -429,6 +445,130 @@ test('G21: an edit session that checks other lines has no left song to restart f
   const said = JSON.stringify(again);
   assert.ok(again.tool_error || again.tool_result?.isError, said.slice(0, 800));
   assert.doesNotMatch(said, /AWAITING PROPOSAL/, 'the earlier song is not revised');
+});
+
+// Andrej's item 1, the chat's half. The fixture is deterministic and the run
+// ledger refuses a record that was already continued, so this resumes from
+// another record than G22 does.
+test('G23: the chat recovered envelope continues an interrupted run', async (t) => {
+  const first = await opened();
+  const records = [];
+  const parked = verdict(
+    await withExecutionContext({ onCheckpoint: (record) => records.push(record) }, () =>
+      call({ state: first.state, answer: FIX })
+    )
+  );
+  assert.equal(parked.exit_code, 4, JSON.stringify(parked).slice(0, 600));
+  // The process dies just after the fix is accepted: the first record that
+  // holds it is the last one saved. (G22 resumes from the run's last record.)
+  const last = records.find((x) => x.status === 'accepted');
+  assert.deepEqual(last.accepted_lines, [INPUT[0], FIX, INPUT[2]]);
+  assert.notDeepEqual(last, records.at(-1));
+  // The chat router, as a restarted process builds it.
+  const secret = 'brief-gate-chat-fixture-secret';
+  const previous = process.env.CHAT_SECRET;
+  let createChatRouter;
+  try {
+    process.env.CHAT_SECRET = secret;
+    ({ createChatRouter } = await import('./chat.js?brief-gate-recovery'));
+  } finally {
+    if (previous === undefined) delete process.env.CHAT_SECRET;
+    else process.env.CHAT_SECRET = previous;
+  }
+  const router = await createChatRouter({
+    buildServer: () => buildServer({}),
+    Client,
+    InMemoryTransport,
+    apiKey: 'offline',
+  });
+  const directory = mkdtempSync(path.join(tmpdir(), 'brief-gate-chat-'));
+  t.after(() => rmSync(directory, { recursive: true, force: true }));
+  const store = new JobStore(directory);
+  const id = createHash('sha256').update('brief-gate-chat').digest('hex');
+  store.begin(id, { request_id: id, message: 'revise' });
+  const envelope = {
+    history: [],
+    workspace: null,
+    task: {
+      version: CONNECTOR_CONTRACT_VERSION,
+      domain: 'lyrics',
+      format: 'rich',
+      maxChars: 1000,
+      brief: 'brief',
+      phase: 'edit',
+      completedSteps: [],
+      turns: 0,
+      connector_semantic_identity: continuationSemanticIdentity(),
+    },
+  };
+  const { createHmac } = await import('node:crypto');
+  store.checkpoint(id, {
+    ...envelope,
+    sig: createHmac('sha256', secret).update(JSON.stringify(envelope)).digest('hex'),
+  });
+  store.checkpoint(id, last);
+  const recovered = router.recoverCheckpoint(new JobStore(directory).get(id));
+  assert.ok(recovered?.lyric?.state, JSON.stringify(recovered).slice(0, 800));
+  assert.equal(recovered.lyric.resumable, true);
+  const r = await call({
+    ...recovered.lyric.decl,
+    draft: recovered.lyric.draft,
+    state: recovered.lyric.state,
+  });
+  assert.doesNotMatch(text(r), /BRIEF_REQUIRED/, text(r).slice(0, 800));
+  assert.equal(typeof verdict(r).exit_code, 'number');
+});
+
+// Andrej's item 1: a lyric_revise that accepts a fix and loses its result is
+// resumed from its last saved progress record, which this server recorded.
+test('G22: a session resumes an interrupted run from its progress record', async (t) => {
+  const directory = mkdtempSync(path.join(tmpdir(), 'brief-gate-resume-'));
+  t.after(() => rmSync(directory, { recursive: true, force: true }));
+  let lose = false;
+  const sessions = new WorkflowSessions({
+    store: new JobStore(directory),
+    execute: async (...args) => {
+      const out = await executeNative(...args);
+      if (lose) {
+        lose = false;
+        throw new Error('lost result');
+      }
+      return out;
+    },
+  });
+  let session_id = sessions.open('lyrics', { phase: 'edit' }).session_id;
+  const run = async (name, args) => {
+    const q = sessions.submit(session_id, 'lyrics', name, args);
+    await sessions.wait(q.operation_id);
+    const r = sessions.status(q.operation_id, 'lyrics');
+    if (r.session_id) session_id = r.session_id;
+    return { q, r };
+  };
+  const { writer: _w, ...decl } = DECL;
+  const opening = (await run('lyric_revise', { ...decl, draft: INPUT })).r;
+  assert.equal(sessionVerdict(opening.tool_result).exit_code, 4, JSON.stringify(opening));
+  lose = true;
+  const { q, r: lost } = await run('lyric_revise', { answer: FIX });
+  assert.equal(lost.resumable, true, JSON.stringify(lost).slice(0, 800));
+  assert.deepEqual(lost.accepted_draft, [INPUT[0], FIX, INPUT[2]]);
+  const resumed = sessions.resume(q.operation_id, 'lyrics');
+  await sessions.wait(resumed.operation_id);
+  const after = sessions.status(resumed.operation_id, 'lyrics');
+  const said = JSON.stringify(after);
+  assert.doesNotMatch(said, /BRIEF_REQUIRED/, said.slice(0, 800));
+  assert.ok(!after.tool_error && !after.tool_result?.isError, said.slice(0, 800));
+  assert.equal(typeof sessionVerdict(after.tool_result).exit_code, 'number', said.slice(0, 800));
+});
+
+test('the lyric_revise descriptions state the same-song rule at half', async () => {
+  const { tools } = await client.listTools();
+  const revise = tools.find((x) => x.name === 'lyric_revise');
+  const said = [
+    revise.description,
+    ...Object.values(revise.inputSchema.properties || {}).map((p) => p.description || ''),
+  ].join(' ');
+  assert.match(said, /half or more of its lines are rewritten/);
+  assert.doesNotMatch(said, /more than half its lines/);
 });
 
 test.after(async () => {

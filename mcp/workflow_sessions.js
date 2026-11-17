@@ -18,7 +18,13 @@ import {
 } from './state_codec.js';
 import { HTTP_REQUEST_BYTES, jsonBytes } from './payload_limits.js';
 import { sessionView, verdictShape, DETAIL_FOR, LINE_PARTS, LINE_TOOLS } from './verdict_view.js';
-import { droppedOf, nextCreationCall, planChanged, sameDeclaration } from './lyric_workflow.js';
+import {
+  PLAN_FIELDS,
+  droppedOf,
+  nextCreationCall,
+  planChanged,
+  sameDeclaration,
+} from './lyric_workflow.js';
 
 // Persisted namespace from the first release: keep existing capabilities recoverable.
 export const INTEGRATION = 'chatgpt-v1';
@@ -989,7 +995,18 @@ export class WorkflowSessions {
       );
     }
     assertContinuationSemantics(progress.connector_semantic_identity);
-    const declarations = progress.connector_declarations;
+    // The journal's declarations are declarationsOf's, which writes the
+    // planner's defaults into every run; a pasted song's (unseeded) run is
+    // refused a plan-only field, so none is carried for one (as the chat's
+    // recovered envelope does, chat.js).
+    const declarations =
+      typeof progress.connector_declarations.seed === 'number'
+        ? progress.connector_declarations
+        : Object.fromEntries(
+            Object.entries(progress.connector_declarations).filter(
+              ([k]) => !PLAN_FIELDS.includes(k) || ['seed', 'relation', 'group_types'].includes(k)
+            )
+          );
     // Sealed like every interview state (LOOP_REDESIGN.md §2.8 F).
     const wire = encodeInterviewWire(progress);
     session.native.continuation = {

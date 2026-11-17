@@ -639,15 +639,31 @@ numbers, the lines the draft may change and the call that works. A draft that
 keeps half the song or less is a new song, even where it shares a protected
 line. A state or checkpoint this server did not return, for a song a live run
 knows, is refused the same way. A run set aside by a later run on its song
-still continues on its own state. A stop briefs its open lines with their rhyme groups and returns; a
+still continues on its own state, and a session or chat that resumes an
+interrupted run from its last saved progress record continues it too: every
+progress record's state is recorded as one this server returned. A stop briefs its open lines with their rhyme groups and returns; a
 question briefs the lines it asks. Entries last 3 hours, paid included, and a
-certified exit 0 forgets its song. A restart that sends no draft starts from
+certified exit 0 forgets its song. That is a ceiling, not a promise, under
+load: each partition keeps at most 2,000 entries and 100,000 items (an entry
+counts its lines, its protected lines and its undo items), and when it is full
+the entries that guard nothing (set aside by a later run, or protecting no
+line and holding no replaced line) are dropped first, oldest first, and then
+the oldest of the rest, so a live entry's protection can end early. A restart that sends no draft starts from
 the song as the run left it, its accepted fixes included. The store is
 `BRIEF_LEDGER_FILE`, else `LYRIC_RUNTIME_DIR/brief-ledger.json`, else memory
-only (stdio without a runtime directory forgets it on restart). A file that
-cannot be read refuses every revise run with `BRIEF_LEDGER_UNAVAILABLE` until
-it is repaired (`recover_only` still exports a held journal); a changed server
-secret drops the old entries and starts empty. Original
+only (stdio without a runtime directory forgets it on restart). Its key is
+derived from the server secret (`CHAT_SECRET`, else `CHAT_SECRET_FILE`, else
+`LYRIC_RUNTIME_DIR/chat-secret.key`); with `BRIEF_LEDGER_FILE` and none of
+those three, the secret is new on every start, so each restart drops the store,
+and the server logs a warning at start. Set `LYRIC_RUNTIME_DIR` (production
+does) or one of the secret settings to make the store durable. A progress
+record is written to disk at once for a call's first one, then at most once a
+second, with a deferred write a second after one is held back; a stop is
+always written at once. A file that cannot be read, or that holds even one
+damaged entry, refuses every revise run with `BRIEF_LEDGER_UNAVAILABLE` until
+it is repaired (`recover_only` still exports a held journal), and is never
+written over meanwhile; a changed server secret drops the old entries and
+starts empty. Original
 replay input, accepted lines and immutable declarations have separate fields;
 accepted lines never silently replace the replay input. The bounded state codec
 identifies the scorer source, lexical data and runtime. Signed chat continuations

@@ -63,7 +63,7 @@ Connector:
 | BRIEF_CAP | 2,000 | `../mcp/brief_ledger.js` |
 | BRIEF_PAID_CAP | 2,000 | `../mcp/brief_ledger.js` |
 | BRIEF_LINE_BUDGET | 100,000 | `../mcp/brief_ledger.js` |
-| MAX_CANDIDATES | 8 | `../mcp/brief_ledger.js` |
+| BRIEF_SAVE_GAP_MS | 1,000 | `../mcp/brief_ledger.js` |
 | MAX_WIRES | 8 | `../mcp/brief_ledger.js` |
 | MAX_UNDO | 256 | `../mcp/brief_ledger.js` |
 | DEFAULT_TOOL_BUDGET_MS | 600,000 | `../mcp/budget.js` |

@@ -500,14 +500,26 @@ const lineWords = (ns) =>
 
 // The refusal names line numbers only, in the incoming draft's numbering, and
 // never a line's text or the run it matched.
-function briefRefusal(res) {
-  if (res.reason === 'unminted_wire')
+// sentDraft: the call itself carried a draft (draft or draft_text).
+function briefRefusal(res, { sentDraft = true } = {}) {
+  if (res.reason === 'unminted_wire') {
+    const held = [
+      res.protects ? 'keeps lines it flagged without asking about them' : '',
+      res.replaced ? 'keeps lines its loop replaced from coming back' : '',
+    ]
+      .filter(Boolean)
+      .join(' and ');
     return (
       'BRIEF_REQUIRED: the state or checkpoint this call carries is not one this server returned, ' +
-      'and the song it holds is one in which a live revise run protects lines, so its lines cannot be taken ' +
-      "as that run's. Nothing was run. Call lyric_revise with `new_run: true` and this draft, or " +
+      `and the song it holds is one in which a live revise run ${held}, so its records cannot be taken ` +
+      "as that run's. Nothing was run. " +
+      (sentDraft
+        ? 'Call lyric_revise with `new_run: true` and this draft, or '
+        : 'Call lyric_revise with `new_run: true` and, as `draft_text`, the song this state or ' +
+          'checkpoint holds (its `final_draft`, or else its `accepted_lines`), or ') +
       'continue with the state or checkpoint the last lyric_revise returned.'
     );
+  }
   const parts = [];
   if (res.changed.length)
     parts.push(
@@ -541,7 +553,9 @@ function briefRefusal(res) {
 
 const briefWireKey = (w) => (typeof w === 'string' && w ? wireKey(w) : null);
 // Progress captures are written to disk at most once a second over every run
-// in this process (each write saves the whole store); a stop always writes.
+// in this process (each write saves the whole store), except a call's first
+// one, which is always written; one held back is written by the ledger's
+// deferred save a second later. A stop always writes.
 let briefProgressSavedAt = 0;
 // A capture never fails the call it records: a failed save leaves the store
 // unhealthy, and the next run is refused until it recovers.
@@ -2442,7 +2456,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .boolean()
       .optional()
       .describe(
-        "true to open a fresh independent run on the draft you send; any run in progress is set aside intact. Send only the draft and the declarations with it. With no draft and a run's `run_id`, it starts from the song as that run left it, its accepted fixes included. A line a run flagged but did not ask about, or a line its loop replaced, keeps its text for 3 hours unless the song is certified or mostly rewritten (more than half its lines); a draft that changes one is refused with BRIEF_REQUIRED, which names the lines."
+        "true to open a fresh independent run on the draft you send; any run in progress is set aside intact. Send only the draft and the declarations with it. With no draft and a run's `run_id`, it starts from the song as that run left it, its accepted fixes included. A line a run flagged but did not ask about, or a line its loop replaced, keeps its text for 3 hours unless the song is certified or half or more of its lines are rewritten; a draft that changes one is refused with BRIEF_REQUIRED, which names the lines."
       ),
     writer: z
       .enum(WRITERS)
@@ -2764,8 +2778,8 @@ function reviseDescription({ kitchen = false } = {}) {
     'continues it. To start again on a different draft, grade that draft first, then ' +
     'send it with `new_run: true`; `new_run: true` with no draft and the run_id starts from the song as ' +
     'the run left it, its accepted fixes included. A line a run flagged but did not ask about, or a line ' +
-    'its loop replaced, keeps its text for 3 hours unless the song is certified or mostly rewritten ' +
-    '(more than half its lines): a draft that changes it, or puts a replaced line back, is refused ' +
+    'its loop replaced, keeps its text for 3 hours unless the song is certified or half or more of ' +
+    'its lines are rewritten: a draft that changes it, or puts a replaced line back, is refused ' +
     '(BRIEF_REQUIRED names the lines). ';
   const chat =
     'ON THIS SURFACE THE SERVICE WRITER ANSWERS: after lyric_grade, send the seed and no draft, and the ' +
@@ -3083,6 +3097,7 @@ export function registerLyricTools(server, tool) {
             withTempDir(async (dir) => {
               // M-234: the draft may arrive as one string.
               if (a.draft_text != null || a.draft != null) takeLines(a, 'draft', 'draft_text');
+              const sentDraft = a.draft != null;
               // A RESTART THAT SENDS NO LYRICS starts from the song as its run
               // left it, accepted fixes included, never the draft it opened
               // on (owner, 16 Nov; #665): no accepted fix is lost or undone.
@@ -3595,7 +3610,7 @@ export function registerLyricTools(server, tool) {
                 lineSets: briefLines.length ? briefLines : [a.draft],
                 wires: briefKeys,
               });
-              if (!briefCheck.ok) throw refuse(briefRefusal(briefCheck));
+              if (!briefCheck.ok) throw refuse(briefRefusal(briefCheck, { sentDraft }));
               const briefPaid = writer === 'kitchen';
               const briefAt = (status, journal, cur, extra = {}) =>
                 Array.isArray(cur)
@@ -3617,18 +3632,35 @@ export function registerLyricTools(server, tool) {
                     })
                   : null;
               // Progress, for a call that is killed before it returns: saved
-              // at most once a second, and only once a resumed run has replayed
-              // up to where its wire left it.
+              // at once for the call's first record, then at most once a
+              // second, and only once a resumed run has replayed up to where
+              // its wire left it. Every record's wire is minted, built exactly
+              // as a resume builds it from the stored record (a session's
+              // resumeSnapshot, the chat's recovered envelope), so resuming
+              // from it continues this run rather than reading as forged.
               let briefCaught = !briefMinted;
-              const briefProgress = (record) => {
+              let briefFirst = true;
+              const briefProgress = (record, stored) => {
                 try {
                   const cur = curOf(record);
                   if (!Array.isArray(cur)) return;
-                  if (!briefCaught && JSON.stringify(cur) !== JSON.stringify(briefBase)) return;
+                  let wire = null;
+                  try {
+                    wire = briefWireKey(
+                      writer === 'interview' ? encodeInterviewWire(stored) : encodeState(stored)
+                    );
+                  } catch {
+                    wire = null;
+                  }
+                  const persist = briefFirst || Date.now() - briefProgressSavedAt >= 1000;
+                  if (!briefCaught && JSON.stringify(cur) !== JSON.stringify(briefBase)) {
+                    if (wire) BRIEFS.mint({ runId, wire, persist: false });
+                    return;
+                  }
                   briefCaught = true;
-                  const persist = Date.now() - briefProgressSavedAt >= 1000;
+                  briefFirst = false;
                   if (persist) briefProgressSavedAt = Date.now();
-                  briefAt('progress', record, cur, { persist });
+                  briefAt('progress', record, cur, { persist, wire });
                 } catch (err) {
                   console.error(`[briefs] progress not recorded (${err.message})`);
                 }
@@ -3639,12 +3671,13 @@ export function registerLyricTools(server, tool) {
                 context: {
                   ...execution,
                   onCheckpoint: (record) => {
-                    briefProgress(record);
-                    return execution.onCheckpoint?.({
+                    const stored = {
                       ...record,
                       connector_declarations: declarationsOf(a),
                       connector_semantic_identity: continuationSemanticIdentity(),
-                    });
+                    };
+                    briefProgress(record, stored);
+                    return execution.onCheckpoint?.(stored);
                   },
                 },
               });

@@ -616,3 +616,175 @@ test('the same-song rule at exactly half, and one line either side', async () =>
   ]);
   assert.equal(b.check({ lineSets: [shifted] }).ok, false, 'five in order, shifted: the same song');
 });
+
+// Andrej's review of #875, item 20: a whole-draft flag releases every line,
+// and the same capture without it does not.
+test('a whole-draft flag releases every line it flagged; without it they stay protected', async () => {
+  const b = ledger();
+  const cur = song('wh1');
+  await b.capture({ runId: 'wh', cur, input: cur, flagged: [1, 2], whole: true });
+  for (const k of [0, 1]) {
+    const edit = cur.slice();
+    edit[k] = 'hand edit';
+    assert.equal(b.check({ lineSets: [edit] }).ok, true, `line ${k + 1} is free`);
+  }
+  await b.capture({ runId: 'wh', cur, input: cur, flagged: [1, 2] });
+  for (const k of [0, 1]) {
+    const edit = cur.slice();
+    edit[k] = 'hand edit';
+    assert.deepEqual(b.check({ lineSets: [edit] }).changed, [k + 1]);
+  }
+});
+
+// Item 9: the forged-wire refusal says what the entry holds.
+test('an unminted wire refusal says whether the entry protects lines or holds replaced ones', async () => {
+  const b = ledger();
+  const input = song('u9');
+  const cur = input.slice();
+  cur[2] = 'the loop fix';
+  await b.capture({ runId: 'u9', cur, input, flagged: [] });
+  const undoOnly = b.check({ lineSets: [cur], wires: ['forged'] });
+  assert.equal(undoOnly.reason, 'unminted_wire');
+  assert.deepEqual([undoOnly.protects, undoOnly.replaced], [false, true]);
+  const other = song('p9');
+  await b.capture({ runId: 'p9', cur: other, input: other, flagged: [4] });
+  const protOnly = b.check({ lineSets: [other], wires: ['forged'] });
+  assert.deepEqual([protOnly.protects, protOnly.replaced], [true, false]);
+});
+
+// Item 10: a progress capture that is not saved at once is saved a moment
+// later, so a restart after that window still has it.
+test('a capture held back from disk is saved after the save gap', async () => {
+  const file = path.join(tmpDir(), 'b.json');
+  const b = ledger({ file, saveGapMs: 20 });
+  const sa = song('ta');
+  const sb = song('tb');
+  await b.capture({ runId: 'A', cur: sa, input: sa, flagged: [1] });
+  await b.capture({ runId: 'B', cur: sb, input: sb, flagged: [2], persist: false });
+  await new Promise((r) => setTimeout(r, 120));
+  const again = ledger({ file });
+  assert.equal(again.free.size, 2, 'both runs survive the restart');
+  const edit = sb.slice();
+  edit[1] = 'hand edit';
+  assert.deepEqual(again.check({ lineSets: [edit] }).changed, [2]);
+});
+
+// Item 11: undo items and protected lines count against the budget.
+test('the item budget counts undo items, so undo-heavy entries stay within it', async () => {
+  const file = path.join(tmpDir(), 'b.json');
+  const budget = 1000;
+  const b = ledger({ file, lineBudget: budget });
+  const undo = (tag) =>
+    Array.from({ length: 256 }, (_, i) => [0, b.digests([`${tag} gone ${i}`]).fo[0]]);
+  for (let i = 0; i < 10; i++) {
+    const s = song(`ud${i}`, 4);
+    await b.capture({
+      runId: `ud${i}`,
+      cur: s,
+      input: s,
+      flagged: [1],
+      inherited: { prot: [], undo: undo(`ud${i}`) },
+    });
+  }
+  let items = 0;
+  for (const e of b.free.values()) items += e.n + e.prot.length + e.undo.length;
+  assert.ok(items <= budget, `${items} items over a budget of ${budget}`);
+  assert.ok(b.free.size >= 1, 'the newest entry is kept');
+  // A byte ceiling: about 16 bytes per stored item, plus each entry's frame.
+  assert.ok(fs.statSync(file).size <= budget * 16 + b.free.size * 400, 'the file stays bounded');
+});
+
+// Item 12: entries that guard nothing go before one that protects a line.
+test('pruning drops entries that guard nothing before the oldest protecting one', async () => {
+  const b = ledger({ lineBudget: 40 });
+  const kept = song('ev0', 4);
+  await b.capture({ runId: 'ev0', cur: kept, input: kept, flagged: [3] });
+  for (let i = 1; i <= 12; i++) {
+    const s = song(`ev${i}`, 4);
+    await b.capture({ runId: `ev${i}`, cur: s, input: s, flagged: [] });
+  }
+  const edit = kept.slice();
+  edit[2] = 'hand edit';
+  assert.deepEqual(b.check({ lineSets: [edit] }).changed, [3], 'the protecting entry is kept');
+  // Once only protecting entries are left, the oldest of them goes.
+  for (let i = 0; i < 12; i++) {
+    const s = song(`evp${i}`, 4);
+    await b.capture({ runId: `evp${i}`, cur: s, input: s, flagged: [1] });
+  }
+  assert.equal(b.check({ lineSets: [edit] }).ok, true);
+});
+
+// Gap item G1: newer look-alike runs cannot push the protecting entry out of
+// the check.
+test('decoy runs on look-alike songs do not push the protecting entry out of the check', async () => {
+  const now = clock();
+  const b = ledger({ now });
+  const S = song('g1', 10);
+  await b.capture({ runId: 'protect', cur: S, input: S, flagged: [3] });
+  const D = S.slice();
+  D[2] = 'hand edit';
+  assert.deepEqual(b.check({ lineSets: [D] }).changed, [3]);
+  for (let k = 0; k < 8; k++) {
+    now.t += 1000; // each decoy is newer than the entry it hides
+    const decoy = [...D.slice(0, 6), ...song(`decoy${k}`, 4)];
+    await b.capture({ runId: `decoy${k}`, cur: decoy, input: decoy, flagged: [] });
+  }
+  const r = b.check({ lineSets: [D] });
+  assert.equal(r.ok, false, 'still refused after eight decoys');
+  assert.deepEqual(r.changed, [3]);
+});
+
+// Gap item G3: one damaged entry fails the whole store closed.
+test('a store with one damaged entry fails closed and is not written over', async () => {
+  const file = path.join(tmpDir(), 'b.json');
+  const b = ledger({ file });
+  const cur = song('dm');
+  await b.capture({ runId: 'dm', cur, input: cur, flagged: [2] });
+  const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+  raw.free[0].fo[1] = raw.free[0].fo[1].slice(0, 5);
+  const damaged = JSON.stringify(raw);
+  fs.writeFileSync(file, damaged);
+  const log = quiet();
+  const again = new BriefLedger({ file, key: KEY, log });
+  assert.equal(again.healthy, false);
+  assert.ok(log.lines.some((l) => l.includes('damaged')));
+  const other = song('dm2');
+  await again.capture({ runId: 'dm2', cur: other, input: other, flagged: [1] });
+  assert.equal(fs.readFileSync(file, 'utf8'), damaged, 'the evidence is not written over');
+  assert.equal(again.recover(), false, 'still damaged');
+  // Repaired: the entry is whole again.
+  fs.writeFileSync(file, JSON.stringify({ ...raw, free: [] }));
+  assert.equal(again.recover(), true);
+});
+
+// Gap item G4: a ledger file whose key is new on every start says so.
+test('createBriefLedger warns when the file is set but the key is new on every start', () => {
+  const dir = tmpDir();
+  const log = quiet();
+  const b = createBriefLedger({ BRIEF_LEDGER_FILE: path.join(dir, 'x.json') }, { log });
+  assert.equal(b.ephemeralKey, true);
+  assert.ok(
+    log.lines.some((l) => /WARNING: BRIEF_LEDGER_FILE is set/.test(l)),
+    log.lines.join('\n')
+  );
+  const quietLog = quiet();
+  const durable = createBriefLedger(
+    { BRIEF_LEDGER_FILE: path.join(dir, 'y.json'), CHAT_SECRET: 'd'.repeat(64) },
+    { log: quietLog }
+  );
+  assert.equal(durable.ephemeralKey, false);
+  assert.deepEqual(quietLog.lines, []);
+  assert.equal(createBriefLedger({}, { log: quiet() }).ephemeralKey, false, 'memory only');
+});
+
+// The resume path (item 1) records a wire on the run's own entry.
+test('mint adds a wire to the run entry only', async () => {
+  const b = ledger();
+  const cur = song('mi');
+  assert.equal(b.mint({ runId: 'none', wire: 'w0' }), false);
+  await b.capture({ runId: 'mi', cur, input: cur, flagged: [1] });
+  assert.equal(b.minted('w1'), false);
+  assert.equal(b.mint({ runId: 'mi', wire: 'w1' }), true);
+  assert.equal(b.minted('w1'), true);
+  assert.equal(b.check({ lineSets: [cur], wires: ['w1'] }).ok, true);
+});

@@ -8,16 +8,21 @@
 // so a retype that differs only in case, spacing or punctuation is the same
 // line.
 //
-// The store fails closed: a file that cannot be read or parsed (or a key that
-// cannot be loaded) makes it unhealthy, and while it is unhealthy the caller
-// refuses every revise run. A file that failed to load is never written over
-// until recover() reads it again. A key-check mismatch (the server secret
-// changed) is not damage: the old entries cannot be matched any more, so they
-// are dropped and the store starts empty, with a log line.
+// The store fails closed: a file that cannot be read or parsed, a file that
+// holds even one damaged entry, or a key that cannot be loaded makes it
+// unhealthy, and while it is unhealthy the caller refuses every revise run. A
+// file that failed to load is never written over until recover() reads it
+// again. A key-check mismatch (the server secret changed) is not damage: the
+// old entries cannot be matched any more, so they are dropped and the store
+// starts empty, with a log line.
 //
 // Durable when BRIEF_LEDGER_FILE or LYRIC_RUNTIME_DIR names a disk, and saved
 // as RunLedger saves (run_store.js): a 'wx' temp file at 0600, fsync, rename,
-// then a directory fsync. Otherwise it covers the life of the process.
+// then a directory fsync. Otherwise it covers the life of the process. The
+// key comes from the server secret (loadChatSecret): with BRIEF_LEDGER_FILE
+// and no CHAT_SECRET, CHAT_SECRET_FILE or LYRIC_RUNTIME_DIR that secret is new
+// on every start, so every restart reads as a key change and drops the store;
+// createBriefLedger logs that at start.
 import { createHash, createHmac, hkdfSync, randomBytes } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -26,11 +31,16 @@ import { loadChatSecret } from './job_store.js';
 export const BRIEF_RETAIN_MS = 3 * 60 * 60 * 1000;
 export const BRIEF_CAP = 2000; // free partition, by count, plus the TTL
 export const BRIEF_PAID_CAP = 2000; // writer === 'kitchen'; the same TTL
-// Lines kept per partition, over all its entries: a store of long songs is
-// pruned oldest first before its count cap is reached, so the heap and the
-// cost of each save stay bounded.
+// Items kept per partition, over all its entries: each entry counts its lines,
+// its protected lines and its undo items. A store over the budget (or over its
+// count cap) is pruned before a new entry is kept, so the heap and the cost of
+// each save stay bounded. Pruning drops first the entries that guard nothing
+// (retired, or with no protected line and no undo item), oldest first, and only
+// then the oldest of the rest: under that load a live entry's protection can
+// end before its 3 hours.
 export const BRIEF_LINE_BUDGET = 100_000;
-const MAX_CANDIDATES = 8;
+// A progress capture that is not saved at once is saved this long after.
+export const BRIEF_SAVE_GAP_MS = 1000;
 const MAX_WIRES = 8;
 const MAX_UNDO = 256;
 const KEY_LABEL = 'lyric-brief-v1';
@@ -133,6 +143,9 @@ function validEntry(e) {
   return Array.isArray(e.wires) && e.wires.every(WIRE);
 }
 
+// What an entry costs the store: its lines, protected lines and undo items.
+const weightOf = (e) => e.n + e.prot.length + e.undo.length;
+
 // Line numbers as a sorted unique list.
 const uniq = (xs) => [...new Set(xs)].sort((a, b) => a - b);
 
@@ -145,6 +158,7 @@ export class BriefLedger {
     cap = BRIEF_CAP,
     paidCap = BRIEF_PAID_CAP,
     lineBudget = BRIEF_LINE_BUDGET,
+    saveGapMs = BRIEF_SAVE_GAP_MS,
     log = console.error,
   } = {}) {
     this.file = file;
@@ -154,6 +168,8 @@ export class BriefLedger {
     this.cap = cap;
     this.paidCap = paidCap;
     this.lineBudget = lineBudget;
+    this.saveGapMs = saveGapMs;
+    this.saveTimer = null;
     this.log = log;
     this.free = new Map(); // id -> entry, insertion order = recency
     this.paid = new Map();
@@ -199,9 +215,9 @@ export class BriefLedger {
     );
   }
 
-  // Reads the file (sweeping a kill's leftover temp files first). Entries that
-  // are malformed are skipped one by one; a file that is not JSON, or not an
-  // object, fails closed.
+  // Reads the file (sweeping a kill's leftover temp files first). A file that
+  // is not JSON, not an object, or holds one malformed entry fails closed: a
+  // damaged entry may be the one that protects a line, so none is dropped.
   load() {
     if (!this.file) {
       this.loadFailed = false;
@@ -236,19 +252,29 @@ export class BriefLedger {
       this.fail(err, 'unreadable');
       return;
     }
-    this.loadFailed = false;
     if (raw.kc !== this.keyCheck) {
+      this.loadFailed = false;
       this.log('[briefs] store key changed; its entries are dropped and it starts empty.');
       this.save();
       return;
     }
+    const bad = ['free', 'paid'].reduce(
+      (k, part) => k + raw[part].filter((e) => !validEntry(e)).length,
+      0
+    );
+    if (bad) {
+      this.loadFailed = true;
+      this.fail(new Error(`${bad} damaged entr${bad === 1 ? 'y' : 'ies'}`), 'damaged');
+      return;
+    }
+    this.loadFailed = false;
     const cutoff = this.now() - this.retainMs;
     for (const [part, map] of [
       ['free', this.free],
       ['paid', this.paid],
     ])
       for (const e of raw[part])
-        if (validEntry(e) && e.t >= cutoff && !this.get(e.id)) {
+        if (e.t >= cutoff && !this.get(e.id)) {
           const entry = {
             id: e.id,
             t: e.t,
@@ -369,30 +395,36 @@ export class BriefLedger {
     this.indexAdd(e);
   }
 
+  // Expired entries go first. Then, while a partition is over its count cap or
+  // its item budget, the entries that guard nothing (retired, or with no
+  // protected line and no undo item) go oldest first, and only then the
+  // oldest of the rest. Entries are in recency order.
   prune() {
     const cutoff = this.now() - this.retainMs;
     let changed = false;
-    for (const [map, cap] of [
-      [this.free, this.cap],
-      [this.paid, this.paidCap],
-    ]) {
-      let lines = 0;
-      for (const e of map.values()) lines += e.n;
-      for (const [id, e] of map) {
-        if (e.t >= cutoff && map.size <= cap && lines <= this.lineBudget) break;
-        lines -= e.n;
-        this.drop(id);
-        changed = true;
-      }
-    }
-    // Entries are in recency order, so the loop above stops at the first live
-    // one; a stale one behind it (a clock moved back) is caught here.
     for (const map of [this.free, this.paid])
       for (const [id, e] of map)
         if (e.t < cutoff) {
           this.drop(id);
           changed = true;
         }
+    const idle = (e) => e.retired || (!e.prot.length && !e.undo.length);
+    for (const [map, cap] of [
+      [this.free, this.cap],
+      [this.paid, this.paidCap],
+    ]) {
+      let items = 0;
+      for (const e of map.values()) items += weightOf(e);
+      const over = () => map.size > cap || items > this.lineBudget;
+      for (const pass of [idle, () => true])
+        for (const [id, e] of map) {
+          if (!over()) break;
+          if (!pass(e)) continue;
+          items -= weightOf(e);
+          this.drop(id);
+          changed = true;
+        }
+    }
     return changed;
   }
 
@@ -485,7 +517,10 @@ export class BriefLedger {
       for (const map of [this.free, this.paid])
         for (const e of map.values())
           if (e.id !== ownId && e.wires.some((d) => ds.has(d))) cands.push(e);
-    } else cands.push(...this.matches(sets, ownId).slice(0, MAX_CANDIDATES - cands.length));
+      // Every live entry the draft descends from is a candidate: a cap on
+      // their number would let newer runs on look-alike songs push the one
+      // that protects a line out of the check.
+    } else cands.push(...this.matches(sets, ownId));
     const inherited = { prot: [], undo: [] };
     for (let k = 0; k < sets.length; k++) {
       const fo = sets[k];
@@ -515,11 +550,14 @@ export class BriefLedger {
     // (what it says was asked and answered) are not the run's own, and could
     // free those lines at capture. An entry that protects nothing has nothing
     // a forged record could free, so it does not refuse the wire.
-    const guards = cands.some((e) => e.prot.length > 0 || e.undo.length > 0);
-    if (wireList.length && !exempt && guards)
+    const protects = cands.some((e) => e.prot.length > 0);
+    const replaced = cands.some((e) => e.undo.length > 0);
+    if (wireList.length && !exempt && (protects || replaced))
       return {
         ok: false,
         reason: 'unminted_wire',
+        protects,
+        replaced,
         set: 0,
         changed: [],
         removedAfter: [],
@@ -537,6 +575,8 @@ export class BriefLedger {
   // draft it started from; flagged and briefed are 1-based lines of cur (a
   // whole-draft flag briefs every line). inherited comes from check, numbered
   // in input; supersedes are retired only if unchanged since check (by t).
+  // persist false defers the save by saveGapMs (one save covers every capture
+  // made meanwhile) instead of skipping it.
   async capture({
     runId,
     paid = false,
@@ -616,6 +656,33 @@ export class BriefLedger {
     );
     this.prune();
     if (persist) this.save();
+    else this.saveSoon();
+  }
+
+  // Adds a wire this server returned (or recorded for a resume) to the run's
+  // own entry, changing nothing else. No entry, no wire.
+  mint({ runId, wire, persist = true } = {}) {
+    if (!runId || !this.key || typeof wire !== 'string') return false;
+    const e = this.get(runDigest(runId));
+    if (!e) return false;
+    const d = this.wireDigest(wire);
+    const k = e.wires.indexOf(d);
+    if (k >= 0) e.wires.splice(k, 1);
+    e.wires.push(d);
+    if (e.wires.length > MAX_WIRES) e.wires.splice(0, e.wires.length - MAX_WIRES);
+    if (persist) this.save();
+    else this.saveSoon();
+    return true;
+  }
+
+  // One deferred save, saveGapMs from the first capture it covers.
+  saveSoon() {
+    if (!this.file || this.saveTimer) return;
+    this.saveTimer = setTimeout(() => {
+      this.saveTimer = null;
+      this.save();
+    }, this.saveGapMs);
+    this.saveTimer.unref?.();
   }
 
   // A certified run: its entry and the ones it superseded go.
@@ -626,6 +693,10 @@ export class BriefLedger {
   }
 
   save() {
+    if (this.saveTimer) {
+      clearTimeout(this.saveTimer);
+      this.saveTimer = null;
+    }
     if (!this.file || this.loadFailed || !this.key) return;
     const temp = `${this.file}.${randomBytes(8).toString('hex')}.tmp`;
     const dir = path.dirname(this.file);
@@ -664,13 +735,25 @@ export class BriefLedger {
   }
 }
 
+// True when loadChatSecret(env) makes a new random secret on every start.
+export const ephemeralSecret = (env) =>
+  !env.CHAT_SECRET && !env.CHAT_SECRET_FILE && !env.LYRIC_RUNTIME_DIR;
+
 export function createBriefLedger(env = process.env, opts = {}) {
   const file =
     env.BRIEF_LEDGER_FILE ||
     (env.LYRIC_RUNTIME_DIR && path.join(env.LYRIC_RUNTIME_DIR, 'brief-ledger.json'));
-  return new BriefLedger({
+  const ledger = new BriefLedger({
     file: file || null,
     key: () => deriveBriefKey(loadChatSecret(env)),
     ...opts,
   });
+  ledger.ephemeralKey = Boolean(file) && ephemeralSecret(env);
+  if (ledger.ephemeralKey)
+    ledger.log(
+      '[briefs] WARNING: BRIEF_LEDGER_FILE is set, but no CHAT_SECRET, CHAT_SECRET_FILE or ' +
+        'LYRIC_RUNTIME_DIR is: the store key is new on every start, so every restart drops the ' +
+        'store and protection does not survive it. Set one of them to keep the key.'
+    );
+  return ledger;
 }
