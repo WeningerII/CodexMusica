@@ -8,7 +8,7 @@ import { once } from 'node:events';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
-import { RUNS, LYRIC_TOOL_SCHEMAS, _workerInternals } from './lyric_tools.js';
+import { RUNS, BRIEFS, LYRIC_TOOL_SCHEMAS, _workerInternals } from './lyric_tools.js';
 import { RunStore, newRunId } from './run_store.js';
 import { withExecutionContext } from './execution_context.js';
 import {
@@ -502,6 +502,10 @@ try {
       });
       assert.equal(movedBasis.isError, true);
       assert.match(message(movedBasis), /checkpoint declarations moved: .*lexicon_supplement/);
+      // The two calls below send hand-built checkpoints. When the run left a
+      // protected line, the brief gate (#875) refuses such a wire first, so
+      // the store is cleared here to reach the refusals this test is about.
+      BRIEFS.resetForTests();
       const forgedBasis = decodeState(first.checkpoint);
       forgedBasis.connector_declarations.lexicon_supplement_sha256 = '0'.repeat(64);
       const badBasis = await a.callTool({

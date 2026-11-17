@@ -2312,9 +2312,22 @@ class LegacyReplay(unittest.TestCase):
                if k not in ("LYRIC_CONTROL_TOKEN", "LYRIC_REQUEST_DEADLINE_MS",
                             "LYRIC_CHECKPOINT_PATH")}
 
+        # THE FLAGGED SUBSET IS PUBLISHED AFTER THIS CAPTURE (2026-11-17,
+        # #875). This build adds `pass_flagged_lines` to each checkpoint and
+        # state, and `flagged_lines` to the lyric result and to `complete`, so
+        # the connector can tell a flagged line from a pursued or unjudged one.
+        # The recording predates them, so they are set aside on both sides;
+        # what they hold is pinned in test_loop's flagged-subset section.
+        _flag_keys = ("pass_flagged_lines", "flagged_lines")
+
         def strip(rec):
-            return {k: v for k, v in rec.items()
-                    if k not in ("reader_scheme", "cursor") and not k.startswith("cursor_")}
+            out = {k: v for k, v in rec.items()
+                   if k not in ("reader_scheme", "cursor") + _flag_keys
+                   and not k.startswith("cursor_")}
+            if isinstance(out.get("complete"), dict):
+                out["complete"] = {k: v for k, v in out["complete"].items()
+                                   if k not in _flag_keys}
+            return out
 
         # THE RECORDED QUESTION OFFERED WORD LISTS, AND THIS BUILD PRINTS NONE
         # (2026-10-27, D6 on #519). The pre-batch harness rendered OFFERED,
