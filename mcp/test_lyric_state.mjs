@@ -595,6 +595,11 @@ try {
         'lyric state: actual worker cancellation preserved accepted lines, declarations and resume journal'
       );
 
+      // A separate scenario on the same draft. The run above accepted a loop
+      // fix to it, so the brief gate (#875) would refuse a new run that puts
+      // the original line back; this scenario is about an uncertain abort,
+      // not that rule, so the store is cleared first.
+      BRIEFS.resetForTests();
       calls = 0;
       const uncertainController = new AbortController();
       abortOnRequest = () => uncertainController.abort();
