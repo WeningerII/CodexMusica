@@ -2424,6 +2424,10 @@ jobs:
         if: always()
         working-directory: lyric-harness
         run: python3 quality/test_mutation.py --static
+      - name: Complete mutation suite partition controls
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/test_mutation_parallel.py
 
       # THE HAFEZ RADIF AND QĀFIYA RATES against their committed values.
       # Added 2026-08-14. 15.79 CPU-s, MEASURED.
