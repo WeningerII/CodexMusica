@@ -718,6 +718,60 @@ test('a session adds up the windows that kept no seed, and stops offering anothe
   }
 });
 
+// The advice reads what the call STATED: a drawn length or roster, or a want
+// that states it, is the person's choice already, and the paragraph does not
+// tell the writer to choose a value in its place. A reordered `draw` list is
+// the same request, so the windows still add up.
+test('a window that kept no seed advises nothing the call stated by a draw or a want', () => {
+  const rows = STATEABLE.filter((r) => ['lines', 'functions'].includes(r.field));
+  const ways = (row) => [
+    ['draw', { draw: [row.field] }],
+    ...row.wants.map((k) => [
+      'want',
+      { want: [`${k.endsWith('.*') ? `${k.slice(0, -1)}<function>` : k}=1`] },
+    ]),
+  ];
+  const v = (from) => ({
+    exit_code: 2,
+    sweep_outcome: 'no seed kept',
+    swept: 4,
+    planned: 4,
+    held_by: [{ want: '<predicate>', held: 0 }],
+    accept_share_bound: Math.round(planShareBound(4) * 1e4) / 1e4,
+    window: { seed_from: from, count: 4, next_seed_from: from + 4 },
+    window_meaning: '<one window>',
+    next: '<sentence>',
+  });
+  const publish = (task, sent, from) => {
+    const call_ = { ...sent, seed_from: from, count: 4 };
+    recordCreation(task, 'lyric_sweep', call_, v(from));
+    return JSON.parse(
+      withSessionOutcome(
+        task,
+        'lyric_sweep',
+        { content: [{ type: 'text', text: JSON.stringify(v(from)) }] },
+        null,
+        call_
+      ).content[0].text
+    );
+  };
+  for (const row of rows)
+    for (const [way, said] of ways(row)) {
+      const task = { domain: 'lyrics', phase: 'create' };
+      const out = publish(task, { form: '<form>', ...said }, 0);
+      assert.equal(out.window_meaning.includes(`\`${row.field}\``), false, `${way} ${row.field}`);
+      const other = rows.find((r) => r !== row);
+      assert.equal(out.window_meaning.includes(`\`${other.field}\``), true, `${way} ${row.field}`);
+    }
+  // Both drawn, the draw list sent in either order: the same request.
+  const task = { domain: 'lyrics', phase: 'create' };
+  const fields = rows.map((r) => r.field);
+  publish(task, { form: '<form>', draw: fields }, 0);
+  const second = publish(task, { form: '<form>', draw: [...fields].reverse() }, 4);
+  assert.equal(second.unkept_in_a_row.seeds, 8);
+  for (const f of fields) assert.equal(second.window_meaning.includes(`\`${f}\``), false, f);
+});
+
 // Real sweeps, the requests drawn by seed from the planner's own roster.
 test(
   'real windows that keep no seed carry their counts and their bound',
@@ -748,17 +802,21 @@ test(
           want: [`sections.${fn}=${7 + draw(3)}`, `sections.${other}>=1`],
           seed_from: draw(50),
           count,
-          ...(i % 2 ? { lines: 8 + draw(33) } : {}),
+          // A length stated as a value, drawn, or left out.
+          ...(i % 2 ? { lines: 8 + draw(33) } : i % 4 ? {} : { draw: ['lines'] }),
         };
+        const length = args.lines != null || !!args.draw;
         const r = await client.callTool({ name: 'lyric_sweep', arguments: args });
         const v = JSON.parse(r.content[r.content.length - 1].text);
         if (v.sweep_outcome !== 'no seed kept') continue;
         kept_none++;
         assert.equal(v.accept_share_bound, Math.round(planShareBound(v.swept) * 1e4) / 1e4);
-        assert.equal(v.window_meaning, noneKeptMeaning(v, { lines: args.lines != null }));
+        // A `sections.F` want states the sections, so the roster is not advised.
+        assert.equal(v.window_meaning, noneKeptMeaning(v, { lines: length, functions: true }));
         for (const h of v.held_by)
           assert.ok(v.window_meaning.includes(`${h.want} on ${h.held}`), v.window_meaning);
-        assert.equal(v.window_meaning.includes('`lines`'), args.lines == null);
+        assert.equal(v.window_meaning.includes('`lines`'), !length);
+        assert.equal(v.window_meaning.includes('`functions`'), false);
         // The terminal report says the same bound and names the least-held predicate.
         assert.match(
           v.report,

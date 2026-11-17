@@ -18,7 +18,7 @@ import {
 } from './state_codec.js';
 import { HTTP_REQUEST_BYTES, jsonBytes } from './payload_limits.js';
 import { sessionView, verdictShape, DETAIL_FOR, LINE_PARTS, LINE_TOOLS } from './verdict_view.js';
-import { droppedOf, nextCreationCall } from './lyric_workflow.js';
+import { droppedOf, nextCreationCall, planChanged } from './lyric_workflow.js';
 
 // Persisted namespace from the first release: keep existing capabilities recoverable.
 export const INTEGRATION = 'chatgpt-v1';
@@ -244,13 +244,15 @@ export function verdictOf(result) {
 // The store refused a finished result as larger than one receipt keeps. The
 // tool ran; nothing it produced was kept, and the same call returns the same
 // result, so the refusal names a smaller one instead (JobStore is not edited).
-const resultNotKept = (name, task, error) => {
+const resultNotKept = (name, task, error, stale = null) => {
   const limit = /\((\d+)\)/.exec(error.message)?.[1];
   return (
     `SESSION_RESULT_NOT_KEPT: ${name} ran, but its result is over the ${limit ? `${limit}-byte ` : ''}limit this session can keep, so it was not saved and nothing the call produced was kept. ` +
-    (name === 'lyric_grade' && task.phase !== 'edit'
-      ? "Grading the same draft again returns the same result: that limit is this session's, not the song's: report it to the user with the song's length unchanged, or call lyric_grade on a different draft of this plan (it may be too large as well)."
-      : `Send ${name} again with a smaller request.`)
+    (stale
+      ? `It also found: ${planChanged(stale)}`
+      : name === 'lyric_grade' && task.phase !== 'edit'
+        ? "Grading the same draft again returns the same result: that limit is this session's, not the song's: report it to the user with the song's length unchanged, or call lyric_grade on a different draft of this plan (it may be too large as well)."
+        : `Send ${name} again with a smaller request.`)
   );
 };
 // For a new song's grade, the kept (pre-call) session is marked so its next
@@ -270,7 +272,9 @@ function resultNotKeptSession(session, out, name) {
     ...(typeof verdict?.measurement_status === 'string'
       ? { measurement_status: verdict.measurement_status }
       : {}),
-    cause: 'not_kept',
+    // A grade that found the plan stale keeps saying so: its way on is a
+    // new plan, which a result too large to keep does not change.
+    cause: measured.cause === 'plan_changed' ? 'plan_changed' : 'not_kept',
   };
   return kept;
 }
@@ -852,14 +856,25 @@ export class WorkflowSessions {
           this.store.interrupt(id, 'operation_interrupted');
         else {
           const notKept = out && error?.code === 'JOB_PAYLOAD_TOO_LARGE';
+          const kept = notKept ? resultNotKeptSession(session, out, name) : session;
+          const w = kept.native?.task?.workflow;
+          // Only a grade finds a plan stale: another tool's result too large
+          // to keep keeps its own way on, whatever the session already held.
+          const stale =
+            notKept &&
+            name === 'lyric_grade' &&
+            w?.grade_attempt?.cause === 'plan_changed' &&
+            w.plan
+              ? w
+              : null;
           this.store.complete(id, 200, {
-            session: notKept ? resultNotKeptSession(session, out, name) : session,
+            session: kept,
             result: {
               isError: true,
               content: [
                 {
                   type: 'text',
-                  text: notKept ? resultNotKept(name, session.task, error) : error.message,
+                  text: notKept ? resultNotKept(name, session.task, error, stale) : error.message,
                 },
               ],
             },

@@ -8963,8 +8963,9 @@ if (!runs('offline') || PART === null) {
           // Every draft line here is `we carry the morning to the <word>` and the
           // blueprint's hook is the draft line at the plan's own hook slot, so
           // `carry the morning` is a contiguous run of words inside it under any
-          // seed. Containment is a normalised WORD-subsequence test, not a
-          // substring match, which is why the in-hook title is three whole words.
+          // seed. Containment is a normalised test of whole words as one
+          // unbroken run, not a substring match, which is why the in-hook
+          // title is three whole words.
           const titleReport = async (title) => {
             const res = await client.callTool(
               {

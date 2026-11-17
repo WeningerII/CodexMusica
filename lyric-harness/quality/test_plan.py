@@ -5933,15 +5933,16 @@ def test_once_generation():
 
 
 def _stop_rule_plans():
-    """-> [(kwargs, seed, plan)] drawn by seed over a spread: both forms,
-    lengths under and over the stacked-draft gate's line floor, with and
-    without a title, returns and a hook, and a declared class relation
-    (whose bare end pairs reach the floor) at two lengths, so plans with
-    one floor pair and with several are both drawn. A refused draw is
-    skipped and counted by the caller."""
+    """-> [(kwargs, seed, plan)] drawn by seed over a spread: every form in
+    `PLAN_FORMS`, lengths under and over the stacked-draft gate's line
+    floor, with and without a title, returns and a hook, and a declared
+    class relation (whose bare end pairs reach the floor) at two lengths,
+    so plans with one floor pair and with several are both drawn. A
+    refused draw is skipped and counted by the caller."""
     spread = ({}, {"lines": 6}, {"lines": 8}, {"lines": 14},
-              {"title": "<t>"}, {"form": "verse-chorus"},
-              {"form": "verse-chorus", "title": "<t>"},
+              {"title": "<t>"},
+              *(kw for form in PLN.PLAN_FORMS if form != PLN.DEFAULT_FORM
+                for kw in ({"form": form}, {"form": form, "title": "<t>"})),
               {"relation": "class:RHYME", "lines": 12},
               {"relation": "class:RHYME", "lines": 4})
     out, refused = [], []
@@ -5951,7 +5952,7 @@ def _stop_rule_plans():
                 out.append((kw, seed, make_plan(seed, **kw)))
             except PlanRefused:
                 refused.append((kw, seed))
-    return out, refused
+    return out, refused, len(spread)
 
 
 def test_the_stop_rules():
@@ -5965,30 +5966,175 @@ def test_the_stop_rules():
     from quality import revise as _RV
     from quality import sentencehood as _SH
     from quality.grid import song_from_blueprint, hook_occurrences
+    from quality import grid as _GRD
     census = _GC.census()
     gated = {c for c, r in census.items() if r["verdict"] == "GATED"}
+    # An `unjudged` row is no census gate: it names the note the grader
+    # files where coverage is refused, proven against the grader below.
+    unjudged_rows = {c for c, r in PLN.STOP_RULES.items()
+                     if r["stop"] == "unjudged"}
+    gate_rows = set(PLN.STOP_RULES) - unjudged_rows
     check("STOP_RULES has one row per blocking code: the census's GATED "
-          "codes plus the reviser's writing bans, exactly",
-          set(PLN.STOP_RULES) == gated | set(_RV.WRITING_BAN_CODES),
-          f"extra {sorted(set(PLN.STOP_RULES) - gated - set(_RV.WRITING_BAN_CODES))}, "
-          f"missing {sorted((gated | set(_RV.WRITING_BAN_CODES)) - set(PLN.STOP_RULES))}")
+          "codes plus the reviser's writing bans, exactly, besides the "
+          "unjudged rows",
+          gate_rows == gated | set(_RV.WRITING_BAN_CODES),
+          f"extra {sorted(gate_rows - gated - set(_RV.WRITING_BAN_CODES))}, "
+          f"missing {sorted((gated | set(_RV.WRITING_BAN_CODES)) - gate_rows)}")
     # HOW EACH ROW STOPS THE SONG, from the census's own gates: a length
     # gate leaves the draft ungraded, a flag holds it back, and a writing
     # ban is filed as a flag (`Reviser.inspect`, writing=True).
     kinds = {}
     for code in PLN.STOP_RULES:
+        if code in unjudged_rows:
+            continue
         if code in _RV.WRITING_BAN_CODES:
             kinds[code] = "flag"
         elif "LENGTH_GATE_CODES" in census[code]["gates"]:
             kinds[code] = "ungraded"
         elif "severity flag" in census[code]["gates"]:
             kinds[code] = "flag"
+    # THE UNJUDGED ROWS, read off the grader: on a drawn plan's own draft,
+    # one word swapped for a string the lexicon has no entry for makes
+    # `Reviser.inspect` refuse coverage in the row's layer (so the coverage
+    # is not certified and `song` exits 2), and file the row's code on the
+    # lines it names; on the draft as drawn it certifies, and so does the
+    # broken draft once a reading of that string is declared in
+    # `pronunciations`, the way out each row names. The `rhyme` probe swaps
+    # an end word of the first mandated pair and grades with no blueprint;
+    # the `meter` probe swaps the first word of a line outside every pair
+    # and grades under the plan's own blueprint, as a seeded grade does.
+    import copy as _copy
+    import random as _rnd
+    import lyric_harness as _LH
+    from quality import pronunciation as _PR
+    reviser = _RV.Reviser()
+    p_u = make_plan(1, lines=4, relation="class:RHYME")
+    m_u = SC.mandate([g.split(",") for g in p_u["groups"].split(";")],
+                     n_lines=p_u["total_lines"], returns=None,
+                     relations=p_u.get("relations"),
+                     default_relation=p_u.get("relation"))
+    i_u, j_u, _k_u = m_u.pairs()[0]
+    _ru = _rnd.Random(i_u * p_u["total_lines"] + j_u)
+    nonword = "".join(_ru.choice("bcdfghjklmnpqrstvwxz") for _ in range(7))
+    while nonword in reviser.lex.entries:
+        nonword += _ru.choice("bcdfghjklmnpqrstvwxz")
+    clean = dummy_draft(p_u)
+    paired = {ln for pr in m_u.pairs() for ln in pr[:2]}
+    free_u = next(ln for ln in range(1, p_u["total_lines"] + 1)
+                  if ln not in paired)
+    sub_u = _FT.Subdivision(p_u["subdivision"], source="test_plan unjudged")
+    # layer -> (the line changed, the index of the word changed, the lines
+    # the code is filed on, whether the grade carries the blueprint)
+    probes = {"rhyme": (j_u, -1, (i_u, j_u), False),
+              "meter": (free_u, 0, (free_u,), True)}
+    partner = clean[i_u - 1].rsplit(" ", 1)[1]
+    phones = list(_PR.dictionary_readings(reviser.lex, partner)[0])
+
+    def _graded(lines, lex, with_bp):
+        rv = _RV.Reviser(lex=lex)
+        kw = ({"blueprint": fill_plan(p_u, lines), "subdivision": sub_u}
+              if with_bp else {})
+        got = rv.inspect(lines, m_u, **kw)
+        filed = {}
+        for ln, fs in got["per_line"].items():
+            filed.setdefault(ln, set()).update(f.code for f in fs)
+        for f in got.get("whole", ()):
+            for ln in getattr(f, "locations", ()) or ():
+                filed.setdefault(ln, set()).add(f.code)
+        return got["coverage"], filed
+
+    unjudged_bad = []
+    for code in sorted(unjudged_rows):
+        layer = PLN.STOP_RULES[code].get("layer")
+        if layer not in probes:
+            unjudged_bad.append((code, layer, "no probe for this layer"))
+            continue
+        ln, tok, on, with_bp = probes[layer]
+        words = clean[ln - 1].split(" ")
+        words[tok] = nonword
+        broken = list(clean)
+        broken[ln - 1] = " ".join(words)
+        cov_clean, _f = _graded(clean, reviser.lex, with_bp)
+        cov_u, filed = _graded(broken, reviser.lex, with_bp)
+        toks = _LH.line_tokens(broken[ln - 1],
+                               strip_parens=reviser.lex.strip_parens,
+                               scheme=_PR._scheme(reviser.lex))
+        at = len(toks) if tok == -1 else tok + 1
+        lex_d = _copy.copy(reviser.lex)
+        lex_d.pronunciations = _PR.validate_choices([dict(
+            line=broken[ln - 1], token=at, word=toks[at - 1], phones=phones,
+            basis="declared", source="test_plan unjudged probe")], lex_d)
+        cov_d, filed_d = _graded(broken, lex_d, with_bp)
+        if not (cov_clean["certified"] and not cov_u["certified"]
+                and cov_u["refused_obligations"]
+                and all(str(o).split(":")[0] == layer
+                        for o in cov_u["refused_obligations"])
+                and all(code in filed.get(x, ()) for x in on)
+                and cov_d["certified"]
+                and not any(code in filed_d.get(x, ()) for x in on)
+                and PLN.UNJUDGED_UNTIL in PLN._STOP_LIMITS[
+                    PLN.STOP_RULES[code]["limit"]](p_u)
+                and "`pronunciations`" in PLN.UNJUDGED_UNTIL):
+            unjudged_bad.append((code, layer, cov_clean["certified"],
+                                 cov_u["refused_obligations"], filed,
+                                 cov_d["certified"]))
+        else:
+            kinds[code] = "unjudged"
+    # Every layer the grader refuses for a word with no reading has its
+    # row: what the probes refuse, read off the grader, against the rows.
+    refused_layers = set()
+    for layer, (ln, tok, _on, with_bp) in probes.items():
+        words = clean[ln - 1].split(" ")
+        words[tok] = nonword
+        broken = list(clean)
+        broken[ln - 1] = " ".join(words)
+        refused_layers.update(
+            str(o).split(":")[0]
+            for o in _graded(broken, reviser.lex, with_bp)[0][
+                "refused_obligations"])
+    row_layers = {PLN.STOP_RULES[c].get("layer") for c in unjudged_rows}
+    check("...and every coverage layer the grader refuses for a word with "
+          "no reading, with and without the plan's blueprint, has an "
+          "unjudged row", refused_layers == row_layers,
+          (sorted(refused_layers), sorted(row_layers)))
+    check("...and each unjudged row is the note the grader files on the "
+          "lines it names when a word there has no reading, in the row's "
+          "coverage layer, where the coverage is not certified; the draft "
+          "as drawn certifies, the same draft certifies once that word's "
+          "reading is declared in `pronunciations`, the row says so, and "
+          "at least one unjudged row exists",
+          unjudged_rows and not unjudged_bad, unjudged_bad)
     bad_kind = [c for c in PLN.STOP_RULES if PLN._stop_kind(c) != kinds.get(c)]
-    check("...and each row's kind (flag or ungraded) is the census's gate "
-          "for that code", not bad_kind, bad_kind)
+    check("...and each row's kind (flag, ungraded or unjudged) is the "
+          "census's gate for that code, or the grader's refused coverage",
+          not bad_kind, bad_kind)
     check("...and the stacked-draft numbers plan.py keeps are "
           "sentencehood.ADOPTED's", PLN.STACKED_DRAFT_ADOPTED == _SH.ADOPTED,
           f"{PLN.STACKED_DRAFT_ADOPTED} vs {_SH.ADOPTED}")
+    from quality.features import FUNCTION_TAGS as _FTAGS
+    names = [n for ns in PLN.GRAMMAR_WORD_TAGS.values() for n in ns]
+    check("...and the grammar-word gloss names every tag "
+          "features.FUNCTION_TAGS counts and no other, and is built from "
+          "those names alone",
+          set(PLN.GRAMMAR_WORD_TAGS) == set(_FTAGS)
+          and all(PLN.GRAMMAR_WORD_TAGS.values())
+          and PLN.GRAMMAR_WORDS == "grammar words (" + ", ".join(
+              dict.fromkeys(names)) + ")",
+          f"extra {sorted(set(PLN.GRAMMAR_WORD_TAGS) - set(_FTAGS))}, "
+          f"missing {sorted(set(_FTAGS) - set(PLN.GRAMMAR_WORD_TAGS))}")
+    # The possessive tag is given only to an 's the tokenizer splits off;
+    # one written onto its word stays inside that word's token, so the
+    # gloss says which one the grader counts.
+    from quality.features import QualityFeatures as _QF
+    _rw = _rnd.Random(len(PLN.GRAMMAR_WORD_TAGS))
+    _w = "".join(_rw.choice("bcdfghjklmnpqrstvwxz") for _ in range(6))
+    attached = _QF._tokens(f"{_w}'s {_w}")
+    check("...and the possessive 's is glossed as the grader counts it: "
+          "only written as its own word, since one written onto its word "
+          "is part of that word's token",
+          len(attached) == 2 and "'" in attached[0]
+          and "'s written as its own word" in PLN.GRAMMAR_WORD_TAGS["POS"][0],
+          (attached, PLN.GRAMMAR_WORD_TAGS["POS"]))
     check("...and the writing-ban partner count plan.py keeps is the "
           "reviser's modal_exclusion default",
           PLN.WRITING_BAN_PARTNERS == _RV.ReviseDeclaration().modal_exclusion,
@@ -6099,7 +6245,49 @@ def test_the_stop_rules():
           decl.mattr_window == _F.CALIBRATION["mattr_window"]["value"],
           f"{decl.mattr_window}")
 
-    plans, refused = _stop_rule_plans()
+    # ONE UNBROKEN RUN, read off `grid.hook_findings`: on a drawn plan's
+    # lines, a hook line whose words come back in order with one word put
+    # between them does not recur, and one that comes back as an unbroken
+    # run inside a longer line does; a title whose words sit in the hook
+    # line in order with one word between them is not in the hook, and one
+    # that sits there unbroken is. Both rows say one unbroken run.
+    p_h = next(make_plan(s, form=f) for f in PLN.PLAN_FORMS for s in
+               range(1, 9) if make_plan(s, form=f).get("hook_slot"))
+    hs = p_h["hook_slot"]
+    _wrd = lambda i: "".join("bcdfghjklm"[int(c)] + "a" for c in str(i))
+    base = [" ".join(_wrd(10 * ln + w) for w in range(4))
+            for ln in range(1, p_h["total_lines"] + 1)]
+    other = next(ln for ln in range(p_h["total_lines"]) if ln != hs - 1)
+    hw = base[hs - 1].split()
+    filler = _wrd(9999)
+
+    def _hook_codes(lines, title):
+        bp = fill_plan(p_h, lines)
+        song, hooks = song_from_blueprint(bp)
+        return {f.code for f in _GRD.hook_findings(song, hooks,
+                                                    title=title)[0]}
+    broke = list(base)
+    broke[other] = " ".join(hw[:1] + [filler] + hw[1:])
+    whole = list(base)
+    whole[other] = " ".join([filler] + hw + [filler])
+    t_broke = list(base)
+    t_broke[hs - 1] = " ".join(hw[:1] + [filler] + hw[1:])
+    t_broke[other] = t_broke[hs - 1]
+    t_whole = list(whole)
+    title = " ".join(hw[:2])
+    run_ok = ("HOOK_DOES_NOT_RECUR" in _hook_codes(broke, title)
+              and "HOOK_DOES_NOT_RECUR" not in _hook_codes(whole, title)
+              and "TITLE_NOT_IN_HOOK" in _hook_codes(t_broke, title)
+              and "TITLE_NOT_IN_HOOK" not in _hook_codes(t_whole, title))
+    p_t = dict(p_h, title=title)
+    said = (PLN._limit_hook_recurs(p_t), PLN._limit_title_in_hook(p_t))
+    check("...and the hook and title rows say what grid.hook_findings "
+          "needs: the words as one unbroken run, in the same order (words "
+          "in order with one between them are flagged)",
+          run_ok and all("one unbroken run, in the same order" in s
+                         for s in said), (run_ok, said))
+
+    plans, refused, n_spread = _stop_rule_plans()
     tlo, thi = PLN.tokens_per_line_band()
     live = _F.live_profiles()
     reach_lo = min(p.band()[0] for p in live)
@@ -6121,10 +6309,10 @@ def test_the_stop_rules():
 
     mis_rows, mis_nums, not_last, fit_hits, hook_bad, pair_bad = \
         [], [], [], [], [], []
-    clause_bad, units_scoped = [], []
+    clause_bad, units_scoped, band_bad = [], [], []
+    capped_n = under_lo = 0
     seen = Counter()
     pair_counts = Counter()
-    reviser = _RV.Reviser()
     from quality.features import QualityFeatures as _QF
     # THE SHORT-SONG CLAUSE'S BRANCH, read off the statistic itself: at the
     # window's length or under, the variety measure is the plain share of
@@ -6151,7 +6339,8 @@ def test_the_stop_rules():
             continue
         rows, unit_lines = {}, {}
         for ln in block[1:]:
-            m = re.match(r"^  ([A-Z][A-Z_]+) \((flag|ungraded)\): (.*)\.$", ln)
+            m = re.match(r"^  ([A-Z][A-Z_]+) \((flag|ungraded|unjudged)\): "
+                         r"(.*)\.$", ln)
             if m:
                 rows[m.group(1)] = (m.group(2), m.group(3))
             u = re.match(r"^  In ([A-Z_, ]+?(?: and [A-Z_]+)?), (a word is "
@@ -6192,8 +6381,37 @@ def test_the_stop_rules():
                       for c in clause_want if c in rows}
         if any(clause_got[c] != clause_want[c] for c in clause_got):
             clause_bad.append((tag, clause_got, clause_want))
+        # THE WORD BAND, from fit's own slot count: a word has at least one
+        # syllable and fit flags SLOTS_EXCEEDED past one syllable a slot, so
+        # the song's slots bound its words. Where they fall below the
+        # words-a-line band's top, the band is read under them.
+        if p["line_slots"]:
+            draft = dummy_draft(p)
+            bp = fill_plan(p, draft)
+            places = _FT.from_blueprint(bp)[1]
+            sub = _FT.Subdivision(p["subdivision"],
+                                  source="test_plan stop rules")
+            slot_caps = [len(_FT._slot_positions(pl, sub)) for pl in places]
+        else:
+            slot_caps = None
+        b_lo, b_hi = int(math.ceil(tlo * n)), int(math.floor(thi * n))
+        capped = slot_caps is not None and sum(slot_caps) < b_hi
+        if capped:
+            under_lo += sum(slot_caps) < b_lo
+            b_lo = int(math.ceil(tlo * sum(slot_caps) / thi))
+            b_hi = sum(slot_caps)
+        capped_n += capped
+        if PLN._word_count_band(p) != (b_lo, b_hi):
+            band_bad.append((tag, PLN._word_count_band(p), (b_lo, b_hi)))
+        said_band = (f"read at {b_lo} to {b_hi} words, {b_hi} being one word "
+                     f"for each syllable" if capped else
+                     f"read at {tlo:g} to {thi:g} words a line ({b_lo} to "
+                     f"{b_hi} words)")
+        if any(c in rows for c in PLN.LENGTH_LIMIT_CODES) and not any(
+                said_band in ln for ln in block):
+            band_bad.append((tag, "range sentence", said_band))
         if "LEXICAL_MONOTONY" in rows:
-            lo_n = int(math.ceil(tlo * n))
+            lo_n = b_lo
             if (("over the whole song at " in rows["LEXICAL_MONOTONY"][1])
                     != (lo_n <= decl.mattr_window)):
                 clause_bad.append((tag, "whole-song clause", lo_n))
@@ -6204,7 +6422,7 @@ def test_the_stop_rules():
             # no `why`), and many drawn rules ask for one, so the row may
             # not say a repeated word counts against the pair.
             clause_bad.append((tag, "SCHEME_VIOLATION same word"))
-        band = range(int(math.ceil(tlo * n)), int(math.floor(thi * n)) + 1)
+        band = range(b_lo, b_hi + 1)
         limits = {}
         for key in ("anaphora_max", "function_word_ratio_max", "mattr_min"):
             vals = set()
@@ -6216,7 +6434,9 @@ def test_the_stop_rules():
                         vals.add(v)
             limits[key] = sorted(vals)
         want = {"OUT_OF_CALIBRATED_LENGTH", "SCHEME_VIOLATION",
-                "HOMEOTELEUTON", "MODAL_RHYME"}
+                "HOMEOTELEUTON", "MODAL_RHYME"} | {
+            c for c in unjudged_rows
+            if PLN.STOP_RULES[c]["layer"] == "rhyme"}
         for code, key in (("ANAPHORA_OVERLOAD", "anaphora_max"),
                           ("FUNCTION_WORD_HEAVY", "function_word_ratio_max"),
                           ("LEXICAL_MONOTONY", "mattr_min")):
@@ -6226,6 +6446,10 @@ def test_the_stop_rules():
             want.add("STACKED_DRAFT")
         if p["line_slots"]:
             want.add("SLOTS_EXCEEDED")
+            # The plan is the blueprint a seeded grade carries, so its meter
+            # layer is asked.
+            want.update(c for c in unjudged_rows
+                        if PLN.STOP_RULES[c]["layer"] == "meter")
         if p["returns"]:
             want.add("RETURN_NOT_VERBATIM")
         if p.get("hook_slot"):
@@ -6268,11 +6492,7 @@ def test_the_stop_rules():
                 f"at most {_pct(a['FUNC_SHARE_MAX'])} grammar words",
                 f"at least {a['COMMAS_PER_TOKEN_MIN']} commas per word"]
         if "SLOTS_EXCEEDED" in want:
-            draft = dummy_draft(p)
-            bp = fill_plan(p, draft)
-            places = _FT.from_blueprint(bp)[1]
-            sub = _FT.Subdivision(p["subdivision"], source="test_plan stop rules")
-            caps = [len(_FT._slot_positions(pl, sub)) for pl in places]
+            caps = slot_caps
             exp["SLOTS_EXCEEDED"] = [f"({_span(caps, str)} here)"]
             # THE FIVE PLACEMENT CODES NEVER HOLD on the plan's own lines:
             # the reason the never rows state, read off fit's own checks.
@@ -6308,8 +6528,8 @@ def test_the_stop_rules():
         for code, (kind, _t) in rows.items():
             if kind != kinds[code]:
                 mis_nums.append((tag, code, "kind", kind))
-    check("...over drawn plans (9 spreads x seeds 1-4), the stop block is "
-          "the last thing in the brief, printed once",
+    check(f"...over drawn plans ({n_spread} spreads x seeds 1-4), the stop "
+          "block is the last thing in the brief, printed once",
           plans and not not_last, f"{not_last[:3]}; {len(plans)} plans, "
           f"refused {refused}")
     check("...and its rows are exactly the rules whose condition holds for "
@@ -6334,8 +6554,14 @@ def test_the_stop_rules():
           "drop, the whole-song reading under the window; and the group "
           "row does not say a repeated word counts against a pair",
           not clause_bad, clause_bad[:3])
+    check("...and the word band the length limits are read at is the "
+          "words-a-line band held under the plan's slot count (fit's own), "
+          "and the range sentence states it; the spread draws plans whose "
+          "slots fall below the band's low end and plans they leave whole",
+          not band_bad and under_lo and capped_n < len(plans),
+          (band_bad[:3], under_lo, capped_n))
     check("...and each printed number is the grader's own, read at every "
-          "word count in the planner's words-a-line band", not mis_nums,
+          "word count in the plan's word band", not mis_nums,
           mis_nums[:3])
     check("...and plan.py's floor pairs are the grader's "
           "(`revise._floor_pair_groups`) on every drawn plan", not pair_bad,

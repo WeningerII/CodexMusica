@@ -108,7 +108,14 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
       /Each predicate held on its own, of the 28 planned: lines<=24 on 0; uses=verse,chorus on 28; /
     );
     assert.match(empty.window_meaning, /at most \d+\.\d% of seeds are kept under this request/);
-    assert.match(empty.window_meaning, /declare a target length in `lines`/);
+    // `lines<=24` states the length and `uses=` the sections, so neither is
+    // advised: the writer is not told to choose what the call already stated.
+    assert.doesNotMatch(empty.window_meaning, /declare a target length in `lines`/);
+    assert.doesNotMatch(empty.window_meaning, /declare the section roster in `functions`/);
+    assert.match(
+      empty.window_meaning,
+      /Before dropping a predicate: continue from next_seed_from\.$/
+    );
     assert.doesNotMatch(empty.window_meaning, /acceptance rate/);
     assert.doesNotMatch(empty.report, /unreachable in this range/);
 

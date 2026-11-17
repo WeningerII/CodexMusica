@@ -5249,6 +5249,7 @@ WRITING_BAN_PARTNERS = 6
 #: stop THIS plan's song, `stop` says how it stops it (`flag`: the grade
 #: stands and the song is held back; `ungraded`: the length checks do not
 #: run and the draft cannot pass, though the other findings stand;
+#: `unjudged`: a coverage obligation is refused and the draft cannot pass;
 #: `grid`: read from `grid.severity_of`), and `limit` names the function in
 #: `_STOP_LIMITS` that words the rule with the grader's own numbers. A row
 #: whose `applies` is `never` carries `never`, the stated reason it cannot
@@ -5311,6 +5312,19 @@ STOP_RULES = {
                       "limit": "same_spelled_ending"},
     "MODAL_RHYME": {"applies": "groups", "stop": "flag",
                     "limit": "common_partner"},
+    # NOT A FLAG AND NOT IN THE CENSUS'S GATED SET: the note the grader
+    # files on each line of a pair it could not judge (`Reviser.inspect`,
+    # `rep["refusals"]`). The pair's `rhyme` coverage obligation is then
+    # refused, the coverage is not certified, and `song` exits 2.
+    # `test_plan.test_the_stop_rules` probes the grader for exactly that.
+    "SCHEME_UNREADABLE": {"applies": "groups", "stop": "unjudged",
+                          "limit": "unjudged_pair", "layer": "rhyme"},
+    # The same, one layer over: on a seeded grade the plan is the blueprint,
+    # so a word with no reading anywhere in a line refuses that line's
+    # `meter` obligation (`Reviser.inspect`, the blueprint's coverage rows),
+    # and the grader names the refusal by this code.
+    "COUNT_IS_A_LOWER_BOUND": {"applies": "sung_lines", "stop": "unjudged",
+                               "limit": "unjudged_line", "layer": "meter"},
     "ZERO_DURATION": {"applies": "never", "stop": "flag", "never":
                       "the plan gives every line a length above zero"},
     "BEAT_OUTSIDE_CYCLE": {"applies": "never", "stop": "flag", "never":
@@ -5332,11 +5346,11 @@ STOP_RULES = {
 }
 
 #: How each kind of stop reads in the brief.
-STOP_KINDS = {"flag": "flag", "ungraded": "ungraded"}
+STOP_KINDS = {"flag": "flag", "ungraded": "ungraded", "unjudged": "unjudged"}
 
 
 def _stop_kind(code):
-    """-> "flag" or "ungraded" for one `STOP_RULES` row."""
+    """-> "flag", "ungraded" or "unjudged" for one `STOP_RULES` row."""
     kind = STOP_RULES[code]["stop"]
     if kind == "grid":
         from quality import grid as _GR
@@ -5415,12 +5429,32 @@ _STOP_APPLIES = {
 }
 
 
+def _syllable_capacity(plan):
+    """-> the most syllables this plan's lines may carry without a
+    SLOTS_EXCEEDED flag: each line's `line_syllable_ceiling`, summed (the
+    sum `bound_token_share` takes per section). None with no line slots."""
+    if not plan.get("line_slots"):
+        return None
+    sub = plan["subdivision"]
+    return sum(int(line_syllable_ceiling(float(s["duration"]) * sub))
+               for s in plan["line_slots"])
+
+
 def _word_count_band(plan):
     """-> (lo, hi) words in the whole song at the planner's own
-    `tokens_per_line_band()`, the reading `_head_cap` makes."""
-    lo, hi = tokens_per_line_band()
+    `tokens_per_line_band()`, the reading `_head_cap` makes, held under
+    the plan's own syllable capacity: a word has at least one syllable, so
+    a draft with more words than `_syllable_capacity(plan)` is flagged
+    SLOTS_EXCEEDED. Where the capacity is below the band's top, the top
+    is the capacity and the bottom keeps the band's own low-to-high
+    share of it."""
+    tlo, thi = tokens_per_line_band()
     n = plan["total_lines"]
-    return int(math.ceil(lo * n)), int(math.floor(hi * n))
+    lo, hi = int(math.ceil(tlo * n)), int(math.floor(thi * n))
+    cap = _syllable_capacity(plan)
+    if cap is not None and cap < hi:
+        lo, hi = int(math.ceil(tlo * cap / thi)), cap
+    return lo, hi
 
 
 def _covering_profile(n_tokens, n_lines):
@@ -5477,10 +5511,21 @@ def _stacked_floor(n_lines):
 
 
 #: What the floor and the stacked-line test count as grammar words: the
-#: closed-class tags (`features.FUNCTION_TAGS`), named in plain words.
-GRAMMAR_WORDS = ("grammar words (determiners, pronouns, prepositions, "
-                 "conjunctions, modal verbs, question words, particles, "
-                 "interjections)")
+#: closed-class tags (`features.FUNCTION_TAGS`), each named in plain words.
+#: A copy this module may not import (the move-37 guard keeps `features`
+#: out); `test_plan.test_the_stop_rules` holds its keys equal to the tags.
+GRAMMAR_WORD_TAGS = {
+    "DT": ("determiners",), "PDT": ("determiners",), "WDT": ("determiners",),
+    "PRP": ("pronouns",), "PRP$": ("pronouns",), "WP": ("pronouns",),
+    "WP$": ("pronouns",), "EX": ("the placeholder there",),
+    "IN": ("prepositions", "conjunctions"), "CC": ("conjunctions",),
+    "TO": ("the word to",), "MD": ("modal verbs",),
+    "WRB": ("question words",), "RP": ("particles",),
+    "POS": ("the possessive 's written as its own word",),
+    "UH": ("interjections",),
+}
+GRAMMAR_WORDS = ("grammar words (" + ", ".join(dict.fromkeys(
+    name for names in GRAMMAR_WORD_TAGS.values() for name in names)) + ")")
 
 
 def _pct(v):
@@ -5611,15 +5656,40 @@ def _limit_returns(plan):
             "word (case, punctuation and spacing aside)")
 
 
+#: How `grid.hook_findings` finds one line's words inside another: as one
+#: unbroken run, in the same order (`hook_occurrences` and the title test
+#: both compare contiguous slices of `grid.tokens`).
+WORD_RUN = "as one unbroken run, in the same order,"
+
+
 def _limit_hook_recurs(plan):
-    return (f"the words of line {plan['hook_slot']}, in order, are not found "
+    return (f"the words of line {plan['hook_slot']} are not found {WORD_RUN} "
             f"in another line")
 
 
 def _limit_title_in_hook(plan):
-    return (f"the title's words, in order, are not inside line "
-            f"{plan['hook_slot']}; a title longer than that line leaves "
-            f"this check unjudged, so the draft cannot pass")
+    return (f"the title's words are not found {WORD_RUN} inside line "
+            f"{plan['hook_slot']}; a title of more words than that line "
+            f"leaves this check unjudged, so the draft cannot pass")
+
+
+#: What ends an unjudged row's stop: the reading the grader takes
+#: (`pronunciations`, the field `revise` names in each such refusal).
+UNJUDGED_UNTIL = ("until that word is changed or a reading of it is declared "
+                  "in `pronunciations` on lyric_grade")
+
+
+def _limit_unjudged_pair(plan):
+    return ("a word a group's rule compares has no dictionary reading, has "
+            "readings that disagree on what the rule compares, or has none "
+            "with the place the rule reads; that pair is left unjudged, and "
+            f"the draft cannot pass {UNJUDGED_UNTIL}")
+
+
+def _limit_unjudged_line(plan):
+    return ("a word in a line has no dictionary reading; that line's "
+            "syllable count is left unjudged, and the draft cannot pass "
+            f"{UNJUDGED_UNTIL}")
 
 
 def _limit_same_end_word(plan):
@@ -5652,6 +5722,8 @@ _STOP_LIMITS = {
     "returns": _limit_returns,
     "hook_recurs": _limit_hook_recurs,
     "title_in_hook": _limit_title_in_hook,
+    "unjudged_pair": _limit_unjudged_pair,
+    "unjudged_line": _limit_unjudged_line,
     "same_end_word": _limit_same_end_word,
     "same_spelled_ending": _limit_same_spelled_ending,
     "common_partner": _limit_common_partner,
@@ -5686,7 +5758,8 @@ def stop_rules_for(plan):
 STOP_BLOCK_HEAD = ("What stops this song (flag: the grade stands and the "
                    "song is held back; ungraded: the checks that read the "
                    "song's length do not run, the other findings stand, and "
-                   "the draft cannot pass):")
+                   "the draft cannot pass; unjudged: a required check is not "
+                   "judged, and the draft cannot pass until it is):")
 
 
 def _stop_block(plan):
@@ -5711,8 +5784,12 @@ def _stop_block(plan):
         line = f"  In {named}, {unit}."
         if any(code in LENGTH_LIMIT_CODES for code in codes):
             line += (f" Limits given as a range depend on the finished "
-                     f"song's word count; they are read at {tlo:g} to "
-                     f"{thi:g} words a line ({lo} to {hi} words).")
+                     f"song's word count; they are read at " + (
+                         f"{lo} to {hi} words, {hi} being one word for each "
+                         f"syllable this plan's lines allow."
+                         if hi == _syllable_capacity(plan) else
+                         f"{tlo:g} to {thi:g} words a line ({lo} to {hi} "
+                         f"words)."))
         out.append(line)
     for code, kind, text in rows:
         out.append(f"  {code} ({kind}): {text}.")

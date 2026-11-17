@@ -162,7 +162,7 @@ promise that a candidate fixes a whole-draft finding.
 `scripts/qualify_lyric_interview.mjs` records an operator-written JSON request per
 line, exact public responses, private client snapshots and timing receipts. It
 uses `connectConnector` in creation mode and MCP transport; completed songs execute
-sweep → screen → program plan → exact-draft grade → interview revision; frozen
+sweep → program plan → screen → exact-draft grade → interview revision; frozen
 cases stop at the first identified software failure. The
 runner writes no lyrics, edits no journal, and makes no paid writer calls.
 

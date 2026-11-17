@@ -13,7 +13,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
@@ -24,6 +24,7 @@ import {
   FORM_ROWS,
   LINES_FLOOR,
   NOT_STATEABLE_YET,
+  PLAN_FIELDS,
   STATEABLE,
   STATEMENT_FIELDS,
   SWEEP_COORDINATES,
@@ -36,7 +37,8 @@ import {
   statementConflict,
   withNextCall,
 } from './lyric_workflow.js';
-import { _argvInternals, lyricInstructions } from './lyric_tools.js';
+import { _argvInternals, _verdictInternals, lyricInstructions } from './lyric_tools.js';
+import { LEXICON_MANIFEST } from './lexicon_basis.js';
 import { buildServer } from './tools.js';
 import { connectConnector } from './client.js';
 import { JobStore } from './job_store.js';
@@ -102,6 +104,9 @@ const WANT = (r, row, form) => {
   const at = name.endsWith('.*') ? `${name.slice(0, -1)}${pick(r, P.roster)}` : name;
   if (row.field === 'lines') return `${at}=${VALUE.lines(r, form)}`;
   if (row.field === 'melody') return `${at}<=${P.beats[1]}`;
+  // A set names functions; an order names two.
+  if (at === 'uses') return `${at}=${pick(r, P.roster)}`;
+  if (at === 'before') return `${at}=${pick(r, P.roster)},${pick(r, P.roster)}`;
   return `${at}>=0`;
 };
 const WAYS = (row) => [
@@ -515,6 +520,149 @@ test('the texts that list what a plan repeats from its sweep are read from SWEEP
   }
 });
 
+// R2 on #872 (tests lens): the documents an agent reads copy which wants
+// state which thing, and how a length is stated, from STATEABLE by hand. Each
+// list is built here from the table and must be printed whole, with no name
+// after it that the table does not list.
+test('the documents name exactly the wants and the length ways STATEABLE gives', () => {
+  const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
+  const tick = (x) => `\`${x}\``;
+  const list = (xs, word) =>
+    xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} ${word} ${xs[xs.length - 1]}`;
+  const label = (k) => (k.endsWith('.*') ? `${k.slice(0, -1)}F` : k);
+  const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const rows = STATEABLE.filter((r) => r.wants.length);
+  const length = STATEABLE.find((r) => r.thing === 'length');
+  const lengthWays = list(
+    [
+      `an exact ${tick(length.field)} count`,
+      ...length.wants.map((w) => `a ${tick('want')} on ${tick(label(w))}`),
+      ...(length.draw ? [`${tick(length.field)} in ${tick('draw')}`] : []),
+    ],
+    'or'
+  ).replace(/ or /, ', or ');
+  const docs = {
+    'AGENTS.md': { wants: true, length: true },
+    'docs/connector.md': { wants: true, length: true },
+    'docs/chatgpt.md': { wants: false, length: true },
+    'plugins/codex-musica/skills/lyric-workflows/SKILL.md': { wants: true, length: false },
+  };
+  for (const [path, has] of Object.entries(docs)) {
+    const text = read(path).replace(/\s+/g, ' ');
+    if (has.length) assert.ok(text.includes(lengthWays), `${path}: ${lengthWays}`);
+    if (!has.wants) continue;
+    for (const r of rows) {
+      const names = list(r.wants.map(label).map(tick), 'or');
+      assert.match(text, new RegExp(`on ${esc(names)}(?!,? (or )?\`)`), `${path}: ${r.thing}`);
+    }
+  }
+  // The order the gate enforces (a screen needs a plan): sweep, plan, screen.
+  for (const path of ['docs/lyrics-continuation-audit.md', 'docs/pronunciation-choices.md'])
+    assert.match(read(path).replace(/\s+/g, ' '), /sweep → [a-z]+ plan → screen →/, path);
+  // The reviewer's sweep names every drawable field.
+  const steps = read('docs/connector-directory-submission.md').replace(/\s+/g, ' ');
+  assert.ok(
+    steps.includes(`each of ${list(DRAWABLE.map(tick), 'and')} given a value`),
+    'connector-directory-submission.md'
+  );
+});
+
+// R2 on #872: the title's description said containment was a subsequence
+// test, which reads as allowing gaps; the grader compares one unbroken run,
+// the planner's brief prints that rule (plan.py WORD_RUN), and the description
+// says the same.
+test("the title's description states the planner's word-run rule", async () => {
+  const plan = readFileSync(new URL('../lyric-harness/quality/plan.py', import.meta.url), 'utf8');
+  const rule = /^WORD_RUN = "as (one unbroken run, in the same order),"/m.exec(plan)[1];
+  const { client, close } = await rawClient();
+  const tools = (await client.listTools()).tools;
+  await close();
+  const holders = tools.filter((t) => t.inputSchema.properties?.title);
+  assert.ok(holders.some((t) => t.name === 'lyric_grade'));
+  for (const t of holders) {
+    const d = t.inputSchema.properties.title.description;
+    assert.ok(d.includes(rule), t.name);
+    assert.doesNotMatch(d, /subsequence/i, t.name);
+  }
+});
+
+// R2 on #872 (B3): a field's own description said a call may leave it out
+// where a new-song session's sweep is refused for leaving it out. Every
+// STATEABLE field, on every tool that has it, says what that sweep needs of
+// it, read here from its row; a description that says what leaving it out
+// does says where that holds.
+test("every STATEABLE field's description says what a new-song session's sweep needs of it", async () => {
+  const { client, close } = await rawClient();
+  const tools = (await client.listTools()).tools;
+  await close();
+  const label = (k) => (k.endsWith('.*') ? `${k.slice(0, -1)}F` : k);
+  for (const row of STATEABLE) {
+    // The planner's declaration: the sweep's field, on every tool that
+    // carries it (another tool's `lines` is a pasted song's rows).
+    const own = tools.find((t) => t.name === 'lyric_sweep').inputSchema.properties[row.field];
+    assert.ok(own, row.field);
+    const holders = tools.filter((t) =>
+      t.inputSchema.properties?.[row.field]?.description?.endsWith(own.description)
+    );
+    for (const name of ['lyric_sweep', 'lyric_plan', 'lyric_grade', 'lyric_revise'])
+      assert.ok(
+        holders.some((t) => t.name === name),
+        `${name} ${row.field}`
+      );
+    for (const t of holders) {
+      const d = t.inputSchema.properties[row.field].description;
+      const at = d.indexOf("A new-song session's lyric_sweep needs ");
+      assert.ok(at >= 0, `${t.name} ${row.field}: ${d}`);
+      const clause = /^[^]*?\.(?= |$)/.exec(d.slice(at))[0];
+      assert.match(clause, /this field's value/, `${t.name} ${row.field}`);
+      for (const k of row.wants)
+        assert.ok(clause.includes(label(k)), `${t.name} ${row.field}: ${k}`);
+      assert.equal(clause.includes('`want`'), row.wants.length > 0, `${t.name} ${row.field}`);
+      assert.equal(
+        clause.includes(`\`${row.field}\` in \`draw\``),
+        row.draw,
+        `${t.name} ${row.field}: ${clause}`
+      );
+      // A sentence on leaving the field out says it holds outside a new-song
+      // session.
+      for (const sentence of d.split(/(?<=\.) /).filter((x) => /\b(omit|leaves it out)/i.test(x)))
+        assert.match(
+          sentence,
+          /^Outside a new-song session\b/,
+          `${t.name} ${row.field}: ${sentence}`
+        );
+    }
+  }
+  // The instructions' sweep sentence names every coordinate the sweep holds.
+  const instructions = lyricInstructions();
+  const at = instructions.indexOf('lyric_sweep returns the seeds whose plan holds the declared');
+  assert.ok(at >= 0);
+  const said = instructions.slice(at, instructions.indexOf(', in seed order', at));
+  for (const k of [...SWEEP_COORDINATES, 'want']) assert.match(said, new RegExp(`\`${k}\``), k);
+  // lyric_screen says the session records what recordCreation records.
+  const screen = tools.find((t) => t.name === 'lyric_screen').description;
+  assert.match(
+    screen,
+    /the session records the words and `relation` it screened and the plan it ran under/
+  );
+  const [ns, names] = Object.entries(VOCAB.ns)[0];
+  const relation = `${ns}:${names[0]}`;
+  const task = fresh();
+  const sweep = stated({ seed_from: 0, count: 1, form: DEFAULT_FORM_ROW.form, relation });
+  recordCreation(task, 'lyric_sweep', sweep, { exit_code: 0, accepted_shown: [0] });
+  const plan = { ...nextCreationCall(task, null, 'lyric_plan').args };
+  assert.equal(creationRefusal(task, 'lyric_plan', plan), null);
+  recordCreation(task, 'lyric_plan', plan, planVerdict(plan, relation));
+  assert.ok(task.workflow.plan, 'the plan was recorded');
+  const words = DRAWABLE.slice(0, 2);
+  recordCreation(task, 'lyric_screen', { words, relation }, { exit_code: 0 });
+  assert.deepEqual(task.workflow.screen, {
+    words,
+    relation,
+    plan_sha256: task.workflow.plan.sha256,
+  });
+});
+
 // ── The raw engine: a conflict refuses, nothing is required ─────────────────
 test(
   'the raw engine refuses a value with a draw and requires nothing',
@@ -654,6 +802,170 @@ test(
         plain.statements.rows.map((x) => x.said),
         ['default', 'unsaid', 'unsaid', 'unsaid', 'unsaid']
       );
+    } finally {
+      await close();
+    }
+  }
+);
+
+// ── A grade and a revise that send the plan's declarations reordered ────────
+// The gate admits a roster, a `wants` list or a melody in another order (it
+// compares them as sets and by key). The grade builds the plan again from
+// the arguments it is given, and the planner records each as sent, so it
+// must be given the plan's own spelling: otherwise the rebuilt plan differs,
+// the grade is recorded as `plan_changed` and every later call is told the
+// planner changed. The plans here are the real planner's.
+const reversed = (xs) => [...xs].reverse();
+// A melody whose meter is one group of two or three beats, the grouping
+// grammar's own units, drawn by seed among those the envelope holds, and one
+// pitched note at a frequency the seed draws.
+const groupedMelody = (r) => {
+  const beats = pick(
+    r,
+    [2, 3].filter((b) => b >= P.beats[0] && b <= P.beats[1])
+  );
+  return JSON.stringify({
+    meter: { beats, unit: 4, groups: [beats] },
+    bars: 1,
+    subdivision: 1,
+    notes: [{ pitch_hz: 1 + Math.floor(r() * 1000), ticks: beats }],
+  });
+};
+// A grade verdict the gate records as a receipt, for this draft.
+const LEXICON_V1 = LEXICON_MANIFEST.versions.find((x) => x.id === 'v1');
+const gradeVerdict = (draft) =>
+  _verdictInternals.verdictOf({
+    code: 3,
+    stdout: '',
+    stderr: '',
+    lyric_result: {
+      version: 1,
+      status: 'graded',
+      command: 'song',
+      coverage: {
+        scope: 'requested_layers',
+        certified: true,
+        pairs_mandated: 0,
+        pairs_judged: 0,
+        pairs_refused: 0,
+        obligations: [{ id: 'floor:draft', layer: 'floor', status: 'answered' }],
+        refused_obligations: [],
+      },
+      final_draft: draft,
+      findings: [],
+      lexicon: { supplement_id: LEXICON_V1.id, sha256: LEXICON_V1.sha256 },
+    },
+  });
+const reorderedKeys = (v) =>
+  Array.isArray(v)
+    ? v.map(reorderedKeys)
+    : v && typeof v === 'object'
+      ? Object.fromEntries(reversed(Object.keys(v)).map((k) => [k, reorderedKeys(v[k])]))
+      : v;
+test(
+  'a grade and a revise that reorder the recorded declarations rebuild the recorded plan and record normally',
+  { timeout: 240_000 },
+  async () => {
+    const { client, close } = await rawClient();
+    try {
+      // Count measures that hold on every plan (a count is never below zero),
+      // their names read from the STATEABLE rows.
+      const names = STATEABLE.flatMap((row) => row.wants).filter(
+        (k) => !k.endsWith('.*') && !['uses', 'before'].includes(k)
+      );
+      let done = 0;
+      for (let k = 0; done < 2; k++) {
+        assert.ok(k < 40, 'no seed in 40 drew a plan the planner builds');
+        const r = rng(9100 + k);
+        const form = pick(
+          r,
+          P.forms.filter((f) => P.requires[f].length > 1 || P.roster.length > 1)
+        );
+        let functions = rosterFor(r, form).split(',');
+        if (functions.length < 2)
+          functions = [
+            ...functions,
+            pick(
+              r,
+              P.roster.filter((f) => !functions.includes(f))
+            ),
+          ];
+        const wants = [...new Set([pick(r, names), pick(r, names), pick(r, names)])].map(
+          (n) => `${n}>=0`
+        );
+        if (wants.length < 2) continue;
+        const declared = {
+          seed: Math.floor(r() * 1000),
+          form,
+          lines: pick(
+            r,
+            P.fillable[form].filter((n) => n <= 24)
+          ),
+          functions: functions.join(','),
+          melody: groupedMelody(r),
+          wants,
+        };
+        const first = await client.callTool({ name: 'lyric_plan', arguments: declared });
+        if (first.content.length !== 2) continue;
+        const v = JSON.parse(first.content[1].text);
+        if (v.exit_code !== 0) continue;
+        done++;
+        const task = fresh();
+        const { seed, wants: w, ...coordinates } = declared;
+        recordCreation(
+          task,
+          'lyric_sweep',
+          stated({ seed_from: seed, count: 1, ...coordinates, want: w }),
+          { exit_code: 0, accepted_shown: [seed] }
+        );
+        assert.equal(creationRefusal(task, 'lyric_plan', { ...declared }), null);
+        recordCreation(task, 'lyric_plan', { ...declared }, v);
+        assert.equal(task.workflow.plan?.sha256, v.plan_sha256, 'the plan records');
+        recordCreation(task, 'lyric_screen', { words: [] }, { exit_code: 0 });
+        const draft = Array.from({ length: v.plan.total_lines }, (_, i) => `<line ${i + 1}>`);
+        // Every declaration the gate compares as a set or by key, sent reordered.
+        const respelled = {
+          seed,
+          form,
+          lines: declared.lines,
+          functions: reversed(functions).join(','),
+          melody: JSON.stringify(reorderedKeys(JSON.parse(declared.melody))),
+          wants: reversed(wants),
+        };
+        // The plan the grade builds: its `plan` call takes the plan fields of
+        // the arguments the gate passed on (lyric_tools.js planArgs).
+        const rebuilt = async (args) =>
+          (
+            await planOf(
+              client,
+              Object.fromEntries(
+                PLAN_FIELDS.filter((k) => args[k] != null).map((k) => [k, args[k]])
+              )
+            )
+          ).plan_sha256;
+        const grade = { ...respelled, draft };
+        assert.equal(creationRefusal(task, 'lyric_grade', grade), null);
+        const gradedSha = await rebuilt(grade);
+        assert.equal(
+          gradedSha,
+          v.plan_sha256,
+          `${JSON.stringify(respelled)}: the grade rebuilds the plan`
+        );
+        // The grade's own verdict, as the session records it.
+        recordCreation(task, 'lyric_grade', grade, {
+          ...gradeVerdict(draft),
+          plan_sha256: gradedSha,
+        });
+        assert.equal(task.workflow.grade_attempt?.cause, undefined);
+        assert.equal(task.workflow.grade?.plan_sha256, v.plan_sha256, 'the grade records');
+        const revise = { ...respelled, draft };
+        assert.equal(creationRefusal(task, 'lyric_revise', revise), null);
+        assert.equal(await rebuilt(revise), v.plan_sha256, 'the revise rebuilds the plan');
+        recordCreation(task, 'lyric_revise', revise, { exit_code: 3 });
+        assert.equal(task.workflow.started?.plan_sha256, v.plan_sha256, 'the revise records');
+        // Nothing tells the writer the planner changed.
+        assert.equal(creationRefusal(task, 'lyric_grade', { ...grade }), null);
+      }
     } finally {
       await close();
     }

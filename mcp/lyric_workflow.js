@@ -13,13 +13,28 @@ export const DEFAULT_FORM = 'open';
 // `wants` names (a name ending `.*` stands for that name with any section
 // function), or, where `draw` is true, its field named in `draw`. There is no
 // draw over forms, so form takes a name. The `wants` names are the planner's
-// own (`quality/plan.py` SWEEP_MEASURES), checked there by test_high_report.
+// own (`quality/plan.py` SWEEP_MEASURES, SWEEP_SETS and SWEEP_ORDERS),
+// checked there by test_high_report. A want states sections when it bounds
+// how many there are or which functions appear: `uses` and `before` hold
+// only where each function they name is drawn. It states time when it bounds
+// a line's beats, bars or slots. `lines_per_section` bounds a section's
+// lines, not the song's, so it states no length.
 export const STATEABLE = Object.freeze([
   { thing: 'form', field: 'form', draw: false, wants: [] },
   { thing: 'length', field: 'lines', draw: true, wants: ['lines'] },
-  { thing: 'sections', field: 'functions', draw: true, wants: ['sections', 'sections.*'] },
+  {
+    thing: 'sections',
+    field: 'functions',
+    draw: true,
+    wants: ['sections', 'sections.*', 'uses', 'before'],
+  },
   { thing: 'rhyme', field: 'relation', draw: true, wants: [] },
-  { thing: 'time', field: 'melody', draw: true, wants: ['beats_per_line'] },
+  {
+    thing: 'time',
+    field: 'melody',
+    draw: true,
+    wants: ['beats_per_line', 'bars_per_line', 'slots_per_line'],
+  },
 ]);
 export const DRAWABLE = Object.freeze(STATEABLE.filter((r) => r.draw).map((r) => r.field));
 // What no field or want can state yet: the planner draws it every time.
@@ -443,6 +458,9 @@ export function statementsOf(args, wantKey = 'want') {
     conflict: DRAWABLE.filter((f) => drawn.has(f) && hasValue(args, f)),
   };
 }
+// -> {field: whether this call states it}: a value, a stating want, or a draw.
+export const statedFields = (args, wantKey = 'want') =>
+  Object.fromEntries(statementsOf(args, wantKey).rows.map((s) => [s.row.field, !!s.said]));
 const rowName = (r) => (r.thing === r.field ? r.field : `${r.thing} (${r.field})`);
 const wantLabel = (k) => (k.endsWith('.*') ? `${k.slice(0, -1)}F` : k);
 // `floor` false leaves out the form's fewest lines: published schema text
@@ -454,6 +472,17 @@ export const formRowText = (f, floor = true) => {
     ...(floor && f.min_lines > LINES_FLOOR ? [`at least ${f.min_lines} lines`] : []),
   ];
   return `${f.form}, which requires ${needs.length ? joined(needs) : 'nothing'}`;
+};
+// -> what a STATEABLE field's own description says a new-song session's
+// lyric_sweep needs of it, read from its row.
+export const sweepNeeds = (field) => {
+  const r = STATEABLE.find((row) => row.field === field);
+  const ways = [
+    "this field's value",
+    ...(r.wants.length ? [`a \`want\` on ${joined(r.wants.map(wantLabel), 'or')}`] : []),
+    ...(r.draw ? [`\`${r.field}\` in \`draw\``] : []),
+  ];
+  return `A new-song session's lyric_sweep needs ${ways.length < 2 ? ways[0] : `one of these: ${ways.join('; ')}`}.`;
 };
 const NOT_YET_TEXT = joined(NOT_STATEABLE_YET.map((r) => `${r.thing} (${r.what})`));
 const named = STATEABLE.filter((r) => !r.draw).map((r) => r.field);
@@ -598,6 +627,16 @@ function recordedSweeps(w, args) {
   );
 }
 
+// The sweep a stale plan is planned again under: the plan's own, while it is
+// still on record and no sweep was recorded after the grade found the plan
+// stale. Otherwise none, and the newest sweep's seed is the plan to make.
+export const stalePlanSweep = (w) => (w.grade_attempt?.swept_after ? null : planSweep(w));
+// A grade rebuilt the recorded plan's seed and got another plan. The seed is
+// named only when it is the plan the gate admits (nextCreationCall).
+export const planChanged = (w) => {
+  const seed = w.plan.request.seed;
+  return `lyric_grade rebuilt seed ${seed}'s plan and got a different plan from the one on record (the planner changed after lyric_plan ran), so no grade under the recorded plan can be written. Call lyric_plan again${stalePlanSweep(w) ? ` with seed ${seed}` : ''}; then lyric_screen and lyric_grade under the new plan.`;
+};
 // What the plan recorded for a declaration a grade or revise contradicted,
 // in the gate's own normalisation, and the call that works instead.
 function recordedField(key, request, lines) {
@@ -633,7 +672,7 @@ export function creationRefusal(task, name, args, lyric = null) {
   if (name === 'lyric_screen')
     return w.plan
       ? null
-      : "CREATION_ORDER: a new song's lyric_screen comes after its lyric_plan, and its receipt is recorded for that plan. Call lyric_sweep, then lyric_plan, before lyric_screen.";
+      : `CREATION_ORDER: a new song's lyric_screen comes after its lyric_plan, and its receipt is recorded for that plan. Call ${w.sweeps.length ? 'lyric_plan' : 'lyric_sweep, then lyric_plan,'} before lyric_screen.`;
   // lyric_verify is a diff of one revision and records nothing, so it serves a
   // new song's revision rounds too. lyric_check and lyric_recover grade or
   // structure a draft without the plan, which would route around the plan and
@@ -670,28 +709,8 @@ export function creationRefusal(task, name, args, lyric = null) {
   if (handAuthored.length)
     return `CREATION_PLAN: hand-authored mandate or placement fields cannot replace the canonical program plan. This call sent ${handAuthored.join(', ')}, which the recorded plan supplies: send this same call again without ${handAuthored.length === 1 ? 'it' : 'them'}.`;
   const request = w.plan.request;
-  for (const key of PLAN_FIELDS) {
-    if (args[key] !== undefined && !sameDeclared(key, args[key], request[key]))
-      return `CREATION_PLAN: ${key} differs from the recorded program plan. ${recordedField(key, request, w.plan.lines)}`;
-    if (
-      args[key] === undefined &&
-      request[key] !== null &&
-      request[key] !== undefined &&
-      request[key] !== ''
-    ) {
-      // Restore the host's actual plan coordinates, not a model's recollection.
-      args[key] = planArgument(key, request[key]);
-    }
-  }
-  if (Array.isArray(args.draft)) args.draft = normalizeDraftLines(args.draft);
-  if (typeof args.draft_text === 'string') {
-    const draft = draftFromText(args.draft_text);
-    if (Array.isArray(args.draft) && !same(args.draft, draft))
-      return 'CREATION_DRAFT: conflicting draft and draft_text; send one exact draft representation.';
-    args.draft = draft;
-  }
   // A REVISE AFTER A GRADE (writer plan, stage 2). The plan's declarations are
-  // restored from the record above; the draft was not, so a caller had to send
+  // restored from the record below; the draft was not, so a caller had to send
   // the whole graded draft again unchanged. The grade receipt keeps the draft's
   // text now, and a revise that starts a run without a draft takes it from
   // there. A run under way keeps its own draft: the graded one is where that
@@ -702,6 +721,31 @@ export function creationRefusal(task, name, args, lyric = null) {
     lyric &&
     w.started?.plan_sha256 === w.plan.sha256 &&
     (lyric.seed === request.seed || lyric.decl?.seed === request.seed);
+  for (const key of PLAN_FIELDS) {
+    if (args[key] !== undefined && !sameDeclared(key, args[key], request[key]))
+      return `CREATION_PLAN: ${key} differs from the recorded program plan. ${recordedField(key, request, w.plan.lines)}`;
+    // Restore the host's actual plan coordinates, not a model's recollection.
+    // One sent is the same declaration in another spelling (a reordered list,
+    // a melody's keys in another order, another case): the grade rebuilds the
+    // plan from these arguments, so it is given the spelling the plan
+    // recorded, and rebuilds the same plan. A run under way keeps the
+    // spelling it was sent: the run compares each call with the declarations
+    // it started with, byte for byte.
+    if (
+      request[key] !== null &&
+      request[key] !== undefined &&
+      request[key] !== '' &&
+      (args[key] === undefined || !continuing)
+    )
+      args[key] = planArgument(key, request[key]);
+  }
+  if (Array.isArray(args.draft)) args.draft = normalizeDraftLines(args.draft);
+  if (typeof args.draft_text === 'string') {
+    const draft = draftFromText(args.draft_text);
+    if (Array.isArray(args.draft) && !same(args.draft, draft))
+      return 'CREATION_DRAFT: conflicting draft and draft_text; send one exact draft representation.';
+    args.draft = draft;
+  }
   const gradedDraft = w.grade?.plan_sha256 === w.plan.sha256 ? w.grade : null;
   if (
     w.grade_attempt?.cause === 'plan_changed' &&
@@ -709,7 +753,7 @@ export function creationRefusal(task, name, args, lyric = null) {
     !continuing &&
     (name === 'lyric_grade' || (name === 'lyric_revise' && !gradedDraft))
   )
-    return `CREATION_ORDER: lyric_grade rebuilt seed ${request.seed}'s plan and got a different plan from the one on record (the planner changed after lyric_plan ran), so no grade under the recorded plan can be written. Call lyric_plan again with seed ${request.seed}; then lyric_screen and lyric_grade under the new plan.`;
+    return `CREATION_ORDER: ${planChanged(w)}`;
   // The word-check is asked for once, at the grade (and of a revise that has
   // no grade under this plan, whose next call is that grade). A run or a
   // grade already standing under this plan is not sent back to it.
@@ -933,8 +977,11 @@ export function withPlanLineage(task, name, result) {
 // whole under one request: the sweep's arguments apart from where the window
 // starts and how wide it is. Any other sweep result, or a changed request,
 // ends the count.
+// The request a window was swept under, its seeds left out. `draw` is a set:
+// the same fields in another order are the same request.
 const sweepRequest = (args) => {
   const { seed_from: _from, count: _count, ...request } = args || {};
+  if (request.draw !== undefined) request.draw = drawList(request.draw);
   return JSON.stringify(Object.fromEntries(Object.entries(request).sort()));
 };
 // The 95% bound on the share of seeds that plan, when none of `seeds` did.
@@ -958,7 +1005,8 @@ const sweepingIsSpent = (seeds, count) =>
 // now built from the verdict and the call:
 // - each predicate's own count, said, so the one that never holds is seen;
 // - the 95% bound that no seed kept leaves on the share of seeds kept;
-// - advice only for what the call did not declare;
+// - advice only for what the call did not state (a value, a stating `want`
+//   or a draw: statedFields);
 // - `row`, from a host that keeps receipts: the windows swept in a row under
 //   this request, and whether a further one is more likely than not to keep
 //   none. Then sweeping on is no longer offered.
@@ -1020,8 +1068,12 @@ export function recordCreation(task, name, args, verdict, isError = false) {
     verdict.accepted_shown.length
   ) {
     const accepted = verdict.accepted_shown.filter(Number.isInteger);
-    if (accepted.length)
+    if (accepted.length) {
       w.sweeps = [...w.sweeps, { args: structuredClone(args), accepted }].slice(-8);
+      // A sweep after the grade found the plan stale is the newest request:
+      // the plan named next is that sweep's, not the stale plan's own.
+      if (w.grade_attempt?.cause === 'plan_changed') w.grade_attempt.swept_after = true;
+    }
   } else if (name === 'lyric_screen' && w.plan) {
     // The screen receipt names the plan it ran under: the grade's gate reads
     // it for its own plan, so a replacement plan needs a new one.
@@ -1195,9 +1247,10 @@ export function nextCreationCall(task, carried, name, args = null) {
     w.grade_attempt.plan_sha256 === w.plan.sha256;
   // A stale plan is planned again under the sweep it was recorded under: its
   // seed belongs to that sweep, and another sweep's coordinates would refuse
-  // it. With no such sweep on record, the newest sweep's own seed and
-  // coordinates are the plan the gate admits.
-  const own = stale ? planSweep(w) : null;
+  // it. With no such sweep on record, or with a sweep recorded after the
+  // grade found the plan stale, the newest sweep's own seed and coordinates
+  // are the plan the gate admits.
+  const own = stale ? stalePlanSweep(w) : null;
   if (!w.plan || name === 'lyric_plan' || stale) {
     const s = own || w.sweeps[w.sweeps.length - 1];
     const args = { seed: own ? w.plan.request.seed : s.accepted[0] };
@@ -1584,11 +1637,11 @@ function withRefusedInARow(task, name, result, args = {}) {
         ...block,
         text: JSON.stringify({
           ...rest,
-          window_meaning: noneKeptMeaning(
-            v,
-            { lines: args?.lines != null, functions: args?.functions != null },
-            { seeds: unkept.seeds, bound, spent }
-          ),
+          window_meaning: noneKeptMeaning(v, statedFields(args), {
+            seeds: unkept.seeds,
+            bound,
+            spent,
+          }),
           unkept_in_a_row: { seeds: unkept.seeds, accept_share_bound: bound, spent },
           ...(outcome !== undefined ? { outcome } : {}),
           ...(next_call !== undefined ? { next_call } : {}),

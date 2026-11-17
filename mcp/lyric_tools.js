@@ -52,6 +52,7 @@ import {
   planStatements,
   STATEABLE,
   statementConflict,
+  sweepNeeds,
   statementsOf,
   gradeVerdictQualifies,
   PLAN_FIELDS,
@@ -63,6 +64,7 @@ import {
   SWEEP_NEXT,
   sweepNextLine,
   noneKeptMeaning,
+  statedFields,
 } from './lyric_workflow.js';
 import {
   applyLexiconBasis,
@@ -1703,12 +1705,13 @@ const seedField = z
   );
 
 // Built from FORM_ROWS (stage 3): each form with what it requires, and no
-// default offered. A new-song sweep must name one (creationRefusal).
+// default offered. A new-song sweep must name one (creationRefusal); what it
+// needs, here and on lines, functions, relation and melody, is sweepNeeds.
 const formField = z
   .enum(PLAN_FORMS)
   .optional()
   .describe(
-    `The song form, one name: ${FORM_ROWS.map((f) => formRowText(f, false)).join('; ')}. There is no draw over forms: a new-song session's lyric_sweep needs one.`
+    `The song form, one name: ${FORM_ROWS.map((f) => formRowText(f, false)).join('; ')}. There is no draw over forms. ${sweepNeeds('form')}`
   );
 
 const linesField = z
@@ -1726,7 +1729,7 @@ const linesField = z
   .max(MAX_LINES)
   .optional()
   .describe(
-    `Exact total line count, at least ${LINES_FLOOR} and at most ${MAX_LINES} (the planner's envelope; a form that requires sections needs more, and the plan refuses a count under its floor). Every plan can be written, graded and revised. A new-song session's lyric_sweep needs this, a \`want\` on lines, or \`lines\` in \`draw\`.`
+    `Exact total line count, at least ${LINES_FLOOR} and at most ${MAX_LINES} (the planner's envelope; a form that requires sections needs more, and the plan refuses a count under its floor). Every plan can be written, graded and revised. ${sweepNeeds('lines')}`
   );
 
 // STATE IT OR SAY DRAW (stage 3). The things a new song states, read from
@@ -1786,7 +1789,8 @@ const relationField = z
   .max(64)
   .optional()
   .describe(
-    "Declare ONE relation every mandated group must stand in, written NAMESPACE:NAME. Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is a coarse relation (a pair stands in every class its sound supports), type: is the named-cell engine, and schema: is a registry schema, which requires the complete declared figure and its placement. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. A plan gives every group one type, declared or drawn with equal odds, and lyric_grade judges each group by its own type alone. A pasted song's group with no declaration (no relation and no group_types entry) is judged against EVERY relation — each coarse relation at its own cut and every registry schema — and is satisfied when, for each pair, the two words the group binds stand in at least one (another word in the line relating does not count); each pair's relations are all reported, and unresolved obligations are disclosed; an unsupported shape never counts as success. Declaring one narrows the requirement to that relation. An unknown name refuses and the refusal lists the declarable names by namespace; for one pair, lyric_types reports its type names, coarse relations and registry schemas."
+    "Declare ONE relation every mandated group must stand in, written NAMESPACE:NAME. Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is a coarse relation (a pair stands in every class its sound supports), type: is the named-cell engine, and schema: is a registry schema, which requires the complete declared figure and its placement. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. A plan gives every group one type, declared or drawn with equal odds, and lyric_grade judges each group by its own type alone. A pasted song's group with no declaration (no relation and no group_types entry) is judged against EVERY relation — each coarse relation at its own cut and every registry schema — and is satisfied when, for each pair, the two words the group binds stand in at least one (another word in the line relating does not count); each pair's relations are all reported, and unresolved obligations are disclosed; an unsupported shape never counts as success. Declaring one narrows the requirement to that relation. An unknown name refuses and the refusal lists the declarable names by namespace; for one pair, lyric_types reports its type names, coarse relations and registry schemas. " +
+      sweepNeeds('relation')
   );
 
 // THE LYRICS PAGE'S PER-LINK TYPE MENU (2026-10-28): a type travels as its
@@ -1812,7 +1816,8 @@ const functionsField = z
   .max(200)
   .optional()
   .describe(
-    "Comma-separated ALLOW-LIST of section functions this song may use, written F1,F2,…. Checked against each function's own definition BEFORE any shape is drawn: asking for a prechorus without a chorus REFUSES, because the word means before-the-chorus. A roster permits, it does not compel — functions the draw did not use are reported. Omit to let the planner use its whole roster."
+    "Comma-separated ALLOW-LIST of section functions this song may use, written F1,F2,…. Checked against each function's own definition BEFORE any shape is drawn: asking for a prechorus without a chorus REFUSES, because the word means before-the-chorus. A roster permits, it does not compel — functions the draw did not use are reported. Outside a new-song session, a call that leaves it out plans from the planner's whole roster. " +
+      sweepNeeds('functions')
   );
 
 // THE TITLE IS THE THIRD OF THAT FAMILY (MISSING.md M-93), and it is the one
@@ -1830,7 +1835,7 @@ const titleField = z
   .max(MAX_LINE_CHARS)
   .optional()
   .describe(
-    'The song\'s title, CARRIED into the blueprint and never inferred. Declaring one answers "is the title in the hook?" instead of leaving it refused as TITLE_UNDECLARED — and the answer can be NO: TITLE_NOT_IN_HOOK is a whole-draft FLAG (counted in whole_flags), so a title whose words are not a contiguous run inside the hook line (or the hook inside the title) keeps the draft from grading clean — lyric_grade exits 3 on it, or 2 when coverage is also incomplete. Containment is a normalised WORD-subsequence test in either direction, not a substring match. A title with more words than the hook can never be answered YES by any draft and is refused as TITLE_LONGER_THAN_HOOK rather than charged. Omit it and the question is reported as TITLE_UNDECLARED, not answered — which holds nothing back. A title is OPTIONAL. On a plan that declares no hook (the `open` form declares none) a title only names the song — the question is not asked and nothing is held back for it.'
+    'The song\'s title, CARRIED into the blueprint and never inferred. Declaring one answers "is the title in the hook?" instead of leaving it refused as TITLE_UNDECLARED — and the answer can be NO: TITLE_NOT_IN_HOOK is a whole-draft FLAG (counted in whole_flags), so a title whose words are not a contiguous run inside the hook line (or the hook inside the title) keeps the draft from grading clean — lyric_grade exits 3 on it, or 2 when coverage is also incomplete. Containment is a normalised test of whole words as one unbroken run, in the same order, not a substring match. A title with more words than the hook can never be answered YES by any draft and is refused as TITLE_LONGER_THAN_HOOK rather than charged. Omit it and the question is reported as TITLE_UNDECLARED, not answered — which holds nothing back. A title is OPTIONAL. On a plan that declares no hook (the `open` form declares none) a title only names the song — the question is not asked and nothing is held back for it.'
   );
 
 // THE CLI GLOBALS THE CHAT SURFACE COULD NOT SPELL (M-189, 2026-09-01).
@@ -1935,7 +1940,8 @@ const melodyField = z
   .max(65536)
   .optional()
   .describe(
-    'Declared repeating monophonic phrase as JSON text of the shape {"meter":{"beats":B,"unit":U,"groups":[G,…]},"bars":N,"subdivision":S,"notes":[{"pitch_hz":HZ,"ticks":T},…]}. Repeat once per lyric line. Hz permits any tuning; null pitch is a rest. It is a plan declaration: the same seed can draw a different shape with a melody than without. Underlay and pitch performance are not certified.'
+    'Declared repeating monophonic phrase as JSON text of the shape {"meter":{"beats":B,"unit":U,"groups":[G,…]},"bars":N,"subdivision":S,"notes":[{"pitch_hz":HZ,"ticks":T},…]}. Repeat once per lyric line. Hz permits any tuning; null pitch is a rest. It is a plan declaration: the same seed can draw a different shape with a melody than without. Underlay and pitch performance are not certified. ' +
+      sweepNeeds('melody')
   );
 
 const narrativeField = z
@@ -2657,7 +2663,7 @@ export function registerLyricTools(server, tool) {
         'search anchor spans and may differ in full-line context. ' +
         'Only lyric_grade on the exact planned draft establishes whether its actual bindings satisfy the mandate. ' +
         'In a creation session lyric_screen comes after lyric_plan, and one successful lyric_screen under a plan is ' +
-        "required before that plan's lyric_grade; the session records that the step ran and under which plan, not which words. " +
+        "required before that plan's lyric_grade; the session records the words and `relation` it screened and the plan it ran under. " +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_screen,
     },
@@ -3871,7 +3877,7 @@ export function registerLyricTools(server, tool) {
       return sweepVerdict(v, r, {
         from,
         n,
-        declared: { lines: a.lines != null, functions: a.functions != null },
+        declared: statedFields(a),
       });
     }
   );
@@ -4201,7 +4207,7 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'A group graded without a plan, with neither a declared song-wide relation nor a group_types entry for that group, is judged against every coarse relation and every registry schema, ' +
     'and is satisfied when, for each pair, the words it binds stand in at least one ' +
     '(another word in the line relating does not count). Full figures and refused obligations remain explicit. A new ' +
-    'song: lyric_sweep returns the seeds whose plan holds the declared `lines`, `functions` and `want`, in seed order, ' +
+    `song: lyric_sweep returns the seeds whose plan holds the declared ${joinedNames([...SWEEP_COORDINATES, 'want'].map((k) => `\`${k}\``))}, in seed order, ` +
     'unranked; ' +
     `lyric_plan with an accepted seed and the sweep's ${SWEEP_COORDINATES.join(', ')} and \`want\` list (as \`wants\`) ` +
     "returns a complete shape (sections, meter, each group's relation and placement, hook slot, verbatim returns) " +

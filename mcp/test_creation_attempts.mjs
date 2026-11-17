@@ -260,6 +260,97 @@ test('the store refusing a measured grade as too large is told, and the next rev
   assert.doesNotMatch(refusal, /shorter draft|plan fewer lines/);
 });
 
+// A grade too large to keep that ALSO found the plan stale: the session keeps
+// what the grade found, so the way on is still a new plan, and the refusal
+// says so rather than offering the same grade again.
+test('a grade too large to keep that found the plan stale keeps the stale-plan way on', async () => {
+  const store = new JobStore(null);
+  const big = 'x'.repeat(9 * 1024 * 1024 + 4096);
+  const execute = async (session, name, args) => {
+    if (name !== 'lyric_grade') return executeNative(session, name, args);
+    // The grade built seed 16's plan again and got another plan.
+    const next = structuredClone(session);
+    const rebuilt = planReceipt();
+    rebuilt.plan.sections = [{ name: 'VERSE' }, { name: 'VERSE' }];
+    rebuilt.plan_sha256 = sha(rebuilt.plan);
+    recordCreation(next.native.task, name, { ...args, draft }, gradeReceipt(rebuilt));
+    assert.equal(next.native.task.workflow.grade_attempt.cause, 'plan_changed');
+    const verdict = { ...gradeReceipt(rebuilt), padding: big };
+    return {
+      session: next,
+      result: { content: [{ type: 'text', text: JSON.stringify(verdict) }] },
+    };
+  };
+  const sessions = new WorkflowSessions({ store, execute });
+  const session = sessions.fresh('lyrics');
+  planned(session.native.task);
+  const id = randomBytes(32).toString('hex');
+  store.begin(id, { request_id: id, integration: INTEGRATION, action: 'open' }, {}, { session });
+  store.complete(id, 200, { session, result: { content: [] } });
+
+  const graded = sessions.submit(id, 'lyrics', 'lyric_grade', { seed: 16, draft });
+  await sessions.wait(graded.operation_id);
+  const read = sessions.status(graded.operation_id, 'lyrics');
+  assert.equal(read.tool_error, true);
+  const text = read.tool_result.content[0].text;
+  assert.match(text, /^SESSION_RESULT_NOT_KEPT: lyric_grade ran/);
+  assert.match(text, /the planner changed after lyric_plan ran/);
+  assert.match(text, /Call lyric_plan again with seed 16/);
+  assert.doesNotMatch(text, /Grading the same draft again/);
+  const kept = sessions.record(read.session_id, 'lyrics').session.native.task.workflow;
+  assert.equal(kept.grade, null);
+  assert.equal(kept.grade_attempt.cause, 'plan_changed');
+  // A real revise through the real client is told to plan again, before
+  // anything runs.
+  const again = sessions.submit(read.session_id, 'lyrics', 'lyric_revise', { seed: 16 });
+  await sessions.wait(again.operation_id);
+  const refusal = sessions.status(again.operation_id, 'lyrics').tool_result.content[0].text;
+  assert.match(refusal, /^CREATION_ORDER: lyric_grade rebuilt seed 16's plan/);
+  assert.match(refusal, /NEXT: lyric_plan with seed 16/);
+});
+
+// Only a grade finds a plan stale. A sweep, screen or plan the gate admits
+// while the plan is stale, and whose result is too large to keep, found
+// nothing about the plan: its refusal names its own way on.
+test('a result too large to keep from a tool other than the grade keeps its own way on', async () => {
+  const big = 'x'.repeat(9 * 1024 * 1024 + 4096);
+  for (const [name, args] of [
+    ['lyric_sweep', stated({ seed_from: 40, count: 2, want: ['lines<=30'] })],
+    ['lyric_screen', { words: ['a'] }],
+    ['lyric_plan', planArgs],
+  ]) {
+    const store = new JobStore(null);
+    const execute = async (session, tool) => {
+      assert.equal(tool, name);
+      return {
+        session: structuredClone(session),
+        result: {
+          content: [{ type: 'text', text: JSON.stringify({ exit_code: 0, padding: big }) }],
+        },
+      };
+    };
+    const sessions = new WorkflowSessions({ store, execute });
+    const session = sessions.fresh('lyrics');
+    const t = session.native.task;
+    planned(t);
+    recordCreation(t, 'lyric_screen', { words: ['a'] }, { exit_code: 0 });
+    const rebuilt = planReceipt();
+    rebuilt.plan.sections = [{ name: 'VERSE' }, { name: 'VERSE' }];
+    rebuilt.plan_sha256 = sha(rebuilt.plan);
+    recordCreation(t, 'lyric_grade', { seed: 16, draft }, gradeReceipt(rebuilt));
+    assert.equal(t.workflow.grade_attempt.cause, 'plan_changed');
+    const id = randomBytes(32).toString('hex');
+    store.begin(id, { request_id: id, integration: INTEGRATION, action: 'open' }, {}, { session });
+    store.complete(id, 200, { session, result: { content: [] } });
+    const op = sessions.submit(id, 'lyrics', name, structuredClone(args));
+    await sessions.wait(op.operation_id);
+    const text = sessions.status(op.operation_id, 'lyrics').tool_result.content[0].text;
+    assert.match(text, new RegExp(`^SESSION_RESULT_NOT_KEPT: ${name} ran`), name);
+    assert.doesNotMatch(text, /It also found|rebuilt seed/, name);
+    assert.match(text, new RegExp(`Send ${name} again with a smaller request\\.`), name);
+  }
+});
+
 // A REVISE AFTER A GRADE (writer plan, stage 2). The gate restored every plan
 // declaration from its own record and, for the draft, kept only a fingerprint:
 // the caller had to send the whole graded draft again, unchanged, and one that

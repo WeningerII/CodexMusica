@@ -70,8 +70,8 @@ interrupted operation; a completed lyric tool's own verdict describes whether it
 revision can continue through `lyric_revise`.
 
 Creation executes sweep → plan → screen → exact-draft grade → revise through
-the maintained client. To set a length, declare an exact `lines` count on the
-sweep and carry the sweep's declarations unchanged to the plan. A request to
+the maintained client. The sweep states the length the user chose: an exact
+`lines` count, a `want` on `lines`, or `lines` in `draw`. Carry the sweep's declarations unchanged to the plan. A request to
 write a song is a lyric request. The server persists executed receipts and rejects skipped
 steps or fabricated state. Edit phase is for user-supplied existing lyrics.
 ChatGPT writes every line — the draft and every answer the revise loop asks

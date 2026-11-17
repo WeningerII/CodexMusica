@@ -100,8 +100,8 @@ pipeline plans and grades songs whose every line you write; no connector call re
   A new song: `begin_lyrics` → `lyric_sweep` → `lyric_plan` → `lyric_screen` → write the draft →
   `lyric_grade` → `lyric_revise` (answer each question it asks until it stops). The sweep states
   form, length (`lines`), sections (`functions`), rhyme (`relation`) and time (`melody`): each a
-  value, or for all but form its field in `draw` (a `want` on `lines`, sections or beats per line
-  also states that thing); a sweep that leaves one out is refused with the list. To set a length, declare an exact `lines` count on the sweep. Lyrics the user pasted: `begin_lyrics {phase:"edit"}` → `lyric_recover` → `lyric_check` → `lyric_revise` without a seed.
+  value, or for all but form its field in `draw` (a `want` on `lines`, on `sections`, `sections.F`, `uses` or `before`, or on `beats_per_line`, `bars_per_line` or `slots_per_line`
+  also states that thing); a sweep that leaves one out is refused with the list. A length is an exact `lines` count, a `want` on `lines`, or `lines` in `draw`, as the user chose. Lyrics the user pasted: `begin_lyrics {phase:"edit"}` → `lyric_recover` → `lyric_check` → `lyric_revise` without a seed.
 - **Session controls** (on `/mcp`): `begin_lyrics`, `get_operation`, `resume_operation`.
   A finished `lyric_grade` or `lyric_revise` read with `get_operation` is the song and a short
   verdict: status fields, `blocking` (what stands, and each line a requested obligation could not

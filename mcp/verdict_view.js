@@ -394,7 +394,8 @@ function screenView(content, detail) {
     .map((l) => l.trim())
     .filter((l) => /^\d+ banned, \d+ refused, /.test(l) || l.startsWith('NAMED COUNTS:'));
   short.detail = SCREEN_DETAIL_NOTE;
-  // Who acts next, as data: after a screen that answered, the plan.
+  // Who acts next, as data: after a screen that answered, the grade under
+  // the plan it ran for.
   if (v.outcome && typeof v.outcome === 'object') short.outcome = v.outcome;
   return [{ type: 'text', text: JSON.stringify(short) }];
 }

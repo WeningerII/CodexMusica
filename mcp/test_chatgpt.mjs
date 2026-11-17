@@ -810,7 +810,7 @@ test("F4: a new song's order, its length and how to continue sit inside the guid
     for (const phrase of [
       "begin_lyrics phase 'create' is for a new song",
       'lyric_sweep, lyric_plan, lyric_screen, write every line, lyric_grade on that exact draft, lyric_revise',
-      'A length is an exact `lines` count declared on the sweep.',
+      'A length is `lines`, a `lines` want or a draw of it.',
       'continue from the session_id in the completed receipt, even when the tool refused; a refusal without one names its own next step.',
       'holding the next session_id; an immediate refusal has none.',
     ])

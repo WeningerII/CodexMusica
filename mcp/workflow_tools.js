@@ -152,7 +152,7 @@ function sessionGuide(domains, compatibility) {
       ? 'Lyric calls queue a background operation and return its operation_id (lyric_types, a lookup, answers at once and takes no session): poll get_operation until it is no longer pending, never submit to a session while its operation is pending, and continue from the session_id in the completed receipt, even when the tool refused; a refusal without one names its own next step.'
       : null,
     lyrics
-      ? "begin_lyrics phase 'create' is for a new song, in the order the server enforces: lyric_sweep, lyric_plan, lyric_screen, write every line, lyric_grade on that exact draft, lyric_revise. A length is an exact `lines` count declared on the sweep. Phase 'edit' is for lyrics the user supplied: it skips those receipts and refuses lyric_sweep, lyric_plan and a seeded lyric_grade or lyric_revise (CREATION_PLAN)."
+      ? "begin_lyrics phase 'create' is for a new song, in the order the server enforces: lyric_sweep, lyric_plan, lyric_screen, write every line, lyric_grade on that exact draft, lyric_revise. A length is `lines`, a `lines` want or a draw of it. Phase 'edit' is for lyrics the user supplied: it skips those receipts and refuses lyric_sweep, lyric_plan and a seeded lyric_grade or lyric_revise (CREATION_PLAN)."
       : null,
     'An interrupted operation continues with resume_operation only when resumable is true. Every refusal names the call that works instead. Session and operation ids are private: keep them out of what you show the user.',
     compatibility

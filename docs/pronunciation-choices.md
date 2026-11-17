@@ -49,7 +49,7 @@ promising a diagnostic that was omitted.
 - Changed JavaScript passes ESLint; the diff passes whitespace checks.
 - `npm run qualify:session:workflow`: actual maintained MCP client, server, Python
   harness and interview continuation. No mocked grader or paid writer. It runs
-  sweep → screen → generated plan → initial grade → pronunciation selection and
+  sweep → generated plan → screen → initial grade → pronunciation selection and
   regrade → revision question → actual repair answers → finished assessment.
 
 The checked-in replay script requires the final result to have exit 0, complete
