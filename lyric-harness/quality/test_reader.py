@@ -2590,6 +2590,30 @@ class LegacyReplay(unittest.TestCase):
                                  [len("  lyric result: "):])
                 self.assertEqual((row["reader_scheme"], row["against"]), (want, "state"))
 
+    def test_main_restores_the_reader_scheme_when_it_ends(self):
+        # Stage 4 (2026-11-17): a helper added just above `main` took the
+        # `_request_scoped_reader_scheme` decorator from it, so a request's
+        # scheme leaked to the next one on a warm worker. `main` must put the
+        # scheme back however the request ends, here by a refusal.
+        import contextlib
+        import io
+        from unittest import mock
+        saved = (LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED)
+        try:
+            for before in (("v2", True), ("v1", False)):
+                LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED = before
+                argv = ["lyric_harness.py", "--reader-scheme=v1", "no-such-verb"]
+                with mock.patch.object(sys, "argv", argv), \
+                        contextlib.redirect_stdout(io.StringIO()), \
+                        self.assertRaises(SystemExit):
+                    LH.main()
+                self.assertEqual(
+                    (LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED),
+                    before)
+            self.assertTrue(hasattr(LH.main, "__wrapped__"))
+        finally:
+            LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED = saved
+
     def test_the_deferred_scheme_check_writes_nothing(self):
         import contextlib
         import copy as _copy

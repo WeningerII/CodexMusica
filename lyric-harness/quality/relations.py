@@ -1760,6 +1760,26 @@ class SequenceEqual(Predicate):
         return Read(tuple(x) == y, True)
 
 
+class OneTokenDiffers(Predicate):
+    """INCREMENTAL REPETITION'S JUDGE (stage 4, 2026-11-16): the two
+    members' word sequences have the same length and differ at exactly one
+    position. Read at the `token` identity level, whose value is the
+    member's words joined by single spaces. The note carries the count, so
+    a refusal can say how far the pair is from one changed word."""
+    name = "ONE-TOKEN-DIFFERS"
+
+    def __call__(self, x, y):
+        if x is None or y is None:
+            return Read(None, False, "unreadable")
+        a, b = str(x).split(), str(y).split()
+        if len(a) != len(b):
+            return Read(False, True,
+                        f"the lines have {len(a)} and {len(b)} words")
+        n = sum(1 for p, q in zip(a, b) if p != q)
+        return Read(n == 1, True,
+                    f"{n} word differs" if n == 1 else f"{n} words differ")
+
+
 @dataclass(frozen=True)
 class TailPhonesAgree(Predicate):
     """MOSAIC RHYME'S JUDGE (2026-10-31, `MISSING.md` M-311 F1; R2's ruling,
@@ -6136,13 +6156,18 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="incremental repetition",
-    spans=(WHOLE_LINE, WHOLE_LINE), align="flush_left",
-    channels=(ChannelRule("token", AGREE, "each"),),
-    unmatched="exclude", placement=(Placement("line_gap_at_most", (8,)),),
-    note="needs a SLOT-LEVEL diff, not line-level equality -- the span is a "
-         "line WITH A HOLE IN IT. The model has the hole (a Span is a "
-         "selection, so the varied index is simply not in it) and nothing yet "
-         "SEARCHES for which index to omit."))
+    spans=(WHOLE_LINE, WHOLE_LINE), align="none",
+    channels=(),
+    identity=(IdentityRule("token", OneTokenDiffers()),),
+    placement=(Placement("line_gap_at_most", (8,)),),
+    # ~~"needs a SLOT-LEVEL diff, not line-level equality -- the span is a
+    # line WITH A HOLE IN IT ... nothing yet SEARCHES for which index to
+    # omit." The row was whole-line token equality, so only a verbatim
+    # repeat stood in it.~~ Stage 4 (2026-11-16): the judge is the one-word
+    # diff itself (`OneTokenDiffers`).
+    note="the line and its partner have the same number of words and "
+         "differ in exactly one of them. A verbatim repeat does not stand "
+         "in it, and neither does an added or dropped word."))
 
 declare(RelationSchema(
     name="trite rhyme",
@@ -8990,6 +9015,8 @@ CONTEXT_CONTROLS = {
         ("Whoever hath her wish, thou hast thy Will,",
          "And Will to boot, and Will in overplus;"),
         ("1.T8", "2.T2"), ("1.T6", "2.T2")),
+    # STANDS since stage 4 (2026-11-16): the row is the one-word diff, so
+    # the "FAILING, recorded" on the next line is history.
     # FAILING, recorded (M-313). Tennyson, "The Charge of the Light
     # Brigade" (1854), stanza 3 as staged in
     # `corpus/song/eng_british_alfred_tennyson.txt`: lines 1, 2 and 6 of the
@@ -10841,6 +10868,37 @@ def pair_failed_parts_any(schema, stream, at_a, at_b, build,
             if parts and (not best or len(parts) < len(best)):
                 best = parts
     return best
+
+
+def whole_line_identity_failures(schema, stream, line_a, line_b):
+    """-> [(rule index, Read)] for each of `schema`'s IdentityRules that
+    reads False on lines `line_a` and `line_b` (0-based) taken whole.
+
+    THE WHOLE-LINE ROUTE'S OWN JUDGE (stage 4, 2026-11-16). On that route
+    `pair_failed_parts` names nothing: its member span reads locus "line",
+    which binds no single declared token, so it refuses. This reads the
+    same identity values `realise()` reads, over the two whole lines, so a
+    refusal can name the failed clause and carry the rule's own note (the
+    number of words that differ). [] when the schema's members are not
+    whole lines, or when no rule fails."""
+    if tuple(schema.spans) != (WHOLE_LINE, WHOLE_LINE):
+        return []
+    spans = []
+    for li in (line_a, line_b):
+        idx = tuple(k for k, u in enumerate(stream.units) if u.line == li)
+        if not idx:
+            return []
+        spans.append(Span(idx))
+    out = []
+    for n, ir in enumerate(schema.identity):
+        xa = _identity_values(ir, spans[0], stream)
+        xb = _identity_values(ir, spans[1], stream)
+        if xa is _NORES or xb is _NORES:
+            continue
+        r = ir.predicate(xa, xb)
+        if r.value is False:
+            out.append((n, r))
+    return out
 
 
 def pair_unanchored_any(schema, stream, at_a, at_b, build,

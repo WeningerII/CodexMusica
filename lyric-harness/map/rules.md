@@ -66,7 +66,6 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | RETURN_LENGTH_DRIFT | note | — | grid.py |
 | RETURN_LOCKED | note | — | grid.py |
 | RETURN_METER_DRIFT | note | — | grid.py |
-| RETURN_NEVER_RETURNS | note | — | grid.py |
 | RETURN_OUT_OF_RANGE | note | — | revise.py |
 | RETURN_SCHEME_DRIFT | note | — | grid.py |
 | RETURN_SLOT_DRIFT | note | — | grid.py |
@@ -102,7 +101,7 @@ What declaring each of the 22 section types gets checked (from `function_capabil
 | postchorus | checked | returns | verbatim | chorus | — |
 | refrain | no claim | returns | verbatim | — | — |
 | burden | checked | returns | verbatim | — | — |
-| bridge | checked | once | n/a | verse, chorus | — |
+| bridge | checked | open | n/a | verse, chorus | — |
 | breakdown | no claim | open | varied | — | whether the arrangement thins |
 | build | no claim | open | varied | — | whether tension rises |
 | drop | refused | returns | varied | — | whether it lands as an arrival |
@@ -115,5 +114,5 @@ What declaring each of the 22 section types gets checked (from `function_capabil
 | hook | no claim | returns | verbatim | — | — |
 | coda | checked | once | n/a | — | — |
 | outro | checked | once | n/a | — | — |
-| false_ending | checked | once | n/a | — | — |
-| reprise | checked | once | varied | — | — |
+| false_ending | checked | open | n/a | — | — |
+| reprise | checked | open | varied | — | — |

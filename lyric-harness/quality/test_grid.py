@@ -52,6 +52,37 @@ def _raises(fn):
     return False
 
 
+def _free_rows():
+    """-> the section rows no placement field ties to a place or a
+    neighbour, and that may come any number of times, in table order:
+    read from `SECTION_FUNCTIONS`. Stage 4 tests draw sections from these
+    by seed instead of typing them."""
+    return [fn for fn, sp in _G.SECTION_FUNCTIONS.items()
+            if sp.recurrence != "once" and not sp.boundary
+            and not sp.needs_before and not sp.needs_after
+            and not sp.requires and not sp.adjacent_before
+            and not sp.adjacent_after]
+
+
+def _with_copies(rng, fn, copies, body):
+    """-> `body` with `copies` copies of `fn` put in at places drawn by
+    `rng`."""
+    fns = list(body)
+    for _ in range(copies):
+        fns.insert(rng.randint(0, len(fns)), fn)
+    return fns
+
+
+def _drawn_words(rng, n):
+    """-> `n` dictionary words drawn by `rng` from the pronouncing
+    dictionary, joined by spaces."""
+    with open(os.path.join(HERE, "..", "cmudict.dict"), encoding="utf-8") as fh:
+        words = sorted({ln.split()[0] for ln in fh
+                        if ln[:1].isalpha() and ln.split()[0].isalpha()
+                        and 4 <= len(ln.split()[0]) <= 8})
+    return " ".join(rng.sample(words, n))
+
+
 def cliche_song():
     names = ("verse1", "chorus1", "verse2", "chorus2", "bridge", "chorus3")
     s = Song(sections=[Section(n, 16) for n in names]).layout()
@@ -566,10 +597,18 @@ def test_a_recurred_single_use_function_is_reported():
         song, hooks = song_from_blueprint(bp)
         return song_function_report(song, hooks=hooks)
 
-    codes = {f.code for f in report(["verse", "bridge", "chorus",
-                                     "bridge"])["findings"]}
-    check("two bridges earn SINGLE_USE_RECURRED", "SINGLE_USE_RECURRED" in codes,
-          f"codes: {sorted(codes)}")
+    # REPINNED 2026-11-16 (stage 4): a bridge may come any number of times,
+    # so the check that found this gap is now asked of a row the table
+    # deals at most once, with the row, the body and the places drawn by
+    # seed.
+    import random
+    rng = random.Random("stage4-two-copies")
+    once_fn = rng.choice(_G.single_use_functions())
+    fns = _with_copies(rng, once_fn, 2,
+                       rng.sample(_free_rows(), rng.randint(1, 3)))
+    codes = {f.code for f in report(fns)["findings"]}
+    check(f"two copies of a once row earn SINGLE_USE_RECURRED ({fns})",
+          "SINGLE_USE_RECURRED" in codes, f"codes: {sorted(codes)}")
 
     # Not just the bridge that found it: every single_use function, or the fix
     # is a patch on one example rather than on the gate.
@@ -578,7 +617,8 @@ def test_a_recurred_single_use_function_is_reported():
         c = {f.code for f in report(["verse", fn, "chorus", fn])["findings"]}
         if "SINGLE_USE_RECURRED" not in c:
             missed.append(fn)
-    check("every single_use function is covered, not only bridge", not missed,
+    check("every single_use function is covered, not only the drawn one",
+          not missed,
           f"silent for: {missed}" if missed else
           f"fires for all of {list(POPULAR_SONG.single_use)}")
 
@@ -787,9 +827,17 @@ def test_the_ask_gate_reaches_every_function_that_is_expected_once():
         song, hooks = song_from_blueprint(bp)
         return song_function_report(song, hooks=hooks, **kw)
 
-    rep = report(["verse", "reprise", "chorus", "reprise"])
-    check("two reprises are ASKED at all", "reprise" in rep["returns"],
-          f"questions asked: {sorted(rep['returns'])} + bridge + hook")
+    # REPINNED 2026-11-16 (stage 4): reprise is "open" now, so two of them
+    # are neither asked nor a note; the question is put to two copies of a
+    # row the table deals at most once, the row and the body drawn by seed.
+    import random
+    rng = random.Random("stage4-asked")
+    once_fn = rng.choice(_G.single_use_functions())
+    rep = report(_with_copies(rng, once_fn, 2,
+                              rng.sample(_free_rows(), rng.randint(1, 3))))
+    check("two copies of a once row are ASKED at all",
+          once_fn in rep["returns"],
+          f"{once_fn}; questions asked: {sorted(rep['returns'])}")
     check("and answered: a recurred single-use function is a finding",
           "SINGLE_USE_RECURRED" in {f.code for f in rep["findings"]},
           f"codes: {sorted({f.code for f in rep['findings']})}")
@@ -810,7 +858,7 @@ def test_the_ask_gate_reaches_every_function_that_is_expected_once():
                       if s.recurrence == "open")
     still_silent = [fn for fn in open_fns
                     if fn not in report(["verse", fn, "chorus", fn])["returns"]]
-    check("the five 'open' functions are still not asked, on purpose",
+    check("the 'open' functions are still not asked, on purpose",
           still_silent == open_fns,
           f"{open_fns} — 'open' means the convention expects nothing about "
           f"how often they occur; a vamp is a repeating figure HELD OPEN and "
@@ -849,52 +897,102 @@ def test_the_ask_gate_reaches_every_function_that_is_expected_once():
           f"{real['refused']}")
 
 
-def test_return_never_returns_is_reached():
-    """RETURN_NEVER_RETURNS shipped with no test anywhere in the repo.
+def test_a_section_dealt_once_gets_no_remark():
+    """~~RETURN_NEVER_RETURNS shipped with no test anywhere in the repo.~~
 
-    It is the one finding `return_findings` emits from inside its SINGLE
-    INSTANCE branch -- a refusal and a finding from the same call, which is
-    exactly the pairing that makes it easy to miss: the refusal is the
-    conspicuous half.
+    REMOVED IN STAGE 4 (owner's ruling, 16 Nov 2026): any section may be
+    dealt once, so "the song declares a chorus and never comes back to it"
+    is no longer said. The code is gone from the grader, its severity table
+    and the census; a song with one chorus reports a SINGLE_INSTANCE
+    refusal (cannot tell) and no finding.
     """
-    print("\n20. a declared chorus the song never comes back to")
-    from quality.grid import (POPULAR_SONG, return_findings,
+    print("\n20. a declared chorus that comes once gets no remark")
+    from quality import gate_census
+    from quality.grid import (SEVERITY, return_findings,
                               song_function_report)
 
     s = Song(sections=[Section("v1", 8, function="verse"),
                        Section("c", 8, function="chorus"),
                        Section("v2", 8, function="verse")],
-             title="one time only").layout()
+             title="placeholder").layout()
     s.lines = [Line("a line of words here", bar=b) for b in (1, 9, 17)]
     f, r, _ = return_findings(s, "chorus")
-    check("one chorus in the whole song is a finding, not silence",
-          "RETURN_NEVER_RETURNS" in {x.code for x in f},
-          [x.evidence for x in f][0] if f else "no findings at all")
-    check("and the OTHER half of the same branch is a refusal",
-          "SINGLE_INSTANCE" in {x.code for x in r},
-          "'does it land in the same place each time' has no second time — "
-          "CANNOT TELL, not clean (doctrine 28)")
-    check("it reaches the report, not only the function under it",
-          "RETURN_NEVER_RETURNS" in {x.code for x in
-                                     song_function_report(s)["findings"]})
+    check("one chorus in the whole song is no finding",
+          "RETURN_NEVER_RETURNS" not in {x.code for x in f},
+          [x.code for x in f])
+    check("the other half of the branch is still a refusal",
+          "SINGLE_INSTANCE" in {x.code for x in r})
+    check("and the report carries no such code either",
+          "RETURN_NEVER_RETURNS" not in {x.code for x in
+                                         song_function_report(s)["findings"]})
+    here = os.path.dirname(os.path.abspath(__file__))
+    left = [name for name in ("grid.py", "gate_census.py", "revise.py",
+                              "plan.py")
+            if "RETURN_NEVER_RETURNS" in open(os.path.join(here, name),
+                                              encoding="utf-8").read()]
+    check("no code file names the removed remark",
+          not left and "RETURN_NEVER_RETURNS" not in SEVERITY, left)
 
-    # THE GATE IS `fixed_return`, not "any single instance". A bridge occurs
-    # once by convention, so a song with one bridge must stay silent here.
-    b = Song(sections=[Section("v1", 8, function="verse"),
-                       Section("c1", 8, function="chorus"),
-                       Section("br", 8, function="bridge"),
-                       Section("c2", 8, function="chorus")]).layout()
-    b.lines = [Line("a line of words here", bar=x) for x in (1, 9, 17, 25)]
-    fb, _, _ = return_findings(b, "bridge")
-    check("one bridge is not RETURN_NEVER_RETURNS",
-          "RETURN_NEVER_RETURNS" not in {x.code for x in fb},
-          f"bridge is not in fixed_return "
-          f"{list(POPULAR_SONG.fixed_return)} — a bridge appearing once is "
-          f"the convention, not a defect")
-    fc, _, _ = return_findings(b, "chorus")
-    check("and a chorus that DOES return does not earn it either",
-          "RETURN_NEVER_RETURNS" not in {x.code for x in fc},
-          f"codes: {sorted({x.code for x in fc})}")
+
+def test_a_repeated_edge_row_gets_one_note():
+    """STAGE 4, ONE FACT ONE NOTE. Only intro, outro and coda are dealt at
+    most once, and each stands at an edge, so a repeated one is also out of
+    its place. It gets ONE note, `SINGLE_USE_RECURRED`, naming every copy
+    off the edge; no `SECTION_NOT_AT_BOUNDARY` for those copies and no
+    drift note. One copy in the middle is a different fact and keeps its
+    `SECTION_NOT_AT_BOUNDARY`. Positions and counts are drawn by seed."""
+    print("\n20b. a repeated intro, outro or coda gets one note")
+    import random
+    from quality.grid import (POPULAR_SONG, SECTION_FUNCTIONS,
+                              song_from_blueprint, song_function_report)
+
+    def report(fns):
+        bp = {"sections": [{"name": f"S{i}", "function": f,
+                            "start_bar": 1 + 4 * i, "bars": 4 + i % 2,
+                            "meter": {"beats": 4, "unit": 4},
+                            "lines": [{"text": text,
+                                       "bar": 1 + 4 * i, "beat": 1,
+                                       "duration": 1}]}
+                           for i, f in enumerate(fns)]}
+        song, hooks = song_from_blueprint(bp)
+        return song_function_report(song, hooks=hooks)
+
+    rng = random.Random("stage4-one-note")
+    text = _drawn_words(rng, 3)
+    free = _free_rows()
+    bad = []
+    runs = 0
+    for fn in POPULAR_SONG.single_use:
+        edge = SECTION_FUNCTIONS[fn].boundary
+        for _ in range(20):
+            body = [rng.choice(free) for _ in range(rng.randint(1, 4))]
+            fns = _with_copies(rng, fn, rng.randint(2, 4), body)
+            off = [i for i, f in enumerate(fns) if f == fn and not (
+                (edge == "first" and i == 0)
+                or (edge == "last" and i == len(fns) - 1))]
+            rep = report(fns)
+            runs += 1
+            notes = [f for f in rep["findings"]
+                     if f.code == "SINGLE_USE_RECURRED"]
+            moved = [f for f in rep["findings"]
+                     if f.code == "SECTION_NOT_AT_BOUNDARY"]
+            drift = [f for f in rep["findings"] if f.code.startswith(
+                "RETURN_") and fn in f.message]
+            named = all(f"section {i + 1}" in notes[0].evidence
+                        for i in off) if notes else False
+            if len(notes) != 1 or moved or drift or not named:
+                bad.append((fns, [f.code for f in rep["findings"]]))
+    check(f"one note naming every copy off the edge, in {runs} drawn songs",
+          not bad, bad[:3])
+    lone = []
+    for fn in POPULAR_SONG.single_use:
+        rep = report([rng.choice(free), fn, rng.choice(free)])
+        codes = [f.code for f in rep["findings"]]
+        if codes.count("SECTION_NOT_AT_BOUNDARY") != 1 or \
+                "SINGLE_USE_RECURRED" in codes:
+            lone.append((fn, codes))
+    check("one copy in the middle keeps its own SECTION_NOT_AT_BOUNDARY",
+          not lone, lone)
 
 
 # ---------------------------------------------------------------------------
@@ -3619,7 +3717,8 @@ if __name__ == "__main__":
                test_hook_confined_and_the_undeclared_landing,
                test_the_three_counts_all_count_questions,
                test_the_ask_gate_reaches_every_function_that_is_expected_once,
-               test_return_never_returns_is_reached,
+               test_a_section_dealt_once_gets_no_remark,
+               test_a_repeated_edge_row_gets_one_note,
                test_a_return_that_loses_or_gains_a_line_is_not_verbatim,
                test_every_variation_kind_is_reportable,
                test_read_marked_songs_drops_apparatus_by_the_one_rule,

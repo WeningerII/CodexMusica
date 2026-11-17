@@ -10978,6 +10978,45 @@ def _parse_narrative_flag(raw):
     return {"atoms": atoms, "junctions": juncs}
 
 
+def _line_runs(lines):
+    """-> the line numbers, sorted, as runs joined by ", ": a run of
+    consecutive numbers is written as its first and last joined by "-"."""
+    out, run = [], []
+    for n in sorted(set(lines)):
+        if run and n == run[-1] + 1:
+            run.append(n)
+            continue
+        if run:
+            out.append(f"{run[0]}-{run[-1]}" if len(run) > 1 else str(run[0]))
+        run = [n]
+    if run:
+        out.append(f"{run[0]}-{run[-1]}" if len(run) > 1 else str(run[0]))
+    return ", ".join(out)
+
+
+def seed_redraw_summary(redraw):
+    """-> `choices.seed_redraw` with each refused candidate's per-line
+    findings folded by code: how many lines, which lines, and the first
+    detail. Every other field is kept as it is."""
+    out = dict(redraw)
+    rows = []
+    for cand in redraw.get("refused", []):
+        cand = dict(cand)
+        by = {}
+        for f in cand.pop("findings", None) or []:
+            row = by.setdefault(f["code"], {"count": 0, "lines": [],
+                                            "first_detail": f["detail"]})
+            row["count"] += 1
+            row["lines"].append(f["line"])
+        cand["findings_by_code"] = {
+            code: dict(row, lines=_line_runs(row["lines"]))
+            for code, row in sorted(by.items())}
+        rows.append(cand)
+    if "refused" in redraw:
+        out["refused"] = rows
+    return out
+
+
 def _request_scoped_reader_scheme(fn):
     """Restore this process's reader scheme when one request's `main` ends.
 
@@ -12759,15 +12798,20 @@ def main():
               f"{len(the_plan['sections'])} section(s): "
               f"{'-'.join(pat['functions'])}")
         print(f"    (pattern drawn from {pat['chosen_from']})")
-        for explanation in PLN.recurrence_report(the_plan):
-            print("    " + explanation)
         if "brief_selection" in the_plan["choices"]:
             print("  BRIEF SELECTION: " + json.dumps(the_plan["choices"]["brief_selection"], sort_keys=True))
         # A REDRAWN SEED IS SAID, as a brief selection is (option (b),
         # 2026-10-22): the joint gate refused this seed's own draw and the
         # plan is the first candidate after it that the gate accepted.
+        # PRINTED BY CODE, NOT LINE BY LINE (stage 4, 2026-11-16): a refused
+        # candidate can carry a finding on hundreds of lines, and printing
+        # each made one plan's output pass 100,000 characters. The line
+        # says, per code, how many lines, which lines and one detail; the
+        # plan's own `choices.seed_redraw` keeps every finding.
         if "seed_redraw" in the_plan["choices"]:
-            print("  SEED REDRAW: " + json.dumps(the_plan["choices"]["seed_redraw"], sort_keys=True))
+            print("  SEED REDRAW: " + json.dumps(
+                seed_redraw_summary(the_plan["choices"]["seed_redraw"]),
+                sort_keys=True))
         # DECLARED, OUT LOUD. Silence here would make `plan --seed=3` and
         # `plan --seed=3 --relation=type:rime riche` look identical on a run
         # where the relation happens not to change the sampled shape — the

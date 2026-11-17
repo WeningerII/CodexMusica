@@ -2330,6 +2330,23 @@ class Reviser:
                                 why += ("; where P is on L%d and Q on L%d, it "
                                         "fails: %s" % (i, j, "; ".join(
                                             _fc(_dsch, _parts))))
+                        elif _sch_name and _stream is not None:
+                            # THE WHOLE-LINE ROUTE NAMES ITS CLAUSE TOO
+                            # (stage 4, 2026-11-16): the identity rule that
+                            # says no, in the brief's own words, and its
+                            # count ("2 words differ").
+                            _wl = _R_ref.whole_line_identity_failures(
+                                _R_ref.REGISTRY[_sch_name], _stream,
+                                i - 1, j - 1)
+                            if _wl:
+                                from quality.plan import failed_clauses as _fc
+                                _wsch = _R_ref.REGISTRY[_sch_name]
+                                why += ("; where N is L%d and M is L%d, it "
+                                        "fails: %s" % (i, j, "; ".join(
+                                            f"{c} ({r.note})" for c, (_, r)
+                                            in zip(_fc(_wsch, [
+                                                ("identity", n)
+                                                for n, _ in _wl]), _wl))))
                     if why is not None:
                         break
                 if _refused_here:
