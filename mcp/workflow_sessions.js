@@ -7,6 +7,7 @@ import { buildServer } from './tools.js';
 import { admitLyricCall } from './lyric_tools.js';
 import { connectConnector } from './client.js';
 import { requestDigest } from './job_store.js';
+import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 import { createOperationBudget } from './paid_budget.js';
 import { withExecutionContext } from './execution_context.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
@@ -344,7 +345,9 @@ export function briefNote(text, task = null) {
   if (!/\bBRIEF_(?:REQUIRED|LEDGER_UNAVAILABLE): /.test(text)) return text;
   if (task?.phase === 'create')
     text = text.replace(
-      /Call lyric_revise with `new_run: true` and this draft( with [^.]*?)?([,.])/,
+      // The fix clause names lines as "3, 5 and 7": it ends at the sentence's
+      // full stop, or at the comma before "or" in the forged-wire text.
+      /Call lyric_revise with `new_run: true` and this draft( with [^.]*?)?(\.|,(?= or ))/,
       (_, which = '', end) =>
         `Grade this draft${which} with lyric_grade, then call lyric_revise with that exact draft, the latest session_id and \`new_run: true\`${end}`
     );
@@ -469,6 +472,35 @@ export function publicToolResult(result, task = null, view = {}) {
   };
 }
 
+// The lines lyric_check or lyric_recover read, split as the tool splits them
+// (takeLines in lyric_tools.js). lyric_recover keeps structure rows in its
+// input; its verdict's `lines` are the sung lines.
+function linesRead(name, args, verdict) {
+  if (name === 'lyric_recover' && Array.isArray(verdict?.lines)) return verdict.lines;
+  if (Array.isArray(args.lines)) return normalizeDraftLines(args.lines);
+  if (typeof args.lines_text === 'string') return draftFromText(args.lines_text);
+  return null;
+}
+
+// THE SONG A REVISION LEFT, IN AN EDIT SESSION (owner, 16 Nov; #665). A
+// revise that answered keeps the song as it left it (`final_draft`): a
+// restart without a draft starts there. A new song's session keeps it in its
+// grade receipts instead (leftSong in lyric_workflow.js), so it is not kept
+// twice. A lyric_check or lyric_recover that ran on other lines moves the
+// session off that song, so a restart with no draft has none to start from;
+// one on the same lines, or one that was refused, leaves it.
+export function keepLeftSong(next, name, args, result, verdict) {
+  if (result?.isError) return;
+  if (name === 'lyric_revise' && verdict && next.task?.phase === 'edit') {
+    if (Array.isArray(verdict.final_draft)) next.left_draft = clone(verdict.final_draft);
+  } else if (
+    ['lyric_check', 'lyric_recover'].includes(name) &&
+    Array.isArray(next.left_draft) &&
+    requestDigest(linesRead(name, args, verdict)) !== requestDigest(next.left_draft)
+  )
+    next.left_draft = null;
+}
+
 export async function executeNative(session, name, input) {
   const next = clone(session);
   const args = clone(input);
@@ -484,14 +516,6 @@ export async function executeNative(session, name, input) {
         );
       args.workspace = next.workspace;
     }
-  } else if (['lyric_check', 'lyric_recover'].includes(name)) {
-    // Checking other lines moves the session off the song a revision left:
-    // a restart with no draft then has none to start from.
-    if (
-      Array.isArray(next.left_draft) &&
-      (!Array.isArray(args.draft) || requestDigest(args.draft) !== requestDigest(next.left_draft))
-    )
-      next.left_draft = null;
   } else if (name === 'lyric_revise') {
     if (args.new_run) next.native.continuation = null;
     // A restart that sends no lyrics starts from the song as the last
@@ -561,10 +585,9 @@ export async function executeNative(session, name, input) {
     if (name === 'lyric_revise' && verdict && !result.isError) {
       // The last journal a revision returned. recover_only exports it on request.
       next.recovery = verdict.state || verdict.checkpoint || next.recovery || null;
-      // The song as this revision left it: a restart without a draft starts there.
-      if (Array.isArray(verdict.final_draft)) next.left_draft = clone(verdict.final_draft);
       next.uncertain = !!verdict.uncertain_proposal;
     }
+    keepLeftSong(next, name, args, result, verdict);
     return { session: next, result };
   } finally {
     await client?.close();

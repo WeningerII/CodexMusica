@@ -20,13 +20,15 @@ import { promisify } from 'node:util';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
-import { BRIEFS, RUNS } from './lyric_tools.js';
+import { BRIEFS, RUNS, briefGradeNext } from './lyric_tools.js';
+import { buildWorkflowServer } from './workflow_tools.js';
 import { withExecutionContext } from './execution_context.js';
 import { encodeState, decodeState } from './state_codec.js';
 import { JobStore } from './job_store.js';
 import {
   WorkflowSessions,
   briefNote,
+  keepLeftSong,
   executeNative,
   verdictOf as sessionVerdict,
 } from './workflow_sessions.js';
@@ -419,32 +421,159 @@ test('G20: in a session for a new song the refusal grades the draft before the r
     briefNote(raw, { phase: 'edit' }),
     /Call lyric_revise with the latest session_id, `new_run: true` and this draft with line 4/
   );
+  // Andrej's item 7: three or more lines are named as "3, 5 and 7", and the
+  // whole fix clause, commas included, moves in front of lyric_grade.
+  const many = (fix) =>
+    `BRIEF_REQUIRED: lines 3, 5 and 7 change lines the revise loop flagged without giving their brief. Nothing was run. Lines this draft may change: 1-2, 4, 6, 8. Call lyric_revise with \`new_run: true\` and this draft with ${fix}.`;
+  for (const fix of [
+    'lines 3, 5 and 7 as the last lyric_revise returned them',
+    'lines 3, 5 and 7 as the last lyric_revise returned them and the removed line(s) put back',
+    'lines 2, 3, 5, 7 and 9 as the last lyric_revise returned them',
+  ])
+    assert.equal(
+      briefNote(many(fix), { phase: 'create' }).slice(
+        briefNote(many(fix), { phase: 'create' }).indexOf('Grade this draft')
+      ),
+      `Grade this draft with ${fix} with lyric_grade, then call lyric_revise with that exact draft, the latest session_id and \`new_run: true\`.`
+    );
+});
+
+// Andrej's items 14 and 22: the song a revision left, kept per phase and
+// moved only by a lyric_check or lyric_recover that ran on other lines.
+test('an edit session keeps the left song; a new song session does not keep a second copy', () => {
+  const song = ['Cat', 'Dog', 'Sun'];
+  const v = (extra = {}) => ({
+    content: [{ type: 'text', text: JSON.stringify({ exit_code: 3, ...extra }) }],
+  });
+  const ran = (name, args, value = {}, isError = false) => {
+    const next = { task: { domain: 'lyrics', phase: 'edit' }, left_draft: [...song] };
+    keepLeftSong(next, name, args, isError ? { ...v(value), isError } : v(value), {
+      exit_code: 3,
+      ...value,
+    });
+    return next.left_draft;
+  };
+  // A create session's revise leaves no session copy; an edit session's does.
+  const create = { task: { domain: 'lyrics', phase: 'create' } };
+  keepLeftSong(create, 'lyric_revise', {}, v(), { exit_code: 3, final_draft: song });
+  assert.equal(create.left_draft, undefined);
+  const edit = { task: { domain: 'lyrics', phase: 'edit' } };
+  keepLeftSong(edit, 'lyric_revise', {}, v(), { exit_code: 3, final_draft: song });
+  assert.deepEqual(edit.left_draft, song);
+  // The same lines, in either spelling the tool takes: kept.
+  assert.deepEqual(ran('lyric_check', { lines: [' Cat ', 'Dog', 'Sun'] }), song);
+  assert.deepEqual(ran('lyric_check', { lines_text: 'Cat\nDog\nSun\n' }), song);
+  // lyric_recover keeps structure rows; its sung lines are the song.
+  assert.deepEqual(
+    ran('lyric_recover', { lines: ['[VERSE]', 'Cat', 'Dog', 'Sun'] }, { lines: song }),
+    song
+  );
+  // Other lines: dropped. A refused call: kept.
+  assert.equal(ran('lyric_check', { lines: ['Cat', 'Dog', 'Bun'] }), null);
+  assert.equal(ran('lyric_recover', { lines: ['Cat'] }, { lines: ['Cat'] }), null);
+  assert.deepEqual(ran('lyric_check', { lines: ['Cat', 'Dog', 'Bun'] }, {}, true), song);
 });
 
 test('G21: an edit session that checks other lines has no left song to restart from', async (t) => {
   const directory = mkdtempSync(path.join(tmpdir(), 'brief-gate-left-'));
   t.after(() => rmSync(directory, { recursive: true, force: true }));
   const sessions = new WorkflowSessions({ store: new JobStore(directory) });
-  let session_id = sessions.open('lyrics', { phase: 'edit' }).session_id;
-  const run = async (name, args) => {
-    const q = sessions.submit(session_id, 'lyrics', name, args);
-    await sessions.wait(q.operation_id);
-    const r = sessions.status(q.operation_id, 'lyrics');
-    if (r.session_id) session_id = r.session_id;
-    return r;
-  };
   const { writer: _w, ...decl } = DECL;
-  const opening = await run('lyric_revise', { ...decl, draft: INPUT });
-  assert.equal(sessionVerdict(opening.tool_result).exit_code, 4, JSON.stringify(opening));
-  await run('lyric_check', {
-    scheme: 'AAA',
-    relation: 'class:RHYME',
-    draft: ['Moon', 'Spoon', 'June'],
-  });
+  const open = async () => {
+    let session_id = sessions.open('lyrics', { phase: 'edit' }).session_id;
+    const run = async (name, args) => {
+      const q = sessions.submit(session_id, 'lyrics', name, args);
+      await sessions.wait(q.operation_id);
+      const r = sessions.status(q.operation_id, 'lyrics');
+      if (r.session_id) session_id = r.session_id;
+      return r;
+    };
+    const opening = await run('lyric_revise', { ...decl, draft: INPUT });
+    assert.equal(sessionVerdict(opening.tool_result).exit_code, 4, JSON.stringify(opening));
+    return run;
+  };
+  const checked = (r) => {
+    const said = JSON.stringify(r);
+    assert.ok(!r.tool_error && !r.tool_result?.isError, said.slice(0, 800));
+    assert.equal(typeof sessionVerdict(r.tool_result).exit_code, 'number', said.slice(0, 800));
+  };
+  // Other lines checked: the restart with no draft has no song to start from.
+  let run = await open();
+  checked(
+    await run('lyric_check', {
+      scheme: 'AAA',
+      relation: 'class:RHYME',
+      lines: ['Fig', 'Jar', 'Hut'],
+    })
+  );
   const again = await run('lyric_revise', { ...decl, new_run: true });
   const said = JSON.stringify(again);
   assert.ok(again.tool_error || again.tool_result?.isError, said.slice(0, 800));
   assert.doesNotMatch(said, /AWAITING PROPOSAL/, 'the earlier song is not revised');
+  // The same lines checked: the restart starts from the song the revision left.
+  BRIEFS.resetForTests();
+  run = await open();
+  checked(await run('lyric_check', { scheme: 'AAA', relation: 'class:RHYME', lines: INPUT }));
+  const kept = await run('lyric_revise', { ...decl, new_run: true });
+  const keptSaid = JSON.stringify(kept);
+  assert.ok(!kept.tool_error && !kept.tool_result?.isError, keptSaid.slice(0, 800));
+  assert.equal(sessionVerdict(kept.tool_result).exit_code, 4, keptSaid.slice(0, 800));
+});
+
+// Andrej's item 18: a grade whose revise the brief gate would refuse names
+// the lines to put back, and no call.
+test("a grade's next names the lines a live revise run keeps, and drops its call", async () => {
+  const song = ['Cat', 'Dog', 'Sun', 'Fig'];
+  await BRIEFS.capture({ runId: 'grade-next', cur: song, input: song, flagged: [2] });
+  const graded = () => ({
+    exit_code: 3,
+    next_call: { tool: 'lyric_revise', args: { seed: 7 } },
+    next: 'Call lyric_revise with this exact draft.',
+  });
+  const same = briefGradeNext(graded(), [...song]);
+  assert.deepEqual(same.next_call, { tool: 'lyric_revise', args: { seed: 7 } });
+  const changed = briefGradeNext(graded(), ['Cat', 'Hut', 'Sun', 'Fig']);
+  assert.equal(changed.next_call, undefined);
+  assert.match(changed.next, /^lyric_revise refuses this draft before it runs \(BRIEF_REQUIRED\)/);
+  assert.match(
+    changed.next,
+    /Put back line 2 as the last lyric_revise returned it, grade that draft with lyric_grade/
+  );
+  assert.match(changed.next, /Lines this draft may change: 1, 3-4\.$/);
+  for (const word of ['Cat', 'Dog', 'Hut', 'Sun', 'Fig'])
+    assert.doesNotMatch(changed.next, new RegExp(`\\b${word}\\b`), 'no lyric text');
+});
+
+// Andrej's item 16: a session carries the run, and refuses `run_id` beside a
+// session_id, so its lyric_revise description does not tell a caller to send it.
+test('the session lyric_revise descriptions do not ask for the run_id', async (t) => {
+  const directory = mkdtempSync(path.join(tmpdir(), 'brief-gate-surface-'));
+  t.after(() => rmSync(directory, { recursive: true, force: true }));
+  const sessions = new WorkflowSessions({ store: new JobStore(directory) });
+  const described = async (opts) => {
+    const s = await buildWorkflowServer({ sessions, ...opts });
+    const c = new Client({ name: 'brief-gate-surface', version: '1' }, { capabilities: {} });
+    const [a, b] = InMemoryTransport.createLinkedPair();
+    await Promise.all([s.connect(a), c.connect(b)]);
+    try {
+      return (await c.listTools()).tools.find((x) => x.name === 'lyric_revise').description;
+    } finally {
+      await c.close();
+      await s.close();
+    }
+  };
+  const session = await described({ domain: 'lyrics' });
+  assert.doesNotMatch(session, /run_id starts from/);
+  assert.match(
+    session,
+    /`new_run: true` with no draft and the latest session_id starts from the song as the last lyric_revise left it/
+  );
+  const shared = await described({ compatibility: true });
+  assert.match(shared, /with no draft and the latest session_id starts from the song/);
+  assert.match(
+    shared,
+    /without session_id: with no draft and the run_id, the song as that run left it/
+  );
 });
 
 // Andrej's item 1, the chat's half. The fixture is deterministic and the run

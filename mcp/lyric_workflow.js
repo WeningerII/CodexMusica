@@ -240,18 +240,26 @@ const gradeAttemptNote = (a, lines, sent = true) => {
 // A revise sent a draft other than the one graded under the plan. `graded` is
 // the grade receipt; one recorded before the draft's text was kept holds its
 // fingerprint only, so no line can be named and no draft taken from it.
+// `left` is the song the last revise of that draft left (leftSong), which a
+// call without a draft revises: the lines are compared with it, and the text
+// names it.
 const SHOWN_DIFFERING = 12;
-function notTheGradedDraft(graded, draft, seed) {
-  const kept = Array.isArray(graded.draft);
-  const at = kept
-    ? draft.map((line, i) => (line === graded.draft[i] ? 0 : i + 1)).filter(Boolean)
-    : [];
+function notTheGradedDraft(graded, draft, seed, left = null) {
+  const base = left ? left.draft : graded.draft;
+  const kept = Array.isArray(base);
+  const at = kept ? draft.map((line, i) => (line === base[i] ? 0 : i + 1)).filter(Boolean) : [];
   const shown = at.slice(0, SHOWN_DIFFERING).join(', ');
   const where = !at.length
     ? ''
     : at.length === 1
       ? `: line ${shown} differs`
       : `: lines ${shown}${at.length > SHOWN_DIFFERING ? ` and ${at.length - SHOWN_DIFFERING} more` : ''} differ`;
+  if (left)
+    return (
+      ` This draft is neither the one lyric_grade graded under this plan nor the song as the last lyric_revise left it (its accepted fixes included)${where}.` +
+      ' To revise the song as the last lyric_revise left it, send this call again without a draft.' +
+      ` To keep this draft, call lyric_grade with seed ${seed} and this draft first.`
+    );
   return (
     ` This draft is not the one lyric_grade graded under this plan${where}.` +
     (kept ? ' To revise the graded draft, send this call again without a draft.' : '') +
@@ -849,7 +857,7 @@ export function creationRefusal(task, name, args, lyric = null) {
       'CREATION_GRADE: lyric_grade must answer for this exact draft and canonical plan before revision starts.' +
       // Another draft IS graded under this plan: say which lines differ and
       // name both ways on, so a change is neither revised unseen nor lost.
-      (gradedDraft ? notTheGradedDraft(gradedDraft, args.draft, request.seed) : '') +
+      (gradedDraft ? notTheGradedDraft(gradedDraft, args.draft, request.seed, leftSong(w)) : '') +
       (w.grade_attempt?.plan_sha256 === w.plan.sha256 &&
       w.grade_attempt.draft_sha256 === hash(args.draft)
         ? gradeAttemptNote(w.grade_attempt, w.plan.lines)
@@ -1248,20 +1256,30 @@ export function recordCreation(task, name, args, verdict, isError = false) {
   } else if (name === 'lyric_revise' && w.plan && [0, 3, 4].includes(verdict.exit_code)) {
     w.started = { plan_sha256: w.plan.sha256 };
   }
+  // The song a revise left, for a run that started from the graded draft or
+  // from the song the last revise left. A call that continues a run (no
+  // `new_run`) carries the draft that run opened on, which the host restores
+  // (the client's continuation): `from_sha256` is that draft, so an answer to
+  // a run that started from an earlier left song still updates it.
+  const from = Array.isArray(args.draft) ? hash(args.draft) : null;
+  const leftLive =
+    w.left?.plan_sha256 === w.plan?.sha256 && w.left?.grade_sha256 === w.grade?.draft_sha256;
   if (
     name === 'lyric_revise' &&
     w.plan &&
     w.grade?.plan_sha256 === w.plan.sha256 &&
     Array.isArray(verdict?.final_draft) &&
-    Array.isArray(args.draft) &&
-    (hash(args.draft) === w.grade.draft_sha256 ||
-      (w.left?.grade_sha256 === w.grade.draft_sha256 && hash(args.draft) === w.left.draft_sha256))
+    from &&
+    (from === w.grade.draft_sha256 ||
+      (leftLive &&
+        (from === w.left.draft_sha256 || (!args.new_run && from === w.left.from_sha256))))
   )
     w.left = {
       plan_sha256: w.plan.sha256,
       grade_sha256: w.grade.draft_sha256,
       draft: structuredClone(verdict.final_draft),
       draft_sha256: hash(verdict.final_draft),
+      from_sha256: from,
     };
 }
 
@@ -1822,6 +1840,9 @@ function withGradeNext(task, result, carried) {
     // At exit 2 `next` names words to change and no call (a measured draft
     // that could not all be judged): there is no call to replace, so it stays.
     if (v.exit_code === 2) return block;
+    // A `next` with no `next_call` at 0 or 3 names lines to put back before
+    // any revise (briefGradeNext in lyric_tools.js): no call to replace.
+    if (!v.next_call) return block;
     changed = true;
     const { next: _text, next_call: _call, ...rest } = v;
     const call = gradedNextCall(task, carried);

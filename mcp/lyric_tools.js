@@ -565,6 +565,41 @@ function briefCapture(entry) {
   );
 }
 
+// A GRADE WHOSE REVISE THE BRIEF GATE WOULD REFUSE (Refs #875). A grade's
+// `next` names lyric_revise on the graded draft; where a live revise run keeps
+// a line that draft changes (BRIEF_REQUIRED), that revise is refused before it
+// runs. The grade reads the same store the revise does, without a run or a
+// wire, and when it would refuse, `next` names the lines to put back and
+// `next_call` is dropped: only the caller can make that change. A store that
+// cannot be read is left to the revise, which says so.
+export function briefGradeNext(verdict, draft) {
+  if (!verdict?.next_call || !Array.isArray(draft) || !BRIEFS.healthy) return verdict;
+  let res;
+  try {
+    res = BRIEFS.check({ lineSets: [draft] });
+  } catch {
+    return verdict;
+  }
+  if (res.ok || res.reason !== 'brief') return verdict;
+  const keep = [...new Set([...res.changed, ...res.undone])].sort((x, y) => x - y);
+  const back = [
+    keep.length
+      ? `${lineWords(keep)} as the last lyric_revise returned ${keep.length === 1 ? 'it' : 'them'}`
+      : '',
+    res.removedAfter.length ? 'the removed line(s)' : '',
+  ]
+    .filter(Boolean)
+    .join(' and ');
+  delete verdict.next_call;
+  verdict.next =
+    'lyric_revise refuses this draft before it runs (BRIEF_REQUIRED): a live revise run on this song ' +
+    'keeps the text of a line it flagged without asking about it, or of a line its loop replaced, and ' +
+    `this draft changes it. Put back ${back}, grade that draft with lyric_grade, then call lyric_revise ` +
+    "as that grade's `next` says." +
+    (res.may.length ? ` Lines this draft may change: ${lineSpans(res.may)}.` : '');
+  return verdict;
+}
+
 // THE RECOGNITION CAPS, BEFORE ANYTHING QUEUES (#677 W5, meter_admission.js).
 // Called by the tool wrapper (tools.js) before a lyric handler runs, so before
 // the Python bridge admits it, and by WorkflowSessions.submit before an
@@ -2939,6 +2974,8 @@ export function registerLyricTools(server, tool) {
         'the whole call: `next` says what to send with it, which is this exact draft and its declarations, or ' +
         "no draft where the grade's record holds them (a session, the website chat). " +
         (server.kitchen ? 'The service writer answers that lyric_revise run. ' : '') +
+        'Where a live revise run keeps the text of a line this draft changes, that revise would be ' +
+        'refused (BRIEF_REQUIRED): `next` names the lines to put back instead, and `next_call` is absent. ' +
         'At exit 2 `next` names each word that could not be judged, with its line and what to ' +
         'change, and then the lyric_grade call that judges the changed draft. ' +
         EXECUTION_CONTRACT,
@@ -3015,6 +3052,7 @@ export function registerLyricTools(server, tool) {
             args: { seed: plan.request?.seed ?? a.seed },
           };
           verdict.next = gradeNext(verdict.exit_code);
+          briefGradeNext(verdict, a.draft);
         } else if (
           verdict.exit_code === 2 &&
           verdict.measurement_status === 'graded' &&

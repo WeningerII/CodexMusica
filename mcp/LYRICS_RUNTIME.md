@@ -649,7 +649,10 @@ counts its lines, its protected lines and its undo items), and when it is full
 the entries that guard nothing (set aside by a later run, or protecting no
 line and holding no replaced line) are dropped first, oldest first, and then
 the oldest of the rest, so a live entry's protection can end early. A restart that sends no draft starts from
-the song as the run left it, its accepted fixes included. The store is
+the song as the run left it, its accepted fixes included; in a session it is the song the
+session's last `lyric_revise` left, including a run answered over several calls. A
+`lyric_grade` whose draft such a run would refuse names, in its `next`, the lines to put
+back, and has no `next_call`. The store is
 `BRIEF_LEDGER_FILE`, else `LYRIC_RUNTIME_DIR/brief-ledger.json`, else memory
 only (stdio without a runtime directory forgets it on restart). Its key is
 derived from the server secret (`CHAT_SECRET`, else `CHAT_SECRET_FILE`, else

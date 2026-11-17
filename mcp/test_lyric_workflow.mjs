@@ -16,6 +16,10 @@ import {
 import { runTurn, LIMITS, declarationsFor } from './gemini_agent.js';
 import { _verdictInternals } from './lyric_tools.js';
 import { stated } from './statement_fixture.mjs';
+import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { z } from 'zod';
+import { connectConnector } from './client.js';
 
 const sha = (v) => createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const fresh = () => ({
@@ -1207,5 +1211,162 @@ test('this file names no form: each one it uses is read from FORM_ROWS', () => {
       assert.equal(text.includes(`${q}${form}${q}`), false, `${q}${form}${q}`);
     // Nor inside a string: a refusal prints a form as `form <name>`.
     assert.equal(text.includes(`form ${form}`), false, `form ${form}`);
+  }
+});
+
+// ── THE SONG AS THE LAST REVISE LEFT IT, IN A NEW SONG'S SESSION (#875) ──────
+// Andrej's review items 2, 3, 8 and 17, through the maintained client (its
+// continuation restores a run's opening draft) over a stub server that
+// records what each call dispatches: that draft is the run's input, the
+// harness's `replay_draft`. Lines are filler tokens drawn by seed.
+const FILLER = [
+  'zorblax',
+  'quenth',
+  'mivlo',
+  'tarsk',
+  'plindo',
+  'vexum',
+  'droff',
+  'kelto',
+  'brisp',
+];
+const fillerLine = (seed, i) =>
+  [0, 1, 2, 3]
+    .map((k) => FILLER[parseInt(sha([seed, i, k]).slice(0, 8), 16) % FILLER.length])
+    .join(' ');
+const fillerSong = (seed, n = 4) => Array.from({ length: n }, (_, i) => fillerLine(seed, i));
+// `fixes` replaces line i (1-based) of `song` with a line of another seed.
+const withFixes = (song, fixes) =>
+  song.map((line, i) => (fixes[i + 1] != null ? fillerLine(fixes[i + 1], i) : line));
+function plan4(seed = 16) {
+  const p = planReceipt(seed);
+  p.plan = { ...p.plan, total_lines: 4, line_slots: [{}, {}, {}, {}] };
+  p.plan_sha256 = sha(p.plan);
+  return p;
+}
+async function leftSession(script) {
+  const dispatched = [];
+  const server = new McpServer(
+    { name: 'stub', version: '1' },
+    { instructions: '=== LYRICS TASK ===\nstub' }
+  );
+  // Every argument is passed through as sent, so the stub sees the draft.
+  const shape = Object.fromEntries(
+    ['seed', 'draft', 'draft_text', 'new_run', 'answer', 'state', 'words', 'wants', 'form'].map(
+      (k) => [k, z.any().optional()]
+    )
+  );
+  for (const name of ['lyric_sweep', 'lyric_screen', 'lyric_plan', 'lyric_grade', 'lyric_revise'])
+    server.registerTool(
+      name,
+      { inputSchema: z.object(shape).passthrough().shape },
+      async (args) => {
+        dispatched.push([name, structuredClone(args)]);
+        return result(script(name, args));
+      }
+    );
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  await server.connect(a);
+  const c = await connectConnector({
+    task: { domain: 'lyrics', phase: 'create' },
+    transport: b,
+    verifySurface: false,
+  });
+  return { c, dispatched, close: async () => (await c.close(), await server.close()) };
+}
+const firstValue = (r) => JSON.parse(r.content[0].text);
+
+test('a new song restarts from the song the last revise left, also after an answered run', async () => {
+  const p = plan4();
+  const D = fillerSong(1);
+  const F1 = withFixes(D, { 2: 21 });
+  const F2 = withFixes(F1, { 3: 22 });
+  const F3 = withFixes(F2, { 4: 23 });
+  const OTHER = fillerSong(5);
+  const revises = [
+    // Run 1 starts from the graded draft and parks.
+    { exit_code: 3, status: 'parked', final_draft: F1 },
+    // Run 2 restarts with no draft and stops at a question.
+    { exit_code: 4, final_draft: F2, state: 'run-2-state' },
+    // The answer continues run 2; the client restores its opening draft.
+    { exit_code: 3, status: 'parked', final_draft: F3 },
+    // The restarts below: with no draft, then with the left song sent.
+    { exit_code: 3, status: 'parked', final_draft: F3 },
+    { exit_code: 3, status: 'parked', final_draft: F3 },
+    // After another draft's grade.
+    { exit_code: 3, status: 'parked', final_draft: OTHER },
+  ];
+  const { c, dispatched, close } = await leftSession((name, args) => {
+    if (name === 'lyric_sweep') return { exit_code: 0, accepted_shown: [16] };
+    if (name === 'lyric_screen') return { exit_code: 0 };
+    if (name === 'lyric_plan') return p;
+    if (name === 'lyric_grade') return gradeReceipt(p, args.draft);
+    return revises.shift();
+  });
+  const sent = () => dispatched.at(-1)[1].draft;
+  try {
+    await c.call('lyric_sweep', sweepArgs);
+    await c.call('lyric_plan', planArgs);
+    await c.call('lyric_screen', { words: ['zorblax'] });
+    await c.call('lyric_grade', { seed: 16, draft: D });
+    await c.call('lyric_revise', { seed: 16 });
+    assert.deepEqual(sent(), D, 'run 1 starts from the graded draft');
+    await c.call('lyric_revise', { seed: 16, new_run: true });
+    assert.deepEqual(sent(), F1, 'run 2 starts from the song run 1 left');
+    await c.call('lyric_revise', { seed: 16, answer: fillerLine(23, 3) });
+    assert.deepEqual(sent(), F1, 'the answer continues run 2 on its opening draft');
+    // Item 2: the restart takes the song the answered run left (F3), not
+    // the song its question left (F2), which puts line 4 back.
+    await c.call('lyric_revise', { seed: 16, new_run: true });
+    assert.deepEqual(sent(), F3, 'the restart starts from the song the answered run left');
+    // Sent explicitly, the left song is admitted as the graded one is.
+    await c.call('lyric_revise', { seed: 16, new_run: true, draft: F3 });
+    assert.deepEqual(sent(), F3);
+    // Another draft: the refusal compares it with the left song and names
+    // the call without a draft as revising that song (item 17).
+    const changed = withFixes(F3, { 1: 30 });
+    let said = null;
+    try {
+      await c.call('lyric_revise', { seed: 16, new_run: true, draft: changed });
+    } catch (error) {
+      said = error.message;
+    }
+    assert.ok(said, 'a draft neither graded nor left is refused');
+    assert.match(said, /^CREATION_GRADE: /);
+    assert.match(
+      said,
+      /This draft is neither the one lyric_grade graded under this plan nor the song as the last lyric_revise left it \(its accepted fixes included\): line 1 differs\. To revise the song as the last lyric_revise left it, send this call again without a draft\./
+    );
+    assert.match(said, /NEXT: lyric_revise [^]*song as the last lyric_revise left it/);
+    // A grade of another draft drops the left song: the restart revises it.
+    await c.call('lyric_grade', { seed: 16, draft: OTHER });
+    await c.call('lyric_revise', { seed: 16, new_run: true });
+    assert.deepEqual(sent(), OTHER, 'a new grade drops the left song');
+  } finally {
+    await close();
+  }
+});
+
+test('a grade whose revise the brief gate would refuse keeps its own next in a session', async () => {
+  const p = plan4();
+  const D = fillerSong(2);
+  const own = 'lyric_revise refuses this draft before it runs (BRIEF_REQUIRED): line 2.';
+  const { c, close } = await leftSession((name, args) => {
+    if (name === 'lyric_sweep') return { exit_code: 0, accepted_shown: [16] };
+    if (name === 'lyric_screen') return { exit_code: 0 };
+    if (name === 'lyric_plan') return p;
+    // As the raw grade publishes it (briefGradeNext): no next_call.
+    const { next_call: _c, ...v } = gradeReceipt(p, args.draft);
+    return { ...v, next: own };
+  });
+  try {
+    await c.call('lyric_sweep', sweepArgs);
+    await c.call('lyric_plan', planArgs);
+    await c.call('lyric_screen', { words: ['zorblax'] });
+    const graded = firstValue(await c.call('lyric_grade', { seed: 16, draft: D }));
+    assert.equal(graded.next, own);
+    assert.equal(graded.next_call, undefined);
+  } finally {
+    await close();
   }
 });
