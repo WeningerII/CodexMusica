@@ -5566,6 +5566,49 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
           and "STANDING AT THE STOP" in out2,
           f"rc {rc2}; " + out2[out2.find("STANDING"):][:200])
 
+    # THE FLAGGED SUBSET, ON THE REAL HARNESS (Refs #665): a line held open
+    # by an unjudged check stands beside a flagged one, and `flagged_lines`
+    # names the flagged one alone wherever a record publishes it. Filler
+    # tokens drawn by seed; under groups 1,3 and 2,4, L3 ends on a token no
+    # dictionary reads (its pair cannot be judged) and L2/L4 end on words
+    # that do not rhyme (a judged violation, flagged on L4).
+    import random
+    rng = random.Random(875)
+    filler = ["stone", "river", "lamp", "window", "field", "rope", "coat",
+              "bread", "wire", "salt", "ladder", "the", "a", "of"]
+    mixed_lines = [" ".join(rng.sample(filler, 4) + [end])
+                   for end in ("door", "bread", "qzzxv", "lamp")]
+    for attempts, want_rc in (("0", 3), ("1", 4)):
+        sub = tempfile.mkdtemp(dir=d)
+        mixed = os.path.join(sub, "mixed.txt")
+        with open(mixed, "w", encoding="utf-8") as fh:
+            fh.write("\n".join(mixed_lines) + "\n")
+        state = os.path.join(sub, "state.json")
+        rc_m, out_m, _ = run("revise", mixed, "--groups=1,3;2,4",
+                             f"--attempts={attempts}", "--backtrack=0",
+                             f"--propose=defer:{state}", expect_rc=want_rc)
+        res_m = _machine_result(out_m)
+        with open(state, encoding="utf-8") as fh:
+            st_m = json.load(fh)
+        if attempts == "0":
+            check("a finished run with a flagged line beside an unjudged one "
+                  "publishes the flagged line alone as `flagged_lines`, in "
+                  "its result and in the state's `complete`",
+                  rc_m == 3 and res_m.get("unresolved_lines") == [3, 4]
+                  and "L3 (unjudged required check)" in out_m
+                  and res_m.get("flagged_lines") == [4]
+                  and st_m["complete"]["unresolved"] == [3, 4]
+                  and st_m["complete"]["flagged_lines"] == [4]
+                  and "pass_flagged_lines" not in st_m,
+                  f"rc {rc_m}; {res_m.get('unresolved_lines')} "
+                  f"{res_m.get('flagged_lines')}")
+        else:
+            check("the same draft suspended at exit 4 keeps the flagged line "
+                  "alone as `pass_flagged_lines`",
+                  rc_m == 4 and st_m.get("pending") is not None
+                  and st_m.get("pass_flagged_lines") == [4],
+                  f"rc {rc_m}; {st_m.get('pass_flagged_lines')}")
+
 
 def test_finish_exits_3_on_a_whole_draft_flag_alone():
     """A certified draft with only a whole-song flag exits3; clearing it exits0.

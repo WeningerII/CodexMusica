@@ -9112,8 +9112,9 @@ JOURNAL_OUTSIDE_KEYS = ("dispositions", "cursor")
 
 #: THE CURRENT ROUND'S FLAGGED LINES on a deferred state and a kitchen
 #: checkpoint (2026-11-16, Refs #665): the lines carrying a flag when the
-#: round in progress opened, without the pursued-note and unjudged lines the
-#: round also walks. Written by the proposers' `pass_opened` hook
+#: loop last briefed the draft (the round's opening, or the re-brief after
+#: an accepted fix), without the pursued-note and unjudged lines the round
+#: also walks. Written by the proposers' `pass_opened` hook
 #: (`quality/loop.py`), so an exit-4 or exit-5 state, and a checkpoint read
 #: after a killed call, name them; dropped from a `finished` checkpoint,
 #: whose `complete.flagged_lines` and lyric result `flagged_lines` say it.
@@ -10182,7 +10183,8 @@ def _defer_proposer(path, lines=None):
             ensure_ascii=False, separators=(",", ":")), flush=True)
 
     def pass_opened(flagged):
-        """The loop opened a round: keep its flagged lines on the state, so
+        """The loop briefed the draft (a round opened, or an accepted fix
+        moved it): keep its flagged lines on the state, so
         an exit-4/5 state names them (`PASS_FLAGGED_KEY`). Behind the
         frontier the furthest value stays, as `accepted_lines` does."""
         if not replaying:
@@ -10720,9 +10722,12 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
 
     def pass_opened(flagged):
         # `PASS_FLAGGED_KEY`, emitted with the next checkpoint, which
-        # precedes every new dispatch. A resume replays from round 1, so the
-        # round open last seen before the frontier is the current round's.
-        state[PASS_FLAGGED_KEY] = list(flagged)
+        # precedes every new dispatch. A resume replays from round 1, so
+        # behind the frontier the loaded checkpoint's value stays, as
+        # `accepted_lines` does: an earlier round's set would otherwise be
+        # emitted beside the frontier's lines.
+        if cursor >= replay_count:
+            state[PASS_FLAGGED_KEY] = list(flagged)
 
     wrapped_one.checkpoint = checkpoint
     wrapped_one.pass_opened = pass_opened
@@ -16110,8 +16115,11 @@ def main():
                 # THE FLAGGED SUBSET OF `_open`, published beside it
                 # (2026-11-16, Refs #665): `_open` also holds lines kept open
                 # by a pursued note or an unjudged check, which carry no
-                # flag. Neither the exit code nor `_open` changes.
-                _flagged_open = LP._flagged_line_nos(result.unresolved)
+                # flag. Read off `result.unresolved_flagged`, the split the
+                # exit code below reads too. Neither the exit code nor
+                # `_open` changes.
+                _flagged_open = sorted({b.line_no
+                                        for b in result.unresolved_flagged})
                 # AND THE WHOLE-DRAFT FLAGS (M-186, 2026-09-01). `song` exits
                 # 3 on a whole-draft FLAG — STACKED_DRAFT, TITLE_NOT_IN_HOOK,
                 # HOOK_ABSENT name no line and are a SEPARATE count from the

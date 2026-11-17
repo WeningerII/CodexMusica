@@ -3019,6 +3019,119 @@ def test_the_flagged_subset_is_published_apart_from_the_open_lines():
                             for c in proposing),
           [c.get(LH.PASS_FLAGGED_KEY) for c in proposing])
 
+    # (4) THE SET MOVES WITH THE DRAFT. The briefs here depend on the draft:
+    # on the input, L1, L2 and L4 carry a flag; once L1's answer is accepted,
+    # L2's flag is gone and L3 has gained one. The answer is filler drawn by
+    # seed, and `verify` is stubbed to accept it: what is under test is what
+    # the proposer is told after an accepted fix, not the grader.
+    moved_from = list(draft)
+    fix1 = " ".join(rng.sample(words, 5))
+    before_fix, after_fix = [1, 2, 4], [3, 4]
+
+    def flags_of(lines):
+        return before_fix if lines[0] == moved_from[0] else after_fix
+
+    def drawn_moving(lines, *a, **k):
+        return [Brief(n, lines[n - 1], [finding("flag", n)])
+                for n in flags_of(lines)]
+
+    def moving(rounds):
+        R = Reviser(rdecl=ReviseDeclaration(attempts_per_line=1,
+                                            max_rounds=rounds))
+        R.brief = drawn_moving
+        R.verify = lambda before, after, mandate, **k: {"accepted": True,
+                                                         "reasons": []}
+        return R
+
+    told_moving = []
+
+    def fix_line_1(brief, lines, attempt, reasons=None, whole=()):
+        return fix1 if brief.line_no == 1 else None
+    fix_line_1.pass_opened = told_moving.append
+    with contextlib.redirect_stdout(io.StringIO()):
+        res = revise_loop(moving(1), list(moved_from), "ABAB",
+                          propose=fix_line_1,
+                          propose_group=lambda *a, **k: None)
+    check("after an accepted fix the proposer is told the moved draft's "
+          "flagged lines: one that gained a flag, without one that lost it",
+          res.lines[0] == fix1 and told_moving
+          and told_moving[0] == before_fix and told_moving[-1] == after_fix,
+          told_moving)
+
+    # (5) A KITCHEN CALL KILLED AFTER THAT FIX leaves a checkpoint naming the
+    # moved draft's flagged lines beside the moved draft.
+    class _Killed(Exception):
+        pass
+
+    def fix_then_die(brief, lines, attempt, reasons=None, whole=()):
+        # L1 answered on the input; the call dies at the first dispatch in
+        # `die_in` (a round number) and declines every other question.
+        if brief.line_no == 1 and lines[0] == moved_from[0]:
+            return fix1
+        if brief.round_no == fix_then_die.die_in:
+            raise _Killed()
+        return None
+
+    def from_journal(brief, lines, attempt, reasons=None, whole=()):
+        return None
+
+    _was = os.environ.get("LYRIC_CHECKPOINT_PATH")
+
+    def emitted(text):
+        return [json.loads(ln.split("lyric checkpoint: ", 1)[1])
+                for ln in text.splitlines() if "lyric checkpoint: " in ln]
+
+    def kitchen_run(path, propose, rounds):
+        os.environ["LYRIC_CHECKPOINT_PATH"] = path
+        one, two = LH._checkpoint_proposer(propose, lambda *a, **k: None,
+                                           list(moved_from), "test-config",
+                                           "call:t")
+        out = io.StringIO()
+        try:
+            with contextlib.redirect_stdout(out):
+                revise_loop(moving(rounds), list(moved_from), "ABAB",
+                            propose=one, propose_group=two)
+        except _Killed:
+            return True, out.getvalue()
+        return False, out.getvalue()
+    try:
+        # Round 1 only, so the kill is the L4 dispatch after L1's fix.
+        kitchen_path = os.path.join(tempfile.mkdtemp(), "checkpoint.json")
+        fix_then_die.die_in = 1
+        killed, _ = kitchen_run(kitchen_path, fix_then_die, 1)
+        with open(kitchen_path, encoding="utf-8") as fh:
+            saved = json.load(fh)
+        check("a kitchen call killed after an accepted fix saves the moved "
+              "draft's flagged lines beside it",
+              killed and saved["accepted_lines"][0] == fix1
+              and saved.get(LH.PASS_FLAGGED_KEY) == after_fix,
+              saved.get(LH.PASS_FLAGGED_KEY))
+
+        # (6) A RESUMED KITCHEN RUN replays from round 1, and round 1's set
+        # must not be written over the frontier's. Killed in round 2, then
+        # resumed: every checkpoint the resumed call emits names the
+        # frontier's flagged lines.
+        kitchen_path = os.path.join(tempfile.mkdtemp(), "checkpoint.json")
+        fix_then_die.die_in = 2
+        killed, _ = kitchen_run(kitchen_path, fix_then_die, 2)
+        with open(kitchen_path, encoding="utf-8") as fh:
+            at_kill = json.load(fh)
+        _, resumed_out = kitchen_run(kitchen_path, from_journal, 2)
+        resumed = emitted(resumed_out)
+        check("a kitchen run resumed after a kill in round 2 emits the "
+              "frontier's flagged lines on every checkpoint, never round 1's",
+              killed and at_kill["round"] == 2
+              and at_kill.get(LH.PASS_FLAGGED_KEY) == after_fix
+              and resumed and all(c.get(LH.PASS_FLAGGED_KEY) == after_fix
+                                  for c in resumed),
+              [(c.get("status"), c.get("round"), c.get(LH.PASS_FLAGGED_KEY))
+               for c in resumed])
+    finally:
+        if _was is None:
+            os.environ.pop("LYRIC_CHECKPOINT_PATH", None)
+        else:
+            os.environ["LYRIC_CHECKPOINT_PATH"] = _was
+
 
 if __name__ == "__main__":
     # DEALT ACROSS CI SHARDS AND TIMED, through the one idiom in

@@ -3659,7 +3659,7 @@ export function registerLyricTools(server, tool) {
                       cur,
                       input: briefBase,
                       // A line the loop replaced in this pass is held by the
-                      // undo rule only: the pass's flags are as it opened.
+                      // undo rule only: the pass's flags are as the loop last briefed it.
                       flagged: lineNos(journal?.pass_flagged_lines).filter(
                         (n) => !fixedLines(journal, cur, briefBase).has(n)
                       ),
