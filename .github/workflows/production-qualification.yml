@@ -53,6 +53,7 @@ jobs:
     permissions:
       contents: read
       actions: read
+      packages: read
 
   capacity-matrix-result:
     name: qualification-capacity-matrix
