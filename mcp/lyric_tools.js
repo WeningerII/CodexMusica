@@ -1576,6 +1576,22 @@ function checkWords(words) {
   }
 }
 
+// Control characters the harness's reader treats otherwise than this tool
+// does: Python str.splitlines splits a line on each row marked split, and
+// str.strip removes every row from a line's ends (JS .trim() removes only the
+// vertical tab and the form feed, before this check), so the lines the
+// harness reads would not be the lines this tool checked and recorded (brief
+// provenance, #665). Each is refused anywhere else in a line.
+export const READER_CONTROLS = [
+  { ch: '\x0b', name: 'vertical tab, U+000B', split: true },
+  { ch: '\x0c', name: 'form feed, U+000C', split: true },
+  { ch: '\x1c', name: 'file separator, U+001C', split: true },
+  { ch: '\x1d', name: 'group separator, U+001D', split: true },
+  { ch: '\x1e', name: 'record separator, U+001E', split: true },
+  { ch: '\x1f', name: 'unit separator, U+001F', split: false },
+  { ch: '\x85', name: 'next line, U+0085', split: true },
+];
+
 function checkLines(lines) {
   if (lines.length < 1 || lines.length > MAX_LINES)
     throw refuse(`between 1 and ${MAX_LINES} lines — got ${lines.length}`);
@@ -1585,14 +1601,12 @@ function checkLines(lines) {
       throw refuse(
         'each array item must be exactly one lyric line; use the newline text field for multiple rows'
       );
-    // The harness splits a line on these too (Python str.splitlines), and
-    // strips a trailing one JS .trim() keeps, so the lines it reads would not
-    // be the lines this tool checked and recorded (brief provenance, #665).
-    // eslint-disable-next-line no-control-regex -- these are the characters refused
-    else if (/[\x0b\x0c\x1c-\x1f\x85]/.test(l))
+    else if (READER_CONTROLS.some((row) => l.includes(row.ch))) {
+      const c = READER_CONTROLS.find((row) => l.includes(row.ch));
       throw refuse(
-        'a draft line holds a control character (vertical tab, form feed, U+001C-U+001F or U+0085) that the reader takes as a line break; remove it and send the line again'
+        `a draft line holds a control character (${c.name}) that the reader ${c.split ? 'takes as a line break' : 'strips from the ends of a line'}; remove it and send the line again`
       );
+    }
     // Code points, as the published schema (zod) and the Python harness count:
     // UTF-16 `.length` refused lines of 101–200 astral characters (emoji)
     // that both of those accept.
@@ -3643,10 +3657,14 @@ export function registerLyricTools(server, tool) {
               // Every incoming wire goes to the check: one this server did not
               // return, for a song a live run knows, is refused outright, so a
               // forged journal's records never brief a line.
+              // The run's declarations: an entry that guards a line under
+              // other declarations is not superseded by this run.
+              const briefDecl = declarationsOf(a);
               const briefCheck = BRIEFS.check({
                 runId,
                 lineSets: briefLines.length ? briefLines : [a.draft],
                 wires: briefKeys,
+                decl: briefDecl,
               });
               if (!briefCheck.ok) throw refuse(briefRefusal(briefCheck, { sentDraft }));
               const briefPaid = writer === 'kitchen';
@@ -3666,6 +3684,7 @@ export function registerLyricTools(server, tool) {
                       briefed: briefedOf(journal, cur, fixedLines(journal, cur, briefBase)),
                       supersedes: briefCheck.supersedes,
                       inherited: briefCheck.inherited,
+                      decl: briefDecl,
                       ...extra,
                     })
                   : null;
@@ -4032,6 +4051,7 @@ export function registerLyricTools(server, tool) {
                     wire: briefWireKey(verdict.state || verdict.checkpoint),
                     supersedes: briefCheck.supersedes,
                     inherited: briefCheck.inherited,
+                    decl: briefDecl,
                   });
                 }
                 const render =

@@ -140,6 +140,7 @@ function validEntry(e) {
   )
     return false;
   if (e.retired !== undefined && typeof e.retired !== 'boolean') return false;
+  if (e.dd !== undefined && !DIGEST(e.dd)) return false;
   return Array.isArray(e.wires) && e.wires.every(WIRE);
 }
 
@@ -284,6 +285,7 @@ export class BriefLedger {
             prot: uniq(e.prot),
             undo: e.undo.map((u) => [u[0], u[1]]),
             wires: e.wires.slice(-MAX_WIRES),
+            ...(e.dd ? { dd: e.dd } : {}),
             ...(e.retired ? { retired: true } : {}),
           };
           map.set(e.id, entry);
@@ -339,6 +341,23 @@ export class BriefLedger {
       ex: list.map((l) => this.mac('e', l)),
       fo: list.map((l) => this.mac('f', fold(l))),
     };
+  }
+
+  // The run's declarations (run_store.js declarationsOf), as one digest: keys
+  // sorted at every level, so the same declarations give the same digest.
+  declDigest(decl) {
+    if (!decl || typeof decl !== 'object' || !this.key) return null;
+    const canon = (v) =>
+      Array.isArray(v)
+        ? v.map(canon)
+        : v && typeof v === 'object'
+          ? Object.fromEntries(
+              Object.keys(v)
+                .sort()
+                .map((k) => [k, canon(v[k])])
+            )
+          : v;
+    return this.mac('d', JSON.stringify(canon(decl)));
   }
 
   wireDigest(wireKey) {
@@ -499,10 +518,11 @@ export class BriefLedger {
     return { changed, removedAfter, undone, held, prot, undo };
   }
 
-  // { runId, lineSets: [draft, ...decoded wire line lists], wires: [wireKey] }
+  // { runId, lineSets: [draft, ...decoded wire line lists], wires: [wireKey],
+  //   decl: the run's declarations }
   // The first line set is the draft the run starts from; inherited lines are
   // numbered in it. Every candidate must pass on every line set.
-  check({ runId = null, lineSets = [], wires = [] } = {}) {
+  check({ runId = null, lineSets = [], wires = [], decl = null } = {}) {
     if (this.prune()) this.save();
     const sets = lineSets.filter(Array.isArray).map((l) => this.digests(l).fo);
     const ownId = runId ? runDigest(runId) : null;
@@ -564,9 +584,20 @@ export class BriefLedger {
         undone: [],
         may: [],
       };
+    // A run supersedes an entry made under the same declarations (an entry
+    // and a call that carry none count as the same), or one that guards
+    // nothing. An entry that guards a line under other declarations
+    // stays: what this run asks about, under its own declarations, is not
+    // that line's brief under the entry's, so it neither frees the line nor
+    // retires the entry (nor, when this run is certified, forgets it).
+    const dd = this.declDigest(decl);
     return {
       ok: true,
-      supersedes: cands.filter((e) => e.id !== ownId).map((e) => ({ id: e.id, t: e.t })),
+      supersedes: cands
+        .filter(
+          (e) => e.id !== ownId && ((e.dd ?? null) === dd || (!e.prot.length && !e.undo.length))
+        )
+        .map((e) => ({ id: e.id, t: e.t })),
       inherited,
     };
   }
@@ -575,6 +606,7 @@ export class BriefLedger {
   // draft it started from; flagged and briefed are 1-based lines of cur (a
   // whole-draft flag briefs every line). inherited comes from check, numbered
   // in input; supersedes are retired only if unchanged since check (by t).
+  // decl is the run's declarations, kept as a digest (dd) that check compares.
   // persist false defers the save by saveGapMs (one save covers every capture
   // made meanwhile) instead of skipping it.
   async capture({
@@ -589,6 +621,7 @@ export class BriefLedger {
     wire = null,
     supersedes = [],
     inherited = { prot: [], undo: [] },
+    decl = null,
     persist = true,
   } = {}) {
     if (!runId || !this.key) return;
@@ -639,6 +672,7 @@ export class BriefLedger {
         old.retired = true;
       }
     }
+    const dd = this.declDigest(decl) || prev?.dd || null;
     let t = this.now();
     if (prev && prev.t >= t) t = prev.t + 1; // t moves forward, for compare-and-set
     this.put(
@@ -651,6 +685,7 @@ export class BriefLedger {
         prot,
         undo: undo.slice(-MAX_UNDO),
         wires: wires.slice(-MAX_WIRES),
+        ...(dd ? { dd } : {}),
       },
       paid === true
     );

@@ -20,7 +20,7 @@ import { promisify } from 'node:util';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
-import { BRIEFS, RUNS, briefGradeNext } from './lyric_tools.js';
+import { BRIEFS, READER_CONTROLS, RUNS, briefGradeNext } from './lyric_tools.js';
 import { buildWorkflowServer } from './workflow_tools.js';
 import { withExecutionContext } from './execution_context.js';
 import { encodeState, decodeState } from './state_codec.js';
@@ -38,8 +38,26 @@ import { BRIEF_RETAIN_MS } from './brief_ledger.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const INPUT = ['Cat', 'Dog', 'Sun'];
-const FIX = 'I watched the window like a diplomat';
-const FIX3 = 'She tumbled down the stairs, an acrobat';
+// The accepted answers are drawn by seed: four filler tokens and an end word
+// from a table of rhymes for INPUT[0] (one-syllable rhymes of it would be
+// refused as a prohibited pair, so the table is of longer words). FIX ends
+// on another word than FIX3, so the two answers do not repeat an end word.
+const FILLER = ['blue', 'stone', 'river', 'paper', 'window', 'silver', 'garden', 'candle'];
+const RHYMES = ['diplomat', 'acrobat', 'habitat', 'thermostat', 'aristocrat', 'democrat'];
+const draw = (seed, k, n) =>
+  parseInt(
+    createHash('sha256')
+      .update(JSON.stringify([seed, k]))
+      .digest('hex')
+      .slice(0, 8),
+    16
+  ) % n;
+const seededLine = (seed, end) =>
+  [0, 1, 2, 3].map((k) => FILLER[draw(seed, k, FILLER.length)]).join(' ') + ' ' + RHYMES[end];
+const FIX = seededLine(2, draw(2, 'end', RHYMES.length));
+const FIX3 = seededLine(3, (draw(2, 'end', RHYMES.length) + 1) % RHYMES.length);
+// Another text for line 2 than the one the loop accepted.
+const OTHER2 = seededLine(4, (draw(2, 'end', RHYMES.length) + 2) % RHYMES.length);
 const DECL = {
   scheme: 'AAA',
   relation: 'class:RHYME',
@@ -115,9 +133,7 @@ test('G3: putting back a line the loop replaced is refused; another text for it 
   assertBrief(back, /line 2 puts back a line the loop replaced/);
   // The minted state continued the run (G6's other half): it was admitted.
   assert.ok(second.state);
-  admitted(
-    await call({ ...DECL, new_run: true, draft: ['Cat', 'I watched the window like a cat', 'Sun'] })
-  );
+  admitted(await call({ ...DECL, new_run: true, draft: ['Cat', OTHER2, 'Sun'] }));
 });
 
 test('G1: a park briefs its open lines and their rhyme partners', async () => {
@@ -322,10 +338,57 @@ test('G13: case, spacing and punctuation are not changes; words are', async () =
   admitted(await call({ ...DECL, new_run: true, draft: ['cat!', 'Bat', 'SUN...'] }));
 });
 
-test('G14: a line holding a reader line break is refused before anything runs', async () => {
-  const r = await call({ ...DECL, draft: ['Cat', 'Dog\u0085Day', 'Sun'] });
-  assert.equal(r.isError, true);
-  assert.match(text(r), /control character/);
+test('G14: a line holding a control character the reader treats otherwise is refused', async () => {
+  // The table says what the Python reader does with each character: split
+  // the line on it, or (every row) strip it from the line's ends. Every
+  // character it splits on is in the table or refused as a line break.
+  const py = await new Promise((resolve, reject) => {
+    const child = execFile(
+      'python3',
+      [
+        '-c',
+        'import json,sys\n' +
+          'rows=[[len(("a"+c+"b").splitlines())==2,(c+"a"+c).strip()=="a"] for c in json.load(sys.stdin)]\n' +
+          'split=[n for n in range(0x110000) if len(("a"+chr(n)+"b").splitlines())==2]\n' +
+          'print(json.dumps({"rows":rows,"split":split}))',
+      ],
+      (err, out) => (err ? reject(err) : resolve(JSON.parse(out)))
+    );
+    child.stdin.end(JSON.stringify(READER_CONTROLS.map((row) => row.ch)));
+  });
+  assert.deepEqual(
+    py.rows,
+    READER_CONTROLS.map((row) => [row.split, true])
+  );
+  const breaks = [0x0a, 0x0d, 0x2028, 0x2029]; // refused as a line break
+  assert.deepEqual(
+    py.split.filter((n) => !breaks.includes(n)),
+    READER_CONTROLS.filter((row) => row.split).map((row) => row.ch.codePointAt(0))
+  );
+  for (const row of READER_CONTROLS)
+    // A trailing one is checked where JS .trim() keeps it: a trimmed one
+    // never reaches the reader.
+    for (const line of [`Dog${row.ch}Day`, ...(row.ch.trim() ? [`Dog${row.ch}`] : [])]) {
+      const r = await call({ ...DECL, draft: ['Cat', line, 'Sun'] });
+      assert.equal(r.isError, true, row.name);
+      assert.ok(text(r).includes(`control character (${row.name})`), text(r));
+      assert.match(
+        text(r),
+        row.split ? /the reader takes as a line break/ : /the reader strips from the ends of a line/
+      );
+    }
+});
+
+// Andrej's review G2: under scheme XAA the loop asks about line 3 for its own
+// flag. That is not line 3's brief under AAA, so the run that protects it
+// stays, and the hand edit under AAA is still refused.
+test('a run under other declarations does not free a protected line', async () => {
+  await opened();
+  const lax = verdict(
+    await call({ ...DECL, scheme: 'XAA', new_run: true, draft: ['Cat', 'Fun', 'Sun'] })
+  );
+  assert.equal(lax.asked?.line, 3, JSON.stringify(lax).slice(0, 600));
+  assertBrief(await call({ ...DECL, new_run: true, draft: ['Cat', 'Dog', 'Moon'] }), /line 3 /);
 });
 
 test('G15: no connector argv asks the harness to skip its own brief check', () => {

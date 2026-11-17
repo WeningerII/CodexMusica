@@ -502,10 +502,11 @@ try {
       });
       assert.equal(movedBasis.isError, true);
       assert.match(message(movedBasis), /checkpoint declarations moved: .*lexicon_supplement/);
-      // The two calls below send hand-built checkpoints. When the run left a
-      // protected line, the brief gate (#875) refuses such a wire first, so
-      // the store is cleared here to reach the refusals this test is about.
-      BRIEFS.resetForTests();
+      // The calls below send hand-built checkpoints for a song whose run left
+      // a line its loop replaced. A refusal made while the checkpoint is read
+      // (its lexicon basis) still comes first; the brief gate (#875) runs
+      // after those and before the harness, so it answers ahead of the
+      // harness's own checkpoint-key refusal (Andrej's review G5).
       const forgedBasis = decodeState(first.checkpoint);
       forgedBasis.connector_declarations.lexicon_supplement_sha256 = '0'.repeat(64);
       const badBasis = await a.callTool({
@@ -522,6 +523,18 @@ try {
       const unlabelled = decodeState(first.checkpoint);
       delete unlabelled.connector_declarations.lexicon_supplement;
       delete unlabelled.connector_declarations.lexicon_supplement_sha256;
+      const gated = await a.callTool({
+        name: 'lyric_revise',
+        arguments: { checkpoint: encodeState(unlabelled), lexicon_supplement: 'none' },
+      });
+      assert.equal(gated.isError, true);
+      assert.match(
+        message(gated),
+        /^Error: BRIEF_REQUIRED: the state or checkpoint this call carries is not one this server returned, .*keeps lines its loop replaced from coming back/
+      );
+      assert.equal(calls, 2, 'a brief refusal makes no provider request');
+      // With the store cleared, the same checkpoint reaches the harness.
+      BRIEFS.resetForTests();
       const restatedNone = await a.callTool({
         name: 'lyric_revise',
         arguments: { checkpoint: encodeState(unlabelled), lexicon_supplement: 'none' },

@@ -788,3 +788,47 @@ test('mint adds a wire to the run entry only', async () => {
   assert.equal(b.minted('w1'), true);
   assert.equal(b.check({ lineSets: [cur], wires: ['w1'] }).ok, true);
 });
+
+// Andrej's review G2: a run under other declarations asks about a protected
+// line for its own flag; that must not retire the entry that protects it.
+test('a run under other declarations does not supersede an entry that guards a line', async () => {
+  const b = ledger();
+  const cur = song('dd');
+  const plan = { scheme: 'AAAAAAAA', relation: 'class:RHYME' };
+  const lax = { scheme: 'XAAAAAAA', relation: 'class:RHYME' };
+  await b.capture({ runId: 'd1', cur, input: cur, flagged: [3], decl: plan });
+  // Keys in another order are the same declarations.
+  assert.equal(b.declDigest(plan), b.declDigest({ relation: 'class:RHYME', scheme: 'AAAAAAAA' }));
+  assert.equal(b.check({ runId: 'd2', lineSets: [cur], decl: plan }).supersedes.length, 1);
+  const c = b.check({ runId: 'd3', lineSets: [cur], decl: lax });
+  assert.deepEqual(c.supersedes, []);
+  // d3 asks about line 3 under its own declarations, and is then certified.
+  await b.capture({
+    runId: 'd3',
+    cur,
+    input: cur,
+    briefed: [3],
+    decl: lax,
+    supersedes: c.supersedes,
+    inherited: c.inherited,
+  });
+  const edit = cur.slice();
+  edit[2] = 'hand edit';
+  assert.deepEqual(b.check({ lineSets: [edit], decl: plan }).changed, [3]);
+  b.forget({ runId: 'd3', supersedes: c.supersedes });
+  assert.deepEqual(b.check({ lineSets: [edit], decl: plan }).changed, [3]);
+  // An entry that guards nothing is superseded under any declarations.
+  const idle = song('dd-idle');
+  await b.capture({ runId: 'd4', cur: idle, input: idle, decl: plan });
+  assert.equal(b.check({ lineSets: [idle], decl: lax }).supersedes.length, 1);
+  // The digest is kept on disk and read back; a damaged one fails closed.
+  const file = path.join(tmpDir(), 'dd.json');
+  const disk = ledger({ file });
+  await disk.capture({ runId: 'd5', cur, input: cur, flagged: [3], decl: plan });
+  const [id] = disk.free.keys();
+  assert.equal(ledger({ file }).get(id).dd, disk.declDigest(plan));
+  const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+  raw.free[0].dd = 'short';
+  fs.writeFileSync(file, JSON.stringify(raw));
+  assert.equal(ledger({ file }).healthy, false);
+});
