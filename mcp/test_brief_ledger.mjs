@@ -562,3 +562,57 @@ test('a file in another format fails closed and is not written over', () => {
     assert.equal(fs.readFileSync(file, 'utf8'), body);
   }
 });
+
+// "More than half the lines" at its boundary (BB8's review of #875): an
+// 8-line song whose line 1 is flagged, and drafts that change line 1 and
+// keep some of the other lines. Exactly half kept is a new song (admitted);
+// one more is the same song (refused). The rule is decided by the count of
+// lines still in order (aligned); the count of shared lines in front of it is
+// only a quick filter, since the aligned count can never exceed it, so an
+// off-by-one there changes no outcome and no test can see it (checked by
+// mutation: flipping its `<=` to `<` leaves every case here unchanged).
+test('the same-song rule at exactly half, and one line either side', async () => {
+  const b = ledger();
+  const cur = song('edge');
+  await b.capture({ runId: 'rEdge', cur, input: cur, flagged: [1] });
+  const fresh = (i) => `a new line written in place ${i}`;
+  const draft = (kept) => {
+    const out = [fresh(0), ...Array.from({ length: 7 }, (_, i) => fresh(i + 1))];
+    for (const [pos, line] of kept) out[pos] = cur[line];
+    return out;
+  };
+  const inOrder = (n) => Array.from({ length: n }, (_, i) => [i + 1, i + 1]);
+  // Line 1 changed; n of lines 2..8 kept at their own places.
+  assert.equal(b.check({ lineSets: [draft(inOrder(3))] }).ok, true, 'three kept: a new song');
+  assert.equal(
+    b.check({ lineSets: [draft(inOrder(4))] }).ok,
+    true,
+    'exactly half kept: a new song'
+  );
+  const five = b.check({ lineSets: [draft(inOrder(5))] });
+  assert.equal(five.ok, false, 'five kept, in order: the same song, line 1 refused');
+  assert.deepEqual(five.changed, [1]);
+  // Five kept but only four in order: the shared count passes and the
+  // in-order count does not, so it is a new song.
+  const scrambled = draft([
+    [1, 3],
+    [2, 4],
+    [3, 5],
+    [4, 6],
+    [5, 2],
+  ]);
+  assert.equal(
+    b.check({ lineSets: [scrambled] }).ok,
+    true,
+    'five shared, four in order: a new song'
+  );
+  // Five in order, one of them moved by one place: still five in order.
+  const shifted = draft([
+    [2, 1 + 1],
+    [3, 2 + 1],
+    [4, 3 + 1],
+    [5, 4 + 1],
+    [6, 5 + 1],
+  ]);
+  assert.equal(b.check({ lineSets: [shifted] }).ok, false, 'five in order, shifted: the same song');
+});
