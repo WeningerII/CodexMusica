@@ -42,7 +42,7 @@ the repair. They run in the existing `test:chatgpt` and
 
 Validation on the repaired tree: all 22 shared-session tests and all 14 durable
 job-store tests pass, with no failures or skips. The shared-session suite includes
-actual recipe edits, lyric sweep/screen/plan, and interview revision across
+actual recipe edits, lyric sweep/plan/screen, and interview revision across
 reconnects. Changed JavaScript passes ESLint and Prettier; documented paths and
 the traced build dependency closure pass.
 

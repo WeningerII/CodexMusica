@@ -64,7 +64,7 @@ import {
   SWEEP_NEXT,
   sweepNextLine,
   noneKeptMeaning,
-  statedFields,
+  noneKeptDeclared,
 } from './lyric_workflow.js';
 import {
   applyLexiconBasis,
@@ -3877,7 +3877,7 @@ export function registerLyricTools(server, tool) {
       return sweepVerdict(v, r, {
         from,
         n,
-        declared: statedFields(a),
+        declared: noneKeptDeclared(a),
       });
     }
   );

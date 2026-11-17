@@ -18,7 +18,7 @@ import {
 } from './state_codec.js';
 import { HTTP_REQUEST_BYTES, jsonBytes } from './payload_limits.js';
 import { sessionView, verdictShape, DETAIL_FOR, LINE_PARTS, LINE_TOOLS } from './verdict_view.js';
-import { droppedOf, nextCreationCall, planChanged } from './lyric_workflow.js';
+import { droppedOf, nextCreationCall, planChanged, sameDeclaration } from './lyric_workflow.js';
 
 // Persisted namespace from the first release: keep existing capabilities recoverable.
 export const INTEGRATION = 'chatgpt-v1';
@@ -242,17 +242,19 @@ export function verdictOf(result) {
 }
 
 // The store refused a finished result as larger than one receipt keeps. The
-// tool ran; nothing it produced was kept, and the same call returns the same
-// result, so the refusal names a smaller one instead (JobStore is not edited).
+// tool ran; nothing it produced was kept but a grade's finding that the plan
+// changed (resultNotKeptSession), and the same call returns the same result,
+// so the refusal names a smaller one instead (JobStore is not edited).
 const resultNotKept = (name, task, error, stale = null) => {
   const limit = /\((\d+)\)/.exec(error.message)?.[1];
   return (
-    `SESSION_RESULT_NOT_KEPT: ${name} ran, but its result is over the ${limit ? `${limit}-byte ` : ''}limit this session can keep, so it was not saved and nothing the call produced was kept. ` +
+    `SESSION_RESULT_NOT_KEPT: ${name} ran, but its result is over the ${limit ? `${limit}-byte ` : ''}limit this session can keep, so it was not saved` +
     (stale
-      ? `It also found: ${planChanged(stale)}`
-      : name === 'lyric_grade' && task.phase !== 'edit'
-        ? "Grading the same draft again returns the same result: that limit is this session's, not the song's: report it to the user with the song's length unchanged, or call lyric_grade on a different draft of this plan (it may be too large as well)."
-        : `Send ${name} again with a smaller request.`)
+      ? `. The session recorded what it found: ${planChanged(stale)}`
+      : ' and nothing the call produced was kept. ' +
+        (name === 'lyric_grade' && task.phase !== 'edit'
+          ? "Grading the same draft again returns the same result: that limit is this session's, not the song's: report it to the user with the song's length unchanged, or call lyric_grade on a different draft of this plan (it may be too large as well)."
+          : `Send ${name} again with a smaller request.`))
   );
 };
 // For a new song's grade, the kept (pre-call) session is marked so its next
@@ -458,7 +460,12 @@ export async function executeNative(session, name, input) {
           (carried.state || carried.checkpoint)
         )
           continue;
-        if (args[key] !== undefined && requestDigest(args[key]) !== requestDigest(value))
+        // The same declaration in another spelling is the run's own.
+        if (
+          args[key] !== undefined &&
+          requestDigest(args[key]) !== requestDigest(value) &&
+          !sameDeclaration(key, args[key], value)
+        )
           throw fail(
             'SESSION_CONTINUATION',
             `${key} differs from the recorded run. To answer its pending question send only answer/answers; to revise a different draft or mandate, send the complete draft and mandate with new_run: true.`

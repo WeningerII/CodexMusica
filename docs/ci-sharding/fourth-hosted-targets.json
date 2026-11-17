@@ -933,7 +933,7 @@
         "command": "TEST_SESSION_REPAIRS_GROUP=native-creation node --test --test-concurrency=1 --test-timeout=120000 mcp/test_session_repairs.mjs",
         "unchanged_node_flags_present": true,
         "passed_test_names": [
-          "native creation blocks bypass, records real sweep/screen/plan, survives reconnect"
+          "native creation blocks bypass, records real sweep/plan/screen, survives reconnect"
         ],
         "passed_count": 1,
         "expected_count": 1,

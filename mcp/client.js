@@ -6,6 +6,7 @@ import { assertToolTask, instructionsForTask, taskDomain } from './task_contract
 import { TOOL_BUDGET_MS, TOOL_DELIVERY_MARGIN_MS } from './budget.js';
 import {
   creationRefusal,
+  sameDeclaration,
   recordCreation,
   withNextCall,
   withPlanLineage,
@@ -134,7 +135,8 @@ export async function connectConnector({
                   (continuation.args.state || continuation.args.checkpoint)
                 )
                   continue;
-                if (args[key] !== undefined && JSON.stringify(args[key]) !== JSON.stringify(value))
+                // The same declaration in another spelling is the run's own.
+                if (args[key] !== undefined && !sameDeclaration(key, args[key], value))
                   throw new Error(
                     withNextCall(
                       'CREATION_CONTINUATION: ' +

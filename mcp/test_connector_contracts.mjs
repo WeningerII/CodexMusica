@@ -108,13 +108,13 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
       /Each predicate held on its own, of the 28 planned: lines<=24 on 0; uses=verse,chorus on 28; /
     );
     assert.match(empty.window_meaning, /at most \d+\.\d% of seeds are kept under this request/);
-    // `lines<=24` states the length and `uses=` the sections, so neither is
-    // advised: the writer is not told to choose what the call already stated.
-    assert.doesNotMatch(empty.window_meaning, /declare a target length in `lines`/);
+    // `uses=` states the sections, so the roster is not advised. `lines<=24`
+    // only caps the length, which is left drawn: that is the case the length
+    // advice is for, so it is given.
     assert.doesNotMatch(empty.window_meaning, /declare the section roster in `functions`/);
     assert.match(
       empty.window_meaning,
-      /Before dropping a predicate: continue from next_seed_from\.$/
+      /Before dropping a predicate: declare a target length in `lines` \(an undeclared length is drawn long, so a length cap rarely holds\) or continue from next_seed_from\.$/
     );
     assert.doesNotMatch(empty.window_meaning, /acceptance rate/);
     assert.doesNotMatch(empty.report, /unreachable in this range/);

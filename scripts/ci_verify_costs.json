@@ -98,7 +98,7 @@
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_revise_repeat_guard.mjs": 0.6,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_runtime_assets.mjs": 5.9,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_state_codec.mjs": 1.9,
-    "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_statements.mjs": 30.0,
+    "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_statements.mjs": 56.5,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_status_census.mjs": 6.0,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_verdict_view.mjs": 2.7,
     "node --test --test-concurrency=1 mcp/test_battery_archive.mjs": 1.0,

@@ -2,7 +2,10 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { LEXICON_MANIFEST } from './lexicon_basis.js';
 import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
 import {
+  DEFAULT_FORM,
+  FORM_ROWS,
   creationRefusal,
   recordCreation,
   creationQualified,
@@ -31,9 +34,9 @@ const draft = ['My kettle whistles by the stove', 'Your fingers brush my heavy c
 function planReceipt(seed = 16) {
   const request = {
     seed,
-    // The planner echoes the form it planned: `open` when the request
-    // names none (2026-10-27, D7).
-    form: 'open',
+    // The planner echoes the form it planned: DEFAULT_FORM when the
+    // request names none (2026-10-27, D7).
+    form: DEFAULT_FORM,
     lines: null,
     relation: '',
     functions: null,
@@ -847,7 +850,7 @@ test('a refused plan says what the recorded sweeps hold, bounded, and never prin
   assert.match(differs, /^CREATION_PLAN: plan a seed an accepted lyric_sweep returned, /);
   assert.ok(
     differs.includes(
-      'Recorded sweeps that accepted seed 16, newest first: (1) form open, lines none, ' +
+      `Recorded sweeps that accepted seed 16, newest first: (1) form ${sweepArgs.form}, lines none, ` +
         'functions none, relation none, melody none, want ["lines<=30"]; this call differs in lines, ' +
         "wants (the sweep's `want`)."
     ),
@@ -857,26 +860,25 @@ test('a refused plan says what the recorded sweeps hold, bounded, and never prin
   assert.equal(creationRefusal(t, 'lyric_plan', { seed: 16, wants: ['lines<=30'] }), null);
   // A seed no sweep accepted: each recorded sweep's accepted seeds and coordinates.
   const melody = JSON.stringify({ secret_melody_marker: [440, 880] });
-  recordCreation(
-    t,
-    'lyric_sweep',
-    stated({
-      seed_from: 20,
-      count: 10,
-      lines: 12,
-      functions: 'verse,chorus',
-      melody,
-      want: ['a=b,c'],
-    }),
-    { exit_code: 0, accepted_shown: [21, 22, 23, 24, 25, 26, 27] }
-  );
+  const melodySweep = stated({
+    seed_from: 20,
+    count: 10,
+    lines: 12,
+    functions: 'verse,chorus',
+    melody,
+    want: ['a=b,c'],
+  });
+  recordCreation(t, 'lyric_sweep', melodySweep, {
+    exit_code: 0,
+    accepted_shown: [21, 22, 23, 24, 25, 26, 27],
+  });
   const none = creationRefusal(t, 'lyric_plan', { seed: 99 });
   assert.ok(
     none.includes(
       'No recorded sweep accepted seed 99. Recorded sweeps, newest first: ' +
-        '(1) accepted seeds [21,22,23,24,25] and 2 more; form open, lines 12, ' +
+        `(1) accepted seeds [21,22,23,24,25] and 2 more; form ${melodySweep.form}, lines 12, ` +
         'functions ["chorus","verse"], relation none, melody declared, want ["a=b,c"]; ' +
-        '(2) accepted seeds [16,17]; form open, lines none, functions none, ' +
+        `(2) accepted seeds [16,17]; form ${sweepArgs.form}, lines none, functions none, ` +
         'relation none, melody none, want ["lines<=30"].'
     ),
     none
@@ -949,7 +951,7 @@ test('a contradicted plan declaration names the recorded value, and leaving it o
 function lineagePlan(seed, { request = {}, plan = {} } = {}) {
   const req = {
     seed,
-    form: 'open',
+    form: DEFAULT_FORM,
     lines: null,
     relation: '',
     functions: null,
@@ -974,17 +976,20 @@ function lineagePlan(seed, { request = {}, plan = {} } = {}) {
 }
 // A first plan that asks for a returning form, a rhyme and a title, and the
 // plan a session falls back to after re-sweeping with none of it declared.
+// The form is a FORM_ROWS row with a section that recurs, picked by seed.
+const RETURNING = FORM_ROWS.filter((r) => r.recurs.length);
+const returningForm = RETURNING[16 % RETURNING.length].form;
 const FIRST = {
   sweep: stated({
     seed_from: 10,
     count: 2,
-    form: 'verse-chorus',
+    form: returningForm,
     lines: 2,
     relation: 'class:RHYME',
   }),
   args: {
     seed: 16,
-    form: 'verse-chorus',
+    form: returningForm,
     lines: 2,
     relation: 'class:RHYME',
     title: 'Salt and Rain',
@@ -992,7 +997,7 @@ const FIRST = {
   receipt: () =>
     lineagePlan(16, {
       request: {
-        form: 'verse-chorus',
+        form: returningForm,
         lines: 2,
         relation: 'class:RHYME',
         title: 'Salt and Rain',
@@ -1031,7 +1036,7 @@ test('a replaced plan carries what the first plan asked and this one does not (#
   assert.deepEqual(lineage.first_plan, { seed: 16, plan_sha256: first.plan_sha256 });
   assert.equal(lineage.plans_recorded, 2);
   assert.deepEqual(lineage.declared_changes, [
-    { field: 'form', first: 'verse-chorus', now: 'open' },
+    { field: 'form', first: returningForm, now: DEFAULT_FORM },
     { field: 'lines', first: 2, now: null },
     { field: 'relation', first: 'class:RHYME', now: null },
     { field: 'title', first: 'Salt and Rain', now: null },
@@ -1045,7 +1050,7 @@ test('a replaced plan carries what the first plan asked and this one does not (#
   assert.equal(
     lineage.note,
     'PLAN REPLACED: this is not the first plan this session recorded (that was seed 16). ' +
-      'It was declared differently — form verse-chorus → open; lines 2 → none; ' +
+      `It was declared differently — form ${returningForm} → ${DEFAULT_FORM}; lines 2 → none; ` +
       'relation class:RHYME → none; title Salt and Rain → none. ' +
       'The planner bound a different shape — relation_types ["class:RHYME"] → ["schema:consonance"]; ' +
       'bound_groups 2 → 1; returns 1 → 0; hook yes → no. ' +
@@ -1193,4 +1198,14 @@ test('a session saved before the record was kept takes the plan it holds as its 
     lineage.declared_changes.map((c) => c.field),
     ['form', 'lines', 'relation', 'title']
   );
+});
+
+test('this file names no form: each one it uses is read from FORM_ROWS', () => {
+  const text = readFileSync(new URL(import.meta.url), 'utf8');
+  for (const { form } of FORM_ROWS) {
+    for (const q of ["'", '"', '`'])
+      assert.equal(text.includes(`${q}${form}${q}`), false, `${q}${form}${q}`);
+    // Nor inside a string: a refusal prints a form as `form <name>`.
+    assert.equal(text.includes(`form ${form}`), false, `form ${form}`);
+  }
 });

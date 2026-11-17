@@ -5320,11 +5320,26 @@ STOP_RULES = {
     "SCHEME_UNREADABLE": {"applies": "groups", "stop": "unjudged",
                           "limit": "unjudged_pair", "layer": "rhyme"},
     # The same, one layer over: on a seeded grade the plan is the blueprint,
-    # so a word with no reading anywhere in a line refuses that line's
-    # `meter` obligation (`Reviser.inspect`, the blueprint's coverage rows),
-    # and the grader names the refusal by this code.
+    # so a line with a word that has no reading refuses that line's `meter`
+    # obligation (`Reviser.inspect`, the blueprint's coverage rows), filed
+    # as `meter:<CODE>:L<n>` under one of the four codes it names there.
+    # `fit.fit_line` files NOTHING_READ when no word of the line has a
+    # reading, and COUNT_IS_A_LOWER_BOUND when some word has one.
+    "NOTHING_READ": {"applies": "sung_lines", "stop": "unjudged",
+                     "limit": "nothing_read", "layer": "meter"},
     "COUNT_IS_A_LOWER_BOUND": {"applies": "sung_lines", "stop": "unjudged",
                                "limit": "unjudged_line", "layer": "meter"},
+    # The other two meter refusals `Reviser.inspect` names, left out of
+    # the brief with the reason each cannot fire on a graded song.
+    "PROMINENCE_UNDECIDED": {"applies": "never", "stop": "unjudged",
+                             "layer": "meter", "never":
+                             "no reader the grader uses leaves a syllable's "
+                             "stress undecided (`fit.INERT`)"},
+    "BEATGRID_INCOMPLETE": {"applies": "never", "stop": "unjudged",
+                            "layer": "meter", "never":
+                            "only a declared beat map with a gap raises it, "
+                            "and the grade passes no beat map to "
+                            "`fit.fit_line`"},
     "ZERO_DURATION": {"applies": "never", "stop": "flag", "never":
                       "the plan gives every line a length above zero"},
     "BEAT_OUTSIDE_CYCLE": {"applies": "never", "stop": "flag", "never":
@@ -5675,8 +5690,23 @@ def _limit_title_in_hook(plan):
 
 #: What ends an unjudged row's stop: the reading the grader takes
 #: (`pronunciations`, the field `revise` names in each such refusal).
-UNJUDGED_UNTIL = ("until that word is changed or a reading of it is declared "
-                  "in `pronunciations` on lyric_grade")
+UNJUDGED_UNTIL = ("until each such word is changed or a reading of it is "
+                  "declared in `pronunciations` on lyric_grade")
+
+#: What the meter rows mean by a word with no reading: one `fit.read_line`
+#: refuses as out of its lexicon, or as a numeral (a run with a digit).
+UNREAD_WORD = ("a word with no reading (one the dictionary does not list, or "
+               "one written with a digit)")
+
+#: What `voices` on lyric_grade changes: the grader then reads the words in
+#: parentheses (`Lexicon(strip_parens=not voices)`), and by default it
+#: strips them before it reads a line.
+UNLESS_VOICES = "unless `voices` is set on lyric_grade"
+
+#: The other line `fit.fit_line` reads nothing of: once the grader strips
+#: the words in parentheses, no word is left (a line wholly in parentheses,
+#: or punctuation only).
+NO_SUNG_WORD = "a line with no word outside parentheses"
 
 
 def _limit_unjudged_pair(plan):
@@ -5686,10 +5716,19 @@ def _limit_unjudged_pair(plan):
             f"the draft cannot pass {UNJUDGED_UNTIL}")
 
 
+def _limit_nothing_read(plan):
+    return (f"no word of a line is read: every word of it is {UNREAD_WORD}, "
+            f"or it is {NO_SUNG_WORD}; that line's syllable count is left "
+            f"unjudged, and the draft cannot pass "
+            f"{UNJUDGED_UNTIL}, or, on {NO_SUNG_WORD}, until a word is "
+            f"written outside them or, where its words are in parentheses, "
+            f"`voices` is set on lyric_grade")
+
+
 def _limit_unjudged_line(plan):
-    return ("a word in a line has no dictionary reading; that line's "
-            "syllable count is left unjudged, and the draft cannot pass "
-            f"{UNJUDGED_UNTIL}")
+    return (f"a line holds {UNREAD_WORD} beside a word that has one; that "
+            f"line's syllable count is left unjudged, and the draft cannot "
+            f"pass {UNJUDGED_UNTIL}")
 
 
 def _limit_same_end_word(plan):
@@ -5723,6 +5762,7 @@ _STOP_LIMITS = {
     "hook_recurs": _limit_hook_recurs,
     "title_in_hook": _limit_title_in_hook,
     "unjudged_pair": _limit_unjudged_pair,
+    "nothing_read": _limit_nothing_read,
     "unjudged_line": _limit_unjudged_line,
     "same_end_word": _limit_same_end_word,
     "same_spelled_ending": _limit_same_spelled_ending,
@@ -5762,6 +5802,14 @@ STOP_BLOCK_HEAD = ("What stops this song (flag: the grade stands and the "
                    "judged, and the draft cannot pass until it is):")
 
 
+#: How a word in parentheses counts: the grader's lexicon strips
+#: parenthesized words before it reads syllables (`fit.read_line`,
+#: `strip_parens`) unless `voices` is set, and the floor's tokenizer counts
+#: them as words either way.
+ASIDE_WORDS = ("a word in parentheses uses no syllable " + UNLESS_VOICES
+               + ", and still counts toward the song's words")
+
+
 def _stop_block(plan):
     """-> the brief's last block: one row per rule that can stop this
     plan's song, CODE first, then what stops it and its limit."""
@@ -5786,7 +5834,7 @@ def _stop_block(plan):
             line += (f" Limits given as a range depend on the finished "
                      f"song's word count; they are read at " + (
                          f"{lo} to {hi} words, {hi} being one word for each "
-                         f"syllable this plan's lines allow."
+                         f"syllable this plan's lines allow; {ASIDE_WORDS}."
                          if hi == _syllable_capacity(plan) else
                          f"{tlo:g} to {thi:g} words a line ({lo} to {hi} "
                          f"words)."))

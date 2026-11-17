@@ -37,7 +37,7 @@ import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import { connectConnector } from './client.js';
 import { buildServer } from './tools.js';
 import { JobStore } from './job_store.js';
-import { WorkflowSessions, verdictOf, receiptOutcome } from './workflow_sessions.js';
+import { WorkflowSessions, executeNative, verdictOf, receiptOutcome } from './workflow_sessions.js';
 import { stated } from './statement_fixture.mjs';
 
 const sha = (v) => createHash('sha256').update(JSON.stringify(v)).digest('hex');
@@ -782,6 +782,97 @@ test('a run under way keeps the spelling it was started with; a new run takes th
   const fresh_ = { ...clone(runArgs), new_run: true };
   assert.equal(creationRefusal(t, 'lyric_revise', fresh_, continuation), null);
   assert.equal(fresh_.functions, recorded, 'a new run takes the recorded spelling');
+});
+
+test('a continuing revise that resends a declaration in another spelling is carried on the run spelling', () => {
+  // The run opened on the spelling the plan recorded (the gate wrote it back);
+  // a later call sends the same roster reversed, and is given the run's.
+  const request = { functions: [...SHAPES.every.request.functions] };
+  const recorded = request.functions.join(',');
+  const sent = [...request.functions].reverse().join(',');
+  assert.notEqual(sent, recorded);
+  const t = fresh();
+  const sweep = stated({ seed_from: 10, count: 10, functions: recorded });
+  recordCreation(t, 'lyric_sweep', sweep, { exit_code: 0, accepted_shown: [16] });
+  const p = planReceipt({ request: { form: sweep.form, ...request } }, 16);
+  recordCreation(t, 'lyric_plan', { seed: 16, form: sweep.form, functions: recorded }, p);
+  recordCreation(t, 'lyric_screen', WORDS, { exit_code: 0 });
+  recordCreation(t, 'lyric_grade', { seed: 16, draft: LINES }, gradeReceipt(p, LINES));
+  t.workflow.started = { plan_sha256: t.workflow.plan.sha256 };
+  for (const [run, call] of [
+    [recorded, sent],
+    [sent, recorded],
+  ]) {
+    // Both shapes a host holds a run in: the SDK's `args`, the chat's `decl`.
+    for (const held of [
+      { seed: 16, args: { seed: 16, form: sweep.form, functions: run, draft: LINES } },
+      { seed: 16, decl: { seed: 16, form: sweep.form, functions: run } },
+    ]) {
+      const args = { seed: 16, functions: call, draft: LINES, answer: 'a' };
+      assert.equal(creationRefusal(t, 'lyric_revise', args, held), null);
+      assert.equal(args.functions, run, `${call} is carried as the run's ${run}`);
+    }
+  }
+});
+
+test('a run whose first revise was interrupted keeps its own spelling on resume', () => {
+  // The run opened on the caller's spelling (a session saved before the gate
+  // wrote the recorded one back); its first revise stopped at exit 5, so no
+  // start is on record, and the host holds the run.
+  const request = { functions: [...SHAPES.every.request.functions] };
+  const recorded = request.functions.join(',');
+  const sent = [...request.functions].reverse().join(',');
+  assert.notEqual(sent, recorded);
+  const t = fresh();
+  const sweep = stated({ seed_from: 10, count: 10, functions: recorded });
+  recordCreation(t, 'lyric_sweep', sweep, { exit_code: 0, accepted_shown: [16] });
+  const p = planReceipt({ request: { form: sweep.form, ...request } }, 16);
+  recordCreation(t, 'lyric_plan', { seed: 16, form: sweep.form, functions: recorded }, p);
+  recordCreation(t, 'lyric_screen', WORDS, { exit_code: 0 });
+  recordCreation(t, 'lyric_grade', { seed: 16, draft: LINES }, gradeReceipt(p, LINES));
+  const opening = { seed: 16, form: sweep.form, functions: sent, draft: LINES };
+  recordCreation(t, 'lyric_revise', opening, { exit_code: 5, state: 'S' });
+  assert.equal(t.workflow.started ?? null, null, 'an interrupted revise records no start');
+  for (const held of [
+    { seed: 16, args: { ...clone(opening), state: 'S' } },
+    { seed: 16, decl: { seed: 16, form: sweep.form, functions: sent } },
+  ]) {
+    const args = { seed: 16, functions: sent, draft: LINES };
+    assert.equal(creationRefusal(t, 'lyric_revise', args, held), null);
+    assert.equal(args.functions, sent, 'the resumed run keeps the spelling it opened on');
+  }
+  const fresh_ = { ...clone(opening), new_run: true };
+  assert.equal(
+    creationRefusal(t, 'lyric_revise', fresh_, { seed: 16, args: { state: 'S' } }),
+    null
+  );
+  assert.equal(fresh_.functions, recorded, 'a new run takes the recorded spelling');
+});
+
+test('an edit run resent a declaration in another spelling continues; a moved one is refused', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'edit-respelled-'));
+  try {
+    const sessions = new WorkflowSessions({ store: new JobStore(dir) });
+    const session = sessions.fresh('lyrics', { phase: 'edit' });
+    session.native.continuation = { args: { draft: other, scheme: 'AA', relation } };
+    // The same relation in another case is the run's own declaration.
+    const respelled = relation.toUpperCase();
+    assert.notEqual(respelled, relation);
+    let refused = null;
+    try {
+      await executeNative(session, 'lyric_revise', { relation: respelled });
+    } catch (error) {
+      refused = error;
+    }
+    assert.doesNotMatch(String(refused?.message), /SESSION_CONTINUATION/);
+    const moved = ELIGIBLE.find((r) => r.toLowerCase() !== relation.toLowerCase());
+    await assert.rejects(
+      executeNative(session, 'lyric_revise', { relation: moved }),
+      /^Error: SESSION_CONTINUATION: relation differs from the recorded run/
+    );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });
 
 test('a stale plan whose own sweep is no longer on record names no seed of its own', () => {

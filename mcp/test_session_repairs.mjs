@@ -24,7 +24,7 @@ async function connect(session) {
   return connectConnector({ task: 'lyrics', transport: b, session });
 }
 
-test('native creation blocks bypass, records real sweep/screen/plan, survives reconnect', async () => {
+test('native creation blocks bypass, records real sweep/plan/screen, survives reconnect', async () => {
   let c = await connect();
   try {
     await assert.rejects(c.call('lyric_check', { draft: ['words'] }), /CREATION_PLAN/);

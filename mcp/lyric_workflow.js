@@ -366,6 +366,13 @@ const sameDeclared = (key, sent, recorded) => {
   const planned = bare && !bare.includes(':') ? relationKey(recorded) : null;
   return !!planned && planned.slice(planned.indexOf(':') + 1) === bare;
 };
+// A continuing revise's declaration against the one its run holds: a plan
+// field by the comparison above (a reordered roster or `wants`, a melody's
+// keys in another order, another case), any other field byte for byte. The
+// continuation checks (client.js, and executeNative for an edit session)
+// then carry the run's own spelling, which the run compares byte for byte.
+export const sameDeclaration = (key, sent, run) =>
+  same(sent, run) || (PLAN_FIELDS.includes(key) && sameDeclared(key, sent, run));
 
 // `anyForm`: a plan that leaves its form out takes the form of the newest
 // sweep that matches it otherwise.
@@ -458,9 +465,20 @@ export function statementsOf(args, wantKey = 'want') {
     conflict: DRAWABLE.filter((f) => drawn.has(f) && hasValue(args, f)),
   };
 }
-// -> {field: whether this call states it}: a value, a stating want, or a draw.
-export const statedFields = (args, wantKey = 'want') =>
-  Object.fromEntries(statementsOf(args, wantKey).rows.map((s) => [s.row.field, !!s.said]));
+// -> {field: whether the none-kept advice counts this call as stating it}: a
+// value, a stating want, or a draw. For the length, only a want that pins it
+// (`lines=N`) counts: a cap or a floor leaves the length drawn, which is the
+// case that advice is for. The creation gate's own rule is statementsOf, where
+// any `lines` want states the length: there the question is whether the
+// person chose something about it, and a cap is that choice.
+const pinned = (want) => /(<=|>=|=)/.exec(String(want))?.[1] === '=';
+export const noneKeptDeclared = (args, wantKey = 'want') =>
+  Object.fromEntries(
+    statementsOf(args, wantKey).rows.map((s) => [
+      s.row.field,
+      s.row.field === 'lines' && s.said === 'want' ? s.wants.some(pinned) : !!s.said,
+    ])
+  );
 const rowName = (r) => (r.thing === r.field ? r.field : `${r.thing} (${r.field})`);
 const wantLabel = (k) => (k.endsWith('.*') ? `${k.slice(0, -1)}F` : k);
 // `floor` false leaves out the form's fewest lines: published schema text
@@ -715,12 +733,16 @@ export function creationRefusal(task, name, args, lyric = null) {
   // text now, and a revise that starts a run without a draft takes it from
   // there. A run under way keeps its own draft: the graded one is where that
   // run STARTED, and the host restores the run's draft before this gate.
-  const continuing =
+  // A call that carries a run this host holds under this plan's seed. A run
+  // whose first revise was interrupted is held with no start on record.
+  const held =
     name === 'lyric_revise' &&
     !args.new_run &&
-    lyric &&
-    w.started?.plan_sha256 === w.plan.sha256 &&
+    !!lyric &&
     (lyric.seed === request.seed || lyric.decl?.seed === request.seed);
+  const continuing = held && w.started?.plan_sha256 === w.plan.sha256;
+  const holdsRun =
+    continuing || (held && !!(lyric.args?.state || lyric.args?.checkpoint || lyric.decl));
   for (const key of PLAN_FIELDS) {
     if (args[key] !== undefined && !sameDeclared(key, args[key], request[key]))
       return `CREATION_PLAN: ${key} differs from the recorded program plan. ${recordedField(key, request, w.plan.lines)}`;
@@ -728,10 +750,15 @@ export function creationRefusal(task, name, args, lyric = null) {
     // One sent is the same declaration in another spelling (a reordered list,
     // a melody's keys in another order, another case): the grade rebuilds the
     // plan from these arguments, so it is given the spelling the plan
-    // recorded, and rebuilds the same plan. A run under way keeps the
-    // spelling it was sent: the run compares each call with the declarations
-    // it started with, byte for byte.
-    if (
+    // recorded, and rebuilds the same plan. A run under way takes the
+    // spelling it started with instead (a run opened before the gate wrote
+    // the recorded one back holds the caller's, and so does one whose first
+    // revise was interrupted): the run compares each call with the
+    // declarations it started with, byte for byte.
+    const run = holdsRun ? (lyric.args?.[key] ?? lyric.decl?.[key]) : undefined;
+    if (args[key] !== undefined && run !== undefined && sameDeclaration(key, args[key], run))
+      args[key] = structuredClone(run);
+    else if (
       request[key] !== null &&
       request[key] !== undefined &&
       request[key] !== '' &&
@@ -1006,7 +1033,7 @@ const sweepingIsSpent = (seeds, count) =>
 // - each predicate's own count, said, so the one that never holds is seen;
 // - the 95% bound that no seed kept leaves on the share of seeds kept;
 // - advice only for what the call did not state (a value, a stating `want`
-//   or a draw: statedFields);
+//   or a draw, and for the length a pinning want: noneKeptDeclared);
 // - `row`, from a host that keeps receipts: the windows swept in a row under
 //   this request, and whether a further one is more likely than not to keep
 //   none. Then sweeping on is no longer offered.
@@ -1637,7 +1664,7 @@ function withRefusedInARow(task, name, result, args = {}) {
         ...block,
         text: JSON.stringify({
           ...rest,
-          window_meaning: noneKeptMeaning(v, statedFields(args), {
+          window_meaning: noneKeptMeaning(v, noneKeptDeclared(args), {
             seeds: unkept.seeds,
             bound,
             spent,

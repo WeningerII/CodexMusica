@@ -297,6 +297,12 @@ test('a grade too large to keep that found the plan stale keeps the stale-plan w
   assert.match(text, /the planner changed after lyric_plan ran/);
   assert.match(text, /Call lyric_plan again with seed 16/);
   assert.doesNotMatch(text, /Grading the same draft again/);
+  // The finding is kept (below), so the text does not say nothing was.
+  assert.doesNotMatch(text, /nothing the call produced was kept/);
+  assert.match(
+    text,
+    /so it was not saved\. The session recorded what it found: lyric_grade rebuilt/
+  );
   const kept = sessions.record(read.session_id, 'lyrics').session.native.task.workflow;
   assert.equal(kept.grade, null);
   assert.equal(kept.grade_attempt.cause, 'plan_changed');

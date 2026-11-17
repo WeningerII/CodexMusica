@@ -37,11 +37,13 @@ import {
   OUTCOME_KINDS,
   STATEABLE,
   creationRefusal,
+  noneKeptDeclared,
   noneKeptMeaning,
   outcomeOf,
   planShareBound,
   recordCreation,
   sessionOutcome,
+  statementsOf,
   withOutcome,
   withSessionOutcome,
 } from './lyric_workflow.js';
@@ -770,6 +772,64 @@ test('a window that kept no seed advises nothing the call stated by a draw or a 
   const second = publish(task, { form: '<form>', draw: [...fields].reverse() }, 4);
   assert.equal(second.unkept_in_a_row.seeds, 8);
   for (const f of fields) assert.equal(second.window_meaning.includes(`\`${f}\``), false, f);
+});
+
+test('a window that kept no seed advises a length to a call that only bounds it; the gate counts any bound', () => {
+  // The planner's comparison operators, read from its table.
+  const ops = JSON.parse(
+    execFileSync(
+      'python3',
+      ['-c', 'import json, quality.plan as P; print(json.dumps(P.SWEEP_OPS))'],
+      {
+        cwd: fileURLToPath(new URL('../lyric-harness', import.meta.url)),
+        encoding: 'utf8',
+      }
+    )
+  );
+  const [length] = STATEABLE.filter((r) => r.field === 'lines');
+  const v = (from) => ({
+    exit_code: 2,
+    sweep_outcome: 'no seed kept',
+    swept: 4,
+    planned: 4,
+    held_by: [{ want: '<predicate>', held: 0 }],
+    accept_share_bound: Math.round(planShareBound(4) * 1e4) / 1e4,
+    window: { seed_from: from, count: 4, next_seed_from: from + 4 },
+    window_meaning: '<one window>',
+    next: '<sentence>',
+  });
+  assert.ok(ops.includes('='));
+  for (const name of length.wants)
+    for (const op of ops) {
+      const want = [`${name}${op}1`];
+      const pins = op === '=';
+      // The creation gate: any want on the length states it.
+      assert.equal(
+        statementsOf({ want }).missing.some((r) => r.field === 'lines'),
+        false,
+        `${want} states the length to the gate`
+      );
+      // The raw sweep's advice reads noneKeptDeclared.
+      assert.equal(noneKeptDeclared({ want }).lines, pins, `${want} raw`);
+      // The session's advice, through its own rewrite.
+      const task = { domain: 'lyrics', phase: 'create' };
+      const call_ = { form: '<form>', draw: ['functions'], want, seed_from: 0, count: 4 };
+      recordCreation(task, 'lyric_sweep', call_, v(0));
+      const out = JSON.parse(
+        withSessionOutcome(
+          task,
+          'lyric_sweep',
+          { content: [{ type: 'text', text: JSON.stringify(v(0)) }] },
+          null,
+          call_
+        ).content[0].text
+      );
+      assert.equal(
+        out.window_meaning.includes('declare a target length in `lines`'),
+        !pins,
+        `${want} session`
+      );
+    }
 });
 
 // Real sweeps, the requests drawn by seed from the planner's own roster.

@@ -559,6 +559,16 @@ test('the documents name exactly the wants and the length ways STATEABLE gives',
   // The order the gate enforces (a screen needs a plan): sweep, plan, screen.
   for (const path of ['docs/lyrics-continuation-audit.md', 'docs/pronunciation-choices.md'])
     assert.match(read(path).replace(/\s+/g, ' '), /sweep → [a-z]+ plan → screen →/, path);
+  // No tracked text, a test name and its CI group entries included, names the
+  // old order.
+  const tracked = execFileSync('git', ['ls-files', '*.md', '*.json', '*.mjs', '*.js'], {
+    cwd: new URL('..', import.meta.url).pathname,
+    encoding: 'utf8',
+  })
+    .split('\n')
+    .filter(Boolean);
+  const oldOrder = tracked.filter((path) => /sweep\/screen\/plan/.test(read(path)));
+  assert.deepEqual(oldOrder, [], 'texts that name sweep, screen, plan in that order');
   // The reviewer's sweep names every drawable field.
   const steps = read('docs/connector-directory-submission.md').replace(/\s+/g, ' ');
   assert.ok(
@@ -968,6 +978,130 @@ test(
       }
     } finally {
       await close();
+    }
+  }
+);
+
+test(
+  'a revise run resent its roster in another order on every call continues through its question',
+  { timeout: 240_000 },
+  async () => {
+    // The real SDK client over the real server: the sweep and the plan send
+    // the roster one way, and the grade and every revise call send it
+    // reversed. The run opens on the plan's spelling; each continuing call is
+    // carried on that spelling, not refused as a moved declaration.
+    const server = buildServer({ task: { domain: 'lyrics' } });
+    const [a, b] = InMemoryTransport.createLinkedPair();
+    await server.connect(a);
+    const c = await connectConnector({ task: 'lyrics', transport: b });
+    const verdict = (result, what) => {
+      assert.notEqual(result.isError, true, `${what}: ${JSON.stringify(result).slice(0, 800)}`);
+      const v = result.content
+        .map((x) => {
+          try {
+            return JSON.parse(x.text);
+          } catch {
+            return null;
+          }
+        })
+        .find((x) => Number.isInteger(x?.exit_code));
+      assert.ok(v, `${what}: ${JSON.stringify(result).slice(0, 800)}`);
+      return v;
+    };
+    try {
+      const r = rng(9300);
+      const form = pick(
+        r,
+        P.forms.filter((f) => P.requires[f].length > 1)
+      );
+      const functions = P.requires[form];
+      const lines = Math.min(...P.fillable[form]);
+      const sweep = verdict(
+        await c.call(
+          'lyric_sweep',
+          stated({
+            seed_from: Math.floor(r() * 1000),
+            count: 4,
+            form,
+            lines,
+            functions: functions.join(','),
+          })
+        ),
+        'sweep'
+      );
+      const seed = sweep.accepted_shown[0];
+      verdict(
+        await c.call('lyric_plan', { seed, form, lines, functions: functions.join(',') }),
+        'plan'
+      );
+      const plan = c.snapshot().task.workflow.plan;
+      verdict(await c.call('lyric_screen', { words: DRAWABLE.slice(0, 2) }), 'screen');
+      // Each line is words drawn by seed from the harness dictionary, each
+      // with one reading (a word with more rows has a variant `word(2)`) and
+      // one stressed syllable.
+      const rows = readFileSync(new URL('../lyric-harness/cmudict.dict', import.meta.url), 'utf8')
+        .split('\n')
+        .map((row) => row.split(' '));
+      const readings = new Map();
+      for (const [w] of rows) {
+        const base = w.replace(/\(\d+\)$/, '');
+        readings.set(base, (readings.get(base) || 0) + 1);
+      }
+      const words = rows
+        .filter(
+          ([w, ...ph]) =>
+            /^[a-z]+$/.test(w) &&
+            readings.get(w) === 1 &&
+            ph.filter((x) => /\d/.test(x)).length === 1
+        )
+        .map(([w]) => w);
+      const draft = Array.from({ length: plan.lines }, () =>
+        Array.from({ length: 4 }, () => pick(r, words)).join(' ')
+      );
+      const respelled = { seed, form, lines, functions: reversed(functions).join(',') };
+      verdict(await c.call('lyric_grade', { ...respelled, draft }), 'grade');
+      assert.equal(
+        c.snapshot().task.workflow.grade?.plan_sha256,
+        plan.sha256,
+        'the grade records under the plan'
+      );
+      let v = verdict(
+        await c.call('lyric_revise', {
+          ...respelled,
+          draft,
+          writer: 'interview',
+          max_rounds: 2,
+          attempts: 1,
+          backtrack: 0,
+        }),
+        'revise'
+      );
+      assert.equal(v.exit_code, 4, JSON.stringify(v).slice(0, 600));
+      assert.equal(
+        c.snapshot().continuation.args.functions,
+        functions.join(','),
+        'the run opens on the spelling the plan recorded'
+      );
+      let answered = 0;
+      for (let i = 0; i < 2 && v.exit_code === 4; i++) {
+        const rows =
+          v.asked.kind === 'propose'
+            ? { answer: draft[v.asked.line - 1] }
+            : {
+                answers: (v.asked.lines || v.asked.members).map((line) => ({
+                  line,
+                  text: draft[line - 1],
+                })),
+              };
+        const previous = v;
+        v = verdict(await c.call('lyric_revise', { ...respelled, ...rows }), `answer ${i + 1}`);
+        assert.equal(v.run_revision, previous.run_revision + 1);
+        answered++;
+      }
+      assert.ok(answered > 0, 'an answer continued the run');
+    } finally {
+      await c.close();
+      await server.close();
     }
   }
 );
