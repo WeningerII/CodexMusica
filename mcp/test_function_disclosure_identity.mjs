@@ -13,6 +13,9 @@ const test = groupedTests.test;
 
 const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const functions = [' Pre-Chorus ', 'chorus', ' Pre-Chorus '];
+// The word-check follows the plan, and its receipt is recorded for that plan.
+const screened = (task) =>
+  recordCreation(task, 'lyric_screen', { words: ['light', 'night'] }, { exit_code: 0 });
 function fixture() {
   const task = { domain: 'lyrics', phase: 'create' };
   const request = {
@@ -31,7 +34,6 @@ function fixture() {
     { functions: [...functions] },
     { exit_code: 0, accepted_shown: [16] }
   );
-  recordCreation(task, 'lyric_screen', { words: ['light', 'night'] }, { exit_code: 0 });
   const plan = {
     plan_version: 3,
     request,
@@ -54,6 +56,7 @@ function fixture() {
 test('stored request and carry-forward retain raw bytes, order and duplicates', () => {
   const { task, request, receipt } = fixture();
   recordCreation(task, 'lyric_plan', request, receipt);
+  screened(task);
   assert.deepEqual(task.workflow.plan.request.functions, functions);
   const args = { draft: ['A light', 'The night'] };
   assert.equal(creationRefusal(task, 'lyric_grade', args), null);
@@ -64,6 +67,7 @@ test('stored request and carry-forward retain raw bytes, order and duplicates', 
 test('baseline argument comparison trims and sorts but does not equate aliases or case', () => {
   const { task, request, receipt } = fixture();
   recordCreation(task, 'lyric_plan', request, receipt);
+  screened(task);
   const draft = ['A light', 'The night'];
   assert.equal(
     creationRefusal(task, 'lyric_grade', {
@@ -270,8 +274,6 @@ test(
     const sweep = await call('lyric_sweep', sweepArgs);
     assert.equal(sweep.exit_code, 0);
     recordCreation(task, 'lyric_sweep', sweepArgs, sweep);
-    const screenArgs = { words: ['rain', 'train'] };
-    recordCreation(task, 'lyric_screen', screenArgs, await call('lyric_screen', screenArgs));
     const args = { seed: sweep.accepted_shown[0], lines: 24, functions: raw };
     const planned = await call('lyric_plan', args);
     assert.equal(planned.exit_code, 0);
@@ -284,6 +286,10 @@ test(
     assert.equal(planned.plan_sha256, hash(planned.plan));
     recordCreation(task, 'lyric_plan', args, planned);
     assert.equal(task.workflow.plan.sha256, planned.plan_sha256);
+    // The word-check follows the plan, and its receipt is recorded for it.
+    const screenArgs = { words: ['rain', 'train'] };
+    recordCreation(task, 'lyric_screen', screenArgs, await call('lyric_screen', screenArgs));
+    assert.equal(task.workflow.screen?.plan_sha256, planned.plan_sha256);
     const gradeArgs = {
       ...args,
       draft: Array(planned.plan.total_lines).fill('I hold your hand beside the rain'),
@@ -340,9 +346,10 @@ test(
       { lines: 24, functions: 'verse,bridge', want: args.wants },
       { exit_code: 0, accepted_shown: [11] }
     );
-    recordCreation(task, 'lyric_screen', { words: ['rain', 'train'] }, { exit_code: 0 });
     recordCreation(task, 'lyric_plan', args, planned);
     assert(task.workflow.plan);
+    recordCreation(task, 'lyric_screen', { words: ['rain', 'train'] }, { exit_code: 0 });
+    assert.equal(task.workflow.screen?.plan_sha256, planned.plan_sha256);
     const tampered = structuredClone(planned);
     tampered.plan.request.wants = ['sections.bridge>=4'];
     tampered.plan_request = structuredClone(tampered.plan.request);

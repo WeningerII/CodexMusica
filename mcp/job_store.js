@@ -696,9 +696,10 @@ export class JobStore {
 // (GET /chat/jobs/:id?view=progress): the state and times, the last lyric tool
 // the turn has on record and the stage that names, and the kitchen's round and
 // accepted-line count when its worker progress says so. Nothing here is a
-// result: the POST, or recovery, delivers that. Stages: sweep/screen →
-// planning; plan → drafting (the writer is writing to the plan);
-// grade/check/verify → checking; revise or kitchen progress → revising.
+// result: the POST, or recovery, delivers that. Stages: sweep → planning;
+// plan/screen → drafting (the writer is writing to the plan, whose word-check
+// follows it); grade/check/verify → checking; revise or kitchen progress →
+// revising.
 export function progressView(record) {
   let tool = null;
   for (const turn of record.checkpoint?.history || [])
@@ -713,9 +714,9 @@ export function progressView(record) {
         ? 'revising'
         : !verb
           ? null
-          : ['sweep', 'screen'].includes(verb)
+          : verb === 'sweep'
             ? 'planning'
-            : verb === 'plan'
+            : ['plan', 'screen'].includes(verb)
               ? 'drafting'
               : ['grade', 'check', 'verify', 'recover', 'types'].includes(verb)
                 ? 'checking'

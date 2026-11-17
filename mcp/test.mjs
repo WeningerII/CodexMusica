@@ -5553,6 +5553,9 @@ await check('validation: actionable errors', () => {
         'offline lyrics creation order and task authorization regressions',
       'mcp/test_creation_next.mjs':
         'creation-order NEXT derivation regressions, offline and on the real lyric harness, executed by CI',
+      'mcp/test_statements.mjs':
+        'new-song statement gate and plan statements regressions, offline and on the real lyric harness, executed by CI',
+      'mcp/statement_fixture.mjs': 'test fixture: sweep arguments that state every new-song thing',
       'mcp/test_creation_attempts.mjs':
         'offline regressions for refusals after a screen or grade that left no receipt',
       'mcp/test_status_census.mjs':
@@ -8960,8 +8963,9 @@ if (!runs('offline') || PART === null) {
           // Every draft line here is `we carry the morning to the <word>` and the
           // blueprint's hook is the draft line at the plan's own hook slot, so
           // `carry the morning` is a contiguous run of words inside it under any
-          // seed. Containment is a normalised WORD-subsequence test, not a
-          // substring match, which is why the in-hook title is three whole words.
+          // seed. Containment is a normalised test of whole words as one
+          // unbroken run, not a substring match, which is why the in-hook
+          // title is three whole words.
           const titleReport = async (title) => {
             const res = await client.callTool(
               {

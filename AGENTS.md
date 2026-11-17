@@ -56,7 +56,7 @@ For full structured arrangements (ensemble, room, chain, tuning) per tradition:
 ## Live MCP connector (hosted — no clone, no setup)
 
 For native SDK/CLI integration, use `mcp/client.js`. New lyrics default to creation
-mode with executed sweep/screen/plan/grade/revise receipts; retain the connection
+mode with executed sweep/plan/screen/grade/revise receipts; retain the connection
 or its private snapshot. CLI creation calls require the same `--session-file=FILE`
 on every call. An explicit host `phase: 'edit'` is for an existing song only.
 The raw endpoint cannot enforce an external host's user intent. See
@@ -97,9 +97,11 @@ pipeline plans and grades songs whose every line you write; no connector call re
 - **Server card** (capabilities, for clients that auto-discover): `https://mcp.codexmusica.com/.well-known/mcp.json`
 - **Recipe tools:** `start_recipe`, `edit_recipe`, `render_recipe`, `search_catalog`, `search_prefaces`, `get_instrument`, `get_tradition`, `list_traditions`, `list_options`.
 - **Lyric tools:** `lyric_sweep`, `lyric_screen`, `lyric_plan`, `lyric_grade`, `lyric_revise`, `lyric_recover`, `lyric_check`, `lyric_verify`, `lyric_types`.
-  A new song: `begin_lyrics` → `lyric_sweep` → `lyric_screen` → `lyric_plan` → write the draft →
-  `lyric_grade` → `lyric_revise` (answer each question it asks until it stops). To set a length,
-  declare an exact `lines` count on the sweep. Lyrics the user pasted: `begin_lyrics {phase:"edit"}` → `lyric_recover` → `lyric_check` → `lyric_revise` without a seed.
+  A new song: `begin_lyrics` → `lyric_sweep` → `lyric_plan` → `lyric_screen` → write the draft →
+  `lyric_grade` → `lyric_revise` (answer each question it asks until it stops). The sweep states
+  form, length (`lines`), sections (`functions`), rhyme (`relation`) and time (`melody`): each a
+  value, or for all but form its field in `draw` (a `want` on `lines`, on `sections`, `sections.F`, `uses` or `before`, or on `beats_per_line`, `bars_per_line` or `slots_per_line`
+  also states that thing); a sweep that leaves one out is refused with the list. A length is an exact `lines` count, a `want` on `lines`, or `lines` in `draw`, as the user chose. Lyrics the user pasted: `begin_lyrics {phase:"edit"}` → `lyric_recover` → `lyric_check` → `lyric_revise` without a seed.
 - **Session controls** (on `/mcp`): `begin_lyrics`, `get_operation`, `resume_operation`.
   A finished `lyric_grade` or `lyric_revise` read with `get_operation` is the song and a short
   verdict: status fields, `blocking` (what stands, and each line a requested obligation could not

@@ -5314,9 +5314,17 @@ def test_the_type_draw():
     banned = ("rhyme", "e.g.", "such as", "for example", "for instance",
               "etc.", "and the rest", "end (default)", "heard as")
     leaks, unlabeled, unplaced = [], [], []
+    # A FINDING CODE IS A NAME, NOT A WORD OF THE BRIEF (stage 3 box 1): the
+    # stop block prints each code that can stop the song, and some codes
+    # hold a banned word (`MODAL_RHYME`, `ANAPHORA_OVERLOAD`). The scan
+    # skips exact code tokens the gate census lists, and nothing else.
+    from quality import gate_census as _GC
+    _codes = set(_GC.census())
     for seed in range(1, 31):
         p = make_plan(seed)
-        brief = p["writer_brief"].lower()
+        brief = re.sub(r"\b[A-Z][A-Z0-9_]+\b",
+                       lambda mo: "" if mo.group(0) in _codes
+                       else mo.group(0), p["writer_brief"]).lower()
         leaks += [(seed, w) for w in banned if w in brief]
         leaks += [(seed, n) for n in names if len(n) > 4 and n.lower() in brief]
         groups = p["groups"].split(";")
@@ -5924,6 +5932,980 @@ def test_once_generation():
           result.wasSuccessful())
 
 
+def _stop_rule_plans():
+    """-> [(kwargs, seed, plan)] drawn by seed over a spread: every form in
+    `PLAN_FORMS`, lengths under and over the stacked-draft gate's line
+    floor, with and without a title, returns and a hook, and a declared
+    class relation (whose bare end pairs reach the floor) at two lengths,
+    so plans with one floor pair and with several are both drawn. A
+    refused draw is skipped and counted by the caller."""
+    spread = ({}, {"lines": 6}, {"lines": 8}, {"lines": 14},
+              {"title": "<t>"},
+              *(kw for form in PLN.PLAN_FORMS if form != PLN.DEFAULT_FORM
+                for kw in ({"form": form}, {"form": form, "title": "<t>"})),
+              {"relation": "class:RHYME", "lines": 12},
+              {"relation": "class:RHYME", "lines": 4})
+    out, refused = [], []
+    for kw in spread:
+        for seed in range(1, 5):
+            try:
+                out.append((kw, seed, make_plan(seed, **kw)))
+            except PlanRefused:
+                refused.append((kw, seed))
+    return out, refused, len(spread)
+
+
+def test_the_stop_rules():
+    """§ THE BRIEF'S LAST BLOCK NAMES WHAT CAN STOP THE SONG (stage 3 box
+    1). One row per blocking code that applies to the plan, each limit the
+    grader's own number, and the table equal to the gate census's GATED
+    codes plus the reviser's writing bans."""
+    from quality import floor as _F
+    from quality import fit as _FT
+    from quality import gate_census as _GC
+    from quality import revise as _RV
+    from quality import sentencehood as _SH
+    from quality.grid import song_from_blueprint, hook_occurrences
+    from quality import grid as _GRD
+    census = _GC.census()
+    gated = {c for c, r in census.items() if r["verdict"] == "GATED"}
+    # An `unjudged` row is no census gate: it names the note the grader
+    # files where coverage is refused, proven against the grader below.
+    unjudged_rows = {c for c, r in PLN.STOP_RULES.items()
+                     if r["stop"] == "unjudged"}
+    gate_rows = set(PLN.STOP_RULES) - unjudged_rows
+    check("STOP_RULES has one row per blocking code: the census's GATED "
+          "codes plus the reviser's writing bans, exactly, besides the "
+          "unjudged rows",
+          gate_rows == gated | set(_RV.WRITING_BAN_CODES),
+          f"extra {sorted(gate_rows - gated - set(_RV.WRITING_BAN_CODES))}, "
+          f"missing {sorted((gated | set(_RV.WRITING_BAN_CODES)) - gate_rows)}")
+    # HOW EACH ROW STOPS THE SONG, from the census's own gates: a length
+    # gate leaves the draft ungraded, a flag holds it back, and a writing
+    # ban is filed as a flag (`Reviser.inspect`, writing=True).
+    kinds = {}
+    for code in PLN.STOP_RULES:
+        if code in unjudged_rows:
+            continue
+        if code in _RV.WRITING_BAN_CODES:
+            kinds[code] = "flag"
+        elif "LENGTH_GATE_CODES" in census[code]["gates"]:
+            kinds[code] = "ungraded"
+        elif "severity flag" in census[code]["gates"]:
+            kinds[code] = "flag"
+    # THE UNJUDGED ROWS, read off the grader: on a drawn plan's own draft,
+    # words swapped for strings the lexicon cannot read make
+    # `Reviser.inspect` refuse coverage in the row's layer (so the coverage
+    # is not certified and `song` exits 2), and file the row's code on the
+    # lines it names; on the draft as drawn it certifies, and so does the
+    # broken draft once a reading of each swapped word is declared in
+    # `pronunciations`, the way out each row names. The `rhyme` probe swaps
+    # an end word of the first mandated pair and grades with no blueprint;
+    # the `meter` probes change a line outside every pair and grade under
+    # the plan's own blueprint, as a seeded grade does: one swaps its first
+    # word, the other every word (one of them a run of digits), and each
+    # refused `meter:<CODE>:L<n>` obligation must carry the row's own code.
+    import ast as _ast
+    import copy as _copy
+    import inspect as _inspect
+    import random as _rnd
+    import lyric_harness as _LH
+    from quality import pronunciation as _PR
+    reviser = _RV.Reviser()
+    p_u = make_plan(1, lines=4, relation="class:RHYME")
+    m_u = SC.mandate([g.split(",") for g in p_u["groups"].split(";")],
+                     n_lines=p_u["total_lines"], returns=None,
+                     relations=p_u.get("relations"),
+                     default_relation=p_u.get("relation"))
+    i_u, j_u, _k_u = m_u.pairs()[0]
+    _ru = _rnd.Random(i_u * p_u["total_lines"] + j_u)
+    nonword = "".join(_ru.choice("bcdfghjklmnpqrstvwxz") for _ in range(7))
+    while nonword in reviser.lex.entries:
+        nonword += _ru.choice("bcdfghjklmnpqrstvwxz")
+    digits = "".join(_ru.choice("0123456789") for _ in range(3))
+    clean = dummy_draft(p_u)
+    paired = {ln for pr in m_u.pairs() for ln in pr[:2]}
+    free_u = next(ln for ln in range(1, p_u["total_lines"] + 1)
+                  if ln not in paired)
+    n_free = len(clean[free_u - 1].split(" "))
+    sub_u = _FT.Subdivision(p_u["subdivision"], source="test_plan unjudged")
+    # code -> (the line changed, {word index: its replacement}, the lines
+    # the code is filed on, whether the grade carries the blueprint)
+    probes = {
+        "SCHEME_UNREADABLE": (j_u, {-1: nonword}, (i_u, j_u), False),
+        "COUNT_IS_A_LOWER_BOUND": (free_u, {0: nonword}, (free_u,), True),
+        "NOTHING_READ": (free_u, {w: (digits if w == 0 else nonword)
+                                  for w in range(n_free)}, (free_u,), True)}
+    partner = clean[i_u - 1].rsplit(" ", 1)[1]
+    phones = list(_PR.dictionary_readings(reviser.lex, partner)[0])
+
+    def _graded(lines, lex, with_bp):
+        rv = _RV.Reviser(lex=lex)
+        kw = ({"blueprint": fill_plan(p_u, lines), "subdivision": sub_u}
+              if with_bp else {})
+        got = rv.inspect(lines, m_u, **kw)
+        filed = {}
+        for ln, fs in got["per_line"].items():
+            filed.setdefault(ln, set()).update(f.code for f in fs)
+        for f in got.get("whole", ()):
+            for ln in getattr(f, "locations", ()) or ():
+                filed.setdefault(ln, set()).add(f.code)
+        return got["coverage"], filed
+
+    def _broken(code):
+        ln, swaps, _on, _bp = probes[code]
+        words = clean[ln - 1].split(" ")
+        for w, rep in swaps.items():
+            words[w] = rep
+        out = list(clean)
+        out[ln - 1] = " ".join(words)
+        return out
+
+    # What each meter row says its case is: the probe above draws that case
+    # (every word unread, one of them digits; one word unread beside read
+    # ones), so the row's words are the case its code is filed on.
+    case_said = {
+        "NOTHING_READ": "every word of it is " + PLN.UNREAD_WORD,
+        "COUNT_IS_A_LOWER_BOUND": PLN.UNREAD_WORD
+        + " beside a word it reads"}
+
+    def _code_of(obligation):
+        # `meter:<CODE>:L<n>` names its code; a `rhyme:` obligation does not.
+        parts = str(obligation).split(":")
+        return parts[1] if parts[0] == "meter" else None
+
+    unjudged_bad = []
+    for code in sorted(unjudged_rows):
+        row = PLN.STOP_RULES[code]
+        if row["applies"] == "never":
+            continue
+        layer = row.get("layer")
+        if code not in probes:
+            unjudged_bad.append((code, layer, "no probe for this code"))
+            continue
+        ln, swaps, on, with_bp = probes[code]
+        broken = _broken(code)
+        cov_clean, _f = _graded(clean, reviser.lex, with_bp)
+        cov_u, filed = _graded(broken, reviser.lex, with_bp)
+        toks = _LH.line_tokens(broken[ln - 1],
+                               strip_parens=reviser.lex.strip_parens,
+                               scheme=_PR._scheme(reviser.lex))
+        ats = sorted(len(toks) if w == -1 else w + 1 for w in swaps)
+        lex_d = _copy.copy(reviser.lex)
+        lex_d.pronunciations = _PR.validate_choices([dict(
+            line=broken[ln - 1], token=at, word=toks[at - 1], phones=phones,
+            basis="declared", source="test_plan unjudged probe")
+            for at in ats], lex_d)
+        cov_d, filed_d = _graded(broken, lex_d, with_bp)
+        refused = cov_u["refused_obligations"]
+        codes_ok = (layer != "meter" or set(refused) == {
+            f"meter:{code}:L{x}" for x in on})
+        if not (cov_clean["certified"] and not cov_u["certified"]
+                and refused and codes_ok
+                and all(str(o).split(":")[0] == layer for o in refused)
+                and all(code in filed.get(x, ()) for x in on)
+                and cov_d["certified"]
+                and not any(code in filed_d.get(x, ()) for x in on)
+                and PLN.UNJUDGED_UNTIL in PLN._STOP_LIMITS[row["limit"]](p_u)
+                and case_said.get(code, "") in PLN._STOP_LIMITS[
+                    row["limit"]](p_u)
+                and "`pronunciations`" in PLN.UNJUDGED_UNTIL):
+            unjudged_bad.append((code, layer, cov_clean["certified"],
+                                 refused, filed, cov_d["certified"]))
+        else:
+            kinds[code] = "unjudged"
+    # A LINE WITH NO WORD OUTSIDE PARENTHESES is NOTHING_READ's other case,
+    # read off the grader: the free line wholly in parentheses, and the free
+    # line as a run of the punctuation marks the tokenizer reads no token in
+    # (drawn by seed), each refuse that line's meter obligation under the
+    # row's code by default; with `voices` (a lexicon that keeps
+    # parentheses) the first certifies and the second still refuses. The
+    # row names that case and both ways out.
+    import string as _string
+    lex_v = _LH.Lexicon(strip_parens=False)
+    marks = [c for c in _string.punctuation if c not in "()"
+             and not _LH.line_tokens(c, strip_parens=True,
+                                     scheme=_PR._scheme(reviser.lex))]
+    no_sung = {"in parentheses": ("(" + clean[free_u - 1] + ")", True),
+               "punctuation only": ("".join(
+                   _ru.choice(marks) for _ in range(_ru.randint(1, 4))),
+                   False)}
+    # A named row's limit text, or "" when the row is gone, so a deleted row
+    # fails the checks that read it and the later checks still run.
+    def _limit_text(code):
+        limit = PLN._STOP_LIMITS.get(PLN.STOP_RULES.get(code, {}).get("limit"))
+        return limit(p_u) if limit else ""
+
+    nothing_text = _limit_text("NOTHING_READ")
+    no_sung_bad = []
+    for label, (text, voices_reads) in no_sung.items():
+        lines = list(clean)
+        lines[free_u - 1] = text
+        cov, filed = _graded(lines, reviser.lex, True)
+        cov_v, _fv = _graded(lines, lex_v, True)
+        if not (not cov["certified"]
+                and cov["refused_obligations"]
+                == [f"meter:NOTHING_READ:L{free_u}"]
+                and "NOTHING_READ" in filed.get(free_u, ())
+                and cov_v["certified"] == voices_reads):
+            no_sung_bad.append((label, text, cov["refused_obligations"],
+                                cov_v["certified"]))
+    check("...and a line with no word outside parentheses (wholly in "
+          "parentheses, or punctuation only) is NOTHING_READ's other case: "
+          "refused under that code by default, read with `voices` only "
+          "where its words are in parentheses, and the row says so",
+          not no_sung_bad and _graded(clean, lex_v, True)[0]["certified"]
+          and "or it is " + PLN.NO_SUNG_WORD in nothing_text
+          and "on " + PLN.NO_SUNG_WORD + ", until a word is written outside "
+          "them or, where its words are in parentheses, `voices` is set on "
+          "lyric_grade" in nothing_text,
+          (no_sung_bad, nothing_text))
+    # WHAT THE GRADER CANNOT READ, read off its own reader. The free line's
+    # first word is swapped for each word drawn below (a listed word, two
+    # listed words joined by a hyphen that the dictionary does not list
+    # whole, a listed word joined to the unlisted string, the unlisted
+    # string, the digits) and graded under the plan's blueprint with no
+    # `fallback` and with each one the grader takes (`quality.g2p`'s
+    # confidences below the dictionary's own). The line's meter obligation
+    # is refused exactly when UNREAD_WORD's rule says the word is unread: it
+    # is written with a digit, or a part of it between hyphens (the whole
+    # word, with none) is read by neither the dictionary nor that fallback
+    # (`English.parses`, the reader `fit.read_line` asks). The draw holds a
+    # hyphenated word the dictionary does not list that the grader reads,
+    # and a word only a fallback reads; the meter rows name `fallback` as a
+    # way out.
+    from quality import g2p as _G2P
+    from quality.phonology.eng import English as _Eng
+    _rw = _rnd.Random(free_u * 7919 + n_free)
+    listed = sorted(w for w in reviser.lex.entries if w.isalpha())
+    a_w, b_w = _rw.choice(listed), _rw.choice(listed)
+    while f"{a_w}-{b_w}" in reviser.lex.entries:
+        b_w = _rw.choice(listed)
+    drawn_words = [a_w, f"{a_w}-{b_w}", f"{a_w}-{nonword}", nonword, digits]
+    fallbacks = [None] + sorted(
+        {c for c in _G2P.CONFIDENCE.values()} - {"certain"},
+        key=lambda c: -_G2P.CONFIDENCE_RANK[c])
+    plain = _Eng(fallback=None, lexicon=reviser.lex)
+    read_bad, read_by = [], set()
+    for fb in fallbacks:
+        lex_fb = reviser.lex if fb is None else _LH.Lexicon(fallback=fb)
+        phon_fb = _Eng(fallback=fb, lexicon=lex_fb)
+        for word in drawn_words:
+            parts = re.split(r"[-\u2011]", word)
+            unread = bool(re.search(r"\d", word)) or any(
+                not any(plain.parses(x)) and not any(phon_fb.parses(x))
+                for x in parts)
+            words = clean[free_u - 1].split(" ")
+            words[0] = word
+            lines = list(clean)
+            lines[free_u - 1] = " ".join(words)
+            cov, _fr = _graded(lines, lex_fb, True)
+            refused = (f"meter:COUNT_IS_A_LOWER_BOUND:L{free_u}"
+                       in cov["refused_obligations"])
+            if refused != unread or cov["certified"] == unread:
+                read_bad.append((fb, word, unread, cov["refused_obligations"]))
+            if not unread:
+                read_by.add((word, fb))
+    count_text = _limit_text("COUNT_IS_A_LOWER_BOUND")
+    check("...and a word the meter rows call unread is one the grader "
+          "leaves unread: written with a digit, or with a part between "
+          "hyphens that neither the dictionary nor the `fallback` set on "
+          "lyric_grade reads, under each fallback; a hyphenated word read "
+          "part by part and a word only a fallback reads are drawn, and "
+          "both rows name `fallback` as a way out",
+          not read_bad
+          and f"{a_w}-{b_w}" not in reviser.lex.entries
+          and (f"{a_w}-{b_w}", None) in read_by
+          and any((nonword, fb) in read_by for fb in fallbacks[1:])
+          and (nonword, None) not in read_by
+          and all(k in PLN.UNREAD_WORD for k in (
+              "written with a digit", "between hyphens",
+              "`fallback` on lyric_grade"))
+          and PLN.FALLBACK_UNTIL in count_text
+          and PLN.FALLBACK_UNTIL in nothing_text
+          and "`fallback`" in PLN.FALLBACK_UNTIL,
+          (read_bad, sorted(read_by, key=str), PLN.UNREAD_WORD))
+    # Under each shipped `lexicon_supplement` version (the connector fills
+    # in the manifest's default for new work) the grader keeps a hyphenated
+    # word whole when the dictionary lists it whole
+    # (`SupplementedLexicon.word_pieces`): a drawn listed one with a part
+    # neither reader reads is refused under `Reviser`'s own lexicon and read
+    # under the version, and UNREAD_WORD says so.
+    from quality import lexicon_supplement as _LSUP
+    whole_bad = []
+    for vrow in _LSUP.load_versions()["versions"]:
+        lex_s = _LSUP.SupplementedLexicon(version=vrow["id"])
+        plain_s = _Eng(fallback=None, lexicon=lex_s)
+        whole = sorted(
+            w for w in lex_s.entries
+            if "-" in w and re.fullmatch(r"[a-z]+(?:-[a-z]+)+", w)
+            and any(not any(plain_s.parses(x)) and not any(plain.parses(x))
+                    for x in w.split("-")))
+        if not whole:
+            whole_bad.append((vrow["id"], "no such entry"))
+            continue
+        word = _rw.choice(whole)
+        words = clean[free_u - 1].split(" ")
+        words[0] = word
+        lines = list(clean)
+        lines[free_u - 1] = " ".join(words)
+        key = f"meter:COUNT_IS_A_LOWER_BOUND:L{free_u}"
+        cov_b, _fr = _graded(lines, reviser.lex, True)
+        cov_s, _fr = _graded(lines, lex_s, True)
+        if (key not in cov_b["refused_obligations"]
+                or key in cov_s["refused_obligations"]
+                or not cov_s["certified"]):
+            whole_bad.append((vrow["id"], word, cov_b["refused_obligations"],
+                              cov_s["refused_obligations"]))
+    check("...and under a `lexicon_supplement` version a hyphenated word "
+          "the dictionary lists whole is read whole, as UNREAD_WORD says",
+          not whole_bad
+          and "a hyphenated word the dictionary lists whole is read whole"
+          in PLN.UNREAD_WORD
+          and "`lexicon_supplement`" in PLN.UNREAD_WORD,
+          (whole_bad, PLN.UNREAD_WORD))
+    # Every layer and every meter code the grader refuses for words with no
+    # reading has its row: what the probes refuse, read off the grader,
+    # against the rows that can fire.
+    refused_layers, refused_codes = set(), set()
+    for code, (_ln, _sw, _on, with_bp) in probes.items():
+        for o in _graded(_broken(code), reviser.lex, with_bp)[0][
+                "refused_obligations"]:
+            refused_layers.add(str(o).split(":")[0])
+            if _code_of(o):
+                refused_codes.add(_code_of(o))
+    live_unjudged = {c for c in unjudged_rows
+                     if PLN.STOP_RULES[c]["applies"] != "never"}
+    row_layers = {PLN.STOP_RULES[c].get("layer") for c in live_unjudged}
+    meter_live = {c for c in live_unjudged
+                  if PLN.STOP_RULES[c]["layer"] == "meter"}
+    check("...and every coverage layer the grader refuses for a word with "
+          "no reading, with and without the plan's blueprint, has an "
+          "unjudged row, and every meter code it refuses under (the middle "
+          "field of `meter:<CODE>:L<n>`) is a row's own code",
+          refused_layers == row_layers and refused_codes == meter_live,
+          (sorted(refused_layers), sorted(row_layers),
+           sorted(refused_codes), sorted(meter_live)))
+    # THE METER CODES THE GRADER CAN REFUSE UNDER, read off its own source:
+    # the code set `Reviser.inspect` files as `meter:<CODE>:L<n>`. Each has
+    # a meter row; the ones that cannot fire are `never` rows whose reasons
+    # are checked against the code.
+    meter_src = set()
+    import textwrap as _tw
+    for node in _ast.walk(_ast.parse(_tw.dedent(
+            _inspect.getsource(_RV.Reviser.inspect)))):
+        if (isinstance(node, _ast.If) and isinstance(node.test, _ast.Compare)
+                and isinstance(node.test.ops[0], _ast.In)
+                and isinstance(node.test.comparators[0], _ast.Set)
+                and "'meter:'" in _ast.dump(node)):
+            meter_src.update(e.value for e in node.test.comparators[0].elts)
+    meter_rows = {c for c in unjudged_rows
+                  if PLN.STOP_RULES[c]["layer"] == "meter"}
+    check("...and every meter code `Reviser.inspect` can refuse coverage "
+          "under has a row, read off its source", meter_src
+          and meter_src == meter_rows,
+          (sorted(meter_src), sorted(meter_rows)))
+    never_meter = {c for c in meter_rows
+                   if PLN.STOP_RULES[c]["applies"] == "never"}
+    # PROMINENCE_UNDECIDED, read off the grader's reader: words drawn by
+    # seed from the dictionary until three leave a syllable's stress
+    # undecided in `fit.read_line` (their readings disagree on it). Each
+    # such line has more than one whole reading (`LineUnits.disputed`),
+    # every whole reading `fit.fit_line` judges (`LineUnits.candidates`)
+    # has each stress decided, and the line as `fit_line` judges it files
+    # no PROMINENCE_UNDECIDED, though the same units with the whole
+    # readings taken away do: the branch is live, and judging one whole
+    # reading at a time is what keeps it from firing. No other reader the
+    # grader uses gives a syllable undecided stress: every parse of every
+    # drawn word has its stress decided, and `fit.INERT` declares the
+    # phonology side inert. The row's reason says both.
+    import dataclasses as _dc
+    places_u = _FT.from_blueprint(fill_plan(p_u, clean))[1]
+    phon_g = _Eng(fallback=None, lexicon=reviser.lex)
+    _rp = _rnd.Random(len(listed) + free_u)
+    undecided, parses_ok, drawn_n = [], True, 0
+    while len(undecided) < 3 and drawn_n < 20000:
+        word = _rp.choice(listed)
+        drawn_n += 1
+        parses_ok = parses_ok and all(
+            _FT._resolve_prominence(sy.prominence) is not None
+            for reading in phon_g.parses(word) for sy in reading)
+        line = clean[free_u - 1].split(" ")
+        line[0] = word
+        lu = _FT.read_line(" ".join(line), phon=phon_g)
+        if lu.prominence_undecided:
+            undecided.append((word, lu))
+    prom_bad = []
+    for word, lu in undecided:
+        kw = dict(subdivision=sub_u)
+        codes = {r.code for r in _FT.fit_line(
+            lu, places_u[free_u - 1], phon=phon_g, **kw).refusals}
+        bare = {r.code for r in _FT.fit_line(
+            _dc.replace(lu, segments=()), places_u[free_u - 1],
+            phon=phon_g, **kw).refusals}
+        if not (lu.disputed
+                and not any(c.prominence_undecided for c in lu.candidates())
+                and "PROMINENCE_UNDECIDED" not in codes
+                and "PROMINENCE_UNDECIDED" in bare):
+            prom_bad.append((word, sorted(codes), sorted(bare)))
+    prom_reason = PLN.STOP_RULES.get("PROMINENCE_UNDECIDED", {}).get(
+        "never", "")
+    # BEATGRID_INCOMPLETE: raised only in
+    # `_read_beatgrid`, which runs only on a declared beat map, and no
+    # `fit_line` call in the grader passes one.
+    import warnings as _wn
+    with _wn.catch_warnings():
+        # The module's own docstrings hold escapes `ast.parse` warns about.
+        _wn.simplefilter("ignore", SyntaxWarning)
+        rv_tree = _ast.parse(_inspect.getsource(_RV))
+    fit_calls = [n for n in _ast.walk(rv_tree)
+                 if isinstance(n, _ast.Call)
+                 and getattr(n.func, "attr", None) in ("fit_line", "fit_song")]
+    never_ok = {
+        "PROMINENCE_UNDECIDED": (
+            len(undecided) == 3 and not prom_bad and parses_ok
+            and "fit.PROMINENCE_UNDECIDED" in {e.field for e in _FT.INERT}
+            and all(k in prom_reason for k in (
+                "one whole reading at a time", "`LineUnits.candidates`",
+                "`fit.INERT`"))),
+        "BEATGRID_INCOMPLETE": (
+            '"BEATGRID_INCOMPLETE"' in _inspect.getsource(_FT._read_beatgrid)
+            and _inspect.getsource(_FT).count('"BEATGRID_INCOMPLETE"') == 1
+            and "if beatgrid is not None:\n        _read_beatgrid(" in
+            _inspect.getsource(_FT.fit_line)
+            and fit_calls and not any(k.arg == "beatgrid"
+                                      for n in fit_calls for k in n.keywords)),
+    }
+    for c in never_meter:
+        if never_ok.get(c):
+            kinds[c] = "unjudged"
+    check("...and each meter code that cannot fire on a graded song is a "
+          "never row whose reason holds in the code", never_meter
+          and all(never_ok.get(c) for c in never_meter),
+          ({c: never_ok.get(c) for c in never_meter}, prom_bad,
+           [w for w, _lu in undecided], parses_ok))
+    check("...and each unjudged row is the note the grader files on the "
+          "lines it names when a word there has no reading, in the row's "
+          "coverage layer under its own code, where the coverage is not "
+          "certified, and the row states that case; the draft as drawn "
+          "certifies, the same draft "
+          "certifies once each such word's reading is declared in "
+          "`pronunciations`, the row says so, and at least one unjudged "
+          "row exists",
+          unjudged_rows and not unjudged_bad, unjudged_bad)
+    # A WORD IN PARENTHESES, read off both graders: on the capped plan
+    # above, an aside of words drawn by seed from its own draft, added to
+    # one line, leaves fit's syllable count for that line where it was and
+    # adds its words to the floor's count, and the band's range sentence
+    # says so.
+    from quality.features import QualityFeatures as _QFa
+    _ra = _rnd.Random(p_u["total_lines"])
+    pool = sorted({w for ln in clean for w in ln.split(" ")})
+    aside = [_ra.choice(pool) for _ in range(_ra.randint(2, 4))]
+    a_ln = _ra.randrange(p_u["total_lines"])
+    with_aside = list(clean)
+    with_aside[a_ln] = clean[a_ln] + " (" + " ".join(aside) + ")"
+    pl_a = _FT.from_blueprint(fill_plan(p_u, with_aside))[1][a_ln]
+    pl_c = _FT.from_blueprint(fill_plan(p_u, clean))[1][a_ln]
+
+    def _sylls(text, pl, strip=reviser.lex.strip_parens):
+        return _FT.fit_line(text, pl, subdivision=sub_u, line_index=a_ln,
+                            strip_parens=strip).units.count
+    said_aside = [ln for ln in PLN._stop_block(p_u)
+                  if "one word for each syllable" in ln]
+    check("...and a word in parentheses uses no syllable and still counts "
+          "toward the song's words, on both graders, and the capped band's "
+          "range sentence says so",
+          PLN._word_count_band(p_u)[1] == PLN._syllable_capacity(p_u)
+          and _sylls(with_aside[a_ln], pl_a) == _sylls(clean[a_ln], pl_c)
+          and len(_QFa._tokens(with_aside[a_ln]))
+          == len(_QFa._tokens(clean[a_ln])) + len(aside)
+          and said_aside and PLN.ASIDE_WORDS in said_aside[0],
+          (aside, _sylls(with_aside[a_ln], pl_a), _sylls(clean[a_ln], pl_c),
+           said_aside))
+    # With `voices` the grader keeps parentheses (`strip_parens` off): each
+    # word of the aside then uses at least one syllable, and the sentence
+    # names that exception.
+    check("...and with `voices` set on lyric_grade a word in parentheses "
+          "uses a syllable, and the sentence says so",
+          lex_v.strip_parens is False
+          and _sylls(with_aside[a_ln], pl_a, strip=lex_v.strip_parens)
+          >= _sylls(clean[a_ln], pl_c, strip=lex_v.strip_parens) + len(aside)
+          and PLN.UNLESS_VOICES in PLN.ASIDE_WORDS
+          and "`voices`" in PLN.UNLESS_VOICES,
+          (_sylls(with_aside[a_ln], pl_a, strip=lex_v.strip_parens),
+           _sylls(clean[a_ln], pl_c, strip=lex_v.strip_parens),
+           PLN.ASIDE_WORDS))
+    bad_kind = [c for c in PLN.STOP_RULES if PLN._stop_kind(c) != kinds.get(c)]
+    check("...and each row's kind (flag, ungraded or unjudged) is the "
+          "census's gate for that code, or the grader's refused coverage",
+          not bad_kind, bad_kind)
+    check("...and the stacked-draft numbers plan.py keeps are "
+          "sentencehood.ADOPTED's", PLN.STACKED_DRAFT_ADOPTED == _SH.ADOPTED,
+          f"{PLN.STACKED_DRAFT_ADOPTED} vs {_SH.ADOPTED}")
+    from quality.features import FUNCTION_TAGS as _FTAGS
+    names = [n for ns in PLN.GRAMMAR_WORD_TAGS.values() for n in ns]
+    check("...and the grammar-word gloss names every tag "
+          "features.FUNCTION_TAGS counts and no other, and is built from "
+          "those names alone",
+          set(PLN.GRAMMAR_WORD_TAGS) == set(_FTAGS)
+          and all(PLN.GRAMMAR_WORD_TAGS.values())
+          and PLN.GRAMMAR_WORDS == "grammar words (" + ", ".join(
+              dict.fromkeys(names)) + ")",
+          f"extra {sorted(set(PLN.GRAMMAR_WORD_TAGS) - set(_FTAGS))}, "
+          f"missing {sorted(set(_FTAGS) - set(PLN.GRAMMAR_WORD_TAGS))}")
+    # The possessive tag is given only to an 's the tokenizer splits off;
+    # one written onto its word stays inside that word's token, so the
+    # gloss says which one the grader counts.
+    from quality.features import QualityFeatures as _QF
+    _rw = _rnd.Random(len(PLN.GRAMMAR_WORD_TAGS))
+    _w = "".join(_rw.choice("bcdfghjklmnpqrstvwxz") for _ in range(6))
+    attached = _QF._tokens(f"{_w}'s {_w}")
+    check("...and the possessive 's is glossed as the grader counts it: "
+          "only written as its own word, since one written onto its word "
+          "is part of that word's token",
+          len(attached) == 2 and "'" in attached[0]
+          and "'s written as its own word" in PLN.GRAMMAR_WORD_TAGS["POS"][0],
+          (attached, PLN.GRAMMAR_WORD_TAGS["POS"]))
+    check("...and the writing-ban partner count plan.py keeps is the "
+          "reviser's modal_exclusion default",
+          PLN.WRITING_BAN_PARTNERS == _RV.ReviseDeclaration().modal_exclusion,
+          f"{PLN.WRITING_BAN_PARTNERS} vs "
+          f"{_RV.ReviseDeclaration().modal_exclusion}")
+
+    # WHAT EACH ROW COUNTS AS A WORD, read off its grader's own tokenizer:
+    # the floor's rows count with the tokenizer a `SlopFloor` itself holds
+    # (`self.qf._tokens`, floor.py's `n_tok`), the stacked-draft row with
+    # `sentencehood._tokens`. Each mark is probed between two letters, and
+    # an accented letter between two plain ones.
+    floor_ = _F.SlopFloor()
+    tokenizer_of = {c: floor_.qf._tokens for c in (
+        "OUT_OF_CALIBRATED_LENGTH",) + PLN.LENGTH_LIMIT_CODES}
+    tokenizer_of["STACKED_DRAFT"] = _SH._tokens
+    probes = {"straight_apostrophe": "a'b", "curly_apostrophe": "a\u2019b",
+              "hyphen": "a-b", "accented": "a\u00e9b"}
+    words_bad = []
+    for code, row in PLN.STOP_RULES.items():
+        tok = tokenizer_of.get(code)
+        read = ({k: len(tok(v)) == 1 for k, v in probes.items()}
+                if tok else None)
+        if row.get("words") != read:
+            words_bad.append((code, row.get("words"), read))
+    check("...and each row that counts words carries what its grader's "
+          "tokenizer keeps inside a word, probed from that tokenizer, and "
+          "no other row carries one", not words_bad, words_bad)
+    # The stated unit says what the probes found, mark by mark.
+    unit_bad = []
+    for code, row in PLN.STOP_RULES.items():
+        if not row.get("words"):
+            continue
+        unit = PLN._limit_word_unit(row["words"])
+        kept, _, split = unit.partition(" splits it")[0].partition(
+            " stays inside it")
+        for k, mark in (("hyphen", "a hyphen"),):
+            if (mark in kept) != row["words"][k] or (
+                    mark in split) == row["words"][k]:
+                unit_bad.append((code, k, unit))
+        if (("a run of letters" in unit) != row["words"]["accented"]):
+            unit_bad.append((code, "accented", unit))
+        for k in ("straight_apostrophe", "curly_apostrophe"):
+            mark = ("an apostrophe" if row["words"]["straight_apostrophe"]
+                    == row["words"]["curly_apostrophe"]
+                    else "a " + k.replace("_", " "))
+            if (mark in kept) != row["words"][k]:
+                unit_bad.append((code, k, unit))
+    check("...and each row's stated word unit says what its tokenizer "
+          "keeps and what splits a word", not unit_bad, unit_bad)
+
+    # THE WORD A LINE OPENS ON, read off the anaphora row's own reader
+    # (`SlopFloor._anaphora`): two lines open on one word when their rate
+    # is 1. A mark is trimmed when it is cut at both ends of a word.
+    import string
+
+    def _same_opening(a, b):
+        return floor_._anaphora([a, b])[0] == 1.0
+    marks = sorted(set(string.punctuation) | set(
+        "\u2018\u2019\u201c\u201d\u2014\u2013\u2026\u00ab\u00bb"))
+    read_open = {
+        "trimmed": {m for m in marks if _same_opening(m + "ab", "ab")
+                    and _same_opening("ab" + m, "ab")},
+        "case_folded": _same_opening("Ab", "ab"),
+        "apostrophes_folded": _same_opening("a\u2019b", "a'b")}
+    split_on_space = (_same_opening("ab cd", "ab ef")
+                      and not _same_opening("ab-cd", "ab"))
+    open_rows = {c for c, r in PLN.STOP_RULES.items() if "opening" in r}
+    opening = PLN.STOP_RULES.get("ANAPHORA_OVERLOAD", {}).get("opening") or {}
+    got_open = dict(opening, trimmed=set(opening.get("trimmed", "")))
+    check("...and the anaphora row carries how its reader takes the word a "
+          "line opens on, probed from `SlopFloor._anaphora`, and no other "
+          "row carries one", open_rows == {"ANAPHORA_OVERLOAD"}
+          and split_on_space and got_open == read_open
+          and len(opening.get("trimmed", "")) == len(read_open["trimmed"]),
+          (open_rows, split_on_space, got_open, read_open))
+    said_open = PLN._limit_opening_word(opening)
+    open_bad = [m for m in read_open["trimmed"]
+                if f" {m} " not in said_open and f" {m} cut" not in said_open]
+    if "everything before its first space" not in said_open:
+        open_bad.append("first space")
+    if ("in any case" in said_open) != read_open["case_folded"]:
+        open_bad.append("case")
+    if ("a curly apostrophe and a straight one make different words"
+            in said_open) == read_open["apostrophes_folded"]:
+        open_bad.append("apostrophes")
+    for mark, chars in (("a quote mark", '"\u201c'), ("a bracket", "([")):
+        if (mark in said_open) != (not set(chars) & read_open["trimmed"]):
+            open_bad.append(mark)
+    check("...and the anaphora row's stated opening word says what that "
+          "reader cuts, keeps and folds", not open_bad, (open_bad, said_open))
+
+    # THE NEVER ROWS: each stated reason, checked against the code.
+    never = {c for c, r in PLN.STOP_RULES.items() if r["applies"] == "never"}
+    fit_never = {"ZERO_DURATION", "BEAT_OUTSIDE_CYCLE",
+                 "START_BEFORE_SECTION", "OVERRUNS_SECTION", "START_OFF_GRID"}
+    check("...and the rows marked never are the five placement codes, "
+          "HOOK_ABSENT, CLICHE_PAIR, MATTR_WINDOW_UNCALIBRATED and the meter "
+          "codes the grade cannot raise, each with a stated reason",
+          never == fit_never | {"HOOK_ABSENT", "CLICHE_PAIR",
+                                "MATTR_WINDOW_UNCALIBRATED"} | never_meter
+          and all(PLN.STOP_RULES[c].get("never") for c in never),
+          sorted(never))
+    decl = _F.FloorDeclaration()
+    check("...CLICHE_PAIR: the default declaration lists no banned pairs",
+          decl.cliche_pairs == frozenset(), f"{decl.cliche_pairs}")
+    check("...MATTR_WINDOW_UNCALIBRATED: the default window is the "
+          "calibrated one",
+          decl.mattr_window == _F.CALIBRATION["mattr_window"]["value"],
+          f"{decl.mattr_window}")
+
+    # ONE UNBROKEN RUN, read off `grid.hook_findings`: on a drawn plan's
+    # lines, a hook line whose words come back in order with one word put
+    # between them does not recur, and one that comes back as an unbroken
+    # run inside a longer line does; a title whose words sit in the hook
+    # line in order with one word between them is not in the hook, and one
+    # that sits there unbroken is. Both rows say one unbroken run.
+    p_h = next(make_plan(s, form=f) for f in PLN.PLAN_FORMS for s in
+               range(1, 9) if make_plan(s, form=f).get("hook_slot"))
+    hs = p_h["hook_slot"]
+    _wrd = lambda i: "".join("bcdfghjklm"[int(c)] + "a" for c in str(i))
+    base = [" ".join(_wrd(10 * ln + w) for w in range(4))
+            for ln in range(1, p_h["total_lines"] + 1)]
+    other = next(ln for ln in range(p_h["total_lines"]) if ln != hs - 1)
+    hw = base[hs - 1].split()
+    filler = _wrd(9999)
+
+    def _hook_codes(lines, title):
+        bp = fill_plan(p_h, lines)
+        song, hooks = song_from_blueprint(bp)
+        return {f.code for f in _GRD.hook_findings(song, hooks,
+                                                    title=title)[0]}
+    broke = list(base)
+    broke[other] = " ".join(hw[:1] + [filler] + hw[1:])
+    whole = list(base)
+    whole[other] = " ".join([filler] + hw + [filler])
+    t_broke = list(base)
+    t_broke[hs - 1] = " ".join(hw[:1] + [filler] + hw[1:])
+    t_broke[other] = t_broke[hs - 1]
+    t_whole = list(whole)
+    title = " ".join(hw[:2])
+    run_ok = ("HOOK_DOES_NOT_RECUR" in _hook_codes(broke, title)
+              and "HOOK_DOES_NOT_RECUR" not in _hook_codes(whole, title)
+              and "TITLE_NOT_IN_HOOK" in _hook_codes(t_broke, title)
+              and "TITLE_NOT_IN_HOOK" not in _hook_codes(t_whole, title))
+    p_t = dict(p_h, title=title)
+    said = (PLN._limit_hook_recurs(p_t), PLN._limit_title_in_hook(p_t))
+    check("...and the hook and title rows say what grid.hook_findings "
+          "needs: the words as one unbroken run, in the same order (words "
+          "in order with one between them are flagged)",
+          run_ok and all("one unbroken run, in the same order" in s
+                         for s in said), (run_ok, said))
+
+    plans, refused, n_spread = _stop_rule_plans()
+    tlo, thi = PLN.tokens_per_line_band()
+    live = _F.live_profiles()
+    reach_lo = min(p.band()[0] for p in live)
+    reach_hi = max(p.band()[1] for p in live)
+    check("...OUT_OF_CALIBRATED_LENGTH's reach is where the grader picks a "
+          "profile: none just outside it, one at each end",
+          _F.declaration_for(reach_lo - 1)[0] is None
+          and _F.declaration_for(reach_hi + 1)[0] is None
+          and _F.declaration_for(reach_lo)[0] is not None
+          and _F.declaration_for(reach_hi)[0] is not None,
+          f"{reach_lo}-{reach_hi}")
+
+    def _span(vals, fmt):
+        a, b = fmt(min(vals)), fmt(max(vals))
+        return a if a == b else f"{a} to {b}"
+
+    def _pct(v):
+        return f"{100 * v:.1f}%"
+
+    mis_rows, mis_nums, not_last, fit_hits, hook_bad, pair_bad = \
+        [], [], [], [], [], []
+    clause_bad, units_scoped, band_bad = [], [], []
+    capped_n = under_lo = 0
+    seen = Counter()
+    pair_counts = Counter()
+    from quality.features import QualityFeatures as _QF
+    # THE SHORT-SONG CLAUSE'S BRANCH, read off the statistic itself: at the
+    # window's length or under, the variety measure is the plain share of
+    # distinct words (`QualityFeatures._mattr`, `len(words) <= window`).
+    w_ = decl.mattr_window
+    import random as _rnd
+    _r = _rnd.Random(w_)
+    toks = [f"w{_r.randrange(w_ // 2)}" for _ in range(w_ + 1)]
+    check("...the short-song clause's branch is the statistic's own: at "
+          "the window's length the measure is the plain share of distinct "
+          "words, one word past it it is not that share",
+          _QF._mattr(toks[:w_], w_) == len(set(toks[:w_])) / w_
+          and _QF._mattr(toks, w_) != len(set(toks)) / len(toks),
+          f"{_QF._mattr(toks[:w_], w_)} {_QF._mattr(toks, w_)}")
+    for kw, seed, p in plans:
+        tag = (str(kw), seed)
+        n = p["total_lines"]
+        brief = p["writer_brief"]
+        block = PLN._stop_block(p)
+        lines_b = brief.splitlines()
+        if (not block or brief.count(PLN.STOP_BLOCK_HEAD) != 1
+                or lines_b[-len(block):] != block):
+            not_last.append(tag)
+            continue
+        rows, unit_lines = {}, {}
+        for ln in block[1:]:
+            m = re.match(r"^  ([A-Z][A-Z_]+) \((flag|ungraded|unjudged)\): "
+                         r"(.*)\.$", ln)
+            if m:
+                rows[m.group(1)] = (m.group(2), m.group(3))
+            u = re.match(r"^  In ([A-Z_, ]+?(?: and [A-Z_]+)?), (a word is "
+                         r"[^.]*)\.", ln)
+            if u:
+                for c in re.split(r", | and ", u.group(1)):
+                    unit_lines[c] = u.group(2)
+            elif not m:
+                # A sentence that is neither a row nor a scoped word unit
+                # would be read as holding for every row.
+                units_scoped.append((tag, "unscoped", ln[:60]))
+        # EACH ROW THAT COUNTS WORDS IS NAMED IN THE ONE SENTENCE THAT STATES
+        # ITS OWN UNIT, and no row is told another grader's unit.
+        unit_want = {c: PLN._limit_word_unit(PLN.STOP_RULES[c]["words"])
+                     for c in rows if PLN.STOP_RULES[c].get("words")}
+        if unit_lines != unit_want:
+            units_scoped.append((tag, unit_lines, unit_want))
+        # WHEN EACH ROW APPLIES, recomputed from the plan and the grader.
+        gs = [g.split(",") for g in p["groups"].split(";")]
+        rets = ([[int(x) for x in r.split(",")]
+                 for r in p["returns"].split(";")] if p["returns"] else None)
+        m_ = SC.mandate(gs, n_lines=n, returns=rets,
+                        relations=p.get("relations"),
+                        default_relation=p.get("relation"))
+        fpairs = sorted(_RV._floor_pair_groups(m_))
+        pair_counts[min(len(fpairs), 2)] += 1
+        if PLN._floor_pairs(p) != fpairs:
+            pair_bad.append((tag, PLN._floor_pairs(p)[:3], fpairs[:3]))
+        # THE TWO "A NOTE INSTEAD" CLAUSES, against the floor the grader
+        # builds for this plan (`Reviser._floor_for`): the openings clause
+        # when it declares lines that open alike, the variety clause when it
+        # declares word-for-word copies to drop.
+        fl_ = reviser._floor_for(m_)[0]
+        clause_want = {
+            "ANAPHORA_OVERLOAD": bool(fl_.declared_opening_classes),
+            "LEXICAL_MONOTONY": bool(fl_.declared_lexical_classes)}
+        clause_got = {c: "a note instead" in rows[c][1]
+                      for c in clause_want if c in rows}
+        if any(clause_got[c] != clause_want[c] for c in clause_got):
+            clause_bad.append((tag, clause_got, clause_want))
+        # THE WORD BAND, from fit's own slot count: a word has at least one
+        # syllable and fit flags SLOTS_EXCEEDED past one syllable a slot, so
+        # the song's slots bound its words. Where they fall below the
+        # words-a-line band's top, the band is read under them.
+        if p["line_slots"]:
+            draft = dummy_draft(p)
+            bp = fill_plan(p, draft)
+            places = _FT.from_blueprint(bp)[1]
+            sub = _FT.Subdivision(p["subdivision"],
+                                  source="test_plan stop rules")
+            slot_caps = [len(_FT._slot_positions(pl, sub)) for pl in places]
+        else:
+            slot_caps = None
+        b_lo, b_hi = int(math.ceil(tlo * n)), int(math.floor(thi * n))
+        capped = slot_caps is not None and sum(slot_caps) < b_hi
+        if capped:
+            under_lo += sum(slot_caps) < b_lo
+            b_lo = int(math.ceil(tlo * sum(slot_caps) / thi))
+            b_hi = sum(slot_caps)
+        capped_n += capped
+        if PLN._word_count_band(p) != (b_lo, b_hi):
+            band_bad.append((tag, PLN._word_count_band(p), (b_lo, b_hi)))
+        said_band = (f"read at {b_lo} to {b_hi} words, {b_hi} being one word "
+                     f"for each syllable" if capped else
+                     f"read at {tlo:g} to {thi:g} words a line ({b_lo} to "
+                     f"{b_hi} words)")
+        if any(c in rows for c in PLN.LENGTH_LIMIT_CODES) and not any(
+                said_band in ln for ln in block):
+            band_bad.append((tag, "range sentence", said_band))
+        if "LEXICAL_MONOTONY" in rows:
+            lo_n = b_lo
+            if (("over the whole song at " in rows["LEXICAL_MONOTONY"][1])
+                    != (lo_n <= decl.mattr_window)):
+                clause_bad.append((tag, "whole-song clause", lo_n))
+        if "SCHEME_VIOLATION" in rows and "same word" in rows[
+                "SCHEME_VIOLATION"][1]:
+            # The grader charges a repeated word only on a pair that already
+            # fails its group's rule (`Reviser.inspect` skips a verdict with
+            # no `why`), and many drawn rules ask for one, so the row may
+            # not say a repeated word counts against the pair.
+            clause_bad.append((tag, "SCHEME_VIOLATION same word"))
+        band = range(b_lo, b_hi + 1)
+        limits = {}
+        for key in ("anaphora_max", "function_word_ratio_max", "mattr_min"):
+            vals = set()
+            for nt in band:
+                prof, exact = _F.declaration_for(nt, n)
+                if exact:
+                    v = decl.resolve(key, prof, nt)
+                    if v is not None:
+                        vals.add(v)
+            limits[key] = sorted(vals)
+        want = {"OUT_OF_CALIBRATED_LENGTH", "SCHEME_VIOLATION",
+                "HOMEOTELEUTON", "MODAL_RHYME"} | {
+            c for c in live_unjudged
+            if PLN.STOP_RULES[c]["layer"] == "rhyme"}
+        for code, key in (("ANAPHORA_OVERLOAD", "anaphora_max"),
+                          ("FUNCTION_WORD_HEAVY", "function_word_ratio_max"),
+                          ("LEXICAL_MONOTONY", "mattr_min")):
+            if limits[key]:
+                want.add(code)
+        if n >= _SH.ADOPTED["MIN_LINES"]:
+            want.add("STACKED_DRAFT")
+        if p["line_slots"]:
+            want.add("SLOTS_EXCEEDED")
+            # The plan is the blueprint a seeded grade carries, so its meter
+            # layer is asked.
+            want.update(c for c in live_unjudged
+                        if PLN.STOP_RULES[c]["layer"] == "meter")
+        if p["returns"]:
+            want.add("RETURN_NOT_VERBATIM")
+        if p.get("hook_slot"):
+            want.add("HOOK_DOES_NOT_RECUR")
+            if p.get("title"):
+                want.add("TITLE_NOT_IN_HOOK")
+        # A floor-pair flag needs a second pair (floor.py, "only one rhyme
+        # pair here" is a note), so the row asks for two.
+        if len(fpairs) >= 2:
+            want.add("REPEAT_IN_VERSE")
+        seen.update(want)
+        if set(rows) != want or len(rows) != len(block) - 1 - len(
+                set(unit_lines.values())):
+            mis_rows.append((tag, sorted(set(rows) ^ want)))
+            continue
+        # EACH NUMBER, the grader's own, computed here independently.
+        exp = {"OUT_OF_CALIBRATED_LENGTH":
+               [f"fewer than {reach_lo} or more than {reach_hi} words"]}
+        if "ANAPHORA_OVERLOAD" in want:
+            caps = sorted({max(c for c in range(n + 1) if not c / n > t)
+                           for t in limits["anaphora_max"]})
+            exp["ANAPHORA_OVERLOAD"] = [
+                f"more than {_span(caps, str)} of the {n} lines open",
+                f"({said_open})"]
+        if "FUNCTION_WORD_HEAVY" in want:
+            exp["FUNCTION_WORD_HEAVY"] = [
+                f"more than {_span(limits['function_word_ratio_max'], _pct)}"
+                f" of the song's words"]
+        if "LEXICAL_MONOTONY" in want:
+            exp["LEXICAL_MONOTONY"] = [
+                f"each run of {decl.mattr_window} words",
+                f"fall below {_span(limits['mattr_min'], lambda v: f'{v:.3f}')}"]
+        if "STACKED_DRAFT" in want:
+            a = _SH.ADOPTED
+            k = min(c for c in range(n + 1)
+                    if c / n >= a["STACKED_FRACTION_MAX"])
+            exp["STACKED_DRAFT"] = [
+                f"{k} or more of the {n} lines",
+                f"{a['MIN_TOKENS']} or more words",
+                f"at most {_pct(a['FUNC_SHARE_MAX'])} grammar words",
+                f"at least {a['COMMAS_PER_TOKEN_MIN']} commas per word"]
+        if "SLOTS_EXCEEDED" in want:
+            caps = slot_caps
+            exp["SLOTS_EXCEEDED"] = [f"({_span(caps, str)} here)"]
+            # THE FIVE PLACEMENT CODES NEVER HOLD on the plan's own lines:
+            # the reason the never rows state, read off fit's own checks.
+            for i, pl in enumerate(places):
+                got = {f.code for f in _FT.fit_line(
+                    draft[i], pl, subdivision=sub, line_index=i).findings}
+                if got & fit_never:
+                    fit_hits.append((tag, i + 1, sorted(got & fit_never)))
+            # HOOK_ABSENT: the hook is the draft's own hook line, so it
+            # occurs; with no hook line the blueprint asks for no hook.
+            hs = p.get("hook_slot")
+            if hs:
+                song = song_from_blueprint(bp)[0]
+                if (bp["hooks"] != [draft[hs - 1]]
+                        or not hook_occurrences(song, draft[hs - 1])):
+                    hook_bad.append(tag)
+            elif bp["hooks"]:
+                hook_bad.append(tag)
+        if "HOOK_DOES_NOT_RECUR" in want:
+            exp["HOOK_DOES_NOT_RECUR"] = [f"line {p['hook_slot']}"]
+        if "TITLE_NOT_IN_HOOK" in want:
+            exp["TITLE_NOT_IN_HOOK"] = [f"inside line {p['hook_slot']}"]
+        if "REPEAT_IN_VERSE" in want:
+            exp["REPEAT_IN_VERSE"] = [
+                f"at least {100 * decl.radif_min_pair_fraction:g}% of the pairs"]
+        exp["MODAL_RHYME"] = [
+            f"among the {_RV.ReviseDeclaration().modal_exclusion} or fewer"]
+        for code, frags in exp.items():
+            text = rows[code][1]
+            for fr in frags:
+                if fr not in text:
+                    mis_nums.append((tag, code, fr, text[:80]))
+        for code, (kind, _t) in rows.items():
+            if kind != kinds.get(code):
+                mis_nums.append((tag, code, "kind", kind))
+    check(f"...over drawn plans ({n_spread} spreads x seeds 1-4), the stop "
+          "block is the last thing in the brief, printed once",
+          plans and not not_last, f"{not_last[:3]}; {len(plans)} plans, "
+          f"refused {refused}")
+    check("...and its rows are exactly the rules whose condition holds for "
+          "the plan", not mis_rows, mis_rows[:3])
+    check("...and each row that counts words is named in the sentence that "
+          "states its own grader's word unit, on every drawn plan",
+          not units_scoped, units_scoped[:3])
+    check("...and every row the spread is meant to reach is reached: the "
+          "stacked-draft floor, returns, a hook, a titled hook and the "
+          "floor-pair row",
+          all(seen[c] for c in ("STACKED_DRAFT", "RETURN_NOT_VERBATIM",
+                                "HOOK_DOES_NOT_RECUR", "TITLE_NOT_IN_HOOK",
+                                "REPEAT_IN_VERSE"))
+          and any(p["total_lines"] < _SH.ADOPTED["MIN_LINES"]
+                  for _k, _s, p in plans)
+          and any(not p["returns"] for _k, _s, p in plans), dict(seen))
+    check("...and the spread draws plans with no floor pair, exactly one "
+          "(a note, so no REPEAT_IN_VERSE row) and two or more",
+          all(pair_counts[k] for k in (0, 1, 2)), dict(pair_counts))
+    check("...and each exception clause shows exactly when the grader's "
+          "own floor for the plan has it: openings that match, copies to "
+          "drop, the whole-song reading under the window; and the group "
+          "row does not say a repeated word counts against a pair",
+          not clause_bad, clause_bad[:3])
+    check("...and the word band the length limits are read at is the "
+          "words-a-line band held under the plan's slot count (fit's own), "
+          "and the range sentence states it; the spread draws plans whose "
+          "slots fall below the band's low end and plans they leave whole",
+          not band_bad and under_lo and capped_n < len(plans),
+          (band_bad[:3], under_lo, capped_n))
+    check("...and each printed number is the grader's own, read at every "
+          "word count in the plan's word band", not mis_nums,
+          mis_nums[:3])
+    check("...and plan.py's floor pairs are the grader's "
+          "(`revise._floor_pair_groups`) on every drawn plan", not pair_bad,
+          pair_bad[:3])
+    check("...and the five placement codes never fire on a planned line "
+          "(fit.fit_line on every line of every drawn plan)", not fit_hits,
+          fit_hits[:3])
+    check("...and HOOK_ABSENT cannot fire: a hook line is in the draft, and "
+          "a plan with no hook line asks for no hook", not hook_bad,
+          hook_bad[:3])
+
+
 _SECTIONS = (
     test_satisfied_wants_remain_in_the_request,
     test_a_request_refusal_is_the_requests,
@@ -5954,6 +6936,7 @@ _SECTIONS = (
     test_a_chosen_type_reaches_the_grader,
     test_once_generation,
     test_a_refusal_names_what_was_sent,
+    test_the_stop_rules,
 )
 
 if __name__ == "__main__":

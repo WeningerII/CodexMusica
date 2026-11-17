@@ -6566,6 +6566,11 @@ const lyHasGuidance = () => {
   const meta = lyMeta();
   return !!meta.brief.trim() || Object.values(meta.notes || {}).some((n) => String(n).trim());
 };
+// A new song sends no declaration (stage 3): the page has no setting for its
+// form, length, sections, rhyme or time, so it cannot tell a thing the person
+// left open from one they asked for in their message. The writer states each
+// on the sweep, from the message or by asking the person. A `draw` sent here
+// read as an exact declaration over what the person typed.
 function lyContext(model, { document = true } = {}) {
   const meta = lyMeta();
   const guidance = document || LY.reuseBrief === true;

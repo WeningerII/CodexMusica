@@ -1688,7 +1688,7 @@ surface: Lyrics — Write with AI → New song
 implementation: new-lyrics → lyStartConversation('lyrics') in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: A new lyrics task carries the brief and section notes as lyric_context; creation keeps its server-enforced sweep → screen → plan → grade → revise.
+notes: A new lyrics task carries the brief and section notes as lyric_context; creation keeps its server-enforced sweep → plan → screen → grade → revise.
 ```
 
 ```yaml

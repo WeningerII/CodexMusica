@@ -15,7 +15,14 @@ import {
   LYRIC_TOOL_SCHEMAS,
   KITCHEN_REVISE_SCHEMA,
 } from './lyric_tools.js';
-import { PLAN_FIELDS, READING_FIELDS } from './lyric_workflow.js';
+import {
+  FORM_ROWS,
+  LINES_FLOOR,
+  PLAN_FIELDS,
+  READING_FIELDS,
+  STATEABLE,
+  statementsOf,
+} from './lyric_workflow.js';
 import { runRefusal } from './run_store.js';
 import { buildSurface, declarationsFor } from './gemini_agent.js';
 import { instructionsForTask } from './task_contract.js';
@@ -262,7 +269,13 @@ test('published capacities and vocabularies match the harness they describe', ()
         'import json\n' +
           'from quality import plan, rhyme_types\n' +
           'print(json.dumps({"max_lines": plan.ENVELOPE["total_lines"][1], ' +
-          '"forms": list(plan.PLAN_FORMS), "positions": list(rhyme_types.POSITION)}))',
+          '"min_lines": plan.ENVELOPE["total_lines"][0], ' +
+          '"forms": list(plan.PLAN_FORMS), "positions": list(rhyme_types.POSITION), ' +
+          '"form_rows": [{"form": f, "requires": sorted(plan.FORM_REQUIRES.get(f, ())), ' +
+          '"recurs": sorted(plan.FORM_RECURS.get(f, ())), ' +
+          '"min_lines": min(plan.fillable_line_counts(f))} for f in plan.PLAN_FORMS], ' +
+          '"measures": sorted(plan.SWEEP_MEASURES), "roster": sorted(plan.GENERATOR_ROSTER), ' +
+          '"sets": sorted(plan.SWEEP_SETS), "orders": sorted(plan.SWEEP_ORDERS)}))',
       ],
       { cwd: HARNESS, encoding: 'utf8' }
     )
@@ -272,6 +285,62 @@ test('published capacities and vocabularies match the harness they describe', ()
   assert.equal(PUBLISHED_MAX_LINES(), read.max_lines, 'the planner envelope');
   assert.deepEqual(PLAN_FORMS, read.forms, 'the planner forms');
   assert.deepEqual(TYPE_POSITIONS, read.positions, 'the rhyme-type positions');
+  // Stage 3: the form rows the sweep refusal and `form` are built from, the
+  // length floor, and every want name a STATEABLE row reads (a name ending
+  // `.*` stands for that name with each function the planner can draw).
+  assert.deepEqual(
+    FORM_ROWS.map((r) => ({ ...r, requires: [...r.requires], recurs: [...r.recurs] })),
+    read.form_rows,
+    'the planner form rows'
+  );
+  assert.equal(LINES_FLOOR, read.min_lines, 'the planner length floor');
+  const wantNames = [...read.measures, ...read.sets, ...read.orders];
+  for (const row of STATEABLE)
+    for (const k of row.wants) {
+      const names = k.endsWith('.*') ? read.roster.map((f) => k.slice(0, -1) + f) : [k];
+      for (const name of names)
+        assert.ok(wantNames.includes(name), `${row.thing}: ${name} is not a sweep want name`);
+    }
+  // Which thing each of the planner's want names states, decided name by
+  // name: a bound on the song's lines states its length; a bound on how many
+  // sections there are, or on which functions appear (each function `uses`
+  // and `before` name must be drawn), states its sections; a bound on a
+  // line's beats, bars or slots states its time. Every other name states
+  // nothing, a section's own line counts included: `lines_per_section`,
+  // `min_lines.F` and `max_lines.F` share a prefix with `lines` and do not
+  // bound the song's length. A name the planner adds states nothing until a
+  // row here says what it states.
+  const STATES = {
+    lines: 'length',
+    sections: 'sections',
+    'sections.*': 'sections',
+    uses: 'sections',
+    before: 'sections',
+    beats_per_line: 'time',
+    bars_per_line: 'time',
+    slots_per_line: 'time',
+  };
+  const thingOf = (name) =>
+    STATES[name] ?? STATES[`${name.slice(0, name.indexOf('.') + 1)}*`] ?? null;
+  const op = (name) => (read.sets.includes(name) || read.orders.includes(name) ? '=' : '>=');
+  for (const name of wantNames) {
+    const { rows } = statementsOf({ want: [`${name}${op(name)}1`] });
+    const said = rows.filter((s) => s.said === 'want').map((s) => s.row.thing);
+    assert.deepEqual(said, thingOf(name) ? [thingOf(name)] : [], name);
+  }
+  // A name that only begins with a stating name states nothing.
+  for (const row of STATEABLE)
+    for (const k of row.wants.filter((w) => !w.endsWith('.*'))) {
+      const longer = wantNames.filter((n) => n !== k && n.startsWith(k) && !thingOf(n));
+      for (const name of longer) {
+        const { rows } = statementsOf({ want: [`${name}${op(name)}1`] });
+        assert.equal(rows.find((s) => s.row === row).said, null, `${name} states ${row.thing}`);
+      }
+    }
+  assert.ok(
+    wantNames.filter((n) => n !== 'lines' && n.startsWith('lines')).length,
+    'the planner has a want name that begins with `lines`'
+  );
 });
 
 // Every published lyric string, on every surface a lyric tool is built for.

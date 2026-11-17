@@ -4,6 +4,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { connectConnector } from './client.js';
+import { stated } from './statement_fixture.mjs';
 import { instructionsForTask } from './task_contract.js';
 import { withExecutionContext } from './execution_context.js';
 import { takeLines, LYRIC_TOOL_SCHEMAS, _verdictInternals } from './lyric_tools.js';
@@ -107,7 +108,14 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
       /Each predicate held on its own, of the 28 planned: lines<=24 on 0; uses=verse,chorus on 28; /
     );
     assert.match(empty.window_meaning, /at most \d+\.\d% of seeds are kept under this request/);
-    assert.match(empty.window_meaning, /declare a target length in `lines`/);
+    // `uses=` states the sections, so the roster is not advised. `lines<=24`
+    // only caps the length, which is left drawn: that is the case the length
+    // advice is for, so it is given.
+    assert.doesNotMatch(empty.window_meaning, /declare the section roster in `functions`/);
+    assert.match(
+      empty.window_meaning,
+      /Before dropping a predicate: declare a target length in `lines` \(a length the planner is not sent is drawn long, so a length cap rarely holds\) or continue from next_seed_from\.$/
+    );
     assert.doesNotMatch(empty.window_meaning, /acceptance rate/);
     assert.doesNotMatch(empty.report, /unreachable in this range/);
 
@@ -213,7 +221,7 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
     try {
       const kept = [];
       for (let from = 0; kept.length < 5; from += 2) {
-        const r = await host.call('lyric_sweep', { seed_from: from, count: 2, functions });
+        const r = await host.call('lyric_sweep', stated({ seed_from: from, count: 2, functions }));
         kept.push(JSON.parse(r.content.find((b) => b.text.startsWith('{')).text));
       }
       assert.deepEqual(

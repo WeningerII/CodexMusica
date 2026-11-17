@@ -10,6 +10,7 @@ import { WorkflowSessions } from './workflow_sessions.js';
 import { JobStore } from './job_store.js';
 import { startRecipe, editRecipe, renderRecipe, ENV_FIELDS } from './engine.js';
 import { _verdictInternals } from './lyric_tools.js';
+import { stated } from './statement_fixture.mjs';
 const require = createRequire(import.meta.url);
 const W = require('../scripts/_workspace_ops.js');
 const { createRegistrar } = require('../scripts/ci_node_test_groups.js');
@@ -23,19 +24,19 @@ async function connect(session) {
   return connectConnector({ task: 'lyrics', transport: b, session });
 }
 
-test('native creation blocks bypass, records real sweep/screen/plan, survives reconnect', async () => {
+test('native creation blocks bypass, records real sweep/plan/screen, survives reconnect', async () => {
   let c = await connect();
   try {
     await assert.rejects(c.call('lyric_check', { draft: ['words'] }), /CREATION_PLAN/);
     await assert.rejects(c.call('lyric_plan', { seed: 31 }), /CREATION_ORDER/);
-    const swept = await c.call('lyric_sweep', { seed_from: 31, count: 1, lines: 12 });
+    const swept = await c.call('lyric_sweep', stated({ seed_from: 31, count: 1, lines: 12 }));
     assert(!swept.isError, JSON.stringify(swept));
     const sw = JSON.parse(swept.content[0].text);
     assert.equal(sw.exit_code, 0);
     const seed = sw.accepted_shown[0];
     assert(Number.isInteger(seed));
-    await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
     await c.call('lyric_plan', { seed, lines: 12 });
+    await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
     const session = c.snapshot();
     assert(session.task.workflow.plan, JSON.stringify(session.task.workflow));
     const lines = Array(12).fill('The kettle whistles by the stove');
@@ -103,15 +104,15 @@ test('a redrawn seed keeps its 64-bit candidates exact through sweep, plan and g
           .find((value) => Number.isInteger(value.exit_code));
       const wants = want ? { want: [want] } : {};
       const sw = verdict(
-        await c.call('lyric_sweep', { seed_from: seed, count: 1, lines: 12, ...wants })
+        await c.call('lyric_sweep', stated({ seed_from: seed, count: 1, lines: 12, ...wants }))
       );
       assert.deepEqual(sw.accepted_shown, [seed]);
-      await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
       const planned = await c.call('lyric_plan', {
         seed,
         lines: 12,
         ...(want ? { wants: [want] } : {}),
       });
+      await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
       const [label, field] = want
         ? ['BRIEF SELECTION', 'brief_selection']
         : ['SEED REDRAW', 'seed_redraw'];

@@ -187,11 +187,11 @@ async function reviseLoop(flow, first) {
 }
 
 const t0 = Date.now();
-// A new song: sweep -> screen -> plan -> write -> grade -> revise.
+// A new song: sweep -> plan -> screen -> write -> grade -> revise.
 const sweep = await call('create', 'lyric_sweep', { seed_from: 0, count: 4, lines: LINES });
 const seed = sweep.v?.accepted_shown?.[0] ?? 0;
-await call('create', 'lyric_screen', { words: [...new Set(ends)].slice(0, 12) });
 await call('create', 'lyric_plan', { seed, lines: LINES });
+await call('create', 'lyric_screen', { words: [...new Set(ends)].slice(0, 12) });
 await call('create', 'lyric_grade', { seed, lines: LINES, draft: song });
 await reviseLoop('create', { seed, lines: LINES, draft: song, new_run: true, max_rounds: 2 });
 // Lyrics someone pasted: recover -> check -> revise -> verify.
