@@ -18,6 +18,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { JobStore } from './job_store.js';
 import { WorkflowSessions, verdictOf } from './workflow_sessions.js';
+import { BRIEFS } from './lyric_tools.js';
 
 function storeFor(t) {
   const directory = mkdtempSync(join(tmpdir(), 'chatgpt-mcp-'));
@@ -60,8 +61,17 @@ test('a parked new song continues exactly as its note says', { timeout: 300_000 
   ];
   const budget = { max_rounds: 1, attempts: 0, backtrack: 0 };
   await run('lyric_grade', { seed, draft });
+  // An earlier run on this song left L3 protected. L3 is not open at the
+  // park, but it is a partner of open lines under the PLAN's groups and
+  // returns (a planned run declares none), so the park briefs it, as the
+  // website chat's parked note says, and the rewrite below may change it.
+  BRIEFS.resetForTests();
+  t.after(() => BRIEFS.resetForTests());
+  await BRIEFS.capture({ runId: 'an-earlier-run', cur: draft, input: draft, flagged: [3] });
   const parked = await run('lyric_revise', { seed, draft, ...budget });
   assert.equal(verdictOf(parked.tool_result).exit_code, 3, JSON.stringify(parked));
+  for (const e of BRIEFS.free.values())
+    if (!e.retired) assert.ok(!e.prot.includes(3), JSON.stringify(e.prot));
   // As data: the choice is the writer's (which words), and the call that
   // takes the rewritten draft in this session is the grade. No run id shows.
   assert.deepEqual(verdictOf(parked.tool_result).outcome, {

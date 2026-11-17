@@ -299,9 +299,16 @@ export function continueNote(footnote, task = null) {
 
 // The brief gate's refusals (lyric_tools.js) name the raw engine's call; in
 // a session the same call carries the latest session_id, and recover_only
-// exports what the session holds.
-export function briefNote(text) {
+// exports what the session holds. A new song's session revises only a draft
+// it graded, so there the draft is graded first.
+export function briefNote(text, task = null) {
   if (!/\bBRIEF_(?:REQUIRED|LEDGER_UNAVAILABLE): /.test(text)) return text;
+  if (task?.phase === 'create')
+    text = text.replace(
+      /Call lyric_revise with `new_run: true` and this draft( with [^.]*?)?([,.])/,
+      (_, which = '', end) =>
+        `Grade this draft${which} with lyric_grade, then call lyric_revise with that exact draft, the latest session_id and \`new_run: true\`${end}`
+    );
   return text
     .replace(
       'Call lyric_revise with `new_run: true` and',
@@ -411,7 +418,8 @@ export function publicToolResult(result, task = null, view = {}) {
       const text = briefNote(
         block.text.replace(/\n\nCONTINUE: (?:(?!\n\n)[\s\S])*/, (footnote) =>
           continueNote(footnote, task)
-        )
+        ),
+        task
       );
       return { type: 'text', text: privateRun(text) };
     }
@@ -437,6 +445,14 @@ export async function executeNative(session, name, input) {
         );
       args.workspace = next.workspace;
     }
+  } else if (['lyric_check', 'lyric_recover'].includes(name)) {
+    // Checking other lines moves the session off the song a revision left:
+    // a restart with no draft then has none to start from.
+    if (
+      Array.isArray(next.left_draft) &&
+      (!Array.isArray(args.draft) || requestDigest(args.draft) !== requestDigest(next.left_draft))
+    )
+      next.left_draft = null;
   } else if (name === 'lyric_revise') {
     if (args.new_run) next.native.continuation = null;
     // A restart that sends no lyrics starts from the song as the last

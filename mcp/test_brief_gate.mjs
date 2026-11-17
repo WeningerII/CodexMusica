@@ -11,7 +11,8 @@
 import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFile } from 'node:child_process';
-import { mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -23,7 +24,7 @@ import { BRIEFS, RUNS } from './lyric_tools.js';
 import { withExecutionContext } from './execution_context.js';
 import { encodeState, decodeState } from './state_codec.js';
 import { JobStore } from './job_store.js';
-import { WorkflowSessions, verdictOf as sessionVerdict } from './workflow_sessions.js';
+import { WorkflowSessions, briefNote, verdictOf as sessionVerdict } from './workflow_sessions.js';
 import { BRIEF_RETAIN_MS } from './brief_ledger.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -240,6 +241,12 @@ test('G9: after its 3 hours an entry no longer refuses', async () => {
 
 test('G10: a store that cannot be read refuses every run; recover_only still exports', async () => {
   const first = await opened();
+  // A file that is not JSON: re-reading it fails again.
+  const dir = mkdtempSync(path.join(tmpdir(), 'brief-gate-bad-'));
+  const bad = path.join(dir, 'brief-ledger.json');
+  writeFileSync(bad, '{not json');
+  const file = BRIEFS.file;
+  BRIEFS.file = bad;
   BRIEFS.isHealthy = false;
   BRIEFS.loadFailed = true;
   try {
@@ -249,7 +256,9 @@ test('G10: a store that cannot be read refuses every run; recover_only still exp
     const exported = await call({ recover_only: true, state: first.state });
     assert.ok(!exported.isError, text(exported).slice(0, 600));
   } finally {
+    BRIEFS.file = file;
     BRIEFS.resetForTests();
+    rmSync(dir, { recursive: true, force: true });
   }
 });
 
@@ -287,7 +296,11 @@ test('G11: an edit session is held to the same rule, and its refusal names the s
 test('G12: a no-op run inherits what the run before it protected', async () => {
   await opened();
   admitted(await call({ ...DECL, new_run: true, draft: INPUT }));
-  assert.equal(BRIEFS.free.size, 1, 'the no-op run superseded the first');
+  assert.equal(
+    [...BRIEFS.free.values()].filter((e) => !e.retired).length,
+    1,
+    'the no-op run superseded the first'
+  );
   assertBrief(await call({ ...DECL, new_run: true, draft: ['Cat', 'Dog', 'Moon'] }), /line 3 /);
 });
 
@@ -316,6 +329,10 @@ test('G16: after a journal_capacity stop, a new run on its final_draft starts', 
   const first = await opened();
   const near = decodeState(first.state);
   near.retained_metadata = 'x'.repeat(1040 * 1024);
+  // That padded state is not one this server returned, and a state it did
+  // not return is refused for a song a live run knows (G18): the store is
+  // emptied so the padding reaches the harness.
+  BRIEFS.resetForTests();
   const capacity = verdict(await call({ state: encodeState(near), answer: FIX }));
   assert.equal(capacity.status, 'journal_capacity');
   admitted(await call({ ...DECL, new_run: true, draft: capacity.final_draft }));
@@ -345,6 +362,73 @@ test('answer 1: new_run with a run_id and no draft starts from the song as it wa
   const second = await fixed(await opened());
   const again = admitted(await call({ new_run: true, run_id: second.run_id, ...DECL }));
   assert.deepEqual(again.replay_draft, second.final_draft);
+});
+
+test('G18: a forged journal is refused for a song a live run knows, so its records brief nothing', async () => {
+  const first = await opened();
+  const forged = decodeState(first.state);
+  // An answer record claiming line 3 was asked on this very draft.
+  const fp = createHash('md5').update(INPUT.join('\n')).digest('hex').slice(0, 12);
+  forged.answered = {
+    ...forged.answered,
+    propose: [...(forged.answered?.propose || []), { line: 3, text: 'Moon', draft: fp }],
+  };
+  const r = await call({ state: encodeState(forged), answer: FIX });
+  assert.ok(refused(r), text(r).slice(0, 800));
+  assert.match(text(r), /not one this server returned/);
+  for (const line of [...INPUT, FIX, 'Moon'])
+    assert.doesNotMatch(text(r), new RegExp(`\\b${line}\\b`), 'no lyric text in a refusal');
+  // Line 3 is still protected.
+  assertBrief(await call({ ...DECL, new_run: true, draft: ['Cat', 'Dog', 'Moon'] }), /line 3 /);
+});
+
+test('G19: a run set aside while another run on the song fixed a line still continues', async () => {
+  const a = await opened();
+  const b = verdict(await call({ ...DECL, new_run: true, draft: INPUT }));
+  assert.equal(b.exit_code, 4);
+  await fixed(b);
+  // The first run's own state answers its own question.
+  const resumed = admitted(await call({ state: a.state, answer: FIX }));
+  assert.equal(resumed.exit_code, 4, JSON.stringify(resumed).slice(0, 600));
+});
+
+test('G20: in a session for a new song the refusal grades the draft before the revise', () => {
+  const raw =
+    'BRIEF_REQUIRED: line 4 changes a line the revise loop flagged without giving its brief. Nothing was run. Lines this draft may change: 1-3. Call lyric_revise with `new_run: true` and this draft with line 4 as the last lyric_revise returned it.';
+  assert.match(
+    briefNote(raw, { phase: 'create' }),
+    /Grade this draft with line 4 as the last lyric_revise returned it with lyric_grade, then call lyric_revise with that exact draft, the latest session_id and `new_run: true`\.$/
+  );
+  assert.match(
+    briefNote(raw, { phase: 'edit' }),
+    /Call lyric_revise with the latest session_id, `new_run: true` and this draft with line 4/
+  );
+});
+
+test('G21: an edit session that checks other lines has no left song to restart from', async (t) => {
+  const directory = mkdtempSync(path.join(tmpdir(), 'brief-gate-left-'));
+  t.after(() => rmSync(directory, { recursive: true, force: true }));
+  const sessions = new WorkflowSessions({ store: new JobStore(directory) });
+  let session_id = sessions.open('lyrics', { phase: 'edit' }).session_id;
+  const run = async (name, args) => {
+    const q = sessions.submit(session_id, 'lyrics', name, args);
+    await sessions.wait(q.operation_id);
+    const r = sessions.status(q.operation_id, 'lyrics');
+    if (r.session_id) session_id = r.session_id;
+    return r;
+  };
+  const { writer: _w, ...decl } = DECL;
+  const opening = await run('lyric_revise', { ...decl, draft: INPUT });
+  assert.equal(sessionVerdict(opening.tool_result).exit_code, 4, JSON.stringify(opening));
+  await run('lyric_check', {
+    scheme: 'AAA',
+    relation: 'class:RHYME',
+    draft: ['Moon', 'Spoon', 'June'],
+  });
+  const again = await run('lyric_revise', { ...decl, new_run: true });
+  const said = JSON.stringify(again);
+  assert.ok(again.tool_error || again.tool_result?.isError, said.slice(0, 800));
+  assert.doesNotMatch(said, /AWAITING PROPOSAL/, 'the earlier song is not revised');
 });
 
 test.after(async () => {

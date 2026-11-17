@@ -39,10 +39,18 @@ const song = (tag, n = 8) =>
   Array.from({ length: n }, (_, i) => `${tag} placeholder line ${i + 1}`);
 const ledger = (opts = {}) => new BriefLedger({ key: KEY, log: quiet(), ...opts });
 
-test('fold keeps letters and digits only, after NFKC and lowercase', () => {
+test('fold keeps letters, marks and digits, after NFKC and lowercase', () => {
   assert.equal(fold('Ｈｅｌｌｏ, World!  2'), 'helloworld2');
-  assert.equal(fold('  —…  '), '');
   assert.equal(fold('Ünïcode Ok'), fold('ünïcode ok'));
+  // A vowel sign or tone mark is part of the word: changing it is a change.
+  assert.notEqual(fold('कि'), fold('का'));
+  assert.notEqual(fold('दिल टूटा'), fold('दल टट'));
+  assert.notEqual(fold('ไม่'), fold('ไม้'));
+  // A line with no letters keeps its symbols; blank lines stay alike.
+  assert.notEqual(fold('🔥🔥'), fold('✨'));
+  assert.equal(fold('🔥 🔥!'), fold('🔥🔥!'));
+  assert.equal(fold('   '), fold(''));
+  assert.notEqual(fold('  —…  '), fold(''));
 });
 
 test('digests: keyed, short, folded, and not recoverable without the key', () => {
@@ -149,6 +157,7 @@ test('undo: putting back the pre-fix text is refused, compared folded', async ()
   const r = b.check({ runId: 'r3', lineSets: [back] });
   assert.equal(r.ok, false);
   assert.deepEqual(r.undone, [4]);
+  assert.ok(!r.may.includes(4), 'the refused line is not among those the draft may change');
   const other = cur.slice();
   other[3] = 'yet another wording';
   assert.equal(b.check({ runId: 'r3', lineSets: [other] }).ok, true);
@@ -172,7 +181,7 @@ test('a removed protected line is named by the line before it; inserts are free'
   assert.deepEqual(b.check({ runId: 'r4b', lineSets: [first.slice(1)] }).removedAfter, [0]);
 });
 
-test('content match: more than half the lines, or every protected line present', async () => {
+test('content match: more than half the lines in common', async () => {
   const b = ledger();
   const cur = song('s5', 10);
   await b.capture({ runId: 'r5', cur, input: cur, flagged: [2] });
@@ -184,12 +193,13 @@ test('content match: more than half the lines, or every protected line present',
   // Half or fewer kept and line 2 edited -> a new song.
   const half = cur.map((l, i) => (i < 5 && i !== 1 ? l : `fresh ${i}`));
   assert.equal(b.check({ lineSets: [half] }).ok, true);
-  // Only the protected line kept (the rest rewritten) -> still matched, passes.
+  // Only the protected line kept (the rest rewritten) -> a new song: it
+  // neither takes over the run's entry nor inherits its protection.
   const kept = cur.map((l, i) => (i === 1 ? l : `fresh ${i}`));
   const r = b.check({ lineSets: [kept] });
   assert.equal(r.ok, true);
-  assert.equal(r.supersedes.length, 1);
-  assert.deepEqual(r.inherited.prot, [2]);
+  assert.deepEqual(r.supersedes, []);
+  assert.deepEqual(r.inherited.prot, []);
   // Every line set is checked: a clean draft with an edited wire line set.
   assert.equal(b.check({ lineSets: [cur, most] }).set, 1);
 });
@@ -226,7 +236,7 @@ test('inheritance: a no-op run cannot launder protection away', async () => {
     supersedes: c.supersedes,
     inherited: c.inherited,
   });
-  assert.equal(b.get(c.supersedes[0].id), null, 'the old entry is retired');
+  assert.equal(b.get(c.supersedes[0].id).retired, true, 'the old entry is retired');
   const edit = draft.slice();
   edit[3] = 'hand edit';
   assert.deepEqual(b.check({ lineSets: [edit] }).changed, [4]);
@@ -234,7 +244,7 @@ test('inheritance: a no-op run cannot launder protection away', async () => {
   await b.capture({ runId: 'r7b', cur: draft, input: draft, inherited: c.inherited, briefed: [4] });
   assert.equal(b.check({ lineSets: [edit] }).ok, true);
   await b.capture({ runId: 'r7c', cur: draft, input: draft, flagged: [1, 2], whole: true });
-  assert.equal(b.get(c.supersedes[0].id), null);
+  assert.equal(b.get(c.supersedes[0].id).retired, true);
 });
 
 test('supersede is compare-and-set: two concurrent captures, and a moved entry', async () => {
@@ -249,7 +259,7 @@ test('supersede is compare-and-set: two concurrent captures, and a moved entry',
     b.capture({ runId: 'x1', cur, input: cur, supersedes: c1.supersedes, inherited: c1.inherited }),
     b.capture({ runId: 'x2', cur, input: cur, supersedes: c2.supersedes, inherited: c2.inherited }),
   ]);
-  assert.equal(b.get(c1.supersedes[0].id), null);
+  assert.equal(b.get(c1.supersedes[0].id).retired, true);
   const edit = cur.slice();
   edit[1] = 'hand edit';
   const r = b.check({ lineSets: [edit] });
@@ -418,4 +428,132 @@ test('resetForTests empties the store', async () => {
   b.resetForTests();
   assert.equal(b.free.size + b.paid.size + b.index.size, 0);
   assert.equal(b.healthy, true);
+});
+
+test('a song that only shares a protected line neither matches nor takes over the run', async () => {
+  const b = ledger();
+  const cur = song('d1', 6);
+  await b.capture({ runId: 'orig', cur, input: cur, flagged: [3] });
+  // A decoy holding the protected line verbatim, and nothing else of the song.
+  const decoy = ['decoy one', cur[2], 'decoy three'];
+  const c = b.check({ runId: 'decoy', lineSets: [decoy] });
+  assert.equal(c.ok, true);
+  assert.deepEqual(c.supersedes, []);
+  assert.deepEqual(c.inherited.prot, []);
+  await b.capture({
+    runId: 'decoy',
+    cur: decoy,
+    input: decoy,
+    flagged: [2],
+    supersedes: c.supersedes,
+    inherited: c.inherited,
+  });
+  b.forget({ runId: 'decoy', supersedes: c.supersedes });
+  // The original song is still guarded.
+  const edit = cur.slice();
+  edit[2] = 'a hand edit of line three';
+  assert.deepEqual(b.check({ lineSets: [edit] }).changed, [3]);
+  // An unrelated song sharing that line and another, in the other order, is
+  // admitted rather than told a line of someone else's run was removed.
+  const stranger = [cur[4], 'other two', cur[2], 'other four', 'other five'];
+  const s2 = b.check({ lineSets: [stranger] });
+  assert.equal(s2.ok, true);
+  assert.deepEqual(s2.supersedes, []);
+});
+
+test('a replaced line may not come back after its line is deleted, nor as an inserted line', async () => {
+  const b = ledger();
+  const input = song('u1', 6);
+  const cur = input.slice();
+  cur[1] = 'the loop replaced line two';
+  await b.capture({ runId: 'u', cur, input });
+  // One call: the old text added as a new line, the fix kept.
+  const added = [...cur, input[1]];
+  assert.deepEqual(b.check({ lineSets: [added] }).undone, [7]);
+  // Two calls: delete the fixed line (admitted), then put the old text back.
+  const step1 = cur.filter((_, i) => i !== 1);
+  const c1 = b.check({ runId: 'u2', lineSets: [step1] });
+  assert.equal(c1.ok, true);
+  assert.equal(c1.inherited.undo.length, 1);
+  assert.equal(c1.inherited.undo[0][0], 0, 'carried with no place');
+  await b.capture({
+    runId: 'u2',
+    cur: step1,
+    input: step1,
+    supersedes: c1.supersedes,
+    inherited: c1.inherited,
+  });
+  const r = b.check({ lineSets: [input] });
+  assert.equal(r.ok, false);
+  assert.deepEqual(r.undone, [2]);
+  assert.ok(!r.may.includes(2));
+  // A different new line is fine.
+  assert.equal(b.check({ lineSets: [[...step1, 'a different line']] }).ok, true);
+  // It survives a reload.
+  const file = path.join(tmpDir(), 'u.json');
+  const d = ledger({ file });
+  await d.capture({ runId: 'u3', cur: step1, input: step1, inherited: c1.inherited });
+  assert.deepEqual(ledger({ file }).check({ lineSets: [input] }).undone, [2]);
+});
+
+test('a run set aside on a song another run took over still continues on its own wire', async () => {
+  const b = ledger();
+  const cur = song('a1', 6);
+  await b.capture({ runId: 'A', cur, input: cur, flagged: [2], wire: 'wire-a' });
+  const c = b.check({ runId: 'B', lineSets: [cur] });
+  assert.equal(c.ok, true);
+  const fixed = cur.slice();
+  fixed[1] = 'the other run replaced line two';
+  await b.capture({
+    runId: 'B',
+    cur: fixed,
+    input: cur,
+    wire: 'wire-b',
+    supersedes: c.supersedes,
+    inherited: c.inherited,
+  });
+  assert.equal(b.minted('wire-a'), true, 'the retired entry still holds its wire');
+  assert.equal(b.check({ runId: 'A', lineSets: [cur], wires: ['wire-a'] }).ok, true);
+  // Without the wire, the same lines answer to the run that took over.
+  assert.deepEqual(b.check({ lineSets: [cur] }).undone, [2]);
+});
+
+test('the line budget prunes the oldest entries before the count cap', async () => {
+  const b = ledger({ lineBudget: 20 });
+  for (let i = 0; i < 3; i++) {
+    const s = song(`lb${i}`);
+    await b.capture({ runId: `lb${i}`, cur: s, input: s, flagged: [1] });
+  }
+  assert.equal(b.free.size, 2);
+  const old = song('lb0');
+  old[0] = 'edited';
+  assert.equal(b.check({ lineSets: [old] }).ok, true);
+});
+
+test('a memory-only store whose key failed once recovers', () => {
+  let calls = 0;
+  const b = new BriefLedger({
+    key: () => {
+      if (calls++ === 0) throw new Error('not yet');
+      return KEY;
+    },
+    log: quiet(),
+  });
+  assert.equal(b.healthy, false);
+  assert.equal(b.recover(), true);
+  assert.equal(b.healthy, true);
+});
+
+test('a file in another format fails closed and is not written over', () => {
+  const file = path.join(tmpDir(), 'b.json');
+  for (const body of [
+    '{"v":2,"entries":[1,2]}',
+    '{"v":1,"free":[],"paid":[]}',
+    '{"v":1,"kc":"x"}',
+  ]) {
+    fs.writeFileSync(file, body);
+    const b = ledger({ file });
+    assert.equal(b.healthy, false, body);
+    assert.equal(fs.readFileSync(file, 'utf8'), body);
+  }
 });

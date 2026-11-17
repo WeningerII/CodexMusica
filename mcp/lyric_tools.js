@@ -488,6 +488,13 @@ const lineWords = (ns) =>
 // The refusal names line numbers only, in the incoming draft's numbering, and
 // never a line's text or the run it matched.
 function briefRefusal(res) {
+  if (res.reason === 'unminted_wire')
+    return (
+      'BRIEF_REQUIRED: the state or checkpoint this call carries is not one this server returned, ' +
+      'and the song it holds is one a live revise run flagged lines in, so its lines cannot be taken ' +
+      "as that run's. Nothing was run. Call lyric_revise with `new_run: true` and this draft, or " +
+      'continue with the state or checkpoint the last lyric_revise returned.'
+    );
   const parts = [];
   if (res.changed.length)
     parts.push(
@@ -520,6 +527,9 @@ function briefRefusal(res) {
 }
 
 const briefWireKey = (w) => (typeof w === 'string' && w ? wireKey(w) : null);
+// Progress captures are written to disk at most once a second over every run
+// in this process (each write saves the whole store); a stop always writes.
+let briefProgressSavedAt = 0;
 // A capture never fails the call it records: a failed save leaves the store
 // unhealthy, and the next run is refused until it recovers.
 function briefCapture(entry) {
@@ -3524,10 +3534,13 @@ export function registerLyricTools(server, tool) {
                 .flatMap((j) => [curOf(j), j.accepted_lines, j.final_draft])
                 .filter(Array.isArray);
               const briefBase = briefLines[0] || a.draft;
+              // Every incoming wire goes to the check: one this server did not
+              // return, for a song a live run knows, is refused outright, so a
+              // forged journal's records never brief a line.
               const briefCheck = BRIEFS.check({
                 runId,
                 lineSets: briefLines.length ? briefLines : [a.draft],
-                wires: briefMinted ? briefKeys : [],
+                wires: briefKeys,
               });
               if (!briefCheck.ok) throw refuse(briefRefusal(briefCheck));
               const briefPaid = writer === 'kitchen';
@@ -3554,15 +3567,14 @@ export function registerLyricTools(server, tool) {
               // at most once a second, and only once a resumed run has replayed
               // up to where its wire left it.
               let briefCaught = !briefMinted;
-              let briefSavedAt = 0;
               const briefProgress = (record) => {
                 try {
                   const cur = curOf(record);
                   if (!Array.isArray(cur)) return;
                   if (!briefCaught && JSON.stringify(cur) !== JSON.stringify(briefBase)) return;
                   briefCaught = true;
-                  const persist = Date.now() - briefSavedAt >= 1000;
-                  if (persist) briefSavedAt = Date.now();
+                  const persist = Date.now() - briefProgressSavedAt >= 1000;
+                  if (persist) briefProgressSavedAt = Date.now();
                   briefAt('progress', record, cur, { persist });
                 } catch (err) {
                   console.error(`[briefs] progress not recorded (${err.message})`);
@@ -3861,11 +3873,25 @@ export function registerLyricTools(server, tool) {
                 if (r.code === 0 && verdict.certified !== false)
                   BRIEFS.forget({ runId, supersedes: briefCheck.supersedes });
                 else if (Array.isArray(exactDraft)) {
+                  // A planned song's groups and returns are the plan's (a
+                  // seeded run may not declare them), as the website chat's
+                  // parked note reads them.
+                  let plan = null;
+                  if (seeded) {
+                    const planPath = path.join(dir, 'brief-plan.json');
+                    const p = await runVerb(['plan', ...planArgs(a), `--out=${planPath}`]);
+                    if (p.code === 0)
+                      try {
+                        plan = JSON.parse(await readFile(planPath, 'utf8'));
+                      } catch {
+                        plan = null;
+                      }
+                  }
                   const changeable = parkedChangeable({
                     open: verdict.loop_unresolved_lines,
                     whole: verdict.loop_whole_flag_codes,
-                    groups: declaredGroups(a),
-                    returns: declaredReturns(a),
+                    groups: declaredGroups(a, plan?.groups),
+                    returns: declaredReturns(a, plan?.returns),
                     draft: exactDraft,
                   });
                   await briefCapture({

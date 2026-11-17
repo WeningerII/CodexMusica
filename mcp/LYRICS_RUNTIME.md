@@ -628,15 +628,18 @@ to start independent work on a draft.
 
 Brief provenance (#665): `new_run` does not reset what a line is owed. Each
 `lyric_revise` run records, per line, a keyed digest of its folded text (NFKC,
-lowercase, letters and digits only; no lyric text is stored) for the lines the
-loop flagged without asking about them and for the lines its loop replaced
-(`mcp/brief_ledger.js`). A later run on any connection, by any caller, whose
-draft keeps more than half of that song's lines, or keeps every protected line,
-is checked against it before anything runs: a protected line changed (beyond
-case, spacing or punctuation), removed, or a replaced line put back is refused
-with `BRIEF_REQUIRED`, which names the line numbers, the lines the draft may
-change and the call that works. A rewrite of more than half the song is a new
-song. A stop briefs its open lines with their rhyme groups and returns; a
+lowercase, letters, marks and digits only; no lyric text is stored) for the
+lines the loop flagged without asking about them and for the lines its loop
+replaced (`mcp/brief_ledger.js`). A later run on any connection, by any caller,
+whose draft keeps more than half of that song's lines is checked against it
+before anything runs: a protected line changed (beyond case, spacing or
+punctuation), removed, or a replaced line's old text put back (in its place or
+on any new line) is refused with `BRIEF_REQUIRED`, which names the line
+numbers, the lines the draft may change and the call that works. A draft that
+keeps half the song or less is a new song, even where it shares a protected
+line. A state or checkpoint this server did not return, for a song a live run
+knows, is refused the same way. A run set aside by a later run on its song
+still continues on its own state. A stop briefs its open lines with their rhyme groups and returns; a
 question briefs the lines it asks. Entries last 3 hours, paid included, and a
 certified exit 0 forgets its song. A restart that sends no draft starts from
 the song as the run left it, its accepted fixes included. The store is

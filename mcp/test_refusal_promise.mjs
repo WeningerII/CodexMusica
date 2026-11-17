@@ -916,8 +916,13 @@ row({
   phrases: ['lyric_revise with the latest session_id and `recover_only: true`'],
   reach: async (r) => {
     BRIEFS.resetForTests();
+    // A key that cannot be loaded: recover() fails again.
+    const keySource = BRIEFS.keySource;
+    BRIEFS.keySource = () => {
+      throw new Error('no key in this test');
+    };
+    BRIEFS.key = null;
     BRIEFS.isHealthy = false;
-    BRIEFS.loadFailed = true;
     try {
       return await r.call('lyric_revise', {
         session_id: r.seed('lyrics', undefined, { phase: 'edit' }),
@@ -925,6 +930,7 @@ row({
         draft: briefSong,
       });
     } finally {
+      BRIEFS.keySource = keySource;
       BRIEFS.resetForTests();
     }
   },

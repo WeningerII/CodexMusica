@@ -2,10 +2,11 @@
 // kept across calls so a later run cannot hand-edit them (Refs #665).
 //
 // One entry per run. It holds no lyric text: every line is kept only as a
-// short keyed digest of its FOLDED text (NFKC, lowercase, letters and digits
-// only), under a key derived from the server secret and used for nothing
-// else. "Changed" and "put back" are both judged on that folded text, so a
-// retype that differs only in case, spacing or punctuation is the same line.
+// short keyed digest of its FOLDED text (NFKC, lowercase, letters, marks and
+// digits only), under a key derived from the server secret and used for
+// nothing else. "Changed" and "put back" are both judged on that folded text,
+// so a retype that differs only in case, spacing or punctuation is the same
+// line.
 //
 // The store fails closed: a file that cannot be read or parsed (or a key that
 // cannot be loaded) makes it unhealthy, and while it is unhealthy the caller
@@ -25,8 +26,13 @@ import { loadChatSecret } from './job_store.js';
 export const BRIEF_RETAIN_MS = 3 * 60 * 60 * 1000;
 export const BRIEF_CAP = 2000; // free partition, by count, plus the TTL
 export const BRIEF_PAID_CAP = 2000; // writer === 'kitchen'; the same TTL
+// Lines kept per partition, over all its entries: a store of long songs is
+// pruned oldest first before its count cap is reached, so the heap and the
+// cost of each save stay bounded.
+export const BRIEF_LINE_BUDGET = 100_000;
 const MAX_CANDIDATES = 8;
 const MAX_WIRES = 8;
+const MAX_UNDO = 256;
 const KEY_LABEL = 'lyric-brief-v1';
 const STATUSES = new Set([
   'progress',
@@ -40,11 +46,12 @@ const STATUSES = new Set([
 // The same entry id RunLedger uses for a run_id (run_store.js).
 const runDigest = (runId) => createHash('sha256').update(String(runId)).digest('hex').slice(0, 32);
 
+// Letters, combining marks (a vowel sign is part of the word) and digits. A
+// line with none of them keeps its symbols, so two such lines stay apart.
 export function fold(line) {
-  return String(line)
-    .normalize('NFKC')
-    .toLowerCase()
-    .replace(/[^\p{L}\p{N}]/gu, '');
+  const text = String(line).normalize('NFKC');
+  const kept = text.toLowerCase().replace(/[^\p{L}\p{M}\p{N}]/gu, '');
+  return kept || '\0' + text.replace(/\s+/gu, '');
 }
 
 export function deriveBriefKey(secret) {
@@ -115,11 +122,14 @@ function validEntry(e) {
     return false;
   if (!e.fo.every(DIGEST)) return false;
   if (!Array.isArray(e.prot) || !e.prot.every((p) => LINE(p, e.n))) return false;
+  // An undo item's line 0 is a replaced line no longer in the song: its old
+  // text may not come back anywhere.
   if (
     !Array.isArray(e.undo) ||
-    !e.undo.every((u) => Array.isArray(u) && LINE(u[0], e.n) && DIGEST(u[1]))
+    !e.undo.every((u) => Array.isArray(u) && (u[0] === 0 || LINE(u[0], e.n)) && DIGEST(u[1]))
   )
     return false;
+  if (e.retired !== undefined && typeof e.retired !== 'boolean') return false;
   return Array.isArray(e.wires) && e.wires.every(WIRE);
 }
 
@@ -134,6 +144,7 @@ export class BriefLedger {
     retainMs = BRIEF_RETAIN_MS,
     cap = BRIEF_CAP,
     paidCap = BRIEF_PAID_CAP,
+    lineBudget = BRIEF_LINE_BUDGET,
     log = console.error,
   } = {}) {
     this.file = file;
@@ -142,6 +153,7 @@ export class BriefLedger {
     this.retainMs = retainMs;
     this.cap = cap;
     this.paidCap = paidCap;
+    this.lineBudget = lineBudget;
     this.log = log;
     this.free = new Map(); // id -> entry, insertion order = recency
     this.paid = new Map();
@@ -191,7 +203,10 @@ export class BriefLedger {
   // are malformed are skipped one by one; a file that is not JSON, or not an
   // object, fails closed.
   load() {
-    if (!this.file) return;
+    if (!this.file) {
+      this.loadFailed = false;
+      return;
+    }
     try {
       const base = path.basename(this.file) + '.';
       for (const name of fs.readdirSync(path.dirname(this.file)))
@@ -203,6 +218,15 @@ export class BriefLedger {
       raw = JSON.parse(fs.readFileSync(this.file, 'utf8'));
       if (!raw || typeof raw !== 'object' || Array.isArray(raw))
         throw new Error('store is not an object');
+      // Only this store's own format is read (or, with another key, started
+      // over); any other file fails closed rather than being written over.
+      if (
+        raw.v !== 1 ||
+        typeof raw.kc !== 'string' ||
+        !Array.isArray(raw.free) ||
+        !Array.isArray(raw.paid)
+      )
+        throw new Error('store is not a brief ledger');
     } catch (err) {
       if (err.code === 'ENOENT') {
         this.loadFailed = false;
@@ -223,7 +247,7 @@ export class BriefLedger {
       ['free', this.free],
       ['paid', this.paid],
     ])
-      for (const e of Array.isArray(raw[part]) ? raw[part] : [])
+      for (const e of raw[part])
         if (validEntry(e) && e.t >= cutoff && !this.get(e.id)) {
           const entry = {
             id: e.id,
@@ -234,6 +258,7 @@ export class BriefLedger {
             prot: uniq(e.prot),
             undo: e.undo.map((u) => [u[0], u[1]]),
             wires: e.wires.slice(-MAX_WIRES),
+            ...(e.retired ? { retired: true } : {}),
           };
           map.set(e.id, entry);
           this.indexAdd(entry);
@@ -311,7 +336,10 @@ export class BriefLedger {
     return this.paid.get(id) || this.free.get(id) || null;
   }
 
+  // A retired entry (one a later run on its song took over) is not matched
+  // by content; it still answers for its own run_id and its own wires.
   indexAdd(e) {
+    if (e.retired) return;
     for (const d of new Set(e.fo)) {
       if (!this.index.has(d)) this.index.set(d, new Set());
       this.index.get(d).add(e.id);
@@ -347,12 +375,16 @@ export class BriefLedger {
     for (const [map, cap] of [
       [this.free, this.cap],
       [this.paid, this.paidCap],
-    ])
+    ]) {
+      let lines = 0;
+      for (const e of map.values()) lines += e.n;
       for (const [id, e] of map) {
-        if (e.t >= cutoff && map.size <= cap) break;
+        if (e.t >= cutoff && map.size <= cap && lines <= this.lineBudget) break;
+        lines -= e.n;
         this.drop(id);
         changed = true;
       }
+    }
     // Entries are in recency order, so the loop above stops at the first live
     // one; a stale one behind it (a clock moved back) is caught here.
     for (const map of [this.free, this.paid])
@@ -364,8 +396,11 @@ export class BriefLedger {
     return changed;
   }
 
-  // Live entries the draft could descend from: more than half its lines in
-  // common (folded LCS), or every protected line present. Newest first.
+  // Live entries the draft descends from: more than half its lines in common
+  // (folded LCS). A song that merely shares a line with another run's song,
+  // a protected one included, is a different song: it is not checked
+  // against that run, and it neither takes over nor inherits its protection.
+  // Newest first.
   matches(sets, exclude) {
     const ids = new Set();
     for (const fo of sets)
@@ -377,7 +412,6 @@ export class BriefLedger {
       if (!e) continue;
       const hit = sets.some((fo) => {
         const have = new Set(fo);
-        if (e.prot.length && e.prot.every((p) => have.has(e.fo[p - 1]))) return true;
         let shared = 0;
         for (const d of e.fo) if (have.has(d)) shared++;
         const need = Math.max(fo.length, e.n);
@@ -416,11 +450,19 @@ export class BriefLedger {
         else prot.push(j + 1);
       }
     }
+    // A replaced line's old text may not come back on any line that is not
+    // one of the entry's own lines kept as they were: at its place, on an
+    // inserted line, or (once its line is gone) anywhere.
+    const paired = new Set(align.pairs.map(([, j]) => j));
     for (const [line, d] of e.undo) {
-      const j = map[line - 1];
-      if (j < 0) continue;
-      if (fo[j] === d) undone.push(j + 1);
-      else undo.push([j + 1, d]);
+      const j = line ? map[line - 1] : -1;
+      let back = false;
+      for (let k = 0; k < fo.length; k++)
+        if (fo[k] === d && !paired.has(k)) {
+          undone.push(k + 1);
+          back = true;
+        }
+      if (!back) undo.push([j >= 0 ? j + 1 : 0, d]);
     }
     return { changed, removedAfter, undone, held, prot, undo };
   }
@@ -444,11 +486,6 @@ export class BriefLedger {
         for (const e of map.values())
           if (e.id !== ownId && e.wires.some((d) => ds.has(d))) cands.push(e);
     } else cands.push(...this.matches(sets, ownId).slice(0, MAX_CANDIDATES - cands.length));
-    const none = { changed: [], removedAfter: [], undone: [], may: [] };
-    // A wire this server did not return, for a song a live entry knows, is
-    // refused outright: its decoded lines are not the run's own.
-    if (wireList.length && !exempt && cands.length)
-      return { ok: false, reason: 'unminted_wire', set: 0, ...none };
     const inherited = { prot: [], undo: [] };
     for (let k = 0; k < sets.length; k++) {
       const fo = sets[k];
@@ -457,7 +494,7 @@ export class BriefLedger {
       const removedAfter = uniq(out.flatMap((o) => o.removedAfter));
       const undone = uniq(out.flatMap((o) => o.undone));
       if (changed.length || removedAfter.length || undone.length) {
-        const held = new Set(out.flatMap((o) => o.held));
+        const held = new Set([...out.flatMap((o) => o.held), ...undone]);
         const may = [];
         for (let j = 1; j <= fo.length; j++) if (!held.has(j)) may.push(j);
         return { ok: false, reason: 'brief', set: k, changed, removedAfter, undone, may };
@@ -473,6 +510,19 @@ export class BriefLedger {
             }
       }
     }
+    // A wire this server did not return, for a song a live entry knows, is
+    // refused outright even where its lines pass: its records (what it says
+    // was asked and answered) are not the run's own.
+    if (wireList.length && !exempt && cands.length)
+      return {
+        ok: false,
+        reason: 'unminted_wire',
+        set: 0,
+        changed: [],
+        removedAfter: [],
+        undone: [],
+        may: [],
+      };
     return {
       ok: true,
       supersedes: cands.filter((e) => e.id !== ownId).map((e) => ({ id: e.id, t: e.t })),
@@ -520,7 +570,7 @@ export class BriefLedger {
     const undo = [];
     const seen = new Set();
     const addUndo = (line, d) => {
-      if (!LINE(line, n) || !DIGEST(d) || curFo[line - 1] === d) return;
+      if (!DIGEST(d) || (line !== 0 && (!LINE(line, n) || curFo[line - 1] === d))) return;
       const k = line + ':' + d;
       if (!seen.has(k)) {
         seen.add(k);
@@ -537,12 +587,28 @@ export class BriefLedger {
       if (k >= 0) wires.splice(k, 1);
       wires.push(d);
     }
-    for (const s of supersedes || [])
-      if (s && s.id !== id && this.get(s.id)?.t === s.t) this.drop(s.id);
+    // A superseded entry is retired, not dropped: it no longer matches by
+    // content, but a run set aside on it can still continue on its own wire.
+    for (const s of supersedes || []) {
+      const old = s && s.id !== id ? this.get(s.id) : null;
+      if (old && old.t === s.t && !old.retired) {
+        this.indexDrop(old);
+        old.retired = true;
+      }
+    }
     let t = this.now();
     if (prev && prev.t >= t) t = prev.t + 1; // t moves forward, for compare-and-set
     this.put(
-      { id, t, status, n, fo: curFo, prot, undo, wires: wires.slice(-MAX_WIRES) },
+      {
+        id,
+        t,
+        status,
+        n,
+        fo: curFo,
+        prot,
+        undo: undo.slice(-MAX_UNDO),
+        wires: wires.slice(-MAX_WIRES),
+      },
       paid === true
     );
     this.prune();
