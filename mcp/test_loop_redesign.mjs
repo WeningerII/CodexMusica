@@ -14,7 +14,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { decodeState, encodeInterviewWire, verifyInterviewCursor } from './state_codec.js';
-import { _verdictInternals as VI } from './lyric_tools.js';
+import { BRIEFS, _verdictInternals as VI } from './lyric_tools.js';
 import { _agentInternals as AI } from './gemini_agent.js';
 
 const sealedState = () => ({
@@ -103,7 +103,7 @@ test('T3 (connector): option B — no folded row is unknown, and a passed-by ans
   assert.ok(!rows.some((r) => r.verdict === 'unknown'), 'no row is unknown');
 });
 
-test('live: a continuation keeps a sealed cursor; a tampered one is reported and replays', async () => {
+test('live: a continuation keeps a sealed cursor; a tampered one is refused while a live run knows the song, otherwise reported and replayed', async () => {
   const server = buildServer();
   const client = new Client({ name: 'loop-redesign', version: '1' }, { capabilities: {} });
   const [a, b] = InMemoryTransport.createLinkedPair();
@@ -147,11 +147,28 @@ test('live: a continuation keeps a sealed cursor; a tampered one is reported and
     const forged = decodeState(first.state);
     forged.cursor.loop.at = 5;
     const { encodeState } = await import('./state_codec.js');
-    const third = await call({ ...decl, draft, state: encodeState(forged), answer });
+    const forgedWire = encodeState(forged);
+    // While the run's brief entry is live, a state this server never returned
+    // for that song is refused outright (the forged-wire rule).
+    const refused = await client.callTool(
+      { name: 'lyric_revise', arguments: { ...decl, draft, state: forgedWire, answer } },
+      undefined,
+      { timeout: 600000 }
+    );
+    assert.equal(refused.isError, true, JSON.stringify(refused).slice(0, 500));
+    assert.match(
+      refused.content[0].text,
+      /^(Error: )?BRIEF_REQUIRED: .*not one this server returned/
+    );
+    // With no live entry for the song (expired after 3 h, a reset store, or
+    // another process), the seal path still runs: stripped, reported, replayed.
+    BRIEFS.resetForTests();
+    const third = await call({ ...decl, draft, state: forgedWire, answer });
     assert.equal(third.exit_code, 4);
     assert.equal(third.cursor_stripped, 'seal', 'a forged cursor is reported as `seal`');
     assert.deepEqual(third.asked, second.asked, 'replay reaches the question the resume reached');
   } finally {
+    BRIEFS.resetForTests();
     await client.close();
     await server.close();
   }

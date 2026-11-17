@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
-import test from 'node:test';
+import test, { after } from 'node:test';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { connectConnector } from './client.js';
 import { buildServer } from './tools.js';
+import { BRIEFS } from './lyric_tools.js';
 
 // P9's session cases (duplicate coverage rows for one end word), split from
 // test_session_repairs.mjs: together they run about 90 s on the real harness,
@@ -14,6 +15,13 @@ import { buildServer } from './tools.js';
 // comments below describe.
 const VC = 'verse-chorus';
 
+// Every draft here is the same filler line plus one 'zorblax' line, so any two
+// drafts share all but one line and the brief ledger (which matches a song by
+// content across sessions) would treat each case and seed as the same song: an
+// earlier run's protected zorblax line would gate the next draft. Each case and
+// each seed starts with an empty ledger, and this file leaves none behind.
+after(() => BRIEFS.resetForTests());
+
 async function connect(session) {
   const server = buildServer({ task: { domain: 'lyrics' } });
   const [a, b] = InMemoryTransport.createLinkedPair();
@@ -22,6 +30,7 @@ async function connect(session) {
 }
 
 test('two checks refusing one end word leave unique coverage ids and a grade receipt', async () => {
+  BRIEFS.resetForTests();
   const c = await connect();
   try {
     const verdict = (result) =>
@@ -91,6 +100,7 @@ test('an end word refused by two or three overlapping checks keeps one id', asyn
     [22, 24, 'outro', ['intro', 'chorus', 'outro']],
     [82, 8, 'chorus', ['chorus', 'chorus', 'reprise', 'outro']],
   ]) {
+    BRIEFS.resetForTests();
     const c = await connect();
     try {
       const verdict = (result) =>
