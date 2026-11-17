@@ -276,6 +276,8 @@ function visible(value) {
 // continues with the answer; a stopped (parked) run has no pending question,
 // so going on is a new run on a rewritten draft — graded first for a new song,
 // because creation admits revision only of a draft graded against its plan.
+const BRIEF_KEEP =
+  ' A line the loop replaced keeps its new text: a draft that puts the old text back is refused (BRIEF_REQUIRED).';
 export function continueNote(footnote, task = null) {
   if (!/no question is pending/.test(footnote))
     return (
@@ -287,10 +289,32 @@ export function continueNote(footnote, task = null) {
     ? '\n\nCONTINUE: no question is pending. Rewrite the open line(s), then call lyric_revise with ' +
         'the latest session_id, the complete rewritten draft, the same declarations this run ' +
         'was given (scheme or groups, relation, and any returns, structures or blueprint) and ' +
-        '`new_run: true`.'
+        '`new_run: true`.' +
+        BRIEF_KEEP
     : '\n\nCONTINUE: no question is pending. Rewrite the open line(s), grade the complete ' +
         'rewritten draft with lyric_grade, then call lyric_revise with that exact draft and ' +
-        '`new_run: true` — each call with the latest session_id.';
+        '`new_run: true` — each call with the latest session_id.' +
+        BRIEF_KEEP;
+}
+
+// The brief gate's refusals (lyric_tools.js) name the raw engine's call; in
+// a session the same call carries the latest session_id, and recover_only
+// exports what the session holds.
+export function briefNote(text) {
+  if (!/\bBRIEF_(?:REQUIRED|LEDGER_UNAVAILABLE): /.test(text)) return text;
+  return text
+    .replace(
+      'Call lyric_revise with `new_run: true` and',
+      'Call lyric_revise with the latest session_id, `new_run: true` and'
+    )
+    .replace(
+      'or call lyric_revise with `new_run: true` and',
+      'or call lyric_revise with the latest session_id, `new_run: true` and'
+    )
+    .replace(
+      "Call lyric_revise with `recover_only: true` and the run's state or checkpoint to read its accepted lyrics.",
+      'Call lyric_revise with the latest session_id and `recover_only: true` to read the accepted lyrics this session holds.'
+    );
 }
 
 // A `detail` or `lines` the operation cannot serve is refused by name, with
@@ -384,8 +408,10 @@ export function publicToolResult(result, task = null, view = {}) {
       // the engine printed after it (the advice about a refused declaration)
       // is kept. Replacing to the end of the text dropped that advice in
       // every session.
-      const text = block.text.replace(/\n\nCONTINUE: (?:(?!\n\n)[\s\S])*/, (footnote) =>
-        continueNote(footnote, task)
+      const text = briefNote(
+        block.text.replace(/\n\nCONTINUE: (?:(?!\n\n)[\s\S])*/, (footnote) =>
+          continueNote(footnote, task)
+        )
       );
       return { type: 'text', text: privateRun(text) };
     }
@@ -413,6 +439,17 @@ export async function executeNative(session, name, input) {
     }
   } else if (name === 'lyric_revise') {
     if (args.new_run) next.native.continuation = null;
+    // A restart that sends no lyrics starts from the song as the last
+    // revision left it, its accepted fixes included (owner, 16 Nov; #665).
+    // A new song's session does the same through its grade receipts.
+    if (
+      args.new_run &&
+      next.task.phase === 'edit' &&
+      args.draft == null &&
+      args.draft_text == null &&
+      Array.isArray(next.left_draft)
+    )
+      args.draft = clone(next.left_draft);
     const carried = next.native.continuation?.args;
     // The maintained client already does this in create mode. Edit sessions
     // need the same restoration, without exposing state to the language model.
@@ -464,6 +501,8 @@ export async function executeNative(session, name, input) {
     if (name === 'lyric_revise' && verdict && !result.isError) {
       // The last journal a revision returned. recover_only exports it on request.
       next.recovery = verdict.state || verdict.checkpoint || next.recovery || null;
+      // The song as this revision left it: a restart without a draft starts there.
+      if (Array.isArray(verdict.final_draft)) next.left_draft = clone(verdict.final_draft);
       next.uncertain = !!verdict.uncertain_proposal;
     }
     return { session: next, result };

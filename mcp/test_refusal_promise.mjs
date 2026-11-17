@@ -15,7 +15,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { LEXICON_MANIFEST } from './lexicon_basis.js';
 import { recordCreation } from './lyric_workflow.js';
-import { _verdictInternals } from './lyric_tools.js';
+import { _verdictInternals, BRIEFS } from './lyric_tools.js';
 import { JobStore } from './job_store.js';
 import { INTEGRATION, WorkflowSessions, executeNative } from './workflow_sessions.js';
 import { buildWorkflowServer } from './workflow_tools.js';
@@ -884,6 +884,52 @@ row({
   reach: async (r) => r.call('begin_lyrics', {}),
 });
 
+// --- The brief gate (lyric_tools.js, #665): before any work, so offline. A
+// song a live run flagged a line on without asking about it, and a store
+// that cannot be read.
+const briefSong = [...draft, 'A third line to keep'];
+const briefArgs = { scheme: 'AAA', relation: 'class:RHYME', new_run: true };
+row({
+  code: 'BRIEF_REQUIRED',
+  where:
+    'lyric_tools.js briefRefusal(): a new run that changes a flagged line it was not asked about',
+  shape: 'receipt',
+  phrases: ['lyric_revise with the latest session_id, `new_run: true`'],
+  reach: async (r) => {
+    BRIEFS.resetForTests();
+    await BRIEFS.capture({ runId: hex(), cur: briefSong, input: briefSong, flagged: [3] });
+    try {
+      return await r.call('lyric_revise', {
+        session_id: r.seed('lyrics', undefined, { phase: 'edit' }),
+        ...briefArgs,
+        draft: [...draft, 'A changed third line'],
+      });
+    } finally {
+      BRIEFS.resetForTests();
+    }
+  },
+});
+row({
+  code: 'BRIEF_LEDGER_UNAVAILABLE',
+  where: 'lyric_tools.js: the brief store cannot be read',
+  shape: 'receipt',
+  phrases: ['lyric_revise with the latest session_id and `recover_only: true`'],
+  reach: async (r) => {
+    BRIEFS.resetForTests();
+    BRIEFS.isHealthy = false;
+    BRIEFS.loadFailed = true;
+    try {
+      return await r.call('lyric_revise', {
+        session_id: r.seed('lyrics', undefined, { phase: 'edit' }),
+        ...briefArgs,
+        draft: briefSong,
+      });
+    } finally {
+      BRIEFS.resetForTests();
+    }
+  },
+});
+
 // --- The website writer (gemini_agent.js), called directly.
 const website = (text) => ({ shape: 'website', text });
 const uncertified = { parked: true, uncertified: true, seed: 16, draft };
@@ -1021,7 +1067,7 @@ test('each refusal arrives in the shape the receipt sentence promises', async ()
   // The init text's receipt sentence (workflow_tools.js) against the rows a
   // published schema reaches: either change to it shows here.
   console.log(`receipt split, published schema: ${JSON.stringify(shapes)}`);
-  assert.deepEqual(shapes, { receipt: 23, bare: 24 });
+  assert.deepEqual(shapes, { receipt: 25, bare: 24 });
 });
 
 test('every coded refusal in the source has a row, and the gate has 14 texts', () => {

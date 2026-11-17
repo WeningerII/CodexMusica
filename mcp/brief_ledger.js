@@ -496,6 +496,7 @@ export class BriefLedger {
     wire = null,
     supersedes = [],
     inherited = { prot: [], undo: [] },
+    persist = true,
   } = {}) {
     if (!runId || !this.key) return;
     if (!STATUSES.has(status)) throw new Error(`unknown brief status ${status}`);
@@ -506,9 +507,13 @@ export class BriefLedger {
     const align = alignLines(inFo, curFo);
     const map = mapOf(align, inFo.length);
     const at = (line) => (LINE(line, inFo.length) ? map[line - 1] + 1 : 0);
+    // An inherited protected line stays protected only where this run kept
+    // its text: a line the loop itself replaced was asked about, and its old
+    // text is held by the undo rule instead.
+    const kept = new Map(align.pairs.map(([i, j]) => [i + 1, j + 1]));
     const free = whole ? null : new Set(briefed);
     const prot = uniq(
-      [...flagged, ...(inherited?.prot || []).map(at)].filter(
+      [...flagged, ...(inherited?.prot || []).map((p) => kept.get(p) || 0)].filter(
         (p) => LINE(p, n) && (free ? !free.has(p) : false)
       )
     );
@@ -541,7 +546,7 @@ export class BriefLedger {
       paid === true
     );
     this.prune();
-    this.save();
+    if (persist) this.save();
   }
 
   // A certified run: its entry and the ones it superseded go.

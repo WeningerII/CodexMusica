@@ -285,6 +285,20 @@ export const SWEEP_COORDINATES = ['form', 'lines', 'functions', 'melody'];
 // that sweep's `want` list. The one place the rule is read, by the gate and
 // by the call it names (nextCreationCall).
 const sweepWants = (sweep) => list(sweep.args.want);
+// THE SONG AS THE TOOL LEFT IT (owner, 16 Nov; brief provenance #665). A
+// revise of the graded draft records the song it left (`final_draft`, its
+// accepted fixes included) as descending from that grade. A restart that sends
+// no draft starts there, not from the graded original, so no accepted fix is
+// lost or put back. Only while the grade it descends from is the current one,
+// and only where it differs from the graded draft (otherwise the graded draft
+// is the same song).
+function leftSong(w) {
+  const left = w?.left;
+  if (!left || !w.plan || !w.grade || left.plan_sha256 !== w.plan.sha256) return null;
+  if (left.grade_sha256 !== w.grade.draft_sha256 || left.draft_sha256 === w.grade.draft_sha256)
+    return null;
+  return Array.isArray(left.draft) ? left : null;
+}
 
 function sweepFor(w, args) {
   return [...w.sweeps]
@@ -458,7 +472,10 @@ export function creationRefusal(task, name, args, lyric = null) {
           ? gradeAttemptNote(w.grade_attempt, w.plan.lines, false)
           : '')
       );
-    if (Array.isArray(gradedDraft.draft)) {
+    if (leftSong(w)) {
+      args.draft = structuredClone(leftSong(w).draft);
+      delete args.draft_text;
+    } else if (Array.isArray(gradedDraft.draft)) {
       args.draft = structuredClone(gradedDraft.draft);
       // An empty `draft_text` sent beside it is not a second draft.
       delete args.draft_text;
@@ -477,7 +494,7 @@ export function creationRefusal(task, name, args, lyric = null) {
   if (
     !w.grade ||
     w.grade.plan_sha256 !== w.plan.sha256 ||
-    w.grade.draft_sha256 !== hash(args.draft)
+    (w.grade.draft_sha256 !== hash(args.draft) && leftSong(w)?.draft_sha256 !== hash(args.draft))
   )
     return (
       'CREATION_GRADE: lyric_grade must answer for this exact draft and canonical plan before revision starts.' +
@@ -855,6 +872,21 @@ export function recordCreation(task, name, args, verdict, isError = false) {
   } else if (name === 'lyric_revise' && w.plan && [0, 3, 4].includes(verdict.exit_code)) {
     w.started = { plan_sha256: w.plan.sha256 };
   }
+  if (
+    name === 'lyric_revise' &&
+    w.plan &&
+    w.grade?.plan_sha256 === w.plan.sha256 &&
+    Array.isArray(verdict?.final_draft) &&
+    Array.isArray(args.draft) &&
+    (hash(args.draft) === w.grade.draft_sha256 ||
+      (w.left?.grade_sha256 === w.grade.draft_sha256 && hash(args.draft) === w.left.draft_sha256))
+  )
+    w.left = {
+      plan_sha256: w.plan.sha256,
+      grade_sha256: w.grade.draft_sha256,
+      draft: structuredClone(verdict.final_draft),
+      draft_sha256: hash(verdict.final_draft),
+    };
 }
 
 export function creationQualified(task) {
@@ -924,7 +956,8 @@ export function nextCreationCall(task, carried, name) {
       args: { seed, ...(move ? { new_run: true } : {}) },
       draft: 'graded',
       // The record holds the graded draft's text: the call needs no draft.
-      recorded: Array.isArray(w.grade.draft),
+      recorded: Array.isArray(w.grade.draft) || !!leftSong(w),
+      ...(leftSong(w) ? { left: true } : {}),
       lines,
     };
   return { tool: 'lyric_grade', args: { seed }, draft: 'complete', lines };
@@ -953,7 +986,7 @@ export function formatNextCall(next) {
     return `NEXT: lyric_revise with seed ${args.seed} and the complete rewritten ${next.lines}-line draft as draft_text.`;
   if (next.recorded)
     return (
-      `NEXT: lyric_revise with seed ${args.seed}${args.new_run ? ', new_run: true' : ''} and no draft; the ${next.lines}-line draft lyric_grade graded is taken from the record. ` +
+      `NEXT: lyric_revise with seed ${args.seed}${args.new_run ? ', new_run: true' : ''} and no draft; the ${next.lines}-line ${next.left ? 'song as the last lyric_revise left it (its accepted fixes included)' : 'draft lyric_grade graded'} is taken from the record. ` +
       'To change a line, grade the changed draft first.'
     );
   return (
@@ -1293,15 +1326,19 @@ export function sweepNextLine(args, seed) {
 // run (an uncertified parked run, an unknown-outcome proposal), names none;
 // a carried run, or a run this plan already started, makes it a new run, as
 // the stop's CONTINUE note says.
-export function gradeNext(code, newRun = false, recorded = false) {
+export function gradeNext(code, newRun = false, recorded = false, left = false) {
   return (
     (code === 0 ? 'To finish it, call' : 'Call') +
     // A host that keeps the grade receipt holds the graded draft: the call
     // sends none, so no line can change between the grade and the revise.
+    // After a revise of that draft it holds the song the revise left, fixes
+    // included, and a restart starts there (leftSong).
     (recorded
       ? " lyric_revise with this grade's seed" +
         (newRun ? ', new_run: true' : '') +
-        ' and no draft: the graded draft and its declarations are taken from the record'
+        (left
+          ? ' and no draft: the song as the last lyric_revise left it (its accepted fixes included) and the graded declarations are taken from the record'
+          : ' and no draft: the graded draft and its declarations are taken from the record')
       : " lyric_revise with this exact draft, unchanged, and this grade's seed and declarations" +
         (newRun ? ', with new_run: true' : '')) +
     (code === 0 ? '' : '; its revise loop works on the flagged lines') +
@@ -1318,7 +1355,8 @@ export function gradedNextCall(task, carried) {
   return {
     tool: 'lyric_revise',
     args: { seed: w.plan.request.seed, ...(newRun ? { new_run: true } : {}) },
-    recorded: Array.isArray(w.grade.draft),
+    recorded: Array.isArray(w.grade.draft) || !!leftSong(w),
+    left: !!leftSong(w),
   };
 }
 function withGradeNext(task, result, carried) {
@@ -1345,7 +1383,7 @@ function withGradeNext(task, result, carried) {
           ? {
               ...rest,
               next_call: { tool: call.tool, args: call.args },
-              next: gradeNext(v.exit_code, !!call.args.new_run, call.recorded),
+              next: gradeNext(v.exit_code, !!call.args.new_run, call.recorded, call.left),
             }
           : rest
       ),

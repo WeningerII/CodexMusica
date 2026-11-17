@@ -624,7 +624,27 @@ window) is not — the receipt is `interrupted`, and continuing it by
 both are open, recover by `continuation_id` first: it keeps answers the receipt's
 progress recorded, which a `recover_only` export of an older wire does not. A repeated question
 (the run still on the same state) is not moved past. `new_run` stays the explicit way
-to start independent work on a draft. Original
+to start independent work on a draft.
+
+Brief provenance (#665): `new_run` does not reset what a line is owed. Each
+`lyric_revise` run records, per line, a keyed digest of its folded text (NFKC,
+lowercase, letters and digits only; no lyric text is stored) for the lines the
+loop flagged without asking about them and for the lines its loop replaced
+(`mcp/brief_ledger.js`). A later run on any connection, by any caller, whose
+draft keeps more than half of that song's lines, or keeps every protected line,
+is checked against it before anything runs: a protected line changed (beyond
+case, spacing or punctuation), removed, or a replaced line put back is refused
+with `BRIEF_REQUIRED`, which names the line numbers, the lines the draft may
+change and the call that works. A rewrite of more than half the song is a new
+song. A stop briefs its open lines with their rhyme groups and returns; a
+question briefs the lines it asks. Entries last 3 hours, paid included, and a
+certified exit 0 forgets its song. A restart that sends no draft starts from
+the song as the run left it, its accepted fixes included. The store is
+`BRIEF_LEDGER_FILE`, else `LYRIC_RUNTIME_DIR/brief-ledger.json`, else memory
+only (stdio without a runtime directory forgets it on restart). A file that
+cannot be read refuses every revise run with `BRIEF_LEDGER_UNAVAILABLE` until
+it is repaired (`recover_only` still exports a held journal); a changed server
+secret drops the old entries and starts empty. Original
 replay input, accepted lines and immutable declarations have separate fields;
 accepted lines never silently replace the replay input. The bounded state codec
 identifies the scorer source, lexical data and runtime. Signed chat continuations

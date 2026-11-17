@@ -46,8 +46,10 @@ test('a parked new song continues exactly as its note says', { timeout: 300_000 
     'The window holds the frost',
     'I count the things I lost',
     // ~~'Morning light'~~ — since 2026-10-04 banned pairs no longer hold a line
-    // open (owner's ruling), so the park comes from a drifted declared return
-    // (L3 -> L6), a line FLAG no attempt-free run can close.
+    // open (owner's ruling), so the park comes from the plan's declared
+    // returns (3-7, 4-8, 5-9, 6-10) not repeated verbatim, line FLAGs no
+    // attempt-free run can close. L3 itself is not open: it is a partner (of
+    // group A and of return 3-7), so a parked rewrite may change it.
     'Morning lights',
     'Down the road the old dog sleeps',
     'Down the lane the cold fog creeps',
