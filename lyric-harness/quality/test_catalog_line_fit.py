@@ -21,11 +21,19 @@ class CatalogLineFitTests(unittest.TestCase):
         self.assertEqual(conflicts(native, [{"line": 1, "syllables": 4}]), {(1, "CATALOG_SLOTS_EXCEEDED")})
         self.assertEqual(conflicts(native, [{"line": 1, "syllables": 3}, {"line": 2, "words": 2}]), set())
 
+    def test_stress_count_sets_a_lower_bound_and_propagates_across_returns(self):
+        native = blueprint([3, 8], returns="1,2")
+        self.assertEqual(conflicts(native, [{"line": 2, "stresses": 3}]), set())
+        self.assertIn((1, "CATALOG_SLOTS_EXCEEDED"), conflicts(native, [{"line": 2, "stresses": 4}]))
+        self.assertIn((1, "CATALOG_SYLLABLE_BINDINGS"), conflicts(native, [
+            {"line": 1, "syllables": 2}, {"line": 2, "stresses": 3}]))
+
     def test_strict_requirement_schema_and_positions(self):
         native = blueprint([8, 8])
         for bad in [None, {}, [{"line": 1}], [{"line": 1, "words": 0}], [{"line": True, "words": 1}],
                     [{"line": 3, "syllables": 2}], [{"line": 1, "words": 4, "syllables": 2}],
-                    [{"line": 1, "stresses": 1}], [{"line": 1, "words": 1}, {"line": 1, "syllables": 2}]]:
+                    [{"line": 1, "stresses": -1}], [{"line": 1, "stresses": True}],
+                    [{"line": 1, "stresses": 2, "syllables": 1}], [{"line": 1, "words": 1}, {"line": 1, "syllables": 2}]]:
             with self.subTest(bad=bad), self.assertRaises(plan.PlanRefused):
                 catalog_shape.line_fit_conflicts(native, bad)
 
@@ -71,7 +79,7 @@ class CatalogLineFitTests(unittest.TestCase):
         for fields in ({"stress": "..x"}, {"stress": ""}, {"stress": [1]},
                        {"stress": "./", "syllables": 3}, {"stress": "./", "stresses": 0},
                        {"stress": "./", "stresses": True}, {"syllables": 2, "stresses": -1},
-                       {"syllables": 2, "stresses": 3}, {"stresses": 2}):
+                       {"syllables": 2, "stresses": 3}, {"stresses": 2.5}):
             with self.subTest(fields=fields), self.assertRaises(plan.PlanRefused):
                 conflicts(native, [{"line": 1, **fields}])
 

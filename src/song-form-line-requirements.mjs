@@ -29,10 +29,9 @@ export function projectLineRequirement(line, endsRhyme = false, fixedReturns = f
   }
   if (line.stresses !== undefined) {
     if (
-      !constraints.syllables ||
-      !Number.isInteger(line.stresses) ||
+      !Number.isSafeInteger(line.stresses) ||
       line.stresses < 0 ||
-      line.stresses > constraints.syllables ||
+      (constraints.syllables !== undefined && line.stresses > constraints.syllables) ||
       (constraints.stress && constraints.stress.split('/').length - 1 !== line.stresses)
     )
       return null;

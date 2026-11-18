@@ -99,6 +99,10 @@ async function checkViewport(browser, origin, viewport) {
     await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('1');
     await view.getByRole('button', { name: 'Show expanded structure' }).click();
     await view.getByText(/distinct ending sound.*1, 3.*2, 4/).waitFor();
+    await picker.selectOption('tumbling-verse');
+    await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('0');
+    await view.getByRole('button', { name: 'Show expanded structure' }).click();
+    await view.getByText(/number of unstressed syllables can vary/).waitFor();
     await picker.selectOption('triolet');
     await view.getByRole('button', { name: 'Show expanded structure' }).click();
     await view.getByText('Repeat line 1 verbatim at 4, 7.').waitFor();
