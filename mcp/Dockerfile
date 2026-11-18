@@ -73,7 +73,7 @@ FROM runtime-base AS production
 # ip-address, pacote, picomatch, sigstore, under /usr/local/lib/node_modules/npm).
 RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx
 WORKDIR /app
-COPY src/song-forms.mjs src/song-form-mandate.mjs ./src/
+COPY src/song-forms.mjs src/song-form-mandate.mjs src/song-form-creation.mjs src/song-form-grade.mjs ./src/
 COPY data/song-forms.json ./data/
 COPY scripts ./scripts
 COPY references ./references

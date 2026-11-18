@@ -71,7 +71,13 @@ export function runtimeSourceFingerprint(
   visit('scripts');
   visit('references');
   // The lyrics image copies these shared files without the rest of src/ or data/.
-  for (const file of ['src/song-forms.mjs', 'src/song-form-mandate.mjs', 'data/song-forms.json']) {
+  for (const file of [
+    'src/song-forms.mjs',
+    'src/song-form-mandate.mjs',
+    'src/song-form-creation.mjs',
+    'src/song-form-grade.mjs',
+    'data/song-forms.json',
+  ]) {
     if (fs.existsSync(path.join(root, file))) hashFile(file);
   }
   return hash.digest('hex');

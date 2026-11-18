@@ -1621,13 +1621,29 @@ def test_the_measure():
     # limit rose and the planner's range stayed, so the planner keeps its
     # ceiling under its own name (`PLANNED_LINE_CHARS`) and imports nothing
     # from `propose`. One import fewer between the writer and the dice.
+    # Catalog section partitions use the same declared grids and partitions.
+    # The helper may not introduce a route to corpus examples or sampled text.
+    with open(os.path.join(HERE, "catalog_shape.py"), encoding="utf-8") as source:
+        catalog_tree = ast.parse(source.read())
+    catalog_imports = {(node.module, name.name) for node in ast.walk(catalog_tree)
+                       if isinstance(node, ast.ImportFrom) for name in node.names}
+    catalog_plain = {name.name for node in ast.walk(catalog_tree)
+                     if isinstance(node, ast.Import) for name in node.names}
+    catalog_grid = {node.attr for node in ast.walk(catalog_tree)
+                    if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name)
+                    and node.value.id == "grid"}
+    check("catalog section layout reads only declared grid and partition rules",
+          catalog_imports == {("quality", "grid"), ("quality", "plan")}
+          and catalog_plain == {"re"}
+          and catalog_grid == {"placement_findings", "SECTION_FUNCTIONS"}
+          and not any(isinstance(n, ast.Name) and n.id == "open" for n in ast.walk(catalog_tree)))
     check("plan.py imports exactly {schemes, structures, grid, "
-          "floor, slots, relations, narrative, melody, rhyme_types, function_disclosure} from quality and "
+          "floor, slots, relations, narrative, melody, rhyme_types, function_disclosure, catalog_shape} from quality and "
           "opens NO file — the corpus cannot reach the dice (the owner's "
           "move-37 rule)",
           subs == {"schemes", "structures", "grid", "floor",
                    "slots", "relations", "narrative", "melody",
-                   "rhyme_types", "function_disclosure"}
+                   "rhyme_types", "function_disclosure", "catalog_shape"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
     prop_names = {a.name for n in ast.walk(tree)

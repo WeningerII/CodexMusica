@@ -1,13 +1,15 @@
 #!/usr/bin/env node
-// node scripts/song_forms.mjs [list|describe|realize|check] [form-id]
+// node scripts/song_forms.mjs [list|describe|realize|create|check] [form-id]
 // Optional stdin is one JSON object. With no arguments the object may name
 // command and id; an empty request lists the catalog. Counts are template paths.
 import { readFile } from 'node:fs/promises';
 import { stdin } from 'node:process';
 import { describeForm, realizeForm, checkForm } from '../src/song-forms.mjs';
+import { gradeObservations } from '../src/song-form-grade.mjs';
 import { formMandate } from '../src/song-form-mandate.mjs';
+import { projectSongFormCreation } from '../src/song-form-creation.mjs';
 
-const usage = 'node scripts/song_forms.mjs [list|describe|realize|check] [form-id]';
+const usage = 'node scripts/song_forms.mjs [list|describe|realize|create|check] [form-id]';
 async function readRequest() {
   if (stdin.isTTY) return {};
   const chunks = [];
@@ -26,7 +28,7 @@ async function main() {
   if (args.length === 1 && ['--help', '-h'].includes(args[0])) {
     console.log(
       usage +
-        '\nstdin: {command?, id?, variant?, counts?, lines?, sections?, units?}\ncheck exit: 0 pass, 1 fail, 2 invalid request, 3 unknown'
+        '\nstdin: {command?, id?, variant?, counts?, lines?, sections?, units?}\ncreate exit: 0 representable, 2 invalid request, 3 unavailable\ncheck exit: 0 pass, 1 fail, 2 invalid request, 3 unknown'
     );
     return;
   }
@@ -39,14 +41,17 @@ async function main() {
     (requestedId !== undefined && id !== requestedId)
   )
     throw new Error('Arguments and stdin disagree');
-  if (!['list', 'describe', 'realize', 'check'].includes(command)) throw new Error(usage);
+  if (!['list', 'describe', 'realize', 'create', 'check', 'grade-observations'].includes(command))
+    throw new Error(usage);
   if (command === 'list' ? id !== undefined : typeof id !== 'string' || !id) throw new Error(usage);
   const fields =
-    command === 'realize'
+    command === 'realize' || command === 'create'
       ? ['variant', 'counts']
-      : command === 'check'
-        ? ['variant', 'counts', 'lines', 'sections', 'units']
-        : [];
+      : command === 'grade-observations'
+        ? ['variant', 'counts', 'lines', 'sections']
+        : command === 'check'
+          ? ['variant', 'counts', 'lines', 'sections', 'units']
+          : [];
   for (const key of Object.keys(options)) {
     if (!fields.includes(key)) throw new Error('Unsupported ' + command + ' option: ' + key);
   }
@@ -62,8 +67,14 @@ async function main() {
       scope,
       variants: patterns.length,
     }));
+  } else if (command === 'grade-observations') {
+    result = gradeObservations(catalog, id, options);
   } else if (command === 'describe') {
     result = describeForm(catalog, id);
+  } else if (command === 'create') {
+    const plan = realizeForm(catalog, id, options);
+    result = projectSongFormCreation(plan, options.counts);
+    if (result.status !== 'ready') process.exitCode = 3;
   } else if (command === 'realize') {
     const plan = realizeForm(catalog, id, options);
     result = { ...plan, mandate: formMandate(plan) };

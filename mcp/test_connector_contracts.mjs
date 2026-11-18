@@ -850,7 +850,13 @@ test('candidate build repository bytes must remain unchanged through image recor
 test('changing any Song Forms image input invalidates its source receipt', async () => {
   const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'song-form-identity-'));
   try {
-    const paths = ['src/song-forms.mjs', 'src/song-form-mandate.mjs', 'data/song-forms.json'];
+    const paths = [
+      'src/song-forms.mjs',
+      'src/song-form-mandate.mjs',
+      'src/song-form-creation.mjs',
+      'src/song-form-grade.mjs',
+      'data/song-forms.json',
+    ];
     await fs.mkdir(path.join(dir, 'src'));
     await fs.mkdir(path.join(dir, 'data'));
     for (const file of paths) await fs.writeFile(path.join(dir, file), 'original');

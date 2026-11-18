@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global document, getComputedStyle, innerWidth */
+/* global document, getComputedStyle, innerWidth, window */
 // Exercise the published HTML shell and its lazy Song Forms assets on the Lyrics route.
 const assert = require('node:assert/strict');
 const fs = require('node:fs/promises');
@@ -89,6 +89,62 @@ async function checkViewport(browser, origin, viewport) {
     );
     assert.equal(await draft.inputValue(), original);
     assert.equal(new URL(page.url()).hash, '#lyrics');
+    // Browsing an ineligible pattern never binds a generic writer request.
+    await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('1');
+    await view.getByRole('button', { name: 'Show expanded structure' }).click();
+    await view.getByText('This pattern is available for study only.').waitFor();
+    assert.equal(await view.getByRole('button', { name: 'Write with this form' }).count(), 0);
+    assert.deepEqual(await page.evaluate(() => window.uiLyricContext('lyrics').declarations), {});
+    await picker.selectOption('chorus-first');
+    await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('0');
+    await view.getByRole('spinbutton').fill('1');
+    await view.getByRole('button', { name: 'Show expanded structure' }).click();
+    const write = view.getByRole('button', { name: 'Write with this form' });
+    await write.focus();
+    await page.keyboard.press('Enter');
+    const input = page.locator('#chat-input');
+    await input.waitFor();
+    assert.ok(await input.evaluate((node) => document.activeElement === node));
+    const badge = page.locator('#ly-creation-form');
+    assert.equal(await badge.isVisible(), true);
+    assert.equal(await badge.locator('span').textContent(), 'Song form · Chorus-first');
+    const selection = {
+      catalog_form: 'chorus-first',
+      catalog_variant: 0,
+      catalog_counts: [{ path: '1.2', count: 1 }],
+    };
+    assert.deepEqual(
+      await page.evaluate(() => window.uiLyricContext('lyrics').declarations),
+      selection
+    );
+    assert.equal(
+      await page.evaluate(
+        () => 'catalog_form' in window.uiLyricContext('lyrics-edit').declarations
+      ),
+      false
+    );
+    if (viewport.width < 500) {
+      await badge.getByRole('button', { name: 'Remove form' }).click();
+      assert.equal(await badge.isVisible(), false);
+      assert.deepEqual(await page.evaluate(() => window.uiLyricContext('lyrics').declarations), {});
+    }
+    // Capture the actual native POST without contacting or charging a provider.
+    await page.route('**/chat', (route) =>
+      route.fulfill({
+        status: 400,
+        contentType: 'application/json',
+        body: JSON.stringify({ error: 'Offline request captured.' }),
+      })
+    );
+    const request = page.waitForRequest(
+      (req) => new URL(req.url()).pathname === '/chat' && req.method() === 'POST'
+    );
+    await input.fill('Create a song.');
+    await page.locator('#chat-send').click();
+    const body = (await request).postDataJSON();
+    assert.deepEqual(body.task, { domain: 'lyrics', phase: 'create' });
+    assert.deepEqual(body.lyric_context.declarations, viewport.width < 500 ? {} : selection);
+    assert.equal(await draft.inputValue(), original);
     console.log(
       'PASS native Song Forms keyboard navigation, stylesheet and fit at ' + viewport.width + 'px'
     );

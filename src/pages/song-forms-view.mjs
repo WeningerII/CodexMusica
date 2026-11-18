@@ -1,4 +1,5 @@
 /* global document, URL, fetch, Option */
+import { projectSongFormCreation } from '../song-form-creation.mjs';
 import { describeForm, realizeForm } from '../song-forms.mjs';
 
 const catalogURL = new URL('../../api/song-forms.json', import.meta.url);
@@ -97,7 +98,7 @@ function branchList(nodes, depth = 0) {
   return list;
 }
 
-function variantView(description, index, catalog, target) {
+function variantView(description, index, catalog, target, startWriter) {
   target.replaceChildren(branchList([description.patterns[index]]));
   const controls = el('form', '', 'ly-form-fields');
   const fields = new Map();
@@ -163,11 +164,32 @@ function variantView(description, index, catalog, target) {
     output.replaceChildren(
       plan.tree.length ? branchList(plan.tree) : el('p', 'No units at these counts.')
     );
+    if (startWriter) {
+      const projection = projectSongFormCreation(plan, counts);
+      if (projection.status === 'ready') {
+        const write = el('button', 'Write with this form', 'cm-btn cm-btn-primary');
+        write.type = 'button';
+        write.addEventListener('click', () => {
+          const selections = Object.entries(counts).map(([path, count]) => ({ path, count }));
+          startWriter({
+            name: description.name,
+            declarations: {
+              catalog_form: description.id,
+              catalog_variant: index,
+              ...(selections.length && { catalog_counts: selections }),
+            },
+          });
+        });
+        output.prepend(write);
+      } else {
+        output.prepend(el('p', 'This pattern is available for study only.', 'ly-help'));
+      }
+    }
   });
   target.append(controls, status, output);
 }
 
-function displayForm(catalog, id, body) {
+function displayForm(catalog, id, body, startWriter) {
   body.replaceChildren();
   if (!id) return;
   const description = describeForm(catalog, id);
@@ -180,7 +202,7 @@ function displayForm(catalog, id, body) {
   );
   const target = el('div');
   if (description.variants.length === 1) {
-    variantView(description, 0, catalog, target);
+    variantView(description, 0, catalog, target, startWriter);
   } else {
     const picker = el('select', '', 'cm-select');
     picker.add(new Option('Choose a pattern', ''));
@@ -195,7 +217,7 @@ function displayForm(catalog, id, body) {
     }
     picker.addEventListener('change', () => {
       if (picker.value === '') target.replaceChildren();
-      else variantView(description, Number(picker.value), catalog, target);
+      else variantView(description, Number(picker.value), catalog, target, startWriter);
     });
     body.append(labeled('Pattern to expand', picker));
   }
@@ -293,7 +315,7 @@ function relatedForms(catalog, picker, select) {
   return { panel, redraw };
 }
 
-export async function mountSongForms(root) {
+export async function mountSongForms(root, { startWriter } = {}) {
   const doc = root.ownerDocument;
   if (!doc.getElementById('song-forms-style')) {
     const sheet = doc.createElement('link');
@@ -314,7 +336,7 @@ export async function mountSongForms(root) {
   const body = el('div');
   function select(id) {
     picker.value = id;
-    displayForm(catalog, id, body);
+    displayForm(catalog, id, body, startWriter);
     relations.redraw();
   }
   const relations = relatedForms(catalog, picker, select);

@@ -50,18 +50,22 @@ test('catalog groups and separate returns run the same writing checks and are ac
     relation: 'type:perfect rhyme (last stressed syllable)',
   });
   assert.equal(selected.catalog_form.expected_lines, 8);
-  assert.match(selected.catalog_form.verification, /does not certify the whole catalog form/);
+  assert.equal(selected.catalog_form.measurement.verdict, 'fail');
+  assert.ok(
+    selected.catalog_form.measurement.checks.some(
+      (c) => c.kind === 'returns' && c.outcome === 'pass'
+    )
+  );
   const explicit = verdict(await call('lyric_check', { lines, ...wire }));
   assert.equal(explicit.findings_measured, true);
   assert.equal(explicit.catalog_form, undefined);
   assert.equal(selected.exit_code, explicit.exit_code);
-  assert.deepEqual(selected.coverage, explicit.coverage);
-  assert.deepEqual(selected.flags, explicit.flags);
-  assert.deepEqual(selected.whole_flags, explicit.whole_flags);
+  assert.equal(selected.coverage.pairs_judged, explicit.coverage.pairs_judged);
+  assert.ok(selected.findings.some((f) => f.code === 'CATALOG_FORM_MISMATCH'));
   const revised = verdict(
     await call('lyric_revise', {
       draft: lines,
-      ...wire,
+      ...selected.catalog_form.revision_mandate,
       max_rounds: 1,
       attempts: 0,
       backtrack: 0,
@@ -120,4 +124,39 @@ test('catalog end-rhyme obligations reject a pair that shares only its vowel', a
   assert.equal(coarse.catalog_form.rhyme_mandate.relation, 'class:RHYME');
   assert.equal(coarse.coverage.pairs_judged, 1);
   assert.equal(coarse.exit_code, 3);
+});
+
+test('native writing and revision retain per-line catalog meter and refusals', async () => {
+  const draft = ['one two', 'three four'];
+  const result = verdict(
+    await call('lyric_check', { lines: draft, catalog_form: 'heroic-couplet' })
+  );
+  const meter = result.catalog_form.measurement;
+  assert.equal(meter.verdict, 'fail');
+  for (const kind of ['syllables', 'stress', 'stresses']) {
+    assert.deepEqual(
+      meter.checks.filter((c) => c.kind === kind && c.outcome === 'fail').flatMap((c) => c.lines),
+      [1, 2]
+    );
+  }
+  const resumed = verdict(
+    await call('lyric_revise', {
+      draft,
+      catalog_form: 'heroic-couplet',
+      max_rounds: 1,
+      attempts: 0,
+      backtrack: 0,
+    })
+  );
+  assert.equal(resumed.catalog_form.selector.id, result.catalog_form.selector.id);
+  assert.ok(resumed.exit_code !== 0);
+  const unread = verdict(
+    await call('lyric_check', { lines: ['qxzz qzxw', draft[1]], catalog_form: 'heroic-couplet' })
+  );
+  assert.ok(
+    unread.catalog_form.measurement.checks.some(
+      (c) => c.kind === 'syllables' && c.outcome === 'unknown'
+    )
+  );
+  assert.equal(unread.certified, false);
 });

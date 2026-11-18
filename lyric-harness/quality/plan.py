@@ -3698,7 +3698,7 @@ def group_types_to_relations(group_types, relations=None):
 
 def make_plan(seed, form=None, lines=None, relation=None,
               functions=None, title=None, narrative=None, wants=(), melody=None,
-              relations=None, group_types=None, _recurrence_wants=None):
+              relations=None, group_types=None, _recurrence_wants=None, song_form=None):
     """Plan under explicit brief predicates; never supply aesthetic defaults.
 
     The existing closed sweep vocabulary is also accepted at the generation
@@ -3723,7 +3723,7 @@ def make_plan(seed, form=None, lines=None, relation=None,
         plan = make_plan(seed, form=form, lines=lines, relation=relation,
                          functions=functions, title=title,
                          narrative=narrative, wants=wants, melody=melody,
-                         _recurrence_wants=recurrence_wants,
+                         _recurrence_wants=recurrence_wants, song_form=song_form,
                          relations=group_types_to_relations(
                              group_types, relations) or None)
         plan["request"]["group_types"] = [
@@ -3733,6 +3733,8 @@ def make_plan(seed, form=None, lines=None, relation=None,
               title=title, narrative=narrative, _wants=parsed, melody=melody,
               _recurrence_wants=recurrence_wants,
               relations=relations)
+    if song_form is not None:
+        kw["song_form"] = song_form
     if not parsed:
         if melody is not None:
             return _make_plan_candidate(seed, **kw)
@@ -3750,7 +3752,7 @@ def make_plan(seed, form=None, lines=None, relation=None,
         base = make_plan(seed, form=form, lines=lines, relation=relation,
                          functions=functions, title=title,
                          narrative=narrative, melody=melody,
-                         _recurrence_wants=recurrence_wants, relations=relations)
+                         _recurrence_wants=recurrence_wants, relations=relations, song_form=song_form)
     except SeedRefused:
         base = None
     if base is not None and all(sweep_holds(base, w) for w in parsed):
@@ -3901,7 +3903,7 @@ def _redraw_past_joint_gate(seed, kw):
 
 def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                          functions=None, title=None, narrative=None, _wants=(), melody=None,
-                         relations=None, _total=None, _drawn=None, _recurrence_wants=None):
+                         relations=None, _total=None, _drawn=None, _recurrence_wants=None, song_form=None):
     """A request -> the plan dict. Refuses rather than guessing.
 
     `relation`, `functions` and `title` are THE WRITER'S DECLARATION
@@ -4129,7 +4131,16 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # the length drawn here back to that caller. NOT the wants path: a
     # declared want conditions the draw (`_want_candidates`), and each of
     # its candidates still draws its own length, unchanged by this.
-    if lines is not None:
+    catalog = None
+    if song_form is not None:
+        from quality.catalog_shape import resolve_catalog_shape
+        catalog = resolve_catalog_shape(
+            song_form, rng, totals=_GRADEABLE, lines=lines if lines is not None else _total,
+            functions=roster, form=form, minimum=_min_section)
+        if len(catalog["sections"]) > _max_sections:
+            raise PlanRefused("requested section limit conflicts with the catalog form")
+        total = catalog["total"]
+    elif lines is not None:
         total = lines
     elif _total is not None:
         total = _total
@@ -4139,6 +4150,15 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         _drawn["total"] = total
     _pattern_refused, _pattern_reason = 0, ""
     for _attempt in range(500):
+        if catalog is not None:
+            funcs = tuple(section["function"] for section in catalog["sections"])
+            ks = {section["function"]: section["lines"] for section in catalog["sections"]}
+            phrases = dict(ks)
+            for fn in dict.fromkeys(funcs):
+                if fn in WORDLESS_FUNCTIONS:
+                    phrases[fn] = rng.randint(k_lo, max(k_lo, max(ks.values())))
+            _cells_hi = len(funcs)
+            break
         # THE LENGTH FIRST. It is the coordinate that decides what the floor
         # can grade, so it is drawn from the gradeable set before anything
         # is conditioned on it — and it then BOUNDS the pattern, since a
@@ -4781,6 +4801,9 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # EACH GROUP CARRIES ITS TYPE (D1), handed to the grader through the
     # mandate's per-group `relations`, spelled `schema:<registry name>` —
     # internal plan data; the writer is shown the generated rule (D5).
+    if catalog is not None:
+        plan["request"]["song_form"] = deepcopy(song_form)
+        plan["choices"]["pattern"]["chosen_from"] = "declared catalog section sequence"
     plan["relations"] = dict(_type_rels)
     plan["choices"]["relations"] = {
         "chosen_from": (
@@ -4932,6 +4955,8 @@ def fill_plan(plan, lines):
         # writes `""` here, so the finding is unchanged for anyone who does
         # not declare one.
         **({"melody": deepcopy(plan["melody"])} if "melody" in plan else {}),
+        **({"song_form": deepcopy(plan["request"]["song_form"])}
+           if "song_form" in plan.get("request", {}) else {}),
         "title": plan.get("title") or "",
         "hooks": hooks,
         # THE HOOK IS A SLOT, AND THE TEXT ABOVE IS WHAT THE SLOT HOLDS NOW
@@ -5872,6 +5897,9 @@ def writer_brief(plan):
     m = plan["sections"][0]["meter"]
     out = [f"Write a song: {plan['total_lines']} lines, "
            f"{len(plan['sections'])} sections, in this order:"]
+    catalog = plan.get("request", {}).get("song_form")
+    if catalog is not None:
+        out.append(f"Catalog {catalog['scope']}: {catalog['id']} (variant {catalog['variant']}).")
     for sec in plan["sections"]:
         slots = [s for s in plan["line_slots"]
                  if s["section"] == sec["name"]]
