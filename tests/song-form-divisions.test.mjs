@@ -283,3 +283,43 @@ test('English triads compare every corresponding measured stanza pair and its in
   assert.equal(grade(rows.map((r,i)=>i===2 ? {...r,stress:'/./.'} : r)).verdict,'unknown');
   assert.equal(grade(rows.map(()=>({}))).verdict,'unknown');
 });
+
+test('epode width alone cannot supply a contrasting count at an aligned line', () => {
+  const id = 'pindaric-ode';
+  const counts = {'1.1':1};
+  const {contract} = projectSongFormCreation(realizeForm(catalog,id,{counts}),counts);
+  const body = ['./','././'];
+  const read = (epode) => {
+    const spans = [[0,2],[2,4],[4,4+epode.length]];
+    const sections = contract.sections.map((s,i)=>({...s,lineSpan:spans[i]}));
+    const lines = [...body,...body,...epode].map(stress =>
+      stress ? {text:'x',stress,syllables:stress.length} : {text:'x'});
+    return gradeObservations(catalog,id,{counts,lines,sections}).checks.find(c => c.kind==='english-epode-contrast');
+  };
+  const wider = read([...body, '/']);
+  assert.equal(wider.outcome,'fail');
+  assert.deepEqual(wider.lines,[1,2,5,6]);
+  assert.equal(read(['./']).outcome,'fail');
+  assert.equal(read(['/']).outcome,'pass');
+  assert.equal(read(['/',body[1],null]).outcome,'pass');
+  assert.equal(read([body[0],null,'/']).outcome,'unknown');
+  assert.equal(read(['/.',body[1],'/']).outcome,'unknown');
+});
+
+test('both triad checks withhold a verdict for conflicting stress and count evidence', () => {
+  const id = 'pindaric-ode', counts = {'1.1':1};
+  const {contract} = projectSongFormCreation(realizeForm(catalog,id,{counts}),counts);
+  const sections = contract.sections.map((s,i) => ({...s,lineSpan:[i,i+1]}));
+  const sample = [{text:'a',stress:'./',syllables:2,stresses:1},
+    {text:'b',stress:'./',syllables:2,stresses:1},
+    {text:'c',stress:'/./',syllables:3,stresses:2}];
+  const read = lines => gradeObservations(catalog,id,{counts,sections,lines}).checks
+    .filter(c=>c.kind.startsWith('english-')).map(c=>c.outcome);
+  assert.deepEqual(read(sample), ['pass','pass']);
+  for (const property of ['stresses','syllables']) {
+    for (const [index,expected] of [[0,['unknown','unknown']], [1,['unknown','pass']], [2,['pass','unknown']]]) {
+      const rows=sample.map((row,i)=>i===index?{...row,[property]:row[property]+1}:row);
+      assert.deepEqual(read(rows),expected);
+    }
+  }
+});

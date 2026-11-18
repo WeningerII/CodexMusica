@@ -299,6 +299,14 @@ function pathAgreement(expected, path) {
   return agreement;
 }
 
+function conflictingStressCounts(row) {
+  if (typeof row.stress !== 'string' || !/^[./]+$/.test(row.stress)) return false;
+  return (
+    (row.syllables !== undefined && row.syllables !== row.stress.length) ||
+    (row.stresses !== undefined && row.stresses !== row.stress.split('/').length - 1)
+  );
+}
+
 function recurringStanzaMeter(metrical, lines, sections) {
   const counts = [];
   const masks = [];
@@ -306,6 +314,7 @@ function recurringStanzaMeter(metrical, lines, sections) {
   let missing = false;
   let incompatible = false;
   let uncertainStress = false;
+  let contradictory = false;
   const positions = [];
   for (const i of metrical) {
     const span = sections?.[i]?.lineSpan;
@@ -331,6 +340,10 @@ function recurringStanzaMeter(metrical, lines, sections) {
         missing = true;
         continue;
       }
+      if (conflictingStressCounts(row)) {
+        contradictory = true;
+        continue;
+      }
       const mask = row.stress;
       const count = row.syllables ?? mask?.length;
       if (!Number.isSafeInteger(count) || count <= 0) missing = true;
@@ -353,12 +366,68 @@ function recurringStanzaMeter(metrical, lines, sections) {
     kind: 'recurring-stanza-meter',
     basis: 'corresponding printed body lines and their agreed syllable and stress readings',
     lines: positions,
-    outcome: incompatible
-      ? 'fail'
-      : missing || uncertainStress || metrical.length < 2
-        ? 'unknown'
-        : 'pass',
+    outcome: contradictory
+      ? 'unknown'
+      : incompatible
+        ? 'fail'
+        : missing || uncertainStress || metrical.length < 2
+          ? 'unknown'
+          : 'pass',
   };
+}
+
+// A longer stanza has extra lines, but those lines have no counterparts.
+// Compare only paired positions. Missing readings or stress-only differences
+// cannot demonstrate the selected English syllable-count contrast.
+function epodeContrast(strophe, epode, lines) {
+  const spans = [strophe?.lineSpan, epode?.lineSpan];
+  const observed = [];
+  if (
+    !Array.isArray(lines) ||
+    !spans.every(
+      (span) =>
+        Array.isArray(span) &&
+        span.length === 2 &&
+        span.every(Number.isSafeInteger) &&
+        span[0] >= 0 &&
+        span[0] < span[1] &&
+        span[1] <= lines.length
+    )
+  )
+    return { lines: observed, outcome: 'unknown' };
+
+  const width = Math.min(...spans.map(([start, end]) => end - start));
+  let missing = false,
+    differentCounts = false,
+    differentStress = false;
+  for (let offset = 0; offset < width; offset++) {
+    const masks = spans.map(([start]) => {
+      const index = start + offset;
+      observed.push(index + 1);
+      const row = lines[index];
+      return typeof row?.text === 'string' &&
+        row.text.trim() &&
+        typeof row.stress === 'string' &&
+        /^[./]+$/.test(row.stress) &&
+        row.stress.includes('/') &&
+        !conflictingStressCounts(row)
+        ? row.stress
+        : undefined;
+    });
+    if (masks.includes(undefined)) missing = true;
+    else {
+      differentCounts ||= masks[0].length !== masks[1].length;
+      differentStress ||= masks[0] !== masks[1];
+    }
+  }
+  const outcome = missing
+    ? 'unknown'
+    : differentCounts
+      ? 'pass'
+      : differentStress
+        ? 'unknown'
+        : 'fail';
+  return { lines: observed.sort((a, b) => a - b), outcome };
 }
 
 export function gradeNestedDivisions(plan, rows, lines, sections, checks = []) {
@@ -534,34 +603,13 @@ export function gradeNestedDivisions(plan, rows, lines, sections, checks = []) {
   const triads = pindaricTriads(plan);
   if (triads) {
     const basis =
-      'English line-aligned setting: corresponding printed lines, syllable counts and lexical stress';
+      'English line-aligned setting: corresponding printed lines within this triad, syllable counts and lexical stress';
     for (const [i] of triads.entries()) {
       const start = i * 3;
       const paired = recurringStanzaMeter([start, start + 1], lines, sections);
       checks.push({ ...paired, kind: 'english-strophe-antistrophe', basis });
-      const epode = recurringStanzaMeter([start, start + 2], lines, sections);
-      // A contradictory count establishes a different line profile. Stress
-      // substitutions alone do not demonstrate a change of meter.
-      const measured =
-        epode.lines.length &&
-        epode.lines.every((n) => {
-          const row = lines?.[n - 1];
-          return (
-            typeof row?.text === 'string' &&
-            row.text.trim() &&
-            typeof row.stress === 'string' &&
-            /^[./]+$/.test(row.stress) &&
-            row.stress.includes('/') &&
-            (row.syllables === undefined || row.syllables === row.stress.length)
-          );
-        });
-      const outcome =
-        !measured || epode.outcome === 'unknown'
-          ? 'unknown'
-          : epode.outcome === 'pass'
-            ? 'fail'
-            : 'pass';
-      checks.push({ ...epode, kind: 'english-epode-contrast', basis, outcome });
+      const epode = epodeContrast(sections?.[start], sections?.[start + 2], lines);
+      checks.push({ ...epode, kind: 'english-epode-contrast', basis });
     }
   }
   const metrical = rows.flatMap((row, i) =>
