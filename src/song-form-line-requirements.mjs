@@ -1,4 +1,4 @@
-// A counted word is an observed lexical unit. Its spelling and meaning remain free.
+// Count sung words and, when selected, the letters at each word position.
 const coordinates = new Set(['unit', 'path', 'address', 'span', 'children', 'lineIndex']);
 
 const meterFields = new Set(['syllables', 'stress', 'stresses']);
@@ -35,14 +35,29 @@ export function projectLineRequirement(line) {
   if (line.children.length) {
     if (
       !line.children.every(
-        (word) =>
-          word.unit === 'word' &&
-          !word.children.length &&
-          Object.keys(word).every((key) => coordinates.has(key))
+        (word) => word.unit === 'word' && Object.keys(word).every((key) => coordinates.has(key))
       )
     )
       return null;
     constraints.words = line.children.length;
+    if (line.children.some((word) => word.children.length)) {
+      // A position without a letter selection stays unconstrained.
+      const widths = [];
+      for (const word of line.children) {
+        if (
+          !word.children.every(
+            (letter) =>
+              letter.unit === 'letter' &&
+              !letter.children.length &&
+              Object.keys(letter).every((key) => coordinates.has(key))
+          )
+        ) {
+          return null;
+        }
+        widths.push(word.children.length || null);
+      }
+      constraints.wordLetters = widths;
+    }
   }
   if (constraints.syllables && constraints.words > constraints.syllables) return null;
   return Object.keys(constraints).length ? constraints : undefined;

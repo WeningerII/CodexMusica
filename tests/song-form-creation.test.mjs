@@ -104,6 +104,8 @@ test('every published selection has an exact structural contract or an explicit 
             if (node.children.length) {
               assert.ok(node.children.every((child) => child.unit === 'word'), where);
               measures.words = node.children.length;
+              if (node.children.some(word => word.children.length))
+                measures.wordLetters = node.children.map(word => word.children.length || null);
             }
             if (Object.keys(measures).length > 1) sourceMeasures.push(measures);
           } else node.children.forEach(inspectLine);
@@ -290,4 +292,14 @@ test('a paired stanza projects its ordered inner divisions and preserves outer o
     make('double-stanza', { children: [inner, inner] }),
     stanza(inner, stanza(line({rhyme: 'A'}), line({rhyme: 'A'}))),
   ]) assert.equal(projection(entry(root), 'f').contract, null);
+});
+
+test('letter selections retain word order and refuse features on an individual letter', () => {
+  const word = children => make('word', { children });
+  const makeForm = last => entry(stanza(line({times:2, children:[
+    word([make('letter', {times:2})]), make('word'), word([last]),
+  ]})));
+  const result = projection(makeForm(make('letter')), 'f');
+  assert.deepEqual(result.contract.lineRequirements, [1,2].map(line=>({line,words:3,wordLetters:[2,null,1]})));
+  assert.equal(projection(makeForm(make('letter',{role:'initial'})), 'f').contract,null);
 });

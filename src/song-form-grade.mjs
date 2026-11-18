@@ -199,7 +199,11 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       const ranges = refs
         .map((k) => {
           if (mixedSections) return spans.get(k);
-          const range = addresses.get(k)?.span.lines;
+          const node = addresses.get(k);
+          // A word or letter occupies its parent line, even though it adds no new line.
+          if (node?.lineIndex && plan.lines[node.lineIndex - 1]?.positionKnown)
+            return [node.lineIndex - 1, node.lineIndex];
+          const range = node?.span.lines;
           if (!range || plan.coverage.lines === 'complete') return range;
           // A template index after an open-length unit is not a song line number.
           return plan.lines[range[0]]?.positionKnown && plan.lines[range[1] - 1]?.positionKnown

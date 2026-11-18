@@ -131,6 +131,11 @@ async function checkViewport(browser, origin, viewport) {
         syllables
       );
     }
+    await picker.selectOption('kwansaba');
+    await view.getByRole('spinbutton').fill('3');
+    await expand.press('Enter');
+    await view.getByRole('button', { name: 'Write this setting' }).waitFor();
+    assert.match(await verseNote.textContent(), /selected letter counts for each sung word/);
     await picker.selectOption('sapphic-stanza');
     await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('2');
     await expand.press('Enter');

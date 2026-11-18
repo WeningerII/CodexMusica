@@ -147,13 +147,19 @@ def _validate_line_requirements(rows, total):
     normalized = {}
     previous = 0
     for row in rows:
-        if (not isinstance(row, dict) or not 2 <= len(row) <= 5
-                or set(row) - {"line", "words", "syllables", "stress", "stresses"}
+        if (not isinstance(row, dict) or len(row) < 2
+                or set(row) - {"line", "words", "syllables", "stress", "stresses", "wordLetters"}
                 or type(row.get("line")) is not int or not previous < row["line"] <= total
                 or any(type(row[key]) is not int or row[key] < 1 for key in ("words", "syllables")
                        if key in row)):
             raise plan.PlanRefused("line requirements need unique, increasing positions and positive word/syllable counts")
         values = dict(row)
+        if "wordLetters" in values:
+            widths = values["wordLetters"]
+            if (not isinstance(widths, list) or len(widths) != values.get("words")
+                    or not any(width is not None for width in widths)
+                    or any(width is not None and (type(width) is not int or width < 1) for width in widths)):
+                raise plan.PlanRefused("wordLetters must select positive letter counts at declared word positions")
         if "stress" in values:
             mask = values["stress"]
             if not isinstance(mask, str) or not re.fullmatch(r"[./]+", mask):
@@ -212,6 +218,13 @@ def line_fit_conflicts(native, requirements):
                                   "detail": f"Whole-line returns {members} have different declared {key}."})
             elif values:
                 counts[key] = values.pop()
+        # A verbatim return has the same spelling at each constrained word position.
+        word_widths = {}
+        for i in members:
+            for position, width in enumerate(rows.get(i, {}).get("wordLetters", ()), 1):
+                if width is not None and word_widths.setdefault(position, width) != width:
+                    conflicts.append({"line": i, "code": "CATALOG_RETURN_COUNT_CONFLICT",
+                                      "detail": f"Whole-line returns {members} disagree on letters in word {position}."})
         words = {plan.placement_word(p) for i in members for p in places.get(i, ())}
         last_separate = int(plan.LAST_WORD in words)
         highest_index = max((w for w in words if w != plan.LAST_WORD), default=0)

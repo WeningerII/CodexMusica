@@ -29,6 +29,17 @@ class CatalogLineFitTests(unittest.TestCase):
             with self.subTest(bad=bad), self.assertRaises(plan.PlanRefused):
                 catalog_shape.line_fit_conflicts(native, bad)
 
+    def test_positioned_spelling_can_only_conflict_on_the_same_returned_word(self):
+        native = blueprint([8, 8], returns="1,2")
+        first = {"line": 1, "words": 2, "wordLetters": [3, None]}
+        second = {"line": 2, "words": 2, "wordLetters": [None, 5]}
+        self.assertEqual(conflicts(native, [first, second]), set())
+        self.assertIn((2, "CATALOG_RETURN_COUNT_CONFLICT"),
+                      conflicts(native, [first, dict(second, wordLetters=[4, 5])]))
+        for widths in ([], [3], [True, 4], [0, None], [None, None], "34"):
+            with self.subTest(widths=widths), self.assertRaises(plan.PlanRefused):
+                conflicts(native, [dict(first, wordLetters=widths)])
+
     def test_indexed_binding_and_reserved_word_fit(self):
         native = blueprint([8, 8, 8], groups="1.T3,2;1,3")
         for req in ({"line": 1, "words": 3}, {"line": 2, "words": 1}):
