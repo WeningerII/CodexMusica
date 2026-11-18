@@ -28,7 +28,10 @@
         "kind": "contains",
         "status": "supported",
         "evidence": "The recurring verse ending can be a two-line couplet instead of one refrain line.",
-        "refs": []
+        "refs": [],
+        "scope_paths": [
+          "1.3.1"
+        ]
       }
     ],
     "refs": [
@@ -66,7 +69,10 @@
         "kind": "contains",
         "status": "supported",
         "evidence": "The narrative can advance through four-line ABCB or AABB stanzas. Quatrains are a common realization rather than a fixed condition.",
-        "refs": []
+        "refs": [],
+        "scope_paths": [
+          "1.2"
+        ]
       }
     ],
     "refs": [],
@@ -86,9 +92,13 @@
       {
         "target": "Verse-refrain with introductory verse",
         "kind": "other",
-        "status": "supported",
+        "status": "redirected",
         "evidence": "AABA may serve as the refrain inside that larger form; the larger song is not inside AABA.",
-        "refs": []
+        "refs": [],
+        "canonical_edge": {
+          "source": "Verse-refrain with introductory verse",
+          "target": "AABA 32-bar"
+        }
       }
     ],
     "refs": [
@@ -126,9 +136,13 @@
       {
         "target": "Verse-refrain with introductory verse",
         "kind": "other",
-        "status": "supported",
+        "status": "redirected",
         "evidence": "The other row identifies ABAC as a possible main refrain after an introductory verse.",
-        "refs": []
+        "refs": [],
+        "canonical_edge": {
+          "source": "Verse-refrain with introductory verse",
+          "target": "ABAC 32-bar"
+        }
       }
     ],
     "refs": [],
@@ -143,14 +157,20 @@
         "kind": "contains",
         "status": "supported",
         "evidence": "A main refrain may use the catalog’s 32-bar AABA structure.",
-        "refs": []
+        "refs": [],
+        "scope_paths": [
+          "2.2"
+        ]
       },
       {
         "target": "ABAC 32-bar",
         "kind": "contains",
         "status": "supported",
         "evidence": "ABAC is an explicitly named alternative refrain shape.",
-        "refs": []
+        "refs": [],
+        "scope_paths": [
+          "2.2"
+        ]
       }
     ],
     "refs": [],
@@ -171,7 +191,7 @@
         "target": "16-bar blues",
         "kind": "comparison",
         "status": "supported",
-        "evidence": "The sixteen-bar row describes a lengthened blues stanza; both use recurring cycles with different bar counts.",
+        "evidence": "Both use recurring blues cycles. The sixteen-bar example offers a stretched lyric stanza and allows a separate twelve-bar refrain. That optional refrain does not change the underlying sixteen-bar cycle.",
         "refs": []
       }
     ],
@@ -191,9 +211,13 @@
       {
         "target": "12-bar blues",
         "kind": "comparison",
-        "status": "supported",
+        "status": "redirected",
         "evidence": "Both are short blues cycles, but the twelve-bar row gives a three-line AAB example and this row gives two possible text plans.",
-        "refs": []
+        "refs": [],
+        "canonical_edge": {
+          "source": "12-bar blues",
+          "target": "8-bar blues"
+        }
       },
       {
         "target": "16-bar blues",
@@ -207,7 +231,10 @@
         "kind": "contains",
         "status": "supported",
         "evidence": "The second documented possibility includes a two-line couplet followed by a short refrain. The component occurs in that reading.",
-        "refs": []
+        "refs": [],
+        "scope_paths": [
+          "1.2"
+        ]
       }
     ],
     "refs": [],
@@ -220,23 +247,34 @@
       {
         "target": "8-bar blues",
         "kind": "comparison",
-        "status": "supported",
+        "status": "redirected",
         "evidence": "The two blues cycles contrast in duration and stated lyric arrangements.",
-        "refs": []
+        "refs": [],
+        "canonical_edge": {
+          "source": "8-bar blues",
+          "target": "16-bar blues"
+        }
       },
       {
         "target": "12-bar blues",
         "kind": "comparison",
-        "status": "supported",
+        "status": "redirected",
         "evidence": "A sixteen-bar cycle is distinguished from a twelve-bar cycle; the source also allows a separate twelve-bar refrain.",
-        "refs": []
+        "refs": [],
+        "canonical_edge": {
+          "source": "12-bar blues",
+          "target": "16-bar blues"
+        }
       },
       {
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
         "evidence": "One described realization is a four-line stanza. The catalog presents an AAAB arrangement as a possibility rather than as a requirement of all four-line stanzas.",
-        "refs": []
+        "refs": [],
+        "scope_paths": [
+          "1.1"
+        ]
       }
     ],
     "refs": [
@@ -271,9 +309,13 @@
       {
         "target": "Simple verse-chorus",
         "kind": "comparison",
-        "status": "supported",
+        "status": "redirected",
         "evidence": "The simple case shares the verse harmony while this row depends on sectional contrast.",
-        "refs": []
+        "refs": [],
+        "canonical_edge": {
+          "source": "Simple verse-chorus",
+          "target": "Contrasting verse-chorus"
+        }
       }
     ],
     "refs": [
@@ -289,7 +331,7 @@
         "target": "Verse-chorus with post-chorus",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The catalog’s post-chorus example contains the same verse–prechorus–chorus unit before its additional tag.",
+        "evidence": "The displayed post-chorus example also includes a prechorus before the chorus. A prechorus is independent of whether a post-chorus is used.",
         "refs": [
           "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
         ]
@@ -310,7 +352,7 @@
         "target": "Verse-chorus with solo",
         "kind": "comparison",
         "status": "supported",
-        "evidence": "The instrumental solo can take the bridge’s place or coexist with it, according to the target row.",
+        "evidence": "In the catalog’s solo settings an instrumental passage may take the bridge’s place or coexist with a bridge.",
         "refs": []
       }
     ],
@@ -329,11 +371,15 @@
       {
         "target": "Verse-prechorus-chorus",
         "kind": "shares-feature",
-        "status": "supported",
+        "status": "redirected",
         "evidence": "The verse, prechorus and chorus cycle is present in the specific catalog example.",
         "refs": [
           "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/"
-        ]
+        ],
+        "canonical_edge": {
+          "source": "Verse-prechorus-chorus",
+          "target": "Verse-chorus with post-chorus"
+        }
       }
     ],
     "refs": [
@@ -359,9 +405,13 @@
       {
         "target": "Verse-chorus-bridge",
         "kind": "comparison",
-        "status": "supported",
+        "status": "redirected",
         "evidence": "The bridge form provides the explicit reference point for the two solo placements.",
-        "refs": []
+        "refs": [],
+        "canonical_edge": {
+          "source": "Verse-chorus-bridge",
+          "target": "Verse-chorus with solo"
+        }
       }
     ],
     "refs": [],
@@ -482,7 +532,17 @@
   "Music-hall song": {
     "status": "partial",
     "note": "Catalog line 57. The row supplies an eight-line verse and fixed singalong chorus, with optional patter between. This is a catalog scenario for music-hall repertoire; no evidence in the row makes that length compulsory across the genre.",
-    "edges": [],
+    "edges": [
+      {
+        "target": "Octave / huitain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "In the displayed setting, each complete verse before the refrain has eight lines. The comparison concerns the generic octave. A French huitain rhyme scheme is unspecified.",
+        "scope_paths": [
+          "1.1"
+        ]
+      }
+    ],
     "refs": [],
     "attested_refs": []
   },
@@ -496,6 +556,15 @@
         "status": "supported",
         "evidence": "Both entries put a recurring refrain inside the verse ending. The parlour-ballad row does not establish the repeated-tune requirement for strophic identity.",
         "refs": []
+      },
+      {
+        "target": "Octave / huitain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "In the displayed setting, each complete verse before the refrain has eight lines. The comparison concerns the generic octave. A French huitain rhyme scheme is unspecified.",
+        "scope_paths": [
+          "1.1"
+        ]
       }
     ],
     "refs": [],
@@ -532,7 +601,10 @@
         "kind": "contains",
         "status": "supported",
         "evidence": "The source explicitly identifies recitative as one available sung-dialogue type in a scene. Spoken dialogue and speech-like singing remain distinct; this is an available component, not a rule for every scene.",
-        "refs": []
+        "refs": [],
+        "scope_paths": [
+          "1.2"
+        ]
       }
     ],
     "refs": [],
@@ -571,9 +643,13 @@
       {
         "target": "Recitative",
         "kind": "comparison",
-        "status": "supported",
+        "status": "redirected",
         "evidence": "The row uses recitative as one end of the continuum contrasted with aria-like melody.",
-        "refs": []
+        "refs": [],
+        "canonical_edge": {
+          "source": "Recitative",
+          "target": "Arioso"
+        }
       }
     ],
     "refs": [],
@@ -586,9 +662,13 @@
       {
         "target": "Ternary",
         "kind": "shares-feature",
-        "status": "supported",
+        "status": "redirected",
         "evidence": "The three performed sections realize an ABA return despite the two-part text.",
-        "refs": []
+        "refs": [],
+        "canonical_edge": {
+          "source": "Ternary",
+          "target": "Da capo aria"
+        }
       }
     ],
     "refs": [],
@@ -610,7 +690,10 @@
         "kind": "contains",
         "status": "supported",
         "evidence": "The catalog’s interpolated airs apply the target’s technique of setting new words to a preexisting tune.",
-        "refs": []
+        "refs": [],
+        "scope_paths": [
+          "1.2.1"
+        ]
       }
     ],
     "refs": [],
@@ -643,7 +726,10 @@
         "kind": "contains",
         "status": "supported",
         "evidence": "The cantata row explicitly includes recitatives among its movement types.",
-        "refs": []
+        "refs": [],
+        "scope_paths": [
+          "1.1"
+        ]
       },
       {
         "target": "Oratorio libretto",
@@ -665,14 +751,21 @@
         "kind": "contains",
         "status": "supported",
         "evidence": "The libretto’s vocal forms explicitly include recitative.",
-        "refs": []
+        "refs": [],
+        "scope_paths": [
+          "1.1.1"
+        ]
       },
       {
         "target": "Cantata",
         "kind": "shares-feature",
-        "status": "supported",
+        "status": "redirected",
         "evidence": "The two rows name recitative, aria and chorus as available movement types.",
-        "refs": []
+        "refs": [],
+        "canonical_edge": {
+          "source": "Cantata",
+          "target": "Oratorio libretto"
+        }
       }
     ],
     "refs": [],
@@ -751,9 +844,13 @@
       {
         "target": "Hip-hop verse-hook",
         "kind": "comparison",
-        "status": "supported",
+        "status": "redirected",
         "evidence": "A hookless run of verses contrasts with the other row’s recurring verse–hook alternation.",
-        "refs": []
+        "refs": [],
+        "canonical_edge": {
+          "source": "Hip-hop verse-hook",
+          "target": "Hookless rap track"
+        }
       }
     ],
     "refs": [],
@@ -839,7 +936,7 @@
         "target": "Calypso",
         "kind": "variant",
         "status": "supported",
-        "evidence": "The catalog explicitly calls extempo improvised calypso.",
+        "evidence": "Extempo is an improvised calypso practice. In the contest setting singers trade topical calypso verses. The fixed chorus in the separate catalog example is not a universal inheritance requirement.",
         "refs": []
       }
     ],
@@ -890,7 +987,10 @@
         "kind": "contains",
         "status": "supported",
         "evidence": "Short rhyming two-line pairs are among the stated materials of the cheer.",
-        "refs": []
+        "refs": [],
+        "scope_paths": [
+          "1.1"
+        ]
       }
     ],
     "refs": [],

@@ -39,9 +39,7 @@
       }
     ],
     "mode": "Pattern",
-    "related": [
-      "Sedoka"
-    ]
+    "related": []
   },
   "Sedoka": {
     "tree": [
@@ -368,7 +366,8 @@
     ],
     "mode": "Pattern",
     "related": [
-      "Monorhymed quatrain"
+      "Monorhymed quatrain",
+      "Quatrain"
     ]
   },
   "Luc bat": {
@@ -566,7 +565,7 @@
             "label": "Hir",
             "children": [
               {
-                "label": "Opening",
+                "label": "Opening quatrain",
                 "children": [
                   "Four nine-syllable lines on rhyme A"
                 ]
@@ -597,13 +596,15 @@
     ],
     "mode": "Rule",
     "related": [
-      "Couplet"
+      "Couplet",
+      "Quatrain",
+      "Hir a thoddaid"
     ]
   },
   "Hir a thoddaid": {
     "tree": [
       {
-        "label": "Opening · common six-line version",
+        "label": "Opening quatrain · six-line setting",
         "children": [
           "Four ten-syllable lines on rhyme A"
         ]
@@ -631,7 +632,8 @@
     "mode": "Example",
     "related": [
       "Couplet",
-      "Sestet / sixain"
+      "Sestet / sixain",
+      "Quatrain"
     ]
   },
   "Byr a thoddaid": {
@@ -859,10 +861,20 @@
       {
         "label": "Deadpan account of a gruesome death",
         "children": [
-          "A",
-          "A",
-          "B",
-          "B · deadpan close"
+          {
+            "label": "First couplet",
+            "children": [
+              "A",
+              "A"
+            ]
+          },
+          {
+            "label": "Second couplet",
+            "children": [
+              "B",
+              "B · deadpan close"
+            ]
+          }
         ]
       }
     ],
@@ -1118,9 +1130,7 @@
       "One line"
     ],
     "mode": "Pattern",
-    "related": [
-      "American sentence"
-    ]
+    "related": []
   },
   "Sevenling": {
     "tree": [
@@ -1291,7 +1301,8 @@
     "mode": "Pattern",
     "related": [
       "Sestet / sixain",
-      "Couplet"
+      "Couplet",
+      "Quatrain"
     ]
   }
 }

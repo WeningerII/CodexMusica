@@ -1,0 +1,1458 @@
+{
+  "Strophic": {
+    "status": "supported",
+    "note": "Catalog line 27. The strophe repeats its music while its words change. Those features coexist in each verse; they are not two successive spans. Introductory or closing material need not change that principle."
+  },
+  "Strophic with refrain": {
+    "status": "supported",
+    "note": "Catalog line 28. The changing text and the stable ending occur inside the same verse. The source permits a final line or couplet. This diagram describes a tail refrain; other placements also occur."
+  },
+  "Modified strophic": {
+    "status": "supported",
+    "note": "Catalog line 29. A recurring strophe supplies the norm against which one verse changes melody or key. The altered verse is often last but has no prescribed place here."
+  },
+  "Narrative story song": {
+    "status": "supported",
+    "note": "Catalog line 30. Verses advance the story. ABCB and AABB are common quatrain schemes in this entry; refrain and terminal twist are possible, with no fixed number of verses."
+  },
+  "AABA 32-bar": {
+    "status": "supported",
+    "note": "Catalog line 31. Four equal eight-bar sections yield the named 32-bar return. Title placement describes A’s text, not a distinct section; title lyric is typical rather than a universal AABA test."
+  },
+  "Extended AABA": {
+    "status": "supported",
+    "note": "Catalog line 32. The AABA cycle gains another bridge and final A. The second B may be a solo, and a title tag may follow. Extension does not establish the bar length of every instance."
+  },
+  "ABAC 32-bar": {
+    "status": "supported",
+    "note": "Catalog line 33. The source specifies 32 bars overall, with B continuing the first A, the return of A, and the title at the new C ending. It gives no bar count for each part."
+  },
+  "Verse-refrain with introductory verse": {
+    "status": "supported",
+    "note": "Catalog line 34. An introductory verse may be cut in performance. The main refrain can be 16 or 32 bars; AABA and ABAC are alternative common shapes. The source does not pair just one length with one shape."
+  },
+  "12-bar blues": {
+    "status": "supported",
+    "note": "Catalog line 35. AAB organizes the words of this lyric example across a 12-bar cycle. The repeat may change slightly and the answer rhymes. Twelve bars alone do not entail words or a particular rhyme; solos can intervene between stanzas."
+  },
+  "8-bar blues": {
+    "status": "partial",
+    "note": "The eight bars can carry a statement and answer or a couplet with a short refrain. The catalog also says two lyric lines; it never places the refrain within or beyond those two."
+  },
+  "16-bar blues": {
+    "status": "partial",
+    "note": "The four-line, sixteen-bar setting allows AAAB. The diagram leaves the other quatrain rhymes open and omits exactly how the doubled opening phrase occupies the bars."
+  },
+  "Simple verse-chorus": {
+    "status": "supported",
+    "note": "The verse and recurring title chorus alternate over the same harmony."
+  },
+  "Contrasting verse-chorus": {
+    "status": "supported",
+    "note": "Catalog line 39. The chorus differs melodically and harmonically. The catalog’s higher, fuller chorus is a characteristic sound, not an additional nested unit."
+  },
+  "Verse-prechorus-chorus": {
+    "status": "supported",
+    "note": "Catalog line 40. The prechorus builds from verse toward chorus within the cycle. The 2–4-line figure belongs to this catalog example; prechorus function alone does not prescribe a line count."
+  },
+  "Verse-chorus-bridge": {
+    "status": "partial",
+    "note": "Two verse–chorus cycles lead to a bridge and a final chorus or choruses. The alternative ABCABCDC lacks a letter key; its sequence is omitted."
+  },
+  "Verse-chorus with post-chorus": {
+    "status": "supported",
+    "note": "Catalog line 42. The catalog models a cycle with prechorus and post-chorus, then bridge and chorus. A post-chorus follows a chorus; its presence alone does not require all the other sections in that example."
+  },
+  "Chorus-first": {
+    "status": "supported",
+    "note": "Catalog line 43. The chorus is heard before the first verse and a verse–chorus cycle follows. An opening hook qualifies only if that passage is the chorus; an isolated hook is insufficient."
+  },
+  "Verse-chorus with solo": {
+    "status": "supported",
+    "note": "Catalog line 44. The form can replace a bridge with an instrumental solo or place the solo beside a bridge. “Beside” specifies no before/after order."
+  },
+  "Binary": {
+    "status": "contested",
+    "note": "The catalog specifies repeating the A–B pair, while the convention of repeating each reprise produces AABB. Both readings give two parts; the diagram leaves repeat placement open."
+  },
+  "Ternary": {
+    "status": "supported",
+    "note": "Catalog line 46. A contrasting middle lies between the first A and its return. The final A may be shortened."
+  },
+  "Bar form": {
+    "status": "supported",
+    "note": "Catalog line 47. The two matching Stollen form the opening pair within each stanza. The closing Abgesang contrasts and is longer in this source."
+  },
+  "Rondo": {
+    "status": "supported",
+    "note": "Catalog line 48. The returning A separates episodes. ABACA and ABACABA are explicitly offered as alternative examples, so C or a fixed number of episodes is not a required ending condition."
+  },
+  "Arch": {
+    "status": "supported",
+    "note": "Catalog line 49. The outward sections, central climax and reversed return are correctly nested for the listed ABCBA example. The row describes mirror ordering, not a required five-section count."
+  },
+  "Through-composed": {
+    "status": "supported",
+    "note": "Catalog line 50. The diagram is one four-section example. The constraint applies to the recurrence of entire sections, not to all rhythmic or motivic resemblances."
+  },
+  "Multi-part suite": {
+    "status": "supported",
+    "note": "Catalog line 51. Several internally formed sub-songs share one track with joins between them; a return of the opening theme is optional and the number of sub-songs is unspecified."
+  },
+  "Medley": {
+    "status": "supported",
+    "note": "Catalog line 52. Several whole songs or excerpts occur in succession. The diagram uses two illustrative items; no two-song ceiling, fixed excerpt length or universal joining device follows."
+  },
+  "Quodlibet": {
+    "status": "supported",
+    "note": "Two independent tunes sound together in the combined passage. This catalog setting first gives each tune a separate statement."
+  },
+  "Contrafactum": {
+    "status": "supported",
+    "note": "Catalog line 54. The source describes new words fitted to existing music. Stanza shape, rhyme points and stresses are concurrent text-fitting constraints for the catalog example, not a sequence of sung sections."
+  },
+  "List song": {
+    "status": "supported",
+    "note": "Catalog line 55. The item list is the substance of the verses, tied by a recurrent title or refrain. Neither line placement nor the number of items is fixed."
+  },
+  "Patter song": {
+    "status": "partial",
+    "note": "The tree shows fast rhyme-dense verses alternating with a slower refrain. It omits the optional acceleration over successive verses."
+  },
+  "Music-hall song": {
+    "status": "partial",
+    "note": "An eight-line verse, fixed chorus and optional patter describe one music-hall arrangement. Other arrangements in the repertoire have no pattern here."
+  },
+  "Parlour ballad": {
+    "status": "partial",
+    "note": "Only the two- or three-verse arrangement with a title refrain is illustrated. It gives no separate music or stanza plan for other parlour ballads."
+  },
+  "Song-and-dance number": {
+    "status": "partial",
+    "note": "The diagram follows the example with a 32-bar refrain, dance break and final button. Numbers organized around other combinations of singing and dancing are outside this example."
+  },
+  "Musical scene": {
+    "status": "supported",
+    "note": "Catalog line 60. Song, sung dialogue and underscored speech intertwine with action. The rule groups materials without assigning an unsupported order to the scene or the return of a theme."
+  },
+  "Duet dialogue song": {
+    "status": "supported",
+    "note": "Catalog line 61. The row orders the first two verse roles, gives the chorus to both singers and assigns trading to the bridge. It does not fix the location of every chorus or bridge. The role view avoids enforcing the literal display order."
+  },
+  "Recitative": {
+    "status": "supported",
+    "note": "Catalog line 62. Speech-like delivery in irregular sung lines is the defining material here. Separation of set songs is a common context in the row rather than a full-work sequence."
+  },
+  "Arioso": {
+    "status": "supported",
+    "note": "Catalog line 63. The passage lies between recitative and aria in delivery. These are qualities of one passage, not first and second sections of arioso."
+  },
+  "Da capo aria": {
+    "status": "partial",
+    "note": "Two text parts yield three performed sections when A returns ornamented. The catalog also describes repeated words within parts; the diagram leaves those returns unplaced."
+  },
+  "Melodrama": {
+    "status": "supported",
+    "note": "Catalog line 65. The speech overlaps a continuous musical accompaniment and may turn into song. The rule view does not imply that the accompaniment stops during speech."
+  },
+  "Ballad opera": {
+    "status": "supported",
+    "note": "Catalog line 66. Spoken scenes are interrupted by airs using new words to familiar melodies. The text/music relation is inside an air, not a sequence of two sounding sections."
+  },
+  "Masque": {
+    "status": "partial",
+    "note": "The antimasque, main masque, revels and song give the order of one courtly example. The distribution of song and spoken verse among those spans remains open."
+  },
+  "Song cycle": {
+    "status": "supported",
+    "note": "Catalog line 68. A sequence of separate songs has its own ordering under a common theme or narrative. Internal form belongs to each song, with no fixed movement count here."
+  },
+  "Cantata": {
+    "status": "supported",
+    "note": "Catalog line 69. Recitative, aria, duet and chorus are movement types available in the catalog’s cantata. They do not have to occur in the printed order. A closing chorus is described as usual."
+  },
+  "Oratorio libretto": {
+    "status": "supported",
+    "note": "Catalog line 70. The sacred narrative is divided into parts containing vocal forms. The row specifies an unstaged dramatic setting but no order or number for recitatives, arias or choruses."
+  },
+  "Head arrangement": {
+    "status": "contested",
+    "note": "The catalog equates the memorized arranging practice with a head–solos–head performance order. The working method and performance sequence can occur independently. The diagram therefore separates them."
+  },
+  "Vocalese": {
+    "status": "supported",
+    "note": "New words fit the notes of a pre-existing instrumental improvisation. A preceding head is optional and does not determine the underlying word-to-note operation."
+  },
+  "Barbershop tag": {
+    "status": "supported",
+    "note": "The catalog illustrates a held-note close-harmony ending of two to four lines. Duration and voicing beyond that example are open."
+  },
+  "Hip-hop verse-hook": {
+    "status": "partial",
+    "note": "The example shows the sixteen-bar verse and eight-bar hook. The catalog’s eight-, twelve- and twenty-four-bar verse alternatives have no separate branches."
+  },
+  "Hookless rap track": {
+    "status": "supported",
+    "note": "Catalog line 75. One or more long verses proceed without a hook. Beat switches are optional; the catalog’s “often 32 bars or more” does not create a lower bound."
+  },
+  "Posse cut": {
+    "status": "supported",
+    "note": "Catalog line 76. The defining organization distributes verses successively to different rappers. A shared hook may be present, but the row gives no location for it. An unordered rule avoids making the hook a closing event."
+  },
+  "Battle rap": {
+    "status": "supported",
+    "note": "Catalog line 77. Two rappers alternate. Three rounds each is customary in this row, not compulsory. Set-ups and punchlines can recur within a verse; only the climactic final line has an assigned position here."
+  },
+  "Freestyle / cypher": {
+    "status": "supported",
+    "note": "Catalog line 78. Freestyle describes improvisation here; cypher adds turn-taking among performers. The catalog describes an underlying loop but provides no fixed sections. It does not show that all freestyle is a group exchange."
+  },
+  "DJ toasting": {
+    "status": "supported",
+    "note": "Catalog line 79. Chants, shout-outs and a returning hook occur over the riddim. The row establishes no fixed verse size or hook location, so a rule view is appropriate."
+  },
+  "EDM build-drop": {
+    "status": "partial",
+    "note": "Two build/drop cycles appear in this arrangement. The placement of voices mainly in verse and build, and arrangements with other numbers of cycles, are outside the diagram."
+  },
+  "Vamp / riff form": {
+    "status": "supported",
+    "note": "Catalog line 81. The riff supplies the repeating ground, with chants and occasional refrain. A break interrupts the groove; its position and duration are deliberately unspecified."
+  },
+  "Gospel verse-chorus-vamp": {
+    "status": "supported",
+    "note": "Catalog line 82. The source orders verse and chorus before an extended vamp and closing tag. It allows a bridge somewhere before the vamp without locking its position. Lead improvisation and repeated choir material occur simultaneously."
+  },
+  "Calypso": {
+    "status": "partial",
+    "note": "The fixed-chorus example shows the verse/chorus cycle. It leaves the commonly eight-line verse structure and alternative chorus arrangements unspecified."
+  },
+  "Extempo": {
+    "status": "supported",
+    "note": "Catalog line 84. A contest with two singers trading improvised topical calypso stanzas is an example. The source distinguishes contest exchange from the broader fact of improvisation."
+  },
+  "Jingle": {
+    "status": "partial",
+    "note": "The set-up, hook and sung tag describe one short advertising jingle. Jingles built solely around a hook have no separate layout here."
+  },
+  "Terrace chant": {
+    "status": "supported",
+    "note": "Catalog line 86. A short text repeats; the catalog usually borrows an existing tune and sometimes supplies a caller. The leader is an optional performer, not an extra line at the end of the chant."
+  },
+  "Cheerleading cheer": {
+    "status": "supported",
+    "note": "Catalog line 87. Couplets, spelling and exchange describe the cheer’s materials, with a shout at the end. No interior order or compulsory count is stated."
+  },
+  "Traditional ballad": {
+    "status": "partial",
+    "note": "The ABCB narrative quatrain repeats to a tune. The diagram leaves dialogue and abrupt scene changes unplaced and covers only that stanza setting."
+  },
+  "Long-measure ballad": {
+    "status": "contested",
+    "note": "The catalog groups four-stress lines and paired fourteeners as alternatives for long-measure ballad. Dividing those fourteeners 8+6 yields alternating four and three stresses, in conflict with four stresses throughout. The diagram keeps the four-stress setting."
+  },
+  "Ballad with internal refrain": {
+    "status": "supported",
+    "note": "A fixed refrain line recurs inside each stanza, interleaved with changing narrative or dialogue lines."
+  },
+  "Incremental-repetition ballad": {
+    "status": "supported",
+    "note": "A recurring stanza frame changes a phrase with each return. A sequence of questions and answers may culminate in a revelation."
+  },
+  "Broadside ballad": {
+    "status": "partial",
+    "note": "Printed circulation defines this type. The diagram gives the opening address, topical story and moral of the catalog example. It does not map other printed texts or the tunes subsequently chosen by singers."
+  },
+  "Come-all-ye": {
+    "status": "supported",
+    "note": "The initial address opens the narrative. A moral and a farewell are alternative endings, with no fixed stanza count supplied."
+  },
+  "Goodnight ballad": {
+    "status": "supported",
+    "note": "First person is the narrator’s voice. The catalog places the warning within a confession and specifies a final farewell stanza."
+  },
+  "Blues ballad": {
+    "status": "partial",
+    "note": "The repeat is specified: each stanza ends with a refrain. The diagram shows the fragmented event narrative without a rule for the order of those fragments."
+  },
+  "Talking blues": {
+    "status": "supported",
+    "note": "The couplet or quatrain is half-spoken over the figure; the punchline closes that unit rather than adding a compulsory extra line."
+  },
+  "Bothy ballad": {
+    "status": "supported",
+    "note": "A recurring four-line AABB story stanza may be followed by a nonsense couplet."
+  },
+  "Forebitter": {
+    "status": "supported",
+    "note": "This leisure ballad is sung aboard ship. A chorus is optional; it has no compulsory position or stanza size."
+  },
+  "Cante fable": {
+    "status": "supported",
+    "note": "The sung verses interrupt the spoken narrative at significant moments. The row does not prescribe how many interruptions there are."
+  },
+  "Mummers' play verse": {
+    "status": "partial",
+    "note": "The example covers the hero-combat action of entrance, fight, revival and collection. The diagram supplies no other mumming plot or role sequence."
+  },
+  "Calling-on song": {
+    "status": "supported",
+    "note": "The introductions name a dancer per stanza. A final call for the dance or for money is a choice of endings."
+  },
+  "Luck-visit / begging song": {
+    "status": "partial",
+    "note": "Greeting, explanation and petition are shown. The usual chorus has no specified position or frequency."
+  },
+  "Street cry": {
+    "status": "supported",
+    "note": "One sales phrase of one or two lines repeats."
+  },
+  "Dirge / lament": {
+    "status": "partial",
+    "note": "The recurring cry accompanies short mourning stanzas. The available account leaves open whether it falls inside or between stanzas."
+  },
+  "Call-and-response": {
+    "status": "supported",
+    "note": "A leader’s line cues a group reply. In liturgical use this is responsorial; alternating choir groups exemplify antiphonal singing."
+  },
+  "Halyard shanty": {
+    "status": "partial",
+    "note": "The two solo/crew exchanges are shown. The catalog’s optional larger inter-verse chorus has no placed occurrence in this diagram."
+  },
+  "Short-drag shanty": {
+    "status": "supported",
+    "note": "This short-haul example gives the solo line one brief group response. The stressed pull word is inside that response."
+  },
+  "Capstan shanty": {
+    "status": "supported",
+    "note": "The catalog pairs solo and crew lines inside a verse, with a larger chorus after the verse. Its use at a capstan identifies its function."
+  },
+  "Stamp-and-go shanty": {
+    "status": "supported",
+    "note": "The row describes continuous alternating voices while the crew walks. It stipulates no verse boundary for this example."
+  },
+  "Pumping shanty": {
+    "status": "supported",
+    "note": "The response follows a solo couplet inside the longer pattern the catalog describes. Pumping is the work being done; an exact couplet length is an example."
+  },
+  "Hammer song / chain-gang song": {
+    "status": "partial",
+    "note": "The diagram shows the lead and the work-timed reply. The catalog’s frequent AAB arrangement is omitted."
+  },
+  "Field holler": {
+    "status": "partial",
+    "note": "The catalog’s free-rhythm solo with a pause is illustrated. An exchange between distant callers is outside this solo setting."
+  },
+  "Waulking song": {
+    "status": "supported",
+    "note": "The lead line and group answer on vocables repeat as a cycle. No count of cycles is specified."
+  },
+  "Military cadence": {
+    "status": "supported",
+    "note": "The marching group echoes or answers the leader. Footsteps govern timing rather than adding a third musical section."
+  },
+  "Echo song": {
+    "status": "supported",
+    "note": "An echo is a verbatim group return of the leader’s words. No fixed verse length follows from that rule."
+  },
+  "Zipper song": {
+    "status": "supported",
+    "note": "An invariant frame and a substitution slot coexist within one verse. Only the word in that slot changes between iterations."
+  },
+  "Cumulative song": {
+    "status": "supported",
+    "note": "The catalog illustrates newest-first recapitulation after adding each item. The entry supplies a progression, not an initial list length."
+  },
+  "Counting song": {
+    "status": "supported",
+    "note": "This counting-song example accumulates numbered items, counts back to one and closes with a fixed tag."
+  },
+  "Countdown song": {
+    "status": "supported",
+    "note": "A number goes down once per repeat of the same verse. Descending numbers alone do not imply accumulation of prior verses."
+  },
+  "Riddle song": {
+    "status": "supported",
+    "note": "The answer stanzas follow the group of riddle stanzas in the same order in the described arrangement."
+  },
+  "Nonsense-refrain song": {
+    "status": "supported",
+    "note": "The refrain uses recurring nonsense syllables; no fixed length or position is specified."
+  },
+  "Lullaby": {
+    "status": "partial",
+    "note": "The diagram covers the refrain-framed quatrain setting. Lullabies organized around a single repeated phrase or with no refrain have no separate layout here."
+  },
+  "Nursery rhyme": {
+    "status": "partial",
+    "note": "Only the four-line AABB nursery-rhyme example is drawn. The catalog also gives ABCB and lengths from two through eight lines."
+  },
+  "Counting-out rhyme": {
+    "status": "supported",
+    "note": "The final elimination word falls within a chant that assigns a beat to each participant."
+  },
+  "Skipping / clapping rhyme": {
+    "status": "supported",
+    "note": "A strictly timed couplet or quatrain supplies the opening unit. A counting or spelling tail follows."
+  },
+  "Singing game": {
+    "status": "supported",
+    "note": "Each verse names an action, followed by a returning chorus between verses. The action is the verse content."
+  },
+  "Finger play": {
+    "status": "supported",
+    "note": "Lines are paired with gestures. Body-part substitutions in later verses describe variation across repeats, not an extra section."
+  },
+  "Dandling rhyme": {
+    "status": "supported",
+    "note": "The chant accelerates toward a closing drop line. The source gives a range of four to eight lines."
+  },
+  "Playground taunt": {
+    "status": "supported",
+    "note": "The entire one- or two-line taunt repeats."
+  },
+  "Tongue twister": {
+    "status": "supported",
+    "note": "Similar sounds crowd a one- to four-line text. Beyond that constraint the order of words and sections is open."
+  },
+  "Dozens": {
+    "status": "supported",
+    "note": "Two players trade ritual insults. The tree marks a rhymed couplet as one possible turn; the exchange allows other verbal shapes."
+  },
+  "Toast (oral narrative)": {
+    "status": "supported",
+    "note": "A set opening leads to the recited narrative and a closing boast. Four-beat rhymed couplets are the narrative building blocks."
+  },
+  "Square-dance singing call": {
+    "status": "partial",
+    "note": "The diagram puts the middle break between two pairs of figures in a seven-part call. The catalog’s compressed sequence does not specify that position; other arrangements are outside the tree."
+  },
+  "Square-dance patter call": {
+    "status": "partial",
+    "note": "The diagram describes beat-timed instructions with optional rhyme. It leaves the catalog example’s continuous, unmelodized delivery implicit."
+  },
+  "Round": {
+    "status": "supported",
+    "note": "Delayed entries of a common melody overlap and can loop. A round is a looping kind of canon; the voices are concurrent once they enter."
+  },
+  "Catch": {
+    "status": "supported",
+    "note": "The pun comes from words sounding together after staggered entries. The source identifies the catch as a comic round."
+  },
+  "Canon": {
+    "status": "contested",
+    "note": "The catalog excludes a looping ending and defines imitation as strict. A canon can be cyclic, and its imitation can vary; the diagram allows a written close or a looping example."
+  },
+  "Madrigal": {
+    "status": "partial",
+    "note": "A repeated last line closes this short through-composed setting. Madrigals without that textual repeat have no separate diagram."
+  },
+  "Ballett": {
+    "status": "supported",
+    "note": "Each half-stanza includes its fa-la ending and repeats as a unit."
+  },
+  "Canzonet": {
+    "status": "supported",
+    "note": "Two or three voices and recurring stanzas with repeated sections characterize the catalog example. Voice count is a scoring detail, not a sequence."
+  },
+  "Ayre": {
+    "status": "partial",
+    "note": "Solo voice and lute share a repeating stanza shape. The catalog’s optional ABABCC rhyme is not marked in the diagram."
+  },
+  "Consort song": {
+    "status": "supported",
+    "note": "The strophic solo is accompanied by viols. The whole group enters for a repeat of the last lines in this account."
+  },
+  "Three-man's song": {
+    "status": "supported",
+    "note": "Three voices sing successive stanzas with a refrain. Its position within the stanza is unspecified."
+  },
+  "Glee": {
+    "status": "supported",
+    "note": "An unaccompanied ensemble sings contrasting, through-composed sections. The number and order of contrasts are unspecified."
+  },
+  "Part-song (Victorian)": {
+    "status": "supported",
+    "note": "The catalog illustrates a recurring stanza set chordally for choir. The broad term part-song alone does not establish this Victorian design."
+  },
+  "Elizabethan stage jig": {
+    "status": "supported",
+    "note": "The stage jig uses ballad stanzas across several tunes. Changing tunes, characters and dancing are staging features rather than successive text units."
+  },
+  "Medieval carol with burden": {
+    "status": "supported",
+    "note": "An opening two- to four-line burden precedes the first stanza and returns after each stanza. AAAB and AABB are alternative stanza rhymes."
+  },
+  "Lullay carol": {
+    "status": "partial",
+    "note": "The cradle-song burden and possible dialogue are drawn. Their placement relative to the opening and to one another remains unspecified."
+  },
+  "Christmas carol": {
+    "status": "partial",
+    "note": "Hymn-like stanzas can carry a refrain or a chorus. The catalog leaves the location of either return open; no performance sequence can be recovered from those choices alone."
+  },
+  "Macaronic carol / song": {
+    "status": "supported",
+    "note": "A song can switch between English and Latin at different points in its existing form. A refrain is one possible place to switch."
+  },
+  "Metrical hymn": {
+    "status": "supported",
+    "note": "Stanzas share a tune and a metrical profile. The linked metres are alternatives. Some settings close with a doxology."
+  },
+  "Hymn with refrain": {
+    "status": "supported",
+    "note": "Every metrical stanza is followed by the same refrain. The entry leaves the stanza’s particular metre open."
+  },
+  "Gospel song (Sankey)": {
+    "status": "partial",
+    "note": "The four-line verse followed by a four-line title chorus is a single gospel-hymn arrangement. The diagram covers no other line-count or chorus treatment."
+  },
+  "Camp-meeting song": {
+    "status": "supported",
+    "note": "Some settings add a refrain to inherited hymn stanzas. The source allows it between stanzas or between lines and supplies no single required metre."
+  },
+  "Praise chorus": {
+    "status": "supported",
+    "note": "The four- to eight-line stanza repeats several times before a closing tag. The tag sits outside the stanza repeat."
+  },
+  "Spiritual": {
+    "status": "partial",
+    "note": "One response-based setting appears, with short AAAB verse and group answer. Solo settings and through-arranged choral settings are outside the diagram."
+  },
+  "Ring shout": {
+    "status": "supported",
+    "note": "A fixed group response follows an improvised leader’s line. The repeated cycle accelerates; acceleration is an attribute, not an extra passage."
+  },
+  "Shaker gift song": {
+    "status": "supported",
+    "note": "The catalog repeats a four- to eight-line stanza. Dance is optional, and no musical position follows from its presence."
+  },
+  "Table grace (sung)": {
+    "status": "supported",
+    "note": "A short stanza of thanks can stand alone or be sung as a round. The round is an optional performance treatment."
+  },
+  "Ostinato chant (Taizé)": {
+    "status": "supported",
+    "note": "The repeated chant and the cantor’s verses sound together; neither follows the other as a new section."
+  },
+  "Metrical psalm": {
+    "status": "partial",
+    "note": "Two possible stanza metres are shown. Their actual per-line lengths can be found under Common metre and Long metre; individual settings and other named metres are outside this diagram."
+  },
+  "Lined-out hymn": {
+    "status": "supported",
+    "note": "The leader presents one line and the congregation sings that line back slowly. It is line-by-line participation rather than a separate verse and chorus."
+  },
+  "Anglican chant": {
+    "status": "partial",
+    "note": "Each prose verse has two halves over the chant formula. The diagram shows the closing doxology and leaves the pointing of syllables to individual notes unrepresented."
+  },
+  "Psalm with antiphon": {
+    "status": "partial",
+    "note": "The antiphon frames alternating choral verses and a doxology in this setting. Other return positions and psalm-tone formulas are outside the sequence."
+  },
+  "Responsorial psalm": {
+    "status": "partial",
+    "note": "The diagram covers the congregational response between verses. The available straight-through performance option is outside that diagram."
+  },
+  "Responsory": {
+    "status": "supported",
+    "note": "The respond is followed by a verse. Only the latter part of the opening respond then returns."
+  },
+  "Litany": {
+    "status": "supported",
+    "note": "The fixed reply follows each separate petition. This models the recurring verbal unit rather than setting a number of petitions."
+  },
+  "Versicles and responses": {
+    "status": "supported",
+    "note": "An officiant’s versicle and the congregation’s answer form a recurring liturgical exchange. The wording can change from pair to pair."
+  },
+  "Canticle": {
+    "status": "partial",
+    "note": "The fixed text and conditional doxology are shown. Different chant and through-composed settings have no separate musical layouts."
+  },
+  "Doxology": {
+    "status": "supported",
+    "note": "A short text of praise can stand alone or close a hymn. Four lines describe the catalog example; the form has no general four-line requirement."
+  },
+  "Full anthem": {
+    "status": "partial",
+    "note": "The full choir and the catalog’s Amen ending are shown. Full-choir settings with different endings have no separate example."
+  },
+  "Verse anthem": {
+    "status": "supported",
+    "note": "Solo and full-choir passages alternate. “Verse” here marks solo scoring; the row does not identify a pop verse."
+  },
+  "Fuging tune": {
+    "status": "supported",
+    "note": "The hymn begins with voices together. The second part repeats while vocal entrances come in turn."
+  },
+  "Shape-note anthem": {
+    "status": "partial",
+    "note": "Chordal and fuging textures are identified. Their order, number and placement within the through-composed scripture setting are unspecified."
+  },
+  "Mass setting (English)": {
+    "status": "partial",
+    "note": "The diagram gives one order of Ordinary texts. Optional omissions and alternative English Communion orders are not individually diagrammed."
+  },
+  "Anglican service": {
+    "status": "partial",
+    "note": "The example pairs two canticles with their doxologies. The differing selections and ordering in other services are outside the tree."
+  },
+  "Petrarchan sonnet": {
+    "status": "partial",
+    "note": "The octave and turn are shown with a CDECDE sestet. The alternative CDCDCD arrangement, also specified by the catalog, has no diagram branch."
+  },
+  "Sicilian sonnet": {
+    "status": "partial",
+    "note": "The alternating octave and CDECDE sestet appear. The catalog’s alternative CDCDCD sestet is omitted from the diagram."
+  },
+  "Miltonic sonnet": {
+    "status": "supported",
+    "note": "The sentence may cross the boundary between octave and sestet, delaying or softening the expected turn."
+  },
+  "Shakespearean sonnet": {
+    "status": "supported",
+    "note": "The three alternating-rhyme quatrains are followed by a rhyming pair. Those divisions need not be printed as four stanzas."
+  },
+  "Spenserian sonnet": {
+    "status": "supported",
+    "note": "The last rhyme sound of each of the first two quatrains starts the next. A new EE pair closes."
+  },
+  "Terza rima sonnet": {
+    "status": "supported",
+    "note": "Four three-line units interlock by their middle rhyme, and the final couplet resolves the chain. Four tercets belong to this sonnet version, not to all terza rima."
+  },
+  "Curtal sonnet": {
+    "status": "supported",
+    "note": "Six lines answer to the Italian octave and four and a half to its sestet. An abbreviated final line occupies the eleventh printed position."
+  },
+  "Caudate sonnet": {
+    "status": "supported",
+    "note": "A complete sonnet precedes one or more tails. In the catalog version each tail starts with a shortened line followed by two full lines."
+  },
+  "Meredithian sonnet": {
+    "status": "supported",
+    "note": "Four enclosed-rhyme units span sixteen lines. They can be printed continuously."
+  },
+  "Onegin stanza": {
+    "status": "contested",
+    "note": "In the local aBaB ccDD eFFe GG notation, lowercase marks an ending with a trailing unstressed syllable and capitals an ending on stress. Capitals can also mark the first type if the letter string is reversed in case throughout. The catalog pairs the local string with that opposite key, reversing the actual ending pattern."
+  },
+  "Bref double": {
+    "status": "partial",
+    "note": "Three quatrains end in c, and the closing lines end in a and b. The account does not determine every placement of a and b within the quatrains."
+  },
+  "Sonnenizio": {
+    "status": "supported",
+    "note": "One word from the borrowed opening recurs in the thirteen succeeding lines. The final two lines also rhyme."
+  },
+  "American sonnet": {
+    "status": "partial",
+    "note": "Line count, turn and rhyme can vary. The diagram gives a flexible frame without specifying how an individual American sonnet distributes its lines or realizes its turn."
+  },
+  "Duplex": {
+    "status": "supported",
+    "note": "Seven couplets form fourteen lines of nine to eleven syllables. The second line of each of the first six pairs echoes at the next opening, and the last line echoes the first."
+  },
+  "Kyrielle sonnet": {
+    "status": "partial",
+    "note": "The tree illustrates a closing pair made from the first and last lines of the opening quatrain. The catalog’s description does not determine whether both were refrains earlier in the poem."
+  },
+  "Crown of sonnets": {
+    "status": "partial",
+    "note": "The joining and closing rules appear, but the catalog’s seven-sonnet, 98-line construction is not individually displayed."
+  },
+  "Heroic crown": {
+    "status": "supported",
+    "note": "The first fourteen form a closed crown. Their opening lines in sequence form the fifteenth, or master, sonnet."
+  },
+  "Sonnet sequence": {
+    "status": "contested",
+    "note": "The catalog excludes linked sonnets. A sequence can include a crown whose last lines return as subsequent openings, as well as thematic series without that verbal linkage. The shared organizing requirement is a series of sonnets."
+  },
+  "Villanelle": {
+    "status": "supported",
+    "note": "In the fixed 19-line form the two opening refrains alternate across four tercets. They meet inside the closing quatrain, rather than forming an extra two-line stanza."
+  },
+  "Terzanelle": {
+    "status": "supported",
+    "note": "In the 19-line pattern each middle line becomes the final line of the next tercet. The opening pair of refrains returns in the closing quatrain; it does not alternate through the body as in a villanelle."
+  },
+  "Sestina": {
+    "status": "supported",
+    "note": "Labels 1–6 stand for end-words, not rhymes. Each stanza takes the prior positions in the order 6,1,5,2,4,3; the three-line envoi uses all six words."
+  },
+  "Double sestina": {
+    "status": "supported",
+    "note": "Two attested constructions differ in both stanza size and envoi. Twelve stanzas of twelve end in six lines; twelve stanzas of six end in three."
+  },
+  "Tritina": {
+    "status": "supported",
+    "note": "Three end-words rotate through three tercets in the orders ABC, CAB and BCA. A single final line gathers all three."
+  },
+  "Rondeau": {
+    "status": "supported",
+    "note": "Fifteen positions group 5 + 4 + 6. R is a returning phrase from the opening, not a third rhyme class."
+  },
+  "Rondeau prime": {
+    "status": "contested",
+    "note": "The catalog specifies a septet and a sestet, 7+6. A manuscript study describes a septet and a quintain, 7+5, with shortened refrains at positions 7 and 12. Only the catalog supports its 13-position reading here. The diagram distinguishes those two accounts."
+  },
+  "Rondine": {
+    "status": "contested",
+    "note": "Both accounts give a septet followed by a quintain. The catalog opens abaabbR; a published specification and example open abbaabR. Both end abbaR and use a short refrain. The diagram shows both opening rhyme orders."
+  },
+  "Rondeau redoublé": {
+    "status": "supported",
+    "note": "The lines of stanza one successively close stanzas two through five. The final four full lines take an additional short refrain from the opening phrase."
+  },
+  "Rondel": {
+    "status": "supported",
+    "note": "The first two lines return at positions seven and eight. A thirteen-line version repeats only the opening line at the close; a fourteen-line version can repeat both. Both endings are represented."
+  },
+  "Roundel": {
+    "status": "supported",
+    "note": "Two four-position stanzas frame a tercet. The returning short phrase comes from the opening line."
+  },
+  "Rondelet": {
+    "status": "supported",
+    "note": "The same four-syllable line occupies positions 1, 3 and 7; lowercase a and b identify rhyme sounds, not repeated lines."
+  },
+  "Roundelay": {
+    "status": "supported",
+    "note": "A short stanza is followed by its returning line or couplet. No stanza length or rhyme between the two possible refrain lines is required by this entry."
+  },
+  "Triolet": {
+    "status": "supported",
+    "note": "Two whole lines reappear on top of two rhyme sounds. Lines 1,4,7 match and lines 2,8 match."
+  },
+  "Ballade": {
+    "status": "supported",
+    "note": "Three 8-line stanzas and one 4-line envoi share their final refrain. In the standard form the envoi uses a subset of the stanza rhyme sounds; it does not have to use all three."
+  },
+  "Ten-line ballade": {
+    "status": "supported",
+    "note": "Three stanzas share ababbccdcD. The catalog closes with five lines for 35 total. A documented six-line envoi gives 36. Capital D marks the recurring line."
+  },
+  "Double ballade": {
+    "status": "supported",
+    "note": "Six stanzas give 48 or 60 lines. An optional envoi yields 52 or 65 in the two documented constructions."
+  },
+  "Ballade à double refrain": {
+    "status": "supported",
+    "note": "In the historical model, the additional refrain closes the fourth line of each main stanza and the second line of the envoi; the other refrain closes both stanza types."
+  },
+  "Chant royal": {
+    "status": "supported",
+    "note": "Five matched eleven-line stanzas plus a five-line envoi give 60 lines. All use the same five-rhyme inventory; the refrain closes each stanza. The five-rhyme inventory applies throughout each stanza and is not a span before a refrain."
+  },
+  "Virelai": {
+    "status": "partial",
+    "note": "Only the linked-rhyme literary construction is drawn. The medieval musical refrain-and-return design is a different arrangement outside this tree."
+  },
+  "Virelai nouveau": {
+    "status": "supported",
+    "note": "The historical literary description alternates the two opening lines as stanza endings, then closes with both in reverse order. The stanza lengths vary."
+  },
+  "Lai": {
+    "status": "partial",
+    "note": "Three aab units of 5/5/2 syllables display the nine-line verse lai. Other medieval narrative and musical lais have no layout here."
+  },
+  "Kyrielle": {
+    "status": "supported",
+    "note": "Catalog quatrains have eight syllables per line and a shared refrain in the final position. The sonnet adaptation adds a closing pair."
+  },
+  "Quatern": {
+    "status": "supported",
+    "note": "The first line is repeated at successive local positions 1, 2, 3 and 4 in four quatrains. The row prescribes no rhyme scheme."
+  },
+  "Canzone": {
+    "status": "partial",
+    "note": "The catalog gives a general five- to seven-stanza outline. Two specific settings have five twelve-line stanzas with recurring end-words, then five or six envoi lines, for 65 or 66 lines. Both settings have direct descriptions; accounts differ in assigning the 65-line design to the historical work. The tree gives each length but does not trace every end-word position."
+  },
+  "Ballata": {
+    "status": "supported",
+    "note": "The source describes an opening ripresa, then two matching parts and a turn back to the recurring refrain. It gives no fixed number of subsequent stanzas."
+  },
+  "Stornello": {
+    "status": "partial",
+    "note": "One three-line and one two-line setting are illustrated. The alternative with three long lines is mentioned but has no branch."
+  },
+  "Glosa": {
+    "status": "partial",
+    "note": "The strict example gives four ten-line stanzas that end with successive epigraph lines. Glosas varying the size of the glossing stanzas have no alternative layout here."
+  },
+  "Ovillejo": {
+    "status": "supported",
+    "note": "Three long-and-short echo pairs precede a four-line stanza. Its last line gathers the three short replies in order; equal metre across a pair is not required."
+  },
+  "Pantoum": {
+    "status": "supported",
+    "note": "The repeating transfer is 2→1 and 4→3 between quatrains. Returning to the opening line is frequent; modern examples vary the rhyme and need not have a circular ending."
+  },
+  "Pantun": {
+    "status": "supported",
+    "note": "The common four-line Malay pattern pairs an opening image with the ensuing meaning across ABAB. UNESCO describes four lines as the commonest length, not the only length."
+  },
+  "Ghazal": {
+    "status": "supported",
+    "note": "In the English refrain-bearing pattern, the opening lines and every later second line share rhyme and radif. Five to fifteen is typical, and a poet’s signature is customary rather than mandatory. Signature is a property of the closing couplet, with no assigned first-line position."
+  },
+  "Qasida": {
+    "status": "partial",
+    "note": "The diagram gives the prelude, journey and final theme. It omits the monorhyme and the internal two-hemistich structure of a bayt; English page layout can also vary."
+  },
+  "Haiku": {
+    "status": "partial",
+    "note": "The English diagram gives the cut and juxtaposition of images. It omits the traditional Japanese 5/7/5 sound-unit template and seasonal reference. Counting English syllables does not reconstruct Japanese sound units."
+  },
+  "Senryu": {
+    "status": "partial",
+    "note": "The tree gives the English human-observation setting with flexible line count and humor. The catalog’s analogy to traditional haiku does not supply the Japanese or English metrical rule for every senryu."
+  },
+  "Tanka": {
+    "status": "supported",
+    "note": "The Japanese pattern counts 5/7/5/7/7 sound units. The English branch gives five short lines with flexible counts and a frequent turn. Its five-line scope does not impose a Japanese sound-unit count on English."
+  },
+  "Kyoka": {
+    "status": "supported",
+    "note": "Comic tanka uses the traditional 5–7–5–7–7 Japanese sound-unit pattern. English syllable counting is an adaptation."
+  },
+  "Katauta": {
+    "status": "supported",
+    "note": "The source gives 5–7–7 and describes the question as frequent. An answer belongs to a possible larger exchange."
+  },
+  "Sedoka": {
+    "status": "supported",
+    "note": "The two 5–7–7 units give six phrases. Question and answer are frequent roles rather than obligatory speech acts."
+  },
+  "Somonka": {
+    "status": "supported",
+    "note": "The catalog identifies two voices' tanka. Each has upper and lower phrases; the second replies to the first."
+  },
+  "Choka": {
+    "status": "supported",
+    "note": "Alternating five- and seven-unit phrases lead into a 5–7–7 close. The catalog also allows a following tanka envoi."
+  },
+  "Dodoitsu": {
+    "status": "supported",
+    "note": "The customary line groups count 7–7–7–5 Japanese sound units, 26 altogether. A refrain can accompany the verse in singing. English syllable counts are adaptations."
+  },
+  "Gogyohka": {
+    "status": "supported",
+    "note": "Five line breaks normally follow phrases or breaths. Rare four- and six-line versions are documented. No fixed syllable count governs a line."
+  },
+  "Renga / renku": {
+    "status": "partial",
+    "note": "Long and short linked verses alternate, and the kasen branch gives its four sides of 6/12/12/6 verses. Other layouts and the overlapping opening/development/close grouping are outside the displayed nesting."
+  },
+  "Rengay": {
+    "status": "contested",
+    "note": "The original inventory gives sixteen lines regardless of poet count. The two-poet pattern totals sixteen; the three-poet pattern totals fifteen. Both preserve the six-verse structure."
+  },
+  "Haibun": {
+    "status": "supported",
+    "note": "One or more haiku link with prose. A haiku may close the piece or appear within it."
+  },
+  "Tanka prose": {
+    "status": "supported",
+    "note": "One or more tanka occur within or after prose. A contest may limit the count for its own entries."
+  },
+  "Sijo": {
+    "status": "supported",
+    "note": "The standard three-line form has two phrases per line and two segments per phrase. The 14–16 syllables per line are approximate; English typography may split these lines."
+  },
+  "Tanaga": {
+    "status": "supported",
+    "note": "The catalog describes the traditional four seven-syllable lines on a single rhyme. The four marks apply to line endings."
+  },
+  "Luc bat": {
+    "status": "supported",
+    "note": "In the standard chain the sixth positions rhyme; the eight-syllable line's ending supplies the rhyme carried into the next pair."
+  },
+  "Than-bauk": {
+    "status": "supported",
+    "note": "Each line has four syllables. Across the three lines the linked rhyme moves from syllable four to three to two."
+  },
+  "Cherita": {
+    "status": "supported",
+    "note": "A six-line story unfolds in stanzas of one, two and three lines. Their narrative roles are open."
+  },
+  "Englyn": {
+    "status": "partial",
+    "note": "Three englyn types are illustrated: milwr, penfyr and unodl union. Other named englyn types and the full set of consonance constraints within each line are outside this diagram."
+  },
+  "Cywydd deuair hirion": {
+    "status": "supported",
+    "note": "A unit of two seven-syllable lines rhymes across opposite final accents. Either accent can come first."
+  },
+  "Clogyrnach": {
+    "status": "supported",
+    "note": "The catalog prints six segments. The Welsh glossary groups them into two eight-syllable lines and one 16-syllable tail. The diagram shows the divisions within that tail."
+  },
+  "Gwawdodyn": {
+    "status": "supported",
+    "note": "Short and long versions open with two or four nine-syllable lines carrying the main rhyme. Their 10+9 closing couplet preserves that rhyme at the first-line break and final line end, with a second rhyme linking the tail to the interior of the final line."
+  },
+  "Hir a thoddaid": {
+    "status": "contested",
+    "note": "The inventory joins the first five lines before a final toddaid line. The documented six-line setting groups an opening four lines with a two-line toddaid. The tree uses the latter division."
+  },
+  "Byr a thoddaid": {
+    "status": "contested",
+    "note": "The catalog gives four lines in total, combining 8+8 with 10+9. A Welsh technical glossary instead describes four eight-syllable lines followed by a toddaid. The model retains the two components without imposing a disputed total or closing-unit length."
+  },
+  "Awdl gywydd": {
+    "status": "supported",
+    "note": "The first line’s end rhyme echoes inside the second seven-syllable line. The catalog quatrain repeats this link in a second pair; further units can follow."
+  },
+  "Cyhydedd hir": {
+    "status": "supported",
+    "note": "The documented unit is nineteen syllables in four parts. The source shows two such groups; an invariant eight separate lines would misstate the unit."
+  },
+  "Rhupunt": {
+    "status": "supported",
+    "note": "Welsh teaching examples distinguish 12-syllable short lines from 16-syllable long lines. Internal divisions and the shared line-ending rhyme are distinct."
+  },
+  "Irish syllabic quatrains": {
+    "status": "partial",
+    "note": "Four named measures are separated; the tree does not exhaust their consonance, linking and closure rules. In particular, séadna has an 8/7/8/7 profile that the catalog’s blanket seven-syllable description would erase."
+  },
+  "Pindaric ode": {
+    "status": "supported",
+    "note": "The antistrophe matches the preceding strophe's metrical design. The contrasting epode closes the triad; total triad count is open."
+  },
+  "Limerick": {
+    "status": "supported",
+    "note": "The catalog's five-line template puts three beats in lines one, two and five, two in the others, and the same A rhyme on the punchline."
+  },
+  "Clerihew": {
+    "status": "supported",
+    "note": "A humorous biography takes the shape of a quatrain in two rhyming couplets. Line length can vary, and the first line usually ends in the subject’s name."
+  },
+  "Double dactyl": {
+    "status": "contested",
+    "note": "The inventory describes two quatrains of double-dactyl lines. In the standard construction, the fourth and eighth lines are shortened and rhyme. The diagram follows that construction."
+  },
+  "Ruthless rhyme": {
+    "status": "partial",
+    "note": "A deadpan AABB quatrain is shown. Other stanza lengths and rhyme arrangements grouped under ruthless rhyme are outside the tree."
+  },
+  "Cinquain (Crapsey)": {
+    "status": "supported",
+    "note": "The classic American accentual-syllabic stanza uses 2–4–6–8–2 syllables and typically 1–2–3–4–1 stresses. Iambic movement is usual; the earlier accentual pattern governs stresses alone."
+  },
+  "Didactic cinquain": {
+    "status": "supported",
+    "note": "The row defines line roles through a noun, adjectives, participles and a four-word phrase; the final synonym refers back to the opening noun."
+  },
+  "Diamante": {
+    "status": "partial",
+    "note": "The diagram gives the version that turns from an opening subject to its opposite. A same-subject diamante requires a different semantic progression and has no branch here."
+  },
+  "Tetractys": {
+    "status": "supported",
+    "note": "The initial syllable counts rise one to four. The fifth line has ten syllables rather than continuing the arithmetic progression."
+  },
+  "Nonet": {
+    "status": "supported",
+    "note": "Nine syllabic lines descend from nine syllables to one. The row specifies no rhyme or multi-stanza division."
+  },
+  "Etheree": {
+    "status": "supported",
+    "note": "The catalogued version increases from one syllable through ten, over ten lines, without rhyme requirements."
+  },
+  "Fib": {
+    "status": "supported",
+    "note": "The displayed six-line Fib counts 1/1/2/3/5/8 syllables. Longer Fibonacci sequences extend the same numerical principle."
+  },
+  "Lanterne": {
+    "status": "supported",
+    "note": "The final one-syllable line follows the four-syllable peak, matching the catalog's sharp taper."
+  },
+  "Shadorma": {
+    "status": "supported",
+    "note": "The source gives six consecutive syllabic counts, including identical third and fourth counts of three."
+  },
+  "Hay(na)ku": {
+    "status": "supported",
+    "note": "The source explicitly permits two directions. Each alternative counts words across three lines, with six words in either version."
+  },
+  "Lune": {
+    "status": "supported",
+    "note": "One three-line variant counts syllables 5–3–5. Another counts words 3–5–3."
+  },
+  "American sentence": {
+    "status": "supported",
+    "note": "The catalog gives one line containing 17 syllables. This is also a specific one-line construction; no additional lines may be inferred."
+  },
+  "Monostich": {
+    "status": "supported",
+    "note": "One line constitutes the whole poem in this row. The related American sentence is a particular one-line form rather than a metrical requirement."
+  },
+  "Sevenling": {
+    "status": "supported",
+    "note": "The source specifies two tercets, each featuring three items, and a twist in the single closing line. It does not distribute items one per line."
+  },
+  "Kwansaba": {
+    "status": "contested",
+    "note": "The inventory applies a seven-letter limit to every word. The stated form admits exceptions for proper nouns, foreign terms and quoted passages. The diagram retains those exceptions."
+  },
+  "Zeno": {
+    "status": "supported",
+    "note": "The first eight-syllable line precedes three 4–2–1 groups. All three closing one-syllable lines rhyme."
+  },
+  "Abecedarian": {
+    "status": "supported",
+    "note": "The initial letters proceed alphabetically. The source allows the organizing unit to be a stanza, so 26 letter positions do not guarantee 26 printed lines."
+  },
+  "Golden shovel": {
+    "status": "supported",
+    "note": "The borrowed line's successive words control successive new line endings. Its length in words controls the new line count. Displaying an epigraph is not inferred as mandatory."
+  },
+  "Bop": {
+    "status": "partial",
+    "note": "Six, eight and six lines build toward a resolution or failed attempt, with recurring refrains. The tree omits variants continuing to a fourth stanza."
+  },
+  "Paradelle": {
+    "status": "supported",
+    "note": "The poem has four six-line stanzas. In each of the first three, repeat two lines in pairs and recombine all and only their words across the closing two lines. The final stanza recombines the preceding stanzas’ vocabulary."
+  },
+  "Couplet": {
+    "status": "supported",
+    "note": "Two consecutive verse lines form a unit. They often rhyme and may share a meter. The catalog illustrates the rhymed, same-meter subtype."
+  },
+  "Heroic couplet": {
+    "status": "supported",
+    "note": "Each member of the pair is iambic pentameter. End-stopping and a complete sentence are possible rather than mandatory."
+  },
+  "Octosyllabic couplet": {
+    "status": "supported",
+    "note": "Two successive eight-syllable lines share an end rhyme. The catalog fixes syllable count without specifying every foot."
+  },
+  "Hudibrastic verse": {
+    "status": "supported",
+    "note": "The comic pair follows the octosyllabic couplet; forced or extended rhymes are a characteristic technique."
+  },
+  "Alexandrine couplet": {
+    "status": "supported",
+    "note": "The catalog's two twelve-syllable lines rhyme. Its medial pause belongs within each line, not between the pair."
+  },
+  "Fourteener": {
+    "status": "partial",
+    "note": "The catalog pairs two fourteen-syllable lines and permits an 8+6 split. A single fourteener without that coupled or divided setting is not displayed separately."
+  },
+  "Poulter's measure": {
+    "status": "supported",
+    "note": "The pair comprises one twelve-syllable line and one fourteen-syllable line with a shared end rhyme. Its members have different lengths."
+  },
+  "Elegiac couplet": {
+    "status": "supported",
+    "note": "An elegiac distich orders hexameter before pentameter. In the classical model the latter has two matching-length halves separated at a word boundary. The catalog marks rhyme as unusual."
+  },
+  "Skeltonic verse": {
+    "status": "supported",
+    "note": "A run sustains one end rhyme across short irregular lines. The source fixes neither the run length nor a larger stanza."
+  },
+  "Tumbling verse": {
+    "status": "partial",
+    "note": "The diagram covers the catalog’s four-stress rhyming pair only. It leaves the broader question of stanza lengths and rhythm in Scottish tumbling verse open."
+  },
+  "Leonine verse": {
+    "status": "supported",
+    "note": "One end rhyme pairs with the word immediately before the mid-line pause. Both rhyme positions are inside a single line."
+  },
+  "Tercet": {
+    "status": "supported",
+    "note": "The defining unit has three lines. The source leaves their rhymes and meter open."
+  },
+  "Triplet": {
+    "status": "supported",
+    "note": "All three ends rhyme AAA. This specifies a monorhymed instance of the general three-line unit."
+  },
+  "Sicilian tercet": {
+    "status": "supported",
+    "note": "The middle rhyme differs from the two outside rhymes. All three lines are in pentameter."
+  },
+  "Terza rima": {
+    "status": "supported",
+    "note": "Each tercet's middle rhyme becomes the next tercet's outside rhyme. Three displayed tercets illustrate the chain; one line or a couplet can close it. The two possible endings share a single closing position."
+  },
+  "Quatrain": {
+    "status": "supported",
+    "note": "Four lines define this stanza. The multiple listed rhyme schemes are alternatives."
+  },
+  "Ballad stanza": {
+    "status": "partial",
+    "note": "Only the ABCB, four/three-stress setting is drawn. The catalog’s optional refrain or burden lacks a specified location, and other rhyme schemes have no branch."
+  },
+  "Common metre (CM)": {
+    "status": "supported",
+    "note": "The catalog prescribes alternating eight- and six-syllable iambic lines. ABAB and ABCB are alternative rhymings of those same lines."
+  },
+  "Common metre double (CMD)": {
+    "status": "supported",
+    "note": "Two complete common-meter quatrains make one eight-line unit. Both halves retain the 8–6–8–6 line lengths."
+  },
+  "Long metre (LM)": {
+    "status": "supported",
+    "note": "Four iambic tetrameter lines account for the 8–8–8–8 hymn-meter designation."
+  },
+  "Long metre double (LMD)": {
+    "status": "supported",
+    "note": "Two long-meter quatrains make one stanza, each preserving all four eight-syllable lines."
+  },
+  "Short metre (SM)": {
+    "status": "supported",
+    "note": "The alias 6.6.8.6 identifies the four line lengths and explains why the third line is longer."
+  },
+  "Short metre double (SMD)": {
+    "status": "supported",
+    "note": "Two complete short-meter quatrains each repeat 6–6–8–6."
+  },
+  "Hallelujah metre": {
+    "status": "supported",
+    "note": "The first four lines are six syllables and alternate ABAB. A pair of eight-syllable C lines closes the six-line unit."
+  },
+  "Trochaic hymn metres": {
+    "status": "partial",
+    "note": "Two trochaic count patterns are each shown in single and doubled forms. Other trochaic hymn patterns are outside this selected family diagram."
+  },
+  "Other named hymn metres": {
+    "status": "partial",
+    "note": "The seven named syllabic recipes in the catalog are drawn. Other individual hymn meters fall outside that illustrative list."
+  },
+  "Heroic quatrain": {
+    "status": "supported",
+    "note": "Four pentameter lines alternate ABAB. The name elegiac stanza here denotes this English stanza, distinct from the classical elegiac distich."
+  },
+  "In Memoriam stanza": {
+    "status": "supported",
+    "note": "Four tetrameter lines enclose the B pair inside A endings. ABBA describes rhyme and does not itself split the quatrain into separate stanzas."
+  },
+  "Rubaiyat stanza": {
+    "status": "supported",
+    "note": "The catalog specifies AABA. In the optional linked variant the B of one stanza sets the main rhyme of the next. The optional link belongs to line 3, not to a fifth time slot."
+  },
+  "Monorhymed quatrain": {
+    "status": "supported",
+    "note": "All four lines use one rhyme; the catalog calls for a new rhyme when another stanza begins. A change of rhyme between stanzas is a relation, not an extra leaf after line four."
+  },
+  "Redondilla": {
+    "status": "supported",
+    "note": "This row supplies the octosyllabic ABBA redondilla. Its enclosing rhyme is the one used for the two four-line ends of the espinela examined here."
+  },
+  "Sapphic stanza": {
+    "status": "partial",
+    "note": "Three eleven-syllable lines and a final five-syllable Adonic are shown. The long and short positions of the Aeolic quantitative pattern are not specified."
+  },
+  "Alcaic stanza": {
+    "status": "contested",
+    "note": "The inventory places the double dactyl at the end of the final line. The classical pattern starts that line with two dactyls and follows them with four syllables; the diagram uses this position."
+  },
+  "Asclepiad stanza": {
+    "status": "partial",
+    "note": "Three lesser Asclepiads and a Glyconic form this setting. Neither the alternative with a Pherecratean nor the continuous Asclepiad system is represented."
+  },
+  "Quintain": {
+    "status": "supported",
+    "note": "The grouping requires five lines. Its listed rhyme patterns are examples, not mandatory internal divisions."
+  },
+  "Sestet / sixain": {
+    "status": "supported",
+    "note": "The grouping requires six lines. The catalog gives several possible rhyme schemes."
+  },
+  "Venus and Adonis stanza": {
+    "status": "supported",
+    "note": "Six pentameter lines have four alternating end rhymes ABAB followed by the rhyming CC pair."
+  },
+  "Burns stanza": {
+    "status": "supported",
+    "note": "AAABAB fixes the six rhyme positions. The fourth and sixth lines are shorter and share B."
+  },
+  "Tail-rhyme stanza": {
+    "status": "partial",
+    "note": "The illustrated six-line tail-rhyme stanza has two long pairs and two short rhyming tails. Longer tail-rhyme stanzas have no layout here."
+  },
+  "Rhyme royal": {
+    "status": "supported",
+    "note": "Seven pentameter lines rhyme ABABBCC with a closing couplet. The specific seven-line scheme distinguishes it from the catalog's catch-all Septet entry."
+  },
+  "Septet": {
+    "status": "supported",
+    "note": "This catalog heading collects other seven-line stanzas. It does not prescribe a meter, rhyme scheme, or seven-line form with priority over the named ones."
+  },
+  "Ottava rima": {
+    "status": "supported",
+    "note": "The English example comprises six alternating pentameter lines then the closing rhymed pair, ABABABCC. The Italian source tradition uses different line lengths."
+  },
+  "Sicilian octave": {
+    "status": "supported",
+    "note": "Eight lines alternate ABABABAB. The Sicilian strambotto has this pattern. Regional strambotto designs use other rhyme sequences."
+  },
+  "Rispetto": {
+    "status": "partial",
+    "note": "The catalog’s eight-line ABABCCDD shape is drawn. Other rispetto arrangements have no represented rhyme sequence."
+  },
+  "Monk's Tale stanza": {
+    "status": "contested",
+    "note": "The eight-line Chaucerian octave rhymes ABABBCBC. A specialist study identifies iambic pentameter, the reading drawn here. A separate teaching account gives four stresses. The sources agree on length and rhyme but differ on the meter."
+  },
+  "Octave / huitain": {
+    "status": "supported",
+    "note": "An octave groups eight lines. The huitain example adds eight syllables per line and ABABBCBC; those extra properties do not apply to every octave."
+  },
+  "Spenserian stanza": {
+    "status": "supported",
+    "note": "Eight pentameter lines and one longer alexandrine carry the nine rhyme positions ABABBCBCC. The final alexandrine is one line rather than a pair."
+  },
+  "Dizain": {
+    "status": "supported",
+    "note": "Ten line endings follow ABABBCCDCD. The row gives no smaller sectional boundaries."
+  },
+  "Décima espinela": {
+    "status": "partial",
+    "note": "The ten rhymes and the two-redondilla-plus-bridge reading are shown. Other readings of the internal grouping are not separately represented."
+  },
+  "Keatsian ode stanza": {
+    "status": "partial",
+    "note": "The diagram gives a ten-line ABAB/CDECDE setting. The eleven-line setting and its different distribution of end-rhymes are omitted."
+  },
+  "Christ's Kirk stanza": {
+    "status": "contested",
+    "note": "Eight alternating lines lead into a short bob and a returning line. The catalog specifies a fixed final phrase, but two consecutive printed refrains differ in their last words. The model allows the wording to vary."
+  },
+  "Pearl stanza": {
+    "status": "partial",
+    "note": "The typical five-stanza group and linking word are shown. The six-stanza exception has no branch. The line-meter reading remains open under this catalog-only label."
+  },
+  "Cherry and Slae stanza": {
+    "status": "partial",
+    "note": "The diagram shows a fourteen-line setting with internal rhyme pairs in lines eleven and thirteen. Its exact closing-line pattern is bounded to the printed stanzas examined."
+  },
+  "Bob and wheel": {
+    "status": "partial",
+    "note": "The example shows a short bob and four-line wheel closing alliterative long lines. Other bob lengths and other placements of this device have no separate layout."
+  },
+  "Horatian ode": {
+    "status": "supported",
+    "note": "The recurring unit is a short stanza of the same design. The source supplies neither a stanza count nor one required internal meter."
+  },
+  "Blank verse": {
+    "status": "supported",
+    "note": "The catalog's English pattern consists of unrhymed iambic pentameter lines. Grouping into verse paragraphs is one layout; dramatic dialogue also uses blank verse."
+  },
+  "Alliterative verse": {
+    "status": "partial",
+    "note": "Two half-lines joined by alliteration are drawn for the Old English example. Other alliterative line traditions and the placement of individual lifts are outside the model."
+  },
+  "Accentual verse": {
+    "status": "supported",
+    "note": "Count a fixed number of main stresses in each line. Unstressed syllables can vary. A more restricted interval pattern, such as dolnik, would need its own additional rule."
+  },
+  "Sprung rhythm": {
+    "status": "supported",
+    "note": "A foot starts on a stress, so successive stresses can touch. Weak syllables may follow. The usual one-to-four-syllable foot admits exceptional licenses."
+  },
+  "Syllabic verse": {
+    "status": "supported",
+    "note": "Syllables determine the line measurement. Any recurring sequence of line lengths is specific to the poem, not required by the general category."
+  },
+  "Accentual hexameter": {
+    "status": "supported",
+    "note": "The English meter counts six stresses in a largely dactylic line. Six groups each containing exactly three syllables would overstate the rule."
+  },
+  "Quantitative verse": {
+    "status": "supported",
+    "note": "Here syllable length distinguishes long from short. A chosen metrical scheme arranges them; the umbrella term has no single fixed sequence."
+  },
+  "Hendecasyllabics": {
+    "status": "partial",
+    "note": "The English setting supplies an eleven-syllable count. The meter’s quantitative sequence remains unspecified."
+  },
+  "Galliambic": {
+    "status": "partial",
+    "note": "The central division of the line is drawn. The catalog supplies no complete quantitative formula for the English imitation."
+  },
+  "Anacreontic verse": {
+    "status": "partial",
+    "note": "Only the seven-syllable rhyming pairs of the English example appear. The model does not specify the classical long and short positions."
+  },
+  "Free verse": {
+    "status": "supported",
+    "note": "Catalog line 367. Meter and rhyme are unconstrained. Local rhythm, repeated words and line breaks can shape the poem without setting a mandatory sequence."
+  },
+  "Prose poem": {
+    "status": "supported",
+    "note": "Catalog line 368. Sentences are arranged in prose paragraphs. A paragraph wrapping on a screen has no bearing on deliberate verse lineation."
+  },
+  "Projective verse": {
+    "status": "supported",
+    "note": "Catalog line 369. The row ties a line’s placement and extent to breath and thought. It specifies neither a breath count nor a fixed succession of page positions."
+  },
+  "Triadic line": {
+    "status": "supported",
+    "note": "A stepped unit has three progressively indented segments. Its line breaks need not coincide with the end of a sentence."
+  },
+  "Irregular ode": {
+    "status": "supported",
+    "note": "Catalog line 371. Stanza length and rhyme can change within the ode. Neither the repeating Horatian stanza nor the Pindaric triad is a required parent structure."
+  },
+  "Elegy": {
+    "status": "supported",
+    "note": "Catalog line 372. Lament, praise and consolation describe a traditional rhetorical progression. They need not divide an elegy into three stanzas."
+  },
+  "Epigram": {
+    "status": "supported",
+    "note": "Catalog line 373. Brevity and a pointed thought define the type. A final turn and two to four lines illustrate one realization. The Academy also documents single epigrammatic sayings."
+  },
+  "Epitaph": {
+    "status": "partial",
+    "note": "A short memorial inscription and its optional address appear. The catalog’s two-to-four-line example is not counted in the diagram."
+  },
+  "Greeting-card verse": {
+    "status": "partial",
+    "note": "The diagram selects the catalog’s wish-ending, one- or two-quatrain arrangement. Other arrangements and endings used in greeting-card verse have no branch."
+  },
+  "Verse epistle": {
+    "status": "partial",
+    "note": "The tree represents a letter with address, body and sign-off. Other verse letters omit that framing or place the address within the poem."
+  },
+  "Dramatic monologue": {
+    "status": "supported",
+    "note": "Catalog line 377. The speaking persona and implied silent listener occupy different roles. Only the persona speaks; these are concurrent conditions of address."
+  },
+  "Eclogue": {
+    "status": "partial",
+    "note": "The catalog’s shepherd dialogue or singing contest is drawn. Pastoral works without an exchange have no separate arrangement."
+  },
+  "Debate poem": {
+    "status": "partial",
+    "note": "Two speakers argue within a frame and receive a final judgement in the depicted arrangement. Debates that leave the argument open have no separate close."
+  },
+  "Tenson": {
+    "status": "supported",
+    "note": "Catalog line 380. Two poetic voices exchange matched stanzas about a question. No prologue, referee or required verdict is established."
+  },
+  "Flyting": {
+    "status": "supported",
+    "note": "Catalog line 381. The row supports a reciprocal exchange of insults in verse. It specifies no fixed round count or number of lines."
+  },
+  "Aisling": {
+    "status": "partial",
+    "note": "The catalog depicts a vision of Ireland personified as a woman, with lament and prophecy. The diagram gives this political vision scenario without settling the ending of other aisling poems."
+  },
+  "Metrical charm": {
+    "status": "partial",
+    "note": "The diagram distinguishes ritual instructions, a spoken formula and the catalog’s closing prayer. It leaves open where instructions interrupt the formula in any particular charm."
+  },
+  "Riddle poem": {
+    "status": "partial",
+    "note": "An object speaks in disguise and closes by challenging the listener. Riddles that withhold the speaker’s identity without issuing a final challenge have no layout here."
+  },
+  "Gnomic verse": {
+    "status": "supported",
+    "note": "Catalog line 385. The row strings together self-contained maxims of one or two lines. It leaves their number and any shared stanza structure open."
+  },
+  "Macaronic verse": {
+    "status": "supported",
+    "note": "Catalog line 386. The constraint mixes languages within a poem. The catalog’s English-language scope explains the English component; language switches may occur in any section."
+  },
+  "Epic": {
+    "status": "supported",
+    "note": "A long heroic narrative may be divided into books or cantos. The catalog illustrates an opening invocation."
+  },
+  "Verse novel": {
+    "status": "supported",
+    "note": "Catalog line 388. The row’s chapters contain verse narrative. Onegin stanzas can fill a verse novel, as the Onegin entry explicitly says; no uniform stanza form is required."
+  },
+  "Verse drama": {
+    "status": "supported",
+    "note": "Catalog line 389. The row nests scenes inside acts inside the play. Voices are assigned within scenes, without specifying a fixed number of roles, acts or speeches."
+  },
+  "Emblem poem": {
+    "status": "supported",
+    "note": "Catalog line 390. Motto, picture and explanatory verse are parts of one emblem. The arrangement depicts a composite work; no mandatory timing or line counts are implied."
+  },
+  "Zuihitsu": {
+    "status": "supported",
+    "note": "Catalog line 391. Lists, prose fragments and lines are available kinds of material. Their order and number remain free; the links between them can be associative."
+  },
+  "Haiga": {
+    "status": "supported",
+    "note": "Catalog line 392. Poem and image form a single composition. The three-line count in this catalog applies to its English haiku, not to an additional caption or image section."
+  },
+  "Pattern poem": {
+    "status": "supported",
+    "note": "Catalog line 393. The lengths of the written lines give the depicted subject a visible outline. The particular silhouette depends on the work."
+  },
+  "Concrete poetry": {
+    "status": "supported",
+    "note": "Catalog line 394. Spatial disposition carries meaning. No particular silhouette, line scheme or linear reading path is required by the row."
+  },
+  "Contrapuntal poem": {
+    "status": "partial",
+    "note": "Two columns each read down and also across. Additional columns and alternative prescribed reading paths fall outside the illustrated layout."
+  },
+  "Reverso": {
+    "status": "supported",
+    "note": "The second half repeats the first half’s lines in reverse order. Punctuation and capitalization can change how those lines read."
+  },
+  "Palindrome poem": {
+    "status": "supported",
+    "note": "Catalog line 397. Symmetry is tested at one chosen level: letter, word or line. Those are alternatives rather than three successive passages."
+  },
+  "Acrostic": {
+    "status": "supported",
+    "note": "A vertical message can use the first letters of successive lines, the last letters in a telestich, or both edges in a double acrostic. The two edges can spell different words."
+  },
+  "Mesostic": {
+    "status": "supported",
+    "note": "Catalog line 399. Successive lines contribute interior letters to the vertical spine. It need not run through the geometric center of every line."
+  },
+  "Lipogram": {
+    "status": "supported",
+    "note": "One or more chosen letters are excluded from the whole text. The catalog illustrates exclusion of one letter."
+  },
+  "Univocalic": {
+    "status": "supported",
+    "note": "Catalog line 401. Only one written vowel is available. Oulipo treats this as a specific lipogram that excludes all other vowels."
+  },
+  "Tautogram": {
+    "status": "supported",
+    "note": "Catalog line 402. The chosen initial letter is repeated at the level of individual words. It need not be the first letter of every line only."
+  },
+  "Rhopalic verse": {
+    "status": "partial",
+    "note": "The catalog allows either words or lines to increase by one chosen unit. It leaves the counting unit open. A letter-counted single-word-per-line snowball is a narrower construction and has no separate branch."
+  },
+  "Pilish": {
+    "status": "supported",
+    "note": "Word lengths encode digits of π. The two documented conventions differ in how they treat zero and words longer than ten letters."
+  },
+  "Bouts-rimés": {
+    "status": "supported",
+    "note": "Catalog line 405. The externally supplied list fixes the sequence of line endings, with one line per entry. It does not specify the subject or verse meter."
+  },
+  "Cento": {
+    "status": "supported",
+    "note": "Catalog line 406. Previously written poetic lines are assembled into a new whole. The borrowed units are full lines, not simply common words or topical quotations."
+  },
+  "Found poem": {
+    "status": "supported",
+    "note": "Catalog line 407. The catalog’s non-poetic source with new line breaks is one case. The Academy includes poetry as a source and permits rearrangement."
+  },
+  "Erasure poem": {
+    "status": "supported",
+    "note": "Catalog line 408. The operative step hides or removes portions of a source so the retained words compose the new piece. It does not fix a deletion percentage."
+  },
+  "Cut-up poem": {
+    "status": "supported",
+    "note": "Catalog line 409. Cutting a source and reordering fragments are the two operations shown. This procedure does not require the remaining material to keep its source order."
+  },
+  "Exquisite corpse": {
+    "status": "partial",
+    "note": "Each contributor sees the preceding line in the drawn game. Other versions conceal more of the earlier text or divide contributions by word; those games are omitted."
+  }
+}

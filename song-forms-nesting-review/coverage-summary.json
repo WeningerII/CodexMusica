@@ -8,63 +8,69 @@
     "E": 44
   },
   "status": {
-    "supported": 211,
-    "partial": 126,
-    "contested": 27
+    "supported": 258,
+    "partial": 90,
+    "contested": 16
   },
-  "changed_models": 282,
+  "changed_models": 289,
   "fields_changed": {
     "mode": 132,
-    "tree": 222,
-    "related": 127
+    "tree": 228,
+    "related": 146
   },
-  "hierarchy_changed": 150,
+  "hierarchy_changed": 155,
+  "diagram_nodes": 2213,
+  "candidate_relationships": 424,
   "edge_verdicts": {
     "supported": 383,
     "rejected": 16,
+    "redirected": 20,
     "ambiguous": 5
   },
   "edge_changes": {
-    "retained": 196,
-    "added": 187,
-    "removed": 11,
-    "withheld": 10
+    "retained": 178,
+    "added": 205,
+    "removed": 29,
+    "withheld": 12
   },
   "supported_kinds": {
-    "variant": 78,
-    "contains": 183,
-    "other": 6,
-    "comparison": 37,
-    "shares-feature": 79
+    "variant": 76,
+    "contains": 196,
+    "comparison": 27,
+    "shares-feature": 83,
+    "other": 1
   },
   "entry_evidence": {
-    "supported | external evidence for stated scope": 112,
-    "supported | catalog and model only": 99,
-    "partial | catalog and model only": 75,
-    "partial | external evidence for stated scope": 51,
-    "contested | external evidence for stated scope": 23,
-    "contested | catalog and model only": 4
+    "supported | reference recorded; passage unverified": 105,
+    "supported | catalog and model only": 131,
+    "partial | catalog and model only": 43,
+    "partial | reference recorded; passage unverified": 40,
+    "contested | passage checked for stated scope": 16,
+    "partial | passage checked for stated scope": 7,
+    "supported | passage checked for stated scope": 22
   },
   "supported_edge_evidence": {
-    "external evidence for stated scope": 185,
-    "catalog and model only": 198
+    "reference recorded; passage unverified": 149,
+    "catalog and model only": 191,
+    "passage checked for stated scope": 43
   },
-  "distinct_bibliography_urls": 205,
+  "distinct_bibliography_urls": 220,
   "alias_fields_before": 177,
   "alias_fields_reviewed_differently": 89,
   "issue_676_placements": 320,
   "meta_terms": 62,
   "survey_rows": 623,
   "survey_dispositions": {
-    "alias-variant": 23,
-    "attestation-unclear": 47,
-    "other-layer": 535,
+    "alias-variant": 24,
+    "candidate-gap": 19,
+    "other-layer": 560,
     "present": 15,
+    "retain-unidentified": 2,
     "supported-gap": 3
   },
   "survey_methods": {
-    "individual": 226,
-    "layer-screen": 397
+    "individual": 237,
+    "layer-screen": 386
   },
   "survey_layers": {
     "form": 107,
@@ -80,7 +86,7 @@
     "boundary": 12,
     "two rows": 1
   },
-  "unit_node_matches": 289,
+  "unit_node_matches": 341,
   "meter_pairs": 105,
   "meter_evidence": {
     "catalog comparison only": 52,

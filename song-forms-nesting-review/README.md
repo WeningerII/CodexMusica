@@ -1,47 +1,53 @@
-# Song Forms nesting review
+# Song Forms
 
-Extract the ZIP and open `dist/index.html`. Choose a form to inspect its diagram and follow the evidence for a connection. Search **Binary** to see competing accounts and **Petrarchan sonnet** to follow the incoming Miltonic variant. The five navigation groups retain the catalog’s organization. The **Name search only** panel finds similar titles.
+Extract the complete ZIP and open `dist/index.html`. Use **Find a form** to browse 364 entries, inspect their nested structures and follow their connections. Try **AB** for Binary. **Review details** gives scoped evidence for the selected form. **Name search only** finds similar titles independently of the reviewed graph.
 
-## What was checked
+## Coverage
 
-The two source inventories contain the same 364 entries in the same order, with 61, 89, 105, 65 and 44 entries in groups A–E. The closing claim of 378 has no corresponding 14 rows. Of five fields compared per row, 349 records match completely. Fourteen descriptions remove named examples, and one title is shortened to Cinquain. The original source and R2’s posted copy are preserved for provenance. The current explorer builds from the posted copy and exports the reviewed presentation fields. The source inventories originated as knowledge surveys. Independent evidence is recorded separately.
+The original inventory and R2’s posted inventory both contain 364 entries in the same order. Sections A–E contain 61, 89, 105, 65 and 44 entries respectively. The original closing estimate of 378 is inconsistent with the actual tables. Fourteen descriptions and one title differ between the two inventories. The stable Cinquain identifier works with either one.
 
-| Current result | Count |
-|---|---:|
-| Diagrams audited | 364 |
-| Supported within the stated scope | 211, comprising 112 with external evidence and 99 supported only by the catalog and model |
-| Partial / contested diagrams | 126 / 27 |
-| Models with any changed field relative to the original prototype | 282 |
-| Diagrams edited / diagrams with changed branching structure | 222 / 150 |
-| Reviewed candidate relationships | 404 |
-| Supported / rejected / ambiguous | 383 / 16 / 5 |
-| Supported relationships with per-link external evidence / with catalog and model evidence only | 185 / 198 |
-| Previously displayed assertions retained / removed | 196 / 11 |
-| Newly supported / withheld candidates | 187 / 10 |
-| Edited alias fields / originally populated alias fields | 89 / 177 |
+| Diagram judgment | Meaning | Count |
+|---|---|---:|
+| Supported | The diagram represents the organizing rule or the explicitly bounded construction that it claims. | 258 |
+| Partial | The note identifies a material rule, position, branch or identification that remains unresolved or omitted. | 90 |
+| Contested | Two traceable accounts disagree about the same feature at the same scope. | 16 |
 
-The relationship counts refer to directed assertions. An incoming “Has variant” points back to the same child-to-parent assertion. Several forms have alternative diagrams, and a shared scheme alone cannot establish historical descent. The 2,194 diagram nodes were screened for explicit catalog-unit vocabulary. The 289 matches carry a decision or a scoped reason for withholding an inference. These counts describe the recorded comparisons. They cannot establish worldwide completeness or demonstrate executable recognition of 364 forms.
+**Evidence and status answer different questions.** Of the 258 supported diagrams, 22 have a claim-specific passage checked this round, 105 have a recorded reference whose passage remains unchecked for the claim and 131 rely on the catalog and model alone. Seven partial and all 16 contested entries also have a checked passage. A link in the bibliography, a page that loads or agreement with another copy of the inventory separately cannot establish a claim. Each dated passage record describes exactly what it supports. The original access and the new retrieval checks remain separate.
+
+Relative to the first prototype, 289 models have changed. Of 228 edited trees, 155 changed their branching structure. The node screen visits 2,213 nodes and records 341 explicit word or size matches. It covers the declared vocabulary; unrecognized historical and structural connections can remain. The diagrams do not implement a form-recognition or writing engine.
+
+## Connections
+
+| Kind | Meaning | Current facts |
+|---|---|---:|
+| Variant | The child inherits a documented organizing feature from a broader form. | 76 |
+| Contains | A specified part of a displayed construction realizes the target. Every assertion gives its node path and its scope. | 196 |
+| Shared feature | A specified property occurs in both, without requiring membership or a component. | 83 |
+| Comparison | A structural comparison identifies a relevant similarity or difference. | 27 |
+| Other | A specific contextual association outside the preceding kinds. | 1 |
+
+The ledger contains 424 decisions: 383 supported connections, 20 inverse restatements redirected to canonical facts, 16 rejected and five ambiguous. The 383 supported connections are distinct unordered pairs. The interface labels direction when it matters and allows navigation from either end. Of the supported connections, 43 have a passage checked for their scope, 149 carry references still unverified for the particular claim, and 191 rely on the catalog and model. Rejection and ambiguity carry separate evidence for the decision.
 
 ## Gaps and meter
 
-The independent comparison covered 623 survey rows. Of those, 15 matched catalog entries directly, 23 matched aliases or variants, 535 concerned a different level of description, and 47 require further evidence. Three supported gaps remain within that survey’s scope: ritornello form in an English vocal work, terminally climactic form, and the liturgical sequence in English use. Compound AABA can describe a higher-level reading of the existing verse–chorus–bridge diagram. The varying-length refrain already occurs in the rondel and triolet. Historic tune and English performance claims still require their own witnesses. The poetry comparison separately records 198 glossary heading occurrences, including absent genres, organizing procedures and structures. Its findings and the 15 music comparisons can overlap other inventories.
+The survey covers 623 terms. Fifteen are present directly, 24 describe aliases or variants, 560 concern another layer of the music, 19 remain candidates, two have unidentified referents and three are supported omissions within the survey. The three are **ritornello form**, **terminally climactic form** and **the liturgical sequence in English use**. All 47 previously undecided rows now have term-specific dispositions. Current uncertainty includes English-language use and the identity of two survey terms. A candidate has no implied production or catalog approval. The research also covers 320 placements from issue #676, 62 formal or meta terms, 198 poetry glossary heading occurrences and 15 findings from seven music reference comparisons.
 
-The meter ledger accounts for 203 research IDs. It links 87 IDs to illustrative catalog forms through 105 distinct pairs. Of these pairs, 53 have cited evidence for the comparison’s scope and 52 rely on the catalog comparison. The remaining 116 IDs have no illustrative link. Each pair identifies scope, governed unit, strength and evidence. This crosswalk supplies examples and leaves other form-to-meter links open. A line’s spoken stress, a syllable or mora count, a musical bar and a rhyme scheme have different tests. The pinned repository has a strict comparator for a supplied stress pattern. The writer plan’s Stage 7c addresses a declared-pattern report. The separate five-family recognizer belongs to #677 Stage 3, with the wider inventory in #804. Ordered unequal line lengths and exact counts remain explicit limits.
+All 203 meter research IDs are accounted for. There are 105 illustrative ID/form pairs across 87 IDs; 116 IDs have no illustrative link. Of the 105, 53 cite evidence for the scope and 52 rely on the catalog comparison. Each pair identifies what is measured and where. A musical bar, a required verbatim return, a syllable count and a stress reading require different information. The pinned main planner’s exact total number of lines is separate from its ability to state per-line syllable or stress counts. The confirmed Onegin case collision and burden-first restriction, plus the differing bridge recurrence policies on main and Stage 4, are documented in Andrej-meter.md. No planner change is included.
 
-## Using the files
+## What to open
 
-| File | Contents |
+| Location | Purpose |
 |---|---|
-| `R2-reconciliation.md`, `R2-*.md` | Dispositions for T1–T29 and P1–P55 and the supporting table and meter reviews. The aggregate figures above include the final direction and evidence checks after the individual reviews. |
-| `coverage-summary.json`, `coverage.tsv`, `relationships.tsv` | Regenerated counts, one row per form and one row per candidate relationship, including evidence assessed for the specific claim. |
-| `model-changes.json`, `model-unit-crosswalk.tsv` | Structured differences from the original prototype and the path-level unit audit. |
-| `baseline/`, `models/`, `audit/`, `dist/` | Original explorer snapshot, revised models, adjudications and current offline explorer. |
-| `english-forms.md`, `comparison/r2-post.md`, `comparison/r2-row-diff.tsv`, `comparison/title-map.json` | Exact source copies, source-line differences and stable title mapping. |
-| `comparison/alias-overrides.json`, `comparison/search-terms.json` | Reviewed alternate names and scoped discovery terms used in the current browser build. |
-| `comparison/issue-676-crosswalk.tsv`, `comparison/meta-forms.json` | All 320 earlier placements and 62 formal or meta terms. |
-| `comparison/structure-crosswalk.md`, `comparison/structure-crosswalk.json` | Findings, methods and all 623 survey dispositions. |
-| `comparison/song-gaps.json`, `comparison/external-poetry.json` | Seven music references and two bounded poetry glossary screens with dispositions and remaining uncertainty. |
-| `comparison/meter.md`, `comparison/meter-crosswalk.tsv`, `comparison/meter-links.tsv` | Runtime and planner boundaries, the complete research-ID index and individual meter-link records. |
-| `validation.md`, `r2-file-changes.tsv` | Validation receipts, execution limits and file-by-file SHA-256 changes against the first review ZIP. |
+| `Andrej-reconciliation.md` | Disposition of every finding and nit from the independent review. The graph, scope, meter, build and search companion files give the underlying checks. |
+| `coverage-summary.json`, `coverage.tsv`, `relationships.tsv` | Current totals, one form per row and one assertion per decision. |
+| `comparison/claim-source-ledger.tsv`, `comparison/andrej-evidence.json`, `comparison/rechecked-sources.json` | Dated source access, exact locators, scoped paraphrases and cases with no passage receipt. |
+| `models/`, `audit/`, `comparison/andrej-status.json` | Diagram trees, underlying judgments and later global status adjudication. The builders join them through evidence.py. |
+| `model-changes.json`, `model-unit-crosswalk.tsv` | Structured differences from the first prototype and node-by-node decisions. |
+| `comparison/structure-crosswalk.md`, `comparison/structure-crosswalk.json` | Evidence and dispositions for all 623 survey terms. |
+| `comparison/meter.md`, `comparison/meter-crosswalk.tsv`, `comparison/meter-links.tsv` | Implementation boundaries, complete meter inventory and normalized links. Names of editors, historical terms and works here are review-only provenance. |
+| `comparison/issue-676-crosswalk.tsv`, `comparison/meta-forms.json`, `comparison/song-gaps.json`, `comparison/external-poetry.json` | Earlier inventory and music/poetry reference comparisons. |
+| `english-forms.md`, `comparison/r2-post.md`, `baseline/` | **Provenance only.** Preserves the original inventoried prose, names and historical prototype. Use `dist/` for the corrected explorer. |
+| `R2-reconciliation.md`, `R2-*.md`, `r2-file-changes.tsv` | Prior R2 reconciliation and historical hashes against the first ZIP. Current evidence and totals are above. |
+| `andrej-file-changes.tsv`, `validation.md` | Exact SHA-256 changes relative to the incoming 79-file package and reproducible verification receipts. |
 
-Run `python3 -B reconcile.py` from the package root, or pass the absolute package directory to the script from elsewhere. Both explorers open offline. The revised JSON and JavaScript describe and display the data. The review package makes no production changes. R2’s findings are recorded here for the next independent review by Andrej.
+From the extracted package run `python3 -I -B verify-offline.py`, then `python3 -I -B source-ledger.py --check`. The checks use Python’s standard library. For browser checks, run `node verify-browser.cjs` with Playwright and Chromium installed.

@@ -8,15 +8,16 @@
   "catalog_data_rows": 364,
   "comparison_unit": "Survey occurrence in its stated sense and layer. 1-based ordinal excludes the TSV header; source_line counts the header. Catalog comparisons can be neighbors, collision warnings or partial coverage. They are not automatically equivalences.",
   "dispositions": {
-    "alias-variant": 23,
-    "attestation-unclear": 47,
-    "other-layer": 535,
+    "alias-variant": 24,
+    "candidate-gap": 19,
+    "other-layer": 560,
     "present": 15,
+    "retain-unidentified": 2,
     "supported-gap": 3
   },
   "methods": {
-    "individual": 226,
-    "layer-screen": 397
+    "individual": 237,
+    "layer-screen": 386
   },
   "survey_layers": {
     "form": 107,
@@ -58,12 +59,14 @@
       "layer": "form",
       "survey_gloss": "material accrues section by section",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "Survey supplies an uncited, generic accumulation gloss. Texture building and successive thematic completion are different procedures; the lyrical item-recall rule in Cumulative song does not subsume either. Spicer distinguishes accumulative from cumulative in pop-rock. The uncited survey wording needs a specific realization and layer before adding a leaf.",
+      "reason": "Treat gradual instrumental or textural accumulation as a compositional process. The survey gives no further formal identity for this spelling. Keep the final-theme sense in row 10 separate from lyric item recall.",
       "external_evidence": [
         "https://doi.org/10.1017/S1478572204000052"
-      ]
+      ],
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "3": {
       "source_row": 3,
@@ -193,9 +196,11 @@
       "layer": "form",
       "survey_gloss": "stanza + refrain alternation",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [],
-      "reason": "Copla alternating with an independent estribillo is a culturally situated design. Strophic with refrain explicitly puts its refrain inside the stanza; that catalog rule is not an equivalent."
+      "reason": "Retain the copla alternating with a separate estribillo as a whole-form candidate. The catalog’s stanza-final tail refrain does not encode that independent return. English realization is still unlocated.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "10": {
       "source_row": 10,
@@ -205,18 +210,20 @@
       "layer": "form",
       "survey_gloss": "the theme arrives whole only at the end",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [
         {
           "title": "Cumulative song",
           "source_line": 122
         }
       ],
-      "reason": "Fragments combine into a complete theme at the end. Cumulative song instead adds and recalls textual items. The cited exact final-theme analysis is instrumental; the popular-song study analyzes several accumulation processes and does not establish that every such process realizes the exact final-theme sense.",
+      "reason": "Retain the terminal assembly of a previously fragmented theme as a candidate design. The cited instrumental sense does not establish an English vocal witness. Recalling earlier lyric items is a different operation.",
       "external_evidence": [
         "https://doi.org/10.1017/S1478572204000052",
         "https://mtosmt.org/issues/mto.11.17.2/mto.11.17.2.iverson.html"
-      ]
+      ],
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "11": {
       "source_row": 11,
@@ -263,14 +270,16 @@
       "layer": "form",
       "survey_gloss": "call-and-response cycles, typically accelerating",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [
         {
           "title": "Call-and-response",
           "source_line": 110
         }
       ],
-      "reason": "Repeated exchanges describe a shared device. A kirtan tradition cannot be identified solely by that device, and this survey does not supply an English-text example."
+      "reason": "Retain kirtan as a named participatory candidate. Record the exchange cycle and possible acceleration; generic call-and-response could realize either without identifying kirtan. The English-text claim remains open.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "14": {
       "source_row": 14,
@@ -300,9 +309,11 @@
       "layer": "form",
       "survey_gloss": "Carnatic three-part kriti",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [],
-      "reason": "Kriti composition units are named in Carnatic practice. A three-part pattern alone cannot justify a ternary alias or an English catalog entry."
+      "reason": "Retain the three named functions of the kriti as a Carnatic candidate. Generic ternary lacks their roles and relationships. Record English text separately if a particular composition is brought forward.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "16": {
       "source_row": 16,
@@ -325,9 +336,11 @@
       "layer": "form",
       "survey_gloss": "alap → composed verse → improvised expansion",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [],
-      "reason": "The survey offers an ordering of exposition, composed singing and improvised elaboration. A qualifying English-text example of that practice is unestablished."
+      "reason": "Retain the described qawwali setting as a culturally scoped candidate with composed and improvised material. The survey’s opening order is a particular outline, and an English-text realization has not been identified here.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "18": {
       "source_row": 18,
@@ -458,14 +471,16 @@
       "layer": "form",
       "survey_gloss": "largo (composed) → montuno (open call-and-response)",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [
         {
           "title": "Call-and-response",
           "source_line": 110
         }
       ],
-      "reason": "Largo and open montuno are successive larger units. A call-and-response entry alone encodes neither the full form nor its culturally situated English use."
+      "reason": "Retain the largo-to-montuno design as a candidate. A leader/group exchange describes the montuno’s activity but omits its preceding composed section. The qualifying English-text occurrence is open.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "26": {
       "source_row": 26,
@@ -475,9 +490,11 @@
       "layer": "form",
       "survey_gloss": "exposition–development–recapitulation",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [],
-      "reason": "Sonata exposition, development and recapitulation are recognizable musical functions. This survey row lacks a verified qualifying English vocal example; instrumental attestation alone is insufficient."
+      "reason": "Keep exposition, development and recapitulation as a musical-form candidate. A familiar instrumental sonata demonstrates those functions but cannot establish which English vocal work carries them.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "27": {
       "source_row": 27,
@@ -499,9 +516,11 @@
       "layer": "form",
       "survey_gloss": "lower-register sthāyī + upper-register antarā",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [],
-      "reason": "Sthayi and antara organize a Hindustani composition. The names and register relationships cannot be inferred from generic binary form."
+      "reason": "Keep the sthayi/antara plan as a candidate for a composition with the named lower- and upper-register functions. Binary shows only cardinality. Cross-reference composition row 167; its musical roles have no English example identified here.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "29": {
       "source_row": 29,
@@ -528,17 +547,19 @@
       "layer": "form",
       "survey_gloss": "form aimed at a final goal-arrival",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [
         {
           "title": "Verse-prechorus-chorus",
           "source_line": 40
         }
       ],
-      "reason": "Nobile’s telos principle concerns arrival within repeated verse–prechorus–chorus cycles; that evidence alone does not establish a separate generic last-section form as glossed here.",
+      "reason": "Treat goal-directed arrival as a function within a verse–prechorus–chorus cycle for this comparison. An arrival in repeated cycles and a single final thematic climax are different observations; the uncited term supplies no additional whole form.",
       "external_evidence": [
         "https://www.mtosmt.org/issues/mto.22.28.3/mto.22.28.3.nobile.html"
-      ]
+      ],
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "31": {
       "source_row": 31,
@@ -675,9 +696,11 @@
       "layer": "meta",
       "survey_gloss": "the fixed composition (which carries sthāyī+antarā); a term for the object, not a pattern or a span",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The meta-layer use still names the composition that survey row 167 treats at form level. Propagate that row’s English-evidence limitation rather than counting a second gap."
+      "reason": "Index this meta occurrence as the name of the composition. Route the existing candidate to row 167 for the actual fixed text/tune/tala object; duplicating the name would double-count it.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "39": {
       "source_row": 39,
@@ -1043,9 +1066,11 @@
       "layer": "form",
       "survey_gloss": "spoken/chanted Yoruba poetry, esp. the modern literary and broadcast genre",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [],
-      "reason": "Èwì is a Yoruba verbal art. Its chanted or spoken status alone does not identify an English-language example or make it equivalent to any English oral narrative row."
+      "reason": "Carry èwì as a candidate for a Yoruba spoken or chanted poetic genre, with medium and language explicit. The survey’s spelling hits do not identify an English text or a formal sequence.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "68": {
       "source_row": 68,
@@ -1055,9 +1080,11 @@
       "layer": "form",
       "survey_gloss": "a pattern OVER sections. Slot-by-slot into the closed set: intro=front_framing, vamp=medial, horn line=instrumental, solo=instrumental, shout=rear_framing.",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The proposed highlife sequence is an arrangement sketch. A verified English-language exemplar and evidence for the whole claimed sequence are missing here."
+      "reason": "Classify the five-event highlife sketch as one arrangement. Intro, vamp, horn line, solo and shout allocate roles; they do not justify treating that ordering as the full genre or a new English form.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "69": {
       "source_row": 69,
@@ -1067,9 +1094,11 @@
       "layer": "form",
       "survey_gloss": "hunters' chant genre with its own chanting style and repertoire",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [],
-      "reason": "Ìjálá is a Yoruba hunters’ chanting repertoire. It cannot be merged with a generic praise section or English toast."
+      "reason": "Retain ìjálá as a hunters’ chant repertoire candidate. It differs from the praise process in row 76. An actual English text for reading or performance has not been identified in this survey.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "70": {
       "source_row": 70,
@@ -1156,9 +1185,11 @@
       "layer": "process",
       "survey_gloss": "attributive praise-epithet poetry; accumulative, expandable, no fixed boundary — a mode of composition, not a span",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "An illustrative English gloss of praise epithets establishes their meaning. Evidence of composition, publication for use as an English text, or performance within the practice is required for English-language attestation here."
+      "reason": "Classify accumulative praise epithets as a compositional process in this survey row. The separate Oríkì glossary review documents a published English translation for reading. Keep that literary genre comparison and distinguish it from an English-language performance claim.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "77": {
       "source_row": 77,
@@ -1325,14 +1356,16 @@
       "layer": "form",
       "survey_gloss": "five-line strophic form (Ar. mukhammas); the fifth line carries the returning common rhyme",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [
         {
           "title": "Quintain",
           "source_line": 331
         }
       ],
-      "reason": "Five-line strophes with a returning rhyme specialize a generic five-line stanza. A distinct English realization is not provided by the survey."
+      "reason": "Retain the five-line mukhammas stanza with its returning fifth-line rhyme as a candidate. A catalog quintain specifies only the line count. An English realization and the nature of the return (rhyme or repeated wording) remain to be localized.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "89": {
       "source_row": 89,
@@ -1510,9 +1543,11 @@
       "layer": "section",
       "survey_gloss": "unmetered vocal improvisation on a colloquial strophic poem (also mawwāl), following layālī and preceding the metered dawr/qaṣīda",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "Mawwāl can stand as an improvised vocal item as well as a passage. English-language applicability of its specific text conventions remains open."
+      "reason": "Use the passage sense in this row: an improvised vocal span in the surrounding sequence. Keep the separate name for the freestanding colloquial poem out of this section occurrence.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "104": {
       "source_row": 104,
@@ -1642,9 +1677,11 @@
       "layer": "form",
       "survey_gloss": "The large concert form: ālāpana → tānam → a single composed pallavi line, then neraval and kalpanaswaram over that line. Its \"pallavi\" is a one-line theme, NOT a kṛti's pallavi section.",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [],
-      "reason": "The Carnatic multi-stage concert form uses a short composed pallavi with extensive improvisation. Its pallavi is not interchangeable with the section of a kriti."
+      "reason": "Keep an extended Carnatic concert design as a named candidate. Its one-line pallavi supports later development and improvisation; the homonymous section in a kriti has a different function. The English vocal-text scope remains open.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "115": {
       "source_row": 115,
@@ -1834,9 +1871,11 @@
       "layer": "?",
       "survey_gloss": "cannot identify with confidence — possibly a 花八板 \"flowered\" derivative, possibly 九華; I will not guess",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "retain-unidentified",
       "catalog_comparisons": [],
-      "reason": "The survey flags uncertain terminology; retain as unresolved until an identifiable word and musical object can be verified."
+      "reason": "Withhold a mapping for Jiuhua. The proposed 九華 and a flowered 花八板 derivative are distinct identifications. The spelling does not decide which object the survey meant.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "131": {
       "source_row": 131,
@@ -1846,9 +1885,11 @@
       "layer": "?",
       "survey_gloss": "claimed sense is entry ahead of the 板; not a member of the standard banshi list I can vouch for",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The survey flags uncertain terminology or function. A spelling alone cannot establish a song type."
+      "reason": "Treat the claimed anticipation of the board beat as an entry/timing action only. Its identification as a named banshi or a complete song form is unsupported here.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "132": {
       "source_row": 132,
@@ -1882,14 +1923,16 @@
       "layer": "form",
       "survey_gloss": "a named pre-existing tune a text is written to fill; the 曲-layer twin of 詞牌",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [
         {
           "title": "Contrafactum",
           "source_line": 54
         }
       ],
-      "reason": "Fitting words to an established tune is comparable, but a named qǔpái convention is not simply any replacement lyric."
+      "reason": "Keep the named tune-pattern practice as a candidate. Contrafactum covers fitting new words to existing music, but it does not supply the repertoire of specific qǔpái or their textual constraints.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "135": {
       "source_row": 135,
@@ -1899,9 +1942,11 @@
       "layer": "form",
       "survey_gloss": "the named pre-existing tune-pattern a lyric is written to fill; fixes line count, character count, 平仄 template and which line-ends must rhyme",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [],
-      "reason": "A cí tune pattern specifies Chinese character, tone and rhyme constraints. English-language adaptations require their own evidence."
+      "reason": "Retain cí tune-pattern constraints as a candidate for comparison at pattern level. The source reports Chinese tune-name and template fields; those are evidence for the Chinese objects. English adaptations would require an identifiable English setting.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "136": {
       "source_row": 136,
@@ -2283,9 +2328,11 @@
       "layer": "form",
       "survey_gloss": "The fixed composition — text, tune and tāla — consisting of sthayi (+ antara); the invariant against which all improvisation is measured.",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [],
-      "reason": "A fixed text, tune and tāla form an improvisational anchor. English lyric evidence for a qualifying bandish is missing here."
+      "reason": "Keep bandish as the candidate for the fixed text, tune and tāla anchor in Hindustani practice. The meta mention (38) and khayal performer name (168) refer here. A named English-language rendering remains unlocated.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "168": {
       "source_row": 168,
@@ -2295,9 +2342,11 @@
       "layer": "form",
       "survey_gloss": "(cīz, \"thing\") The khayal composition; the everyday performer's word for a bandish.",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "alias-variant",
       "catalog_comparisons": [],
-      "reason": "The survey equates this performer term with bandish in khayal; keep the row separate without counting a second proposed form."
+      "reason": "Resolve cīz to survey row 167 in the stipulated khayal composition sense. This is a within-survey alias to a candidate, with no corresponding catalog title or separate English witness.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "169": {
       "source_row": 169,
@@ -2595,14 +2644,16 @@
       "layer": "form",
       "survey_gloss": "The stanza-form: octosyllabic quatrain, assonance on even lines. Also, separately, the 20th-c. copla andaluza song genre. Copla is the VARYING unit, not the return.",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [
         {
           "title": "Quatrain",
           "source_line": 312
         }
       ],
-      "reason": "One copla sense specifies an octosyllabic stanza with even-line assonance; another denotes a song genre. Neither is established as a distinct English whole-song gap by this row."
+      "reason": "Keep the copla stanza sense as a candidate: four octosyllabic lines and even-line assonance. Quatrain alone loses those conditions. The copla andaluza song genre is a separate sense.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "194": {
       "source_row": 194,
@@ -2612,9 +2663,11 @@
       "layer": "form",
       "survey_gloss": "Unmetered rubato improvisatory piece, adapted from the Romanian doină; Feldman's \"transitional\" repertoire. Freestanding, but conventionally opens a suite (doina → hora → freylekhs), where it takes a front_framing slot.",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [],
-      "reason": "The Romanian doină and its klezmer adaptation involve different vocal and instrumental uses. A prelude position within a suite is not a freestanding English-text form."
+      "reason": "Retain the freestanding vocal doină as a candidate where a text is actually present. The instrumental klezmer suite opening is a separate use of the name and cannot establish an English-text form.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "195": {
       "source_row": 195,
@@ -2624,9 +2677,11 @@
       "layer": "form",
       "survey_gloss": "Not a term of art: a pointer to the fandango's fixed shape — guitar entrada/falseta, then a copla of 4–5 written lines redistributed over 6 sung lines across a descending Andalusian cadence.",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The survey describes redistribution of a copla’s written lines over sung lines in fandango. A comparable English-language treatment needs independent verification."
+      "reason": "Record the guitar entrance and written-to-sung redistribution of a copla as fandango arrangement conventions. The source expressly presents “fandango sections” as a pointer rather than a named form.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "196": {
       "source_row": 196,
@@ -2881,9 +2936,11 @@
       "layer": "unclear",
       "survey_gloss": "Lexically \"re-strike / alarm / recoil\"; reported in fado practice as an answering or intensifying return figure. I could not verify this in a standard reference and will not guess its layer.",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "retain-unidentified",
       "catalog_comparisons": [],
-      "reason": "The source explicitly marks this term unclear. Verification of its referent precedes any catalog match."
+      "reason": "Withhold a mapping for rebate. An answering instrumental figure and a reattack describe different events. The survey identifies no musical witness that chooses either interpretation.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "217": {
       "source_row": 217,
@@ -3566,7 +3623,7 @@
       "layer": "process",
       "survey_gloss": "the sung duel: two improvisers trade décimas, each answering the last",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [
         {
           "title": "Décima espinela",
@@ -3577,7 +3634,9 @@
           "source_line": 379
         }
       ],
-      "reason": "Improvisers alternate décimas. These neighbors cover stanza and dialogue separately; neither represents the named duel as a complete English form."
+      "reason": "Treat the traded improvised décimas as a performance procedure. The individual stanza remains a décima; alternating two soloists and answering the last verse describes the duel and adds no fixed stanza sequence.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "273": {
       "source_row": 273,
@@ -4033,7 +4092,7 @@
       "layer": "form",
       "survey_gloss": "refrain opens, closes, and returns between stanzas",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [
         {
           "title": "Virelai",
@@ -4052,10 +4111,12 @@
           "source_line": 152
         }
       ],
-      "reason": "Ballata and Medieval carol with burden model the textual return at the opening, between stanzas and at the close. The catalog Virelai and Virelai nouveau specify other patterns. An English text used as a sung virelai remains unverified. No score is required to recognize textual recurrence in this or the rondeau row.",
+      "reason": "Retain the medieval sung virelai design as a candidate distinct from the catalog’s linked-rhyme literary Virelai. Ballata and Medieval carol with burden offer textual comparisons. Neither establishes the musical returns of a specific English sung virelai.",
       "literal_title_or_alias_hits": [
         "Virelai"
-      ]
+      ],
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "307": {
       "source_row": 307,
@@ -4279,9 +4340,11 @@
       "layer": "section",
       "survey_gloss": "the fast closing movement, obligatorily repeated with the singer's ornament",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "A cabaletta can be an independently performed vocal number as well as a fast closing portion of a larger scene. No verified English-language example is attached here."
+      "reason": "Classify the fast repeated close as the cabaletta component of an operatic scene in this occurrence. Its repetition and ornamentation can be identified without declaring a freestanding English song type.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "324": {
       "source_row": 324,
@@ -4291,9 +4354,11 @@
       "layer": "section",
       "survey_gloss": "the slow lyric first movement of the double aria (solita forma), after the scena",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "Cavatina can identify a vocal number or a section, and its name is also applied to instrumental pieces. A vocal English witness is needed."
+      "reason": "Classify the slow opening of the double aria as its cavatina section here. A separately performed vocal number or an instrumental cavatina would be a different occurrence.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "325": {
       "source_row": 325,
@@ -4303,14 +4368,16 @@
       "layer": "section",
       "survey_gloss": "as an item: a congregational hymn (a whole piece). As the last movement of a cantata: the four-part harmonised stanza that closes it",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [
         {
           "title": "Metrical hymn",
           "source_line": 156
         }
       ],
-      "reason": "Chorale can refer to a complete congregational hymn, a tune, or a harmonization inside a larger work. The hymn row does not establish exact identity."
+      "reason": "Preserve the two levels: congregational hymn as a whole and harmonized closing stanza within a cantata. This section occurrence is the latter. Neither the four-part texture nor the name alone defines a distinct hymn text form.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "326": {
       "source_row": 326,
@@ -4515,14 +4582,16 @@
       "layer": "section",
       "survey_gloss": "the free recitative-and-arioso span preceding the formal number",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [
         {
           "title": "Musical scene",
           "source_line": 60
         }
       ],
-      "reason": "A scena is a larger dramatic unit and can be a separate vocal work. The catalog’s popular/stage musical scene is only a possible analog."
+      "reason": "Record the operatic scena as recitative-and-arioso material before the number in this occurrence. The catalog Musical scene is a comparison of dramatic scope rather than an exact musical template.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "340": {
       "source_row": 340,
@@ -4962,9 +5031,11 @@
       "layer": "section",
       "survey_gloss": "pennill = a stanza; penillion = stanzas. The one attested use is the ordinary word, and it attests the stanza sense",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "Welsh penillion singing can name a distinct practice in which words are fitted to instrumental music. Its classification as a whole English text form requires evidence."
+      "reason": "Use the surveyed pennill/penillion sense for a stanza or stanzas. The recorded singular names a verse; canu penillion as a performance practice would need its own occurrence and does not follow from this plural.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "372": {
       "source_row": 372,
@@ -5147,14 +5218,16 @@
       "layer": "form",
       "survey_gloss": "composed, metric, strophic song with a fixed text; circulates freestanding",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "candidate-gap",
       "catalog_comparisons": [
         {
           "title": "Strophic",
           "source_line": 27
         }
       ],
-      "reason": "A Persian tasnif includes a fixed composed metric vocal setting; generic strophic organization is insufficient to identify qualifying English usage."
+      "reason": "Retain the tasnif as a strophic Persian song candidate with fixed text and composed metric setting. Generic strophic repetition covers only one characteristic and does not supply an English text.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "individual"
     },
     "387": {
       "source_row": 387,
@@ -5743,10 +5816,12 @@
       "family": "Western pop",
       "layer": "?",
       "survey_gloss": "one printed block containing two verse units",
-      "method": "layer-screen",
-      "disposition": "attestation-unclear",
+      "method": "individual",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The survey classifies this occurrence as a source-designated ambiguous or qualifier-dependent object. Its wording supplies no independent whole-form equivalence. Further object-level review would be required to promote it."
+      "reason": "Classify a compound verse as two verse units printed in one block. The unit grouping characterizes one passage; the larger song may have multiple different forms.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "layer-screen"
     },
     "430": {
       "source_row": 430,
@@ -5755,10 +5830,12 @@
       "family": "Western pop",
       "layer": "?",
       "survey_gloss": "a verse instance longer than the reference",
-      "method": "layer-screen",
-      "disposition": "attestation-unclear",
+      "method": "individual",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The survey classifies this occurrence as a source-designated ambiguous or qualifier-dependent object. Its wording supplies no independent whole-form equivalence. Further object-level review would be required to promote it."
+      "reason": "Classify an extended verse by its duration relative to a reference verse. Keep the measured or declared extent with that occurrence.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "layer-screen"
     },
     "431": {
       "source_row": 431,
@@ -5767,10 +5844,12 @@
       "family": "Western pop",
       "layer": "?",
       "survey_gloss": "",
-      "method": "layer-screen",
-      "disposition": "attestation-unclear",
+      "method": "individual",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The survey classifies this occurrence as a source-designated ambiguous or qualifier-dependent object. Its wording supplies no independent whole-form equivalence. Further object-level review would be required to promote it."
+      "reason": "Split the grouped chorus modifiers conceptually: half and extended describe length, double counts repetitions, final identifies position, and stripped identifies arrangement. None specifies the design of an entire song.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "layer-screen"
     },
     "432": {
       "source_row": 432,
@@ -5779,10 +5858,12 @@
       "family": "Western pop",
       "layer": "?",
       "survey_gloss": "a shortened or lower-intensity drop",
-      "method": "layer-screen",
-      "disposition": "attestation-unclear",
+      "method": "individual",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The survey classifies this occurrence as a source-designated ambiguous or qualifier-dependent object. Its wording supplies no independent whole-form equivalence. Further object-level review would be required to promote it."
+      "reason": "Keep half-drop as a local drop variant. Shorter duration and reduced intensity are alternative meanings of half in this row; a concrete occurrence must distinguish them.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "layer-screen"
     },
     "433": {
       "source_row": 433,
@@ -5791,10 +5872,12 @@
       "family": "Western pop",
       "layer": "?",
       "survey_gloss": "a verse instance shorter than the reference instance",
-      "method": "layer-screen",
-      "disposition": "attestation-unclear",
+      "method": "individual",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The survey classifies this occurrence as a source-designated ambiguous or qualifier-dependent object. Its wording supplies no independent whole-form equivalence. Further object-level review would be required to promote it."
+      "reason": "Classify half-verse by the shortened span relative to its reference verse. The survey’s Sanskrit half-verse hit attests a different use of the words.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "layer-screen"
     },
     "434": {
       "source_row": 434,
@@ -5803,10 +5886,12 @@
       "family": "Western pop",
       "layer": "?",
       "survey_gloss": "the most prominent drop",
-      "method": "layer-screen",
-      "disposition": "attestation-unclear",
+      "method": "individual",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The survey classifies this occurrence as a source-designated ambiguous or qualifier-dependent object. Its wording supplies no independent whole-form equivalence. Further object-level review would be required to promote it."
+      "reason": "Record main drop as prominence among drop occurrences. Prominence distinguishes a drop’s role in that arrangement and determines no sequence by itself.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "layer-screen"
     },
     "435": {
       "source_row": 435,
@@ -5815,10 +5900,12 @@
       "family": "Western pop",
       "layer": "?",
       "survey_gloss": "a chorus returning in a new key (\"truck-driver's gear change\")",
-      "method": "layer-screen",
-      "disposition": "attestation-unclear",
+      "method": "individual",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The survey classifies this occurrence as a source-designated ambiguous or qualifier-dependent object. Its wording supplies no independent whole-form equivalence. Further object-level review would be required to promote it."
+      "reason": "Record modulated chorus as a returning chorus with a changed key. A key change is an attribute of the return and does not supply a complete form.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "layer-screen"
     },
     "436": {
       "source_row": 436,
@@ -5827,10 +5914,12 @@
       "family": "Western pop",
       "layer": "?",
       "survey_gloss": "the song's second drop",
-      "method": "layer-screen",
-      "disposition": "attestation-unclear",
+      "method": "individual",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The survey classifies this occurrence as a source-designated ambiguous or qualifier-dependent object. Its wording supplies no independent whole-form equivalence. Further object-level review would be required to promote it."
+      "reason": "Record second drop as occurrence number two among drops. Its index specifies order only; no new drop type or whole-song design is implied.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "layer-screen"
     },
     "437": {
       "source_row": 437,
@@ -5839,10 +5928,12 @@
       "family": "Western pop",
       "layer": "?",
       "survey_gloss": "a verse instance cut short",
-      "method": "layer-screen",
-      "disposition": "attestation-unclear",
+      "method": "individual",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The survey classifies this occurrence as a source-designated ambiguous or qualifier-dependent object. Its wording supplies no independent whole-form equivalence. Further object-level review would be required to promote it."
+      "reason": "Treat truncated verse as a cut relative to an expected or earlier verse. An occurrence needs an identifiable baseline to distinguish truncation from a normally short verse.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "layer-screen"
     },
     "438": {
       "source_row": 438,
@@ -5851,10 +5942,12 @@
       "family": "Western pop",
       "layer": "?",
       "survey_gloss": "a verse instance differing from its first statement",
-      "method": "layer-screen",
-      "disposition": "attestation-unclear",
+      "method": "individual",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The survey classifies this occurrence as a source-designated ambiguous or qualifier-dependent object. Its wording supplies no independent whole-form equivalence. Further object-level review would be required to promote it."
+      "reason": "Record a verse variant against its reference occurrence. It can change text, extent or arrangement, so a specific difference belongs with the individual return.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "layer-screen"
     },
     "439": {
       "source_row": 439,
@@ -8188,11 +8281,74 @@
       "family": "Western pop",
       "layer": "two rows",
       "survey_gloss": "",
-      "method": "layer-screen",
-      "disposition": "attestation-unclear",
+      "method": "individual",
+      "disposition": "other-layer",
       "catalog_comparisons": [],
-      "reason": "The survey classifies this occurrence as a source-designated composite record retaining more than one reading. Its wording supplies no independent whole-form equivalence. Further object-level review would be required to promote it."
+      "reason": "The final aggregate row gives no formal gloss for riser. Route the sound that builds tension to a production gesture, and the transition leading into a section to a connective function. The quoted lexical use describes a person and establishes neither musical sense.",
+      "previous_disposition": "attestation-unclear",
+      "previous_method": "layer-screen"
     }
   },
-  "literal_hit_scope": "Literal title-or-alias hits document spellings in the original survey comparison. The reason and disposition specify whether a match survives review."
+  "literal_hit_scope": "Literal title-or-alias hits document spellings in the original survey comparison. The reason and disposition specify whether a match survives review.",
+  "andrej_scope_review": {
+    "prior_status": "attestation-unclear",
+    "reviewed_source_rows": [
+      2,
+      9,
+      10,
+      13,
+      15,
+      17,
+      25,
+      26,
+      28,
+      30,
+      38,
+      67,
+      68,
+      69,
+      76,
+      88,
+      103,
+      114,
+      130,
+      131,
+      134,
+      135,
+      167,
+      168,
+      193,
+      194,
+      195,
+      216,
+      272,
+      306,
+      323,
+      324,
+      325,
+      339,
+      371,
+      386,
+      429,
+      430,
+      431,
+      432,
+      433,
+      434,
+      435,
+      436,
+      437,
+      438,
+      623
+    ],
+    "decision_counts": {
+      "alias-variant": 1,
+      "candidate-gap": 19,
+      "other-layer": 25,
+      "retain-unidentified": 2
+    },
+    "candidate_scope": "Candidate gaps are identifiable formal or repertory objects for a later comparison. This does not assert original English composition, sung or published English use, complete geometry, or current implementation.",
+    "alias_scope": "Row 168 maps to survey row 167 rather than an existing catalog entry.",
+    "held_scope": "Unidentified means exclude from the mapped forms for this comparison; the unresolved historical referent is recorded."
+  }
 }

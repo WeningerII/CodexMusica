@@ -17,6 +17,7 @@
       {
         "label": "Each verse",
         "children": [
+          "Recurring tune",
           "Changing text",
           {
             "label": "Fixed ending",
@@ -82,9 +83,7 @@
         ]
       }
     ],
-    "related": [
-      "Verse-refrain with introductory verse"
-    ]
+    "related": []
   },
   "Extended AABA": {
     "mode": "Pattern",
@@ -124,9 +123,7 @@
         ]
       }
     ],
-    "related": [
-      "Verse-refrain with introductory verse"
-    ]
+    "related": []
   },
   "Verse-refrain with introductory verse": {
     "mode": "Rule",
@@ -194,7 +191,6 @@
       }
     ],
     "related": [
-      "12-bar blues",
       "16-bar blues",
       "Couplet"
     ]
@@ -218,8 +214,6 @@
       }
     ],
     "related": [
-      "8-bar blues",
-      "12-bar blues",
       "Quatrain"
     ]
   },
@@ -249,9 +243,7 @@
         ]
       }
     ],
-    "related": [
-      "Simple verse-chorus"
-    ]
+    "related": []
   },
   "Verse-prechorus-chorus": {
     "mode": "Pattern",
@@ -308,9 +300,7 @@
       "Bridge",
       "Final chorus"
     ],
-    "related": [
-      "Verse-prechorus-chorus"
-    ]
+    "related": []
   },
   "Chorus-first": {
     "mode": "Pattern",
@@ -343,9 +333,7 @@
         ]
       }
     ],
-    "related": [
-      "Verse-chorus-bridge"
-    ]
+    "related": []
   },
   "Binary": {
     "mode": "Pattern",
@@ -538,6 +526,9 @@
           "Optional spoken patter"
         ]
       }
+    ],
+    "related": [
+      "Octave / huitain"
     ]
   },
   "Parlour ballad": {
@@ -557,7 +548,8 @@
       }
     ],
     "related": [
-      "Strophic with refrain"
+      "Strophic with refrain",
+      "Octave / huitain"
     ]
   },
   "Song-and-dance number": {
@@ -585,7 +577,7 @@
         "label": "Materials woven into the scene",
         "children": [
           "Song sections",
-          "Sung dialogue",
+          "Sung dialogue, optionally recitative",
           "Underscored speech"
         ]
       },
@@ -656,9 +648,7 @@
         ]
       }
     ],
-    "related": [
-      "Recitative"
-    ]
+    "related": []
   },
   "Da capo aria": {
     "mode": "Pattern",
@@ -672,9 +662,7 @@
       },
       "A · ornamented return"
     ],
-    "related": [
-      "Ternary"
-    ]
+    "related": []
   },
   "Melodrama": {
     "mode": "Rule",
@@ -779,8 +767,7 @@
       }
     ],
     "related": [
-      "Recitative",
-      "Cantata"
+      "Recitative"
     ]
   },
   "Head arrangement": {
@@ -855,9 +842,7 @@
         ]
       }
     ],
-    "related": [
-      "Hip-hop verse-hook"
-    ]
+    "related": []
   },
   "Posse cut": {
     "mode": "Rule",
@@ -999,7 +984,7 @@
       {
         "label": "Repeating cycle",
         "children": [
-          "Topical or narrative verse",
+          "Topical or narrative calypso verse",
           "Fixed chorus"
         ]
       }
@@ -1012,8 +997,9 @@
       {
         "label": "Contest exchange",
         "children": [
-          "First singer improvises",
-          "Second singer answers"
+          "Shared topic for calypso verses",
+          "First singer improvises a verse",
+          "Second singer answers in verse"
         ]
       }
     ],

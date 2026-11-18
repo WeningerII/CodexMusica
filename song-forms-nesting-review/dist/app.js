@@ -20,10 +20,23 @@ let current, resizeFrame, selectionFromAction=false, previousWidth=-1;
 function treeWords(nodes) {
   return nodes.flatMap(node => typeof node === 'string' ? [node] : [node.label, ...treeWords(node.children)]);
 }
-const entries = FORMS.map(form => ({
-  form, title: normal(form.name), aliases: normal(form.aliases),
-  shape: normal([...form.search_terms, ...treeWords(form.tree)].join(' '))
-}));
+const entries = FORMS.map(form => {
+  const title = normal(form.name);
+  const aliases = form.aliases.split(',').map(normal).filter(Boolean);
+  const discovery = form.search_terms.map(normal).filter(Boolean);
+  const text = [title, ...aliases, ...discovery, ...treeWords(form.tree).map(normal)].join(' ');
+  return {form, title, aliases, discovery, text};
+});
+
+function matchRank(entry, term) {
+  if (entry.title === term) return 0;
+  if (entry.aliases.includes(term)) return 1;
+  if (entry.discovery.includes(term)) return 2;
+  if (entry.title.startsWith(term)) return 3;
+  if (entry.title.includes(term)) return 4;
+  if (entry.aliases.some(alias => alias.includes(term))) return 5;
+  return 6;
+}
 function element(tag, text, cls) {const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e}
 function addOption(label,val){const opt=element('option',label);opt.value=val;filter.append(opt)}
 addOption('All groups','');
@@ -35,8 +48,10 @@ for(const [key,[name]] of Object.entries(fams)){
 }
 function showResults() {
   const term=normal(query.value),tokens=term.split(' ').filter(Boolean);
-  const matches=entries.filter(e=>(!filter.value||e.form.family===filter.value)&&tokens.every(t=>(e.title+' '+e.aliases+' '+e.shape).includes(t)));
-  if(term){const rank=e=>e.title===term?0:e.title.startsWith(term)?1:e.title.includes(term)?2:e.aliases.includes(term)?3:4;matches.sort((a,b)=>rank(a)-rank(b));}
+  const matches = entries.filter(entry =>
+    (!filter.value || entry.form.family === filter.value) && tokens.every(token => entry.text.includes(token))
+  );
+  if (term) matches.sort((a, b) => matchRank(a, term) - matchRank(b, term));
   const nodes=matches.map(({form})=>{
     const b=element('button',undefined,'result');b.type='button';b.append(element('span',titleCase(form.name)),element('small',fams[form.family][0]));
     b.onclick=()=>{finder.close();select(form.id)};return b;
@@ -55,9 +70,15 @@ function render() {
   for(const btn of byId('families').children){if(btn.dataset.family===current.family)btn.setAttribute('aria-current','true');else btn.removeAttribute('aria-current')}
   byId('mode').textContent={Pattern:'Pattern',Rule:'Structural rule',Example:'One possible pattern'}[current.mode];
   document.title=titleCase(current.name)+' · Song Forms';
-  const statusLabels = {supported:'Reviewed pattern', partial:'Partial model', contested:'Sources differ', unresolved:'Structure unresolved'};
+  const statusLabels = {supported:'Reviewed pattern', partial:'Partial model', contested:'Contested pattern', unresolved:'Structure unresolved'};
   const note = byId('reviewNote');
-  const provenance = current.review.refs.length ? 'Outside evidence for the stated scope' : 'Catalog evidence only';
+  const basis = current.review.basis ||
+    (current.review.refs.length ? 'reference recorded; passage unverified' : 'catalog and model only');
+  const provenance = {
+    'passage checked for stated scope': 'Source passage checked for this claim',
+    'reference recorded; passage unverified': 'Reference recorded, passage unverified',
+    'catalog and model only': 'Catalog evidence only'
+  }[basis];
   note.textContent = statusLabels[current.review.status] + ' · ' + provenance + '. ' + current.review.note;
   window.drawStructure(byId('diagram'),current);
   window.drawRelations(byId('relations'),current,FORMS,select,openFinder);

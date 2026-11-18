@@ -644,8 +644,13 @@
       {
         "label": "Traded insults",
         "children": [
-          "One player taunts",
-          "Opponent counters"
+          {
+            "label": "One possible verse turn",
+            "children": [
+              "Rhymed couplet used for a taunt"
+            ]
+          },
+          "Opponent counters with another turn"
         ]
       }
     ],
@@ -698,7 +703,7 @@
         "label": "Rhythmic spoken or chanted calls",
         "children": [
           "Dance instructions",
-          "Optional rhyming patter"
+          "Optional couplets in rhyming patter"
         ]
       }
     ],
@@ -756,9 +761,7 @@
       }
     ],
     "mode": "Rule",
-    "related": [
-      "Round"
-    ]
+    "related": []
   },
   "Madrigal": {
     "tree": [
@@ -921,7 +924,17 @@
       {
         "label": "Strophes on one tune",
         "children": [
-          "Stanzas in a named syllable metre"
+          {
+            "label": "Alternative stanza meters",
+            "children": [
+              "Common metre, single or double",
+              "Long metre, single or double",
+              "Short metre, single or double",
+              "Hallelujah metre",
+              "Trochaic hymn metres",
+              "Other named hymn metres"
+            ]
+          }
         ]
       },
       "Optional final doxology"
@@ -1237,9 +1250,7 @@
       }
     ],
     "mode": "Rule",
-    "related": [
-      "Metrical hymn"
-    ]
+    "related": []
   },
   "Full anthem": {
     "tree": [
@@ -1263,9 +1274,7 @@
       }
     ],
     "mode": "Pattern",
-    "related": [
-      "Full anthem"
-    ]
+    "related": []
   },
   "Fuging tune": {
     "tree": [

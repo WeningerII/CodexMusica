@@ -103,7 +103,11 @@
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Rows 375 and 312. The greeting-card example explicitly consists of one or two quatrains; each has four lines."
+        "evidence": "Rows 375 and 312. The greeting-card example explicitly consists of one or two quatrains; each has four lines.",
+        "scope_paths": [
+          "1",
+          "2"
+        ]
       }
     ],
     "refs": []
@@ -251,7 +255,19 @@
         "target": "Haiku",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Rows 392 and 238. The row explicitly places a haiku on or next to an image."
+        "evidence": "Rows 392 and 238. The row explicitly places a haiku on or next to an image.",
+        "scope_paths": [
+          "1.2"
+        ]
+      },
+      {
+        "target": "Tercet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "In the displayed English setting a three-line haiku accompanies the image. The count concerns this realization only.",
+        "scope_paths": [
+          "1.2"
+        ]
       }
     ],
     "refs": []
@@ -326,7 +342,7 @@
         "target": "Abecedarian",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "Rows 398 and 288 organize initials across successive units. A simple acrostic spells a chosen message; the abecedarian follows the alphabet and may use stanza initials. The Academy explicitly associates the two."
+        "evidence": "Both organize initials across successive units. One may spell a chosen message while the alphabetic design orders initials from A to Z."
       }
     ],
     "refs": [
@@ -473,7 +489,7 @@
         "target": "Found poem",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "Rows 409 and 407. The cut-up reorders source material; the Academy’s definition of found poetry also allows reordering."
+        "evidence": "Both can rearrange pre-existing verbal material. A cut-up uses fragments of a source, while a found poem need not cut or shuffle its material."
       }
     ],
     "refs": []

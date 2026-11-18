@@ -7,7 +7,7 @@
         "target": "Tanka",
         "kind": "variant",
         "status": "supported",
-        "evidence": "Comic tanka retains the five parts and 5–7–5–7–7 count and adds a humorous or satirical treatment.",
+        "evidence": "The Japanese comic form uses the five-part sound-unit pattern shown under the Japanese tanka setting. English tanka can use different syllable counts and lineation.",
         "refs": [
           "https://www.library.metro.tokyo.lg.jp/portals/0/edo/tokyo_library/english/modal/index.html?d=5387"
         ]
@@ -29,8 +29,12 @@
       {
         "target": "Sedoka",
         "kind": "other",
-        "status": "supported",
-        "evidence": "Katauta is a constituent of sedoka; the sedoka row specifies two."
+        "status": "redirected",
+        "evidence": "Katauta is a constituent of sedoka; the sedoka row specifies two.",
+        "canonical_edge": {
+          "source": "Sedoka",
+          "target": "Katauta"
+        }
       }
     ],
     "refs": []
@@ -43,7 +47,11 @@
         "target": "Katauta",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The two 5–7–7 units are explicitly called katauta."
+        "evidence": "The two 5–7–7 units are explicitly called katauta.",
+        "scope_paths": [
+          "1",
+          "2"
+        ]
       }
     ],
     "refs": [
@@ -62,7 +70,11 @@
         "target": "Tanka",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Declaration and reply each take the form of a tanka."
+        "evidence": "Declaration and reply each take the form of a tanka.",
+        "scope_paths": [
+          "1",
+          "2"
+        ]
       }
     ],
     "refs": []
@@ -75,7 +87,10 @@
         "target": "Tanka",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The catalog names tanka as an optional envoi."
+        "evidence": "The catalog names tanka as an optional envoi.",
+        "scope_paths": [
+          "2.1"
+        ]
       }
     ],
     "refs": [
@@ -180,6 +195,13 @@
         "evidence": "The two- and three-voice layouts include discrete 2-line linked verses.",
         "refs": [
           "https://www.rengay.com/rengay-essays/learning-rengay/rengay-on-haikupedia"
+        ],
+        "scope_paths": [
+          "1.1.2",
+          "1.1.5",
+          "1.2.2",
+          "1.2.4",
+          "1.2.6"
         ]
       },
       {
@@ -189,6 +211,15 @@
         "evidence": "The two- and three-voice layouts include discrete 3-line linked verses.",
         "refs": [
           "https://www.rengay.com/rengay-essays/learning-rengay/rengay-on-haikupedia"
+        ],
+        "scope_paths": [
+          "1.1.1",
+          "1.1.3",
+          "1.1.4",
+          "1.1.6",
+          "1.2.1",
+          "1.2.3",
+          "1.2.5"
         ]
       }
     ],
@@ -210,6 +241,10 @@
         "evidence": "The named verse component is one or more haiku.",
         "refs": [
           "https://www.hsa-haiku.org/hsa-definitions.html"
+        ],
+        "scope_paths": [
+          "1.1.2",
+          "1.2.1"
         ]
       }
     ],
@@ -231,6 +266,9 @@
         "evidence": "The row names tanka as the verse component interwoven with prose.",
         "refs": [
           "https://www.tankasocietyofamerica.org/tsa-contest/how-to-enter-the-2025-tanka-prose-contest"
+        ],
+        "scope_paths": [
+          "1.1"
         ]
       }
     ],
@@ -264,6 +302,12 @@
         "refs": [
           "https://ncca.gov.ph/about-ncca-3/subcommissions/subcommission-on-the-arts-sca/literary-arts/the-literary-forms-in-philippine-literature/"
         ]
+      },
+      {
+        "target": "Quatrain",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "The four-line stanza is a quatrain. The separate monorhymed-quatrain relationship adds its end-rhyme constraint."
       }
     ],
     "refs": [
@@ -284,6 +328,10 @@
         "evidence": "The repeating metrical unit is a linked six-syllable and eight-syllable line pair.",
         "refs": [
           "https://vanvn.vn/ve-dep-tho-luc-bat/"
+        ],
+        "scope_paths": [
+          "1",
+          "2"
         ]
       }
     ],
@@ -326,6 +374,9 @@
         "evidence": "The second stanza comprises two lines.",
         "refs": [
           "https://www.thecherita.com/articles/"
+        ],
+        "scope_paths": [
+          "1.2"
         ]
       },
       {
@@ -335,6 +386,9 @@
         "evidence": "The third stanza comprises three lines.",
         "refs": [
           "https://www.thecherita.com/articles/"
+        ],
+        "scope_paths": [
+          "1.3"
         ]
       }
     ],
@@ -356,6 +410,9 @@
         "evidence": "The unodl union variant ends with this specific seven-syllable couplet.",
         "refs": [
           "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+        ],
+        "scope_paths": [
+          "1.3.2"
         ]
       },
       {
@@ -383,6 +440,9 @@
         "evidence": "The unodl union variant contains a short toddaid and a two-line cywydd unit.",
         "refs": [
           "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+        ],
+        "scope_paths": [
+          "1.3.2"
         ]
       }
     ],
@@ -404,6 +464,9 @@
         "evidence": "Its recurring unit is a seven-syllable rhyming line pair with contrasting final accent.",
         "refs": [
           "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+        ],
+        "scope_paths": [
+          "1"
         ]
       }
     ],
@@ -425,6 +488,9 @@
         "evidence": "Two rhyming eight-syllable opening lines comprise one pair before the sixteen-syllable tail.",
         "refs": [
           "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+        ],
+        "scope_paths": [
+          "1"
         ]
       }
     ],
@@ -443,7 +509,30 @@
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "A linked two-line toddaid closes the stanza, with a main rhyme and a second linking rhyme.",
+        "evidence": "The short setting opens with a rhymed pair of nine-syllable lines. Both the short and long settings close with the metrically distinct two-line toddaid.",
+        "refs": [
+          "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/gwers/13.html"
+        ],
+        "scope_paths": [
+          "1.1.2",
+          "1.2.2",
+          "1.1.1"
+        ]
+      },
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The six-line setting opens with a complete four-line monorhymed group before the two-line toddaid. The correspondence applies to this setting.",
+        "scope_paths": [
+          "1.2.1"
+        ]
+      },
+      {
+        "target": "Hir a thoddaid",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "The hir branch and the pictured six-line setting both open with four monorhyming lines and close with a two-line toddaid. The opening lines have nine versus ten syllables, and the closing pair is 10–9 versus 10–10.",
         "refs": [
           "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/gwers/13.html"
         ]
@@ -467,6 +556,9 @@
         "evidence": "A linked two-line toddaid closes the stanza, with a main rhyme and a second linking rhyme.",
         "refs": [
           "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/gwers/13.html"
+        ],
+        "scope_paths": [
+          "2"
         ]
       },
       {
@@ -476,6 +568,15 @@
         "evidence": "The common six-line stanza is a sestet. Documented four-, eight- and ten-line stanzas fall outside that correspondence.",
         "refs": [
           "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/gwers/13.html"
+        ]
+      },
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The six-line setting opens with a complete four-line monorhymed group before the two-line toddaid. The correspondence applies to this setting.",
+        "scope_paths": [
+          "1"
         ]
       }
     ],
@@ -497,6 +598,9 @@
         "evidence": "Accounts disagree on the exact stanza length, yet both contain a closing or linked two-line toddaid unit.",
         "refs": [
           "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+        ],
+        "scope_paths": [
+          "2"
         ]
       }
     ],
@@ -525,6 +629,10 @@
         "evidence": "Each unit comprises two seven-syllable lines linked through end and internal rhyme.",
         "refs": [
           "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+        ],
+        "scope_paths": [
+          "1",
+          "2"
         ]
       }
     ],
@@ -566,13 +674,22 @@
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The listed Irish measures use quatrains despite differences between their syllable counts."
+        "evidence": "The listed Irish measures use quatrains despite differences between their syllable counts.",
+        "scope_paths": [
+          "1.1",
+          "1.2",
+          "1.3",
+          "1.4"
+        ]
       },
       {
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The deibhidhe variant arranges the lines within its quatrain in rhyming pairs."
+        "evidence": "The deibhidhe variant arranges the lines within its quatrain in rhyming pairs.",
+        "scope_paths": [
+          "1.1.2"
+        ]
       }
     ],
     "refs": [
@@ -618,6 +735,10 @@
         "evidence": "AABB organizes the four lines into two rhyming couplets.",
         "refs": [
           "https://poets.org/glossary"
+        ],
+        "scope_paths": [
+          "1.1",
+          "1.2"
         ]
       },
       {
@@ -648,6 +769,10 @@
         "evidence": "Each of two stanzas has four lines.",
         "refs": [
           "https://www.poetryfoundation.org/education/glossary/double-dactyl"
+        ],
+        "scope_paths": [
+          "1",
+          "2"
         ]
       }
     ],
@@ -673,11 +798,15 @@
       },
       {
         "target": "Couplet",
-        "kind": "shares-feature",
+        "kind": "contains",
         "status": "supported",
         "evidence": "The displayed AABB version has two rhyming pairs. It is one template within a wider body of macabre verse.",
         "refs": [
           "https://www.gutenberg.org/cache/epub/35051/pg35051-images.html"
+        ],
+        "scope_paths": [
+          "1.1",
+          "1.2"
         ]
       }
     ],
@@ -871,8 +1000,12 @@
       {
         "target": "American sentence",
         "kind": "other",
-        "status": "supported",
-        "evidence": "American sentence is an example of a form that is always a monostich in this catalog."
+        "status": "redirected",
+        "evidence": "American sentence is an example of a form that is always a monostich in this catalog.",
+        "canonical_edge": {
+          "source": "American sentence",
+          "target": "Monostich"
+        }
       }
     ],
     "refs": []
@@ -885,7 +1018,11 @@
         "target": "Tercet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The two opening stanzas are explicitly tercets."
+        "evidence": "The two opening stanzas are explicitly tercets.",
+        "scope_paths": [
+          "1",
+          "2"
+        ]
       }
     ],
     "refs": []
@@ -940,6 +1077,10 @@
         "evidence": "The first and third argumentative stanzas each consist of six lines before the refrain.",
         "refs": [
           "https://poets.org/glossary/bop"
+        ],
+        "scope_paths": [
+          "1.1",
+          "3.1"
         ]
       },
       {
@@ -949,6 +1090,9 @@
         "evidence": "The middle stanza of the common version consists of eight lines; it illustrates the generic octave, without the specialized huitain meter or scheme.",
         "refs": [
           "https://poets.org/glossary/bop"
+        ],
+        "scope_paths": [
+          "2.1"
         ]
       }
     ],
@@ -970,6 +1114,10 @@
         "evidence": "All four stanzas consist of six lines.",
         "refs": [
           "https://poetsonline.org/archive/arch_paradelle.html"
+        ],
+        "scope_paths": [
+          "1",
+          "2"
         ]
       },
       {
@@ -979,6 +1127,18 @@
         "evidence": "The last two lines of each of the first three stanzas form a pair governed by the recombination rule.",
         "refs": [
           "https://poetsonline.org/archive/arch_paradelle.html"
+        ],
+        "scope_paths": [
+          "1.2"
+        ]
+      },
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "In each of the first three six-line stanzas, the four opening positions contain two doubled lines. They constitute the designated opening group before the recombining couplet.",
+        "scope_paths": [
+          "1.1"
         ]
       }
     ],

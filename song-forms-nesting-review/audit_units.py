@@ -4,7 +4,8 @@ Headings are matched as whole normalized token sequences, including plural final
 nouns. Additional vocabulary below covers stanza-unit names, explicit N-line
 units, and two shorthand codes for catalogued 32-bar forms. These are lexical
 candidates, never automatic graph edges. A rhyme string alone does not specify
-bars. Matching does not infer a stanza from a coincidental number of children.
+bars. A second pass recognizes numbered lines or independently marked rhyme-line
+children. Counts of arbitrary children alone never introduce a graph edge.
 """
 import argparse
 import csv
@@ -14,6 +15,10 @@ from pathlib import Path
 import re
 import unicodedata
 
+import sys
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build import parse_catalog
 
 HERE = Path(__file__).resolve().parent
@@ -34,37 +39,39 @@ UNIT_NAMES = {
     "tail rhyme": "Tail-rhyme stanza",
 }
 LINE_UNITS = {
-    2: ("two", "Couplet"), 3: ("three", "Tercet"), 4: ("four", "Quatrain"),
+    1: ("one", "Monostich"), 2: ("two", "Couplet"), 3: ("three", "Tercet"), 4: ("four", "Quatrain"),
     5: ("five", "Quintain"), 6: ("six", "Sestet / sixain"),
     7: ("seven", "Septet"), 8: ("eight", "Octave / huitain"),
+    9: ("nine", "Nonet"), 10: ("ten", "Dizain"),
 }
 SHORTHAND = {"aaba": "AABA 32-bar", "abac": "ABAC 32-bar"}
 # Semantic decisions for lexical hits with no decided edge in either direction.
 EXCLUSIONS = {
-    ("Music-hall song", "Octave / huitain"): (
-        "scoped count comparison", "The catalog’s example gives an eight-line verse. Its genre identity and refrain say nothing about a French huitain scheme."),
-    ("Parlour ballad", "Octave / huitain"): (
-        "scoped count comparison", "The eight-line verses occur in the displayed title-refrain setting. The genre admits other implementations."),
-    ("Gospel song (Sankey)", "Quatrain"): (
-        "scoped count comparison", "The model illustrates a four-line verse and chorus. Section length varies across gospel songs."),
     ("Choka", "Couplet"): (
-        "withheld: phrase or line", "The recurring unit counts five and seven Japanese sound units. A pair of measured phrases does not establish two independently lineated verses."),
-    ("Tanaga", "Quatrain"): (
-        "broader class via named unit", "The graph records the specific monorhymed quatrain. Its own variant link reaches the broader Quatrain class."),
-    ("Kyrielle", "Tercet"): (
-        "withheld: incomplete stanza", "Three lines precede the refrain in a four-line stanza. The label describes the changing part of one quatrain."),
-    ("Hir a thoddaid", "Quatrain"): (
-        "scoped count comparison", "Four longer lines introduce the closing toddaid in this six-line version. This is a portion of one stanza, and its size varies in other versions."),
-    ("Paradelle", "Quatrain"): (
-        "withheld: repeated-line prefix", "In each six-line stanza, two lines repeated make the opening four positions. The model does not call these an independent stanza."),
-    ("Spenserian stanza", "Octave / huitain"): (
-        "broader class via named unit", "The eight-line pentameter prefix is already linked to the more specific Monk’s Tale stanza, whose octave link records its eight-line shape."),
-    ("Christ's Kirk stanza", "Octave / huitain"): (
-        "scoped count comparison", "Eight lines form the opening of one ten-line stanza. Alternating rhymes and a closing bob give no separate French huitain or eight-line stanza."),
-    ("Haiga", "Tercet"): (
-        "broader class via named unit", "The modeled three-line contribution is specifically a haiku. The graph captures that component, and English haiku lineation varies."),
+        "withheld: phrase or line", "The recurring unit counts five and seven Japanese sound units. The pair of measured phrases does not establish two independently lineated verses."),
     ("Gnomic verse", "Couplet"): (
-        "variable line count", "One or two lines express a maxim in this catalog. A two-line option alone cannot establish a couplet throughout the form."),
+        "variable line count", "One or two lines express a maxim in this catalog. The two-line option does not govern the form."),
+}
+# Named, reviewed count-only candidates. New forms reaching these targets require a fresh decision.
+for form, target, reason in [
+    ("Curtal sonnet", "Quatrain", "The four full lines and final half-line together make the shortened answer. Line length distinguishes the parts, but the four alone have no separately identified stanza function here."),
+    ("Rhyme royal", "Quintain", "Lines one to five are the arithmetic remainder before CC. The diagram does not assign them a distinct five-line rule or function."),
+    ("Lai", "Nonet", "The nine-line stanza consists of three repeated groups. A nonet prescribes descending syllable counts from nine to one."),
+    ("Glosa", "Nonet", "Nine lines of gloss lead to a tenth borrowed line. They have no nine-to-one syllable rule."),
+    ("Spenserian stanza", "Nonet", "Its nine lines are eight pentameters and an alexandrine. This is incompatible with the descending syllable sequence in the Nonet entry."),
+    ("Etheree", "Dizain", "The ten-line recipe specifies increasing syllables and no required ABABBCCDCD end-rhyme scheme."),
+    ("Keatsian ode stanza", "Dizain", "The illustrated ten-line scheme is ABABCDECDE. The catalogued dizain uses ABABBCCDCD."),
+    ("Christ's Kirk stanza", "Dizain", "This ten-line design adds a bob and a variable refrain to an alternating opening. The catalogued dizain requires a different rhyme pattern."),
+    ("Cherita", "Monostich", "The one-line opening stanza starts a longer poem. The target denotes an entire poem of one line."),
+    ("Terza rima", "Monostich", "A possible final line closes the preceding tercets. It does not constitute a complete one-line poem."),
+    ("Bouts-rimés", "Monostich", "One line is written for each supplied end rhyme. This is a per-rhyme instruction rather than the length of the work."),
+    ("Exquisite corpse", "Monostich", "One contributor adds one line to a collective poem. This describes the turn rather than the finished work."),
+]:
+    EXCLUSIONS[form, target] = ("withheld: count alone", reason)
+
+# Patterns for which comparative review identifies two related settings under dissimilar headings.
+STRUCTURAL_COMPARISONS = {
+    ("Gwawdodyn", "1.2"): ("Hir a thoddaid", "hir branch with closing toddaid"),
 }
 
 
@@ -98,8 +105,10 @@ def terms(titles):
         add(title, "numbered stanza or line group",
             rf"{count} lines? {group}|{group} (?:of |with ){count} lines")
         add(title, "line count to review",
-            rf"{count} (?:short |alternating |pentameter |rhymed |linked |(?:[0-9]+|four|five|six|seven|eight|ten) syllable )?lines?\b|"
+            rf"{count} (?:full |short |closing |opening |alternating |pentameter |rhymed |linked |(?:[0-9]+|four|five|six|seven|eight|nine|ten) syllable )?lines?\b|"
             rf"(?:stanzas|envois|units) of {count}\b")
+        add(title, "numbered group heading", rf"(?:opening|closing|middle|first|last) {count}$")
+    add("Monostich", "one-line role", r"single (?:closing |opening |refrain )?line")
     add("Couplet", "pair wording", r"pairs?|paired lines?|paired unit")
     for word, title in (("rondeaux", "Rondeau"), ("rondeaulx", "Rondeau")):
         add(title, "inflected heading", word)
@@ -116,12 +125,81 @@ def diagram(nodes, prefix=""):
             yield from diagram(node["children"], path)
 
 
+def numbered_children(nodes, group, prefix=""):
+    """Recognize only children encoded as verse lines, inside verse-form groups."""
+    if group not in {"C1", "C2", "D", "E"}:
+        return
+    for index, node in enumerate(nodes, 1):
+        if isinstance(node, str):
+            continue
+        path = f"{prefix}.{index}" if prefix else str(index)
+        children = node["children"]
+        count = len(children)
+        if count in LINE_UNITS and count >= 2:
+            line_labels = [child if isinstance(child, str) else child["label"] for child in children]
+            values = [re.match(r"^(?:Line +)?(\d+)\s*·", c, re.I) for c in line_labels]
+            numbers = [int(v[1]) for v in values if v]
+            numeric = len(numbers) == count and numbers == list(range(numbers[0], numbers[0] + count))
+            # A whole token denoting a rhyme, as distinct from a prose clause or a syllable count.
+            rhymes = count > 1 and all(re.fullmatch(r"[A-Ga-g](?:[₁₂]| · (?:feminine|masculine))?", c) for c in line_labels)
+            if numeric or rhymes:
+                yield path, node["label"], count
+        yield from numbered_children(children, group, path)
+
+
+def validate_relations(models, relations, paths):
+    supported = {pair: edge for pair, edge in relations.items() if edge["status"] == "supported"}
+    unique_pairs = set()
+    variants = {title: [] for title in models}
+    outgoing = {title: set() for title in models}
+    for (source, target), edge in relations.items():
+        if source == target or target not in models:
+            raise ValueError(f"Invalid edge endpoint: {source} → {target}")
+        if edge["status"] == "redirected":
+            expected = {"source": target, "target": source}
+            if edge.get("canonical_edge") != expected or (target, source) not in supported:
+                raise ValueError(f"Invalid canonical relationship: {source} → {target}")
+        if (source, target) not in supported:
+            continue
+        outgoing[source].add(target)
+        pair = frozenset([source, target])
+        if pair in unique_pairs:
+            raise ValueError(f"Two displayed claims for one pair require explicit resolution: {source}, {target}")
+        unique_pairs.add(pair)
+        if edge["kind"] == "variant":
+            variants[source].append(target)
+        if edge["kind"] == "contains":
+            scope = edge.get("scope_paths", [])
+            if not scope or len(scope) != len(set(scope)) or any((source, path) not in paths for path in scope):
+                raise ValueError(f"Invalid component scope: {source} → {target}: {scope}")
+    for title, model in models.items():
+        visible = model.get("related", [])
+        if len(visible) != len(set(visible)) or set(visible) != outgoing[title]:
+            raise ValueError(f"Displayed and adjudicated relationships differ for {title}")
+
+    finished, visiting = set(), set()
+
+    def check_variants(title):
+        if title in visiting:
+            raise ValueError(f"Variant cycle through {title}")
+        if title in finished:
+            return
+        visiting.add(title)
+        for parent in variants[title]:
+            check_variants(parent)
+        visiting.remove(title)
+        finished.add(title)
+
+    for title in models:
+        check_variants(title)
+
+
 def raw_inventory(root):
     models, audits, groups = {}, {}, {}
     for path in sorted((root / "models").glob("*.json")):
         group = path.stem
-        model = json.loads(path.read_text())
-        audit = json.loads((root / "audit" / path.name).read_text())
+        model = json.loads(path.read_text(encoding="utf-8"))
+        audit = json.loads((root / "audit" / path.name).read_text(encoding="utf-8"))
         if model.keys() != audit.keys() or model.keys() & models.keys():
             raise ValueError(f"Mismatched or repeated keys in {group}")
         models.update(model)
@@ -132,6 +210,8 @@ def raw_inventory(root):
         raise ValueError("Diagram titles and source catalog titles differ")
     patterns = terms(models)
     relations = {(s, e["target"]): e for s, a in audits.items() for e in a["edges"]}
+    if len(relations) != sum(len(a["edges"]) for a in audits.values()):
+        raise ValueError("Duplicate decisions for one directed pair")
     hits = []
     paths = set()
     for title, model in models.items():
@@ -145,6 +225,17 @@ def raw_inventory(root):
                     continue
                 for match in regex.finditer(line):
                     hits.append((groups[title], title, path, label, match.group(), rule, target))
+        for path, label, count in numbered_children(model["tree"], groups[title]):
+            target = LINE_UNITS[count][1]
+            if target != title:
+                hits.append((groups[title], title, path, label, f"{count} explicit verse lines", "line-bearing children", target))
+        for (source, path), (target, feature) in STRUCTURAL_COMPARISONS.items():
+            if source == title:
+                labels = dict(diagram(model["tree"]))
+                if path not in labels or target not in models:
+                    raise ValueError(f"Missing comparison witness: {title}, {target}, {path}")
+                hits.append((groups[title], title, path, labels[path], feature, "reviewed structural comparison", target))
+    validate_relations(models, relations, paths)
     return models, relations, hits, paths
 
 
@@ -152,17 +243,22 @@ def edge_label(edge):
     return f"{edge['kind']} / {edge['status']}" if edge else ""
 
 
-def classify(source, target, label, rule, forward, reverse):
+def classify(source, target, path, label, rule, forward, reverse):
     if source == "Cherry and Slae stanza" and target == "Couplet" and "internal rhyme pair" in label:
         return "different unit at this node", "This pair consists of two sounds within one line. The source’s actual Couplet edge applies to line pairs in the opening six."
     if "line count to review" in rule and re.search(r"\d+\s*[–—-]\s*\d+ (?:rhymed )?lines?\b", label):
         return "variable line count", "The numeral gives the upper bound of a range in this node. It does not prescribe a stanza of that size."
-    if forward or reverse:
+    active = [e for e in (forward, reverse) if e and e["status"] != "redirected"]
+    if active and all(e.get("kind") == "contains" and e.get("status") == "supported" for e in active) and forward in active:
+        witnesses = forward.get("scope_paths", [])
+        if not any(path == p or path.startswith(p + ".") or p.startswith(path + ".") for p in witnesses):
+            return "different unit at this node", "The existing component claim is grounded at " + ", ".join(witnesses) + ". This occurrence is outside those diagram paths."
+    if active:
         records = []
         for direction, edge in (("Outgoing", forward), ("Incoming", reverse)):
-            if edge:
+            if edge and edge["status"] != "redirected":
                 records.append(f"{direction}. {edge['evidence']}")
-        relations = list(dict.fromkeys(edge["kind"] + " / " + edge["status"] for edge in (forward, reverse) if edge))
+        relations = list(dict.fromkeys(edge["kind"] + " / " + edge["status"] for edge in active))
         return "graph: " + " + ".join(relations), " ".join(records)
     if (source, target) in EXCLUSIONS:
         return EXCLUSIONS[source, target]
@@ -182,7 +278,7 @@ def inventory(root):
     for (group, source, path, label, target), (tokens, rules) in grouped.items():
         token, rule = " | ".join(tokens), " | ".join(rules)
         f, r = relations.get((source, target)), relations.get((target, source))
-        status, reason = classify(source, target, label, rule, f, r)
+        status, reason = classify(source, target, path, label, rule, f, r)
         rows.append((group, source, path, label, token, rule, target, status,
                      edge_label(f), edge_label(r), reason))
     return rows, len(models), len(paths)

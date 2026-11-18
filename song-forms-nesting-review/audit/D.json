@@ -152,6 +152,9 @@
         "status": "supported",
         "refs": [
           "https://www.poetryfoundation.org/education/glossary/poulters-measure"
+        ],
+        "scope_paths": [
+          "1.2"
         ]
       }
     ],
@@ -199,7 +202,7 @@
     "edges": [
       {
         "target": "Couplet",
-        "kind": "variant",
+        "kind": "shares-feature",
         "evidence": "This catalog entry explicitly groups its four-stress lines in rhymed pairs.",
         "status": "supported"
       }
@@ -262,6 +265,9 @@
         "status": "supported",
         "refs": [
           "https://poets.org/glossary/terza-rima"
+        ],
+        "scope_paths": [
+          "1"
         ]
       },
       {
@@ -271,6 +277,9 @@
         "status": "supported",
         "refs": [
           "https://www.poetryfoundation.org/education/glossary/terza-rima"
+        ],
+        "scope_paths": [
+          "2"
         ]
       }
     ],
@@ -359,13 +368,21 @@
         "target": "Common metre (CM)",
         "kind": "contains",
         "evidence": "One doubled stanza includes two complete common-meter quatrains in succession.",
-        "status": "supported"
+        "status": "supported",
+        "scope_paths": [
+          "1.1",
+          "1.2"
+        ]
       },
       {
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Each half of the doubled eight-line stanza contains the four-line unit shown in the model."
+        "evidence": "Each half of the doubled eight-line stanza contains the four-line unit shown in the model.",
+        "scope_paths": [
+          "1.1",
+          "1.2"
+        ]
       }
     ],
     "refs": []
@@ -391,13 +408,21 @@
         "target": "Long metre (LM)",
         "kind": "contains",
         "evidence": "The doubled stanza consists of two long-meter quatrains.",
-        "status": "supported"
+        "status": "supported",
+        "scope_paths": [
+          "1.1",
+          "1.2"
+        ]
       },
       {
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Each half of the doubled eight-line stanza contains the four-line unit shown in the model."
+        "evidence": "Each half of the doubled eight-line stanza contains the four-line unit shown in the model.",
+        "scope_paths": [
+          "1.1",
+          "1.2"
+        ]
       }
     ],
     "refs": []
@@ -423,13 +448,21 @@
         "target": "Short metre (SM)",
         "kind": "contains",
         "evidence": "Two copies of the four-line short-meter unit make the doubled form.",
-        "status": "supported"
+        "status": "supported",
+        "scope_paths": [
+          "1.1",
+          "1.2"
+        ]
       },
       {
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Each half of the doubled eight-line stanza contains the four-line unit shown in the model."
+        "evidence": "Each half of the doubled eight-line stanza contains the four-line unit shown in the model.",
+        "scope_paths": [
+          "1.1",
+          "1.2"
+        ]
       }
     ],
     "refs": []
@@ -448,7 +481,19 @@
         "target": "Couplet",
         "kind": "contains",
         "evidence": "The two final C-rhymed eight-syllable lines form the terminal pair.",
-        "status": "supported"
+        "status": "supported",
+        "scope_paths": [
+          "1.2"
+        ]
+      },
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The first four six-syllable lines form a separate ABAB unit before the closing eight-syllable pair.",
+        "scope_paths": [
+          "1.1"
+        ]
       }
     ],
     "refs": []
@@ -461,7 +506,11 @@
         "target": "Quatrain",
         "kind": "contains",
         "evidence": "Each single hymn pattern has four lines; doubled versions repeat the complete four-line unit.",
-        "status": "supported"
+        "status": "supported",
+        "scope_paths": [
+          "1",
+          "2"
+        ]
       }
     ],
     "refs": []
@@ -474,7 +523,14 @@
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Four of the listed single recipes use four lines and the doubled setting repeats a four-line unit. The six- and eight-line alternatives involve separate designs."
+        "evidence": "Four of the listed single recipes use four lines and the doubled setting repeats a four-line unit. The six- and eight-line alternatives involve separate designs.",
+        "scope_paths": [
+          "1.1",
+          "1.2",
+          "1.3",
+          "1.4",
+          "1.5"
+        ]
       }
     ],
     "refs": []
@@ -627,7 +683,7 @@
     "edges": [
       {
         "target": "Quatrain",
-        "kind": "variant",
+        "kind": "shares-feature",
         "evidence": "The displayed three-plus-one setting has four lines. Continuous Asclepiadic lines do not require that grouping.",
         "status": "supported",
         "refs": [
@@ -682,6 +738,9 @@
         "status": "supported",
         "refs": [
           "https://www.folger.edu/explore/shakespeares-works/lucrece/reading-shakespeares-language-venus-and-adonis-and-lucrece/"
+        ],
+        "scope_paths": [
+          "1.2"
         ]
       },
       {
@@ -692,6 +751,9 @@
         "refs": [
           "https://www.folger.edu/explore/shakespeares-works/lucrece/reading-shakespeares-language-venus-and-adonis-and-lucrece/",
           "https://poetry.harvard.edu/key-to-poetic-forms"
+        ],
+        "scope_paths": [
+          "1.1"
         ]
       }
     ],
@@ -732,7 +794,7 @@
     "edges": [
       {
         "target": "Sestet / sixain",
-        "kind": "variant",
+        "kind": "shares-feature",
         "evidence": "Two three-line pair-and-tail groups account for all six lines.",
         "status": "supported",
         "refs": [
@@ -746,6 +808,10 @@
         "status": "supported",
         "refs": [
           "https://poetry.harvard.edu/key-to-poetic-forms"
+        ],
+        "scope_paths": [
+          "1.1.1",
+          "1.2.1"
         ]
       }
     ],
@@ -776,6 +842,9 @@
         "status": "supported",
         "refs": [
           "https://poets.org/glossary/couplet"
+        ],
+        "scope_paths": [
+          "1.2"
         ]
       }
     ],
@@ -819,6 +888,19 @@
         "status": "supported",
         "refs": [
           "https://poets.org/glossary/couplet"
+        ],
+        "scope_paths": [
+          "1.2"
+        ]
+      },
+      {
+        "target": "Sestet / sixain",
+        "kind": "contains",
+        "status": "supported",
+        "refs": [],
+        "evidence": "The six alternating opening lines form a distinct group before the terminal CC couplet.",
+        "scope_paths": [
+          "1.1"
         ]
       }
     ],
@@ -860,7 +942,7 @@
     "edges": [
       {
         "target": "Octave / huitain",
-        "kind": "variant",
+        "kind": "shares-feature",
         "evidence": "The eight lines of the listed rispetto form an octave, without the French huitain's additional requirements.",
         "status": "supported",
         "refs": [
@@ -874,6 +956,10 @@
         "status": "supported",
         "refs": [
           "https://www.treccani.it/enciclopedia/rispetto_%28Enciclopedia-Italiana%29/"
+        ],
+        "scope_paths": [
+          "1.2",
+          "1.3"
         ]
       },
       {
@@ -883,6 +969,9 @@
         "evidence": "In the ABABCCDD setting the four alternating opening lines are followed by a section of rhymed pairs. The ending varies in other settings.",
         "refs": [
           "https://www.treccani.it/enciclopedia/rispetto_%28Enciclopedia-Italiana%29/"
+        ],
+        "scope_paths": [
+          "1.1"
         ]
       }
     ],
@@ -942,6 +1031,18 @@
         "evidence": "Lines 1–8 reproduce the eight-line ABABBCBC pentameter pattern. The ninth line adds a C-rhymed alexandrine. The match concerns verse structure.",
         "refs": [
           "https://www.english.cam.ac.uk/spenser/stanza/about.html"
+        ],
+        "scope_paths": [
+          "1.1"
+        ]
+      },
+      {
+        "target": "Octave / huitain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The eight pentameter lines grouped before the ninth-line alexandrine form an octave. The separate exact-pattern edge records ABABBCBC.",
+        "scope_paths": [
+          "1.1"
         ]
       }
     ],
@@ -969,6 +1070,10 @@
         "status": "supported",
         "refs": [
           "https://lectambulos.com/algunas-consideraciones-sobre-la-decima-y-su-uso-contemporaneo/"
+        ],
+        "scope_paths": [
+          "1.1",
+          "1.3"
         ]
       },
       {
@@ -978,6 +1083,20 @@
         "evidence": "In the documented 4 + 2 + 4 analysis, each redondilla is a quatrain with enclosing rhyme.",
         "refs": [
           "https://lectambulos.com/algunas-consideraciones-sobre-la-decima-y-su-uso-contemporaneo/"
+        ],
+        "scope_paths": [
+          "1.1",
+          "1.3"
+        ]
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "status": "supported",
+        "refs": [],
+        "evidence": "Under the displayed 4–2–4 analysis, lines five and six are intentionally paired as a two-line bridge between the outside quatrains, with different end rhymes.",
+        "scope_paths": [
+          "1.2"
         ]
       }
     ],
@@ -999,6 +1118,9 @@
         "status": "supported",
         "refs": [
           "https://poets.org/poem/ode-nightingale"
+        ],
+        "scope_paths": [
+          "1.1"
         ]
       },
       {
@@ -1008,6 +1130,9 @@
         "status": "supported",
         "refs": [
           "https://poets.org/poem/ode-nightingale"
+        ],
+        "scope_paths": [
+          "1.2"
         ]
       }
     ],
@@ -1033,6 +1158,21 @@
           "https://readingroo.ms/4/9/7/9/49790/49790-h/49790-h.htm",
           "https://faculty.goucher.edu/eng240/sir_gawain_and_the_green_knight.htm"
         ]
+      },
+      {
+        "target": "Octave / huitain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The displayed stanza groups its opening eight alternating lines before a distinct close. This identifies the generic eight-line unit within the longer stanza.",
+        "scope_paths": [
+          "1.1"
+        ]
+      },
+      {
+        "target": "Sicilian octave",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The eight-line opening alternates ABABABAB, matching the catalogued Sicilian octave scheme. This comparison is limited to the end rhymes and span of the opening."
       }
     ],
     "refs": [
@@ -1046,7 +1186,32 @@
   "Pearl stanza": {
     "status": "contested",
     "note": "The twelve-line ABABABABBCBC stanzas usually form groups of five. One section has six. A link word recurs in the next opening line, and interpretations of the line meter differ.",
-    "edges": [],
+    "edges": [
+      {
+        "target": "Octave / huitain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The displayed stanza groups its opening eight alternating lines before a distinct close. This identifies the generic eight-line unit within the longer stanza.",
+        "scope_paths": [
+          "1.1.1"
+        ]
+      },
+      {
+        "target": "Sicilian octave",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The eight-line opening alternates ABABABAB, matching the catalogued Sicilian octave scheme. This comparison is limited to the end rhymes and span of the opening."
+      },
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "Four alternating closing lines follow the opening octave in the twelve-line setting.",
+        "scope_paths": [
+          "1.1.2"
+        ]
+      }
+    ],
     "refs": [
       "https://metseditions.org/read/xValxRNCgNKt8zWuj0xwTVYx3Yz9rd",
       "https://the-orb.arlima.net/textbooks/anthology/middleenganon/zatta.html"
@@ -1063,6 +1228,10 @@
         "status": "supported",
         "refs": [
           "https://readingroo.ms/4/9/7/9/49790/49790-h/49790-h.htm"
+        ],
+        "scope_paths": [
+          "1.1.1",
+          "1.1.2"
         ]
       },
       {
@@ -1073,6 +1242,31 @@
         "refs": [
           "https://readingroo.ms/4/9/7/9/49790/49790-h/49790-h.htm",
           "https://poetry.harvard.edu/key-to-poetic-forms"
+        ],
+        "scope_paths": [
+          "1.1"
+        ]
+      },
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "refs": [],
+        "evidence": "The displayed stanza groups lines seven through ten as alternating end rhymes and lines eleven through fourteen as a separate close with internal rhymes.",
+        "scope_paths": [
+          "1.2",
+          "1.3"
+        ]
+      },
+      {
+        "target": "Tercet",
+        "kind": "contains",
+        "status": "supported",
+        "refs": [],
+        "evidence": "Each half of the opening tail-rhyme unit consists of a rhyming pair and its shorter tail, yielding two three-line groups.",
+        "scope_paths": [
+          "1.1.1",
+          "1.1.2"
         ]
       }
     ],
@@ -1097,6 +1291,9 @@
         "status": "supported",
         "refs": [
           "https://faculty.goucher.edu/eng240/sir_gawain_and_the_green_knight.htm"
+        ],
+        "scope_paths": [
+          "1.2.2"
         ]
       }
     ],
@@ -1240,7 +1437,7 @@
     "edges": [
       {
         "target": "Couplet",
-        "kind": "variant",
+        "kind": "shares-feature",
         "evidence": "The seven-syllable lines in this catalog example are grouped in rhymed pairs.",
         "status": "supported"
       }

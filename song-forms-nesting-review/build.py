@@ -6,13 +6,17 @@ import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+sys.dont_write_bytecode = True
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from evidence import reviewed
 
 def load(relative):
-    return json.loads((ROOT / relative).read_text())
+    return json.loads((ROOT / relative).read_text(encoding="utf-8"))
 
 def parse_catalog(path):
     group = None
-    for line_number, line in enumerate(path.read_text().splitlines(), 1):
+    for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
         if line.startswith("## "):
             match = re.match(r"## ([A-E])\. ", line)
             group = match[1] if match else None
@@ -36,7 +40,7 @@ def slug(name):
 def build(source):
     models, reviews = {}, {}
     for path in sorted((ROOT / "models").glob("*.json")):
-        segment = json.loads(path.read_text())
+        segment = json.loads(path.read_text(encoding="utf-8"))
         audit = load(Path("audit") / path.name)
         assert segment.keys() == audit.keys() and not models.keys() & segment.keys()
         models.update(segment)
@@ -49,7 +53,7 @@ def build(source):
     data = []
     for family, _, cells in parse_catalog(source):
         title = internal.get(cells[0], cells[0])
-        model, review = models[title], reviews[title]
+        model, review = models[title], reviewed(title, reviews[title])
         assert model["mode"] in {"Example", "Pattern", "Rule"} and model["tree"]
         for node in model["tree"]:
             validate_tree(node)
@@ -59,7 +63,8 @@ def build(source):
             assert edge["target"] in models and edge["target"] != title and edge["evidence"].strip()
             if edge["status"] == "supported":
                 rendered_edges.append(dict(target=public.get(edge["target"], edge["target"]),
-                    kind=edge["kind"], status=edge["status"], refs=edge.get("refs", []), evidence=edge["evidence"]))
+                    kind=edge["kind"], status=edge["status"], basis=edge["basis"],
+                    refs=edge.get("refs", []), evidence=edge["evidence"]))
         related = [public.get(t, t) for t in model.get("related", [])]
         assert set(related) == {e["target"] for e in rendered_edges}
         # The raw source prose, alias evidence and proposed planner roles remain research provenance.
@@ -67,7 +72,7 @@ def build(source):
         data.append(dict(name=public.get(title,title), id=slug(title), family=family, line=original_lines[title],
             aliases=aliases.get(title,{}).get("aliases", cells[1]), search_terms=discovery.get(title, []),
             mode=model["mode"], tree=model["tree"], related=related,
-            review=dict(status=review["status"], note=review["note"], refs=review.get("attested_refs",[]),
+            review=dict(status=review["status"], note=review["note"], basis=review["basis"], refs=review.get("attested_refs",[]),
                         edges=rendered_edges)))
     assert len(data) == len({row["id"] for row in data}) == len(models) == 364
     assert len({row["name"] for row in data}) == 364
@@ -76,5 +81,5 @@ def build(source):
 
 if __name__ == "__main__":
     source = Path(sys.argv[1]).resolve() if len(sys.argv)>1 else ROOT/"comparison/r2-post.md"
-    (ROOT/"dist/catalog.js").write_text(build(source))
+    (ROOT/"dist/catalog.js").write_text(build(source), encoding="utf-8")
 

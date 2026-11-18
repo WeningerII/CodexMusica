@@ -1,0 +1,1237 @@
+{
+  "checked_on": "2026-11-18",
+  "method": "Exact URL opened for a technical retrieval check. A returned page can redirect, fail to contain the expected passage, or support only a narrower claim. A request on this date provides no evidence that an earlier reviewer read that page.",
+  "sources": [
+    {
+      "url": "https://poets.org/glossary/ode",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/elegy",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/epigram",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/epistolary-poem",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/contrapuntal",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.oulipo.net/fr/contraintes/monovocalisme",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://cadaeic.net/pilish.htm",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/cento",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/found-poem",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/erasure",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/exquisite-corpse",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/sonnet",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.treccani.it/enciclopedia/scuola-poetica-siciliana-metrica_%28Federiciana%29/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/terza-rima",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://rpo.library.utoronto.ca/glossary/sonnet",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://rpo.library.utoronto.ca/content/modern-love-i",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.metopera.org/discover/education/educator-guides/eugene-onegin/the-operas-plot-and-creation/",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.metopera.org/discover/education/educator-guides/eugene-onegin/the-operas-plot-and-creation/: (500) Redirected to https://metopera.queue-it.net/?c=metopera&e=metoperawaitingroom&ver=javascript-4.4.4&cver=189&man=24/7%20Site%20Protection&enqueuetoken=eyJ0eXAiOiJRVDEiLCJlbmM"
+    },
+    {
+      "url": "https://www.writersdigest.com/write-better-poetry/bref-double-poetic-form",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.writersdigest.com/write-better-poetry/bref-double-poetic-form: (429) Too Many Requests"
+    },
+    {
+      "url": "https://musepiepress.com/shotglass/issue41/glossary5.html",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.poetryfoundation.org/education/glossary/duplex",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.poetryfoundation.org/education/glossary/duplex: (403) Forbidden"
+    },
+    {
+      "url": "https://poets.org/glossary/pantoum",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.boloji.com/knowledge-zone/23/kyrielle-sonnet",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/villanelle",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://formlesspoet.mochinet.com/2012/01/08/what-is-a-terzanelle/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/sestina",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://rpo.library.utoronto.ca/content/you-gote-heard-gods",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://rpo.library.utoronto.ca/content/complaint-lisa",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/rondeau",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.writersdigest.com/write-better-poetry/rondine-poetic-form",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.writersdigest.com/write-better-poetry/rondine-poetic-form: (429) Too Many Requests"
+    },
+    {
+      "url": "https://www.poetryfoundation.org/poems/44836/rondeau-redouble-and-scarcely-worth-the-trouble-at-that",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.poetryfoundation.org/poems/44836/rondeau-redouble-and-scarcely-worth-the-trouble-at-that: (403) Forbidden"
+    },
+    {
+      "url": "https://www.dictionnaire-academie.fr/article/A9R2906",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Rondel",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.poetryfoundation.org/poems/45301/the-roundel",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.poetryfoundation.org/poems/45301/the-roundel: (403) Forbidden"
+    },
+    {
+      "url": "https://www.writersdigest.com/write-better-poetry/roundel-poetic-forms",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.writersdigest.com/write-better-poetry/roundel-poetic-forms: (429) Too Many Requests"
+    },
+    {
+      "url": "https://studylib.net/doc/27577325/creative-writing-four-genres-in-brief-3rd-edition",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.collinsdictionary.com/dictionary/english/roundelay",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/triolet",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.litcharts.com/literary-devices-and-terms/ballade",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.gutenberg.org/cache/epub/45736/pg45736-images.html: (503) Service Unavailable"
+    },
+    {
+      "url": "https://www.scribd.com/document/856007628/New-Rhyming-Dictionary-and-Poets-Handbook-Johnson-Burges-1877-1963-1957-New-York-Harper-1036755438-98e2964fe0bd23f16798d8366e8e70c4",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Chant_Royal",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.larousse.fr/encyclopedie/musdico/virelai/170565",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Virelay",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.prose-n-poetry.com/lai-virelai-lai-nouveau/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.madkane.com/humor_blog/2012/03/01/quatern-poetry-form-humor/",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.madkane.com/humor_blog/2012/03/01/quatern-poetry-form-humor/: (502) Bad Gateway"
+    },
+    {
+      "url": "https://www.poetryfoundation.org/education/glossary/canzone",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.poetryfoundation.org/education/glossary/canzone: (403) Forbidden"
+    },
+    {
+      "url": "https://www.poetryfoundation.org/featured-blogger/85658/a-fleeting-moment",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.poetryfoundation.org/featured-blogger/85658/a-fleeting-moment: (403) Forbidden"
+    },
+    {
+      "url": "https://www.academia.edu/37673307/Amor_tu_vedi_ben_docx",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.treccani.it/enciclopedia/ballata/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.treccani.it/vocabolario/stornello1/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.treccani.it/enciclopedia/canto_%28Enciclopedia-Italiana%29/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/glosa",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://randomwriterlythoughts.blogspot.com/2022/05/ovillejo.html?m=0",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://randomwriterlythoughts.blogspot.com/2022/05/ovillejo.html?m=0: (500) Redirected to https://www.google.com/sorry/index?continue=https://randomwriterlythoughts.blogspot.com/2022/05/ovillejo.html?m%3D0&q=EgQJgTliGLG59NcGIi0sVHgcQK4LiBWFdvrDNWJ8fqG7tuvpLd3rY6kokqNALheBPWBjuNYl3YV"
+    },
+    {
+      "url": "https://journals.rudn.ru/literary-criticism/article/view/34356",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://ich.unesco.org/en/RL/pantun-02274?RL=02274",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/ghazal",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://postext.dev/en/cookbook/qasida-diwan-page",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.iranicaonline.org/articles/aruz-the-metrical-system/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.hsa-haiku.org/hsa-definitions.html",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.tankasocietyofamerica.org/essays/what-is-tanka",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/couplet",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/hudibrastic-verse",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.wwp.northeastern.edu/research/publications/documentation/markup/records/148.html",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.poetryfoundation.org/education/glossary/fourteener",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.poetryfoundation.org/education/glossary/fourteener: (403) Forbidden"
+    },
+    {
+      "url": "https://rpo.library.utoronto.ca/glossary/common-measure",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poetry.harvard.edu/key-to-poetic-forms",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.poetryfoundation.org/education/glossary/poulters-measure",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.poetryfoundation.org/education/glossary/poulters-measure: (403) Forbidden"
+    },
+    {
+      "url": "https://dcc.dickinson.edu/ovid-amores/scansion",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.poetryfoundation.org/education/glossary/terza-rima",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.poetryfoundation.org/education/glossary/terza-rima: (403) Forbidden"
+    },
+    {
+      "url": "https://www.classicalpoets.org/how-to-write-a-rubaiyat-with-examples/comment-page-1/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://lectambulos.com/algunas-consideraciones-sobre-la-decima-y-su-uso-contemporaneo/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://diotima-doctafemina.org/translations/latin/selections-from-horaces-odes/horatian-meters/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.folger.edu/explore/shakespeares-works/lucrece/reading-shakespeares-language-venus-and-adonis-and-lucrece/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://asls.org.uk/robert-burns-and-tradition/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.treccani.it/enciclopedia/ottava_%28Enciclopedia-Italiana%29/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.treccani.it/enciclopedia/rispetto_%28Enciclopedia-Italiana%29/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.english.cam.ac.uk/spenser/stanza/about.html",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.english.cam.ac.uk/spenser/stanza/about.html: (403) Forbidden"
+    },
+    {
+      "url": "https://poets.org/poem/ode-nightingale",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/poem/autumn",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://readingroo.ms/4/9/7/9/49790/49790-h/49790-h.htm",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://faculty.goucher.edu/eng240/sir_gawain_and_the_green_knight.htm",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.scottishcorpus.ac.uk/document/?documentid=17",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://academic.oup.com/book/56398/chapter-abstract/448369631",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://academic.oup.com/book/56398/chapter-abstract/448369631: (500) Redirected to https://oup.silverchair-cdn.com/book-minimal/56398/chapter-minimal/448369631 which is not accessible via this tool. (non-retryable error)"
+    },
+    {
+      "url": "https://poets.org/glossary/blank-verse",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poetry.harvard.edu/guide-prosody",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.gutenberg.org/cache/epub/22403/pg22403.html",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.gutenberg.org/cache/epub/54966/pg54966-images.html: (503) Service Unavailable"
+    },
+    {
+      "url": "https://sacred-texts.com/neu/eng/child/ch001.htm",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://original.sacred-texts.com/neu/eng/child/ch012.htm",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://ebba.english.ucsb.edu/page/recording-the-ballads",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://origin.ewtn.com/catholicism/library/general-instruction-on-the-liturgy-of-the-hours-28969",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://blogs.loc.gov/folklife/2021/01/a-deep-dive-into-sea-shanties/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://traditionalshanties.com/halyard-shanty/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://blogs.loc.gov/folklife/2020/06/kids-explain-their-rhymes-games-and-songs/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://scholarworks.iu.edu/journals/index.php/cfr/article/view/25057",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.squaredancehistory.org/items/show/733",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.berklee.edu/berklee-today/spring-2018/writing-a-canon",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.hymnary.org/tune/darwall_darwall",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://hymnary.org/hymn/Mor1995/401",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://hymnary.org/wiki/meter",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://hymnary.org/node/43000",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://hymnary.org/hymnal/C41858",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://guides.loc.gov/spirituals-folklife",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://wwws.loc.gov/rr/perform/concert/1011-folklife.html",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://psalms.seedbed.com/psalm-100/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.ucpress.edu/books/lining-out-the-word/hardcover",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.colonialsociety.org/node/3323",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.texasfasola.org/songs.html",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.texasfasola.org/songs.html: TimeoutError"
+    },
+    {
+      "url": "https://viva.pressbooks.pub/openmusictheory/chapter/aaba-and-strophic-form/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://viva.pressbooks.pub/openmusictheory/chapter/blues-melodies-and-the-blues-scale/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/blues-poem",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://openmusictheory.github.io/popRockForm.html",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://viva.pressbooks.pub/openmusictheory/chapter/verse-chorus-form/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://viva.pressbooks.pub/openmusictheory/chapter/binary-form/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://viva.pressbooks.pub/openmusictheory/chapter/ternary-form/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://viva.pressbooks.pub/openmusictheorycopy/back-matter/glossary/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://en.wikisource.org/wiki/A_Dictionary_of_Music_and_Musicians/Quodlibet",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.thenational.academy/teachers/lessons/partner-songs-as-a-singing-structure",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.metopera.org/learn/education/10-essential-musical-terms/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.hrp.org.uk/banqueting-house/history-and-stories/the-masque/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.loc.gov/programs/national-recording-preservation-board/recording-registry/descriptions-and-essays/?loclr=blogloc",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.loc.gov/programs/national-recording-preservation-board/recording-registry/descriptions-and-essays/?loclr=blogloc: (403) Forbidden"
+    },
+    {
+      "url": "https://ccnmtl.columbia.edu/projects/jazzglossary/v/vocalese.html",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.barbershop.org/music/about-our-music",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.academia.edu/12136621/Cognitive_Sociolinguistic_Aspects_of_Football_Chants_The_role_of_social_and_physical_context_in_Usage_based_Construction_Grammar",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.library.metro.tokyo.lg.jp/portals/0/edo/tokyo_library/english/modal/index.html?d=5387",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.metmuseum.org/art/collection/search/57675",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.pref.nara.lg.jp/manyo/en/manyo-shu/index.html",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://en.wikisource.org/wiki/Japanese_Peasant_Songs/Introduction",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://5gyohka.com/wp5/enta/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://hsa-haiku.org/hsa-definitions-2004.html",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.rengay.com/rengay-essays/learning-rengay/rengay-on-haikupedia",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.tankasocietyofamerica.org/tsa-contest/how-to-enter-the-2025-tanka-prose-contest",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.sejongculturalsociety.org/writing/current/resources/sijo_guide.php",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://ncca.gov.ph/about-ncca-3/subcommissions/subcommission-on-the-arts-sca/literary-arts/the-literary-forms-in-philippine-literature/",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://ncca.gov.ph/about-ncca-3/subcommissions/subcommission-on-the-arts-sca/literary-arts/the-literary-forms-in-philippine-literature/: (502) Bad Gateway"
+    },
+    {
+      "url": "https://vanvn.vn/ve-dep-tho-luc-bat/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://milnepublishing.geneseo.edu/naming-the-unnameable/back-matter/key-terms/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.thecherita.com/articles/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/gwers/13.html",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/limerick",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.poetryfoundation.org/education/glossary/double-dactyl",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.poetryfoundation.org/education/glossary/double-dactyl: (403) Forbidden"
+    },
+    {
+      "url": "https://www.gutenberg.org/cache/epub/35051/pg35051-images.html",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.gutenberg.org/cache/epub/35051/pg35051-images.html: (503) Service Unavailable"
+    },
+    {
+      "url": "https://open.maricopa.edu/introlit/chapter/chapter-8-poetic-form-open-and-closed/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.greatschools.org/gk/parenting/learning-activities/diamante-poem/",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.readwritethink.org/classroom-resources/lesson-plans/talking-poetry-blabberize",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.poetryfoundation.org/articles/68971/1-1-2-3-5-8-fun",
+      "access": "unavailable",
+      "reason": "Failed to fetch https://www.poetryfoundation.org/articles/68971/1-1-2-3-5-8-fun: (403) Forbidden"
+    },
+    {
+      "url": "https://poetry.arizona.edu/education/curriculum/crafting-lune-poems",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002214912",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poets.org/glossary/bop",
+      "access": "page returned",
+      "reason": ""
+    },
+    {
+      "url": "https://poetsonline.org/archive/arch_paradelle.html",
+      "access": "page returned",
+      "reason": ""
+    }
+  ],
+  "claims": [
+    {
+      "form": "Irregular ode",
+      "target": "",
+      "url": "https://poets.org/glossary/ode",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Types of Odes, paragraphs on the three types (lines 31–32, 42, 52)",
+      "passage": "Distinguishes a mirrored opening pair and different close, recurrent stanza organization, and more variable ode designs."
+    },
+    {
+      "form": "Irregular ode",
+      "target": "Pindaric ode",
+      "url": "https://poets.org/glossary/ode",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Types of Odes, paragraphs on the three types (lines 31–32, 42, 52)",
+      "passage": "Distinguishes a mirrored opening pair and different close, recurrent stanza organization, and more variable ode designs."
+    },
+    {
+      "form": "Irregular ode",
+      "target": "Horatian ode",
+      "url": "https://poets.org/glossary/ode",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Types of Odes, paragraphs on the three types (lines 31–32, 42, 52)",
+      "passage": "Distinguishes a mirrored opening pair and different close, recurrent stanza organization, and more variable ode designs."
+    },
+    {
+      "form": "Horatian ode",
+      "target": "",
+      "url": "https://poets.org/glossary/ode",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Types of Odes, paragraphs on the three types (lines 31–32, 42, 52)",
+      "passage": "Distinguishes a mirrored opening pair and different close, recurrent stanza organization, and more variable ode designs."
+    },
+    {
+      "form": "Horatian ode",
+      "target": "Pindaric ode",
+      "url": "https://poets.org/glossary/ode",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Types of Odes, paragraphs on the three types (lines 31–32, 42, 52)",
+      "passage": "Distinguishes a mirrored opening pair and different close, recurrent stanza organization, and more variable ode designs."
+    },
+    {
+      "form": "Elegy",
+      "target": "",
+      "url": "https://poets.org/glossary/elegy",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "History of the Elegy, lines 31–32",
+      "passage": "Grief, praise and consolation occur in one traditional progression; mourning alone does not impose it on all elegies."
+    },
+    {
+      "form": "Epigram",
+      "target": "",
+      "url": "https://poets.org/glossary/epigram",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Opening definition, line 28",
+      "passage": "Brevity and a frequently pointed close establish the limited structural description."
+    },
+    {
+      "form": "Verse epistle",
+      "target": "",
+      "url": "https://poets.org/glossary/epistolary-poem",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Opening definition, line 27",
+      "passage": "The speaker addresses a recipient through a poem written as a letter."
+    },
+    {
+      "form": "Cento",
+      "target": "",
+      "url": "https://poets.org/glossary/cento",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Opening definition, line 28",
+      "passage": "The poem is assembled from lines of earlier poems."
+    },
+    {
+      "form": "Cento",
+      "target": "Found poem",
+      "url": "https://poets.org/glossary/cento",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Opening definition, line 28",
+      "passage": "The poem is assembled from lines of earlier poems."
+    },
+    {
+      "form": "Cento",
+      "target": "Found poem",
+      "url": "https://poets.org/glossary/found-poem",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Opening definition, lines 28–29",
+      "passage": "Pre-existing language can be selected, rearranged and presented in verse, establishing the broader category in the comparison."
+    },
+    {
+      "form": "Found poem",
+      "target": "",
+      "url": "https://poets.org/glossary/found-poem",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Opening definition, lines 28–29",
+      "passage": "Pre-existing language can be selected, rearranged and presented in verse, establishing the broader category in the comparison."
+    },
+    {
+      "form": "Erasure poem",
+      "target": "",
+      "url": "https://poets.org/glossary/erasure",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Opening definition, lines 28–29",
+      "passage": "Identifies a form of found poetry constructed by suppressing portions of an earlier text."
+    },
+    {
+      "form": "Erasure poem",
+      "target": "Found poem",
+      "url": "https://poets.org/glossary/erasure",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Opening definition, lines 28–29",
+      "passage": "Identifies a form of found poetry constructed by suppressing portions of an earlier text."
+    },
+    {
+      "form": "Exquisite corpse",
+      "target": "",
+      "url": "https://poets.org/glossary/exquisite-corpse",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Game description, lines 28–31",
+      "passage": "Several contributors write in sequence with earlier contributions concealed."
+    },
+    {
+      "form": "Contrapuntal poem",
+      "target": "",
+      "url": "https://poets.org/glossary/contrapuntal",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Opening definition and Structure, lines 28 and 35",
+      "passage": "Interwoven texts can be read independently or together; their layout determines the routes."
+    },
+    {
+      "form": "Ghazal",
+      "target": "",
+      "url": "https://poets.org/glossary/ghazal",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Opening definition, lines 27–28",
+      "passage": "The poem is organized in autonomous couplets with a repeated rhyme and refrain in specified positions."
+    },
+    {
+      "form": "Ghazal",
+      "target": "Couplet",
+      "url": "https://poets.org/glossary/ghazal",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Opening definition, lines 27–28",
+      "passage": "The poem is organized in autonomous couplets with a repeated rhyme and refrain in specified positions."
+    },
+    {
+      "form": "Pantoum",
+      "target": "",
+      "url": "https://poets.org/glossary/pantoum",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Opening and History, lines 28–32",
+      "passage": "Alternating lines transfer into the next quatrain. The history connects the Western form to a Malay tradition."
+    },
+    {
+      "form": "Pantoum",
+      "target": "Pantun",
+      "url": "https://poets.org/glossary/pantoum",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Opening and History, lines 28–32",
+      "passage": "Alternating lines transfer into the next quatrain. The history connects the Western form to a Malay tradition."
+    },
+    {
+      "form": "Terza rima",
+      "target": "",
+      "url": "https://poets.org/glossary/terza-rima",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Rules and History, lines 28–40",
+      "passage": "Linked tercets transfer the middle rhyme to the next stanza's outer lines. The historical discussion includes a sonnet with a couplet close."
+    },
+    {
+      "form": "Terza rima",
+      "target": "Tercet",
+      "url": "https://poets.org/glossary/terza-rima",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Rules and History, lines 28–40",
+      "passage": "Linked tercets transfer the middle rhyme to the next stanza's outer lines. The historical discussion includes a sonnet with a couplet close."
+    },
+    {
+      "form": "Terza rima sonnet",
+      "target": "",
+      "url": "https://poets.org/glossary/terza-rima",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Rules and History, lines 28–40",
+      "passage": "Linked tercets transfer the middle rhyme to the next stanza's outer lines. The historical discussion includes a sonnet with a couplet close."
+    },
+    {
+      "form": "Terza rima sonnet",
+      "target": "Terza rima",
+      "url": "https://poets.org/glossary/terza-rima",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Rules and History, lines 28–40",
+      "passage": "Linked tercets transfer the middle rhyme to the next stanza's outer lines. The historical discussion includes a sonnet with a couplet close."
+    },
+    {
+      "form": "Couplet",
+      "target": "",
+      "url": "https://poets.org/glossary/couplet",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "A Poet’s Glossary, lines 33, 37–38",
+      "passage": "A couplet is an intentional pair of successive lines. It can be embedded in a larger stanza; the heroic form uses five stresses."
+    },
+    {
+      "form": "Heroic couplet",
+      "target": "",
+      "url": "https://poets.org/glossary/couplet",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "A Poet’s Glossary, lines 33, 37–38",
+      "passage": "A couplet is an intentional pair of successive lines. It can be embedded in a larger stanza; the heroic form uses five stresses."
+    },
+    {
+      "form": "Heroic couplet",
+      "target": "Couplet",
+      "url": "https://poets.org/glossary/couplet",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "A Poet’s Glossary, lines 33, 37–38",
+      "passage": "A couplet is an intentional pair of successive lines. It can be embedded in a larger stanza; the heroic form uses five stresses."
+    },
+    {
+      "form": "Rhyme royal",
+      "target": "Couplet",
+      "url": "https://poets.org/glossary/couplet",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "A Poet’s Glossary, lines 33, 37–38",
+      "passage": "A couplet is an intentional pair of successive lines. It can be embedded in a larger stanza; the heroic form uses five stresses."
+    },
+    {
+      "form": "Ottava rima",
+      "target": "Couplet",
+      "url": "https://poets.org/glossary/couplet",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "A Poet’s Glossary, lines 33, 37–38",
+      "passage": "A couplet is an intentional pair of successive lines. It can be embedded in a larger stanza; the heroic form uses five stresses."
+    },
+    {
+      "form": "Petrarchan sonnet",
+      "target": "",
+      "url": "https://poets.org/glossary/sonnet",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Types and variations, lines 38, 43, 47–48",
+      "passage": "Includes the octave/sestet division, three-quatrain and couplet organization, flexible volta, and linked quatrains. Each name refers to its respective passage."
+    },
+    {
+      "form": "Shakespearean sonnet",
+      "target": "",
+      "url": "https://poets.org/glossary/sonnet",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Types and variations, lines 38, 43, 47–48",
+      "passage": "Includes the octave/sestet division, three-quatrain and couplet organization, flexible volta, and linked quatrains. Each name refers to its respective passage."
+    },
+    {
+      "form": "Miltonic sonnet",
+      "target": "",
+      "url": "https://poets.org/glossary/sonnet",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Types and variations, lines 38, 43, 47–48",
+      "passage": "Includes the octave/sestet division, three-quatrain and couplet organization, flexible volta, and linked quatrains. Each name refers to its respective passage."
+    },
+    {
+      "form": "Spenserian sonnet",
+      "target": "",
+      "url": "https://poets.org/glossary/sonnet",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Types and variations, lines 38, 43, 47–48",
+      "passage": "Includes the octave/sestet division, three-quatrain and couplet organization, flexible volta, and linked quatrains. Each name refers to its respective passage."
+    },
+    {
+      "form": "Miltonic sonnet",
+      "target": "Petrarchan sonnet",
+      "url": "https://poets.org/glossary/sonnet",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Types and variations, lines 38, 43, 47–48",
+      "passage": "Includes the octave/sestet division, three-quatrain and couplet organization, flexible volta, and linked quatrains. Each name refers to its respective passage."
+    },
+    {
+      "form": "Common metre (CM)",
+      "target": "",
+      "url": "https://rpo.library.utoronto.ca/glossary/common-measure",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Glossary definition, line 2",
+      "passage": "Describes an alternating four/three stress quatrain in ABAB and the correspondence of a pair of shorter lines to one fourteen-syllable line. This supports the regular instance."
+    },
+    {
+      "form": "Common metre (CM)",
+      "target": "Quatrain",
+      "url": "https://rpo.library.utoronto.ca/glossary/common-measure",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Glossary definition, line 2",
+      "passage": "Describes an alternating four/three stress quatrain in ABAB and the correspondence of a pair of shorter lines to one fourteen-syllable line. This supports the regular instance."
+    },
+    {
+      "form": "Common metre (CM)",
+      "target": "Ballad stanza",
+      "url": "https://rpo.library.utoronto.ca/glossary/common-measure",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Glossary definition, line 2",
+      "passage": "Describes an alternating four/three stress quatrain in ABAB and the correspondence of a pair of shorter lines to one fourteen-syllable line. This supports the regular instance."
+    },
+    {
+      "form": "Fourteener",
+      "target": "Common metre (CM)",
+      "url": "https://rpo.library.utoronto.ca/glossary/common-measure",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Glossary definition, line 2",
+      "passage": "Describes an alternating four/three stress quatrain in ABAB and the correspondence of a pair of shorter lines to one fourteen-syllable line. This supports the regular instance."
+    },
+    {
+      "form": "Binary",
+      "target": "",
+      "url": "https://viva.pressbooks.pub/openmusictheory/chapter/binary-form/",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Chapter introduction and Repeat Structure, lines 1054–1062",
+      "passage": "Two main parts, each typically repeated, chapter opening and Repeat Structure. The catalog instead repeats the pair."
+    },
+    {
+      "form": "Head arrangement",
+      "target": "",
+      "url": "https://www.loc.gov/static/programs/national-recording-preservation-board/documents/OneOClockJump.pdf",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Printed page 2, lines 36–40",
+      "passage": "Recording Registry essay, page 2, lines 36–40: the ensemble collectively devised the 12-bar head arrangement. The Registry’s indexed description additionally records memorization. The catalog supplies the different performance-order shorthand."
+    },
+    {
+      "form": "Long-measure ballad",
+      "target": "",
+      "url": "https://rpo.library.utoronto.ca/glossary/common-measure",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Common measure, line 2",
+      "passage": "The common-measure entry distinguishes a 14-syllable line splitting 4+3 stresses from long measure dividing two four-stress lines."
+    },
+    {
+      "form": "Canon",
+      "target": "",
+      "url": "https://www.berklee.edu/berklee-today/spring-2018/writing-a-canon",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Strict and free canon, lines 48–51",
+      "passage": "Berklee, strict and free canon, and Rounds, lines 47–51: variation and a cyclic ending are allowed."
+    },
+    {
+      "form": "Onegin stanza",
+      "target": "",
+      "url": "https://www.academia.edu/15249813/Verse_structure_and_literary_tradition_The_interaction_between_rhyme_and_stress_in_the_Onegin_stanza_Style_49_4_2015_439_469",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Scheme (1), line 20, explicit notation legend",
+      "passage": "Maslov and Nikitina, scheme (1), line 20, use uppercase for feminine endings and the correspondingly inverted letter string. The catalog’s error is mixing conventions, not its choice of uppercase alone."
+    },
+    {
+      "form": "Sonnet sequence",
+      "target": "",
+      "url": "https://poets.org/glossary/sonnet",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Sonnet Sequences, lines 77–80",
+      "passage": "Sonnet Sequences, lines 77–80, includes coronas with explicit line-to-line linkage within sequences."
+    },
+    {
+      "form": "Rengay",
+      "target": "",
+      "url": "https://www.rengay.com/rengay-essays/learning-rengay/rengay-on-haikupedia",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Alternating contributors and lengths, lines 21–22",
+      "passage": "Welch’s discussion, lines 21–22, lists each alternating voice and line count. Their sums are 16 and 15."
+    },
+    {
+      "form": "Hir a thoddaid",
+      "target": "",
+      "url": "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/gwers/13.html",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Welsh lesson 13, lines 91–99",
+      "passage": "Lesson 13, lines 91–99: four ten-syllable opening lines plus toddaid hir in the common six-line setting."
+    },
+    {
+      "form": "Byr a thoddaid",
+      "target": "",
+      "url": "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Technical glossary, lines 25–26",
+      "passage": "The technical glossary, lines 25–26, specifies four opening lines of cyhydedd fer followed by a toddaid. That suffices to contradict the catalog’s four lines total."
+    },
+    {
+      "form": "Double dactyl",
+      "target": "",
+      "url": "https://rpo.library.utoronto.ca/glossary/double-dactyl",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Glossary definition and example, lines 1–11",
+      "passage": "RPO, definition and example, lines 1–11: a shortened fourth line closes each quatrain."
+    },
+    {
+      "form": "Kwansaba",
+      "target": "",
+      "url": "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002214912",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Abstract, lines 47–48",
+      "passage": "Ward, abstract lines 47–48, quotes the inventor’s exceptions for proper names, borrowed terms and quotations."
+    },
+    {
+      "form": "Alcaic stanza",
+      "target": "",
+      "url": "https://diotima-doctafemina.org/translations/latin/selections-from-horaces-odes/horatian-meters/",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Horatian meters, lines 111–122",
+      "passage": "Horatian Meters, lines 111–122: line four starts with two long-short-short groups."
+    },
+    {
+      "form": "Christ's Kirk stanza",
+      "target": "",
+      "url": "https://raw.githubusercontent.com/GITenberg/Scottish-Poetry-of-the-Sixteenth-Century_49790/master/49790-h/49790-h.htm",
+      "access": "direct",
+      "checked_on": "2026-11-18",
+      "locator": "Edition pages 168–169, corresponding HTML lines 5493 and 5504",
+      "passage": "Eyre-Todd edition, pages 168–169, HTML lines 5493 and 5504. Two consecutive refrains end differently."
+    }
+  ]
+}

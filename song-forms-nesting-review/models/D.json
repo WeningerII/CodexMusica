@@ -485,7 +485,7 @@
         "label": "ABABCC",
         "children": [
           {
-            "label": "Opening alternation",
+            "label": "Opening quatrain",
             "children": [
               "6 syllables · A",
               "6 syllables · B",
@@ -506,7 +506,8 @@
     "mode": "Pattern",
     "related": [
       "Sestet / sixain",
-      "Couplet"
+      "Couplet",
+      "Quatrain"
     ]
   },
   "Trochaic hymn metres": {
@@ -973,7 +974,8 @@
     "mode": "Pattern",
     "related": [
       "Octave / huitain",
-      "Couplet"
+      "Couplet",
+      "Sestet / sixain"
     ]
   },
   "Sicilian octave": {
@@ -1105,7 +1107,8 @@
     "mode": "Pattern",
     "related": [
       "Alexandrine couplet",
-      "Monk's Tale stanza"
+      "Monk's Tale stanza",
+      "Octave / huitain"
     ]
   },
   "Dizain": {
@@ -1164,7 +1167,8 @@
     "mode": "Example",
     "related": [
       "Redondilla",
-      "Quatrain"
+      "Quatrain",
+      "Couplet"
     ]
   },
   "Keatsian ode stanza": {
@@ -1231,7 +1235,9 @@
     ],
     "mode": "Pattern",
     "related": [
-      "Bob and wheel"
+      "Bob and wheel",
+      "Octave / huitain",
+      "Sicilian octave"
     ]
   },
   "Pearl stanza": {
@@ -1243,7 +1249,7 @@
             "label": "12-line stanza",
             "children": [
               {
-                "label": "Alternating opening",
+                "label": "Opening octave",
                 "children": [
                   "1 · A",
                   "2 · B",
@@ -1256,7 +1262,7 @@
                 ]
               },
               {
-                "label": "Closing four",
+                "label": "Closing quatrain",
                 "children": [
                   "9 · B",
                   "10 · C",
@@ -1270,7 +1276,12 @@
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": [
+      "Octave / huitain",
+      "Sicilian octave",
+      "Quatrain"
+    ]
   },
   "Cherry and Slae stanza": {
     "tree": [
@@ -1332,7 +1343,9 @@
     "mode": "Example",
     "related": [
       "Couplet",
-      "Tail-rhyme stanza"
+      "Tail-rhyme stanza",
+      "Quatrain",
+      "Tercet"
     ]
   },
   "Bob and wheel": {

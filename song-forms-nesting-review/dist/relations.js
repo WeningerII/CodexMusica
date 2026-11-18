@@ -142,7 +142,12 @@
         evidence.append(make('summary','','Evidence'));
         for (const edge of facts) {
           evidence.append(make('p','',edge.from+' → '+edge.target+' · '+edge.evidence));
-          if (!edge.refs.length) evidence.append(make('small','','Catalog evidence only'));
+          const provenance = {
+            'passage checked for stated scope': 'Source passage checked for this claim',
+            'reference recorded; passage unverified': 'Reference recorded, passage unverified',
+            'catalog and model only': 'Catalog evidence only',
+          };
+          evidence.append(make('small', '', provenance[edge.basis]));
           for (const url of edge.refs) {
             const a=make('a','',new URL(url).hostname);
             a.href=url; a.target='_blank'; a.rel='noopener noreferrer'; evidence.append(a);

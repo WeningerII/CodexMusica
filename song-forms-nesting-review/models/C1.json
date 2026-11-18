@@ -917,8 +917,7 @@
     "related": [
       "Rondeau",
       "Quintain",
-      "Septet",
-      "Rondeau prime"
+      "Septet"
     ]
   },
   "Rondeau redoublé": {
@@ -1316,7 +1315,7 @@
     "mode": "Pattern",
     "related": [
       "Quatrain",
-      "Kyrielle sonnet"
+      "Tercet"
     ]
   },
   "Quatern": {
@@ -1399,11 +1398,23 @@
   "Stornello": {
     "tree": [
       {
-        "label": "Three lines",
+        "label": "Attested alternatives",
         "children": [
-          "Short opening line",
-          "Longer middle line",
-          "Longer line rhyming with the first"
+          {
+            "label": "Three lines",
+            "children": [
+              "Short opening line",
+              "Longer middle line",
+              "Longer line rhyming with the first"
+            ]
+          },
+          {
+            "label": "Two-line regional setting",
+            "children": [
+              "Eleven-syllable opening line",
+              "Eleven-syllable reply with rhyme or assonance"
+            ]
+          }
         ]
       }
     ],
@@ -1604,18 +1615,28 @@
       }
     ],
     "mode": "Rule",
-    "related": [
-      "Haiku"
-    ]
+    "related": []
   },
   "Tanka": {
     "tree": [
       {
-        "label": "Common English form",
+        "label": "Forms of tanka",
         "children": [
-          "Five short lines",
-          "Flexible syllable counts",
-          "A turn is frequent"
+          {
+            "label": "Japanese sound-unit pattern",
+            "children": [
+              "5 · 7 · 5",
+              "7 · 7"
+            ]
+          },
+          {
+            "label": "Common English form",
+            "children": [
+              "Five short lines",
+              "Flexible syllable counts",
+              "A turn is frequent"
+            ]
+          }
         ]
       }
     ],
