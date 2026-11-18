@@ -397,10 +397,11 @@ def _final_unstressed_lines(plan):
 #: verbatim-return failures, and the three drift notes that would mean the
 #: planner contradicted its own returns mandate (instances of one function
 #: kind must share length, meter and pickup — the anacrusis is drawn per
-#: KIND for exactly this reason). RETURN_NEVER_RETURNS (a single chorus is
-#: a real form; the note is a disclosure, and disclosure is not a ban) and
-#: RETURN_SCHEME_DRIFT (a fact about the DRAFT's words, not the plan) are
-#: deliberately absent from this set.
+#: KIND for exactly this reason). ~~RETURN_NEVER_RETURNS (a single chorus is
+#: a real form; the note is a disclosure, and disclosure is not a ban) and~~
+#: RETURN_SCHEME_DRIFT (a fact about the DRAFT's words, not the plan) ~~are~~
+#: is deliberately absent from this set. Stage 4 fix round, 2026-11-18: the
+#: struck remark was removed from the grader in stage 4, so it is in no set.
 FORBIDDEN = {"RETURN_NOT_VERBATIM", "RETURN_OUT_OF_RANGE",
              "RETURN_SLOT_DRIFT", "RETURN_LENGTH_DRIFT",
              "RETURN_METER_DRIFT"}
@@ -5727,6 +5728,36 @@ class OnceGeneration(unittest.TestCase):
         self.assertEqual(set(G.POPULAR_SONG.single_use), once)
         self.assertTrue(all(G.SECTION_FUNCTIONS[fn].boundary for fn in once))
 
+    def test_the_planner_reads_no_list_of_once_rows(self):
+        """Fix round (18 Nov): `docs/676-once-generation.md` and the
+        planner's own comment say the planner reads no list of "once" rows.
+        ~~The count policy read `grid.single_use_functions()` to hold those
+        rows to 1 in the most sections the caps allow.~~ Every "once" row
+        of the table stands at an edge, and the edge holds it: for each
+        such row, beside a partner row and under caps drawn by seed, it
+        counts once toward that most."""
+        with open(PLN.__file__, encoding='utf-8') as fh:
+            tree = ast.parse(fh.read())
+        names = ({n.attr for n in ast.walk(tree) if isinstance(n, ast.Attribute)}
+                 | {n.id for n in ast.walk(tree) if isinstance(n, ast.Name)})
+        self.assertFalse({n for n in names if 'single_use' in n})
+        first, last = PLN._edges()
+        once = G.single_use_functions()
+        self.assertTrue(once)
+        rng = random.Random('stage4-once-capacity')
+        for fn in once:
+            self.assertIn(fn, first + last)
+            other, n = rng.choice(_free_rows()), rng.randint(1, 6)
+            wants = [f'sections.{other}<={n}',
+                     f'sections.{fn}<={rng.randint(2, 9)}']
+            with self.subTest(fn=fn, wants=wants):
+                self.assertTrue(self.policy(
+                    [fn, other], *wants, f'sections>={n + 1}').stated)
+                with self.assertRaisesRegex(
+                        PLN.PlanRefused,
+                        rf'at most {n + 1} sections \(upper capacity\)'):
+                    self.policy([fn, other], *wants, f'sections>={n + 2}')
+
     def test_policy_is_intervals_not_lifts(self):
         """Rows, bounds and total drawn by seed: a stated range on a row is
         that row's interval, the total is its own interval, and a row the
@@ -6118,6 +6149,392 @@ class OnceGeneration(unittest.TestCase):
         self.assertIn('No section pattern was drawn', message)
         self.assertNotIn('patterns each', message)
 
+    # ---- stage 4 fix round, 2026-11-18: the built draw is bounded ----
+
+    @staticmethod
+    def _table_sizes():
+        """-> (sizes, stand-in for `_built_tables`): the stand-in appends to
+        `sizes` how many entries each table it hands back holds, one per
+        step and count state."""
+        real, sizes = PLN._built_tables, []
+
+        def spy(*a, **k):
+            out = real(*a, **k)
+            sizes.append(sum(len(step) for step in out[0]))
+            return out
+        return sizes, spy
+
+    @staticmethod
+    def _shape(functions):
+        return {'sections': [{'function': f} for f in functions]}
+
+    def test_a_built_table_holds_no_more_than_the_state_bound(self):
+        """Fix round (18 Nov): requests drawn by seed, each with 2 to 5 rows
+        of the section table under an upper cap drawn by seed, half of them
+        with a cap on the total, at a length and a form drawn by seed. No
+        table the draw builds holds more than `_BUILT_STATES` entries, each
+        plan meets every count it was asked for, and a plan whose table left
+        a count to the check says which."""
+        bound = PLN._BUILT_STATES
+        rng = random.Random('stage4-table-bound')
+        rows = sorted(G.SECTION_FUNCTIONS)
+        top = max(PLN.fillable_line_counts(PLN.DEFAULT_FORM))
+        sizes, spy = self._table_sizes()
+        planned, checked = 0, 0
+        for _ in range(10):
+            form = rng.choice(PLN.PLAN_FORMS)
+            wants = [f'sections.{f}<={rng.randint(2, 40)}'
+                     for f in rng.sample(rows, rng.randint(2, 5))]
+            if rng.random() < 0.5:
+                wants.append(f'sections<={rng.randint(20, 110)}')
+            lines = rng.randint(top // 2, top)
+            seed = rng.randint(1, 999)
+            with self.subTest(seed=seed, form=form, lines=lines, wants=wants), \
+                    patch.object(PLN, '_built_tables', spy):
+                try:
+                    p = make_plan(seed, form=form, lines=lines, wants=wants)
+                except PLN.SeedRefused:
+                    continue
+                planned += 1
+                for w in wants:
+                    self.assertTrue(
+                        PLN.sweep_holds(p, PLN.parse_sweep_want(w)), w)
+                said = p['choices']['pattern']['chosen_from']
+                self.assertIn('stated counts built into the draw', said)
+                checked += 'checked on each draw' in said
+        self.assertTrue(sizes)
+        self.assertLessEqual(max(sizes), bound)
+        self.assertGreater(planned, 5)
+        self.assertGreater(checked, 0)
+
+    def test_the_state_bound_holds_whatever_it_is(self):
+        """The bound itself drawn by seed, small, so that the whole table of
+        each request (2 or 3 capped rows and a capped total, all drawn by
+        seed) is past it. The table built stays within the bound, the part
+        built leaves a count out, and every pattern drawn still carries
+        every stated count."""
+        rng = random.Random('stage4-any-bound')
+        free = _free_rows()
+        drawn = 0
+        for _ in range(8):
+            bound = rng.randint(40, 150)
+            cells = rng.randint(10, 16)
+            wants = [f'sections.{f}<={rng.randint(2, 4)}'
+                     for f in rng.sample(free, rng.randint(2, 3))]
+            wants.append(f'sections<={rng.randint(cells, 2 * cells)}')
+            policy = self.policy(None, *wants)
+            sizes, spy = self._table_sizes()
+            PLN._BUILT_CACHE.clear()
+            with self.subTest(bound=bound, cells=cells, wants=wants), \
+                    patch.object(PLN, '_BUILT_STATES', bound), \
+                    patch.object(PLN, '_built_tables', spy):
+                try:
+                    functions = PLN._sample_pattern(
+                        random.Random(rng.randint(1, 999)), max_cells=cells,
+                        counts=policy)
+                except PLN.PlanRefused:
+                    functions = None
+                self.assertTrue(sizes)
+                self.assertLessEqual(max(sizes), bound)
+                dims, bounds = PLN._built_dims(policy, None, cells)
+                self.assertIsNone(
+                    PLN._built_size(dims, bounds, PLN._CELLS, cells))
+                part = PLN._built_part(dims, bounds, PLN._CELLS, cells)
+                self.assertLess(len(part), len(dims))
+                if functions is not None:
+                    drawn += 1
+                    for w in wants:
+                        self.assertTrue(PLN.sweep_holds(
+                            self._shape(functions), PLN.parse_sweep_want(w)), w)
+        PLN._BUILT_CACHE.clear()
+        self.assertGreater(drawn, 4)
+
+    def test_a_table_within_the_bound_is_built_whole(self):
+        """Requests and bounds drawn by seed. When the whole table fits the
+        bound, every stated count is built, so the draw is the one made
+        before there was a bound. When it does not, the part built fits."""
+        rng = random.Random('stage4-built-whole')
+        free = _free_rows()
+        whole = part = 0
+        for _ in range(30):
+            cells = rng.randint(4, 24)
+            wants = [f'sections.{f}{rng.choice(("<=", "=", ">="))}'
+                     f'{rng.randint(1, 5)}'
+                     for f in rng.sample(free, rng.randint(1, 4))]
+            if rng.random() < 0.5:
+                wants.append(f'sections<={rng.randint(cells, 2 * cells)}')
+            policy = self.policy(None, *wants)
+            dims, bounds = PLN._built_dims(policy, None, cells)
+            PLN._BUILT_CACHE.clear()
+            with self.subTest(cells=cells, wants=wants), \
+                    patch.object(PLN, '_BUILT_STATES', rng.randint(50, 5000)):
+                size = PLN._built_size(dims, bounds, PLN._CELLS, cells)
+                built = PLN._built_part(dims, bounds, PLN._CELLS, cells)
+                if size is not None:
+                    whole += 1
+                    self.assertEqual(built, tuple(range(len(dims))))
+                    continue
+                part += 1
+                self.assertLess(len(built), len(dims))
+                self.assertIsNotNone(PLN._built_size(
+                    tuple(dims[i] for i in built),
+                    tuple(bounds[i] for i in built), PLN._CELLS, cells))
+        PLN._BUILT_CACHE.clear()
+        self.assertGreater(whole, 5)
+        self.assertGreater(part, 5)
+
+    @staticmethod
+    def _fewest_cells(dims, bounds, cells, openers, enders, most):
+        """-> the fewest body cells whose counts, with an opener and a
+        closer, land inside `bounds`, or None: a plain pass over every
+        count the cells can reach, one step at a time. Not the planner's
+        own search."""
+        def add(s, v):
+            out = []
+            for (lo, hi), a, b in zip(bounds, s, v):
+                x = a + b
+                if hi is None:
+                    x = min(x, lo)
+                elif x > hi:
+                    return None
+                out.append(x)
+            return tuple(out)
+
+        vs = {PLN._vec(dims, c) for c in cells}
+        edge = {add(PLN._vec(dims, [o] if o else []),
+                    PLN._vec(dims, [e] if e else []))
+                for o in openers for e in enders} - {None}
+        states = {tuple(0 for _ in dims)}
+        for n in range(1, max(1, most) + 1):
+            states = {t for s in states for v in vs
+                      for t in (add(s, v),) if t is not None}
+            if any((t := add(s, e)) is not None and PLN._built_ok(bounds, t)
+                   for s in states for e in edge):
+                return n
+        return None
+
+    def test_the_fewest_cells_are_what_a_plain_pass_finds(self):
+        """Counts, rosters, forms and sizes drawn by seed: the planner's
+        search for the fewest cells that carry the counts answers what a
+        plain pass over every reachable count answers (`_fewest_cells`),
+        None included. Half the requests name every row of a cell that
+        holds several rows, read from the cell table, since one such cell
+        then counts toward several floors at once."""
+        rng = random.Random('stage4-fewest-cells')
+        rows = sorted(G.SECTION_FUNCTIONS)
+        several = [c for c in PLN._CELLS if len(c) > 1]
+        self.assertTrue(several)
+        first, last = PLN._edges()
+        seen = Counter()
+        for _ in range(240):
+            form = rng.choice(PLN.PLAN_FORMS)
+            named = rng.sample(rows, rng.randint(1, 4))
+            if rng.random() < 0.5:
+                named = list(dict.fromkeys(
+                    [*rng.choice(several), *named[:rng.randint(0, 2)]]))
+            wants = [f'sections.{f}{rng.choice(("<=", "=", ">=", ">="))}'
+                     f'{rng.randint(0, 5)}' for f in named]
+            if rng.random() < 0.6:
+                wants.append(f'sections{rng.choice(("<=", "=", ">="))}'
+                             f'{rng.randint(1, 14)}')
+            roster = None
+            if rng.random() < 0.4:
+                roster = sorted(set(named) | set(rng.sample(rows, 4))
+                                | set(PLN.FORM_REQUIRES.get(form, ())))
+            try:
+                policy = self.policy(roster, *wants, form=form)
+            except PLN.PlanRefused:
+                continue
+            cells = PLN._CELLS if roster is None else tuple(
+                c for c in PLN._CELLS if all(f in roster for f in c))
+            openers = (None,) + tuple(f for f in first
+                                      if roster is None or f in roster)
+            enders = (None,) + tuple(f for f in last
+                                     if roster is None or f in roster)
+            most = rng.randint(1, 16)
+            sung = rng.choice((None, rng.randint(1, 12)))
+            dims, bounds = PLN._built_dims(policy, form, most, sung)
+            if not dims or not cells:
+                continue
+            want = self._fewest_cells(dims, bounds, cells, openers, enders,
+                                      most)
+            got = PLN._built_min_cells(policy, form, cells, openers, enders,
+                                       most, sung)
+            self.assertEqual(got, want, (form, wants, roster, most, sung))
+            seen[want is None] += 1
+        self.assertGreater(seen[False], 30)
+        self.assertGreater(seen[True], 5)
+
+    def test_a_search_past_the_bound_is_refused_by_name(self):
+        """Floors on 3 or 4 rows, drawn by seed, with the bound drawn small:
+        the search for the fewest cells stops at the bound. The refusal
+        names the request and the bound and makes no claim that the counts
+        cannot be met, and a plan request gets it as the request's own
+        refusal, before any pattern is drawn."""
+        rng = random.Random('stage4-search-bound')
+        free = [f for f in _free_rows() if f not in PLN.ZERO_LINE_FUNCTIONS]
+        first, last = PLN._edges()
+        for _ in range(6):
+            bound = rng.randint(5, 15)
+            wants = [f'sections.{f}>={rng.randint(6, 9)}'
+                     for f in rng.sample(free, rng.randint(3, 4))]
+            policy = self.policy(None, *wants)
+            PLN._BUILT_CACHE.clear()
+            with self.subTest(bound=bound, wants=wants), \
+                    patch.object(PLN, '_BUILT_STATES', bound):
+                with self.assertRaises(PLN.PlanRefused) as raised:
+                    PLN._built_min_cells(policy, None, PLN._CELLS,
+                                         (None,) + first, (None,) + last, 60)
+                message = str(raised.exception)
+                self.assertNotIsInstance(raised.exception, PLN.SeedRefused)
+                for w in wants:
+                    self.assertIn(w, message)
+                self.assertIn(str(bound), message)
+                self.assertNotIn("can't be met", message)
+                with patch.object(PLN, '_sample_pattern', side_effect=
+                                  AssertionError('refused before any draw')):
+                    with self.assertRaises(PLN.PlanRefused) as again:
+                        make_plan(rng.randint(1, 999), wants=wants,
+                                  lines=rng.randint(80, 200))
+                self.assertEqual(str(again.exception), message)
+        PLN._BUILT_CACHE.clear()
+
+    def test_a_miss_names_the_counts_it_only_checked(self):
+        """Fix round (18 Nov, R2): a seed whose built draw finds nothing,
+        after the table built only part of the stated counts, says on its
+        first line which counts were checked on each draw instead, spelled as
+        the request stated them, so the caller knows which to drop or
+        loosen. The request's own refusal quotes that line. With the whole
+        table built, the same request's refusal names none. Forms, lengths,
+        exact counts on 2 to 4 rows, the bound and the pattern tries are
+        drawn by seed."""
+        rng = random.Random('stage4-left-named')
+        free = _free_rows()
+        clause = 'checked on each draw, not built into it'
+        named = 0
+        for _ in range(40):
+            if named >= 4:
+                break
+            form = rng.choice(sorted(PLN.PLAN_FORMS))
+            lines = rng.choice(sorted(PLN.fillable_line_counts(form)))
+            wants = [f'sections.{f}={rng.randint(2, 5)}'
+                     for f in rng.sample(free, rng.randint(2, 4))]
+            parsed = [PLN.parse_sweep_want(w) for w in wants]
+            # The bound is drawn above the most steps a draw takes (one
+            # entry per step even with no count built), so the part built
+            # always fits it.
+            seed, bound = rng.randint(1, 9999), rng.randint(600, 3000)
+            tries = rng.randint(1, 3)
+            kw = dict(form=form, lines=lines, _wants=parsed,
+                      _recurrence_wants=parsed)
+            PLN._BUILT_CACHE.clear()
+            with patch.object(PLN, '_BUILT_STATES', bound), \
+                    patch.object(PLN, 'PATTERN_ATTEMPTS', tries):
+                try:
+                    PLN._make_plan_candidate(seed, **kw)
+                    continue
+                except PLN.SeedRefused as exc:
+                    first = str(exc).split('\n', 1)[0]
+                except PLN.PlanRefused:
+                    continue
+            if clause not in first:
+                continue
+            named += 1
+            with self.subTest(form=form, lines=lines, wants=wants,
+                              bound=bound, tries=tries):
+                listed = first.split(' entries: ', 1)[1]
+                listed, remedy = listed.split('. ', 1)
+                self.assertEqual(remedy, 'State fewer counts, or smaller ones.')
+                listed = listed.split(', ')
+                self.assertTrue(listed)
+                self.assertLessEqual(set(listed), set(wants))
+                self.assertIn(str(bound), first)
+                # Whole table: nothing was left to the check.
+                PLN._BUILT_CACHE.clear()
+                with patch.object(PLN, 'PATTERN_ATTEMPTS', tries):
+                    try:
+                        PLN._make_plan_candidate(seed, **kw)
+                    except PLN.SeedRefused as exc:
+                        self.assertNotIn(clause, str(exc))
+                    except PLN.PlanRefused:
+                        pass
+                # The request's own refusal quotes the line.
+                if named == 1:
+                    PLN._BUILT_CACHE.clear()
+                    with patch.object(PLN, '_BUILT_STATES', bound), \
+                            patch.object(PLN, 'PATTERN_ATTEMPTS', tries):
+                        try:
+                            make_plan(seed, form=form, lines=lines,
+                                      wants=wants)
+                        except PLN.PlanRefused as exc:
+                            self.assertIn(clause, str(exc))
+        PLN._BUILT_CACHE.clear()
+        self.assertGreaterEqual(named, 4)
+
+    def test_a_count_that_cannot_bind_changes_nothing(self):
+        """Fix round (18 Nov): a stated cap no draw could reach leaves the
+        plan as it is with no count. For every form in `PLAN_FORMS`, seeds,
+        lengths and the cap are drawn by seed, and the pattern draw is given
+        few tries (a number drawn by seed) so that it refuses; only requests
+        whose pattern draw refuses at least twice under one seed are kept.
+        The first 20 requests of each form keep the planner's own number of
+        tries, and at least one kept request must be one of those (R2), so
+        the test does not rest on the patch alone. Before this fix the cap
+        halved the most cells after two refusals and stopped the draw
+        early."""
+        most = PLN.ENVELOPE['sections'][1]
+        rows = sorted(G.SECTION_FUNCTIONS)
+        real = PLN._sample_pattern
+        own, unpatched = PLN.PATTERN_ATTEMPTS, 0
+        for form in PLN.PLAN_FORMS:
+            rng = random.Random(f'stage4-cannot-bind-{form}')
+            lengths = sorted(PLN.fillable_line_counts(form))
+            kept = 0
+            for n_req in range(60):
+                if kept == 3:
+                    break
+                seed, lines = rng.randint(1, 9999), rng.choice(lengths)
+                tries = rng.randint(1, 6) if n_req >= 20 else own
+                cap = most * rng.randint(4, 40)
+                want = rng.choice((f'sections<={cap}',
+                                   f'sections.{rng.choice(rows)}<={cap}'))
+                refused = {}
+
+                def spy(dice, *a, **k):
+                    try:
+                        return real(dice, *a, **k)
+                    except PLN.PlanRefused:
+                        # The dice are kept so that no two seeds share a key.
+                        refused.setdefault(id(dice), [dice, 0])[1] += 1
+                        raise
+
+                kw = dict(form=form, lines=lines)
+                with patch.object(PLN, 'PATTERN_ATTEMPTS', tries):
+                    with patch.object(PLN, '_sample_pattern', spy):
+                        try:
+                            plain = make_plan(seed, **kw)
+                        except PLN.PlanRefused:
+                            continue
+                    if max((n for _dice, n in refused.values()),
+                           default=0) < 2:
+                        continue
+                    kept += 1
+                    unpatched += tries == own
+                    with self.subTest(form=form, seed=seed, lines=lines,
+                                      tries=tries, want=want):
+                        policy = self.policy(None, want, form=form)
+                        self.assertEqual(
+                            PLN._built_dims(policy, form, most, lines)[0], ())
+                        stated = make_plan(seed, wants=[want], **kw)
+                        for key in ('sections', 'line_slots', 'total_lines',
+                                    'groups'):
+                            self.assertEqual(stated[key], plain[key], key)
+                        self.assertEqual(
+                            stated['choices']['pattern']['functions'],
+                            plain['choices']['pattern']['functions'])
+            self.assertEqual(kept, 3, form)
+        self.assertGreaterEqual(unpatched, 1)
+
     def test_no_open_row_says_it_comes_once(self):
         """Fix round: a row that may come back says nothing about coming
         once, in its gloss or in the placement note a writer reads. The
@@ -6356,10 +6773,43 @@ class OnceGeneration(unittest.TestCase):
         self.assertNotIn('SINGLE_USE_RECURRED', {f.code for f in result['findings']})
 
     def test_duplicate_allow_list_entries_are_not_occurrence_requests(self):
-        functions = ['verse', 'reprise', 'reprise']
-        p = PLN.make_plan(11, functions=functions, lines=24)
-        self.assertEqual(p['request']['functions'], functions)
-        self.assert_once([s['function'] for s in p['sections']])
+        """REPINNED (stage 4 fix round, 2026-11-18). ~~It ran `assert_once`
+        on a roster of verse and reprise, which flags only intro, outro and
+        coda since stage 4, so reading the duplicate as a request for two
+        would have passed.~~ A roster that names a row twice plans what the
+        same roster plans with the row named once. The rows, the row named
+        twice, the length and the seed are drawn by seed, and only seeds
+        whose plan deals that row fewer than twice are kept, so a reading
+        that asks for two is caught."""
+        rng = random.Random('stage4-roster-twice')
+        free = [f for f in _free_rows() if f not in PLN.ZERO_LINE_FUNCTIONS]
+        kept = 0
+        for _ in range(60):
+            if kept == 4:
+                break
+            form = rng.choice(PLN.PLAN_FORMS)
+            once = list(dict.fromkeys([*PLN.FORM_REQUIRES.get(form, ()),
+                                       *rng.sample(free, rng.randint(2, 3))]))
+            again = rng.choice(once)
+            twice = once + [again]
+            rng.shuffle(twice)
+            seed, lines = rng.randint(1, 999), rng.randint(12, 40)
+            kw = dict(lines=lines, form=form)
+            try:
+                plain = PLN.make_plan(seed, functions=list(
+                    dict.fromkeys(twice)), **kw)
+            except PLN.PlanRefused:
+                continue
+            if [s['function'] for s in plain['sections']].count(again) > 1:
+                continue
+            kept += 1
+            with self.subTest(seed=seed, twice=twice, **kw):
+                p = PLN.make_plan(seed, functions=twice, **kw)
+                self.assertEqual(p['request']['functions'], twice)
+                for key in ('sections', 'line_slots', 'total_lines',
+                            'groups'):
+                    self.assertEqual(p[key], plain[key], key)
+        self.assertEqual(kept, 4)
 
     def test_feasible_once_and_open_repeats_are_not_shortened(self):
         for body in (('verse', 'false_ending', 'reprise', 'verse'),
@@ -6481,6 +6931,29 @@ class IncrementalRepetitionRule(unittest.TestCase):
                         bad.append((size, kind, whys[:1]))
         self.assertEqual(bad, [])
 
+    def test_a_one_word_line_is_not_a_repeat(self):
+        """Two one-word lines that differ differ in one word, but nothing of
+        the line comes back. Pairs of dictionary words drawn by seed: the
+        judge refuses each, and so does the grader under the schema."""
+        import quality.relations as REL
+        import quality.schemes as SC_
+        R = _round_trip_reviser()
+        words = _dictionary_words()
+        rng = random.Random('stage4-one-word-line')
+        judge = REL.OneTokenDiffers()
+        bad = []
+        for _ in range(12):
+            p, q = rng.sample(words, 2)
+            if judge(p, q).value is not False:
+                bad.append(('judge', p, q))
+            m = SC_.mandate([["1", "2"]], n_lines=2,
+                            relations={"A": "schema:incremental repetition"})
+            g = R.grade([p, q], m)
+            verdicts = [v for v in g['verdicts'] if v['group'] == 0]
+            if verdicts and all(v['satisfied_by'] for v in verdicts):
+                bad.append(('grade', p, q))
+        self.assertEqual(bad, [])
+
     def test_an_added_word_is_not_one_changed_word(self):
         """Words drawn by seed from the dictionary: an added word, a
         dropped word and no change do not stand; one changed word does."""
@@ -6509,6 +6982,259 @@ class IncrementalRepetitionRule(unittest.TestCase):
                                                      " ".join(changed)).value)
         self.assertIn(PLN._IDENTITY_WORDS[('token', 'OneTokenDiffers')],
                       PLN.type_rule(sch))
+
+    # -- STAGE 4 FIX ROUND (2026-11-18): the count sees every word of the
+    #    line. A word the phonology cannot read has no syllables in the
+    #    stream, and the count used to leave it out.
+
+    @staticmethod
+    def _word_pools(R):
+        """-> (read, two_shape): the dictionary words the stream reads, and
+        those it gives no syllables because their dictionary readings differ
+        in syllable count (the stream holds one shape per word)."""
+        def shapes(w):
+            return {sum(1 for p in r if p[-1].isdigit())
+                    for r in R.lex.entries.get(w, ())}
+        words = _dictionary_words()
+        two = {w for w in words if len(shapes(w)) > 1}
+        return [w for w in words if w not in two], sorted(two)
+
+    @staticmethod
+    def _read_words(rng, R, words, k):
+        """-> k different words drawn by seed, all read by the stream. The
+        phonology refuses a few one-shape dictionary words too (15 of
+        81,922 on 2026-11-18), so a draw that holds one is drawn again."""
+        while True:
+            got = rng.sample(words, k)
+            if not RL.build_stream([" ".join(got)], R._relation_phonology(),
+                                   declaration={"language": "eng"}).unreadable:
+                return got
+
+    @staticmethod
+    def _unread_word(rng, pools, known, kind, taken=()):
+        """-> a word the stream gives no syllables, drawn by seed. 'hyphen'
+        joins two dictionary words with a hyphen and 'unknown' is consonants
+        drawn by seed (neither is a dictionary entry); 'shapes' is a
+        dictionary word whose readings differ in syllable count."""
+        read, two_shape = pools
+        while True:
+            w = ("-".join(rng.sample(read, 2)) if kind == 'hyphen' else
+                 rng.choice(two_shape) if kind == 'shapes' else
+                 "".join(rng.choice("bcdfghjklmnpqrstvwxz")
+                         for _ in range(rng.randint(6, 9))))
+            if (kind == 'shapes' or w not in known) and w not in taken:
+                return w
+
+    @staticmethod
+    def _text_answer(one, two):
+        """-> (stands, note) for two word lists, by the rule's own words:
+        the same number of words, two or more, and exactly one differs."""
+        if len(one) != len(two):
+            return False, f'the lines have {len(one)} and {len(two)} words'
+        k = sum(1 for p, q in zip(one, two) if p != q)
+        return (k == 1 and len(one) >= 2,
+                '1 word differs' if k == 1 else f'{k} words differ')
+
+    def _judged(self, R, one, two):
+        """-> (stream, the judge's note or None, the pair's verdict over the
+        stream, whether the grader lets the pair stand) for two lines."""
+        import quality.schemes as SC_
+        sch = RL.REGISTRY['incremental repetition']
+        st = RL.build_stream([one, two], R._relation_phonology(),
+                             declaration={"language": "eng"})
+        fails = RL.whole_line_identity_failures(sch, st, 0, 1)
+        m = SC_.mandate([["1", "2"]], n_lines=2,
+                        relations={"A": "schema:incremental repetition"})
+        g = R.grade([one, two], m)
+        verdicts = [v for v in g['verdicts'] if v['group'] == 0]
+        return (st, fails[0][1].note if fails else None,
+                RL.line_pairs_for(sch, st).verdict((1, 2)),
+                bool(verdicts) and all(v['satisfied_by'] for v in verdicts))
+
+    def test_an_unread_word_is_still_a_word(self):
+        """Every cell of kind x change x other change, lines drawn by seed.
+        Kind: the unread word is two dictionary words joined by a hyphen,
+        letters outside the dictionary, or a dictionary word whose readings
+        differ in syllable count. Change: it is changed for another unread
+        word, changed for a read word, added, or dropped. Other change:
+        none, or one more word changed elsewhere. The pair stands only
+        where the two lines have the same number of words and exactly one
+        differs; the judge's count is taken over every word. An unread LAST
+        word meets the grader's end-word check first, so "it stands" is
+        asserted where both last words are read, and each cell's first
+        draw keeps the unread word off the last place."""
+        R = _round_trip_reviser()
+        pools = self._word_pools(R)
+        words = pools[0]
+        rng = random.Random('stage4-fix-unread-word')
+        bad, stood = [], Counter()
+        kinds = ('hyphen', 'unknown', 'shapes')
+        for kind in kinds:
+            for op in ('changed', 'read', 'added', 'dropped'):
+                for extra in (0, 1):
+                    for rep in range(3):
+                        n = rng.randint(3, 5)
+                        drawn = self._read_words(rng, R, words, n + 2)
+                        base, other, fresh = drawn[:n], drawn[n], drawn[n + 1]
+                        u1 = self._unread_word(rng, pools, R.lex.entries, kind)
+                        u2 = self._unread_word(rng, pools, R.lex.entries, kind,
+                                               taken=(u1,))
+                        at = rng.randint(0, n if rep else n - 1)
+                        with_u1 = base[:at] + [u1] + base[at:]
+                        rest = list(base)
+                        if extra:
+                            rest[rng.randrange(n)] = fresh
+                        one, two = {
+                            'changed': (with_u1, rest[:at] + [u2] + rest[at:]),
+                            'read': (with_u1, rest[:at] + [other] + rest[at:]),
+                            'added': (base, rest[:at] + [u1] + rest[at:]),
+                            'dropped': (with_u1, rest),
+                        }[op]
+                        want, note = self._text_answer(one, two)
+                        st, got_note, verdict, stands = self._judged(
+                            R, " ".join(one), " ".join(two))
+                        cell = (kind, op, extra, " ".join(one), " ".join(two))
+                        # The test's own draw: each unread word is unread
+                        # in the stream, and no other word is.
+                        unread = sorted((li, ti) for li, ln in enumerate((one, two))
+                                        for ti, w in enumerate(ln)
+                                        if w in (u1, u2))
+                        if sorted((li, ti) for li, ti, _ in st.unreadable) != unread:
+                            bad.append(('draw', cell, st.unreadable))
+                        if want != (op in ('changed', 'read') and not extra):
+                            bad.append(('cell', cell))
+                        if got_note != (None if want else note):
+                            bad.append(('count', cell, got_note, note))
+                        if (verdict is True) != want:
+                            bad.append(('stream', cell, verdict))
+                        end_read = all(ti != len(st.lexical_tokens[li]) - 1
+                                       for li, ti, _ in st.unreadable)
+                        if stands and not want:
+                            bad.append(('grade stands', cell))
+                        if want and end_read and not stands:
+                            bad.append(('grade refuses', cell))
+                        stood[(kind, op)] += bool(want and stands)
+        self.assertEqual(bad, [])
+        self.assertTrue(all(stood[(kind, op)] for kind in kinds
+                            for op in ('changed', 'read')), stood)
+
+    def test_the_count_names_an_unread_changed_word(self):
+        """`whole_line_identity_failures` on lines drawn by seed that differ
+        only in a hyphen-joined word: one word differs, so no rule fails.
+        With one more changed word the count is 2, and the same line twice
+        is 0."""
+        R = _round_trip_reviser()
+        sch = RL.REGISTRY['incremental repetition']
+        pools = self._word_pools(R)
+        words = pools[0]
+        rng = random.Random('stage4-fix-hyphen-count')
+        for _ in range(8):
+            n = rng.randint(2, 5)
+            drawn = self._read_words(rng, R, words, n + 1)
+            base, fresh = drawn[:n], drawn[n]
+            u1 = self._unread_word(rng, pools, R.lex.entries, 'hyphen')
+            u2 = self._unread_word(rng, pools, R.lex.entries, 'hyphen',
+                                   taken=(u1,))
+            at = rng.randint(0, n)
+            more = list(base)
+            more[rng.randrange(n)] = fresh
+            one = " ".join(base[:at] + [u1] + base[at:])
+            two = " ".join(base[:at] + [u2] + base[at:])
+            three = " ".join(more[:at] + [u2] + more[at:])
+            st = RL.build_stream([one, two, three, one], R._relation_phonology(),
+                                 declaration={"language": "eng"})
+            with self.subTest(one=one, two=two, three=three):
+                self.assertEqual({w for _, _, w in st.unreadable}, {u1, u2})
+                notes = [[r.note for _, r in
+                          RL.whole_line_identity_failures(sch, st, 0, other)]
+                         for other in (1, 2, 3)]
+                self.assertEqual(notes, [[], ['2 words differ'],
+                                         ['0 words differ']])
+
+    def test_capitals_and_marks_are_not_a_changed_word(self):
+        """WHAT A WORD IS HERE, pinned on lines of dictionary words drawn by
+        seed. Capitals are folded. A mark beside a word is not part of it,
+        for every mark in `string.punctuation` but three: an apostrophe, a
+        backtick (read as an apostrophe) and a hyphen stay in the word. So a
+        pair that differs only in capitals or in a dropped mark is the same
+        line twice (0 words differ), and it stands once one word changes
+        too. A pair that differs only in a kept mark differs in one word."""
+        import string
+        R = _round_trip_reviser()
+        words = self._word_pools(R)[0]
+        rng = random.Random('stage4-fix-capitals-marks')
+        kept = "'`-"
+        forms = [('upper', str.upper), ('capital', str.capitalize)]
+        forms += [(side + mark, (lambda w, m=mark: w + m) if side == 'after'
+                   else (lambda w, m=mark: m + w))
+                  for mark in string.punctuation for side in ('after', 'before')]
+        bad = []
+        for label, form in forms:
+            n = rng.randint(3, 5)
+            drawn = self._read_words(rng, R, words, n + 1)
+            base, fresh = drawn[:n], drawn[n]
+            at = rng.randrange(n)
+            marked = list(base)
+            marked[at] = form(base[at])
+            more = list(marked)
+            q = rng.choice([k for k in range(n) if k != at])
+            more[q] = fresh
+            same = label[-1] not in kept or label in ('upper', 'capital')
+            one, two, three = (" ".join(x) for x in (base, marked, more))
+            st, note, verdict, stands = self._judged(R, one, two)
+            end_read = all(ti != len(st.lexical_tokens[li]) - 1
+                           for li, ti, _ in st.unreadable)
+            if same:
+                if (note, verdict is True, stands) != ('0 words differ',
+                                                       False, False):
+                    bad.append((label, two, note, verdict, stands))
+                st3, note3, verdict3, stands3 = self._judged(R, one, three)
+                if (note3, verdict3, stands3) != (None, True, True):
+                    bad.append((label, three, note3, verdict3, stands3))
+            elif (note, verdict) != (None, True) or (end_read and not stands):
+                bad.append((label, two, note, verdict, stands))
+        self.assertEqual(bad, [])
+
+    def test_a_word_with_an_apostrophe_is_one_word(self):
+        """Dictionary words with an apostrophe inside, drawn by seed from
+        the two kinds the dictionary holds (ending in 's, and the rest),
+        set at a drawn place before the last word. Each is one word. The
+        same word with a curly apostrophe or in capitals is the same word
+        (0 words differ). Another word in its place, or its letters without
+        the apostrophe, is one changed word."""
+        R = _round_trip_reviser()
+        words = self._word_pools(R)[0]
+        with open(LH.CMUDICT_PATH, encoding="utf-8") as fh:
+            inside = sorted({ln.split()[0] for ln in fh if re.fullmatch(
+                r"[a-z]+'[a-z]+", ln.split()[0])})
+        pools = ([w for w in inside if w.endswith("'s")],
+                 [w for w in inside if not w.endswith("'s")])
+        self.assertTrue(all(pools))
+        rng = random.Random('stage4-fix-apostrophe')
+        bad = []
+        for pool in pools:
+            for _ in range(4):
+                n = rng.randint(2, 4)
+                drawn = self._read_words(rng, R, words, n + 1)
+                base, fresh = drawn[:n], drawn[n]
+                word = rng.choice(pool)
+                at = rng.randrange(n)
+
+                def line(w):
+                    return " ".join(base[:at] + [w] + base[at:])
+                for label, other, same in (
+                        ('curly', word.replace("'", "’"), True),
+                        ('capitals', word.upper(), True),
+                        ('another word', fresh, False),
+                        ('no apostrophe', word.replace("'", ""), False)):
+                    st, note, verdict, stands = self._judged(
+                        R, line(word), line(other))
+                    got = (len(st.lexical_tokens[0]), len(st.lexical_tokens[1]),
+                           note, verdict is True, stands)
+                    if got != (n + 1, n + 1, '0 words differ' if same else None,
+                               not same, not same):
+                        bad.append((word, label, got))
+        self.assertEqual(bad, [])
 
 
 def test_once_generation():

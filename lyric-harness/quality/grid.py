@@ -229,7 +229,7 @@ class Specialisation:
     (`middle-eight` is `bridge` + `bars == 8`) rather than as prose, and the
     `evidence` states the subsumption — checked at import to name the genus
     row and the differentia value (since stage 4; it used to be checked
-    against the genus row's gloss, which says only what placement reads now).
+    against the genus row's gloss, which says only what the code reads now).
 
     A record lives ON its genus row (`FunctionSpec.narrower`), never in a
     hand-written map, so the claim cannot exist without a row behind it
@@ -260,7 +260,12 @@ class FunctionSpec:
     #: "once" | "returns" | "open" -- what the convention expects
     recurrence: str
     #: what a RETURN of this function is expected to carry
-    #: "verbatim" | "new words" | "varied" | "n/a"
+    #: ~~"verbatim" | "new words" | "varied" | "n/a"~~
+    #: "verbatim" | "new words" | "varied" | "" (stage 4 fix round,
+    #: 2026-11-18, owner's ruling of 18 Nov 2026). No code read "varied" or
+    #: "n/a". Now "varied" has a reader, "n/a" is gone, and a row that is
+    #: not asked about its returns holds "". `RETURNS_AS_READERS`, below the
+    #: table, names what reads each value.
     returns_as: str
     #: functions this one is conventionally expected to CONTRAST with
     contrasts_with: tuple = ()
@@ -281,7 +286,9 @@ class FunctionSpec:
     aliases: tuple = ()
     #: SPECIALISATIONS OF THIS ROW THAT CARRY NO ROW OF THEIR OWN (M-57) —
     #: `Specialisation` records, asymmetric, each with its differentia and
-    #: the gloss quote that states the subsumption. Resolution KEEPS the
+    #: ~~the gloss quote that states the subsumption~~ its own `evidence`,
+    #: which names the genus and the differentia value (stage 4 fix round,
+    #: 2026-11-18). Resolution KEEPS the
     #: declared name (`Section.specialised_as`) and CHECKS the differentia;
     #: a mismatch REFUSES rather than silently widening to the genus.
     narrower: tuple = ()
@@ -398,7 +405,7 @@ def _spec(name, gloss, recurrence, returns_as, contrasts_with=(),
 #: nowhere else; `as_function` accepts exactly these keys.
 SECTION_FUNCTIONS = {s.name: s for s in (
     _spec("intro", "opens the song; may state material that returns later",
-          "once", "n/a",
+          "once", "",
           boundary="first", placement_evidence="opens the song"),
     # NO PLACEMENT CLAIM, AND NO REFUSAL EITHER -- the two empty states are
     # different and this row is the first one. A verse may open a song, close
@@ -459,10 +466,16 @@ SECTION_FUNCTIONS = {s.name: s for s in (
                              "instance"),
     # ~~"appears once and CONTRASTS"~~: the gloss said "once" while the row
     # stood "once". Since stage 4 the row is "open" (a bridge may come
-    # back), so the gloss says only what the placement rule reads from it.
+    # back), so the gloss says only what the code reads.
     # The subsumption it also argued in prose is stated once now, on the
     # `narrower` record below, which carries its own differentia and quote.
-    _spec("bridge", "CONTRASTS with what came before", "open", "n/a",
+    # ~~"CONTRASTS with what came before"~~ (stage 4 fix round, 2026-11-18):
+    # that said more than the code reads. `bridge_contrast` compares the
+    # bridge with every verse and every chorus of the song, later ones too
+    # (`contrasts_with`), and `needs_before` asks only that some section
+    # comes first. The gloss says those two things and no more.
+    _spec("bridge", "CONTRASTS with the song's verses and choruses, and "
+          "comes after another section", "open", "",
           ("verse", "chorus"),
           # TRUE SYNONYMS ONLY (M-57): the middle-eight family moved to
           # `narrower` below, because "another name for" and "a kind of"
@@ -478,14 +491,17 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           # section. The same field `turnaround`, `interlude` and `reprise`
           # use, so the planner refuses the pattern and the grader notes it.
           needs_before=True,
-          placement_evidence="CONTRASTS with what came before",
-          # THE GLOSS HAS ARGUED THIS SINCE THE ROW WAS WRITTEN and the
+          placement_evidence="comes after another section",
+          # ~~THE GLOSS HAS ARGUED THIS SINCE THE ROW WAS WRITTEN and~~ the
           # alias route was accepting the claim and discarding it —
           # `Section(bars=13, function='middle-eight')` stored 'bridge',
           # measured in M-57. The differentia IS the claim, so it is a
           # checkable coordinate now: kept on the section as
           # `specialised_as`, checked against `bars`, a mismatch REFUSING
           # rather than silently widening to the genus.
+          # Stage 4 fix round, 2026-11-18: the gloss argued the claim until
+          # stage 4. The record's own `evidence` names the genus and the
+          # differentia value now, and the import check reads that.
           narrower=(Specialisation(
               name="middle-eight",
               spellings=("middle-eight", "middle eight", "middle_eight",
@@ -493,9 +509,9 @@ SECTION_FUNCTIONS = {s.name: s for s in (
               differentia_field="bars", differentia_value=8,
               evidence="a middle-8 is a bridge whose bar count happens "
                        "to be 8"),)),
-    _spec("breakdown", "strips the arrangement back", "open", "varied",
+    _spec("breakdown", "strips the arrangement back", "open", "",
           unverified="whether the arrangement thins"),
-    _spec("build", "raises tension toward a return", "open", "varied",
+    _spec("build", "raises tension toward a return", "open", "",
           unverified="whether tension rises"),
     # REFUSED IN BOTH DIRECTIONS, and the asymmetry is why. `drop`'s gloss
     # defines it BY REFERENCE to a build, which is not the same as requiring
@@ -527,7 +543,7 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           # pair as a PREFERRED unit, which is what a ruling nobody made
           # was buying
           ),
-    _spec("vamp", "a repeating figure held open", "open", "varied",
+    _spec("vamp", "a repeating figure held open", "open", "",
           unverified="whether a musical figure repeats under it"),
     # THE 22nd FUNCTION, ENTERED ON A PRINTED WITNESS (M-52, 2026-08-28).
     # The evidence rule the corpus taxonomy demands, satisfied twice over by
@@ -552,12 +568,12 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           needs_before=True, needs_after=True,
           placement_evidence="carries the end of one section into the next"),
     _spec("interlude", "instrumental or spoken span between sung sections",
-          "open", "n/a",
+          "open", "",
           needs_before=True, needs_after=True,
           placement_evidence="between sung sections",
           aliases=("instrumental-break", "instrumental break",
                    "instrumental_break")),
-    _spec("solo", "an instrumental span over section material", "open", "n/a",
+    _spec("solo", "an instrumental span over section material", "open", "",
           aliases=("instrumental-solo", "instrumental solo",
                    "instrumental_solo")),
     # REFUSED, AND THE REFUSAL IS THE POINT. Both readings live in one
@@ -575,18 +591,18 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           "(MISSING.md D-2) and `Hook` below is the object for that; this "
           "entry covers the post-chorus-hook case where a whole section "
           "carries it", "returns", "verbatim"),
-    _spec("coda", "a closing section with its own material", "once", "n/a",
+    _spec("coda", "a closing section with its own material", "once", "",
           boundary="last", placement_evidence="a closing section"),
-    _spec("outro", "closes the song and does not recur", "once", "n/a",
+    _spec("outro", "closes the song and does not recur", "once", "",
           boundary="last", placement_evidence="closes the song"),
     # THE SHARPEST OF THE FOUR. An absolute reading makes a false ending the
     # LAST section, on the word *close*, and its whole definition is that it
     # is not: the song COMES BACK FROM it, so something must follow.
-    _spec("false_ending", "a close the song comes back from", "open", "n/a",
+    _spec("false_ending", "a close the song comes back from", "open", "",
           needs_after=True,
           placement_evidence="a close the song comes back from"),
     _spec("reprise", "a declared return of earlier material, later and "
-          "changed", "open", "varied",
+          "changed", "open", "",
           needs_before=True,
           placement_evidence="a declared return of earlier material"),
 )}
@@ -638,6 +654,64 @@ def check_recurrence_readers(functions=None, readers=None):
 check_recurrence_readers()
 
 
+#: WHAT EACH `returns_as` VALUE MAKES THE CODE DO (owner's ruling, 18 Nov
+#: 2026). Every value in the column names the notes `return_findings` gives
+#: a row that holds it, and `return_findings` reads them from here. The
+#: import check below refuses a row whose value is not in this table, and a
+#: row that holds a value while nothing asks about its returns, so the
+#: column cannot carry a word no code acts on.
+#:   "verbatim"  -> `RETURNS_WITH_NEW_WORDS` when a return changes the
+#:                  words, and `RETURN_LOCKED` when every return is word for
+#:                  word in the same slot. The planner reads this value too
+#:                  (`plan.VERBATIM_RETURNERS`): it deals a later copy as a
+#:                  return of the first.
+#:   "new words" -> `RETURNS_WITH_SAME_WORDS` when every return is word for
+#:                  word and the row has words.
+#:   "varied"    -> the same note. Prechorus and drop hold it. No code read
+#:                  this value before the ruling. "varied" and "new words"
+#:                  differ only in the value the note's evidence names; the
+#:                  code does the same for both.
+#:   ""          -> nothing is asked about a return. Every row whose
+#:                  `recurrence` is not "returns" holds it. Seven of them
+#:                  said "n/a" before the ruling, and four "open" rows said
+#:                  "varied" (breakdown, build, vamp, reprise), which
+#:                  nothing could read because an "open" row is not asked.
+RETURNS_AS_READERS = {
+    "verbatim": ("RETURNS_WITH_NEW_WORDS", "RETURN_LOCKED"),
+    "new words": ("RETURNS_WITH_SAME_WORDS",),
+    "varied": ("RETURNS_WITH_SAME_WORDS",),
+    "": (),
+}
+
+
+def check_returns_as_readers(functions=None, readers=None):
+    """Raise `UnknownFunction` for a row whose `returns_as` value has no
+    reader in `RETURNS_AS_READERS`, and for a row that holds a value while
+    its `recurrence` is not asked (`RECURRENCE_READERS`), naming the row
+    and the value."""
+    functions = SECTION_FUNCTIONS if functions is None else functions
+    readers = RETURNS_AS_READERS if readers is None else readers
+    for _name, _spec_row in functions.items():
+        if _spec_row.returns_as not in readers:
+            raise UnknownFunction(
+                f"row {_name!r} has returns_as {_spec_row.returns_as!r}, and "
+                f"no code reads that value (RETURNS_AS_READERS has "
+                f"{sorted(readers)})")
+        # `song_function_report` asks about returns only on a row whose
+        # `recurrence` reader is "asked". A value on any other row would be
+        # read by nothing, so it is refused here.
+        if _spec_row.returns_as and RECURRENCE_READERS.get(
+                _spec_row.recurrence) != "asked":
+            raise UnknownFunction(
+                f"row {_name!r} has returns_as {_spec_row.returns_as!r} and "
+                f"recurrence {_spec_row.recurrence!r}; nothing asks about "
+                f"the returns of such a row, so no code would read the "
+                f"value")
+
+
+check_returns_as_readers()
+
+
 def single_use_functions():
     """-> the rows whose `recurrence` value means "at most once", in table
     order. Read from the column, never typed out."""
@@ -663,20 +737,26 @@ for _s in SECTION_FUNCTIONS.values():
 #: The specialisation map, derived from the rows' own `narrower` records the
 #: same way `_FUNCTION_ALIASES` is derived from `aliases` — never written by
 #: hand, so a subsumption claim cannot exist in the map without living on
-#: its genus row WITH the differentia and the gloss quote (doctrine 1).
+#: its genus row WITH the differentia and ~~the gloss quote~~ its own
+#: `evidence`, which names the genus and the differentia value (stage 4 fix
+#: round, 2026-11-18; doctrine 1).
 #: Keyed by every declared spelling; the value is (record, genus name).
 _SPECIALISATIONS = {}
 for _s in SECTION_FUNCTIONS.values():
     for _n in _s.narrower:
         # ~~the quote had to occur in the genus row's gloss~~: since stage 4
-        # the gloss says only what placement reads, so the record's own
+        # the gloss says only what the code reads, so the record's own
         # quote must name the genus and the differentia value it claims.
+        # ~~"a subsumption claim with no gloss behind it"~~ (stage 4 fix
+        # round, 2026-11-18): the refusal names the record's own evidence,
+        # which is what this check reads.
         if not _n.evidence or _s.name not in _n.evidence.split() \
                 or str(_n.differentia_value) not in _n.evidence.split():
             raise UnknownFunction(
                 f"specialisation {_n.name!r} on {_s.name!r} quotes evidence "
                 f"that does not name the genus and the differentia value — "
-                f"a subsumption claim with no gloss behind it (doctrine 45)")
+                f"a subsumption claim with no evidence behind it "
+                f"(doctrine 45)")
         for _sp in _n.spellings:
             if _sp in SECTION_FUNCTIONS or _sp in _FUNCTION_ALIASES:
                 raise UnknownFunction(
@@ -2696,7 +2776,7 @@ class FormConvention:
     fixed_return: tuple = ("chorus", "postchorus", "refrain", "burden", "tag")
     #: functions expected to occur at most once.
     #:
-    #: `reprise` WAS MISSING FROM THIS TUPLE and its own FunctionSpec has
+    #: ~~`reprise` WAS MISSING FROM THIS TUPLE and its own FunctionSpec has
     #: declared `recurrence="once"` since the vocabulary was written -- two
     #: spellings of one expectation, drifted apart by exactly one member. The
     #: cost was silence at BOTH gates: `song_function_report` asks a recurred
@@ -2706,7 +2786,9 @@ class FormConvention:
     #: checked one direction only -- every member has recurrence "once" -- and
     #: the converse, which is the one that was false, went unpinned
     #: (doctrine 48: a principle that lives only in prose gets followed
-    #: exactly as often as someone remembers it).
+    #: exactly as often as someone remembers it).~~
+    #: History (stage 4 fix round, 2026-11-18): reprise is "open" since
+    #: stage 4. It is not in this tuple, and two reprises are not asked.
     #:
     #: READ FROM THE COLUMN SINCE STAGE 4 (2026-11-16): the tuple was typed
     #: out and could drift from `FunctionSpec.recurrence` again. A caller
@@ -2759,9 +2841,15 @@ class FormConvention:
     #:                         it IS a cross-function return -- "a declared
     #:                         return of earlier material, later and changed"
     #:                         -- and it names no source. Without this pair a
-    #:                         declared reprise is checked by NOTHING: its
+    #:                         declared reprise is checked by NOTHING: ~~its
     #:                         recurrence is "once", so `return_findings`
-    #:                         answers it SINGLE_INSTANCE and stops, and the
+    #:                         answers it SINGLE_INSTANCE and stops~~ its
+    #:                         recurrence is "open" since stage 4, so
+    #:                         `song_function_report` does not ask
+    #:                         `return_findings` of it (stage 4 fix round,
+    #:                         2026-11-18; that function gives
+    #:                         SINGLE_INSTANCE from the count of copies,
+    #:                         never from `recurrence`), and the
     #:                         one property that defines the function is
     #:                         invisible to every check in this file.
     #: The corpus can bound the FALSE-POSITIVE side of this set and cannot
@@ -2918,13 +3006,17 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
         where = (f" Copies not at the song's edge: "
                  + ", ".join(f"section {i + 1}" for i in off) + "."
                  if off else "")
+        # ~~"... and the section table deals it at most once"~~ (stage 4 fix
+        # round, 2026-11-18). The trigger is `convention.single_use`, which
+        # a caller may pass, so the note names the convention. The table's
+        # value is given as it stands, whatever it is.
         findings.append(GridFinding(
             "SINGLE_USE_RECURRED",
-            f"{fn!r} is declared {len(inst)} times and the section table "
-            f"deals it at most once",
-            f"bars {[s.start_bar for s in inst]}. The table's recurrence "
-            f"value for {fn} is {SECTION_FUNCTIONS[fn].recurrence!r} under "
-            f"{convention.name!r}.{where}"))
+            f"{fn!r} is declared {len(inst)} times and the convention "
+            f"expects it at most once",
+            f"bars {[s.start_bar for s in inst]}. The convention is "
+            f"{convention.name!r}. The section table's recurrence value "
+            f"for {fn} is {SECTION_FUNCTIONS[fn].recurrence!r}.{where}"))
         return findings, refusals, rets
 
     lens = {s.bars for s in inst}
@@ -3171,17 +3263,32 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
     same_words = bool(rets) and all("VERBATIM" in r.qualities
                                     for _, _, r in rets)
     spec = SECTION_FUNCTIONS[fn]
-    if spec.returns_as == "new words" and same_words:
+    # THE NOTES A ROW CAN GET ARE READ FROM `RETURNS_AS_READERS` (stage 4 fix
+    # round, 2026-11-18, owner's ruling of 18 Nov 2026). ~~Only `returns_as
+    # == "new words"` got the note below, and nothing read "varied".~~ A
+    # prechorus or a drop that comes back word for word gets it too.
+    # ~~"every {fn} returns with IDENTICAL words ... identical words are a
+    # chorus's job"~~: that text was written for "new words" and is not
+    # true of a "varied" row. The note gives the row's own value from the
+    # table and says it is a remark. `SEVERITY` makes it a note, and a note
+    # does not block a song.
+    reads = RETURNS_AS_READERS[spec.returns_as]
+    # A COPY WITH NO WORDS REPEATS NONE. Two sections with no lines under
+    # them (two instrumental drops) compare as the same, and "word for
+    # word" would be false of them, so the note needs a line of words in
+    # the first copy. Before this, two verses with no lines got the note.
+    has_words = any(normalise_line(text) for text in reference_blocks[0])
+    if "RETURNS_WITH_SAME_WORDS" in reads and same_words and has_words:
         findings.append(GridFinding(
             "RETURNS_WITH_SAME_WORDS",
-            f"every {fn} returns with IDENTICAL words",
-            f"under {convention.name!r} a {fn} returns with new words on the "
-            f"same tune; identical words are a chorus's job. This is the "
-            f"mirror of BRIDGE_IS_A_VERSE and it is a finding about the "
-            f"LABEL, not about the lines."))
+            f"every {fn} returns with the same words",
+            f"Each later {fn} repeats the first one word for word. The "
+            f"section table's return value for {fn} is "
+            f"{spec.returns_as!r}. This is a remark, not a fault: the lines "
+            f"can stay as they are."))
     changed = [(a, b) for a, b, r in rets
                if "VERBATIM" not in r.qualities and r.kind != "STUB"]
-    if spec.returns_as == "verbatim" and changed:
+    if "RETURNS_WITH_NEW_WORDS" in reads and changed:
         findings.append(GridFinding(
             "RETURNS_WITH_NEW_WORDS",
             f"the {fn} does not come back word for word",
@@ -3190,7 +3297,7 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
                         f"{b.start_bar}-{b.end_bar}" for a, b in changed)
             + f". A {fn} returns verbatim by its own row in the vocabulary; "
               f"this is the mirror of RETURNS_WITH_SAME_WORDS."))
-    if (spec.returns_as == "verbatim"
+    if ("RETURN_LOCKED" in reads
             and len(rets) >= convention.return_lock_min - 1
             and same_words
             and all(r.tune_slot_preserved for _, _, r in rets)):

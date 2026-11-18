@@ -4390,19 +4390,28 @@ def test_what_the_command_line_prints_is_what_it_means():
           and "--narrative=off" in nxt, nxt)
     # THE WANTS RIDE THE NEXT LINE TOO (#671 C1): without them the printed
     # plan is not the request the sweep judged. Planned under them, the
-    # accepted seed keeps the shape the sweep judged (the want was already
-    # satisfied) and the plan records the want it was asked under.
+    # accepted seed keeps the shape the sweep judged and the plan records
+    # the want it was asked under.
+    # ~~`_swept = make_plan(_seed, lines=12)`~~ (2026-11-17, stage 4): a
+    # stated count is built into the draw, in the sweep and in the plan
+    # alike, so the shape the sweep judged is the seed's plan WITH the
+    # count (`plan.sweep` plans each seed under `_recurrence_wants`), not
+    # the seed's plan without it. The want-free plan of the accepted seed
+    # has other sections now, and comparing against it compared against a
+    # plan nobody swept.
     import shlex as _shlex
     from quality import plan as _PLw
     rc, out, _ = run("plan", "--sweep=0-20", "--lines=12", "--want=sections>=3")
     nxt = next((ln for ln in out.splitlines() if "NEXT:" in ln), "")
     _argv = _shlex.split(nxt.split("NEXT: python3 lyric_harness.py ", 1)[-1])
     _seed = int(next(a for a in _argv if a.startswith("--seed="))[7:])
-    _swept = _PLw.make_plan(_seed, lines=12)
+    _want = _PLw.parse_sweep_want("sections>=3")
+    _swept = _PLw.make_plan(_seed, lines=12, _recurrence_wants=[_want])
     _next = _PLw.make_plan(_seed, lines=12, wants=["sections>=3"])
     check("the sweep's NEXT line carries its --want, and that plan keeps the "
           "swept seed's shape",
           "'--want=sections>=3'" in nxt
+          and _PLw.sweep_holds(_swept, _want)
           and all(_next[k] == _swept[k]
                   for k in ("sections", "line_slots", "total_lines")), nxt)
     check("...and the plan records the want, in request and brief selection",
@@ -4606,8 +4615,13 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
     # THE REFUSALS. Each is a way of putting a declaration wrong, and each
     # must be refused BY NAME rather than read as a filter that matched
     # nothing (doctrine 20).
+    # ~~`--want=sections<=1`~~ (2026-11-17, stage 4): a stated count is
+    # built into the draw now, so every seed of the window plans a
+    # one-section song and that count no longer empties it (20 of 20 held,
+    # was 0 of 20). The bound `test_plan.py` stands in with since stage 4,
+    # one no plan's measure can meet, stands in here too.
     for args, needle in (
-            (("plan", "--sweep=0-20", "--want=sections<=1"),
+            (("plan", "--sweep=0-20", "--want=pins_per_line>=999"),
              "no seed in 0..19"),
             (("plan", "--sweep=0-20", "--seed=3"),
              "--seed OR --sweep"),
@@ -4627,14 +4641,14 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
     # outcome, and neither of the two overclaims it used to print
     # (~~"unreachable in this range"~~, ~~"the acceptance rate above is the
     # measurement that says which"~~: with nothing accepted the rate is 0).
-    rc, out, _ = run("plan", "--sweep=0-20", "--want=sections<=1",
+    rc, out, _ = run("plan", "--sweep=0-20", "--want=pins_per_line>=999",
                      expect_rc=2)
     rec = _machine_result(out) or {}
     check("...and the empty accepted set REFUSES with each predicate's count "
           "on its own and a record naming the outcome, without the "
           "'unreachable' or 'acceptance rate' overclaims",
           "accepted 0" in out and "HELD ALONE" in out
-          and "sections<=1 0" in out
+          and "pins_per_line>=999 0" in out
           and "unreachable in this range" not in out
           and "acceptance rate above" not in out
           and (rec.get("sweep") or {}).get("outcome") == "no seed kept",
