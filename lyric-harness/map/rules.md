@@ -8,6 +8,7 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 |---|---|---|---|
 | ANAPHORA_OVERLOAD | flag | severity flag | floor.py |
 | BEAT_OUTSIDE_CYCLE | flag | severity flag | fit.py |
+| CATALOG_FORM_MISMATCH | flag | severity flag | revise.py |
 | CLICHE_PAIR | flag | severity flag | floor.py |
 | FUNCTION_WORD_HEAVY | flag | severity flag | floor.py |
 | HOMEOTELEUTON | note/flag when writing | WRITING_BAN_CODES | revise.py |

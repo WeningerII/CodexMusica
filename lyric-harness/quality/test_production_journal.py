@@ -18,6 +18,37 @@ from quality.propose import ProposerUnavailable
 
 
 class JournalCapacity(unittest.TestCase):
+    def test_catalog_replay_uses_canonical_rules_and_keeps_the_selection(self):
+        args, contract = LH._catalog_creation(
+            ["plan", "--catalog-form=strophic", '--catalog-counts={"1.1":2}'], SimpleNamespace())
+        self.assertEqual(args, ["plan"])
+        self.assertEqual(contract["sections"], [{"unit": "section", "role": "verse", "lines": None}] * 2)
+        wire = "--catalog-contract=" + json.dumps(contract)
+        for cmd in ("plan", "finish", "tryline"):
+            lex = SimpleNamespace()
+            self.assertEqual(LH._catalog_creation([wire, cmd], lex)[1], contract)
+            self.assertEqual(lex.catalog_selection, {"id": "strophic", "variant": 0, "counts": {"1.1": 2}})
+        with contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit) as refused:
+            wrong = dict(contract, sections=contract["sections"][:-1])
+            LH._catalog_creation(["plan", "--catalog-contract=" + json.dumps(wrong)], SimpleNamespace())
+        self.assertEqual(refused.exception.code, 2)
+
+        # A saved pending question keeps the canonical selector even before its
+        # answer arrives. A changed or omitted selection must leave it intact.
+        first = {"id": "quatrain", "variant": 0, "counts": {}}
+        with tempfile.TemporaryDirectory() as tmp, contextlib.redirect_stdout(io.StringIO()):
+            path = Path(tmp) / "state"
+            _, _, report = LH._defer_proposer(str(path), [], catalog_selection=first)
+            self.assertEqual(report.state["answered"]["catalog_selection"], first)
+            payload = dict(report.state, pending={"kind": "propose", "prompt": "", "answer": None})
+            path.write_text(json.dumps(payload))
+            before = path.read_bytes()
+            for selection, code in ((first, 4), (None, 2), (dict(first, id="tercet"), 2)):
+                with self.assertRaises(SystemExit) as stopped:
+                    LH._defer_proposer(str(path), [], catalog_selection=selection)
+                self.assertEqual(stopped.exception.code, code)
+                self.assertEqual(path.read_bytes(), before)
+
     def test_largest_legal_group_answer_and_exact_replay(self):
         rng = random.Random(71)
         initial = [''.join(chr(rng.randrange(0x10000, 0xDFFFD)) for _ in range(200))

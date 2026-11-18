@@ -122,3 +122,61 @@ test('recover_only exports what a lyrics session holds, without an operation', a
   assert.match(revise.inputSchema.properties.recover_only.description, /^With session_id: true/);
   assert.doesNotMatch(revise.inputSchema.properties.recover_only.description, /supplied state/);
 });
+
+test('a pending catalog edit survives a connector restart and rejects a different form with the same rhyme groups', async (t) => {
+  const { directory, store } = storeFor(t);
+  let sessions = new WorkflowSessions({ store });
+  let client = await connect(t, 'lyrics', sessions);
+  const begun = data(await call(client, 'begin_lyrics', { phase: 'edit' }));
+  let current = begun.session_id;
+  const run = async (args) => {
+    const queued = data(await call(client, 'lyric_revise', { session_id: current, ...args }));
+    await sessions.wait(queued.operation_id);
+    const receipt = data(
+      await call(client, 'get_operation', { operation_id: queued.operation_id })
+    );
+    if (receipt.session_id) current = receipt.session_id;
+    return receipt;
+  };
+  const draft = ['one home', 'two alone'];
+  const first = await run({
+    draft,
+    catalog_form: 'couplet',
+    catalog_variant: 1,
+    max_rounds: 1,
+    attempts: 1,
+    backtrack: 0,
+  });
+  const stopped = verdictOf(first.tool_result);
+  assert.equal(stopped?.exit_code, 4, JSON.stringify(first.tool_result));
+  sessions = new WorkflowSessions({ store: new JobStore(directory) });
+  client = await connect(t, 'lyrics', sessions);
+  const recovered = data(
+    await call(client, 'lyric_revise', { session_id: current, recover_only: true })
+  );
+  const declarations = JSON.parse(recovered.tool_result.content[0].text).journal
+    .connector_declarations;
+  assert.equal(declarations.catalog_form, 'couplet');
+  assert.equal(declarations.catalog_variant, 1);
+  assert.equal(Object.hasOwn(declarations, 'form'), false);
+  // Both forms impose group 1,2, but the latter adds a syllable obligation.
+  const switched = await run({ catalog_form: 'octosyllabic-couplet', catalog_variant: 0 });
+  assert.equal(switched.tool_error, true, JSON.stringify(switched));
+  assert.match(
+    JSON.stringify(switched.tool_result.content),
+    /catalog_form differs from the recorded run/
+  );
+  const continued = await run({ answer: 'one road' });
+  const next = verdictOf(continued.tool_result);
+  assert.ok(
+    [0, 3, 4].includes(next?.exit_code),
+    JSON.stringify(continued.tool_result).slice(0, 1800)
+  );
+  const replay = data(
+    await call(client, 'lyric_revise', { session_id: current, recover_only: true })
+  );
+  assert.deepEqual(
+    JSON.parse(replay.tool_result.content[0].text).journal.connector_declarations,
+    declarations
+  );
+});

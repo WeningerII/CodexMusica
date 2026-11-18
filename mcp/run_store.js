@@ -18,7 +18,7 @@
 import { createHash, randomBytes } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { DEFAULT_FORM } from './lyric_workflow.js';
+import { catalogCountPairs, DEFAULT_FORM, sameDeclaration } from './lyric_workflow.js';
 
 export const RUN_TTL_MS = 6 * 60 * 60 * 1000;
 export const RUN_CAP = 64;
@@ -77,7 +77,24 @@ export const RUN_ANSWER_FIELDS = new Set([
 
 // Musical declaration identity, retained as metadata for mismatch checks.
 // It is deliberately NOT the cache key: independent runs can share it.
+export function catalogRunKey(args) {
+  if (args?.catalog_form == null) return null;
+  const base = typeof args.seed === 'number' ? `seed:${args.seed}` : 'mandate';
+  return `${base}:catalog:${JSON.stringify([
+    args.catalog_form,
+    args.catalog_variant ?? 0,
+    catalogCountPairs(args.catalog_counts),
+    args.scheme ?? null,
+    args.groups ?? null,
+    args.returns ?? null,
+    args.relation ?? null,
+    args.structures ?? null,
+    args.group_types ?? [],
+  ])}`;
+}
+
 export function runKeyOf(args) {
+  if (args?.catalog_form != null) return catalogRunKey(args);
   if (typeof args?.seed === 'number') return `seed:${args.seed}`;
   const hasMandate =
     (args?.scheme != null && args.scheme !== '') ||
@@ -99,7 +116,7 @@ export function runKeyOf(args) {
 export function declarationsOf(args) {
   const out = {
     writer: args?.writer ?? 'interview',
-    form: args?.form ?? DEFAULT_FORM,
+    ...(args?.catalog_form == null ? { form: args?.form ?? DEFAULT_FORM } : {}),
     voices: args?.voices ?? false,
   };
   for (const [k, v] of Object.entries(args || {}))
@@ -563,8 +580,11 @@ export function movedDeclarations(recDecl, args) {
   for (const [k, value] of Object.entries(args || {})) {
     if (RUN_ANSWER_FIELDS.has(k) || value === undefined) continue;
     const v = recDecl?.[k];
-    if (JSON.stringify(value) !== JSON.stringify(v))
-      moved.push({ field: k, run: v ?? null, call: value });
+    const same =
+      recDecl?.catalog_form && (k === 'catalog_counts' || k === 'catalog_variant')
+        ? sameDeclaration(k, value, v)
+        : JSON.stringify(value) === JSON.stringify(v);
+    if (!same) moved.push({ field: k, run: v ?? null, call: value });
   }
   return moved;
 }

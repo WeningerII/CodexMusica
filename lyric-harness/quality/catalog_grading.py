@@ -1,0 +1,134 @@
+"""Measure a selected symbolic catalog pattern against each candidate draft."""
+import json
+import subprocess
+from pathlib import Path
+
+import lyric_harness as lh
+
+
+def _reading(lex, text):
+    words = lh._meter_words(lex, text) or []
+    # The number of sung word tokens does not require a known pronunciation.
+    # Meter rows are per word *piece*, so they cannot supply a compound's count.
+    cut = lh.reader_line(text, lex.strip_parens, "v2")
+    scheme = lh._scheme_of(lex)
+    incomplete = any(lh.letters_outside_repertoire(run.text) or
+                     (scheme == "v1" and run.numeral) for run in cut.runs)
+    tokens = None if incomplete else lh.line_tokens(text, lex.strip_parens, scheme)
+    observed = {"text": text, "sungWords": tokens, **lh._form_reading(lex, text, words=words)}
+    if tokens == []:
+        observed.update(syllables=0, stresses=0)
+    if not words or lh.printed_endpoint(cut) or words[-1]["source"] not in ("dictionary", "declared"):
+        return observed
+    last = words[-1]
+    reader = lex.for_line(text).for_token(last["token"] - 1)
+    keys = set()
+    for phones in reader.pronunciation_variants(last["word"]):
+        syllables = lh.anchor(lh.syllabify(phones))
+        if not syllables:
+            return observed
+        tail = [syllables[0]["nucleus"], *syllables[0]["coda"]]
+        for syllable in syllables[1:]:
+            tail.extend([*syllable["onset"], syllable["nucleus"], *syllable["coda"]])
+        keys.add(" ".join(tail))
+    if keys:
+        observed["rhymeOptions"] = sorted(keys)
+    if len(keys) == 1:
+        observed["rhyme"] = keys.pop()
+    return observed
+
+
+def _sections(bp, observed):
+    slots, sections = bp.get("lines"), bp.get("sections")
+    if not isinstance(slots, list) or len(slots) != len(observed) or not isinstance(sections, list):
+        return None
+    if not all(isinstance(row, dict) for row in slots + sections):
+        return None
+    names = [section.get("name") for section in sections]
+    if not all(isinstance(name, str) and name for name in names) or len(set(names)) != len(names):
+        return None
+    start = 0
+    rows = []
+    line_bars = {}
+    for name, section in zip(names, sections):
+        end = start
+        while end < len(slots) and slots[end].get("section") == name:
+            end += 1
+        row = {"lineSpan": [start, end]}
+        if isinstance(section.get("function"), str) and section["function"]:
+            row["role"] = section["function"]
+        if type(section.get("bars")) is int and section["bars"] >= 0:
+            row["bars"] = section["bars"]
+        meter = section.get("meter")
+        beats = meter.get("beats") if isinstance(meter, dict) else None
+        if type(beats) is int and beats > 0:
+            for index in range(start, end):
+                duration = slots[index].get("duration")
+                if type(duration) in (int, float) and duration > 0 and duration % beats == 0:
+                    line_bars[index] = int(duration / beats)
+        rows.append(row)
+        start = end
+    if start != len(slots):
+        return None
+    for index, bars in line_bars.items():
+        observed[index]["bars"] = bars
+    return rows
+
+
+def _native_rhyme(result, lines, mandate, report):
+    """A coarser explicitly selected pair relation is not an exact-rime key."""
+    if not mandate.default_relation.startswith("class:"):
+        return result
+    verdicts = {tuple(row["lines"]): bool(row.get("satisfied_by")) for row in report["verdicts"]}
+    refused = {(a, b) for a, b, _ in report.get("refused_obligations", ())}
+    for check in result["checks"]:
+        if check["kind"] == "rhyme-distinct":
+            check.update(outcome="unknown", reason="Distinct classes require the selected pair relation across groups")
+        if check["kind"] != "rhyme":
+            continue
+        # A verbatim repeated line shares the terminal evidence of its first occurrence.
+        members = {}
+        for number in check.get("lines", []):
+            if number <= len(lines):
+                members.setdefault(lines[number - 1], []).append(number)
+        groups = list(members.values())
+        outcomes = []
+        for index, group in enumerate(groups):
+            for other in groups[index + 1:]:
+                pairs = [tuple(sorted((a, b))) for a in group for b in other]
+                judged = [verdicts[pair] for pair in pairs if pair in verdicts and pair not in refused]
+                outcomes.append(False if False in judged else True if True in judged else None)
+        check["outcome"] = ("fail" if False in outcomes else "pass" if outcomes and None not in outcomes
+                            else "unknown")
+        check["basis"] = mandate.default_relation
+    outcomes = {c["outcome"] for c in result["checks"]}
+    result["verdict"] = "fail" if "fail" in outcomes else "pass" if outcomes == {"pass"} else "unknown"
+    return result
+
+
+def inspect_catalog(lex, lines, blueprint, mandate, report):
+    selection = getattr(lex, "catalog_selection", None)
+    if not selection and not isinstance(blueprint, dict):
+        return None
+    bp = blueprint if isinstance(blueprint, dict) else {}
+    if isinstance(blueprint, (str, Path)) and selection:
+        bp = json.loads(Path(blueprint).read_text(encoding="utf-8"))
+    selection = selection or bp.get("song_form")
+    if not selection:
+        return None
+    form_id = selection["id"]
+    observed = [_reading(lex, line) for line in lines]
+    request = {k: selection[k] for k in ("variant", "counts") if k in selection}
+    request["lines"] = observed
+    sections = _sections(bp, observed)
+    if sections is not None:
+        request["sections"] = sections
+    script = Path(__file__).resolve().parents[2] / "scripts" / "song_forms.mjs"
+    try:
+        run = subprocess.run(["node", str(script), "grade-observations", form_id],
+                             input=json.dumps(request), capture_output=True, text=True,
+                             encoding="utf-8", timeout=20, check=True)
+        return _native_rhyme(json.loads(run.stdout), lines, mandate, report)
+    except (OSError, ValueError, subprocess.SubprocessError) as exc:
+        return {"id": form_id, "verdict": "unknown", "checks": [
+            {"kind": "catalog-runtime", "outcome": "unknown", "reason": type(exc).__name__}]}

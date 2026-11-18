@@ -838,7 +838,9 @@ def by_disposition(c=None):
 # REPINNED 2026-11-16 (stage 4, owner's ruling): a section may be dealt once,
 # so the note that a returning section "never comes back to it" is gone. It
 # was disclosed only; no gate moves: 80/19/61 -> 79/19/60.
-PINNED = {'codes': 79, 'gated': 19, 'disclosed_only': 60, 'undecidable': 0,
+# 2026-11-18: CATALOG_FORM_MISMATCH is a flag when an observable requirement
+# of the selected form fails. Missing evidence affects coverage separately.
+PINNED = {'codes': 80, 'gated': 20, 'disclosed_only': 60, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

@@ -1,0 +1,49 @@
+// A counted word is an observed lexical unit. Its spelling and meaning remain free.
+const coordinates = new Set(['unit', 'path', 'address', 'span', 'children', 'lineIndex']);
+
+const meterFields = new Set(['syllables', 'stress', 'stresses']);
+
+export function projectLineRequirement(line) {
+  if (
+    line.unit !== 'line' ||
+    Object.keys(line).some((key) => !coordinates.has(key) && !meterFields.has(key))
+  )
+    return null;
+  const constraints = {};
+  if (line.syllables !== undefined) {
+    if (!Number.isSafeInteger(line.syllables) || line.syllables < 1) return null;
+    constraints.syllables = line.syllables;
+  }
+  if (line.stress !== undefined) {
+    if (typeof line.stress !== 'string' || !/^[./]+$/.test(line.stress)) return null;
+    if (constraints.syllables !== undefined && constraints.syllables !== line.stress.length)
+      return null;
+    constraints.syllables = line.stress.length;
+    constraints.stress = line.stress;
+  }
+  if (line.stresses !== undefined) {
+    if (
+      !constraints.syllables ||
+      !Number.isInteger(line.stresses) ||
+      line.stresses < 0 ||
+      line.stresses > constraints.syllables ||
+      (constraints.stress && constraints.stress.split('/').length - 1 !== line.stresses)
+    )
+      return null;
+    constraints.stresses = line.stresses;
+  }
+  if (line.children.length) {
+    if (
+      !line.children.every(
+        (word) =>
+          word.unit === 'word' &&
+          !word.children.length &&
+          Object.keys(word).every((key) => coordinates.has(key))
+      )
+    )
+      return null;
+    constraints.words = line.children.length;
+  }
+  if (constraints.syllables && constraints.words > constraints.syllables) return null;
+  return Object.keys(constraints).length ? constraints : undefined;
+}
