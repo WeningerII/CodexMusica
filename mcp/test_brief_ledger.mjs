@@ -233,7 +233,8 @@ test('inheritance: a no-op run cannot launder protection away', async () => {
   const c = b.check({ runId: 'r7b', lineSets: [draft] });
   assert.equal(c.ok, true);
   assert.deepEqual(c.inherited.prot, [4]);
-  // r7b ran, flagged nothing and briefed nothing: line 4 stays protected.
+  // r7b's capture does not know which lines carry a flag (it passes no
+  // flagged set) and briefed nothing: line 4 stays protected.
   await b.capture({
     runId: 'r7b',
     cur: draft,
@@ -787,6 +788,193 @@ test('mint adds a wire to the run entry only', async () => {
   assert.equal(b.mint({ runId: 'mi', wire: 'w1' }), true);
   assert.equal(b.minted('w1'), true);
   assert.equal(b.check({ lineSets: [cur], wires: ['w1'] }).ok, true);
+});
+
+// Round 2, item 1: a resume names its run by the ref its stored record
+// carries (the sha256 of the run_id), and the wire is on disk at once.
+test('mint finds the run by the ref its records carry, and saves at once', async () => {
+  const file = path.join(tmpDir(), 'b.json');
+  const b = ledger({ file });
+  const cur = song('mr');
+  await b.capture({ runId: 'mr', cur, input: cur, flagged: [1] });
+  const ref = (runId) => createHash('sha256').update(runId).digest('hex');
+  assert.equal(b.mint({ ref: ref('mr').slice(0, 32), wire: 'w1' }), false, 'not a run ref');
+  assert.equal(b.mint({ ref: ref('another run'), wire: 'w1' }), false, 'no entry, no wire');
+  assert.equal(b.mint({ wire: 'w1' }), false);
+  assert.equal(b.minted('w1'), false);
+  assert.equal(b.check({ lineSets: [cur], wires: ['w1'] }).reason, 'unminted_wire');
+  assert.equal(b.mint({ ref: ref('mr'), wire: 'w1' }), true);
+  // A restart reads it back: no deferred save stands between the two.
+  const again = ledger({ file });
+  assert.equal(again.minted('w1'), true);
+  assert.equal(again.check({ lineSets: [cur], wires: ['w1'] }).ok, true);
+  // A wire the entry already holds is left as it is, and nothing is written.
+  const before = fs.statSync(file).mtimeMs;
+  const ino = fs.statSync(file).ino;
+  assert.equal(b.mint({ ref: ref('mr'), wire: 'w1' }), true);
+  assert.deepEqual([fs.statSync(file).mtimeMs, fs.statSync(file).ino], [before, ino]);
+});
+
+// Round 2, item 2 (owner, 18 Nov): protection ends when the flag clears. A
+// capture that knows which lines carry a flag protects only those; one that
+// does not know keeps what was protected. An absent set is unknown, not empty.
+test('a line whose flag cleared is free; unknown flags keep what was protected', async () => {
+  const b = ledger();
+  const cur = song('fc');
+  // The run flags lines 2, 3 and 5 and asks about 2 and 5: line 3 is protected.
+  await b.capture({ runId: 'fc', cur, input: cur, flagged: [2, 3, 5], briefed: [2, 5] });
+  const edit = cur.slice();
+  edit[2] = 'hand edit';
+  assert.deepEqual(b.check({ lineSets: [edit] }).changed, [3]);
+  // The run's next call starts from its own entry: line 3 is inherited.
+  const c = b.check({ runId: 'fc', lineSets: [cur] });
+  assert.deepEqual(c.inherited.prot, [3]);
+  // A capture that does not know the flags keeps it, from the check...
+  await b.capture({ runId: 'fc', cur, input: cur, briefed: [2, 5], inherited: c.inherited });
+  assert.deepEqual(b.check({ lineSets: [edit] }).changed, [3]);
+  // ...and from the run's own entry once the check's set is no longer passed.
+  await b.capture({ runId: 'fc', cur, input: cur, briefed: [2, 5] });
+  assert.deepEqual(b.check({ lineSets: [edit] }).changed, [3]);
+  // The loop replaces line 2, and line 3's flag clears with it: only line 5
+  // carries a flag now. Line 3 is free, though the check inherited it.
+  const fixed = cur.slice();
+  fixed[1] = 'fc loop fix';
+  await b.capture({ runId: 'fc', cur: fixed, input: cur, flagged: [5], inherited: c.inherited });
+  const freed = fixed.slice();
+  freed[2] = 'hand edit';
+  assert.equal(b.check({ lineSets: [freed] }).ok, true, 'line 3 no longer carries a flag');
+  const five = fixed.slice();
+  five[4] = 'hand edit';
+  assert.deepEqual(b.check({ lineSets: [five] }).changed, [5], 'line 5 still does');
+  // A later capture that does not know the flags keeps line 5 and does not
+  // protect line 3 again.
+  await b.capture({ runId: 'fc', cur: fixed, input: cur });
+  assert.equal(b.check({ lineSets: [freed] }).ok, true);
+  assert.deepEqual(b.check({ lineSets: [five] }).changed, [5]);
+  // A known empty set protects nothing.
+  await b.capture({ runId: 'fc', cur: fixed, input: cur, flagged: [] });
+  assert.equal(b.check({ lineSets: [five] }).ok, true);
+});
+
+// Round 2, item 3: a key check that is missing, cut short or malformed is
+// damage. Only a well-formed one that does not match is a key change.
+test('a damaged key check fails closed; a well-formed other one is a key change', async () => {
+  const damages = [
+    (raw) => delete raw.kc,
+    (raw) => (raw.kc = raw.kc.slice(0, -1)),
+    (raw) => (raw.kc = ''),
+    (raw) => (raw.kc = raw.kc.slice(0, 5) + '!' + raw.kc.slice(6)),
+    (raw) => (raw.kc = 7),
+  ];
+  for (const damage of damages) {
+    const file = path.join(tmpDir(), 'b.json');
+    const b = ledger({ file });
+    const cur = song('kc');
+    await b.capture({ runId: 'kc', cur, input: cur, flagged: [2] });
+    const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+    damage(raw);
+    const damaged = JSON.stringify(raw);
+    fs.writeFileSync(file, damaged);
+    const log = quiet();
+    const again = new BriefLedger({ file, key: KEY, log });
+    assert.equal(again.healthy, false, damaged.slice(0, 60));
+    assert.ok(!log.lines.some((l) => l.includes('key changed')), log.lines.join('\n'));
+    const other = song('kc2');
+    await again.capture({ runId: 'kc2', cur: other, input: other, flagged: [1] });
+    assert.equal(fs.readFileSync(file, 'utf8'), damaged, 'the file is not written over');
+    assert.equal(again.recover(), false, 'still damaged');
+  }
+  // Another key's own key check is well formed: a key change, a fresh start.
+  const file = path.join(tmpDir(), 'b.json');
+  const b = ledger({ file });
+  const cur = song('kc3');
+  await b.capture({ runId: 'kc3', cur, input: cur, flagged: [2] });
+  const log = quiet();
+  const rotated = new BriefLedger({ file, key: OTHER_KEY, log });
+  assert.equal(rotated.healthy, true);
+  assert.equal(rotated.free.size, 0);
+  assert.ok(log.lines.some((l) => l.includes('key changed')));
+  assert.equal(JSON.parse(fs.readFileSync(file, 'utf8')).free.length, 0, 'started over');
+});
+
+// Round 2, item 4: a full store of entries that each guard a line makes room
+// by dropping the oldest of them, never the entry the capture just wrote.
+test('pruning never drops the entry the same capture wrote', async () => {
+  const b = ledger({ cap: 5 });
+  const guarded = [];
+  for (let k = 0; k < 5; k++) {
+    const s = song(`pk${k}`);
+    guarded.push(s);
+    await b.capture({ runId: `pk${k}`, cur: s, input: s, flagged: [2] });
+  }
+  // A run that stops at its question on its one flagged line guards nothing.
+  const mine = song('pk-mine');
+  await b.capture({
+    runId: 'pk-mine',
+    status: 'suspended',
+    cur: mine,
+    input: mine,
+    flagged: [4],
+    briefed: [4],
+    wire: 'pk-state',
+  });
+  assert.equal(b.free.size, 5);
+  assert.equal(b.minted('pk-state'), true, 'the state it was just given is still its own');
+  const hand = (s) => s.map((l, i) => (i === 1 ? 'hand edit' : l));
+  assert.equal(b.check({ lineSets: [hand(guarded[0])] }).ok, true, 'the oldest entry went');
+  assert.deepEqual(b.check({ lineSets: [hand(guarded[1])] }).changed, [2]);
+});
+
+// Round 2, item 6 (Andrej's item 12): one caller re-running one song leaves a
+// retired entry behind each time, each still listing its protected line.
+// Those go before another caller's live entry.
+test('pruning drops retired entries before a live one that protects a line', async () => {
+  const b = ledger({ lineBudget: 60 });
+  const victim = song('rt-victim');
+  await b.capture({ runId: 'rt-victim', cur: victim, input: victim, flagged: [3] });
+  const big = song('rt-big', 10);
+  for (let k = 0; k < 10; k++) {
+    const c = b.check({ runId: `rt${k}`, lineSets: [big] });
+    await b.capture({
+      runId: `rt${k}`,
+      cur: big,
+      input: big,
+      flagged: [5],
+      supersedes: c.supersedes,
+      inherited: c.inherited,
+    });
+  }
+  const retired = [...b.free.values()].filter((e) => e.retired);
+  assert.ok(retired.length < 9, 'retired entries were dropped to fit the budget');
+  assert.ok(
+    retired.every((e) => e.prot.length === 1),
+    'a retired entry still lists its line'
+  );
+  const edit = victim.slice();
+  edit[2] = 'hand edit';
+  assert.deepEqual(b.check({ lineSets: [edit] }).changed, [3], 'the live entry is kept');
+});
+
+// Round 2, item 9: a wire's accepted lines and final draft are often the same
+// lines; they are compared against a candidate once.
+test('check compares a line set equal to an earlier one once', async () => {
+  const b = ledger();
+  const cur = song('dup');
+  await b.capture({ runId: 'dup', cur, input: cur, flagged: [2], wire: 'dup-wire' });
+  let compared = 0;
+  const compare = b.compare.bind(b);
+  b.compare = (...args) => {
+    compared++;
+    return compare(...args);
+  };
+  const other = cur.slice();
+  other[4] = 'another unprotected line';
+  assert.equal(b.check({ lineSets: [cur, cur, other, cur], wires: ['dup-wire'] }).ok, true);
+  assert.equal(compared, 2);
+  // A refusal still names the line set the change is in.
+  const edit = cur.slice();
+  edit[1] = 'hand edit';
+  assert.equal(b.check({ lineSets: [cur, cur, edit] }).set, 2);
 });
 
 // Andrej's review G2, kept as a stated limit and not closed: a later run on a

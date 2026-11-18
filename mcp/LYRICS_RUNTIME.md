@@ -644,18 +644,23 @@ ship) and before the harness, so a hand-built checkpoint for such a song gets
 `BRIEF_REQUIRED` where the harness would also refuse it. A later run on the
 song sets the earlier run's entry aside whatever that later run declares, so a
 line the later run asks about is free from then on, also where it asks under
-another scheme than the one the line was flagged under.
+another scheme than the one the line was flagged under. Protection ends when
+the flag clears: a line that carried a flag, was never asked about and carries
+none now (a fix to its partner cleared it) is free, and a record that
+publishes no flag set leaves what was protected as it was.
 A run set aside by a later run on its song
 still continues on its own state, and a session or chat that resumes an
-interrupted run from its last saved progress record continues it too: every
-progress record's state is recorded as one this server returned. A stop briefs its open lines with their rhyme groups and returns; a
+interrupted run from its last saved progress record continues it too: the
+state or checkpoint the server builds from that record is recorded then, and
+saved at once, as one this server returned, for the run the record names (a
+progress record's state is not recorded while the run is live). A stop briefs its open lines with their rhyme groups and returns; a
 question briefs the lines it asks. Entries last 3 hours, paid included, and a
 certified exit 0 forgets its song. That is a ceiling, not a promise, under
 load: each partition keeps at most 2,000 entries and 100,000 items (an entry
 counts its lines, its protected lines and its undo items), and when it is full
 the entries that guard nothing (set aside by a later run, or protecting no
 line and holding no replaced line) are dropped first, oldest first, and then
-the oldest of the rest, so a live entry's protection can end early. A restart that sends no draft starts from
+the oldest of the rest (never the entry a run has just written), so a live entry's protection can end early. A restart that sends no draft starts from
 the song as the run left it, its accepted fixes included; in a session it is the song the
 session's last `lyric_revise` left, including a run answered over several calls. A
 `lyric_grade` whose draft such a run would refuse names, in its `next`, the lines to put
@@ -669,11 +674,13 @@ and the server logs a warning at start. Set `LYRIC_RUNTIME_DIR` (production
 does) or one of the secret settings to make the store durable. A progress
 record is written to disk at once for a call's first one, then at most once a
 second, with a deferred write a second after one is held back; a stop is
-always written at once. A file that cannot be read, or that holds even one
-damaged entry, refuses every revise run with `BRIEF_LEDGER_UNAVAILABLE` until
-it is repaired (`recover_only` still exports a held journal), and is never
-written over meanwhile; a changed server secret drops the old entries and
-starts empty. Original
+always written at once. A file that cannot be read, whose key check is missing
+or malformed, or that holds even one damaged entry, refuses every revise run
+with `BRIEF_LEDGER_UNAVAILABLE` until it is repaired (`recover_only` still
+exports a held journal), and is never written over meanwhile (the file has no
+checksum, so damage that keeps every field's shape is not detected); a changed
+server secret, which leaves a well-formed key check that does not match, drops
+the old entries and starts empty. Original
 replay input, accepted lines and immutable declarations have separate fields;
 accepted lines never silently replace the replay input. The bounded state codec
 identifies the scorer source, lexical data and runtime. Signed chat continuations

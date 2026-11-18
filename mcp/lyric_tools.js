@@ -498,9 +498,22 @@ const lineWords = (ns) =>
   (ns.length === 1 ? 'line ' : 'lines ') +
   (ns.length > 1 ? `${ns.slice(0, -1).join(', ')} and ${ns.at(-1)}` : String(ns[0]));
 
+// What a forged-wire refusal names when it cannot name "this draft": the song
+// the refused state or checkpoint holds, which is the song the check passed.
+// A session withholds states and checkpoints, so workflow_sessions.js gives
+// this sentence the session's own calls.
+export const BRIEF_WIRE_SONG =
+  'Call lyric_revise with `new_run: true` and, as `draft_text`, the song this state or ' +
+  'checkpoint holds (its `final_draft`, or else its `accepted_lines`), or continue with the ' +
+  'state or checkpoint the last lyric_revise returned.';
+
 // The refusal names line numbers only, in the incoming draft's numbering, and
 // never a line's text or the run it matched.
-// sentDraft: the call itself carried a draft (draft or draft_text).
+// sentDraft: the caller's own arguments carried a draft (draft or draft_text);
+// one a session or a resume put into the call is not the caller's. Beside a
+// state or checkpoint that draft is the run's opening draft, which holds the
+// old text of every line the loop replaced, so "this draft" is named only
+// where the run replaced none.
 function briefRefusal(res, { sentDraft = true } = {}) {
   if (res.reason === 'unminted_wire') {
     const held = [
@@ -513,11 +526,10 @@ function briefRefusal(res, { sentDraft = true } = {}) {
       'BRIEF_REQUIRED: the state or checkpoint this call carries is not one this server returned, ' +
       `and the song it holds is one in which a live revise run ${held}, so its records cannot be taken ` +
       "as that run's. Nothing was run. " +
-      (sentDraft
-        ? 'Call lyric_revise with `new_run: true` and this draft, or '
-        : 'Call lyric_revise with `new_run: true` and, as `draft_text`, the song this state or ' +
-          'checkpoint holds (its `final_draft`, or else its `accepted_lines`), or ') +
-      'continue with the state or checkpoint the last lyric_revise returned.'
+      (sentDraft && !res.replaced
+        ? 'Call lyric_revise with `new_run: true` and this draft, or continue with the state or ' +
+          'checkpoint the last lyric_revise returned.'
+        : BRIEF_WIRE_SONG)
     );
   }
   const parts = [];
@@ -555,8 +567,25 @@ const briefWireKey = (w) => (typeof w === 'string' && w ? wireKey(w) : null);
 // Progress captures are written to disk at most once a second over every run
 // in this process (each write saves the whole store), except a call's first
 // one, which is always written; one held back is written by the ledger's
-// deferred save a second later. A stop always writes.
+// deferred save a second later. A stop always writes. The second is counted
+// on the ledger's clock.
 let briefProgressSavedAt = 0;
+
+// A WIRE THE SERVER BUILDS FOR A RESUMED CALL (Refs #875). A session's resume
+// and the chat's recovered envelope build a state or checkpoint from the
+// server's own stored progress record. That wire is recorded here, saved at
+// once, on the entry of the run the record names (`connector_run_ref`), so the
+// resumed call continues that run where it would otherwise read as a wire this
+// server did not return. A record that names no run, or whose run has no
+// entry, records nothing, and its wire is judged as any other.
+export function vouchResumeWire(progress, wire) {
+  try {
+    return BRIEFS.mint({ ref: progress?.connector_run_ref, wire: briefWireKey(wire) });
+  } catch (err) {
+    console.error(`[briefs] resume wire not recorded (${err.message})`);
+    return false;
+  }
+}
 // A capture never fails the call it records: a failed save leaves the store
 // unhealthy, and the next run is refused until it recovers.
 function briefCapture(entry) {
@@ -3149,7 +3178,9 @@ export function registerLyricTools(server, tool) {
             withTempDir(async (dir) => {
               // M-234: the draft may arrive as one string.
               if (a.draft_text != null || a.draft != null) takeLines(a, 'draft', 'draft_text');
-              const sentDraft = a.draft != null;
+              // A host that restores a run's draft into the call (a session,
+              // a resume) says so: that draft is not the caller's own.
+              const sentDraft = a.draft != null && requestContext().hostDraft !== true;
               // A RESTART THAT SENDS NO LYRICS starts from the song as its run
               // left it, accepted fixes included, never the draft it opened
               // on (owner, 16 Nov; #665): no accepted fix is lost or undone.
@@ -3376,6 +3407,7 @@ export function registerLyricTools(server, tool) {
                 // 448 KiB journal budget excludes this separately bounded envelope.
                 delete checkpoint.connector_declarations;
                 delete checkpoint.connector_semantic_identity;
+                delete checkpoint.connector_run_ref;
               }
               // Every recorded declaration is carried in by now, so an omitted
               // supplement means NEW work (the current default) only when
@@ -3664,6 +3696,18 @@ export function registerLyricTools(server, tool) {
               });
               if (!briefCheck.ok) throw refuse(briefRefusal(briefCheck, { sentDraft }));
               const briefPaid = writer === 'kitchen';
+              // The lines protected at the start of the call go to its first
+              // capture only: the entry that capture writes holds them from
+              // then on, and a later capture that knows the flags replaces
+              // them, so a line whose flag cleared during the call is not
+              // protected again from the older set. Replaced lines are kept
+              // on every capture.
+              let briefInherited = briefCheck.inherited;
+              const briefInherit = () => {
+                const out = briefInherited;
+                briefInherited = { prot: [], undo: briefCheck.inherited.undo };
+                return out;
+              };
               const briefAt = (status, journal, cur, extra = {}) =>
                 Array.isArray(cur)
                   ? briefCapture({
@@ -3672,47 +3716,43 @@ export function registerLyricTools(server, tool) {
                       status,
                       cur,
                       input: briefBase,
-                      // A line the loop replaced in this pass is held by the
-                      // undo rule only: the pass's flags are as the loop last briefed it.
-                      flagged: lineNos(journal?.pass_flagged_lines).filter(
-                        (n) => !fixedLines(journal, cur, briefBase).has(n)
-                      ),
+                      // The pass's flags are as the loop last briefed it; a
+                      // record that publishes none leaves them unknown (null),
+                      // never empty. A line the loop replaced in this pass is
+                      // held by the undo rule only.
+                      flagged: Array.isArray(journal?.pass_flagged_lines)
+                        ? lineNos(journal.pass_flagged_lines).filter(
+                            (n) => !fixedLines(journal, cur, briefBase).has(n)
+                          )
+                        : null,
                       briefed: briefedOf(journal, cur, fixedLines(journal, cur, briefBase)),
                       supersedes: briefCheck.supersedes,
-                      inherited: briefCheck.inherited,
+                      inherited: briefInherit(),
                       ...extra,
                     })
                   : null;
               // Progress, for a call that is killed before it returns: saved
               // at once for the call's first record, then at most once a
               // second, and only once a resumed run has replayed up to where
-              // its wire left it. Every record's wire is minted, built exactly
-              // as a resume builds it from the stored record (a session's
-              // resumeSnapshot, the chat's recovered envelope), so resuming
-              // from it continues this run rather than reading as forged.
+              // its wire left it. It records the flags and the replaced lines,
+              // not a wire: the stored record names its run
+              // (`connector_run_ref`), and the wire a resume builds from it is
+              // recorded for that run when the server builds it
+              // (vouchResumeWire).
               let briefCaught = !briefMinted;
               let briefFirst = true;
-              const briefProgress = (record, stored) => {
+              const briefProgress = (record) => {
                 try {
                   const cur = curOf(record);
                   if (!Array.isArray(cur)) return;
-                  let wire = null;
-                  try {
-                    wire = briefWireKey(
-                      writer === 'interview' ? encodeInterviewWire(stored) : encodeState(stored)
-                    );
-                  } catch {
-                    wire = null;
-                  }
-                  const persist = briefFirst || Date.now() - briefProgressSavedAt >= 1000;
-                  if (!briefCaught && JSON.stringify(cur) !== JSON.stringify(briefBase)) {
-                    if (wire) BRIEFS.mint({ runId, wire, persist: false });
-                    return;
-                  }
+                  if (!briefCaught && JSON.stringify(cur) !== JSON.stringify(briefBase)) return;
                   briefCaught = true;
+                  // A saved time ahead of the clock is not a recent save.
+                  const since = BRIEFS.now() - briefProgressSavedAt;
+                  const persist = briefFirst || since >= 1000 || since < 0;
                   briefFirst = false;
-                  if (persist) briefProgressSavedAt = Date.now();
-                  briefAt('progress', record, cur, { persist, wire });
+                  if (persist) briefProgressSavedAt = BRIEFS.now();
+                  briefAt('progress', record, cur, { persist });
                 } catch (err) {
                   console.error(`[briefs] progress not recorded (${err.message})`);
                 }
@@ -3723,13 +3763,14 @@ export function registerLyricTools(server, tool) {
                 context: {
                   ...execution,
                   onCheckpoint: (record) => {
-                    const stored = {
+                    briefProgress(record);
+                    // The record names its run as every interview state does.
+                    return execution.onCheckpoint?.({
                       ...record,
                       connector_declarations: declarationsOf(a),
                       connector_semantic_identity: continuationSemanticIdentity(),
-                    };
-                    briefProgress(record, stored);
-                    return execution.onCheckpoint?.(stored);
+                      connector_run_ref: runRef(runId),
+                    });
                   },
                 },
               });
@@ -4032,20 +4073,22 @@ export function registerLyricTools(server, tool) {
                     returns: declaredReturns(a, plan?.returns),
                     draft: exactDraft,
                   });
+                  const stopFlags =
+                    r.lyric_result?.flagged_lines ?? currentCheckpoint?.complete?.flagged_lines;
                   await briefCapture({
                     runId,
                     paid: briefPaid,
                     status: r.code === 2 ? 'uncertified' : 'parked',
                     cur: exactDraft,
                     input: briefBase,
-                    flagged: lineNos(
-                      r.lyric_result?.flagged_lines ?? currentCheckpoint?.complete?.flagged_lines
-                    ),
+                    // The lines that carry a flag at the stop; a result that
+                    // publishes none leaves them unknown, never empty.
+                    flagged: Array.isArray(stopFlags) ? lineNos(stopFlags) : null,
                     briefed: changeable || [],
                     whole: changeable === null,
                     wire: briefWireKey(verdict.state || verdict.checkpoint),
                     supersedes: briefCheck.supersedes,
-                    inherited: briefCheck.inherited,
+                    inherited: briefInherit(),
                   });
                 }
                 const render =

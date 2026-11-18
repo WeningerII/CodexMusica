@@ -86,6 +86,9 @@ export const WORKER_OUTSIDE_KEYS = Object.freeze([
 export function assertContinuationCapacity(state) {
   const { connector_declarations, ...worker } = state;
   delete worker.connector_semantic_identity;
+  // The run a journal names is connector metadata too: the worker never
+  // reads it, and a stored progress record carries it.
+  delete worker.connector_run_ref;
   for (const k of WORKER_OUTSIDE_KEYS) delete worker[k];
   if (Buffer.byteLength(JSON.stringify(worker), 'utf8') > WORKER_STATE_BYTES)
     throw new StateCodecError(

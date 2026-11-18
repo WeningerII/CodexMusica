@@ -20,7 +20,7 @@ import { promisify } from 'node:util';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
-import { BRIEFS, READER_CONTROLS, RUNS, briefGradeNext } from './lyric_tools.js';
+import { BRIEFS, BRIEF_WIRE_SONG, READER_CONTROLS, RUNS, briefGradeNext } from './lyric_tools.js';
 import { buildWorkflowServer } from './workflow_tools.js';
 import { withExecutionContext } from './execution_context.js';
 import { encodeState, decodeState } from './state_codec.js';
@@ -54,6 +54,9 @@ const draw = (seed, k, n) =>
   ) % n;
 const seededLine = (seed, end) =>
   [0, 1, 2, 3].map((k) => FILLER[draw(seed, k, FILLER.length)]).join(' ') + ' ' + RHYMES[end];
+// Seeded filler alone: a line that ends on no rhyme word.
+const fillerLine = (seed, n) =>
+  Array.from({ length: n }, (_, k) => FILLER[draw(seed, k, FILLER.length)]).join(' ');
 const FIX = seededLine(2, draw(2, 'end', RHYMES.length));
 const FIX3 = seededLine(3, (draw(2, 'end', RHYMES.length) + 1) % RHYMES.length);
 // Another text for line 2 than the one the loop accepted.
@@ -121,6 +124,33 @@ async function fixed(first) {
 
 beforeEach(() => BRIEFS.resetForTests());
 
+// The ledger on a file, for a case that restarts it. -> a reader of the file.
+function ledgerOnDisk(t) {
+  const dir = mkdtempSync(path.join(tmpdir(), 'brief-gate-ledger-'));
+  const file = BRIEFS.file;
+  BRIEFS.file = path.join(dir, 'brief-ledger.json');
+  t.after(() => {
+    clearTimeout(BRIEFS.saveTimer);
+    BRIEFS.saveTimer = null;
+    BRIEFS.file = file;
+    BRIEFS.resetForTests();
+    rmSync(dir, { recursive: true, force: true });
+  });
+  return () => readFileSync(BRIEFS.file, 'utf8');
+}
+// A restart, as the ledger sees one: its file is read back as it stood at
+// `disk` (what was captured after that never reached it), and the run cache
+// is empty.
+function restartLedger(disk) {
+  clearTimeout(BRIEFS.saveTimer);
+  BRIEFS.saveTimer = null;
+  writeFileSync(BRIEFS.file, disk);
+  BRIEFS.clear();
+  BRIEFS.load();
+  assert.equal(BRIEFS.healthy, true);
+  for (const id of [...RUNS.map.keys()]) RUNS.del(id);
+}
+
 test('G2: a flagged line the run did not ask about is refused; the asked line is free', async () => {
   await opened();
   assertBrief(await call({ ...DECL, new_run: true, draft: ['Cat', 'Dog', 'Moon'] }), /line 3 /);
@@ -133,6 +163,11 @@ test('G3: putting back a line the loop replaced is refused; another text for it 
   assertBrief(back, /line 2 puts back a line the loop replaced/);
   // The minted state continued the run (G6's other half): it was admitted.
   assert.ok(second.state);
+  // The run's entry holds the two states it returned and no progress record's.
+  assert.deepEqual(
+    [...BRIEFS.free.values()].map((e) => e.wires.length),
+    [2]
+  );
   admitted(await call({ ...DECL, new_run: true, draft: ['Cat', OTHER2, 'Sun'] }));
 });
 
@@ -153,7 +188,7 @@ test('G4: a certified song is forgotten; any edit then starts', async () => {
 
 test('G5: an inserted line and an unflagged edit start; a removed flagged line is refused', async () => {
   await opened();
-  const grown = ['Hello there', 'Bat', 'Dog', 'Sun'];
+  const grown = [fillerLine(5, 2), 'Bat', 'Dog', 'Sun'];
   admitted(await call({ ...declFor(4), new_run: true, draft: grown }));
   BRIEFS.resetForTests();
   await opened();
@@ -379,6 +414,86 @@ test('G14: a line holding a control character the reader treats otherwise is ref
     }
 });
 
+// Round 2, item 2 (owner, 18 Nov): protection ends when the flag clears. Five
+// lines in two rhyme groups: the loop flags L2, L3 and L5 and asks L2 and L5
+// together, so L3 is flagged without its brief. The answer it accepts for L2
+// rhymes with L1 and L3, which clears L3's flag; the answer for L5 is not
+// accepted, and the run stops with L5 open. L3 carries no flag any more.
+test('a line whose flag a fix cleared is no longer protected', async () => {
+  const song = [RHYMES[1], 'Dog', RHYMES[0], 'Sun', 'Fig'];
+  const decl = { ...DECL, scheme: 'AAABB' };
+  const hand = (draft, n) => draft.map((l, i) => (i === n - 1 ? 'Jar' : l));
+  const first = verdict(await call({ ...decl, draft: song }));
+  assert.equal(first.exit_code, 4, JSON.stringify(first).slice(0, 600));
+  assert.deepEqual(first.asked.lines, [2, 5], JSON.stringify(first.asked));
+  assert.deepEqual(decodeState(first.state).pass_flagged_lines, [2, 3, 5]);
+  // While L3 carries its flag, it keeps its text.
+  assertBrief(await call({ ...decl, new_run: true, draft: hand(song, 3) }), /line 3 /);
+  const answer2 = seededLine(6, 2);
+  const parked = verdict(
+    await call({
+      state: first.state,
+      answers: [
+        { line: 2, text: answer2 },
+        { line: 5, text: fillerLine(7, 5) },
+      ],
+    })
+  );
+  assert.equal(parked.exit_code, 3, JSON.stringify(parked).slice(0, 600));
+  assert.deepEqual(parked.final_draft, [song[0], answer2, ...song.slice(2)]);
+  // L3 as the run left it, changed by hand: its flag cleared, so this starts.
+  admitted(await call({ ...decl, new_run: true, draft: hand(parked.final_draft, 3) }));
+});
+
+// Read off the ledger at the progress records that publish no flag set (the
+// ones before a pass opens, and the last one of a run that stops): unknown,
+// never empty. What was protected stays protected there, and a line whose
+// flag cleared is not protected again from the set the call started with.
+test('a progress record that publishes no flags keeps what is protected and brings nothing back', async () => {
+  // The protected lines of the live entries at each record with no flag set.
+  const unknownAt = async (args) => {
+    const seen = [];
+    const out = verdict(
+      await withExecutionContext(
+        {
+          onCheckpoint: (record) => {
+            if (!Array.isArray(record.pass_flagged_lines))
+              seen.push([...BRIEFS.free.values()].filter((e) => !e.retired).map((e) => e.prot));
+          },
+        },
+        () => call(args)
+      )
+    );
+    assert.ok(seen.length > 0, 'a record with no flag set was stored');
+    return { seen, out };
+  };
+  // A new run on a song whose earlier run protects line 3: before its pass
+  // opens it knows no flags, and line 3 stays protected throughout.
+  await opened();
+  const again = await unknownAt({ ...DECL, new_run: true, draft: INPUT });
+  assert.equal(again.out.exit_code, 4, JSON.stringify(again.out).slice(0, 600));
+  for (const prot of again.seen) assert.deepEqual(prot, [[3]]);
+  // The five-line song above: the call starts with L3 protected, the accepted
+  // answer for L2 clears L3's flag, and the run's last record knows no flags.
+  BRIEFS.resetForTests();
+  const song = [RHYMES[1], 'Dog', RHYMES[0], 'Sun', 'Fig'];
+  const first = verdict(await call({ ...DECL, scheme: 'AAABB', draft: song }));
+  assert.deepEqual(first.asked?.lines, [2, 5], JSON.stringify(first).slice(0, 600));
+  assert.deepEqual(
+    [...BRIEFS.free.values()].map((e) => e.prot),
+    [[3]]
+  );
+  const cleared = await unknownAt({
+    state: first.state,
+    answers: [
+      { line: 2, text: seededLine(6, 2) },
+      { line: 5, text: fillerLine(7, 5) },
+    ],
+  });
+  assert.equal(cleared.out.exit_code, 3, JSON.stringify(cleared.out).slice(0, 600));
+  assert.deepEqual(cleared.seen.at(-1), [[]]);
+});
+
 test('G15: no connector argv asks the harness to skip its own brief check', () => {
   for (const name of readdirSync(HERE))
     if (name.endsWith('.js'))
@@ -449,6 +564,111 @@ test('G18: a forged journal is refused for a song a live run knows, so its recor
     assert.doesNotMatch(text(r), new RegExp(`\\b${line}\\b`), 'no lyric text in a refusal');
   // Line 3 is still protected.
   assertBrief(await call({ ...DECL, new_run: true, draft: ['Cat', 'Dog', 'Moon'] }), /line 3 /);
+});
+
+// Round 2, item 5 (Andrej's item 9): beside a state the caller's draft is the
+// run's opening draft. "This draft" is named only where the caller sent it
+// and the run replaced no line of it; otherwise the refusal names the song
+// the state holds, which is the song the check passed.
+test('a forged-wire refusal names "this draft" only for a draft the caller sent that puts nothing back', async () => {
+  const forge = (state) => encodeState({ ...decodeState(state), retained_note: 'x' });
+  const first = await opened();
+  // The run protects line 3 and replaced nothing; the caller sent the draft.
+  const sent = await call({ ...DECL, draft: INPUT, state: forge(first.state), answer: FIX });
+  assert.ok(refused(sent), text(sent).slice(0, 800));
+  assert.match(text(sent), /not one this server returned/);
+  assert.match(
+    text(sent),
+    /Call lyric_revise with `new_run: true` and this draft, or continue with the state or checkpoint the last lyric_revise returned\.$/
+  );
+  // The loop replaces line 2: the draft beside the state now holds the old
+  // line, and a new run on it is refused (G3), so it is not what is named.
+  const second = await fixed(first);
+  const moved = await call({ ...DECL, draft: INPUT, state: forge(second.state), answer: FIX3 });
+  assert.ok(refused(moved), text(moved).slice(0, 800));
+  assert.match(text(moved), /keeps lines its loop replaced from coming back, so/);
+  assert.doesNotMatch(text(moved), /this draft/);
+  assert.ok(text(moved).endsWith(BRIEF_WIRE_SONG), text(moved));
+  for (const line of [...INPUT, FIX])
+    assert.doesNotMatch(text(moved), new RegExp(`\\b${line}\\b`), 'no lyric text in a refusal');
+  // The call it names starts: the song that state holds, as draft_text.
+  admitted(await call({ ...DECL, new_run: true, draft_text: second.final_draft.join('\n') }));
+});
+
+// The same refusal in a session, which withholds states: the draft in the
+// call is one the session restored, so the refusal names the session's own
+// calls, and those calls work.
+test('in a session a forged-wire refusal names recover_only and a new run, and both work', async (t) => {
+  const directory = mkdtempSync(path.join(tmpdir(), 'brief-gate-wire-'));
+  t.after(() => rmSync(directory, { recursive: true, force: true }));
+  const sessions = new WorkflowSessions({ store: new JobStore(directory) });
+  let session_id = sessions.open('lyrics', { phase: 'edit' }).session_id;
+  const run = async (name, args) => {
+    const q = sessions.submit(session_id, 'lyrics', name, args);
+    await sessions.wait(q.operation_id);
+    const r = sessions.status(q.operation_id, 'lyrics');
+    if (r.session_id) session_id = r.session_id;
+    return r;
+  };
+  const { writer: _w, ...decl } = DECL;
+  const opening = await run('lyric_revise', { ...decl, draft: INPUT });
+  assert.equal(sessionVerdict(opening.tool_result).exit_code, 4, JSON.stringify(opening));
+  // The ledger no longer holds the state this session carries, and the run's
+  // entry still protects line 3.
+  for (const e of BRIEFS.free.values()) e.wires.length = 0;
+  const answered = await run('lyric_revise', { answer: FIX });
+  const said = answered.tool_result.content[0].text;
+  assert.match(said, /BRIEF_REQUIRED: the state or checkpoint this call carries is not one/);
+  assert.doesNotMatch(said, /this draft/);
+  assert.doesNotMatch(said, /the song this state or checkpoint holds/);
+  assert.match(
+    said,
+    /Nothing was run\. Call lyric_revise with the latest session_id and `recover_only: true` to read the accepted lyrics this session holds, then call lyric_revise with the latest session_id, `new_run: true`, those lyrics as `draft_text` and the same declarations this run was given\.$/
+  );
+  // The two calls it names.
+  const exported = JSON.parse(sessions.recover(session_id, 'lyrics').content[0].text);
+  assert.deepEqual(exported.final_draft, INPUT, JSON.stringify(exported).slice(0, 600));
+  const again = await run('lyric_revise', {
+    ...decl,
+    new_run: true,
+    draft_text: exported.final_draft.join('\n'),
+  });
+  assert.ok(!again.tool_error, JSON.stringify(again).slice(0, 800));
+  assert.equal(sessionVerdict(again.tool_result).exit_code, 4, JSON.stringify(again));
+  // A new song's session revises only a draft it graded.
+  const raw =
+    "BRIEF_REQUIRED: the state or checkpoint this call carries is not one this server returned, and the song it holds is one in which a live revise run keeps lines its loop replaced from coming back, so its records cannot be taken as that run's. Nothing was run. " +
+    BRIEF_WIRE_SONG;
+  assert.match(
+    briefNote(raw, { phase: 'create' }),
+    /Nothing was run\. Call lyric_revise with the latest session_id and `recover_only: true` to read the accepted lyrics this session holds, grade them with lyric_grade, then call lyric_revise with that exact draft, the latest session_id and `new_run: true`\.$/
+  );
+});
+
+// Round 2, item 6 (Andrej's item 10): a call's first progress capture is
+// written at once, also when another run's capture was written within the
+// same second. The second is counted on the ledger's clock, held still here.
+test("a call's first progress capture is written to disk at once", async (t) => {
+  const disk = ledgerOnDisk(t);
+  const now = BRIEFS.now;
+  const at = Date.now();
+  BRIEFS.now = () => at;
+  t.after(() => {
+    BRIEFS.now = now;
+  });
+  await opened();
+  // Another song, in the same second by that clock.
+  let onDisk = null;
+  const other = await withExecutionContext(
+    {
+      onCheckpoint: () => {
+        if (onDisk === null) onDisk = JSON.parse(disk()).free.length;
+      },
+    },
+    () => call({ ...DECL, draft: ['Fig', 'Jar', 'Hut'] })
+  );
+  assert.equal(typeof verdict(other).exit_code, 'number');
+  assert.equal(onDisk, 2, "the second run's entry is on disk at its first progress record");
 });
 
 test('G19: a run set aside while another run on the song fixed a line still continues', async () => {
@@ -627,15 +847,26 @@ test('the session lyric_revise descriptions do not ask for the run_id', async (t
   );
 });
 
-// Andrej's item 1, the chat's half. The fixture is deterministic and the run
-// ledger refuses a record that was already continued, so this resumes from
-// another record than G22 does.
-test('G23: the chat recovered envelope continues an interrupted run', async (t) => {
+// Andrej's item 1, the chat's half, across a restart. The fixture is
+// deterministic and the run ledger refuses a record that was already
+// continued, so this resumes from another record than G22 does. No progress
+// record's state reaches the ledger while the run is live: the state the
+// recovered envelope carries is recorded when the server builds it, on the
+// ledger a restarted process reads from disk.
+test('G23: the chat recovered envelope continues an interrupted run after a restart', async (t) => {
+  const disk = ledgerOnDisk(t);
   const first = await opened();
   const records = [];
+  const atRecord = [];
   const parked = verdict(
-    await withExecutionContext({ onCheckpoint: (record) => records.push(record) }, () =>
-      call({ state: first.state, answer: FIX })
+    await withExecutionContext(
+      {
+        onCheckpoint: (record) => {
+          records.push(record);
+          atRecord.push(disk());
+        },
+      },
+      () => call({ state: first.state, answer: FIX })
     )
   );
   assert.equal(parked.exit_code, 4, JSON.stringify(parked).slice(0, 600));
@@ -644,6 +875,11 @@ test('G23: the chat recovered envelope continues an interrupted run', async (t) 
   const last = records.find((x) => x.status === 'accepted');
   assert.deepEqual(last.accepted_lines, [INPUT[0], FIX, INPUT[2]]);
   assert.notDeepEqual(last, records.at(-1));
+  restartLedger(atRecord[records.indexOf(last)]);
+  assert.ok(
+    [...BRIEFS.free.values()].some((e) => e.prot.length || e.undo.length),
+    'the run still guards its song on disk'
+  );
   // The chat router, as a restarted process builds it.
   const secret = 'brief-gate-chat-fixture-secret';
   const previous = process.env.CHAT_SECRET;
@@ -699,14 +935,26 @@ test('G23: the chat recovered envelope continues an interrupted run', async (t) 
   assert.equal(typeof verdict(r).exit_code, 'number');
 });
 
-// Andrej's item 1: a lyric_revise that accepts a fix and loses its result is
-// resumed from its last saved progress record, which this server recorded.
-test('G22: a session resumes an interrupted run from its progress record', async (t) => {
+// Andrej's item 1, across a restart: a lyric_revise that accepts a fix and
+// never returns is resumed, by a new process, from its last stored progress
+// record. The ledger that process reads is the file as it stood when that
+// record was stored; the state the resume builds is recorded then.
+test('G22: a session resumes an interrupted run after a restart, from its progress record', async (t) => {
+  const disk = ledgerOnDisk(t);
   const directory = mkdtempSync(path.join(tmpdir(), 'brief-gate-resume-'));
   t.after(() => rmSync(directory, { recursive: true, force: true }));
   let lose = false;
+  const store = new JobStore(directory);
+  // The ledger file each time a progress record reached the job store.
+  const atRecord = [];
+  const checkpoint = store.checkpoint.bind(store);
+  store.checkpoint = (id, payload) => {
+    const out = checkpoint(id, payload);
+    atRecord.push(disk());
+    return out;
+  };
   const sessions = new WorkflowSessions({
-    store: new JobStore(directory),
+    store,
     execute: async (...args) => {
       const out = await executeNative(...args);
       if (lose) {
@@ -731,9 +979,22 @@ test('G22: a session resumes an interrupted run from its progress record', async
   const { q, r: lost } = await run('lyric_revise', { answer: FIX });
   assert.equal(lost.resumable, true, JSON.stringify(lost).slice(0, 800));
   assert.deepEqual(lost.accepted_draft, [INPUT[0], FIX, INPUT[2]]);
-  const resumed = sessions.resume(q.operation_id, 'lyrics');
-  await sessions.wait(resumed.operation_id);
-  const after = sessions.status(resumed.operation_id, 'lyrics');
+  // Asking whether it can resume records nothing (get_operation is a read).
+  const wires = () => [...BRIEFS.free.values()].map((e) => e.wires.length).join();
+  const before = wires();
+  assert.equal(sessions.status(q.operation_id, 'lyrics').resumable, true);
+  assert.equal(wires(), before);
+  // The restart: the ledger as the file held it when the last record was stored.
+  assert.ok(atRecord.length > 1);
+  restartLedger(atRecord.at(-1));
+  assert.ok(
+    [...BRIEFS.free.values()].some((e) => e.prot.length || e.undo.length),
+    'the run still guards its song on disk'
+  );
+  const restarted = new WorkflowSessions({ store: new JobStore(directory) });
+  const resumed = restarted.resume(q.operation_id, 'lyrics');
+  await restarted.wait(resumed.operation_id);
+  const after = restarted.status(resumed.operation_id, 'lyrics');
   const said = JSON.stringify(after);
   assert.doesNotMatch(said, /BRIEF_REQUIRED/, said.slice(0, 800));
   assert.ok(!after.tool_error && !after.tool_result?.isError, said.slice(0, 800));

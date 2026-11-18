@@ -8,13 +8,15 @@
 // so a retype that differs only in case, spacing or punctuation is the same
 // line.
 //
-// The store fails closed: a file that cannot be read or parsed, a file that
-// holds even one damaged entry, or a key that cannot be loaded makes it
-// unhealthy, and while it is unhealthy the caller refuses every revise run. A
-// file that failed to load is never written over until recover() reads it
-// again. A key-check mismatch (the server secret changed) is not damage: the
+// The store fails closed: a file that cannot be read or parsed, a file whose
+// key check is missing or malformed, a file that holds even one damaged
+// entry, or a key that cannot be loaded makes it unhealthy, and while it is
+// unhealthy the caller refuses every revise run. A file that failed to load
+// is never written over until recover() reads it again. A well-formed key
+// check that does not match (the server secret changed) is not damage: the
 // old entries cannot be matched any more, so they are dropped and the store
-// starts empty, with a log line.
+// starts empty, with a log line. The file carries no checksum: damage that
+// keeps every field's shape is not detected.
 //
 // Durable when BRIEF_LEDGER_FILE or LYRIC_RUNTIME_DIR names a disk, and saved
 // as RunLedger saves (run_store.js): a 'wx' temp file at 0600, fsync, rename,
@@ -236,13 +238,11 @@ export class BriefLedger {
         throw new Error('store is not an object');
       // Only this store's own format is read (or, with another key, started
       // over); any other file fails closed rather than being written over.
-      if (
-        raw.v !== 1 ||
-        typeof raw.kc !== 'string' ||
-        !Array.isArray(raw.free) ||
-        !Array.isArray(raw.paid)
-      )
+      if (raw.v !== 1 || !Array.isArray(raw.free) || !Array.isArray(raw.paid))
         throw new Error('store is not a brief ledger');
+      // A key check that is missing, cut short or not shaped like one is
+      // damage; only a well-formed one that does not match is a key change.
+      if (!DIGEST(raw.kc)) throw new Error('store key check is damaged');
     } catch (err) {
       if (err.code === 'ENOENT') {
         this.loadFailed = false;
@@ -398,8 +398,9 @@ export class BriefLedger {
   // Expired entries go first. Then, while a partition is over its count cap or
   // its item budget, the entries that guard nothing (retired, or with no
   // protected line and no undo item) go oldest first, and only then the
-  // oldest of the rest. Entries are in recency order.
-  prune() {
+  // oldest of the rest. Entries are in recency order. `keep` is the entry a
+  // capture has just written: it is never the one dropped to make room.
+  prune(keep = null) {
     const cutoff = this.now() - this.retainMs;
     let changed = false;
     for (const map of [this.free, this.paid])
@@ -419,7 +420,7 @@ export class BriefLedger {
       for (const pass of [idle, () => true])
         for (const [id, e] of map) {
           if (!over()) break;
-          if (!pass(e)) continue;
+          if (id === keep || !pass(e)) continue;
           items -= weightOf(e);
           this.drop(id);
           changed = true;
@@ -522,8 +523,14 @@ export class BriefLedger {
       // that protects a line out of the check.
     } else cands.push(...this.matches(sets, ownId));
     const inherited = { prot: [], undo: [] };
+    // A wire often carries the same lines twice (its accepted lines and its
+    // final draft): a line set equal to an earlier one is compared once.
+    const compared = new Set();
     for (let k = 0; k < sets.length; k++) {
       const fo = sets[k];
+      const same = fo.join();
+      if (compared.has(same)) continue;
+      compared.add(same);
       const out = cands.map((e) => this.compare(e, fo));
       const changed = uniq(out.flatMap((o) => o.changed));
       const removedAfter = uniq(out.flatMap((o) => o.removedAfter));
@@ -573,8 +580,13 @@ export class BriefLedger {
 
   // Records where a run stands. cur is the song as the run left it, input the
   // draft it started from; flagged and briefed are 1-based lines of cur (a
-  // whole-draft flag briefs every line). inherited comes from check, numbered
-  // in input; supersedes are retired only if unchanged since check (by t).
+  // whole-draft flag briefs every line). flagged is the lines that carry a
+  // flag now, or null when this capture does not know them. Where it knows,
+  // only those lines are protected: a line whose flag has cleared is free,
+  // whoever protected it before. Where it does not know, the lines protected
+  // so far stay protected where their text was kept: the ones check inherited
+  // (numbered in input) and the ones the run's own entry holds. supersedes
+  // are retired only if unchanged since check (by t).
   // persist false defers the save by saveGapMs (one save covers every capture
   // made meanwhile) instead of skipping it.
   async capture({
@@ -583,7 +595,7 @@ export class BriefLedger {
     status = 'progress',
     cur = [],
     input = [],
-    flagged = [],
+    flagged = null,
     briefed = [],
     whole = false,
     wire = null,
@@ -600,13 +612,22 @@ export class BriefLedger {
     const align = alignLines(inFo, curFo);
     const map = mapOf(align, inFo.length);
     const at = (line) => (LINE(line, inFo.length) ? map[line - 1] + 1 : 0);
-    // An inherited protected line stays protected only where this run kept
-    // its text: a line the loop itself replaced was asked about, and its old
-    // text is held by the undo rule instead.
-    const kept = new Map(align.pairs.map(([i, j]) => [i + 1, j + 1]));
+    const prev = this.get(id);
+    // A protected line carried over stays protected only where its text was
+    // kept: a line the loop itself replaced was asked about, and its old text
+    // is held by the undo rule instead.
+    let carried = [];
+    if (!Array.isArray(flagged)) {
+      const kept = new Map(align.pairs.map(([i, j]) => [i + 1, j + 1]));
+      carried = (inherited?.prot || []).map((p) => kept.get(p) || 0);
+      if (prev?.prot.length) {
+        const held = new Map(alignLines(prev.fo, curFo).pairs.map(([i, j]) => [i + 1, j + 1]));
+        carried.push(...prev.prot.map((p) => held.get(p) || 0));
+      }
+    }
     const free = whole ? null : new Set(briefed);
     const prot = uniq(
-      [...flagged, ...(inherited?.prot || []).map((p) => kept.get(p) || 0)].filter(
+      (Array.isArray(flagged) ? flagged : carried).filter(
         (p) => LINE(p, n) && (free ? !free.has(p) : false)
       )
     );
@@ -622,7 +643,6 @@ export class BriefLedger {
     };
     for (const [i, j] of align.subs) addUndo(j + 1, inFo[i]);
     for (const [line, d] of inherited?.undo || []) addUndo(at(line), d);
-    const prev = this.get(id);
     const wires = (prev?.wires || []).slice();
     if (typeof wire === 'string') {
       const d = this.wireDigest(wire);
@@ -654,24 +674,31 @@ export class BriefLedger {
       },
       paid === true
     );
-    this.prune();
+    this.prune(id);
     if (persist) this.save();
     else this.saveSoon();
   }
 
-  // Adds a wire this server returned (or recorded for a resume) to the run's
-  // own entry, changing nothing else. No entry, no wire.
-  mint({ runId, wire, persist = true } = {}) {
-    if (!runId || !this.key || typeof wire !== 'string') return false;
-    const e = this.get(runDigest(runId));
+  // Records, on a run's own entry, a wire the server itself built for that run
+  // (the state or checkpoint of a resumed call, made from the server's own
+  // stored progress record), changing nothing else, and saves at once. The run
+  // is named by its run_id, or by the run ref its records carry: the sha256 of
+  // that id, whose first half is the entry's id. No entry, no wire; a wire the
+  // entry already holds is left as it is.
+  mint({ runId = null, ref = null, wire } = {}) {
+    if (!this.key || typeof wire !== 'string') return false;
+    const id = runId
+      ? runDigest(runId)
+      : typeof ref === 'string' && /^[0-9a-f]{64}$/.test(ref)
+        ? ref.slice(0, 32)
+        : null;
+    const e = id ? this.get(id) : null;
     if (!e) return false;
     const d = this.wireDigest(wire);
-    const k = e.wires.indexOf(d);
-    if (k >= 0) e.wires.splice(k, 1);
+    if (e.wires.includes(d)) return true;
     e.wires.push(d);
     if (e.wires.length > MAX_WIRES) e.wires.splice(0, e.wires.length - MAX_WIRES);
-    if (persist) this.save();
-    else this.saveSoon();
+    this.save();
     return true;
   }
 

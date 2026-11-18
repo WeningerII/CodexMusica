@@ -4,12 +4,12 @@
 import { randomBytes } from 'node:crypto';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
-import { admitLyricCall } from './lyric_tools.js';
+import { BRIEF_WIRE_SONG, admitLyricCall, vouchResumeWire } from './lyric_tools.js';
 import { connectConnector } from './client.js';
 import { requestDigest } from './job_store.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 import { createOperationBudget } from './paid_budget.js';
-import { withExecutionContext } from './execution_context.js';
+import { childExecutionContext, withExecutionContext } from './execution_context.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import {
   assertContinuationSemantics,
@@ -343,6 +343,18 @@ export function continueNote(footnote, task = null) {
 // it graded, so there the draft is graded first.
 export function briefNote(text, task = null) {
   if (!/\bBRIEF_(?:REQUIRED|LEDGER_UNAVAILABLE): /.test(text)) return text;
+  // The forged-wire refusal names the song a state or checkpoint holds, and a
+  // session withholds both: here that song is read with recover_only.
+  text = text.replace(
+    BRIEF_WIRE_SONG,
+    'Call lyric_revise with the latest session_id and `recover_only: true` to read the accepted ' +
+      'lyrics this session holds, ' +
+      (task?.phase === 'create'
+        ? 'grade them with lyric_grade, then call lyric_revise with that exact draft, the latest ' +
+          'session_id and `new_run: true`.'
+        : 'then call lyric_revise with the latest session_id, `new_run: true`, those lyrics as ' +
+          '`draft_text` and the same declarations this run was given.')
+  );
   if (task?.phase === 'create')
     text = text.replace(
       // The fix clause names lines as "3, 5 and 7": it ends at the sentence's
@@ -504,6 +516,9 @@ export function keepLeftSong(next, name, args, result, verdict) {
 export async function executeNative(session, name, input) {
   const next = clone(session);
   const args = clone(input);
+  // A draft this session restores into a revision is not the caller's own:
+  // the brief gate names "this draft" only where the caller sent one.
+  const hostDraft = name === 'lyric_revise' && input?.draft == null && input?.draft_text == null;
   if (next.task.domain === 'recipe') {
     // A format applies to the call that asks for it. Rich is the default for
     // every call, as published; an earlier call's format never carries over.
@@ -573,7 +588,9 @@ export async function executeNative(session, name, input) {
       session: next.native,
       verifySurface: false,
     });
-    const result = await client.call(name, args);
+    const result = await withExecutionContext(childExecutionContext({ hostDraft }), () =>
+      client.call(name, args)
+    );
     // The client drops a stopped run's continuation itself: a stop's archived
     // journal is provenance, not another pending question.
     next.native = client.snapshot();
@@ -798,7 +815,7 @@ export class WorkflowSessions {
             'RESUME_NOT_INTERRUPTED',
             `Only an interrupted operation can be resumed; this one is ${parent.state}. Read it with get_operation and continue from its session_id.`
           );
-        session = this.resumeSnapshot(parent, original);
+        session = this.resumeSnapshot(parent, original, { vouch: true });
       } else if (parent.state === 'pending') {
         throw fail(
           'SESSION_BUSY',
@@ -989,7 +1006,10 @@ export class WorkflowSessions {
     }
   }
 
-  resumeSnapshot(record, original) {
+  // vouch: the snapshot is built to run (resume), not to ask whether it could
+  // (resumable). The state it builds from the stored progress record is then
+  // recorded as one this server returned, for the run the record names.
+  resumeSnapshot(record, original, { vouch = false } = {}) {
     const session = clone(original);
     this.assertSemantics(session);
     if (record.intent.action.tool !== 'lyric_revise') return session;
@@ -1032,6 +1052,7 @@ export class WorkflowSessions {
           );
     // Sealed like every interview state (LOOP_REDESIGN.md §2.8 F).
     const wire = encodeInterviewWire(progress);
+    if (vouch) vouchResumeWire(progress, wire);
     session.native.continuation = {
       seed: declarations.seed,
       args: {
