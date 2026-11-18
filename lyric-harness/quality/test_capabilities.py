@@ -619,9 +619,14 @@ def test_semantic_witnesses_m313():
               sem[name].get("verdicts") == [None, None]
               and all(cap in r["reason"] for r in g["refusals"]),
               [r["reason"][:90] for r in g["refusals"]])
-    check("incremental repetition: the canonical one-substitution instance "
-          "is judged, definitely, NOT to stand in it — the finding",
-          sem["incremental repetition"].get("verdicts", [None])[0] is False,
+    # REPINNED (stage 4, 2026-11-16): ~~the canonical one-substitution
+    # instance was judged NOT to stand, a finding against the definition~~.
+    # The row is the one-word diff now, so the witness stands and its
+    # contrast does not.
+    check("incremental repetition: the one-substitution witness stands, "
+          "its contrast does not",
+          sem["incremental repetition"]["status"] == "witness_and_contrast"
+          and sem["incremental repetition"].get("verdicts") == [True, False],
           sem["incremental repetition"].get("verdicts"))
     langs = {n: {t.lang for t in R.REGISTRY[n].traditions}
              for n in ("qafiya (before the radif)", "dvitiyakshara-prasa",

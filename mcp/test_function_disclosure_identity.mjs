@@ -309,7 +309,7 @@ test(
 );
 
 test(
-  'actual recurrence report reaches plan text only and grade retains its receipt',
+  'a stated count reaches the plan as the draw it built, not as a report, and grade retains its receipt',
   { timeout: 120000 },
   async (t) => {
     const client = await connection(t);
@@ -320,11 +320,23 @@ test(
     assert.notEqual(result.isError, true, JSON.stringify(result));
     const planned = verdictOf(result);
     assert.equal(planned.exit_code, 0);
+    // STAGE 4 (2026-11-16): ~~the plan text printed one recurrence line,
+    // "bridge ×4: the request specifies sections.bridge=4.", outside the
+    // plan~~. Bridge is open now and a stated count is built into the draw,
+    // so there is no lift to report: `recurrence_report` is gone
+    // (`quality/test_function_disclosure.py`, StatedCountDisclosureTests)
+    // and the plan's own `choices.pattern.chosen_from` names the counts it
+    // was built with. The line appears nowhere, and the four bridges stand.
     const sentence = 'bridge ×4: the request specifies sections.bridge=4.';
-    assert.equal(result.content[0].text.split(sentence).length - 1, 1);
-    assert.equal(planned.plan.sections.filter((s) => s.function === 'bridge').length, 4);
-    assert(!planned.plan.writer_brief.includes(sentence));
+    assert.equal(result.content[0].text.split(sentence).length - 1, 0);
     assert(!JSON.stringify(planned.plan).includes(sentence));
+    assert.equal(planned.plan.sections.filter((s) => s.function === 'bridge').length, 4);
+    assert(
+      planned.plan.choices.pattern.chosen_from.endsWith(
+        '; stated counts built into the draw: ' + args.wants.join('; ')
+      ),
+      planned.plan.choices.pattern.chosen_from
+    );
     assert.equal(planned.plan_sha256, hash(planned.plan));
     const graded = verdictOf(
       await client.callTool({

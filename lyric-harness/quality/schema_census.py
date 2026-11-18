@@ -128,12 +128,10 @@ SEMANTIC_BLOCKERS = {
         "`declare_stub_resolution` or a declared `line_status`, so a real "
         "`&c.` pointer (Payne, staged corpus) and its non-referent both "
         "refuse. The seam, not the witness, is missing."),
-    "incremental repetition": (
-        "the SCHEMA: it is registered as whole-line token equality, and its "
-        "own note says the one-slot diff R67 defines is not searched for. "
-        "The canonical instance (Tennyson, `Cannon to right/left of them`) "
-        "is therefore judged NOT to stand in it; only verbatim repetition "
-        "does. A finding against the definition, not an exhibit to swap."),
+    # ~~"incremental repetition": the schema was whole-line token
+    # equality, so its witness was judged not to stand.~~ Removed in
+    # stage 4 (2026-11-16): the row is the one-word diff now
+    # (`relations.OneTokenDiffers`) and its witness answers [True, False].
     "qafiya (before the radif)": (
         "the LANGUAGE coordinate: its traditions are Arabic, Persian and "
         "Urdu only (`ara`, `fas`, `hin`); the grade route resolves English "
