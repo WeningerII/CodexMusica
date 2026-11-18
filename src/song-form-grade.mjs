@@ -1,8 +1,12 @@
 // Compare catalog requirements with measurements from the current candidate.
 // Blueprint coordinates describe the declared arrangement, including its bar grid.
+import { refrainAddresses, regularAlexandrine, stressEndingFor } from './song-form-line-roles.mjs';
+import { gradeNestedDivisions } from './song-form-divisions.mjs';
+import { sectionArrangement, measureSectionArrangement } from './song-form-section-arrangement.mjs';
 import { checkReaderForm, realizeForm } from './song-forms.mjs';
 import {
   isVerseDivision,
+  measuredStanzaRole,
   isWordlessWriterRole,
   projectSongFormCreation,
 } from './song-form-creation.mjs';
@@ -33,8 +37,24 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       verdict: 'unknown',
       checks: [{ kind: 'realization', outcome: 'unknown' }],
     };
+  const creation = projectSongFormCreation(plan, counts);
+  if (creation.nestedDivisions)
+    return gradeNestedDivisions(plan, creation.contract.sections, lines, sections);
+  const sourceArrangement = sectionArrangement(plan);
+  const measurement = measureSectionArrangement(sourceArrangement, plan, lines, sections);
+  sections = measurement.sections;
   const input = { variant, counts };
-  if (plan.coverage.lines !== 'none') input.lines = lines;
+  // A spoken or literary function printed on the line template is a requested
+  // property. Echoing its name cannot measure a punchline, a wish, or a turn.
+  // Section and speaker declarations have a separate score-based evidence path.
+  if (plan.coverage.lines !== 'none' && lines !== undefined) {
+    input.lines = lines.map((row) => {
+      if (!row || typeof row !== 'object' || !Object.hasOwn(row, 'role')) return row;
+      const copy = { ...row };
+      delete copy.role;
+      return copy;
+    });
+  }
   if (plan.coverage.sections !== 'none' && sections)
     input.sections = sections.map(({ lineSpan, ...section }) =>
       plan.coverage.lines === 'complete' && lineSpan ? { ...section, lineSpan } : section
@@ -49,12 +69,16 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     node.children.forEach(walk);
   }
   plan.tree.forEach(walk);
-  const extras = [];
+  const extras = measurement.checks;
   const spans = new Map();
   const hasInstrumental = plan.sections.some((section) => isWordlessWriterRole(section.role));
-  const projection =
-    stanzas.length || hasInstrumental ? projectSongFormCreation(plan, counts) : null;
+  const projection = stanzas.length || hasInstrumental ? creation : null;
   const arranged = projection?.arrangement;
+  // A zero-count optional section is absent from the selected arrangement.
+  // Count explicitly named sections separately from the stanza carriers.
+  if (arranged && sections && !plan.sections.length && input.sections) {
+    input.sections = input.sections.filter((section) => section.role !== arranged.role);
+  }
   const nativeInstrumental = hasInstrumental && projection?.contract;
   const divisions = arranged
     ? stanzas.filter((node) => node.children.every((child) => child.unit === 'line'))
@@ -165,8 +189,46 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     if (!byClass.has(row.rhyme)) byClass.set(row.rhyme, []);
     byClass.get(row.rhyme).push(choices.get(row.address) ?? []);
   }
+  const refrains = refrainAddresses(plan.tree);
+  const linePositions = new Map(
+    plan.lines.filter((line) => line.positionKnown).map((line) => [line.address, line.index])
+  );
+  const printedReturns = new Map();
+  for (const check of result.checks.filter((c) => c.kind === 'returns')) {
+    const allPrinted = check.addresses.every((address) => {
+      const observed = lines?.[linePositions.get(address) - 1];
+      return typeof observed === 'string' || typeof observed?.text === 'string';
+    });
+    printedReturns.set(check.label, allPrinted ? check.outcome : 'unknown');
+  }
   function refine(check) {
+    const index = linePositions.get(check.address);
+    if (check.kind === 'role' && index) {
+      const line = addresses.get(check.address);
+      const ending = stressEndingFor(line.role);
+      if (ending || line.role === 'alexandrine') {
+        const observed = lines?.[index - 1];
+        const stress = typeof observed?.text === 'string' ? observed.stress : undefined;
+        const matches = ending ? stress?.endsWith(ending) : stress === regularAlexandrine;
+        return {
+          ...check, // A noncanonical alexandrine can contain metrical substitutions.
+          outcome: matches ? 'pass' : stress === undefined || !ending ? 'unknown' : 'fail',
+        };
+      }
+      if (refrains.has(line.address))
+        return { ...check, outcome: printedReturns.get(line.returns) ?? 'unknown' };
+    }
     if (check.outcome !== 'unknown') return check;
+    if (check.kind === 'role' && lines && plan.coverage.lines === 'complete') {
+      const node = addresses.get(check.address);
+      if (node?.unit === 'stanza' && node.children.every((child) => child.unit === 'line')) {
+        const start = node.span.lines[0];
+        const end = node.span.lines[1];
+        const observed = measuredStanzaRole(node.role, lines.slice(start, end));
+        if (observed !== undefined)
+          return { ...check, outcome: observed ? 'pass' : 'fail', basis: 'measured-stanza' };
+      }
+    }
     if (check.kind === 'rhyme') {
       const known = check.addresses
         .map((address) => choices.get(address))
@@ -228,6 +290,15 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     id,
     variant: plan.variant,
     scope: plan.scope,
+    ...(sourceArrangement && {
+      sectionArrangement: {
+        sourceRole: sourceArrangement.sourceRole,
+        writingFunction: sourceArrangement.role,
+        measured: sourceArrangement.repeatText
+          ? ['section-order', 'line-counts', 'verbatim-text']
+          : ['section-order', 'line-counts'],
+      },
+    }),
     verdict: checks.some((c) => c.outcome === 'fail')
       ? 'fail'
       : checks.every((c) => c.outcome === 'pass')

@@ -58,8 +58,12 @@ def _sections(bp, observed):
         start = exact_integer(section.get("start_bar", cursor))
         spans.append({"name": section["name"], "bars": bars, "start_bar": start, "index": index})
         row = {"bars": bars}
+        if "divisionPath" in section:
+            row["divisionPath"] = section["divisionPath"]
         if isinstance(section.get("function"), str) and section["function"]:
             row["role"] = section["function"]
+        if isinstance(section.get("source_role"), str):
+            row["sourceRole"] = section["source_role"]
         rows.append(row)
         cursor = start + bars
     lengths = [0] * len(sections)
@@ -92,7 +96,8 @@ def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None, retur
     basis = mandate.default_relation
     if terminal_groups:
         from quality.catalog_shape import rhyme_source_groups, terminal_rhyme_relation
-        sources = rhyme_source_groups(terminal_groups, return_groups)
+        paired_groups = [group for group in terminal_groups if len(group) > 1]
+        sources = rhyme_source_groups(paired_groups, return_groups)
         if return_groups:
             declared = [list(r.lines) for r in mandate.returns if r.verbatim is True and not r.placed]
             if declared != return_groups:
@@ -126,9 +131,9 @@ def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None, retur
         if terminal_groups:
             # A truncated draft can project fewer line numbers. It cannot prove the complete group.
             members = check.get("lines")
-            if members not in terminal_groups:
+            if members not in paired_groups:
                 continue
-            k = terminal_groups.index(members)
+            k = paired_groups.index(members)
             sources_in_group = sources[k]
             pairs = [(a, b) for pos, a in enumerate(sources_in_group) for b in sources_in_group[pos + 1:]]
             outcomes = [None if (*pair, k) in refused_groups else terminal_verdicts.get((*pair, k)) for pair in pairs]

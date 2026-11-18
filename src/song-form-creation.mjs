@@ -1,5 +1,8 @@
 // Translate only obligations that the native seeded writer can enforce.
 // The writer still judges placement, recurrence, envelope and seed feasibility.
+import { refrainAddresses } from './song-form-line-roles.mjs';
+import { projectNestedDivisions } from './song-form-divisions.mjs';
+import { sectionArrangement } from './song-form-section-arrangement.mjs';
 import { projectLineRequirement } from './song-form-line-requirements.mjs';
 
 const NATIVE_ROLES = new Set([
@@ -39,7 +42,40 @@ const LINE_DIVISIONS = new Set([
   'octave',
   'distich',
   'line-pair',
+  'rhyme-run',
 ]);
+// These role names describe a particular measurable setting. They never
+// license inference of subject matter, poetic cuts, or Japanese sound units.
+export function measuredStanzaRole(role, lines) {
+  const milwr = role === 'milwr';
+  if (!milwr && role !== 'english-counted-setting') return undefined;
+  const counts = milwr ? [7, 7, 7] : [5, 7, 5];
+  if (lines.length !== counts.length) return false;
+  let unknown = false;
+  const keys = new Set();
+  for (let i = 0; i < lines.length; i++) {
+    const row = lines[i];
+    const syllables = row?.syllables ?? row?.stress?.length;
+    if (syllables === undefined) unknown = true;
+    else if (syllables !== counts[i]) return false;
+    if (milwr) {
+      if (row?.rhyme === undefined) unknown = true;
+      else keys.add(row.rhyme);
+    }
+  }
+  if (keys.size > 1) return false;
+  return unknown ? undefined : true;
+}
+const UNMEASURED_STANZA_ROLES = new Map([
+  ['english-imagistic-cut', 'unmeasured-imagistic-cut'],
+  ['human-observation', 'unmeasured-subject-matter'],
+  ['english-short-lines', 'unspecified-short-line-length'],
+  ['deibhidhe', 'unmeasured-bardic-correspondences'],
+  ['rannaigheacht-mhor', 'unmeasured-bardic-correspondences'],
+  ['seadna', 'unmeasured-bardic-correspondences'],
+  ['ae-freislighe', 'unmeasured-bardic-closure'],
+]);
+
 export function isWordlessWriterRole(role) {
   return role === 'solo' || role === 'interlude';
 }
@@ -76,6 +112,7 @@ export function projectSongFormCreation(plan, counts = {}) {
   };
   if (plan.status !== 'ready') return result;
   const reasons = result.reasons;
+  const roleArrangement = sectionArrangement(plan);
   const sections = [];
   const divisions = [];
   const lineRequirements = [];
@@ -93,8 +130,7 @@ export function projectSongFormCreation(plan, counts = {}) {
   const rhymeGroups = [...byRhyme.values()];
   const endsRhyme =
     plan.coverage.lines === 'complete' &&
-    rhymeGroups.length > 0 &&
-    rhymeGroups.every((group) => group.length >= 2) &&
+    rhymeGroups.some((group) => group.length >= 2) &&
     plan.lines.every((line) => line.positionKnown && line.rhyme !== undefined);
   const returnGroups = [...byReturn.values()];
   const copies = new Set(returnGroups.flatMap((group) => group.slice(1)));
@@ -106,7 +142,10 @@ export function projectSongFormCreation(plan, counts = {}) {
         group.length >= 2 &&
         rhymeGroups.some((rhymes) => group.every((line) => rhymes.includes(line)))
     ) &&
-    rhymeGroups.every((group) => group.filter((n) => !copies.has(n)).length >= 2);
+    rhymeGroups.every(
+      (group) => group.length === 1 || group.filter((n) => !copies.has(n)).length >= 2
+    );
+  const refrains = fixedReturns ? refrainAddresses(plan.tree) : new Set();
   const positions = new Map(plan.lines.map((line) => [line.address, line]));
   const reasonKeys = new Set();
   function refuse(code, node, field) {
@@ -122,11 +161,20 @@ export function projectSongFormCreation(plan, counts = {}) {
     for (const feature of FEATURES) {
       if (node[feature] === undefined) continue;
       if (node.unit === 'section' && feature === 'role') continue;
+      if (
+        node.unit === 'stanza' &&
+        feature === 'role' &&
+        node.children.every((child) => child.unit === 'line') &&
+        measuredStanzaRole(node.role, node.children) === true
+      )
+        continue;
       if (feature === 'bars' && (node.unit === 'section' || isVerseDivision(node.unit))) {
         if (!Number.isSafeInteger(node.bars) || node.bars < 1) refuse('invalid-section-bars', node);
         continue;
       }
-      refuse('unsupported-unit-feature', node, feature);
+      const specific =
+        feature === 'role' && node.unit === 'stanza' && UNMEASURED_STANZA_ROLES.get(node.role);
+      refuse(specific || 'unsupported-unit-feature', node, specific ? node.role : feature);
     }
     // The root can group neutral divisions. Each inner boundary remains a
     // native section boundary, and together they span the whole selection.
@@ -152,7 +200,13 @@ export function projectSongFormCreation(plan, counts = {}) {
       (['poem', 'song'].includes(node.unit) &&
         node.children.some((child) => child.unit === 'line'));
     if (WRAPPERS.has(node.unit) && !counted) {
-      if (!node.children.length) return refuse('empty-structure', node);
+      if (!node.children.length)
+        return refuse(
+          node.unit === 'song' && node !== plan.tree[0]
+            ? 'independent-song-required'
+            : 'empty-structure',
+          node
+        );
       node.children.forEach(visit);
       return;
     }
@@ -160,10 +214,29 @@ export function projectSongFormCreation(plan, counts = {}) {
       return refuse('unsupported-division', node);
     }
     if (counted && !node.children.length) return refuse('unspecified-division', node);
-    const role = counted ? 'verse' : node.role.replaceAll('-', '_');
-    if (!NATIVE_ROLES.has(role)) return refuse('unsupported-section-role', node, node.role);
+    const role = counted ? 'verse' : (roleArrangement?.role ?? node.role.replaceAll('-', '_'));
+    if (!NATIVE_ROLES.has(role)) {
+      const moraPhrases =
+        node.children.length &&
+        node.children.every(
+          (phrase) =>
+            phrase.unit === 'phrase' &&
+            phrase.children.length &&
+            phrase.children.every((child) => child.unit === 'mora')
+        );
+      return refuse(
+        moraPhrases ? 'unmeasured-mora-count' : 'unsupported-section-role',
+        node,
+        node.role
+      );
+    }
     for (const child of node.children) {
-      const requirement = projectLineRequirement(child, endsRhyme, fixedReturns);
+      const requirement = projectLineRequirement(
+        child,
+        endsRhyme,
+        fixedReturns || roleArrangement?.repeatText,
+        refrains.has(child.address)
+      );
       if (requirement === null) {
         refuse('unsupported-line-structure', child);
       } else if (requirement) {
@@ -181,12 +254,29 @@ export function projectSongFormCreation(plan, counts = {}) {
       unit: 'section',
       role,
       lines: node.children.length || null,
+      ...(roleArrangement && { sourceRole: node.role }),
       ...(node.bars !== undefined && { bars: node.bars }),
     });
   }
   plan.tree.forEach(visit);
+  // These arrangements preserve the full sequence of named divisions on the
+  // score, including the participants in independently declared turns.
+  let nestedDivisions = false;
+  if (reasons.length) {
+    const layout = projectNestedDivisions(plan, NATIVE_ROLES);
+    if (layout) {
+      sections.splice(0, sections.length, ...layout);
+      reasons.length = divisions.length = lineRequirements.length = 0;
+      nestedDivisions = true;
+    }
+  }
   if (!sections.length && !reasons.length) refuse('empty-structure');
-  if (endsRhyme && (sections.length !== 1 || sections[0].lines !== plan.lines.length))
+  if (
+    endsRhyme &&
+    (sections.some((part) => part.lines === null) ||
+      (sections.length > 1 && sections.some((part) => part.role !== 'verse')) ||
+      sections.reduce((total, part) => total + part.lines, 0) !== plan.lines.length)
+  )
     refuse('unsupported-rhyme-layout');
   if (fixedReturns) {
     const measures = new Map(
@@ -203,6 +293,11 @@ export function projectSongFormCreation(plan, counts = {}) {
   if (sections.length > CREATION_LIMITS.maxSections) refuse('native-section-limit');
   if (lineRequirements.length && sections.some((part) => part.lines === null)) {
     refuse('incomplete-line-positions');
+  }
+  if (nestedDivisions) {
+    const known = sections.reduce((n, part) => n + (part.lines ?? 1), 0);
+    if (known > CREATION_LIMITS.maxLines) refuse('native-line-limit');
+    if (sections.every((part) => part.lines === 1)) refuse('no-inspectable-native-pair');
   }
   if (divisions.length) {
     if (sections.length !== divisions.length) refuse('mixed-declared-and-arranged-roles');
@@ -257,6 +352,7 @@ export function projectSongFormCreation(plan, counts = {}) {
   if (reasons.length) return { ...result, status: 'unsupported' };
   return {
     ...result,
+    ...(nestedDivisions && { nestedDivisions: true }),
     ...(divisions.length && { arrangement: { role: 'verse', divisions } }),
     contract: {
       version: 1,
@@ -267,7 +363,7 @@ export function projectSongFormCreation(plan, counts = {}) {
       ...(lineRequirements.length && { lineRequirements }),
       sections,
       rhymeGroups: endsRhyme ? rhymeGroups : [],
-      returnGroups: fixedReturns ? returnGroups : [],
+      returnGroups: fixedReturns || roleArrangement?.repeatText ? returnGroups : [],
     },
   };
 }

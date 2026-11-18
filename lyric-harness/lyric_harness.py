@@ -13035,8 +13035,9 @@ def main():
               f"subdivision {the_plan['subdivision']}, "
               f"{the_plan['choices']['bars_per_line']} bar(s) per line")
         for func, sch in the_plan["choices"]["schemes"].items():
-            note = ("with a mandated pair" if sch["lines"] > 1
-                    else "(a one-line section mandates no pair)")
+            note = ("with a mandated pair" if len(set(sch["rgs"])) < sch["lines"]
+                    else "(a one-line section mandates no pair)" if sch["lines"] == 1
+                    else "(no pair within this section)")
             print(f"  SCHEME {func}: {sch['lines']} line(s), rgs "
                   f"{tuple(sch['rgs'])} -- one of {sch['chosen_from']} "
                   f"{note}")

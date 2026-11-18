@@ -28,6 +28,17 @@ class CatalogLineFitTests(unittest.TestCase):
         self.assertIn((1, "CATALOG_SYLLABLE_BINDINGS"), conflicts(native, [
             {"line": 1, "syllables": 2}, {"line": 2, "stresses": 3}]))
 
+    def test_terminal_stress_is_a_suffix_and_returns_compose_their_suffixes(self):
+        native = blueprint([8, 8], returns="1,2")
+        self.assertEqual(conflicts(native, [{"line": 1, "stressEnding": "."},
+                                            {"line": 2, "stressEnding": "/."}]), set())
+        for second in ({"stressEnding": "/"}, {"stress": "./"}, {"syllables": 1}):
+            with self.subTest(second=second):
+                result = conflicts(native, [{"line": 1, "stressEnding": "/."}, {"line": 2, **second}])
+                self.assertIn((1, "CATALOG_ENDING_STRESS_CONFLICT"), result)
+        with self.assertRaises(plan.PlanRefused):
+            conflicts(native, [{"line": 1, "stressEnding": ".."}])
+
     def test_strict_requirement_schema_and_positions(self):
         native = blueprint([8, 8])
         for bad in [None, {}, [{"line": 1}], [{"line": 1, "words": 0}], [{"line": True, "words": 1}],

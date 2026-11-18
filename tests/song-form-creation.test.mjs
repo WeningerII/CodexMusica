@@ -54,7 +54,22 @@ test('every published selection has an exact structural contract or an explicit 
         assert.equal(contract.variant, choice.index, where);
         assert.deepEqual(contract.counts, counts, where);
         assert.ok(contract.sections.length > 0, where);
-        if (projected.arrangement) {
+        if (projected.nestedDivisions) {
+          const nodes = new Map();
+          function index(node) {
+            nodes.set(node.address, node);
+            node.children.forEach(index);
+          }
+          realization.tree.forEach(index);
+          for (const part of contract.sections) {
+            assert.ok(part.divisionPath.length, where);
+            for (const mark of part.divisionPath) {
+              const original = nodes.get(mark.address);
+              assert.equal(mark.unit, original.unit, where);
+              assert.equal(mark.role, original.role, where);
+            }
+          }
+        } else if (projected.arrangement) {
           arranged++;
           assert.equal(realization.coverage.lines, 'complete', where);
           assert.equal(projected.arrangement.role, 'verse', where);
@@ -71,7 +86,7 @@ test('every published selection has an exact structural contract or an explicit 
           assert.deepEqual(contract.sections.map((p) => p.lines), source.map((p) => p.lines), where);
         } else {
           named++;
-          assert.deepEqual(contract.sections.map(s => s.role), realization.sections.map(s =>
+          assert.deepEqual(contract.sections.map(s => s.sourceRole ?? s.role), realization.sections.map(s =>
             s.role.replaceAll('-', '_')), where);
           const expectedLengths = [];
           function collect(node) {
@@ -101,7 +116,15 @@ test('every published selection has an exact structural contract or an explicit 
               measures.stress = node.stress;
             }
             if (node.stresses !== undefined) measures.stresses = node.stresses;
-            if (node.children.length) {
+            if (node.role === 'alexandrine') {
+              measures.stress = './'.repeat(6);
+              measures.syllables = measures.stress.length;
+            }
+            const ending = {'stressed-ending':'/', 'unstressed-ending':'.', 'masculine-ending':'/', 'feminine-ending':'/.'}[node.role];
+            if (ending && node.stress === undefined) measures.stressEnding = ending;
+            if (node.children.length && node.children.every(child => child.unit === 'syllable')) {
+              measures.syllables = node.children.length;
+            } else if (node.children.length) {
               assert.ok(node.children.every((child) => child.unit === 'word'), where);
               measures.words = node.children.length;
               if (node.children.some(word => word.children.length))
@@ -116,7 +139,7 @@ test('every published selection has an exact structural contract or an explicit 
         if (marked.length) {
           assert.ok(marked.length >= 2, where);
           assert.deepEqual(marked, realization.lines, where);
-          assert.ok(contract.rhymeGroups.every(group => group.length >= 2), where);
+          assert.ok(contract.rhymeGroups.some(group => group.length >= 2), where);
         }
         assert.deepEqual(contract.rhymeGroups, [...new Set(marked.map(line => line.rhyme))].map(label => marked.filter(line => line.rhyme === label).map(line => line.index)), where);
         const repeated = realization.lines.filter(line => line.returns !== undefined);
@@ -246,7 +269,7 @@ test('no contract escapes when a selected obligation cannot be enforced by the n
     ...['stress', 'stresses', 'bars', 'role'].map((key, i) =>
       stanza(line({ [key]: ['./', 1, 1, 'answer'][i] }))),
     stanza(line({ children: [make('word', { times: 2 })] })),
-    stanza(...['A','B','C','A'].map(rhyme => line({rhyme}))),
+    stanza(...['A','B','C','D'].map(rhyme => line({rhyme}))),
     stanza(line({ rhyme:'A' }), line()), stanza(line({ returns:'r' }), line()),
     make('simultaneous', { children: [stanza(line()), stanza(line())] }),
     make('staggered-voices', { children: [stanza(line()), stanza(line())] }),
@@ -312,4 +335,32 @@ test('letter selections retain word order and refuse features on an individual l
   const result = projection(makeForm(make('letter')), 'f');
   assert.deepEqual(result.contract.lineRequirements, [1,2].map(line=>({line,words:3,wordLetters:[2,null,1]})));
   assert.equal(projection(makeForm(make('letter',{role:'initial'})), 'f').contract,null);
+});
+
+test('the writer preserves selected syllable leaves and lexical ending measurements', () => {
+  const simple = entry(stanza(line({role:'stressed-ending',children:[make('syllable',{times:3})]}),line({role:'unstressed-ending'})));
+  const projected = projection(simple,'f');
+  assert.deepEqual(projected.contract.lineRequirements,[{line:1,syllables:3,stressEnding:'/'},{line:2,stressEnding:'.'}]);
+  for (const child of [
+    line({role:'narrative'}),line({role:'feminine-ending',stress:'./'}),
+    line({syllables:4,children:[make('syllable',{times:3})]}),line({children:[make('syllable',{role:'stressed'})]}),
+    line({stresses:4,children:[make('syllable',{times:3})]}),
+  ]) assert.equal(projection(entry(stanza(child,line())), 'f').status,'unsupported');
+});
+
+test('unmeasured subject matter, morae, line length and bardic closure retain explicit refusals', () => {
+  for (const [id, variant, counts, code] of [
+    ['senryu', 1, { '1.1.1': 3 }, 'unmeasured-subject-matter'],
+    ['haiku', 1, { '1.1.1': 3 }, 'unmeasured-imagistic-cut'],
+    ['tanka', 1, {}, 'unspecified-short-line-length'],
+    ['senryu', 0, {}, 'unmeasured-mora-count'],
+    ['tanka', 0, {}, 'unmeasured-mora-count'],
+    ['irish-syllabic-quatrains', 0, {}, 'unmeasured-bardic-correspondences'],
+    ['irish-syllabic-quatrains', 3, {}, 'unmeasured-bardic-closure'],
+  ]) {
+    const result = projection(catalog, id, { variant, counts });
+    assert.equal(result.status, 'unsupported', id);
+    assert.ok(result.reasons.some(row => row.code === code), id);
+    assert.equal(result.contract, null);
+  }
 });

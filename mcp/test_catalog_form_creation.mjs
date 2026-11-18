@@ -187,7 +187,6 @@ test('a creation sweep refuses deferred forms and unselected alternatives withou
   for (const [selection, expected] of [
     [{ catalog_form: 'acrostic' }, /deferred/i],
     [{ catalog_form: 'terzanelle' }, /unsupported/i],
-    [{ catalog_form: 'narrative-story-song', catalog_variant: 0 }, /unsupported/i],
     [{ catalog_form: 'quatern' }, /named.role|unsupported/i],
     [{ catalog_form: 'monostich' }, /native-line-limit|no-inspectable-native-pair/],
     [{ catalog_form: 'cherita' }, /inconsistent-recurring-section-length/],
@@ -1169,5 +1168,136 @@ test(
       attempts: 0,
     });
     inspect(measured(await host.read(revised.operation_id, 'full')), true);
+  }
+);
+
+for (const example of [
+  {
+    id: 'traditional-ballad',
+    good: ['two ten', 'two one', 'two eight', 'two sun'],
+    change: [2, 'two men'],
+    failedKind: 'rhyme-distinct',
+    groups: '2,4',
+  },
+  {
+    id: 'pantoum',
+    good: [
+      'two one',
+      'three red',
+      'four sun',
+      'five said',
+      'three red',
+      'six blue',
+      'five said',
+      'seven through',
+      'six blue',
+      'four sun',
+      'seven through',
+      'two one',
+    ],
+    change: [11, 'nine one'],
+    failedKind: 'returns',
+    groups: '1,3;2,4;6,8',
+  },
+]) {
+  test(
+    'native catalog rhyme grading preserves the selected ' + example.id,
+    { timeout: 180_000 },
+    async (t) => {
+      const host = await sessionHost(t);
+      await host.begin();
+      const sweep = measured(
+        await host.run('lyric_sweep', {
+          catalog_form: example.id,
+          catalog_variant: 0,
+          seed_from: 11,
+          count: 1,
+          draw: ['lines', 'functions', 'melody', 'relation'],
+        })
+      );
+      assert.deepEqual(sweep.accepted_shown, [11]);
+      const op = await host.run('lyric_plan', { seed: 11 });
+      const { plan } = measured(await host.read(op.operation_id, 'full'));
+      assert.equal(plan.groups, example.groups);
+      const screen = measured(
+        await host.run('lyric_screen', { words: ['one', 'none'], relation: 'class:RHYME' })
+      );
+      assert.equal(screen.exit_code, 0, screen.report);
+      async function grade(draft) {
+        const run = await host.run('lyric_grade', { seed: 11, draft });
+        const receipt = measured(run);
+        assert.equal(receipt.measurement_status, 'graded', JSON.stringify(receipt));
+        return measured(await host.read(run.operation_id, 'full')).coverage.catalog_form;
+      }
+      const good = await grade(example.good);
+      assert.equal(
+        good.verdict,
+        'pass',
+        JSON.stringify(good.checks.filter((c) => c.outcome !== 'pass'))
+      );
+      const wrong = [...example.good];
+      wrong[example.change[0]] = example.change[1];
+      const bad = await grade(wrong);
+      assert.equal(bad.verdict, 'fail');
+      assert.ok(bad.checks.some((c) => c.kind === example.failedKind && c.outcome === 'fail'));
+    }
+  );
+}
+
+test(
+  'Street cry keeps its printed call, and an altered return fails on the exact line',
+  { timeout: 180_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const relation = 'class:RHYME';
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        seed_from: 11,
+        count: 1,
+        catalog_form: 'street-cry',
+        catalog_variant: 1,
+        catalog_counts: [{ path: '1.1', count: 2 }],
+        lines: 4,
+        relation,
+        draw: ['functions', 'melody'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [11], sweep.report);
+    const seed = sweep.accepted_shown[0];
+    const op = await host.run('lyric_plan', { seed, lines: 4, relation });
+    const found = measured(await host.read(op.operation_id, 'full'));
+    assert.deepEqual(
+      found.plan.sections.map((s) => [s.source_role, s.function]),
+      [
+        ['call', 'chorus'],
+        ['call', 'chorus'],
+      ]
+    );
+    assert.equal(found.plan.returns, '1,3;2,4');
+    assert.match(op.tool_result.content[0].text, /\[CALL — 2 lines/);
+    assert.equal(
+      measured(await host.run('lyric_screen', { words: ['one', 'four'], relation })).exit_code,
+      0
+    );
+    const draft = ['one two', 'three four', 'one two', 'three four'];
+    async function grade(lines) {
+      const result = await host.run('lyric_grade', { seed, draft: lines });
+      return measured(await host.read(result.operation_id, 'full'));
+    }
+    const matching = await grade(draft);
+    assert.equal(matching.coverage.catalog_form.verdict, 'pass');
+    assert.equal(matching.coverage.catalog_form.sectionArrangement.writingFunction, 'chorus');
+    const changed = [...draft];
+    changed[2] = 'five two';
+    const broken = await grade(changed);
+    assert.equal(broken.exit_code, 3, broken.report);
+    assert.equal(broken.coverage.catalog_form.verdict, 'fail');
+    assert.ok(
+      broken.coverage.catalog_form.checks.some(
+        (c) =>
+          c.kind === 'section-text-return' && c.outcome === 'fail' && c.lines.join(',') === '1,3'
+      )
+    );
   }
 );

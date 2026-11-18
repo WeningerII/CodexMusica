@@ -205,9 +205,22 @@ class CatalogPlannerTests(unittest.TestCase):
         native = plan.make_plan(11, song_form=data, relations={"B": "schema:perfect rhyme"})
         self.assertEqual(native["groups"], "1,3;2.endword,5.endword,7.endword;4,6,8")
         self.assertEqual(native["relations"], {"A": "class:RHYME", "B": "schema:perfect rhyme", "C": "class:RHYME"})
-        for invalid in ([[1, 3], [2, 3, 5], [4, 6, 8]], [[2, 5, 7], [1, 3], [4, 6, 8]], [[1], [2, 3, 4, 5, 6, 7, 8]]):
+        for invalid in ([[1, 3], [2, 3, 5], [4, 6, 8]], [[2, 5, 7], [1, 3], [4, 6, 8]], [[i] for i in range(1, 9)]):
             with self.subTest(groups=invalid), self.assertRaises(plan.PlanRefused):
                 plan.make_plan(11, song_form={**data, "rhymeGroups": invalid})
+
+    def test_prescribed_classes_keep_one_member_unpaired_and_cross_real_section_boundaries(self):
+        # ABCB | CDAE. D and E have no pair, but they must remain distinct.
+        sections = [{"unit": "section", "role": "verse", "lines": 4}] * 2
+        classes = [[1, 7], [2, 4], [3, 5], [6], [8]]
+        data = catalog("fixture", sections, rhymes=classes)
+        native = plan.make_plan(11, song_form=data, relations={"C": "schema:perfect rhyme"})
+        self.assertEqual(native["groups"], "1,7;2,4;3.endword,5.endword")
+        self.assertEqual(plan._sweep_coords(native).n_sounds, 5)
+        self.assertEqual([s["section"] for s in native["line_slots"]], ["VERSE1"] * 4 + ["VERSE2"] * 4)
+        self.assertEqual([s["rgs"] for s in native["choices"]["schemes"].values()],
+                         [[0, 1, 2, 1], [0, 1, 2, 3]])
+        self.assertEqual(plan.fill_plan(native, ["1"] * 8)["song_form"]["rhymeGroups"], classes)
 
     def test_fixed_return_has_one_source_and_preserves_all_copy_positions(self):
         data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 6}],

@@ -98,14 +98,26 @@ function branchList(nodes, depth = 0) {
   return list;
 }
 
-function writerDescription({ arrangement, contract }) {
+function writerDescription({ arrangement, contract, nestedDivisions }) {
   const statements = [];
+  if (nestedDivisions)
+    statements.push(
+      'The writer preserves the nested divisions and any participant assignments in the score.'
+    );
   if (arrangement) {
     const { divisions } = arrangement;
     statements.push(
       divisions.length === 1
         ? 'The writer uses one ' + divisions[0].lines + '-line verse for this pattern.'
         : 'The writer uses a verse for each division and keeps the displayed line counts.'
+    );
+  }
+  const first = contract.sections[0];
+  if (first?.sourceRole) {
+    statements.push(
+      first.role === 'chorus'
+        ? 'Each labeled block is sung as a chorus. Repeat its lines verbatim.'
+        : 'Each labeled sonnet occupies a separate 14-line verse.'
     );
   }
   if (contract.rhymeGroups.length === 1)
@@ -130,6 +142,8 @@ function writerDescription({ arrangement, contract }) {
         measures.map(([, label]) => label).join(' and ') +
         ' counts per line.'
     );
+  if (requirements.some((line) => line.stressEnding))
+    statements.push('It checks the stress of the final syllables on the marked lines.');
   if (requirements.some((line) => line.wordLetters))
     statements.push('It checks the selected letter counts for each sung word.');
   if (requirements.some((line) => line.stresses !== undefined && line.syllables === undefined))
