@@ -2036,3 +2036,72 @@ for (const [id, variant, widths, scheme, partition] of [
     }
   );
 }
+
+test(
+  'regular hymn meter survives registered grading, reconnect and revision',
+  { timeout: 240_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const seed = 11;
+    const lines = 8;
+    const relation = 'class:RHYME';
+    const selection = {
+      catalog_form: 'hymn-with-refrain',
+      catalog_variant: 0,
+      catalog_counts: [{ path: '1.1', count: 2 }],
+    };
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        ...selection,
+        seed_from: seed,
+        count: 1,
+        lines,
+        relation,
+        draw: ['functions', 'melody'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
+    const planned = await host.run('lyric_plan', { seed, lines, relation });
+    const { plan, plan_sha256 } = measured(await host.read(planned.operation_id, 'full'));
+    assert.equal(plan.request.song_form.id, selection.catalog_form);
+    assert.deepEqual(
+      plan.sections.map((s) => s.function),
+      ['verse', 'refrain', 'verse', 'refrain']
+    );
+    assert.equal(plan.total_lines, lines);
+    const draft = ['a b c', 'd e f', 'x y', 'y z', 'a d e', 'g h j', 'x y', 'y z'];
+    const screened = measured(await host.run('lyric_screen', { words: ['x', 'y'], relation }));
+    assert.equal(screened.exit_code, 0, screened.report);
+    async function grade(tool, args) {
+      const operation = await host.run(tool, { seed, ...args });
+      const result = measured(await host.read(operation.operation_id, 'full'));
+      if (tool === 'lyric_grade') assert.equal(result.plan_sha256, plan_sha256);
+      const form = result.coverage.catalog_form;
+      assert.equal(form.id, selection.catalog_form);
+      return form;
+    }
+    const matching = await grade('lyric_grade', { draft });
+    assert.equal(
+      matching.verdict,
+      'pass',
+      JSON.stringify(matching.checks.filter((c) => c.outcome !== 'pass'))
+    );
+    assert.ok(
+      matching.checks.some((c) => c.kind === 'recurring-stanza-meter' && c.outcome === 'pass')
+    );
+    draft[4] = 'a d';
+    const changed = await grade('lyric_grade', { draft });
+    await host.reconnect();
+    const revised = await grade('lyric_revise', { attempts: 0, backtrack: 0, max_rounds: 1 });
+    assert.deepEqual(revised, changed);
+    for (const form of [changed, revised]) {
+      assert.equal(form.verdict, 'fail');
+      assert.deepEqual(
+        form.checks.filter((c) => c.outcome !== 'pass').map((c) => c.kind),
+        ['recurring-stanza-meter']
+      );
+      assert.ok(form.checks.some((c) => c.kind === 'verbatim-refrain' && c.outcome === 'pass'));
+    }
+  }
+);
