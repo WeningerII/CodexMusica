@@ -316,6 +316,7 @@ function wordTokens(text) {
 // This symbol never crosses the raw check JSON interface. Only the native
 // reader supplies a separate token stream for asides, compounds and voices.
 const readerWords = Symbol('sung word tokens');
+const readerRimes = Symbol('measured syllable rimes');
 function observedWords(obs) {
   if (obs && has(obs, readerWords)) return obs[readerWords] ?? undefined;
   return typeof obs?.text === 'string' ? wordTokens(obs.text) : undefined;
@@ -334,7 +335,22 @@ export function checkReaderForm(catalog, id, options) {
   const sections = options.sections?.map(measuredIdentity);
   const lines = options.lines?.map((line) => {
     const observed = measuredIdentity(line);
-    if (!isRecord(observed) || !has(observed, 'sungWords')) return observed;
+    if (!isRecord(observed)) return observed;
+    if (has(observed, 'syllableRimes')) {
+      const keys = observed.syllableRimes;
+      requireValue(
+        typeof observed.text === 'string' &&
+          Array.isArray(keys) &&
+          keys.length === observedValue(observed, 'syllables') &&
+          keys.every(
+            (key) =>
+              key === null || (typeof key === 'string' && /^[A-Z]{2}(?: [A-Z]{1,2})*$/.test(key))
+          ),
+        'Invalid aligned syllable rimes'
+      );
+      observed[readerRimes] = keys;
+    }
+    if (!has(observed, 'sungWords')) return observed;
     const { sungWords, ...obs } = observed;
     requireValue(
       sungWords === null ||
@@ -350,7 +366,7 @@ export function checkReaderForm(catalog, id, options) {
         sungWords?.map((token) => token.normalize('NFC').toLowerCase().replace(/’/g, "'")) ?? null,
     };
   });
-  return checkForm(catalog, id, { ...options, lines, sections });
+  return checkForm(catalog, id, { ...options, lines, sections, [readerRimes]: true });
 }
 
 function identity(obs, key) {
@@ -535,6 +551,8 @@ export function checkForm(catalog, id, options = {}) {
         if (!classSets.has(groupKey))
           classSets.set(groupKey, { key, label: node[key], addresses: [], members: [] });
         const group = classSets.get(groupKey);
+        if (options[readerRimes] && key === 'rhyme' && node.unit === 'syllable')
+          group.subline = true;
         group.addresses.push(node.address);
         group.members.push(obs);
       } else {
@@ -601,6 +619,8 @@ export function checkForm(catalog, id, options = {}) {
         inferredCount !== undefined && i < inferredCount
           ? { unit: part, ...(tokens && { text: tokens[i] }) }
           : undefined;
+      if (observation && part === 'syllable' && obs?.[readerRimes]?.[i])
+        observation.rhyme = obs[readerRimes][i];
       inspect(child, node, inLine || node.unit === 'line', observation);
     });
   }
@@ -615,7 +635,7 @@ export function checkForm(catalog, id, options = {}) {
     if (!families.has(family)) families.set(family, []);
     families.get(family).push(group);
     if (group.members.length > 1)
-      add(group.key, compareClass(group.members, group.key), {
+      add(group.subline ? 'syllable-rhyme' : group.key, compareClass(group.members, group.key), {
         label: group.label,
         addresses: group.addresses,
       });
@@ -623,7 +643,11 @@ export function checkForm(catalog, id, options = {}) {
   for (const groups of families.values()) {
     const key = groups[0].key;
     if (groups.length > 1 && (key === 'rhyme' || key === 'endWord')) {
-      add(key + '-distinct', distinguish(groups), { labels: groups.map((g) => g.label) });
+      add(
+        groups.some((g) => g.subline) ? 'syllable-rhyme-distinct' : key + '-distinct',
+        distinguish(groups),
+        { labels: groups.map((g) => g.label) }
+      );
     } else {
       for (const group of groups) {
         if (group.members.length === 1)

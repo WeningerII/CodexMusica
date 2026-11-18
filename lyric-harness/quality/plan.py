@@ -7223,6 +7223,9 @@ def writer_brief(plan):
     catalog = plan.get("request", {}).get("song_form")
     if catalog is not None:
         out.append(f"Catalog {catalog['scope']}: {catalog['id']} (variant {catalog['variant']}).")
+        if any(part.get("divisionPath") and part["divisionPath"][-1]["unit"] == "metrical-stanza"
+               for part in catalog["sections"]):
+            out.append("  In each body stanza, match the syllable count and stress pattern of each corresponding line.")
         groups = catalog["rhymeGroups"]
         if len(groups) == 1:
             out.append(f"  Lines {groups[0][0]}–{groups[0][-1]}: all line endings rhyme with each other.")

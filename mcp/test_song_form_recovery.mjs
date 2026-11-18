@@ -182,3 +182,34 @@ test('invalid selection is refused over the MCP boundary', async () => {
     );
   }
 });
+
+test('recovery judges word positions from the native sung tokens', async () => {
+  const { prepareFormReview, reviewRecoveredForm } = await import('./lyric_form.js');
+  const selection = await prepareFormReview({ catalog_form: 'lune', catalog_variant: 1 });
+  const printed = ['a b c (d)', 'a b c d e', 'a b c'];
+  const check = (first) =>
+    reviewRecoveredForm(selection, {
+      lines: printed,
+      form_reading: [first, ['a', 'b', 'c', 'd', 'e'], ['a', 'b', 'c']].map((sungWords) => ({
+        sungWords,
+      })),
+    }).verdict;
+  assert.equal(check(['a', 'b', 'c']), 'pass');
+  assert.equal(check(['a', 'b', 'c', 'd']), 'fail');
+  assert.equal(check(null), 'unknown');
+});
+
+test('recovery checks a descending syllable rhyme at its printed positions', async () => {
+  const run = (middle) =>
+    recover({
+      catalog_form: 'than-bauk',
+      lines: ['x x x x', middle, 'y x z z'],
+    });
+  const passed = await run('x x x y');
+  assert.equal(passed.catalog_form.verdict, 'pass');
+  const changed = await run('x x z y');
+  assert.equal(
+    changed.catalog_form.checks.find((c) => c.kind === 'syllable-rhyme').outcome,
+    'fail'
+  );
+});

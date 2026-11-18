@@ -5365,7 +5365,17 @@ def _meter_words(lex, text):
     return rows if joined == list(phones) else None
 
 
-def _form_reading(lex, line, *, words=None):
+def _form_word_tokens(lex, text):
+    # The number of sung word tokens does not require a known pronunciation.
+    # Meter rows are per word *piece*, so they cannot supply a compound's count.
+    cut = reader_line(text, lex.strip_parens, "v2")
+    scheme = _scheme_of(lex)
+    incomplete = any(letters_outside_repertoire(run.text) or
+                     (scheme == "v1" and run.numeral) for run in cut.runs)
+    return None if incomplete else line_tokens(text, lex.strip_parens, scheme)
+
+
+def _form_reading(lex, line, *, words=None, syllable_rimes=False):
     """Keep only coordinates that all reliable readings of this sung line share."""
     if words is None:
         words = _meter_words(lex, line)
@@ -5377,11 +5387,23 @@ def _form_reading(lex, line, *, words=None):
         return {}
     token_count = len(cut.tokens)
     streams_by_word = []
+    rimes = [] if syllable_rimes else None
     for word in words:
         if word["source"] not in ("declared", "dictionary", "rule"):
             return {}
         reader = scoped.for_token(word["token"] - 1)
         readings = reader.pronunciation_variants(word["word"])
+        if rimes is not None:
+            # A position is stable only if every listed reading agrees on
+            # syllable boundaries by count. Keep ambiguous sounds unknown.
+            alternatives = [syllabify(phones) for phones in readings]
+            if (word["source"] not in ("dictionary", "declared") or not alternatives
+                    or not alternatives[0] or len({len(row) for row in alternatives}) != 1):
+                rimes = None
+            else:
+                for position in zip(*alternatives):
+                    keys = {" ".join([s["nucleus"], *s["coda"]]) for s in position}
+                    rimes.append(keys.pop() if len(keys) == 1 else None)
         if readings:
             weak = weak_token(reader, word["word"],
                               phrase_final=word["token"] == token_count)
@@ -5397,10 +5419,10 @@ def _form_reading(lex, line, *, words=None):
         if not streams or "" in streams:
             return {}
         streams_by_word.append(streams)
+    result = {"syllableRimes": rimes} if rimes is not None else {}
     if all(len(choices) == 1 for choices in streams_by_word):
         mask = "".join(next(iter(choices)) for choices in streams_by_word)
-        return {"syllables": len(mask), "stress": mask}
-    result = {}
+        return {**result, "syllables": len(mask), "stress": mask}
     for key, count_in_mask in (("syllables", len), ("stresses", lambda mask: mask.count("/"))):
         counts = [{count_in_mask(mask) for mask in choices} for choices in streams_by_word]
         if all(len(options) == 1 for options in counts):
@@ -12358,8 +12380,9 @@ def main():
         # them; the record carries all of them, read off `rec.how`.
         form_observations = {}
         if form_reading:
-            form_observations["form_reading"] = [_form_reading(lex, line)
-                                                 for line in rec.sung_lines]
+            form_observations["form_reading"] = [
+                {**_form_reading(lex, line, syllable_rimes=True), "sungWords": _form_word_tokens(lex, line)}
+                for line in rec.sung_lines]
         _lyric_result(**_lexicon_kw(), **form_observations, status="recovered", exit=3 if _refs else 0,
                       **_numbering_kw(),
                       input_format=input_format,

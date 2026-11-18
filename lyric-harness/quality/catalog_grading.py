@@ -5,18 +5,14 @@ import subprocess
 from pathlib import Path
 
 import lyric_harness as lh
+from quality.catalog_word_roles import measure_word_roles
 
 
 def _reading(lex, text):
     words = lh._meter_words(lex, text) or []
-    # The number of sung word tokens does not require a known pronunciation.
-    # Meter rows are per word *piece*, so they cannot supply a compound's count.
     cut = lh.reader_line(text, lex.strip_parens, "v2")
-    scheme = lh._scheme_of(lex)
-    incomplete = any(lh.letters_outside_repertoire(run.text) or
-                     (scheme == "v1" and run.numeral) for run in cut.runs)
-    tokens = None if incomplete else lh.line_tokens(text, lex.strip_parens, scheme)
-    observed = {"text": text, "sungWords": tokens, **lh._form_reading(lex, text, words=words)}
+    tokens = lh._form_word_tokens(lex, text)
+    observed = {"text": text, "sungWords": tokens, **lh._form_reading(lex, text, words=words, syllable_rimes=True)}
     if tokens == []:
         observed.update(syllables=0, stresses=0)
     if not words or lh.printed_endpoint(cut) or words[-1]["source"] not in ("dictionary", "declared"):
@@ -201,6 +197,7 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
                              encoding="utf-8", timeout=20, check=True)
         groups = (bp.get("song_form") or {}).get("rhymeGroups")
         result = json.loads(run.stdout)
+        measure_word_roles(result, observed)
         # The native placed-return judge reads a word, not an entire repeated
         # line. Its classes stay separate from the ordinary writing mandate:
         # repeating an ending never licenses repetition elsewhere on the line.

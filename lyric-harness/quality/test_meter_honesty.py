@@ -237,6 +237,38 @@ class MeterHonesty(unittest.TestCase):
                 self.assertEqual((check["expected"], check["outcome"], verdict["verdict"]),
                                  (16, expected, expected))
 
+    def test_catalog_grades_syllable_rimes_without_terminal_pair_evidence(self):
+        from types import SimpleNamespace
+        from quality.catalog_grading import inspect_catalog, _reading
+        # Letter tokens have independent dictionary pronunciations.
+        cases = (
+            ("than-bauk", ["xxxx", "xxxy", "yxzz"], (1, 2)),
+            ("luc-bat", ["xxxxxx", "xxxxxxxy", "xxxxxy", "xxxxxyxz"], (1, 5)),
+        )
+        mandate = SimpleNamespace(default_relation="class:perfect")
+        for form, shapes, (row, column) in cases:
+            blueprint = {"song_form": {"id": form}, "lines": [{"bar": i + 1} for i in range(len(shapes))],
+                         "sections": [{"name": str(i), "function": "verse", "bars": width,
+                                       "meter": {"beats": 4, "unit": 4}}
+                                      for i, width in enumerate([2, 2] if form == "luc-bat" else [3])]}
+            def grade(text):
+                return inspect_catalog(self.lex, [" ".join(line) for line in text], blueprint,
+                                       mandate, {"verdicts": []})
+            with self.subTest(form=form):
+                passed = grade(shapes)
+                self.assertEqual(passed["verdict"], "pass", passed)
+                altered = [list(s) for s in shapes]
+                altered[row][column] = "z"
+                self.assertEqual(grade(altered)["verdict"], "fail")
+                altered[row][column] = "qzxv"
+                self.assertEqual(grade(altered)["verdict"], "unknown")
+                if form == "luc-bat":
+                    collided = [s.replace("y", "x") for s in shapes]
+                    checks = grade(collided)["checks"]
+                    self.assertTrue(any(c["kind"] == "syllable-rhyme-distinct" and c["outcome"] == "fail"
+                                        for c in checks))
+        self.assertEqual(_reading(self.lex, "x (y) z")["syllableRimes"], ["EH K S", "IY"])
+
     def test_s7_an_unknown_word_never_counts_as_matched(self):
         e = self.one("zorbleflax", "/")
         self.assertEqual(e.get("strong_slots"),

@@ -1,6 +1,6 @@
 // Connect the declared catalog pattern to the sung-line coordinates of the reader.
 import { readFile } from 'node:fs/promises';
-import { checkForm, realizeForm } from '../src/song-forms.mjs';
+import { checkReaderForm, realizeForm } from '../src/song-forms.mjs';
 import { formMandate } from '../src/song-form-mandate.mjs';
 
 let catalog;
@@ -69,7 +69,7 @@ export function reviewRecoveredForm({ options, plan }, record) {
   if (plan.status !== 'ready') return { ...result, verdict: 'unknown' };
   const observations = record.lines.map((text, i) => ({ text, ...record.form_reading?.[i] }));
   const sections = sectionObservations(record.sections, plan);
-  const { verdict, checks } = checkForm(catalog, plan.id, {
+  const { verdict, checks } = checkReaderForm(catalog, plan.id, {
     ...options,
     lines: observations,
     sections,

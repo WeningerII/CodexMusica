@@ -104,6 +104,10 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
     statements.push(
       'The writer preserves the nested divisions and any participant assignments in the score.'
     );
+  if (contract.sections.some((s) => s.divisionPath?.at(-1)?.unit === 'metrical-stanza'))
+    statements.push(
+      'This setting compares the syllable counts and stress patterns of corresponding stanza lines.'
+    );
   if (contract.sections.some((s) => s.vocalDuty))
     statements.push(
       'The vocal check compares the singers assigned to each section with the score’s roster.'

@@ -160,3 +160,46 @@ test('native writing and revision retain per-line catalog meter and refusals', a
   );
   assert.equal(unread.certified, false);
 });
+
+test('a submitted word-count stanza retains observed lexical roles on revision', async () => {
+  const rows = [
+    ['addition'],
+    ['positive', 'negative'],
+    ['computing', 'multiplying', 'dividing'],
+    ['one', 'two', 'three', 'four'],
+    ['four', 'four', 'four'],
+    ['positive', 'negative'],
+    ['subtraction'],
+  ];
+  const lines = rows.map((row) => row.join(' '));
+  const checked = verdict(
+    await call('lyric_check', {
+      lines,
+      catalog_form: 'diamante',
+      catalog_variant: 1,
+      groups: '2,6',
+      relation: 'class:RHYME',
+    })
+  );
+  function confirm(report) {
+    const roles = report.checks.filter((c) => c.kind === 'role');
+    assert.equal(roles.find((c) => c.expected === 'antonym').outcome, 'pass');
+    assert.equal(roles.find((c) => c.expected === 'middle-phrase').outcome, 'unknown');
+    assert.deepEqual(
+      roles.filter((c) => c.expected === 'ing-verbs').map((c) => c.outcome),
+      ['pass', 'fail']
+    );
+    assert.equal(report.verdict, 'fail');
+  }
+  confirm(checked.catalog_form.measurement);
+  const revised = verdict(
+    await call('lyric_revise', {
+      draft: lines,
+      ...checked.catalog_form.revision_mandate,
+      attempts: 0,
+      max_rounds: 1,
+      backtrack: 0,
+    })
+  );
+  confirm(revised.coverage.catalog_form);
+});
