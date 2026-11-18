@@ -175,3 +175,56 @@ test('ending word classes require a text line and its observed sung tokens', () 
   aside[cursor - 1] = { text: 'one two (three)', sungWords: ['one', 'two'] };
   assert.equal(grade(aside).checks.find(c => c.kind === 'gathered-end-words').outcome, 'fail');
 });
+
+
+test('a full choir uses every declared member and the same roster across the written score', () => {
+  const {contract} = project('verse-anthem');
+  const {id,variant,counts}=contract;
+  const lines=Array(contract.sections.length*2).fill('one');
+  const sections=contract.sections.map((s,i)=>({
+    role:s.role, divisionPath:s.divisionPath, lineSpan:[2*i,2*i+2],
+    performers: s.vocalDuty==='full' ? ['c','a','b'] : ['guest'], vocalRoster:['guest','a','b','c'], choirRoster:['a','b','c'],
+  }));
+  const result=()=>gradeObservations(catalog,id,{variant,counts,lines,sections});
+  assert.equal(result().verdict,'pass');
+  sections[1].performers.pop();
+  assert.ok(result().checks.some(c=>c.kind==='choir-assignment' && c.outcome==='fail'));
+  sections[1].vocalRoster=['c','a'];
+  assert.ok(result().checks.some(c=>c.kind==='score-roster-membership' && c.outcome==='fail'));
+  sections[1].vocalRoster=['guest','a','b','c'];
+  sections[1].performers=['a','a','c'];
+  assert.ok(result().checks.some(c=>c.kind==='vocal-assignment' && c.outcome==='fail'));
+  sections[1].performers=['a','b','c'];
+  delete sections[1].choirRoster;
+  assert.equal(result().verdict,'unknown');
+  sections[1].choirRoster=['a','b','c'];
+  delete sections[1].vocalRoster;
+  assert.equal(result().verdict,'unknown');
+  assert.equal(project('responsorial-psalm',0).status,'unsupported');
+});
+
+test('a scored ensemble reprise can quote only the suffix of the preceding solo', () => {
+  const c = project('consort-song').contract;
+  let offset = 0;
+  const sections = c.sections.map((section,i)=>{
+    const reprise = i === c.sections.length-1;
+    const start=offset;
+    offset+=reprise ? 2 : 4;
+    return {
+      role:section.role, divisionPath:section.divisionPath, lineSpan:[start,offset],
+      vocalRoster:['a','b','c'], performers:reprise ? ['b','c','a'] : ['a'],
+    };
+  });
+  const lines=Array.from({length:offset},(_,i)=>String(i));
+  const copy=offset-2;
+  lines[copy]=lines[copy-2];
+  lines[copy+1]=lines[copy-1];
+  const grade=()=>gradeObservations(catalog,c.id,{variant:c.variant,counts:c.counts,sections,lines});
+  assert.equal(grade().verdict,'pass');
+  assert.deepEqual(grade().checks.filter(c=>c.kind==='reprise-line').map(c=>c.lines),
+    [[copy-1,copy+1],[copy,copy+2]]);
+  lines[copy+1]=undefined;
+  assert.equal(grade().verdict,'unknown');
+  lines[copy+1]=lines[0];
+  assert.equal(grade().verdict,'fail');
+});

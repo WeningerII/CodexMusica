@@ -76,7 +76,6 @@ test('unrelated roles and unrepresented linkage remain ineligible', () => {
   for (const [id, variant] of [
     ['street-cry', 0],
     ['playground-taunt', 0],
-    ['sonnet-sequence', 1],
     ['dj-toasting', 0],
     ['modified-strophic', 0],
     ['ternary', 0],
@@ -93,4 +92,30 @@ test('alternating participants retain their independent division paths', () => {
     ['call', 'response', 'call', 'response']
   );
   assert.ok(result.contract.sections.every((section) => section.sourceRole === undefined));
+});
+
+test('closing lines link successive 14-line sections, including the return to the first', () => {
+  for (const [id, variant, size, master] of [
+    ['crown-of-sonnets', 0, 7, false],
+    ['sonnet-sequence', 1, 7, false],
+    ['heroic-crown', 0, 14, true],
+  ]) {
+    const { contract } = select(id, variant);
+    const sections = contract.sections.map((s, i) => ({ ...s, lineSpan: [14*i, 14*(i+1)] }));
+    assert.equal(sections.length, size + Number(master));
+    assert.equal(sections.at(-1).sourceRole, master ? 'master-sonnet' : 'sonnet');
+    assert.equal(contract.returnGroups.length, size);
+    const lines = Array.from({length: 14 * sections.length}, (_, i) => String(i));
+    for (let i = 0; i < size; i++) {
+      const head = String(i);
+      lines[14*i] = lines[14*((i+size-1)%size)+13] = head;
+      if (master) lines[14*size+i] = head;
+    }
+    const grade = () => gradeObservations(catalog, id, {variant, counts: {}, lines, sections});
+    assert.equal(grade().verdict, 'pass');
+    const declarations = lines.map((returns) => ({returns}));
+    assert.equal(gradeObservations(catalog, id, {variant, counts: {}, lines: declarations, sections}).verdict, 'unknown');
+    lines[lines.length-1] = 'x';
+    assert.equal(grade().verdict, 'fail');
+  }
 });

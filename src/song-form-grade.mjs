@@ -1,6 +1,11 @@
 // Compare catalog requirements with measurements from the current candidate.
 // Blueprint coordinates describe the declared arrangement, including its bar grid.
-import { refrainAddresses, regularAlexandrine, stressEndingFor } from './song-form-line-roles.mjs';
+import {
+  refrainAddresses,
+  relativeLinePairs,
+  regularAlexandrine,
+  stressEndingFor,
+} from './song-form-line-roles.mjs';
 import { gradeNestedDivisions } from './song-form-divisions.mjs';
 import { sectionArrangement, measureSectionArrangement } from './song-form-section-arrangement.mjs';
 import { checkReaderForm, realizeForm } from './song-forms.mjs';
@@ -127,9 +132,11 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   // Section and speaker declarations have a separate score-based evidence path.
   if (plan.coverage.lines !== 'none' && lines !== undefined) {
     input.lines = lines.map((row) => {
-      if (!row || typeof row !== 'object' || !Object.hasOwn(row, 'role')) return row;
+      if (!row || typeof row !== 'object') return row;
       const copy = { ...row };
       delete copy.role;
+      // Cyclic links join the printed words, not caller-declared identity labels.
+      if (sourceArrangement?.sourceRole === 'sonnet') delete copy.returns;
       return copy;
     });
   }
@@ -161,6 +168,7 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   const divisions = arranged
     ? stanzas.filter((node) => linesOfDivision(node).every((child) => child.unit === 'line'))
     : stanzas.filter((node) => node.unit === 'stanza');
+  if (arranged?.divisions.at(-1)?.unit === 'line') divisions.push(plan.tree[0].children.at(-1));
   const completePartition =
     plan.coverage.lines === 'complete' &&
     divisions.length > 0 &&
@@ -305,10 +313,29 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     });
     printedReturns.set(check.label, allPrinted ? check.outcome : 'unknown');
   }
+  const relative = relativeLinePairs(plan);
   function refine(check) {
     const index = linePositions.get(check.address);
     if (check.kind === 'role' && index) {
       const line = addresses.get(check.address);
+      const pair = relative.get(check.address);
+      if (pair) {
+        const lengths = [pair.long, pair.short].map((n) => {
+          const row = lines?.[n - 1];
+          return typeof row?.text === 'string' ? (row.syllables ?? row.stress?.length) : undefined;
+        });
+        const outcome = lengths.includes(undefined)
+          ? 'unknown'
+          : lengths[0] > lengths[1]
+            ? 'pass'
+            : 'fail';
+        return {
+          ...check,
+          outcome,
+          basis: 'relative sung syllable counts',
+          comparedLines: [pair.long, pair.short],
+        };
+      }
       const ending = stressEndingFor(line.role);
       if (ending || line.role === 'alexandrine') {
         const observed = lines?.[index - 1];
@@ -421,7 +448,11 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
         writingFunction: sourceArrangement.role,
         measured: sourceArrangement.repeatText
           ? ['section-order', 'line-counts', 'verbatim-text']
-          : ['section-order', 'line-counts'],
+          : [
+              'section-order',
+              'line-counts',
+              ...(creation.contract?.returnGroups?.length ? ['positioned-verbatim-text'] : []),
+            ],
       },
     }),
     verdict: checks.some((c) => c.outcome === 'fail')

@@ -14,7 +14,7 @@ class CatalogPlannerTests(unittest.TestCase):
     def test_verified_catalog_burden_can_open_only_its_complete_alternating_setting(self):
         from quality import grid
         from types import SimpleNamespace
-        from lyric_harness import _bind_blueprint_catalog
+        from lyric_harness import _bind_blueprint_catalog, _catalog_creation
         order = ["burden", "verse", "burden", "verse", "burden"]
         contract = {**catalog("lullay-carol", [{"unit": "section", "role": role, "lines": None}
                                                 for role in order]), "scope": "setting", "counts": {"1.2": 2}}
@@ -29,6 +29,17 @@ class CatalogPlannerTests(unittest.TestCase):
         drift = order[:2] + ["chorus"] + order[3:]
         self.assertIn(("SECTION_NOT_ADJACENT", 0), [(c, i) for c, i, _ in grid.placement_findings(
             drift, selected_roles=lex.catalog_placement_roles)])
+        # An independently supplied score carries no private plan contract.
+        for command in ("song", "brief", "revise", "verify"):
+            with self.subTest(command=command):
+                pasted = SimpleNamespace()
+                _, seeded_contract = _catalog_creation(
+                    [command, "--catalog-form=lullay-carol", '--catalog-counts={"1.2":2}'], pasted)
+                self.assertIsNone(seeded_contract)
+                self.assertEqual(pasted.catalog_placement_roles, tuple(order))
+                self.assertEqual(grid.placement_findings(parts, selected_roles=pasted.catalog_placement_roles), [])
+                self.assertIn(("SECTION_NOT_ADJACENT", 0), [(c, i) for c, i, _ in grid.placement_findings(
+                    drift, selected_roles=pasted.catalog_placement_roles)])
         with self.assertRaises(plan.PlanRefused):
             plan.make_plan(11, song_form={**contract, "scope": "rule"}, lines=10)
 
@@ -330,6 +341,15 @@ class CatalogPlannerTests(unittest.TestCase):
         self.assertFalse(floor.declared_lexical_classes)
         self.assertFalse(floor.declared_opening_classes)
         self.assertIn((0, 1), floor._pairs(["one"] * 4, "????"))
+
+    def test_relative_lengths_reject_impossible_or_malformed_pairs(self):
+        data = catalog("f", [{"unit": "section", "role": "verse", "lines": 4}])
+        for key in (0, 2, 3, True):
+            with self.subTest(key=key), self.assertRaises(plan.PlanRefused):
+                plan.make_plan(11, song_form={**data, "lineRequirements": [{"line": 2, "shorterThan": key}]})
+        rows = [{"line": 1, "syllables": 4}, {"line": 2, "syllables": 4, "shorterThan": 1}]
+        with self.assertRaisesRegex(plan.PlanRefused, "fewer sung syllables"):
+            plan.make_plan(11, song_form={**data, "lineRequirements": rows})
 
     def test_conflicting_declaration_and_unknown_fields_refuse(self):
         base = catalog("hookless-rap-track", [{"unit": "section", "role": "verse", "lines": 2}])

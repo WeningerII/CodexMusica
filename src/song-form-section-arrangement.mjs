@@ -9,7 +9,6 @@ export function sectionArrangement(plan) {
     !sections.every(
       (s) =>
         s.unit === 'section' &&
-        s.role === sections[0].role &&
         s.children.length === sections[0].children.length &&
         s.children.every((l) => l.unit === 'line')
     )
@@ -17,13 +16,34 @@ export function sectionArrangement(plan) {
     return null;
   const { role, children } = sections[0];
   if (
-    plan.id === 'sonnet-sequence' &&
+    ['sonnet-sequence', 'crown-of-sonnets', 'heroic-crown'].includes(plan.id) &&
     role === 'sonnet' &&
-    children.length === 14 &&
-    sections.every((s) => s.children.every((l) => l.returns === undefined))
+    children.length === 14
   ) {
-    return { sourceRole: role, role: 'verse', repeatText: false };
+    const master = sections.at(-1).role === 'master-sonnet' ? sections.at(-1) : null;
+    const body = master ? sections.slice(0, -1) : sections;
+    if (!body.every((s) => s.role === 'sonnet')) return null;
+    const plainSequence =
+      plan.id === 'sonnet-sequence' &&
+      plan.variant === 0 &&
+      !master &&
+      body.every((s) => s.children.every((l) => l.returns === undefined));
+    const heads = body.map((s) => s.children[0].returns);
+    const ring =
+      body.length === (master ? 14 : 7) &&
+      Boolean(master) === (plan.id === 'heroic-crown') &&
+      heads.every((v) => typeof v === 'string') &&
+      new Set(heads).size === heads.length &&
+      body.every(
+        (s, i) =>
+          s.children.slice(1, -1).every((l) => l.returns === undefined) &&
+          s.children.at(-1).returns === heads[(i + 1) % heads.length]
+      ) &&
+      (!master || (body.length === 14 && master.children.every((l, i) => l.returns === heads[i])));
+    if (plainSequence || ring) return { sourceRole: role, role: 'verse', repeatText: false };
+    return null;
   }
+  if (!sections.every((s) => s.role === role)) return null;
   if (!['chant', 'call'].includes(role) || children.length < 2) return null;
   const labels = children.map((l) => l.returns);
   // Exactly the same return groups at the same offsets. An equal endpoint

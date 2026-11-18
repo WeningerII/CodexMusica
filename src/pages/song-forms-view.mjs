@@ -104,6 +104,12 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
     statements.push(
       'The writer preserves the nested divisions and any participant assignments in the score.'
     );
+  if (contract.sections.some((s) => s.vocalDuty))
+    statements.push(
+      'The vocal check compares the singers assigned to each section with the score’s roster.'
+    );
+  if (contract.sections.at(-1)?.vocalDuty === 'reprise')
+    statements.push('The ensemble repeats the closing lines of the last solo verse.');
   if (arrangement) {
     const { divisions } = arrangement;
     statements.push(
@@ -127,6 +133,21 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
     statements.push(
       'Use a distinct ending sound for each group of lines: ' + groups.join(' / ') + '.'
     );
+  }
+  if (contract.endingWords) {
+    const { groups, gathered } = contract.endingWords;
+    statements.push(
+      'Keep the same final word within each group and use a different word for each group: ' +
+        groups.map((lines) => lines.join(', ')).join(' / ') +
+        '.'
+    );
+    if (gathered?.length)
+      statements.push(
+        'Use all of those words in the closing passage on ' +
+          (gathered.length === 1 ? 'line ' : 'lines ') +
+          gathered.join(', ') +
+          '.'
+      );
   }
   for (const group of contract.returnGroups) {
     statements.push('Repeat line ' + group[0] + ' verbatim at ' + group.slice(1).join(', ') + '.');

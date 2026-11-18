@@ -106,6 +106,11 @@ async function checkViewport(browser, origin, viewport) {
     await picker.selectOption('triolet');
     await view.getByRole('button', { name: 'Show expanded structure' }).click();
     await view.getByText('Repeat line 1 verbatim at 4, 7.').waitFor();
+    await picker.selectOption('tritina');
+    await view.getByRole('button', { name: 'Show expanded structure' }).click();
+    const endingNote = view.locator('#ly-form-writing-note');
+    assert.match(await endingNote.textContent(), /same final word within each group/);
+    assert.match(await endingNote.textContent(), /closing passage on line 10/);
     await picker.selectOption('quatrain');
     const expand = view.getByRole('button', { name: 'Show expanded structure' });
     await expand.focus();

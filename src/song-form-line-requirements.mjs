@@ -9,7 +9,8 @@ export function projectLineRequirement(
   line,
   endsRhyme = false,
   fixedReturns = false,
-  refrain = false
+  refrain = false,
+  lengthPair
 ) {
   if (
     line.unit !== 'line' ||
@@ -19,7 +20,8 @@ export function projectLineRequirement(
         !meterFields.has(key) &&
         !(
           key === 'role' &&
-          (stressEndingFor(line.role) ||
+          (lengthPair ||
+            stressEndingFor(line.role) ||
             line.role === 'alexandrine' ||
             (fixedReturns && refrain && line.role === 'refrain'))
         ) &&
@@ -29,6 +31,7 @@ export function projectLineRequirement(
   )
     return null;
   const constraints = {};
+  if (lengthPair && line.role === 'short-line') constraints.shorterThan = lengthPair.long;
   if (line.syllables !== undefined) {
     if (!Number.isSafeInteger(line.syllables) || line.syllables < 1) return null;
     constraints.syllables = line.syllables;

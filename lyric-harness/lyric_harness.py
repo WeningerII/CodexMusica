@@ -8389,7 +8389,7 @@ def _catalog_creation(args, lex):
     lex.catalog_selection, contract = _resolve_catalog(selection, seeded=seeded, supplied=supplied)
     from quality.grid import setting_roles
     lex.catalog_placement_roles = setting_roles(contract)
-    return rest, contract
+    return rest, contract if seeded else None
 
 
 def _contract_selector(contract):
@@ -8413,7 +8413,10 @@ def _resolve_catalog(selection, *, seeded, supplied=None):
         _refuse("catalog form unavailable for this operation",
                 detail=[json.dumps(diagnostic, ensure_ascii=False)], machine={"catalog_selection": diagnostic})
     if not seeded:
-        return {"id": result["id"], "variant": result["variant"], "counts": selection.get("counts", {})}, None
+        # Pasted scores can declare a form without carrying a seeded plan. Only
+        # a completely positioned catalog section sequence may qualify placement.
+        placement = result if result["coverage"]["sections"] == "complete" else None
+        return {"id": result["id"], "variant": result["variant"], "counts": selection.get("counts", {})}, placement
     contract = result["contract"]
     # Numeric equality in Python equates True and 1. Compare canonical JSON to
     # reject changes to types as well as changes to the actual song obligations.

@@ -1,4 +1,5 @@
 """Grade native source-labeled blocks on the filled blueprint, including changed returns."""
+import copy
 import json
 import subprocess
 import unittest
@@ -43,6 +44,43 @@ class CatalogSectionArrangements(unittest.TestCase):
                     self.assertEqual(judged["verdict"], "fail")
                     self.assertTrue(any(c["kind"] == "section-text-return" and c["outcome"] == "fail"
                                         for c in judged["checks"]))
+
+    def test_cyclic_endpoints_and_master_are_measured_on_filled_text(self):
+        base = Path(__file__).resolve().parents[2]
+        lexicon = lh.Lexicon()
+        for source, variant, size, master in (("crown-of-sonnets", 0, 7, False),
+                                               ("sonnet-sequence", 1, 7, False),
+                                               ("heroic-crown", 0, 14, True)):
+            with self.subTest(source=source):
+                proc = subprocess.run(["node", str(base / "scripts/song_forms.mjs"), "create", source],
+                                      input=json.dumps({"variant": variant, "counts": {}}),
+                                      text=True, capture_output=True, check=True)
+                contract = json.loads(proc.stdout)["contract"]
+                wrong = copy.deepcopy(contract)
+                wrong["returnGroups"][0][-1] -= 1
+                with self.assertRaisesRegex(plan.PlanRefused, "source section arrangement"):
+                    plan.make_plan(1, song_form=wrong)
+                self.assertEqual(plan.sweep([1], song_form=contract)["accepted"], [1])
+                result = plan.make_plan(1, song_form=contract)
+                self.assertEqual(len(result["sections"]), size + master)
+                self.assertEqual(result["sections"][-1]["source_role"],
+                                 "master-sonnet" if master else "sonnet")
+                total = 14 * (size + master)
+                words = [str(i) for i in range(total)]
+                for i in range(size):
+                    words[14*i] = words[14*((i-1) % size)+13] = str(i)
+                    if master:
+                        words[14*size+i] = str(i)
+                bp = plan.fill_plan(result, words)
+                self.assertEqual(bp["song_form"], contract)
+                def check():
+                    return inspect_catalog(lexicon, words, bp, Mandate(n_lines=total), {})
+                self.assertEqual(check()["verdict"], "pass")
+                words[-1] = "x"
+                broken = check()
+                self.assertEqual(broken["verdict"], "fail")
+                self.assertTrue(any(c["kind"] == "returns" and c["outcome"] == "fail"
+                                    for c in broken["checks"]))
 
 
 if __name__ == "__main__":

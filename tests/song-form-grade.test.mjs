@@ -363,3 +363,16 @@ test('Quatern measured CLI requires text at the four rotating return positions',
   printed[15].text='y';
   assert.deepEqual(outcomes(printed),['fail']);
 });
+
+test('long and short roles compare two positioned readings without assuming a fixed meter', () => {
+  const node = {unit:'stanza',children:['long-line','short-line'].map(role=>({unit:'line',role}))};
+  const grade = (lengths,hasText=true) => gradeObservations(form(node),'symbol',{
+    lines:lengths.map(syllables=>({...(hasText && {text:'x'}),syllables})),
+    sections:[{role:'verse',lineSpan:[0,2]}],
+  });
+  for (const [lengths,expected] of [[[3,2],'pass'],[[7,5],'pass'],[[4,4],'fail'],[[2,3],'fail']]) {
+    const result=grade(lengths); assert.equal(result.verdict,expected);
+    assert.ok(result.checks.filter(c=>c.kind==='role').every(c=>c.outcome===expected));
+  }
+  assert.equal(grade([7,5],false).verdict,'unknown');
+});

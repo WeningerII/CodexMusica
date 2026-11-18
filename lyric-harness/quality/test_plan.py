@@ -1538,7 +1538,9 @@ def test_the_measure():
     # tokeniser the draft work-bound admission (`draft_work_bound`) reads
     # when a phonology declares no tokens — it was named by plan.py before
     # this list was told (red at f05dbf71), and it opens nothing.
-    ALLOWED_FROM_RELATIONS = {"planning_traits",
+    # fit_type checks the declared Agree predicate type when binding a
+    # word-for-word return. It does not run that predicate on text.
+    ALLOWED_FROM_RELATIONS = {"planning_traits", "Agree",
                               "CHANNEL_DOMAINS", "pair_bindable",
                               "REGISTRY", "overhang_member",
                               "unsatisfiable_pairs", "group_satisfiable",

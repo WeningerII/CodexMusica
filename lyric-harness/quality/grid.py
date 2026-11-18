@@ -859,7 +859,7 @@ def setting_roles(contract):
     """Ordered roles explicitly declared by a bounded catalog arrangement."""
     if not contract or contract.get("scope") != "setting":
         return ()
-    return tuple(part["role"] for part in contract["sections"])
+    return tuple(part.get("role") for part in contract["sections"])
 
 
 def placement_findings(functions, *, selected_roles=()):

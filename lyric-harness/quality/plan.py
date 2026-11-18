@@ -5551,6 +5551,11 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         raise PlanRefused("the prescribed rhyme group exceeds the requested group size")
     group_of = {line: i for i, g in enumerate(terminal_groups) for line in g}
     prescribed_returns = song_form["returnGroups"] if song_form else []
+    if song_form and song_form["sections"][-1].get("vocalDuty") == "reprise":
+        width = catalog["sections"][-1]["lines"]
+        if width > catalog["sections"][-2]["lines"]:
+            raise SeedRefused("the chosen ensemble reprise exceeds the preceding solo verse")
+        prescribed_returns = [[n - width, n] for n in range(total - width + 1, total + 1)]
     repeated_carrier = bool(song_form and song_form["sections"][0].get("sourceRole") in ("chant", "call") and not terminal_groups)
     if repeated_carrier:
         # The native verbatim carrier already binds every return in the contract.
@@ -6073,6 +6078,18 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         for section, declared in zip(plan["sections"], song_form["sections"]):
             if "divisionPath" in declared:
                 section["divisionPath"] = deepcopy(declared["divisionPath"])
+        duties = [part.get("vocalDuty") for part in song_form["sections"]]
+        if any(duties):
+            size = max(duties.count("distinct-solo"), 2 if {"ensemble", "full", "reprise"}.intersection(duties) else 1)
+            roster = [f"v{i + 1}" for i in range(size)]
+            plan["vocal_roster"] = roster
+            if {"ensemble", "full"}.intersection(duties):
+                plan["choir_roster"] = list(roster)
+            owners = iter(roster)
+            for section, duty in zip(plan["sections"], duties):
+                if duty:
+                    section["performers"] = (list(roster) if duty in ("full", "ensemble", "reprise") else
+                                             [next(owners)] if duty == "distinct-solo" else [roster[0]])
         plan["choices"]["pattern"]["chosen_from"] = "declared catalog section sequence"
         if "bars_per_line" in catalog and melody is None:
             plan["choices"]["meter"]["chosen_from"] = (
@@ -6249,6 +6266,7 @@ def fill_plan(plan, lines):
         # the verbs (see `make_plan`). A plan with no declared title still
         # writes `""` here, so the finding is unchanged for anyone who does
         # not declare one.
+        **{k: deepcopy(plan[k]) for k in ("vocal_roster", "choir_roster") if k in plan},
         **({"melody": deepcopy(plan["melody"])} if "melody" in plan else {}),
         **({"song_form": deepcopy(plan["request"]["song_form"])}
            if "song_form" in plan.get("request", {}) else {}),
@@ -6389,7 +6407,7 @@ def section_header(sec, slots):
     size = (f"{sec['bars']} bar{'s' if sec['bars'] != 1 else ''} "
             f"of {im['beats']}/{im['unit']}")
     label = sec["function"].upper()
-    if (sec.get("source_role"), sec["function"]) in (("chant", "chorus"), ("call", "chorus"), ("sonnet", "verse")):
+    if (sec.get("source_role"), sec["function"]) in (("chant", "chorus"), ("call", "chorus"), ("sonnet", "verse"), ("master-sonnet", "verse")):
         label = sec["source_role"].upper()
     if not slots:
         return f"[{label} — instrumental — {size}, no words]"
@@ -7225,6 +7243,8 @@ def writer_brief(plan):
             for field, unit in (("words", "word"), ("syllables", "syllable"), ("stresses", "stress")):
                 if field in row:
                     terms.append(f"{row[field]} {unit if row[field] == 1 else field}")
+            if "shorterThan" in row:
+                terms.append(f"fewer sung syllables than L{row['shorterThan']}")
             if "stressEnding" in row:
                 terms.append(f"end in lexical stress {row['stressEnding']} (weak ., stressed /)")
             if "wordLetters" in row:
@@ -7240,6 +7260,8 @@ def writer_brief(plan):
             labels = [f"{mark['unit']} {mark['address'].rsplit('[', 1)[1][:-1]}" +
                       (" · " + mark["role"] if "role" in mark else "") for mark in sec["divisionPath"]]
             out.append("  Score divisions: " + " / ".join(labels))
+        if "performers" in sec:
+            out.append("  Assigned vocal parts: " + ", ".join(sec["performers"]))
         for slot in slots:
             if "divisionPath" in slot:
                 turn = slot["divisionPath"][-1]["role"]
@@ -7311,6 +7333,9 @@ def writer_brief(plan):
         out.append(f"Every {fn} after the first repeats the first {fn} "
                    f"word for word, line for line.")
     for a, b in _pairs:
+        if (catalog and catalog["sections"][-1].get("vocalDuty") == "reprise" and
+                _fn_of.get(b) == "outro"):
+            out.append(f"The ensemble repeats line {a} verbatim on line {b}.")
         if _fn_of.get(b) == "reprise":
             out.append(f"Line {int(b)} opens the reprise by repeating line "
                        f"{int(a)} word for word.")

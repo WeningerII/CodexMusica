@@ -35,3 +35,35 @@ export function refrainAddresses(tree) {
   }
   return result;
 }
+
+// A two-line stanza can state a relative length without prescribing a meter.
+// Compare only the two local marked lines, using their measured syllable totals.
+export function relativeLinePairs(plan) {
+  const pairs = new Map();
+  const numbers = new Map(
+    plan.lines.filter((line) => line.positionKnown).map((line) => [line.address, line.index])
+  );
+  function visit(node) {
+    const [first, second] = node.children;
+    if (
+      node.unit === 'stanza' &&
+      node.children.length === 2 &&
+      first.unit === 'line' &&
+      second.unit === 'line' &&
+      first.role === 'long-line' &&
+      second.role === 'short-line' &&
+      first.returns === undefined &&
+      second.returns === undefined
+    ) {
+      const long = numbers.get(first.address),
+        short = numbers.get(second.address);
+      if (long && short === long + 1) {
+        pairs.set(first.address, { long, short });
+        pairs.set(second.address, { long, short });
+      }
+    }
+    node.children.forEach(visit);
+  }
+  plan.tree.forEach(visit);
+  return pairs;
+}

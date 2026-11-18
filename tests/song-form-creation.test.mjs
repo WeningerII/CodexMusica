@@ -16,6 +16,12 @@ const entry = (...patterns) => [{ id: 'f', name: 'F', scope: 'rule', patterns }]
 const projection = (forms, id, options = {}) =>
   projectSongFormCreation(realizeForm(forms, id, options), options.counts);
 
+test('a named catalog role retains its spelling on a native verse carrier', () => {
+  const {contract} = projection(catalog, 'heroic-crown', {variant:0});
+  const last = contract.sections.at(-1);
+  assert.deepEqual([last.role, last.sourceRole], ['verse', 'master-sonnet']);
+});
+
 test('every published selection has an exact structural contract or an explicit refusal', () => {
   const classified = new Set();
   const contracts = [];
@@ -78,7 +84,9 @@ test('every published selection has an exact structural contract or an explicit 
           assert.deepEqual(contract.sections.map((p) => p.role), contract.sections.map(() => 'verse'), where);
           const source = [];
           const collect = (node) => {
-            if (node.children.length && node.children.every((c) => c.unit === 'line')) {
+            if (node.unit === 'line') {
+              source.push({ unit: 'line', lines: 1 });
+            } else if (node.children.length && node.children.every((c) => c.unit === 'line')) {
               source.push({ unit:node.unit, lines:node.children.length });
             } else node.children.forEach(collect);
           };
@@ -87,8 +95,9 @@ test('every published selection has an exact structural contract or an explicit 
           assert.deepEqual(contract.sections.map((p) => p.lines), source.map((p) => p.lines), where);
         } else {
           named++;
-          assert.deepEqual(contract.sections.map(s => s.sourceRole ?? s.role), realization.sections.map(s =>
-            s.role.replaceAll('-', '_')), where);
+          assert.deepEqual(contract.sections.map(s => s.sourceRole ?? s.role),
+            realization.sections.map((s, i) => contract.sections[i]?.sourceRole !== undefined
+              ? s.role : s.role.replaceAll('-', '_')), where);
           const expectedLengths = [];
           function collect(node) {
             if (node.unit === 'section') {
@@ -111,6 +120,10 @@ test('every published selection has an exact structural contract or an explicit 
           if (node.unit === 'line') {
             const position = realization.lines.find((l) => l.address === node.address).index;
             const measures = {line:position};
+            if (node.role === 'short-line') {
+              assert.equal(realization.lines[position-2].role, 'long-line', where);
+              measures.shorterThan = position-1;
+            }
             if (node.syllables !== undefined) measures.syllables = node.syllables;
             if (node.stress !== undefined) {
               measures.syllables = node.stress.length;
@@ -364,5 +377,19 @@ test('unmeasured subject matter, morae, line length and bardic closure retain ex
     assert.equal(result.status, 'unsupported', id);
     assert.ok(result.reasons.some(row => row.code === code), id);
     assert.equal(result.contract, null);
+  }
+});
+
+test('a join cannot establish its component songs even when no theme returns', () => {
+  for (const joins of [1, 2]) {
+    for (const [id, counts, reason] of [
+      ['medley', {'1.2': joins}, 'source-song-identity-required'],
+      ['multi-part-suite', {'1.2': joins, '1.3': 0}, 'independent-movement-form-required'],
+    ]) {
+      const result = projection(catalog, id, {counts});
+      assert.equal(result.status, 'unsupported');
+      assert.equal(result.contract, null);
+      assert.ok(result.reasons.some(row => row.code === reason && row.path === '1.1'));
+    }
   }
 });

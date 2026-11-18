@@ -1,6 +1,6 @@
 // Translate only obligations that the native seeded writer can enforce.
 // The writer still judges placement, recurrence, envelope and seed feasibility.
-import { refrainAddresses } from './song-form-line-roles.mjs';
+import { refrainAddresses, relativeLinePairs } from './song-form-line-roles.mjs';
 import { endingWordDeclaration } from './song-form-mandate.mjs';
 import { projectNestedDivisions } from './song-form-divisions.mjs';
 import { sectionArrangement } from './song-form-section-arrangement.mjs';
@@ -44,6 +44,7 @@ const LINE_DIVISIONS = new Set([
   'distich',
   'line-pair',
   'rhyme-run',
+  'closing-group',
 ]);
 // These role names describe a particular measurable setting. They never
 // license inference of subject matter, poetic cuts, or Japanese sound units.
@@ -171,6 +172,7 @@ export function projectSongFormCreation(plan, counts = {}) {
       (group) => group.length === 1 || group.filter((n) => !copies.has(n)).length >= 2
     );
   const refrains = fixedReturns ? refrainAddresses(plan.tree) : new Set();
+  const lengthPairs = relativeLinePairs(plan);
   const positions = new Map(plan.lines.map((line) => [line.address, line]));
   const reasonKeys = new Set();
   function refuse(code, node, field) {
@@ -184,7 +186,7 @@ export function projectSongFormCreation(plan, counts = {}) {
 
   function visit(node, isStanzaPart = false) {
     for (const feature of FEATURES) {
-      if (node[feature] === undefined) continue;
+      if (node[feature] === undefined || (isStanzaPart && node.unit === 'line')) continue;
       if (node.unit === 'section' && feature === 'role') continue;
       if (
         node.unit === 'stanza' &&
@@ -218,6 +220,23 @@ export function projectSongFormCreation(plan, counts = {}) {
       }
       if (node.bars !== undefined) return refuse('unsupported-unit-feature', node, 'bars');
       for (const child of node.children) visit(child);
+      return;
+    }
+    // A final single-line echo can occupy its own neutral writing section.
+    // Retain both the stanza boundary and the exact return positions.
+    if (
+      fixedReturns &&
+      node === plan.tree[0] &&
+      plan.tree.length === 1 &&
+      WRAPPERS.has(node.unit) &&
+      node.children.length === 2 &&
+      node.children[0].unit === 'stanza' &&
+      node.children[1].unit === 'line' &&
+      node.children[1].returns !== undefined &&
+      node.children[0].children.at(-1)?.returns === node.children[1].returns
+    ) {
+      visit(node.children[0]);
+      visit(node.children[1], true);
       return;
     }
     // A stanza can be divided into anonymous sections. Their separate observed
@@ -255,10 +274,17 @@ export function projectSongFormCreation(plan, counts = {}) {
       for (const child of node.children) visit(child);
       return;
     }
+    // A transition or division path locates a component in the score. It
+    // cannot identify a selection's source or supply a movement's own form.
+    if (!node.children.length && node.unit === 'movement')
+      return refuse('independent-movement-form-required', node);
+    if (!node.children.length && node.unit === 'selection')
+      return refuse('source-song-identity-required', node);
     if (!counted && (node.unit !== 'section' || !node.role)) {
       return refuse('unsupported-division', node);
     }
-    if (counted && !node.children.length) return refuse('unspecified-division', node);
+    if (counted && !node.children.length && node.unit !== 'line')
+      return refuse('unspecified-division', node);
     const role = counted ? 'verse' : (roleArrangement?.role ?? node.role.replaceAll('-', '_'));
     if (!NATIVE_ROLES.has(role)) {
       const moraPhrases =
@@ -275,7 +301,8 @@ export function projectSongFormCreation(plan, counts = {}) {
         node.role
       );
     }
-    const lineNodes = counted ? linesOfDivision(node) : node.children;
+    const lineNodes =
+      node.unit === 'line' ? [node] : counted ? linesOfDivision(node) : node.children;
     for (const child of lineNodes) {
       // A binding on the terminal word must leave one further word free in
       // the native writing plan (WORDS_LEFT_FREE). One syllable cannot hold both.
@@ -285,7 +312,8 @@ export function projectSongFormCreation(plan, counts = {}) {
         child,
         endsRhyme,
         fixedReturns || roleArrangement?.repeatText,
-        refrains.has(child.address)
+        refrains.has(child.address),
+        lengthPairs.get(child.address)
       );
       if (requirement === null) {
         refuse('unsupported-line-structure', child);

@@ -59,6 +59,12 @@ def _sections(bp, observed):
         start = exact_integer(section.get("start_bar", cursor))
         spans.append({"name": section["name"], "bars": bars, "start_bar": start, "index": index})
         row = {"bars": bars}
+        if "vocal_roster" in bp:
+            row["vocalRoster"] = bp["vocal_roster"]
+        if "choir_roster" in bp:
+            row["choirRoster"] = bp["choir_roster"]
+        if "performers" in section:
+            row["performers"] = section["performers"]
         if "divisionPath" in section:
             row["divisionPath"] = section["divisionPath"]
         if isinstance(section.get("function"), str) and section["function"]:

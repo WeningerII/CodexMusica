@@ -22,6 +22,14 @@ const participants = new Set([
   'call',
   'response',
 ]);
+// These roles describe score assignments, independent of vocal timbre or recording.
+const vocalRoles = new Map([
+  ['solo-verse', 'solo'],
+  ['ensemble-reprise', 'reprise'],
+  ['full-choir', 'full'],
+  ['choral-stanza', 'ensemble'],
+  ['cantor-verse', 'cantor'],
+]);
 const turns = new Set([
   'solo-call',
   'crew-reply',
@@ -183,7 +191,10 @@ export function projectNestedDivisions(
       );
     const native =
       refrain || (node.unit === 'section' && nativeRoles.has(node.role?.replaceAll('-', '_')));
-    if (node.role && !native && !participants.has(node.role) && !carrier) return false;
+    let vocalDuty =
+      node.unit === 'section' && !node.children.length ? vocalRoles.get(node.role) : undefined;
+    if (node.role && !native && !participants.has(node.role) && !carrier && !vocalDuty)
+      return false;
     if (native && ['solo', 'interlude'].includes(node.role)) return false;
     if (node.unit === 'stanza' && !node.role && !node.children.length && !carrier) return false;
     if (!native && !['section', 'stanza'].includes(node.unit)) distinct = true;
@@ -202,22 +213,47 @@ export function projectNestedDivisions(
         count = assigned.length;
       } else if (node.children.length === 1 && node.children[0].unit === 'voice') {
         const voice = node.children[0];
-        if (!plain(voice) || !participants.has(voice.role) || voice.children.length) return false;
+        if (!plain(voice) || voice.children.length) return false;
+        if (node.role === 'verse' && voice.role === undefined) vocalDuty = 'distinct-solo';
+        else if (!participants.has(voice.role)) return false;
         distinct = true;
         next.push(mark(voice));
       } else return false;
     }
+    if (
+      vocalDuty === 'reprise' &&
+      (node !== plan.tree[0]?.children.at(-1) ||
+        !rows.length ||
+        rows.some((row) => row.vocalDuty !== 'solo'))
+    )
+      return false;
+    if (vocalDuty) distinct = true;
     // Neutral musical verses carry divisions without equating a speaker or book with a verse.
     rows.push({
       unit: 'section',
-      role: native ? node.role.replaceAll('-', '_') : (carrier ?? 'verse'),
+      role:
+        vocalDuty === 'reprise'
+          ? 'outro'
+          : native
+            ? node.role.replaceAll('-', '_')
+            : (carrier ?? 'verse'),
       lines: count,
+      ...(vocalDuty && { vocalDuty }),
       divisionPath: next,
       ...(assigned && { linePaths: assigned }),
     });
     return true;
   }
   return plan.tree.every((n) => walk(n, [])) && distinct && rows.length ? rows : null;
+}
+
+function validParticipantIds(ids) {
+  return (
+    Array.isArray(ids) &&
+    ids.length > 0 &&
+    ids.every((id) => typeof id === 'string' && id.trim() === id && id.length > 0) &&
+    new Set(ids).size === ids.length
+  );
 }
 
 function pathAgreement(expected, path) {
@@ -249,12 +285,108 @@ export function gradeNestedDivisions(plan, rows, lines, sections, checks = []) {
   }
   record('division-count', rows.length, sections?.length, rows.length === sections?.length);
   let cursor = 0;
+  const soloists = new Set();
+  let soloist;
+  let scoreRoster;
+  let scoreChoir;
+  const soloSong = rows.at(-1)?.vocalDuty === 'reprise';
   for (const [i, expected] of rows.entries()) {
     const observed = sections?.[i];
     const path = observed?.divisionPath;
     const agreement = pathAgreement(expected.divisionPath, path);
     record('division-path', expected.divisionPath, agreement, agreement === true, i);
     record('section-role', expected.role, observed?.role, observed?.role === expected.role, i);
+    if (expected.vocalDuty) {
+      const duty = expected.vocalDuty;
+      const roster = observed?.vocalRoster,
+        members = observed?.performers;
+      record('vocal-roster', 'distinct participant IDs', roster, validParticipantIds(roster), i);
+      if (validParticipantIds(roster)) {
+        scoreRoster ??= new Set(roster);
+        record(
+          'score-roster-membership',
+          'one roster across sections',
+          roster,
+          roster.length === scoreRoster.size && roster.every((id) => scoreRoster.has(id)),
+          i
+        );
+      }
+      record(
+        'vocal-assignment',
+        duty,
+        members,
+        validParticipantIds(members) &&
+          (['ensemble', 'full', 'reprise'].includes(duty)
+            ? members.length >= 2
+            : members.length === 1),
+        i
+      );
+      if (validParticipantIds(roster) && validParticipantIds(members)) {
+        record(
+          'vocal-membership',
+          duty === 'reprise' ? 'entire vocal roster' : 'vocal roster members',
+          members,
+          members.every((id) => roster.includes(id)) &&
+            (duty !== 'reprise' || members.length === roster.length),
+          i
+        );
+      }
+      if (duty === 'full' || duty === 'ensemble') {
+        const choir = observed?.choirRoster;
+        record(
+          'choir-roster',
+          'declared choir members',
+          choir,
+          validParticipantIds(choir) && choir.length >= 2,
+          i
+        );
+        if (validParticipantIds(choir)) {
+          scoreChoir ??= new Set(choir);
+          record(
+            'choir-roster-membership',
+            'one choir across sections',
+            choir,
+            choir.length === scoreChoir.size && choir.every((id) => scoreChoir.has(id)),
+            i
+          );
+          if (validParticipantIds(roster)) {
+            record(
+              'choir-registration',
+              'members of the vocal roster',
+              choir,
+              choir.every((id) => roster.includes(id)),
+              i
+            );
+          }
+          if (validParticipantIds(members)) {
+            record(
+              'choir-assignment',
+              duty === 'full' ? 'entire choir' : 'choir members',
+              members,
+              members.every((id) => choir.includes(id)) &&
+                (duty !== 'full' || members.length === choir.length),
+              i
+            );
+          }
+        }
+      }
+      if (validParticipantIds(members) && members.length === 1) {
+        const [id] = members;
+        if (duty === 'distinct-solo') {
+          record('verse-owner', 'distinct from preceding verse owners', id, !soloists.has(id), i);
+          soloists.add(id);
+        } else if (duty === 'cantor' || (soloSong && duty === 'solo')) {
+          soloist ??= id;
+          record(
+            duty === 'cantor' ? 'cantor-identity' : 'soloist-identity',
+            soloist,
+            id,
+            id === soloist,
+            i
+          );
+        }
+      }
+    }
     const span = observed?.lineSpan;
     const valid =
       Array.isArray(span) &&
@@ -273,6 +405,33 @@ export function gradeNestedDivisions(plan, rows, lines, sections, checks = []) {
       expected.lines === null ? width >= 1 : width === expected.lines,
       i
     );
+    if (expected.vocalDuty === 'reprise' && valid) {
+      const prior = sections?.[i - 1]?.lineSpan;
+      if (
+        Array.isArray(prior) &&
+        prior.length === 2 &&
+        prior[1] === span[0] &&
+        prior.every(Number.isSafeInteger) &&
+        prior[0] >= 0
+      ) {
+        const fits = width > 0 && width <= prior[1] - prior[0];
+        record('reprise-width', 'suffix of preceding solo', width, fits, i);
+        if (fits)
+          for (let j = 0; j < width; j++) {
+            const source = span[0] - width + j,
+              copy = span[0] + j;
+            const textAt = (n) => {
+              const row = lines?.[n];
+              const text = typeof row === 'string' ? row : row?.text;
+              return typeof text === 'string' ? text.normalize('NFC').trim() : undefined;
+            };
+            const a = textAt(source),
+              b = textAt(copy);
+            record('reprise-line', true, a && b ? a === b : undefined, a === b, i);
+            checks.at(-1).lines = [source + 1, copy + 1];
+          }
+      }
+    }
     if (expected.linePaths) {
       for (const [offset, expectedPath] of expected.linePaths.entries()) {
         const index = valid && offset < width ? span[0] + offset : undefined;
