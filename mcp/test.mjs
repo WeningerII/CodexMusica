@@ -5528,6 +5528,12 @@ await check('validation: actionable errors', () => {
         'localhost HTTP review-mode mandate and bound regressions on the real kitchen',
       'mcp/test_lyrics_evidence_binding.mjs':
         'offline authenticated evidence-binding regression suite, not a production entry point',
+      'mcp/test_catalog_form_creation.mjs':
+        'offline public-session creation and replay regressions for catalog forms',
+      'mcp/test_song_form_check.mjs':
+        'offline writing checks and revision regressions for catalog declarations',
+      'mcp/test_song_form_recovery.mjs':
+        'offline recovery of catalog-form observations from pasted lyrics',
       'mcp/test_connector_contracts.mjs': 'offline connector and release contract regressions',
       'mcp/test_verdict_view.mjs': 'offline regressions for the session short verdict',
       'mcp/test_lexicon_basis.mjs':

@@ -13,6 +13,8 @@ import { performance } from 'node:perf_hooks';
 import { createHash } from 'node:crypto';
 import { instructionsForTask, completionTaskIdentity, lyricContextText } from './task_contract.js';
 import {
+  CATALOG_FIELDS,
+  catalogCountPairs,
   workflowFor,
   creationRefusal,
   recordCreation,
@@ -25,6 +27,7 @@ import {
   withSessionOutcome,
 } from './lyric_workflow.js';
 import { decodeState } from './state_codec.js';
+import { catalogRunKey } from './run_store.js';
 import { requestContext } from './execution_context.js';
 import { toGeminiDeclarations, WORKSPACE_PROPERTY, STATE_PROPERTY } from './gemini_tools.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
@@ -315,6 +318,10 @@ export function reviseRepeatKey(name, args) {
   for (const k of Object.keys(args))
     if (!REPEAT_VOLATILE.has(k) && k !== 'draft' && k !== 'draft_text' && args[k] !== undefined)
       decl[k] = args[k];
+  if (decl.catalog_form != null) {
+    decl.catalog_variant ??= 0;
+    decl.catalog_counts = catalogCountPairs(decl.catalog_counts);
+  }
   return createHash('sha256').update(canonicalJson({ draft, decl })).digest('hex').slice(0, 32);
 }
 // A revise result that FINISHED. These never are: a pending question
@@ -984,6 +991,7 @@ export function declarationArgs(args) {
 // fields the model still sees while a run is suspended, so a continuing call
 // can name the run it continues and nothing else.
 const RUN_KEY_FIELDS = new Set([
+  ...CATALOG_FIELDS,
   'seed',
   'scheme',
   'groups',
@@ -1147,6 +1155,14 @@ function declarationsForRun(surface, lyr) {
 // that grades/checks/revises a DIFFERENT run, gets an error result naming
 // the suspended run and the one call that continues it. Screening words and
 // asking about rhyme types stay open — they help answer.
+const FORM_TOOLS = new Set([
+  'lyric_sweep',
+  'lyric_plan',
+  'lyric_grade',
+  'lyric_revise',
+  'lyric_recover',
+  'lyric_check',
+]);
 const WANDER_ALWAYS = new Set(['lyric_plan', 'lyric_sweep', 'lyric_recover']);
 const WANDER_KEYED = new Set(['lyric_grade', 'lyric_check', 'lyric_revise']);
 export function wanderRefusal(lyr, name, args) {
@@ -1421,6 +1437,7 @@ function suspendedSeed(lyr) {
 // the declared mandate — a pasted song has no seed, and a record carried
 // for it must still go back to the same song and no other.
 function stateKey(args) {
+  if (args?.catalog_form != null) return catalogRunKey(args);
   if (typeof args?.seed === 'number') return `seed:${args.seed}`;
   const hasMandate =
     (args?.scheme != null && args.scheme !== '') ||
@@ -1548,6 +1565,9 @@ function carryState(prev, toolName, args, verdict, surface, plan = null) {
         : Array.isArray(prev?.draft) && carriedKey(prev) === key
           ? prev.draft
           : null;
+    const mandate = verdict.catalog_form?.rhyme_mandate ?? plan;
+    const groups = declaredGroups(args, mandate?.groups);
+    const returns = declaredReturns(args, mandate?.returns);
     return {
       key,
       seed: typeof args.seed === 'number' ? args.seed : null,
@@ -1567,12 +1587,10 @@ function carryState(prev, toolName, args, verdict, surface, plan = null) {
       // The run's declared verbatim returns (a pasted song's own `returns`,
       // or the recorded plan's), so a parked rewrite may change an open
       // line's word-for-word partners with it (#853). Present only when known.
-      ...(declaredReturns(args, plan?.returns)
-        ? { returns: declaredReturns(args, plan?.returns) }
-        : {}),
+      ...(returns ? { returns } : {}),
       // Its rhyme groups, so a parked rewrite may move an open line's group
       // with it, as the loop's group question does (#853).
-      ...(declaredGroups(args, plan?.groups) ? { groups: declaredGroups(args, plan?.groups) } : {}),
+      ...(groups ? { groups } : {}),
       // The draft this run was opened on. Re-sending it is the same input,
       // not a rewrite of the parked song; the repeat guard judges it.
       ...(Array.isArray(args.draft) ? { input_draft: args.draft } : {}),
@@ -1911,7 +1929,7 @@ export async function runTurn({
     const hasScheme = d.scheme != null && d.scheme !== '';
     const hasGroups = d.groups != null && d.groups !== '';
     if (hasScheme && hasGroups) return REVIEW_MANDATE_CONFLICT;
-    if (!hasScheme && !hasGroups && !d.returns) return REVIEW_NO_MANDATE;
+    if (!hasScheme && !hasGroups && !d.returns && !d.catalog_form) return REVIEW_NO_MANDATE;
     return null;
   })();
   // A review turn also ends when it cannot progress: a check asked for after
@@ -2421,6 +2439,16 @@ export async function runTurn({
             }
           }
         }
+        const pageSelection = task?.lyric_context?.declarations;
+        if (!recoveryOnly && pageSelection?.catalog_form && FORM_TOOLS.has(fc.name)) {
+          // A selection committed on the Lyrics page owns this task's structure.
+          // Preserve it even when the model omits it or proposes another form.
+          delete args.form;
+          for (const key of CATALOG_FIELDS) {
+            if (pageSelection[key] !== undefined) args[key] = pageSelection[key];
+            else delete args[key];
+          }
+        }
         if (task && (task.domain === 'lyrics') !== fc.name.startsWith('lyric_')) {
           result = {
             isError: true,
@@ -2522,6 +2550,19 @@ export async function runTurn({
         if (!recoveryOnly && typeof args.draft_text === 'string' && !Array.isArray(args.draft)) {
           args.draft = splitDraftText(args.draft_text);
           delete args.draft_text;
+        }
+        if (
+          !recoveryOnly &&
+          !args.new_run &&
+          surface.stateTools?.has(fc.name) &&
+          lyr?.decl?.catalog_form &&
+          (args.seed === undefined || args.seed === lyr.decl.seed) &&
+          (args.catalog_form === undefined || args.catalog_form === lyr.decl.catalog_form)
+        ) {
+          // The form and its choices belong to the carried run. Omitted coordinates
+          // inherit; an explicit change stays visible to the wander check below.
+          for (const key of RUN_KEY_FIELDS)
+            if (args[key] === undefined && lyr.decl[key] !== undefined) args[key] = lyr.decl[key];
         }
         if (
           !recoveryOnly &&

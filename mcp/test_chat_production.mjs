@@ -7,14 +7,27 @@ import os from 'node:os';
 import path from 'node:path';
 import { once } from 'node:events';
 import express from 'express';
-import { runTurn, LIMITS, buildSurface } from './gemini_agent.js';
+import {
+  runTurn,
+  LIMITS,
+  buildSurface,
+  _agentInternals,
+  wanderRefusal,
+  reviseRepeatKey,
+  parkedChangeable,
+} from './gemini_agent.js';
 import { JobStore, createJobRouter } from './job_store.js';
-import { RunStore, declarationsOf, movedDeclarations, runRefusal } from './run_store.js';
+import { RunStore, declarationsOf, movedDeclarations, runKeyOf, runRefusal } from './run_store.js';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { createChatRouter, CHAT_LIMITS } from './chat.js';
-import { continuationSemanticIdentity, recoverState, STATE_DECODED_BYTES } from './state_codec.js';
+import {
+  continuationSemanticIdentity,
+  decodeState,
+  recoverState,
+  STATE_DECODED_BYTES,
+} from './state_codec.js';
 import { buildServer as buildRealServer } from './tools.js';
 import { RUNS, _verdictInternals } from './lyric_tools.js';
 import { recordCreation } from './lyric_workflow.js';
@@ -958,6 +971,181 @@ test('quota retries do not consume transient retries in a mixed response sequenc
   } finally {
     globalThis.fetch = nativeFetch;
   }
+});
+
+test('catalog run identity uses the chosen form and every selector alongside the explicit mandate', () => {
+  const counts = [
+    { path: '1.1', count: 2 },
+    { path: '1.1.1', count: 3 },
+  ];
+  const selected = { catalog_form: 'strophic-with-refrain', catalog_counts: counts, groups: '1,2' };
+  for (const base of [selected, { ...selected, seed: 10 }]) {
+    const key = runKeyOf(base);
+    assert.equal(_agentInternals.stateKey(base), key);
+    const equivalent = { ...base, catalog_variant: 0, catalog_counts: [...counts].reverse() };
+    assert.equal(runKeyOf(equivalent), key);
+    const draft = ['one', 'two', 'three'];
+    assert.equal(
+      reviseRepeatKey('lyric_revise', { draft, ...base }),
+      reviseRepeatKey('lyric_revise', { draft, ...equivalent })
+    );
+    const parked = _agentInternals.carryState(
+      null,
+      'lyric_revise',
+      { ...base, groups: undefined },
+      {
+        exit_code: 3,
+        final_draft: draft,
+        loop_unresolved_lines: [1],
+        catalog_form: { rhyme_mandate: { groups: '1,2', returns: '2,3' } },
+      },
+      surface
+    );
+    assert.deepEqual(parkedChangeable(parked), [1, 2, 3]);
+    const decl = declarationsOf(base);
+    assert.equal(Object.hasOwn(decl, 'form'), false);
+    assert.deepEqual(movedDeclarations(decl, equivalent), []);
+    const held = _agentInternals.carryState(
+      null,
+      'lyric_revise',
+      base,
+      {
+        status: 'interrupted',
+        checkpoint: 'journal',
+        final_draft: ['line'],
+      },
+      surface
+    );
+    for (const changed of [
+      { catalog_form: 'modified-strophic' },
+      { catalog_variant: 1 },
+      { catalog_counts: [{ path: '1.1', count: 3 }, counts[1]] },
+      { groups: '2,3' },
+    ]) {
+      const args = { ...base, ...changed };
+      assert.notEqual(runKeyOf(args), key);
+      assert.ok(movedDeclarations(decl, args).length);
+      assert.match(wanderRefusal(held, 'lyric_revise', args), /different|same seed or mandate/);
+    }
+  }
+  assert.equal(runKeyOf({ seed: 10 }), 'seed:10');
+  assert.equal(runKeyOf({ groups: '1,2' }), 'mandate:[null,"1,2",null,null,null]');
+  assert.equal(declarationsOf({ seed: 10 }).form, 'open');
+});
+
+test('the website binds the selected catalog to a creation sweep and edit review', async () => {
+  for (const phase of ['create', 'edit']) {
+    const selected =
+      phase === 'create'
+        ? {
+            catalog_form: 'chorus-first',
+            catalog_variant: 0,
+            catalog_counts: [{ path: '1.2', count: 1 }],
+          }
+        : { catalog_form: 'couplet', catalog_variant: 1 };
+    const sent = [];
+    let hop = 0;
+    const tools = phase === 'create' ? ['lyric_sweep'] : ['lyric_recover', 'lyric_check'];
+    const draft = ['one line', 'two lines'];
+    globalThis.fetch = async () => {
+      const name = tools[hop++];
+      const args =
+        name === 'lyric_sweep'
+          ? {
+              seed_from: 31,
+              count: 1,
+              form: 'open',
+              draw: ['lines', 'relation', 'functions', 'melody'],
+            }
+          : { catalog_form: 'strophic', catalog_counts: [{ path: '1.1', count: 5 }] };
+      return response(name ? [fc(name, args)] : [{ text: 'Done.' }]);
+    };
+    try {
+      const parameters = {
+        type: 'object',
+        properties: {
+          lines: {},
+          lines_text: {},
+          catalog_form: {},
+          catalog_variant: {},
+          catalog_counts: {},
+        },
+      };
+      await runTurn({
+        ...opts,
+        surface: { ...surface, declarations: tools.map((name) => ({ name, parameters })) },
+        task: {
+          ...task('lyrics'),
+          phase,
+          lyric_context: {
+            version: 1,
+            ...(phase === 'edit' ? { intent: 'review' } : {}),
+            document: draft.join('\n'),
+            notes: [],
+            declarations: selected,
+          },
+        },
+        callTool: async (name, args) => {
+          sent.push({ name, args });
+          const verdict =
+            name === 'lyric_recover'
+              ? { exit_code: 3, lines: draft, mandate: {} }
+              : name === 'lyric_sweep'
+                ? { exit_code: 0, accepted_shown: [31] }
+                : { exit_code: 0 };
+          return { content: [{ type: 'text', text: JSON.stringify(verdict) }] };
+        },
+      });
+    } finally {
+      globalThis.fetch = nativeFetch;
+    }
+    assert.deepEqual(
+      sent.map((t) => t.name),
+      tools
+    );
+    for (const { args } of sent) {
+      assert.equal(args.catalog_form, selected.catalog_form);
+      assert.equal(args.catalog_variant, selected.catalog_variant);
+      assert.deepEqual(args.catalog_counts, selected.catalog_counts);
+      assert.equal(args.form, undefined);
+    }
+  }
+});
+
+test('a website revision can resume from its carried catalog without restating the form', async () => {
+  const decl = { catalog_form: 'couplet', catalog_variant: 1, writer: 'interview' };
+  const lyric = {
+    key: runKeyOf(decl),
+    decl,
+    resumable: true,
+    state: 'carried-state',
+    draft: ['one', 'two'],
+  };
+  const sent = [];
+  let hop = 0;
+  globalThis.fetch = async () => response(hop++ === 0 ? [fc('lyric_revise')] : [{ text: 'Done.' }]);
+  try {
+    await runTurn({
+      ...opts,
+      task: task('lyrics'),
+      lyric,
+      writer: 'interview',
+      callTool: async (name, args) => {
+        sent.push({ name, args });
+        return {
+          content: [{ type: 'text', text: JSON.stringify({ exit_code: 3, status: 'parked' }) }],
+        };
+      },
+    });
+  } finally {
+    globalThis.fetch = nativeFetch;
+  }
+  assert.equal(sent.length, 1);
+  assert.equal(sent[0].name, 'lyric_revise');
+  assert.equal(sent[0].args.catalog_form, decl.catalog_form);
+  assert.equal(sent[0].args.catalog_variant, decl.catalog_variant);
+  assert.equal(sent[0].args.state, lyric.state);
+  assert.deepEqual(sent[0].args.draft, lyric.draft);
 });
 
 test('per-run admission lock and revisions reject simultaneous and stale operations; input identity is immutable', () => {
@@ -2360,6 +2548,37 @@ test('a newer signed tool result supersedes worker progress across durable resta
     assert.equal(unseeded.decl.groups, '1,2', 'the mandate stays');
     assert.equal(unseeded.decl.relation, 'class:RHYME', 'and its relation');
     assert.equal(unseeded.key, 'mandate:[null,"1,2",null,"class:RHYME",null]');
+    // A catalog can itself supply a pasted draft's mandate. After reopening the
+    // store, the browser and the raw connector must continue the same selection.
+    const catalog = crypto.randomBytes(32).toString('hex');
+    const selection = {
+      catalog_form: 'strophic-with-refrain',
+      catalog_variant: 1,
+      catalog_counts: [
+        { path: '1.1', count: 2 },
+        { path: '1.1.1', count: 3 },
+      ],
+    };
+    store.begin(catalog, { request_id: catalog, message: 'revise' });
+    store.checkpoint(catalog, {
+      ...envelope,
+      sig: crypto.createHmac('sha256', secret).update(JSON.stringify(envelope)).digest('hex'),
+    });
+    store.checkpoint(catalog, {
+      ...progress('accepted'),
+      connector_declarations: declarationsOf(selection),
+    });
+    store = new JobStore(directory);
+    const resumed = router.recoverCheckpoint(store.get(catalog));
+    assert.equal(resumed.lyric.resumable, true);
+    assert.deepEqual(resumed.lyric.decl, declarationsOf(selection));
+    assert.deepEqual(decodeState(resumed.lyric.state).connector_declarations, resumed.lyric.decl);
+    assert.equal(resumed.lyric.key, _agentInternals.stateKey(selection));
+    const { sig, ...signed } = resumed;
+    assert.equal(
+      sig,
+      crypto.createHmac('sha256', secret).update(JSON.stringify(signed)).digest('hex')
+    );
     const planned = crypto.randomBytes(32).toString('hex');
     store.begin(planned, { request_id: planned, message: 'revise' });
     store.checkpoint(planned, {

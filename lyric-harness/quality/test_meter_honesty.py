@@ -152,12 +152,47 @@ class MeterHonesty(unittest.TestCase):
         self.assertGreater(z["syllables"], 0)
         self.assertEqual(guessed.get("alignment"), "exact")
 
+    def test_form_observations_require_agreement_on_each_coordinate(self):
+        def observe(text):
+            return lh._form_reading(self.lex, text)
+
+        self.assertEqual(observe("record"), {"syllables": 2})
+        self.assertEqual(observe("hour"), {})
+        self.assertEqual(observe("read"), {"syllables": 1, "stress": "/"})
+        self.assertEqual(observe("the read"), {"syllables": 2, "stress": "./"})
+        self.assertEqual(observe("read zorbleflax"), {})
+        self.assertEqual(observe("read 山"), {})
+        self.assertEqual(observe("read (山)"), {"syllables": 1, "stress": "/"})
+        self.assertEqual(lh._form_reading(lh.Lexicon(fallback="low"), "zorbleflax"), {})
+
     def test_s5_secondary_stress_kept_in_evidence_merged_in_comparison(self):
         e = self.one("the hemlock", "../")
         hem = by_token(e)[2]
         self.assertEqual(hem["lexical"], "12")
         self.assertEqual(e["stress"], ".//")
         self.assertIn("secondary stress merged", e.get("basis", {}).get("stress", ""))
+
+    def test_catalog_count_uses_the_readers_sung_tokens_even_without_a_pronunciation(self):
+        from quality.catalog_grading import _reading
+        silent = lh.Lexicon(strip_parens=True, reader_scheme="v2")
+        voiced = lh.Lexicon(strip_parens=False, reader_scheme="v2")
+        text = "one (two)"
+        for lex, tokens, n in ((silent, ["one"], 1), (voiced, ["one", "two"], 2)):
+            record = _reading(lex, text)
+            self.assertEqual(record["text"], text)
+            self.assertEqual(record["sungWords"], tokens)
+            self.assertEqual(record["syllables"], n)
+        aside = _reading(silent, "(two)")
+        self.assertEqual((aside["sungWords"], aside["syllables"]), ([], 0))
+        rare = _reading(silent, "qzxv")
+        self.assertEqual(rare["sungWords"], ["qzxv"])
+        self.assertNotIn("syllables", rare)
+        outside = _reading(silent, "one 我")
+        self.assertIsNone(outside["sungWords"])
+        self.assertNotIn("syllables", outside)
+        self.assertNotIn("rhyme", outside)
+        self.assertEqual(_reading(silent, "one (我)")["sungWords"], ["one"])
+        self.assertEqual(_reading(silent, "two-part")["sungWords"], ["two-part"])
 
     def test_s7_an_unknown_word_never_counts_as_matched(self):
         e = self.one("zorbleflax", "/")
@@ -173,6 +208,7 @@ class MeterHonesty(unittest.TestCase):
                   basis="dictionary", source="test: noun reading")], lex)
         e = self.one(line, "./.", lex=lex)
         rec = by_token(e)[2]
+        self.assertEqual(lh._form_reading(lex, line), {"syllables": 3, "stress": "./."})
         self.assertEqual((rec["source"], rec["lexical"]), ("declared", "10"))
 
     def test_legacy_template_symbols_are_disclosed(self):

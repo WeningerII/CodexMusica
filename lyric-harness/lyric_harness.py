@@ -5365,6 +5365,45 @@ def _meter_words(lex, text):
     return rows if joined == list(phones) else None
 
 
+def _form_reading(lex, line, *, words=None):
+    """Keep only coordinates that all reliable readings of this sung line share."""
+    if words is None:
+        words = _meter_words(lex, line)
+    if not words:
+        return {}
+    scoped = lex.for_line(line)
+    cut = reader_line(line, scoped.strip_parens, "v2")
+    if any(letters_outside_repertoire(run.text) for run in cut.runs):
+        return {}
+    token_count = len(cut.tokens)
+    stresses = []
+    count = 0
+    for word in words:
+        if word["source"] not in ("declared", "dictionary", "rule"):
+            return {}
+        reader = scoped.for_token(word["token"] - 1)
+        readings = reader.pronunciation_variants(word["word"])
+        if readings:
+            weak = weak_token(reader, word["word"],
+                              phrase_final=word["token"] == token_count)
+            streams = {"".join("." if weak or digit == "0" else "/"
+                               for digit in _stress_digits(phones)) for phones in readings}
+        else:
+            # The reader can derive a word from a base without listing it.
+            # A choice among competing base readings has no unique projection.
+            base = word.get("detail", {}).get("from")
+            if not base or len(reader.pronunciation_variants(base)) != 1:
+                return {}
+            streams = {"".join("." if digit == "0" else "/" for digit in word["stream"])}
+        lengths = {len(stream) for stream in streams}
+        if len(lengths) != 1 or 0 in lengths:
+            return {}
+        count += lengths.pop()
+        stresses.append(next(iter(streams)) if len(streams) == 1 else None)
+    return ({"syllables": count, "stress": "".join(stresses)} if None not in stresses
+            else {"syllables": count})
+
+
 def _meter_honesty(entry, words, template):
     """The additive, honest half of one `check_meter` line (#677 b1)."""
     entry["basis"] = dict(METER_BASIS)
@@ -7864,7 +7903,7 @@ the quality layer (each says which module answered):
   types  W1 -- W2 [--lang=] [--preset=] [--position=]
                           full rhyme-type coordinate: 9 axes, per-member
                           anchor, traditional names
-  recover LYRIC.txt [--placements=end,head,T4]
+  recover LYRIC.txt [--placements=end,head,T4] [--form-reading]
                           STRUCTURE A PASTED SONG — the second door into
                           the pipeline (M-72, M-195): counts the lines
                           and the syllables per line, reads [SECTION]
@@ -8008,6 +8047,8 @@ the quality layer (each says which module answered):
   plan --seed=N [--form=verse-chorus] [--lines=N] [--relation=NAME]
        [--functions=a,b,c] [--title=TEXT] [--melody=JSON] [--fill=DRAFT]
        [--want=PRED;PRED] [--out=PATH]
+       [--catalog-form=ID [--catalog-variant=N] [--catalog-counts=JSON]]
+                        plan, finish and tryline replay this same catalog selection.
                         the PLANNING phase: a request in, a blueprint and
                           a mandate out (quality/plan.py). Structure from a
                           declared pattern grammar, schemes from the FULL
@@ -8287,6 +8328,111 @@ def _strip_flag(args, flag, bare=False):
             continue
         out.append(a)
     return out
+
+
+_CATALOG_FLAGS = ("--catalog-form", "--catalog-variant", "--catalog-counts",
+                  "--catalog-contract", "--catalog-selection")
+
+
+def _catalog_creation(args, lex):
+    """Resolve the selected catalog rule once, before a sweep or an individual draw."""
+    selected = {}
+    rest = []
+    for arg in args:
+        flag, sep, value = arg.partition("=")
+        if flag not in _CATALOG_FLAGS:
+            rest.append(arg)
+        elif not sep or not value or flag in selected:
+            _refuse(f"{flag[2:].replace('-', ' ')} requires exactly one value")
+        else:
+            selected[flag] = value
+    if not selected:
+        return args, None
+    if not rest:
+        _refuse("catalog options require a command")
+    seeded = rest[0] in ("plan", "finish", "tryline")
+    if not seeded and rest[0] not in ("song", "brief", "revise", "verify"):
+        _refuse("catalog selection requires plan, finish, tryline, song, brief, revise or verify")
+    if any(arg == "--form" or arg.startswith("--form=") for arg in rest):
+        _refuse("choose either a built-in form or a catalog form")
+    supplied = None
+    try:
+        if "--catalog-selection" in selected:
+            if len(selected) != 1:
+                _refuse("supply one catalog selection")
+            selection = json.loads(selected["--catalog-selection"])
+            if (not isinstance(selection, dict) or "id" not in selection or
+                    set(selection) - {"id", "variant", "counts"}):
+                _refuse("a catalog selection takes id and optional variant and counts")
+        elif "--catalog-contract" in selected:
+            if not seeded:
+                _refuse("a pasted draft takes a catalog selection")
+            if len(selected) != 1:
+                _refuse("supply a catalog selection or a projected contract once")
+            supplied = json.loads(selected["--catalog-contract"])
+            selection = _contract_selector(supplied)
+        else:
+            if "--catalog-form" not in selected:
+                _refuse("select a catalog form before specifying its variant or counts")
+            selection = {"id": selected["--catalog-form"]}
+            if "--catalog-variant" in selected:
+                selection["variant"] = int(selected["--catalog-variant"])
+            if "--catalog-counts" in selected:
+                selection["counts"] = json.loads(selected["--catalog-counts"])
+    except (ValueError, RecursionError) as error:
+        _refuse(f"invalid catalog selection: {error}")
+    lex.catalog_selection, contract = _resolve_catalog(selection, seeded=seeded, supplied=supplied)
+    return rest, contract
+
+
+def _contract_selector(contract):
+    if not isinstance(contract, dict) or not {"id", "variant", "counts"} <= contract.keys():
+        _refuse("a projected catalog contract must carry id, variant and counts")
+    return {key: contract[key] for key in ("id", "variant", "counts")}
+
+
+def _resolve_catalog(selection, *, seeded, supplied=None):
+    import subprocess
+    compiler = os.path.join(os.path.dirname(HERE), "scripts", "song_forms.mjs")
+    try:
+        run = subprocess.run(["node", compiler, "create" if seeded else "realize"], input=json.dumps(selection),
+                             text=True, capture_output=True, timeout=20)
+        result = json.loads(run.stdout or run.stderr)
+    except (ValueError, OSError, subprocess.TimeoutExpired, RecursionError) as error:
+        _refuse(f"catalog compiler unavailable: {error}")
+    if run.returncode or (seeded and not isinstance(result.get("contract"), dict)):
+        diagnostic = {key: result[key] for key in ("id", "status", "needs", "reasons", "error")
+                      if key in result}
+        _refuse("catalog form unavailable for this operation",
+                detail=[json.dumps(diagnostic, ensure_ascii=False)], machine={"catalog_selection": diagnostic})
+    if not seeded:
+        return {"id": result["id"], "variant": result["variant"], "counts": selection.get("counts", {})}, None
+    contract = result["contract"]
+    # Numeric equality in Python equates True and 1. Compare canonical JSON to
+    # reject changes to types as well as changes to the actual song obligations.
+    if supplied is not None and json.dumps(supplied, sort_keys=True) != json.dumps(contract, sort_keys=True):
+        _refuse("the supplied catalog contract differs from the selected catalog rule")
+    return _contract_selector(contract), contract
+
+
+def _bind_blueprint_catalog(lex, blueprint):
+    if not isinstance(blueprint, dict) or "song_form" not in blueprint:
+        return
+    contract = blueprint["song_form"]
+    selection, _ = _resolve_catalog(_contract_selector(contract), seeded=True, supplied=contract)
+    previous = getattr(lex, "catalog_selection", None)
+    if previous is not None and previous != selection:
+        _refuse("the blueprint and command line select different catalog forms, variants or counts")
+    lex.catalog_selection = selection
+
+
+def _catalog_selection_args(contract):
+    """Print reproducible public selectors without copying the projected obligations."""
+    import shlex
+    fields = [f"--catalog-form={contract['id']}", f"--catalog-variant={contract['variant']}"]
+    if contract["counts"]:
+        fields.append("--catalog-counts=" + json.dumps(contract["counts"], separators=(",", ":")))
+    return [shlex.quote(arg) for arg in fields]
 
 
 def _ban_bindings(found, findings, *, writing=False):
@@ -8883,7 +9029,12 @@ def _line_lookup(ones, brief, attempt):
     return text
 
 
-def _replay_proposer(path):
+def _check_run_catalog(record, selection):
+    if record.get("catalog_selection") != selection:
+        _refuse("CATALOG_SELECTION_MISMATCH: resume with the original catalog form, variant and counts")
+
+
+def _replay_proposer(path, *, catalog_selection=None):
     """-> (propose, propose_group, disclosure) reading recorded proposals.
 
     THE FILE IS THE RECORD OF A RUN, not a script: JSON, one object.
@@ -8963,6 +9114,7 @@ def _replay_proposer(path):
     # v1). `main` inherits it when no `--reader-scheme` is declared
     # (`_recorded_reader_scheme`); a declared other one refuses, as a
     # deferred run's does.
+    _check_run_catalog(rec, catalog_selection)
     _rs = _record_scheme(rec)
     if _rs not in READER_SCHEMES:
         _refuse(_malformed_scheme_message(f"--propose=replay:{path}", _rs))
@@ -9408,7 +9560,7 @@ def _defer_scheme_check(path, st):
     return run
 
 
-def _defer_proposer(path, lines=None):
+def _defer_proposer(path, lines=None, *, catalog_selection=None):
     """-> (propose, propose_group, disclosure) that SUSPENDS rather than guess.
 
     THE PROBLEM THIS SOLVES, stated plainly because it is not a Python
@@ -9460,6 +9612,11 @@ def _defer_proposer(path, lines=None):
     _here_basis = dict(_LEXICON_IDENTITY or {"supplement_id": None, "sha256": None})
     _resuming = bool(st["answered"]["propose"] or st["answered"]["propose_group"]
                      or st.get("pending"))
+    if _resuming or st.get("complete") or "input_draft" in st:
+        _check_run_catalog(st, catalog_selection)
+    if catalog_selection is not None:
+        st["catalog_selection"] = catalog_selection
+        st["answered"]["catalog_selection"] = catalog_selection
     if _resuming:
         _run_basis = st.get("lexicon") or {"supplement_id": None, "sha256": None}
         if _run_basis != _here_basis:
@@ -10342,7 +10499,8 @@ def legacy_question_identities(kind, prompt):
             for t in legacy_question_texts(kind, prompt)]
 
 
-def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key=None):
+def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key=None,
+                         catalog_selection=None):
     """Journal the call: seam before grading can fail or a worker can die.
 
     Resume replays the original draft and exact ordered questions/answers.
@@ -10381,6 +10539,8 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
             prior = json.loads(checkpoint_bytes)
             if not isinstance(prior, dict):
                 raise ValueError("checkpoint must be an object")
+            if prior.get("catalog_selection") != catalog_selection:
+                raise ValueError("catalog form, variant or counts differ")
             run_scheme = _record_scheme(prior)
             if run_scheme not in READER_SCHEMES:
                 raise ValueError(_malformed_scheme_message(
@@ -10438,6 +10598,9 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
     # deferred state's is, so under v2 it names its scheme too
     # (`_defer_proposer`); under v1 it carries none, as the pre-batch block
     # did, and a block without one replays as v1 (`_replay_proposer`).
+    if catalog_selection is not None:
+        state["catalog_selection"] = catalog_selection
+        state["answered"]["catalog_selection"] = catalog_selection
     if here_scheme != "v1":
         state["answered"]["reader_scheme"] = here_scheme
     cursor = 0
@@ -10709,7 +10872,7 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
 
 
 def _resolve_proposer(spec, lines=None, checkpoint_key=None, *,
-                      legacy_checkpoint_key=None):
+                      legacy_checkpoint_key=None, catalog_selection=None):
     """`--propose=`'s value -> (propose, propose_group, disclosure).
 
     `lines` is the input draft. `defer:` uses it to disclose a completed
@@ -10735,10 +10898,10 @@ def _resolve_proposer(spec, lines=None, checkpoint_key=None, *,
         return None, None, disclosure           # `revise_loop`'s own defaults
 
     if spec.startswith("replay:"):
-        return _replay_proposer(spec.split(":", 1)[1])
+        return _replay_proposer(spec.split(":", 1)[1], catalog_selection=catalog_selection)
 
     if spec.startswith("defer:"):
-        return _defer_proposer(spec.split(":", 1)[1], lines=lines)
+        return _defer_proposer(spec.split(":", 1)[1], lines=lines, catalog_selection=catalog_selection)
 
     if not spec.startswith("call:"):
         _refuse(f"--propose wants 'stub', 'replay:PATH', 'defer:PATH' or "
@@ -10866,7 +11029,7 @@ def _resolve_proposer(spec, lines=None, checkpoint_key=None, *,
                    "backtracked line is a SPLICE and not proposed text"))
     one, two = _checkpoint_proposer(
         one, two, lines, checkpoint_key, spec,
-        legacy_config_key=legacy_checkpoint_key)
+        legacy_config_key=legacy_checkpoint_key, catalog_selection=catalog_selection)
     disclosure.record = one.verification_record
     return one, two, disclosure
 
@@ -11011,7 +11174,7 @@ def main():
     # remove them. A space spelling must never be consumed without its value
     # reaching the same reader as the equals spelling.
     value_flags = {"--blueprint", "--relation", "--placements", "--lang",
-                   "--window", "--marks", "--caesura"}
+                   "--window", "--marks", "--caesura", *_CATALOG_FLAGS}
     normalized, index = [], 0
     while index < len(args):
         arg = args[index]
@@ -11179,6 +11342,7 @@ def main():
     args = [a for a in args if not a.startswith('--numbering=')]
     if not args:
         _refuse("a pronunciation declaration requires a command")
+    args, catalog_form = _catalog_creation(args, lex)
     cmd = args[0]
     if pronunciation_json is not None and cmd not in {"song", "finish", "brief", "revise", "verify", "recover", "normalize-numbering"}:
         _refuse("--pronunciations is supported on song, finish, brief, revise, verify and recover")
@@ -12088,17 +12252,19 @@ def main():
         from quality import recover as RC
         from quality import slots as _SLr
         rest = args[1:]
+        form_reading = "--form-reading" in rest
+        rest = [item for item in rest if item != "--form-reading"]
         spec = _flag_value(rest, "--placements", eq_only=True)
         rest = _strip_flag(rest, "--placements")
         bad_flag = [a for a in rest if a.startswith("--")]
         if bad_flag:
             _refuse(f"recover does not take {bad_flag[0]!r}",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c]",
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading]",
                             "an unrecognised flag is refused rather than "
                             "ignored (doctrine 20)"])
         if len(rest) != 1:
             _refuse("recover takes exactly one LYRIC.txt",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c]"])
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading]"])
         try:
             declared = RC.parse_placements(spec) if spec is not None else None
         except _SLr.SlotUnsupported as exc:
@@ -12139,7 +12305,11 @@ def main():
         # its reason. The render above names two refused keys only in its
         # closing list, so a reader of the report alone gets no reason for
         # them; the record carries all of them, read off `rec.how`.
-        _lyric_result(**_lexicon_kw(), status="recovered", exit=3 if _refs else 0,
+        form_observations = {}
+        if form_reading:
+            form_observations["form_reading"] = [_form_reading(lex, line)
+                                                 for line in rec.sung_lines]
+        _lyric_result(**_lexicon_kw(), **form_observations, status="recovered", exit=3 if _refs else 0,
                       **_numbering_kw(),
                       input_format=input_format,
                       lines=list(getattr(rec, "sung_lines", []) or []),
@@ -12453,7 +12623,8 @@ def main():
         # `open` since the D7 ruling of 2026-10-27), exactly as `make_plan()`
         # and the connector apply it. A CLI default of its own drew a
         # returning chorus nobody asked for (#671, Jony's pass 2).
-        form = _flag_value(rest, "--form") or PLN.DEFAULT_FORM
+        form = _flag_value(rest, "--form") or (None if catalog_form else PLN.DEFAULT_FORM)
+        form_label = catalog_form["id"] if catalog_form else form
         nlines = _flag_value(rest, "--lines")
         fill = _flag_value(rest, "--fill")
         out_path = _flag_value(rest, "--out")
@@ -12537,6 +12708,8 @@ def main():
             melody=_parse_melody_flag(melody_raw),
             functions=[x for x in (funcs_raw or "").split(",") if x.strip()]
             or None)
+        if catalog_form is not None:
+            plan_kw["song_form"] = catalog_form
         if sweep_raw is not None:
             if seed is not None:
                 _refuse("plan takes --seed OR --sweep, never both",
@@ -12575,7 +12748,7 @@ def main():
             except PLN.PlanRefused as e:
                 _refuse(str(e), machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             print(f"  SWEEP: seeds {lo}..{hi - 1} ({res['seeds']}), "
-                  f"form={form}"
+                  f"form={form_label}"
                   + (f", lines={nlines}" if nlines else "")
                   + (f", roster={funcs_raw}" if funcs_raw else ""))
             if wants:
@@ -12711,7 +12884,8 @@ def main():
             import shlex as _shlex
             print(f"    NEXT: python3 lyric_harness.py plan "
                   f"--seed={res['accepted'][0]}"
-                  + (f" --form={form}" if form != PLN.DEFAULT_FORM else "")
+                  + (" " + " ".join(_catalog_selection_args(catalog_form)) if catalog_form else
+                     f" --form={form}" if form != PLN.DEFAULT_FORM else "")
                   + (f" --lines={nlines}" if nlines else "")
                   + (f" --functions={funcs_raw}" if funcs_raw else "")
                   # Every declaration the sweep planned under, or the
@@ -12754,7 +12928,7 @@ def main():
         except ValueError:
             _refuse("plan --seed and --lines take integers")
         pat = the_plan["choices"]["pattern"]
-        print(f"  PLAN: form={form} seed={seed} -> "
+        print(f"  PLAN: form={form_label} seed={seed} -> "
               f"{the_plan['total_lines']} line(s), "
               f"{len(the_plan['sections'])} section(s): "
               f"{'-'.join(pat['functions'])}")
@@ -12889,6 +13063,8 @@ def main():
             # the system's output (no-private-instruments rule,
             # 2026-08-18): headers from each section's own measurements,
             # every line written out in full, returns included verbatim.
+            if catalog_form:
+                print("  Draft rendering; writing grade pending.")
             print("  THE SONG, PERFORMANCE ORDER:")
             print()
             print(PLN.render_song(the_plan, draft_lines))
@@ -12920,8 +13096,8 @@ def main():
             # seed, plus --fill/--out — that run also renders the song and
             # writes the blueprint), then grade against the blueprint.
             import shlex as _shlex
-            _refill = [f"python3 lyric_harness.py plan --seed={seed}",
-                       f"--form={form}"]
+            _refill = [f"python3 lyric_harness.py plan --seed={seed}"]
+            _refill.extend(_catalog_selection_args(catalog_form) if catalog_form else [f"--form={form}"])
             if nlines:
                 _refill.append(f"--lines={nlines}")
             if relation:
@@ -13665,7 +13841,7 @@ def main():
                                     "--relation, --group-types, "
                                     "--functions, --title, --narrative"])
             _fseed = _flag_value(args, "--seed")
-            _fform = _flag_value(args, "--form") or PLN2.DEFAULT_FORM
+            _fform = _flag_value(args, "--form") or (None if catalog_form else PLN2.DEFAULT_FORM)
             _fnlines = _flag_value(args, "--lines")
             # `--relation` here is the PLAN declaration (it silences the
             # per-group draw), consumed before `_mandate_arg` can read the
@@ -13703,6 +13879,7 @@ def main():
                 finish_seed = int(_fseed)
                 finish_plan = PLN2.make_plan(
                     seed=finish_seed,
+                    **({"song_form": catalog_form} if catalog_form else {}),
                     form=_fform,
                     lines=int(_fnlines) if _fnlines is not None else None,
                     relation=_frel,
@@ -15210,6 +15387,9 @@ def main():
             return _counts()
 
         try:
+            if cmd in ("brief", "revise", "verify") and bp_path:
+                with open(bp_path, encoding="utf-8") as fh:
+                    _bind_blueprint_catalog(lex, json.load(fh))
             if cmd == "brief":
                 sides.append(("HANDED IN brief's FILE", args[1]))
                 lines = read_input(args[1])
@@ -15263,7 +15443,10 @@ def main():
                 # `[Section]` markers `is_apparatus_line` would drop.
                 lyric_text = open(args[2], encoding="utf-8").read()
                 marked = parse_lyric_sections(lyric_text) if input_format == "source" else []
-                song_obj, _hooks = GR.song_from_blueprint(song_bp_path)
+                with open(song_bp_path, encoding="utf-8") as fh:
+                    blueprint = json.load(fh)
+                song_obj, _hooks = GR.song_from_blueprint(blueprint)
+                _bind_blueprint_catalog(lex, blueprint)
                 # A `--- TITLE:` LINE IN THE LYRIC WAS DROPPED IN SILENCE —
                 # 2026-08-15. It is this repo's own item convention:
                 # `grid.read_marked_songs` parses it, `audit_corpus` counts
@@ -15681,6 +15864,7 @@ def main():
                         # run recorded, on the resume's own rule and with
                         # its words (`_defer_scheme_check`, read-only).
                         _defer_scheme_check(_st_path, _st)
+                        _check_run_catalog(_st, getattr(lex, "catalog_selection", None))
                         if not _st.get("input_draft"):
                             _refuse(
                                 f"--propose=defer:{_st_path} — the state "
@@ -15871,7 +16055,17 @@ def main():
                     sys.exit(0 if _ok else 3)
 
                 from quality import replay_memo as RM
-                _rm_key = RM.run_key([*sys.argv[1:], f"writing-policy:{rv.writing_policy}"], input_paths=(args[1], bp_path),
+                # Alternate CLI/connector spellings of the same resolved selector
+                # identify the same journal. Keep ordinary pre-catalog keys intact.
+                _catalog = getattr(lex, "catalog_selection", None)
+                _replay_argv = sys.argv[1:]
+                if _catalog is not None:
+                    for flag in _CATALOG_FLAGS:
+                        _replay_argv = _strip_flag(_replay_argv, flag)
+                    _replay_argv.append("--catalog-selection=" + json.dumps(
+                        _catalog, sort_keys=True, separators=(",", ":")))
+                _rm_key = RM.run_key([*_replay_argv, f"writing-policy:{rv.writing_policy}"],
+                                     input_paths=(args[1], bp_path),
                                      reader_scheme=resolve_reader_scheme(None))
                 # Recognize the exact pre-policy checkpoint only to preserve
                 # its accepted draft in a typed new-run park, never for replay.
@@ -15882,7 +16076,8 @@ def main():
                 try:
                     propose, propose_group, say_proposer = _resolve_proposer(
                         propose_spec, lines=lines, checkpoint_key=_rm_key,
-                        legacy_checkpoint_key=_legacy_checkpoint_key)
+                        legacy_checkpoint_key=_legacy_checkpoint_key,
+                        catalog_selection=getattr(lex, "catalog_selection", None))
                 except _JournalCapacity as e:
                     _journal_stop(e, plan=finish_plan if cmd == "finish" else None)
                 except ProposerUnavailable as e:
@@ -15912,9 +16107,6 @@ def main():
                     from quality import relations as _RPM
                     return _RPM
                 from quality import revise as _RV_mod
-                _rm_key = RM.run_key([*sys.argv[1:], f"writing-policy:{rv.writing_policy}"],
-                                     input_paths=(args[1], bp_path),
-                                     reader_scheme=resolve_reader_scheme(None))
                 rv_loop, say_memo = RM.wrap(rv, _rm_key, len(lines))
                 # THE SAVED POSITION (LOOP_REDESIGN.md §2.0): a deferred run
                 # resumes where its last call stopped when the cursor was
@@ -15959,7 +16151,8 @@ def main():
                     except LP.CursorMismatch:
                         propose, propose_group, say_proposer = _resolve_proposer(
                             propose_spec, lines=lines, checkpoint_key=_rm_key,
-                            legacy_checkpoint_key=_legacy_checkpoint_key)
+                            legacy_checkpoint_key=_legacy_checkpoint_key,
+                            catalog_selection=getattr(lex, "catalog_selection", None))
                         _b2 = getattr(say_proposer, "bind", None)
                         if _b2 is not None:
                             _b2(_rm_key, _scorer_identity(), use=False,

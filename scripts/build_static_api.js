@@ -301,6 +301,10 @@ async function main() {
     path.join(OUT, 'lyric_types.json')
   );
 
+  for (const file of ['song-forms.json', 'song-form-relationships.json']) {
+    fs.copyFileSync(path.join(__dirname, '..', 'data', file), path.join(OUT, file));
+  }
+
   // ---- engine.json: the instrument engine the lazy shell fetches at its first paint ----
   // (or from <head>, when a saved session needs it to draw).
   // The page copy of references 01, 02, 03 and 07 (instruments, family parts,

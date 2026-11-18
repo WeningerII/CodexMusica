@@ -1,5 +1,5 @@
 /* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf, uiOpenInLyrics, uiInertOutside */
-/* global UILayout, _whenWorkspace, _workspaceReady, uiEnsureWorkspace, _releaseEngine, _renderBootError, uiLyricsOpened */
+/* global UILayout, _whenWorkspace, _workspaceReady, uiEnsureWorkspace, _releaseEngine, _renderBootError, uiLyricsOpened, LY */
 /* global recipeEditSnapshot, lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, hasEnvironment, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
 /* The shared application shell: one header, one navigation, one recipe
    workspace and session, one AI writer, one set of panels. Built alongside the
@@ -787,6 +787,7 @@ function uiUpdatePrompt() {
   const sendLabel = $ui('chat-send')?.querySelector('.btn-label');
   if (sendLabel) sendLabel.textContent = lyric ? 'Send' : 'Ask';
   const mode = $ui('ly-composer-mode');
+  if (mode) LY.forms?.sync();
   if (mode)
     mode.textContent = lyric
       ? domain.value === 'lyrics-edit'

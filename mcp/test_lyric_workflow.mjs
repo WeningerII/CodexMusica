@@ -1209,3 +1209,39 @@ test('this file names no form: each one it uses is read from FORM_ROWS', () => {
     assert.equal(text.includes(`form ${form}`), false, `form ${form}`);
   }
 });
+
+test('catalog repeat selections survive a split call and a changed count cannot replace the recorded plan', () => {
+  const task = fresh();
+  const catalog_form = 'verse-prechorus-chorus';
+  const catalog_counts = [
+    { path: '1.1', count: 2 },
+    { path: '1.1.2.1', count: 2 },
+  ];
+  const sweep = { ...sweepArgs, catalog_form, catalog_counts };
+  delete sweep.form;
+  sweep.draw = sweep.draw.filter((field) => field !== 'functions');
+  assert.equal(creationRefusal(task, 'lyric_sweep', sweep), null);
+  recordCreation(task, 'lyric_sweep', sweep, { exit_code: 0, accepted_shown: [16] });
+  const input = { ...planArgs };
+  assert.equal(creationRefusal(task, 'lyric_plan', input), null);
+  assert.equal(input.catalog_form, catalog_form);
+  assert.deepEqual(input.catalog_counts, catalog_counts);
+  const proof = planReceipt();
+  proof.plan.request.song_form = {
+    id: catalog_form,
+    variant: 0,
+    counts: { '1.1.2.1': 2, 1.1: 2 },
+  };
+  proof.plan_sha256 = sha(proof.plan);
+  recordCreation(task, 'lyric_plan', input, proof);
+  assert.equal(task.workflow.plan?.sha256, proof.plan_sha256);
+  screened(task);
+  const reconnected = JSON.parse(JSON.stringify(task));
+  const grade = { seed: 16, draft, catalog_counts: [...catalog_counts].reverse() };
+  assert.equal(creationRefusal(reconnected, 'lyric_grade', grade), null);
+  assert.equal(grade.catalog_form, catalog_form);
+  assert.equal(grade.catalog_variant, 0);
+  assert.equal(grade.form, undefined);
+  const moved = { seed: 16, draft, catalog_counts: [{ path: '1.1', count: 1 }, catalog_counts[1]] };
+  assert.match(creationRefusal(reconnected, 'lyric_grade', moved), /catalog_counts differs/);
+});

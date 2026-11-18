@@ -1363,6 +1363,8 @@ jobs:
   # whatever it measured, it was not this build on this runner.
   freshness-build:
     needs: [dup, gate]
+    outputs:
+      node_version: ${{ steps.build-node.outputs.node-version }}
     # M-250: skip when a pull_request run already tests this commit.
     if: needs.dup.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
@@ -1381,7 +1383,8 @@ jobs:
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
 
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+      - id: build-node
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: '22'
           cache: npm
@@ -1517,7 +1520,8 @@ jobs:
 
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
-          node-version: '22'
+          # Build admission fingerprints Node and its bundled runtime components.
+          node-version: ${{ needs.freshness-build.outputs.node_version }}
           cache: npm
 
       - name: Install dependencies
