@@ -87,13 +87,13 @@ def _sections(bp, observed):
     return rows
 
 
-def _native_rhyme(result, lines, mandate, report, *, prescribed_pair=False):
+def _native_rhyme(result, lines, mandate, report, *, terminal_group=None):
     """A coarser explicitly selected pair relation is not an exact-rime key."""
     basis = mandate.default_relation
-    if prescribed_pair:
+    if terminal_group:
         from quality.catalog_shape import terminal_rhyme_relation
-        if (mandate.pairs() != [(1, 2, 0)]
-                or not all(mandate.slot_of(0, i).locus == "line_final_token" for i in (1, 2))
+        if ([list(group) for group in mandate.groups] != [terminal_group]
+                or not all(mandate.slot_of(0, i).locus == "line_final_token" for i in terminal_group)
                 or not terminal_rhyme_relation(mandate.relation_of(0))):
             return result
         basis = mandate.relation_of(0)
@@ -106,9 +106,13 @@ def _native_rhyme(result, lines, mandate, report, *, prescribed_pair=False):
             check.update(outcome="unknown", reason="Distinct classes require the selected pair relation across groups")
         if check["kind"] != "rhyme":
             continue
-        if prescribed_pair:
-            outcome = None if (1, 2) in refused else verdicts.get((1, 2))
-            check.update(outcome="unknown" if outcome is None else "pass" if outcome else "fail", basis=basis)
+        if terminal_group:
+            if check.get("lines") != terminal_group:
+                continue
+            pairs = [(a, b) for a, b, _ in mandate.pairs()]
+            outcomes = [None if pair in refused else verdicts.get(pair) for pair in pairs]
+            outcome = "fail" if False in outcomes else "unknown" if None in outcomes else "pass"
+            check.update(outcome=outcome, basis=basis)
             continue
         # A verbatim repeated line shares the terminal evidence of its first occurrence.
         members = {}
@@ -152,8 +156,9 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
         run = subprocess.run(["node", str(script), "grade-observations", form_id],
                              input=json.dumps(request), capture_output=True, text=True,
                              encoding="utf-8", timeout=20, check=True)
+        groups = (bp.get("song_form") or {}).get("rhymeGroups")
         return _native_rhyme(json.loads(run.stdout), lines, mandate, report,
-                             prescribed_pair=bool((bp.get("song_form") or {}).get("rhymeGroups")))
+                             terminal_group=groups[0] if groups else None)
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         return {"id": form_id, "verdict": "unknown", "checks": [
             {"kind": "catalog-runtime", "outcome": "unknown", "reason": type(exc).__name__}]}

@@ -4411,15 +4411,21 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # Schemes per function kind (one tune per kind — new words, same
     # shape), and a per-section anacrusis in beats.
     by_func, scheme_meta = {}, {}
+    terminal_group = song_form["rhymeGroups"][0] if song_form and song_form["rhymeGroups"] else []
     for fn in dict.fromkeys(funcs):
         if ks[fn] == 0:
             continue
-        for _scheme_attempt in range(500):
-            code, pool = _scheme_for(ks[fn], rng)
-            if max(code.count(x) for x in set(code)) <= _max_group:
-                break
+        if len(terminal_group) > 2:
+            if len(terminal_group) > _max_group:
+                raise PlanRefused("the prescribed rhyme group exceeds the requested group size")
+            code, pool = (0,) * ks[fn], 1
         else:
-            raise SeedRefused("declared group bound found no scheme in 500 draws")
+            for _scheme_attempt in range(500):
+                code, pool = _scheme_for(ks[fn], rng)
+                if max(code.count(x) for x in set(code)) <= _max_group:
+                    break
+            else:
+                raise SeedRefused("declared group bound found no scheme in 500 draws")
         by_func[fn] = code
         scheme_meta[fn] = {"rgs": list(code), "chosen_from": pool,
                            "lines": ks[fn],
@@ -4710,21 +4716,22 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     _head_cap = max(1, int(_FL.FloorDeclaration().resolve(
         "anaphora_max", _aprof, _atok) * total + 1e-9))
     binding_overrides = relations
-    if song_form and song_form["rhymeGroups"]:
-        # The catalog owns this pair's endpoints. Use the native relation binder
-        # without changing the (unique) two-line partition or the caller's request.
+    if terminal_group:
+        # Bind the declared group through the native relation resolver.
         group = SC.label((0,))
         requested = (relations or {}).get(group)
         if str(requested or "").strip().lower() in ("", "draw", "any"):
             requested = relation or "class:RHYME"
         from quality.catalog_shape import terminal_rhyme_relation
         if not terminal_rhyme_relation(requested):
-            raise PlanRefused("the selected catalog pair requires rhyme at both line endings")
+            raise PlanRefused("the catalog requires rhyme at every selected line ending")
         binding_overrides = {**(relations or {}), group: requested}
     groups, _type_rels, _type_records, _unplaced = _assign_types(
         _section_blocks, random.Random(f"{seed}/types"), _max_token,
         declared=relation, per_group=binding_overrides,
         head_cap=_head_cap)
+    if terminal_group and [record["lines"] for record in _type_records] != [terminal_group]:
+        raise PlanRefused("the selected rhyme type cannot bind the whole prescribed terminal group")
 
     plan = {
         "plan_version": 3,
@@ -5949,8 +5956,8 @@ def writer_brief(plan):
     catalog = plan.get("request", {}).get("song_form")
     if catalog is not None:
         out.append(f"Catalog {catalog['scope']}: {catalog['id']} (variant {catalog['variant']}).")
-        for pair in catalog["rhymeGroups"]:
-            out.append(f"  L{pair[0]} and L{pair[1]}: rhyme at the line endings.")
+        for group in catalog["rhymeGroups"]:
+            out.append(f"  Lines {group[0]}–{group[-1]}: all line endings rhyme with each other.")
         for row in catalog.get("lineRequirements", ()):
             terms = []
             for field, unit in (("words", "word"), ("syllables", "syllable"), ("stresses", "stress")):

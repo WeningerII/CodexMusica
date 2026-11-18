@@ -108,7 +108,7 @@ function writerDescription({ arrangement, contract }) {
         : 'The writer uses a verse for each division and keeps the displayed line counts.'
     );
   }
-  if (contract.rhymeGroups.length) statements.push('The two line endings must rhyme.');
+  if (contract.rhymeGroups.length) statements.push('All line endings must rhyme with each other.');
   const requirements = contract.lineRequirements || [];
   const measures = [
     ['words', 'word'],

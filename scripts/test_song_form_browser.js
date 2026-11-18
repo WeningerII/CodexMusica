@@ -92,7 +92,7 @@ async function checkViewport(browser, origin, viewport) {
     // Selecting the rhymed variant makes writing available without binding a request.
     await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('1');
     await view.getByRole('button', { name: 'Show expanded structure' }).click();
-    await view.getByText(/The two line endings must rhyme/).waitFor();
+    await view.getByText(/All line endings must rhyme with each other/).waitFor();
     assert.ok(await view.getByRole('button', { name: 'Write with this form' }).isVisible());
     assert.deepEqual(await page.evaluate(() => window.uiLyricContext('lyrics').declarations), {});
     await picker.selectOption('quatrain');
