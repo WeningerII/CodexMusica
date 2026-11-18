@@ -345,18 +345,14 @@ function recurringStanzaMeter(metrical, lines, sections) {
         continue;
       }
       const mask = row.stress;
-      const count = row.syllables ?? mask?.length;
+      const validMask = typeof mask === 'string' && /^[./]+$/.test(mask);
+      const count = row.syllables ?? (validMask ? mask.length : undefined);
       if (!Number.isSafeInteger(count) || count <= 0) missing = true;
       else if (counts[j] === undefined) counts[j] = count;
       else if (count !== counts[j]) incompatible = true;
       // Agreed stress is a sufficient witness for this regular setting.
       // A lexical substitution can still scan, so it is inconclusive.
-      if (
-        typeof mask !== 'string' ||
-        !/^[./]+$/.test(mask) ||
-        !mask.includes('/') ||
-        mask.length !== count
-      ) {
+      if (!validMask || !mask.includes('/') || mask.length !== count) {
         uncertainStress = true;
       } else if (masks[j] === undefined) masks[j] = mask;
       else if (masks[j] !== mask) uncertainStress = true;

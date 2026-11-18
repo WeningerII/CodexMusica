@@ -316,6 +316,9 @@ test('both triad checks withhold a verdict for conflicting stress and count evid
   const read = lines => gradeObservations(catalog,id,{counts,sections,lines}).checks
     .filter(c=>c.kind.startsWith('english-')).map(c=>c.outcome);
   assert.deepEqual(read(sample), ['pass','pass']);
+  for (const stress of ['invalid', [true]]) {
+    assert.deepEqual(read([{text:'a',stress}, ...sample.slice(1)]), ['unknown','unknown']);
+  }
   for (const property of ['stresses','syllables']) {
     for (const [index,expected] of [[0,['unknown','unknown']], [1,['unknown','pass']], [2,['pass','unknown']]]) {
       const rows=sample.map((row,i)=>i===index?{...row,[property]:row[property]+1}:row);
