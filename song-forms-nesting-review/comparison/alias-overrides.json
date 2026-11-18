@@ -133,7 +133,7 @@
   },
   "Long-measure ballad": {
     "aliases": "–",
-    "reason": "Catalog line 94. Couplet ballad names only the couplet presentation. The source explicitly also includes four-line stanzas.",
+    "reason": "Catalog line 94 conflates four tetrameter lines with paired fourteeners. Dividing paired fourteeners gives a different measure.",
     "refs": []
   },
   "Incremental-repetition ballad": {
@@ -488,7 +488,7 @@
   },
   "Rondeau prime": {
     "aliases": "–",
-    "reason": "The two titles overlap in the 7 + 5 pattern, but divergent recorded constructions make a general alias unproven.",
+    "reason": "The same twelve positions occur under both names. Refrain treatment and period-specific terminology limit interchangeability.",
     "refs": [
       "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_",
       "https://www.writersdigest.com/write-better-poetry/rondine-poetic-form"
@@ -496,7 +496,7 @@
   },
   "Rondine": {
     "aliases": "–",
-    "reason": "The two titles overlap in the 7 + 5 pattern, but divergent recorded constructions make a general alias unproven.",
+    "reason": "The same twelve positions occur under both names. Refrain treatment and period-specific terminology limit interchangeability.",
     "refs": [
       "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_",
       "https://www.writersdigest.com/write-better-poetry/rondine-poetic-form"

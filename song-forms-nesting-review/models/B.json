@@ -749,14 +749,21 @@
         "label": "Overlapping voices",
         "children": [
           "Leading voice",
-          "Following voice imitates after a delay"
+          "Delayed imitative entry"
+        ]
+      },
+      {
+        "label": "Imitation",
+        "children": [
+          "Strict: prescribed correspondence",
+          "Free: adjustments permitted"
         ]
       },
       {
         "label": "Possible endings",
         "children": [
           "Written close",
-          "Looping round"
+          "Cyclic round"
         ]
       }
     ],

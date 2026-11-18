@@ -329,8 +329,8 @@
     ]
   },
   "Onegin stanza": {
-    "status": "contested",
-    "note": "Fourteen iambic tetrameter lines form aBaB ccDD eFFe GG. In this notation a, c and e have a trailing unstressed syllable. B, D, F and G end in stress. The catalog reverses the stress legend.",
+    "status": "supported",
+    "note": "Fourteen iambic tetrameter lines use ABAB CCDD EFFE GG. In the diagram’s local legend, lowercase marks a trailing unstressed syllable and capitals mark a stressed ending: aBaB ccDD eFFe GG.",
     "edges": [
       {
         "target": "Verse novel",
@@ -565,8 +565,8 @@
     ]
   },
   "Sonnet sequence": {
-    "status": "contested",
-    "note": "A shared subject or progression links a sequence. Numbering is optional; some sequences also link their boundary lines, contrary to the catalog’s blanket exclusion.",
+    "status": "supported",
+    "note": "A series of sonnets develops a subject or progression. Some sequences use verbal linkage: in a crown, each closing line opens the next sonnet and the cycle returns to its beginning.",
     "edges": [],
     "refs": [
       "https://poets.org/glossary/sonnet"
@@ -838,8 +838,8 @@
     ]
   },
   "Rondeau prime": {
-    "status": "contested",
-    "note": "The catalog gives 7 + 6 positions and the independent account gives 7 + 5. The latter arrangement also occurs under the name rondine.",
+    "status": "supported",
+    "note": "The documented twelve-position setting divides into a septet and a quintain, abbaabR / abbaR. The returning opening fragment occupies positions seven and twelve. Historical naming can depend on the particular refrain treatment.",
     "edges": [
       {
         "target": "Rondeau",
@@ -851,7 +851,7 @@
         "target": "Rondine",
         "kind": "comparison",
         "status": "supported",
-        "evidence": "Both titles have an attested abbaabR / abbaR reading. Their catalog rows also preserve divergent readings, so identity remains uncertain.",
+        "evidence": "Both names are documented for twelve-position arrangements with matching stanza lengths and rhyme letters. Refrain treatment and historical terminology limit interchangeability.",
         "refs": [
           "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_",
           "https://www.writersdigest.com/write-better-poetry/rondine-poetic-form"
@@ -861,35 +861,31 @@
         "target": "Septet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Both readings begin with seven positions, including the short returning phrase.",
+        "evidence": "The twelve-position setting opens with seven positions, including its returning phrase.",
         "refs": [
           "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_"
         ],
         "scope_paths": [
-          "1.1",
-          "2.1"
+          "1"
         ]
       },
       {
         "target": "Quintain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The twelve-position reading ends with five positions including the returning phrase.",
+        "evidence": "The closing five positions include the shortened refrain.",
         "refs": [
           "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_"
         ],
         "scope_paths": [
-          "2.2"
+          "2"
         ]
       },
       {
         "target": "Sestet / sixain",
         "kind": "contains",
-        "status": "supported",
-        "evidence": "The catalog’s thirteen-position reading ends with a six-position stanza, abbabR.",
-        "scope_paths": [
-          "1.2"
-        ]
+        "status": "rejected",
+        "evidence": "The uncorroborated thirteen-position inventory outline supplied this link. The attested setting closes with five positions."
       }
     ],
     "refs": [
@@ -902,8 +898,8 @@
     ]
   },
   "Rondine": {
-    "status": "contested",
-    "note": "Two readings share a septet, a quintain and a returning short phrase. The catalog starts abaabbR and an independently published specification starts abbaabR.",
+    "status": "supported",
+    "note": "Six full lines and a short refrain make the opening septet, abbaabR. Four full lines and the returning fragment make the closing quintain, abbaR.",
     "edges": [
       {
         "target": "Rondeau",
@@ -933,7 +929,7 @@
         "target": "Rondeau prime",
         "kind": "comparison",
         "status": "redirected",
-        "evidence": "Both titles have an attested abbaabR / abbaR reading. Their catalog rows also preserve divergent readings, so identity remains uncertain.",
+        "evidence": "Both names are documented for twelve-position arrangements with matching stanza lengths and rhyme letters. Refrain treatment and historical terminology limit interchangeability.",
         "refs": [
           "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_",
           "https://www.writersdigest.com/write-better-poetry/rondine-poetic-form"

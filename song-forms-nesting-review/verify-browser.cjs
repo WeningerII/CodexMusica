@@ -53,6 +53,45 @@ async function checkCatalogRankings(page) {
   assert.deepEqual(result.failures, []);
   return result.terms;
 }
+async function readForm(page, id, title) {
+  await page.goto(base + '#' + id);
+  await page.getByRole('heading', {name: title, exact: true, level: 1}).waitFor();
+  return {
+    note: await page.locator('#reviewNote').innerText(),
+    nodes: await page.locator('#diagram .sf-node').allTextContents()
+  };
+}
+
+async function checkCorrectedForms(page) {
+  const binary = await readForm(page, 'binary', 'Binary');
+  assert.match(binary.note, /^Reviewed pattern/);
+  assert.match(binary.note, /AABB/);
+  assert.match(binary.note, /(?:common|usual|often|typical|optional)/i);
+  for (const part of ['A', 'B']) {
+    assert.ok(binary.nodes.some(label => new RegExp('repeat ' + part + '\\b', 'i').test(label)),
+      'Binary must show a separate repeat for ' + part);
+  }
+
+  const rondine = await readForm(page, 'rondine', 'Rondine');
+  assert.match(rondine.note, /^Reviewed pattern/);
+  const structure = rondine.nodes.join(' ');
+  assert.match(structure, /\babbaabR\b/);
+  assert.match(structure, /\babbaR\b/);
+  assert.doesNotMatch(structure + ' ' + rondine.note, /\babaabbR\b/);
+
+  const byr = await readForm(page, 'byr-a-thoddaid', 'Byr a thoddaid');
+  assert.match(byr.note, /^Partial model/);
+  assert.match(byr.note, /clos(?:e|ing)|toddaid/i);
+  assert.match(byr.note, /unresolved|unclear|uncertain|unspecified|open question/i);
+  assert.match(byr.nodes.join(' '), /(?:four|4) eight-syllable lines/i);
+  assert.match(byr.nodes.join(' '), /(?:two|2) linked lines/i);
+
+  const monk = await readForm(page, 'monk-s-tale-stanza', "Monk's Tale stanza");
+  assert.match(monk.note, /^Reviewed pattern/);
+  assert.match(monk.note, /iambic pentameter/i);
+  assert.match(monk.note, /ABABBCBC/);
+  assert.doesNotMatch([...monk.nodes, monk.note].join(' '), /(?:four|4)[- ](?:stress|beat)/i);
+}
 async function run() {
   const browser = await chromium.launch({executablePath:process.env.CHROMIUM_PATH || '/usr/bin/chromium',headless:true});
   try {
@@ -89,7 +128,7 @@ async function run() {
       await box.press('Enter');
       await page.getByRole('heading',{name:'Binary',exact:true,level:1}).waitFor();
       assert.equal(await page.getByRole('dialog').count(),0);
-      assert.match(await page.locator('#reviewNote').innerText(),/Contested pattern/);
+      await checkCorrectedForms(page);
       await page.goto(base+'#petrarchan-sonnet');
       const miltonic=page.getByRole('button',{name:'Explore Miltonic sonnet',exact:true});
       const item=page.locator('li').filter({has:miltonic});
@@ -99,7 +138,7 @@ async function run() {
       assert.doesNotMatch(await item.innerText(),/Petrarchan sonnet → Miltonic sonnet/);
       for (const result of [errors,outbound]) assert.deepEqual(result,[]);
       await page.close();
-      console.log(width+'px: '+count+' exact terms, '+reportedQueries.length+' reported rankings and alternatives, '+queries.length+' navigation checks, family filtering, keyboard selection, directional evidence and offline checks passed');
+      console.log(width+'px: '+count+' exact terms, '+reportedQueries.length+' reported rankings and alternatives, '+queries.length+' navigation checks, family filtering, keyboard selection, four reviewed structures, directional evidence and offline checks passed');
     }
   } finally { await browser.close() }
 }

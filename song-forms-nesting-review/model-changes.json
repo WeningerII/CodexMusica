@@ -914,16 +914,22 @@
         ],
         "after": [
           {
-            "label": "Two main parts",
+            "label": "A · first reprise",
             "children": [
-              "A · first part",
-              "B · second part"
+              "May repeat A"
+            ]
+          },
+          {
+            "label": "B · second reprise",
+            "children": [
+              "May repeat B",
+              "Rounded setting: opening material returns inside B"
             ]
           }
         ]
       }
     },
-    "reason": "The catalog specifies repeating the A–B pair, while the convention of repeating each reprise produces AABB. Both readings give two parts; the diagram leaves repeat placement open.",
+    "reason": "Two reprises form A and B. Each reprise is commonly repeated, giving AABB; repeats are optional. In rounded binary, opening material returns within B.",
     "edges": [],
     "references": [
       "https://viva.pressbooks.pub/openmusictheory/chapter/binary-form/"
@@ -1663,7 +1669,7 @@
     "changes": {
       "mode": {
         "before": "Pattern",
-        "after": "Rule"
+        "after": "Example"
       },
       "related": {
         "before": [
@@ -1697,22 +1703,22 @@
           {
             "label": "Arrangement method",
             "children": [
-              "Worked out by the players",
-              "Retained in memory"
+              "Parts devised together",
+              "Parts remembered by the players"
             ]
           },
           {
-            "label": "Catalog performance example",
+            "label": "One possible performance",
             "children": [
               "Head",
-              "Solos over the same chords",
-              "Head returns with tag"
+              "Solos",
+              "Return of the head"
             ]
           }
         ]
       }
     },
-    "reason": "The catalog equates the memorized arranging practice with a head–solos–head performance order. The working method and performance sequence can occur independently. The diagram therefore separates them.",
+    "reason": "The players devise and remember the arrangement together. A performance may use head, solos and returning head; that sequence describes one way of playing the arrangement.",
     "edges": [
       {
         "target": "AABA 32-bar",
@@ -2451,7 +2457,7 @@
         ]
       }
     },
-    "reason": "The catalog groups four-stress lines and paired fourteeners as alternatives for long-measure ballad. Dividing those fourteeners 8+6 yields alternating four and three stresses, in conflict with four stresses throughout. The diagram keeps the four-stress setting.",
+    "reason": "The illustrated narrative quatrain has four stresses in every line. AABB is one rhyme arrangement. Dividing a regular fourteener into four and three stresses yields a different ballad-meter profile.",
     "edges": [
       {
         "target": "Fourteener",
@@ -2499,7 +2505,7 @@
         "target": "Ballad stanza",
         "kind": "comparison",
         "status": "supported",
-        "evidence": "Splitting each of the catalog’s long-line pair into four and three stresses yields the ballad-metre profile. No specific inner rhyme in the long lines is implied.",
+        "evidence": "The four equally stressed lines shown here differ from the alternating four- and three-stress lines of the traditional ballad stanza.",
         "refs": [
           "https://rpo.library.utoronto.ca/glossary/common-measure"
         ],
@@ -3813,20 +3819,27 @@
             "label": "Overlapping voices",
             "children": [
               "Leading voice",
-              "Following voice imitates after a delay"
+              "Delayed imitative entry"
+            ]
+          },
+          {
+            "label": "Imitation",
+            "children": [
+              "Strict: prescribed correspondence",
+              "Free: adjustments permitted"
             ]
           },
           {
             "label": "Possible endings",
             "children": [
               "Written close",
-              "Looping round"
+              "Cyclic round"
             ]
           }
         ]
       }
     },
-    "reason": "The catalog excludes a looping ending and defines imitation as strict. A canon can be cyclic, and its imitation can vary; the diagram allows a written close or a looping example.",
+    "reason": "One voice leads and another enters later in imitation. A strict canon preserves the leader’s material according to its rule; a free canon permits adjustments. A round cycles, while other canons may have a written close.",
     "edges": [
       {
         "target": "Round",
@@ -6446,7 +6459,7 @@
         ]
       }
     },
-    "reason": "In the local aBaB ccDD eFFe GG notation, lowercase marks an ending with a trailing unstressed syllable and capitals an ending on stress. Capitals can also mark the first type if the letter string is reversed in case throughout. The catalog pairs the local string with that opposite key, reversing the actual ending pattern.",
+    "reason": "Fourteen iambic tetrameter lines use ABAB CCDD EFFE GG. In the diagram’s local legend, lowercase marks a trailing unstressed syllable and capitals mark a stressed ending: aBaB ccDD eFFe GG.",
     "edges": [
       {
         "target": "Verse novel",
@@ -6917,16 +6930,24 @@
         ],
         "after": [
           {
-            "label": "Ordered sonnets",
+            "label": "Ordered sequence",
             "children": [
-              "Distinct poems",
+              "Individual sonnets",
               "Shared subject or progression"
+            ]
+          },
+          {
+            "label": "Possible linkage",
+            "children": [
+              "Thematic progression alone",
+              "Verbal chain between poems",
+              "A crown closes the chain cyclically"
             ]
           }
         ]
       }
     },
-    "reason": "The catalog excludes linked sonnets. A sequence can include a crown whose last lines return as subsequent openings, as well as thematic series without that verbal linkage. The shared organizing requirement is a series of sonnets.",
+    "reason": "A series of sonnets develops a subject or progression. Some sequences use verbal linkage: in a crown, each closing line opens the next sonnet and the cycle returns to its beginning.",
     "edges": [],
     "references": [
       "https://poets.org/glossary/sonnet"
@@ -7651,7 +7672,7 @@
     "changes": {
       "mode": {
         "before": "Pattern",
-        "after": "Rule"
+        "after": "Example"
       },
       "related": {
         "before": [
@@ -7661,8 +7682,7 @@
           "Rondeau",
           "Rondine",
           "Septet",
-          "Quintain",
-          "Sestet / sixain"
+          "Quintain"
         ]
       },
       "tree": {
@@ -7682,43 +7702,21 @@
         ],
         "after": [
           {
-            "label": "Catalog version",
+            "label": "Opening septet",
             "children": [
-              {
-                "label": "Seven lines",
-                "children": [
-                  "abbaabR"
-                ]
-              },
-              {
-                "label": "Six lines",
-                "children": [
-                  "abbabR"
-                ]
-              }
+              "abbaabR"
             ]
           },
           {
-            "label": "Manuscript study’s account",
+            "label": "Closing quintain",
             "children": [
-              {
-                "label": "Seven lines",
-                "children": [
-                  "abbaabR"
-                ]
-              },
-              {
-                "label": "Five lines",
-                "children": [
-                  "abbaR"
-                ]
-              }
+              "abbaR"
             ]
           }
         ]
       }
     },
-    "reason": "The catalog specifies a septet and a sestet, 7+6. A manuscript study describes a septet and a quintain, 7+5, with shortened refrains at positions 7 and 12. Only the catalog supports its 13-position reading here. The diagram distinguishes those two accounts.",
+    "reason": "The documented twelve-position setting divides into a septet and a quintain, abbaabR / abbaR. The returning opening fragment occupies positions seven and twelve. Historical naming can depend on the particular refrain treatment.",
     "edges": [
       {
         "target": "Rondeau",
@@ -7732,7 +7730,7 @@
         "target": "Rondine",
         "kind": "comparison",
         "status": "supported",
-        "evidence": "Both titles have an attested abbaabR / abbaR reading. Their catalog rows also preserve divergent readings, so identity remains uncertain.",
+        "evidence": "Both names are documented for twelve-position arrangements with matching stanza lengths and rhyme letters. Refrain treatment and historical terminology limit interchangeability.",
         "refs": [
           "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_"
         ],
@@ -7742,13 +7740,12 @@
         "target": "Septet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Both readings begin with seven positions, including the short returning phrase.",
+        "evidence": "The twelve-position setting opens with seven positions, including its returning phrase.",
         "refs": [
           "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_"
         ],
         "scope_paths": [
-          "1.1",
-          "2.1"
+          "1"
         ],
         "basis": "passage checked for stated scope"
       },
@@ -7756,23 +7753,20 @@
         "target": "Quintain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The twelve-position reading ends with five positions including the returning phrase.",
+        "evidence": "The closing five positions include the shortened refrain.",
         "refs": [
           "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_"
         ],
         "scope_paths": [
-          "2.2"
+          "2"
         ],
         "basis": "passage checked for stated scope"
       },
       {
         "target": "Sestet / sixain",
         "kind": "contains",
-        "status": "supported",
-        "evidence": "The catalog’s thirteen-position reading ends with a six-position stanza, abbabR.",
-        "scope_paths": [
-          "1.2"
-        ],
+        "status": "rejected",
+        "evidence": "The uncorroborated thirteen-position inventory outline supplied this link. The attested setting closes with five positions.",
         "basis": "catalog and model only",
         "refs": []
       }
@@ -7819,18 +7813,7 @@
           {
             "label": "Opening septet",
             "children": [
-              {
-                "label": "Catalog rhyme order",
-                "children": [
-                  "abaabbR"
-                ]
-              },
-              {
-                "label": "Alternative rhyme order",
-                "children": [
-                  "abbaabR"
-                ]
-              }
+              "abbaabR"
             ]
           },
           {
@@ -7842,7 +7825,7 @@
         ]
       }
     },
-    "reason": "Both accounts give a septet followed by a quintain. The catalog opens abaabbR; a published specification and example open abbaabR. Both end abbaR and use a short refrain. The diagram shows both opening rhyme orders.",
+    "reason": "Six full lines and a short refrain make the opening septet, abbaabR. Four full lines and the returning fragment make the closing quintain, abbaR.",
     "edges": [
       {
         "target": "Rondeau",
@@ -7882,7 +7865,7 @@
         "target": "Rondeau prime",
         "kind": "comparison",
         "status": "redirected",
-        "evidence": "Both titles have an attested abbaabR / abbaR reading. Their catalog rows also preserve divergent readings, so identity remains uncertain.",
+        "evidence": "Both names are documented for twelve-position arrangements with matching stanza lengths and rhyme letters. Refrain treatment and historical terminology limit interchangeability.",
         "refs": [
           "https://darksideofthemoon583.com/2018/10/01/incremental-poetry-12-lines/",
           "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_"
@@ -10635,7 +10618,7 @@
         ]
       }
     },
-    "reason": "The original inventory gives sixteen lines regardless of poet count. The two-poet pattern totals sixteen; the three-poet pattern totals fifteen. Both preserve the six-verse structure.",
+    "reason": "Six linked verses share a theme. In the documented two- and three-poet arrangements, the alternation of two- and three-line verses gives sixteen and fifteen lines respectively.",
     "edges": [
       {
         "target": "Haiku",
@@ -11399,7 +11382,7 @@
         ]
       }
     },
-    "reason": "The inventory joins the first five lines before a final toddaid line. The documented six-line setting groups an opening four lines with a two-line toddaid. The tree uses the latter division.",
+    "reason": "In this documented six-line setting, four ten-syllable lines precede a two-line toddaid hir. Other stanza lengths also occur.",
     "edges": [
       {
         "target": "Couplet",
@@ -11444,6 +11427,19 @@
     "form": "Byr a thoddaid",
     "source_line": 262,
     "changes": {
+      "mode": {
+        "before": "Rule",
+        "after": "Example"
+      },
+      "related": {
+        "before": [
+          "Couplet"
+        ],
+        "after": [
+          "Couplet",
+          "Quatrain"
+        ]
+      },
       "tree": {
         "before": [
           {
@@ -11468,27 +11464,27 @@
         ],
         "after": [
           {
-            "label": "Eight-syllable material",
+            "label": "Cyhydedd fer opening",
             "children": [
-              "Cyhydedd fer"
+              "Four eight-syllable lines on the main rhyme"
             ]
           },
           {
-            "label": "Linked two-line unit",
+            "label": "Closing toddaid",
             "children": [
-              "Toddaid · accounts differ on length"
+              "Two linked lines on the main rhyme"
             ]
           }
         ]
       }
     },
-    "reason": "The catalog gives four lines in total, combining 8+8 with 10+9. A Welsh technical glossary instead describes four eight-syllable lines followed by a toddaid. The model retains the two components without imposing a disputed total or closing-unit length.",
+    "reason": "The technical glossary describes four eight-syllable opening lines followed by a two-line toddaid, sharing the main rhyme. The precise closing subtype and the range of other settings remain unresolved.",
     "edges": [
       {
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Accounts disagree on the exact stanza length, yet both contain a closing or linked two-line toddaid unit.",
+        "evidence": "The closing toddaid is a paired two-line unit in the documented arrangement.",
         "refs": [
           "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
         ],
@@ -11496,6 +11492,19 @@
           "2"
         ],
         "basis": "reference recorded; passage unverified"
+      },
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "scope_paths": [
+          "1"
+        ],
+        "evidence": "The glossary setting groups four eight-syllable lines before its distinct closing toddaid.",
+        "refs": [
+          "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
+        ],
+        "basis": "passage checked for stated scope"
       }
     ],
     "references": [
@@ -11954,15 +11963,21 @@
             "label": "Second quatrain",
             "children": [
               "Two dactyls",
-              "Two dactyls · often one word",
+              "Two dactyls · common single-word position",
               "Two dactyls",
               "Short line · end rhyme A"
+            ]
+          },
+          {
+            "label": "Single-word constraint",
+            "children": [
+              "One eligible full line uses one double-dactylic word"
             ]
           }
         ]
       }
     },
-    "reason": "The inventory describes two quatrains of double-dactyl lines. In the standard construction, the fourth and eighth lines are shortened and rhyme. The diagram follows that construction.",
+    "reason": "Two quatrains each have three double-dactylic lines and a shorter fourth. The two short lines rhyme. A nonsense phrase opens the poem, a name follows, and another full line, commonly the sixth, consists of one double-dactylic word.",
     "edges": [
       {
         "target": "Quatrain",
@@ -12517,7 +12532,7 @@
         ]
       }
     },
-    "reason": "The inventory applies a seven-letter limit to every word. The stated form admits exceptions for proper nouns, foreign terms and quoted passages. The diagram retains those exceptions.",
+    "reason": "Seven lines contain seven words each. The usual seven-letter maximum allows exceptions for proper nouns, foreign terms and quoted passages.",
     "edges": [
       {
         "target": "Septet",
@@ -13834,7 +13849,7 @@
         ]
       }
     },
-    "reason": "The inventory places the double dactyl at the end of the final line. The classical pattern starts that line with two dactyls and follows them with four syllables; the diagram uses this position.",
+    "reason": "The classical stanza has lines of 11, 11, 9 and 10 syllables. The fourth opens with two long–short–short groups followed by four closing syllables.",
     "edges": [
       {
         "target": "Quatrain",
@@ -14337,7 +14352,7 @@
         ]
       }
     },
-    "reason": "The eight-line Chaucerian octave rhymes ABABBCBC. A specialist study identifies iambic pentameter, the reading drawn here. A separate teaching account gives four stresses. The sources agree on length and rhyme but differ on the meter.",
+    "reason": "An eight-line iambic pentameter stanza rhymes ABABBCBC. The meter shown follows the specialist account.",
     "edges": [
       {
         "target": "Octave / huitain",
@@ -14632,6 +14647,10 @@
     "form": "Christ's Kirk stanza",
     "source_line": 347,
     "changes": {
+      "mode": {
+        "before": "Pattern",
+        "after": "Example"
+      },
       "related": {
         "before": null,
         "after": [
@@ -14692,7 +14711,7 @@
         ]
       }
     },
-    "reason": "Eight alternating lines lead into a short bob and a returning line. The catalog specifies a fixed final phrase, but two consecutive printed refrains differ in their last words. The model allows the wording to vary.",
+    "reason": "In the documented ten-line setting, eight alternating lines precede a short bob and a returning line. The refrain permits changes in wording.",
     "edges": [
       {
         "target": "Bob and wheel",

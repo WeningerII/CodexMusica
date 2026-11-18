@@ -542,10 +542,18 @@
   "Sonnet sequence": {
     "tree": [
       {
-        "label": "Ordered sonnets",
+        "label": "Ordered sequence",
         "children": [
-          "Distinct poems",
+          "Individual sonnets",
           "Shared subject or progression"
+        ]
+      },
+      {
+        "label": "Possible linkage",
+        "children": [
+          "Thematic progression alone",
+          "Verbal chain between poems",
+          "A crown closes the chain cyclically"
         ]
       }
     ],
@@ -844,47 +852,24 @@
   "Rondeau prime": {
     "tree": [
       {
-        "label": "Catalog version",
+        "label": "Opening septet",
         "children": [
-          {
-            "label": "Seven lines",
-            "children": [
-              "abbaabR"
-            ]
-          },
-          {
-            "label": "Six lines",
-            "children": [
-              "abbabR"
-            ]
-          }
+          "abbaabR"
         ]
       },
       {
-        "label": "Manuscript study’s account",
+        "label": "Closing quintain",
         "children": [
-          {
-            "label": "Seven lines",
-            "children": [
-              "abbaabR"
-            ]
-          },
-          {
-            "label": "Five lines",
-            "children": [
-              "abbaR"
-            ]
-          }
+          "abbaR"
         ]
       }
     ],
-    "mode": "Rule",
+    "mode": "Example",
     "related": [
       "Rondeau",
       "Rondine",
       "Septet",
-      "Quintain",
-      "Sestet / sixain"
+      "Quintain"
     ]
   },
   "Rondine": {
@@ -892,18 +877,7 @@
       {
         "label": "Opening septet",
         "children": [
-          {
-            "label": "Catalog rhyme order",
-            "children": [
-              "abaabbR"
-            ]
-          },
-          {
-            "label": "Alternative rhyme order",
-            "children": [
-              "abbaabR"
-            ]
-          }
+          "abbaabR"
         ]
       },
       {

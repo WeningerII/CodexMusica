@@ -30,8 +30,8 @@
     ]
   },
   "Long-measure ballad": {
-    "status": "contested",
-    "note": "Four four-stress lines fit long metre when iambic. The catalog also lists paired fourteen-syllable lines. Split 8 + 6, these give common-measure rhythm; the diagram omits that conflicting alternative.",
+    "status": "supported",
+    "note": "The illustrated narrative quatrain has four stresses in every line. AABB is one rhyme arrangement. Dividing a regular fourteener into four and three stresses yields a different ballad-meter profile.",
     "edges": [
       {
         "target": "Fourteener",
@@ -75,7 +75,7 @@
         "target": "Ballad stanza",
         "kind": "comparison",
         "status": "supported",
-        "evidence": "Splitting each of the catalog’s long-line pair into four and three stresses yields the ballad-metre profile. No specific inner rhyme in the long lines is implied.",
+        "evidence": "The four equally stressed lines shown here differ from the alternating four- and three-stress lines of the traditional ballad stanza.",
         "refs": [
           "https://rpo.library.utoronto.ca/glossary/common-measure"
         ]
@@ -703,8 +703,8 @@
     ]
   },
   "Canon": {
-    "status": "contested",
-    "note": "A following voice imitates a leading voice after a delay. The imitation can be strict or free. A canon can end or repeat cyclically.",
+    "status": "supported",
+    "note": "One voice leads and another enters later in imitation. A strict canon preserves the leader’s material according to its rule; a free canon permits adjustments. A round cycles, while other canons may have a written close.",
     "edges": [
       {
         "target": "Round",

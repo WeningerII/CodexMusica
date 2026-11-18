@@ -8,22 +8,21 @@
     "E": 44
   },
   "status": {
-    "supported": 258,
-    "partial": 90,
-    "contested": 16
+    "supported": 273,
+    "partial": 91
   },
   "changed_models": 289,
   "fields_changed": {
-    "mode": 132,
+    "mode": 134,
     "tree": 228,
-    "related": 146
+    "related": 147
   },
   "hierarchy_changed": 155,
-  "diagram_nodes": 2213,
-  "candidate_relationships": 424,
+  "diagram_nodes": 2215,
+  "candidate_relationships": 425,
   "edge_verdicts": {
     "supported": 383,
-    "rejected": 16,
+    "rejected": 17,
     "redirected": 20,
     "ambiguous": 5
   },
@@ -31,7 +30,7 @@
     "retained": 178,
     "added": 205,
     "removed": 29,
-    "withheld": 12
+    "withheld": 13
   },
   "supported_kinds": {
     "variant": 76,
@@ -45,14 +44,13 @@
     "supported | catalog and model only": 131,
     "partial | catalog and model only": 43,
     "partial | reference recorded; passage unverified": 40,
-    "contested | passage checked for stated scope": 16,
-    "partial | passage checked for stated scope": 7,
-    "supported | passage checked for stated scope": 22
+    "supported | passage checked for stated scope": 37,
+    "partial | passage checked for stated scope": 8
   },
   "supported_edge_evidence": {
     "reference recorded; passage unverified": 149,
-    "catalog and model only": 191,
-    "passage checked for stated scope": 43
+    "catalog and model only": 190,
+    "passage checked for stated scope": 44
   },
   "distinct_bibliography_urls": 220,
   "alias_fields_before": 177,
@@ -86,7 +84,7 @@
     "boundary": 12,
     "two rows": 1
   },
-  "unit_node_matches": 341,
+  "unit_node_matches": 340,
   "meter_pairs": 105,
   "meter_evidence": {
     "catalog comparison only": 52,

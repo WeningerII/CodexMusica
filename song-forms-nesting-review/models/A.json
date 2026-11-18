@@ -339,10 +339,16 @@
     "mode": "Pattern",
     "tree": [
       {
-        "label": "Two main parts",
+        "label": "A · first reprise",
         "children": [
-          "A · first part",
-          "B · second part"
+          "May repeat A"
+        ]
+      },
+      {
+        "label": "B · second reprise",
+        "children": [
+          "May repeat B",
+          "Rounded setting: opening material returns inside B"
         ]
       }
     ]
@@ -771,21 +777,21 @@
     ]
   },
   "Head arrangement": {
-    "mode": "Rule",
+    "mode": "Example",
     "tree": [
       {
         "label": "Arrangement method",
         "children": [
-          "Worked out by the players",
-          "Retained in memory"
+          "Parts devised together",
+          "Parts remembered by the players"
         ]
       },
       {
-        "label": "Catalog performance example",
+        "label": "One possible performance",
         "children": [
           "Head",
-          "Solos over the same chords",
-          "Head returns with tag"
+          "Solos",
+          "Return of the head"
         ]
       }
     ]

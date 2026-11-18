@@ -8,13 +8,13 @@ The original inventory and R2’s posted inventory both contain 364 entries in t
 
 | Diagram judgment | Meaning | Count |
 |---|---|---:|
-| Supported | The diagram represents the organizing rule or the explicitly bounded construction that it claims. | 258 |
-| Partial | The note identifies a material rule, position, branch or identification that remains unresolved or omitted. | 90 |
-| Contested | Two traceable accounts disagree about the same feature at the same scope. | 16 |
+| Supported | The diagram represents the organizing rule or the explicitly bounded construction that it claims. | 273 |
+| Partial | The note identifies a material rule, position, branch or identification that remains unresolved or omitted. | 91 |
+| Contested | Two traceable accounts disagree about the same feature at the same scope. | 0 |
 
-**Evidence and status answer different questions.** Of the 258 supported diagrams, 22 have a claim-specific passage checked this round, 105 have a recorded reference whose passage remains unchecked for the claim and 131 rely on the catalog and model alone. Seven partial and all 16 contested entries also have a checked passage. A link in the bibliography, a page that loads or agreement with another copy of the inventory separately cannot establish a claim. Each dated passage record describes exactly what it supports. The original access and the new retrieval checks remain separate.
+**Evidence and status answer different questions.** Of 273 supported diagrams, 37 have a passage checked for the stated scope, 105 carry a reference whose passage remains unchecked for the claim, and 131 rely on the catalog and model. Of the partial diagrams, 8 have a checked passage. The evidence ledger preserves the scope and limits of each check.
 
-Relative to the first prototype, 289 models have changed. Of 228 edited trees, 155 changed their branching structure. The node screen visits 2,213 nodes and records 341 explicit word or size matches. It covers the declared vocabulary; unrecognized historical and structural connections can remain. The diagrams do not implement a form-recognition or writing engine.
+Relative to the first prototype, 289 models have changed. Of 228 edited trees, 155 changed their branching structure. The node screen visits 2,215 nodes and records 340 explicit word or size matches. It covers the declared vocabulary. The explorer displays form structures for inspection.
 
 ## Connections
 
@@ -26,7 +26,7 @@ Relative to the first prototype, 289 models have changed. Of 228 edited trees, 1
 | Comparison | A structural comparison identifies a relevant similarity or difference. | 27 |
 | Other | A specific contextual association outside the preceding kinds. | 1 |
 
-The ledger contains 424 decisions: 383 supported connections, 20 inverse restatements redirected to canonical facts, 16 rejected and five ambiguous. The 383 supported connections are distinct unordered pairs. The interface labels direction when it matters and allows navigation from either end. Of the supported connections, 43 have a passage checked for their scope, 149 carry references still unverified for the particular claim, and 191 rely on the catalog and model. Rejection and ambiguity carry separate evidence for the decision.
+The ledger contains 425 decisions. There are 383 distinct supported connections, 20 inverse restatements redirected to canonical facts, 17 rejected and 5 ambiguous. Of the supported connections, 44 have a passage checked for their scope, 149 carry references awaiting claim verification, and 190 rely on the catalog and model.
 
 ## Gaps and meter
 
@@ -38,6 +38,7 @@ All 203 meter research IDs are accounted for. There are 105 illustrative ID/form
 
 | Location | Purpose |
 |---|---|
+| `catalog-corrections.md` | Current dispositions of the 16 catalog discrepancies. Earlier reviewer files retain their historical judgments. |
 | `Andrej-reconciliation.md` | Disposition of every finding and nit from the independent review. The graph, scope, meter, build and search companion files give the underlying checks. |
 | `coverage-summary.json`, `coverage.tsv`, `relationships.tsv` | Current totals, one form per row and one assertion per decision. |
 | `comparison/claim-source-ledger.tsv`, `comparison/andrej-evidence.json`, `comparison/rechecked-sources.json` | Dated source access, exact locators, scoped paraphrases and cases with no passage receipt. |

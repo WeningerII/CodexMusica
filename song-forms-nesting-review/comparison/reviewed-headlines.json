@@ -9,22 +9,21 @@
       "E": 44
     },
     "status": {
-      "supported": 258,
-      "partial": 90,
-      "contested": 16
+      "supported": 273,
+      "partial": 91
     },
     "changed_models": 289,
     "fields_changed": {
-      "mode": 132,
+      "mode": 134,
       "tree": 228,
-      "related": 146
+      "related": 147
     },
     "hierarchy_changed": 155,
-    "diagram_nodes": 2213,
-    "candidate_relationships": 424,
+    "diagram_nodes": 2215,
+    "candidate_relationships": 425,
     "edge_verdicts": {
       "supported": 383,
-      "rejected": 16,
+      "rejected": 17,
       "redirected": 20,
       "ambiguous": 5
     },
@@ -32,7 +31,7 @@
       "retained": 178,
       "added": 205,
       "removed": 29,
-      "withheld": 12
+      "withheld": 13
     },
     "supported_kinds": {
       "variant": 76,
@@ -46,14 +45,13 @@
       "supported | catalog and model only": 131,
       "partial | catalog and model only": 43,
       "partial | reference recorded; passage unverified": 40,
-      "contested | passage checked for stated scope": 16,
-      "partial | passage checked for stated scope": 7,
-      "supported | passage checked for stated scope": 22
+      "supported | passage checked for stated scope": 37,
+      "partial | passage checked for stated scope": 8
     },
     "supported_edge_evidence": {
       "reference recorded; passage unverified": 149,
-      "catalog and model only": 191,
-      "passage checked for stated scope": 43
+      "catalog and model only": 190,
+      "passage checked for stated scope": 44
     },
     "distinct_bibliography_urls": 220,
     "alias_fields_before": 177,
@@ -87,7 +85,7 @@
       "boundary": 12,
       "two rows": 1
     },
-    "unit_node_matches": 341,
+    "unit_node_matches": 340,
     "meter_pairs": 105,
     "meter_evidence": {
       "catalog comparison only": 52,
@@ -105,19 +103,20 @@
   "documentation": {
     "README.md": [
       "The original inventory and R2’s posted inventory both contain 364 entries in the same order. Sections A–E contain 61, 89, 105, 65 and 44 entries respectively. The original closing estimate of 378 is inconsistent with the actual tables. Fourteen descriptions and one title differ between the two inventories. The stable Cinquain identifier works with either one.",
-      "| Supported | The diagram represents the organizing rule or the explicitly bounded construction that it claims. | 258 |",
-      "| Partial | The note identifies a material rule, position, branch or identification that remains unresolved or omitted. | 90 |",
-      "| Contested | Two traceable accounts disagree about the same feature at the same scope. | 16 |",
-      "**Evidence and status answer different questions.** Of the 258 supported diagrams, 22 have a claim-specific passage checked this round, 105 have a recorded reference whose passage remains unchecked for the claim and 131 rely on the catalog and model alone. Seven partial and all 16 contested entries also have a checked passage. A link in the bibliography, a page that loads or agreement with another copy of the inventory separately cannot establish a claim. Each dated passage record describes exactly what it supports. The original access and the new retrieval checks remain separate.",
-      "Relative to the first prototype, 289 models have changed. Of 228 edited trees, 155 changed their branching structure. The node screen visits 2,213 nodes and records 341 explicit word or size matches. It covers the declared vocabulary; unrecognized historical and structural connections can remain. The diagrams do not implement a form-recognition or writing engine.",
+      "| Supported | The diagram represents the organizing rule or the explicitly bounded construction that it claims. | 273 |",
+      "| Partial | The note identifies a material rule, position, branch or identification that remains unresolved or omitted. | 91 |",
+      "| Contested | Two traceable accounts disagree about the same feature at the same scope. | 0 |",
+      "**Evidence and status answer different questions.** Of 273 supported diagrams, 37 have a passage checked for the stated scope, 105 carry a reference whose passage remains unchecked for the claim, and 131 rely on the catalog and model. Of the partial diagrams, 8 have a checked passage. The evidence ledger preserves the scope and limits of each check.",
+      "Relative to the first prototype, 289 models have changed. Of 228 edited trees, 155 changed their branching structure. The node screen visits 2,215 nodes and records 340 explicit word or size matches. It covers the declared vocabulary. The explorer displays form structures for inspection.",
       "| Variant | The child inherits a documented organizing feature from a broader form. | 76 |",
       "| Contains | A specified part of a displayed construction realizes the target. Every assertion gives its node path and its scope. | 196 |",
       "| Shared feature | A specified property occurs in both, without requiring membership or a component. | 83 |",
       "| Comparison | A structural comparison identifies a relevant similarity or difference. | 27 |",
       "| Other | A specific contextual association outside the preceding kinds. | 1 |",
-      "The ledger contains 424 decisions: 383 supported connections, 20 inverse restatements redirected to canonical facts, 16 rejected and five ambiguous. The 383 supported connections are distinct unordered pairs. The interface labels direction when it matters and allows navigation from either end. Of the supported connections, 43 have a passage checked for their scope, 149 carry references still unverified for the particular claim, and 191 rely on the catalog and model. Rejection and ambiguity carry separate evidence for the decision.",
+      "The ledger contains 425 decisions. There are 383 distinct supported connections, 20 inverse restatements redirected to canonical facts, 17 rejected and 5 ambiguous. Of the supported connections, 44 have a passage checked for their scope, 149 carry references awaiting claim verification, and 190 rely on the catalog and model.",
       "The survey covers 623 terms. Fifteen are present directly, 24 describe aliases or variants, 560 concern another layer of the music, 19 remain candidates, two have unidentified referents and three are supported omissions within the survey. The three are **ritornello form**, **terminally climactic form** and **the liturgical sequence in English use**. All 47 previously undecided rows now have term-specific dispositions. Current uncertainty includes English-language use and the identity of two survey terms. A candidate has no implied production or catalog approval. The research also covers 320 placements from issue #676, 62 formal or meta terms, 198 poetry glossary heading occurrences and 15 findings from seven music reference comparisons.",
       "All 203 meter research IDs are accounted for. There are 105 illustrative ID/form pairs across 87 IDs; 116 IDs have no illustrative link. Of the 105, 53 cite evidence for the scope and 52 rely on the catalog comparison. Each pair identifies what is measured and where. A musical bar, a required verbatim return, a syllable count and a stress reading require different information. The pinned main planner’s exact total number of lines is separate from its ability to state per-line syllable or stress counts. The confirmed Onegin case collision and burden-first restriction, plus the differing bridge recurrence policies on main and Stage 4, are documented in Andrej-meter.md. No planner change is included.",
+      "| `catalog-corrections.md` | Current dispositions of the 16 catalog discrepancies. Earlier reviewer files retain their historical judgments. |",
       "| `comparison/structure-crosswalk.md`, `comparison/structure-crosswalk.json` | Evidence and dispositions for all 623 survey terms. |",
       "| `comparison/issue-676-crosswalk.tsv`, `comparison/meta-forms.json`, `comparison/song-gaps.json`, `comparison/external-poetry.json` | Earlier inventory and music/poetry reference comparisons. |",
       "| `english-forms.md`, `comparison/r2-post.md`, `baseline/` | **Provenance only.** Preserves the original inventoried prose, names and historical prototype. Use `dist/` for the corrected explorer. |",
@@ -125,10 +124,10 @@
       "| `andrej-file-changes.tsv`, `validation.md` | Exact SHA-256 changes relative to the incoming 79-file package and reproducible verification receipts. |"
     ],
     "validation.md": [
-      "**Coverage receipt.** The reported graph has 383 distinct supported pairs out of 424 decisions. The unit audit walks 364 diagrams and 2,213 nodes, makes 341 vocabulary matches, validates all 196 containment assertions against paths in their displayed trees, and verifies all 20 redirects against current facts. The finding-by-finding record is Andrej-reconciliation.md. The 84 earlier R2 identifiers and their historical notes remain available.",
-      "**Evidence receipt.** The source ledger contains 488 claim/source decisions. Its generator joins citations to a specific form and relationship target, keeping any previous access unknown unless a receipt documents it. In this revision, 22 of the 258 supported diagrams have a purpose-read passage for at least the stated scope, 105 carry a reference awaiting passage verification, and 131 have catalog/model evidence only. All 16 contested records include a checked passage. A partial diagram or a valid structural comparison can still rest on a single limited example. The count for link passages is 43, alongside 149 reference-only and 191 catalog-only supported links.",
+      "**Coverage receipt.** 364 diagrams, 2,215 nodes, 340 vocabulary matches and 383 supported relationships across 425 decisions. All 196 component relationships have validated node paths.",
+      "**Evidence receipt.** The ledger has 489 claim/source decisions. Direct passages support the stated scope for 37 supported diagrams, 8 partial diagrams, and 44 supported relationships. The README gives the complete evidence breakdown.",
       "**Meter and compatibility.** The 203-ID research ledger still round-trips to 105 unique ID/form pairs. The old 1,624-field and 12-plus-three comparator checks are historical manual records, with their unshipped inputs explicitly identified. Andrej-meter.md provides the separate two-revision checks and replay recipe for the Onegin parser, section placement, planned schemes and bridge recurrence.",
-      "**Search and browser.** The JavaScript matching tests exercised 534 distinct exact heading, alternate-name and discovery queries and their full candidate sets. All six disputed terms ranked their intended owner first. Node syntax checks cover both explorers and the optional browser test. The updated preview opened in the cloud browser during integration. A later attempt to reconnect for the final interaction pass timed out at the browser protocol. The local two-viewport Playwright runner stopped before rendering when Chromium could not open a socket. These are coverage limits on this revision. Andrej separately reported successful desktop and mobile checks on the incoming revision. The browser test is included for another environment."
+      "**Search and browser.** The previous search pass exercised 534 distinct queries and ranked the intended owner first for all six disputed search terms. New regression checks cover Binary, Rondine, Byr a thoddaid and the Monk’s Tale stanza. They passed against fresh catalog data and the real review renderer. Chromium could not open a process socket in this environment. The desktop and mobile interaction checks are supplied for replay."
     ]
   }
 }

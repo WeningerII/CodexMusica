@@ -418,8 +418,8 @@
     "attested_refs": []
   },
   "Binary": {
-    "status": "contested",
-    "note": "Catalog line 45. The catalog repeats the A–B pair. Two reprises are also commonly repeated separately, yielding AABB. The agreed part of both accounts is the division into two main sections; repeat order must be specified independently.",
+    "status": "supported",
+    "note": "Two reprises form A and B. Each reprise is commonly repeated, giving AABB; repeats are optional. In rounded binary, opening material returns within B.",
     "edges": [],
     "refs": [
       "https://viva.pressbooks.pub/openmusictheory/chapter/binary-form/"
@@ -772,8 +772,8 @@
     "attested_refs": []
   },
   "Head arrangement": {
-    "status": "contested",
-    "note": "Catalog line 71. The catalog example follows head–solos–head. A head arrangement instead identifies how players work out an arrangement and retain it in memory. Either may occur without the other.",
+    "status": "supported",
+    "note": "The players devise and remember the arrangement together. A performance may use head, solos and returning head; that sequence describes one way of playing the arrangement.",
     "edges": [
       {
         "target": "AABA 32-bar",

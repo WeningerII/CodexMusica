@@ -167,8 +167,8 @@
     ]
   },
   "Rengay": {
-    "status": "contested",
-    "note": "The two-voice version totals 16 lines and the three-voice version 15. The source inventory gives 16 for both. A–C identify voices; all six verses develop one theme.",
+    "status": "supported",
+    "note": "Six linked verses share a theme. In the documented two- and three-poet arrangements, the alternation of two- and three-line verses gives sixteen and fifteen lines respectively.",
     "edges": [
       {
         "target": "Haiku",
@@ -546,8 +546,8 @@
     ]
   },
   "Hir a thoddaid": {
-    "status": "contested",
-    "note": "The common pattern has four ten-syllable opening lines and a 10+10 closing couplet. Its shared main rhyme and internal linking rhyme cross the couplet. Other opening lengths are documented. The inventory instead groups the first five lines together.",
+    "status": "supported",
+    "note": "In this documented six-line setting, four ten-syllable lines precede a two-line toddaid hir. Other stanza lengths also occur.",
     "edges": [
       {
         "target": "Couplet",
@@ -588,19 +588,31 @@
     ]
   },
   "Byr a thoddaid": {
-    "status": "contested",
-    "note": "The catalog gives an 8+8 unit with a 10+9 unit and four lines overall. The Welsh glossary describes four eight-syllable lines with a toddaid; the university dictionary specifies a short toddaid. The common components can be shown; exact count, length and order should stay open.",
+    "status": "partial",
+    "note": "The technical glossary describes four eight-syllable opening lines followed by a two-line toddaid, sharing the main rhyme. The precise closing subtype and the range of other settings remain unresolved.",
     "edges": [
       {
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Accounts disagree on the exact stanza length, yet both contain a closing or linked two-line toddaid unit.",
+        "evidence": "The closing toddaid is a paired two-line unit in the documented arrangement.",
         "refs": [
           "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
         ],
         "scope_paths": [
           "2"
+        ]
+      },
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "scope_paths": [
+          "1"
+        ],
+        "evidence": "The glossary setting groups four eight-syllable lines before its distinct closing toddaid.",
+        "refs": [
+          "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
         ]
       }
     ],
@@ -759,8 +771,8 @@
     ]
   },
   "Double dactyl": {
-    "status": "contested",
-    "note": "Each of two quatrains has three double-dactyl lines and a shorter rhyming fourth line. A single-word double dactyl typically appears in the sixth line; the inventory compresses these distinctions.",
+    "status": "supported",
+    "note": "Two quatrains each have three double-dactylic lines and a shorter fourth. The two short lines rhyme. A nonsense phrase opens the poem, a name follows, and another full line, commonly the sixth, consists of one double-dactylic word.",
     "edges": [
       {
         "target": "Quatrain",
@@ -1028,8 +1040,8 @@
     "refs": []
   },
   "Kwansaba": {
-    "status": "contested",
-    "note": "The usual design has seven lines and seven words per line. Proper nouns, foreign terms and quoted passages may exceed the seven-letter limit that the catalog states without exceptions.",
+    "status": "supported",
+    "note": "Seven lines contain seven words each. The usual seven-letter maximum allows exceptions for proper nouns, foreign terms and quoted passages.",
     "edges": [
       {
         "target": "Septet",

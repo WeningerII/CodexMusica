@@ -72,8 +72,8 @@
     "note": "Catalog line 44. The form can replace a bridge with an instrumental solo or place the solo beside a bridge. “Beside” specifies no before/after order."
   },
   "Binary": {
-    "status": "contested",
-    "note": "The catalog specifies repeating the A–B pair, while the convention of repeating each reprise produces AABB. Both readings give two parts; the diagram leaves repeat placement open."
+    "status": "supported",
+    "note": "Two reprises form A and B. Each reprise is commonly repeated, giving AABB; repeats are optional. In rounded binary, opening material returns within B."
   },
   "Ternary": {
     "status": "supported",
@@ -176,8 +176,8 @@
     "note": "Catalog line 70. The sacred narrative is divided into parts containing vocal forms. The row specifies an unstaged dramatic setting but no order or number for recitatives, arias or choruses."
   },
   "Head arrangement": {
-    "status": "contested",
-    "note": "The catalog equates the memorized arranging practice with a head–solos–head performance order. The working method and performance sequence can occur independently. The diagram therefore separates them."
+    "status": "supported",
+    "note": "The players devise and remember the arrangement together. A performance may use head, solos and returning head; that sequence describes one way of playing the arrangement."
   },
   "Vocalese": {
     "status": "supported",
@@ -248,8 +248,8 @@
     "note": "The ABCB narrative quatrain repeats to a tune. The diagram leaves dialogue and abrupt scene changes unplaced and covers only that stanza setting."
   },
   "Long-measure ballad": {
-    "status": "contested",
-    "note": "The catalog groups four-stress lines and paired fourteeners as alternatives for long-measure ballad. Dividing those fourteeners 8+6 yields alternating four and three stresses, in conflict with four stresses throughout. The diagram keeps the four-stress setting."
+    "status": "supported",
+    "note": "The illustrated narrative quatrain has four stresses in every line. AABB is one rhyme arrangement. Dividing a regular fourteener into four and three stresses yields a different ballad-meter profile."
   },
   "Ballad with internal refrain": {
     "status": "supported",
@@ -440,8 +440,8 @@
     "note": "The pun comes from words sounding together after staggered entries. The source identifies the catch as a comic round."
   },
   "Canon": {
-    "status": "contested",
-    "note": "The catalog excludes a looping ending and defines imitation as strict. A canon can be cyclic, and its imitation can vary; the diagram allows a written close or a looping example."
+    "status": "supported",
+    "note": "One voice leads and another enters later in imitation. A strict canon preserves the leader’s material according to its rule; a free canon permits adjustments. A round cycles, while other canons may have a written close."
   },
   "Madrigal": {
     "status": "partial",
@@ -636,8 +636,8 @@
     "note": "Four enclosed-rhyme units span sixteen lines. They can be printed continuously."
   },
   "Onegin stanza": {
-    "status": "contested",
-    "note": "In the local aBaB ccDD eFFe GG notation, lowercase marks an ending with a trailing unstressed syllable and capitals an ending on stress. Capitals can also mark the first type if the letter string is reversed in case throughout. The catalog pairs the local string with that opposite key, reversing the actual ending pattern."
+    "status": "supported",
+    "note": "Fourteen iambic tetrameter lines use ABAB CCDD EFFE GG. In the diagram’s local legend, lowercase marks a trailing unstressed syllable and capitals mark a stressed ending: aBaB ccDD eFFe GG."
   },
   "Bref double": {
     "status": "partial",
@@ -668,8 +668,8 @@
     "note": "The first fourteen form a closed crown. Their opening lines in sequence form the fifteenth, or master, sonnet."
   },
   "Sonnet sequence": {
-    "status": "contested",
-    "note": "The catalog excludes linked sonnets. A sequence can include a crown whose last lines return as subsequent openings, as well as thematic series without that verbal linkage. The shared organizing requirement is a series of sonnets."
+    "status": "supported",
+    "note": "A series of sonnets develops a subject or progression. Some sequences use verbal linkage: in a crown, each closing line opens the next sonnet and the cycle returns to its beginning."
   },
   "Villanelle": {
     "status": "supported",
@@ -696,12 +696,12 @@
     "note": "Fifteen positions group 5 + 4 + 6. R is a returning phrase from the opening, not a third rhyme class."
   },
   "Rondeau prime": {
-    "status": "contested",
-    "note": "The catalog specifies a septet and a sestet, 7+6. A manuscript study describes a septet and a quintain, 7+5, with shortened refrains at positions 7 and 12. Only the catalog supports its 13-position reading here. The diagram distinguishes those two accounts."
+    "status": "supported",
+    "note": "The documented twelve-position setting divides into a septet and a quintain, abbaabR / abbaR. The returning opening fragment occupies positions seven and twelve. Historical naming can depend on the particular refrain treatment."
   },
   "Rondine": {
-    "status": "contested",
-    "note": "Both accounts give a septet followed by a quintain. The catalog opens abaabbR; a published specification and example open abbaabR. Both end abbaR and use a short refrain. The diagram shows both opening rhyme orders."
+    "status": "supported",
+    "note": "Six full lines and a short refrain make the opening septet, abbaabR. Four full lines and the returning fragment make the closing quintain, abbaR."
   },
   "Rondeau redoublé": {
     "status": "supported",
@@ -848,8 +848,8 @@
     "note": "Long and short linked verses alternate, and the kasen branch gives its four sides of 6/12/12/6 verses. Other layouts and the overlapping opening/development/close grouping are outside the displayed nesting."
   },
   "Rengay": {
-    "status": "contested",
-    "note": "The original inventory gives sixteen lines regardless of poet count. The two-poet pattern totals sixteen; the three-poet pattern totals fifteen. Both preserve the six-verse structure."
+    "status": "supported",
+    "note": "Six linked verses share a theme. In the documented two- and three-poet arrangements, the alternation of two- and three-line verses gives sixteen and fifteen lines respectively."
   },
   "Haibun": {
     "status": "supported",
@@ -896,12 +896,12 @@
     "note": "Short and long versions open with two or four nine-syllable lines carrying the main rhyme. Their 10+9 closing couplet preserves that rhyme at the first-line break and final line end, with a second rhyme linking the tail to the interior of the final line."
   },
   "Hir a thoddaid": {
-    "status": "contested",
-    "note": "The inventory joins the first five lines before a final toddaid line. The documented six-line setting groups an opening four lines with a two-line toddaid. The tree uses the latter division."
+    "status": "supported",
+    "note": "In this documented six-line setting, four ten-syllable lines precede a two-line toddaid hir. Other stanza lengths also occur."
   },
   "Byr a thoddaid": {
-    "status": "contested",
-    "note": "The catalog gives four lines in total, combining 8+8 with 10+9. A Welsh technical glossary instead describes four eight-syllable lines followed by a toddaid. The model retains the two components without imposing a disputed total or closing-unit length."
+    "status": "partial",
+    "note": "The technical glossary describes four eight-syllable opening lines followed by a two-line toddaid, sharing the main rhyme. The precise closing subtype and the range of other settings remain unresolved."
   },
   "Awdl gywydd": {
     "status": "supported",
@@ -932,8 +932,8 @@
     "note": "A humorous biography takes the shape of a quatrain in two rhyming couplets. Line length can vary, and the first line usually ends in the subject’s name."
   },
   "Double dactyl": {
-    "status": "contested",
-    "note": "The inventory describes two quatrains of double-dactyl lines. In the standard construction, the fourth and eighth lines are shortened and rhyme. The diagram follows that construction."
+    "status": "supported",
+    "note": "Two quatrains each have three double-dactylic lines and a shorter fourth. The two short lines rhyme. A nonsense phrase opens the poem, a name follows, and another full line, commonly the sixth, consists of one double-dactylic word."
   },
   "Ruthless rhyme": {
     "status": "partial",
@@ -996,8 +996,8 @@
     "note": "The source specifies two tercets, each featuring three items, and a twist in the single closing line. It does not distribute items one per line."
   },
   "Kwansaba": {
-    "status": "contested",
-    "note": "The inventory applies a seven-letter limit to every word. The stated form admits exceptions for proper nouns, foreign terms and quoted passages. The diagram retains those exceptions."
+    "status": "supported",
+    "note": "Seven lines contain seven words each. The usual seven-letter maximum allows exceptions for proper nouns, foreign terms and quoted passages."
   },
   "Zeno": {
     "status": "supported",
@@ -1148,8 +1148,8 @@
     "note": "Three eleven-syllable lines and a final five-syllable Adonic are shown. The long and short positions of the Aeolic quantitative pattern are not specified."
   },
   "Alcaic stanza": {
-    "status": "contested",
-    "note": "The inventory places the double dactyl at the end of the final line. The classical pattern starts that line with two dactyls and follows them with four syllables; the diagram uses this position."
+    "status": "supported",
+    "note": "The classical stanza has lines of 11, 11, 9 and 10 syllables. The fourth opens with two long–short–short groups followed by four closing syllables."
   },
   "Asclepiad stanza": {
     "status": "partial",
@@ -1196,8 +1196,8 @@
     "note": "The catalog’s eight-line ABABCCDD shape is drawn. Other rispetto arrangements have no represented rhyme sequence."
   },
   "Monk's Tale stanza": {
-    "status": "contested",
-    "note": "The eight-line Chaucerian octave rhymes ABABBCBC. A specialist study identifies iambic pentameter, the reading drawn here. A separate teaching account gives four stresses. The sources agree on length and rhyme but differ on the meter."
+    "status": "supported",
+    "note": "An eight-line iambic pentameter stanza rhymes ABABBCBC. The meter shown follows the specialist account."
   },
   "Octave / huitain": {
     "status": "supported",
@@ -1220,8 +1220,8 @@
     "note": "The diagram gives a ten-line ABAB/CDECDE setting. The eleven-line setting and its different distribution of end-rhymes are omitted."
   },
   "Christ's Kirk stanza": {
-    "status": "contested",
-    "note": "Eight alternating lines lead into a short bob and a returning line. The catalog specifies a fixed final phrase, but two consecutive printed refrains differ in their last words. The model allows the wording to vary."
+    "status": "supported",
+    "note": "In the documented ten-line setting, eight alternating lines precede a short bob and a returning line. The refrain permits changes in wording."
   },
   "Pearl stanza": {
     "status": "partial",

@@ -655,8 +655,8 @@
     ]
   },
   "Alcaic stanza": {
-    "status": "contested",
-    "note": "The catalog's 11–11–9–10 counts agree with the Alcaic template. Its double dactyl belongs at the start of the last line, not at the line ending.",
+    "status": "supported",
+    "note": "The classical stanza has lines of 11, 11, 9 and 10 syllables. The fourth opens with two long–short–short groups followed by four closing syllables.",
     "edges": [
       {
         "target": "Quatrain",
@@ -984,7 +984,7 @@
   },
   "Monk's Tale stanza": {
     "status": "supported",
-    "note": "The eight pentameter lines of the Chaucerian octave rhyme ABABBCBC. The catalog also lists a French huitain with those rhymes and eight syllables per line.",
+    "note": "An eight-line iambic pentameter stanza rhymes ABABBCBC. The meter shown follows the specialist account.",
     "edges": [
       {
         "target": "Octave / huitain",
@@ -1146,8 +1146,8 @@
     ]
   },
   "Christ's Kirk stanza": {
-    "status": "contested",
-    "note": "The displayed stanzas have eight alternating lines, a short bob, and a refrain. The last words of the refrain vary in the printed text.",
+    "status": "supported",
+    "note": "In the documented ten-line setting, eight alternating lines precede a short bob and a returning line. The refrain permits changes in wording.",
     "edges": [
       {
         "target": "Bob and wheel",

@@ -639,21 +639,22 @@
   "Byr a thoddaid": {
     "tree": [
       {
-        "label": "Eight-syllable material",
+        "label": "Cyhydedd fer opening",
         "children": [
-          "Cyhydedd fer"
+          "Four eight-syllable lines on the main rhyme"
         ]
       },
       {
-        "label": "Linked two-line unit",
+        "label": "Closing toddaid",
         "children": [
-          "Toddaid · accounts differ on length"
+          "Two linked lines on the main rhyme"
         ]
       }
     ],
-    "mode": "Rule",
+    "mode": "Example",
     "related": [
-      "Couplet"
+      "Couplet",
+      "Quatrain"
     ]
   },
   "Awdl gywydd": {
@@ -845,9 +846,15 @@
         "label": "Second quatrain",
         "children": [
           "Two dactyls",
-          "Two dactyls · often one word",
+          "Two dactyls · common single-word position",
           "Two dactyls",
           "Short line · end rhyme A"
+        ]
+      },
+      {
+        "label": "Single-word constraint",
+        "children": [
+          "One eligible full line uses one double-dactylic word"
         ]
       }
     ],
