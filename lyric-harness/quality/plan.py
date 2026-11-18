@@ -3002,7 +3002,7 @@ class CountPolicy(dict):
         return bool(self["atoms"])
 
 
-def _recurrence_policy(wants, roster=None, form=None):
+def _recurrence_policy(wants, roster=None, form=None, *, generated=True):
     """-> `CountPolicy`: one interval per row and one for the total, from
     the stated `sections` and `sections.<row>` predicates.
 
@@ -3012,6 +3012,8 @@ def _recurrence_policy(wants, roster=None, form=None):
     a request the tables prove cannot fit is refused here, before any draw,
     and the refusal names the row, the field or the form and the numbers.
     The length proof needs the song's length and is `_count_length_proof`.
+    With `generated=False`, keep the stated intervals and roster checks;
+    the resolved catalog, not the generator grammar, proves feasibility.
     """
     from quality import grid as G
     inf = float("inf")
@@ -3042,6 +3044,10 @@ def _recurrence_policy(wants, roster=None, form=None):
             raise PlanRefused(
                 f"{requested} can't be met: {name} requires at least {lo} and "
                 f"at most {hi} after applying nonnegative counts and roster limits{absent}")
+    policy = CountPolicy(rows=intervals, total=total, atoms=count_atoms,
+                         requested=requested, named=frozenset(named))
+    if not generated:
+        return policy
     first, last = _edges()
     boundary = set(first) | set(last)
     for position, edge in (("first", first), ("last", last)):
@@ -3119,8 +3125,7 @@ def _recurrence_policy(wants, roster=None, form=None):
             f"{requested} can't be met: at least {total[0]} sections are required, "
             f"but this roster and these caps allow at most {capacity()} sections "
             "(upper capacity)")
-    return CountPolicy(rows=intervals, total=total, atoms=count_atoms,
-                       requested=requested, named=frozenset(named))
+    return policy
 
 
 def _folded_rows(policy, form, why=None):
@@ -4948,7 +4953,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             *(c for c in _CELLS if all(f in roster for f in c)),
             (f for f in (*first_fns, *last_fns) if f in roster))
         need = set(FORM_REQUIRES.get(form, ())) | set(FORM_RECURS.get(form, ()))
-        if need - reachable:
+        if song_form is None and need - reachable:
             raise PlanRefused(
                 f"--form={form} requires {sorted(need)}, and the declared "
                 f"roster {sorted(roster)} can draw none of "
@@ -4957,7 +4962,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
 
     recurrence = _recurrence_policy(
         _wants if _recurrence_wants is None else _recurrence_wants, roster,
-        form=form)
+        form=form, generated=song_form is None)
     rng = random.Random(seed)
 
     # REJECTION SAMPLING over the generated grammar: uniform over the
@@ -4986,7 +4991,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # STATED COUNTS ARE BUILT, NOT FILTERED FOR (stage 4). The proofs run
     # first and name what cannot fit; the length is then drawn only from
     # totals that carry the sung sections the counts need.
-    if recurrence.stated:
+    if recurrence.stated and song_form is None:
         # The bound the proof reads, kept for a miss's text (2026-11-18,
         # stage 4 fix round): `_wordless_edges` reads the same one.
         _most = lines if lines is not None else max(_GRADEABLE)
@@ -5099,6 +5104,17 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         catalog = resolve_catalog_shape(
             song_form, rng, totals=_GRADEABLE, lines=lines if lines is not None else _total,
             functions=roster, form=form, minimum=_min_section)
+        # A declared sequence can carry wordless sections beyond the drawn
+        # grammar's section-per-line ceiling. Its resolver validates the
+        # actual placement, form and lengths; counts must describe that
+        # sequence, not a hypothetical pattern the sampler could draw.
+        for atom in recurrence["atoms"]:
+            want = parse_sweep_want(atom)
+            if not sweep_holds(catalog, want):
+                observed = SWEEP_MEASURES[want[0]][1](catalog)
+                raise PlanRefused(
+                    f"{atom} can't be met: the declared catalog has "
+                    f"{want[0]}={observed}")
         if len(catalog["sections"]) > _max_sections:
             raise PlanRefused("requested section limit conflicts with the catalog form")
         total = catalog["total"]
@@ -5124,7 +5140,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # lines). The test is the one `_sample_pattern` makes, on the ceiling
     # this total starts from, so that draw is unbuilt exactly when this is
     # false.
-    _built = recurrence.stated and bool(_built_dims(
+    _built = catalog is None and recurrence.stated and bool(_built_dims(
         recurrence, form,
         min(_max_sections, max(1, total // max(_STANZA, _min_section))),
         total // _min_section)[0])
