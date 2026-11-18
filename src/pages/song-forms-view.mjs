@@ -293,6 +293,14 @@ function relatedForms(catalog, picker, select) {
 }
 
 export async function mountSongForms(root) {
+  const doc = root.ownerDocument;
+  if (!doc.getElementById('song-forms-style')) {
+    const sheet = doc.createElement('link');
+    sheet.id = 'song-forms-style';
+    sheet.rel = 'stylesheet';
+    sheet.href = new URL('./song-forms.css', import.meta.url).href;
+    doc.head.append(sheet);
+  }
   const response = await fetch(catalogURL);
   if (!response.ok) throw new Error('Could not load song forms');
   const catalog = await response.json();
