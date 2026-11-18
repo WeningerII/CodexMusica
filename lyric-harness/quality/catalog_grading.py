@@ -8,11 +8,11 @@ import lyric_harness as lh
 from quality.catalog_word_roles import measure_word_roles
 
 
-def _reading(lex, text, *, caesura=False):
+def _reading(lex, text, *, caesura=False, syllable_rimes=False):
     words = lh._meter_words(lex, text) or []
     cut = lh.reader_line(text, lex.strip_parens, "v2")
     tokens = lh._form_word_tokens(lex, text)
-    observed = {"text": text, "sungWords": tokens, **lh._form_reading(lex, text, words=words, syllable_rimes=True)}
+    observed = {"text": text, "sungWords": tokens, **lh._form_reading(lex, text, words=words, syllable_rimes=syllable_rimes)}
     if tokens == []:
         observed.update(syllables=0, stresses=0)
     if caesura and tokens and text.count("/") + text.count("|") == 1:
@@ -222,7 +222,14 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
     # path a marked line still needs its measured endpoints for the catalog reader.
     stored = bp.get("song_form") or {}
     measure_caesura = not stored or stored.get("lineProfile") == "caesural-rhyme"
-    observed = [_reading(lex, line, caesura=measure_caesura) for line in lines]
+    # V1 creation contracts bind rhyme groups to line endings. No member
+    # can carry a line-relative syllable ordinal. A bare selector, including
+    # one attached to a pasted score, makes no such structural promise.
+    from quality.catalog_shape import line_rhyme_contract
+    stored_line_contract = (line_rhyme_contract(stored) and
+                            all(stored[k] == selection.get(k) for k in ("id", "variant", "counts")))
+    observed = [_reading(lex, line, caesura=measure_caesura, syllable_rimes=not stored_line_contract)
+                for line in lines]
     request = {k: selection[k] for k in ("variant", "counts") if k in selection}
     if (bp.get("song_form") or {}).get("phraseLines"):
         request["phraseLines"] = True

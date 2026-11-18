@@ -7929,7 +7929,7 @@ the quality layer (each says which module answered):
   types  W1 -- W2 [--lang=] [--preset=] [--position=]
                           full rhyme-type coordinate: 9 axes, per-member
                           anchor, traditional names
-  recover LYRIC.txt [--placements=end,head,T4] [--form-reading]
+  recover LYRIC.txt [--placements=end,head,T4] [--form-reading[=lines]]
                           STRUCTURE A PASTED SONG — the second door into
                           the pipeline (M-72, M-195): counts the lines
                           and the syllables per line, reads [SECTION]
@@ -12325,19 +12325,22 @@ def main():
         from quality import recover as RC
         from quality import slots as _SLr
         rest = args[1:]
-        form_reading = "--form-reading" in rest
-        rest = [item for item in rest if item != "--form-reading"]
+        # The legacy flag requests the full reader record. A realized form
+        # with no positioned syllable rhyme needs only the line measurements.
+        full_form_reading = "--form-reading" in rest
+        form_reading = full_form_reading or "--form-reading=lines" in rest
+        rest = [item for item in rest if item not in ("--form-reading", "--form-reading=lines")]
         spec = _flag_value(rest, "--placements", eq_only=True)
         rest = _strip_flag(rest, "--placements")
         bad_flag = [a for a in rest if a.startswith("--")]
         if bad_flag:
             _refuse(f"recover does not take {bad_flag[0]!r}",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading]",
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines]]",
                             "an unrecognised flag is refused rather than "
                             "ignored (doctrine 20)"])
         if len(rest) != 1:
             _refuse("recover takes exactly one LYRIC.txt",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading]"])
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines]]"])
         try:
             declared = RC.parse_placements(spec) if spec is not None else None
         except _SLr.SlotUnsupported as exc:
@@ -12381,7 +12384,7 @@ def main():
         form_observations = {}
         if form_reading:
             form_observations["form_reading"] = [
-                {**_form_reading(lex, line, syllable_rimes=True), "sungWords": _form_word_tokens(lex, line)}
+                {**_form_reading(lex, line, syllable_rimes=full_form_reading), "sungWords": _form_word_tokens(lex, line)}
                 for line in rec.sung_lines]
         _lyric_result(**_lexicon_kw(), **form_observations, status="recovered", exit=3 if _refs else 0,
                       **_numbering_kw(),

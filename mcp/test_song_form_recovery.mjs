@@ -231,3 +231,13 @@ test('Pindaric header recovery reports the actual printed lines and leaves the m
     1
   );
 });
+
+test('recovery requests per-syllable sounds only for an active syllable rhyme', async () => {
+  const { catalogReadingFlag, prepareFormReview } = await import('./lyric_form.js');
+  const flag = async (options) => catalogReadingFlag((await prepareFormReview(options))?.plan);
+  assert.equal(await flag({}), null);
+  assert.equal(await flag({ catalog_form: 'lune' }), null);
+  assert.equal(await flag({ catalog_form: 'lune', catalog_variant: 0 }), '--form-reading=lines');
+  assert.equal(await flag({ catalog_form: 'luc-bat' }), '--form-reading');
+  assert.equal(await flag({ catalog_form: 'than-bauk' }), '--form-reading');
+});

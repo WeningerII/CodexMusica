@@ -4,6 +4,14 @@ import { checkReaderForm, pindaricTriads, realizeForm } from '../src/song-forms.
 import { formMandate } from '../src/song-form-mandate.mjs';
 
 let catalog;
+export function catalogReadingFlag(plan) {
+  if (plan?.status !== 'ready') return null;
+  function needsRimes(node) {
+    return (node.unit === 'syllable' && node.rhyme !== undefined) || node.children.some(needsRimes);
+  }
+  return plan.tree.some(needsRimes) ? '--form-reading' : '--form-reading=lines';
+}
+
 export async function prepareFormReview(args) {
   if (args.catalog_form === undefined) {
     if (args.catalog_variant !== undefined || args.catalog_counts !== undefined)

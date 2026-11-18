@@ -267,7 +267,23 @@ class MeterHonesty(unittest.TestCase):
                     checks = grade(collided)["checks"]
                     self.assertTrue(any(c["kind"] == "syllable-rhyme-distinct" and c["outcome"] == "fail"
                                         for c in checks))
-        self.assertEqual(_reading(self.lex, "x (y) z")["syllableRimes"], ["EH K S", "IY"])
+        self.assertNotIn("syllableRimes", _reading(self.lex, "x (y) z"))
+        self.assertEqual(_reading(self.lex, "x (y) z", syllable_rimes=True)["syllableRimes"], ["EH K S", "IY"])
+
+    def test_stored_contract_skips_subline_reading_but_selectors_and_unknown_shapes_keep_it(self):
+        from types import SimpleNamespace
+        from unittest.mock import patch
+        from quality import catalog_grading as cg
+        contract = {"version": 1, "id": "couplet", "scope": "rule", "variant": 0, "counts": {},
+                    "sections": [{"unit": "section", "role": "verse", "lines": 2}],
+                    "returnGroups": [], "rhymeGroups": []}
+        for selected, expected in ((contract, False), ({"id": "couplet"}, True),
+                                   ({**contract, "extension": []}, True)):
+            with patch.object(cg, "_reading", wraps=cg._reading) as reader:
+                cg.inspect_catalog(self.lex, ["x", "y"], {"song_form": selected},
+                                   SimpleNamespace(default_relation="type:perfect"), {})
+            self.assertEqual([call.kwargs["syllable_rimes"] for call in reader.call_args_list],
+                             [expected, expected])
 
     def test_s7_an_unknown_word_never_counts_as_matched(self):
         e = self.one("zorbleflax", "/")

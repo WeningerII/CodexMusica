@@ -1,6 +1,6 @@
 import { projectSongFormCreation } from '../src/song-form-creation.mjs';
 import { formMandate, printedPhraseSetting } from '../src/song-form-mandate.mjs';
-import { prepareFormReview, reviewRecoveredForm } from './lyric_form.js';
+import { catalogReadingFlag, prepareFormReview, reviewRecoveredForm } from './lyric_form.js';
 import { checkEvidenceInvocation } from './lyrics_evidence_binding.js';
 // lyric_tools.js — the lyric harness as MCP tools: a DISJOINT family.
 //
@@ -4208,7 +4208,8 @@ export function registerLyricTools(server, tool) {
         // row a line), under which the markers were counted as lines and the
         // mandate handed to check/revise named the wrong lines.
         const args = [...globalsFor(a), '--input-format=source', 'recover', draftPath];
-        if (selection?.plan.status === 'ready') args.push('--form-reading');
+        const reading = catalogReadingFlag(selection?.plan);
+        if (reading) args.push(reading);
         if (a.placements) args.push(`--placements=${a.placements}`);
         const r = await runVerb(args);
         const v = verdictOf(r);
