@@ -100,6 +100,25 @@ export function projectSongFormCreation(plan, counts = {}) {
       }
       refuse('unsupported-unit-feature', node, feature);
     }
+    // The root can group neutral divisions. Each inner boundary remains a
+    // native section boundary, and together they span the whole selection.
+    if (
+      plan.tree.length === 1 &&
+      node === plan.tree[0] &&
+      (isVerseDivision(node.unit) || node.unit === 'double-stanza') &&
+      node.children.length > 0 &&
+      node.children.every((child) => isVerseDivision(child.unit))
+    ) {
+      if (
+        node.unit === 'double-stanza' &&
+        (node.children.length !== 2 || node.children.some((child) => child.unit !== 'stanza'))
+      ) {
+        return refuse('invalid-double-stanza', node);
+      }
+      if (node.bars !== undefined) return refuse('unsupported-unit-feature', node, 'bars');
+      node.children.forEach(visit);
+      return;
+    }
     const counted =
       isVerseDivision(node.unit) ||
       (['poem', 'song'].includes(node.unit) &&

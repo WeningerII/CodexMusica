@@ -626,3 +626,72 @@ test(
     assert.equal(receipt.exit_code, 3, receipt.report);
   }
 );
+
+test(
+  'paired stanza boundaries and line counts persist through a connector restart and revision',
+  { timeout: 180_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const relation = 'class:RHYME';
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        seed_from: 11,
+        count: 1,
+        relation,
+        catalog_form: 'short-metre-double-smd',
+        draw: ['lines', 'functions', 'melody'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [11], sweep.report);
+    const [seed] = sweep.accepted_shown;
+    const operation = await host.run('lyric_plan', { seed, relation });
+    const { plan } = measured(await host.read(operation.operation_id, 'full'));
+    const counts = [6, 6, 8, 6, 6, 6, 8, 6];
+    assert.deepEqual(
+      plan.request.song_form.lineRequirements,
+      counts.map((syllables, i) => ({ line: i + 1, syllables }))
+    );
+    assert.deepEqual(
+      plan.request.song_form.sections.map((s) => s.lines),
+      [4, 4]
+    );
+    const screen = measured(await host.run('lyric_screen', { words: ['one', 'two'], relation }));
+    assert.equal(screen.exit_code, 0, screen.report);
+    const draft = counts.map((n, i) =>
+      Array(i === 6 ? n - 1 : n)
+        .fill('one')
+        .join(' ')
+    );
+    const graded = await host.run('lyric_grade', { seed, draft });
+    function verify(receipt) {
+      const result = receipt.coverage.catalog_form;
+      assert.equal(result.id, 'short-metre-double-smd');
+      assert.equal(result.verdict, 'fail');
+      assert.deepEqual(
+        result.checks
+          .filter((c) => c.kind === 'syllables' && c.outcome === 'fail')
+          .map((c) => c.lines),
+        [[7]]
+      );
+      assert.deepEqual(
+        result.checks
+          .filter((c) => c.kind === 'line-span' && c.outcome === 'pass')
+          .map((c) => c.lines),
+        [
+          [1, 2, 3, 4],
+          [5, 6, 7, 8],
+        ]
+      );
+    }
+    verify(measured(await host.read(graded.operation_id, 'full')));
+    await host.reconnect();
+    const revised = await host.run('lyric_revise', {
+      seed,
+      attempts: 0,
+      max_rounds: 1,
+      backtrack: 0,
+    });
+    verify(measured(await host.read(revised.operation_id, 'full')));
+  }
+);
