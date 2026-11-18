@@ -151,6 +151,28 @@ class CatalogPlannerTests(unittest.TestCase):
         with self.assertRaisesRegex(plan.PlanRefused, "every selected line ending"):
             plan.make_plan(11, song_form=data, relation="class:ASSONANCE")
 
+    def test_additional_relation_preserves_the_other_catalog_group(self):
+        data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 4}],
+                       rhymes=[[1, 3], [2, 4]])
+        for seed in (0, 11):
+            native = plan.make_plan(seed, song_form=data, relations={"B": "schema:internal rhyme"})
+            self.assertEqual(native["relations"], {"A": "class:RHYME", "B": "class:RHYME",
+                                                   "C": "schema:internal rhyme"})
+            a, b, extra = native["groups"].split(";")
+            self.assertEqual((a, b), ("1,3", "2,4"))
+            self.assertRegex(extra, r"^2\.(?:T[0-9]+|head),4\.(?:T[0-9]+|head)$")
+            self.assertEqual(plan.fill_plan(native, ["1", "2", "3", "4"])["song_form"], data)
+        with self.assertRaises(plan.PlanRefused):
+            plan.make_plan(11, song_form=data, relation="schema:homoioteleuton")
+
+    def test_extra_relation_cannot_skip_verbatim_copies_in_its_own_group(self):
+        data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 8}],
+                       rhymes=[[1, 2, 7, 8], [3, 4, 5, 6]], returns=[[1, 7, 8]])
+        with self.assertRaisesRegex(plan.PlanRefused, "including verbatim returns"):
+            plan.make_plan(11, song_form=data, relations={"A": "schema:interlaced rhyme"})
+        native = plan.make_plan(11, song_form=data, relations={"B": "schema:internal rhyme"})
+        self.assertEqual(native["relations"]["C"], "schema:internal rhyme")
+
     def test_prescribed_group_remains_whole(self):
         for count in (3, 4):
             lines = list(range(1, count + 1))

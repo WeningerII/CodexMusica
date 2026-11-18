@@ -5835,6 +5835,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     _head_cap = max(1, int(_FL.FloorDeclaration().resolve(
         "anaphora_max", _aprof, _atok) * total + 1e-9))
     binding_overrides = relations
+    additional_bindings = []
     if terminal_groups:
         from quality.catalog_shape import terminal_rhyme_relation
         binding_overrides = dict(relations or {})
@@ -5844,7 +5845,15 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             if str(requested or "").strip().lower() in ("", "draw", "any"):
                 requested = relation or "class:RHYME"
             if not terminal_rhyme_relation(requested):
-                raise PlanRefused("the catalog requires rhyme at every selected line ending")
+                # A positioned registry relation can coexist with the form's
+                # terminal obligation. Keep both as native mandate groups.
+                if _schema_of(requested)[1] is None:
+                    raise PlanRefused("the catalog requires rhyme at every selected line ending")
+                if source_groups[i] != terminal_groups[i]:
+                    raise PlanRefused("the additional relation must cover every prescribed line, "
+                                      "including verbatim returns; binding the copies is unsupported")
+                additional_bindings.append((i, requested))
+                requested = "class:RHYME"
             binding_overrides[label] = requested
     groups, _type_rels, _type_records, _unplaced = _assign_types(
         _section_blocks, random.Random(f"{seed}/types"), _max_token,
@@ -5852,6 +5861,19 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         head_cap=_head_cap)
     if terminal_groups and [record["lines"] for record in _type_records] != source_groups:
         raise PlanRefused("the selected rhyme type cannot bind the whole prescribed terminal group")
+
+    for index, requested in additional_bindings:
+        block = source_groups[index]
+        section_lines = next(lines for lines, blocks in _section_blocks if block in blocks)
+        extra, rels, records, _ = _assign_types(
+            [(section_lines, [block])], random.Random(f"{seed}/catalog-extra/{index}"),
+            _max_token, declared=requested, head_cap=_head_cap)
+        if [r["lines"] for r in records] != [block]:
+            raise PlanRefused("the requested additional relation cannot bind the whole catalog group")
+        label = SC.label((len(groups),))
+        groups.extend(extra)
+        _type_rels[label] = rels["A"]
+        _type_records.append({**records[0], "group": label})
 
     plan = {
         "plan_version": 3,
