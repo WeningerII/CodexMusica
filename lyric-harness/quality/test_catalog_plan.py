@@ -114,6 +114,18 @@ class CatalogPlannerTests(unittest.TestCase):
             with self.subTest(groups=invalid), self.assertRaises(plan.PlanRefused):
                 plan.make_plan(11, song_form={**data, "rhymeGroups": invalid})
 
+    def test_fixed_return_has_one_source_and_preserves_all_copy_positions(self):
+        data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 6}],
+                       rhymes=[[1, 2, 3, 4], [5, 6]], returns=[[1, 2, 4]])
+        native = plan.make_plan(11, song_form=data)
+        self.assertEqual(native["groups"], "1,3;5,6")
+        self.assertEqual(native["returns"], "1,2,4")
+        for classes in ([[1, 5]], [[1, 2], [2, 3]], [[1, 2, 3, 4]], [[True, 2]]):
+            with self.subTest(classes=classes), self.assertRaises(plan.PlanRefused):
+                plan.make_plan(11, song_form={**data, "returnGroups": classes})
+        with self.assertRaisesRegex(plan.PlanRefused, "differing line requirements"):
+            plan.make_plan(11, song_form={**data, "lineRequirements": [{"line": 2, "syllables": 3}]})
+
     def test_conflicting_declaration_and_unknown_fields_refuse(self):
         base = catalog("hookless-rap-track", [{"unit": "section", "role": "verse", "lines": 2}])
         with self.assertRaises(plan.PlanRefused):

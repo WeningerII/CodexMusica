@@ -18,6 +18,12 @@ def terminal_rhyme_relation(name):
     return name == "class:RHYME" or schema is not None and relations.audible_as_end_rhyme(schema)
 
 
+def rhyme_source_groups(groups, returns):
+    """The first occurrence carries a repeated line's native rhyme obligation."""
+    copies = {line for group in returns for line in group[1:]}
+    return [[line for line in group if line not in copies] for group in groups]
+
+
 def _validate_shape(contract):
     if (not isinstance(contract, dict) or set(contract) - {"lineRequirements"} != FIELDS
             or type(contract["version"]) is not int or contract["version"] != 1
@@ -30,8 +36,6 @@ def _validate_shape(contract):
                    r"[1-9][0-9]*(?:\[[1-9][0-9]*\])?(?:\.[1-9][0-9]*(?:\[[1-9][0-9]*\])?)*", k)
                    or type(v) is not int or v < 0 for k, v in contract["counts"].items())):
         raise plan.PlanRefused("invalid versioned catalog creation contract")
-    if contract["returnGroups"] != []:
-        raise plan.PlanRefused("prescribed catalog returns are not supported by the seeded writer")
     parts = contract["sections"]
     if not isinstance(parts, list) or not 1 <= len(parts) <= plan.ENVELOPE["sections"][1]:
         raise plan.PlanRefused("catalog section count is outside the native envelope")
@@ -59,6 +63,18 @@ def _validate_shape(contract):
         if any(p["lines"] is None for p in parts):
             raise plan.PlanRefused("line requirements need a fully positioned catalog form")
         _validate_line_requirements(contract["lineRequirements"], sum(p["lines"] for p in parts))
+    returns = contract["returnGroups"]
+    if returns != []:
+        if (not isinstance(returns, list) or not groups or parts[0]["role"] != "verse"
+                or any(not isinstance(g, list) or len(g) < 2 or any(type(n) is not int for n in g)
+                       or g != sorted(set(g)) or not any(set(g) <= set(r) for r in groups) for g in returns)
+                or len({n for g in returns for n in g}) != sum(map(len, returns))
+                or any(len(g) < 2 for g in rhyme_source_groups(groups, returns))):
+            raise plan.PlanRefused("fixed returns require independent rhyme sources in one complete verse section")
+        measures = {row["line"]: {k:v for k,v in row.items() if k != "line"}
+                    for row in contract.get("lineRequirements", ())}
+        if any(measures.get(n) != measures.get(g[0]) for g in returns for n in g[1:]):
+            raise plan.PlanRefused("fixed returns have differing line requirements")
     return parts
 
 
