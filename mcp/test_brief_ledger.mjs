@@ -789,46 +789,48 @@ test('mint adds a wire to the run entry only', async () => {
   assert.equal(b.check({ lineSets: [cur], wires: ['w1'] }).ok, true);
 });
 
-// Andrej's review G2: a run under other declarations asks about a protected
-// line for its own flag; that must not retire the entry that protects it.
-test('a run under other declarations does not supersede an entry that guards a line', async () => {
+// Andrej's review G2, kept as a stated limit and not closed: a later run on a
+// song sets the earlier run's entry aside whatever the two runs declare (the
+// store keeps no declarations). Binding the two was tried and refused the
+// loop's own fixes: a restart under another budget left the first entry
+// guarding a line the second run asked about and replaced.
+test('a later run sets the earlier entry aside, so the next run takes the song the loop left', async () => {
   const b = ledger();
-  const cur = song('dd');
-  const plan = { scheme: 'AAAAAAAA', relation: 'class:RHYME' };
-  const lax = { scheme: 'XAAAAAAA', relation: 'class:RHYME' };
-  await b.capture({ runId: 'd1', cur, input: cur, flagged: [3], decl: plan });
-  // Keys in another order are the same declarations.
-  assert.equal(b.declDigest(plan), b.declDigest({ relation: 'class:RHYME', scheme: 'AAAAAAAA' }));
-  assert.equal(b.check({ runId: 'd2', lineSets: [cur], decl: plan }).supersedes.length, 1);
-  const c = b.check({ runId: 'd3', lineSets: [cur], decl: lax });
-  assert.deepEqual(c.supersedes, []);
-  // d3 asks about line 3 under its own declarations, and is then certified.
+  const base = song('lr');
+  // Run 1 stops at its question on line 2; line 4 is flagged and not asked.
+  let c = b.check({ runId: 'lr1', lineSets: [base] });
   await b.capture({
-    runId: 'd3',
-    cur,
-    input: cur,
-    briefed: [3],
-    decl: lax,
+    runId: 'lr1',
+    cur: base,
+    input: base,
+    flagged: [2, 4],
+    briefed: [2],
     supersedes: c.supersedes,
     inherited: c.inherited,
   });
-  const edit = cur.slice();
-  edit[2] = 'hand edit';
-  assert.deepEqual(b.check({ lineSets: [edit], decl: plan }).changed, [3]);
-  b.forget({ runId: 'd3', supersedes: c.supersedes });
-  assert.deepEqual(b.check({ lineSets: [edit], decl: plan }).changed, [3]);
-  // An entry that guards nothing is superseded under any declarations.
-  const idle = song('dd-idle');
-  await b.capture({ runId: 'd4', cur: idle, input: idle, decl: plan });
-  assert.equal(b.check({ lineSets: [idle], decl: lax }).supersedes.length, 1);
-  // The digest is kept on disk and read back; a damaged one fails closed.
-  const file = path.join(tmpDir(), 'dd.json');
-  const disk = ledger({ file });
-  await disk.capture({ runId: 'd5', cur, input: cur, flagged: [3], decl: plan });
-  const [id] = disk.free.keys();
-  assert.equal(ledger({ file }).get(id).dd, disk.declDigest(plan));
-  const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
-  raw.free[0].dd = 'short';
-  fs.writeFileSync(file, JSON.stringify(raw));
-  assert.equal(ledger({ file }).healthy, false);
+  const hand = base.slice();
+  hand[3] = 'lr hand edit';
+  assert.deepEqual(b.check({ lineSets: [hand] }).changed, [4]);
+  // Run 2 is a new run on the same draft: it asks lines 2 and 4 and the loop
+  // replaces both.
+  c = b.check({ runId: 'lr2', lineSets: [base] });
+  assert.equal(c.supersedes.length, 1);
+  assert.deepEqual(c.inherited.prot, [4]);
+  const fixed = base.slice();
+  fixed[1] = 'lr loop fix two';
+  fixed[3] = 'lr loop fix four';
+  await b.capture({
+    runId: 'lr2',
+    cur: fixed,
+    input: base,
+    briefed: [2, 4],
+    supersedes: c.supersedes,
+    inherited: c.inherited,
+  });
+  // Run 3 starts from the song run 2 left: nothing refuses the loop's fixes,
+  // and putting a replaced line back is still refused.
+  assert.equal(b.check({ runId: 'lr3', lineSets: [fixed] }).ok, true);
+  const back = fixed.slice();
+  back[3] = base[3];
+  assert.deepEqual(b.check({ runId: 'lr3', lineSets: [back] }).undone, [4]);
 });

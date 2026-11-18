@@ -641,10 +641,10 @@ line. A state or checkpoint this server did not return, for a song a live run
 knows, is refused the same way; that check runs after the refusals made while
 the call is read (a moved declaration, a lexicon basis this build does not
 ship) and before the harness, so a hand-built checkpoint for such a song gets
-`BRIEF_REQUIRED` where the harness would also refuse it. A run under other
-declarations than the run that protects a line does not free it: what that run
-asks about is not the line's brief under the first run's declarations, so the
-first run's entry stays, and is not forgotten when the later run is certified.
+`BRIEF_REQUIRED` where the harness would also refuse it. A later run on the
+song sets the earlier run's entry aside whatever that later run declares, so a
+line the later run asks about is free from then on, also where it asks under
+another scheme than the one the line was flagged under.
 A run set aside by a later run on its song
 still continues on its own state, and a session or chat that resumes an
 interrupted run from its last saved progress record continues it too: every

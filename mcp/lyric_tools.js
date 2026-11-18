@@ -3657,14 +3657,10 @@ export function registerLyricTools(server, tool) {
               // Every incoming wire goes to the check: one this server did not
               // return, for a song a live run knows, is refused outright, so a
               // forged journal's records never brief a line.
-              // The run's declarations: an entry that guards a line under
-              // other declarations is not superseded by this run.
-              const briefDecl = declarationsOf(a);
               const briefCheck = BRIEFS.check({
                 runId,
                 lineSets: briefLines.length ? briefLines : [a.draft],
                 wires: briefKeys,
-                decl: briefDecl,
               });
               if (!briefCheck.ok) throw refuse(briefRefusal(briefCheck, { sentDraft }));
               const briefPaid = writer === 'kitchen';
@@ -3684,7 +3680,6 @@ export function registerLyricTools(server, tool) {
                       briefed: briefedOf(journal, cur, fixedLines(journal, cur, briefBase)),
                       supersedes: briefCheck.supersedes,
                       inherited: briefCheck.inherited,
-                      decl: briefDecl,
                       ...extra,
                     })
                   : null;
@@ -4051,7 +4046,6 @@ export function registerLyricTools(server, tool) {
                     wire: briefWireKey(verdict.state || verdict.checkpoint),
                     supersedes: briefCheck.supersedes,
                     inherited: briefCheck.inherited,
-                    decl: briefDecl,
                   });
                 }
                 const render =

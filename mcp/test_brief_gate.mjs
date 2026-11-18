@@ -379,18 +379,6 @@ test('G14: a line holding a control character the reader treats otherwise is ref
     }
 });
 
-// Andrej's review G2: under scheme XAA the loop asks about line 3 for its own
-// flag. That is not line 3's brief under AAA, so the run that protects it
-// stays, and the hand edit under AAA is still refused.
-test('a run under other declarations does not free a protected line', async () => {
-  await opened();
-  const lax = verdict(
-    await call({ ...DECL, scheme: 'XAA', new_run: true, draft: ['Cat', 'Fun', 'Sun'] })
-  );
-  assert.equal(lax.asked?.line, 3, JSON.stringify(lax).slice(0, 600));
-  assertBrief(await call({ ...DECL, new_run: true, draft: ['Cat', 'Dog', 'Moon'] }), /line 3 /);
-});
-
 test('G15: no connector argv asks the harness to skip its own brief check', () => {
   for (const name of readdirSync(HERE))
     if (name.endsWith('.js'))
