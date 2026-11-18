@@ -1,0 +1,365 @@
+catalog_line	table	form	class	needs	reason	unlock_step
+27	A	Strophic	A	order	[sure] one section kind repeated; nothing returns	2
+28	A	Strophic with refrain	A	order;sec-return	[sure] verse then a short refrain section that returns word for word	2
+29	A	Modified strophic	F		[likely] differs from the strophic row only in the music; at most an alias	not a row
+30	A	Narrative story song	F		[sure] a genre (story song); no shape beyond stanzas	not a row
+31	A	AABA 32-bar	A	order	[sure] four sections in a fixed order with one contrasting section; bar counts only via lines x bars wants	2
+32	A	Extended AABA	A	order;counts	[sure] fixed order with the contrasting section twice; needs stage 4 (a second bridge)	2
+33	A	ABAC 32-bar	A	order	[unsure] fixed order of three section kinds; no section function honestly means 'continuation'	2
+34	A	Verse-refrain with introductory verse	A	order;nest	[likely] an opening section, then a smaller form nested as the main part	2
+35	A	12-bar blues	B	scheme;line-return;lines	[likely] three-line stanza: line 2 repeats line 1, line 3 rhymes; repeat is often loose in practice	3
+36	A	8-bar blues	B	scheme;lines	[unsure] two-line stanza; the catalog gives two alternative shapes	3
+37	A	16-bar blues	B	scheme;line-return;lines	[unsure] four-line stanza with a repeated opening line; several variants	3
+38	A	Simple verse-chorus	A	order;sec-return	[sure] verse and returning chorus alternate; the existing verse-chorus row plus an order	2
+39	A	Contrasting verse-chorus	F		[likely] differs from the verse-chorus row only in harmony and melody; at most an alias	not a row
+40	A	Verse-prechorus-chorus	A	order;sec-return	[sure] a three-section cycle the cell grammar already has	2
+41	A	Verse-chorus-bridge	A	order;sec-return	[sure] two cycles, one contrasting section, closing chorus	2
+42	A	Verse-chorus with post-chorus	A	order;sec-return	[sure] four-section cycle, contrasting section, closing chorus	2
+43	A	Chorus-first	A	order;sec-return	[sure] chorus first, then the cycle; `before=` already states it	2
+44	A	Verse-chorus with solo	A	order;sec-return	[sure] cycle plus a wordless solo section	2
+45	A	Binary	A	order	[unsure] two sections as a repeated pair; the catalog and the review disagree on the repeat	2
+46	A	Ternary	A	order	[likely] three sections, the third the first again	2
+47	A	Bar form	A	order;counts	[unsure] two matching sections then a longer closing one, per stanza; 'longer' cannot be stated; needs stage 4	2
+48	A	Rondo	A	order;sec-return	[likely] a returning section between different episodes	2
+49	A	Arch	A	order	[likely] sections out to a centre and back in reverse order	2
+50	A	Through-composed	A	counts	[likely] every section kind at most once; stated counts (stage 4) say it	2
+51	A	Multi-part suite	E	movement	[sure] several sub-songs, each with its own form and time; a plan is one flat list of sections	10
+52	A	Medley	E	movement	[sure] several songs joined; same gap	10
+53	A	Quodlibet	D	voices	[sure] two songs sung at once; PARTLY: both songs and who sings are carried; that they sound at once is a record	10 partly
+54	A	Contrafactum	F		[sure] a procedure (new words to an existing tune)	not a row
+55	A	List song	F		[likely] defined by content (a list); the shape is verse plus refrain	not a row
+56	A	Patter song	A	order;sec-return	[likely] dense solo verses alternate with a refrain; the patter row exists	2
+57	A	Music-hall song	A	order;lines;sec-return	[likely] eight-line verse and chorus cycle; the optional spoken part is not expressible	2
+58	A	Parlour ballad	A	order;counts;lines;sec-return	[likely] two or three eight-line verses each closing on a refrain	2
+59	A	Song-and-dance number	A	order;sec-return	[likely] opening section, refrain, wordless break, refrain, short tag	2
+60	A	Musical scene	E	spoken;other:recitative	[sure] sung dialogue and underscored speech	10
+61	A	Duet dialogue song	D	voices	[sure] who sings each verse and line is the form	8
+62	A	Recitative	E	other:recitative	[likely] speech-like sung lines of irregular length; a delivery, not a section plan	6
+63	A	Arioso	E	other:recitative	[likely] as above, shorter	6
+64	A	Da capo aria	A	order;sec-return	[likely] first part, contrasting part, first part again	2
+65	A	Melodrama	E	spoken	[sure] text spoken over music	10
+66	A	Ballad opera	E	spoken;movement	[sure] spoken scenes with separate songs	10
+67	A	Masque	E	spoken;movement	[sure] a sequence of separate numbers and spoken verse	10
+68	A	Song cycle	E	movement	[sure] a set of separate songs	10
+69	A	Cantata	E	movement;other:recitative	[sure] a sequence of separate numbers	10
+70	A	Oratorio libretto	E	movement;other:recitative	[sure] a long work in parts	10
+71	A	Head arrangement	?	order;nest	[undecided] A (head, solos, head, tag as a section order) or F (an arranging practice); the review calls it contested	2
+72	A	Vocalese	F		[likely] a procedure (words fitted to a recorded solo)	not a row
+73	A	Barbershop tag	A	lines	[likely] one short closing section of two to four lines	2
+74	A	Hip-hop verse-hook	A	order;sec-return	[sure] verse and returning hook alternate, optional opening and closing sections	2
+75	A	Hookless rap track	A	order	[sure] verses only, no returning section	2
+76	A	Posse cut	D	voices	[sure] one verse per performer	8
+77	A	Battle rap	D	voices	[sure] two performers trade rounds	8
+78	A	Freestyle / cypher	D	voices	[unsure] no fixed sections; the turn-taking is the only structure	8
+79	A	DJ toasting	A	order;sec-return	[likely] chanted lines broken by a returning hook	2
+80	A	EDM build-drop	A	order	[sure] a fixed run of section kinds the section table already has	2
+81	A	Vamp / riff form	A	order	[likely] one held-open section kind with an occasional refrain and a break	2
+82	A	Gospel verse-chorus-vamp	A	order;sec-return	[likely] verse, chorus, long vamp, closing tag; the ad-libbed lead over the choir is voices	2
+83	A	Calypso	A	order;lines;sec-return	[likely] eight-line verse and fixed chorus cycle	2
+84	A	Extempo	D	voices	[sure] two singers trade stanzas	8
+85	A	Jingle	A	order	[likely] short set-up, hook, tag	2
+86	A	Terrace chant	A	order;lines;sec-return	[likely] one short section repeated word for word	2
+87	A	Cheerleading cheer	D	call-response	[sure] squad and crowd exchanges	8
+93	B	Traditional ballad	B	scheme;lines	[likely] a four-line stanza with one rhyme pattern, any number of times; the stress count is in the stanza row	3
+94	B	Long-measure ballad	C	scheme;meter-all	[likely] couplet-rhymed quatrains of four-stress lines, or long couplets; two alternatives	7 (length reported, not enforced)
+95	B	Ballad with internal refrain	B	scheme;line-return;song-letters	[likely] fixed refrain lines at set places inside every stanza	3
+96	B	Incremental-repetition ballad	B	one-word;song-letters	[unsure] each stanza repeats the one before with a changed phrase; the engine has verbatim or exactly one changed word	3
+97	B	Broadside ballad	F		[likely] a genre (printed topical story); contested in the review	not a row
+98	B	Come-all-ye	F		[likely] content convention (opening call, closing moral) over plain stanzas	not a row
+99	B	Goodnight ballad	F		[likely] content convention (confession, farewell) over plain stanzas	not a row
+100	B	Blues ballad	A	order;sec-return	[likely] stanza then a returning refrain line as its own short section	2
+101	B	Talking blues	E	spoken	[sure] half-spoken lines and a spoken punchline	10
+102	B	Bothy ballad	B	scheme;lines	[likely] couplet-rhymed stanzas, optional couplet after each	3
+103	B	Forebitter	F		[sure] a genre by setting; chorus optional	not a row
+104	B	Cante fable	E	spoken;prose	[sure] spoken prose story with short sung verses	10
+105	B	Mummers' play verse	E	spoken;voices	[likely] a play; contested in the review	10
+106	B	Calling-on song	F		[likely] content convention (one named person per stanza)	not a row
+107	B	Luck-visit / begging song	F		[likely] content sequence; chorus placement varies	not a row
+108	B	Street cry	A	lines;sec-return	[unsure] a one- or two-line phrase repeated; a one-line section carries no rhyme group, so that case cannot be planned	2
+109	B	Dirge / lament	A	order;sec-return	[likely] short stanzas and a returning burden	2
+110	B	Call-and-response	D	call-response	[sure] leader line and group reply all through	8
+111	B	Halyard shanty	D	call-response	[sure] solo and crew lines alternate	8
+112	B	Short-drag shanty	D	call-response	[sure] solo line and short crew line	8
+113	B	Capstan shanty	D	call-response	[sure] solo and crew pairs plus a full chorus	8
+114	B	Stamp-and-go shanty	D	call-response	[sure] continuous solo and crew exchange	8
+115	B	Pumping shanty	D	call-response	[sure] solo verses with a group chorus	8
+116	B	Hammer song / chain-gang song	D	call-response	[sure] lead line and fixed group response	8
+117	B	Field holler	F		[likely] no stanza and no chorus by definition; the open row already covers it	not a row
+118	B	Waulking song	D	call-response	[sure] leader line and group answer	8
+119	B	Military cadence	D	call-response	[sure] leader chants, group repeats or answers	8
+120	B	Echo song	D	call-response;line-return	[sure] group repeats each leader line word for word	8
+121	B	Zipper song	B	one-word;line-return;song-letters	[unsure] every verse is the first with one slot changed	3
+122	B	Cumulative song	E	other:stanzas of one kind that grow by rule;line-return	[likely] each verse adds a line and repeats the earlier ones; one section kind has one length	3
+123	B	Counting song	E	other:stanzas of one kind that grow by rule;line-return	[likely] as the cumulative row, plus a fixed closing tag	3
+124	B	Countdown song	B	one-word;line-return;song-letters	[unsure] a fixed verse repeated with one word changed each time	3
+125	B	Riddle song	E	other:question and answer links across stanzas	[unsure] question stanzas then answer stanzas in order; the engine's answer link stays inside one section and is a record only	8
+126	B	Nonsense-refrain song	A	order;sec-return	[likely] verses and a refrain; nonsense syllables are words the dictionary cannot read	2
+127	B	Lullaby	A	order;lines;sec-return	[likely] refrain, quatrains, refrain	2
+128	B	Nursery rhyme	B	scheme;lines	[likely] one quatrain in one of two rhyme patterns	3
+129	B	Counting-out rhyme	A	lines	[unsure] one short section of two to six lines; the beat rule is not a fixed count	2
+130	B	Skipping / clapping rhyme	B	scheme	[unsure] couplets or quatrains on a strict beat with a counting tail; loosely stated	3
+131	B	Singing game	A	order;sec-return	[likely] verse and fixed chorus; same shape as the verse-chorus row	2
+132	B	Finger play	A	lines	[unsure] one short section; gestures are performance; later verses change a word	2
+133	B	Dandling rhyme	A	lines	[unsure] one short section; the speeding-up is performance	2
+134	B	Playground taunt	A	lines;sec-return	[unsure] a one- or two-line phrase repeated; same limit as the street-cry row	2
+135	B	Tongue twister	E	other:sound repetition inside a line	[likely] the rule is about sounds within one line; the grader judges rhyme groups between lines	11
+136	B	Dozens	D	voices	[sure] two players trade couplets	8
+137	B	Toast (oral narrative)	C	scheme;meter-all	[likely] four-beat rhymed couplets with a set opening and close	7 (length reported, not enforced)
+138	B	Square-dance singing call	A	order	[unsure] a fixed run of figures; contested in the review	2
+139	B	Square-dance patter call	F		[unsure] continuous chanted instructions with no sections	not a row
+140	B	Round	D	staggered	[sure] voices enter one after another	8
+141	B	Catch	D	staggered	[sure] as the round row	8
+142	B	Canon	D	staggered	[sure] strict imitation at a delay	8
+143	B	Madrigal	B	line-return;lines	[unsure] one short section whose last line repeats	3
+144	B	Ballett	A	order;sec-return	[unsure] half-stanza and a syllable refrain, each repeated	2
+145	B	Canzonet	F		[unsure] a genre; the shape is the strophic row	not a row
+146	B	Ayre	F		[likely] a genre; the shape is the strophic row (a rhyme pattern is only 'often')	not a row
+147	B	Consort song	B	line-return	[unsure] stanzas, then the last lines again; who repeats them is voices	3
+148	B	Three-man's song	F		[likely] a genre; the shape is strophic with refrain	not a row
+149	B	Glee	F		[likely] a genre; contrasting sections with no fixed plan	not a row
+150	B	Part-song (Victorian)	F		[likely] a genre; the shape is the strophic row	not a row
+151	B	Elizabethan stage jig	D	voices	[likely] characters sing in turn	8
+152	B	Medieval carol with burden	B	scheme;line-return;song-letters;order	[likely] opening burden, then stanzas each followed by it; the burden row may not open a song, so the opening part needs another function	3
+153	B	Lullay carol	B	scheme;line-return;song-letters	[unsure] the carol-with-burden shape with a set word in the burden; dialogue is voices	3
+154	B	Christmas carol	F		[likely] stanzas with a refrain or chorus, placement unspecified; the hymn-with-refrain row by subject	not a row
+155	B	Macaronic carol / song	E	other:two languages in one song	[likely] the grader reads one language per song; PARTLY: every word of the second language needs a reading from the caller	2 partly
+156	B	Metrical hymn	C	meter-per-line;nest	[sure] stanzas in a named syllable metre, optional closing stanza; nests a stanza row	7
+157	B	Hymn with refrain	C	meter-per-line;order;sec-return	[likely] metrical stanzas each followed by a refrain	7
+158	B	Gospel song (Sankey)	A	order;lines;sec-return	[sure] four-line verse and four-line chorus cycle	2
+159	B	Camp-meeting song	B	line-return;song-letters	[unsure] a refrain after each line or each stanza; two alternatives	3
+160	B	Praise chorus	A	order;lines;sec-return	[likely] one short stanza repeated, closing tag	2
+161	B	Spiritual	D	call-response	[sure] leader verse and group answer inside a framing chorus	8
+162	B	Ring shout	D	call-response	[sure] improvised lead and fixed response	8
+163	B	Shaker gift song	A	lines;sec-return	[likely] one stanza repeated	2
+164	B	Table grace (sung)	A	lines	[likely] one short rhymed stanza	2
+165	B	Ostinato chant (Taizé)	D	voices	[sure] a looped chant with verses sung over it	8
+166	B	Metrical psalm	C	meter-per-line;nest	[likely] common-metre stanzas; nests a stanza row; contested in the review	7 (length reported, not enforced)
+167	B	Lined-out hymn	D	call-response	[sure] leader gives a line, congregation sings it back	8
+168	B	Anglican chant	E	prose	[sure] prose verses sung to a formula	10
+169	B	Psalm with antiphon	D	voices	[unsure] two choir sides alternate inside a returning antiphon; the verses are prose	8
+170	B	Responsorial psalm	D	call-response	[sure] cantor and people	8
+171	B	Responsory	D	call-response;partial-line	[sure] respond, verse, part of the respond again	9
+172	B	Litany	D	call-response	[sure] petitions each answered by one response	8
+173	B	Versicles and responses	D	call-response	[sure] paired leader and people lines	8
+174	B	Canticle	F		[likely] a fixed text, not a form; contested in the review	not a row
+175	B	Doxology	A	lines	[unsure] one four-line stanza used alone or as a closing part; in practice a fixed text	2
+176	B	Full anthem	F		[likely] a genre; set-through text with no plan	not a row
+177	B	Verse anthem	D	voices	[sure] solo sections alternate with full choir	8
+178	B	Fuging tune	D	staggered	[sure] second half with voices entering in turn	8
+179	B	Shape-note anthem	D	staggered	[sure] some sections with staggered entries	8
+180	B	Mass setting (English)	E	movement	[sure] fixed movements on fixed texts	10
+181	B	Anglican service	E	movement	[sure] a paired set of fixed texts	10
+187	C	Petrarchan sonnet	B	scheme;lines;order	[sure] an eight-line part and a six-line part, each with its own letters; two alternative closing patterns	3
+188	C	Sicilian sonnet	B	scheme;lines;order	[likely] as the row above with an alternating first part	3
+189	C	Miltonic sonnet	B	scheme;lines;order	[likely] the same shape as the row two above; its difference is in syntax and is not checked	3
+190	C	Shakespearean sonnet	B	scheme;lines;order	[sure] three four-line stanzas with one pattern, then a two-line closing part	3
+191	C	Spenserian sonnet	B	scheme;song-letters;lines;order	[sure] as above, but each stanza takes up a rhyme of the one before	3
+192	C	Terza rima sonnet	B	scheme;song-letters;lines;order	[sure] four chained three-line stanzas and a two-line closing part	3
+193	C	Curtal sonnet	C	scheme;meter-per-line	[likely] ends on a half-length line	7 (the row must give its short lines a number)
+194	C	Caudate sonnet	C	scheme;meter-per-line;nest	[likely] a nested fourteen-line form plus tails that start on a half-length line	7 (the row must give its short lines a number)
+195	C	Meredithian sonnet	B	scheme;lines;counts	[sure] one four-line pattern four times	3
+196	C	Onegin stanza	C	scheme;meter-all;other:rhyme kind per group	[unsure] fourteen lines in one pattern with set stressed and unstressed endings; contested in the review	7 (length reported, not enforced)
+197	C	Bref double	B	scheme;song-letters;lines	[unsure] three quatrains and a couplet sharing three rhymes; the review calls the model partial	3
+198	C	Sonnenizio	E	other:a borrowed line and one word repeated in every line	[sure] a word must recur anywhere in each line; no declaration says that	9
+199	C	American sonnet	F		[unsure] about fourteen lines with loose or no rhyme; no fixed shape to state	not a row
+200	C	Duplex	?	line-return;song-letters	[undecided] B if the echoed lines may be word for word or one word changed; E if they must be freely rewritten; PARTLY: the echoed line can be required word for word or with one word changed, not freely rewritten	3 partly
+201	C	Kyrielle sonnet	B	scheme;line-return;song-letters;lines	[likely] three quatrains ending on a refrain, closing pair made of two earlier lines	3
+202	C	Crown of sonnets	B	nest;line-return;song-letters	[unsure] seven nested fourteen-line forms linked by repeated lines; the inner closing parts need a section kind that may repeat	3
+203	C	Heroic crown	B	nest;line-return;song-letters	[unsure] fourteen linked nested forms and a last one built from their first lines; same limit as the row above; 210 lines	3
+204	C	Sonnet sequence	F		[sure] a collection of separate poems	not a row
+205	C	Villanelle	B	scheme;line-return;song-letters;lines;order	[sure] two refrain lines at fixed places over five tercets and a closing quatrain; already a row of the repeated-line table	3
+206	C	Terzanelle	B	scheme;line-return;song-letters;lines;order	[likely] refrain lines plus a middle line that returns in the next stanza	3
+207	C	Sestina	E	end-word;no-rhyme	[likely] six end words rotate over six stanzas and all sit in a three-line closing part; word identity at line ends exists in the grader, not in the planner, and the repeat check may object	9
+208	C	Double sestina	E	end-word;no-rhyme	[likely] as the row above, twice the size; two variants	9
+209	C	Tritina	E	end-word;no-rhyme	[likely] as the row two above with three end words	9
+210	C	Rondeau	B	scheme;line-return;song-letters;partial-line	[unsure] the short refrain line returns word for word (a row of the repeated-line table); its tie to the opening words of line 1 is not checkable	9
+211	C	Rondeau prime	B	scheme;line-return;song-letters;partial-line	[unsure] as the row above; sources disagree on the line count	9
+212	C	Rondine	B	scheme;line-return;song-letters;partial-line	[unsure] as the row two above; contested in the review	9
+213	C	Rondeau redoublé	B	scheme;line-return;song-letters;partial-line	[unsure] each opening line closes a later stanza; the last stanza ends on a half-line	9
+214	C	Rondel	B	scheme;line-return;song-letters;lines	[likely] opening lines return mid-poem and at the close; 13 or 14 lines	3
+215	C	Roundel	B	scheme;line-return;song-letters;partial-line	[unsure] stanzas of 4, 3 and 4 lines; the refrain is the start of line 1	9
+216	C	Rondelet	C	scheme;line-return;meter-per-line	[likely] one seven-line stanza whose refrain lines are short	7
+217	C	Roundelay	A	order;sec-return	[unsure] short stanzas and a returning refrain; loosely defined	2
+218	C	Triolet	B	scheme;line-return;lines	[sure] one eight-line stanza with two lines that return; already a row of the repeated-line table	3
+219	C	Ballade	B	scheme;line-return;song-letters;lines;order	[sure] three eight-line stanzas and a four-line closing part on the same rhymes and refrain; already a row of the repeated-line table	3
+220	C	Ten-line ballade	B	scheme;line-return;song-letters;lines;order	[likely] as the row above with ten- and five-line parts	3
+221	C	Double ballade	B	scheme;line-return;song-letters;lines	[likely] six matched stanzas with one refrain; closing part optional	3
+222	C	Ballade à double refrain	B	scheme;line-return;song-letters;lines;order	[likely] two refrains at fixed lines, both in the closing part	3
+223	C	Chant royal	B	scheme;line-return;song-letters;lines;order	[likely] five eleven-line stanzas and a five-line closing part	3
+224	C	Virelai	C	scheme;song-letters;meter-per-line	[unsure] long and short lines; each stanza's second rhyme leads the next	7 (the row must give its short lines a number)
+225	C	Virelai nouveau	B	line-return;song-letters	[unsure] two opening lines alternate as stanza endings; stanza length is free	3
+226	C	Lai	C	scheme;meter-per-line	[sure] nine-line stanza with five- and two-syllable lines	7
+227	C	Kyrielle	C	scheme;line-return;song-letters;meter-all	[likely] eight-syllable quatrains ending on one refrain line; the repeated-line part is already a row	7
+228	C	Quatern	B	line-return;lines;counts	[sure] one line returns at line 1, 2, 3, 4 of four quatrains	3
+229	C	Canzone	?	end-word;order	[undecided] B in the loose version (matching stanzas and a short closing part); E in the strict version (recurring end words)	9
+230	C	Ballata	B	scheme;line-return;song-letters;order	[unsure] opening refrain, stanzas that turn back to its rhyme, refrain again	3
+231	C	Stornello	C	scheme;meter-per-line	[likely] three lines, the first short, 1 and 3 rhyme	7 (the row must give its short lines a number)
+232	C	Glosa	B	line-return;lines;order	[likely] four opening lines each close one of four ten-line stanzas; that the opening is borrowed is not checkable	3
+233	C	Ovillejo	E	other:a line made of earlier short lines;meter-per-line	[likely] the last line gathers three earlier short lines	9
+234	C	Pantoum	B	scheme;line-return;song-letters	[sure] lines 2 and 4 of each quatrain open and sit third in the next, any number of stanzas; the pair is already a row	3
+235	C	Pantun	B	scheme;lines	[sure] one alternating quatrain; the break in sense between its halves is not checked	3
+236	C	Ghazal	E	other:a repeated end phrase after the rhyme	[sure] blocked in the planner today; the registry's two rules for it are not plannable for English	12
+237	C	Qasida	B	scheme;song-letters	[unsure] one rhyme through thirty or more couplets; the three thematic parts are a record at most	3
+238	C	Haiku	C	meter-per-line;no-rhyme	[likely] three lines of set syllable counts; contested in the review	7
+239	C	Senryu	C	meter-per-line;no-rhyme	[likely] the same shape as the row above; differs by subject	7
+240	C	Tanka	C	meter-per-line;no-rhyme	[likely] five lines of set syllable counts	7
+241	C	Kyoka	C	meter-per-line;no-rhyme	[likely] the same shape as the row above; differs by tone	7
+242	C	Katauta	C	meter-per-line;no-rhyme	[likely] three lines of set syllable counts	7
+243	C	Sedoka	C	meter-per-line;no-rhyme;nest	[likely] two of the row above; the question-and-answer reading is optional	7
+244	C	Somonka	D	voices;meter-per-line	[likely] two five-line parts by two speakers	8
+245	C	Choka	C	meter-per-line;no-rhyme;nest	[likely] alternating line lengths with a set close and an optional nested closing part	7
+246	C	Dodoitsu	C	meter-per-line;no-rhyme	[likely] four lines of set syllable counts	7
+247	C	Gogyohka	A	lines	[unsure] one five-line section and nothing else; the planner would still draw a rhyme group	2
+248	C	Renga / renku	D	voices;meter-per-line	[sure] alternating stanza shapes written by turns	8
+249	C	Rengay	D	voices;meter-per-line	[likely] six linked short verses by two or three writers; contested in the review	8
+250	C	Haibun	E	prose	[sure] prose with short poems	10
+251	C	Tanka prose	E	prose	[sure] prose with short poems	10
+252	C	Sijo	C	meter-all;lines	[likely] three long lines in a syllable range	7
+253	C	Tanaga	C	scheme;meter-all;lines	[sure] four seven-syllable lines on one rhyme	7
+254	C	Luc bat	E	other:rhyme at a set syllable inside a line;meter-per-line	[likely] the chain rhyme falls on a counted syllable, not on a word place	7
+255	C	Than-bauk	E	other:rhyme at a set syllable inside a line;meter-all	[likely] the rhyme climbs through set syllable positions	7
+256	C	Cherita	A	lines;order	[unsure] stanzas of 1, 2 and 3 lines; needs three section kinds for three sizes	2
+257	C	Englyn	E	meter-per-line;other:sound-chiming inside the line	[likely] several variants; the chiming rules are in the registry for another language only; PARTLY: syllable counts are required; the chiming rules in the registry are for another language	11 partly
+258	C	Cywydd deuair hirion	C	scheme;meter-all;other:rhyme kind per group	[unsure] seven-syllable couplets rhyming a stressed with an unstressed ending	7
+259	C	Clogyrnach	C	scheme;meter-per-line	[sure] six lines of set syllable counts and one pattern	7
+260	C	Gwawdodyn	C	meter-per-line;other:internal rhyme	[unsure] set syllable counts with an internal rhyme; two variants	7
+261	C	Hir a thoddaid	C	scheme;meter-per-line	[unsure] contested in the review	7
+262	C	Byr a thoddaid	C	scheme;meter-per-line	[unsure] contested in the review	7
+263	C	Awdl gywydd	C	meter-all;other:internal rhyme	[unsure] seven-syllable quatrains with a line end rhymed inside the next line	7
+264	C	Cyhydedd hir	C	scheme;meter-per-line	[likely] set syllable counts, two halves	7
+265	C	Rhupunt	E	other:rhyme between parts of one line	[likely] sections inside a long line rhyme with each other	11
+266	C	Irish syllabic quatrains	C	scheme;meter-per-line;end-word	[unsure] an umbrella of several stanzas (split it); the poem ends on its opening word	9
+267	C	Pindaric ode	A	order;counts	[likely] two matching stanzas and a different third, repeated; one shape per section kind gives the match; needs stage 4	2
+268	C	Limerick	C	scheme;meter-per-line	[sure] five lines, one pattern, set beats per line	7 (length reported, not enforced)
+269	C	Clerihew	B	scheme;lines	[sure] one couplet-rhymed quatrain; the content rule is not checked	3
+270	C	Double dactyl	C	scheme;song-letters;meter-per-line	[likely] two quatrains of a set foot, lines 4 and 8 short and rhymed; contested in the review	7 (length reported, not enforced)
+271	C	Ruthless rhyme	B	scheme;lines	[likely] one couplet-rhymed quatrain; differs from the row two above by subject	3
+272	C	Cinquain (Crapsey)	C	meter-per-line;no-rhyme	[sure] five lines of set syllable counts	7
+273	C	Didactic cinquain	E	other:word count and word class per line	[sure] each line is a set number of words of a set kind; PARTLY: word counts are required; word class is only reported	7 partly
+274	C	Diamante	E	other:word count per line	[sure] seven lines counted in words	7
+275	C	Tetractys	C	meter-per-line;no-rhyme	[sure] set syllable counts	7
+276	C	Nonet	C	meter-per-line;no-rhyme	[sure] set syllable counts	7
+277	C	Etheree	C	meter-per-line;no-rhyme	[sure] set syllable counts	7
+278	C	Fib	C	meter-per-line;no-rhyme	[sure] set syllable counts	7
+279	C	Lanterne	C	meter-per-line;no-rhyme	[sure] set syllable counts	7
+280	C	Shadorma	C	meter-per-line;no-rhyme	[sure] set syllable counts	7
+281	C	Hay(na)ku	E	other:word count per line	[sure] three lines counted in words	7
+282	C	Lune	C	meter-per-line;no-rhyme	[unsure] one variant counts syllables (C), the other counts words (E)	7
+283	C	American sentence	C	meter-all;no-rhyme;other:a one-line plan	[likely] one line of a set length; a plan has at least two lines	7
+284	C	Monostich	E	no-rhyme;other:a one-line plan	[likely] one line; a plan has at least two lines and one rhyme group	6
+285	C	Sevenling	A	lines;order	[likely] two three-line stanzas and a one-line closing part; the 'three items' rule is content	2
+286	C	Kwansaba	E	other:word and letter count per line	[likely] contested in the review	9
+287	C	Zeno	C	scheme;meter-per-line	[sure] set syllable counts; the one-syllable lines rhyme	7
+288	C	Abecedarian	E	other:first letter of each line	[sure] a letter rule	9
+289	C	Golden shovel	E	other:declared end word for each line	[sure] line ends are given by a source text	9
+290	C	Bop	A	order;lines;sec-return	[likely] stanzas of 6, 8 and 6 lines, each followed by the same one-line refrain section	2
+291	C	Paradelle	E	other:lines built only from the words of other lines;line-return	[sure] the repeated pairs are line returns; the recombining lines are not expressible	9
+297	D	Couplet	B	scheme;lines	[sure] two-line stanza on one rhyme, any number of times	3
+298	D	Heroic couplet	C	scheme;meter-all	[sure] rhymed pairs in one fixed line pattern	7 (length reported, not enforced)
+299	D	Octosyllabic couplet	C	scheme;meter-all	[sure] rhymed eight-syllable pairs	7
+300	D	Hudibrastic verse	C	scheme;meter-all;other:rhyme kind per group	[likely] eight-syllable pairs with many-syllable rhymes (a group type the planner has)	7
+301	D	Alexandrine couplet	C	scheme;meter-all	[likely] twelve-syllable pairs; the central pause is not checked	7
+302	D	Fourteener	C	scheme;meter-all	[likely] fourteen-syllable pairs	7
+303	D	Poulter's measure	C	scheme;meter-per-line	[sure] a twelve- then a fourteen-syllable line, rhymed	7
+304	D	Elegiac couplet	C	meter-per-line;no-rhyme	[likely] two different unrhymed line patterns	7 (length reported, not enforced)
+305	D	Skeltonic verse	B	scheme	[unsure] runs of one rhyme of no fixed length; a row cannot fix the run	3
+306	D	Tumbling verse	C	scheme;meter-all	[likely] four stresses a line with free weak syllables; a stress count, not a fixed pattern	7 (length reported, not enforced)
+307	D	Leonine verse	E	other:rhyme between the middle and end of one line	[likely] the grader judges rhyme groups between lines	11
+308	D	Tercet	A	lines	[sure] umbrella term: states only three lines per stanza	2
+309	D	Triplet	B	scheme;lines	[sure] three lines on one rhyme	3
+310	D	Sicilian tercet	C	scheme;meter-all;lines	[likely] three lines, outer pair rhymed, one line pattern	7 (length reported, not enforced)
+311	D	Terza rima	B	scheme;song-letters;lines;order	[sure] three-line stanzas, each middle rhyme leading the next, with a one- or two-line closing part	3
+312	D	Quatrain	A	lines	[sure] umbrella term: states only four lines per stanza	2
+313	D	Ballad stanza	C	scheme;meter-per-line	[sure] alternating four- and three-stress lines, one pattern	7 (length reported, not enforced)
+314	D	Common metre (CM)	C	scheme;meter-per-line	[sure] set syllable counts, two pattern options	7
+315	D	Common metre double (CMD)	C	scheme;meter-per-line;nest	[sure] two of the row above as one stanza	7
+316	D	Long metre (LM)	C	scheme;meter-all	[sure] four equal lines	7 (length reported, not enforced)
+317	D	Long metre double (LMD)	C	scheme;meter-all;nest	[sure] two of the row above	7
+318	D	Short metre (SM)	C	scheme;meter-per-line	[sure] set syllable counts	7
+319	D	Short metre double (SMD)	C	scheme;meter-per-line;nest	[sure] two of the row above	7
+320	D	Hallelujah metre	C	scheme;meter-per-line	[sure] six lines, set syllable counts and pattern	7
+321	D	Trochaic hymn metres	C	meter-per-line	[likely] an umbrella of four metres; split into one row each	7
+322	D	Other named hymn metres	C	meter-per-line	[likely] an umbrella of seven metres; split into one row each	7
+323	D	Heroic quatrain	C	scheme;meter-all	[sure] alternating quatrain in one line pattern	7 (length reported, not enforced)
+324	D	In Memoriam stanza	C	scheme;meter-all	[sure] enclosed quatrain in one line pattern	7 (length reported, not enforced)
+325	D	Rubaiyat stanza	B	scheme;lines	[sure] one quatrain pattern; the chained variant needs song-wide letters	3
+326	D	Monorhymed quatrain	B	scheme;lines	[sure] four lines on one rhyme, new rhyme each stanza	3
+327	D	Redondilla	C	scheme;meter-all	[sure] eight-syllable enclosed quatrain	7
+328	D	Sapphic stanza	C	meter-per-line;no-rhyme	[likely] three long lines and a short one; the review calls the model partial	7
+329	D	Alcaic stanza	C	meter-per-line;no-rhyme	[unsure] four lines of set lengths; contested in the review	7
+330	D	Asclepiad stanza	C	meter-per-line;no-rhyme	[unsure] four lines on set patterns; the review calls the model partial	7 (length reported, not enforced)
+331	D	Quintain	A	lines	[sure] umbrella term: states only five lines per stanza	2
+332	D	Sestet / sixain	A	lines	[sure] umbrella term: states only six lines per stanza	2
+333	D	Venus and Adonis stanza	C	scheme;meter-all	[sure] six lines, one pattern, one line pattern	7 (length reported, not enforced)
+334	D	Burns stanza	C	scheme;meter-per-line	[sure] six lines with two short ones	7 (the row must give its short lines a number)
+335	D	Tail-rhyme stanza	C	scheme;meter-per-line	[sure] long couplets each followed by a short line	7 (the row must give its short lines a number)
+336	D	Rhyme royal	C	scheme;meter-all	[sure] seven lines, one pattern, one line pattern	7 (length reported, not enforced)
+337	D	Septet	A	lines	[sure] umbrella term: states only seven lines per stanza	2
+338	D	Ottava rima	C	scheme;meter-all	[sure] eight lines, one pattern, one line pattern	7 (length reported, not enforced)
+339	D	Sicilian octave	B	scheme;lines	[sure] eight alternating lines	3
+340	D	Rispetto	B	scheme;lines	[likely] eight lines in one pattern; the review calls the model partial	3
+341	D	Monk's Tale stanza	B	scheme;lines	[sure] eight lines in one pattern	3
+342	D	Octave / huitain	A	lines	[unsure] umbrella term for eight lines; its named variant adds a pattern and a syllable count (C)	2
+343	D	Spenserian stanza	C	scheme;meter-per-line	[sure] eight equal lines and a longer ninth	7 (length reported, not enforced)
+344	D	Dizain	B	scheme;lines	[sure] ten lines in one pattern	3
+345	D	Décima espinela	C	scheme;meter-all	[likely] ten eight-syllable lines in one pattern	7
+346	D	Keatsian ode stanza	B	scheme;lines	[likely] ten lines in one pattern, repeated	3
+347	D	Christ's Kirk stanza	C	scheme;meter-per-line;end-word	[unsure] eight lines, a very short line and a refrain with fixed last words; contested in the review	9 (the row must give its short lines a number)
+348	D	Pearl stanza	E	scheme;other:alliteration;end-word	[unsure] twelve lines with alliteration, a shared refrain word and stanza-to-stanza word links; contested in the review	11
+349	D	Cherry and Slae stanza	C	scheme;meter-per-line	[likely] fourteen lines mixing long and two-beat lines	7 (length reported, not enforced)
+350	D	Bob and wheel	E	other:alliteration;meter-per-line;scheme	[likely] long alliterating lines, then a one- or two-syllable line and four short rhymed ones	11
+351	D	Horatian ode	A	order	[unsure] identical stanzas throughout; the same shape as the strophic row	2
+352	D	Blank verse	C	meter-all;no-rhyme	[sure] unrhymed lines in one fixed pattern; a plan always carries a rhyme group today	7 (length reported, not enforced)
+353	D	Alliterative verse	E	other:alliteration across the two halves of a line;no-rhyme	[sure] the registry has line-internal rules of this kind; none is plannable	11
+354	D	Accentual verse	C	meter-all	[likely] a stress count per line with free weak syllables; a count, not a fixed pattern	7 (length reported, not enforced)
+355	D	Sprung rhythm	C	meter-all	[unsure] a way of counting stresses more than a form	7 (length reported, not enforced)
+356	D	Syllabic verse	C	meter-per-line	[likely] a way of counting (syllables per line) more than a form	7
+357	D	Accentual hexameter	C	meter-all;no-rhyme	[likely] six stresses a line, unrhymed	7 (length reported, not enforced)
+358	D	Quantitative verse	E	other:long and short syllables	[likely] the dictionary gives stress, not length; NOT CARRIED: syllable length is not in the dictionary, which gives stress only	none
+359	D	Hendecasyllabics	C	meter-all;no-rhyme	[likely] eleven-syllable unrhymed lines; the review calls the model partial	7
+360	D	Galliambic	C	meter-all	[unsure] long lines with a central break; the review calls the model partial	7
+361	D	Anacreontic verse	C	scheme;meter-all	[sure] seven-syllable rhymed pairs	7
+367	E	Free verse	E	no-rhyme	[likely] defined by having no rhyme or meter; every plan carries a rhyme group today, so even the open row is not this	6
+368	E	Prose poem	E	prose	[sure] no line breaks	10
+369	E	Projective verse	E	other:page layout	[unsure] spacing on the page; arguably a poetics, not a form; NOT CARRIED: the form is spacing on the page; a sung plan has lines in time and nothing else	none
+370	E	Triadic line	E	other:page layout	[unsure] three stepped segments per unit; the stepping is layout; PARTLY: three-line units are carried; the stepped layout is not	2 partly
+371	E	Irregular ode	F		[likely] stanzas vary freely; nothing to state	not a row
+372	E	Elegy	F		[sure] a genre	not a row
+373	E	Epigram	F		[likely] a genre; only 'two to four lines'	not a row
+374	E	Epitaph	F		[likely] a genre	not a row
+375	E	Greeting-card verse	A	lines;counts	[unsure] one or two four-line stanzas; the pattern is not named	2
+376	E	Verse epistle	F		[sure] a genre	not a row
+377	E	Dramatic monologue	F		[sure] a genre	not a row
+378	E	Eclogue	D	voices	[likely] speakers take turns	8
+379	E	Debate poem	D	voices	[likely] two speakers argue in turn inside a frame	8
+380	E	Tenson	D	voices	[sure] two writers trade matching stanzas	8
+381	E	Flyting	D	voices	[sure] two writers trade stanzas	8
+382	E	Aisling	F		[sure] a genre	not a row
+383	E	Metrical charm	F		[likely] a genre	not a row
+384	E	Riddle poem	F		[sure] a genre	not a row
+385	E	Gnomic verse	F		[likely] a genre; strings of one- or two-line sayings	not a row
+386	E	Macaronic verse	E	other:two languages in one song	[likely] the grader reads one language per song; PARTLY: every word of the second language needs a reading from the caller	2 partly
+387	E	Epic	E	movement	[likely] a long work in books	10
+388	E	Verse novel	E	movement	[likely] a long work in chapters	10
+389	E	Verse drama	E	movement;voices	[sure] acts, scenes and assigned speakers	10
+390	E	Emblem poem	E	other:a picture	[likely] part of the form is not text; NOT CARRIED: part of the form is a picture	none
+391	E	Zuihitsu	E	prose	[sure] lists, prose and lines mixed	10
+392	E	Haiga	C	meter-per-line;no-rhyme	[unsure] the three-line syllable form beside a picture; the picture is outside a lyric; PARTLY: the three-line poem is carried; the picture is not	7 partly
+393	E	Pattern poem	E	other:page layout	[likely] line lengths draw a shape; PARTLY: caller-given line lengths are carried; the picture is not	7 partly
+394	E	Concrete poetry	E	other:page layout	[sure] the layout is the form; NOT CARRIED: the form is the page layout	none
+395	E	Contrapuntal poem	E	other:two columns read two ways	[sure] a layout; NOT CARRIED: two columns read two ways is a page layout	none
+396	E	Reverso	B	line-return;lines	[sure] the second half is the first half's lines in reverse order	3
+397	E	Palindrome poem	?	line-return;end-word	[undecided] B when the unit is the line (as the row above); E when it is the word or the letter	9
+398	E	Acrostic	E	other:letters at line edges	[sure] a letter rule	9
+399	E	Mesostic	E	other:letters inside lines	[sure] a letter rule	9
+400	E	Lipogram	E	other:a banned letter	[sure] a letter rule	9
+401	E	Univocalic	E	other:one vowel only	[sure] a letter rule	9
+402	E	Tautogram	E	other:one initial letter	[sure] a letter rule	9
+403	E	Rhopalic verse	E	other:each word or line one unit longer	[likely] a growth rule on words or lines	9
+404	E	Pilish	E	other:word lengths from a number	[likely] a letter-count rule	9
+405	E	Bouts-rimés	E	other:declared end word for each line	[likely] line ends are given in advance	9
+406	E	Cento	F		[sure] a procedure (borrowed lines)	not a row
+407	E	Found poem	F		[sure] a procedure	not a row
+408	E	Erasure poem	F		[sure] a procedure	not a row
+409	E	Cut-up poem	F		[sure] a procedure	not a row
+410	E	Exquisite corpse	F		[likely] a procedure for several writers	not a row
