@@ -83,6 +83,13 @@ test('every published selection has an exact structural contract or an explicit 
           realization.tree.forEach(collect);
           assert.deepEqual(contract.sections.map(s => s.lines), expectedLengths, where);
         }
+        const sourceBars = [];
+        function collectBars(node) {
+          if (node.bars !== undefined) sourceBars.push(node.bars);
+          node.children.forEach(collectBars);
+        }
+        realization.tree.forEach(collectBars);
+        assert.deepEqual(contract.sections.filter((part) => part.bars !== undefined).map((part) => part.bars), sourceBars, where);
         const sourceMeasures = [];
         const inspectLine = (node) => {
           if (node.unit === 'line') {
@@ -128,6 +135,7 @@ test('every published selection has an exact structural contract or an explicit 
     '        except plan.SeedRefused:',
     '            continue',
     '        assert result["request"]["song_form"] == contract',
+    '        assert all(s["bars"] == p["bars"] for s, p in zip(result["sections"], contract["sections"]) if "bars" in p)',
     '        assert not line_fit_conflicts(result, contract.get("lineRequirements", []))',
     '        assert [s["function"] for s in result["sections"]] == [s["role"] for s in contract["sections"]]',
     '        assert all(sum(slot["section"] == s["name"] for slot in result["line_slots"]) == p["lines"] for s, p in zip(result["sections"], contract["sections"]) if p["lines"] is not None)',
@@ -166,6 +174,30 @@ test('equal contiguous plain divisions use a disclosed verse arrangement and kee
   assert.equal(projection(entry(poem(stanza(line({times:464})))), 'f').status, 'unsupported');
   assert.equal(projection(entry(poem(make('stanza',{times:116,children:[line({times:2})]}))), 'f').status, 'unsupported');
   assert.equal(projection(entry(poem(stanza(line()),stanza(line()))), 'f').status, 'unsupported');
+});
+
+test('exact section bars carry through without assigning musical roles to unnamed sections', () => {
+  const section = (role, bars, count) => make('section', {role, bars, ...(count && {children:[line({times:count})]})});
+  const forms = entry(make('song', {children:[
+    section('intro', 4), section('verse', 16, 4), section('solo', 8), section('outro', 4),
+  ]}));
+  const result = projection(forms, 'f');
+  assert.deepEqual(result.contract.sections.map((s) => [s.role,s.bars,s.lines]),[
+    ['intro',4,null],['verse',16,4],['solo',8,null],['outro',4,null],
+  ]);
+  const measured = projection(catalog, '16-bar-blues', {variant:1});
+  assert.deepEqual(measured.contract.sections, [{unit:'section',role:'verse',lines:4,bars:16}]);
+  assert.ok(measured.arrangement);
+  // A caller-supplied meter may exceed the ordinary random draw's range.
+  const explicitMelody = projection(entry(section('verse',202,2)), 'f');
+  assert.deepEqual(explicitMelody.contract.sections, [{unit:'section',role:'verse',bars:202,lines:2}]);
+  for (const rejected of [
+    make('song', {bars:8,children:[section('verse', 8)]}),
+    section('part-a', 8), section('verse', 3, 2), section('solo', 8, 2),
+    make('song',{children:[section('verse',8),section('verse',16)]}),
+    make('song',{children:[section('verse',6,2),section('chorus',4)]}),
+    make('song',{children:[section('verse',6,2),section('solo',4)]}),
+  ]) assert.equal(projection(entry(rejected), 'f').status, 'unsupported');
 });
 
 test('numbered observations reflect only the attributes declared for the corresponding line', () => {

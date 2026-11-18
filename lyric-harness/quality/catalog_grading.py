@@ -42,34 +42,46 @@ def _sections(bp, observed):
     slots, sections = bp.get("lines"), bp.get("sections")
     if not isinstance(slots, list) or len(slots) != len(observed) or not isinstance(sections, list):
         return None
-    if not all(isinstance(row, dict) for row in slots + sections):
+    from quality.fit import _owner_of
+    from quality.meter import exact_integer, exact_number, validate_blueprint
+    try:
+        validate_blueprint(bp)
+    except ValueError:
         return None
-    names = [section.get("name") for section in sections]
-    if not all(isinstance(name, str) and name for name in names) or len(set(names)) != len(names):
-        return None
-    start = 0
+    # Use the grid's section instances. A unique label can declare an
+    # overflowing placement; repeated or omitted labels need the bar interval.
+    spans = []
     rows = []
-    line_bars = {}
-    for name, section in zip(names, sections):
-        end = start
-        while end < len(slots) and slots[end].get("section") == name:
-            end += 1
-        row = {"lineSpan": [start, end]}
+    cursor = 1
+    for index, section in enumerate(sections):
+        bars = exact_integer(section["bars"])
+        start = exact_integer(section.get("start_bar", cursor))
+        spans.append({"name": section["name"], "bars": bars, "start_bar": start, "index": index})
+        row = {"bars": bars}
         if isinstance(section.get("function"), str) and section["function"]:
             row["role"] = section["function"]
-        if type(section.get("bars")) is int and section["bars"] >= 0:
-            row["bars"] = section["bars"]
-        meter = section.get("meter")
-        beats = meter.get("beats") if isinstance(meter, dict) else None
-        if type(beats) is int and beats > 0:
-            for index in range(start, end):
-                duration = slots[index].get("duration")
-                if type(duration) in (int, float) and duration > 0 and duration % beats == 0:
-                    line_bars[index] = int(duration / beats)
         rows.append(row)
-        start = end
-    if start != len(slots):
-        return None
+        cursor = start + bars
+    lengths = [0] * len(sections)
+    line_bars = {}
+    previous = -1
+    for index, slot in enumerate(slots):
+        owner = _owner_of(spans, slot.get("section"), exact_integer(slot["bar"]), dict.__getitem__)
+        position = owner["index"]
+        if position < previous:
+            # The ordered lyric cannot express these assignments as contiguous spans.
+            return None
+        previous = position
+        lengths[position] += 1
+        meter = sections[position].get("meter") or {}
+        if "duration" in slot and "beats" in meter:
+            width = exact_number(slot["duration"]) / exact_number(meter["beats"])
+            if width.denominator == 1:
+                line_bars[index] = int(width)
+    start = 0
+    for row, length in zip(rows, lengths):
+        row["lineSpan"] = [start, start + length]
+        start += length
     for index, bars in line_bars.items():
         observed[index]["bars"] = bars
     return rows

@@ -1088,7 +1088,7 @@ def _beats_cumulative():
     return tuple(accumulate(beats_weights()))
 
 
-def _sample_meter(rng):
+def _sample_meter(rng, bars_per_line=None):
     """One meter draw under the DERIVATION measure (module docstring).
 
     BEATS PER LINE FIRST, then a factorisation of it, then the grouping.
@@ -1139,17 +1139,33 @@ def _sample_meter(rng):
     beats, groups, (n_beat_values, n_factorisations, beats_per_line)); the
     tail is the disclosure's raw material.
     """
-    vals = beats_values()
-    cum = _beats_cumulative()
-    # Both are cached; if `beats_values()` ever moves without the weights
-    # following, the draw would silently re-weight (its own docstring warns
-    # of this), so say so here rather than in the tests alone.
-    assert len(cum) == len(vals), (len(cum), len(vals))
-    # The `min` only guards float rounding at the top: `rng.random()` is
-    # below 1, but its product with the total can round up to it.
-    per_line = vals[min(bisect_right(cum, rng.random() * cum[-1]),
-                        len(vals) - 1)]
-    fact = meter_factorisations(per_line)
+    if bars_per_line is None:
+        vals = beats_values()
+        cum = _beats_cumulative()
+        # Both are cached; if `beats_values()` ever moves without the weights
+        # following, the draw would silently re-weight (its own docstring warns
+        # of this), so say so here rather than in the tests alone.
+        assert len(cum) == len(vals), (len(cum), len(vals))
+        # The `min` only guards float rounding at the top: `rng.random()` is
+        # below 1, but its product with the total can round up to it.
+        per_line = vals[min(bisect_right(cum, rng.random() * cum[-1]),
+                            len(vals) - 1)]
+        fact = meter_factorisations(per_line)
+    else:
+        # Condition the existing measure on the fixed bars coordinate. A beat
+        # count's surviving mass is the fraction of its factorizations admitted.
+        vals, weights, factors = [], [], {}
+        for k, weight in zip(beats_values(), beats_weights()):
+            all_factors = meter_factorisations(k)
+            keep = tuple(pair for pair in all_factors if pair[0] == bars_per_line)
+            if keep:
+                vals.append(k)
+                weights.append(weight * len(keep) / len(all_factors))
+                factors[k] = keep
+        if not vals:
+            raise PlanRefused("catalog section bars have no native meter realization")
+        per_line = rng.choices(vals, weights=weights)[0]
+        fact = factors[per_line]
     bars, sub = fact[rng.randrange(len(fact))]
     beats = per_line // bars
     groups = _composition_uniform(beats, rng)
@@ -4136,7 +4152,8 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         from quality.catalog_shape import resolve_catalog_shape
         catalog = resolve_catalog_shape(
             song_form, rng, totals=_GRADEABLE, lines=lines if lines is not None else _total,
-            functions=roster, form=form, minimum=_min_section)
+            functions=roster, form=form, minimum=_min_section,
+            melody_bars=melody.get("bars") if isinstance(melody, dict) else None)
         if len(catalog["sections"]) > _max_sections:
             raise PlanRefused("requested section limit conflicts with the catalog form")
         total = catalog["total"]
@@ -4155,7 +4172,9 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             ks = {section["function"]: section["lines"] for section in catalog["sections"]}
             phrases = dict(ks)
             for fn in dict.fromkeys(funcs):
-                if fn in WORDLESS_FUNCTIONS:
+                if fn in catalog.get("wordless_phrases", {}):
+                    phrases[fn] = catalog["wordless_phrases"][fn]
+                elif fn in WORDLESS_FUNCTIONS:
                     phrases[fn] = rng.randint(k_lo, max(k_lo, max(ks.values())))
             _cells_hi = len(funcs)
             break
@@ -4382,7 +4401,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         n_beats = n_fact = 1
     else:
         bars, sub, beats, groups_m, (n_beats, n_fact, beats_pl) = \
-            _sample_meter(rng)
+            _sample_meter(rng, (catalog or {}).get("bars_per_line"))
     # `unit` is drawn entropy-last (`_sample_unit`); None until then, so a
     # read before the draw fails loudly instead of seeing a placeholder.
     meter = {"beats": beats, "unit": None, "groups": list(groups_m)}
@@ -4804,6 +4823,9 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     if catalog is not None:
         plan["request"]["song_form"] = deepcopy(song_form)
         plan["choices"]["pattern"]["chosen_from"] = "declared catalog section sequence"
+        if "bars_per_line" in catalog and melody is None:
+            plan["choices"]["meter"]["chosen_from"] = (
+                f"native meter draw conditioned on {bars} bars per line from the catalog section lengths")
     plan["relations"] = dict(_type_rels)
     plan["choices"]["relations"] = {
         "chosen_from": (
