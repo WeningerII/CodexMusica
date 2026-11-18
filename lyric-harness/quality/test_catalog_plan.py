@@ -11,6 +11,68 @@ def catalog(form_id, sections, rhymes=(), returns=()):
 
 
 class CatalogPlannerTests(unittest.TestCase):
+    def test_wordless_catalog_counts_do_not_use_the_generator_line_bound(self):
+        roles = ["verse", "solo", "solo", "solo"]
+        contract = catalog("wordless-sections", [
+            {"unit": "section", "role": role, "lines": 2 if role == "verse" else None}
+            for role in roles])
+        for seed in (0, 11):
+            baseline = plan.make_plan(seed, song_form=contract, lines=2)
+            for wants in (["sections.solo=3"],
+                          ["sections=4", "sections.solo>=3", "sections.solo<=3",
+                           "sections.verse=1", "sections.chorus=0"]):
+                with self.subTest(seed=seed, wants=wants):
+                    native = plan.make_plan(seed, song_form=contract, lines=2, wants=wants)
+                    for field in ("sections", "line_slots", "groups", "returns"):
+                        self.assertEqual(native[field], baseline[field])
+                    self.assertEqual(plan.sweep([seed], song_form=contract, lines=2,
+                                     wants=[plan.parse_sweep_want(w) for w in wants])
+                                     ["accepted"], [seed])
+        for atom in ("sections.solo=2", "sections.solo>=4", "sections.solo<=2",
+                     "sections=3", "sections>=5", "sections.chorus=1"):
+            with self.subTest(atom=atom), self.assertRaises(plan.PlanRefused) as caught:
+                plan.make_plan(0, song_form=contract, lines=2, wants=[atom])
+            self.assertNotIsInstance(caught.exception, plan.SeedRefused)
+            self.assertIn(atom, str(caught.exception))
+            self.assertIn("catalog", str(caught.exception))
+
+    def test_catalog_count_path_keeps_structural_and_length_checks(self):
+        contract = catalog("wordless-sections", [
+            {"unit": "section", "role": role, "lines": 2 if role == "verse" else None}
+            for role in ("verse", "solo", "solo", "solo")])
+        base = dict(song_form=contract, lines=2, wants=["sections.solo=3"])
+        invalid = [
+            {"functions": ["verse"]},
+            {"form": "verse-chorus"},
+            {"lines": 3},
+            {"wants": ["sections.solo=3", "lines_per_section>=3"]},
+            {"wants": ["sections.solo>=3", "sections.solo<=2"]},
+            {"song_form": catalog("bad-placement", [
+                {"unit": "section", "role": "verse", "lines": 2},
+                {"unit": "section", "role": "intro", "lines": 2}]),
+             "lines": 4, "wants": ["sections=2"]},
+        ]
+        for override in invalid:
+            with self.subTest(override=override), self.assertRaises(plan.PlanRefused):
+                plan.make_plan(0, **{**base, **override})
+
+    def test_stated_counts_preserve_the_catalog_sequence(self):
+        roles = ("chorus", "verse", "chorus")
+        contract = catalog("chorus-first", [
+            {"unit": "section", "role": role, "lines": 4} for role in roles])
+        wants = ["sections=3", "sections.chorus=2", "sections.verse=1"]
+        with patch.object(plan, "_sample_pattern", side_effect=AssertionError("drew undeclared shape")):
+            for seed in (11, 12):
+                native = plan.make_plan(seed, song_form=contract, lines=12, wants=wants)
+                self.assertEqual([s["function"] for s in native["sections"]], list(roles))
+                self.assertEqual(native["request"]["song_form"], contract)
+                self.assertEqual(native["total_lines"], 12)
+                self.assertEqual(plan.sweep([seed], song_form=contract, lines=12,
+                                            wants=[plan.parse_sweep_want(w) for w in wants])
+                                 ["accepted"], [seed])
+        with self.assertRaises(plan.PlanRefused):
+            plan.make_plan(11, song_form=contract, lines=12, wants=["sections.chorus=1"])
+
     def test_plan_sweep_and_blueprint_replay_declared_named_shape(self):
         contract = catalog("chorus-first", [
             {"unit": "section", "role": role, "lines": None}
