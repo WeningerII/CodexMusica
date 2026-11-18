@@ -1,3 +1,5 @@
+import { formMandate } from '../src/song-form-mandate.mjs';
+import { prepareFormReview, reviewRecoveredForm } from './lyric_form.js';
 import { checkEvidenceInvocation } from './lyrics_evidence_binding.js';
 // lyric_tools.js — the lyric harness as MCP tools: a DISJOINT family.
 //
@@ -2465,6 +2467,32 @@ export const LYRIC_TOOL_SCHEMAS = {
       .describe(
         'The same paste as ONE newline-separated string, rows exactly as printed (blank rows and [SECTION] rows included) — for a caller whose array calls break. Send one of the two.'
       ),
+    catalog_form: z
+      .string()
+      .min(1)
+      .max(160)
+      .optional()
+      .describe(
+        'Optional ID from the native Song Forms catalog at codexmusica.com/api/song-forms.json. Compare the declared pattern to the recovered structure and a dictionary reading. A reading comparison does not grade a new song.'
+      ),
+    catalog_variant: z
+      .number()
+      .int()
+      .nonnegative()
+      .optional()
+      .describe(
+        'Zero-based alternative for catalog_form. Omit to receive the choices when the row has alternatives.'
+      ),
+    catalog_counts: z
+      .array(
+        z.object({
+          path: z.string().min(1).max(160),
+          count: z.number().int().min(0).max(8192),
+        })
+      )
+      .max(128)
+      .optional()
+      .describe('Repeat counts keyed by a template path or by a specific parent occurrence.'),
     placements: z
       .string()
       .max(200)
@@ -2565,6 +2593,13 @@ export const LYRIC_TOOL_SCHEMAS = {
     lexicon_supplement_sha256: lexiconSupplementShaField,
   },
 };
+Object.assign(LYRIC_TOOL_SCHEMAS.lyric_check, {
+  catalog_form: LYRIC_TOOL_SCHEMAS.lyric_recover.catalog_form.describe(
+    'Song Forms catalog ID. Enforces its known line count or minimum and checks its positioned rhyme and return classes through the writing grader. The verdict includes the reusable rhyme_mandate under catalog_form. For a form without such classes, declare the writing mandate explicitly.'
+  ),
+  catalog_variant: LYRIC_TOOL_SCHEMAS.lyric_recover.catalog_variant,
+  catalog_counts: LYRIC_TOOL_SCHEMAS.lyric_recover.catalog_counts,
+});
 // The website chat's full revise shape. Stored run declarations are parsed with
 // it too, so a record that names its writer keeps it. Two budget fields say
 // who is asked, and there the service writer is, with its own attempt default.
@@ -3981,7 +4016,7 @@ export function registerLyricTools(server, tool) {
         'verdict carries `lines`, the sung lines every line number in the cover refers to, and `mandate`, the ' +
         '`groups` and `returns` strings numbered over those lines: hand `lines` with that mandate to lyric_check and ' +
         'lyric_revise, so they grade the lines the mandate names. `refusals` lists each refused coordinate with its ' +
-        'reason — a work order, never a guess. The meter is always refused (counting gives syllables, not a bar ' +
+        'reason — a work order, never a guess. Optional catalog_form reports its declared shape separately from the recovered mandate. The meter is always refused (counting gives syllables, not a bar ' +
         'grid — declare one with a blueprint), so exit 3 is the ordinary result; a REPEAT edge that binds at a ' +
         'placement is refused with the reason the cover does not spell it — declare the placed returns you mean in ' +
         '`returns` (N.PLACE,N.PLACE). Derived coordinates are NOT independent of the grader: a recovered web graded ' +
@@ -3997,6 +4032,14 @@ export function registerLyricTools(server, tool) {
         checkLines(a.lines);
         if (a.placements != null && !/^[A-Za-z0-9]+(,[A-Za-z0-9]+)*$/.test(a.placements))
           throw refuse("placements must be names like 'end,head,T4', comma-separated");
+        let selection;
+        try {
+          selection = await prepareFormReview(a);
+        } catch (error) {
+          if (error instanceof TypeError || error instanceof RangeError)
+            throw refuse(error.message);
+          throw error;
+        }
         const draftPath = path.join(dir, 'draft.txt');
         await writeFile(draftPath, a.lines.join('\n') + '\n', 'utf8');
         // THE PASTE IS READ AS SOURCE: its [SECTION] rows are structure, not
@@ -4005,6 +4048,7 @@ export function registerLyricTools(server, tool) {
         // row a line), under which the markers were counted as lines and the
         // mandate handed to check/revise named the wrong lines.
         const args = [...globalsFor(a), '--input-format=source', 'recover', draftPath];
+        if (selection?.plan.status === 'ready') args.push('--form-reading');
         if (a.placements) args.push(`--placements=${a.placements}`);
         const r = await runVerb(args);
         const v = verdictOf(r);
@@ -4022,6 +4066,7 @@ export function registerLyricTools(server, tool) {
           v.sections = rec.sections;
           v.mandate = rec.mandate;
           v.refusals = rec.refusals;
+          if (selection) v.catalog_form = reviewRecoveredForm(selection, rec);
         }
         return v;
       })
@@ -4053,6 +4098,91 @@ export function registerLyricTools(server, tool) {
       withTempDir(async (dir) => {
         takeLines(a, 'lines', 'lines_text');
         checkLines(a.lines);
+        let selection;
+        try {
+          selection = await prepareFormReview(a);
+        } catch (error) {
+          if (error instanceof TypeError || error instanceof RangeError)
+            throw refuse(error.message);
+          throw error;
+        }
+        let catalogCheck;
+        if (selection) {
+          const mandate = formMandate(selection.plan);
+          if (mandate.status !== 'ready')
+            throw refuse(
+              `Catalog form ${mandate.id} is ${mandate.status}: ${JSON.stringify(mandate.needs)}`
+            );
+          const count = a.lines.length;
+          if (mandate.lineCount != null && count !== mandate.lineCount)
+            throw refuse(
+              `Catalog form ${mandate.id} requires ${mandate.lineCount} sung lines; received ${count}`
+            );
+          if (mandate.minimumLines != null && count < mandate.minimumLines)
+            throw refuse(
+              `Catalog form ${mandate.id} requires at least ${mandate.minimumLines} sung lines; received ${count}`
+            );
+          if (a.scheme && (mandate.groups || mandate.returns))
+            throw refuse('Use the catalog rhyme and return groups without a letter scheme');
+          // A custom relation or structure can change the sound test and its
+          // anchoring position. Preserve the selected form's end-rhyme meaning.
+          if (mandate.groups) {
+            // Catalog letters usually give equivalence classes without a
+            // historical phonology. Name this English writing interpretation.
+            const endRhymes = [
+              'type:perfect rhyme (last stressed syllable)',
+              'class:RHYME',
+              'class:PROMOTED_RHYME',
+              'class:RIME_RICHE',
+            ];
+            if (
+              (a.relation && !endRhymes.includes(a.relation)) ||
+              a.group_types?.length ||
+              a.structures
+            )
+              throw refuse(
+                `The selected catalog end-rhyme check accepts ${endRhymes.join(', ')}. Other relations and structures require a separate check.`
+              );
+            a.relation ||= endRhymes[0];
+          }
+          for (const key of ['groups', 'returns']) {
+            if (!mandate[key]) continue;
+            if (a[key] && a[key] !== mandate[key])
+              throw refuse(
+                `Explicit ${key} conflicts with ${mandate.id}; its ${key} are ${mandate[key]}`
+              );
+            if (mandate[key].length > MAX_MANDATE_CHARS)
+              throw refuse(`The selected form exceeds the writing grader’s maximum ${key} length`);
+            a[key] = mandate[key];
+          }
+          const rhyme_mandate = {};
+          for (const key of [
+            'scheme',
+            'groups',
+            'returns',
+            'numbering',
+            'relation',
+            'group_types',
+            'structures',
+          ]) {
+            if (a[key] != null && a[key] !== '') rhyme_mandate[key] = a[key];
+          }
+          catalogCheck = {
+            id: mandate.id,
+            variant: mandate.variant,
+            scope: mandate.scope,
+            expected_lines: mandate.lineCount,
+            minimum_lines: mandate.minimumLines,
+            unpositioned_lines: mandate.unpositioned.length,
+            rhyme_mandate,
+            ...(mandate.groups && {
+              rhyme_basis:
+                'The relation in rhyme_mandate is the chosen English writing test for the catalog letters. The catalog does not establish a unique phonological reading.',
+            }),
+            verification:
+              'Known line counts and the declared writing mandate only. This grade does not certify the whole catalog form.',
+          };
+        }
         const hasScheme = a.scheme != null && a.scheme !== '';
         const hasGroups = a.groups != null && a.groups !== '';
         if ((hasScheme && hasGroups) || (!hasScheme && !hasGroups && !a.returns))
@@ -4140,6 +4270,7 @@ export function registerLyricTools(server, tool) {
             '`schema_instance_evidence` is left out of this result; call lyric_check again with evidence: true to include it.';
         }
         v.blueprint_declared = a.blueprint != null;
+        if (catalogCheck) v.catalog_form = catalogCheck;
         return applyCheckExit(v);
       })
   );

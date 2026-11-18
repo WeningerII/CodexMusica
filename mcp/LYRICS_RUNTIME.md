@@ -643,3 +643,29 @@ lyrics readiness, durable recovery and effective public configuration.
 `/health` remains a liveness endpoint. A successful
 source test is not evidence of a completed paid song or a successful long wall
 continuation; those require the maintained battery acceptance gate.
+
+
+## Declared catalog forms
+
+The native Lyrics page and the offline command use the same nested form interpreter. Run
+`node scripts/song_forms.mjs list` for IDs and `node scripts/song_forms.mjs describe ID`
+for the patterns a form supplies. A rule encodes a structural requirement. A setting describes
+one possible realization. A deferred entry has no executable pattern.
+
+Use `realize ID` with a JSON object on standard input to select a zero-based `variant` and
+supply any requested repeat `counts`. The result gives the tree, line and section positions,
+and the subset expressible as the lyric harness’s rhyme groups and returns. Unknown positions
+and overlapping voices do not create transcript line numbers. `check ID` compares a chosen
+realization to supplied observations. Its exit values are 0 for a match, 1 for a mismatch,
+2 for invalid input, and 3 for insufficient information.
+
+For pasted lyrics, supply `catalog_form` on `lyric_recover`. The result distinguishes the
+declared pattern from measurements of the actual text and retains uncertainty. Missing
+section labels, ambiguous pronunciations, and unobserved rhyme classes can leave a result
+unknown. A matching bounded setting establishes compatibility with that setting only.
+
+The published catalog is available at `/api/song-forms.json`. For a writing check on an
+existing draft, `lyric_check` accepts the same catalog selection. It runs the ordinary
+writing checks and exposes the projected `rhyme_mandate` for reuse by `lyric_revise`.
+The receipt identifies the rhyme judge used. The seeded creation planner retains its
+own plan, which is replayed for grading and revision.

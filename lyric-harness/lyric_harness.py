@@ -5365,6 +5365,44 @@ def _meter_words(lex, text):
     return rows if joined == list(phones) else None
 
 
+def _form_reading(lex, line):
+    """Keep only coordinates that all reliable readings of this sung line share."""
+    words = _meter_words(lex, line)
+    if not words:
+        return {}
+    scoped = lex.for_line(line)
+    cut = reader_line(line, scoped.strip_parens, "v2")
+    if any(letters_outside_repertoire(run.text) for run in cut.runs):
+        return {}
+    token_count = len(cut.tokens)
+    stresses = []
+    count = 0
+    for word in words:
+        if word["source"] not in ("declared", "dictionary", "rule"):
+            return {}
+        reader = scoped.for_token(word["token"] - 1)
+        readings = reader.pronunciation_variants(word["word"])
+        if readings:
+            weak = weak_token(reader, word["word"],
+                              phrase_final=word["token"] == token_count)
+            streams = {"".join("." if weak or digit == "0" else "/"
+                               for digit in _stress_digits(phones)) for phones in readings}
+        else:
+            # The reader can derive a word from a base without listing it.
+            # A choice among competing base readings has no unique projection.
+            base = word.get("detail", {}).get("from")
+            if not base or len(reader.pronunciation_variants(base)) != 1:
+                return {}
+            streams = {"".join("." if digit == "0" else "/" for digit in word["stream"])}
+        lengths = {len(stream) for stream in streams}
+        if len(lengths) != 1 or 0 in lengths:
+            return {}
+        count += lengths.pop()
+        stresses.append(next(iter(streams)) if len(streams) == 1 else None)
+    return ({"syllables": count, "stress": "".join(stresses)} if None not in stresses
+            else {"syllables": count})
+
+
 def _meter_honesty(entry, words, template):
     """The additive, honest half of one `check_meter` line (#677 b1)."""
     entry["basis"] = dict(METER_BASIS)
@@ -7864,7 +7902,7 @@ the quality layer (each says which module answered):
   types  W1 -- W2 [--lang=] [--preset=] [--position=]
                           full rhyme-type coordinate: 9 axes, per-member
                           anchor, traditional names
-  recover LYRIC.txt [--placements=end,head,T4]
+  recover LYRIC.txt [--placements=end,head,T4] [--form-reading]
                           STRUCTURE A PASTED SONG — the second door into
                           the pipeline (M-72, M-195): counts the lines
                           and the syllables per line, reads [SECTION]
@@ -12088,17 +12126,19 @@ def main():
         from quality import recover as RC
         from quality import slots as _SLr
         rest = args[1:]
+        form_reading = "--form-reading" in rest
+        rest = [item for item in rest if item != "--form-reading"]
         spec = _flag_value(rest, "--placements", eq_only=True)
         rest = _strip_flag(rest, "--placements")
         bad_flag = [a for a in rest if a.startswith("--")]
         if bad_flag:
             _refuse(f"recover does not take {bad_flag[0]!r}",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c]",
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading]",
                             "an unrecognised flag is refused rather than "
                             "ignored (doctrine 20)"])
         if len(rest) != 1:
             _refuse("recover takes exactly one LYRIC.txt",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c]"])
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading]"])
         try:
             declared = RC.parse_placements(spec) if spec is not None else None
         except _SLr.SlotUnsupported as exc:
@@ -12139,7 +12179,11 @@ def main():
         # its reason. The render above names two refused keys only in its
         # closing list, so a reader of the report alone gets no reason for
         # them; the record carries all of them, read off `rec.how`.
-        _lyric_result(**_lexicon_kw(), status="recovered", exit=3 if _refs else 0,
+        form_observations = {}
+        if form_reading:
+            form_observations["form_reading"] = [_form_reading(lex, line)
+                                                 for line in rec.sung_lines]
+        _lyric_result(**_lexicon_kw(), **form_observations, status="recovered", exit=3 if _refs else 0,
                       **_numbering_kw(),
                       input_format=input_format,
                       lines=list(getattr(rec, "sung_lines", []) or []),

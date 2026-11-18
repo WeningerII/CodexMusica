@@ -4554,6 +4554,10 @@ function lyMountMarkup() {
     <div id="ly-relation-inspector" class="ly-relation-inspector" hidden></div>
     <div class="ly-main-scroll" id="ly-main-scroll">
       <div class="ly-section-nav" id="ly-section-nav"></div>
+      <details class="ly-song-forms" id="ly-song-forms">
+        <summary>Song forms</summary>
+        <div id="ly-song-forms-view"></div>
+      </details>
       <div class="ly-toolbar" role="toolbar" aria-label="Document" id="ly-toolbar">
         ${lyBtn('ly-find-open', 'Find', 'search', { cls: 'cm-btn cm-btn-outline', extra: 'aria-controls="ly-find" aria-expanded="false"' })}
         ${lyBtn('ly-undo', 'Undo', 'undo-2', { cls: 'cm-btn cm-btn-outline' })}
@@ -8013,6 +8017,24 @@ function lySizeOf(width) {
 }
 function lyWire(surface) {
   lyInspectionWire(surface);
+  const forms = surface.querySelector('#ly-song-forms');
+  const view = forms.querySelector('#ly-song-forms-view');
+  forms.addEventListener('toggle', async () => {
+    if (!forms.open || view.dataset.loading || view.dataset.ready) return;
+    view.dataset.loading = 'true';
+    view.setAttribute('aria-busy', 'true');
+    view.textContent = 'Loading song forms…';
+    try {
+      const { mountSongForms } = await import('./src/pages/song-forms-view.mjs');
+      await mountSongForms(view);
+      view.dataset.ready = 'true';
+    } catch {
+      view.textContent = 'Song forms could not load. Close and reopen to retry.';
+    } finally {
+      delete view.dataset.loading;
+      view.removeAttribute('aria-busy');
+    }
+  });
   const draft = lyDraft();
   // Every script write to the draft (Undo, a restored or imported session, a
   // writer's lyrics) must reach this view; none of them fires `input`.

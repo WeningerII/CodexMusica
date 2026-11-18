@@ -152,6 +152,19 @@ class MeterHonesty(unittest.TestCase):
         self.assertGreater(z["syllables"], 0)
         self.assertEqual(guessed.get("alignment"), "exact")
 
+    def test_form_observations_require_agreement_on_each_coordinate(self):
+        def observe(text):
+            return lh._form_reading(self.lex, text)
+
+        self.assertEqual(observe("record"), {"syllables": 2})
+        self.assertEqual(observe("hour"), {})
+        self.assertEqual(observe("read"), {"syllables": 1, "stress": "/"})
+        self.assertEqual(observe("the read"), {"syllables": 2, "stress": "./"})
+        self.assertEqual(observe("read zorbleflax"), {})
+        self.assertEqual(observe("read 山"), {})
+        self.assertEqual(observe("read (山)"), {"syllables": 1, "stress": "/"})
+        self.assertEqual(lh._form_reading(lh.Lexicon(fallback="low"), "zorbleflax"), {})
+
     def test_s5_secondary_stress_kept_in_evidence_merged_in_comparison(self):
         e = self.one("the hemlock", "../")
         hem = by_token(e)[2]
@@ -173,6 +186,7 @@ class MeterHonesty(unittest.TestCase):
                   basis="dictionary", source="test: noun reading")], lex)
         e = self.one(line, "./.", lex=lex)
         rec = by_token(e)[2]
+        self.assertEqual(lh._form_reading(lex, line), {"syllables": 3, "stress": "./."})
         self.assertEqual((rec["source"], rec["lexical"]), ("declared", "10"))
 
     def test_legacy_template_symbols_are_disclosed(self):

@@ -847,6 +847,32 @@ test('candidate build repository bytes must remain unchanged through image recor
   assert.throws(() => verifyRepositorySource(undefined, 'c'.repeat(64)), /changed/);
 });
 
+test('changing any Song Forms image input invalidates its source receipt', async () => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'song-form-identity-'));
+  try {
+    const paths = ['src/song-forms.mjs', 'src/song-form-mandate.mjs', 'data/song-forms.json'];
+    await fs.mkdir(path.join(dir, 'src'));
+    await fs.mkdir(path.join(dir, 'data'));
+    for (const file of paths) await fs.writeFile(path.join(dir, file), 'original');
+    const receipt = runtimeSourceFingerprint(dir);
+    for (const file of paths) {
+      const name = path.join(dir, file);
+      await fs.writeFile(name, 'changed');
+      assert.throws(
+        () => verifyRepositorySource(receipt, runtimeSourceFingerprint(dir)),
+        /changed/,
+        file
+      );
+      await fs.rm(name);
+      assert.notEqual(runtimeSourceFingerprint(dir), receipt, file);
+      await fs.writeFile(name, 'original');
+      assert.equal(runtimeSourceFingerprint(dir), receipt, file);
+    }
+  } finally {
+    await fs.rm(dir, { recursive: true, force: true });
+  }
+});
+
 test('production contract matches the legacy service during migration and binds source identity', async () => {
   const { expectedProductionConfig, expectedRenderConfig } = await import('./runtime_config.js');
   const contract = JSON.parse(

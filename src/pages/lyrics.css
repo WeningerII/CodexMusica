@@ -814,6 +814,47 @@
 #surface-lyrics .ly-brief-form select {
   margin-bottom: 4px;
 }
+#surface-lyrics .ly-song-forms {
+  margin: 10px 16px 0;
+  padding: 0 4px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+#surface-lyrics .ly-song-forms > summary {
+  width: fit-content;
+  padding: 6px 0;
+  color: var(--cm-accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+#surface-lyrics #ly-song-forms-view {
+  display: grid;
+  gap: 12px;
+  padding: 8px 0 16px;
+}
+#surface-lyrics .ly-song-forms label,
+#surface-lyrics .ly-song-forms .ly-form-fields {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+#surface-lyrics .ly-song-forms select,
+#surface-lyrics .ly-song-forms input {
+  max-width: 100%;
+  min-width: 0;
+}
+#surface-lyrics .ly-song-forms ul,
+#surface-lyrics .ly-song-forms ol {
+  margin: 4px 0;
+  padding-inline-start: 22px;
+}
+#surface-lyrics .ly-song-forms li {
+  padding-block: 2px;
+}
+#surface-lyrics .ly-song-forms li > ul,
+#surface-lyrics .ly-song-forms li > ol {
+  border-inline-start: 2px solid var(--cm-border);
+}
 #surface-lyrics .ly-main-scroll {
   position: relative;
   flex: 1;
