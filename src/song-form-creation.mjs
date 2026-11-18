@@ -1,7 +1,7 @@
 // Translate only obligations that the native seeded writer can enforce.
 // The writer still judges placement, recurrence, envelope and seed feasibility.
 import { refrainAddresses, relativeLinePairs } from './song-form-line-roles.mjs';
-import { endingWordDeclaration } from './song-form-mandate.mjs';
+import { endingWordDeclaration, printedPhraseSetting } from './song-form-mandate.mjs';
 import { projectNestedDivisions } from './song-form-divisions.mjs';
 import { sectionArrangement } from './song-form-section-arrangement.mjs';
 import { projectLineRequirement } from './song-form-line-requirements.mjs';
@@ -135,6 +135,17 @@ export function projectSongFormCreation(plan, counts = {}) {
     contract: null,
   };
   if (plan.status !== 'ready') return result;
+  const printed = printedPhraseSetting(plan);
+  if (printed) {
+    const out = projectSongFormCreation(printed.plan);
+    if (out.contract)
+      Object.assign(out.contract, {
+        variant: plan.variant,
+        counts: { ...counts },
+        phraseLines: true,
+      });
+    return { ...out, variant: plan.variant };
+  }
   const reasons = result.reasons;
   const roleArrangement = sectionArrangement(plan);
   const sections = [];
@@ -336,7 +347,27 @@ export function projectSongFormCreation(plan, counts = {}) {
       ...(node.bars !== undefined && { bars: node.bars }),
     });
   }
-  for (const root of plan.tree) visit(root);
+  // A line template can be applied to each line of a chosen verse without
+  // inventing a fixed stanza length or requiring one rhyme across lines.
+  const [root] = plan.tree;
+  const [left, pause, right] = root?.children ?? [];
+  const caesuralRhyme =
+    plan.tree.length === 1 &&
+    root.unit === 'verse-line' &&
+    root.children.length === 3 &&
+    left.unit === 'half-line' &&
+    right.unit === 'half-line' &&
+    pause.unit === 'caesura' &&
+    left.rhyme !== undefined &&
+    left.rhyme === right.rhyme &&
+    [root, left, pause, right].every((n) =>
+      FEATURES.every(
+        (key) => n[key] === undefined || (key === 'rhyme' && (n === left || n === right))
+      )
+    ) &&
+    root.children.every((n) => !n.children.length);
+  if (caesuralRhyme) sections.push({ unit: 'section', role: 'verse', lines: null });
+  else for (const node of plan.tree) visit(node);
   // These arrangements preserve the full sequence of named divisions on the
   // score, including the participants in independently declared turns.
   let nestedDivisions = false;
@@ -465,6 +496,7 @@ export function projectSongFormCreation(plan, counts = {}) {
       id: plan.id,
       variant: plan.variant,
       counts: { ...counts },
+      ...(caesuralRhyme && { lineProfile: 'caesural-rhyme' }),
       ...(lineRequirements.length && { lineRequirements }),
       ...(nestedDivisions && endingWords && { endingWords }),
       sections,

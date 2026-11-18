@@ -241,15 +241,15 @@ from quality.catalog_grading import _reading, _sections
 c=json.load(sys.stdin); lex=lh.Lexicon()
 p=plan.make_plan(11,lines=8,song_form=c)
 assert "stress pattern of each corresponding line" in p["writer_brief"]
-body=["a small tree","the old wall","all rise","we sing",
-      "a green leaf","the black pen","all rise","we sing"]
+body=["a b c","d e f","x y","y z",
+      "a d e","g h j","x y","y z"]
 def submitted(draft):
     bp=plan.fill_plan(p,draft)
     measured=[_reading(lex,line) for line in draft]
     sections=_sections(bp,measured)
     return {"lines":measured,"sections":sections}
-print(json.dumps([submitted(body),submitted(body[:4]+["a leaf"]+body[5:]),
-                  submitted(body[:-1]+["another refrain"])]))
+print(json.dumps([submitted(body),submitted(body[:4]+["a d"]+body[5:]),
+                  submitted(body[:-1]+["z z"])]))
 `;
   const result=spawnSync('python3',['-B','-c',program],
     {cwd:fileURLToPath(new URL('../lyric-harness',import.meta.url)),input:JSON.stringify(contract),encoding:'utf8'});

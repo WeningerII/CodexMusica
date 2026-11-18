@@ -437,6 +437,23 @@ function observedValue(obs, key) {
   return undefined;
 }
 
+// The selected regular-ode model can contain several strophe/antistrophe/epode triads.
+export function pindaricTriads(plan) {
+  if (plan.id !== 'pindaric-ode' || plan.tree.length !== 1) return null;
+  const root = plan.tree[0];
+  const order = ['strophe', 'antistrophe', 'epode'];
+  return root.unit === 'poem' &&
+    root.children.length &&
+    root.children.every(
+      (triad) =>
+        triad.unit === 'triad' &&
+        triad.children.length === 3 &&
+        triad.children.every((stanza, i) => stanza.unit === 'stanza' && stanza.role === order[i])
+    )
+    ? root.children
+    : null;
+}
+
 export function checkForm(catalog, id, options = {}) {
   const plan = realizeForm(catalog, id, options);
   const checks = [];
@@ -629,6 +646,45 @@ export function checkForm(catalog, id, options = {}) {
     Object.keys(extra).every((key) => used.has(key)),
     'Unknown unit observation address'
   );
+  const triads = pindaricTriads(plan);
+  if (triads) {
+    const divisions = triads.flatMap((triad) => triad.children);
+    // Read the printed divisions when the named boundaries cover the submitted
+    // text exactly. Editorial line breaks do not identify metrical periods.
+    const rows = divisions.map((division, i) => extra[division.address] ?? options.sections?.[i]);
+    let offset = 0;
+    const complete =
+      Array.isArray(options.lines) &&
+      (!options.sections || options.sections.length === divisions.length) &&
+      rows.every((row, i) => {
+        const span = row?.lineSpan;
+        if (
+          (row?.sourceRole ?? row?.role) !== divisions[i].role ||
+          !Array.isArray(span) ||
+          span.length !== 2 ||
+          span[0] !== offset ||
+          !integer(span[1]) ||
+          span[1] <= offset
+        )
+          return false;
+        offset = span[1];
+        return true;
+      }) &&
+      offset === options.lines.length;
+    for (const [i, triad] of triads.entries()) {
+      const [strophe, antistrophe, epode] = triad.children;
+      const lengths =
+        complete && rows.slice(i * 3, i * 3 + 3).map(({ lineSpan: [start, end] }) => end - start);
+      add('metrical-responsion', 'unknown', {
+        addresses: [strophe.address, antistrophe.address],
+        ...(lengths && { printedLineCounts: lengths.slice(0, 2) }),
+      });
+      add('epode-meter-contrast', 'unknown', {
+        address: epode.address,
+        ...(lengths && { printedLineCount: lengths[2] }),
+      });
+    }
+  }
   const families = new Map();
   for (const group of classSets.values()) {
     const family = group.key;

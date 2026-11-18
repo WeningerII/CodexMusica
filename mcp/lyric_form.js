@@ -1,6 +1,6 @@
 // Connect the declared catalog pattern to the sung-line coordinates of the reader.
 import { readFile } from 'node:fs/promises';
-import { checkReaderForm, realizeForm } from '../src/song-forms.mjs';
+import { checkReaderForm, pindaricTriads, realizeForm } from '../src/song-forms.mjs';
 import { formMandate } from '../src/song-form-mandate.mjs';
 
 let catalog;
@@ -28,6 +28,12 @@ export async function prepareFormReview(args) {
 function sectionObservations(sections, plan) {
   if (!sections?.length || !sections.every((section) => section.classified === true)) return;
   const roles = new Set(plan.sections.map((section) => section.role).filter(Boolean));
+  const triads = pindaricTriads(plan);
+  if (triads) {
+    for (const triad of triads) {
+      for (const stanza of triad.children) roles.add(stanza.role);
+    }
+  }
   // A printed grade stamp and the editor's setup rows carry no section role.
   // Preserve following sung rows in their preceding declared section.
   const marked = [];
@@ -50,7 +56,7 @@ function sectionObservations(sections, plan) {
       if (/^(?:pre|post)-chorus$/.test(value)) candidates.push(value.replace('-', ''));
     }
     const observed = { role: candidates.find((value) => roles.has(value)) ?? role };
-    if (plan.coverage.lines === 'complete') {
+    if (plan.coverage.lines === 'complete' || triads) {
       observed.lineSpan = [nextLine, nextLine + section.lines];
       nextLine += section.lines;
     }
@@ -67,7 +73,11 @@ export function reviewRecoveredForm({ options, plan }, record) {
     needs: plan.needs,
   };
   if (plan.status !== 'ready') return { ...result, verdict: 'unknown' };
-  const observations = record.lines.map((text, i) => ({ text, ...record.form_reading?.[i] }));
+  const observations = record.lines.map((text, i) => ({
+    text,
+    sungWords: null,
+    ...record.form_reading?.[i],
+  }));
   const sections = sectionObservations(record.sections, plan);
   const { verdict, checks } = checkReaderForm(catalog, plan.id, {
     ...options,

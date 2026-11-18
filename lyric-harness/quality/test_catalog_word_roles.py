@@ -1,10 +1,10 @@
 """Exercise the catalog grade with isolated lexical and numerical fixtures."""
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 import lyric_harness as lh
 from quality.catalog_grading import inspect_catalog
-from quality.catalog_word_roles import measure_word_roles, _pos_reading
+from quality.catalog_word_roles import measure_word_roles, _noun_relation, _pos_reading
 from quality.schemes import Mandate
 
 
@@ -29,6 +29,38 @@ class WordRoles(unittest.TestCase):
             observed = _pos_reading(["x"], "adjectives")
         self.assertEqual(observed["outcome"], "unknown")
         self.assertEqual(observed["tags"], ["NN"])
+
+    def test_tagger_guesses_require_a_lexical_witness_and_inflections_stay_eligible(self):
+        for token, role, tag in (("qzvxx", "noun", "NN"), ("qzvxxing", "ing-verbs", "VBG")):
+            with self.subTest(token=token):
+                reading = _pos_reading([token], role)
+                self.assertEqual(reading["tags"], [tag])
+                self.assertEqual(reading["outcome"], "unknown")
+        for token, role in (("integers", "noun"), ("larger", "adjectives"), ("computing", "ing-verbs")):
+            with self.subTest(token=token):
+                self.assertEqual(_pos_reading([token], role)["outcome"], "pass")
+
+    def test_homographs_keep_each_synset_and_antonym_sense_key(self):
+        class Lemma(str):
+            # The reader's lemma objects compare equal by spelling.
+            def __new__(cls, spelling, synset_id, sense_key):
+                item = super().__new__(cls, spelling)
+                item.synset = lambda: synset_id
+                item.key = lambda: sense_key
+                item.antonyms = lambda: []
+                return item
+
+        first = Lemma("x", 1, "x1")
+        unrelated = Lemma("y", 2, "y2")
+        related = Lemma("y", 1, "y1")
+        wn = Mock(NOUN="n")
+        wn.lemmas.side_effect = lambda word, pos: {"x": [first], "y": [unrelated, related]}[word]
+        with patch("quality.catalog_word_roles._wordnet", return_value=wn):
+            self.assertEqual(_noun_relation("x", "y", "synonym")["outcome"], "pass")
+            first.antonyms = lambda: [Lemma("y", 3, "y3")]
+            self.assertEqual(_noun_relation("x", "y", "antonym")["outcome"], "unknown")
+            first.antonyms = lambda: [Lemma("y", 1, "y1")]
+            self.assertEqual(_noun_relation("x", "y", "antonym")["outcome"], "pass")
 
     def test_pos_and_lexical_observations_are_measured_for_each_selection(self):
         adjectives = ["positive", "negative"]

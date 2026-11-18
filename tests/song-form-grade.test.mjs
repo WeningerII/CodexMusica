@@ -395,3 +395,15 @@ test('a syllable rhyme needs evidence at the prescribed position on each line', 
   assert.throws(() => grade([{...rows[0], syllableRimes:['AA']}, ...rows.slice(1)]),
     /Invalid aligned syllable rimes/);
 });
+
+test('printed phrase boundaries require local syllable and ending measurements', () => {
+  const pattern={unit:'verse-unit',children:['A','A','B'].map(rhyme=>({unit:'phrase',rhyme,syllables:3}))};
+  const grade = (lines, options={}) => gradeObservations(form(pattern),'symbol',{lines,...options});
+  const rows=['x','x','y'].map((rhyme)=>({text:'x',rhyme,syllables:3}));
+  assert.equal(grade(rows).verdict,'pass');
+  assert.equal(grade([{...rows[0],syllables:2},...rows.slice(1)]).verdict,'fail');
+  assert.equal(grade(rows.map(row=>({...row,rhyme:'x'}))).verdict,'fail');
+  assert.equal(grade(rows.map(row=>({text:row.text}))).verdict,'unknown');
+  assert.equal(grade([{text:'x'}]).verdict,'unknown');
+  assert.equal(grade(rows.slice(0,2),{phraseLines:true}).verdict,'fail');
+});

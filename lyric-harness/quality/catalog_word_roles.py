@@ -7,7 +7,7 @@ _POS_PREFIX = {"noun": "NN", "first-noun": "NN", "adjectives": "JJ"}
 
 
 def _pos_reading(words, role):
-    basis = "Penn Treebank POS tags over this sung line"
+    basis = "Penn Treebank POS tags over this sung line and WordNet POS readings"
     if role == "ing-verbs":
         basis += " and printed -ing ending"
         if any(not word.casefold().endswith("ing") for word in words):
@@ -25,6 +25,18 @@ def _pos_reading(words, role):
     result = {"outcome": "pass" if matched else "unknown", "basis": basis, "tags": tags}
     if not matched:
         result["reason"] = "the line tagger did not confirm the requested reading"
+        return result
+    pos = {"ing-verbs": "v", "adjectives": "a"}.get(role, "n")
+    wn = _wordnet()
+    if wn is None:
+        return {**result, "outcome": "unknown", "reason": "WordNet unavailable"}
+    try:
+        # synsets applies WordNet's POS-specific morphological lookup.
+        # The tagger alone can assign NN or VBG to an unseen token.
+        if not all(wn.synsets(word.casefold(), pos=pos) for word in words):
+            return {**result, "outcome": "unknown", "reason": "missing lexical POS reading"}
+    except (LookupError, OSError):
+        return {**result, "outcome": "unknown", "reason": "lexical resource unreadable"}
     return result
 
 
@@ -42,11 +54,12 @@ def _noun_relation(first, last, role):
         # Lookup lemmas for the submitted words. An antonym attached to another
         # lemma in the same synset does not establish this lexical relation.
         left = wn.lemmas(first.casefold(), pos=wn.NOUN)
-        right = set(wn.lemmas(last.casefold(), pos=wn.NOUN))
+        right = wn.lemmas(last.casefold(), pos=wn.NOUN)
         if role == "synonym":
             witnessed = bool({lemma.synset() for lemma in left} & {lemma.synset() for lemma in right})
         else:
-            witnessed = any(partner in right for lemma in left for partner in lemma.antonyms())
+            right_keys = {lemma.key() for lemma in right}
+            witnessed = any(partner.key() in right_keys for lemma in left for partner in lemma.antonyms())
     except (LookupError, OSError):
         return {**detail, "outcome": "unknown", "reason": "lexical resource unreadable"}
     return ({**detail, "outcome": "pass"} if witnessed else

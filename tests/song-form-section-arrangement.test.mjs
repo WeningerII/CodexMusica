@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { describeForm, realizeForm } from '../src/song-forms.mjs';
+import { checkForm, describeForm, realizeForm } from '../src/song-forms.mjs';
 import { projectSongFormCreation } from '../src/song-form-creation.mjs';
 import { gradeObservations } from '../src/song-form-grade.mjs';
 
@@ -118,4 +118,38 @@ test('closing lines link successive 14-line sections, including the return to th
     lines[lines.length-1] = 'x';
     assert.equal(grade().verdict, 'fail');
   }
+});
+
+test('Pindaric labels and line totals cannot certify metrical responsion', () => {
+  const id = 'pindaric-ode';
+  const counts = { '1.1': 2 };
+  const plan = realizeForm(catalog, id, { counts });
+  const stanzas = plan.tree[0].children.flatMap((triad) => triad.children);
+  const labelsOnly = Object.fromEntries(
+    stanzas.map(({ address, unit, role }) => [address, { unit, role }])
+  );
+  assert.equal(checkForm(catalog, id, { counts, units: labelsOnly }).verdict, 'unknown');
+  const widths = [2, 2, 1, 2, 3, 1];
+  let offset = 0;
+  const sections = stanzas.map(({ role }, i) => {
+    const start = offset;
+    offset += widths[i];
+    return { role, lineSpan: [start, offset] };
+  });
+  const lines = Array.from({ length: offset }, () => ({ text: 'one', stress: '/' }));
+  const measured = (score) => gradeObservations(catalog, id, { counts, lines, sections: score });
+  const lengths = (result) => result.checks.filter((c) => c.kind === 'metrical-responsion')
+    .map((c) => c.printedLineCounts);
+  const result = measured(sections);
+  assert.equal(result.verdict, 'unknown');
+  assert.deepEqual(lengths(result), [[2, 2], [2, 3]]);
+  assert.deepEqual(result.checks.filter((c) => c.kind === 'epode-meter-contrast')
+    .map((c) => [c.printedLineCount, c.outcome]), [[1, 'unknown'], [1, 'unknown']]);
+  for (const score of [
+    undefined,
+    sections.slice(1),
+    [{ ...sections[0], lineSpan: [1, 2] }, ...sections.slice(1)],
+    [{ ...sections[0], role: 'verse' }, ...sections.slice(1)],
+  ]) assert.deepEqual(lengths(measured(score)), [undefined, undefined]);
+  assert.equal(projectSongFormCreation(plan, counts).status, 'unsupported');
 });

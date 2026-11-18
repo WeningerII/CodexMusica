@@ -1,3 +1,4 @@
+import { realizeForm } from './song-forms.mjs';
 /** Map a realized form's declared line relations to the lyric harness.
  * The symbols are obligations. They supply no words, sound keys or observed results.
  * Unnumberable lines keep their diagram addresses and never enter a wire declaration.
@@ -116,4 +117,62 @@ export function formMandate(plan) {
     }
   }
   return { ...result, ...formMandateWire(result) };
+}
+
+// One optional printing places every explicitly measured phrase on a separate
+// sung line. The source diagram continues to describe the phrases themselves.
+const evidenceFields = [
+  'role',
+  'rhyme',
+  'returns',
+  'endWord',
+  'syllables',
+  'stress',
+  'stresses',
+  'bars',
+];
+
+export function printedPhraseSetting(plan) {
+  if (plan.status !== 'ready' || plan.tree.length !== 1) return null;
+  const [unit] = plan.tree;
+  const plain = (node) => evidenceFields.every((key) => node[key] === undefined);
+  if (!plain(unit)) return null;
+  const spans =
+    unit.unit === 'verse-unit'
+      ? [unit]
+      : unit.unit === 'stanza' &&
+          unit.children.length &&
+          unit.children.every((n) => n.unit === 'line' && plain(n))
+        ? unit.children
+        : [];
+  if (!spans.length) return null;
+  const stanzas = [];
+  for (const span of spans) {
+    if (span.children.length < 2) return null;
+    const lines = [];
+    for (const part of span.children) {
+      if (
+        part.unit !== 'phrase' ||
+        part.children.length ||
+        !Number.isSafeInteger(part.syllables) ||
+        part.syllables <= 0 ||
+        !part.rhyme ||
+        evidenceFields.some(
+          (key) => key !== 'syllables' && key !== 'rhyme' && part[key] !== undefined
+        )
+      )
+        return null;
+      lines.push({ unit: 'line', syllables: part.syllables, rhyme: part.rhyme });
+    }
+    stanzas.push({ unit: 'stanza', children: lines });
+  }
+  const catalog = [
+    {
+      id: plan.id,
+      name: plan.name,
+      scope: plan.scope,
+      patterns: [{ unit: 'poem', children: stanzas }],
+    },
+  ];
+  return { catalog, plan: realizeForm(catalog, plan.id) };
 }

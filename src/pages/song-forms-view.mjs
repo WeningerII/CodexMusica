@@ -114,7 +114,9 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
     );
   if (contract.sections.at(-1)?.vocalDuty === 'reprise')
     statements.push('The ensemble repeats the closing lines of the last solo verse.');
-  if (arrangement) {
+  if (contract.phraseLines)
+    statements.push('This arrangement prints each measured phrase on a separate line.');
+  else if (arrangement) {
     const { divisions } = arrangement;
     statements.push(
       divisions.length === 1
@@ -138,6 +140,10 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
       'Use a distinct ending sound for each group of lines: ' + groups.join(' / ') + '.'
     );
   }
+  if (contract.lineProfile === 'caesural-rhyme')
+    statements.push(
+      'Use this pattern on each line of the verse. Mark the pause with / or | so the word before it can be compared with the line ending.'
+    );
   if (contract.endingWords) {
     const { groups, gathered } = contract.endingWords;
     statements.push(

@@ -1,5 +1,5 @@
 import { projectSongFormCreation } from '../src/song-form-creation.mjs';
-import { formMandate } from '../src/song-form-mandate.mjs';
+import { formMandate, printedPhraseSetting } from '../src/song-form-mandate.mjs';
 import { prepareFormReview, reviewRecoveredForm } from './lyric_form.js';
 import { checkEvidenceInvocation } from './lyrics_evidence_binding.js';
 // lyric_tools.js — the lyric harness as MCP tools: a DISJOINT family.
@@ -1555,7 +1555,11 @@ async function pastedFormMandate(a, lines) {
   }
   let catalogCheck;
   if (selection) {
-    const mandate = formMandate(selection.plan);
+    const printed = printedPhraseSetting(selection.plan);
+    const mandate = formMandate(
+      printed?.plan.lines.length === lines.length ? printed.plan : selection.plan
+    );
+    mandate.variant = selection.plan.variant;
     if (mandate.status !== 'ready')
       throw refuse(
         `Catalog form ${mandate.id} is ${mandate.status}: ${JSON.stringify(mandate.needs)}`

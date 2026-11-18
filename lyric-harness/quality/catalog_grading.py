@@ -8,31 +8,65 @@ import lyric_harness as lh
 from quality.catalog_word_roles import measure_word_roles
 
 
-def _reading(lex, text):
+def _reading(lex, text, *, caesura=False):
     words = lh._meter_words(lex, text) or []
     cut = lh.reader_line(text, lex.strip_parens, "v2")
     tokens = lh._form_word_tokens(lex, text)
     observed = {"text": text, "sungWords": tokens, **lh._form_reading(lex, text, words=words, syllable_rimes=True)}
     if tokens == []:
         observed.update(syllables=0, stresses=0)
+    if caesura and tokens and text.count("/") + text.count("|") == 1:
+        proof = _caesural_endpoints(lex, text, words, tokens)
+        if proof:
+            observed["caesuralRhyme"] = proof
     if not words or lh.printed_endpoint(cut) or words[-1]["source"] not in ("dictionary", "declared"):
         return observed
-    last = words[-1]
-    reader = lex.for_line(text).for_token(last["token"] - 1)
-    keys = set()
-    for phones in reader.pronunciation_variants(last["word"]):
-        syllables = lh.anchor(lh.syllabify(phones))
-        if not syllables:
-            return observed
-        tail = [syllables[0]["nucleus"], *syllables[0]["coda"]]
-        for syllable in syllables[1:]:
-            tail.extend([*syllable["onset"], syllable["nucleus"], *syllable["coda"]])
-        keys.add(" ".join(tail))
+    keys = _rhyme_keys(lex.for_line(text), words[-1])
     if keys:
         observed["rhymeOptions"] = sorted(keys)
     if len(keys) == 1:
         observed["rhyme"] = keys.pop()
     return observed
+
+
+def _rhyme_keys(scoped, word):
+    reader = scoped.for_token(word["token"] - 1)
+    keys = set()
+    for phones in reader.pronunciation_variants(word["word"]):
+        syllables = lh.anchor(lh.syllabify(phones))
+        if not syllables:
+            return set()
+        tail = [syllables[0]["nucleus"], *syllables[0]["coda"]]
+        for syllable in syllables[1:]:
+            tail.extend([*syllable["onset"], syllable["nucleus"], *syllable["coda"]])
+        keys.add(" ".join(tail))
+    return keys
+
+
+def _caesural_endpoints(lex, text, words, tokens):
+    from quality import relations
+    from quality.revise import relation_phonology_for
+    left, right = text.replace("|", "/").split("/")
+    scheme = lh._scheme_of(lex)
+    before = lh.line_tokens(left, lex.strip_parens, scheme)
+    after = lh.line_tokens(right, lex.strip_parens, scheme)
+    if not before or not after or before + after != tokens:
+        return None
+    stream = relations.build_stream([text], relation_phonology_for(lex), declaration={"language": "eng"})
+    if not relations.mark_printed_caesura(stream)["found"]:
+        return None
+    cut = len(before)
+    if stream.units[stream.frames.caesura[0]].token != cut:
+        return None
+    measured = []
+    scoped = lex.for_line(text)
+    for index in (cut, len(tokens)):
+        pieces = [w for w in words if w["token"] == index]
+        if (len(pieces) != 1 or pieces[0]["word"] != tokens[index - 1]
+                or pieces[0]["source"] not in ("dictionary", "declared")):
+            return None
+        measured.append(sorted(_rhyme_keys(scoped, pieces[0])))
+    return {"cut": cut, "words": [before[-1], after[-1]], "keys": measured}
 
 
 def _sections(bp, observed):
@@ -184,8 +218,14 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
     if not selection:
         return None
     form_id = selection["id"]
-    observed = [_reading(lex, line) for line in lines]
+    # A filled native plan carries the selected line profile. In the lookup-only
+    # path a marked line still needs its measured endpoints for the catalog reader.
+    stored = bp.get("song_form") or {}
+    measure_caesura = not stored or stored.get("lineProfile") == "caesural-rhyme"
+    observed = [_reading(lex, line, caesura=measure_caesura) for line in lines]
     request = {k: selection[k] for k in ("variant", "counts") if k in selection}
+    if (bp.get("song_form") or {}).get("phraseLines"):
+        request["phraseLines"] = True
     request["lines"] = observed
     sections = _sections(bp, observed)
     if sections is not None:
@@ -198,6 +238,8 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
         groups = (bp.get("song_form") or {}).get("rhymeGroups")
         result = json.loads(run.stdout)
         measure_word_roles(result, observed)
+        if result.get("phraseRhymeGroups") and groups is None:
+            groups = result["phraseRhymeGroups"]
         # The native placed-return judge reads a word, not an entire repeated
         # line. Its classes stay separate from the ordinary writing mandate:
         # repeating an ending never licenses repetition elsewhere on the line.
