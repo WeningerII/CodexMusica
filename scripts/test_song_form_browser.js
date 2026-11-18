@@ -145,6 +145,33 @@ async function checkViewport(browser, origin, viewport) {
     assert.deepEqual(body.task, { domain: 'lyrics', phase: 'create' });
     assert.deepEqual(body.lyric_context.declarations, viewport.width < 500 ? {} : selection);
     assert.equal(await draft.inputValue(), original);
+    if (viewport.width === 1280) {
+      const retry = await context.newPage();
+      let catalogLoads = 0;
+      await retry.route('**/api/song-forms.json', (route) => {
+        catalogLoads++;
+        return catalogLoads === 1 ? route.abort('internetdisconnected') : route.continue();
+      });
+      await retry.goto(origin + '/codex.html#lyrics');
+      const editor = retry.locator('#lyrics-draft');
+      await editor.fill('Untitled draft');
+      const toggle = retry.locator('#ly-song-forms > summary');
+      assert.equal(catalogLoads, 0);
+      await toggle.focus();
+      await retry.keyboard.press('Enter');
+      await retry.getByText('Song forms could not load. Close and reopen to retry.').waitFor();
+      assert.equal(await editor.inputValue(), 'Untitled draft');
+      assert.deepEqual(
+        await retry.evaluate(() => window.uiLyricContext('lyrics').declarations),
+        {}
+      );
+      await toggle.press('Enter');
+      await toggle.press('Enter');
+      await retry.getByRole('combobox', { name: 'Song form', exact: true }).waitFor();
+      assert.equal(catalogLoads, 2);
+      assert.equal(await editor.inputValue(), 'Untitled draft');
+      await retry.close();
+    }
     console.log(
       'PASS native Song Forms keyboard navigation, stylesheet and fit at ' + viewport.width + 'px'
     );

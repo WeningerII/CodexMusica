@@ -1337,7 +1337,6 @@ function lyParse(text) {
 
 // ── Page state (private to this file) ─────────────────────────────────────
 const LY = {
-  creationForm: null,
   model: null,
   text: null,
   // The inspector's tab and the selected tool ('' is the Tools index).
@@ -4490,7 +4489,7 @@ function lyMountMarkup() {
     ([id]) =>
       `<div class="ly-ipanel" id="ly-panel-${id}" role="tabpanel" aria-labelledby="ly-tab-${id}" tabindex="0" hidden>${
         id === 'writer'
-          ? '<section class="ly-convo" aria-labelledby="ly-convo-h"><h3 class="ly-h3" id="ly-convo-h">Writer request</h3><p class="ly-help" id="ly-composer-mode"></p><div id="ly-creation-form" hidden><span id="ly-creation-form-name"></span> <button type="button" class="cm-btn ly-link-btn" data-ui="ly-clear-creation-form">Remove form</button></div><div id="lyrics-chat"></div></section><div id="ly-writer-status"></div>'
+          ? '<section class="ly-convo" aria-labelledby="ly-convo-h"><h3 class="ly-h3" id="ly-convo-h">Writer request</h3><p class="ly-help" id="ly-composer-mode"></p><div id="lyrics-chat"></div></section><div id="ly-writer-status"></div>'
           : ''
       }</div>`
   ).join('');
@@ -4555,7 +4554,7 @@ function lyMountMarkup() {
     <div id="ly-relation-inspector" class="ly-relation-inspector" hidden></div>
     <div class="ly-main-scroll" id="ly-main-scroll">
       <div class="ly-section-nav" id="ly-section-nav"></div>
-      <details class="ly-song-forms" id="ly-song-forms">
+      <details class="ly-adv ly-song-forms" id="ly-song-forms">
         <summary>Song forms</summary>
         <div id="ly-song-forms-view"></div>
       </details>
@@ -6586,7 +6585,7 @@ function lyContext(model, { document = true } = {}) {
   return {
     version: 1,
     document: document ? lyWriterText(model.text) : '',
-    declarations: document ? decl : lyCreationForm()?.declarations || {},
+    declarations: document ? decl : LY.forms?.declarations() || {},
     brief: brief.slice(0, 4000),
     notes,
     binding: {
@@ -6703,31 +6702,15 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
   lyRefresh(true);
   return r.ok;
 }
-function lyCreationForm() {
-  return LY.creationForm?.generation === chatState.generation ? LY.creationForm : null;
-}
-
-function lyShowCreationForm(choice) {
-  const container = $ui('ly-creation-form');
-  if (!container) return;
-  const selection =
-    choice === 'lyrics' && !chatState.sig && !chatState.continuationId ? lyCreationForm() : null;
-  container.hidden = !selection;
-  $ui('ly-creation-form-name').textContent = selection ? 'Song form · ' + selection.name : '';
-}
 // A new conversation the person will type into: the same conflict rule.
-async function lyStartConversation(
-  choice,
-  prefill = '',
-  { force = false, creationForm = null } = {}
-) {
+async function lyStartConversation(choice, prefill = '', { force = false, onStart } = {}) {
   lyCloseMenus();
   if (chatState.busy) {
     showToast('Writer is working. You can keep editing.', 'error');
     return false;
   }
   if (lyLiveWork() && !force) {
-    LY.conflict = { kind: 'conversation', args: { choice, prefill, creationForm } };
+    LY.conflict = { kind: 'conversation', args: { choice, prefill, onStart } };
     lyShowTab('writer');
     return false;
   }
@@ -6743,7 +6726,7 @@ async function lyStartConversation(
   }
   LY.conflict = null;
   _chatReset();
-  LY.creationForm = creationForm && { ...creationForm, generation: chatState.generation };
+  onStart?.();
   lyShowTab('writer');
   uiChatOpen();
   // Opening the shared dock selects the lyrics domain; retain the requested phase.
@@ -6981,11 +6964,6 @@ function lyDraftList(tool, key) {
   return [...(lyVal(tool, 'song', key, c) || [])];
 }
 const LY_ACTIONS = {
-  'ly-clear-creation-form'() {
-    LY.creationForm = null;
-    lyShowCreationForm('lyrics');
-    $ui('chat-input')?.focus();
-  },
   'ly-relations'(id, button) {
     return lyInspectionAction('ly-relations', id, button);
   },
@@ -7806,7 +7784,7 @@ const LY_ACTIONS = {
     if (c.kind === 'conversation')
       return lyStartConversation(c.args.choice, c.args.prefill, {
         force: true,
-        creationForm: c.args.creationForm,
+        onStart: c.args.onStart,
       });
     return lySubmitLyricsAction(c.kind, c.args, { force: true });
   },
@@ -8039,24 +8017,20 @@ function lySizeOf(width) {
 }
 function lyWire(surface) {
   lyInspectionWire(surface);
+  LY.forms = null;
   const forms = surface.querySelector('#ly-song-forms');
   const view = forms.querySelector('#ly-song-forms-view');
   forms.addEventListener('toggle', async () => {
-    if (!forms.open || view.dataset.loading || view.dataset.ready) return;
-    view.dataset.loading = 'true';
-    view.setAttribute('aria-busy', 'true');
+    if (!forms.open || view.childElementCount || view.ariaBusy === 'true') return;
+    view.ariaBusy = 'true';
     view.textContent = 'Loading song forms…';
     try {
       const { mountSongForms } = await import('./src/pages/song-forms-view.mjs');
-      await mountSongForms(view, {
-        startWriter: (creationForm) => lyStartConversation('lyrics', '', { creationForm }),
-      });
-      view.dataset.ready = 'true';
+      LY.forms = await mountSongForms(view, lyStartConversation, chatState);
     } catch {
       view.textContent = 'Song forms could not load. Close and reopen to retry.';
     } finally {
-      delete view.dataset.loading;
-      view.removeAttribute('aria-busy');
+      view.ariaBusy = 'false';
     }
   });
   const draft = lyDraft();
@@ -8351,8 +8325,7 @@ function lyWire(surface) {
   });
   // New conversation clears the writer's state without a busy flip.
   document.addEventListener('chat-reset', () => {
-    LY.creationForm = null;
-    lyShowCreationForm('lyrics');
+    LY.forms?.sync();
     if (LY.model) lyRefresh(true);
   });
   // The shell's busy state flips around a reply; re-render when it does.

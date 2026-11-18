@@ -816,16 +816,6 @@
 }
 #surface-lyrics .ly-song-forms {
   margin: 10px 16px 0;
-  padding: 0 4px;
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-#surface-lyrics .ly-song-forms > summary {
-  width: fit-content;
-  padding: 6px 0;
-  color: var(--cm-accent);
-  font-weight: 600;
-  cursor: pointer;
 }
 #surface-lyrics .ly-main-scroll {
   position: relative;

@@ -315,7 +315,45 @@ function relatedForms(catalog, picker, select) {
   return { panel, redraw };
 }
 
-export async function mountSongForms(root, { startWriter } = {}) {
+// The ordinary composer never loads or mounts catalog controls. Selecting a
+// form attaches the choice to the new conversation only after its start gate.
+function writerChoice(doc, startConversation, state) {
+  const generation = () => (state.sig || state.continuationId ? null : state.generation);
+  let choice;
+  let badge;
+  function current() {
+    return choice && choice.generation === generation() ? choice : null;
+  }
+  function sync() {
+    if (!badge) return;
+    const selected = current();
+    badge.hidden = !selected || doc.getElementById('chat-domain')?.value !== 'lyrics';
+    badge.firstElementChild.textContent = selected ? 'Song form · ' + selected.name : '';
+  }
+  function select(selection) {
+    const onStart = () => {
+      if (!badge) {
+        badge = el('div');
+        badge.id = 'ly-creation-form';
+        const remove = el('button', 'Remove form', 'cm-btn ly-link-btn');
+        remove.type = 'button';
+        remove.addEventListener('click', () => {
+          choice = null;
+          sync();
+          doc.getElementById('chat-input')?.focus();
+        });
+        badge.append(el('span'), ' ', remove);
+        doc.getElementById('ly-composer-mode').after(badge);
+      }
+      choice = { ...selection, generation: generation() };
+      sync();
+    };
+    startConversation('lyrics', '', { onStart });
+  }
+  return { select, sync, declarations: () => current()?.declarations };
+}
+
+export async function mountSongForms(root, startConversation, chatState) {
   const doc = root.ownerDocument;
   if (!doc.getElementById('song-forms-style')) {
     const sheet = doc.createElement('link');
@@ -334,12 +372,14 @@ export async function mountSongForms(root, { startWriter } = {}) {
     picker.add(new Option(form.name, form.id));
   }
   const body = el('div');
+  const writer = startConversation && writerChoice(doc, startConversation, chatState);
   function select(id) {
     picker.value = id;
-    displayForm(catalog, id, body, startWriter);
+    displayForm(catalog, id, body, writer?.select);
     relations.redraw();
   }
   const relations = relatedForms(catalog, picker, select);
   picker.addEventListener('change', () => select(picker.value));
   root.replaceChildren(labeled('Song form', picker), relations.panel, body);
+  return writer;
 }

@@ -1,4 +1,6 @@
 #surface-lyrics #ly-song-forms-view {
+  min-width: 0;
+  overflow-wrap: anywhere;
   display: grid;
   gap: 12px;
   padding: 8px 0 16px;
