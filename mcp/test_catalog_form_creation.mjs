@@ -2419,3 +2419,65 @@ for (const [id, variant, parts, counts] of melodySettings) {
     }
   );
 }
+
+test(
+  'English triad profiles are measured again on native grade and reconnected revision',
+  { timeout: 180000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const seed = 11;
+    const relation = 'class:RHYME';
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        catalog_form: 'pindaric-ode',
+        catalog_counts: [{ path: '1.1', count: 1 }],
+        seed_from: seed,
+        count: 1,
+        lines: 6,
+        relation,
+        draw: ['functions', 'melody'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
+    const planned = await host.run('lyric_plan', { seed, lines: 6, relation });
+    assert.match(planned.tool_result.content[0].text, /English line-aligned setting/);
+    assert.equal(
+      measured(await host.run('lyric_screen', { words: ['one', 'none'], relation })).exit_code,
+      0
+    );
+    const assess = async (verb, args) => {
+      const op = await host.run(verb, args);
+      const full = measured(await host.read(op.operation_id, 'full'));
+      assert.ok(full.coverage?.catalog_form, full.stderr || full.report);
+      return full.coverage.catalog_form;
+    };
+    const text = [
+      'two one',
+      'three four',
+      'two one',
+      'three four',
+      'two three four',
+      'one four five',
+    ];
+    const good = await assess('lyric_grade', { seed, lines: 6, relation, draft: text });
+    assert.equal(
+      good.verdict,
+      'pass',
+      JSON.stringify(good.checks.filter((c) => c.outcome !== 'pass'))
+    );
+    text.splice(4, 2, ...text.slice(0, 2));
+    const bad = await assess('lyric_grade', { seed, lines: 6, relation, draft: text });
+    assert.equal(bad.checks.find((c) => c.kind === 'english-epode-contrast').outcome, 'fail');
+    await host.reconnect();
+    const revised = await assess('lyric_revise', {
+      seed,
+      lines: 6,
+      relation,
+      attempts: 0,
+      max_rounds: 1,
+      backtrack: 0,
+    });
+    assert.equal(revised.checks.find((c) => c.kind === 'english-epode-contrast').outcome, 'fail');
+  }
+);

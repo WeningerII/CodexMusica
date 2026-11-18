@@ -1,5 +1,7 @@
 // Ordered divisions describe the arrangement printed in a score. A speaker
 // assignment is a declaration; acoustic identity cannot be inferred from text.
+import { pindaricTriads } from './song-forms.mjs';
+
 const roots = new Set(['song', 'poem']);
 const groups = new Set([
   'play',
@@ -79,6 +81,28 @@ export function projectNestedDivisions(
   nativeRoles,
   { fixedReturns = false, endingWords = null } = {}
 ) {
+  const triads = pindaricTriads(plan);
+  if (
+    triads &&
+    plan.scope === 'setting' &&
+    plain(plan.tree[0]) &&
+    !plan.tree[0].role &&
+    triads.every(
+      (triad) =>
+        plain(triad) &&
+        !triad.role &&
+        triad.children.every((stanza) => plain(stanza) && !stanza.children.length)
+    )
+  ) {
+    return triads.flatMap((triad) =>
+      triad.children.map((stanza) => ({
+        unit: 'section',
+        role: 'verse',
+        lines: null,
+        divisionPath: [mark(plan.tree[0]), mark(triad), mark(stanza)],
+      }))
+    );
+  }
   const rows = [];
   let distinct = false;
   function endWordLine(n) {
@@ -507,6 +531,39 @@ export function gradeNestedDivisions(plan, rows, lines, sections, checks = []) {
     }
     cursor = valid ? span[1] : undefined;
   }
+  const triads = pindaricTriads(plan);
+  if (triads) {
+    const basis =
+      'English line-aligned setting: corresponding printed lines, syllable counts and lexical stress';
+    for (const [i] of triads.entries()) {
+      const start = i * 3;
+      const paired = recurringStanzaMeter([start, start + 1], lines, sections);
+      checks.push({ ...paired, kind: 'english-strophe-antistrophe', basis });
+      const epode = recurringStanzaMeter([start, start + 2], lines, sections);
+      // A contradictory count establishes a different line profile. Stress
+      // substitutions alone do not demonstrate a change of meter.
+      const measured =
+        epode.lines.length &&
+        epode.lines.every((n) => {
+          const row = lines?.[n - 1];
+          return (
+            typeof row?.text === 'string' &&
+            row.text.trim() &&
+            typeof row.stress === 'string' &&
+            /^[./]+$/.test(row.stress) &&
+            row.stress.includes('/') &&
+            (row.syllables === undefined || row.syllables === row.stress.length)
+          );
+        });
+      const outcome =
+        !measured || epode.outcome === 'unknown'
+          ? 'unknown'
+          : epode.outcome === 'pass'
+            ? 'fail'
+            : 'pass';
+      checks.push({ ...epode, kind: 'english-epode-contrast', basis, outcome });
+    }
+  }
   const metrical = rows.flatMap((row, i) =>
     row.divisionPath.at(-1)?.unit === 'metrical-stanza' ? [i] : []
   );
@@ -561,7 +618,9 @@ export function gradeNestedDivisions(plan, rows, lines, sections, checks = []) {
     id: plan.id,
     variant: plan.variant,
     scope: plan.scope,
-    basis: 'declared score divisions and participant assignments',
+    basis: triads
+      ? 'declared English line-aligned stanza profiles'
+      : 'declared score divisions and participant assignments',
     verdict,
     checks,
   };

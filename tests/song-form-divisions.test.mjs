@@ -265,3 +265,21 @@ print(json.dumps([submitted(body),submitted(body[:4]+["a d"]+body[5:]),
   matching.lines[4].stress='//.';
   assert.deepEqual(checks(matching),[['recurring-stanza-meter','unknown']]);
 });
+
+test('English triads compare every corresponding measured stanza pair and its independent epode', () => {
+  const id = 'pindaric-ode';
+  const counts = {'1.1': 2};
+  const {contract} = projectSongFormCreation(realizeForm(catalog,id,{counts}),counts);
+  assert.deepEqual(contract.sections.map(s => s.divisionPath.at(-1).role),
+    ['strophe','antistrophe','epode','strophe','antistrophe','epode']);
+  const sections = contract.sections.map((s,i)=>({...s,lineSpan:[2*i,2*i+2]}));
+  const rows = ['././','/./','././','/./','./','//','./','././','./','././','././','/./']
+    .map(stress => ({text:'one',stress,syllables:stress.length}));
+  const grade = lines => gradeObservations(catalog,id,{counts,sections,lines});
+  assert.equal(grade(rows).verdict,'pass');
+  assert.equal(grade(rows.map((r,i)=>i===2 ? rows[1] : r)).verdict,'fail');
+  assert.equal(grade(rows.map((r,i)=>i>=10 ? rows[i-4] : r)).verdict,'fail');
+  assert.equal(grade(rows.map((r,i)=>i===5 ? {text:r.text} : r)).verdict,'unknown');
+  assert.equal(grade(rows.map((r,i)=>i===2 ? {...r,stress:'/./.'} : r)).verdict,'unknown');
+  assert.equal(grade(rows.map(()=>({}))).verdict,'unknown');
+});
