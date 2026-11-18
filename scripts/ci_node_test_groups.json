@@ -253,7 +253,7 @@
           "group": "plan-grade"
         },
         {
-          "name": "actual recurrence report reaches plan text only and grade retains its receipt",
+          "name": "a stated count reaches the plan as the draw it built, not as a report, and grade retains its receipt",
           "group": "remaining"
         }
       ]

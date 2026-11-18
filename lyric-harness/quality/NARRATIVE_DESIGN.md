@@ -64,7 +64,7 @@ hesitation deliberately left for the red pen, Greimas-style.
 | chorus | "the returning section; the one place where REPEAT is the requirement" | ANCHOR | one face; its motion lives in the trajectory (§D) |
 | prechorus | "lifts from verse into chorus" | COMPLICATE, DWELL | the lift is pressure toward the anchor |
 | postchorus | "returns immediately after the chorus and is not part of it" | DWELL, JUDGE | the echo/comment slot |
-| bridge | "appears once and CONTRASTS" | TURN | the strongest single-atom row in the table |
+| bridge | ~~"appears once and CONTRASTS"~~ ~~"CONTRASTS with what came before" (since stage 4, when the row became "open")~~ "CONTRASTS with the song's verses and choruses, and comes after another section" (stage 4 fix round, 2026-11-18: the gloss says what the code reads) | TURN | the strongest single-atom row in the table |
 | intro | "opens the song; may state material that returns later" | ESTABLISH | |
 | outro | "closes the song and does not recur" | DEPART | |
 | coda | "a closing section with its own material" | RESOLVE, DEPART, JUDGE | new material at the close = verdict or departure |

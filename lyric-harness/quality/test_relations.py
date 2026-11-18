@@ -2320,9 +2320,13 @@ def test_relation_report_renderer_runs():
           "exits 0",
           rc == 0 and "phonology eng   schemas declared 80" in out
           and "REFUSED 27 (capability 27 · EMPTY DECLARED FRAME 0 · OTHER 0)"
-          in out and "RAN AND FOUND NOTHING 30" in out
-          and "RAN AND FIRED 23" in out,
-          "REFUSED 27 · RAN AND FOUND NOTHING 30 · RAN AND FIRED 23, "
+          in out and "RAN AND FOUND NOTHING 31" in out
+          and "RAN AND FIRED 22" in out,
+          "REFUSED 27 · RAN AND FOUND NOTHING 31 · RAN AND FIRED 22, "
+          "REPINNED 2026-11-16 (stage 4) from FOUND NOTHING ~~30~~ and FIRED "
+          "~~23~~: incremental repetition is the one-word diff now, and the "
+          "12 instances it found were lines repeated word for word, which "
+          "the rule no longer admits; it runs and finds nothing. "
           "REPINNED 2026-10-31 (M-311 F1, R2's mosaic ruling) from FOUND "
           "NOTHING ~~29~~ and FIRED ~~24~~: mosaic rhyme's 714 instances on "
           "Browning's lines were end rhymes with a word before them, which "
