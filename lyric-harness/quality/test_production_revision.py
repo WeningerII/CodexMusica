@@ -291,10 +291,17 @@ class ProductionRevisionTests(unittest.TestCase):
         # ~~2~~ -> 3 end-bound groups since 2026-10-04 (measured): the planner
         # ties rhymes only at line ends (owner's ruling), so the scheme group
         # 1,3,4 is end-bound now instead of placed at headrime/T5.
-        self.assertEqual(share['end_bound'], 3)
+        # ~~3~~ -> 2 since 2026-11-17 (stage 4, measured): `sections>=3` is
+        # a stated count, built into the draw now, so this seed draws
+        # verse, chorus, chorus with the groups 1,2;3,4,5,7 where it drew
+        # chorus, chorus, verse with 1,3,4;2,5;11,12. Every group is still
+        # end-bound, none bare, and each carries the global declaration.
+        self.assertEqual(share['end_bound'], len(plan['groups'].split(';')))
+        self.assertEqual(share['end_bound'], 2)
         self.assertEqual(share['bare'], 0)
         self.assertFalse(share['inaudible'])
-        self.assertEqual(share['unclassified'], ['class:CONSONANCE'] * 3)
+        self.assertEqual(share['unclassified'],
+                         ['class:CONSONANCE'] * share['end_bound'])
         # Per-group declarations still override the global declaration;
         # absence of both remains a real bare default.
         plan = {'groups': '1,2;3,4', 'relation': 'schema:consonance',

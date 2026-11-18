@@ -894,12 +894,14 @@ test(
     let kept_none = 0;
     try {
       for (let i = 0; i < 12; i++) {
-        const fn = roster[draw(roster.length)];
         const other = roster[draw(roster.length)];
         const count = 2 + draw(4);
         const args = {
-          // More instances of one function than a drawn pattern holds, and one of another.
-          want: [`sections.${fn}=${7 + draw(3)}`, `sections.${other}>=1`],
+          // ~~More instances of one function than a drawn pattern holds~~:
+          // since stage 4 a stated section count is built into the draw, so
+          // it no longer empties a window. A rhyme group deeper than drawn
+          // plans reach does, beside one section of a drawn function.
+          want: [`group>=${12 + draw(4)}`, `sections.${other}>=1`],
           seed_from: draw(50),
           count,
           // A length stated as a value, drawn, or left out.

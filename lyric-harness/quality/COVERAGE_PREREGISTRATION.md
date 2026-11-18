@@ -286,7 +286,9 @@ R2 and `EVEN_DIVISION_LANDINGS` R2, both requiring `--isochronous` ·
 `NO_TEMPO` NC — **and dead, see Findings above**
 
 **Song function findings (14):** `HOOK_ABSENT` R2 (the layer's only FLAG) ·
-`HOOK_DOES_NOT_RECUR` R2 · `TITLE_NOT_IN_HOOK` R2 · `RETURN_NEVER_RETURNS` R2 ·
+`HOOK_DOES_NOT_RECUR` R2 · `TITLE_NOT_IN_HOOK` R2 ·
+`RETURN_NEVER_RETURNS` R2 — **removed from the grader in stage 4, 2026-11-16;
+the 14 is the count as preregistered and is not changed** ·
 `HOOK_CONFINED` NM · `SINGLE_USE_RECURRED` NM · `BRIDGE_IS_A_VERSE` NM ·
 `RETURN_LOCKED` NM · `RETURNS_WITH_SAME_WORDS` NM · `RETURN_LENGTH_DRIFT` NM ·
 `RETURN_METER_DRIFT` NM · `RETURN_SLOT_DRIFT` NM · `RETURN_SCHEME_DRIFT` NM ·
@@ -1380,6 +1382,9 @@ sites instead of guessing, which is rung 1's lesson applied on purpose:
   words"** returns VERBATIM. That is a VERSE, not a chorus. L1–L2 and L7–L8
   are identical, so declaring those two sections as verses is the whole trick.
   My round-2 attempt reordered the words instead, which is the wrong axis.
+  (Stage 4 fix round, 2026-11-18, owner's ruling of 18 Nov 2026: a row whose
+  `returns_as` is "varied", prechorus or drop, gets this note too. The sweep
+  above is as it was run.)
 - `MANDATE_EXCUSED_BY_OVERLAP` needs BOTH endpoints of the failing pair to
   fully answer another group — the excusal is PER LINE (`grade()`'s own
   argument). Round 2 gave only one endpoint a second group.
