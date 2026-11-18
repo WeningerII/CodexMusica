@@ -56,7 +56,9 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     stanzas.length || hasInstrumental ? projectSongFormCreation(plan, counts) : null;
   const arranged = projection?.arrangement;
   const nativeInstrumental = hasInstrumental && projection?.contract;
-  const divisions = arranged ? stanzas : stanzas.filter((node) => node.unit === 'stanza');
+  const divisions = arranged
+    ? stanzas.filter((node) => node.children.every((child) => child.unit === 'line'))
+    : stanzas.filter((node) => node.unit === 'stanza');
   const completePartition =
     plan.coverage.lines === 'complete' &&
     divisions.length > 0 &&

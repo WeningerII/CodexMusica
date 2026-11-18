@@ -130,3 +130,17 @@ test('a reader-only catalog model adds no native wordless arrangement obligation
   assert.ok(!reading.checks.some(c=>c.kind==='section-lines' && c.expected===0));
   assert.equal(reading.verdict,'pass');
 });
+
+test('a nested pair is judged by both observed boundaries and every line measurement', () => {
+  const pattern = {unit:'stanza', children:Array.from({length:2}, () => ({
+    unit:'quatrain', children:[{unit:'line', syllables:3, times:4}],
+  }))};
+  const lines = Array.from({length:8}, () => ({syllables:3}));
+  const grade = (ends, observed=lines) => gradeObservations(form(pattern), 'symbol', {
+    lines:observed, sections:ends.map((end,i)=>({role:'verse', lineSpan:[ends[i-1] ?? 0,end]})),
+  });
+  assert.equal(grade([4,8]).verdict,'pass');
+  assert.equal(grade([3,8]).checks.filter(c=>c.kind==='line-span' && c.outcome==='fail').length,2);
+  assert.equal(grade([8]).verdict,'fail');
+  assert.equal(grade([4,8],[...lines.slice(0,7),{syllables:2}]).verdict,'fail');
+});

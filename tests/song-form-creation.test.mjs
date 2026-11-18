@@ -277,3 +277,17 @@ test('create CLI returns the same contract for positional and request-body selec
   }
   assert.equal(run(['create', 'couplet'], {variant: 1, lines: []}).status, 2);
 });
+
+test('a paired stanza projects its ordered inner divisions and preserves outer obligations', () => {
+  const inner = make('quatrain', { children: [line({ syllables: 7, times: 4 })] });
+  const pair = stanza(inner, inner);
+  const result = projection(entry(pair), 'f');
+  assert.deepEqual(result.arrangement.divisions, Array(2).fill({ unit: 'quatrain', lines: 4 }));
+  assert.deepEqual(result.contract.lineRequirements, numbered(8, i => ({ line: i + 1, syllables: 7 })));
+  for (const root of [
+    { ...pair, bars: 12 }, { ...pair, role: 'a' },
+    make('double-stanza', { children: [stanza(line(), line())] }),
+    make('double-stanza', { children: [inner, inner] }),
+    stanza(inner, stanza(line({rhyme: 'A'}), line({rhyme: 'A'}))),
+  ]) assert.equal(projection(entry(root), 'f').contract, null);
+});

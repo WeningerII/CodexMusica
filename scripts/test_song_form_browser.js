@@ -111,6 +111,7 @@ async function checkViewport(browser, origin, viewport) {
       ['stornello', '1', [11, 11]],
       ['sapphic-stanza', '0', [11, 11, 11, 5]],
       ['alcaic-stanza', null, [11, 11, 9, 10]],
+      ['other-named-hymn-metres', '0', [7, 6, 7, 6, 7, 6, 7, 6]],
     ]) {
       await picker.selectOption(id);
       if (variant !== null)
