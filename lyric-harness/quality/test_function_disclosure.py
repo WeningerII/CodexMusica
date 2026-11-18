@@ -467,37 +467,47 @@ class CapabilityTableTests(unittest.TestCase):
     """The #676 capability ledger (comment 6587459008) as data read off the
     registry and held to what the report does."""
 
-    #: (function, placement, returns_as, measured against, not verified
-    #:  from text). The recurrence column is not copied here: since stage 4
-    #:  it is checked against `SECTION_FUNCTIONS` itself, below.
+    #: (function, placement, recurrence, returns_as, measured against,
+    #:  not verified from text).
+    #: ~~The recurrence column is not copied here: since stage 4 it is
+    #: checked against `SECTION_FUNCTIONS` itself, below.~~ Stage 4 fix
+    #: round, 2026-11-18: that check compared the section table with itself
+    #: (`function_capabilities` builds the column from the same field), so a
+    #: changed value passed. Every row's value is typed out here again, as
+    #: it stands since stage 4: bridge, false_ending and reprise are "open".
+    #: Owner's ruling of 18 Nov 2026 (stage 4 fix round, 2026-11-18): the
+    #: `returns_as` value is '' on a row that is not asked about its
+    #: returns. ~~'n/a'~~ on seven rows and ~~'varied'~~ on breakdown, build,
+    #: vamp and reprise were values no code read. Prechorus and drop keep
+    #: 'varied', which has a reader now.
     TABLE = [
-        ('intro', 'checked', 'n/a', [], ''),
-        ('verse', 'no claim', 'new words', [], ''),
-        ('prechorus', 'checked', 'varied', ['verse', 'chorus'], ''),
-        ('chorus', 'no claim', 'verbatim', ['verse'], ''),
-        ('postchorus', 'checked', 'verbatim', ['chorus'], ''),
-        ('refrain', 'no claim', 'verbatim', [], ''),
-        ('burden', 'checked', 'verbatim', [], ''),
+        ('intro', 'checked', 'once', '', [], ''),
+        ('verse', 'no claim', 'returns', 'new words', [], ''),
+        ('prechorus', 'checked', 'returns', 'varied', ['verse', 'chorus'], ''),
+        ('chorus', 'no claim', 'returns', 'verbatim', ['verse'], ''),
+        ('postchorus', 'checked', 'returns', 'verbatim', ['chorus'], ''),
+        ('refrain', 'no claim', 'returns', 'verbatim', [], ''),
+        ('burden', 'checked', 'returns', 'verbatim', [], ''),
         # 2026-11-15 (owner's ruling): a bridge needs a section before it,
         # so its placement is a claim the planner and the grader check.
-        ('bridge', 'checked', 'n/a', ['verse', 'chorus'], ''),
-        ('breakdown', 'no claim', 'varied', [], 'whether the arrangement thins'),
-        ('build', 'no claim', 'varied', [], 'whether tension rises'),
-        ('drop', 'refused', 'varied', [], 'whether it lands as an arrival'),
-        ('vamp', 'no claim', 'varied', [],
+        ('bridge', 'checked', 'open', '', ['verse', 'chorus'], ''),
+        ('breakdown', 'no claim', 'open', '', [], 'whether the arrangement thins'),
+        ('build', 'no claim', 'open', '', [], 'whether tension rises'),
+        ('drop', 'refused', 'returns', 'varied', [], 'whether it lands as an arrival'),
+        ('vamp', 'no claim', 'open', '', [],
          'whether a musical figure repeats under it'),
-        ('patter', 'no claim', 'new words', ['chorus'], ''),
-        ('turnaround', 'checked', 'verbatim', [], ''),
-        ('interlude', 'checked', 'n/a', [], ''),
-        ('solo', 'no claim', 'n/a', [], ''),
-        ('tag', 'refused', 'verbatim', [], ''),
-        ('hook', 'no claim', 'verbatim', [], ''),
-        ('coda', 'checked', 'n/a', [], ''),
-        ('outro', 'checked', 'n/a', [], ''),
-        ('false_ending', 'checked', 'n/a', [], ''),
-        ('reprise', 'checked', 'varied', [], ''),
+        ('patter', 'no claim', 'returns', 'new words', ['chorus'], ''),
+        ('turnaround', 'checked', 'returns', 'verbatim', [], ''),
+        ('interlude', 'checked', 'open', '', [], ''),
+        ('solo', 'no claim', 'open', '', [], ''),
+        ('tag', 'refused', 'returns', 'verbatim', [], ''),
+        ('hook', 'no claim', 'returns', 'verbatim', [], ''),
+        ('coda', 'checked', 'once', '', [], ''),
+        ('outro', 'checked', 'once', '', [], ''),
+        ('false_ending', 'checked', 'open', '', [], ''),
+        ('reprise', 'checked', 'open', '', [], ''),
     ]
-    KEYS = ('function', 'placement', 'returns_as', 'contrast_measured',
+    KEYS = ('function', 'placement', 'recurrence', 'returns_as', 'contrast_measured',
             'not_verified_from_text')
 
     def test_every_registered_function_has_one_row_and_the_rows_are_these(self):
@@ -505,11 +515,7 @@ class CapabilityTableTests(unittest.TestCase):
         self.assertEqual([r['function'] for r in rows], list(G.SECTION_FUNCTIONS))
         self.assertEqual(len(rows), 22)
         self.assertEqual([tuple(r[k] for k in self.KEYS) for r in rows], self.TABLE)
-        self.assertEqual([set(r) for r in rows],
-                         [set(self.KEYS) | {'recurrence'}] * 22)
-        # The recurrence column says what the section table says.
-        self.assertEqual([r['recurrence'] for r in rows],
-                         [sp.recurrence for sp in G.SECTION_FUNCTIONS.values()])
+        self.assertEqual([set(r) for r in rows], [set(self.KEYS)] * 22)
 
     def test_the_placement_column_is_what_the_placement_check_does(self):
         names = list(G.SECTION_FUNCTIONS)

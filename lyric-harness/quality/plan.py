@@ -145,6 +145,7 @@ Test: python3 quality/test_plan.py
 """
 
 from bisect import bisect_right
+from heapq import heappop, heappush
 from collections import Counter
 from copy import deepcopy
 import os
@@ -2797,8 +2798,14 @@ def joint_findings(plan):
 #:                          placement keeps the second copy out; this file
 #:                          reads no list of "once" rows)
 #:   "returns verbatim"  -> instance 2+ is a return class of instance 1
-#:   "returns new words" / "varied" / "open" -> fresh groups per instance,
-#:                          same line count and scheme (the same tune)
+#:   "returns new words" / "returns varied" / "open" -> fresh groups per
+#:                          instance, same line count and scheme (the same
+#:                          tune). Stage 4 fix round, 2026-11-18 (owner's
+#:                          ruling of 18 Nov 2026): only prechorus and drop
+#:                          hold "varied" now, and the grader notes one that
+#:                          comes back word for word (`RETURNS_WITH_SAME_WORDS`).
+#:                          Fresh groups keep a plan-following draft clear of
+#:                          that note.
 #: ~~"Functions NOT in the roster are hand-declarable today and wait for a
 #: stated reason: refrain/burden are line-level per their own glosses (not
 #: standalone sections); reprise needs a cross-reference the plan schema does
@@ -2975,6 +2982,14 @@ class NoBuiltPattern(PlanRefused):
     help (`_sample_pattern`)."""
 
 
+class CountSearchPastBound(PlanRefused):
+    """The search for the fewest cells that carry the stated counts passed
+    `_BUILT_STATES` count states (`_built_min_cells`). It is this planner's
+    limit and says nothing about whether the counts can be met, so it is
+    the request's refusal and never one rejected draw (stage 4 fix round,
+    2026-11-18)."""
+
+
 class CountPolicy(dict):
     """The stated section counts as intervals (stage 4, 2026-11-16).
 
@@ -3083,10 +3098,15 @@ def _recurrence_policy(wants, roster=None, form=None):
     _whole_count_proof(
         {"rows": intervals, "total": total, "requested": requested},
         form, allowed)
-    once = set(G.single_use_functions())
+    # ~~`once = set(G.single_use_functions())`, and a row was held to 1
+    # below `if f in boundary or f in once`~~ (stage 4 fix round,
+    # 2026-11-18). Every "once" row has a `boundary`: the table is refused
+    # at load otherwise (`grid.check_recurrence_readers`). So `boundary`
+    # already holds each of them to 1, and this file reads no list of
+    # "once" rows, as the comment above `_derive_roster` says.
 
     def capacity():
-        caps = {f: min(hi, 1) if f in boundary or f in once else hi
+        caps = {f: min(hi, 1) if f in boundary else hi
                 for f, (lo, hi) in intervals.items()}
         # Never add arbitrary-size integer caps to floating infinity.
         # With no unbounded term, all remaining arithmetic stays integer.
@@ -3260,13 +3280,100 @@ def _sung_minimum(policy, form):
                if f not in ZERO_LINE_FUNCTIONS)
 
 
+def _sung_edges(rows):
+    """-> (n, text): how many SUNG sections the song's two edges add to
+    the sections `rows` deal, and the phrase that names them, "" for none
+    (2026-11-18, stage 4 fix round). `rows` is `_folded_rows`' answer.
+
+    A song opens with one section and closes with another. When no row
+    `rows` deals (its interval starts above 0) may stand at an edge
+    (`_can_stand`, which reads `needs_before`, `needs_after`,
+    `adjacent_after`, `adjacent_before` and `boundary`), that edge holds a
+    section of a row it does not deal. The section is wordless, and takes
+    no line, when a wordless row with room left in its interval may stand
+    there; otherwise it is one more sung section. A single dealt section
+    that may stand alone is a whole song, so it adds nothing. When the
+    rows with room cannot fill the edges at all, no claim is made here."""
+    from itertools import product
+    from quality import grid as G
+    SF = G.SECTION_FUNCTIONS
+    dealt = {f: lo for f, (lo, hi) in rows.items() if lo > 0}
+    if not dealt or (sum(dealt.values()) == 1
+                     and _can_stand(SF[next(iter(dealt))], "first", 1)):
+        return 0, ""
+    room = {f: hi - lo for f, (lo, hi) in rows.items() if hi > lo}
+    ends = [at for at in ("first", "last")
+            if not any(_can_stand(SF[f], at, 2) for f in dealt)]
+    # Each edge takes a wordless row with room, or "" for a sung one. The
+    # fewest sung sections over every way the edges can be filled.
+    options = []
+    for at in ends:
+        may = [f for f in sorted(room) if _can_stand(SF[f], at, 2)]
+        options.append([f for f in may if f in ZERO_LINE_FUNCTIONS]
+                       + ([""] if any(f not in ZERO_LINE_FUNCTIONS
+                                      for f in may) else []))
+    ways = [p for p in product(*options)
+            if all(p.count(f) <= room[f] for f in p if f)]
+    sung = min(p.count("") for p in ways) if ways else 0
+    if not sung:
+        return 0, ""
+    # The fields that keep every dealt row off those edges, by row.
+    held = {}
+    for at in ends:
+        for f in sorted(dealt):
+            sp = SF[f]
+            held.setdefault(f, []).extend(
+                [x for x in (("needs_before", "adjacent_after") if at == "first"
+                             else ("needs_after", "adjacent_before"))
+                 if getattr(sp, x)]
+                + (["boundary"] if sp.boundary == ("last" if at == "first"
+                                                   else "first") else []))
+    fields = " and ".join(
+        f"the {f} row's " + " and ".join(f"`{x}`" for x in dict.fromkeys(xs))
+        + (" fields" if len(set(xs)) > 1 else " field")
+        for f, xs in held.items() if xs)
+    if sung < len(ends):
+        return sung, (f"1 that opens or closes the song, from {fields}, as "
+                      f"the wordless rows the request allows may fill only "
+                      f"one of the two edges")
+    return sung, (f"{sung} that "
+                  + ({"first": "opens", "last": "closes"}[ends[0]] if sung == 1
+                     else "open and close")
+                  + f" the song, from {fields}, as no wordless row the request "
+                  f"allows may stand there")
+
+
 def _count_length_proof(policy, form, most_lines, per_section, exact):
     """Refuse when the sung sections the counts need, at `per_section`
     lines each, cannot fit in `most_lines`. Speaks of sections and lines
-    only: the cell ceiling is not a proof (stage 4 design, §3)."""
+    only: the cell ceiling is not a proof (stage 4 design, §3).
+
+    THE CAUSE IS WORKED OUT, NOT ASSUMED (2026-11-18, stage 4 fix round).
+    ~~One sentence served every refusal, and it always added the lines of
+    the rhyme group~~, so `sections.burden=4; lines<=6`, whose 8 sung
+    sections cannot fit 6 lines at any length, was blamed on the rhyme
+    group. When the sung sections alone do not fit, the refusal names each
+    row, the field that added it, and nothing of the rhyme group. The
+    rhyme group is named only when the sections fit and the lines that one
+    kind of 2 lines takes do not.
+
+    THE EDGES ARE COUNTED (2026-11-18, stage 4 fix round): a section a
+    row's fields put at the start or the end of the song, when it must be
+    sung (`_sung_edges`). A request whose every fit leaves each sung
+    section 1 line is then refused here with the rhyme group's reason,
+    where the draw used to miss it on every seed. A wordless section at an
+    edge takes no line, so `sections.bridge=1; lines<=2` fits (a wordless
+    section, then a bridge of 2 lines) and is not refused here, though the
+    draw, held to the fewest sections the counts need, does not reach it.
+
+    -> (need, pair) without the edges, as before this round. The draw
+    keeps the totals of at least `need * per_section + pair` lines, so a
+    request this proof lets through is drawn exactly as before."""
+    why = {}
+    rows = _folded_rows(policy, form, why)
     need = _sung_minimum(policy, form)
     every = max(policy["total"][0],
-                sum(lo for lo, hi in _folded_rows(policy, form).values()))
+                sum(lo for lo, hi in rows.values()))
     if every > ENVELOPE["sections"][1]:
         raise PlanRefused(
             f"{policy['requested']} can't be met: the counts (with what the "
@@ -3276,25 +3383,70 @@ def _count_length_proof(policy, form, most_lines, per_section, exact):
     # A plan carries one rhyme group, so one kind of section has 2 lines or
     # more. At one line a section that costs at least one line more per copy
     # of that kind: the fewest stated copies, or 2 for a kind dealt once.
-    sung_lo = [lo for f, (lo, hi) in _folded_rows(policy, form).items()
+    sung_lo = [lo for f, (lo, hi) in rows.items()
                if lo and f not in ZERO_LINE_FUNCTIONS]
     pair = min([2] + sung_lo) if per_section == 1 and need else 0
-    if need * per_section + pair > most_lines:
-        has = (f"the song has {most_lines} lines" if exact else
-               f"the song can have at most {most_lines} lines")
+    # An edge's sung section is of a row dealt once: 1 line more makes it
+    # the kind with 2 lines.
+    edges, at_edges = _sung_edges(rows)
+    sung = need + edges
+    lift = (min([2] + sung_lo + [1] * edges)
+            if per_section == 1 and sung else 0)
+    has = (f"the song has {most_lines} lines" if exact else
+           f"the song can have at most {most_lines} lines")
+    shown = (f"{policy['requested']} can't be met: the counts need {sung} "
+             f"sung sections of at least {per_section} line(s) ("
+             + "; ".join([f"{lo} {f}" + (f", from {why[f]}" if f in why else "")
+                          for f, (lo, hi) in sorted(rows.items())
+                          if lo and f not in ZERO_LINE_FUNCTIONS]
+                         + ([at_edges] if at_edges else []))
+             + ")")
+    # ~~`if need * per_section + pair > most_lines:` and "the counts (with
+    # what the form and the rows' own fields add) need {need} sung sections
+    # of at least {per_section} line(s), and {pair} line(s) more so one kind
+    # of section has 2 lines for the rhyme group; {has}"~~ (2026-11-18,
+    # stage 4 fix round): two causes, each said only when it is the one.
+    if sung * per_section > most_lines:
+        raise PlanRefused(f"{shown}, and {has}")
+    if sung * per_section + lift > most_lines:
         raise PlanRefused(
-            f"{policy['requested']} can't be met: the counts (with what the "
-            f"form and the rows' own fields add) need {need} sung sections "
-            f"of at least {per_section} "
-            f"line(s)" + (f", and {pair} line(s) more so one kind of section "
-                          f"has 2 lines for the rhyme group" if pair else "")
-            + f"; {has}")
+            f"{shown}, and {lift} line(s) more so one kind of section has 2 "
+            f"lines for the rhyme group; {has}")
     return need, pair
 
 
 #: THE BUILT DRAW'S TABLES, kept per request shape: the forward table over
 #: the stated rows is the same for every seed of one request.
 _BUILT_CACHE = {}
+
+#: THE MOST ENTRIES ONE BUILT TABLE HOLDS, one entry per step and count
+#: state (stage 4 fix round, 2026-11-18). ~~The table held every
+#: combination of the stated counts at every step, with no bound:
+#: `sections.verse<=30; sections<=110; sections.chorus<=30` at 463 lines
+#: built 1,735,741 entries (51 s, 4.8 GB), and one more capped row ran out
+#: of memory.~~ A request whose whole table holds at most this many entries
+#: is built whole, exactly as before. A larger one builds its tightest
+#: bounds (`_built_part`), and every stated count is checked on each draw
+#: (`_sample_pattern`), so a plan still carries all of them. The cache as a
+#: whole holds at most twice this many table entries (`_built_room`), and
+#: the search for the fewest cells holds no more count states than this
+#: (`_built_min_cells`).
+_BUILT_STATES = 50_000
+
+#: How many table entries `_BUILT_CACHE` holds now.
+_BUILT_HELD = [0]
+
+
+def _built_room(size=0):
+    """Empty the cache when it holds 64 keys, or when `size` more table
+    entries would take it past twice `_BUILT_STATES`. Twice, so that a
+    table and the shorter tables of its halved ceilings can stay together
+    and are not built again for each seed."""
+    if len(_BUILT_CACHE) >= 64 or _BUILT_HELD[0] + size > 2 * _BUILT_STATES:
+        _BUILT_CACHE.clear()
+    if not _BUILT_CACHE:
+        _BUILT_HELD[0] = 0
+    _BUILT_HELD[0] += size
 
 
 def _built_dims(policy, form, max_cells, sung_hi=None):
@@ -3340,12 +3492,118 @@ def _vec(dims, fns):
                  for d in dims)
 
 
+def _built_add(bounds, s, v):
+    """-> the counts `s` with one cell's counts `v` added, or None past an
+    upper bound. A dim with no upper bound stops counting at its floor."""
+    out = []
+    for (lo, hi), a, b in zip(bounds, s, v):
+        x = a + b
+        if hi is None:
+            x = min(x, lo)
+        elif x > hi:
+            return None
+        out.append(x)
+    return tuple(out)
+
+
+def _built_size(dims, bounds, cells, max_cells):
+    """-> how many entries the forward tables over `dims` hold, one per
+    step and count state the cells can reach, or None once that passes
+    `_BUILT_STATES`. It counts only: no weight is kept, and no more than
+    `_BUILT_STATES` states are held to learn that a table is too large."""
+    key = ("size", dims, bounds, cells, max_cells)
+    if key in _BUILT_CACHE:
+        return _BUILT_CACHE[key]
+    vs = {_vec(dims, c) for c in cells}
+    states, size = {tuple(0 for _ in dims)}, 1
+    for _ in range(max(1, max_cells)):
+        nxt = set()
+        for s in states:
+            nxt.update(t for v in vs
+                       for t in (_built_add(bounds, s, v),) if t is not None)
+            if size + len(nxt) > _BUILT_STATES:
+                break
+        states = nxt
+        size += len(states)
+        if size > _BUILT_STATES:
+            size = None
+            break
+    _built_room()
+    _BUILT_CACHE[key] = size
+    return size
+
+
+def _built_part(dims, bounds, cells, max_cells):
+    """-> the indexes of the dims the draw BUILDS, in the order of `dims`
+    (stage 4 fix round, 2026-11-18).
+
+    EVERY dim when the whole table holds at most `_BUILT_STATES` entries
+    (`_built_size`): the draw is then the one made before there was a
+    bound. Otherwise the TIGHTEST bounds, as many as fit, and the others
+    are left to the check on each draw (`_sample_pattern`).
+
+    How tight a bound is: the room between it and the count that
+    `max_cells` free cells give on average, in standard deviations of that
+    count. The least room is built first, because a free draw meets that
+    bound least often. What fits: one entry per step for every count each
+    built dim can hold by that step, which is never fewer than the table
+    really holds."""
+    key = ("part", dims, bounds, cells, max_cells)
+    if key in _BUILT_CACHE:
+        return _BUILT_CACHE[key]
+    part = tuple(range(len(dims)))
+    if _built_size(dims, bounds, cells, max_cells) is None:
+        steps = max(1, max_cells)
+        vs = [_vec(dims, c) for c in cells]
+
+        def room(i):
+            xs = [v[i] for v in vs]
+            mean = sum(xs) / len(xs)
+            spread = steps * max(0.0, sum(x * x for x in xs) / len(xs)
+                                 - mean * mean)
+            sd = spread ** 0.5 or 1e-9
+            lo, hi = bounds[i]
+            return min((steps * mean - lo) / sd if lo else float("inf"),
+                       (hi - steps * mean) / sd if hi is not None
+                       else float("inf"))
+
+        def entries(idx):
+            top = [(bounds[i][0] if bounds[i][1] is None else bounds[i][1],
+                    max(v[i] for v in vs)) for i in idx]
+            return sum(math.prod(min(most, each * n) + 1 for most, each in top)
+                       for n in range(steps + 1))
+
+        built = []
+        for i in sorted(part, key=room):
+            if entries(built + [i]) <= _BUILT_STATES:
+                built.append(i)
+        part = tuple(sorted(built))
+    _built_room()
+    _BUILT_CACHE[key] = part
+    return part
+
+
+def _built_left(policy, form, cells, max_cells, sung_hi=None):
+    """-> the stated counts the table leaves to the check on each draw, by
+    the name a request gives them: "sections", "sections.<row>"."""
+    dims, bounds = _built_dims(policy, form, max_cells, sung_hi)
+    part = _built_part(dims, bounds, cells, max_cells)
+    return ["sections" if d is None else f"sections.{d}"
+            for i, d in enumerate(dims) if i not in part and d != ""]
+
+
 def _built_tables(dims, bounds, cells, max_cells):
+    """-> (dp, back, add): the forward table of each step, and how each
+    entry was reached. Never past `_BUILT_STATES` entries: `_built_body`
+    hands in only the part of the dims that fits (`_built_part`)."""
     key = (dims, bounds, cells, max_cells)
     if key in _BUILT_CACHE:
         return _BUILT_CACHE[key]
-    if len(_BUILT_CACHE) >= 64:
-        _BUILT_CACHE.clear()
+    # ~~`if len(_BUILT_CACHE) >= 64: _BUILT_CACHE.clear()`~~ (fix round,
+    # 2026-11-18): the cache is bounded by the table entries it holds too.
+    size = _built_size(dims, bounds, cells, max_cells)
+    assert size is not None, "a built table past _BUILT_STATES entries"
+    _built_room(size)
     vs = [_vec(dims, c) for c in cells]
     C = len(cells)
 
@@ -3386,41 +3644,92 @@ def _built_min_cells(policy, form, cells, openers, enders, max_cells,
                      sung_hi=None):
     """-> the fewest body cells (at most `max_cells`) whose sequences can
     carry the stated counts with an opener and a closer from the edge
-    slots, or None. A forward pass that stops at the first fit."""
+    slots, or None. ~~A forward pass that stops at the first fit.~~
+
+    A SEARCH THAT TRIES THE NEAREST COUNTS FIRST (stage 4 fix round,
+    2026-11-18). The forward pass held every combination of counts the
+    cells could reach at each step, so one large floor beside a few caps
+    held millions. This search takes next the counts with the fewest cells
+    used plus the fewest still needed, where "still needed" is a number no
+    fit can do without (`short`). It finds the same fewest cells and goes
+    on only from counts that may still lead to a fit in that many. It holds
+    at most `_BUILT_STATES` count states; past that it refuses by name, and
+    makes no claim about the counts themselves."""
     dims, bounds = _built_dims(policy, form, max_cells, sung_hi)
     if not dims:
         return 1
     key = ("min", dims, bounds, cells, tuple(openers), tuple(enders), max_cells)
     if key in _BUILT_CACHE:
         return _BUILT_CACHE[key]
-    if len(_BUILT_CACHE) >= 64:
-        _BUILT_CACHE.clear()
+    _built_room()
+    if not cells:
+        _BUILT_CACHE[key] = None
+        return None
+    most = max(1, max_cells)
+    vs = sorted({_vec(dims, c) for c in cells})
+    edge = sorted({_built_add(bounds, _vec(dims, [o] if o else []),
+                              _vec(dims, [e] if e else []))
+                   for o in openers for e in enders} - {None})
+    # What one cell, and what the two edges, can add at most: to each dim,
+    # and to the rows with a floor taken together. `shared` is each set of
+    # floored rows one cell adds to at once, when no cell adds 2 to a row.
+    rows = [i for i, d in enumerate(dims) if d and bounds[i][0]]
+    cell_dim = [max(v[i] for v in vs) for i in range(len(dims))]
+    edge_dim = [max(e[i] for e in edge) for i in range(len(dims))]
+    cell_rows = max(sum(v[i] for i in rows) for v in vs)
+    edge_rows = max(sum(e[i] for i in rows) for e in edge)
+    plain = all(v[i] <= 1 for v in vs for i in rows)
+    shared = sorted({c for c in (tuple(i for i in rows if v[i]) for v in vs)
+                     if plain and len(c) > 1})
 
-    def add(s, v):
-        out = []
-        for (lo, hi), a, b in zip(bounds, s, v):
-            x = a + b
-            if hi is None:
-                x = min(x, lo)
-            elif x > hi:
-                return None
-            out.append(x)
-        return tuple(out)
+    def short(s):
+        """-> a number of further cells no fit from `s` can do without.
+        Each floor still open needs its gap, at the most one cell adds to
+        it. The floored rows together need the sum of their gaps, less what
+        the edges add: one cell closes one unit of that, and a cell that
+        adds to several open rows at once saves at most the gaps of those
+        rows less the largest of them."""
+        open_ = [(lo - x - e, c) for (lo, hi), x, c, e
+                 in zip(bounds, s, cell_dim, edge_dim) if lo - x - e > 0]
+        gap = {i: max(0, bounds[i][0] - s[i]) for i in rows}
+        rest = sum(gap.values()) - edge_rows - sum(
+            sum(gap[i] for i in c) - max(gap[i] for i in c) for c in shared)
+        if rest > 0:
+            open_.append((rest, 1 if plain else cell_rows))
+        return max([-(-need // c) if c else most + 1 for need, c in open_],
+                   default=0)
 
-    vs = {_vec(dims, c) for c in cells}
-    edge = {add(_vec(dims, [o] if o else []), _vec(dims, [e] if e else []))
-            for o in openers for e in enders} - {None}
-    found = None
-    states = {tuple(0 for _ in dims)}
-    for n in range(1, max(1, max_cells) + 1):
-        states = {t for s0 in states for v in vs
-                  for t in (add(s0, v),) if t is not None}
-        if not states:
+    # (cells used + cells still needed, cells left to use, counts): nearest
+    # first, and among equals the one with the most cells used, so a search
+    # with nothing in its way goes straight to its fit.
+    best, heap, found = {}, [], None
+    for v in vs:
+        t = _built_add(bounds, tuple(0 for _ in dims), v)
+        if t is not None and t not in best:
+            best[t] = 1
+            heappush(heap, (1 + short(t), most - 1, t))
+    while heap:
+        reach, left, s = heappop(heap)
+        n = most - left
+        if reach > most:
             break
-        if any((t := add(s0, ev)) is not None and _built_ok(bounds, t)
-               for s0 in states for ev in edge):
+        if best[s] < n:
+            continue
+        if any((t := _built_add(bounds, s, ev)) is not None
+               and _built_ok(bounds, t) for ev in edge):
             found = n
             break
+        for v in vs:
+            t = _built_add(bounds, s, v)
+            if t is not None and n + 1 < best.get(t, most + 2):
+                best[t] = n + 1
+                heappush(heap, (n + 1 + short(t), left - 1, t))
+        if len(best) > _BUILT_STATES:
+            raise CountSearchPastBound(
+                f"{policy['requested']} is more than this planner searches: "
+                f"finding the fewest sections that carry these counts took "
+                f"more than {_BUILT_STATES} combinations of section counts. "
+                f"State fewer counts, or smaller ones.")
     _BUILT_CACHE[key] = found
     return found
 
@@ -3429,8 +3738,16 @@ def _built_body(rng, policy, form, cells, openers, enders, max_cells,
                 sung_hi=None):
     """-> (opener, [cells], ender) drawn with today's odds (opener, number
     of cells, each cell and closer uniform) restricted to the draws whose
-    counts land inside the stated intervals, sampled directly."""
+    counts land inside the stated intervals, sampled directly.
+
+    THE INTERVALS THE TABLE HOLDS (stage 4 fix round, 2026-11-18): all of
+    them when the whole table fits `_BUILT_STATES`, and then nothing here
+    has changed; otherwise the tightest (`_built_part`). `_sample_pattern`
+    checks every stated count on the draw either way, and redraws."""
     dims, bounds = _built_dims(policy, form, max_cells, sung_hi)
+    part = _built_part(dims, bounds, cells, max_cells)
+    dims = tuple(dims[i] for i in part)
+    bounds = tuple(bounds[i] for i in part)
     dp, back, add = _built_tables(dims, bounds, cells, max_cells)
     key = ("ends", dims, bounds, cells, tuple(openers), tuple(enders), max_cells)
     if key not in _BUILT_CACHE:
@@ -3544,8 +3861,9 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None,
     # BUILT ONLY WHEN A STATED COUNT CAN BIND THIS DRAW. A count no draw of
     # `max_cells` cells could miss (`sections.verse<=10**309`) changes
     # nothing, so the draw is today's, byte for byte.
-    built = (counts is not None and counts.stated
-             and bool(_built_dims(counts, form, max_cells, sung_hi)[0]))
+    _dims, _bounds = ((), ()) if counts is None or not counts.stated else (
+        _built_dims(counts, form, max_cells, sung_hi))
+    built = bool(_dims)
     if built:
         if _built_min_cells(counts, form, cells, openers, enders,
                             max_cells, sung_hi) is None:
@@ -3566,6 +3884,14 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None,
                 funcs.extend(cell)
             if ending:
                 funcs.append(ending)
+            # EVERY STATED COUNT IS CHECKED ON THE DRAW (stage 4 fix round,
+            # 2026-11-18). The table builds all of them whenever it fits
+            # `_BUILT_STATES`, and then this rejects nothing. A larger
+            # request builds only its tightest bounds (`_built_part`), and a
+            # draw that misses one of the others is redrawn here, so no
+            # pattern leaves without every count.
+            if not _built_ok(_bounds, _vec(_dims, funcs)):
+                continue
             if fit is not None:
                 _t, _per = fit
                 _shape = tuple(Counter(
@@ -4617,6 +4943,22 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         _drawn["total"] = total
     _pattern_refused, _pattern_reason = 0, ""
     _built_stop, _built_none = False, False
+    # The stated counts a refused built draw checked rather than built
+    # (`_built_left`), for the refusal after the loop (fix round, 18 Nov).
+    _left_seen = set()
+    # BUILT ONLY WHEN A STATED COUNT CAN BIND THE DRAW AT THIS TOTAL (stage 4
+    # fix round, 2026-11-18). ~~The raised ceiling, the halved ceiling and
+    # the early stop below ran for any stated count.~~ For a count no draw
+    # could miss the fewest cells are 1, so two refusals halved the ceiling
+    # toward 1 and stopped the 500 draws early, and the plan differed from
+    # the plan of the same request with no count (`sections<=1000` at 400
+    # lines). The test is the one `_sample_pattern` makes, on the ceiling
+    # this total starts from, so that draw is unbuilt exactly when this is
+    # false.
+    _built = recurrence.stated and bool(_built_dims(
+        recurrence, form,
+        min(_max_sections, max(1, total // max(_STANZA, _min_section))),
+        total // _min_section)[0])
     for _attempt in range(500):
         # A BUILT DRAW STOPS WHEN IT HAS NOTHING LEFT TO TRY AT THIS TOTAL:
         # it refused at the fewest cells that carry the counts (below), or
@@ -4662,8 +5004,9 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # what the planner volunteers, not what a stated count may ask, so
         # it is raised to the fewest cells that carry the counts, and a
         # built pattern is kept only if its sung sections fit `total` at
-        # `_min_section` lines each.
-        if recurrence.stated:
+        # `_min_section` lines each. ~~`if recurrence.stated:`~~ -> only when
+        # a stated count can bind (`_built`, above the loop).
+        if _built:
             _cells_fit = _built_min_cells(
                 recurrence, form,
                 _CELLS if roster is None else tuple(
@@ -4704,9 +5047,18 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             # COUNTED, AND ITS REASON KEPT (writer plan, stage 2), for the
             # refusal after the loop: that reason names the declared roster
             # and form, and it used to be dropped here.
+            # NOT THE SEARCH'S OWN LIMIT (stage 4 fix round, 2026-11-18):
+            # that is no drawn pattern, and no other draw would pass it.
+            if isinstance(_exc, CountSearchPastBound):
+                raise
             _pattern_refused += 1
             _pattern_reason = str(_exc)
-            if recurrence.stated:
+            if _built:
+                _left_seen.update(_built_left(
+                    recurrence, form,
+                    _CELLS if roster is None else tuple(
+                        c for c in _CELLS if all(f in roster for f in c)),
+                    _cells_hi, total // _min_section))
                 _built_none = isinstance(_exc, NoBuiltPattern)
                 _built_stop = _built_none or (
                     _pattern_refused >= 2 and (
@@ -4872,11 +5224,26 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             f"lines/section {ENVELOPE['lines_per_section']}, total "
             f"{ENVELOPE['total_lines']}{_gap_clause}"
             f"{', exact total ' + str(lines) if lines is not None else ''})."
-            f"\n{_pattern}Another seed may plan. "
+            # WHICH COUNTS WERE ONLY CHECKED (fix round, 18 Nov; R2): on the
+            # first line, which the request's own refusal quotes, so the
+            # caller can see which stated counts to drop or loosen.
+            + (" These stated counts were checked on each draw, not built "
+               "into it, because a table that builds every stated count is "
+               f"past the planner's bound of {_BUILT_STATES} entries: "
+               + ", ".join(a for a in recurrence["atoms"]
+                           if re.match(r"[\w.]+", a).group(0) in _left_seen)
+               + ". State fewer counts, or smaller ones."
+               if _left_seen else "")
+            + f"\n{_pattern}Another seed may plan. "
             + ("If every seed of a sweep is refused this way, the request is "
                "what refuses: change a declaration named here, or declare "
                "the shape by hand."
                if _sent else "Or declare the shape by hand."))
+    # The stated counts the pattern draw's table left to the check on each
+    # draw, for the disclosure in `choices.pattern` (stage 4 fix round,
+    # 2026-11-18). None when the whole table fit `_BUILT_STATES`.
+    _left = _built_left(recurrence, form, _cells_r, _cells_hi,
+                        total // _min_section) if _built else []
 
     if melody is not None:
         from quality.melody import validate_melody
@@ -5226,7 +5593,16 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                                         f"of {_vocab_size()} functions"
                                         + ("; stated counts built into the draw: "
                                            + recurrence["requested"]
-                                           if recurrence.stated else ""))},
+                                           if recurrence.stated else "")
+                                        # WHAT THE TABLE LEFT TO THE CHECK
+                                        # (fix round, 2026-11-18): said only
+                                        # when the whole table was past
+                                        # `_BUILT_STATES`.
+                                        + ("; checked on each draw, not "
+                                           "built (the built table holds at "
+                                           f"most {_BUILT_STATES} entries): "
+                                           + ", ".join(_left)
+                                           if _left else ""))},
             "meter": {"value": dict(meter),
                       "beats_per_line": beats_pl,
                       "slots_per_line": beats_pl * sub,

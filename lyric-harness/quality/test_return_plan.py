@@ -516,17 +516,24 @@ def m_group_break(p, L, cls, rng, spare):
     return _end(L, ln, spare.end()), (ln, len(g))
 
 
-def m_copy_new_words(p, L, cls, rng, spare):
-    sl = section_lines(p)
-    eq = [(a, b) for a, b in _later_instances(p, "new words")
-          if len(sl[a]) == len(sl[b])]
-    if not eq:
-        return None
-    a, b = rng.choice(eq)
-    out = list(L)
-    for x, y in zip(sl[a], sl[b]):
-        out[y - 1] = out[x - 1]
-    return out, b
+def copies_the_first(kind):
+    """-> the change: a later instance of a returning function whose
+    `returns_as` is `kind` copies the first instance, line for line."""
+    def change(p, L, cls, rng, spare):
+        sl = section_lines(p)
+        eq = [(a, b) for a, b in _later_instances(p, kind)
+              if len(sl[a]) == len(sl[b])]
+        if not eq:
+            return None
+        a, b = rng.choice(eq)
+        out = list(L)
+        for x, y in zip(sl[a], sl[b]):
+            out[y - 1] = out[x - 1]
+        return out, b
+    return change
+
+
+m_copy_new_words = copies_the_first("new words")
 
 
 def m_outro_copies(p, L, cls, rng, spare):
@@ -1098,6 +1105,12 @@ REVIEW = (
      out_of_place_copy(True), _copy_keeps_its_flag),
     ("a reprising line copies a line out of its place, outside every rhyme "
      "group", out_of_place_copy(False), _copy_has_its_one_note),
+    # Merged with stage 4's fix round (2026-11-18): a "varied" row
+    # (prechorus, drop) gets the same-words note now, and the plan gives
+    # each of its instances its own lines, so a copy of the first has the
+    # owner's call A exactly as a "new words" row's copy has.
+    ("a varied instance copies the first", copies_the_first("varied"),
+     _one_note_per_copy),
 )
 MECHANISMS = TABLE + REVIEW
 

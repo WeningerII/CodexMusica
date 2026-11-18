@@ -90,29 +90,29 @@ Function reading refusals: `END_WORD_UNREADABLE` blocks requested function cover
 
 ## Section types
 
-What declaring each of the 22 section types gets checked (from `function_capabilities` in `quality/function_disclosure.py`). **Placement**: `checked` means the type has a rule about where it sits, and a draft that breaks it gets a note; `no claim` means it may sit anywhere; `refused` means the registry records why no rule is made. **Returns as**: `verbatim` types are planned as exact repeats when the form asks for a return, and a grade notes one that comes back with different words; `new words` types get a note when they come back unchanged. **Contrast measured**: the sections this one is measured against whenever a song declares both. **Not verified from text**: what the name promises about the performance, which words on a bar grid cannot show; a grade says so as an `EFFECT_NOT_VERIFIED` row with status `not_requested`, counted as neither answered nor refused. Every type is a section: the planner draws all of them.
+What declaring each of the 22 section types gets checked (from `function_capabilities` in `quality/function_disclosure.py`). **Placement**: `checked` means the type has a rule about where it sits, and a draft that breaks it gets a note; `no claim` means it may sit anywhere; `refused` means the registry records why no rule is made. **Returns as**: `verbatim` types are planned as exact repeats when the form asks for a return, and a grade notes one that comes back with different words; `new words` types get a note when they come back unchanged. `varied` types get the same note when every return comes back word for word, and `—` means nothing is asked about a return. **Contrast measured**: the sections this one is measured against whenever a song declares both. **Not verified from text**: what the name promises about the performance, which words on a bar grid cannot show; a grade says so as an `EFFECT_NOT_VERIFIED` row with status `not_requested`, counted as neither answered nor refused. Every type is a section: the planner draws all of them.
 
 | type | placement | recurrence | returns as | contrast measured | not verified from text |
 |---|---|---|---|---|---|
-| intro | checked | once | n/a | — | — |
+| intro | checked | once | — | — | — |
 | verse | no claim | returns | new words | — | — |
 | prechorus | checked | returns | varied | verse, chorus | — |
 | chorus | no claim | returns | verbatim | verse | — |
 | postchorus | checked | returns | verbatim | chorus | — |
 | refrain | no claim | returns | verbatim | — | — |
 | burden | checked | returns | verbatim | — | — |
-| bridge | checked | open | n/a | verse, chorus | — |
-| breakdown | no claim | open | varied | — | whether the arrangement thins |
-| build | no claim | open | varied | — | whether tension rises |
+| bridge | checked | open | — | verse, chorus | — |
+| breakdown | no claim | open | — | — | whether the arrangement thins |
+| build | no claim | open | — | — | whether tension rises |
 | drop | refused | returns | varied | — | whether it lands as an arrival |
-| vamp | no claim | open | varied | — | whether a musical figure repeats under it |
+| vamp | no claim | open | — | — | whether a musical figure repeats under it |
 | patter | no claim | returns | new words | chorus | — |
 | turnaround | checked | returns | verbatim | — | — |
-| interlude | checked | open | n/a | — | — |
-| solo | no claim | open | n/a | — | — |
+| interlude | checked | open | — | — | — |
+| solo | no claim | open | — | — | — |
 | tag | refused | returns | verbatim | — | — |
 | hook | no claim | returns | verbatim | — | — |
-| coda | checked | once | n/a | — | — |
-| outro | checked | once | n/a | — | — |
-| false_ending | checked | open | n/a | — | — |
-| reprise | checked | open | varied | — | — |
+| coda | checked | once | — | — | — |
+| outro | checked | once | — | — | — |
+| false_ending | checked | open | — | — | — |
+| reprise | checked | open | — | — | — |

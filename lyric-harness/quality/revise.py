@@ -3671,8 +3671,10 @@ class Reviser:
         copies a plan did not deal: no return class joins them.
 
         Two shapes, read off the section table and the convention's reprise
-        pairs. A later instance of a "new words" returning function whose
-        every line repeats the first instance's, line for line; and a line of
+        pairs. A later instance that repeats the first instance's every
+        line, line for line, of a returning function whose `returns_as` gets
+        the same-words note ("new words" or "varied",
+        `grid.RETURNS_AS_READERS`); and a line of
         a reprising function's section (the later side of a
         `POPULAR_SONG.reprises` pair) that reads as a line of the section it
         reprises: the first instance of that section, placed before it. Read
@@ -3707,7 +3709,14 @@ class Reviser:
         copy_of, reprising = {}, set()
         for fn, spec in GR.SECTION_FUNCTIONS.items():
             inst = song.instances_of(fn)
-            if spec.returns_as != "new words" or len(inst) < 2:
+            # READ FROM `grid.RETURNS_AS_READERS` (merged with the stage 4
+            # fix round, 2026-11-18): ~~`spec.returns_as != "new words"`~~.
+            # A row whose value gets RETURNS_WITH_SAME_WORDS ("new words" and
+            # "varied") is the row `return_findings` gives one note per
+            # copied instance under a plan, so its copy is held here too.
+            if ("RETURNS_WITH_SAME_WORDS"
+                    not in GR.RETURNS_AS_READERS[spec.returns_as]
+                    or len(inst) < 2):
                 continue
             first = numbers(inst[0])
             for sec in inst[1:]:
