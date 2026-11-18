@@ -761,7 +761,6 @@
 "quality/plan.py:meter_dims",
 "quality/plan.py:meter_factorisations",
 "quality/plan.py:meter_space_size",
-"quality/plan.py:recurrence_report",
 "quality/plan.py:render_song",
 "quality/plan.py:section_header",
 "quality/plan.py:song_line_counts",

@@ -553,5 +553,234 @@ class ProductionRelations(unittest.TestCase):
         self.assertFalse(fit.read_line('yam XYZ ayuṅkta',phon).certain)
 
 
+class FullShapeSearch(unittest.TestCase):
+    """STAGE 4 FIX ROUND (2026-11-18). `_full_shape` searches for its member
+    tuples instead of drawing every one, and must return what the plain
+    enumeration returns: the same figures, edges and verdicts, in the same
+    order. Streams are drawn by seed from dictionary words; the reference
+    below restates the three line-member judges with no search and no
+    early stop."""
+
+    @staticmethod
+    def _cells():
+        """-> {(vowel, coda): [words]}: the dictionary's words of 3 to 5
+        letters that the phonology reads as one syllable ending in a
+        consonant, with nothing in the reading left open. The dictionary
+        row picks the candidates; the phonology's own reading files them."""
+        import collections
+        import lyric_harness as LH
+        eng, cells = get('eng'), collections.defaultdict(list)
+        with open(LH.CMUDICT_PATH, encoding='utf-8') as fh:
+            for ln in fh:
+                w, *ph = ln.split('#')[0].split() or ['']
+                if not (w.isalpha() and 3 <= len(w) <= 5 and ph
+                        and sum(x[-1].isdigit() for x in ph) == 1
+                        and not ph[-1][-1].isdigit()):
+                    continue
+                sy = eng.syllabify(w)
+                if len(sy) == 1 and sy[0].coda and not any(
+                        R.uncertain(x) for x in (sy[0].onset, sy[0].nucleus,
+                                                 sy[0].coda, sy[0].prominence)):
+                    cells[(sy[0].nucleus, tuple(sy[0].coda))].append(w)
+        return cells
+
+    @staticmethod
+    def _grid(rng, cells, nv, nc):
+        """-> (vowels, codas) drawn by seed with two or more words in every
+        vowel x coda cell."""
+        vowels = sorted({v for v, _ in cells})
+        codas = sorted({c for _, c in cells})
+        while True:
+            vs, cs = rng.sample(vowels, nv), rng.sample(codas, nc)
+            if all(len(cells.get((v, c), ())) >= 2 for v in vs for c in cs):
+                return vs, cs
+
+    def _streams(self):
+        """-> [(kind, lines, stanzas)] by seed, in four kinds. No line is
+        composed: each is zero to two head words and one end word, all
+        drawn from the dictionary, or an earlier line again.
+
+        'mixed': end words from a vowel x coda grid, so crossed pairs,
+        full rhymes and misses all occur; a share of lines repeat an
+        earlier line; a share end in a generated token no dictionary
+        holds, so an edge reads None.
+        'late crossed': three lines whose two bound edges hold, a fourth
+        that breaks an edge only as the last-bound member, a fourth that
+        closes the figure, and a line that ends unread, after other grid
+        lines.
+        'late repeat': one line twice, then lines that do not rhyme it,
+        then a line that ends unread.
+        'pairs': printed pairs of lines that share a first and a last word
+        around a different middle word, among pairs that share nothing."""
+        import random
+        cells = self._cells()
+        rng = random.Random('stage4-fix-full-shape-search')
+        every = sorted(w for ws in cells.values() for w in ws)
+        out = []
+
+        def stanzas(n):
+            k = rng.randint(1, min(3, n))
+            cuts = sorted(rng.sample(range(1, n), k - 1))
+            return [sum(1 for c in cuts if i >= c) for i in range(n)]
+
+        def unread():
+            # Consonants only: no dictionary word, so the stream gives it
+            # no syllables and an edge that ends on it reads None.
+            return ''.join(rng.choice('bcdfghjklmnpqrstvwxz') for _ in range(7))
+
+        for n in (4, 5, 7, 9, 12, 16, 20, 24) * 3:
+            vs, cs = self._grid(rng, cells, rng.randint(2, 3), rng.randint(2, 3))
+            heads = rng.sample(every, 3)
+            again, lost = rng.choice((0.1, 0.3, 0.5)), rng.choice((0.0, 0.1))
+            lines = []
+            for _ in range(n):
+                if lines and rng.random() < again:
+                    lines.append(rng.choice(lines))
+                    continue
+                end = (unread() if rng.random() < lost else
+                       rng.choice(cells[(rng.choice(vs), rng.choice(cs))]))
+                lines.append(' '.join(rng.choices(heads, k=rng.randint(0, 2))
+                                      + [end]))
+            out.append(('mixed', lines, stanzas(n)))
+        for n in (6, 7, 9, 12):
+            (v1, v2, v3), (c1, c2) = self._grid(rng, cells, 3, 2)
+            five = [rng.choice(cells[cell]) for cell in
+                    ((v1, c1), (v2, c1), (v2, c2), (v3, c2), (v1, c2))]
+            rest = [rng.choice(cells[(rng.choice((v1, v2, v3)),
+                                      rng.choice((c1, c2)))])
+                    for _ in range(n - 6)]
+            out.append(('late crossed', rest + five + [unread()], [0] * n))
+        for n in (4, 6, 9):
+            (v1, v2), (c1, c2) = self._grid(rng, cells, 2, 2)
+            twice = rng.choice(cells[(v1, c1)])
+            rest = [rng.choice(cells[(v2, c2)]) for _ in range(n - 3)]
+            out.append(('late repeat', [twice, twice] + rest + [unread()],
+                        [0] * n))
+        for n in (4, 8, 12):
+            lines = []
+            for _ in range(n // 2):
+                first, last, mid_a, mid_b, x, y, z = rng.sample(every, 7)
+                lines += ([f'{first} {mid_a} {last}', f'{first} {mid_b} {last}']
+                          if rng.random() < 0.6 else
+                          [f'{first} {mid_a} {last}', f'{x} {y} {z}'])
+            out.append(('pairs', lines, stanzas(n)))
+        return out
+
+    @staticmethod
+    def _reference(schema, st):
+        """The figures by plain enumeration -> ([(frame, members, edges,
+        verdict)], late). Every member tuple of every frame, in
+        `itertools.combinations` order; every edge of the judge is asked,
+        with no early stop and no search; a tuple with a False edge is left
+        out. `late` counts the tuples left out only by an edge on their
+        last-bound member."""
+        import itertools
+        fig = schema.figure
+        frames = {}
+        for li in range(len(st.lines)):
+            if st.lines[li] or st.lexical_tokens[li]:
+                frames.setdefault(st.line_stanzas[li] if fig.frame == 'stanza'
+                                  else li // 2, []).append(li)
+        asked = {}
+
+        def ask(base, la, lb, ta=-1, tb=-1):
+            # -> ('missing', None) or ('judged', Instance): one pair of
+            # lines under one edge schema, at the named word of each.
+            key = (base.name, base.spans, la, lb, ta, tb)
+            if key not in asked:
+                spans = []
+                for li, ti, rule in ((la, ta, base.spans[0]),
+                                     (lb, tb, base.spans[-1])):
+                    ti = len(st.lexical_tokens[li]) + ti if ti < 0 else ti
+                    ids = st.tokens.get((li, ti), ())
+                    try:
+                        got = (list(R._spans_at(rule, st, ids, f"L{li}.T{ti}"))
+                               if ids else [])
+                    except R.NoReferent:
+                        got = []
+                    if not got:
+                        break
+                    spans.append(got[0])
+                asked[key] = (('judged', R.evaluate(dataclasses.replace(
+                    base, placement=(), figure=R.PAIR), *spans, st))
+                    if len(spans) == 2 else ('missing', None))
+            return asked[key]
+
+        out, late = [], 0
+        n = 2 if schema.judge == 'symploce' else fig.nodes
+        for frame, ls in frames.items():
+            for members in itertools.combinations(ls, n):
+                if schema.judge == 'symploce':
+                    wa, wb = (st.lexical_tokens[m] for m in members)
+                    ep = dataclasses.replace(R.REGISTRY['anaphora'],
+                                             spans=(R.END_WORD, R.END_WORD))
+                    plan = [('value', len(wa) > 2 and len(wb) > 2 and
+                             [w.lower() for w in wa[1:-1]] !=
+                             [w.lower() for w in wb[1:-1]], 1),
+                            ('edge', (R.REGISTRY['anaphora'], 0, 1, 0, 0), 1),
+                            ('edge', (ep, 0, 1), 1)]
+                elif schema.judge == 'crossed':
+                    plan = [('edge', (R.crossed_edge(label), ai, bi),
+                             max(ai, bi)) for ai, bi, label in fig.edges]
+                else:
+                    a, b, _ = members
+                    pr = R.REGISTRY['perfect rhyme']
+                    plan = [('value', st.text_lines[a].strip().casefold() ==
+                             st.text_lines[b].strip().casefold(), 1),
+                            ('edge', (pr, 0, 2), 2), ('edge', (pr, 1, 2), 2)]
+                edges, values, false_at = [], [], []
+                for what, arg, bound in plan:
+                    if what == 'value':
+                        values.append(arg)
+                    else:
+                        base, ai, bi, *tok = arg
+                        state, e = ask(base, members[ai], members[bi], *tok)
+                        if state == 'judged':
+                            edges.append(e)
+                        values.append(e.verdict if state == 'judged' else None)
+                    if values[-1] is False:
+                        false_at.append(bound)
+                if false_at:
+                    late += min(false_at) == n - 1
+                    continue
+                out.append((frame, tuple(m + 1 for m in members), edges,
+                            R.tri_and(values)))
+        return out, late
+
+    def test_the_search_returns_what_enumeration_returns(self):
+        import collections
+        names = {'crossed': 'analysed rhyme', 'aab': 'blues AAB stanza',
+                 'symploce': 'symploce'}
+        self.assertEqual({R.REGISTRY[n].judge for n in names.values()},
+                         set(R.LINE_MEMBER_JUDGES))
+        figures, late, open_ = (collections.Counter() for _ in range(3))
+        kinds = collections.Counter()
+        for kind, lines, stanzas in self._streams():
+            st = R.build_stream(lines, get('eng'), stanzas=stanzas,
+                                stanza_source='test declaration')
+            kinds[kind] += 1
+            for judge, name in names.items():
+                schema = R.REGISTRY[name]
+                want, n_late = self._reference(schema, st)
+                got = R._full_shape(schema, st)
+                with self.subTest(kind=kind, judge=judge, lines=lines,
+                                  stanzas=stanzas):
+                    self.assertEqual(
+                        [(f, e.members, list(e), v) for f, e, v in got], want)
+                figures[judge] += len(want)
+                open_[judge] += sum(1 for *_, v in want if v is None)
+                late[(kind, judge)] += n_late
+        # The draw itself: every judge finds figures, undecided ones among
+        # them where the search prunes, and tuples that fall only at their
+        # last-bound member occur in the kind built for it.
+        self.assertEqual(set(kinds), {'mixed', 'late crossed', 'late repeat',
+                                      'pairs'})
+        self.assertTrue(all(figures[j] > open_[j] for j in names),
+                        (figures, open_))
+        self.assertTrue(open_['crossed'] and open_['aab'], open_)
+        self.assertTrue(late[('late crossed', 'crossed')], late)
+        self.assertTrue(late[('late repeat', 'aab')], late)
+
+
 if __name__=='__main__':
     unittest.main()
