@@ -6311,6 +6311,235 @@ class OnceGeneration(unittest.TestCase):
                     self.assertIsNone(before)
         self.assertGreaterEqual(same, 4)
 
+    def test_a_refusal_plans_its_request_again_once_and_never_deeper(self):
+        """2026-11-18, stage 4 fix round (R2). A miss that names a wordless
+        row plans its own request again with that row stated. That inner
+        plan must write its plain text and never plan again itself, or a
+        miss could recurse. For every row whose fields ask for a section
+        beside it, read from the table, a count of 1 in a song of at most 2
+        lines needs a wordless section at an edge. Planned as a request, the
+        miss names the row and plans once per row and count it tries.
+        Planned as such an inner plan (the probe set), the same miss writes
+        its plain text and plans nothing again."""
+        SF = G.SECTION_FUNCTIONS
+        rows = [f for f, sp in SF.items()
+                if (sp.needs_before or sp.needs_after)
+                and sp.recurrence != 'once'
+                and f not in PLN.ZERO_LINE_FUNCTIONS]
+        self.assertTrue(rows)
+        real_tried = PLN._wordless_tried
+        named = 0
+        for row in rows:
+            calls = {'tried': 0, 'request_tries': 0}
+
+            def tried(options, attempt):
+                calls['tried'] += 1
+                if attempt.__name__ != 'attempt':
+                    # A candidate's own clause (`_with`), not the request's.
+                    return real_tried(options, attempt)
+
+                def counted(r, w):
+                    calls['request_tries'] += 1
+                    return attempt(r, w)
+                counted.__name__ = attempt.__name__
+                return real_tried(options, counted)
+
+            kw = dict(lines=2, wants=[f'sections.{row}=1'])
+            with self.subTest(row=row), \
+                    patch.object(PLN, '_wordless_tried', tried):
+                try:
+                    make_plan(1, **kw)
+                    continue
+                except PLN.PlanRefused as exc:
+                    text = str(exc)
+                if 'only if a wordless section' not in text \
+                        and 'only if wordless sections' not in text:
+                    continue
+                named += 1
+                # One inner plan per row and count the request's text names.
+                self.assertEqual(calls['request_tries'], 1, calls)
+                calls.update(tried=0, request_tries=0)
+                token = PLN._WORDLESS_PROBE.set(True)
+                try:
+                    with self.assertRaises(PLN.PlanRefused) as inner:
+                        make_plan(1, **kw)
+                finally:
+                    PLN._WORDLESS_PROBE.reset(token)
+                self.assertEqual(calls['tried'], 0, calls)
+                self.assertNotIn('only if a wordless section',
+                                 str(inner.exception))
+                self.assertNotIn('only if wordless sections',
+                                 str(inner.exception))
+        self.assertGreaterEqual(named, 1)
+
+    def test_a_miss_names_the_wordless_row_an_edge_needs(self):
+        """2026-11-18, stage 4 fix round (owner's ruling: no refusal or miss
+        text may be untrue). Over every row of the table in every form of
+        `PLAN_FORMS`, at counts drawn by seed and at one line under the
+        fewest lines `_fewest_lines` finds with the other wordless rows held
+        to 0, the requests whose counts fit only with a wordless section at
+        an edge, and that the draw misses. ~~Each miss ended "Another seed
+        may plan".~~ Each names, in table order, every wordless row of the
+        table that may stand at the song's edges, at a count the search
+        agrees is the fewest that fits or more, and the neighbour field of
+        the stated row that asks for it; and when it says this seed plans
+        with that row stated, it does, and when it says it does not, it does
+        not. A miss of any other request keeps its text."""
+        rng = random.Random('stage4-wordless-remedy')
+        SF = G.SECTION_FUNCTIONS
+        quiet = [f for f in SF if f in PLN.ZERO_LINE_FUNCTIONS]
+        edgeable = [w for w in quiet if not SF[w].needs_before
+                    and not SF[w].needs_after and not SF[w].boundary
+                    and not SF[w].adjacent_before and not SF[w].adjacent_after]
+        self.assertTrue(edgeable)
+        kept, drawn = [], set()
+        for form, fn, draw in [(form, fn, d) for form in PLN.PLAN_FORMS
+                               for fn in sorted(SF) for d in range(3)]:
+            lo = min(PLN.fillable_line_counts(form))
+            k = rng.randint(1, (1, 3, max(4, lo // 2 + 2))[draw])
+            if (form, fn, k) in drawn:
+                continue
+            drawn.add((form, fn, k))
+            held = {w: (0, 0) for w in quiet if w != fn}
+            (_n, _), (most_free, _) = self._fewest_lines(form, {fn: (k, k)})
+            (_n, _), (most_held, _) = self._fewest_lines(
+                form, {fn: (k, k), **held})
+            if most_free is None or most_held is None:
+                continue
+            cap = most_held - 1
+            if cap < max(lo, most_free):
+                continue
+            kept.append((form, fn, k, cap))
+        self.assertGreaterEqual(len({fn for _f, fn, _k, _c in kept}), 3)
+        misses = plans = 0
+        for form, fn, k, cap in kept:
+            wants = [f'sections.{fn}={k}', f'lines<={cap}']
+            seed = rng.randint(1, 9999)
+            try:
+                make_plan(seed, form=form, wants=wants)
+                continue
+            except PLN.PlanRefused as exc:
+                said = str(exc).split('; outcomes=', 1)[0]
+            with self.subTest(form=form, wants=wants, seed=seed, said=said):
+                self.assertIn('bounded candidate draws', said)
+                misses += 1
+                self.assertIn(f'the counts fit at most {cap} lines only if ', said)
+                clause, tried = said.split('only if ', 1)[1].split(', and with ', 1)
+                self.assertRegex(clause, rf"the {fn} row's `\w+`")
+                for x in re.findall(r'`(\w+)`', clause):
+                    self.assertTrue(getattr(SF[fn], x))
+                named = re.findall(r'sections\.(\w+)=(\d+)',
+                                   tried.split(' stated, this seed', 1)[0])
+                rows = [r for r, _w in named]
+                # Every row that works is named, in table order; only rows the
+                # table lets stand at an edge; one count for all of them.
+                self.assertTrue(rows)
+                self.assertEqual(rows, [w for w in edgeable if w in rows])
+                w = int(named[0][1])
+                self.assertEqual({int(c) for _r, c in named}, {w})
+                # The search agrees: the fewest copies of that row with which
+                # the counts fit is what the clause says, and `w` is no fewer.
+                def fits(c):
+                    (_n, _), (most_c, _) = self._fewest_lines(form, {
+                        fn: (k, k), rows[0]: (0, c),
+                        **{q: (0, 0) for q in quiet if q not in (fn, rows[0])}})
+                    return most_c is not None and most_c <= cap
+                fewest = next(c for c in range(1, 3) if fits(c))
+                self.assertIn(('a wordless section' if fewest == 1 else
+                               'wordless sections') + ' the counts do not deal',
+                              said)
+                self.assertGreaterEqual(w, fewest)
+                self.assertFalse(fits(0))
+                for row in rows:
+                    again = wants + [f'sections.{row}={w}']
+                    if 'this seed plans' in said:
+                        p = make_plan(seed, form=form, wants=again)
+                        self.assertEqual(Counter(
+                            s['function'] for s in p['sections'])[fn], k)
+                        self.assertLessEqual(p['total_lines'], cap)
+                        plans += 1
+                    else:
+                        self.assertIn('does not plan either', said)
+                        with self.assertRaises(PLN.PlanRefused):
+                            make_plan(seed, form=form, wants=again)
+        self.assertGreaterEqual(misses, 6)
+        self.assertGreaterEqual(plans, 5)
+        # A miss of a request outside that case keeps its text: the pattern
+        # draw is made to refuse, on counts whose fits need no wordless edge.
+        def refuse(*a, **k):
+            raise PLN.PlanRefused('no admissible section pattern here. more')
+        free = _free_rows()
+        for _ in range(4):
+            form = rng.choice(PLN.PLAN_FORMS)
+            fn, k = rng.choice(free), rng.randint(1, 3)
+            lo = min(PLN.fillable_line_counts(form))
+            lines = rng.randint(max(lo, 4 * k), max(lo, 4 * k) + 20)
+            parsed = [PLN.parse_sweep_want(f'sections.{fn}={k}')]
+            with self.subTest(form=form, fn=fn, k=k, lines=lines), \
+                    patch.object(PLN, '_sample_pattern', refuse):
+                with self.assertRaises(PLN.SeedRefused) as raised:
+                    PLN._make_plan_candidate(rng.randint(1, 999), form=form,
+                                             lines=lines, _wants=parsed,
+                                             _recurrence_wants=parsed)
+                said = str(raised.exception)
+                self.assertTrue(said.split('\n', 1)[1].endswith(
+                    'Another seed may plan. If every seed of a sweep is '
+                    'refused this way, the request is what refuses: change '
+                    'a declaration named here, or declare the shape by '
+                    'hand.'), said)
+                self.assertNotIn('wordless', said)
+
+    def test_wordless_sections_past_the_line_bound_are_named(self):
+        """2026-11-18, stage 4 fix round. The pattern ceiling counts every
+        section against the line bound, a wordless one too, and stays. For
+        each wordless row of the table (`ZERO_LINE_FUNCTIONS`), in a form,
+        at a count and under a line bound below that count, all drawn by
+        seed, `_fewest_lines` finds that the counts fit; the refusal says
+        that this planner counts wordless sections against the line bound,
+        and no longer that the counts can't be met. ~~"can't be met: no
+        section pattern the planner builds carries these counts"~~. Under a
+        roster of sung rows only, drawn by seed from the table, a total of
+        more sections than lines is impossible, and that refusal keeps its
+        text."""
+        rng = random.Random('stage4-wordless-overflow')
+        quiet = [f for f in G.SECTION_FUNCTIONS if f in PLN.ZERO_LINE_FUNCTIONS]
+        self.assertTrue(quiet)
+        for w in quiet * 2:
+            form = rng.choice(PLN.PLAN_FORMS)
+            lo = min(PLN.fillable_line_counts(form))
+            cap = rng.randint(lo, lo + 2)
+            k = rng.randint(cap + 1, cap + 3)
+            wants = [f'sections.{w}={k}', f'lines<={cap}']
+            with self.subTest(form=form, wants=wants):
+                (_n, _), (most, _) = self._fewest_lines(form, {w: (k, k)})
+                self.assertLessEqual(most, cap)
+                with self.assertRaises(PLN.PlanRefused) as raised:
+                    make_plan(rng.randint(1, 999), form=form, wants=wants)
+                said = str(raised.exception)
+                self.assertNotIsInstance(raised.exception, PLN.SeedRefused)
+                self.assertEqual(said, (
+                    f"sections.{w}={k} can't be planned: this planner counts "
+                    f"wordless sections against the line bound, so no section "
+                    f"pattern it builds carries these counts in a song of at "
+                    f"most {cap} lines, at 1 line(s) or more per sung section; "
+                    f"every pattern that carries them holds more sections than "
+                    f"the song has lines, which only wordless sections make "
+                    f"possible"))
+        sung = [f for f in _free_rows() if f not in PLN.ZERO_LINE_FUNCTIONS]
+        for _ in range(2):
+            roster = sorted(rng.sample(sung, 2))
+            cap = rng.randint(2, 6)
+            wants = [f'sections>={cap + 1}', f'lines<={cap}']
+            with self.subTest(roster=roster, wants=wants):
+                with self.assertRaises(PLN.PlanRefused) as raised:
+                    make_plan(rng.randint(1, 999), form='open',
+                              functions=roster, wants=wants)
+                self.assertEqual(str(raised.exception), (
+                    f"sections>={cap + 1} can't be met: no section pattern the "
+                    f"planner builds carries these counts in a song of at most "
+                    f"{cap} lines, at 1 line(s) or more per sung section, under "
+                    f"the declared roster {roster}"))
+
     def test_a_total_below_what_the_form_and_the_fields_need_is_proved(self):
         """Fix round (17 Nov): a stated total below what the form and the
         rows' own fields add is refused by proof, naming them, before any

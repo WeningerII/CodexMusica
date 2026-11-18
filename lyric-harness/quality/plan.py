@@ -155,6 +155,7 @@ import math
 import random
 import re
 from fractions import Fraction
+import contextvars
 from functools import lru_cache
 from itertools import accumulate
 
@@ -3280,6 +3281,29 @@ def _sung_minimum(policy, form):
                if f not in ZERO_LINE_FUNCTIONS)
 
 
+def _edge_fields(dealt, ends):
+    """-> the phrase that names, row by row, the fields keeping every row
+    of `dealt` off the edges `ends` ("first", "last") of the song. Moved
+    out of `_sung_edges` unchanged (2026-11-18, stage 4 fix round), so
+    `_wordless_edges` names the same fields the same way."""
+    from quality import grid as G
+    SF = G.SECTION_FUNCTIONS
+    held = {}
+    for at in ends:
+        for f in sorted(dealt):
+            sp = SF[f]
+            held.setdefault(f, []).extend(
+                [x for x in (("needs_before", "adjacent_after") if at == "first"
+                             else ("needs_after", "adjacent_before"))
+                 if getattr(sp, x)]
+                + (["boundary"] if sp.boundary == ("last" if at == "first"
+                                                   else "first") else []))
+    return " and ".join(
+        f"the {f} row's " + " and ".join(f"`{x}`" for x in dict.fromkeys(xs))
+        + (" fields" if len(set(xs)) > 1 else " field")
+        for f, xs in held.items() if xs)
+
+
 def _sung_edges(rows):
     """-> (n, text): how many SUNG sections the song's two edges add to
     the sections `rows` deal, and the phrase that names them, "" for none
@@ -3317,21 +3341,7 @@ def _sung_edges(rows):
     sung = min(p.count("") for p in ways) if ways else 0
     if not sung:
         return 0, ""
-    # The fields that keep every dealt row off those edges, by row.
-    held = {}
-    for at in ends:
-        for f in sorted(dealt):
-            sp = SF[f]
-            held.setdefault(f, []).extend(
-                [x for x in (("needs_before", "adjacent_after") if at == "first"
-                             else ("needs_after", "adjacent_before"))
-                 if getattr(sp, x)]
-                + (["boundary"] if sp.boundary == ("last" if at == "first"
-                                                   else "first") else []))
-    fields = " and ".join(
-        f"the {f} row's " + " and ".join(f"`{x}`" for x in dict.fromkeys(xs))
-        + (" fields" if len(set(xs)) > 1 else " field")
-        for f, xs in held.items() if xs)
+    fields = _edge_fields(dealt, ends)
     if sung < len(ends):
         return sung, (f"1 that opens or closes the song, from {fields}, as "
                       f"the wordless rows the request allows may fill only "
@@ -3341,6 +3351,99 @@ def _sung_edges(rows):
                      else "open and close")
                   + f" the song, from {fields}, as no wordless row the request "
                   f"allows may stand there")
+
+
+def _wordless_edges(policy, form, most_lines, per_section, exact):
+    """-> None, or (clause, options) when the counts fit `most_lines` only
+    with a wordless section, of a row they do not deal, at an edge of the
+    song (2026-11-18, stage 4 fix round).
+
+    `_count_length_proof`'s arithmetic, with the sections the edges add
+    (`_sung_edges`) sung or wordless by choice: with each of them sung the
+    counts do not fit, or an edge has no sung row that may stand there;
+    with `w` of them wordless they fit. `clause` says so, with the fewest
+    such `w`. `options` is [(w, rows)] for each `w` that fits, fewest
+    first, `rows` being the wordless rows, in table order, with room for
+    `w` copies that may stand at those edges. Arithmetic only: which of
+    them plans is for the caller to try, and to say."""
+    from itertools import combinations
+    from quality import grid as G
+    SF = G.SECTION_FUNCTIONS
+    rows = _folded_rows(policy, form)
+    dealt = {f: lo for f, (lo, hi) in rows.items() if lo > 0}
+    if not dealt or (sum(dealt.values()) == 1
+                     and _can_stand(SF[next(iter(dealt))], "first", 1)):
+        return None
+    ends = [at for at in ("first", "last")
+            if not any(_can_stand(SF[f], at, 2) for f in dealt)]
+    room = {f: hi - lo for f, (lo, hi) in rows.items() if hi > lo}
+    sung_at = {at: any(f not in ZERO_LINE_FUNCTIONS
+                       and _can_stand(SF[f], at, 2) for f in room)
+               for at in ends}
+    need = _sung_minimum(policy, form)
+    sung_lo = [lo for f, (lo, hi) in rows.items()
+               if lo and f not in ZERO_LINE_FUNCTIONS]
+
+    def fits(w):
+        sung = need + len(ends) - w
+        lift = (min([2] + sung_lo + [1] * (len(ends) - w))
+                if per_section == 1 and sung else 0)
+        return sung * per_section + lift <= most_lines
+
+    def takers(w):
+        return [f for f in SF
+                if f in ZERO_LINE_FUNCTIONS and room.get(f, 0) >= w
+                and any(all(_can_stand(SF[f], at, 2) for at in quiet)
+                        and all(sung_at[at] for at in ends if at not in quiet)
+                        for quiet in combinations(ends, w))]
+
+    if not ends or (all(sung_at.values()) and fits(0)):
+        return None
+    options = [(w, takers(w)) for w in range(1, len(ends) + 1) if fits(w)]
+    options = [(w, r) for w, r in options if r]
+    if not options:
+        return None
+    what = ({"first": "opens", "last": "closes"}[ends[0]] if len(ends) == 1
+            else "opens or closes" if options[0][0] == 1 else "")
+    what = (f"a wordless section the counts do not deal {what} the song"
+            if what else
+            "wordless sections the counts do not deal open and close the song")
+    return (f"the counts fit {'' if exact else 'at most '}{most_lines} lines "
+            f"only if {what} ({_edge_fields(dealt, ends)})", options)
+
+
+#: SET WHILE A REFUSAL PLANS ITS OWN REQUEST AGAIN WITH A WORDLESS ROW
+#: STATED (`_wordless_tried`), so that inner plan writes its plain text and
+#: never plans again itself (2026-11-18, stage 4 fix round; R2).
+_WORDLESS_PROBE = contextvars.ContextVar("wordless_probe", default=False)
+
+
+def _wordless_tried(options, attempt):
+    """-> the clause that says which wordless row, once stated, lets this
+    seed plan (2026-11-18, stage 4 fix round). `options` is
+    `_wordless_edges`'; `attempt(row, w)` plans the same request with
+    `sections.<row>=w` added and answers "" when it plans, else why not.
+    At the fewest `w` where any row plans, every row that plans is named,
+    in table order. When none does, the first try's reason is quoted."""
+    first = None
+    for w, rows in options:
+        ok = []
+        for row in rows:
+            token = _WORDLESS_PROBE.set(True)
+            try:
+                why = attempt(row, w)
+            finally:
+                _WORDLESS_PROBE.reset(token)
+            if not why:
+                ok.append(row)
+            elif first is None:
+                first = (row, w, why)
+        if ok:
+            return ("with " + " or ".join(f"sections.{r}={w}" for r in ok)
+                    + " stated, this seed plans")
+    row, w, why = first
+    return (f"with sections.{row}={w} stated, this seed does not plan "
+            f"either: {why}")
 
 
 def _count_length_proof(policy, form, most_lines, per_section, exact):
@@ -4533,9 +4636,12 @@ def make_plan(seed, form=None, lines=None, relation=None,
     # as `_redraw_past_joint_gate` discloses its own: an integer past 2**53
     # is rounded by the connector's JSON.parse and names a different song
     # (Jony 6347921225, 3PO 6348036141). The rng keeps integers.
-    attempts = []
+    attempts, edge = [], None
     for candidate_seed, plan in _want_candidates(seed, kw):
         if isinstance(plan, Exception):
+            # The counts fit only with a wordless section at an edge they
+            # do not deal (`_wordless_edges`, on the candidate's miss).
+            edge = edge or getattr(plan, "wordless_edges", None)
             # THE FACT, NOT THE ADVICE (writer plan, stage 2). A candidate's
             # refusal is quoted by its first line. The line after it says
             # "Another seed may plan", which is true of one candidate and
@@ -4557,10 +4663,30 @@ def make_plan(seed, form=None, lines=None, relation=None,
             "policy": "first satisfying candidate; no ranking"}
         plan["writer_brief"] = writer_brief(plan)
         return plan
+    # WHAT FITS, AND WHETHER THIS SEED PLANS WITH IT (2026-11-18, stage 4
+    # fix round): when the counts fit only with a wordless section at an
+    # edge they do not deal, the request is planned again with that row
+    # stated, and the refusal says what came of it. Any other miss reads
+    # as before.
+    said = ""
+    if edge and not _WORDLESS_PROBE.get():
+        def attempt(row, w):
+            extra = [(f"sections.{row}", "=", str(w))]
+            try:
+                make_plan(seed, form=form, lines=lines, relation=relation,
+                          functions=functions, title=title,
+                          narrative=narrative, wants=parsed + extra,
+                          melody=melody, relations=relations,
+                          _recurrence_wants=list(recurrence_wants) + extra)
+            except PlanRefused as exc:
+                return (str(exc).split("\n", 1)[0]
+                        .split("; outcomes=", 1)[0].rstrip("."))
+            return ""
+        said = f"{edge[0]}, and {_wordless_tried(edge[1], attempt)}; "
     raise PlanRefused(
         f"brief predicates found no accepted plan in {len(attempts)} bounded "
         f"candidate draws; declared wants={[ ''.join(w) for w in parsed ]}; "
-        f"outcomes={attempts}")
+        f"{said}outcomes={attempts}")
 
 
 def _redraw_past_joint_gate(seed, kw):
@@ -4862,10 +4988,11 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # first and name what cannot fit; the length is then drawn only from
     # totals that carry the sung sections the counts need.
     if recurrence.stated:
+        # The bound the proof reads, kept for a miss's text (2026-11-18,
+        # stage 4 fix round): `_wordless_edges` reads the same one.
+        _most = lines if lines is not None else max(_GRADEABLE)
         _sung_min, _pair = _count_length_proof(
-            recurrence, form,
-            lines if lines is not None else max(_GRADEABLE),
-            _min_section, exact=lines is not None)
+            recurrence, form, _most, _min_section, exact=lines is not None)
         _GRADEABLE = {k for k in _GRADEABLE
                       if k >= _sung_min * _min_section + _pair}
         # FIXED SUNG SECTIONS, FIXED ARITHMETIC: when no further sung
@@ -4886,13 +5013,47 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         _top = lines if lines is not None else max(_GRADEABLE)
         _cells_r = _CELLS if roster is None else tuple(
             c for c in _CELLS if all(f in roster for f in c))
+        _ends_r = ((None,) + tuple(f for f in _edges()[0]
+                                   if roster is None or f in roster),
+                   (None,) + tuple(f for f in _edges()[1]
+                                   if roster is None or f in roster))
         if _cells_r and _built_min_cells(
-                recurrence, form, _cells_r,
-                (None,) + tuple(f for f in _edges()[0]
-                                if roster is None or f in roster),
-                (None,) + tuple(f for f in _edges()[1]
-                                if roster is None or f in roster),
+                recurrence, form, _cells_r, *_ends_r,
                 _top, _top // _min_section) is None:
+            # WORDLESS SECTIONS PAST THE LINE BOUND (2026-11-18, stage 4 fix
+            # round). The ceiling above counts every section against the
+            # lines, a wordless one too, and it stays. ~~It was always "can't
+            # be met"~~: `sections.solo=3; lines<=2` fits three solos and a
+            # sung section of 2 lines. When the same search finds a pattern
+            # once there is room for the wordless sections the counts deal
+            # and one at each edge, with the sung sections still held to the
+            # lines, the wordless sections are what overflow, and the
+            # refusal says that. Otherwise it is unchanged.
+            _quiet = sum(lo for f, (lo, hi) in
+                         _folded_rows(recurrence, form).items()
+                         if f in ZERO_LINE_FUNCTIONS)
+            try:
+                _over = _built_min_cells(
+                    recurrence, form, _cells_r, *_ends_r,
+                    min(ENVELOPE["sections"][1],
+                        _top // _min_section + _quiet + 2),
+                    _top // _min_section) is not None
+            except CountSearchPastBound:
+                _over = False
+            if _over:
+                raise PlanRefused(
+                    f"{recurrence['requested']} can't be planned: this "
+                    f"planner counts wordless sections against the line "
+                    f"bound, so no section pattern it builds carries these "
+                    f"counts in a song of "
+                    + ("" if lines is not None else "at most ")
+                    + f"{_top} lines, at {_min_section} line(s) or more per "
+                    f"sung section"
+                    + (f", under the declared roster {sorted(roster)}"
+                       if roster else "")
+                    + "; every pattern that carries them holds more sections "
+                    "than the song has lines, which only wordless sections "
+                    "make possible")
             raise PlanRefused(
                 f"{recurrence['requested']} can't be met: no section pattern "
                 f"the planner builds carries these counts in a song of "
@@ -5216,7 +5377,35 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
              f"500: ")
             + f"{_pattern_reason.split('. ')[0].rstrip('.')}. "
             if _pattern_refused else "")
-        raise SeedRefused(
+        _edge = (_wordless_edges(recurrence, form, _most, _min_section,
+                                 lines is not None)
+                 if recurrence.stated and not _WORDLESS_PROBE.get()
+                 else None)
+        _edge_text = ""
+        if _edge:
+            def _with(row, w):
+                """-> "" when this seed plans with `sections.<row>=w` added
+                to the counts it was asked for, else that try's refusal."""
+                extra = [(f"sections.{row}", "=", str(w))]
+                asked = list(_recurrence_wants if _recurrence_wants is not None
+                             else _wants)
+                held = list(_wants) + (
+                    extra if any(n.startswith("sections") for n, _o, _v
+                                 in _wants) else [])
+                try:
+                    p = _make_plan_candidate(
+                        seed, form=form, lines=lines, relation=relation,
+                        functions=functions, title=title,
+                        narrative=narrative, _wants=held, melody=melody,
+                        relations=relations, _recurrence_wants=asked + extra)
+                except PlanRefused as exc:
+                    return (str(exc).split("\n", 1)[0]
+                            .split("; outcomes=", 1)[0].rstrip("."))
+                missed = [n + o + v for n, o, v in held + asked + extra
+                          if not sweep_holds(p, (n, o, v))]
+                return "the plan misses " + "; ".join(missed) if missed else ""
+            _edge_text = _edge[0] + ", and " + _wordless_tried(_edge[1], _with)
+        _miss = SeedRefused(
             "500 seeded draws found no plan for "
             + ("; ".join(_sent) if _sent
                else "this seed, with nothing declared beyond it")
@@ -5234,11 +5423,24 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                            if re.match(r"[\w.]+", a).group(0) in _left_seen)
                + ". State fewer counts, or smaller ones."
                if _left_seen else "")
-            + f"\n{_pattern}Another seed may plan. "
-            + ("If every seed of a sweep is refused this way, the request is "
-               "what refuses: change a declaration named here, or declare "
-               "the shape by hand."
-               if _sent else "Or declare the shape by hand."))
+            + f"\n{_pattern}"
+            # A SECTION AT AN EDGE THE COUNTS DO NOT DEAL (2026-11-18, stage
+            # 4 fix round). ~~"Another seed may plan" ended every miss~~,
+            # also when the counts fit only with a wordless section at an
+            # edge they do not deal, which no measured draw added (the 13
+            # such misses of the `wide` population, on every seed tried).
+            # The miss says what fits, and whether this seed plans with the
+            # wordless row stated, as tried here. Any other miss reads as
+            # before.
+            + (_edge_text[0].upper() + _edge_text[1:] + "."
+               if _edge_text else
+               "Another seed may plan. "
+               + ("If every seed of a sweep is refused this way, the request "
+                  "is what refuses: change a declaration named here, or "
+                  "declare the shape by hand."
+                  if _sent else "Or declare the shape by hand.")))
+        _miss.wordless_edges = _edge
+        raise _miss
     # The stated counts the pattern draw's table left to the check on each
     # draw, for the disclosure in `choices.pattern` (stage 4 fix round,
     # 2026-11-18). None when the whole table fit `_BUILT_STATES`.
