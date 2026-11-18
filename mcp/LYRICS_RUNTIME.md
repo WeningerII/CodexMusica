@@ -680,6 +680,8 @@ against the candidate. A refused observation remains visible through the coverag
 
 For creation use the same selectors on the normal sweep, plan, grade and revision workflow.
 The native planner accepts named section sequences with supported lengths and placement.
+A selected section can declare a bar count. The planner must fit that count to the musical
+grid, and grading checks it against the section in the submitted blueprint.
 It can also arrange a sequence of equally sized, counted stanzas as verses. The catalog
 retains its original units. A selected numerical pattern can require an exact word count,
 syllable count, agreed English stress sequence, or number of lexical stresses on individual

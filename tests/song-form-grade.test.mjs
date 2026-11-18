@@ -94,3 +94,39 @@ test('sung words measure native counts while exact returns retain the printed li
   assert.ok(checkForm(schema,'symbol',{lines:[silent,silent]}).checks.some(c=>c.kind==='word-count' && c.outcome==='fail'));
   assert.throws(()=>checkForm(schema,'symbol',{lines:[{...silent,words:1},silent]}),/Inconsistent words/);
 });
+
+test('measured bars belong to the observed division, even when arranged as a verse', () => {
+  const pattern = {unit:'stanza',bars:16,children:[{unit:'line',times:4}]};
+  const grade = sections => gradeObservations(form(pattern),'symbol',{lines:Array(4).fill('x'),sections});
+  const outcome = report => report.checks.find(check=>check.kind==='bars').outcome;
+  assert.equal(outcome(grade([{role:'verse',bars:16,lineSpan:[0,4]}])),'pass');
+  assert.equal(outcome(grade([{role:'verse',bars:8,lineSpan:[0,4]}])),'fail');
+  assert.equal(outcome(grade([{role:'verse',lineSpan:[0,4]}])),'unknown');
+  assert.equal(outcome(grade([{role:'verse',bars:16,lineSpan:[0,2]}])),'unknown');
+  assert.equal(outcome(grade(undefined)),'unknown');
+});
+test('a native wordless section needs both its measured bars and an empty sung span', () => {
+  for (const role of ['solo','interlude']) {
+    const pattern = {unit:'song',children:[{unit:'section',role:'verse'},{unit:'section',role,bars:8}]};
+    const grade = (seen, verseSpan = [0,2]) => gradeObservations(form(pattern),'symbol',{
+      lines:['x','y'],sections:[{role:'verse',lineSpan:verseSpan},{role,...seen}],
+    });
+    assert.equal(grade({bars:8,lineSpan:[2,2]}).verdict,'pass');
+    assert.equal(grade({bars:7,lineSpan:[2,2]}).verdict,'fail');
+    assert.equal(grade({lineSpan:[2,2]}).verdict,'unknown');
+    assert.equal(grade({bars:8}).verdict,'unknown');
+    const sung = grade({bars:8,lineSpan:[1,2]},[0,1]);
+    assert.equal(sung.verdict,'fail');
+    assert.ok(sung.checks.some(c=>c.kind==='section-lines' && c.expected===0 && c.actual===1 && c.outcome==='fail'));
+    assert.equal(grade({bars:8,lineSpan:[3,3]}).verdict,'fail');
+  }
+});
+
+test('a reader-only catalog model adds no native wordless arrangement obligation', () => {
+  const pattern = {unit:'song',children:[{unit:'section',role:'part-a'},{unit:'section',role:'solo',bars:8}]};
+  const reading = gradeObservations(form(pattern),'symbol',{
+    lines:['x','y'],sections:[{role:'part-a',lineSpan:[0,1]},{role:'solo',bars:8,lineSpan:[1,2]}],
+  });
+  assert.ok(!reading.checks.some(c=>c.kind==='section-lines' && c.expected===0));
+  assert.equal(reading.verdict,'pass');
+});

@@ -30,9 +30,11 @@ def _validate_shape(contract):
     if not isinstance(parts, list) or not 1 <= len(parts) <= plan.ENVELOPE["sections"][1]:
         raise plan.PlanRefused("catalog section count is outside the native envelope")
     for part in parts:
-        if (not isinstance(part, dict) or set(part) != {"unit", "role", "lines"}
+        if (not isinstance(part, dict) or set(part) - {"bars"} != {"unit", "role", "lines"}
                 or part["unit"] != "section"):
             raise plan.PlanRefused("seeded catalog creation supports named role sequences only")
+        if "bars" in part and (type(part["bars"]) is not int or part["bars"] < 1):
+            raise plan.PlanRefused("catalog section bars must be a positive integer")
         role, lines = part["role"], part["lines"]
         if (not isinstance(role, str) or role not in plan.GENERATOR_ROSTER
                 or lines is not None and (type(lines) is not int or lines < 1
@@ -46,7 +48,7 @@ def _validate_shape(contract):
 
 
 def resolve_catalog_shape(contract, rng, *, totals, lines=None, functions=None,
-                          form="open", minimum=1):
+                          form="open", minimum=1, melody_bars=None):
     """Place the declared roles in order and assign each its native line count."""
     parts = _validate_shape(contract)
     if type(minimum) is not int or minimum < 1:
@@ -74,13 +76,59 @@ def resolve_catalog_shape(contract, rng, *, totals, lines=None, functions=None,
             if n < minimum:
                 raise plan.PlanRefused("declared catalog section is shorter than requested minimum")
             fixed[fn] = n
+    totals = sorted(n for n in set(totals).intersection(plan.song_line_counts())
+                    if plan.ENVELOPE["total_lines"][0] <= n <= plan.ENVELOPE["total_lines"][1]
+                    and (lines is None or lines == n))
+    by_role = {}
+    for part in parts:
+        if "bars" in part and by_role.setdefault(part["role"], part["bars"]) != part["bars"]:
+            raise plan.PlanRefused("different bar counts for one recurrent native function")
+    if by_role:
+        if melody_bars is not None and (type(melody_bars) is not int or melody_bars < 1):
+            raise plan.PlanRefused("melody bars must be a positive integer")
+        low, high = plan.ENVELOPE["bars_per_line"]
+        bar_values = (melody_bars,) if melody_bars is not None else range(low, min(high, min(by_role.values())) + 1)
+    else:
+        bar_values = (None,)
+    # The native meter spans the same number of bars per phrase throughout.
+    # Enumerate exact divisors and feasible totals before choosing either.
+    options = []
+    for bars in bar_values:
+        if any(value % bars for value in by_role.values()):
+            continue
+        sung = {f: value // bars for f, value in by_role.items() if f not in plan.WORDLESS_FUNCTIONS}
+        if any(k < minimum or f in fixed and fixed[f] != k for f, k in sung.items()):
+            continue
+        determined = {**fixed, **sung}
+        free, weights, base, lengths = _partition_options(funcs, determined, minimum, totals)
+        if lengths:
+            options.append((bars, determined, free, weights, base, lengths))
+    if not options:
+        if by_role:
+            raise plan.PlanRefused("catalog section bars cannot fit the declared lines, melody, and native section partition")
+        raise plan.PlanRefused("catalog sections cannot fill the requested gradeable line total")
+    total = rng.choice(sorted({n for *_, lengths in options for n in lengths}))
+    fitting = [option for option in options if total in option[-1]]
+    bars, fixed, free, weights, base, _ = fitting[0] if len(fitting) == 1 else rng.choice(fitting)
+    shares = plan._partition_uniform(weights, total - base, rng)
+    counts = {**fixed, **{f: k + minimum - 1 for f, k in zip(free, shares)}}
+    if counts.get("tag") and any(0 < k < counts["tag"] for f, k in counts.items() if f != "tag"):
+        raise plan.SeedRefused("this catalog partition has a tag longer than an earlier section")
+    result = {"total": total, "sections": [
+        {"function": fn, "lines": counts[fn]} for fn in funcs]}
+    if bars is not None:
+        result["bars_per_line"] = bars
+        result["wordless_phrases"] = {f: n // bars for f, n in by_role.items() if f in plan.WORDLESS_FUNCTIONS}
+    return result
+
+
+def _partition_options(funcs, fixed, minimum, totals):
     free = [f for f in dict.fromkeys(funcs) if f not in fixed]
     weights = tuple(funcs.count(f) for f in free)
     base = sum(fixed.get(f, 0) for f in funcs) + sum(weights) * (minimum - 1)
     # Even a shape with no declared sound class needs an inspectable native pair.
-    lengths = [n for n in sorted(set(totals).intersection(plan.song_line_counts()))
-               if plan.ENVELOPE["total_lines"][0] <= n <= plan.ENVELOPE["total_lines"][1]
-               and (lines is None or n == lines) and plan._partition_count(weights, n - base)
+    lengths = [n for n in totals
+               if plan._partition_count(weights, n - base)
                and (any(k >= 2 for k in fixed.values())
                     or free and (minimum >= 2 or n > base + sum(weights)))]
     # With only a tag length open, its maximum is already known. Excluding
@@ -90,15 +138,7 @@ def resolve_catalog_shape(contract, rng, *, totals, lines=None, functions=None,
         if earlier:
             maximum = sum(fixed.get(f, 0) for f in funcs) + weights[0] * min(earlier)
             lengths = [n for n in lengths if n <= maximum]
-    if not lengths:
-        raise plan.PlanRefused("catalog sections cannot fill the requested gradeable line total")
-    n = rng.choice(lengths)
-    shares = plan._partition_uniform(weights, n - base, rng)
-    counts = {**fixed, **{f: k + minimum - 1 for f, k in zip(free, shares)}}
-    if counts.get("tag") and any(0 < k < counts["tag"] for f, k in counts.items() if f != "tag"):
-        raise plan.SeedRefused("this catalog partition has a tag longer than an earlier section")
-    return {"total": n, "sections": [
-        {"function": fn, "lines": counts[fn]} for fn in funcs]}
+    return free, weights, base, lengths
 
 
 def _validate_line_requirements(rows, total):

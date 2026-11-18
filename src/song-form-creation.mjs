@@ -40,13 +40,21 @@ const LINE_DIVISIONS = new Set([
   'distich',
   'line-pair',
 ]);
+export function isWordlessWriterRole(role) {
+  return role === 'solo' || role === 'interlude';
+}
+
 export function isVerseDivision(unit) {
   return LINE_DIVISIONS.has(unit);
 }
 
 // Browser-side mirror of the native writer's corpus-derived envelope, checked
 // against quality.plan in the catalog-wide tests.
-export const CREATION_LIMITS = Object.freeze({ minLines: 2, maxLines: 463, maxSections: 115 });
+export const CREATION_LIMITS = Object.freeze({
+  minLines: 2,
+  maxLines: 463,
+  maxSections: 115,
+});
 
 /**
  * Project a result from realizeForm and its validated count selections.
@@ -84,9 +92,13 @@ export function projectSongFormCreation(plan, counts = {}) {
 
   function visit(node) {
     for (const feature of FEATURES) {
-      if (node[feature] !== undefined && !(node.unit === 'section' && feature === 'role')) {
-        refuse('unsupported-unit-feature', node, feature);
+      if (node[feature] === undefined) continue;
+      if (node.unit === 'section' && feature === 'role') continue;
+      if (feature === 'bars' && (node.unit === 'section' || isVerseDivision(node.unit))) {
+        if (!Number.isSafeInteger(node.bars) || node.bars < 1) refuse('invalid-section-bars', node);
+        continue;
       }
+      refuse('unsupported-unit-feature', node, feature);
     }
     const counted =
       isVerseDivision(node.unit) ||
@@ -114,11 +126,16 @@ export function projectSongFormCreation(plan, counts = {}) {
         else refuse('unknown-line-position', child);
       }
     }
-    if (node.children.length && ['solo', 'interlude'].includes(role)) {
+    if (node.children.length && isWordlessWriterRole(role)) {
       return refuse('lines-on-wordless-role', node, role);
     }
     if (counted) divisions.push({ unit: node.unit, lines: node.children.length });
-    sections.push({ unit: 'section', role, lines: node.children.length || null });
+    sections.push({
+      unit: 'section',
+      role,
+      lines: node.children.length || null,
+      ...(node.bars !== undefined && { bars: node.bars }),
+    });
   }
   plan.tree.forEach(visit);
   if (!sections.length && !reasons.length) refuse('empty-structure');
@@ -149,6 +166,31 @@ export function projectSongFormCreation(plan, counts = {}) {
       refuse('inconsistent-recurring-section-length', null, role);
     }
     fixedLengths.set(role, count);
+  }
+
+  // The native grid uses one whole number of bars per sung line. Check known
+  // contradictions here; feasible allocations for open lengths belong to the planner.
+  let barsPerLine;
+  const barsByRole = new Map();
+  for (const part of sections) {
+    if (part.bars === undefined) continue;
+    if (barsByRole.has(part.role) && barsByRole.get(part.role) !== part.bars) {
+      refuse('inconsistent-recurring-section-bars', null, part.role);
+    }
+    barsByRole.set(part.role, part.bars);
+    const count = fixedLengths.get(part.role);
+    if (count === undefined) continue;
+    const ratio = part.bars / count;
+    if (!Number.isInteger(ratio) || (barsPerLine !== undefined && ratio !== barsPerLine)) {
+      refuse('incompatible-bars-per-line');
+    }
+    barsPerLine = ratio;
+  }
+  if (
+    barsPerLine !== undefined &&
+    [...barsByRole.values()].some((bars) => bars % barsPerLine !== 0)
+  ) {
+    refuse('incompatible-bars-per-line');
   }
 
   if (reasons.length) return { ...result, status: 'unsupported' };

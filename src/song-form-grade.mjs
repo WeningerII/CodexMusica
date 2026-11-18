@@ -1,7 +1,11 @@
 // Compare catalog requirements with measurements from the current candidate.
 // Blueprint coordinates describe the declared arrangement, including its bar grid.
 import { checkReaderForm, realizeForm } from './song-forms.mjs';
-import { isVerseDivision, projectSongFormCreation } from './song-form-creation.mjs';
+import {
+  isVerseDivision,
+  isWordlessWriterRole,
+  projectSongFormCreation,
+} from './song-form-creation.mjs';
 
 function simpleSectionLayout(node) {
   if (['song', 'poem', 'cycle'].includes(node.unit)) {
@@ -47,7 +51,11 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   plan.tree.forEach(walk);
   const extras = [];
   const spans = new Map();
-  const arranged = stanzas.length > 0 && projectSongFormCreation(plan, counts).arrangement;
+  const hasInstrumental = plan.sections.some((section) => isWordlessWriterRole(section.role));
+  const projection =
+    stanzas.length || hasInstrumental ? projectSongFormCreation(plan, counts) : null;
+  const arranged = projection?.arrangement;
+  const nativeInstrumental = hasInstrumental && projection?.contract;
   const divisions = arranged ? stanzas : stanzas.filter((node) => node.unit === 'stanza');
   const completePartition =
     plan.coverage.lines === 'complete' &&
@@ -64,9 +72,13 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       });
     if (divisions.length === sections.length) {
       input.units = Object.fromEntries(
-        divisions.flatMap((stanza, i) =>
-          sections[i].lineSpan ? [[stanza.address, { lineSpan: sections[i].lineSpan }]] : []
-        )
+        divisions.flatMap((stanza, i) => {
+          const { lineSpan, bars } = sections[i];
+          if (!lineSpan) return [];
+          const aligned =
+            lineSpan[0] === stanza.span.lines[0] && lineSpan[1] === stanza.span.lines[1];
+          return [[stanza.address, { lineSpan, ...(aligned && bars !== undefined && { bars }) }]];
+        })
       );
     }
   }
@@ -77,7 +89,7 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     plan.coverage.lines === 'partial' &&
     plan.coverage.sections === 'complete' &&
     plan.tree.every(simpleSectionLayout);
-  if (mixedSections) {
+  if (mixedSections || nativeInstrumental) {
     const observedSpans = (sections ?? []).map((section) => section.lineSpan);
     const haveAllSpans =
       observedSpans.length > 0 && observedSpans.every((span) => span !== undefined);
@@ -107,20 +119,23 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     if (haveAllSpans || !consistent) {
       extras.push({ kind: 'section-partition', outcome: consistent ? 'pass' : 'fail' });
     }
-    const actual = lines?.length ?? (haveAllSpans ? observedSpans.at(-1)[1] : undefined);
-    const minimum = plan.minimum.lines;
-    extras.push({
-      kind: 'lines-count',
-      exact: false,
-      expected: minimum,
-      actual,
-      outcome: actual === undefined ? 'unknown' : actual >= minimum ? 'pass' : 'fail',
-    });
-    plan.sections.forEach(({ address }, i) => {
+    if (mixedSections) {
+      const actual = lines?.length ?? (haveAllSpans ? observedSpans.at(-1)[1] : undefined);
+      const minimum = plan.minimum.lines;
+      extras.push({
+        kind: 'lines-count',
+        exact: false,
+        expected: minimum,
+        actual,
+        outcome: actual === undefined ? 'unknown' : actual >= minimum ? 'pass' : 'fail',
+      });
+    }
+    plan.sections.forEach(({ address, role }, i) => {
       const span = observedSpans[i];
       if (span) spans.set(address, span);
-      const expected = addresses.get(address).children.length;
-      if (expected) {
+      const wordless = nativeInstrumental && isWordlessWriterRole(role);
+      const expected = wordless ? 0 : addresses.get(address).children.length;
+      if (wordless || (mixedSections && expected)) {
         const length = span && span[1] - span[0];
         extras.push({
           kind: 'section-lines',

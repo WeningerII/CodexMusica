@@ -489,3 +489,140 @@ test(
     assert.equal(grade.exit_code, 3);
   }
 );
+
+test(
+  'the seeded writer enforces the selected bar layout through grading, reconnect, and revision',
+  { timeout: 180_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    const relation = 'class:RHYME';
+    const selection = {
+      seed_from: 31,
+      count: 1,
+      catalog_form: '16-bar-blues',
+      catalog_variant: 1,
+      lines: 4,
+      relation,
+      draw: ['functions'],
+    };
+    const phrase = (bars) =>
+      JSON.stringify({
+        meter: { beats: 4, unit: 4, groups: [2, 2] },
+        bars,
+        subdivision: 1,
+        notes: Array.from({ length: bars * 4 }, () => ({ pitch_hz: 440, ticks: 1 })),
+      });
+    await host.begin();
+    const wrong = await host.run('lyric_sweep', { ...selection, melody: phrase(2) });
+    const refusal = measured(await host.read(wrong.operation_id, 'full'));
+    assert.deepEqual(refusal.accepted_shown, [], JSON.stringify(refusal));
+    assert.match(
+      JSON.stringify(refusal.planner_refusals),
+      /catalog section bars cannot fit the declared lines, melody, and native section partition/i
+    );
+
+    await host.begin();
+    const swept = measured(await host.run('lyric_sweep', { ...selection, melody: phrase(4) }));
+    assert.deepEqual(swept.accepted_shown, [31], swept.report);
+    const [seed] = swept.accepted_shown;
+    const planned = await host.run('lyric_plan', { seed, relation, lines: 4, melody: phrase(4) });
+    const { plan, plan_sha256: digest } = measured(await host.read(planned.operation_id, 'full'));
+    assert.deepEqual(plan.request.song_form.sections, [
+      { unit: 'section', role: 'verse', lines: 4, bars: 16 },
+    ]);
+    assert.deepEqual(
+      plan.sections.map((s) => s.bars),
+      [16]
+    );
+    assert.deepEqual(
+      plan.line_slots.map((row) => row.duration),
+      [16, 16, 16, 16]
+    );
+    const screened = measured(await host.run('lyric_screen', { words: ['one', 'two'], relation }));
+    assert.equal(screened.exit_code, 0, screened.report);
+    const draft = ['one', 'two', 'three', 'four'].map((w) => Array(4).fill(w).join(' '));
+    function verifyCatalog(receipt) {
+      assert.equal(receipt.coverage.catalog_form?.id, '16-bar-blues');
+      assert.equal(receipt.coverage.catalog_form.variant, 1);
+      const bars = receipt.coverage.catalog_form.checks.filter((c) => c.kind === 'bars');
+      assert.deepEqual(
+        bars.map((c) => [c.expected, c.outcome, c.lines]),
+        [[16, 'pass', [1, 2, 3, 4]]]
+      );
+      assert.equal(receipt.coverage.catalog_form.verdict, 'pass');
+      assert.equal(receipt.exit_code, 3, receipt.report);
+    }
+    const graded = await host.run('lyric_grade', { seed, draft });
+    const actual = measured(await host.read(graded.operation_id, 'full'));
+    assert.equal(actual.plan_sha256, digest);
+    verifyCatalog(actual);
+    await host.reconnect();
+    const args = { seed, attempts: 0, max_rounds: 1, backtrack: 0 };
+    const revised = await host.run('lyric_revise', args);
+    const final = measured(await host.read(revised.operation_id, 'full'));
+    verifyCatalog(final);
+    const replay = await host.call('lyric_revise', { session_id: revised.predecessor, ...args });
+    assert.equal(replay.operation_id, revised.operation_id);
+    assert.deepEqual(measured(await host.read(replay.operation_id, 'full')), final);
+  }
+);
+
+test(
+  'repeated sections retain their individual bar counts in a real grade',
+  { timeout: 180_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const relation = 'class:RHYME';
+    const selection = {
+      catalog_form: 'hip-hop-verse-hook',
+      catalog_variant: 1,
+      catalog_counts: [
+        { path: '1.1', count: 0 },
+        { path: '1.2', count: 2 },
+        { path: '1.3', count: 0 },
+      ],
+    };
+    const swept = measured(
+      await host.run('lyric_sweep', {
+        seed_from: 11,
+        count: 1,
+        ...selection,
+        lines: 10,
+        relation,
+        draw: ['functions', 'melody'],
+      })
+    );
+    assert.deepEqual(swept.accepted_shown, [11], swept.report);
+    const [seed] = swept.accepted_shown;
+    const planned = await host.run('lyric_plan', { seed, lines: 10, relation });
+    const { plan } = measured(await host.read(planned.operation_id, 'full'));
+    const pattern = [
+      ['verse', 12],
+      ['hook', 8],
+      ['verse', 12],
+      ['hook', 8],
+    ];
+    assert.deepEqual(
+      plan.sections.map((s) => [s.function, s.bars]),
+      pattern
+    );
+    const screen = measured(await host.run('lyric_screen', { words: ['one', 'two'], relation }));
+    assert.equal(screen.exit_code, 0);
+    const units = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+    const draft = units.map((word) => Array(4).fill(word).join(' '));
+    const graded = await host.run('lyric_grade', { seed, draft });
+    const receipt = measured(await host.read(graded.operation_id, 'full'));
+    assert.equal(
+      receipt.coverage.catalog_form?.verdict,
+      'pass',
+      JSON.stringify(receipt.coverage.catalog_form)
+    );
+    const bars = receipt.coverage.catalog_form.checks.filter((row) => row.kind === 'bars');
+    assert.deepEqual(
+      bars.map((row) => [row.expected, row.outcome]),
+      pattern.map(([, count]) => [count, 'pass'])
+    );
+    assert.equal(receipt.exit_code, 3, receipt.report);
+  }
+);
