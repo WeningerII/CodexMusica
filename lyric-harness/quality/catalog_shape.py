@@ -5,7 +5,8 @@ Length allocation reuses the ordinary exact-uniform native partition engine.
 """
 import re
 
-from quality import grid, plan, relations
+from quality import grid, plan
+from quality.relations import audible_as_end_rhyme
 
 
 FIELDS = frozenset(("version", "id", "scope", "variant", "counts", "sections",
@@ -15,7 +16,7 @@ FIELDS = frozenset(("version", "id", "scope", "variant", "counts", "sections",
 def terminal_rhyme_relation(name):
     """Whether this native declaration can bind an audible rhyme at both line endings."""
     _, schema = plan._schema_of(name)
-    return name == "class:RHYME" or schema is not None and relations.audible_as_end_rhyme(schema)
+    return name == "class:RHYME" or schema is not None and audible_as_end_rhyme(schema)
 
 
 def rhyme_source_groups(groups, returns):
