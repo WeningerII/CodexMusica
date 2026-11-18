@@ -3875,6 +3875,15 @@ jobs:
         run: python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
       - name: Stage the tagger model and the concreteness norms
         run: python3 quality/fetch_data.py --research
+      # Stage 5 (owner's ruling 16 Nov 2026): the return answers a plan dealt.
+      # Every shard builds the same seeded walk and grades the plans dealt to
+      # it by the same TEST_PLAN_SHARD residue. ~~The data guards run on
+      # each~~ (2026-11-18): the sections that grade no plan are dealt one to
+      # a shard, the data guards to the last. BEFORE test_plan, not after: a
+      # shard whose test_plan share is cancelled at the job's time limit
+      # (shard 1, on seed 0) never reached a step placed after it.
+      - name: test_return_plan shard ${{ matrix.shard }}/5 (graded mechanisms dealt by TEST_PLAN_SHARD; the other sections one to a shard)
+        run: python3 quality/test_return_plan.py
       - name: test_plan shard ${{ matrix.shard }}/5 (sections dealt by residue over the cost-ordered tuple; §3 deals its seeds by the same coordinate)
         run: python3 quality/test_plan.py
 

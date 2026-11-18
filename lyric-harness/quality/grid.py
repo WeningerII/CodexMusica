@@ -1378,14 +1378,11 @@ def song_from_blueprint(obj, assume_meter=None):
 #: `RETURN_NOT_VERBATIM` being a flag while its sibling `RETURN_OUT_OF_RANGE`
 #: is a note.
 #:
-#: `RETURN_SCHEME_DRIFT` IS THE ONE A LATER READER WILL WANT TO PROMOTE, and
-#: must not. It is about RHYME, and rhyme is what the mandate flags — but
-#: `return_findings` is never handed a mandate, so every answer it gives is
-#: against the convention. THE FLAG ALREADY EXISTS ONE LAYER DOWN: a writer
-#: who REQUIRES a return declares `schemes.Return(verbatim=True)` and
-#: `Mandate.returns_check` breaks it as `RETURN_NOT_VERBATIM`. Promoting this
-#: one would fail an undeclared return on a convention AND fail a declared one
-#: twice under two names.
+#: UNDER A PLAN (stage 5, owner's ruling 16 Nov 2026) the return answers
+#: about shapes the plan dealt are not asked at all: `song_function_report`
+#: takes the mandate's return classes as `classes`, and a planned song's
+#: returns are judged once, by `Mandate.returns_check` (RETURN_NOT_VERBATIM,
+#: a flag). Without `classes` every answer here is against the convention.
 SEVERITY = {
     # THE ONE FLAG — a fact about the writer's own supplied text.
     "HOOK_ABSENT": "flag",
@@ -2544,9 +2541,15 @@ def _bars_of(occ):
     return str([o.bar for o in occ])
 
 
-def hook_findings(song, hooks=(), title=None):
+def hook_findings(song, hooks=(), title=None, planned=False):
     """-> (findings, refusals). The writer's questions: does it recur, where,
-    and is the title in it?"""
+    and is the title in it?
+
+    `planned`: the song follows a plan and the mandate in hand returns the
+    hook's own line (~~the song follows a plan~~, 2026-11-18: a plan's key
+    beside a mandate with no such class is not that). A hook that stops
+    recurring is then that class's RETURN_NOT_VERBATIM, and a hook kept in
+    one function is the plan's shape."""
     findings, refusals = [], []
     hooks = [h if isinstance(h, Hook) else Hook(h) for h in hooks]
     if not hooks:
@@ -2568,14 +2571,15 @@ def hook_findings(song, hooks=(), title=None):
                 subject=("hook", hook_index)))
             continue
         if len(occ) == 1:
-            findings.append(GridFinding(
-                "HOOK_DOES_NOT_RECUR",
-                "the declared hook occurs once, so it is a line and not a "
-                "hook",
-                f"{h.text!r} at bar {occ[0].bar}, in "
-                f"{occ[0].section!r} ({occ[0].function or 'UNDECLARED'}). A "
-                f"hook is defined by RETURN; one occurrence is a phrase.",
-                subject=("hook", hook_index)))
+            if not planned:
+                findings.append(GridFinding(
+                    "HOOK_DOES_NOT_RECUR",
+                    "the declared hook occurs once, so it is a line and not a "
+                    "hook",
+                    f"{h.text!r} at bar {occ[0].bar}, in "
+                    f"{occ[0].section!r} ({occ[0].function or 'UNDECLARED'}). A "
+                    f"hook is defined by RETURN; one occurrence is a phrase.",
+                    subject=("hook", hook_index)))
             continue
         fns = {o.function for o in occ}
         # UNDECLARED IS NOT A FUNCTION, AND IT USED TO BE COUNTED AS ONE.
@@ -2616,7 +2620,7 @@ def hook_findings(song, hooks=(), title=None):
                     f"section(s) may be the leak that answers it. Declare "
                     f"their function, or accept the refusal -- the harness "
                     f"does not read {where} as a function name."))
-            else:
+            elif not planned:
                 findings.append(GridFinding(
                     "HOOK_CONFINED",
                     f"the hook returns {len(occ)} times and never leaves one "
@@ -2874,9 +2878,15 @@ def single_use_off_edge(song, fn):
 
 
 def return_findings(song, function="chorus", convention=POPULAR_SONG,
-                    rhyme_key=None, decl=None):
+                    rhyme_key=None, decl=None, planned=False):
     """Does this function land in the same place, and the same shape, each
     time it returns?  -> (findings, refusals, returns).
+
+    `planned`: the song follows a plan, which dealt its returns. The answers
+    about shapes the plan chose (RETURN_SCHEME_DRIFT, RETURNS_WITH_NEW_WORDS,
+    RETURN_LOCKED) are then not given: a changed verbatim return is the
+    mandate's RETURN_NOT_VERBATIM, and a broken new-words group is its
+    SCHEME_VIOLATION.
 
     Three separate questions, and before `function` existed none of them had a
     subject: two spans named "chorus" and "chorus2" were two strings.
@@ -3087,21 +3097,14 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
     # the argument `song_function_report` already makes for not asking the five
     # "open" functions about length.
     #
-    # IT IS A NOTE AT `Reviser._function_findings`, WHICH IS THE DEFAULT AND IS
-    # ALSO THE ANSWER. Everything from this report is a note except HOOK_ABSENT
-    # because everything here is measured against `POPULAR_SONG`, a labelled
-    # CONVENTION, and doctrine 96 says a convention a writer may depart from
-    # cannot be the thing that fails `verify()`. This finding is the one most
-    # likely to be promoted by a later reader, because it is ABOUT RHYME and
-    # rhyme is what the mandate flags -- so: the flag for this already exists
-    # and is somewhere else. A writer who REQUIRES a return declares it with
-    # `schemes.Return(verbatim=True)`, and breaking it is RETURN_NOT_VERBATIM,
-    # a flag, from `Mandate.returns_check`. `return_findings` never sees a
-    # mandate at all, so nothing it can say is a requirement the writer
-    # declared, and a second flag on a declared return would be one question
-    # failed twice under two names. Hanby rewrites his chorus and keeps the
-    # rhyme; a writer may equally recast the scheme on purpose, and doctrine 7
-    # forbids a floor from manufacturing noise on that.
+    # IT IS A NOTE AT `Reviser._function_findings`. Everything from this
+    # report is a note except HOOK_ABSENT (and the hook's own recurrence),
+    # because it is measured against `POPULAR_SONG`, a labelled CONVENTION,
+    # and doctrine 96 says a convention a writer may depart from cannot be the
+    # thing that fails `verify()`. UNDER A PLAN (`planned`, stage 5) it is not
+    # given at all: the plan dealt the returns, a changed verbatim return is
+    # the mandate's RETURN_NOT_VERBATIM, and a broken new-words group is its
+    # SCHEME_VIOLATION.
     #
     # THE TRIPLE IS UNMOVED, CHECKED: this appends to `findings`, and
     # `song_function_report`'s `ask_one` counts `asked` per question and
@@ -3109,7 +3112,7 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
     # refused / refusal_records are identical either side of this block.
     drifted = [(a, b, r) for a, b, r in rets
                if r.rhyme_scheme_preserved is False and r.varied_lines]
-    if drifted:
+    if drifted and not planned:
         from quality import schemes as S
 
         def _read(sec):
@@ -3171,7 +3174,21 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
     same_words = bool(rets) and all("VERBATIM" in r.qualities
                                     for _, _, r in rets)
     spec = SECTION_FUNCTIONS[fn]
-    if spec.returns_as == "new words" and same_words:
+    if spec.returns_as == "new words" and planned:
+        # UNDER A PLAN, ONE NOTE PER COPIED INSTANCE (stage 5, owner's call
+        # A): the plan dealt new words, and each instance that copies the
+        # first is one fact. The rhyme-layer notes that restate the copy are
+        # held at `Reviser.inspect` (AN UNDEALT COPY).
+        for a, b, r in rets:
+            if "VERBATIM" in r.qualities:
+                findings.append(GridFinding(
+                    "RETURNS_WITH_SAME_WORDS",
+                    f"the {fn} at bars {b.start_bar}-{b.end_bar} returns "
+                    f"with IDENTICAL words",
+                    f"it repeats bars {a.start_bar}-{a.end_bar} word for "
+                    f"word. The plan deals a {fn} new words on the same "
+                    f"tune; identical words are a chorus's job."))
+    elif spec.returns_as == "new words" and same_words:
         findings.append(GridFinding(
             "RETURNS_WITH_SAME_WORDS",
             f"every {fn} returns with IDENTICAL words",
@@ -3181,7 +3198,7 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
             f"LABEL, not about the lines."))
     changed = [(a, b) for a, b, r in rets
                if "VERBATIM" not in r.qualities and r.kind != "STUB"]
-    if spec.returns_as == "verbatim" and changed:
+    if spec.returns_as == "verbatim" and changed and not planned:
         findings.append(GridFinding(
             "RETURNS_WITH_NEW_WORDS",
             f"the {fn} does not come back word for word",
@@ -3190,7 +3207,7 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
                         f"{b.start_bar}-{b.end_bar}" for a, b in changed)
             + f". A {fn} returns verbatim by its own row in the vocabulary; "
               f"this is the mirror of RETURNS_WITH_SAME_WORDS."))
-    if (spec.returns_as == "verbatim"
+    if (not planned and spec.returns_as == "verbatim"
             and len(rets) >= convention.return_lock_min - 1
             and same_words
             and all(r.tune_slot_preserved for _, _, r in rets)):
@@ -3208,10 +3225,52 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
     return findings, refusals, rets
 
 
+def _numbers(song, section):
+    """-> the 1-based draft line numbers of one section instance."""
+    return {k + 1 for k, l in enumerate(song.lines)
+            if section.start_bar <= l.bar <= section.end_bar}
+
+
+def _came_back(song, src, dst, anywhere=False):
+    """-> [(a, b)]: each line `b` of section `dst` that is line `a` of
+    section `src` come back intact, as 1-based draft line numbers.
+
+    THE PAIRING RULE IS `compare_returns`' OWN, so these are the lines its
+    `invariant_lines` counts: sections of equal line counts pair by
+    position, unequal ones by longest common subsequence. A line the
+    declared normalisation reads as empty is in neither list, as there.
+
+    `anywhere` (2026-11-18, the owner's call B of 16 Nov): after those
+    pairs, also every other pair of a `dst` line and a `src` line that read
+    the same, in draft order. That rule leaves out a line that comes back
+    out of its place; a plan's grader counts it (`reprise_findings`)."""
+    first, again = ([(n, normalise_line(song.lines[n - 1].text))
+                     for n in sorted(_numbers(song, sec))]
+                    for sec in (src, dst))
+    first, again = ([x for x in side if x[1]] for side in (first, again))
+    pairs = ([(i, i) for i in range(len(first))]
+             if len(first) == len(again) else
+             _lcs_pairs([t for _n, t in first], [t for _n, t in again]))
+    back = [(first[i][0], again[j][0]) for i, j in pairs
+            if first[i][1] == again[j][1]]
+    if anywhere:
+        back += [(a, b) for b, t in again for a, s in first
+                 if s == t and (a, b) not in back]
+    return back
+
+
 def reprise_findings(song, later="outro", earlier="intro",
-                     convention=POPULAR_SONG, rhyme_key=None, decl=None):
+                     convention=POPULAR_SONG, rhyme_key=None, decl=None,
+                     classes=None):
     """Does ONE declared function's section come back to ANOTHER'S?
     -> (findings, refusals, reprises).
+
+    `classes`: the plan's return classes (sets of 1-based line numbers), or
+    None. Under a plan a line counts wherever in the later section it comes
+    back (`_came_back(anywhere=True)`). Where a class joins every such line
+    to a line it reads as, the pair of sections is the plan's own row and
+    gets no CROSS_FUNCTION_REPRISE; one line that came back with no class
+    joining it keeps the note, which names that line.
 
     The other half of `return_findings`, and the half nothing asked.
     `compare_returns` takes two LINE LISTS and does not care where they came
@@ -3313,7 +3372,17 @@ def reprise_findings(song, later="outro", earlier="intro",
                 f"refusal and not a finding in either direction "
                 f"(MISSING.md A-1)."))
             continue
-        if len(r.invariant_lines) < convention.reprise_min_lines:
+        # UNDER A PLAN A LINE COUNTS WHEREVER IT COMES BACK (2026-11-18, the
+        # owner's call B of 16 Nov: an undealt copy is its rhyme flag, else
+        # one note). ~~Counted by `r.invariant_lines` alone~~: a line that
+        # came back out of its place between two sections of one length
+        # counted for nothing, so that copy had no note. A resolved stub has
+        # no line of its own to join, so it is counted as it always was.
+        back = (_came_back(song, src, dst, anywhere=True)
+                if classes is not None and not r.stub_resolutions else None)
+        came = (len(r.invariant_lines) if back is None
+                else len({b for _a, b in back}))
+        if came < convention.reprise_min_lines:
             continue                       # ANSWERED: it does not reprise it
         # `kept` is non-empty at any `reprise_min_lines >= 1`, and a
         # convention MAY legally declare 0 -- "every comparison counts" is a
@@ -3326,12 +3395,33 @@ def reprise_findings(song, later="outro", earlier="intro",
             if side == "first":
                 expanded_src[line - 1:line] = full
         kept = [expanded_src[i - 1] for i in r.invariant_lines]
+        # ~~Skipped when ANY class joined the two sections~~ (2026-11-18,
+        # review S4): one planned row then hid every other copy between
+        # them, and one flagged copy hid the unflagged one beside it. A line
+        # is the plan's row when a class joins it to a line it reads as; the
+        # note names each line no class joins, by draft line, and then says
+        # that what follows is the two sections compared in place.
+        named = ""
+        if back:
+            dealt = {b for a, b in back
+                     if any(a in c and b in c for c in classes)}
+            loose = {}
+            for a, b in back:
+                if b not in dealt:
+                    loose.setdefault(b, a)
+            if not loose:
+                continue      # every line that came back is the plan's row
+            named = (f". Under a plan a line counts wherever in the {ln} it "
+                     f"comes back. Not joined by a return class: "
+                     + "; ".join(f"L{b} copies L{a}"
+                                 for b, a in sorted(loose.items()))
+                     + ". Compared in place, the pair")
         findings.append(GridFinding(
             "CROSS_FUNCTION_REPRISE",
-            f"the {ln} reprises the {en}: {len(r.invariant_lines)} line(s) "
-            f"come back",
+            f"the {ln} reprises the {en}: {came} line(s) come back",
             f"{src.name!r} ({en}, bars {src.start_bar}-{src.end_bar}) -> "
-            f"{dst.name!r} ({ln}, bars {dst.start_bar}-{dst.end_bar}) is "
+            f"{dst.name!r} ({ln}, bars {dst.start_bar}-{dst.end_bar})"
+            f"{named} is "
             f"{r.kind} -- {r.gloss}. Lines {list(r.invariant_lines)} of the "
             f"{en} return intact"
             + (f", beginning {kept[0]!r}" if kept else "") + "; "
@@ -3783,8 +3873,18 @@ def not_asked(song):
 
 
 def song_function_report(song, hooks=(), rhyme_key=None,
-                         convention=POPULAR_SONG, decl=None):
+                         convention=POPULAR_SONG, decl=None, classes=None,
+                         hook_in_class=False):
     """Every function-dependent question, asked once. -> dict.
+
+    `classes`: the plan's return classes (sets of 1-based line numbers) when
+    the song follows a plan, else None. Under a plan the answers about shapes
+    the plan dealt are not given (`return_findings(planned=)`,
+    `reprise_findings(classes=)`, and REPRISE_BRINGS_NOTHING_BACK below).
+    None is the grader as it always was.
+
+    `hook_in_class`: one of those classes holds the hook's own line. Only
+    then are the hook's two answers withheld (`hook_findings(planned=)`).
 
     Three counts, always, and they are not interchangeable: questions ASKED,
     questions ANSWERED, questions REFUSED (doctrine 79).
@@ -3811,6 +3911,7 @@ def song_function_report(song, hooks=(), rhyme_key=None,
     """
     findings, refusals = [], []
     asked = refused_questions = 0
+    planned = classes is not None
     prof = function_profile(song)
     detail = {}
 
@@ -3878,7 +3979,8 @@ def song_function_report(song, hooks=(), rhyme_key=None,
     _named_by_recurred = {i for fn in expects_once if recurred.get(fn, 0) > 1
                           for i in single_use_off_edge(song, fn)}
     for fn in sorted(ask):
-        f, r, rets = return_findings(song, fn, convention, rhyme_key, decl)
+        f, r, rets = return_findings(song, fn, convention, rhyme_key, decl,
+                                     planned=planned)
         ask_one(f, r)
         detail[fn] = rets
     # THE CROSS-FUNCTION HALF. Every question above asks whether ONE declared
@@ -3902,7 +4004,7 @@ def song_function_report(song, hooks=(), rhyme_key=None,
         if not song.instances_of(ln) or not song.instances_of(en):
             continue
         f, r, reps = reprise_findings(song, ln, en, convention, rhyme_key,
-                                      decl)
+                                      decl, classes=classes)
         ask_one(f, r)
         reprises[(ln, en)] = reps
     # WHERE THE SECTIONS SIT (2026-08-22, `MISSING.md` M-54). One question,
@@ -4003,7 +4105,7 @@ def song_function_report(song, hooks=(), rhyme_key=None,
                 f"are a reprise or a final chorus.")], [])
     # A REPRISE IS "a declared return of earlier material".
     for rep in song.instances_of("reprise"):
-        if _sung(rep) and not _lines_again(rep):
+        if not planned and _sung(rep) and not _lines_again(rep):
             ask_one([GridFinding(
                 "REPRISE_BRINGS_NOTHING_BACK",
                 "the reprise brings back no line from earlier in the song",
@@ -4048,7 +4150,7 @@ def song_function_report(song, hooks=(), rhyme_key=None,
                 + ", ".join(f"{fn} {rest[fn]:.2f}" for fn in sorted(slower))
                 + ". Patter is the rapid, densely worded part by its own "
                   "row in the vocabulary.")], [])
-    f, r = hook_findings(song, hooks)
+    f, r = hook_findings(song, hooks, planned=planned and hook_in_class)
     ask_one(f, r)
     return {"profile": prof, "findings": findings, "refusals": refusals,
             "returns": detail,

@@ -3580,7 +3580,159 @@ class Reviser:
         why = bp.get("hook_slot_refused") if isinstance(bp, dict) else ""
         return why.strip() if isinstance(why, str) else ""
 
-    def _function_findings(self, lines, blueprint, coverage_out=None):
+    @staticmethod
+    def _blueprint_planned(blueprint):
+        """-> True when the blueprint was written by `plan.fill_plan`.
+
+        `fill_plan` always writes `hook_slot_refused` (as "" when the plan
+        names a hook slot) and is its only writer; `recover` never writes it.
+        So the key's presence, even as "", says the song follows a plan.
+        `blueprint` is a dict or a path, as for `_blueprint_hook_slot`."""
+        import json
+        bp = blueprint
+        if not isinstance(bp, dict):
+            try:
+                with open(bp, encoding="utf-8") as fh:
+                    bp = json.load(fh)
+            except (OSError, ValueError, TypeError):
+                return False
+        return isinstance(bp, dict) and "hook_slot_refused" in bp
+
+    @staticmethod
+    def _whole_line_classes(m, n):
+        """-> [[line]]: each whole-line verbatim return class, as its sorted
+        members inside a draft of `n` lines, where two or more are.
+
+        ~~A class naming any line past the draft was skipped whole~~
+        (2026-11-18, review N1): that dropped the flag on its lines inside
+        the draft too. A member past the draft is RETURN_OUT_OF_RANGE's (a
+        note); the members inside it are still read. Only a hand-built
+        mandate carries such a class."""
+        out = []
+        for r in m.returns:
+            if (not hasattr(r, "pairs") or getattr(r, "placed", False)
+                    or r.verbatim is not True):
+                continue
+            members = sorted(x for x in r if x <= n)
+            if len(members) >= 2:
+                out.append(members)
+        return out
+
+    @staticmethod
+    def _off_reference(m, lines):
+        """-> [(reference line, member line, members on the reference
+        reading, class size)] for each member of a whole-line verbatim
+        return class whose reading differs from the class's reference.
+
+        The reference is the reading most members hold; a tie goes to the
+        first line. Read under the declared normalisation, the same one
+        `Mandate.returns_check` compares."""
+        out = []
+        for members in Reviser._whole_line_classes(m, len(lines)):
+            read = {x: GR.normalise_line(lines[x - 1]) for x in members}
+            count = collections.Counter(read.values())
+            ref_text = max(count, key=lambda t: (
+                count[t], -min(x for x in members if read[x] == t)))
+            ref = min(x for x in members if read[x] == ref_text)
+            for x in members:
+                if read[x] != ref_text:
+                    out.append((ref, x, count[ref_text], len(members)))
+        return out
+
+    @staticmethod
+    def _held_rhyme_lines(m, lines):
+        """-> [(class members, held lines, group labels)]: one row for each
+        whole-line verbatim return class whose members end on different
+        words and sit in a mandate group. The held lines are every line of
+        every group that holds a line of the class. Empty when every class
+        agrees.
+
+        ~~-> (lines, group labels), one union over every such class~~
+        (2026-11-18, review S3): the union could not say which class held a
+        pair, so every RETURN_NOT_VERBATIM carried the whole draft's count."""
+        out = []
+        for members in Reviser._whole_line_classes(m, len(lines)):
+            ends = {tuple(GR.normalise_line(lines[x - 1]).split()[-1:])
+                    for x in members}
+            if len(ends) < 2:
+                continue
+            held, labels = set(), []
+            for k, g in enumerate(m.groups):
+                if set(g) & set(members):
+                    held |= set(g)
+                    labels.append(m.labels[k] if k < len(m.labels) else str(k))
+            if held:
+                out.append((frozenset(members), held, labels))
+        return out
+
+    @staticmethod
+    def _undealt_copies(m, lines, blueprint):
+        """-> ({copy line: source line}, {reprising copy lines}) for the
+        copies a plan did not deal: no return class joins them.
+
+        Two shapes, read off the section table and the convention's reprise
+        pairs. A later instance of a "new words" returning function whose
+        every line repeats the first instance's, line for line; and a line of
+        a reprising function's section (the later side of a
+        `POPULAR_SONG.reprises` pair) that reads as a line of the section it
+        reprises: the first instance of that section, placed before it. Read
+        under the declared normalisation.
+
+        A REPRISING COPY IS ONE THE FUNCTION LAYER COUNTS UNDER A PLAN
+        (2026-11-18, review S4, then the owner's call B of 16 Nov): the pairs
+        `grid._came_back(anywhere=True)` reads, the same lines a planned
+        CROSS_FUNCTION_REPRISE counts and names. A line is undealt when no
+        class joins it to any line of that section it reads as; its source
+        is the line `compare_returns` pairs it with, else the first it reads
+        as. ~~Only the pairs that note counted in place~~: a copy out of its
+        place between two sections of one length then kept its rhyme notes
+        and had no note of its own. It now has the one note, or its rhyme
+        flag, and the rhyme notes that only restate it are held."""
+        song, _ = GR.song_from_blueprint(blueprint)
+        n = len(lines)
+        for l, text in zip(song.lines, lines):
+            l.text = text
+        joined = [frozenset(r) for r in m.returns
+                  if not getattr(r, "placed", False)]
+
+        def numbers(sec):
+            return [k + 1 for k, l in enumerate(song.lines)
+                    if sec.start_bar <= l.bar <= sec.end_bar and k < n]
+
+        def read(x):
+            return GR.normalise_line(lines[x - 1])
+
+        def free(a, b):
+            return not any(a in c and b in c for c in joined)
+        copy_of, reprising = {}, set()
+        for fn, spec in GR.SECTION_FUNCTIONS.items():
+            inst = song.instances_of(fn)
+            if spec.returns_as != "new words" or len(inst) < 2:
+                continue
+            first = numbers(inst[0])
+            for sec in inst[1:]:
+                again = numbers(sec)
+                if (len(again) == len(first) and first
+                        and all(read(a) and read(a) == read(b) and free(a, b)
+                                for a, b in zip(first, again))):
+                    copy_of.update(zip(again, first))
+        for later, earlier in GR.POPULAR_SONG.reprises:
+            e_inst = song.instances_of(earlier)
+            if not e_inst:
+                continue
+            for sec in song.instances_of(later):
+                if sec.start_bar <= e_inst[0].start_bar:
+                    continue
+                back = GR._came_back(song, e_inst[0], sec, anywhere=True)
+                dealt = {b for a, b in back if not free(a, b)}
+                for a, b in back:
+                    if b <= n and b not in dealt and b not in copy_of:
+                        copy_of[b] = a
+                        reprising.add(b)
+        return copy_of, reprising
+
+    def _function_findings(self, lines, blueprint, coverage_out=None,
+                           mandate=None, flagged_copies=()):
         """-> [Finding], all whole-draft. `quality/grid.py`'s FUNCTION layer
         (verse/chorus/bridge/hook/return) read off the SAME blueprint
         `_meter_findings` already requires.
@@ -3616,18 +3768,16 @@ class Reviser:
         `RETURN_NOT_VERBATIM` being a flag while `RETURN_LENGTH_DRIFT`'s
         sibling `RETURN_OUT_OF_RANGE` is a note.
 
-        `RETURN_SCHEME_DRIFT` (added 2026-08-14) is the note most likely to
-        be promoted by a later reader and must not be, because it is ABOUT
-        RHYME and rhyme is what the mandate flags. It is not a mandate:
-        `grid.return_findings` is never handed one, so its every answer is
-        measured against `POPULAR_SONG` and nothing it says is a requirement
-        the writer declared. THE FLAG FOR THIS ALREADY EXISTS ONE LAYER
-        DOWN — a writer who REQUIRES a return declares it as
-        `schemes.Return(verbatim=True)` and `Mandate.returns_check` breaks it
-        as `RETURN_NOT_VERBATIM`, a flag, above — so promoting it would fail
-        an undeclared return on a convention AND fail a declared one twice
-        under two names. The argument in full is at the finding's own site in
-        `quality/grid.py`.
+        UNDER A PLAN (stage 5, owner's ruling 16 Nov 2026). When the
+        blueprint was written by `plan.fill_plan` (`_blueprint_planned`) and
+        `mandate` is given, the mandate's return classes are handed to
+        `grid.song_function_report` as `classes`. The return answers about
+        shapes the plan dealt are then not given: the plan's returns are
+        judged once, by `Mandate.returns_check` (RETURN_NOT_VERBATIM, a flag,
+        in `inspect`), and a broken new-words group is SCHEME_VIOLATION. The
+        reprise-order question is `not_requested` under a plan, because the
+        plan placed the reprise and no choice of words can move it. Without
+        a plan, or without `mandate`, every answer is as it always was.
         """
         song, hooks = GR.song_from_blueprint(blueprint)
         for l, text in zip(song.lines, lines):
@@ -3652,8 +3802,27 @@ class Reviser:
         _hs = self._blueprint_hook_slot(blueprint)
         if _hs is not None and 1 <= _hs <= len(lines):
             hooks = [lines[_hs - 1]]
+        classes, hook_in_class = None, False
+        if mandate is not None and self._blueprint_planned(blueprint):
+            dealt = tuple(frozenset(r) for r in mandate.returns
+                          if not getattr(r, "placed", False))
+            # `flagged_copies`: an undealt reprising copy whose line already
+            # carries a SCHEME_VIOLATION flag joins its source here, so the
+            # flag is its one name and no CROSS_FUNCTION_REPRISE note
+            # restates it (`inspect`, AN UNDEALT COPY).
+            classes = dealt + tuple(flagged_copies)
+            # THE HOOK'S ANSWERS ARE WITHHELD ONLY WHERE THE MANDATE IN HAND
+            # RETURNS THE HOOK LINE (2026-11-18, review S5). ~~The plan's key
+            # alone withheld them~~: a blueprint that carried the key beside
+            # a mandate with no such class lost HOOK_DOES_NOT_RECUR (a flag)
+            # with no RETURN_NOT_VERBATIM to take its place. A plan's own
+            # mandate always holds the class (`test_return_plan` §1), so a
+            # planned song grades as it did.
+            hook_in_class = _hs is not None and any(_hs in c for c in dealt)
         rep = GR.song_function_report(song, hooks=hooks,
-                                      rhyme_key=GR.rime_cmudict(self.lex))
+                                      rhyme_key=GR.rime_cmudict(self.lex),
+                                      classes=classes,
+                                      hook_in_class=hook_in_class)
         # The plan's own reason for declaring no hook, or "" (see the note
         # at `unasked` below). Read once: the coverage rows and the refusal
         # note both speak from it.
@@ -3707,6 +3876,8 @@ class Reviser:
             unasked = set(NO_SUBJECT_REFUSALS)
             if not song.title or plan_declined:
                 unasked.add("HOOK_UNDECLARED")
+            if classes is not None:
+                unasked.add("REPRISE_IS_NOT_LATER")   # the plan placed it
             requested = any(section.declared for section in song.sections) or bool(hooks)
             blocking = [r for r in rep["refusals"] if r.code not in unasked]
             coverage_out.append({"id": "function:draft", "layer": "function",
@@ -4187,17 +4358,74 @@ class Reviser:
                 f"rejects, the slop floor, and grading this cover at a "
                 f"DIFFERENT theta from the one that produced it.", []))
 
+        # HELD RHYME PAIRS, UNDER A PLAN ONLY (stage 5). A plan puts a verbatim
+        # copy in a group of its own, and that group gets its rhyme only
+        # through the copy. So while a return class's members END on
+        # different words, the SCHEME_VIOLATION and SCHEME_COLLISION pairs
+        # inside the groups that class sits in are one fact, the class's
+        # RETURN_NOT_VERBATIM (a flag, which blocks), and they are held. Once
+        # the class agrees nothing is held and every pair is judged.
+        #
+        # A HELD PAIR STILL STANDS FOR `verify` (2026-11-18, review B1). A
+        # held pair can be a fault of its own, not one the changed copy
+        # made. Each pair not raised is kept in `_held` as the finding it
+        # would be, and returned under "held"; `verify` counts those on both
+        # sides of its diff. So the repair that makes the class agree is not
+        # charged with the pair it uncovers, and a pair broken while it is
+        # held is a new flag. ~~`_held` was a bare count of pairs~~.
+        _holds, _held = [], []
+        # AN UNDEALT COPY, UNDER A PLAN ONLY (stage 5, owner's calls A and B,
+        # 16 Nov 2026). A later new-words instance copied whole from the
+        # first, or a reprising line (an outro's) copied from the section it
+        # reprises, is one fact with one name: the copied instance's
+        # RETURNS_WITH_SAME_WORDS, or the line's SCHEME_VIOLATION where that
+        # flag stands, else its CROSS_FUNCTION_REPRISE. The rhyme-layer notes
+        # that only restate the copy (the copy against its source, or against
+        # what its source already rhymes with) are held. A flag is never held
+        # behind a note.
+        _copy_of, _reprise_copies = {}, set()
+        if blueprint is not None and self._blueprint_planned(blueprint):
+            _holds = self._held_rhyme_lines(m, lines)
+            _copy_of, _reprise_copies = self._undealt_copies(m, lines,
+                                                             blueprint)
+        _held_lines = set().union(*(held for _c, held, _l in _holds))
+        _collided = {tuple(c["lines"]) for c in rep["collisions"]}
+
+        _class_of = {x: frozenset(r) for r in m.returns
+                     if not getattr(r, "placed", False) for x in r}
+
+        def _restates_copy(i, j):
+            # The pair restates the copy when the copy's source, or a line
+            # the plan returns it as, already is, rhymes with, or collides
+            # with the other side.
+            if i not in _copy_of and j not in _copy_of:
+                return False
+            a, b = (_class_of.get(y, frozenset({y}))
+                    for y in (_copy_of.get(i, i), _copy_of.get(j, j)))
+            return bool(a & b) or any(
+                (min(u, v), max(u, v)) in _collided
+                or set(m.groups_of(u)) & set(m.groups_of(v))
+                for u in a for v in b)
+
+        _sv_lines = set()
         for v in rep["violations"]:
             i, j = v["lines"]
-            add(j, Finding(
+            _copied = "".join(f" L{x} copies L{_copy_of[x]}."
+                              for x in (i, j) if x in _copy_of)
+            _violation = Finding(
                 "SCHEME_VIOLATION", "flag",
                 f"L{i} and L{j} are both in group {v['label']} "
                 f"{v['members']} but do not stand in the relation it "
                 f"requires",
                 f"{v['why']} (score {v['score']:.3f}; "
                 f"{v['endwords'][0]!r} ~ {v['endwords'][1]!r})"
-                f"{v.get('attribution', '')}", [i, j],
-                groups=(v["label"],)))
+                f"{v.get('attribution', '')}{_copied}", [i, j],
+                groups=(v["label"],))
+            if i in _held_lines and j in _held_lines:
+                _held.append((j, _violation))
+                continue
+            _sv_lines |= {i, j}
+            add(j, _violation)
         if self.writing:
             for v in rep["verdicts"]:
                 # The detector measures rhyme endings, not an unrelated
@@ -4265,7 +4493,66 @@ class Reviser:
                                  "flag" if kind == "NOT_RETURNED_AT" else "note",
                                  msg, "Judged word identity at the declared placements.",
                                  locations, (label or "",)))
-        for label, i, j, kind, msg in m.returns_check(lines):
+        # ONE CHANGE, ONE FLAG (stage 5, owner's call D: pasted lyrics too).
+        # `returns_check` answers per PAIR, so one changed line in a class of
+        # k gave k-1 flags, some on lines that did not change. Each class is
+        # read whole instead: the reading most members hold is the reference
+        # (a tie goes to the first line), and each member off it gets one
+        # flag on its own line, naming the first reference line.
+        _checked = m.returns_check(lines)
+        _by_pair = {(i, j): (label, kind, msg)
+                    for label, i, j, kind, msg in _checked
+                    if i is not None and kind != "OUT_OF_RANGE"}
+        _off = self._off_reference(m, lines) if _by_pair else []
+        # THE GROUP MERGES, COMPUTED ONCE (2026-11-18, review N6): the
+        # collision loop below reads them, and the held collisions have to
+        # be known here, before the flags that count them. ~~A second
+        # `group_merges` call counted the held collisions~~.
+        merges = self.group_merges(lines, m, profile=profile,
+                                   sections=_sections)
+        absorbed = {(i, j) for mg in merges for i, j, *_ in mg["edges"]}
+        for c in rep["collisions"] if _held_lines else ():
+            i, j = c["lines"]
+            code = self._collision_code(c["relations"], c.get("undeclared"))
+            if ((i, j) not in absorbed and i in _held_lines
+                    and j in _held_lines and code == "SCHEME_COLLISION"):
+                _held.append((j, Finding(
+                    code, "note",
+                    f"L{i} and L{j} RHYME and share no mandated group",
+                    "held while a return class's end words differ",
+                    [i, j])))
+        for ref, ln, same, _n_cls in _off:
+            a, b = min(ref, ln), max(ref, ln)
+            label, kind, msg = _by_pair[(a, b)]
+            ev = _KIND_GLOSS.get(kind, "")
+            # THE NEXT STEP, IN THE MESSAGE (2026-11-18, review N2).
+            # ~~"L{ln} is off the reading L{ref} holds with k other line(s)
+            # of the class's N"~~ named none.
+            how = (f"L{ln} differs from L{ref} and {same - 1} other "
+                   f"line{'' if same == 2 else 's'} that agree; make L{ln} "
+                   f"the same as L{ref}"
+                   if same > 1 else
+                   f"these lines should be the same; change either one")
+            # THE PAIRS HELD FOR THIS CLASS, ON THIS CLASS'S FLAGS ONLY, AS A
+            # SENTENCE OF ITS OWN (2026-11-18, review S3). ~~The whole
+            # draft's count and labels went on every flag, run on from the
+            # kind gloss with no full stop~~, so a class whose end words
+            # agree said pairs were held for it.
+            _mine = next(((held, labels) for members, held, labels in _holds
+                          if ln in members), None)
+            _n = (sum(1 for _l, f in _held if set(f.locations) & _mine[0])
+                  if _mine else 0)
+            held = (f". While the class's end words differ, {_n} rhyme "
+                    f"pair(s) with a line in group(s) "
+                    f"{', '.join(_mine[1])} are held; they are judged "
+                    f"again once every return class in those groups agrees."
+                    if _n else "")
+            add(ln, Finding("RETURN_NOT_VERBATIM", "flag", f"{msg}; {how}",
+                            (f"{kind}: {ev}" if ev else kind) + held,
+                            [a, b], (label or "",)))
+        for label, i, j, kind, msg in _checked:
+            if (i, j) in _by_pair:
+                continue          # judged per line, above
             ev = _KIND_GLOSS.get(kind, "")
             if kind == "OUT_OF_RANGE":
                 # `OUT_OF_RANGE` IS NOT A VARIATION KIND and `_KIND_GLOSS` has
@@ -4534,11 +4821,19 @@ class Reviser:
         # each member is charged to, which is this repo's own triage rule
         # (ingestion / projection / anchor / comparator / band / structure /
         # value) applied to the only output the loop has on a passing song.
-        merges = self.group_merges(lines, m, profile=profile,
-                                   sections=_sections)
-        absorbed = {(i, j) for mg in merges for i, j, *_ in mg["edges"]}
-        near = 0
+        # (`merges` and `absorbed` are computed above, before the return
+        # flags that count the held collisions.)
+        # `_kept_back`: the collisions a hold keeps back below (2026-11-18,
+        # review N6). `near` counts the collisions raised one by one that are
+        # not rhymes, so the note that states it gives its total without the
+        # pairs kept back. ~~The total was the whole set~~, and a near
+        # collision that was held read as one of the rhymes. No plan, no
+        # hold: the total is the whole set, as it always was.
+        near = _kept_back = 0
         for mg in merges:
+            if _copy_of and all(_restates_copy(i, j)
+                                for i, j, *_ in mg["edges"]):
+                continue          # held: see AN UNDEALT COPY above
             la, lb = mg["labels"]
             ma, mb = mg["members"]
             ev = "; ".join(f"L{i}~L{j} {wa!r}~{wb!r} {sc:.3f} "
@@ -4577,6 +4872,13 @@ class Reviser:
             if (i, j) in absorbed:
                 continue
             code = self._collision_code(c["relations"], c.get("undeclared"))
+            if (code == "SCHEME_COLLISION" and i in _held_lines
+                    and j in _held_lines):
+                _kept_back += 1
+                continue          # held: see HELD RHYME PAIRS above
+            if _restates_copy(i, j):
+                _kept_back += 1
+                continue          # held: see AN UNDEALT COPY above
             _crel = relation_label(set(c["relations"]))
             pair = (f"{c['endwords'][0]!r} ~ {c['endwords'][1]!r} "
                     f"{c['score']:.3f} {_crel}"
@@ -4704,7 +5006,8 @@ class Reviser:
                      f"{tuple(self.decl.admit)} or a registry schema")
             whole.append(Finding(
                 "COLLISION_CUT_IS_SCALAR_ONLY", "note",
-                f"{near} of the {len(rep['collisions'])} collision(s) on this "
+                f"{near} of the {len(rep['collisions']) - _kept_back} "
+                f"collision(s) on this "
                 f"draft are NOT rhymes under this harness's own band, and the "
                 f"collision detector reported them anyway",
                 f"the collision cut is `total >= {THETA_COLLISION}`, the "
@@ -4752,7 +5055,10 @@ class Reviser:
                 for f in fs:
                     add(ln, f)
             whole.extend(m_whole)
-            whole.extend(self._function_findings(lines, blueprint, coverage_out=_function_coverage))
+            whole.extend(self._function_findings(
+                lines, blueprint, coverage_out=_function_coverage, mandate=m,
+                flagged_copies=tuple(frozenset({_copy_of[x], x})
+                                     for x in sorted(_reprise_copies & _sv_lines))))
         else:
             _function_coverage = [
                 {"id": "function:draft", "layer": "function",
@@ -4831,6 +5137,10 @@ class Reviser:
                          obligations=_coverage_rows, refused_obligations=_refused_ids)
         return {"per_line": per, "whole": whole, "mandate": m, "grade": rep,
                 "coverage": _coverage,
+                # [(line, Finding)]: the rhyme pairs not raised while a
+                # return class's end words differ. Never a finding of this
+                # draft; `verify` reads them (see HELD RHYME PAIRS).
+                "held": _held,
                 "merges": merges, "blueprint_declared": blueprint is not None,
                 "sentencehood_checked": _sh_checked,
                 "mixed_span_groups": (m.mixed_span_groups()
@@ -6913,6 +7223,13 @@ class Reviser:
             for ln, fs in found["per_line"].items():
                 for finding in fs:
                     add(ln, finding)
+            # A HELD PAIR COUNTS AS STANDING, ON BOTH SIDES (2026-11-18,
+            # review B1). `inspect` holds a rhyme pair while a return class's
+            # end words differ. Left out of this count, the repair that makes
+            # the class agree was refused for the old fault it uncovered, and
+            # a pair broken under a hold was no new flag.
+            for ln, finding in found.get("held", ()):
+                add(ln, finding)
             for finding in found["whole"]:
                 if finding.code == "END_WORD_UNREADABLE":
                     # One aggregate function refusal, as before diagnostics

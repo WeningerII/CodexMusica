@@ -2621,10 +2621,13 @@ def joint_findings(plan):
     # `MISSING.md` M-84). A hook slot is legal; a pattern drawing its section
     # once is legal; together they declare a hook in a section that never
     # comes back, and `grid.HOOK_DOES_NOT_RECUR` — a FLAG since the owner's
-    # ruling — then charges the draft for it. No choice of words makes a
-    # section recur, so this must be refused where it is DECIDABLE, which is
-    # here. The line reported is the slot itself, so the refusal names the
-    # position the plan was about to hand over.
+    # ruling — then charges the draft for it. (2026-11-18: under a plan the
+    # grader withholds that flag only where a return class holds the hook
+    # line, `Reviser._function_findings`; a section drawn once has no such
+    # class, so the flag is still what this shape would draw.) No choice of
+    # words makes a section recur, so this must be refused where it is
+    # DECIDABLE, which is here. The line reported is the slot itself, so the
+    # refusal names the position the plan was about to hand over.
     hook = plan.get("hook_slot")
     if hook:
         fn = next((s["function"] for s in plan["line_slots"]
@@ -5049,9 +5052,11 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # changed" (its row): its first line comes back from the first
         # chorus, or from the song's opening line where no chorus precedes
         # it. That is the function's own definition, not the form's, so it
-        # is planned IN EVERY FORM (#671 A7): `REPRISE_BRINGS_NOTHING_BACK`
-        # grades a reprise under `open` too, and a plan that gave it no
+        # is planned IN EVERY FORM (#671 A7): ~~`REPRISE_BRINGS_NOTHING_BACK`
+        # grades a reprise under `open` too~~, and a plan that gave it no
         # return pair drew that note on a draft written to its brief.
+        # (2026-11-18: since stage 5 that note is not given under a plan; the
+        # pair planned here is judged as RETURN_NOT_VERBATIM.)
         if fn == "reprise" and first > 1:
             returns.append([sung_first.get("chorus", 1), first])
         sung_first.setdefault(fn, first)
@@ -5744,8 +5749,12 @@ def _pulse_rows(sec, slot):
 #: The brief row that carries `plan["narrative"]` as data.
 STORY_RECORD_TAG = "Story record (the draft's meaning is not graded against it): "
 
-#: The shape codes that grade a declared hook line (`grid.hook_findings`).
-HOOK_CODES = ("HOOK_ABSENT", "HOOK_DOES_NOT_RECUR", "HOOK_CONFINED")
+#: The shape codes that grade a planned song's hook line
+#: (`grid.hook_findings`). ~~HOOK_DOES_NOT_RECUR and HOOK_CONFINED stood here
+#: too~~ (2026-11-18): the plan returns the hook line, and the grader gives
+#: neither where the mandate does (stage 5). A hook that does not come back
+#: is RETURN_NOT_VERBATIM, a row of `STOP_RULES` below.
+HOOK_CODES = ("HOOK_ABSENT",)
 
 
 def _graded(codes):
@@ -5830,8 +5839,17 @@ STOP_RULES = {
                          "limit": "group_rule"},
     "RETURN_NOT_VERBATIM": {"applies": "returns", "stop": "flag",
                             "limit": "returns"},
-    "HOOK_DOES_NOT_RECUR": {"applies": "hook_slot", "stop": "grid",
-                            "limit": "hook_recurs"},
+    # ~~"applies": "hook_slot", "limit": "hook_recurs"~~ (2026-11-18): the
+    # row said a hook whose words are in no other line stops a planned song.
+    # Since stage 5 the grader gives no such flag where the mandate returns
+    # the hook line, and RETURN_NOT_VERBATIM above asks more: the whole class
+    # word for word.
+    "HOOK_DOES_NOT_RECUR": {"applies": "never", "stop": "grid", "never":
+                            "the plan returns the hook line word for word, "
+                            "so a hook that does not come back is "
+                            "RETURN_NOT_VERBATIM, and the grader gives no "
+                            "HOOK_DOES_NOT_RECUR where the mandate returns "
+                            "the hook line"},
     "TITLE_NOT_IN_HOOK": {"applies": "hook_slot_and_title", "stop": "grid",
                           "limit": "title_in_hook"},
     "REPEAT_IN_VERSE": {"applies": "floor_pairs", "stop": "flag",
@@ -5965,7 +5983,6 @@ _STOP_APPLIES = {
     "never": lambda plan: False,
     "groups": lambda plan: bool(str(plan.get("groups") or "").strip()),
     "returns": lambda plan: bool(plan.get("returns")),
-    "hook_slot": lambda plan: bool(plan.get("hook_slot")),
     "hook_slot_and_title": lambda plan: bool(plan.get("hook_slot")
                                              and plan.get("title")),
     "stacked_min_lines": lambda plan: (plan["total_lines"]
@@ -6211,11 +6228,6 @@ def _limit_returns(plan):
 WORD_RUN = "as one unbroken run, in the same order,"
 
 
-def _limit_hook_recurs(plan):
-    return (f"the words of line {plan['hook_slot']} are not found {WORD_RUN} "
-            f"in another line")
-
-
 def _limit_title_in_hook(plan):
     return (f"the title's words are not found {WORD_RUN} inside line "
             f"{plan['hook_slot']}; a title of more words than that line "
@@ -6309,7 +6321,6 @@ _STOP_LIMITS = {
     "syllables": _limit_syllables,
     "group_rule": _limit_group_rule,
     "returns": _limit_returns,
-    "hook_recurs": _limit_hook_recurs,
     "title_in_hook": _limit_title_in_hook,
     "unjudged_pair": _limit_unjudged_pair,
     "nothing_read": _limit_nothing_read,
