@@ -1,3 +1,4 @@
+/* global document, URL, fetch, Option */
 import { describeForm, realizeForm } from '../song-forms.mjs';
 
 const catalogURL = new URL('../../api/song-forms.json', import.meta.url);

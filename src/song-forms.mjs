@@ -114,7 +114,7 @@ export function describeForm(catalog, id) {
     id,
     name: form.name,
     scope: form.scope,
-    patterns: structuredClone(form.patterns),
+    patterns: globalThis.structuredClone(form.patterns),
     variants,
   };
 }
