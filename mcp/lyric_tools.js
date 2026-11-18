@@ -3018,7 +3018,9 @@ export function registerLyricTools(server, tool) {
         "no draft where the grade's record holds them (a session, the website chat). " +
         (server.kitchen ? 'The service writer answers that lyric_revise run. ' : '') +
         'Where a live revise run keeps the text of a line this draft changes, that revise would be ' +
-        'refused (BRIEF_REQUIRED): `next` names the lines to put back instead, and `next_call` is absent. ' +
+        'refused (BRIEF_REQUIRED): `next` names the lines to put back instead, and `next_call` is absent, ' +
+        "unless the grade's record holds the song a lyric_revise of this graded draft left (a session, the " +
+        'website chat): the call named is then the lyric_revise that starts from that song, with no draft. ' +
         'At exit 2 `next` names each word that could not be judged, with its line and what to ' +
         'change, and then the lyric_grade call that judges the changed draft. ' +
         EXECUTION_CONTRACT,

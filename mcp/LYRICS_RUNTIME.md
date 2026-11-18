@@ -664,7 +664,15 @@ the oldest of the rest (never the entry a run has just written), so a live entry
 the song as the run left it, its accepted fixes included; in a session it is the song the
 session's last `lyric_revise` left, including a run answered over several calls. A
 `lyric_grade` whose draft such a run would refuse names, in its `next`, the lines to put
-back, and has no `next_call`. The store is
+back, and has no `next_call`; a new-song session (and the website chat) that holds the song
+a `lyric_revise` of that graded draft left names the restart with no draft instead, which
+starts from that song. After a `lyric_revise` refused with `BRIEF_REQUIRED` in a new-song
+session, the receipt's `outcome` is the writer's decision, with the `lyric_grade` of the
+draft with its lines put back as its call. The flagged lines saved with a stop made
+between an accepted fix and the loop's next brief of the draft (a safe-point stop, or a
+call cut there) are the ones from before that fix. No hand edit gets through on a line
+that set misses: `verify` accepts no fix that adds a flagged finding (`allow_net_new` is 0
+and no caller sets it), so every line flagged after the fix was flagged before it. The store is
 `BRIEF_LEDGER_FILE`, else `LYRIC_RUNTIME_DIR/brief-ledger.json`, else memory
 only (stdio without a runtime directory forgets it on restart). Its key is
 derived from the server secret (`CHAT_SECRET`, else `CHAT_SECRET_FILE`, else

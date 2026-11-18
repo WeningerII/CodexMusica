@@ -1370,3 +1370,66 @@ test('a grade whose revise the brief gate would refuse keeps its own next in a s
     await close();
   }
 });
+
+// THE GRADED DRAFT GRADED AGAIN, AFTER A REVISE LEFT A SONG (#875). The
+// revise this session sends next starts from the left song, so the grade's
+// `next` names that restart: also where the raw grade, which judged the graded
+// draft, named lines to put back and no call (that draft puts back a line the
+// loop replaced; the left song does not).
+test('the graded draft graded again names the restart from the song the last revise left', async () => {
+  const p = plan4();
+  const D = fillerSong(3);
+  const F1 = withFixes(D, { 2: 31 });
+  const rawNext = 'Call lyric_revise with this exact draft, unchanged.';
+  const rawBrief = 'lyric_revise refuses this draft before it runs (BRIEF_REQUIRED): line 2.';
+  let brief = false;
+  const { c, dispatched, close } = await leftSession((name, args) => {
+    if (name === 'lyric_sweep') return { exit_code: 0, accepted_shown: [16] };
+    if (name === 'lyric_screen') return { exit_code: 0 };
+    if (name === 'lyric_plan') return p;
+    if (name === 'lyric_revise') return { exit_code: 3, status: 'parked', final_draft: F1 };
+    // As the raw grade publishes it: lyric_revise on this draft, or, where
+    // the brief gate would refuse that, no call (briefGradeNext).
+    const v = gradeReceipt(p, args.draft);
+    return brief
+      ? { ...v, next: rawBrief }
+      : { ...v, next_call: { tool: 'lyric_revise', args: { seed: 16 } }, next: rawNext };
+  });
+  const GRADED = / and no draft: the graded draft and its declarations are taken from the record/;
+  const LEFT =
+    / and no draft: the song as the last lyric_revise left it \(its accepted fixes included\) and the graded declarations are taken from the record/;
+  const restart = { tool: 'lyric_revise', args: { seed: 16, new_run: true } };
+  try {
+    await c.call('lyric_sweep', sweepArgs);
+    await c.call('lyric_plan', planArgs);
+    await c.call('lyric_screen', { words: ['zorblax'] });
+    const first = firstValue(await c.call('lyric_grade', { seed: 16, draft: D }));
+    assert.deepEqual(first.next_call, { tool: 'lyric_revise', args: { seed: 16 } });
+    assert.match(first.next, GRADED);
+    await c.call('lyric_revise', { seed: 16 });
+    // The grade verdict's own sentence for a left song (Andrej's item 8).
+    const again = firstValue(await c.call('lyric_grade', { seed: 16, draft: D }));
+    assert.deepEqual(again.next_call, restart);
+    assert.match(again.next, LEFT);
+    assert.doesNotMatch(again.next, GRADED);
+    // The raw grade names no call for the graded draft: the session names
+    // the restart from the left song all the same, as data too.
+    brief = true;
+    const judged = firstValue(await c.call('lyric_grade', { seed: 16, draft: D }));
+    assert.deepEqual(judged.next_call, restart);
+    assert.match(judged.next, LEFT);
+    assert.doesNotMatch(judged.next, /BRIEF_REQUIRED/);
+    assert.deepEqual(judged.outcome, { kind: 'next_call', by: 'writer', call: restart });
+    // That call starts from the left song.
+    await c.call(judged.next_call.tool, judged.next_call.args);
+    assert.deepEqual(dispatched.at(-1)[1].draft, F1);
+    // Another draft's grade holds no left song: the raw grade's answer stands.
+    const other = firstValue(
+      await c.call('lyric_grade', { seed: 16, draft: withFixes(F1, { 3: 32 }) })
+    );
+    assert.equal(other.next, rawBrief);
+    assert.equal(other.next_call, undefined);
+  } finally {
+    await close();
+  }
+});

@@ -30,6 +30,8 @@ import {
   briefNote,
   keepLeftSong,
   executeNative,
+  publicToolResult,
+  receiptOutcome,
   verdictOf as sessionVerdict,
 } from './workflow_sessions.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
@@ -716,12 +718,13 @@ test('an edit session keeps the left song; a new song session does not keep a se
   const v = (extra = {}) => ({
     content: [{ type: 'text', text: JSON.stringify({ exit_code: 3, ...extra }) }],
   });
+  // A verdict says its tool read the lines with the tool's own
+  // `measurement_status`; one the harness refused says "refused".
+  const READ = { lyric_check: 'graded', lyric_recover: 'recovered' };
   const ran = (name, args, value = {}, isError = false) => {
     const next = { task: { domain: 'lyrics', phase: 'edit' }, left_draft: [...song] };
-    keepLeftSong(next, name, args, isError ? { ...v(value), isError } : v(value), {
-      exit_code: 3,
-      ...value,
-    });
+    const verdict = { exit_code: 3, measurement_status: READ[name], ...value };
+    keepLeftSong(next, name, args, isError ? { ...v(verdict), isError } : v(verdict), verdict);
     return next.left_draft;
   };
   // A create session's revise leaves no session copy; an edit session's does.
@@ -743,6 +746,10 @@ test('an edit session keeps the left song; a new song session does not keep a se
   assert.equal(ran('lyric_check', { lines: ['Cat', 'Dog', 'Bun'] }), null);
   assert.equal(ran('lyric_recover', { lines: ['Cat'] }, { lines: ['Cat'] }), null);
   assert.deepEqual(ran('lyric_check', { lines: ['Cat', 'Dog', 'Bun'] }, {}, true), song);
+  // Other lines the harness refused in its verdict (exit 2, nothing read): kept.
+  const unread = { exit_code: 2, measurement_status: 'refused', refusal: 'refused' };
+  assert.deepEqual(ran('lyric_check', { lines: ['Cat', 'Dog', 'Bun'] }, unread), song);
+  assert.deepEqual(ran('lyric_recover', { lines: ['Cat'] }, unread), song);
 });
 
 test('G21: an edit session that checks other lines has no left song to restart from', async (t) => {
@@ -789,6 +796,25 @@ test('G21: an edit session that checks other lines has no left song to restart f
   const keptSaid = JSON.stringify(kept);
   assert.ok(!kept.tool_error && !kept.tool_result?.isError, keptSaid.slice(0, 800));
   assert.equal(sessionVerdict(kept.tool_result).exit_code, 4, keptSaid.slice(0, 800));
+  // Other lines the harness refused to check (a scheme of another length:
+  // exit 2 with a refusal, nothing measured): the session is still on the
+  // song the revision left, and the restart starts from it.
+  BRIEFS.resetForTests();
+  run = await open();
+  const unread = await run('lyric_check', {
+    scheme: 'A'.repeat(INPUT.length + 2),
+    relation: 'class:RHYME',
+    lines: ['Fig', 'Jar', 'Hut'],
+  });
+  checked(unread);
+  const unreadVerdict = sessionVerdict(unread.tool_result);
+  assert.equal(unreadVerdict.exit_code, 2, JSON.stringify(unread).slice(0, 800));
+  assert.equal(unreadVerdict.measurement_status, 'refused');
+  assert.equal(typeof unreadVerdict.refusal, 'string');
+  const still = await run('lyric_revise', { ...decl, new_run: true });
+  const stillSaid = JSON.stringify(still);
+  assert.ok(!still.tool_error && !still.tool_result?.isError, stillSaid.slice(0, 800));
+  assert.equal(sessionVerdict(still.tool_result).exit_code, 4, stillSaid.slice(0, 800));
 });
 
 // Andrej's item 18: a grade whose revise the brief gate would refuse names
@@ -813,6 +839,117 @@ test("a grade's next names the lines a live revise run keeps, and drops its call
   assert.match(changed.next, /Lines this draft may change: 1, 3-4\.$/);
   for (const word of ['Cat', 'Dog', 'Hut', 'Sun', 'Fig'])
     assert.doesNotMatch(changed.next, new RegExp(`\\b${word}\\b`), 'no lyric text');
+});
+
+// The same through the real lyric_grade, whose handler makes that call: a
+// planned seed, and a draft of filler tokens drawn by seed, one line of which
+// a live revise run keeps.
+test('a real lyric_grade names the lines a live revise run keeps, and drops its call', async () => {
+  const seed = 31;
+  const lines = 12;
+  const fillerLine = (k) =>
+    [0, 1, 2].map((j) => FILLER[draw(`grade:${k}`, j, FILLER.length)]).join(' ');
+  const draft = Array.from({ length: lines }, (_, i) => fillerLine(i));
+  const edited = draft.map((line, i) => (i === 1 ? fillerLine('other') : line));
+  assert.ok(!draft.includes(edited[1]), 'the other text for line 2 is on no line of the draft');
+  const grade = async (d) => {
+    const r = await client.callTool(
+      { name: 'lyric_grade', arguments: { seed, lines, draft: d } },
+      undefined,
+      { timeout: 200_000 }
+    );
+    const v = verdict(r);
+    assert.ok([0, 3].includes(v.exit_code), JSON.stringify(v).slice(0, 800));
+    return v;
+  };
+  await BRIEFS.capture({ runId: 'grade-site', cur: draft, input: draft, flagged: [2] });
+  // The draft as that run holds it: lyric_revise on it is the next call.
+  const same = await grade(draft);
+  assert.deepEqual(same.next_call, { tool: 'lyric_revise', args: { seed } });
+  // Line 2 changed by hand: that revise would be refused before it runs.
+  const changed = await grade(edited);
+  assert.equal(changed.next_call, undefined);
+  assert.match(changed.next, /^lyric_revise refuses this draft before it runs \(BRIEF_REQUIRED\)/);
+  assert.match(
+    changed.next,
+    /Put back line 2 as the last lyric_revise returned it, grade that draft with lyric_grade/
+  );
+  assert.deepEqual(changed.outcome, {
+    kind: 'decision',
+    by: 'writer',
+    call: { tool: 'lyric_grade', args: {} },
+  });
+  for (const word of FILLER)
+    assert.doesNotMatch(changed.next, new RegExp(`\\b${word}\\b`), 'no lyric text');
+});
+
+// A lyric_revise the brief gate refused, in a new song's session: the same
+// call on the same draft is refused again, so the receipt's outcome is the
+// writer's decision, and its call the grade the refusal's text names first.
+test('after BRIEF_REQUIRED in a session for a new song the receipt names the grade, not the revise again', async () => {
+  await opened();
+  const edited = ['Cat', 'Dog', 'Moon'];
+  const refusal = await call({ ...DECL, new_run: true, draft: edited });
+  assert.ok(refused(refusal), text(refusal).slice(0, 800));
+  // What a new song's session holds once it graded that draft: the receipts
+  // nextCreationCall reads (lyric_workflow.js).
+  const sha = (v) => createHash('sha256').update(JSON.stringify(v)).digest('hex');
+  const receipts = (continuation = null) => ({
+    task: { domain: 'lyrics', phase: 'create' },
+    native: {
+      continuation,
+      task: {
+        domain: 'lyrics',
+        phase: 'create',
+        workflow: {
+          version: 1,
+          sweeps: [{ args: {}, accepted: [7] }],
+          plan: { sha256: 'plan', lines: edited.length, request: { seed: 7 } },
+          screen: { words: [], relation: null, plan_sha256: 'plan' },
+          grade: { plan_sha256: 'plan', draft_sha256: sha(edited), draft: edited, readings: {} },
+          started: { plan_sha256: 'plan' },
+        },
+      },
+    },
+  });
+  const receiptOf = (result, session) => ({
+    operation_id: 'brief-gate-receipt',
+    status: 'completed',
+    tool: 'lyric_revise',
+    tool_result: publicToolResult(result, session.task, { tool: 'lyric_revise' }),
+    tool_error: true,
+  });
+  const sent = { seed: 7, new_run: true };
+  const session = receipts();
+  const receipt = receiptOf(refusal, session);
+  assert.match(
+    receipt.tool_result.content.map((c) => c.text).join('\n'),
+    /Grade this draft with line 3 as the last lyric_revise returned it with lyric_grade, then call lyric_revise/
+  );
+  const grade = {
+    kind: 'decision',
+    by: 'writer',
+    call: { tool: 'lyric_grade', args: { seed: 7 } },
+  };
+  assert.deepEqual(receiptOutcome(receipt, session, 'lyrics', sent), grade);
+  // The same with a run the session still carries: the grade comes first.
+  const carrying = receipts({ seed: 7, args: { seed: 7, state: 'carried' } });
+  assert.deepEqual(receiptOutcome(receiptOf(refusal, carrying), carrying, 'lyrics', sent), grade);
+  // Any other refusal of that call keeps the call the creation gate admits.
+  const other = {
+    isError: true,
+    content: [
+      { type: 'text', text: 'CREATION_PLAN: scheme differs from the recorded program plan.' },
+    ],
+  };
+  assert.deepEqual(receiptOutcome(receiptOf(other, session), session, 'lyrics', sent), {
+    kind: 'next_call',
+    by: 'writer',
+    call: { tool: 'lyric_revise', args: { seed: 7 } },
+  });
+  // Lyrics the person supplied hold no creation receipts: no outcome, as before.
+  const pasted = { task: { domain: 'lyrics', phase: 'edit' }, native: { continuation: null } };
+  assert.equal(receiptOutcome(receiptOf(refusal, pasted), pasted, 'lyrics', sent), null);
 });
 
 // Andrej's item 16: a session carries the run, and refuses `run_id` beside a

@@ -1841,8 +1841,12 @@ function withGradeNext(task, result, carried) {
     // that could not all be judged): there is no call to replace, so it stays.
     if (v.exit_code === 2) return block;
     // A `next` with no `next_call` at 0 or 3 names lines to put back before
-    // any revise (briefGradeNext in lyric_tools.js): no call to replace.
-    if (!v.next_call) return block;
+    // any revise (briefGradeNext in lyric_tools.js): the raw grade judged the
+    // graded draft, and there is no call to replace. Where the receipts hold
+    // the song the last revise of this graded draft left (leftSong), the
+    // revise this session sends starts from that song, not from the graded
+    // draft, so that call is named below as after any other grade.
+    if (!v.next_call && !leftSong(workflowFor(task))) return block;
     changed = true;
     const { next: _text, next_call: _call, ...rest } = v;
     const call = gradedNextCall(task, carried);

@@ -127,7 +127,7 @@
         "not defects. At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this",
         "has started. `next_call` is not the whole call: `next` says what to send with it, which is this",
         "revise would be refused (BRIEF_REQUIRED): `next` names the lines to put back instead, and",
-        "instead, and `next_call` is absent. At exit 2 `next` names each word that could not be judged,",
+        "from that song, with no draft. At exit 2 `next` names each word that could not be judged,",
         "when coverage is incomplete; at 3 and at 2 `next` says what to do. Read `flags` and `whole_flags`",
         "ask), and, after a grade at exit 0 or 3, `next` (the call that takes this exact draft on);",
         "The sweep's NEXT line, a grade verdict's `next` and each CREATION_* refusal name the next"

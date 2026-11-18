@@ -134,8 +134,17 @@ const storeAdmissionRefusal = (error, maxRecords, domain) => {
 //   charged, nothing is repeated and the call is the read of this record;
 // - retired: its successor is read, or the workflow is opened again;
 // - refused, in a new-song session: the call the creation gate admits next,
-//   the same data its NEXT line is printed from.
+//   the same data its NEXT line is printed from;
+// - a lyric_revise the brief gate refused (BRIEF_REQUIRED), in a new-song
+//   session: the same call on the same draft is refused again, and its text
+//   says to put lines back and grade that draft first, so it is the writer's
+//   decision, and its call the one the gate admits for that grade.
 const act = (kind, tool, args = {}) => ({ kind, by: 'writer', call: { tool, args } });
+const briefRefused = (receipt) =>
+  receipt.tool === 'lyric_revise' &&
+  (receipt.tool_result?.content || []).some(
+    (block) => typeof block?.text === 'string' && /\bBRIEF_REQUIRED: /.test(block.text)
+  );
 export function receiptOutcome(receipt, session, domain, args = null) {
   const id = receipt.operation_id;
   if (receipt.status === 'pending') return act('next_call', 'get_operation', { operation_id: id });
@@ -167,10 +176,13 @@ export function receiptOutcome(receipt, session, domain, args = null) {
   }
   if (receipt.tool_error && session?.task?.domain === 'lyrics') {
     // On a copy: reading the creation receipts fills in an empty workflow.
+    // After the brief gate's refusal the caller reaches for the grade of the
+    // draft with its lines put back, whatever run the session carries.
+    const brief = briefRefused(receipt);
     const next = nextCreationCall(
       clone(session.native?.task ?? null),
-      session.native?.continuation,
-      receipt.tool,
+      brief ? null : session.native?.continuation,
+      brief ? 'lyric_grade' : receipt.tool,
       args
     );
     // A sweep refused for what it leaves out: what the song is to be is the
@@ -199,7 +211,7 @@ export function receiptOutcome(receipt, session, domain, args = null) {
         call: { tool: next.tool, args: next.args },
         dropped: droppedOf(next),
       };
-    if (next) return act('next_call', next.tool, next.args);
+    if (next) return act(brief ? 'decision' : 'next_call', next.tool, next.args);
   }
   return null;
 }
@@ -500,13 +512,17 @@ function linesRead(name, args, verdict) {
 // grade receipts instead (leftSong in lyric_workflow.js), so it is not kept
 // twice. A lyric_check or lyric_recover that ran on other lines moves the
 // session off that song, so a restart with no draft has none to start from;
-// one on the same lines, or one that was refused, leaves it.
+// one on the same lines, or one that was refused, leaves it. A call ran when
+// its verdict's `measurement_status` is the tool's own (READ_STATUS): one the
+// harness refused in its verdict (exit 2 with a `refusal`) read no lines.
+const READ_STATUS = { lyric_check: 'graded', lyric_recover: 'recovered' };
 export function keepLeftSong(next, name, args, result, verdict) {
   if (result?.isError) return;
   if (name === 'lyric_revise' && verdict && next.task?.phase === 'edit') {
     if (Array.isArray(verdict.final_draft)) next.left_draft = clone(verdict.final_draft);
   } else if (
-    ['lyric_check', 'lyric_recover'].includes(name) &&
+    Object.hasOwn(READ_STATUS, name) &&
+    verdict?.measurement_status === READ_STATUS[name] &&
     Array.isArray(next.left_draft) &&
     requestDigest(linesRead(name, args, verdict)) !== requestDigest(next.left_draft)
   )
