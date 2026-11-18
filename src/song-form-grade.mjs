@@ -55,7 +55,68 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
         checks.push({ ...check, lines: check.addresses.map((address) => numbers.get(address)) });
       }
     }
-    return gradeNestedDivisions(plan, creation.contract.sections, lines, sections, checks);
+    const score = gradeNestedDivisions(plan, creation.contract.sections, lines, sections, checks);
+    const words = creation.contract.endingWords;
+    if (!words) return score;
+    // Compare sung words, excluding asides and respecting the reader's token boundaries.
+    // An explicitly unreadable token stream must never fall back to the printed line.
+    const tokens = (lines ?? []).map((row) => {
+      if (typeof row?.text !== 'string' || !row.text.trim() || !Array.isArray(row.sungWords))
+        return undefined;
+      if (
+        !row.sungWords.every(
+          (token) => typeof token === 'string' && token.length && !/\s/u.test(token)
+        )
+      )
+        return undefined;
+      return row.sungWords.map((token) => token.normalize('NFC').toLowerCase().replace(/’/g, "'"));
+    });
+    score.basis = 'declared score divisions and measured sung words';
+    const vocabulary = new Set();
+    let overlaps = false,
+      unknown = false;
+    const representatives = [];
+    for (const group of words.groups) {
+      const ends = group.map((i) => tokens[i - 1]?.at(-1));
+      const known = new Set(ends.filter(Boolean));
+      const absent = ends.some((w) => !w);
+      checks.push({
+        kind: 'endWord',
+        lines: group,
+        outcome: known.size > 1 ? 'fail' : absent ? 'unknown' : 'pass',
+      });
+      for (const word of known) {
+        if (vocabulary.has(word)) overlaps = true;
+        vocabulary.add(word);
+      }
+      unknown ||= absent;
+      representatives.push(known.size === 1 ? [...known][0] : undefined);
+    }
+    checks.push({
+      kind: 'endWord-distinct',
+      lines: words.groups.flat().sort((a, b) => a - b),
+      outcome: overlaps ? 'fail' : unknown ? 'unknown' : 'pass',
+    });
+    if (words.gathered) {
+      const passage = words.gathered.map((i) => tokens[i - 1]);
+      const seen = new Set(passage.flat());
+      const all = representatives.every((w) => w && seen.has(w));
+      checks.push({
+        kind: 'gathered-end-words',
+        lines: words.gathered,
+        outcome: all
+          ? 'pass'
+          : passage.some((row) => !row) || representatives.some((w) => !w)
+            ? 'unknown'
+            : 'fail',
+      });
+    }
+    score.verdict = checks.some((c) => c.outcome === 'fail')
+      ? 'fail'
+      : checks.every((c) => c.outcome === 'pass')
+        ? 'pass'
+        : 'unknown';
+    return score;
   }
   const sourceArrangement = sectionArrangement(plan);
   const measurement = measureSectionArrangement(sourceArrangement, plan, lines, sections);

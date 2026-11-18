@@ -326,3 +326,40 @@ test('descending groups are located by their actual meter and sparse terminal rh
     children:[{unit:'line',syllables:3},{unit:'line',syllables:2}]}]});
   assert.equal(projectSongFormCreation(realizeForm(unmeasured,'symbol')).status,'unsupported');
 });
+
+test('measured identities use submitted words even when callers supply class labels', () => {
+  const schema = form({unit:'stanza',children:['a','b','a','b'].map(id => ({
+    unit:'line',endWord:id,returns:id,
+  }))});
+  const labels = ['a','b','a','b'].map(id=>({returns:id,endWord:id}));
+  const grade = lines => gradeObservations(schema,'symbol',{lines});
+  assert.equal(checkForm(schema,'symbol',{lines:labels}).verdict,'pass');
+  assert.equal(grade(labels).verdict,'unknown');
+  const rows = ['x','y','x','y'].map(text=>({text,returns:'c',endWord:'c'}));
+  assert.equal(grade(rows).verdict,'pass');
+  assert.equal(grade([{text:'z'},...rows.slice(1)]).verdict,'fail');
+  assert.equal(grade([labels[0],...rows.slice(1)]).verdict,'unknown');
+  assert.equal(grade(rows.map(row=>({...row,text:'x'}))).verdict,'fail');
+});
+
+test('Quatern measured CLI requires text at the four rotating return positions', async () => {
+  const {spawnSync} = await import('node:child_process');
+  const {fileURLToPath} = await import('node:url');
+  const script = fileURLToPath(new URL('../scripts/song_forms.mjs',import.meta.url));
+  const sections = [0,4,8,12].map(start=>({role:'verse',lineSpan:[start,start+4]}));
+  const labels = Array.from({length:16},()=>({returns:'r'}));
+  const run = (command, lines) => {
+    const result = spawnSync(process.execPath,[script,command,'quatern'],{
+      input:JSON.stringify({lines,sections}),encoding:'utf8',
+    });
+    assert.equal(result.status,0,result.stderr);
+    return JSON.parse(result.stdout);
+  };
+  const outcomes = lines => run('grade-observations',lines).checks
+    .filter(check=>check.kind==='returns').map(check=>check.outcome);
+  assert.deepEqual(outcomes(labels),['unknown']);
+  const printed = labels.map((row,i)=>({...row,text:i%5===0?'x':String(i)}));
+  assert.deepEqual(outcomes(printed),['pass']);
+  printed[15].text='y';
+  assert.deepEqual(outcomes(printed),['fail']);
+});

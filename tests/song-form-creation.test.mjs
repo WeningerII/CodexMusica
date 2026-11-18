@@ -73,7 +73,8 @@ test('every published selection has an exact structural contract or an explicit 
           arranged++;
           assert.equal(realization.coverage.lines, 'complete', where);
           assert.equal(projected.arrangement.role, 'verse', where);
-          assert.equal(realization.sections.length, 0, where);
+          assert.ok(realization.sections.every((section) => section.role === undefined), where);
+          assert.equal(realization.sections.length, projected.arrangement.divisions.filter((part) => part.unit === 'section').length, where);
           assert.deepEqual(contract.sections.map((p) => p.role), contract.sections.map(() => 'verse'), where);
           const source = [];
           const collect = (node) => {

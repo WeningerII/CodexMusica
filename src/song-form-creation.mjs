@@ -1,6 +1,7 @@
 // Translate only obligations that the native seeded writer can enforce.
 // The writer still judges placement, recurrence, envelope and seed feasibility.
 import { refrainAddresses } from './song-form-line-roles.mjs';
+import { endingWordDeclaration } from './song-form-mandate.mjs';
 import { projectNestedDivisions } from './song-form-divisions.mjs';
 import { sectionArrangement } from './song-form-section-arrangement.mjs';
 import { projectLineRequirement } from './song-form-line-requirements.mjs';
@@ -181,7 +182,7 @@ export function projectSongFormCreation(plan, counts = {}) {
     }
   }
 
-  function visit(node) {
+  function visit(node, isStanzaPart = false) {
     for (const feature of FEATURES) {
       if (node[feature] === undefined) continue;
       if (node.unit === 'section' && feature === 'role') continue;
@@ -216,10 +217,30 @@ export function projectSongFormCreation(plan, counts = {}) {
         return refuse('invalid-double-stanza', node);
       }
       if (node.bars !== undefined) return refuse('unsupported-unit-feature', node, 'bars');
-      node.children.forEach(visit);
+      for (const child of node.children) visit(child);
+      return;
+    }
+    // A stanza can be divided into anonymous sections. Their separate observed
+    // spans and shared rhyme classes already use native verse coordinates.
+    if (
+      node.unit === 'stanza' &&
+      !FEATURES.some((key) => node[key] !== undefined) &&
+      node.span.lines[0] === 0 &&
+      node.span.lines[1] === plan.lines.length &&
+      node.children.length &&
+      node.children.every(
+        (child) =>
+          child.unit === 'section' &&
+          child.role === undefined &&
+          child.children.length &&
+          child.children.every((part) => part.unit === 'line')
+      )
+    ) {
+      for (const child of node.children) visit(child, true);
       return;
     }
     const counted =
+      isStanzaPart ||
       isVerseDivision(node.unit) ||
       (['poem', 'song'].includes(node.unit) &&
         node.children.some((child) => child.unit === 'line'));
@@ -231,7 +252,7 @@ export function projectSongFormCreation(plan, counts = {}) {
             : 'empty-structure',
           node
         );
-      node.children.forEach(visit);
+      for (const child of node.children) visit(child);
       return;
     }
     if (!counted && (node.unit !== 'section' || !node.role)) {
@@ -287,12 +308,13 @@ export function projectSongFormCreation(plan, counts = {}) {
       ...(node.bars !== undefined && { bars: node.bars }),
     });
   }
-  plan.tree.forEach(visit);
+  for (const root of plan.tree) visit(root);
   // These arrangements preserve the full sequence of named divisions on the
   // score, including the participants in independently declared turns.
   let nestedDivisions = false;
+  const endingWords = endingWordDeclaration(plan);
   if (reasons.length) {
-    const layout = projectNestedDivisions(plan, NATIVE_ROLES, fixedReturns);
+    const layout = projectNestedDivisions(plan, NATIVE_ROLES, { fixedReturns, endingWords });
     if (layout) {
       sections.splice(0, sections.length, ...layout);
       reasons.length = divisions.length = lineRequirements.length = 0;
@@ -416,6 +438,7 @@ export function projectSongFormCreation(plan, counts = {}) {
       variant: plan.variant,
       counts: { ...counts },
       ...(lineRequirements.length && { lineRequirements }),
+      ...(nestedDivisions && endingWords && { endingWords }),
       sections,
       rhymeGroups: endsRhyme ? rhymeGroups : [],
       returnGroups: fixedReturns || roleArrangement?.repeatText ? returnGroups : [],

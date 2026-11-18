@@ -13,6 +13,18 @@ function classes(lines, key) {
   return [...grouped].map(([symbol, lines]) => ({ symbol, lines }));
 }
 
+// End-word rotation is a spelling identity across line endings. A gathering
+// ending is a collective obligation over the entire closing passage: its
+// words may occur in any order and at any position in those closing lines.
+export function endingWordDeclaration(plan) {
+  if (plan.coverage.lines !== 'complete' || !plan.lines.every((l) => l.positionKnown)) return null;
+  const groups = classes(plan.lines, 'endWord').map((group) => group.lines);
+  if (groups.length < 2 || groups.some((group) => group.length < 2)) return null;
+  const gathered = plan.lines.filter((l) => l.role === 'gathered-end-words').map((l) => l.index);
+  if (gathered.some((line, i) => line !== plan.lines.length - gathered.length + i + 1)) return null;
+  return { groups, ...(gathered.length && { gathered }) };
+}
+
 function distinctEndings(identities) {
   // Whole-line identity implies terminal-word identity. The reverse implication
   // would turn a repeated word into an obligation to repeat an entire line.

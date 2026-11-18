@@ -150,3 +150,28 @@ test('linear layout cannot certify simultaneity, contingent speech, or unmeasure
   assert.equal(grade(['r','r','r']).verdict,'pass');
   assert.equal(grade(['r','s','r']).verdict,'fail');
 });
+
+test('ending word classes require a text line and its observed sung tokens', () => {
+  const form = project('tritina');
+  assert.equal(form.status, 'ready');
+  const { sections: parts, endingWords } = form.contract;
+  let cursor = 0;
+  const sections = parts.map(({role, divisionPath, lines}) => ({
+    role, divisionPath, lineSpan: [cursor, cursor += lines],
+  }));
+  const lines = Array(cursor);
+  const words = ['one', 'two', 'three'];
+  for (const [i, group] of endingWords.groups.entries()) {
+    for (const n of group) lines[n - 1] = { text: words[i], sungWords: [words[i]] };
+  }
+  lines[cursor - 1] = { text: words.join(' '), sungWords: words };
+  const grade = rows => gradeObservations(catalog, 'tritina', { variant: 0, lines: rows, sections });
+  assert.equal(grade(lines).verdict, 'pass');
+  for (const unmeasured of [{ endWord: 'E' }, { sungWords: ['one'] }, { text: 'one' },
+    { text: 'one', sungWords: null }]) {
+    assert.equal(grade([unmeasured, ...lines.slice(1)]).verdict, 'unknown');
+  }
+  const aside = [...lines];
+  aside[cursor - 1] = { text: 'one two (three)', sungWords: ['one', 'two'] };
+  assert.equal(grade(aside).checks.find(c => c.kind === 'gathered-end-words').outcome, 'fail');
+});

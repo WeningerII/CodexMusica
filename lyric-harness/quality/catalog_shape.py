@@ -39,7 +39,7 @@ def _valid_division_path(path):
 
 
 def _validate_shape(contract):
-    if (not isinstance(contract, dict) or set(contract) - {"lineRequirements"} != FIELDS
+    if (not isinstance(contract, dict) or set(contract) - {"lineRequirements", "endingWords"} != FIELDS
             or type(contract["version"]) is not int or contract["version"] != 1
             or contract["scope"] not in ("rule", "setting")
             or not isinstance(contract["id"], str)
@@ -83,6 +83,27 @@ def _validate_shape(contract):
                 any((part.get("sourceRole"), part["role"], part["lines"]) !=
                     (source, carrier, count) for part in parts)):
             raise plan.PlanRefused("unsupported source section arrangement")
+    if "endingWords" in contract:
+        ending = contract["endingWords"]
+        if (not isinstance(ending, dict) or set(ending) - {"gathered"} != {"groups"}
+                or any(p["lines"] is None for p in parts)):
+            raise plan.PlanRefused("ending-word declarations need fully positioned lines")
+        total = sum(p["lines"] for p in parts)
+        classes = ending["groups"]
+        if (not isinstance(classes, list) or len(classes) < 2
+                or any(not isinstance(g, list) or len(g) < 2 or
+                       any(type(i) is not int or not 1 <= i <= total for i in g)
+                       or sorted(set(g)) != g for g in classes)):
+            raise plan.PlanRefused("ending-word classes need ordered, repeated positions")
+        assigned = {i for g in classes for i in g}
+        if len(assigned) != sum(map(len, classes)):
+            raise plan.PlanRefused("one ending cannot belong to two word identities")
+        closing = ending.get("gathered", [])
+        if (not isinstance(closing, list) or ("gathered" in ending and not closing)
+                or any(type(i) is not int for i in closing)
+                or closing != list(range(total - len(closing) + 1, total + 1))
+                or assigned.intersection(closing)):
+            raise plan.PlanRefused("a gathering passage must close the selection")
     groups = contract["rhymeGroups"]
     if groups != []:
         if (not isinstance(groups, list) or any(p["lines"] is None for p in parts)

@@ -1,4 +1,5 @@
 """Measure a selected symbolic catalog pattern against each candidate draft."""
+from dataclasses import replace
 import json
 import subprocess
 from pathlib import Path
@@ -193,7 +194,25 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
                              input=json.dumps(request), capture_output=True, text=True,
                              encoding="utf-8", timeout=20, check=True)
         groups = (bp.get("song_form") or {}).get("rhymeGroups")
-        return _native_rhyme(json.loads(run.stdout), lines, mandate, report,
+        result = json.loads(run.stdout)
+        # The native placed-return judge reads a word, not an entire repeated
+        # line. Its classes stay separate from the ordinary writing mandate:
+        # repeating an ending never licenses repetition elsewhere on the line.
+        from quality import schemes
+        classes = [row["lines"] for row in result["checks"] if row["kind"] == "endWord" and "lines" in row]
+        groups_to_read = [g for g in classes if len(g) > 1 and max(g) <= len(lines)
+                          and all(observed[n - 1].get("sungWords") for n in g)]
+        if groups_to_read:
+            positioned = schemes._normalise_returns([[f"{n}.endword" for n in g] for g in groups_to_read],
+                                                   len(lines), schemes.ReturnRule())
+            findings = replace(mandate, returns=positioned).placed_returns_check(lines, lex)
+            outcome = ("fail" if any(row[3] == "NOT_RETURNED_AT" for row in findings)
+                       else "unknown" if findings or len(groups_to_read) < len(classes) else "pass")
+            result["checks"].append({"kind": "positioned-ending-identity", "outcome": outcome,
+                                     "lines": sorted(n for group in classes for n in group)})
+            if outcome == "fail" or result["verdict"] == "pass":
+                result["verdict"] = outcome
+        return _native_rhyme(result, lines, mandate, report,
                              terminal_groups=groups, return_groups=(bp.get("song_form") or {}).get("returnGroups", ()))
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         return {"id": form_id, "verdict": "unknown", "checks": [

@@ -48,7 +48,12 @@ function turnPaths(children, fixedReturns, ancestry = []) {
   for (const child of children) {
     const path = [...ancestry, mark(child)];
     if (child.unit === 'line' && turns.has(child.role) && !child.children.length) {
-      if (soundFields.some((field) => child[field] !== undefined && !(field === 'returns' && fixedReturns))) return null;
+      if (
+        soundFields.some(
+          (field) => child[field] !== undefined && !(field === 'returns' && fixedReturns)
+        )
+      )
+        return null;
       paths.push(path);
     } else if (turnGroups.has(child.unit) && plain(child) && !child.role && child.children.length) {
       const nested = turnPaths(child.children, fixedReturns, path);
@@ -61,9 +66,22 @@ function turnPaths(children, fixedReturns, ancestry = []) {
 
 // Return a layout only if every node has a measurable interpretation below.
 // In particular, multiple simultaneous voices cannot use sequential spans.
-export function projectNestedDivisions(plan, nativeRoles, fixedReturns = false) {
+export function projectNestedDivisions(
+  plan,
+  nativeRoles,
+  { fixedReturns = false, endingWords = null } = {}
+) {
   const rows = [];
   let distinct = false;
+  function endWordLine(n) {
+    return (
+      endingWords &&
+      n.unit === 'line' &&
+      !n.children.length &&
+      (!n.role || n.role === 'gathered-end-words') &&
+      soundFields.every((field) => field === 'endWord' || n[field] === undefined)
+    );
+  }
   function walk(node, path, carrier) {
     if (!plain(node)) return false;
     const next = [...path, mark(node)];
@@ -94,11 +112,32 @@ export function projectNestedDivisions(plan, nativeRoles, fixedReturns = false) 
           return walk(stanza, next, 'verse') && walk(refrain, next);
         }
       }
-      if (!node.role && node.unit === 'poem' && node.children.at(-1)?.role === 'envoi') {
+      if (
+        !node.role &&
+        node.unit === 'poem' &&
+        (node.children.at(-1)?.role === 'envoi' ||
+          (endingWords && node.children.at(-1)?.role === 'gathered-end-words'))
+      ) {
         const body = node.children.slice(0, -1);
         const envoi = node.children.at(-1);
         // The congedo must actually be shorter than the matched body stanzas.
         // The selected line counts are subsequently compared with the submitted spans.
+        if (
+          endWordLine(envoi) &&
+          envoi.role === 'gathered-end-words' &&
+          body.length &&
+          body.every((n) => n.unit === 'stanza' && !n.role && n.children.length > 1)
+        ) {
+          if (!body.every((n) => walk(n, next))) return false;
+          rows.push({
+            unit: 'section',
+            role: 'outro',
+            lines: 1,
+            divisionPath: [...next, mark(envoi)],
+          });
+          distinct = true;
+          return true;
+        }
         if (
           envoi.unit === 'stanza' &&
           envoi.children.length > 0 &&
@@ -119,17 +158,31 @@ export function projectNestedDivisions(plan, nativeRoles, fixedReturns = false) 
     }
     // A printed section may group multiple stanzas. Its address on each
     // constituent stanza records the boundary between successive sections.
-    if (node.unit === 'section' && !node.role && node.children.length &&
-        node.children.every((child) => child.unit === 'stanza')) {
+    if (
+      node.unit === 'section' &&
+      !node.role &&
+      node.children.length &&
+      node.children.every((child) => child.unit === 'stanza')
+    ) {
       distinct = true;
       return node.children.every((child) => walk(child, next));
     }
     if (!containers.has(node.unit)) return false;
-    const refrain = node.unit === 'stanza' && node.role === 'refrain' && fixedReturns &&
-      node.children.length > 0 && node.children.every((line) =>
-        line.unit === 'line' && !line.role && !line.children.length && line.returns !== undefined &&
-        soundFields.every((field) => field === 'returns' || line[field] === undefined));
-    const native = refrain || (node.unit === 'section' && nativeRoles.has(node.role?.replaceAll('-', '_')));
+    const refrain =
+      node.unit === 'stanza' &&
+      node.role === 'refrain' &&
+      fixedReturns &&
+      node.children.length > 0 &&
+      node.children.every(
+        (line) =>
+          line.unit === 'line' &&
+          !line.role &&
+          !line.children.length &&
+          line.returns !== undefined &&
+          soundFields.every((field) => field === 'returns' || line[field] === undefined)
+      );
+    const native =
+      refrain || (node.unit === 'section' && nativeRoles.has(node.role?.replaceAll('-', '_')));
     if (node.role && !native && !participants.has(node.role) && !carrier) return false;
     if (native && ['solo', 'interlude'].includes(node.role)) return false;
     if (node.unit === 'stanza' && !node.role && !node.children.length && !carrier) return false;
@@ -138,7 +191,10 @@ export function projectNestedDivisions(plan, nativeRoles, fixedReturns = false) 
     let count = null;
     if (node.children.length) {
       if (
-        refrain || node.children.every((n) => n.unit === 'line' && plain(n) && !n.role && !n.children.length)
+        refrain ||
+        node.children.every(
+          (n) => endWordLine(n) || (n.unit === 'line' && plain(n) && !n.role && !n.children.length)
+        )
       ) {
         count = node.children.length;
       } else if (assigned) {

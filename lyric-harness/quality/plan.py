@@ -1736,7 +1736,7 @@ def _line_reach(sch, head_cap=None):
     return cap, gap, consecutive
 
 
-def _carve(sch, block, free, trng, max_token, head_cap):
+def _carve(sch, block, free, trng, max_token, head_cap, reserve_end=False):
     """-> (members, lines used) for the largest group of this type the block
     can hold, else a pair of consecutive unbound lines of the section, else
     (None, reason). THE TYPE SHAPES ITS GROUP (D2's skew fix, 2026-10-27):
@@ -1744,8 +1744,10 @@ def _carve(sch, block, free, trng, max_token, head_cap):
     gap) takes the part of the drawn block it can bind, and the rest of the
     block draws its own type; it is rejected only when no part of the section
     can carry it."""
+    if reserve_end and any(span.locus not in _TOKEN_LOCI for span in (sch.spans[0], sch.spans[-1])):
+        return None, "a prescribed end word leaves only explicit nonterminal word positions"
     block = sorted(block)
-    members, why = fit_type(sch, block, trng, max_token, head_cap=head_cap)
+    members, why = fit_type(sch, block, trng, max_token, head_cap=head_cap, reserve_end=reserve_end)
     if members is not None:
         return members, block
     cap, gap, consecutive = _line_reach(sch, head_cap)
@@ -1761,7 +1763,7 @@ def _carve(sch, block, free, trng, max_token, head_cap):
                 continue
             if len(take) < 2:
                 continue
-            got, w = fit_type(sch, take, trng, max_token, head_cap=head_cap)
+            got, w = fit_type(sch, take, trng, max_token, head_cap=head_cap, reserve_end=reserve_end)
             if got is not None:
                 return got, take
             why = w
@@ -1769,7 +1771,7 @@ def _carve(sch, block, free, trng, max_token, head_cap):
 
 
 def _assign_types(section_blocks, trng, max_token, declared=None,
-                  language="eng", per_group=None, head_cap=None):
+                  language="eng", per_group=None, head_cap=None, reserve_end=False):
     """-> (groups as member lists, {label: 'schema:name'}, records, unplaced).
 
     `section_blocks` is one (section lines, drawn blocks) per sung section.
@@ -1833,7 +1835,7 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
                 unbound = sorted(set(free).union(*queue))
                 for cand in list(carried):
                     members, took = _carve(_RL.REGISTRY[cand], block, unbound,
-                                           trng, max_token, head_cap)
+                                           trng, max_token, head_cap, reserve_end)
                     if members is not None:
                         carried.remove(cand)
                         name, chosen_from = cand, ("carried from an earlier "
@@ -1844,7 +1846,7 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
                     cand = left.pop(trng.randrange(len(left)))
                     proposed.append(cand)
                     members, took = _carve(_RL.REGISTRY[cand], block, unbound,
-                                           trng, max_token, head_cap)
+                                           trng, max_token, head_cap, reserve_end)
                     if members is None:
                         rejected.append({"type": cand, "reason": took})
                         carried.append(cand)
@@ -5920,7 +5922,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     groups, _type_rels, _type_records, _unplaced = _assign_types(
         _section_blocks, random.Random(f"{seed}/types"), _max_token,
         declared=relation, per_group=binding_overrides,
-        head_cap=_head_cap)
+        head_cap=_head_cap, reserve_end=bool(song_form and song_form.get("endingWords")))
     if terminal_groups and [record["lines"] for record in _type_records] != source_groups:
         raise PlanRefused("the selected rhyme type cannot bind the whole prescribed terminal group")
 
@@ -6103,6 +6105,19 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             raise SeedRefused("catalog line requirements conflict with the drawn plan: " +
                               "; ".join(f"L{item['line']} {item['code']}: {item['detail']}"
                                         for item in conflicts))
+    if song_form and song_form.get("endingWords"):
+        ending_class = {line: index for index, members in enumerate(song_form["endingWords"]["groups"])
+                        for line in members}
+        for group in groups:
+            occupied = set()
+            for member in group:
+                number, _, place = str(member).partition(".")
+                identity = ending_class.get(int(number))
+                if identity is None or placement_word(place or "end") != LAST_WORD:
+                    continue
+                if identity in occupied:
+                    raise SeedRefused("a drawn rhyme would bind two required copies of the same ending word")
+                occupied.add(identity)
     joint = joint_findings(plan)
     if joint:
         codes = sorted({c for c, _, _ in joint})
@@ -7196,6 +7211,13 @@ def writer_brief(plan):
         elif groups:
             out.append("  Match the ending sound within each group of lines and keep it distinct across groups: "
                        + "; ".join(", ".join(map(str, group)) for group in groups) + ".")
+        if "endingWords" in catalog:
+            ending = catalog["endingWords"]
+            out.append("  Use one distinct final word per group; repeat that word at each listed line ending: "
+                       + "; ".join(", ".join(f"L{n}" for n in group) for group in ending["groups"]) + ".")
+            if ending.get("gathered"):
+                out.append("  Use every one of these ending words in the closing passage ("
+                           + ", ".join(f"L{n}" for n in ending["gathered"]) + "), in any order.")
         for group in catalog["returnGroups"]:
             out.append(f"  Repeat L{group[0]} verbatim at " + ", ".join(f"L{n}" for n in group[1:]) + ".")
         for row in catalog.get("lineRequirements", ()):

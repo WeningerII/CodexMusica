@@ -268,6 +268,69 @@ class CatalogPlannerTests(unittest.TestCase):
         with self.assertRaisesRegex(plan.PlanRefused, "differing line requirements"):
             plan.make_plan(11, song_form={**data, "lineRequirements": [{"line": 2, "syllables": 3}]})
 
+    def test_ending_word_rotations_through_fill_and_actual_graded_word_readings(self):
+        import json
+        from pathlib import Path
+        import subprocess
+        import lyric_harness as lh
+        from quality import schemes
+        from quality.catalog_grading import inspect_catalog
+        root = Path(__file__).resolve().parents[2]
+        lex = lh.Lexicon()
+        from quality import revise
+        reviser = revise.Reviser(lex=lex, writing=True)
+        words = ["one", "two", "three", "four", "five", "six"]
+        for form_id, variant in [("tritina", 0), ("sestina", 0), ("canzone", 1), ("canzone", 2)]:
+            with self.subTest(form_id=form_id, variant=variant):
+                output = subprocess.check_output(["node", str(root / "scripts/song_forms.mjs"), "create", form_id],
+                                                 input=json.dumps({"variant": variant}), text=True)
+                contract = json.loads(output)["contract"]
+                native = plan.make_plan(1, song_form=contract)
+                self.assertEqual(plan.sweep([1], song_form=contract)["accepted"], [1])
+                self.assertEqual(native["returns"], "")
+                classes = contract["endingWords"]["groups"]
+                ends = {n: words[i] for i, group in enumerate(classes) for n in group}
+                text = ["zero " + ends.get(i, "seven") for i in range(1, native["total_lines"] + 1)]
+                gathered = contract["endingWords"].get("gathered", [])
+                if gathered:
+                    text[gathered[-1] - 1] = " ".join(words[:len(classes)])
+                bp = plan.fill_plan(native, text)
+                m = schemes.mandate([a.split(",") for a in native["groups"].split(";")],
+                                    len(text), relations=native["relations"], default_relation=native["relation"])
+                def grade(draft):
+                    return inspect_catalog(lex, draft, bp, m, {"verdicts":[]})
+                self.assertEqual(grade(text)["verdict"], "pass")
+                replaced = text.copy()
+                replaced[classes[0][1] - 1] = "zero eight"
+                bad = grade(replaced)
+                self.assertTrue(any(r["kind"] == "positioned-ending-identity" and r["outcome"] == "fail"
+                                    for r in bad["checks"]))
+                review = reviser.verify(
+                    text, replaced, m, targeted={classes[0][1]}, blueprint=bp)
+                self.assertFalse(review["accepted"])
+                self.assertEqual(review["coverage_before"]["catalog_form"]["verdict"], "pass")
+                self.assertEqual(review["coverage_after"]["catalog_form"]["verdict"], "fail")
+                self.assertTrue(any(f["code"] == "CATALOG_FORM_MISMATCH"
+                                    for f in review["new_findings"]))
+                collapsed = [row.replace("two", "one") for row in text]
+                self.assertTrue(any(r["kind"] == "endWord-distinct" and r["outcome"] == "fail"
+                                    for r in grade(collapsed)["checks"]))
+                if gathered:
+                    omitted = text.copy()
+                    omitted[gathered[-1] - 1] = "zero nine"
+                    self.assertTrue(any(r["kind"] == "gathered-end-words" and r["outcome"] == "fail"
+                                        for r in grade(omitted)["checks"]))
+
+    def test_one_returning_end_word_never_exempts_whole_lines_or_their_openings(self):
+        import lyric_harness as lh
+        from quality import revise, schemes
+        r = revise.Reviser(lex=lh.Lexicon(), writing=True)
+        m = schemes.mandate([[1, 2]], 4, returns=[["1.endword", "3.endword"]])
+        floor, _ = r._floor_for(m)
+        self.assertFalse(floor.declared_lexical_classes)
+        self.assertFalse(floor.declared_opening_classes)
+        self.assertIn((0, 1), floor._pairs(["one"] * 4, "????"))
+
     def test_conflicting_declaration_and_unknown_fields_refuse(self):
         base = catalog("hookless-rap-track", [{"unit": "section", "role": "verse", "lines": 2}])
         with self.assertRaises(plan.PlanRefused):
