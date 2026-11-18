@@ -326,7 +326,9 @@ export function checkReaderForm(catalog, id, options) {
   // Measured returns use printed text and measured endings use its sung words.
   function measuredIdentity(row) {
     if (!isRecord(row)) return row;
-    const { returns: _returns, endWord: _endWord, ...observed } = row;
+    const observed = { ...row };
+    delete observed.returns;
+    delete observed.endWord;
     return observed;
   }
   const sections = options.sections?.map(measuredIdentity);
