@@ -25,6 +25,19 @@ def rhyme_source_groups(groups, returns):
     return [[line for line in group if line not in copies] for group in groups]
 
 
+def _valid_division_path(path):
+    if not isinstance(path, list) or not 1 <= len(path) <= 32:
+        return False
+    for mark in path:
+        if (not isinstance(mark, dict) or set(mark) - {"role"} != {"unit", "address"}
+                or any(not isinstance(mark[k], str) or not re.fullmatch(r"[a-z][a-z0-9-]{0,79}", mark[k])
+                       for k in ("unit", "role") if k in mark)
+                or not isinstance(mark["address"], str) or len(mark["address"]) > 600
+                or not re.fullmatch(r"[1-9][0-9]*\[[1-9][0-9]*\](?:\.[1-9][0-9]*\[[1-9][0-9]*\])*", mark["address"])):
+            return False
+    return True
+
+
 def _validate_shape(contract):
     if (not isinstance(contract, dict) or set(contract) - {"lineRequirements"} != FIELDS
             or type(contract["version"]) is not int or contract["version"] != 1
@@ -41,21 +54,19 @@ def _validate_shape(contract):
     if not isinstance(parts, list) or not 1 <= len(parts) <= plan.ENVELOPE["sections"][1]:
         raise plan.PlanRefused("catalog section count is outside the native envelope")
     for part in parts:
-        if (not isinstance(part, dict) or set(part) - {"bars", "divisionPath", "sourceRole"} != {"unit", "role", "lines"}
+        if (not isinstance(part, dict) or set(part) - {"bars", "divisionPath", "sourceRole", "linePaths"} != {"unit", "role", "lines"}
                 or part["unit"] != "section"):
             raise plan.PlanRefused("seeded catalog creation supports named role sequences only")
         if "bars" in part and (type(part["bars"]) is not int or part["bars"] < 1):
             raise plan.PlanRefused("catalog section bars must be a positive integer")
-        if "divisionPath" in part:
-            path = part["divisionPath"]
-            if (not isinstance(path, list) or not 1 <= len(path) <= 32
-                    or any(not isinstance(mark, dict) or set(mark) - {"role"} != {"unit", "address"}
-                           or any(not isinstance(mark[k], str) or not re.fullmatch(r"[a-z][a-z0-9-]{0,79}", mark[k])
-                                  for k in ("unit", "role") if k in mark)
-                           or not isinstance(mark["address"], str) or len(mark["address"]) > 600
-                           or not re.fullmatch(r"[1-9][0-9]*\[[1-9][0-9]*\](?:\.[1-9][0-9]*\[[1-9][0-9]*\])*", mark["address"])
-                           for mark in path)):
-                raise plan.PlanRefused("invalid catalog division path")
+        if "divisionPath" in part and not _valid_division_path(part["divisionPath"]):
+            raise plan.PlanRefused("invalid catalog division path")
+        if "linePaths" in part:
+            paths = part["linePaths"]
+            if ("divisionPath" not in part or not isinstance(paths, list) or len(paths) != part["lines"]
+                    or any(not _valid_division_path(path) or path[-1]["unit"] != "line"
+                           or not path[-1].get("role") for path in paths)):
+                raise plan.PlanRefused("catalog turn paths require one declared participant per line")
         role, lines = part["role"], part["lines"]
         if (not isinstance(role, str) or role not in plan.GENERATOR_ROSTER
                 or lines is not None and (type(lines) is not int or lines < 1
@@ -96,12 +107,24 @@ def _validate_shape(contract):
                 any(type(n) is not int for group in returns for n in group)):
             raise plan.PlanRefused("catalog returns must match the repeated lyric block at every offset")
     elif returns != []:
-        if (not isinstance(returns, list) or not groups or parts[0]["role"] != "verse"
+        if (not isinstance(returns, list) or any(p["lines"] is None for p in parts)
+                or groups and parts[0]["role"] != "verse"
                 or any(not isinstance(g, list) or len(g) < 2 or any(type(n) is not int for n in g)
-                       or g != sorted(set(g)) or not any(set(g) <= set(r) for r in groups) for g in returns)
+                       or g != sorted(set(g)) or g[0] < 1 or g[-1] > sum(p["lines"] for p in parts)
+                       or groups and not any(set(g) <= set(r) for r in groups) for g in returns)
                 or len({n for g in returns for n in g}) != sum(map(len, returns))
                 or any(len(g) < 2 for g in rhyme_source_groups([g for g in groups if len(g) > 1], returns))):
             raise plan.PlanRefused("fixed returns require independent rhyme sources in complete verse sections")
+        if not groups:
+            copies = {line for group in returns for line in group[1:]}
+            start = 1
+            can_bind = False
+            for part in parts:
+                stop = start + part["lines"]
+                can_bind |= sum(n not in copies for n in range(start, stop)) >= 2
+                start = stop
+            if not can_bind:
+                raise plan.PlanRefused("fixed returns leave no independent pair in any section")
         measures = {row["line"]: {k:v for k,v in row.items() if k != "line"}
                     for row in contract.get("lineRequirements", ())}
         if any(measures.get(n) != measures.get(g[0]) for g in returns for n in g[1:]):
@@ -123,12 +146,24 @@ def resolve_catalog_shape(contract, rng, *, totals, lines=None, functions=None,
     if form not in plan.PLAN_FORMS or set(plan.FORM_REQUIRES.get(form, ())) - set(funcs) or any(
             funcs.count(f) < 2 for f in plan.FORM_RECURS.get(form, ())):
         raise plan.PlanRefused("native form requirement conflicts with the catalog sections")
-    issues = grid.placement_findings(funcs)
+    issues = grid.placement_findings(funcs, selected_roles=grid.setting_roles(contract))
     if issues:
         raise plan.PlanRefused("catalog role placement: " + issues[0][0] + ": " + issues[0][2])
     for f in set(funcs):
         if grid.SECTION_FUNCTIONS[f].recurrence == "once" and funcs.count(f) > 1:
             raise plan.PlanRefused("repeated once-only roles require qualified recurrence support")
+    # Fixed stanza carriers may change length without asserting a changed tune
+    # or a shortened copy of a verbatim chorus.
+    if (all(p["role"] == "verse" and p["lines"] is not None and "bars" not in p for p in parts)
+            and len({p["lines"] for p in parts}) > 1):
+        sizes = [p["lines"] for p in parts]
+        total = sum(sizes)
+        if (min(sizes) < minimum or total not in totals or total not in plan.song_line_counts()
+                or not plan.ENVELOPE["total_lines"][0] <= total <= plan.ENVELOPE["total_lines"][1]
+                or lines is not None and lines != total):
+            raise plan.PlanRefused("catalog sections cannot fill the requested gradeable line total")
+        return {"total": total, "sections": [{"function": "verse", "lines": k} for k in sizes],
+                "instance_lengths": True}
     fixed = {f: 0 for f in funcs if f in plan.ZERO_LINE_FUNCTIONS}
     for fn, part in zip(funcs, parts):
         n = part["lines"]

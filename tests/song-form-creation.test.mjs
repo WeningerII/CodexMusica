@@ -205,7 +205,7 @@ test('equal contiguous plain divisions use a disclosed verse arrangement and kee
   assert.equal(projection(catalog, 'couplet', {variant:0}).status, 'ready');
   assert.deepEqual(projection(catalog, 'couplet', {variant:1}).contract.rhymeGroups, [[1,2]]);
   assert.equal(projection(catalog, 'monostich').status, 'unsupported');
-  assert.equal(projection(catalog, 'cherita').status, 'unsupported');
+  assert.deepEqual(projection(catalog, 'cherita').arrangement.divisions.map((part) => part.lines), [1, 2, 3]);
   assert.equal(projection(entry(poem(stanza(line({times:464})))), 'f').status, 'unsupported');
   assert.equal(projection(entry(poem(make('stanza',{times:116,children:[line({times:2})]}))), 'f').status, 'unsupported');
   assert.equal(projection(entry(poem(stanza(line()),stanza(line()))), 'f').status, 'unsupported');
@@ -276,7 +276,8 @@ test('no contract escapes when a selected obligation cannot be enforced by the n
     make('section', { role:'unmapped' }),
     make('section', { role:'burden' }),
     poem(stanza(line(), line()), make('section', { role:'verse' })),
-    poem(stanza(line(), line()), stanza(line(), line(), line())),
+    poem(make('section', {role:'chorus', children:[line(), line()]}),
+      make('section', {role:'chorus', children:[line(), line(), line()]})),
     poem(make('section', { role:'verse', children: [line({ returns:'r', times:2 })] })),
   ];
   for (const root of rejected) {
@@ -304,7 +305,7 @@ test('create CLI returns the same contract for positional and request-body selec
     assert.equal(result.status, 0, result.stderr);
     assert.deepEqual(JSON.parse(result.stdout), expected);
   }
-  for (const [id, status] of [['couplet','needs-input'], ['free-verse','deferred'], ['terzanelle','unsupported']]) {
+  for (const [id, status] of [['couplet','needs-input'], ['free-verse','deferred'], ['monostich','unsupported']]) {
     const result = run(['create', id], {});
     assert.equal(result.status, 3);
     assert.equal(JSON.parse(result.stdout).status, status);

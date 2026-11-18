@@ -6,6 +6,8 @@ import { sectionArrangement, measureSectionArrangement } from './song-form-secti
 import { checkReaderForm, realizeForm } from './song-forms.mjs';
 import {
   isVerseDivision,
+  isCountedDescent,
+  linesOfDivision,
   measuredStanzaRole,
   isWordlessWriterRole,
   projectSongFormCreation,
@@ -38,8 +40,23 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       checks: [{ kind: 'realization', outcome: 'unknown' }],
     };
   const creation = projectSongFormCreation(plan, counts);
-  if (creation.nestedDivisions)
-    return gradeNestedDivisions(plan, creation.contract.sections, lines, sections);
+  if (creation.nestedDivisions) {
+    const checks = [];
+    if (creation.contract.returnGroups.length) {
+      // The score can identify a respondent, but only the submitted words
+      // demonstrate that their response actually returns verbatim.
+      const text = lines?.map((row) => {
+        if (typeof row === 'string') return { text: row };
+        return typeof row?.text === 'string' ? { text: row.text } : {};
+      });
+      const numbers = new Map(plan.lines.map((line) => [line.address, line.index]));
+      const measured = checkReaderForm(catalog, id, { variant, counts, lines: text });
+      for (const check of measured.checks.filter((row) => row.kind === 'returns')) {
+        checks.push({ ...check, lines: check.addresses.map((address) => numbers.get(address)) });
+      }
+    }
+    return gradeNestedDivisions(plan, creation.contract.sections, lines, sections, checks);
+  }
   const sourceArrangement = sectionArrangement(plan);
   const measurement = measureSectionArrangement(sourceArrangement, plan, lines, sections);
   sections = measurement.sections;
@@ -81,7 +98,7 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   }
   const nativeInstrumental = hasInstrumental && projection?.contract;
   const divisions = arranged
-    ? stanzas.filter((node) => node.children.every((child) => child.unit === 'line'))
+    ? stanzas.filter((node) => linesOfDivision(node).every((child) => child.unit === 'line'))
     : stanzas.filter((node) => node.unit === 'stanza');
   const completePartition =
     plan.coverage.lines === 'complete' &&
@@ -106,6 +123,32 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
           return [[stanza.address, { lineSpan, ...(aligned && bars !== undefined && { bars }) }]];
         })
       );
+    }
+  }
+  // The span of a cycle of named sections is measured by its contiguous
+  // section instances, including the boundary where the next cycle starts.
+  if (plan.coverage.lines === 'complete' && sections?.length === plan.sections.length) {
+    for (const node of addresses.values()) {
+      if (
+        node.unit !== 'cycle' ||
+        !node.children.length ||
+        !node.children.every((child) => child.unit === 'section')
+      )
+        continue;
+      const [start, end] = node.span.sections;
+      const members = sections.slice(start, end).map((s) => s.lineSpan);
+      if (
+        members.every(
+          (span, i) =>
+            Array.isArray(span) &&
+            span.length === 2 &&
+            span.every((n) => Number.isSafeInteger(n) && n >= 0) &&
+            span[0] <= span[1] &&
+            (!i || span[0] === members[i - 1][1])
+        )
+      ) {
+        (input.units ??= {})[node.address] = { lineSpan: [members[0][0], members.at(-1)[1]] };
+      }
     }
   }
   // An empty section in the catalog leaves its length open. Explicit lines in
@@ -219,6 +262,27 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
         return { ...check, outcome: printedReturns.get(line.returns) ?? 'unknown' };
     }
     if (check.outcome !== 'unknown') return check;
+    const group = addresses.get(check.address);
+    if (check.kind === 'line-span' && group && isCountedDescent(group)) {
+      // Matching the complete descending measure locates the group in the
+      // observed line sequence; a source label or section boundary cannot.
+      const states = group.children.map((child) => {
+        const index = linePositions.get(child.address);
+        const row = index && lines?.[index - 1];
+        const syllables = row?.syllables ?? row?.stress?.length;
+        return syllables === undefined
+          ? 'unknown'
+          : syllables === child.syllables
+            ? 'pass'
+            : 'fail';
+      });
+      const outcome = states.includes('fail')
+        ? 'fail'
+        : states.includes('unknown')
+          ? 'unknown'
+          : 'pass';
+      return { ...check, basis: 'observed sequence of line syllable counts', outcome };
+    }
     if (check.kind === 'role' && lines && plan.coverage.lines === 'complete') {
       const node = addresses.get(check.address);
       if (node?.unit === 'stanza' && node.children.every((child) => child.unit === 'line')) {

@@ -234,9 +234,16 @@ test('a free stanza before each refrain and a short final envoi retain their sco
     const sections = p.contract.sections.map(({ role, divisionPath }, i) => ({
       role, divisionPath, lineSpan: [end, end += widths[i]],
     }));
-    const lines = Array.from({ length: end }, () => ({}));
-    const grade = sections => gradeObservations(catalog, id, { variant, counts, lines, sections });
+    const lines = Array.from({ length: end }, () => ({ text: 'x' }));
+    const grade = (sections, observed = lines) => gradeObservations(catalog, id, { variant, counts, lines: observed, sections });
     assert.equal(grade(sections).verdict, 'pass');
+    if (id === 'camp-meeting-song') {
+      const lastRefrain = sections.at(-1).lineSpan[0];
+      const altered = lines.map((line, i) => i === lastRefrain ? { text: 'y' } : line);
+      assert.equal(grade(sections, altered).verdict, 'fail');
+      delete altered[lastRefrain].text;
+      assert.equal(grade(sections, altered).verdict, 'unknown');
+    }
     assert.equal(grade(sections.map(({divisionPath, ...rest}) => rest)).verdict, 'unknown');
     assert.equal(grade([...sections.slice(0, -1), { ...sections.at(-1), role: 'verse' }]).verdict, 'fail');
     const moved = sections.map(section => ({...section, lineSpan: [...section.lineSpan]}));
@@ -270,4 +277,52 @@ test('a zero-count optional section counts only observed named sections outside 
   assert.equal(grade(sections).verdict,'pass');
   assert.equal(grade([sections[0],{...sections[1],role:'outro'}]).verdict,'fail');
   assert.equal(grade([{...sections[0],lineSpan:[0,1]},sections[1]]).verdict,'fail');
+});
+
+test('repeated cycles get only the spans supplied by their observed section instances', () => {
+  const p = {unit:'song', children:[{unit:'cycle', times:2, children:['verse','chorus'].map(role => ({
+    unit:'section', role, children:[{unit:'line',times:2}]}))}]};
+  const lines = Array(8).fill({text:'a'});
+  const sections = ['verse','chorus','verse','chorus'].map((role,i)=>({role,lineSpan:[2*i,2*i+2]}));
+  const grade = (secs) => gradeObservations(form(p),'symbol',{lines,sections:secs});
+  assert.equal(grade(sections).verdict,'pass');
+  const missing = sections.map(({role})=>({role}));
+  assert.equal(grade(missing).verdict,'unknown');
+  const drift = structuredClone(sections);
+  drift[1].lineSpan[1] = drift[2].lineSpan[0] = 3;
+  assert.equal(grade(drift).verdict,'fail');
+});
+
+test('descending groups are located by their actual meter and sparse terminal rhymes', async () => {
+  const { readFileSync } = await import('node:fs');
+  const { projectSongFormCreation } = await import('../src/song-form-creation.mjs');
+  const { realizeForm } = await import('../src/song-forms.mjs');
+  const catalog = JSON.parse(readFileSync(new URL('../data/song-forms.json', import.meta.url)));
+  const id = 'zeno';
+  const measures = [8, 4, 2, 1, 4, 2, 1, 4, 2, 1];
+  const rows = measures.map((syllables, index) => ({
+    syllables, rhyme: syllables === 1 ? 'common' : String(index),
+  }));
+  const grade = (lines) => gradeObservations(catalog, id, {lines});
+  const passed = grade(rows);
+  assert.equal(passed.verdict, 'pass');
+  assert.deepEqual(passed.checks.filter(c => c.kind === 'line-span').map(c => c.lines),
+    [[2,3,4], [5,6,7], [8,9,10]]);
+  const change = (index, value) => rows.map((row, i) => i === index ? value : row);
+  assert.equal(grade(change(5, {syllables: 3})).verdict, 'fail');
+  assert.equal(grade(change(5, {})).verdict, 'unknown');
+  assert.equal(grade(change(6, {syllables: 1, rhyme:'other'})).verdict, 'fail');
+  assert.equal(grade(change(6, {syllables: 1})).verdict, 'unknown');
+  const projection = projectSongFormCreation(realizeForm(catalog, id));
+  assert.equal(projection.contract, null);
+  assert.ok(projection.reasons.some(r => r.code === 'native-free-word-reserve'));
+
+  const shaped = form({unit:'stanza',children:[{unit:'line',syllables:6},
+    {unit:'descent',children:[{unit:'line',syllables:4},{unit:'line',syllables:2}]}]});
+  const arrange = projectSongFormCreation(realizeForm(shaped, 'symbol'));
+  assert.deepEqual(arrange.contract.sections,[{unit:'section',role:'verse',lines:3}]);
+  assert.deepEqual(arrange.contract.lineRequirements.map(line => line.syllables), [6,4,2]);
+  const unmeasured = form({unit:'stanza',children:[{unit:'line'},{unit:'descent',role:'unspecified',
+    children:[{unit:'line',syllables:3},{unit:'line',syllables:2}]}]});
+  assert.equal(projectSongFormCreation(realizeForm(unmeasured,'symbol')).status,'unsupported');
 });

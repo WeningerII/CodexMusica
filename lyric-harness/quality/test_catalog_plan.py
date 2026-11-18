@@ -11,6 +11,40 @@ def catalog(form_id, sections, rhymes=(), returns=()):
 
 
 class CatalogPlannerTests(unittest.TestCase):
+    def test_verified_catalog_burden_can_open_only_its_complete_alternating_setting(self):
+        from quality import grid
+        from types import SimpleNamespace
+        from lyric_harness import _bind_blueprint_catalog
+        order = ["burden", "verse", "burden", "verse", "burden"]
+        contract = {**catalog("lullay-carol", [{"unit": "section", "role": role, "lines": None}
+                                                for role in order]), "scope": "setting", "counts": {"1.2": 2}}
+        built = plan.make_plan(11, song_form=contract, lines=10)
+        parts = [s["function"] for s in built["sections"]]
+        self.assertEqual(parts, order)
+        bp = plan.fill_plan(built, ["one"] * 10)
+        lex = SimpleNamespace()
+        _bind_blueprint_catalog(lex, bp)
+        self.assertEqual(grid.placement_findings(parts, selected_roles=lex.catalog_placement_roles), [])
+        self.assertIn(("SECTION_NOT_ADJACENT", 0), [(c, i) for c, i, _ in grid.placement_findings(parts)])
+        drift = order[:2] + ["chorus"] + order[3:]
+        self.assertIn(("SECTION_NOT_ADJACENT", 0), [(c, i) for c, i, _ in grid.placement_findings(
+            drift, selected_roles=lex.catalog_placement_roles)])
+        with self.assertRaises(plan.PlanRefused):
+            plan.make_plan(11, song_form={**contract, "scope": "rule"}, lines=10)
+
+    def test_unequal_verse_instances_keep_the_draft_spans_and_disclosed_schemes(self):
+        contract = catalog("cherita", [{"unit": "section", "role": "verse", "lines": n}
+                                      for n in (1, 2, 3)])
+        for seed in (0, 11):
+            built = plan.make_plan(seed, song_form=contract, lines=6)
+            self.assertEqual([s["lines"] for s in built["choices"]["schemes"].values()], [1, 2, 3])
+            self.assertEqual([sum(l["section"] == s["name"] for l in built["line_slots"])
+                              for s in built["sections"]], [1, 2, 3])
+            self.assertEqual(plan.sweep([seed], song_form=contract, lines=6)["accepted"], [seed])
+        for options in ({"lines": 7}, {"wants": ["lines_per_section>=2"]}):
+            with self.assertRaises(plan.PlanRefused):
+                plan.make_plan(0, song_form=contract, **options)
+
     def test_wordless_catalog_counts_do_not_use_the_generator_line_bound(self):
         roles = ["verse", "solo", "solo", "solo"]
         contract = catalog("wordless-sections", [

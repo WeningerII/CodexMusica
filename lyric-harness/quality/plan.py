@@ -4343,7 +4343,7 @@ def _sweep_coords(plan):
     keys = {}
     for name, slots in per.items():
         slots = sorted(slots, key=lambda s: s["line"])
-        code = (schemes.get(slots[0]["function"]) or {}).get("rgs") or ()
+        code = (schemes.get(name) or schemes.get(slots[0]["function"]) or {}).get("rgs") or ()
         for i, s in enumerate(slots):
             keys[s["line"]] = ((name, code[i]) if len(code) == len(slots)
                                else ("", s["line"]))
@@ -5548,27 +5548,57 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     if any(len(g) > _max_group for g in terminal_groups):
         raise PlanRefused("the prescribed rhyme group exceeds the requested group size")
     group_of = {line: i for i, g in enumerate(terminal_groups) for line in g}
+    prescribed_returns = song_form["returnGroups"] if song_form else []
+    repeated_carrier = bool(song_form and song_form["sections"][0].get("sourceRole") in ("chant", "call") and not terminal_groups)
+    if repeated_carrier:
+        # The native verbatim carrier already binds every return in the contract.
+        prescribed_returns = []
+    return_only = bool(prescribed_returns and not terminal_groups)
     multi_prescribed = bool(terminal_groups) and len(funcs) > 1
     offset = 0
-    for instance, fn in enumerate(funcs if multi_prescribed else dict.fromkeys(funcs), 1):
-        if ks[fn] == 0:
+    instance_schemes = multi_prescribed or return_only or bool(catalog and catalog.get("instance_lengths"))
+    scheme_sizes = {fn: ks[fn] for fn in dict.fromkeys(funcs)}
+    copies_at = {}
+    if instance_schemes:
+        copies = {line for group in prescribed_returns for line in group[1:]}
+        scheme_sizes, occurrences = {}, {}
+        first = 1
+        for part in catalog["sections"]:
+            fn, size = part["function"], part["lines"]
+            occurrences[fn] = occurrences.get(fn, 0) + 1
+            name = f"{fn.upper()}{occurrences[fn]}"
+            scheme_sizes[name] = size
+            copies_at[name] = {i for i in range(size) if first + i in copies}
+            first += size
+    for fn, size in scheme_sizes.items():
+        if size == 0:
             continue
-        if multi_prescribed or terminal_groups and ks[fn] > 2:
-            labels = [group_of[i] for i in range(offset + 1, offset + ks[fn] + 1)]
+        if multi_prescribed or terminal_groups and size > 2:
+            labels = [group_of[i] for i in range(offset + 1, offset + size + 1)]
             local = {label: i for i, label in enumerate(dict.fromkeys(labels))}
             code, pool = tuple(local[label] for label in labels), 1
-            offset += ks[fn]
+            offset += size
         else:
             for _scheme_attempt in range(500):
-                code, pool = _scheme_for(ks[fn], rng)
+                copied = copies_at.get(fn)
+                if copied:
+                    independent = size - len(copied)
+                    free_code, pool = _scheme_for(independent, rng) if independent else ((), 1)
+                    fresh = iter(free_code)
+                    # Copies receive identity from returns, not a second
+                    # sound obligation. Draw only among independent lines.
+                    keys = [("copy", i) if i in copied else ("free", next(fresh)) for i in range(size)]
+                    labels = {key: n for n, key in enumerate(dict.fromkeys(keys))}
+                    code = tuple(labels[key] for key in keys)
+                else:
+                    code, pool = _scheme_for(size, rng)
                 if max(code.count(x) for x in set(code)) <= _max_group:
                     break
             else:
                 raise SeedRefused("declared group bound found no scheme in 500 draws")
         by_func[fn] = code
-        scheme_key = f"{fn.upper()}{instance}" if multi_prescribed else fn
-        scheme_meta[scheme_key] = {"rgs": list(code), "chosen_from": pool,
-                           "lines": ks[fn],
+        scheme_meta[fn] = {"rgs": list(code), "chosen_from": pool,
+                           "lines": size,
                            "lines_chosen_from": list(ENVELOPE[
                                "lines_per_section"])}
 
@@ -5669,7 +5699,6 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     first_seen = {}
     sung_first = {}
     groups, returns = [], []
-    prescribed_returns = song_form["returnGroups"] if terminal_groups else []
     # Singleton classes establish differences in final sound but have no pair to bind.
     paired_groups = [group for group in terminal_groups if len(group) > 1]
     from quality.catalog_shape import rhyme_source_groups
@@ -5680,13 +5709,14 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     for fn in funcs:
         counts[fn] = counts.get(fn, 0) + 1
         name = f"{fn.upper()}{counts[fn]}"
-        k = ks[fn]
+        scheme_key = name if instance_schemes else fn
+        k = scheme_sizes[scheme_key]
         # BARS FOLLOW THE PHRASE COUNT, which for a sung section IS its line
         # count and for a wordless one is its own draw. `max(k, 1)` used to
         # stand here and it is what made an instrumental exactly one line's
         # worth of music whatever else the plan did — the freebie this
         # section's own comment now records.
-        n_bars = phrases[fn] * bars
+        n_bars = (k if k else phrases[fn]) * bars
         ana = anacrusis.get(fn, 0.0)
         sections.append({"name": name, "function": fn,
                          "bars": n_bars, "start_bar": bar,
@@ -5732,7 +5762,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             # Lines only: the TYPE decides the places (D3), and may take part
             # of a drawn block, in `_assign_types` below.
             if not terminal_groups:
-                blocks = _abs_groups(by_func[fn], first)
+                blocks = _abs_groups(by_func[scheme_key], first)
                 _section_blocks.append((list(range(first, first + k)), blocks))
             # OVERLAPPING GROUPS, DRAWN AND NOT ONLY DECLARABLE (2026-08-23).
             #
@@ -6032,6 +6062,12 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # internal plan data; the writer is shown the generated rule (D5).
     if catalog is not None:
         plan["request"]["song_form"] = deepcopy(song_form)
+        turn_paths = {section["name"]: iter(declared["linePaths"])
+                      for section, declared in zip(plan["sections"], song_form["sections"])
+                      if "linePaths" in declared}
+        for slot in plan["line_slots"]:
+            if slot["section"] in turn_paths:
+                slot["divisionPath"] = deepcopy(next(turn_paths[slot["section"]]))
         for section, declared in zip(plan["sections"], song_form["sections"]):
             if "divisionPath" in declared:
                 section["divisionPath"] = deepcopy(declared["divisionPath"])
@@ -6224,7 +6260,8 @@ def fill_plan(plan, lines):
         "sections": deepcopy(plan["sections"]),
         "lines": [{"text": got[s["line"] - 1], "bar": s["bar"],
                    "beat": s["beat"], "duration": s["duration"],
-                   "section": s["section"]}
+                   "section": s["section"],
+                   **({"divisionPath": deepcopy(s["divisionPath"])} if "divisionPath" in s else {})}
                   for s in plan["line_slots"]],
     }
 
@@ -7181,6 +7218,10 @@ def writer_brief(plan):
             labels = [f"{mark['unit']} {mark['address'].rsplit('[', 1)[1][:-1]}" +
                       (" · " + mark["role"] if "role" in mark else "") for mark in sec["divisionPath"]]
             out.append("  Score divisions: " + " / ".join(labels))
+        for slot in slots:
+            if "divisionPath" in slot:
+                turn = slot["divisionPath"][-1]["role"]
+                out.append(f"  L{slot['line']} · {turn}")
         out.append("  " + section_header(sec, slots))
         if "source_role" in sec:
             out.append(f"    Catalog section: {sec['source_role']}. Native writing function: {sec['function']}.")

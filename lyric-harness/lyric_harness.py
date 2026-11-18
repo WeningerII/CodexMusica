@@ -8350,6 +8350,7 @@ def _catalog_creation(args, lex):
             _refuse(f"{flag[2:].replace('-', ' ')} requires exactly one value")
         else:
             selected[flag] = value
+    lex.catalog_placement_roles = ()
     if not selected:
         return args, None
     if not rest:
@@ -8386,6 +8387,8 @@ def _catalog_creation(args, lex):
     except (ValueError, RecursionError) as error:
         _refuse(f"invalid catalog selection: {error}")
     lex.catalog_selection, contract = _resolve_catalog(selection, seeded=seeded, supplied=supplied)
+    from quality.grid import setting_roles
+    lex.catalog_placement_roles = setting_roles(contract)
     return rest, contract
 
 
@@ -8428,6 +8431,8 @@ def _bind_blueprint_catalog(lex, blueprint):
     if previous is not None and previous != selection:
         _refuse("the blueprint and command line select different catalog forms, variants or counts")
     lex.catalog_selection = selection
+    from quality.grid import setting_roles
+    lex.catalog_placement_roles = setting_roles(contract)
 
 
 def _catalog_selection_args(contract):
@@ -13641,7 +13646,9 @@ def main():
         song = _blueprint_or_refuse(_grid_song, GR, bp,
                                    _reraise=(GR.UnknownFunction,))
         key = GR.rime_cmudict(lex) if "--rhyme-key=cmudict" in args else None
-        rep = GR.song_function_report(song, hooks=hooks, rhyme_key=key)
+        _bind_blueprint_catalog(lex, bp)
+        rep = GR.song_function_report(song, hooks=hooks, rhyme_key=key,
+                                      selected_roles=getattr(lex, "catalog_placement_roles", ()))
         p = rep["profile"]
         print("  module: quality/grid.py — Section.function, the returns, "
               "the hook")

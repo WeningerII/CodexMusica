@@ -84,6 +84,28 @@ export function isVerseDivision(unit) {
   return LINE_DIVISIONS.has(unit);
 }
 
+// A descent here is a sequence of explicitly shorter measured lines. It has
+// no separate musical section. Unknown or decorated groupings retain their
+// original shape so the ordinary visitor can reject any unmeasured obligation.
+export function isCountedDescent(node) {
+  return (
+    node.unit === 'descent' &&
+    FEATURES.every((key) => node[key] === undefined) &&
+    node.children.length >= 2 &&
+    node.children.every(
+      (line, index, rows) =>
+        line.unit === 'line' &&
+        Number.isSafeInteger(line.syllables) &&
+        line.syllables > 0 &&
+        (!index || line.syllables < rows[index - 1].syllables)
+    )
+  );
+}
+
+export function linesOfDivision(node) {
+  return node.children.flatMap((child) => (isCountedDescent(child) ? child.children : [child]));
+}
+
 // Browser-side mirror of the native writer's corpus-derived envelope, checked
 // against quality.plan in the catalog-wide tests.
 export const CREATION_LIMITS = Object.freeze({
@@ -135,12 +157,14 @@ export function projectSongFormCreation(plan, counts = {}) {
   const returnGroups = [...byReturn.values()];
   const copies = new Set(returnGroups.flatMap((group) => group.slice(1)));
   const fixedReturns =
-    endsRhyme &&
+    plan.coverage.lines === 'complete' &&
+    plan.lines.every((line) => line.positionKnown) &&
     returnGroups.length > 0 &&
     returnGroups.every(
       (group) =>
         group.length >= 2 &&
-        rhymeGroups.some((rhymes) => group.every((line) => rhymes.includes(line)))
+        (!rhymeGroups.length ||
+          (endsRhyme && rhymeGroups.some((rhymes) => group.every((line) => rhymes.includes(line)))))
     ) &&
     rhymeGroups.every(
       (group) => group.length === 1 || group.filter((n) => !copies.has(n)).length >= 2
@@ -230,7 +254,12 @@ export function projectSongFormCreation(plan, counts = {}) {
         node.role
       );
     }
-    for (const child of node.children) {
+    const lineNodes = counted ? linesOfDivision(node) : node.children;
+    for (const child of lineNodes) {
+      // A binding on the terminal word must leave one further word free in
+      // the native writing plan (WORDS_LEFT_FREE). One syllable cannot hold both.
+      if (child.unit === 'line' && child.syllables === 1 && byRhyme.get(child.rhyme)?.length >= 2)
+        refuse('native-free-word-reserve', child, 'rhyme');
       const requirement = projectLineRequirement(
         child,
         endsRhyme,
@@ -249,11 +278,11 @@ export function projectSongFormCreation(plan, counts = {}) {
     if (node.children.length && isWordlessWriterRole(role)) {
       return refuse('lines-on-wordless-role', node, role);
     }
-    if (counted) divisions.push({ unit: node.unit, lines: node.children.length });
+    if (counted) divisions.push({ unit: node.unit, lines: lineNodes.length });
     sections.push({
       unit: 'section',
       role,
-      lines: node.children.length || null,
+      lines: lineNodes.length || null,
       ...(roleArrangement && { sourceRole: node.role }),
       ...(node.bars !== undefined && { bars: node.bars }),
     });
@@ -263,7 +292,7 @@ export function projectSongFormCreation(plan, counts = {}) {
   // score, including the participants in independently declared turns.
   let nestedDivisions = false;
   if (reasons.length) {
-    const layout = projectNestedDivisions(plan, NATIVE_ROLES);
+    const layout = projectNestedDivisions(plan, NATIVE_ROLES, fixedReturns);
     if (layout) {
       sections.splice(0, sections.length, ...layout);
       reasons.length = divisions.length = lineRequirements.length = 0;
@@ -278,12 +307,25 @@ export function projectSongFormCreation(plan, counts = {}) {
       sections.reduce((total, part) => total + part.lines, 0) !== plan.lines.length)
   )
     refuse('unsupported-rhyme-layout');
+  if (fixedReturns && !rhymeGroups.length) {
+    let offset = 0;
+    const inspectable = sections.some((part) => {
+      const start = offset;
+      offset += part.lines ?? 0;
+      return (
+        Array.from({ length: part.lines || 0 }, (_, i) => start + i + 1).filter(
+          (line) => !copies.has(line)
+        ).length >= 2
+      );
+    });
+    if (!inspectable) refuse('no-inspectable-native-pair');
+  }
   if (fixedReturns) {
     const measures = new Map(
       lineRequirements.map(({ line, ...rest }) => [line, JSON.stringify(rest)])
     );
     if (
-      sections[0]?.role !== 'verse' ||
+      (endsRhyme && sections[0]?.role !== 'verse') ||
       returnGroups.some((group) =>
         group.some((line) => measures.get(line) !== measures.get(group[0]))
       )
@@ -310,15 +352,28 @@ export function projectSongFormCreation(plan, counts = {}) {
     }
     if (divisions.every((part) => part.lines < 2)) refuse('no-inspectable-native-pair');
   }
-  // Native grid placement accepts a burden immediately after a verse.
-  // Opening burdens remain valid catalog reading structures.
-  if (sections.some((part, i) => part.role === 'burden' && sections[i - 1]?.role !== 'verse')) {
+  // A catalog setting may explicitly print its alternating verse/burden cycle
+  // with a leading burden. Other placements retain the native rule.
+  const printedBurden =
+    plan.scope === 'setting' &&
+    sections.length >= 5 &&
+    sections.length % 2 === 1 &&
+    sections.every((part, i) => part.role === (i % 2 ? 'verse' : 'burden'));
+  if (
+    sections.some(
+      (part, i) =>
+        part.role === 'burden' && sections[i - 1]?.role !== 'verse' && !(i === 0 && printedBurden)
+    )
+  ) {
     refuse('native-burden-placement');
   }
+  const variableVerses = sections.every(
+    (section) => section.role === 'verse' && section.lines !== null && section.bars === undefined
+  );
   const fixedLengths = new Map();
   for (const { role, lines: count } of sections) {
     if (count === null) continue;
-    if (fixedLengths.has(role) && fixedLengths.get(role) !== count) {
+    if (!variableVerses && fixedLengths.has(role) && fixedLengths.get(role) !== count) {
       refuse('inconsistent-recurring-section-length', null, role);
     }
     fixedLengths.set(role, count);

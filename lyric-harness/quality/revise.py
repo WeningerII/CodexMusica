@@ -3653,7 +3653,8 @@ class Reviser:
         if _hs is not None and 1 <= _hs <= len(lines):
             hooks = [lines[_hs - 1]]
         rep = GR.song_function_report(song, hooks=hooks,
-                                      rhyme_key=GR.rime_cmudict(self.lex))
+                                      rhyme_key=GR.rime_cmudict(self.lex),
+                                      selected_roles=getattr(self.lex, "catalog_placement_roles", ()))
         # The plan's own reason for declaring no hook, or "" (see the note
         # at `unasked` below). Read once: the coverage rows and the refusal
         # note both speak from it.

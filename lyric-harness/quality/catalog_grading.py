@@ -86,6 +86,9 @@ def _sections(bp, observed):
     for row, length in zip(rows, lengths):
         row["lineSpan"] = [start, start + length]
         start += length
+    for index, slot in enumerate(slots):
+        if "divisionPath" in slot:
+            observed[index]["divisionPath"] = slot["divisionPath"]
     for index, bars in line_bars.items():
         observed[index]["bars"] = bars
     return rows
