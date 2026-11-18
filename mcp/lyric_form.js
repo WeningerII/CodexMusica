@@ -1,11 +1,14 @@
 // Connect the declared catalog pattern to the sung-line coordinates of the reader.
 import { readFile } from 'node:fs/promises';
 import { checkReaderForm, pindaricTriads, realizeForm } from '../src/song-forms.mjs';
+import { printedSteps } from '../src/song-form-printing.mjs';
 import { formMandate } from '../src/song-form-mandate.mjs';
 
 let catalog;
 export function catalogReadingFlag(plan) {
   if (plan?.status !== 'ready') return null;
+  if (printedSteps(plan)) return '--form-reading=printing';
+  if (plan.id === 'rondo') return '--form-reading=rondo';
   function needsRimes(node) {
     return (node.unit === 'syllable' && node.rhyme !== undefined) || node.children.some(needsRimes);
   }
@@ -36,6 +39,7 @@ export async function prepareFormReview(args) {
 function sectionObservations(sections, plan) {
   if (!sections?.length || !sections.every((section) => section.classified === true)) return;
   const roles = new Set(plan.sections.map((section) => section.role).filter(Boolean));
+  if (plan.id === 'rondo') for (const role of [...roles]) roles.add(role.slice('part-'.length));
   const triads = pindaricTriads(plan);
   if (triads) {
     for (const triad of triads) {
@@ -64,7 +68,7 @@ function sectionObservations(sections, plan) {
       if (/^(?:pre|post)-chorus$/.test(value)) candidates.push(value.replace('-', ''));
     }
     const observed = { role: candidates.find((value) => roles.has(value)) ?? role };
-    if (plan.coverage.lines === 'complete' || triads) {
+    if (plan.coverage.lines === 'complete' || triads || plan.id === 'rondo') {
       observed.lineSpan = [nextLine, nextLine + section.lines];
       nextLine += section.lines;
     }
@@ -85,6 +89,7 @@ export function reviewRecoveredForm({ options, plan }, record) {
     text,
     sungWords: null,
     ...record.form_reading?.[i],
+    ...(record.printed_lines && { printedText: record.printed_lines[i] }),
   }));
   const sections = sectionObservations(record.sections, plan);
   const { verdict, checks } = checkReaderForm(catalog, plan.id, {
@@ -96,8 +101,12 @@ export function reviewRecoveredForm({ options, plan }, record) {
     ...result,
     verdict,
     checks,
+    ...(plan.id === 'rondo' && { lyricalReturns: record.rondo_text_returns ?? [] }),
     coverage: plan.coverage,
     mandate: formMandate(plan),
+    ...(printedSteps(plan) && {
+      printedRowCount: printedSteps(plan).reduce((n, count) => n + count, 0),
+    }),
     meter_basis:
       'coordinates shared by all listed readings of each fully aligned word; function-word demotion applied, primary and secondary stress merged; unread or guessed measurements withheld',
   };

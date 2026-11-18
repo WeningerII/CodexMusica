@@ -6,6 +6,8 @@
  * Spans are half-open offsets into the explicit preorder node, line, and section
  * projections. A partial projection is not an absolute transcript coordinate.
  */
+import { printedSteps, gradePrintedSteps } from './song-form-printing.mjs';
+
 const MAX_NODES = 8192;
 const MAX_DEPTH = 48;
 const SCOPES = new Set(['rule', 'setting', 'deferred']);
@@ -332,7 +334,15 @@ export function checkReaderForm(catalog, id, options) {
     delete observed.endWord;
     return observed;
   }
-  const sections = options.sections?.map(measuredIdentity);
+  const sections = options.sections?.map((section) => {
+    const row = measuredIdentity(section);
+    if (id !== 'rondo' || !isRecord(row)) return row;
+    // A native verse can carry a printed part designation in its own score.
+    const label = row.sourceRole ?? row.role;
+    if (typeof label !== 'string') return row;
+    const part = /^(?:part[\s_-]+)?([abc])$/i.exec(label);
+    return { ...row, role: part ? 'part-' + part[1].toLowerCase() : label };
+  });
   const lines = options.lines?.map((line) => {
     const observed = measuredIdentity(line);
     if (!isRecord(observed)) return observed;
@@ -458,6 +468,13 @@ export function checkForm(catalog, id, options = {}) {
   const plan = realizeForm(catalog, id, options);
   const checks = [];
   if (plan.status !== 'ready') return { ...plan, verdict: 'unknown', checks };
+  const steps = printedSteps(plan);
+  if (steps) {
+    const rows = observations(options.lines, true)?.map((row, i) =>
+      typeof options.lines[i] === 'string' ? { ...row, printedText: row.text } : row
+    );
+    return { ...plan, ...gradePrintedSteps(steps, rows) };
+  }
   const observationsByAddress = new Map(),
     classSets = new Map();
   function add(kind, outcome, detail = {}) {
@@ -646,6 +663,25 @@ export function checkForm(catalog, id, options = {}) {
     Object.keys(extra).every((key) => used.has(key)),
     'Unknown unit observation address'
   );
+  if (plan.id === 'rondo') {
+    const parts = new Map();
+    for (const part of plan.sections) {
+      if (!parts.has(part.role)) parts.set(part.role, []);
+      parts.get(part.role).push(part.index);
+    }
+    for (const [part, positions] of parts) {
+      if (positions.length > 1)
+        add('musical-return', 'unknown', {
+          part,
+          sections: positions,
+          basis: 'no section-level musical material supplied',
+        });
+    }
+    add('musical-contrast', 'unknown', {
+      parts: [...parts.keys()],
+      basis: 'no section-level musical material supplied',
+    });
+  }
   const triads = pindaricTriads(plan);
   if (triads) {
     const divisions = triads.flatMap((triad) => triad.children);

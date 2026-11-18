@@ -258,3 +258,28 @@ test('pasted measured phrases retain their terminal bindings and distinguish mis
     );
   }
 });
+
+test('stepped printing is measured again during pasted revision', async () => {
+  const form = {
+    catalog_form: 'triadic-line',
+    catalog_counts: [{ path: '1.1', count: 1 }],
+    groups: '1,3',
+  };
+  const rows = ['one', '  two', '    three'];
+  const checked = verdict(await call('lyric_check', { ...form, lines_text: rows.join('\r\n') }));
+  assert.equal(checked.catalog_form.expected_lines, 3);
+  assert.equal(checked.coverage.catalog_form.verdict, 'pass');
+  const flat = verdict(await call('lyric_check', { ...form, lines: rows.map((r) => r.trim()) }));
+  assert.equal(flat.coverage.catalog_form.verdict, 'fail');
+  const revised = verdict(
+    await call('lyric_revise', {
+      ...checked.catalog_form.revision_mandate,
+      draft: rows,
+      attempts: 0,
+      max_rounds: 1,
+      backtrack: 0,
+      new_run: true,
+    })
+  );
+  assert.equal(revised.coverage.catalog_form.verdict, 'pass');
+});

@@ -2105,3 +2105,69 @@ test(
     }
   }
 );
+
+test(
+  'pasted rondo sections keep lyrical variation separate from musical return through revision',
+  { timeout: 240_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin('edit');
+    const draft = ['a b c', 'x y', 'a b c', 'y z', 'a b d', 'x z', 'a b c'];
+    const parts = ['a', 'b', 'a', 'c', 'a', 'b', 'a'];
+    const bp = {
+      sections: parts.map((letter, i) => ({
+        name: 's' + i,
+        function: 'verse',
+        source_role: 'part-' + letter,
+        bars: 1,
+        meter: { beats: 4, unit: 4 },
+      })),
+      lines: draft.map((text, i) => ({ text, section: 's' + i, bar: i + 1, beat: 1, duration: 4 })),
+    };
+    const args = {
+      catalog_form: 'rondo',
+      catalog_variant: 1,
+      groups: '1,2',
+      relation: 'class:RHYME',
+      blueprint: JSON.stringify(bp),
+      subdivision: 1,
+    };
+    async function read(tool, params) {
+      const op = await host.run(tool, params);
+      const receipt = measured(op);
+      assert.notEqual(receipt.measurement_status, 'refused', JSON.stringify(receipt));
+      return measured(await host.read(op.operation_id, 'full')).coverage.catalog_form;
+    }
+    const score = await read('lyric_check', { ...args, lines: draft });
+    assert.equal(score.verdict, 'unknown');
+    assert.deepEqual(
+      score.checks.filter((c) => c.kind === 'role').map((c) => c.outcome),
+      Array(7).fill('pass')
+    );
+    assert.deepEqual(
+      score.checks.filter((c) => c.kind === 'musical-return').map((c) => c.sections),
+      [
+        [1, 3, 5, 7],
+        [2, 6],
+      ]
+    );
+    assert.deepEqual(
+      score.lyricalReturns.map((r) => [r.sections, r.classification]),
+      [
+        [[1, 3], 'VERBATIM'],
+        [[1, 5], 'LEXICAL_VARIATION'],
+        [[2, 6], 'LEXICAL_VARIATION'],
+        [[1, 7], 'VERBATIM'],
+      ]
+    );
+    await host.reconnect();
+    const revision = await read('lyric_revise', {
+      ...args,
+      draft,
+      attempts: 0,
+      max_rounds: 1,
+      backtrack: 0,
+    });
+    assert.deepEqual(revision, score);
+  }
+);

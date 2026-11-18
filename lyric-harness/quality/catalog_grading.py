@@ -233,6 +233,9 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
     request = {k: selection[k] for k in ("variant", "counts") if k in selection}
     if (bp.get("song_form") or {}).get("phraseLines"):
         request["phraseLines"] = True
+    if form_id == "triadic-line" and getattr(lex, "catalog_printing", False):
+        for row, text in zip(observed, lines):
+            row["printedText"] = text
     request["lines"] = observed
     sections = _sections(bp, observed)
     if sections is not None:
@@ -244,6 +247,9 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
                              encoding="utf-8", timeout=20, check=True)
         groups = (bp.get("song_form") or {}).get("rhymeGroups")
         result = json.loads(run.stdout)
+        if form_id == "rondo":
+            from quality.catalog_rondo import lyrical_returns
+            result["lyricalReturns"] = lyrical_returns(lines, sections)
         measure_word_roles(result, observed)
         if result.get("phraseRhymeGroups") and groups is None:
             groups = result["phraseRhymeGroups"]

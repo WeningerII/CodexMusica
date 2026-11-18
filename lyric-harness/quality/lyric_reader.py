@@ -57,6 +57,7 @@ class SourceRow:
     indent: int
     kind: str
     text: str
+    leading: str = ""
 
 
 def normalized_rows(path):
@@ -88,7 +89,7 @@ def normalized_rows(path):
                 text = text[len(prefix):].strip()
                 kind = "lyric" if text else "apparatus"
                 stripped.add(i + 1)
-        yield SourceRow(i + 1, lh.line_indent(original), kind, text)
+        yield SourceRow(i + 1, lh.line_indent(original), kind, text, original[:len(original) - len(original.lstrip())])
     if set(prefixes) - stripped:
         raise ValueError(f"label prefix declared on a line that is not a lyric row: "
                          f"{Path(path).name}:{sorted(set(prefixes) - stripped)}")

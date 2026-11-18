@@ -407,3 +407,14 @@ test('printed phrase boundaries require local syllable and ending measurements',
   assert.equal(grade([{text:'x'}]).verdict,'unknown');
   assert.equal(grade(rows.slice(0,2),{phraseLines:true}).verdict,'fail');
 });
+
+test('triadic printing measures the observed indents of each logical line independently', async () => {
+  const {readFile} = await import('node:fs/promises');
+  const c = JSON.parse(await readFile(new URL('../data/song-forms.json',import.meta.url),'utf8'));
+  const grade = rows => gradeObservations(c,'triadic-line',{
+    counts:{'1.1':2},lines:rows.map(text => ({text,printedText:text}))});
+  assert.equal(grade(['1',' 2','  3',' 4','   5','      6']).verdict,'pass');
+  assert.equal(grade(['1',' 2','  3',' 4','   5','  6']).verdict,'fail');
+  assert.equal(grade(['1','\t2','  3','4',' 5','  6']).verdict,'unknown');
+  assert.throws(()=>grade(['1','  ','  3','4',' 5','  6']));
+});
