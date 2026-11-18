@@ -514,7 +514,8 @@ def recover_file(path, input_format="source", preserve_printing=False, **kw):
                   lyric_indices=indices, **kw)
     rec.sung_lines = lines
     if preserve_printing:
-        rec.printed_lines = [row.leading + row.text for row in rows if row.kind == "lyric"]
+        from lyric_harness import printed_source_lines
+        rec.printed_lines = printed_source_lines(path, rows)
     rec.set_aside = [{"row": row.lineno, "kind": row.kind, "text": row.text}
                      for row in rows if row.kind in ("apparatus", "title")]
     return rec

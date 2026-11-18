@@ -2651,6 +2651,17 @@ def indent_agreement(groups, indents):
 _PATH_SHAPED = re.compile(r"[/\\]|\.[A-Za-z0-9]{1,5}$")
 
 
+def printed_source_lines(path, rows):
+    """Restore physical leading whitespace to the normalized sung coordinates."""
+    physical = read_lyric_text(path).splitlines()
+    printed = []
+    for row in rows:
+        if row.kind == "lyric":
+            raw = physical[row.lineno - 1]
+            printed.append(raw[:len(raw) - len(raw.lstrip())] + row.text)
+    return printed
+
+
 def load_draft_lines(path, with_indent=False, input_format="literal", preserve_indent=False):
     """Read caller-owned lines without interpreting lyric text as apparatus.
 
@@ -2660,7 +2671,7 @@ def load_draft_lines(path, with_indent=False, input_format="literal", preserve_i
     if input_format == "source":
         if preserve_indent and not with_indent:
             from quality.lyric_reader import normalized_rows
-            return [row.leading + row.text for row in normalized_rows(path) if row.kind == "lyric"]
+            return printed_source_lines(path, normalized_rows(path))
         return load_lyric_lines(path, with_indent=with_indent)
     if input_format != "literal":
         raise ValueError("input format must be literal or source")
