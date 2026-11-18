@@ -1472,7 +1472,8 @@ function checkNext(v) {
       'Call lyric_revise with these same lines and this same declaration, and no seed; ' +
       'its revise loop works on the flagged lines. If you change any line yourself instead, ' +
       'call lyric_check again on the changed lines. Once a revise run has flagged a line without ' +
-      'asking about it, that line keeps its text for 3 hours (BRIEF_REQUIRED).'
+      'asking about it, that line keeps its text for up to 3 hours, until the song is certified or a later ' +
+      'run on it no longer flags the line (BRIEF_REQUIRED).'
     );
   return unjudgedNext(v, 'Then call lyric_check again with the same declaration.');
 }
@@ -2534,7 +2535,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .boolean()
       .optional()
       .describe(
-        "true to open a fresh independent run on the draft you send; any run in progress is set aside intact. Send only the draft and the declarations with it. With no draft and a run's `run_id`, it starts from the song as that run left it, its accepted fixes included. A line a run flagged but did not ask about, or a line its loop replaced, keeps its text for 3 hours unless the song is certified or half or more of its lines are rewritten; a draft that changes one is refused with BRIEF_REQUIRED, which names the lines."
+        "true to open a fresh independent run on the draft you send; any run in progress is set aside intact. Send only the draft and the declarations with it. With no draft and a run's `run_id`, it starts from the song as that run left it, its accepted fixes included. A line a run flagged but did not ask about, or a line its loop replaced, keeps its text for up to 3 hours unless the song is certified, half or more of its lines are rewritten, or a later run on the song frees it (a later run on the song protects only the lines it flags without asking about them and the lines its own loop replaces); a draft that changes one is refused with BRIEF_REQUIRED, which names the lines."
       ),
     writer: z
       .enum(WRITERS)
@@ -2856,8 +2857,9 @@ function reviseDescription({ kitchen = false } = {}) {
     'continues it. To start again on a different draft, grade that draft first, then ' +
     'send it with `new_run: true`; `new_run: true` with no draft and the run_id starts from the song as ' +
     'the run left it, its accepted fixes included. A line a run flagged but did not ask about, or a line ' +
-    'its loop replaced, keeps its text for 3 hours unless the song is certified or half or more of ' +
-    'its lines are rewritten: a draft that changes it, or puts a replaced line back, is refused ' +
+    'its loop replaced, keeps its text for up to 3 hours unless the song is certified, half or more of ' +
+    'its lines are rewritten, or a later run on the song frees it (a later run on the song protects only ' +
+    'the lines it flags without asking about them and the lines its own loop replaces): a draft that changes it, or puts a replaced line back, is refused ' +
     '(BRIEF_REQUIRED names the lines). ';
   const chat =
     'ON THIS SURFACE THE SERVICE WRITER ANSWERS: after lyric_grade, send the seed and no draft, and the ' +

@@ -378,7 +378,8 @@ test('G13: case, spacing and punctuation are not changes; words are', async () =
 test('G14: a line holding a control character the reader treats otherwise is refused', async () => {
   // The table says what the Python reader does with each character: split
   // the line on it, or (every row) strip it from the line's ends. Every
-  // character it splits on is in the table or refused as a line break.
+  // character it splits on is in the table or refused as a line break, and
+  // every one it strips that JS keeps is in the table.
   const py = await new Promise((resolve, reject) => {
     const child = execFile(
       'python3',
@@ -387,7 +388,8 @@ test('G14: a line holding a control character the reader treats otherwise is ref
         'import json,sys\n' +
           'rows=[[len(("a"+c+"b").splitlines())==2,(c+"a"+c).strip()=="a"] for c in json.load(sys.stdin)]\n' +
           'split=[n for n in range(0x110000) if len(("a"+chr(n)+"b").splitlines())==2]\n' +
-          'print(json.dumps({"rows":rows,"split":split}))',
+          'strip=[n for n in range(0x110000) if ("a"+chr(n)).strip()=="a"]\n' +
+          'print(json.dumps({"rows":rows,"split":split,"strip":strip}))',
       ],
       (err, out) => (err ? reject(err) : resolve(JSON.parse(out)))
     );
@@ -401,6 +403,14 @@ test('G14: a line holding a control character the reader treats otherwise is ref
   assert.deepEqual(
     py.split.filter((n) => !breaks.includes(n)),
     READER_CONTROLS.filter((row) => row.split).map((row) => row.ch.codePointAt(0))
+  );
+  // Every character the reader strips from a line's end that JS .trim()
+  // keeps, and that is not a split row, is a strip-only row.
+  assert.deepEqual(
+    py.strip.filter(
+      (n) => String.fromCodePoint(n).trim() !== '' && !py.split.includes(n) && !breaks.includes(n)
+    ),
+    READER_CONTROLS.filter((row) => !row.split).map((row) => row.ch.codePointAt(0))
   );
   for (const row of READER_CONTROLS)
     // A trailing one is checked where JS .trim() keeps it: a trimmed one

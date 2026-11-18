@@ -642,9 +642,10 @@ knows, is refused the same way; that check runs after the refusals made while
 the call is read (a moved declaration, a lexicon basis this build does not
 ship) and before the harness, so a hand-built checkpoint for such a song gets
 `BRIEF_REQUIRED` where the harness would also refuse it. A later run on the
-song sets the earlier run's entry aside whatever that later run declares, so a
-line the later run asks about is free from then on, also where it asks under
-another scheme than the one the line was flagged under. Protection ends when
+song sets the earlier run's entry aside whatever that later run declares, so
+from then on the later run's own flags decide: a line it asks about, or does
+not flag, is free, also where it runs under another scheme than the one the
+line was flagged under, and also a line it never asks about. Protection ends when
 the flag clears: a line that carried a flag, was never asked about and carries
 none now (a fix to its partner cleared it) is free, and a record that
 publishes no flag set leaves what was protected as it was.
