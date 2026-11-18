@@ -84,11 +84,22 @@ def _sections(bp, observed):
     spans = []
     rows = []
     cursor = 1
+    has_section_score = any("section_melody" in section for section in sections)
     for index, section in enumerate(sections):
         bars = exact_integer(section["bars"])
         start = exact_integer(section.get("start_bar", cursor))
         spans.append({"name": section["name"], "bars": bars, "start_bar": start, "index": index})
         row = {"bars": bars}
+        if has_section_score:
+            row["startBar"] = start
+            row["slotsWithinSection"] = True
+        if "section_melody" in section:
+            from quality.melody import validate_melody
+            row["sectionMeter"] = section.get("meter")
+            try:
+                row["sectionMelody"] = validate_melody(section["section_melody"])
+            except ValueError:
+                row["sectionMelody"] = None
         if "vocal_roster" in bp:
             row["vocalRoster"] = bp["vocal_roster"]
         if "choir_roster" in bp:
@@ -115,6 +126,15 @@ def _sections(bp, observed):
         previous = position
         lengths[position] += 1
         meter = sections[position].get("meter") or {}
+        if has_section_score:
+            if "beats" in meter:
+                beats = exact_number(meter["beats"])
+                offset = (exact_integer(slot["bar"]) - owner["start_bar"]) * beats + exact_number(slot.get("beat", 1)) - 1
+                end = offset + exact_number(slot.get("duration", 4))
+                if offset < 0 or end > owner["bars"] * beats:
+                    rows[position]["slotsWithinSection"] = False
+            elif rows[position].get("slotsWithinSection") is True:
+                del rows[position]["slotsWithinSection"]
         if "duration" in slot and "beats" in meter:
             width = exact_number(slot["duration"]) / exact_number(meter["beats"])
             if width.denominator == 1:

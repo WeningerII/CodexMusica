@@ -6,6 +6,12 @@
  * Spans are half-open offsets into the explicit preorder node, line, and section
  * projections. A partial projection is not an absolute transcript coordinate.
  */
+import {
+  declaredPart,
+  sectionMelodyChecks,
+  sectionMelodyGroup,
+  sectionMelodyLayout,
+} from './song-form-section-melody.mjs';
 import { printedSteps, gradePrintedSteps } from './song-form-printing.mjs';
 
 const MAX_NODES = 8192;
@@ -334,15 +340,7 @@ export function checkReaderForm(catalog, id, options) {
     delete observed.endWord;
     return observed;
   }
-  const sections = options.sections?.map((section) => {
-    const row = measuredIdentity(section);
-    if (id !== 'rondo' || !isRecord(row)) return row;
-    // A native verse can carry a printed part designation in its own score.
-    const label = row.sourceRole ?? row.role;
-    if (typeof label !== 'string') return row;
-    const part = /^(?:part[\s_-]+)?([abc])$/i.exec(label);
-    return { ...row, role: part ? 'part-' + part[1].toLowerCase() : label };
-  });
+  const sections = options.sections?.map(measuredIdentity);
   const lines = options.lines?.map((line) => {
     const observed = measuredIdentity(line);
     if (!isRecord(observed)) return observed;
@@ -475,6 +473,7 @@ export function checkForm(catalog, id, options = {}) {
     );
     return { ...plan, ...gradePrintedSteps(steps, rows) };
   }
+  const melodic = sectionMelodyLayout(plan);
   const observationsByAddress = new Map(),
     classSets = new Map();
   function add(kind, outcome, detail = {}) {
@@ -532,6 +531,7 @@ export function checkForm(catalog, id, options = {}) {
           );
       }
       obs = { ...obs, ...value };
+      if (node.unit === 'section') observationsByAddress.set(node.address, obs);
       used.add(node.address);
     }
     // A named event outside the line/section projections needs its own observation.
@@ -590,7 +590,11 @@ export function checkForm(catalog, id, options = {}) {
         group.addresses.push(node.address);
         group.members.push(obs);
       } else {
-        const actual = observedValue(obs, key);
+        const pitchedRole = melodic && key === 'role' && sectionMelodyGroup(node.role);
+        // Declared names can contradict the arrangement. Unlabelled score
+        // sections may demonstrate the same relationships in their notes.
+        const actual = pitchedRole ? declaredPart(obs) : observedValue(obs, key);
+        if (pitchedRole && actual === undefined) continue;
         add(key, actual === undefined ? 'unknown' : actual === node[key] ? 'pass' : 'fail', {
           address: node.address,
           expected: node[key],
@@ -663,24 +667,17 @@ export function checkForm(catalog, id, options = {}) {
     Object.keys(extra).every((key) => used.has(key)),
     'Unknown unit observation address'
   );
-  if (plan.id === 'rondo') {
-    const parts = new Map();
-    for (const part of plan.sections) {
-      if (!parts.has(part.role)) parts.set(part.role, []);
-      parts.get(part.role).push(part.index);
-    }
-    for (const [part, positions] of parts) {
-      if (positions.length > 1)
-        add('musical-return', 'unknown', {
-          part,
-          sections: positions,
-          basis: 'no section-level musical material supplied',
-        });
-    }
-    add('musical-contrast', 'unknown', {
-      parts: [...parts.keys()],
-      basis: 'no section-level musical material supplied',
-    });
+  if (melodic) {
+    checks.push(
+      ...sectionMelodyChecks(
+        plan.sections,
+        plan.sections.map((part) => observationsByAddress.get(part.address) ?? extra[part.address])
+      )
+    );
+    if (plan.id === 'verse-chorus-bridge')
+      add('section-function', 'unknown', {
+        basis: 'pitches do not identify the verse, chorus and bridge functions',
+      });
   }
   const triads = pindaricTriads(plan);
   if (triads) {

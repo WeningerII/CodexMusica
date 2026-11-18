@@ -289,6 +289,7 @@ test('a creation sweep refuses deferred forms and unselected alternatives withou
   const host = await sessionHost(t);
   for (const [selection, expected] of [
     [{ catalog_form: 'acrostic' }, /deferred/i],
+    [{ catalog_form: 'verse-chorus-bridge', catalog_variant: 1 }, /unsupported-section-role/i],
     [{ catalog_form: 'pantoum', catalog_variant: 1 }, /unsupported-line-structure/i],
     [{ catalog_form: 'echo-song' }, /no-inspectable-native-pair/i],
     [{ catalog_form: 'monostich' }, /native-line-limit|no-inspectable-native-pair/],
@@ -2253,3 +2254,168 @@ test(
     assert.deepEqual(revised.checks, bad.checks);
   }
 );
+
+const melodySettings = [
+  [
+    'binary',
+    0,
+    'aab',
+    [
+      { path: '1.1', count: 2 },
+      { path: '1.2', count: 1 },
+    ],
+  ],
+  ['ternary', 0, 'aba'],
+  ['da-capo-aria', 0, 'aba'],
+  ['arch', 0, 'abcba'],
+  ['through-composed', 0, 'abcd'],
+  ['rondo', 0, 'abaca'],
+  ['rondo', 1, 'abacaba'],
+  ['extended-aaba', 0, 'aababa', [{ path: '1.7', count: 0 }]],
+  ['extended-aaba', 1, 'aaba-a+', [{ path: '1.7', count: 1 }]],
+];
+
+for (const [id, variant, parts, counts] of melodySettings) {
+  test(
+    'written section melodies for ' + id + ' variant ' + variant,
+    { timeout: 300_000 },
+    async (t) => {
+      const host = await sessionHost(t);
+      await host.begin();
+      const selection = {
+        catalog_form: id,
+        catalog_variant: variant,
+        ...(counts && { catalog_counts: counts }),
+      };
+      const relation = 'class:RHYME';
+      const seed = 11;
+      const lines = parts.replaceAll('-', '').length * 2;
+      const sweep = measured(
+        await host.run('lyric_sweep', {
+          ...selection,
+          seed_from: seed,
+          count: 1,
+          lines,
+          relation,
+          draw: ['functions', 'melody'],
+        })
+      );
+      assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
+      const planned = await host.run('lyric_plan', { seed, lines, relation });
+      const { plan, plan_sha256 } = measured(await host.read(planned.operation_id, 'full'));
+      const contract = plan.request.song_form;
+      assert.deepEqual(
+        contract.sections.map((s) => s.melodyGroup ?? null),
+        [...parts].map((part) => (/^[a-d]$/.test(part) ? 'part-' + part : null))
+      );
+      for (const [i, part] of [...parts].entries()) {
+        if (!/^[a-d]$/.test(part)) continue;
+        const { section_melody: melody, bars } = plan.sections[i];
+        assert.equal(melody.bars, bars);
+        assert.ok(melody.notes.some((note) => Number.isFinite(note.pitch_hz)));
+      }
+      const draft = plan.line_slots.map((_, i) => ['one', 'two', 'three', 'four'][i % 4]);
+      measured(await host.run('lyric_screen', { words: ['one', 'two'], relation }));
+      async function run(tool, args) {
+        const op = await host.run(tool, args);
+        assert.ok(!op.tool_error, JSON.stringify(op.tool_result.content));
+        return measured(await host.read(op.operation_id, 'full'));
+      }
+      function verify(result, expected) {
+        const form = result.coverage.catalog_form;
+        assert.equal(form.id, id);
+        assert.equal(form.variant, variant);
+        assert.equal(
+          form.verdict,
+          expected,
+          JSON.stringify(form.checks.filter((c) => c.outcome !== 'pass'))
+        );
+        const checks = form.checks.filter((c) =>
+          ['musical-return', 'musical-contrast'].includes(c.kind)
+        );
+        assert.ok(checks.length);
+        assert.ok(
+          checks.some((c) => c.outcome === expected),
+          JSON.stringify(checks)
+        );
+        return form;
+      }
+      const grade = await run('lyric_grade', { seed, draft });
+      assert.equal(grade.plan_sha256, plan_sha256);
+      assert.deepEqual(grade.final_draft, draft);
+      verify(grade, 'pass');
+      await host.reconnect();
+      const revise = { attempts: 0, backtrack: 0, max_rounds: 1 };
+      verify(await run('lyric_revise', { seed, ...revise }), 'pass');
+
+      // Each part of the independent score spans one bar. Only its pitches
+      // distinguish the groups; its source roles and sung text stay fixed.
+      await host.begin('edit');
+      const meter = { beats: 4, unit: 4, groups: [2, 2] };
+      const sections = [...parts].map((part, i) => ({
+        name: 's' + i,
+        function: part === '-' ? 'solo' : part === '+' ? 'tag' : 'verse',
+        bars: 1,
+        meter,
+        ...(!/^[a-d]$/.test(part)
+          ? {}
+          : {
+              source_role: 'part-' + part,
+              section_melody: {
+                meter,
+                bars: 1,
+                subdivision: 1,
+                notes: [
+                  { pitch_hz: 320, ticks: 2 },
+                  { pitch_hz: 340 + 20 * (part.charCodeAt(0) - 97), ticks: 2 },
+                ],
+              },
+            }),
+      }));
+      const bp = {
+        sections,
+        lines: sections.flatMap((s, i) =>
+          s.function === 'solo'
+            ? []
+            : [{ section: s.name, bar: i + 1, beat: 1, duration: 4, text: 'one' }]
+        ),
+      };
+      const editArgs = () => ({
+        ...selection,
+        groups: '1,2',
+        relation,
+        subdivision: 1,
+        blueprint: JSON.stringify(bp),
+      });
+      const printed = bp.lines.map((line) => line.text);
+      const check = () => run('lyric_check', { ...editArgs(), lines: printed });
+      verify(await check(), 'pass');
+      if (id === 'ternary') {
+        // Move the last section before its predecessor with its line attached.
+        // Pitches, text, and the order of entries in the blueprint are unchanged.
+        const last = sections.at(-1);
+        const lastLine = bp.lines.at(-1);
+        last.start_bar = 1;
+        lastLine.bar = 1;
+        const reversed = (await check()).coverage.catalog_form;
+        assert.equal(reversed.verdict, 'fail');
+        assert.ok(
+          reversed.checks.some((c) => c.kind === 'section-score-order' && c.outcome === 'fail')
+        );
+        delete last.start_bar;
+        lastLine.bar = parts.length;
+      }
+      const first = sections[0];
+      delete first.section_melody;
+      verify(await check(), 'unknown');
+      first.section_melody = structuredClone(sections[parts.indexOf('b')].section_melody);
+      const wrong = verify(await check(), 'fail');
+      await host.reconnect();
+      const revised = verify(
+        await run('lyric_revise', { ...editArgs(), ...revise, draft: printed }),
+        'fail'
+      );
+      assert.deepEqual(revised.checks, wrong.checks);
+    }
+  );
+}

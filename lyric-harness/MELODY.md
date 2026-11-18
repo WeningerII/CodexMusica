@@ -34,7 +34,13 @@ envelope. Unknown fields and unsupported shapes refuse rather than being
 silently simplified. No melody declaration leaves existing seeded planning
 unchanged.
 
-This entrance consumes a symbolic repeating phrase. It does not transcribe
+A catalog selection with lettered melodic sections can instead generate a
+monophonic score spanning each section. The blueprint carries each note, rest
+and duration. The catalog grade compares every required return against its
+section score. Lyrics alone leave the melodic check unknown. This checks the
+declared score; sung performance and thematic variations need other evidence.
+
+The explicit `melody` input above consumes a symbolic repeating phrase. It does not transcribe
 recordings or MIDI, arrange different phrases per section, assign syllables to
 notes, or certify sung pitches. Rests and note durations are instructions to
 the writer; existing grading checks the full phrase's line grid capacity, not

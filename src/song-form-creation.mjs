@@ -4,6 +4,7 @@ import { refrainAddresses, relativeLinePairs } from './song-form-line-roles.mjs'
 import { endingWordDeclaration, printedPhraseSetting } from './song-form-mandate.mjs';
 import { projectNestedDivisions } from './song-form-divisions.mjs';
 import { printedSteps } from './song-form-printing.mjs';
+import { sectionMelodyGroup, sectionMelodyLayout } from './song-form-section-melody.mjs';
 import { sectionArrangement } from './song-form-section-arrangement.mjs';
 import { projectLineRequirement } from './song-form-line-requirements.mjs';
 
@@ -169,6 +170,9 @@ export function projectSongFormCreation(plan, counts = {}) {
   }
   const reasons = result.reasons;
   const roleArrangement = sectionArrangement(plan);
+  // The alternate letter diagram for verse/chorus/bridge does not specify
+  // which letters carry those sung functions. Preserve its writing refusal.
+  const melodic = sectionMelodyLayout(plan) && plan.id !== 'verse-chorus-bridge';
   const sections = [];
   const divisions = [];
   const lineRequirements = [];
@@ -337,7 +341,9 @@ export function projectSongFormCreation(plan, counts = {}) {
     }
     if (counted && !node.children.length && node.unit !== 'line')
       return refuse('unspecified-division', node);
-    const role = counted ? 'verse' : (roleArrangement?.role ?? node.role.replaceAll('-', '_'));
+    const melodyGroup = melodic && sectionMelodyGroup(node.role);
+    const role =
+      counted || melodyGroup ? 'verse' : (roleArrangement?.role ?? node.role.replaceAll('-', '_'));
     if (!NATIVE_ROLES.has(role)) {
       const moraPhrases =
         node.children.length &&
@@ -385,6 +391,7 @@ export function projectSongFormCreation(plan, counts = {}) {
       role,
       lines: lineNodes.length || null,
       ...(roleArrangement && { sourceRole: node.role }),
+      ...(melodyGroup && { sourceRole: node.role, melodyGroup }),
       ...(node.bars !== undefined && { bars: node.bars }),
     });
   }

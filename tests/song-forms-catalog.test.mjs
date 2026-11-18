@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import test from 'node:test';
 import {checkForm, describeForm, realizeForm} from '../src/song-forms.mjs';
+import {projectSongFormCreation} from '../src/song-form-creation.mjs';
+import {gradeObservations} from '../src/song-form-grade.mjs';
 import {formMandate} from '../src/song-form-mandate.mjs';
 
 const load = path => readFileSync(new URL(path, import.meta.url), 'utf8');
@@ -215,4 +217,57 @@ test('a Rondo diagram checks part order without inferring tunes from labels or w
     parts[1]={role:'part-a'};
     assert.equal(checkForm(catalog,'rondo',{variant,sections:parts}).verdict,'fail');
   }
+});
+
+test('lettered settings project exact full-section melodies independently of neutral vocal carriers', () => {
+  for (const id of ['binary','ternary','rondo','arch','through-composed','extended-aaba','da-capo-aria']) {
+    for (const variant of describeForm(catalog,id).variants) {
+      const counts = Object.fromEntries(variant.counts.map(c => [c.path,c.max ?? c.min]));
+      const plan = realizeForm(catalog,id,{variant:variant.index,counts});
+      const created = projectSongFormCreation(plan,counts);
+      assert.equal(created.status,'ready',id);
+      assert.deepEqual(created.contract.sections.map(s => s.melodyGroup ?? s.role),
+        plan.sections.map(s => s.role));
+      for (const section of created.contract.sections.filter(s => s.melodyGroup)) {
+        assert.equal(section.role,'verse');
+        assert.equal(section.sourceRole,section.melodyGroup);
+      }
+    }
+  }
+  for (const [id,variant] of [['verse-chorus-bridge',1],['abac-32-bar',0],['aaba-32-bar',0]]) {
+    assert.equal(projectSongFormCreation(realizeForm(catalog,id,{variant})).status,'unsupported');
+  }
+});
+
+test('whole-section pitch and rhythm distinguish exact returns, contrasts and missing evidence', () => {
+  const meter = {beats:4,unit:4,groups:[2,2]};
+  const phrase = (pitches, ticks=[1,1,2], subdivision=1) => ({
+    role:'verse', sectionMeter:meter, bars:1,
+    sectionMelody:{meter,bars:1,subdivision,notes:pitches.map((pitch_hz,i)=>({pitch_hz,ticks:ticks[i]}))},
+  });
+  const a = phrase([220,250,null]), b = phrase([220,290,null]);
+  const atBars = sections => sections.map((s,i) => ({startBar:i+1,...s}));
+  const grade = (middle,last) => gradeObservations(catalog,'ternary',{sections:atBars([a,middle,last])});
+  const outcome = (x,k) => x.checks.find(c => c.kind===k)?.outcome;
+  assert.equal(grade(b,phrase([220,250,null],[2,2,4],2)).verdict,'pass');
+  const splitRest = phrase([220,250,null,null],[1,1,1,1]);
+  assert.equal(grade(b,splitRest).verdict,'pass');
+  assert.equal(outcome(grade(splitRest,a),'musical-contrast'),'fail');
+  assert.equal(outcome(grade(b,b),'musical-return'),'fail');
+  assert.equal(outcome(grade(phrase([440,500,null]),a),'musical-contrast'),'unknown');
+  assert.equal(outcome(grade(b,{role:'part-a'}),'musical-return'),'unknown');
+  assert.equal(outcome(grade(b,{sectionMelody:a.sectionMelody}),'musical-return'),'unknown');
+  assert.equal(outcome(grade(b,{...a,bars:2}),'section-score'),'fail');
+  assert.equal(outcome(grade(b,{...a,sectionMeter:{...meter,unit:8}}),'section-score'),'fail');
+  assert.equal(outcome(grade(b,{...a,sectionMelody:{...a.sectionMelody,notated:true}}),'section-score'),'fail');
+  assert.equal(outcome(grade(b,{...a,sectionMelody:null}),'musical-return'),'unknown');
+  assert.equal(outcome(grade(b,{...a,sectionMelody:{...a.sectionMelody,notes:[{pitch_hz:null,ticks:4}]}}),'section-score'),'fail');
+  assert.equal(outcome(grade({...b,startBar:1},a),'section-score-order'),'fail');
+  assert.equal(outcome(grade(b,{...a,startBar:2}),'section-score-order'),'fail');
+  assert.equal(outcome(grade(b,{...a,startBar:5}),'section-score-order'),'unknown');
+  assert.equal(outcome(grade(b,{...a,startBar:undefined}),'section-score-order'),'unknown');
+  assert.equal(outcome(grade({...b,slotsWithinSection:false},a),'lyric-slot-in-section'),'fail');
+  const sustained=phrase([220,null],[2,2]);
+  const attacked=phrase([220,220,null],[1,1,2]);
+  assert.equal(outcome(gradeObservations(catalog,'ternary',{sections:[sustained,b,attacked]}),'musical-return'),'fail');
 });
