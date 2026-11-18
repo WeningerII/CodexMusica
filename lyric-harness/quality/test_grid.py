@@ -52,6 +52,37 @@ def _raises(fn):
     return False
 
 
+def _free_rows():
+    """-> the section rows no placement field ties to a place or a
+    neighbour, and that may come any number of times, in table order:
+    read from `SECTION_FUNCTIONS`. Stage 4 tests draw sections from these
+    by seed instead of typing them."""
+    return [fn for fn, sp in _G.SECTION_FUNCTIONS.items()
+            if sp.recurrence != "once" and not sp.boundary
+            and not sp.needs_before and not sp.needs_after
+            and not sp.requires and not sp.adjacent_before
+            and not sp.adjacent_after]
+
+
+def _with_copies(rng, fn, copies, body):
+    """-> `body` with `copies` copies of `fn` put in at places drawn by
+    `rng`."""
+    fns = list(body)
+    for _ in range(copies):
+        fns.insert(rng.randint(0, len(fns)), fn)
+    return fns
+
+
+def _drawn_words(rng, n):
+    """-> `n` dictionary words drawn by `rng` from the pronouncing
+    dictionary, joined by spaces."""
+    with open(os.path.join(HERE, "..", "cmudict.dict"), encoding="utf-8") as fh:
+        words = sorted({ln.split()[0] for ln in fh
+                        if ln[:1].isalpha() and ln.split()[0].isalpha()
+                        and 4 <= len(ln.split()[0]) <= 8})
+    return " ".join(rng.sample(words, n))
+
+
 def cliche_song():
     names = ("verse1", "chorus1", "verse2", "chorus2", "bridge", "chorus3")
     s = Song(sections=[Section(n, 16) for n in names]).layout()
@@ -566,10 +597,18 @@ def test_a_recurred_single_use_function_is_reported():
         song, hooks = song_from_blueprint(bp)
         return song_function_report(song, hooks=hooks)
 
-    codes = {f.code for f in report(["verse", "bridge", "chorus",
-                                     "bridge"])["findings"]}
-    check("two bridges earn SINGLE_USE_RECURRED", "SINGLE_USE_RECURRED" in codes,
-          f"codes: {sorted(codes)}")
+    # REPINNED 2026-11-16 (stage 4): a bridge may come any number of times,
+    # so the check that found this gap is now asked of a row the table
+    # deals at most once, with the row, the body and the places drawn by
+    # seed.
+    import random
+    rng = random.Random("stage4-two-copies")
+    once_fn = rng.choice(_G.single_use_functions())
+    fns = _with_copies(rng, once_fn, 2,
+                       rng.sample(_free_rows(), rng.randint(1, 3)))
+    codes = {f.code for f in report(fns)["findings"]}
+    check(f"two copies of a once row earn SINGLE_USE_RECURRED ({fns})",
+          "SINGLE_USE_RECURRED" in codes, f"codes: {sorted(codes)}")
 
     # Not just the bridge that found it: every single_use function, or the fix
     # is a patch on one example rather than on the gate.
@@ -578,7 +617,8 @@ def test_a_recurred_single_use_function_is_reported():
         c = {f.code for f in report(["verse", fn, "chorus", fn])["findings"]}
         if "SINGLE_USE_RECURRED" not in c:
             missed.append(fn)
-    check("every single_use function is covered, not only bridge", not missed,
+    check("every single_use function is covered, not only the drawn one",
+          not missed,
           f"silent for: {missed}" if missed else
           f"fires for all of {list(POPULAR_SONG.single_use)}")
 
@@ -787,9 +827,17 @@ def test_the_ask_gate_reaches_every_function_that_is_expected_once():
         song, hooks = song_from_blueprint(bp)
         return song_function_report(song, hooks=hooks, **kw)
 
-    rep = report(["verse", "reprise", "chorus", "reprise"])
-    check("two reprises are ASKED at all", "reprise" in rep["returns"],
-          f"questions asked: {sorted(rep['returns'])} + bridge + hook")
+    # REPINNED 2026-11-16 (stage 4): reprise is "open" now, so two of them
+    # are neither asked nor a note; the question is put to two copies of a
+    # row the table deals at most once, the row and the body drawn by seed.
+    import random
+    rng = random.Random("stage4-asked")
+    once_fn = rng.choice(_G.single_use_functions())
+    rep = report(_with_copies(rng, once_fn, 2,
+                              rng.sample(_free_rows(), rng.randint(1, 3))))
+    check("two copies of a once row are ASKED at all",
+          once_fn in rep["returns"],
+          f"{once_fn}; questions asked: {sorted(rep['returns'])}")
     check("and answered: a recurred single-use function is a finding",
           "SINGLE_USE_RECURRED" in {f.code for f in rep["findings"]},
           f"codes: {sorted({f.code for f in rep['findings']})}")
@@ -810,7 +858,7 @@ def test_the_ask_gate_reaches_every_function_that_is_expected_once():
                       if s.recurrence == "open")
     still_silent = [fn for fn in open_fns
                     if fn not in report(["verse", fn, "chorus", fn])["returns"]]
-    check("the five 'open' functions are still not asked, on purpose",
+    check("the 'open' functions are still not asked, on purpose",
           still_silent == open_fns,
           f"{open_fns} — 'open' means the convention expects nothing about "
           f"how often they occur; a vamp is a repeating figure HELD OPEN and "
@@ -849,52 +897,459 @@ def test_the_ask_gate_reaches_every_function_that_is_expected_once():
           f"{real['refused']}")
 
 
-def test_return_never_returns_is_reached():
-    """RETURN_NEVER_RETURNS shipped with no test anywhere in the repo.
+def test_a_section_dealt_once_gets_no_remark():
+    """~~RETURN_NEVER_RETURNS shipped with no test anywhere in the repo.~~
 
-    It is the one finding `return_findings` emits from inside its SINGLE
-    INSTANCE branch -- a refusal and a finding from the same call, which is
-    exactly the pairing that makes it easy to miss: the refusal is the
-    conspicuous half.
+    REMOVED IN STAGE 4 (owner's ruling, 16 Nov 2026): any section may be
+    dealt once, so "the song declares a chorus and never comes back to it"
+    is no longer said. The code is gone from the grader, its severity table
+    and the census; a song with one chorus reports a SINGLE_INSTANCE
+    refusal (cannot tell) and no finding.
     """
-    print("\n20. a declared chorus the song never comes back to")
-    from quality.grid import (POPULAR_SONG, return_findings,
+    print("\n20. a declared chorus that comes once gets no remark")
+    from quality import gate_census
+    from quality.grid import (SEVERITY, return_findings,
                               song_function_report)
 
     s = Song(sections=[Section("v1", 8, function="verse"),
                        Section("c", 8, function="chorus"),
                        Section("v2", 8, function="verse")],
-             title="one time only").layout()
+             title="placeholder").layout()
     s.lines = [Line("a line of words here", bar=b) for b in (1, 9, 17)]
     f, r, _ = return_findings(s, "chorus")
-    check("one chorus in the whole song is a finding, not silence",
-          "RETURN_NEVER_RETURNS" in {x.code for x in f},
-          [x.evidence for x in f][0] if f else "no findings at all")
-    check("and the OTHER half of the same branch is a refusal",
-          "SINGLE_INSTANCE" in {x.code for x in r},
-          "'does it land in the same place each time' has no second time — "
-          "CANNOT TELL, not clean (doctrine 28)")
-    check("it reaches the report, not only the function under it",
-          "RETURN_NEVER_RETURNS" in {x.code for x in
-                                     song_function_report(s)["findings"]})
+    check("one chorus in the whole song is no finding",
+          "RETURN_NEVER_RETURNS" not in {x.code for x in f},
+          [x.code for x in f])
+    check("the other half of the branch is still a refusal",
+          "SINGLE_INSTANCE" in {x.code for x in r})
+    check("and the report carries no such code either",
+          "RETURN_NEVER_RETURNS" not in {x.code for x in
+                                         song_function_report(s)["findings"]})
+    here = os.path.dirname(os.path.abspath(__file__))
+    left = [name for name in ("grid.py", "gate_census.py", "revise.py",
+                              "plan.py")
+            if "RETURN_NEVER_RETURNS" in open(os.path.join(here, name),
+                                              encoding="utf-8").read()]
+    check("no code file names the removed remark",
+          not left and "RETURN_NEVER_RETURNS" not in SEVERITY, left)
+    # THE SCAN ABOVE IS FOUR CODE FILES (stage 4 fix round, 2026-11-18). A
+    # comment in `test_plan.py` and a list in a design note beside it still
+    # spoke of the remark as live. So every `.py` and `.md` file in this
+    # folder and the one above it is read too. There the remark may be
+    # named in struck-through text, or on a line that says it was removed;
+    # this test's own lines name it to look for it.
+    import inspect
+    import re
+    own = inspect.getsource(test_a_section_dealt_once_gets_no_remark)
+    live = []
+    for path in sorted(p for d in (here, os.path.join(here, ".."))
+                       for ext in ("*.py", "*.md")
+                       for p in glob.glob(os.path.join(d, ext))):
+        with open(path, encoding="utf-8") as fh:
+            text = fh.read()
+        if "RETURN_NEVER_RETURNS" not in text:
+            continue
+        if os.path.samefile(path, __file__):
+            text = text.replace(own, "\n" * own.count("\n"))
+        text = re.sub(r"~~.*?~~", lambda m: "\n" * m.group(0).count("\n"),
+                      text, flags=re.S)
+        live += [f"{os.path.basename(path)}:{n}"
+                 for n, line in enumerate(text.splitlines(), 1)
+                 if "RETURN_NEVER_RETURNS" in line
+                 and "removed" not in line.lower()]
+    check("no test or note beside it speaks of the remark as live",
+          not live, live)
 
-    # THE GATE IS `fixed_return`, not "any single instance". A bridge occurs
-    # once by convention, so a song with one bridge must stay silent here.
-    b = Song(sections=[Section("v1", 8, function="verse"),
-                       Section("c1", 8, function="chorus"),
-                       Section("br", 8, function="bridge"),
-                       Section("c2", 8, function="chorus")]).layout()
-    b.lines = [Line("a line of words here", bar=x) for x in (1, 9, 17, 25)]
-    fb, _, _ = return_findings(b, "bridge")
-    check("one bridge is not RETURN_NEVER_RETURNS",
-          "RETURN_NEVER_RETURNS" not in {x.code for x in fb},
-          f"bridge is not in fixed_return "
-          f"{list(POPULAR_SONG.fixed_return)} — a bridge appearing once is "
-          f"the convention, not a defect")
-    fc, _, _ = return_findings(b, "chorus")
-    check("and a chorus that DOES return does not earn it either",
-          "RETURN_NEVER_RETURNS" not in {x.code for x in fc},
-          f"codes: {sorted({x.code for x in fc})}")
+
+def test_a_repeated_edge_row_gets_one_note():
+    """STAGE 4, ONE FACT ONE NOTE. Only intro, outro and coda are dealt at
+    most once, and each stands at an edge, so a repeated one is also out of
+    its place. It gets ONE note, `SINGLE_USE_RECURRED`, naming every copy
+    off the edge; no `SECTION_NOT_AT_BOUNDARY` for those copies and no
+    drift note. One copy in the middle is a different fact and keeps its
+    `SECTION_NOT_AT_BOUNDARY`. Positions and counts are drawn by seed."""
+    print("\n20b. a repeated intro, outro or coda gets one note")
+    import random
+    from quality.grid import (POPULAR_SONG, SECTION_FUNCTIONS,
+                              song_from_blueprint, song_function_report)
+
+    def report(fns):
+        bp = {"sections": [{"name": f"S{i}", "function": f,
+                            "start_bar": 1 + 4 * i, "bars": 4 + i % 2,
+                            "meter": {"beats": 4, "unit": 4},
+                            "lines": [{"text": text,
+                                       "bar": 1 + 4 * i, "beat": 1,
+                                       "duration": 1}]}
+                           for i, f in enumerate(fns)]}
+        song, hooks = song_from_blueprint(bp)
+        return song_function_report(song, hooks=hooks)
+
+    rng = random.Random("stage4-one-note")
+    text = _drawn_words(rng, 3)
+    free = _free_rows()
+    bad = []
+    runs = 0
+    for fn in POPULAR_SONG.single_use:
+        edge = SECTION_FUNCTIONS[fn].boundary
+        for _ in range(20):
+            body = [rng.choice(free) for _ in range(rng.randint(1, 4))]
+            fns = _with_copies(rng, fn, rng.randint(2, 4), body)
+            off = [i for i, f in enumerate(fns) if f == fn and not (
+                (edge == "first" and i == 0)
+                or (edge == "last" and i == len(fns) - 1))]
+            rep = report(fns)
+            runs += 1
+            notes = [f for f in rep["findings"]
+                     if f.code == "SINGLE_USE_RECURRED"]
+            moved = [f for f in rep["findings"]
+                     if f.code == "SECTION_NOT_AT_BOUNDARY"]
+            drift = [f for f in rep["findings"] if f.code.startswith(
+                "RETURN_") and fn in f.message]
+            named = all(f"section {i + 1}" in notes[0].evidence
+                        for i in off) if notes else False
+            if len(notes) != 1 or moved or drift or not named:
+                bad.append((fns, [f.code for f in rep["findings"]]))
+    check(f"one note naming every copy off the edge, in {runs} drawn songs",
+          not bad, bad[:3])
+    lone = []
+    for fn in POPULAR_SONG.single_use:
+        rep = report([rng.choice(free), fn, rng.choice(free)])
+        codes = [f.code for f in rep["findings"]]
+        if codes.count("SECTION_NOT_AT_BOUNDARY") != 1 or \
+                "SINGLE_USE_RECURRED" in codes:
+            lone.append((fn, codes))
+    check("one copy in the middle keeps its own SECTION_NOT_AT_BOUNDARY",
+          not lone, lone)
+
+
+def test_the_recurred_note_says_of_the_table_only_what_it_holds():
+    """STAGE 4 FIX ROUND (2026-11-18). `SINGLE_USE_RECURRED` fires on
+    `fn in convention.single_use`, and a caller may pass its own list. The
+    note said "the section table deals it at most once" whatever the table
+    held, so under a caller's list naming an "open" row it gave the table
+    two values, one of them false.
+
+    Every row of the table, two copies at places drawn by seed, that row as
+    the caller's `single_use`. Each part of the note that names the table
+    names the row's own `recurrence` value and no other value."""
+    print("\n20c. the recurred note says of the table only what it holds")
+    import random
+    import re
+    from dataclasses import replace
+    from quality.grid import (POPULAR_SONG, RECURRENCE_READERS,
+                              SECTION_FUNCTIONS, return_findings)
+
+    rng = random.Random("stage4-fix-note-source")
+    free = _free_rows()
+    silent, false_value, value_unsaid = [], [], []
+    for fn, spec in SECTION_FUNCTIONS.items():
+        fns = _with_copies(rng, fn, 2, [rng.choice(free)
+                                        for _ in range(rng.randint(1, 3))])
+        song = Song(sections=[Section(f"S{i}", 4, function=f)
+                              for i, f in enumerate(fns)]).layout()
+        found, _, _ = return_findings(
+            song, fn, convention=replace(POPULAR_SONG, single_use=(fn,)))
+        notes = [x for x in found if x.code == "SINGLE_USE_RECURRED"]
+        if len(notes) != 1:
+            silent.append(fn)
+            continue
+        # One part is one clause: cut at a sentence end, at ";" and at "and".
+        said = f"{notes[0].message}. {notes[0].evidence}"
+        parts = [p for p in re.split(r"\.\s+|;\s*|\s+and\s+", said)
+                 if re.search(r"\btable\b", p)]
+        named = [{v for v in RECURRENCE_READERS if re.search(rf"\b{v}\b", p)}
+                 for p in parts]
+        if any(n - {spec.recurrence} for n in named):
+            false_value.append((fn, spec.recurrence, parts))
+        if {spec.recurrence} not in named:
+            value_unsaid.append((fn, spec.recurrence, parts))
+    check(f"all {len(SECTION_FUNCTIONS)} rows get the note under their own "
+          f"single_use list", not silent, silent)
+    check("no part that names the table gives a value the row does not hold",
+          not false_value, false_value[:3])
+    check("and one part gives the row's own value",
+          not value_unsaid, value_unsaid[:3])
+
+
+def test_a_gloss_that_says_contrast_names_what_the_code_compares():
+    """STAGE 4 FIX ROUND (2026-11-18). The bridge gloss said the row
+    contrasts "with what came before". The code reads `contrasts_with`,
+    and `bridge_contrast` compares the row with every copy of those rows
+    in the song, wherever each stands; `needs_before` asks only for some
+    section first. So a gloss that says its row contrasts names the rows in
+    `contrasts_with`. The second half shows why it cannot say "before": the
+    contrast is measured the same with the other row first and with it
+    last, on bar counts drawn by seed."""
+    print("\n20d. a gloss that says contrast names what the code compares")
+    import random
+    import re
+    from quality.grid import SECTION_FUNCTIONS, bridge_contrast
+
+    rng = random.Random("stage4-fix-contrast-gloss")
+    said = [fn for fn, sp in SECTION_FUNCTIONS.items()
+            if "contrast" in sp.gloss.lower()]
+    check("at least one gloss says its row contrasts", bool(said), said)
+    unnamed, one_way = [], []
+    for fn in said:
+        sp = SECTION_FUNCTIONS[fn]
+        words = set(re.findall(r"[a-z_]+", sp.gloss.lower()))
+        unnamed += [(fn, other) for other in sp.contrasts_with
+                    if not {other, other + "s", other + "es"} & words]
+        for other in sp.contrasts_with:
+            bars = dict(zip((fn, other), rng.sample(range(2, 12), 2)))
+            for order in ((other, fn), (fn, other)):
+                song = Song(sections=[Section(f"S{i}", bars[f], function=f)
+                                      for i, f in enumerate(order)]).layout()
+                _, _, channels = bridge_contrast(song, fn, (other,))
+                if "bars" not in channels.get("_separating", ()):
+                    one_way.append((order, bars))
+    check("each such gloss names every row in its `contrasts_with`",
+          not unnamed, unnamed)
+    check("and the contrast is measured with the other row first or last",
+          not one_way, one_way)
+
+
+def test_every_returns_as_value_has_a_reader():
+    """STAGE 4 FIX ROUND (2026-11-18, owner's ruling of 18 Nov 2026). The
+    `returns_as` column held four values and code read two of them:
+    nothing read "varied" or "n/a". Every value in the column is in
+    `RETURNS_AS_READERS` now, and the table does not load with a value that
+    has no reader, or with a value on a row nothing asks about its returns.
+
+    The check is run on a changed copy of the table, once for every row:
+    with a word drawn by seed that the reader table does not hold, and
+    with each value that names a note."""
+    print("\n20e. every `returns_as` value has a reader")
+    import random
+    from dataclasses import replace
+    from quality.grid import (RECURRENCE_READERS, RETURNS_AS_READERS,
+                              SECTION_FUNCTIONS, check_returns_as_readers)
+
+    def refusal(changed=None, readers=None):
+        try:
+            check_returns_as_readers(changed, readers)
+        except UnknownFunction as e:
+            return str(e)
+        return ""
+
+    def with_row(fn, **change):
+        return dict(SECTION_FUNCTIONS,
+                    **{fn: replace(SECTION_FUNCTIONS[fn], **change)})
+
+    held = {sp.returns_as for sp in SECTION_FUNCTIONS.values()}
+    check("the values the rows hold are the values that have a reader",
+          held == set(RETURNS_AS_READERS),
+          f"rows hold {sorted(held)}, readers {sorted(RETURNS_AS_READERS)}")
+    named = sorted({c for codes in RETURNS_AS_READERS.values() for c in codes})
+    check("every note a value names is a note in the severity table",
+          bool(named) and all(SEVERITY.get(c) == "note" for c in named), named)
+    check("the table as it stands loads", refusal() == "", refusal())
+
+    rng = random.Random("stage4-fix-returns-as-readers")
+    odd = [w for w in _drawn_words(rng, 3 * len(SECTION_FUNCTIONS)).split()
+           if w not in RETURNS_AS_READERS]
+    values = [v for v in RETURNS_AS_READERS if v]
+    unread = [r for r, reader in RECURRENCE_READERS.items()
+              if reader != "asked"]
+    no_reader, on_unasked, on_asked, moved = [], [], [], []
+    for (fn, sp), word in zip(SECTION_FUNCTIONS.items(), odd):
+        asked = RECURRENCE_READERS[sp.recurrence] == "asked"
+        said = refusal(with_row(fn, returns_as=word))
+        if not (repr(fn) in said and repr(word) in said):
+            no_reader.append((fn, word, said))
+        for value in values:
+            said = refusal(with_row(fn, returns_as=value))
+            if asked and said:
+                on_asked.append((fn, value, said))
+            if not asked and not (repr(fn) in said and repr(value) in said):
+                on_unasked.append((fn, value, said))
+        for recurrence in unread if sp.returns_as else ():
+            said = refusal(with_row(fn, recurrence=recurrence))
+            if not (repr(fn) in said and repr(sp.returns_as) in said):
+                moved.append((fn, recurrence, said))
+    check(f"a value with no reader is refused on each of the "
+          f"{len(SECTION_FUNCTIONS)} rows, by row and value",
+          len(odd) >= len(SECTION_FUNCTIONS) and not no_reader, no_reader[:3])
+    check("a value that names a note is refused on every row that is not "
+          "asked about its returns", not on_unasked, on_unasked[:3])
+    check("and stands on every row that is asked", not on_asked, on_asked[:3])
+    check("a row that holds a value is refused once it is no longer asked",
+          not moved, moved[:3])
+    kept = [v for v in RETURNS_AS_READERS if repr(v) not in refusal(
+        readers={k: c for k, c in RETURNS_AS_READERS.items() if k != v})]
+    check("each value is refused when its reader is taken out of the table",
+          not kept, kept)
+
+
+def _returning_song(fns, lines):
+    """-> the function report of a song with one 4-bar section per name in
+    `fns`. Section i holds the lines `lines[i]`, one to a bar."""
+    from quality.grid import song_function_report
+    bp = {"sections": [{"name": f"S{i}", "function": f,
+                        "start_bar": 1 + 4 * i, "bars": 4,
+                        "meter": {"beats": 4, "unit": 4}}
+                       for i, f in enumerate(fns)],
+          "lines": [{"text": text, "bar": 1 + 4 * i + k, "beat": 1,
+                     "duration": 4}
+                    for i in range(len(fns))
+                    for k, text in enumerate(lines[i])]}
+    song, hooks = song_from_blueprint(bp)
+    return song_function_report(song, hooks=hooks)
+
+
+def test_a_row_gets_the_return_notes_its_value_names():
+    """STAGE 4 FIX ROUND (2026-11-18, owner's ruling of 18 Nov 2026). A
+    prechorus or a drop holds "varied", and one that came back word for
+    word got no remark. It gets `RETURNS_WITH_SAME_WORDS` now, the note a
+    "new words" row gets, with the row's own value in the text. A row that
+    holds "" is asked nothing about a return.
+
+    Every row of the table, in two songs drawn by seed: two or three
+    copies of the row at drawn places among other rows that come once,
+    every line dictionary words drawn by seed. In the first song each
+    later copy has the first copy's lines. In the second each copy has its
+    own."""
+    print("\n20f. a row gets the return notes its value names, and no other")
+    import random
+    import re
+    from quality.grid import RETURNS_AS_READERS, SECTION_FUNCTIONS
+
+    rng = random.Random("stage4-fix-varied-note")
+    expected = {"same": {"RETURNS_WITH_SAME_WORDS", "RETURN_LOCKED"},
+                "own": {"RETURNS_WITH_NEW_WORDS"}}
+    named = {c for codes in RETURNS_AS_READERS.values() for c in codes}
+    check("one of the two songs can earn each note the reader table names",
+          expected["same"] | expected["own"] == named, sorted(named))
+    words = iter(_drawn_words(rng, 6000).split())
+    free = _free_rows()
+    got, drawn = {}, {}
+    for fn in SECTION_FUNCTIONS:
+        fns = drawn[fn] = _with_copies(rng, fn, rng.randint(2, 3), rng.sample(
+            [f for f in free if f != fn], rng.randint(1, 3)))
+        count = rng.randint(1, 3)
+        own = [[" ".join(next(words) for _ in range(4)) for _ in range(count)]
+               for _ in fns]
+        same = [own[fns.index(fn)] if f == fn else ls
+                for f, ls in zip(fns, own)]
+        for kind, lines in (("same", same), ("own", own)):
+            got[fn, kind] = [f for f in _returning_song(fns, lines)["findings"]
+                             if f.code in named]
+
+    def codes(fn, kind):
+        return sorted(f.code for f in got[fn, kind])
+
+    varied = [fn for fn, sp in SECTION_FUNCTIONS.items()
+              if sp.returns_as == "varied"]
+    check(f"each \"varied\" row that returns word for word gets the note "
+          f"{varied}", bool(varied) and all(
+              codes(fn, "same") == ["RETURNS_WITH_SAME_WORDS"]
+              for fn in varied), [(fn, codes(fn, "same")) for fn in varied])
+    check("and it is a note", all(f.severity == "note" for fn in varied
+                                  for f in got[fn, "same"]))
+    check("and it gets none when each copy has its own words",
+          all(not got[fn, "own"] for fn in varied),
+          [(fn, codes(fn, "own")) for fn in varied])
+    blank = [fn for fn, sp in SECTION_FUNCTIONS.items() if sp.returns_as == ""]
+    noted = [(fn, kind, codes(fn, kind)) for fn in blank
+             for kind in expected if got[fn, kind]]
+    check(f"each of the {len(blank)} rows whose value is \"\" gets no return "
+          f"note, with the same words or its own", bool(blank) and not noted,
+          noted[:3])
+    wrong = [(fn, kind, codes(fn, kind)) for fn, kind in got
+             if set(codes(fn, kind)) != expected[kind] & set(
+                 RETURNS_AS_READERS[SECTION_FUNCTIONS[fn].returns_as])]
+    check(f"all {len(SECTION_FUNCTIONS)} rows get the notes their value "
+          f"names and no other", not wrong, wrong[:3])
+    # A copy with no lines under it has no words to repeat: two instrumental
+    # drops are not "the same words". The same songs, with every line out.
+    can = [fn for fn, sp in SECTION_FUNCTIONS.items()
+           if "RETURNS_WITH_SAME_WORDS" in RETURNS_AS_READERS[sp.returns_as]]
+    wordless = [fn for fn in can if any(
+        f.code == "RETURNS_WITH_SAME_WORDS" for f in _returning_song(
+            drawn[fn], [[] for _ in drawn[fn]])["findings"])]
+    check(f"a row whose copies have no lines gets no same-words note {can}",
+          bool(can) and not wordless, wordless)
+    # The same-words note is one text for two values, so it gives the row's
+    # own value and names no other. It is text a model reads: no examples.
+    untrue = []
+    for fn, sp in SECTION_FUNCTIONS.items():
+        for f in got[fn, "same"]:
+            if f.code != "RETURNS_WITH_SAME_WORDS":
+                continue
+            said = f"{f.message}. {f.evidence}"
+            other = [v for v in RETURNS_AS_READERS if v and v != sp.returns_as
+                     and re.search(rf"\b{re.escape(v)}\b", said)]
+            if (repr(sp.returns_as) not in said or other or fn not in said
+                    or re.search(r"e\.g\.|such as|for example", said)):
+                untrue.append((fn, sp.returns_as, said))
+    check("the same-words note gives the row's own table value and no other",
+          not untrue, untrue[:3])
+
+
+def test_a_draft_that_follows_the_plan_gets_no_same_words_note():
+    """STAGE 4 FIX ROUND (2026-11-18, owner's ruling of 18 Nov 2026). The
+    planner gives each copy of a "varied" row its own lines, so a draft
+    that follows the plan gets no `RETURNS_WITH_SAME_WORDS`. A draft whose
+    later copies of the row repeat the first, line for line, gets one, for
+    that row, and it is a note.
+
+    Plans by seed in each form, each "varied" row asked for twice or more
+    (`sections.<row>>=2`). Every line is dictionary words drawn by seed; a
+    line the plan makes a return of an earlier line repeats that line."""
+    print("\n20g. a draft that follows the plan gets no same-words note")
+    import random
+    from quality import plan as _PL
+    from quality.grid import SECTION_FUNCTIONS, song_function_report
+
+    rng = random.Random("stage4-fix-varied-plan")
+    bank = _drawn_words(rng, 3000).split()
+
+    def follow(plan):
+        back = {int(b): int(a) for a, b in (
+            pair.split(",") for pair in plan["returns"].split(";") if pair)}
+        lines = []
+        for i in range(1, plan["total_lines"] + 1):
+            lines.append(lines[back[i] - 1] if i in back
+                         else " ".join(bank[i - 1::1000]))
+        return lines
+
+    def notes(plan, lines):
+        song, hooks = song_from_blueprint(_PL.fill_plan(plan, lines))
+        return [f for f in song_function_report(song, hooks=hooks)["findings"]
+                if f.code == "RETURNS_WITH_SAME_WORDS"]
+
+    varied = [fn for fn, sp in SECTION_FUNCTIONS.items()
+              if sp.returns_as == "varied"]
+    followed, copied, uneven, runs = [], [], [], 0
+    for form in _PL.PLAN_FORMS:
+        for fn in varied:
+            for seed in rng.sample(range(1, 10_000), 3):
+                plan = _PL.make_plan(seed, form=form,
+                                     wants=[f"sections.{fn}>=2"])
+                held = [[slot["line"] for slot in plan["line_slots"]
+                         if slot["section"] == sec["name"]]
+                        for sec in plan["sections"] if sec["function"] == fn]
+                first, later = held[0], held[1:]
+                if not later or any(len(ls) != len(first) for ls in later):
+                    uneven.append((form, fn, seed, [len(ls) for ls in held]))
+                    continue
+                runs += 1
+                lines = follow(plan)
+                if notes(plan, lines):
+                    followed.append((form, fn, seed))
+                for ls in later:
+                    for a, b in zip(first, ls):
+                        lines[b - 1] = lines[a - 1]
+                found = notes(plan, lines)
+                if not (len(found) == 1 and found[0].severity == "note"
+                        and fn in found[0].message):
+                    copied.append((form, fn, seed, [f.message for f in found]))
+    check(f"every plan gives the row two or more copies of one length "
+          f"({runs} plans, rows {varied})", runs > 0 and not uneven, uneven)
+    check(f"no same-words note on the {runs} drafts that follow their plans",
+          not followed, followed)
+    check("one note, for the row, on each draft whose later copies repeat "
+          "the first", not copied, copied[:3])
 
 
 # ---------------------------------------------------------------------------
@@ -1023,7 +1478,9 @@ def _returns_with_same_words_is_not_charged_to_a_cut_verse():
     `RETURNS_WITH_SAME_WORDS` gates on `kinds == {"VERBATIM"}` and on nothing
     else, so a verse whose second instance is the first minus a line is told
     "every verse returns with IDENTICAL words" -- a finding about a defect it
-    does not have, instead of the truncation it does.
+    does not have, instead of the truncation it does. (Stage 4 fix round,
+    2026-11-18: the note now reads "every verse returns with the same
+    words".)
 
     RETURN_LOCKED is the near miss that explains the silence. Its gate carries
     `all(r.tune_slot_preserved)` as well, and dropping a line always changes
@@ -2449,6 +2906,58 @@ def test_a_specialisation_is_kept_and_checked():
               "bars == 8" in str(e) and "bridge" in str(e), str(e)[:90])
 
 
+def _table_refusal(old, new):
+    """-> what `grid.py` refuses to load with when the one `old` in its
+    source reads `new`: the refusal's text, or "" when the table loads.
+    The table's checks run at import, so the changed source is loaded;
+    no second copy of a check is run."""
+    import types
+    path = os.path.join(HERE, "grid.py")
+    with open(path, encoding="utf-8") as fh:
+        src = fh.read()
+    if src.count(old) != 1:
+        raise AssertionError(f"{old!r} is in grid.py {src.count(old)} times")
+    name = "quality._grid_changed_source"
+    mod = types.ModuleType(name)
+    mod.__file__ = path
+    sys.modules[name] = mod
+    try:
+        exec(compile(src.replace(old, new), path, "exec"), mod.__dict__)
+    except ValueError as e:
+        return str(e)
+    finally:
+        del sys.modules[name]
+    return ""
+
+
+def test_a_specialisation_refusal_names_the_evidence_it_reads():
+    """STAGE 4 FIX ROUND (2026-11-18). Since stage 4 a `narrower` record's
+    own `evidence` must name the genus row and the differentia value; the
+    genus row's gloss is not read. The refusal still said "no gloss behind
+    it". Every record on every row: its value is changed in the source to a
+    value drawn by seed that the evidence does not name, the table refuses
+    to load, and the refusal names the record, the genus and the evidence,
+    and does not send the reader to the gloss."""
+    print("\n34b. a specialisation's refusal names the evidence it reads")
+    import random
+    rng = random.Random("stage4-fix-specialisation-evidence")
+    records = [(row, n) for row, sp in _G.SECTION_FUNCTIONS.items()
+               for n in sp.narrower]
+    check("the table holds a specialisation record to test",
+          bool(records), [n.name for _, n in records])
+    for row, n in records:
+        other = n.differentia_value
+        while str(other) in n.evidence.split():
+            other = rng.randint(1, 64)
+        text = _table_refusal(f"differentia_value={n.differentia_value}",
+                              f"differentia_value={other}")
+        check(f"{n.name!r} with a value its evidence does not name "
+              f"({other}) is refused, naming the record and the genus",
+              repr(n.name) in text and repr(row) in text, text[:160])
+        check("the refusal names the evidence and not the gloss",
+              "evidence" in text and "gloss" not in text, text[:200])
+
+
 def test_the_printed_indent_survives_ingestion():
     """`Block.indents` and `indent_partition`, added 2026-08-21.
 
@@ -3619,7 +4128,13 @@ if __name__ == "__main__":
                test_hook_confined_and_the_undeclared_landing,
                test_the_three_counts_all_count_questions,
                test_the_ask_gate_reaches_every_function_that_is_expected_once,
-               test_return_never_returns_is_reached,
+               test_a_section_dealt_once_gets_no_remark,
+               test_a_repeated_edge_row_gets_one_note,
+               test_the_recurred_note_says_of_the_table_only_what_it_holds,
+               test_a_gloss_that_says_contrast_names_what_the_code_compares,
+               test_every_returns_as_value_has_a_reader,
+               test_a_row_gets_the_return_notes_its_value_names,
+               test_a_draft_that_follows_the_plan_gets_no_same_words_note,
                test_a_return_that_loses_or_gains_a_line_is_not_verbatim,
                test_every_variation_kind_is_reportable,
                test_read_marked_songs_drops_apparatus_by_the_one_rule,
@@ -3632,6 +4147,7 @@ if __name__ == "__main__":
                test_function_aliases_are_claims_on_their_own_rows,
                test_the_derived_cover_is_read_against_the_printing,
                test_a_specialisation_is_kept_and_checked,
+               test_a_specialisation_refusal_names_the_evidence_it_reads,
                test_the_named_air_is_a_coordinate_not_a_substring,
                test_the_printed_indent_survives_ingestion,
                test_a_return_that_varies_off_the_text,

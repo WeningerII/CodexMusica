@@ -69,7 +69,10 @@ def function_capabilities():
     placement              "checked" when the registry row makes a placement
                            claim the report asks; "refused" when the row
                            records why no claim is made; "no claim" otherwise.
-    recurrence, returns_as the row's own convention.
+    recurrence, returns_as the row's own convention. `returns_as` is "" on
+                           a row that is not asked about its returns
+                           (owner's ruling, 18 Nov 2026; "n/a" before).
+                           `map/build.py` prints that as "—".
     contrast_measured      the functions this one is measured against.
     not_verified_from_text what the name promises about the performance.
     """
