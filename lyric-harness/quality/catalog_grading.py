@@ -87,32 +87,48 @@ def _sections(bp, observed):
     return rows
 
 
-def _native_rhyme(result, lines, mandate, report, *, terminal_group=None):
-    """A coarser explicitly selected pair relation is not an exact-rime key."""
+def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None):
+    """Combine native pair verdicts with the catalog's measured ending-sound classes."""
     basis = mandate.default_relation
-    if terminal_group:
+    if terminal_groups:
         from quality.catalog_shape import terminal_rhyme_relation
-        if ([list(group) for group in mandate.groups] != [terminal_group]
-                or not all(mandate.slot_of(0, i).locus == "line_final_token" for i in terminal_group)
-                or not terminal_rhyme_relation(mandate.relation_of(0))):
+        if ([list(group) for group in mandate.groups] != terminal_groups
+                or any(not terminal_rhyme_relation(mandate.relation_of(k))
+                       or any(mandate.slot_of(k, i).locus != "line_final_token" for i in group)
+                       for k, group in enumerate(terminal_groups))):
+            result["checks"].append({"kind": "catalog-rhyme-mandate", "outcome": "unknown"})
+            if result["verdict"] == "pass":
+                result["verdict"] = "unknown"
             return result
-        basis = mandate.relation_of(0)
     elif not basis.startswith("class:"):
         return result
     verdicts = {tuple(row["lines"]): bool(row.get("satisfied_by")) for row in report["verdicts"]}
     refused = {(a, b) for a, b, _ in report.get("refused_obligations", ())}
     for check in result["checks"]:
         if check["kind"] == "rhyme-distinct":
-            check.update(outcome="unknown", reason="Distinct classes require the selected pair relation across groups")
+            if terminal_groups:
+                check.update(basis="ending-sound identity", lines=sorted(n for g in terminal_groups for n in g))
+            else:
+                check.update(outcome="unknown", reason="Distinct classes require the selected pair relation across groups")
         if check["kind"] != "rhyme":
             continue
-        if terminal_group:
-            if check.get("lines") != terminal_group:
+        if terminal_groups:
+            # A truncated draft can project fewer line numbers. It cannot prove the complete group.
+            members = check.get("lines")
+            if members not in terminal_groups:
                 continue
-            pairs = [(a, b) for a, b, _ in mandate.pairs()]
+            k = terminal_groups.index(members)
+            pairs = [(a, b) for pos, a in enumerate(members) for b in members[pos + 1:]]
             outcomes = [None if pair in refused else verdicts.get(pair) for pair in pairs]
-            outcome = "fail" if False in outcomes else "unknown" if None in outcomes else "pass"
-            check.update(outcome=outcome, basis=basis)
+            native = "fail" if False in outcomes else "unknown" if None in outcomes else "pass"
+            check["basis"] = mandate.relation_of(k)
+            if len(terminal_groups) == 1:
+                check["outcome"] = native
+            else:
+                identity = check["outcome"]
+                check.update(nativeOutcome=native, identityOutcome=identity)
+                check["outcome"] = ("fail" if "fail" in (native, identity)
+                                    else "pass" if native == identity == "pass" else "unknown")
             continue
         # A verbatim repeated line shares the terminal evidence of its first occurrence.
         members = {}
@@ -158,7 +174,7 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
                              encoding="utf-8", timeout=20, check=True)
         groups = (bp.get("song_form") or {}).get("rhymeGroups")
         return _native_rhyme(json.loads(run.stdout), lines, mandate, report,
-                             terminal_group=groups[0] if groups else None)
+                             terminal_groups=groups)
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         return {"id": form_id, "verdict": "unknown", "checks": [
             {"kind": "catalog-runtime", "outcome": "unknown", "reason": type(exc).__name__}]}

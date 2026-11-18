@@ -95,6 +95,10 @@ async function checkViewport(browser, origin, viewport) {
     await view.getByText(/All line endings must rhyme with each other/).waitFor();
     assert.ok(await view.getByRole('button', { name: 'Write with this form' }).isVisible());
     assert.deepEqual(await page.evaluate(() => window.uiLyricContext('lyrics').declarations), {});
+    await picker.selectOption('ruthless-rhyme');
+    await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('1');
+    await view.getByRole('button', { name: 'Show expanded structure' }).click();
+    await view.getByText(/distinct ending sound.*1, 3.*2, 4/).waitFor();
     await picker.selectOption('quatrain');
     const expand = view.getByRole('button', { name: 'Show expanded structure' });
     await expand.focus();

@@ -48,10 +48,13 @@ def _validate_shape(contract):
             raise plan.PlanRefused("unsupported catalog section role or line count")
     groups = contract["rhymeGroups"]
     if groups != []:
-        if (not isinstance(groups, list) or len(groups) != 1 or not isinstance(groups[0], list)
-                or len(parts) != 1 or len(groups[0]) < 2 or len(groups[0]) != parts[0]["lines"]
-                or any(type(n) is not int or n != i for i, n in enumerate(groups[0], 1))):
-            raise plan.PlanRefused("prescribed rhyme requires one terminal group spanning one section")
+        if (not isinstance(groups, list) or len(parts) != 1 or parts[0]["lines"] is None
+                or any(not isinstance(g, list) or len(g) < 2 or any(type(n) is not int for n in g)
+                       or g != sorted(g) for g in groups)
+                or sum(map(len, groups)) != parts[0]["lines"]
+                or [g[0] for g in groups] != sorted(g[0] for g in groups)
+                or sorted(n for g in groups for n in g) != list(range(1, parts[0]["lines"] + 1))):
+            raise plan.PlanRefused("prescribed rhyme groups must partition one complete section in line order")
     if "lineRequirements" in contract:
         if any(p["lines"] is None for p in parts):
             raise plan.PlanRefused("line requirements need a fully positioned catalog form")
