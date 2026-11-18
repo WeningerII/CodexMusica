@@ -290,7 +290,9 @@ def section_types_md():
            "means the registry records why no rule is made. **Returns as**: `verbatim` types "
            "are planned as exact repeats when the form asks for a return, and a grade notes "
            "one that comes back with different words; `new words` types get a note when they "
-           "come back unchanged. **Contrast measured**: the sections this one is measured "
+           "come back unchanged. `varied` types get the same note when every return comes "
+           "back word for word, and `—` means nothing is asked about a return. "
+           "**Contrast measured**: the sections this one is measured "
            "against whenever a song declares both. **Not verified from text**: what the name "
            "promises about the performance, which words on a bar grid cannot show; a grade "
            "says so as an `EFFECT_NOT_VERIFIED` row with status `not_requested`, counted as "
@@ -302,7 +304,7 @@ def section_types_md():
     for r in rows:
         out.append(
             f"| {r['function']} | {r['placement']} | {r['recurrence']} | "
-            f"{r['returns_as']} | {', '.join(r['contrast_measured']) or '—'} | "
+            f"{r['returns_as'] or '—'} | {', '.join(r['contrast_measured']) or '—'} | "
             f"{r['not_verified_from_text'] or '—'} |")
     return out
 

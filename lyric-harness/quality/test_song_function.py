@@ -139,9 +139,12 @@ def test_function_is_declared_and_never_inferred():
           "which this repo made and caught this week.")
     check("and UNDECLARED is not verse, and is distinguishable from it",
           G.UNDECLARED != "verse" and not G.Section("chorus", 16).declared)
+    # REPINNED 2026-11-18 (stage 4 fix round, owner's ruling of 18 Nov
+    # 2026): ~~("verbatim", "new words", "varied", "n/a")~~. "n/a" is gone,
+    # and a row that is not asked about its returns holds "".
     check("every function carries a declared recurrence and return kind",
           all(s.recurrence in ("once", "returns", "open")
-              and s.returns_as in ("verbatim", "new words", "varied", "n/a")
+              and s.returns_as in ("verbatim", "new words", "varied", "")
               for s in G.SECTION_FUNCTIONS.values()))
     # RESTATED 2026-08-18, and the RULE this check states is UNCHANGED —
     # "claims live in the vocabulary with a gloss" — while its example

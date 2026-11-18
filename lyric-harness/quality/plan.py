@@ -145,6 +145,8 @@ Test: python3 quality/test_plan.py
 """
 
 from bisect import bisect_right
+from heapq import heappop, heappush
+from collections import Counter
 from copy import deepcopy
 import os
 import json
@@ -153,6 +155,7 @@ import math
 import random
 import re
 from fractions import Fraction
+import contextvars
 from functools import lru_cache
 from itertools import accumulate
 
@@ -905,6 +908,26 @@ def _composition_uniform(n, rng):
         out.append(part)
         n -= part
     return tuple(out)
+
+
+@lru_cache(maxsize=4096)
+def _partition_fits(counts, total):
+    """-> can `sum(c_i * k_i) == total` with every `k_i >= 1`? The yes/no
+    half of `_partition_count`, by reachable sums, so it stays cheap on a
+    long song with many kinds."""
+    if total < 0:
+        return False
+    full = (1 << (total + 1)) - 1
+    reach = 1                       # bit x set: x lines are reachable
+    for c in counts:
+        step, nxt = reach << c, 0
+        while step:
+            nxt |= step
+            step = (step << c) & full
+        reach = nxt & full
+        if not reach:
+            return False
+    return bool(reach >> total & 1)
 
 
 @lru_cache(maxsize=None)
@@ -2038,6 +2061,14 @@ _IDENTITY_WORDS = {
     ("lexeme_sequence", "Differ"): "lines N and M are made of different words",
     ("lexeme", "Differ"): "P and Q are different words",
     ("sense", "Differ"): "P and Q carry different meanings",
+    # Stage 4 (2026-11-16): incremental repetition's one-word rule. The
+    # second and third sentences follow from the first and are said once,
+    # here in the rule clause, so the brief never needs its own copy.
+    ("token", "OneTokenDiffers"): (
+        "lines N and M have the same number of words and differ in exactly "
+        "one word. An added or dropped word is not one changed word. In a "
+        "group of 3 or more lines, every line changes the same word place, "
+        "each with a different word"),
 }
 
 
@@ -2776,10 +2807,19 @@ def joint_findings(plan):
 
 #: WHICH FUNCTIONS THE GENERATOR REACHES, with each row's semantics taken
 #: from `grid.SECTION_FUNCTIONS`' own recurrence contract:
-#:   "once"              -> at most one instance
+#:   "once"              -> at most one instance, and since stage 4 only
+#:                          intro, outro and coda (each at an edge, so
+#:                          placement keeps the second copy out; this file
+#:                          reads no list of "once" rows)
 #:   "returns verbatim"  -> instance 2+ is a return class of instance 1
-#:   "returns new words" / "varied" / "open" -> fresh groups per instance,
-#:                          same line count and scheme (the same tune)
+#:   "returns new words" / "returns varied" / "open" -> fresh groups per
+#:                          instance, same line count and scheme (the same
+#:                          tune). Stage 4 fix round, 2026-11-18 (owner's
+#:                          ruling of 18 Nov 2026): only prechorus and drop
+#:                          hold "varied" now, and the grader notes one that
+#:                          comes back word for word (`RETURNS_WITH_SAME_WORDS`).
+#:                          Fresh groups keep a plan-following draft clear of
+#:                          that note.
 #: ~~"Functions NOT in the roster are hand-declarable today and wait for a
 #: stated reason: refrain/burden are line-level per their own glosses (not
 #: standalone sections); reprise needs a cross-reference the plan schema does
@@ -2950,24 +2990,59 @@ def _edges():
 PATTERN_ATTEMPTS = 200
 
 
-def _recurrence_policy(wants, roster=None):
-    """Relax default once preferences only when count intervals require it.
+class NoBuiltPattern(PlanRefused):
+    """No pattern of the cell grammar carries the stated counts at the
+    drawn length: nothing was drawn, so no further draw at that length can
+    help (`_sample_pattern`)."""
 
-    Capacities are optimistic upper bounds, not a grammar feasibility solver.
-    Explicit caps, absent functions and shared boundary slots remain binding.
-    Other predicates are deliberately left to the existing evaluator.
+
+class CountSearchPastBound(PlanRefused):
+    """The search for the fewest cells that carry the stated counts passed
+    `_BUILT_STATES` count states (`_built_min_cells`). It is this planner's
+    limit and says nothing about whether the counts can be met, so it is
+    the request's refusal and never one rejected draw (stage 4 fix round,
+    2026-11-18)."""
+
+
+class CountPolicy(dict):
+    """The stated section counts as intervals (stage 4, 2026-11-16).
+
+    `rows[f]` is `[lo, hi]` for every function; `total` is `[lo, hi]` for
+    the number of sections; `atoms` are the stated count predicates as the
+    request spelled them. `stated` is true when any count was stated: only
+    then is anything built into the draw, so a request with no count draws
+    exactly as before."""
+
+    @property
+    def stated(self):
+        return bool(self["atoms"])
+
+
+def _recurrence_policy(wants, roster=None, form=None, *, generated=True):
+    """-> `CountPolicy`: one interval per row and one for the total, from
+    the stated `sections` and `sections.<row>` predicates.
+
+    THE LIFT SET IS GONE (stage 4, owner's ruling 16 Nov 2026). Only intro,
+    outro and coda are dealt at most once, and all three stand at an edge,
+    so there is no "once" preference left to lift. What stays is the PROOF:
+    a request the tables prove cannot fit is refused here, before any draw,
+    and the refusal names the row, the field or the form and the numbers.
+    The length proof needs the song's length and is `_count_length_proof`.
+    With `generated=False`, keep the stated intervals and roster checks;
+    the resolved catalog, not the generator grammar, proves feasibility.
     """
     from quality import grid as G
     inf = float("inf")
     allowed = set(GENERATOR_ROSTER if roster is None else roster)
     intervals = {f: [0, inf if f in allowed else 0] for f in GENERATOR_ROSTER}
     total = [0, inf]
-    count_atoms = []
+    count_atoms, named = [], set()
     for name, op, value in wants:
         if name == "sections":
             interval = total
         elif name.startswith("sections.") and name[9:] in intervals:
             interval = intervals[name[9:]]
+            named.add(name[9:])
         else:
             continue
         count_atoms.append(f"{name}{op}{value}")
@@ -2985,6 +3060,10 @@ def _recurrence_policy(wants, roster=None):
             raise PlanRefused(
                 f"{requested} can't be met: {name} requires at least {lo} and "
                 f"at most {hi} after applying nonnegative counts and roster limits{absent}")
+    policy = CountPolicy(rows=intervals, total=total, atoms=count_atoms,
+                         requested=requested, named=frozenset(named))
+    if not generated:
+        return policy
     first, last = _edges()
     boundary = set(first) | set(last)
     for position, edge in (("first", first), ("last", last)):
@@ -2998,13 +3077,57 @@ def _recurrence_policy(wants, roster=None):
             f"{requested} can't be met: named counts require at least "
             f"{sum(lo for lo, hi in intervals.values())} sections, "
             f"but the total allows at most {total[1]}")
-    once = {f for f in intervals if G.SECTION_FUNCTIONS[f].recurrence == "once"}
-    lifted = {f: "named count lower bound" for f in once - boundary
-              if intervals[f][0] > 1}
+    # THE FORM'S OWN NEEDS, read from `FORM_REQUIRES` and `FORM_RECURS`. A
+    # count that holds a row below what the form needs is refused here with
+    # the form and the table named, instead of 64 candidates of bad luck.
+    if form is not None:
+        for f in FORM_REQUIRES.get(form, ()):
+            if intervals[f][1] < 1:
+                raise PlanRefused(
+                    f"{requested} can't be met: the form {form!r} needs at "
+                    f"least 1 {f} (FORM_REQUIRES), and {f} is held to "
+                    f"{intervals[f][1]}")
+        for f in FORM_RECURS.get(form, ()):
+            if intervals[f][1] < 2:
+                raise PlanRefused(
+                    f"{requested} can't be met: the form {form!r} brings {f} "
+                    f"back, so it needs at least 2 (FORM_RECURS), and {f} is "
+                    f"held to {intervals[f][1]}")
+    # THE ROWS' OWN PLACEMENT FIELDS. A row that must have another row in
+    # the song (`requires`), or must sit right next to one
+    # (`adjacent_before`, `adjacent_after`), cannot be dealt N times when
+    # that other row is held below what N copies need.
+    for f, (lo, hi) in intervals.items():
+        if lo < 1:
+            continue
+        sp = G.SECTION_FUNCTIONS[f]
+        for r in sp.requires:
+            if intervals[r][1] < 1:
+                raise PlanRefused(
+                    f"{requested} can't be met: the {f} row's `requires` "
+                    f"field names {r} ({sp.placement_evidence!r}), and {r} "
+                    f"is held to 0")
+        for field, x in (("adjacent_before", sp.adjacent_before),
+                         ("adjacent_after", sp.adjacent_after)):
+            if x and intervals[x][1] < lo:
+                raise PlanRefused(
+                    f"{requested} can't be met: the {f} row's `{field}` "
+                    f"field puts every {f} right next to a {x} "
+                    f"({sp.placement_evidence!r}), so {lo} {f} need at least "
+                    f"{lo} {x}, and {x} is held to at most {intervals[x][1]}")
+    _whole_count_proof(
+        {"rows": intervals, "total": total, "requested": requested},
+        form, allowed)
+    # ~~`once = set(G.single_use_functions())`, and a row was held to 1
+    # below `if f in boundary or f in once`~~ (stage 4 fix round,
+    # 2026-11-18). Every "once" row has a `boundary`: the table is refused
+    # at load otherwise (`grid.check_recurrence_readers`). So `boundary`
+    # already holds each of them to 1, and this file reads no list of
+    # "once" rows, as the comment above `_derive_roster` says.
 
     def capacity():
-        caps = {f: min(hi, 1) if f in boundary or (f in once and f not in lifted)
-                else hi for f, (lo, hi) in intervals.items()}
+        caps = {f: min(hi, 1) if f in boundary else hi
+                for f, (lo, hi) in intervals.items()}
         # Never add arbitrary-size integer caps to floating infinity.
         # With no unbounded term, all remaining arithmetic stays integer.
         if any(cap == inf for cap in caps.values()):
@@ -3014,69 +3137,790 @@ def _recurrence_policy(wants, roster=None):
                 + min(1, sum(caps[f] for f in last)))
 
     if total[0] > capacity():
-        for f in sorted(once - boundary - {"bridge"} - lifted.keys()):
-            if intervals[f][1] > 1:
-                lifted[f] = "total count lower bound"
-    if total[0] > capacity() and "bridge" in once - boundary:
-        if intervals["bridge"][1] > 1:
-            lifted["bridge"] = "total count lower bound after other once preferences"
-    if total[0] > capacity():
         raise PlanRefused(
             f"{requested} can't be met: at least {total[0]} sections are required, "
             f"but this roster and these caps allow at most {capacity()} sections "
             "(upper capacity)")
-    return lifted
+    return policy
 
 
-def recurrence_report(plan):
-    """Human report for a freshly generated, final plan, never a loaded draft.
-
-    Reuse generation's policy; explain only actual repeated lifted functions.
-    This is display text, not plan metadata, a writer seed or a grading rule.
-    """
-    from collections import Counter
+def _folded_rows(policy, form, why=None):
+    """-> the rows' intervals with what they imply folded in: every
+    `FORM_REQUIRES` row at least 1, every `FORM_RECURS` row at least 2, a
+    row's `requires` row at least 1 when the row is dealt, and a row's
+    `adjacent_before` / `adjacent_after` row at least as many as the row.
+    `why`, when given, gets for each raised row the table that raised it."""
     from quality import grid as G
-    request = plan["request"]
-    raw_wants = request.get("wants", [])
-    wants = [parse_sweep_want(w) for w in raw_wants]
-    raw_roster = request.get("functions")
-    roster = (tuple(dict.fromkeys(G.as_function(str(f).strip())
-                                 for f in raw_roster if str(f).strip()))
-              if raw_roster else None)
-    lifted = _recurrence_policy(wants, roster)
-    counts = Counter(s["function"] for s in plan["sections"])
-    rows = []
-    for function, count in counts.items():
-        if count <= 1 or function not in lifted:
-            continue
-        reason = lifted[function]
-        named = reason == "named count lower bound"
-        coordinate = "sections." + function if named else "sections"
-        atoms = [(raw, op, int(value)) for raw, (name, op, value)
-                 in zip(raw_wants, wants) if name == coordinate]
-        constraints = ", ".join(raw for raw, _, _ in atoms)
-        if named:
-            if any(op == "=" and value == count for _, op, value in atoms):
-                why = "the request specifies " + constraints
-            elif any(op == "<=" for _, op, _ in atoms):
-                why = "within the requested range: " + constraints
-            else:
-                why = "at least the requested minimum: " + constraints
-        elif reason == "total count lower bound":
-            why = ("the sampler chose this repeat after once-only limits were "
-                   "lifted because the requested minimum exceeded capacity: "
-                   + constraints)
-        else:
-            why = ("the sampler chose this repeat after the bridge limit was "
-                   "lifted because the other eligible lifts still left "
-                   "insufficient capacity for the requested minimum: " + constraints)
-        rows.append(f"{function} ×{count}: {why}.")
+    why = {} if why is None else why
+    rows = {f: list(v) for f, v in policy["rows"].items()}
+    for table, need in ((FORM_REQUIRES, 1), (FORM_RECURS, 2)):
+        for f in table.get(form, ()):
+            if rows[f][0] < need:
+                rows[f][0] = need
+                why[f] = (f"the form {form!r}, "
+                          f"{'FORM_REQUIRES' if need == 1 else 'FORM_RECURS'}")
+    moved = True
+    while moved:
+        moved = False
+        for f, (lo, hi) in list(rows.items()):
+            if lo < 1:
+                continue
+            sp = G.SECTION_FUNCTIONS[f]
+            for r, need, field in [(r, 1, "requires") for r in sp.requires] + [
+                    (x, lo, name) for x, name in (
+                        (sp.adjacent_before, "adjacent_before"),
+                        (sp.adjacent_after, "adjacent_after")) if x]:
+                if rows[r][0] < need:
+                    rows[r][0] = need
+                    why[r] = f"the {f} row's `{field}` field"
+                    moved = True
     return rows
 
 
-def _sample_pattern(rng, roster=None, form=None, max_cells=None, relaxed=()):
-    """-> ordered tuple of function names. Once by default, except explicit
-    count policy relaxations; edges stay at the edges.
+def _can_stand(sp, at, n):
+    """-> may a section of row `sp` stand at the `at` edge ("first" or
+    "last") of a song of `n` sections? Read from the row's own placement
+    fields, the ones `grid.placement_findings` reads."""
+    if n == 1:
+        return not (sp.needs_before or sp.needs_after or sp.adjacent_after
+                    or sp.adjacent_before)
+    if at == "first":
+        return not (sp.needs_before or sp.adjacent_after
+                    or sp.boundary == "last")
+    return not (sp.needs_after or sp.adjacent_before
+                or sp.boundary == "first")
+
+
+def _whole_count_proof(policy, form, allowed):
+    """Refuse when the stated total cannot hold what the counts need once
+    the form's needs and the rows' own fields are folded in, plus the one
+    sung section every plan has (its rhyme group). When the total leaves no
+    room at all, the sections are fixed, and the song must still have a
+    section that may open it and another that may close it."""
+    from quality import grid as G
+    hi = policy["total"][1]
+    if hi == float("inf"):
+        return
+    why = {}
+    rows = _folded_rows(policy, form, why)
+    dealt = {f: lo for f, (lo, h) in rows.items() if lo > 0}
+    sung = any(f not in ZERO_LINE_FUNCTIONS for f in dealt)
+    # A sung row the roster allows, for the one sung section every plan has.
+    free = [f for f in sorted(allowed) if f not in ZERO_LINE_FUNCTIONS]
+    need = sum(dealt.values()) + (0 if sung else 1)
+    parts = [f"{lo} {f}" + (f" (from {why[f]})" if f in why else "")
+             for f, lo in sorted(dealt.items())]
+    if not sung:
+        parts.append("1 sung section, for the rhyme group every plan has")
+    if need > hi:
+        raise PlanRefused(
+            f"{policy['requested']} can't be met: the counts, with what the "
+            f"form and the rows' own fields add, need at least {need} "
+            f"sections ({', '.join(parts)}), and the total allows at most "
+            f"{hi}")
+    if need < hi or not dealt:
+        return
+    # THE SECTIONS ARE FIXED. The extra sung section, when one is needed,
+    # may be any sung row the roster allows, so it is counted as able to
+    # stand wherever one of those rows may ("*" below).
+    n = need
+    spare = [G.SECTION_FUNCTIONS[f] for f in free] if not sung else []
+
+    def may(at):
+        edge = [f for f in dealt if G.SECTION_FUNCTIONS[f].boundary == at]
+        out = [f for f in (edge or dealt)
+               if _can_stand(G.SECTION_FUNCTIONS[f], at, n)]
+        if not edge and any(_can_stand(sp, at, n) for sp in spare):
+            out.append("*")
+        return out
+
+    opens, closes = may("first"), may("last")
+    if n == 1:
+        ok = bool(opens)
+    else:
+        ok = any(a != b or (a != "*" and dealt[a] >= 2)
+                 for a in opens for b in closes)
+    if not ok:
+        held = (f"{policy['requested']} can't be met: the total allows "
+                f"exactly {n} sections, so the song holds only "
+                f"{', '.join(parts)}, and ")
+        fields = ("(their `needs_before`, `needs_after`, `adjacent_before`, "
+                  "`adjacent_after` or `boundary` fields)")
+        if not opens:
+            raise PlanRefused(held + f"none of them may open the song {fields}")
+        if not closes:
+            raise PlanRefused(held + f"none of them may close the song {fields}")
+        raise PlanRefused(held + "the one section that may open the song is "
+                          "also the one that may close it " + fields)
+
+
+def _fixed_lengths_proof(policy, form, total, per):
+    """-> why `total` lines cannot be shared, or "" when they may be.
+
+    Only when the sung sections are FIXED: the total of sections leaves no
+    room for one more, or the lines leave no room for one more sung section
+    of `per` lines. Then the song holds exactly the sung sections the
+    counts need, every copy of one kind has one length (`ks` is per kind),
+    and one kind has 2 lines or more (the rhyme group). Otherwise "" (no
+    claim)."""
+    why = {}
+    rows = _folded_rows(policy, form, why)
+    dealt = {f: lo for f, (lo, h) in rows.items() if lo > 0}
+    shape = {f: lo for f, lo in dealt.items() if f not in ZERO_LINE_FUNCTIONS}
+    if not shape:
+        return ""
+    need = sum(shape.values())
+    room = policy["total"][1] - sum(dealt.values())
+    if room >= 1 and total - need * per >= per:
+        return ""
+    rest = total - (per - 1) * need
+    held = (f"{policy['requested']} can't be met: the song holds exactly "
+            f"these sung sections: "
+            + ", ".join(f"{lo} {f}" + (f" (from {why[f]})" if f in why else "")
+                        for f, lo in sorted(shape.items()))
+            + ", because " + (
+                "the total of sections leaves no room for another"
+                if room < 1 else
+                f"another sung section of {per} line(s) would not fit")
+            + ". Every copy of one kind has one length")
+    if not _partition_fits(tuple(shape.values()), rest):
+        return (held + f", and no lengths of at least {per} line(s) make "
+                f"{total} lines")
+    if per == 1 and rest == need:
+        return (held + f", and {total} lines leave every section 1 line, so "
+                f"no kind has the 2 lines the rhyme group needs")
+    return ""
+
+
+def _sung_minimum(policy, form):
+    """-> how many SUNG sections the stated counts need, the form's own
+    needs folded in. A wordless row (`ZERO_LINE_FUNCTIONS`) counts 0."""
+    return sum(lo for f, (lo, hi) in _folded_rows(policy, form).items()
+               if f not in ZERO_LINE_FUNCTIONS)
+
+
+def _edge_fields(dealt, ends):
+    """-> the phrase that names, row by row, the fields keeping every row
+    of `dealt` off the edges `ends` ("first", "last") of the song. Moved
+    out of `_sung_edges` unchanged (2026-11-18, stage 4 fix round), so
+    `_wordless_edges` names the same fields the same way."""
+    from quality import grid as G
+    SF = G.SECTION_FUNCTIONS
+    held = {}
+    for at in ends:
+        for f in sorted(dealt):
+            sp = SF[f]
+            held.setdefault(f, []).extend(
+                [x for x in (("needs_before", "adjacent_after") if at == "first"
+                             else ("needs_after", "adjacent_before"))
+                 if getattr(sp, x)]
+                + (["boundary"] if sp.boundary == ("last" if at == "first"
+                                                   else "first") else []))
+    return " and ".join(
+        f"the {f} row's " + " and ".join(f"`{x}`" for x in dict.fromkeys(xs))
+        + (" fields" if len(set(xs)) > 1 else " field")
+        for f, xs in held.items() if xs)
+
+
+def _sung_edges(rows):
+    """-> (n, text): how many SUNG sections the song's two edges add to
+    the sections `rows` deal, and the phrase that names them, "" for none
+    (2026-11-18, stage 4 fix round). `rows` is `_folded_rows`' answer.
+
+    A song opens with one section and closes with another. When no row
+    `rows` deals (its interval starts above 0) may stand at an edge
+    (`_can_stand`, which reads `needs_before`, `needs_after`,
+    `adjacent_after`, `adjacent_before` and `boundary`), that edge holds a
+    section of a row it does not deal. The section is wordless, and takes
+    no line, when a wordless row with room left in its interval may stand
+    there; otherwise it is one more sung section. A single dealt section
+    that may stand alone is a whole song, so it adds nothing. When the
+    rows with room cannot fill the edges at all, no claim is made here."""
+    from itertools import product
+    from quality import grid as G
+    SF = G.SECTION_FUNCTIONS
+    dealt = {f: lo for f, (lo, hi) in rows.items() if lo > 0}
+    if not dealt or (sum(dealt.values()) == 1
+                     and _can_stand(SF[next(iter(dealt))], "first", 1)):
+        return 0, ""
+    room = {f: hi - lo for f, (lo, hi) in rows.items() if hi > lo}
+    ends = [at for at in ("first", "last")
+            if not any(_can_stand(SF[f], at, 2) for f in dealt)]
+    # Each edge takes a wordless row with room, or "" for a sung one. The
+    # fewest sung sections over every way the edges can be filled.
+    options = []
+    for at in ends:
+        may = [f for f in sorted(room) if _can_stand(SF[f], at, 2)]
+        options.append([f for f in may if f in ZERO_LINE_FUNCTIONS]
+                       + ([""] if any(f not in ZERO_LINE_FUNCTIONS
+                                      for f in may) else []))
+    ways = [p for p in product(*options)
+            if all(p.count(f) <= room[f] for f in p if f)]
+    sung = min(p.count("") for p in ways) if ways else 0
+    if not sung:
+        return 0, ""
+    fields = _edge_fields(dealt, ends)
+    if sung < len(ends):
+        return sung, (f"1 that opens or closes the song, from {fields}, as "
+                      f"the wordless rows the request allows may fill only "
+                      f"one of the two edges")
+    return sung, (f"{sung} that "
+                  + ({"first": "opens", "last": "closes"}[ends[0]] if sung == 1
+                     else "open and close")
+                  + f" the song, from {fields}, as no wordless row the request "
+                  f"allows may stand there")
+
+
+def _wordless_edges(policy, form, most_lines, per_section, exact):
+    """-> None, or (clause, options) when the counts fit `most_lines` only
+    with a wordless section, of a row they do not deal, at an edge of the
+    song (2026-11-18, stage 4 fix round).
+
+    `_count_length_proof`'s arithmetic, with the sections the edges add
+    (`_sung_edges`) sung or wordless by choice: with each of them sung the
+    counts do not fit, or an edge has no sung row that may stand there;
+    with `w` of them wordless they fit. `clause` says so, with the fewest
+    such `w`. `options` is [(w, rows)] for each `w` that fits, fewest
+    first, `rows` being the wordless rows, in table order, with room for
+    `w` copies that may stand at those edges. Arithmetic only: which of
+    them plans is for the caller to try, and to say."""
+    from itertools import combinations
+    from quality import grid as G
+    SF = G.SECTION_FUNCTIONS
+    rows = _folded_rows(policy, form)
+    dealt = {f: lo for f, (lo, hi) in rows.items() if lo > 0}
+    if not dealt or (sum(dealt.values()) == 1
+                     and _can_stand(SF[next(iter(dealt))], "first", 1)):
+        return None
+    ends = [at for at in ("first", "last")
+            if not any(_can_stand(SF[f], at, 2) for f in dealt)]
+    room = {f: hi - lo for f, (lo, hi) in rows.items() if hi > lo}
+    sung_at = {at: any(f not in ZERO_LINE_FUNCTIONS
+                       and _can_stand(SF[f], at, 2) for f in room)
+               for at in ends}
+    need = _sung_minimum(policy, form)
+    sung_lo = [lo for f, (lo, hi) in rows.items()
+               if lo and f not in ZERO_LINE_FUNCTIONS]
+
+    def fits(w):
+        sung = need + len(ends) - w
+        lift = (min([2] + sung_lo + [1] * (len(ends) - w))
+                if per_section == 1 and sung else 0)
+        return sung * per_section + lift <= most_lines
+
+    def takers(w):
+        return [f for f in SF
+                if f in ZERO_LINE_FUNCTIONS and room.get(f, 0) >= w
+                and any(all(_can_stand(SF[f], at, 2) for at in quiet)
+                        and all(sung_at[at] for at in ends if at not in quiet)
+                        for quiet in combinations(ends, w))]
+
+    if not ends or (all(sung_at.values()) and fits(0)):
+        return None
+    options = [(w, takers(w)) for w in range(1, len(ends) + 1) if fits(w)]
+    options = [(w, r) for w, r in options if r]
+    if not options:
+        return None
+    what = ({"first": "opens", "last": "closes"}[ends[0]] if len(ends) == 1
+            else "opens or closes" if options[0][0] == 1 else "")
+    what = (f"a wordless section the counts do not deal {what} the song"
+            if what else
+            "wordless sections the counts do not deal open and close the song")
+    return (f"the counts fit {'' if exact else 'at most '}{most_lines} lines "
+            f"only if {what} ({_edge_fields(dealt, ends)})", options)
+
+
+#: SET WHILE A REFUSAL PLANS ITS OWN REQUEST AGAIN WITH A WORDLESS ROW
+#: STATED (`_wordless_tried`), so that inner plan writes its plain text and
+#: never plans again itself (2026-11-18, stage 4 fix round; R2).
+_WORDLESS_PROBE = contextvars.ContextVar("wordless_probe", default=False)
+
+
+def _wordless_tried(options, attempt):
+    """-> the clause that says which wordless row, once stated, lets this
+    seed plan (2026-11-18, stage 4 fix round). `options` is
+    `_wordless_edges`'; `attempt(row, w)` plans the same request with
+    `sections.<row>=w` added and answers "" when it plans, else why not.
+    At the fewest `w` where any row plans, every row that plans is named,
+    in table order. When none does, the first try's reason is quoted."""
+    first = None
+    for w, rows in options:
+        ok = []
+        for row in rows:
+            token = _WORDLESS_PROBE.set(True)
+            try:
+                why = attempt(row, w)
+            finally:
+                _WORDLESS_PROBE.reset(token)
+            if not why:
+                ok.append(row)
+            elif first is None:
+                first = (row, w, why)
+        if ok:
+            return ("with " + " or ".join(f"sections.{r}={w}" for r in ok)
+                    + " stated, this seed plans")
+    row, w, why = first
+    return (f"with sections.{row}={w} stated, this seed does not plan "
+            f"either: {why}")
+
+
+def _count_length_proof(policy, form, most_lines, per_section, exact):
+    """Refuse when the sung sections the counts need, at `per_section`
+    lines each, cannot fit in `most_lines`. Speaks of sections and lines
+    only: the cell ceiling is not a proof (stage 4 design, §3).
+
+    THE CAUSE IS WORKED OUT, NOT ASSUMED (2026-11-18, stage 4 fix round).
+    ~~One sentence served every refusal, and it always added the lines of
+    the rhyme group~~, so `sections.burden=4; lines<=6`, whose 8 sung
+    sections cannot fit 6 lines at any length, was blamed on the rhyme
+    group. When the sung sections alone do not fit, the refusal names each
+    row, the field that added it, and nothing of the rhyme group. The
+    rhyme group is named only when the sections fit and the lines that one
+    kind of 2 lines takes do not.
+
+    THE EDGES ARE COUNTED (2026-11-18, stage 4 fix round): a section a
+    row's fields put at the start or the end of the song, when it must be
+    sung (`_sung_edges`). A request whose every fit leaves each sung
+    section 1 line is then refused here with the rhyme group's reason,
+    where the draw used to miss it on every seed. A wordless section at an
+    edge takes no line, so `sections.bridge=1; lines<=2` fits (a wordless
+    section, then a bridge of 2 lines) and is not refused here, though the
+    draw, held to the fewest sections the counts need, does not reach it.
+
+    -> (need, pair) without the edges, as before this round. The draw
+    keeps the totals of at least `need * per_section + pair` lines, so a
+    request this proof lets through is drawn exactly as before."""
+    why = {}
+    rows = _folded_rows(policy, form, why)
+    need = _sung_minimum(policy, form)
+    every = max(policy["total"][0],
+                sum(lo for lo, hi in rows.values()))
+    if every > ENVELOPE["sections"][1]:
+        raise PlanRefused(
+            f"{policy['requested']} can't be met: the counts (with what the "
+            f"form and the rows' own fields add) need {every} sections, and "
+            f"a plan holds at most "
+            f"{ENVELOPE['sections'][1]} (the planner's envelope)")
+    # A plan carries one rhyme group, so one kind of section has 2 lines or
+    # more. At one line a section that costs at least one line more per copy
+    # of that kind: the fewest stated copies, or 2 for a kind dealt once.
+    sung_lo = [lo for f, (lo, hi) in rows.items()
+               if lo and f not in ZERO_LINE_FUNCTIONS]
+    pair = min([2] + sung_lo) if per_section == 1 and need else 0
+    # An edge's sung section is of a row dealt once: 1 line more makes it
+    # the kind with 2 lines.
+    edges, at_edges = _sung_edges(rows)
+    sung = need + edges
+    lift = (min([2] + sung_lo + [1] * edges)
+            if per_section == 1 and sung else 0)
+    has = (f"the song has {most_lines} lines" if exact else
+           f"the song can have at most {most_lines} lines")
+    shown = (f"{policy['requested']} can't be met: the counts need {sung} "
+             f"sung sections of at least {per_section} line(s) ("
+             + "; ".join([f"{lo} {f}" + (f", from {why[f]}" if f in why else "")
+                          for f, (lo, hi) in sorted(rows.items())
+                          if lo and f not in ZERO_LINE_FUNCTIONS]
+                         + ([at_edges] if at_edges else []))
+             + ")")
+    # ~~`if need * per_section + pair > most_lines:` and "the counts (with
+    # what the form and the rows' own fields add) need {need} sung sections
+    # of at least {per_section} line(s), and {pair} line(s) more so one kind
+    # of section has 2 lines for the rhyme group; {has}"~~ (2026-11-18,
+    # stage 4 fix round): two causes, each said only when it is the one.
+    if sung * per_section > most_lines:
+        raise PlanRefused(f"{shown}, and {has}")
+    if sung * per_section + lift > most_lines:
+        raise PlanRefused(
+            f"{shown}, and {lift} line(s) more so one kind of section has 2 "
+            f"lines for the rhyme group; {has}")
+    return need, pair
+
+
+#: THE BUILT DRAW'S TABLES, kept per request shape: the forward table over
+#: the stated rows is the same for every seed of one request.
+_BUILT_CACHE = {}
+
+#: THE MOST ENTRIES ONE BUILT TABLE HOLDS, one entry per step and count
+#: state (stage 4 fix round, 2026-11-18). ~~The table held every
+#: combination of the stated counts at every step, with no bound:
+#: `sections.verse<=30; sections<=110; sections.chorus<=30` at 463 lines
+#: built 1,735,741 entries (51 s, 4.8 GB), and one more capped row ran out
+#: of memory.~~ A request whose whole table holds at most this many entries
+#: is built whole, exactly as before. A larger one builds its tightest
+#: bounds (`_built_part`), and every stated count is checked on each draw
+#: (`_sample_pattern`), so a plan still carries all of them. The cache as a
+#: whole holds at most twice this many table entries (`_built_room`), and
+#: the search for the fewest cells holds no more count states than this
+#: (`_built_min_cells`).
+_BUILT_STATES = 50_000
+
+#: How many table entries `_BUILT_CACHE` holds now.
+_BUILT_HELD = [0]
+
+
+def _built_room(size=0):
+    """Empty the cache when it holds 64 keys, or when `size` more table
+    entries would take it past twice `_BUILT_STATES`. Twice, so that a
+    table and the shorter tables of its halved ceilings can stay together
+    and are not built again for each seed."""
+    if len(_BUILT_CACHE) >= 64 or _BUILT_HELD[0] + size > 2 * _BUILT_STATES:
+        _BUILT_CACHE.clear()
+    if not _BUILT_CACHE:
+        _BUILT_HELD[0] = 0
+    _BUILT_HELD[0] += size
+
+
+def _built_dims(policy, form, max_cells, sung_hi=None):
+    """-> (dims, bounds) for the built draw: each stated row, the total
+    when it is stated, and the number of sung sections when `sung_hi`
+    bounds it. A row is stated when its interval says anything a draw of
+    at most `max_cells` cells could miss."""
+    reach = 3 * max(1, max_cells) + 2
+    # Nothing is built unless a STATED interval binds; only then are the
+    # form's and the rows' own needs folded in beside it.
+    # A row the roster leaves out is held to 0 without being stated: the
+    # roster already pruned its cells, so it is no dim.
+    named = policy.get("named", frozenset())
+    if not (any(lo > 0 or hi < reach for f, (lo, hi) in policy["rows"].items()
+                if f in named)
+            or policy["total"][0] > 0 or policy["total"][1] < reach):
+        return (), ()
+    rows = _folded_rows(policy, form)
+    dims, bounds = [], []
+    for f in sorted(rows):
+        lo, hi = rows[f]
+        if lo > 0 or (f in named and hi < reach):
+            dims.append(f)
+            bounds.append((lo, hi if hi < reach else None))
+    lo, hi = policy["total"]
+    if lo > 0 or hi < reach:
+        dims.append(None)
+        bounds.append((lo, hi if hi < reach else None))
+    # The sung-section bound rides along only with a stated dim: on its own
+    # it would turn a vacuous count into a built draw.
+    if dims and sung_hi is not None and sung_hi < reach:
+        dims.append("")
+        bounds.append((0, sung_hi))
+    return tuple(dims), tuple(bounds)
+
+
+def _vec(dims, fns):
+    """-> the count of each dim in `fns`: a row by name, `None` for every
+    section, `""` for every sung section."""
+    return tuple(len(fns) if d is None else
+                 sum(1 for f in fns if f not in ZERO_LINE_FUNCTIONS)
+                 if d == "" else sum(1 for f in fns if f == d)
+                 for d in dims)
+
+
+def _built_add(bounds, s, v):
+    """-> the counts `s` with one cell's counts `v` added, or None past an
+    upper bound. A dim with no upper bound stops counting at its floor."""
+    out = []
+    for (lo, hi), a, b in zip(bounds, s, v):
+        x = a + b
+        if hi is None:
+            x = min(x, lo)
+        elif x > hi:
+            return None
+        out.append(x)
+    return tuple(out)
+
+
+def _built_size(dims, bounds, cells, max_cells):
+    """-> how many entries the forward tables over `dims` hold, one per
+    step and count state the cells can reach, or None once that passes
+    `_BUILT_STATES`. It counts only: no weight is kept, and no more than
+    `_BUILT_STATES` states are held to learn that a table is too large."""
+    key = ("size", dims, bounds, cells, max_cells)
+    if key in _BUILT_CACHE:
+        return _BUILT_CACHE[key]
+    vs = {_vec(dims, c) for c in cells}
+    states, size = {tuple(0 for _ in dims)}, 1
+    for _ in range(max(1, max_cells)):
+        nxt = set()
+        for s in states:
+            nxt.update(t for v in vs
+                       for t in (_built_add(bounds, s, v),) if t is not None)
+            if size + len(nxt) > _BUILT_STATES:
+                break
+        states = nxt
+        size += len(states)
+        if size > _BUILT_STATES:
+            size = None
+            break
+    _built_room()
+    _BUILT_CACHE[key] = size
+    return size
+
+
+def _built_part(dims, bounds, cells, max_cells):
+    """-> the indexes of the dims the draw BUILDS, in the order of `dims`
+    (stage 4 fix round, 2026-11-18).
+
+    EVERY dim when the whole table holds at most `_BUILT_STATES` entries
+    (`_built_size`): the draw is then the one made before there was a
+    bound. Otherwise the TIGHTEST bounds, as many as fit, and the others
+    are left to the check on each draw (`_sample_pattern`).
+
+    How tight a bound is: the room between it and the count that
+    `max_cells` free cells give on average, in standard deviations of that
+    count. The least room is built first, because a free draw meets that
+    bound least often. What fits: one entry per step for every count each
+    built dim can hold by that step, which is never fewer than the table
+    really holds."""
+    key = ("part", dims, bounds, cells, max_cells)
+    if key in _BUILT_CACHE:
+        return _BUILT_CACHE[key]
+    part = tuple(range(len(dims)))
+    if _built_size(dims, bounds, cells, max_cells) is None:
+        steps = max(1, max_cells)
+        vs = [_vec(dims, c) for c in cells]
+
+        def room(i):
+            xs = [v[i] for v in vs]
+            mean = sum(xs) / len(xs)
+            spread = steps * max(0.0, sum(x * x for x in xs) / len(xs)
+                                 - mean * mean)
+            sd = spread ** 0.5 or 1e-9
+            lo, hi = bounds[i]
+            return min((steps * mean - lo) / sd if lo else float("inf"),
+                       (hi - steps * mean) / sd if hi is not None
+                       else float("inf"))
+
+        def entries(idx):
+            top = [(bounds[i][0] if bounds[i][1] is None else bounds[i][1],
+                    max(v[i] for v in vs)) for i in idx]
+            return sum(math.prod(min(most, each * n) + 1 for most, each in top)
+                       for n in range(steps + 1))
+
+        built = []
+        for i in sorted(part, key=room):
+            if entries(built + [i]) <= _BUILT_STATES:
+                built.append(i)
+        part = tuple(sorted(built))
+    _built_room()
+    _BUILT_CACHE[key] = part
+    return part
+
+
+def _built_left(policy, form, cells, max_cells, sung_hi=None):
+    """-> the stated counts the table leaves to the check on each draw, by
+    the name a request gives them: "sections", "sections.<row>"."""
+    dims, bounds = _built_dims(policy, form, max_cells, sung_hi)
+    part = _built_part(dims, bounds, cells, max_cells)
+    return ["sections" if d is None else f"sections.{d}"
+            for i, d in enumerate(dims) if i not in part and d != ""]
+
+
+def _built_tables(dims, bounds, cells, max_cells):
+    """-> (dp, back, add): the forward table of each step, and how each
+    entry was reached. Never past `_BUILT_STATES` entries: `_built_body`
+    hands in only the part of the dims that fits (`_built_part`)."""
+    key = (dims, bounds, cells, max_cells)
+    if key in _BUILT_CACHE:
+        return _BUILT_CACHE[key]
+    # ~~`if len(_BUILT_CACHE) >= 64: _BUILT_CACHE.clear()`~~ (fix round,
+    # 2026-11-18): the cache is bounded by the table entries it holds too.
+    size = _built_size(dims, bounds, cells, max_cells)
+    assert size is not None, "a built table past _BUILT_STATES entries"
+    _built_room(size)
+    vs = [_vec(dims, c) for c in cells]
+    C = len(cells)
+
+    def add(s, v):
+        out = []
+        for (lo, hi), a, b in zip(bounds, s, v):
+            x = a + b
+            if hi is None:
+                x = min(x, lo)
+            elif x > hi:
+                return None
+            out.append(x)
+        return tuple(out)
+
+    zero = tuple(0 for _ in dims)
+    dp, back = [{zero: 1.0}], [None]
+    for _ in range(max(1, max_cells)):
+        nxt, bk = {}, {}
+        for s0, p in dp[-1].items():
+            for ci, v in enumerate(vs):
+                t = add(s0, v)
+                if t is None:
+                    continue
+                nxt[t] = nxt.get(t, 0.0) + p / C
+                bk.setdefault(t, []).append((ci, s0))
+        dp.append(nxt)
+        back.append(bk)
+    _BUILT_CACHE[key] = (dp, back, add)
+    return dp, back, add
+
+
+def _built_ok(bounds, s):
+    return all(lo <= x and (hi is None or x <= hi)
+               for (lo, hi), x in zip(bounds, s))
+
+
+def _built_min_cells(policy, form, cells, openers, enders, max_cells,
+                     sung_hi=None):
+    """-> the fewest body cells (at most `max_cells`) whose sequences can
+    carry the stated counts with an opener and a closer from the edge
+    slots, or None. ~~A forward pass that stops at the first fit.~~
+
+    A SEARCH THAT TRIES THE NEAREST COUNTS FIRST (stage 4 fix round,
+    2026-11-18). The forward pass held every combination of counts the
+    cells could reach at each step, so one large floor beside a few caps
+    held millions. This search takes next the counts with the fewest cells
+    used plus the fewest still needed, where "still needed" is a number no
+    fit can do without (`short`). It finds the same fewest cells and goes
+    on only from counts that may still lead to a fit in that many. It holds
+    at most `_BUILT_STATES` count states; past that it refuses by name, and
+    makes no claim about the counts themselves."""
+    dims, bounds = _built_dims(policy, form, max_cells, sung_hi)
+    if not dims:
+        return 1
+    key = ("min", dims, bounds, cells, tuple(openers), tuple(enders), max_cells)
+    if key in _BUILT_CACHE:
+        return _BUILT_CACHE[key]
+    _built_room()
+    if not cells:
+        _BUILT_CACHE[key] = None
+        return None
+    most = max(1, max_cells)
+    vs = sorted({_vec(dims, c) for c in cells})
+    edge = sorted({_built_add(bounds, _vec(dims, [o] if o else []),
+                              _vec(dims, [e] if e else []))
+                   for o in openers for e in enders} - {None})
+    # What one cell, and what the two edges, can add at most: to each dim,
+    # and to the rows with a floor taken together. `shared` is each set of
+    # floored rows one cell adds to at once, when no cell adds 2 to a row.
+    rows = [i for i, d in enumerate(dims) if d and bounds[i][0]]
+    cell_dim = [max(v[i] for v in vs) for i in range(len(dims))]
+    edge_dim = [max(e[i] for e in edge) for i in range(len(dims))]
+    cell_rows = max(sum(v[i] for i in rows) for v in vs)
+    edge_rows = max(sum(e[i] for i in rows) for e in edge)
+    plain = all(v[i] <= 1 for v in vs for i in rows)
+    shared = sorted({c for c in (tuple(i for i in rows if v[i]) for v in vs)
+                     if plain and len(c) > 1})
+
+    def short(s):
+        """-> a number of further cells no fit from `s` can do without.
+        Each floor still open needs its gap, at the most one cell adds to
+        it. The floored rows together need the sum of their gaps, less what
+        the edges add: one cell closes one unit of that, and a cell that
+        adds to several open rows at once saves at most the gaps of those
+        rows less the largest of them."""
+        open_ = [(lo - x - e, c) for (lo, hi), x, c, e
+                 in zip(bounds, s, cell_dim, edge_dim) if lo - x - e > 0]
+        gap = {i: max(0, bounds[i][0] - s[i]) for i in rows}
+        rest = sum(gap.values()) - edge_rows - sum(
+            sum(gap[i] for i in c) - max(gap[i] for i in c) for c in shared)
+        if rest > 0:
+            open_.append((rest, 1 if plain else cell_rows))
+        return max([-(-need // c) if c else most + 1 for need, c in open_],
+                   default=0)
+
+    # (cells used + cells still needed, cells left to use, counts): nearest
+    # first, and among equals the one with the most cells used, so a search
+    # with nothing in its way goes straight to its fit.
+    best, heap, found = {}, [], None
+    for v in vs:
+        t = _built_add(bounds, tuple(0 for _ in dims), v)
+        if t is not None and t not in best:
+            best[t] = 1
+            heappush(heap, (1 + short(t), most - 1, t))
+    while heap:
+        reach, left, s = heappop(heap)
+        n = most - left
+        if reach > most:
+            break
+        if best[s] < n:
+            continue
+        if any((t := _built_add(bounds, s, ev)) is not None
+               and _built_ok(bounds, t) for ev in edge):
+            found = n
+            break
+        for v in vs:
+            t = _built_add(bounds, s, v)
+            if t is not None and n + 1 < best.get(t, most + 2):
+                best[t] = n + 1
+                heappush(heap, (n + 1 + short(t), left - 1, t))
+        if len(best) > _BUILT_STATES:
+            raise CountSearchPastBound(
+                f"{policy['requested']} is more than this planner searches: "
+                f"finding the fewest sections that carry these counts took "
+                f"more than {_BUILT_STATES} combinations of section counts. "
+                f"State fewer counts, or smaller ones.")
+    _BUILT_CACHE[key] = found
+    return found
+
+
+def _built_body(rng, policy, form, cells, openers, enders, max_cells,
+                sung_hi=None):
+    """-> (opener, [cells], ender) drawn with today's odds (opener, number
+    of cells, each cell and closer uniform) restricted to the draws whose
+    counts land inside the stated intervals, sampled directly.
+
+    THE INTERVALS THE TABLE HOLDS (stage 4 fix round, 2026-11-18): all of
+    them when the whole table fits `_BUILT_STATES`, and then nothing here
+    has changed; otherwise the tightest (`_built_part`). `_sample_pattern`
+    checks every stated count on the draw either way, and redraws."""
+    dims, bounds = _built_dims(policy, form, max_cells, sung_hi)
+    part = _built_part(dims, bounds, cells, max_cells)
+    dims = tuple(dims[i] for i in part)
+    bounds = tuple(bounds[i] for i in part)
+    dp, back, add = _built_tables(dims, bounds, cells, max_cells)
+    key = ("ends", dims, bounds, cells, tuple(openers), tuple(enders), max_cells)
+    if key not in _BUILT_CACHE:
+        pairs = [(o, e, add(_vec(dims, [o] if o else []),
+                            _vec(dims, [e] if e else [])))
+                 for o in openers for e in enders]
+        pairs = [(o, e, v) for o, e, v in pairs if v is not None]
+        # weight of (n, s, o, e): dp[n][s] when s plus the edges is inside.
+        choices, cum, acc = [], [], 0.0
+        for n in range(1, len(dp)):
+            for s, p in dp[n].items():
+                for o, e, v in pairs:
+                    t = add(s, v)
+                    if t is not None and _built_ok(bounds, t):
+                        acc += p
+                        choices.append((n, s, o, e))
+                        cum.append(acc)
+        _BUILT_CACHE[key] = (choices, cum)
+    choices, cum = _BUILT_CACHE[key]
+    if not choices:
+        return None
+    n, s, o, e = rng.choices(choices, cum_weights=cum)[0]
+    seq = []
+    for k in range(n, 0, -1):
+        opts = back[k][s]
+        ci, prev = rng.choices(opts, weights=[dp[k - 1][s0] for _, s0 in opts])[0]
+        seq.append(cells[ci])
+        s = prev
+    seq.reverse()
+    return o, seq, e
+
+
+def _sample_pattern(rng, roster=None, form=None, max_cells=None,
+                    counts=None, fit=None):
+    """-> ordered tuple of function names. Edges stay at the edges.
+
+    STAGE 4 (owner's ruling, 16 Nov 2026): any row may be dealt any number
+    of times, once included, except the rows the section table deals at
+    most once (intro, outro, coda). Those three all stand at an edge, so
+    `grid.placement_findings` already refuses a second copy, and this draw
+    reads no list of "once" rows: ~~a whole pattern with a "once" row twice
+    was thrown away here, and a literal "bridge" kept a second bridge out
+    of the cell draw~~. Both checks are gone. The first rejected exactly
+    the draws placement rejects, and neither spent the rng, so every plan
+    it touched is byte-equal without it (`test_plan.py`, OnceGeneration).
+
+    `counts` is the request's `CountPolicy`. When it states any count, the
+    counts are BUILT into the draw: the number of cells and each cell are
+    drawn with today's odds restricted to the draws that carry those
+    counts, the form's own needs folded in. `fit` is `(total, lines per
+    section)`: a built draw is kept only if its sung sections can share
+    that total, each kind's copies at one length (`_partition_count`).
 
     `form` is THE NAMED SHAPE, and it is enforced HERE because nothing else
     could (2026-08-23). It was a parameter of `make_plan` that this function
@@ -3112,8 +3956,6 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None, relaxed=()):
     first_fns, last_fns = _edges()
     need = set(FORM_REQUIRES.get(form, ()))
     from quality import grid as _GR
-    once = {fn for fn, spec in _GR.SECTION_FUNCTIONS.items()
-            if spec.recurrence == "once"} - set(relaxed)
     # PRUNE THE PROPOSAL, DO NOT STEER THE DRAW. Drawing uniformly from the
     # cells a roster admits is uniform over the admissible set -- the same
     # argument rejection sampling rests on, with the rejections done once
@@ -3136,71 +3978,89 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None, relaxed=()):
                              if roster is None or f in roster)
     max_cells = ENVELOPE["sections"][1] if max_cells is None \
         else max_cells
+    sung_hi = None if fit is None else fit[0] // fit[1]
+    # BUILT ONLY WHEN A STATED COUNT CAN BIND THIS DRAW. A count no draw of
+    # `max_cells` cells could miss (`sections.verse<=10**309`) changes
+    # nothing, so the draw is today's, byte for byte.
+    _dims, _bounds = ((), ()) if counts is None or not counts.stated else (
+        _built_dims(counts, form, max_cells, sung_hi))
+    built = bool(_dims)
+    if built:
+        if _built_min_cells(counts, form, cells, openers, enders,
+                            max_cells, sung_hi) is None:
+            raise NoBuiltPattern(
+                f"no section pattern the planner builds carries the stated "
+                f"counts ({counts['requested']}) at this length"
+                + (f" under the declared roster {sorted(roster)}"
+                   if roster else ""))
     for _ in range(PATTERN_ATTEMPTS):
         funcs = []
-        # An opener, drawn uniformly over the boundary='first' rows plus the
-        # no-opener case, so adding a row to that table widens this draw.
-        opener = rng.choice(openers)
-        if opener:
-            funcs.append(opener)
-        # THE CELL COUNT IS BOUNDED BY THE SONG THIS PLAN IS ALREADY
-        # COMMITTED TO. `max_cells` comes from the drawn total: every sung
-        # section carries at least one line, so a song of T lines cannot
-        # hold more than T sung sections and therefore not more than T
-        # cells. That is the derivation the old literal `(2, 6)` stood in
-        # for — and it stood in for something real, since the placement
-        # vocabulary's admissible fraction decays smoothly with length
-        # (measured: 71% of one-cell patterns are admissible, 18% at six,
-        # 0.12% at twenty-four). There is no admissible CEILING to derive,
-        # only a decay, so the bound comes from the song and the placement
-        # layer keeps doing the rejecting.
-        n_cells = rng.randint(1, max(1, max_cells))
-        bridge_used = False
-        for _ in range(n_cells):
-            eligible = [c for c in cells if not (
-                bridge_used and "bridge" in c and "bridge" not in relaxed)]
-            if not eligible:
-                # A once-only singleton roster has no next cell. Reject this
-                # finite draw; never spin waiting for a cell that cannot exist.
-                funcs = []
-                break
-            cell = eligible[rng.randrange(len(eligible))]
-            if "bridge" in cell:
-                bridge_used = True
-            funcs.extend(cell)
-        if not funcs:
-            continue
-        # AT MOST ONE CLOSER, and it IS derived after all — measured
-        # 2026-09-18 while ruling M-54's open half under the owner's
-        # delegation. This comment used to say the bound was not derived,
-        # that nothing in either gloss forbids a song carrying a coda AND an
-        # outro, and that lifting it was an open ruling. All three are wrong,
-        # and one call refutes them: `outro` and `coda` BOTH declare
-        # `boundary="last"`, each with `placement_evidence` quoting its own
-        # gloss ("closes the song", "a closing section"), so
-        # `grid.placement_findings` already refuses either ordering —
-        #
-        #   ["verse", "chorus", "outro", "coda"] -> SECTION_NOT_AT_BOUNDARY
-        #   ["verse", "chorus", "coda", "outro"] -> SECTION_NOT_AT_BOUNDARY
-        #
-        # The exclusion therefore lives in the vocabulary, one layer down,
-        # where M-54 says a single definition belongs; this line is not the
-        # rule, it is an optimisation that skips a draw the placement layer
-        # is certain to reject. Drawing a subset of `enders` here would be
-        # admissible and useless: every two-closer pattern would be thrown
-        # away on the next line. Lifting it needs `boundary` to stop meaning
-        # strictly-final for one of the two, which is a vocabulary change
-        # with its own argument to make and is NOT this line's to take.
-        ending = rng.choice(enders)
-        if ending:
-            funcs.append(ending)
-        # Keep the historic progressive bridge draw; reject other unsolicited
-        # once repetitions as whole proposals, without deleting any sections.
-        # Include both edges and every member of a compound cell. This is a
-        # generation contract only; explicit blueprints keep their advisory
-        # recurrence reporting. Read the registry, not a second name list.
-        if any(funcs.count(fn) > 1 for fn in once):
-            continue
+        if built:
+            opener, seq, ending = _built_body(rng, counts, form, cells,
+                                              openers, enders, max_cells,
+                                              sung_hi)
+            if opener:
+                funcs.append(opener)
+            for cell in seq:
+                funcs.extend(cell)
+            if ending:
+                funcs.append(ending)
+            # EVERY STATED COUNT IS CHECKED ON THE DRAW (stage 4 fix round,
+            # 2026-11-18). The table builds all of them whenever it fits
+            # `_BUILT_STATES`, and then this rejects nothing. A larger
+            # request builds only its tightest bounds (`_built_part`), and a
+            # draw that misses one of the others is redrawn here, so no
+            # pattern leaves without every count.
+            if not _built_ok(_bounds, _vec(_dims, funcs)):
+                continue
+            if fit is not None:
+                _t, _per = fit
+                _shape = tuple(Counter(
+                    f for f in funcs if f not in ZERO_LINE_FUNCTIONS).values())
+                _rest = _t - (_per - 1) * sum(_shape)
+                # ... and one kind must get 2 lines or more, for the rhyme
+                # group every plan carries (the `ks[f] >= 2` test below).
+                if not _shape or not _partition_fits(_shape, _rest) or (
+                        _per == 1 and _rest == sum(_shape)):
+                    continue
+        else:
+            # An opener, drawn uniformly over the boundary='first' rows plus
+            # the no-opener case, so adding a row to that table widens this
+            # draw.
+            opener = rng.choice(openers)
+            if opener:
+                funcs.append(opener)
+            # THE CELL COUNT IS BOUNDED BY THE SONG THIS PLAN IS ALREADY
+            # COMMITTED TO. `max_cells` comes from the drawn total: every
+            # sung section carries at least one line, so a song of T lines
+            # cannot hold more than T sung sections and therefore not more
+            # than T cells. That is the derivation the old literal `(2, 6)`
+            # stood in for — and it stood in for something real, since the
+            # placement vocabulary's admissible fraction decays smoothly
+            # with length (measured: 71% of one-cell patterns are
+            # admissible, 18% at six, 0.12% at twenty-four). There is no
+            # admissible CEILING to derive, only a decay, so the bound comes
+            # from the song and the placement layer keeps doing the
+            # rejecting.
+            n_cells = rng.randint(1, max(1, max_cells))
+            for _ in range(n_cells):
+                funcs.extend(cells[rng.randrange(len(cells))])
+            # AT MOST ONE CLOSER, and it IS derived after all — measured
+            # 2026-09-18 while ruling M-54's open half under the owner's
+            # delegation: `outro` and `coda` BOTH declare `boundary="last"`,
+            # each with `placement_evidence` quoting its own gloss ("closes
+            # the song", "a closing section"), so `grid.placement_findings`
+            # already refuses either ordering —
+            #
+            #   ["verse", "chorus", "outro", "coda"] -> SECTION_NOT_AT_BOUNDARY
+            #   ["verse", "chorus", "coda", "outro"] -> SECTION_NOT_AT_BOUNDARY
+            #
+            # The exclusion therefore lives in the vocabulary, one layer
+            # down; this line is an optimisation that skips a draw the
+            # placement layer is certain to reject.
+            ending = rng.choice(enders)
+            if ending:
+                funcs.append(ending)
         # THE FORM'S OWN MEMBERSHIP, on the same rejection path as the
         # placement constraints. Pruning the cell grammar instead would be
         # steering the draw rather than pruning the proposal, which is the
@@ -3220,7 +4080,8 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None, relaxed=()):
            f"({', '.join(sorted(need))})" if need else "")
         + (f" and drawing {', '.join(FORM_RECURS[form])} at least twice "
            f"(the form's recurrence)" if FORM_RECURS.get(form) else "")
-        + f". The placement and once-recurrence constraints on `grid.SECTION_FUNCTIONS`"
+        + (f" with the stated counts ({counts['requested']})" if built else "")
+        + f". The placement constraints on `grid.SECTION_FUNCTIONS`"
         + (", the declared roster," if roster else "")
         + (", the form's membership," if need else "")
         + f" and the cell grammar `_CELLS` yielded no accepted draw within the bound — REFUSED rather "
@@ -3585,7 +4446,11 @@ def sweep(seeds, wants=(), **plan_kw):
     A PLAN IS A PURE FUNCTION OF ITS REQUEST, including the seed and count
     policy. This returns SEEDS and no plans: the caller repeats the same
     request and predicates with an accepted seed to obtain that artifact.
-    Sweep does not condition the draw to make a failing predicate pass.
+    Sweep does not condition the draw to make a failing predicate pass,
+    with one exception since stage 4: stated section counts
+    (`sections`, `sections.<row>`) reach every seed's draw through
+    `_recurrence_wants` and are built into it, as they are for `make_plan`
+    on the same seed, so a sweep and a plan of one seed agree.
     """
     seeds = list(seeds)
     wants = list(wants)
@@ -3791,9 +4656,12 @@ def make_plan(seed, form=None, lines=None, relation=None,
     # as `_redraw_past_joint_gate` discloses its own: an integer past 2**53
     # is rounded by the connector's JSON.parse and names a different song
     # (Jony 6347921225, 3PO 6348036141). The rng keeps integers.
-    attempts = []
+    attempts, edge = [], None
     for candidate_seed, plan in _want_candidates(seed, kw):
         if isinstance(plan, Exception):
+            # The counts fit only with a wordless section at an edge they
+            # do not deal (`_wordless_edges`, on the candidate's miss).
+            edge = edge or getattr(plan, "wordless_edges", None)
             # THE FACT, NOT THE ADVICE (writer plan, stage 2). A candidate's
             # refusal is quoted by its first line. The line after it says
             # "Another seed may plan", which is true of one candidate and
@@ -3815,10 +4683,30 @@ def make_plan(seed, form=None, lines=None, relation=None,
             "policy": "first satisfying candidate; no ranking"}
         plan["writer_brief"] = writer_brief(plan)
         return plan
+    # WHAT FITS, AND WHETHER THIS SEED PLANS WITH IT (2026-11-18, stage 4
+    # fix round): when the counts fit only with a wordless section at an
+    # edge they do not deal, the request is planned again with that row
+    # stated, and the refusal says what came of it. Any other miss reads
+    # as before.
+    said = ""
+    if edge and not _WORDLESS_PROBE.get():
+        def attempt(row, w):
+            extra = [(f"sections.{row}", "=", str(w))]
+            try:
+                make_plan(seed, form=form, lines=lines, relation=relation,
+                          functions=functions, title=title,
+                          narrative=narrative, wants=parsed + extra,
+                          melody=melody, relations=relations,
+                          _recurrence_wants=list(recurrence_wants) + extra)
+            except PlanRefused as exc:
+                return (str(exc).split("\n", 1)[0]
+                        .split("; outcomes=", 1)[0].rstrip("."))
+            return ""
+        said = f"{edge[0]}, and {_wordless_tried(edge[1], attempt)}; "
     raise PlanRefused(
         f"brief predicates found no accepted plan in {len(attempts)} bounded "
         f"candidate draws; declared wants={[ ''.join(w) for w in parsed ]}; "
-        f"outcomes={attempts}")
+        f"{said}outcomes={attempts}")
 
 
 def _redraw_past_joint_gate(seed, kw):
@@ -4081,7 +4969,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             *(c for c in _CELLS if all(f in roster for f in c)),
             (f for f in (*first_fns, *last_fns) if f in roster))
         need = set(FORM_REQUIRES.get(form, ())) | set(FORM_RECURS.get(form, ()))
-        if need - reachable:
+        if song_form is None and need - reachable:
             raise PlanRefused(
                 f"--form={form} requires {sorted(need)}, and the declared "
                 f"roster {sorted(roster)} can draw none of "
@@ -4089,7 +4977,8 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                 f"or declare a form that does not require them.")
 
     recurrence = _recurrence_policy(
-        _wants if _recurrence_wants is None else _recurrence_wants, roster)
+        _wants if _recurrence_wants is None else _recurrence_wants, roster,
+        form=form, generated=song_form is None)
     rng = random.Random(seed)
 
     # REJECTION SAMPLING over the generated grammar: uniform over the
@@ -4115,6 +5004,84 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     _STANZA = stanza_line_floor()
     _min_section = max([1] + [int(v) for n, op, v in _wants
                              if n == "lines_per_section" and op in (">=", "=")])
+    # STATED COUNTS ARE BUILT, NOT FILTERED FOR (stage 4). The proofs run
+    # first and name what cannot fit; the length is then drawn only from
+    # totals that carry the sung sections the counts need.
+    if recurrence.stated and song_form is None:
+        # The bound the proof reads, kept for a miss's text (2026-11-18,
+        # stage 4 fix round): `_wordless_edges` reads the same one.
+        _most = lines if lines is not None else max(_GRADEABLE)
+        _sung_min, _pair = _count_length_proof(
+            recurrence, form, _most, _min_section, exact=lines is not None)
+        _GRADEABLE = {k for k in _GRADEABLE
+                      if k >= _sung_min * _min_section + _pair}
+        # FIXED SUNG SECTIONS, FIXED ARITHMETIC: when no further sung
+        # section fits, the lengths must share the total kind by kind.
+        _why_not = {k: _fixed_lengths_proof(recurrence, form, k, _min_section)
+                    for k in ([lines] if lines is not None else _GRADEABLE)}
+        _fits = {k for k, why in _why_not.items() if not why}
+        if not _fits:
+            raise PlanRefused(
+                _why_not[lines] if lines is not None else
+                _why_not[max(_GRADEABLE)].rsplit(", and ", 1)[0]
+                + ", and no length the line bounds allow can be shared that way")
+        if lines is None:
+            _GRADEABLE = _fits
+        # NO PATTERN AT THE LONGEST LENGTH, NONE AT ALL: the cell grammar
+        # can carry the counts at a total only if it can at the longest
+        # total the bounds allow (more lines bound fewer patterns out).
+        _top = lines if lines is not None else max(_GRADEABLE)
+        _cells_r = _CELLS if roster is None else tuple(
+            c for c in _CELLS if all(f in roster for f in c))
+        _ends_r = ((None,) + tuple(f for f in _edges()[0]
+                                   if roster is None or f in roster),
+                   (None,) + tuple(f for f in _edges()[1]
+                                   if roster is None or f in roster))
+        if _cells_r and _built_min_cells(
+                recurrence, form, _cells_r, *_ends_r,
+                _top, _top // _min_section) is None:
+            # WORDLESS SECTIONS PAST THE LINE BOUND (2026-11-18, stage 4 fix
+            # round). The ceiling above counts every section against the
+            # lines, a wordless one too, and it stays. ~~It was always "can't
+            # be met"~~: `sections.solo=3; lines<=2` fits three solos and a
+            # sung section of 2 lines. When the same search finds a pattern
+            # once there is room for the wordless sections the counts deal
+            # and one at each edge, with the sung sections still held to the
+            # lines, the wordless sections are what overflow, and the
+            # refusal says that. Otherwise it is unchanged.
+            _quiet = sum(lo for f, (lo, hi) in
+                         _folded_rows(recurrence, form).items()
+                         if f in ZERO_LINE_FUNCTIONS)
+            try:
+                _over = _built_min_cells(
+                    recurrence, form, _cells_r, *_ends_r,
+                    min(ENVELOPE["sections"][1],
+                        _top // _min_section + _quiet + 2),
+                    _top // _min_section) is not None
+            except CountSearchPastBound:
+                _over = False
+            if _over:
+                raise PlanRefused(
+                    f"{recurrence['requested']} can't be planned: this "
+                    f"planner counts wordless sections against the line "
+                    f"bound, so no section pattern it builds carries these "
+                    f"counts in a song of "
+                    + ("" if lines is not None else "at most ")
+                    + f"{_top} lines, at {_min_section} line(s) or more per "
+                    f"sung section"
+                    + (f", under the declared roster {sorted(roster)}"
+                       if roster else "")
+                    + "; every pattern that carries them holds more sections "
+                    "than the song has lines, which only wordless sections "
+                    "make possible")
+            raise PlanRefused(
+                f"{recurrence['requested']} can't be met: no section pattern "
+                f"the planner builds carries these counts in a song of "
+                + ("" if lines is not None else "at most ")
+                + f"{_top} lines, at {_min_section} line(s) or more per sung "
+                f"section"
+                + (f", under the declared roster {sorted(roster)}"
+                   if roster else ""))
     _max_sections = min([ENVELOPE["sections"][1]] + [int(v) for n, op, v in _wants
                              if n == "sections" and op in ("<=", "=")])
     # No group-size limit unless the writer declares one (`group<=N`).
@@ -4154,6 +5121,17 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             song_form, rng, totals=_GRADEABLE, lines=lines if lines is not None else _total,
             functions=roster, form=form, minimum=_min_section,
             melody_bars=melody.get("bars") if isinstance(melody, dict) else None)
+        # A declared sequence can carry wordless sections beyond the drawn
+        # grammar's section-per-line ceiling. Its resolver validates the
+        # actual placement, form and lengths; counts must describe that
+        # sequence, not a hypothetical pattern the sampler could draw.
+        for atom in recurrence["atoms"]:
+            want = parse_sweep_want(atom)
+            if not sweep_holds(catalog, want):
+                observed = SWEEP_MEASURES[want[0]][1](catalog)
+                raise PlanRefused(
+                    f"{atom} can't be met: the declared catalog has "
+                    f"{want[0]}={observed}")
         if len(catalog["sections"]) > _max_sections:
             raise PlanRefused("requested section limit conflicts with the catalog form")
         total = catalog["total"]
@@ -4166,6 +5144,23 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     if _drawn is not None:
         _drawn["total"] = total
     _pattern_refused, _pattern_reason = 0, ""
+    _built_stop, _built_none = False, False
+    # The stated counts a refused built draw checked rather than built
+    # (`_built_left`), for the refusal after the loop (fix round, 18 Nov).
+    _left_seen = set()
+    # BUILT ONLY WHEN A STATED COUNT CAN BIND THE DRAW AT THIS TOTAL (stage 4
+    # fix round, 2026-11-18). ~~The raised ceiling, the halved ceiling and
+    # the early stop below ran for any stated count.~~ For a count no draw
+    # could miss the fewest cells are 1, so two refusals halved the ceiling
+    # toward 1 and stopped the 500 draws early, and the plan differed from
+    # the plan of the same request with no count (`sections<=1000` at 400
+    # lines). The test is the one `_sample_pattern` makes, on the ceiling
+    # this total starts from, so that draw is unbuilt exactly when this is
+    # false.
+    _built = catalog is None and recurrence.stated and bool(_built_dims(
+        recurrence, form,
+        min(_max_sections, max(1, total // max(_STANZA, _min_section))),
+        total // _min_section)[0])
     for _attempt in range(500):
         if catalog is not None:
             funcs = tuple(section["function"] for section in catalog["sections"])
@@ -4178,6 +5173,11 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                     phrases[fn] = rng.randint(k_lo, max(k_lo, max(ks.values())))
             _cells_hi = len(funcs)
             break
+        # A BUILT DRAW STOPS WHEN IT HAS NOTHING LEFT TO TRY AT THIS TOTAL:
+        # it refused at the fewest cells that carry the counts (below), or
+        # no pattern carries them at all at this total.
+        if _built_stop:
+            continue
         # THE LENGTH FIRST. It is the coordinate that decides what the floor
         # can grade, so it is drawn from the gradeable set before anything
         # is conditioned on it — and it then BOUNDS the pattern, since a
@@ -4212,9 +5212,42 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # `stanza_line_floor()` is read from the `section` profile's own
         # measured range, so this is a derivation and not a tuning.
         _cells_hi = min(_max_sections, max(1, total // max(_STANZA, _min_section)))
+        # A STATED COUNT RAISES THE CEILING (stage 4, owner's ruling 16 Nov
+        # 2026: a section may then have fewer than 4 lines). The ceiling is
+        # what the planner volunteers, not what a stated count may ask, so
+        # it is raised to the fewest cells that carry the counts, and a
+        # built pattern is kept only if its sung sections fit `total` at
+        # `_min_section` lines each. ~~`if recurrence.stated:`~~ -> only when
+        # a stated count can bind (`_built`, above the loop).
+        if _built:
+            _cells_fit = _built_min_cells(
+                recurrence, form,
+                _CELLS if roster is None else tuple(
+                    c for c in _CELLS if all(f in roster for f in c)),
+                (None,) + tuple(f for f in _edges()[0]
+                                if roster is None or f in roster),
+                (None,) + tuple(f for f in _edges()[1]
+                                if roster is None or f in roster),
+                max(_cells_hi, total), total // _min_section)
+            if _cells_fit is not None:
+                _cells_hi = max(_cells_hi, _cells_fit)
+                # HALVED AFTER TWO REFUSALS, DOWN TO THE FLOOR (fix round,
+                # 17 Nov). The built draw weighs the number of cells by how
+                # many draws carry the counts, so a count only 1 or 2 cells
+                # hold pulls it to the ceiling, where placement almost never
+                # passes (`sections.verse=6` at 300 lines: 1 of 300 built
+                # bodies). A draw that passes at the first ceiling is
+                # unchanged; one that does not tries half the ceiling, then
+                # half again, never below the fewest cells that carry the
+                # counts.
+                if _pattern_refused >= 2:
+                    _cells_hi = max(_cells_fit,
+                                    _cells_hi >> (_pattern_refused - 1))
         try:
-            funcs = _sample_pattern(rng, roster, form=form,
-                                    max_cells=_cells_hi, relaxed=recurrence)
+            funcs = _sample_pattern(
+                rng, roster, form=form, max_cells=_cells_hi,
+                counts=recurrence if recurrence.stated else None,
+                fit=(total, _min_section) if recurrence.stated else None)
         except PlanRefused as _exc:
             # A REJECTED DRAW, NOT A REFUSED REQUEST. `_sample_pattern`
             # raises when it cannot find an admissible pattern within the
@@ -4227,8 +5260,22 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             # COUNTED, AND ITS REASON KEPT (writer plan, stage 2), for the
             # refusal after the loop: that reason names the declared roster
             # and form, and it used to be dropped here.
+            # NOT THE SEARCH'S OWN LIMIT (stage 4 fix round, 2026-11-18):
+            # that is no drawn pattern, and no other draw would pass it.
+            if isinstance(_exc, CountSearchPastBound):
+                raise
             _pattern_refused += 1
             _pattern_reason = str(_exc)
+            if _built:
+                _left_seen.update(_built_left(
+                    recurrence, form,
+                    _CELLS if roster is None else tuple(
+                        c for c in _CELLS if all(f in roster for f in c)),
+                    _cells_hi, total // _min_section))
+                _built_none = isinstance(_exc, NoBuiltPattern)
+                _built_stop = _built_none or (
+                    _pattern_refused >= 2 and (
+                        _cells_fit is None or _cells_hi <= _cells_fit))
             continue
         s_lo, s_hi = ENVELOPE["sections"]
         if not s_lo <= len(funcs) <= min(s_hi, _max_sections):
@@ -4368,11 +5415,49 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             [f"--lines={lines}"] if lines is not None else []) + (
             [f"--form={form}"] if form != DEFAULT_FORM else []) + [
             f"want {n}{op}{v}" for n, op, v in _wants]
+        # WHAT THE BUILT DRAW DID, AND NOTHING IT DID NOT (fix round): when
+        # no pattern carries the counts at this length nothing was drawn,
+        # so no count of drawn patterns is printed.
         _pattern = (
-            f"The section-pattern draw refused {_pattern_refused} of the "
-            f"500: {_pattern_reason.split('. ')[0].rstrip('.')}. "
+            (f"No section pattern was drawn: "
+             if _built_none else
+             f"The built section-pattern draw refused {_pattern_refused} "
+             f"times ({PATTERN_ATTEMPTS} patterns each, the last ones held to "
+             f"the fewest sections that carry the counts) and stopped: "
+             if _built_stop else
+             f"The section-pattern draw refused {_pattern_refused} of the "
+             f"500: ")
+            + f"{_pattern_reason.split('. ')[0].rstrip('.')}. "
             if _pattern_refused else "")
-        raise SeedRefused(
+        _edge = (_wordless_edges(recurrence, form, _most, _min_section,
+                                 lines is not None)
+                 if recurrence.stated and not _WORDLESS_PROBE.get()
+                 else None)
+        _edge_text = ""
+        if _edge:
+            def _with(row, w):
+                """-> "" when this seed plans with `sections.<row>=w` added
+                to the counts it was asked for, else that try's refusal."""
+                extra = [(f"sections.{row}", "=", str(w))]
+                asked = list(_recurrence_wants if _recurrence_wants is not None
+                             else _wants)
+                held = list(_wants) + (
+                    extra if any(n.startswith("sections") for n, _o, _v
+                                 in _wants) else [])
+                try:
+                    p = _make_plan_candidate(
+                        seed, form=form, lines=lines, relation=relation,
+                        functions=functions, title=title,
+                        narrative=narrative, _wants=held, melody=melody,
+                        relations=relations, _recurrence_wants=asked + extra)
+                except PlanRefused as exc:
+                    return (str(exc).split("\n", 1)[0]
+                            .split("; outcomes=", 1)[0].rstrip("."))
+                missed = [n + o + v for n, o, v in held + asked + extra
+                          if not sweep_holds(p, (n, o, v))]
+                return "the plan misses " + "; ".join(missed) if missed else ""
+            _edge_text = _edge[0] + ", and " + _wordless_tried(_edge[1], _with)
+        _miss = SeedRefused(
             "500 seeded draws found no plan for "
             + ("; ".join(_sent) if _sent
                else "this seed, with nothing declared beyond it")
@@ -4380,11 +5465,39 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             f"lines/section {ENVELOPE['lines_per_section']}, total "
             f"{ENVELOPE['total_lines']}{_gap_clause}"
             f"{', exact total ' + str(lines) if lines is not None else ''})."
-            f"\n{_pattern}Another seed may plan. "
-            + ("If every seed of a sweep is refused this way, the request is "
-               "what refuses: change a declaration named here, or declare "
-               "the shape by hand."
-               if _sent else "Or declare the shape by hand."))
+            # WHICH COUNTS WERE ONLY CHECKED (fix round, 18 Nov; R2): on the
+            # first line, which the request's own refusal quotes, so the
+            # caller can see which stated counts to drop or loosen.
+            + (" These stated counts were checked on each draw, not built "
+               "into it, because a table that builds every stated count is "
+               f"past the planner's bound of {_BUILT_STATES} entries: "
+               + ", ".join(a for a in recurrence["atoms"]
+                           if re.match(r"[\w.]+", a).group(0) in _left_seen)
+               + ". State fewer counts, or smaller ones."
+               if _left_seen else "")
+            + f"\n{_pattern}"
+            # A SECTION AT AN EDGE THE COUNTS DO NOT DEAL (2026-11-18, stage
+            # 4 fix round). ~~"Another seed may plan" ended every miss~~,
+            # also when the counts fit only with a wordless section at an
+            # edge they do not deal, which no measured draw added (the 13
+            # such misses of the `wide` population, on every seed tried).
+            # The miss says what fits, and whether this seed plans with the
+            # wordless row stated, as tried here. Any other miss reads as
+            # before.
+            + (_edge_text[0].upper() + _edge_text[1:] + "."
+               if _edge_text else
+               "Another seed may plan. "
+               + ("If every seed of a sweep is refused this way, the request "
+                  "is what refuses: change a declaration named here, or "
+                  "declare the shape by hand."
+                  if _sent else "Or declare the shape by hand.")))
+        _miss.wordless_edges = _edge
+        raise _miss
+    # The stated counts the pattern draw's table left to the check on each
+    # draw, for the disclosure in `choices.pattern` (stage 4 fix round,
+    # 2026-11-18). None when the whole table fit `_BUILT_STATES`.
+    _left = _built_left(recurrence, form, _cells_r, _cells_hi,
+                        total // _min_section) if _built else []
 
     if melody is not None:
         from quality.melody import validate_melody
@@ -4756,9 +5869,18 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                                         f"optional intro/outro/coda, "
                                         f"roster {len(GENERATOR_ROSTER)} "
                                         f"of {_vocab_size()} functions"
-                                        + ("; default once preferences lifted: " +
-                                           ", ".join(f"{f} ({why})" for f, why in sorted(recurrence.items()))
-                                           if recurrence else ""))},
+                                        + ("; stated counts built into the draw: "
+                                           + recurrence["requested"]
+                                           if recurrence.stated else "")
+                                        # WHAT THE TABLE LEFT TO THE CHECK
+                                        # (fix round, 2026-11-18): said only
+                                        # when the whole table was past
+                                        # `_BUILT_STATES`.
+                                        + ("; checked on each draw, not "
+                                           "built (the built table holds at "
+                                           f"most {_BUILT_STATES} entries): "
+                                           + ", ".join(_left)
+                                           if _left else ""))},
             "meter": {"value": dict(meter),
                       "beats_per_line": beats_pl,
                       "slots_per_line": beats_pl * sub,
