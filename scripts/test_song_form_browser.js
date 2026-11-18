@@ -99,6 +99,11 @@ async function checkViewport(browser, origin, viewport) {
     await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('1');
     await view.getByRole('button', { name: 'Show expanded structure' }).click();
     await view.getByText(/distinct ending sound.*1, 3.*2, 4/).waitFor();
+    await picker.selectOption('triadic-line');
+    await view.getByRole('spinbutton').fill('2');
+    await view.getByRole('button', { name: 'Show expanded structure' }).click();
+    await view.getByText(/increasingly indented rows/).waitFor();
+    assert.ok(await view.getByRole('button', { name: 'Write this setting' }).isVisible());
     await picker.selectOption('tumbling-verse');
     await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('0');
     await view.getByRole('button', { name: 'Show expanded structure' }).click();

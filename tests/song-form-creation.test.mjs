@@ -16,6 +16,18 @@ const entry = (...patterns) => [{ id: 'f', name: 'F', scope: 'rule', patterns }]
 const projection = (forms, id, options = {}) =>
   projectSongFormCreation(realizeForm(forms, id, options), options.counts);
 
+test('stepped printing is bounded by native physical slots and leaves undeclared features open', () => {
+  const create = n => projection(catalog, 'triadic-line', { counts: {'1.1': n} });
+  assert.equal(projection(catalog, 'triadic-line').status, 'needs-input');
+  assert.deepEqual(create(1).contract.printedSteps, [3]);
+  const maximum = Math.floor(CREATION_LIMITS.maxLines / 3);
+  assert.equal(create(maximum).contract.sections[0].lines, maximum * 3);
+  assert.equal(create(maximum + 1).reasons[0].code, 'native-line-limit');
+  const altered = entry(poem(make('line', {children: [make('segment', {role:'indent-step'}),
+    make('segment', {role:'indent-step', syllables: 2})]})));
+  assert.equal(projection(altered, 'f').status, 'unsupported');
+});
+
 test('a named catalog role retains its spelling on a native verse carrier', () => {
   const {contract} = projection(catalog, 'heroic-crown', {variant:0});
   const last = contract.sections.at(-1);
@@ -70,7 +82,15 @@ test('every published selection has an exact structural contract or an explicit 
           })));
           realization = realizeForm(entry(poem(...stanzas)), 'f');
         }
-        if (projected.nestedDivisions) {
+        if (contract.printedSteps) {
+          const sizes = realization.tree[0].children.map(node => {
+            assert.equal(node.unit, 'line', where);
+            assert.ok(node.children.every(child => child.unit === 'segment' && child.role === 'indent-step'), where);
+            return node.children.length;
+          });
+          assert.deepEqual(contract.printedSteps, sizes, where);
+          assert.deepEqual(contract.sections, [{ unit:'section', role:'verse', lines:sizes.reduce((n,c) => n+c, 0) }], where);
+        } else if (projected.nestedDivisions) {
           const nodes = new Map();
           function index(node) {
             nodes.set(node.address, node);
@@ -152,7 +172,7 @@ test('every published selection has an exact structural contract or an explicit 
             if (ending && node.stress === undefined) measures.stressEnding = ending;
             if (node.children.length && node.children.every(child => child.unit === 'syllable')) {
               measures.syllables = node.children.length;
-            } else if (node.children.length) {
+            } else if (node.children.length && !contract.printedSteps) {
               assert.ok(node.children.every((child) => child.unit === 'word'), where);
               measures.words = node.children.length;
               if (node.children.some(word => word.children.length))

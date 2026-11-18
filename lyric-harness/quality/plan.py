@@ -7226,6 +7226,10 @@ def writer_brief(plan):
         if any(part.get("divisionPath") and part["divisionPath"][-1]["unit"] == "metrical-stanza"
                for part in catalog["sections"]):
             out.append("  In each body stanza, match the syllable count and stress pattern of each corresponding line.")
+        if catalog.get("printedSteps"):
+            out.append("  Print each logical line as a staircase of sung rows. "
+                       "Indent each successive row further than the previous row within that line. "
+                       "Rows per logical line, in order: " + ", ".join(map(str, catalog["printedSteps"])) + ".")
         if catalog.get("phraseLines"):
             out.append("  In this arrangement, print each measured phrase on a separate sung line.")
         groups = catalog["rhymeGroups"]

@@ -3,6 +3,7 @@
 import { refrainAddresses, relativeLinePairs } from './song-form-line-roles.mjs';
 import { endingWordDeclaration, printedPhraseSetting } from './song-form-mandate.mjs';
 import { projectNestedDivisions } from './song-form-divisions.mjs';
+import { printedSteps } from './song-form-printing.mjs';
 import { sectionArrangement } from './song-form-section-arrangement.mjs';
 import { projectLineRequirement } from './song-form-line-requirements.mjs';
 
@@ -135,6 +136,26 @@ export function projectSongFormCreation(plan, counts = {}) {
     contract: null,
   };
   if (plan.status !== 'ready') return result;
+  const steps = printedSteps(plan);
+  if (steps) {
+    const rows = steps.reduce((total, count) => total + count, 0);
+    if (rows > CREATION_LIMITS.maxLines)
+      return { ...result, status: 'unsupported', reasons: [{ code: 'native-line-limit' }] };
+    return {
+      ...result,
+      contract: {
+        version: 1,
+        id: plan.id,
+        scope: plan.scope,
+        variant: plan.variant,
+        counts: { ...counts },
+        printedSteps: steps,
+        sections: [{ unit: 'section', role: 'verse', lines: rows }],
+        rhymeGroups: [],
+        returnGroups: [],
+      },
+    };
+  }
   const printed = printedPhraseSetting(plan);
   if (printed) {
     const out = projectSongFormCreation(printed.plan);
@@ -213,6 +234,26 @@ export function projectSongFormCreation(plan, counts = {}) {
       const specific =
         feature === 'role' && node.unit === 'stanza' && UNMEASURED_STANZA_ROLES.get(node.role);
       refuse(specific || 'unsupported-unit-feature', node, specific ? node.role : feature);
+    }
+    // A sequence of stanzas keeps each printed division and can close with
+    // a single, separately positioned line referring back to a prior rhyme.
+    if (
+      node === plan.tree[0] &&
+      plan.tree.length === 1 &&
+      ['verse-sequence', 'stanza-group'].includes(node.unit) &&
+      node.children.length &&
+      node.children.every(
+        (child, i) =>
+          isVerseDivision(child.unit) ||
+          (node.unit === 'verse-sequence' &&
+            i > 0 &&
+            i === node.children.length - 1 &&
+            child.unit === 'line')
+      )
+    ) {
+      if (node.bars !== undefined) return refuse('unsupported-unit-feature', node, 'bars');
+      for (const child of node.children) visit(child, child.unit === 'line');
+      return;
     }
     // The root can group neutral divisions. Each inner boundary remains a
     // native section boundary, and together they span the whole selection.

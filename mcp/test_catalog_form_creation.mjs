@@ -1276,6 +1276,34 @@ test(
 
 for (const example of [
   {
+    id: 'rubaiyat-stanza',
+    variant: 1,
+    good: ['one', 'sun', 'red', 'done', 'said', 'bed', 'blue', 'fed'].map((w) => 'zero ' + w),
+    change: [3, 'zero ten'],
+    failedKind: 'rhyme',
+    groups: '1,2,4;3,5,6,8',
+  },
+  ...[0, 1].map((variant) => ({
+    id: 'terza-rima',
+    variant,
+    good: [
+      'one',
+      'red',
+      'sun',
+      'said',
+      'blue',
+      'bed',
+      'through',
+      'ten',
+      'two',
+      'men',
+      ...(variant ? ['den'] : []),
+    ].map((w) => 'zero ' + w),
+    change: [9, 'zero red'],
+    failedKind: 'rhyme',
+    groups: '1,3;2,4,6;5,7,9;8,10' + (variant ? ',11' : ''),
+  })),
+  {
     id: 'traditional-ballad',
     good: ['two ten', 'two one', 'two eight', 'two sun'],
     change: [2, 'two men'],
@@ -1304,7 +1332,10 @@ for (const example of [
   },
 ]) {
   test(
-    'native catalog rhyme grading preserves the selected ' + example.id,
+    'native catalog rhyme grading preserves the selected ' +
+      example.id +
+      ' variant ' +
+      (example.variant ?? 0),
     { timeout: 180_000 },
     async (t) => {
       const host = await sessionHost(t);
@@ -1312,7 +1343,7 @@ for (const example of [
       const sweep = measured(
         await host.run('lyric_sweep', {
           catalog_form: example.id,
-          catalog_variant: 0,
+          catalog_variant: example.variant ?? 0,
           seed_from: 11,
           count: 1,
           draw: ['lines', 'functions', 'melody', 'relation'],
@@ -2169,5 +2200,56 @@ test(
       backtrack: 0,
     });
     assert.deepEqual(revision, score);
+  }
+);
+
+test(
+  'seeded triadic writing keeps physical rows through grade and revision',
+  { timeout: 240_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const seed = 11,
+      relation = 'class:RHYME';
+    const choice = { catalog_form: 'triadic-line', catalog_counts: [{ path: '1.1', count: 2 }] };
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        ...choice,
+        seed_from: seed,
+        count: 1,
+        relation,
+        draw: ['lines', 'functions', 'melody'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
+    const op = await host.run('lyric_plan', { seed, relation });
+    const { plan } = measured(await host.read(op.operation_id, 'full'));
+    assert.equal(plan.total_lines, 6);
+    assert.deepEqual(plan.request.song_form.printedSteps, [3, 3]);
+    assert.equal(plan.sections.length, 1);
+    assert.match(plan.writer_brief, /Rows per logical line, in order: 3, 3/);
+    measured(await host.run('lyric_screen', { words: ['one', 'none'], relation }));
+    const rows = ['one', ' two', '   three', '  four', '    five', '     six'];
+    async function measure(verb, args) {
+      const op = await host.run(verb, { seed, relation, ...args });
+      return measured(await host.read(op.operation_id, 'full')).coverage.catalog_form;
+    }
+    const good = await measure('lyric_grade', { draft_text: rows.join('\r\n') });
+    assert.equal(good.verdict, 'pass', JSON.stringify(good));
+    assert.deepEqual(
+      good.checks.map((c) => c.outcome),
+      ['pass', 'pass', 'pass']
+    );
+    const wrong = [...rows];
+    wrong[5] = wrong[5].trimStart();
+    const bad = await measure('lyric_grade', { draft: wrong });
+    assert.deepEqual(
+      bad.checks.map((c) => c.outcome),
+      ['pass', 'pass', 'fail']
+    );
+    await host.reconnect();
+    const revised = await measure('lyric_revise', { attempts: 0, max_rounds: 1, backtrack: 0 });
+    assert.equal(revised.verdict, 'fail');
+    assert.deepEqual(revised.checks, bad.checks);
   }
 );

@@ -15,7 +15,7 @@ FIELDS = frozenset(("version", "id", "scope", "variant", "counts", "sections",
 
 def line_rhyme_contract(contract):
     """Known v1 shape: all positioned rhyme groups bind line endings."""
-    optional = {"lineRequirements", "endingWords", "phraseLines", "lineProfile"}
+    optional = {"lineRequirements", "endingWords", "phraseLines", "lineProfile", "printedSteps"}
     return (isinstance(contract, dict) and set(contract) - optional == FIELDS
             and type(contract["version"]) is int and contract["version"] == 1)
 
@@ -88,6 +88,14 @@ def _validate_shape(contract):
     parts = contract["sections"]
     if not isinstance(parts, list) or not 1 <= len(parts) <= plan.ENVELOPE["sections"][1]:
         raise plan.PlanRefused("catalog section count is outside the native envelope")
+    if "printedSteps" in contract:
+        steps = contract["printedSteps"]
+        if (set(contract) != FIELDS | {"printedSteps"} or not isinstance(steps, list) or not steps
+                or any(type(n) is not int or n < 2 for n in steps)
+                or sum(steps) > plan.ENVELOPE["total_lines"][1]
+                or parts != [{"unit": "section", "role": "verse", "lines": sum(steps)}]
+                or contract["rhymeGroups"] or contract["returnGroups"]):
+            raise plan.PlanRefused("printed staircases need a verse with one sung row for each segment")
     if "lineProfile" in contract and (
             contract["lineProfile"] != "caesural-rhyme"
             or parts != [{"unit": "section", "role": "verse", "lines": None}]

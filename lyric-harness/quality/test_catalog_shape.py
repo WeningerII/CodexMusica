@@ -17,6 +17,16 @@ def resolve(contract, seed=11, **options):
 
 
 class CatalogShapeTests(unittest.TestCase):
+    def test_printed_steps_need_one_native_row_per_segment(self):
+        parts = [{"unit": "section", "role": "verse", "lines": 6}]
+        contract = {**declaration(parts), "printedSteps": [3, 3]}
+        catalog_shape._validate_shape(contract)
+        for steps in ([], [3, 2], [True, 5], [3, 3.0], [1, 5]):
+            with self.subTest(steps=steps), self.assertRaises(plan.PlanRefused):
+                catalog_shape._validate_shape({**contract, "printedSteps": steps})
+        with self.assertRaises(plan.PlanRefused):
+            resolve(contract, lines=5)
+
     def test_mixed_counts_replay_exact_role_order_and_known_lengths(self):
         roles = ["verse", "prechorus", "chorus"] * 2
         contract = declaration([{"unit": "section", "role": f, "lines": 2 if f == "prechorus" else None}

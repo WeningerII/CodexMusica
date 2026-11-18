@@ -11278,8 +11278,14 @@ def main():
     if input_format not in ("literal", "source"):
         _refuse("--input-format wants literal or source")
     args = _strip_flag(args, "--input-format")
-    from functools import partial
-    read_input = partial(load_draft_lines, input_format=input_format)
+    def read_input(path, with_indent=False):
+        # The song verb learns its form from the filled blueprint, after
+        # parsing command-line selectors. Read with the current selection.
+        printing = (getattr(lex, "catalog_selection", None) or {}).get("id") == "triadic-line"
+        if printing:
+            lex.catalog_printing = True
+        return load_draft_lines(path, with_indent=with_indent, input_format=input_format,
+                                preserve_indent=printing)
 
     # --fallback=high|low is a GLOBAL declared coordinate: `Lexicon()` is
     # built once here, before any verb dispatches, so it cannot live inside
@@ -15495,9 +15501,6 @@ def main():
             if cmd in ("brief", "revise", "verify") and bp_path:
                 with open(bp_path, encoding="utf-8") as fh:
                     _bind_blueprint_catalog(lex, json.load(fh))
-            if (getattr(lex, "catalog_selection", None) or {}).get("id") == "triadic-line":
-                read_input = partial(load_draft_lines, input_format=input_format, preserve_indent=True)
-                lex.catalog_printing = True
             if cmd == "brief":
                 sides.append(("HANDED IN brief's FILE", args[1]))
                 lines = read_input(args[1])

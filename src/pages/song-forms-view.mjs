@@ -114,6 +114,10 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
     );
   if (contract.sections.at(-1)?.vocalDuty === 'reprise')
     statements.push('The ensemble repeats the closing lines of the last solo verse.');
+  if (contract.printedSteps)
+    statements.push(
+      'Each logical line is printed in successive, increasingly indented rows. The writer uses one verse for this setting.'
+    );
   if (contract.phraseLines)
     statements.push('This arrangement prints each measured phrase on a separate line.');
   else if (arrangement) {

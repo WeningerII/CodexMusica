@@ -1,6 +1,8 @@
 // Connect the declared catalog pattern to the sung-line coordinates of the reader.
 import { readFile } from 'node:fs/promises';
 import { checkReaderForm, pindaricTriads, realizeForm } from '../src/song-forms.mjs';
+import { projectSongFormCreation } from '../src/song-form-creation.mjs';
+import { gradeObservations } from '../src/song-form-grade.mjs';
 import { printedSteps } from '../src/song-form-printing.mjs';
 import { formMandate } from '../src/song-form-mandate.mjs';
 
@@ -92,7 +94,18 @@ export function reviewRecoveredForm({ options, plan }, record) {
     ...(record.printed_lines && { printedText: record.printed_lines[i] }),
   }));
   const sections = sectionObservations(record.sections, plan);
-  const { verdict, checks } = checkReaderForm(catalog, plan.id, {
+  // A printed header can locate a neutral stanza even though it has no song
+  // function. Leave absent or incomplete markings unassigned.
+  const root = plan.tree[0];
+  const markedSequence =
+    plan.tree.length === 1 &&
+    ['verse-sequence', 'stanza-group'].includes(root.unit) &&
+    sections?.length === root.children.length &&
+    sections.every(({ lineSpan }) => lineSpan && lineSpan[1] > lineSpan[0]) &&
+    sections.at(-1).lineSpan[1] === observations.length &&
+    projectSongFormCreation(plan, options.counts).arrangement?.divisions.length === sections.length;
+  const check = markedSequence ? gradeObservations : checkReaderForm;
+  const { verdict, checks } = check(catalog, plan.id, {
     ...options,
     lines: observations,
     sections,

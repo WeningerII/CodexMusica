@@ -153,3 +153,31 @@ test('Pindaric labels and line totals cannot certify metrical responsion', () =>
   ]) assert.deepEqual(lengths(measured(score)), [undefined, undefined]);
   assert.equal(projectSongFormCreation(plan, counts).status, 'unsupported');
 });
+
+
+test('interlocking rhymes keep the measured boundary of each stanza and the final line or couplet', () => {
+  const cases = [
+    ['rubaiyat-stanza', 1, [4, 4]],
+    ['terza-rima', 0, [3, 3, 3, 1]],
+    ['terza-rima', 1, [3, 3, 3, 2]],
+  ];
+  for (const [id, variant, lengths] of cases) {
+    const plan = realizeForm(catalog, id, { variant });
+    const { contract } = projectSongFormCreation(plan);
+    assert.deepEqual(contract.sections.map((s) => s.lines), lengths);
+    const lines = plan.lines.map(({ rhyme }) => ({ text: 'one', rhyme }));
+    let index = 0;
+    const sections = lengths.map((n) => {
+      const start = index;
+      index += n;
+      return { role: 'verse', lineSpan: [start, index] };
+    });
+    const grade = () => gradeObservations(catalog, id, { variant, lines, sections });
+    assert.equal(grade().verdict, 'pass');
+    sections[0].lineSpan[1]--;
+    sections[1].lineSpan[0]--;
+    const wrong = grade();
+    assert.equal(wrong.verdict, 'fail');
+    assert.equal(wrong.checks.filter((c) => c.kind === 'line-span' && c.outcome === 'fail').length, 2);
+  }
+});
