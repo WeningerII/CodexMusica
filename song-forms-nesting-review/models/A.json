@@ -28,7 +28,8 @@
       }
     ],
     "related": [
-      "Strophic"
+      "Strophic",
+      "Couplet"
     ]
   },
   "Modified strophic": {
@@ -63,6 +64,9 @@
           "Last verse may turn the story"
         ]
       }
+    ],
+    "related": [
+      "Quatrain"
     ]
   },
   "AABA 32-bar": {
@@ -79,7 +83,6 @@
       }
     ],
     "related": [
-      "Extended AABA",
       "Verse-refrain with introductory verse"
     ]
   },
@@ -192,7 +195,8 @@
     ],
     "related": [
       "12-bar blues",
-      "16-bar blues"
+      "16-bar blues",
+      "Couplet"
     ]
   },
   "16-bar blues": {
@@ -215,7 +219,8 @@
     ],
     "related": [
       "8-bar blues",
-      "12-bar blues"
+      "12-bar blues",
+      "Quatrain"
     ]
   },
   "Simple verse-chorus": {
@@ -310,9 +315,9 @@
   "Chorus-first": {
     "mode": "Pattern",
     "tree": [
-      "Opening chorus or hook",
+      "Opening chorus",
       {
-        "label": "Verse-chorus cycle",
+        "label": "Verse–chorus cycle",
         "children": [
           "Verse",
           "Chorus"
@@ -568,6 +573,9 @@
           "Closing button"
         ]
       }
+    ],
+    "related": [
+      "Verse-refrain with introductory verse"
     ]
   },
   "Musical scene": {
@@ -587,6 +595,9 @@
           "Altered themes"
         ]
       }
+    ],
+    "related": [
+      "Recitative"
     ]
   },
   "Duet dialogue song": {
@@ -698,10 +709,17 @@
     ]
   },
   "Masque": {
-    "mode": "Example",
+    "mode": "Rule",
     "tree": [
       {
-        "label": "Catalog sequence",
+        "label": "Performance media",
+        "children": [
+          "Songs",
+          "Spoken verse"
+        ]
+      },
+      {
+        "label": "Section order in this example",
         "children": [
           "Antimasque · grotesque dances",
           "Main masque",
@@ -986,9 +1004,7 @@
         ]
       }
     ],
-    "related": [
-      "Extempo"
-    ]
+    "related": []
   },
   "Extempo": {
     "mode": "Example",
@@ -1025,10 +1041,13 @@
         "label": "Recurring chant",
         "children": [
           "2–4 lines",
-          "Usually an existing tune",
+          "Often new words to a familiar tune",
           "Optional leader"
         ]
       }
+    ],
+    "related": [
+      "Contrafactum"
     ]
   },
   "Cheerleading cheer": {
@@ -1045,7 +1064,8 @@
       "Closing shout"
     ],
     "related": [
-      "Call-and-response"
+      "Call-and-response",
+      "Couplet"
     ]
   }
 }

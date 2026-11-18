@@ -18,37 +18,28 @@
     ],
     "mode": "Example",
     "related": [
-      "Ballad stanza"
+      "Ballad stanza",
+      "Quatrain"
     ]
   },
   "Long-measure ballad": {
     "tree": [
       {
-        "label": "Alternative stanza units",
+        "label": "Four-stress narrative quatrain",
         "children": [
-          {
-            "label": "Four-stress quatrain",
-            "children": [
-              "Line 1 · A",
-              "Line 2 · A",
-              "Line 3 · B",
-              "Line 4 · B"
-            ]
-          },
-          {
-            "label": "Rhymed fourteener couplet",
-            "children": [
-              "Line 1 · 14 syllables",
-              "Line 2 · 14 syllables"
-            ]
-          }
+          "Line 1 · A",
+          "Line 2 · A",
+          "Line 3 · B",
+          "Line 4 · B"
         ]
       }
     ],
-    "mode": "Rule",
+    "mode": "Example",
     "related": [
-      "Fourteener",
-      "Quatrain"
+      "Quatrain",
+      "Long metre (LM)",
+      "Common metre (CM)",
+      "Ballad stanza"
     ]
   },
   "Ballad with internal refrain": {
@@ -99,7 +90,10 @@
       },
       "Closing moral"
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": [
+      "Contrafactum"
+    ]
   },
   "Come-all-ye": {
     "tree": [
@@ -280,15 +274,24 @@
   "Halyard shanty": {
     "tree": [
       {
-        "label": "Verse",
+        "label": "Hauling verse",
         "children": [
-          "Solo",
-          "Crew",
-          "Solo",
-          "Crew"
+          {
+            "label": "First exchange",
+            "children": [
+              "Solo line",
+              "Crew reply"
+            ]
+          },
+          {
+            "label": "Next exchange",
+            "children": [
+              "Solo line",
+              "Crew reply"
+            ]
+          }
         ]
-      },
-      "Optional chorus between verses"
+      }
     ],
     "mode": "Example",
     "related": [
@@ -316,10 +319,10 @@
         "label": "Verse",
         "children": [
           {
-            "label": "Line pairs",
+            "label": "Paired verse lines",
             "children": [
-              "Solo",
-              "Crew"
+              "Solo line",
+              "Answering crew line"
             ]
           }
         ]
@@ -328,7 +331,8 @@
     ],
     "mode": "Example",
     "related": [
-      "Call-and-response"
+      "Call-and-response",
+      "Couplet"
     ]
   },
   "Stamp-and-go shanty": {
@@ -638,14 +642,14 @@
   "Dozens": {
     "tree": [
       {
-        "label": "Trade insults",
+        "label": "Traded insults",
         "children": [
-          "First player’s couplet",
-          "Second player’s answering couplet"
+          "One player taunts",
+          "Opponent counters"
         ]
       }
     ],
-    "mode": "Pattern",
+    "mode": "Example",
     "related": [
       "Couplet"
     ]
@@ -690,9 +694,18 @@
   },
   "Square-dance patter call": {
     "tree": [
-      "Continuous rhymed dance instructions over music"
+      {
+        "label": "Rhythmic spoken or chanted calls",
+        "children": [
+          "Dance instructions",
+          "Optional rhyming patter"
+        ]
+      }
     ],
-    "mode": "Rule"
+    "mode": "Rule",
+    "related": [
+      "Couplet"
+    ]
   },
   "Round": {
     "tree": [
@@ -874,8 +887,8 @@
   },
   "Lullay carol": {
     "tree": [
-      "Returning ‘lullay’ burden",
-      "Possible dialogue between Mary and the child"
+      "Returning cradle-song burden",
+      "Possible parent–child dialogue"
     ],
     "mode": "Rule",
     "related": [
@@ -919,7 +932,13 @@
       "Common metre (CM)",
       "Long metre (LM)",
       "Short metre (SM)",
-      "Doxology"
+      "Doxology",
+      "Common metre double (CMD)",
+      "Long metre double (LMD)",
+      "Short metre double (SMD)",
+      "Hallelujah metre",
+      "Trochaic hymn metres",
+      "Other named hymn metres"
     ]
   },
   "Hymn with refrain": {
@@ -947,7 +966,10 @@
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": [
+      "Quatrain"
+    ]
   },
   "Camp-meeting song": {
     "tree": [
@@ -971,7 +993,10 @@
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Rule",
+    "related": [
+      "Metrical hymn"
+    ]
   },
   "Praise chorus": {
     "tree": [
@@ -1052,16 +1077,18 @@
   "Metrical psalm": {
     "tree": [
       {
-        "label": "Psalm text in metrical stanzas",
+        "label": "Stanzas on one tune",
         "children": [
-          "Common metre on a single tune"
+          "Common or long metre for the illustrated settings"
         ]
       }
     ],
     "mode": "Example",
     "related": [
       "Common metre (CM)",
-      "Long metre (LM)"
+      "Long metre (LM)",
+      "Strophic",
+      "Metrical hymn"
     ]
   },
   "Lined-out hymn": {
@@ -1093,7 +1120,7 @@
           }
         ]
       },
-      "Gloria Patri"
+      "Closing doxology"
     ],
     "mode": "Example",
     "related": [
@@ -1115,7 +1142,8 @@
     ],
     "mode": "Example",
     "related": [
-      "Doxology"
+      "Doxology",
+      "Call-and-response"
     ]
   },
   "Responsorial psalm": {
@@ -1175,7 +1203,7 @@
   "Versicles and responses": {
     "tree": [
       {
-        "label": "Paired lines · repeat",
+        "label": "Successive exchanges",
         "children": [
           "Leader",
           "Congregation"
@@ -1220,7 +1248,8 @@
     ],
     "mode": "Example",
     "related": [
-      "Through-composed"
+      "Through-composed",
+      "Verse anthem"
     ]
   },
   "Verse anthem": {
@@ -1233,7 +1262,10 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Full anthem"
+    ]
   },
   "Fuging tune": {
     "tree": [
@@ -1264,38 +1296,42 @@
     ],
     "mode": "Rule",
     "related": [
-      "Through-composed"
+      "Through-composed",
+      "Fuging tune"
     ]
   },
   "Mass setting (English)": {
     "tree": [
       {
-        "label": "Movements of this setting",
+        "label": "Movements in this setting",
         "children": [
-          "Kyrie",
-          "Gloria",
-          "Creed",
-          "Sanctus with Benedictus",
-          "Agnus Dei"
+          "Plea for mercy",
+          "Song of praise",
+          "Profession of faith",
+          "Acclamation and blessing",
+          "Repeated petition ending in a plea for peace"
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": [
+      "Litany"
+    ]
   },
   "Anglican service": {
     "tree": [
       {
         "label": "First canticle",
         "children": [
-          "Text",
-          "Glory be"
+          "Canticle text",
+          "Doxology"
         ]
       },
       {
         "label": "Second canticle",
         "children": [
-          "Text",
-          "Glory be"
+          "Canticle text",
+          "Doxology"
         ]
       }
     ],

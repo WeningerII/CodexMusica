@@ -8,36 +8,89 @@
     "E": 44
   },
   "status": {
-    "supported": 232,
-    "partial": 106,
-    "contested": 26
+    "supported": 211,
+    "partial": 126,
+    "contested": 27
   },
-  "changed_models": 252,
+  "changed_models": 282,
   "fields_changed": {
-    "mode": 123,
-    "tree": 206,
-    "related": 53
+    "mode": 132,
+    "tree": 222,
+    "related": 127
   },
+  "hierarchy_changed": 150,
   "edge_verdicts": {
-    "supported": 260,
-    "ambiguous": 7,
-    "rejected": 10
+    "supported": 383,
+    "rejected": 16,
+    "ambiguous": 5
   },
   "edge_changes": {
-    "retained": 200,
-    "removed": 7,
-    "withheld": 10,
-    "added": 60
+    "retained": 196,
+    "added": 187,
+    "removed": 11,
+    "withheld": 10
   },
   "supported_kinds": {
-    "variant": 68,
+    "variant": 78,
+    "contains": 183,
     "other": 6,
-    "contains": 100,
-    "comparison": 22,
-    "shares-feature": 64
+    "comparison": 37,
+    "shares-feature": 79
   },
-  "forms_with_additional_reference": 172,
-  "distinct_reference_urls": 130,
+  "entry_evidence": {
+    "supported | external evidence for stated scope": 112,
+    "supported | catalog and model only": 99,
+    "partial | catalog and model only": 75,
+    "partial | external evidence for stated scope": 51,
+    "contested | external evidence for stated scope": 23,
+    "contested | catalog and model only": 4
+  },
+  "supported_edge_evidence": {
+    "external evidence for stated scope": 185,
+    "catalog and model only": 198
+  },
+  "distinct_bibliography_urls": 205,
+  "alias_fields_before": 177,
+  "alias_fields_reviewed_differently": 89,
+  "issue_676_placements": 320,
+  "meta_terms": 62,
+  "survey_rows": 623,
+  "survey_dispositions": {
+    "alias-variant": 23,
+    "attestation-unclear": 47,
+    "other-layer": 535,
+    "present": 15,
+    "supported-gap": 3
+  },
+  "survey_methods": {
+    "individual": 226,
+    "layer-screen": 397
+  },
+  "survey_layers": {
+    "form": 107,
+    "meta": 14,
+    "perform": 62,
+    "process": 35,
+    "section": 314,
+    "device": 29,
+    "phrase": 34,
+    "?": 12,
+    "unclear": 1,
+    "out_of_scope": 2,
+    "boundary": 12,
+    "two rows": 1
+  },
+  "unit_node_matches": 289,
+  "meter_pairs": 105,
+  "meter_evidence": {
+    "catalog comparison only": 52,
+    "catalog + cited scope evidence": 53
+  },
+  "meter_ids": 203,
+  "meter_ids_with_example": 87,
+  "poetry_index_occurrences": 198,
+  "music_reference_comparisons": 7,
+  "music_findings": 15,
   "r2_identical_records": 349,
   "source_sha256": "c2b6bfb4d73611eba7e455ab8d2e2c455092fb8277909faa718a702e3b49233c",
   "r2_comment": "https://github.com/WeningerII/CodexMusica/pull/665#issuecomment-6964243074"

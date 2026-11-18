@@ -155,7 +155,7 @@
         32,
         41
       ],
-      "detail": "“Compound” specifies more than one level of grouping, not which groups. Compound AABA is a concrete problematic alias on line 32.",
+      "detail": "Compound indicates hierarchy. The catalog’s flat AABABA extension is not compound AABA. Verse–chorus–bridge already provides a partial realization in which each larger A can encompass a verse and chorus.",
       "refs": [
         "https://www.mtosmt.org/issues/mto.21.27.1/mto.21.27.1.hudson.php"
       ]
@@ -414,7 +414,7 @@
         70,
         231
       ],
-      "detail": "The ritornello that recurs between solo entries is audible and identified by exact listening times in Handel’s English-text “Every Valley.” The alias ritornello on Stornello denotes a different three-line verse type.",
+      "detail": "The cited listening guide times repeated orchestral material between episodes sung in English. A three-line poetic Stornello uses a different sense of ritornello.",
       "scope": "English vocal evidence exists; represent the recurring orchestral material and vocal episodes, which may belong inside a larger aria.",
       "refs": [
         "https://pressbooks.cuny.edu/understandingmusicbmcc/chapter/5-music-of-george-frideric-handel-1685-1759/"
@@ -576,12 +576,12 @@
     },
     {
       "term": "Head-solos-head",
-      "disposition": "terminology conflation",
+      "disposition": "sequence represented; title conflates arrangement method",
       "catalog_lines": [
         71
       ],
-      "detail": "Head–solos–head appears as an alias and as the catalog example, so the musical sequence has already been discussed. It needs its own conceptual identity: a head arrangement concerns how the players devise and remember an arrangement.",
-      "scope": "Jazz performance envelope distinct from the form of the tune played inside one chorus.",
+      "detail": "The reviewed rule includes an explicit catalog performance example in which the head returns after improvisation. Head arrangement names a method of devising and remembering music. The deleted alias establishes no identity between the two; separate the performance and arrangement properties when indexing.",
+      "scope": "The sequence is already diagrammed. No missing sectional sequence is claimed.",
       "refs": [
         "https://www.jazzinamerica.org/StudentHandout/8/2",
         "https://www.loc.gov/programs/national-recording-preservation-board/recording-registry/descriptions-and-essays/?loclr=blogloc"
@@ -645,9 +645,11 @@
     },
     {
       "term": "Subtractive form",
-      "disposition": "process requiring evidence",
-      "catalog_lines": [],
-      "detail": "Dropping successive layers is a plausible process, but this inventory gives no named canonical vocal form, exact decrement, or qualifying English example; do not infer one by reversing an accumulative diagram.",
+      "disposition": "polysemous",
+      "catalog_lines": [
+        124
+      ],
+      "detail": "In the catalog’s Countdown song, the same verse recurs with its number decreasing by exactly one each time. Removing layers of sound is a distinct production process. The inventory supplies no canonical whole-song template for that production sense.",
       "refs": []
     },
     {

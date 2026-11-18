@@ -30,14 +30,49 @@
   "Irregular ode": {
     "status": "supported",
     "note": "Catalog line 371. Stanza length and rhyme can change within the ode. Neither the repeating Horatian stanza nor the Pindaric triad is a required parent structure.",
-    "edges": [],
-    "refs": []
+    "edges": [
+      {
+        "target": "Pindaric ode",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "These are independently described types of ode. The irregular ode can vary its design where the compared type uses a recurrent triad.",
+        "refs": [
+          "https://poets.org/glossary/ode"
+        ]
+      },
+      {
+        "target": "Horatian ode",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "These are independently described types of ode. The irregular ode can vary its design where the compared type uses a regular repeating stanza.",
+        "refs": [
+          "https://poets.org/glossary/ode"
+        ]
+      }
+    ],
+    "refs": [
+      "https://poets.org/glossary/ode"
+    ],
+    "attested_refs": [
+      "https://poets.org/glossary/ode"
+    ]
   },
   "Elegy": {
     "status": "supported",
     "note": "Catalog line 372. Lament, praise and consolation describe a traditional rhetorical progression. They need not divide an elegy into three stanzas.",
-    "edges": [],
+    "edges": [
+      {
+        "target": "Dirge / lament",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "Mourning is shared. In one traditional elegiac design the lament is followed by praise and consolation; the catalog’s sung lament has no such required progression.",
+        "refs": []
+      }
+    ],
     "refs": [
+      "https://poets.org/glossary/elegy"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/elegy"
     ]
   },
@@ -46,6 +81,9 @@
     "note": "Catalog line 373. Brevity and a pointed thought define the type. A final turn and two to four lines illustrate one realization. The Academy also documents single epigrammatic sayings.",
     "edges": [],
     "refs": [
+      "https://poets.org/glossary/epigram"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/epigram"
     ]
   },
@@ -58,7 +96,7 @@
     ]
   },
   "Greeting-card verse": {
-    "status": "supported",
+    "status": "partial",
     "note": "Catalog line 375. The row gives one or two four-line stanzas with an ending wish. The wish belongs within the closing quatrain and adds no extra line.",
     "edges": [
       {
@@ -71,10 +109,13 @@
     "refs": []
   },
   "Verse epistle": {
-    "status": "supported",
+    "status": "partial",
     "note": "Catalog line 376. Direct address as a letter is the organizing device. A salutation, body and sign-off are one possible arrangement; the medium can use any verse form.",
     "edges": [],
     "refs": [
+      "https://poets.org/glossary/epistolary-poem"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/epistolary-poem"
     ]
   },
@@ -141,7 +182,7 @@
     ]
   },
   "Riddle poem": {
-    "status": "supported",
+    "status": "partial",
     "note": "Catalog line 384. The object voice and closing request model a documented Old English riddle pattern. Other riddles communicate a mystery without either feature.",
     "edges": [
       {
@@ -236,18 +277,24 @@
   },
   "Contrapuntal poem": {
     "status": "partial",
-    "note": "Catalog line 395 gives two adjacent texts and three reading routes. Columns are displayed as elements of a single page; row-wise or column-wise traversal is a separate choice. The Academy allows two or more texts and variable routes. Novák’s study of Desmond Egan illustrates independently readable parallel columns without making row-wise combination mandatory.",
+    "note": "Two adjacent texts can be read in separate columns or in combination. The displayed row-wise reading is one option; other arrangements have more texts or different routes.",
     "edges": [
       {
         "target": "Concrete poetry",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "Rows 395 and 394. The Academy compares their deliberate visual arrangement; the contrapuntal example additionally encodes multiple readings."
+        "evidence": "Rows 395 and 394. The Academy compares their deliberate visual arrangement; the contrapuntal example additionally encodes multiple readings.",
+        "refs": [
+          "https://poets.org/glossary/contrapuntal"
+        ]
       }
     ],
     "refs": [
       "https://poets.org/glossary/contrapuntal",
       "https://doi.org/10.18778/1505-9057.52.20"
+    ],
+    "attested_refs": [
+      "https://poets.org/glossary/contrapuntal"
     ]
   },
   "Reverso": {
@@ -283,7 +330,6 @@
       }
     ],
     "refs": [
-      "https://poets.org/poem/acrostic",
       "https://poets.org/glossary/acrostic",
       "https://rpo.library.utoronto.ca/glossary/telestich",
       "https://classic.net.bible.org/lexicon.php/dictionary.php?word=Acrostic"
@@ -297,7 +343,7 @@
         "target": "Acrostic",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "Rows 399 and 398. Both spell a vertical word from successive lines. The Poetry Foundation distinguishes Cage’s interior placement from the acrostic’s edge."
+        "evidence": "Successive lines can spell a word vertically. One method selects interior letters; the other can select letters at an edge."
       }
     ],
     "refs": [
@@ -320,10 +366,16 @@
         "target": "Lipogram",
         "kind": "variant",
         "status": "supported",
-        "evidence": "Rows 401 and 400. Oulipo explicitly defines monovocalism as a lipogram excluding every vowel but one."
+        "evidence": "Rows 401 and 400. Oulipo explicitly defines monovocalism as a lipogram excluding every vowel but one.",
+        "refs": [
+          "https://www.oulipo.net/fr/contraintes/monovocalisme"
+        ]
       }
     ],
     "refs": [
+      "https://www.oulipo.net/fr/contraintes/monovocalisme"
+    ],
+    "attested_refs": [
       "https://www.oulipo.net/fr/contraintes/monovocalisme"
     ]
   },
@@ -344,9 +396,12 @@
   },
   "Pilish": {
     "status": "partial",
-    "note": "Catalog line 404. The row specifies π as the target but leaves digit encoding open. In Keith’s Basic Pilish ten letters encode zero; Standard Pilish also allows one long word to encode two digits.",
+    "note": "Word lengths encode digits of π. The two documented conventions differ in how they treat zero and words longer than ten letters.",
     "edges": [],
     "refs": [
+      "https://cadaeic.net/pilish.htm"
+    ],
+    "attested_refs": [
       "https://cadaeic.net/pilish.htm"
     ]
   },
@@ -364,10 +419,17 @@
         "target": "Found poem",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "Rows 406 and 407. Both compose with existing text. A cento sources poetic lines, while found poetry also admits source material from outside poetry."
+        "evidence": "Rows 406 and 407. Both compose with existing text. A cento sources poetic lines, while found poetry also admits source material from outside poetry.",
+        "refs": [
+          "https://poets.org/glossary/cento",
+          "https://poets.org/glossary/found-poem"
+        ]
       }
     ],
     "refs": [
+      "https://poets.org/glossary/cento"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/cento"
     ]
   },
@@ -376,6 +438,9 @@
     "note": "Catalog line 407. The catalog’s non-poetic source with new line breaks is one case. The Academy includes poetry as a source and permits rearrangement.",
     "edges": [],
     "refs": [
+      "https://poets.org/glossary/found-poem"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/found-poem"
     ]
   },
@@ -387,10 +452,16 @@
         "target": "Found poem",
         "kind": "variant",
         "status": "supported",
-        "evidence": "Rows 408 and 407. The Academy explicitly classifies erasure as found poetry formed through subtraction."
+        "evidence": "Rows 408 and 407. The Academy explicitly classifies erasure as found poetry formed through subtraction.",
+        "refs": [
+          "https://poets.org/glossary/erasure"
+        ]
       }
     ],
     "refs": [
+      "https://poets.org/glossary/erasure"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/erasure"
     ]
   },
@@ -410,8 +481,19 @@
   "Exquisite corpse": {
     "status": "partial",
     "note": "Catalog line 410. The row describes the last-line-visible variant. The Academy also records folded-paper word contributions where earlier text is concealed. The extent of visibility depends on the agreed game.",
-    "edges": [],
+    "edges": [
+      {
+        "target": "Rengay",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "Both can distribute successive contributions among writers. Concealment is a game rule in one; the other links verses by theme. Collaboration alone does not establish kinship.",
+        "refs": []
+      }
+    ],
     "refs": [
+      "https://poets.org/glossary/exquisite-corpse"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/exquisite-corpse"
     ]
   }

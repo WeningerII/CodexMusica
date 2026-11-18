@@ -9,10 +9,10 @@
   "comparison_unit": "Survey occurrence in its stated sense and layer. 1-based ordinal excludes the TSV header; source_line counts the header. Catalog comparisons can be neighbors, collision warnings or partial coverage. They are not automatically equivalences.",
   "dispositions": {
     "alias-variant": 23,
-    "attestation-unclear": 48,
-    "present": 14,
-    "other-layer": 534,
-    "supported-gap": 4
+    "attestation-unclear": 47,
+    "other-layer": 535,
+    "present": 15,
+    "supported-gap": 3
   },
   "methods": {
     "individual": 226,
@@ -144,7 +144,7 @@
       "layer": "form",
       "survey_gloss": "each A of an AABA is itself a verse-chorus unit",
       "method": "individual",
-      "disposition": "supported-gap",
+      "disposition": "alias-variant",
       "catalog_comparisons": [
         {
           "title": "Extended AABA",
@@ -159,7 +159,7 @@
           "source_line": 41
         }
       ],
-      "reason": "The raw alias under Extended AABA is misleading: an added B–A pair is different from larger A units each containing verse and chorus. Hudson documents the nested type in English-language rock.",
+      "reason": "Compound AABA is a hierarchical reading of Verse-chorus-bridge: verse–chorus cycles can supply the larger A units and a bridge the contrasting B. A full returning A or riff-based supersections are variants beyond the catalog example. The Extended AABA row adds a B–A pair instead.",
       "literal_title_or_alias_hits": [
         "Extended AABA"
       ],
@@ -206,8 +206,13 @@
       "survey_gloss": "the theme arrives whole only at the end",
       "method": "individual",
       "disposition": "attestation-unclear",
-      "catalog_comparisons": [],
-      "reason": "Fragments combine into a complete musical theme at the end. The catalog Cumulative song instead adds text items and recites earlier items. The checked Ives analysis concerns an instrumental piece. Spicer also treats cumulative processes in pop-rock; match the specific final-theme sense to a vocal example before proposing a catalog row.",
+      "catalog_comparisons": [
+        {
+          "title": "Cumulative song",
+          "source_line": 122
+        }
+      ],
+      "reason": "Fragments combine into a complete theme at the end. Cumulative song instead adds and recalls textual items. The cited exact final-theme analysis is instrumental; the popular-song study analyzes several accumulation processes and does not establish that every such process realizes the exact final-theme sense.",
       "external_evidence": [
         "https://doi.org/10.1017/S1478572204000052",
         "https://mtosmt.org/issues/mto.11.17.2/mto.11.17.2.iverson.html"
@@ -238,14 +243,14 @@
       "layer": "form",
       "survey_gloss": "statement, improvisations, restatement",
       "method": "individual",
-      "disposition": "alias-variant",
+      "disposition": "present",
       "catalog_comparisons": [
         {
           "title": "Head arrangement",
           "source_line": 71
         }
       ],
-      "reason": "The alias and description both give initial head, improvisations, then the returning head.",
+      "reason": "The catalog diagram already gives head, improvised solos and returning head. The sequence deserves its own conceptual identity: a head arrangement describes an arrangement retained by memory, which does not require that sequence. The disposition measures diagram coverage; the two terms are not general synonyms.",
       "literal_title_or_alias_hits": [
         "Head arrangement"
       ]
@@ -349,14 +354,17 @@
       "layer": "form",
       "survey_gloss": "a returning tutti alternating with episodes",
       "method": "individual",
-      "disposition": "attestation-unclear",
+      "disposition": "supported-gap",
       "catalog_comparisons": [
         {
           "title": "Rondo",
           "source_line": 48
         }
       ],
-      "reason": "Recurring tutti and intervening episodes define the survey’s object. A rondo-like return is insufficient for an alias. A particular English vocal work in this form still needs verification."
+      "reason": "An English-text aria listening guide identifies an opening instrumental ritornello and later returns, including a closing return; the missing schema relates recurring material to intervening solo episodes, with partial returns possible. Rondo is a comparison only.",
+      "external_evidence": [
+        "https://pressbooks.cuny.edu/understandingmusicbmcc/?p=716"
+      ]
     },
     "20": {
       "source_row": 20,
@@ -542,7 +550,7 @@
       "method": "individual",
       "disposition": "supported-gap",
       "catalog_comparisons": [],
-      "reason": "A new thematic highpoint occurs just once at the end, going beyond a routine last chorus. Osborn documents the design in English-language rock songs.",
+      "reason": "Published analysis of English-language rock distinguishes the once-only final arrival of new climactic thematic material from a final chorus or a routine coda.",
       "external_evidence": [
         "https://academic.oup.com/mts/article-abstract/35/1/23/1056491",
         "https://academic.oup.com/book/8275/chapter-abstract/153878627"
@@ -865,8 +873,13 @@
       "survey_gloss": "strands accumulate",
       "method": "individual",
       "disposition": "other-layer",
-      "catalog_comparisons": [],
-      "reason": "Adding textural layers to a track describes how an arrangement develops. It does not alone supply an ordered scheme of sung units."
+      "catalog_comparisons": [
+        {
+          "title": "Cumulative song",
+          "source_line": 122
+        }
+      ],
+      "reason": "The survey concerns increasing arrangement layers. In the separate textual sense a cumulative song adds an item and recalls previous ones."
     },
     "55": {
       "source_row": 55,
@@ -918,8 +931,13 @@
       "survey_gloss": "strands are stripped away",
       "method": "individual",
       "disposition": "other-layer",
-      "catalog_comparisons": [],
-      "reason": "Removing layers is the converse textural process to adding layers; no whole lyric form is specified."
+      "catalog_comparisons": [
+        {
+          "title": "Countdown song",
+          "source_line": 124
+        }
+      ],
+      "reason": "Removing instrumental or vocal strands changes texture. In the distinct lyric sense, Countdown song repeats a verse with a quantity decreasing by one. Only the latter specifies a textual construction."
     },
     "59": {
       "source_row": 59,
@@ -1140,7 +1158,7 @@
       "method": "individual",
       "disposition": "attestation-unclear",
       "catalog_comparisons": [],
-      "reason": "Oríkì is praise poetry using accumulation of epithets. Neither shared praise subject nor accumulation of words validates an English-form alias."
+      "reason": "An illustrative English gloss of praise epithets establishes their meaning. Evidence of composition, publication for use as an English text, or performance within the practice is required for English-language attestation here."
     },
     "77": {
       "source_row": 77,
@@ -3967,7 +3985,7 @@
       "layer": "form",
       "survey_gloss": "refrain-driven form whose refrain returns at two different lengths",
       "method": "individual",
-      "disposition": "supported-gap",
+      "disposition": "alias-variant",
       "catalog_comparisons": [
         {
           "title": "Rondeau",
@@ -3980,15 +3998,15 @@
         {
           "title": "Triolet",
           "source_line": 218
+        },
+        {
+          "title": "Rondel",
+          "source_line": 214
         }
       ],
-      "reason": "The catalog Rondeau uses a brief rentrement; its Roundel and Triolet also have distinct templates. Chaucer’s sung roundel text returns intermediate and full refrains of differing lengths. That textual witness supplies English evidence, not a surviving score.",
+      "reason": "Rondel and Triolet already model a refrain returning at two different lengths. A 13-line three-line-refrain layout, ABB abAB abbABB, is a distinct textual variant; its capitals indicate returned lines. The text-level comparison establishes neither melody nor musical phrase boundaries.",
       "literal_title_or_alias_hits": [
         "Rondeau"
-      ],
-      "external_evidence": [
-        "https://rpo.library.utoronto.ca/content/parlement-fowls-0",
-        "https://original.sacred-texts.com/neu/eng/mect/mect52.htm"
       ]
     },
     "305": {
@@ -4001,7 +4019,7 @@
       "method": "individual",
       "disposition": "supported-gap",
       "catalog_comparisons": [],
-      "reason": "The English liturgical Sequence appears under that name in the official Easter liturgy. The printed English translation establishes English-language use, not exact obedience of every line or tune to one medieval versicle scheme.",
+      "reason": "The official English-language liturgy assigns and prints a Sequence for use with the readings. That functional English text meets the same use criterion as an original English composition. It does not establish that every English Sequence follows the survey’s medieval paired-melody template.",
       "external_evidence": [
         "https://bible.usccb.org/bible/readings/041628.cfm",
         "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
@@ -4024,9 +4042,17 @@
         {
           "title": "Virelai nouveau",
           "source_line": 225
+        },
+        {
+          "title": "Ballata",
+          "source_line": 230
+        },
+        {
+          "title": "Medieval carol with burden",
+          "source_line": 152
         }
       ],
-      "reason": "The catalog defines chained rhymes or alternating refrain lines. The survey’s medieval sung refrain form requires independent melodic evidence for its English realization.",
+      "reason": "Ballata and Medieval carol with burden model the textual return at the opening, between stanzas and at the close. The catalog Virelai and Virelai nouveau specify other patterns. An English text used as a sung virelai remains unverified. No score is required to recognize textual recurrence in this or the rondeau row.",
       "literal_title_or_alias_hits": [
         "Virelai"
       ]
@@ -4476,7 +4502,7 @@
           "source_line": 231
         }
       ],
-      "reason": "The catalog lists ritornello as a Stornello alias in a different usage. The survey describes a returning tutti passage; do not identify them.",
+      "reason": "A section-level orchestral return and an Italian lyric called a stornello can both be called ritornello in context. Neither that shared spelling nor recurrence identifies the lyric with the instrumental passage.",
       "literal_title_or_alias_hits": [
         "Stornello"
       ]
@@ -5421,7 +5447,7 @@
           "source_line": 167
         }
       ],
-      "reason": "The verb refers to the presenting and repeating technique. The catalog contains the hymn practice using it, not every song in which a leader gives a line.",
+      "reason": "Lining out names a leader’s delivery and a congregation’s sung response. Lined-out hymn is the corresponding hymn practice. The bare name does not uniquely specify a whole piece.",
       "literal_title_or_alias_hits": [
         "Lined-out hymn"
       ]
@@ -5465,7 +5491,7 @@
           "source_line": 162
         }
       ],
-      "reason": "The speaking or singing manner called shout is not sufficient to identify a ring shout.",
+      "reason": "Ring shout is one named practice. The same word also names an ecstatic up-tempo close; that performance sense alone does not establish the ring practice.",
       "literal_title_or_alias_hits": [
         "Ring shout"
       ]
@@ -5681,7 +5707,7 @@
           "source_line": 73
         }
       ],
-      "reason": "A generic tag closing a gospel performance is not a standalone barbershop tag.",
+      "reason": "The survey describes a short repeated closing fragment in sacred song. Barbershop tag names a tradition-specific close-harmony unit, which can also be sung separately.",
       "literal_title_or_alias_hits": [
         "Barbershop tag"
       ]
@@ -6160,14 +6186,14 @@
       "layer": "form",
       "survey_gloss": "the song opens on the hook",
       "method": "individual",
-      "disposition": "alias-variant",
+      "disposition": "other-layer",
       "catalog_comparisons": [
         {
           "title": "Chorus-first",
           "source_line": 43
         }
       ],
-      "reason": "Hook-first is explicitly listed by the catalog. Outside that row, hooks can be shorter than choruses, so the equivalence is bounded."
+      "reason": "Opening on a hook specifies the opening gesture alone. It matches the opening of Chorus-first only when that hook is a chorus; it does not establish the full sectional arrangement."
     },
     "466": {
       "source_row": 466,
@@ -7996,7 +8022,7 @@
           "source_line": 73
         }
       ],
-      "reason": "A generic terminal tag is not automatically the standalone barbershop item.",
+      "reason": "The survey describes a short repeated section- or song-ending fragment. A barbershop tag is a tradition-specific close-harmony unit; a general section label does not establish that identity.",
       "literal_title_or_alias_hits": [
         "Barbershop tag"
       ]
@@ -8167,5 +8193,6 @@
       "catalog_comparisons": [],
       "reason": "The survey classifies this occurrence as a source-designated composite record retaining more than one reading. Its wording supplies no independent whole-form equivalence. Further object-level review would be required to promote it."
     }
-  }
+  },
+  "literal_hit_scope": "Literal title-or-alias hits document spellings in the original survey comparison. The reason and disposition specify whether a match survives review."
 }

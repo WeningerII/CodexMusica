@@ -58,6 +58,10 @@
           "Rhyme"
         ]
       }
+    ],
+    "related": [
+      "Pindaric ode",
+      "Horatian ode"
     ]
   },
   "Elegy": {
@@ -71,6 +75,9 @@
           "Consolation"
         ]
       }
+    ],
+    "related": [
+      "Dirge / lament"
     ]
   },
   "Epigram": {
@@ -606,6 +613,9 @@
           "Pass to the next writer"
         ]
       }
+    ],
+    "related": [
+      "Rengay"
     ]
   }
 }

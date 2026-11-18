@@ -1,0 +1,38 @@
+finding_ids	url	reviewer_access_report	independent_access_retest
+T1	https://www.britannica.com/art/fourteener	review explicitly identifies search-results-only access	Original URL unreachable on retest
+T1	https://www.poetryfoundation.org/learn/glossary-terms/fourteener	review explicitly identifies search-results-only access	Original URL unreachable on retest
+T1	https://rpo.library.utoronto.ca/glossary/common-measure	review explicitly identifies search-results-only access	Page body returned
+T2	https://www.gutenberg.org/files/49790/49790-h/49790-h.htm	review supplied URL; access method unspecified here	Original URL unreachable on retest
+T6	https://air.unimi.it/retrieve/dfa8b99c-7337-748b-e053-3a05fe0a3a96/Paolo_Borsa_-_Guinizelli_e_Dante_petroso.pdf	review explicitly identifies search-results-only access	PDF page text returned
+T6	https://www.poetryfoundation.org/education/glossary/canzone	review explicitly identifies search-results-only access	Original URL unreachable on retest
+T7	https://www.academia.edu/42546156/	review explicitly identifies search-results-only access	Original URL unreachable on retest
+T7, P5, P17	https://en.wikipedia.org/wiki/Rondeau_(forme_fixe)	review explicitly identifies search-results-only access	Page body returned
+T7, P5	https://writersdigest.com/write-better-poetry/rondine-poetic-form	review explicitly identifies search-results-only access	Original URL unreachable on retest
+T8	https://en.wikipedia.org/wiki/Onegin_stanza	review explicitly identifies search-results-only access	Page body returned
+T11	https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/gwers/13.html	review supplied URL; access method unspecified here	Page body returned
+T12	https://en.wikipedia.org/wiki/Diamante_poem	review explicitly identifies search-results-only access	Page body returned
+T20, P24	https://britannica.com/art/responsorial-singing	review explicitly identifies search-results-only access	Original URL unreachable on retest
+T20	https://www.britannica.com/art/antiphon-music	review explicitly identifies search-results-only access	Original URL unreachable on retest
+T22	https://blogs.loc.gov/folklife/2021/01/a-deep-dive-into-sea-shanties/	review explicitly identifies search-results-only access	Page body returned
+T22	https://traditionalshanties.com/halyard-shanty/	review explicitly identifies search-results-only access	Page body returned
+T23, P13	https://www.poetryfoundation.org/education/glossary/duplex	review explicitly identifies search-results-only access	Original URL unreachable on retest
+T24	https://www.hsa-haiku.org/hsa-definitions.html	review explicitly identifies search-results-only access	No passage matched the check in the page returned
+T24	https://www.pref.nara.lg.jp/manyo/en/manyo-shu/index.html	review explicitly identifies search-results-only access	Page body returned
+T24, P25	https://hsa-haiku.org/hsa-definitions-2004.html	review explicitly identifies search-results-only access	Page body returned
+T25	https://en.wikipedia.org/wiki/Cinquain	review explicitly identifies search-results-only access	No passage matched the check in the page returned
+T25	https://rbscp.lib.rochester.edu/4039	review explicitly identifies search-results-only access	No passage matched the check in the page returned
+T27	https://www.britannica.com/art/strambotto	review explicitly identifies search-results-only access	Original URL unreachable on retest
+T29	https://journal.oraltradition.org/wp-content/uploads/files/articles/24i/04_24.1.pdf	review explicitly identifies search-results-only access	PDF page text returned
+T29	https://en.wikipedia.org/wiki/Caller_(dancing)	review explicitly identifies search-results-only access	Page body returned
+P1	https://poets.org/glossary/ghazal	review explicitly identifies search-results-only access	Page body returned
+P4	https://www.britannica.com/art/Spenserian-stanza	review explicitly identifies search-results-only access	Original URL unreachable on retest
+P6	https://en.wikipedia.org/wiki/Strambotto	review explicitly identifies search-results-only access	Page body returned
+P7	https://www.poetryfoundation.org/education/glossary/fourteener	review explicitly identifies search-results-only access	Original URL unreachable on retest
+P8	https://poets.org/glossary/pantoum	review explicitly identifies search-results-only access	Page body returned
+P9	https://litcharts.com/literary-devices-and-terms/ballade	review explicitly identifies search-results-only access	Original URL unreachable on retest
+P12	https://hymnary.org/node/43000	review explicitly identifies search-results-only access	Page body returned
+P18	https://www.mtosmt.org/issues/mto.21.27.1/mto.21.27.1.hudson.pdf	review explicitly identifies search-results-only access	Original URL unreachable on retest
+P20	https://pressbooks.cuny.edu/understandingmusicbmcc/?p=716	review explicitly identifies search-results-only access	Page body returned
+P23	https://poets.org/glossary	review supplied URL; access method unspecified here	Page body returned
+P23	https://poets.org/glossary/blues-poem	review supplied URL; access method unspecified here	Page body returned
+P25	https://en.wikipedia.org/wiki/Skipping-rope_rhyme	review explicitly identifies search-results-only access	Page body returned

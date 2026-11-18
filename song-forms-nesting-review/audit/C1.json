@@ -18,11 +18,15 @@
       {
         "target": "Miltonic sonnet",
         "kind": "variant",
-        "status": "supported",
-        "evidence": "Milton adapts the Italian octave/sestet design and can carry the syntax across the division."
+        "status": "rejected",
+        "evidence": "The derived form is Miltonic sonnet. Its outgoing assertion supplies the specific-to-general direction. Treating Petrarchan sonnet as the variant would reverse that direction.",
+        "refs": []
       }
     ],
     "refs": [
+      "https://poets.org/glossary/sonnet"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/sonnet"
     ]
   },
@@ -47,15 +51,28 @@
         "kind": "shares-feature",
         "status": "supported",
         "evidence": "Both catalog entries have an octave followed by a sestet; their opening rhyme patterns differ."
+      },
+      {
+        "target": "Sicilian octave",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The opening ABABABAB realizes the catalogued Sicilian octave scheme. Shared structure alone does not establish historical descent.",
+        "refs": [
+          "https://www.treccani.it/enciclopedia/scuola-poetica-siciliana-metrica_%28Federiciana%29/"
+        ]
       }
     ],
     "refs": [
-      "https://doi.org/10.5209/CFIT.54009"
+      "https://doi.org/10.5209/CFIT.54009",
+      "https://www.treccani.it/enciclopedia/scuola-poetica-siciliana-metrica_%28Federiciana%29/"
+    ],
+    "attested_refs": [
+      "https://www.treccani.it/enciclopedia/scuola-poetica-siciliana-metrica_%28Federiciana%29/"
     ]
   },
   "Miltonic sonnet": {
     "status": "supported",
-    "note": "Octave-to-sestet enjambment is a liberty Milton uses, not a mandatory syntactic break at any fixed line.",
+    "note": "The sentence may cross the boundary between octave and sestet, delaying or softening the expected turn.",
     "edges": [
       {
         "target": "Octave / huitain",
@@ -78,6 +95,9 @@
     ],
     "refs": [
       "https://poets.org/glossary/sonnet"
+    ],
+    "attested_refs": [
+      "https://poets.org/glossary/sonnet"
     ]
   },
   "Shakespearean sonnet": {
@@ -98,6 +118,9 @@
       }
     ],
     "refs": [
+      "https://poets.org/glossary/sonnet"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/sonnet"
     ]
   },
@@ -121,10 +144,13 @@
         "target": "Shakespearean sonnet",
         "kind": "variant",
         "status": "supported",
-        "evidence": "The Academy identifies Spenser’s linked quatrains as a modification of the English sonnet pattern."
+        "evidence": "The adaptation connects successive quatrains with shared rhyme sounds before the closing couplet."
       }
     ],
     "refs": [
+      "https://poets.org/glossary/sonnet"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/sonnet"
     ]
   },
@@ -134,9 +160,12 @@
     "edges": [
       {
         "target": "Terza rima",
-        "kind": "shares-feature",
+        "kind": "variant",
         "status": "supported",
-        "evidence": "Each tercet’s middle sound supplies the outer rhyme of the next."
+        "evidence": "The sonnet specializes interlocking terza rima to four tercets and a two-line close.",
+        "refs": [
+          "https://poets.org/glossary/terza-rima"
+        ]
       },
       {
         "target": "Couplet",
@@ -153,28 +182,43 @@
     ],
     "refs": [
       "https://poets.org/glossary/terza-rima"
+    ],
+    "attested_refs": [
+      "https://poets.org/glossary/terza-rima"
     ]
   },
   "Curtal sonnet": {
     "status": "supported",
-    "note": "Hopkins proportionally shortens the Italian divisions. Pied Beauty actually prints eleven lines, with an abbreviated last line; 10½ describes relative length.",
+    "note": "Six lines answer to the Italian octave and four and a half to its sestet. An abbreviated final line occupies the eleventh printed position.",
     "edges": [
       {
         "target": "Petrarchan sonnet",
         "kind": "variant",
         "status": "supported",
-        "evidence": "Hopkins scales the Italian 8:6 division to 6:4½."
+        "evidence": "The Italian ratio of eight lines to six is reduced proportionally to six lines and four and a half."
       },
       {
         "target": "Sestet / sixain",
         "kind": "contains",
         "status": "supported",
         "evidence": "The six opening lines form one six-line division."
+      },
+      {
+        "target": "Tercet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "Two ABC tercets constitute the six-line opening.",
+        "refs": [
+          "https://rpo.library.utoronto.ca/glossary/sonnet"
+        ]
       }
     ],
     "refs": [
       "https://rpo.library.utoronto.ca/glossary/sonnet",
       "https://poets.org/poem/pied-beauty"
+    ],
+    "attested_refs": [
+      "https://rpo.library.utoronto.ca/glossary/sonnet"
     ]
   },
   "Caudate sonnet": {
@@ -186,15 +230,24 @@
         "kind": "contains",
         "status": "supported",
         "evidence": "Each added tail appends two rhyming full lines to a shortened line."
+      },
+      {
+        "target": "Tercet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "In the catalog construction, a short line and two full lines form each three-line tail."
       }
     ],
     "refs": [
+      "https://rpo.library.utoronto.ca/glossary/sonnet"
+    ],
+    "attested_refs": [
       "https://rpo.library.utoronto.ca/glossary/sonnet"
     ]
   },
   "Meredithian sonnet": {
     "status": "supported",
-    "note": "The opening Modern Love poem demonstrates four enclosed-rhyme units across sixteen continuous lines. The units need not appear as separate stanzas.",
+    "note": "Four enclosed-rhyme units span sixteen lines. They can be printed continuously.",
     "edges": [
       {
         "target": "Quatrain",
@@ -205,27 +258,42 @@
     ],
     "refs": [
       "https://rpo.library.utoronto.ca/content/modern-love-i"
+    ],
+    "attested_refs": [
+      "https://rpo.library.utoronto.ca/content/modern-love-i"
     ]
   },
   "Onegin stanza": {
     "status": "contested",
-    "note": "The alternating, paired, enclosing and closing rhyme groups total fourteen iambic tetrameter lines. The catalog’s case legend misidentifies the first rhyme ending. Uniform letters below identify sounds only.",
+    "note": "Fourteen iambic tetrameter lines form aBaB ccDD eFFe GG. In this notation a, c and e have a trailing unstressed syllable. B, D, F and G end in stress. The catalog reverses the stress legend.",
     "edges": [
       {
         "target": "Verse novel",
         "kind": "other",
         "status": "supported",
-        "evidence": "Pushkin’s verse novel uses this stanza repeatedly. This is a documented use, not a subtype or a requirement for every novel in verse."
+        "evidence": "The stanza is attested as the recurring unit of a verse novel. Other verse novels can use different units."
       },
       {
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
         "evidence": "The final rhyming tetrameter pair closes the stanza."
+      },
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "Three four-line rhyme groups precede the final pair. These units can share one printed stanza.",
+        "refs": [
+          "https://www.metopera.org/discover/education/educator-guides/eugene-onegin/the-operas-plot-and-creation/"
+        ]
       }
     ],
     "refs": [
       "https://doi.org/10.1093/litimag/ims064",
+      "https://www.metopera.org/discover/education/educator-guides/eugene-onegin/the-operas-plot-and-creation/"
+    ],
+    "attested_refs": [
       "https://www.metopera.org/discover/education/educator-guides/eugene-onegin/the-operas-plot-and-creation/"
     ]
   },
@@ -242,11 +310,19 @@
       {
         "target": "Couplet",
         "kind": "contains",
-        "status": "rejected",
-        "evidence": "The two closing lines finish on different a and b sounds. They are a pair, but do not instantiate the catalog Couplet entry’s shared rhyme."
+        "status": "supported",
+        "evidence": "The closing two-line unit pairs the separate returning a and b rhyme sounds by design.",
+        "refs": [
+          "https://www.writersdigest.com/write-better-poetry/bref-double-poetic-form"
+        ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://www.writersdigest.com/write-better-poetry/bref-double-poetic-form"
+    ],
+    "attested_refs": [
+      "https://www.writersdigest.com/write-better-poetry/bref-double-poetic-form"
+    ]
   },
   "Sonnenizio": {
     "status": "supported",
@@ -261,6 +337,9 @@
     ],
     "refs": [
       "https://musepiepress.com/shotglass/issue41/glossary5.html"
+    ],
+    "attested_refs": [
+      "https://musepiepress.com/shotglass/issue41/glossary5.html"
     ]
   },
   "American sonnet": {
@@ -269,27 +348,60 @@
     "edges": [],
     "refs": [
       "https://poets.org/glossary/sonnet"
+    ],
+    "attested_refs": [
+      "https://poets.org/glossary/sonnet"
     ]
   },
   "Duplex": {
     "status": "supported",
-    "note": "Brown describes seven pairs of lines with an echo across every join, the final line echoing the opening. His formulation also gives each line nine to eleven syllables.",
+    "note": "Seven couplets form fourteen lines of nine to eleven syllables. The second line of each of the first six pairs echoes at the next opening, and the last line echoes the first.",
     "edges": [
       {
         "target": "Ghazal",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "Brown explicitly identifies the ghazal as a model for the duplex’s couplet-based organization."
+        "evidence": "The duplex draws on the ghazal’s two-line stanza organization.",
+        "refs": [
+          "https://www.poetryfoundation.org/education/glossary/duplex"
+        ]
       },
       {
         "target": "Couplet",
         "kind": "contains",
-        "status": "rejected",
-        "evidence": "Brown’s adjacent lines echo across stanza breaks rather than necessarily rhyming within each pair, as the narrower catalog Couplet requires."
+        "status": "supported",
+        "evidence": "The fourteen-line poem is organized into seven intentional two-line stanzas.",
+        "refs": [
+          "https://www.poetryfoundation.org/education/glossary/duplex"
+        ]
+      },
+      {
+        "target": "Pantoum",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "A line from one stanza recurs in the next. The echo in the duplex may vary, and the two forms transfer different positions.",
+        "refs": [
+          "https://www.poetryfoundation.org/education/glossary/duplex",
+          "https://poets.org/glossary/pantoum"
+        ]
+      },
+      {
+        "target": "12-bar blues",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The repeated and varied line draws on A–A′–B blues lyrics. This link concerns verbal repetition, with no requirement for twelve musical bars.",
+        "refs": [
+          "https://www.poetryfoundation.org/education/glossary/duplex"
+        ]
       }
     ],
     "refs": [
-      "https://www.poetryfoundation.org/education/glossary/duplex"
+      "https://www.poetryfoundation.org/education/glossary/duplex",
+      "https://poets.org/glossary/pantoum"
+    ],
+    "attested_refs": [
+      "https://www.poetryfoundation.org/education/glossary/duplex",
+      "https://poets.org/glossary/pantoum"
     ]
   },
   "Kyrielle sonnet": {
@@ -311,17 +423,23 @@
       {
         "target": "Couplet",
         "kind": "contains",
-        "status": "rejected",
-        "evidence": "Its two closing lines reprise the opening line and the quatrain refrain; the cited example gives two different ending sounds, unlike the catalog rhyming Couplet."
+        "status": "supported",
+        "evidence": "After the three quatrains, the opening line and the repeated refrain form a distinct two-line close.",
+        "refs": [
+          "https://www.boloji.com/knowledge-zone/23/kyrielle-sonnet"
+        ]
       }
     ],
     "refs": [
+      "https://www.boloji.com/knowledge-zone/23/kyrielle-sonnet"
+    ],
+    "attested_refs": [
       "https://www.boloji.com/knowledge-zone/23/kyrielle-sonnet"
     ]
   },
   "Crown of sonnets": {
     "status": "partial",
-    "note": "Each last line opens the next sonnet and the final line circles back. Seven is the size of Donne’s La Corona, not a universal count.",
+    "note": "Each last line opens the next sonnet, and the final line returns to the first. The number of sonnets can vary.",
     "edges": [
       {
         "target": "Sonnet sequence",
@@ -331,6 +449,9 @@
       }
     ],
     "refs": [
+      "https://poets.org/glossary/sonnet"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/sonnet"
     ]
   },
@@ -347,6 +468,9 @@
     ],
     "refs": [
       "https://poets.org/glossary/sonnet"
+    ],
+    "attested_refs": [
+      "https://poets.org/glossary/sonnet"
     ]
   },
   "Sonnet sequence": {
@@ -354,6 +478,9 @@
     "note": "A shared subject or progression links a sequence. Numbering is optional; some sequences also link their boundary lines, contrary to the catalog’s blanket exclusion.",
     "edges": [],
     "refs": [
+      "https://poets.org/glossary/sonnet"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/sonnet"
     ]
   },
@@ -376,11 +503,17 @@
       {
         "target": "Couplet",
         "kind": "contains",
-        "status": "ambiguous",
-        "evidence": "The last two refrain lines rhyme inside the final quatrain. This could denote a terminal rhyme pair, but it is not a separate stanza and uniform metre is not required."
+        "status": "supported",
+        "evidence": "The final two lines are the two opening refrains deliberately brought together within the closing quatrain.",
+        "refs": [
+          "https://poets.org/glossary/villanelle"
+        ]
       }
     ],
     "refs": [
+      "https://poets.org/glossary/villanelle"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/villanelle"
     ]
   },
@@ -417,6 +550,9 @@
       "https://formlesspoet.mochinet.com/2012/01/08/what-is-a-terzanelle/",
       "https://poets.org/glossary/villanelle",
       "https://poets.org/glossary/terza-rima"
+    ],
+    "attested_refs": [
+      "https://formlesspoet.mochinet.com/2012/01/08/what-is-a-terzanelle/"
     ]
   },
   "Sestina": {
@@ -438,27 +574,53 @@
     ],
     "refs": [
       "https://poets.org/glossary/sestina"
+    ],
+    "attested_refs": [
+      "https://poets.org/glossary/sestina"
     ]
   },
   "Double sestina": {
     "status": "supported",
-    "note": "The two examples differ structurally. Swinburne has 12×12 plus 6; Sidney has 12×6 plus 3. Sidney does not append two complete 39-line poems.",
+    "note": "Two attested constructions differ in both stanza size and envoi. Twelve stanzas of twelve end in six lines; twelve stanzas of six end in three.",
     "edges": [
       {
         "target": "Sestina",
         "kind": "variant",
         "status": "supported",
         "evidence": "Both documented doubled variants adapt the sestina’s permuted end-words and concluding envoi."
+      },
+      {
+        "target": "Tercet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The 75-line construction ends in a three-line envoi.",
+        "refs": [
+          "https://rpo.library.utoronto.ca/content/you-gote-heard-gods"
+        ]
+      },
+      {
+        "target": "Sestet / sixain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The 75-line construction uses twelve six-line stanzas. The 150-line construction has a six-line envoi.",
+        "refs": [
+          "https://rpo.library.utoronto.ca/content/complaint-lisa",
+          "https://rpo.library.utoronto.ca/content/you-gote-heard-gods"
+        ]
       }
     ],
     "refs": [
       "https://rpo.library.utoronto.ca/content/complaint-lisa",
       "https://rpo.library.utoronto.ca/content/you-gote-heard-gods"
+    ],
+    "attested_refs": [
+      "https://rpo.library.utoronto.ca/content/you-gote-heard-gods",
+      "https://rpo.library.utoronto.ca/content/complaint-lisa"
     ]
   },
   "Tritina": {
     "status": "supported",
-    "note": "Three returning end-words move through three tercets; the last line reunites all three. The Academy identifies this as Ponsot’s shorter adaptation of the sestina. The successive orders are ABC, CAB and BCA.",
+    "note": "Three end-words rotate through three tercets in the orders ABC, CAB and BCA. A single final line gathers all three.",
     "edges": [
       {
         "target": "Tercet",
@@ -470,12 +632,21 @@
         "target": "Sestina",
         "kind": "variant",
         "status": "supported",
-        "evidence": "Ponsot reduces the rotating end-word set from six to three and ends with one gathering line."
+        "evidence": "The shorter adaptation reduces the rotating end-word inventory from six to three and gathers them in one final line."
+      },
+      {
+        "target": "Monostich",
+        "kind": "contains",
+        "status": "rejected",
+        "evidence": "A one-line envoi is part of a longer poem. The catalog defines monostich as a complete one-line poem."
       }
     ],
     "refs": [
       "https://poets.org/glossary/sestina",
       "https://dversepoets.com/2012/08/30/form-for-all-on-tritinas/"
+    ],
+    "attested_refs": [
+      "https://poets.org/glossary/sestina"
     ]
   },
   "Rondeau": {
@@ -485,14 +656,16 @@
       {
         "target": "Rondine",
         "kind": "variant",
-        "status": "supported",
-        "evidence": "The short adaptation retains the two-rhyme, opening-phrase return."
+        "status": "rejected",
+        "evidence": "The derived form is Rondine. Its outgoing assertion supplies the specific-to-general direction. Treating Rondeau as the variant would reverse that direction.",
+        "refs": []
       },
       {
         "target": "Rondeau prime",
         "kind": "variant",
-        "status": "supported",
-        "evidence": "The named shorter rondeau variant brings the opening fragment back at stanza endings."
+        "status": "rejected",
+        "evidence": "The derived form is Rondeau prime. Its outgoing assertion supplies the specific-to-general direction. Treating Rondeau as the variant would reverse that direction.",
+        "refs": []
       },
       {
         "target": "Quintain",
@@ -516,26 +689,68 @@
     "refs": [
       "https://poets.org/glossary/rondeau",
       "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
+    ],
+    "attested_refs": [
+      "https://poets.org/glossary/rondeau"
     ]
   },
   "Rondeau prime": {
     "status": "contested",
-    "note": "The catalog’s 7 + 6 and final rhyme string disagree with a documented 7 + 5 account. The diagram gives both readings with attribution; neither is silently treated as universal.",
+    "note": "The catalog gives 7 + 6 positions and the independent account gives 7 + 5. The latter arrangement also occurs under the name rondine.",
     "edges": [
       {
         "target": "Rondeau",
         "kind": "variant",
         "status": "supported",
         "evidence": "The named shorter rondeau variant brings the opening fragment back at stanza endings."
+      },
+      {
+        "target": "Rondine",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "Both titles have an attested abbaabR / abbaR reading. Their catalog rows also preserve divergent readings, so identity remains uncertain.",
+        "refs": [
+          "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_",
+          "https://www.writersdigest.com/write-better-poetry/rondine-poetic-form"
+        ]
+      },
+      {
+        "target": "Septet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "Both readings begin with seven positions, including the short returning phrase.",
+        "refs": [
+          "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_"
+        ]
+      },
+      {
+        "target": "Quintain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The twelve-position reading ends with five positions including the returning phrase.",
+        "refs": [
+          "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_"
+        ]
+      },
+      {
+        "target": "Sestet / sixain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The catalog’s thirteen-position reading ends with a six-position stanza, abbabR."
       }
     ],
     "refs": [
-      "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_"
+      "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_",
+      "https://www.writersdigest.com/write-better-poetry/rondine-poetic-form"
+    ],
+    "attested_refs": [
+      "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_",
+      "https://www.writersdigest.com/write-better-poetry/rondine-poetic-form"
     ]
   },
   "Rondine": {
     "status": "contested",
-    "note": "Both sources support 7 + 5 and a shared short refrain. The catalog gives abaabbR for the first stanza; Brewer’s published specimen uses abbaabR.",
+    "note": "Two readings share a septet, a quintain and a returning short phrase. The catalog starts abaabbR and an independently published specification starts abbaabR.",
     "edges": [
       {
         "target": "Rondeau",
@@ -554,16 +769,30 @@
         "kind": "contains",
         "status": "supported",
         "evidence": "The opening stanza includes six full lines and the returning fragment at position seven."
+      },
+      {
+        "target": "Rondeau prime",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "Both titles have an attested abbaabR / abbaR reading. Their catalog rows also preserve divergent readings, so identity remains uncertain.",
+        "refs": [
+          "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_",
+          "https://www.writersdigest.com/write-better-poetry/rondine-poetic-form"
+        ]
       }
     ],
     "refs": [
       "https://www.writersdigest.com/write-better-poetry/rondine-poetic-form",
       "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_"
+    ],
+    "attested_refs": [
+      "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_",
+      "https://www.writersdigest.com/write-better-poetry/rondine-poetic-form"
     ]
   },
   "Rondeau redoublé": {
     "status": "supported",
-    "note": "The four lines of stanza one close stanzas two through five in order. Parker's final stanza is a quatrain plus a short returning phrase, not five equal full lines.",
+    "note": "The lines of stanza one successively close stanzas two through five. The final four full lines take an additional short refrain from the opening phrase.",
     "edges": [
       {
         "target": "Quatrain",
@@ -576,50 +805,142 @@
         "kind": "variant",
         "status": "supported",
         "evidence": "The redoubled rondeau expands the reuse of opening material into successive complete end-lines and a final phrase."
+      },
+      {
+        "target": "Quintain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "A final quatrain and a short returning phrase occupy five positions when the phrase is printed separately.",
+        "refs": [
+          "https://www.poetryfoundation.org/poems/44836/rondeau-redouble-and-scarcely-worth-the-trouble-at-that"
+        ]
       }
     ],
     "refs": [
       "https://www.poetryfoundation.org/education/glossary/Rondeau",
+      "https://www.poetryfoundation.org/poems/44836/rondeau-redouble-and-scarcely-worth-the-trouble-at-that"
+    ],
+    "attested_refs": [
       "https://www.poetryfoundation.org/poems/44836/rondeau-redouble-and-scarcely-worth-the-trouble-at-that"
     ]
   },
   "Rondel": {
     "status": "partial",
     "note": "The first two lines return mid-poem. Closings can repeat only the first or both openings; the catalog’s 13–14 range is incompatible with requiring only line one in every ending.",
-    "edges": [],
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The first two stanzas each have four lines.",
+        "refs": [
+          "https://www.dictionnaire-academie.fr/article/A9R2906"
+        ]
+      },
+      {
+        "target": "Quintain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The thirteen-line construction ends with a quintain.",
+        "refs": [
+          "https://www.dictionnaire-academie.fr/article/A9R2906"
+        ]
+      },
+      {
+        "target": "Sestet / sixain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The fourteen-line construction ends with a sestet.",
+        "refs": [
+          "https://www.dictionnaire-academie.fr/article/A9R2906"
+        ]
+      },
+      {
+        "target": "Rondeau",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "The French dictionary classifies the rondel as a rondeau form.",
+        "refs": [
+          "https://www.dictionnaire-academie.fr/article/A9R2906"
+        ]
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The two opening refrain lines recur as a pair at the end of the second quatrain and again in the fourteen-line version.",
+        "refs": [
+          "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Rondel"
+        ]
+      }
+    ],
     "refs": [
       "https://www.poetryfoundation.org/education/glossary/rondel-roundel",
-      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
+      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html",
+      "https://www.dictionnaire-academie.fr/article/A9R2906",
+      "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Rondel"
+    ],
+    "attested_refs": [
+      "https://www.dictionnaire-academie.fr/article/A9R2906",
+      "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Rondel"
     ]
   },
   "Roundel": {
     "status": "supported",
-    "note": "Swinburne’s example gives a distinct 4 + 3 + 4 layout; the short refrain is taken from his opening phrase.",
+    "note": "Two four-position stanzas frame a tercet. The returning short phrase comes from the opening line.",
     "edges": [
       {
         "target": "Tercet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Swinburne's middle stanza has three lines."
+        "evidence": "The middle stanza has three lines."
       },
       {
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
         "evidence": "The opening and closing stanzas each have four lines including the short refrain."
+      },
+      {
+        "target": "Rondeau",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "The eleven-line English adaptation uses a recurring opening fragment and two rhyme sounds.",
+        "refs": [
+          "https://www.writersdigest.com/write-better-poetry/roundel-poetic-forms"
+        ]
       }
     ],
     "refs": [
       "https://www.poetryfoundation.org/poems/45301/the-roundel",
-      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
+      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html",
+      "https://www.writersdigest.com/write-better-poetry/roundel-poetic-forms"
+    ],
+    "attested_refs": [
+      "https://www.poetryfoundation.org/poems/45301/the-roundel",
+      "https://www.writersdigest.com/write-better-poetry/roundel-poetic-forms"
     ]
   },
   "Rondelet": {
     "status": "supported",
     "note": "The same four-syllable line occupies positions 1, 3 and 7; lowercase a and b identify rhyme sounds, not repeated lines.",
-    "edges": [],
+    "edges": [
+      {
+        "target": "Septet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "All seven positions constitute the single stanza, including a recurring line at positions one, three and seven.",
+        "refs": [
+          "https://studylib.net/doc/27577325/creative-writing-four-genres-in-brief-3rd-edition"
+        ]
+      }
+    ],
     "refs": [
-      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
+      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html",
+      "https://studylib.net/doc/27577325/creative-writing-four-genres-in-brief-3rd-edition"
+    ],
+    "attested_refs": [
+      "https://studylib.net/doc/27577325/creative-writing-four-genres-in-brief-3rd-edition"
     ]
   },
   "Roundelay": {
@@ -629,17 +950,44 @@
       {
         "target": "Couplet",
         "kind": "contains",
-        "status": "ambiguous",
-        "evidence": "The optional two-line refrain is not specified to have the internal rhyme and shared metre of the catalog Couplet."
+        "status": "supported",
+        "evidence": "The two-line refrain alternative pairs its lines deliberately. A one-line refrain is also available."
       }
     ],
-    "refs": []
+    "refs": [
+      "https://www.collinsdictionary.com/dictionary/english/roundelay"
+    ],
+    "attested_refs": [
+      "https://www.collinsdictionary.com/dictionary/english/roundelay"
+    ]
   },
   "Triolet": {
     "status": "supported",
     "note": "Two whole lines reappear on top of two rhyme sounds. Lines 1,4,7 match and lines 2,8 match.",
-    "edges": [],
+    "edges": [
+      {
+        "target": "Octave / huitain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The eight-line unit realizes the general octave sense. Its ABaAabAB refrain pattern is specific to the triolet.",
+        "refs": [
+          "https://poets.org/glossary/triolet"
+        ]
+      },
+      {
+        "target": "Rondeau",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The forms share recurring words or lines and a two-rhyme inventory.",
+        "refs": [
+          "https://poets.org/glossary/triolet"
+        ]
+      }
+    ],
     "refs": [
+      "https://poets.org/glossary/triolet"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/triolet"
     ]
   },
@@ -650,42 +998,62 @@
       {
         "target": "Ten-line ballade",
         "kind": "variant",
-        "status": "supported",
-        "evidence": "The inherited stanza-ending refrain remains while the full stanzas and envoi grow to ten and five lines."
+        "status": "rejected",
+        "evidence": "The derived form is Ten-line ballade. Its outgoing assertion supplies the specific-to-general direction. Treating Ballade as the variant would reverse that direction.",
+        "refs": []
       },
       {
         "target": "Double ballade",
         "kind": "variant",
-        "status": "supported",
-        "evidence": "Six instead of three main stanzas share a refrain."
+        "status": "rejected",
+        "evidence": "The derived form is Double ballade. Its outgoing assertion supplies the specific-to-general direction. Treating Ballade as the variant would reverse that direction.",
+        "refs": []
       },
       {
         "target": "Ballade à double refrain",
         "kind": "variant",
-        "status": "supported",
-        "evidence": "The variant adds a second refrain within each stanza and the envoi."
+        "status": "rejected",
+        "evidence": "The derived form is Ballade à double refrain. Its outgoing assertion supplies the specific-to-general direction. Treating Ballade as the variant would reverse that direction.",
+        "refs": []
       },
       {
         "target": "Octave / huitain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Three eight-line units have ballade rhyme ababbcbC; the link uses the generic octave sense."
+        "evidence": "Each eight-line stanza follows ababbcbC, matching both the generic octave and the ballade huitain scheme.",
+        "refs": [
+          "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
+        ]
       },
       {
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
         "evidence": "The envoi has four lines."
+      },
+      {
+        "target": "Monk's Tale stanza",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The principal eight-line stanzas share ABABBCBC. A ballade repeats its final line as a refrain.",
+        "refs": [
+          "https://www.litcharts.com/literary-devices-and-terms/ballade"
+        ]
       }
     ],
     "refs": [
       "https://poets.org/glossary/ballade",
+      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html",
+      "https://www.litcharts.com/literary-devices-and-terms/ballade"
+    ],
+    "attested_refs": [
+      "https://www.litcharts.com/literary-devices-and-terms/ballade",
       "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
     ]
   },
   "Ten-line ballade": {
     "status": "supported",
-    "note": "The catalog’s longer version gives 10 + 10 + 10 + 5. Every unit ends on the same refrain; D is its rhyme label.",
+    "note": "Three stanzas share ababbccdcD. The catalog closes with five lines for 35 total. A documented six-line envoi gives 36. Capital D marks the recurring line.",
     "edges": [
       {
         "target": "Ballade",
@@ -698,25 +1066,89 @@
         "kind": "contains",
         "status": "supported",
         "evidence": "The refrain closes a five-line envoi."
+      },
+      {
+        "target": "Dizain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The documented ababbccdcD stanza is ababbccdcd when refrain D is counted as its rhyme sound.",
+        "refs": [
+          "https://www.litcharts.com/literary-devices-and-terms/ballade",
+          "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
+        ]
+      },
+      {
+        "target": "Sestet / sixain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "One attested alternative ends with a six-line ccdccD envoi.",
+        "refs": [
+          "https://www.litcharts.com/literary-devices-and-terms/ballade"
+        ]
       }
     ],
     "refs": [
+      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html",
+      "https://www.litcharts.com/literary-devices-and-terms/ballade"
+    ],
+    "attested_refs": [
+      "https://www.litcharts.com/literary-devices-and-terms/ballade",
       "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
     ]
   },
   "Double ballade": {
     "status": "supported",
-    "note": "The stated 48 or 60 counts cover six full stanzas; adding the optional envoi increases the total. Its length is not specified in the row.",
+    "note": "Six stanzas give 48 or 60 lines. An optional envoi yields 52 or 65 in the two documented constructions.",
     "edges": [
       {
         "target": "Ballade",
         "kind": "variant",
         "status": "supported",
         "evidence": "Six instead of three main stanzas share a refrain."
+      },
+      {
+        "target": "Octave / huitain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "In the eight-line construction, each of the six principal stanzas is an octave. The ten-line alternative uses a different unit.",
+        "refs": [
+          "https://www.scribd.com/document/856007628/New-Rhyming-Dictionary-and-Poets-Handbook-Johnson-Burges-1877-1963-1957-New-York-Harper-1036755438-98e2964fe0bd23f16798d8366e8e70c4"
+        ]
+      },
+      {
+        "target": "Dizain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "In the documented ten-line version, all six principal stanzas use ababbccdcd, the catalogued dizain scheme.",
+        "refs": [
+          "https://www.scribd.com/document/856007628/New-Rhyming-Dictionary-and-Poets-Handbook-Johnson-Burges-1877-1963-1957-New-York-Harper-1036755438-98e2964fe0bd23f16798d8366e8e70c4"
+        ]
+      },
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The eight-line construction can end with a four-line envoi. The envoi is optional.",
+        "refs": [
+          "https://www.scribd.com/document/856007628/New-Rhyming-Dictionary-and-Poets-Handbook-Johnson-Burges-1877-1963-1957-New-York-Harper-1036755438-98e2964fe0bd23f16798d8366e8e70c4"
+        ]
+      },
+      {
+        "target": "Quintain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The ten-line construction can end with a five-line envoi. The envoi is optional.",
+        "refs": [
+          "https://www.scribd.com/document/856007628/New-Rhyming-Dictionary-and-Poets-Handbook-Johnson-Burges-1877-1963-1957-New-York-Harper-1036755438-98e2964fe0bd23f16798d8366e8e70c4"
+        ]
       }
     ],
     "refs": [
-      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
+      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html",
+      "https://www.scribd.com/document/856007628/New-Rhyming-Dictionary-and-Poets-Handbook-Johnson-Burges-1877-1963-1957-New-York-Harper-1036755438-98e2964fe0bd23f16798d8366e8e70c4"
+    ],
+    "attested_refs": [
+      "https://www.scribd.com/document/856007628/New-Rhyming-Dictionary-and-Poets-Handbook-Johnson-Burges-1877-1963-1957-New-York-Harper-1036755438-98e2964fe0bd23f16798d8366e8e70c4"
     ]
   },
   "Ballade à double refrain": {
@@ -728,10 +1160,32 @@
         "kind": "variant",
         "status": "supported",
         "evidence": "The variant adds a second refrain within each stanza and the envoi."
+      },
+      {
+        "target": "Octave / huitain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The three eight-line stanzas each carry recurring lines at positions four and eight.",
+        "refs": [
+          "https://www.litcharts.com/literary-devices-and-terms/ballade"
+        ]
+      },
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "Its envoi repeats the two refrains at positions two and four in a four-line unit.",
+        "refs": [
+          "https://www.litcharts.com/literary-devices-and-terms/ballade"
+        ]
       }
     ],
     "refs": [
-      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
+      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html",
+      "https://www.litcharts.com/literary-devices-and-terms/ballade"
+    ],
+    "attested_refs": [
+      "https://www.litcharts.com/literary-devices-and-terms/ballade"
     ]
   },
   "Chant royal": {
@@ -754,6 +1208,9 @@
     "refs": [
       "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Chant_Royal",
       "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
+    ],
+    "attested_refs": [
+      "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Chant_Royal"
     ]
   },
   "Virelai": {
@@ -771,6 +1228,9 @@
       "https://www.larousse.fr/encyclopedie/musdico/virelai/170565",
       "https://the-orb.arlima.net/encyclop/culture/music/ffixe.htm",
       "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
+    ],
+    "attested_refs": [
+      "https://www.larousse.fr/encyclopedie/musdico/virelai/170565"
     ]
   },
   "Virelai nouveau": {
@@ -782,19 +1242,46 @@
         "kind": "comparison",
         "status": "supported",
         "evidence": "The catalog groups the names, but the literary nouveau alternates a two-line refrain while ancien links rhyme sounds across stanzas. Historical source distinguishes both patterns."
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The two opening refrain lines form a unit that returns in reverse order at the end.",
+        "refs": [
+          "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Virelay"
+        ]
       }
     ],
     "refs": [
-      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
+      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html",
+      "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Virelay"
+    ],
+    "attested_refs": [
+      "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Virelay"
     ]
   },
   "Lai": {
     "status": "partial",
     "note": "The catalog describes a nine-line verse pattern made from three aab units, each of 5, 5 and 2 syllables. This cannot be generalized to all medieval narrative or musical lais.",
-    "edges": [],
+    "edges": [
+      {
+        "target": "Tercet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "In the catalog’s nine-line literary pattern, three AAB groups each contain three lines.",
+        "refs": [
+          "https://www.prose-n-poetry.com/lai-virelai-lai-nouveau/"
+        ]
+      }
+    ],
     "refs": [
       "https://the-orb.arlima.net/encyclop/culture/music/ffixe.htm",
-      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
+      "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html",
+      "https://www.prose-n-poetry.com/lai-virelai-lai-nouveau/"
+    ],
+    "attested_refs": [
+      "https://www.prose-n-poetry.com/lai-virelai-lai-nouveau/"
     ]
   },
   "Kyrielle": {
@@ -817,6 +1304,9 @@
     "refs": [
       "https://www.boloji.com/knowledge-zone/23/kyrielle-sonnet",
       "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
+    ],
+    "attested_refs": [
+      "https://www.boloji.com/knowledge-zone/23/kyrielle-sonnet"
     ]
   },
   "Quatern": {
@@ -830,31 +1320,95 @@
         "evidence": "The travelling refrain occurs once in each of four quatrains."
       }
     ],
-    "refs": []
+    "refs": [
+      "https://www.madkane.com/humor_blog/2012/03/01/quatern-poetry-form-humor/"
+    ],
+    "attested_refs": [
+      "https://www.madkane.com/humor_blog/2012/03/01/quatern-poetry-form-humor/"
+    ]
   },
   "Canzone": {
-    "status": "supported",
-    "note": "The 65-line construction belongs to Dante’s five-by-twelve version plus a five-line envoi. Other canzoni use different stanza arrangements. Line count and end-word recurrence annotate all five stanzas; they are not consecutive sections.",
-    "edges": [],
+    "status": "partial",
+    "note": "The catalog’s general outline allows five to seven matching stanzas and a short envoi. Two more specific constructions rotate end-words through five twelve-line stanzas, with either five or six concluding lines.",
+    "edges": [
+      {
+        "target": "Quintain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The 65-line construction closes with a five-line envoi.",
+        "refs": [
+          "https://www.poetryfoundation.org/education/glossary/canzone",
+          "https://www.poetryfoundation.org/featured-blogger/85658/a-fleeting-moment"
+        ]
+      },
+      {
+        "target": "Sestet / sixain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The 66-line historical construction closes with a six-line envoi.",
+        "refs": [
+          "https://www.academia.edu/37673307/Amor_tu_vedi_ben_docx"
+        ]
+      }
+    ],
     "refs": [
-      "https://www.poetryfoundation.org/education/glossary/canzone"
+      "https://www.poetryfoundation.org/education/glossary/canzone",
+      "https://www.poetryfoundation.org/featured-blogger/85658/a-fleeting-moment",
+      "https://www.academia.edu/37673307/Amor_tu_vedi_ben_docx"
+    ],
+    "attested_refs": [
+      "https://www.poetryfoundation.org/education/glossary/canzone",
+      "https://www.poetryfoundation.org/featured-blogger/85658/a-fleeting-moment",
+      "https://www.academia.edu/37673307/Amor_tu_vedi_ben_docx"
     ]
   },
   "Ballata": {
     "status": "supported",
     "note": "The source describes an opening ripresa, then two matching parts and a turn back to the recurring refrain. It gives no fixed number of subsequent stanzas.",
     "edges": [],
-    "refs": []
+    "refs": [
+      "https://www.treccani.it/enciclopedia/ballata/"
+    ],
+    "attested_refs": [
+      "https://www.treccani.it/enciclopedia/ballata/"
+    ]
   },
   "Stornello": {
     "status": "supported",
-    "note": "Three lines increase from a short opening to two longer lines. The first and third rhyme; the middle line's rhyme and precise syllable counts remain unspecified.",
-    "edges": [],
-    "refs": []
+    "note": "One three-line pattern opens with a short line followed by two longer lines. There are also three-long-line and two-line variants, with regional differences in rhyme and assonance.",
+    "edges": [
+      {
+        "target": "Tercet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The catalog’s stanza and two attested Italian patterns have three lines. Other historical variants have two.",
+        "refs": [
+          "https://www.treccani.it/vocabolario/stornello1/",
+          "https://www.treccani.it/enciclopedia/canto_%28Enciclopedia-Italiana%29/"
+        ]
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "A two-line regional version consists of two rhyming or assonant eleven-syllable lines. This alternative differs from the three-line catalog reading.",
+        "refs": [
+          "https://www.treccani.it/enciclopedia/canto_%28Enciclopedia-Italiana%29/"
+        ]
+      }
+    ],
+    "refs": [
+      "https://www.treccani.it/vocabolario/stornello1/",
+      "https://www.treccani.it/enciclopedia/canto_%28Enciclopedia-Italiana%29/"
+    ],
+    "attested_refs": [
+      "https://www.treccani.it/vocabolario/stornello1/",
+      "https://www.treccani.it/enciclopedia/canto_%28Enciclopedia-Italiana%29/"
+    ]
   },
   "Glosa": {
     "status": "partial",
-    "note": "The formal version has a borrowed four-line epigraph whose lines close the four ten-line stanzas. Hirsch also records more flexible settings, so 44 lines is a model, not a universal requirement.",
+    "note": "In a strict construction, the four lines of a borrowed epigraph close successive ten-line stanzas. Other traditions retain the line-by-line return while varying the stanza sizes.",
     "edges": [
       {
         "target": "Quatrain",
@@ -867,9 +1421,21 @@
         "kind": "contains",
         "status": "ambiguous",
         "evidence": "Ten-line glosses occur; the catalog’s Décima espinela also demands an exact rhyme order and octosyllabic metre, neither established by the generic Glosa row."
+      },
+      {
+        "target": "Dizain",
+        "kind": "contains",
+        "status": "ambiguous",
+        "evidence": "Ten-line units are attested, but the cited definition does not give the specific rhyme sequence of the catalog’s dizain.",
+        "refs": [
+          "https://poets.org/glossary/glosa"
+        ]
       }
     ],
     "refs": [
+      "https://poets.org/glossary/glosa"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/glosa"
     ]
   },
@@ -886,11 +1452,19 @@
       {
         "target": "Couplet",
         "kind": "contains",
-        "status": "ambiguous",
-        "evidence": "The echo pairs rhyme but deliberately juxtapose a long line and a shorter one; the catalog Couplet specifies the same metre. A generic two-line unit is insufficient evidence."
+        "status": "supported",
+        "evidence": "Each of three long questions is paired with its own short echo or answer. The two lines within a pair differ in length.",
+        "refs": [
+          "https://randomwriterlythoughts.blogspot.com/2022/05/ovillejo.html?m=0"
+        ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://randomwriterlythoughts.blogspot.com/2022/05/ovillejo.html?m=0"
+    ],
+    "attested_refs": [
+      "https://randomwriterlythoughts.blogspot.com/2022/05/ovillejo.html?m=0"
+    ]
   },
   "Pantoum": {
     "status": "supported",
@@ -901,10 +1475,25 @@
         "kind": "contains",
         "status": "supported",
         "evidence": "The linked verse units have four lines."
+      },
+      {
+        "target": "Pantun",
+        "kind": "variant",
+        "status": "supported",
+        "evidence": "The pantoum adapts the linked Malay pantun tradition into a sequence of interlocking quatrains. The general pantun can also stand alone.",
+        "refs": [
+          "https://poets.org/glossary/pantoum",
+          "https://journals.rudn.ru/literary-criticism/article/view/34356"
+        ]
       }
     ],
     "refs": [
-      "https://poets.org/glossary/pantoum"
+      "https://poets.org/glossary/pantoum",
+      "https://journals.rudn.ru/literary-criticism/article/view/34356"
+    ],
+    "attested_refs": [
+      "https://poets.org/glossary/pantoum",
+      "https://journals.rudn.ru/literary-criticism/article/view/34356"
     ]
   },
   "Pantun": {
@@ -920,12 +1509,20 @@
       {
         "target": "Couplet",
         "kind": "contains",
-        "status": "rejected",
-        "evidence": "The image pair and meaning pair have AB endings inside ABAB; they do not form the internally rhymed pairs that this catalog calls Couplet."
+        "status": "supported",
+        "evidence": "In the four-line pattern, an introductory image occupies one pair and the meaning or answer occupies another. The ABAB sound pattern crosses between the pairs.",
+        "refs": [
+          "https://journals.rudn.ru/literary-criticism/article/view/34356"
+        ]
       }
     ],
     "refs": [
-      "https://ich.unesco.org/en/RL/pantun-02274?RL=02274"
+      "https://ich.unesco.org/en/RL/pantun-02274?RL=02274",
+      "https://journals.rudn.ru/literary-criticism/article/view/34356"
+    ],
+    "attested_refs": [
+      "https://ich.unesco.org/en/RL/pantun-02274?RL=02274",
+      "https://journals.rudn.ru/literary-criticism/article/view/34356"
     ]
   },
   "Ghazal": {
@@ -935,27 +1532,43 @@
       {
         "target": "Couplet",
         "kind": "contains",
-        "status": "rejected",
-        "evidence": "The opening pair rhymes, but later couplets require rhyme with the opening, not within each pair. The catalog’s self-rhyming couplet would misdescribe the whole sequence."
+        "status": "supported",
+        "evidence": "Each autonomous two-line stanza is a couplet. The rhyme and refrain come at both ends of the opening couplet and at the second line of subsequent couplets.",
+        "refs": [
+          "https://poets.org/glossary/ghazal"
+        ]
       }
     ],
     "refs": [
+      "https://poets.org/glossary/ghazal"
+    ],
+    "attested_refs": [
       "https://poets.org/glossary/ghazal"
     ]
   },
   "Qasida": {
     "status": "partial",
-    "note": "The nostalgic prelude, journey and final theme form a conventional tripartite example. Documented Arabic odes can rearrange these parts; a bayt’s half-lines are not automatically an English rhyming couplet.",
+    "note": "Nostalgic prelude, journey and final theme supply one conventional order. A bayt consists of two hemistichs within one verse. English layouts can vary.",
     "edges": [
       {
         "target": "Couplet",
         "kind": "contains",
-        "status": "rejected",
-        "evidence": "The Arabic bayt can be presented as two half-lines; the ode’s monorhyme falls at verse endings. Internal rhyming pairs throughout are not required."
+        "status": "ambiguous",
+        "evidence": "Arabic lineation can set one bayt as two hemistichs on the same line. The term couplet also occurs in Persian prosody. These traditions do not establish a two-line English layout.",
+        "refs": [
+          "https://postext.dev/en/cookbook/qasida-diwan-page",
+          "https://www.iranicaonline.org/articles/aruz-the-metrical-system/"
+        ]
       }
     ],
     "refs": [
-      "https://doi.org/10.1080/1475262X.2010.523202"
+      "https://doi.org/10.1080/1475262X.2010.523202",
+      "https://postext.dev/en/cookbook/qasida-diwan-page",
+      "https://www.iranicaonline.org/articles/aruz-the-metrical-system/"
+    ],
+    "attested_refs": [
+      "https://postext.dev/en/cookbook/qasida-diwan-page",
+      "https://www.iranicaonline.org/articles/aruz-the-metrical-system/"
     ]
   },
   "Haiku": {
@@ -972,6 +1585,9 @@
     "refs": [
       "https://www.hsa-haiku.org/hsa-definitions.html",
       "https://hsa-haiku.org/hsa-definitions-2004.html"
+    ],
+    "attested_refs": [
+      "https://www.hsa-haiku.org/hsa-definitions.html"
     ]
   },
   "Senryu": {
@@ -988,13 +1604,29 @@
     "refs": [
       "https://www.hsa-haiku.org/hsa-definitions.html",
       "https://hsa-haiku.org/hsa-definitions-2004.html"
+    ],
+    "attested_refs": [
+      "https://www.hsa-haiku.org/hsa-definitions.html"
     ]
   },
   "Tanka": {
     "status": "contested",
     "note": "Five short lines are common in English, but Japanese 5–7–5–7–7 counts sound units. The English central turn is a frequent expressive move rather than an exact syllabic boundary. The traditional phrase groups have 5, 7, 5, 7 and 7 sound units.",
-    "edges": [],
+    "edges": [
+      {
+        "target": "Quintain",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The common five-line English presentation has the span of a quintain. English lineation varies.",
+        "refs": [
+          "https://www.tankasocietyofamerica.org/essays/what-is-tanka"
+        ]
+      }
+    ],
     "refs": [
+      "https://www.tankasocietyofamerica.org/essays/what-is-tanka"
+    ],
+    "attested_refs": [
       "https://www.tankasocietyofamerica.org/essays/what-is-tanka"
     ]
   }

@@ -8,7 +8,6 @@ function glyph(key) {
   for(const [k,v] of Object.entries({d:shapeIcons[key],fill:'none',stroke:fams[key][1],'stroke-width':1.65,'stroke-linecap':'round','stroke-linejoin':'round'}))p.setAttribute(k,v);
   s.append(p);return s;
 }
-const clean = value => value.replaceAll('**','');
 const normal = value => value.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 function titleCase(name) {
   const disambiguated = name.replace(/^(.*) \(([^)]+)\)$/, '$1 · $2');
@@ -18,7 +17,13 @@ const formsById=new Map(FORMS.map(form=>[form.id,form]));
 const start='verse-chorus-bridge';
 const finder=byId('finder'), source=byId('source'), query=byId('query'), filter=byId('filter');
 let current, resizeFrame, selectionFromAction=false, previousWidth=-1;
-const entries = FORMS.map(form=>({form, title:normal(form.name), aliases:normal(form.aliases), shape:normal(form.shape)}));
+function treeWords(nodes) {
+  return nodes.flatMap(node => typeof node === 'string' ? [node] : [node.label, ...treeWords(node.children)]);
+}
+const entries = FORMS.map(form => ({
+  form, title: normal(form.name), aliases: normal(form.aliases),
+  shape: normal([...form.search_terms, ...treeWords(form.tree)].join(' '))
+}));
 function element(tag, text, cls) {const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e}
 function addOption(label,val){const opt=element('option',label);opt.value=val;filter.append(opt)}
 addOption('All groups','');
@@ -50,10 +55,10 @@ function render() {
   for(const btn of byId('families').children){if(btn.dataset.family===current.family)btn.setAttribute('aria-current','true');else btn.removeAttribute('aria-current')}
   byId('mode').textContent={Pattern:'Pattern',Rule:'Structural rule',Example:'One possible pattern'}[current.mode];
   document.title=titleCase(current.name)+' · Song Forms';
-  const statusLabels = {supported:'Source-supported', partial:'Partial model', contested:'Sources differ', unresolved:'Structure unresolved'};
+  const statusLabels = {supported:'Reviewed pattern', partial:'Partial model', contested:'Sources differ', unresolved:'Structure unresolved'};
   const note = byId('reviewNote');
-  note.hidden = current.review.status === 'supported';
-  note.textContent = statusLabels[current.review.status] + ' · ' + current.review.note;
+  const provenance = current.review.refs.length ? 'Outside evidence for the stated scope' : 'Catalog evidence only';
+  note.textContent = statusLabels[current.review.status] + ' · ' + provenance + '. ' + current.review.note;
   window.drawStructure(byId('diagram'),current);
   window.drawRelations(byId('relations'),current,FORMS,select,openFinder);
   if(selectionFromAction){byId('title').focus({preventScroll:true});window.scrollTo(0,0);selectionFromAction=false}
@@ -61,11 +66,15 @@ function render() {
 document.querySelector('.skip').onclick=e=>{e.preventDefault();byId('work').focus()};
 function openSource(){
   const f=current, body=byId('sourceBody'),dl=element('dl');
-  for(const [label,value] of [['Reviewed alternate names',f.aliases],['Source alias field',f.alias_review ? f.raw_aliases : '–'],['Alias review',f.alias_review?.reason || '–'],['Shape',f.shape],['Lines',f.length],['Planner section types in source',f.roles],['Nesting review',f.review.note]]){
-    if(!value||value==='–')continue;dl.append(element('dt',label),element('dd',clean(value)));
+  for (const [label, value] of [['Alternate names', f.aliases], ['Related search terms', f.search_terms.join(', ')], ['Review', f.review.note]]) {
+    if (value && value !== '–') dl.append(element('dt', label), element('dd', value));
   }
-  body.replaceChildren(element('h3',f.name),dl,element('footer','english-forms.md · line '+f.line));
-  for(const url of new Set([...f.review.refs,...(f.alias_review?.refs||[])])){const a=element('a',new URL(url).hostname);a.href=url;a.target='_blank';a.rel='noopener noreferrer';const paragraph=element('p');paragraph.append(a);body.append(paragraph)}
+  body.replaceChildren(element('h3',f.name),dl,element('footer','Original source record · line '+f.line));
+  for (const url of f.review.refs) {
+    const link=element('a',new URL(url).hostname);
+    link.href=url; link.target='_blank'; link.rel='noopener noreferrer';
+    const paragraph=element('p'); paragraph.append(link); body.append(paragraph);
+  }
   source.showModal();
 }
 byId('searchOpen').onclick=()=>openFinder();byId('all').onclick=()=>openFinder();byId('sourceOpen').onclick=openSource;

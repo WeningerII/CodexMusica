@@ -1,0 +1,24 @@
+{
+  "Ternary": {
+    "aliases": "ABA",
+    "reason": "Catalog line 46. Da capo song is an applicable return pattern in some ternary songs; da capo itself is a repeat instruction and does not cover every ternary form. Index the narrower connection as a search association.",
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/ternary-form/"
+    ]
+  },
+  "Quodlibet": {
+    "aliases": "–",
+    "reason": "Catalog line 53. Partner song describes the pedagogical setting in which independent melodies combine. The overlap with quodlibet does not establish the two terms as equivalent across all repertoires. Index the association separately.",
+    "refs": [
+      "https://www.thenational.academy/teachers/lessons/partner-songs-as-a-singing-structure",
+      "https://en.wikisource.org/wiki/A_Dictionary_of_Music_and_Musicians/Quodlibet"
+    ]
+  },
+  "Barbershop tag": {
+    "aliases": "–",
+    "reason": "Catalog line 73. The bare name tag has a barbershop sense and a broader ending sense. Offer search in context while keeping generic section tags distinct from the standalone barbershop excerpt.",
+    "refs": [
+      "https://www.barbershop.org/music/about-our-music"
+    ]
+  }
+}

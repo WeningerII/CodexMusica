@@ -1,0 +1,36 @@
+{
+  "Call-and-response": {
+    "aliases": "leader-and-chorus",
+    "reason": "A leader and answering group define this catalog entry. Alternation between two choirs can also be antiphonal and has a different distribution of voices.",
+    "refs": [
+      "https://origin.ewtn.com/catholicism/library/general-instruction-on-the-liturgy-of-the-hours-28969",
+      "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
+    ]
+  },
+  "Nursery rhyme": {
+    "aliases": "–",
+    "reason": "A regional nursery-rhyme name contains a named figure. Keep the display and general search independent of named examples.",
+    "refs": []
+  },
+  "Lined-out hymn": {
+    "aliases": "–",
+    "reason": "Lining out names a technique that can be used to sing a hymn. Search can find the hymn through that technique. The catalog also gives an eponym for a narrower repertoire.",
+    "refs": [
+      "https://www.ucpress.edu/books/lining-out-the-word/hardcover"
+    ]
+  },
+  "Skipping / clapping rhyme": {
+    "aliases": "–",
+    "reason": "Jump-rope rhyme identifies the skipping subtype. Clapping rhymes can accompany a different game.",
+    "refs": [
+      "https://blogs.loc.gov/folklife/2020/06/kids-explain-their-rhymes-games-and-songs/"
+    ]
+  },
+  "Ring shout": {
+    "aliases": "–",
+    "reason": "Shout can name this practice in its tradition. Bare shout also describes a vocal action, so the search term carries the ring-shout performance context.",
+    "refs": [
+      "https://wwws.loc.gov/rr/perform/concert/1011-folklife.html"
+    ]
+  }
+}

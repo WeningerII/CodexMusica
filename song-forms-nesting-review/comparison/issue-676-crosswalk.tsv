@@ -277,7 +277,7 @@ placement	inventory_group	term	title_or_alias_hit	disposition	closest	basis
 276	Meta-terms and formal types	Eight-bar blues		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
 277	Meta-terms and formal types	Rhythm changes		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
 278	Meta-terms and formal types	Bar form (Stollen, Stollen, Abgesang)		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
-279	Meta-terms and formal types	Ritornello form		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
+279	Meta-terms and formal types	Ritornello form		term-level adjudication in meta-forms.json		The English vocal evidence establishes recurring instrumental material in a vocal work. It does not require the entire work to have one form. See the sources in meta-forms.json.
 280	Meta-terms and formal types	Da capo		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
 281	Meta-terms and formal types	Segno		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
 282	Meta-terms and formal types	Coda sign		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
@@ -294,13 +294,13 @@ placement	inventory_group	term	title_or_alias_hit	disposition	closest	basis
 293	Meta-terms and formal types	Jhala		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
 294	Meta-terms and formal types	Gat		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
 295	Meta-terms and formal types	Tihai		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
-296	Meta-terms and formal types	Head-solos-head	Head arrangement	term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
+296	Meta-terms and formal types	Head-solos-head	Head arrangement	term-level adjudication in meta-forms.json		The raw inventory calls head–solos–head an alias of Head arrangement. The reviewed alias field removes it: a performance sequence and a method of arranging differ. See the individual meta-form decision.
 297	Meta-terms and formal types	Blowing changes		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
 298	Meta-terms and formal types	Loop-based form		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
 299	Meta-terms and formal types	Track form		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
 300	Meta-terms and formal types	Layered form		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
 301	Meta-terms and formal types	Additive form		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
-302	Meta-terms and formal types	Subtractive form		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
+302	Meta-terms and formal types	Subtractive form		term-level adjudication in meta-forms.json	Countdown song	A decreasing lyric count and the successive removal of musical layers are different senses. See the typed comparison in meta-forms.json.
 303	Meta-terms and formal types	Beat-driven form		term-level adjudication in meta-forms.json		See the exact same inventory placement in the musical-form crosswalk.
 304	Chart and production register	Rehearsal letter		other layer in this placement		The earlier team ledger assigns this placement to chart and production register. No additional whole-piece form follows from this placement alone. Consult the retained original term-level dispositions for alternate senses.
 305	Chart and production register	Rehearsal mark		other layer in this placement		The earlier team ledger assigns this placement to chart and production register. No additional whole-piece form follows from this placement alone. Consult the retained original term-level dispositions for alternate senses.

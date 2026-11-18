@@ -29,8 +29,7 @@
     "mode": "Example",
     "related": [
       "Octave / huitain",
-      "Sestet / sixain",
-      "Miltonic sonnet"
+      "Sestet / sixain"
     ]
   },
   "Sicilian sonnet": {
@@ -64,7 +63,8 @@
     "related": [
       "Octave / huitain",
       "Sestet / sixain",
-      "Petrarchan sonnet"
+      "Petrarchan sonnet",
+      "Sicilian octave"
     ]
   },
   "Miltonic sonnet": {
@@ -271,7 +271,8 @@
     "mode": "Pattern",
     "related": [
       "Petrarchan sonnet",
-      "Sestet / sixain"
+      "Sestet / sixain",
+      "Tercet"
     ]
   },
   "Caudate sonnet": {
@@ -287,7 +288,8 @@
     ],
     "mode": "Pattern",
     "related": [
-      "Couplet"
+      "Couplet",
+      "Tercet"
     ]
   },
   "Meredithian sonnet": {
@@ -337,44 +339,45 @@
   "Onegin stanza": {
     "tree": [
       {
-        "label": "Alternating rhymes",
+        "label": "Alternating quatrain",
         "children": [
-          "A",
-          "B",
-          "A",
-          "B"
+          "a · feminine",
+          "B · masculine",
+          "a · feminine",
+          "B · masculine"
         ]
       },
       {
-        "label": "Paired rhymes",
+        "label": "Paired-rhyme quatrain",
         "children": [
-          "C",
-          "C",
-          "D",
-          "D"
+          "c · feminine",
+          "c · feminine",
+          "D · masculine",
+          "D · masculine"
         ]
       },
       {
-        "label": "Enclosing rhymes",
+        "label": "Enclosed quatrain",
         "children": [
-          "E",
-          "F",
-          "F",
-          "E"
+          "e · feminine",
+          "F · masculine",
+          "F · masculine",
+          "e · feminine"
         ]
       },
       {
         "label": "Closing couplet",
         "children": [
-          "G",
-          "G"
+          "G · masculine",
+          "G · masculine"
         ]
       }
     ],
     "mode": "Pattern",
     "related": [
       "Verse novel",
-      "Couplet"
+      "Couplet",
+      "Quatrain"
     ]
   },
   "Bref double": {
@@ -397,7 +400,8 @@
     ],
     "mode": "Example",
     "related": [
-      "Quatrain"
+      "Quatrain",
+      "Couplet"
     ]
   },
   "Sonnenizio": {
@@ -462,7 +466,10 @@
     ],
     "mode": "Rule",
     "related": [
-      "Ghazal"
+      "Ghazal",
+      "Couplet",
+      "Pantoum",
+      "12-bar blues"
     ]
   },
   "Kyrielle sonnet": {
@@ -486,7 +493,8 @@
     "mode": "Example",
     "related": [
       "Kyrielle",
-      "Quatrain"
+      "Quatrain",
+      "Couplet"
     ]
   },
   "Crown of sonnets": {
@@ -598,7 +606,8 @@
     "mode": "Pattern",
     "related": [
       "Tercet",
-      "Quatrain"
+      "Quatrain",
+      "Couplet"
     ]
   },
   "Terzanelle": {
@@ -722,7 +731,7 @@
   "Double sestina": {
     "tree": [
       {
-        "label": "Swinburne · 150 lines",
+        "label": "150-line construction",
         "children": [
           {
             "label": "Twelve stanzas of twelve",
@@ -734,7 +743,7 @@
         ]
       },
       {
-        "label": "Sidney · 75 lines",
+        "label": "75-line construction",
         "children": [
           {
             "label": "Twelve stanzas of six",
@@ -748,7 +757,9 @@
     ],
     "mode": "Rule",
     "related": [
-      "Sestina"
+      "Sestina",
+      "Tercet",
+      "Sestet / sixain"
     ]
   },
   "Tritina": {
@@ -825,8 +836,6 @@
     ],
     "mode": "Pattern",
     "related": [
-      "Rondine",
-      "Rondeau prime",
       "Quintain",
       "Quatrain",
       "Sestet / sixain"
@@ -871,39 +880,45 @@
     ],
     "mode": "Rule",
     "related": [
-      "Rondeau"
+      "Rondeau",
+      "Rondine",
+      "Septet",
+      "Quintain",
+      "Sestet / sixain"
     ]
   },
   "Rondine": {
     "tree": [
       {
-        "label": "Opening septet · Brewer’s example",
+        "label": "Opening septet",
         "children": [
-          "a",
-          "b",
-          "b",
-          "a",
-          "a",
-          "b",
-          "Opening phrase"
+          {
+            "label": "Catalog rhyme order",
+            "children": [
+              "abaabbR"
+            ]
+          },
+          {
+            "label": "Alternative rhyme order",
+            "children": [
+              "abbaabR"
+            ]
+          }
         ]
       },
       {
         "label": "Closing quintain",
         "children": [
-          "a",
-          "b",
-          "b",
-          "a",
-          "Opening phrase"
+          "abbaR"
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Rondeau",
       "Quintain",
-      "Septet"
+      "Septet",
+      "Rondeau prime"
     ]
   },
   "Rondeau redoublé": {
@@ -930,38 +945,47 @@
         "label": "Final stanza",
         "children": [
           "Four full lines",
-          "Opening phrase"
+          "Short opening phrase returns"
         ]
       }
     ],
     "mode": "Pattern",
     "related": [
       "Quatrain",
-      "Rondeau"
+      "Rondeau",
+      "Quintain"
     ]
   },
   "Rondel": {
     "tree": [
       {
-        "label": "Opening stanza",
+        "label": "Opening quatrain",
         "children": [
-          "First two lines establish refrains"
+          "First two lines introduce refrains"
         ]
       },
       {
-        "label": "Middle stanza",
+        "label": "Second quatrain",
         "children": [
-          "Opening lines return at lines 7–8"
+          "Opening lines return at positions 7 and 8"
         ]
       },
       {
-        "label": "Final stanza",
+        "label": "Final stanza alternatives",
         "children": [
-          "First or both opening lines return"
+          "Quintain · first opening line returns",
+          "Sestet · both opening lines return"
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Rule",
+    "related": [
+      "Quatrain",
+      "Quintain",
+      "Sestet / sixain",
+      "Rondeau",
+      "Couplet"
+    ]
   },
   "Roundel": {
     "tree": [
@@ -995,7 +1019,8 @@
     "mode": "Pattern",
     "related": [
       "Tercet",
-      "Quatrain"
+      "Quatrain",
+      "Rondeau"
     ]
   },
   "Rondelet": {
@@ -1013,7 +1038,10 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Septet"
+    ]
   },
   "Roundelay": {
     "tree": [
@@ -1025,7 +1053,10 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Couplet"
+    ]
   },
   "Triolet": {
     "tree": [
@@ -1043,7 +1074,11 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Octave / huitain",
+      "Rondeau"
+    ]
   },
   "Ballade": {
     "tree": [
@@ -1067,48 +1102,59 @@
     ],
     "mode": "Pattern",
     "related": [
-      "Ten-line ballade",
-      "Double ballade",
-      "Ballade à double refrain",
       "Octave / huitain",
-      "Quatrain"
+      "Quatrain",
+      "Monk's Tale stanza"
     ]
   },
   "Ten-line ballade": {
     "tree": [
       {
-        "label": "Three 10-line stanzas",
+        "label": "Three ten-line stanzas",
         "children": [
-          "End on refrain D"
+          "ababbccdcD in each"
         ]
       },
       {
-        "label": "5-line envoi",
+        "label": "Envoi alternatives",
         "children": [
-          "End on refrain D"
+          "Five lines · ccdcD",
+          "Six lines · ccdccD"
         ]
       }
     ],
-    "mode": "Pattern",
+    "mode": "Rule",
     "related": [
       "Ballade",
-      "Quintain"
+      "Quintain",
+      "Dizain",
+      "Sestet / sixain"
     ]
   },
   "Double ballade": {
     "tree": [
       {
-        "label": "Six matched stanzas",
+        "label": "Eight-line construction",
         "children": [
-          "Eight or ten lines per stanza",
-          "Same refrain closes each"
+          "Six stanzas · ababbcbC",
+          "Optional four-line envoi"
         ]
       },
-      "Optional envoi"
+      {
+        "label": "Ten-line construction",
+        "children": [
+          "Six stanzas · ababbccdcD",
+          "Optional five-line envoi"
+        ]
+      }
     ],
     "mode": "Rule",
     "related": [
-      "Ballade"
+      "Ballade",
+      "Octave / huitain",
+      "Dizain",
+      "Quatrain",
+      "Quintain"
     ]
   },
   "Ballade à double refrain": {
@@ -1135,7 +1181,9 @@
     ],
     "mode": "Example",
     "related": [
-      "Ballade"
+      "Ballade",
+      "Octave / huitain",
+      "Quatrain"
     ]
   },
   "Chant royal": {
@@ -1214,7 +1262,8 @@
     ],
     "mode": "Pattern",
     "related": [
-      "Virelai"
+      "Virelai",
+      "Couplet"
     ]
   },
   "Lai": {
@@ -1249,7 +1298,10 @@
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": [
+      "Tercet"
+    ]
   },
   "Kyrielle": {
     "tree": [
@@ -1302,23 +1354,32 @@
   "Canzone": {
     "tree": [
       {
-        "label": "Five 12-line stanzas · recurring end-words",
+        "label": "General catalog form",
         "children": [
-          "Stanza 1",
-          "Stanza 2",
-          "Stanza 3",
-          "Stanza 4",
-          "Stanza 5"
+          "Five to seven matching stanzas",
+          "Short envoi"
         ]
       },
       {
-        "label": "Envoi",
+        "label": "65-line construction",
         "children": [
-          "Five lines"
+          "Five 12-line stanzas with recurring end-words",
+          "Five-line envoi"
+        ]
+      },
+      {
+        "label": "66-line historical construction",
+        "children": [
+          "Five 12-line stanzas with recurring end-words",
+          "Six-line envoi"
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Rule",
+    "related": [
+      "Quintain",
+      "Sestet / sixain"
+    ]
   },
   "Ballata": {
     "tree": [
@@ -1346,7 +1407,11 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Example",
+    "related": [
+      "Tercet",
+      "Couplet"
+    ]
   },
   "Glosa": {
     "tree": [
@@ -1411,7 +1476,8 @@
     ],
     "mode": "Pattern",
     "related": [
-      "Quatrain"
+      "Quatrain",
+      "Couplet"
     ]
   },
   "Pantoum": {
@@ -1437,7 +1503,8 @@
     ],
     "mode": "Rule",
     "related": [
-      "Quatrain"
+      "Quatrain",
+      "Pantun"
     ]
   },
   "Pantun": {
@@ -1464,7 +1531,8 @@
     ],
     "mode": "Example",
     "related": [
-      "Quatrain"
+      "Quatrain",
+      "Couplet"
     ]
   },
   "Ghazal": {
@@ -1491,7 +1559,10 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Couplet"
+    ]
   },
   "Qasida": {
     "tree": [
@@ -1548,6 +1619,9 @@
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Rule",
+    "related": [
+      "Quintain"
+    ]
   }
 }

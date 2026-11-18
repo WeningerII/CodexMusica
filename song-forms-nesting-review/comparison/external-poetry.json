@@ -19,7 +19,8 @@
     ],
     "coverage_limit": "198 index occurrences before cross-index deduplication; neither page is a census of English song and verse forms. Individual linked entries served as evidence rather than a recursively expanded discovery index.",
     "matching": "Checked normalized and original names, aliases, catalog definitions and source-described differences. Nearest examples are comparisons only; a comparison does not assert historical descent or equivalence.",
-    "classification": "Distinct organization and distinct constraint are operational gaps. Rhetorical organization is separately recorded. Subject/occasion genres and existing umbrellas do not supply a unique diagram. English adoption unverified means a source documents the originating-language form but the checked evidence has not established an English-original adaptation."
+    "classification": "Two independent questions govern the comparison: whether an identifiable English genre or practice has a catalog identity, and whether the evidence supplies an enforceable structural rule. An absent genre may be a catalog-coverage gap even when it supplies no fixed stanza or meter. In the two bounded indexes, List Poem and Verbless Poetry are missing in specific organizational or constraint senses; two is not a total for missing genres, rhetorical forms, or traditions. Related examples in existing rows do not count as equivalence.",
+    "english_use_rule": "An original English work, a translation independently issued or presented as a work of poetry in English, or an authorized English performance or liturgical text attests use in English. An isolated English gloss or an explanation of a foreign-language form does not suffice. English reading use, actual English-language performance, English-original composition, and fidelity to a source-language metrical rule are independent claims; only the documented claim travels with an item."
   },
   "comparison_items": {
     "Verbless Poetry": {
@@ -51,7 +52,7 @@
       "catalog_distinction": "List song ties its catalogue to a recurring sung title or refrain. Neither a refrain nor a melody is inherent to catalog verse."
     },
     "Blazon": {
-      "classification": "rhetorical organization",
+      "classification": "rhetorical catalog gap",
       "sources": [
         {
           "title": "Academy of American Poets · Blazon",
@@ -66,10 +67,12 @@
       "attestation": "The Academy cites an English passage in Spenser’s Epithalamium. A blazon can occupy part of a larger work.",
       "nearest_catalog_title": "List song",
       "nearest_catalog_line": 55,
-      "catalog_distinction": "The subject-specific enumeration goes beyond generic listing; the evidence does not require musical sections, a fixed body-part order or a sonnet."
+      "catalog_distinction": "The subject-specific enumeration goes beyond generic listing; the evidence does not require musical sections, a fixed body-part order or a sonnet.",
+      "catalog_identity": "No dedicated form row in the reviewed catalog",
+      "structural_scope": "feature-by-feature descriptive inventory; no fixed stanza, meter or one complete diagram established"
     },
     "Aubade": {
-      "classification": "genre or occasion",
+      "classification": "genre catalog gap",
       "sources": [
         {
           "title": "Academy of American Poets · Aubade",
@@ -84,7 +87,9 @@
       "attestation": "The Academy cites Donne’s The Sun Rising as an English example that resists the expected parting.",
       "nearest_catalog_title": "Elegy",
       "nearest_catalog_line": 372,
-      "catalog_distinction": "Elegy can express loss but does not supply the dawn address. The tradition does not dictate stanza count or require a separation."
+      "catalog_distinction": "Elegy can express loss but does not supply the dawn address. The tradition does not dictate stanza count or require a separation.",
+      "catalog_identity": "No dedicated form row in the reviewed catalog",
+      "structural_scope": "dawn lyric; occasion or address; no fixed stanza, meter or one complete diagram established"
     },
     "Ars Poetica": {
       "classification": "genre or occasion",
@@ -133,7 +138,7 @@
       "catalog_distinction": "A zuihitsu can include fragments but does not subsume deliberate fragment poetry. Accidental textual loss is a different use of the word."
     },
     "Fable": {
-      "classification": "genre or occasion",
+      "classification": "genre catalog gap",
       "sources": [
         {
           "title": "Academy of American Poets · Fable",
@@ -148,49 +153,70 @@
       "attestation": "The Academy names Emerson’s Fable and Bodenheim’s Rattlesnake Mountain Fable II.",
       "nearest_catalog_title": "Cante fable",
       "nearest_catalog_line": 104,
-      "catalog_distinction": "Cante fable mixes spoken prose and sung insertions; an English verse fable can consist entirely of verse."
+      "catalog_distinction": "Cante fable mixes spoken prose and sung insertions; an English verse fable can consist entirely of verse.",
+      "catalog_identity": "No dedicated form row in the reviewed catalog",
+      "structural_scope": "verse narrative carrying a lesson; no fixed stanza, meter or one complete diagram established"
     },
     "Doha": {
-      "classification": "English adoption unverified",
+      "classification": "English-translated verse; meter unresolved",
       "sources": [
         {
           "title": "Academy of American Poets · Doha",
           "url": "https://poets.org/glossary/doha"
+        },
+        {
+          "title": "Collection of translated metrical couplets · publisher announcement",
+          "url": "https://www.mediainfoline.com/print/westland-books-presents-abundant-sense-by-chandan-sinha"
+        },
+        {
+          "title": "Published book review · independent description of the English translations",
+          "url": "https://www.tribuneindia.com/news/chandan-sinhas-abundant-sense-rahim-selected-dohas-is-a-window-into-rahims-world-and-his-every-words-worth/"
         }
       ],
       "definition": "A self-contained South Asian couplet with asymmetrically divided lines.",
-      "attestation": "The Academy supplies South Asian examples by Kabir, Nanak and Tulsidas. An original English implementation was not established in this pass.",
+      "attestation": "A published volume presents more than half of a historical corpus in English couplets. Its translator uses meter and rhyme. The evidence does not establish that the English lines systematically preserve the original quantitative subdivisions.",
       "nearest_catalog_title": "Couplet",
       "nearest_catalog_line": 297,
-      "catalog_distinction": "A generic couplet does not encode the divisions. The summary and detailed wording differ about where the count applies; verify the traditional weight unit and English convention before encoding."
+      "catalog_distinction": "A generic couplet does not encode the divisions. The summary and detailed wording differ about where the count applies; verify the traditional weight unit and English convention before encoding.",
+      "english_use": "Published or presented for reading as poetry in English translation; English-original composition and performance in English were not established by these sources."
     },
     "Oríkì": {
-      "classification": "English adoption unverified",
+      "classification": "English-translated praise tradition",
       "sources": [
         {
           "title": "Academy of American Poets · Oríkì",
           "url": "https://poets.org/glossary/oriki"
+        },
+        {
+          "title": "Published English translation of a recorded oríkì · African Poems",
+          "url": "https://africanpoems.net/gods-ancestors/in-praise-of-shango/"
         }
       ],
       "definition": "Yorùbá oral praise poetry strings together identifying praise names or epithets.",
-      "attestation": "The Academy gives an English rendering of a traditional oríkì. The index entry does not establish a particular English-original formal convention.",
+      "attestation": "A poetry edition identifies the recorded Yorùbá praises, publishes a complete English translation as a poem, and describes the original sung practice. The translation attests use as English reading text; the recording does not attest an English performance.",
       "nearest_catalog_title": "Canticle",
       "nearest_catalog_line": 174,
-      "catalog_distinction": "The catalog’s canticle is a sacred text; it cannot substitute for this distinct, culturally situated tradition of naming."
+      "catalog_distinction": "The catalog’s canticle is a sacred text; it cannot substitute for this distinct, culturally situated tradition of naming.",
+      "english_use": "Published or presented for reading as poetry in English translation; English-original composition and performance in English were not established by these sources."
     },
     "Bhakti Poetry": {
-      "classification": "English adoption unverified",
+      "classification": "English-translated devotional tradition",
       "sources": [
         {
           "title": "Academy of American Poets · Bhakti Poetry",
           "url": "https://poets.org/glossary/bhakti-poetry"
+        },
+        {
+          "title": "Translated Hindi devotional lyrics · Murty Classical Library",
+          "url": "https://www.murtylibrary.com/books/surs-ocean-classic-hindi-poetry-in-translation"
         }
       ],
       "definition": "A family of South Asian devotional traditions, with diverse languages and practices.",
-      "attestation": "The Academy traces vernacular Indian traditions and singers. An original English-language structural subtype was not established here.",
+      "attestation": "A scholarly edition presents English translations of devotional lyrics as poetry, with a sample of the translated text. This establishes reading use for part of the tradition. A single shared English metrical form is not established.",
       "nearest_catalog_title": "Metrical hymn",
       "nearest_catalog_line": 156,
-      "catalog_distinction": "A metrical hymn has its own stanza and tune conventions. Shared devotion cannot establish a shared form."
+      "catalog_distinction": "A metrical hymn has its own stanza and tune conventions. Shared devotion cannot establish a shared form.",
+      "english_use": "Published or presented for reading as poetry in English translation; English-original composition and performance in English were not established by these sources."
     },
     "Nocturne": {
       "classification": "genre or occasion",
@@ -295,21 +321,21 @@
       "catalog_distinction": "Row 143 describes the English sung setting. The added historical text pattern must not be imposed on every English madrigal."
     },
     "Blues Poem": {
-      "classification": "existing structure under another name",
+      "classification": "related stanza use",
       "sources": [
         {
           "title": "Academy of American Poets · Blues Poem",
-          "url": "https://poets.org/glossary"
+          "url": "https://poets.org/glossary/blues-poem"
         }
       ],
-      "definition": "Verse using blues idiom and, in one common practice, an AAB stanza.",
-      "attestation": "The catalog itself names Hughes and Sterling Brown in its 12-bar blues row.",
+      "definition": "Blues poetry draws on an oral and musical tradition. One common stanza states a line, varies or repeats it, then answers it.",
+      "attestation": "The linked glossary explicitly says that the three-line pattern is optional in blues poetry.",
       "nearest_catalog_title": "12-bar blues",
       "nearest_catalog_line": 35,
-      "catalog_distinction": "Index as a search name or umbrella first. AAB as poetry is already explicit; avoid treating every blues poem as twelve bars."
+      "catalog_distinction": "An AAB lyric stanza can coincide with the twelve-bar musical cycle in row 35. A written poem establishes no bar count, and blues poems can take other stanza shapes. Stanza labels may lead to row 35 as related search terms without asserting equivalence."
     },
     "Epithalamion": {
-      "classification": "genre or occasion",
+      "classification": "genre catalog gap",
       "sources": [
         {
           "title": "Poetry at Harvard · Epithalamion",
@@ -324,10 +350,12 @@
       "attestation": "Harvard lists the genre. The Academy’s Blazon entry quotes Spenser’s English Epithalamium.",
       "nearest_catalog_title": "Greeting-card verse",
       "nearest_catalog_line": 375,
-      "catalog_distinction": "A wedding song has a specific occasion with no requirement for a greeting card’s rhyme or quatrain count."
+      "catalog_distinction": "A wedding song has a specific occasion with no requirement for a greeting card’s rhyme or quatrain count.",
+      "catalog_identity": "No dedicated form row in the reviewed catalog",
+      "structural_scope": "wedding lyric; occasion; no fixed stanza, meter or one complete diagram established"
     },
     "Palinode": {
-      "classification": "rhetorical organization",
+      "classification": "rhetorical catalog gap",
       "sources": [
         {
           "title": "Poetry at Harvard · Palinode",
@@ -342,7 +370,9 @@
       "attestation": "Harvard defines the term. The Poetry Foundation publishes Sasha Steensen’s English poem Palinode.",
       "nearest_catalog_title": "Verse epistle",
       "nearest_catalog_line": 376,
-      "catalog_distinction": "A letter can recant, but a palinode can take other shapes. Its relation to the earlier statement is constitutive."
+      "catalog_distinction": "A letter can recant, but a palinode can take other shapes. Its relation to the earlier statement is constitutive.",
+      "catalog_identity": "No dedicated form row in the reviewed catalog",
+      "structural_scope": "recantation or revision of an earlier statement; no fixed stanza, meter or one complete diagram established"
     },
     "Georgic": {
       "classification": "genre or occasion",
@@ -440,7 +470,7 @@
       "attestation": "Harvard lists parody as a genre.",
       "nearest_catalog_title": "Contrafactum",
       "nearest_catalog_line": 54,
-      "catalog_distinction": "Contrafactum already includes parody lyric as an alias for fitting fresh words to an old tune. Broader literary parody need not reuse a tune."
+      "catalog_distinction": "A contrafactum fits a new text to existing music; comic imitation can operate on diction, style or other features without reusing a tune. Their overlap depends on the work. The reviewed aliases do not equate them."
     },
     "Satire": {
       "classification": "genre or occasion",
@@ -486,7 +516,7 @@
       "attestation": "Both glossaries identify an extended pastoral tradition.",
       "nearest_catalog_title": "Eclogue",
       "nearest_catalog_line": 378,
-      "catalog_distinction": "Eclogue and pastoral elegy are represented. A pastoral umbrella would organize multiple existing and possible forms."
+      "catalog_distinction": "The Eclogue row describes a pastoral dialogue. No reviewed alias independently establishes a pastoral-elegy row, and a pastoral poem need not be a dialogue or an elegy."
     },
     "Allegory": {
       "classification": "genre or occasion",
@@ -671,7 +701,7 @@
       },
       {
         "term": "Aubade",
-        "disposition": "genre or occasion",
+        "disposition": "genre catalog gap",
         "detail": "Aubade"
       },
       {
@@ -690,7 +720,7 @@
       },
       {
         "term": "Bhakti Poetry",
-        "disposition": "English adoption unverified",
+        "disposition": "English-translated devotional tradition",
         "detail": "Bhakti Poetry"
       },
       {
@@ -704,12 +734,12 @@
       },
       {
         "term": "Blazon",
-        "disposition": "rhetorical organization",
+        "disposition": "rhetorical catalog gap",
         "detail": "Blazon"
       },
       {
         "term": "Blues Poem",
-        "disposition": "existing structure under another name",
+        "disposition": "related stanza use",
         "detail": "Blues Poem"
       },
       {
@@ -795,7 +825,7 @@
       },
       {
         "term": "Doha",
-        "disposition": "English adoption unverified",
+        "disposition": "English-translated verse; meter unresolved",
         "detail": "Doha"
       },
       {
@@ -865,7 +895,7 @@
       },
       {
         "term": "Fable",
-        "disposition": "genre or occasion",
+        "disposition": "genre catalog gap",
         "detail": "Fable"
       },
       {
@@ -1081,7 +1111,7 @@
       },
       {
         "term": "Oríkì",
-        "disposition": "English adoption unverified",
+        "disposition": "English-translated praise tradition",
         "detail": "Oríkì"
       },
       {
@@ -1361,7 +1391,7 @@
       },
       {
         "term": "Aubade",
-        "disposition": "genre or occasion",
+        "disposition": "genre catalog gap",
         "detail": "Aubade"
       },
       {
@@ -1371,7 +1401,7 @@
       },
       {
         "term": "Blason",
-        "disposition": "rhetorical organization",
+        "disposition": "rhetorical catalog gap",
         "detail": "Blazon"
       },
       {
@@ -1421,12 +1451,12 @@
       },
       {
         "term": "Epithalamion",
-        "disposition": "genre or occasion",
+        "disposition": "genre catalog gap",
         "detail": "Epithalamion"
       },
       {
         "term": "Fable",
-        "disposition": "genre or occasion",
+        "disposition": "genre catalog gap",
         "detail": "Fable"
       },
       {
@@ -1481,7 +1511,7 @@
       },
       {
         "term": "Palinode",
-        "disposition": "rhetorical organization",
+        "disposition": "rhetorical catalog gap",
         "detail": "Palinode"
       },
       {

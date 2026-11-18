@@ -183,8 +183,10 @@
   },
   "Skipping / clapping rhyme": {
     "aliases": "–",
-    "reason": "Catalog line 130. Jump-rope rhyme describes the skipping subtype. The catalog combines rope and clapping games under one heading.",
-    "refs": []
+    "reason": "Jump-rope rhyme identifies the skipping subtype. Clapping rhymes can accompany a different game.",
+    "refs": [
+      "https://blogs.loc.gov/folklife/2020/06/kids-explain-their-rhymes-games-and-songs/"
+    ]
   },
   "Singing game": {
     "aliases": "–",
@@ -282,10 +284,10 @@
     ]
   },
   "Renga / renku": {
-    "aliases": "–",
-    "reason": "Catalog line 248. Haikai no renga qualifies one development of linked verse; kasen specifies a 36-verse layout. Neither is interchangeable with the bundled heading.",
+    "aliases": "haikai no renga",
+    "reason": "This traditional name corresponds to the renku side of the heading. Haikai has broader senses, and kasen is a particular layout. Both remain available as search terms.",
     "refs": [
-      "https://sites.google.com/site/worldhaikureview2/whr-archives/renku"
+      "https://hsa-haiku.org/hsa-definitions-2004.html"
     ]
   },
   "Englyn": {
@@ -390,9 +392,11 @@
     ]
   },
   "Elegy": {
-    "aliases": "lament",
-    "reason": "Catalog line 372. Pastoral elegy qualifies one elegiac tradition rather than naming all elegies.",
-    "refs": []
+    "aliases": "–",
+    "reason": "Mourning is a shared subject. The traditional first stage and a narrower pastoral kind do not name the whole category.",
+    "refs": [
+      "https://poets.org/glossary/elegy"
+    ]
   },
   "Eclogue": {
     "aliases": "–",
@@ -424,6 +428,105 @@
   "Exquisite corpse": {
     "aliases": "–",
     "reason": "Catalog line 410. Collaborative verse names a broad process shared with rengay and other entries. Exquisite corpse also limits how much prior text each contributor sees.",
+    "refs": []
+  },
+  "Triadic line": {
+    "aliases": "step-down line",
+    "reason": "Stepping is visible layout. A variable foot is a proposed unit of measure and needs independent evidence.",
+    "refs": [
+      "https://www.poetryfoundation.org/education/glossary/triadic-stepped-line"
+    ]
+  },
+  "Ternary": {
+    "aliases": "ABA",
+    "reason": "Catalog line 46. Da capo song is an applicable return pattern in some ternary songs; da capo itself is a repeat instruction and does not cover every ternary form. Index the narrower connection as a search association.",
+    "refs": [
+      "https://viva.pressbooks.pub/openmusictheory/chapter/ternary-form/"
+    ]
+  },
+  "Quodlibet": {
+    "aliases": "–",
+    "reason": "Catalog line 53. Partner song describes the pedagogical setting in which independent melodies combine. The overlap with quodlibet does not establish the two terms as equivalent across all repertoires. Index the association separately.",
+    "refs": [
+      "https://www.thenational.academy/teachers/lessons/partner-songs-as-a-singing-structure",
+      "https://en.wikisource.org/wiki/A_Dictionary_of_Music_and_Musicians/Quodlibet"
+    ]
+  },
+  "Barbershop tag": {
+    "aliases": "–",
+    "reason": "Catalog line 73. The bare name tag has a barbershop sense and a broader ending sense. Offer search in context while keeping generic section tags distinct from the standalone barbershop excerpt.",
+    "refs": [
+      "https://www.barbershop.org/music/about-our-music"
+    ]
+  },
+  "Call-and-response": {
+    "aliases": "leader-and-chorus",
+    "reason": "A leader and answering group define this catalog entry. Alternation between two choirs can also be antiphonal and has a different distribution of voices.",
+    "refs": [
+      "https://origin.ewtn.com/catholicism/library/general-instruction-on-the-liturgy-of-the-hours-28969",
+      "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
+    ]
+  },
+  "Nursery rhyme": {
+    "aliases": "–",
+    "reason": "A regional nursery-rhyme name contains a named figure. Keep the display and general search independent of named examples.",
+    "refs": []
+  },
+  "Lined-out hymn": {
+    "aliases": "–",
+    "reason": "Lining out names a technique that can be used to sing a hymn. Search can find the hymn through that technique. The catalog also gives an eponym for a narrower repertoire.",
+    "refs": [
+      "https://www.ucpress.edu/books/lining-out-the-word/hardcover"
+    ]
+  },
+  "Ring shout": {
+    "aliases": "–",
+    "reason": "Shout can name this practice in its tradition. Bare shout also describes a vocal action, so the search term carries the ring-shout performance context.",
+    "refs": [
+      "https://wwws.loc.gov/rr/perform/concert/1011-folklife.html"
+    ]
+  },
+  "Rondeau prime": {
+    "aliases": "–",
+    "reason": "The two titles overlap in the 7 + 5 pattern, but divergent recorded constructions make a general alias unproven.",
+    "refs": [
+      "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_",
+      "https://www.writersdigest.com/write-better-poetry/rondine-poetic-form"
+    ]
+  },
+  "Rondine": {
+    "aliases": "–",
+    "reason": "The two titles overlap in the 7 + 5 pattern, but divergent recorded constructions make a general alias unproven.",
+    "refs": [
+      "https://www.academia.edu/42546156/Canonic_Virelai_upon_a_Harp_La_Harpe_de_Mellodie_Jacob_Senleches_fl_c_1382_1395_Source_Newberry_Library_Chicago_US_Cn_MS_54_1_f_10r_and_Mus%C3%A9e_Cond%C3%A9_Chantilly_F_CH_MS_564_Chantilly_Codex_f_43v_",
+      "https://www.writersdigest.com/write-better-poetry/rondine-poetic-form"
+    ]
+  },
+  "Stornello": {
+    "aliases": "ritornello in Lazio folk song",
+    "reason": "This regional term for the whole song also has independent musical uses for a recurring section. The regional qualifier identifies the intended meaning.",
+    "refs": [
+      "https://www.treccani.it/enciclopedia/canto_%28Enciclopedia-Italiana%29/"
+    ]
+  },
+  "Ruthless rhyme": {
+    "aliases": "–",
+    "reason": "The inventory’s recurring character is an example. A macabre subject alone is insufficient to establish another name as a synonym for the entire body of verse.",
+    "refs": [
+      "https://www.gutenberg.org/ebooks/35051"
+    ]
+  },
+  "Sicilian octave": {
+    "aliases": "strambotto siciliano",
+    "reason": "The regional name identifies the alternating eight-line pattern. The umbrella term strambotto also covers regional forms with other rhyme schemes.",
+    "refs": [
+      "https://www.treccani.it/enciclopedia/ottava_%28Enciclopedia-Italiana%29/",
+      "https://www.treccani.it/enciclopedia/rispetto_%28Enciclopedia-Italiana%29/"
+    ]
+  },
+  "Heroic quatrain": {
+    "aliases": "elegiac stanza",
+    "reason": "The second source alias is an unverified eponym; the surviving alternate name identifies the four-line stanza in this context.",
     "refs": []
   }
 }

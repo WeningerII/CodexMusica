@@ -7,7 +7,15 @@
         "target": "Ballad stanza",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The row explicitly puts successive ballad-stanza quatrains inside its narrative example."
+        "evidence": "The row explicitly puts successive ballad-stanza quatrains inside its narrative example.",
+        "refs": []
+      },
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "In the illustrated version the narrative is carried by successive four-line units.",
+        "refs": []
       }
     ],
     "refs": [
@@ -16,60 +24,125 @@
     ]
   },
   "Long-measure ballad": {
-    "status": "partial",
-    "note": "The row offers either a four-stress AABB quatrain or two fourteen-syllable lines. They are alternative stanza designs.",
+    "status": "contested",
+    "note": "Four four-stress lines fit long metre when iambic. The catalog also lists paired fourteen-syllable lines. Split 8 + 6, these give common-measure rhythm; the diagram omits that conflicting alternative.",
     "edges": [
       {
         "target": "Fourteener",
         "kind": "contains",
-        "status": "supported",
-        "evidence": "The second listed alternative uses a pair of fourteen-syllable lines."
+        "status": "rejected",
+        "evidence": "A fourteener can break into four and three beats. That alternative belongs to a different metrical reading of the ballad, so it is excluded from the long-measure diagram.",
+        "refs": [
+          "https://rpo.library.utoronto.ca/glossary/common-measure"
+        ]
       },
       {
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The first alternative is a four-stress AABB quatrain."
+        "evidence": "The illustrated ballad stanza contains four four-stress lines. AABB is the catalog’s rhyme example; long metre alone does not determine rhyme.",
+        "refs": []
+      },
+      {
+        "target": "Long metre (LM)",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Four lines in tetrameter match the long-metre profile when the feet are iambic. The source does not require every four-stress ballad line to be iambic.",
+        "refs": [
+          "https://rpo.library.utoronto.ca/glossary/common-measure",
+          "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html"
+        ]
+      },
+      {
+        "target": "Common metre (CM)",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "A fourteen-syllable iambic line divided after eight syllables gives the four-and-three-stress profile of common metre, unlike the four equal lines shown.",
+        "refs": [
+          "https://rpo.library.utoronto.ca/glossary/common-measure"
+        ]
+      },
+      {
+        "target": "Ballad stanza",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "Splitting each of the catalog’s long-line pair into four and three stresses yields the ballad-metre profile. No specific inner rhyme in the long lines is implied.",
+        "refs": [
+          "https://rpo.library.utoronto.ca/glossary/common-measure"
+        ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://rpo.library.utoronto.ca/glossary/common-measure",
+      "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html"
+    ],
+    "attested_refs": [
+      "https://rpo.library.utoronto.ca/glossary/common-measure",
+      "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html"
+    ]
   },
   "Ballad with internal refrain": {
     "status": "supported",
-    "note": "The burden is a fixed line interleaved with changing story lines, inside the stanza rather than a separate chorus. Child’s ballad provides a textual witness.",
+    "note": "A fixed refrain line recurs inside each stanza, interleaved with changing narrative or dialogue lines.",
     "edges": [
       {
         "target": "Traditional ballad",
         "kind": "variant",
         "status": "supported",
-        "evidence": "The interleaved burden is a documented ballad variant. Child’s Riddles Wisely Expounded presents repeated intercalary lines within narrative or dialogue stanzas."
+        "evidence": "The collected text places repeated lines inside changing narrative or dialogue stanzas.",
+        "refs": [
+          "https://sacred-texts.com/neu/eng/child/ch001.htm"
+        ]
       }
     ],
     "refs": [
+      "https://sacred-texts.com/neu/eng/child/ch001.htm"
+    ],
+    "attested_refs": [
       "https://sacred-texts.com/neu/eng/child/ch001.htm"
     ]
   },
   "Incremental-repetition ballad": {
     "status": "partial",
-    "note": "The stanza frame recurs with variable words. Lord Rendal witnesses differ in how much changes, including the ending; question and answer and a bequest list are examples.",
+    "note": "Variants preserve a recurring verbal frame while changing phrases. A question-and-answer exchange can culminate in a final revelation; exact wording and ending vary.",
     "edges": [
       {
         "target": "Traditional ballad",
         "kind": "variant",
         "status": "supported",
-        "evidence": "The row explicitly names Lord Randal; Child 12 preserves variants of that ballad with recurrent verbal frames and changing details."
+        "evidence": "The collected variants repeat a verbal frame across exchanges while substituting details.",
+        "refs": [
+          "https://original.sacred-texts.com/neu/eng/child/ch012.htm"
+        ]
       }
     ],
     "refs": [
+      "https://original.sacred-texts.com/neu/eng/child/ch012.htm"
+    ],
+    "attested_refs": [
       "https://original.sacred-texts.com/neu/eng/child/ch012.htm"
     ]
   },
   "Broadside ballad": {
     "status": "contested",
     "note": "The printed sheet is the means of circulation. The catalog sketches an address, topical narrative and moral on a known air; the Library of Congress documents that singers could supply or change the tune.",
-    "edges": [],
+    "edges": [
+      {
+        "target": "Contrafactum",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Setting new ballad words to a named existing melody uses the same tune-reuse procedure. Printed broadsides also used other practices.",
+        "refs": [
+          "https://ebba.english.ucsb.edu/page/recording-the-ballads"
+        ]
+      }
+    ],
     "refs": [
-      "https://www.loc.gov/collections/songs-of-america/articles-and-essays/musical-styles/traditional/traditional-ballads/"
+      "https://www.loc.gov/collections/songs-of-america/articles-and-essays/musical-styles/traditional/traditional-ballads/",
+      "https://ebba.english.ucsb.edu/page/recording-the-ballads"
+    ],
+    "attested_refs": [
+      "https://ebba.english.ucsb.edu/page/recording-the-ballads"
     ]
   },
   "Come-all-ye": {
@@ -98,13 +171,15 @@
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "A rhymed couplet is one of the allowed vehicles for a half-spoken verse."
+        "evidence": "A rhymed couplet is one of the allowed vehicles for a half-spoken verse.",
+        "refs": []
       },
       {
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "A quatrain is the four-line alternative in the same row."
+        "evidence": "A quatrain is the four-line alternative in the same row.",
+        "refs": []
       }
     ],
     "refs": []
@@ -117,7 +192,8 @@
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "An optional two-line nonsense addition follows the AABB stanza."
+        "evidence": "An optional two-line nonsense addition follows the AABB stanza.",
+        "refs": []
       }
     ],
     "refs": []
@@ -170,23 +246,39 @@
   },
   "Call-and-response": {
     "status": "supported",
-    "note": "Leader and group take successive turns. The reply can be fixed or change; the unit can recur indefinitely.",
+    "note": "A leader’s line cues a group reply. In liturgical use this is responsorial; alternating choir groups exemplify antiphonal singing.",
     "edges": [],
-    "refs": []
+    "refs": [
+      "https://origin.ewtn.com/catholicism/library/general-instruction-on-the-liturgy-of-the-hours-28969",
+      "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
+    ],
+    "attested_refs": [
+      "https://origin.ewtn.com/catholicism/library/general-instruction-on-the-liturgy-of-the-hours-28969",
+      "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
+    ]
   },
   "Halyard shanty": {
     "status": "partial",
-    "note": "The example groups two solo–crew exchanges and allows a separate chorus between verses. A halyard task identifies the song’s work function rather than enforcing one refrain length.",
+    "note": "A leader and crew alternate while hauling. The cited performance account describes two exchanges. The catalog’s separate inter-verse chorus and its frequency remain unverified for this pattern.",
     "edges": [
       {
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The shantyman’s line is answered by the crew in the halyard example."
+        "evidence": "The shantyman’s line is answered by the crew in the halyard example.",
+        "refs": [
+          "https://blogs.loc.gov/folklife/2021/01/a-deep-dive-into-sea-shanties/",
+          "https://traditionalshanties.com/halyard-shanty/"
+        ]
       }
     ],
     "refs": [
-      "https://blogs.loc.gov/folklife/2021/01/a-deep-dive-into-sea-shanties/"
+      "https://blogs.loc.gov/folklife/2021/01/a-deep-dive-into-sea-shanties/",
+      "https://traditionalshanties.com/halyard-shanty/"
+    ],
+    "attested_refs": [
+      "https://blogs.loc.gov/folklife/2021/01/a-deep-dive-into-sea-shanties/",
+      "https://traditionalshanties.com/halyard-shanty/"
     ]
   },
   "Short-drag shanty": {
@@ -197,7 +289,8 @@
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "A short crew reply answers one lead line and carries the pull cue."
+        "evidence": "A short crew reply answers one lead line and carries the pull cue.",
+        "refs": []
       }
     ],
     "refs": [
@@ -212,7 +305,15 @@
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The alternating solo and crew lines within the verse exhibit this vocal procedure."
+        "evidence": "The alternating solo and crew lines within the verse exhibit this vocal procedure.",
+        "refs": []
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "In the catalog’s verse example, each solo line and answering crew line form an intentional two-line unit. The larger chorus follows the verse.",
+        "refs": []
       }
     ],
     "refs": [
@@ -227,7 +328,8 @@
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The walkaway description specifies a continuous succession of solo and group responses."
+        "evidence": "The walkaway description specifies a continuous succession of solo and group responses.",
+        "refs": []
       }
     ],
     "refs": [
@@ -242,13 +344,15 @@
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "A chorus follows the lead singer’s couplets in the catalogued pumping example."
+        "evidence": "A chorus follows the lead singer’s couplets in the catalogued pumping example.",
+        "refs": []
       },
       {
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The row specifies that the chorus follows every solo couplet in this version."
+        "evidence": "The row specifies that the chorus follows every solo couplet in this version.",
+        "refs": []
       }
     ],
     "refs": [
@@ -263,7 +367,8 @@
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The responding workers time their fixed answer to the hammer stroke."
+        "evidence": "The responding workers time their fixed answer to the hammer stroke.",
+        "refs": []
       }
     ],
     "refs": []
@@ -284,7 +389,8 @@
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The waulking group answers its leader with vocables in each cycle."
+        "evidence": "The waulking group answers its leader with vocables in each cycle.",
+        "refs": []
       }
     ],
     "refs": []
@@ -297,7 +403,8 @@
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The marching group repeats or answers the leader’s line in step."
+        "evidence": "The marching group repeats or answers the leader’s line in step.",
+        "refs": []
       }
     ],
     "refs": []
@@ -310,7 +417,8 @@
         "target": "Call-and-response",
         "kind": "variant",
         "status": "supported",
-        "evidence": "The reply is the leader’s exact wording, a specific response rule."
+        "evidence": "The reply is the leader’s exact wording, a specific response rule.",
+        "refs": []
       }
     ],
     "refs": []
@@ -335,7 +443,8 @@
         "target": "Cumulative song",
         "kind": "variant",
         "status": "supported",
-        "evidence": "The row explicitly describes a cumulative number song that recalls earlier numbers, rather than every song used to teach counting."
+        "evidence": "The row explicitly describes a cumulative number song that recalls earlier numbers, rather than every song used to teach counting.",
+        "refs": []
       }
     ],
     "refs": []
@@ -366,7 +475,8 @@
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The short verses of the catalog’s lullaby example are explicitly quatrains."
+        "evidence": "The short verses of the catalog’s lullaby example are explicitly quatrains.",
+        "refs": []
       }
     ],
     "refs": []
@@ -379,7 +489,8 @@
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The row calls the four-line stanza usual while giving a wider two- to eight-line range."
+        "evidence": "The row calls the four-line stanza usual while giving a wider two- to eight-line range.",
+        "refs": []
       }
     ],
     "refs": []
@@ -398,16 +509,23 @@
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Strict-beat couplets are one of the alternatives before the tail."
+        "evidence": "Strict-beat couplets are one of the alternatives before the tail.",
+        "refs": []
       },
       {
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Four-line verses are the other stated alternative before the tail."
+        "evidence": "Four-line verses are the other stated alternative before the tail.",
+        "refs": []
       }
     ],
-    "refs": []
+    "refs": [
+      "https://blogs.loc.gov/folklife/2020/06/kids-explain-their-rhymes-games-and-songs/"
+    ],
+    "attested_refs": [
+      "https://blogs.loc.gov/folklife/2020/06/kids-explain-their-rhymes-games-and-songs/"
+    ]
   },
   "Singing game": {
     "status": "partial",
@@ -440,17 +558,23 @@
     "refs": []
   },
   "Dozens": {
-    "status": "supported",
-    "note": "Two players exchange escalating insults as rhyming couplets. The first and answering couplets are successive turns.",
+    "status": "partial",
+    "note": "Players trade ritual insults. Rhymed line pairs occur in the catalog’s verse example. Recorded practice also uses unrhymed speech.",
     "edges": [
       {
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Each answering player contributes a rhymed couplet in this example."
+        "evidence": "A rhymed line pair is one possible unit in the catalog’s verse example; the broader exchange does not prescribe paired lines.",
+        "refs": []
       }
     ],
-    "refs": []
+    "refs": [
+      "https://scholarworks.iu.edu/journals/index.php/cfr/article/view/25057"
+    ],
+    "attested_refs": [
+      "https://scholarworks.iu.edu/journals/index.php/cfr/article/view/25057"
+    ]
   },
   "Toast (oral narrative)": {
     "status": "partial",
@@ -460,7 +584,8 @@
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The recited narrative is explicitly written in four-beat rhymed line pairs."
+        "evidence": "The recited narrative is explicitly written in four-beat rhymed line pairs.",
+        "refs": []
       }
     ],
     "refs": []
@@ -475,10 +600,25 @@
     ]
   },
   "Square-dance patter call": {
-    "status": "supported",
-    "note": "The caller chants changing dance instructions over the music. Continuous patter carries no fixed sectional sequence in this entry.",
-    "edges": [],
-    "refs": []
+    "status": "partial",
+    "note": "The caller fits instructions to the beat. Traditional patter can use rhyming couplets and extra words; rhyme is a technique rather than a requirement for every call.",
+    "edges": [
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "A traditional realization fits a rhyming pair into the rhythmic call. This is optional for the wider practice.",
+        "refs": [
+          "https://www.squaredancehistory.org/items/show/733"
+        ]
+      }
+    ],
+    "refs": [
+      "https://www.squaredancehistory.org/items/show/733"
+    ],
+    "attested_refs": [
+      "https://www.squaredancehistory.org/items/show/733"
+    ]
   },
   "Round": {
     "status": "supported",
@@ -488,10 +628,16 @@
         "target": "Canon",
         "kind": "variant",
         "status": "supported",
-        "evidence": "A round is a perpetual or infinite canon with staggered entries, as identified by both its alias and Berklee’s compositional account."
+        "evidence": "Voices enter in succession with the same melody and loop back, giving a perpetual canon.",
+        "refs": [
+          "https://www.berklee.edu/berklee-today/spring-2018/writing-a-canon"
+        ]
       }
     ],
     "refs": [
+      "https://www.berklee.edu/berklee-today/spring-2018/writing-a-canon"
+    ],
+    "attested_refs": [
       "https://www.berklee.edu/berklee-today/spring-2018/writing-a-canon"
     ]
   },
@@ -503,7 +649,8 @@
         "target": "Round",
         "kind": "variant",
         "status": "supported",
-        "evidence": "The source calls a catch a comic round and locates the puns in its overlapping text."
+        "evidence": "The source calls a catch a comic round and locates the puns in its overlapping text.",
+        "refs": []
       }
     ],
     "refs": [
@@ -512,16 +659,22 @@
   },
   "Canon": {
     "status": "contested",
-    "note": "Imitation after a delay supplies the rule. A finite ending is only one realization; rounds are infinite canons, and Berklee also distinguishes free from strict imitation.",
+    "note": "A following voice imitates a leading voice after a delay. The imitation can be strict or free. A canon can end or repeat cyclically.",
     "edges": [
       {
         "target": "Round",
         "kind": "comparison",
         "status": "supported",
-        "evidence": "A round illustrates looping canonic imitation. This reverse link points to a subtype, not a parent of canon."
+        "evidence": "A round illustrates looping canonic imitation. This reverse link points to a subtype, not a parent of canon.",
+        "refs": [
+          "https://www.berklee.edu/berklee-today/spring-2018/writing-a-canon"
+        ]
       }
     ],
     "refs": [
+      "https://www.berklee.edu/berklee-today/spring-2018/writing-a-canon"
+    ],
+    "attested_refs": [
       "https://www.berklee.edu/berklee-today/spring-2018/writing-a-canon"
     ]
   },
@@ -533,13 +686,15 @@
         "target": "Through-composed",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The madrigal row explicitly calls the text setting through-composed. Its local repeat of a final line does not create a sectional return."
+        "evidence": "The madrigal row explicitly calls the text setting through-composed. Its local repeat of a final line does not create a sectional return.",
+        "refs": []
       },
       {
         "target": "Part-song (Victorian)",
         "kind": "variant",
         "status": "rejected",
-        "evidence": "The row uses the broader term part-song. It supplies no evidence that this repertoire is a subtype of the specifically Victorian catalog entry."
+        "evidence": "The row uses the broader term part-song. It supplies no evidence that this repertoire is a subtype of the specifically Victorian catalog entry.",
+        "refs": []
       }
     ],
     "refs": []
@@ -552,7 +707,8 @@
         "target": "Part-song (Victorian)",
         "kind": "variant",
         "status": "rejected",
-        "evidence": "The row uses the broader term part-song. It supplies no evidence that this repertoire is a subtype of the specifically Victorian catalog entry."
+        "evidence": "The row uses the broader term part-song. It supplies no evidence that this repertoire is a subtype of the specifically Victorian catalog entry.",
+        "refs": []
       }
     ],
     "refs": []
@@ -565,7 +721,8 @@
         "target": "Strophic",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The canzonet description explicitly repeats its strophic setting while permitting internal repeated sections."
+        "evidence": "The canzonet description explicitly repeats its strophic setting while permitting internal repeated sections.",
+        "refs": []
       }
     ],
     "refs": []
@@ -578,7 +735,8 @@
         "target": "Strophic",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The same stanza design recurs in this voice-and-lute song."
+        "evidence": "The same stanza design recurs in this voice-and-lute song.",
+        "refs": []
       }
     ],
     "refs": []
@@ -591,20 +749,22 @@
         "target": "Strophic",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The solo part is explicitly strophic; its final group return is a separate feature."
+        "evidence": "The solo part is explicitly strophic; its final group return is a separate feature.",
+        "refs": []
       }
     ],
     "refs": []
   },
   "Three-man's song": {
     "status": "partial",
-    "note": "The three voices and refrain belong to the strophic song. The row does not supply the refrain’s position. The refrain has no specified placement. The diagram groups the features without assigning it the final slot.",
+    "note": "Three voices sing successive stanzas with a refrain. Its position within the stanza is unspecified.",
     "edges": [
       {
         "target": "Strophic",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "Repeated music for successive stanzas is the common feature; the source also specifies a refrain."
+        "evidence": "Repeated music for successive stanzas is the common feature; the source also specifies a refrain.",
+        "refs": []
       }
     ],
     "refs": []
@@ -617,13 +777,15 @@
         "target": "Through-composed",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The glee’s contrasting sections are explicitly described as a continuous through-composed setting."
+        "evidence": "The glee’s contrasting sections are explicitly described as a continuous through-composed setting.",
+        "refs": []
       },
       {
         "target": "Part-song (Victorian)",
         "kind": "variant",
         "status": "rejected",
-        "evidence": "The row uses the broader term part-song. It supplies no evidence that this repertoire is a subtype of the specifically Victorian catalog entry."
+        "evidence": "The row uses the broader term part-song. It supplies no evidence that this repertoire is a subtype of the specifically Victorian catalog entry.",
+        "refs": []
       }
     ],
     "refs": []
@@ -636,7 +798,8 @@
         "target": "Strophic",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "This Victorian part-song row sets successive poem stanzas to recurring choral music."
+        "evidence": "This Victorian part-song row sets successive poem stanzas to recurring choral music.",
+        "refs": []
       }
     ],
     "refs": []
@@ -649,7 +812,8 @@
         "target": "Ballad stanza",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The jig’s sung text uses ballad stanzas, even as tunes and characters change."
+        "evidence": "The jig’s sung text uses ballad stanzas, even as tunes and characters change.",
+        "refs": []
       }
     ],
     "refs": []
@@ -662,13 +826,14 @@
   },
   "Lullay carol": {
     "status": "partial",
-    "note": "A lullay burden marks the cradle carol. Marian dialogue is frequent. The row does not state whether the burden opens the piece.",
+    "note": "A returning cradle-song burden characterizes this entry. Dialogue is possible; its placement relative to the opening is unspecified.",
     "edges": [
       {
         "target": "Medieval carol with burden",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "Both use a burden. The lullay row supplies the burden text but does not establish the medieval entry’s opening position, rhyme or chronology."
+        "evidence": "Both use a burden. The lullay row supplies the burden text but does not establish the medieval entry’s opening position, rhyme or chronology.",
+        "refs": []
       }
     ],
     "refs": []
@@ -685,49 +850,124 @@
     "edges": [
       {
         "target": "Macaronic verse",
-        "kind": "shares-feature",
+        "kind": "variant",
         "status": "supported",
-        "evidence": "Both use changes of language within a work; the carol specifies English and Latin."
+        "evidence": "As defined in this catalog, the song is a sung instance of mixed-language verse, specifically alternating English and Latin. Other macaronic verse can use different languages.",
+        "refs": []
       }
     ],
     "refs": []
   },
   "Metrical hymn": {
     "status": "supported",
-    "note": "Stanzas use a named syllable pattern and share a tune. Common, long and short metre are alternatives; a doxology is an optional ending.",
+    "note": "Stanzas share a tune and a metrical profile. The linked metres are alternatives. Some settings close with a doxology.",
     "edges": [
       {
         "target": "Strophic",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "Metrical stanzas share a single tune; this describes repeated musical design rather than a complete identity of forms."
+        "evidence": "Metrical stanzas share a single tune; this describes repeated musical design rather than a complete identity of forms.",
+        "refs": []
       },
       {
         "target": "Common metre (CM)",
-        "kind": "shares-feature",
+        "kind": "contains",
         "status": "supported",
-        "evidence": "CM is one of three explicitly named alternative syllable metres for a stanza."
+        "evidence": "Four lines of 8, 6, 8 and 6 syllables form one possible hymn stanza.",
+        "refs": [
+          "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html"
+        ]
       },
       {
         "target": "Long metre (LM)",
-        "kind": "shares-feature",
+        "kind": "contains",
         "status": "supported",
-        "evidence": "LM is explicitly named as another allowed metre; the source does not order it after CM."
+        "evidence": "Four eight-syllable lines form one possible hymn stanza.",
+        "refs": [
+          "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html"
+        ]
       },
       {
         "target": "Short metre (SM)",
-        "kind": "shares-feature",
+        "kind": "contains",
         "status": "supported",
-        "evidence": "SM is the third named example; these three do not exhaust hymn metres."
+        "evidence": "Four lines of 6, 6, 8 and 6 syllables form one possible hymn stanza.",
+        "refs": [
+          "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html"
+        ]
       },
       {
         "target": "Doxology",
         "kind": "contains",
         "status": "supported",
-        "evidence": "A doxology may serve as the last stanza of the hymn."
+        "evidence": "A doxology may serve as the last stanza of the hymn.",
+        "refs": []
+      },
+      {
+        "target": "Common metre double (CMD)",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "A hymn can combine two common-metre quatrains into one stanza.",
+        "refs": [
+          "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html"
+        ]
+      },
+      {
+        "target": "Long metre double (LMD)",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "One hymn stanza can extend long metre to eight eight-syllable lines.",
+        "refs": [
+          "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html"
+        ]
+      },
+      {
+        "target": "Short metre double (SMD)",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "A hymn can double the short-metre quatrain within one stanza.",
+        "refs": [
+          "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html"
+        ]
+      },
+      {
+        "target": "Hallelujah metre",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "A documented hymn stanza uses four six-syllable lines followed by two eight-syllable lines.",
+        "refs": [
+          "https://www.hymnary.org/tune/darwall_darwall"
+        ]
+      },
+      {
+        "target": "Trochaic hymn metres",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "One attested hymn stanza uses doubled trochaic 8.7.8.7. This is an alternative to iambic hymn metres.",
+        "refs": [
+          "https://hymnary.org/hymn/Mor1995/401"
+        ]
+      },
+      {
+        "target": "Other named hymn metres",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "Other hymn stanzas use distinct ordered profiles, including 6.6.4.6.6.6.4. Each setting chooses its own profile.",
+        "refs": [
+          "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html"
+        ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html",
+      "https://www.hymnary.org/tune/darwall_darwall",
+      "https://hymnary.org/hymn/Mor1995/401"
+    ],
+    "attested_refs": [
+      "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html",
+      "https://www.hymnary.org/tune/darwall_darwall",
+      "https://hymnary.org/hymn/Mor1995/401"
+    ]
   },
   "Hymn with refrain": {
     "status": "partial",
@@ -737,29 +977,56 @@
         "target": "Metrical hymn",
         "kind": "variant",
         "status": "supported",
-        "evidence": "A recurring refrain is appended to successive metrical hymn stanzas in this entry."
+        "evidence": "A recurring refrain is appended to successive metrical hymn stanzas in this entry.",
+        "refs": [
+          "https://hymnary.org/wiki/meter"
+        ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://hymnary.org/wiki/meter"
+    ],
+    "attested_refs": [
+      "https://hymnary.org/wiki/meter"
+    ]
   },
   "Gospel song (Sankey)": {
     "status": "partial",
-    "note": "The Sankey-style example specifies four lines of verse followed by a four-line title chorus, a local template for this entry.",
-    "edges": [],
+    "note": "The catalog illustrates four lines of verse followed by a four-line title chorus. This is one arrangement within the broader gospel repertoire.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "In this catalog example the verse and its title chorus each group four sung lines. Their rhyme and metre are unspecified.",
+        "refs": []
+      }
+    ],
     "refs": []
   },
   "Camp-meeting song": {
     "status": "partial",
-    "note": "The refrain may be inserted after each line or after each stanza. Calling the starting text a hymn does not establish one of the named syllable metres.",
+    "note": "Some settings add a refrain to inherited hymn stanzas. The source allows it between stanzas or between lines and supplies no single required metre.",
     "edges": [
       {
         "target": "Metrical hymn",
         "kind": "shares-feature",
-        "status": "ambiguous",
-        "evidence": "A standard hymn supplies the words, but the row gives neither its syllable metre nor an assurance that it fits the specifically metrical entry."
+        "status": "supported",
+        "evidence": "A camp-meeting version may retain measured hymn stanzas and add a freely recurring refrain. The borrowing does not establish a single metre for the whole repertoire.",
+        "refs": [
+          "https://hymnary.org/node/43000",
+          "https://hymnary.org/hymnal/C41858"
+        ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://hymnary.org/node/43000",
+      "https://hymnary.org/hymnal/C41858"
+    ],
+    "attested_refs": [
+      "https://hymnary.org/node/43000",
+      "https://hymnary.org/hymnal/C41858"
+    ]
   },
   "Praise chorus": {
     "status": "partial",
@@ -775,11 +1042,18 @@
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The row’s group response follows the leader’s verse; this is a documented way to perform a spiritual."
+        "evidence": "The row’s group response follows the leader’s verse; this is a documented way to perform a spiritual.",
+        "refs": [
+          "https://guides.loc.gov/spirituals-folklife"
+        ]
       }
     ],
     "refs": [
-      "https://www.loc.gov/collections/songs-of-america/articles-and-essays/musical-styles/ritual-and-worship/spirituals/"
+      "https://www.loc.gov/collections/songs-of-america/articles-and-essays/musical-styles/ritual-and-worship/spirituals/",
+      "https://guides.loc.gov/spirituals-folklife"
+    ],
+    "attested_refs": [
+      "https://guides.loc.gov/spirituals-folklife"
     ]
   },
   "Ring shout": {
@@ -790,10 +1064,18 @@
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "An improvised line and a fixed group reply form the repeating exchange."
+        "evidence": "An improvised line and a fixed group reply form the repeating exchange.",
+        "refs": [
+          "https://wwws.loc.gov/rr/perform/concert/1011-folklife.html"
+        ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://wwws.loc.gov/rr/perform/concert/1011-folklife.html"
+    ],
+    "attested_refs": [
+      "https://wwws.loc.gov/rr/perform/concert/1011-folklife.html"
+    ]
   },
   "Shaker gift song": {
     "status": "partial",
@@ -809,7 +1091,8 @@
         "target": "Round",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The grace can optionally be performed as a round. This is a realization rather than a claim about all prayers before meals."
+        "evidence": "The grace can optionally be performed as a round. This is a realization rather than a claim about all prayers before meals.",
+        "refs": []
       }
     ],
     "refs": []
@@ -822,22 +1105,51 @@
   },
   "Metrical psalm": {
     "status": "contested",
-    "note": "This paraphrase example uses common-metre stanzas on one tune. The catalog’s row alone cannot prescribe that metre for all metrical psalms. Two published settings of Psalm 100 demonstrate common and long metre.",
+    "note": "Two published settings of the same psalm use different stanza metres. One alternates eight and six syllables; the other uses eight syllables throughout.",
     "edges": [
       {
         "target": "Common metre (CM)",
-        "kind": "shares-feature",
+        "kind": "contains",
         "status": "supported",
-        "evidence": "Common metre governs the catalog’s example of a psalm paraphrase. Psalm 100 exists in both common and long metre."
+        "evidence": "One published setting gives successive quatrains in common metre.",
+        "refs": [
+          "https://psalms.seedbed.com/psalm-100/"
+        ]
       },
       {
         "target": "Long metre (LM)",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "An independently listed setting of the same text uses long-metre stanzas.",
+        "refs": [
+          "https://psalms.seedbed.com/psalm-100/"
+        ]
+      },
+      {
+        "target": "Strophic",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The 1650 Psalm 100 and its common-metre counterpart are presented together in the referenced metrical psalter; this is an independently documented alternative."
+        "evidence": "Several metrical stanzas can be sung to the same tune within a setting.",
+        "refs": [
+          "https://psalms.seedbed.com/psalm-100/"
+        ]
+      },
+      {
+        "target": "Metrical hymn",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "Both set metrical stanzas to a tune; the psalm paraphrase is specifically drawn from a scriptural psalm.",
+        "refs": [
+          "https://psalms.seedbed.com/psalm-100/",
+          "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html"
+        ]
       }
     ],
     "refs": [
+      "https://psalms.seedbed.com/psalm-100/",
+      "https://www.gutenberg.org/cache/epub/54966/pg54966-images.html"
+    ],
+    "attested_refs": [
       "https://psalms.seedbed.com/psalm-100/"
     ]
   },
@@ -849,20 +1161,29 @@
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The leader provides one line for the congregation to return in song."
+        "evidence": "The leader provides one line for the congregation to return in song.",
+        "refs": [
+          "https://www.ucpress.edu/books/lining-out-the-word/hardcover"
+        ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://www.ucpress.edu/books/lining-out-the-word/hardcover"
+    ],
+    "attested_refs": [
+      "https://www.ucpress.edu/books/lining-out-the-word/hardcover"
+    ]
   },
   "Anglican chant": {
     "status": "partial",
-    "note": "The chant formula recurs across two halves of a prose verse. A Gloria Patri is shown as the catalog’s closing practice.",
+    "note": "Two halves of each prose verse use a recurring chant formula. The illustrated setting closes with a doxology.",
     "edges": [
       {
         "target": "Doxology",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The row names the Gloria Patri as the conclusion of the illustrated performance."
+        "evidence": "A doxology is the closing text of this example.",
+        "refs": []
       }
     ],
     "refs": []
@@ -875,23 +1196,43 @@
         "target": "Doxology",
         "kind": "contains",
         "status": "supported",
-        "evidence": "In this plan the doxology comes after the alternating verses and before the final antiphon."
+        "evidence": "In this plan the doxology comes after the alternating verses and before the final antiphon.",
+        "refs": []
+      },
+      {
+        "target": "Call-and-response",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "Alternating choir sides and a leader answered by the group distribute the voices differently; an antiphon is the surrounding chant, not another name for the leader’s cue.",
+        "refs": [
+          "https://origin.ewtn.com/catholicism/library/general-instruction-on-the-liturgy-of-the-hours-28969",
+          "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
+        ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://origin.ewtn.com/catholicism/library/general-instruction-on-the-liturgy-of-the-hours-28969",
+      "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
+    ]
   },
   "Responsorial psalm": {
     "status": "partial",
-    "note": "In this responsorial realization the congregation takes up a response and returns to it between verses. The Roman Missal also permits singing straight through.",
+    "note": "The congregation takes up a response and returns to it between verses. The liturgy also permits singing the psalm straight through.",
     "edges": [
       {
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The congregation supplies the response between cantor verses in the responsorial option."
+        "evidence": "The congregation supplies the response between cantor verses in the responsorial option.",
+        "refs": [
+          "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
+        ]
       }
     ],
     "refs": [
+      "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
+    ],
+    "attested_refs": [
       "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
     ]
   },
@@ -903,7 +1244,8 @@
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The initial response returns in part after the verse. The source explicitly marks the entry call/response; the exact performing forces are left open."
+        "evidence": "The initial response returns in part after the verse. The source explicitly marks the entry call/response; the exact performing forces are left open.",
+        "refs": []
       }
     ],
     "refs": []
@@ -916,36 +1258,60 @@
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "A fixed response answers each of a succession of petitions."
+        "evidence": "A fixed response answers each of a succession of petitions.",
+        "refs": []
       }
     ],
     "refs": []
   },
   "Versicles and responses": {
     "status": "supported",
-    "note": "Leader and congregation take complementary lines in successive pairs. Repetition of the same wording is not required.",
+    "note": "An officiant’s versicle and the congregation’s answer form a recurring liturgical exchange. The wording can change from pair to pair.",
     "edges": [
       {
         "target": "Call-and-response",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "Leader and congregation take the two sides of each paired utterance."
+        "evidence": "Leader and congregation take the two sides of each paired utterance.",
+        "refs": [
+          "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+        ]
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "status": "rejected",
+        "evidence": "The leader and congregation take successive turns in a liturgical exchange. The office prescribes the words and speakers without requiring that each utterance be a line of verse. The paired turns alone therefore do not establish a verse couplet.",
+        "refs": [
+          "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+        ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+    ],
+    "attested_refs": [
+      "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+    ]
   },
   "Canticle": {
     "status": "contested",
-    "note": "The supplied text can be chanted or set through. The doxology is a liturgical addition in applicable settings; the catalog’s Te Deum example does not require a separate closing Gloria.",
+    "note": "The liturgical text may be chanted or continuously set. Some offices append a doxology to particular canticles; others stand on their own.",
     "edges": [
       {
         "target": "Doxology",
         "kind": "contains",
         "status": "supported",
-        "evidence": "A doxology follows particular canticles in the office, but compare the Te Deum in the Book of Common Prayer."
+        "evidence": "The office prescribes a closing doxology for some canticles and omits it from others.",
+        "refs": [
+          "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+        ]
       }
     ],
     "refs": [
+      "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+    ],
+    "attested_refs": [
       "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
     ]
   },
@@ -957,7 +1323,8 @@
         "target": "Metrical hymn",
         "kind": "other",
         "status": "supported",
-        "evidence": "A doxology can serve as the hymn’s final stanza, a use explicitly permitted in both catalog rows. This points from the part toward its possible host."
+        "evidence": "A doxology can serve as the hymn’s final stanza, a use explicitly permitted in both catalog rows. This points from the part toward its possible host.",
+        "refs": []
       }
     ],
     "refs": [
@@ -972,16 +1339,46 @@
         "target": "Through-composed",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The catalog describes its full-choir example as continuously setting a sacred text."
+        "evidence": "The catalog describes its full-choir example as continuously setting a sacred text.",
+        "refs": []
+      },
+      {
+        "target": "Verse anthem",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "A full anthem can give the entire setting to the choir; a verse anthem can contrast solo and full-choir passages.",
+        "refs": [
+          "https://www.colonialsociety.org/node/3323"
+        ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://www.colonialsociety.org/node/3323"
+    ],
+    "attested_refs": [
+      "https://www.colonialsociety.org/node/3323"
+    ]
   },
   "Verse anthem": {
     "status": "supported",
     "note": "Solo and full-choir passages alternate. “Verse” here marks solo scoring; the row does not identify a pop verse.",
-    "edges": [],
-    "refs": []
+    "edges": [
+      {
+        "target": "Full anthem",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "Alternating solo and choir passages distinguish this setting from one written throughout for full choir.",
+        "refs": [
+          "https://www.colonialsociety.org/node/3323"
+        ]
+      }
+    ],
+    "refs": [
+      "https://www.colonialsociety.org/node/3323"
+    ],
+    "attested_refs": [
+      "https://www.colonialsociety.org/node/3323"
+    ]
   },
   "Fuging tune": {
     "status": "supported",
@@ -997,38 +1394,74 @@
         "target": "Through-composed",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The row describes the overall scripture setting this way even though its texture changes."
+        "evidence": "The row describes the overall scripture setting this way even though its texture changes.",
+        "refs": []
+      },
+      {
+        "target": "Fuging tune",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "The catalog specifies imitative passages with successive vocal entries inside a longer anthem. That texture does not require a complete fuging tune as a component.",
+        "refs": []
       }
     ],
-    "refs": []
+    "refs": [
+      "https://www.texasfasola.org/songs.html"
+    ],
+    "attested_refs": [
+      "https://www.texasfasola.org/songs.html"
+    ]
   },
   "Mass setting (English)": {
     "status": "contested",
     "note": "The catalog’s listed sequence is an example of setting ordinary texts. English Communion orders allow variation, including optional parts and liturgical differences.",
-    "edges": [],
+    "edges": [
+      {
+        "target": "Litany",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "In this example the choir or cantor repeats a petition and the congregation answers. The final answer changes, so the strictly fixed-response litany describes only part of the design.",
+        "refs": [
+          "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
+        ]
+      }
+    ],
     "refs": [
-      "https://www.churchofengland.org/holy-communion"
+      "https://www.churchofengland.org/holy-communion",
+      "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
+    ],
+    "attested_refs": [
+      "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
     ]
   },
   "Anglican service": {
     "status": "partial",
-    "note": "The pair of canticles with Glory be illustrates a service setting. The Church of England offers other canticle selections across its offices.",
+    "note": "The example sets two canticles, each followed by a doxology. Canticle selections vary with the office.",
     "edges": [
       {
         "target": "Canticle",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The specific service setting consists of two separately identified canticles."
+        "evidence": "The specific service setting consists of two separately identified canticles.",
+        "refs": [
+          "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+        ]
       },
       {
         "target": "Doxology",
         "kind": "contains",
         "status": "supported",
-        "evidence": "Each canticle in the catalog’s example closes with Glory be; the inclusion is mediated by its canticle."
+        "evidence": "Each of the two canticles in this example ends in a doxology.",
+        "refs": [
+          "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+        ]
       }
     ],
     "refs": [
       "https://www.churchofengland.org/prayer-and-worship/worship-texts-and-resources/common-worship/common-material/canticles-main-volume",
+      "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+    ],
+    "attested_refs": [
       "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
     ]
   }

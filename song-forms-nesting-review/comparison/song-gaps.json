@@ -71,7 +71,7 @@
     {
       "name": "Compound AABA with riff-based variants",
       "level": "Whole-song hierarchy",
-      "action": "Correct the alias and expose the two-level analysis",
+      "action": "Expose the supported hierarchy in verse–chorus–bridge; remove the misleading extended-AABA alias",
       "catalog_lines": [
         31,
         32,
@@ -79,7 +79,7 @@
         51,
         81
       ],
-      "evidence": "The source row for Extended AABA calls the linear AABABA expansion compound. In Hudson’s model an A supersection contains multiple sections, often a verse–chorus rotation. B contrasts, and A material returns, sometimes compressed. The existing verse–chorus–bridge row can realize such a hierarchy; it lacks the typed relationship and the broad range. Hudson’s transcription of Metallica’s “Master of Puppets,” examples 1–5, provides a riff-based case. Extending a cycle with BA, sustaining one riff, and joining independent sub-songs are distinct mechanisms.",
+      "evidence": "The source aliases a flat AABABA expansion to compound AABA. Published analysis distinguishes two hierarchical levels: repeated A supersections can each contain a verse and chorus, B contrasts, and A material returns, sometimes compressed. The existing verse–chorus–bridge row can realize this design. Riff-based variants may articulate its boundaries differently. Sustaining a riff or joining independent sub-songs alone does not establish that design.",
       "refs": [
         "https://www.mtosmt.org/issues/mto.21.27.1/mto.21.27.1.hudson.php",
         "https://academic.oup.com/book/33667/chapter/288217357"
@@ -88,12 +88,12 @@
     {
       "name": "Head–solos–head",
       "level": "Whole performance around a tune",
-      "action": "Split the existing conflation; preserve the example",
+      "action": "Expose the already diagrammed sequence as a performance reading, separate from the arrangement method",
       "catalog_lines": [
         71,
         72
       ],
-      "evidence": "The Hancock Institute glossary places the head at the opening and closing choruses, while soloists improvise over passes through a tune’s changes. The Library of Congress describes Basie’s head arrangements by their collective development and memorization. The catalog has the correct performance outline under the other name; the gap is conceptual, not a wholly absent sequence. A band can play this layout from a written arrangement, and no fixed head shape or solo count follows.",
+      "evidence": "The cited jazz glossary places a head at the opening and closing choruses around improvisations. In contrast, a head arrangement identifies how the players devise and retain an arrangement in memory. Line 71 already diagrams the head–solos–head sequence as an example. No missing sectional sequence or shared identity with the arrangement method is inferred.",
       "refs": [
         "https://www.jazzinamerica.org/StudentHandout/8/2",
         "https://www.jazzinamerica.org/jazzresources/glossary/a/i",
@@ -134,7 +134,7 @@
         70,
         231
       ],
-      "evidence": "A time-indexed listening guide for the English aria “Every Valley” in Handel’s Messiah identifies orchestral returns alternating with vocal entries. A syllable count cannot discover those instrumental spans. Stornello’s alternative Italian name does not implement this design.",
+      "evidence": "A time-indexed listening guide for an English aria identifies the orchestra returning between solo entries and at the close. A syllable count cannot identify the instrumental spans. Stornello’s alternative name refers to a different verse type. The evidence establishes a recurring-material schema in English vocal repertoire without requiring that it organize every entire aria.",
       "refs": [
         "https://pressbooks.cuny.edu/understandingmusicbmcc/chapter/5-music-of-george-frideric-handel-1685-1759/"
       ]

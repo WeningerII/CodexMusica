@@ -1,32 +1,31 @@
-# Prior structural survey against the English forms catalog
+# Structural survey against the English forms catalog
 
-The survey has **623 data rows**. They describe several musical levels. The comparison catalog has **364 actual A–E rows**. The crosswalk preserves each survey occurrence by its one-based position after the TSV header. For example, the two Doxology records remain rows 329 and 419. The source file, both content hashes, the survey commit and its origin commit are recorded in [the JSON crosswalk](structure-crosswalk.json).
+The [crosswalk](structure-crosswalk.json) compares 623 survey occurrences with 364 catalog entries. Row numbers start at one after the TSV header, preserving duplicate terms in different contexts. Its metadata identifies the source commits and hashes.
 
-| Outcome for the survey occurrence | Rows | Interpretation |
+| Outcome | Occurrences | Meaning |
 |---|---:|---|
-| Present | 14 | The catalog describes the same object in the specified sense, possibly also as a part within a larger work. |
-| Alias, variant or coverage by subtypes | 23 | The record explains the scope of the correspondence. A subtype match can leave its broader family only partly covered. |
-| Other layer | 534 | The cited object is principally a component, process, genre, performance instruction, instrumental organization or other level. |
-| Attestation or scope unclear | 48 | An English-language realization, source sense, form-level distinction or sufficiently specific example remains unverified. |
-| Supported catalog gap | 4 | A distinct sense or use has direct English-language evidence. The four require different kinds of representation. |
+| Present | 15 | The named design is represented in the catalog within the stated scope. |
+| Alias or variant | 23 | An existing entry or family covers the construction, sometimes in part. |
+| Other layer | 535 | The survey occurrence describes a technique, part, texture, practice or another level. |
+| Attestation or scope unclear | 47 | Evidence for the English-language use, formal scope or sense is incomplete. |
+| Supported gap | 3 | The survey sense is structurally distinct and has documented English-language use. |
 
-All 107 form and 35 process rows received individual comparison. A further 84 rows received individual treatment, including every exact normalized title/alias hit in the remaining layers, named vocal practices that can also stand alone, and terms with known changes of scale. The other 397 rows received a layer screen. That screen supports inventory coverage; it cannot establish that every term has been exhaustively researched in every tradition. The survey's corpus hit and attestation columns do not prove that a matching word denotes the same musical object. A named neighbor in the crosswalk can be an explicit warning against an equivalence.
+All 107 form and 35 process rows were compared individually. Another 84 occurrences received individual comparisons, including every exact normalized title or alias hit in the remaining layers. The remaining 397 received a layer screen. A spelling hit records the original inventory, including aliases subsequently corrected. The reason and disposition state its reviewed meaning. Source rows 16 and 21 contain a gloss split across TSV columns. Both source records are preserved.
 
-## Four supported gaps
+## Three supported gaps
 
-| Survey row | Form or sense | Evidence and limit |
+| Survey row | Form | Evidence and scope |
 |---:|---|---|
-| 7 | Compound AABA | Larger A sections contain smaller sections such as verse and chorus. The catalog gives “compound AABA” as an alias for Extended AABA but models adding another B–A pair. The family needs a separate structural representation and an alias correction. [Hudson, with metal song analyses](https://www.mtosmt.org/issues/mto.21.27.1/mto.21.27.1.hudson.php) |
-| 31 | Terminally climactic form | A previously unheard thematic high point arrives only at the end. A final chorus, ordinary coda or climactic bridge alone does not establish it. [Osborn’s formal definition](https://academic.oup.com/mts/article-abstract/35/1/23/1056491) and [his application to Radiohead](https://academic.oup.com/book/8275/chapter-abstract/153878627) |
-| 304 | Medieval sung rondeau or roundel | Chaucer explicitly describes singing a roundel. The text of “Now welcome, somer” repeats two opening lines internally and all three at the close. The catalog’s poetic Rondeau, Roundel and Triolet have different specified returns. The English lyric and varying refrain lengths are verifiable. These witnesses do not establish a surviving melody or its exact phrase boundaries. [Chaucer’s text](https://rpo.library.utoronto.ca/content/parlement-fowls-0) and [the preceding passage identifying the song](https://original.sacred-texts.com/neu/eng/mect/mect52.htm) |
-| 305 | Liturgical sequence | The US Catholic Easter liturgy prints an English-language Sequence. This is an attested English use in translation. It does not prove English-origin composition or the universal fit of the survey’s schematic progression of paired versicles. [Official English Easter Sequence](https://bible.usccb.org/bible/readings/041628.cfm) |
+| 19 | Ritornello form | An English-text vocal listening guide identifies an opening instrumental ritornello and later returns around vocal episodes. A recurring-material schema can track returns, including fragments, at their actual positions. [English vocal listening guide](https://pressbooks.cuny.edu/understandingmusicbmcc/?p=716) |
+| 31 | Terminally climactic form | New material reaches a thematic high point only at the close. Ordinary final choruses and codas need other evidence to qualify. [Formal analysis of English-language songs](https://academic.oup.com/mts/article-abstract/35/1/23/1056491) |
+| 305 | Liturgical sequence | An official English liturgy prescribes and prints a Sequence. This establishes use of the English text in its intended role. Verifying melody pairings for a specific setting is a separate question. [English liturgical text](https://bible.usccb.org/bible/readings/041628.cfm) · [Liturgy instructions](https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2) |
 
-## Differences that change a proposed match
+## Decisions affecting interpretation
 
-- **Musical accumulation and lyric accumulation.** Rows 2 and 10 concern growth of texture or a musical theme. Cumulative song adds textual items and recalls them. Spicer distinguishes two processes even within pop-rock. The source survey suggests a spelling variant, but that does not establish equivalence. [Spicer](https://doi.org/10.1017/S1478572204000052)
-- **Recurring harmonic cycles and song form.** Rhythm changes can underlie an AABA number. Blowing changes can underlie improvised solos. Identical section order leaves the actual chords undetermined.
-- **Whole work and part.** Doxology, Recitative, Couplet and Quatrain have independent catalog records and can also occur inside larger works. An ordinary tag is a possible song ending; the catalog’s Barbershop tag describes a freestanding close-harmony item. Lining out is a procedure used in a Lined-out hymn.
-- **Translation and cultural identity.** Gazel has a ghazal-text sense and a distinct improvised vocal sense. A shared return between an instrumental Turkish or Arabic suite and an English-text form does not establish interchangeability. A lack of verified English evidence in this pass means the question remains open.
-- **Source-level ambiguity.** Survey rows 16 and 21 split the gloss for Period and Sentence across source columns. The crosswalk keeps their literal gloss and notes the spill. The TSV is preserved intact.
+- **Compound AABA, row 7.** Verse–chorus–bridge can realize a higher-level AABA reading; riff-based variants and the full returning supersection exceed the example diagram. Extended AABA adds another B–A pair. [Analysis of compound forms](https://www.mtosmt.org/issues/mto.21.27.1/mto.21.27.1.hudson.php)
+- **Rondeau and virelai, rows 304 and 306.** Rondel and Triolet already show two lengths of refrain return. The 13-line pattern ABB abAB abbABB remains a textual variant. Ballata and Medieval carol with burden show opening, intervening and closing refrains. Both comparisons concern text; neither establishes a melody or an English sung virelai.
+- **Translation.** Original English composition or an English text used in the tradition qualifies. A teaching gloss by itself supplies no evidence of English performance. The separate Oríkì comparison documents a published literary translation; it supports English reading, with the performance tradition and original language identified separately.
+- **Texture and text, rows 2, 10, 54 and 58.** Layering an arrangement, assembling a musical theme from fragments, adding and recalling textual items, and decreasing a recurring lyric quantity are distinct procedures. Cumulative song and Countdown song address the textual senses. [Musical accumulation](https://doi.org/10.1017/S1478572204000052)
+- **Names with different scopes.** The existing head–solos–head diagram covers the sequence; committing an arrangement to memory is a separate practice. A hook-first opening is chorus-first only when the hook is the chorus. Tag, shout, lining out and ritornello have different meanings by tradition and level; the crosswalk records those senses individually.
 
-The four supported gaps are findings from this comparison. They are not an exhaustive estimate of everything missing from the catalog. Some of the 48 open rows could qualify with direct evidence, and several musical processes can inform a form diagram without warranting their own catalog entries.
+These totals concern occurrences in this survey. Glossary gaps, existing catalog entries whose own accounts are incomplete, and title corrections have separate denominators. An unclear row can still become a supported gap with further evidence.

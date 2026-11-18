@@ -173,7 +173,10 @@
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Rule",
+    "related": [
+      "Quintain"
+    ]
   },
   "Renga / renku": {
     "tree": [
@@ -211,7 +214,11 @@
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Rule",
+    "related": [
+      "Couplet",
+      "Tercet"
+    ]
   },
   "Rengay": {
     "tree": [
@@ -246,7 +253,9 @@
     "mode": "Rule",
     "related": [
       "Haiku",
-      "Renga / renku"
+      "Renga / renku",
+      "Couplet",
+      "Tercet"
     ]
   },
   "Haibun": {
@@ -278,10 +287,9 @@
   "Tanka prose": {
     "tree": [
       {
-        "label": "Interwoven",
+        "label": "Prose with tanka",
         "children": [
-          "Prose",
-          "Tanka"
+          "Tanka within the prose or following it"
         ]
       }
     ],
@@ -390,7 +398,10 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Couplet"
+    ]
   },
   "Than-bauk": {
     "tree": [
@@ -403,7 +414,10 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Tercet"
+    ]
   },
   "Cherita": {
     "tree": [
@@ -431,7 +445,11 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Couplet",
+      "Tercet"
+    ]
   },
   "Englyn": {
     "tree": [
@@ -464,7 +482,10 @@
     ],
     "mode": "Rule",
     "related": [
-      "Cywydd deuair hirion"
+      "Cywydd deuair hirion",
+      "Tercet",
+      "Quatrain",
+      "Couplet"
     ]
   },
   "Cywydd deuair hirion": {
@@ -501,12 +522,15 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Couplet"
+    ]
   },
   "Gwawdodyn": {
     "tree": [
       {
-        "label": "Alternative patterns",
+        "label": "Choose a pattern",
         "children": [
           {
             "label": "Byr",
@@ -514,14 +538,26 @@
               {
                 "label": "Opening",
                 "children": [
-                  "Two 9-syllable lines"
+                  "Two nine-syllable lines on rhyme A"
                 ]
               },
               {
                 "label": "Closing toddaid",
                 "children": [
-                  "10 syllables",
-                  "9 syllables"
+                  {
+                    "label": "10 syllables",
+                    "children": [
+                      "Main rhyme A at syllable 7 or 8",
+                      "Tail ends on linking rhyme B"
+                    ]
+                  },
+                  {
+                    "label": "9 syllables",
+                    "children": [
+                      "Interior rhyme B",
+                      "Ends on main rhyme A"
+                    ]
+                  }
                 ]
               }
             ]
@@ -532,14 +568,26 @@
               {
                 "label": "Opening",
                 "children": [
-                  "Four 9-syllable lines"
+                  "Four nine-syllable lines on rhyme A"
                 ]
               },
               {
                 "label": "Closing toddaid",
                 "children": [
-                  "10 syllables",
-                  "9 syllables"
+                  {
+                    "label": "10 syllables",
+                    "children": [
+                      "Main rhyme A at syllable 7 or 8",
+                      "Tail ends on linking rhyme B"
+                    ]
+                  },
+                  {
+                    "label": "9 syllables",
+                    "children": [
+                      "Interior rhyme B",
+                      "Ends on main rhyme A"
+                    ]
+                  }
                 ]
               }
             ]
@@ -547,25 +595,44 @@
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Rule",
+    "related": [
+      "Couplet"
+    ]
   },
   "Hir a thoddaid": {
     "tree": [
       {
         "label": "Opening · common six-line version",
         "children": [
-          "Four 10-syllable lines"
+          "Four ten-syllable lines on rhyme A"
         ]
       },
       {
-        "label": "Long toddaid",
+        "label": "Closing toddaid",
         "children": [
-          "10 syllables",
-          "10 syllables"
+          {
+            "label": "10 syllables",
+            "children": [
+              "Main rhyme A at syllable 7 or 8",
+              "Tail ends on linking rhyme B"
+            ]
+          },
+          {
+            "label": "10 syllables",
+            "children": [
+              "Interior rhyme B",
+              "Ends on main rhyme A"
+            ]
+          }
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": [
+      "Couplet",
+      "Sestet / sixain"
+    ]
   },
   "Byr a thoddaid": {
     "tree": [
@@ -582,7 +649,10 @@
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Rule",
+    "related": [
+      "Couplet"
+    ]
   },
   "Awdl gywydd": {
     "tree": [
@@ -603,7 +673,8 @@
     ],
     "mode": "Example",
     "related": [
-      "Quatrain"
+      "Quatrain",
+      "Couplet"
     ]
   },
   "Cyhydedd hir": {
@@ -694,7 +765,8 @@
     ],
     "mode": "Rule",
     "related": [
-      "Quatrain"
+      "Quatrain",
+      "Couplet"
     ]
   },
   "Pindaric ode": {
@@ -713,7 +785,7 @@
   "Limerick": {
     "tree": [
       {
-        "label": "Five anapestic lines",
+        "label": "Five lines · anapestic rhythm",
         "children": [
           "3 beats · A",
           "3 beats · A",
@@ -723,21 +795,38 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Quintain"
+    ]
   },
   "Clerihew": {
     "tree": [
       {
-        "label": "Comic biography · irregular meter",
+        "label": "Comic biography",
         "children": [
-          "A · opens on a name",
-          "A",
-          "B",
-          "B"
+          {
+            "label": "First couplet",
+            "children": [
+              "A · usually ends with the subject’s name",
+              "A"
+            ]
+          },
+          {
+            "label": "Second couplet",
+            "children": [
+              "B",
+              "B"
+            ]
+          }
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Couplet",
+      "Quatrain"
+    ]
   },
   "Double dactyl": {
     "tree": [
@@ -779,23 +868,27 @@
     ],
     "mode": "Example",
     "related": [
-      "Quatrain"
+      "Quatrain",
+      "Couplet"
     ]
   },
   "Cinquain (Crapsey)": {
     "tree": [
       {
-        "label": "Five lines",
+        "label": "Accentual-syllabic stanza · usually iambic",
         "children": [
-          "2 syllables",
-          "4 syllables",
-          "6 syllables",
-          "8 syllables",
-          "2 syllables"
+          "2 syllables · 1 stress",
+          "4 syllables · 2 stresses",
+          "6 syllables · 3 stresses",
+          "8 syllables · 4 stresses",
+          "2 syllables · 1 stress"
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Quintain"
+    ]
   },
   "Didactic cinquain": {
     "tree": [
@@ -810,24 +903,30 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Quintain"
+    ]
   },
   "Diamante": {
     "tree": [
       {
-        "label": "Subject to opposite",
+        "label": "Opposite subjects",
         "children": [
-          "1 word",
-          "2 words",
-          "3 words",
-          "4 words",
-          "3 words",
-          "2 words",
-          "1 word"
+          "Subject · one noun",
+          "Two describing adjectives",
+          "Three -ing verbs",
+          "Four nouns · commonly two per subject",
+          "Three -ing verbs",
+          "Two describing adjectives",
+          "Opposite subject · one noun"
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": [
+      "Septet"
+    ]
   },
   "Tetractys": {
     "tree": [
@@ -842,7 +941,10 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Quintain"
+    ]
   },
   "Nonet": {
     "tree": [
@@ -897,7 +999,10 @@
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": [
+      "Sestet / sixain"
+    ]
   },
   "Lanterne": {
     "tree": [
@@ -912,7 +1017,10 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Quintain"
+    ]
   },
   "Shadorma": {
     "tree": [
@@ -928,7 +1036,10 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Sestet / sixain"
+    ]
   },
   "Hay(na)ku": {
     "tree": [
@@ -954,7 +1065,10 @@
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Rule",
+    "related": [
+      "Tercet"
+    ]
   },
   "Lune": {
     "tree": [
@@ -962,7 +1076,7 @@
         "label": "Choose a variant",
         "children": [
           {
-            "label": "Kelly",
+            "label": "Count syllables",
             "children": [
               "5 syllables",
               "3 syllables",
@@ -970,7 +1084,7 @@
             ]
           },
           {
-            "label": "Collom",
+            "label": "Count words",
             "children": [
               "3 words",
               "5 words",
@@ -980,7 +1094,10 @@
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Rule",
+    "related": [
+      "Tercet"
+    ]
   },
   "American sentence": {
     "tree": [
@@ -1046,13 +1163,16 @@
             "label": "Words",
             "children": [
               "Normally up to 7 letters",
-              "Exceptions for names, foreign terms and quotations"
+              "Exceptions for proper nouns, foreign terms and quoted passages"
             ]
           }
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Rule",
+    "related": [
+      "Septet"
+    ]
   },
   "Zeno": {
     "tree": [
@@ -1133,7 +1253,11 @@
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": [
+      "Sestet / sixain",
+      "Octave / huitain"
+    ]
   },
   "Paradelle": {
     "tree": [
@@ -1164,6 +1288,10 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Sestet / sixain",
+      "Couplet"
+    ]
   }
 }

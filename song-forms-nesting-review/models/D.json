@@ -2,14 +2,14 @@
   "Couplet": {
     "tree": [
       {
-        "label": "Rhymed example",
+        "label": "Paired unit",
         "children": [
-          "Line 1 · A",
-          "Line 2 · A"
+          "First line",
+          "Second line"
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Rule"
   },
   "Heroic couplet": {
     "tree": [
@@ -110,7 +110,8 @@
     "mode": "Example",
     "related": [
       "Couplet",
-      "Ballad stanza"
+      "Ballad stanza",
+      "Common metre (CM)"
     ]
   },
   "Poulter's measure": {
@@ -173,7 +174,7 @@
         ]
       }
     ],
-    "mode": "Pattern",
+    "mode": "Example",
     "related": [
       "Couplet"
     ]
@@ -344,7 +345,8 @@
     ],
     "mode": "Rule",
     "related": [
-      "Quatrain"
+      "Quatrain",
+      "Ballad stanza"
     ]
   },
   "Common metre double (CMD)": {
@@ -375,7 +377,8 @@
     ],
     "mode": "Pattern",
     "related": [
-      "Common metre (CM)"
+      "Common metre (CM)",
+      "Quatrain"
     ]
   },
   "Long metre (LM)": {
@@ -423,7 +426,8 @@
     ],
     "mode": "Pattern",
     "related": [
-      "Long metre (LM)"
+      "Long metre (LM)",
+      "Quatrain"
     ]
   },
   "Short metre (SM)": {
@@ -471,7 +475,8 @@
     ],
     "mode": "Pattern",
     "related": [
-      "Short metre (SM)"
+      "Short metre (SM)",
+      "Quatrain"
     ]
   },
   "Hallelujah metre": {
@@ -623,7 +628,10 @@
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Rule",
+    "related": [
+      "Quatrain"
+    ]
   },
   "Heroic quatrain": {
     "tree": [
@@ -825,7 +833,8 @@
     "mode": "Pattern",
     "related": [
       "Sestet / sixain",
-      "Couplet"
+      "Couplet",
+      "Quatrain"
     ]
   },
   "Burns stanza": {
@@ -881,7 +890,7 @@
         ]
       }
     ],
-    "mode": "Pattern",
+    "mode": "Example",
     "related": [
       "Sestet / sixain",
       "Couplet"
@@ -1022,13 +1031,14 @@
     "mode": "Example",
     "related": [
       "Octave / huitain",
-      "Couplet"
+      "Couplet",
+      "Quatrain"
     ]
   },
   "Monk's Tale stanza": {
     "tree": [
       {
-        "label": "8 lines",
+        "label": "Eight pentameter lines",
         "children": [
           "1 · A",
           "2 · B",
@@ -1094,7 +1104,8 @@
     ],
     "mode": "Pattern",
     "related": [
-      "Alexandrine couplet"
+      "Alexandrine couplet",
+      "Monk's Tale stanza"
     ]
   },
   "Dizain": {
@@ -1152,13 +1163,14 @@
     ],
     "mode": "Example",
     "related": [
-      "Redondilla"
+      "Redondilla",
+      "Quatrain"
     ]
   },
   "Keatsian ode stanza": {
     "tree": [
       {
-        "label": "Ode to a Nightingale",
+        "label": "Ten-line setting",
         "children": [
           {
             "label": "Opening quatrain",
@@ -1217,7 +1229,10 @@
         ]
       }
     ],
-    "mode": "Pattern"
+    "mode": "Pattern",
+    "related": [
+      "Bob and wheel"
+    ]
   },
   "Pearl stanza": {
     "tree": [
@@ -1260,17 +1275,27 @@
   "Cherry and Slae stanza": {
     "tree": [
       {
-        "label": "Montgomerie · opening stanza",
+        "label": "Fourteen-line stanza",
         "children": [
           {
-            "label": "Opening six",
+            "label": "Opening tail rhyme",
             "children": [
-              "1 · A",
-              "2 · A",
-              "3 · B",
-              "4 · C",
-              "5 · C",
-              "6 · B"
+              {
+                "label": "First group",
+                "children": [
+                  "1 · A",
+                  "2 · A",
+                  "3 · B · short tail"
+                ]
+              },
+              {
+                "label": "Second group",
+                "children": [
+                  "4 · C",
+                  "5 · C",
+                  "6 · B · short tail"
+                ]
+              }
             ]
           },
           {
@@ -1285,10 +1310,20 @@
           {
             "label": "Closing four",
             "children": [
-              "11 · F",
-              "12 · G",
-              "13 · F",
-              "14 · G"
+              {
+                "label": "11 · two beats",
+                "children": [
+                  "First internal rhyme pair"
+                ]
+              },
+              "12 · F",
+              {
+                "label": "13 · two beats",
+                "children": [
+                  "Second internal rhyme pair"
+                ]
+              },
+              "14 · F"
             ]
           }
         ]
@@ -1296,7 +1331,8 @@
     ],
     "mode": "Example",
     "related": [
-      "Couplet"
+      "Couplet",
+      "Tail-rhyme stanza"
     ]
   },
   "Bob and wheel": {
@@ -1308,7 +1344,7 @@
           {
             "label": "Closing group",
             "children": [
-              "Bob · 1–2 syllables · A",
+              "Short bob · A",
               {
                 "label": "Wheel · four short lines",
                 "children": [
@@ -1323,7 +1359,7 @@
         ]
       }
     ],
-    "mode": "Pattern",
+    "mode": "Example",
     "related": [
       "Quatrain"
     ]
@@ -1338,7 +1374,10 @@
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Rule",
+    "related": [
+      "Pindaric ode"
+    ]
   },
   "Blank verse": {
     "tree": [
@@ -1367,7 +1406,7 @@
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Example"
   },
   "Accentual verse": {
     "tree": [
@@ -1439,7 +1478,7 @@
   "Hendecasyllabics": {
     "tree": [
       {
-        "label": "Catullan line",
+        "label": "Eleven-syllable setting",
         "children": [
           "11 syllables",
           "Unrhymed"
@@ -1471,7 +1510,7 @@
         ]
       }
     ],
-    "mode": "Pattern",
+    "mode": "Example",
     "related": [
       "Couplet"
     ]

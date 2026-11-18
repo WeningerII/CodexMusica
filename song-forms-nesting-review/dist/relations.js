@@ -130,13 +130,24 @@
         const outgoingNotes=form.review.edges.filter(e=>e.status==='supported'&&e.target===item.name);
         const incomingNotes=item.review.edges.filter(e=>e.status==='supported'&&e.target===form.name);
         const facts=[...outgoingNotes.map(edge=>({...edge, from:form.name})),...incomingNotes.map(edge=>({...edge, from:item.name}))];
-        const relations={variant:'Variant connection',contains:'Component connection','shares-feature':'Shared feature',comparison:'Comparison',other:'Documented connection'};
-        const kinds=[...new Set(facts.map(edge=>relations[edge.kind] || 'Documented connection'))];
-        const button=choice(item.name,()=>onSelect(item.id),'Explore '+item.name);
-        li.append(make('small','sfr-kind',kinds.join(' · ')),button);
+        function label(edge) {
+          const outgoing = edge.from === form.name;
+          if (edge.kind === 'variant') return outgoing ? 'Variant of' : 'Has variant';
+          if (edge.kind === 'contains') return outgoing ? 'Can contain' : 'Can occur within';
+          return {'shares-feature':'Shared feature',comparison:'Comparison',other:'Documented connection'}[edge.kind];
+        }
+        const kinds=[...new Set(facts.map(label))];
+        li.append(make('small','sfr-kind',kinds.join(' · ')),choice(item.name,()=>onSelect(item.id),'Explore '+item.name));
         const evidence=make('details','sfr-basis');
         evidence.append(make('summary','','Evidence'));
-        for(const note of new Set(facts.map(edge=>edge.from+' → '+edge.target+' · '+edge.evidence))) evidence.append(make('p','',note));
+        for (const edge of facts) {
+          evidence.append(make('p','',edge.from+' → '+edge.target+' · '+edge.evidence));
+          if (!edge.refs.length) evidence.append(make('small','','Catalog evidence only'));
+          for (const url of edge.refs) {
+            const a=make('a','',new URL(url).hostname);
+            a.href=url; a.target='_blank'; a.rel='noopener noreferrer'; evidence.append(a);
+          }
+        }
         li.append(evidence);
         list.append(li);
       }
@@ -153,7 +164,7 @@
     wrapper.append(map);
     for(const {term,items} of titlePeers(form,forms,related)) {
       const details=make('details','sfr-peers');
-      const summary=make('summary','','Other titles with “'+term+'” · '+items.length);
+      const summary=make('summary','','Name search only · “'+term+'” · '+items.length);
       const peers=make('ul','');
       for(const item of items) {
         const li=make('li','');
