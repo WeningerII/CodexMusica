@@ -1,0 +1,434 @@
+{
+  "titles": {
+    "Cinquain (Crapsey)": "Cinquain"
+  },
+  "aliases": {
+    "Strophic": [
+      "AAA",
+      "one-part song form"
+    ],
+    "Strophic with refrain": [
+      "verse-refrain",
+      "AAA with refrain"
+    ],
+    "Modified strophic": [
+      "varied strophic"
+    ],
+    "Narrative story song": [
+      "story song",
+      "saga song"
+    ],
+    "AABA 32-bar": [
+      "Tin Pan Alley form",
+      "American popular song form"
+    ],
+    "Extended AABA": [
+      "AABABA"
+    ],
+    "ABAC 32-bar": [
+      "ABAC refrain"
+    ],
+    "Verse-prechorus-chorus": [
+      "verse-lift-chorus"
+    ],
+    "Verse-chorus-bridge": [
+      "ABABCB"
+    ],
+    "Binary": [
+      "AB",
+      "two-part song form"
+    ],
+    "Ternary": [
+      "ABA"
+    ],
+    "Bar form": [
+      "AAB",
+      "Stollen-Stollen-Abgesang"
+    ],
+    "Rondo": [
+      "ABACA",
+      "ABACABA"
+    ],
+    "Arch": [
+      "ABCBA",
+      "mirror form"
+    ],
+    "Through-composed": [
+      "durchkomponiert",
+      "ABCD"
+    ],
+    "Multi-part suite": [
+      "song suite"
+    ],
+    "Medley": [
+      "potpourri"
+    ],
+    "List song": [
+      "catalogue song"
+    ],
+    "Patter song": [
+      "patter number"
+    ],
+    "Parlour ballad": [
+      "drawing-room ballad"
+    ],
+    "Musical scene": [
+      "song scene"
+    ],
+    "Duet dialogue song": [
+      "trading-verses duet"
+    ],
+    "Posse cut": [
+      "crew track"
+    ],
+    "Battle rap": [
+      "rap battle"
+    ],
+    "EDM build-drop": [
+      "drop form"
+    ],
+    "Vamp / riff form": [
+      "groove form"
+    ],
+    "Calypso": [
+      "kaiso"
+    ],
+    "Jingle": [
+      "ad jingle",
+      "ident"
+    ],
+    "Terrace chant": [
+      "football chant"
+    ],
+    "Traditional ballad": [
+      "popular ballad"
+    ],
+    "Ballad with internal refrain": [
+      "burden-line ballad"
+    ],
+    "Broadside ballad": [
+      "stall ballad"
+    ],
+    "Goodnight ballad": [
+      "last goodnight",
+      "gallows confession"
+    ],
+    "Bothy ballad": [
+      "cornkister"
+    ],
+    "Forebitter": [
+      "fo'c'sle song"
+    ],
+    "Call-and-response": [
+      "leader-and-chorus"
+    ],
+    "Halyard shanty": [
+      "long-drag shanty"
+    ],
+    "Short-drag shanty": [
+      "short-haul",
+      "sweating-up song"
+    ],
+    "Capstan shanty": [
+      "windlass shanty"
+    ],
+    "Stamp-and-go shanty": [
+      "walkaway shanty"
+    ],
+    "Hammer song / chain-gang song": [
+      "gang song",
+      "track-lining song"
+    ],
+    "Field holler": [
+      "arhoolie"
+    ],
+    "Waulking song": [
+      "luadh"
+    ],
+    "Military cadence": [
+      "sound-off"
+    ],
+    "Echo song": [
+      "repeat-after-me"
+    ],
+    "Zipper song": [
+      "substitution song"
+    ],
+    "Cumulative song": [
+      "chain",
+      "add-on song"
+    ],
+    "Counting song": [
+      "number song"
+    ],
+    "Countdown song": [
+      "subtractive song"
+    ],
+    "Riddle song": [
+      "riddle ballad"
+    ],
+    "Lullaby": [
+      "cradle song"
+    ],
+    "Counting-out rhyme": [
+      "dip"
+    ],
+    "Dandling rhyme": [
+      "knee-bouncing rhyme"
+    ],
+    "Dozens": [
+      "snaps"
+    ],
+    "Round": [
+      "perpetual canon",
+      "rota"
+    ],
+    "Ayre": [
+      "lute song"
+    ],
+    "Three-man's song": [
+      "freeman's song"
+    ],
+    "Glee": [
+      "English glee"
+    ],
+    "Medieval carol with burden": [
+      "burden carol"
+    ],
+    "Lullay carol": [
+      "cradle carol"
+    ],
+    "Christmas carol": [
+      "noel"
+    ],
+    "Hymn with refrain": [
+      "refrain hymn"
+    ],
+    "Gospel song (Sankey)": [
+      "gospel hymn",
+      "revival song"
+    ],
+    "Praise chorus": [
+      "worship chorus"
+    ],
+    "Spiritual": [
+      "jubilee song"
+    ],
+    "Responsory": [
+      "respond"
+    ],
+    "Versicles and responses": [
+      "preces"
+    ],
+    "Fuging tune": [
+      "fuguing tune"
+    ],
+    "Mass setting (English)": [
+      "Communion service"
+    ],
+    "Petrarchan sonnet": [
+      "Italian sonnet"
+    ],
+    "Shakespearean sonnet": [
+      "English sonnet"
+    ],
+    "Caudate sonnet": [
+      "tailed sonnet"
+    ],
+    "Crown of sonnets": [
+      "corona"
+    ],
+    "Heroic crown": [
+      "sonnet redoublé"
+    ],
+    "Ten-line ballade": [
+      "ballade supreme"
+    ],
+    "Virelai": [
+      "virelai ancien"
+    ],
+    "Stornello": [
+      "ritornello in Lazio folk song"
+    ],
+    "Renga / renku": [
+      "haikai no renga"
+    ],
+    "Than-bauk": [
+      "climbing rhyme"
+    ],
+    "Pindaric ode": [
+      "regular ode"
+    ],
+    "Cinquain (Crapsey)": [
+      "American cinquain"
+    ],
+    "Fib": [
+      "Fibonacci poem"
+    ],
+    "Heroic couplet": [
+      "riding rhyme"
+    ],
+    "Elegiac couplet": [
+      "elegiac distich"
+    ],
+    "Skeltonic verse": [
+      "Skeltonics"
+    ],
+    "Triplet": [
+      "monorhymed tercet"
+    ],
+    "Ballad stanza": [
+      "ballad metre"
+    ],
+    "Common metre (CM)": [
+      "8.6.8.6"
+    ],
+    "Long metre (LM)": [
+      "8.8.8.8"
+    ],
+    "Short metre (SM)": [
+      "6.6.8.6"
+    ],
+    "Hallelujah metre": [
+      "6.6.6.6.8.8"
+    ],
+    "Heroic quatrain": [
+      "elegiac stanza"
+    ],
+    "Rubaiyat stanza": [
+      "ruba'i"
+    ],
+    "Sapphic stanza": [
+      "11.11.11.5"
+    ],
+    "Quintain": [
+      "quintet",
+      "pentastich"
+    ],
+    "Burns stanza": [
+      "Scottish stanza"
+    ],
+    "Tail-rhyme stanza": [
+      "rime couée",
+      "romance-six"
+    ],
+    "Rhyme royal": [
+      "Chaucerian stanza"
+    ],
+    "Sicilian octave": [
+      "strambotto siciliano"
+    ],
+    "Monk's Tale stanza": [
+      "Chaucerian octave"
+    ],
+    "Horatian ode": [
+      "homostrophic ode"
+    ],
+    "Accentual verse": [
+      "stress metre"
+    ],
+    "Accentual hexameter": [
+      "English dactylic hexameter"
+    ],
+    "Free verse": [
+      "vers libre",
+      "open form"
+    ],
+    "Projective verse": [
+      "open field"
+    ],
+    "Triadic line": [
+      "step-down line"
+    ],
+    "Irregular ode": [
+      "Cowleyan ode"
+    ],
+    "Tenson": [
+      "tenzone"
+    ],
+    "Pattern poem": [
+      "shaped poem"
+    ],
+    "Concrete poetry": [
+      "visual poetry"
+    ],
+    "Palindrome poem": [
+      "mirror poem"
+    ],
+    "Rhopalic verse": [
+      "snowball"
+    ],
+    "Cento": [
+      "patchwork poem"
+    ],
+    "Erasure poem": [
+      "blackout poetry"
+    ]
+  },
+  "discovery": {
+    "12-bar blues": [
+      "AAB blues",
+      "blues stanza",
+      "AAB stanza"
+    ],
+    "Ternary": [
+      "da capo song"
+    ],
+    "Quodlibet": [
+      "partner song"
+    ],
+    "Head arrangement": [
+      "head–solos–head"
+    ],
+    "Barbershop tag": [
+      "tag in barbershop"
+    ],
+    "Skipping / clapping rhyme": [
+      "jump-rope rhyme",
+      "jump rope rhyme",
+      "skipping-rope rhyme"
+    ],
+    "Ring shout": [
+      "shout in ring-shout practice"
+    ],
+    "Lined-out hymn": [
+      "lining out",
+      "lining out a hymn"
+    ],
+    "Psalm with antiphon": [
+      "antiphonal psalm singing"
+    ],
+    "Renga / renku": [
+      "haikai",
+      "haikai no renga",
+      "kasen"
+    ],
+    "Englyn": [
+      "penfyr",
+      "milwr",
+      "unodl union",
+      "englyn penfyr",
+      "englyn milwr",
+      "englyn unodl union"
+    ],
+    "Gwawdodyn": [
+      "gwawdodyn byr",
+      "gwawdodyn hir"
+    ],
+    "Irish syllabic quatrains": [
+      "deibhidhe",
+      "rannaigheacht",
+      "rannaigheacht mhór",
+      "séadna",
+      "ae freislighe"
+    ],
+    "Diamante": [
+      "antonym diamante",
+      "synonym diamante"
+    ],
+    "Lune": [
+      "syllable lune",
+      "word lune"
+    ]
+  }
+}

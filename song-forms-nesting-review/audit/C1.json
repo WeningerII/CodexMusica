@@ -1,7 +1,7 @@
 {
   "Petrarchan sonnet": {
     "status": "supported",
-    "note": "Eight opening lines and a six-line response; line 9 is the conventional turn. CDECDE and CDCDCD are common sestet patterns. The diagram shows the CDECDE option.",
+    "note": "The enclosing octave leads to a six-line response. Choose CDECDE or CDCDCD in the sestet. A turn usually falls between lines 8 and 9.",
     "edges": [
       {
         "target": "Octave / huitain",
@@ -10,6 +10,9 @@
         "evidence": "The opening division contains eight lines. This uses the generic octave sense only; the specifically octosyllabic huitain scheme is not a requirement.",
         "scope_paths": [
           "1"
+        ],
+        "refs": [
+          "https://poets.org/glossary/sonnet"
         ]
       },
       {
@@ -19,6 +22,9 @@
         "evidence": "The answering division is six lines; the generic sestet sense applies independently of its particular rhyme order.",
         "scope_paths": [
           "2"
+        ],
+        "refs": [
+          "https://poets.org/glossary/sonnet"
         ]
       },
       {
@@ -37,8 +43,8 @@
     ]
   },
   "Sicilian sonnet": {
-    "status": "partial",
-    "note": "The row specifies an alternating octave and two sestet options. These model the catalog entry; the historical Sicilian school does not reduce to a single specimen. The diagram illustrates one of the two sestet choices.",
+    "status": "supported",
+    "note": "The usual alternating octave leads to one of two common endings. Six less frequent endings reuse an opening rhyme. A separately reported, doubtfully attributed setting pairs an enclosed octave with CDEEDC.",
     "edges": [
       {
         "target": "Octave / huitain",
@@ -46,7 +52,11 @@
         "status": "supported",
         "evidence": "The opening division contains eight lines. This uses the generic octave sense only; the specifically octosyllabic huitain scheme is not a requirement.",
         "scope_paths": [
-          "1"
+          "1.1",
+          "2.1"
+        ],
+        "refs": [
+          "https://www.treccani.it/enciclopedia/scuola-poetica-siciliana-metrica_%28Federiciana%29/"
         ]
       },
       {
@@ -55,7 +65,11 @@
         "status": "supported",
         "evidence": "The answering division is six lines; the generic sestet sense applies independently of its particular rhyme order.",
         "scope_paths": [
-          "2"
+          "1.2",
+          "2.2"
+        ],
+        "refs": [
+          "https://www.treccani.it/enciclopedia/scuola-poetica-siciliana-metrica_%28Federiciana%29/"
         ]
       },
       {
@@ -73,7 +87,7 @@
           "https://www.treccani.it/enciclopedia/scuola-poetica-siciliana-metrica_%28Federiciana%29/"
         ],
         "scope_paths": [
-          "1"
+          "1.1"
         ]
       }
     ],
@@ -371,8 +385,8 @@
     ]
   },
   "Bref double": {
-    "status": "partial",
-    "note": "Three quatrains and two closing lines on separate a and b rhymes. The catalog specifies the c-ending version. Individual a/b positions in the quatrains are unspecified.",
+    "status": "supported",
+    "note": "The first three stanzas each end on C. Across their nine other positions, place two A and two B endings, leaving five independent endings. The final couplet returns A then B. One realization shows the movable positions.",
     "edges": [
       {
         "target": "Quatrain",
@@ -425,14 +439,16 @@
     ]
   },
   "American sonnet": {
-    "status": "partial",
-    "note": "Fourteen lines and a turn are useful reference points, but contemporary practice allows both shape and rhyme to vary; no single tree fits every example.",
+    "status": "supported",
+    "note": "An American sonnet can retain a turn while loosening line count and rhyme. The example traces one 15-line poem through its changes of time and perspective. These three reading spans do not prescribe stanza breaks for other poems.",
     "edges": [],
     "refs": [
-      "https://poets.org/glossary/sonnet"
+      "https://poets.org/glossary/sonnet",
+      "https://poets.org/poem/american-sonnet-95"
     ],
     "attested_refs": [
-      "https://poets.org/glossary/sonnet"
+      "https://poets.org/glossary/sonnet",
+      "https://poets.org/poem/american-sonnet-95"
     ]
   },
   "Duplex": {
@@ -490,8 +506,8 @@
     ]
   },
   "Kyrielle sonnet": {
-    "status": "partial",
-    "note": "The catalog’s two refrain lines are ambiguous. In the cited specimen the first and last lines of quatrain one make the closing pair; the latter alone ends every preceding quatrain.",
+    "status": "supported",
+    "note": "Across both illustrated rhyme schemes, lines 4, 8 and 12 carry the same refrain. The ending pairs line 1 with that refrain. The opening line makes its first return at line 13. Rhyme letters describe sounds; the listed positions identify repeated text.",
     "edges": [
       {
         "target": "Kyrielle",
@@ -506,6 +522,9 @@
         "evidence": "The form has three four-line stanzas before its ending.",
         "scope_paths": [
           "1"
+        ],
+        "refs": [
+          "https://www.boloji.com/knowledge-zone/23/kyrielle-sonnet"
         ]
       },
       {
@@ -529,14 +548,17 @@
     ]
   },
   "Crown of sonnets": {
-    "status": "partial",
-    "note": "Each last line opens the next sonnet, and the final line returns to the first. The number of sonnets can vary.",
+    "status": "supported",
+    "note": "In this seven-sonnet crown every sonnet has fourteen positions. The seven boundary lines connect adjacent sonnets, including the final return to the start. Repeated lines count each time they appear, giving 98 positions.",
     "edges": [
       {
         "target": "Sonnet sequence",
         "kind": "variant",
         "status": "supported",
-        "evidence": "A crown is a sequence whose neighboring sonnets share boundary lines and whose ending closes the loop."
+        "evidence": "A crown is a sequence whose neighboring sonnets share boundary lines and whose ending closes the loop.",
+        "refs": [
+          "https://poets.org/glossary/sonnet"
+        ]
       }
     ],
     "refs": [
@@ -1442,8 +1464,8 @@
     ]
   },
   "Virelai": {
-    "status": "partial",
-    "note": "The catalog gives the linked-rhyme literary pattern called virelai ancien. A medieval musical virelai instead combines an opening refrain with contrasting music and a return. The two layers are not interchangeable.",
+    "status": "supported",
+    "note": "The literary construction hands its short-line rhyme to the next stanza. The medieval song opens on its refrain, pairs two related contrasting phrases, reuses the refrain tune with new words, then restores the refrain text. The song can repeat this stanza cycle.",
     "edges": [
       {
         "target": "Lai",
@@ -1458,7 +1480,8 @@
       "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html"
     ],
     "attested_refs": [
-      "https://www.larousse.fr/encyclopedie/musdico/virelai/170565"
+      "https://www.larousse.fr/encyclopedie/musdico/virelai/170565",
+      "https://the-orb.arlima.net/encyclop/culture/music/ffixe.htm"
     ]
   },
   "Virelai nouveau": {
@@ -1494,8 +1517,8 @@
     ]
   },
   "Lai": {
-    "status": "partial",
-    "note": "The catalog describes a nine-line verse pattern made from three aab units, each of 5, 5 and 2 syllables. This cannot be generalized to all medieval narrative or musical lais.",
+    "status": "supported",
+    "note": "The nine-line stanza has three 5/5/2 groups. In the illustrated musical design the final stanza returns to the opening meter and tune. A Breton narrative lay is a short rhymed tale with variable stanza organization. These are different senses of the name.",
     "edges": [
       {
         "target": "Tercet",
@@ -1506,19 +1529,22 @@
           "https://www.prose-n-poetry.com/lai-virelai-lai-nouveau/"
         ],
         "scope_paths": [
-          "1.1",
-          "1.2",
-          "1.3"
+          "1.1.1",
+          "1.1.2",
+          "1.1.3"
         ]
       }
     ],
     "refs": [
       "https://the-orb.arlima.net/encyclop/culture/music/ffixe.htm",
       "https://www.gutenberg.org/cache/epub/45736/pg45736-images.html",
-      "https://www.prose-n-poetry.com/lai-virelai-lai-nouveau/"
+      "https://www.prose-n-poetry.com/lai-virelai-lai-nouveau/",
+      "https://www.machautsociety.org/static_pages/abstracts.html",
+      "https://metseditions.org/editions/vMwewNZhMkppHg3eUmKGbi3r1pzrQ8M"
     ],
     "attested_refs": [
-      "https://www.prose-n-poetry.com/lai-virelai-lai-nouveau/"
+      "https://www.prose-n-poetry.com/lai-virelai-lai-nouveau/",
+      "https://www.machautsociety.org/static_pages/abstracts.html"
     ]
   },
   "Kyrielle": {
@@ -1587,8 +1613,8 @@
     ]
   },
   "Canzone": {
-    "status": "partial",
-    "note": "The catalog’s general outline allows five to seven matching stanzas and a short envoi. Two more specific constructions rotate end-words through five twelve-line stanzas, with either five or six concluding lines.",
+    "status": "supported",
+    "note": "In each fixed reading, A–E identify five recurring end-words and each letter marks one line ending. The five long stanzas share the displayed rotations. The five-position envoi uses ABCDE and the six-position envoi uses AEDDCB. The broader stanzaic construction has no universal end-word permutation.",
     "edges": [
       {
         "target": "Quintain",
@@ -1597,10 +1623,11 @@
         "evidence": "The 65-line construction closes with a five-line envoi.",
         "refs": [
           "https://www.poetryfoundation.org/education/glossary/canzone",
-          "https://www.poetryfoundation.org/featured-blogger/85658/a-fleeting-moment"
+          "https://www.poetryfoundation.org/featured-blogger/85658/a-fleeting-moment",
+          "https://www.volecentral.co.uk/vf/canzone.htm"
         ],
         "scope_paths": [
-          "2.2"
+          "1.2.6"
         ]
       },
       {
@@ -1609,22 +1636,29 @@
         "status": "supported",
         "evidence": "The 66-line historical construction closes with a six-line envoi.",
         "refs": [
-          "https://www.academia.edu/37673307/Amor_tu_vedi_ben_docx"
+          "https://www.academia.edu/37673307/Amor_tu_vedi_ben_docx",
+          "https://it.wikisource.org/w/index.php?title=Rime_(Dante)/CII_-_Amor,_tu_vedi_ben_che_questa_donna&oldid=3751755"
         ],
         "scope_paths": [
-          "3.2"
+          "1.3.6"
         ]
       }
     ],
     "refs": [
       "https://www.poetryfoundation.org/education/glossary/canzone",
       "https://www.poetryfoundation.org/featured-blogger/85658/a-fleeting-moment",
-      "https://www.academia.edu/37673307/Amor_tu_vedi_ben_docx"
+      "https://www.academia.edu/37673307/Amor_tu_vedi_ben_docx",
+      "https://www.volecentral.co.uk/vf/canzone.htm",
+      "https://it.wikisource.org/w/index.php?title=Rime_(Dante)/CII_-_Amor,_tu_vedi_ben_che_questa_donna&oldid=3751755",
+      "https://www.treccani.it/enciclopedia/tu-vedi-ben-che-questa-donna-amor_%28Enciclopedia-Dantesca%29/"
     ],
     "attested_refs": [
       "https://www.poetryfoundation.org/education/glossary/canzone",
       "https://www.poetryfoundation.org/featured-blogger/85658/a-fleeting-moment",
-      "https://www.academia.edu/37673307/Amor_tu_vedi_ben_docx"
+      "https://www.academia.edu/37673307/Amor_tu_vedi_ben_docx",
+      "https://www.volecentral.co.uk/vf/canzone.htm",
+      "https://it.wikisource.org/w/index.php?title=Rime_(Dante)/CII_-_Amor,_tu_vedi_ben_che_questa_donna&oldid=3751755",
+      "https://www.treccani.it/enciclopedia/tu-vedi-ben-che-questa-donna-amor_%28Enciclopedia-Dantesca%29/"
     ]
   },
   "Ballata": {
@@ -1640,7 +1674,7 @@
   },
   "Stornello": {
     "status": "supported",
-    "note": "One three-line pattern opens with a short line followed by two longer lines. There are also three-long-line and two-line variants, with regional differences in rhyme and assonance.",
+    "note": "The short-opening version and the two-line regional version sit alongside a third possibility that uses three eleven-syllable lines. Rhyme links in the three-long-line setting vary across stanzas.",
     "edges": [
       {
         "target": "Tercet",
@@ -1672,16 +1706,24 @@
     ]
   },
   "Glosa": {
-    "status": "partial",
-    "note": "In a strict construction, the four lines of a borrowed epigraph close successive ten-line stanzas. Other traditions retain the line-by-line return while varying the stanza sizes.",
+    "status": "supported",
+    "note": "In the strict setting, four quoted lines generate four ten-line glosses, totaling 44 positions. A published alternative uses four four-line glosses and totals 20. Other stanza lengths can preserve the same line-by-line return.",
     "edges": [
       {
         "target": "Quatrain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The strict version opens with a four-line borrowed stanza; the ten-line glossing stanzas follow.",
+        "evidence": "Both illustrated forms open with a borrowed quatrain. In the short setting each of the four gloss stanzas is a separate quatrain as well.",
         "scope_paths": [
-          "1"
+          "2.1.1",
+          "2.2.1",
+          "2.2.2",
+          "2.2.3",
+          "2.2.4",
+          "2.2.5"
+        ],
+        "refs": [
+          "https://poets.org/glossary/glosa"
         ]
       },
       {
@@ -1836,8 +1878,8 @@
     ]
   },
   "Qasida": {
-    "status": "partial",
-    "note": "Nostalgic prelude, journey and final theme supply one conventional order. A bayt consists of two hemistichs within one verse. English layouts can vary.",
+    "status": "supported",
+    "note": "Each bayt has two hemistichs and the poem sustains one end rhyme. The common double-rhymed opening yields AA, then xA at later bayt endings. The thematic progression describes another level of the same poem. English line breaks can represent the halves in different ways.",
     "edges": [
       {
         "target": "Couplet",
@@ -1853,22 +1895,27 @@
     "refs": [
       "https://doi.org/10.1080/1475262X.2010.523202",
       "https://postext.dev/en/cookbook/qasida-diwan-page",
-      "https://www.iranicaonline.org/articles/aruz-the-metrical-system/"
+      "https://www.iranicaonline.org/articles/aruz-the-metrical-system/",
+      "https://www.iranicaonline.org/articles/iran-viii2-classical-persian-literature/"
     ],
     "attested_refs": [
       "https://postext.dev/en/cookbook/qasida-diwan-page",
-      "https://www.iranicaonline.org/articles/aruz-the-metrical-system/"
+      "https://www.iranicaonline.org/articles/aruz-the-metrical-system/",
+      "https://www.iranicaonline.org/articles/iran-viii2-classical-persian-literature/"
     ]
   },
   "Haiku": {
-    "status": "contested",
-    "note": "Japanese 5–7–5 counts sound units, not English syllables. The Haiku Society of America emphasizes the cut and relationship of images and does not impose three lines or a mandatory English season word. A traditional Japanese template uses 5, 7 and 5 on.",
+    "status": "supported",
+    "note": "A traditional Japanese reading counts phrases in sound units and uses seasonal reference and a cut. English haiku commonly foreground the image relationship. English syllables and Japanese sound units measure different things.",
     "edges": [
       {
         "target": "Senryu",
         "kind": "comparison",
         "status": "supported",
-        "evidence": "Both are short verse forms. Their characteristic concerns differ, and an English syllable count alone cannot establish a subtype relationship."
+        "evidence": "Both are short verse forms. Their characteristic concerns differ, and an English syllable count alone cannot establish a subtype relationship.",
+        "refs": [
+          "https://www.hsa-haiku.org/hsa-definitions.html"
+        ]
       }
     ],
     "refs": [
@@ -1880,8 +1927,8 @@
     ]
   },
   "Senryu": {
-    "status": "contested",
-    "note": "English senryu often use one to three lines. A human observation is central; humor, a cut, and an English 5–7–5 syllable count are not obligatory.",
+    "status": "supported",
+    "note": "The Japanese metrical template uses 5/7/5 sound units. English senryu commonly use one to three lines in two parts without a required English syllable count. The observation centers human behavior; satire is optional.",
     "edges": [
       {
         "target": "Haiku",
@@ -1891,15 +1938,20 @@
         "canonical_edge": {
           "source": "Haiku",
           "target": "Senryu"
-        }
+        },
+        "refs": [
+          "https://www.hsa-haiku.org/hsa-definitions.html"
+        ]
       }
     ],
     "refs": [
       "https://www.hsa-haiku.org/hsa-definitions.html",
-      "https://hsa-haiku.org/hsa-definitions-2004.html"
+      "https://hsa-haiku.org/hsa-definitions-2004.html",
+      "https://poets.org/glossary/senryu"
     ],
     "attested_refs": [
-      "https://www.hsa-haiku.org/hsa-definitions.html"
+      "https://www.hsa-haiku.org/hsa-definitions.html",
+      "https://poets.org/glossary/senryu"
     ]
   },
   "Tanka": {

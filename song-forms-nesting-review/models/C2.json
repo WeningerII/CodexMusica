@@ -181,14 +181,14 @@
       {
         "label": "Alternating verses",
         "children": [
-          "Long verse · 5–7–5 traditional sound units",
-          "Short verse · 7–7 traditional sound units"
+          "Long · 5–7–5 traditional sound units",
+          "Short · 7–7 traditional sound units"
         ]
       },
       {
-        "label": "Link and shift",
+        "label": "Renku link and shift",
         "children": [
-          "Link to the previous verse",
+          "Link to the preceding verse",
           "Shift away from the verse before it"
         ]
       },
@@ -196,19 +196,31 @@
         "label": "Kasen · 36 verses",
         "children": [
           {
-            "label": "First folio",
+            "label": "Jo · opening",
             "children": [
-              "Front · 6 verses",
-              "Back · 12 verses"
+              "Verses 1–6 · first folio front"
             ]
           },
           {
-            "label": "Second folio",
+            "label": "Ha · development",
             "children": [
-              "Front · 12 verses",
-              "Back · 6 verses"
+              "Verses 7–18 · first folio back",
+              "Verses 19–30 · second folio front"
+            ]
+          },
+          {
+            "label": "Kyū · close",
+            "children": [
+              "Verses 31–36 · second folio back"
             ]
           }
+        ]
+      },
+      {
+        "label": "Other attested lengths",
+        "children": [
+          "50 verses",
+          "100 verses"
         ]
       }
     ],
@@ -453,12 +465,12 @@
   "Englyn": {
     "tree": [
       {
-        "label": "Catalogued variants",
+        "label": "Single-rhyme settings",
         "children": [
           {
             "label": "Milwr",
             "children": [
-              "7 · 7 · 7 syllables",
+              "Three seven-syllable lines",
               "One main rhyme"
             ]
           },
@@ -466,7 +478,7 @@
             "label": "Penfyr",
             "children": [
               "Short toddaid",
-              "Seven-syllable line"
+              "One seven-syllable line on the main rhyme"
             ]
           },
           {
@@ -474,6 +486,39 @@
             "children": [
               "Short toddaid · 10 + 6",
               "Cywydd couplet · 7 + 7"
+            ]
+          },
+          {
+            "label": "Unodl crwca",
+            "children": [
+              "Cywydd couplet",
+              "Short toddaid on the same main rhyme"
+            ]
+          },
+          {
+            "label": "Cil dwrn",
+            "children": [
+              "Short toddaid",
+              "Three- or two-syllable line on the main rhyme"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Proest settings · traditional scheme",
+        "children": [
+          {
+            "label": "Cadwynog",
+            "children": [
+              "Four seven-syllable lines",
+              "Proest and chained rhyme"
+            ]
+          },
+          {
+            "label": "Cyfnewidiog",
+            "children": [
+              "Four seven-syllable lines",
+              "Lines linked by proest"
             ]
           }
         ]
@@ -726,27 +771,32 @@
   "Irish syllabic quatrains": {
     "tree": [
       {
-        "label": "Named examples",
+        "label": "Four named examples",
         "children": [
           {
             "label": "Deibhidhe",
             "children": [
               "7 · 7 · 7 · 7 syllables",
-              "Rhyming pairs"
+              "End rhyme · lines 1–2 and 3–4",
+              "Alliteration in each line",
+              "Internal rhyme in the second couplet"
             ]
           },
           {
             "label": "Rannaigheacht mhór",
             "children": [
               "7 · 7 · 7 · 7 syllables",
-              "Internal rhyme and alliteration"
+              "Alliteration in each line",
+              "Internal and aicill rhyme in the second couplet"
             ]
           },
           {
             "label": "Séadna",
             "children": [
               "8 · 7 · 8 · 7 syllables",
-              "Lines 2 and 4 rhyme"
+              "Lines 2 and 4 rhyme",
+              "Alliteration in each line",
+              "Internal and aicill rhyme in the second couplet"
             ]
           },
           {
@@ -760,9 +810,9 @@
         ]
       },
       {
-        "label": "Whole poem",
+        "label": "Whole-poem closure in the catalog",
         "children": [
-          "Catalog describes a return to the opening word"
+          "Return to the opening word"
         ]
       }
     ],
@@ -866,20 +916,29 @@
   "Ruthless rhyme": {
     "tree": [
       {
-        "label": "Deadpan account of a gruesome death",
+        "label": "Catalog quatrain",
+        "children": [
+          "First couplet · AA",
+          "Second couplet · BB",
+          "Deadpan close"
+        ]
+      },
+      {
+        "label": "Other attested settings",
         "children": [
           {
-            "label": "First couplet",
+            "label": "One quatrain",
             "children": [
-              "A",
-              "A"
+              "Alternating end rhyme · ABAB",
+              "Deadpan close"
             ]
           },
           {
-            "label": "Second couplet",
+            "label": "Two quatrains",
             "children": [
-              "B",
-              "B · deadpan close"
+              "First · ABAB",
+              "Second · CDCD",
+              "A reply delivers the reversal"
             ]
           }
         ]
@@ -930,19 +989,32 @@
   "Diamante": {
     "tree": [
       {
-        "label": "Opposite subjects",
+        "label": "Seven lines",
         "children": [
-          "Subject · one noun",
-          "Two describing adjectives",
-          "Three -ing verbs",
-          "Four nouns · commonly two per subject",
-          "Three -ing verbs",
-          "Two describing adjectives",
-          "Opposite subject · one noun"
+          "1 · opening noun",
+          "2 · two adjectives",
+          "3 · three -ing verbs",
+          {
+            "label": "4 · four words",
+            "children": [
+              "Four nouns in one teaching pattern",
+              "A four-word phrase in another"
+            ]
+          },
+          "5 · three -ing verbs",
+          "6 · two adjectives",
+          "7 · closing noun"
+        ]
+      },
+      {
+        "label": "Relationship between the outer nouns",
+        "children": [
+          "Synonyms · continue the subject",
+          "Antonyms · shift to its opposite"
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Septet"
     ]
@@ -1268,9 +1340,16 @@
           "Resolution or failed attempt · 6 lines",
           "Same refrain"
         ]
+      },
+      {
+        "label": "Optional fourth stanza",
+        "children": [
+          "6 more lines",
+          "Same refrain"
+        ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Sestet / sixain",
       "Octave / huitain"

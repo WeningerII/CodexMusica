@@ -1,5 +1,7 @@
 # Scope of the Song Forms review
 
+Historical review at ee47d0c. See README.md for current figures and partial-entries.md and catalog-corrections.md for subsequent dispositions.
+
 **Criterion.** A diagram is supported when it represents the stated organizing rule or explicitly bounded construction, partial when the note can name a material missing branch, position, rule or unresolved identification, and contested only when two traceable accounts make incompatible claims about the same feature at the same scope. Reserve unresolved for an entry whose construction cannot be determined. Evidence provenance is a separate field. A difference of language, an allowed variant, or an unspecified optional detail does not by itself make an entry contested.
 
 The review read the inventory text, all six model files, all six audit files and each form’s complete tree and entry note. The overlay contains one record per exact original title with only `status` and `note`. Group C is stored as C1 and C2. The status belongs to the entry, independently of the verdicts on its individual relationship edges.

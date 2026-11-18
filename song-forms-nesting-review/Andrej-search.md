@@ -1,5 +1,7 @@
 # Search ranking
 
+Historical review at ee47d0c. See README.md for current figures and partial-entries.md and catalog-corrections.md for subsequent dispositions.
+
 The finder now ranks a complete heading first, followed by a complete alternate name, then a complete related search term. Partial titles and diagram text still find the same forms. Names separated by commas count as separate aliases. Equal matches preserve catalog order. A family filter still applies to every tier.
 
 ## Six reported queries

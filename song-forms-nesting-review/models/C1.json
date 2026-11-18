@@ -15,18 +15,39 @@
         ]
       },
       {
-        "label": "Sestet · customary turn",
+        "label": "Sestet · turn usually opens the response",
         "children": [
-          "C",
-          "D",
-          "E",
-          "C",
-          "D",
-          "E"
+          {
+            "label": "Common sestet choices",
+            "children": [
+              {
+                "label": "CDECDE",
+                "children": [
+                  "C",
+                  "D",
+                  "E",
+                  "C",
+                  "D",
+                  "E"
+                ]
+              },
+              {
+                "label": "CDCDCD",
+                "children": [
+                  "C",
+                  "D",
+                  "C",
+                  "D",
+                  "C",
+                  "D"
+                ]
+              }
+            ]
+          }
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Pattern",
     "related": [
       "Octave / huitain",
       "Sestet / sixain"
@@ -35,31 +56,85 @@
   "Sicilian sonnet": {
     "tree": [
       {
-        "label": "Octave",
+        "label": "Alternating-octave construction",
         "children": [
-          "A",
-          "B",
-          "A",
-          "B",
-          "A",
-          "B",
-          "A",
-          "B"
+          {
+            "label": "Octave",
+            "children": [
+              "A",
+              "B",
+              "A",
+              "B",
+              "A",
+              "B",
+              "A",
+              "B"
+            ]
+          },
+          {
+            "label": "Sestet · choose one scheme",
+            "children": [
+              {
+                "label": "Common sestet choices",
+                "children": [
+                  {
+                    "label": "CDECDE",
+                    "children": [
+                      "C",
+                      "D",
+                      "E",
+                      "C",
+                      "D",
+                      "E"
+                    ]
+                  },
+                  {
+                    "label": "CDCDCD",
+                    "children": [
+                      "C",
+                      "D",
+                      "C",
+                      "D",
+                      "C",
+                      "D"
+                    ]
+                  }
+                ]
+              },
+              {
+                "label": "Opening rhyme reused",
+                "children": [
+                  "AABAAB",
+                  "ACDACD",
+                  "BCDBCD",
+                  "CADCAD",
+                  "CDACDA",
+                  "CDBCDB"
+                ]
+              }
+            ]
+          }
         ]
       },
       {
-        "label": "Sestet",
+        "label": "Exceptional historical attribution",
         "children": [
-          "C",
-          "D",
-          "E",
-          "C",
-          "D",
-          "E"
+          {
+            "label": "Octave",
+            "children": [
+              "ABBAABBA"
+            ]
+          },
+          {
+            "label": "Sestet",
+            "children": [
+              "CDEEDC"
+            ]
+          }
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Octave / huitain",
       "Sestet / sixain",
@@ -385,20 +460,37 @@
       {
         "label": "Three quatrains",
         "children": [
-          "First ends on c",
-          "Second ends on c",
-          "Third ends on c"
+          {
+            "label": "Across their first three positions",
+            "children": [
+              "Place two A endings and two B endings across nine slots",
+              "Five slots can remain unrhymed"
+            ]
+          },
+          {
+            "label": "At each stanza end",
+            "children": [
+              "Fourth position takes C"
+            ]
+          }
         ]
       },
       {
-        "label": "Closing pair",
+        "label": "Closing couplet",
         "children": [
-          "Ends on a",
-          "Ends on b"
+          "A",
+          "B"
+        ]
+      },
+      {
+        "label": "One valid realization",
+        "children": [
+          "AXBC · XAXC · BXXC · AB",
+          "X marks an unpaired ending"
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Quatrain",
       "Couplet"
@@ -433,14 +525,38 @@
   "American sonnet": {
     "tree": [
       {
-        "label": "Flexible sonnet frame",
+        "label": "Flexible frame",
         "children": [
-          "Length often near fourteen lines",
-          "Rhyme and turn vary"
+          "Often near fourteen lines",
+          "Stanza grouping and rhyme can vary",
+          "A turn may be marked or diffuse"
+        ]
+      },
+      {
+        "label": "15-position reading",
+        "children": [
+          {
+            "label": "Positions 1–6",
+            "children": [
+              "Initial action and recollection"
+            ]
+          },
+          {
+            "label": "Positions 7–12",
+            "children": [
+              "Time and viewpoint shift to the present"
+            ]
+          },
+          {
+            "label": "Positions 13–15",
+            "children": [
+              "Closing turn in perspective"
+            ]
+          }
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Example"
   },
   "Duplex": {
     "tree": [
@@ -475,22 +591,32 @@
   "Kyrielle sonnet": {
     "tree": [
       {
-        "label": "Three quatrains",
+        "label": "Three octosyllabic quatrains",
         "children": [
-          "First ends on refrain",
-          "Second ends on refrain",
-          "Third ends on refrain"
+          {
+            "label": "One common rhyme arrangement",
+            "children": [
+              "AABB · CCBB · DDBB"
+            ]
+          },
+          {
+            "label": "Another common rhyme arrangement",
+            "children": [
+              "ABAB · CBCB · DBDB"
+            ]
+          },
+          "Lines 4, 8 and 12 repeat the same refrain"
         ]
       },
       {
-        "label": "Final pair",
+        "label": "Closing couplet",
         "children": [
-          "Opening line of the poem",
-          "Repeated refrain line"
+          "Line 13 repeats line 1",
+          "Line 14 repeats line 4"
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Pattern",
     "related": [
       "Kyrielle",
       "Quatrain",
@@ -500,20 +626,68 @@
   "Crown of sonnets": {
     "tree": [
       {
-        "label": "Cycle of sonnets",
+        "label": "Seven linked sonnets",
         "children": [
           {
-            "label": "Each join",
+            "label": "Sonnet 1",
             "children": [
-              "Last line",
-              "Same line opens next sonnet"
+              "First line · link 1",
+              "Twelve interior positions",
+              "Last line · link 2"
             ]
           },
-          "Final line reprises the first"
+          {
+            "label": "Sonnet 2",
+            "children": [
+              "First line · link 2",
+              "Twelve interior positions",
+              "Last line · link 3"
+            ]
+          },
+          {
+            "label": "Sonnet 3",
+            "children": [
+              "First line · link 3",
+              "Twelve interior positions",
+              "Last line · link 4"
+            ]
+          },
+          {
+            "label": "Sonnet 4",
+            "children": [
+              "First line · link 4",
+              "Twelve interior positions",
+              "Last line · link 5"
+            ]
+          },
+          {
+            "label": "Sonnet 5",
+            "children": [
+              "First line · link 5",
+              "Twelve interior positions",
+              "Last line · link 6"
+            ]
+          },
+          {
+            "label": "Sonnet 6",
+            "children": [
+              "First line · link 6",
+              "Twelve interior positions",
+              "Last line · link 7"
+            ]
+          },
+          {
+            "label": "Sonnet 7",
+            "children": [
+              "First line · link 7",
+              "Twelve interior positions",
+              "Last line · link 1"
+            ]
+          }
         ]
       }
     ],
-    "mode": "Rule",
+    "mode": "Pattern",
     "related": [
       "Sonnet sequence"
     ]
@@ -1187,25 +1361,50 @@
   "Virelai": {
     "tree": [
       {
-        "label": "Catalog’s linked-rhyme verse",
+        "label": "Two historical uses",
         "children": [
           {
-            "label": "Stanza",
+            "label": "Catalog’s linked-rhyme verse",
             "children": [
-              "Longer lines on main rhyme",
-              "Short lines on second rhyme"
+              {
+                "label": "Stanza",
+                "children": [
+                  "Longer lines on main rhyme",
+                  "Short lines on second rhyme"
+                ]
+              },
+              {
+                "label": "Next stanza",
+                "children": [
+                  "Prior second rhyme becomes main rhyme"
+                ]
+              }
             ]
           },
           {
-            "label": "Next stanza",
+            "label": "Medieval song",
             "children": [
-              "Prior second rhyme becomes main rhyme"
+              "A · opening refrain",
+              {
+                "label": "Stanza cycle · one to three",
+                "children": [
+                  {
+                    "label": "Contrasting melody",
+                    "children": [
+                      "b · open ending",
+                      "b′ · closed ending"
+                    ]
+                  },
+                  "a · new words on refrain music",
+                  "A · refrain words and music return"
+                ]
+              }
             ]
           }
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Lai"
     ]
@@ -1242,36 +1441,56 @@
   "Lai": {
     "tree": [
       {
-        "label": "Nine-line stanza",
+        "label": "Three uses of the name",
         "children": [
           {
-            "label": "Group 1",
+            "label": "Nine-line stanza",
             "children": [
-              "a · 5 syllables",
-              "a · 5 syllables",
-              "b · 2 syllables"
+              {
+                "label": "Group 1",
+                "children": [
+                  "a · 5 syllables",
+                  "a · 5 syllables",
+                  "b · 2 syllables"
+                ]
+              },
+              {
+                "label": "Group 2",
+                "children": [
+                  "a · 5 syllables",
+                  "a · 5 syllables",
+                  "b · 2 syllables"
+                ]
+              },
+              {
+                "label": "Group 3",
+                "children": [
+                  "a · 5 syllables",
+                  "a · 5 syllables",
+                  "b · 2 syllables"
+                ]
+              }
             ]
           },
           {
-            "label": "Group 2",
+            "label": "Medieval French musical setting",
             "children": [
-              "a · 5 syllables",
-              "a · 5 syllables",
-              "b · 2 syllables"
+              "First double versicle · opening design",
+              "Double versicles 2–11 · successive settings",
+              "Twelfth double versicle · opening meter and melody return, often transposed"
             ]
           },
           {
-            "label": "Group 3",
+            "label": "Breton narrative lay",
             "children": [
-              "a · 5 syllables",
-              "a · 5 syllables",
-              "b · 2 syllables"
+              "A short rhymed narrative",
+              "Line and stanza design follow the particular telling"
             ]
           }
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Tercet"
     ]
@@ -1327,24 +1546,97 @@
   "Canzone": {
     "tree": [
       {
-        "label": "General catalog form",
+        "label": "Alternative constructions",
         "children": [
-          "Five to seven matching stanzas",
-          "Short envoi"
-        ]
-      },
-      {
-        "label": "65-line construction",
-        "children": [
-          "Five 12-line stanzas with recurring end-words",
-          "Five-line envoi"
-        ]
-      },
-      {
-        "label": "66-line historical construction",
-        "children": [
-          "Five 12-line stanzas with recurring end-words",
-          "Six-line envoi"
+          {
+            "label": "General stanza design",
+            "children": [
+              "Five to seven stanzas with matching patterns",
+              "Short closing envoi"
+            ]
+          },
+          {
+            "label": "65 positions · recurring end-words",
+            "children": [
+              {
+                "label": "Stanza 1",
+                "children": [
+                  "ABAACAADDAEE"
+                ]
+              },
+              {
+                "label": "Stanza 2",
+                "children": [
+                  "EAEEBEECCEDD"
+                ]
+              },
+              {
+                "label": "Stanza 3",
+                "children": [
+                  "DEDDADDBBDCC"
+                ]
+              },
+              {
+                "label": "Stanza 4",
+                "children": [
+                  "CDCCECCAACBB"
+                ]
+              },
+              {
+                "label": "Stanza 5",
+                "children": [
+                  "BCBBDBBEEBAA"
+                ]
+              },
+              {
+                "label": "Envoi",
+                "children": [
+                  "ABCDE"
+                ]
+              }
+            ]
+          },
+          {
+            "label": "66 positions · recurring end-words",
+            "children": [
+              {
+                "label": "Stanza 1",
+                "children": [
+                  "ABAACAADDAEE"
+                ]
+              },
+              {
+                "label": "Stanza 2",
+                "children": [
+                  "EAEEBEECCEDD"
+                ]
+              },
+              {
+                "label": "Stanza 3",
+                "children": [
+                  "DEDDADDBBDCC"
+                ]
+              },
+              {
+                "label": "Stanza 4",
+                "children": [
+                  "CDCCECCAACBB"
+                ]
+              },
+              {
+                "label": "Stanza 5",
+                "children": [
+                  "BCBBDBBEEBAA"
+                ]
+              },
+              {
+                "label": "Envoi",
+                "children": [
+                  "AEDDCB"
+                ]
+              }
+            ]
+          }
         ]
       }
     ],
@@ -1372,7 +1664,7 @@
   "Stornello": {
     "tree": [
       {
-        "label": "Attested alternatives",
+        "label": "Alternative settings",
         "children": [
           {
             "label": "Three lines",
@@ -1388,11 +1680,19 @@
               "Eleven-syllable opening line",
               "Eleven-syllable reply with rhyme or assonance"
             ]
+          },
+          {
+            "label": "Regional three-long-line setting",
+            "children": [
+              "First endecasillabo",
+              "Second endecasillabo",
+              "Third endecasillabo"
+            ]
           }
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Tercet",
       "Couplet"
@@ -1401,44 +1701,100 @@
   "Glosa": {
     "tree": [
       {
-        "label": "Borrowed quatrain",
+        "label": "Quoted opening and gloss",
         "children": [
-          "Line 1",
-          "Line 2",
-          "Line 3",
-          "Line 4"
+          "Read the borrowed lines in order",
+          "Return one successive borrowed line at each gloss stanza’s close"
         ]
       },
       {
-        "label": "Stanza 1",
+        "label": "Two documented sizes",
         "children": [
-          "Nine lines of gloss",
-          "Epigraph line 1"
-        ]
-      },
-      {
-        "label": "Stanza 2",
-        "children": [
-          "Nine lines of gloss",
-          "Epigraph line 2"
-        ]
-      },
-      {
-        "label": "Stanza 3",
-        "children": [
-          "Nine lines of gloss",
-          "Epigraph line 3"
-        ]
-      },
-      {
-        "label": "Stanza 4",
-        "children": [
-          "Nine lines of gloss",
-          "Epigraph line 4"
+          {
+            "label": "Four ten-line glosses",
+            "children": [
+              {
+                "label": "Borrowed quatrain",
+                "children": [
+                  "Line 1",
+                  "Line 2",
+                  "Line 3",
+                  "Line 4"
+                ]
+              },
+              {
+                "label": "Stanza 1",
+                "children": [
+                  "Nine lines of gloss",
+                  "Epigraph line 1"
+                ]
+              },
+              {
+                "label": "Stanza 2",
+                "children": [
+                  "Nine lines of gloss",
+                  "Epigraph line 2"
+                ]
+              },
+              {
+                "label": "Stanza 3",
+                "children": [
+                  "Nine lines of gloss",
+                  "Epigraph line 3"
+                ]
+              },
+              {
+                "label": "Stanza 4",
+                "children": [
+                  "Nine lines of gloss",
+                  "Epigraph line 4"
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Four four-line glosses",
+            "children": [
+              {
+                "label": "Quoted opening",
+                "children": [
+                  "Four borrowed lines"
+                ]
+              },
+              {
+                "label": "Gloss 1",
+                "children": [
+                  "Three new lines",
+                  "Borrowed line 1"
+                ]
+              },
+              {
+                "label": "Gloss 2",
+                "children": [
+                  "Three new lines",
+                  "Borrowed line 2"
+                ]
+              },
+              {
+                "label": "Gloss 3",
+                "children": [
+                  "Three new lines",
+                  "Borrowed line 3"
+                ]
+              },
+              {
+                "label": "Gloss 4",
+                "children": [
+                  "Three new lines",
+                  "Borrowed line 4"
+                ]
+              }
+            ]
+          }
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Quatrain"
     ]
@@ -1552,24 +1908,63 @@
   "Qasida": {
     "tree": [
       {
-        "label": "Classic tripartite ode",
+        "label": "Two views of the same ode",
         "children": [
-          "Nostalgic prelude",
-          "Journey",
-          "Praise or satire"
+          {
+            "label": "Thematic movement · common design",
+            "children": [
+              "Nostalgic prelude",
+              "Journey",
+              "Praise or satire"
+            ]
+          },
+          {
+            "label": "Recurring verse structure",
+            "children": [
+              {
+                "label": "Opening bayt · common rhymed opening",
+                "children": [
+                  "First hemistich · A",
+                  "Second hemistich · A"
+                ]
+              },
+              {
+                "label": "Each later bayt",
+                "children": [
+                  "First hemistich · free ending",
+                  "Second hemistich · A"
+                ]
+              }
+            ]
+          }
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Pattern"
   },
   "Haiku": {
     "tree": [
       {
-        "label": "Imagistic juxtaposition",
+        "label": "Japanese convention",
         "children": [
-          "Image or perception",
-          "Cut",
-          "Related image or idea"
+          {
+            "label": "Three measured phrases",
+            "children": [
+              "5 sound units",
+              "7 sound units",
+              "5 sound units"
+            ]
+          },
+          "Seasonal reference is customary",
+          "A cut relates images or perceptions"
+        ]
+      },
+      {
+        "label": "English-language practice",
+        "children": [
+          "A short observation of nature or season",
+          "A cut brings images or perceptions into relation",
+          "Lineation and syllable counts vary"
         ]
       }
     ],
@@ -1581,10 +1976,25 @@
   "Senryu": {
     "tree": [
       {
-        "label": "Brief human observation",
+        "label": "Traditional Japanese template",
         "children": [
-          "Often one to three English lines",
-          "Humor optional"
+          "5 sound units",
+          "7 sound units",
+          "5 sound units"
+        ]
+      },
+      {
+        "label": "English-language practice",
+        "children": [
+          "Usually one to three written lines",
+          "Two parts often juxtapose perceptions or ideas"
+        ]
+      },
+      {
+        "label": "Shared focus",
+        "children": [
+          "A brief observation of human behavior",
+          "Humor or satire can shape the observation"
         ]
       }
     ],

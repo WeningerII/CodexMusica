@@ -88,17 +88,23 @@
   "Fourteener": {
     "tree": [
       {
-        "label": "Paired setting",
+        "label": "One 14-syllable line",
+        "children": [
+          "Usually seven iambic feet"
+        ]
+      },
+      {
+        "label": "Paired and split setting",
         "children": [
           {
-            "label": "14-syllable line · A",
+            "label": "First line · A",
             "children": [
               "8 syllables",
               "6 syllables"
             ]
           },
           {
-            "label": "14-syllable line · A",
+            "label": "Second line · A",
             "children": [
               "8 syllables",
               "6 syllables"
@@ -107,7 +113,7 @@
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Couplet",
       "Ballad stanza",
@@ -167,16 +173,25 @@
   "Tumbling verse": {
     "tree": [
       {
-        "label": "Loose four-stress pair",
+        "label": "Loose four-stress setting",
         "children": [
-          "A · four stresses",
-          "A · four stresses"
+          "First line · A",
+          "Second line · A"
+        ]
+      },
+      {
+        "label": "Scots flyting setting",
+        "children": [
+          "13 lines · ABABABABCDDDC",
+          "Mixed iambic and anapestic movement",
+          "Prominent alliteration"
         ]
       }
     ],
     "mode": "Example",
     "related": [
-      "Couplet"
+      "Couplet",
+      "Flyting"
     ]
   },
   "Leonine verse": {
@@ -305,14 +320,27 @@
       {
         "label": "Four-line stanza",
         "children": [
-          "4 stresses · A",
-          "3 stresses · B",
-          "4 stresses · C",
-          "3 stresses · B"
+          "4 stresses",
+          "3 stresses",
+          "4 stresses",
+          "3 stresses"
+        ]
+      },
+      {
+        "label": "End rhyme",
+        "children": [
+          "Lines 2 and 4 rhyme",
+          "Lines 1 and 3 may also rhyme"
+        ]
+      },
+      {
+        "label": "Optional refrain or burden",
+        "children": [
+          "Placement varies"
         ]
       }
     ],
-    "mode": "Pattern",
+    "mode": "Rule",
     "related": [
       "Quatrain"
     ]
@@ -513,10 +541,16 @@
   "Trochaic hymn metres": {
     "tree": [
       {
-        "label": "Choose a trochaic quatrain",
+        "label": "Trochaic movement",
+        "children": [
+          "Alternating strong and weak positions"
+        ]
+      },
+      {
+        "label": "Catalog patterns",
         "children": [
           {
-            "label": "Alternating",
+            "label": "8.7.8.7",
             "children": [
               "8 syllables",
               "7 syllables",
@@ -525,27 +559,31 @@
             ]
           },
           {
-            "label": "Seven throughout",
+            "label": "7.7.7.7",
             "children": [
               "7 syllables",
               "7 syllables",
               "7 syllables",
               "7 syllables"
             ]
-          }
+          },
+          "D doubles the whole chosen pattern"
         ]
       },
       {
-        "label": "Length",
+        "label": "Other documented patterns",
         "children": [
-          "One quatrain",
-          "Or two matching quatrains"
+          "8.8.7.7 · four lines",
+          "7.7.3.3.7 · five lines",
+          "8.7.8.7.8.7 · six lines"
         ]
       }
     ],
     "mode": "Rule",
     "related": [
-      "Quatrain"
+      "Quatrain",
+      "Quintain",
+      "Sestet / sixain"
     ]
   },
   "Other named hymn metres": {
@@ -626,6 +664,14 @@
               "4 syllables"
             ]
           }
+        ]
+      },
+      {
+        "label": "How to read the meter",
+        "children": [
+          "Each number gives the next line’s syllable count",
+          "D repeats the complete pattern",
+          "Other ordered counts can be indexed"
         ]
       }
     ],
@@ -722,18 +768,37 @@
   "Sapphic stanza": {
     "tree": [
       {
-        "label": "Sapphic stanza",
+        "label": "Ordinary stanza",
         "children": [
-          "11 syllables",
-          "11 syllables",
-          "11 syllables",
-          "Adonic · 5 syllables"
+          {
+            "label": "First three lines · 11 positions each",
+            "children": [
+              "Latin quantity · – ⏑ – – – ⏑ ⏑ – ⏑ – ×",
+              "Greek fourth position can be short"
+            ]
+          },
+          {
+            "label": "Closing Adonic · 5",
+            "children": [
+              "– ⏑ ⏑ – ×"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Greater Sapphic arrangement",
+        "children": [
+          "7 positions",
+          "15 positions",
+          "7 positions",
+          "15 positions"
         ]
       }
     ],
     "mode": "Pattern",
     "related": [
-      "Quatrain"
+      "Quatrain",
+      "Tercet"
     ]
   },
   "Alcaic stanza": {
@@ -762,18 +827,59 @@
   "Asclepiad stanza": {
     "tree": [
       {
-        "label": "One four-line Asclepiadean setting",
+        "label": "Lesser line series",
+        "children": [
+          "Lesser Asclepiad repeats"
+        ]
+      },
+      {
+        "label": "Three lesser, then Glyconic",
         "children": [
           "Lesser Asclepiad",
           "Lesser Asclepiad",
           "Lesser Asclepiad",
           "Glyconic"
         ]
+      },
+      {
+        "label": "Two lesser with mixed close",
+        "children": [
+          "Lesser Asclepiad",
+          "Lesser Asclepiad",
+          "Pherecratean",
+          "Glyconic"
+        ]
+      },
+      {
+        "label": "Two alternating pairs",
+        "children": [
+          {
+            "label": "First distich",
+            "children": [
+              "Glyconic",
+              "Lesser Asclepiad"
+            ]
+          },
+          {
+            "label": "Second distich",
+            "children": [
+              "Glyconic",
+              "Lesser Asclepiad"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Greater line series",
+        "children": [
+          "Greater Asclepiad repeats"
+        ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
-      "Quatrain"
+      "Quatrain",
+      "Couplet"
     ]
   },
   "Quintain": {
@@ -860,38 +966,152 @@
   "Tail-rhyme stanza": {
     "tree": [
       {
-        "label": "Stanza",
+        "label": "Six lines",
         "children": [
           {
-            "label": "First group",
+            "label": "AAB",
             "children": [
               {
-                "label": "Long couplet",
+                "label": "Long rhymed pair",
                 "children": [
                   "A",
                   "A"
                 ]
               },
-              "B · short tail"
+              "Short tail · B"
             ]
           },
           {
-            "label": "Second group",
+            "label": "CCB",
             "children": [
               {
-                "label": "Long couplet",
+                "label": "Long rhymed pair",
                 "children": [
                   "C",
                   "C"
                 ]
               },
-              "B · short tail"
+              "Short tail · B"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Twelve lines · distinct pair rhymes",
+        "children": [
+          {
+            "label": "AAB",
+            "children": [
+              {
+                "label": "Long rhymed pair",
+                "children": [
+                  "A",
+                  "A"
+                ]
+              },
+              "Short tail · B"
+            ]
+          },
+          {
+            "label": "CCB",
+            "children": [
+              {
+                "label": "Long rhymed pair",
+                "children": [
+                  "C",
+                  "C"
+                ]
+              },
+              "Short tail · B"
+            ]
+          },
+          {
+            "label": "DDB",
+            "children": [
+              {
+                "label": "Long rhymed pair",
+                "children": [
+                  "D",
+                  "D"
+                ]
+              },
+              "Short tail · B"
+            ]
+          },
+          {
+            "label": "EEB",
+            "children": [
+              {
+                "label": "Long rhymed pair",
+                "children": [
+                  "E",
+                  "E"
+                ]
+              },
+              "Short tail · B"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Twelve lines · repeated pair rhyme",
+        "children": [
+          {
+            "label": "AAB",
+            "children": [
+              {
+                "label": "Long rhymed pair",
+                "children": [
+                  "A",
+                  "A"
+                ]
+              },
+              "Short tail · B"
+            ]
+          },
+          {
+            "label": "AAB",
+            "children": [
+              {
+                "label": "Long rhymed pair",
+                "children": [
+                  "A",
+                  "A"
+                ]
+              },
+              "Short tail · B"
+            ]
+          },
+          {
+            "label": "CCB",
+            "children": [
+              {
+                "label": "Long rhymed pair",
+                "children": [
+                  "C",
+                  "C"
+                ]
+              },
+              "Short tail · B"
+            ]
+          },
+          {
+            "label": "DDB",
+            "children": [
+              {
+                "label": "Long rhymed pair",
+                "children": [
+                  "D",
+                  "D"
+                ]
+              },
+              "Short tail · B"
             ]
           }
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Sestet / sixain",
       "Couplet"
@@ -1028,13 +1248,23 @@
             ]
           }
         ]
+      },
+      {
+        "label": "Alternatives after ABAB",
+        "children": [
+          "No added pair · four lines",
+          "One pair · six lines",
+          "Two pairs · eight lines",
+          "More pairs in some dance settings"
+        ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Octave / huitain",
       "Couplet",
-      "Quatrain"
+      "Quatrain",
+      "Sestet / sixain"
     ]
   },
   "Monk's Tale stanza": {
@@ -1162,13 +1392,100 @@
             ]
           }
         ]
+      },
+      {
+        "label": "Four and six",
+        "children": [
+          {
+            "label": "Opening four",
+            "children": [
+              "1 · A",
+              "2 · B",
+              "3 · B",
+              "4 · A"
+            ]
+          },
+          {
+            "label": "Closing six",
+            "children": [
+              "5 · A",
+              "6 · C",
+              "7 · C",
+              "8 · D",
+              "9 · D",
+              "10 · C"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Five and five",
+        "children": [
+          {
+            "label": "First five",
+            "children": [
+              "1 · A",
+              "2 · B",
+              "3 · B",
+              "4 · A",
+              "5 · A"
+            ]
+          },
+          {
+            "label": "Second five",
+            "children": [
+              "6 · C",
+              "7 · C",
+              "8 · D",
+              "9 · D",
+              "10 · C"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Framed pairs",
+        "children": [
+          "A",
+          {
+            "label": "Matching pair",
+            "children": [
+              "2 · B",
+              "3 · B"
+            ]
+          },
+          {
+            "label": "Matching pair",
+            "children": [
+              "4 · A",
+              "5 · A"
+            ]
+          },
+          {
+            "label": "Matching pair",
+            "children": [
+              "6 · C",
+              "7 · C"
+            ]
+          },
+          {
+            "label": "Matching pair",
+            "children": [
+              "8 · D",
+              "9 · D"
+            ]
+          },
+          "C"
+        ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Redondilla",
       "Quatrain",
-      "Couplet"
+      "Couplet",
+      "Quintain",
+      "Sestet / sixain"
     ]
   },
   "Keatsian ode stanza": {
@@ -1197,12 +1514,65 @@
             ]
           }
         ]
+      },
+      {
+        "label": "Eleven lines · first arrangement",
+        "children": [
+          {
+            "label": "Opening quatrain",
+            "children": [
+              "1 · A",
+              "2 · B",
+              "3 · A",
+              "4 · B"
+            ]
+          },
+          {
+            "label": "Seven-line close",
+            "children": [
+              "5 · C",
+              "6 · D",
+              "7 · E",
+              "8 · D",
+              "9 · C",
+              "10 · C",
+              "11 · E"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Eleven lines · second arrangement",
+        "children": [
+          {
+            "label": "Opening quatrain",
+            "children": [
+              "1 · A",
+              "2 · B",
+              "3 · A",
+              "4 · B"
+            ]
+          },
+          {
+            "label": "Seven-line close",
+            "children": [
+              "5 · C",
+              "6 · D",
+              "7 · E",
+              "8 · C",
+              "9 · D",
+              "10 · D",
+              "11 · E"
+            ]
+          }
+        ]
       }
     ],
     "mode": "Example",
     "related": [
       "Quatrain",
-      "Sestet / sixain"
+      "Sestet / sixain",
+      "Septet"
     ]
   },
   "Christ's Kirk stanza": {
@@ -1243,36 +1613,51 @@
   "Pearl stanza": {
     "tree": [
       {
-        "label": "Typical five-stanza group",
+        "label": "12-line stanza",
         "children": [
           {
-            "label": "12-line stanza",
+            "label": "Opening octave",
             "children": [
-              {
-                "label": "Opening octave",
-                "children": [
-                  "1 · A",
-                  "2 · B",
-                  "3 · A",
-                  "4 · B",
-                  "5 · A",
-                  "6 · B",
-                  "7 · A",
-                  "8 · B"
-                ]
-              },
-              {
-                "label": "Closing quatrain",
-                "children": [
-                  "9 · B",
-                  "10 · C",
-                  "11 · B",
-                  "12 · C"
-                ]
-              }
+              "1 · A",
+              "2 · B",
+              "3 · A",
+              "4 · B",
+              "5 · A",
+              "6 · B",
+              "7 · A",
+              "8 · B"
             ]
           },
-          "Link word echoes in next opening line"
+          {
+            "label": "Closing quatrain",
+            "children": [
+              "9 · B",
+              "10 · C",
+              "11 · B",
+              "12 · C"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Twenty stanza groups",
+        "children": [
+          "19 groups of five stanzas",
+          "Group 15 has six stanzas"
+        ]
+      },
+      {
+        "label": "Stanza links",
+        "children": [
+          "End word or phrase echoes in the next opening",
+          "One manuscript transition breaks the usual link"
+        ]
+      },
+      {
+        "label": "Two metrical readings",
+        "children": [
+          "Iambic four-beat line",
+          "Alliterative four-stress line with variable unstressed intervals"
         ]
       }
     ],
@@ -1324,14 +1709,14 @@
               {
                 "label": "11 · two beats",
                 "children": [
-                  "First internal rhyme pair"
+                  "Internal rhyming pair"
                 ]
               },
               "12 · F",
               {
                 "label": "13 · two beats",
                 "children": [
-                  "Second internal rhyme pair"
+                  "Internal rhyming pair · new sound"
                 ]
               },
               "14 · F"
@@ -1370,11 +1755,29 @@
             ]
           }
         ]
+      },
+      {
+        "label": "Eight-line opening · shorter wheel",
+        "children": [
+          "Opening · ABABABAB",
+          "Three-line close · CBC",
+          "Manuscript alternative · CAC"
+        ]
+      },
+      {
+        "label": "Eight-line opening · longer wheel",
+        "children": [
+          "Opening · ABABABAB",
+          "Five-line close · CDDDC"
+        ]
       }
     ],
     "mode": "Example",
     "related": [
-      "Quatrain"
+      "Quatrain",
+      "Octave / huitain",
+      "Quintain",
+      "Tercet"
     ]
   },
   "Horatian ode": {
@@ -1407,13 +1810,21 @@
   "Alliterative verse": {
     "tree": [
       {
-        "label": "Unrhymed line",
+        "label": "Old English long line",
         "children": [
           {
-            "label": "Alliteration links halves",
+            "label": "First half-line",
             "children": [
-              "First half-line",
-              "Second half-line"
+              "Two principal stresses",
+              "One or both provide the linking onset"
+            ]
+          },
+          "Medial pause",
+          {
+            "label": "Second half-line",
+            "children": [
+              "First stress takes the linking onset",
+              "Second stress completes the half-line"
             ]
           }
         ]
@@ -1491,10 +1902,34 @@
   "Hendecasyllabics": {
     "tree": [
       {
-        "label": "Eleven-syllable setting",
+        "label": "Regular Phalaecian · 11 positions",
         "children": [
-          "11 syllables",
-          "Unrhymed"
+          {
+            "label": "Opening pair",
+            "children": [
+              "– – usually",
+              "– ⏑ or ⏑ –"
+            ]
+          },
+          {
+            "label": "Positions 3–6",
+            "children": [
+              "– ⏑ ⏑ –"
+            ]
+          },
+          {
+            "label": "Positions 7–11",
+            "children": [
+              "⏑ – ⏑ – ×"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Attested contraction",
+        "children": [
+          "Middle two shorts contract to one long",
+          "10 positions in the contracted line"
         ]
       }
     ],
@@ -1503,15 +1938,26 @@
   "Galliambic": {
     "tree": [
       {
-        "label": "Many-syllable line",
+        "label": "Quantitative four-metron line",
         "children": [
-          "First part",
-          "Central break",
-          "Second part"
+          {
+            "label": "First half",
+            "children": [
+              "Two ionic metra"
+            ]
+          },
+          "Central division",
+          {
+            "label": "Second half",
+            "children": [
+              "Two ionic metra",
+              "Final metron shortened"
+            ]
+          }
         ]
       }
     ],
-    "mode": "Rule"
+    "mode": "Example"
   },
   "Anacreontic verse": {
     "tree": [
@@ -1520,6 +1966,13 @@
         "children": [
           "7 syllables · A",
           "7 syllables · A"
+        ]
+      },
+      {
+        "label": "English short-pair alternative",
+        "children": [
+          "Line lengths can vary",
+          "Rhyme can continue across pairs"
         ]
       }
     ],

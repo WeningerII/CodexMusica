@@ -90,8 +90,8 @@
     ]
   },
   "Fourteener": {
-    "status": "partial",
-    "note": "A fourteener is one fourteen-syllable line. The catalog supplies a paired setting; breaking each line after eight produces the 8–6–8–6 quatrain.",
+    "status": "supported",
+    "note": "A fourteener measures one line. A rhyming pair can be divided after each eighth syllable to yield four shorter lines.",
     "edges": [
       {
         "target": "Couplet",
@@ -197,17 +197,30 @@
     "refs": []
   },
   "Tumbling verse": {
-    "status": "partial",
-    "note": "The catalog depicts a four-stress rhyming-pair setting. A Scots account also gives a thirteen-line stanza with mixed rhythms. The pair belongs to the displayed setting.",
+    "status": "supported",
+    "note": "The catalog gives a Tudor rhyming-pair setting. The Scots flyting prescription uses a thirteen-line stanza with irregular rhythm and strong alliteration.",
     "edges": [
       {
         "target": "Couplet",
         "kind": "shares-feature",
-        "evidence": "This catalog entry explicitly groups its four-stress lines in rhymed pairs.",
-        "status": "supported"
+        "evidence": "Only the catalog’s four-stress setting groups the lines in rhymed pairs.",
+        "status": "supported",
+        "scope_paths": [
+          "1"
+        ]
+      },
+      {
+        "target": "Flyting",
+        "kind": "comparison",
+        "status": "supported",
+        "evidence": "The thirteen-line alliterating setting is described for a Scots exchange of invective.",
+        "refs": []
       }
     ],
     "refs": [
+      "https://www.scottishcorpus.ac.uk/document/?documentid=17"
+    ],
+    "attested_refs": [
       "https://www.scottishcorpus.ac.uk/document/?documentid=17"
     ]
   },
@@ -304,8 +317,8 @@
     ]
   },
   "Ballad stanza": {
-    "status": "partial",
-    "note": "One common pattern alternates four and three stresses and rhymes ABCB. Other ballad rhymings occur. The catalog also allows a refrain or burden without fixing its position.",
+    "status": "supported",
+    "note": "The common stanza alternates four and three stresses. The second and fourth endings rhyme. Some settings also rhyme the odd lines. A refrain or burden is optional.",
     "edges": [
       {
         "target": "Quatrain",
@@ -319,10 +332,12 @@
     ],
     "refs": [
       "https://www.poetryfoundation.org/education/glossary/fourteener",
-      "https://poetry.harvard.edu/key-to-poetic-forms"
+      "https://poetry.harvard.edu/key-to-poetic-forms",
+      "https://poets.org/glossary/ballad"
     ],
     "attested_refs": [
-      "https://poetry.harvard.edu/key-to-poetic-forms"
+      "https://poetry.harvard.edu/key-to-poetic-forms",
+      "https://poets.org/glossary/ballad"
     ]
   },
   "Common metre (CM)": {
@@ -499,25 +514,54 @@
     "refs": []
   },
   "Trochaic hymn metres": {
-    "status": "partial",
-    "note": "The catalog illustrates two trochaic patterns, each in single and doubled settings. This selection covers part of the wider family.",
+    "status": "supported",
+    "note": "The numbers describe syllables per line. Trochaic movement is a separate condition. The catalog’s two patterns can be doubled, and hymn indexes document other lengths and orders.",
     "edges": [
       {
         "target": "Quatrain",
         "kind": "contains",
-        "evidence": "Each single hymn pattern has four lines; doubled versions repeat the complete four-line unit.",
+        "evidence": "The two catalog profiles each contain four lines, repeated as a unit when doubled. An additional four-line profile is shown alongside five- and six-line settings.",
         "status": "supported",
         "scope_paths": [
-          "1",
-          "2"
+          "2.1",
+          "2.2",
+          "3.1"
+        ],
+        "refs": [
+          "https://www.ccwatershed.org/2026/06/18/indisputable-king-among-protestant-hymnals/"
+        ]
+      },
+      {
+        "target": "Quintain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The displayed 7.7.3.3.7 pattern spans five lines.",
+        "refs": [],
+        "scope_paths": [
+          "3.2"
+        ]
+      },
+      {
+        "target": "Sestet / sixain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The displayed 8.7.8.7.8.7 pattern spans six lines.",
+        "refs": [],
+        "scope_paths": [
+          "3.3"
         ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://www.ccwatershed.org/2026/06/18/indisputable-king-among-protestant-hymnals/"
+    ],
+    "attested_refs": [
+      "https://www.ccwatershed.org/2026/06/18/indisputable-king-among-protestant-hymnals/"
+    ]
   },
   "Other named hymn metres": {
-    "status": "partial",
-    "note": "The seven catalogued recipes illustrate syllable-counted hymn meters. A dot separates lines and D doubles the initial four-line unit. Other recipes are possible.",
+    "status": "supported",
+    "note": "A dotted meter lists syllable counts in line order. D doubles the sequence. The seven catalog recipes are examples of this open indexing rule.",
     "edges": [
       {
         "target": "Quatrain",
@@ -533,7 +577,14 @@
         ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://www.ministrymagazine.org/archive/1941/11/technical-features-of-hymnal",
+      "https://www.stempublishing.com/hymns/ss/index/meters"
+    ],
+    "attested_refs": [
+      "https://www.ministrymagazine.org/archive/1941/11/technical-features-of-hymnal",
+      "https://www.stempublishing.com/hymns/ss/index/meters"
+    ]
   },
   "Heroic quatrain": {
     "status": "supported",
@@ -633,25 +684,38 @@
     ]
   },
   "Sapphic stanza": {
-    "status": "partial",
-    "note": "Three eleven-syllable lines followed by a five-syllable Adonic line describe the catalog's ordinary Sapphic stanza. The numbers alone do not specify Aeolic quantity.",
+    "status": "supported",
+    "note": "The ordinary stanza has three Sapphic lines and an Adonic close. In the quantity notation, – is long, ⏑ short and × permits either. English adaptations can approximate quantity with stress. Greater Sapphic is a separate four-line arrangement.",
     "edges": [
       {
         "target": "Quatrain",
         "kind": "variant",
-        "evidence": "The three longer Sapphics and short Adonic occupy four line positions.",
+        "evidence": "Both displayed stanza designs contain four lines.",
         "status": "supported",
         "refs": [
-          "https://poetry.harvard.edu/key-to-poetic-forms"
+          "https://poetry.harvard.edu/key-to-poetic-forms",
+          "https://diotima-doctafemina.org/translations/latin/selections-from-horaces-odes/horatian-meters/"
+        ]
+      },
+      {
+        "target": "Tercet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "Three matching long lines make the opening division of the ordinary setting.",
+        "refs": [],
+        "scope_paths": [
+          "1.1"
         ]
       }
     ],
     "refs": [
       "https://www.inusum.com/horace/odes/horace-odes-meters.html",
-      "https://poetry.harvard.edu/key-to-poetic-forms"
+      "https://poetry.harvard.edu/key-to-poetic-forms",
+      "https://diotima-doctafemina.org/translations/latin/selections-from-horaces-odes/horatian-meters/"
     ],
     "attested_refs": [
-      "https://poetry.harvard.edu/key-to-poetic-forms"
+      "https://poetry.harvard.edu/key-to-poetic-forms",
+      "https://diotima-doctafemina.org/translations/latin/selections-from-horaces-odes/horatian-meters/"
     ]
   },
   "Alcaic stanza": {
@@ -678,14 +742,32 @@
     ]
   },
   "Asclepiad stanza": {
-    "status": "partial",
-    "note": "The displayed setting comprises three lesser Asclepiads and one Glyconic. A different four-line system has two lesser Asclepiads, a Pherecratean and a Glyconic. A continuous series of Asclepiads is also attested.",
+    "status": "supported",
+    "note": "Five Horatian arrangements distinguish three four-line designs from two continuous line series. The lesser and greater lines have different lengths. English accentual adaptations are possible.",
     "edges": [
       {
         "target": "Quatrain",
         "kind": "shares-feature",
-        "evidence": "The displayed three-plus-one setting has four lines. Continuous Asclepiadic lines do not require that grouping.",
+        "evidence": "Three systems group four lines. The two continuous line series have no required four-line boundary.",
         "status": "supported",
+        "refs": [
+          "https://diotima-doctafemina.org/translations/latin/selections-from-horaces-odes/horatian-meters/"
+        ],
+        "scope_paths": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      {
+        "target": "Couplet",
+        "status": "supported",
+        "kind": "contains",
+        "evidence": "One system explicitly groups two distichs, each a Glyconic followed by a lesser Asclepiad.",
+        "scope_paths": [
+          "4.1",
+          "4.2"
+        ],
         "refs": [
           "https://diotima-doctafemina.org/translations/latin/selections-from-horaces-odes/horatian-meters/"
         ]
@@ -789,37 +871,52 @@
     ]
   },
   "Tail-rhyme stanza": {
-    "status": "partial",
-    "note": "The diagram shows the six-line version. Each rhymed pair leads to one shorter tail and the two tails rhyme. Tail-rhyme stanzas can also extend beyond six lines.",
+    "status": "supported",
+    "note": "Each long rhyming pair leads to a shorter tail. These six- and twelve-line settings share the tail rhyme throughout. The longer forms differ in how they rhyme their pairs.",
     "edges": [
       {
         "target": "Sestet / sixain",
         "kind": "shares-feature",
-        "evidence": "Two three-line pair-and-tail groups account for all six lines.",
+        "evidence": "In the first setting two three-line units fill a six-line stanza.",
         "status": "supported",
         "refs": [
           "https://poetry.harvard.edu/key-to-poetic-forms"
+        ],
+        "scope_paths": [
+          "1"
         ]
       },
       {
         "target": "Couplet",
         "kind": "contains",
-        "evidence": "The opening lines of each group are a long rhyming pair.",
+        "evidence": "Each three-line group begins with a long rhymed pair before its short tail.",
         "status": "supported",
         "refs": [
           "https://poetry.harvard.edu/key-to-poetic-forms"
         ],
         "scope_paths": [
           "1.1.1",
-          "1.2.1"
+          "1.2.1",
+          "2.1.1",
+          "2.2.1",
+          "2.3.1",
+          "2.4.1",
+          "3.1.1",
+          "3.2.1",
+          "3.3.1",
+          "3.4.1"
         ]
       }
     ],
     "refs": [
-      "https://poetry.harvard.edu/key-to-poetic-forms"
+      "https://poetry.harvard.edu/key-to-poetic-forms",
+      "https://metseditions.org/read/L0l4v8Qys9Weqixy2CjDDkHX2Bxwv62K",
+      "https://academic.oup.com/manchester-scholarship-online/book/14463/chapter-abstract/168471118"
     ],
     "attested_refs": [
-      "https://poetry.harvard.edu/key-to-poetic-forms"
+      "https://poetry.harvard.edu/key-to-poetic-forms",
+      "https://metseditions.org/read/L0l4v8Qys9Weqixy2CjDDkHX2Bxwv62K",
+      "https://academic.oup.com/manchester-scholarship-online/book/14463/chapter-abstract/168471118"
     ]
   },
   "Rhyme royal": {
@@ -937,8 +1034,8 @@
     ]
   },
   "Rispetto": {
-    "status": "partial",
-    "note": "The catalog's ABABCCDD setting has four alternating lines then two rhymed pairs. The row does not establish that setting as the sole possible rispetto.",
+    "status": "supported",
+    "note": "One stanza opens with alternating rhyme. The Italian form uses hendecasyllables. The rhymed continuation can shrink to one pair, disappear, or extend beyond two pairs. Four alternating lines alone cannot establish a rispetto.",
     "edges": [
       {
         "target": "Octave / huitain",
@@ -972,6 +1069,16 @@
         ],
         "scope_paths": [
           "1.1"
+        ]
+      },
+      {
+        "target": "Sestet / sixain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "A single closing pair after an opening quatrain gives a six-line stanza.",
+        "refs": [],
+        "scope_paths": [
+          "2.2"
         ]
       }
     ],
@@ -1060,8 +1167,8 @@
     "refs": []
   },
   "Décima espinela": {
-    "status": "partial",
-    "note": "Ten octosyllabic lines rhyme ABBAACCDDC. A documented internal reading is two enclosing-rhyme quatrains joined by two bridge lines. This is one analysis, and décima also names a broader family.",
+    "status": "supported",
+    "note": "Ten octosyllables rhyme ABBAACCDDC. Four documented readings divide the same lines in different ways. The traditional pause after line four can shift in a five-plus-five reading. An inverted six-plus-four arrangement also occurs in the broader tradition.",
     "edges": [
       {
         "target": "Redondilla",
@@ -1093,10 +1200,40 @@
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "refs": [],
-        "evidence": "Under the displayed 4–2–4 analysis, lines five and six are intentionally paired as a two-line bridge between the outside quatrains, with different end rhymes.",
+        "refs": [
+          "https://lectambulos.com/algunas-consideraciones-sobre-la-decima-y-su-uso-contemporaneo/"
+        ],
+        "evidence": "The framed-pairs reading groups BB, AA, CC and DD as four rhymed pairs. The bridge lines in 4+2+4 have different endings.",
         "scope_paths": [
-          "1.2"
+          "4.2",
+          "4.3",
+          "4.4",
+          "4.5"
+        ]
+      },
+      {
+        "target": "Quintain",
+        "status": "supported",
+        "kind": "contains",
+        "evidence": "The five-plus-five reading joins two five-line units.",
+        "scope_paths": [
+          "3.1",
+          "3.2"
+        ],
+        "refs": [
+          "https://lectambulos.com/algunas-consideraciones-sobre-la-decima-y-su-uso-contemporaneo/"
+        ]
+      },
+      {
+        "target": "Sestet / sixain",
+        "status": "supported",
+        "kind": "contains",
+        "evidence": "The four-plus-six reading places six lines after the redondilla.",
+        "scope_paths": [
+          "2.2"
+        ],
+        "refs": [
+          "https://lectambulos.com/algunas-consideraciones-sobre-la-decima-y-su-uso-contemporaneo/"
         ]
       }
     ],
@@ -1108,19 +1245,22 @@
     ]
   },
   "Keatsian ode stanza": {
-    "status": "partial",
-    "note": "An attested ten-line setting combines an opening ABAB quatrain with a CDECDE sestet. An eleven-line setting in the same tradition demonstrates the scope of this example.",
+    "status": "supported",
+    "note": "The three documented settings share an opening quatrain. They close with a sestet or one of two seven-line rhyme patterns. These examples cover the ten- and eleven-line readings.",
     "edges": [
       {
         "target": "Quatrain",
         "kind": "contains",
-        "evidence": "The ten-line setting begins with a four-line ABAB unit.",
+        "evidence": "All three displayed structures open with an ABAB quatrain.",
         "status": "supported",
         "refs": [
-          "https://poets.org/poem/ode-nightingale"
+          "https://poets.org/poem/ode-nightingale",
+          "https://poets.org/poem/autumn"
         ],
         "scope_paths": [
-          "1.1"
+          "1.1",
+          "2.1",
+          "3.1"
         ]
       },
       {
@@ -1133,6 +1273,19 @@
         ],
         "scope_paths": [
           "1.2"
+        ]
+      },
+      {
+        "target": "Septet",
+        "status": "supported",
+        "kind": "contains",
+        "evidence": "Both eleven-line settings end with seven lines after the opening quatrain.",
+        "scope_paths": [
+          "2.2",
+          "3.2"
+        ],
+        "refs": [
+          "https://poets.org/poem/autumn"
         ]
       }
     ],
@@ -1184,8 +1337,8 @@
     ]
   },
   "Pearl stanza": {
-    "status": "contested",
-    "note": "The twelve-line ABABABABBCBC stanzas usually form groups of five. One section has six. A link word recurs in the next opening line, and interpretations of the line meter differ.",
+    "status": "partial",
+    "note": "The twelve-line stanza opens ABABABAB and closes BCBC. Nineteen groups contain five stanzas each. The fifteenth contains six. A word or phrase links most adjacent stanzas. Scholars differ on whether the line regularly follows iambic tetrameter.",
     "edges": [
       {
         "target": "Octave / huitain",
@@ -1193,14 +1346,23 @@
         "status": "supported",
         "evidence": "The displayed stanza groups its opening eight alternating lines before a distinct close. This identifies the generic eight-line unit within the longer stanza.",
         "scope_paths": [
-          "1.1.1"
+          "1.1"
+        ],
+        "refs": [
+          "https://faculty.goucher.edu/eng240/pearl.htm"
         ]
       },
       {
         "target": "Sicilian octave",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The eight-line opening alternates ABABABAB, matching the catalogued Sicilian octave scheme. This comparison is limited to the end rhymes and span of the opening."
+        "evidence": "The eight-line opening alternates ABABABAB, matching the catalogued Sicilian octave scheme. This comparison is limited to the end rhymes and span of the opening.",
+        "scope_paths": [
+          "1.1"
+        ],
+        "refs": [
+          "https://faculty.goucher.edu/eng240/pearl.htm"
+        ]
       },
       {
         "target": "Quatrain",
@@ -1208,18 +1370,25 @@
         "status": "supported",
         "evidence": "Four alternating closing lines follow the opening octave in the twelve-line setting.",
         "scope_paths": [
-          "1.1.2"
+          "1.2"
+        ],
+        "refs": [
+          "https://faculty.goucher.edu/eng240/pearl.htm"
         ]
       }
     ],
     "refs": [
       "https://metseditions.org/read/xValxRNCgNKt8zWuj0xwTVYx3Yz9rd",
-      "https://the-orb.arlima.net/textbooks/anthology/middleenganon/zatta.html"
+      "https://the-orb.arlima.net/textbooks/anthology/middleenganon/zatta.html",
+      "https://faculty.goucher.edu/eng240/pearl.htm"
+    ],
+    "attested_refs": [
+      "https://faculty.goucher.edu/eng240/pearl.htm"
     ]
   },
   "Cherry and Slae stanza": {
     "status": "partial",
-    "note": "The first two printed stanzas open AABCCB, then alternate DEDE. In the closing four, lines 11 and 13 each rhyme internally on their own sound. Lines 12 and 14 share an end rhyme. The diagram represents this printed setting.",
+    "note": "The first two printed stanzas open AABCCB, continue DEDE, and close with independent internal rhymes in lines 11 and 13. Lines 12 and 14 share an end rhyme. Whether lines 11 and 13 also rhyme with each other at their ends, and whether their stress counts hold outside these examples, remains undetermined.",
     "edges": [
       {
         "target": "Couplet",
@@ -1281,8 +1450,8 @@
     ]
   },
   "Bob and wheel": {
-    "status": "partial",
-    "note": "In the displayed alliterative setting a short bob precedes a four-line wheel. Together they rhyme ABABA. Historical use allows other stanza designs and lengths of bob.",
+    "status": "supported",
+    "note": "One setting closes variable alliterative long lines with a short bob and a four-line wheel. The five-line close rhymes ABABA. Other romances have an alternating opening and three- or five-line closures.",
     "edges": [
       {
         "target": "Quatrain",
@@ -1295,15 +1464,49 @@
         "scope_paths": [
           "1.2.2"
         ]
+      },
+      {
+        "target": "Octave / huitain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The eight alternating opening lines are an octave in the two documented settings.",
+        "refs": [],
+        "scope_paths": [
+          "2.1",
+          "3.1"
+        ]
+      },
+      {
+        "target": "Quintain",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The longer closing group in this setting has five lines on CDDDC.",
+        "refs": [],
+        "scope_paths": [
+          "3.2"
+        ]
+      },
+      {
+        "target": "Tercet",
+        "kind": "contains",
+        "status": "supported",
+        "evidence": "The two manuscript readings of the shorter close are each a three-line group.",
+        "refs": [],
+        "scope_paths": [
+          "2.2",
+          "2.3"
+        ]
       }
     ],
     "refs": [
       "https://faculty.goucher.edu/eng240/sir_gawain_and_the_green_knight.htm",
-      "https://academic.oup.com/book/56398/chapter-abstract/448369631"
+      "https://academic.oup.com/book/56398/chapter-abstract/448369631",
+      "https://www.cambridge.org/core/books/abs/medieval-romance-and-material-culture/adventures-in-the-bobandwheel-tradition-narratives-and-manuscripts/3B77DD731F3B4AEB5C29106A8C03A00C"
     ],
     "attested_refs": [
       "https://faculty.goucher.edu/eng240/sir_gawain_and_the_green_knight.htm",
-      "https://academic.oup.com/book/56398/chapter-abstract/448369631"
+      "https://academic.oup.com/book/56398/chapter-abstract/448369631",
+      "https://www.cambridge.org/core/books/abs/medieval-romance-and-material-culture/adventures-in-the-bobandwheel-tradition-narratives-and-manuscripts/3B77DD731F3B4AEB5C29106A8C03A00C"
     ]
   },
   "Horatian ode": {
@@ -1340,9 +1543,14 @@
   },
   "Alliterative verse": {
     "status": "partial",
-    "note": "The diagram shows the Old English line: two half-lines joined by alliteration. Other traditions of alliterative verse need their own specifications.",
+    "note": "A common Old English line has two stresses on each side of a pause. The first stressed onset after the pause matches one or both before it. Vowels may alliterate with other vowels. The placement of stresses in other half-line patterns and other historical traditions remains unspecified.",
     "edges": [],
-    "refs": []
+    "refs": [
+      "https://www.uni-bamberg.de/fileadmin/eng-ling/fs/Chapter_14/OldEnglishAlliterativeVerse.html"
+    ],
+    "attested_refs": [
+      "https://www.uni-bamberg.de/fileadmin/eng-ling/fs/Chapter_14/OldEnglishAlliterativeVerse.html"
+    ]
   },
   "Accentual verse": {
     "status": "partial",
@@ -1416,32 +1624,51 @@
     ]
   },
   "Hendecasyllabics": {
-    "status": "partial",
-    "note": "The catalog illustrates an unrhymed eleven-syllable adaptation of a classical meter. A syllable count alone leaves the sequence of long and short positions unspecified.",
+    "status": "supported",
+    "note": "The catalog names the Catullan meter. Its normal line has eleven positions. One documented exception alternates normal and contracted lines. The symbols mark long, short and either quantity. English imitations may treat quantity and word stress differently.",
     "edges": [],
     "refs": [
+      "https://www.gutenberg.org/files/18867/18867-h/18867-h.htm",
+      "https://elon.io/grammar/latin/prosody/hendecasyllabic-meter"
+    ],
+    "attested_refs": [
+      "https://elon.io/grammar/latin/prosody/hendecasyllabic-meter",
       "https://www.gutenberg.org/files/18867/18867-h/18867-h.htm"
     ]
   },
   "Galliambic": {
     "status": "partial",
-    "note": "The central division and two spans of a fast many-syllable line are supported. The catalog gives no complete quantitative formula for its cited English imitation.",
+    "note": "A documented quantitative setting combines two ionic metra on each side of a division. The final metron is shortened and local quantities can vary. How the catalog’s English imitation realizes the quantitative pattern remains unresolved.",
     "edges": [],
     "refs": [
-      "https://www.gutenberg.org/files/18867/18867-h/18867-h.htm"
+      "https://www.gutenberg.org/files/18867/18867-h/18867-h.htm",
+      "https://www.cambridge.org/core/journals/greece-and-rome/article/abs/attis-of-catullus/7A340EEF1DDAD8B42089CB672B93C816"
+    ],
+    "attested_refs": [
+      "https://www.cambridge.org/core/journals/greece-and-rome/article/abs/attis-of-catullus/7A340EEF1DDAD8B42089CB672B93C816"
     ]
   },
   "Anacreontic verse": {
-    "status": "partial",
-    "note": "The catalog illustrates pairs of rhymed seven-syllable lines. This evidence supports the displayed setting only.",
+    "status": "supported",
+    "note": "The seven-syllable couplet is an English prescription. Another documented short-couplet setting varies line lengths and sustains one ending across its final four lines. The name also identifies a lyric tradition beyond a single meter.",
     "edges": [
       {
         "target": "Couplet",
         "kind": "shares-feature",
         "evidence": "The seven-syllable lines in this catalog example are grouped in rhymed pairs.",
-        "status": "supported"
+        "status": "supported",
+        "refs": [
+          "https://rpo.library.utoronto.ca/content/anacreontics"
+        ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Anacreontics",
+      "https://rpo.library.utoronto.ca/content/anacreontics"
+    ],
+    "attested_refs": [
+      "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Anacreontics",
+      "https://rpo.library.utoronto.ca/content/anacreontics"
+    ]
   }
 }

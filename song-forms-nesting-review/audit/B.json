@@ -1,7 +1,7 @@
 {
   "Traditional ballad": {
-    "status": "partial",
-    "note": "ABCB is the rhyme scheme of successive lines in the catalog’s ballad stanza, not four constituent sections. Narrative singing is the broader genre; individual ballads and versions need not use this quatrain.",
+    "status": "supported",
+    "note": "In this setting any number of ABCB quatrains carry a third-person story on a returning tune, without a chorus. Dialogue and abrupt changes of scene are narrative devices available from verse to verse; neither has a fixed slot.",
     "edges": [
       {
         "target": "Ballad stanza",
@@ -133,8 +133,8 @@
     ]
   },
   "Broadside ballad": {
-    "status": "contested",
-    "note": "The printed sheet is the means of circulation. The catalog sketches an address, topical narrative and moral on a known air; the Library of Congress documents that singers could supply or change the tune.",
+    "status": "supported",
+    "note": "The broadside is a printed text. One topical layout opens by addressing listeners and closes with a moral. Singers could use a named tune, fit a different existing melody or supply their own. The tune choices apply to the whole printed text.",
     "edges": [
       {
         "target": "Contrafactum",
@@ -151,7 +151,8 @@
       "https://ebba.english.ucsb.edu/page/recording-the-ballads"
     ],
     "attested_refs": [
-      "https://ebba.english.ucsb.edu/page/recording-the-ballads"
+      "https://ebba.english.ucsb.edu/page/recording-the-ballads",
+      "https://www.loc.gov/collections/songs-of-america/articles-and-essays/musical-styles/traditional/traditional-ballads/"
     ]
   },
   "Come-all-ye": {
@@ -167,8 +168,8 @@
     "refs": []
   },
   "Blues ballad": {
-    "status": "partial",
-    "note": "Stanzas carry fragments of a narrative and return to a final refrain line. The account of a real event describes the subject, not a separate section.",
+    "status": "supported",
+    "note": "In this event narrative each stanza presents a fragment and ends with the returning refrain line. The next stanza can pick up another aspect of the event; no particular order of fragments is imposed.",
     "edges": [],
     "refs": []
   },
@@ -231,8 +232,8 @@
     "refs": []
   },
   "Mummers' play verse": {
-    "status": "contested",
-    "note": "The introductions, combat, revival and collection trace the hero-combat example. Other mumming plays have different action and roles.",
+    "status": "supported",
+    "note": "In the rhymed hero-combat setting the characters introduce themselves, a fight leads to a death, a doctor revives the fallen character and a speech solicits a collection. This is one plot within mumming.",
     "edges": [],
     "refs": [
       "https://www.efdss.org/learning/resources/beginners-guides/49-english-folk-drama/3257-english-folk-drama-types"
@@ -245,10 +246,15 @@
     "refs": []
   },
   "Luck-visit / begging song": {
-    "status": "partial",
-    "note": "The visit’s greeting, explanation and petition are text functions. The chorus is common, but its placement and frequency are unspecified. An unplaced chorus cannot be drawn after the petition as a required endpoint.",
+    "status": "supported",
+    "note": "Visiting singers may greet and bless a household, explain their custom and request provisions. In the illustrated wassail a changing verse ends with a repeated toast; the exact words vary later. Other visiting customs need not place a chorus there.",
     "edges": [],
-    "refs": []
+    "refs": [
+      "https://www.hymnsandcarolsofchristmas.com/Hymns_and_Carols/wassail_song.htm"
+    ],
+    "attested_refs": [
+      "https://www.hymnsandcarolsofchristmas.com/Hymns_and_Carols/wassail_song.htm"
+    ]
   },
   "Street cry": {
     "status": "supported",
@@ -257,10 +263,28 @@
     "refs": []
   },
   "Dirge / lament": {
-    "status": "partial",
-    "note": "The row specifies short mourning stanzas and a returning cry. It gives no fixed placement for the burden within or between stanzas.",
-    "edges": [],
-    "refs": []
+    "status": "supported",
+    "note": "A documented funeral dirge places recurring responses inside each short stanza. The second and fourth lines recur around two changing lines. This illustrates one answer to the placement question within the much wider lament tradition.",
+    "edges": [
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "scope_paths": [
+          "1"
+        ],
+        "evidence": "The illustrated funeral dirge uses a four-position mourning stanza in which the second and fourth positions recur.",
+        "refs": [
+          "https://www.gutenberg.org/cache/epub/25511/pg25511-images.html"
+        ]
+      }
+    ],
+    "refs": [
+      "https://www.gutenberg.org/cache/epub/25511/pg25511-images.html"
+    ],
+    "attested_refs": [
+      "https://www.gutenberg.org/cache/epub/25511/pg25511-images.html"
+    ]
   },
   "Call-and-response": {
     "status": "supported",
@@ -276,8 +300,8 @@
     ]
   },
   "Halyard shanty": {
-    "status": "partial",
-    "note": "A leader and crew alternate while hauling. The cited performance account describes two exchanges. The catalog’s separate inter-verse chorus and its frequency remain unverified for this pattern.",
+    "status": "supported",
+    "note": "The hauling verse has two solo calls answered by the crew. A short full chorus can intervene before the next verse, in addition to the brief responses that coordinate the work.",
     "edges": [
       {
         "target": "Call-and-response",
@@ -385,7 +409,7 @@
   },
   "Hammer song / chain-gang song": {
     "status": "partial",
-    "note": "The lead line and fixed answer form the exchange timed to the stroke. AAB is described as frequent, not prescribed for every performance.",
+    "note": "A lead line draws a fixed group response at the hammer stroke. AAB is a frequent textual pattern in the catalog. Its letters establish a return and change but do not determine which words are sung by each party or which letter coincides with the stroke.",
     "edges": [
       {
         "target": "Call-and-response",
@@ -398,11 +422,15 @@
     "refs": []
   },
   "Field holler": {
-    "status": "partial",
-    "note": "The catalog illustrates a solo call, pause and another phrase in free rhythm. Archival accounts also document replies between workers in separate fields.",
+    "status": "supported",
+    "note": "The solo setting has freely timed calls and pauses without a stanza or chorus. A documented agricultural use adds an answering caller across a distance; the reply is optional and has no prescribed words.",
     "edges": [],
     "refs": [
-      "https://www.loc.gov/collections/songs-of-america/articles-and-essays/musical-styles/traditional/traditional-work-songs/"
+      "https://www.loc.gov/collections/songs-of-america/articles-and-essays/musical-styles/traditional/traditional-work-songs/",
+      "https://www.folkstreams.net/contexts/the-holler-and-the-hollerin-contest"
+    ],
+    "attested_refs": [
+      "https://www.folkstreams.net/contexts/the-holler-and-the-hollerin-contest"
     ]
   },
   "Waulking song": {
@@ -492,8 +520,8 @@
     "refs": []
   },
   "Lullaby": {
-    "status": "partial",
-    "note": "The catalog describes soothing quatrains and a framing refrain. That pattern illustrates one shape within a genre defined by function.",
+    "status": "supported",
+    "note": "In the verse-and-refrain setting a soothing refrain frames short, softly delivered quatrains. This is a particular way to repeat material while soothing a child; four-line verses and a refrain are properties of this setting.",
     "edges": [
       {
         "target": "Quatrain",
@@ -509,18 +537,24 @@
     "refs": []
   },
   "Nursery rhyme": {
-    "status": "partial",
-    "note": "AABB and ABCB are examples for the common quatrain. The row permits two to eight lines, so neither four lines nor either scheme is universal. The displayed example selects AABB; ABCB is an alternative, not an extra fifth leaf.",
+    "status": "supported",
+    "note": "The catalog gives a two- to eight-line range. Strongly accented quatrains commonly use AABB or ABCB. These rhyme choices describe the four-line examples; the source supplies no fixed rhyme for every other length.",
     "edges": [
       {
         "target": "Quatrain",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "Each of the two complete four-line nursery-rhyme settings has the shape of a quatrain. The catalog also includes shorter and longer rhymes.",
+        "refs": []
+      },
+      {
+        "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The row calls the four-line stanza usual while giving a wider two- to eight-line range.",
-        "refs": [],
         "scope_paths": [
-          "1"
-        ]
+          "1.1"
+        ],
+        "evidence": "In the AABB quatrain, the first two and last two lines form two successive rhyme pairs. This claim is restricted to that branch."
       }
     ],
     "refs": []
@@ -633,17 +667,21 @@
     "refs": []
   },
   "Square-dance singing call": {
-    "status": "contested",
-    "note": "A conventional seven-part singing call puts the middle break between two pairs of figures, rather than after all four. Around 64 beats per part is customary.",
+    "status": "supported",
+    "note": "A typical seven-part call has two figures before and two after the middle break. The catalog gives approximately 64 beats per part; an introduction or final tag can sit outside the seven parts. Dance calls fit the sung tune.",
     "edges": [],
     "refs": [
       "https://knowledge.callerlab.org/wp-content/uploads/2021/10/2020-10-16-Marriner-Singing-Call-Adaptation.pdf",
-      "https://callerscaddy.de/en/deep-dive-syncpoints-dynamic-lyrics/"
+      "https://callerscaddy.de/en/deep-dive-syncpoints-dynamic-lyrics/",
+      "https://www.ceder.net/choreodb/modules.php?Type=30"
+    ],
+    "attested_refs": [
+      "https://www.ceder.net/choreodb/modules.php?Type=30"
     ]
   },
   "Square-dance patter call": {
-    "status": "partial",
-    "note": "The caller fits instructions to the beat. Traditional patter can use rhyming couplets and extra words; rhyme is a technique rather than a requirement for every call.",
+    "status": "supported",
+    "note": "Continuous dance instructions are spoken or rhythmically chanted to the beat over the music. The caller does not follow a fixed sung melody in this setting. Rhymed couplets are an option.",
     "edges": [
       {
         "target": "Couplet",
@@ -728,8 +766,8 @@
     ]
   },
   "Madrigal": {
-    "status": "partial",
-    "note": "The catalog describes a short polyphonic lyric treated continuously with a repeated final line. “Part-song” here names a texture, not a Victorian form.",
+    "status": "supported",
+    "note": "In the illustrated English part-song a short lyric of six to twelve lines receives a continuously developing musical setting. The last text line is repeated. Repeating those words does not require repeating an entire musical section.",
     "edges": [
       {
         "target": "Through-composed",
@@ -777,8 +815,8 @@
     "refs": []
   },
   "Ayre": {
-    "status": "partial",
-    "note": "The recurring stanza shape belongs to a solo voice with lute. ABABCC is optional in the row.",
+    "status": "supported",
+    "note": "In this strophic solo song with lute, the melody and stanza shape recur. One frequent rhyme option is ABABCC, with an alternating opening and a rhyming close; other settings need not follow that scheme.",
     "edges": [
       {
         "target": "Strophic",
@@ -786,6 +824,33 @@
         "status": "supported",
         "evidence": "The same stanza design recurs in this voice-and-lute song.",
         "refs": []
+      },
+      {
+        "target": "Sestet / sixain",
+        "kind": "contains",
+        "status": "supported",
+        "scope_paths": [
+          "1.1.2"
+        ],
+        "evidence": "The ABABCC option is a six-line verse unit in the repeated strophic setting."
+      },
+      {
+        "target": "Quatrain",
+        "kind": "contains",
+        "status": "supported",
+        "scope_paths": [
+          "1.1.2.1"
+        ],
+        "evidence": "The alternating ABAB opening is the four-line component of the optional ABABCC stanza."
+      },
+      {
+        "target": "Couplet",
+        "kind": "contains",
+        "status": "supported",
+        "scope_paths": [
+          "1.1.2.2"
+        ],
+        "evidence": "The paired CC ending closes the illustrated ABABCC option."
       }
     ],
     "refs": []
@@ -877,24 +942,36 @@
     "refs": []
   },
   "Lullay carol": {
-    "status": "partial",
-    "note": "A returning cradle-song burden characterizes this entry. Dialogue is possible; its placement relative to the opening is unspecified.",
+    "status": "supported",
+    "note": "A lullay burden belongs to a cradle-song verse series. In one medieval example the parent and child take turns within the narrated verses; the burden recurs around the verse material. Versions differ in the extent of the child’s reply.",
     "edges": [
       {
         "target": "Medieval carol with burden",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "Both use a burden. The lullay row supplies the burden text but does not establish the medieval entry’s opening position, rhyme or chronology.",
-        "refs": []
+        "evidence": "The cradle-song setting and medieval carol share a recurring burden. The checked setting opens with the burden and marks it after its first stanza. The broader repertoire does not require all the same rhyme rules.",
+        "refs": [
+          "https://www.gresham.ac.uk/watch-now/carols-nostalgia"
+        ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://www.gresham.ac.uk/watch-now/carols-nostalgia"
+    ],
+    "attested_refs": [
+      "https://www.gresham.ac.uk/watch-now/carols-nostalgia"
+    ]
   },
   "Christmas carol": {
-    "status": "partial",
-    "note": "Christmas is the occasion. The row offers hymn-like stanzas with either a short refrain or a chorus; it does not locate either within the stanza.",
+    "status": "supported",
+    "note": "The catalog offers hymn-like stanzas with a short refrain or a distinct chorus. A documented medieval Christmas setting places its burden after the stanza. That particular placement is one option within this seasonal repertoire.",
     "edges": [],
-    "refs": []
+    "refs": [
+      "https://www.gresham.ac.uk/watch-now/carols-nostalgia"
+    ],
+    "attested_refs": [
+      "https://www.gresham.ac.uk/watch-now/carols-nostalgia"
+    ]
   },
   "Macaronic carol / song": {
     "status": "partial",
@@ -1071,8 +1148,8 @@
     ]
   },
   "Gospel song (Sankey)": {
-    "status": "partial",
-    "note": "The catalog illustrates four lines of verse followed by a four-line title chorus. This is one arrangement within the broader gospel repertoire.",
+    "status": "supported",
+    "note": "In this revival-hymn setting each four-line verse leads to a returning four-line chorus carrying the title. The four-line count applies separately to the verse and the chorus.",
     "edges": [
       {
         "target": "Quatrain",
@@ -1119,8 +1196,8 @@
     "refs": []
   },
   "Spiritual": {
-    "status": "partial",
-    "note": "The row’s AAAB leader’s verse and framing chorus illustrate one performance pattern; archived spirituals also include solo and arranged choral performance.",
+    "status": "supported",
+    "note": "The catalog’s framed call-and-response setting is one possibility. Recorded traditions also include solo performance and choral arrangement; one documented quartet adds a chorus at the close. No common stanza design is inferred across them.",
     "edges": [
       {
         "target": "Call-and-response",
@@ -1137,7 +1214,8 @@
       "https://guides.loc.gov/spirituals-folklife"
     ],
     "attested_refs": [
-      "https://guides.loc.gov/spirituals-folklife"
+      "https://guides.loc.gov/spirituals-folklife",
+      "https://www.loc.gov/collections/songs-of-america/articles-and-essays/musical-styles/ritual-and-worship/spirituals/"
     ]
   },
   "Ring shout": {
@@ -1188,8 +1266,8 @@
     "refs": []
   },
   "Metrical psalm": {
-    "status": "contested",
-    "note": "Two published settings of the same psalm use different stanza metres. One alternates eight and six syllables; the other uses eight syllables throughout.",
+    "status": "supported",
+    "note": "Two published paraphrases of the same psalm illustrate different stanza metres. Common metre alternates eight and six syllables; long metre has four eight-syllable lines. In either setting, successive stanzas can use one tune.",
     "edges": [
       {
         "target": "Common metre (CM)",
@@ -1212,7 +1290,7 @@
           "https://psalms.seedbed.com/psalm-100/"
         ],
         "scope_paths": [
-          "1.1"
+          "1.2"
         ]
       },
       {
@@ -1265,8 +1343,8 @@
     ]
   },
   "Anglican chant": {
-    "status": "partial",
-    "note": "Two halves of each prose verse use a recurring chant formula. The illustrated setting closes with a doxology.",
+    "status": "supported",
+    "note": "Each half of a prose verse fits a portion of a recurring chant. In the illustrated pointing system a bar marks the change of measure and a dot divides syllables between its two halves. The verse text determines the syllables at each mark; this setting ends with a doxology.",
     "edges": [
       {
         "target": "Doxology",
@@ -1279,11 +1357,16 @@
         ]
       }
     ],
-    "refs": []
+    "refs": [
+      "https://www.chantpsalter.com/"
+    ],
+    "attested_refs": [
+      "https://www.chantpsalter.com/"
+    ]
   },
   "Psalm with antiphon": {
-    "status": "partial",
-    "note": "The example distinguishes its surrounding antiphon from alternating choral verses and the closing doxology.",
+    "status": "supported",
+    "note": "In this setting the antiphon opens, the two sides of the choir alternate verses, a doxology follows and the antiphon returns. The diagram identifies the framing positions of this particular setting.",
     "edges": [
       {
         "target": "Doxology",
@@ -1312,8 +1395,8 @@
     ]
   },
   "Responsorial psalm": {
-    "status": "partial",
-    "note": "The congregation takes up a response and returns to it between verses. The liturgy also permits singing the psalm straight through.",
+    "status": "supported",
+    "note": "The catalog response starts with the cantor and congregation and returns after the cantor’s verses. The Roman Mass also permits singing the psalm continuously, with the assembly listening and no intervening response.",
     "edges": [
       {
         "target": "Call-and-response",
@@ -1391,8 +1474,8 @@
     ]
   },
   "Canticle": {
-    "status": "contested",
-    "note": "The liturgical text may be chanted or continuously set. Some offices append a doxology to particular canticles; others stand on their own.",
+    "status": "supported",
+    "note": "A fixed liturgical text can be chanted to a recurring formula or set to continuously developing music. The relevant office determines whether a doxology follows. These are independent choices of musical treatment and liturgical ending.",
     "edges": [
       {
         "target": "Doxology",
@@ -1403,8 +1486,14 @@
           "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
         ],
         "scope_paths": [
-          "2"
+          "2.1"
         ]
+      },
+      {
+        "target": "Through-composed",
+        "kind": "shares-feature",
+        "status": "supported",
+        "evidence": "One musical treatment sets the fixed canticle text continuously, distinct from the chant-formula option."
       }
     ],
     "refs": [
@@ -1435,8 +1524,8 @@
     ]
   },
   "Full anthem": {
-    "status": "partial",
-    "note": "Through-composed setting and full choir describe the catalog’s example. Amen is a textual ending in that example, not a definition of choir scoring.",
+    "status": "supported",
+    "note": "A full choir sings the setting continuously. A closing acclamation appears in the illustrated arrangement. Full-choir scoring distinguishes this form from the alternating solo and choral passages of a verse anthem.",
     "edges": [
       {
         "target": "Through-composed",
@@ -1494,8 +1583,8 @@
     "refs": []
   },
   "Shape-note anthem": {
-    "status": "partial",
-    "note": "The scripture setting employs chordal and fuging writing. The row supplies neither an obligatory order nor the number of these passages.",
+    "status": "supported",
+    "note": "The scripture is set through, with chordal passages and imitative passages where the voices enter successively. These are types of texture available within an anthem. Passage order and count depend on the setting.",
     "edges": [
       {
         "target": "Through-composed",
@@ -1520,8 +1609,8 @@
     ]
   },
   "Mass setting (English)": {
-    "status": "contested",
-    "note": "The catalog’s listed sequence is an example of setting ordinary texts. English Communion orders allow variation, including optional parts and liturgical differences.",
+    "status": "supported",
+    "note": "The five-part musical setting follows the customary Ordinary-text order. An English Communion rite can omit the song of praise, for example in Advent or Lent, or place it later in a different order of service. The complete rite includes other texts and actions.",
     "edges": [
       {
         "target": "Litany",
@@ -1535,15 +1624,17 @@
     ],
     "refs": [
       "https://www.churchofengland.org/holy-communion",
-      "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
+      "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2",
+      "https://www.churchofengland.org/liturgy/common-worship/holy-communion-service"
     ],
     "attested_refs": [
-      "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2"
+      "https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal/girm-chapter-2",
+      "https://www.churchofengland.org/liturgy/common-worship/holy-communion-service"
     ]
   },
   "Anglican service": {
-    "status": "partial",
-    "note": "The example sets two canticles, each followed by a doxology. Canticle selections vary with the office.",
+    "status": "supported",
+    "note": "In the illustrated Evening Prayer selection two canticles follow separate lessons, each ending in a doxology. The office also permits other text selections. This diagram isolates the sung pair.",
     "edges": [
       {
         "target": "Canticle",
@@ -1574,10 +1665,12 @@
     ],
     "refs": [
       "https://www.churchofengland.org/prayer-and-worship/worship-texts-and-resources/common-worship/common-material/canticles-main-volume",
-      "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+      "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer",
+      "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-evening-prayer"
     ],
     "attested_refs": [
-      "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer"
+      "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-morning-prayer",
+      "https://www.churchofengland.org/liturgy/book-of-common-prayer/order-evening-prayer"
     ]
   }
 }

@@ -8,51 +8,51 @@
     "E": 44
   },
   "status": {
-    "supported": 273,
-    "partial": 91
+    "supported": 352,
+    "partial": 12
   },
-  "changed_models": 289,
+  "changed_models": 291,
   "fields_changed": {
-    "mode": 134,
-    "tree": 228,
-    "related": 147
+    "mode": 137,
+    "tree": 244,
+    "related": 166
   },
-  "hierarchy_changed": 155,
-  "diagram_nodes": 2215,
-  "candidate_relationships": 425,
+  "hierarchy_changed": 195,
+  "diagram_nodes": 2734,
+  "candidate_relationships": 448,
   "edge_verdicts": {
-    "supported": 383,
+    "supported": 406,
     "rejected": 17,
     "redirected": 20,
     "ambiguous": 5
   },
   "edge_changes": {
     "retained": 178,
-    "added": 205,
+    "added": 228,
     "removed": 29,
     "withheld": 13
   },
   "supported_kinds": {
     "variant": 76,
-    "contains": 196,
-    "comparison": 27,
-    "shares-feature": 83,
+    "contains": 215,
+    "comparison": 29,
+    "shares-feature": 85,
     "other": 1
   },
   "entry_evidence": {
-    "supported | reference recorded; passage unverified": 105,
-    "supported | catalog and model only": 131,
-    "partial | catalog and model only": 43,
-    "partial | reference recorded; passage unverified": 40,
-    "supported | passage checked for stated scope": 37,
+    "supported | reference recorded; passage unverified": 110,
+    "supported | catalog and model only": 150,
+    "partial | catalog and model only": 3,
+    "partial | reference recorded; passage unverified": 1,
+    "supported | passage checked for stated scope": 92,
     "partial | passage checked for stated scope": 8
   },
   "supported_edge_evidence": {
-    "reference recorded; passage unverified": 149,
-    "catalog and model only": 190,
-    "passage checked for stated scope": 44
+    "reference recorded; passage unverified": 144,
+    "catalog and model only": 194,
+    "passage checked for stated scope": 68
   },
-  "distinct_bibliography_urls": 220,
+  "distinct_bibliography_urls": 253,
   "alias_fields_before": 177,
   "alias_fields_reviewed_differently": 89,
   "issue_676_placements": 320,
@@ -84,7 +84,7 @@
     "boundary": 12,
     "two rows": 1
   },
-  "unit_node_matches": 340,
+  "unit_node_matches": 418,
   "meter_pairs": 105,
   "meter_evidence": {
     "catalog comparison only": 52,

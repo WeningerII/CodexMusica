@@ -1,5 +1,7 @@
 # Offline rebuild and headline verification
 
+Historical review at ee47d0c. See README.md for current figures and partial-entries.md and catalog-corrections.md for subsequent dispositions.
+
 Andrej identified an isolated-import failure, bytecode left by child scripts, locale-sensitive text I/O, and missing executable checks for the headline counts. The two builders for the revised catalog use explicit UTF-8, load the adjudicated entries and links through the same evidence resolver, and pass the stated basis into the tables and explorer. All script-to-script calls preserve isolated imports and suppress bytecode. The archived baseline remains byte-for-byte historical source and runs with UTF-8 explicitly selected.
 
 Run `python3 -I -B verify-offline.py` from the extracted review. From any other directory, pass the absolute path to that script. This uses Python’s standard library and requires a writable system temporary directory. It reads the release without writing to it.

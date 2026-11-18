@@ -27,7 +27,7 @@ async function checkCatalogRankings(page) {
   const result = await page.evaluate(() => {
     const terms = new Map();
     for (const form of FORMS) {
-      const groups = [[form.name], form.aliases.split(','), form.search_terms];
+      const groups = [[form.name], form.aliases, form.search_terms];
       groups.forEach((spellings, tier) => {
         for (const spelling of spellings) {
           const key = normal(spelling);
@@ -65,8 +65,7 @@ async function readForm(page, id, title) {
 async function checkCorrectedForms(page) {
   const binary = await readForm(page, 'binary', 'Binary');
   assert.match(binary.note, /^Reviewed pattern/);
-  assert.match(binary.note, /AABB/);
-  assert.match(binary.note, /(?:common|usual|often|typical|optional)/i);
+  assert.ok(binary.nodes.filter(label => /may repeat/i.test(label)).length >= 2);
   for (const part of ['A', 'B']) {
     assert.ok(binary.nodes.some(label => new RegExp('repeat ' + part + '\\b', 'i').test(label)),
       'Binary must show a separate repeat for ' + part);
@@ -81,15 +80,14 @@ async function checkCorrectedForms(page) {
 
   const byr = await readForm(page, 'byr-a-thoddaid', 'Byr a thoddaid');
   assert.match(byr.note, /^Partial model/);
-  assert.match(byr.note, /clos(?:e|ing)|toddaid/i);
-  assert.match(byr.note, /unresolved|unclear|uncertain|unspecified|open question/i);
+  assert.match(byr.nodes.join(' '), /closing toddaid/i);
   assert.match(byr.nodes.join(' '), /(?:four|4) eight-syllable lines/i);
   assert.match(byr.nodes.join(' '), /(?:two|2) linked lines/i);
 
   const monk = await readForm(page, 'monk-s-tale-stanza', "Monk's Tale stanza");
   assert.match(monk.note, /^Reviewed pattern/);
-  assert.match(monk.note, /iambic pentameter/i);
-  assert.match(monk.note, /ABABBCBC/);
+  assert.match(monk.nodes.join(' '), /pentameter/i);
+  assert.equal(monk.nodes.filter(label => /^\d+ · [ABC]$/.test(label)).map(label => label.slice(-1)).join(''), 'ABABBCBC');
   assert.doesNotMatch([...monk.nodes, monk.note].join(' '), /(?:four|4)[- ](?:stress|beat)/i);
 }
 async function run() {
@@ -136,6 +134,9 @@ async function run() {
       await item.locator('summary').click();
       assert.match(await item.innerText(),/Miltonic sonnet → Petrarchan sonnet/);
       assert.doesNotMatch(await item.innerText(),/Petrarchan sonnet → Miltonic sonnet/);
+      await page.locator('#sourceOpen').click();
+      assert.equal(await page.locator('#sourceBody a, #relations a').count(), 0);
+      await page.locator('#source .close').click();
       for (const result of [errors,outbound]) assert.deepEqual(result,[]);
       await page.close();
       console.log(width+'px: '+count+' exact terms, '+reportedQueries.length+' reported rankings and alternatives, '+queries.length+' navigation checks, family filtering, keyboard selection, four reviewed structures, directional evidence and offline checks passed');

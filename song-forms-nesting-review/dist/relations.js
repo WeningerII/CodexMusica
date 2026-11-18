@@ -127,11 +127,11 @@
       list.replaceChildren();
       for(const item of (expanded ? related : related.slice(0,limit))) {
         const li=make('li','');
-        const outgoingNotes=form.review.edges.filter(e=>e.status==='supported'&&e.target===item.name);
-        const incomingNotes=item.review.edges.filter(e=>e.status==='supported'&&e.target===form.name);
-        const facts=[...outgoingNotes.map(edge=>({...edge, from:form.name})),...incomingNotes.map(edge=>({...edge, from:item.name}))];
+        const outgoingNotes=form.review.edges.filter(e=>e.target===item.name);
+        const incomingNotes=item.review.edges.filter(e=>e.target===form.name);
+        const facts=[...outgoingNotes.map(edge=>({...edge, from:form})),...incomingNotes.map(edge=>({...edge, from:item}))];
         function label(edge) {
-          const outgoing = edge.from === form.name;
+          const outgoing = edge.from === form;
           if (edge.kind === 'variant') return outgoing ? 'Variant of' : 'Has variant';
           if (edge.kind === 'contains') return outgoing ? 'Can contain' : 'Can occur within';
           return {'shares-feature':'Shared feature',comparison:'Comparison',other:'Documented connection'}[edge.kind];
@@ -141,16 +141,16 @@
         const evidence=make('details','sfr-basis');
         evidence.append(make('summary','','Evidence'));
         for (const edge of facts) {
-          evidence.append(make('p','',edge.from+' → '+edge.target+' · '+edge.evidence));
-          const provenance = {
-            'passage checked for stated scope': 'Source passage checked for this claim',
-            'reference recorded; passage unverified': 'Reference recorded, passage unverified',
-            'catalog and model only': 'Catalog evidence only',
-          };
-          evidence.append(make('small', '', provenance[edge.basis]));
-          for (const url of edge.refs) {
-            const a=make('a','',new URL(url).hostname);
-            a.href=url; a.target='_blank'; a.rel='noopener noreferrer'; evidence.append(a);
+          evidence.append(make('p','',edge.from.name+' → '+edge.target));
+          evidence.append(make('small','',basisLabels[edge.basis]));
+          for (const path of edge.scope_paths) {
+            let children = edge.from.tree;
+            const labels = path.split('.').map(part => {
+              const node = children[Number(part) - 1];
+              children = typeof node === 'string' ? [] : node.children;
+              return typeof node === 'string' ? node : node.label;
+            });
+            evidence.append(make('p','sfr-scope',labels.join(' › ')));
           }
         }
         li.append(evidence);

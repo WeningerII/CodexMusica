@@ -2,15 +2,23 @@
   "Traditional ballad": {
     "tree": [
       {
-        "label": "Narrative on one tune",
+        "label": "Repeat to one tune",
         "children": [
           {
-            "label": "Repeated quatrain",
+            "label": "Narrative quatrain",
             "children": [
               "Line 1 · A",
               "Line 2 · B",
               "Line 3 · C",
               "Line 4 · B"
+            ]
+          },
+          {
+            "label": "Storytelling across stanzas",
+            "children": [
+              "Third-person narrative",
+              "Dialogue",
+              "Abrupt scene changes"
             ]
           }
         ]
@@ -81,14 +89,22 @@
   },
   "Broadside ballad": {
     "tree": [
-      "Opening address",
       {
-        "label": "Topical story",
+        "label": "Printed topical account",
         "children": [
-          "Stanzas on a chosen air"
+          "Opening address",
+          "Narrative stanzas",
+          "Closing moral"
         ]
       },
-      "Closing moral"
+      {
+        "label": "Tune choices",
+        "children": [
+          "Use the named air",
+          "Fit another existing tune",
+          "Supply a new tune"
+        ]
+      }
     ],
     "mode": "Example",
     "related": [
@@ -118,14 +134,15 @@
   "Blues ballad": {
     "tree": [
       {
-        "label": "Each stanza",
+        "label": "Repeating stanza",
         "children": [
-          "Narrative fragment",
-          "Recurring refrain line"
+          "Fragment of an event narrative",
+          "Returning final refrain line"
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": []
   },
   "Talking blues": {
     "tree": [
@@ -197,18 +214,24 @@
   },
   "Mummers' play verse": {
     "tree": [
-      "Character entrances",
+      {
+        "label": "Rhymed entrances",
+        "children": [
+          "Characters announce themselves"
+        ]
+      },
       {
         "label": "Hero-combat episode",
         "children": [
           "Fight",
           "Death",
-          "Doctor’s revival"
+          "Doctor revives the fallen character"
         ]
       },
       "Collection speech"
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": []
   },
   "Calling-on song": {
     "tree": [
@@ -225,16 +248,23 @@
   "Luck-visit / begging song": {
     "tree": [
       {
-        "label": "House visit",
+        "label": "At the door",
         "children": [
-          "Greeting and blessing",
-          "Custom explained",
-          "Request for a gift"
+          "Greet or bless the household",
+          "Explain the visit",
+          "Ask for provisions"
         ]
       },
-      "Usual chorus · placement varies"
+      {
+        "label": "One wassail setting",
+        "children": [
+          "Changing verse text",
+          "Returning drinking refrain at the verse ending"
+        ]
+      }
     ],
-    "mode": "Rule"
+    "mode": "Example",
+    "related": []
   },
   "Street cry": {
     "tree": [
@@ -250,14 +280,19 @@
   "Dirge / lament": {
     "tree": [
       {
-        "label": "Mourning text",
+        "label": "Mourning quatrain",
         "children": [
-          "Short stanzas",
-          "Returning cry or burden"
+          "Changing first line",
+          "Returning response",
+          "Changing third line",
+          "Returning closing prayer"
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": [
+      "Quatrain"
+    ]
   },
   "Call-and-response": {
     "tree": [
@@ -291,7 +326,8 @@
             ]
           }
         ]
-      }
+      },
+      "Optional full chorus between verses"
     ],
     "mode": "Example",
     "related": [
@@ -374,14 +410,22 @@
   "Hammer song / chain-gang song": {
     "tree": [
       {
-        "label": "Exchange at the work stroke",
+        "label": "Work exchange",
         "children": [
           "Short lead line",
-          "Fixed group reply"
+          "Group reply on the stroke"
+        ]
+      },
+      {
+        "label": "Frequent text pattern",
+        "children": [
+          "A · first phrase",
+          "A · return",
+          "B · change"
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Call-and-response"
     ]
@@ -389,15 +433,23 @@
   "Field holler": {
     "tree": [
       {
-        "label": "Solo calls",
+        "label": "Solo setting · free rhythm",
         "children": [
-          "Phrase",
+          "Vocal phrase",
           "Pause",
           "Next phrase"
         ]
+      },
+      {
+        "label": "Communicative setting",
+        "children": [
+          "One caller sounds across a distance",
+          "Another caller may answer"
+        ]
       }
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": []
   },
   "Waulking song": {
     "tree": [
@@ -529,7 +581,7 @@
     "tree": [
       "Soothing refrain",
       {
-        "label": "Short repetitive verses",
+        "label": "Soft, repetitive verses",
         "children": [
           "Quatrains"
         ]
@@ -544,18 +596,40 @@
   "Nursery rhyme": {
     "tree": [
       {
-        "label": "One possible quatrain · AABB",
+        "label": "Common four-line settings",
         "children": [
-          "Line 1 · A",
-          "Line 2 · A",
-          "Line 3 · B",
-          "Line 4 · B"
+          {
+            "label": "AABB",
+            "children": [
+              "Line 1 · A",
+              "Line 2 · A",
+              "Line 3 · B",
+              "Line 4 · B"
+            ]
+          },
+          {
+            "label": "ABCB",
+            "children": [
+              "Line 1 · A",
+              "Line 2 · B",
+              "Line 3 · C",
+              "Line 4 · B"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Other lengths in the catalog",
+        "children": [
+          "2–8 lines overall",
+          "Rhyme varies"
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
-      "Quatrain"
+      "Quatrain",
+      "Couplet"
     ]
   },
   "Counting-out rhyme": {
@@ -677,33 +751,42 @@
   },
   "Square-dance singing call": {
     "tree": [
-      "Opener",
+      "Optional musical intro",
       {
-        "label": "Two figures",
+        "label": "Seven-part call · about 64 beats per part",
         "children": [
-          "Figure 1",
-          "Figure 2"
+          "Opener",
+          {
+            "label": "First two sung figures",
+            "children": [
+              "Figure 1",
+              "Figure 2"
+            ]
+          },
+          "Middle break",
+          {
+            "label": "Next two sung figures",
+            "children": [
+              "Figure 3",
+              "Figure 4"
+            ]
+          },
+          "Closer"
         ]
       },
-      "Middle break",
-      {
-        "label": "Two figures",
-        "children": [
-          "Figure 3",
-          "Figure 4"
-        ]
-      },
-      "Closer"
+      "Optional tag"
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": []
   },
   "Square-dance patter call": {
     "tree": [
       {
-        "label": "Rhythmic spoken or chanted calls",
+        "label": "Continuous beat-timed delivery",
         "children": [
-          "Dance instructions",
-          "Optional couplets in rhyming patter"
+          "Spoken or chanted instructions over music",
+          "Optional couplets in rhyming patter",
+          "No fixed sung melody"
         ]
       }
     ],
@@ -775,8 +858,8 @@
       {
         "label": "Continuously composed part-song",
         "children": [
-          "Setting of the short lyric",
-          "Repeat of the last line"
+          "Short lyric · 6–12 lines",
+          "Final text line repeated"
         ]
       }
     ],
@@ -816,13 +899,28 @@
       {
         "label": "Solo voice and lute",
         "children": [
-          "Stanzas share a shape"
+          {
+            "label": "Returning stanza shape",
+            "children": [
+              "Same tune each stanza",
+              {
+                "label": "One rhyme pattern · ABABCC",
+                "children": [
+                  "Alternating opening · ABAB",
+                  "Rhyming close · CC"
+                ]
+              }
+            ]
+          }
         ]
       }
     ],
     "mode": "Example",
     "related": [
-      "Strophic"
+      "Strophic",
+      "Sestet / sixain",
+      "Quatrain",
+      "Couplet"
     ]
   },
   "Consort song": {
@@ -897,10 +995,23 @@
   },
   "Lullay carol": {
     "tree": [
-      "Returning cradle-song burden",
-      "Possible parent–child dialogue"
+      {
+        "label": "Documented cradle-song setting",
+        "children": [
+          "Opening burden",
+          {
+            "label": "Narrative verses",
+            "children": [
+              "Narrator frames the scene",
+              "Parent and child speak",
+              "Narrator returns"
+            ]
+          },
+          "Burden recurs with the verses"
+        ]
+      }
     ],
-    "mode": "Rule",
+    "mode": "Example",
     "related": [
       "Medieval carol with burden"
     ]
@@ -908,13 +1019,28 @@
   "Christmas carol": {
     "tree": [
       {
-        "label": "Hymn-like stanzas",
+        "label": "Stanza and recurring words",
         "children": [
-          "Short refrain or chorus · placement unspecified"
+          "Hymn-like verse",
+          {
+            "label": "Form of return",
+            "children": [
+              "Short refrain",
+              "Chorus"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "One documented position",
+        "children": [
+          "Stanza",
+          "Following burden"
         ]
       }
     ],
-    "mode": "Example"
+    "mode": "Example",
+    "related": []
   },
   "Macaronic carol / song": {
     "tree": [
@@ -979,10 +1105,10 @@
   "Gospel song (Sankey)": {
     "tree": [
       {
-        "label": "Repeat",
+        "label": "Stanza cycle",
         "children": [
-          "Verse · 4 lines",
-          "Title chorus · 4 lines"
+          "Changing verse · 4 lines",
+          "Returning title chorus · 4 lines"
         ]
       }
     ],
@@ -1032,12 +1158,25 @@
   },
   "Spiritual": {
     "tree": [
-      "Framing chorus",
       {
-        "label": "Leader–group exchange",
+        "label": "Response setting",
         "children": [
-          "Short repetitive verse · AAAB",
-          "Group answer"
+          "Framing chorus",
+          {
+            "label": "Exchange",
+            "children": [
+              "Leader sings a short AAAB verse",
+              "Group answers"
+            ]
+          },
+          "Framing chorus returns"
+        ]
+      },
+      {
+        "label": "Other performance settings",
+        "children": [
+          "Solo vocal arrangement",
+          "Choral arrangement · a chorus may be added at the close"
         ]
       }
     ],
@@ -1099,7 +1238,18 @@
       {
         "label": "Stanzas on one tune",
         "children": [
-          "Common or long metre for the illustrated settings"
+          {
+            "label": "Common metre",
+            "children": [
+              "8 · 6 · 8 · 6 syllables"
+            ]
+          },
+          {
+            "label": "Long metre",
+            "children": [
+              "8 · 8 · 8 · 8 syllables"
+            ]
+          }
         ]
       }
     ],
@@ -1137,6 +1287,13 @@
               "First half",
               "Second half after colon"
             ]
+          },
+          {
+            "label": "Pointing marks in this notation",
+            "children": [
+              "Bar marks the next measure",
+              "Dot divides syllables between halves of a measure"
+            ]
           }
         ]
       },
@@ -1149,9 +1306,9 @@
   },
   "Psalm with antiphon": {
     "tree": [
-      "Antiphon",
+      "Opening antiphon",
       {
-        "label": "Alternating verses",
+        "label": "Alternating psalm verses",
         "children": [
           "First choir side",
           "Second choir side"
@@ -1169,21 +1326,33 @@
   "Responsorial psalm": {
     "tree": [
       {
-        "label": "Initial response",
+        "label": "With a congregational response",
         "children": [
-          "Cantor",
-          "Congregation repeats"
+          {
+            "label": "Opening response",
+            "children": [
+              "Cantor introduces it",
+              "Congregation repeats"
+            ]
+          },
+          {
+            "label": "Recurring exchange",
+            "children": [
+              "Cantor’s verse",
+              "Congregational response"
+            ]
+          }
         ]
       },
       {
-        "label": "Recurring exchange",
+        "label": "Sung straight through",
         "children": [
-          "Cantor’s psalm verse",
-          "Congregational response"
+          "Psalmist sings the verses",
+          "Assembly listens"
         ]
       }
     ],
-    "mode": "Example",
+    "mode": "Rule",
     "related": [
       "Call-and-response"
     ]
@@ -1237,12 +1406,25 @@
   },
   "Canticle": {
     "tree": [
-      "Fixed canticle text",
-      "Closing doxology where prescribed"
+      {
+        "label": "Setting of the fixed text",
+        "children": [
+          "Chanted formula",
+          "Continuously composed setting"
+        ]
+      },
+      {
+        "label": "Ending prescribed by the office",
+        "children": [
+          "Closing doxology where appointed",
+          "Text ends on its own in other settings"
+        ]
+      }
     ],
     "mode": "Rule",
     "related": [
-      "Doxology"
+      "Doxology",
+      "Through-composed"
     ]
   },
   "Doxology": {
@@ -1261,8 +1443,13 @@
   },
   "Full anthem": {
     "tree": [
-      "Sacred text set throughout for full choir",
-      "Amen in this setting"
+      {
+        "label": "Full choir throughout",
+        "children": [
+          "Sacred text set continuously",
+          "Closing acclamation in this arrangement"
+        ]
+      }
     ],
     "mode": "Example",
     "related": [
@@ -1303,10 +1490,15 @@
   "Shape-note anthem": {
     "tree": [
       {
-        "label": "Contrasting textures · order varies",
+        "label": "Through-composed scripture setting",
         "children": [
-          "Chordal passages",
-          "Fuging passages"
+          {
+            "label": "Textures · order varies",
+            "children": [
+              "Chordal writing · voices move together",
+              "Fuging writing · voices enter successively"
+            ]
+          }
         ]
       }
     ],
@@ -1319,13 +1511,21 @@
   "Mass setting (English)": {
     "tree": [
       {
-        "label": "Movements in this setting",
+        "label": "Five-movement musical setting",
         "children": [
-          "Plea for mercy",
+          "Opening plea for mercy",
           "Song of praise",
           "Profession of faith",
           "Acclamation and blessing",
-          "Repeated petition ending in a plea for peace"
+          "Petition for mercy and peace"
+        ]
+      },
+      {
+        "label": "Placement of the song of praise",
+        "children": [
+          "Early in the gathering when used",
+          "Later placement in another order of service",
+          "May be omitted by rubric"
         ]
       }
     ],
@@ -1337,16 +1537,16 @@
   "Anglican service": {
     "tree": [
       {
-        "label": "First canticle",
+        "label": "Canticle after first lesson",
         "children": [
-          "Canticle text",
+          "First canticle text",
           "Doxology"
         ]
       },
       {
-        "label": "Second canticle",
+        "label": "Canticle after second lesson",
         "children": [
-          "Canticle text",
+          "Second canticle text",
           "Doxology"
         ]
       }

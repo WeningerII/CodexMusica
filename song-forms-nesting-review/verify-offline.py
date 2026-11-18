@@ -6,6 +6,7 @@ import csv
 from hashlib import sha256
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -92,7 +93,15 @@ def headline_checks(package):
     require(sum(int(f["supported_edges"]) for f in forms) == len(accepted), "Outgoing total differs")
     require(all(e["evidence_basis"].startswith("decision basis: ") for e in links if e["verdict"] != "supported"),
             "An archived decision has an unlabeled basis")
-    form_to_public = {old: new for new, old in obj(package / "comparison/title-map.json").items()}
+    vocabulary = obj(package / "public-vocabulary.json")
+    form_to_public = vocabulary["titles"]
+    for row in projected:
+        require(set(row) == {"id", "name", "family", "aliases", "search_terms", "mode", "tree", "related", "review"}, "Unexpected public record fields")
+        require(set(row["review"]) == {"status", "basis", "edges"}, "Unexpected public review fields")
+        for edge in row["review"]["edges"]:
+            require(set(edge) == {"target", "kind", "scope_paths", "basis"}, "Unexpected public edge fields")
+    require(not re.search(r"(?:[a-z][a-z0-9+.-]*://|\b(?:www\.|mailto:|javascript:|data:)|<[/!a-z]|\]\()", json.dumps(projected), re.I),
+            "Unexpected URL or markup in the public catalog")
     public = {row["name"]: row for row in projected}
     require(len(public) == len(forms), "Public catalog length differs from reviewed forms")
     projected_edges = {}
@@ -101,17 +110,18 @@ def headline_checks(package):
         record = public[title]
         require((record["review"]["status"], record["review"]["basis"]) ==
                 (form["review_status"], form["evidence_basis"]), "Public evidence differs for " + title)
-        require(record["review"]["refs"] == form["attested_references"].split(), "Entry references differ for " + title)
+        require(record["aliases"] == vocabulary["aliases"].get(form["form"], []), "Unreviewed aliases for " + title)
+        require(record["search_terms"] == vocabulary["discovery"].get(form["form"], []), "Unreviewed discovery terms for " + title)
         require(record["related"] == list(dict.fromkeys(record["related"])), "Duplicate target for " + title)
         require(set(record["related"]) == {e["target"] for e in record["review"]["edges"]},
                 "Public navigation differs from public edge records for " + title)
         for edge in record["review"]["edges"]:
             key = title, edge["target"]
             require(key not in projected_edges, f"Duplicate public relationship {key}")
-            projected_edges[key] = edge["kind"], edge["basis"], edge["evidence"], edge["refs"]
+            projected_edges[key] = edge["kind"], edge["basis"], edge["scope_paths"]
     expected_edges = {
         (form_to_public.get(e["source"], e["source"]), form_to_public.get(e["target"], e["target"])):
-        (e["kind"], e["evidence_basis"], e["evidence"], e["link_specific_references"].split())
+        (e["kind"], e["evidence_basis"], list(filter(None, e["diagram_node_paths"].split(";"))))
         for e in accepted
     }
     require(len(expected_edges) == len(accepted) and projected_edges == expected_edges,
@@ -125,6 +135,69 @@ def run(script, *args, cwd, utf8=False, options=("-I", "-B")):
     result = subprocess.run(command, cwd=cwd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     if result.returncode:
         raise RuntimeError(f"{script.name} exited {result.returncode}:\n{result.stdout.decode('utf-8', 'replace')}")
+
+
+def check_provenance_isolation(clone, cwd):
+    """Replace provenance with artificial markers. Only public enums and reviewed structure may cross."""
+    expected = (clone / "dist/catalog.js").read_bytes()
+    marker = "PROVENANCE_TEST_MARKER"
+    url = "https://provenance-marker.invalid/"
+    def write(path, value):
+        path.write_text(json.dumps(value, ensure_ascii=False), encoding="utf-8")
+
+    inventories = [clone / "english-forms.md", clone / "comparison/r2-post.md"]
+    for path in inventories:
+        lines = path.read_text(encoding="utf-8").splitlines()
+        group = False
+        for i, text in enumerate(lines):
+            if text.startswith("## "):
+                group = bool(re.match(r"## [A-E]\. ", text))
+            elif group and text.startswith("| ") and not text.startswith("| Form |"):
+                cells = [x.strip() for x in text.strip("|").split("|")]
+                lines[i] = "| " + " | ".join([cells[0], marker + " ALIAS", marker + " SHAPE", marker + " LENGTH", marker + " ROLE"]) + " |"
+        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+    for path in (clone / "audit").glob("*.json"):
+        records = obj(path)
+        for row in records.values():
+            row.update(note=marker, refs=[url], extra=marker)
+            if row.get("attested_refs"):
+                row["attested_refs"] = [url]
+            for edge in row["edges"]:
+                edge.update(evidence=marker, extra=marker)
+                if edge.get("refs"):
+                    edge["refs"] = [url]
+        write(path, records)
+    for path in (clone / "models").glob("*.json"):
+        records = obj(path)
+        pending = [node for model in records.values() for node in model["tree"]]
+        while pending:
+            node = pending.pop()
+            if isinstance(node, dict):
+                node["research_comment"] = marker
+                pending.extend(node["children"])
+        for model in records.values():
+            model["prompt_example"] = marker
+        write(path, records)
+    folder = clone / "comparison"
+    statuses = obj(folder / "andrej-status.json")
+    for row in statuses.values():
+        row.update(note=marker, other=marker)
+    write(folder / "andrej-status.json", statuses)
+    for name in ["rechecked-sources.json", "andrej-evidence.json"]:
+        value = obj(folder / name)
+        for row in value["claims"]:
+            row.update(url=url, locator=marker, passage=marker, old_urls=[url], author=marker, checked_on=marker)
+        write(folder / name, {"claims": value["claims"], "sources": [url], "method": marker})
+    keep = {p.name for p in inventories} | {"andrej-status.json", "rechecked-sources.json", "andrej-evidence.json"}
+    for path in folder.iterdir():
+        if path.is_file() and path.name not in keep:
+            path.write_text(marker, encoding="utf-8")
+    for source in inventories:
+        run(clone / "build.py", source, cwd=cwd)
+        require((clone / "dist/catalog.js").read_bytes() == expected,
+                "Unreviewed provenance changed the public catalog via " + source.name)
+    print("Public catalog stayed byte-identical for both inventories after provenance substitution.")
 
 
 def verify(package):
@@ -151,6 +224,7 @@ def verify(package):
         (clone / "baseline/dist/catalog.js").unlink()
         run(clone / "baseline/build.py", clone / "english-forms.md", cwd=clone / "baseline", utf8=True)
         require(file_hashes(clone) == before, "Archival catalog failed to reproduce")
+        check_provenance_isolation(clone, external)
     print("Seven products regenerated; both source inventories, archival build and cache checks passed.")
 
 

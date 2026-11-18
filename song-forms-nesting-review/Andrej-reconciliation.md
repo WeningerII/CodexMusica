@@ -1,5 +1,7 @@
 # Andrej’s independent review
 
+Historical review at ee47d0c. See README.md for current figures and partial-entries.md and catalog-corrections.md for subsequent dispositions.
+
 The input was the 79-file review package at [4976432](https://github.com/WeningerII/CodexMusica/commit/4976432d624a3a8db61c6004814e19d5f8b86409). Findings below use the numbering, row numbers and source-access claims in [Andrej’s review](https://github.com/WeningerII/CodexMusica/pull/857#issuecomment-6968098933). Current counts and examples are in README.md and coverage-summary.json. R2-*.md, comparison/r2-row-diff.tsv, the original inventories and baseline/ document earlier stages.
 
 | Finding | Disposition |

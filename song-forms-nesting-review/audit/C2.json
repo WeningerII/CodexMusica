@@ -135,7 +135,7 @@
   },
   "Renga / renku": {
     "status": "partial",
-    "note": "Linked verse includes several layouts. Renku uses links and shifts; the 36-verse kasen shown here is one layout. Its two folios have four sides of 6, 12, 12 and 6 verses. Its opening, development and close span 6, 24 and 6.",
+    "note": "The kasen’s three phases contain its four folio sides, accounting for each of its 36 verses exactly once. Other documented lengths include 50 and 100 verses; their internal divisions are not given here.",
     "edges": [
       {
         "target": "Couplet",
@@ -163,7 +163,8 @@
     ],
     "attested_refs": [
       "https://hsa-haiku.org/hsa-definitions-2004.html",
-      "https://www.pref.nara.lg.jp/manyo/en/manyo-shu/index.html"
+      "https://www.pref.nara.lg.jp/manyo/en/manyo-shu/index.html",
+      "https://sites.google.com/site/worldhaikureview2/whr-archives/renku"
     ]
   },
   "Rengay": {
@@ -401,18 +402,19 @@
   },
   "Englyn": {
     "status": "partial",
-    "note": "Three variants illustrate a larger family. Milwr and penfyr have three lines; unodl union has four, with a short toddaid followed by a cywydd couplet.",
+    "note": "The diagram adds reversed-order, short-tail and proest settings to the three catalog examples. The glossary also distinguishes later classifications and additional structures. Full per-line cynghanedd and the remaining historical settings are outside this tree.",
     "edges": [
       {
         "target": "Cywydd deuair hirion",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The unodl union variant ends with this specific seven-syllable couplet.",
+        "evidence": "The unodl union ends in a cywydd couplet and the unodl crwca starts with that couplet.",
         "refs": [
           "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
         ],
         "scope_paths": [
-          "1.3.2"
+          "1.3.2",
+          "1.4.1"
         ]
       },
       {
@@ -437,12 +439,17 @@
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The unodl union variant contains a short toddaid and a two-line cywydd unit.",
+        "evidence": "The named variants contain a short toddaid or the cywydd couplet; the two four-line unodl settings put these two-line components in opposite orders.",
         "refs": [
           "https://www.cs.ox.ac.uk/people/geraint.jones/rhydychen.org/gwasg.aredig/cynghanedd/geirfa/"
         ],
         "scope_paths": [
-          "1.3.2"
+          "1.2.1",
+          "1.3.1",
+          "1.3.2",
+          "1.4.1",
+          "1.4.2",
+          "1.5.1"
         ]
       }
     ],
@@ -679,8 +686,8 @@
     ]
   },
   "Irish syllabic quatrains": {
-    "status": "contested",
-    "note": "The grouped measures differ. Deibhidhe and rannaigheacht mhór have seven-syllable lines; séadna alternates 8–7–8–7. In ae freislighe, end words alternate three and two syllables. The catalog treats dúnadh separately as poem-wide closure.",
+    "status": "partial",
+    "note": "The linked Maynooth examples locate alliteration and second-couplet sound links in three measures. The fourth branch retains the documented end-word lengths. Full historical variants and the placement of every admissible sound correspondence are still outside this family diagram.",
     "edges": [
       {
         "target": "Quatrain",
@@ -707,6 +714,9 @@
     "refs": [
       "https://macmorris.maynoothuniversity.ie/what-is-bardic-poetry",
       "https://doi.org/10.3828/sh.2023.2"
+    ],
+    "attested_refs": [
+      "https://macmorris.maynoothuniversity.ie/what-is-bardic-poetry"
     ]
   },
   "Pindaric ode": {
@@ -796,14 +806,14 @@
     ]
   },
   "Ruthless rhyme": {
-    "status": "partial",
-    "note": "A deadpan AABB quatrain is one recorded shape. Other texts in this body of verse vary in length and rhyme.",
+    "status": "supported",
+    "note": "The catalog’s AABB quatrain is one setting. The collection also supplies an ABAB quatrain and an eight-line exchange in two alternating-rhyme quatrains. A death is not required in the second example.",
     "edges": [
       {
         "target": "Quatrain",
         "kind": "shares-feature",
         "status": "supported",
-        "evidence": "The displayed deadpan AABB template has four lines. The wider body of verse includes other lengths.",
+        "evidence": "The catalog setting and both sampled collection settings use four-line units, although the whole work can extend to two quatrains.",
         "refs": [
           "https://www.gutenberg.org/cache/epub/35051/pg35051-images.html"
         ]
@@ -823,10 +833,14 @@
       }
     ],
     "refs": [
-      "https://www.gutenberg.org/cache/epub/35051/pg35051-images.html"
+      "https://www.gutenberg.org/cache/epub/35051/pg35051-images.html",
+      "https://raw.githubusercontent.com/GITenberg/Ruthless-Rhymes-for-Heartless-Homes_35051/master/35051.txt",
+      "https://www.gutenberg.org/ebooks/35051"
     ],
     "attested_refs": [
-      "https://www.gutenberg.org/cache/epub/35051/pg35051-images.html"
+      "https://www.gutenberg.org/cache/epub/35051/pg35051-images.html",
+      "https://raw.githubusercontent.com/GITenberg/Ruthless-Rhymes-for-Heartless-Homes_35051/master/35051.txt",
+      "https://www.gutenberg.org/ebooks/35051"
     ]
   },
   "Cinquain (Crapsey)": {
@@ -864,8 +878,8 @@
     "refs": []
   },
   "Diamante": {
-    "status": "partial",
-    "note": "The illustrated opposite-subject version organizes each line by word class. The four central nouns commonly divide between the two subjects; same-subject versions also occur.",
+    "status": "supported",
+    "note": "Both synonym and antonym settings use a seven-line diamond. The fourth line is taught as either four nouns or a four-word phrase; the semantic pivot belongs to the opposite-subject setting.",
     "edges": [
       {
         "target": "Septet",
@@ -1079,20 +1093,21 @@
     "refs": []
   },
   "Bop": {
-    "status": "partial",
-    "note": "In the common three-stanza arrangement, six, eight and six lines develop the argument. A refrain follows each stanza. The last can show an attempted resolution that fails; some variants continue to a fourth stanza.",
+    "status": "supported",
+    "note": "The usual three stanzas and the documented four-stanza extension each return to the same refrain after every stanza. The source does not prescribe a new argumentative function for the added six lines.",
     "edges": [
       {
         "target": "Sestet / sixain",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The first and third argumentative stanzas each consist of six lines before the refrain.",
+        "evidence": "The first, third and optional fourth stanzas have six lines before a separate refrain.",
         "refs": [
           "https://poets.org/glossary/bop"
         ],
         "scope_paths": [
           "1.1",
-          "3.1"
+          "3.1",
+          "4.1"
         ]
       },
       {

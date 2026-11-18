@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parent
 sys.dont_write_bytecode = True
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from evidence import reviewed
+from evidence import CATALOG, DIRECT, INDIRECT, reviewed
 
 def load(relative):
     return json.loads((ROOT / relative).read_text(encoding="utf-8"))
@@ -25,59 +25,96 @@ def parse_catalog(path):
             assert len(cells) == 5, (line_number, cells)
             yield group, line_number, cells
 
-def validate_tree(node):
+def public_label(value):
+    # Reviewed terminology may include punctuation and rhyme symbols, but never links or markup.
+    if not isinstance(value, str) or not value.strip() or "\n" in value or re.search(
+        r"(?:[a-z][a-z0-9+.-]*://|\b(?:www\.|mailto:|javascript:|data:)|<[/!a-z]|\]\()", value, re.I
+    ):
+        raise ValueError("Expected a plain structural label")
+    return value
+
+
+def diagram_node(node):
     if isinstance(node, str):
-        assert node.strip()
-    else:
-        assert node["label"].strip() and node["children"]
-        for child in node["children"]:
-            validate_tree(child)
+        return public_label(node)
+    if not isinstance(node, dict) or not isinstance(node.get("children"), list) or not node["children"]:
+        raise ValueError("Expected a diagram group with children")
+    # Build a new record so extra research fields on a node cannot become browser data.
+    return {"label": public_label(node["label"]), "children": [diagram_node(n) for n in node["children"]]}
+
+
+def node_paths(nodes, prefix=""):
+    for index, node in enumerate(nodes, 1):
+        path = prefix + str(index)
+        yield path
+        if isinstance(node, dict):
+            yield from node_paths(node["children"], path + ".")
+
+
+def choice(value, allowed):
+    if value not in allowed:
+        raise ValueError("Unknown value in a public catalog field")
+    return value
+
 
 def slug(name):
     normalized = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
     return re.sub("[^a-z0-9]+", "-", normalized.lower()).strip("-")
 
-def build(source):
+def public_forms(source):
+    """Return the closed explorer projection. Research notes and citations have no public fields."""
     models, reviews = {}, {}
     for path in sorted((ROOT / "models").glob("*.json")):
-        segment = json.loads(path.read_text(encoding="utf-8"))
+        segment = load(path)
         audit = load(Path("audit") / path.name)
         assert segment.keys() == audit.keys() and not models.keys() & segment.keys()
         models.update(segment)
         reviews.update(audit)
-    internal = load("comparison/title-map.json")
-    public = {old: new for new, old in internal.items()}
-    aliases = load("comparison/alias-overrides.json")
-    discovery = load("comparison/search-terms.json")
-    original_lines = {cells[0]: number for _, number, cells in parse_catalog(ROOT / "english-forms.md")}
-    data = []
+
+    vocabulary = load("public-vocabulary.json")
+    titles = vocabulary["titles"]
+    internal = {public: old for old, public in titles.items()}
+    for field in ("titles", "aliases", "discovery"):
+        assert vocabulary[field].keys() <= models.keys()
+
+    records = []
     for family, _, cells in parse_catalog(source):
         title = internal.get(cells[0], cells[0])
         model, review = models[title], reviewed(title, reviews[title])
-        assert model["mode"] in {"Example", "Pattern", "Rule"} and model["tree"]
-        for node in model["tree"]:
-            validate_tree(node)
-        assert review["status"] in {"supported", "partial", "contested", "unresolved"}
-        rendered_edges = []
+        tree = [diagram_node(n) for n in model["tree"]]
+        assert tree
+        valid_paths = set(node_paths(tree))
+        edges = []
         for edge in review["edges"]:
-            assert edge["target"] in models and edge["target"] != title and edge["evidence"].strip()
-            if edge["status"] == "supported":
-                rendered_edges.append(dict(target=public.get(edge["target"], edge["target"]),
-                    kind=edge["kind"], status=edge["status"], basis=edge["basis"],
-                    refs=edge.get("refs", []), evidence=edge["evidence"]))
-        related = [public.get(t, t) for t in model.get("related", [])]
-        assert set(related) == {e["target"] for e in rendered_edges}
-        # The raw source prose, alias evidence and proposed planner roles remain research provenance.
-        # Search and display share only reviewed headings, alternate names, trees and discovery terms.
-        data.append(dict(name=public.get(title,title), id=slug(title), family=family, line=original_lines[title],
-            aliases=aliases.get(title,{}).get("aliases", cells[1]), search_terms=discovery.get(title, []),
-            mode=model["mode"], tree=model["tree"], related=related,
-            review=dict(status=review["status"], note=review["note"], basis=review["basis"], refs=review.get("attested_refs",[]),
-                        edges=rendered_edges)))
-    assert len(data) == len({row["id"] for row in data}) == len(models) == 364
-    assert len({row["name"] for row in data}) == 364
-    assert set(aliases) <= models.keys() and set(discovery) <= models.keys()
-    return "const FORMS = " + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n"
+            if edge["status"] != "supported":
+                continue
+            target = edge["target"]
+            assert target in models and target != title
+            paths = edge.get("scope_paths", [])
+            assert isinstance(paths, list) and set(paths) <= valid_paths
+            edges.append({
+                "target": titles.get(target, target),
+                "kind": choice(edge["kind"], {"variant", "contains", "shares-feature", "comparison", "other"}),
+                "basis": choice(edge["basis"], {DIRECT, INDIRECT, CATALOG}),
+                "scope_paths": paths,
+            })
+        related = [titles.get(t, t) for t in model.get("related", [])]
+        assert set(related) == {e["target"] for e in edges}
+        records.append({
+            "name": public_label(titles.get(title, title)), "id": slug(title), "family": family,
+            "aliases": [public_label(x) for x in vocabulary["aliases"].get(title, [])],
+            "search_terms": [public_label(x) for x in vocabulary["discovery"].get(title, [])],
+            "mode": choice(model["mode"], {"Example", "Pattern", "Rule"}), "tree": tree, "related": related,
+            "review": {"status": choice(review["status"], {"supported", "partial", "contested", "unresolved"}),
+                       "basis": choice(review["basis"], {DIRECT, INDIRECT, CATALOG}), "edges": edges},
+        })
+    assert len(records) == len({r["id"] for r in records}) == len({r["name"] for r in records}) == len(models) == 364
+    return records
+
+
+def build(source):
+    return "const FORMS = " + json.dumps(public_forms(source), ensure_ascii=False, separators=(",", ":")) + ";\n"
+
 
 if __name__ == "__main__":
     source = Path(sys.argv[1]).resolve() if len(sys.argv)>1 else ROOT/"comparison/r2-post.md"

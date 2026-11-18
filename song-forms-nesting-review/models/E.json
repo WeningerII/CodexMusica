@@ -101,18 +101,42 @@
           "Brief commemoration",
           "May address a passer-by"
         ]
+      },
+      {
+        "label": "Catalog example",
+        "children": [
+          "2–4 lines"
+        ]
       }
     ]
   },
   "Greeting-card verse": {
     "mode": "Example",
     "tree": [
-      "Optional opening rhymed quatrain",
       {
-        "label": "Closing rhymed quatrain",
+        "label": "One rhymed quatrain",
         "children": [
-          "Lines 1–3",
-          "Line 4 · wish"
+          "Four lines ending in a wish"
+        ]
+      },
+      {
+        "label": "Two rhymed quatrains",
+        "children": [
+          "Opening quatrain",
+          "Closing quatrain ending in a wish"
+        ]
+      },
+      {
+        "label": "Extended address",
+        "children": [
+          "Successive declarations",
+          {
+            "label": "Conditional close",
+            "children": [
+              "Request for a reply",
+              "Alternative responses"
+            ]
+          }
         ]
       }
     ],
@@ -121,16 +145,41 @@
     ]
   },
   "Verse epistle": {
-    "mode": "Example",
+    "mode": "Rule",
     "tree": [
       {
-        "label": "Letter",
+        "label": "Verse addressed to a recipient",
         "children": [
-          "Address",
-          "Body",
-          "Sign-off"
+          {
+            "label": "Catalog letter arrangement",
+            "children": [
+              "Address",
+              "Body",
+              "Sign-off"
+            ]
+          },
+          {
+            "label": "Another attested opening",
+            "children": [
+              "Direct address begins within the verse"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Examples of verse treatment",
+        "children": [
+          "Heroic couplets",
+          "Rhymed quatrains",
+          "Free verse"
         ]
       }
+    ],
+    "related": [
+      "Couplet",
+      "Heroic couplet",
+      "Quatrain",
+      "Free verse"
     ]
   },
   "Dramatic monologue": {
@@ -149,10 +198,16 @@
     "mode": "Rule",
     "tree": [
       {
-        "label": "Pastoral exchange in the catalog",
+        "label": "Dialogue",
         "children": [
-          "Speeches or song-contest stanzas",
-          "Shepherds take turns"
+          "Speakers exchange speeches",
+          "A singing contest is one setting"
+        ]
+      },
+      {
+        "label": "Soliloquy",
+        "children": [
+          "One speaker"
         ]
       }
     ]
@@ -160,16 +215,27 @@
   "Debate poem": {
     "mode": "Example",
     "tree": [
-      "Narrative frame",
       {
-        "label": "Alternating argument",
+        "label": "Framed argument",
         "children": [
-          "First voice",
-          "Reply from second voice",
-          "Further turns as needed"
+          "Narrative opening",
+          {
+            "label": "Exchange",
+            "children": [
+              "First position",
+              "Reply",
+              "Further turns as needed"
+            ]
+          }
         ]
       },
-      "Judgement"
+      {
+        "label": "Possible closes",
+        "children": [
+          "Verdict reported",
+          "Outcome left unreported"
+        ]
+      }
     ]
   },
   "Tenson": {
@@ -203,41 +269,73 @@
     ]
   },
   "Aisling": {
-    "mode": "Rule",
+    "mode": "Example",
     "tree": [
       {
-        "label": "Dream encounter",
+        "label": "Political dream vision",
         "children": [
-          "Ireland personified as a woman",
+          "Encounter with a woman representing Ireland"
+        ]
+      },
+      {
+        "label": "Documented outcomes",
+        "children": [
+          "Lament and prophecy in the catalog",
+          "Close in despair in an early political vision"
+        ]
+      }
+    ]
+  },
+  "Metrical charm": {
+    "mode": "Example",
+    "tree": [
+      {
+        "label": "Catalog arrangement",
+        "children": [
+          "Ritual directions",
+          "Alliterative incantation",
+          "Closing prayer"
+        ]
+      },
+      {
+        "label": "Two action–speech pairs",
+        "children": [
           {
-            "label": "Speech in the catalog example",
+            "label": "First pair",
             "children": [
-              "Lament",
-              "Prophecy"
+              "Perform the first action",
+              "Speak its formula"
+            ]
+          },
+          {
+            "label": "Second pair",
+            "children": [
+              "Perform the next action",
+              "Speak a second formula"
             ]
           }
         ]
       }
     ]
   },
-  "Metrical charm": {
+  "Riddle poem": {
     "mode": "Rule",
     "tree": [
       {
-        "label": "Ritual performance",
+        "label": "Clues conceal the answer",
         "children": [
-          "Directions for actions",
-          "Spoken alliterative formula",
-          "Closing prayer in the catalog example"
+          "A disguised speaker can describe itself",
+          "Clues may instead describe an unnamed subject"
+        ]
+      },
+      {
+        "label": "How the puzzle is posed",
+        "children": [
+          "Closing challenge in the catalog",
+          "A question can itself supply the clues",
+          "An image or metaphor can pose the puzzle"
         ]
       }
-    ]
-  },
-  "Riddle poem": {
-    "mode": "Example",
-    "tree": [
-      "Object describes itself in disguise",
-      "Challenge to name it"
     ],
     "related": [
       "Riddle song"
@@ -381,14 +479,14 @@
     "mode": "Rule",
     "tree": [
       {
-        "label": "Two-column layout",
+        "label": "Two or more interwoven poems",
         "children": [
-          "Left-hand text",
-          "Right-hand text"
+          "Read a component",
+          "Follow another path through the combined text"
         ]
       },
       {
-        "label": "Choose a reading",
+        "label": "Catalog’s two-column arrangement",
         "children": [
           "Down the left column",
           "Down the right column",
@@ -509,16 +607,19 @@
     "mode": "Rule",
     "tree": [
       {
-        "label": "Choose a growth unit",
+        "label": "Catalog growth choices",
         "children": [
-          "Successive words get longer",
-          "Or successive lines get longer"
+          "Successive words grow by one chosen unit",
+          "Or successive lines grow by one chosen unit"
         ]
       },
       {
-        "label": "Catalog increment",
+        "label": "Letter-counted snowball example",
         "children": [
-          "One chosen unit at each step"
+          "One word per line",
+          "Line 1 · one letter",
+          "Line 2 · two letters",
+          "Continue by one letter per line"
         ]
       }
     ]
@@ -607,11 +708,19 @@
     "mode": "Rule",
     "tree": [
       {
-        "label": "Catalog’s line-by-line version",
+        "label": "Line-by-line game",
         "children": [
           "Read only the previous line",
           "Add one line",
-          "Pass to the next writer"
+          "Pass it on"
+        ]
+      },
+      {
+        "label": "Concealed-word game",
+        "children": [
+          "Add a word",
+          "Fold the paper to hide it",
+          "Pass it on"
         ]
       }
     ],

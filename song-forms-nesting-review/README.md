@@ -1,6 +1,12 @@
 # Song Forms
 
-Extract the complete ZIP and open `dist/index.html`. Use **Find a form** to browse 364 entries, inspect their nested structures and follow their connections. Try **AB** for Binary. **Review details** gives scoped evidence for the selected form. **Name search only** finds similar titles independently of the reviewed graph.
+Extract the complete ZIP and open `dist/index.html`. Use **Find a form** to browse 364 entries, inspect their nested structures and follow their connections. Try **AB** for Binary. **Review details** identifies the selected form’s review status. Source passages and historical examples are kept in the separate research package. **Name search only** finds similar titles independently of the reviewed graph.
+
+## Explorer and research files
+
+The standalone explorer consists of the seven files in `dist/`. Its catalog includes form names, curated search terms, structural labels and symbols, relationship kinds and node paths, and enumerated review judgments. Names intrinsic to a form remain searchable. The displayed diagrams use positions, counts, returns and section names.
+
+The research files outside `dist/` preserve historical inventories, witness passages, citations, review reasoning and earlier builds. Distribute `dist/` alone for inspection without that material. The GitHub review branch contains both so reviewers can verify the evidence. The package has no production connector, writing prompt or runtime integration. The offline test substitutes markers throughout the research inputs and verifies byte-identical public output.
 
 ## Coverage
 
@@ -8,25 +14,25 @@ The original inventory and R2’s posted inventory both contain 364 entries in t
 
 | Diagram judgment | Meaning | Count |
 |---|---|---:|
-| Supported | The diagram represents the organizing rule or the explicitly bounded construction that it claims. | 273 |
-| Partial | The note identifies a material rule, position, branch or identification that remains unresolved or omitted. | 91 |
+| Supported | The diagram represents the organizing rule or the explicitly bounded construction that it claims. | 352 |
+| Partial | The note identifies a material rule, position, branch or identification that remains unresolved or omitted. | 12 |
 | Contested | Two traceable accounts disagree about the same feature at the same scope. | 0 |
 
-**Evidence and status answer different questions.** Of 273 supported diagrams, 37 have a passage checked for the stated scope, 105 carry a reference whose passage remains unchecked for the claim, and 131 rely on the catalog and model. Of the partial diagrams, 8 have a checked passage. The evidence ledger preserves the scope and limits of each check.
+**Evidence and status answer different questions.** Of 352 supported diagrams, 92 have a passage checked for the stated scope, 110 carry a reference whose passage remains unchecked for the claim, and 150 rely on the catalog and model. Of the partial diagrams, 8 have a checked passage. The evidence ledger preserves the scope and limits of each check.
 
-Relative to the first prototype, 289 models have changed. Of 228 edited trees, 155 changed their branching structure. The node screen visits 2,215 nodes and records 340 explicit word or size matches. It covers the declared vocabulary. The explorer displays form structures for inspection.
+Relative to the first prototype, 291 models have changed. Of 244 edited trees, 195 changed their branching structure. The node screen visits 2,734 nodes and records 418 explicit word or size matches. It covers the declared vocabulary. The explorer displays form structures for inspection.
 
 ## Connections
 
 | Kind | Meaning | Current facts |
 |---|---|---:|
 | Variant | The child inherits a documented organizing feature from a broader form. | 76 |
-| Contains | A specified part of a displayed construction realizes the target. Every assertion gives its node path and its scope. | 196 |
-| Shared feature | A specified property occurs in both, without requiring membership or a component. | 83 |
-| Comparison | A structural comparison identifies a relevant similarity or difference. | 27 |
+| Contains | A specified part of a displayed construction realizes the target. Every assertion gives its node path and its scope. | 215 |
+| Shared feature | A specified property occurs in both, without requiring membership or a component. | 85 |
+| Comparison | A structural comparison identifies a relevant similarity or difference. | 29 |
 | Other | A specific contextual association outside the preceding kinds. | 1 |
 
-The ledger contains 425 decisions. There are 383 distinct supported connections, 20 inverse restatements redirected to canonical facts, 17 rejected and 5 ambiguous. Of the supported connections, 44 have a passage checked for their scope, 149 carry references awaiting claim verification, and 190 rely on the catalog and model.
+The ledger contains 448 decisions. There are 406 distinct supported connections, 20 inverse restatements redirected to canonical facts, 17 rejected and 5 ambiguous. Of the supported connections, 68 have a passage checked for their scope, 144 carry references awaiting claim verification, and 194 rely on the catalog and model.
 
 ## Gaps and meter
 
@@ -38,6 +44,7 @@ All 203 meter research IDs are accounted for. There are 105 illustrative ID/form
 
 | Location | Purpose |
 |---|---|
+| `partial-entries.md`, `comparison/partial-entry-decisions.tsv` | Corrections and remaining questions for every one of the 90 original partial diagrams. |
 | `catalog-corrections.md` | Current dispositions of the 16 catalog discrepancies. Earlier reviewer files retain their historical judgments. |
 | `Andrej-reconciliation.md` | Disposition of every finding and nit from the independent review. The graph, scope, meter, build and search companion files give the underlying checks. |
 | `coverage-summary.json`, `coverage.tsv`, `relationships.tsv` | Current totals, one form per row and one assertion per decision. |

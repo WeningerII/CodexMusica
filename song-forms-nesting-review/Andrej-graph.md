@@ -1,5 +1,7 @@
 # Relationship and nesting decisions
 
+Historical review at ee47d0c. See README.md for current figures and partial-entries.md and catalog-corrections.md for subsequent dispositions.
+
 This review addresses findings 3–8, the broader-class observation and the six relationship captions in finding 2. It applies to the 364 diagrams in this package. The evidence for a relation describes precisely the form, realization or component to which it applies. [Andrej’s review](https://github.com/WeningerII/CodexMusica/pull/857#issuecomment-6968098933)
 
 ## How to read a relationship

@@ -206,7 +206,7 @@
   },
   "8-bar blues": {
     "status": "partial",
-    "note": "Catalog line 36. Two alternatives are explicit: statement and answer, or a couplet with short refrain. The separate two-lines field does not resolve whether that refrain occupies an additional lyric line. No count is assigned to that alternative.",
+    "note": "Eight bars can carry a statement and answer or a couplet with a short refrain. The source also gives two lines per stanza. How the refrain counts within the second setting remains unresolved.",
     "edges": [
       {
         "target": "12-bar blues",
@@ -230,10 +230,10 @@
         "target": "Couplet",
         "kind": "contains",
         "status": "supported",
-        "evidence": "The second documented possibility includes a two-line couplet followed by a short refrain. The component occurs in that reading.",
+        "evidence": "The couplet and a short refrain belong to the second setting. The source leaves the refrain’s exact line position open.",
         "refs": [],
         "scope_paths": [
-          "1.2"
+          "1.2.1"
         ]
       }
     ],
@@ -242,7 +242,7 @@
   },
   "16-bar blues": {
     "status": "partial",
-    "note": "Catalog line 37. AAAB is a specific quatrain scheme, whereas “a quatrain” states only the line count. The unschemed four-line option is left open. A stop-time verse before a 12-bar refrain is an optional larger arrangement, not a mandatory subdivision.",
+    "note": "Doubling the opening phrase extends the stanza to sixteen bars. An AAAB text is possible; the four-line alternative has no stipulated rhyme. A larger arrangement can set a stop-time verse before a separate twelve-bar refrain. The form does not require an exact bar map for every line. Bar-by-bar placement of the doubled phrase remains unspecified.",
     "edges": [
       {
         "target": "8-bar blues",
@@ -346,7 +346,7 @@
   },
   "Verse-chorus-bridge": {
     "status": "partial",
-    "note": "Catalog line 41. The full prose maps to ABABCB if A is verse, B chorus and C bridge. The listed ABCABCDC alias lacks a letter key and does not follow that mapping. Only the described example is encoded.",
+    "note": "ABABCB identifies the verse, chorus and bridge in the diagram. ABCABCDC also occurs in the catalog, but its letters have no supplied section key. The alternative is preserved as a sequence of returns; its named sections remain unresolved.",
     "edges": [
       {
         "target": "Verse-chorus with solo",
@@ -523,15 +523,15 @@
     "attested_refs": []
   },
   "Patter song": {
-    "status": "partial",
-    "note": "Catalog line 56. Rapid, densely rhymed delivery is the described technique. The slower returning refrain and possible acceleration belong to the supplied example; this source alone cannot establish either as essential to all patter songs.",
+    "status": "supported",
+    "note": "A rapid, tongue-twisting verse alternates with a slower refrain in this setting. Successive verses may accelerate; this affects the repeated verse rather than adding a section.",
     "edges": [],
     "refs": [],
     "attested_refs": []
   },
   "Music-hall song": {
-    "status": "partial",
-    "note": "Catalog line 57. The row supplies an eight-line verse and fixed singalong chorus, with optional patter between. This is a catalog scenario for music-hall repertoire; no evidence in the row makes that length compulsory across the genre.",
+    "status": "supported",
+    "note": "This comic or narrative arrangement repeats an eight-line verse and a fixed singalong chorus. Spoken patter may intervene between cycles. The structure describes one music-hall arrangement.",
     "edges": [
       {
         "target": "Octave / huitain",
@@ -547,8 +547,8 @@
     "attested_refs": []
   },
   "Parlour ballad": {
-    "status": "partial",
-    "note": "Catalog line 58. The title refrain ends each eight-line verse in the catalog’s two- or three-verse scenario. This is an example of the genre; the row does not specify identical music in every verse.",
+    "status": "supported",
+    "note": "In the illustrated drawing-room arrangement two or three sentimental verses each span eight lines. The recurring title closes each verse.",
     "edges": [
       {
         "target": "Strophic with refrain",
@@ -571,8 +571,8 @@
     "attested_refs": []
   },
   "Song-and-dance number": {
-    "status": "partial",
-    "note": "Catalog line 59. The stage-number scenario orders introductory verse, 32-bar refrain, dance break and returned refrain capped by a button. A key rise is optional. The catalog gives one arrangement, not an exhaustive grammar of dance numbers.",
+    "status": "supported",
+    "note": "This stage arrangement has an introductory verse, a 32-bar refrain, an instrumental dance break and a final refrain with an optional upward key change and a closing button. The bar count qualifies the first refrain.",
     "edges": [
       {
         "target": "Verse-refrain with introductory verse",
@@ -657,7 +657,7 @@
   },
   "Da capo aria": {
     "status": "supported",
-    "note": "Catalog line 64. The first A and B use the two text parts; A is then performed again with ornamentation. Text divisions and performed sections must not be counted as if they were the same object.",
+    "note": "Two text parts give three performed sections. Words can recur within each part, and the return presents the first text with ornament. The placement and extent of individual word repetitions belong to the particular musical setting.",
     "edges": [
       {
         "target": "Ternary",
@@ -700,8 +700,8 @@
     "attested_refs": []
   },
   "Masque": {
-    "status": "partial",
-    "note": "Catalog line 67. Songs and spoken verse are performance media rather than a compulsory opening section. The example distinguishes an antimasque, main masque, revels and closing song. Section order and media are shown separately; this does not prescribe one sequence for every masque.",
+    "status": "supported",
+    "note": "In this Stuart court example, an antimasque precedes the main masque and revels. The catalog includes a closing song. Songs and spoken verse are performance media across the entertainment; a score or script would locate them more precisely.",
     "edges": [],
     "refs": [
       "https://www.hrp.org.uk/banqueting-house/history-and-stories/the-masque/"
@@ -824,7 +824,7 @@
   },
   "Hip-hop verse-hook": {
     "status": "supported",
-    "note": "Catalog line 74. The row gives an eight-bar hook and a typically sixteen-bar rap verse, with eight-, twelve- and twenty-four-bar verse alternatives and optional framing. The lengths characterize this example, not all rap.",
+    "note": "The repeated eight-bar hook can be sung or chanted. The catalog gives sixteen as the usual verse length and eight, twelve and twenty-four as alternatives. Intro and outro are optional.",
     "edges": [
       {
         "target": "Hookless rap track",
@@ -893,8 +893,8 @@
     "attested_refs": []
   },
   "EDM build-drop": {
-    "status": "partial",
-    "note": "Catalog line 80. The specified intro, two build/drop cycles and outro give one dance arrangement. A verse and a breakdown are alternatives within the first cycle. No evidence in the row requires this count or these bar lengths across EDM.",
+    "status": "supported",
+    "note": "The two-cycle arrangement uses blocks of eight or sixteen bars. Vocals concentrate in the verse and build when present. The example specifies where they tend to appear, without requiring vocals in every block.",
     "edges": [],
     "refs": [],
     "attested_refs": []
@@ -914,8 +914,8 @@
     "attested_refs": []
   },
   "Calypso": {
-    "status": "partial",
-    "note": "Catalog line 83. Topical or storytelling verses and a fixed chorus form the row’s calypso example. Its usual eight-line verse count is descriptive. The entry gives no basis for a universal genre-wide pattern.",
+    "status": "supported",
+    "note": "In this arrangement a topical or narrative verse, often eight lines, leads to a fixed chorus. The verse length is typical here; a fixed chorus is not a requirement of all calypso.",
     "edges": [
       {
         "target": "Extempo",
@@ -923,6 +923,15 @@
         "status": "rejected",
         "evidence": "The derived form is Extempo. Its outgoing assertion supplies the specific-to-general direction. Treating Calypso as the variant would reverse that direction.",
         "refs": []
+      },
+      {
+        "target": "Octave / huitain",
+        "kind": "contains",
+        "status": "supported",
+        "scope_paths": [
+          "1.1.1"
+        ],
+        "evidence": "The topical or narrative verse in this documented setting often spans eight lines. This scope applies to the verse, not to the chorus or all calypsos."
       }
     ],
     "refs": [],
@@ -944,8 +953,8 @@
     "attested_refs": []
   },
   "Jingle": {
-    "status": "partial",
-    "note": "Catalog line 85. The source’s short advertising example proceeds from set-up to hook to a sung brand tag. The 15–60-second field is the given example range, not a test for every jingle.",
+    "status": "supported",
+    "note": "This 15–60-second advertising arrangement moves from a brief set-up to a hook and a sung brand-name tag. The duration and three functions describe this complete arrangement.",
     "edges": [],
     "refs": [],
     "attested_refs": []

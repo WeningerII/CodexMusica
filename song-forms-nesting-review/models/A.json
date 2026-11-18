@@ -171,20 +171,20 @@
     "mode": "Rule",
     "tree": [
       {
-        "label": "8-bar stanza · alternative shapes",
+        "label": "8-bar stanza · two settings",
         "children": [
           {
             "label": "Statement and answer",
             "children": [
-              "Statement",
-              "Answer"
+              "Opening statement",
+              "Answering line"
             ]
           },
           {
             "label": "Couplet with refrain",
             "children": [
-              "Couplet",
-              "Short refrain"
+              "A couplet",
+              "Short refrain · line position unspecified"
             ]
           }
         ]
@@ -201,12 +201,17 @@
       {
         "label": "16-bar stanza",
         "children": [
-          "Four lines",
-          "AAAB is one option"
+          {
+            "label": "Four lines",
+            "children": [
+              "Opening phrase doubled",
+              "AAAB or an unspecified rhyme scheme"
+            ]
+          }
         ]
       },
       {
-        "label": "Possible larger setting",
+        "label": "Optional larger setting",
         "children": [
           "Stop-time verse",
           "12-bar refrain"
@@ -265,21 +270,49 @@
     "mode": "Example",
     "tree": [
       {
-        "label": "First cycle",
+        "label": "ABABCB",
         "children": [
-          "Verse",
-          "Chorus"
+          {
+            "label": "First cycle",
+            "children": [
+              "Verse",
+              "Chorus"
+            ]
+          },
+          {
+            "label": "Second cycle",
+            "children": [
+              "Verse",
+              "Chorus"
+            ]
+          },
+          "Bridge",
+          "Final chorus or choruses"
         ]
       },
       {
-        "label": "Second cycle",
+        "label": "Alternative letter sequence",
         "children": [
-          "Verse",
-          "Chorus"
+          {
+            "label": "First cycle",
+            "children": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "label": "Second cycle",
+            "children": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "D",
+          "C"
         ]
-      },
-      "Bridge",
-      "Final chorus or choruses"
+      }
     ],
     "related": [
       "Verse-chorus with solo"
@@ -508,22 +541,34 @@
     "mode": "Example",
     "tree": [
       {
-        "label": "Catalog alternation",
+        "label": "Repeating cycle",
         "children": [
-          "Fast, rhyme-dense verse",
+          {
+            "label": "Fast, rhyme-dense verse",
+            "children": [
+              "Tongue-twisting delivery",
+              "May accelerate on each return"
+            ]
+          },
           "Slower refrain"
         ]
       }
-    ]
+    ],
+    "related": []
   },
   "Music-hall song": {
     "mode": "Example",
     "tree": [
       {
-        "label": "Each cycle",
+        "label": "Verse and chorus",
         "children": [
-          "8-line verse",
-          "Singalong chorus"
+          {
+            "label": "8-line verse",
+            "children": [
+              "Comic or narrative text"
+            ]
+          },
+          "Fixed singalong chorus"
         ]
       },
       {
@@ -546,8 +591,8 @@
           {
             "label": "Each 8-line verse",
             "children": [
-              "Verse text",
-              "Title refrain"
+              "Sentimental verse text",
+              "Returning title refrain"
             ]
           }
         ]
@@ -561,14 +606,19 @@
   "Song-and-dance number": {
     "mode": "Example",
     "tree": [
-      "Intro verse",
-      "32-bar refrain",
+      {
+        "label": "Sung opening",
+        "children": [
+          "Introductory verse",
+          "32-bar refrain"
+        ]
+      },
       "Instrumental dance break",
       {
         "label": "Final refrain",
         "children": [
-          "Refrain · optional key rise",
-          "Closing button"
+          "Optional upward key change",
+          "Short closing button"
         ]
       }
     ],
@@ -662,11 +712,27 @@
       {
         "label": "First presentation",
         "children": [
-          "A · first text",
-          "B · contrasting text"
+          {
+            "label": "A · first short text",
+            "children": [
+              "Words may recur within A"
+            ]
+          },
+          {
+            "label": "B · contrasting short text",
+            "children": [
+              "Words may recur within B"
+            ]
+          }
         ]
       },
-      "A · ornamented return"
+      {
+        "label": "Return of A",
+        "children": [
+          "First text again",
+          "Ornamented performance"
+        ]
+      }
     ],
     "related": []
   },
@@ -703,25 +769,26 @@
     ]
   },
   "Masque": {
-    "mode": "Rule",
+    "mode": "Example",
     "tree": [
       {
-        "label": "Performance media",
-        "children": [
-          "Songs",
-          "Spoken verse"
-        ]
-      },
-      {
-        "label": "Section order in this example",
+        "label": "Section order in this court example",
         "children": [
           "Antimasque · grotesque dances",
           "Main masque",
           "Revels",
           "Closing song"
         ]
+      },
+      {
+        "label": "Performance media across the example",
+        "children": [
+          "Song",
+          "Spoken verse"
+        ]
       }
-    ]
+    ],
+    "related": []
   },
   "Song cycle": {
     "mode": "Rule",
@@ -827,8 +894,21 @@
       {
         "label": "Alternating cycle",
         "children": [
-          "Rap verse · usually 16 bars",
-          "Repeated hook · 8 bars"
+          {
+            "label": "Rapped verse · choose a length",
+            "children": [
+              "16 bars · usual",
+              "8 bars",
+              "12 bars",
+              "24 bars"
+            ]
+          },
+          {
+            "label": "Repeated 8-bar hook",
+            "children": [
+              "Sung or chanted"
+            ]
+          }
         ]
       },
       "Optional outro"
@@ -929,8 +1009,13 @@
           {
             "label": "First cycle",
             "children": [
-              "Verse or breakdown",
-              "Build",
+              {
+                "label": "Verse or breakdown",
+                "children": [
+                  "Vocals often in the verse"
+                ]
+              },
+              "Build · often vocal",
               "Drop"
             ]
           },
@@ -938,14 +1023,15 @@
             "label": "Second cycle",
             "children": [
               "Breakdown",
-              "Build",
+              "Build · often vocal",
               "Drop"
             ]
           },
           "Outro"
         ]
       }
-    ]
+    ],
+    "related": []
   },
   "Vamp / riff form": {
     "mode": "Rule",
@@ -990,12 +1076,19 @@
       {
         "label": "Repeating cycle",
         "children": [
-          "Topical or narrative calypso verse",
+          {
+            "label": "Topical or narrative calypso verse",
+            "children": [
+              "Often eight lines"
+            ]
+          },
           "Fixed chorus"
         ]
       }
     ],
-    "related": []
+    "related": [
+      "Octave / huitain"
+    ]
   },
   "Extempo": {
     "mode": "Example",
@@ -1017,14 +1110,15 @@
     "mode": "Example",
     "tree": [
       {
-        "label": "15–60-second example",
+        "label": "15–60-second advertising example",
         "children": [
-          "Set-up",
+          "Short set-up",
           "Hook",
-          "Sung brand tag"
+          "Sung brand-name tag"
         ]
       }
-    ]
+    ],
+    "related": []
   },
   "Terrace chant": {
     "mode": "Rule",

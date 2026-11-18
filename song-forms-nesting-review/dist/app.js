@@ -22,7 +22,7 @@ function treeWords(nodes) {
 }
 const entries = FORMS.map(form => {
   const title = normal(form.name);
-  const aliases = form.aliases.split(',').map(normal).filter(Boolean);
+  const aliases = form.aliases.map(normal).filter(Boolean);
   const discovery = form.search_terms.map(normal).filter(Boolean);
   const text = [title, ...aliases, ...discovery, ...treeWords(form.tree).map(normal)].join(' ');
   return {form, title, aliases, discovery, text};
@@ -63,6 +63,12 @@ function openFinder(key=''){
   filter.value=key;query.value='';showResults();if(!finder.open)finder.showModal();query.focus();
 }
 function select(id){if(!formsById.has(id))return;selectionFromAction=true;if(location.hash.slice(1)===id){render();return}location.hash=id}
+const statusLabels = {supported:'Reviewed pattern', partial:'Partial model', contested:'Contested pattern', unresolved:'Structure unresolved'};
+const basisLabels = {
+  'passage checked for stated scope': 'Source passage checked for this claim',
+  'reference recorded; passage unverified': 'Reference recorded, passage unverified',
+  'catalog and model only': 'Catalog evidence only'
+};
 function render() {
   current=formsById.get(location.hash.slice(1))||formsById.get(start);
   byId('title').textContent=titleCase(current.name);
@@ -70,16 +76,7 @@ function render() {
   for(const btn of byId('families').children){if(btn.dataset.family===current.family)btn.setAttribute('aria-current','true');else btn.removeAttribute('aria-current')}
   byId('mode').textContent={Pattern:'Pattern',Rule:'Structural rule',Example:'One possible pattern'}[current.mode];
   document.title=titleCase(current.name)+' · Song Forms';
-  const statusLabels = {supported:'Reviewed pattern', partial:'Partial model', contested:'Contested pattern', unresolved:'Structure unresolved'};
-  const note = byId('reviewNote');
-  const basis = current.review.basis ||
-    (current.review.refs.length ? 'reference recorded; passage unverified' : 'catalog and model only');
-  const provenance = {
-    'passage checked for stated scope': 'Source passage checked for this claim',
-    'reference recorded; passage unverified': 'Reference recorded, passage unverified',
-    'catalog and model only': 'Catalog evidence only'
-  }[basis];
-  note.textContent = statusLabels[current.review.status] + ' · ' + provenance + '. ' + current.review.note;
+  byId('reviewNote').textContent = statusLabels[current.review.status] + ' · ' + basisLabels[current.review.basis];
   window.drawStructure(byId('diagram'),current);
   window.drawRelations(byId('relations'),current,FORMS,select,openFinder);
   if(selectionFromAction){byId('title').focus({preventScroll:true});window.scrollTo(0,0);selectionFromAction=false}
@@ -87,15 +84,13 @@ function render() {
 document.querySelector('.skip').onclick=e=>{e.preventDefault();byId('work').focus()};
 function openSource(){
   const f=current, body=byId('sourceBody'),dl=element('dl');
-  for (const [label, value] of [['Alternate names', f.aliases], ['Related search terms', f.search_terms.join(', ')], ['Review', f.review.note]]) {
-    if (value && value !== '–') dl.append(element('dt', label), element('dd', value));
+  for (const [label, value] of [
+    ['Alternate names', f.aliases.join(', ')], ['Related search terms', f.search_terms.join(', ')],
+    ['Structure', statusLabels[f.review.status]], ['Evidence', basisLabels[f.review.basis]]
+  ]) {
+    if (value) dl.append(element('dt', label), element('dd', value));
   }
-  body.replaceChildren(element('h3',f.name),dl,element('footer','Original source record · line '+f.line));
-  for (const url of f.review.refs) {
-    const link=element('a',new URL(url).hostname);
-    link.href=url; link.target='_blank'; link.rel='noopener noreferrer';
-    const paragraph=element('p'); paragraph.append(link); body.append(paragraph);
-  }
+  body.replaceChildren(element('h3',f.name), dl);
   source.showModal();
 }
 byId('searchOpen').onclick=()=>openFinder();byId('all').onclick=()=>openFinder();byId('sourceOpen').onclick=openSource;

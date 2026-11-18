@@ -54,6 +54,10 @@ EXCLUSIONS = {
 }
 # Named, reviewed count-only candidates. New forms reaching these targets require a fresh decision.
 for form, target, reason in [
+    ("Englyn", "Monostich", "A measured line inside this stanza is not a standalone one-line poem."),
+    ("Fourteener", "Monostich", "This term names a line length; the line can sit within a longer work."),
+    ("Hendecasyllabics", "Couplet", "The opening pair comprises metrical positions inside a single line."),
+    ("Metrical charm", "Couplet", "An action followed by a spoken formula pairs two different acts. It does not specify two verse lines."),
     ("Curtal sonnet", "Quatrain", "The four full lines and final half-line together make the shortened answer. Line length distinguishes the parts, but the four alone have no separately identified stanza function here."),
     ("Rhyme royal", "Quintain", "Lines one to five are the arithmetic remainder before CC. The diagram does not assign them a distinct five-line rule or function."),
     ("Lai", "Nonet", "The nine-line stanza consists of three repeated groups. A nonet prescribes descending syllable counts from nine to one."),
