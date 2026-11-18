@@ -5,11 +5,17 @@ Length allocation reuses the ordinary exact-uniform native partition engine.
 """
 import re
 
-from quality import grid, plan
+from quality import grid, plan, relations
 
 
 FIELDS = frozenset(("version", "id", "scope", "variant", "counts", "sections",
                     "rhymeGroups", "returnGroups"))
+
+
+def terminal_rhyme_relation(name):
+    """Whether this native declaration can bind an audible rhyme at both line endings."""
+    _, schema = plan._schema_of(name)
+    return name == "class:RHYME" or schema is not None and relations.audible_as_end_rhyme(schema)
 
 
 def _validate_shape(contract):
@@ -24,8 +30,8 @@ def _validate_shape(contract):
                    r"[1-9][0-9]*(?:\[[1-9][0-9]*\])?(?:\.[1-9][0-9]*(?:\[[1-9][0-9]*\])?)*", k)
                    or type(v) is not int or v < 0 for k, v in contract["counts"].items())):
         raise plan.PlanRefused("invalid versioned catalog creation contract")
-    if contract["rhymeGroups"] != [] or contract["returnGroups"] != []:
-        raise plan.PlanRefused("seeded catalog creation supports native rhyme and return planning only")
+    if contract["returnGroups"] != []:
+        raise plan.PlanRefused("prescribed catalog returns are not supported by the seeded writer")
     parts = contract["sections"]
     if not isinstance(parts, list) or not 1 <= len(parts) <= plan.ENVELOPE["sections"][1]:
         raise plan.PlanRefused("catalog section count is outside the native envelope")
@@ -40,6 +46,10 @@ def _validate_shape(contract):
                 or lines is not None and (type(lines) is not int or lines < 1
                                           or role in plan.ZERO_LINE_FUNCTIONS)):
             raise plan.PlanRefused("unsupported catalog section role or line count")
+    groups = contract["rhymeGroups"]
+    if groups != [] and (groups != [[1, 2]] or any(type(n) is not int for n in groups[0])
+                         or len(parts) != 1 or parts[0]["lines"] != 2):
+        raise plan.PlanRefused("prescribed rhyme requires one terminal pair in a single two-line section")
     if "lineRequirements" in contract:
         if any(p["lines"] is None for p in parts):
             raise plan.PlanRefused("line requirements need a fully positioned catalog form")

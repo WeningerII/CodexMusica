@@ -75,6 +75,20 @@ class CatalogPlannerTests(unittest.TestCase):
         self.assertEqual([s["bar"] for s in native["line_slots"]], [1, 3, 5, 7, 15, 17, 19, 21])
         self.assertEqual(native["total_lines"], 8)
 
+    def test_prescribed_pair_uses_the_native_terminal_binder_and_retains_requested_relation(self):
+        data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 2}], rhymes=[[1, 2]])
+        for seed in range(5):
+            native = plan.make_plan(seed, song_form=data)
+            self.assertEqual(native["groups"], "1,2")
+            self.assertEqual(native["relations"], {"A": "class:RHYME"})
+            self.assertEqual(native["request"]["relations"], {})
+            self.assertEqual(plan.fill_plan(native, ["1", "2"])["song_form"], data)
+        chosen = plan.make_plan(11, song_form=data, relations={"A": "schema:perfect rhyme"})
+        self.assertEqual(chosen["groups"], "1.endword,2.endword")
+        self.assertEqual(chosen["relations"], {"A": "schema:perfect rhyme"})
+        with self.assertRaisesRegex(plan.PlanRefused, "both line endings"):
+            plan.make_plan(11, song_form=data, relation="class:ASSONANCE")
+
     def test_conflicting_declaration_and_unknown_fields_refuse(self):
         base = catalog("hookless-rap-track", [{"unit": "section", "role": "verse", "lines": 2}])
         with self.assertRaises(plan.PlanRefused):

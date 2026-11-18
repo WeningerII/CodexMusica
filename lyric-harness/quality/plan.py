@@ -4709,9 +4709,21 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                     _aprof.lo), _aprof.hi)
     _head_cap = max(1, int(_FL.FloorDeclaration().resolve(
         "anaphora_max", _aprof, _atok) * total + 1e-9))
+    binding_overrides = relations
+    if song_form and song_form["rhymeGroups"]:
+        # The catalog owns this pair's endpoints. Use the native relation binder
+        # without changing the (unique) two-line partition or the caller's request.
+        group = SC.label((0,))
+        requested = (relations or {}).get(group)
+        if str(requested or "").strip().lower() in ("", "draw", "any"):
+            requested = relation or "class:RHYME"
+        from quality.catalog_shape import terminal_rhyme_relation
+        if not terminal_rhyme_relation(requested):
+            raise PlanRefused("the selected catalog pair requires rhyme at both line endings")
+        binding_overrides = {**(relations or {}), group: requested}
     groups, _type_rels, _type_records, _unplaced = _assign_types(
         _section_blocks, random.Random(f"{seed}/types"), _max_token,
-        declared=relation, per_group=relations,
+        declared=relation, per_group=binding_overrides,
         head_cap=_head_cap)
 
     plan = {
@@ -5937,6 +5949,8 @@ def writer_brief(plan):
     catalog = plan.get("request", {}).get("song_form")
     if catalog is not None:
         out.append(f"Catalog {catalog['scope']}: {catalog['id']} (variant {catalog['variant']}).")
+        for pair in catalog["rhymeGroups"]:
+            out.append(f"  L{pair[0]} and L{pair[1]}: rhyme at the line endings.")
         for row in catalog.get("lineRequirements", ()):
             terms = []
             for field, unit in (("words", "word"), ("syllables", "syllable"), ("stresses", "stress")):

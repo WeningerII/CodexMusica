@@ -87,9 +87,17 @@ def _sections(bp, observed):
     return rows
 
 
-def _native_rhyme(result, lines, mandate, report):
+def _native_rhyme(result, lines, mandate, report, *, prescribed_pair=False):
     """A coarser explicitly selected pair relation is not an exact-rime key."""
-    if not mandate.default_relation.startswith("class:"):
+    basis = mandate.default_relation
+    if prescribed_pair:
+        from quality.catalog_shape import terminal_rhyme_relation
+        if (mandate.pairs() != [(1, 2, 0)]
+                or not all(mandate.slot_of(0, i).locus == "line_final_token" for i in (1, 2))
+                or not terminal_rhyme_relation(mandate.relation_of(0))):
+            return result
+        basis = mandate.relation_of(0)
+    elif not basis.startswith("class:"):
         return result
     verdicts = {tuple(row["lines"]): bool(row.get("satisfied_by")) for row in report["verdicts"]}
     refused = {(a, b) for a, b, _ in report.get("refused_obligations", ())}
@@ -97,6 +105,10 @@ def _native_rhyme(result, lines, mandate, report):
         if check["kind"] == "rhyme-distinct":
             check.update(outcome="unknown", reason="Distinct classes require the selected pair relation across groups")
         if check["kind"] != "rhyme":
+            continue
+        if prescribed_pair:
+            outcome = None if (1, 2) in refused else verdicts.get((1, 2))
+            check.update(outcome="unknown" if outcome is None else "pass" if outcome else "fail", basis=basis)
             continue
         # A verbatim repeated line shares the terminal evidence of its first occurrence.
         members = {}
@@ -112,7 +124,7 @@ def _native_rhyme(result, lines, mandate, report):
                 outcomes.append(False if False in judged else True if True in judged else None)
         check["outcome"] = ("fail" if False in outcomes else "pass" if outcomes and None not in outcomes
                             else "unknown")
-        check["basis"] = mandate.default_relation
+        check["basis"] = basis
     outcomes = {c["outcome"] for c in result["checks"]}
     result["verdict"] = "fail" if "fail" in outcomes else "pass" if outcomes == {"pass"} else "unknown"
     return result
@@ -140,7 +152,8 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
         run = subprocess.run(["node", str(script), "grade-observations", form_id],
                              input=json.dumps(request), capture_output=True, text=True,
                              encoding="utf-8", timeout=20, check=True)
-        return _native_rhyme(json.loads(run.stdout), lines, mandate, report)
+        return _native_rhyme(json.loads(run.stdout), lines, mandate, report,
+                             prescribed_pair=bool((bp.get("song_form") or {}).get("rhymeGroups")))
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         return {"id": form_id, "verdict": "unknown", "checks": [
             {"kind": "catalog-runtime", "outcome": "unknown", "reason": type(exc).__name__}]}

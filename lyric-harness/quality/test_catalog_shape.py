@@ -36,7 +36,7 @@ class CatalogShapeTests(unittest.TestCase):
 
     def test_unsupported_classes_and_unnamed_roles_refuse_before_computing_a_partition(self):
         named = [{"unit": "section", "role": "verse", "lines": 2}]
-        unsupported = [declaration(named, rhymes=[[1, 2]]), declaration(named, returns=[[1, 2]]),
+        unsupported = [declaration(named, rhymes=[[True, 2]]), declaration(named, rhymes=[[1, 2.0]]), declaration(named, rhymes=[[1, 3]]), declaration(named, returns=[[1, 2]]),
                        declaration([{"unit": "section", "lines": 2}])]
         with patch.object(plan, "_partition_count", side_effect=AssertionError("counted before validation")):
             for contract in unsupported:

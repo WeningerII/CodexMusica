@@ -112,7 +112,12 @@ test('every published selection has an exact structural contract or an explicit 
         };
         realization.tree.forEach(inspectLine);
         assert.deepEqual(contract.lineRequirements || [], sourceMeasures, where);
-        assert.deepEqual(contract.rhymeGroups, [], where);
+        const marked = realization.lines.filter(line => line.rhyme !== undefined);
+        if (marked.length) {
+          assert.equal(marked.length, 2, where);
+          assert.equal(marked[0].rhyme, marked[1].rhyme, where);
+        }
+        assert.deepEqual(contract.rhymeGroups, marked.length ? [[1,2]] : [], where);
         assert.deepEqual(contract.returnGroups, [], where);
       }
     }
@@ -153,8 +158,10 @@ test('every published selection has an exact structural contract or an explicit 
 
 });
 
-test('prescribed line identities refuse the native creation path', () => {
-  for (const fields of [{ rhyme: 'a' }, { returns: 'r' }]) {
+test('a prescribed terminal pair is distinct from line and word identity', () => {
+  const rhymed = projection(entry(poem(stanza(line({rhyme:'z'}),line({rhyme:'z'})))), 'f');
+  assert.deepEqual(rhymed.contract.rhymeGroups, [[1,2]]);
+  for (const fields of [{ endWord: 'a' }, { returns: 'r' }]) {
     const result = projection(entry(poem(stanza(line(fields), line(fields)))), 'f');
     assert.equal(result.status, 'unsupported');
     assert.equal(result.contract, null);
@@ -170,7 +177,7 @@ test('equal contiguous plain divisions use a disclosed verse arrangement and kee
   assert.deepEqual(result.contract.rhymeGroups, []);
   assert.deepEqual(result.contract.returnGroups, []);
   assert.equal(projection(catalog, 'couplet', {variant:0}).status, 'ready');
-  assert.equal(projection(catalog, 'couplet', {variant:1}).status, 'unsupported');
+  assert.deepEqual(projection(catalog, 'couplet', {variant:1}).contract.rhymeGroups, [[1,2]]);
   assert.equal(projection(catalog, 'monostich').status, 'unsupported');
   assert.equal(projection(catalog, 'cherita').status, 'unsupported');
   assert.equal(projection(entry(poem(stanza(line({times:464})))), 'f').status, 'unsupported');
@@ -271,7 +278,7 @@ test('create CLI returns the same contract for positional and request-body selec
     assert.equal(result.status, 0, result.stderr);
     assert.deepEqual(JSON.parse(result.stdout), expected);
   }
-  for (const [id, status] of [['couplet','needs-input'], ['free-verse','deferred'], ['heroic-couplet','unsupported']]) {
+  for (const [id, status] of [['couplet','needs-input'], ['free-verse','deferred'], ['triolet','unsupported']]) {
     const result = run(['create', id], {});
     assert.equal(result.status, 3);
     assert.equal(JSON.parse(result.stdout).status, status);
