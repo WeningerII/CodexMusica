@@ -5980,6 +5980,309 @@ class OnceGeneration(unittest.TestCase):
         self.assertGreater(fitted, 10)
         self.assertGreater(refused, 10)
 
+    @staticmethod
+    def _fewest_lines(form, counts, roster=None):
+        """-> ((sections, list), (lines, list)): the fewest sung sections of
+        any section list that keeps the rows' placement fields, the form's
+        membership and returns, and every count in `counts` ({row: (lo,
+        hi)}), with such a list; and the fewest lines such a list can have
+        with every copy of a kind at one length, every sung section at 1
+        line or more and one kind at 2 lines or more, with its list. None
+        and None where no list holds. A plain shortest-path search, section
+        by section, over the rows of the table (2026-11-18, stage 4 fix
+        round): not the proofs' arithmetic. Rows that carry the same fields,
+        that no field, form or count names, and that sing alike can trade
+        places in any list, so two of each such class are searched: the
+        kind with 2 lines and one other."""
+        import heapq
+        SF, quiet = G.SECTION_FUNCTIONS, PLN.ZERO_LINE_FUNCTIONS
+        allowed = [r for r in sorted(SF if roster is None else roster)
+                   if counts.get(r, (0, 1))[1] != 0]
+        need = set(PLN.FORM_REQUIRES.get(form, ()))
+        back = tuple(PLN.FORM_RECURS.get(form, ()))
+        named = need | set(back) | set(counts) | {
+            x for sp in SF.values()
+            for x in (*sp.requires, sp.adjacent_after, sp.adjacent_before) if x}
+        classes = {}
+        for r in allowed:
+            sp = SF[r]
+            classes.setdefault((r if r in named else None, sp.boundary,
+                                sp.needs_before, sp.needs_after,
+                                bool(sp.placement_refused), r in quiet,
+                                sp.requires, sp.adjacent_after,
+                                sp.adjacent_before), []).append(r)
+        rows = [r for members in classes.values() for r in members[:2]]
+        tracked = need | set(back) | {x for r in rows for x in SF[r].requires}
+        stated = sorted(counts)
+
+        def search(two):
+            start = (True, None, None, (0,) * len(stated), frozenset(),
+                     frozenset(), (0,) * len(back), False, two is None)
+            dist, came, heap, tick = {start: 0}, {}, [(0, 0, start)], 0
+            while heap:
+                d, _t, s = heapq.heappop(heap)
+                if dist[s] < d:
+                    continue
+                first, prev, pend, cnt, have, asked, rec, closed, seen = s
+                if (not first and pend is None and seen
+                        and not (not SF[prev].placement_refused
+                                 and SF[prev].needs_after)
+                        and all(counts[r][0] <= c for r, c in zip(stated, cnt))
+                        and asked <= have and need <= have
+                        and all(x >= 2 for x in rec)):
+                    out = []
+                    while s in came:
+                        s, f = came[s]
+                        out.append(f)
+                    return d, out[::-1]
+                if closed:
+                    continue
+                for f in rows:
+                    sp = SF[f]
+                    on = not sp.placement_refused
+                    if (pend is not None and f != pend) or (on and (
+                            (sp.boundary == 'first' and not first)
+                            or (sp.needs_before and first)
+                            or (sp.adjacent_after and prev != sp.adjacent_after))):
+                        continue
+                    nc = tuple(c + (r == f) for r, c in zip(stated, cnt))
+                    if any(c > counts[r][1] for r, c in zip(stated, nc)):
+                        continue
+                    t = (False, f, sp.adjacent_before if on and sp.adjacent_before
+                         else None, nc,
+                         have | ({f} if f in tracked else frozenset()),
+                         asked | (frozenset(sp.requires) if on else frozenset()),
+                         tuple(min(2, x + (r == f)) for r, x in zip(back, rec)),
+                         on and sp.boundary == 'last', seen or f == two)
+                    nd = d + (f not in quiet) + (f == two)
+                    if nd < dist.get(t, 1 << 30) and nd <= 64:
+                        dist[t], came[t] = nd, (s, f)
+                        tick += 1
+                        heapq.heappush(heap, (nd, tick, t))
+            return None, None
+
+        fewest = search(None)
+        if fewest[0] is None:
+            return fewest, (None, None)
+        tries = [search(m[0]) for m in classes.values() if m[0] not in quiet]
+        tries = [t for t in tries if t[0] is not None]
+        return fewest, min(tries, key=lambda t: t[0]) if tries else (None, None)
+
+    def _check_witness(self, form, counts, functions):
+        """The list `_fewest_lines` found is one the planner's own checks
+        keep: placement, the form's membership and returns, and the counts."""
+        self.assertEqual(G.placement_findings(list(functions)), [], functions)
+        self.assertLessEqual(set(PLN.FORM_REQUIRES.get(form, ())), set(functions))
+        for f in PLN.FORM_RECURS.get(form, ()):
+            self.assertGreaterEqual(functions.count(f), 2)
+        for f, (lo, hi) in counts.items():
+            self.assertTrue(lo <= functions.count(f) <= hi, (f, functions))
+
+    def test_the_length_proof_names_the_cause_it_works_out(self):
+        """2026-11-18, stage 4 fix round (owner's ruling of 18 Nov 2026).
+        For every row of the section table in every form of `PLAN_FORMS`,
+        twice: a count, a line bound near the edge, and whether the other
+        wordless rows are held to 0, all drawn by seed. A plain search
+        (`_fewest_lines`) gives the fewest sung sections the request needs
+        and the fewest lines with one kind of 2 lines. The length proof
+        names the rows, and nothing of the rhyme group, exactly when the
+        sections alone pass the bound; it names the rhyme group exactly when
+        the sections fit and the lines with a kind of 2 lines do not; it
+        lets every other request through. Every number it prints is the
+        search's. ~~Every refusal named the rhyme group, the 8 sung
+        sections of `sections.burden=4` in 6 lines included.~~"""
+        rng = random.Random('stage4-length-cause')
+        quiet = sorted(PLN.ZERO_LINE_FUNCTIONS)
+        seen = Counter()
+        for form in PLN.PLAN_FORMS:
+            lo = min(PLN.fillable_line_counts(form))
+            for fn in sorted(G.SECTION_FUNCTIONS) * 2:
+                k = rng.randint(1, max(5, lo // 2 + 2))
+                held = ([w for w in quiet if w != fn] if rng.random() < 0.5
+                        else [])
+                wants = [f'sections.{fn}={k}'] + [f'sections.{w}=0' for w in held]
+                counts = {fn: (k, k), **{w: (0, 0) for w in held}}
+                try:
+                    policy = self.policy(None, *wants, form=form)
+                except PLN.PlanRefused:
+                    seen['refused by the count policy'] += 1
+                    continue
+                (n, n_seq), (most, m_seq) = self._fewest_lines(form, counts)
+                if n is None:
+                    seen['no list'] += 1
+                    continue
+                self._check_witness(form, counts, n_seq)
+                if most is not None:
+                    self._check_witness(form, counts, m_seq)
+                cap = rng.randint(max(lo, n - 1), max(lo, most or n))
+                try:
+                    PLN._count_length_proof(policy, form, cap, 1, exact=False)
+                    said = ''
+                except PLN.PlanRefused as exc:
+                    said = str(exc)
+                cause = ('rows' if n > cap else 'rhyme group'
+                         if most is None or most > cap else 'fits')
+                seen[cause] += 1
+                with self.subTest(form=form, wants=wants, cap=cap, n=n,
+                                  most=most, said=said):
+                    if cause == 'fits':
+                        self.assertEqual(said, '')
+                        continue
+                    self.assertIn("can't be met", said)
+                    for w in wants:
+                        self.assertIn(w, said)
+                    self.assertIn(f'need {n} sung sections of at least 1 line(s) (',
+                                  said)
+                    self.assertTrue(said.endswith(
+                        f'the song can have at most {cap} lines'), said)
+                    # The rows named add up to those sections, and each field
+                    # named is one its row carries.
+                    parts = said.split(' line(s) (', 1)[1].split(')', 1)[0]
+                    self.assertEqual(
+                        sum(int(p.split(' ', 1)[0]) for p in parts.split('; ')), n)
+                    for row, fields in re.findall(r"the (\w+) row's ((?:`\w+`(?: and )?)+)", parts):
+                        for x in re.findall(r'`(\w+)`', fields):
+                            self.assertTrue(getattr(G.SECTION_FUNCTIONS[row], x))
+                    if cause == 'rows':
+                        self.assertNotIn('rhyme group', said)
+                        self.assertNotIn('line(s) more', said)
+                    elif most is not None:
+                        self.assertIn(f', and {most - n} line(s) more so one kind '
+                                      f'of section has 2 lines for the rhyme '
+                                      f'group; ', said)
+        self.assertGreaterEqual(seen['rows'], 6, seen)
+        self.assertGreaterEqual(seen['rhyme group'], 6, seen)
+        self.assertGreaterEqual(seen['fits'], 6, seen)
+
+    def test_a_miss_no_seed_can_plan_is_refused_by_the_length_proof(self):
+        """2026-11-18, stage 4 fix round. A row's fields can put a section at
+        an edge of the song (`needs_before`, `needs_after`, ...). With the
+        other wordless rows held to 0, by stated counts or by a roster that
+        leaves them out, that section is sung. Over every row of the table
+        in every form of `PLAN_FORMS`, at a count drawn by seed and at one
+        line under the fewest lines `_fewest_lines` finds with a kind of 2
+        lines, every fit leaves each sung section 1 line. Each such request
+        that the proof let through before this round, when it counted no
+        edge (`_sung_edges` answering none), is refused now by the length
+        proof with the rhyme group's reason, as the request's own refusal.
+        The refusal is true: with no edge counted, no seed the planner
+        tries plans it. The same count with the wordless rows allowed is
+        not refused, and plans once a wordless row is stated for each
+        edge, so those requests are left to the draw. And no request the
+        proof lets through plans otherwise than with no edge counted."""
+        rng = random.Random('stage4-edge-misses')
+        quiet = sorted(PLN.ZERO_LINE_FUNCTIONS)
+        SF = G.SECTION_FUNCTIONS
+        # The wordless rows that may stand at either edge, from the table.
+        edgeable = [w for w in quiet if not SF[w].needs_before
+                    and not SF[w].needs_after and not SF[w].boundary
+                    and not SF[w].adjacent_before and not SF[w].adjacent_after]
+        self.assertTrue(edgeable)
+        none = lambda rows: (0, '')
+        kept, drawn = [], set()
+        # Three counts per row and form: from 1 to 1, to 3, and to the most.
+        for form, fn, draw in [(form, fn, d) for form in PLN.PLAN_FORMS
+                               for fn in sorted(SF) for d in range(3)]:
+            lo = min(PLN.fillable_line_counts(form))
+            k = rng.randint(1, (1, 3, max(4, lo // 2 + 2))[draw])
+            held = [w for w in quiet if w != fn]
+            roster = (sorted(f for f in SF if f not in held)
+                      if rng.random() < 0.5 else None)
+            if (form, fn, k, roster is None) in drawn:
+                continue
+            drawn.add((form, fn, k, roster is None))
+            wants = [f'sections.{fn}={k}'] + (
+                [] if roster else [f'sections.{w}=0' for w in held])
+            counts = {fn: (k, k), **({} if roster else
+                                     {w: (0, 0) for w in held})}
+            (n, _), (most, _) = self._fewest_lines(form, counts, roster)
+            if n is None or most is None or most - 1 < max(n, lo):
+                continue
+            cap = most - 1
+            try:
+                policy = self.policy(roster, *wants, form=form)
+            except PLN.PlanRefused:
+                continue
+            with patch.object(PLN, '_sung_edges', none, create=True):
+                try:
+                    PLN._count_length_proof(policy, form, cap, 1, exact=False)
+                except PLN.PlanRefused:
+                    continue
+            kept.append((form, fn, k, roster, wants + [f'lines<={cap}'], n))
+        self.assertGreaterEqual(len({fn for _f, fn, *_ in kept}), 3)
+        misses = 0
+        for form, fn, k, roster, wants, n in kept:
+            seed = rng.randint(1, 9999)
+            with self.subTest(form=form, wants=wants, roster=roster, seed=seed):
+                # The request's own refusal, not one candidate's miss.
+                with self.assertRaises(PLN.PlanRefused) as raised:
+                    make_plan(seed, form=form, functions=roster, wants=wants)
+                said = str(raised.exception)
+                self.assertNotIsInstance(raised.exception, PLN.SeedRefused)
+                self.assertNotIn('bounded candidate draws', said)
+                self.assertIn(f'need {n} sung sections', said)
+                self.assertIn('rhyme group', said)
+                self.assertIn('no wordless row the request allows', said)
+                self.assertTrue(re.search(rf"the {fn} row's `", said), said)
+                # True: with no edge counted, no seed tried plans it. Most
+                # were the draw's miss ("bounded candidate draws").
+                with patch.object(PLN, '_sung_edges', none, create=True):
+                    for again in (seed, rng.randint(1, 9999)):
+                        with self.assertRaises(PLN.PlanRefused) as missed:
+                            make_plan(again, form=form, functions=roster,
+                                      wants=wants)
+                        misses += 'bounded candidate draws' in str(
+                            missed.exception)
+        self.assertGreaterEqual(misses, 8)
+        # The same counts with the wordless rows allowed fit: the proof lets
+        # them through, and a sung row's count plans once each edge's
+        # wordless row is stated.
+        twins = [c for c in kept if c[1] not in quiet]
+        self.assertGreaterEqual(len(twins), 3)
+        for form, fn, k, roster, wants, n in twins[:4]:
+            free = [w for w in wants if not any(
+                w.startswith(f'sections.{x}=') for x in quiet if x != fn)]
+            (n_free, _), (most_free, _) = self._fewest_lines(
+                form, {fn: (k, k)})
+            cap = int(wants[-1].split('<=')[1])
+            with self.subTest(form=form, free=free):
+                self.assertLessEqual(most_free, cap)
+                policy = self.policy(None, *free[:-1], form=form)
+                PLN._count_length_proof(policy, form, cap, 1, exact=False)
+                p = make_plan(rng.randint(1, 9999), form=form, wants=free + [
+                    f'sections.{edgeable[0]}={n - n_free}'])
+                self.assertEqual(Counter(s['function'] for s in p['sections'])[fn], k)
+                self.assertLessEqual(p['total_lines'], cap)
+        # Whatever the proof lets through plans as it did with no edge.
+        same = 0
+        for _ in range(12):
+            form = rng.choice(PLN.PLAN_FORMS)
+            fn = rng.choice(sorted(SF))
+            held = [w for w in quiet if w != fn and rng.random() < 0.7]
+            lo = min(PLN.fillable_line_counts(form))
+            wants = ([f'sections.{fn}={rng.randint(1, 3)}']
+                     + [f'sections.{w}=0' for w in held]
+                     + [f'lines<={rng.randint(lo, lo + 8)}'])
+            seed = rng.randint(1, 9999)
+            try:
+                plan = json.dumps(make_plan(seed, form=form, wants=wants),
+                                  sort_keys=True)
+            except PLN.PlanRefused:
+                plan = None
+            with patch.object(PLN, '_sung_edges', none, create=True):
+                try:
+                    before = json.dumps(make_plan(seed, form=form, wants=wants),
+                                        sort_keys=True)
+                except PLN.PlanRefused:
+                    before = None
+            with self.subTest(form=form, wants=wants, seed=seed):
+                if plan is not None:
+                    same += 1
+                    self.assertEqual(plan, before)
+                else:
+                    self.assertIsNone(before)
+        self.assertGreaterEqual(same, 4)
+
     def test_a_total_below_what_the_form_and_the_fields_need_is_proved(self):
         """Fix round (17 Nov): a stated total below what the form and the
         rows' own fields add is refused by proof, naming them, before any

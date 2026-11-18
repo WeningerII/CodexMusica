@@ -3277,13 +3277,100 @@ def _sung_minimum(policy, form):
                if f not in ZERO_LINE_FUNCTIONS)
 
 
+def _sung_edges(rows):
+    """-> (n, text): how many SUNG sections the song's two edges add to
+    the sections `rows` deal, and the phrase that names them, "" for none
+    (2026-11-18, stage 4 fix round). `rows` is `_folded_rows`' answer.
+
+    A song opens with one section and closes with another. When no row
+    `rows` deals (its interval starts above 0) may stand at an edge
+    (`_can_stand`, which reads `needs_before`, `needs_after`,
+    `adjacent_after`, `adjacent_before` and `boundary`), that edge holds a
+    section of a row it does not deal. The section is wordless, and takes
+    no line, when a wordless row with room left in its interval may stand
+    there; otherwise it is one more sung section. A single dealt section
+    that may stand alone is a whole song, so it adds nothing. When the
+    rows with room cannot fill the edges at all, no claim is made here."""
+    from itertools import product
+    from quality import grid as G
+    SF = G.SECTION_FUNCTIONS
+    dealt = {f: lo for f, (lo, hi) in rows.items() if lo > 0}
+    if not dealt or (sum(dealt.values()) == 1
+                     and _can_stand(SF[next(iter(dealt))], "first", 1)):
+        return 0, ""
+    room = {f: hi - lo for f, (lo, hi) in rows.items() if hi > lo}
+    ends = [at for at in ("first", "last")
+            if not any(_can_stand(SF[f], at, 2) for f in dealt)]
+    # Each edge takes a wordless row with room, or "" for a sung one. The
+    # fewest sung sections over every way the edges can be filled.
+    options = []
+    for at in ends:
+        may = [f for f in sorted(room) if _can_stand(SF[f], at, 2)]
+        options.append([f for f in may if f in ZERO_LINE_FUNCTIONS]
+                       + ([""] if any(f not in ZERO_LINE_FUNCTIONS
+                                      for f in may) else []))
+    ways = [p for p in product(*options)
+            if all(p.count(f) <= room[f] for f in p if f)]
+    sung = min(p.count("") for p in ways) if ways else 0
+    if not sung:
+        return 0, ""
+    # The fields that keep every dealt row off those edges, by row.
+    held = {}
+    for at in ends:
+        for f in sorted(dealt):
+            sp = SF[f]
+            held.setdefault(f, []).extend(
+                [x for x in (("needs_before", "adjacent_after") if at == "first"
+                             else ("needs_after", "adjacent_before"))
+                 if getattr(sp, x)]
+                + (["boundary"] if sp.boundary == ("last" if at == "first"
+                                                   else "first") else []))
+    fields = " and ".join(
+        f"the {f} row's " + " and ".join(f"`{x}`" for x in dict.fromkeys(xs))
+        + (" fields" if len(set(xs)) > 1 else " field")
+        for f, xs in held.items() if xs)
+    if sung < len(ends):
+        return sung, (f"1 that opens or closes the song, from {fields}, as "
+                      f"the wordless rows the request allows may fill only "
+                      f"one of the two edges")
+    return sung, (f"{sung} that "
+                  + ({"first": "opens", "last": "closes"}[ends[0]] if sung == 1
+                     else "open and close")
+                  + f" the song, from {fields}, as no wordless row the request "
+                  f"allows may stand there")
+
+
 def _count_length_proof(policy, form, most_lines, per_section, exact):
     """Refuse when the sung sections the counts need, at `per_section`
     lines each, cannot fit in `most_lines`. Speaks of sections and lines
-    only: the cell ceiling is not a proof (stage 4 design, §3)."""
+    only: the cell ceiling is not a proof (stage 4 design, §3).
+
+    THE CAUSE IS WORKED OUT, NOT ASSUMED (2026-11-18, stage 4 fix round).
+    ~~One sentence served every refusal, and it always added the lines of
+    the rhyme group~~, so `sections.burden=4; lines<=6`, whose 8 sung
+    sections cannot fit 6 lines at any length, was blamed on the rhyme
+    group. When the sung sections alone do not fit, the refusal names each
+    row, the field that added it, and nothing of the rhyme group. The
+    rhyme group is named only when the sections fit and the lines that one
+    kind of 2 lines takes do not.
+
+    THE EDGES ARE COUNTED (2026-11-18, stage 4 fix round): a section a
+    row's fields put at the start or the end of the song, when it must be
+    sung (`_sung_edges`). A request whose every fit leaves each sung
+    section 1 line is then refused here with the rhyme group's reason,
+    where the draw used to miss it on every seed. A wordless section at an
+    edge takes no line, so `sections.bridge=1; lines<=2` fits (a wordless
+    section, then a bridge of 2 lines) and is not refused here, though the
+    draw, held to the fewest sections the counts need, does not reach it.
+
+    -> (need, pair) without the edges, as before this round. The draw
+    keeps the totals of at least `need * per_section + pair` lines, so a
+    request this proof lets through is drawn exactly as before."""
+    why = {}
+    rows = _folded_rows(policy, form, why)
     need = _sung_minimum(policy, form)
     every = max(policy["total"][0],
-                sum(lo for lo, hi in _folded_rows(policy, form).values()))
+                sum(lo for lo, hi in rows.values()))
     if every > ENVELOPE["sections"][1]:
         raise PlanRefused(
             f"{policy['requested']} can't be met: the counts (with what the "
@@ -3293,19 +3380,35 @@ def _count_length_proof(policy, form, most_lines, per_section, exact):
     # A plan carries one rhyme group, so one kind of section has 2 lines or
     # more. At one line a section that costs at least one line more per copy
     # of that kind: the fewest stated copies, or 2 for a kind dealt once.
-    sung_lo = [lo for f, (lo, hi) in _folded_rows(policy, form).items()
+    sung_lo = [lo for f, (lo, hi) in rows.items()
                if lo and f not in ZERO_LINE_FUNCTIONS]
     pair = min([2] + sung_lo) if per_section == 1 and need else 0
-    if need * per_section + pair > most_lines:
-        has = (f"the song has {most_lines} lines" if exact else
-               f"the song can have at most {most_lines} lines")
+    # An edge's sung section is of a row dealt once: 1 line more makes it
+    # the kind with 2 lines.
+    edges, at_edges = _sung_edges(rows)
+    sung = need + edges
+    lift = (min([2] + sung_lo + [1] * edges)
+            if per_section == 1 and sung else 0)
+    has = (f"the song has {most_lines} lines" if exact else
+           f"the song can have at most {most_lines} lines")
+    shown = (f"{policy['requested']} can't be met: the counts need {sung} "
+             f"sung sections of at least {per_section} line(s) ("
+             + "; ".join([f"{lo} {f}" + (f", from {why[f]}" if f in why else "")
+                          for f, (lo, hi) in sorted(rows.items())
+                          if lo and f not in ZERO_LINE_FUNCTIONS]
+                         + ([at_edges] if at_edges else []))
+             + ")")
+    # ~~`if need * per_section + pair > most_lines:` and "the counts (with
+    # what the form and the rows' own fields add) need {need} sung sections
+    # of at least {per_section} line(s), and {pair} line(s) more so one kind
+    # of section has 2 lines for the rhyme group; {has}"~~ (2026-11-18,
+    # stage 4 fix round): two causes, each said only when it is the one.
+    if sung * per_section > most_lines:
+        raise PlanRefused(f"{shown}, and {has}")
+    if sung * per_section + lift > most_lines:
         raise PlanRefused(
-            f"{policy['requested']} can't be met: the counts (with what the "
-            f"form and the rows' own fields add) need {need} sung sections "
-            f"of at least {per_section} "
-            f"line(s)" + (f", and {pair} line(s) more so one kind of section "
-                          f"has 2 lines for the rhyme group" if pair else "")
-            + f"; {has}")
+            f"{shown}, and {lift} line(s) more so one kind of section has 2 "
+            f"lines for the rhyme group; {has}")
     return need, pair
 
 
