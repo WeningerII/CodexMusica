@@ -4823,6 +4823,15 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # writer reads, and handing one out is the moment the plan stops costing
     # a seed and starts costing a draft.
     #
+    # A fixed lexical length narrows the grid ceiling on this particular draw.
+    # Keep the draw's native placements intact and report a conflicting seed.
+    if song_form and song_form.get("lineRequirements"):
+        from quality.catalog_shape import line_fit_conflicts
+        conflicts = line_fit_conflicts(plan, song_form["lineRequirements"])
+        if conflicts:
+            raise SeedRefused("catalog line requirements conflict with the drawn plan: " +
+                              "; ".join(f"L{item['line']} {item['code']}: {item['detail']}"
+                                        for item in conflicts))
     joint = joint_findings(plan)
     if joint:
         codes = sorted({c for c, _, _ in joint})
@@ -5288,6 +5297,8 @@ WRITING_BAN_PARTNERS = 6
 #: reads the word a line opens on (its first space-split piece, with the
 #: `trimmed` marks cut from its ends); test_plan probes that reader too.
 STOP_RULES = {
+    "CATALOG_FORM_MISMATCH": {"applies": "catalog_form", "stop": "flag",
+                              "limit": "catalog_form"},
     "OUT_OF_CALIBRATED_LENGTH": {"applies": "always", "stop": "ungraded",
                                  "limit": "length_reach",
                                  "words": {"accented": True,
@@ -5458,6 +5469,7 @@ def _matched_openings(plan):
 
 
 _STOP_APPLIES = {
+    "catalog_form": lambda plan: bool(plan.get("request", {}).get("song_form")),
     "always": lambda plan: True,
     "never": lambda plan: False,
     "groups": lambda plan: bool(str(plan.get("groups") or "").strip()),
@@ -5798,6 +5810,9 @@ def _limit_common_partner(plan):
 
 
 _STOP_LIMITS = {
+    "catalog_form": lambda plan: (
+        f"the draft fails a measured requirement of catalog form {plan['request']['song_form']['id']!r}, "
+        f"variant {plan['request']['song_form']['variant']}"),
     "length_reach": _limit_length_reach,
     "openings": _limit_openings,
     "grammar_words": _limit_grammar_words,
@@ -5900,6 +5915,14 @@ def writer_brief(plan):
     catalog = plan.get("request", {}).get("song_form")
     if catalog is not None:
         out.append(f"Catalog {catalog['scope']}: {catalog['id']} (variant {catalog['variant']}).")
+        for row in catalog.get("lineRequirements", ()):
+            terms = []
+            for field, unit in (("words", "word"), ("syllables", "syllable"), ("stresses", "stress")):
+                if field in row:
+                    terms.append(f"{row[field]} {unit if row[field] == 1 else field}")
+            if "stress" in row:
+                terms.append(f"stress pattern {row['stress']} (weak ., stressed /)")
+            out.append(f"  L{row['line']}: " + ", ".join(terms) + ".")
     for sec in plan["sections"]:
         slots = [s for s in plan["line_slots"]
                  if s["section"] == sec["name"]]

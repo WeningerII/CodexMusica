@@ -95,6 +95,90 @@ async function checkViewport(browser, origin, viewport) {
     await view.getByText('This pattern is available for study only.').waitFor();
     assert.equal(await view.getByRole('button', { name: 'Write with this form' }).count(), 0);
     assert.deepEqual(await page.evaluate(() => window.uiLyricContext('lyrics').declarations), {});
+    await picker.selectOption('quatrain');
+    const expand = view.getByRole('button', { name: 'Show expanded structure' });
+    await expand.focus();
+    await page.keyboard.press('Enter');
+    const verseAction = view.getByRole('button', { name: 'Write with this form' });
+    assert.equal(await verseAction.getAttribute('aria-describedby'), 'ly-form-writing-note');
+    const verseNote = page.locator('#ly-form-writing-note');
+    assert.equal(
+      await verseNote.textContent(),
+      'The writer uses one 4-line verse for this pattern.'
+    );
+    assert.deepEqual(await page.evaluate(() => window.uiLyricContext('lyrics').declarations), {});
+    for (const [id, variant, syllables] of [
+      ['stornello', '1', [11, 11]],
+      ['sapphic-stanza', '0', [11, 11, 11, 5]],
+      ['alcaic-stanza', null, [11, 11, 9, 10]],
+    ]) {
+      await picker.selectOption(id);
+      if (variant !== null)
+        await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption(variant);
+      await expand.press('Enter');
+      const action = view.getByRole('button', { name: 'Write this setting' });
+      assert.equal(await action.getAttribute('aria-describedby'), 'ly-form-writing-note');
+      assert.match(
+        await verseNote.textContent(),
+        /It checks the indicated syllable counts per line\./
+      );
+      const expanded = view.getByRole('status').locator('xpath=following-sibling::div[1]');
+      assert.deepEqual(
+        (await expanded.locator('li').allTextContents())
+          .filter((label) => /^Line · syllables \d+$/.test(label))
+          .map((label) => Number(label.split(' ').at(-1))),
+        syllables
+      );
+    }
+    await picker.selectOption('sapphic-stanza');
+    await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('2');
+    await expand.press('Enter');
+    await view.getByText('This pattern is available for study only.').waitFor();
+    assert.equal(await view.getByRole('button', { name: 'Write this setting' }).count(), 0);
+    await picker.selectOption('long-metre-lm');
+    await expand.press('Enter');
+    assert.match(
+      await verseNote.textContent(),
+      /Stress marks follow spoken pronunciation\. The beat grid controls musical timing\./
+    );
+    assert.match(
+      await view.getByRole('status').locator('xpath=following-sibling::div[1]').innerText(),
+      /spoken stress pattern [./]+ · stressed syllables 4/
+    );
+    await verseNote.scrollIntoViewIfNeeded();
+    assert.ok(await view.evaluate((node) => node.scrollWidth <= node.clientWidth + 1));
+    if (directory)
+      await page.screenshot({
+        path: path.join(directory, 'lyrics-form-setting-' + viewport.width + '.png'),
+      });
+    await picker.selectOption('table-grace-sung');
+    await view.getByRole('heading', { name: 'Documented setting' }).waitFor();
+    await view.getByRole('spinbutton').fill('3');
+    await expand.focus();
+    await page.keyboard.press('Enter');
+    const settingAction = view.getByRole('button', { name: 'Write this setting' });
+    assert.equal(
+      await verseNote.textContent(),
+      'The writer uses one 3-line verse for this pattern.'
+    );
+    assert.equal(await settingAction.getAttribute('aria-describedby'), 'ly-form-writing-note');
+    await page.keyboard.press('Tab');
+    assert.ok(await settingAction.evaluate((n) => n === document.activeElement));
+    await page.keyboard.press('Enter');
+    const settingBadge = page.locator('#ly-creation-form');
+    await settingBadge.waitFor();
+    assert.equal(
+      await settingBadge.locator('span').textContent(),
+      'Song form setting · Table grace (sung) · Verse arrangement'
+    );
+    assert.deepEqual(await page.evaluate(() => window.uiLyricContext('lyrics').declarations), {
+      catalog_form: 'table-grace-sung',
+      catalog_variant: 0,
+      catalog_counts: [{ path: '1.1', count: 3 }],
+    });
+    await settingBadge.getByRole('button', { name: 'Remove form' }).press('Enter');
+    assert.deepEqual(await page.evaluate(() => window.uiLyricContext('lyrics').declarations), {});
+    if (viewport.width < 500) await page.locator('#ly-mtab-song').click();
     await picker.selectOption('chorus-first');
     await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('0');
     await view.getByRole('spinbutton').fill('1');

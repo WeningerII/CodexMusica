@@ -38,8 +38,8 @@ function nodeText(node) {
     ['returns', 'refrain'],
     ['endWord', 'end word'],
     ['syllables', 'syllables'],
-    ['stress', 'stress pattern'],
-    ['stresses', 'stresses'],
+    ['stress', 'spoken stress pattern'],
+    ['stresses', 'stressed syllables'],
     ['bars', 'bars'],
   ]) {
     if (node[key] !== undefined) parts.push(label + ' ' + node[key]);
@@ -96,6 +96,34 @@ function branchList(nodes, depth = 0) {
   }
   page();
   return list;
+}
+
+function writerDescription({ arrangement, contract }) {
+  const statements = [];
+  if (arrangement) {
+    const { divisions } = arrangement;
+    statements.push(
+      divisions.length === 1
+        ? 'The writer uses one ' + divisions[0].lines + '-line verse for this pattern.'
+        : 'The writer uses a verse for each division and keeps the displayed line counts.'
+    );
+  }
+  const requirements = contract.lineRequirements || [];
+  const measures = [
+    ['words', 'word'],
+    ['syllables', 'syllable'],
+  ].filter(([key]) => requirements.some((line) => line[key] !== undefined));
+  if (measures.length)
+    statements.push(
+      'It checks the indicated ' +
+        measures.map(([, label]) => label).join(' and ') +
+        ' counts per line.'
+    );
+  if (requirements.some((line) => line.stress !== undefined || line.stresses !== undefined))
+    statements.push(
+      'Stress marks follow spoken pronunciation. The beat grid controls musical timing.'
+    );
+  return statements.join(' ');
 }
 
 function variantView(description, index, catalog, target, startWriter) {
@@ -167,12 +195,27 @@ function variantView(description, index, catalog, target, startWriter) {
     if (startWriter) {
       const projection = projectSongFormCreation(plan, counts);
       if (projection.status === 'ready') {
-        const write = el('button', 'Write with this form', 'cm-btn cm-btn-primary');
+        const setting = projection.scope === 'setting';
+        const arrangement = projection.arrangement;
+        const write = el(
+          'button',
+          setting ? 'Write this setting' : 'Write with this form',
+          'cm-btn cm-btn-primary'
+        );
+        const descriptionText = writerDescription(projection);
+        if (descriptionText) {
+          const note = el('p', descriptionText, 'ly-help');
+          note.id = 'ly-form-writing-note';
+          write.setAttribute('aria-describedby', note.id);
+          output.prepend(note);
+        }
         write.type = 'button';
         write.addEventListener('click', () => {
           const selections = Object.entries(counts).map(([path, count]) => ({ path, count }));
           startWriter({
             name: description.name,
+            setting,
+            arranged: Boolean(arrangement),
             declarations: {
               catalog_form: description.id,
               catalog_variant: index,
@@ -328,7 +371,13 @@ function writerChoice(doc, startConversation, state) {
     if (!badge) return;
     const selected = current();
     badge.hidden = !selected || doc.getElementById('chat-domain')?.value !== 'lyrics';
-    badge.firstElementChild.textContent = selected ? 'Song form · ' + selected.name : '';
+    badge.firstElementChild.textContent = selected
+      ? [
+          selected.setting ? 'Song form setting' : 'Song form',
+          selected.name,
+          ...(selected.arranged ? ['Verse arrangement'] : []),
+        ].join(' · ')
+      : '';
   }
   function select(selection) {
     const onStart = () => {

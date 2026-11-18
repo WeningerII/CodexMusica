@@ -8343,7 +8343,7 @@ def _catalog_creation(args, lex):
         if flag not in _CATALOG_FLAGS:
             rest.append(arg)
         elif not sep or not value or flag in selected:
-            _refuse(f"{flag} requires exactly one value")
+            _refuse(f"{flag[2:].replace('-', ' ')} requires exactly one value")
         else:
             selected[flag] = value
     if not selected:
@@ -8354,7 +8354,7 @@ def _catalog_creation(args, lex):
     if not seeded and rest[0] not in ("song", "brief", "revise", "verify"):
         _refuse("catalog selection requires plan, finish, tryline, song, brief, revise or verify")
     if any(arg == "--form" or arg.startswith("--form=") for arg in rest):
-        _refuse("choose one form using --form or --catalog-form")
+        _refuse("choose either a built-in form or a catalog form")
     supplied = None
     try:
         if "--catalog-selection" in selected:
@@ -8373,7 +8373,7 @@ def _catalog_creation(args, lex):
             selection = _contract_selector(supplied)
         else:
             if "--catalog-form" not in selected:
-                _refuse("--catalog-variant and --catalog-counts require --catalog-form")
+                _refuse("select a catalog form before specifying its variant or counts")
             selection = {"id": selected["--catalog-form"]}
             if "--catalog-variant" in selected:
                 selection["variant"] = int(selected["--catalog-variant"])

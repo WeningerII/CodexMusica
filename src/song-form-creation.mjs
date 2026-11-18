@@ -1,5 +1,7 @@
 // Translate only obligations that the native seeded writer can enforce.
 // The writer still judges placement, recurrence, envelope and seed feasibility.
+import { projectLineRequirement } from './song-form-line-requirements.mjs';
+
 const NATIVE_ROLES = new Set([
   'intro',
   'verse',
@@ -26,6 +28,25 @@ const NATIVE_ROLES = new Set([
 ]);
 const FEATURES = ['role', 'rhyme', 'returns', 'endWord', 'syllables', 'stress', 'stresses', 'bars'];
 const WRAPPERS = new Set(['song', 'poem', 'cycle']);
+const LINE_DIVISIONS = new Set([
+  'stanza',
+  'couplet',
+  'tercet',
+  'quatrain',
+  'quintain',
+  'sestet',
+  'septet',
+  'octave',
+  'distich',
+  'line-pair',
+]);
+export function isVerseDivision(unit) {
+  return LINE_DIVISIONS.has(unit);
+}
+
+// Browser-side mirror of the native writer's corpus-derived envelope, checked
+// against quality.plan in the catalog-wide tests.
+export const CREATION_LIMITS = Object.freeze({ minLines: 2, maxLines: 463, maxSections: 115 });
 
 /**
  * Project a result from realizeForm and its validated count selections.
@@ -48,6 +69,9 @@ export function projectSongFormCreation(plan, counts = {}) {
   if (plan.status !== 'ready') return result;
   const reasons = result.reasons;
   const sections = [];
+  const divisions = [];
+  const lineRequirements = [];
+  const positions = new Map(plan.lines.map((line) => [line.address, line]));
   const reasonKeys = new Set();
   function refuse(code, node, field) {
     const path = node?.path;
@@ -64,27 +88,55 @@ export function projectSongFormCreation(plan, counts = {}) {
         refuse('unsupported-unit-feature', node, feature);
       }
     }
-    if (WRAPPERS.has(node.unit)) {
+    const counted =
+      isVerseDivision(node.unit) ||
+      (['poem', 'song'].includes(node.unit) &&
+        node.children.some((child) => child.unit === 'line'));
+    if (WRAPPERS.has(node.unit) && !counted) {
       if (!node.children.length) return refuse('empty-structure', node);
       node.children.forEach(visit);
       return;
     }
-    if (node.unit !== 'section' || !node.role) return refuse('requires-named-sections', node);
-    const role = node.role.replaceAll('-', '_');
+    if (!counted && (node.unit !== 'section' || !node.role)) {
+      return refuse('unsupported-division', node);
+    }
+    if (counted && !node.children.length) return refuse('unspecified-division', node);
+    const role = counted ? 'verse' : node.role.replaceAll('-', '_');
     if (!NATIVE_ROLES.has(role)) return refuse('unsupported-section-role', node, node.role);
     for (const child of node.children) {
-      if (child.unit !== 'line' || child.children.length) return refuse('nested-division', child);
-      for (const feature of FEATURES) {
-        if (child[feature] !== undefined) refuse('unsupported-line-feature', child, feature);
+      const requirement = projectLineRequirement(child);
+      if (requirement === null) {
+        refuse('unsupported-line-structure', child);
+      } else if (requirement) {
+        const position = positions.get(child.address);
+        if (position?.positionKnown)
+          lineRequirements.push({ line: position.index, ...requirement });
+        else refuse('unknown-line-position', child);
       }
     }
     if (node.children.length && ['solo', 'interlude'].includes(role)) {
       return refuse('lines-on-wordless-role', node, role);
     }
+    if (counted) divisions.push({ unit: node.unit, lines: node.children.length });
     sections.push({ unit: 'section', role, lines: node.children.length || null });
   }
   plan.tree.forEach(visit);
   if (!sections.length && !reasons.length) refuse('empty-structure');
+  if (sections.length > CREATION_LIMITS.maxSections) refuse('native-section-limit');
+  if (lineRequirements.length && sections.some((part) => part.lines === null)) {
+    refuse('incomplete-line-positions');
+  }
+  if (divisions.length) {
+    if (sections.length !== divisions.length) refuse('mixed-declared-and-arranged-roles');
+    const total = plan.lines.length;
+    if (plan.coverage.lines !== 'complete' || !plan.lines.every((line) => line.positionKnown)) {
+      refuse('incomplete-line-positions');
+    }
+    if (total < CREATION_LIMITS.minLines || total > CREATION_LIMITS.maxLines) {
+      refuse('native-line-limit');
+    }
+    if (divisions.every((part) => part.lines < 2)) refuse('no-inspectable-native-pair');
+  }
   // Native grid placement accepts a burden immediately after a verse.
   // Opening burdens remain valid catalog reading structures.
   if (sections.some((part, i) => part.role === 'burden' && sections[i - 1]?.role !== 'verse')) {
@@ -102,12 +154,14 @@ export function projectSongFormCreation(plan, counts = {}) {
   if (reasons.length) return { ...result, status: 'unsupported' };
   return {
     ...result,
+    ...(divisions.length && { arrangement: { role: 'verse', divisions } }),
     contract: {
       version: 1,
       scope: plan.scope,
       id: plan.id,
       variant: plan.variant,
       counts: { ...counts },
+      ...(lineRequirements.length && { lineRequirements }),
       sections,
       rhymeGroups: [],
       returnGroups: [],

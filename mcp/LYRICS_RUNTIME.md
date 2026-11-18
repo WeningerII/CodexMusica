@@ -680,7 +680,13 @@ against the candidate. A refused observation remains visible through the coverag
 
 For creation use the same selectors on the normal sweep, plan, grade and revision workflow.
 The native planner accepts named section sequences with supported lengths and placement.
-It draws the remaining grid and writing obligations normally. A catalog setting represents
+It can also arrange a sequence of equally sized, counted stanzas as verses. The catalog
+retains its original units. A selected numerical pattern can require an exact word count,
+syllable count, agreed English stress sequence, or number of lexical stresses on individual
+lines. The writer brief prints those obligations. The planner checks them against the drawn
+slots, word positions, reserved free words and whole-line returns. A contradictory seed
+is refused. The next draft and every revision are measured again from the actual text.
+The remaining grid and writing obligations follow the ordinary draw. A catalog setting represents
 the selected arrangement only. Unsupported rules, ambiguous alternatives and missing
 repeat counts produce a refusal with the reason. The command
 `node scripts/song_forms.mjs create ID` checks the projection; the native sweep determines

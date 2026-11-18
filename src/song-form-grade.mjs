@@ -1,6 +1,24 @@
 // Compare catalog requirements with measurements from the current candidate.
 // Blueprint coordinates describe the declared arrangement, including its bar grid.
-import { checkForm, realizeForm } from './song-forms.mjs';
+import { checkReaderForm, realizeForm } from './song-forms.mjs';
+import { isVerseDivision, projectSongFormCreation } from './song-form-creation.mjs';
+
+function simpleSectionLayout(node) {
+  if (['song', 'poem', 'cycle'].includes(node.unit)) {
+    return node.children.length > 0 && node.children.every(simpleSectionLayout);
+  }
+  return (
+    node.unit === 'section' &&
+    node.children.every(
+      (child) =>
+        child.unit === 'line' &&
+        !child.children.length &&
+        !['role', 'rhyme', 'returns', 'endWord', 'syllables', 'stress', 'stresses', 'bars'].some(
+          (field) => field in child
+        )
+    )
+  );
+}
 
 export function gradeObservations(catalog, id, { variant, counts, lines, sections }) {
   const plan = realizeForm(catalog, id, { variant, counts });
@@ -17,30 +35,104 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     input.sections = sections.map(({ lineSpan, ...section }) =>
       plan.coverage.lines === 'complete' && lineSpan ? { ...section, lineSpan } : section
     );
-  // A flat list of sung lines does not establish a stanza boundary. Use the
-  // submitted partition only for a non-overlapping, exhaustive sequence of stanzas.
-  const stanzas = [];
+  // Musical verse is only the carrier for a neutral stanza. Its boundary
+  // can be compared with the catalog division without adding a role check.
   const addresses = new Map();
+  const stanzas = [];
   function walk(node) {
     addresses.set(node.address, node);
-    if (node.unit === 'stanza') stanzas.push(node);
+    if (isVerseDivision(node.unit) && node.children.length) stanzas.push(node);
     node.children.forEach(walk);
   }
   plan.tree.forEach(walk);
-  if (
+  const extras = [];
+  const spans = new Map();
+  const arranged = stanzas.length > 0 && projectSongFormCreation(plan, counts).arrangement;
+  const divisions = arranged ? stanzas : stanzas.filter((node) => node.unit === 'stanza');
+  const completePartition =
     plan.coverage.lines === 'complete' &&
-    sections?.length &&
-    stanzas.length === sections.length &&
-    stanzas.every((s, i) => s.span.lines[0] === (i ? stanzas[i - 1].span.lines[1] : 0)) &&
-    stanzas.at(-1).span.lines[1] === plan.lines.length
-  ) {
-    input.units = Object.fromEntries(
-      stanzas.flatMap((s, i) =>
-        sections[i].lineSpan ? [[s.address, { lineSpan: sections[i].lineSpan }]] : []
-      )
-    );
+    divisions.length > 0 &&
+    divisions.every((s, i) => s.span.lines[0] === (i ? divisions[i - 1].span.lines[1] : 0)) &&
+    divisions.at(-1).span.lines[1] === plan.lines.length;
+  if (completePartition && sections) {
+    if (arranged)
+      extras.push({
+        kind: 'division-count',
+        expected: divisions.length,
+        actual: sections.length,
+        outcome: divisions.length === sections.length ? 'pass' : 'fail',
+      });
+    if (divisions.length === sections.length) {
+      input.units = Object.fromEntries(
+        divisions.flatMap((stanza, i) =>
+          sections[i].lineSpan ? [[stanza.address, { lineSpan: sections[i].lineSpan }]] : []
+        )
+      );
+    }
   }
-  const result = checkForm(catalog, id, input);
+  // An empty section in the catalog leaves its length open. Explicit lines in
+  // a different section still have an exact count in that section's coordinates.
+  // Use this interpretation only for ordered section trees with plain line leaves.
+  const mixedSections =
+    plan.coverage.lines === 'partial' &&
+    plan.coverage.sections === 'complete' &&
+    plan.tree.every(simpleSectionLayout);
+  if (mixedSections) {
+    const observedSpans = (sections ?? []).map((section) => section.lineSpan);
+    const haveAllSpans =
+      observedSpans.length > 0 && observedSpans.every((span) => span !== undefined);
+    let previousEnd = 0,
+      previousIndex = -1,
+      consistent = true;
+    for (const [i, span] of observedSpans.entries()) {
+      if (span === undefined) continue;
+      if (
+        !Array.isArray(span) ||
+        span.length !== 2 ||
+        !span.every((n) => Number.isSafeInteger(n) && n >= 0) ||
+        span[1] < span[0]
+      ) {
+        throw new TypeError('Invalid observed line span');
+      }
+      // Missing boundaries leave a gap of unknown length. The two known
+      // ranges on either side still cannot overlap or exceed the supplied text.
+      consistent &&=
+        (i === previousIndex + 1 ? span[0] === previousEnd : span[0] >= previousEnd) &&
+        (lines === undefined ||
+          (span[1] <= lines.length &&
+            (i !== observedSpans.length - 1 || span[1] === lines.length)));
+      previousEnd = span[1];
+      previousIndex = i;
+    }
+    if (haveAllSpans || !consistent) {
+      extras.push({ kind: 'section-partition', outcome: consistent ? 'pass' : 'fail' });
+    }
+    const actual = lines?.length ?? (haveAllSpans ? observedSpans.at(-1)[1] : undefined);
+    const minimum = plan.minimum.lines;
+    extras.push({
+      kind: 'lines-count',
+      exact: false,
+      expected: minimum,
+      actual,
+      outcome: actual === undefined ? 'unknown' : actual >= minimum ? 'pass' : 'fail',
+    });
+    plan.sections.forEach(({ address }, i) => {
+      const span = observedSpans[i];
+      if (span) spans.set(address, span);
+      const expected = addresses.get(address).children.length;
+      if (expected) {
+        const length = span && span[1] - span[0];
+        extras.push({
+          kind: 'section-lines',
+          address,
+          expected,
+          actual: length,
+          outcome: length === undefined ? 'unknown' : length === expected ? 'pass' : 'fail',
+        });
+      }
+    });
+  }
+  const result = checkReaderForm(catalog, id, input);
   // Variant pronunciations can still prove non-overlap even when a single
   // canonical rhyme key cannot be attributed to one or both lines.
   const choices = new Map(
@@ -79,14 +171,37 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     }
     return check;
   }
-  const checks = result.checks.map(refine).map((check) => {
-    const refs = check.addresses ?? (check.address ? [check.address] : []);
-    const spans = refs.map((k) => addresses.get(k)?.span.lines).filter(Boolean);
-    const lineNumbers = [
-      ...new Set(spans.flatMap(([a, b]) => Array.from({ length: b - a }, (_, i) => a + i + 1))),
-    ];
-    return lineNumbers.length ? { ...check, lines: lineNumbers } : check;
-  });
+  const checks = result.checks
+    .filter(
+      (check) => !mixedSections || !['lines-count', 'position', 'line-span'].includes(check.kind)
+    )
+    .map(refine)
+    .concat(extras)
+    .map((check) => {
+      const refs = check.addresses ?? (check.address ? [check.address] : []);
+      const ranges = refs
+        .map((k) => {
+          if (mixedSections) return spans.get(k);
+          const range = addresses.get(k)?.span.lines;
+          if (!range || plan.coverage.lines === 'complete') return range;
+          // A template index after an open-length unit is not a song line number.
+          return plan.lines[range[0]]?.positionKnown && plan.lines[range[1] - 1]?.positionKnown
+            ? range
+            : undefined;
+        })
+        .filter(Boolean);
+      const lineNumbers = [
+        ...new Set(
+          ranges.flatMap(([a, b]) =>
+            Array.from(
+              { length: Math.max(0, Math.min(b, lines?.length ?? plan.lines.length) - a) },
+              (_, i) => a + i + 1
+            )
+          )
+        ),
+      ];
+      return lineNumbers.length ? { ...check, lines: lineNumbers } : check;
+    });
   if (!checks.length) checks.push({ kind: 'observability', outcome: 'unknown' });
   return {
     id,

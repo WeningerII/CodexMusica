@@ -836,7 +836,9 @@ def by_disposition(c=None):
 # graded: RETURNS_WITH_NEW_WORDS, CONTRAST_ABSENT, CODA_REPEATS_EARLIER_LINES,
 # REPRISE_BRINGS_NOTHING_BACK, TAG_NOT_SHORT, PATTER_NOT_DENSER. None gates;
 # no existing code or disposition moves: 74/19/55 -> 80/19/61.
-PINNED = {'codes': 80, 'gated': 19, 'disclosed_only': 61, 'undecidable': 0,
+# 2026-11-18: CATALOG_FORM_MISMATCH is a flag when an observable requirement
+# of the selected form fails. Missing evidence affects coverage separately.
+PINNED = {'codes': 81, 'gated': 20, 'disclosed_only': 61, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

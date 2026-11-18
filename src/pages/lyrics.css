@@ -814,8 +814,10 @@
 #surface-lyrics .ly-brief-form select {
   margin-bottom: 4px;
 }
-#surface-lyrics .ly-song-forms {
-  margin: 10px 16px 0;
+/* Keep the catalog on the controls row until it opens. */
+#surface-lyrics .ly-song-forms:not([open]) {
+  float: inline-start;
+  margin: 16px 0 0 16px;
 }
 #surface-lyrics .ly-main-scroll {
   position: relative;

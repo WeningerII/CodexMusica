@@ -189,6 +189,8 @@ test('a creation sweep refuses deferred forms and unselected alternatives withou
     [{ catalog_form: 'triolet' }, /unsupported/i],
     [{ catalog_form: 'couplet', catalog_variant: 1 }, /named.role|unsupported/i],
     [{ catalog_form: 'quatern' }, /named.role|unsupported/i],
+    [{ catalog_form: 'monostich' }, /native-line-limit|no-inspectable-native-pair/],
+    [{ catalog_form: 'cherita' }, /inconsistent-recurring-section-length/],
     [{ catalog_form: 'strophic' }, /needs-input/],
     [{ catalog_form: 'couplet' }, /variant|alternative/i],
   ]) {
@@ -247,5 +249,243 @@ test(
         assert.equal(plan.request.song_form, undefined);
       }
     }
+  }
+);
+
+test(
+  'a counted stanza is graded and revised at its measured boundaries on a real seeded session',
+  { timeout: 180_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const choices = {
+      catalog_form: 'table-grace-sung',
+      catalog_counts: [{ path: '1.1', count: 3 }],
+    };
+    const relation = 'class:RHYME';
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        seed_from: 31,
+        count: 1,
+        ...choices,
+        relation,
+        draw: ['lines', 'functions', 'melody'],
+      })
+    );
+    assert.equal(sweep.exit_code, 0, sweep.report);
+    const [seed] = sweep.accepted_shown;
+    assert.ok(Number.isInteger(seed), JSON.stringify(sweep));
+    const planned = await host.run('lyric_plan', { seed, relation });
+    const { plan, plan_sha256: digest } = measured(await host.read(planned.operation_id, 'full'));
+    assert.equal(plan.request.song_form.id, choices.catalog_form);
+    assert.deepEqual(plan.request.song_form.counts, { 1.1: 3 });
+    assert.deepEqual(plan.request.song_form.sections, [
+      { unit: 'section', role: 'verse', lines: 3 },
+    ]);
+    assert.equal(plan.total_lines, 3);
+    assert.deepEqual(
+      plan.request.song_form.rhymeGroups,
+      [],
+      'the source stanza only specifies its line count'
+    );
+    assert.ok(plan.groups, 'the ordinary native writing obligations remain in force');
+
+    const labels = ['one', 'two', 'three'];
+    const screened = measured(await host.run('lyric_screen', { words: labels, relation }));
+    assert.equal(screened.exit_code, 0, screened.report);
+    const draft = labels.map((word) => Array(5).fill(word).join(' '));
+    const wrong = await host.run('lyric_grade', { seed, draft: draft.slice(1) });
+    assert.equal(wrong.tool_error, true);
+    assert.match(
+      JSON.stringify(wrong.tool_result.content),
+      /plan has 3 lines and this draft has 2/i
+    );
+
+    const grade = await host.run('lyric_grade', { seed, draft });
+    const judged = measured(await host.read(grade.operation_id, 'full'));
+    assert.equal(judged.plan_sha256, digest);
+    assert.equal(judged.exit_code, 3, judged.report);
+    const checkStanza = (coverage) => {
+      assert.equal(coverage.catalog_form?.id, choices.catalog_form);
+      assert.equal(coverage.catalog_form.verdict, 'pass');
+      const span = coverage.catalog_form.checks.find((item) => item.kind === 'line-span');
+      assert.equal(span?.outcome, 'pass', JSON.stringify(coverage.catalog_form));
+      assert.deepEqual(span.expected, [0, 3]);
+      assert.deepEqual(span.lines, [1, 2, 3]);
+    };
+    checkStanza(judged.coverage);
+    assert.ok(
+      judged.findings.some((item) => item.code === 'SCHEME_VIOLATION' && item.severity === 'flag'),
+      JSON.stringify(judged.findings)
+    );
+
+    await host.reconnect();
+    const args = { seed, max_rounds: 1, attempts: 0, backtrack: 0 };
+    const revision = await host.run('lyric_revise', args);
+    const result = measured(await host.read(revision.operation_id, 'full'));
+    assert.equal(result.exit_code, 3, JSON.stringify(result));
+    checkStanza(result.coverage);
+    const replay = await host.call('lyric_revise', { session_id: revision.predecessor, ...args });
+    assert.equal(replay.operation_id, revision.operation_id);
+    assert.deepEqual(measured(await host.read(replay.operation_id, 'full')), result);
+  }
+);
+
+for (const [variant, measure, lengths] of [
+  [0, 'syllables', [5, 3, 5]],
+  [1, 'words', [3, 5, 3]],
+]) {
+  test(
+    `Lune ${variant} publishes and enforces the selected ${measure} counts through real revision`,
+    { timeout: 180_000 },
+    async (t) => {
+      const host = await sessionHost(t);
+      await host.begin();
+      const relation = 'class:RHYME';
+      const swept = measured(
+        await host.run('lyric_sweep', {
+          seed_from: 11,
+          count: 1,
+          catalog_form: 'lune',
+          catalog_variant: variant,
+          relation,
+          draw: ['lines', 'functions', 'melody'],
+        })
+      );
+      assert.deepEqual(swept.accepted_shown, [11], swept.report);
+      const [seed] = swept.accepted_shown;
+      const planned = await host.run('lyric_plan', { seed, relation });
+      const { plan, plan_sha256: digest } = measured(await host.read(planned.operation_id, 'full'));
+      const expected = lengths.map((count, i) => ({ line: i + 1, [measure]: count }));
+      assert.equal(plan.request.song_form.variant, variant);
+      assert.deepEqual(plan.request.song_form.lineRequirements, expected);
+      const brief = planned.tool_result.content[0].text;
+      for (const [i, n] of lengths.entries())
+        assert.match(brief, new RegExp(`^\\s*L${i + 1}: (?:exactly )?${n} ${measure}\\.`, 'm'));
+      const screened = measured(
+        await host.run('lyric_screen', { words: ['seven', 'three'], relation })
+      );
+      assert.equal(screened.exit_code, 0, screened.report);
+
+      // "seven" has two syllables, so counting tokens cannot satisfy both versions.
+      const valid =
+        measure === 'syllables'
+          ? ['seven one two three', 'seven one', 'five seven four six']
+          : ['seven one two', 'three four seven five six', 'six seven two'];
+      async function grade(draft) {
+        const op = await host.run('lyric_grade', { seed, draft });
+        assert.ok(!op.tool_error, JSON.stringify(op.tool_result.content));
+        const current = measured(await host.read(op.operation_id, 'full'));
+        assert.equal(current.plan_sha256, digest);
+        assert.deepEqual(current.final_draft, draft);
+        return current;
+      }
+      function inspect(grade, outcomes) {
+        const catalog = grade.coverage.catalog_form;
+        assert.equal(catalog.id, 'lune');
+        assert.equal(catalog.variant, variant);
+        const rows = catalog.checks.filter(
+          (row) => row.kind === (measure === 'words' ? 'word-count' : 'syllables')
+        );
+        assert.deepEqual(
+          rows.map((row) => row.expected),
+          lengths
+        );
+        assert.deepEqual(
+          rows.map((row) => row.lines),
+          [[1], [2], [3]]
+        );
+        assert.deepEqual(
+          rows.map((row) => row.outcome),
+          outcomes
+        );
+        return catalog.verdict;
+      }
+      const matching = await grade(valid);
+      assert.equal(inspect(matching, ['pass', 'pass', 'pass']), 'pass');
+      if (measure === 'syllables') {
+        const unread = [...valid];
+        unread[1] = 'xqzxqz one';
+        const unknown = await grade(unread);
+        assert.equal(inspect(unknown, ['pass', 'unknown', 'pass']), 'unknown');
+        assert.equal(unknown.exit_code, 2);
+      }
+      const wrong = [...valid];
+      wrong[1] += ' one';
+      const failed = await grade(wrong);
+      assert.equal(inspect(failed, ['pass', 'fail', 'pass']), 'fail');
+      assert.equal(failed.exit_code, 3, failed.report);
+      await host.reconnect();
+      const stopped = await host.run('lyric_revise', {
+        seed,
+        attempts: 0,
+        max_rounds: 1,
+        backtrack: 0,
+      });
+      const revised = measured(await host.read(stopped.operation_id, 'full'));
+      assert.equal(revised.exit_code, 3, JSON.stringify(revised));
+      assert.equal(inspect(revised, ['pass', 'fail', 'pass']), 'fail');
+    }
+  );
+}
+
+test(
+  'Long Metre grades placed lexical stress independently of syllable and stress counts',
+  { timeout: 180_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const relation = 'class:RHYME';
+    const swept = measured(
+      await host.run('lyric_sweep', {
+        seed_from: 11,
+        count: 1,
+        relation,
+        catalog_form: 'long-metre-lm',
+        catalog_variant: 0,
+        draw: ['lines', 'functions', 'melody'],
+      })
+    );
+    assert.deepEqual(swept.accepted_shown, [11], swept.report);
+    const [seed] = swept.accepted_shown;
+    const planned = await host.run('lyric_plan', { seed, relation });
+    const { plan, plan_sha256: digest } = measured(await host.read(planned.operation_id, 'full'));
+    assert.deepEqual(
+      plan.request.song_form.lineRequirements,
+      [1, 2, 3, 4].map((line) => ({
+        line,
+        syllables: 8,
+        stress: '././././',
+        stresses: 4,
+      }))
+    );
+    const screened = measured(
+      await host.run('lyric_screen', { words: ['array', 'zero'], relation })
+    );
+    assert.equal(screened.exit_code, 0, screened.report);
+    const draft = ['array', 'zero', 'begin', 'today'].map((word) => Array(4).fill(word).join(' '));
+    const op = await host.run('lyric_grade', { seed, draft });
+    assert.ok(!op.tool_error, JSON.stringify(op.tool_result.content));
+    const grade = measured(await host.read(op.operation_id, 'full'));
+    assert.equal(grade.plan_sha256, digest);
+    const catalog = grade.coverage.catalog_form;
+    assert.equal(catalog.verdict, 'fail');
+    const results = (kind) =>
+      catalog.checks.filter((row) => row.kind === kind).map((row) => [row.lines[0], row.outcome]);
+    assert.deepEqual(
+      results('syllables'),
+      [1, 2, 3, 4].map((line) => [line, 'pass'])
+    );
+    assert.deepEqual(
+      results('stresses'),
+      [1, 2, 3, 4].map((line) => [line, 'pass'])
+    );
+    assert.deepEqual(results('stress'), [
+      [1, 'pass'],
+      [2, 'fail'],
+      [3, 'pass'],
+      [4, 'pass'],
+    ]);
+    assert.equal(grade.exit_code, 3);
   }
 );

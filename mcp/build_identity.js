@@ -76,6 +76,7 @@ export function runtimeSourceFingerprint(
     'src/song-form-mandate.mjs',
     'src/song-form-creation.mjs',
     'src/song-form-grade.mjs',
+    'src/song-form-line-requirements.mjs',
     'data/song-forms.json',
   ]) {
     if (fs.existsSync(path.join(root, file))) hashFile(file);

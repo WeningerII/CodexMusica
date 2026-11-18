@@ -313,12 +313,42 @@ function wordTokens(text) {
   );
 }
 
+// This symbol never crosses the raw check JSON interface. Only the native
+// reader supplies a separate token stream for asides, compounds and voices.
+const readerWords = Symbol('sung word tokens');
+function observedWords(obs) {
+  if (obs && has(obs, readerWords)) return obs[readerWords] ?? undefined;
+  return typeof obs?.text === 'string' ? wordTokens(obs.text) : undefined;
+}
+
+export function checkReaderForm(catalog, id, options) {
+  if (!options.lines) return checkForm(catalog, id, options);
+  const lines = options.lines.map((line) => {
+    if (!isRecord(line) || !has(line, 'sungWords')) return line;
+    const { sungWords, ...obs } = line;
+    requireValue(
+      sungWords === null ||
+        (Array.isArray(sungWords) &&
+          sungWords.every(
+            (token) => typeof token === 'string' && token.length && !/\s/u.test(token)
+          )),
+      'Invalid sung word tokens'
+    );
+    return {
+      ...obs,
+      [readerWords]:
+        sungWords?.map((token) => token.normalize('NFC').toLowerCase().replace(/’/g, "'")) ?? null,
+    };
+  });
+  return checkForm(catalog, id, { ...options, lines });
+}
+
 function identity(obs, key) {
   const id = obs?.[key];
   let text;
   if (typeof obs?.text === 'string') {
     if (key === 'returns') text = obs.text.normalize('NFC').trim() || undefined;
-    if (key === 'endWord') text = wordTokens(obs.text).at(-1);
+    if (key === 'endWord') text = observedWords(obs)?.at(-1);
   }
   return { id, text };
 }
@@ -517,7 +547,7 @@ export function checkForm(catalog, id, options = {}) {
       if (obs && has(obs, countKey))
         requireValue(integer(obs[countKey]), 'Invalid observed ' + countKey);
       if (typeof obs?.text === 'string') {
-        if (part === 'word') tokens = wordTokens(obs.text);
+        if (part === 'word') tokens = observedWords(obs);
         if (part === 'letter') tokens = obs.text.normalize('NFC').match(/\p{L}/gu) ?? [];
       }
       inferredCount = tokens?.length ?? observedValue(obs, countKey);
@@ -545,13 +575,16 @@ export function checkForm(catalog, id, options = {}) {
       typeof obs?.text === 'string' &&
       typeof extra[last.address]?.text === 'string'
     ) {
-      const source = wordTokens(obs.text),
+      const source = observedWords(obs),
         ending = wordTokens(extra[last.address].text);
       const matches =
+        source &&
         ending.length > 0 &&
         ending.length <= source.length &&
         ending.every((token, i) => token === source[source.length - ending.length + i]);
-      add('closing-phrase', matches ? 'pass' : 'fail', { address: last.address });
+      add('closing-phrase', source === undefined ? 'unknown' : matches ? 'pass' : 'fail', {
+        address: last.address,
+      });
     }
     node.children.forEach((child, i) => {
       const observation =

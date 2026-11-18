@@ -4,7 +4,7 @@ import test from 'node:test';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { describeForm, realizeForm } from '../src/song-forms.mjs';
-import { projectSongFormCreation } from '../src/song-form-creation.mjs';
+import { CREATION_LIMITS, projectSongFormCreation } from '../src/song-form-creation.mjs';
 
 const catalog = JSON.parse(readFileSync(new URL('../data/song-forms.json', import.meta.url), 'utf8'));
 const make = (unit, fields = {}) => ({ unit, ...fields });
@@ -19,7 +19,7 @@ const projection = (forms, id, options = {}) =>
 test('every published selection has an exact structural contract or an explicit refusal', () => {
   const classified = new Set();
   const contracts = [];
-  let named = 0, refused = 0;
+  let named = 0, arranged = 0, refused = 0;
   for (const form of catalog) {
     const { variants } = describeForm(catalog, form.id);
     const initial = projection(catalog, form.id);
@@ -54,18 +54,55 @@ test('every published selection has an exact structural contract or an explicit 
         assert.equal(contract.variant, choice.index, where);
         assert.deepEqual(contract.counts, counts, where);
         assert.ok(contract.sections.length > 0, where);
-        named++;
-        assert.deepEqual(contract.sections.map(s => s.role), realization.sections.map(s =>
-          s.role.replaceAll('-', '_')), where);
-        const expectedLengths = [];
-        function collect(node) {
-          if (node.unit === 'section') {
-            expectedLengths.push(node.children.length ? node.span.lines[1] - node.span.lines[0] : null);
+        if (projected.arrangement) {
+          arranged++;
+          assert.equal(realization.coverage.lines, 'complete', where);
+          assert.equal(projected.arrangement.role, 'verse', where);
+          assert.equal(realization.sections.length, 0, where);
+          assert.deepEqual(contract.sections.map((p) => p.role), contract.sections.map(() => 'verse'), where);
+          const source = [];
+          const collect = (node) => {
+            if (node.children.length && node.children.every((c) => c.unit === 'line')) {
+              source.push({ unit:node.unit, lines:node.children.length });
+            } else node.children.forEach(collect);
+          };
+          realization.tree.forEach(collect);
+          assert.deepEqual(projected.arrangement.divisions, source, where);
+          assert.deepEqual(contract.sections.map((p) => p.lines), source.map((p) => p.lines), where);
+        } else {
+          named++;
+          assert.deepEqual(contract.sections.map(s => s.role), realization.sections.map(s =>
+            s.role.replaceAll('-', '_')), where);
+          const expectedLengths = [];
+          function collect(node) {
+            if (node.unit === 'section') {
+              expectedLengths.push(node.children.length ? node.span.lines[1] - node.span.lines[0] : null);
+            }
+            node.children.forEach(collect);
           }
-          node.children.forEach(collect);
+          realization.tree.forEach(collect);
+          assert.deepEqual(contract.sections.map(s => s.lines), expectedLengths, where);
         }
-        realization.tree.forEach(collect);
-        assert.deepEqual(contract.sections.map(s => s.lines), expectedLengths, where);
+        const sourceMeasures = [];
+        const inspectLine = (node) => {
+          if (node.unit === 'line') {
+            const position = realization.lines.find((l) => l.address === node.address).index;
+            const measures = {line:position};
+            if (node.syllables !== undefined) measures.syllables = node.syllables;
+            if (node.stress !== undefined) {
+              measures.syllables = node.stress.length;
+              measures.stress = node.stress;
+            }
+            if (node.stresses !== undefined) measures.stresses = node.stresses;
+            if (node.children.length) {
+              assert.ok(node.children.every((child) => child.unit === 'word'), where);
+              measures.words = node.children.length;
+            }
+            if (Object.keys(measures).length > 1) sourceMeasures.push(measures);
+          } else node.children.forEach(inspectLine);
+        };
+        realization.tree.forEach(inspectLine);
+        assert.deepEqual(contract.lineRequirements || [], sourceMeasures, where);
         assert.deepEqual(contract.rhymeGroups, [], where);
         assert.deepEqual(contract.returnGroups, [], where);
       }
@@ -73,38 +110,73 @@ test('every published selection has an exact structural contract or an explicit 
     classified.add(form.id);
   }
   assert.equal(classified.size, catalog.length);
-  assert.ok(named > 0 && refused > 0);
+  assert.ok(named > 0 && arranged > 0 && refused > 0);
   // A contract advertised by the interface must actually build in the native
   // planner at these counts. Seed feasibility is independent of form support.
   const python = [
     'import json, sys',
     'from quality import plan',
-    'for contract in json.load(sys.stdin):',
+    'from quality.catalog_shape import line_fit_conflicts',
+    'inputs = json.load(sys.stdin)',
+    'limits = inputs["limits"]',
+    'assert (limits["minLines"], limits["maxLines"]) == plan.ENVELOPE["total_lines"]',
+    'assert limits["maxSections"] == plan.ENVELOPE["sections"][1]',
+    'for contract in inputs["contracts"]:',
     '    for seed in range(1, 33):',
     '        try:',
     '            result = plan.make_plan(seed, song_form=contract)',
     '        except plan.SeedRefused:',
     '            continue',
     '        assert result["request"]["song_form"] == contract',
+    '        assert not line_fit_conflicts(result, contract.get("lineRequirements", []))',
     '        assert [s["function"] for s in result["sections"]] == [s["role"] for s in contract["sections"]]',
+    '        assert all(sum(slot["section"] == s["name"] for slot in result["line_slots"]) == p["lines"] for s, p in zip(result["sections"], contract["sections"]) if p["lines"] is not None)',
     '        break',
     '    else:',
     '        raise AssertionError((contract["id"], contract["variant"], contract["counts"]))',
   ].join('\n');
   const native = spawnSync('python3', ['-B', '-c', python], {
     cwd: fileURLToPath(new URL('../lyric-harness/', import.meta.url)),
-    input: JSON.stringify(contracts), encoding: 'utf8',
+    input: JSON.stringify({contracts, limits:CREATION_LIMITS}), encoding: 'utf8',
   });
   assert.equal(native.status, 0, native.error?.message || native.stderr);
 
 });
 
-test('counted stanzas and prescribed line identities refuse the native creation path', () => {
-  for (const fields of [{}, { rhyme: 'a' }, { returns: 'r' }]) {
+test('prescribed line identities refuse the native creation path', () => {
+  for (const fields of [{ rhyme: 'a' }, { returns: 'r' }]) {
     const result = projection(entry(poem(stanza(line(fields), line(fields)))), 'f');
     assert.equal(result.status, 'unsupported');
     assert.equal(result.contract, null);
   }
+});
+
+test('equal contiguous plain divisions use a disclosed verse arrangement and keep every boundary', () => {
+  const choices = entry(poem(stanza(line({ times: 3 })), make('tercet', {children: [line({ times: 3 })]})));
+  const result = projection(choices, 'f');
+  assert.equal(result.status, 'ready');
+  assert.deepEqual(result.arrangement, {role:'verse',divisions:[{unit:'stanza',lines:3},{unit:'tercet',lines:3}]});
+  assert.deepEqual(result.contract.sections, numbered(2, () => ({unit:'section',role:'verse',lines:3})));
+  assert.deepEqual(result.contract.rhymeGroups, []);
+  assert.deepEqual(result.contract.returnGroups, []);
+  assert.equal(projection(catalog, 'couplet', {variant:0}).status, 'ready');
+  assert.equal(projection(catalog, 'couplet', {variant:1}).status, 'unsupported');
+  assert.equal(projection(catalog, 'monostich').status, 'unsupported');
+  assert.equal(projection(catalog, 'cherita').status, 'unsupported');
+  assert.equal(projection(entry(poem(stanza(line({times:464})))), 'f').status, 'unsupported');
+  assert.equal(projection(entry(poem(make('stanza',{times:116,children:[line({times:2})]}))), 'f').status, 'unsupported');
+  assert.equal(projection(entry(poem(stanza(line()),stanza(line()))), 'f').status, 'unsupported');
+});
+
+test('numbered observations reflect only the attributes declared for the corresponding line', () => {
+  const forms = entry(poem(stanza(line({ syllables: 4 }), line(), line({ children: [make('word', {times:3})] }))));
+  assert.deepEqual(projection(forms, 'f').contract.lineRequirements, [{line:1,syllables:4},{line:3,words:3}]);
+  const named = entry(make('song', {children: [make('section', {role:'verse'}), make('section', {role:'chorus',children:[line({syllables:4})]})]}));
+  assert.equal(projection(named, 'f').status, 'unsupported', 'preceding open section makes the absolute line ambiguous');
+  const tail = entry(make('song', {children: [make('section', {role:'verse',children:[line({syllables:4})]}),make('section', {role:'chorus'})]}));
+  assert.equal(projection(tail, 'f').status, 'unsupported', 'numeric planning requires the complete partition');
+  const impossible = entry(poem(line({ syllables:2,children:[make('word',{times:3})]}),line()));
+  assert.equal(projection(impossible, 'f').status, 'unsupported');
 });
 
 test('named role order keeps free lengths separate from caller-selected lengths', () => {
@@ -127,8 +199,8 @@ test('named role order keeps free lengths separate from caller-selected lengths'
 test('no contract escapes when a selected obligation cannot be enforced by the native writer', () => {
   const rejected = [
     stanza(line({ endWord:'a' }), line({ endWord:'a' })),
-    ...['stress', 'syllables', 'stresses', 'bars', 'role'].map((key, i) =>
-      stanza(line({ [key]: ['./', 2, 1, 1, 'answer'][i] }))),
+    ...['stress', 'stresses', 'bars', 'role'].map((key, i) =>
+      stanza(line({ [key]: ['./', 1, 1, 'answer'][i] }))),
     stanza(line({ children: [make('word', { times: 2 })] })),
     stanza(...numbered(4, i => line({ rhyme: i % 2 ? 'B' : 'A' }))),
     stanza(line({ rhyme:'A' }), line()), stanza(line({ returns:'r' }), line()),

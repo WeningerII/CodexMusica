@@ -8,8 +8,17 @@ import lyric_harness as lh
 
 def _reading(lex, text):
     words = lh._meter_words(lex, text) or []
-    observed = {"text": text, **lh._form_reading(lex, text, words=words)}
-    if not words or words[-1]["source"] not in ("dictionary", "declared"):
+    # The number of sung word tokens does not require a known pronunciation.
+    # Meter rows are per word *piece*, so they cannot supply a compound's count.
+    cut = lh.reader_line(text, lex.strip_parens, "v2")
+    scheme = lh._scheme_of(lex)
+    incomplete = any(lh.letters_outside_repertoire(run.text) or
+                     (scheme == "v1" and run.numeral) for run in cut.runs)
+    tokens = None if incomplete else lh.line_tokens(text, lex.strip_parens, scheme)
+    observed = {"text": text, "sungWords": tokens, **lh._form_reading(lex, text, words=words)}
+    if tokens == []:
+        observed.update(syllables=0, stresses=0)
+    if not words or lh.printed_endpoint(cut) or words[-1]["source"] not in ("dictionary", "declared"):
         return observed
     last = words[-1]
     reader = lex.for_line(text).for_token(last["token"] - 1)

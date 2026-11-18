@@ -5996,6 +5996,19 @@ def test_the_stop_rules():
           gate_rows == gated | set(_RV.WRITING_BAN_CODES),
           f"extra {sorted(gate_rows - gated - set(_RV.WRITING_BAN_CODES))}, "
           f"missing {sorted((gated | set(_RV.WRITING_BAN_CODES)) - gate_rows)}")
+    regular = make_plan(seed=11, lines=12)
+    declaration = {"version": 1, "id": "chorus-first", "scope": "rule", "variant": 0,
+                   "counts": {"1.2": 1}, "rhymeGroups": [], "returnGroups": [],
+                   "sections": [{"unit": "section", "role": f, "lines": None}
+                                for f in ("chorus", "verse", "chorus")]}
+    selected = make_plan(seed=11, lines=12, song_form=declaration)
+    catalog_rows = [(kind, text) for code, kind, text in PLN.stop_rules_for(selected)
+                    if code == "CATALOG_FORM_MISMATCH"]
+    check("only a catalog plan discloses its measured form mismatch as a blocking flag",
+          "CATALOG_FORM_MISMATCH" not in regular["writer_brief"]
+          and len(catalog_rows) == 1 and catalog_rows[0][0] == "flag"
+          and "chorus-first" in catalog_rows[0][1] and "variant 0" in catalog_rows[0][1]
+          and "CATALOG_FORM_MISMATCH" in selected["writer_brief"])
     # HOW EACH ROW STOPS THE SONG, from the census's own gates: a length
     # gate leaves the draft ungraded, a flag holds it back, and a writing
     # ban is filed as a flag (`Reviser.inspect`, writing=True).
