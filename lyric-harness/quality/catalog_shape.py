@@ -210,10 +210,12 @@ def _validate_line_requirements(rows, total):
     return normalized
 
 
-def line_fit_conflicts(native, requirements):
+def line_fit_conflicts(native, requirements, bound_copy_lines=()):
     """Necessary arithmetic for this exact plan; pronunciation is judged on the actual draft."""
     total = native["total_lines"]
     rows = _validate_line_requirements(requirements, total)
+    for line in bound_copy_lines:
+        rows.setdefault(line, {})
     if not rows:
         return []
     ceilings = {s["line"]: int(plan.line_syllable_ceiling(s["duration"] * native["subdivision"]))

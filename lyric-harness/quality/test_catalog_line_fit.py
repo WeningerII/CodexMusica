@@ -54,6 +54,13 @@ class CatalogLineFitTests(unittest.TestCase):
             self.assertIn((req["line"], "CATALOG_WORD_BINDINGS"), conflicts(native, [req]))
         self.assertEqual(conflicts(native, [{"line": 1, "words": 4}, {"line": 2, "syllables": 2}]), set())
 
+    def test_copies_share_word_capacity_without_a_declared_line_count(self):
+        for slots, expected in ((4, {1, 7, 8}), (5, set())):
+            native = blueprint([slots] * 8, groups="1,2;1.T2,2.T3,7.head,8.T3", returns="1,7,8")
+            rows = catalog_shape.line_fit_conflicts(native, [], {1, 7, 8})
+            self.assertEqual({row["line"] for row in rows}, expected)
+            self.assertTrue(all(row["code"] == "CATALOG_SLOTS_EXCEEDED" for row in rows))
+
     def test_overhang_direction_and_minimum_cost(self):
         native = blueprint([3, 4], groups="1,2", relation="schema:apocopated rhyme")
         self.assertEqual(conflicts(native, [{"line": 1, "words": 3}]), {(1, "CATALOG_SLOTS_EXCEEDED")})
