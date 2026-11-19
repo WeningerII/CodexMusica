@@ -544,6 +544,18 @@ def line_count_gaps(ok=None):
     return gaps
 
 
+#: THE MOST LINES A SONG HAS: AN OWNER'S CAP, NOT A DERIVATION (John,
+#: 2026-11-19, #902: "make the cap 150 lines"). It replaces, for this one
+#: number, the standing rule that no line count is hard-coded: the floor's
+#: own ceiling was 463 lines, and songs that long had plans too big for a
+#: client to receive (a 444-line plan of 167,847 characters was never
+#: delivered) and grades too big for the server (1,874 MB for one 444-line
+#: grade on a 2 GB host). `song_line_counts()` applies it, and through it
+#: ENVELOPE: total lines, the section ceiling (cap // stanza) and lines per
+#: section. The connector's MAX_LINES mirrors it.
+SONG_LINE_CAP = 150
+
+
 @lru_cache(maxsize=None)
 def song_line_counts():
     """-> frozenset of line counts THE LYRIC-SHEET PROFILE CAN GRADE WITH
@@ -666,6 +678,9 @@ def song_line_counts():
     for prof in lyric:
         out.update(range(max(1, math.ceil(prof.lo / thi)),
                          int(prof.hi // tlo) + 1))
+    # THE OWNER'S CAP, read last: the floor could grade up to its own
+    # ceiling, and a song is held to SONG_LINE_CAP lines whatever that is.
+    out = {n for n in out if n <= SONG_LINE_CAP}
     if not out:
         raise PlanRefused(
             # M-239 (2026-09-05): the sheet row is `lyric`, not `song`.
@@ -3745,6 +3760,28 @@ def _built_left(policy, form, cells, max_cells, sung_hi=None):
             for i, d in enumerate(dims) if i not in part and d != ""]
 
 
+def _left_named(policy, form, left):
+    """-> the counts in `left` (names `_built_left` gave) as the refusal
+    prints them: each stated one as the request spelled it, then each one
+    the request did not state with its floor and what raised it (#902)."""
+    stated = [a for a in policy["atoms"]
+              if re.match(r"[\w.]+", a).group(0) in left]
+    said = {re.match(r"[\w.]+", a).group(0) for a in stated}
+    why = {}
+    rows = _folded_rows(policy, form, why)
+    for name in sorted(left - said):
+        row = name.split(".", 1)[1] if "." in name else None
+        # The list is joined with ", ", so the reason carries no comma.
+        cause = why.get(row, "")
+        if cause.startswith("the form "):
+            table = cause.rsplit(", ", 1)[1]
+            cause = f"{table} for the form {form!r}"
+        stated.append((f"{name}>={rows[row][0]}" if row in rows else name)
+                      + (f" (not stated; {cause})" if cause
+                         else " (not stated)"))
+    return stated
+
+
 def _built_tables(dims, bounds, cells, max_cells):
     """-> (dp, back, add): the forward table of each step, and how each
     entry was reached. Never past `_BUILT_STATES` entries: `_built_body`
@@ -5519,11 +5556,14 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             # WHICH COUNTS WERE ONLY CHECKED (fix round, 18 Nov; R2): on the
             # first line, which the request's own refusal quotes, so the
             # caller can see which stated counts to drop or loosen.
-            + (" These stated counts were checked on each draw, not built "
-               "into it, because a table that builds every stated count is "
-               f"past the planner's bound of {_BUILT_STATES} entries: "
-               + ", ".join(a for a in recurrence["atoms"]
-                           if re.match(r"[\w.]+", a).group(0) in _left_seen)
+            # A COUNT THE REQUEST DID NOT STATE (#902): the form's own
+            # recurrence, or a row a stated row needs, is folded into the
+            # table too, and may be the part left to the check. It is named
+            # with its floor and what raised it; it used to print nothing.
+            + (" These counts were checked on each draw, not built into it, "
+               "because a table that builds every stated count is past the "
+               f"planner's bound of {_BUILT_STATES} entries: "
+               + ", ".join(_left_named(recurrence, form, _left_seen))
                + ". State fewer counts, or smaller ones."
                if _left_seen else "")
             + f"\n{_pattern}"

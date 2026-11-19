@@ -27,7 +27,7 @@ import { buildWorkflowServer } from './workflow_tools.js';
 import { requestContext } from './execution_context.js';
 import { continuationSemanticIdentity } from './state_codec.js';
 import { LEXICON_MANIFEST } from './lexicon_basis.js';
-import { _verdictInternals } from './lyric_tools.js';
+import { _verdictInternals, MAX_WRITE_LINES } from './lyric_tools.js';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { legacySession, legacyStated, legacySweep, stated } from './statement_fixture.mjs';
@@ -1791,8 +1791,11 @@ test(
         assert.match(refused.content[0].text, code);
       }
     }
-    // The draws reached a long plan, so the bound was met at length.
-    assert.ok(longest >= 400, `the longest plan drawn has ${longest} lines`);
+    // The draws reached a long plan, so the bound was met at length. Since
+    // 2026-11-19 a new song is planned with at most MAX_WRITE_LINES (150)
+    // lines (John, #902), so "long" is within a tenth of that cap; it was 400
+    // of the old 463.
+    assert.ok(longest >= MAX_WRITE_LINES * 0.9, `the longest plan drawn has ${longest} lines`);
   }
 );
 

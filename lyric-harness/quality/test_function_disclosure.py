@@ -403,10 +403,13 @@ class PlanReceiptTests(unittest.TestCase):
     def test_the_type_receipt_says_a_rejected_type_is_tried_first(self):
         # #902: a group tries a type an earlier group rejected before it
         # draws (`_assign_types`); the receipt said only that it redraws.
-        built = P.make_plan(2)
-        records = built['choices']['relations']['groups']
-        self.assertTrue(any(r['chosen_from'].startswith('carried from an earlier group')
-                            for r in records))
+        # The seed is the first one whose draw carries a type, not a pin: the
+        # 150-line writing cap (#902) re-dealt the seed this test first used.
+        def carried(built):
+            return any(r['chosen_from'].startswith('carried from an earlier group')
+                       for r in built['choices']['relations']['groups'])
+        built = next((b for b in map(P.make_plan, range(200)) if carried(b)), None)
+        self.assertIsNotNone(built, 'no seed in 0..199 carries a type')
         self.assertIn('the group redraws, trying a type an earlier group rejected first',
                       built['choices']['relations']['chosen_from'])
 

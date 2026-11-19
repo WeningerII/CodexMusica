@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { checkForm, describeForm, realizeForm } from '../src/song-forms.mjs';
-import { projectSongFormCreation } from '../src/song-form-creation.mjs';
+import { CREATION_LIMITS, projectSongFormCreation } from '../src/song-form-creation.mjs';
 import { gradeObservations } from '../src/song-form-grade.mjs';
 
 const catalog = JSON.parse(readFileSync(new URL('../data/song-forms.json', import.meta.url)));
@@ -99,6 +99,15 @@ test('closing lines link successive 14-line sections, including the return to th
     ['sonnet-sequence', 1, 7, false],
     ['heroic-crown', 0, 14, true],
   ]) {
+    // (#902) A crown past the owner's 150-line cap is refused by name, with
+    // no contract to grade.
+    if (14 * (size + Number(master)) > CREATION_LIMITS.maxLines) {
+      const refused = select(id, variant);
+      assert.equal(refused.status, 'unsupported', id);
+      assert.deepEqual(refused.reasons.map((r) => r.code), ['native-line-limit'], id);
+      assert.equal(refused.contract, null, id);
+      continue;
+    }
     const { contract } = select(id, variant);
     const sections = contract.sections.map((s, i) => ({ ...s, lineSpan: [14*i, 14*(i+1)] }));
     assert.equal(sections.length, size + Number(master));

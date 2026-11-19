@@ -167,8 +167,8 @@ export function linesOfDivision(node) {
 // against quality.plan in the catalog-wide tests.
 export const CREATION_LIMITS = Object.freeze({
   minLines: 2,
-  maxLines: 463,
-  maxSections: 115,
+  maxLines: 150,
+  maxSections: 37,
 });
 
 /**
@@ -662,12 +662,17 @@ export function projectSongFormCreation(plan, counts = {}) {
       refuse('unsupported-return-layout');
   }
   if (sections.length > CREATION_LIMITS.maxSections) refuse('native-section-limit');
+  // EVERY SHAPE IS HELD TO THE LINE CAP (#902, the owner's 150 lines): the
+  // lines the sections fix, a section left open counted as its one line.
+  // ~~Checked only for nested divisions~~: a form of fixed named sections
+  // past the cap was advertised as ready and the planner refused it.
+  if (sections.reduce((n, part) => n + (part.lines ?? 1), 0) > CREATION_LIMITS.maxLines) {
+    refuse('native-line-limit');
+  }
   if (lineRequirements.length && sections.some((part) => part.lines === null)) {
     refuse('incomplete-line-positions');
   }
   if (nestedDivisions) {
-    const known = sections.reduce((n, part) => n + (part.lines ?? 1), 0);
-    if (known > CREATION_LIMITS.maxLines) refuse('native-line-limit');
     if (sections.every((part) => part.lines === 1)) refuse('no-inspectable-native-pair');
   }
   if (divisions.length) {

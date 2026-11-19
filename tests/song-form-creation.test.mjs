@@ -32,9 +32,55 @@ test('stepped printing is bounded by native physical slots and leaves undeclared
 });
 
 test('a named catalog role retains its spelling on a native verse carrier', () => {
-  const {contract} = projection(catalog, 'heroic-crown', {variant:0});
-  const last = contract.sections.at(-1);
-  assert.deepEqual([last.role, last.sourceRole], ['verse', 'master-sonnet']);
+  // ~~One named form, its last section~~ (#902): that form is past the
+  // owner's 150-line cap and is refused. Every ready setting is read
+  // instead: a section carried as a native verse keeps the catalog role's
+  // own spelling as its sourceRole, hyphens included.
+  let kept = 0;
+  for (const form of catalog) {
+    for (const choice of describeForm(catalog, form.id).variants) {
+      const counts = Object.fromEntries(choice.counts.map(({ path, min, max }) =>
+        [path, Math.min(min + 1, max ?? Infinity)]));
+      const realization = realizeForm(catalog, form.id, { variant: choice.index, counts });
+      const projected = projectSongFormCreation(realization, counts);
+      if (projected.status !== 'ready') continue;
+      const roles = new Set();
+      const collect = (node) => {
+        if (node.role !== undefined) roles.add(node.role);
+        node.children.forEach(collect);
+      };
+      realization.tree.forEach(collect);
+      projected.contract.sections.forEach((part, i) => {
+        if (part.sourceRole === undefined || part.role !== 'verse') return;
+        assert.ok(roles.has(part.sourceRole), `${form.id}/${choice.index}/${i}: ${part.sourceRole}`);
+        if (part.sourceRole.includes('-')) kept++;
+      });
+    }
+  }
+  assert.ok(kept > 0);
+});
+
+test('no ready contract fixes more lines than the cap, and a form past it is refused by name', () => {
+  // #902: the owner's 150-line cap holds every form shape. A form of fixed
+  // named sections was not checked, so one past the cap was advertised as
+  // ready and the planner refused it.
+  let over = 0;
+  for (const form of catalog) {
+    for (const choice of describeForm(catalog, form.id).variants) {
+      const counts = Object.fromEntries(choice.counts.map(({ path, min, max }) =>
+        [path, Math.min(min + 1, max ?? Infinity)]));
+      const projected = projectSongFormCreation(
+        realizeForm(catalog, form.id, { variant: choice.index, counts }), counts);
+      const where = form.id + '/' + choice.index;
+      if (projected.status === 'ready') {
+        const fixed = projected.contract.sections.reduce((n, part) => n + (part.lines ?? 1), 0);
+        assert.ok(fixed <= CREATION_LIMITS.maxLines, `${where}: ${fixed} lines`);
+      } else if (projected.reasons?.some((reason) => reason.code === 'native-line-limit')) {
+        over++;
+      }
+    }
+  }
+  assert.ok(over > 0);
 });
 
 test('every published selection has an exact structural contract or an explicit refusal', () => {

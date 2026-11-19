@@ -29,6 +29,10 @@ adoption or the refusal, are `quality/RESULTS_SHORT_SONG_FLOOR.md`.
 > planner reaches **1..463** (463 values), `fillable_line_counts()` is
 > **2..463** and `ENVELOPE["total_lines"]` is **(2, 463)**. Read the live
 > values from `quality/floor.py` and `quality/plan.py`, not from this file.
+> Later the same day (#902) the owner capped the writing of a new song at 150
+> lines: the planner reaches **1..150**, `fillable_line_counts()` is
+> **2..150** and `ENVELOPE["total_lines"]` is **(2, 150)**. Reading and
+> grading still take 463 lines.
 
 ## 0. Why this cell exists
 

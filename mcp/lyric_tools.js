@@ -145,6 +145,14 @@ const MAX_WORD_CHARS = 40;
 // writable capacity, `EXECUTABLE_MAX_LINES`) — DELETED 2026-09-28 by owner
 // ruling: every plan the planner draws can be written, graded and revised.
 export const MAX_LINES = 463;
+// THE WRITING CAP (owner ruling, John, 2026-11-19, #902: "make the cap 150
+// lines"; confirmed to R2 the same day as for writing only). The most lines a
+// NEW song is planned with: the planner's `SONG_LINE_CAP`, which
+// `ENVELOPE["total_lines"]` reads, checked by test_high_report. It bounds the
+// `lines` field alone. MAX_LINES above stays the READING limit: a pasted,
+// checked, recovered or graded text may hold 463 lines, the longest poem in
+// the English corpus.
+export const MAX_WRITE_LINES = 150;
 // THE ONE LINE LIMIT, in code points: the longest line any lyric tool takes,
 // in a draft it is given to read or grade and in an answer the writer sends.
 // RAISED 200 -> 512 on 2026-11-12 (issue #851): the stored corpus has lines of
@@ -2098,10 +2106,10 @@ const linesField = z
   // floor, and the default form `open` plans any total from 2 (one group of
   // two lines); a verse-chorus request below 12 is refused by the planner.
   .min(LINES_FLOOR)
-  .max(MAX_LINES)
+  .max(MAX_WRITE_LINES)
   .optional()
   .describe(
-    `Exact total line count, at least ${LINES_FLOOR} and at most ${MAX_LINES} (the planner's envelope; a form that requires sections needs more, and the plan refuses a count under its floor). Every plan can be written, graded and revised. ${sweepNeeds('lines')}`
+    `Exact total line count, at least ${LINES_FLOOR} and at most ${MAX_WRITE_LINES} (the planner's envelope; a form that requires sections needs more, and the plan refuses a count under its floor). Every plan can be written, graded and revised. ${sweepNeeds('lines')}`
   );
 
 // STATE IT OR SAY DRAW (stage 3). The things a new song states, read from

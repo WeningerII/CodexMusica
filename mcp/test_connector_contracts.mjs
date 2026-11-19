@@ -106,10 +106,13 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
     );
     assert.equal(empty.held_by[1].held, 28);
     assert.match(empty.meaning, /^REFUSED — the harness answered: 28 of 28/);
-    // Each predicate's own count is said, not pointed at.
+    // Each predicate's own count is said, not pointed at. Re-measured
+    // 2026-11-19 under the 150-line writing cap (John, #902): the length is
+    // drawn from 150 lines down, so 2 of these 28 seeds now draw 24 lines or
+    // fewer (it was 0 of 28). Still no seed holds all four.
     assert.match(
       empty.window_meaning,
-      /Each predicate held on its own, of the 28 planned: lines<=24 on 0; uses=verse,chorus on 28; /
+      /Each predicate held on its own, of the 28 planned: lines<=24 on 2; uses=verse,chorus on 28; /
     );
     assert.match(empty.window_meaning, /at most \d+\.\d% of seeds are kept under this request/);
     // `uses=` states the sections, so the roster is not advised. `lines<=24`

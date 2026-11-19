@@ -33,6 +33,7 @@ Numeric caps and budgets: module-level constants in the harness files that ran f
 | PLANNED_LINE_CHARS | 200 | `quality/plan.py` |
 | BEATS_PER_SYLLABLE_MAX | 1 | `quality/plan.py` |
 | EXACT_ENUM_MAX | 10 | `quality/plan.py` |
+| SONG_LINE_CAP | 150 | `quality/plan.py` |
 | PATTERN_ATTEMPTS | 200 | `quality/plan.py` |
 | MAX_CHOICES | 128 | `quality/pronunciation.py` |
 | MAX_LINE_CHARS | 512 | `quality/propose.py` |
@@ -93,6 +94,7 @@ Connector:
 | MAX_WORDS | 12 | `../mcp/lyric_tools.js` |
 | MAX_WORD_CHARS | 40 | `../mcp/lyric_tools.js` |
 | MAX_LINES | 463 | `../mcp/lyric_tools.js` |
+| MAX_WRITE_LINES | 150 | `../mcp/lyric_tools.js` |
 | MAX_LINE_CHARS | 512 | `../mcp/lyric_tools.js` |
 | ANSWER_LINE_UTF8_BYTES | 800 | `../mcp/lyric_tools.js` |
 | ANSWER_LINE_JSON_BYTES | 1,200 (1 KB) | `../mcp/lyric_tools.js` |
