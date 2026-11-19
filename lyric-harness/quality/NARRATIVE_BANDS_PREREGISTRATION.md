@@ -90,3 +90,11 @@ outcome block moves -- the registration above the line does not.)
 (REPINNED AGAIN 2026-09-26, `MISSING.md` M-315: `line_tokens` now joins a
 spaced enclitic onto its word, which moves P1 0.5916 -> 0.5914 and its null
 0.5834–0.5887 -> 0.5832–0.5886; re-derived by `--check`, no conclusion changes.)
+(REPINNED 2026-10-08 and 2026-10-16, recorded here 2026-11-19: two corpus
+passes moved the pins in `quality/narrative_bands.py` again, with the code
+unchanged. The figures `--check` now re-derives are 8,701 songs measured, 24
+refused for missing marks, 39,160 seams; P1 0.6213 against a null median of
+0.6142 (null range 0.6126–0.6198, excess +0.71pp); P2 0.0043 over 1,617
+pairs. The figures above are therefore not the corpus as it stands; the
+module's PINNED comments give each cause. The P1 size ruling was not re-sat
+on these figures, and no threshold is adopted.)

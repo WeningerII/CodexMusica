@@ -7,7 +7,7 @@ as current instructions.
 Main took a different architecture. The plan wanted an in-app SVG Place view inside `codex.html`,
 and it rejected a separate page, a `data/` directory and `<canvas>`. Main shipped the prototype's
 shape instead: a standalone `atlas.html` with a canvas map, driven by `src/atlas.js` and
-`data/*.json`. Codex loads it into its Map view as `atlas.html?embedded=1` (`src/workbench.js:42`).
+`data/*.json`. Codex loads it into its Map view as `atlas.html?embedded=1` (~~`src/workbench.js:42`~~ `src/pages/map.js:125`, 2026-11-19).
 For the atlas as it is, read `atlas.html` and `docs/atlas-imagery.md`.
 
 The plan's measurements are 2,503-entry prototype figures. They were taken from the Claude Design
@@ -40,18 +40,18 @@ the audit's. Line numbers are for `2488a96c` and will drift.
 | B6/R5 | 66 entries under 26 labels that deny a single place ("(internet-native)", "(worldwide)") are pinned and published. | NOW_WORSE | `data/geo.json:318`, `:1050` |
 | SENSITIVE-withhold | Nothing is withheld: every pin publishes, including 256 ceremonial-lineage entries with "Listen ↗" and no notice. | NOW_WORSE | `src/atlas.js:270-272` |
 | B14/DEFER-routes | 33 routes ship in one dashed style, with 10 inline-literal endpoints and no displacement, source or reviewer field. | NOW_WORSE | `data/routes.json:4`; `src/atlas.js:640-663` |
-| CUT-listen | "Listen ↗" YouTube-search links ship on the atlas card and now on every codex tradition and instrument. | NOW_WORSE | `src/atlas.js:1249-1251`; `src/workbench.js:25-26` |
+| CUT-listen | "Listen ↗" YouTube-search links ship on the atlas card and now on every codex tradition and instrument. | NOW_WORSE | `src/atlas.js:1249-1251`; `src/workbench.js:25-26` (now `src/atlas.js:1938` and `src/workbench.js:177`, 2026-11-19) |
 | B11b-political-geometry/R7 | Named political country polygons (242 features, 896 KB) are fetched on every atlas load; no nameless land mask was built. | NOW_WORSE | `src/atlas.js:216` |
 | CUT-copy-recipe | "Copy recipe" ships; if the recipe fetch fails it copies "name — place" and still reports "Copied ✓". | NOW_WORSE | `src/atlas.js:1881`, `:1896` |
 | NOINDEX | The atlas emits a `codex.html?trad=` link for every entry; codex ignores the parameter and has no noindex or canonical. | NOW_WORSE | `src/atlas.js:1294-1298` |
 | APP-SIZE-BUDGET | The standalone atlas build inlines everything into one 4.18 MiB script block, over 4× the 1 MiB ceiling, and nothing checks it. | NOW_WORSE | `scripts/build_atlas_standalone.js:150`; `scripts/build_html.js:165` |
 | PH2-exit | Phase 2 place classes are ungated and worse: 29 labels at more than one coordinate (27 in August), 5 coordinates at 3 decimal places, 2,102 pins spread up to 25 km. | NOW_WORSE | `scripts/_atlas_regions.js:170-183` |
 | PH0/B17 | `main` is unprotected, so every gate is advisory. | STILL_OPEN_TRUE | `AUDIT.md:365`; `docs/branch-protection.md` |
-| PH1-exit | No Phase 1 exit holds: false pairs, no signature check in the PR gate, no missing-parent check, 24 promises. _Attribution clauses being fixed in the signature truth-pass PR (branch `claude/signature-truth-pass`)._ | STILL_OPEN_TRUE | `scripts/validate.js:294` |
+| PH1-exit | No Phase 1 exit holds: false pairs, ~~no signature check in the PR gate~~ (closed: CI runs `build_signatures.js --check`, 2026-11-19), no missing-parent check, 24 promises. _Attribution clauses being fixed in the signature truth-pass PR (branch `claude/signature-truth-pass`)._ | STILL_OPEN_TRUE | `scripts/validate.js:294` |
 | B1 | No pin is human-verified, and 86 are not even model-reviewed. The page discloses this; the audit is not done. | STILL_OPEN_TRUE | `data/geo-meta.json:1`; `src/atlas.js:340-351` |
 | B10 | Live `mongolian_khoomei`, `tibetan_yang_chant` and `coptic_orthodox_chant` have no signature. The 9 orphan keys that named no tradition (`mongolian_xoomii`, `tibetan_gyuto`, `coptic_liturgical`, …) were dropped on 2026-09-26 by `build_signatures.js --reconcile`, not migrated: moving one onto its live successor (Phase 1 below) would change that tradition's recipe, which is an owner call. Their tokens remain in git history for that migration. | STILL_OPEN_TRUE | `references/_tradition_signatures.json` |
 | CORRECTIONS | "Corrections welcome" links nowhere; there is no place-correction template, alias or dispute flag. | STILL_OPEN_TRUE | `src/atlas.js:351`; `SUPPORT.md:5` |
-| B16/EGRESS | `atlas.html` loads Google Fonts, including inside codex's Map view, and `PRIVACY.md` does not say so. | STILL_OPEN_TRUE | `atlas.html:22-27`; `src/workbench.js:42` |
+| B16/EGRESS | `atlas.html` loads Google Fonts, including inside codex's Map view, and `PRIVACY.md` does not say so. | STILL_OPEN_TRUE | `atlas.html:22-27`; ~~`src/workbench.js:42`~~ `src/pages/map.js:125` (2026-11-19) |
 | UI-GATE-REG | `ui_reachability_check` has no promise row, its `document`/`n/a` sentinel always passes, and atlas internals are not inventoried. | STILL_OPEN_TRUE | `scripts/ui_reachability_check.js:438` |
 | DEEPLINK-codex | `codex.html` ignores `?trad=`, so the standalone atlas's "Add genre" lands on codex with nothing added. | STILL_OPEN_TRUE | `src/map-ui.js:47`; `src/workbench.js:793` |
 | DEEPLINK-atlas | Atlas `?trad=` has no allowlist; `constructor`, `__proto__` and `toString` open bogus cards. | STILL_OPEN_TRUE | `src/atlas.js:236-240` |
@@ -77,7 +77,7 @@ the audit's. Line numbers are for `2488a96c` and will drift.
 | B11a-basemap-licence | The Natural Earth 1:50m source has no pinned version, URL or hash, and `assets/ATTRIBUTION.md` has no Natural Earth row. | STILL_OPEN_TRUE | `scripts/build_atlas_basemap.js:27-31` |
 | PUBLISH-MANIFEST | The Pages publish list is hand-maintained, with no gate comparing it to builder outputs. | STILL_OPEN_TRUE | `.github/workflows/sync-pages.yml:187` |
 | VALIDATE-MISSING_PARENT | `scripts/validate.js` still passes a tradition whose `parent` is missing. | STILL_OPEN_TRUE | `scripts/validate.js:294` |
-| BUILD-SIGS-CHECK | `scripts/build_signatures.js --check` runs in no PR gate. | STILL_OPEN_TRUE | `scripts/build_signatures.js` (called from neither `package.json` nor `.github/workflows/`) |
+| BUILD-SIGS-CHECK | ~~`scripts/build_signatures.js --check` runs in no PR gate.~~ Closed after this snapshot (2026-11-19): `package.json` `check:signatures` and the `ci.yml` step 'Signature mirror parity' run it. | ~~STILL_OPEN_TRUE~~ CLOSED | `scripts/build_signatures.js` (~~called from neither `package.json` nor `.github/workflows/`~~ called from `package.json` and `.github/workflows/ci.yml`) |
 | CHECK-PROMISES-DOCS | The promise gate's doc list still omits `PRIVACY.md` and `SECURITY.md`. | STILL_OPEN_TRUE | `scripts/check_promises.js:23` |
 | CONTRAST | `--text-3` on `--surface-2` is 4.36:1, below AA, in two codex rules; there is no contrast gate. The third, `.starter-trad-count`, was deleted with the legacy empty state on 2026-09-26. | STILL_OPEN_TRUE | `src/index.template.html` `.inline-filter-count`, `.env-cluster-count` |
 | MOBILE-845-899 | The mobile gate has no viewport from 845 to 899 px and does not cover `atlas.html`. | STILL_OPEN_TRUE | `scripts/check_mobile_layout.js:69-80` |

@@ -38,6 +38,13 @@ NO INSTANCE -> CANNOT FAIL; that verdict exposes the open `_bucket_key` gap
 (G1 in M-322), not a new property of the schema. `EXTENSION_LEDGER` and
 `LEDGER_CANNOT_OBTAIN` carry the same repin.
 
+**Superseded in part, 2026-10-31 (noted here 2026-11-19).** Two repins the
+next day, recorded in full in §4b (G1, #647, and M-311 F1, #657), move the
+census to 3 controlled, ~~27~~ **29** extendable, ~~8~~ **9** no-instance,
+~~39~~ **38** cannot-obtain (~~38~~ **37** input-resolvable and 1
+implementation-required), and 1 cannot-fail. `EXTENSION_LEDGER` and
+`LEDGER_CANNOT_OBTAIN = (37, 1)` in `quality/relations_null.py` carry these.
+
 This correction validates the coverage census and its refusal remedies.
 “Controlled” here records membership in the historical arm inventory;
 it does **not** qualify the historical effect sizes for the current judge.

@@ -106,8 +106,8 @@ see `scripts/build_static_api.js` and `scripts/build_discovery.js`.
 
 ## Live MCP connector
 
-A hosted **Model Context Protocol** server (`mcp/`, deployed on Render with automatic
-deploys disabled in `render.yaml`) exposes the full *editable* engine as MCP tools — the headless twin of the browser
+A hosted **Model Context Protocol** server (`mcp/`, deployed on Render from a release image per
+`mcp/IMAGE_RELEASE.md`; `render.yaml` is a legacy migration reference only) exposes the full *editable* engine as MCP tools — the headless twin of the browser
 app: seed a recipe, then edit prefaces / variants / room / chain / tuning, add/remove
 instruments and traditions, and re-render. The shared Streamable HTTP endpoint requires
 no account login. Recipe operations are deterministic; lyrics have a separate revision

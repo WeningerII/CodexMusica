@@ -84,7 +84,7 @@ The historical nightly estimate did not count the newer 40-minute curve step:
 bound = 267.4 minutes before setup/save, exceeding the 240-minute job by 27.4 minutes.
 That is arithmetic from old measurements and current bounds, not a measured current
 completion. The separate qualification jobs avoid that stack; their current actual
-completion times and complete four-shard outcomes remain to be measured. The old
+completion times and complete ~~four-shard~~ sixteen-shard mutation outcomes (2026-11-19) remain to be measured. The old
 nightly remains unable to promise cache persistence at its job ceiling.
 
 This evidence attests the maintained full comparisons. It does not substitute for
@@ -130,9 +130,12 @@ with a 50-minute bound per shard (repinned 2026-11-19).
 Actual Docker Python 3.11 build and total-job completion are still required before
 claiming these budgets fit.
 
-The ~~65-minute~~ capacity matrix (now `capacity-matrix.yml`, 50 minutes per shard) is also unproven. Its full denominator is 18 instrument
+The ~~65-minute~~ capacity matrix (now `capacity-matrix.yml`, 50 minutes per shard) is also unproven. Its full denominator is ~~18 instrument
 executions (three lengths × three seeds × cold/worker), containing 72 measured verb
-calls: 36 grade and 36 revise. Each size/seed has one cold call and three worker calls
+calls: 36 grade and 36 revise~~ 36 instrument executions (three lengths × three seeds ×
+cold/worker × two library profiles, `library_mode` unloaded/loaded), dealt across 8 shards
+and containing 144 measured verb calls: 72 grade and 72 revise (repinned 2026-11-19; the
+call count is the old per-profile 72 doubled). Each size/seed has one cold call and three worker calls
 per verb, plus plan/setup, resident-server recovery and queue-pressure work. Local
 maximum-size samples do not establish the whole matrix's elapsed time or Docker
 resource qualification. No operational 600-second call or 40-minute turn limit changed.

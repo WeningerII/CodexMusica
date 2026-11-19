@@ -93,7 +93,7 @@ Parishes per type: 1 → 3,985 · 2 → 1,206 · 3–4 → 1,290 · 5–9 → 1,
 Corrected max **349**, mean **7.784** on the identical SKVR-only universe the
 published 362 / 8.128 / 3,216-single-parish figures were computed over
 (reproduced exactly in `parish_measure_audit`, then corrected: 349 / 7.784 /
-3,097). Note doctrine 13 in `../../CLAUDE.md` cites the old 362.
+3,097). ~~Note doctrine 13 in `../../CLAUDE.md` cites the old 362.~~ (2026-11-19: no doctrine carries the 362 now; doctrine 13 is a one-line row in the doctrine table of `../../../HANDBOOK.md` and states no figure. `../../../quality/LABELS.md` now carries the corrected 349 / 7.784 / 3,097.)
 
 ## Exact vs normalised matching — priced, not asserted
 

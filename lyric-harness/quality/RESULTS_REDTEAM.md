@@ -42,7 +42,10 @@ because its mandated pairs' best alignment was already the equal-length one.
 the max. `check_scheme` then prints the score beside `endwords[i]/endwords[j]`.
 When the winning span is an interior mosaic reach, the report names a pair that
 had nothing to do with the number. Doctrine 45's shape: a checker silently
-picking a coordinate and making a claim it never states. **Open.**
+picking a coordinate and making a claim it never states. ~~**Open.**~~
+**Fixed** (2026-11-19 note): `best_score` now returns a `Scored` carrying an
+`Attribution` that names the winning span pair and the words it covers
+(`BACKLOG.md` 1.2, closed 2026-08-17).
 
 ## 3. The band's thresholds had never been given a false-positive rate
 
@@ -92,6 +95,13 @@ moves 73/1014 (7.2%) → ~~**81/1014 (8.0%)**, exactly as predicted~~. Red-team
 FPR falls 10.67% → ~~**3.57%** (107 of 3,000 at seed 20260810; 3.60% at
 n=4,000)~~.
 
+> **REPINNED AGAIN 2026-09-22 (noted here 2026-11-19).** Under the N-relation
+> model, with `nucleus_agreement` "licensed", the red-team FPR in the box below
+> moved again: ~~2.00% (60 of 3,000)~~ → **0.00% (0 of 3,000)** and ~~2.10%
+> (84 of 4,000)~~ → **0.00% (0 of 4,000)**; see the REPINNED comments in
+> `quality/redteam_band.py`. The battery figure has moved too; read it live
+> from `battery()` and `band_fpr()` in `quality/counters.py`, not from this file.
+
 > **BOTH RIGHT-HAND FIGURES ARE REPINNED 2026-08-14 — AND BOTH DIED ON
 > 2026-08-11, NOT TODAY.** Battery ~~81/1014 (8.0%)~~ → **82/1014 (8.1%)**;
 > red-team FPR ~~3.57% (107 of 3,000)~~ → **2.00% (60 of 3,000)** and
@@ -108,7 +118,7 @@ n=4,000)~~.
 > `theta_coda` is INERT under it and no sweep of that threshold reaches these
 > numbers from those. `n` is the other coordinate and it is the one this
 > document kept dropping: `quality/redteam_band.py` **defaults to n=4,000**
-> (`redteam_band.py:634`), so the bare command prints the 4,000 row and never
+> (~~`redteam_band.py:634`~~ `run()` and the `__main__` block of `redteam_band.py`), so the bare command prints the 4,000 row and never
 > the 3,000 one, and a rate written without its population size cannot be
 > reproduced from the command written beside it (doctrine 91).
 >

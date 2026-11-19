@@ -9,7 +9,7 @@ cell reads the map instead of re-deriving it.
 policy is not one: the gateway DENIES BY DEFAULT and answers 403 to CONNECT
 for anything not on its list. A blocklist of 13 hosts implied 13 closed doors
 and an open world; the truth is ~8 open doors. That inversion cost one cell
-most of its authors (`data/sources.tsv:125`, which states the allowlist fact
+most of its authors (~~`data/sources.tsv:125`~~ `NOTE:egress-map-for-song-sourcing-2026-08-10` in `data/sources.tsv`, cited by key 2026-11-19, which states the allowlist fact
 this file contradicted for eleven days) and shaped six sourcing briefs.
 
 **The proxy does NOT publish the allowlist, and its status endpoint is a
@@ -32,14 +32,14 @@ it; if you find a row is wrong, correct it and say when.
 | channel | last verified | evidence |
 |---|---|---|
 | **`git clone` / `git ls-remote` of any public GitHub repo** | 2026-08-21 | the single most useful channel in the list; works even though `codeload` tarballs 403 at the ORIGIN (see the correction below) |
-| **`raw.githubusercontent.com`** | 2026-08-21 | `data/sources.tsv:67`, `:125` |
-| **GITenberg** (`github.com/GITenberg`, ~50k repos) | standing | **overturned a committed NOT-FOUND row**: the Finnish Kalevala, recorded as unreachable, fetched in one call and validated at **81.3%** alliteration *(~~81.2%~~ REPINNED 2026-08-13: 3,253 of the first 4,000 verse lines, and 22,795 lines extracted rather than the 22,822 recorded — MEASURED by `quality/audit_kalevala_null.py --check`; the origin row is `data/sources.tsv:58`)* (doctrine 49). Search the org by REPOSITORY NAME — `mcp__github__search_code` does not index GITenberg text bodies (`data/sources.tsv:392`) |
+| **`raw.githubusercontent.com`** | 2026-08-21 | ~~`data/sources.tsv:67`, `:125`~~ rows `NOTE:gitenberg-reopens-gutenberg` and `NOTE:egress-map-for-song-sourcing-2026-08-10` in `data/sources.tsv` (cited by key, 2026-11-19: line numbers drift) |
+| **GITenberg** (`github.com/GITenberg`, ~50k repos) | standing | **overturned a committed NOT-FOUND row**: the Finnish Kalevala, recorded as unreachable, fetched in one call and validated at **81.3%** alliteration *(~~81.2%~~ REPINNED 2026-08-13: 3,253 of the first 4,000 verse lines, and 22,795 lines extracted rather than the 22,822 recorded — MEASURED by `quality/audit_kalevala_null.py --check`; the origin row is ~~`data/sources.tsv:58`~~ `GITenberg/Kalevala_7000` in `data/sources.tsv`, 2026-11-19)* (doctrine 49). Search the org by REPOSITORY NAME — `mcp__github__search_code` does not index GITenberg text bodies (~~`data/sources.tsv:392`~~ `SEARCH:finnish-hymnal-finno-hemming-2026-08-11`, 2026-11-19) |
 | `mcp__github__search_code` / `search_repositories` | standing | locating a known text by a line of it, OUTSIDE GITenberg. Doctrine 51: count DISTINCT BYTES, not URLs — five hits in four repos were three copies of one file plus a fork. `search_repositories` throttles after ~8 calls |
-| GITenberg search via `WebFetch` on github.com HTML | CONTESTED 2026-08-21 | this file said "no rate limit"; `data/sources.tsv:63` records 429 after a couple of `/search` hits. Both rows are committed and they disagree — RE-PROBE AND PICK ONE before relying on either |
+| GITenberg search via `WebFetch` on github.com HTML | CONTESTED 2026-08-21 | this file said "no rate limit"; ~~`data/sources.tsv:63`~~ `NOTE:reachable-channels-2026-08-10` (2026-11-19) records 429 after a couple of `/search` hits. Both rows are committed and they disagree — RE-PROBE AND PICK ONE before relying on either |
 | Hugging Face **MCP tools only** (`hf_whoami`, `hf_fs`, `hub_repo_search`) | 2026-08-21 | how `wikimedia/wikisource` is reachable despite wikisource being closed. `hf_fs cat` refuses binaries: `wikimedia/wikisource` config `20231201.cy` — Welsh Wikisource, one 1,251,259-byte parquet — is **named, located and unreadable** until someone has a parquet-capable channel (M-9's standing pointer). `huggingface.co` itself is closed at CONNECT |
-| `gitlab.com`, `pypi.org`, `registry.npmjs.org`, `files.pythonhosted.org` | 2026-08-11 | the last three are in the proxy's own `noProxy` list, i.e. direct (`data/sources.tsv:125`) |
+| `gitlab.com`, `pypi.org`, `registry.npmjs.org`, `files.pythonhosted.org` | 2026-08-11 | the last three are in the proxy's own `noProxy` list, i.e. direct (~~`data/sources.tsv:125`~~ `NOTE:egress-map-for-song-sourcing-2026-08-10` records `pypi.org` and `registry.npmjs.org` reachable; the `noProxy` detail is not in that row, 2026-11-19) |
 | `thabz/Kalliope` | standing | Nordic poetry, found late in a round nobody had mapped |
-| `WebSearch` | standing, with the trap named | it works AND its results are often unfetchable — a Blaydon Races search returned mudcat, traditionalmusic and Wikipedia, every one refused at CONNECT (`data/sources.tsv:125`) |
+| `WebSearch` | standing, with the trap named | it works AND its results are often unfetchable — a Blaydon Races search returned mudcat, traditionalmusic and Wikipedia, every one refused at CONNECT (~~`data/sources.tsv:125`~~ `NOTE:egress-map-for-song-sourcing-2026-08-10`, 2026-11-19) |
 
 ## The stand-in shapes — a blocked host with an open twin
 

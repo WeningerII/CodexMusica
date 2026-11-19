@@ -145,7 +145,9 @@ def census():
 #: register (the row's status cell states the register's, and a closed row says
 #: it is kept as history) and the pin is 0. A row the register disagrees with
 #: now fails `--check` until it is reconciled or flags itself (`STALE · S`).
-PINNED = {"agree": 95, "self_flagged_n": 5, "silent_n": 0,
+#: Later on 2026-11-19 the five self-flagged rows (M-181, M-182, M-132, M-15a,
+#: F-5) were reconciled too, so every compared row agrees.
+PINNED = {"agree": 100, "self_flagged_n": 0, "silent_n": 0,
           "unregistered_n": 0}
 
 

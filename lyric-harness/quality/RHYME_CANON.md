@@ -1753,11 +1753,11 @@ take a different remedy: a search, not a coinage label.
 
 `Tradition.witness` is now tri-state and DERIVED at import from this index and the canon
 entry's own `from:` line — never typed into a table, because a citation typed by hand is the
-defect this whole section exists to close. Over **299 distinct traditions on 320 attachments**:
+defect this whole section exists to close. Over **301 distinct traditions on 322 attachments**:
 
 | verdict | n |
 |---|---:|
-| externally witnessed | **212** |
+| externally witnessed | **214** |
 | **this project's own** | **26** |
 | cannot be told | **61** |
 

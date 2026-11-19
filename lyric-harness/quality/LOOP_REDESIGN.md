@@ -2,19 +2,20 @@
 
 Status: **DESIGN v4 — PASSED the debate (round 2: both judges, `passes_with_changes`).**
 Version 4 is version 3 (the owner's rulings of 2026-10-02, §6) plus the binding
-round-2 amendments in §2.8. The build (Phase 3) works from this version. Written 2026-10-02 on branch `claude/revise-loop-redesign`.
+round-2 amendments in §2.8. The build (Phase 3) works from this version. (2026-11-19: the build is done; §7 records where it departs from this version, and the repo-root `LOOP_REDESIGN_STATUS.md` its status.) Written 2026-10-02 on branch `claude/revise-loop-redesign`.
 
 The owner's words: *"the biggest problem is 100+ line songs"*, and *"a new
 revise loop requires a debate workflow for verification, not song runs"*.
 
-This file has six parts:
+This file has ~~six~~ seven parts:
 
 1. what was measured before anything was designed;
 2. the design, version 4: version 2 (after the debate), the owner's rulings, and the binding round-2 amendments (§2.8);
 3. what stays the same, and what would change in the connector's published contract;
 4. what it costs, what must still be measured before building, and the tests that must fail on the old code and pass on the new;
 5. the debate's record;
-6. the questions for the owner, and the owner's answers.
+6. the questions for the owner, and the owner's answers;
+7. the build notes (Phase 3), added after the build (2026-11-19).
 
 Every figure here comes from a command run on this branch. The commands are in
 `quality/loop_redesign_phase1/` (scratch measurement scripts kept so the
@@ -276,7 +277,7 @@ Today the replay is the only authority over what was accepted. A forged
 cursor is trusted, so in a caller-held state it must be unforgeable.
 
 - **What is sealed (A4, B1).** The MAC covers a canonical serialization of the whole decoded worker state except `pending.answer`. That includes `input_draft`, `connector_declarations`, `connector_semantic_identity`, `connector_run_ref`, `answered`, `outcomes`, `group_outcomes`, the cursor, and the effective revise declaration (attempts, backtrack, max_rounds, offered, modal_exclusion, pursue, allow_net_new). A seal over the cursor alone would let a caller keep the cursor while changing the declarations or input underneath it.
-- **Where it is sealed (B4).** One function, `sealInterview(state)` in `mcp/lyric_tools.js`, called from every place a state is minted:
+- **Where it is sealed (B4).** One function, ~~`sealInterview(state)` in `mcp/lyric_tools.js`~~ (built as `encodeInterviewWire(state)` in `mcp/state_codec.js`, with `verifyInterviewCursor` as its check, 2026-11-19), called from every place a state is minted:
   - the suspend (exit 4), finish, kill / generic `other`, and journal-capacity branches;
   - `workflow_sessions.resumeSnapshot`, which today encodes a job-store checkpoint directly.
 - **The key (A10).** Derived as `HMAC(loadChatSecret(), 'lyric-cursor-v1')`, loaded once per process in `lyric_tools.js` and shared by `server_http` and `server_stdio`. Chat envelopes and cursors never share a key.
@@ -671,7 +672,7 @@ asked again once (2.0, old states).
   - the `waiting` list on a suspended question's record (§2.2).
 - `quality/revise.py`: `verify`'s offer-less rule 3 (2.6).
 - `quality/propose.py`: the group prompt's menus and rule-3 text (2.4).
-- `mcp/lyric_tools.js`: `sealInterview`, the cursor key, the stall count, exit 5 in `EXIT_MEANING`, `foldedOne`'s two new verdicts, `cursor_stripped`, `no_progress_calls`, and the `lyric_revise` description (Q6).
+- `mcp/lyric_tools.js`: `sealInterview` (built as `encodeInterviewWire` in `mcp/state_codec.js`, 2026-11-19), the cursor key, the stall count, exit 5 in `EXIT_MEANING`, `foldedOne`'s two new verdicts, `cursor_stripped`, `no_progress_calls`, and the `lyric_revise` description (Q6).
 - `mcp/workflow_sessions.js`: `resumeSnapshot` sealing, and storing a re-sealed state after a stall.
 - Checked for exit-code and field assumptions: `mcp/lyric_workflow.js`, `mcp/client.js`, `mcp/verdict_view.js`, `mcp/python_bridge.js`.
 

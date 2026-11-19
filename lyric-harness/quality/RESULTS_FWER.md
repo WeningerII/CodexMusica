@@ -176,10 +176,10 @@ calls.
 
 | caller | what it feeds |
 |---|---|
-| `time_layer.analyse()` (line 582, `if events is None`) | this document's P1/P2/P4 tables, `RESULTS_TIME.md`'s entire arm table, the Fisher pooling in `POSITIVE_CONTROL.md` Part A |
-| `time_layer.internal_control()` (line 693) | the H3 line-final tripwire in `RESULTS_TIME.md` |
+| `time_layer.analyse()` (~~line 582~~ line 723 as of 2026-11-19, `if events is None`) | this document's P1/P2/P4 tables, `RESULTS_TIME.md`'s entire arm table, the Fisher pooling in `POSITIVE_CONTROL.md` Part A |
+| ~~`time_layer.internal_control()` (line 693)~~ `time_layer.line_final_control()` (line 848, 2026-11-19) | the H3 line-final tripwire in `RESULTS_TIME.md` |
 | `quality/test_fwer.py` | all four guarding assertions |
-| `quality/audit_fwer_fpr.py` | ~~the "9.6% at n=20" in `NULL_AUDIT.md`, `MISSING.md` L-1 and doctrine 72~~ **CORRECTED 2026-08-13: THIS SCRIPT CANNOT PRODUCE THAT FIGURE, AND HAS NOT SINCE 2026-08-11.** 9.6% is `family="scored"`. This script takes no `family=` argument at any invocation — it runs `TimeDeclaration`'s default, which became `"candidate"` on 2026-08-11 (`quality/time_layer.py:118`), so it changed arms without changing a line. Re-run at its own defaults on 2026-08-13 it prints **0.0% in both arms, p = 1.0000, MUTE 732 of 820 items**. The 9.6% is `quality/fwer_family.py --arms`'s to reproduce, not this one's. **AND THE SCRIPT NAMED `_fpr` COMPUTES NO FPR** — it computes SATURATIONS; the per-pair false-positive rate doctrine 22 asks for is at `fwer_family.py:147`, whose comment calls it "doctrine 22's currency". `grep -i fpr` over this file matches exactly one line: the `Run:` line quoting its own filename. This row is the one place the repo records which script feeds which claim, which is why it is the one that had to be wrong for two days without anyone noticing. **AND IT NOW HAS A `--check`, ADDED 2026-08-14** — every figure in this sentence reproduced on that date and is pinned, together with the REASON the layer is mute, because a 0.0% is printed identically by five different states and only one of them is this one. See "`--check` — the muteness is pinned, and pinned to its REASON" below |
+| `quality/audit_fwer_fpr.py` | ~~the "9.6% at n=20" in `NULL_AUDIT.md`, `MISSING.md` L-1 and doctrine 72~~ **CORRECTED 2026-08-13: THIS SCRIPT CANNOT PRODUCE THAT FIGURE, AND HAS NOT SINCE 2026-08-11.** 9.6% is `family="scored"`. This script takes no `family=` argument at any invocation — it runs `TimeDeclaration`'s default, which became `"candidate"` on 2026-08-11 (`quality/time_layer.py:118`, now line 126 as of 2026-11-19), so it changed arms without changing a line. Re-run at its own defaults on 2026-08-13 it prints **0.0% in both arms, p = 1.0000, MUTE 732 of 820 items**. The 9.6% is `quality/fwer_family.py --arms`'s to reproduce, not this one's. **AND THE SCRIPT NAMED `_fpr` COMPUTES NO FPR** — it computes SATURATIONS; the per-pair false-positive rate doctrine 22 asks for is at `fwer_family.py:147` (now line 168 as of 2026-11-19), whose comment calls it "doctrine 22's currency". `grep -i fpr` over this file matches exactly one line: the `Run:` line quoting its own filename. This row is the one place the repo records which script feeds which claim, which is why it is the one that had to be wrong for two days without anyone noticing. **AND IT NOW HAS A `--check`, ADDED 2026-08-14** — every figure in this sentence reproduced on that date and is pinned, together with the REASON the layer is mute, because a 0.0% is printed identically by five different states and only one of them is this one. See "`--check` — the muteness is pinned, and pinned to its REASON" below |
 | `quality/fwer_family.py` | the measurements in this section, which is the instrument and not a claim |
 
 **OUTSIDE it — 0 calls, proved by execution:**
@@ -216,7 +216,7 @@ refuses. See `POSITIVE_CONTROL.md`.
 
 `python3 quality/audit_fwer_fpr.py --check`. Added **2026-08-14**. Exit **0**
 pass / **1** moved / **2** refused — the three codes `audit_joint_auc_null.py`
-already uses; `audit_hafez_radif.py`'s `check()` is the 0/1 half of the same
+already uses (that script was deleted 2026-10-27, #628, commit 022fb015a — noted 2026-11-19); `audit_hafez_radif.py`'s `check()` is the 0/1 half of the same
 shape. Until this, the script named in the boundary table above **printed the
 muteness and exited 0 whatever it found**, which is the shape
 `audit_hafez_radif.py`'s own `PINNED` comment counts off across `audit_spans.py`,
@@ -301,7 +301,7 @@ zero. No floor moved; every measurement moved AWAY from its floor.
 | REAL `cannot_tell` / `refused` / `answered` | **19 / 0 / 1** | ~~18 / 0 / 2~~ |
 
 The superseded family row was this document's own published **156–282 across
-24 sonnets**, reproduced to the integer over the first 20, and `CLAUDE.md`
+24 sonnets**, reproduced to the integer over the first 20, and ~~`CLAUDE.md`~~ `HANDBOOK.md` (2026-11-19)
 doctrine 4 still carries that pair with its 2026-08-13 date: it is what the
 defective identity measured, kept as history (doctrine 17), not a live figure.
 The **203** both documents quote was *sonnet 1's* median family under that
@@ -872,7 +872,7 @@ saturates HIGHER than the real verse** (3.15% against 2.68%). The sign flips.
 ### Lever 6 — a declared beat. The only lever that reaches the range, and it is circular.
 
 Anchors restricted to every k-th grid position — the cheapest honest proxy for
-"a declared tempo", which `CLAUDE.md` known gap 3 names as the layer's blocker.
+"a declared tempo", which ~~`CLAUDE.md`~~ `HANDBOOK.md` (2026-11-19) known gap 3 names as the layer's blocker.
 
 > **THE 1,859 IN THIS TABLE IS NOT THE SONG PROFILE'S BAND.** Noted
 > 2026-08-21, when the closing sitting repinned `floor.py`'s `song` profile
@@ -1033,7 +1033,7 @@ Three quantities pin it, and each is measured rather than argued:
   28 at beat 4) and must ship with a same-positions-no-signal arm, because
   without one it is doctrine 41's failure exactly.
 - **Audio, or a tempo declared from outside the text.** This is the same
-  requirement as the previous bullet, and it is the one `CLAUDE.md` known gap 3
+  requirement as the previous bullet, and it is the one ~~`CLAUDE.md`~~ `HANDBOOK.md` (2026-11-19) known gap 3
   has named from the start. What is new is the number: it is worth **9.4× of the
   10× that is missing**, and it is the only lever measured that is worth more
   than 1.5×.

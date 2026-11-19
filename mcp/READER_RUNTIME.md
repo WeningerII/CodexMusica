@@ -451,9 +451,12 @@ Phase B activation is a separate recorded release action after the writer,
 external candidate-image format gate and conversion utility are all deployed.
 The candidate image label is `com.codexmusica.reader-format="A"`, copied from
 the built image into `lyrics-image.json` as `reader_format`. The release gate
-must refuse an unlabeled/pre-A candidate once the marker exists. The label and
+must refuse an unlabeled/pre-A candidate once the marker exists. ~~The label and
 external deploy/qualification gate are delivered by R2's companion change;
-this writer alone is not sufficient to enable Phase B. Before production
+this writer alone is not sufficient to enable Phase B.~~ The label and the
+external deploy gate are in place (2026-11-19): `mcp/Dockerfile` sets the label,
+and `.github/workflows/deploy-connector.yml` runs `scripts/reader_format_gate.mjs`.
+Phase B activation remains the separate recorded release action above. Before production
 activation, run "Song of Myself" to completion on the qualified release image,
 with its baked snapshot and `READER_STORE_GZIP=1` on a disposable store outside
 production. Record logical/stored bytes, quota peak, elapsed time, memory,

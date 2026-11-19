@@ -35,6 +35,12 @@ claims are explicitly historical; the failed 31/34-pin study remains open
 and its instrument remains withheld. Q7 was assessed as a Medium throughput
 limitation and deferred. CI is pending; these are not claims of merged closure.
 
+*Note (2026-11-19): this paragraph is a 2026-09-22 snapshot. Those repairs
+are on main now (for example A-3's `--input-format=literal|source` in
+`lyric_harness.py`, and I-1, registered CLOSED below), and the 31-line
+execution limit was deleted 2026-09-28 (see M-240). Each entry's own status
+line is the current state.*
+
 ---
 
 ## A. Notation and scheme representation
@@ -95,7 +101,9 @@ so `_&c._` is a pointer rather than a supposedly complete target line.
 The same census now reads **1,163 pointers; 442 resolved; 35 ambiguous;
 686 unmatched; 0 bare**. This is **270 more resolved references**, with
 **133 newly detected pointers** included in the denominator. **721 remain
-unresolved**; this follow-up does not close the edition questions. In
+unresolved** (the 2026-09-16 reading; the same command at 2026-11-19 gives
+1,131 pointers, 442 resolved, 35 ambiguous, 654 unmatched, 0 bare, so 689
+unresolved); this follow-up does not close the edition questions. In
 particular, different complete endings still refuse resolution, as do
 abbreviated variants whose full text is absent. The JSON census now includes
 `unresolved_references`: filename, song title, language, zero-based parsed
@@ -534,7 +542,10 @@ over every declared function's own instances, answering "how many times"
 `CLAUDE.md` known gap 7 has the same correction; `examples/nobodys_native_
 son.txt`'s final chorus (`HEAD_PRESERVED`) and its extra-bar payoff line
 (`EXTENDED_RETURN`-shaped, caught live by `RETURN_LENGTH_DRIFT`) are a real
-run, not a claim.
+run, not a claim. *(Note 2026-11-19: that example file was deleted with the
+other AI-written example lyrics in commit `11aa19bd28`, so this witness can
+no longer be re-run; the variation ladder itself is pinned in
+`quality/test_grid.py`.)*
 ~~**Still missing:** reprise — `compare_returns` takes two line lists and does
 not care where they came from, but nothing calls it ACROSS two different
 declared functions (does the outro reprise the intro). The primitive exists;
@@ -728,7 +739,7 @@ own destination and not a fix this entry can make alone.
 
 2026-09-25: the two paragraphs above are kept as written. The registry is now
 ~~77~~ ~~78~~ 80 schemas since M-40 (`chain rhyme (interlocking scheme)`, a61fe4e69),
-and `quality/test_relations.py:148` (§0, `test_inventory`) pins that size; the
+and `quality/test_relations.py` ~~:148~~ (§0, `test_inventory`, line 232 at 2026-11-19) pins that size; the
 schemas declaring a `Tradition(lang='eng')` are now ~~58~~ 59, measured, with
 no check pinning that count.
 
@@ -1840,6 +1851,10 @@ FALSE against a tree that does not contain it.
 > sung lines**, and ~~2,467 marked repeat blocks (1,580 BURDEN, 597 REFRAIN, 290
 > CHORUS)~~ **2,432 marked repeat blocks (1,580 BURDEN, 595 REFRAIN, 257
 > CHORUS)**.
+> REPINNED 2026-11-19 (the 2026-09-18 figures above are that day's reading):
+> **1,344 files, 8,725 staged items of which 8,610 are work votes, 281,366 sung
+> lines, 2,446 marked repeat blocks (1,576 BURDEN, 613 REFRAIN, 257 CHORUS)**.
+> `python3 quality/counters.py` (row `corpus/song/eng_*`) is the live reading.
 > REPINNED 2026-09-18; every figure in this block is declared VOLATILE and every
 > one of them had drifted, which is what VOLATILE means and is not a defect.
 > **THE FIRST QUANTITY IS REPINNED IN ITS UNITS AS WELL AS ITS VALUE (M-20)**:
@@ -1909,7 +1924,7 @@ stated.
 > **The rule.** A SONG is a `--- TITLE:` line. A SUNG LINE is a non-blank line
 > that does not begin `#`, `---` or `[`. A REPEAT BLOCK is a `[TAG` line with
 > any trailing index stripped. The population is `corpus/song/eng_*.txt`,
-> ~~143 files~~ **counted at run time — 1,297 today**. That strike is the
+> ~~143 files~~ **counted at run time — ~~1,297~~ 1,344 today (2026-11-19)**. That strike is the
 > repair, not a bookkeeping detail: `143` sat inside the RE-DERIVATION
 > INSTRUCTION, so a reader following the rule as written got 1,297 and would
 > conclude the rule had broken rather than that the corpus had grown.
@@ -2009,7 +2024,8 @@ Funning`, `GAELIC AIR`, `To The Air Of "Am Rhein, Am Rhein!"`). So there is no
 > `corpus/song/eng_celtic_robert_burns.txt`. What those need is a second
 > declared CONVENTION, which is a reading job on the printings, not a field.
 > **The English `[air:` count is REPINNED ~~318~~ -> 539** at HEAD; 318 was the
-> 143-file tree's figure and this entry has grown by 1,154 files since.
+> 143-file tree's figure and this entry has grown by ~~1,154~~ 1,201 files since
+(1,344 at 2026-11-19; the 539 still reproduces).
 > **Still missing:** the Tin Pan Alley generation (Dresser, Cannon, Dacre, Lamb,
 > Cole, Lawlor, Weatherly...) and the eight music-hall names — a
 > **scanned-broadside problem, not a rights problem**. Every one is out of
@@ -2037,7 +2053,10 @@ Funning`, `GAELIC AIR`, `To The Air Of "Am Rhein, Am Rhein!"`). So there is no
 **SIZED 2026-08-21 (re-measured under the shipped rule).** Corpus totals:
 BURDEN 1,580 / REFRAIN 597 / CHORUS 290 over `eng_*` — and **one file,
 D'Urfey's songbook, is 567 of the 1,580 burdens (35.9%); two files are
-52.4%; only 101 of 1,297 files carry any repeat block at all.** The entry's
+52.4%; only 101 of 1,297 files carry any repeat block at all.** *(The
+2026-08-21 reading. At 2026-11-19 `quality/counters.py` gives 1,576 BURDEN /
+613 REFRAIN / 257 CHORUS, 2,446 blocks in 152 carrying files of 1,344, with
+D'Urfey 567 at 23.2%.)* The entry's
 "686 from one anthology" understates today's concentration. **No source-type
 coordinate exists** (`sources.tsv` has no such column; `corpus_taxonomy.py`
 has REGION and FUNCTION only, though 5 of the 9 FUNCTION evidence rules are
@@ -2072,9 +2091,10 @@ from the one surface built to be quoted. The cell now APPENDS D3's own
 `CONCENTRATION (K-1a):` substring and REFUSES to render at all if D3
 ever stops printing it — the total is not renderable without its
 stratification, by construction. The live reading, repinned in passing
-because the corpus has grown since this entry's own figures: **2,467
+because the corpus has grown since this entry's own figures: **~~2,467
 blocks in 101 carrying files, top three D'Urfey 567 (23.0%), Burns 369
-(15.0%), Hemans 280 (11.3%)** — the one-file share fell from 35.9% as
+(15.0%), Hemans 280 (11.3%)~~ 2,446 blocks in 152 carrying files, top three
+D'Urfey 567 (23.2%), Burns 369 (15.1%), Hemans 276 (11.3%) (2026-11-19)** — the one-file share fell from 35.9% as
 loading added carriers, and the diagnosis (an unstratified rate reads
 the editor) is unchanged. **WHAT STAYS OPEN is the declared
 `source_type` third axis — a vocabulary decision, the owner's by the
@@ -2478,10 +2498,10 @@ is known to exist and to be digitised; and the only thing between this project
 and testing it is an egress block, which doctrine 49 says is a claim about the
 network at a moment rather than about the world.
 
-### K-6 · ~~Eight non-English phonologies, ZERO songs~~ — **six of the eight now have song text; two still have none** `OPEN`
+### K-6 · ~~Eight non-English phonologies, ZERO songs~~ — ~~**six of the eight now have song text; two still have none**~~ **seven of the eight now have song text; one (`som`) still has none (2026-11-19)** `OPEN`
 **TESTED WHILE OPEN.** `test_readability.py` names K-6 while asserting the
 corpus is no longer monolingual — it tracks PROGRESS on the entry, and the
-entry's own heading says two of the eight still have none
+entry's own heading says ~~two~~ one of the eight still has none
 (`quality/triage.py`).
 **Found 2026-08-10, while closing K-1.** K-1 built a song corpus and every one
 of its 143 files is English. The eight phonology cells (cym fin fas ltc msa non
@@ -2536,6 +2556,9 @@ tradition.
 >   sourcing round: K-4 (Old Norse, doctrine 92 — the admissible and the
 >   complete sources are disjoint) and K-5 (Somali, doctrine 44 — not
 >   obtainable from this container).
+>   *(Superseded for `non_` (2026-11-19): K-4's ruling staged the Old Norse
+>   corpus, and `corpus/song/non_*.txt` is 7 files today. `som_` is the only
+>   one still at zero.)*
 >
 > **So "`ltc`, `msa`, `non` and `som` have no text at all" retires for `ltc`
 > and `msa` and stands for `non` and `som`**, and the entry's closing sentence
@@ -2575,8 +2598,9 @@ tradition.
 > against English 4,930 was **4.13:1**; against 8,667 it is **2.35:1**. The
 > corpus is still saturated in the corner this entry calls starved, but the
 > entry's own evidence for it is 43% weaker, and it fell because English grew
-> while the non-English side did not move by a single file. `non_` and `som_`
-> are still zero and still the only two.
+> while the non-English side did not move by a single file. ~~`non_` and `som_`
+> are still zero and still the only two.~~ Only `som_` is still zero (2026-11-19;
+> `non_` was staged under K-4).
 
 **Staged, not sourced:** ~~297~~ **331** non-English lyricists now carry rows in
 `data/lyricists.tsv` with a `lang` column (added in the same commit; the 221
@@ -2858,7 +2882,7 @@ which is a result and not a debt.** `BACKLOG.md` §4.2 carried the same stale
 
 `quality/controls.py:176 cross_item_redeal` is that null, with
 `rime_pool_redeal:253` beside it as the detection floor, driven by
-`quality/negative_control.py:631 arm_spans` whose docstring names this entry.
+`quality/negative_control.py:680 arm_spans` whose docstring names this entry.
 `quality/RESULTS_NULL_SHAPES.md` §3 measures it:
 
 | arm                   | `band_pass` | `min_p` move |
@@ -2911,6 +2935,12 @@ rather than left inside a headline about profile arithmetic.
 trustworthy about what does NOT exist — and `quality/FLOOR.md:39`'s
 two-column profile table. All three repinned with this close.
 
+*Note (2026-11-19): the line numbers in this entry are as of 2026-08-21 and
+have drifted. Cite by symbol: the `song` profile is the `name="song"` profile
+in `quality/floor.py` (line 853 today), `sev` sits inside it near line 1909,
+and `_relation_findings` is near line 2417. `quality/FLOOR.md` now notes that
+its table predates the third profile instead of carrying a two-column table.*
+
 ### L-4a · The song profile has no generated class, so it carries a rate and no separation `RESOLVED` 2026-09-02 under the owner's delegation (RULINGS WANTED #20, triage C23) — the QUESTION is answered and the fact is unchanged: the sitting is DECLINED in the proposed design, named in one that is not confounded, and the disclosure this entry promised is MECHANICAL now rather than a sentence
 Split from L-4's close, 2026-08-21, because it was buried in a headline about
 profile arithmetic and it is not about length at all. `quality/floor.py`'s
@@ -2924,6 +2954,10 @@ ones_, because no generated song class exists in this repository. What is
 owed is a CORPUS, not a number — M-19's shape exactly. Until one exists this
 entry is doctrine 44's "cannot obtain" for the property, with the floor's own
 docstring (`quality/floor.py:124-131`) as the standing disclosure.
+*(Note 2026-11-19: these line numbers are as of filing. `Profile.evidence_for`
+is near `quality/floor.py:763` today, and its refusal is pinned in
+`quality/test_floor.py` by the checks that call `prof.evidence_for(key)`;
+lines 124-131 of `floor.py` now hold an AUC re-measurement comment.)*
 
 **RULED 2026-09-02 UNDER THE DELEGATION, AND THE PREDICTION IN THE ROW WAS
 CHECKED RATHER THAN REPEATED.** RULINGS WANTED #20 said *"the sonnet arm
@@ -3934,11 +3968,11 @@ were discharged on 2026-08-11; struck here individually, each with where the
 evidence lives, and the HEADLINE stays open because it is true.
 
 Every Persian row says so, and there are **31** now (`ls corpus/song/fas_* |
-wc -l`; `data/sources.tsv:393` states "THE EDITION GATE ON ALL 31 PERSIAN FILES
+wc -l`; `data/sources.tsv`'s `SEARCH:ganjoor-edition-route-2026-08-11` row (~~:393~~ line 388 at 2026-11-19) states "THE EDITION GATE ON ALL 31 PERSIAN FILES
 THEREFORE STAYS OPEN" in as many words). ~~`ganjoor.net` and `api.ganjoor.net`
 are egress-blocked, and the per-book منبع note — which names the printed
 edition each text was keyed from — lives only there.~~ **The route was FOUND
-and the premise is PARTLY FALSIFIED** (`data/sources.tsv:393`,
+and the premise is PARTLY FALSIFIED** (`data/sources.tsv`, ~~:393~~ line 388,
 `SEARCH:ganjoor-edition-route-2026-08-11`): the field is reachable in ganjoor's
 open source — `GanjoorPaperSource` + `GET /api/ganjoor/cat/{id}/papersources` —
 and it is a machine-scored `MatchPercent` resemblance unless
@@ -3952,7 +3986,8 @@ its plainest form — and closing it needs egress to `api.ganjoor.net` or
 is `quality/phonology/ltc.py` `EDITION_TABLES`, Chinese-only.
 
 ~~Also open: `Erfi.epub` (ʿUrfī Shīrāzī, d.1591) is a **corrupt zip**~~ —
-**CLOSED as NOT_FOUND, not pending repair** (`data/sources.tsv:394`): 2,920
+**CLOSED as NOT_FOUND, not pending repair** (`data/sources.tsv`, ~~:394~~ line 389,
+`NOTE:erfi-epub-is-truncated-not-merely-corrupt`): 2,920
 bytes, 7 local headers, **0 central-directory entries**. Truncated, not
 damaged; nothing in it to recover.
 
@@ -3962,7 +3997,7 @@ damaged; nothing in it to recover.
 **14 now**, because ~~Bābā Ṭāhir's **do-baytī** (366 poems, a sung Luri form)
 is present, unstaged, and needs its own form declaration~~ **it is STAGED with
 the declaration measured**: `corpus/song/fas_baba_tahir_dobayti.txt`, 366
-poems, 366 `--- SUNG-EVIDENCE: form` blocks, row at `data/sources.tsv:395`,
+poems, 366 `--- SUNG-EVIDENCE: form` blocks, row at `data/sources.tsv` ~~:395~~ line 390 (2026-11-19),
 AABA 233 against a null max of 3 via `quality/phonology/fas.py`. Six further
 ghazal-bearing poets sit in the same EPUBs off the supplied list — Nizārī
 Quhistānī (d.1320, 1,408 ghazals), ʿAbd al-Qādir Gīlānī, Ibn Ḥusām Khūsfī,
@@ -3981,7 +4016,7 @@ stotra/pada literature — Vedānta Deśika, Bilvamaṅgala, the Gosvāmins,
 `m` 1,078 times and `ṃ` 3 times; the Caurapañcāśikā does the opposite. A
 final-akṣara rhyme key is **not comparable across DCS texts without folding**.
 
-### M-15 · `RelationSchema.traditions` — ~~declared on 77 schemas and populated on ZERO~~ **~~75 of 77~~ 76 of 78 populated (measured 2026-09-25), and the SOURCE is the gap** ~~`PARTIAL`~~ `CLOSED` 2026-09-06 with M-15a
+### M-15 · `RelationSchema.traditions` — ~~declared on 77 schemas and populated on ZERO~~ **~~75 of 77~~ ~~76 of 78~~ 78 of 80 populated (measured 2026-11-19), and the SOURCE is the gap** ~~`PARTIAL`~~ `CLOSED` 2026-09-06 with M-15a
 **CLOSED 2026-09-06 — RECORD ONLY.** The only half this entry held open was the source gap, and that half is M-15a's, closed the same day (the survey inlined as `quality/canon_index.tsv`, the witness derived from it). The two schemas with no tradition, `blues AAB stanza` and `refrain by reference`, are unchanged and are the census's own reading, not an omission.
 
 The ZERO was left standing as live heading text under a blockquote that already
@@ -4003,8 +4038,10 @@ NAMES would be guessing, so the `relations` verb prints the row and states in
 its own output that the tradition did not match, the rule shape did.
 
 > **POPULATED 2026-08-11 (commit `e4cc054`) — and this entry does NOT close.**
-> ~~75 of 77~~ 76 of 78 schemas now carry traditions: **299 distinct
-> `Tradition` rows, 320 attachments** (REPINNED 2026-09-26 from ~~298 / 319~~,
+> ~~75 of 77~~ ~~76 of 78~~ 78 of 80 schemas now carry traditions: **~~299 distinct
+> `Tradition` rows, 320 attachments~~ 301 distinct
+> `Tradition` rows, 322 attachments** (REPINNED 2026-11-19 from 76 of 78 and
+> 299 / 320 after M-323 added two schemas; REPINNED 2026-09-26 from ~~298 / 319~~,
 > the count at `e4cc054`: M-40 added the 78th schema, E44, on 2026-09-16 with
 > one tradition, and `quality/audit_register.py` D21 read this line MOVED
 > from then until this date — the title was repinned, this sentence was not),
@@ -4463,12 +4500,13 @@ lands on 82/80, which places the difference **upstream of the rhyme test**: a
 threshold, because a threshold at least announces that it exists.~~
 
 **REPINNED 2026-08-21 — A FUNCTION-WORD LIST _IS_ WRITTEN DOWN, AND IT LANDED
-TEN DAYS AGO IN A FILE THIS ENTRY SITS BESIDE.** `quality/audit_corpus.py:2011`
+TEN DAYS AGO IN A FILE THIS ENTRY SITS BESIDE.** `quality/audit_corpus.py` ~~:2011~~ (line
+2719 at 2026-11-19; every line number in this entry is as of 2026-08-21)
 carries `_MALAY_FW` (≈130 words) and `_ENGLISH_FW` under the comment _"The two
 closed function-word lists that separate Skeat's Malay from his own English
 translation"_ — landed `3e0b806`, **2026-08-11**, the day after this entry was
-filed. It is not decorative: `:2141` applies it as the block classifier and
-`:2148` asserts the result against `RECORDED` — `malay_blocks` **705**,
+filed. It is not decorative: ~~`:2141`~~ line 2847 applies it as the block classifier and
+~~`:2148`~~ line 2854 asserts the result against `RECORDED` — `malay_blocks` **705**,
 `malay_block_lines` **5,555**, `malay_malay_blocks` **330**,
 `malay_malay_lines` **3,442**. The population this entry says nobody wrote down
 is pinned and re-derived on every audit run.
@@ -4480,7 +4518,7 @@ is pinned and re-derived on every audit run.
    extraction script, because a calibration that shares code with the thing it
    calibrates proves nothing (doctrine 58's fresh-implementation rule)."_ That
    is correct and it means the list recovers **nothing** about the 82/80 run's.
-2. **It is UNREACHABLE from a clone.** `MALAY_SOURCE` (`audit_corpus.py:1909`)
+2. **It is UNREACHABLE from a clone.** `MALAY_SOURCE` (`audit_corpus.py` ~~:1909~~ line 2615)
    is `scratch/src_msa/raw_malay_magic.txt`, which is NOT in this repository,
    so `calibrate()` returns `UNREACHABLE` and `calibration_failed`
    deliberately does not fail on it. So 330/3,442 is a pin nobody can
@@ -4869,7 +4907,8 @@ per-song rate over the affected files double-counts.
 glued the next poem onto the end of this one_. That is not what these are. The
 shape keys on WHERE the match falls, the match falls deep in the body, and
 relabelling by hand inside a pinned test would be writing a judgement into a
-count. `quality/test_corpus_audit.py` pins `RUN-ON 11` with this entry named.
+count. `quality/test_corpus_audit.py` pins ~~`RUN-ON 11`~~ `RUN-ON 10` (2026-11-19; the
+`shapes` pin, "No CONTENTS pages; 10 RUN-ONs and 3 TITLE echoes remain") with this entry named.
 **AND THE REPIN MAKES A NON-JUDGEMENTAL SPLIT AVAILABLE THAT WAS NOT ON THE
 TABLE WHEN THIS WAS PARKED.** The reason for parking stands — nobody should
 adjudicate a printing by hand inside a pinned count — but the discriminator
@@ -4877,7 +4916,7 @@ turns out to be mechanical and needs no reading: **a double staging has a
 matching OPENING LINE and a run-on does not.** That is computable from data
 already in hand, so `RUN-ON` could split into `RUN-ON` and `DOUBLE-STAGED`
 without anyone judging a text. Recorded as the route; NOT taken here, because
-it moves `RUN-ON 11`, `test_corpus_audit.py:890`'s `shapes` dict and the
+it moves ~~`RUN-ON 11`~~ `RUN-ON 10`, `test_corpus_audit.py`'s `shapes` dict (~~:890~~ near line 927 today) and the
 counters/`PINNED` pair in one commit, and the repin is the half going stale.
 
 ### M-21 · One fact about the registers is pinned in two media, and no instrument can be asked which pins a change moves `CLOSED`
@@ -6588,6 +6627,12 @@ relations.py:2518        nodes = {e.a.idx for e in es} | {e.b.idx for e in es}
 rhyme_constraints.py:1124    if len(fs) >= s.k - 1:         # found FIGURES
 ```
 
+*Line numbers (2026-11-19): the table and block above are as of 2026-08-22.
+Today `Figure.quantifier` is at `quality/relations.py:2521`, the
+`len(nodes) >= fig.k` test at `relations.py:3916`, `Selection.quantifier` at
+`quality/rhyme_constraints.py:750`, and the `len(fs) >= s.k - 1` test at
+`rhyme_constraints.py:1212`.*
+
 One counts distinct member positions and tests `>= k`; the other counts
 found figures in a frame and tests `>= k - 1`. **Two independent
 differences** — the object counted, and the threshold — under one name.
@@ -7341,6 +7386,10 @@ in running prose — a legitimate form the two-marker rule cannot admit, and
 admitting it by keyword would re-open the measured hole. The test holds
 the exclusion to its reason: it checks the ladder is still there, so the
 exclusion cannot outlive its cause in silence.
+*Note (2026-11-19): `CLAUDE.md` is now a generated pointer file and the
+doctrine-7 ladder lives in `HANDBOOK.md`, so the excluded document is
+`HANDBOOK.md`; `quality/test_verify_figures.py` §4 reads `HANDBOOK.md` for the
+ladder. `verify_figures.DOCUMENTS` is `("quality/RESULTS.md",)`.*
 
 **GATES:** `test_verify_figures.py`, 13 checks over 4 sections — the
 shipped document clean AND the scan non-vacuous, every planted form
@@ -7977,7 +8026,7 @@ structural source this project has located.**
 takes two end-words. Verified at head — 58 rows, kinds `comparator` 1 /
 `preset` 9 / `cell` 48, and **`partition` is absent**. Every spec-shaped source
 below is a **partition over line indices**, not a pair relation. The type
-already exists in the RELATION registry — `quality/relations.py:3977`,
+already exists in the RELATION registry — `quality/relations.py` ~~:3977~~ (line 6969 at 2026-11-19),
 `R105: "scheme declarations as set partitions over line indices"` — so the
 vocabulary is there and the catalog cannot carry it.
 
@@ -8049,6 +8098,12 @@ traditions but a table that grows with every staging, and "a declared entry per
 tradition" cannot be written against this key at all. Whether the constrained
 question is asked of the FILE or of the TRADITION is itself the undeclared
 coordinate, and it is owed before the rows are.
+*Superseded (2026-11-19): since commit `135604d9aa` (2026-10-25) `family_of`
+keys every `{lang}_*` song file to `{lang}_song`, so `corpus/song/` holds 8
+families, 7 of them (`cym_song`, `fas_song`, `fin_song`, `ltc_song`,
+`msa_song`, `non_song`, `san_song`) undeclared in `RHYME_CONSTRAINED`. The
+124-per-file count and the FILE-vs-TRADITION question above are the state
+before that change; run 2 owes one row per language.*
 
 **TESTED WHILE OPEN.** `quality/test_structure_census.py` §4/§4b name M-23
 while the entry stays OPEN, because they test the quieter blocker and the
@@ -8575,7 +8630,7 @@ opposite ends of the Indian subcontinent, and confirmed here by construction.**
 
 `quality/grid.py`'s `VARIATION_KINDS` was ~~15~~ named kinds and **every
 one compared WORD CONTENT.** (The cardinality is struck and NOT replaced:
-`CLAUDE.md`'s known gap 7 records a commit written to repair a stale
+~~`CLAUDE.md`'s~~ `HANDBOOK.md`'s (2026-11-19) known gap 7 records a commit written to repair a stale
 count writing one that was stale on arrival, and the argument here does
 not turn on the number — `python3 -c "from quality import grid as G; "`
 `"print(len(G.VARIATION_KINDS))"` is beside it.) So a return that holds the text fixed and varies
@@ -8683,7 +8738,7 @@ the reported kind, so the new row failed there rather than shipping unreachable.
 Its fixture is a VERBATIM pair and the DECLARATION is the whole difference,
 which is the property the section exists to pin. §22's own heading and two of
 its messages said _"the fifteen kinds"_; the cardinality is struck rather than
-incremented, for the reason `CLAUDE.md`'s known gap 7 records — a commit written
+incremented, for the reason ~~`CLAUDE.md`'s~~ `HANDBOOK.md`'s (2026-11-19) known gap 7 records — a commit written
 to repair a stale count once wrote one that was stale on arrival.
 
 ### M-27 · A footnote letter is the end word of 68 rhyming lines, and 1,166 file headers declare it was stripped `CLOSED` 2026-08-28 — four declared classes, not three, and the gate the entry said was owed
@@ -8743,8 +8798,8 @@ Every one is a rhyme-bearing line whose rhyme word has been replaced by a
 Project Gutenberg footnote label, and the labels run in sequence — `a b c d g
 j k l o p q r s`, then `bx by bz ca cb …`, then `le lf lg …` — so Byron's 54
 are 54 pairs whose partner is a letter of the alphabet. **ONE INSTANCE OF
-THIS IS ALREADY IN THE RECORD AND WAS READ AS SOMETHING ELSE**: `CLAUDE.md`'s
-known gap 8 cites Byron's `...lay white on the turf,[mm]` as
+THIS IS ALREADY IN THE RECORD AND WAS READ AS SOMETHING ELSE**: ~~`CLAUDE.md`'s~~
+`HANDBOOK.md`'s (2026-11-19) known gap 8 cites Byron's `...lay white on the turf,[mm]` as
 `substitution_report`'s "invented relation #4" — a final token that reads and
 yields no syllable — and files it as a `word_syllable_map` edge case. It is
 that, and it is also the 47th of 54 footnote anchors in one file.
@@ -9488,6 +9543,11 @@ GENERATOR that volunteers an attached burden line-group (the hook-slot
 is a design the owner has not asked for, parked as `BACKLOG.md`
 RULINGS WANTED row 17 with the attestation beside it (1,580 printed
 burdens, the most-attested function in the corpus).
+*Superseded (2026-11-13, noted 2026-11-19): the owner reversed the M-56 kind
+ruling. `refrain` and `burden` are ordinary sections, `FunctionSpec.kind` is
+removed, and the planner draws all 22 rows; the `plan.py` comment quoted
+above is gone. See M-56's "REVERSED BY THE OWNER 2026-11-13" paragraph.
+`BACKLOG.md` RULINGS WANTED row 17 is ruled and struck.*
 
 ### M-53 · `mandate()`'s re-open path re-defaulted the `ReturnRule`, so re-opening a mandate to add any coordinate silently replaced the rule its writer declared `CLOSED` 2026-08-22
 **Found in the same sitting as M-50, by testing that the CLI's new
@@ -9714,6 +9774,16 @@ vocabulary and its pure checker from `grid`, never a reader — stricter than
 the list it replaces.
 
 **WHAT IS STILL OPEN, and it is why this is PARTIAL:**
+
+*Disposition of the four items (2026-11-19; the list below is the 2026-08-22
+text): (1) closed by measurement, per the 2026-09-18 paragraph above, since
+`boundary="last"` on both rows derives the exclusion; (2) built: `plan._CELLS`
+is derived by `plan._derive_cells()` and `GENERATOR_ROSTER` is every row of
+`grid.SECTION_FUNCTIONS`, 22 today; (3) ruled to the reader on 2026-09-18 but
+not built, since `grid.py` still reports placement as notes and says the reader
+refusal is "not decided here", so it is what keeps this entry PARTIAL;
+(4) answered by M-101's ruling, and then made moot by the owner's 2026-11-13
+reversal in M-56, which removed `FunctionSpec.kind`.*
 
 1. The unwarranted **outro/coda exclusion is PRESERVED, not lifted** — now an
    explicit declared choice with the comment saying no gloss licenses it,
@@ -10300,8 +10370,11 @@ to be assumed to cover everything.
 (2026-09-16); its historical 12-capability / 17-schema count is not a current
 panel census. The remaining blockers are recorded in `relations_null` and
 govern what the harness may assert, not what a writer may declare.
-And `plan._CELLS` reaches 11 of `grid`'s 21 section
-functions (M-54 item 2), which is this same shape one layer up.
+~~And `plan._CELLS` reaches 11 of `grid`'s 21 section
+functions (M-54 item 2), which is this same shape one layer up.~~ That
+one-layer-up case is closed (2026-11-19): `plan._CELLS` is derived by
+`plan._derive_cells()` from the vocabulary, and the planner draws all 22 rows
+of `grid.SECTION_FUNCTIONS` (M-54 item 2).
 
 ### M-58 · the named-relation judge is MONOSYLLABLE-ONLY — 69 of 76 names are reachable at a 1-syllable key and nowhere else, so every polysyllabic pair that stands in the declared relation is graded a VIOLATION `RESOLVED` 2026-08-28
 **Found 2026-08-22 by WRITING A SONG through the path M-55 had just opened,
@@ -13532,8 +13605,10 @@ Scoring a 25-line song in 8/8 through it would be a measurement laundered out
 of its domain (doctrine 13/14). `song_record.py` does not import it, and
 `test_songs_record.py` §5 checks the ABSENCE rather than trusting the
 docstring. The corpus-relative verdict our songs DO get is
-`quality/floor.py`'s song profile, calibrated on **1,421** staged songs in
-`corpus/song/`, which already runs inside `song`.
+`quality/floor.py`'s ~~song profile, calibrated on **1,421** staged songs~~
+lyric-sheet profile (`lyric`, which superseded `song` on 2026-09-05, M-239),
+calibrated on the staged songs in
+`corpus/song/` (1,468 files at 2026-11-19), which already runs inside `song`.
 
 **THE FIRST RUN DID NOT FLATTER THE NEWEST SONG**, which is the point of
 banking before claiming: on concreteness (pre-registered HIGHER in the
@@ -13545,10 +13620,12 @@ rhyme predictability (pre-registered LOWER) `keep_the_light.txt` is lowest at
 **THE SONNET ARM HAS ONE AND THE SONG ARM DOES NOT.** `discriminate.py` runs
 three fitted experiments — survived vs forgotten, human vs generated,
 anthologized vs not — all on the 152-sonnet population. `corpus/song/` holds
-**1,421** staged songs and supports NO equivalent, because nothing labels
+~~**1,421** staged songs~~ **1,468 files, 1,344 of them `eng_*` with 8,725
+staged items (2026-11-19; `python3 quality/counters.py` is the live count)** and
+supports NO equivalent, because nothing labels
 them: there is no survived/forgotten split and no matched generated set. What
-the song corpus supports today is CALIBRATION (the floor's song profile,
-`song_profile_calibration.py`) — bands that say *is this inside the corpus's
+the song corpus supports today is CALIBRATION (the floor's ~~song profile~~
+lyric-sheet profile, `lyric`, since 2026-09-05; `song_profile_calibration.py`) — bands that say *is this inside the corpus's
 range*, never *is this any good*.
 
 **SO THE QUESTION "IS THIS SONG GOOD" IS UNANSWERED HERE AND IS RECORDED AS
@@ -13674,6 +13751,14 @@ alternative readings are declined with their reason: measuring the marked corpus
 would let the corpus's editorial bias (K-1a) choose the vocabulary, and naming
 the twenty by hand would re-create the same unwritten threshold one list over
 (doctrine 58).
+**BUILT (noted 2026-11-19).** The ruling shipped: `quality/grid.py`'s
+`profile_functions()` reads the membership off `SECTION_FUNCTIONS`, and the
+hand-written four-name tuple quoted below is gone. Since the owner's 2026-11-13
+ruling (M-56) there is no `kind` label, so the membership is the whole table,
+22 functions today; the "twenty" above and "twenty-one" below are the counts of
+their dates. The body below, including "The tuple is UNTOUCHED", is the
+2026-08-24 filing. The heading's `OPEN` has not been re-ruled because the
+`BACKLOG.md` M-101 row carries the same status.
 Filed 2026-08-24, by the owner catching a sweep predicate and asking what
 stood behind it.
 
@@ -14032,6 +14117,12 @@ volunteers `fillable_line_counts()`, 12..447 — `ENVELOPE["total_lines"] ==
 (12, 447)`. The 6–11 and 18–21 holes this entry diagnosed as seams between
 KINDS of text unioned were exactly that, and they went away when the kinds
 stopped being unioned.
+**REPINNED 2026-11-19, measured at HEAD:** `song_line_counts()` and
+`gradeable_line_counts()` are now ~~1..447~~ 1..463, `line_count_gaps()` is
+still empty, and `fillable_line_counts()` is ~~12..447~~ 2..463, so
+~~`ENVELOPE["total_lines"] == (12, 447)`~~ `ENVELOPE["total_lines"] == (2, 463)`.
+Read those accessors in `quality/plan.py` for the live figures rather than this
+line.
 
 **DEFECT 2 — A SOUND BOUND WAS BEING USED AS A UNIFORM DRAW, AND IT IS
 `MISSING.md` M-81(A)'s ERROR ONE LAYER OVER.** `_sample_pattern` took
@@ -14066,7 +14157,9 @@ three on the same instrument, and the remaining 20.2% is not tuned away because
 tuning it would mean barring a one-line tag.
 
 **WHAT THIS COSTS, SAID PLAINLY:** a song of fewer than 17 lines is now outside
-the planner's envelope. That is not a narrowing of the harness — a writer
+the planner's envelope. *(As of 2026-08-24. Superseded: the 2026-09-05 repin
+above and later ones took the envelope to (2, 463) at 2026-11-19, so this cost
+and the table's 17–55 range describe the pre-repin planner.)* That is not a narrowing of the harness — a writer
 hand-declares any length and the graders grade it — it is the planner declining
 to volunteer a length the song profile cannot hold to anything.
 `gradeable_line_counts()` is UNCHANGED, still exported, and still answers its
@@ -14290,7 +14383,7 @@ pass by comparing two empty strings. Against the pre-fix tree the pair-count
 check and the invariance check both fail.
 
 **WHAT THIS DOES NOT CHANGE.** No verdict, no finding, no exit code: the
-header is disclosure and nothing reads it but a person and `song_log.py`'s
+header is disclosure and nothing reads it but a person and `song_log.py` (was deleted 2026-10-27)'s
 parser. `song`'s report on `songs/long_bridge.txt` (was deleted 2026-10-27) is byte-identical either
 side of the fix apart from that one line, and the four facts it newly banks
 were true of the run before they were printed.
@@ -15952,6 +16045,15 @@ realized, gives these crossovers.
 | song | k=5-8 | 35,021 | 0.7261 | +0.14 pp | yes, 9 of 10 |
 | song | k=17+ | 216 | 0.6214 | +7.36 pp | yes, 10 of 10 |
 
+*Superseded for the sonnet rows (2026-11-19): this table, and the 823 / 220
+populations and 74.3% share quoted below, are the 2026-09-18 reading.
+`quality/search_null.py`'s `PER_K_CROSSOVER` was re-banked twice since, most
+recently 2026-10-30 (M-322): sonnets k=3-4 is 382 pairs, crossover 0.8152,
+-0.50 pp, NO 1 of 10; k=5-8 is 314 pairs, crossover 0.7510, -0.04 pp, NO 4 of
+10, so k=5-8 no longer clears theta. k=3-4 is now 34.7% of sonnet pairs, and
+the all-pairs crossover is 0.7505 against the adopted 0.72. The song rows are
+unchanged. Read the dict and its comment for the live pins.*
+
 Three things follow, and the first is the reason the declared-bound design is
 REFUSED here rather than built. **The two populations invert.** On the sonnets
 the bucket that FAILS is the low one, k=3-4; on the song corpus every measurable
@@ -16165,7 +16267,11 @@ form (doctrine 17) and the current sweep follows it.**
 > | 0.85 | ~~+3.43~~ | ~~+1.18~~ | ~~+2.13~~ | ~~34.3%~~ |
 > | 0.90 | ~~+2.89~~ | ~~+0.50~~ | ~~+2.30~~ | ~~17.3%~~ |
 
-**CURRENT, re-measured 2026-09-16 under E-5** (`coda_empty_evidence` default
+**~~CURRENT,~~ AS OF 2026-09-16, re-measured under E-5** *(superseded
+2026-10-30: `quality/search_null.py`'s `PINNED_SONNET` now pins REAL/NULL lift
+at 0.60 +16.61/+19.34, 0.70 +8.71/+10.65, 0.75 +5.99/+6.00, 0.80 +4.54/+3.41,
+0.90 +3.09/+0.87, so at the shipped 0.75 the search buys about 0 pp, not
++1.03; noted 2026-11-19)* (`coda_empty_evidence` default
 `"gift"` -> `"cannot_tell"`; 187 sonnet windows, 1,108 mandated pairs, 10
 within-sonnet line-permutation replicates, seed 4242):
 
@@ -16381,6 +16487,9 @@ yields 48, so the number was asserted rather than measured, and it is corrected
 here and at its two sites. The second correction follows from the first: the
 claim that MOST wordless sites ask a question identity does not bear on is **1
 of 10**, and that one is the cynghanedd llusg site the entry already names.
+*(Note 2026-11-19: one of the two sites was not corrected. The comment near
+`lyric_harness.py:5015` still says "forty-eight call sites pass anchors
+alone".)*
 
 **AND ONE DEFECT THE RUN EXPOSED IN THE PIN ITSELF.** The banked assertion
 bundle beside that `scheme --profile assonance` command PASSES under both
@@ -17968,6 +18077,18 @@ Neither ever graded anything. **§8 GRADES**, through the same `Mandate` +
 web must charge violations (4 on the suite's fixture) or the next check
 examined nothing. **The mutation `rhymes = list(edges)` — the pre-fix
 behaviour — kills exactly one check and the restored tree passes.**
+
+*Note (2026-11-19): both items below have moved, so this paragraph is the
+2026-08-26 state. (2) The door was ruled in M-145's RULING 2 (the door stays
+narrow; the placement question was answered with `RECOVERABLE_PLACEMENTS` and
+a `--placements=` flag), and `python3 quality/door_census.py --check` passes
+with every site ruled. (1) The placed word-identity judge was built
+2026-09-19 (`REQUIRE_RETURN_AT`, `Return.loci`, see above), so `1.head,3.head`
+is spellable. What remains is narrower: `quality/recover.py` still declines to
+put its placed REPEAT edges into `mandate_spelling`, because its identity is
+the lexicon's (`You` ~ `you`) while the placed judge compares the word as
+written. The heading's `OPEN` and the `BACKLOG.md` M-142 row have not been
+re-ruled to match.*
 
 **WHAT STAYS OPEN, and it is two separate things.** (1) The `int()` in
 `_normalise_returns`: until it takes the slot spelling its sibling already
@@ -21150,7 +21271,7 @@ no ruling ever set a per-line count — so the amount was always a
 DERIVATION, and the question is which derivation moved.
 
 **WHAT THE SIXTEEN BANKED SONGS MEASURE**, bound words per line, read from
-each song's own `plan` step in `songs/*.log.tsv` and reproduced exactly by
+each song's own `plan` step in `songs/*.log.tsv` (was deleted 2026-10-27) and reproduced exactly by
 re-running the planner at that song's own harness commit and seed (5 of 5
 reproduce to the hundredth, so no song was hand-narrowed):
 
@@ -21777,7 +21898,7 @@ after it.
 `TITLE_NOT_IN_HOOK`, `HOOK_ABSENT` name no line — left `revise` at 0 with
 the flag disclosed under "NO STOP CONDITION ABOVE CAN SEE" and `finish`
 stamping `exit 0 — no flag stands`, while `song` on the same draft under
-the same blueprint exited 3 (PROBED: the bank's own `keep_the_light.txt`
+the same blueprint exited 3 (PROBED: the bank's own `keep_the_light.txt` (was deleted 2026-10-27)
 retitled `zebra confetti`, 34 s vs 59 s). CLAUDE.md promised the 3 for
 both verbs. (2) The stop printed no FINDING lines — `LoopResult`'s text
 names the open LINES and the RULE holding each — so
@@ -22504,7 +22625,7 @@ envelope still read by its seed); `suspendedSeed` naming *the declared
 mandate*; `extractLoopRecord` reading both stamp spellings with `seed: null`
 for the unseeded one; the paste route in `LYRIC_INSTRUCTIONS`;
 `check_connector_contract.js` and `build_discovery.js` carrying the tool.
-**MEASURED.** `recover songs/keep_the_light.txt` exits 3 with the meter
+**MEASURED.** `recover songs/keep_the_light.txt` (was deleted 2026-10-27) exits 3 with the meter
 refused and prints `--returns=6,9;6,14`; the unseeded stamp parses to a
 record with no seed; `lyric_revise` without a seed reaches `revise`.
 **THE PINS.** `test_verbs.py` §49 (the verb, its refusals, the unseeded
@@ -22690,6 +22811,12 @@ preregistration; until then a short song is graded on four thresholds
 and this sentence is where that is said.
 
 ### M-196 · The song bank's record is stamped on commits that do not exist, the log had no parser for the working order's LAST verb, and two songs sit in the bank with no entry ~~`PARTIAL`~~ `CLOSED` 2026-09-06 — the recovery verb is built and the one recoverable draft is banked through it 2026-09-01 — found by the 2026-09-01 triage audit (finding C27) counting the rows; the parser ships, the rest is recorded with its cost
+*Note (2026-11-19): the song bank and all of its tooling named in this entry
+were deleted 2026-10-27 (commit `022fb015a9`): `quality/song_log.py` (it
+was deleted then), `song_record.py`, `ban_convergence.py`, their tests (`test_songs_log.py`,
+`test_songs_record.py`, `test_songs.py`, `test_ban_convergence.py`) and the
+`songs/` bank files. Every mention below, marked or not, is a record of what
+existed then, not a runnable citation.*
 **ADDENDUM 2026-09-17 — THE DEFERRED BAN-CONVERGENCE READER IS BUILT.**
 `quality/ban_convergence.py` (was deleted 2026-10-27) now reads the invocation facts banked by
 `song_log.record`. It chooses the newest grading step whose INPUT fingerprint
@@ -23571,6 +23698,12 @@ production qualification of the maximum workload. The 201-line median and
 the old rarity figures below describe the **historical 2026-09-04 sampler**,
 not the current default. A historical seed must be interpreted under its
 recorded source and data identity, never silently re-dealt as a continuation.
+*Superseded (2026-09-28, noted 2026-11-19): the owner ruling of 2026-09-28
+deleted the 31-line ceiling, `plan.execution_limits()` and inspection-only
+admission (`quality/test_production_harness.py` asserts `execution_limits` is
+gone). Every plan the planner draws can now be written, graded and revised;
+the envelope is `plan.ENVELOPE["total_lines"]`, (2, 463) at 2026-11-19, and the
+connector's `MAX_LINES` in `mcp/lyric_tools.js` is 463.*
 
 **HISTORICAL 2026-09-04 RECORD (retained):**
 **THE RULING, verbatim (2026-09-04), when asked whether the envelope
@@ -23643,6 +23776,11 @@ a sweep predicate gets exactly that; the graders grade any length the
 floor covers. The cost is only to the writer who says nothing.
 
 ### M-240 · Schema work and end-to-end runtime still require capacity qualification; the historical oversized default plans are now excluded from writer admission `OPEN` 2026-09-04 — current status updated 2026-09-08
+
+*Superseded in part (2026-09-28, noted 2026-11-19): the 31-line ceiling and
+inspection-only admission below were deleted by the owner ruling of
+2026-09-28; see M-241's note. Do not read 31 lines as the current admission
+boundary. The runtime-capacity questions this entry holds are separate.*
 
 **CURRENT STATUS — 2026-09-08.** Default executable plans now stay within
 the derived 31-line candidate-work ceiling, and native writer admission also
@@ -23806,6 +23944,10 @@ shipped drafts under their own mandates. Those are the two populations whose
 mandates reach past 2, and neither is measured yet. The pin is banked anyway —
 17 rescues, all at distance 2 — because a rescue appearing at distance 1, or the
 count leaving 17, means the population this refusal describes has changed.
+*(Repins since, noted 2026-11-19: 31 on 2026-09-24 (above), 43 on 2026-10-01,
+23 on 2026-10-02 (M-317) and 36 on 2026-10-30 (M-322), so the live pin is
+`{"rescues": 36, "by_distance": {2: 35, 1: 1}}`. Read `PINNED` in
+`quality/schema_window.py` and the comment above it for the current figure.)*
 
 **AND E4 IS NOT MEASURED BY THIS RUNNER, SAID RATHER THAN LEFT TO BE
 ASSUMED.** Retention is an exact upper bound on what a window KEEPS, because

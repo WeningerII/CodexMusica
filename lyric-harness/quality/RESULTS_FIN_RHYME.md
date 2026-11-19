@@ -418,7 +418,7 @@ zero unreadable.
    by accident. He nominates the rhymed set as a control and says nothing about
    what its rhyme *is*. ~~The unblock route is `BACKLOG.md` §3.4 — Finno's 1583
    hymnal on `doria.fi` / `kansalliskirjasto.fi`, never probed.~~ **REPOINTED
-   2026-08-21: it WAS probed, on 2026-08-11** (`data/sources.tsv:392`) —
+   2026-08-21: it WAS probed, on 2026-08-11** (`data/sources.tsv` row `SEARCH:finnish-hymnal-finno-hemming-2026-08-11`) —
    twenty-one hosts, all 403 CONNECT, including all five of the Finnish ones
    this sentence names. Both copies are located and neither is reachable:
    Hemming's complete hymnal, printed Rostock **1607**, at

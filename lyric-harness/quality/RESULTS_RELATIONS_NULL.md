@@ -502,8 +502,8 @@ python3 quality/relations_null.py --panel --n=200        # §A  (hours)
 python3 quality/relations_null.py --panel --n=25         # §B  (~5,600 s)
 python3 quality/relations_null.py --verify               # exit 0
 python3 quality/relations_null.py --verify --deep        # exit 0
-python3 quality/test_relations_null.py                   # exit 0, 54 checks
-python3 quality/test_null_shapes.py                      # exit 0, 27 checks
+python3 quality/test_relations_null.py                   # exit 0 (54 checks when written; more since, 2026-11-19)
+python3 quality/test_null_shapes.py                      # exit 0 (27 checks when written; more since, 2026-11-19)
 ```
 
 `--panel --n=1` is the cheapest demonstration that the false-clear line is

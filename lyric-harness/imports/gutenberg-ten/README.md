@@ -59,7 +59,7 @@ direct shell access was blocked. Their hashes explicitly identify reconstructed
 transcriptions, not original HTTP response bytes. Both decoded transcriptions
 are retained as compressed source evidence for offline adapter replay.
 
-Each `test_adapter.py` here is an import receipt, not a CI test: CI pins the
+The four `test_adapter.py` files here (22223, 30418, 56625, 76941) are each an import receipt, not a CI test: CI pins the
 committed `candidates.json` files through `quality/test_gutenberg_import.py`.
 Run a receipt from its collection directory. The 22223 and 76941 receipts take
 a source path as their argument; the 30418 and 56625 receipts check the
@@ -102,7 +102,7 @@ To regenerate this batch after an explicitly reviewed candidate change, run
 `integrate.py` without `--check`, then `prepare_catalog.py` in this directory.
 The latter updates only the ten source registry rows and the batch's complete
 byte-pinned `source_manifest.json`. The production manifest at `library/catalog_sources.json` separately pins
-the admitted corpus to commit `b4ca30857412b554f1c5708579d52719bf0ae933`;
+the admitted corpus to commit ~~`b4ca30857412b554f1c5708579d52719bf0ae933`~~ `feca512a6cb3de76e2751ba7d475d50ea594e044` as of 2026-11-19 (the pin moves; read `repository_commit` in that file);
 its matching Docker build pin uses those exact approved bytes. Recheck population impact before publishing a new all-file
 integrity snapshot.
 

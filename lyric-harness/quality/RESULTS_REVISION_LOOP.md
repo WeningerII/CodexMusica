@@ -253,7 +253,9 @@ the first word this loop OFFERS as the non-obvious alternative for the chorus's
 must have a row in data/sources.tsv, including the local ones… a file with no
 row is the defect" — and doctrine 13, which counts frequency lists as
 resources by name. `data/sources.tsv` is not this cell's file; the row is owed
-and named in `PATCHES-not-mine.md`. There is no verse-frequency list in this
+and named in `PATCHES-not-mine.md`. (2026-11-19: `PATCHES-not-mine.md` is not
+in the repository; it was the cell's own working note. The row now exists, as
+`REFUSED:wordfreq20k.txt` in `data/sources.tsv`.) There is no verse-frequency list in this
 repo to swap in, so this is a declaration gap, not a fix that was skipped.
 
 > **WIRED CLOSED 2026-08-11.** Every claim in this section describes the state
@@ -337,7 +339,7 @@ largest rhyme group the six words doctrine 9 forbids include three
 (`will`, `their`, `email`) that are not rhymes of `ear` by any ear, and the
 first alternative offered is `software`. `lyric_harness.cluster_sim` and
 `quality/rhyme_constraints.py` are not this cell's files;
-`PATCHES-not-mine.md` carries it.
+`PATCHES-not-mine.md` (not in the repository; see the note above) carries it.
 
 ---
 
@@ -480,7 +482,7 @@ repo's own song:
 > substitutes an earlier word without saying so"
 
 Two layers, two readings of one line, and only one of them says which it took.
-`lyric_harness.py` is not this cell's file; `PATCHES-not-mine.md` carries it.
+`lyric_harness.py` is not this cell's file; `PATCHES-not-mine.md` (not in the repository) carries it.
 
 ---
 
@@ -534,7 +536,9 @@ python3 battery.py               -> mandated 1064, judged 1014, refused 50,
                                      coda-identity fix moved it. "exit 0"
                                      means the pin HELD -- since 9396946
                                      battery.py exits 1 on drift.)
-python3 quality/test_revise.py   -> all revision-loop regressions pass (22 groups)
+python3 quality/test_revise.py   -> all revision-loop regressions pass (22 groups on 2026-08-11;
+                                    about 71 named tests by 2026-11-19, so a test
+                                    cited here by number may no longer match)
 python3 quality/verify_doctrines.py -> RESULT: PASS
 ```
 

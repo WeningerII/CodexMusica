@@ -93,7 +93,7 @@ Nine candidates were not added:
 | Jewish and Roma traditions | 15 |
 | Settler and diaspora traditions | 15 |
 
-The new entries are pinned in 146 countries and territories. By atlas sidebar region:
+The new entries are pinned in ~~146~~ 145 countries and territories, plus one entry with no country recorded (`crimean_tatar_music`, pinned at Bakhchysarai; the ledger's 146 distinct values count that null). By atlas sidebar region:
 Latin America & Caribbean 205, Europe 192, Africa 188, South Asia 77, North America 76,
 Middle East 55, Oceania & Pacific 47, East Asia 40, Mongolia & Siberia 22, and Caucasus &
 Central Asia 20.
@@ -143,6 +143,8 @@ No instrument, room, tuning or chain moved. The pairs are in
 [`geographic-gap-fill/batch3-existing-recipe-changes.csv`](geographic-gap-fill/batch3-existing-recipe-changes.csv).
 
 ## How each entry was made and checked
+
+This section describes batch 1 (360 entries). Batch 2's own figures are in its section above.
 
 1. **Author.** An agent wrote the entry from the gap-list candidate's recording evidence
    and source, using only existing instrument cards. When the documented instrument has

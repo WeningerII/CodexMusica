@@ -243,7 +243,7 @@ Configuration (the Blueprint pins deployed values):
 | `CHAT_CONCURRENCY` | 2 | Simultaneous chat turns. |
 | `CHAT_DAILY_USD` | 25 | The website chat's daily model allowance (conversation and kitchen writer), tracked with reservations and reported usage. |
 | `CHAT_MAX_TURN_USD` | 2.5 | Per chat turn model allowance. |
-| `CHAT_MAX_TURNS` | 12 | Messages per conversation. |
+| `CHAT_MAX_TURNS` | 50 | Messages per conversation. |
 
 With correctly mounted runtime storage, counters, pending reservations and the
 signing key survive restarts. Without it, local operation is process-local and

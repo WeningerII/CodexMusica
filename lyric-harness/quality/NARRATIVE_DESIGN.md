@@ -69,14 +69,14 @@ hesitation deliberately left for the red pen, Greimas-style.
 | outro | "closes the song and does not recur" | DEPART | |
 | coda | "a closing section with its own material" | RESOLVE, DEPART, JUDGE | new material at the close = verdict or departure |
 | build | "raises tension toward a return" | COMPLICATE | |
-| drop | "the arrival a build points at" | ANCHOR?, RESOLVE? | arrival is payoff-shaped and recurring at once — both readings kept for the red pen |
+| drop | "the arrival a build points at" | ~~ANCHOR?, RESOLVE?~~ ANCHOR (ruled §F item 3) | arrival is payoff-shaped and recurring at once — ~~both readings kept for the red pen~~ ruled ANCHOR alone, the arrival lives in the inbound edge (2026-11-19) |
 | vamp | "a repeating figure held open" | DWELL | |
-| breakdown | "strips the arrangement back" | DWELL? | an arrangement fact wearing a section mark — weakest claim in the table |
+| breakdown | "strips the arrangement back" | ~~DWELL?~~ DWELL (ruled §F item 3) | an arrangement fact wearing a section mark — weakest claim in the table; ruled DWELL stands (2026-11-19) |
 | false_ending | "a close the song comes back from" | RESOLVE | its real content is a JUNCTION fact: whatever follows must join as BUT (§C) |
 | turnaround | "carries the end of one section into the next" | — | not an atom-carrier at all: it IS a junction realized as a section |
 | tag | "a short repeated fragment closing a section or the song" | JUDGE | |
 | hook / refrain / burden | returning invariants (three marks, one behavior) | ANCHOR | |
-| reprise | "a declared return of earlier material, later and changed" | ANCHOR | with a MANDATORY changed inbound junction — return-transformed is a trajectory fact, not a ninth atom (red pen: agree?) |
+| reprise | "a declared return of earlier material, later and changed" | ANCHOR | ~~with a MANDATORY changed inbound junction~~ ruled with no junction mandate (§F item 3; grid's reprise machinery grades the change, 2026-11-19) — return-transformed is a trajectory fact, not a ninth atom |
 | interlude / solo | wordless spans | REFUSED | a lyric layer assigns no atom to a section with no words — refusal, not assignment (doctrine 20) |
 | patter | "music-hall rapid-delivery solo verse … returns with NEW WORDS on the same tune" | ESTABLISH, COMPLICATE, TURN, JUDGE, RESOLVE | ADDED 2026-08-28 with the function itself (M-52): its differentia from verse is delivery DENSITY, not a narrative coordinate, so it takes the mover card's faces; the Ruddigore witness exercises three of them in three stanzas |
 

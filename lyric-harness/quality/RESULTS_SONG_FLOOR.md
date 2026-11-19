@@ -1,6 +1,10 @@
 # RESULTS — the slop floor gets a song-length profile
 
-> **CURRENT ADOPTION — 2026-09-24 (§10a).** The N-relation comparator (M-309,
+> **Current state (2026-11-19).** The stored `song` row is the 2026-10-04
+> re-record: **150–350 tokens, 3,251 items**, held-out `cliche` rate 7.33%
+> (section 2). Both banners below are historical.
+
+> ~~**CURRENT ADOPTION**~~ **HISTORICAL ADOPTION — 2026-09-24 (§10a).** The N-relation comparator (M-309,
 > #375; PR #380) moved the unchanged five-check band rule's answer from
 > 200–400 back to **150–400 tokens, 3,533 items over 878 authors**, and the
 > stored `song` row was re-adopted there as a set from the committed,
@@ -9,7 +13,7 @@
 > `cliche` rate still licenses CLICHE_PAIR where it covers a length. The
 > 2026-09-08 and 2026-09-15 banners and figures below are historical.
 
-> **CURRENT ADOPTION — 2026-09-08.** The corrected canonical work/edition
+> ~~**CURRENT ADOPTION**~~ **HISTORICAL ADOPTION — 2026-09-08.** The corrected canonical work/edition
 > population contains 8,545 calibration items. The stored `song` profile was
 > re-derived at 200–450 tokens over 2,438 items, and remains superseded by
 > the live `lyric` curves. Section 2 distinguishes its current stored
@@ -712,7 +716,7 @@ checks still decline. `test_floor.py` test 16 pins 501, 700 and 3000 tokens as
 refusals.~~
 
 REPINNED 2026-09-05 (`MISSING.md` M-239): the refusal line is the corpus's own
-edge now — **above 3,245 tokens and below 4** — and 501, 700 and 3000 are all
+edge now — ~~**above 3,245 tokens and below 4**~~ **above 3,244 tokens and below 4, with 4–8 tokens reached but not exact because no human item under 9 tokens remains (2026-11-19)** — and 501, 700 and 3000 are all
 INSIDE `lyric` and graded EXACT. `test_floor.py` §16's pins were moved with the
 adoption: ~~501, 700, 3000~~ **3246, 5000, 20000**.
 
@@ -800,8 +804,8 @@ REPINNED 2026-09-05 (`MISSING.md` M-239): `exact` is no longer the test, because
 is the whole corpus `exact` is true at 25 tokens and at 2,000 — a flag on a rate
 nobody measured is the doctrine-22 error this section exists to name. The
 severity now reads **WHICH ROWS CARRY A `cliche` RATE THAT COVERS THIS LENGTH,
-superseded or not** — the two band rows, 50–150 (4.02%) and ~~200–400
-(7.64%)~~ 150–400 (6.78%, since the 2026-09-24 re-adoption, §10a) —
+superseded or not** — the two band rows, 50–150 (~~4.02%~~ 4.51%) and ~~200–400
+(7.64%)~~ ~~150–400 (6.78%, since the 2026-09-24 re-adoption, §10a)~~ 150–350 (7.33%, the 2026-10-04 re-record; repinned 2026-11-19) —
 plus an exact STANZA profile, whose carry-over was argued and measured below:
 inside one of those, a flag; outside all of them, a NOTE that says the rate was
 never taken at this length. Measuring `CLICHE_PAIR`'s rate per length bin over

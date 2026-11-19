@@ -239,6 +239,15 @@ over judged is **683/686**, versus the dated 2026-10-15 **684/687**. Only
 not evidence of improved accuracy. The prior record remains as
 `D1_2026_10_15`; the temporary nightly values 676/312 are not adopted.
 
+> **REPINNED 2026-11-11 (noted here 2026-11-19): the whole-reading judge.**
+> The 2026-10-26 table above is no longer the live one. `structures.judge` now
+> tries each whole reading when merged channels are undecided (55fd640c), and
+> only `office/color` moves: undecided becomes true/rejects. The recorded live
+> D1 (`D1_RECORDED` in `quality/structure_census.py`) is true/rejects **3** and
+> refused/rejects **309**, with the other four cells unchanged, and agreement
+> over judged is **683/687**. This adds one judged disagreement; it is not an
+> improvement.
+
 Verification: `python3 quality/test_structures.py` covers all 27 ternary
 channel combinations, later-syllable mismatch, unconstrained channels, short
 patterns, these three actual pairs, and decided/undecided controls. Nine new

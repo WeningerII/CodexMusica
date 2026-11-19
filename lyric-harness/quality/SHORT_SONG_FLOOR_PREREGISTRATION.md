@@ -22,6 +22,13 @@ adoption or the refusal, are `quality/RESULTS_SHORT_SONG_FLOOR.md`.
 > calibration is `quality/LENGTH_CURVE_PREREGISTRATION.md` and
 > `quality/RESULTS_LENGTH_CURVE.md`. Present-tense clauses below are struck
 > where they no longer read as the live floor; nothing is deleted.
+>
+> **SINCE THEN (note added 2026-11-19).** The figures in the amendment above
+> and in §5's amendment are themselves dated. Today the `lyric` profile spans
+> **9–3,244 tokens over 8,585 human works** (re-adopted 2026-10-15), the
+> planner reaches **1..463** (463 values), `fillable_line_counts()` is
+> **2..463** and `ENVELOPE["total_lines"]` is **(2, 463)**. Read the live
+> values from `quality/floor.py` and `quality/plan.py`, not from this file.
 
 ## 0. Why this cell exists
 

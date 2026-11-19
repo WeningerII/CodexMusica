@@ -7,7 +7,16 @@ a prechorus actually mean to a chorus … there's a ton of thought we need to be
 putting into this so it doesn't end up fruitless or counter productive."*
 
 Every number here is measured against `grid.SECTION_FUNCTIONS` as it stands.
-Nothing is implemented yet; this is the argument that has to hold before it is.
+~~Nothing is implemented yet;~~ this is the argument that has to hold before it is.
+
+> **Built since (note added 2026-11-19); the design below is kept as argued.**
+> `grid.FunctionSpec` now carries `boundary`, `requires`, `adjacent_after`,
+> `adjacent_before`, `needs_before`, `needs_after`, `placement_evidence`,
+> `placement_refused`, `specialises` and `specialises_evidence`;
+> `grid.placement_findings` enforces the relation kinds and `quality/plan.py`
+> derives from them (§3 and §7 steps 1–3). §4b's subsumption was closed by
+> `MISSING.md` M-57 (CLOSED 2026-08-28) and layer 2's roster declaration by
+> M-55 (CLOSED 2026-08-22). M-54 is still `PARTIAL`; read it for what is owed.
 
 ---
 

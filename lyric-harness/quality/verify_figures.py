@@ -26,7 +26,8 @@ sentence about a different figure's supersession, so keyword marking is
 measured too weak, not merely unaesthetic.  A superseded spelling in a live
 context is a VIOLATION whatever the surrounding prose says.
 
-SCOPE IS DECLARED PER DOCUMENT, and `CLAUDE.md` is OUT of it, named
+SCOPE IS DECLARED PER DOCUMENT, and the doctrine file (`HANDBOOK.md`, once
+`CLAUDE.md`) is OUT of it, named
 (doctrine 20): doctrine 7's ladder sentence quotes the whole supersession
 chain in running prose ("0.709/0.971, warm post-fix 0.659/0.975, cold
 0.717/0.964, and cold with the sentinel corrected 0.723/0.960") — a

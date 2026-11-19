@@ -2,13 +2,16 @@
 
 > **CURRENT REPRODUCIBILITY WARNING — R16, 2026-09-22.** On main
 > `3c14ea29`, `python3 quality/phrase_commonplace.py --check` exits 1:
-> **31 of 34 pinned figures have moved**. The current population is 1,297
-> authors and 1,881,636 tokens, not the 143 authors and 991,751 tokens
+> **31 of 34 pinned figures have moved**. The current population is ~~1,297
+> authors and 1,881,636 tokens~~ 1,344 authors and 1,879,306 tokens
+> (`--measure`, 2026-11-19; it moves with the corpus, and `MISSING.md` M-21
+> recorded 1,297 / 1,885,292 at its own date), not the 143 authors and 991,751 tokens
 > recorded below. The PINNED/YES claims and tables below are historical
 > results, not current certification. The existing decision to withhold this
 > instrument as a rejection remains; these measurements do not re-adopt it.
-> Re-running and evaluating the full study is still open under MISSING's
-> pin-drift entry. No thresholds or pins were changed to make this check pass.
+> Re-running and evaluating the full study is still ~~open under MISSING's
+> pin-drift entry~~ owed: `MISSING.md` M-21 records it as owed and is itself
+> CLOSED, so no open entry tracks it (2026-11-19). No thresholds or pins were changed to make this check pass.
 
 `MISSING.md` **H-1**, the tenth item on its Missing list: *cliché at the PHRASE
 level rather than the rhyme-pair level*. One slice of H-1's programme, taken
@@ -1016,7 +1019,10 @@ none of them is `phrase_commonplace.py` or this document.
    pins go red only when somebody remembers to run them, which is doctrine 48
    stated about the instrument that this section's own audit produced.
 
-2. **`test_phrase_commonplace.py` NEEDS `nltk` AND THE `suites` JOB DOES NOT
+2. *(Fixed since; note 2026-11-19: the `suites` job in `.github/workflows/ci.yml`
+   now has an "Install nltk" step, and the comment quoted
+   below is gone. Items 2 and 3 are a 2026-08-14 snapshot.)*
+   **`test_phrase_commonplace.py` NEEDS `nltk` AND THE `suites` JOB DOES NOT
    INSTALL IT.** The test imports `quality.features._tagger` and calls it. The
    `suites` job runs `actions/setup-python@v5` and one `fetch_data()` for
    cmudict — no `pip install`, and `data/nltk/` is gitignored, so neither the

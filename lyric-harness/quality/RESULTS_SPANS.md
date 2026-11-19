@@ -19,6 +19,14 @@ its first instrument and its first measurement.
 
 ## Headline
 
+> **Dated snapshot (note added 2026-11-19).** The block below is the
+> 2026-09-22 measurement. The pins have moved several times since (repins
+> 2026-09-22, 10-01, 10-02, 10-27 and 10-30; see the REPINNED comments above
+> `PINNED` in `quality/audit_spans.py`). The current pin is 1,064 mandated,
+> **1,013 judged and 51 refused**, **25** violations, **633** claimed (3 of
+> them violations) and **357** ties (5 of them violations). `audit_spans.py
+> --check` and the tests check the current pin, not the figures below.
+
 **Re-measured 2026-09-22:** 1,064 obligations partition into **970 judged
 and 94 refused**. Of the judged pairs, **605** name the words that produced
 their number and **365** do not; **114** have tied maximum spans. Of the
@@ -377,7 +385,8 @@ layer, and they need two.
 
 ### What was done about it, and what was not
 
-**Named, not refused.** `span_kind` gains a fifth member, `substituted`,
+**Named, not refused.** *(Superseded: the refusal was made later in
+`quality/RESULTS_HYPHEN_REFUSAL.md`. Note 2026-11-19.)* `span_kind` gains a fifth member, `substituted`,
 ranked worst because the other kinds name the right string and get its extent
 wrong while this one names a different string. The label prints the piece that
 was read and the piece that was not:
@@ -794,7 +803,10 @@ today — unrealised, not impossible.
 2. **`battery.py`'s failing-pairs table still prints end words only.** The
    data is now available (`check_scheme` returns `violation_spans`,
    index-aligned with `violations`). Filed as a patch.
-3. **The 179 anchor-layer hyphen substitutions are named, not refused.** The
+3. *(Done; note 2026-11-19: the refusal was built, and `line_readability` now
+   returns NO_ANCHOR with `final_unreadable_cause = "piece"`. See
+   `quality/RESULTS_HYPHEN_REFUSAL.md`, which counts 174 line ends, not 179.)*
+   **The 179 anchor-layer hyphen substitutions are named, not refused.** The
    fix is a rule in `line_readability`: a compound whose LAST piece is unread
    has no end-rhyme anchor. It removes a verdict from 179 song line ends and
    moves no sonnet pair (both mandated sonnet cases read on their last piece),
