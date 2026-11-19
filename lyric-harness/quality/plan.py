@@ -5329,11 +5329,6 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         s_lo, s_hi = ENVELOPE["sections"]
         if not s_lo <= len(funcs) <= min(s_hi, _max_sections):
             continue
-        # A REPRISE BRINGS BACK EARLIER SUNG WORDS (#902): an order whose
-        # first sung section is a reprise has none to bring back, so it is
-        # drawn again.
-        if next((f for f in funcs if f not in WORDLESS_FUNCTIONS), None) == "reprise":
-            continue
         shape_view = {"sections": [{"function": f} for f in funcs]}
         if any(not sweep_holds(shape_view, w) for w in _wants
                if w[0] in ("sections", "uses", "before")):
@@ -5753,7 +5748,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     groups, returns = [], []
     # The first line of each sung section with new words, in order: the
     # spans a reprise may bring back (#902).
-    fresh_heads, reprise_draws = [], []
+    fresh_heads, reprise_draws, reprise_lineless = [], [], []
     reprise_rng = random.Random(f"{seed}/reprise")
     # Singleton classes establish differences in final sound but have no pair to bind.
     paired_groups = [group for group in terminal_groups if len(group) > 1]
@@ -5811,15 +5806,17 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # source is drawn with equal odds over the first lines of the earlier
         # sung sections with new words. ~~It was always the first chorus
         # line, else line 1.~~ A line the catalog already copies here is
-        # its own declared return and is kept. A drawn order never puts a
-        # reprise before every sung section (see the pattern draw); a catalog
-        # order that does has nothing to bring back on any seed.
+        # its own declared return and is kept. Its row asks only for some
+        # section before it, so a reprise may follow wordless sections alone:
+        # what comes back then is music, with no sung line to repeat, and it
+        # gets no pair. ~~A drawn order with no sung section before the
+        # reprise was drawn again~~: that was a second placement rule beside
+        # `placement_findings`, which the length proof does not read.
         copied = any(first in g[1:] for g in prescribed_returns) or (
             fn in VERBATIM_RETURNERS and fn in first_seen)
-        if fn == "reprise" and not copied:
-            if not fresh_heads:
-                raise PlanRefused("the catalog form places a reprise before any sung "
-                                  "section, so it has nothing to bring back")
+        if fn == "reprise" and not copied and not fresh_heads:
+            reprise_lineless.append(first)
+        elif fn == "reprise" and not copied:
             source = reprise_rng.choice(fresh_heads)
             returns.append([source, first])
             reprise_draws.append({"line": first, "source": source,
@@ -6061,8 +6058,8 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                                         # CONDITIONED, SAID SO (#902): the
                                         # delivered order is the draw that
                                         # passed placement, not the proposal.
-                                        f"an order the placement rules or a "
-                                        f"leading reprise refuse is drawn again"
+                                        f"an order the placement rules "
+                                        f"refuse is drawn again"
                                         + ("; stated counts built into the draw: "
                                            + recurrence["requested"]
                                            if recurrence.stated else "")
@@ -6197,12 +6194,15 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     if _phrase_from:
         plan["choices"]["wordless_phrases"] = {
             fn: {"value": phrases[fn], "chosen_from": src} for fn, src in _phrase_from.items()}
-    if reprise_draws:
+    if reprise_draws or reprise_lineless:
         plan["choices"]["reprise"] = {
             "value": [[d["source"], d["line"]] for d in reprise_draws],
             "chosen_from": "for each reprise, equal odds over the first lines "
-                           "of the earlier sung sections with new words",
-            "sources": [d["sources"] for d in reprise_draws]}
+                           "of the earlier sung sections with new words; a "
+                           "reprise with no sung section before it brings "
+                           "back no line",
+            "sources": [d["sources"] for d in reprise_draws],
+            **({"no_line_before": reprise_lineless} if reprise_lineless else {})}
     plan["relations"] = dict(_type_rels)
     plan["choices"]["relations"] = {
         "chosen_from": (

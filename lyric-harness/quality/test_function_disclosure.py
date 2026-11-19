@@ -352,7 +352,7 @@ class PlanReceiptTests(unittest.TestCase):
                 self.assertTrue(row['lines_chosen_from'].startswith(
                     f"equal odds over every split of the {built['total_lines']} lines "
                     f"among the {len(sung)} sung kinds, at least 1 line each"))
-            self.assertIn('an order the placement rules or a leading reprise refuse is drawn again',
+            self.assertIn('an order the placement rules refuse is drawn again',
                           built['choices']['pattern']['chosen_from'])
             longest = max(r['lines'] for r in built['choices']['schemes'].values())
             for fn, row in built['choices'].get('wordless_phrases', {}).items():

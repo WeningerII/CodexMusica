@@ -5583,22 +5583,36 @@ def test_the_type_draw():
           any(src == ch for src, ch in _after_chorus)
           and any(src != ch for src, ch in _after_chorus),
           _after_chorus[:8])
-    # A DRAWN ORDER NEVER LEADS WITH A REPRISE (#902): a reprise sung before
-    # any other sung section has nothing to bring back, so that order is
-    # drawn again. ~~It was planned with no return pair.~~
+    # A REPRISE AFTER WORDLESS SECTIONS ONLY (#902): its row asks only for
+    # some section before it, so such an order plans, as `placement_findings`
+    # says, and the reprise brings back no line; the receipt says so. Every
+    # reprise with a sung section before it has its return pair. ~~That
+    # order was drawn again, a rule the length proof could not read.~~
     _lead = [make_plan(seed, functions=["solo", "reprise", "verse"], lines=12)
              for seed in range(12)]
-    def _first_sung(p):
-        named = {sl["section"] for sl in p["line_slots"]}
-        return next((sec["function"] for sec in p["sections"] if sec["name"] in named), None)
-    check("no drawn order sings a reprise before every other sung section, and "
-          "every reprise drawn has its return pair",
-          all(_first_sung(p) != "reprise" for p in _lead)
-          and any(sec["function"] == "reprise" for p in _lead for sec in p["sections"])
-          and all(len((p["choices"].get("reprise") or {}).get("value", ()))
-                  == sum(sec["function"] == "reprise" for sec in p["sections"])
-                  for p in _lead),
-          [(_first_sung(p), p["returns"]) for p in _lead])
+    def _reprise_heads(p):
+        """-> [(first line of a reprise, whether a sung section came first)]."""
+        firsts, out = {}, []
+        for sl in p["line_slots"]:
+            firsts.setdefault(sl["section"], sl["line"])
+        sung = False
+        for sec in p["sections"]:
+            if sec["function"] == "reprise" and sec["name"] in firsts:
+                out.append((firsts[sec["name"]], sung))
+            sung = sung or sec["name"] in firsts
+        return out
+    _heads = [(h, p) for p in _lead for h in _reprise_heads(p)]
+    _pairs = lambda p: {line for _s, line in (p["choices"].get("reprise") or {}).get("value", ())}
+    check("a reprise with only wordless sections before it plans with no "
+          "return pair and is named in the receipt; every other reprise has "
+          "its pair",
+          any(not sung for (_l, sung), _p in _heads)
+          and any(sung for (_l, sung), _p in _heads)
+          and all((line in _pairs(p)) == sung
+                  and (line in (p["choices"].get("reprise") or {}).get(
+                      "no_line_before", ())) == (not sung)
+                  for (line, sung), p in _heads),
+          [(h, p["returns"]) for h, p in _heads][:6])
     # A BRIDGE NEEDS A SECTION BEFORE IT (owner's ruling, 2026-11-15): both
     # live retests of 2026-11-14 planned one as the song's first section.
     _all = opens + opens_40 + vcs

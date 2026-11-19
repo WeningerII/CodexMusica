@@ -630,11 +630,12 @@ class CatalogPlannerTests(unittest.TestCase):
         self.assertTrue(seen["hook"] and seen["none"], seen)
         self.assertLess(seen["unplanned"], len(rows) / 10, seen)
 
-    def test_reprise_source_is_drawn_kept_as_declared_or_refused(self):
+    def test_reprise_source_is_drawn_kept_as_declared_or_absent(self):
         """A reprise's first line comes back from the first line of an
         earlier sung section, drawn with equal odds; a copy the form declares
-        there is kept; a reprise with nothing sung before it is refused
-        (#902). It used to copy line 1 whatever came before."""
+        there is kept; a reprise with nothing sung before it brings back no
+        line, and the receipt says so (#902). It used to copy line 1 whatever
+        came before."""
         section = lambda role, lines=None: {"unit": "section", "role": role, "lines": lines}
         three = catalog("probe", [section("verse"), section("bridge"), section("reprise")])
         drawn = set()
@@ -659,8 +660,10 @@ class CatalogPlannerTests(unittest.TestCase):
         self.assertEqual(built["returns"], "2,5")
         self.assertNotIn("reprise", built["choices"])
         wordless_first = catalog("probe", [section("solo"), section("reprise"), section("verse")])
-        with self.assertRaisesRegex(plan.PlanRefused, "nothing to bring back"):
-            plan.make_plan(1, lines=8, song_form=wordless_first)
+        built = plan.make_plan(1, lines=8, song_form=wordless_first)
+        self.assertEqual(built["returns"], "")
+        self.assertEqual(built["choices"]["reprise"]["value"], [])
+        self.assertEqual(built["choices"]["reprise"]["no_line_before"], [1])
 
     def test_conflicting_declaration_and_unknown_fields_refuse(self):
         base = catalog("hookless-rap-track", [{"unit": "section", "role": "verse", "lines": 2}])
