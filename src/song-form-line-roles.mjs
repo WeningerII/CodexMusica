@@ -72,6 +72,57 @@ export function relativeLinePairs(plan) {
 export function lexicalLineProfile(plan) {
   const root = plan.tree[0];
   if (plan.tree.length !== 1 || plan.coverage.lines !== 'complete') return;
+  if (
+    root.unit === 'stanza' &&
+    root.children.length === 5 &&
+    root.children.every(
+      (line) =>
+        line.unit === 'line' &&
+        !line.role &&
+        line.children.length === 1 &&
+        line.children[0].unit === 'phrase' &&
+        line.children[0].children.length === 0
+    )
+  )
+    return 'single-phrase-lines';
+  if (root.unit === 'stanza' && root.children.length === 7) {
+    const ending = root.children[6].role;
+    const roles = [
+      'first-noun',
+      'adjectives',
+      'ing-verbs',
+      'middle-phrase',
+      'ing-verbs',
+      'adjectives',
+      ending,
+    ];
+    const widths = [1, 2, 3, 4, 3, 2, 1];
+    if (
+      ['synonym', 'antonym'].includes(ending) &&
+      root.children.every(
+        (line, i) =>
+          line.unit === 'line' &&
+          line.role === roles[i] &&
+          line.children.length === widths[i] &&
+          line.children.every((word) => word.unit === 'word')
+      )
+    )
+      return 'pivot-' + ending;
+  }
+  if (root.unit === 'stanza' && root.children.length === 5) {
+    const roles = ['noun', 'adjectives', 'ing-verbs', 'phrase', 'synonym'];
+    const widths = [1, 2, 3, 4, 1];
+    if (
+      root.children.every(
+        (line, i) =>
+          line.unit === 'line' &&
+          line.role === roles[i] &&
+          line.children.length === widths[i] &&
+          line.children.every((c) => c.unit === 'word')
+      )
+    )
+      return 'didactic-word-roles';
+  }
   if (root.unit !== 'poem' || root.children.length !== 7) return;
   if (
     root.children.every(

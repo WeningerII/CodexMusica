@@ -32,6 +32,7 @@ export function sectionMelodyLayout(plan) {
     roles.every((r) => r === 'verse' || r === 'altered-verse')
   )
     return 'modified-strophic';
+  if (!song.bars && roles.join(' ') === 'vamp break') return 'vamp-break';
   const groups = new Set();
   for (const section of song.children) {
     if (partRole.test(section.role)) groups.add(section.role);
@@ -51,6 +52,7 @@ export function sectionMelodyLayout(plan) {
 }
 
 export function sectionMelodyGroup(role, layout) {
+  if (layout === 'vamp-break') return role === 'vamp' ? 'part-a' : 'part-b';
   if (layout === 'modified-strophic') return { verse: 'part-a', 'altered-verse': 'part-b' }[role];
   if (layout === 'head-solos-head') return role === 'head' ? 'part-a' : undefined;
   if (layout === 'bar-form') return { stollen: 'part-a', abgesang: 'part-b' }[role];
@@ -76,7 +78,7 @@ const groupsMatch = (a, b) =>
   a.length === b.length &&
   a.every((value, i) => value === b[i]);
 
-function sectionScore(section) {
+export function sectionScore(section) {
   if (!section || !Object.hasOwn(section, 'sectionMelody')) return { outcome: 'unknown' };
   const phrase = section.sectionMelody;
   const meter = phrase?.meter;
@@ -127,7 +129,7 @@ function sectionScore(section) {
   return { outcome: 'pass', events, firstPitch };
 }
 
-function literal(a, b) {
+export function literal(a, b) {
   return (
     a.events.length === b.events.length &&
     a.events.every(
@@ -176,8 +178,68 @@ export function sectionMelodyChecks(parts, observed, layout) {
     outcome: order,
     basis: 'chronological whole-section bar spans in the submitted score',
   });
+  if (layout === 'vamp-break') {
+    const [vamp, cut] = observed.map(sectionScore);
+    const events = vamp?.events ?? [];
+    // The smallest cell that tiles the full notated part. Keep attacks
+    // separate and require two distinct pitches for this scored setting.
+    let cell;
+    for (let width = 1; width * 2 <= events.length; width++) {
+      if (events.length % width) continue;
+      const candidate = events.slice(0, width);
+      if (new Set(candidate.map((e) => e.pitch).filter((p) => p !== null)).size < 2) continue;
+      if (
+        events.every(
+          (e, i) =>
+            e.pitch === candidate[i % width].pitch && e.length === candidate[i % width].length
+        )
+      ) {
+        cell = candidate;
+        break;
+      }
+    }
+    checks.push({
+      kind: 'repeated-riff',
+      sections: [1],
+      outcome: vamp?.outcome !== 'pass' ? (vamp?.outcome ?? 'unknown') : cell ? 'pass' : 'fail',
+      basis: 'an identical timed cell with two or more pitches repeats throughout the written riff',
+    });
+    const continued =
+      cell &&
+      cut?.events?.length >= cell.length &&
+      cut.events.every(
+        (e, i) =>
+          e.pitch === cell[i % cell.length].pitch && e.length === cell[i % cell.length].length
+      );
+    checks.push({
+      kind: 'riff-break',
+      sections: [2],
+      outcome:
+        cut?.outcome !== 'pass'
+          ? (cut?.outcome ?? 'unknown')
+          : !cell
+            ? 'unknown'
+            : continued
+              ? 'fail'
+              : cut.events.length === 1
+                ? 'pass'
+                : 'unknown',
+      basis:
+        'a sustained scored break interrupts the repeated attacks; other break arrangements are undecided',
+    });
+    return checks;
+  }
   if (layout === 'head-solos-head') {
     for (const [i, part] of parts.entries()) {
+      if (part.role === 'solo') {
+        checks.push({
+          kind: 'instrumental-solo-score',
+          sections: [i + 1],
+          outcome: sectionScore(observed[i]).outcome,
+          basis:
+            'an independently notated instrumental phrase with pitched events filling the actual solo bars',
+        });
+      }
       const span = observed[i]?.lineSpan;
       const count =
         Array.isArray(span) &&

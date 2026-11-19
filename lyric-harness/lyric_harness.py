@@ -12370,21 +12370,22 @@ def main():
         # with no positioned syllable rhyme needs only the line measurements.
         full_form_reading = "--form-reading" in rest
         paragraph_reading = "--form-reading=paragraphs" in rest
+        alliterative_reading = "--form-reading=alliteration" in rest
         printed_reading = "--form-reading=printing" in rest
         rondo_reading = "--form-reading=rondo" in rest
-        form_reading = full_form_reading or rondo_reading or "--form-reading=lines" in rest
-        rest = [item for item in rest if item not in ("--form-reading", "--form-reading=lines", "--form-reading=rondo", "--form-reading=printing", "--form-reading=paragraphs")]
+        form_reading = full_form_reading or rondo_reading or alliterative_reading or "--form-reading=lines" in rest
+        rest = [item for item in rest if item not in ("--form-reading", "--form-reading=lines", "--form-reading=rondo", "--form-reading=printing", "--form-reading=alliteration", "--form-reading=paragraphs")]
         spec = _flag_value(rest, "--placements", eq_only=True)
         rest = _strip_flag(rest, "--placements")
         bad_flag = [a for a in rest if a.startswith("--")]
         if bad_flag:
             _refuse(f"recover does not take {bad_flag[0]!r}",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines|rondo|printing]]",
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines|rondo|printing|alliteration]]",
                             "an unrecognised flag is refused rather than "
                             "ignored (doctrine 20)"])
         if len(rest) != 1:
             _refuse("recover takes exactly one LYRIC.txt",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines|rondo|printing]]"])
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines|rondo|printing|alliteration]]"])
         try:
             declared = RC.parse_placements(spec) if spec is not None else None
         except _SLr.SlotUnsupported as exc:
@@ -12436,6 +12437,12 @@ def main():
             form_observations["form_reading"] = [
                 {**_form_reading(lex, line, syllable_rimes=full_form_reading), "sungWords": _form_word_tokens(lex, line)}
                 for line in rec.sung_lines]
+            if alliterative_reading:
+                from quality.catalog_grading import alliterative_halves
+                for line, obs in zip(rec.sung_lines, form_observations["form_reading"]):
+                    proof = alliterative_halves(lex, line)
+                    if proof is not None:
+                        obs["alliterativeHalves"] = proof
         _lyric_result(**_lexicon_kw(), **form_observations, status="recovered", exit=3 if _refs else 0,
                       **_numbering_kw(),
                       input_format=input_format,

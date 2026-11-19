@@ -13,7 +13,7 @@ Everything tracked under `lyric-harness/`, sized in tokens (bytes ÷ 3.6, rounde
 | Python: song program (ran) | 56 | 1,400k |
 | Python: research and record tools (never loaded) | 156 | 900k |
 | Python: loadable by the song program, not loaded | 18 | 110k |
-| Python: imported by the song program, unused | 6 | 28k |
+| Python: imported by the song program, unused | 6 | 29k |
 
 ## Data the song program opened (71 files, 0 under corpus/)
 
@@ -27,11 +27,11 @@ Fetched or staged, not in the repo: `cmudict.dict`, `data/nltk/corpora/` (18 fil
 
 ## Python — imported, no function ran (6)
 
-`quality/length_curve_calibration.py` 14k, `quality/redteam_band.py` 9.5k, `library/registry.py` 2.5k, `quality/melody.py` 1.7k, `quality/battery_pin.py` <1k, `quality/__init__.py` <1k
+`quality/length_curve_calibration.py` 14k, `quality/redteam_band.py` 9.5k, `library/registry.py` 2.5k, `quality/melody.py` 2.2k, `quality/battery_pin.py` <1k, `quality/__init__.py` <1k
 
 ## Python — loadable, not loaded (18)
 
-`quality/declared_inputs.py` 17k, `library/form.py` 15k, `quality/capacity.py` 15k, `quality/catalog_shape.py` 9.2k, `quality/cross_song.py` 8.9k, `battery.py` 7.3k, `quality/build_song_frequency.py` 4.8k, `quality/catalog_grading.py` 4.4k, `quality/narrative_bands.py` 4k, `quality/relation_index.py` 3.9k, `quality/metric_complexity.py` 3.8k, `quality/senses.py` 3.4k, `quality/check_data_rows.py` 3.1k, `quality/meter_strict.py` 2.9k, `quality/fixtures/phonological_twin.py` 2.5k, `quality/catalog_word_roles.py` 1.3k, `quality/fixtures/seeded_lines.py` 1.1k, `quality/catalog_rondo.py` <1k
+`quality/declared_inputs.py` 17k, `library/form.py` 15k, `quality/capacity.py` 15k, `quality/catalog_shape.py` 10k, `quality/cross_song.py` 8.9k, `battery.py` 7.3k, `quality/catalog_grading.py` 5.6k, `quality/build_song_frequency.py` 4.8k, `quality/narrative_bands.py` 4k, `quality/relation_index.py` 3.9k, `quality/metric_complexity.py` 3.8k, `quality/senses.py` 3.4k, `quality/check_data_rows.py` 3.1k, `quality/meter_strict.py` 2.9k, `quality/fixtures/phonological_twin.py` 2.5k, `quality/catalog_word_roles.py` 2.4k, `quality/fixtures/seeded_lines.py` 1.1k, `quality/catalog_rondo.py` <1k
 
 ## Python — never loaded by a song (156)
 

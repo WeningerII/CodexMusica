@@ -96,6 +96,10 @@ test('every published selection has an exact structural contract or an explicit 
           });
           assert.deepEqual(contract.printedSteps, sizes, where);
           assert.deepEqual(contract.sections, [{ unit:'section', role:'verse', lines:sizes.reduce((n,c) => n+c, 0) }], where);
+        } else if (contract.spokenClose) {
+          assert.equal(realization.lines.at(-1).role, 'spoken-close');
+          assert.equal(contract.sections[0].lines, realization.lines.length);
+          assert.deepEqual(contract.rhymeGroups, realization.lines[0].rhyme ? [[1,2]] : []);
         } else if (contract.imitationRepeats) {
           const voices = realization.tree[0].children;
           assert.equal(realization.tree[0].unit, 'staggered-voices');
@@ -124,10 +128,14 @@ test('every published selection has an exact structural contract or an explicit 
               assert.equal(mark.role, original.role, where);
             }
           }
-        } else if (contract.lineProfile === 'caesural-rhyme') {
+        } else if (['caesural-rhyme', 'alliterative-long-line'].includes(contract.lineProfile)) {
           assert.equal(realization.tree.length, 1);
           assert.deepEqual(realization.tree[0].children.map(n => n.unit), ['half-line', 'caesura', 'half-line']);
           assert.deepEqual(contract.sections, [{unit:'section',role:'verse',lines:null}]);
+          if (contract.lineProfile === 'alliterative-long-line') {
+            assert.deepEqual(realization.tree[0].children.map(n => n.stresses), [2,undefined,2]);
+            assert.ok(realization.tree[0].children.every(n => !n.children.length));
+          }
         } else if (projected.arrangement) {
           arranged++;
           assert.equal(realization.coverage.lines, 'complete', where);
@@ -208,7 +216,13 @@ test('every published selection has an exact structural contract or an explicit 
             if (ending && node.stress === undefined) measures.stressEnding = ending;
             if (node.children.length && node.children.every(child => child.unit === 'syllable')) {
               measures.syllables = node.children.length;
-            } else if (node.children.length && !contract.printedSteps) {
+            } else if (contract.closingChord && node.role === 'closing-line') {
+              assert.deepEqual(node.children.map(child => child.unit), ['held-note'], where);
+              assert.equal(position, realization.lines.length, where);
+            } else if (contract.lineProfile === 'single-phrase-lines') {
+              assert.deepEqual(node.children.map(child=>child.unit), ['phrase'], where);
+              assert.equal(node.children[0].children.length, 0, where);
+            } else if (node.children.length && !contract.printedSteps && contract.lineProfile !== 'alliterative-long-line') {
               assert.ok(node.children.every((child) => child.unit === 'word'), where);
               measures.words = node.children.length;
               if (node.children.some(word => word.children.length))
@@ -438,7 +452,6 @@ test('unmeasured subject matter, morae, line length and bardic closure retain ex
   for (const [id, variant, counts, code] of [
     ['senryu', 1, { '1.1.1': 3 }, 'unmeasured-subject-matter'],
     ['haiku', 1, { '1.1.1': 3 }, 'unmeasured-imagistic-cut'],
-    ['tanka', 1, {}, 'unspecified-short-line-length'],
     ['senryu', 0, {}, 'unmeasured-mora-count'],
     ['tanka', 0, {}, 'unmeasured-mora-count'],
     ['irish-syllabic-quatrains', 0, {}, 'unmeasured-bardic-correspondences'],
@@ -490,4 +503,16 @@ test('linked couplets measure each cross-boundary echo and the closing wrap in s
   assert.equal(read().verdict,'unknown');
   lines[2] = {...line(b),syllables:8};
   assert.equal(read().verdict,'fail');
+});
+
+test('English tanka measures a bounded English reading independently of Japanese morae', () => {
+  const form = 'tanka';
+  assert.equal(projection(catalog,form,{variant:1}).contract.lineProfile,'english-short-long-five');
+  assert.equal(projection(catalog,form,{variant:0}).status,'unsupported');
+  const read = counts => gradeObservations(catalog,form,{variant:1, lines:counts.map(n=>({text:'one',syllables:n})),
+    sections:[{role:'verse',lineSpan:[0,5]}]});
+  assert.equal(read([2,4,3,5,6]).verdict,'pass');
+  assert.equal(read([5,7,5,7,7]).verdict,'pass');
+  assert.equal(read([5,8,5,7,7]).verdict,'unknown');
+  assert.equal(read([2,4,5,5,6]).verdict,'unknown');
 });

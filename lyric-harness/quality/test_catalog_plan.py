@@ -11,6 +11,119 @@ def catalog(form_id, sections, rhymes=(), returns=()):
 
 
 class CatalogPlannerTests(unittest.TestCase):
+    def test_repeated_riff_and_break_are_measured_in_the_filled_score(self):
+        import json
+        import subprocess
+        from copy import deepcopy
+        from pathlib import Path
+        from quality.catalog_grading import _sections
+        script = Path(__file__).resolve().parents[2] / "scripts" / "song_forms.mjs"
+
+        def call(command, **kwargs):
+            return json.loads(subprocess.check_output(
+                ["node", str(script), command, "vamp-riff-form"],
+                input=json.dumps(kwargs), text=True))
+
+        built = plan.make_plan(43, song_form=call("create")["contract"])
+        words = ["a b"] * len(built["line_slots"])
+        rows = _sections(plan.fill_plan(built, words), [{} for _ in words])
+        verdict = lambda parts: call("grade-observations", sections=parts)["verdict"]
+        self.assertEqual(verdict(rows), "pass")
+        self.assertEqual(rows[1]["lineSpan"][0], rows[1]["lineSpan"][1])
+        missing = deepcopy(rows)
+        del missing[0]["sectionMelody"]
+        self.assertEqual(verdict(missing), "unknown")
+        damaged = deepcopy(rows)
+        damaged[0]["sectionMelody"]["notes"][0]["pitch_hz"] += 1
+        self.assertEqual(verdict(damaged), "fail")
+        continued = deepcopy(rows)
+        cycle = continued[0]["sectionMelody"]["notes"][:2]
+        continued[1]["sectionMelody"]["notes"] = cycle * continued[1]["bars"]
+        self.assertEqual(verdict(continued), "fail")
+        unmeasured_break = deepcopy(rows)
+        beat = unmeasured_break[1]["sectionMelody"]["notes"][0]
+        beat["ticks"] -= 1
+        unmeasured_break[1]["sectionMelody"]["notes"].append({"ticks": 1, "pitch_hz": 333})
+        self.assertEqual(verdict(unmeasured_break), "unknown")
+
+    def test_multi_voice_scores_use_actual_written_parts(self):
+        import json
+        import subprocess
+        from copy import deepcopy
+        from pathlib import Path
+        from quality.catalog_grading import _sections
+        script = Path(__file__).resolve().parents[2] / "scripts" / "song_forms.mjs"
+        for form, counts in [("canzonet", {"1.1": 2, "1.1.1": 2}), ("glee", {"1.1": 3})]:
+            with self.subTest(form=form):
+                def run(command, **args):
+                    raw = subprocess.check_output(["node", str(script), command, form],
+                              input=json.dumps({"counts": counts, **args}), text=True)
+                    return json.loads(raw)
+                built = plan.make_plan(11, song_form=run("create")["contract"])
+                words = ["a b" for _ in built["line_slots"]]
+                rows = _sections(plan.fill_plan(built, words), [{} for _ in words])
+                score = lambda parts: run("grade-observations", sections=parts)["verdict"]
+                self.assertEqual(score(rows), "pass")
+                self.assertIn("Scored voice v2", built["writer_brief"])
+                missing = deepcopy(rows)
+                del missing[0]["sectionParts"]
+                self.assertEqual(score(missing), "unknown")
+                damaged = deepcopy(rows)
+                if form == "glee":
+                    damaged[1]["sectionParts"] = deepcopy(damaged[0]["sectionParts"])
+                    damaged[1]["sectionMelody"] = deepcopy(damaged[0]["sectionMelody"])
+                    self.assertEqual(score(damaged), "fail")
+                    player = dict(deepcopy(rows[0]["sectionParts"][0]), performer="p1", kind="instrument")
+                    rows[0]["sectionParts"].append(player)
+                    self.assertEqual(score(rows), "fail")
+                else:
+                    voice = damaged[-1]["sectionParts"][1]["melody"]
+                    voice["notes"][0]["pitch_hz"] += 7
+                    self.assertEqual(score(damaged), "fail")
+                    rows[-1]["sectionParts"].pop()
+                    self.assertEqual(score(rows), "fail")
+
+    def test_open_catalog_span_and_selected_writer_part_bars_remain_distinct(self):
+        import json
+        import subprocess
+        from pathlib import Path
+        import lyric_harness as lh
+        from quality.catalog_grading import inspect_catalog
+        from quality import revise, schemes
+        script = Path(__file__).resolve().parents[2] / "scripts" / "song_forms.mjs"
+        select = {"variant": 2, "counts": {"1.1": 0}}
+        key = "verse-refrain-with-introductory-verse"
+        contract = json.loads(subprocess.check_output(["node", str(script), "create", key],
+                              input=json.dumps(select), text=True))["contract"]
+        built = plan.make_plan(11, song_form=contract)
+        draft = ["one two", "three four", "five six", "seven eight"]
+        bp = plan.fill_plan(built, ["one two"] * len(built["line_slots"]))
+        bp["lines"] = []
+        start = 1
+        for sec, bars, text in zip(bp["sections"], (7, 7, 11, 7), draft):
+            beats = sec["meter"]["beats"]
+            sec["start_bar"], sec["bars"] = start, bars
+            pitch = 220 if sec["source_role"] == "part-a" else 285
+            ticks = bars * beats
+            sec["section_melody"] = {"bars":bars,"meter":sec["meter"],"subdivision":1,
+                "notes":[{"pitch_hz":200,"ticks":1},{"pitch_hz":pitch,"ticks":ticks-1}]}
+            bp["lines"].append({"section":sec["name"], "text":text, "bar":start, "beat":1, "duration":1})
+            start += bars
+        lex = lh.Lexicon()
+        lex.catalog_selection = {"id":key, **select}
+        mandate = schemes.Mandate(n_lines=len(draft))
+        lookup = dict(bp)
+        del lookup["song_form"]
+        self.assertEqual(inspect_catalog(lex, draft, lookup, mandate, {})["verdict"], "pass")
+        selected = inspect_catalog(lex, draft, bp, mandate, {})
+        self.assertEqual(selected["verdict"], "fail")
+        self.assertEqual([r["actual"] for r in selected["checks"] if r["kind"] == "selected-part-bars"], [7,7,11,7])
+        self.assertIn("8, 8, 8, 8",built["writer_brief"])
+        inspected = revise.Reviser(lex=lex, writing=True).inspect(draft, mandate, blueprint=bp)
+        self.assertEqual(
+            {finding.subject[0] for finding in inspected["whole"] if finding.code == "CATALOG_FORM_MISMATCH"},
+            {f"catalog:{key}:selected-part-bars:section[{i}]" for i in range(1, 5)})
+
     def test_nested_refrain_spans_and_pitch_survive_seeded_fill_and_grade(self):
         import json
         import subprocess

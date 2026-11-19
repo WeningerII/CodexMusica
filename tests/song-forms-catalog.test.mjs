@@ -312,9 +312,13 @@ test('the instrumental head arrangement checks sung bookends and every interveni
   const meter={beats:4,unit:4,groups:[2,2]};
   const score={bars:1,meter,subdivision:1,notes:[{pitch_hz:200,ticks:2},{pitch_hz:220,ticks:2}]};
   const head=(startBar,lineSpan)=>({role:'verse',sourceRole:'head',startBar,lineSpan,bars:1,sectionMeter:meter,sectionMelody:score});
-  const rows=[head(1,[0,1]),{role:'solo',startBar:2,lineSpan:[1,1],bars:1},head(3,[1,2])];
+  const rows=[head(1,[0,1]),{role:'solo',startBar:2,lineSpan:[1,1],bars:1,sectionMeter:meter,sectionMelody:score},head(3,[1,2])];
   const grade=sections=>gradeObservations(catalog,'head-arrangement',{counts:{'1.2':1},lines:['a','b'],sections});
   assert.equal(grade(rows).verdict,'pass');
+  const absent={...rows[1]}; delete absent.sectionMelody;
+  assert.equal(grade([rows[0],absent,rows[2]]).verdict,'unknown');
+  for (const invalid of [null,{...score,notes:[{pitch_hz:null,ticks:4}]}])
+    assert.equal(grade([rows[0],{...rows[1],sectionMelody:invalid},rows[2]]).verdict,'fail');
   assert.equal(grade([rows[0],{...rows[1],lineSpan:[1,2]},head(3,[2,2])]).verdict,'fail');
   assert.equal(grade([rows[0],rows[1],{...rows[2],sectionMelody:{...score,notes:[{pitch_hz:233,ticks:4}]}}]).verdict,'fail');
 });

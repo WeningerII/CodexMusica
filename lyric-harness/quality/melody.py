@@ -61,28 +61,56 @@ def assign_section_melodies(rng, sections, declarations, subdivision):
     """Draw one bounded monophonic score per identity, reusing its literal events."""
     phrases = {}
     base_hz = rng.randint(180, 360)
-    intervals = iter(rng.sample(range(12, 121), 4))
+    group_count = len({p["melodyGroup"] for p in declarations if "melodyGroup" in p})
+    count = max(4, group_count)
+    intervals = iter(rng.sample(range(12, max(121, 12 + count)), count))
+    heads = declarations[0].get('sourceRole') == declarations[-1].get('sourceRole') == 'head'
     for section, declaration in zip(sections, declarations):
         group = declaration.get('melodyGroup')
+        solo = heads and declaration['role'] == 'solo'
+        if solo:
+            group = ('solo', section['name'])
         if group is None:
             continue
         meter, bars = section['meter'], section['bars']
         if group not in phrases:
             total = bars * meter['beats'] * subdivision
-            size = rng.randint(2, min(8, total))
-            bounds = [0, *sorted(rng.sample(range(1, total), size - 1)), total]
-            # A shared starting pitch and a distinct first interval rule out
-            # two contrasting groups that differ only by transposition.
-            pitches = [base_hz, base_hz + next(intervals)]
-            for _ in range(size - 2):
-                pitches.append(None if rng.randrange(5) == 0 else rng.randint(150, 500))
-            notes = [{'pitch_hz': pitch, 'ticks': right - left}
-                     for pitch, left, right in zip(pitches, bounds, bounds[1:])]
+            if declaration.get("sourceRole") == "vamp":
+                beat = subdivision
+                # Each selected bar has at least two beats. Repeat once per
+                # bar, preserving the second attack even in binary meters.
+                notes = [{"pitch_hz": pitch, "ticks": length}
+                         for _ in range(bars)
+                         for pitch, length in ((base_hz, beat),
+                                               (base_hz + 32, (meter["beats"] - 1) * beat))]
+                if bars < 2:
+                    raise ValueError("the selected vamp needs at least two complete riff cycles")
+            elif declaration.get("sourceRole") == "break":
+                notes = [{"pitch_hz": base_hz, "ticks": total}]
+            else:
+                size = rng.randint(2, min(8, total))
+                bounds = [0, *sorted(rng.sample(range(1, total), size - 1)), total]
+                # A shared starting pitch and a distinct first interval rule out
+                # two contrasting groups that differ only by transposition.
+                pitches = [base_hz, base_hz + (rng.randint(12, 120) if solo else next(intervals))]
+                for _ in range(size - 2):
+                    pitches.append(None if rng.randrange(5) == 0 else rng.randint(150, 500))
+                notes = [{'pitch_hz': pitch, 'ticks': right - left}
+                         for pitch, left, right in zip(pitches, bounds, bounds[1:])]
             phrases[group] = dict(bars=bars, meter=meter, subdivision=subdivision, notes=notes)
         phrase = phrases[group]
         if phrase['bars'] != bars or phrase['meter'] != meter:
             raise ValueError('a literal section melody requires identical bar and meter spans on each return')
         section['section_melody'] = validate_melody(phrase)
+        if declaration.get('vocalDuty') == 'ensemble':
+            section['section_parts'] = []
+            for i, singer in enumerate(section['performers']):
+                # A reproducible, fully written vocal setting. All voices
+                # keep their own events, even when their attacks align.
+                notes = [dict(n, pitch_hz=None if n['pitch_hz'] is None else n['pitch_hz'] * (1 + i / 4))
+                         for n in phrase['notes']]
+                section['section_parts'].append(dict(performer=singer, kind='voice',
+                                                     melody=validate_melody(dict(phrase, notes=notes))))
 
 
 def assign_imitative_score(rng, plan, repeats):

@@ -16,7 +16,7 @@ FIELDS = frozenset(("version", "id", "scope", "variant", "counts", "sections",
 def line_rhyme_contract(contract):
     """Known v1 shape: all positioned rhyme groups bind line endings."""
     optional = {"openRhymeLines", "lineRequirements", "endingWords", "phraseLines",
-                "lineProfile", "printedSteps", "imitationRepeats", "printedParagraphs"}
+                "lineProfile", "printedSteps", "imitationRepeats", "printedParagraphs", "closingChord", "spokenClose"}
     return (isinstance(contract, dict) and set(contract) - optional == FIELDS
             and type(contract["version"]) is int and contract["version"] == 1)
 
@@ -89,6 +89,22 @@ def _validate_shape(contract):
     parts = contract["sections"]
     if not isinstance(parts, list) or not 1 <= len(parts) <= plan.ENVELOPE["sections"][1]:
         raise plan.PlanRefused("catalog section count is outside the native envelope")
+    if "spokenClose" in contract:
+        length = 2 if contract["variant"] == 0 else 4
+        if (set(contract) != FIELDS | {"spokenClose"} or contract["id"] != "talking-blues"
+                or contract["scope"] != "setting" or contract["variant"] not in (0, 1)
+                or contract["spokenClose"] is not True
+                or parts != [{"unit": "section", "role": "verse", "lines": length}]
+                or contract["rhymeGroups"] != ([[1, 2]] if length == 2 else []) or contract["returnGroups"]):
+            raise plan.PlanRefused("the scored spoken close requires the selected couplet or quatrain")
+    if "closingChord" in contract:
+        if (set(contract) != FIELDS | {"closingChord"} or contract["id"] != "barbershop-tag"
+                or contract["scope"] != "setting" or contract["variant"] != 0
+                or contract["closingChord"] != "close-major-triad"
+                or len(parts) != 1 or parts[0] not in [
+                    {"unit": "section", "role": "tag", "lines": n} for n in (2, 3, 4)]
+                or contract["rhymeGroups"] or contract["returnGroups"]):
+            raise plan.PlanRefused("a held closing chord requires a two- to four-line tag")
     if "imitationRepeats" in contract:
         repeats = contract["imitationRepeats"]
         if (set(contract) != FIELDS | {"imitationRepeats"} or contract["scope"] != "setting"
@@ -116,7 +132,9 @@ def _validate_shape(contract):
             raise plan.PlanRefused("printed staircases need a verse with one sung row for each segment")
     if "lineProfile" in contract:
         profile = contract["lineProfile"]
-        if profile == "caesural-rhyme":
+        if profile in ("caesural-rhyme", "alliterative-long-line"):
+            if profile == "alliterative-long-line" and contract["id"] != "alliterative-verse":
+                raise plan.PlanRefused("the long-line profile requires the alliterative verse setting")
             lengths = [None]
         elif profile == "linked-couplet-echoes":
             lengths = [2] * 7
@@ -126,6 +144,14 @@ def _validate_shape(contract):
                     or type(r.get("syllables")) is not int or not 9 <= r["syllables"] <= 11
                     for i, r in enumerate(rows, 1)):
                 raise plan.PlanRefused("each of the fourteen echo lines needs its selected syllable count")
+        elif profile in ("single-phrase-lines", "english-short-long-five"):
+            lengths = [5]
+        elif profile in ("didactic-word-roles", "pivot-synonym", "pivot-antonym"):
+            widths = (1, 2, 3, 4, 1) if profile == "didactic-word-roles" else (1, 2, 3, 4, 3, 2, 1)
+            lengths = [len(widths)]
+            required = [{"line": i, "words": n} for i, n in enumerate(widths, 1)]
+            if contract.get("lineRequirements") != required:
+                raise plan.PlanRefused("word-role stanza requires its selected word counts")
         else:
             raise plan.PlanRefused("unknown catalog line profile")
         if (parts != [{"unit": "section", "role": "verse", "lines": n} for n in lengths]
@@ -141,7 +167,8 @@ def _validate_shape(contract):
             raise plan.PlanRefused("invalid catalog division path")
         if "vocalDuty" in part:
             roles = {"solo-verse": "solo", "full-choir": "full", "choral-stanza": "ensemble",
-                     "cantor-verse": "cantor", "ensemble-reprise": "reprise"}
+                     "cantor-verse": "cantor", "ensemble-reprise": "reprise",
+                     "contrasting-part": "ensemble", "repeated-section": "ensemble"}
             path = part.get("divisionPath") or []
             last = path[-1] if path else {}
             duty = roles.get(last.get("role")) if last.get("unit") == "section" else None
@@ -167,12 +194,23 @@ def _validate_shape(contract):
             raise plan.PlanRefused("an ensemble reprise closes the preceding solo verses")
     if any("melodyGroup" in p for p in parts):
         groups = set()
-        for part in parts:
+        vamp_break = (contract["id"] == "vamp-riff-form" and
+                      [(p.get("sourceRole"), p["role"], p.get("melodyGroup")) for p in parts] ==
+                      [("vamp", "vamp", "part-a"), ("break", "solo", "part-b")])
+        for index, part in enumerate(parts, 1):
             group = part.get("melodyGroup")
             if "melodyGroup" in part:
+                if vamp_break:
+                    groups.add(group)
+                    continue
+                if part.get("sourceRole") == "contrasting-part":
+                    if part.get("vocalDuty") != "ensemble" or group != f"section-{index}":
+                        raise plan.PlanRefused("a contrasting ensemble part needs its own written melody")
+                    groups.add(group)
+                    continue
                 if (group not in ("part-a", "part-b", "part-c", "part-d")
                         or {"verse": "part-a", "altered-verse": "part-b",
-                            "stollen": "part-a", "abgesang": "part-b", "head": "part-a"}.get(
+                            "stollen": "part-a", "abgesang": "part-b", "head": "part-a", "repeated-section": "part-a"}.get(
                                 part.get("sourceRole"), part.get("sourceRole")) != group
                         or part["role"] != "verse"):
                     raise plan.PlanRefused("a melodic part needs its matching score group")
@@ -184,7 +222,9 @@ def _validate_shape(contract):
         head_return = (len(parts) >= 3 and parts[0].get("sourceRole") == "head"
                        and parts[-1].get("sourceRole") == "head"
                        and all(p["role"] == "solo" for p in parts[1:-1]))
-        if len(groups) < 2 and not head_return:
+        ensemble_return = len(parts) >= 4 and all(p.get("sourceRole") == "repeated-section"
+                                                   and p.get("vocalDuty") == "ensemble" for p in parts)
+        if len(groups) < 2 and not head_return and not ensemble_return:
             raise plan.PlanRefused("a contrasting melodic setting needs distinct part groups")
     elif any("sourceRole" in part for part in parts):
         first = parts[0]

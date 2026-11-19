@@ -1,5 +1,7 @@
 // Compare catalog requirements with measurements from the current candidate.
 // Blueprint coordinates describe the declared arrangement, including its bar grid.
+import { measureSpokenClose } from './song-form-spoken-close.mjs';
+import { gradeHeldTag } from './song-form-closing-chord.mjs';
 import { checkImitativeScore } from './song-form-imitative-score.mjs';
 import { paragraphCount } from './song-form-printing.mjs';
 import { printedPhraseSetting } from './song-form-mandate.mjs';
@@ -72,6 +74,17 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     };
   }
   const creation = projectSongFormCreation(plan, counts);
+  if (creation.contract?.closingChord) {
+    const verdict = gradeHeldTag(creation.contract.sections[0].lines, lines, sections);
+    return {
+      id,
+      variant: plan.variant,
+      scope: plan.scope,
+      verdict,
+      checks: [{ kind: 'held-closing-chord', outcome: verdict }],
+      basis: 'declared four-part close-position major-triad setting',
+    };
+  }
   if (creation.contract?.imitationRepeats) {
     const verdict = checkImitativeScore(creation.contract.imitationRepeats, lines, sections);
     return {
@@ -81,6 +94,44 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       verdict,
       checks: [{ kind: 'timed-unison-imitation', outcome: verdict }],
       basis: 'declared overlapping voice scores',
+    };
+  }
+  if (creation.contract?.lineProfile === 'alliterative-long-line') {
+    const checks = (lines ?? []).map((row, i) => {
+      const proof = row?.alliterativeHalves;
+      let outcome = 'unknown';
+      if (
+        typeof row?.text === 'string' &&
+        /^[^/|]+[/|][^/|]+$/u.test(row.text) &&
+        Array.isArray(proof) &&
+        proof.length === 2 &&
+        proof.every(
+          (half) =>
+            Array.isArray(half) &&
+            half.every((onset) => onset === null || (typeof onset === 'string' && onset.length))
+        )
+      ) {
+        const [left, right] = proof;
+        if (left.length !== 2 || right.length !== 2) outcome = 'fail';
+        else if (right[0] !== null) {
+          const match = left.includes(right[0]);
+          if (right[0] === right[1] || (!match && !left.includes(null))) outcome = 'fail';
+          else if (match && right[1] !== null) outcome = 'pass';
+        }
+      }
+      return { kind: 'alliterative-long-line', lines: [i + 1], outcome };
+    });
+    if (!checks.length) checks.push({ kind: 'alliterative-long-line', outcome: 'unknown' });
+    return {
+      id,
+      variant: plan.variant,
+      scope: plan.scope,
+      checks,
+      verdict: checks.some((c) => c.outcome === 'fail')
+        ? 'fail'
+        : checks.every((c) => c.outcome === 'pass')
+          ? 'pass'
+          : 'unknown',
     };
   }
   if (creation.contract?.lineProfile === 'caesural-rhyme') {
@@ -121,7 +172,7 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
         : 'unknown';
     return { id, variant: plan.variant, scope: plan.scope, verdict, checks };
   }
-  if (creation.nestedRefrain) {
+  if (creation.nestedRefrain || creation.scoredEnsemble) {
     const { verdict, checks } = checkReaderForm(catalog, id, { variant, counts, sections });
     return { id, variant: plan.variant, scope: plan.scope, verdict, checks };
   }
@@ -424,6 +475,13 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       if (creation.contract?.lineProfile === 'linked-couplet-echoes')
         return { ...check, ...measuredCoupletEcho(index, lines) };
       const line = addresses.get(check.address);
+      if (line.role === 'spoken-close' && creation.contract?.spokenClose) {
+        return {
+          ...check,
+          outcome: measureSpokenClose(creation.contract.sections[0].lines, lines, sections),
+          basis: 'timed speech over independently scored repetitions of a guitar figure',
+        };
+      }
       const pair = relative.get(check.address);
       if (pair) {
         const lengths = [pair.long, pair.short].map((n) => {
@@ -482,6 +540,37 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       if (node?.unit === 'stanza' && node.children.every((child) => child.unit === 'line')) {
         const start = node.span.lines[0];
         const end = node.span.lines[1];
+        if (
+          creation.contract?.lineProfile === 'english-short-long-five' &&
+          node.role === 'english-short-lines'
+        ) {
+          // The Tanka Society of America records a common English reading of
+          // at most 31 syllables in short–long–short–long–long lines. Select
+          // this sufficient profile without requiring it of every English tanka.
+          const observed = lines.slice(start, end).map((row) => {
+            if (typeof row?.text !== 'string' || !row.text.trim()) return;
+            if (
+              row.stress !== undefined &&
+              (typeof row.stress !== 'string' ||
+                !/^[./]+$/.test(row.stress) ||
+                (row.syllables !== undefined && row.stress.length !== row.syllables))
+            )
+              return;
+            const n = row.syllables ?? row.stress?.length;
+            if (Number.isSafeInteger(n) && n > 0) return n;
+          });
+          const within =
+            observed.length === 5 &&
+            observed.every(Number.isInteger) &&
+            observed.reduce((a, b) => a + b, 0) <= 31 &&
+            Math.max(observed[0], observed[2]) < Math.min(observed[1], observed[3], observed[4]);
+          return {
+            ...check,
+            outcome: within ? 'pass' : 'unknown',
+            basis:
+              'English five-line short–long–short–long–long setting within 31 measured syllables',
+          };
+        }
         const observed = measuredStanzaRole(node.role, lines.slice(start, end));
         if (observed !== undefined)
           return { ...check, outcome: observed ? 'pass' : 'fail', basis: 'measured-stanza' };
@@ -548,6 +637,9 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     id,
     variant: plan.variant,
     scope: plan.scope,
+    ...(creation.contract?.spokenClose && {
+      unassessed: ['comic effect', 'acoustic timbre', 'performance'],
+    }),
     ...(sourceArrangement && {
       sectionArrangement: {
         sourceRole: sourceArrangement.sourceRole,

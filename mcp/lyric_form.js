@@ -11,6 +11,7 @@ export function catalogReadingFlag(plan) {
   if (plan?.status !== 'ready') return null;
   if (paragraphCount(plan)) return '--form-reading=paragraphs';
   if (printedSteps(plan)) return '--form-reading=printing';
+  if (plan.id === 'alliterative-verse') return '--form-reading=alliteration';
   if (plan.id === 'rondo') return '--form-reading=rondo';
   function needsRimes(node) {
     return (node.unit === 'syllable' && node.rhyme !== undefined) || node.children.some(needsRimes);
@@ -42,6 +43,7 @@ export async function prepareFormReview(args) {
 function sectionObservations(sections, plan) {
   if (!sections?.length || !sections.every((section) => section.classified === true)) return;
   const roles = new Set(plan.sections.map((section) => section.role).filter(Boolean));
+  if (plan.id === 'alliterative-verse') return '--form-reading=alliteration';
   if (plan.id === 'rondo') for (const role of [...roles]) roles.add(role.slice('part-'.length));
   const triads = pindaricTriads(plan);
   if (triads) {
@@ -107,7 +109,8 @@ export function reviewRecoveredForm({ options, plan }, record) {
     sections.every(({ lineSpan }) => lineSpan && lineSpan[1] > lineSpan[0]) &&
     sections.at(-1).lineSpan[1] === observations.length &&
     projectSongFormCreation(plan, options.counts).arrangement?.divisions.length === sections.length;
-  const check = markedSequence ? gradeObservations : checkReaderForm;
+  const check =
+    markedSequence || plan.id === 'alliterative-verse' ? gradeObservations : checkReaderForm;
   const { verdict, checks } = check(catalog, plan.id, {
     ...options,
     lines: observations,
