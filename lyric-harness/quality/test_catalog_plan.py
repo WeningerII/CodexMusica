@@ -11,6 +11,51 @@ def catalog(form_id, sections, rhymes=(), returns=()):
 
 
 class CatalogPlannerTests(unittest.TestCase):
+    def test_verified_catalog_burden_can_open_only_its_complete_alternating_setting(self):
+        from quality import grid
+        from types import SimpleNamespace
+        from lyric_harness import _bind_blueprint_catalog, _catalog_creation
+        order = ["burden", "verse", "burden", "verse", "burden"]
+        contract = {**catalog("lullay-carol", [{"unit": "section", "role": role, "lines": None}
+                                                for role in order]), "scope": "setting", "counts": {"1.2": 2}}
+        built = plan.make_plan(11, song_form=contract, lines=10)
+        parts = [s["function"] for s in built["sections"]]
+        self.assertEqual(parts, order)
+        bp = plan.fill_plan(built, ["one"] * 10)
+        lex = SimpleNamespace()
+        _bind_blueprint_catalog(lex, bp)
+        self.assertEqual(grid.placement_findings(parts, selected_roles=lex.catalog_placement_roles), [])
+        self.assertIn(("SECTION_NOT_ADJACENT", 0), [(c, i) for c, i, _ in grid.placement_findings(parts)])
+        drift = order[:2] + ["chorus"] + order[3:]
+        self.assertIn(("SECTION_NOT_ADJACENT", 0), [(c, i) for c, i, _ in grid.placement_findings(
+            drift, selected_roles=lex.catalog_placement_roles)])
+        # An independently supplied score carries no private plan contract.
+        for command in ("song", "brief", "revise", "verify"):
+            with self.subTest(command=command):
+                pasted = SimpleNamespace()
+                _, seeded_contract = _catalog_creation(
+                    [command, "--catalog-form=lullay-carol", '--catalog-counts={"1.2":2}'], pasted)
+                self.assertIsNone(seeded_contract)
+                self.assertEqual(pasted.catalog_placement_roles, tuple(order))
+                self.assertEqual(grid.placement_findings(parts, selected_roles=pasted.catalog_placement_roles), [])
+                self.assertIn(("SECTION_NOT_ADJACENT", 0), [(c, i) for c, i, _ in grid.placement_findings(
+                    drift, selected_roles=pasted.catalog_placement_roles)])
+        with self.assertRaises(plan.PlanRefused):
+            plan.make_plan(11, song_form={**contract, "scope": "rule"}, lines=10)
+
+    def test_unequal_verse_instances_keep_the_draft_spans_and_disclosed_schemes(self):
+        contract = catalog("cherita", [{"unit": "section", "role": "verse", "lines": n}
+                                      for n in (1, 2, 3)])
+        for seed in (0, 11):
+            built = plan.make_plan(seed, song_form=contract, lines=6)
+            self.assertEqual([s["lines"] for s in built["choices"]["schemes"].values()], [1, 2, 3])
+            self.assertEqual([sum(l["section"] == s["name"] for l in built["line_slots"])
+                              for s in built["sections"]], [1, 2, 3])
+            self.assertEqual(plan.sweep([seed], song_form=contract, lines=6)["accepted"], [seed])
+        for options in ({"lines": 7}, {"wants": ["lines_per_section>=2"]}):
+            with self.assertRaises(plan.PlanRefused):
+                plan.make_plan(0, song_form=contract, **options)
+
     def test_wordless_catalog_counts_do_not_use_the_generator_line_bound(self):
         roles = ["verse", "solo", "solo", "solo"]
         contract = catalog("wordless-sections", [
@@ -205,9 +250,22 @@ class CatalogPlannerTests(unittest.TestCase):
         native = plan.make_plan(11, song_form=data, relations={"B": "schema:perfect rhyme"})
         self.assertEqual(native["groups"], "1,3;2.endword,5.endword,7.endword;4,6,8")
         self.assertEqual(native["relations"], {"A": "class:RHYME", "B": "schema:perfect rhyme", "C": "class:RHYME"})
-        for invalid in ([[1, 3], [2, 3, 5], [4, 6, 8]], [[2, 5, 7], [1, 3], [4, 6, 8]], [[1], [2, 3, 4, 5, 6, 7, 8]]):
+        for invalid in ([[1, 3], [2, 3, 5], [4, 6, 8]], [[2, 5, 7], [1, 3], [4, 6, 8]], [[i] for i in range(1, 9)]):
             with self.subTest(groups=invalid), self.assertRaises(plan.PlanRefused):
                 plan.make_plan(11, song_form={**data, "rhymeGroups": invalid})
+
+    def test_prescribed_classes_keep_one_member_unpaired_and_cross_real_section_boundaries(self):
+        # ABCB | CDAE. D and E have no pair, but they must remain distinct.
+        sections = [{"unit": "section", "role": "verse", "lines": 4}] * 2
+        classes = [[1, 7], [2, 4], [3, 5], [6], [8]]
+        data = catalog("fixture", sections, rhymes=classes)
+        native = plan.make_plan(11, song_form=data, relations={"C": "schema:perfect rhyme"})
+        self.assertEqual(native["groups"], "1,7;2,4;3.endword,5.endword")
+        self.assertEqual(plan._sweep_coords(native).n_sounds, 5)
+        self.assertEqual([s["section"] for s in native["line_slots"]], ["VERSE1"] * 4 + ["VERSE2"] * 4)
+        self.assertEqual([s["rgs"] for s in native["choices"]["schemes"].values()],
+                         [[0, 1, 2, 1], [0, 1, 2, 3]])
+        self.assertEqual(plan.fill_plan(native, ["1"] * 8)["song_form"]["rhymeGroups"], classes)
 
     def test_fixed_return_has_one_source_and_preserves_all_copy_positions(self):
         data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 6}],
@@ -220,6 +278,78 @@ class CatalogPlannerTests(unittest.TestCase):
                 plan.make_plan(11, song_form={**data, "returnGroups": classes})
         with self.assertRaisesRegex(plan.PlanRefused, "differing line requirements"):
             plan.make_plan(11, song_form={**data, "lineRequirements": [{"line": 2, "syllables": 3}]})
+
+    def test_ending_word_rotations_through_fill_and_actual_graded_word_readings(self):
+        import json
+        from pathlib import Path
+        import subprocess
+        import lyric_harness as lh
+        from quality import schemes
+        from quality.catalog_grading import inspect_catalog
+        root = Path(__file__).resolve().parents[2]
+        lex = lh.Lexicon()
+        from quality import revise
+        reviser = revise.Reviser(lex=lex, writing=True)
+        words = ["one", "two", "three", "four", "five", "six"]
+        for form_id, variant in [("tritina", 0), ("sestina", 0), ("canzone", 1), ("canzone", 2)]:
+            with self.subTest(form_id=form_id, variant=variant):
+                output = subprocess.check_output(["node", str(root / "scripts/song_forms.mjs"), "create", form_id],
+                                                 input=json.dumps({"variant": variant}), text=True)
+                contract = json.loads(output)["contract"]
+                native = plan.make_plan(1, song_form=contract)
+                self.assertEqual(plan.sweep([1], song_form=contract)["accepted"], [1])
+                self.assertEqual(native["returns"], "")
+                classes = contract["endingWords"]["groups"]
+                ends = {n: words[i] for i, group in enumerate(classes) for n in group}
+                text = ["zero " + ends.get(i, "seven") for i in range(1, native["total_lines"] + 1)]
+                gathered = contract["endingWords"].get("gathered", [])
+                if gathered:
+                    text[gathered[-1] - 1] = " ".join(words[:len(classes)])
+                bp = plan.fill_plan(native, text)
+                m = schemes.mandate([a.split(",") for a in native["groups"].split(";")],
+                                    len(text), relations=native["relations"], default_relation=native["relation"])
+                def grade(draft):
+                    return inspect_catalog(lex, draft, bp, m, {"verdicts":[]})
+                self.assertEqual(grade(text)["verdict"], "pass")
+                replaced = text.copy()
+                replaced[classes[0][1] - 1] = "zero eight"
+                bad = grade(replaced)
+                self.assertTrue(any(r["kind"] == "positioned-ending-identity" and r["outcome"] == "fail"
+                                    for r in bad["checks"]))
+                review = reviser.verify(
+                    text, replaced, m, targeted={classes[0][1]}, blueprint=bp)
+                self.assertFalse(review["accepted"])
+                self.assertEqual(review["coverage_before"]["catalog_form"]["verdict"], "pass")
+                self.assertEqual(review["coverage_after"]["catalog_form"]["verdict"], "fail")
+                self.assertTrue(any(f["code"] == "CATALOG_FORM_MISMATCH"
+                                    for f in review["new_findings"]))
+                collapsed = [row.replace("two", "one") for row in text]
+                self.assertTrue(any(r["kind"] == "endWord-distinct" and r["outcome"] == "fail"
+                                    for r in grade(collapsed)["checks"]))
+                if gathered:
+                    omitted = text.copy()
+                    omitted[gathered[-1] - 1] = "zero nine"
+                    self.assertTrue(any(r["kind"] == "gathered-end-words" and r["outcome"] == "fail"
+                                        for r in grade(omitted)["checks"]))
+
+    def test_one_returning_end_word_never_exempts_whole_lines_or_their_openings(self):
+        import lyric_harness as lh
+        from quality import revise, schemes
+        r = revise.Reviser(lex=lh.Lexicon(), writing=True)
+        m = schemes.mandate([[1, 2]], 4, returns=[["1.endword", "3.endword"]])
+        floor, _ = r._floor_for(m)
+        self.assertFalse(floor.declared_lexical_classes)
+        self.assertFalse(floor.declared_opening_classes)
+        self.assertIn((0, 1), floor._pairs(["one"] * 4, "????"))
+
+    def test_relative_lengths_reject_impossible_or_malformed_pairs(self):
+        data = catalog("f", [{"unit": "section", "role": "verse", "lines": 4}])
+        for key in (0, 2, 3, True):
+            with self.subTest(key=key), self.assertRaises(plan.PlanRefused):
+                plan.make_plan(11, song_form={**data, "lineRequirements": [{"line": 2, "shorterThan": key}]})
+        rows = [{"line": 1, "syllables": 4}, {"line": 2, "syllables": 4, "shorterThan": 1}]
+        with self.assertRaisesRegex(plan.PlanRefused, "fewer sung syllables"):
+            plan.make_plan(11, song_form={**data, "lineRequirements": rows})
 
     def test_conflicting_declaration_and_unknown_fields_refuse(self):
         base = catalog("hookless-rap-track", [{"unit": "section", "role": "verse", "lines": 2}])

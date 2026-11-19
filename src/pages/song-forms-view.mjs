@@ -98,14 +98,32 @@ function branchList(nodes, depth = 0) {
   return list;
 }
 
-function writerDescription({ arrangement, contract }) {
+function writerDescription({ arrangement, contract, nestedDivisions }) {
   const statements = [];
+  if (nestedDivisions)
+    statements.push(
+      'The writer preserves the nested divisions and any participant assignments in the score.'
+    );
+  if (contract.sections.some((s) => s.vocalDuty))
+    statements.push(
+      'The vocal check compares the singers assigned to each section with the score’s roster.'
+    );
+  if (contract.sections.at(-1)?.vocalDuty === 'reprise')
+    statements.push('The ensemble repeats the closing lines of the last solo verse.');
   if (arrangement) {
     const { divisions } = arrangement;
     statements.push(
       divisions.length === 1
         ? 'The writer uses one ' + divisions[0].lines + '-line verse for this pattern.'
         : 'The writer uses a verse for each division and keeps the displayed line counts.'
+    );
+  }
+  const first = contract.sections[0];
+  if (first?.sourceRole) {
+    statements.push(
+      first.role === 'chorus'
+        ? 'Each labeled block is sung as a chorus. Repeat its lines verbatim.'
+        : 'Each labeled sonnet occupies a separate 14-line verse.'
     );
   }
   if (contract.rhymeGroups.length === 1)
@@ -115,6 +133,21 @@ function writerDescription({ arrangement, contract }) {
     statements.push(
       'Use a distinct ending sound for each group of lines: ' + groups.join(' / ') + '.'
     );
+  }
+  if (contract.endingWords) {
+    const { groups, gathered } = contract.endingWords;
+    statements.push(
+      'Keep the same final word within each group and use a different word for each group: ' +
+        groups.map((lines) => lines.join(', ')).join(' / ') +
+        '.'
+    );
+    if (gathered?.length)
+      statements.push(
+        'Use all of those words in the closing passage on ' +
+          (gathered.length === 1 ? 'line ' : 'lines ') +
+          gathered.join(', ') +
+          '.'
+      );
   }
   for (const group of contract.returnGroups) {
     statements.push('Repeat line ' + group[0] + ' verbatim at ' + group.slice(1).join(', ') + '.');
@@ -130,6 +163,8 @@ function writerDescription({ arrangement, contract }) {
         measures.map(([, label]) => label).join(' and ') +
         ' counts per line.'
     );
+  if (requirements.some((line) => line.stressEnding))
+    statements.push('It checks the stress of the final syllables on the marked lines.');
   if (requirements.some((line) => line.wordLetters))
     statements.push('It checks the selected letter counts for each sung word.');
   if (requirements.some((line) => line.stresses !== undefined && line.syllables === undefined))

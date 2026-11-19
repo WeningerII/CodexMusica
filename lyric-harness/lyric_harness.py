@@ -8350,6 +8350,7 @@ def _catalog_creation(args, lex):
             _refuse(f"{flag[2:].replace('-', ' ')} requires exactly one value")
         else:
             selected[flag] = value
+    lex.catalog_placement_roles = ()
     if not selected:
         return args, None
     if not rest:
@@ -8386,7 +8387,9 @@ def _catalog_creation(args, lex):
     except (ValueError, RecursionError) as error:
         _refuse(f"invalid catalog selection: {error}")
     lex.catalog_selection, contract = _resolve_catalog(selection, seeded=seeded, supplied=supplied)
-    return rest, contract
+    from quality.grid import setting_roles
+    lex.catalog_placement_roles = setting_roles(contract)
+    return rest, contract if seeded else None
 
 
 def _contract_selector(contract):
@@ -8410,7 +8413,10 @@ def _resolve_catalog(selection, *, seeded, supplied=None):
         _refuse("catalog form unavailable for this operation",
                 detail=[json.dumps(diagnostic, ensure_ascii=False)], machine={"catalog_selection": diagnostic})
     if not seeded:
-        return {"id": result["id"], "variant": result["variant"], "counts": selection.get("counts", {})}, None
+        # Pasted scores can declare a form without carrying a seeded plan. Only
+        # a completely positioned catalog section sequence may qualify placement.
+        placement = result if result["coverage"]["sections"] == "complete" else None
+        return {"id": result["id"], "variant": result["variant"], "counts": selection.get("counts", {})}, placement
     contract = result["contract"]
     # Numeric equality in Python equates True and 1. Compare canonical JSON to
     # reject changes to types as well as changes to the actual song obligations.
@@ -8428,6 +8434,8 @@ def _bind_blueprint_catalog(lex, blueprint):
     if previous is not None and previous != selection:
         _refuse("the blueprint and command line select different catalog forms, variants or counts")
     lex.catalog_selection = selection
+    from quality.grid import setting_roles
+    lex.catalog_placement_roles = setting_roles(contract)
 
 
 def _catalog_selection_args(contract):
@@ -13035,8 +13043,9 @@ def main():
               f"subdivision {the_plan['subdivision']}, "
               f"{the_plan['choices']['bars_per_line']} bar(s) per line")
         for func, sch in the_plan["choices"]["schemes"].items():
-            note = ("with a mandated pair" if sch["lines"] > 1
-                    else "(a one-line section mandates no pair)")
+            note = ("with a mandated pair" if len(set(sch["rgs"])) < sch["lines"]
+                    else "(a one-line section mandates no pair)" if sch["lines"] == 1
+                    else "(no pair within this section)")
             print(f"  SCHEME {func}: {sch['lines']} line(s), rgs "
                   f"{tuple(sch['rgs'])} -- one of {sch['chosen_from']} "
                   f"{note}")
@@ -13640,7 +13649,9 @@ def main():
         song = _blueprint_or_refuse(_grid_song, GR, bp,
                                    _reraise=(GR.UnknownFunction,))
         key = GR.rime_cmudict(lex) if "--rhyme-key=cmudict" in args else None
-        rep = GR.song_function_report(song, hooks=hooks, rhyme_key=key)
+        _bind_blueprint_catalog(lex, bp)
+        rep = GR.song_function_report(song, hooks=hooks, rhyme_key=key,
+                                      selected_roles=getattr(lex, "catalog_placement_roles", ()))
         p = rep["profile"]
         print("  module: quality/grid.py — Section.function, the returns, "
               "the hook")

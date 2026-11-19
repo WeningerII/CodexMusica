@@ -1,8 +1,19 @@
 // Compare catalog requirements with measurements from the current candidate.
 // Blueprint coordinates describe the declared arrangement, including its bar grid.
+import {
+  refrainAddresses,
+  relativeLinePairs,
+  regularAlexandrine,
+  stressEndingFor,
+} from './song-form-line-roles.mjs';
+import { gradeNestedDivisions } from './song-form-divisions.mjs';
+import { sectionArrangement, measureSectionArrangement } from './song-form-section-arrangement.mjs';
 import { checkReaderForm, realizeForm } from './song-forms.mjs';
 import {
   isVerseDivision,
+  isCountedDescent,
+  linesOfDivision,
+  measuredStanzaRole,
   isWordlessWriterRole,
   projectSongFormCreation,
 } from './song-form-creation.mjs';
@@ -33,8 +44,102 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       verdict: 'unknown',
       checks: [{ kind: 'realization', outcome: 'unknown' }],
     };
+  const creation = projectSongFormCreation(plan, counts);
+  if (creation.nestedDivisions) {
+    const checks = [];
+    if (creation.contract.returnGroups.length) {
+      // The score can identify a respondent, but only the submitted words
+      // demonstrate that their response actually returns verbatim.
+      const text = lines?.map((row) => {
+        if (typeof row === 'string') return { text: row };
+        return typeof row?.text === 'string' ? { text: row.text } : {};
+      });
+      const numbers = new Map(plan.lines.map((line) => [line.address, line.index]));
+      const measured = checkReaderForm(catalog, id, { variant, counts, lines: text });
+      for (const check of measured.checks.filter((row) => row.kind === 'returns')) {
+        checks.push({ ...check, lines: check.addresses.map((address) => numbers.get(address)) });
+      }
+    }
+    const score = gradeNestedDivisions(plan, creation.contract.sections, lines, sections, checks);
+    const words = creation.contract.endingWords;
+    if (!words) return score;
+    // Compare sung words, excluding asides and respecting the reader's token boundaries.
+    // An explicitly unreadable token stream must never fall back to the printed line.
+    const tokens = (lines ?? []).map((row) => {
+      if (typeof row?.text !== 'string' || !row.text.trim() || !Array.isArray(row.sungWords))
+        return undefined;
+      if (
+        !row.sungWords.every(
+          (token) => typeof token === 'string' && token.length && !/\s/u.test(token)
+        )
+      )
+        return undefined;
+      return row.sungWords.map((token) => token.normalize('NFC').toLowerCase().replace(/’/g, "'"));
+    });
+    score.basis = 'declared score divisions and measured sung words';
+    const vocabulary = new Set();
+    let overlaps = false,
+      unknown = false;
+    const representatives = [];
+    for (const group of words.groups) {
+      const ends = group.map((i) => tokens[i - 1]?.at(-1));
+      const known = new Set(ends.filter(Boolean));
+      const absent = ends.some((w) => !w);
+      checks.push({
+        kind: 'endWord',
+        lines: group,
+        outcome: known.size > 1 ? 'fail' : absent ? 'unknown' : 'pass',
+      });
+      for (const word of known) {
+        if (vocabulary.has(word)) overlaps = true;
+        vocabulary.add(word);
+      }
+      unknown ||= absent;
+      representatives.push(known.size === 1 ? [...known][0] : undefined);
+    }
+    checks.push({
+      kind: 'endWord-distinct',
+      lines: words.groups.flat().sort((a, b) => a - b),
+      outcome: overlaps ? 'fail' : unknown ? 'unknown' : 'pass',
+    });
+    if (words.gathered) {
+      const passage = words.gathered.map((i) => tokens[i - 1]);
+      const seen = new Set(passage.flat());
+      const all = representatives.every((w) => w && seen.has(w));
+      checks.push({
+        kind: 'gathered-end-words',
+        lines: words.gathered,
+        outcome: all
+          ? 'pass'
+          : passage.some((row) => !row) || representatives.some((w) => !w)
+            ? 'unknown'
+            : 'fail',
+      });
+    }
+    score.verdict = checks.some((c) => c.outcome === 'fail')
+      ? 'fail'
+      : checks.every((c) => c.outcome === 'pass')
+        ? 'pass'
+        : 'unknown';
+    return score;
+  }
+  const sourceArrangement = sectionArrangement(plan);
+  const measurement = measureSectionArrangement(sourceArrangement, plan, lines, sections);
+  sections = measurement.sections;
   const input = { variant, counts };
-  if (plan.coverage.lines !== 'none') input.lines = lines;
+  // A spoken or literary function printed on the line template is a requested
+  // property. Echoing its name cannot measure a punchline, a wish, or a turn.
+  // Section and speaker declarations have a separate score-based evidence path.
+  if (plan.coverage.lines !== 'none' && lines !== undefined) {
+    input.lines = lines.map((row) => {
+      if (!row || typeof row !== 'object') return row;
+      const copy = { ...row };
+      delete copy.role;
+      // Cyclic links join the printed words, not caller-declared identity labels.
+      if (sourceArrangement?.sourceRole === 'sonnet') delete copy.returns;
+      return copy;
+    });
+  }
   if (plan.coverage.sections !== 'none' && sections)
     input.sections = sections.map(({ lineSpan, ...section }) =>
       plan.coverage.lines === 'complete' && lineSpan ? { ...section, lineSpan } : section
@@ -49,16 +154,21 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     node.children.forEach(walk);
   }
   plan.tree.forEach(walk);
-  const extras = [];
+  const extras = measurement.checks;
   const spans = new Map();
   const hasInstrumental = plan.sections.some((section) => isWordlessWriterRole(section.role));
-  const projection =
-    stanzas.length || hasInstrumental ? projectSongFormCreation(plan, counts) : null;
+  const projection = stanzas.length || hasInstrumental ? creation : null;
   const arranged = projection?.arrangement;
+  // A zero-count optional section is absent from the selected arrangement.
+  // Count explicitly named sections separately from the stanza carriers.
+  if (arranged && sections && !plan.sections.length && input.sections) {
+    input.sections = input.sections.filter((section) => section.role !== arranged.role);
+  }
   const nativeInstrumental = hasInstrumental && projection?.contract;
   const divisions = arranged
-    ? stanzas.filter((node) => node.children.every((child) => child.unit === 'line'))
+    ? stanzas.filter((node) => linesOfDivision(node).every((child) => child.unit === 'line'))
     : stanzas.filter((node) => node.unit === 'stanza');
+  if (arranged?.divisions.at(-1)?.unit === 'line') divisions.push(plan.tree[0].children.at(-1));
   const completePartition =
     plan.coverage.lines === 'complete' &&
     divisions.length > 0 &&
@@ -82,6 +192,32 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
           return [[stanza.address, { lineSpan, ...(aligned && bars !== undefined && { bars }) }]];
         })
       );
+    }
+  }
+  // The span of a cycle of named sections is measured by its contiguous
+  // section instances, including the boundary where the next cycle starts.
+  if (plan.coverage.lines === 'complete' && sections?.length === plan.sections.length) {
+    for (const node of addresses.values()) {
+      if (
+        node.unit !== 'cycle' ||
+        !node.children.length ||
+        !node.children.every((child) => child.unit === 'section')
+      )
+        continue;
+      const [start, end] = node.span.sections;
+      const members = sections.slice(start, end).map((s) => s.lineSpan);
+      if (
+        members.every(
+          (span, i) =>
+            Array.isArray(span) &&
+            span.length === 2 &&
+            span.every((n) => Number.isSafeInteger(n) && n >= 0) &&
+            span[0] <= span[1] &&
+            (!i || span[0] === members[i - 1][1])
+        )
+      ) {
+        (input.units ??= {})[node.address] = { lineSpan: [members[0][0], members.at(-1)[1]] };
+      }
     }
   }
   // An empty section in the catalog leaves its length open. Explicit lines in
@@ -165,8 +301,86 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     if (!byClass.has(row.rhyme)) byClass.set(row.rhyme, []);
     byClass.get(row.rhyme).push(choices.get(row.address) ?? []);
   }
+  const refrains = refrainAddresses(plan.tree);
+  const linePositions = new Map(
+    plan.lines.filter((line) => line.positionKnown).map((line) => [line.address, line.index])
+  );
+  const printedReturns = new Map();
+  for (const check of result.checks.filter((c) => c.kind === 'returns')) {
+    const allPrinted = check.addresses.every((address) => {
+      const observed = lines?.[linePositions.get(address) - 1];
+      return typeof observed === 'string' || typeof observed?.text === 'string';
+    });
+    printedReturns.set(check.label, allPrinted ? check.outcome : 'unknown');
+  }
+  const relative = relativeLinePairs(plan);
   function refine(check) {
+    const index = linePositions.get(check.address);
+    if (check.kind === 'role' && index) {
+      const line = addresses.get(check.address);
+      const pair = relative.get(check.address);
+      if (pair) {
+        const lengths = [pair.long, pair.short].map((n) => {
+          const row = lines?.[n - 1];
+          return typeof row?.text === 'string' ? (row.syllables ?? row.stress?.length) : undefined;
+        });
+        const outcome = lengths.includes(undefined)
+          ? 'unknown'
+          : lengths[0] > lengths[1]
+            ? 'pass'
+            : 'fail';
+        return {
+          ...check,
+          outcome,
+          basis: 'relative sung syllable counts',
+          comparedLines: [pair.long, pair.short],
+        };
+      }
+      const ending = stressEndingFor(line.role);
+      if (ending || line.role === 'alexandrine') {
+        const observed = lines?.[index - 1];
+        const stress = typeof observed?.text === 'string' ? observed.stress : undefined;
+        const matches = ending ? stress?.endsWith(ending) : stress === regularAlexandrine;
+        return {
+          ...check, // A noncanonical alexandrine can contain metrical substitutions.
+          outcome: matches ? 'pass' : stress === undefined || !ending ? 'unknown' : 'fail',
+        };
+      }
+      if (refrains.has(line.address))
+        return { ...check, outcome: printedReturns.get(line.returns) ?? 'unknown' };
+    }
     if (check.outcome !== 'unknown') return check;
+    const group = addresses.get(check.address);
+    if (check.kind === 'line-span' && group && isCountedDescent(group)) {
+      // Matching the complete descending measure locates the group in the
+      // observed line sequence; a source label or section boundary cannot.
+      const states = group.children.map((child) => {
+        const index = linePositions.get(child.address);
+        const row = index && lines?.[index - 1];
+        const syllables = row?.syllables ?? row?.stress?.length;
+        return syllables === undefined
+          ? 'unknown'
+          : syllables === child.syllables
+            ? 'pass'
+            : 'fail';
+      });
+      const outcome = states.includes('fail')
+        ? 'fail'
+        : states.includes('unknown')
+          ? 'unknown'
+          : 'pass';
+      return { ...check, basis: 'observed sequence of line syllable counts', outcome };
+    }
+    if (check.kind === 'role' && lines && plan.coverage.lines === 'complete') {
+      const node = addresses.get(check.address);
+      if (node?.unit === 'stanza' && node.children.every((child) => child.unit === 'line')) {
+        const start = node.span.lines[0];
+        const end = node.span.lines[1];
+        const observed = measuredStanzaRole(node.role, lines.slice(start, end));
+        if (observed !== undefined)
+          return { ...check, outcome: observed ? 'pass' : 'fail', basis: 'measured-stanza' };
+      }
+    }
     if (check.kind === 'rhyme') {
       const known = check.addresses
         .map((address) => choices.get(address))
@@ -228,6 +442,19 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     id,
     variant: plan.variant,
     scope: plan.scope,
+    ...(sourceArrangement && {
+      sectionArrangement: {
+        sourceRole: sourceArrangement.sourceRole,
+        writingFunction: sourceArrangement.role,
+        measured: sourceArrangement.repeatText
+          ? ['section-order', 'line-counts', 'verbatim-text']
+          : [
+              'section-order',
+              'line-counts',
+              ...(creation.contract?.returnGroups?.length ? ['positioned-verbatim-text'] : []),
+            ],
+      },
+    }),
     verdict: checks.some((c) => c.outcome === 'fail')
       ? 'fail'
       : checks.every((c) => c.outcome === 'pass')

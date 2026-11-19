@@ -322,10 +322,20 @@ function observedWords(obs) {
 }
 
 export function checkReaderForm(catalog, id, options) {
-  if (!options.lines) return checkForm(catalog, id, options);
-  const lines = options.lines.map((line) => {
-    if (!isRecord(line) || !has(line, 'sungWords')) return line;
-    const { sungWords, ...obs } = line;
+  // Only the raw declaration checker accepts class labels as identity evidence.
+  // Measured returns use printed text and measured endings use its sung words.
+  function measuredIdentity(row) {
+    if (!isRecord(row)) return row;
+    const observed = { ...row };
+    delete observed.returns;
+    delete observed.endWord;
+    return observed;
+  }
+  const sections = options.sections?.map(measuredIdentity);
+  const lines = options.lines?.map((line) => {
+    const observed = measuredIdentity(line);
+    if (!isRecord(observed) || !has(observed, 'sungWords')) return observed;
+    const { sungWords, ...obs } = observed;
     requireValue(
       sungWords === null ||
         (Array.isArray(sungWords) &&
@@ -340,7 +350,7 @@ export function checkReaderForm(catalog, id, options) {
         sungWords?.map((token) => token.normalize('NFC').toLowerCase().replace(/’/g, "'")) ?? null,
     };
   });
-  return checkForm(catalog, id, { ...options, lines });
+  return checkForm(catalog, id, { ...options, lines, sections });
 }
 
 function identity(obs, key) {

@@ -16,6 +16,12 @@ const entry = (...patterns) => [{ id: 'f', name: 'F', scope: 'rule', patterns }]
 const projection = (forms, id, options = {}) =>
   projectSongFormCreation(realizeForm(forms, id, options), options.counts);
 
+test('a named catalog role retains its spelling on a native verse carrier', () => {
+  const {contract} = projection(catalog, 'heroic-crown', {variant:0});
+  const last = contract.sections.at(-1);
+  assert.deepEqual([last.role, last.sourceRole], ['verse', 'master-sonnet']);
+});
+
 test('every published selection has an exact structural contract or an explicit refusal', () => {
   const classified = new Set();
   const contracts = [];
@@ -54,15 +60,33 @@ test('every published selection has an exact structural contract or an explicit 
         assert.equal(contract.variant, choice.index, where);
         assert.deepEqual(contract.counts, counts, where);
         assert.ok(contract.sections.length > 0, where);
-        if (projected.arrangement) {
+        if (projected.nestedDivisions) {
+          const nodes = new Map();
+          function index(node) {
+            nodes.set(node.address, node);
+            node.children.forEach(index);
+          }
+          realization.tree.forEach(index);
+          for (const part of contract.sections) {
+            assert.ok(part.divisionPath.length, where);
+            for (const mark of part.divisionPath) {
+              const original = nodes.get(mark.address);
+              assert.equal(mark.unit, original.unit, where);
+              assert.equal(mark.role, original.role, where);
+            }
+          }
+        } else if (projected.arrangement) {
           arranged++;
           assert.equal(realization.coverage.lines, 'complete', where);
           assert.equal(projected.arrangement.role, 'verse', where);
-          assert.equal(realization.sections.length, 0, where);
+          assert.ok(realization.sections.every((section) => section.role === undefined), where);
+          assert.equal(realization.sections.length, projected.arrangement.divisions.filter((part) => part.unit === 'section').length, where);
           assert.deepEqual(contract.sections.map((p) => p.role), contract.sections.map(() => 'verse'), where);
           const source = [];
           const collect = (node) => {
-            if (node.children.length && node.children.every((c) => c.unit === 'line')) {
+            if (node.unit === 'line') {
+              source.push({ unit: 'line', lines: 1 });
+            } else if (node.children.length && node.children.every((c) => c.unit === 'line')) {
               source.push({ unit:node.unit, lines:node.children.length });
             } else node.children.forEach(collect);
           };
@@ -71,8 +95,9 @@ test('every published selection has an exact structural contract or an explicit 
           assert.deepEqual(contract.sections.map((p) => p.lines), source.map((p) => p.lines), where);
         } else {
           named++;
-          assert.deepEqual(contract.sections.map(s => s.role), realization.sections.map(s =>
-            s.role.replaceAll('-', '_')), where);
+          assert.deepEqual(contract.sections.map(s => s.sourceRole ?? s.role),
+            realization.sections.map((s, i) => contract.sections[i]?.sourceRole !== undefined
+              ? s.role : s.role.replaceAll('-', '_')), where);
           const expectedLengths = [];
           function collect(node) {
             if (node.unit === 'section') {
@@ -95,13 +120,25 @@ test('every published selection has an exact structural contract or an explicit 
           if (node.unit === 'line') {
             const position = realization.lines.find((l) => l.address === node.address).index;
             const measures = {line:position};
+            if (node.role === 'short-line') {
+              assert.equal(realization.lines[position-2].role, 'long-line', where);
+              measures.shorterThan = position-1;
+            }
             if (node.syllables !== undefined) measures.syllables = node.syllables;
             if (node.stress !== undefined) {
               measures.syllables = node.stress.length;
               measures.stress = node.stress;
             }
             if (node.stresses !== undefined) measures.stresses = node.stresses;
-            if (node.children.length) {
+            if (node.role === 'alexandrine') {
+              measures.stress = './'.repeat(6);
+              measures.syllables = measures.stress.length;
+            }
+            const ending = {'stressed-ending':'/', 'unstressed-ending':'.', 'masculine-ending':'/', 'feminine-ending':'/.'}[node.role];
+            if (ending && node.stress === undefined) measures.stressEnding = ending;
+            if (node.children.length && node.children.every(child => child.unit === 'syllable')) {
+              measures.syllables = node.children.length;
+            } else if (node.children.length) {
               assert.ok(node.children.every((child) => child.unit === 'word'), where);
               measures.words = node.children.length;
               if (node.children.some(word => word.children.length))
@@ -116,7 +153,7 @@ test('every published selection has an exact structural contract or an explicit 
         if (marked.length) {
           assert.ok(marked.length >= 2, where);
           assert.deepEqual(marked, realization.lines, where);
-          assert.ok(contract.rhymeGroups.every(group => group.length >= 2), where);
+          assert.ok(contract.rhymeGroups.some(group => group.length >= 2), where);
         }
         assert.deepEqual(contract.rhymeGroups, [...new Set(marked.map(line => line.rhyme))].map(label => marked.filter(line => line.rhyme === label).map(line => line.index)), where);
         const repeated = realization.lines.filter(line => line.returns !== undefined);
@@ -182,7 +219,7 @@ test('equal contiguous plain divisions use a disclosed verse arrangement and kee
   assert.equal(projection(catalog, 'couplet', {variant:0}).status, 'ready');
   assert.deepEqual(projection(catalog, 'couplet', {variant:1}).contract.rhymeGroups, [[1,2]]);
   assert.equal(projection(catalog, 'monostich').status, 'unsupported');
-  assert.equal(projection(catalog, 'cherita').status, 'unsupported');
+  assert.deepEqual(projection(catalog, 'cherita').arrangement.divisions.map((part) => part.lines), [1, 2, 3]);
   assert.equal(projection(entry(poem(stanza(line({times:464})))), 'f').status, 'unsupported');
   assert.equal(projection(entry(poem(make('stanza',{times:116,children:[line({times:2})]}))), 'f').status, 'unsupported');
   assert.equal(projection(entry(poem(stanza(line()),stanza(line()))), 'f').status, 'unsupported');
@@ -246,14 +283,15 @@ test('no contract escapes when a selected obligation cannot be enforced by the n
     ...['stress', 'stresses', 'bars', 'role'].map((key, i) =>
       stanza(line({ [key]: ['./', 1, 1, 'answer'][i] }))),
     stanza(line({ children: [make('word', { times: 2 })] })),
-    stanza(...['A','B','C','A'].map(rhyme => line({rhyme}))),
+    stanza(...['A','B','C','D'].map(rhyme => line({rhyme}))),
     stanza(line({ rhyme:'A' }), line()), stanza(line({ returns:'r' }), line()),
     make('simultaneous', { children: [stanza(line()), stanza(line())] }),
     make('staggered-voices', { children: [stanza(line()), stanza(line())] }),
     make('section', { role:'unmapped' }),
     make('section', { role:'burden' }),
     poem(stanza(line(), line()), make('section', { role:'verse' })),
-    poem(stanza(line(), line()), stanza(line(), line(), line())),
+    poem(make('section', {role:'chorus', children:[line(), line()]}),
+      make('section', {role:'chorus', children:[line(), line(), line()]})),
     poem(make('section', { role:'verse', children: [line({ returns:'r', times:2 })] })),
   ];
   for (const root of rejected) {
@@ -281,7 +319,7 @@ test('create CLI returns the same contract for positional and request-body selec
     assert.equal(result.status, 0, result.stderr);
     assert.deepEqual(JSON.parse(result.stdout), expected);
   }
-  for (const [id, status] of [['couplet','needs-input'], ['free-verse','deferred'], ['terzanelle','unsupported']]) {
+  for (const [id, status] of [['couplet','needs-input'], ['free-verse','deferred'], ['monostich','unsupported']]) {
     const result = run(['create', id], {});
     assert.equal(result.status, 3);
     assert.equal(JSON.parse(result.stdout).status, status);
@@ -312,4 +350,46 @@ test('letter selections retain word order and refuse features on an individual l
   const result = projection(makeForm(make('letter')), 'f');
   assert.deepEqual(result.contract.lineRequirements, [1,2].map(line=>({line,words:3,wordLetters:[2,null,1]})));
   assert.equal(projection(makeForm(make('letter',{role:'initial'})), 'f').contract,null);
+});
+
+test('the writer preserves selected syllable leaves and lexical ending measurements', () => {
+  const simple = entry(stanza(line({role:'stressed-ending',children:[make('syllable',{times:3})]}),line({role:'unstressed-ending'})));
+  const projected = projection(simple,'f');
+  assert.deepEqual(projected.contract.lineRequirements,[{line:1,syllables:3,stressEnding:'/'},{line:2,stressEnding:'.'}]);
+  for (const child of [
+    line({role:'narrative'}),line({role:'feminine-ending',stress:'./'}),
+    line({syllables:4,children:[make('syllable',{times:3})]}),line({children:[make('syllable',{role:'stressed'})]}),
+    line({stresses:4,children:[make('syllable',{times:3})]}),
+  ]) assert.equal(projection(entry(stanza(child,line())), 'f').status,'unsupported');
+});
+
+test('unmeasured subject matter, morae, line length and bardic closure retain explicit refusals', () => {
+  for (const [id, variant, counts, code] of [
+    ['senryu', 1, { '1.1.1': 3 }, 'unmeasured-subject-matter'],
+    ['haiku', 1, { '1.1.1': 3 }, 'unmeasured-imagistic-cut'],
+    ['tanka', 1, {}, 'unspecified-short-line-length'],
+    ['senryu', 0, {}, 'unmeasured-mora-count'],
+    ['tanka', 0, {}, 'unmeasured-mora-count'],
+    ['irish-syllabic-quatrains', 0, {}, 'unmeasured-bardic-correspondences'],
+    ['irish-syllabic-quatrains', 3, {}, 'unmeasured-bardic-closure'],
+  ]) {
+    const result = projection(catalog, id, { variant, counts });
+    assert.equal(result.status, 'unsupported', id);
+    assert.ok(result.reasons.some(row => row.code === code), id);
+    assert.equal(result.contract, null);
+  }
+});
+
+test('a join cannot establish its component songs even when no theme returns', () => {
+  for (const joins of [1, 2]) {
+    for (const [id, counts, reason] of [
+      ['medley', {'1.2': joins}, 'source-song-identity-required'],
+      ['multi-part-suite', {'1.2': joins, '1.3': 0}, 'independent-movement-form-required'],
+    ]) {
+      const result = projection(catalog, id, {counts});
+      assert.equal(result.status, 'unsupported');
+      assert.equal(result.contract, null);
+      assert.ok(result.reasons.some(row => row.code === reason && row.path === '1.1'));
+    }
+  }
 });

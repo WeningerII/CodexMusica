@@ -45,8 +45,8 @@ async function sessionHost(t) {
     read,
     call,
     tools: () => client.listTools(),
-    async begin() {
-      sessionId = (await call('begin_lyrics', { phase: 'create' })).session_id;
+    async begin(phase = 'create') {
+      sessionId = (await call('begin_lyrics', { phase })).session_id;
       assert.ok(sessionId);
     },
     async run(name, args) {
@@ -67,6 +67,66 @@ function measured(operation) {
   assert.ok(value, JSON.stringify(operation.tool_result.content));
   return value;
 }
+
+test(
+  'positioned ending words survive the registered grade, reconnect and revision',
+  { timeout: 240_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const relation = 'class:RHYME';
+    const seed = 1;
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        catalog_form: 'tritina',
+        catalog_variant: 0,
+        seed_from: seed,
+        count: 1,
+        relation,
+        draw: ['lines', 'functions', 'melody'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
+    const planned = await host.run('lyric_plan', { seed, relation });
+    const { plan } = measured(await host.read(planned.operation_id, 'full'));
+    const ending = plan.request.song_form.endingWords;
+    assert.deepEqual(ending.groups, [
+      [1, 5, 9],
+      [2, 6, 7],
+      [3, 4, 8],
+    ]);
+    assert.deepEqual(ending.gathered, [10]);
+    assert.equal(plan.returns, '');
+    const screen = measured(await host.run('lyric_screen', { words: ['one', 'none'], relation }));
+    assert.equal(screen.exit_code, 0);
+    const words = ['one', 'two', 'three'];
+    const draft = Array(10);
+    for (const [i, group] of ending.groups.entries()) {
+      for (const line of group) draft[line - 1] = 'zero ' + words[i];
+    }
+    draft[9] = words.join(' ');
+    async function catalog(verb, args) {
+      const operation = await host.run(verb, { seed, relation, ...args });
+      const result = measured(await host.read(operation.operation_id, 'full'));
+      assert.ok(result.coverage?.catalog_form, result.report);
+      return result.coverage.catalog_form;
+    }
+    const valid = await catalog('lyric_grade', { draft });
+    assert.equal(valid.verdict, 'pass');
+    assert.ok(valid.checks.some((c) => c.kind === 'gathered-end-words' && c.outcome === 'pass'));
+    draft[4] = 'zero four';
+    const wrong = await catalog('lyric_grade', { draft });
+    assert.equal(wrong.verdict, 'fail');
+    await host.reconnect();
+    const revised = await catalog('lyric_revise', { attempts: 0, max_rounds: 1, backtrack: 0 });
+    for (const result of [wrong, revised]) {
+      assert.equal(result.id, 'tritina');
+      assert.ok(
+        result.checks.some((c) => c.kind === 'positioned-ending-identity' && c.outcome === 'fail')
+      );
+    }
+  }
+);
 
 const selected = {
   catalog_form: 'chorus-first',
@@ -186,11 +246,10 @@ test('a creation sweep refuses deferred forms and unselected alternatives withou
   const host = await sessionHost(t);
   for (const [selection, expected] of [
     [{ catalog_form: 'acrostic' }, /deferred/i],
-    [{ catalog_form: 'terzanelle' }, /unsupported/i],
-    [{ catalog_form: 'narrative-story-song', catalog_variant: 0 }, /unsupported/i],
-    [{ catalog_form: 'quatern' }, /named.role|unsupported/i],
+    [{ catalog_form: 'pantoum', catalog_variant: 1 }, /unsupported-line-structure/i],
+    [{ catalog_form: 'echo-song' }, /no-inspectable-native-pair/i],
     [{ catalog_form: 'monostich' }, /native-line-limit|no-inspectable-native-pair/],
-    [{ catalog_form: 'cherita' }, /inconsistent-recurring-section-length/],
+    [{ catalog_form: 'zeno' }, /native-free-word-reserve/i],
     [{ catalog_form: 'strophic' }, /needs-input/],
     [{ catalog_form: 'couplet' }, /variant|alternative/i],
   ]) {
@@ -1171,3 +1230,695 @@ test(
     inspect(measured(await host.read(revised.operation_id, 'full')), true);
   }
 );
+
+for (const example of [
+  {
+    id: 'traditional-ballad',
+    good: ['two ten', 'two one', 'two eight', 'two sun'],
+    change: [2, 'two men'],
+    failedKind: 'rhyme-distinct',
+    groups: '2,4',
+  },
+  {
+    id: 'pantoum',
+    good: [
+      'two one',
+      'three red',
+      'four sun',
+      'five said',
+      'three red',
+      'six blue',
+      'five said',
+      'seven through',
+      'six blue',
+      'four sun',
+      'seven through',
+      'two one',
+    ],
+    change: [11, 'nine one'],
+    failedKind: 'returns',
+    groups: '1,3;2,4;6,8',
+  },
+]) {
+  test(
+    'native catalog rhyme grading preserves the selected ' + example.id,
+    { timeout: 180_000 },
+    async (t) => {
+      const host = await sessionHost(t);
+      await host.begin();
+      const sweep = measured(
+        await host.run('lyric_sweep', {
+          catalog_form: example.id,
+          catalog_variant: 0,
+          seed_from: 11,
+          count: 1,
+          draw: ['lines', 'functions', 'melody', 'relation'],
+        })
+      );
+      assert.deepEqual(sweep.accepted_shown, [11]);
+      const op = await host.run('lyric_plan', { seed: 11 });
+      const { plan } = measured(await host.read(op.operation_id, 'full'));
+      assert.equal(plan.groups, example.groups);
+      const screen = measured(
+        await host.run('lyric_screen', { words: ['one', 'none'], relation: 'class:RHYME' })
+      );
+      assert.equal(screen.exit_code, 0, screen.report);
+      async function grade(draft) {
+        const run = await host.run('lyric_grade', { seed: 11, draft });
+        const receipt = measured(run);
+        assert.equal(receipt.measurement_status, 'graded', JSON.stringify(receipt));
+        return measured(await host.read(run.operation_id, 'full')).coverage.catalog_form;
+      }
+      const good = await grade(example.good);
+      assert.equal(
+        good.verdict,
+        'pass',
+        JSON.stringify(good.checks.filter((c) => c.outcome !== 'pass'))
+      );
+      const wrong = [...example.good];
+      wrong[example.change[0]] = example.change[1];
+      const bad = await grade(wrong);
+      assert.equal(bad.verdict, 'fail');
+      assert.ok(bad.checks.some((c) => c.kind === example.failedKind && c.outcome === 'fail'));
+    }
+  );
+}
+
+test(
+  'Street cry keeps its printed call, and an altered return fails on the exact line',
+  { timeout: 180_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const relation = 'class:RHYME';
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        seed_from: 11,
+        count: 1,
+        catalog_form: 'street-cry',
+        catalog_variant: 1,
+        catalog_counts: [{ path: '1.1', count: 2 }],
+        lines: 4,
+        relation,
+        draw: ['functions', 'melody'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [11], sweep.report);
+    const seed = sweep.accepted_shown[0];
+    const op = await host.run('lyric_plan', { seed, lines: 4, relation });
+    const found = measured(await host.read(op.operation_id, 'full'));
+    assert.deepEqual(
+      found.plan.sections.map((s) => [s.source_role, s.function]),
+      [
+        ['call', 'chorus'],
+        ['call', 'chorus'],
+      ]
+    );
+    assert.equal(found.plan.returns, '1,3;2,4');
+    assert.match(op.tool_result.content[0].text, /\[CALL — 2 lines/);
+    assert.equal(
+      measured(await host.run('lyric_screen', { words: ['one', 'four'], relation })).exit_code,
+      0
+    );
+    const draft = ['one two', 'three four', 'one two', 'three four'];
+    async function grade(lines) {
+      const result = await host.run('lyric_grade', { seed, draft: lines });
+      return measured(await host.read(result.operation_id, 'full'));
+    }
+    const matching = await grade(draft);
+    assert.equal(matching.coverage.catalog_form.verdict, 'pass');
+    assert.equal(matching.coverage.catalog_form.sectionArrangement.writingFunction, 'chorus');
+    const changed = [...draft];
+    changed[2] = 'five two';
+    const broken = await grade(changed);
+    assert.equal(broken.exit_code, 3, broken.report);
+    assert.equal(broken.coverage.catalog_form.verdict, 'fail');
+    assert.ok(
+      broken.coverage.catalog_form.checks.some(
+        (c) =>
+          c.kind === 'section-text-return' && c.outcome === 'fail' && c.lines.join(',') === '1,3'
+      )
+    );
+  }
+);
+
+test(
+  'an unrhymed quatern enforces its travelling return through grade and revision',
+  { timeout: 180_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        catalog_form: 'quatern',
+        seed_from: 11,
+        count: 1,
+        relation: 'class:RHYME',
+        draw: ['lines', 'functions', 'melody'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [11]);
+    const planned = await host.run('lyric_plan', { seed: 11, relation: 'class:RHYME' });
+    const { plan } = measured(await host.read(planned.operation_id, 'full'));
+    assert.deepEqual(plan.request.song_form.rhymeGroups, []);
+    assert.deepEqual(plan.request.song_form.returnGroups, [[1, 6, 11, 16]]);
+    assert.equal(plan.returns, '1,6,11,16');
+    async function check(verb, args) {
+      const result = await host.run(verb, args);
+      const summary = measured(result);
+      assert.ok(
+        !summary.stderr && !summary.refusal,
+        JSON.stringify({
+          exit: summary.exit_code,
+          error: summary.stderr,
+          refusal: summary.refusal,
+          report: summary.report?.slice(-1600),
+        })
+      );
+      return measured(await host.read(result.operation_id, 'full')).coverage.catalog_form;
+    }
+    const screen = measured(
+      await host.run('lyric_screen', { words: ['one', 'none'], relation: 'class:RHYME' })
+    );
+    assert.equal(screen.exit_code, 0, JSON.stringify(screen));
+    const text =
+      'one two three four five six seven eight nine ten eleven twelve red blue green white'
+        .split(' ')
+        .map((number) => 'two ' + number);
+    for (const i of [5, 10, 15]) text[i] = text[0];
+    const good = await check('lyric_grade', { seed: 11, relation: 'class:RHYME', draft: text });
+    assert.equal(good.verdict, 'pass');
+    text[10] = 'three ten';
+    const drift = await check('lyric_grade', { seed: 11, relation: 'class:RHYME', draft: text });
+    assert.equal(drift.verdict, 'fail');
+    assert.equal(drift.checks.find((c) => c.kind === 'returns').outcome, 'fail');
+    await host.reconnect();
+    const revised = await check('lyric_revise', {
+      seed: 11,
+      relation: 'class:RHYME',
+      attempts: 0,
+      max_rounds: 1,
+      backtrack: 0,
+    });
+    assert.equal(revised.checks.find((c) => c.kind === 'returns').outcome, 'fail');
+  }
+);
+const barVariants = [
+  { id: '16-bar-blues', variant: 1, bars: [16], lines: 4 },
+  ...[8, 12, 16, 24].map((verse, variant) => ({
+    id: 'hip-hop-verse-hook',
+    variant,
+    bars: [verse, 8, verse, 8],
+    lines: (2 * verse + 16) / 4,
+    counts: [
+      { path: '1.1', count: 0 },
+      { path: '1.2', count: 2 },
+      { path: '1.3', count: 0 },
+    ],
+  })),
+  ...[8, 8, 16, 16].map((bars, variant) => ({
+    id: 'edm-build-drop',
+    variant,
+    bars: Array(8).fill(bars),
+    lines: 16,
+  })),
+];
+for (const { id, variant, bars, lines, counts } of barVariants) {
+  test(
+    `declared bar proof for ${id} variant ${variant} survives reconnect and rejects wrong measurements`,
+    { timeout: 240_000 },
+    async (t) => {
+      const host = await sessionHost(t);
+      await host.begin();
+      const relation = 'class:RHYME';
+      const selector = {
+        catalog_form: id,
+        catalog_variant: variant,
+        ...(counts && { catalog_counts: counts }),
+      };
+      const seed = 11;
+      const sweep = measured(
+        await host.run('lyric_sweep', {
+          ...selector,
+          seed_from: seed,
+          count: 1,
+          lines,
+          relation,
+          draw: ['functions', 'melody'],
+        })
+      );
+      assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
+      const op = await host.run('lyric_plan', { seed, lines, relation });
+      const { plan, plan_sha256: digest } = measured(await host.read(op.operation_id, 'full'));
+      assert.deepEqual(
+        plan.sections.map((s) => s.bars),
+        bars
+      );
+      assert.equal(plan.total_lines, lines);
+      const labels = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
+      const draft = Array.from({ length: lines }, (_, i) =>
+        [labels[i % 8], labels[(i + 2) % 8], labels[(i + 1) % 8]].join(' ')
+      );
+      const screen = measured(
+        await host.run('lyric_screen', { words: labels.slice(0, 2), relation })
+      );
+      assert.equal(screen.exit_code, 0, screen.report);
+      function assertBars(catalog, failedIndex = -1) {
+        assert.equal(catalog?.id, id);
+        assert.equal(catalog.variant, variant);
+        const checks = catalog.checks.filter((c) => c.kind === 'bars');
+        assert.deepEqual(
+          checks.map((c) => c.expected),
+          bars
+        );
+        assert.deepEqual(
+          checks.map((c) => c.outcome),
+          bars.map((_, i) => (i === failedIndex ? 'fail' : 'pass'))
+        );
+        assert.equal(catalog.verdict, failedIndex < 0 ? 'pass' : 'fail', JSON.stringify(catalog));
+      }
+      const graded = await host.run('lyric_grade', { seed, draft });
+      const receipt = measured(await host.read(graded.operation_id, 'full'));
+      assert.equal(receipt.plan_sha256, digest);
+      assertBars(receipt.coverage.catalog_form);
+      await host.reconnect();
+      const reviseArgs = { seed, max_rounds: 1, attempts: 0, backtrack: 0 };
+      const revised = await host.run('lyric_revise', reviseArgs);
+      const result = measured(await host.read(revised.operation_id, 'full'));
+      assertBars(result.coverage.catalog_form);
+      const replay = await host.call('lyric_revise', {
+        session_id: revised.predecessor,
+        ...reviseArgs,
+      });
+      assert.equal(replay.operation_id, revised.operation_id);
+
+      // A seeded writer owns its immutable score. The edit tool accepts an
+      // independently submitted score, so it can measure a musician's alteration.
+      const bp = {
+        sections: structuredClone(plan.sections),
+        lines: plan.line_slots.map(({ line, bar, beat, duration, section }) => ({
+          text: draft[line - 1],
+          bar,
+          beat,
+          duration,
+          section,
+        })),
+      };
+      await host.begin('edit');
+      const edit = async () => {
+        const checked = await host.run('lyric_check', {
+          ...selector,
+          lines: draft,
+          groups: '1,2',
+          relation,
+          blueprint: JSON.stringify(bp),
+          subdivision: plan.choices.subdivision,
+        });
+        assert.ok(!checked.tool_error, JSON.stringify(checked.tool_result.content));
+        return measured(await host.read(checked.operation_id, 'full'));
+      };
+      assertBars((await edit()).coverage.catalog_form);
+      bp.sections.at(-1).bars += 1;
+      const wrong = await edit();
+      assert.equal(wrong.exit_code, 3, wrong.report);
+      assertBars(wrong.coverage.catalog_form, bars.length - 1);
+      t.diagnostic(
+        JSON.stringify({
+          id,
+          variant,
+          seed,
+          lines,
+          bars,
+          plan_sha256: digest,
+          grade: receipt.exit_code,
+          revision: result.exit_code,
+          wrong_score: wrong.exit_code,
+          wrong_section: bars.length,
+          replay: true,
+        })
+      );
+    }
+  );
+}
+
+test(
+  'Lai retains nested spans, measured lengths and rhyme classes after reconnect',
+  { timeout: 180_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const seed = 11;
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        catalog_form: 'lai',
+        catalog_variant: 0,
+        seed_from: seed,
+        count: 1,
+        draw: ['lines', 'functions', 'melody', 'relation'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
+    const operation = await host.run('lyric_plan', { seed });
+    const { plan } = measured(await host.read(operation.operation_id, 'full'));
+    const contract = plan.request.song_form;
+    assert.deepEqual(
+      contract.sections.map((s) => s.lines),
+      [3, 3, 3]
+    );
+    assert.deepEqual(contract.rhymeGroups, [
+      [1, 2, 4, 5, 7, 8],
+      [3, 6, 9],
+    ]);
+    const lengths = [5, 5, 2, 5, 5, 2, 5, 5, 2];
+    assert.deepEqual(
+      contract.lineRequirements.map((line) => line.syllables),
+      lengths
+    );
+    measured(await host.run('lyric_screen', { words: ['one', 'none'], relation: 'class:RHYME' }));
+    const ends = ['one', 'none', 'two', 'ton', 'sun', 'blue', 'fun', 'run', 'through'];
+    const draft = ends.map((end, i) => [...Array(lengths[i] - 1).fill('ten'), end].join(' '));
+    async function coverage(name, args) {
+      const run = await host.run(name, { seed, ...args });
+      return measured(await host.read(run.operation_id, 'full')).coverage.catalog_form;
+    }
+    const good = await coverage('lyric_grade', { draft });
+    assert.equal(
+      good.verdict,
+      'pass',
+      JSON.stringify(good.checks.filter((c) => c.outcome !== 'pass'))
+    );
+    assert.deepEqual(
+      good.checks.filter((c) => c.kind === 'line-span').map((c) => c.expected),
+      [
+        [0, 3],
+        [3, 6],
+        [6, 9],
+      ]
+    );
+    const wrong = [...draft];
+    wrong[2] = 'six';
+    function verifyFailure(form) {
+      assert.equal(form.verdict, 'fail');
+      for (const kind of ['syllables', 'rhyme'])
+        assert.ok(
+          form.checks.some((c) => c.kind === kind && c.outcome === 'fail'),
+          kind
+        );
+    }
+    verifyFailure(await coverage('lyric_grade', { draft: wrong }));
+    await host.reconnect();
+    verifyFailure(await coverage('lyric_revise', { attempts: 0, max_rounds: 1, backtrack: 0 }));
+  }
+);
+
+test(
+  'linked sonnet boundaries survive grading and reconnect before revision',
+  { timeout: 240_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const seed = 1;
+    const relation = 'class:RHYME';
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        catalog_form: 'crown-of-sonnets',
+        seed_from: seed,
+        count: 1,
+        relation,
+        draw: ['lines', 'functions', 'melody'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
+    const planned = await host.run('lyric_plan', { seed, relation });
+    const { plan } = measured(await host.read(planned.operation_id, 'full'));
+    assert.equal(plan.total_lines, 98);
+    assert.equal(plan.request.song_form.returnGroups.length, 7);
+    const screen = measured(await host.run('lyric_screen', { words: ['one', 'none'], relation }));
+    assert.equal(screen.exit_code, 0, JSON.stringify(screen));
+    const units = ['one', 'two', 'three', 'four', 'five', 'six', 'seven'];
+    const draft = Array.from({ length: 98 }, (_, i) =>
+      [units[Math.floor(i / 49)], units[Math.floor(i / 7) % 7], units[i % 7]].join(' ')
+    );
+    for (let i = 0; i < 7; i++) draft[14 * i] = draft[14 * ((i + 6) % 7) + 13] = units[i];
+    async function coverage(verb, args) {
+      const receipt = await host.run(verb, { seed, relation, ...args });
+      const report = measured(await host.read(receipt.operation_id, 'full'));
+      assert.ok(report.coverage?.catalog_form, JSON.stringify([report.refusal, report.stderr]));
+      return report.coverage.catalog_form;
+    }
+    assert.equal((await coverage('lyric_grade', { draft })).verdict, 'pass');
+    draft[97] = 'eight';
+    const graded = await coverage('lyric_grade', { draft });
+    await host.reconnect();
+    const revised = await coverage('lyric_revise', { attempts: 0, max_rounds: 1, backtrack: 0 });
+    for (const checked of [graded, revised]) {
+      assert.equal(checked.verdict, 'fail');
+      assert.ok(checked.checks.some((c) => c.kind === 'returns' && c.outcome === 'fail'));
+    }
+  }
+);
+
+for (const [id, variant, partition, scheme] of [
+  ['madrigal', 0, [6, 1], null],
+  ['bob-and-wheel', 1, [8, 3], 'ababababcbc'],
+  ['bob-and-wheel', 2, [8, 3], 'ababababcac'],
+  ['bob-and-wheel', 3, [8, 5], 'ababababcdddc'],
+]) {
+  test(
+    `nested closing division survives reconnect: ${id} ${variant}`,
+    { timeout: 240_000 },
+    async (t) => {
+      const host = await sessionHost(t);
+      await host.begin();
+      const seed = 11;
+      const sweep = measured(
+        await host.run('lyric_sweep', {
+          catalog_form: id,
+          catalog_variant: variant,
+          seed_from: seed,
+          count: 1,
+          ...(scheme
+            ? {}
+            : { catalog_counts: [{ path: '1.1.1', count: 5 }], relation: 'class:RHYME' }),
+          draw: scheme
+            ? ['lines', 'functions', 'melody', 'relation']
+            : ['lines', 'functions', 'melody'],
+        })
+      );
+      assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
+      const op = await host.run('lyric_plan', {
+        seed,
+        ...(scheme ? {} : { relation: 'class:RHYME' }),
+      });
+      const { plan } = measured(await host.read(op.operation_id, 'full'));
+      assert.deepEqual(
+        plan.request.song_form.sections.map((s) => s.lines),
+        partition
+      );
+      measured(await host.run('lyric_screen', { words: ['one', 'none'], relation: 'class:RHYME' }));
+      const ends = {
+        a: ['one', 'none', 'ton', 'sun', 'run'],
+        b: ['two', 'blue', 'through', 'true', 'shoe'],
+        c: ['ten', 'pen'],
+        d: ['six', 'mix', 'fix'],
+      };
+      const draft = scheme
+        ? [...scheme].map((k) => 'six ' + ends[k].shift())
+        : ['one', 'two', 'three', 'four', 'five', 'six', 'six'].map((x) => 'ten ' + x);
+      async function measure(name, args) {
+        const op = await host.run(name, {
+          seed,
+          ...(scheme ? {} : { relation: 'class:RHYME' }),
+          ...args,
+        });
+        const status = measured(op);
+        if (name === 'lyric_grade')
+          assert.equal(status.measurement_status, 'graded', JSON.stringify(status));
+        return measured(await host.read(op.operation_id, 'full')).coverage.catalog_form;
+      }
+      const good = await measure('lyric_grade', { draft });
+      assert.equal(
+        good.verdict,
+        'pass',
+        JSON.stringify(good.checks.filter((c) => c.outcome !== 'pass'))
+      );
+      assert.ok(good.checks.some((c) => c.kind === 'line-span' && c.outcome === 'pass'));
+      const wrong = [...draft];
+      wrong[wrong.length - 1] = 'ten six';
+      if (!scheme) wrong[wrong.length - 1] = 'ten four';
+      function mismatch(form) {
+        assert.equal(form.verdict, 'fail');
+        assert.ok(
+          form.checks.some((c) => c.kind === (scheme ? 'rhyme' : 'returns') && c.outcome === 'fail')
+        );
+      }
+      mismatch(await measure('lyric_grade', { draft: wrong }));
+      await host.reconnect();
+      mismatch(await measure('lyric_revise', { attempts: 0, max_rounds: 1, backtrack: 0 }));
+    }
+  );
+}
+
+test(
+  'Virelai measures the two relative lengths and the cross-stanza rhyme independently',
+  { timeout: 240_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const seed = 11;
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        catalog_form: 'virelai',
+        catalog_variant: 0,
+        seed_from: seed,
+        count: 1,
+        draw: ['lines', 'functions', 'melody', 'relation'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
+    const op = await host.run('lyric_plan', { seed });
+    const { plan } = measured(await host.read(op.operation_id, 'full'));
+    assert.deepEqual(plan.request.song_form.lineRequirements, [
+      { line: 2, shorterThan: 1 },
+      { line: 4, shorterThan: 3 },
+    ]);
+    assert.deepEqual(plan.request.song_form.rhymeGroups, [[1], [2, 3], [4]]);
+    measured(await host.run('lyric_screen', { words: ['one', 'none'], relation: 'class:RHYME' }));
+    async function grade(name, args) {
+      const op = await host.run(name, { seed, ...args });
+      return measured(await host.read(op.operation_id, 'full')).coverage.catalog_form;
+    }
+    const draft = ['ten ten six', 'ten one', 'ten ten none', 'ten two'];
+    const good = await grade('lyric_grade', { draft });
+    assert.equal(
+      good.verdict,
+      'pass',
+      JSON.stringify(good.checks.filter((c) => c.outcome !== 'pass'))
+    );
+    const bad = await grade('lyric_grade', {
+      draft: [draft[0], 'ten ten one', draft[2], draft[3]],
+    });
+    function drift(form) {
+      assert.equal(form.verdict, 'fail');
+      assert.ok(
+        form.checks.some(
+          (c) =>
+            c.kind === 'role' && c.basis === 'relative sung syllable counts' && c.outcome === 'fail'
+        )
+      );
+      assert.ok(form.checks.some((c) => c.kind === 'rhyme' && c.outcome === 'pass'));
+    }
+    drift(bad);
+    await host.reconnect();
+    drift(await grade('lyric_revise', { attempts: 0, max_rounds: 1, backtrack: 0 }));
+  }
+);
+
+const vocalCases = [
+  { id: 'posse-cut', duties: ['distinct-solo', 'distinct-solo'] },
+  { id: 'part-song-victorian', duties: ['ensemble', 'ensemble'] },
+  { id: 'responsorial-psalm', variant: 1, duties: ['cantor', 'cantor'] },
+  { id: 'verse-anthem', duties: ['solo', 'full', 'solo', 'full'] },
+  { id: 'consort-song', duties: ['solo', 'solo', 'reprise'] },
+];
+for (const { id, variant = 0, duties } of vocalCases) {
+  test('written vocal assignments for ' + id, { timeout: 240_000 }, async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const selection = {
+      catalog_form: id,
+      catalog_variant: variant,
+      catalog_counts: [{ path: '1.1', count: 2 }],
+    };
+    const lines = duties.length * 2;
+    const relation = 'class:RHYME';
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        ...selection,
+        seed_from: 11,
+        count: 4,
+        lines,
+        relation,
+        draw: ['functions', 'melody'],
+      })
+    );
+    assert.ok(sweep.accepted_shown, JSON.stringify(sweep));
+    const seed = sweep.accepted_shown[0];
+    assert.ok(Number.isInteger(seed), sweep.report);
+    const op = await host.run('lyric_plan', { seed, lines, relation });
+    const { plan } = measured(await host.read(op.operation_id, 'full'));
+    assert.deepEqual(
+      plan.request.song_form.sections.map((s) => s.vocalDuty),
+      duties
+    );
+    const draft = Array.from({ length: lines }, (_, i) => ['one', 'two', 'three', 'four'][i % 4]);
+    const width = plan.line_slots.filter(
+      (slot) => slot.section === plan.sections.at(-1).name
+    ).length;
+    if (duties.at(-1) === 'reprise') {
+      for (let i = lines - width; i < lines; i++) draft[i] = draft[i - width];
+      for (let n = lines - width + 1; n <= lines; n++)
+        assert.ok(plan.returns.split(';').includes([n - width, n].join(',')), plan.returns);
+    }
+    measured(await host.run('lyric_screen', { words: ['one', 'two'], relation }));
+    async function check(tool, args) {
+      const op = await host.run(tool, args);
+      return measured(await host.read(op.operation_id, 'full')).coverage.catalog_form;
+    }
+    function verdict(result, expected) {
+      assert.equal(
+        result.verdict,
+        expected,
+        JSON.stringify(result.checks.filter((c) => c.outcome !== 'pass'))
+      );
+    }
+    verdict(await check('lyric_grade', { seed, draft }), 'pass');
+    await host.reconnect();
+    verdict(
+      await check('lyric_revise', { seed, attempts: 0, backtrack: 0, max_rounds: 1 }),
+      'pass'
+    );
+    await host.begin('edit');
+    const bp = {
+      vocal_roster: [...plan.vocal_roster],
+      sections: structuredClone(plan.sections),
+      lines: plan.line_slots.map(({ line, bar, beat, duration, section }) => ({
+        text: draft[line - 1],
+        bar,
+        beat,
+        duration,
+        section,
+      })),
+    };
+    const edit = () =>
+      check('lyric_check', {
+        ...selection,
+        lines: bp.lines.map((s) => s.text),
+        groups: '1,2',
+        relation,
+        subdivision: plan.choices.subdivision,
+        blueprint: JSON.stringify(bp),
+      });
+    // Submitted scores use arbitrary IDs, independent of the writer's chosen names.
+    bp.vocal_roster = bp.vocal_roster.map((p) => 'x-' + p);
+    if (plan.choir_roster) bp.choir_roster = plan.choir_roster.map((p) => 'x-' + p);
+    for (const s of bp.sections) s.performers = s.performers.map((p) => 'x-' + p);
+    verdict(await edit(), 'pass');
+    const observed = bp.sections.at(-1),
+      correct = observed.performers;
+    delete observed.performers;
+    verdict(await edit(), 'unknown');
+    observed.performers = ['outside'];
+    verdict(await edit(), 'fail');
+    if (duties.at(-1) === 'cantor') bp.vocal_roster.push('other');
+    observed.performers = duties.at(-1) === 'cantor' ? ['other'] : [bp.sections[0].performers[0]];
+    verdict(await edit(), 'fail');
+    observed.performers = correct;
+    if (duties.at(-1) === 'reprise') {
+      bp.lines.at(-1).text = 'ten';
+      const result = await edit();
+      verdict(result, 'fail');
+      assert.ok(result.checks.some((c) => c.kind === 'reprise-line' && c.outcome === 'fail'));
+    }
+  });
+}

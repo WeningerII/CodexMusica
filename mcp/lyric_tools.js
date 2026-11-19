@@ -2099,7 +2099,7 @@ const blueprintField = z
     });
   })
   .describe(
-    'For a PASTED song only (a seeded run takes its blueprint off the plan and refuses this field): a DECLARED blueprint as JSON text — the bar grid the graders read: {"sections":[{"name","function","bars","start_bar","meter":{"beats","unit","groups":[…]}}],"lines":[{"text","bar","beat","duration"}], optional "title", "hooks"}. With it the meter, song-function, hook and title layers are ASKED of the paste; without it only rhyme and the slop floor are (blueprint_declared says which). A meter written as a signature STRING ("4/4") is refused, not parsed. Pass `subdivision` with it.'
+    'For a PASTED song only (a seeded run takes its blueprint off the plan and refuses this field): a DECLARED blueprint as JSON text — the bar grid the graders read: {"sections":[{"name","function","bars","start_bar","meter":{"beats","unit","groups":[…]}}],"lines":[{"text","bar","beat","duration"}], optional "title", "hooks"}. For a catalog vocal assignment, declare the score’s participant IDs in the top-level vocal_roster array and each section’s singing IDs in its performers array. Choral sections also use the top-level choir_roster array. With it the meter, song-function, hook and title layers are ASKED of the paste; without it only rhyme and the slop floor are (blueprint_declared says which). A meter written as a signature STRING ("4/4") is refused, not parsed. Pass `subdivision` with it.'
   );
 const subdivisionField = z
   .number()

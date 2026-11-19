@@ -1,4 +1,5 @@
 """Measure a selected symbolic catalog pattern against each candidate draft."""
+from dataclasses import replace
 import json
 import subprocess
 from pathlib import Path
@@ -58,8 +59,18 @@ def _sections(bp, observed):
         start = exact_integer(section.get("start_bar", cursor))
         spans.append({"name": section["name"], "bars": bars, "start_bar": start, "index": index})
         row = {"bars": bars}
+        if "vocal_roster" in bp:
+            row["vocalRoster"] = bp["vocal_roster"]
+        if "choir_roster" in bp:
+            row["choirRoster"] = bp["choir_roster"]
+        if "performers" in section:
+            row["performers"] = section["performers"]
+        if "divisionPath" in section:
+            row["divisionPath"] = section["divisionPath"]
         if isinstance(section.get("function"), str) and section["function"]:
             row["role"] = section["function"]
+        if isinstance(section.get("source_role"), str):
+            row["sourceRole"] = section["source_role"]
         rows.append(row)
         cursor = start + bars
     lengths = [0] * len(sections)
@@ -82,6 +93,9 @@ def _sections(bp, observed):
     for row, length in zip(rows, lengths):
         row["lineSpan"] = [start, start + length]
         start += length
+    for index, slot in enumerate(slots):
+        if "divisionPath" in slot:
+            observed[index]["divisionPath"] = slot["divisionPath"]
     for index, bars in line_bars.items():
         observed[index]["bars"] = bars
     return rows
@@ -92,7 +106,8 @@ def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None, retur
     basis = mandate.default_relation
     if terminal_groups:
         from quality.catalog_shape import rhyme_source_groups, terminal_rhyme_relation
-        sources = rhyme_source_groups(terminal_groups, return_groups)
+        paired_groups = [group for group in terminal_groups if len(group) > 1]
+        sources = rhyme_source_groups(paired_groups, return_groups)
         if return_groups:
             declared = [list(r.lines) for r in mandate.returns if r.verbatim is True and not r.placed]
             if declared != return_groups:
@@ -126,9 +141,9 @@ def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None, retur
         if terminal_groups:
             # A truncated draft can project fewer line numbers. It cannot prove the complete group.
             members = check.get("lines")
-            if members not in terminal_groups:
+            if members not in paired_groups:
                 continue
-            k = terminal_groups.index(members)
+            k = paired_groups.index(members)
             sources_in_group = sources[k]
             pairs = [(a, b) for pos, a in enumerate(sources_in_group) for b in sources_in_group[pos + 1:]]
             outcomes = [None if (*pair, k) in refused_groups else terminal_verdicts.get((*pair, k)) for pair in pairs]
@@ -185,7 +200,25 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
                              input=json.dumps(request), capture_output=True, text=True,
                              encoding="utf-8", timeout=20, check=True)
         groups = (bp.get("song_form") or {}).get("rhymeGroups")
-        return _native_rhyme(json.loads(run.stdout), lines, mandate, report,
+        result = json.loads(run.stdout)
+        # The native placed-return judge reads a word, not an entire repeated
+        # line. Its classes stay separate from the ordinary writing mandate:
+        # repeating an ending never licenses repetition elsewhere on the line.
+        from quality import schemes
+        classes = [row["lines"] for row in result["checks"] if row["kind"] == "endWord" and "lines" in row]
+        groups_to_read = [g for g in classes if len(g) > 1 and max(g) <= len(lines)
+                          and all(observed[n - 1].get("sungWords") for n in g)]
+        if groups_to_read:
+            positioned = schemes._normalise_returns([[f"{n}.endword" for n in g] for g in groups_to_read],
+                                                   len(lines), schemes.ReturnRule())
+            findings = replace(mandate, returns=positioned).placed_returns_check(lines, lex)
+            outcome = ("fail" if any(row[3] == "NOT_RETURNED_AT" for row in findings)
+                       else "unknown" if findings or len(groups_to_read) < len(classes) else "pass")
+            result["checks"].append({"kind": "positioned-ending-identity", "outcome": outcome,
+                                     "lines": sorted(n for group in classes for n in group)})
+            if outcome == "fail" or result["verdict"] == "pass":
+                result["verdict"] = outcome
+        return _native_rhyme(result, lines, mandate, report,
                              terminal_groups=groups, return_groups=(bp.get("song_form") or {}).get("returnGroups", ()))
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         return {"id": form_id, "verdict": "unknown", "checks": [

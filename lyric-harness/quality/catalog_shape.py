@@ -25,8 +25,50 @@ def rhyme_source_groups(groups, returns):
     return [[line for line in group if line not in copies] for group in groups]
 
 
+def _valid_division_path(path):
+    if not isinstance(path, list) or not 1 <= len(path) <= 32:
+        return False
+    for mark in path:
+        if (not isinstance(mark, dict) or set(mark) - {"role"} != {"unit", "address"}
+                or any(not isinstance(mark[k], str) or not re.fullmatch(r"[a-z][a-z0-9-]{0,79}", mark[k])
+                       for k in ("unit", "role") if k in mark)
+                or not isinstance(mark["address"], str) or len(mark["address"]) > 600
+                or not re.fullmatch(r"[1-9][0-9]*\[[1-9][0-9]*\](?:\.[1-9][0-9]*\[[1-9][0-9]*\])*", mark["address"])):
+            return False
+    return True
+
+
+def _sonnet_sections(parts, contract):
+    """Check the native carrier and every positioned line link, including the final wrap."""
+    form = contract["id"]
+    if form not in {"sonnet-sequence", "crown-of-sonnets", "heroic-crown"}:
+        return False
+    master = form == "heroic-crown"
+    body = parts[:-1] if master else parts
+    if (any(p["role"] != "verse" or p["lines"] != 14 for p in parts)
+            or any(p.get("sourceRole") != "sonnet" for p in body)
+            or master and parts[-1].get("sourceRole") != "master-sonnet"):
+        return False
+    actual = contract["returnGroups"]
+    if not actual:
+        return form == "sonnet-sequence" and contract["variant"] == 0
+    size = len(body)
+    if size != (14 if master else 7):
+        return False
+    expected = []
+    for index in range(size):
+        head = 14 * index + 1
+        previous_close = 14 * (((index - 1) % size) + 1)
+        positions = [head, previous_close]
+        if master:
+            positions.append(14 * size + index + 1)
+        expected.append(sorted(positions))
+    return (isinstance(actual, list) and len(actual) == size
+            and all(group in actual for group in expected))
+
+
 def _validate_shape(contract):
-    if (not isinstance(contract, dict) or set(contract) - {"lineRequirements"} != FIELDS
+    if (not isinstance(contract, dict) or set(contract) - {"lineRequirements", "endingWords"} != FIELDS
             or type(contract["version"]) is not int or contract["version"] != 1
             or contract["scope"] not in ("rule", "setting")
             or not isinstance(contract["id"], str)
@@ -41,37 +83,112 @@ def _validate_shape(contract):
     if not isinstance(parts, list) or not 1 <= len(parts) <= plan.ENVELOPE["sections"][1]:
         raise plan.PlanRefused("catalog section count is outside the native envelope")
     for part in parts:
-        if (not isinstance(part, dict) or set(part) - {"bars"} != {"unit", "role", "lines"}
+        if (not isinstance(part, dict) or set(part) - {"bars", "divisionPath", "sourceRole", "linePaths", "vocalDuty"} != {"unit", "role", "lines"}
                 or part["unit"] != "section"):
             raise plan.PlanRefused("seeded catalog creation supports named role sequences only")
         if "bars" in part and (type(part["bars"]) is not int or part["bars"] < 1):
             raise plan.PlanRefused("catalog section bars must be a positive integer")
+        if "divisionPath" in part and not _valid_division_path(part["divisionPath"]):
+            raise plan.PlanRefused("invalid catalog division path")
+        if "vocalDuty" in part:
+            roles = {"solo-verse": "solo", "full-choir": "full", "choral-stanza": "ensemble",
+                     "cantor-verse": "cantor", "ensemble-reprise": "reprise"}
+            path = part.get("divisionPath") or []
+            last = path[-1] if path else {}
+            duty = roles.get(last.get("role")) if last.get("unit") == "section" else None
+            if (len(path) >= 2 and last.get("unit") == "voice" and "role" not in last
+                    and path[-2].get("role") == "verse"):
+                duty = "distinct-solo"
+            if duty is None or part["vocalDuty"] != duty or part["role"] != ("outro" if duty == "reprise" else "verse"):
+                raise plan.PlanRefused("catalog vocal duty must match its section or voice path")
+        if "linePaths" in part:
+            paths = part["linePaths"]
+            if ("divisionPath" not in part or not isinstance(paths, list) or len(paths) != part["lines"]
+                    or any(not _valid_division_path(path) or path[-1]["unit"] != "line"
+                           or not path[-1].get("role") for path in paths)):
+                raise plan.PlanRefused("catalog turn paths require one declared participant per line")
         role, lines = part["role"], part["lines"]
         if (not isinstance(role, str) or role not in plan.GENERATOR_ROSTER
                 or lines is not None and (type(lines) is not int or lines < 1
                                           or role in plan.ZERO_LINE_FUNCTIONS)):
             raise plan.PlanRefused("unsupported catalog section role or line count")
+    if any(p.get("vocalDuty") == "reprise" for p in parts):
+        if (len(parts) < 2 or parts[-1].get("vocalDuty") != "reprise" or
+                any(p.get("vocalDuty") != "solo" for p in parts[:-1])):
+            raise plan.PlanRefused("an ensemble reprise closes the preceding solo verses")
+    if any("sourceRole" in part for part in parts):
+        first = parts[0]
+        source, carrier, count = first.get("sourceRole"), first["role"], first["lines"]
+        fixed_repeat = (source in ("chant", "call") and carrier == "chorus" and
+                        type(count) is int and count >= 2)
+        numbered_sonnets = _sonnet_sections(parts, contract)
+        same_blocks = fixed_repeat and all((part.get("sourceRole"), part["role"], part["lines"]) ==
+                                          (source, carrier, count) for part in parts)
+        if len(parts) < 2 or not (same_blocks or numbered_sonnets):
+            raise plan.PlanRefused("unsupported source section arrangement")
+    if "endingWords" in contract:
+        ending = contract["endingWords"]
+        if (not isinstance(ending, dict) or set(ending) - {"gathered"} != {"groups"}
+                or any(p["lines"] is None for p in parts)):
+            raise plan.PlanRefused("ending-word declarations need fully positioned lines")
+        total = sum(p["lines"] for p in parts)
+        classes = ending["groups"]
+        if (not isinstance(classes, list) or len(classes) < 2
+                or any(not isinstance(g, list) or len(g) < 2 or
+                       any(type(i) is not int or not 1 <= i <= total for i in g)
+                       or sorted(set(g)) != g for g in classes)):
+            raise plan.PlanRefused("ending-word classes need ordered, repeated positions")
+        assigned = {i for g in classes for i in g}
+        if len(assigned) != sum(map(len, classes)):
+            raise plan.PlanRefused("one ending cannot belong to two word identities")
+        closing = ending.get("gathered", [])
+        if (not isinstance(closing, list) or ("gathered" in ending and not closing)
+                or any(type(i) is not int for i in closing)
+                or closing != list(range(total - len(closing) + 1, total + 1))
+                or assigned.intersection(closing)):
+            raise plan.PlanRefused("a gathering passage must close the selection")
     groups = contract["rhymeGroups"]
     if groups != []:
-        if (not isinstance(groups, list) or len(parts) != 1 or parts[0]["lines"] is None
-                or any(not isinstance(g, list) or len(g) < 2 or any(type(n) is not int for n in g)
+        if (not isinstance(groups, list) or any(p["lines"] is None for p in parts)
+                or len(parts) > 1 and any(p["role"] != "verse" for p in parts)
+                or any(not isinstance(g, list) or not g or any(type(n) is not int for n in g)
                        or g != sorted(g) for g in groups)
-                or sum(map(len, groups)) != parts[0]["lines"]
+                or not any(len(g) >= 2 for g in groups)
+                or sum(map(len, groups)) != sum(p["lines"] for p in parts)
                 or [g[0] for g in groups] != sorted(g[0] for g in groups)
-                or sorted(n for g in groups for n in g) != list(range(1, parts[0]["lines"] + 1))):
-            raise plan.PlanRefused("prescribed rhyme groups must partition one complete section in line order")
+                or sorted(n for g in groups for n in g) != list(range(1, sum(p["lines"] for p in parts) + 1))):
+            raise plan.PlanRefused("prescribed rhyme groups must partition complete positioned sections and include a rhyming pair")
     if "lineRequirements" in contract:
         if any(p["lines"] is None for p in parts):
             raise plan.PlanRefused("line requirements need a fully positioned catalog form")
         _validate_line_requirements(contract["lineRequirements"], sum(p["lines"] for p in parts))
     returns = contract["returnGroups"]
-    if returns != []:
-        if (not isinstance(returns, list) or not groups or parts[0]["role"] != "verse"
+    has_repeated_carrier = bool(parts[0].get("sourceRole") in ("chant", "call") and not groups)
+    if returns and has_repeated_carrier:
+        width = parts[0]["lines"]
+        expected = [list(range(i, width * len(parts) + 1, width)) for i in range(1, width + 1)]
+        if (returns != expected or
+                any(type(n) is not int for group in returns for n in group)):
+            raise plan.PlanRefused("catalog returns must match the repeated lyric block at every offset")
+    elif returns != []:
+        if (not isinstance(returns, list) or any(p["lines"] is None for p in parts)
+                or groups and parts[0]["role"] != "verse"
                 or any(not isinstance(g, list) or len(g) < 2 or any(type(n) is not int for n in g)
-                       or g != sorted(set(g)) or not any(set(g) <= set(r) for r in groups) for g in returns)
+                       or g != sorted(set(g)) or g[0] < 1 or g[-1] > sum(p["lines"] for p in parts)
+                       or groups and not any(set(g) <= set(r) for r in groups) for g in returns)
                 or len({n for g in returns for n in g}) != sum(map(len, returns))
-                or any(len(g) < 2 for g in rhyme_source_groups(groups, returns))):
-            raise plan.PlanRefused("fixed returns require independent rhyme sources in one complete verse section")
+                or any(len(g) < 2 for g in rhyme_source_groups([g for g in groups if len(g) > 1], returns))):
+            raise plan.PlanRefused("fixed returns require independent rhyme sources in complete verse sections")
+        if not groups:
+            copies = {line for group in returns for line in group[1:]}
+            start = 1
+            can_bind = False
+            for part in parts:
+                stop = start + part["lines"]
+                can_bind |= sum(n not in copies for n in range(start, stop)) >= 2
+                start = stop
+            if not can_bind:
+                raise plan.PlanRefused("fixed returns leave no independent pair in any section")
         measures = {row["line"]: {k:v for k,v in row.items() if k != "line"}
                     for row in contract.get("lineRequirements", ())}
         if any(measures.get(n) != measures.get(g[0]) for g in returns for n in g[1:]):
@@ -93,12 +210,24 @@ def resolve_catalog_shape(contract, rng, *, totals, lines=None, functions=None,
     if form not in plan.PLAN_FORMS or set(plan.FORM_REQUIRES.get(form, ())) - set(funcs) or any(
             funcs.count(f) < 2 for f in plan.FORM_RECURS.get(form, ())):
         raise plan.PlanRefused("native form requirement conflicts with the catalog sections")
-    issues = grid.placement_findings(funcs)
+    issues = grid.placement_findings(funcs, selected_roles=grid.setting_roles(contract))
     if issues:
         raise plan.PlanRefused("catalog role placement: " + issues[0][0] + ": " + issues[0][2])
     for f in set(funcs):
         if grid.SECTION_FUNCTIONS[f].recurrence == "once" and funcs.count(f) > 1:
             raise plan.PlanRefused("repeated once-only roles require qualified recurrence support")
+    # Fixed stanza carriers may change length without asserting a changed tune
+    # or a shortened copy of a verbatim chorus.
+    if (all(p["role"] == "verse" and p["lines"] is not None and "bars" not in p for p in parts)
+            and len({p["lines"] for p in parts}) > 1):
+        sizes = [p["lines"] for p in parts]
+        total = sum(sizes)
+        if (min(sizes) < minimum or total not in totals or total not in plan.song_line_counts()
+                or not plan.ENVELOPE["total_lines"][0] <= total <= plan.ENVELOPE["total_lines"][1]
+                or lines is not None and lines != total):
+            raise plan.PlanRefused("catalog sections cannot fill the requested gradeable line total")
+        return {"total": total, "sections": [{"function": "verse", "lines": k} for k in sizes],
+                "instance_lengths": True}
     fixed = {f: 0 for f in funcs if f in plan.ZERO_LINE_FUNCTIONS}
     for fn, part in zip(funcs, parts):
         n = part["lines"]
@@ -180,12 +309,17 @@ def _validate_line_requirements(rows, total):
     previous = 0
     for row in rows:
         if (not isinstance(row, dict) or len(row) < 2
-                or set(row) - {"line", "words", "syllables", "stress", "stresses", "wordLetters"}
+                or set(row) - {"line", "words", "syllables", "stress", "stresses", "wordLetters", "stressEnding", "shorterThan"}
                 or type(row.get("line")) is not int or not previous < row["line"] <= total
                 or any(type(row[key]) is not int or row[key] < 1 for key in ("words", "syllables")
                        if key in row)):
             raise plan.PlanRefused("line requirements need unique, increasing positions and positive word/syllable counts")
         values = dict(row)
+        if "shorterThan" in values:
+            predecessor = values["shorterThan"]
+            if (type(predecessor) is not int or predecessor < 1 or predecessor + 1 != row["line"]
+                    or "shorterThan" in normalized.get(predecessor, {})):
+                raise plan.PlanRefused("relative syllable lengths require a separate preceding long line")
         if "wordLetters" in values:
             widths = values["wordLetters"]
             if (not isinstance(widths, list) or len(widths) != values.get("words")
@@ -200,6 +334,12 @@ def _validate_line_requirements(rows, total):
                 raise plan.PlanRefused("declared syllables disagree with the stress sequence length")
             if values.setdefault("stresses", mask.count("/")) != mask.count("/"):
                 raise plan.PlanRefused("declared stress count disagrees with the stress sequence")
+        ending = values.get("stressEnding")
+        if "stressEnding" in values and (
+                ending not in ("/", ".", "/.") or
+                ("stress" in values and not values["stress"].endswith(ending)) or
+                values.get("syllables", len(ending)) < len(ending)):
+            raise plan.PlanRefused("terminal stress must agree with the selected line meter")
         if "stresses" in values and (type(values["stresses"]) is not int or values["stresses"] < 0
                 or "syllables" in values and values["stresses"] > values["syllables"]):
             raise plan.PlanRefused("stress count must be nonnegative and fit any stated syllable count")
@@ -214,6 +354,9 @@ def line_fit_conflicts(native, requirements, bound_copy_lines=()):
     """Necessary arithmetic for this exact plan; pronunciation is judged on the actual draft."""
     total = native["total_lines"]
     rows = _validate_line_requirements(requirements, total)
+    pairs = [(n, row["shorterThan"]) for n, row in rows.items() if "shorterThan" in row]
+    for _, predecessor in pairs:
+        rows.setdefault(predecessor, {})
     for line in bound_copy_lines:
         rows.setdefault(line, {})
     if not rows:
@@ -241,6 +384,7 @@ def line_fit_conflicts(native, requirements, bound_copy_lines=()):
                 classes.update((i, item.lines) for i in item.lines)
 
     conflicts = []
+    intervals = {}
     for members in sorted({classes.get(i, (i,)) for i in rows}):
         first = members[0]
         counts = {}
@@ -252,6 +396,16 @@ def line_fit_conflicts(native, requirements, bound_copy_lines=()):
                                   "detail": f"Whole-line returns {members} have different declared {key}."})
             elif values:
                 counts[key] = values.pop()
+        endings = [rows[i]["stressEnding"] for i in members if i in rows and "stressEnding" in rows[i]]
+        if endings:
+            suffix = max(endings, key=len)
+            if (any(not suffix.endswith(e) for e in endings)
+                    or "stress" in counts and not counts["stress"].endswith(suffix)
+                    or counts.get("syllables", len(suffix)) < len(suffix)
+                    or "stresses" in counts and (counts["stresses"] < suffix.count("/")
+                        or "syllables" in counts and counts["stresses"] > counts["syllables"] - suffix.count("."))):
+                conflicts.append({"line": first, "code": "CATALOG_ENDING_STRESS_CONFLICT",
+                                  "detail": "The terminal stress and selected line meter cannot coincide."})
         # A verbatim return has the same spelling at each constrained word position.
         word_widths = {}
         for i in members:
@@ -268,14 +422,21 @@ def line_fit_conflicts(native, requirements, bound_copy_lines=()):
             conflicts.append({"line": first, "code": "CATALOG_WORD_BINDINGS",
                               "detail": f"Native placements and the free-word reserve need {minimum_words} words."})
         minimum_syllables = max(minimum_words, counts.get("words", 0)) + extra
-        minimum_syllables = max(minimum_syllables, counts.get("stresses", 0))
+        minimum_syllables = max(minimum_syllables, counts.get("stresses", 0) +
+                                max((ending.count(".") for ending in endings), default=0),
+                                max((len(ending) for ending in endings), default=0))
         exact = counts.get("syllables")
         if exact is not None and exact < minimum_syllables:
             conflicts.append({"line": first, "code": "CATALOG_SYLLABLE_BINDINGS",
                               "detail": f"Line constraints need at least {minimum_syllables} syllables."})
         required_slots = max(minimum_syllables, exact or 0)
         for i in members:
+            intervals[i] = (required_slots, min(ceilings[i], exact) if exact is not None else ceilings[i])
             if required_slots > ceilings[i]:
                 conflicts.append({"line": i, "code": "CATALOG_SLOTS_EXCEEDED",
                                   "detail": f"At least {required_slots} syllables need space in {ceilings[i]} slots."})
+    for short, long in pairs:
+        if (long in classes.get(short, ()) or intervals[short][0] >= intervals[long][1]):
+            conflicts.append({"line": short, "code": "CATALOG_RELATIVE_LENGTH_CONFLICT",
+                              "detail": f"Line {short} cannot have fewer sung syllables than line {long}."})
     return conflicts
