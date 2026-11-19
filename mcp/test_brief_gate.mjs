@@ -20,7 +20,15 @@ import { promisify } from 'node:util';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
-import { BRIEFS, BRIEF_WIRE_SONG, READER_CONTROLS, RUNS, briefGradeNext } from './lyric_tools.js';
+import {
+  BRIEFS,
+  BRIEF_WIRE_SONG,
+  READER_CONTROLS,
+  RUNS,
+  briefGradeNext,
+  seededPlanArgs,
+} from './lyric_tools.js';
+import { automaticFormCandidates } from './lyric_form.js';
 import { buildWorkflowServer } from './workflow_tools.js';
 import { withExecutionContext } from './execution_context.js';
 import { encodeState, decodeState } from './state_codec.js';
@@ -504,6 +512,35 @@ test('a progress record that publishes no flags keeps what is protected and brin
   });
   assert.equal(cleared.out.exit_code, 3, JSON.stringify(cleared.out).slice(0, 600));
   assert.deepEqual(cleared.seen.at(-1), [[]]);
+});
+
+test('a seeded brief plan is the run plan, catalog form included', async () => {
+  // A stop briefs the open lines' groups and returns from a plan of the
+  // run's seed. Every seeded argv is built by one helper, which carries a
+  // catalog form's contract and never the native default form (#902).
+  const source = readFileSync(path.join(HERE, 'lyric_tools.js'), 'utf8');
+  assert.equal(
+    source.match(/\.\.\.planArgs\(a\)/g).length,
+    1,
+    'planArgs only inside seededPlanArgs'
+  );
+  const key = (c) => JSON.stringify([c.id, c.variant, c.counts]);
+  const settings = (await automaticFormCandidates({ lines: null })).sort((x, y) =>
+    key(x) < key(y) ? -1 : key(x) > key(y) ? 1 : 0
+  );
+  const { id, variant, counts } = settings[draw('brief-plan', 'setting', settings.length)];
+  const catalogCounts = Object.entries(counts).map(([p, count]) => ({ path: p, count }));
+  const args = await seededPlanArgs({
+    seed: 1,
+    catalog_form: id,
+    catalog_variant: variant,
+    ...(catalogCounts.length && { catalog_counts: catalogCounts }),
+  });
+  const contract = args.find((x) => x.startsWith('--catalog-contract='));
+  assert.ok(contract, JSON.stringify(args));
+  assert.equal(JSON.parse(contract.slice('--catalog-contract='.length)).id, id);
+  assert.ok(!args.some((x) => x.startsWith('--form=')), JSON.stringify(args));
+  assert.ok((await seededPlanArgs({ seed: 1 })).includes('--form=open'));
 });
 
 test('G15: no connector argv asks the harness to skip its own brief check', () => {

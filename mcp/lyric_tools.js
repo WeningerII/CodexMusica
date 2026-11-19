@@ -1902,6 +1902,14 @@ async function creationFormArgs(a) {
   }
 }
 
+// The plan a seeded call stands on: the native settings and, for a catalog
+// form, its projected contract. Every seeded plan, finish and brief plan
+// builds its argv here, so none falls back to the native default form when
+// the run's form is a catalog one (#902).
+export async function seededPlanArgs(a) {
+  return [...planArgs(a), ...(await creationFormArgs(a))];
+}
+
 function planArgs(a) {
   const args = [`--seed=${a.seed}`];
   if (a.catalog_form === undefined) args.push(`--form=${a.form || DEFAULT_FORM}`);
@@ -3148,8 +3156,7 @@ export function registerLyricTools(server, tool) {
         if (conflict) throw refuse(conflict);
         const r = await runVerb([
           'plan',
-          ...planArgs(a),
-          ...(await creationFormArgs(a)),
+          ...(await seededPlanArgs(a)),
           `--out=${path.join(dir, 'plan.json')}`,
         ]);
         const verdict = verdictOf(r);
@@ -3246,7 +3253,7 @@ export function registerLyricTools(server, tool) {
         await writeFile(draftPath, serializeWritingDraft(a.draft, a.catalog_form), 'utf8');
 
         // 1. The plan's own mandate halves, from the plan artifact itself.
-        const creationArgs = [...planArgs(a), ...(await creationFormArgs(a))];
+        const creationArgs = await seededPlanArgs(a);
         const p1 = await runVerb(['plan', ...creationArgs, `--out=${planPath}`]);
         if (p1.code !== 0) return verdictOf(p1);
         const plan = JSON.parse(await readFile(planPath, 'utf8'));
@@ -3813,8 +3820,7 @@ export function registerLyricTools(server, tool) {
                   NO_INSTANCE_EVIDENCE,
                   'finish',
                   draftPath,
-                  ...planArgs(a),
-                  ...(await creationFormArgs(a)),
+                  ...(await seededPlanArgs(a)),
                   `--propose=${proposeSpec}`,
                 ];
               } else {
@@ -4298,7 +4304,11 @@ export function registerLyricTools(server, tool) {
                   let plan = null;
                   if (seeded) {
                     const planPath = path.join(dir, 'brief-plan.json');
-                    const p = await runVerb(['plan', ...planArgs(a), `--out=${planPath}`]);
+                    const p = await runVerb([
+                      'plan',
+                      ...(await seededPlanArgs(a)),
+                      `--out=${planPath}`,
+                    ]);
                     if (p.code === 0)
                       try {
                         plan = JSON.parse(await readFile(planPath, 'utf8'));
