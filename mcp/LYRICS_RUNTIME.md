@@ -708,3 +708,54 @@ lyrics readiness, durable recovery and effective public configuration.
 `/health` remains a liveness endpoint. A successful
 source test is not evidence of a completed paid song or a successful long wall
 continuation; those require the maintained battery acceptance gate.
+
+
+## Declared catalog forms
+
+The native Lyrics page and the offline command use the same nested form interpreter. Run
+`node scripts/song_forms.mjs list` for IDs and `node scripts/song_forms.mjs describe ID`
+for the patterns a form supplies. A rule encodes a structural requirement. A setting describes
+one possible realization. A deferred entry has no executable pattern.
+
+Use `realize ID` with a JSON object on standard input to select a zero-based `variant` and
+supply any requested repeat `counts`. The result gives the tree, line and section positions,
+and the subset expressible as the lyric harness’s rhyme groups and returns. Unknown positions
+and overlapping voices do not create transcript line numbers. `check ID` compares a chosen
+realization to supplied observations. Its exit values are 0 for a match, 1 for a mismatch,
+2 for invalid input, and 3 for insufficient information.
+
+For pasted lyrics, supply `catalog_form` on `lyric_recover`. The result distinguishes the
+declared pattern from measurements of the actual text and retains uncertainty. Missing
+section labels, ambiguous pronunciations, and unobserved rhyme classes can leave a result
+unknown. A matching bounded setting establishes compatibility with that setting only.
+
+The published catalog is available at `/api/song-forms.json`. For a writing check on an
+existing draft, `lyric_check` accepts the same catalog selection. It runs the ordinary
+writing checks. Its catalog measurement compares the selected pattern with the supplied draft.
+Line text supplies verbatim returns, word counts and end words. Agreed lexical readings supply
+syllables and stress; ambiguous readings may leave a result unknown. Rhyme groups and
+cross-group distinctions are separate checks. An explicitly selected coarser rhyme relation
+uses its native pair verdict; cross-group distinctions under that relation remain unknown.
+Supplied blueprint sections establish declared roles, spans, section bars and integral line
+durations in bars. The grader cannot infer a performance or a section label from lyric text.
+
+Use the returned `catalog_form.revision_mandate` for revision. It preserves the ID, variant,
+repeat counts and writing declarations. Revisions and their final grading recheck the form
+against the candidate. A refused observation remains visible through the coverage report.
+
+For creation use the same selectors on the normal sweep, plan, grade and revision workflow.
+The native planner accepts named section sequences with supported lengths and placement.
+A selected section can declare a bar count. The planner must fit that count to the musical
+grid, and grading checks it against the section in the submitted blueprint.
+It can also arrange a sequence of equally sized, counted stanzas as verses. The catalog
+retains its original units. A selected numerical pattern can require an exact word count,
+syllable count, agreed English stress sequence, or number of lexical stresses on individual
+lines. The writer brief prints those obligations. The planner checks them against the drawn
+slots, word positions, reserved free words and whole-line returns. A contradictory seed
+is refused. The next draft and every revision are measured again from the actual text.
+The remaining grid and writing obligations follow the ordinary draw. A catalog setting represents
+the selected arrangement only. Unsupported rules, ambiguous alternatives and missing
+repeat counts produce a refusal with the reason. The command
+`node scripts/song_forms.mjs create ID` checks the projection; the native sweep determines
+whether the requested length, placement and seed can satisfy it. Proof that a plan can be
+filled is distinct from the writing verdict on its lyrics.

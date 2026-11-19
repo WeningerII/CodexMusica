@@ -38,6 +38,11 @@ export function runtimeSourceFingerprint(
   root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 ) {
   const hash = crypto.createHash('sha256');
+  function hashFile(relative) {
+    hash.update(relative.replaceAll(path.sep, '/') + '\0');
+    hash.update(fs.readFileSync(path.join(root, relative)));
+    hash.update('\0');
+  }
   function visit(relative) {
     const directory = path.join(root, relative);
     if (!fs.existsSync(directory)) return;
@@ -57,9 +62,7 @@ export function runtimeSourceFingerprint(
           item.name
         )
       ) {
-        hash.update(name.replaceAll(path.sep, '/') + '\0');
-        hash.update(fs.readFileSync(path.join(root, name)));
-        hash.update('\0');
+        hashFile(name);
       }
     }
   }
@@ -67,5 +70,16 @@ export function runtimeSourceFingerprint(
   visit('lyric-harness');
   visit('scripts');
   visit('references');
+  // The lyrics image copies these shared files without the rest of src/ or data/.
+  for (const file of [
+    'src/song-forms.mjs',
+    'src/song-form-mandate.mjs',
+    'src/song-form-creation.mjs',
+    'src/song-form-grade.mjs',
+    'src/song-form-line-requirements.mjs',
+    'data/song-forms.json',
+  ]) {
+    if (fs.existsSync(path.join(root, file))) hashFile(file);
+  }
   return hash.digest('hex');
 }

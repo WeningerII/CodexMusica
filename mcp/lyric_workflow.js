@@ -63,7 +63,27 @@ const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 // The declarations a plan is a function of, and the reading declarations a
 // grade is taken under. Exported so the published tool text names exactly
 // the fields these receipts compare.
+export const CATALOG_FIELDS = ['catalog_form', 'catalog_variant', 'catalog_counts'];
+
+// The native plan stores its complete verified contract. Tool calls take just
+// its public selector, so the same catalog can resolve and verify it again.
+export function catalogSelection(request) {
+  const contract = request?.song_form;
+  if (!contract) return {};
+  return {
+    catalog_form: contract.id,
+    catalog_variant: contract.variant,
+    catalog_counts: Object.entries(contract.counts).map(([path, count]) => ({ path, count })),
+  };
+}
+function toolRequest(request) {
+  if (!request?.song_form) return request;
+  const { song_form: _contract, form: _legacyForm, ...coordinates } = request;
+  return { ...coordinates, ...catalogSelection(request) };
+}
+
 export const PLAN_FIELDS = [
+  ...CATALOG_FIELDS,
   'seed',
   'form',
   'lines',
@@ -358,7 +378,7 @@ function leftSong(w) {
   return Array.isArray(left.draft) ? left : null;
 }
 const coordinatesOf = (s) =>
-  SWEEP_COORDINATES.filter(
+  [...SWEEP_COORDINATES, ...CATALOG_FIELDS].filter(
     (k) => k !== 'relation' || s.args.relation !== undefined || list(s.args.draw).includes(k)
   );
 // A relation as the planner reads it: the namespace and the name each
@@ -377,8 +397,17 @@ const relationKey = (value) => {
         .trim()
         .toLowerCase()}`;
 };
-const sameField = (key, a, b) =>
-  key === 'relation' ? relationKey(a) === relationKey(b) : same(norm(key, a), norm(key, b));
+export function catalogCountPairs(rows) {
+  if (!Array.isArray(rows)) return rows ?? [];
+  return rows
+    .map((row) => [row?.path, row?.count])
+    .sort(([a], [b]) => (String(a) < String(b) ? -1 : String(a) > String(b) ? 1 : 0));
+}
+const sameField = (key, a, b) => {
+  if (key === 'catalog_counts') return same(catalogCountPairs(a), catalogCountPairs(b));
+  if (key === 'catalog_variant') return (a ?? 0) === (b ?? 0);
+  return key === 'relation' ? relationKey(a) === relationKey(b) : same(norm(key, a), norm(key, b));
+};
 // A declaration sent against the one a plan's request recorded for it: the
 // same, or for a relation sent with no namespace, the namespace the planner
 // resolved it to (it refuses a bare name two namespaces hold).
@@ -406,7 +435,9 @@ function sweepFor(w, args, { anyForm = false } = {}) {
       (s) =>
         s.accepted.includes(args.seed) &&
         coordinatesOf(s).every(
-          (k) => (anyForm && k === 'form') || sameField(k, args[k], s.args[k])
+          (k) =>
+            (anyForm && args[k] === undefined && (k === 'form' || CATALOG_FIELDS.includes(k))) ||
+            sameField(k, args[k], s.args[k])
         ) &&
         same(list(args.wants), sweepWants(s))
     );
@@ -416,7 +447,7 @@ function sweepFor(w, args, { anyForm = false } = {}) {
 // and each of its coordinates and its `want` list is the plan request's (the
 // planner's own spelling of a relation the sweep sent bare included).
 function planSweep(w) {
-  const r = w.plan?.request;
+  const r = toolRequest(w.plan?.request);
   if (!r) return null;
   return (
     [...w.sweeps]
@@ -473,13 +504,15 @@ export function statementsOf(args, wantKey = 'want') {
   const wants = Array.isArray(args?.[wantKey]) ? args[wantKey].map(String) : [];
   const rows = STATEABLE.map((row) => {
     const by = wants.filter((w) => wantStates(row, w));
-    const said = hasValue(args, row.field)
-      ? 'value'
-      : by.length
-        ? 'want'
-        : row.draw && drawn.has(row.field)
-          ? 'draw'
-          : null;
+    const said =
+      hasValue(args, row.field) ||
+      (['form', 'functions'].includes(row.field) && hasValue(args, 'catalog_form'))
+        ? 'value'
+        : by.length
+          ? 'want'
+          : row.draw && drawn.has(row.field)
+            ? 'draw'
+            : null;
     return { row, said, wants: by };
   });
   return {
@@ -555,7 +588,7 @@ export function statementRefusal(args) {
   if (conflict.length) return statementConflict(conflict);
   if (!missing.length) return null;
   const forms = missing.some((r) => !r.draw)
-    ? ` ${named.map((f) => f[0].toUpperCase() + f.slice(1)).join(', ')} takes one name: ${FORM_ROWS.map(formRowText).join('; ')}.`
+    ? ` ${named.map((f) => f[0].toUpperCase() + f.slice(1)).join(', ')} takes one name: ${FORM_ROWS.map(formRowText).join('; ')}. A catalog form can be named with catalog_form instead.`
     : '';
   return (
     `CREATION_STATEMENT: ${STATEMENT_RULE} This call leaves out ${joined(missing.map(rowName))}. Nothing ran.` +
@@ -569,7 +602,7 @@ export function statementRefusal(args) {
 // holds it, with its count: the short view does not grow with the song.
 const onceEach = (names) => [...new Set(names)];
 const PLAN_VALUE = {
-  form: (p) => p?.request?.form ?? null,
+  form: (p) => p?.request?.song_form?.id ?? p?.request?.form ?? null,
   lines: (p) => p?.total_lines ?? null,
   functions: (p) => {
     const drawn = p?.choices?.pattern?.functions || [];
@@ -608,7 +641,12 @@ export function planStatements(args, plan) {
   return {
     version: 1,
     rows: statementsOf(args, 'wants').rows.map(({ row, said, wants }) => {
-      const base = said || (row.draw ? 'unsaid' : 'default');
+      const sections = plan?.request?.song_form?.sections;
+      const fixedLength =
+        row.field === 'lines' &&
+        sections?.length &&
+        sections.every((s) => Number.isInteger(s.lines));
+      const base = fixedLength ? 'value' : said || (row.draw ? 'unsaid' : 'default');
       const rhyme = row.field === 'relation' ? rhymeSaid(base, plan) : { said: base };
       return {
         thing: row.thing,
@@ -631,6 +669,7 @@ const SHOWN_SWEEPS = 3;
 const SHOWN_SEEDS = 5;
 function sweepCoordinates(s) {
   const shown = SWEEP_COORDINATES.map((k) => {
+    if (k === 'form' && s.args.catalog_form) return `catalog form ${s.args.catalog_form}`;
     const v = norm(k, s.args[k]);
     if (k === 'melody') return `melody ${unset(v) ? 'none' : 'declared'}`;
     return `${k} ${unset(v) ? 'none' : Array.isArray(v) ? JSON.stringify(v) : v}`;
@@ -743,7 +782,9 @@ export function creationRefusal(task, name, args, lyric = null) {
     // it out plans the sweep's form) and its `draw`, a sweep-time statement:
     // the plan's record says what the sweep drew, whatever the plan sends.
     // Neither changes a plan byte.
-    if (args.form === undefined && s.args.form) args.form = planArgument('form', s.args.form);
+    for (const key of ['form', ...CATALOG_FIELDS])
+      if (args[key] === undefined && s.args[key] !== undefined)
+        args[key] = planArgument(key, s.args[key]);
     const drawn = drawList(s.args.draw);
     if (drawn.length) args.draw = drawn;
     else delete args.draw;
@@ -754,7 +795,7 @@ export function creationRefusal(task, name, args, lyric = null) {
   const handAuthored = UNPLANNED_FIELDS.filter((k) => args[k] !== undefined);
   if (handAuthored.length)
     return `CREATION_PLAN: hand-authored mandate or placement fields cannot replace the canonical program plan. This call sent ${handAuthored.join(', ')}, which the recorded plan supplies: send this same call again without ${handAuthored.length === 1 ? 'it' : 'them'}.`;
-  const request = w.plan.request;
+  const request = toolRequest(w.plan.request);
   // A REVISE AFTER A GRADE (writer plan, stage 2). The plan's declarations are
   // restored from the record below; the draft was not, so a caller had to send
   // the whole graded draft again unchanged. The grade receipt keeps the draft's
@@ -928,9 +969,10 @@ const cells = (value) =>
     .map((cell) => cell.trim())
     .filter(Boolean);
 function planAsks(p) {
+  const request = toolRequest(p.request);
   const declared = {};
   for (const key of DECLARED_FIELDS) {
-    const value = norm(key, p.request?.[key]);
+    const value = norm(key, request?.[key]);
     declared[key] = key === 'melody' ? (unset(value) ? null : hash(value)) : value;
   }
   return {
@@ -973,7 +1015,7 @@ export function planLineage(task) {
   if (task.plan?.sha256 !== w.plan.sha256 || !task.plan.result) return null;
   const now = planAsks(task.plan.result);
   const declared = DECLARED_FIELDS.filter(
-    (key) => !same(first.asks.declared[key], now.declared[key])
+    (key) => !same(first.asks.declared[key] ?? null, now.declared[key] ?? null)
   ).map((key) => {
     const was = shownDeclaration(key, first.asks.declared[key]);
     const is = shownDeclaration(key, now.declared[key]);
@@ -1167,6 +1209,7 @@ export function recordCreation(task, name, args, verdict, isError = false) {
     w.started = null;
     delete w.grade_attempt;
     const p = verdict.plan;
+    const request = toolRequest(p?.request);
     if (
       verdict.exit_code !== 0 ||
       !p ||
@@ -1174,14 +1217,14 @@ export function recordCreation(task, name, args, verdict, isError = false) {
       verdict.plan_sha256 !== hash(p) ||
       !p.request ||
       !same(p.request, verdict.plan_request) ||
-      !PLAN_FIELDS.every((key) => sameDeclared(key, args[key], p.request[key])) ||
+      !PLAN_FIELDS.every((key) => sameDeclared(key, args[key], request[key])) ||
       !Number.isInteger(p.total_lines) ||
       !Array.isArray(p.line_slots) ||
       p.line_slots.length !== p.total_lines ||
       !Array.isArray(p.sections) ||
       !p.sections.length ||
       // The relation the gate matched to the sweep is the one sent.
-      !sweepFor(w, { ...p.request, relation: args.relation ?? p.request.relation })
+      !sweepFor(w, { ...request, relation: args.relation ?? request.relation })
     )
       return;
     w.plan = {
@@ -1345,7 +1388,8 @@ export function nextCreationCall(task, carried, name, args = null) {
   if (!w.plan || name === 'lyric_plan' || stale) {
     const s = own || w.sweeps[w.sweeps.length - 1];
     const args = { seed: own ? w.plan.request.seed : s.accepted[0] };
-    if (s.args.form) args.form = planArgument('form', s.args.form);
+    for (const key of ['form', ...CATALOG_FIELDS])
+      if (s.args[key] != null) args[key] = planArgument(key, s.args[key]);
     if (s.args.lines != null) args.lines = planArgument('lines', s.args.lines);
     if (list(s.args.functions).length) args.functions = planArgument('functions', s.args.functions);
     if (!unset(s.args.relation ?? null)) args.relation = planArgument('relation', s.args.relation);

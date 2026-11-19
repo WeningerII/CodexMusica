@@ -28,7 +28,7 @@ import { encodeInterviewWire } from './state_codec.js';
 import { lyricContext, taskDomain } from './task_contract.js';
 import { runKeyOf } from './run_store.js';
 import { RUNS, vouchResumeWire } from './lyric_tools.js';
-import { PLAN_FIELDS } from './lyric_workflow.js';
+import { CATALOG_FIELDS, PLAN_FIELDS } from './lyric_workflow.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import {
   encodeState,
@@ -437,19 +437,17 @@ export async function createChatRouter({
       !progress.connector_declarations
     )
       return null;
-    // The journal's declarations are declarationsOf's, which writes the
-    // planner's defaults (form: DEFAULT_FORM, 'open', from lyric_workflow.js)
-    // into every run. A normal turn carries only what the caller declared
-    // (declarationArgs), so a pasted song's (unseeded) recovered call re-sent
-    // `form` and every revise was refused as "form is a plan declaration …"
-    // (BB8's RD1). A plan-only field cannot have come from such a caller (it
-    // is refused on that run), so none is carried for one.
+    // A legacy journal can include the planner's default form on a pasted edit
+    // (BB8's RD1). Restore only the declarations that pasted revision accepts.
+    // Its catalog selection can supply the entire rhyme mandate itself.
     const decl =
       typeof progress.connector_declarations.seed === 'number'
         ? progress.connector_declarations
         : Object.fromEntries(
             Object.entries(progress.connector_declarations).filter(
-              ([k]) => !PLAN_FIELDS.includes(k) || ['seed', 'relation', 'group_types'].includes(k)
+              ([k]) =>
+                !PLAN_FIELDS.includes(k) ||
+                ['seed', 'relation', 'group_types', ...CATALOG_FIELDS].includes(k)
             )
           );
     const key = runKeyOf(decl);

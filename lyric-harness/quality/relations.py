@@ -1760,6 +1760,42 @@ class SequenceEqual(Predicate):
         return Read(tuple(x) == y, True)
 
 
+class OneTokenDiffers(Predicate):
+    """INCREMENTAL REPETITION'S JUDGE (stage 4, 2026-11-16): the two
+    members' word sequences have the same length, at least two words, and
+    differ at exactly one position. Read at the `token` identity level, whose value is the
+    member's words joined by single spaces. The note carries the count, so
+    a refusal can say how far the pair is from one changed word.
+
+    EVERY WORD OF THE LINE (stage 4 fix round, 2026-11-18). ~~The value
+    was built from the stream's units alone.~~ Three kinds of word have no
+    unit in the stream: a hyphenated compound, a word outside the
+    dictionary, and a dictionary word whose readings differ in syllable
+    count. Each was left out of the count, so two changed words read as
+    one when one of them was unread, and a dropped unread word was not
+    seen at all. `every_word` asks `_identity_values` for the line's whole
+    word list instead. Capitals are folded, the token cut has already
+    dropped the marks beside a word, and a word with an apostrophe inside
+    is one word."""
+    name = "ONE-TOKEN-DIFFERS"
+    every_word = True
+
+    def __call__(self, x, y):
+        if x is None or y is None:
+            return Read(None, False, "unreadable")
+        a, b = str(x).split(), str(y).split()
+        if len(a) != len(b):
+            return Read(False, True,
+                        f"the lines have {len(a)} and {len(b)} words")
+        # A line of one word has no rest to repeat: two one-word lines that
+        # differ are two different words, not one word changed in a repeat.
+        if len(a) < 2:
+            return Read(False, True, "a line of one word has no rest to repeat")
+        n = sum(1 for p, q in zip(a, b) if p != q)
+        return Read(n == 1, True,
+                    f"{n} word differs" if n == 1 else f"{n} words differ")
+
+
 @dataclass(frozen=True)
 class TailPhonesAgree(Predicate):
     """MOSAIC RHYME'S JUDGE (2026-10-31, `MISSING.md` M-311 F1; R2's ruling,
@@ -3075,6 +3111,23 @@ def _span_tokens(span, stream):
     return [u for _, u in out]
 
 
+def _line_words(span, stream):
+    """-> every word of the span's line, lower-cased, read or not; None when
+    the span is not one whole line or the stream kept no word list.
+
+    `_span_tokens` gives only the words that have units, so a word the
+    phonology cannot read is missing from it. `lexical_tokens` is the
+    line's own token cut and keeps every word (stage 4 fix round,
+    2026-11-18)."""
+    if not span.idx or not stream.lexical_tokens:
+        return None
+    li = stream.units[span.idx[0]].line
+    if (not 0 <= li < len(stream.lexical_tokens) or li >= len(stream.lines)
+            or sorted(span.idx) != sorted(stream.lines[li])):
+        return None
+    return [w.lower() for w in stream.lexical_tokens[li]]
+
+
 def _identity_values(ir, span, stream):
     """What an IdentityRule reads off one member.  -> a value, or _NORES.
 
@@ -3103,6 +3156,13 @@ def _identity_values(ir, span, stream):
     """
     toks = _span_tokens(span, stream)
     if ir.level == "token":
+        if getattr(ir.predicate, "every_word", False):
+            # A judge that counts words gets the line's whole word list
+            # (stage 4 fix round, 2026-11-18): None, unreadable, where the
+            # span is not one whole line. Every other token rule keeps the
+            # unit reading below.
+            words = _line_words(span, stream)
+            return None if words is None else " ".join(words)
         return " ".join(u.token_text.lower() for u in toks)
     res = _resources_of(stream)
     if not isinstance(res, dict):
@@ -6136,13 +6196,18 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="incremental repetition",
-    spans=(WHOLE_LINE, WHOLE_LINE), align="flush_left",
-    channels=(ChannelRule("token", AGREE, "each"),),
-    unmatched="exclude", placement=(Placement("line_gap_at_most", (8,)),),
-    note="needs a SLOT-LEVEL diff, not line-level equality -- the span is a "
-         "line WITH A HOLE IN IT. The model has the hole (a Span is a "
-         "selection, so the varied index is simply not in it) and nothing yet "
-         "SEARCHES for which index to omit."))
+    spans=(WHOLE_LINE, WHOLE_LINE), align="none",
+    channels=(),
+    identity=(IdentityRule("token", OneTokenDiffers()),),
+    placement=(Placement("line_gap_at_most", (8,)),),
+    # ~~"needs a SLOT-LEVEL diff, not line-level equality -- the span is a
+    # line WITH A HOLE IN IT ... nothing yet SEARCHES for which index to
+    # omit." The row was whole-line token equality, so only a verbatim
+    # repeat stood in it.~~ Stage 4 (2026-11-16): the judge is the one-word
+    # diff itself (`OneTokenDiffers`).
+    note="the line and its partner have the same number of words and "
+         "differ in exactly one of them. A verbatim repeat does not stand "
+         "in it, and neither does an added or dropped word."))
 
 declare(RelationSchema(
     name="trite rhyme",
@@ -8990,6 +9055,8 @@ CONTEXT_CONTROLS = {
         ("Whoever hath her wish, thou hast thy Will,",
          "And Will to boot, and Will in overplus;"),
         ("1.T8", "2.T2"), ("1.T6", "2.T2")),
+    # STANDS since stage 4 (2026-11-16): the row is the one-word diff, so
+    # the "FAILING, recorded" on the next line is history.
     # FAILING, recorded (M-313). Tennyson, "The Charge of the Light
     # Brigade" (1854), stanza 3 as staged in
     # `corpus/song/eng_british_alfred_tennyson.txt`: lines 1, 2 and 6 of the
@@ -9381,8 +9448,95 @@ def _full_shape(schema, stream):
     n = 2 if schema.judge == "symploce" else schema.figure.nodes
     result = []
     edge_memo = {}
+
+    def _pair_state(base, la, lb, token_a=-1, token_b=-1):
+        # The memo entry `edge` below would leave for (base, la, lb): None
+        # when a span is missing, else `evaluate`'s own result.
+        key = (base.name, base.spans, la, lb, token_a, token_b)
+        if key in edge_memo:
+            return edge_memo[key]
+        slots = []
+        for li, ti, rule in ((la, token_a, base.spans[0]),
+                             (lb, token_b, base.spans[-1])):
+            count = (len(stream.lexical_tokens[li]) if stream.lexical_tokens
+                     else stream.units[stream.lines[li][-1]].line_tokens)
+            ti = count + ti if ti < 0 else ti
+            ids = stream.tokens.get((li, ti), ())
+            try:
+                got = list(_spans_at(rule, stream, ids, f"L{li}.T{ti}")) if ids else []
+            except NoReferent:
+                got = []
+            if not got:
+                edge_memo[key] = None
+                return None
+            slots.append(got[0])
+        e = evaluate(replace(base, placement=(), figure=PAIR), *slots, stream)
+        edge_memo[key] = e
+        return e
+
+    def _candidates(ls):
+        # SEARCHED, NOT ENUMERATED (stage 4 fix round, 2026-11-18;
+        # `docs/676-once-generation.md`). ~~Every member tuple was drawn
+        # with `itertools.combinations(ls, n)`~~: 1.3e9 tuples for one
+        # 422-line section. This yields the tuples the loop below keeps, in
+        # the same order. The loop drops a tuple exactly when one of its
+        # edges reads False (it stops at that edge and `tri_and` is False),
+        # and an edge reads False from its own two lines alone. So members
+        # are bound in printed order, and a prefix is dropped as soon as an
+        # edge between two bound members is False. Every tuple that is left
+        # still runs the loop body unchanged. `evaluate` with `placement=()`
+        # always returns an Instance, so `values` is never empty when the
+        # body reads it. `symploce` keeps the plain enumeration.
+        if schema.judge == "symploce":
+            yield from itertools.combinations(ls, n)
+            return
+        if schema.judge == "crossed":
+            # One falsity table per edge, keyed by plain line numbers, so
+            # the inner loop never hashes a schema's span rules.
+            by_depth = [[] for _ in range(n)]
+            for ai, bi, label in schema.figure.edges:
+                by_depth[max(ai, bi)].append((ai, bi, crossed_edge(label), {}))
+
+            def false_at(depth, mem):
+                for ai, bi, base, table in by_depth[depth]:
+                    la, lb = mem[ai], mem[bi]
+                    v = table.get((la, lb))
+                    if v is None:
+                        e = _pair_state(base, la, lb)
+                        v = table[(la, lb)] = (e is not None
+                                               and e.verdict is False)
+                    if v:
+                        return True
+                return False
+        else:  # aab
+            pr = REGISTRY["perfect rhyme"]
+
+            def false_at(depth, mem):
+                if depth == 1:
+                    return (stream.text_lines[mem[0]].strip().casefold() !=
+                            stream.text_lines[mem[1]].strip().casefold())
+                if depth == 2:
+                    for a in (mem[0], mem[1]):
+                        e = _pair_state(pr, a, mem[2])
+                        if e is not None and e.verdict is False:
+                            return True
+                return False
+        L = len(ls)
+        mem = []
+
+        def rec(start, depth):
+            for i in range(start, L - (n - depth) + 1):
+                mem.append(ls[i])
+                if not false_at(depth, mem):
+                    if depth == n - 1:
+                        yield tuple(mem)
+                    else:
+                        yield from rec(i + 1, depth + 1)
+                mem.pop()
+        yield from rec(0, 0)
+
     for frame, ls in frames.items():
-        for members in itertools.combinations(ls, n):
+        for members in _candidates(ls):
             edges, values = FigureMembers(members), []
             def edge(label, ai, bi, token_a=-1, token_b=-1):
                 base = REGISTRY[label] if isinstance(label, str) else label
@@ -10841,6 +10995,37 @@ def pair_failed_parts_any(schema, stream, at_a, at_b, build,
             if parts and (not best or len(parts) < len(best)):
                 best = parts
     return best
+
+
+def whole_line_identity_failures(schema, stream, line_a, line_b):
+    """-> [(rule index, Read)] for each of `schema`'s IdentityRules that
+    reads False on lines `line_a` and `line_b` (0-based) taken whole.
+
+    THE WHOLE-LINE ROUTE'S OWN JUDGE (stage 4, 2026-11-16). On that route
+    `pair_failed_parts` names nothing: its member span reads locus "line",
+    which binds no single declared token, so it refuses. This reads the
+    same identity values `realise()` reads, over the two whole lines, so a
+    refusal can name the failed clause and carry the rule's own note (the
+    number of words that differ). [] when the schema's members are not
+    whole lines, or when no rule fails."""
+    if tuple(schema.spans) != (WHOLE_LINE, WHOLE_LINE):
+        return []
+    spans = []
+    for li in (line_a, line_b):
+        idx = tuple(k for k, u in enumerate(stream.units) if u.line == li)
+        if not idx:
+            return []
+        spans.append(Span(idx))
+    out = []
+    for n, ir in enumerate(schema.identity):
+        xa = _identity_values(ir, spans[0], stream)
+        xb = _identity_values(ir, spans[1], stream)
+        if xa is _NORES or xb is _NORES:
+            continue
+        r = ir.predicate(xa, xb)
+        if r.value is False:
+            out.append((n, r))
+    return out
 
 
 def pair_unanchored_any(schema, stream, at_a, at_b, build,

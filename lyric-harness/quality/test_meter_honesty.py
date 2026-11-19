@@ -152,12 +152,90 @@ class MeterHonesty(unittest.TestCase):
         self.assertGreater(z["syllables"], 0)
         self.assertEqual(guessed.get("alignment"), "exact")
 
+    def test_form_observations_require_agreement_on_each_coordinate(self):
+        def observe(text):
+            return lh._form_reading(self.lex, text)
+
+        self.assertEqual(observe("record"), {"syllables": 2})
+        self.assertEqual(observe("hour"), {})
+        self.assertEqual(observe("read"), {"syllables": 1, "stress": "/"})
+        self.assertEqual(observe("the read"), {"syllables": 2, "stress": "./"})
+        self.assertEqual(observe("read zorbleflax"), {})
+        self.assertEqual(observe("read 山"), {})
+        self.assertEqual(observe("read (山)"), {"syllables": 1, "stress": "/"})
+        self.assertEqual(lh._form_reading(lh.Lexicon(fallback="low"), "zorbleflax"), {})
+
     def test_s5_secondary_stress_kept_in_evidence_merged_in_comparison(self):
         e = self.one("the hemlock", "../")
         hem = by_token(e)[2]
         self.assertEqual(hem["lexical"], "12")
         self.assertEqual(e["stress"], ".//")
         self.assertIn("secondary stress merged", e.get("basis", {}).get("stress", ""))
+
+    def test_catalog_count_uses_the_readers_sung_tokens_even_without_a_pronunciation(self):
+        from quality.catalog_grading import _reading
+        silent = lh.Lexicon(strip_parens=True, reader_scheme="v2")
+        voiced = lh.Lexicon(strip_parens=False, reader_scheme="v2")
+        text = "one (two)"
+        for lex, tokens, n in ((silent, ["one"], 1), (voiced, ["one", "two"], 2)):
+            record = _reading(lex, text)
+            self.assertEqual(record["text"], text)
+            self.assertEqual(record["sungWords"], tokens)
+            self.assertEqual(record["syllables"], n)
+        aside = _reading(silent, "(two)")
+        self.assertEqual((aside["sungWords"], aside["syllables"]), ([], 0))
+        rare = _reading(silent, "qzxv")
+        self.assertEqual(rare["sungWords"], ["qzxv"])
+        self.assertNotIn("syllables", rare)
+        outside = _reading(silent, "one 我")
+        self.assertIsNone(outside["sungWords"])
+        self.assertNotIn("syllables", outside)
+        self.assertNotIn("rhyme", outside)
+        self.assertEqual(_reading(silent, "one (我)")["sungWords"], ["one"])
+        self.assertEqual(_reading(silent, "two-part")["sungWords"], ["two-part"])
+
+    def test_catalog_uses_native_section_instances_numeric_forms_and_implicit_owners(self):
+        from quality.catalog_grading import _sections
+        from quality.grid import song_from_blueprint
+        parts = [{"name": name, "function": role, "bars": bars,
+                  "meter": {"beats": "4", "unit": 4}}
+                 for name, role, bars in (("A", "verse", 8), ("B", "chorus", "8"),
+                                          ("A", "verse", 8.0), ("B", "chorus", 8))]
+        slots = [{"bar": n, "duration": "8", **({"section": name} if name else {})}
+                 for n, name in ((1, "A"), (5, None), (9, "B"), (13, None),
+                                 (17, "A"), (21, None), (25, "B"), (29, None))]
+        blueprint = {"sections": parts, "lines": slots}
+        native, _ = song_from_blueprint(blueprint)
+        self.assertEqual([len(native.lines_in(sec)) for sec in native.sections], [2] * 4)
+        observed = [{} for _ in slots]
+        spans = _sections(blueprint, observed)
+        self.assertEqual([row["lineSpan"] for row in spans], [[0, 2], [2, 4], [4, 6], [6, 8]])
+        self.assertEqual([row["bars"] for row in spans], [sec.bars for sec in native.sections])
+        self.assertEqual([row["role"] for row in spans], ["verse", "chorus"] * 2)
+        self.assertEqual(observed, [{"bars": 2}] * 8)
+        # Overlapping repeated instances have no determinate owner. Neither
+        # section spans nor derived line bars can enter the grader.
+        ambiguous = copy.deepcopy(blueprint)
+        ambiguous["sections"][2]["start_bar"] = 1
+        untouched = [{} for _ in slots]
+        self.assertIsNone(_sections(ambiguous, untouched))
+        self.assertEqual(untouched, [{} for _ in slots])
+
+    def test_catalog_grade_measures_bar_counts_on_submitted_blueprints(self):
+        from types import SimpleNamespace
+        from quality.catalog_grading import inspect_catalog
+        data = {"song_form": {"id": "16-bar-blues", "variant": 1},
+                "sections": [{"name": "A", "function": "verse",
+                              "meter": {"beats": 4, "unit": 4}}],
+                "lines": [{"bar": n, "duration": 4} for n in (1, 3, 5, 7)]}
+        for bars, expected in ((16.0, "pass"), ("16", "pass"), ("8", "fail")):
+            with self.subTest(bars=bars):
+                data["sections"][0]["bars"] = bars
+                verdict = inspect_catalog(self.lex, ["one"] * 4, data,
+                                          SimpleNamespace(default_relation="type:perfect"), {})
+                check = next(c for c in verdict["checks"] if c["kind"] == "bars")
+                self.assertEqual((check["expected"], check["outcome"], verdict["verdict"]),
+                                 (16, expected, expected))
 
     def test_s7_an_unknown_word_never_counts_as_matched(self):
         e = self.one("zorbleflax", "/")
@@ -173,6 +251,7 @@ class MeterHonesty(unittest.TestCase):
                   basis="dictionary", source="test: noun reading")], lex)
         e = self.one(line, "./.", lex=lex)
         rec = by_token(e)[2]
+        self.assertEqual(lh._form_reading(lex, line), {"syllables": 3, "stress": "./."})
         self.assertEqual((rec["source"], rec["lexical"]), ("declared", "10"))
 
     def test_legacy_template_symbols_are_disclosed(self):

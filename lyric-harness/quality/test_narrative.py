@@ -437,21 +437,30 @@ def test_measured_seeds():
     # zero; the planner refuses that pattern now and re-deals them, and all
     # three are positive. No other seed in 1-100 changes shape. Their old
     # shapes stay below as authored input (`BRIDGE_FIRST`).
-    ZEROS = (4, 12, 62, 67, 85, 94)
-    pins = {1:2825912320, 6:10838016, 7:166464, 9:188640,
-            15:334453800960, 19:13369344, 23:11600, 24:8957952,
-            25:52258406400, 27:212526080, 28:5248, 30:23353344, 31:246016,
-            34:479232, 39:24768, 77:235008000, 89:66060288,
-            41:276480, 59:144506880,
-            56:47513600, 73:13099008000, 82:389850071040,
+    # REPINNED 2026-11-16 (stage 4, measured; owner's ruling that any
+    # section but intro, outro and coda may be dealt any number of times):
+    # ~~ZEROS = (4, 12, 62, 67, 85, 94)~~. The pattern draw keeps draws it
+    # used to throw away, so every seed's stream re-deals. Fifteen zeros
+    # now, more than before: a false_ending (a RESOLVE) may come twice and
+    # opens or follows early more often. The six old zeros are positive
+    # now and stay pinned with their new counts.
+    ZEROS = (11, 13, 19, 24, 28, 29, 36, 38, 39, 50, 59, 65, 77, 83, 90)
+    pins = {1:2825912320, 6:1762983936, 7:37995520,
+            9:9565051879776593997987840,
+            15:34800, 23:11600, 25:5324800, 27:1475592192, 30:2234880,
+            31:246016, 34:466228598538240, 89:66060288,
+            41:276480,
+            56:2396160, 73:195969024, 82:3242437115904,
+            4:199437189120, 12:3833856, 62:768, 67:2722332672,
+            85:231824424960000, 94:363134976,
             **{seed: 0 for seed in ZEROS}}
     got = {}
     for seed, want in sorted(pins.items()):
         fns = [s["function"] for s in P.make_plan(seed, form="verse-chorus")["sections"]]
         got[seed] = N.count_lineups(fns)
     check("all eighteen historical seeds, the three former bridge-first "
-          "zeros and all six current zero exemplars re-derive exactly under "
-          "the plan envelope",
+          "zeros, the six zeros before stage 4 and all fifteen current zero "
+          "exemplars re-derive exactly under the plan envelope",
           got == pins and set(historical_pins_2026_09_05) <= set(pins), got)
     # A SEED THE JOINT GATE REFUSES FOR `NO_FREE_WORD` ALONE HAS NO PLAN
     # (2026-10-21). Under the owner's equal-weight beat draw a two-beat line
@@ -476,11 +485,11 @@ def test_measured_seeds():
     # 55 refuses here~~ — since option (b) (2026-10-22) a draw the joint gate
     # refuses is redrawn, so NO seed refuses and the denominator is all 100
     # again; any refusal fails this check.
-    check("the complete current 100-seed denominator has exactly six "
-          "zero shapes, two of them among the first forty, over all 100 "
+    check("the complete current 100-seed denominator has exactly fifteen "
+          "zero shapes, nine of them among the first forty, over all 100 "
           "plans with no seed refused",
           {seed for seed, count in sweep.items() if count == 0} == set(ZEROS)
-          and sum(sweep[seed] > 0 for seed in range(1,41)) == 38
+          and sum(sweep[seed] > 0 for seed in range(1,41)) == 31
           and refused == [],
           f"{len(sweep)} plans of 100 seeds; refused NO_FREE_WORD: "
           f"{refused or 'none'}")
@@ -495,8 +504,17 @@ def test_measured_seeds():
     check("every generated count agrees with exhaustive legal atom/seam enumeration",
           all(sweep[seed] == enumerated_lineups(shape)
               for seed, shape in shapes.items()))
-    check("each displaced shape violated once; each replacement changes that shape",
-          all(any(spelling.split().count(fn) > 1 for fn in once)
+    # REPINNED 2026-11-16 (stage 4): ~~each displaced shape violated once~~.
+    # Each repeated a row that was "once" until stage 4 and is "open" now,
+    # so none of them breaks the table today: each repeats a row the table
+    # marks "open", none repeats a row it marks "once", and each seed now
+    # deals another shape. The rows are read from the table.
+    check("each displaced shape repeats a row that is open now, none "
+          "repeats a row that is once now, and each seed deals another shape",
+          all(any(spelling.split().count(fn) > 1
+                  and SECTION_FUNCTIONS[fn].recurrence == "open"
+                  for fn in set(spelling.split()))
+              and not any(spelling.split().count(fn) > 1 for fn in once)
               and shapes[seed] != spelling.split()
               for seed, (spelling, _) in displaced_shapes.items()))
     #: The claim above is only worth making if the KINDS of zero are
@@ -527,9 +545,12 @@ def test_measured_seeds():
     # collapses at the second section now (~~20: 2~~); that depth joins the
     # declared shapes below. Seed 12 opens on a wordless `solo`, whose
     # length-1 prefix counts 0 for a reason that is not a refusal.
-    check("actual current zeros distinguish opening refusals from a refusal "
-          "at the third section",
-          at == {4: 1, 12: 1, 62: 1, 67: 1, 85: 1, 94: 3},
+    # REPINNED 2026-11-16 (stage 4): ~~{4: 1, 12: 1, 62: 1, 67: 1, 85: 1,
+    # 94: 3}~~. The fifteen zeros now collapse at every depth from 1 to 6.
+    check("actual current zeros distinguish opening refusals from refusals "
+          "at the second to the sixth section",
+          at == {11: 5, 13: 2, 19: 1, 24: 3, 28: 3, 29: 2, 36: 6, 38: 4,
+                 39: 1, 50: 5, 59: 1, 65: 1, 77: 1, 83: 1, 90: 6},
           at)
     # THE THREE SHAPES THE BRIDGE RULE DISPLACED, KEPT AS AUTHORED INPUT
     # (2026-11-15). Each opened on a bridge and the story layer already
@@ -555,9 +576,16 @@ def test_measured_seeds():
               for seed, sp in BRIDGE_FIRST.items())
           and not any(shape[0] == "bridge" for shape in shapes.values()),
           {seed: shapes[seed][:2] for seed in BRIDGE_FIRST})
-    check("seed 94's depth 3 is RESOLVE without prior COMPLICATE",
-          shapes[94][:3] == ["drop", "chorus", "false_ending"]
-          and N.count_lineups(shapes[94][:2]) > 0
+    # ~~seed 94~~ -> seed 28 (2026-11-16, stage 4): seed 94 is positive
+    # now; seed 28 is a depth-3 zero of the same kind.
+    # The kinds are read from `N.FUNCTION_ATOMS`: the third section can
+    # only RESOLVE, and neither section before it can COMPLICATE.
+    check("seed 28's depth 3 is RESOLVE without prior COMPLICATE",
+          N.FUNCTION_ATOMS[shapes[28][2]] == ("RESOLVE",)
+          and not any("COMPLICATE" in N.FUNCTION_ATOMS[f]
+                      for f in shapes[28][:2])
+          and N.count_lineups(shapes[28][:3]) == 0
+          and N.count_lineups(shapes[28][:2]) > 0
           and N.count_lineups(["build", "false_ending"]) > 0)
     check("former zero 56 starts wordless; its old depth 1 was not a sung refusal",
           displaced_shapes[56][0].split()[:2] == ["solo", "false_ending"]
@@ -781,7 +809,10 @@ def test_the_wired_draw():
     # ~~seed 89~~ -> seed 4 (2026-11-13, the 22-function roster): the same
     # kind, a sung false-ending opening refusal (roster opens false_ending,
     # solo, bridge; collapse depth 1).
-    pzero = P.make_plan(4, form="verse-chorus")
+    # ~~seed 4~~ -> seed 19 (2026-11-16, stage 4): the same kind, a sung
+    # false-ending opening refusal (roster opens false_ending, tag, verse;
+    # collapse depth 1).
+    pzero = P.make_plan(19, form="verse-chorus")
     check("a zero-shape seed DISCLOSES and still ships: mode none, "
           "lineups 0, the brief's story record reads mode none (#671 A3), "
           "and the sound plan is intact",
@@ -890,13 +921,16 @@ def test_the_wired_draw():
     # ~~37..39 around seed 38~~ -> 3..5 around seed 4 (2026-11-13, the
     # 22-function roster re-dealt seed 38): seed 4 is the same kind, a
     # false_ending-first opening refusal, between two positive shapes.
-    res = P.sweep(range(3, 6),
+    # ~~3..5 around seed 4~~ -> 18..20 around seed 19 (2026-11-16, stage 4
+    # re-dealt seed 4): seed 19 is the same kind, a false_ending-first
+    # opening refusal, between two positive shapes.
+    res = P.sweep(range(18, 21),
                   wants=[P.parse_sweep_want("story_lineups>=1")],
                   form="verse-chorus")
-    check("the seed filter actually accepts 3 and 5 and rejects 4, the "
+    check("the seed filter actually accepts 18 and 20 and rejects 19, the "
           "current false_ending-first opening refusal; both positive and "
           "negative arms execute",
-          res["accepted"] == [3, 5], res["accepted"])
+          res["accepted"] == [18, 20], res["accepted"])
 
 
 

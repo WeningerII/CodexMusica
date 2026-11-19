@@ -73,6 +73,7 @@ const KEPT = [
   'refusal',
   'numbering_notices',
   'numbered_mandate',
+  'catalog_form',
   'loop_stop_reason',
   'loop_rounds',
   'loop_unresolved_lines',
