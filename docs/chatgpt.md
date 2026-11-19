@@ -71,7 +71,11 @@ revision can continue through `lyric_revise`.
 
 Creation executes sweep → plan → screen → exact-draft grade → revise through
 the maintained client. The sweep states the length the user chose: an exact
-`lines` count, a `want` on `lines`, or `lines` in `draw`. Carry the sweep's declarations unchanged to the plan. A request to
+`lines` count, a `want` on `lines`, or `lines` in `draw`. A new song's form is a
+catalog form: the sweep names it with `catalog_form`, or leaves out `form` and
+`catalog_form` and chooses an executable catalog setting. A sweep that sends
+`form` is refused before anything runs (`CREATION_FORM`); `form` remains for
+raw, low-level callers and for songs planned before. Carry the sweep's declarations unchanged to the plan. A request to
 write a song is a lyric request. The server persists executed receipts and rejects skipped
 steps or fabricated state. Edit phase is for user-supplied existing lyrics.
 ChatGPT writes every line — the draft and every answer the revise loop asks
