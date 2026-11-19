@@ -1250,7 +1250,8 @@ test('lyric_grade names the next call per surface, and kitchen revise sends the 
   assert.ok(
     chat.revise.includes(
       'after lyric_grade, send the seed and no draft, and the graded draft and its declarations ' +
-        'are taken from the record; a draft sent with the call must be that exact draft, unchanged. ' +
+        'are taken from the record (after a revise of that draft, the song as the revise left it, ' +
+        'its accepted fixes included); a draft sent with the call must be that exact draft, unchanged. ' +
         'One call runs'
     )
   );

@@ -852,6 +852,13 @@ def _open_by_rule(briefs, pursue=frozenset()):
     return flagged, pursued
 
 
+def _flagged_line_nos(briefs):
+    """-> sorted line numbers of the briefs carrying a FLAG: the first list
+    `_open_by_rule` returns. Told to a proposer's `pass_opened` hook; a
+    finished record reads `LoopResult.unresolved_flagged` instead."""
+    return sorted({b.line_no for b in _open_by_rule(briefs)[0]})
+
+
 def default_propose(brief, lines, attempt, reasons=None, whole=(), *, scheme=None,
                     strip_parens=True, lex=None):
     """-> a replacement line for `brief.line_no`, or `None` to give up.
@@ -2568,6 +2575,15 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     # acceptance caused it. The walk itself is unchanged: the hook only
     # reports a skip the walk already made.
     _skipped = getattr(propose, "skipped", None)
+    # THE ROUND'S FLAGGED LINES, TOLD TO THE PROPOSER (2026-11-16, Refs
+    # #665). `unresolved` is the union of flagged, pursued-note and unjudged
+    # lines; a proposer that saves a state mid-pass (exit 4/5, a kitchen
+    # checkpoint) publishes the FLAGGED subset of the round it is in, so a
+    # reader can tell a line carrying a flag from one held open by a note.
+    # Called when a round opens and again at each re-brief after an accepted
+    # fix, so the set is the current draft's. Reporting only: the walk is
+    # unchanged.
+    _pass_opened = getattr(propose, "pass_opened", None)
     # A resumed run emits its own entry checkpoint on the cursor's draft
     # (below); "started" on the INPUT draft would regress `accepted_lines`.
     if _checkpoint is not None and not isinstance(resume, dict):
@@ -2649,6 +2665,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         flagged = _open_lines(briefs, pursue)
         judged_open = any(any(f.severity == "flag" or f.code in pursue
                               for f in b.findings) for b in flagged)
+        if _pass_opened is not None:
+            _pass_opened(_flagged_line_nos(flagged))
         if not judged_open:
             _found = reviser.inspect(lines, mandate, profile=profile,
                                      blueprint=blueprint, subdivision=subdivision,
@@ -2838,6 +2856,11 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                                       include_offers=False)
                 for _b in fresh:
                     _b.round_no = round_no
+                # THE FLAGGED LINES MOVE WITH THE DRAFT TOO: an accepted fix
+                # can give a line a flag or clear one, so the proposer is told
+                # the set on these lines, not the one the round opened with.
+                if _pass_opened is not None:
+                    _pass_opened(_flagged_line_nos(fresh))
                 # `whole` is the rubric `verify()` grades against and it
                 # moves with the draft too, so it is re-read here rather
                 # than left pointing at the top of the round. Cheap by the

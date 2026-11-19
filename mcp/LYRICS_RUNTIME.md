@@ -624,7 +624,72 @@ window) is not — the receipt is `interrupted`, and continuing it by
 both are open, recover by `continuation_id` first: it keeps answers the receipt's
 progress recorded, which a `recover_only` export of an older wire does not. A repeated question
 (the run still on the same state) is not moved past. `new_run` stays the explicit way
-to start independent work on a draft. Original
+to start independent work on a draft.
+
+Brief provenance (#665): `new_run` does not reset what a line is owed. Each
+`lyric_revise` run records, per line, a keyed digest of its folded text (NFKC,
+lowercase, letters, marks and digits only; no lyric text is stored) for the
+lines the loop flagged without asking about them and for the lines its loop
+replaced (`mcp/brief_ledger.js`). A later run on any connection, by any caller,
+whose draft keeps more than half of that song's lines is checked against it
+before anything runs: a protected line changed (beyond case, spacing or
+punctuation), removed, or a replaced line's old text put back (in its place or
+on any new line) is refused with `BRIEF_REQUIRED`, which names the line
+numbers, the lines the draft may change and the call that works. A draft that
+keeps half the song or less is a new song, even where it shares a protected
+line. A state or checkpoint this server did not return, for a song a live run
+knows, is refused the same way; that check runs after the refusals made while
+the call is read (a moved declaration, a lexicon basis this build does not
+ship) and before the harness, so a hand-built checkpoint for such a song gets
+`BRIEF_REQUIRED` where the harness would also refuse it. A later run on the
+song sets the earlier run's entry aside whatever that later run declares, so
+from then on the later run's own flags decide: a line it asks about, or does
+not flag, is free, also where it runs under another scheme than the one the
+line was flagged under, and also a line it never asks about. Protection ends when
+the flag clears: a line that carried a flag, was never asked about and carries
+none now (a fix to its partner cleared it) is free, and a record that
+publishes no flag set leaves what was protected as it was.
+A run set aside by a later run on its song
+still continues on its own state, and a session or chat that resumes an
+interrupted run from its last saved progress record continues it too: the
+state or checkpoint the server builds from that record is recorded then, and
+saved at once, as one this server returned, for the run the record names (a
+progress record's state is not recorded while the run is live). A stop briefs its open lines with their rhyme groups and returns; a
+question briefs the lines it asks. Entries last 3 hours, paid included, and a
+certified exit 0 forgets its song. That is a ceiling, not a promise, under
+load: each partition keeps at most 2,000 entries and 100,000 items (an entry
+counts its lines, its protected lines and its undo items), and when it is full
+the entries that guard nothing (set aside by a later run, or protecting no
+line and holding no replaced line) are dropped first, oldest first, and then
+the oldest of the rest (never the entry a run has just written), so a live entry's protection can end early. A restart that sends no draft starts from
+the song as the run left it, its accepted fixes included; in a session it is the song the
+session's last `lyric_revise` left, including a run answered over several calls. A
+`lyric_grade` whose draft such a run would refuse names, in its `next`, the lines to put
+back, and has no `next_call`; a new-song session (and the website chat) that holds the song
+a `lyric_revise` of that graded draft left names the restart with no draft instead, which
+starts from that song. After a `lyric_revise` refused with `BRIEF_REQUIRED` in a new-song
+session, the receipt's `outcome` is the writer's decision, with the `lyric_grade` of the
+draft with its lines put back as its call. The flagged lines saved with a stop made
+between an accepted fix and the loop's next brief of the draft (a safe-point stop, or a
+call cut there) are the ones from before that fix. No hand edit gets through on a line
+that set misses: `verify` accepts no fix that adds a flagged finding (`allow_net_new` is 0
+and no caller sets it), so every line flagged after the fix was flagged before it. The store is
+`BRIEF_LEDGER_FILE`, else `LYRIC_RUNTIME_DIR/brief-ledger.json`, else memory
+only (stdio without a runtime directory forgets it on restart). Its key is
+derived from the server secret (`CHAT_SECRET`, else `CHAT_SECRET_FILE`, else
+`LYRIC_RUNTIME_DIR/chat-secret.key`); with `BRIEF_LEDGER_FILE` and none of
+those three, the secret is new on every start, so each restart drops the store,
+and the server logs a warning at start. Set `LYRIC_RUNTIME_DIR` (production
+does) or one of the secret settings to make the store durable. A progress
+record is written to disk at once for a call's first one, then at most once a
+second, with a deferred write a second after one is held back; a stop is
+always written at once. A file that cannot be read, whose key check is missing
+or malformed, or that holds even one damaged entry, refuses every revise run
+with `BRIEF_LEDGER_UNAVAILABLE` until it is repaired (`recover_only` still
+exports a held journal), and is never written over meanwhile (the file has no
+checksum, so damage that keeps every field's shape is not detected); a changed
+server secret, which leaves a well-formed key check that does not match, drops
+the old entries and starts empty. Original
 replay input, accepted lines and immutable declarations have separate fields;
 accepted lines never silently replace the replay input. The bounded state codec
 identifies the scorer source, lexical data and runtime. Signed chat continuations

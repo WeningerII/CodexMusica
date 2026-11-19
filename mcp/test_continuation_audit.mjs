@@ -1,12 +1,12 @@
 // Regression witnesses from the September continuation audit. Real MCP/worker/grader.
 import assert from 'node:assert/strict';
-import test, { after } from 'node:test';
+import test, { after, beforeEach } from 'node:test';
 import { readFileSync } from 'node:fs';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { connectConnector } from './client.js';
-import { RUNS, _workerInternals, _verdictInternals } from './lyric_tools.js';
+import { BRIEFS, RUNS, _workerInternals, _verdictInternals } from './lyric_tools.js';
 import { _agentInternals } from './gemini_agent.js';
 import { decodeState, encodeState } from './state_codec.js';
 import { stated } from './statement_fixture.mjs';
@@ -23,7 +23,12 @@ async function connect(native = false, session = null) {
   peers.push({ server, client });
   return client;
 }
+// The cases share fixture drafts (e.g. `single`), and the brief ledger matches a
+// song by content across callers, so one case's answered lines would otherwise
+// gate the next case's fresh draft. Each case starts with an empty ledger.
+beforeEach(() => BRIEFS.resetForTests());
 after(async () => {
+  BRIEFS.resetForTests();
   await Promise.allSettled(peers.flatMap(({ server, client }) => [client.close(), server.close()]));
   await _workerInternals.kill();
 });
@@ -548,6 +553,9 @@ test('structured answers without a pending question name the missing question', 
   const initial = verdict(await call(c, single));
   const state = decodeState(initial.state);
   state.pending = null;
+  // This tampered state is one the server never returned; the 'holds no pending
+  // question' refusal fires before the brief gate (which runs last, before any
+  // work), so it is that refusal this case sees.
   const result = await call(c, {
     state: encodeState(state),
     answers: [{ line: 1, text: 'A replacement' }],

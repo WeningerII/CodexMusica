@@ -5570,6 +5570,9 @@ await check('validation: actionable errors', () => {
         'offline table holding every session refusal to naming the call that works',
       'mcp/test_parked_lines.mjs':
         'offline regressions holding a parked rewrite to the lines that can fix it',
+      'mcp/test_brief_ledger.mjs': 'offline brief-provenance store regressions (#665)',
+      'mcp/test_brief_gate.mjs':
+        'brief-provenance gate on the real lyric harness, executed by CI (#665)',
       'mcp/test_flag_free_messages.mjs':
         'offline gate: a message a connector verb can send names fields, not flags',
       'mcp/test_pronunciation_choices.mjs': 'offline occurrence pronunciation contract regressions',
