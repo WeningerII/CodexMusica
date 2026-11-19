@@ -9338,6 +9338,17 @@ _ANSWER_LIMITS = (
 #: connector's decoded-state bound (STATE_DECODED_BYTES) still covers it.
 JOURNAL_OUTSIDE_KEYS = ("dispositions", "cursor")
 
+#: THE CURRENT ROUND'S FLAGGED LINES on a deferred state and a kitchen
+#: checkpoint (2026-11-16, Refs #665): the lines carrying a flag when the
+#: loop last briefed the draft (the round's opening, or the re-brief after
+#: an accepted fix), without the pursued-note and unjudged lines the round
+#: also walks. Written by the proposers' `pass_opened` hook
+#: (`quality/loop.py`), so an exit-4 or exit-5 state, and a checkpoint read
+#: after a killed call, name them; dropped from a `finished` checkpoint,
+#: whose `complete.flagged_lines` and lyric result `flagged_lines` say it.
+#: Counted inside the journal, as every key not listed above is.
+PASS_FLAGGED_KEY = "pass_flagged_lines"
+
 
 def _journal_bytes(value):
     if isinstance(value, dict) and any(k in value for k in JOURNAL_OUTSIDE_KEYS):
@@ -10394,6 +10405,8 @@ def _defer_proposer(path, lines=None, *, catalog_selection=None):
         if status != "finished":
             for key in ("final_draft", "coverage", "stop", "exit"):
                 trial.pop(key, None)
+        else:
+            trial.pop(PASS_FLAGGED_KEY, None)
         trial.update(extra)
         _journal_admit(trial, lines=current, path=path, ceiling=JOURNAL_BYTES, prior=st)
         st.clear()
@@ -10402,7 +10415,16 @@ def _defer_proposer(path, lines=None, *, catalog_selection=None):
             dict(st, transport_token=os.environ.get("LYRIC_CONTROL_TOKEN")),
             ensure_ascii=False, separators=(",", ":")), flush=True)
 
+    def pass_opened(flagged):
+        """The loop briefed the draft (a round opened, or an accepted fix
+        moved it): keep its flagged lines on the state, so
+        an exit-4/5 state names them (`PASS_FLAGGED_KEY`). Behind the
+        frontier the furthest value stays, as `accepted_lines` does."""
+        if not replaying:
+            st[PASS_FLAGGED_KEY] = list(flagged)
+
     propose.checkpoint = checkpoint
+    propose.pass_opened = pass_opened
     propose.saved = menu_saved
     propose.checkpoint_state = st
     disclosure.record = lambda: {
@@ -10765,6 +10787,8 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
         if status != "finished" and cursor >= replay_count:
             for key in ("final_draft", "coverage", "stop", "exit"):
                 trial.pop(key, None)
+        if status == "finished":
+            trial.pop(PASS_FLAGGED_KEY, None)
         trial.update(extra)
         _journal_admit(trial, lines=current, path=path, ceiling=JOURNAL_BYTES,
                        prior=state)
@@ -10935,7 +10959,17 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
                     "words": list(words), "round": round_no,
                     "attempt": attempt, "question_sha256": question})
 
+    def pass_opened(flagged):
+        # `PASS_FLAGGED_KEY`, emitted with the next checkpoint, which
+        # precedes every new dispatch. A resume replays from round 1, so
+        # behind the frontier the loaded checkpoint's value stays, as
+        # `accepted_lines` does: an earlier round's set would otherwise be
+        # emitted beside the frontier's lines.
+        if cursor >= replay_count:
+            state[PASS_FLAGGED_KEY] = list(flagged)
+
     wrapped_one.checkpoint = checkpoint
+    wrapped_one.pass_opened = pass_opened
     wrapped_one.checkpoint_state = state
     wrapped_one.verified = lambda *args: verified("propose", *args)
     wrapped_two.verified = lambda *args: verified("propose_group", *args)
@@ -16458,6 +16492,14 @@ def main():
                 # the end is a 3 exactly like a flag (2026-08-17, the
                 # owner's order made a pipeline fact).
                 _open = sorted(b.line_no for b in result.unresolved)
+                # THE FLAGGED SUBSET OF `_open`, published beside it
+                # (2026-11-16, Refs #665): `_open` also holds lines kept open
+                # by a pursued note or an unjudged check, which carry no
+                # flag. Read off `result.unresolved_flagged`, the split the
+                # exit code below reads too. Neither the exit code nor
+                # `_open` changes.
+                _flagged_open = sorted({b.line_no
+                                        for b in result.unresolved_flagged})
                 # AND THE WHOLE-DRAFT FLAGS (M-186, 2026-09-01). `song` exits
                 # 3 on a whole-draft FLAG — STACKED_DRAFT, TITLE_NOT_IN_HOOK,
                 # HOOK_ABSENT name no line and are a SEPARATE count from the
@@ -16507,7 +16549,8 @@ def main():
                             "stop": result.stop_reason, "exit": _code,
                             "draft": draft_fingerprint(lines),
                             "final": draft_fingerprint(result.lines),
-                            "unresolved": _open, "whole_flags": list(_whole_codes)}}
+                            "unresolved": _open, "flagged_lines": _flagged_open,
+                            "whole_flags": list(_whole_codes)}}
                             if propose_spec.startswith("defer:") else {})
                         _cp(result.lines, len(result.rounds), "finished",
                             final_draft=list(result.lines), coverage=_coverage,
@@ -16535,6 +16578,7 @@ def main():
                     "pronunciation_options": reading_options(lex, result.lines, _coverage),
                     "stop": result.stop_reason, "stop_reason": result.stop_reason.upper(),
                     "rounds": len(result.rounds), "unresolved_lines": _open,
+                    "flagged_lines": _flagged_open,
                     "whole_flags": _whole_codes,
                     "findings": [_finding_dict(f) for f in result.findings],
                     "presentation_text": _presentation_text,
@@ -16585,6 +16629,7 @@ def main():
                         "draft": draft_fingerprint(lines),
                         "final": draft_fingerprint(result.lines),
                         "unresolved": _open,
+                        "flagged_lines": _flagged_open,
                         # the whole-draft flags that made a 3 with no line
                         # open (M-186; carried since 2026-09-02 so the
                         # COMPLETE notice can name the cause)

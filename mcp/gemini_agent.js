@@ -31,6 +31,9 @@ import { catalogRunKey } from './run_store.js';
 import { requestContext } from './execution_context.js';
 import { toGeminiDeclarations, WORKSPACE_PROPERTY, STATE_PROPERTY } from './gemini_tools.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
+import { parkedChangeable, schemeGroups, declaredGroups, declaredReturns } from './parked_lines.js';
+// test_parked_lines.mjs and older callers import it from here.
+export { parkedChangeable };
 
 export const API_BASE = 'https://generativelanguage.googleapis.com/v1beta';
 
@@ -391,7 +394,7 @@ function repeatNote(earlier) {
     `ALREADY_DONE: this lyric_revise asks for the same work (draft and declarations) as one that already completed in ${earlier.where}` +
     `${earlier.status ? ` (status ${earlier.status}${earlier.exit_code != null ? `, exit ${earlier.exit_code}` : ''})` : ''}. ` +
     `Nothing was run and the writer was not asked again; that result stands.${song} ` +
-    'To go further, send a draft you changed yourself (rewrite the lines that result left open), change a declaration, or ask the user what to change. ' +
+    'To go further, send a draft you changed yourself (rewrite the lines that result left open; a flagged line it did not leave open, and a line its loop replaced, keep their text), change a declaration, or ask the user what to change. ' +
     // The one deliberate re-run (BB8 A4, #519): the writer is not
     // deterministic, so a person may ask for another attempt at the same
     // song. That is their request to make, never a retry the model chooses:
@@ -952,6 +955,7 @@ function PARKED_RUN_NOTE(lyr) {
     (parkedChangeable(lyr)
       ? `only line(s) ${parkedChangeable(lyr).join(', ')} may change, and a draft that changes any other line is refused; `
       : 'any line may change; ') +
+    'a line the loop replaced keeps its new text, and a draft that puts the old text back is refused; ' +
     'then call lyric_revise ' +
     `again with \`seed\` and \`draft_text\`: the FULL song as ONE plain string, one line per row, newline-separated${n ? ` (all ${n} lines, in order)` : ''} — ` +
     'a string, NOT an array (the array is where your calls have broken). ' +
@@ -1046,7 +1050,8 @@ export function chatContinue(result, writer = chatWriter(), lyr = null) {
           ? `only line(s) ${may.join(', ')} may change, and the line count stays. `
           : 'any line may change. ') +
         'Then call lyric_revise with the same seed or mandate and `draft_text` (the full song ' +
-        'as ONE newline-separated string); the run is carried for you.'
+        'as ONE newline-separated string); the run is carried for you. A line the loop replaced ' +
+        'keeps its new text: a draft that puts the old text back is refused (BRIEF_REQUIRED).'
       : note
   );
   return text === block.text
@@ -1219,104 +1224,6 @@ function sameDraft(a, b, form) {
   const left = normalizeDraftLines(a, form);
   const right = normalizeDraftLines(b, form);
   return left.length === right.length && left.every((line, i) => line === right[i]);
-}
-function declaredReturns(args, planReturns) {
-  for (const r of [args?.returns, planReturns])
-    if (typeof r === 'string' && r.trim()) return r.trim();
-  return null;
-}
-// The run's rhyme groups as `N,N;N,N` (a member may name its place, N.PLACE):
-// a pasted song's own `groups`, its letter `scheme` (one letter per line, X
-// free), or the recorded plan's.
-// The harness's rhyme partition of a scheme string (quality/schemes.py
-// `parse`), as lists of 1-based lines. Whitespace is dropped and every other
-// character is a line. A superscript, a `^` or mixed case selects the refrain
-// reading (`parse_refrain`): a mark after a line is skipped, case is folded,
-// and X, `.` and any non-letter are unrhymed. Otherwise (`parse`) a line is a
-// character with its digits, keyed with them, case folded, X and `.` unrhymed.
-const SUPERSCRIPT = '⁰¹²³⁴⁵⁶⁷⁸⁹';
-const isDigit = (c) => /\p{Nd}/u.test(c);
-const isLetter = (c) => /\p{L}/u.test(c);
-function schemeGroups(text) {
-  const t = [...String(text)].filter((c) => !/\s/u.test(c));
-  const letters = t.filter(isLetter);
-  const refrain =
-    t.some((c) => c === '^' || SUPERSCRIPT.includes(c)) ||
-    (letters.some((c) => c !== c.toLowerCase()) && letters.some((c) => c !== c.toUpperCase()));
-  const by = new Map();
-  let line = 0;
-  for (let i = 0; i < t.length; ) {
-    const c = t[i];
-    let j = i + 1;
-    if (refrain && t[j] === '^') j += 1;
-    while (j < t.length && (isDigit(t[j]) || (refrain && SUPERSCRIPT.includes(t[j])))) j += 1;
-    const tok = refrain ? c : t.slice(i, j).join('');
-    i = j;
-    line += 1;
-    if (c.toUpperCase() === 'X' || c === '.' || (refrain && !isLetter(c))) continue;
-    const key = tok.toUpperCase();
-    if (!by.has(key)) by.set(key, []);
-    by.get(key).push(line);
-  }
-  return [...by.values()];
-}
-function declaredGroups(args, planGroups) {
-  if (typeof args?.groups === 'string' && args.groups.trim()) return args.groups.trim();
-  if (typeof args?.scheme === 'string' && args.scheme.trim()) {
-    const cells = schemeGroups(args.scheme).filter((c) => c.length > 1);
-    return cells.length ? cells.map((c) => c.join(',')).join(';') : null;
-  }
-  return typeof planGroups === 'string' && planGroups.trim() ? planGroups.trim() : null;
-}
-const linesOf = (spec) =>
-  typeof spec === 'string'
-    ? spec
-        .split(';')
-        .map((c) =>
-          c
-            .split(',')
-            .map((m) => parseInt(String(m).trim(), 10))
-            .filter(Number.isInteger)
-        )
-        .filter((c) => c.length > 1)
-    : [];
-// THE LINES A PARKED REWRITE MAY CHANGE (#853, stage T). What the revise
-// loop's own repair may move (quality/loop.py, the group question): the open
-// lines, every member of a declared rhyme group an open line is in (the loop
-// rewrites the group jointly; Andrej on #866), and every line a verbatim
-// return ties to any of those, all taken to closure. With no return
-// declared, a line whose sung text is an open line's text counts as its
-// return. A whole-draft flag opens every line, as the loop's whole-draft
-// question does. null means every line may change.
-export function parkedChangeable(lyr) {
-  if (Array.isArray(lyr?.whole) && lyr.whole.length) return null;
-  const open = (Array.isArray(lyr?.open) ? lyr.open : []).filter(Number.isInteger);
-  if (!open.length) return null;
-  const allowed = new Set(open);
-  const groups = linesOf(lyr.groups);
-  const returns = linesOf(lyr.returns);
-  if (!returns.length && Array.isArray(lyr.draft)) {
-    const sung = normalizeDraftLines(lyr.draft, lyr.decl?.catalog_form);
-    const byText = new Map();
-    sung.forEach((t, i) => {
-      if (!byText.has(t)) byText.set(t, []);
-      byText.get(t).push(i + 1);
-    });
-    returns.push(...[...byText.values()].filter((c) => c.length > 1));
-  }
-  // Each ORIGINAL open line's groups, as the loop selects them for its group
-  // question, so the result does not depend on the order groups are written.
-  const openSet = new Set(open);
-  for (const c of groups) if (c.some((l) => openSet.has(l))) c.forEach((l) => allowed.add(l));
-  for (let grew = true; grew; ) {
-    grew = false;
-    for (const c of returns)
-      if (c.some((l) => allowed.has(l)) && c.some((l) => !allowed.has(l))) {
-        c.forEach((l) => allowed.add(l));
-        grew = true;
-      }
-  }
-  return [...allowed].sort((a, b) => a - b);
 }
 // Compared on the sung lines the tool itself reads (`normalizeDraftLines`,
 // the same normalisation `takeLines` applies), so a blank row or a bracketed

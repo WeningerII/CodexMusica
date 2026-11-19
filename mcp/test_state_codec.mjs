@@ -170,6 +170,9 @@ const boundaryWorker = {
   data: 'x'.repeat(WORKER_STATE_BYTES - 11),
   connector_declarations: { data: 'x'.repeat(CONNECTOR_DECLARATION_BYTES - 11) },
   connector_semantic_identity: continuationSemanticIdentity(),
+  // The run a journal names (a state, a stored progress record) is measured
+  // outside the worker journal as well.
+  connector_run_ref: 'f'.repeat(64),
 };
 assertContinuationCapacity(boundaryWorker);
 assert.deepEqual(

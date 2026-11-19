@@ -18,6 +18,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { JobStore } from './job_store.js';
 import { WorkflowSessions, verdictOf } from './workflow_sessions.js';
+import { BRIEFS } from './lyric_tools.js';
 import { stated } from './statement_fixture.mjs';
 
 function storeFor(t) {
@@ -47,8 +48,10 @@ test('a parked new song continues exactly as its note says', { timeout: 300_000 
     'The window holds the frost',
     'I count the things I lost',
     // ~~'Morning light'~~ — since 2026-10-04 banned pairs no longer hold a line
-    // open (owner's ruling), so the park comes from a drifted declared return
-    // (L3 -> L6), a line FLAG no attempt-free run can close.
+    // open (owner's ruling), so the park comes from the plan's declared
+    // returns (3-7, 4-8, 5-9, 6-10) not repeated verbatim, line FLAGs no
+    // attempt-free run can close. L3 itself is not open: it is a partner (of
+    // group A and of return 3-7), so a parked rewrite may change it.
     'Morning lights',
     'Down the road the old dog sleeps',
     'Down the lane the cold fog creeps',
@@ -59,8 +62,17 @@ test('a parked new song continues exactly as its note says', { timeout: 300_000 
   ];
   const budget = { max_rounds: 1, attempts: 0, backtrack: 0 };
   await run('lyric_grade', { seed, draft });
+  // An earlier run on this song left L3 protected. L3 is not open at the
+  // park, but it is a partner of open lines under the PLAN's groups and
+  // returns (a planned run declares none), so the park briefs it, as the
+  // website chat's parked note says, and the rewrite below may change it.
+  BRIEFS.resetForTests();
+  t.after(() => BRIEFS.resetForTests());
+  await BRIEFS.capture({ runId: 'an-earlier-run', cur: draft, input: draft, flagged: [3] });
   const parked = await run('lyric_revise', { seed, draft, ...budget });
   assert.equal(verdictOf(parked.tool_result).exit_code, 3, JSON.stringify(parked));
+  for (const e of BRIEFS.free.values())
+    if (!e.retired) assert.ok(!e.prot.includes(3), JSON.stringify(e.prot));
   // As data: the choice is the writer's (which words), and the call that
   // takes the rewritten draft in this session is the grade. No run id shows.
   assert.deepEqual(verdictOf(parked.tool_result).outcome, {
