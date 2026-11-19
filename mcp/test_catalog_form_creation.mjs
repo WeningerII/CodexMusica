@@ -1020,3 +1020,154 @@ test(
     );
   }
 );
+
+test(
+  'a prescribed terminal pair and an internal rhyme survive session replay',
+  { timeout: 180000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const selection = {
+      catalog_form: 'couplet',
+      catalog_variant: 1,
+      relation: 'schema:internal rhyme',
+      seed_from: 11,
+      count: 1,
+      draw: ['lines', 'functions', 'melody'],
+    };
+    const sweep = measured(await host.run('lyric_sweep', selection));
+    assert.deepEqual(sweep.accepted_shown, [11], sweep.report);
+    const seed = 11;
+    const request = {
+      seed,
+      catalog_form: 'couplet',
+      catalog_variant: 1,
+      relation: selection.relation,
+    };
+    const op = await host.run('lyric_plan', request);
+    assert.ok(!op.tool_error, JSON.stringify(op.tool_result.content));
+    const { plan } = measured(await host.read(op.operation_id, 'full'));
+    assert.deepEqual(plan.relations, { A: 'class:RHYME', B: 'schema:internal rhyme' });
+    const positions = plan.groups
+      .split(';')[1]
+      .split(',')
+      .map((p) => Number(p.split('.T')[1]));
+    measured(
+      await host.run('lyric_screen', { words: ['one', 'none'], relation: 'schema:internal rhyme' })
+    );
+    function check(result, internal, ending) {
+      assert.equal(result.coverage.pairs_mandated, 2);
+      assert.equal(result.coverage.pairs_judged, 2);
+      assert.equal(result.coverage.catalog_form.verdict, ending ? 'pass' : 'fail');
+      const violations = result.findings.filter((f) => f.code === 'SCHEME_VIOLATION');
+      assert.deepEqual(violations.flatMap((f) => f.groups).sort(), [
+        ...(ending ? [] : ['A']),
+        ...(internal ? [] : ['B']),
+      ]);
+    }
+    for (const internal of [true, false]) {
+      for (const ending of [true, false]) {
+        const draft = positions.map((position, i) => {
+          const tokens = Array(position).fill('two');
+          tokens[position - 1] = i === 0 ? 'one' : internal ? 'none' : 'three';
+          tokens.push(i === 0 ? 'eight' : ending ? 'weight' : 'six');
+          return tokens.join(' ');
+        });
+        const grade = await host.run('lyric_grade', { ...request, draft });
+        assert.ok(!grade.tool_error, JSON.stringify(grade.tool_result.content));
+        const result = measured(await host.read(grade.operation_id, 'full'));
+        check(result, internal, ending);
+      }
+    }
+    await host.reconnect();
+    const revision = await host.run('lyric_revise', {
+      ...request,
+      attempts: 0,
+      max_rounds: 1,
+      backtrack: 0,
+    });
+    const result = measured(await host.read(revision.operation_id, 'full'));
+    check(result, false, false);
+  }
+);
+
+test(
+  'fixed copies keep their own internal rhyme obligations after reconnect',
+  { timeout: 180000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const request = { catalog_form: 'triolet', relation: 'schema:internal rhyme' };
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        ...request,
+        seed_from: 11,
+        count: 1,
+        draw: ['functions', 'lines', 'melody'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [11], sweep.report);
+    const seed = 11;
+    const planned = await host.run('lyric_plan', { ...request, seed });
+    const { plan } = measured(await host.read(planned.operation_id, 'full'));
+    assert.equal(plan.returns, '1,4,7;2,8');
+    const layers = plan.groups
+      .split(';')
+      .slice(2)
+      .map((group) => group.split(',').map((slot) => slot.split('.')));
+    assert.deepEqual(
+      layers.map((g) => g.map(([line]) => Number(line))),
+      [
+        [1, 3, 4, 5, 7],
+        [2, 6, 8],
+      ]
+    );
+    const sources = [0, 1, 2, 0, 4, 5, 0, 1];
+    const endings = ['one', 'ten', 'none', '', 'ton', 'men'];
+    const words = endings.map((end) => [...Array(7).fill('two'), end]);
+    const vocabulary = [
+      ['sun', 'run', 'done', 'fun', 'bun'],
+      ['pen', 'hen', 'den'],
+    ];
+    const targets = [];
+    for (const [group, members] of layers.entries()) {
+      members.forEach(([line, place], index) => {
+        if (place === 'endword') return;
+        const pos = place === 'head' ? 0 : Number(place.slice(1)) - 1;
+        assert.ok(Number.isInteger(pos) && pos >= 0 && pos < 7);
+        const row = sources[Number(line) - 1];
+        words[row][pos] = vocabulary[group][index];
+        if (row === 0) targets.push(pos);
+      });
+    }
+    measured(await host.run('lyric_screen', { words: ['one', 'none'], relation: 'class:RHYME' }));
+    async function grade() {
+      const draft = sources.map((row) => words[row].join(' '));
+      const op = await host.run('lyric_grade', { ...request, seed, draft });
+      return measured(await host.read(op.operation_id, 'full'));
+    }
+    function inspect(result, damaged) {
+      assert.equal(result.coverage.pairs_mandated, 17);
+      assert.equal(result.coverage.pairs_judged, 17);
+      assert.equal(result.coverage.catalog_form.verdict, 'pass');
+      const broken = result.findings.filter((f) => f.code === 'SCHEME_VIOLATION');
+      if (!damaged) assert.deepEqual(broken, []);
+      else {
+        assert.ok(broken.every((f) => f.groups.includes('C')));
+        assert.ok(broken.some((f) => f.locations.every((line) => [1, 4, 7].includes(line))));
+      }
+    }
+    inspect(await grade(), false);
+    words[0][targets[0]] = 'six';
+    inspect(await grade(), true);
+    await host.reconnect();
+    const revised = await host.run('lyric_revise', {
+      ...request,
+      seed,
+      max_rounds: 1,
+      backtrack: 0,
+      attempts: 0,
+    });
+    inspect(measured(await host.read(revised.operation_id, 'full')), true);
+  }
+);

@@ -1489,7 +1489,7 @@ def _position(place):
 
 
 def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
-             head_cap=None):
+             head_cap=None, verbatim_groups=(), reserve_end=False):
     """-> (members, None) when the type can bind this group, else
     (None, reason). `lines` are the group's line numbers in text order,
     `section_lines` every line of the section the group sits in.
@@ -1525,15 +1525,31 @@ def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
                       f"line(s) in a song this long")
     loci = (sch.spans[0].locus, sch.spans[-1].locus)
     if not all(lc in _TOKEN_LOCI for lc in loci):
+        if verbatim_groups:
+            return None, "a relation across verbatim copies needs explicit word positions"
         if _RL.identity_forced(sch):
             return None, ("its identity rule makes the members the same word at "
                           "the line end, which the floor charges as a repeat")
         return [str(ln) for ln in lines], None
     opts = [_member_options(loci[0], max_token)] + [
         _member_options(loci[-1], max_token)] * (k - 1)
+    # Copies share the same tokens. Only an agreement-only rule with identical
+    # anchors can reuse a word across copies. Every pair is still graded.
+    same_word_ok = (verbatim_groups and _RL.identity_forced(sch) and sch.spans[0] == sch.spans[-1]
+                    and all(isinstance(c.predicate, _RL.Agree) for c in sch.channels if c.required)
+                    and all(isinstance(rule.predicate, _RL.Agree) for rule in sch.identity))
     last = "no in-line places satisfy its placement"
     for _ in range(tries):
         places = [rng.choice(o) for o in opts]
+        if reserve_end and any(placement_word(place) == LAST_WORD for place in places):
+            last = "the prescribed ending already binds that word"
+            continue
+        if verbatim_groups:
+            positions = dict(zip(lines, map(placement_word, places)))
+            if not same_word_ok and any(len({positions[line] for line in group}) != len(group)
+                                        for group in verbatim_groups):
+                last = "the relation needs distinct word positions across verbatim copies"
+                continue
         if (_RL.identity_forced(sch)
                 and sum(1 for p in places if p == "end") >= 2):
             last = ("its identity rule makes the members the same word at the "
@@ -5835,6 +5851,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     _head_cap = max(1, int(_FL.FloorDeclaration().resolve(
         "anaphora_max", _aprof, _atok) * total + 1e-9))
     binding_overrides = relations
+    additional_bindings = []
     if terminal_groups:
         from quality.catalog_shape import terminal_rhyme_relation
         binding_overrides = dict(relations or {})
@@ -5844,7 +5861,12 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             if str(requested or "").strip().lower() in ("", "draw", "any"):
                 requested = relation or "class:RHYME"
             if not terminal_rhyme_relation(requested):
-                raise PlanRefused("the catalog requires rhyme at every selected line ending")
+                # A positioned registry relation can coexist with the form's
+                # terminal obligation. Keep both as native mandate groups.
+                if _schema_of(requested)[1] is None:
+                    raise PlanRefused("the catalog requires rhyme at every selected line ending")
+                additional_bindings.append((i, requested))
+                requested = "class:RHYME"
             binding_overrides[label] = requested
     groups, _type_rels, _type_records, _unplaced = _assign_types(
         _section_blocks, random.Random(f"{seed}/types"), _max_token,
@@ -5852,6 +5874,28 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         head_cap=_head_cap)
     if terminal_groups and [record["lines"] for record in _type_records] != source_groups:
         raise PlanRefused("the selected rhyme type cannot bind the whole prescribed terminal group")
+
+    bound_copy_lines = set()
+    for index, requested in additional_bindings:
+        block = terminal_groups[index]
+        section_lines = next(lines for lines, blocks in _section_blocks if source_groups[index] in blocks)
+        extra_rng = random.Random(f"{seed}/catalog-extra/{index}")
+        name, schema = _schema_of(requested)
+        copies = [set(block).intersection(group) for group in prescribed_returns]
+        copies = [group for group in copies if len(group) > 1]
+        for group in copies:
+            bound_copy_lines.update(group)
+        members, why = fit_type(schema, block, extra_rng, _max_token, section_lines=section_lines,
+                                head_cap=_head_cap, verbatim_groups=copies, reserve_end=True)
+        if members is None:
+            raise JointRefused(f"the requested additional relation cannot bind the whole catalog group: {why}",
+                               codes=("TYPE_DOES_NOT_FIT",),
+                               findings=[{"code": "TYPE_DOES_NOT_FIT", "line": block[0], "detail": why}])
+        label = SC.label((len(groups),))
+        groups.append(members)
+        _type_rels[label] = f"schema:{name}"
+        _type_records.append({"group": label, "lines": list(block), "drawn_block": list(block),
+                              "type": name, "chosen_from": "declared", "proposed": [name], "rejected": []})
 
     plan = {
         "plan_version": 3,
@@ -5995,9 +6039,9 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     #
     # A fixed lexical length narrows the grid ceiling on this particular draw.
     # Keep the draw's native placements intact and report a conflicting seed.
-    if song_form and song_form.get("lineRequirements"):
+    if song_form and (song_form.get("lineRequirements") or bound_copy_lines):
         from quality.catalog_shape import line_fit_conflicts
-        conflicts = line_fit_conflicts(plan, song_form["lineRequirements"])
+        conflicts = line_fit_conflicts(plan, song_form.get("lineRequirements", []), bound_copy_lines)
         if conflicts:
             raise SeedRefused("catalog line requirements conflict with the drawn plan: " +
                               "; ".join(f"L{item['line']} {item['code']}: {item['detail']}"

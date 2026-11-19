@@ -100,7 +100,7 @@ def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None, retur
                 if result["verdict"] == "pass":
                     result["verdict"] = "unknown"
                 return result
-        if ([list(group) for group in mandate.groups] != sources
+        if ([list(group) for group in mandate.groups[:len(sources)]] != sources
                 or any(not terminal_rhyme_relation(mandate.relation_of(k))
                        or any(mandate.slot_of(k, i).locus != "line_final_token" for i in group)
                        for k, group in enumerate(sources))):
@@ -108,6 +108,9 @@ def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None, retur
             if result["verdict"] == "pass":
                 result["verdict"] = "unknown"
             return result
+        terminal_verdicts = {(*row["lines"], row["group"]): bool(row.get("satisfied_by"))
+                             for row in report["verdicts"]}
+        refused_groups = set(map(tuple, report.get("refused_obligations", ())))
     elif not basis.startswith("class:"):
         return result
     verdicts = {tuple(row["lines"]): bool(row.get("satisfied_by")) for row in report["verdicts"]}
@@ -128,7 +131,7 @@ def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None, retur
             k = terminal_groups.index(members)
             sources_in_group = sources[k]
             pairs = [(a, b) for pos, a in enumerate(sources_in_group) for b in sources_in_group[pos + 1:]]
-            outcomes = [None if pair in refused else verdicts.get(pair) for pair in pairs]
+            outcomes = [None if (*pair, k) in refused_groups else terminal_verdicts.get((*pair, k)) for pair in pairs]
             native = "fail" if False in outcomes else "unknown" if None in outcomes else "pass"
             check["basis"] = mandate.relation_of(k)
             if len(terminal_groups) == 1:

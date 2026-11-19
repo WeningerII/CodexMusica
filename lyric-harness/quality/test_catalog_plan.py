@@ -151,6 +151,39 @@ class CatalogPlannerTests(unittest.TestCase):
         with self.assertRaisesRegex(plan.PlanRefused, "every selected line ending"):
             plan.make_plan(11, song_form=data, relation="class:ASSONANCE")
 
+    def test_additional_relation_preserves_the_other_catalog_group(self):
+        data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 4}],
+                       rhymes=[[1, 3], [2, 4]])
+        for seed in (0, 11):
+            native = plan.make_plan(seed, song_form=data, relations={"B": "schema:internal rhyme"})
+            self.assertEqual(native["relations"], {"A": "class:RHYME", "B": "class:RHYME",
+                                                   "C": "schema:internal rhyme"})
+            a, b, extra = native["groups"].split(";")
+            self.assertEqual((a, b), ("1,3", "2,4"))
+            self.assertRegex(extra, r"^2\.(?:T[0-9]+|head),4\.(?:T[0-9]+|head)$")
+            self.assertEqual(plan.fill_plan(native, ["1", "2", "3", "4"])["song_form"], data)
+        with self.assertRaises(plan.PlanRefused):
+            plan.make_plan(11, song_form=data, relation="schema:homoioteleuton")
+
+    def test_extra_relation_binds_every_verbatim_copy_or_refuses_its_actual_placement(self):
+        data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 8}],
+                       rhymes=[[1, 2, 7, 8], [3, 4, 5, 6]], returns=[[1, 7, 8]])
+        with self.assertRaisesRegex(plan.PlanRefused, "two lines, the second directly after the first"):
+            plan.make_plan(11, song_form=data, relations={"A": "schema:interlaced rhyme"})
+        native = plan.make_plan(11, song_form=data, relations={"B": "schema:internal rhyme"})
+        self.assertEqual(native["relations"]["C"], "schema:internal rhyme")
+        layered = plan.make_plan(11, song_form=data, relations={"A": "schema:internal rhyme"})
+        members = layered["groups"].split(";")[-1].split(",")
+        self.assertEqual([m.split(".")[0] for m in members], ["1", "2", "7", "8"])
+        self.assertEqual(layered["returns"], "1,7,8")
+
+    def test_copies_can_bind_the_same_word_for_a_required_identity(self):
+        data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 12}],
+                       rhymes=[[1, 2, 3], list(range(4, 13))], returns=[[1, 3]])
+        native = plan.make_plan(11, song_form=data, relations={"A": "schema:anaphora"})
+        self.assertEqual(native["groups"].split(";")[-1], "1.head,2.head,3.head")
+        self.assertEqual(native["returns"], "1,3")
+
     def test_prescribed_group_remains_whole(self):
         for count in (3, 4):
             lines = list(range(1, count + 1))
