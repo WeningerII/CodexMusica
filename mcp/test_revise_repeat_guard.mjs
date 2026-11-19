@@ -107,6 +107,30 @@ async function turn(
 }
 const repeats = (out) => out.calls.filter((c) => /^ALREADY_DONE/.test(c.error || '')).length;
 
+test('a change to selected printed indentation reaches the writer after reconnect', async () => {
+  const stepped = ['a', ' b', '  c'];
+  const flat = ['a', 'b', 'c'];
+  const args = {
+    catalog_form: 'triadic-line',
+    catalog_counts: [{ path: '1.1', count: 1 }],
+    scheme: 'AAA',
+  };
+  const repeatKey = (draft, extra) => reviseRepeatKey('lyric_revise', { draft, ...extra });
+  assert.equal(repeatKey(stepped), repeatKey(flat));
+  assert.notEqual(repeatKey(stepped, args), repeatKey(flat, args));
+  assert.equal(
+    repeatKey(stepped, args),
+    reviseRepeatKey('lyric_revise', { draft_text: stepped.join('\n'), ...args })
+  );
+  const tool = (a) =>
+    verdict({ exit_code: 0, status: 'certified', certified: true, final_draft: a.draft });
+  const first = await turn([{ ...args, draft_text: stepped.join('\n') }], { tool });
+  assert.deepEqual(first.sent[0].draft, stepped);
+  const next = await turn([{ ...args, draft: flat }], { tool, history: first.out.history });
+  assert.equal(next.dispatched, 1);
+  assert.deepEqual(next.sent[0].draft, flat);
+});
+
 test('the original draft re-sent 40 times after open lines reaches the writer once', async () => {
   const { out, dispatched } = await turn(Array.from({ length: 40 }, () => ({ draft, ...decl })));
   assert.equal(dispatched, 1);

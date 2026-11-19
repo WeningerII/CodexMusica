@@ -199,6 +199,13 @@ test('a review with declared groups still dispatches its lyric_check', async () 
     'no missing-declaration obligation when a pattern is declared'
   );
   assert.ok(['assessed_clear', 'assessed_findings', 'input'].includes(body.assessment?.status));
+
+  const printed = await review(
+    { groups: '1,3', catalog_form: 'triadic-line', catalog_counts: [{ path: '1.1', count: 1 }] },
+    { text: 'one\n  two\n    three', keepCalling: false }
+  );
+  assert.ok(printed.dispatched.includes('lyric_check'));
+  assert.equal(printed.body.assessment?.coverage?.catalog_form?.verdict, 'pass');
 });
 
 // A review turn that cannot progress ends too, however the model repeats itself.

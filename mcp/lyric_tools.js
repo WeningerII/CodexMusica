@@ -1,3 +1,4 @@
+import { printedSteps } from '../src/song-form-printing.mjs';
 import { projectSongFormCreation } from '../src/song-form-creation.mjs';
 import { formMandate, printedPhraseSetting } from '../src/song-form-mandate.mjs';
 import { catalogReadingFlag, prepareFormReview, reviewRecoveredForm } from './lyric_form.js';
@@ -1564,6 +1565,8 @@ async function pastedFormMandate(a, lines) {
       throw refuse(
         `Catalog form ${mandate.id} is ${mandate.status}: ${JSON.stringify(mandate.needs)}`
       );
+    const steps = printedSteps(selection.plan);
+    if (steps) mandate.minimumLines = mandate.lineCount = steps.reduce((n, size) => n + size, 0);
     const count = lines.length;
     if (mandate.lineCount != null && count !== mandate.lineCount)
       throw refuse(
@@ -2153,12 +2156,17 @@ const textTwinOf = (arrayName) =>
     .describe(
       `The same lines as \`${arrayName}\` as ONE newline-separated string, one line per row, performance order, read the same way — for a caller whose array calls break. Send one of the two.`
     );
-export function takeLines(a, arrayName, textName, { preserveStructure = false } = {}) {
+export function takeLines(
+  a,
+  arrayName,
+  textName,
+  { preserveStructure = false, form = a.catalog_form } = {}
+) {
   if (!preserveStructure && Array.isArray(a[arrayName]))
-    a[arrayName] = normalizeDraftLines(a[arrayName]);
+    a[arrayName] = normalizeDraftLines(a[arrayName], form);
   if (typeof a[textName] === 'string') {
     // A final break ends the last pasted row; it opens no blank row after it.
-    const lines = preserveStructure ? pastedRowsOf(a[textName]) : draftFromText(a[textName]);
+    const lines = preserveStructure ? pastedRowsOf(a[textName]) : draftFromText(a[textName], form);
     if (Array.isArray(a[arrayName]) && JSON.stringify(a[arrayName]) !== JSON.stringify(lines))
       throw refuse(
         `Conflicting ${arrayName} and ${textName}: send one exact draft representation.`
@@ -3113,8 +3121,6 @@ export function registerLyricTools(server, tool) {
         ? recoverContinuationOnly(a)
         : withRunLock(a, () =>
             withTempDir(async (dir) => {
-              // M-234: the draft may arrive as one string.
-              if (a.draft_text != null || a.draft != null) takeLines(a, 'draft', 'draft_text');
               // A seed is a musical declaration, never an ownership key. Knowing
               // another caller's seed cannot discover, modify, or erase their run.
               if (
@@ -3126,6 +3132,14 @@ export function registerLyricTools(server, tool) {
                 );
               let runKey = runKeyOf(a);
               const runRec = a.new_run ? null : a.run_id ? RUNS.byId(a.run_id) : null;
+              if (a.draft_text != null || a.draft != null) {
+                const wire = a.state || a.checkpoint;
+                const form =
+                  a.catalog_form ??
+                  runRec?.decl?.catalog_form ??
+                  (wire ? decodeState(wire).connector_declarations?.catalog_form : undefined);
+                takeLines(a, 'draft', 'draft_text', { form });
+              }
               // Minted before the verb runs so every state this call encodes
               // names the run it belongs to (see RUNS.byState).
               // A run the record cache lost (a restart, an eviction) but the
@@ -4223,6 +4237,10 @@ export function registerLyricTools(server, tool) {
               ? 'recovered — every coordinate obtained; none refused. Hand `lines` with `mandate` to lyric_check and lyric_revise.'
               : 'recovered with REFUSALS — each coordinate under `refusals` carries its reason and must be DECLARED by the caller before the graders can ask about it (the meter always: counting gives syllables, not a grid). Hand `lines` with `mandate` to lyric_check and lyric_revise.';
           v.lines = rec.lines;
+          if (rec.printed_lines) {
+            v.printed_lines = rec.printed_lines;
+            v.meaning += ' Use printed_lines for the stepped layout when checking or revising.';
+          }
           v.set_aside = rec.set_aside;
           v.sections = rec.sections;
           v.mandate = rec.mandate;

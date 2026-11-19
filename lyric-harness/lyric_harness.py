@@ -2651,17 +2651,31 @@ def indent_agreement(groups, indents):
 _PATH_SHAPED = re.compile(r"[/\\]|\.[A-Za-z0-9]{1,5}$")
 
 
-def load_draft_lines(path, with_indent=False, input_format="literal"):
+def printed_source_lines(path, rows):
+    """Restore physical leading whitespace to the normalized sung coordinates."""
+    physical = read_lyric_text(path).splitlines()
+    printed = []
+    for row in rows:
+        if row.kind == "lyric":
+            raw = physical[row.lineno - 1]
+            printed.append(raw[:len(raw) - len(raw.lstrip())] + row.text)
+    return printed
+
+
+def load_draft_lines(path, with_indent=False, input_format="literal", preserve_indent=False):
     """Read caller-owned lines without interpreting lyric text as apparatus.
 
     Source normalization is an explicit opt-in; its line coordinates refer to
     the extracted lyrics. Library corpus readers retain load_lyric_lines.
     """
     if input_format == "source":
+        if preserve_indent and not with_indent:
+            from quality.lyric_reader import normalized_rows
+            return printed_source_lines(path, normalized_rows(path))
         return load_lyric_lines(path, with_indent=with_indent)
     if input_format != "literal":
         raise ValueError("input format must be literal or source")
-    rows = [(line_indent(raw), raw.strip())
+    rows = [(line_indent(raw), raw.rstrip() if preserve_indent and not with_indent else raw.strip())
             for raw in read_lyric_text(path).splitlines() if raw.strip()]
     return rows if with_indent else [text for _, text in rows]
 
@@ -12328,26 +12342,28 @@ def main():
         # The legacy flag requests the full reader record. A realized form
         # with no positioned syllable rhyme needs only the line measurements.
         full_form_reading = "--form-reading" in rest
-        form_reading = full_form_reading or "--form-reading=lines" in rest
-        rest = [item for item in rest if item not in ("--form-reading", "--form-reading=lines")]
+        printed_reading = "--form-reading=printing" in rest
+        rondo_reading = "--form-reading=rondo" in rest
+        form_reading = full_form_reading or rondo_reading or "--form-reading=lines" in rest
+        rest = [item for item in rest if item not in ("--form-reading", "--form-reading=lines", "--form-reading=rondo", "--form-reading=printing")]
         spec = _flag_value(rest, "--placements", eq_only=True)
         rest = _strip_flag(rest, "--placements")
         bad_flag = [a for a in rest if a.startswith("--")]
         if bad_flag:
             _refuse(f"recover does not take {bad_flag[0]!r}",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines]]",
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines|rondo|printing]]",
                             "an unrecognised flag is refused rather than "
                             "ignored (doctrine 20)"])
         if len(rest) != 1:
             _refuse("recover takes exactly one LYRIC.txt",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines]]"])
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines|rondo|printing]]"])
         try:
             declared = RC.parse_placements(spec) if spec is not None else None
         except _SLr.SlotUnsupported as exc:
             _refuse(f"recover `placements` {spec!r}: {exc}")
         try:
             rec = RC.recover_file(rest[0], lex=lex, decl=decl,
-                                  placements=declared, input_format=input_format)
+                                  placements=declared, input_format=input_format, preserve_printing=printed_reading)
         except OSError as e:
             _refuse(f"recover {rest[0]!r} — {e.strerror or e}")
         print(RC.render(rec))
@@ -12381,7 +12397,11 @@ def main():
         # its reason. The render above names two refused keys only in its
         # closing list, so a reader of the report alone gets no reason for
         # them; the record carries all of them, read off `rec.how`.
-        form_observations = {}
+        form_observations = {"printed_lines": rec.printed_lines} if printed_reading else {}
+        if rondo_reading:
+            from quality.catalog_rondo import lyrical_returns, printed_spans
+            form_observations["rondo_text_returns"] = lyrical_returns(
+                rec.sung_lines, printed_spans(rec.get("sections") or []))
         if form_reading:
             form_observations["form_reading"] = [
                 {**_form_reading(lex, line, syllable_rimes=full_form_reading), "sungWords": _form_word_tokens(lex, line)}
@@ -15475,6 +15495,9 @@ def main():
             if cmd in ("brief", "revise", "verify") and bp_path:
                 with open(bp_path, encoding="utf-8") as fh:
                     _bind_blueprint_catalog(lex, json.load(fh))
+            if (getattr(lex, "catalog_selection", None) or {}).get("id") == "triadic-line":
+                read_input = partial(load_draft_lines, input_format=input_format, preserve_indent=True)
+                lex.catalog_printing = True
             if cmd == "brief":
                 sides.append(("HANDED IN brief's FILE", args[1]))
                 lines = read_input(args[1])

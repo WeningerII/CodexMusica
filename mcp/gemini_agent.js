@@ -307,9 +307,9 @@ export function reviseRepeatKey(name, args) {
   // A resume or a continuation is the run's own next step, never a repeat.
   if (args.checkpoint != null || args[STATE_PROPERTY] != null) return null;
   const draft = Array.isArray(args.draft)
-    ? normalizeDraftLines(args.draft)
+    ? normalizeDraftLines(args.draft, args.catalog_form)
     : typeof args.draft_text === 'string'
-      ? draftFromText(args.draft_text)
+      ? draftFromText(args.draft_text, args.catalog_form)
       : null;
   // A call that leaves the draft to the carried run is a continuation, keyed
   // by the run itself (the ledger), not here.
@@ -1212,21 +1212,13 @@ export function wanderRefusal(lyr, name, args) {
 export function isParked(lyr) {
   return !!(lyr && lyr.parked === true && typeof lyr.state !== 'string');
 }
-// The same split mcp/lyric_tools.js `draftFromText` makes (kept in step by a
-// pin in mcp/test.mjs): trim, drop blank rows and bracketed [SECTION] rows.
-export function splitDraftText(text) {
-  return String(text)
-    .split(/\r?\n/)
-    .map((l) => l.trim())
-    .filter((l) => l && !/^\[[^\]]*\]$/.test(l));
-}
-function sameDraft(a, b) {
-  return (
-    Array.isArray(a) &&
-    Array.isArray(b) &&
-    a.length === b.length &&
-    a.every((l, i) => String(l).trim() === String(b[i]).trim())
-  );
+export const splitDraftText = draftFromText;
+
+function sameDraft(a, b, form) {
+  if (!Array.isArray(a) || !Array.isArray(b)) return false;
+  const left = normalizeDraftLines(a, form);
+  const right = normalizeDraftLines(b, form);
+  return left.length === right.length && left.every((line, i) => line === right[i]);
 }
 function declaredReturns(args, planReturns) {
   for (const r of [args?.returns, planReturns])
@@ -1304,7 +1296,7 @@ export function parkedChangeable(lyr) {
   const groups = linesOf(lyr.groups);
   const returns = linesOf(lyr.returns);
   if (!returns.length && Array.isArray(lyr.draft)) {
-    const sung = normalizeDraftLines(lyr.draft);
+    const sung = normalizeDraftLines(lyr.draft, lyr.decl?.catalog_form);
     const byText = new Map();
     sung.forEach((t, i) => {
       if (!byText.has(t)) byText.set(t, []);
@@ -1332,8 +1324,8 @@ export function parkedChangeable(lyr) {
 function changedOutside(lyr, draft) {
   const allowed = parkedChangeable(lyr);
   if (allowed == null || !Array.isArray(lyr?.draft)) return { outside: [] };
-  const before = normalizeDraftLines(lyr.draft);
-  const after = normalizeDraftLines(draft);
+  const before = normalizeDraftLines(lyr.draft, lyr.decl?.catalog_form);
+  const after = normalizeDraftLines(draft, lyr.decl?.catalog_form);
   if (after.length !== before.length) return { outside: [], count: [before.length, after.length] };
   const ok = new Set(allowed);
   return {
@@ -1364,7 +1356,7 @@ function parkedRefusal(lyr, name, args) {
     return `${head}, and this call sends \`answer\`/\`state\` — there is no question to answer.${tail}`;
   if (!Array.isArray(args?.draft))
     return `${head}, and this call omits the draft — a parked run is continued by a REWRITTEN draft (\`draft_text\`), which only you can write.${tail}`;
-  if (sameDraft(args.draft, lyr.draft))
+  if (sameDraft(args.draft, lyr.draft, lyr.decl?.catalog_form))
     return `${head}, and this call re-sends the SAME draft that parked — the loop is deterministic and would park again on the same lines.${tail}`;
   return null;
 }
@@ -1375,7 +1367,7 @@ export function parkedLinesRefusal(lyr, name, args) {
     return null;
   if (
     Array.isArray(lyr.input_draft) &&
-    sameDraft(normalizeDraftLines(args.draft), normalizeDraftLines(lyr.input_draft))
+    sameDraft(args.draft, lyr.input_draft, lyr.decl?.catalog_form)
   )
     return null;
   const { outside, count } = changedOutside(lyr, args.draft);
@@ -2545,12 +2537,6 @@ export async function runTurn({
         // no state, in its own words.
         // M-229: a call that wanders off a suspended run is answered by the
         // connector, never sent to the harness.
-        // M-234: a draft sent as one string becomes the array the tools take,
-        // before any check reads it.
-        if (!recoveryOnly && typeof args.draft_text === 'string' && !Array.isArray(args.draft)) {
-          args.draft = splitDraftText(args.draft_text);
-          delete args.draft_text;
-        }
         if (
           !recoveryOnly &&
           !args.new_run &&
@@ -2577,6 +2563,12 @@ export async function runTurn({
         if (restartingUncertain && surface.stateTools?.has(fc.name) && stateKey(args) == null) {
           for (const [key, value] of Object.entries(lyr.decl || {}))
             if (args[key] === undefined) args[key] = value;
+        }
+        // M-234: a draft sent as one string becomes the array the tools take,
+        // before any check reads it.
+        if (!recoveryOnly && typeof args.draft_text === 'string' && !Array.isArray(args.draft)) {
+          args.draft = splitDraftText(args.draft_text, args.catalog_form);
+          delete args.draft_text;
         }
         if (
           restartingUncertain &&
@@ -2828,8 +2820,11 @@ export async function runTurn({
             lyricVerdict = payload;
           }
           if (reviewContext && fc.name === 'lyric_recover') {
-            reviewLines =
-              !isError && Array.isArray(lyricVerdict?.lines) ? [...lyricVerdict.lines] : null;
+            const rows =
+              reviewContext.declarations.catalog_form === 'triadic-line'
+                ? lyricVerdict?.printed_lines
+                : lyricVerdict?.lines;
+            reviewLines = !isError && Array.isArray(rows) ? [...rows] : null;
             reviewRecoverFailed = !reviewLines;
             if (reviewLines) hopProgress = true;
             else hopStalled = true;

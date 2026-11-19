@@ -241,3 +241,75 @@ test('recovery requests per-syllable sounds only for an active syllable rhyme', 
   assert.equal(await flag({ catalog_form: 'luc-bat' }), '--form-reading');
   assert.equal(await flag({ catalog_form: 'than-bauk' }), '--form-reading');
 });
+
+test('stepped printing keeps the sung coordinates and preserves source indentation separately', async () => {
+  const selection = { catalog_form: 'triadic-line', catalog_counts: [{ path: '1.1', count: 1 }] };
+  const rows = ['one', '  two', '    three'];
+  const rec = await recover({
+    ...selection,
+    lines: ['[VERSE]', rows[0], '# note', rows[1], rows[2]],
+  });
+  assert.deepEqual(
+    rec.lines,
+    rows.map((r) => r.trim())
+  );
+  assert.deepEqual(rec.printed_lines, rows);
+  assert.equal(rec.catalog_form.verdict, 'pass');
+  const { prepareFormReview, reviewRecoveredForm } = await import('./lyric_form.js');
+  const old = reviewRecoveredForm(await prepareFormReview(selection), { lines: rec.lines });
+  assert.equal(old.verdict, 'unknown');
+});
+
+test('rondo recovery describes submitted words without certifying musical recurrence', async () => {
+  const selection = { catalog_form: 'rondo', catalog_variant: 0 };
+  const review = async (lines) => {
+    const r = await recover({ ...selection, lines });
+    assert.ok(r.catalog_form, JSON.stringify(r));
+    return r.catalog_form;
+  };
+  const marked = [
+    '[A]',
+    'a b c',
+    '[PART B]',
+    'x y',
+    '[A]',
+    'a b c',
+    '[PART C]',
+    'y z',
+    '[A]',
+    'a b d',
+  ];
+  const score = await review(marked);
+  assert.equal(score.verdict, 'unknown');
+  assert.deepEqual(
+    score.checks.filter((c) => c.kind === 'role').map((c) => c.outcome),
+    Array(5).fill('pass')
+  );
+  assert.deepEqual(
+    score.checks.filter((c) => c.kind.startsWith('musical-')).map((c) => c.outcome),
+    ['unknown', 'unknown']
+  );
+  assert.deepEqual(
+    score.lyricalReturns.map((r) => [r.sections, r.classification, r.lineSpans]),
+    [
+      [
+        [1, 3],
+        'VERBATIM',
+        [
+          [0, 1],
+          [2, 3],
+        ],
+      ],
+      [
+        [1, 5],
+        'LEXICAL_VARIATION',
+        [
+          [0, 1],
+          [4, 5],
+        ],
+      ],
+    ]
+  );
+  const drift = await review(marked.map((v) => (v === '[PART C]' ? '[PART B]' : v)));
+  assert.equal(drift.verdict, 'fail');
+});

@@ -112,10 +112,15 @@ test('every published alternative is selectable and reproduces its structural pr
         assert.equal(checkForm(catalog, form.id, options).verdict, 'unknown', where + ' lacks observations');
         for (const key of ['lines', 'sections']) {
           if (plan.coverage[key] === 'complete') {
-            const observed = Array.from({length:expected[key] + 1}, () => ({}));
+            // The printed triadic setting consumes physical rows, three per logical line.
+            const stepped = key === 'lines' && form.id === 'triadic-line';
+            const count = stepped ? 3 * expected.lines : expected[key];
+            const observed = Array.from({length:count + 1}, (_, i) =>
+              stepped ? ' '.repeat(i % 3) + 'x' : {});
+            const countKind = stepped ? 'printed-row-count' : key + '-count';
             const check = checkForm(catalog, form.id, {...options, [key]:observed});
             assert.equal(check.verdict, 'fail', where + ' extra ' + key);
-            assert.ok(check.checks.some(c => c.kind === key + '-count' && c.outcome === 'fail'), where);
+            assert.ok(check.checks.some(c => c.kind === countKind && c.outcome === 'fail'), where);
           }
         }
       }
@@ -195,4 +200,19 @@ test('compatible symbolic observations are accepted and measured disagreements f
   }
   assert.ok(accepted > 0, 'no published setting could pass on observed symbols');
   assert.ok(measurable > 0, 'no published numeric constraint was exercised');
+});
+
+test('a Rondo diagram checks part order without inferring tunes from labels or words', () => {
+  for (const [variant, roles] of ['abaca', 'abacaba'].entries()) {
+    const parts=[...roles].map((letter)=>({role:'part-'+letter}));
+    const good=checkForm(catalog,'rondo',{variant,sections:parts});
+    assert.equal(good.verdict,'unknown');
+    assert.ok(good.checks.filter((c)=>c.kind==='role').every((c)=>c.outcome==='pass'));
+    const groups=good.checks.filter((c)=>c.kind==='musical-return');
+    assert.deepEqual(groups.map(c=>c.sections),variant===0?[[1,3,5]]:[[1,3,5,7],[2,6]]);
+    assert.ok(groups.every(c=>c.outcome==='unknown'));
+    assert.equal(good.checks.find((c)=>c.kind==='musical-contrast').outcome,'unknown');
+    parts[1]={role:'part-a'};
+    assert.equal(checkForm(catalog,'rondo',{variant,sections:parts}).verdict,'fail');
+  }
 });

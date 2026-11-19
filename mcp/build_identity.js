@@ -78,6 +78,7 @@ export function runtimeSourceFingerprint(
     'src/song-form-grade.mjs',
     'src/song-form-line-requirements.mjs',
     'src/song-form-line-roles.mjs',
+    'src/song-form-printing.mjs',
     'src/song-form-divisions.mjs',
     'src/song-form-section-arrangement.mjs',
     'data/song-forms.json',

@@ -814,9 +814,9 @@ export function creationRefusal(task, name, args, lyric = null) {
     )
       args[key] = planArgument(key, request[key]);
   }
-  if (Array.isArray(args.draft)) args.draft = normalizeDraftLines(args.draft);
+  if (Array.isArray(args.draft)) args.draft = normalizeDraftLines(args.draft, args.catalog_form);
   if (typeof args.draft_text === 'string') {
-    const draft = draftFromText(args.draft_text);
+    const draft = draftFromText(args.draft_text, args.catalog_form);
     if (Array.isArray(args.draft) && !same(args.draft, draft))
       return 'CREATION_DRAFT: conflicting draft and draft_text; send one exact draft representation.';
     args.draft = draft;
