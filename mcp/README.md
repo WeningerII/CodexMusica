@@ -346,4 +346,5 @@ The Python equivalents are `--pronunciations=<JSON>` on `song`, `finish`, `brief
 `revise`, `verify`, and `recover`. Limits are 128 choices, 128 phones per choice,
 4000 characters per bound line, and 1000 characters per source. Existing writer
 line/count/work limits still apply; supplied syllables count toward work limits.
-Run `npm run test:pronunciations` and `npm run qualify:session:workflow` to verify.
+Run `npm run test:pronunciations` to verify. The `qualify:session:workflow` replay
+was removed on purpose in #902 (docs/session-workflow-repairs.md).

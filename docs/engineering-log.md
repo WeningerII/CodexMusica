@@ -273,3 +273,9 @@ checks. It is not listed among the current open limitations._
 > "record", regrades, resumes the two actual lyric repairs, and requires exit 0
 > with complete requested coverage. The original uncertified replay remains as
 > a counterexample; the new evidence uses the `moonshots-pronunciation-replay` prefix.
+
+Removed on purpose (#902, 2026-11-19): the replay script
+`mcp/qualify_session_workflow.mjs`, its `qualify:session:workflow` npm script and
+its two `moonshots-pronunciation-replay` evidence files. The replay was built on a
+native-form plan. A new song's form is now a catalog form, so the replay cannot
+run on the new-song path, and it was retired as a qualification.
