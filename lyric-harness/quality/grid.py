@@ -860,7 +860,14 @@ PLACEMENT_CODES = ("SECTION_NOT_AT_BOUNDARY", "SECTION_REQUIREMENT_ABSENT",
                    "SECTION_AT_EDGE", "SECTION_NOT_ADJACENT")
 
 
-def placement_findings(functions):
+def setting_roles(contract):
+    """Ordered roles explicitly declared by a bounded catalog arrangement."""
+    if not contract or contract.get("scope") != "setting":
+        return ()
+    return tuple(part.get("role") for part in contract["sections"])
+
+
+def placement_findings(functions, *, selected_roles=()):
     """An ordered list of function names -> [(code, index, evidence), ...].
 
     THE ONE DEFINITION. `plan.py` prunes its pattern space with this and the
@@ -883,6 +890,10 @@ def placement_findings(functions):
     out = []
     n = len(functions)
     present = {f for f in functions if f}
+    # The ordinary English grid places a burden after a verse. A bounded
+    # setting can explicitly prescribe a leading copy of the returning burden.
+    printed_burden = (n >= 5 and n % 2 == 1 and tuple(functions) == selected_roles
+                      and all(f == ("verse" if i % 2 else "burden") for i, f in enumerate(functions)))
     for i, f in enumerate(functions):
         if not f:
             continue
@@ -911,8 +922,8 @@ def placement_findings(functions):
             out.append(("SECTION_AT_EDGE", i,
                         f"{f!r} requires a section after it and closes the "
                         f"song — {ev!r}"))
-        if sp.adjacent_after and (i == 0
-                                  or functions[i - 1] != sp.adjacent_after):
+        if (sp.adjacent_after and (i == 0 or functions[i - 1] != sp.adjacent_after)
+                and not (i == 0 and printed_burden)):
             got = functions[i - 1] if i else "the start of the song"
             out.append(("SECTION_NOT_ADJACENT", i,
                         f"{f!r} sits immediately after {sp.adjacent_after!r} "
@@ -3995,7 +4006,7 @@ def not_asked(song):
 
 def song_function_report(song, hooks=(), rhyme_key=None,
                          convention=POPULAR_SONG, decl=None, classes=None,
-                         hook_in_class=False):
+                         hook_in_class=False, *, selected_roles=()):
     """Every function-dependent question, asked once. -> dict.
 
     `classes`: the plan's return classes (sets of 1-based line numbers) when
@@ -4168,7 +4179,7 @@ def song_function_report(song, hooks=(), rhyme_key=None,
                           f"says it cannot; no rewrite of its lines moves "
                           f"it, its order or its declared function does",
                           evidence)
-              for code, i, evidence in placement_findings(_placed)
+              for code, i, evidence in placement_findings(_placed, selected_roles=selected_roles)
               if not (code == "SECTION_NOT_AT_BOUNDARY"
                       and i in _named_by_recurred)]
         ask_one(pf, [])

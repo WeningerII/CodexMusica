@@ -1,8 +1,28 @@
+import { createHash } from 'node:crypto';
+import { finalPunchline, usesFunctionReadings } from './song-form-function-readings.mjs';
 // Compare catalog requirements with measurements from the current candidate.
 // Blueprint coordinates describe the declared arrangement, including its bar grid.
-import { checkReaderForm, realizeForm } from './song-forms.mjs';
+import { measureSpokenClose } from './song-form-spoken-close.mjs';
+import { gradeHeldTag } from './song-form-closing-chord.mjs';
+import { checkImitativeScore } from './song-form-imitative-score.mjs';
+import { paragraphCount } from './song-form-printing.mjs';
+import { printedPhraseSetting } from './song-form-mandate.mjs';
+import {
+  measuredCoupletEcho,
+  refrainAddresses,
+  relativeLinePairs,
+  regularAlexandrine,
+  stressEndingFor,
+} from './song-form-line-roles.mjs';
+import { gradeNestedDivisions } from './song-form-divisions.mjs';
+import { sectionArrangement, measureSectionArrangement } from './song-form-section-arrangement.mjs';
+import { checkReaderForm, pindaricTriads, realizeForm } from './song-forms.mjs';
 import {
   isVerseDivision,
+  isCountedDescent,
+  linesOfDivision,
+  openCoupletEnding,
+  measuredStanzaRole,
   isWordlessWriterRole,
   projectSongFormCreation,
 } from './song-form-creation.mjs';
@@ -24,7 +44,77 @@ function simpleSectionLayout(node) {
   );
 }
 
-export function gradeObservations(catalog, id, { variant, counts, lines, sections }) {
+// Bind the attestation to the entire submitted text and to the ordered
+// division spans. A change outside the passage can change its meaning too.
+function measureFunctionReadings(plan, rows, lines, sections) {
+  const text = lines?.map((row) => (typeof row === 'string' ? row : row?.text));
+  const spans = sections?.map((row) => row?.lineSpan);
+  let cursor = 0;
+  const complete =
+    text?.length &&
+    text.every((line) => typeof line === 'string' && line.trim()) &&
+    spans?.length === rows.length &&
+    spans.every((span) => {
+      if (
+        !Array.isArray(span) ||
+        span.length !== 2 ||
+        span[0] !== cursor ||
+        !Number.isSafeInteger(span[1]) ||
+        span[1] <= cursor
+      )
+        return false;
+      cursor = span[1];
+      return true;
+    }) &&
+    cursor === text.length;
+  const binding = complete
+    ? createHash('sha256')
+        .update(
+          JSON.stringify([
+            plan.id,
+            plan.variant,
+            rows.map((r) => [r.divisionPath, r.textualFunction]),
+            spans,
+            text,
+          ])
+        )
+        .digest('hex')
+    : undefined;
+  return rows.flatMap((row, i) => {
+    if (!row.textualFunction) return [];
+    const { role } = row.textualFunction;
+    const check = {
+      kind: 'declared-textual-function',
+      section: i + 1,
+      ...row.textualFunction,
+      basis: 'attributed editorial reading',
+      outcome: 'unknown',
+      ...(binding && {
+        draft_sha256: binding,
+        lines: Array.from({ length: spans[i][1] - spans[i][0] }, (_, n) => spans[i][0] + n + 1),
+      }),
+      ...(binding && plan.id === 'epigram' && { focusLine: spans[i][1] }),
+    };
+    const reading = sections?.[i]?.functionReading;
+    if (!check.criterion || !binding || !reading || typeof reading !== 'object') return check;
+    if (
+      reading.draft_sha256 !== binding ||
+      reading.section !== i + 1 ||
+      reading.role !== role ||
+      !['affirmed', 'rejected'].includes(reading.judgment) ||
+      ![reading.source, reading.reason].every((s) => typeof s === 'string' && s.trim())
+    )
+      return check;
+    return {
+      ...check,
+      source: reading.source,
+      reason: reading.reason,
+      outcome: reading.judgment === 'affirmed' ? 'pass' : 'fail',
+    };
+  });
+}
+
+export function gradeObservations(catalog, id, { variant, counts, lines, sections, phraseLines }) {
   const plan = realizeForm(catalog, id, { variant, counts });
   if (plan.status !== 'ready')
     return {
@@ -33,11 +123,244 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       verdict: 'unknown',
       checks: [{ kind: 'realization', outcome: 'unknown' }],
     };
+  if (paragraphCount(plan)) {
+    const { verdict, checks, basis } = checkReaderForm(catalog, id, { variant, counts, lines });
+    return {
+      id,
+      variant: plan.variant,
+      scope: 'setting',
+      catalogScope: plan.scope,
+      verdict,
+      checks,
+      basis,
+    };
+  }
+  const printed = printedPhraseSetting(plan);
+  if (printed && (phraseLines === true || lines?.length === printed.plan.lines.length)) {
+    const observed = gradeObservations(printed.catalog, id, { variant: 0, lines, sections });
+    return {
+      ...observed,
+      variant: plan.variant,
+      arrangement: 'one-printed-line-per-phrase',
+      phraseRhymeGroups: projectSongFormCreation(printed.plan).contract?.rhymeGroups,
+    };
+  }
+  const creation = projectSongFormCreation(plan, counts);
+  if (creation.contract?.closingChord) {
+    const verdict = gradeHeldTag(creation.contract.sections[0].lines, lines, sections);
+    return {
+      id,
+      variant: plan.variant,
+      scope: plan.scope,
+      verdict,
+      checks: [{ kind: 'held-closing-chord', outcome: verdict }],
+      basis: 'declared four-part close-position major-triad setting',
+    };
+  }
+  if (creation.contract?.imitationRepeats) {
+    const verdict = checkImitativeScore(creation.contract.imitationRepeats, lines, sections);
+    return {
+      id,
+      variant: plan.variant,
+      scope: plan.scope,
+      verdict,
+      checks: [{ kind: 'timed-unison-imitation', outcome: verdict }],
+      basis: 'declared overlapping voice scores',
+    };
+  }
+  if (creation.contract?.lineProfile === 'alliterative-long-line') {
+    const checks = (lines ?? []).map((row, i) => {
+      const proof = row?.alliterativeHalves;
+      let outcome = 'unknown';
+      if (
+        typeof row?.text === 'string' &&
+        /^[^/|]+[/|][^/|]+$/u.test(row.text) &&
+        Array.isArray(proof) &&
+        proof.length === 2 &&
+        proof.every(
+          (half) =>
+            Array.isArray(half) &&
+            half.every((onset) => onset === null || (typeof onset === 'string' && onset.length))
+        )
+      ) {
+        const [left, right] = proof;
+        if (left.length !== 2 || right.length !== 2) outcome = 'fail';
+        else if (right[0] !== null) {
+          const match = left.includes(right[0]);
+          if (right[0] === right[1] || (!match && !left.includes(null))) outcome = 'fail';
+          else if (match && right[1] !== null) outcome = 'pass';
+        }
+      }
+      return { kind: 'alliterative-long-line', lines: [i + 1], outcome };
+    });
+    if (!checks.length) checks.push({ kind: 'alliterative-long-line', outcome: 'unknown' });
+    return {
+      id,
+      variant: plan.variant,
+      scope: plan.scope,
+      checks,
+      verdict: checks.some((c) => c.outcome === 'fail')
+        ? 'fail'
+        : checks.every((c) => c.outcome === 'pass')
+          ? 'pass'
+          : 'unknown',
+    };
+  }
+  if (creation.contract?.lineProfile === 'caesural-rhyme') {
+    const checks = (lines || []).map((row, i) => {
+      const proof = row?.caesuralRhyme;
+      let outcome = 'unknown';
+      if (
+        typeof row?.text === 'string' &&
+        /^[^/|]+[/|][^/|]+$/u.test(row.text) &&
+        Array.isArray(row.sungWords) &&
+        Number.isInteger(proof?.cut) &&
+        proof.cut > 0 &&
+        proof.cut < row.sungWords.length &&
+        proof.words?.[0] === row.sungWords[proof.cut - 1] &&
+        proof.words?.[1] === row.sungWords.at(-1)
+      ) {
+        const [left, right] = Array.isArray(proof.keys) ? proof.keys : [];
+        if (proof.words[0] === proof.words[1]) outcome = 'fail';
+        else if (
+          [left, right].every(
+            (keys) =>
+              Array.isArray(keys) &&
+              keys.length &&
+              keys.every((key) => typeof key === 'string' && key)
+          )
+        ) {
+          if (!left.some((key) => right.includes(key))) outcome = 'fail';
+          else if (left.length === 1 && right.length === 1) outcome = 'pass';
+        }
+      }
+      return { kind: 'caesural-rhyme', lines: [i + 1], outcome };
+    });
+    if (!checks.length) checks.push({ kind: 'caesural-rhyme', outcome: 'unknown' });
+    const verdict = checks.some((c) => c.outcome === 'fail')
+      ? 'fail'
+      : checks.every((c) => c.outcome === 'pass')
+        ? 'pass'
+        : 'unknown';
+    return { id, variant: plan.variant, scope: plan.scope, verdict, checks };
+  }
+  if (creation.nestedRefrain || creation.scoredEnsemble) {
+    const { verdict, checks } = checkReaderForm(catalog, id, { variant, counts, sections });
+    return { id, variant: plan.variant, scope: plan.scope, verdict, checks };
+  }
+  // Existing printed headers can identify the historical sections but do not
+  // declare the writer's English line-aligned realization of metrical periods.
+  if (
+    creation.nestedDivisions &&
+    (!pindaricTriads(plan) || sections?.some((s) => s?.divisionPath))
+  ) {
+    const checks = [];
+    if (creation.contract.returnGroups.length) {
+      // The score can identify a respondent, but only the submitted words
+      // demonstrate that their response actually returns verbatim.
+      const text = lines?.map((row) => {
+        if (typeof row === 'string') return { text: row };
+        return typeof row?.text === 'string' ? { text: row.text } : {};
+      });
+      const numbers = new Map(plan.lines.map((line) => [line.address, line.index]));
+      const measured = checkReaderForm(catalog, id, { variant, counts, lines: text });
+      for (const check of measured.checks.filter((row) => row.kind === 'returns')) {
+        checks.push({ ...check, lines: check.addresses.map((address) => numbers.get(address)) });
+      }
+    }
+    if (usesFunctionReadings(plan.id))
+      checks.push(...measureFunctionReadings(plan, creation.contract.sections, lines, sections));
+    const score = gradeNestedDivisions(plan, creation.contract.sections, lines, sections, checks);
+    const words = creation.contract.endingWords;
+    if (!words) return score;
+    // Compare sung words, excluding asides and respecting the reader's token boundaries.
+    // An explicitly unreadable token stream must never fall back to the printed line.
+    const tokens = (lines ?? []).map((row) => {
+      if (typeof row?.text !== 'string' || !row.text.trim() || !Array.isArray(row.sungWords))
+        return undefined;
+      if (
+        !row.sungWords.every(
+          (token) => typeof token === 'string' && token.length && !/\s/u.test(token)
+        )
+      )
+        return undefined;
+      return row.sungWords.map((token) => token.normalize('NFC').toLowerCase().replace(/’/g, "'"));
+    });
+    score.basis = 'declared score divisions and measured sung words';
+    const vocabulary = new Set();
+    let overlaps = false,
+      unknown = false;
+    const representatives = [];
+    for (const group of words.groups) {
+      const ends = group.map((i) => tokens[i - 1]?.at(-1));
+      const known = new Set(ends.filter(Boolean));
+      const absent = ends.some((w) => !w);
+      checks.push({
+        kind: 'endWord',
+        lines: group,
+        outcome: known.size > 1 ? 'fail' : absent ? 'unknown' : 'pass',
+      });
+      for (const word of known) {
+        if (vocabulary.has(word)) overlaps = true;
+        vocabulary.add(word);
+      }
+      unknown ||= absent;
+      representatives.push(known.size === 1 ? [...known][0] : undefined);
+    }
+    checks.push({
+      kind: 'endWord-distinct',
+      lines: words.groups.flat().sort((a, b) => a - b),
+      outcome: overlaps ? 'fail' : unknown ? 'unknown' : 'pass',
+    });
+    if (words.gathered) {
+      const passage = words.gathered.map((i) => tokens[i - 1]);
+      const seen = new Set(passage.flat());
+      const all = representatives.every((w) => w && seen.has(w));
+      checks.push({
+        kind: 'gathered-end-words',
+        lines: words.gathered,
+        outcome: all
+          ? 'pass'
+          : passage.some((row) => !row) || representatives.some((w) => !w)
+            ? 'unknown'
+            : 'fail',
+      });
+    }
+    score.verdict = checks.some((c) => c.outcome === 'fail')
+      ? 'fail'
+      : checks.every((c) => c.outcome === 'pass')
+        ? 'pass'
+        : 'unknown';
+    return score;
+  }
+  const sourceArrangement = sectionArrangement(plan);
+  const measurement = measureSectionArrangement(sourceArrangement, plan, lines, sections);
+  sections = measurement.sections;
   const input = { variant, counts };
-  if (plan.coverage.lines !== 'none') input.lines = lines;
+  if (pindaricTriads(plan)) {
+    input.lines = lines;
+    input.sections = sections;
+  }
+  // A spoken or literary function printed on the line template is a requested
+  // property. Echoing its name cannot measure a punchline, a wish, or a turn.
+  // Section and speaker declarations have a separate score-based evidence path.
+  if (plan.coverage.lines !== 'none' && lines !== undefined) {
+    input.lines = lines.map((row) => {
+      if (!row || typeof row !== 'object') return row;
+      const copy = { ...row };
+      delete copy.role;
+      // Cyclic links join the printed words, not caller-declared identity labels.
+      if (sourceArrangement?.sourceRole === 'sonnet') delete copy.returns;
+      return copy;
+    });
+  }
   if (plan.coverage.sections !== 'none' && sections)
     input.sections = sections.map(({ lineSpan, ...section }) =>
-      plan.coverage.lines === 'complete' && lineSpan ? { ...section, lineSpan } : section
+      (plan.coverage.lines === 'complete' ||
+        creation.contract?.sections.some((s) => s.sourceRole === 'head')) &&
+      lineSpan
+        ? { ...section, lineSpan }
+        : section
     );
   // Musical verse is only the carrier for a neutral stanza. Its boundary
   // can be compared with the catalog division without adding a role check.
@@ -49,16 +372,49 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     node.children.forEach(walk);
   }
   plan.tree.forEach(walk);
-  const extras = [];
+  const extras = measurement.checks;
+  const punchline = finalPunchline(plan);
+  const reading =
+    punchline &&
+    creation.contract &&
+    measureFunctionReadings(plan, creation.contract.sections, lines, sections)[0];
+  if (reading) {
+    extras.push({ ...reading, focusLine: 5 });
+    for (const { line, stress } of creation.contract.lineRequirements) {
+      const observed = lines?.[line - 1];
+      const actual =
+        typeof observed?.text === 'string' &&
+        observed.text.trim() &&
+        typeof observed.stress === 'string' &&
+        /^[./]+$/.test(observed.stress)
+          ? observed.stress
+          : undefined;
+      extras.push({
+        kind: 'regular-anapestic-line',
+        lines: [line],
+        expected: stress,
+        ...(actual && { actual }),
+        basis: 'regular-foot writing arrangement, agreed lexical stress',
+        outcome: actual === undefined ? 'unknown' : actual === stress ? 'pass' : 'fail',
+      });
+    }
+  }
   const spans = new Map();
   const hasInstrumental = plan.sections.some((section) => isWordlessWriterRole(section.role));
-  const projection =
-    stanzas.length || hasInstrumental ? projectSongFormCreation(plan, counts) : null;
+  const projection = stanzas.length || hasInstrumental ? creation : null;
   const arranged = projection?.arrangement;
+  // A zero-count optional section is absent from the selected arrangement.
+  // Count explicitly named sections separately from the stanza carriers.
+  if (arranged && sections && !plan.sections.length && input.sections) {
+    input.sections = input.sections.filter((section) => section.role !== arranged.role);
+  }
   const nativeInstrumental = hasInstrumental && projection?.contract;
   const divisions = arranged
-    ? stanzas.filter((node) => node.children.every((child) => child.unit === 'line'))
+    ? stanzas.filter((node) => linesOfDivision(node).every((child) => child.unit === 'line'))
     : stanzas.filter((node) => node.unit === 'stanza');
+  const closingRun = arranged && openCoupletEnding(plan);
+  if (closingRun) divisions.unshift({ span: { lines: [0, closingRun.opening.length] } });
+  if (arranged?.divisions.at(-1)?.unit === 'line') divisions.push(plan.tree[0].children.at(-1));
   const completePartition =
     plan.coverage.lines === 'complete' &&
     divisions.length > 0 &&
@@ -79,9 +435,44 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
           if (!lineSpan) return [];
           const aligned =
             lineSpan[0] === stanza.span.lines[0] && lineSpan[1] === stanza.span.lines[1];
+          if (!stanza.address) {
+            extras.push({
+              kind: 'opening-line-span',
+              expected: stanza.span.lines,
+              actual: lineSpan,
+              outcome: aligned ? 'pass' : 'fail',
+            });
+            return [];
+          }
           return [[stanza.address, { lineSpan, ...(aligned && bars !== undefined && { bars }) }]];
         })
       );
+    }
+  }
+  // The span of a cycle of named sections is measured by its contiguous
+  // section instances, including the boundary where the next cycle starts.
+  if (plan.coverage.lines === 'complete' && sections?.length === plan.sections.length) {
+    for (const node of addresses.values()) {
+      if (
+        node.unit !== 'cycle' ||
+        !node.children.length ||
+        !node.children.every((child) => child.unit === 'section')
+      )
+        continue;
+      const [start, end] = node.span.sections;
+      const members = sections.slice(start, end).map((s) => s.lineSpan);
+      if (
+        members.every(
+          (span, i) =>
+            Array.isArray(span) &&
+            span.length === 2 &&
+            span.every((n) => Number.isSafeInteger(n) && n >= 0) &&
+            span[0] <= span[1] &&
+            (!i || span[0] === members[i - 1][1])
+        )
+      ) {
+        (input.units ??= {})[node.address] = { lineSpan: [members[0][0], members.at(-1)[1]] };
+      }
     }
   }
   // An empty section in the catalog leaves its length open. Explicit lines in
@@ -165,8 +556,128 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     if (!byClass.has(row.rhyme)) byClass.set(row.rhyme, []);
     byClass.get(row.rhyme).push(choices.get(row.address) ?? []);
   }
+  const refrains = refrainAddresses(plan.tree);
+  const linePositions = new Map(
+    plan.lines.filter((line) => line.positionKnown).map((line) => [line.address, line.index])
+  );
+  const printedReturns = new Map();
+  for (const check of result.checks.filter((c) => c.kind === 'returns')) {
+    const allPrinted = check.addresses.every((address) => {
+      const observed = lines?.[linePositions.get(address) - 1];
+      return typeof observed === 'string' || typeof observed?.text === 'string';
+    });
+    printedReturns.set(check.label, allPrinted ? check.outcome : 'unknown');
+  }
+  const relative = relativeLinePairs(plan);
   function refine(check) {
+    const index = linePositions.get(check.address);
+    if (check.kind === 'role' && index) {
+      if (creation.contract?.lineProfile === 'linked-couplet-echoes')
+        return { ...check, ...measuredCoupletEcho(index, lines) };
+      if (reading && check.address === punchline.address)
+        return { ...check, basis: reading.basis, outcome: reading.outcome };
+      const line = addresses.get(check.address);
+      if (line.role === 'spoken-close' && creation.contract?.spokenClose) {
+        return {
+          ...check,
+          outcome: measureSpokenClose(creation.contract.sections[0].lines, lines, sections),
+          basis: 'timed speech over independently scored repetitions of a guitar figure',
+        };
+      }
+      const pair = relative.get(check.address);
+      if (pair) {
+        const lengths = [pair.long, pair.short].map((n) => {
+          const row = lines?.[n - 1];
+          return typeof row?.text === 'string' ? (row.syllables ?? row.stress?.length) : undefined;
+        });
+        const outcome = lengths.includes(undefined)
+          ? 'unknown'
+          : lengths[0] > lengths[1]
+            ? 'pass'
+            : 'fail';
+        return {
+          ...check,
+          outcome,
+          basis: 'relative sung syllable counts',
+          comparedLines: [pair.long, pair.short],
+        };
+      }
+      const ending = stressEndingFor(line.role);
+      if (ending || line.role === 'alexandrine') {
+        const observed = lines?.[index - 1];
+        const stress = typeof observed?.text === 'string' ? observed.stress : undefined;
+        const matches = ending ? stress?.endsWith(ending) : stress === regularAlexandrine;
+        return {
+          ...check, // A noncanonical alexandrine can contain metrical substitutions.
+          outcome: matches ? 'pass' : stress === undefined || !ending ? 'unknown' : 'fail',
+        };
+      }
+      if (refrains.has(line.address))
+        return { ...check, outcome: printedReturns.get(line.returns) ?? 'unknown' };
+    }
     if (check.outcome !== 'unknown') return check;
+    const group = addresses.get(check.address);
+    if (check.kind === 'line-span' && group && isCountedDescent(group)) {
+      // Matching the complete descending measure locates the group in the
+      // observed line sequence; a source label or section boundary cannot.
+      const states = group.children.map((child) => {
+        const index = linePositions.get(child.address);
+        const row = index && lines?.[index - 1];
+        const syllables = row?.syllables ?? row?.stress?.length;
+        return syllables === undefined
+          ? 'unknown'
+          : syllables === child.syllables
+            ? 'pass'
+            : 'fail';
+      });
+      const outcome = states.includes('fail')
+        ? 'fail'
+        : states.includes('unknown')
+          ? 'unknown'
+          : 'pass';
+      return { ...check, basis: 'observed sequence of line syllable counts', outcome };
+    }
+    if (check.kind === 'role' && lines && plan.coverage.lines === 'complete') {
+      const node = addresses.get(check.address);
+      if (node?.unit === 'stanza' && node.children.every((child) => child.unit === 'line')) {
+        const start = node.span.lines[0];
+        const end = node.span.lines[1];
+        if (
+          creation.contract?.lineProfile === 'english-short-long-five' &&
+          node.role === 'english-short-lines'
+        ) {
+          // The Tanka Society of America records a common English reading of
+          // at most 31 syllables in short–long–short–long–long lines. Select
+          // this sufficient profile without requiring it of every English tanka.
+          const observed = lines.slice(start, end).map((row) => {
+            if (typeof row?.text !== 'string' || !row.text.trim()) return;
+            if (
+              row.stress !== undefined &&
+              (typeof row.stress !== 'string' ||
+                !/^[./]+$/.test(row.stress) ||
+                (row.syllables !== undefined && row.stress.length !== row.syllables))
+            )
+              return;
+            const n = row.syllables ?? row.stress?.length;
+            if (Number.isSafeInteger(n) && n > 0) return n;
+          });
+          const within =
+            observed.length === 5 &&
+            observed.every(Number.isInteger) &&
+            observed.reduce((a, b) => a + b, 0) <= 31 &&
+            Math.max(observed[0], observed[2]) < Math.min(observed[1], observed[3], observed[4]);
+          return {
+            ...check,
+            outcome: within ? 'pass' : 'unknown',
+            basis:
+              'English five-line short–long–short–long–long setting within 31 measured syllables',
+          };
+        }
+        const observed = measuredStanzaRole(node.role, lines.slice(start, end));
+        if (observed !== undefined)
+          return { ...check, outcome: observed ? 'pass' : 'fail', basis: 'measured-stanza' };
+      }
+    }
     if (check.kind === 'rhyme') {
       const known = check.addresses
         .map((address) => choices.get(address))
@@ -228,6 +739,26 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     id,
     variant: plan.variant,
     scope: plan.scope,
+    ...(creation.contract?.spokenClose && {
+      unassessed: ['comic effect', 'acoustic timbre', 'performance'],
+    }),
+    ...(reading && {
+      basis:
+        'measured rhyme, lexical stress and complete anapestic feet; editorial reading of the closing line',
+    }),
+    ...(sourceArrangement && {
+      sectionArrangement: {
+        sourceRole: sourceArrangement.sourceRole,
+        writingFunction: sourceArrangement.role,
+        measured: sourceArrangement.repeatText
+          ? ['section-order', 'line-counts', 'verbatim-text']
+          : [
+              'section-order',
+              'line-counts',
+              ...(creation.contract?.returnGroups?.length ? ['positioned-verbatim-text'] : []),
+            ],
+      },
+    }),
     verdict: checks.some((c) => c.outcome === 'fail')
       ? 'fail'
       : checks.every((c) => c.outcome === 'pass')

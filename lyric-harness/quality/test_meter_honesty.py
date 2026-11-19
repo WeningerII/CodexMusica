@@ -156,8 +156,8 @@ class MeterHonesty(unittest.TestCase):
         def observe(text):
             return lh._form_reading(self.lex, text)
 
-        self.assertEqual(observe("record"), {"syllables": 2})
-        self.assertEqual(observe("hour"), {})
+        self.assertEqual(observe("record"), {"syllables": 2, "stresses": 1})
+        self.assertEqual(observe("hour"), {"stresses": 1})
         self.assertEqual(observe("read"), {"syllables": 1, "stress": "/"})
         self.assertEqual(observe("the read"), {"syllables": 2, "stress": "./"})
         self.assertEqual(observe("read zorbleflax"), {})
@@ -236,6 +236,54 @@ class MeterHonesty(unittest.TestCase):
                 check = next(c for c in verdict["checks"] if c["kind"] == "bars")
                 self.assertEqual((check["expected"], check["outcome"], verdict["verdict"]),
                                  (16, expected, expected))
+
+    def test_catalog_grades_syllable_rimes_without_terminal_pair_evidence(self):
+        from types import SimpleNamespace
+        from quality.catalog_grading import inspect_catalog, _reading
+        # Letter tokens have independent dictionary pronunciations.
+        cases = (
+            ("than-bauk", ["xxxx", "xxxy", "yxzz"], (1, 2)),
+            ("luc-bat", ["xxxxxx", "xxxxxxxy", "xxxxxy", "xxxxxyxz"], (1, 5)),
+        )
+        mandate = SimpleNamespace(default_relation="class:perfect")
+        for form, shapes, (row, column) in cases:
+            blueprint = {"song_form": {"id": form}, "lines": [{"bar": i + 1} for i in range(len(shapes))],
+                         "sections": [{"name": str(i), "function": "verse", "bars": width,
+                                       "meter": {"beats": 4, "unit": 4}}
+                                      for i, width in enumerate([2, 2] if form == "luc-bat" else [3])]}
+            def grade(text):
+                return inspect_catalog(self.lex, [" ".join(line) for line in text], blueprint,
+                                       mandate, {"verdicts": []})
+            with self.subTest(form=form):
+                passed = grade(shapes)
+                self.assertEqual(passed["verdict"], "pass", passed)
+                altered = [list(s) for s in shapes]
+                altered[row][column] = "z"
+                self.assertEqual(grade(altered)["verdict"], "fail")
+                altered[row][column] = "qzxv"
+                self.assertEqual(grade(altered)["verdict"], "unknown")
+                if form == "luc-bat":
+                    collided = [s.replace("y", "x") for s in shapes]
+                    checks = grade(collided)["checks"]
+                    self.assertTrue(any(c["kind"] == "syllable-rhyme-distinct" and c["outcome"] == "fail"
+                                        for c in checks))
+        self.assertNotIn("syllableRimes", _reading(self.lex, "x (y) z"))
+        self.assertEqual(_reading(self.lex, "x (y) z", syllable_rimes=True)["syllableRimes"], ["EH K S", "IY"])
+
+    def test_stored_contract_skips_subline_reading_but_selectors_and_unknown_shapes_keep_it(self):
+        from types import SimpleNamespace
+        from unittest.mock import patch
+        from quality import catalog_grading as cg
+        contract = {"version": 1, "id": "couplet", "scope": "rule", "variant": 0, "counts": {},
+                    "sections": [{"unit": "section", "role": "verse", "lines": 2}],
+                    "returnGroups": [], "rhymeGroups": []}
+        for selected, expected in ((contract, False), ({"id": "couplet"}, True),
+                                   ({**contract, "extension": []}, True)):
+            with patch.object(cg, "_reading", wraps=cg._reading) as reader:
+                cg.inspect_catalog(self.lex, ["x", "y"], {"song_form": selected},
+                                   SimpleNamespace(default_relation="type:perfect"), {})
+            self.assertEqual([call.kwargs["syllable_rimes"] for call in reader.call_args_list],
+                             [expected, expected])
 
     def test_s7_an_unknown_word_never_counts_as_matched(self):
         e = self.one("zorbleflax", "/")

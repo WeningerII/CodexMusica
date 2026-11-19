@@ -182,3 +182,209 @@ test('invalid selection is refused over the MCP boundary', async () => {
     );
   }
 });
+
+test('recovery judges word positions from the native sung tokens', async () => {
+  const { prepareFormReview, reviewRecoveredForm } = await import('./lyric_form.js');
+  const selection = await prepareFormReview({ catalog_form: 'lune', catalog_variant: 1 });
+  const printed = ['a b c (d)', 'a b c d e', 'a b c'];
+  const check = (first) =>
+    reviewRecoveredForm(selection, {
+      lines: printed,
+      form_reading: [first, ['a', 'b', 'c', 'd', 'e'], ['a', 'b', 'c']].map((sungWords) => ({
+        sungWords,
+      })),
+    }).verdict;
+  assert.equal(check(['a', 'b', 'c']), 'pass');
+  assert.equal(check(['a', 'b', 'c', 'd']), 'fail');
+  assert.equal(check(null), 'unknown');
+  assert.equal(reviewRecoveredForm(selection, { lines: printed }).verdict, 'unknown');
+});
+
+test('recovery checks a descending syllable rhyme at its printed positions', async () => {
+  const run = (middle) =>
+    recover({
+      catalog_form: 'than-bauk',
+      lines: ['x x x x', middle, 'y x z z'],
+    });
+  const passed = await run('x x x y');
+  assert.equal(passed.catalog_form.verdict, 'pass');
+  const changed = await run('x x z y');
+  assert.equal(
+    changed.catalog_form.checks.find((c) => c.kind === 'syllable-rhyme').outcome,
+    'fail'
+  );
+});
+
+test('Pindaric header recovery reports the actual printed lines and leaves the meter unresolved', async () => {
+  const grade = await recover({
+    catalog_form: 'pindaric-ode',
+    catalog_counts: [{ path: '1.1', count: 1 }],
+    lines: ['[Strophe 1]', 'one', 'two', '[Antistrophe 1]', 'one', 'two', '[Epode 1]', 'three'],
+  });
+  assert.equal(grade.catalog_form.verdict, 'unknown');
+  assert.deepEqual(
+    grade.catalog_form.checks.find((c) => c.kind === 'metrical-responsion').printedLineCounts,
+    [2, 2]
+  );
+  assert.equal(
+    grade.catalog_form.checks.find((c) => c.kind === 'epode-meter-contrast').printedLineCount,
+    1
+  );
+});
+
+test('recovery requests per-syllable sounds only for an active syllable rhyme', async () => {
+  const { catalogReadingFlag, prepareFormReview } = await import('./lyric_form.js');
+  const flag = async (options) => catalogReadingFlag((await prepareFormReview(options))?.plan);
+  assert.equal(await flag({}), null);
+  assert.equal(await flag({ catalog_form: 'lune' }), null);
+  assert.equal(await flag({ catalog_form: 'lune', catalog_variant: 0 }), '--form-reading=lines');
+  assert.equal(await flag({ catalog_form: 'luc-bat' }), '--form-reading');
+  assert.equal(await flag({ catalog_form: 'than-bauk' }), '--form-reading');
+});
+
+test('stepped printing keeps the sung coordinates and preserves source indentation separately', async () => {
+  const selection = { catalog_form: 'triadic-line', catalog_counts: [{ path: '1.1', count: 1 }] };
+  const rows = ['one', '  two', '    three'];
+  const rec = await recover({
+    ...selection,
+    lines: ['[VERSE]', rows[0], '# note', rows[1], rows[2]],
+  });
+  assert.deepEqual(
+    rec.lines,
+    rows.map((r) => r.trim())
+  );
+  assert.deepEqual(rec.printed_lines, rows);
+  assert.equal(rec.catalog_form.verdict, 'pass');
+  const { prepareFormReview, reviewRecoveredForm } = await import('./lyric_form.js');
+  const old = reviewRecoveredForm(await prepareFormReview(selection), { lines: rec.lines });
+  assert.equal(old.verdict, 'unknown');
+});
+
+test('rondo recovery describes submitted words without certifying musical recurrence', async () => {
+  const selection = { catalog_form: 'rondo', catalog_variant: 0 };
+  const review = async (lines) => {
+    const r = await recover({ ...selection, lines });
+    assert.ok(r.catalog_form, JSON.stringify(r));
+    return r.catalog_form;
+  };
+  const marked = [
+    '[A]',
+    'a b c',
+    '[PART B]',
+    'x y',
+    '[A]',
+    'a b c',
+    '[PART C]',
+    'y z',
+    '[A]',
+    'a b d',
+  ];
+  const score = await review(marked);
+  assert.equal(score.verdict, 'unknown');
+  assert.deepEqual(
+    score.checks.filter((c) => c.kind === 'role').map((c) => c.outcome),
+    Array(5).fill('pass')
+  );
+  assert.deepEqual(
+    score.checks.filter((c) => c.kind.startsWith('musical-')).map((c) => c.outcome),
+    ['unknown', 'unknown']
+  );
+  assert.deepEqual(
+    score.lyricalReturns.map((r) => [r.sections, r.classification, r.lineSpans]),
+    [
+      [
+        [1, 3],
+        'VERBATIM',
+        [
+          [0, 1],
+          [2, 3],
+        ],
+      ],
+      [
+        [1, 5],
+        'LEXICAL_VARIATION',
+        [
+          [0, 1],
+          [4, 5],
+        ],
+      ],
+    ]
+  );
+  const drift = await review(marked.map((v) => (v === '[PART C]' ? '[PART B]' : v)));
+  assert.equal(drift.verdict, 'fail');
+});
+
+test('marked neutral stanzas are measured independently of their end rhymes', async () => {
+  for (const [id, variant, sizes] of [
+    ['byr-a-thoddaid', 0, [4, 2]],
+    ['rubaiyat-stanza', 1, [4, 4]],
+    ['terza-rima', 0, [3, 3, 3, 1]],
+    ['terza-rima', 1, [3, 3, 3, 2]],
+  ]) {
+    const measure = async (widths, prefix = []) => {
+      const lines = [
+        ...prefix,
+        ...widths.flatMap((n, i) => ['[Verse ' + (i + 1) + ']', ...Array(n).fill('x')]),
+      ];
+      const record = await recover({ catalog_form: id, catalog_variant: variant, lines });
+      return record.catalog_form.checks;
+    };
+    const complete = await measure(sizes);
+    const spans = (items) =>
+      items.filter((c) => ['line-span', 'opening-line-span'].includes(c.kind));
+    assert.equal(spans(complete).length, sizes.length);
+    assert.ok(spans(complete).every((c) => c.outcome === 'pass'));
+    assert.ok(complete.some((c) => c.kind === 'rhyme' && c.outcome === 'unknown'));
+    const shifted = [...sizes];
+    shifted[0]--;
+    shifted[1]++;
+    assert.equal(spans(await measure(shifted)).filter((c) => c.outcome === 'fail').length, 2);
+    const missing = await measure(sizes.slice(1), Array(sizes[0]).fill('x'));
+    assert.ok(spans(missing).length && spans(missing).every((c) => c.outcome === 'unknown'));
+  }
+});
+
+test('source prose distinguishes hard line breaks from paragraph boundaries', async () => {
+  const form = { catalog_form: 'prose-poem', catalog_counts: [{ path: '1.1', count: 2 }] };
+  const raw = async (lines) => (await recover({ ...form, lines })).catalog_form;
+  assert.equal((await raw(['One.', '', 'Two?'])).verdict, 'pass');
+  const wrong = await raw(['One.', 'Two?']);
+  assert.equal(wrong.verdict, 'fail');
+  assert.deepEqual(
+    wrong.checks.filter((c) => c.outcome === 'fail').map((c) => c.kind),
+    ['printed-paragraph-count', 'unbroken-paragraph']
+  );
+});
+
+test('alliterative verse locates the head stave across the actual break', async () => {
+  const lines = [
+    'bright red / black drums',
+    'eels hide | oak bends',
+    'bright red / soft stones',
+    'sky stone / spade drum',
+    'bright red / black bells',
+    'bright swift red / black drums',
+    'bright red black drums',
+    'qzxvv red / black drums',
+  ];
+  const result = await recover({ catalog_form: 'alliterative-verse', lines });
+  assert.equal(result.catalog_form.mandate.lineCount, null);
+  assert.equal(result.catalog_form.mandate.minimumLines, 1);
+  assert.deepEqual(
+    result.catalog_form.checks.map((row) => row.outcome),
+    ['pass', 'pass', 'fail', 'fail', 'fail', 'fail', 'unknown', 'unknown']
+  );
+});
+
+test('matching printed headings leave narrative readings unknown', async () => {
+  const recovered = await recover({
+    catalog_form: 'goodnight-ballad',
+    lines: ['[CONFESSION]', 'one two', '[FAREWELL]', 'three four'],
+  });
+  assert.equal(recovered.catalog_form.verdict, 'unknown');
+  assert.ok(
+    recovered.catalog_form.checks.some(
+      (check) => check.kind === 'declared-textual-function' && check.outcome === 'unknown'
+    )
+  );
+});

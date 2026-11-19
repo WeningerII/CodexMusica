@@ -2054,12 +2054,11 @@ def _loci(rule, stream):
             r = fr.refrain_tail.get(li)
             if r is None:
                 continue
-            before = [i for i in ids if i < r]
-            if not before:
-                continue
-            t = stream.units[before[-1]].token
-            out.append((tuple(i for i in stream.tokens[(li, t)] if i < r),
-                        f"L{li}.pre-refrain", 1))
+            # The qafiya is the lexical word immediately before the marked
+            # refrain; an unread word there cannot move its rhyme leftward.
+            previous = stream.tokens.get((li, stream.units[r].token - 1))
+            if previous:
+                out.append((previous, f"L{li}.pre-refrain", 1))
         elif rule.locus == "line_refrain_tail":
             r = fr.refrain_tail.get(li)
             if r is None:
@@ -3986,6 +3985,7 @@ def mark_refrain_tail(stream, min_count=2, min_fraction=0.6, lines=None):
     someone remembers it (doctrine 48) and nothing had ever run this line.
     """
     if lines is not None:
+        lines = tuple(lines)
         wrong = [l for l in lines if isinstance(l, bool)
                  or not isinstance(l, int)]
         if wrong:
@@ -3996,27 +3996,44 @@ def mark_refrain_tail(stream, min_count=2, min_fraction=0.6, lines=None):
                 f"returns hemistich TEXTS and matches no line at all -- use "
                 f"[0] + list(range(1, len(stream.lines), 2)) for the same "
                 f"Persian convention.")
+        if any(not 0 <= i < len(stream.lines) for i in lines):
+            raise NoReferent("refrain-bearing line index outside the stream")
     keep = None if lines is None else set(lines)
-    tails = {}
+    lengths = {}
     for li, ids in enumerate(stream.lines):
-        if not ids or (keep is not None and li not in keep):
+        if keep is not None and li not in keep:
             continue
-        seq, t = [], None
-        for i in reversed(ids):
-            u = stream.units[i]
-            if t is None or u.token != t:
-                seq.append(u.token_text.lower())
-                t = u.token
-        tails[li] = tuple(seq)                    # reversed token sequence
-    best, n = None, len([t for t in tails.values() if t])
-    for depth in range(1, 8):
-        counts = {}
-        for li, t in tails.items():
-            if len(t) >= depth:
-                counts.setdefault(t[:depth], []).append(li)
-        for run, ls in counts.items():
-            if len(ls) >= min_count and n and len(ls) / n >= min_fraction:
-                best = (depth, run, ls)
+        length = (len(stream.lexical_tokens[li]) if stream.lexical_tokens else
+                  stream.units[ids[-1]].line_tokens if ids else 0)
+        if not length and keep is None:
+            continue  # blank separators are not candidate lines in an unscoped search
+        lengths[li] = length
+    # Extend only suffixes that still meet the threshold. Within a group the
+    # previous suffix is identical, so comparing one more token suffices.
+    # Each lexical position is visited at most once, with no fixed depth cap.
+    n = len(lengths)
+    groups = [list(lengths)] if n else []
+    best = None
+    depth = 0
+    while groups:
+        depth += 1
+        extensions = []
+        for group in groups:
+            by_word = {}
+            for li in group:
+                position = lengths[li] - depth
+                units = stream.tokens.get((li, position))
+                if units:
+                    word = stream.units[units[0]].token_text.lower()
+                    by_word.setdefault(word, []).append(li)
+            extensions.extend(members for members in by_word.values()
+                              if len(members) >= min_count and len(members) / n >= min_fraction)
+        if extensions:
+            # Preserve the existing tie choice: at the longest matching depth
+            # prefer the qualifying suffix encountered last in line order.
+            best = (depth, max(extensions, key=lambda members: members[0]))
+        groups = extensions
+    stream.frames.refrain_tail.clear()
     if best is None:
         # THE SOURCE IS STILL SET, AND THE RETURN IS NO LONGER `None`.
         # Deleting the source on a null result would make "the shared-tail
@@ -4033,20 +4050,14 @@ def mark_refrain_tail(stream, min_count=2, min_fraction=0.6, lines=None):
         return {"depth": 0, "run": (), "lines": [], "found": 0,
                 "candidates": n, "min_count": min_count,
                 "min_fraction": min_fraction}
-    depth, run, ls = best
+    depth, ls = best
+    first = ls[0]
+    run = tuple(stream.units[stream.tokens[(first, pos)][0]].token_text.lower()
+                for pos in range(lengths[first] - depth, lengths[first]))
     for li in ls:
-        ids = stream.lines[li]
-        toks, t = [], None
-        for i in reversed(ids):
-            u = stream.units[i]
-            if t is None or u.token != t:
-                toks.append(u.token)
-                t = u.token
-        start_tok = toks[depth - 1]
-        stream.frames.refrain_tail[li] = min(
-            i for i in ids if stream.units[i].token == start_tok)
+        stream.frames.refrain_tail[li] = stream.tokens[(li, lengths[li] - depth)][0]
     stream.frames.refrain_source = "computed"
-    return {"depth": depth, "run": tuple(reversed(run)), "lines": ls,
+    return {"depth": depth, "run": run, "lines": ls,
             "found": len(ls), "candidates": n,
             "min_count": min_count, "min_fraction": min_fraction}
 

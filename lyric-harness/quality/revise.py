@@ -3003,6 +3003,8 @@ class Reviser:
         if classes and not callable(classes):
             linked = []
             for cls in classes:
+                if getattr(cls, "placed", False):
+                    continue  # One repeated word does not make the section a refrain.
                 s = set(cls)
                 if s & ga and s & gb:
                     linked.append(sorted(s))
@@ -3831,7 +3833,8 @@ class Reviser:
         rep = GR.song_function_report(song, hooks=hooks,
                                       rhyme_key=GR.rime_cmudict(self.lex),
                                       classes=classes,
-                                      hook_in_class=hook_in_class)
+                                      hook_in_class=hook_in_class,
+                                      selected_roles=getattr(self.lex, "catalog_placement_roles", ()))
         # The plan's own reason for declaring no hook, or "" (see the note
         # at `unasked` below). Read once: the coverage rows and the refusal
         # note both speak from it.
@@ -4086,8 +4089,15 @@ class Reviser:
         fl.qf = qf
         fl._pairs = lambda _lines, _s, _p=pairs: list(_p)
         forced = [tuple(r.lines) for r in m.returns
-                  if getattr(r, "verbatim", False) is True]
+                  if getattr(r, "verbatim", False) is True and not getattr(r, "placed", False)]
         fl.declared_lexical_classes = tuple(forced)
+        # Repeated openings license the opening only. A repeated final word
+        # licenses neither the rest of its line nor an identical opening.
+        for r in m.returns:
+            if (getattr(r, "placed", False) and r.verbatim is True and
+                    all(_SL.parse_slot(f"1.{locus}").rule.locus == "line_initial_token"
+                        for locus in r.loci)):
+                forced.append(tuple(r.lines))
         for k, group in enumerate(m.groups):
             if "schema:anaphora" in _relations_of(m, k):
                 forced.append(tuple(group))

@@ -1489,7 +1489,7 @@ def _position(place):
 
 
 def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
-             head_cap=None):
+             head_cap=None, verbatim_groups=(), reserve_end=False):
     """-> (members, None) when the type can bind this group, else
     (None, reason). `lines` are the group's line numbers in text order,
     `section_lines` every line of the section the group sits in.
@@ -1525,15 +1525,31 @@ def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
                       f"line(s) in a song this long")
     loci = (sch.spans[0].locus, sch.spans[-1].locus)
     if not all(lc in _TOKEN_LOCI for lc in loci):
+        if verbatim_groups:
+            return None, "a relation across verbatim copies needs explicit word positions"
         if _RL.identity_forced(sch):
             return None, ("its identity rule makes the members the same word at "
                           "the line end, which the floor charges as a repeat")
         return [str(ln) for ln in lines], None
     opts = [_member_options(loci[0], max_token)] + [
         _member_options(loci[-1], max_token)] * (k - 1)
+    # Copies share the same tokens. Only an agreement-only rule with identical
+    # anchors can reuse a word across copies. Every pair is still graded.
+    same_word_ok = (verbatim_groups and _RL.identity_forced(sch) and sch.spans[0] == sch.spans[-1]
+                    and all(isinstance(c.predicate, _RL.Agree) for c in sch.channels if c.required)
+                    and all(isinstance(rule.predicate, _RL.Agree) for rule in sch.identity))
     last = "no in-line places satisfy its placement"
     for _ in range(tries):
         places = [rng.choice(o) for o in opts]
+        if reserve_end and any(placement_word(place) == LAST_WORD for place in places):
+            last = "the prescribed ending already binds that word"
+            continue
+        if verbatim_groups:
+            positions = dict(zip(lines, map(placement_word, places)))
+            if not same_word_ok and any(len({positions[line] for line in group}) != len(group)
+                                        for group in verbatim_groups):
+                last = "the relation needs distinct word positions across verbatim copies"
+                continue
         if (_RL.identity_forced(sch)
                 and sum(1 for p in places if p == "end") >= 2):
             last = ("its identity rule makes the members the same word at the "
@@ -1720,7 +1736,7 @@ def _line_reach(sch, head_cap=None):
     return cap, gap, consecutive
 
 
-def _carve(sch, block, free, trng, max_token, head_cap):
+def _carve(sch, block, free, trng, max_token, head_cap, reserve_end=False):
     """-> (members, lines used) for the largest group of this type the block
     can hold, else a pair of consecutive unbound lines of the section, else
     (None, reason). THE TYPE SHAPES ITS GROUP (D2's skew fix, 2026-10-27):
@@ -1728,8 +1744,10 @@ def _carve(sch, block, free, trng, max_token, head_cap):
     gap) takes the part of the drawn block it can bind, and the rest of the
     block draws its own type; it is rejected only when no part of the section
     can carry it."""
+    if reserve_end and any(span.locus not in _TOKEN_LOCI for span in (sch.spans[0], sch.spans[-1])):
+        return None, "a prescribed end word leaves only explicit nonterminal word positions"
     block = sorted(block)
-    members, why = fit_type(sch, block, trng, max_token, head_cap=head_cap)
+    members, why = fit_type(sch, block, trng, max_token, head_cap=head_cap, reserve_end=reserve_end)
     if members is not None:
         return members, block
     cap, gap, consecutive = _line_reach(sch, head_cap)
@@ -1745,7 +1763,7 @@ def _carve(sch, block, free, trng, max_token, head_cap):
                 continue
             if len(take) < 2:
                 continue
-            got, w = fit_type(sch, take, trng, max_token, head_cap=head_cap)
+            got, w = fit_type(sch, take, trng, max_token, head_cap=head_cap, reserve_end=reserve_end)
             if got is not None:
                 return got, take
             why = w
@@ -1753,7 +1771,7 @@ def _carve(sch, block, free, trng, max_token, head_cap):
 
 
 def _assign_types(section_blocks, trng, max_token, declared=None,
-                  language="eng", per_group=None, head_cap=None):
+                  language="eng", per_group=None, head_cap=None, reserve_end=False):
     """-> (groups as member lists, {label: 'schema:name'}, records, unplaced).
 
     `section_blocks` is one (section lines, drawn blocks) per sung section.
@@ -1817,7 +1835,7 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
                 unbound = sorted(set(free).union(*queue))
                 for cand in list(carried):
                     members, took = _carve(_RL.REGISTRY[cand], block, unbound,
-                                           trng, max_token, head_cap)
+                                           trng, max_token, head_cap, reserve_end)
                     if members is not None:
                         carried.remove(cand)
                         name, chosen_from = cand, ("carried from an earlier "
@@ -1828,7 +1846,7 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
                     cand = left.pop(trng.randrange(len(left)))
                     proposed.append(cand)
                     members, took = _carve(_RL.REGISTRY[cand], block, unbound,
-                                           trng, max_token, head_cap)
+                                           trng, max_token, head_cap, reserve_end)
                     if members is None:
                         rejected.append({"type": cand, "reason": took})
                         carried.append(cand)
@@ -2497,7 +2515,7 @@ def end_rhyme_groups(plan):
     added = blocked = narrow = 0
     for name in order:
         fn, lines = per[name]
-        code = (schemes.get(fn) or {}).get("rgs") or ()
+        code = (schemes.get(name) or schemes.get(fn) or {}).get("rgs") or ()
         if len(lines) < 2 or len(code) != len(lines):
             continue
         if any(ln in pinned for ln in lines):
@@ -4319,6 +4337,13 @@ def _sweep_coords(plan):
     "an unrhymed line is a SINGLETON BLOCK, not a missing value"), and
     dropping it would shorten the song the coordinates describe.
     """
+    prescribed = (plan.get("request", {}).get("song_form") or {}).get("rhymeGroups")
+    if prescribed:
+        classes = {line: group for group, members in enumerate(prescribed) for line in members}
+        # Each open ending contributes a singleton for partition statistics.
+        for line in plan["request"]["song_form"].get("openRhymeLines", ()):
+            classes[line] = -line
+        return SC.coordinates(tuple(classes[line] for line in sorted(classes)))
     schemes = (plan.get("choices") or {}).get("schemes") or {}
     per = {}
     for s in plan.get("line_slots") or []:
@@ -4326,7 +4351,7 @@ def _sweep_coords(plan):
     keys = {}
     for name, slots in per.items():
         slots = sorted(slots, key=lambda s: s["line"])
-        code = (schemes.get(slots[0]["function"]) or {}).get("rgs") or ()
+        code = (schemes.get(name) or schemes.get(slots[0]["function"]) or {}).get("rgs") or ()
         for i, s in enumerate(slots):
             keys[s["line"]] = ((name, code[i]) if len(code) == len(slots)
                                else ("", s["line"]))
@@ -5528,24 +5553,67 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # shape), and a per-section anacrusis in beats.
     by_func, scheme_meta = {}, {}
     terminal_groups = song_form["rhymeGroups"] if song_form else []
-    for fn in dict.fromkeys(funcs):
-        if ks[fn] == 0:
+    if any(len(g) > _max_group for g in terminal_groups):
+        raise PlanRefused("the prescribed rhyme group exceeds the requested group size")
+    group_of = {line: i for i, g in enumerate(terminal_groups) for line in g}
+    if song_form:
+        group_of.update({line: -line for line in song_form.get("openRhymeLines", ())})
+    prescribed_returns = song_form["returnGroups"] if song_form else []
+    if song_form and song_form["sections"][-1].get("vocalDuty") == "reprise":
+        width = catalog["sections"][-1]["lines"]
+        if width > catalog["sections"][-2]["lines"]:
+            raise SeedRefused("the chosen ensemble reprise exceeds the preceding solo verse")
+        prescribed_returns = [[n - width, n] for n in range(total - width + 1, total + 1)]
+    repeated_carrier = bool(song_form and song_form["sections"][0].get("sourceRole") in ("chant", "call") and not terminal_groups)
+    if repeated_carrier:
+        # The native verbatim carrier already binds every return in the contract.
+        prescribed_returns = []
+    return_only = bool(prescribed_returns and not terminal_groups)
+    multi_prescribed = bool(terminal_groups) and len(funcs) > 1
+    offset = 0
+    instance_schemes = multi_prescribed or return_only or bool(catalog and catalog.get("instance_lengths"))
+    scheme_sizes = {fn: ks[fn] for fn in dict.fromkeys(funcs)}
+    copies_at = {}
+    if instance_schemes:
+        copies = {line for group in prescribed_returns for line in group[1:]}
+        scheme_sizes, occurrences = {}, {}
+        first = 1
+        for part in catalog["sections"]:
+            fn, size = part["function"], part["lines"]
+            occurrences[fn] = occurrences.get(fn, 0) + 1
+            name = f"{fn.upper()}{occurrences[fn]}"
+            scheme_sizes[name] = size
+            copies_at[name] = {i for i in range(size) if first + i in copies}
+            first += size
+    for fn, size in scheme_sizes.items():
+        if size == 0:
             continue
-        if terminal_groups and ks[fn] > 2:
-            if any(len(g) > _max_group for g in terminal_groups):
-                raise PlanRefused("the prescribed rhyme group exceeds the requested group size")
-            group_of = {line: i for i, g in enumerate(terminal_groups) for line in g}
-            code, pool = tuple(group_of[line] for line in range(1, ks[fn] + 1)), 1
+        if multi_prescribed or terminal_groups and size > 2:
+            labels = [group_of[i] for i in range(offset + 1, offset + size + 1)]
+            local = {label: i for i, label in enumerate(dict.fromkeys(labels))}
+            code, pool = tuple(local[label] for label in labels), 1
+            offset += size
         else:
             for _scheme_attempt in range(500):
-                code, pool = _scheme_for(ks[fn], rng)
+                copied = copies_at.get(fn)
+                if copied:
+                    independent = size - len(copied)
+                    free_code, pool = _scheme_for(independent, rng) if independent else ((), 1)
+                    fresh = iter(free_code)
+                    # Copies receive identity from returns, not a second
+                    # sound obligation. Draw only among independent lines.
+                    keys = [("copy", i) if i in copied else ("free", next(fresh)) for i in range(size)]
+                    labels = {key: n for n, key in enumerate(dict.fromkeys(keys))}
+                    code = tuple(labels[key] for key in keys)
+                else:
+                    code, pool = _scheme_for(size, rng)
                 if max(code.count(x) for x in set(code)) <= _max_group:
                     break
             else:
                 raise SeedRefused("declared group bound found no scheme in 500 draws")
         by_func[fn] = code
         scheme_meta[fn] = {"rgs": list(code), "chosen_from": pool,
-                           "lines": ks[fn],
+                           "lines": size,
                            "lines_chosen_from": list(ENVELOPE[
                                "lines_per_section"])}
 
@@ -5646,27 +5714,32 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     first_seen = {}
     sung_first = {}
     groups, returns = [], []
-    prescribed_returns = song_form["returnGroups"] if song_form else []
-    source_groups = terminal_groups
+    # Singleton classes establish differences in final sound but have no pair to bind.
+    paired_groups = [group for group in terminal_groups if len(group) > 1]
+    from quality.catalog_shape import rhyme_source_groups
+    source_groups = rhyme_source_groups(paired_groups, prescribed_returns)
     if prescribed_returns:
-        from quality.catalog_shape import rhyme_source_groups
-        source_groups = rhyme_source_groups(terminal_groups, prescribed_returns)
         returns.extend(prescribed_returns)
     _section_blocks = []
     for fn in funcs:
         counts[fn] = counts.get(fn, 0) + 1
         name = f"{fn.upper()}{counts[fn]}"
-        k = ks[fn]
+        scheme_key = name if instance_schemes else fn
+        k = scheme_sizes[scheme_key]
         # BARS FOLLOW THE PHRASE COUNT, which for a sung section IS its line
         # count and for a wordless one is its own draw. `max(k, 1)` used to
         # stand here and it is what made an instrumental exactly one line's
         # worth of music whatever else the plan did — the freebie this
         # section's own comment now records.
-        n_bars = phrases[fn] * bars
+        n_bars = (k if k else phrases[fn]) * bars
         ana = anacrusis.get(fn, 0.0)
         sections.append({"name": name, "function": fn,
                          "bars": n_bars, "start_bar": bar,
                          "meter": dict(meter)})
+        if song_form is not None:
+            written_as = song_form["sections"][len(sections) - 1].get("sourceRole")
+            if written_as is not None:
+                sections[-1]["source_role"] = written_as
         first = line_no
         for i in range(k):
             line_slots.append({
@@ -5705,8 +5778,9 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                 first_seen[fn] = first
             # Lines only: the TYPE decides the places (D3), and may take part
             # of a drawn block, in `_assign_types` below.
-            blocks = source_groups if prescribed_returns else _abs_groups(by_func[fn], first)
-            _section_blocks.append((list(range(first, first + k)), [list(g) for g in blocks]))
+            if not terminal_groups:
+                blocks = _abs_groups(by_func[scheme_key], first)
+                _section_blocks.append((list(range(first, first + k)), blocks))
             # OVERLAPPING GROUPS, DRAWN AND NOT ONLY DECLARABLE (2026-08-23).
             #
             # Doctrine 2's own sentence is that maximal cliques MAY OVERLAP —
@@ -5840,23 +5914,53 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     _head_cap = max(1, int(_FL.FloorDeclaration().resolve(
         "anaphora_max", _aprof, _atok) * total + 1e-9))
     binding_overrides = relations
+    additional_bindings = []
     if terminal_groups:
         from quality.catalog_shape import terminal_rhyme_relation
         binding_overrides = dict(relations or {})
-        for i in range(len(terminal_groups)):
+        # These are absolute catalog classes, possibly spanning several stanzas.
+        # Binding one exact block at a time prevents carving into a different class.
+        _section_blocks = [(group, [group]) for group in source_groups]
+        for i in range(len(paired_groups)):
             label = SC.label((i,))
             requested = binding_overrides.get(label)
             if str(requested or "").strip().lower() in ("", "draw", "any"):
                 requested = relation or "class:RHYME"
             if not terminal_rhyme_relation(requested):
-                raise PlanRefused("the catalog requires rhyme at every selected line ending")
+                # A positioned registry relation can coexist with the form's
+                # terminal obligation. Keep both as native mandate groups.
+                if _schema_of(requested)[1] is None:
+                    raise PlanRefused("the catalog requires rhyme at every selected line ending")
+                additional_bindings.append((i, requested))
+                requested = "class:RHYME"
             binding_overrides[label] = requested
     groups, _type_rels, _type_records, _unplaced = _assign_types(
         _section_blocks, random.Random(f"{seed}/types"), _max_token,
         declared=relation, per_group=binding_overrides,
-        head_cap=_head_cap)
+        head_cap=_head_cap, reserve_end=bool(song_form and song_form.get("endingWords")))
     if terminal_groups and [record["lines"] for record in _type_records] != source_groups:
         raise PlanRefused("the selected rhyme type cannot bind the whole prescribed terminal group")
+
+    bound_copy_lines = set()
+    for index, requested in additional_bindings:
+        block = paired_groups[index]
+        extra_rng = random.Random(f"{seed}/catalog-extra/{index}")
+        name, schema = _schema_of(requested)
+        copies = [set(block).intersection(group) for group in prescribed_returns]
+        copies = [group for group in copies if len(group) > 1]
+        for group in copies:
+            bound_copy_lines.update(group)
+        members, why = fit_type(schema, block, extra_rng, _max_token,
+                                head_cap=_head_cap, verbatim_groups=copies, reserve_end=True)
+        if members is None:
+            raise JointRefused(f"the requested additional relation cannot bind the whole catalog group: {why}",
+                               codes=("TYPE_DOES_NOT_FIT",),
+                               findings=[{"code": "TYPE_DOES_NOT_FIT", "line": block[0], "detail": why}])
+        label = SC.label((len(groups),))
+        groups.append(members)
+        _type_rels[label] = f"schema:{name}"
+        _type_records.append({"group": label, "lines": list(block), "drawn_block": list(block),
+                              "type": name, "chosen_from": "declared", "proposed": [name], "rejected": []})
 
     plan = {
         "plan_version": 3,
@@ -5975,6 +6079,29 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # internal plan data; the writer is shown the generated rule (D5).
     if catalog is not None:
         plan["request"]["song_form"] = deepcopy(song_form)
+        turn_paths = {section["name"]: iter(declared["linePaths"])
+                      for section, declared in zip(plan["sections"], song_form["sections"])
+                      if "linePaths" in declared}
+        for slot in plan["line_slots"]:
+            if slot["section"] in turn_paths:
+                slot["divisionPath"] = deepcopy(next(turn_paths[slot["section"]]))
+        for section, declared in zip(plan["sections"], song_form["sections"]):
+            if "divisionPath" in declared:
+                section["divisionPath"] = deepcopy(declared["divisionPath"])
+        duties = [part.get("vocalDuty") for part in song_form["sections"]]
+        if any(duties):
+            size = max(duties.count("distinct-solo"), 2 if {"ensemble", "full", "reprise"}.intersection(duties) else 1)
+            if any(p.get("sourceRole") == "contrasting-part" for p in song_form["sections"]):
+                size = max(size, 3)
+            roster = [f"v{i + 1}" for i in range(size)]
+            plan["vocal_roster"] = roster
+            if {"ensemble", "full"}.intersection(duties):
+                plan["choir_roster"] = list(roster)
+            owners = iter(roster)
+            for section, duty in zip(plan["sections"], duties):
+                if duty:
+                    section["performers"] = (list(roster) if duty in ("full", "ensemble", "reprise") else
+                                             [next(owners)] if duty == "distinct-solo" else [roster[0]])
         plan["choices"]["pattern"]["chosen_from"] = "declared catalog section sequence"
         if "bars_per_line" in catalog and melody is None:
             plan["choices"]["meter"]["chosen_from"] = (
@@ -6000,13 +6127,29 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     #
     # A fixed lexical length narrows the grid ceiling on this particular draw.
     # Keep the draw's native placements intact and report a conflicting seed.
-    if song_form and song_form.get("lineRequirements"):
+    catalog_measures = song_form.get("lineRequirements", []) if song_form else []
+    if song_form and song_form.get("lineProfile") == "alliterative-long-line":
+        catalog_measures = [{"line": n, "stresses": 4} for n in range(1, total + 1)]
+    if catalog_measures or bound_copy_lines:
         from quality.catalog_shape import line_fit_conflicts
-        conflicts = line_fit_conflicts(plan, song_form["lineRequirements"])
+        conflicts = line_fit_conflicts(plan, catalog_measures, bound_copy_lines)
         if conflicts:
             raise SeedRefused("catalog line requirements conflict with the drawn plan: " +
                               "; ".join(f"L{item['line']} {item['code']}: {item['detail']}"
                                         for item in conflicts))
+    if song_form and song_form.get("endingWords"):
+        ending_class = {line: index for index, members in enumerate(song_form["endingWords"]["groups"])
+                        for line in members}
+        for group in groups:
+            occupied = set()
+            for member in group:
+                number, _, place = str(member).partition(".")
+                identity = ending_class.get(int(number))
+                if identity is None or placement_word(place or "end") != LAST_WORD:
+                    continue
+                if identity in occupied:
+                    raise SeedRefused("a drawn rhyme would bind two required copies of the same ending word")
+                occupied.add(identity)
     joint = joint_findings(plan)
     if joint:
         codes = sorted({c for c, _, _ in joint})
@@ -6112,6 +6255,49 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         plan["choices"]["meter"]["chosen_from"] = "declared melody; no meter draw"
         plan["choices"]["melody"] = {"mode": "declared", "repeat": "each lyric line",
                                       "underlay_certified": False, "pitch_certified": False}
+    if song_form and song_form.get("spokenClose"):
+        if melody is not None:
+            raise PlanRefused("the selected closing line is spoken")
+        sec, last = plan["sections"][0], plan["line_slots"][-1]
+        beats = sec["meter"]["beats"]
+        half = sec["bars"] * beats * 2
+        cut = rng.randint(1, half - 1)
+        pitches = rng.sample(range(105, 290), 2)
+        sec["accompaniment"] = {"instrument": "guitar", "figures": [
+            [{"start": start, "ticks": cut, "pitch_hz": pitches[0]},
+             {"start": start + cut, "ticks": half - cut, "pitch_hz": pitches[1]}]
+            for start in (0, half)]}
+        start = ((last["bar"] - sec["start_bar"]) * beats + last["beat"] - 1) * 4
+        width = last["duration"] * 4
+        if start != int(start) or width != int(width):
+            raise SeedRefused("the spoken close needs quarter-pulse event boundaries")
+        last["speech_event"] = {"start": int(start), "ticks": int(width), "articulation": "speech"}
+    if song_form and "closingChord" in song_form:
+        if melody is not None:
+            raise PlanRefused("the monophonic line melody cannot declare the four-voice closing setting")
+        sec, last = plan["sections"][0], plan["line_slots"][-1]
+        start = ((last["bar"] - sec["start_bar"]) * sec["meter"]["beats"] + last["beat"] - 1) * 4
+        width = last["duration"] * 4
+        if width < 4 or int(start) != start or int(width) != width:
+            raise SeedRefused("the closing chord needs one full pulse on the final line")
+        duration = rng.randint(4, int(width))
+        root = rng.randint(120, 240)
+        plan["vocal_roster"] = [f"v{n}" for n in (1, 2, 3, 4)]
+        sec["closing_chord"] = [
+            dict(performer=part, start=int(start + width) - duration, ticks=duration, pitch_hz=root * ratio)
+            for part, ratio in zip(plan["vocal_roster"], (1, 5/4, 3/2, 2))]
+    if song_form and "imitationRepeats" in song_form:
+        from quality.melody import assign_imitative_score
+        if melody is not None:
+            raise PlanRefused("a repeated line melody conflicts with the selected multi-voice score")
+        if not assign_imitative_score(rng, plan, song_form["imitationRepeats"]):
+            raise SeedRefused("the selected voice entries and loops do not fit this score grid")
+    if song_form and any("melodyGroup" in p for p in song_form["sections"]):
+        from quality.melody import assign_section_melodies
+        try:
+            assign_section_melodies(rng, plan["sections"], song_form["sections"], sub)
+        except ValueError as exc:
+            raise PlanRefused(str(exc)) from exc
     plan["writer_brief"] = writer_brief(plan)
     return plan
 
@@ -6138,6 +6324,7 @@ def fill_plan(plan, lines):
         # the verbs (see `make_plan`). A plan with no declared title still
         # writes `""` here, so the finding is unchanged for anyone who does
         # not declare one.
+        **{k: deepcopy(plan[k]) for k in ("vocal_roster", "choir_roster") if k in plan},
         **({"melody": deepcopy(plan["melody"])} if "melody" in plan else {}),
         **({"song_form": deepcopy(plan["request"]["song_form"])}
            if "song_form" in plan.get("request", {}) else {}),
@@ -6161,10 +6348,12 @@ def fill_plan(plan, lines):
         # first is a question nobody asked (`Reviser._function_findings`).
         # "" when a slot was declared, exactly as the plan writes it.
         "hook_slot_refused": plan.get("hook_slot_refused") or "",
-        "sections": [dict(s) for s in plan["sections"]],
+        "sections": deepcopy(plan["sections"]),
         "lines": [{"text": got[s["line"] - 1], "bar": s["bar"],
                    "beat": s["beat"], "duration": s["duration"],
-                   "section": s["section"]}
+                   "section": s["section"],
+                   **({"speech_event": deepcopy(s["speech_event"])} if "speech_event" in s else {}),
+                   **({"divisionPath": deepcopy(s["divisionPath"])} if "divisionPath" in s else {})}
                   for s in plan["line_slots"]],
     }
 
@@ -6276,12 +6465,15 @@ def section_header(sec, slots):
     im = sec["meter"]
     size = (f"{sec['bars']} bar{'s' if sec['bars'] != 1 else ''} "
             f"of {im['beats']}/{im['unit']}")
+    label = sec["function"].upper()
+    if (sec.get("source_role"), sec["function"]) in (("chant", "chorus"), ("call", "chorus"), ("sonnet", "verse"), ("master-sonnet", "verse")):
+        label = sec["source_role"].upper()
     if not slots:
-        return f"[{sec['function'].upper()} — instrumental — {size}, no words]"
+        return f"[{label} — instrumental — {size}, no words]"
     pickup = (_pickup_phrase(slots[0]["beat"] - 1)
               if len({s["beat"] for s in slots}) == 1 else ", mixed line pickups")
     n = len(slots)
-    return (f"[{sec['function'].upper()} — {n} "
+    return (f"[{label} — {n} "
             f"line{'s' if n != 1 else ''} — {size}{pickup}]")
 
 
@@ -6325,6 +6517,8 @@ def render_song(plan, lines):
     if len(got) != want:
         raise PlanRefused(f"the plan declares {want} line(s) and the draft "
                           f"carries {len(got)} — they must be the same song.")
+    if (plan.get("request", {}).get("song_form") or {}).get("printedParagraphs"):
+        return "\n\n".join(got).rstrip() + "\n"
     out = []
     for sec in plan["sections"]:
         slots = [s for s in plan["line_slots"]
@@ -7096,12 +7290,78 @@ def writer_brief(plan):
     catalog = plan.get("request", {}).get("song_form")
     if catalog is not None:
         out.append(f"Catalog {catalog['scope']}: {catalog['id']} (variant {catalog['variant']}).")
+        if catalog["id"] in ("abac-32-bar", "verse-refrain-with-introductory-verse"):
+            widths = [str(s["bars"]) for s in catalog["sections"] if "melodyGroup" in s and "bars" in s]
+            out.append("Selected writing arrangement fixes these part lengths in bars: " + ", ".join(widths)
+                       + ". The catalog reading compares the total span and allows other subdivisions.")
+        if any(part.get("divisionPath") and part["divisionPath"][-1]["unit"] == "metrical-stanza"
+               for part in catalog["sections"]):
+            out.append("  In each body stanza, match the syllable count and stress pattern of each corresponding line.")
+        if catalog["id"] == "pindaric-ode":
+            out.append("  English line-aligned setting: in each triad, match the stress and syllable "
+                       "patterns of corresponding strophe and antistrophe lines. Give the epode "
+                       "a contrasting syllable count on at least one corresponding line.")
+        if catalog.get("printedParagraphs"):
+            out.append("  Write one unbroken paragraph per slot. End each with sentence punctuation and leave a blank line between paragraphs.")
+        if catalog.get("printedSteps"):
+            out.append("  Print each logical line as a staircase of sung rows. "
+                       "Indent each successive row further than the previous row within that line. "
+                       "Rows per logical line, in order: " + ", ".join(map(str, catalog["printedSteps"])) + ".")
+        if catalog.get("phraseLines"):
+            out.append("  In this arrangement, print each measured phrase on a separate sung line.")
+        for i, part in enumerate(catalog["sections"], 1):
+            claim = part.get("textualFunction")
+            if claim:
+                target = f" The corresponding riddle is in section {claim['answersSection']}." if "answersSection" in claim else ""
+                out.append(f"  Section {i} · {claim['role']}: {claim['criterion']}{target}")
+        if any("textualFunction" in part for part in catalog["sections"]):
+            out.append("  These functions need an attributed reading of the submitted draft. "
+                       "The first grade supplies the passage identifiers for catalog_function_readings.")
         groups = catalog["rhymeGroups"]
-        if len(groups) == 1:
+        if catalog.get("openRhymeLines"):
+            out.append("  Rhyme the line endings within each class: " +
+                       "; ".join(", ".join(map(str, group)) for group in groups) + ".")
+            out.append("  Unconstrained line endings: " +
+                       ", ".join(map(str, catalog["openRhymeLines"])) + ".")
+        elif len(groups) == 1:
             out.append(f"  Lines {groups[0][0]}–{groups[0][-1]}: all line endings rhyme with each other.")
         elif groups:
             out.append("  Match the ending sound within each group of lines and keep it distinct across groups: "
                        + "; ".join(", ".join(map(str, group)) for group in groups) + ".")
+        if catalog.get("lineProfile") == "alliterative-long-line":
+            out.append("  Mark the pause in each line with / or |. Use two stresses per half. "
+                       "The first stressed onset after the pause alliterates with at least one "
+                       "before it. The final stress takes a different onset.")
+        if catalog.get("lineProfile") == "caesural-rhyme":
+            out.append("  In each line mark the mid-line pause with / or |. "
+                       "The word immediately before it must rhyme with a different word at the line ending.")
+        if catalog.get("lineProfile") == "linked-couplet-echoes":
+            out.append("  At each couplet boundary rewrite the previous line, retaining its words in order "
+                       "and replacing one word within a line of at least three words. Close by repeating the "
+                       "opening or changing one word. This measures printed echoes, not shifts of meaning.")
+        if catalog.get("lineProfile") == "english-short-long-five":
+            out.append("  Use the English short–long–short–long–long setting within 31 syllables total. "
+                       "Each short line has fewer syllables than each long line. This measures an "
+                       "English arrangement, with no fixed per-line count or Japanese mora reading.")
+        if catalog.get("lineProfile") == "single-phrase-lines":
+            out.append("  Write each line as one compact English noun phrase beginning with a determiner, "
+                       "with up to two adjectives before its noun. This setting measures linguistic phrasing.")
+        if catalog.get("lineProfile") in ("pivot-synonym", "pivot-antonym"):
+            ending = catalog["lineProfile"].split("-")[1]
+            out.append("  The endpoints must be nouns in the selected " + ending + " relation. Use adjectives "
+                       "on lines 2/6 and -ing verbs on 3/5. Place four related nouns on line 4: "
+                       "two sharing a noun sense with the opening, then two sharing a noun sense with the closing.")
+        if catalog.get("lineProfile") == "didactic-word-roles":
+            out.append("  Write a noun, two adjectives, three -ing verbs, one four-word noun phrase, "
+                       "and a distinct noun synonymous with the opening. Use a determiner, two adjectives, "
+                       "and a noun for the measured phrase setting.")
+        if "endingWords" in catalog:
+            ending = catalog["endingWords"]
+            out.append("  Use one distinct final word per group; repeat that word at each listed line ending: "
+                       + "; ".join(", ".join(f"L{n}" for n in group) for group in ending["groups"]) + ".")
+            if ending.get("gathered"):
+                out.append("  Use every one of these ending words in the closing passage ("
+                           + ", ".join(f"L{n}" for n in ending["gathered"]) + "), in any order.")
         for group in catalog["returnGroups"]:
             out.append(f"  Repeat L{group[0]} verbatim at " + ", ".join(f"L{n}" for n in group[1:]) + ".")
         for row in catalog.get("lineRequirements", ()):
@@ -7109,6 +7369,10 @@ def writer_brief(plan):
             for field, unit in (("words", "word"), ("syllables", "syllable"), ("stresses", "stress")):
                 if field in row:
                     terms.append(f"{row[field]} {unit if row[field] == 1 else field}")
+            if "shorterThan" in row:
+                terms.append(f"fewer sung syllables than L{row['shorterThan']}")
+            if "stressEnding" in row:
+                terms.append(f"end in lexical stress {row['stressEnding']} (weak ., stressed /)")
             if "wordLetters" in row:
                 widths = ", ".join(str(n) if n is not None else "any" for n in row["wordLetters"])
                 terms.append(f"letters in each sung word, in order: {widths}")
@@ -7118,7 +7382,47 @@ def writer_brief(plan):
     for sec in plan["sections"]:
         slots = [s for s in plan["line_slots"]
                  if s["section"] == sec["name"]]
+        if "divisionPath" in sec:
+            labels = [f"{mark['unit']} {mark['address'].rsplit('[', 1)[1][:-1]}" +
+                      (" · " + mark["role"] if "role" in mark else "") for mark in sec["divisionPath"]]
+            out.append("  Score divisions: " + " / ".join(labels))
+        if "performers" in sec:
+            out.append("  Assigned vocal parts: " + ", ".join(sec["performers"]))
+        for slot in slots:
+            if "divisionPath" in slot:
+                turn = slot["divisionPath"][-1]["role"]
+                out.append(f"  L{slot['line']} · {turn}")
         out.append("  " + section_header(sec, slots))
+        if "accompaniment" in sec:
+            figure = sec["accompaniment"]["figures"][0]
+            out.append("    Repeat the guitar figure twice from the opening (four ticks per beat): " +
+                       ", ".join(f"{e['pitch_hz']} Hz for {e['ticks']} ticks" for e in figure) + ".")
+            speech = slots[-1]["speech_event"]
+            out.append(f"    Speak the closing line at section tick {speech['start']} for {speech['ticks']} ticks.")
+        if "closing_chord" in sec:
+            out.append("    Hold the closing chord to the end of the final line (four ticks per beat).")
+            for note in sec["closing_chord"]:
+                out.append(f"    {note['performer']}: {note['pitch_hz']} Hz at section tick "
+                           f"{note['start']} for {note['ticks']} ticks.")
+        if "voice_score" in sec:
+            out.append("    Literal imitative score, four ticks per beat; each part enters while the preceding part sounds.")
+            for track in sec["voice_score"]["tracks"]:
+                events = ", ".join(f"{hz} Hz/{ticks} ticks" for hz, ticks in track["phrases"][0])
+                out.append(f"    {track['performer']}: enter at tick {track['start']}; play {events}, "
+                           f"{len(track['phrases'])} time(s).")
+        if "section_melody" in sec:
+            phrase = sec["section_melody"]
+            events = ", ".join(f"{note['pitch_hz']} Hz/{note['ticks']}" if note["pitch_hz"] is not None
+                               else f"rest/{note['ticks']}" for note in phrase["notes"])
+            out.append(f"    Whole-section score for {sec.get('source_role', sec['function'])} at {phrase['subdivision']} ticks per beat: {events}.")
+        for part in sec.get("section_parts", ()):
+            phrase = part["melody"]
+            values = [f"{n['pitch_hz']} Hz/{n['ticks']}" if n['pitch_hz'] is not None else f"rest/{n['ticks']}"
+                      for n in phrase['notes']]
+            out.append(f"    Scored {part['kind']} {part['performer']} at {phrase['subdivision']} ticks per beat: "
+                       + ", ".join(values) + ".")
+        if "source_role" in sec:
+            out.append(f"    Catalog section: {sec['source_role']}. Native writing function: {sec['function']}.")
         # THE NUMBER SLOTS_EXCEEDED GRADES AGAINST, where the writer reads
         # (`MISSING.md` M-192): the METER row says 8, the line holds 5 after
         # its pickup, and the flag is hard. Printed UNDER the bracket, never
@@ -7183,6 +7487,9 @@ def writer_brief(plan):
         out.append(f"Every {fn} after the first repeats the first {fn} "
                    f"word for word, line for line.")
     for a, b in _pairs:
+        if (catalog and catalog["sections"][-1].get("vocalDuty") == "reprise" and
+                _fn_of.get(b) == "outro"):
+            out.append(f"The ensemble repeats line {a} verbatim on line {b}.")
         if _fn_of.get(b) == "reprise":
             out.append(f"Line {int(b)} opens the reprise by repeating line "
                        f"{int(a)} word for word.")

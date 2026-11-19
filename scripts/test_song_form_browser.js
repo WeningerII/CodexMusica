@@ -99,9 +99,25 @@ async function checkViewport(browser, origin, viewport) {
     await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('1');
     await view.getByRole('button', { name: 'Show expanded structure' }).click();
     await view.getByText(/distinct ending sound.*1, 3.*2, 4/).waitFor();
+    await picker.selectOption('triadic-line');
+    await view.getByRole('spinbutton').fill('2');
+    await view.getByRole('button', { name: 'Show expanded structure' }).click();
+    await view.getByText(/increasingly indented rows/).waitFor();
+    assert.ok(await view.getByRole('button', { name: 'Write this setting' }).isVisible());
+    await picker.selectOption('tumbling-verse');
+    await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('0');
+    await view.getByRole('button', { name: 'Show expanded structure' }).click();
+    await view.getByText(/number of unstressed syllables can vary/).waitFor();
     await picker.selectOption('triolet');
     await view.getByRole('button', { name: 'Show expanded structure' }).click();
     await view.getByText('Repeat line 1 verbatim at 4, 7.').waitFor();
+    await picker.selectOption('tritina');
+    // A focus change can scroll the narrow Lyrics panel between mouse down and up.
+    // Exercise the button's keyboard activation at this deeply scrolled form.
+    await view.getByRole('button', { name: 'Show expanded structure' }).press('Enter');
+    const endingNote = view.locator('#ly-form-writing-note');
+    assert.match(await endingNote.textContent(), /same final word within each group/);
+    assert.match(await endingNote.textContent(), /closing passage on line 10/);
     await picker.selectOption('quatrain');
     const expand = view.getByRole('button', { name: 'Show expanded structure' });
     await expand.focus();

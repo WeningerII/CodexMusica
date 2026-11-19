@@ -322,7 +322,7 @@
   {"id":"free-verse","name":"Free verse","scope":"deferred","patterns":[]},
   {"id":"prose-poem","name":"Prose poem","scope":"rule","patterns":[{"unit":"poem","children":[{"unit":"paragraph","times":[1,null]}]}]},
   {"id":"projective-verse","name":"Projective verse","scope":"deferred","patterns":[]},
-  {"id":"triadic-line","name":"Triadic line","scope":"setting","patterns":[{"unit":"poem","children":[{"unit":"line","times":[1,null],"children":[{"unit":"segment","times":3}]}]}]},
+  {"id":"triadic-line","name":"Triadic line","scope":"setting","patterns":[{"unit":"poem","children":[{"unit":"line","times":[1,null],"children":[{"unit":"segment","role":"indent-step","times":3}]}]}]},
   {"id":"irregular-ode","name":"Irregular ode","scope":"deferred","patterns":[]},
   {"id":"elegy","name":"Elegy","scope":"setting","patterns":[{"unit":"poem","children":[{"unit":"section","role":"lament"},{"unit":"section","role":"praise"},{"unit":"section","role":"consolation"}]}]},
   {"id":"epigram","name":"Epigram","scope":"setting","patterns":[{"unit":"poem","children":[{"unit":"line","times":[1,3]},{"unit":"line","role":"turn"}]}]},

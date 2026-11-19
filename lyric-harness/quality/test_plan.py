@@ -1566,7 +1566,9 @@ def test_the_measure():
     # tokeniser the draft work-bound admission (`draft_work_bound`) reads
     # when a phonology declares no tokens — it was named by plan.py before
     # this list was told (red at f05dbf71), and it opens nothing.
-    ALLOWED_FROM_RELATIONS = {"planning_traits",
+    # fit_type checks the declared Agree predicate type when binding a
+    # word-for-word return. It does not run that predicate on text.
+    ALLOWED_FROM_RELATIONS = {"planning_traits", "Agree",
                               "CHANNEL_DOMAINS", "pair_bindable",
                               "REGISTRY", "overhang_member",
                               "unsatisfiable_pairs", "group_satisfiable",
@@ -1662,6 +1664,7 @@ def test_the_measure():
     # from `propose`. One import fewer between the writer and the dice.
     # Catalog section partitions use the same declared grids and partitions.
     # Prescribed terminal rhyme uses only the registry predicate on a declared schema.
+    # setting_roles projects only the role sequence of an explicitly selected setting.
     # The helper may not introduce a route to corpus examples or sampled text.
     with open(os.path.join(HERE, "catalog_shape.py"), encoding="utf-8") as source:
         catalog_tree = ast.parse(source.read())
@@ -1676,7 +1679,7 @@ def test_the_measure():
           catalog_imports == {("quality", "grid"), ("quality", "plan"),
                               ("quality.relations", "audible_as_end_rhyme")}
           and catalog_plain == {"re"}
-          and catalog_grid == {"placement_findings", "SECTION_FUNCTIONS"}
+          and catalog_grid == {"placement_findings", "SECTION_FUNCTIONS", "setting_roles"}
           and not any(isinstance(n, ast.Name) and n.id == "open" for n in ast.walk(catalog_tree)))
     check("plan.py imports exactly {schemes, structures, grid, "
           "floor, slots, relations, narrative, melody, rhyme_types, function_disclosure, catalog_shape} from quality and "

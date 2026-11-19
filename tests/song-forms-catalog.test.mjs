@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import test from 'node:test';
 import {checkForm, describeForm, realizeForm} from '../src/song-forms.mjs';
+import {projectSongFormCreation} from '../src/song-form-creation.mjs';
+import {gradeObservations} from '../src/song-form-grade.mjs';
 import {formMandate} from '../src/song-form-mandate.mjs';
 
 const load = path => readFileSync(new URL(path, import.meta.url), 'utf8');
@@ -112,10 +114,15 @@ test('every published alternative is selectable and reproduces its structural pr
         assert.equal(checkForm(catalog, form.id, options).verdict, 'unknown', where + ' lacks observations');
         for (const key of ['lines', 'sections']) {
           if (plan.coverage[key] === 'complete') {
-            const observed = Array.from({length:expected[key] + 1}, () => ({}));
+            // The printed triadic setting consumes physical rows, three per logical line.
+            const stepped = key === 'lines' && form.id === 'triadic-line';
+            const count = stepped ? 3 * expected.lines : expected[key];
+            const observed = Array.from({length:count + 1}, (_, i) =>
+              stepped ? ' '.repeat(i % 3) + 'x' : {});
+            const countKind = stepped ? 'printed-row-count' : key + '-count';
             const check = checkForm(catalog, form.id, {...options, [key]:observed});
             assert.equal(check.verdict, 'fail', where + ' extra ' + key);
-            assert.ok(check.checks.some(c => c.kind === key + '-count' && c.outcome === 'fail'), where);
+            assert.ok(check.checks.some(c => c.kind === countKind && c.outcome === 'fail'), where);
           }
         }
       }
@@ -195,4 +202,123 @@ test('compatible symbolic observations are accepted and measured disagreements f
   }
   assert.ok(accepted > 0, 'no published setting could pass on observed symbols');
   assert.ok(measurable > 0, 'no published numeric constraint was exercised');
+});
+
+test('a Rondo diagram checks part order without inferring tunes from labels or words', () => {
+  for (const [variant, roles] of ['abaca', 'abacaba'].entries()) {
+    const parts=[...roles].map((letter)=>({role:'part-'+letter}));
+    const good=checkForm(catalog,'rondo',{variant,sections:parts});
+    assert.equal(good.verdict,'unknown');
+    assert.ok(good.checks.filter((c)=>c.kind==='role').every((c)=>c.outcome==='pass'));
+    const groups=good.checks.filter((c)=>c.kind==='musical-return');
+    assert.deepEqual(groups.map(c=>c.sections),variant===0?[[1,3,5]]:[[1,3,5,7],[2,6]]);
+    assert.ok(groups.every(c=>c.outcome==='unknown'));
+    assert.equal(good.checks.find((c)=>c.kind==='musical-contrast').outcome,'unknown');
+    parts[1]={role:'part-a'};
+    assert.equal(checkForm(catalog,'rondo',{variant,sections:parts}).verdict,'fail');
+  }
+});
+
+test('lettered settings project exact full-section melodies independently of neutral vocal carriers', () => {
+  for (const id of ['binary','ternary','rondo','arch','through-composed','extended-aaba','da-capo-aria']) {
+    for (const variant of describeForm(catalog,id).variants) {
+      const counts = Object.fromEntries(variant.counts.map(c => [c.path,c.max ?? c.min]));
+      const plan = realizeForm(catalog,id,{variant:variant.index,counts});
+      const created = projectSongFormCreation(plan,counts);
+      assert.equal(created.status,'ready',id);
+      assert.deepEqual(created.contract.sections.map(s => s.melodyGroup ?? s.role),
+        plan.sections.map(s => s.role));
+      for (const section of created.contract.sections.filter(s => s.melodyGroup)) {
+        assert.equal(section.role,'verse');
+        assert.equal(section.sourceRole,section.melodyGroup);
+      }
+    }
+  }
+  for (const [id,variant] of [['verse-chorus-bridge',1]]) {
+    assert.equal(projectSongFormCreation(realizeForm(catalog,id,{variant})).status,'unsupported');
+  }
+});
+
+test('whole-section pitch and rhythm distinguish exact returns, contrasts and missing evidence', () => {
+  const meter = {beats:4,unit:4,groups:[2,2]};
+  const phrase = (pitches, ticks=[1,1,2], subdivision=1) => ({
+    role:'verse', sectionMeter:meter, bars:1,
+    sectionMelody:{meter,bars:1,subdivision,notes:pitches.map((pitch_hz,i)=>({pitch_hz,ticks:ticks[i]}))},
+  });
+  const a = phrase([220,250,null]), b = phrase([220,290,null]);
+  const atBars = sections => sections.map((s,i) => ({startBar:i+1,...s}));
+  const grade = (middle,last) => gradeObservations(catalog,'ternary',{sections:atBars([a,middle,last])});
+  const outcome = (x,k) => x.checks.find(c => c.kind===k)?.outcome;
+  assert.equal(grade(b,phrase([220,250,null],[2,2,4],2)).verdict,'pass');
+  const splitRest = phrase([220,250,null,null],[1,1,1,1]);
+  assert.equal(grade(b,splitRest).verdict,'pass');
+  assert.equal(outcome(grade(splitRest,a),'musical-contrast'),'fail');
+  assert.equal(outcome(grade(b,b),'musical-return'),'fail');
+  assert.equal(outcome(grade(phrase([440,500,null]),a),'musical-contrast'),'unknown');
+  assert.equal(outcome(grade(b,{role:'part-a'}),'musical-return'),'unknown');
+  assert.equal(outcome(grade(b,{sectionMelody:a.sectionMelody}),'musical-return'),'unknown');
+  assert.equal(outcome(grade(b,{...a,bars:2}),'section-score'),'fail');
+  assert.equal(outcome(grade(b,{...a,sectionMeter:{...meter,unit:8}}),'section-score'),'fail');
+  assert.equal(outcome(grade(b,{...a,sectionMelody:{...a.sectionMelody,notated:true}}),'section-score'),'fail');
+  assert.equal(outcome(grade(b,{...a,sectionMelody:null}),'musical-return'),'unknown');
+  assert.equal(outcome(grade(b,{...a,sectionMelody:{...a.sectionMelody,notes:[{pitch_hz:null,ticks:4}]}}),'section-score'),'fail');
+  assert.equal(outcome(grade({...b,startBar:1},a),'section-score-order'),'fail');
+  assert.equal(outcome(grade(b,{...a,startBar:2}),'section-score-order'),'fail');
+  assert.equal(outcome(grade(b,{...a,startBar:5}),'section-score-order'),'unknown');
+  assert.equal(outcome(grade(b,{...a,startBar:undefined}),'section-score-order'),'unknown');
+  assert.equal(outcome(grade({...b,slotsWithinSection:false},a),'lyric-slot-in-section'),'fail');
+  const sustained=phrase([220,null],[2,2]);
+  const attacked=phrase([220,220,null],[1,1,2]);
+  assert.equal(outcome(gradeObservations(catalog,'ternary',{sections:[sustained,b,attacked]}),'musical-return'),'fail');
+});
+
+test('strophic alteration, a longer Abgesang and total bar counts use the submitted score', () => {
+  const meter = {beats:4,unit:4,groups:[2,2]};
+  function rows(parts, bars, tones) {
+    let startBar = 1;
+    return parts.map((sourceRole,i) => {
+      const bar = startBar;
+      startBar += bars[i];
+      const [a,b]=tones[i];
+      return {sourceRole,role:'verse',bars:bars[i],startBar:bar,sectionMeter:meter,
+        sectionMelody:{meter, bars:bars[i], subdivision:1,
+          notes:[{pitch_hz:a,ticks:bars[i]*2},{pitch_hz:b,ticks:bars[i]*2}]}};
+    });
+  }
+  const a=[200,250], b=[200,310], c=[200,270], shifted=[400,500];
+  for (const [variant, sung, counts] of [[0,['verse','verse','altered-verse'],{'1.1':2}],
+                                          [1,['verse','altered-verse','verse'],{'1.1':1,'1.3':1}]]) {
+    const tones=sung.map(s=>s==='verse'?a:shifted);
+    const read=tones=>gradeObservations(catalog,'modified-strophic',{variant,counts,sections:rows(sung,[2,2,2],tones)});
+    assert.equal(read(tones).verdict,'pass');
+    assert.equal(read(sung.map(()=>a)).verdict,'fail');
+    const missing=rows(sung,[2,2,2],tones);
+    delete missing[1].sectionMelody;
+    assert.equal(gradeObservations(catalog,'modified-strophic',{variant,counts,sections:missing}).verdict,'unknown');
+  }
+  const bar=(widths,tones)=>gradeObservations(catalog,'bar-form',{sections:rows(['stollen','stollen','abgesang'],widths,tones)});
+  assert.equal(bar([3,3,5],[a,a,b]).verdict,'pass');
+  assert.equal(bar([3,3,3],[a,a,b]).verdict,'fail');
+  assert.equal(bar([3,3,5],[a,b,c]).verdict,'fail');
+  const grade=(id,roles,bars,tones)=>gradeObservations(catalog,id,{sections:rows(roles,bars,tones)});
+  const aaba=['part-a','part-a','part-b','part-a'], abac=['part-a','part-b','part-a','part-c'];
+  assert.equal(grade('aaba-32-bar',aaba,[8,8,8,8],[a,a,b,a]).verdict,'pass');
+  assert.equal(grade('aaba-32-bar',aaba,[7,7,11,7],[a,a,b,a]).verdict,'fail');
+  assert.equal(grade('abac-32-bar',abac,[7,10,7,8],[a,b,a,c]).verdict,'pass');
+  assert.equal(grade('abac-32-bar',abac,[7,10,7,7],[a,b,a,c]).verdict,'fail');
+});
+
+test('the instrumental head arrangement checks sung bookends and every intervening solo', () => {
+  const meter={beats:4,unit:4,groups:[2,2]};
+  const score={bars:1,meter,subdivision:1,notes:[{pitch_hz:200,ticks:2},{pitch_hz:220,ticks:2}]};
+  const head=(startBar,lineSpan)=>({role:'verse',sourceRole:'head',startBar,lineSpan,bars:1,sectionMeter:meter,sectionMelody:score});
+  const rows=[head(1,[0,1]),{role:'solo',startBar:2,lineSpan:[1,1],bars:1,sectionMeter:meter,sectionMelody:score},head(3,[1,2])];
+  const grade=sections=>gradeObservations(catalog,'head-arrangement',{counts:{'1.2':1},lines:['a','b'],sections});
+  assert.equal(grade(rows).verdict,'pass');
+  const absent={...rows[1]}; delete absent.sectionMelody;
+  assert.equal(grade([rows[0],absent,rows[2]]).verdict,'unknown');
+  for (const invalid of [null,{...score,notes:[{pitch_hz:null,ticks:4}]}])
+    assert.equal(grade([rows[0],{...rows[1],sectionMelody:invalid},rows[2]]).verdict,'fail');
+  assert.equal(grade([rows[0],{...rows[1],lineSpan:[1,2]},head(3,[2,2])]).verdict,'fail');
+  assert.equal(grade([rows[0],rows[1],{...rows[2],sectionMelody:{...score,notes:[{pitch_hz:233,ticks:4}]}}]).verdict,'fail');
 });
