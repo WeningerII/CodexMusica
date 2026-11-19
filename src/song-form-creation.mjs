@@ -447,7 +447,18 @@ export function projectSongFormCreation(plan, counts = {}) {
         ).length >= 2
       );
     });
-    if (!inspectable) refuse('no-inspectable-native-pair');
+    // For a single two-turn exchange, the verbatim return itself is the
+    // measured obligation. Drawing a rhyme would bind the line to its own copy.
+    const turnRoles = sections[0]?.linePaths?.map((path) => path.at(-1)?.role).join(',');
+    const verbatimExchange =
+      sections.length === 1 &&
+      sections[0].divisionPath?.at(-1)?.unit === 'exchange' &&
+      ['call,echo', 'leader,congregation'].includes(turnRoles) &&
+      returnGroups.length === 1 &&
+      returnGroups[0][0] === 1 &&
+      returnGroups[0][1] === 2 &&
+      returnGroups[0].length === 2;
+    if (!inspectable && !verbatimExchange) refuse('no-inspectable-native-pair');
   }
   if (fixedReturns) {
     const measures = new Map(

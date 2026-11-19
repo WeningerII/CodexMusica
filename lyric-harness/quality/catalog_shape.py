@@ -219,7 +219,13 @@ def _validate_shape(contract):
                 stop = start + part["lines"]
                 can_bind |= sum(n not in copies for n in range(start, stop)) >= 2
                 start = stop
-            if not can_bind:
+            # A complete two-turn exchange already has a testable return.
+            verbatim_exchange = (returns == [[1, 2]] and len(parts) == 1
+                                 and parts[0]["lines"] == 2
+                                 and parts[0].get("divisionPath", [{}])[-1]["unit"] == "exchange"
+                                 and tuple(path[-1]["role"] for path in parts[0].get("linePaths", ()))
+                                 in (("call", "echo"), ("leader", "congregation")))
+            if not can_bind and not verbatim_exchange:
                 raise plan.PlanRefused("fixed returns leave no independent pair in any section")
         measures = {row["line"]: {k:v for k,v in row.items() if k != "line"}
                     for row in contract.get("lineRequirements", ())}
