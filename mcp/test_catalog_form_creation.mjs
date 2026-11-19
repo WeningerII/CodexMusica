@@ -826,3 +826,68 @@ for (const [form, variant, good] of [
     }
   );
 }
+
+test(
+  'alternating rhyme classes stay distinct through grading and revision',
+  { timeout: 180_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        catalog_form: 'ruthless-rhyme',
+        catalog_variant: 1,
+        seed_from: 11,
+        count: 1,
+        draw: ['lines', 'functions', 'melody', 'relation'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [11]);
+    const [seed] = sweep.accepted_shown;
+    const planned = await host.run('lyric_plan', { seed });
+    const { plan } = measured(await host.read(planned.operation_id, 'full'));
+    assert.deepEqual(plan.request.song_form.rhymeGroups, [
+      [1, 3],
+      [2, 4],
+    ]);
+    assert.deepEqual(plan.relations, { A: 'class:RHYME', B: 'class:RHYME' });
+    const screen = measured(
+      await host.run('lyric_screen', { words: ['one', 'none'], relation: 'class:RHYME' })
+    );
+    assert.equal(screen.exit_code, 0, screen.report);
+    async function grade(ends) {
+      const draft = ends.map((end, i) => ['two', 'three', 'four', 'five'][i] + ' ' + end);
+      const operation = await host.run('lyric_grade', { seed, draft });
+      return measured(await host.read(operation.operation_id, 'full')).coverage.catalog_form;
+    }
+    function evidence(catalog) {
+      return [
+        catalog.verdict,
+        ...catalog.checks.filter((c) => c.kind === 'rhyme').map((c) => c.outcome),
+        catalog.checks.find((c) => c.kind === 'rhyme-distinct').outcome,
+      ];
+    }
+    const good = await grade(['one', 'eight', 'none', 'weight']);
+    assert.deepEqual(evidence(good), ['pass', 'pass', 'pass', 'pass']);
+    assert.ok(
+      good.checks
+        .filter((c) => c.kind === 'rhyme')
+        .every((c) => c.nativeOutcome === 'pass' && c.identityOutcome === 'pass')
+    );
+    assert.equal((await grade(['one', 'eight', 'six', 'weight'])).verdict, 'fail');
+    assert.equal((await grade(['one', 'eight', 'xqzxqz', 'weight'])).verdict, 'unknown');
+    const collapsed = await grade(['one', 'none', 'ton', 'sun']);
+    assert.deepEqual(evidence(collapsed), ['fail', 'pass', 'pass', 'fail']);
+    await host.reconnect();
+    const revised = await host.run('lyric_revise', {
+      seed,
+      attempts: 0,
+      max_rounds: 1,
+      backtrack: 0,
+    });
+    assert.deepEqual(
+      evidence(measured(await host.read(revised.operation_id, 'full')).coverage.catalog_form),
+      evidence(collapsed)
+    );
+  }
+);

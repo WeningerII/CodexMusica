@@ -116,9 +116,9 @@ test('every published selection has an exact structural contract or an explicit 
         if (marked.length) {
           assert.ok(marked.length >= 2, where);
           assert.deepEqual(marked, realization.lines, where);
-          assert.ok(marked.every(line => line.rhyme === marked[0].rhyme), where);
+          assert.ok(contract.rhymeGroups.every(group => group.length >= 2), where);
         }
-        assert.deepEqual(contract.rhymeGroups, marked.length ? [marked.map(line => line.index)] : [], where);
+        assert.deepEqual(contract.rhymeGroups, [...new Set(marked.map(line => line.rhyme))].map(label => marked.filter(line => line.rhyme === label).map(line => line.index)), where);
         assert.deepEqual(contract.returnGroups, [], where);
       }
     }
@@ -244,7 +244,7 @@ test('no contract escapes when a selected obligation cannot be enforced by the n
     ...['stress', 'stresses', 'bars', 'role'].map((key, i) =>
       stanza(line({ [key]: ['./', 1, 1, 'answer'][i] }))),
     stanza(line({ children: [make('word', { times: 2 })] })),
-    stanza(...numbered(4, i => line({ rhyme: i % 2 ? 'B' : 'A' }))),
+    stanza(...['A','B','C','A'].map(rhyme => line({rhyme}))),
     stanza(line({ rhyme:'A' }), line()), stanza(line({ returns:'r' }), line()),
     make('simultaneous', { children: [stanza(line()), stanza(line())] }),
     make('staggered-voices', { children: [stanza(line()), stanza(line())] }),

@@ -79,12 +79,18 @@ export function projectSongFormCreation(plan, counts = {}) {
   const sections = [];
   const divisions = [];
   const lineRequirements = [];
-  // A single rhyme class spanning one entire section maps to a native group.
+  const byRhyme = new Map();
+  for (const line of plan.lines) {
+    if (line.rhyme === undefined) continue;
+    if (!byRhyme.has(line.rhyme)) byRhyme.set(line.rhyme, []);
+    byRhyme.get(line.rhyme).push(line.index);
+  }
+  const rhymeGroups = [...byRhyme.values()];
   const endsRhyme =
     plan.coverage.lines === 'complete' &&
-    plan.lines.length >= 2 &&
-    plan.lines[0].rhyme !== undefined &&
-    plan.lines.every((line) => line.positionKnown && line.rhyme === plan.lines[0].rhyme);
+    rhymeGroups.length > 0 &&
+    rhymeGroups.every((group) => group.length >= 2) &&
+    plan.lines.every((line) => line.positionKnown && line.rhyme !== undefined);
   const positions = new Map(plan.lines.map((line) => [line.address, line]));
   const reasonKeys = new Set();
   function refuse(code, node, field) {
@@ -232,7 +238,7 @@ export function projectSongFormCreation(plan, counts = {}) {
       counts: { ...counts },
       ...(lineRequirements.length && { lineRequirements }),
       sections,
-      rhymeGroups: endsRhyme ? [plan.lines.map((line) => line.index)] : [],
+      rhymeGroups: endsRhyme ? rhymeGroups : [],
       returnGroups: [],
     },
   };

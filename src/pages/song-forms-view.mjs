@@ -108,7 +108,14 @@ function writerDescription({ arrangement, contract }) {
         : 'The writer uses a verse for each division and keeps the displayed line counts.'
     );
   }
-  if (contract.rhymeGroups.length) statements.push('All line endings must rhyme with each other.');
+  if (contract.rhymeGroups.length === 1)
+    statements.push('All line endings must rhyme with each other.');
+  if (contract.rhymeGroups.length > 1) {
+    const groups = contract.rhymeGroups.map((group) => group.join(', '));
+    statements.push(
+      'Use a distinct ending sound for each group of lines: ' + groups.join(' / ') + '.'
+    );
+  }
   const requirements = contract.lineRequirements || [];
   const measures = [
     ['words', 'word'],
