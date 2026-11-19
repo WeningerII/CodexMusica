@@ -9392,12 +9392,19 @@ if (!runs('offline') || PART === null) {
           1 + HALF,
           'the next window starts where this one ended'
         );
+        // A sweep that names no form draws a catalog setting afresh (#902),
+        // so the next two windows name the setting this one drew: all three
+        // then plan one function of the seed, which is what composition asks.
+        const drawn = sweepA.catalog_selection;
+        assert.equal(typeof drawn?.catalog_form, 'string', 'the sweep names the setting it drew');
         const sweepB = await callText('lyric_sweep', {
+          ...drawn,
           seed_from: 1 + HALF,
           count: HALF,
           want: ['lines>=24'],
         });
         const sweepAB = await callText('lyric_sweep', {
+          ...drawn,
           seed_from: 1,
           count: 2 * HALF,
           want: ['lines>=24'],
@@ -9504,9 +9511,19 @@ if (!runs('offline') || PART === null) {
         // here too rather than dropped, and the unreachability is stated rather
         // than left as a check that quietly always passes (doctrine 48).
         const wide = await callText('lyric_sweep', { seed_from: 1, count: MAX_SWEEP });
+        // A sweep that names no form draws a catalog setting (#902), and that
+        // setting can turn some seeds down, so the window is the seeds swept
+        // and the accepted ones are the seeds that planned.
+        assert.equal(wide.swept, MAX_SWEEP, 'the whole window is swept');
+        assert.ok(wide.planned > 0, 'some seed in the window plans');
+        assert.equal(
+          wide.planned + wide.planner_refused,
+          MAX_SWEEP,
+          'each seed plans or is refused'
+        );
         assert.equal(
           wide.accepted_count,
-          MAX_SWEEP,
+          wide.planned,
           'with no predicate every seed that plans is accepted'
         );
         assert.equal(
