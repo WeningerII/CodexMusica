@@ -166,6 +166,16 @@ class CatalogPlannerTests(unittest.TestCase):
             with self.assertRaisesRegex(plan.PlanRefused, "group size"):
                 plan.make_plan(11, song_form=data, wants=["group<=2"])
 
+    def test_prescribed_partition_keeps_each_group_and_its_relation(self):
+        data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 8}],
+                       rhymes=[[1, 3], [2, 5, 7], [4, 6, 8]])
+        native = plan.make_plan(11, song_form=data, relations={"B": "schema:perfect rhyme"})
+        self.assertEqual(native["groups"], "1,3;2.endword,5.endword,7.endword;4,6,8")
+        self.assertEqual(native["relations"], {"A": "class:RHYME", "B": "schema:perfect rhyme", "C": "class:RHYME"})
+        for invalid in ([[1, 3], [2, 3, 5], [4, 6, 8]], [[2, 5, 7], [1, 3], [4, 6, 8]], [[1], [2, 3, 4, 5, 6, 7, 8]]):
+            with self.subTest(groups=invalid), self.assertRaises(plan.PlanRefused):
+                plan.make_plan(11, song_form={**data, "rhymeGroups": invalid})
+
     def test_conflicting_declaration_and_unknown_fields_refuse(self):
         base = catalog("hookless-rap-track", [{"unit": "section", "role": "verse", "lines": 2}])
         with self.assertRaises(plan.PlanRefused):
