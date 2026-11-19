@@ -1633,6 +1633,7 @@ def test_the_measure():
     # ceiling under its own name (`PLANNED_LINE_CHARS`) and imports nothing
     # from `propose`. One import fewer between the writer and the dice.
     # Catalog section partitions use the same declared grids and partitions.
+    # Prescribed terminal rhyme uses only the registry predicate on a declared schema.
     # The helper may not introduce a route to corpus examples or sampled text.
     with open(os.path.join(HERE, "catalog_shape.py"), encoding="utf-8") as source:
         catalog_tree = ast.parse(source.read())
@@ -1643,8 +1644,9 @@ def test_the_measure():
     catalog_grid = {node.attr for node in ast.walk(catalog_tree)
                     if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name)
                     and node.value.id == "grid"}
-    check("catalog section layout reads only declared grid and partition rules",
-          catalog_imports == {("quality", "grid"), ("quality", "plan")}
+    check("catalog layout reads only declared grid, partition, and terminal rhyme rules",
+          catalog_imports == {("quality", "grid"), ("quality", "plan"),
+                              ("quality.relations", "audible_as_end_rhyme")}
           and catalog_plain == {"re"}
           and catalog_grid == {"placement_findings", "SECTION_FUNCTIONS"}
           and not any(isinstance(n, ast.Name) and n.id == "open" for n in ast.walk(catalog_tree)))

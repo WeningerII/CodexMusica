@@ -187,7 +187,7 @@ test('a creation sweep refuses deferred forms and unselected alternatives withou
   for (const [selection, expected] of [
     [{ catalog_form: 'acrostic' }, /deferred/i],
     [{ catalog_form: 'triolet' }, /unsupported/i],
-    [{ catalog_form: 'couplet', catalog_variant: 1 }, /named.role|unsupported/i],
+    [{ catalog_form: 'narrative-story-song', catalog_variant: 0 }, /unsupported/i],
     [{ catalog_form: 'quatern' }, /named.role|unsupported/i],
     [{ catalog_form: 'monostich' }, /native-line-limit|no-inspectable-native-pair/],
     [{ catalog_form: 'cherita' }, /inconsistent-recurring-section-length/],
@@ -770,5 +770,53 @@ test(
       backtrack: 0,
     });
     verify(measured(await host.read(revised.operation_id, 'full')));
+  }
+);
+
+test(
+  'the writer binds the selected terminal rhyme and regrades the draft after reconnect',
+  { timeout: 180_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const selection = { catalog_form: 'couplet', catalog_variant: 1, seed_from: 11, count: 1 };
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        ...selection,
+        draw: ['lines', 'functions', 'melody', 'relation'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [11], sweep.report);
+    const [seed] = sweep.accepted_shown;
+    const planned = await host.run('lyric_plan', { seed });
+    const { plan } = measured(await host.read(planned.operation_id, 'full'));
+    assert.deepEqual(plan.request.song_form.rhymeGroups, [[1, 2]]);
+    assert.equal(plan.groups, '1,2');
+    assert.equal(plan.relations.A, 'class:RHYME');
+    const screen = measured(
+      await host.run('lyric_screen', { words: ['one', 'none'], relation: 'class:RHYME' })
+    );
+    assert.equal(screen.exit_code, 0, screen.report);
+    async function grade(draft) {
+      const op = await host.run('lyric_grade', { seed, draft });
+      return measured(await host.read(op.operation_id, 'full'));
+    }
+    function verify(receipt, outcome) {
+      const catalog = receipt.coverage.catalog_form;
+      assert.equal(catalog.verdict, outcome);
+      const row = catalog.checks.find((c) => c.kind === 'rhyme');
+      assert.deepEqual([row.lines, row.basis, row.outcome], [[1, 2], 'class:RHYME', outcome]);
+    }
+    verify(await grade(['two one', 'three none']), 'pass');
+    verify(await grade(['two xqzxqz', 'three none']), 'unknown');
+    verify(await grade(['two one', 'three six']), 'fail');
+    await host.reconnect();
+    const revise = await host.run('lyric_revise', {
+      seed,
+      attempts: 0,
+      max_rounds: 1,
+      backtrack: 0,
+    });
+    verify(measured(await host.read(revise.operation_id, 'full')), 'fail');
   }
 );

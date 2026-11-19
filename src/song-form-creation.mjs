@@ -79,6 +79,13 @@ export function projectSongFormCreation(plan, counts = {}) {
   const sections = [];
   const divisions = [];
   const lineRequirements = [];
+  // In a single two-line section the native partition has exactly one group.
+  // Other schemes and line identities retain their original refusal.
+  const endsRhyme =
+    plan.coverage.lines === 'complete' &&
+    plan.lines.length === 2 &&
+    plan.lines[0].rhyme !== undefined &&
+    plan.lines.every((line) => line.positionKnown && line.rhyme === plan.lines[0].rhyme);
   const positions = new Map(plan.lines.map((line) => [line.address, line]));
   const reasonKeys = new Set();
   function refuse(code, node, field) {
@@ -135,7 +142,7 @@ export function projectSongFormCreation(plan, counts = {}) {
     const role = counted ? 'verse' : node.role.replaceAll('-', '_');
     if (!NATIVE_ROLES.has(role)) return refuse('unsupported-section-role', node, node.role);
     for (const child of node.children) {
-      const requirement = projectLineRequirement(child);
+      const requirement = projectLineRequirement(child, endsRhyme);
       if (requirement === null) {
         refuse('unsupported-line-structure', child);
       } else if (requirement) {
@@ -158,6 +165,8 @@ export function projectSongFormCreation(plan, counts = {}) {
   }
   plan.tree.forEach(visit);
   if (!sections.length && !reasons.length) refuse('empty-structure');
+  if (endsRhyme && (sections.length !== 1 || sections[0].lines !== 2))
+    refuse('unsupported-rhyme-layout');
   if (sections.length > CREATION_LIMITS.maxSections) refuse('native-section-limit');
   if (lineRequirements.length && sections.some((part) => part.lines === null)) {
     refuse('incomplete-line-positions');
@@ -224,7 +233,7 @@ export function projectSongFormCreation(plan, counts = {}) {
       counts: { ...counts },
       ...(lineRequirements.length && { lineRequirements }),
       sections,
-      rhymeGroups: [],
+      rhymeGroups: endsRhyme ? [[1, 2]] : [],
       returnGroups: [],
     },
   };

@@ -89,11 +89,11 @@ async function checkViewport(browser, origin, viewport) {
     );
     assert.equal(await draft.inputValue(), original);
     assert.equal(new URL(page.url()).hash, '#lyrics');
-    // Browsing an ineligible pattern never binds a generic writer request.
+    // Selecting the rhymed variant makes writing available without binding a request.
     await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('1');
     await view.getByRole('button', { name: 'Show expanded structure' }).click();
-    await view.getByText('This pattern is available for study only.').waitFor();
-    assert.equal(await view.getByRole('button', { name: 'Write with this form' }).count(), 0);
+    await view.getByText(/The two line endings must rhyme/).waitFor();
+    assert.ok(await view.getByRole('button', { name: 'Write with this form' }).isVisible());
     assert.deepEqual(await page.evaluate(() => window.uiLyricContext('lyrics').declarations), {});
     await picker.selectOption('quatrain');
     const expand = view.getByRole('button', { name: 'Show expanded structure' });
