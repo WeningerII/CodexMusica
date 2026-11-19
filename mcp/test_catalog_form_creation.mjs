@@ -10,6 +10,7 @@ import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { JobStore } from './job_store.js';
 import { WorkflowSessions, verdictOf } from './workflow_sessions.js';
 import { buildWorkflowServer } from './workflow_tools.js';
+import { legacySession, legacySweep } from './statement_fixture.mjs';
 
 async function sessionHost(t) {
   const directory = await mkdtemp(join(tmpdir(), 'creation-catalog-'));
@@ -48,6 +49,10 @@ async function sessionHost(t) {
     async begin(phase = 'create') {
       sessionId = (await call('begin_lyrics', { phase })).session_id;
       assert.ok(sessionId);
+    },
+    // A job saved before #902, its task written as a session (legacySession).
+    async adopt(task) {
+      sessionId = await legacySession(sessions, task);
     },
     async run(name, args) {
       const predecessor = sessionId;
@@ -339,7 +344,6 @@ test(
       { catalog_form: 'strophic', catalog_counts: [{ path: '1.1', count: 3 }] },
       { form: 'open' },
     ]) {
-      await host.begin();
       const args = {
         seed_from: 31,
         count: 1,
@@ -347,7 +351,17 @@ test(
         lines: 12,
         draw: ['functions', 'relation', 'melody'],
       };
-      const swept = measured(await host.run('lyric_sweep', args));
+      let swept;
+      if (selector.form) {
+        // The native form is a job saved before #902 (a new-song sweep
+        // refuses `form` now): swept on the raw engine, planned in the session.
+        const job = await legacySweep(args);
+        await host.adopt(job.task);
+        swept = job.verdict;
+      } else {
+        await host.begin();
+        swept = measured(await host.run('lyric_sweep', args));
+      }
       assert.equal(swept.exit_code, 0, swept.report);
       const [seed] = swept.accepted_shown;
       assert.ok(Number.isInteger(seed), JSON.stringify(swept));

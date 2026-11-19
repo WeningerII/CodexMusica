@@ -19,7 +19,7 @@ import { join } from 'node:path';
 import { JobStore } from './job_store.js';
 import { WorkflowSessions, verdictOf } from './workflow_sessions.js';
 import { BRIEFS } from './lyric_tools.js';
-import { stated } from './statement_fixture.mjs';
+import { legacySession, legacyStated, legacySweep } from './statement_fixture.mjs';
 
 function storeFor(t) {
   const directory = mkdtempSync(join(tmpdir(), 'chatgpt-mcp-'));
@@ -29,7 +29,10 @@ function storeFor(t) {
 
 test('a parked new song continues exactly as its note says', { timeout: 300_000 }, async (t) => {
   const sessions = new WorkflowSessions({ store: storeFor(t).store });
-  let session_id = sessions.open('lyrics').session_id;
+  // The draft below is written to the native plan of seed 31: a job saved
+  // with its legacy-form sweep recorded (#902), planned here for real.
+  const job = await legacySweep(legacyStated({ seed_from: 31, count: 1, lines: 12 }));
+  let session_id = await legacySession(sessions, job.task);
   const run = async (name, args) => {
     const q = sessions.submit(session_id, 'lyrics', name, args);
     await sessions.wait(q.operation_id);
@@ -37,8 +40,7 @@ test('a parked new song continues exactly as its note says', { timeout: 300_000 
     if (r.session_id) session_id = r.session_id;
     return r;
   };
-  const swept = await run('lyric_sweep', stated({ seed_from: 31, count: 1, lines: 12 }));
-  const seed = verdictOf(swept.tool_result).accepted_shown[0];
+  const seed = job.verdict.accepted_shown[0];
   await run('lyric_plan', { seed, lines: 12 });
   await run('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
   const draft = [
@@ -126,7 +128,11 @@ test(
   { timeout: 300_000 },
   async (t) => {
     const sessions = new WorkflowSessions({ store: storeFor(t).store });
-    let session_id = sessions.open('lyrics').session_id;
+    // The draft below is written to the native plan of seed 31: a job saved
+    // with its legacy-form sweep recorded (#902), planned here for real.
+    const sweepArgs = legacyStated({ seed_from: 31, count: 1, lines: 12 });
+    const job = await legacySweep(sweepArgs);
+    let session_id = await legacySession(sessions, job.task);
     const run = async (name, args) => {
       const q = sessions.submit(session_id, 'lyrics', name, args);
       await sessions.wait(q.operation_id);
@@ -139,8 +145,8 @@ test(
     // who acts next as data, and the call it names is the one sent next. A
     // call the session did not admit would fail the step that follows it.
     const outcome = (r) => verdictOf(r.tool_result).outcome;
-    const sweepArgs = stated({ seed_from: 31, count: 1, lines: 12 });
-    const swept = await run('lyric_sweep', sweepArgs);
+    // The sweep as the session published it when it was recorded.
+    const swept = { tool_result: job.published };
     const seed = verdictOf(swept.tool_result).accepted_shown[0];
     // After the sweep, the plan: the seed and the sweep's own form and length.
     assert.deepEqual(outcome(swept), {

@@ -4,7 +4,8 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { connectConnector } from './client.js';
-import { stated } from './statement_fixture.mjs';
+import { legacyStated } from './statement_fixture.mjs';
+import { recordCreation, withSessionOutcome, withSweepNext } from './lyric_workflow.js';
 import { instructionsForTask } from './task_contract.js';
 import { withExecutionContext } from './execution_context.js';
 import { takeLines, LYRIC_TOOL_SCHEMAS, _verdictInternals } from './lyric_tools.js';
@@ -210,22 +211,28 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
       call: { tool: 'lyric_sweep', args: { seed_from: 5 } },
     });
     // A host that keeps receipts adds the windows up (the SDK client, which a
-    // session and the chat run through), here over a local server. After
-    // the fifth refused window a further one is more likely than not to find
-    // no plan even at the bound, and the request becomes the person's to
-    // change.
-    const hostServer = buildServer({ task: { domain: 'lyrics', phase: 'create' } });
-    const [ha, hb] = InMemoryTransport.createLinkedPair();
-    await hostServer.connect(ha);
-    const host = await connectConnector({
-      task: { domain: 'lyrics', phase: 'create' },
-      transport: hb,
-    });
-    try {
+    // session and the chat run through). After the fifth refused window a
+    // further one is more likely than not to find no plan even at the bound,
+    // and the request becomes the person's to change. These windows are the
+    // native default form's, which a new-song sweep refuses now (#902): a job
+    // saved with them, so each is swept on the raw engine and its receipt
+    // kept as the SDK client kept it then (recordCreation, then the published
+    // outcome).
+    const host = { domain: 'lyrics', phase: 'create' };
+    {
       const kept = [];
       for (let from = 0; kept.length < 5; from += 2) {
-        const r = await host.call('lyric_sweep', stated({ seed_from: from, count: 2, functions }));
-        kept.push(JSON.parse(r.content.find((b) => b.text.startsWith('{')).text));
+        const args = legacyStated({ seed_from: from, count: 2, functions });
+        const r = await c.client.callTool({ name: 'lyric_sweep', arguments: args });
+        recordCreation(host, 'lyric_sweep', args, JSON.parse(r.content[0].text), !!r.isError);
+        const shown = withSessionOutcome(
+          host,
+          'lyric_sweep',
+          withSweepNext(host, 'lyric_sweep', r, null),
+          null,
+          args
+        );
+        kept.push(JSON.parse(shown.content.find((b) => b.text.startsWith('{')).text));
       }
       assert.deepEqual(
         kept.map((v) => [v.refused_in_a_row.seeds, v.outcome.kind, v.outcome.by]),
@@ -241,8 +248,6 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
         kept[4].window_meaning,
         /Across the windows refused in a row under this request, none of the 10 seeds planned/
       );
-    } finally {
-      await host.close();
     }
     // And a single plan on that roster: about this seed, so the sweep is next.
     const ownPlan = await plan({ seed: 0, functions });

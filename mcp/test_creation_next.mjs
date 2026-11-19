@@ -18,6 +18,7 @@ import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import {
   SWEEP_COORDINATES,
+  CREATION_FORM,
   FORM_ROWS,
   creationRefusal,
   creationQualified,
@@ -38,7 +39,7 @@ import { connectConnector } from './client.js';
 import { buildServer } from './tools.js';
 import { JobStore } from './job_store.js';
 import { WorkflowSessions, executeNative, verdictOf, receiptOutcome } from './workflow_sessions.js';
-import { stated } from './statement_fixture.mjs';
+import { legacySession, legacyStated, legacySweep, stated } from './statement_fixture.mjs';
 
 const sha = (v) => createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const clone = (v) => structuredClone(v);
@@ -57,11 +58,14 @@ const relation = ELIGIBLE[16 % ELIGIBLE.length];
 const everyForm = FORM_ROWS[17 % FORM_ROWS.length].form;
 // Three sweep shapes: nothing declared, want only, and every coordinate
 // declared. Each sweep states form, length, sections, rhyme and time (stage
-// 3): what a shape leaves out is drawn (statement_fixture.mjs).
+// 3): what a shape leaves out is drawn (statement_fixture.mjs). Each is a job
+// saved before #902, its sweep recorded with a legacy `form` (legacyStated):
+// a new-song sweep refuses `form` now (CREATION_FORM), a saved job keeps
+// planning under it, and a sweep a NEXT names is sent without it.
 const SHAPES = {
-  none: { sweep: stated({}), plan: {}, request: {} },
+  none: { sweep: legacyStated({}), plan: {}, request: {} },
   want: {
-    sweep: stated({ want: ['lines<=30'] }),
+    sweep: legacyStated({ want: ['lines<=30'] }),
     plan: { wants: ['lines<=30'] },
     request: { wants: ['lines<=30'] },
   },
@@ -95,7 +99,7 @@ const SHAPES = {
 
 // The sweep's NEXT before any sweep, and the form a stated shape names.
 const SWEEP_LINE =
-  "NEXT: lyric_sweep stating form, lines, functions, relation and melody, each as a value or in `draw` (form as one name); the plan repeats the sweep's form, lines, functions, relation, melody and `want`.";
+  "NEXT: lyric_sweep stating form, lines, functions, relation and melody, each as a value or in `draw` (form as a catalog_form name, or neither form field for the sweep to choose); the plan repeats the sweep's form, lines, functions, relation, melody and `want`.";
 const FORM = JSON.stringify(SHAPES.none.sweep.form);
 
 function planReceipt(shape, seed) {
@@ -286,8 +290,9 @@ function carriedRuns(planArgs) {
 }
 const HELD = new Set(['uncertified_parked', 'uncertain_proposal']);
 
-// Fifteen wrong moves (some are admitted in some states, which is fine).
+// Sixteen wrong moves (some are admitted in some states, which is fine).
 const wrongMoves = (planArgs) => [
+  ['lyric_sweep', { seed_from: 10, count: 10, form: everyForm }],
   ['lyric_screen', { words: ['stove', 'coat'] }],
   ['lyric_plan', { seed: 99 }],
   ['lyric_plan', { seed: 16, form: '<another form>' }],
@@ -305,9 +310,10 @@ const wrongMoves = (planArgs) => [
   ['lyric_revise', { seed: 16, draft: other, new_run: true }],
 ];
 
-// The fourteen texts creationRefusal can return, by their fixed words (the
+// The fifteen texts creationRefusal can return, by their fixed words (the
 // screen's names the sweep only while none is on record).
 const GATE_TEXTS = [
+  /^CREATION_FORM: a new song's form is a catalog form\. .* Nothing ran\.$/,
   /^CREATION_ORDER: a new song's lyric_screen comes after its lyric_plan, and its receipt is recorded for that plan\. Call (lyric_sweep, then lyric_plan,|lyric_plan) before lyric_screen\.$/,
   /^CREATION_PLAN: lyric_(check|recover) is for lyrics the user supplied\./,
   /^CREATION_ORDER: execute a successful lyric_sweep before planning or writing a new song\.$/,
@@ -331,11 +337,16 @@ function parseNext(text, ctx) {
   const m = /(?:^| )NEXT: (.*)$/s.exec(text);
   assert(m, `no NEXT in: ${text}`);
   const line = m[1];
-  if (line.startsWith('lyric_sweep')) return [['lyric_sweep', clone(ctx.sweepArgs)]];
+  // A sweep is sent with no legacy `form` (#902): the refused call's other
+  // arguments where the line names them, or else the shape's own sweep.
+  const formless = ({ form: _legacy, ...rest }) => rest;
+  if (line.startsWith("lyric_sweep with this call's other arguments and no `form`"))
+    return [['lyric_sweep', formless(clone(ctx.refused))]];
+  if (line.startsWith('lyric_sweep')) return [['lyric_sweep', formless(clone(ctx.sweepArgs))]];
   if (line.startsWith('lyric_plan with ')) {
     const args = {};
     const re =
-      /\b(seed|form|lines|functions|relation|wants) (-?\d+|"(?:[^"\\]|\\.)*"|\[(?:"(?:[^"\\]|\\.)*"(?:,"(?:[^"\\]|\\.)*")*)?\])/g;
+      /\b(seed|form|catalog_form|catalog_variant|catalog_counts|lines|functions|relation|wants) (-?\d+|"(?:[^"\\]|\\.)*"|\[(?:"(?:[^"\\]|\\.)*"(?:,"(?:[^"\\]|\\.)*")*)?\]|\[[^\]]*\])/g;
     for (const [, key, value] of line.matchAll(re)) args[key] = JSON.parse(value);
     if (line.includes("melody: the sweep's melody unchanged")) args.melody = ctx.sweepArgs.melody;
     return [['lyric_plan', args]];
@@ -437,13 +448,14 @@ function walkGate(shapeName, tally) {
       const i = gateText(refusal);
       assert(i >= 0, `${shapeName}/${state}: unknown gate text ${refusal}`);
       tally.texts.add(i);
-      const text = withNextCall(refusal, task, carried, name);
+      if (i === 0) assert.equal(refusal, CREATION_FORM, 'the legacy form is refused whole');
+      const text = withNextCall(refusal, task, carried, name, clone(args));
       assert(text.startsWith(refusal + ' NEXT: '), `${shapeName}/${state} ${name}: ${text}`);
       assert.equal(text.indexOf('NEXT: '), refusal.length + 1, 'the gate text stays first');
       // Never a draft, title, narrative or melody text.
       for (const secret of [...draft, melody, '60,62']) assert(!text.includes(secret), text);
       let follow = clone(base);
-      for (const [n, a] of parseNext(text, ctx)) {
+      for (const [n, a] of parseNext(text, { ...ctx, refused: args })) {
         const got = gate(follow, n, clone(a), carried);
         assert.equal(
           got,
@@ -484,7 +496,11 @@ const GRADE_NEEDS_SCREEN =
 const screenThenGradeCall = (seed, lines = LINES.length) =>
   `lyric_screen with candidate words for this plan's rhymes; then lyric_grade with seed ${seed} and the complete ${lines}-line draft.`;
 const screenThenGrade = (seed, lines) => `NEXT: ${screenThenGradeCall(seed, lines)}`;
-const WALK = { sweepArgs: stated({ seed_from: 10, count: 10 }), newDraft: LINES, graded: LINES };
+const WALK = {
+  sweepArgs: legacyStated({ seed_from: 10, count: 10 }),
+  newDraft: LINES,
+  graded: LINES,
+};
 // A task that has swept and planned seed 16, with no screen.
 function sweptAndPlanned() {
   const t = fresh();
@@ -620,8 +636,8 @@ test('a stale plan is planned again under its own sweep, not the newest one, and
   const [own, other] = [row.min_lines, row.min_lines + 1];
   for (const relation of [undefined, 'draw']) {
     const t = fresh();
-    const first = stated({ seed_from: 30, count: 2, lines: own });
-    const later = stated({ seed_from: 32, count: 2, lines: other });
+    const first = legacyStated({ seed_from: 30, count: 2, lines: own });
+    const later = legacyStated({ seed_from: 32, count: 2, lines: other });
     if (relation) {
       first.draw = [...new Set([...(first.draw || []), 'relation'])];
       later.draw = [...new Set([...(later.draw || []), 'relation'])];
@@ -650,7 +666,7 @@ test('a stale plan is planned again under its own sweep, not the newest one, and
     // A session that no longer holds that sweep plans the newest sweep's own
     // seed and coordinates, which the gate admits; so does a later sweep.
     t.workflow.sweeps = t.workflow.sweeps.slice(1);
-    for (const fresh_ of [null, stated({ seed_from: 100, count: 2, lines: own })]) {
+    for (const fresh_ of [null, legacyStated({ seed_from: 100, count: 2, lines: own })]) {
       if (fresh_) recordCreation(t, 'lyric_sweep', fresh_, { exit_code: 0, accepted_shown: [100] });
       const newest = t.workflow.sweeps[t.workflow.sweeps.length - 1];
       for (const after of ['lyric_grade', 'lyric_sweep', 'lyric_plan']) {
@@ -673,7 +689,7 @@ test('a sweep recorded after the grade found the plan stale names the plan to ma
   const row = FORM_ROWS.find((r) => r.form === SHAPES.none.sweep.form);
   const [own, newer] = [row.min_lines, row.min_lines + 1];
   const t = fresh();
-  const first = stated({ seed_from: 30, count: 2, lines: own });
+  const first = legacyStated({ seed_from: 30, count: 2, lines: own });
   recordCreation(t, 'lyric_sweep', first, { exit_code: 0, accepted_shown: [31] });
   const p = planReceipt({ request: { form: first.form, lines: own } }, 31);
   recordCreation(t, 'lyric_plan', { seed: 31, form: first.form, lines: own }, p);
@@ -683,7 +699,7 @@ test('a sweep recorded after the grade found the plan stale names the plan to ma
   rebuilt.plan_sha256 = sha(rebuilt.plan);
   recordCreation(t, 'lyric_grade', { seed: 31, draft: LINES }, gradeReceipt(rebuilt, LINES));
   assert.equal(t.workflow.grade_attempt.cause, 'plan_changed');
-  const later = stated({ seed_from: 40, count: 2, lines: newer });
+  const later = legacyStated({ seed_from: 40, count: 2, lines: newer });
   recordCreation(t, 'lyric_sweep', later, { exit_code: 0, accepted_shown: [41] });
   for (const after of ['lyric_grade', 'lyric_sweep', 'lyric_plan', undefined]) {
     const next = nextCreationCall(t, null, after);
@@ -724,7 +740,7 @@ test('a grade or revise that sends a recorded declaration in another spelling ru
   };
   for (const key of Object.keys(sent)) assert.notDeepEqual(sent[key], recorded[key], key);
   const t = fresh();
-  const sweep = stated({
+  const sweep = legacyStated({
     seed_from: 10,
     count: 10,
     form: SHAPES.every.sweep.form,
@@ -772,7 +788,7 @@ test('a run under way keeps the spelling it was started with; a new run takes th
   const sent = [...request.functions].reverse().join(',');
   assert.notEqual(sent, recorded);
   const t = fresh();
-  const sweep = stated({ seed_from: 10, count: 10, functions: recorded });
+  const sweep = legacyStated({ seed_from: 10, count: 10, functions: recorded });
   recordCreation(t, 'lyric_sweep', sweep, { exit_code: 0, accepted_shown: [16] });
   const p = planReceipt({ request: { form: sweep.form, ...request } }, 16);
   recordCreation(t, 'lyric_plan', { seed: 16, form: sweep.form, functions: recorded }, p);
@@ -797,7 +813,7 @@ test('a continuing revise that resends a declaration in another spelling is carr
   const sent = [...request.functions].reverse().join(',');
   assert.notEqual(sent, recorded);
   const t = fresh();
-  const sweep = stated({ seed_from: 10, count: 10, functions: recorded });
+  const sweep = legacyStated({ seed_from: 10, count: 10, functions: recorded });
   recordCreation(t, 'lyric_sweep', sweep, { exit_code: 0, accepted_shown: [16] });
   const p = planReceipt({ request: { form: sweep.form, ...request } }, 16);
   recordCreation(t, 'lyric_plan', { seed: 16, form: sweep.form, functions: recorded }, p);
@@ -829,7 +845,7 @@ test('a run whose first revise was interrupted keeps its own spelling on resume'
   const sent = [...request.functions].reverse().join(',');
   assert.notEqual(sent, recorded);
   const t = fresh();
-  const sweep = stated({ seed_from: 10, count: 10, functions: recorded });
+  const sweep = legacyStated({ seed_from: 10, count: 10, functions: recorded });
   recordCreation(t, 'lyric_sweep', sweep, { exit_code: 0, accepted_shown: [16] });
   const p = planReceipt({ request: { form: sweep.form, ...request } }, 16);
   recordCreation(t, 'lyric_plan', { seed: 16, form: sweep.form, functions: recorded }, p);
@@ -886,15 +902,20 @@ test('a stale plan whose own sweep is no longer on record names no seed of its o
   const row = FORM_ROWS.find((r) => r.form === SHAPES.none.sweep.form);
   const [own, newer] = [row.min_lines, row.min_lines + 1];
   const t = fresh();
-  const first = stated({ seed_from: 30, count: 2, lines: own });
+  const first = legacyStated({ seed_from: 30, count: 2, lines: own });
   recordCreation(t, 'lyric_sweep', first, { exit_code: 0, accepted_shown: [31] });
   const p = planReceipt({ request: { form: first.form, lines: own } }, 31);
   recordCreation(t, 'lyric_plan', { seed: 31, form: first.form, lines: own }, p);
   for (let i = 0; i < 8; i++)
-    recordCreation(t, 'lyric_sweep', stated({ seed_from: 100 + 10 * i, count: 2, lines: newer }), {
-      exit_code: 0,
-      accepted_shown: [101 + 10 * i],
-    });
+    recordCreation(
+      t,
+      'lyric_sweep',
+      legacyStated({ seed_from: 100 + 10 * i, count: 2, lines: newer }),
+      {
+        exit_code: 0,
+        accepted_shown: [101 + 10 * i],
+      }
+    );
   assert.ok(t.workflow.sweeps.every((s) => !s.accepted.includes(31)));
   recordCreation(t, 'lyric_screen', WORDS, { exit_code: 0 });
   const rebuilt = planReceipt({ request: { form: first.form, lines: own } }, 31);
@@ -919,7 +940,7 @@ test('a stale plan planned again keeps the title and per-group types it declared
   const own = row.min_lines;
   const declared = { title: '<title>', group_types: [{ group: 1, type: 2 }] };
   const t = fresh();
-  const sweep = stated({ seed_from: 30, count: 2, lines: own });
+  const sweep = legacyStated({ seed_from: 30, count: 2, lines: own });
   recordCreation(t, 'lyric_sweep', sweep, { exit_code: 0, accepted_shown: [31] });
   const p = planReceipt({ request: { form: sweep.form, lines: own, ...declared } }, 31);
   recordCreation(t, 'lyric_plan', { seed: 31, form: sweep.form, lines: own, ...declared }, p);
@@ -941,7 +962,7 @@ test('a stale plan planned again keeps the title and per-group types it declared
   // Under another seed the title still holds; the group types, which named
   // the old seed's groups, are not carried, and the call says so.
   t.workflow.sweeps = [];
-  const other = stated({ seed_from: 100, count: 2, lines: own });
+  const other = legacyStated({ seed_from: 100, count: 2, lines: own });
   recordCreation(t, 'lyric_sweep', other, { exit_code: 0, accepted_shown: [100] });
   const moved = nextCreationCall(t, null, 'lyric_grade');
   assert.equal(moved.args.seed, 100);
@@ -1289,11 +1310,11 @@ test('the maintained client appends NEXT to every refusal and the NEXT is admitt
             message = error.message;
           }
           if (message === null) continue;
-          assert.match(message, /^CREATION_(ORDER|PLAN|DRAFT|GRADE|CONTINUATION): /, message);
+          assert.match(message, /^CREATION_(FORM|ORDER|PLAN|DRAFT|GRADE|CONTINUATION): /, message);
           const head = message.slice(0, message.indexOf(' NEXT: '));
           assert(message.indexOf(' NEXT: ') > 0, `${shapeName}/${state} ${name}: ${message}`);
           if (!head.startsWith('CREATION_CONTINUATION')) assert(gateText(head) >= 0, head);
-          for (const [n, a] of parseNext(message, ctx)) {
+          for (const [n, a] of parseNext(message, { ...ctx, refused: args })) {
             const before = dispatched.length;
             await c.call(n, clone(a));
             assert.equal(dispatched.length, before + 1, `${shapeName}/${state} -> ${n}`);
@@ -1387,7 +1408,7 @@ async function chatTurn({ shape, task, lyric, name, args, ctx }) {
       refusal = seen;
       if (!refusal || !/^CREATION_/.test(refusal) || !refusal.includes(' NEXT: '))
         return reply([{ text: 'done' }]);
-      follow = parseNext(refusal, ctx);
+      follow = parseNext(refusal, { ...ctx, refused: args });
       return reply(follow.map(([n, a]) => fc(n, a)));
     }
     return reply([{ text: 'done' }]);
@@ -1486,6 +1507,19 @@ test('/chat: the model reads NEXT, the calls row keeps the gate text, and NEXT p
   );
 });
 
+// A new-song sweep sends no legacy `form` (#902): the shape's sweep without
+// it, as a model sends it, and the catalog setting such a sweep reports it
+// chose, picked from the catalog by seed.
+const CATALOG_IDS = JSON.parse(
+  readFileSync(new URL('../data/song-forms.json', import.meta.url), 'utf8')
+).map((f) => f.id);
+const chosen = {
+  catalog_form: CATALOG_IDS[16 % CATALOG_IDS.length],
+  catalog_variant: 0,
+  catalog_counts: [],
+};
+const automatic = ({ form: _legacy, ...rest }) => rest;
+
 test('/chat: a sweep result shows the derived NEXT to the model', async () => {
   const { at, sweepArgs } = states('every');
   const report = 'ACCEPTED\n      16, 17\n    NEXT: lyric_plan with seed 16\n';
@@ -1493,7 +1527,7 @@ test('/chat: a sweep result shows the derived NEXT to the model', async () => {
     step = 0;
   globalThis.fetch = async (_url, init) => {
     step++;
-    if (step === 1) return reply([fc('lyric_sweep', sweepArgs)]);
+    if (step === 1) return reply([fc('lyric_sweep', automatic(sweepArgs))]);
     seen = lastResponses(init)[0]?.response;
     return reply([{ text: 'done' }]);
   };
@@ -1508,7 +1542,12 @@ test('/chat: a sweep result shows the derived NEXT to the model', async () => {
         content: [
           {
             type: 'text',
-            text: JSON.stringify({ exit_code: 0, accepted_shown: [16, 17], report }),
+            text: JSON.stringify({
+              exit_code: 0,
+              accepted_shown: [16, 17],
+              catalog_selection: chosen,
+              report,
+            }),
           },
         ],
       }),
@@ -1519,7 +1558,7 @@ test('/chat: a sweep result shows the derived NEXT to the model', async () => {
   assert.equal(
     seen.report,
     'ACCEPTED\n      16, 17\n    NEXT: lyric_plan ' +
-      `with seed 16, form ${JSON.stringify(everyForm)}, lines 2, functions "verse,chorus", relation ${JSON.stringify(relation)}, wants ["before=verse,chorus","lines<=30"], ` +
+      `with seed 16, catalog_form ${JSON.stringify(chosen.catalog_form)}, catalog_variant 0, catalog_counts [], lines 2, functions "verse,chorus", relation ${JSON.stringify(relation)}, wants ["before=verse,chorus","lines<=30"], ` +
       "melody: the sweep's melody unchanged.\n"
   );
 });
@@ -1531,7 +1570,7 @@ test('/chat: a sweep during an unknown-outcome proposal shows no plan line at al
     step = 0;
   globalThis.fetch = async (_url, init) => {
     step++;
-    if (step === 1) return reply([fc('lyric_sweep', sweepArgs)]);
+    if (step === 1) return reply([fc('lyric_sweep', automatic(sweepArgs))]);
     seen = lastResponses(init)[0]?.response;
     return reply([{ text: 'done' }]);
   };
@@ -1769,29 +1808,36 @@ test(
   "the real chain: the sweep's NEXT is followed, a screen before the plan names the plan, and the plan names the screen its grade needs",
   { timeout: 300_000 },
   async (t) => {
-    // Raw /mcp/lyrics (no client): the line rebuilt from the sweep's own
-    // arguments (#671, C2), the same call a fresh session names.
+    // A new song's sweep names no form, so it chooses an executable catalog
+    // setting (#902), at random and on each surface its own. The plan line is
+    // rebuilt from the sweep's own arguments and the setting it reports
+    // (#671, C2), the same call a fresh session names; the native form's
+    // line is the raw engine's (the test above).
+    const sweepArgs = stated({ seed_from: 31, count: 1, lines: 12 });
+    const planOf = (v) => {
+      const chose = v?.catalog_selection;
+      assert(chose, JSON.stringify(v).slice(0, 600));
+      const plan = { seed: v.accepted_shown[0], ...chose, lines: 12 };
+      const named = Object.entries(plan).map(([k, x]) => `${k} ${JSON.stringify(x)}`);
+      return { plan, line: `NEXT: lyric_plan with ${named.join(', ')}.` };
+    };
+    // Raw /mcp/lyrics (no client).
     const raw = buildServer({ task: { domain: 'lyrics' } });
     const [ra, rb] = InMemoryTransport.createLinkedPair();
     await raw.connect(ra);
     const rawClient = new Client({ name: 'raw', version: '1' }, { capabilities: {} });
     await rawClient.connect(rb);
-    const sweepArgs = stated({ seed_from: 31, count: 1, lines: 12 });
-    let rawReport;
     try {
       const r = await rawClient.callTool({ name: 'lyric_sweep', arguments: sweepArgs });
-      rawReport = JSON.parse(r.content[0].text).report;
+      const v = JSON.parse(r.content[0].text);
+      assert(
+        v.report.split('\n').some((l) => l.trim() === planOf(v).line),
+        v.report
+      );
     } finally {
       await rawClient.close();
       await raw.close();
     }
-    const rawLine = new RegExp(
-      `NEXT: lyric_plan with seed (\\d+), form ${FORM}, lines 12\\.$`,
-      'm'
-    ).exec(rawReport);
-    assert(rawLine, rawReport);
-    const seed = Number(rawLine[1]);
-    const expected = `NEXT: lyric_plan with seed ${seed}, form ${FORM}, lines 12.`;
     const ctx = { sweepArgs };
     const words = { ...WORDS, relation: 'class:ASSONANCE' };
     const placeholders = (lines) => Array.from({ length: lines }, (_, i) => `<line ${i + 1}>`);
@@ -1825,7 +1871,7 @@ test(
       await chatClient.close();
       await chatServer.close();
     }
-    assert(chatSeen?.report?.includes(expected), JSON.stringify(chatSeen));
+    assert(chatSeen?.report?.includes(planOf(chatSeen).line), JSON.stringify(chatSeen));
     assert(!/NEXT: lyric_plan with seed \d+$/m.test(chatSeen.report), chatSeen.report);
 
     // The maintained client.
@@ -1835,11 +1881,14 @@ test(
     const c = await connectConnector({ task: 'lyrics', transport: b });
     try {
       const swept = await c.call('lyric_sweep', sweepArgs);
-      const report = JSON.parse(swept.content[0].text).report;
+      const sv = JSON.parse(swept.content[0].text);
+      const { line: expected, plan: own } = planOf(sv);
+      const { report } = sv;
+      const seed = own.seed;
       assert(report.includes(expected), report);
       assert(!/NEXT: lyric_plan with seed \d+$/m.test(report), report);
       const [[, plan]] = parseNext(report.match(/NEXT: .*$/m)[0], ctx);
-      assert.deepEqual(plan, { seed, form: sweepArgs.form, lines: 12 });
+      assert.deepEqual(plan, own);
       // A screen before the plan is refused, and names the plan.
       await assert.rejects(
         c.call('lyric_screen', words),
@@ -1884,6 +1933,8 @@ test(
     };
     const text = (r) => r.tool_result.content.map((block) => block.text).join('\n');
     const swept = await run('lyric_sweep', sweepArgs);
+    const { line: expected, plan: own } = planOf(verdictOf(swept.tool_result));
+    const seed = own.seed;
     assert(verdictOf(swept.tool_result).report.includes(expected), JSON.stringify(swept));
     const early = await run('lyric_screen', words);
     assert(text(early).includes(`${SCREEN_AFTER_SWEPT_PLAN} ${expected}`), text(early));
@@ -1977,6 +2028,17 @@ test(
       assert(!r.tool_error, `${name}: ${JSON.stringify(r).slice(0, 2000)}`);
       return verdictOf(r.tool_result);
     };
+    // A JOB SAVED BEFORE #902: both its sweeps hold a native form, which a
+    // new-song sweep refuses now. Each is swept on the raw engine and recorded
+    // on the session's own task (legacySweep); the session plans, screens and
+    // grades under them for real.
+    const sweptBefore = async (args) => {
+      const { session } = sessions.record(session_id, 'lyrics');
+      const job = await legacySweep(args, session.native.task);
+      assert(!job.result.isError, JSON.stringify(job.result).slice(0, 2000));
+      session_id = await legacySession(sessions, job.task, session);
+      return job.verdict;
+    };
     const asked = { lines: 12, form: 'verse-chorus' };
     // SWEPT FROM 32, NOT 31 (re-measured 2026-11-15). A chorus that recurs is
     // repeated line for line in every form since the owner's ruling of that
@@ -1985,9 +2047,8 @@ test(
     // `open` plan draws no section twice.
     // The plan's relation is the sweep's own (stage 3: relation is a sweep
     // coordinate); what else the sweep leaves out it draws.
-    const sweep1 = await run(
-      'lyric_sweep',
-      stated({ seed_from: 32, count: 1, ...asked, relation: 'class:RHYME' })
+    const sweep1 = await sweptBefore(
+      legacyStated({ seed_from: 32, count: 1, ...asked, relation: 'class:RHYME' })
     );
     const seed1 = sweep1.accepted_shown[0];
     const plan1 = await run('lyric_plan', {
@@ -2001,7 +2062,7 @@ test(
     await run('lyric_screen', { words: ['stove', 'coat'], relation: 'class:RHYME' });
 
     // Swept again with only the length declared, and planned.
-    const sweep2 = await run('lyric_sweep', stated({ seed_from: 32, count: 1, lines: 12 }));
+    const sweep2 = await sweptBefore(legacyStated({ seed_from: 32, count: 1, lines: 12 }));
     const seed2 = sweep2.accepted_shown[0];
     const plan2 = await run('lyric_plan', { seed: seed2, lines: 12 });
     assert.equal(plan2.exit_code, 0, JSON.stringify(plan2).slice(0, 2000));
