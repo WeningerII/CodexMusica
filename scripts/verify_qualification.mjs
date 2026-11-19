@@ -41,11 +41,34 @@ export const SHARED_IDENTITY = Object.freeze(['commit', 'source_sha256', 'portab
 const shared = (identity) =>
   JSON.stringify(SHARED_IDENTITY.map((key) => (identity ? identity[key] : undefined)));
 const HEX64 = /^[a-f0-9]{64}$/;
-export function validateQualification(value, image, verified, repository) {
+export function validateQualification(value, image, verified, repository, provenance) {
   const evidence = verified?.qualification;
+  const retry = value?.version === 2;
+  // Provenance is re-derived from GitHub at deployment, not accepted merely
+  // because the aggregate declares it. Legacy v1 stays exact-attempt only.
+  if (
+    retry &&
+    (!Array.isArray(provenance) ||
+      provenance.length !== COMPONENTS.length ||
+      !Array.isArray(value.provenance) ||
+      value.provenance.length !== COMPONENTS.length ||
+      provenance.some(
+        (p, i) =>
+          p.component !== COMPONENTS[i] ||
+          !Number.isSafeInteger(p.executed_attempt) ||
+          p.executed_attempt < 1 ||
+          p.executed_attempt > evidence?.run_attempt ||
+          p.lookup_attempt !== evidence?.run_attempt ||
+          !value.provenance[i] ||
+          Object.keys(p).length !== Object.keys(value.provenance[i]).length ||
+          Object.keys(p).some((k) => p[k] !== value.provenance[i][k])
+      ))
+  ) {
+    throw new Error('Production requires independently verified comparison provenance.');
+  }
   if (
     !evidence ||
-    value?.version !== 1 ||
+    (value?.version !== 1 && !retry) ||
     value.completed !== true ||
     value.scope !== 'complete-maintained-mutation-and-calibration-comparisons' ||
     value.repository !== repository ||
@@ -77,7 +100,10 @@ export function validateQualification(value, image, verified, repository) {
         r.status !== 'completed' ||
         r.exit_code !== 0 ||
         r.run_id !== evidence.run_id ||
-        r.run_attempt !== evidence.run_attempt ||
+        r.run_attempt !==
+          (retry
+            ? provenance.find((p) => p.component === r.component)?.executed_attempt
+            : evidence.run_attempt) ||
         r.repository !== repository ||
         shared(r.identity) !== shared(value.identity) ||
         !HEX64.test(r.identity?.inputs_sha256 || '') ||
@@ -95,7 +121,20 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     const [receipt, manifest, evidence] = process.argv
       .slice(2)
       .map((p) => JSON.parse(readFileSync(p, 'utf8')));
-    validateQualification(receipt, manifest, evidence, process.env.GITHUB_REPOSITORY);
+    const repository = process.env.GITHUB_REPOSITORY;
+    let provenance;
+    if (receipt.version === 2) {
+      const { qualificationProvenance, githubReader } =
+        await import('./qualification_provenance.mjs');
+      provenance = await qualificationProvenance({
+        get: githubReader(repository),
+        repository,
+        runId: evidence.qualification?.run_id,
+        attempt: evidence.qualification?.run_attempt,
+        sha: evidence.commit,
+      });
+    }
+    validateQualification(receipt, manifest, evidence, repository, provenance);
     console.log('Complete maintained comparisons match the verified image source.');
   } catch (error) {
     console.error(error.message);

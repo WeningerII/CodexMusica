@@ -9,6 +9,8 @@ import tempfile
 import os
 import re
 import subprocess
+import hashlib
+import zipfile
 from pathlib import Path
 from unittest.mock import patch
 import production_qualification as Q
@@ -73,6 +75,14 @@ class MatrixPlacementTests(unittest.TestCase):
                 self.assertEqual(completed.returncode == 0, result == 'success',
                                  (variable, result, completed.stderr))
 
+    def test_retry_aggregation_uses_provenance_and_digest_verification(self):
+        final=self.job('qualification-result')
+        self.assertIn('actions: read',final)
+        self.assertIn('node scripts/qualification_provenance.mjs > provenance.json',final)
+        self.assertIn('python3 scripts/qualification_retry.py provenance.json --out-dir=evidence',final)
+        self.assertIn('aggregate evidence --provenance=provenance.json --out=qualification.json',final)
+        self.assertNotIn('pattern: qualification-*',final)
+
 
 class EvidenceTests(unittest.TestCase):
     def setUp(self):
@@ -88,6 +98,70 @@ class EvidenceTests(unittest.TestCase):
         mutate(rows)
         with self.assertRaises(ValueError):
             aggregate(rows, **self.kw)
+
+    def retry_provenance(self):
+        return [dict(component=c, executed_attempt=1, lookup_attempt=2,
+                     execution_job_id=i+1, lookup_job_id=i+101, artifact_id=i+201,
+                     artifact_name=f"qualification-{c}-1", artifact_digest="sha256:"+"f"*64,
+                     started_at="2026-11-19T05:02:00Z", completed_at="2026-11-19T05:30:00Z")
+                for i,c in enumerate(COMPONENTS)]
+
+    def test_retry_preserves_original_receipts_and_requires_each_selected_attempt(self):
+        rows = copy.deepcopy(self.rows)
+        for r in rows:
+            r["run_attempt"] = 1
+        before = copy.deepcopy(rows)
+        proof = self.retry_provenance()
+        result = aggregate(rows, **self.kw, provenance=proof)
+        self.assertEqual(result["version"], 2)
+        self.assertEqual(result["run_attempt"], 2)
+        self.assertEqual(result["receipts"], before)
+        self.assertEqual(rows, before)
+        with self.assertRaises(ValueError):
+            aggregate(rows, **self.kw)  # a widened download glob is insufficient
+        for field, value in [("run_attempt",2), ("run_id",24), ("exit_code",1), ("command",[])]:
+            bad=copy.deepcopy(rows); bad[0][field]=value
+            with self.assertRaises(ValueError):
+                aggregate(bad, **self.kw, provenance=proof)
+        for bad in (rows[:-1],rows+[rows[0]]):
+            with self.assertRaises(ValueError):
+                aggregate(bad, **self.kw, provenance=proof)
+        for field, value in [("executed_attempt",0), ("executed_attempt",True), ("lookup_attempt",1),
+                             ("artifact_id",False), ("artifact_name","qualification-song-2"),
+                             ("artifact_digest",""), ("component","unknown")]:
+            bad=copy.deepcopy(proof); bad[0][field]=value
+            with self.assertRaises(ValueError):
+                aggregate(rows, **self.kw, provenance=bad)
+
+    def test_archive_digest_exact_member_and_original_bytes_are_required(self):
+        from qualification_retry import receipt_bytes
+        raw=b'{ "run_attempt": 1, "component": "mutation-1" }\n'
+        def archive(names):
+            out=io.BytesIO()
+            with zipfile.ZipFile(out,'w') as z:
+                for name in names:z.writestr(name,raw)
+            return out.getvalue()
+        data=archive(['mutation-1.json','mutation-1.json.log'])
+        p=self.retry_provenance()[0]
+        p['artifact_digest']='sha256:'+hashlib.sha256(data).hexdigest()
+        self.assertEqual(receipt_bytes(p,data),raw)
+        with self.assertRaises(ValueError):receipt_bytes(p,data+b'corrupt')
+        for names in [['../mutation-1.json'],['mutation-1.json','mutation-1.json']]:
+            data=archive(names);p['artifact_digest']='sha256:'+hashlib.sha256(data).hexdigest()
+            with self.assertRaises(ValueError):receipt_bytes(p,data)
+
+    def test_archive_redirect_does_not_forward_github_token(self):
+        import urllib.error
+        from qualification_retry import download
+        redirect=urllib.error.HTTPError('https://api.github.com',302,'Found',
+                                       {'Location':'https://blob.example/signed'},None)
+        with patch('qualification_retry.urllib.request.build_opener') as opener, \
+             patch('qualification_retry.urllib.request.urlopen',return_value=io.BytesIO(b'zip')) as blob:
+            opener.return_value.open.side_effect=redirect
+            self.assertEqual(download('owner/repo',123,'read-token'),b'zip')
+            request=opener.return_value.open.call_args.args[0]
+            self.assertEqual(request.get_header('Authorization'),'Bearer read-token')
+            blob.assert_called_once_with('https://blob.example/signed',timeout=30)
 
     def test_capacity_receipt_cannot_cross_attempt_commit_or_bytes(self):
         expected = {k: self.kw[k] for k in ("commit", "repository", "run_id", "run_attempt")}
