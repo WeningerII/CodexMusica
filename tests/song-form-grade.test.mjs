@@ -376,3 +376,34 @@ test('long and short roles compare two positioned readings without assuming a fi
   }
   assert.equal(grade([7,5],false).verdict,'unknown');
 });
+
+test('a syllable rhyme needs evidence at the prescribed position on each line', async () => {
+  const { readFileSync } = await import('node:fs');
+  const catalog = JSON.parse(readFileSync(new URL('../data/song-forms.json', import.meta.url)));
+  const rows = ['yyxx','yyxy','yxyy'].map(text => ({
+    text, syllables: 4, rhyme: 'terminal',
+    syllableRimes: [...text].map(c=>c==='x'?'IH K':'AY'),
+  }));
+  const grade = lines => gradeObservations(catalog,'than-bauk',{lines});
+  assert.equal(grade(rows).verdict, 'pass');
+  const changed = structuredClone(rows);
+  changed[1].syllableRimes[2] = 'AY';
+  assert.equal(grade(changed).verdict, 'fail');
+  changed[1].syllableRimes[2] = null;
+  assert.equal(grade(changed).verdict, 'unknown');
+  assert.equal(grade(rows.map(({syllableRimes, ...row}) => row)).verdict, 'unknown');
+  assert.throws(() => grade([{...rows[0], syllableRimes:['AA']}, ...rows.slice(1)]),
+    /Invalid aligned syllable rimes/);
+});
+
+test('printed phrase boundaries require local syllable and ending measurements', () => {
+  const pattern={unit:'verse-unit',children:['A','A','B'].map(rhyme=>({unit:'phrase',rhyme,syllables:3}))};
+  const grade = (lines, options={}) => gradeObservations(form(pattern),'symbol',{lines,...options});
+  const rows=['x','x','y'].map((rhyme)=>({text:'x',rhyme,syllables:3}));
+  assert.equal(grade(rows).verdict,'pass');
+  assert.equal(grade([{...rows[0],syllables:2},...rows.slice(1)]).verdict,'fail');
+  assert.equal(grade(rows.map(row=>({...row,rhyme:'x'}))).verdict,'fail');
+  assert.equal(grade(rows.map(row=>({text:row.text}))).verdict,'unknown');
+  assert.equal(grade([{text:'x'}]).verdict,'unknown');
+  assert.equal(grade(rows.slice(0,2),{phraseLines:true}).verdict,'fail');
+});

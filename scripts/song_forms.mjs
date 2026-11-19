@@ -48,7 +48,7 @@ async function main() {
     command === 'realize' || command === 'create'
       ? ['variant', 'counts']
       : command === 'grade-observations'
-        ? ['variant', 'counts', 'lines', 'sections']
+        ? ['variant', 'counts', 'lines', 'sections', 'phraseLines']
         : command === 'check'
           ? ['variant', 'counts', 'lines', 'sections', 'units']
           : [];

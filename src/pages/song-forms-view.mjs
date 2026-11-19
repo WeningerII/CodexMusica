@@ -104,13 +104,19 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
     statements.push(
       'The writer preserves the nested divisions and any participant assignments in the score.'
     );
+  if (contract.sections.some((s) => s.divisionPath?.at(-1)?.unit === 'metrical-stanza'))
+    statements.push(
+      'This setting compares the syllable counts and stress patterns of corresponding stanza lines.'
+    );
   if (contract.sections.some((s) => s.vocalDuty))
     statements.push(
       'The vocal check compares the singers assigned to each section with the score’s roster.'
     );
   if (contract.sections.at(-1)?.vocalDuty === 'reprise')
     statements.push('The ensemble repeats the closing lines of the last solo verse.');
-  if (arrangement) {
+  if (contract.phraseLines)
+    statements.push('This arrangement prints each measured phrase on a separate line.');
+  else if (arrangement) {
     const { divisions } = arrangement;
     statements.push(
       divisions.length === 1
@@ -134,6 +140,10 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
       'Use a distinct ending sound for each group of lines: ' + groups.join(' / ') + '.'
     );
   }
+  if (contract.lineProfile === 'caesural-rhyme')
+    statements.push(
+      'Use this pattern on each line of the verse. Mark the pause with / or | so the word before it can be compared with the line ending.'
+    );
   if (contract.endingWords) {
     const { groups, gathered } = contract.endingWords;
     statements.push(

@@ -13,6 +13,13 @@ FIELDS = frozenset(("version", "id", "scope", "variant", "counts", "sections",
                     "rhymeGroups", "returnGroups"))
 
 
+def line_rhyme_contract(contract):
+    """Known v1 shape: all positioned rhyme groups bind line endings."""
+    optional = {"lineRequirements", "endingWords", "phraseLines", "lineProfile"}
+    return (isinstance(contract, dict) and set(contract) - optional == FIELDS
+            and type(contract["version"]) is int and contract["version"] == 1)
+
+
 def terminal_rhyme_relation(name):
     """Whether this native declaration can bind an audible rhyme at both line endings."""
     _, schema = plan._schema_of(name)
@@ -68,8 +75,7 @@ def _sonnet_sections(parts, contract):
 
 
 def _validate_shape(contract):
-    if (not isinstance(contract, dict) or set(contract) - {"lineRequirements", "endingWords"} != FIELDS
-            or type(contract["version"]) is not int or contract["version"] != 1
+    if (not line_rhyme_contract(contract)
             or contract["scope"] not in ("rule", "setting")
             or not isinstance(contract["id"], str)
             or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", contract["id"])
@@ -82,6 +88,11 @@ def _validate_shape(contract):
     parts = contract["sections"]
     if not isinstance(parts, list) or not 1 <= len(parts) <= plan.ENVELOPE["sections"][1]:
         raise plan.PlanRefused("catalog section count is outside the native envelope")
+    if "lineProfile" in contract and (
+            contract["lineProfile"] != "caesural-rhyme"
+            or parts != [{"unit": "section", "role": "verse", "lines": None}]
+            or contract["rhymeGroups"] or contract["returnGroups"]):
+        raise plan.PlanRefused("the caesural rhyme profile needs a verse of independently measured lines")
     for part in parts:
         if (not isinstance(part, dict) or set(part) - {"bars", "divisionPath", "sourceRole", "linePaths", "vocalDuty"} != {"unit", "role", "lines"}
                 or part["unit"] != "section"):
@@ -193,6 +204,12 @@ def _validate_shape(contract):
                     for row in contract.get("lineRequirements", ())}
         if any(measures.get(n) != measures.get(g[0]) for g in returns for n in g[1:]):
             raise plan.PlanRefused("fixed returns have differing line requirements")
+    if "phraseLines" in contract:
+        if (contract["phraseLines"] is not True or not groups or returns or
+                any(p["role"] != "verse" or p["lines"] < 2 for p in parts) or
+                len(contract.get("lineRequirements", [])) != sum(p["lines"] for p in parts) or
+                any(set(row) != {"line", "syllables"} for row in contract["lineRequirements"])):
+            raise plan.PlanRefused("printed phrases require one measured verse line per phrase")
     return parts
 
 

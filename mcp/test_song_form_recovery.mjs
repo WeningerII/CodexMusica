@@ -182,3 +182,62 @@ test('invalid selection is refused over the MCP boundary', async () => {
     );
   }
 });
+
+test('recovery judges word positions from the native sung tokens', async () => {
+  const { prepareFormReview, reviewRecoveredForm } = await import('./lyric_form.js');
+  const selection = await prepareFormReview({ catalog_form: 'lune', catalog_variant: 1 });
+  const printed = ['a b c (d)', 'a b c d e', 'a b c'];
+  const check = (first) =>
+    reviewRecoveredForm(selection, {
+      lines: printed,
+      form_reading: [first, ['a', 'b', 'c', 'd', 'e'], ['a', 'b', 'c']].map((sungWords) => ({
+        sungWords,
+      })),
+    }).verdict;
+  assert.equal(check(['a', 'b', 'c']), 'pass');
+  assert.equal(check(['a', 'b', 'c', 'd']), 'fail');
+  assert.equal(check(null), 'unknown');
+  assert.equal(reviewRecoveredForm(selection, { lines: printed }).verdict, 'unknown');
+});
+
+test('recovery checks a descending syllable rhyme at its printed positions', async () => {
+  const run = (middle) =>
+    recover({
+      catalog_form: 'than-bauk',
+      lines: ['x x x x', middle, 'y x z z'],
+    });
+  const passed = await run('x x x y');
+  assert.equal(passed.catalog_form.verdict, 'pass');
+  const changed = await run('x x z y');
+  assert.equal(
+    changed.catalog_form.checks.find((c) => c.kind === 'syllable-rhyme').outcome,
+    'fail'
+  );
+});
+
+test('Pindaric header recovery reports the actual printed lines and leaves the meter unresolved', async () => {
+  const grade = await recover({
+    catalog_form: 'pindaric-ode',
+    catalog_counts: [{ path: '1.1', count: 1 }],
+    lines: ['[Strophe 1]', 'one', 'two', '[Antistrophe 1]', 'one', 'two', '[Epode 1]', 'three'],
+  });
+  assert.equal(grade.catalog_form.verdict, 'unknown');
+  assert.deepEqual(
+    grade.catalog_form.checks.find((c) => c.kind === 'metrical-responsion').printedLineCounts,
+    [2, 2]
+  );
+  assert.equal(
+    grade.catalog_form.checks.find((c) => c.kind === 'epode-meter-contrast').printedLineCount,
+    1
+  );
+});
+
+test('recovery requests per-syllable sounds only for an active syllable rhyme', async () => {
+  const { catalogReadingFlag, prepareFormReview } = await import('./lyric_form.js');
+  const flag = async (options) => catalogReadingFlag((await prepareFormReview(options))?.plan);
+  assert.equal(await flag({}), null);
+  assert.equal(await flag({ catalog_form: 'lune' }), null);
+  assert.equal(await flag({ catalog_form: 'lune', catalog_variant: 0 }), '--form-reading=lines');
+  assert.equal(await flag({ catalog_form: 'luc-bat' }), '--form-reading');
+  assert.equal(await flag({ catalog_form: 'than-bauk' }), '--form-reading');
+});

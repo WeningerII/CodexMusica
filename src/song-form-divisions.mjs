@@ -110,7 +110,7 @@ export function projectNestedDivisions(
       if (!node.role && node.unit === 'cycle' && node.children.length === 2) {
         const [stanza, refrain] = node.children;
         if (
-          stanza.unit === 'stanza' &&
+          ['stanza', 'metrical-stanza'].includes(stanza.unit) &&
           !stanza.role &&
           !stanza.children.length &&
           refrain.unit === 'section' &&
@@ -175,7 +175,9 @@ export function projectNestedDivisions(
       distinct = true;
       return node.children.every((child) => walk(child, next));
     }
-    if (!containers.has(node.unit)) return false;
+    const metrical =
+      node.unit === 'metrical-stanza' && carrier === 'verse' && !node.role && !node.children.length;
+    if (!containers.has(node.unit) && !metrical) return false;
     const refrain =
       node.unit === 'stanza' &&
       node.role === 'refrain' &&
@@ -271,6 +273,68 @@ function pathAgreement(expected, path) {
     }
   } else if (path !== undefined) agreement = false;
   return agreement;
+}
+
+function recurringStanzaMeter(metrical, lines, sections) {
+  const counts = [];
+  const masks = [];
+  let firstWidth;
+  let missing = false;
+  let incompatible = false;
+  let uncertainStress = false;
+  const positions = [];
+  for (const i of metrical) {
+    const span = sections?.[i]?.lineSpan;
+    if (
+      !lines ||
+      !Array.isArray(span) ||
+      span.length !== 2 ||
+      !span.every(Number.isSafeInteger) ||
+      span[0] < 0 ||
+      span[1] <= span[0] ||
+      span[1] > lines.length
+    ) {
+      missing = true;
+      continue;
+    }
+    const width = span[1] - span[0];
+    if (firstWidth !== undefined && firstWidth !== width) incompatible = true;
+    firstWidth = width;
+    for (let j = 0; j < width; j++) {
+      const row = lines[span[0] + j];
+      positions.push(span[0] + j + 1);
+      if (typeof row?.text !== 'string' || !row.text.trim()) {
+        missing = true;
+        continue;
+      }
+      const mask = row.stress;
+      const count = row.syllables ?? mask?.length;
+      if (!Number.isSafeInteger(count) || count <= 0) missing = true;
+      else if (counts[j] === undefined) counts[j] = count;
+      else if (count !== counts[j]) incompatible = true;
+      // Agreed stress is a sufficient witness for this regular setting.
+      // A lexical substitution can still scan, so it is inconclusive.
+      if (
+        typeof mask !== 'string' ||
+        !/^[./]+$/.test(mask) ||
+        !mask.includes('/') ||
+        mask.length !== count
+      ) {
+        uncertainStress = true;
+      } else if (masks[j] === undefined) masks[j] = mask;
+      else if (masks[j] !== mask) uncertainStress = true;
+    }
+  }
+  return {
+    kind: 'recurring-stanza-meter',
+    basis: 'corresponding printed body lines and their agreed syllable and stress readings',
+    lines: positions,
+    outcome: incompatible
+      ? 'fail'
+      : missing || uncertainStress || metrical.length < 2
+        ? 'unknown'
+        : 'pass',
+  };
 }
 
 export function gradeNestedDivisions(plan, rows, lines, sections, checks = []) {
@@ -443,6 +507,10 @@ export function gradeNestedDivisions(plan, rows, lines, sections, checks = []) {
     }
     cursor = valid ? span[1] : undefined;
   }
+  const metrical = rows.flatMap((row, i) =>
+    row.divisionPath.at(-1)?.unit === 'metrical-stanza' ? [i] : []
+  );
+  if (metrical.length) checks.push(recurringStanzaMeter(metrical, lines, sections));
   const refrainParts = rows.flatMap((row, i) => (row.role === 'refrain' ? [i] : []));
   if (refrainParts.length > 1) {
     let complete = true,

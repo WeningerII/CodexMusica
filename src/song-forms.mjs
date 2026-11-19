@@ -316,6 +316,7 @@ function wordTokens(text) {
 // This symbol never crosses the raw check JSON interface. Only the native
 // reader supplies a separate token stream for asides, compounds and voices.
 const readerWords = Symbol('sung word tokens');
+const readerRimes = Symbol('measured syllable rimes');
 function observedWords(obs) {
   if (obs && has(obs, readerWords)) return obs[readerWords] ?? undefined;
   return typeof obs?.text === 'string' ? wordTokens(obs.text) : undefined;
@@ -334,7 +335,22 @@ export function checkReaderForm(catalog, id, options) {
   const sections = options.sections?.map(measuredIdentity);
   const lines = options.lines?.map((line) => {
     const observed = measuredIdentity(line);
-    if (!isRecord(observed) || !has(observed, 'sungWords')) return observed;
+    if (!isRecord(observed)) return observed;
+    if (has(observed, 'syllableRimes')) {
+      const keys = observed.syllableRimes;
+      requireValue(
+        typeof observed.text === 'string' &&
+          Array.isArray(keys) &&
+          keys.length === observedValue(observed, 'syllables') &&
+          keys.every(
+            (key) =>
+              key === null || (typeof key === 'string' && /^[A-Z]{2}(?: [A-Z]{1,2})*$/.test(key))
+          ),
+        'Invalid aligned syllable rimes'
+      );
+      observed[readerRimes] = keys;
+    }
+    if (!has(observed, 'sungWords')) return observed;
     const { sungWords, ...obs } = observed;
     requireValue(
       sungWords === null ||
@@ -350,7 +366,7 @@ export function checkReaderForm(catalog, id, options) {
         sungWords?.map((token) => token.normalize('NFC').toLowerCase().replace(/’/g, "'")) ?? null,
     };
   });
-  return checkForm(catalog, id, { ...options, lines, sections });
+  return checkForm(catalog, id, { ...options, lines, sections, [readerRimes]: true });
 }
 
 function identity(obs, key) {
@@ -419,6 +435,23 @@ function observedValue(obs, key) {
   if (obs.stress && key === 'stresses') return obs.stress.split('/').length - 1;
   if (obs.stress && key === 'syllables') return obs.stress.length;
   return undefined;
+}
+
+// The selected regular-ode model can contain several strophe/antistrophe/epode triads.
+export function pindaricTriads(plan) {
+  if (plan.id !== 'pindaric-ode' || plan.tree.length !== 1) return null;
+  const root = plan.tree[0];
+  const order = ['strophe', 'antistrophe', 'epode'];
+  return root.unit === 'poem' &&
+    root.children.length &&
+    root.children.every(
+      (triad) =>
+        triad.unit === 'triad' &&
+        triad.children.length === 3 &&
+        triad.children.every((stanza, i) => stanza.unit === 'stanza' && stanza.role === order[i])
+    )
+    ? root.children
+    : null;
 }
 
 export function checkForm(catalog, id, options = {}) {
@@ -535,6 +568,8 @@ export function checkForm(catalog, id, options = {}) {
         if (!classSets.has(groupKey))
           classSets.set(groupKey, { key, label: node[key], addresses: [], members: [] });
         const group = classSets.get(groupKey);
+        if (options[readerRimes] && key === 'rhyme' && node.unit === 'syllable')
+          group.subline = true;
         group.addresses.push(node.address);
         group.members.push(obs);
       } else {
@@ -601,6 +636,8 @@ export function checkForm(catalog, id, options = {}) {
         inferredCount !== undefined && i < inferredCount
           ? { unit: part, ...(tokens && { text: tokens[i] }) }
           : undefined;
+      if (observation && part === 'syllable' && obs?.[readerRimes]?.[i])
+        observation.rhyme = obs[readerRimes][i];
       inspect(child, node, inLine || node.unit === 'line', observation);
     });
   }
@@ -609,13 +646,52 @@ export function checkForm(catalog, id, options = {}) {
     Object.keys(extra).every((key) => used.has(key)),
     'Unknown unit observation address'
   );
+  const triads = pindaricTriads(plan);
+  if (triads) {
+    const divisions = triads.flatMap((triad) => triad.children);
+    // Read the printed divisions when the named boundaries cover the submitted
+    // text exactly. Editorial line breaks do not identify metrical periods.
+    const rows = divisions.map((division, i) => extra[division.address] ?? options.sections?.[i]);
+    let offset = 0;
+    const complete =
+      Array.isArray(options.lines) &&
+      (!options.sections || options.sections.length === divisions.length) &&
+      rows.every((row, i) => {
+        const span = row?.lineSpan;
+        if (
+          (row?.sourceRole ?? row?.role) !== divisions[i].role ||
+          !Array.isArray(span) ||
+          span.length !== 2 ||
+          span[0] !== offset ||
+          !integer(span[1]) ||
+          span[1] <= offset
+        )
+          return false;
+        offset = span[1];
+        return true;
+      }) &&
+      offset === options.lines.length;
+    for (const [i, triad] of triads.entries()) {
+      const [strophe, antistrophe, epode] = triad.children;
+      const lengths =
+        complete && rows.slice(i * 3, i * 3 + 3).map(({ lineSpan: [start, end] }) => end - start);
+      add('metrical-responsion', 'unknown', {
+        addresses: [strophe.address, antistrophe.address],
+        ...(lengths && { printedLineCounts: lengths.slice(0, 2) }),
+      });
+      add('epode-meter-contrast', 'unknown', {
+        address: epode.address,
+        ...(lengths && { printedLineCount: lengths[2] }),
+      });
+    }
+  }
   const families = new Map();
   for (const group of classSets.values()) {
     const family = group.key;
     if (!families.has(family)) families.set(family, []);
     families.get(family).push(group);
     if (group.members.length > 1)
-      add(group.key, compareClass(group.members, group.key), {
+      add(group.subline ? 'syllable-rhyme' : group.key, compareClass(group.members, group.key), {
         label: group.label,
         addresses: group.addresses,
       });
@@ -623,7 +699,11 @@ export function checkForm(catalog, id, options = {}) {
   for (const groups of families.values()) {
     const key = groups[0].key;
     if (groups.length > 1 && (key === 'rhyme' || key === 'endWord')) {
-      add(key + '-distinct', distinguish(groups), { labels: groups.map((g) => g.label) });
+      add(
+        groups.some((g) => g.subline) ? 'syllable-rhyme-distinct' : key + '-distinct',
+        distinguish(groups),
+        { labels: groups.map((g) => g.label) }
+      );
     } else {
       for (const group of groups) {
         if (group.members.length === 1)

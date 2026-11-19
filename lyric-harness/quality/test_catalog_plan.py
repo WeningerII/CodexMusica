@@ -351,6 +351,28 @@ class CatalogPlannerTests(unittest.TestCase):
         with self.assertRaisesRegex(plan.PlanRefused, "fewer sung syllables"):
             plan.make_plan(11, song_form={**data, "lineRequirements": rows})
 
+    def test_printed_pause_selects_the_immediately_preceding_word_and_the_line_ending(self):
+        from quality.catalog_grading import _reading, inspect_catalog
+        from quality import schemes
+        import lyric_harness as lh
+        lex = lh.Lexicon()
+        contract = catalog("leonine-verse", [{"unit": "section", "role": "verse", "lines": None}])
+        contract["lineProfile"] = "caesural-rhyme"
+        native = plan.make_plan(11, lines=2, song_form=contract)
+        self.assertIn("mid-line pause", native["writer_brief"])
+        m = schemes.mandate([[1, 2]], 2)
+        lines = ["zero one / none", "two | blue"]
+        bp = plan.fill_plan(native, lines)
+        for line, expected in [(lines[0], "pass"), ("one ten / none", "fail"),
+                               ("two / two", "fail"), ("one, none", "unknown"),
+                               ("one / none / one", "unknown"), ("red / read", "unknown"),
+                               ("one / qzzxv", "unknown"), ("one (two / three) none", "unknown")]:
+            with self.subTest(line=line):
+                score = inspect_catalog(lex, [line, lines[1]], bp, m, {"verdicts": []})
+                self.assertEqual(score["verdict"], expected, score)
+                self.assertEqual([c["outcome"] for c in score["checks"]], [expected, "pass"])
+        self.assertNotIn("caesuralRhyme", _reading(lex, lines[0]))
+
     def test_conflicting_declaration_and_unknown_fields_refuse(self):
         base = catalog("hookless-rap-track", [{"unit": "section", "role": "verse", "lines": 2}])
         with self.assertRaises(plan.PlanRefused):

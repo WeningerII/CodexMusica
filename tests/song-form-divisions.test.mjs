@@ -228,3 +228,40 @@ test('a scored ensemble reprise can quote only the suffix of the preceding solo'
   lines[copy+1]=lines[0];
   assert.equal(grade().verdict,'fail');
 });
+
+
+test('a regular hymn setting is measured from the submitted stanza readings and repeated refrain', () => {
+  const id='hymn-with-refrain', counts={'1.1':2};
+  const contract=projectSongFormCreation(realizeForm(catalog,id,{counts}),counts).contract;
+  const program=`
+import json,sys
+import lyric_harness as lh
+from quality import plan
+from quality.catalog_grading import _reading, _sections
+c=json.load(sys.stdin); lex=lh.Lexicon()
+p=plan.make_plan(11,lines=8,song_form=c)
+assert "stress pattern of each corresponding line" in p["writer_brief"]
+body=["a b c","d e f","x y","y z",
+      "a d e","g h j","x y","y z"]
+def submitted(draft):
+    bp=plan.fill_plan(p,draft)
+    measured=[_reading(lex,line) for line in draft]
+    sections=_sections(bp,measured)
+    return {"lines":measured,"sections":sections}
+print(json.dumps([submitted(body),submitted(body[:4]+["a d"]+body[5:]),
+                  submitted(body[:-1]+["z z"])]))
+`;
+  const result=spawnSync('python3',['-B','-c',program],
+    {cwd:fileURLToPath(new URL('../lyric-harness',import.meta.url)),input:JSON.stringify(contract),encoding:'utf8'});
+  assert.equal(result.status,0,result.stderr);
+  const [matching,changed,broken]=JSON.parse(result.stdout);
+  const grade=(obs)=>gradeObservations(catalog,id,{counts,...obs});
+  const checks=(obs)=>grade(obs).checks.filter(x=>x.outcome!=='pass').map(x=>[x.kind,x.outcome]);
+  assert.equal(grade(matching).verdict,'pass');
+  assert.deepEqual(checks(changed),[['recurring-stanza-meter','fail']]);
+  assert.deepEqual(checks(broken),[['verbatim-refrain','fail']]);
+  delete matching.lines[4].stress;
+  assert.deepEqual(checks(matching),[['recurring-stanza-meter','unknown']]);
+  matching.lines[4].stress='//.';
+  assert.deepEqual(checks(matching),[['recurring-stanza-meter','unknown']]);
+});

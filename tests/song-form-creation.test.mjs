@@ -40,7 +40,7 @@ test('every published selection has an exact structural contract or an explicit 
       const counts = Object.fromEntries(choice.counts.map(({ path, min, max }) =>
         [path, Math.min(min + 1, max ?? Infinity)]));
       const options = { variant: choice.index, counts };
-      const realization = realizeForm(catalog, form.id, options);
+      let realization = realizeForm(catalog, form.id, options);
       const projected = projectSongFormCreation(realization, counts);
       const where = form.id + '/' + choice.index;
       assert.equal(projected.scope, form.scope, where);
@@ -60,6 +60,16 @@ test('every published selection has an exact structural contract or an explicit 
         assert.equal(contract.variant, choice.index, where);
         assert.deepEqual(contract.counts, counts, where);
         assert.ok(contract.sections.length > 0, where);
+        if (contract.phraseLines) {
+          // Derive the expected carrier independently from the original phrase data.
+          const root = realization.tree[0];
+          const spans = root.unit === 'verse-unit' ? [root] : root.children;
+          const stanzas = spans.map(span => stanza(...span.children.map(({unit, rhyme, syllables}) => {
+            assert.equal(unit, 'phrase', where);
+            return {unit:'line', rhyme, syllables};
+          })));
+          realization = realizeForm(entry(poem(...stanzas)), 'f');
+        }
         if (projected.nestedDivisions) {
           const nodes = new Map();
           function index(node) {
@@ -75,6 +85,10 @@ test('every published selection has an exact structural contract or an explicit 
               assert.equal(mark.role, original.role, where);
             }
           }
+        } else if (contract.lineProfile === 'caesural-rhyme') {
+          assert.equal(realization.tree.length, 1);
+          assert.deepEqual(realization.tree[0].children.map(n => n.unit), ['half-line', 'caesura', 'half-line']);
+          assert.deepEqual(contract.sections, [{unit:'section',role:'verse',lines:null}]);
         } else if (projected.arrangement) {
           arranged++;
           assert.equal(realization.coverage.lines, 'complete', where);

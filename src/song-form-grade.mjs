@@ -1,5 +1,6 @@
 // Compare catalog requirements with measurements from the current candidate.
 // Blueprint coordinates describe the declared arrangement, including its bar grid.
+import { printedPhraseSetting } from './song-form-mandate.mjs';
 import {
   refrainAddresses,
   relativeLinePairs,
@@ -8,7 +9,7 @@ import {
 } from './song-form-line-roles.mjs';
 import { gradeNestedDivisions } from './song-form-divisions.mjs';
 import { sectionArrangement, measureSectionArrangement } from './song-form-section-arrangement.mjs';
-import { checkReaderForm, realizeForm } from './song-forms.mjs';
+import { checkReaderForm, pindaricTriads, realizeForm } from './song-forms.mjs';
 import {
   isVerseDivision,
   isCountedDescent,
@@ -35,7 +36,7 @@ function simpleSectionLayout(node) {
   );
 }
 
-export function gradeObservations(catalog, id, { variant, counts, lines, sections }) {
+export function gradeObservations(catalog, id, { variant, counts, lines, sections, phraseLines }) {
   const plan = realizeForm(catalog, id, { variant, counts });
   if (plan.status !== 'ready')
     return {
@@ -44,7 +45,55 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       verdict: 'unknown',
       checks: [{ kind: 'realization', outcome: 'unknown' }],
     };
+  const printed = printedPhraseSetting(plan);
+  if (printed && (phraseLines === true || lines?.length === printed.plan.lines.length)) {
+    const observed = gradeObservations(printed.catalog, id, { variant: 0, lines, sections });
+    return {
+      ...observed,
+      variant: plan.variant,
+      arrangement: 'one-printed-line-per-phrase',
+      phraseRhymeGroups: projectSongFormCreation(printed.plan).contract?.rhymeGroups,
+    };
+  }
   const creation = projectSongFormCreation(plan, counts);
+  if (creation.contract?.lineProfile === 'caesural-rhyme') {
+    const checks = (lines || []).map((row, i) => {
+      const proof = row?.caesuralRhyme;
+      let outcome = 'unknown';
+      if (
+        typeof row?.text === 'string' &&
+        /^[^/|]+[/|][^/|]+$/u.test(row.text) &&
+        Array.isArray(row.sungWords) &&
+        Number.isInteger(proof?.cut) &&
+        proof.cut > 0 &&
+        proof.cut < row.sungWords.length &&
+        proof.words?.[0] === row.sungWords[proof.cut - 1] &&
+        proof.words?.[1] === row.sungWords.at(-1)
+      ) {
+        const [left, right] = Array.isArray(proof.keys) ? proof.keys : [];
+        if (proof.words[0] === proof.words[1]) outcome = 'fail';
+        else if (
+          [left, right].every(
+            (keys) =>
+              Array.isArray(keys) &&
+              keys.length &&
+              keys.every((key) => typeof key === 'string' && key)
+          )
+        ) {
+          if (!left.some((key) => right.includes(key))) outcome = 'fail';
+          else if (left.length === 1 && right.length === 1) outcome = 'pass';
+        }
+      }
+      return { kind: 'caesural-rhyme', lines: [i + 1], outcome };
+    });
+    if (!checks.length) checks.push({ kind: 'caesural-rhyme', outcome: 'unknown' });
+    const verdict = checks.some((c) => c.outcome === 'fail')
+      ? 'fail'
+      : checks.every((c) => c.outcome === 'pass')
+        ? 'pass'
+        : 'unknown';
+    return { id, variant: plan.variant, scope: plan.scope, verdict, checks };
+  }
   if (creation.nestedDivisions) {
     const checks = [];
     if (creation.contract.returnGroups.length) {
@@ -127,6 +176,10 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   const measurement = measureSectionArrangement(sourceArrangement, plan, lines, sections);
   sections = measurement.sections;
   const input = { variant, counts };
+  if (pindaricTriads(plan)) {
+    input.lines = lines;
+    input.sections = sections;
+  }
   // A spoken or literary function printed on the line template is a requested
   // property. Echoing its name cannot measure a punchline, a wish, or a turn.
   // Section and speaker declarations have a separate score-based evidence path.
