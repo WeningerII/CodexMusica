@@ -326,3 +326,51 @@ test('both triad checks withhold a verdict for conflicting stress and count evid
     }
   }
 });
+
+test('source-specific functions require a reading of each exact passage in its full context', () => {
+  const variants = [
+    ['elegy',0], ['verse-epistle',0], ['goodnight-ballad',0],
+    ['come-all-ye',0], ['come-all-ye',1], ['calling-on-song',0], ['calling-on-song',1],
+    ['riddle-song',0],
+  ];
+  const contracts = variants.map(([id,variant]) => {
+    const {status,contract} = project(id,variant);
+    assert.equal(status, 'ready', id);
+    return contract;
+  });
+  const program = `
+import json, sys
+from quality import plan
+from quality.catalog_grading import _sections
+results=[]
+for contract in json.load(sys.stdin):
+    total=len(contract["sections"])*2
+    p=plan.make_plan(11,lines=total,song_form=contract)
+    assert all(s["textualFunction"]["criterion"] in p["writer_brief"] for s in contract["sections"])
+    draft=["line " + str(i) for i in range(1,total+1)]
+    sections=_sections(plan.fill_plan(p, draft),[{"text":line} for line in draft])
+    results.append({"draft":draft,"sections":sections})
+print(json.dumps(results))
+`;
+  const run = spawnSync('python3',['-B','-c',program],{ cwd:fileURLToPath(new URL('../lyric-harness',import.meta.url)), input:JSON.stringify(contracts),encoding:'utf8' });
+  assert.equal(run.status,0,run.stderr);
+  for(const [i,{draft,sections}] of JSON.parse(run.stdout).entries()){
+    const {id,variant,counts}=contracts[i];
+    const grade=(lines=draft,ss=sections)=>gradeObservations(catalog,id,{variant,counts,lines,sections:ss});
+    const first=grade();
+    assert.equal(first.verdict,'unknown',id);
+    const checks=first.checks.filter(c=>c.kind==='declared-textual-function');
+    assert.equal(checks.length,sections.length,id);
+    assert.ok(checks.every(c=>c.criterion && /^[a-f0-9]{64}$/.test(c.draft_sha256)));
+    for(const c of checks) sections[c.section-1].functionReading={section:c.section,role:c.role,draft_sha256:c.draft_sha256,judgment:'affirmed',source:'test reader',reason:'fixture reading'};
+    assert.equal(grade().verdict,'pass',id);
+    const changed=draft.slice();
+    changed[0]+=' changed';
+    assert.equal(grade(changed).verdict,'unknown',id);
+    sections[0].functionReading.judgment='rejected';
+    assert.equal(grade().verdict,'fail',id);
+    if(id==='riddle-song') assert.deepEqual(checks.filter(c=>c.role==='answer-stanzas').map(c=>c.answersSection),[1,2]);
+  }
+  const bad = realizeForm(catalog,'riddle-song',{counts:{'1.1.1':1,'1.2.1':2}});
+  assert.notEqual(projectSongFormCreation(bad,{'1.1.1':1,'1.2.1':2}).status,'ready');
+});

@@ -80,6 +80,7 @@ export function runtimeSourceFingerprint(
     'src/song-form-line-roles.mjs',
     'src/song-form-printing.mjs',
     'src/song-form-divisions.mjs',
+    'src/song-form-function-readings.mjs',
     'src/song-form-section-arrangement.mjs',
     'src/song-form-section-melody.mjs',
     'data/song-forms.json',

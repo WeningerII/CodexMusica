@@ -6,6 +6,8 @@ import { gradeObservations } from '../src/song-form-grade.mjs';
 import { printedSteps } from '../src/song-form-printing.mjs';
 import { formMandate } from '../src/song-form-mandate.mjs';
 
+import { usesFunctionReadings } from '../src/song-form-function-readings.mjs';
+
 let catalog;
 export function catalogReadingFlag(plan) {
   if (plan?.status !== 'ready') return null;
@@ -105,15 +107,24 @@ export function reviewRecoveredForm({ options, plan }, record) {
     sections.at(-1).lineSpan[1] === observations.length &&
     projectSongFormCreation(plan, options.counts).arrangement?.divisions.length === sections.length;
   const check = markedSequence ? gradeObservations : checkReaderForm;
-  const { verdict, checks } = check(catalog, plan.id, {
+  const measurement = check(catalog, plan.id, {
     ...options,
     lines: observations,
     sections,
   });
+  if (usesFunctionReadings(plan.id)) {
+    // A printed section header can locate a function; it cannot attest its meaning.
+    measurement.checks.push({
+      kind: 'declared-textual-function',
+      basis: 'no attributed reading',
+      outcome: 'unknown',
+    });
+    if (measurement.verdict === 'pass') measurement.verdict = 'unknown';
+  }
   return {
     ...result,
-    verdict,
-    checks,
+    verdict: measurement.verdict,
+    checks: measurement.checks,
     ...(plan.id === 'rondo' && { lyricalReturns: record.rondo_text_returns ?? [] }),
     coverage: plan.coverage,
     mandate: formMandate(plan),

@@ -229,13 +229,16 @@ def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None, retur
 
 def inspect_catalog(lex, lines, blueprint, mandate, report):
     selection = getattr(lex, "catalog_selection", None)
-    if not selection and not isinstance(blueprint, dict):
+    readings = getattr(lex, "catalog_function_readings", ())
+    if not selection and not isinstance(blueprint, dict) and not readings:
         return None
     bp = blueprint if isinstance(blueprint, dict) else {}
     if isinstance(blueprint, (str, Path)) and selection:
         bp = json.loads(Path(blueprint).read_text(encoding="utf-8"))
     selection = selection or bp.get("song_form")
     if not selection:
+        if readings:
+            lh._refuse("catalog function readings require a selected song form")
         return None
     form_id = selection["id"]
     # A filled native plan carries the selected line profile. In the lookup-only
@@ -259,6 +262,10 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
     request["lines"] = observed
     sections = _sections(bp, observed)
     if sections is not None:
+        for reading in readings:
+            index = reading["section"] - 1
+            if index < len(sections):
+                sections[index]["functionReading"] = reading
         request["sections"] = sections
     script = Path(__file__).resolve().parents[2] / "scripts" / "song_forms.mjs"
     try:
@@ -267,6 +274,11 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
                              encoding="utf-8", timeout=20, check=True)
         groups = (bp.get("song_form") or {}).get("rhymeGroups")
         result = json.loads(run.stdout)
+        if readings:
+            criteria = {r.get("section"): r.get("role") for r in result["checks"]
+                        if r["kind"] == "declared-textual-function"}
+            if any(criteria.get(r["section"]) != r["role"] for r in readings):
+                lh._refuse("catalog function reading names a section or role outside the selected setting")
         if form_id == "rondo":
             from quality.catalog_rondo import lyrical_returns
             result["lyricalReturns"] = lyrical_returns(lines, sections)

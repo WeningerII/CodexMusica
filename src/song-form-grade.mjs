@@ -1,3 +1,5 @@
+import { createHash } from 'node:crypto';
+import { usesFunctionReadings } from './song-form-function-readings.mjs';
 // Compare catalog requirements with measurements from the current candidate.
 // Blueprint coordinates describe the declared arrangement, including its bar grid.
 import { printedPhraseSetting } from './song-form-mandate.mjs';
@@ -34,6 +36,65 @@ function simpleSectionLayout(node) {
         )
     )
   );
+}
+
+// Bind the attestation to the entire submitted text and to the ordered
+// division spans. A change outside the passage can change its meaning too.
+function measureFunctionReadings(plan, rows, lines, sections) {
+  const text = lines?.map((row) => (typeof row === 'string' ? row : row?.text));
+  const spans = sections?.map((row) => row?.lineSpan);
+  let cursor = 0;
+  const complete =
+    text?.length &&
+    text.every((line) => typeof line === 'string' && line.trim()) &&
+    spans?.length === rows.length &&
+    spans.every((span) => {
+      if (
+        !Array.isArray(span) ||
+        span.length !== 2 ||
+        span[0] !== cursor ||
+        !Number.isSafeInteger(span[1]) ||
+        span[1] <= cursor
+      )
+        return false;
+      cursor = span[1];
+      return true;
+    }) &&
+    cursor === text.length;
+  const binding = complete
+    ? createHash('sha256')
+        .update(
+          JSON.stringify([plan.id, plan.variant, rows.map((r) => r.divisionPath), spans, text])
+        )
+        .digest('hex')
+    : undefined;
+  return rows.map((row, i) => {
+    const { role } = row.textualFunction;
+    const check = {
+      kind: 'declared-textual-function',
+      section: i + 1,
+      ...row.textualFunction,
+      basis: 'attributed editorial reading',
+      outcome: 'unknown',
+      ...(binding && { draft_sha256: binding }),
+    };
+    const reading = sections?.[i]?.functionReading;
+    if (!check.criterion || !binding || !reading || typeof reading !== 'object') return check;
+    if (
+      reading.draft_sha256 !== binding ||
+      reading.section !== i + 1 ||
+      reading.role !== role ||
+      !['affirmed', 'rejected'].includes(reading.judgment) ||
+      ![reading.source, reading.reason].every((s) => typeof s === 'string' && s.trim())
+    )
+      return check;
+    return {
+      ...check,
+      source: reading.source,
+      reason: reading.reason,
+      outcome: reading.judgment === 'affirmed' ? 'pass' : 'fail',
+    };
+  });
 }
 
 export function gradeObservations(catalog, id, { variant, counts, lines, sections, phraseLines }) {
@@ -114,6 +175,8 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
         checks.push({ ...check, lines: check.addresses.map((address) => numbers.get(address)) });
       }
     }
+    if (usesFunctionReadings(plan.id))
+      checks.push(...measureFunctionReadings(plan, creation.contract.sections, lines, sections));
     const score = gradeNestedDivisions(plan, creation.contract.sections, lines, sections, checks);
     const words = creation.contract.endingWords;
     if (!words) return score;

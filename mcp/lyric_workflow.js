@@ -99,6 +99,7 @@ export const PLAN_FIELDS = [
 // planned again (nextCreationCall).
 const PLAN_ONLY_KEPT = ['title', 'narrative', 'group_types'];
 export const READING_FIELDS = [
+  'catalog_function_readings',
   'pronunciations',
   'fallback',
   'voices',

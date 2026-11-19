@@ -2,6 +2,7 @@
 // The writer still judges placement, recurrence, envelope and seed feasibility.
 import { refrainAddresses, relativeLinePairs } from './song-form-line-roles.mjs';
 import { endingWordDeclaration, printedPhraseSetting } from './song-form-mandate.mjs';
+import { withFunctionCriteria } from './song-form-function-readings.mjs';
 import { projectNestedDivisions } from './song-form-divisions.mjs';
 import { printedSteps } from './song-form-printing.mjs';
 import { sectionMelodyGroup, sectionMelodyLayout } from './song-form-section-melody.mjs';
@@ -421,7 +422,10 @@ export function projectSongFormCreation(plan, counts = {}) {
   let nestedDivisions = false;
   const endingWords = endingWordDeclaration(plan);
   if (reasons.length) {
-    const layout = projectNestedDivisions(plan, NATIVE_ROLES, { fixedReturns, endingWords });
+    const layout = withFunctionCriteria(
+      plan.id,
+      projectNestedDivisions(plan, NATIVE_ROLES, { fixedReturns, endingWords })
+    );
     if (layout) {
       sections.splice(0, sections.length, ...layout);
       reasons.length = divisions.length = lineRequirements.length = 0;

@@ -341,3 +341,16 @@ test('marked neutral stanzas are measured independently of their end rhymes', as
     assert.ok(spans(missing).length && spans(missing).every((c) => c.outcome === 'unknown'));
   }
 });
+
+test('matching printed headings leave narrative readings unknown', async () => {
+  const recovered = await recover({
+    catalog_form: 'goodnight-ballad',
+    lines: ['[CONFESSION]', 'one two', '[FAREWELL]', 'three four'],
+  });
+  assert.equal(recovered.catalog_form.verdict, 'unknown');
+  assert.ok(
+    recovered.catalog_form.checks.some(
+      (check) => check.kind === 'declared-textual-function' && check.outcome === 'unknown'
+    )
+  );
+});
