@@ -2966,6 +2966,8 @@ named defect can be two-thirds shut and the live third a different shape.
 
 **A SECTION BRACKET IS PRESENTED WHOLE OR NOT AT ALL — GATED 2026-08-24 (`MISSING.md` M-97).** `quality/plan.py:section_header` is the ONE builder and it puts the line count, the bar count, the METER and the pickup INSIDE the bracket: `[INTRO — 2 lines — 2 bars of 8/8, one-beat pickup]`. Flattening that to `[INTRO]` when presenting a song throws away two thirds of what the section declares, and it happened six or seven times because nothing could see it — `test_plan.py` §6 gates the RENDERER, `test_songs.py` gates the FILE, and neither reads a message. **DO NOT RETYPE A SONG.** `plan --seed=N --fill=DRAFT --out=BP` prints it; present those bytes. This is no longer a standing instruction: `.claude/settings.json` registers a **Stop hook** that runs `quality/check_render_form.py` against the turn about to be delivered and EXITS 2 — the turn is blocked and the reason comes back. Quoting a raw lyric file, which legitimately carries bare `[VERSE1]` markers, is the one escape and it is declared IN THE TEXT with `RAW LYRIC FILE`. **AND THE SAME INSTRUMENT ASKS A SECOND QUESTION SINCE 2026-08-28 (`MISSING.md` M-150): a turn presenting two or more BUILT headers must also DECLARE the run's convergence state** — an exit code in the verbs' own spelling ("exit 0", "exit 3"), or UNCONVERGED / PARKED — because a rendered song shown bare reads as FINISHED with no instrument having said so, and the working order's last step (revise to a STOP CONDITION) was the only step nothing could refuse. Disclosure, never adjudication: an exit-3 draft presented AS exit 3 passes, and a false claim is `quality/song_log.py --verdicts`' business. **AND THE STATE MUST CARRY ITS PROVENANCE SINCE 2026-09-05 (`MISSING.md` M-243): the accepted declarations are the two STAMPS the verbs write — `[FINISHED — seed N — exit E — …]` from `finish`/`lyric_revise`, written only past a stop condition, and `[GRADED — seed N — exit E, …]` from `lyric_grade`, an interim draft disclosed as one — or UNCONVERGED / PARKED. A bare "exit N" no longer counts**: no verb prints those words into text, grade and finish both end in a code, and a session used exactly that spelling to present a graded, unrevised draft as a run's exit 0. Still disclosure — a GRADED turn passes as a grade; what is impossible now is a grade's code read as a run's.
 
+**HISTORY, NOT CURRENT — DELETED 2026-10-28 (#628).** The paragraph below describes a series and its tooling that no longer exist: `quality/song_record.py`, `quality/song_log.py`, `test_songs.py`, `test_songs_log.py`, `test_songs_record.py`, `songs/README.md`, `songs/RESULTS.tsv` and every `songs/*.txt`, `*.blueprint.json` and `*.log.tsv` were removed in commit 022fb015a; only `songs/drafts/` remains. Neither register, neither gate (`--claims`, `--verdicts`) and none of the five songs is there to run or read. It is kept as the record of what was built and why.
+
 **THE SONGS ARE A SERIES NOW, AND SO IS THE PROCESS THAT MADE THEM — 2026-08-24
 (`MISSING.md` M-98/M-99/M-100).** Five songs shipped and nothing compared any
 of them to any other; every report about them was a PASS/FAIL bit — `song`
@@ -3643,8 +3645,12 @@ the repaired check now fails and the old one did not.
   `corpus/whitman.txt` carries the property under test as epistrophe and was
   never eligible for the role (`K-3`: replacement task CLOSED 2026-09-17;
   eligibility finding retained and guarded by `quality/test_band.py` section 9).
-- Current baselines: sonnets **4.0% violations (40/1012 JUDGED pairs)** —
-  MEASURED 2026-10-02 against both `check_scheme` and `Reviser.grade`:
+- Current baselines: sonnets ~~**4.0% violations (40/1012 JUDGED pairs)**~~
+  **2.5% violations (25/1013 judged pairs; mandated 1064, refused 51)** — the
+  `current` row of `quality/production_relation_oracle.json`, repinned
+  2026-10-30 by the English sound inventory (`MISSING.md` M-322; that file's
+  `baseline` row reads 14/1014). Read the file, not this line, for the live
+  figure. Superseded reading, kept as the record: MEASURED 2026-10-02 against both `check_scheme` and `Reviser.grade`:
   `mandated 1064, judged 1012, refused 52, violations 40`. **REPINNED BY THE
   BOUND-WORD RULE (`MISSING.md` M-317, owner ruling 2026-10-02):** a group
   is judged at the words it binds, so a pair no longer passes because some

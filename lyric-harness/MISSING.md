@@ -1769,12 +1769,18 @@ carries `n_sounds`, `adjacencies`, `crossings`, `nestings`,
 layer makes. What no request can carry is a FILTER over them: `make_plan`
 takes `seed`, `form`, `lines`, and the CLI takes the same.
 
-**And this is neither doctrine 44's "hard to build" nor doctrine 92's "cannot
+~~**And this is neither doctrine 44's "hard to build" nor doctrine 92's "cannot
 obtain" — it is RULED ON HOLD, by name.** `CLAUDE.md`: _"The seed-sweep
 instrument (looping `make_plan` with filters to find a shape) stays manual for
 now BY THE OWNER'S PENDING RULING, and is named here so it cannot become a
 quiet fourth instrument."_ Recorded here so a later session does not build it
-as a favour: shipping it silently violates standing rule 3.
+as a favour: shipping it silently violates standing rule 3.~~ **The hold is
+lifted (struck 2026-11-19; the REPINNED 2026-09-06 note at the top of this entry
+already said so).** The owner ruled 2026-08-23 — *"make it a verb"* — and the
+sweep is `plan --sweep=LO-HI [--want=PRED;PRED]` (M-82). The quoted sentence is
+no longer in `CLAUDE.md`, which is now a generated pointer file: it lives in
+`HANDBOOK.md` standing rule 3, struck, with the ruling beneath it. What remains
+open here is the residue named under WHAT REMAINS above, not a hold.
 
 ---
 
@@ -2987,6 +2993,8 @@ shrinking the map reds 1 — and the section passed with the defect standing
 before the repair, which is doctrine 48 inside the guard.
 
 ### L-5 · Doctrine has drifted toward auditing `CLOSED` 2026-08-11
+**REPINNED 2026-11-19 — EVERY `CLAUDE.md` BELOW NOW READS `HANDBOOK.md`.** `CLAUDE.md` is a generated pointer file (`map/build.py`) with no numbered doctrines, so `grep -cE '^[0-9]+\. \*\*' CLAUDE.md` prints 0, not 30. Measured by `python3 quality/verify_doctrines.py` on 2026-11-19: **96 doctrines**, a contiguous run 1–96 with nothing defined twice — 21 in `HANDBOOK.md`, 75 in `quality/METHOD.md`. `known gap N` is still a separate run, 1–10. The same grep over `HANDBOOK.md` prints 36 (21 doctrines + 15 known-gap lines), over `quality/METHOD.md` 75. The 95, the 20 and the 30 below are the 2026-08-11 record. For the live figures run `verify_doctrines.py`, not this entry.
+
 ~~`CLAUDE.md` carries 76 numbered items~~ ~~**102 numbered items, measured
 2026-08-11**~~ — **95 doctrines**, and roughly the last 25 are about null
 hypotheses and calibration. A future session reading it will learn to audit

@@ -7,8 +7,13 @@ never a score. Run it with `python3 quality/floor.py FILE`; regressions are
 Two project rules force the shape. **No weighted quality score, ever**
 (doctrine 6) — the exchange rate between surprise and clarity is a genre's
 answer, so it belongs in a declaration. **Rejection, not selection**
-(doctrine 7) — detecting bad writing held out at AUC **0.964**, ranking good
-writing at **0.717**. A caller who wants one number has to invent its weighting
+(doctrine 7) — ~~detecting bad writing held out at AUC **0.964**, ranking good
+writing at **0.717**~~ ranking good writing held out at AUC **0.758**, the
+Experiment 1 absolute ten-feature joint that `quality/test_discriminate.py`
+pins (`abs_exp1` `joint_all`; `quality/floor.py`'s header quotes the 0.760
+reading of `MISSING.md` M-314). The "detecting bad writing" figure was
+Experiment 2, which was deleted 2026-10-27 with its tooling, so it is no longer
+measured (last recorded 0.967). Read the pins, not this line. A caller who wants one number has to invent its weighting
 in the open and own it.
 
 > **REPINNED 2026-08-13 from ~~0.971~~ and ~~0.709~~, which are superseded
@@ -19,10 +24,15 @@ in the open and own it.
 > here was the **PRE-OOV-FIX reading of 2026-08-09**, not the warm post-fix one
 > — that intermediate reading is 0.659 (Exp 1) and 0.975 (Exp 2), and it is
 > superseded too. Cold, recomputed against a fingerprinted cache, they are
-> **0.717 and 0.964**. Pinned as `abs_exp1`/`abs_exp2` `joint_all` in
+> **0.717 and 0.964**. ~~Pinned as `abs_exp1`/`abs_exp2` `joint_all` in
 > `quality/test_discriminate.py`, RECORDED in
 > `quality/audit_joint_auc_null.py`, tabulated in `quality/RESULTS.md`
-> § "The joint held-out AUCs, cold".
+> § "The joint held-out AUCs, cold".~~ **Superseded (struck 2026-11-19).** Both
+> moved again after this note (see `quality/floor.py`'s header for the chain).
+> `quality/audit_joint_auc_null.py` was deleted 2026-10-27 (#628, commit
+> 022fb015a) along with Experiment 2, so nothing pins `abs_exp2` now and the
+> 0.964 cannot be reproduced. `test_discriminate.py` pins Experiment 1 only:
+> `abs_exp1` `joint_all` 0.758.
 >
 > **Doctrine 7's argument is unchanged.** The gap is 0.247 cold against 0.262
 > pre-fix: a floor is enforceable and a ceiling is not, by the same margin to
@@ -40,16 +50,20 @@ negative class 40 sonnets by one model in the same form and register.
 
 > **This table predates the third profile.** ~~`song` (whole lyric sheet, 150–400 tokens, 3,571 human items, tol 1.25) landed 2026-08-11~~ and is a different kind of calibration — a held-out false-positive rate, no AUC, because no generated song class exists (L-4a). The two columns below are correct for the two stanza profiles and are not the full list.
 >
-> **REPINNED 2026-09-05 (`MISSING.md` M-239).** The struck reading was the 2026-08-11 adoption; `song` was re-adopted at **200–400 tokens, 2,261 items** on 2026-08-26 (M-133), and a fourth row `short` (50–150) landed 2026-09-01 (M-193). On **2026-09-04 both band rows were SUPERSEDED** by `lyric`, the live lyric-sheet profile: **4–3,245 tokens, 8,667 human items (the whole song corpus), tolerance 1.0**, whose five thresholds are **curves in ln N** — pinball-loss fits, and a knot table for predictability — not fixed percentiles, so a finding under it names the threshold evaluated at that text's own length (`quality/RESULTS_LENGTH_CURVE.md`). `song` and `short` stay in `PROFILES` with `superseded_by="lyric"` for their own drift checks and are never applied: `PROFILES` is five rows and `live_profiles()` — what `declaration_for` may pick from — is `section`, `sonnet`, `lyric`.
+> **REPINNED 2026-09-05 (`MISSING.md` M-239).** The struck reading was the 2026-08-11 adoption; `song` was re-adopted at **200–400 tokens, 2,261 items** on 2026-08-26 (M-133), and a fourth row `short` (50–150) landed 2026-09-01 (M-193). On **2026-09-04 both band rows were SUPERSEDED** by `lyric`, the live lyric-sheet profile: ~~**4–3,245 tokens, 8,667 human items (the whole song corpus), tolerance 1.0**~~ **9–3,244 tokens measured over 8,585 human items, reaching down to 4 tokens, tolerance 1.0** (repinned 2026-11-19 from `quality/floor.py`'s `lyric` row: the owner's call of 2026-10-16 keeps 4–8-token lyrics graded, but no human item under 9 tokens remains, so 4–8 is reached, not measured), whose five thresholds are **curves in ln N** — pinball-loss fits, and a knot table for predictability — not fixed percentiles, so a finding under it names the threshold evaluated at that text's own length (`quality/RESULTS_LENGTH_CURVE.md`). `song` and `short` stay in `PROFILES` with `superseded_by="lyric"` for their own drift checks and are never applied: `PROFILES` is five rows and `live_profiles()` — what `declaration_for` may pick from — is `section`, `sonnet`, `lyric`.
+>
+> **REPINNED 2026-11-19 to `quality/floor.py`'s `PROFILES`** (the profiles were re-adopted 2026-09-14). The struck values are the 2026-08 calibration. `anaphora_max` and `line_length_cv_min` did not move; `n` did not move. A `predictable_pair_fraction_max` of 1.0 cannot be exceeded, so that check never flags under this profile. For the live values read `PROFILES`, not this table.
+
+| | section | sonnet |
 |---|---|---|
 | unit | 4-line quatrain (lines 1–4, 5–8, 9–12 of each sonnet) | whole 14-line sonnet |
-| token domain (human p05–p95) | 29–37 | 108–126 |
+| token domain (human p05–p95) | ~~29–37~~ 28–36 | ~~108–126~~ 105–123 |
 | n | 456 human / 120 generated | 152 / 40 |
-| `mattr_min` | 0.7568 (**plain TTR** — see below) | 0.7557 |
-| `function_word_ratio_max` | 0.5161 | 0.4788 |
+| `mattr_min` | ~~0.7568~~ 0.7697 (**plain TTR** — see below) | ~~0.7557~~ 0.7615 |
+| `function_word_ratio_max` | ~~0.5161~~ 0.5282 | ~~0.4788~~ 0.4898 |
 | `anaphora_max` | 0.5000 | 0.2857 |
 | `line_length_cv_min` | 0.0525 | 0.0939 |
-| `predictable_pair_fraction_max` | *not measured* | 0.8333 |
+| `predictable_pair_fraction_max` | *not measured* | ~~0.8333~~ 1.0 (so this check cannot flag) |
 
 Measured separation, as AUC in the direction *human scores higher*:
 

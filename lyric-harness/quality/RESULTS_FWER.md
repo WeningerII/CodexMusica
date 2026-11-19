@@ -375,8 +375,12 @@ It would become that job's most expensive single step — `audit_spans.py
 steps — and its natural neighbour is `audit_time_pooled_null.py --check`, the
 job's other time-layer drift detector. Two of that job's neighbours pin threads
 via `env:` and the rest do not; this one should, since its cost was measured
-pinned. It is **NOT WIRED**: nothing in CI runs it today, and
-`.github/workflows/ci.yml` is not this cell's file to edit.
+pinned. ~~It is **NOT WIRED**: nothing in CI runs it today, and
+`.github/workflows/ci.yml` is not this cell's file to edit.~~ **WIRED since
+(struck 2026-11-19):** the `record` job in `.github/workflows/ci.yml` runs
+`python3 quality/audit_fwer_fpr.py --check` as the step "The time layer is
+still mute, and for the recorded reason", with its threads pinned through
+`env:` as asked above. The cost measurements above are kept as measured.
 
 ## What the correction does
 
