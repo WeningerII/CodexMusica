@@ -11449,7 +11449,7 @@ def main():
     readings_args = [a for a in args if a == readings_flag or a.startswith(readings_flag + "=")]
     if readings_args:
         if len(readings_args) != 1 or "=" not in readings_args[0]:
-            _refuse("use one --catalog-function-readings=<JSON> declaration")
+            _refuse("supply a single catalog function readings declaration as JSON")
         try:
             readings = json.loads(readings_args[0].split("=", 1)[1])
             keys = {"section", "role", "draft_sha256", "judgment", "source", "reason"}

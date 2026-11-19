@@ -112,7 +112,9 @@ async function checkViewport(browser, origin, viewport) {
     await view.getByRole('button', { name: 'Show expanded structure' }).click();
     await view.getByText('Repeat line 1 verbatim at 4, 7.').waitFor();
     await picker.selectOption('tritina');
-    await view.getByRole('button', { name: 'Show expanded structure' }).click();
+    // A focus change can scroll the narrow Lyrics panel between mouse down and up.
+    // Exercise the button's keyboard activation at this deeply scrolled form.
+    await view.getByRole('button', { name: 'Show expanded structure' }).press('Enter');
     const endingNote = view.locator('#ly-form-writing-note');
     assert.match(await endingNote.textContent(), /same final word within each group/);
     assert.match(await endingNote.textContent(), /closing passage on line 10/);

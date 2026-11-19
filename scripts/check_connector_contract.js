@@ -104,10 +104,15 @@ const STRUCTURAL = [
 //     Occurrence bindings must reject typo'd provenance/position fields rather
 //     than silently dropping them. The Gemini adapter removes this keyword
 //     from its declarations while server-side strict validation stays intact.
+//   catalog_function_readings.items.additionalProperties — false. Reject typos
+//     in the section and text fingerprint bindings rather than dropping them.
 const EXEMPT = new Set([
   'edit_recipe.properties.workspace.properties.cards.items:EMPTY',
   'render_recipe.properties.workspace.properties.cards.items:EMPTY',
   'edit_recipe.properties.edits.items.properties.chain.additionalProperties',
+  ...['lyric_grade', 'lyric_revise', 'lyric_check'].map(
+    (name) => `${name}.properties.catalog_function_readings.items.additionalProperties`
+  ),
   ...['lyric_grade', 'lyric_revise', 'lyric_verify', 'lyric_recover', 'lyric_check'].map(
     (name) => `${name}.properties.pronunciations.items.additionalProperties`
   ),
