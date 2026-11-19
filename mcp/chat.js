@@ -27,7 +27,7 @@ import { loadChatSecret } from './job_store.js';
 import { encodeInterviewWire } from './state_codec.js';
 import { lyricContext, taskDomain } from './task_contract.js';
 import { runKeyOf } from './run_store.js';
-import { RUNS } from './lyric_tools.js';
+import { RUNS, vouchResumeWire } from './lyric_tools.js';
 import { CATALOG_FIELDS, PLAN_FIELDS } from './lyric_workflow.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import {
@@ -483,6 +483,10 @@ export async function createChatRouter({
     } catch {
       return null;
     }
+    // The wire a resumable envelope carries is built here from this server's
+    // own stored progress record (under a signed base envelope): it is
+    // recorded as one this server returned, for the run the record names.
+    if (!uncertain && !capacityStop) vouchResumeWire(progress, wire);
     envelope.lyric = {
       key,
       seed: decl.seed ?? null,

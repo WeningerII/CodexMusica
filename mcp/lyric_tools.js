@@ -114,6 +114,8 @@ import {
   movedDeclarations,
   movedRefusal,
 } from './run_store.js';
+import { createBriefLedger, alignLines, fold } from './brief_ledger.js';
+import { parkedChangeable, declaredGroups, declaredReturns } from './parked_lines.js';
 
 const HARNESS_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'lyric-harness');
 const PYTHON = process.env.LYRIC_PYTHON || 'python3';
@@ -431,6 +433,206 @@ function wireKey(wire) {
   }
 }
 export const RUNS = new RunStore({ ledger: createRunLedger(), wireKey });
+
+// BRIEF PROVENANCE (Refs #665). Which lines a revise run flagged without
+// asking about them, and which lines its loop replaced, kept across calls and
+// callers (brief_ledger.js, no lyric text), so a later run cannot start from a
+// draft that hand-edits a flagged line or puts a replaced line back. One store
+// per process, shared by every surface, as RUNS is. Checked before a run
+// starts; written at every stop and checkpoint; a certified exit 0 forgets it.
+export const BRIEFS = createBriefLedger();
+
+export const BRIEF_LEDGER_UNAVAILABLE =
+  "BRIEF_LEDGER_UNAVAILABLE: the record of which lines the revise loop briefed cannot be read, so no lyric_revise run starts until it is repaired. Nothing was run. Call lyric_revise with `recover_only: true` and the run's state or checkpoint to read its accepted lyrics.";
+
+// quality/revise.py draft_fingerprint: md5 over the lines joined by "\n".
+const harnessFp = (lines) => createHash('md5').update(lines.join('\n')).digest('hex').slice(0, 12);
+const lineNos = (xs) =>
+  Array.isArray(xs) ? xs.filter((n) => Number.isSafeInteger(n) && n >= 1) : [];
+const curOf = (journal) =>
+  Array.isArray(journal?.final_draft)
+    ? journal.final_draft
+    : Array.isArray(journal?.accepted_lines)
+      ? journal.accepted_lines
+      : null;
+
+// The lines a journal shows the loop asking about against `cur`: the pending
+// question's line(s); an answered single whose line the loop has not replaced
+// since (or that was asked on this very draft); a group member whose text
+// when asked is its text now.
+// The lines of `cur` the loop replaced: against the draft this call started
+// from and against the run's own input.
+function fixedLines(journal, cur, base) {
+  const out = new Set();
+  for (const from of [base, journal?.input_draft])
+    if (Array.isArray(from))
+      for (const [, j] of alignLines(from.map(fold), cur.map(fold)).subs) out.add(j + 1);
+  return out;
+}
+function briefedOf(journal, cur, fixed) {
+  const out = new Set();
+  if (!journal || !Array.isArray(cur)) return [];
+  const fp = harnessFp(cur);
+  const pending = journal.pending;
+  const rec = pending?.record || {};
+  if (pending?.kind === 'propose') lineNos([rec.line]).forEach((n) => out.add(n));
+  if (pending?.kind === 'propose_batch')
+    lineNos((rec.records || []).map((x) => x?.line)).forEach((n) => out.add(n));
+  if (pending?.kind === 'propose_group') lineNos(rec.members).forEach((n) => out.add(n));
+  for (const p of journal.answered?.propose || [])
+    if (Number.isSafeInteger(p?.line) && (!fixed.has(p.line) || p.draft === fp)) out.add(p.line);
+  for (const g of journal.answered?.propose_group || [])
+    lineNos(g?.members).forEach((m, i) => {
+      if (Array.isArray(g.texts) && g.texts[i] === cur[m - 1]) out.add(m);
+    });
+  return [...out].filter((n) => n <= cur.length).sort((x, y) => x - y);
+}
+
+// Lines as "3, 5-6, 8-12", and as "4 and 7".
+function lineSpans(ns) {
+  const out = [];
+  for (let i = 0; i < ns.length; ) {
+    let j = i;
+    while (j + 1 < ns.length && ns[j + 1] === ns[j] + 1) j++;
+    out.push(j > i ? `${ns[i]}-${ns[j]}` : String(ns[i]));
+    i = j + 1;
+  }
+  return out.join(', ');
+}
+const lineWords = (ns) =>
+  (ns.length === 1 ? 'line ' : 'lines ') +
+  (ns.length > 1 ? `${ns.slice(0, -1).join(', ')} and ${ns.at(-1)}` : String(ns[0]));
+
+// What a forged-wire refusal names when it cannot name "this draft": the song
+// the refused state or checkpoint holds, which is the song the check passed.
+// A session withholds states and checkpoints, so workflow_sessions.js gives
+// this sentence the session's own calls.
+export const BRIEF_WIRE_SONG =
+  'Call lyric_revise with `new_run: true` and, as `draft_text`, the song this state or ' +
+  'checkpoint holds (its `final_draft`, or else its `accepted_lines`), or continue with the ' +
+  'state or checkpoint the last lyric_revise returned.';
+
+// The refusal names line numbers only, in the incoming draft's numbering, and
+// never a line's text or the run it matched.
+// sentDraft: the caller's own arguments carried a draft (draft or draft_text);
+// one a session or a resume put into the call is not the caller's. Beside a
+// state or checkpoint that draft is the run's opening draft, which holds the
+// old text of every line the loop replaced, so "this draft" is named only
+// where the run replaced none.
+function briefRefusal(res, { sentDraft = true } = {}) {
+  if (res.reason === 'unminted_wire') {
+    const held = [
+      res.protects ? 'keeps lines it flagged without asking about them' : '',
+      res.replaced ? 'keeps lines its loop replaced from coming back' : '',
+    ]
+      .filter(Boolean)
+      .join(' and ');
+    return (
+      'BRIEF_REQUIRED: the state or checkpoint this call carries is not one this server returned, ' +
+      `and the song it holds is one in which a live revise run ${held}, so its records cannot be taken ` +
+      "as that run's. Nothing was run. " +
+      (sentDraft && !res.replaced
+        ? 'Call lyric_revise with `new_run: true` and this draft, or continue with the state or ' +
+          'checkpoint the last lyric_revise returned.'
+        : BRIEF_WIRE_SONG)
+    );
+  }
+  const parts = [];
+  if (res.changed.length)
+    parts.push(
+      `${lineWords(res.changed)} ${res.changed.length === 1 ? 'changes a line' : 'change lines'} the revise loop flagged without giving ${res.changed.length === 1 ? 'its' : 'their'} brief (no question asked about ${res.changed.length === 1 ? 'it' : 'them'}, and no stop left ${res.changed.length === 1 ? 'it' : 'them'} open)`
+    );
+  if (res.undone.length)
+    parts.push(
+      `${lineWords(res.undone)} ${res.undone.length === 1 ? 'puts back a line' : 'put back lines'} the loop replaced`
+    );
+  for (const after of res.removedAfter)
+    parts.push(
+      after
+        ? `a line removed after line ${after} was a flagged line the loop did not ask about`
+        : 'a line removed before line 1 was a flagged line the loop did not ask about'
+    );
+  const keep = [...new Set([...res.changed, ...res.undone])].sort((x, y) => x - y);
+  const fix = [
+    keep.length
+      ? `${lineWords(keep)} as the last lyric_revise returned ${keep.length === 1 ? 'it' : 'them'}`
+      : '',
+    res.removedAfter.length ? 'the removed line(s) put back' : '',
+  ]
+    .filter(Boolean)
+    .join(' and ');
+  return (
+    `BRIEF_REQUIRED: ${parts.join('; ')}. Nothing was run. ` +
+    (res.may.length ? `Lines this draft may change: ${lineSpans(res.may)}. ` : '') +
+    `Call lyric_revise with \`new_run: true\` and this draft with ${fix}.`
+  );
+}
+
+const briefWireKey = (w) => (typeof w === 'string' && w ? wireKey(w) : null);
+// Progress captures are written to disk at most once a second over every run
+// in this process (each write saves the whole store), except a call's first
+// one, which is always written; one held back is written by the ledger's
+// deferred save a second later. A stop always writes. The second is counted
+// on the ledger's clock.
+let briefProgressSavedAt = 0;
+
+// A WIRE THE SERVER BUILDS FOR A RESUMED CALL (Refs #875). A session's resume
+// and the chat's recovered envelope build a state or checkpoint from the
+// server's own stored progress record. That wire is recorded here, saved at
+// once, on the entry of the run the record names (`connector_run_ref`), so the
+// resumed call continues that run where it would otherwise read as a wire this
+// server did not return. A record that names no run, or whose run has no
+// entry, records nothing, and its wire is judged as any other.
+export function vouchResumeWire(progress, wire) {
+  try {
+    return BRIEFS.mint({ ref: progress?.connector_run_ref, wire: briefWireKey(wire) });
+  } catch (err) {
+    console.error(`[briefs] resume wire not recorded (${err.message})`);
+    return false;
+  }
+}
+// A capture never fails the call it records: a failed save leaves the store
+// unhealthy, and the next run is refused until it recovers.
+function briefCapture(entry) {
+  return BRIEFS.capture(entry).catch((err) =>
+    console.error(`[briefs] capture failed (${err.message})`)
+  );
+}
+
+// A GRADE WHOSE REVISE THE BRIEF GATE WOULD REFUSE (Refs #875). A grade's
+// `next` names lyric_revise on the graded draft; where a live revise run keeps
+// a line that draft changes (BRIEF_REQUIRED), that revise is refused before it
+// runs. The grade reads the same store the revise does, without a run or a
+// wire, and when it would refuse, `next` names the lines to put back and
+// `next_call` is dropped: only the caller can make that change. A store that
+// cannot be read is left to the revise, which says so.
+export function briefGradeNext(verdict, draft) {
+  if (!verdict?.next_call || !Array.isArray(draft) || !BRIEFS.healthy) return verdict;
+  let res;
+  try {
+    res = BRIEFS.check({ lineSets: [draft] });
+  } catch {
+    return verdict;
+  }
+  if (res.ok || res.reason !== 'brief') return verdict;
+  const keep = [...new Set([...res.changed, ...res.undone])].sort((x, y) => x - y);
+  const back = [
+    keep.length
+      ? `${lineWords(keep)} as the last lyric_revise returned ${keep.length === 1 ? 'it' : 'them'}`
+      : '',
+    res.removedAfter.length ? 'the removed line(s)' : '',
+  ]
+    .filter(Boolean)
+    .join(' and ');
+  delete verdict.next_call;
+  verdict.next =
+    'lyric_revise refuses this draft before it runs (BRIEF_REQUIRED): a live revise run on this song ' +
+    'keeps the text of a line it flagged without asking about it, or of a line its loop replaced, and ' +
+    `this draft changes it. Put back ${back}, grade that draft with lyric_grade, then call lyric_revise ` +
+    "as that grade's `next` says." +
+    (res.may.length ? ` Lines this draft may change: ${lineSpans(res.may)}.` : '');
+  return verdict;
+}
 
 // THE RECOGNITION CAPS, BEFORE ANYTHING QUEUES (#677 W5, meter_admission.js).
 // Called by the tool wrapper (tools.js) before a lyric handler runs, so before
@@ -1274,7 +1476,9 @@ function checkNext(v) {
     return (
       'Call lyric_revise with these same lines and this same declaration, and no seed; ' +
       'its revise loop works on the flagged lines. If you change any line yourself instead, ' +
-      'call lyric_check again on the changed lines.'
+      'call lyric_check again on the changed lines. Once a revise run has flagged a line without ' +
+      'asking about it, that line keeps its text for up to 3 hours, until the song is certified or a later ' +
+      'run on it no longer flags the line (BRIEF_REQUIRED).'
     );
   return unjudgedNext(v, 'Then call lyric_check again with the same declaration.');
 }
@@ -1407,6 +1611,22 @@ function checkWords(words) {
   }
 }
 
+// Control characters the harness's reader treats otherwise than this tool
+// does: Python str.splitlines splits a line on each row marked split, and
+// str.strip removes every row from a line's ends (JS .trim() removes only the
+// vertical tab and the form feed, before this check), so the lines the
+// harness reads would not be the lines this tool checked and recorded (brief
+// provenance, #665). Each is refused anywhere else in a line.
+export const READER_CONTROLS = [
+  { ch: '\x0b', name: 'vertical tab, U+000B', split: true },
+  { ch: '\x0c', name: 'form feed, U+000C', split: true },
+  { ch: '\x1c', name: 'file separator, U+001C', split: true },
+  { ch: '\x1d', name: 'group separator, U+001D', split: true },
+  { ch: '\x1e', name: 'record separator, U+001E', split: true },
+  { ch: '\x1f', name: 'unit separator, U+001F', split: false },
+  { ch: '\x85', name: 'next line, U+0085', split: true },
+];
+
 function checkLines(lines) {
   if (lines.length < 1 || lines.length > MAX_LINES)
     throw refuse(`between 1 and ${MAX_LINES} lines — got ${lines.length}`);
@@ -1416,6 +1636,12 @@ function checkLines(lines) {
       throw refuse(
         'each array item must be exactly one lyric line; use the newline text field for multiple rows'
       );
+    else if (READER_CONTROLS.some((row) => l.includes(row.ch))) {
+      const c = READER_CONTROLS.find((row) => l.includes(row.ch));
+      throw refuse(
+        `a draft line holds a control character (${c.name}) that the reader ${c.split ? 'takes as a line break' : 'strips from the ends of a line'}; remove it and send the line again`
+      );
+    }
     // Code points, as the published schema (zod) and the Python harness count:
     // UTF-16 `.length` refused lines of 101–200 astral characters (emoji)
     // that both of those accept.
@@ -2443,7 +2669,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .boolean()
       .optional()
       .describe(
-        'true to open a fresh independent run on the draft you send; any run in progress is set aside intact. Send only the draft and the declarations with it.'
+        "true to open a fresh independent run on the draft you send; any run in progress is set aside intact. Send only the draft and the declarations with it. With no draft and a run's `run_id`, it starts from the song as that run left it, its accepted fixes included. A line a run flagged but did not ask about, or a line its loop replaced, keeps its text for up to 3 hours unless the song is certified, half or more of its lines are rewritten, or a later run on the song frees it (a later run on the song protects only the lines it flags without asking about them and the lines its own loop replaces); a draft that changes one is refused with BRIEF_REQUIRED, which names the lines."
       ),
     writer: z
       .enum(WRITERS)
@@ -2826,10 +3052,16 @@ function reviseDescription({ kitchen = false } = {}) {
     'record when that position cannot be trusted; the same questions arrive in the same order either way. ' +
     'A call that nears its time limit stops between steps (exit 5) and the next call with no answer ' +
     'continues it. To start again on a different draft, grade that draft first, then ' +
-    'send it with `new_run: true`. ';
+    'send it with `new_run: true`; `new_run: true` with no draft and the run_id starts from the song as ' +
+    'the run left it, its accepted fixes included. A line a run flagged but did not ask about, or a line ' +
+    'its loop replaced, keeps its text for up to 3 hours unless the song is certified, half or more of ' +
+    'its lines are rewritten, or a later run on the song frees it (a later run on the song protects only ' +
+    'the lines it flags without asking about them and the lines its own loop replaces): a draft that changes it, or puts a replaced line back, is refused ' +
+    '(BRIEF_REQUIRED names the lines). ';
   const chat =
     'ON THIS SURFACE THE SERVICE WRITER ANSWERS: after lyric_grade, send the seed and no draft, and the ' +
-    'graded draft and its declarations are taken from the record; a draft sent with the call must be ' +
+    'graded draft and its declarations are taken from the record (after a revise of that draft, the song ' +
+    'as the revise left it, its accepted fixes included); a draft sent with the call must be ' +
     'that exact draft, unchanged. One call runs the ' +
     'loop to a stop condition, the writer answering each question (a group question asks for every line of ' +
     'the group at once). An interrupted call records a checkpoint that the next lyric_revise call for the ' +
@@ -2989,6 +3221,10 @@ export function registerLyricTools(server, tool) {
         'the whole call: `next` says what to send with it, which is this exact draft and its declarations, or ' +
         "no draft where the grade's record holds them (a session, the website chat). " +
         (server.kitchen ? 'The service writer answers that lyric_revise run. ' : '') +
+        'Where a live revise run keeps the text of a line this draft changes, that revise would be ' +
+        'refused (BRIEF_REQUIRED): `next` names the lines to put back instead, and `next_call` is absent, ' +
+        "unless the grade's record holds the song a lyric_revise of this graded draft left (a session, the " +
+        'website chat): the call named is then the lyric_revise that starts from that song, with no draft. ' +
         'At exit 2 `next` names each word that could not be judged, with its line and what to ' +
         'change, and then the lyric_grade call that judges the changed draft. ' +
         EXECUTION_CONTRACT,
@@ -3066,6 +3302,7 @@ export function registerLyricTools(server, tool) {
             args: { seed: plan.request?.seed ?? a.seed, ...catalogSelection(plan.request) },
           };
           verdict.next = gradeNext(verdict.exit_code);
+          briefGradeNext(verdict, a.draft);
         } else if (
           verdict.exit_code === 2 &&
           verdict.measurement_status === 'graded' &&
@@ -3164,6 +3401,26 @@ export function registerLyricTools(server, tool) {
                   runRec?.decl?.catalog_form ??
                   (wire ? decodeState(wire).connector_declarations?.catalog_form : undefined);
                 takeLines(a, 'draft', 'draft_text', { form });
+              }
+              // A host that restores a run's draft into the call (a session,
+              // a resume) says so: that draft is not the caller's own.
+              const sentDraft = a.draft != null && requestContext().hostDraft !== true;
+              // A RESTART THAT SENDS NO LYRICS starts from the song as its run
+              // left it, accepted fixes included, never the draft it opened
+              // on (owner, 16 Nov; #665): no accepted fix is lost or undone.
+              if (a.new_run && a.draft == null && typeof a.run_id === 'string') {
+                const left = RUNS.byId(a.run_id);
+                let song = null;
+                if (left && (left.state || left.checkpoint))
+                  try {
+                    song = curOf(decodeState(left.state || left.checkpoint));
+                  } catch {
+                    song = null;
+                  }
+                if (!['suspended', 'interrupted', 'uncertain_proposal'].includes(left?.status))
+                  song = null;
+                if (!Array.isArray(song) && Array.isArray(left?.draft)) song = left.draft;
+                if (Array.isArray(song)) a.draft = [...song];
               }
               // Minted before the verb runs so every state this call encodes
               // names the run it belongs to (see RUNS.byState).
@@ -3363,6 +3620,7 @@ export function registerLyricTools(server, tool) {
                 // 448 KiB journal budget excludes this separately bounded envelope.
                 delete checkpoint.connector_declarations;
                 delete checkpoint.connector_semantic_identity;
+                delete checkpoint.connector_run_ref;
               }
               // Every recorded declaration is carried in by now, so an omitted
               // supplement means NEW work (the current default) only when
@@ -3625,17 +3883,120 @@ export function registerLyricTools(server, tool) {
               // already moved past, or one the ledger cannot check.
               if (continuing && !RUNS.ledgerHealthy) throw refuse(LEDGER_UNAVAILABLE_REFUSAL);
               if (continuing && RUNS.used(inputWires)) throw refuse(USED_WIRE_REFUSAL);
+              // BRIEF PROVENANCE (Refs #665), last before any work. A store
+              // that cannot be read refuses every run. Then the lines this run
+              // starts from are checked against what live runs flagged without
+              // asking and what their loops replaced. A wire this server
+              // returned continues its own run: its draft is pinned to that
+              // wire, so it is compared on the lines the wire holds. Any other
+              // wire is also judged on the lines it carries.
+              if (!BRIEFS.healthy && !BRIEFS.recover()) throw refuse(BRIEF_LEDGER_UNAVAILABLE);
+              const briefWires = inputWires.filter((w) => typeof w === 'string');
+              const briefKeys = briefWires.map(wireKey);
+              const briefJournals = briefWires
+                .map((w) => {
+                  try {
+                    return decodeState(w);
+                  } catch {
+                    return null;
+                  }
+                })
+                .filter((j) => j && typeof j === 'object');
+              const briefMinted = briefKeys.length > 0 && briefKeys.every((k) => BRIEFS.minted(k));
+              // The harness acts on a wire's accepted lines, not on the draft
+              // (which a wire pins to its own input), so those are checked.
+              // A saved position's draft is where its pass began, older than
+              // those lines, and the cursor seal already guards it.
+              const briefLines = briefJournals
+                .flatMap((j) => [curOf(j), j.accepted_lines, j.final_draft])
+                .filter(Array.isArray);
+              const briefBase = briefLines[0] || a.draft;
+              // Every incoming wire goes to the check: one this server did not
+              // return, for a song a live run knows, is refused outright, so a
+              // forged journal's records never brief a line.
+              const briefCheck = BRIEFS.check({
+                runId,
+                lineSets: briefLines.length ? briefLines : [a.draft],
+                wires: briefKeys,
+              });
+              if (!briefCheck.ok) throw refuse(briefRefusal(briefCheck, { sentDraft }));
+              const briefPaid = writer === 'kitchen';
+              // The lines protected at the start of the call go to its first
+              // capture only: the entry that capture writes holds them from
+              // then on, and a later capture that knows the flags replaces
+              // them, so a line whose flag cleared during the call is not
+              // protected again from the older set. Replaced lines are kept
+              // on every capture.
+              let briefInherited = briefCheck.inherited;
+              const briefInherit = () => {
+                const out = briefInherited;
+                briefInherited = { prot: [], undo: briefCheck.inherited.undo };
+                return out;
+              };
+              const briefAt = (status, journal, cur, extra = {}) =>
+                Array.isArray(cur)
+                  ? briefCapture({
+                      runId,
+                      paid: briefPaid,
+                      status,
+                      cur,
+                      input: briefBase,
+                      // The pass's flags are as the loop last briefed it; a
+                      // record that publishes none leaves them unknown (null),
+                      // never empty. A line the loop replaced in this pass is
+                      // held by the undo rule only.
+                      flagged: Array.isArray(journal?.pass_flagged_lines)
+                        ? lineNos(journal.pass_flagged_lines).filter(
+                            (n) => !fixedLines(journal, cur, briefBase).has(n)
+                          )
+                        : null,
+                      briefed: briefedOf(journal, cur, fixedLines(journal, cur, briefBase)),
+                      supersedes: briefCheck.supersedes,
+                      inherited: briefInherit(),
+                      ...extra,
+                    })
+                  : null;
+              // Progress, for a call that is killed before it returns: saved
+              // at once for the call's first record, then at most once a
+              // second, and only once a resumed run has replayed up to where
+              // its wire left it. It records the flags and the replaced lines,
+              // not a wire: the stored record names its run
+              // (`connector_run_ref`), and the wire a resume builds from it is
+              // recorded for that run when the server builds it
+              // (vouchResumeWire).
+              let briefCaught = !briefMinted;
+              let briefFirst = true;
+              const briefProgress = (record) => {
+                try {
+                  const cur = curOf(record);
+                  if (!Array.isArray(cur)) return;
+                  if (!briefCaught && JSON.stringify(cur) !== JSON.stringify(briefBase)) return;
+                  briefCaught = true;
+                  // A saved time ahead of the clock is not a recent save.
+                  const since = BRIEFS.now() - briefProgressSavedAt;
+                  const persist = briefFirst || since >= 1000 || since < 0;
+                  briefFirst = false;
+                  if (persist) briefProgressSavedAt = BRIEFS.now();
+                  briefAt('progress', record, cur, { persist });
+                } catch (err) {
+                  console.error(`[briefs] progress not recorded (${err.message})`);
+                }
+              };
               const execution = requestContext();
               const r = await runVerb(args, {
                 checkpointPath,
                 context: {
                   ...execution,
-                  onCheckpoint: (record) =>
-                    execution.onCheckpoint?.({
+                  onCheckpoint: (record) => {
+                    briefProgress(record);
+                    // The record names its run as every interview state does.
+                    return execution.onCheckpoint?.({
                       ...record,
                       connector_declarations: declarationsOf(a),
                       connector_semantic_identity: continuationSemanticIdentity(),
-                    }),
+                      connector_run_ref: runRef(runId),
+                    });
+                  },
                 },
               });
               const revisionVerdict = () => {
@@ -3722,6 +4083,13 @@ export function registerLyricTools(server, tool) {
                 );
                 result.run_id = saved.run_id;
                 result.run_revision = saved.revision;
+                const capacityJournal = capacityState || currentCheckpoint;
+                await briefAt(
+                  'journal_capacity',
+                  capacityJournal,
+                  exactDraft || curOf(capacityJournal),
+                  { wire: briefWireKey(result.state || result.checkpoint) }
+                );
                 return result;
               }
               if (r.code === 4) {
@@ -3766,6 +4134,9 @@ export function registerLyricTools(server, tool) {
                       { paid: writer === 'kitchen' }
                     )
                   : null;
+                await briefAt('suspended', st, curOf(st) || a.draft, {
+                  wire: briefWireKey(stateWire),
+                });
                 const answerField =
                   askedNow && askedNow.kind === 'propose_batch'
                     ? '`answers` (one {line, text} per asked line)'
@@ -3909,6 +4280,51 @@ export function registerLyricTools(server, tool) {
                   if (error.code !== 'ENOENT') throw error;
                   /* Kitchen has no deferred state file; its checkpoint carries the journal. */
                 }
+                // A certified song is forgotten. A stop leaves its open lines,
+                // their rhyme groups and their returns briefed (the note says
+                // to rewrite them); a flagged line outside them stays as it is.
+                if (r.code === 0 && verdict.certified !== false)
+                  BRIEFS.forget({ runId, supersedes: briefCheck.supersedes });
+                else if (Array.isArray(exactDraft)) {
+                  // A planned song's groups and returns are the plan's (a
+                  // seeded run may not declare them), as the website chat's
+                  // parked note reads them.
+                  let plan = null;
+                  if (seeded) {
+                    const planPath = path.join(dir, 'brief-plan.json');
+                    const p = await runVerb(['plan', ...planArgs(a), `--out=${planPath}`]);
+                    if (p.code === 0)
+                      try {
+                        plan = JSON.parse(await readFile(planPath, 'utf8'));
+                      } catch {
+                        plan = null;
+                      }
+                  }
+                  const changeable = parkedChangeable({
+                    open: verdict.loop_unresolved_lines,
+                    whole: verdict.loop_whole_flag_codes,
+                    groups: declaredGroups(a, plan?.groups),
+                    returns: declaredReturns(a, plan?.returns),
+                    draft: exactDraft,
+                  });
+                  const stopFlags =
+                    r.lyric_result?.flagged_lines ?? currentCheckpoint?.complete?.flagged_lines;
+                  await briefCapture({
+                    runId,
+                    paid: briefPaid,
+                    status: r.code === 2 ? 'uncertified' : 'parked',
+                    cur: exactDraft,
+                    input: briefBase,
+                    // The lines that carry a flag at the stop; a result that
+                    // publishes none leaves them unknown, never empty.
+                    flagged: Array.isArray(stopFlags) ? lineNos(stopFlags) : null,
+                    briefed: changeable || [],
+                    whole: changeable === null,
+                    wire: briefWireKey(verdict.state || verdict.checkpoint),
+                    supersedes: briefCheck.supersedes,
+                    inherited: briefInherit(),
+                  });
+                }
                 const render =
                   typeof r.lyric_result?.presentation_text === 'string'
                     ? r.lyric_result.presentation_text
@@ -3928,14 +4344,14 @@ export function registerLyricTools(server, tool) {
                     (typeof verdict.loop_unresolved === 'number' && verdict.loop_unresolved > 0) ||
                     (Array.isArray(verdict.loop_whole_flag_codes) &&
                       verdict.loop_whole_flag_codes.length > 0);
-                  const rewriteNote = `\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with \`run_id\`, \`run_revision\`${verdict.run_revision != null ? ` ${verdict.run_revision}` : ''} and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`${verdict.run_id ? ` (run ${verdict.run_id}; \`new_run: true\` starts independently)` : ''}.`;
+                  const rewriteNote = `\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with \`run_id\`, \`run_revision\`${verdict.run_revision != null ? ` ${verdict.run_revision}` : ''} and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`${verdict.run_id ? ` (run ${verdict.run_id}; \`new_run: true\` starts independently)` : ''}. A line the loop replaced keeps its new text: a draft that puts the old text back is refused (BRIEF_REQUIRED).`;
                   // AN UNCERTIFIED STOP IS NOT CONTINUED: its run record is
                   // saved `uncertified`, and the run ledger refuses every call
                   // on it (run_store.js). This stop printed the parked run's
                   // note all the same, naming a call that was then refused.
                   // Its way on is the one the ledger's refusal names: the
                   // rewritten draft is graded and starts a new run.
-                  const regradeNote = `\n\nCONTINUE: no question is pending, and this run ends here. Rewrite the open line(s), grade the complete rewritten draft with ${a.seed != null ? 'lyric_grade' : 'lyric_check'}, then call lyric_revise with that exact draft and \`new_run: true\`.`;
+                  const regradeNote = `\n\nCONTINUE: no question is pending, and this run ends here. Rewrite the open line(s), grade the complete rewritten draft with ${a.seed != null ? 'lyric_grade' : 'lyric_check'}, then call lyric_revise with that exact draft and \`new_run: true\`. A line the loop replaced keeps its new text: a draft that puts the old text back is refused (BRIEF_REQUIRED).`;
                   const parkNote =
                     r.code === 3
                       ? rewriteNote
@@ -3996,6 +4412,12 @@ export function registerLyricTools(server, tool) {
                 if (writer === 'interview') other.folded = foldedOf(a.state, currentCheckpoint);
                 other.final_draft = exactDraft;
                 other.replay_draft = a.draft;
+                await briefAt(
+                  'interrupted',
+                  currentCheckpoint,
+                  exactDraft || curOf(currentCheckpoint),
+                  { wire: briefWireKey(other.state || other.checkpoint) }
+                );
                 if (resumable) {
                   const saved = RUNS.put(
                     runKey,

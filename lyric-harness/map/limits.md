@@ -59,6 +59,13 @@ Connector:
 
 | constant | value | file |
 |---|---:|---|
+| BRIEF_RETAIN_MS | 10,800,000 | `../mcp/brief_ledger.js` |
+| BRIEF_CAP | 2,000 | `../mcp/brief_ledger.js` |
+| BRIEF_PAID_CAP | 2,000 | `../mcp/brief_ledger.js` |
+| BRIEF_LINE_BUDGET | 100,000 | `../mcp/brief_ledger.js` |
+| BRIEF_SAVE_GAP_MS | 1,000 | `../mcp/brief_ledger.js` |
+| MAX_WIRES | 8 | `../mcp/brief_ledger.js` |
+| MAX_UNDO | 256 | `../mcp/brief_ledger.js` |
 | DEFAULT_TOOL_BUDGET_MS | 600,000 | `../mcp/budget.js` |
 | TOOL_DELIVERY_MARGIN_MS | 30,000 | `../mcp/budget.js` |
 | LIST_TRADITIONS_MAX | 100 | `../mcp/engine.js` |

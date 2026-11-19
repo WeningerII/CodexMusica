@@ -4,11 +4,12 @@
 import { randomBytes } from 'node:crypto';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
-import { admitLyricCall } from './lyric_tools.js';
+import { BRIEF_WIRE_SONG, admitLyricCall, vouchResumeWire } from './lyric_tools.js';
 import { connectConnector } from './client.js';
 import { requestDigest } from './job_store.js';
+import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 import { createOperationBudget } from './paid_budget.js';
-import { withExecutionContext } from './execution_context.js';
+import { childExecutionContext, withExecutionContext } from './execution_context.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import {
   assertContinuationSemantics,
@@ -18,7 +19,13 @@ import {
 } from './state_codec.js';
 import { HTTP_REQUEST_BYTES, jsonBytes } from './payload_limits.js';
 import { sessionView, verdictShape, DETAIL_FOR, LINE_PARTS, LINE_TOOLS } from './verdict_view.js';
-import { droppedOf, nextCreationCall, planChanged, sameDeclaration } from './lyric_workflow.js';
+import {
+  PLAN_FIELDS,
+  droppedOf,
+  nextCreationCall,
+  planChanged,
+  sameDeclaration,
+} from './lyric_workflow.js';
 
 // Persisted namespace from the first release: keep existing capabilities recoverable.
 export const INTEGRATION = 'chatgpt-v1';
@@ -127,8 +134,17 @@ const storeAdmissionRefusal = (error, maxRecords, domain) => {
 //   charged, nothing is repeated and the call is the read of this record;
 // - retired: its successor is read, or the workflow is opened again;
 // - refused, in a new-song session: the call the creation gate admits next,
-//   the same data its NEXT line is printed from.
+//   the same data its NEXT line is printed from;
+// - a lyric_revise the brief gate refused (BRIEF_REQUIRED), in a new-song
+//   session: the same call on the same draft is refused again, and its text
+//   says to put lines back and grade that draft first, so it is the writer's
+//   decision, and its call the one the gate admits for that grade.
 const act = (kind, tool, args = {}) => ({ kind, by: 'writer', call: { tool, args } });
+const briefRefused = (receipt) =>
+  receipt.tool === 'lyric_revise' &&
+  (receipt.tool_result?.content || []).some(
+    (block) => typeof block?.text === 'string' && /\bBRIEF_REQUIRED: /.test(block.text)
+  );
 export function receiptOutcome(receipt, session, domain, args = null) {
   const id = receipt.operation_id;
   if (receipt.status === 'pending') return act('next_call', 'get_operation', { operation_id: id });
@@ -160,10 +176,13 @@ export function receiptOutcome(receipt, session, domain, args = null) {
   }
   if (receipt.tool_error && session?.task?.domain === 'lyrics') {
     // On a copy: reading the creation receipts fills in an empty workflow.
+    // After the brief gate's refusal the caller reaches for the grade of the
+    // draft with its lines put back, whatever run the session carries.
+    const brief = briefRefused(receipt);
     const next = nextCreationCall(
       clone(session.native?.task ?? null),
-      session.native?.continuation,
-      receipt.tool,
+      brief ? null : session.native?.continuation,
+      brief ? 'lyric_grade' : receipt.tool,
       args
     );
     // A sweep refused for what it leaves out: what the song is to be is the
@@ -192,7 +211,7 @@ export function receiptOutcome(receipt, session, domain, args = null) {
         call: { tool: next.tool, args: next.args },
         dropped: droppedOf(next),
       };
-    if (next) return act('next_call', next.tool, next.args);
+    if (next) return act(brief ? 'decision' : 'next_call', next.tool, next.args);
   }
   return null;
 }
@@ -309,6 +328,8 @@ function visible(value) {
 // continues with the answer; a stopped (parked) run has no pending question,
 // so going on is a new run on a rewritten draft — graded first for a new song,
 // because creation admits revision only of a draft graded against its plan.
+const BRIEF_KEEP =
+  ' A line the loop replaced keeps its new text: a draft that puts the old text back is refused (BRIEF_REQUIRED).';
 export function continueNote(footnote, task = null) {
   if (!/no question is pending/.test(footnote))
     return (
@@ -320,10 +341,53 @@ export function continueNote(footnote, task = null) {
     ? '\n\nCONTINUE: no question is pending. Rewrite the open line(s), then call lyric_revise with ' +
         'the latest session_id, the complete rewritten draft, the same declarations this run ' +
         'was given (scheme or groups, relation, and any returns, structures or blueprint) and ' +
-        '`new_run: true`.'
+        '`new_run: true`.' +
+        BRIEF_KEEP
     : '\n\nCONTINUE: no question is pending. Rewrite the open line(s), grade the complete ' +
         'rewritten draft with lyric_grade, then call lyric_revise with that exact draft and ' +
-        '`new_run: true` — each call with the latest session_id.';
+        '`new_run: true` — each call with the latest session_id.' +
+        BRIEF_KEEP;
+}
+
+// The brief gate's refusals (lyric_tools.js) name the raw engine's call; in
+// a session the same call carries the latest session_id, and recover_only
+// exports what the session holds. A new song's session revises only a draft
+// it graded, so there the draft is graded first.
+export function briefNote(text, task = null) {
+  if (!/\bBRIEF_(?:REQUIRED|LEDGER_UNAVAILABLE): /.test(text)) return text;
+  // The forged-wire refusal names the song a state or checkpoint holds, and a
+  // session withholds both: here that song is read with recover_only.
+  text = text.replace(
+    BRIEF_WIRE_SONG,
+    'Call lyric_revise with the latest session_id and `recover_only: true` to read the accepted ' +
+      'lyrics this session holds, ' +
+      (task?.phase === 'create'
+        ? 'grade them with lyric_grade, then call lyric_revise with that exact draft, the latest ' +
+          'session_id and `new_run: true`.'
+        : 'then call lyric_revise with the latest session_id, `new_run: true`, those lyrics as ' +
+          '`draft_text` and the same declarations this run was given.')
+  );
+  if (task?.phase === 'create')
+    text = text.replace(
+      // The fix clause names lines as "3, 5 and 7": it ends at the sentence's
+      // full stop, or at the comma before "or" in the forged-wire text.
+      /Call lyric_revise with `new_run: true` and this draft( with [^.]*?)?(\.|,(?= or ))/,
+      (_, which = '', end) =>
+        `Grade this draft${which} with lyric_grade, then call lyric_revise with that exact draft, the latest session_id and \`new_run: true\`${end}`
+    );
+  return text
+    .replace(
+      'Call lyric_revise with `new_run: true` and',
+      'Call lyric_revise with the latest session_id, `new_run: true` and'
+    )
+    .replace(
+      'or call lyric_revise with `new_run: true` and',
+      'or call lyric_revise with the latest session_id, `new_run: true` and'
+    )
+    .replace(
+      "Call lyric_revise with `recover_only: true` and the run's state or checkpoint to read its accepted lyrics.",
+      'Call lyric_revise with the latest session_id and `recover_only: true` to read the accepted lyrics this session holds.'
+    );
 }
 
 // A `detail` or `lines` the operation cannot serve is refused by name, with
@@ -417,8 +481,11 @@ export function publicToolResult(result, task = null, view = {}) {
       // the engine printed after it (the advice about a refused declaration)
       // is kept. Replacing to the end of the text dropped that advice in
       // every session.
-      const text = block.text.replace(/\n\nCONTINUE: (?:(?!\n\n)[\s\S])*/, (footnote) =>
-        continueNote(footnote, task)
+      const text = briefNote(
+        block.text.replace(/\n\nCONTINUE: (?:(?!\n\n)[\s\S])*/, (footnote) =>
+          continueNote(footnote, task)
+        ),
+        task
       );
       return { type: 'text', text: privateRun(text) };
     }
@@ -429,9 +496,45 @@ export function publicToolResult(result, task = null, view = {}) {
   };
 }
 
+// The lines lyric_check or lyric_recover read, split as the tool splits them
+// (takeLines in lyric_tools.js). lyric_recover keeps structure rows in its
+// input; its verdict's `lines` are the sung lines.
+function linesRead(name, args, verdict) {
+  if (name === 'lyric_recover' && Array.isArray(verdict?.lines)) return verdict.lines;
+  if (Array.isArray(args.lines)) return normalizeDraftLines(args.lines);
+  if (typeof args.lines_text === 'string') return draftFromText(args.lines_text);
+  return null;
+}
+
+// THE SONG A REVISION LEFT, IN AN EDIT SESSION (owner, 16 Nov; #665). A
+// revise that answered keeps the song as it left it (`final_draft`): a
+// restart without a draft starts there. A new song's session keeps it in its
+// grade receipts instead (leftSong in lyric_workflow.js), so it is not kept
+// twice. A lyric_check or lyric_recover that ran on other lines moves the
+// session off that song, so a restart with no draft has none to start from;
+// one on the same lines, or one that was refused, leaves it. A call ran when
+// its verdict's `measurement_status` is the tool's own (READ_STATUS): one the
+// harness refused in its verdict (exit 2 with a `refusal`) read no lines.
+const READ_STATUS = { lyric_check: 'graded', lyric_recover: 'recovered' };
+export function keepLeftSong(next, name, args, result, verdict) {
+  if (result?.isError) return;
+  if (name === 'lyric_revise' && verdict && next.task?.phase === 'edit') {
+    if (Array.isArray(verdict.final_draft)) next.left_draft = clone(verdict.final_draft);
+  } else if (
+    Object.hasOwn(READ_STATUS, name) &&
+    verdict?.measurement_status === READ_STATUS[name] &&
+    Array.isArray(next.left_draft) &&
+    requestDigest(linesRead(name, args, verdict)) !== requestDigest(next.left_draft)
+  )
+    next.left_draft = null;
+}
+
 export async function executeNative(session, name, input) {
   const next = clone(session);
   const args = clone(input);
+  // A draft this session restores into a revision is not the caller's own:
+  // the brief gate names "this draft" only where the caller sent one.
+  const hostDraft = name === 'lyric_revise' && input?.draft == null && input?.draft_text == null;
   if (next.task.domain === 'recipe') {
     // A format applies to the call that asks for it. Rich is the default for
     // every call, as published; an earlier call's format never carries over.
@@ -446,6 +549,17 @@ export async function executeNative(session, name, input) {
     }
   } else if (name === 'lyric_revise') {
     if (args.new_run) next.native.continuation = null;
+    // A restart that sends no lyrics starts from the song as the last
+    // revision left it, its accepted fixes included (owner, 16 Nov; #665).
+    // A new song's session does the same through its grade receipts.
+    if (
+      args.new_run &&
+      next.task.phase === 'edit' &&
+      args.draft == null &&
+      args.draft_text == null &&
+      Array.isArray(next.left_draft)
+    )
+      args.draft = clone(next.left_draft);
     const carried = next.native.continuation?.args;
     // The maintained client already does this in create mode. Edit sessions
     // need the same restoration, without exposing state to the language model.
@@ -490,7 +604,9 @@ export async function executeNative(session, name, input) {
       session: next.native,
       verifySurface: false,
     });
-    const result = await client.call(name, args);
+    const result = await withExecutionContext(childExecutionContext({ hostDraft }), () =>
+      client.call(name, args)
+    );
     // The client drops a stopped run's continuation itself: a stop's archived
     // journal is provenance, not another pending question.
     next.native = client.snapshot();
@@ -504,6 +620,7 @@ export async function executeNative(session, name, input) {
       next.recovery = verdict.state || verdict.checkpoint || next.recovery || null;
       next.uncertain = !!verdict.uncertain_proposal;
     }
+    keepLeftSong(next, name, args, result, verdict);
     return { session: next, result };
   } finally {
     await client?.close();
@@ -714,7 +831,7 @@ export class WorkflowSessions {
             'RESUME_NOT_INTERRUPTED',
             `Only an interrupted operation can be resumed; this one is ${parent.state}. Read it with get_operation and continue from its session_id.`
           );
-        session = this.resumeSnapshot(parent, original);
+        session = this.resumeSnapshot(parent, original, { vouch: true });
       } else if (parent.state === 'pending') {
         throw fail(
           'SESSION_BUSY',
@@ -905,7 +1022,10 @@ export class WorkflowSessions {
     }
   }
 
-  resumeSnapshot(record, original) {
+  // vouch: the snapshot is built to run (resume), not to ask whether it could
+  // (resumable). The state it builds from the stored progress record is then
+  // recorded as one this server returned, for the run the record names.
+  resumeSnapshot(record, original, { vouch = false } = {}) {
     const session = clone(original);
     this.assertSemantics(session);
     if (record.intent.action.tool !== 'lyric_revise') return session;
@@ -934,9 +1054,21 @@ export class WorkflowSessions {
       );
     }
     assertContinuationSemantics(progress.connector_semantic_identity);
-    const declarations = progress.connector_declarations;
+    // The journal's declarations are declarationsOf's, which writes the
+    // planner's defaults into every run; a pasted song's (unseeded) run is
+    // refused a plan-only field, so none is carried for one (as the chat's
+    // recovered envelope does, chat.js).
+    const declarations =
+      typeof progress.connector_declarations.seed === 'number'
+        ? progress.connector_declarations
+        : Object.fromEntries(
+            Object.entries(progress.connector_declarations).filter(
+              ([k]) => !PLAN_FIELDS.includes(k) || ['seed', 'relation', 'group_types'].includes(k)
+            )
+          );
     // Sealed like every interview state (LOOP_REDESIGN.md §2.8 F).
     const wire = encodeInterviewWire(progress);
+    if (vouch) vouchResumeWire(progress, wire);
     session.native.continuation = {
       seed: declarations.seed,
       args: {

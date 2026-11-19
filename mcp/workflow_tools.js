@@ -197,6 +197,26 @@ function sessionParagraph(name, domain, shape, compatibility) {
   );
 }
 
+// The raw description says how a caller that threads its own run restarts
+// it from where it was left (with its `run_id`). A session carries the run,
+// and refuses `run_id` beside a session_id, so a session surface says what a
+// session sends; the compatibility surface keeps the raw way for a call
+// without session_id.
+const RAW_RESTART =
+  '`new_run: true` with no draft and the run_id starts from the song as the run left it';
+const SESSION_RESTART =
+  '`new_run: true` with no draft and the latest session_id starts from the song as the last lyric_revise left it';
+function sessionDescription(name, text, compatibility) {
+  if (name !== 'lyric_revise' || !text.includes(RAW_RESTART)) return text;
+  return text.replace(
+    RAW_RESTART,
+    SESSION_RESTART +
+      (compatibility
+        ? ' (without session_id: with no draft and the run_id, the song as that run left it)'
+        : '')
+  );
+}
+
 // Parameter text for a session surface. On the compatibility surface a
 // parameter's raw description follows, marked as the caller-managed contract.
 const CALLER_MANAGED =
@@ -460,7 +480,8 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
       {
         title: tool.title,
         description:
-          sessionParagraph(tool.name, taskDomain, originalShape, compatibility) + tool.description,
+          sessionParagraph(tool.name, taskDomain, originalShape, compatibility) +
+          sessionDescription(tool.name, tool.description, compatibility),
         inputSchema: z.object(shape),
         ...(compatibility ? {} : { outputSchema: resultShape }),
         annotations: {
