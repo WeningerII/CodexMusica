@@ -17,6 +17,19 @@ def resolve(contract, seed=11, **options):
 
 
 class CatalogShapeTests(unittest.TestCase):
+    def test_open_endings_partition_the_score_without_adding_a_rhyme_obligation(self):
+        parts = [{"unit": "section", "role": "verse", "lines": size} for size in (4, 2)]
+        contract = {**declaration(parts, rhymes=[[1, 2, 3, 4, 6]]), "openRhymeLines": [5]}
+        receipt = plan.make_plan(11, song_form=contract)
+        self.assertEqual(receipt["groups"], "1,2,3,4,6")
+        self.assertEqual(plan._sweep_coords(receipt), plan.SC.coordinates((0, 0, 0, 0, 1, 0)))
+        self.assertIn("Unconstrained line endings: 5.", plan.writer_brief(receipt))
+        for opens in ([], [0], [6], [5, 5], [5, 6], [True], "5"):
+            with self.subTest(opens=opens), self.assertRaises(plan.PlanRefused):
+                catalog_shape._validate_shape({**contract, "openRhymeLines": opens})
+        with self.assertRaises(plan.PlanRefused):
+            catalog_shape._validate_shape(declaration(parts, rhymes=contract["rhymeGroups"]))
+
     def test_printed_steps_need_one_native_row_per_segment(self):
         parts = [{"unit": "section", "role": "verse", "lines": 6}]
         contract = {**declaration(parts), "printedSteps": [3, 3]}

@@ -1,7 +1,10 @@
 // Compare catalog requirements with measurements from the current candidate.
 // Blueprint coordinates describe the declared arrangement, including its bar grid.
+import { checkImitativeScore } from './song-form-imitative-score.mjs';
+import { paragraphCount } from './song-form-printing.mjs';
 import { printedPhraseSetting } from './song-form-mandate.mjs';
 import {
+  measuredCoupletEcho,
   refrainAddresses,
   relativeLinePairs,
   regularAlexandrine,
@@ -14,6 +17,7 @@ import {
   isVerseDivision,
   isCountedDescent,
   linesOfDivision,
+  openCoupletEnding,
   measuredStanzaRole,
   isWordlessWriterRole,
   projectSongFormCreation,
@@ -45,6 +49,18 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       verdict: 'unknown',
       checks: [{ kind: 'realization', outcome: 'unknown' }],
     };
+  if (paragraphCount(plan)) {
+    const { verdict, checks, basis } = checkReaderForm(catalog, id, { variant, counts, lines });
+    return {
+      id,
+      variant: plan.variant,
+      scope: 'setting',
+      catalogScope: plan.scope,
+      verdict,
+      checks,
+      basis,
+    };
+  }
   const printed = printedPhraseSetting(plan);
   if (printed && (phraseLines === true || lines?.length === printed.plan.lines.length)) {
     const observed = gradeObservations(printed.catalog, id, { variant: 0, lines, sections });
@@ -56,6 +72,17 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     };
   }
   const creation = projectSongFormCreation(plan, counts);
+  if (creation.contract?.imitationRepeats) {
+    const verdict = checkImitativeScore(creation.contract.imitationRepeats, lines, sections);
+    return {
+      id,
+      variant: plan.variant,
+      scope: plan.scope,
+      verdict,
+      checks: [{ kind: 'timed-unison-imitation', outcome: verdict }],
+      basis: 'declared overlapping voice scores',
+    };
+  }
   if (creation.contract?.lineProfile === 'caesural-rhyme') {
     const checks = (lines || []).map((row, i) => {
       const proof = row?.caesuralRhyme;
@@ -92,6 +119,10 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       : checks.every((c) => c.outcome === 'pass')
         ? 'pass'
         : 'unknown';
+    return { id, variant: plan.variant, scope: plan.scope, verdict, checks };
+  }
+  if (creation.nestedRefrain) {
+    const { verdict, checks } = checkReaderForm(catalog, id, { variant, counts, sections });
     return { id, variant: plan.variant, scope: plan.scope, verdict, checks };
   }
   // Existing printed headers can identify the historical sections but do not
@@ -200,7 +231,11 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   }
   if (plan.coverage.sections !== 'none' && sections)
     input.sections = sections.map(({ lineSpan, ...section }) =>
-      plan.coverage.lines === 'complete' && lineSpan ? { ...section, lineSpan } : section
+      (plan.coverage.lines === 'complete' ||
+        creation.contract?.sections.some((s) => s.sourceRole === 'head')) &&
+      lineSpan
+        ? { ...section, lineSpan }
+        : section
     );
   // Musical verse is only the carrier for a neutral stanza. Its boundary
   // can be compared with the catalog division without adding a role check.
@@ -226,6 +261,8 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   const divisions = arranged
     ? stanzas.filter((node) => linesOfDivision(node).every((child) => child.unit === 'line'))
     : stanzas.filter((node) => node.unit === 'stanza');
+  const closingRun = arranged && openCoupletEnding(plan);
+  if (closingRun) divisions.unshift({ span: { lines: [0, closingRun.opening.length] } });
   if (arranged?.divisions.at(-1)?.unit === 'line') divisions.push(plan.tree[0].children.at(-1));
   const completePartition =
     plan.coverage.lines === 'complete' &&
@@ -247,6 +284,15 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
           if (!lineSpan) return [];
           const aligned =
             lineSpan[0] === stanza.span.lines[0] && lineSpan[1] === stanza.span.lines[1];
+          if (!stanza.address) {
+            extras.push({
+              kind: 'opening-line-span',
+              expected: stanza.span.lines,
+              actual: lineSpan,
+              outcome: aligned ? 'pass' : 'fail',
+            });
+            return [];
+          }
           return [[stanza.address, { lineSpan, ...(aligned && bars !== undefined && { bars }) }]];
         })
       );
@@ -375,6 +421,8 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   function refine(check) {
     const index = linePositions.get(check.address);
     if (check.kind === 'role' && index) {
+      if (creation.contract?.lineProfile === 'linked-couplet-echoes')
+        return { ...check, ...measuredCoupletEcho(index, lines) };
       const line = addresses.get(check.address);
       const pair = relative.get(check.address);
       if (pair) {

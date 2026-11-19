@@ -10,7 +10,8 @@ export function projectLineRequirement(
   endsRhyme = false,
   fixedReturns = false,
   refrain = false,
-  lengthPair
+  lengthPair,
+  lexicalProfile
 ) {
   if (
     line.unit !== 'line' ||
@@ -20,7 +21,7 @@ export function projectLineRequirement(
         !meterFields.has(key) &&
         !(
           key === 'role' &&
-          (lengthPair ||
+          (lexicalProfile || lengthPair ||
             stressEndingFor(line.role) ||
             line.role === 'alexandrine' ||
             (fixedReturns && refrain && line.role === 'refrain'))

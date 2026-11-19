@@ -234,7 +234,7 @@ test('lettered settings project exact full-section melodies independently of neu
       }
     }
   }
-  for (const [id,variant] of [['verse-chorus-bridge',1],['abac-32-bar',0],['aaba-32-bar',0]]) {
+  for (const [id,variant] of [['verse-chorus-bridge',1]]) {
     assert.equal(projectSongFormCreation(realizeForm(catalog,id,{variant})).status,'unsupported');
   }
 });
@@ -270,4 +270,51 @@ test('whole-section pitch and rhythm distinguish exact returns, contrasts and mi
   const sustained=phrase([220,null],[2,2]);
   const attacked=phrase([220,220,null],[1,1,2]);
   assert.equal(outcome(gradeObservations(catalog,'ternary',{sections:[sustained,b,attacked]}),'musical-return'),'fail');
+});
+
+test('strophic alteration, a longer Abgesang and total bar counts use the submitted score', () => {
+  const meter = {beats:4,unit:4,groups:[2,2]};
+  function rows(parts, bars, tones) {
+    let startBar = 1;
+    return parts.map((sourceRole,i) => {
+      const bar = startBar;
+      startBar += bars[i];
+      const [a,b]=tones[i];
+      return {sourceRole,role:'verse',bars:bars[i],startBar:bar,sectionMeter:meter,
+        sectionMelody:{meter, bars:bars[i], subdivision:1,
+          notes:[{pitch_hz:a,ticks:bars[i]*2},{pitch_hz:b,ticks:bars[i]*2}]}};
+    });
+  }
+  const a=[200,250], b=[200,310], c=[200,270], shifted=[400,500];
+  for (const [variant, sung, counts] of [[0,['verse','verse','altered-verse'],{'1.1':2}],
+                                          [1,['verse','altered-verse','verse'],{'1.1':1,'1.3':1}]]) {
+    const tones=sung.map(s=>s==='verse'?a:shifted);
+    const read=tones=>gradeObservations(catalog,'modified-strophic',{variant,counts,sections:rows(sung,[2,2,2],tones)});
+    assert.equal(read(tones).verdict,'pass');
+    assert.equal(read(sung.map(()=>a)).verdict,'fail');
+    const missing=rows(sung,[2,2,2],tones);
+    delete missing[1].sectionMelody;
+    assert.equal(gradeObservations(catalog,'modified-strophic',{variant,counts,sections:missing}).verdict,'unknown');
+  }
+  const bar=(widths,tones)=>gradeObservations(catalog,'bar-form',{sections:rows(['stollen','stollen','abgesang'],widths,tones)});
+  assert.equal(bar([3,3,5],[a,a,b]).verdict,'pass');
+  assert.equal(bar([3,3,3],[a,a,b]).verdict,'fail');
+  assert.equal(bar([3,3,5],[a,b,c]).verdict,'fail');
+  const grade=(id,roles,bars,tones)=>gradeObservations(catalog,id,{sections:rows(roles,bars,tones)});
+  const aaba=['part-a','part-a','part-b','part-a'], abac=['part-a','part-b','part-a','part-c'];
+  assert.equal(grade('aaba-32-bar',aaba,[8,8,8,8],[a,a,b,a]).verdict,'pass');
+  assert.equal(grade('aaba-32-bar',aaba,[7,7,11,7],[a,a,b,a]).verdict,'fail');
+  assert.equal(grade('abac-32-bar',abac,[7,10,7,8],[a,b,a,c]).verdict,'pass');
+  assert.equal(grade('abac-32-bar',abac,[7,10,7,7],[a,b,a,c]).verdict,'fail');
+});
+
+test('the instrumental head arrangement checks sung bookends and every intervening solo', () => {
+  const meter={beats:4,unit:4,groups:[2,2]};
+  const score={bars:1,meter,subdivision:1,notes:[{pitch_hz:200,ticks:2},{pitch_hz:220,ticks:2}]};
+  const head=(startBar,lineSpan)=>({role:'verse',sourceRole:'head',startBar,lineSpan,bars:1,sectionMeter:meter,sectionMelody:score});
+  const rows=[head(1,[0,1]),{role:'solo',startBar:2,lineSpan:[1,1],bars:1},head(3,[1,2])];
+  const grade=sections=>gradeObservations(catalog,'head-arrangement',{counts:{'1.2':1},lines:['a','b'],sections});
+  assert.equal(grade(rows).verdict,'pass');
+  assert.equal(grade([rows[0],{...rows[1],lineSpan:[1,2]},head(3,[2,2])]).verdict,'fail');
+  assert.equal(grade([rows[0],rows[1],{...rows[2],sectionMelody:{...score,notes:[{pitch_hz:233,ticks:4}]}}]).verdict,'fail');
 });

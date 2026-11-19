@@ -861,6 +861,7 @@ test('changing any Song Forms image input invalidates its source receipt', async
       'src/song-form-divisions.mjs',
       'src/song-form-section-arrangement.mjs',
       'src/song-form-section-melody.mjs',
+      'src/song-form-imitative-score.mjs',
       'data/song-forms.json',
     ];
     await fs.mkdir(path.join(dir, 'src'));

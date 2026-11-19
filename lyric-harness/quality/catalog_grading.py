@@ -84,7 +84,7 @@ def _sections(bp, observed):
     spans = []
     rows = []
     cursor = 1
-    has_section_score = any("section_melody" in section for section in sections)
+    has_section_score = any("section_melody" in section or "voice_score" in section for section in sections)
     for index, section in enumerate(sections):
         bars = exact_integer(section["bars"])
         start = exact_integer(section.get("start_bar", cursor))
@@ -93,6 +93,9 @@ def _sections(bp, observed):
         if has_section_score:
             row["startBar"] = start
             row["slotsWithinSection"] = True
+        if "voice_score" in section:
+            row["voiceScore"] = section["voice_score"]
+            row["sectionMeter"] = section.get("meter")
         if "section_melody" in section:
             from quality.melody import validate_melody
             row["sectionMeter"] = section.get("meter")
@@ -256,6 +259,10 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
     if form_id == "triadic-line" and getattr(lex, "catalog_printing", False):
         for row, text in zip(observed, lines):
             row["printedText"] = text
+    starts = getattr(lex, "catalog_paragraph_starts", None)
+    if form_id == "prose-poem" and starts is not None and len(starts) == len(observed):
+        for row, start in zip(observed, starts):
+            row["paragraphStart"] = start
     request["lines"] = observed
     sections = _sections(bp, observed)
     if sections is not None:

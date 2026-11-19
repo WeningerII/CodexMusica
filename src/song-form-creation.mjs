@@ -1,10 +1,15 @@
+import { imitativeSetting } from './song-form-imitative-score.mjs';
 // Translate only obligations that the native seeded writer can enforce.
 // The writer still judges placement, recurrence, envelope and seed feasibility.
-import { refrainAddresses, relativeLinePairs } from './song-form-line-roles.mjs';
+import { lexicalLineProfile, refrainAddresses, relativeLinePairs } from './song-form-line-roles.mjs';
 import { endingWordDeclaration, printedPhraseSetting } from './song-form-mandate.mjs';
 import { projectNestedDivisions } from './song-form-divisions.mjs';
-import { printedSteps } from './song-form-printing.mjs';
-import { sectionMelodyGroup, sectionMelodyLayout } from './song-form-section-melody.mjs';
+import { printedSteps, paragraphCount } from './song-form-printing.mjs';
+import {
+  nestedRefrain,
+  sectionMelodyGroup,
+  sectionMelodyLayout,
+} from './song-form-section-melody.mjs';
 import { sectionArrangement } from './song-form-section-arrangement.mjs';
 import { projectLineRequirement } from './song-form-line-requirements.mjs';
 
@@ -106,6 +111,42 @@ export function isCountedDescent(node) {
   );
 }
 
+// A counted opening followed by a couplet with one open ending.
+// The plain lines are one run; the explicitly nested couplet is a separate score span.
+export function openCoupletEnding(plan) {
+  const root = plan.tree[0];
+  if (
+    plan.tree.length !== 1 ||
+    root.unit !== 'stanza' ||
+    FEATURES.some((key) => root[key] !== undefined)
+  )
+    return null;
+  const opening = root.children.slice(0, -1);
+  const closing = root.children.at(-1);
+  if (
+    opening.length < 2 ||
+    closing?.unit !== 'couplet' ||
+    closing.children.length !== 2 ||
+    FEATURES.some((key) => closing[key] !== undefined)
+  )
+    return null;
+  const [free, last] = closing.children;
+  if (
+    !opening.every(
+      (line) =>
+        line.unit === 'line' &&
+        Number.isSafeInteger(line.syllables) &&
+        line.rhyme !== undefined &&
+        line.rhyme === last.rhyme
+    ) ||
+    free.unit !== 'line' ||
+    free.rhyme !== undefined ||
+    last.unit !== 'line'
+  )
+    return null;
+  return { opening, closing, free: free.span.lines[0] + 1 };
+}
+
 export function linesOfDivision(node) {
   return node.children.flatMap((child) => (isCountedDescent(child) ? child.children : [child]));
 }
@@ -137,10 +178,43 @@ export function projectSongFormCreation(plan, counts = {}) {
     contract: null,
   };
   if (plan.status !== 'ready') return result;
+  const imitationRepeats = imitativeSetting(plan);
+  if (imitationRepeats)
+    return {
+      ...result,
+      contract: {
+        version: 1,
+        id: plan.id,
+        variant: plan.variant,
+        scope: plan.scope,
+        counts: { ...counts },
+        sections: [{ unit: 'section', role: 'verse', lines: null }],
+        imitationRepeats,
+        rhymeGroups: [],
+        returnGroups: [],
+      },
+    };
+  const nested = nestedRefrain(plan);
+  if (nested)
+    return {
+      ...result,
+      nestedRefrain: true,
+      contract: {
+        version: 1,
+        id: plan.id,
+        scope: plan.scope,
+        variant: plan.variant,
+        counts: { ...counts },
+        sections: nested.sections,
+        rhymeGroups: [],
+        returnGroups: [],
+      },
+    };
   const steps = printedSteps(plan);
-  if (steps) {
-    const rows = steps.reduce((total, count) => total + count, 0);
-    if (rows > CREATION_LIMITS.maxLines)
+  const paragraphs = paragraphCount(plan);
+  if (steps || paragraphs) {
+    const rows = paragraphs ?? steps.reduce((total, count) => total + count, 0);
+    if (rows < CREATION_LIMITS.minLines || rows > CREATION_LIMITS.maxLines)
       return { ...result, status: 'unsupported', reasons: [{ code: 'native-line-limit' }] };
     return {
       ...result,
@@ -150,7 +224,7 @@ export function projectSongFormCreation(plan, counts = {}) {
         scope: plan.scope,
         variant: plan.variant,
         counts: { ...counts },
-        printedSteps: steps,
+        ...(paragraphs ? { printedParagraphs: paragraphs } : { printedSteps: steps }),
         sections: [{ unit: 'section', role: 'verse', lines: rows }],
         rhymeGroups: [],
         returnGroups: [],
@@ -172,10 +246,11 @@ export function projectSongFormCreation(plan, counts = {}) {
   const roleArrangement = sectionArrangement(plan);
   // The alternate letter diagram for verse/chorus/bridge does not specify
   // which letters carry those sung functions. Preserve its writing refusal.
-  const melodic = sectionMelodyLayout(plan) && plan.id !== 'verse-chorus-bridge';
+  const melodic = plan.id !== 'verse-chorus-bridge' && sectionMelodyLayout(plan);
   const sections = [];
   const divisions = [];
   const lineRequirements = [];
+  const closingRun = openCoupletEnding(plan);
   const byReturn = new Map();
   const byRhyme = new Map();
   for (const line of plan.lines) {
@@ -191,7 +266,9 @@ export function projectSongFormCreation(plan, counts = {}) {
   const endsRhyme =
     plan.coverage.lines === 'complete' &&
     rhymeGroups.some((group) => group.length >= 2) &&
-    plan.lines.every((line) => line.positionKnown && line.rhyme !== undefined);
+    plan.lines.every(
+      (line) => line.positionKnown && (line.rhyme !== undefined || line.index === closingRun?.free)
+    );
   const returnGroups = [...byReturn.values()];
   const copies = new Set(returnGroups.flatMap((group) => group.slice(1)));
   const fixedReturns =
@@ -208,6 +285,7 @@ export function projectSongFormCreation(plan, counts = {}) {
       (group) => group.length === 1 || group.filter((n) => !copies.has(n)).length >= 2
     );
   const refrains = fixedReturns ? refrainAddresses(plan.tree) : new Set();
+  const lexicalProfile = lexicalLineProfile(plan);
   const lengthPairs = relativeLinePairs(plan);
   const positions = new Map(plan.lines.map((line) => [line.address, line]));
   const reasonKeys = new Set();
@@ -231,6 +309,7 @@ export function projectSongFormCreation(plan, counts = {}) {
         measuredStanzaRole(node.role, node.children) === true
       )
         continue;
+      if (feature === 'bars' && melodic === 'fixed-total' && node === plan.tree[0]) continue;
       if (feature === 'bars' && (node.unit === 'section' || isVerseDivision(node.unit))) {
         if (!Number.isSafeInteger(node.bars) || node.bars < 1) refuse('invalid-section-bars', node);
         continue;
@@ -238,6 +317,11 @@ export function projectSongFormCreation(plan, counts = {}) {
       const specific =
         feature === 'role' && node.unit === 'stanza' && UNMEASURED_STANZA_ROLES.get(node.role);
       refuse(specific || 'unsupported-unit-feature', node, specific ? node.role : feature);
+    }
+    if (closingRun && node === plan.tree[0]) {
+      visit({ unit: 'opening-lines', children: closingRun.opening }, true);
+      visit(closingRun.closing);
+      return;
     }
     // A sequence of stanzas keeps each printed division and can close with
     // a single, separately positioned line referring back to a prior rhyme.
@@ -314,6 +398,10 @@ export function projectSongFormCreation(plan, counts = {}) {
       for (const child of node.children) visit(child, true);
       return;
     }
+    if (melodic === 'bar-form' && node === plan.tree[0]) {
+      node.children.forEach((child) => visit(child));
+      return;
+    }
     const counted =
       isStanzaPart ||
       isVerseDivision(node.unit) ||
@@ -341,7 +429,7 @@ export function projectSongFormCreation(plan, counts = {}) {
     }
     if (counted && !node.children.length && node.unit !== 'line')
       return refuse('unspecified-division', node);
-    const melodyGroup = melodic && sectionMelodyGroup(node.role);
+    const melodyGroup = melodic && sectionMelodyGroup(node.role, melodic);
     const role =
       counted || melodyGroup ? 'verse' : (roleArrangement?.role ?? node.role.replaceAll('-', '_'));
     if (!NATIVE_ROLES.has(role)) {
@@ -371,7 +459,8 @@ export function projectSongFormCreation(plan, counts = {}) {
         endsRhyme,
         fixedReturns || roleArrangement?.repeatText,
         refrains.has(child.address),
-        lengthPairs.get(child.address)
+        lengthPairs.get(child.address),
+        lexicalProfile
       );
       if (requirement === null) {
         refuse('unsupported-line-structure', child);
@@ -389,9 +478,14 @@ export function projectSongFormCreation(plan, counts = {}) {
     sections.push({
       unit: 'section',
       role,
-      lines: lineNodes.length || null,
+      // One writable Bar-form setting. Reading only requires the Abgesang
+      // to be longer; it does not require this particular 2/2/4 division.
+      lines: melodic === 'bar-form' ? (node.role === 'abgesang' ? 4 : 2) : lineNodes.length || null,
       ...(roleArrangement && { sourceRole: node.role }),
       ...(melodyGroup && { sourceRole: node.role, melodyGroup }),
+      ...(melodic === 'fixed-total' && {
+        bars: node.bars ?? plan.tree[0].bars / plan.sections.length,
+      }),
       ...(node.bars !== undefined && { bars: node.bars }),
     });
   }
@@ -556,9 +650,11 @@ export function projectSongFormCreation(plan, counts = {}) {
       variant: plan.variant,
       counts: { ...counts },
       ...(caesuralRhyme && { lineProfile: 'caesural-rhyme' }),
+      ...(lexicalProfile && { lineProfile: lexicalProfile }),
       ...(lineRequirements.length && { lineRequirements }),
       ...(nestedDivisions && endingWords && { endingWords }),
       sections,
+      ...(closingRun && { openRhymeLines: [closingRun.free] }),
       rhymeGroups: endsRhyme ? rhymeGroups : [],
       returnGroups: fixedReturns || roleArrangement?.repeatText ? returnGroups : [],
     },

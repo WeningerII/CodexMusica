@@ -1910,6 +1910,7 @@ export async function runTurn({
     ? Object.keys(reviewContext.declarations).filter((key) => !Object.hasOwn(checkProperties, key))
     : [];
   let reviewLines = null;
+  let reviewParagraphText;
   // A review whose page declarations lyric_check would refuse (no scheme, no
   // groups and no returns; or a scheme and groups together: the tool's own
   // rule) gives it nothing to judge, and a model retrying the refusal would
@@ -2400,7 +2401,9 @@ export async function runTurn({
           } else {
             for (const [key, value] of Object.entries(reviewContext.declarations))
               if (Object.hasOwn(checkProperties, key)) args[key] = value;
-            args.lines = [...reviewLines];
+            if (reviewContext.declarations.catalog_form === 'prose-poem')
+              args.lines_text = reviewParagraphText;
+            else args.lines = [...reviewLines];
             if (reviewMandateProblem) {
               const error = reviewMandateProblem;
               result = { isError: true, content: [{ type: 'text', text: error }] };
@@ -2820,10 +2823,14 @@ export async function runTurn({
             lyricVerdict = payload;
           }
           if (reviewContext && fc.name === 'lyric_recover') {
+            reviewParagraphText = lyricVerdict?.paragraph_text;
             const rows =
-              reviewContext.declarations.catalog_form === 'triadic-line'
-                ? lyricVerdict?.printed_lines
-                : lyricVerdict?.lines;
+              reviewContext.declarations.catalog_form === 'prose-poem' &&
+              typeof reviewParagraphText !== 'string'
+                ? undefined
+                : reviewContext.declarations.catalog_form === 'triadic-line'
+                  ? lyricVerdict?.printed_lines
+                  : lyricVerdict?.lines;
             reviewLines = !isError && Array.isArray(rows) ? [...rows] : null;
             reviewRecoverFailed = !reviewLines;
             if (reviewLines) hopProgress = true;

@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import {readFileSync} from 'node:fs';
 import {gradeObservations} from '../src/song-form-grade.mjs';
 import {checkForm} from '../src/song-forms.mjs';
 const form = node => [{id:'symbol',name:'Symbol',scope:'rule',patterns:[node]}];
@@ -437,4 +438,12 @@ test('printed returns and sung end words cannot be certified by the selected cla
       assert.equal(read([first,{...match,sungWords:['three','four']}]).verdict,'fail');
     }
   }
+});
+
+test('unwrapped paragraph observations require independent boundaries and sentence endings',()=>{
+  const c=JSON.parse(readFileSync(new URL('../data/song-forms.json',import.meta.url),'utf8'));
+  const check=lines=>gradeObservations(c,'prose-poem',{counts:{'1.1':2},lines}).verdict;
+  assert.equal(check([{text:'A.'},{text:'B?'}]),'unknown');
+  assert.equal(check([{text:'A.',paragraphStart:true},{text:'B?',paragraphStart:true}]),'pass');
+  assert.equal(check([{text:'A.',paragraphStart:true},{text:'B?',paragraphStart:false}]),'fail');
 });

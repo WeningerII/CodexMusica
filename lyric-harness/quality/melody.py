@@ -85,6 +85,24 @@ def assign_section_melodies(rng, sections, declarations, subdivision):
         section['section_melody'] = validate_melody(phrase)
 
 
+def assign_imitative_score(rng, plan, repeats):
+    """Write distinct performers with delayed note streams on the section grid."""
+    section = plan["sections"][0]
+    capacity = section["bars"] * section["meter"]["beats"] * 4
+    width = min((capacity - index) // count for index, count in enumerate(repeats))
+    if width < 2:
+        return False
+    first, second = rng.sample(range(180, 441), 2)
+    cut = rng.randint(1, width - 1)
+    tracks = []
+    for index, count in enumerate(repeats):
+        tracks.append(dict(performer=f"v{index + 1}", start=index,
+                           phrases=[[[first, cut], [second, width - cut]] for _ in range(count)]))
+    section["voice_score"] = {"subdivision": 4, "tracks": tracks}
+    plan["vocal_roster"] = [track["performer"] for track in tracks]
+    return True
+
+
 def melody_brief(melody):
     """Render every event without implying a syllable-to-note assignment."""
     events = '; '.join(f"{'rest' if n['pitch_hz'] is None else str(n['pitch_hz']) + ' Hz'} / {n['ticks']} ticks"

@@ -6,6 +6,23 @@
 const sungRow = (line) => line && !/^\[[^\]]*\]$/.test(line);
 
 export function draftFromText(text, form) {
+  if (form === 'prose-poem') {
+    const rows = String(text).split(/\r\n|[\n\r\u2028\u2029]/u);
+    let previous = false;
+    for (const row of rows) {
+      if (!row.trim()) {
+        previous = false;
+        continue;
+      }
+      if (!sungRow(row.trim())) continue;
+      if (previous)
+        throw new RangeError(
+          'Prose paragraph text requires a blank line between unbroken paragraphs.'
+        );
+      previous = true;
+    }
+    return normalizeDraftLines(rows, form);
+  }
   return normalizeDraftLines(
     String(text).split(form === 'triadic-line' ? /\r\n|\r|\n/ : /\r?\n/),
     form
@@ -48,4 +65,9 @@ export function projectDraftText(text) {
     return item;
   });
   return { version: 1, convention: 'lyric_text/sung-rows-v1', source_text: lines.join('\n'), rows };
+}
+
+// In this writing setting each array item explicitly supplies one paragraph.
+export function serializeWritingDraft(rows, form) {
+  return rows.join(form === 'prose-poem' ? '\n\n' : '\n') + '\n';
 }
