@@ -135,9 +135,11 @@ set is no longer known to be complete.~~ They are classified in the next table
 ### Jobs added since 2026-09-02, classified by the same three rules (2026-11-19)
 
 Read from `.github/workflows/ci.yml` on 2026-11-19: each job's `if:`, whether it
-is a matrix, and which aggregator reads its `needs.<job>.result`. Every job below
-except `nightly-calibration` carries only the `dup` skip guard, so it runs on
-every pull request (rule 1 holds) unless `dup` finds the commit already covered.
+is a matrix, and which aggregator reads its `needs.<job>.result`. Rule 1 holds
+for every job below except `nightly-calibration`: none has an event condition.
+`dup` has no `if:` at all. The others are skipped only when `dup` finds the
+commit already covered, and the aggregators also test `!cancelled()`; most of
+them read; every job here except `dup` and `nightly-calibration` needs `gate`.
 
 | job | outcome | rule | reason |
 |---|---|---|---|
@@ -146,7 +148,7 @@ every pull request (rule 1 holds) unless `dup` finds the commit already covered.
 | `capacity-proof` | not required | 2 | A reusable-workflow call; its checks publish as `capacity-proof / <job>`, not a fixed name of this file's. Required through `capacity-proof-result`. |
 | `capacity-proof-result` | **meets all three** | — | The always-reporting aggregator over `capacity-proof`. In `REQUIRED_JOBS`. |
 | `verify-shard` | not required | 2 | Matrix (`verify (shard N/8)`). `verify` is now its aggregator and reads `needs.verify-shard.result`, so the required `verify` name still covers it. |
-| `freshness-build` | not required | 2 | Its result is read by `freshness`, which stays required. Requiring both would name the same content twice. |
+| `freshness-build` | not required | — | It has a fixed name and runs on every PR, so no rule excludes it; it is left out because `freshness` reads its result and is required, so requiring both would name the same content twice. |
 | `faults` | not required | 2 | Matrix (`faults (shard N/6)`). Read by `freshness`. |
 | `suites-evidence` | not required | 2 | Matrix (`suites-evidence (shard N/2)`). Read by `suites-result`. |
 | `plan` | not required | 2 | Matrix (`plan (N/5)`). Required through `plan-result`. |
