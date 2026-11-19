@@ -142,10 +142,11 @@ module.exports = [
     doc: 'AGENTS.md',
     gate: 'check_connector_contract.js',
     claim:
-      'no tool on any connector surface reaches a model provider or the open web (openWorldHint: false throughout); on the raw engine every tool is read-only and idempotent except lyric_revise; on the session endpoints the lookups and get_operation are read-only, and every tool that opens or takes a session_id is annotated as a write, idempotent except start_recipe and begin_lyrics, and lyric_revise on /mcp',
+      'no tool on any connector surface reaches a model provider or the open web (openWorldHint: false throughout); on the raw engine every tool is read-only and idempotent except lyric_revise, and lyric_sweep, which is read-only but chooses a catalog form afresh on each call that names none; on the session endpoints the lookups and get_operation are read-only, and every tool that opens or takes a session_id is annotated as a write, idempotent except start_recipe and begin_lyrics, and lyric_sweep and lyric_revise on /mcp',
     doc_terms: [
       'openWorldHint: false',
       'read-only and idempotent except lyric_revise',
+      'chooses a catalog form afresh',
       'get_operation are read-only',
       'annotated as a write',
       'except start_recipe and begin_lyrics',

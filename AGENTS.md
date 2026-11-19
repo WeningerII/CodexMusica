@@ -171,12 +171,14 @@ pipeline plans and grades songs whose every line you write; no connector call re
   any connector surface reaches a model provider or the open web (`openWorldHint: false`
   throughout); the website chat's own server is the only one whose `lyric_revise` calls a model.
   On the raw engine (`/mcp/recipe`, `/mcp/lyrics`, stdio) every tool is read-only and idempotent
-  except `lyric_revise`, which advances its run; a caller-managed client threads the returned
+  except `lyric_revise`, which advances its run, and `lyric_sweep`, which is read-only but chooses
+  a catalog form afresh on each call that names none; a caller-managed client threads the returned
   `workspace`. On the session endpoints (`/mcp`, `/mcp/chatgpt*`) the lookups and `get_operation`
   are read-only, and every tool that opens or takes a `session_id` records the session, so it is
   annotated as a write: a repeat with the same `session_id` and arguments returns the same
   operation, except `start_recipe` and `begin_lyrics`, which open a new session each call, and
-  `lyric_revise` on `/mcp`, whose caller-managed mode advances a run. You write every lyric line:
+  `lyric_sweep` and `lyric_revise` on `/mcp`, whose calls without a `session_id` run the raw
+  engine. You write every lyric line:
   no connector surface hands a song to the service's own writer, which runs only inside the
   website chat. `/chat` persists request receipts, accepted progress, signed continuations and
   accounting when durable storage is configured. Preserve `run_id` and `run_revision` for direct

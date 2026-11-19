@@ -7994,11 +7994,18 @@ if (!runs('offline') || PART === null) {
       );
       for (const t of lyric) {
         const writes = t.name === 'lyric_revise';
+        // A sweep that names no form chooses a catalog form afresh on each
+        // call (#902), so a repeat can answer differently.
+        const draws = t.name === 'lyric_sweep';
         assert.equal(t.annotations?.readOnlyHint, !writes, `${t.name} declares its state effects`);
         // No outside server reaches a model provider: only the website chat's
         // server (buildServer({ kitchen: true })) lets the service writer answer.
         assert.equal(t.annotations?.openWorldHint, false, `${t.name} declares no model access`);
-        assert.equal(t.annotations?.idempotentHint, !writes, `${t.name} declares replay semantics`);
+        assert.equal(
+          t.annotations?.idempotentHint,
+          !writes && !draws,
+          `${t.name} declares replay semantics`
+        );
       }
       console.log(
         '  ok  lyric family advertised: 9 tools, revise declares its state effects and no model access'
