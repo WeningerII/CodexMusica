@@ -59,8 +59,13 @@ the other order.
 
 Run from `lyric-harness`, after staging the lexicon with `fetch_data()`:
 
+(2026-11-19: the second test was renamed from
+`test_joint_free_word_check_obeys_density_ceiling` to
+`test_joint_free_word_check_obeys_line_capacity`; the command below uses the
+current name.)
+
 ```sh
-python3 -m unittest quality.test_production_harness.HarnessProduction.test_joint_gate_preserves_a_free_word quality.test_production_harness.HarnessProduction.test_joint_free_word_check_obeys_density_ceiling quality.test_production_harness.HarnessProduction.test_joint_free_word_check_runs_before_writer_brief
+python3 -m unittest quality.test_production_harness.HarnessProduction.test_joint_gate_preserves_a_free_word quality.test_production_harness.HarnessProduction.test_joint_free_word_check_obeys_line_capacity quality.test_production_harness.HarnessProduction.test_joint_free_word_check_runs_before_writer_brief
 python3 quality/suite_sweep.py --only '*production_harness*' --json
 python3 -c 'import sys; from quality import test_plan as t; from quality.shard import run_sections; sys.exit(run_sections((t.test_the_joint_gate, t.test_the_seed_sweep_is_a_verb, t.test_the_bound_share, t.test_the_planner_plans_the_whole_line), "M79_TEST_SHARD", t.FAILURES, footer="M-79 focused planning sections"))'
 python3 lyric_harness.py plan --sweep=1-400 '--want=slots_per_line>=5;slots_per_line<=12;group<=4;before=verse,chorus;lines>=8;lines<=24'

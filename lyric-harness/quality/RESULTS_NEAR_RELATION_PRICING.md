@@ -1,5 +1,15 @@
 # Results — pricing the near-relation door: E1 ADOPTED, E2 REFUSED TWICE
 
+> **Superseded in part (note added 2026-11-19); the record below is kept as it
+> was.** The ASSONANCE cut was re-adopted at **0.75** on 2026-09-23 under the
+> licensed nucleus, so `ADOPTED_CUTS` in `quality/near_relation_pricing.py`
+> now reads ASSONANCE 0.75, CONSONANCE 0.75, and the pins quoted here have
+> moved since. E-5 was later closed on 2026-09-15 at the owner's explicit
+> request, with `cannot_tell` as the default (see `MISSING.md` E-5 and
+> `quality/E5_CODA_ADOPTION.md`). That adoption used a revised acceptance
+> budget; it does not mean the E2 registration below passed, but it does mean
+> E-5 is no longer open and now/why no longer scores 0.902.
+
 Method: `quality/NEAR_RELATION_PRICING_PREREGISTRATION.md`, written with the
 runner and before any number below existed. Re-derive with
 

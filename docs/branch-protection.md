@@ -10,7 +10,7 @@ advisory until this changes. A gate that a merge is not required to satisfy is a
 gate only in the sense that it prints.
 
 **The check set below is RULED, 2026-09-02, under the owner's delegation of the
-2026-09-01 triage audit's open questions (`BACKLOG.md` RULINGS WANTED #19).**
+2026-09-01 triage audit's open questions (`lyric-harness/BACKLOG.md` RULINGS WANTED #19).**
 Applying it is a repository setting and the delegation does not reach it: the
 `gh api` call and the UI steps are at the bottom, and the click is the owner's.
 
@@ -67,8 +67,9 @@ A job is REQUIRED when all three hold:
 2. **It has a fixed name.** A matrix publishes expanded names carrying the
    matrix value, so requiring them means re-editing the required set every time
    the shard count changes. *The shard count changes*: `verbs` published
-   `verbs (1)` / `verbs (2)` on 2026-08-28 and publishes four names today, and
-   `suites` and `catalog` are four-way as well. Where the content should be
+   `verbs (1)` / `verbs (2)` on 2026-08-28 and ~~publishes four names today, and
+   `suites` and `catalog` are four-way as well~~ publishes eight names today
+   (2026-11-19), and `suites` and `catalog` are eight-way as well. Where the content should be
    required and the name is not fixed, the requireable name is the job's
    always-reporting `-result` aggregator.
 3. **Its content is load-bearing for a merge** — it is a gate somebody would
@@ -99,10 +100,10 @@ minutes is a real cost and is stated here rather than discovered:
 | `gate` | **1m03s** | Every other job `needs:` it. The cheapest check in the file, and a red `gate` means nothing downstream ran at all. |
 | `verify` | **12m11s** | The site/API/connector contract: static API promises, promise→gate coverage, locale invariance, the edit differential, UI reachability. #125 merged with this red. |
 | `freshness` | **16m26s** | Byte-reproducibility of the committed artifact plus the two-sided fault injection (0 escapes). #125 merged with this red, and it is the one proposed check that caught any of the four above (#1095). |
-| `catalog-result` | **0m02s** (shards max 6m50s) | The catalog-wide smoke over every tradition. Required through the aggregator by rule 2 — `catalog` is a 4-way matrix — and by rule 1: `catalog` is also conditional, so a skip must PASS here. |
-| `suites-result` | **0m03s** (shards max 9m22s) | The 75-suite pool. **Was "a policy call…not made here"; it is ruled IN**: #1090 and #1155 were red in nothing else. Required through the aggregator by rule 2. Its `skipped` arm FAILS (`suites` has no `if:`, so a skip means `gate` did not succeed and no suite ran). |
+| `catalog-result` | **0m02s** (shards max 6m50s) | The catalog-wide smoke over every tradition. Required through the aggregator by rule 2 — `catalog` is a ~~4-way~~ 8-way (2026-11-19) matrix — and by rule 1: `catalog` is also conditional, so a skip must PASS here. |
+| `suites-result` | **0m03s** (shards max 9m22s) | The ~~75-suite~~ sharded suite pool (75 suites when ruled; more since, 2026-11-19). **Was "a policy call…not made here"; it is ruled IN**: #1090 and #1155 were red in nothing else. Required through the aggregator by rule 2. Its `skipped` arm FAILS (`suites` has no `if:`, so a skip means `gate` did not succeed and no suite ran). |
 | `verbs-result` | **0m03s** (shards max 11m42s) | `test_verbs`, the longest suite here and the one holding the checks aimed at CI itself (§43 parses this workflow; §24 catches suites that are named by nothing). Required through an aggregator **added to `ci.yml` by this ruling** — rule 2 left `verbs` with no fixed name, which is the same debt sharding incurred for `catalog` and `suites`, noticed twice and never generalised. |
-| `record` | **6m28s** | The register against the code: doctrine numbering, entry claims in `MISSING.md`/`BACKLOG.md`, committed counters re-measured, `data/sources.tsv` rows against their files. **#1125's only red job.** This repository's central discipline is that the record does not lie about the code; a merge that may break the record and not the code is exactly the merge this check exists for. |
+| `record` | **6m28s** | The register against the code: doctrine numbering, entry claims in `lyric-harness/MISSING.md`/`lyric-harness/BACKLOG.md`, committed counters re-measured, `data/sources.tsv` rows against their files. **#1125's only red job.** This repository's central discipline is that the record does not lie about the code; a merge that may break the record and not the code is exactly the merge this check exists for. |
 | `revision-loop-result` | ~~**10m24s**~~ (that figure is the job as ONE runner; dealt four ways since 2026-09-05, shard wall not re-measured here) | `test_revise` + `test_loop` — the writer's revision path. It was PART of `suites` until 2026-08-18 and left for wall clock, not because its content stopped mattering. A job may not lose required status by a scheduling move. **Required through the aggregator by rule 2 since M-244 dealt it four ways** — the shards publish as `revision-loop (1/4)`, so the bare name this file used to list names no check that is ever reported. That is the third time sharding orphaned a required name, after `catalog` and `suites`; rule 2 is the generalisation, and this row is it being applied rather than noticed again. |
 
 **Adding the four new checks costs ZERO wall clock.** The run's critical path is
@@ -119,18 +120,23 @@ only declining to look.
 |---|---|---|
 | `catalog`, `suites`, `verbs` | 2 | Matrix jobs. Required through `catalog-result` / `suites-result` / `verbs-result`. Never name the shards. |
 | `tandem` | 1 | `workflow_dispatch` or the Monday `0 6 * * 1` schedule. Does not run per-PR. |
-| `mutation` | 1 | `workflow_dispatch` or the `17 4 * * *` schedule. A shard is hours. |
-| `nightly` | 1 | Same condition as `mutation`; `timeout-minutes: 240`. |
+| `mutation` | 1 | `workflow_dispatch` or the ~~`17 4 * * *`~~ `17 3 * * *` (since 2026-09-22) schedule. A shard is hours. |
+| `nightly` | 1 | Same condition as `mutation`; ~~`timeout-minutes: 240`~~ `timeout-minutes: 360` (since 2026-09-22). |
 
-That is every job in `.github/workflows/ci.yml`. The set is complete: nothing
-per-PR is silently outside it.
+~~That is every job in `.github/workflows/ci.yml`. The set is complete: nothing
+per-PR is silently outside it.~~ That was every job on 2026-09-02. As of
+2026-11-19 `ci.yml` also has `dup`, `capacity-proof`, `capacity-proof-result`,
+`lyrics-image`, `verify-shard`, `freshness-build`, `faults`, `suites-evidence`,
+`plan`, `plan-result`, `capacity`, `capacity-result`, `revision-loop` and
+`nightly-calibration`, and these tables have not been re-run over them, so the
+set is no longer known to be complete.
 
 ### Why the `-result` jobs, and not the obvious names
 
 `catalog-result` is a summary job added for this purpose. The `catalog` job
 itself **cannot** be required:
 
-1. It is a matrix, so it publishes four expanded names — `catalog (shard 1/4)`
+1. It is a matrix, so it publishes ~~four~~ eight (2026-11-19) expanded names — `catalog (shard 1/8)`
    and friends. Requiring names that carry a matrix value means re-editing the
    required set every time the shard count changes, and the shard count exists to
    track catalog growth, so it will change.
@@ -156,9 +162,9 @@ red X on a sha whose surviving run was green. The reason the job exists is
 unchanged; the condition that makes it safe is not the one written here.
 
 `suites` JOINED THAT LIST 2026-09-01, and the entry above turned out to describe
-a rule rather than one job. `suites` — the 75-suite pool, the largest test job
-here — was an ordinary fixed-name job and was requireable; it is now a four-way
-matrix (`suites (shard 1/4)` and friends) for the same reason `catalog` is, so
+a rule rather than one job. `suites` — the ~~75-suite~~ sharded suite pool, the largest test job
+here — was an ordinary fixed-name job and was requireable; it is now a ~~four-way~~
+eight-way (2026-11-19) matrix (`suites (shard 1/8)` and friends) for the same reason `catalog` is, so
 reason 1 above applies to it word for word. Reason 2 does **not**: `suites`
 carries no `if:`, so it runs on every event and a `skipped` result can only mean
 `gate` did not succeed. `suites-result` is its always-reporting name, and it
@@ -171,7 +177,7 @@ made here.~~ **RULED 2026-09-02: it is IN**, on the evidence of #1090 and
 #1155 — two merges whose only red job was `suites`, admitted by a set that
 omitted it.
 
-`verbs` was the third case and nobody generalised it. It is a four-way matrix
+`verbs` was the third case and nobody generalised it. It is a ~~four-way~~ eight-way (2026-11-19) matrix
 with no `if:`, i.e. `suites`'s shape exactly, and it had no aggregator — so the
 rule that had been discovered twice was still being applied one job at a time.
 `verbs-result` is added to `ci.yml` by this ruling, mirroring `suites-result`
@@ -210,7 +216,7 @@ in `bypass_actors` and this paragraph is the thing to strike.
 Add a bypass entry for the **`github-actions`** app (Ruleset → Bypass list →
 Add → Integrations → GitHub Actions).
 
-Without it, `.github/workflows/sync-pages.yml:195` — `git push origin main` — is
+Without it, `.github/workflows/sync-pages.yml:207` — `git push origin main` — is
 rejected by the "require a pull request" rule and the publish job starts failing.
 
 Be clear-eyed about what this costs. It hands a standing exemption to the
@@ -326,9 +332,15 @@ checks and add the eighth after.
 
 ## What this still does not cover
 
-- **`render.yaml` sets `autoDeploy: true`.** The MCP connector deploys on push to
-  `main`, independent of CI. A ruleset gates what reaches `main`; it does not gate
-  what Render does once something is there. (`AUDIT.md` F079, untouched.)
+- ~~**`render.yaml` sets `autoDeploy: true`.** The MCP connector deploys on push to
+  `main`, independent of CI.~~ Superseded: `autoDeploy` has been `false` since
+  2026-08-27, and `render.yaml` is now kept only as a legacy reference. The
+  connector deploys through `.github/workflows/deploy-connector.yml`. It runs
+  when a CI or Production qualification run on `main` completes, deploys only
+  after a successful run, and promotes the tested image digest (see
+  `mcp/IMAGE_RELEASE.md`). A ruleset still gates only what reaches `main`; that
+  workflow is what gates the deploy. (`AUDIT.md` F079, addressed by that
+  workflow.)
 - **A green `freshness` proves less than it looks on some diffs.** The scope step
   skips the rebuild when no changed path is in the artifact build closure, and
   `.github/workflows/ci.yml` and `scripts/faults.js` are both classified *inert*

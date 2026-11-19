@@ -175,6 +175,10 @@ journal with `recover_only` (without replay; continuing requires a new run under
 the current runtime), and Library jobs queued or paused across a release refuse
 `STALE_READING` (`mcp/reader_scheduler.js:521`)._
 
+_Correction (2026-11-19): the line number above has drifted. The refusal is
+the `STALE_READING` throw 'Source or engine identity changed; create a new
+reader job.' in `mcp/reader_scheduler.js` (line 559 on this date)._
+
 _Later finding (2026-11-03, BB8, #656 6615011687): the empty-pivot deletion
 item above was already fixed on main by `0e849218d6` (the #570 re-land, 16
 Oct). `swap_at_slot` and `swap_end_word` refuse a word with no letter or

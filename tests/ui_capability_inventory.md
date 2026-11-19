@@ -342,7 +342,7 @@ surface: detail header — pin/unpin icon (pin)
 implementation: handleAction pin case toggles card.pinned, calls renderAll
 status: reachable
 precondition: 1+ cards
-notes: sidebar visual feedback for pinned state is pending (see card-pin-sidebar-visual)
+notes: sidebar visual feedback for pinned state is covered by card-pin-sidebar-visual
 ```
 
 ```yaml
@@ -1141,8 +1141,9 @@ precondition: empty
 ## Shared UI foundation (2026-09-25)
 
 The foundation for the four-page redesign (`docs/ui-foundation.md`). These are
-shared surfaces on every route; the final page layouts are not built yet and
-are listed there as page work. Behaviour — not just presence — is gated by
+shared surfaces on every route; ~~the final page layouts are not built yet and
+are listed there as page work~~ the page layouts are built (Genre, Instrument,
+Map, Lyrics; entries below) (2026-11-19). Behaviour — not just presence — is gated by
 `scripts/check_ui_foundation.js`.
 
 ```yaml
@@ -1277,7 +1278,7 @@ notes: A tradition's stock recipe in the atlas card is labelled "Default recipe"
 The shared panel as the four references draw it (docs/ui-foundation.md, "One
 recipe workspace"). Moved capabilities are recorded on their original entries
 above; these are the new controls. Behaviour is gated by
-`scripts/check_ui_foundation.js` L (right-hand column, menus, environment
+`scripts/check_ui_foundation.js` M (right-hand column, menus, environment
 source, output format) and `scripts/check_mobile_layout.js` (sheet, bar,
 drag and drop).
 
@@ -1289,7 +1290,7 @@ surface: Your recipe as a right-hand column (page recipe 'sidebar-right') — re
 implementation: uiApplyRecipeMode and the 'sidebar-right' UILayout.splitter in src/workbench.js; layout in src/workbench.css
 status: reachable
 precondition: empty
-notes: Two separators carry this name (left and right column); only the one for the current presentation is shown. Keyboard: Left/Right, Home resets, End maximises. check_ui_foundation.js L.
+notes: Two separators carry this name (left and right column); only the one for the current presentation is shown. Keyboard: Left/Right, Home resets, End maximises. check_ui_foundation.js M.
 ```
 
 ```yaml
@@ -1310,7 +1311,7 @@ surface: Your recipe — … on each instrument row (Duplicate, Pin to top, Move
 implementation: menu markup in renderSidebarCard (src/app.js); opened, placed, keyboard-driven and closed by uiToggleMenu / uiMenuControls in src/workbench.js
 status: reachable
 precondition: 1+ cards
-notes: Escape closes it first and returns focus to the trigger. check_ui_foundation.js L.
+notes: Escape closes it first and returns focus to the trigger. check_ui_foundation.js M.
 ```
 
 ```yaml
@@ -1411,7 +1412,7 @@ surface: Your recipe — Recording environment — Room (opens the editor on the
 implementation: uiRecipeEnvHTML / uiOpenEnvironment in src/workbench.js, from envCardOf(app.cards)
 status: reachable
 precondition: 1+ cards
-notes: Labelled "From <instrument> · <genre>" — the card every output format renders the environment from. check_ui_foundation.js L.
+notes: Labelled "From <instrument> · <genre>" — the card every output format renders the environment from. check_ui_foundation.js M.
 ```
 
 ```yaml

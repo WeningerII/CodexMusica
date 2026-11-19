@@ -76,7 +76,8 @@ per-file counts and reader identities, are retained in
 `mark-buckets-before.json` / `mark-buckets-current.json` companions.
 
 The dated notes and tables below record earlier populations. The current
-executable pin and `--check` refer to the 2026-09-16 measurement above.
+executable pin and `--check` refer to the ~~2026-09-16 measurement above~~
+2026-10-15 measurement at the top of this file (2026-11-19).
 
 ## Historical measurements
 

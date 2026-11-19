@@ -110,9 +110,11 @@ banshi and Korean sanjo movements both collapse to `medial`), and a
 > `TAORLUATH` and `CRUNLUATH A-MACH` occur in **0 files**. The literary
 > imitation ALTERNATES ground and variation rather than ascending, so a `rank`
 > field would have flagged two correctly-printed songs as broken. **Refused**
-> (doctrine 96). The POINTER survives and is not built yet, because all 14
+> (doctrine 96). The POINTER survives ~~and is not built yet, because all 14
 > headings are currently typed `[VERSE]` (`M-25(a)`) and a reader for it today
-> would have zero sections to read.
+> would have zero sections to read~~ and was built on 2026-08-22
+> (`grid.MARK_ELABORATES`, `grid.elaboration_findings`), after the 14 headings
+> were restaged as marks on 2026-08-21 (note 2026-11-19).
 
 ---
 

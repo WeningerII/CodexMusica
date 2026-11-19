@@ -34,7 +34,7 @@ EMPTY CELLS (honest, waiting on infrastructure or history):
     stated reason.* It read "real Welsh cynghanedd (needs Welsh phonology)":
     the phonology was built 2026-08-11 (`quality/phonology/cym.py`, all four
     types — croes, traws, sain, llusg) and the TEXT was located 2026-08-10
-    (`data/sources.tsv:56`, OVERTURNED via GITenberg). Seven Welsh files,
+    (~~`data/sources.tsv:56`~~ row `SEARCH:welsh-cynghanedd-corpus`, 2026-11-19; OVERTURNED via GITenberg). Seven Welsh files,
     8,758 lines, are on disk. Live exemplars: Gwaith Alun 1909,
     `corpus/cym_alun_strict.txt`, 1,558 strict-metre lines, 55.7% answered in
     search mode against a 200-shuffle null max of 21.3%, p at the floor

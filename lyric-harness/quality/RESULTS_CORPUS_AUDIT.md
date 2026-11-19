@@ -164,6 +164,15 @@ had not.
 ten are attribution errors.** 25,142 items of four or more lines; exactly ten
 collisions; zero within-file repeats; and the ten fall into exactly two pairs.
 
+> **Resolved 2026-08-11 (note added 2026-11-19).** Both pairs were fixed the
+> day they were found, by cell W. The Coleridge file was rebuilt: the nine
+> duplicates, plus Goody Blake And Harry Gill, moved to the Wordsworth file
+> (see its `data/sources.tsv` row `local:corpus/song/eng_british_samuel_taylor_coleridge.txt`).
+> `corpus/song/eng_hymn_brady.txt` was deleted and its hymn restaged as
+> `corpus/song/eng_hymn_tate_brady.txt` (row `REJECTED:corpus/song/eng_hymn_brady.txt`).
+> §0.1, §0.2 and check E below describe the corpus as it was on the audit day;
+> doctrine 51's extension in §0.3 still stands.
+
 ### 0.1 · Coleridge and Wordsworth share nine poems, and all nine are Wordsworth's
 
 `corpus/song/eng_british_samuel_taylor_coleridge.txt` and
@@ -1120,7 +1129,8 @@ Whole-file md5: **0 collisions among 269 files.** Item bodies: 10 collisions
 in 25,142 items, in two groups, both reported in §0. Line containment at
 floor 0.60: one pair (Brady ⊂ Tate at 100%). At floor 0.35 the
 Coleridge/Wordsworth pair appears at 47% (611 of 1,312 distinct lines) —
-recorded so the two instruments can be seen agreeing.
+recorded so the two instruments can be seen agreeing. (Both pairs were
+resolved 2026-08-11; see the note under §0. Note added 2026-11-19.)
 
 ### F · CHANNEL (doctrine 52) — 0 zero-channel files
 
@@ -1339,12 +1349,12 @@ fix that comes back — and both are now pinned.
 
 ```
 python3 quality/audit_corpus.py                       # every check, corpus/
-python3 quality/audit_corpus.py --check E             # the two duplications
-python3 quality/audit_corpus.py --check C             # the 217 unhashed files
+python3 quality/audit_corpus.py --check E             # the two duplications (resolved 2026-08-11)
+python3 quality/audit_corpus.py --check C             # the 217 unhashed files (0 findings at 2026-11-19)
 python3 quality/audit_corpus.py --calibrate           # the three known cases
 python3 quality/audit_corpus.py --baseline            # the number that makes D weak
 python3 quality/audit_corpus.py --only 'msa*' --check G
-python3 quality/test_corpus_audit.py                  # 33 pins
+python3 quality/test_corpus_audit.py                  # 33 pins (126 assertions at 2026-11-19)
 ```
 
 Exit status is meaningful: non-zero on any FAIL, and non-zero when

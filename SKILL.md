@@ -111,11 +111,12 @@ treeNode    : {id(=full dotted path), name, parent(id|null), description}
 tradition   : {id, name, family, lineage, instruments[], room, tuning, chain_archetype?,
                chain_mic, chain_pre, chain_console, chain_comp, chain_eq, chain_medium, chain_amp*, production_aesthetic?,
                chain_status, parts?, pin_parts?, chain_fx?, arrangement?}
-              // chain_status is on ALL 2588; parts on 1204 (per-instrument slot pins,
-              // flat {partId: variantId} — these OVERRIDE the instrument's
-              // defaults on browser/connector import. With pin_parts:true the CLI/static
-              // optimizer also preserves these choices; caller swaps take precedence);
-              // chain_fx on 78; arrangement on 2
+              // counted 2026-11-19 over 7755: chain_status on 6640; parts on 6655
+              // (per-instrument slot pins, flat {partId: variantId} — these OVERRIDE
+              // the instrument's defaults on browser/connector import. With
+              // pin_parts:true, on 5591, the CLI/static optimizer also preserves
+              // these choices; caller swaps take precedence); chain_fx on 583
+              // (282 of them an empty list); arrangement on 2
 extras[id]  : {parent(node id), axes{13 named keys, ints -2..+2}, description, exemplars[], status, crossRefs[]}
 preface     : {id, tokens[], note?}                                    // a named bundle of descriptor tokens
 ```
@@ -126,16 +127,16 @@ Facts that bite if you miss them:
   voice, timbre, percussion, cyclicity`. Instrument axes: a 9-key object (`pitchFix,
   sustain, polyphony, …`). Values are ints **−2..+2**.
 - **`instrument.family`** ∈ the 11-value `INSTRUMENT_FAMILIES` table (always resolves).
-  **`tradition.family`** is a *different* 12-value vocabulary (`global, classical,
+  **`tradition.family`** is a *different* 17-value vocabulary (`global, classical,
   rock_punk, electronic, hip_hop, vernacular, jazz, pop, blues_gospel, rock, country,
-  pop_rock`; `global` dominates at 2492/7755) — a top-level genre bucket, NOT an
+  pop_rock, popular, sacred, folk, latin, vocal`; `global` dominates at 2492/7755) — a top-level genre bucket, NOT an
   instrument family.
 - **Tree-node ids are full dotted paths.** 292 of 317 ids contain dots
   (`<node>.<node>.<node>`); `extras.parent`/`crossRefs` hold such ids and
   resolve directly via `byNode[path]` — no path reconstruction.
-- **`crossRefs[]` is a mixed array**: mostly strings (node-id paths), but 67 entries
-  (across 63 distinct traditions) are `{ref:"<node path>", voice_isolated:true}` (44) or
-  `{ref:"<node path>", isolated_parts:[…]}` (23) objects — there is **no** `weight` field
+- **`crossRefs[]` is a mixed array**: mostly strings (node-id paths), but several dozen
+  entries are `{ref:"<node path>", voice_isolated:true}` or
+  `{ref:"<node path>", isolated_parts:[…]}` objects — there is **no** `weight` field
   (a `{ref,weight}` object would fail `validate.js`). Normalize with `cr.ref ?? cr` before
   resolving (the §5/§6 checks do this).
 - An instrument's `parts` are already family-merged in the data; the §2 helper
@@ -255,7 +256,7 @@ For any query, `const db = require('./q.js')` and read `db.*` / `db.by*` /
 # 1) instruments per family, top 5
 node -e 'const db=require("./q.js");const c={};db.INSTRUMENTS.forEach(i=>c[i.family]=(c[i.family]||0)+1);
 console.log(JSON.stringify(Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,5)))'
-# → [[<family>,106],[<family>,76],[<family>,73],[<family>,32],[<family>,31]]
+# → [[<family>,<count>],[<family>,<count>], …]   (five pairs, largest first)
 
 # 2) traditions under a genre-tree branch (extras.parent is a full dotted path)
 node -e 'const db=require("./q.js");
@@ -267,9 +268,9 @@ node -e 'const db=require("./q.js");
 console.log(JSON.stringify(db.TUNINGS.filter(t=>!(t.descriptors||[]).includes("<descriptor>")).slice(0,4).map(t=>t.id+":"+(t.descriptors||[])[0])))'
 # → [<tuning id>:<descriptor>, …]
 ```
-(Verified: instrument families 11; tradition.family buckets 12; tuning first-descriptor
+(Verified: instrument families 11; tradition.family buckets 17; tuning first-descriptor
 groups `<descriptor>:11, <descriptor>:2, <descriptor>:2, …` — descriptors are
-character-based, not region-based; `PREFACE_LEXICON` has 567 distinct tokens.)
+character-based, not region-based; `PREFACE_LEXICON` has 622 distinct tokens.)
 
 ---
 
@@ -824,7 +825,7 @@ console.log(JSON.stringify({ totalIssues: issues.length, byCategory: byCat, samp
 **Verified on shipped data:** `{"totalIssues":0,"sample":[],"byCategory":{}}` — fully
 consistent. (Two subtleties make this true: the disjoint-`applies_to` `MULTI_DEFAULT`
 exception covers `wind.wind_articulation` and `percussion.percussion_technique`; and
-crossRefs are normalized via `cr.ref ?? cr` since 67 are `{ref,voice_isolated}`/`{ref,isolated_parts}` objects.) The
+crossRefs are normalized via `cr.ref ?? cr` since some are `{ref,voice_isolated}`/`{ref,isolated_parts}` objects.) The
 checker also flags injected damage — a dup instrument id, bad `family`, orphan extras
 key, tradition with no extras, and bad extras `parent` yield `DUP_INST <instrument id>`,
 `BAD_FAMILY frob`, `EXTRAS_ORPHAN x_orphan`, `TRAD_NO_EXTRAS x_bad`,

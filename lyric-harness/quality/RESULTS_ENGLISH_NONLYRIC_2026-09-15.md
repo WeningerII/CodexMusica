@@ -137,6 +137,8 @@ band adoptions, all five length curves, the refreshed manifest, and all 81
 existing rhyme-capacity witnesses. The historical profile archive's formatting
 was corrected without changing any values. The full closing test sweep is
 in progress; draft status remains until its results are reviewed.
+(Note 2026-11-19: this status was true on 2026-09-15 only. The PR has since
+been merged and this file is on main; the sweep's results are not recorded here.)
 
 The original publication was a draft with unfinished calibration and merge
 conflicts. This closure supersedes that calibration status. The full corpus

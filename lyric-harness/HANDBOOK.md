@@ -456,13 +456,13 @@ projection wearing the doctrine's name.
 `quality/relations.py`'s `SpanRule` — locus, anchor, direction, magnitude —
 has carried it since 2026-08-10, and its own census is the argument: over the
 ~~77~~ ~~78~~ 80 schemas' ~~154~~ ~~156~~ 160 member rules the anchors are `word_start`
-~~64~~ 66, `last_stressed` ~~58~~ ~~60~~ ~~61~~ 65, `word_end` ~~15~~ 14, `searched` 8, `none`
+~~64~~ 66, `last_stressed` ~~58~~ ~~60~~ ~~61~~ ~~65~~ 64, `word_end` ~~15~~ 14, `searched` ~~8~~ 9, `none`
 ~~6~~ 4, `final_unstressed` 2, `penult` 1 (re-derived 2026-09-25 from
 `s.spans[*].anchor` over `relations.REGISTRY`, and again the same day after
 #392 re-anchored `leonine rhyme`'s second member from `word_end` to
 `last_stressed`; and on 2026-10-30 after M-323 declared `internal assonance`
-and `internal consonance`, four `last_stressed` members).
-Nearly half the vocabulary reads from the FRONT of a word, and **~~8~~ 7 schemas
+and `internal consonance`, four `last_stressed` members; re-derived again 2026-11-19).
+Nearly half the vocabulary reads from the FRONT of a word, and **~~8~~ ~~7~~ 6 schemas
 are MIXED** — one member at each end, which no global alignment value can
 express (`leonine rhyme` left the set with that re-anchoring).
 It was reachable only through a `schema:` mandate; the default grading path
@@ -481,7 +481,7 @@ a mandate does not carry and refuse AT DECLARATION TIME naming it; a `searched`
 anchor refuses citing doctrine 56; and a WITHIN-LINE binding refuses naming the
 route that does answer it (`relations.realise` + `quality/figures.py`), because
 a group is a set of lines and a rhyme whose members share a line has one
-member. `quality/test_slots.py`, 9 sections.
+member. `quality/test_slots.py`, ~~9~~ 13 sections (2026-11-19).
 
 **AND THE PIPELINE HAS TWO FRONT HALVES NOW, NOT ONE (2026-08-23,
 `MISSING.md` M-72).** The owner's ruling: *"If an LLM writes something we go
@@ -603,7 +603,7 @@ line, because nothing else was sayable), and groups came from an RGS code,
 which is a PARTITION, so doctrine 2's own overlapping cliques were declarable
 and never drawable.
 **PLACEMENT IS DRAWN PER MEMBER**, uniform over what the grading path
-resolves — per member because ~~8~~ 7 of the ~~77~~ ~~78~~ 80 schemas anchor one member at
+resolves — per member because ~~8~~ ~~7~~ 6 (2026-11-19) of the ~~77~~ ~~78~~ 80 schemas anchor one member at
 each end of a word (`spans[0].anchor != spans[-1].anchor`;
 `choices.placements.measure` prints the live count). MEASURED over ~~200~~ 400 seeds: `end` takes ~~9.6%~~ **8.5%**
 of members (REPINNED 2026-08-23 with M-80's word-keying: once a WORD is bound
@@ -799,11 +799,11 @@ plan rather than a number chosen for it.
 **THE CAPACITY LAYER (density stage 1, re-adopted 2026-09-08).**
 The owner's ruling remains: solve capacity, do not enforce a census of
 what has been popular. `quality/capacity.py` partitions 39,969 declared
-readable words into 12,387 first-reading construction families. Spelling-class
+readable words into ~~12,387~~ 12,381 first-reading construction families (repinned 2026-10-30, M-322; corrected here 2026-11-19). Spelling-class
 counts are upper bounds for those pools, not earned-chain witnesses.
-All 81 families at the 20-class certification floor have rebuilt witnesses
+All ~~81~~ 82 families at the 20-class certification floor have rebuilt witnesses
 under explicit class:RHYME and the unchanged two-tier ban. The deepest
-certified chain is 39, held by ONE family, `EH-R`; 39 is a
+certified chain is 39, held by ONE family, ~~`EH-R`~~ `EA-R` (the same witness, renamed 2026-10-30); 39 is a
 witnessed lower bound, not a maximum-clique proof. **REPINNED 2026-09-24 with
 the N-relation model's re-certified `data/rhyme_capacity_eng.tsv`, superseding
 ~~22, held by TWO families, `IY` and `IY-Z`~~; that 22 was REPINNED 2026-09-16
@@ -824,7 +824,7 @@ claims failed the declared relation: default rescue and ambiguous readings
 had certified groups the narrower class does not accept. Current evidence:
 `quality/RESULTS_CAPACITY_PRODUCTION_2026-09-08.md` and
 `data/rhyme_capacity_eng.tsv`. Installed lookup and planning require an
-all 81-family attestation from `quality/verify_capacity.py` bound to the
+all ~~81~~ 82-family attestation from `quality/verify_capacity.py` bound to the
 actual runtime, judge inputs and table bytes; the six-family `--check` smoke
 cannot renew that proof. Stages 2 and 3 remain deliberately unbuilt; no draft
 is graded against a corpus popularity distribution.
@@ -1292,7 +1292,7 @@ from `GENERATOR_ROSTER` and nothing else.
 **`--relation=NAME` AND `--functions=a,b,c`, AND NEITHER IS SAMPLED.**
 ~~The planner does not pick a relation: putting `type:pararhyme` on a group
 nobody asked for is the "move 37" ban pointed at rhyme instead of at
-shape.~~ **SUPERSEDED BY OWNER RULING 2026-08-25 (`MISSING.md` M-117, the
+shape.~~ *(Note 2026-11-19: the draw described from here to "What survives" was itself removed 2026-09-22 — the planner draws no relation, `relations.DRAWABLE_SCHEMAS` no longer exists; see the 2026-09-22 note in `quality/test_plan.py`. The passage is kept as history; only the precedence of a declared `--relation` below is current.)* **SUPERSEDED BY OWNER RULING 2026-08-25 (`MISSING.md` M-117, the
 planner half of M-116, doctrine 17 keeps the strike visible): when the
 writer declares NOTHING, each group now DRAWS its relation uniformly over
 the bare default plus `relations.DRAWABLE_SCHEMAS` — **18 schemas as corrected
@@ -1793,7 +1793,7 @@ prints them under the stop reason. `quality/test_loop.py` test 11.
 NO_PROGRESS — a whole round fixed nothing, so
 another identical round is not run. ROUND_LIMIT — `ReviseDeclaration.
 max_rounds` (declared since the first commit of `quality/revise.py`,
-default 4, unread by anything until this module) is reached. A single
+~~default 4~~ now defaulting to None, unread by anything until this module) is reached — and only when a caller declares a number; None sets no round limit, so the loop runs until SUCCESS or NO_PROGRESS (2026-11-19). A single
 unsolved line is NEVER a stop condition — the loop keeps going on every
 other flagged line and reports the dead end in the result.
 
@@ -2342,9 +2342,10 @@ REFUSES by name (`REFUSED — ...`, exit 2) rather than raising, and a bare
 `NoMandate` refusal (no MANDATE argument at all) is routed to the SAME
 refusal path `brief`/`verify`/`revise` share rather than printing a second,
 slightly different shape of the same message. This repo's own root
-`blueprint.json` is a THIRD, never-migrated schema (no `lines` array, a
+`blueprint.json` ~~is~~ was a THIRD, never-migrated schema (no `lines` array, a
 single top-level `scheme` string) that neither the old nor the new `song`
-can read — left alone rather than deleted or migrated, since migrating a
+can read — left alone rather than deleted or migrated (it has since been
+removed; no root `blueprint.json` exists, 2026-11-19), since migrating a
 dead schema nothing reads teaches nothing a fresh fixture wouldn't; `quality/
 test_verbs.py`'s `song` cases run against a real bar-grid blueprint instead.
 
@@ -2964,7 +2965,9 @@ named defect can be two-thirds shut and the live third a different shape.
 
 `TITLE_NOT_IN_HOOK` IS A REAL CHECK AND IT FIRES CORRECTLY — verified on a blueprint carrying a title and a hook, on both `song` and `function`. What was broken is WHICH DECLARATION REACHES IT. `song` hands the blueprint PATH down and the title is re-read from that file, so there is no seam to carry a second one; this REFUSES and NAMES BOTH SPELLINGS rather than inventing plumbing or dropping the coordinate — the same answer `song --blueprint=` gets, and the third time this session that a coordinate declared twice and read once has been settled that way. Case alone is not a disagreement: a title is a NAME, not a token. `quality/test_verbs.py` §30 is 5 checks and fails 2 with the guard stubbed to `if False:`; the other 3 are controls — a lyric with no title line grades EXACTLY as before, and a lyric title that AGREES with the blueprint's grades normally, so the section cannot pass against a build that refuses every titled lyric.
 
-**A SECTION BRACKET IS PRESENTED WHOLE OR NOT AT ALL — GATED 2026-08-24 (`MISSING.md` M-97).** `quality/plan.py:section_header` is the ONE builder and it puts the line count, the bar count, the METER and the pickup INSIDE the bracket: `[INTRO — 2 lines — 2 bars of 8/8, one-beat pickup]`. Flattening that to `[INTRO]` when presenting a song throws away two thirds of what the section declares, and it happened six or seven times because nothing could see it — `test_plan.py` §6 gates the RENDERER, `test_songs.py` gates the FILE, and neither reads a message. **DO NOT RETYPE A SONG.** `plan --seed=N --fill=DRAFT --out=BP` prints it; present those bytes. This is no longer a standing instruction: `.claude/settings.json` registers a **Stop hook** that runs `quality/check_render_form.py` against the turn about to be delivered and EXITS 2 — the turn is blocked and the reason comes back. Quoting a raw lyric file, which legitimately carries bare `[VERSE1]` markers, is the one escape and it is declared IN THE TEXT with `RAW LYRIC FILE`. **AND THE SAME INSTRUMENT ASKS A SECOND QUESTION SINCE 2026-08-28 (`MISSING.md` M-150): a turn presenting two or more BUILT headers must also DECLARE the run's convergence state** — an exit code in the verbs' own spelling ("exit 0", "exit 3"), or UNCONVERGED / PARKED — because a rendered song shown bare reads as FINISHED with no instrument having said so, and the working order's last step (revise to a STOP CONDITION) was the only step nothing could refuse. Disclosure, never adjudication: an exit-3 draft presented AS exit 3 passes, and a false claim is `quality/song_log.py --verdicts`' business. **AND THE STATE MUST CARRY ITS PROVENANCE SINCE 2026-09-05 (`MISSING.md` M-243): the accepted declarations are the two STAMPS the verbs write — `[FINISHED — seed N — exit E — …]` from `finish`/`lyric_revise`, written only past a stop condition, and `[GRADED — seed N — exit E, …]` from `lyric_grade`, an interim draft disclosed as one — or UNCONVERGED / PARKED. A bare "exit N" no longer counts**: no verb prints those words into text, grade and finish both end in a code, and a session used exactly that spelling to present a graded, unrevised draft as a run's exit 0. Still disclosure — a GRADED turn passes as a grade; what is impossible now is a grade's code read as a run's.
+**A SECTION BRACKET IS PRESENTED WHOLE OR NOT AT ALL — GATED 2026-08-24 (`MISSING.md` M-97).** `quality/plan.py:section_header` is the ONE builder and it puts the line count, the bar count, the METER and the pickup INSIDE the bracket: `[INTRO — 2 lines — 2 bars of 8/8, one-beat pickup]`. Flattening that to `[INTRO]` when presenting a song throws away two thirds of what the section declares, and it happened six or seven times because nothing could see it — `test_plan.py` §6 gates the RENDERER, ~~`test_songs.py` gates the FILE~~ (the file gate, `test_songs.py`, was deleted 2026-10-28 in 022fb015a; noted 2026-11-19), and neither reads a message. **DO NOT RETYPE A SONG.** `plan --seed=N --fill=DRAFT --out=BP` prints it; present those bytes. This is no longer a standing instruction: `.claude/settings.json` registers a **Stop hook** that runs `quality/check_render_form.py` against the turn about to be delivered and EXITS 2 — the turn is blocked and the reason comes back. Quoting a raw lyric file, which legitimately carries bare `[VERSE1]` markers, is the one escape and it is declared IN THE TEXT with `RAW LYRIC FILE`. **AND THE SAME INSTRUMENT ASKS A SECOND QUESTION SINCE 2026-08-28 (`MISSING.md` M-150): a turn presenting two or more BUILT headers must also DECLARE the run's convergence state** — an exit code in the verbs' own spelling ("exit 0", "exit 3"), or UNCONVERGED / PARKED — because a rendered song shown bare reads as FINISHED with no instrument having said so, and the working order's last step (revise to a STOP CONDITION) was the only step nothing could refuse. Disclosure, never adjudication: an exit-3 draft presented AS exit 3 passes, and a false claim ~~is `quality/song_log.py --verdicts`' business~~ was the business of a verdicts register deleted 2026-10-28 (noted 2026-11-19). **AND THE STATE MUST CARRY ITS PROVENANCE SINCE 2026-09-05 (`MISSING.md` M-243): the accepted declarations are the two STAMPS the verbs write — `[FINISHED — seed N — exit E — …]` from `finish`/`lyric_revise`, written only past a stop condition, and `[GRADED — seed N — exit E, …]` from `lyric_grade`, an interim draft disclosed as one — or UNCONVERGED / PARKED. A bare "exit N" no longer counts**: no verb prints those words into text, grade and finish both end in a code, and a session used exactly that spelling to present a graded, unrevised draft as a run's exit 0. Still disclosure — a GRADED turn passes as a grade; what is impossible now is a grade's code read as a run's.
+
+**HISTORY, NOT CURRENT — DELETED 2026-10-28 (#628).** The paragraph below describes a series and its tooling that no longer exist: `quality/song_record.py`, `quality/song_log.py`, `test_songs.py`, `test_songs_log.py`, `test_songs_record.py`, `songs/README.md`, `songs/RESULTS.tsv` and every `songs/*.txt`, `*.blueprint.json` and `*.log.tsv` were removed in commit 022fb015a; only `songs/drafts/` remains. Neither register, neither gate (`--claims`, `--verdicts`) and none of the five songs is there to run or read. It is kept as the record of what was built and why.
 
 **THE SONGS ARE A SERIES NOW, AND SO IS THE PROCESS THAT MADE THEM — 2026-08-24
 (`MISSING.md` M-98/M-99/M-100).** Five songs shipped and nothing compared any
@@ -3012,7 +3015,7 @@ concreteness (3.043667) and `keep_the_light.txt` LOWEST on rhyme
 predictability (0.816206) — both readings against the story the session had
 been telling.
 
-**AND THE BLUEPRINT'S OWN `"title"` KEY HAD NO ENTRANCE UNTIL 2026-08-24 (`MISSING.md` M-93).** The paragraphs above settle WHICH declaration reaches `hook_findings` — the blueprint's key, and only that one. What none of them noticed is that `plan.fill_plan` wrote `"title": ""` into every blueprint the planner has ever built and no flag anywhere could say otherwise, so the coordinate the tree fought twice to route correctly could only be SET by editing the planner's output by hand. `plan --title=TEXT` is that entrance, on the same footing `--relation` and `--functions` have had since M-55: CARRIED, never sampled, and no flag still leaves `""` with `TITLE_UNDECLARED` standing byte-identically. `songs/stay_awake.txt` is the first song here to answer that question rather than report it.
+**AND THE BLUEPRINT'S OWN `"title"` KEY HAD NO ENTRANCE UNTIL 2026-08-24 (`MISSING.md` M-93).** The paragraphs above settle WHICH declaration reaches `hook_findings` — the blueprint's key, and only that one. What none of them noticed is that `plan.fill_plan` wrote `"title": ""` into every blueprint the planner has ever built and no flag anywhere could say otherwise, so the coordinate the tree fought twice to route correctly could only be SET by editing the planner's output by hand. `plan --title=TEXT` is that entrance, on the same footing `--relation` and `--functions` have had since M-55: CARRIED, never sampled, and no flag still leaves `""` with `TITLE_UNDECLARED` standing byte-identically. ~~The first song here to answer that question rather than report it~~ was `songs/stay_awake.txt`, which was deleted 2026-10-28 in 022fb015a with the rest of `songs/` (noted 2026-11-19).
 
 **THE SIXTH ITEM IN THAT AUDIT LANE WAS ALREADY CLOSED** — `--pursue` announced on `brief`/`song` is what this session's own flag guard fixed, and `lyric_harness.py` carries the refusal (`only \`revise\` runs a loop`) dated the same day. Re-measured before anything was touched, as with every lever before it: the lane was 6 items and closed as 4 repairs, 1 already shut, and 1 — `grid.Meter.assumed` — NOT A DEFECT AT ALL.
 
@@ -3643,8 +3646,12 @@ the repaired check now fails and the old one did not.
   `corpus/whitman.txt` carries the property under test as epistrophe and was
   never eligible for the role (`K-3`: replacement task CLOSED 2026-09-17;
   eligibility finding retained and guarded by `quality/test_band.py` section 9).
-- Current baselines: sonnets **4.0% violations (40/1012 JUDGED pairs)** —
-  MEASURED 2026-10-02 against both `check_scheme` and `Reviser.grade`:
+- Current baselines: sonnets ~~**4.0% violations (40/1012 JUDGED pairs)**~~
+  **2.5% violations (25/1013 judged pairs; mandated 1064, refused 51)** — the
+  `current` row of `quality/production_relation_oracle.json`, repinned
+  2026-10-30 by the English sound inventory (`MISSING.md` M-322; that file's
+  `baseline` row reads 14/1014). Read the file, not this line, for the live
+  figure. Superseded reading, kept as the record: MEASURED 2026-10-02 against both `check_scheme` and `Reviser.grade`:
   `mandated 1064, judged 1012, refused 52, violations 40`. **REPINNED BY THE
   BOUND-WORD RULE (`MISSING.md` M-317, owner ruling 2026-10-02):** a group
   is judged at the words it binds, so a pair no longer passes because some
@@ -3980,7 +3987,7 @@ rather than this paragraph — a roster copied into two files drifts in both.
    `total: 0.772   relation: ASSONANCE`, `flags: conjunctive band: nucleus
    agrees, coda does not` — the 0.772 scalar is UNCHANGED and still above the
    0.75 band, so nothing here was fixed by moving a threshold; `admits()`
-   rejects it on the RELATION (`lyric_harness.py:2011`). `Declaration()
+   rejects it on the RELATION (~~`lyric_harness.py:2011`~~ `lyric_harness.admits`, 2026-11-19). `Declaration()
    .conjunctive_band` is `True` — the SHIPPED default, not an opt-in.
    Recorded in three other places while this line said "Remaining":
    `quality/RESULTS_BAND.md:13` (`P1 — sun/much stops being admitted as rhyme
@@ -4071,9 +4078,12 @@ rather than this paragraph — a roster copied into two files drifts in both.
    "internal rhyme" HAS TWO READINGS IN THIS REPO AND NEITHER NAMES THE
    OTHER.** `lyric_harness.internal_matches` takes `text_a` and an optional
    `text_b` — exactly two texts — and `rhyme_density`, its only cross-line
-   caller, walks `range(len(lines) - 1)` with `text_b=lines[idx + 1]`
+   caller, ~~walks `range(len(lines) - 1)` with `text_b=lines[idx + 1]`
    (`lyric_harness.py:2990`), so the ENTIRE `lyric_harness` reading is
-   distance <= 1 **structurally**, not by threshold. `relations.py` reaches
+   distance <= 1 **structurally**, not by threshold.~~ (2026-11-19: that
+   fixed loop is gone. `rhyme_density` now takes a DECLARED `window=` line
+   distance, default 1, and returns it as `"window"`, which closed E-3; the
+   gap described in the rest of this item is history.) `relations.py` reaches
    distance 3 on the same text. So a reader asking this harness "what rhymes
    internally" gets a different answer depending on which layer answers, and
    nothing discloses the difference at either site. That is the live gap: not
@@ -4126,7 +4136,7 @@ rather than this paragraph — a roster copied into two files drifts in both.
    **TEXT IS NO LONGER BLOCKED FOR WELSH — SUPERSEDED 2026-08-13.** This
    entry read *"TEXT blocked for Welsh: see SEARCH:welsh-cynghanedd-corpus in
    data/sources.tsv. The capability is built; the corpus is not reachable."*
-   That row is `data/sources.tsv:56` and it has read **OVERTURNED — source
+   That row is ~~`data/sources.tsv:56`~~ `SEARCH:welsh-cynghanedd-corpus` in `data/sources.tsv` (line numbers drift; 2026-11-19) and it has read **OVERTURNED — source
    located via GITenberg** since 2026-08-10. **Seven Welsh files, 8,758
    lines, are on disk** (`wc -l corpus/cym_* corpus/song/cym_*` — the total
    reproduces exactly), each with its own row: `GITenberg/Gwaith-Alun_14865`
@@ -4187,7 +4197,8 @@ rather than this paragraph — a roster copied into two files drifts in both.
    boolean; `return_findings` runs it over every declared function's own
    recurrences).
    **THE COUNT IS STRUCK AND NOT REPLACED, 2026-08-16.** `VARIATION_KINDS`
-   measures **15** today
+   measured **15** on 2026-08-16 and has grown since (noted 2026-11-19: run
+   the command rather than trust a typed count)
    (`python3 -c "from quality import grid as GR; print(len(GR.VARIATION_KINDS))"`),
    and writing 15 here would only reset the clock on the same defect. **It was
    never 12 in the first place:** `git log -S'12 named' -- CLAUDE.md` gives

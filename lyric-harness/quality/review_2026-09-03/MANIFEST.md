@@ -59,6 +59,13 @@ Songs that have finished at exit 0 (five), with their finish logs:
 
 ## Measurements taken today (raw)
 
+> **Note added 2026-11-19.** There is no `evidence/` folder in the repository: the
+> four measurement files below that were banked (`timing.txt`,
+> `profile_finish_before_i_did.txt`, `flash_battery_runs.txt`,
+> `missing_entry_index.txt`) sit directly beside this file in
+> `quality/review_2026-09-03/`. `at_preloop.txt` and `t_at3.json` were never
+> committed, so the files that cite them cannot be checked against them.
+
 - evidence/timing.txt — wall times of `finish`, `screen`, `plan` calls, cold and warm in one process, including a genuine replay of a completed five-answer state. Read the two CORRECTION notes in it.
 - evidence/profile_finish_before_i_did.txt — cProfile of one cold `finish`, cumulative, top 60.
 - evidence/flash_battery_runs.txt — every flash-battery run ever made, with the commit message current at each run. Round 9 ran 151 minutes and did not reach exit 0; round 10 ran 22 minutes and ended on the free tier's rate limit. No round has run since 2026-08-29; the deployed connector is behind this branch.

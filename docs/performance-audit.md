@@ -53,10 +53,10 @@ already keeps 66% of the catalog out of the page.
 | Minify JS | `unminified-javascript` scores **1** on `codex.html`. |
 | Compress payloads | `uses-text-compression` scores **1**. |
 | Defer non-critical scripts | `render-blocking-resources` scores **1**. Every script is inline or at `</body>`. |
-| Split code into chunks | 19 `<script>` blocks, largest 750 KiB against a 1024 KiB ceiling. |
+| Split code into chunks | 19 `<script>` blocks, largest 750 KiB against a 1024 KiB ceiling (2026-09-15; not re-measured here. The 2026-10-25 runtime payload repair recorded the largest script at 393 KiB: `docs/lyrics-evidence-build/integration-checks/payload-runtime/README.md`). |
 | Add a CDN | GitHub Pages. |
-| Lazy loading | The lazy shell boots from `api/browse_boot.json` (235 KB gzip: every genre without its prose, plus the six starters'). At its first paint it asks for the instrument engine, `api/engine.json` (653 KB gzip), or from `<head>` when a saved session will need it to draw; the genre prose (`api/browse_prose.json`), the genre page's photos and place names and the Instrument page's photo table follow once the engine's bytes are in, and traditions are pulled on demand. The page itself is 498 KB gzip, not 1,156 KB, since the engine left it (2026-10-06). |
-| Paginate large lists | Sharded into 2,589 per-entity JSON files rather than paged. |
+| Lazy loading | The lazy shell boots from `api/browse_boot.json` (235 KB gzip on 2026-10-06; about 293 KB on 2026-11-19: every genre without its prose, plus the six starters'). At its first paint it asks for the instrument engine, `api/engine.json` (653 KB gzip on 2026-10-06; about 718 KB on 2026-11-19), or from `<head>` when a saved session will need it to draw; the genre prose (`api/browse_prose.json`), the genre page's photos and place names and the Instrument page's photo table follow once the engine's bytes are in, and traditions are pulled on demand. The page itself is 498 KB gzip, not 1,156 KB, since the engine left it (2026-10-06); about 390 KB gzip on 2026-11-19. |
+| Paginate large lists | Sharded into ~~2,589~~ per-entity JSON files rather than paged (10,089 files under `api/` on 2026-11-19). |
 | Cache API responses | `Catalog.ensureFull` memoises: two calls for the same tradition make **one** network fetch (verified). A cold visit that imports one genre makes 4 catalog requests: the boot index, the instrument engine, the genre prose and that genre. |
 | Server-side caching | `mcp/engine.js` holds a bounded catalog memo, keyed only to real tradition ids after a measured 315 MB exhaustion bug. |
 | Cache expensive queries | The search index normalises once instead of per keystroke — a measured ~35x. |

@@ -14,7 +14,7 @@ label contributes nothing to the experiment.
 |---|---|---|---|---|
 | **hbo** | Sefaria `pagesheetrank` citation centrality | verses cited by any post-biblical work | never-cited verses sit at exactly 0.04 | **continuous** |
 | **fi** | SKVR type-index variant count | 2,132 of 7,555 types with ≥10 variants | 2,827 singleton types (37.4%) | **continuous** |
-| **fi** | geographic spread: distinct parishes per type | max 362 parishes, mean 8.13 | 3,216 of 7,555 types in a single parish | **continuous** |
+| **fi** | geographic spread: distinct parishes per type | ~~max 362 parishes, mean 8.13~~ max 349, mean 7.784 (corrected, 2026-11-19; `data/labels/finnic_variant_counts/README.md`) | ~~3,216~~ 3,097 of 7,555 types in a single parish | **continuous** |
 | **krl** | same SKVR count, Karelian subset | 10,527 of 10,949 poems type-linked (96.1%) | 703 in low-variant types | **continuous** |
 | **et** | unified type-index variant count | 730 of 2,482 clean types with ≥10 variants | 830 singleton types | **continuous** |
 | **izh/vot** | same, Ingrian/Votic subset | 15,776 of 15,980 type-linked (98.7%) | 818 poems in <10-variant types | **continuous** |

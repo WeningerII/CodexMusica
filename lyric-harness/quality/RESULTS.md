@@ -116,10 +116,14 @@ third cold extraction.
 
 Reproduce with `python3 quality/fetch_data.py && python3 quality/discriminate.py`.
 Permutation seed is fixed; the numbers below are exact, not approximate.
-`python3 quality/test_discriminate.py` grades the eight joint AUCs and the
-thirty-six per-feature AUCs against their pins, cold, reading no cache;
-`python3 quality/audit_joint_auc_null.py --check` grades four of them against a
-label-permutation null and against 200 cross-validation seeds.
+`python3 quality/test_discriminate.py` grades ~~the eight joint AUCs and the
+thirty-six per-feature AUCs~~ the four Experiment 1 joint AUCs and its eighteen
+per-feature AUCs (264 vectors) against their pins, cold, reading no cache.
+~~`python3 quality/audit_joint_auc_null.py --check` grades four of them against a
+label-permutation null and against 200 cross-validation seeds.~~ Experiment 2
+and `quality/audit_joint_auc_null.py` were deleted 2026-10-27 (#628, commit
+022fb015a), so the Experiment 2 rows below are a record, not a reproduction, and
+the permutation-null check no longer runs.
 
 Read PREREGISTRATION.md first. Directions were committed before any feature
 code existed (`git log` proves the order), so a feature separating with the

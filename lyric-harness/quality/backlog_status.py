@@ -135,13 +135,19 @@ def census():
             "unregistered_n": len(unregistered)}
 
 
-#: MEASURED 2026-09-19. Counts, never a threshold — `--check` reports that the
-#: two documents moved apart or together, which is an answer. `silent_n` is
-#: pinned at what it measures rather than at 0 BECAUSE NOTHING HERE RULES on
-#: which document is right: driving it to 0 means ruling on sixteen entries,
-#: which is a person's job and a sitting of its own. The pin is what makes the
-#: queue's drift visible while that happens.
-PINNED = {"agree": 79, "self_flagged_n": 5, "silent_n": 16,
+#: MEASURED 2026-09-19, REPINNED 2026-11-19. Counts, never a threshold —
+#: `--check` reports that the two documents moved apart or together.
+#: ~~`silent_n` is pinned at what it measures rather than at 0 BECAUSE NOTHING
+#: HERE RULES on which document is right~~ — `silent_n` was pinned at 16 for two
+#: months, and a pin at a nonzero count let each new silent row in unnoticed as
+#: long as another was fixed. On 2026-11-19 the owner asked for the stale rows
+#: fixed and kept from going stale again, so the sixteen were reconciled to the
+#: register (the row's status cell states the register's, and a closed row says
+#: it is kept as history) and the pin is 0. A row the register disagrees with
+#: now fails `--check` until it is reconciled or flags itself (`STALE · S`).
+#: Later on 2026-11-19 the five self-flagged rows (M-181, M-182, M-132, M-15a,
+#: F-5) were reconciled too, so every compared row agrees.
+PINNED = {"agree": 100, "self_flagged_n": 0, "silent_n": 0,
           "unregistered_n": 0}
 
 
