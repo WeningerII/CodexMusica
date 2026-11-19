@@ -79,11 +79,10 @@ export function projectSongFormCreation(plan, counts = {}) {
   const sections = [];
   const divisions = [];
   const lineRequirements = [];
-  // In a single two-line section the native partition has exactly one group.
-  // Other schemes and line identities retain their original refusal.
+  // A single rhyme class spanning one entire section maps to a native group.
   const endsRhyme =
     plan.coverage.lines === 'complete' &&
-    plan.lines.length === 2 &&
+    plan.lines.length >= 2 &&
     plan.lines[0].rhyme !== undefined &&
     plan.lines.every((line) => line.positionKnown && line.rhyme === plan.lines[0].rhyme);
   const positions = new Map(plan.lines.map((line) => [line.address, line]));
@@ -165,7 +164,7 @@ export function projectSongFormCreation(plan, counts = {}) {
   }
   plan.tree.forEach(visit);
   if (!sections.length && !reasons.length) refuse('empty-structure');
-  if (endsRhyme && (sections.length !== 1 || sections[0].lines !== 2))
+  if (endsRhyme && (sections.length !== 1 || sections[0].lines !== plan.lines.length))
     refuse('unsupported-rhyme-layout');
   if (sections.length > CREATION_LIMITS.maxSections) refuse('native-section-limit');
   if (lineRequirements.length && sections.some((part) => part.lines === null)) {
@@ -233,7 +232,7 @@ export function projectSongFormCreation(plan, counts = {}) {
       counts: { ...counts },
       ...(lineRequirements.length && { lineRequirements }),
       sections,
-      rhymeGroups: endsRhyme ? [[1, 2]] : [],
+      rhymeGroups: endsRhyme ? [plan.lines.map((line) => line.index)] : [],
       returnGroups: [],
     },
   };

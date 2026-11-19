@@ -114,10 +114,11 @@ test('every published selection has an exact structural contract or an explicit 
         assert.deepEqual(contract.lineRequirements || [], sourceMeasures, where);
         const marked = realization.lines.filter(line => line.rhyme !== undefined);
         if (marked.length) {
-          assert.equal(marked.length, 2, where);
-          assert.equal(marked[0].rhyme, marked[1].rhyme, where);
+          assert.ok(marked.length >= 2, where);
+          assert.deepEqual(marked, realization.lines, where);
+          assert.ok(marked.every(line => line.rhyme === marked[0].rhyme), where);
         }
-        assert.deepEqual(contract.rhymeGroups, marked.length ? [[1,2]] : [], where);
+        assert.deepEqual(contract.rhymeGroups, marked.length ? [marked.map(line => line.index)] : [], where);
         assert.deepEqual(contract.returnGroups, [], where);
       }
     }

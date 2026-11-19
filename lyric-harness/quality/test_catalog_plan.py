@@ -148,8 +148,23 @@ class CatalogPlannerTests(unittest.TestCase):
         chosen = plan.make_plan(11, song_form=data, relations={"A": "schema:perfect rhyme"})
         self.assertEqual(chosen["groups"], "1.endword,2.endword")
         self.assertEqual(chosen["relations"], {"A": "schema:perfect rhyme"})
-        with self.assertRaisesRegex(plan.PlanRefused, "both line endings"):
+        with self.assertRaisesRegex(plan.PlanRefused, "every selected line ending"):
             plan.make_plan(11, song_form=data, relation="class:ASSONANCE")
+
+    def test_prescribed_group_remains_whole(self):
+        for count in (3, 4):
+            lines = list(range(1, count + 1))
+            data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": count}], rhymes=[lines])
+            for seed in range(5):
+                native = plan.make_plan(seed, song_form=data)
+                self.assertEqual(native["groups"], ",".join(map(str, lines)))
+                self.assertEqual(native["relations"], {"A": "class:RHYME"})
+            chosen = plan.make_plan(11, song_form=data, relations={"A": "schema:perfect rhyme"})
+            self.assertEqual(chosen["groups"], ",".join(f"{line}.endword" for line in lines))
+            with self.assertRaisesRegex(plan.PlanRefused, "whole prescribed terminal group"):
+                plan.make_plan(11, song_form=data, relations={"A": "schema:semirhyme"})
+            with self.assertRaisesRegex(plan.PlanRefused, "group size"):
+                plan.make_plan(11, song_form=data, wants=["group<=2"])
 
     def test_conflicting_declaration_and_unknown_fields_refuse(self):
         base = catalog("hookless-rap-track", [{"unit": "section", "role": "verse", "lines": 2}])
