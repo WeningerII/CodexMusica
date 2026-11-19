@@ -504,8 +504,13 @@ export function projectSongFormCreation(plan, counts = {}) {
       return refuse('unspecified-division', node);
     const melodyGroup = melodic && sectionMelodyGroup(node.role, melodic);
     const role =
-      melodic === 'vamp-break' ? (node.role === 'vamp' ? 'vamp' : 'solo') :
-      counted || melodyGroup ? 'verse' : (roleArrangement?.role ?? node.role.replaceAll('-', '_'));
+      melodic === 'vamp-break'
+        ? node.role === 'vamp'
+          ? 'vamp'
+          : 'solo'
+        : counted || melodyGroup
+          ? 'verse'
+          : (roleArrangement?.role ?? node.role.replaceAll('-', '_'));
     if (!NATIVE_ROLES.has(role)) {
       const moraPhrases =
         node.children.length &&

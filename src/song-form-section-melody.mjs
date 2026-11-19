@@ -188,21 +188,45 @@ export function sectionMelodyChecks(parts, observed, layout) {
       if (events.length % width) continue;
       const candidate = events.slice(0, width);
       if (new Set(candidate.map((e) => e.pitch).filter((p) => p !== null)).size < 2) continue;
-      if (events.every((e, i) => e.pitch === candidate[i % width].pitch &&
-          e.length === candidate[i % width].length)) {
+      if (
+        events.every(
+          (e, i) =>
+            e.pitch === candidate[i % width].pitch && e.length === candidate[i % width].length
+        )
+      ) {
         cell = candidate;
         break;
       }
     }
-    checks.push({kind: 'repeated-riff', sections: [1],
-      outcome: vamp?.outcome !== 'pass' ? vamp?.outcome ?? 'unknown' : cell ? 'pass' : 'fail',
-      basis: 'an identical timed cell with two or more pitches repeats throughout the written riff'});
-    const continued = cell && cut?.events?.length >= cell.length && cut.events.every((e, i) =>
-      e.pitch === cell[i % cell.length].pitch && e.length === cell[i % cell.length].length);
-    checks.push({kind: 'riff-break', sections: [2],
-      outcome: cut?.outcome !== 'pass' ? cut?.outcome ?? 'unknown' : !cell ? 'unknown' :
-        continued ? 'fail' : cut.events.length === 1 ? 'pass' : 'unknown',
-      basis: 'a sustained scored break interrupts the repeated attacks; other break arrangements are undecided'});
+    checks.push({
+      kind: 'repeated-riff',
+      sections: [1],
+      outcome: vamp?.outcome !== 'pass' ? (vamp?.outcome ?? 'unknown') : cell ? 'pass' : 'fail',
+      basis: 'an identical timed cell with two or more pitches repeats throughout the written riff',
+    });
+    const continued =
+      cell &&
+      cut?.events?.length >= cell.length &&
+      cut.events.every(
+        (e, i) =>
+          e.pitch === cell[i % cell.length].pitch && e.length === cell[i % cell.length].length
+      );
+    checks.push({
+      kind: 'riff-break',
+      sections: [2],
+      outcome:
+        cut?.outcome !== 'pass'
+          ? (cut?.outcome ?? 'unknown')
+          : !cell
+            ? 'unknown'
+            : continued
+              ? 'fail'
+              : cut.events.length === 1
+                ? 'pass'
+                : 'unknown',
+      basis:
+        'a sustained scored break interrupts the repeated attacks; other break arrangements are undecided',
+    });
     return checks;
   }
   if (layout === 'head-solos-head') {
