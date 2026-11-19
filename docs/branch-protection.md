@@ -138,8 +138,9 @@ Read from `.github/workflows/ci.yml` on 2026-11-19: each job's `if:`, whether it
 is a matrix, and which aggregator reads its `needs.<job>.result`. Rule 1 holds
 for every job below except `nightly-calibration`: none has an event condition.
 `dup` has no `if:` at all. The others are skipped only when `dup` finds the
-commit already covered, and the aggregators also test `!cancelled()`; most of
-them read; every job here except `dup` and `nightly-calibration` needs `gate`.
+commit already covered, and the aggregators also test `!cancelled()`. Every job
+here except `dup` and `nightly-calibration` needs `gate`, and each aggregator
+also needs the jobs it reads.
 
 | job | outcome | rule | reason |
 |---|---|---|---|
