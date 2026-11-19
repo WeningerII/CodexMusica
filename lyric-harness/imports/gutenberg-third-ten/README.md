@@ -46,7 +46,7 @@ python3 quality/test_gutenberg_third_import.py
 python3 quality/corpus_manifest.py --check
 ```
 
-Each collection's `test_adapter.py` is an import receipt, not a CI test: CI pins
+Each collection's `test_adapter.py` (or `test_data.py`, in 1030, 20774 and 21723) is an import receipt, not a CI test: CI pins
 the committed `candidates.json` files through
 `quality/test_gutenberg_third_import.py`. Run a receipt from its collection
 directory.

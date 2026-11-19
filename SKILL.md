@@ -134,9 +134,9 @@ Facts that bite if you miss them:
 - **Tree-node ids are full dotted paths.** 292 of 317 ids contain dots
   (`<node>.<node>.<node>`); `extras.parent`/`crossRefs` hold such ids and
   resolve directly via `byNode[path]` — no path reconstruction.
-- **`crossRefs[]` is a mixed array**: mostly strings (node-id paths), but 67 entries
-  (across 63 distinct traditions) are `{ref:"<node path>", voice_isolated:true}` (44) or
-  `{ref:"<node path>", isolated_parts:[…]}` (23) objects — there is **no** `weight` field
+- **`crossRefs[]` is a mixed array**: mostly strings (node-id paths), but several dozen
+  entries are `{ref:"<node path>", voice_isolated:true}` or
+  `{ref:"<node path>", isolated_parts:[…]}` objects — there is **no** `weight` field
   (a `{ref,weight}` object would fail `validate.js`). Normalize with `cr.ref ?? cr` before
   resolving (the §5/§6 checks do this).
 - An instrument's `parts` are already family-merged in the data; the §2 helper
@@ -256,7 +256,7 @@ For any query, `const db = require('./q.js')` and read `db.*` / `db.by*` /
 # 1) instruments per family, top 5
 node -e 'const db=require("./q.js");const c={};db.INSTRUMENTS.forEach(i=>c[i.family]=(c[i.family]||0)+1);
 console.log(JSON.stringify(Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,5)))'
-# → [[<family>,106],[<family>,76],[<family>,73],[<family>,32],[<family>,31]]
+# → [[<family>,<count>],[<family>,<count>], …]   (five pairs, largest first)
 
 # 2) traditions under a genre-tree branch (extras.parent is a full dotted path)
 node -e 'const db=require("./q.js");
@@ -825,7 +825,7 @@ console.log(JSON.stringify({ totalIssues: issues.length, byCategory: byCat, samp
 **Verified on shipped data:** `{"totalIssues":0,"sample":[],"byCategory":{}}` — fully
 consistent. (Two subtleties make this true: the disjoint-`applies_to` `MULTI_DEFAULT`
 exception covers `wind.wind_articulation` and `percussion.percussion_technique`; and
-crossRefs are normalized via `cr.ref ?? cr` since 67 are `{ref,voice_isolated}`/`{ref,isolated_parts}` objects.) The
+crossRefs are normalized via `cr.ref ?? cr` since some are `{ref,voice_isolated}`/`{ref,isolated_parts}` objects.) The
 checker also flags injected damage — a dup instrument id, bad `family`, orphan extras
 key, tradition with no extras, and bad extras `parent` yield `DUP_INST <instrument id>`,
 `BAD_FAMILY frob`, `EXTRAS_ORPHAN x_orphan`, `TRAD_NO_EXTRAS x_bad`,

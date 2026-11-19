@@ -1,5 +1,14 @@
 # Full comparator remeasurement — evidence only
 
+> **Note (2026-11-19).** Only this README and the four `rows-N-of-4.tsv` /
+> `rows-N-of-4.meta.json` pairs were committed to this directory. The other
+> files this receipt names (`checks-status.json`, `historical-row-comparison.json`,
+> the `*.py.txt` scripts, `provenance.json`, the input-hash files,
+> `artifact_hashes.json`, the logs, `staging.log.txt`, `preflight-refusal/` and the
+> archived memo TSVs) are not in the repository, and git history shows no
+> deletion of them. The text below is kept as written; the verification and
+> integrity steps that rely on those files cannot be run from this tree.
+
 Measured on exact repair head `55e89f28eb98a2e133a427ab0d53f7823da584d0`, using Python 3.12.14 and nltk 3.10.3. Four cold shards completed all 8,597 feature rows in 6,376.193 seconds elapsed (1h 46m 16s); each reported zero cache hits. This is wall time, not aggregate CPU time. Per-shard CPU/wall costs are preserved in the compute logs.
 
 All five shipped length curves re-derive from the corpus: MATTR, FWR, anaphora, CV and predictability. The full song and short profiles each answer all 21 checks with no refusal and every shipped constant reproducing. `checks-status.json` records exact commands, return codes and measured elapsed times. No full-fit search was needed because the standard curve check returned zero. No constants, thresholds, comparator pin, corpus or production code were changed.

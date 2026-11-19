@@ -508,7 +508,7 @@ not read as fixed, or as a regression of the rules above.
   journal using `recover_only: true` (without replay), and continuing requires a
   new run under the current runtime. A Library job queued or paused across the
   release is refused `STALE_READING` by the scheduler's identity recheck
-  (`mcp/reader_scheduler.js:521`) rather than resumed against the new reader.
+  (`mcp/reader_scheduler.js:559`, in `pump()`) rather than resumed against the new reader.
   (tracking: [#656 L5](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6638610083))
 
 ## What the money limits establish

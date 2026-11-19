@@ -21,7 +21,11 @@ hidden, not declared here:
   `candidates`, `meter`, `scheme`, `chains`, `graph`, `plan` (and
   `plan --sweep`), `readability`, `relations`, `fit`, `grid`, `function`,
   `types`, `capacity` and the rest — and run on the standard library over
-  CMUdict, which the first run downloads (~3.5 MB; the frequency list ships in
+  CMUdict, ~~which the first run downloads (~3.5 MB;~~ which must be staged
+  once beforehand with
+  `python3 -c "import lyric_harness; lyric_harness.fetch_data()"` (~3.5 MB; a
+  run never downloads it, and a missing copy is refused as
+  `LEXICAL_ASSET_MISSING`, 2026-11-19; the frequency list ships in
   the repo as `data/opensubtitles_en_50k.tsv`).
 - **The ~~six~~ seven GRADING verbs — `song`, `brief`, `verify`, `revise`,
   `screen`, `finish`, `tryline` — reach the floor**, which needs the `nltk`

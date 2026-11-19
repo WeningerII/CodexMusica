@@ -47,12 +47,17 @@ function-blank until a vocabulary decision is earned by material).
 ## Adjudications already made (do not re-litigate; amend by sitting)
 
 - Where an author's birth tradition and the songs' institutional
-  tradition diverge, the SONGS' tradition wins: Lyte, Montgomery, Tate,
+  tradition diverge, the SONGS' tradition wins: Lyte, ~~Montgomery,~~ Tate,
   Tate&Brady carry `english` (Anglican hymnody / the New Version
-  psalter), while Borthwick is `scottish` (Free Church) and C. F.
+  psalter) (2026-11-19: Montgomery's region is now blank, recorded as
+  contested between scottish, english and irish in his file's
+  `# region-basis` line), while Borthwick is `scottish` (Free Church) and C. F.
   Alexander `irish` (Church of Ireland).
 - Addison's file carries NO function: his staged source is a Poetical
-  Works, not a hymnal. The other 33 hymn files are hymnal-attested.
+  Works, not a hymnal. ~~The other 33 hymn files are hymnal-attested.~~
+  (2026-11-19: there are now 81 `eng_hymn_*` files; Addison's and
+  Montgomery's carry no `# function:` line, and the other 79 carry
+  `hymn`.)
 - The `parlour` group's sources are NOT parlour anthologies: they are
   war-ballad collections (sawyer/work/hays → `patriotic`), Beadle's dime
   songsters and a circus songster (→ blank; a dime songster attests no

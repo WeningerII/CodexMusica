@@ -14,9 +14,16 @@ produced it. Where a claim could be re-executed, it was, and the randomisation
 is declared per claim with what it preserves and what it destroys.
 
 Scripts: `quality/audit_band_control.py`, `audit_fwer_fpr.py`,
-`audit_joint_auc_null.py`, `audit_time_pooled_null.py`, `audit_kalevala_null.py`,
+`audit_joint_auc_null.py` (deleted on purpose 2026-10-28, with Experiment 2 of
+`quality/discriminate.py`), `audit_time_pooled_null.py`, `audit_kalevala_null.py`,
 `audit_tang_null.py`, `audit_hafez_radif.py`. Nothing in the audited documents
 was edited.
+
+*(Note 2026-11-19: this audit cites `CLAUDE.md` for doctrines and for its test
+discipline as that file stood when it was written. `CLAUDE.md` is now a short
+map; doctrine 4 and § Test discipline are in `HANDBOOK.md`, and doctrines 56
+and 57 are in `quality/METHOD.md`. Since `audit_joint_auc_null.py` is deleted,
+the Exp 2 rows in §1.3 can no longer be re-run.)*
 
 ---
 
@@ -506,11 +513,11 @@ not a caesura measurement, which is a second reason not to read it.
 > DISAGREEMENT — RE-VERIFIED 2026-08-13, later the same day.** As first written
 > this box said *"the record says 22,822"* and *"the record says 3,246"*. Those
 > were claims about the CURRENT contents of another file, and the origin row
-> `data/sources.tsv:58` has been repinned to **22,795** and **3,253 (81.3%)**
+> `data/sources.tsv` row `GITenberg/Kalevala_7000` has been repinned to **22,795** and **3,253 (81.3%)**
 > with the superseded figures kept visible and dated beside them. Both
 > parentheticals are therefore struck: ~~(the record says 22,822)~~ ~~(the
 > record says 3,246)~~. **Do not re-copy the origin's numbers into this
-> sentence** — read them at `data/sources.tsv:58`, which is where they are
+> sentence** — read them at `data/sources.tsv` row `GITenberg/Kalevala_7000`, which is where they are
 > maintained; a sentence of the form *"file X records Y"* is a hard-coded copy
 > of another file and goes false the moment that file moves, which is exactly
 > what happened here.
@@ -546,7 +553,7 @@ not a caesura measurement, which is a second reason not to read it.
 > alliterating in each window. The null medians are samples and are left to the
 > printed p.
 
-`data/sources.tsv:58` and `quality/POSITIVE_CONTROL.md` Part E record the
+`data/sources.tsv` row `GITenberg/Kalevala_7000` and `quality/POSITIVE_CONTROL.md` Part E record the
 Kalevala alliteration rate **as a bare rate, with no null beside it** — and it
 is the bareness, not the value, that this section is about.
 
@@ -554,7 +561,7 @@ is the bareness, not the value, that this section is about.
 > *"...record `81.2% alliterate` as a bare rate"*, which was a hard-coded copy
 > of two other files' contents and is now **FALSE FOR BOTH**: each was repinned
 > to **81.3%** the same day, with ~~81.2%~~ kept visible and dated in place. The
-> number is deliberately NOT restated here. Read it at `data/sources.tsv:58` —
+> number is deliberately NOT restated here. Read it at `data/sources.tsv` row `GITenberg/Kalevala_7000` —
 > the origin row every other site quotes — or run
 > `python3 quality/audit_kalevala_null.py --check`, which measures it. Updating
 > the copy instead of removing it would only reschedule this same failure for
@@ -604,7 +611,7 @@ The constraint is real and enormous. **But roughly 30 of the 81 points are
 chance** — a third of the recorded headline is the null, so the recorded rate
 was never a usable number even though it was never a wrong one. *(This sentence
 quoted* "81.2% alliterate" *until 2026-08-13; the rate is now ~~81.2%~~ →
-**81.3%** at `data/sources.tsv:58`, and the sentence is deliberately rewritten
+**81.3%** at `data/sources.tsv` row `GITenberg/Kalevala_7000`, and the sentence is deliberately rewritten
 to name no value at all, because its argument is about the MISSING null and
 holds at any rate the origin row carries.)*
 
@@ -622,7 +629,7 @@ rather than merely reported:
 
 | count | what it is |
 |---:|---|
-| **22,795** | `corpus/fin_kalevala.txt`, and — since 2026-08-13 — `data/sources.tsv:58` too, where ~~22,822~~ is kept visible and dated. Both instruments return it: `audit_kalevala_null.py --check` and `kalevala_rate.py`. |
+| **22,795** | `corpus/fin_kalevala.txt`, and — since 2026-08-13 — `data/sources.tsv` row `GITenberg/Kalevala_7000` too, where ~~22,822~~ is kept visible and dated. Both instruments return it: `audit_kalevala_null.py --check` and `kalevala_rate.py`. |
 | **22,796** | this audit's own extraction **from the raw GITenberg file**, which is 22,795 verse lines **plus the single `* * *` divider** before the epilogue. **A SECOND and unrelated route reaches the same digits** — `read().split("\n")` on the STAGED file counts the empty string after its trailing newline — and that one is a reader defect saying nothing about the corpus. §3 item 4 keeps them apart; do not merge them. |
 | ~~22,822~~ | the superseded record. **Not reproduced by any filter of the raw file**, and the "runo headings" explanation is refuted — see §3 item 4. CANNOT TELL. |
 
@@ -709,8 +716,10 @@ pairwise chance agreement between two random rhyme-position characters: 5.4%
 
 Survives overwhelmingly, and the C1 concern does **not** transfer to the rate:
 the mandated positions are special, not merely periodic. Part D's arms
-reproduce exactly (A 264/36/sat 10.0%/Fisher 0; B 300/0/50.0%/0.529/18/0.883;
-C1 300/300/Fisher 0; C2 median p 0.584/Fisher 1).
+~~reproduce exactly (A 264/36/sat 10.0%/Fisher 0; B 300/0/50.0%/0.529/18/0.883;
+C1 300/300/Fisher 0; C2 median p 0.584/Fisher 1)~~ did not all reproduce: only
+C1 (300/300/Fisher 0) is still exact, and arms A, B and C2 drifted, as the
+correction box in §2.5 records (2026-11-19).
 
 ### 2.4 Hafez radif, 297 of 495
 
@@ -861,14 +870,14 @@ independently. *Also reached by a sibling cell* (commit `22876d1`).
      nearest attainable values are 22,797 and 22,845. Its provenance — a
      different edition, a different source file, or a miscount — is not
      determinable from anything in this repository.
-     **`data/sources.tsv:83` offers "the 27 extra were most likely runo headings
+     **`data/sources.tsv` row `local:corpus/fin_kalevala.txt` offers "the 27 extra were most likely runo headings
      counted as verse", and that is a HYPOTHESIS, flagged here rather than
      inherited as a fact:** it is not reproduced by any whole-class filter above,
      and there are 49 headings, not 27, so it would require 22 of them to have
      been counted and 27 not — which nothing in this repo shows. That row is the
      staging cell's to keep or revise; this entry only records that the audit
      could not confirm it. The figure is superseded at the origin
-     (`data/sources.tsv:58`, where ~~22,822~~ is kept visible and dated), so
+     (`data/sources.tsv` row `GITenberg/Kalevala_7000`, where ~~22,822~~ is kept visible and dated), so
      nothing downstream depends on resolving it; this entry records that it was
      chased and did not close, rather than leaving the old guess standing.
 5. **`RESULTS_FWER.md` P2's table is a six-row table printed as three rows of

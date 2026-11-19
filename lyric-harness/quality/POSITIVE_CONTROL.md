@@ -11,7 +11,9 @@ check) and `python3 quality/run_positive_control.py` (Parts B/D, the 律詩 arms
 
 **BOTH NOW HAVE A `--check` THAT CAN FAIL — ADDED 2026-08-13.** This is
 doctrine 31's own instrument ("run the positive control before believing any
-null"), and CLAUDE.md's reading order sends a session here first of the three.
+null"), and CLAUDE.md's reading order sends a session here first of the three
+(2026-11-19: that reading order, the known gaps and the doctrines this file
+credits to `CLAUDE.md` are now in `HANDBOOK.md`; `CLAUDE.md` is a short map).
 Until this date neither file could fail: `main()` printed and returned `None`,
 `sys.exit` was never called with a code, and NOTHING invoked either one — not
 CI, not a test, not another module. `wiring` listed both under "one-shot
@@ -270,8 +272,11 @@ caught it in the numbers.
 樓 (侯) do **not** rhyme — and they are the rhyme of 登鸛雀樓. The grouping is
 load-bearing, and it is validated against canonical verse rather than trusted.
 
-**Still blocked:** Welsh, Indic and Old Norse, exactly as gap 6 has always
-said. A cell without phonology cannot be run, and listing one here is a plan,
+~~**Still blocked:** Welsh, Indic and Old Norse, exactly as gap 6 has always
+said.~~ (2026-11-19: `quality/phonology/` now has `cym.py`, `san.py` and
+`non.py` too. The Welsh cell has run (Part C below), Sanskrit is measured by
+`quality/prasa_rate.py`, and Old Norse is blocked on its corpus, not its
+phonology: see `quality/RESULTS_NON_HATTATAL.md`.) A cell without phonology cannot be run, and listing one here is a plan,
 not a capability.
 
 **Reachability.** Measured this session: Project Gutenberg returns nothing
@@ -314,7 +319,7 @@ tradition it is the whole question.
 ### cynghanedd: PHONOLOGY BUILT, TEXT FOUND 2026-08-10 — THIS CELL NOW RUNS
 
 > **THE HEADING ABOVE READ "TEXT NOT REACHABLE" UNTIL 2026-08-13, AND HAD BEEN
-> FALSE FOR THREE DAYS.** `data/sources.tsv:56` has read **OVERTURNED — source
+> FALSE FOR THREE DAYS.** `data/sources.tsv` row `SEARCH:welsh-cynghanedd-corpus` has read **OVERTURNED — source
 > located via GITenberg** since 2026-08-10, and seven Welsh files totalling
 > 8,758 lines are on disk with their own rows. The cell has RUN: Gwaith Alun,
 > 1,558 lines, answers **55.7%** in search mode against a 200-shuffle null max
@@ -334,12 +339,12 @@ tradition it is the whole question.
 > ONE BELIEF IN THIS SECTION IS THE REASON THE ORIGINAL SEARCH FAILED, and it
 > is stated below as if it were a fact: that GitHub search "is scoped to this
 > repository". It is not — `search_repositories` and `search_code` query all
-> of GitHub. `data/sources.tsv:56` records this as the single wrong belief
+> of GitHub. `data/sources.tsv` row `SEARCH:welsh-cynghanedd-corpus` records this as the single wrong belief
 > that cost the search.
 >
 > STILL GENUINELY BLOCKED, and recorded where it belongs rather than here: no
 > cerdd-dafod treatise, no Welsh PROSE negative arm, and the hymn and
-> medieval-cywydd corpora (`data/sources.tsv:271`, `:272`).
+> medieval-cywydd corpora (`data/sources.tsv` rows `SEARCH:welsh-hymn-corpus-tune-and-metre` and `SEARCH:welsh-cywydd-medieval-poets`).
 
 Cynghanedd is the cell that would matter most, because its constraint is
 **internal to the line** rather than line-final — the one thing every control
@@ -523,7 +528,9 @@ The layer now has a validated non-English path and a second family reporting
 the same null. What it still does not have is a cell where the *mandated*
 constraint is internal rather than line-final — which is exactly what
 dróttkvætt, cynghanedd and gabay would have supplied, and all three remain
-blocked. Until one of them is sourced, every positive control available to this
+blocked. (2026-11-19: no longer true of cynghanedd, which has run; see Part C.
+Gabay stays blocked, per `quality/RESULTS_SOM_BLOCKER.md`, and dróttkvætt per
+`quality/RESULTS_NON_HATTATAL.md`.) Until one of them is sourced, every positive control available to this
 project is positional by construction, and its passing says only that the
 instrument runs.
 
@@ -541,7 +548,7 @@ failures are as informative as the finds.
 | Sanskrit | **FOUND** DCS, **CC BY 4.0** | 270 texts; yamaka sarga complete |
 | Old Norse | **CONTESTED** `sagadb.org`; Háttatal **blocked** | 1,228 lines / 814 blocked |
 | Irish | **FOUND at n=1** | one 1655 poem, 42 quatrains |
-| Malay | **NOT FOUND** — network, not rights | target identified exactly |
+| Malay | ~~**NOT FOUND** — network, not rights~~ found later: `GITenberg/Malay-Magic_47873` (PD, 1900), see its `data/sources.tsv` rows (2026-11-19) | target identified exactly; pantun measured against a null |
 
 ### The channel map was wrong, twice
 
@@ -561,7 +568,7 @@ validated at **81.3%** alliteration *(~~81.2%~~ REPINNED 2026-08-13 — 3,253 of
 the first 4,000 verse lines, 22,795 extracted; the SAME repin the Part E table
 row above already carries, twenty lines up. This paragraph went on quoting the
 superseded figure after that row had moved, so the file disagreed with itself;
-origin row `data/sources.tsv:58`, instrument
+origin row `GITenberg/Kalevala_7000` in `data/sources.tsv`, instrument
 `quality/audit_kalevala_null.py --check`)*. Every earlier search that failed
 *because Gutenberg is blocked* should be re-run through it — including Welsh.
 
@@ -601,7 +608,9 @@ convert it.
 1. **Part A is done** and it gates everything: the instrument is sound, and the
    binding constraint is events per item, not corpus choice.
 2. ~~**Phonology before corpora.**~~ **DONE for the cheapest three** —
-   `fin`, `som`, `ltc`. Welsh, Indic and Old Norse remain blocked.
+   `fin`, `som`, `ltc`. ~~Welsh, Indic and Old Norse remain blocked.~~ `cym`,
+   `san`, `non`, `msa` and `fas` were built since; only the Old Norse corpus
+   and gabay remain blocked (2026-11-19).
 3. **Pooling before more items.** Fisher across items is already implemented in
    this document's Part A analysis and recovers most of what n=1 threw away.
 4. **律詩 first**, because it is the only cell currently sourced, phonology-clean

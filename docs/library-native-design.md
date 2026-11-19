@@ -15,7 +15,7 @@ The Library becomes a native tab on codexmusica.com, as much a part of the site 
 ## Summary
 
 - **Route.** The fifth `UI_ROUTES` entry in `codex.html`: a small inline stub plus SRI-pinned, same-origin code chunks loaded on first visit. No iframe and no other website. Deep links use `#library/works`, `#library/rights`, `#library/collections/<id>` and `#library/read/<id>?…`.
-- **Reading data.** Static files on GitHub Pages under `library/data/`, projected from the verified, rights-filtered site export of main's current catalog. That catalog is snapshot 317c5afa: 25,525 readable units against the old Site's 20,865, with all 20,865 old ids kept.
+- **Reading data.** Static files on GitHub Pages under `library/data/`, projected from the verified, rights-filtered site export of main's current catalog. That catalog ~~is~~ was snapshot 317c5afa: 25,525 readable units against the old Site's 20,865, with all 20,865 old ids kept. Status (2026-11-19): 317c remains the pinned baseline manifest; the installed and projected catalog is now snapshot 80a88e5a, with 25,512 readable units, 36,866 reading units and 2,326 collections (`library/data/catalog.json` census; `mcp/qualify_reader.mjs`).
   - Each reading lives under `r/<hh>/<reading_unit_id>/<rev16>-<proj12>/`, keyed by its revision and its projection identity, never by snapshot. A published directory never changes, so unrelated `sources.tsv` edits change nothing on Pages, and an old head can never be paired with a new page.
   - Retained older directories are deleted at once when a unit stops being readable.
 - **Render (`mcp.codexmusica.com/library/v1`).** Serves only what needs a server: exact search, metadata for held units, ZIP exports, the whole-corpus packages, and analysis.
@@ -36,8 +36,8 @@ The Library becomes a native tab on codexmusica.com, as much a part of the site 
 
 ### Route and nav
 - `UI_ROUTES` (src/workbench.js:44-49) gains `['library','Library','library']` as the fifth entry, after Lyrics.
-- Icon: the unused `UI_ICONS` 'library' (lucide library-big). 'book-open' already means Form & story in Lyrics (src/pages/lyrics.js:371,930,3240). The Lyrics 'Library source' card (lyrics.js:2055) switches to 'library', so each icon keeps one meaning.
-- Colour: `--cm-route-library: var(--cm-green)` in src/theme.css:168-173 (defined in both themes; this is the Library's own #1e8e3e), plus a nav svg rule beside src/workbench.css:1245-1256.
+- Icon: the unused `UI_ICONS` 'library' (lucide library-big). 'book-open' already means Form & story in Lyrics (src/pages/lyrics.js:371,930,3240). The Lyrics 'Library source' card (lyrics.js:2055) switches to 'library', so each icon keeps one meaning. (Not done, 2026-11-19: the card in src/pages/lyrics.js still renders 'book-open'.)
+- Colour: `--cm-route-library: var(--cm-green)` in src/theme.css:168-173 (defined in both themes; this is the Library's own #1e8e3e), plus a nav svg rule beside src/workbench.css:1245-1256. (Not built, 2026-11-19: there is no `--cm-route-library` token and no Library nav svg rule; route colours exist only for genre, instrument, map and lyrics.)
 - At cutover:
   - delete `uiLibraryLink` (workbench.js:114-119) and its call (751);
     - Status (#659): the cutover kept it for `CODEX_LIBRARY=0` builds only, still pointing at the old Site. It was deleted with the receiver below in the website-only follow-up to #811, along with its `.ui-nav-link` styles in workbench.css and `CMLibraryImport` in workbench.js's `/* global */`. No build links to another website now.
@@ -62,9 +62,11 @@ The Library becomes a native tab on codexmusica.com, as much a part of the site 
      |---|---|---|
      | core | Explore and carousel, rail, Works, filters, search client, metadata sheet, Sources & rights, export panel, selection, device state, static data client | <=20,480 |
      | reader | paper, marks, selection, position, Summary and Sources lenses, read aloud, provenance download, Lyrics envelope | <=20,480 |
-     | analysis | jobs, evidence hydration, Sound/Form/Rhythm/Language lenses, declarations, pronunciation, method reference | <=24,576 |
+     | analysis | jobs, evidence hydration, Sound/Form/Rhythm/Language lenses, declarations, pronunciation, method reference | ~~<=24,576~~ <=30,720 (2026-11-19) |
      | compare | picker, alignLines/intraLine | <=6,144 |
      | inflate | loaded only where DecompressionStream is missing | <=4,096 |
+
+     Status (2026-11-19): `scripts/check_payload_budget.js` also budgets the marks, works, rights, readertools, connection-bindings and connection-views chunks; it is the current list.
 
    - These ceilings are re-derived from the judges' check of the React sources: the reader-related sources gzip to 18,812 B before porting. PR 4 records the real ports and lowers each ceiling to measured +15%. Lowering needs no Lighthouse citation.
    - Each chunk carries its scoped CSS as a string, inserted as one `<style>`, and registers the lucide paths it needs into `UI_ICONS`, so codex.html does not grow.
@@ -359,7 +361,7 @@ A new browser family, `/library/v1`, on the existing service. It is separate fro
 server_http.js:262-271 is split so that:
 - ReaderJobStore and ReaderScheduler are built whenever READER_CATALOG_DIR and a durable directory exist;
 - `/internal/reader` mounts only while READER_BRIDGE_SECRET and READER_SITE_ID are set;
-- the `/library/v1` viewer routes mount when `LIBRARY_PUBLIC=1` (production-config pin; 0 until PR 5).
+- the `/library/v1` viewer routes mount ~~when `LIBRARY_PUBLIC=1` (production-config pin; 0 until PR 5)~~ unless `LIBRARY_PUBLIC=0` (default on since the cutover; 2026-11-19).
 
 Without this split, removing the bridge secrets would silently disable public analysis.
 
@@ -841,9 +843,9 @@ New rows in scripts/check_payload_budget.js, gzip-6; the existing five are not r
 | library-stub | <=4,096 |
 | library-core | <=20,480 |
 | library-reader | <=20,480 |
-| library-analysis | <=24,576 |
+| library-analysis | ~~<=24,576~~ <=30,720 (2026-11-19) |
 | library-compare | <=6,144 |
-| library-shelves-path (codex.html + core + catalog.json) | <=393,216 |
+| library-shelves-path (codex.html + core + catalog.json) | ~~<=393,216~~ <=402,080 (owner-approved raises; 2026-11-19) |
 | library-reader-path (codex.html + core + reader + largest r/ head file) | <=425,984 |
 | page (existing) | 389,120 |
 
@@ -1072,7 +1074,7 @@ All of the following must be equal, at 25,525 for 317c:
 - distinct ids across w/;
 - the sum of collections.json readable.
 
-qualify_reader asserts the same total from Render's search store and the corpus PROVENANCE census, and replaces the literal 25525 at qualify_reader.mjs:89 with a read of the committed manifests.
+qualify_reader asserts the same total from Render's search store and the corpus PROVENANCE census, and replaces the literal 25525 at qualify_reader.mjs:89 with a read of the committed manifests. Status (2026-11-19): not done; `mcp/qualify_reader.mjs` asserts the literal 25512 and does not read the manifests.
 
 ### Per-id gates (`check_library_data`)
 - Every 5226-readable and every 317c-readable id has a current r/ directory whose revision equals the baseline's (or is ledgered).
@@ -1129,7 +1131,7 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 | 3 | Collection cards: artwork, type covers, counts | art() title+source_path match (special regexes for li-qingzhao and bilhana); pastel type cover; '{readable} readable · {recorded} recorded units' | #library card component | assets/library/art/<id>-{240,480}.{avif,webp}; catalog.json art_id (rendition paths derived from it) | check_library_page section cards (matching table for 8 artworks, token covers in both themes); build_library_art --check; per-rendition <=25,600 B | lazy-flagged |
 | 4 | Shelf carousel mechanics and per-language position | Looping virtualized carousel (tripled items, visible+6), Arrow keys, middle copy focusable, IndexedDB shelf-position:{lang} with 500 ms debounce, 'position unsaved' | #library shelves (Library-owned windowed carousel) | IndexedDB codex-musica-library-v1 'state' store on codexmusica.com; collections.json on the critical path when the stored position exceeds the catalog.json cards | check_library_page section carousel (wrap-around, <=visible+6 cards per shelf, keyboard, reload restores position including past card 12 without layout shift, blocked IndexedDB shows 'position unsaved') | lazy-flagged |
 | 5 | Card quick actions and ⋮ menu (Play, Add/Remove mixed, Open, Select, Artwork credit) | Hover/focus Play opens first readable unit (readable_reading_unit_ids[0], catalog order) with autoplay=1; Add toggles all readable units (aria-pressed mixed); DropdownMenu | #library cards; Play to #library/read/<first>?autoplay=1; .cm-menu | catalog.json first_readable_id or c/<id> head readable_ids[0], both in catalog order (head prefetched on hover/focus); selection entries {id, collection_id} with collections.json readable counts; artwork credit from artwork.json | check_library_page section card-actions (mixed state equals brute-force membership; autoplay consumed); check_library_data Play target equals readable_reading_unit_ids[0] for every readable collection; check_ui_foundation menu focus and Escape | lazy-flagged |
-| 6 | Collection rail | Every readable collection unvirtualized (1,428+ nodes), language filter, numbered spines, 'Export selection n', 'On this device', open at >=1100px | left rail on #library/* (overlay below 1100px), opens #library/collections/<id> | collections.json, all 2,327 collections with readable counts; rail shows readable > 0 (preloaded low at >=1100px) | check_library_page section rail (2,279 reachable, <=40 DOM rows, active highlight, badge count); check_library_data collections.json covers every manifest collection id; check_mobile_layout rail toggle; Reset layout restores | lazy-flagged |
+| 6 | Collection rail | Every readable collection unvirtualized (1,428+ nodes), language filter, numbered spines, 'Export selection n', 'On this device', open at >=1100px | left rail on #library/* (overlay below 1100px), opens #library/collections/<id> | collections.json, all ~~2,327~~ 2,326 (2026-11-19; 2,327 was the 317c count) collections with readable counts; rail shows readable > 0 (preloaded low at >=1100px) | check_library_page section rail (2,279 reachable, <=40 DOM rows, active highlight, badge count); check_library_data collections.json covers every manifest collection id; check_mobile_layout rail toggle; Reset layout restores | lazy-flagged |
 | 7 | Section switcher and search shortcut | Explore/Works/Sources & rights buttons; Cmd/Ctrl+K focuses search | #library, #library/works, #library/rights (.cm-tab) | in-page | check_library_page section tabs (active tab follows route; Ctrl/Cmd+K only while #library current) | lazy-flagged |
 | 8 | Topline, catalog label, error and retry states | '{n} readable collections · {n} reading units', 'Snapshot {8 hex}', .reader-alert with 'Retry opening the catalog' | #library header area | catalog.json census and projected_from, labelled 'Readings: snapshot X' | check_library_page section topline (values equal manifest; label reads 'Readings: snapshot X'; failed static fetch shows uiEmptyState danger + Retry; persistent data_id mismatch shows 'The Library was just updated'); check_lazy_app E2 (no unhandled rejection, no ABSENT wording) | lazy-flagged |
 | 9 | Works search | D1 instr() over folded title/contributor/body, NFC+casefold+whitespace, <=500 chars, ORDER BY title_search,id, 200 ms debounce, typing in reader switches to Works | #library/works?q=… | Render GET /library/v1/search (public, cached 300 s, query not in the app log); 600/min per IP ceiling | `mcp/test_library_search.mjs` (ordering, hit projection, bounds, folding, cache/ETag, query-log redaction, 600/min refusal and recovery); `mcp/test_library_search_parity.mjs` replays pinned goldens, not a live Python-SQL differential. Partial: client debounce and Retry-After display are not asserted by these suites. | Render; lazy-flagged |
@@ -1138,9 +1140,9 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 | 12 | Works pagination | 50 rows, Previous/Next, 'a–b of total', offset in URL | #library/works?offset=n and #library/collections/<id>?offset=n | static 100-row w/ files and 250-row c/ pages sliced client-side; Render next_offset for searches | check_library_page section pagination (Next pushes, Back restores offset and scroll); check_library_data row-content parity vs Worker SQL | lazy-flagged |
 | 13 | Works table, selection toggle, Select collection | Columns work/contributor/language/scope with snippet and contributor text; toggle disabled unless readable; readable row opens reader, other row opens metadata sheet; 'Select collection' | #library/works, #library/collections/<id> | w/ and c/ rows with snippet and contributor_search (static) or Render items; c/ head readable_ids; IndexedDB export-selection | check_library_page section works-table (snippet and contributor text shown as before; row routing by availability, held toggle disabled, Select collection adds every readable id); check_library_data row-content parity | lazy-flagged |
 | 14 | Metadata sheet for held units | Right sheet: availability badge + Value tree of source_path, availability_reason, source_basis, work_reviewed_equivalence | #library/works?availability=held\|all (.cm-panel); deep link to a held or demoted unit | Render search items / GET /library/v1/metadata/:id (compact_summary + source_basis + reading_revision, built from the full snapshot at image time); never static | summary parity was not built (#661); held metadata without body, snippet, search_hit or labels has no named test (test_library_routes was never written; `mcp/test_library_search.mjs` asserts the empty snippet and no hit); the deep link to a held unit has no named test (check_library_page has no held-sheet section, #661; its `works` section checks that a held-only collection says 'Nothing here is readable') | Render; lazy-flagged |
-| 15 | Sources & rights: catalog census | 9 manifest counts, metadata-only note, 'Inspect all recorded availability' | #library/rights | catalog.json census; button runs Render search availability=all | check_library_page section census (36,880 units, 25,525 readable, 11,354 held, 1 research-only); count gate | lazy-flagged |
+| 15 | Sources & rights: catalog census | 9 manifest counts, metadata-only note, 'Inspect all recorded availability' | #library/rights | catalog.json census; button runs Render search availability=all | check_library_page section census (36,880 units, 25,525 readable, 11,354 held, 1 research-only: the 317c figures; the committed census is now 36,866 units, 25,512 readable, 11,354 held, and check_library_page has no census section, 2026-11-19); count gate | lazy-flagged |
 | 16 | Sources & rights: artwork credits | Credits, sources and notes for 8 artworks | #library/rights (+ card ⋮ and lightbox) | library/data/artwork.json, fetched only on these surfaces, never on the shelves path | check_library_page section credits (8 credits identical to artwork.json; no artwork.json request before shelves-ready); build_library_art --check | lazy-flagged |
-| 17 | Sources & rights: method reference | Collapsible list with client filter over name/definition/capabilities; MethodDetail | #library/rights (.cm-accordion) | static library/data/methods.json (registry_hash gated) + analysis chunk | check_library_page section method-reference (223 methods; filter equals old predicate); check_library_data methods hash | lazy-flagged |
+| 17 | Sources & rights: method reference | Collapsible list with client filter over name/definition/capabilities; MethodDetail | #library/rights (.cm-accordion) | static library/data/methods.json (registry_hash gated) + analysis chunk | check_library_page section method-reference (~~223~~ 229 methods in methods.json, 2026-11-19; filter equals old predicate; check_library_page has no method-reference section); check_library_data methods hash | lazy-flagged |
 | 18 | Sources & rights: export panel | Count, format, credit note, Export selected, Export readable corpus, Resume, Forget, Clear, Download unsaved selection | #library/rights; tab badge shows selection count | IndexedDB pending-export {format, ids}; Render POST /library/v1/exports/plan, GET /library/v1/exports/p/<content_id>.zip, /library/v1/corpus/<package_sha16>/<format>.zip; export plans 120/h per IP | check_library_page section export-panel (all six controls; HEAD-validated transparent re-plan on 409 PLAN_STALE and PLAN_EXPIRED; SELECTION_UNAVAILABLE names the ids; forced 409/404/429 keep the tab on #library; IndexedDB-blocked context offers library-selection.json) | lazy-flagged |
 | 19 | Reader: normalized view | Paper with lyric/blank/structure lines, analysis numbers, indent, dir/lang; 250-row pages, Load next/preceding | #library/read/<id> | static r/<hh>/<id>/<rev16>-<proj12>/ head + content-hashed page files (hashes listed in the head; embedded identity checked); normalized text and ranges derived from each page's start offsets | check_library_page section reader (RTL Persian, Kalevala paging and DOM windowing <=750 rows); check_library_page stages generations and deep-offset; check_library_data derived text hash, embedded identity and page offsets for all units; check_library_perf reader-ready | lazy-flagged; preview for the live comparison |
 | 20 | Reader: source-transcription view | Checkbox shows all line kinds with physical numbers and source_text | #library/read/<id>?view=source (remembered via UILayout) | r/ lines source_text (when different) + source_cp_range | check_library_page section source-view (physical numbering, marks switch to source ranges) | lazy-flagged |
@@ -1189,7 +1191,7 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 
 ### Added: shell and page code
 - src/pages/library.js and src/pages/library.css: the inline stub.
-- src/library/*.js: chunk sources (core, carousel, rail, works, rights, data, state, route, uuid5/sha1, reader, marks, inspector, evidence, analysis, declarations, pronunciation, compare, compare-text, speech, exports, handoff, inflate, icons).
+- src/library/*.js: chunk sources (core, carousel, rail, works, rights, data, state, route, uuid5/sha1, reader, marks, inspector, evidence, analysis, declarations, pronunciation, compare, compare-text, speech, exports, handoff, inflate, icons). Status (2026-11-19): as built, src/library holds analysis, compare, connection-adapter, connection-bindings, connection-views, core, marks, reader, rights and works.
 - src/library_preload.js and src/boot_preload.js.
 - library/code/*.<sha10>.js and the library/code generation manifest (30 days of generations): generated by build_html.js and committed like codex.html.
 
@@ -1306,7 +1308,7 @@ Each row names an executable test in a build that can reach its data. "Lazy-flag
 - scripts/check_deploy_memory.js: band re-measured if the peak moves.
 
 ### Retired in PR 7
-sites/library/** and .github/workflows/library-site.yml were removed from the repo on 2026-11-05 (#659), ahead of the rest. Still to retire: the Dockerfile approved-library stage, release_assets retention usage, test_retained_reader_catalog.py, mcp/README.md:246-253, /internal/reader with reader_protocol.js, and the READER_BRIDGE_SECRET and READER_SITE_ID dashboard secrets.
+sites/library/** and .github/workflows/library-site.yml were removed from the repo on 2026-11-05 (#659), ahead of the rest. Still to retire: the Dockerfile approved-library stage, release_assets retention usage, test_retained_reader_catalog.py, mcp/README.md's 'Files' section (the retained 5226 catalog paragraph), /internal/reader with reader_protocol.js, and the READER_BRIDGE_SECRET and READER_SITE_ID dashboard secrets.
 
 ## Risks
 
@@ -1462,7 +1464,7 @@ The base was a synthesis of three independent designs (performance-first, parity
 | ID | Change |
 |---|---|
 | B1 | w/ and c/ rows gained the Worker's `snippet` and `contributor_search`; order parity became a row-content differential. |
-| B2 | catalog.json carries the full recorded-language list (adds san, msa); collections.json lists all 2,327 collections; held-only collections deep-link to a Render search. |
+| B2 | catalog.json carries the full recorded-language list (adds san, msa); collections.json lists all ~~2,327~~ 2,326 (2026-11-19) collections; held-only collections deep-link to a Render search. |
 | B3 | The c/ head keeps `readable_ids` in catalog order, so Play opens the same reading as the old Site. |
 | B4 | Every download is validated by a CORS HEAD first, and every download-path error is an attachment, never a page. |
 | B5 | Analysis-export REQUEST.json comes from a canonical server-side request sidecar; the golden became entry-level parity. |

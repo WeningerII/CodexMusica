@@ -237,7 +237,8 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
     # ships on — that handing `--groups=` back to the grader "cannot produce
     # a rhyme violation" — is TRUE only while this admit asks the SAME
     # question the grader asks. The near-relation pricing gave the grader a
-    # PER-RELATION cut (`Declaration.theta_by_relation`, ASSONANCE 0.82), so
+    # PER-RELATION cut (`Declaration.theta_by_relation`, ASSONANCE 0.82, re-cut to 0.75
+    # on 2026-09-23), so
     # a flat `theta_rhyme` here builds covers the grader then charges: M-139's
     # exact shape, in the module whose own claim depends on not having it.
     # `theta_for` is read per pair below when the caller declared no theta;

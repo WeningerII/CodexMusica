@@ -1,5 +1,13 @@
 # Pre-registration — a PLACED word-identity judge, for M-142's open half
 
+> **Note added 2026-11-19 (the registered text below is unchanged).** The
+> judge was built on 2026-09-19 as the sixth requirement `REQUIRE_RETURN_AT`,
+> judged by `Mandate.placed_returns_check` in `quality/schemes.py`; see
+> `MISSING.md` M-142, "THE OPEN HALF IS BUILT". A placed member such as
+> `1.head` is now accepted, and `quality/test_mandate_language.py` pins that.
+> So the sentences below that say a placed return "refuses today" or "will be
+> built" describe the state on the registration date, not now.
+
 **Registered 2026-09-18, before any judge exists.** `MISSING.md` M-142 names
 the gap and the code names it again at the point of refusal:
 

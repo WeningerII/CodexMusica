@@ -12,7 +12,11 @@ PR #371 was merged during this follow-up as `cd20232f`. Its comparator
 identity, nightly-budget and endpoint-verification changes are preserved;
 it does not duplicate the report repairs below.
 
-## High-priority follow-up in progress
+## High-priority follow-up ~~in progress~~
+
+*2026-11-19: this section is a snapshot from when the follow-up was open. The
+repairs it lists have since reached main; `lyric-harness/MISSING.md` holds each
+entry's current status.*
 
 The owner's order is A-3, Q20, D-1, Q21, E-1/E-2, C-2/J-1, J-3, I-1,
 K-1 and W2F-1. Q6, Q7 and R16 require explicit assessment. None of these

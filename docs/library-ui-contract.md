@@ -6,6 +6,14 @@ site's theme tokens and components), with every feature of the old Library
 to port; removed from the repo on 2026-11-05, #659, and readable in git history
 at 92c9b318). Full spec: `docs/library-native-design.md`.
 
+> **Note (2026-11-19).** This is the historical build-time contract for work
+> that has shipped; the integration branch and worker workflow below no longer
+> apply. Since it was written: the Library is built by default (`CODEX_LIBRARY=0`
+> turns it off); `src/library/` also holds `marks.js` and the `connection-*.js`
+> chunks; `lib.collection(id, page = 0)` takes a page and `lib.unitPath(id, pathKey)`
+> takes a path key; and the backend is live. `src/library/core.js` is the current
+> source for the `lib` API.
+
 Integration branch: `claude/library-ui`. Each worker works on its own branch cut
 from it (`claude/library-ui-<part>`), touches **only the files it owns**, pushes
 often, and messages R2 when a piece runs. R2 merges. Nobody merges to main.

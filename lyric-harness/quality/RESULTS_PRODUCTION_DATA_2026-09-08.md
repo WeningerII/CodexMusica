@@ -6,7 +6,12 @@ The current calibration population uses `lyric_reader.calibration_items()`. Runt
 
 `CORPUS_EDITORIAL_REVIEW.json` records every staging correction and the old/new file hashes. Editorial text is retained as `# APPARATUS:`. Corrections include Herrick glossary definitions, Hemans footnotes and stage directions, Lovelace scholarly commentary, and Byron composition datelines. Blake and D'Urfey each contained two distinct works in one staged item; their verse was preserved and the item boundaries restored.
 
-## Current population and measurements
+## Population and measurements, as of 2026-09-08
+
+> **Dated snapshot (note added 2026-11-19).** "Current" below means 2026-09-08.
+> The corpus has grown since (1,344 English files in `corpus/song/` today), and
+> the live calibration snapshot is 2026-10-15: see
+> `data/calibration_populations.json` and `data/calibration_manifest.tsv`.
 
 | Measurement | Current result |
 |---|---:|

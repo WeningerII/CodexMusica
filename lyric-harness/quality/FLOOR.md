@@ -45,6 +45,9 @@ in the open and own it.
 Percentiles of the **human** class, so a finding means "outside the range human
 verse occupied here", not "bad". Positive class 152 Shakespeare sonnets;
 negative class 40 sonnets by one model in the same form and register.
+(2026-11-19: the generated class is retired. Experiment 2 and `discriminate.py`'s
+generated arm were deleted 2026-10-27; only the already-recorded calibration
+remains, as `n_generated` and the AUCs in `quality/floor.py`'s `PROFILES`.)
 
 | | section profile | sonnet profile |
 
@@ -69,16 +72,21 @@ Measured separation, as AUC in the direction *human scores higher*:
 
 | check | section | sonnet |
 |---|---|---|
-| MATTR | 0.776 (**plain TTR**) | 0.870 |
-| function-word ratio | 0.207 | 0.135 |
+| MATTR | ~~0.776~~ 0.800 (**plain TTR**) | ~~0.870~~ 0.884 |
+| function-word ratio | ~~0.207~~ 0.235 | ~~0.135~~ 0.171 |
 | anaphora | 0.245 | 0.147 |
 | line-length CV | 0.424 | 0.350 |
-| rhyme predictability | — | 0.440 |
+| rhyme predictability | — | ~~0.440~~ 0.384 |
 
 Quatrains from one sonnet are **not independent**, so 456/120 overstates the
 evidence; the effective sample is 152 vs 40. Averaged to poem level the section
 AUCs come to 0.872 / 0.119 / 0.091 / 0.358 — the separation is real at poem
 level and weaker at the unit the gate actually judges.
+
+(Repinned 2026-11-19 to `PROFILES` `measured_auc`; struck values are the
+2026-08 calibration. The poem-level figures and the plain-TTR figures in the
+next paragraph — 0.7568, 0.776 — are 2026-08 readings and were not re-measured
+here.)
 
 **The section column's two `mattr` figures are plain type-token ratio, not
 MATTR — corrected 2026-08-14, values unchanged.** At the declared window
@@ -297,9 +305,10 @@ can actually measure: one cliché pair (baby/crazy) and four self-rhymes.~~
 > when 632 tokens reached no profile. It would not decline today: 632 is
 > inside `lyric`'s 4–3,245, and `declaration_for(632, 62)` returns
 > (`lyric`, EXACT) — measured. Every length-sensitive check runs, at the
-> thresholds the curves evaluate **at N = 632**: `mattr_min` 0.7435,
-> `function_word_ratio_max` 0.4755, `anaphora_max` 0.2506,
-> `line_length_cv_min` 0.1247, `predictable_pair_fraction_max` 0.8561. What
+> thresholds the curves evaluate **at N = 632**: `mattr_min` ~~0.7435~~ 0.7417,
+> `function_word_ratio_max` ~~0.4755~~ 0.4688, `anaphora_max` ~~0.2506~~ 0.2517,
+> `line_length_cv_min` ~~0.1247~~ 0.1224, `predictable_pair_fraction_max` ~~0.8561~~ 0.8458
+> (repinned 2026-11-19 from `PROFILES`' `lyric` row; struck values are the 2026-09-05 readings). What
 > the run found about the *radif* rule below is unaffected — it is a
 > relation-level check and does not depend on length.
 
@@ -340,7 +349,8 @@ an English frequency list.
 >
 > **The paragraph's claim is unchanged.** Removing level effects still costs
 > most of what the joint AUC was made of, and what remains is still not
-> demonstrated to be quality rather than style. `quality/floor.py` still
+> demonstrated to be quality rather than style. ~~`quality/floor.py` still
 > carries the superseded pair in its module docstring and in
 > `CALIBRATION["known_limits"]`, which is a string the gate reports out; that
-> file is not owned here.
+> file is not owned here.~~ (2026-11-19: done — both now carry the later
+> 0.967 → 0.898 reading.)

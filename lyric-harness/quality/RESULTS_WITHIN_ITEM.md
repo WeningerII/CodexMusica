@@ -120,11 +120,15 @@ predicted.
 Reproduce with `python3 quality/discriminate.py`, which runs both feature sets
 over the same corpora. Two instruments grade what is below:
 
-- `python3 quality/test_discriminate.py` — pins **forty-four** numbers at a
+- `python3 quality/test_discriminate.py` — pins ~~**forty-four** numbers at a
   tolerance of 0.0005: the eight joint AUCs and the thirty-six per-feature
-  AUCs. It runs **cold** and reads no cache under any flag, so it cannot pass
+  AUCs~~ **twenty-two** numbers at a tolerance of 0.0005: four joint AUCs and
+  eighteen per-feature AUCs, Experiment 1 only, since Experiment 2 was deleted
+  on 2026-10-27 (2026-11-19). It runs **cold** and reads no cache under any flag, so it cannot pass
   because of a file a previous run left on disk.
-- `python3 quality/audit_joint_auc_null.py --check` — grades four of the joint
+- ~~`python3 quality/audit_joint_auc_null.py --check`~~ (deleted on purpose
+  2026-10-27 with Experiment 2, so this no longer runs and the 200-seed medians
+  below are no longer re-measured; 2026-11-19) — grades four of the joint
   AUCs against a label-permutation null and against 200 cross-validation seeds,
   and **REFUSES** (exit 2) rather than guessing when no fingerprint-matching
   cache is available.
@@ -196,7 +200,8 @@ absolute pair up and the within-item Exp 1 cell down.)*
 
 And the same four fits taken over **200 cross-validation seeds** instead of the
 one hard-coded seed every figure above is a single draw from
-(`audit_joint_auc_null.PINNED`, measured 2026-08-13):
+(`audit_joint_auc_null.PINNED`, measured 2026-08-13; the script was deleted
+2026-10-27, so this table is not re-measured any more):
 
 | feature set | Exp 1 median | Exp 2 median | reading |
 |---|---|---|---|
@@ -728,9 +733,10 @@ been run.
   window. Recorded, unmeasured, and not claimed either way;
   `RESULTS.md` § Provenance states it in full.
 - **The four joint AUCs** were first repinned cold in commit `98f07a4`, in
-  `quality/audit_joint_auc_null.py`'s `RECORDED` strings.
+  `quality/audit_joint_auc_null.py`'s `RECORDED` strings (that script was
+  deleted on purpose 2026-10-27).
 - **Seed medians** — `audit_joint_auc_null.PINNED`, 200 seeds, measured
-  2026-08-13.
+  2026-08-13 (deleted 2026-10-27; no longer re-measured).
 - **Cold p-values for `rhyme_predictability`** — the cold `discriminate.py` run
   recorded in `quality/RESULTS.md`.
 - **Warm AUCs, all p-values and all hit/wrong-sign counts** — the 2026-08-09

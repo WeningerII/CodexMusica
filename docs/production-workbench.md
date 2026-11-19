@@ -2,7 +2,9 @@
 
 The production HTML is generated from `src/index.template.html`, `src/app.js`,
 the shell (`src/workbench.js`, `src/workbench.css`), the shared theme
-(`src/theme.css`, `src/theme.js`) and the four page modules in `src/pages/` by
+(`src/theme.css`, `src/theme.js`) and the ~~four~~ five page modules in `src/pages/`
+(the fifth, Library, is built by default unless `CODEX_LIBRARY=0`, and shows the
+same recipe panel as a collapsed sidebar; 2026-11-19) by
 `scripts/build_html.js`. The interface uses native catalog, recipe compilation,
 part/preface cascades, room, tuning, chain, Save and signed chat
 implementations. There is no copied engine or runtime function replacement.
@@ -52,7 +54,8 @@ writers must durably preserve the compact continuation before changing state.
   the embedded build.
 - `scripts/check_mobile_layout.js` retains the native viewport, touch target,
   overlap and drag gates with updated visible entry points.
-- `scripts/ui_reachability_check.js` checks the 106 reachable inventory entries.
+- `scripts/ui_reachability_check.js` checks every `status: reachable` entry in
+  `tests/ui_capability_inventory.md` (~~106~~ 220 on 2026-11-19).
   Selector existence alone does not prove visibility or an end-to-end workflow.
 - `scripts/check_ui_foundation.js` drives the shipped page: theme before first
   paint and across reloads and routes, the atlas following it, neutral dark

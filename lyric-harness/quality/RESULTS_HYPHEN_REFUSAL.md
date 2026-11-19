@@ -53,7 +53,7 @@ a schwa, so the anchor is a schwa and any two of Barnes's participles score as
 a rhyme with each other on it. The harness was manufacturing rhymes, not
 merely mislabelling them.
 
-The repo has made this exact move once already and `CLAUDE.md` keeps the
+The repo has made this exact move once already and ~~`CLAUDE.md`~~ `HANDBOOK.md` (2026-11-19) keeps the
 record: 50 of the sonnet battery's 1,064 mandated pairs are refusals, which
 corrected a headline that had been reporting Shakespeare as failing to rhyme.
 The correction there **enlarged** the effect it was measuring rather than
@@ -99,7 +99,7 @@ which is a different claim.
 > (8.1%)`: cell BA's later coda-identity fix moved the baseline `81 -> 82`.
 > That does not touch this cell's finding — `mandated`/`judged`/`refused` are
 > still 1064/1014/50, and "not one count moves" is still what the hyphen
-> refusal does. Repinned figures live in CLAUDE.md's Test discipline block.
+> refusal does. Repinned figures live in ~~CLAUDE.md's~~ `HANDBOOK.md`'s Test discipline block (2026-11-19).
 
 The mechanism, and it is the reason this defect survived: three sonnet tokens
 carry an unread hyphen piece and none of them is an anchor-layer case.

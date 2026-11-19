@@ -3,8 +3,9 @@
 This is the contract between the shared foundation and the four page owners
 (Genre, Instrument, Map, Lyrics) of the Codex Musica redesign. It records what
 the foundation implements, the interfaces pages build on, which files each
-owner may change, and what remains page work. The four final page layouts are
-**not** built yet; every capability the current pages had is still reachable.
+owner may change, and what remains page work. ~~The four final page layouts are
+**not** built yet;~~ The four page layouts are built (`src/pages/genre.js`,
+`instrument.js`, `map.js`, `lyrics.js`; 2026-11-19); every capability the earlier pages had is still reachable.
 
 **Cohesion.** The four page references are one product. Every page owner studies all
 four (branch `claude/ui-design-refs`), not only its own. An element that appears on more

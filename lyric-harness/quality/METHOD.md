@@ -1,12 +1,12 @@
 # METHOD — the long doctrine
 
-The appendix to `CLAUDE.md`. Seventy-five of the ninety-six doctrines live
+The appendix to ~~`CLAUDE.md`~~ `HANDBOOK.md` (2026-11-19: `CLAUDE.md` is now a short map, and the doctrines, their index and § Test discipline that this file used to place in `CLAUDE.md` are in `HANDBOOK.md`, the previous version of that file). Seventy-five of the ninety-six doctrines live
 here: nulls, controls, calibration, thresholds, refusal rates, provenance
 verification, and what an edition does to the constraint you are trying to
-measure. `CLAUDE.md` keeps the twenty-one that decide what gets made.
+measure. `HANDBOOK.md` keeps the twenty-one that decide what gets made.
 
 **The numbering is global and unbroken across the two files.** Doctrine 79 is
-doctrine 79 and it is in part C below. The index at the foot of `CLAUDE.md`
+doctrine 79 and it is in part C below. The index at the foot of `HANDBOOK.md`
 maps every number 1–96 to its home. Nothing is defined twice and nothing was
 deleted in the split: where a claim here has been falsified it is marked
 WITHDRAWN or AMENDED in place, per this project's own rule, which is why
@@ -14,7 +14,7 @@ several items argue with themselves and why you should read an item to its end
 before quoting its first sentence.
 
 **When to read this.** When you are about to measure something and report a
-number. If you are drafting, revising, or deciding what to build, `CLAUDE.md`
+number. If you are drafting, revising, or deciding what to build, `HANDBOOK.md`
 is the file, and this one will cost you the afternoon it exists to save.
 
 **Amended 2026-08-11, inline and dated.** **29** — FWER's family size had been
@@ -508,7 +508,7 @@ without them.
    SUPERSEDED BY MEASUREMENT.** The paragraph above is kept whole and dated
    rather than rewritten (doctrine 17) -- it is the record of what was believed
    on 2026-08-09 and of the arithmetic that produced it. Read the opening count
-   as ONE. *(The title is also the row `CLAUDE.md`'s doctrine index carries,
+   as ONE. *(The title is also the row `HANDBOOK.md`'s doctrine index carries,
    and this file does not own that file. Repinning the title to "One feature
    ..." means moving the index row in the same commit -- which
    `quality/verify_doctrines.py` now enforces, so the two can no longer drift
@@ -815,7 +815,7 @@ cost falls, and why a refusal counted as a failure charges the wrong layer.
    BODY has said "because unvocalised Perso-Arabic does not write short vowels"
    since it was written, so the title and the body were describing two different
    layers under one number. THE NUMBER IS NOT RENUMBERED and must not be: a
-   doctrine number can only be added, never renumbered (CLAUDE.md's index), and
+   doctrine number can only be added, never renumbered (HANDBOOK.md's index), and
    `python3 quality/verify_doctrines.py` resolves every `doctrine N` citation
    in the repo against it -- four thousand of them and rising, which is why the
    count is not written here: only the command is, so a reader gets today's
@@ -892,7 +892,7 @@ cost falls, and why a refusal counted as a failure charges the wrong layer.
    null max"~~, which quoted the MEDIAN under the word MAX** (doctrine 17: the
    superseded reading stays visible). 97.5% was and is right; only the
    comparator was mislabelled, and it was mislabelled in the direction that
-   makes the separation look 0.2 points wider than it is. This is CLAUDE.md's
+   makes the separation look 0.2 points wider than it is. This is HANDBOOK.md's
    own band-section finding -- "ONE STATISTIC, TWO MEANINGS, and the record has
    been quoting both under one word" -- reappearing in a second arm, which is
    doctrine 91: a count is a coordinate of the RENDERING, and "the null" is two
@@ -969,7 +969,7 @@ cost falls, and why a refusal counted as a failure charges the wrong layer.
 
 ## Part D · Corpora, provenance, licences and editions
 
-Doctrines 34, 44, 85 and 92 are in `CLAUDE.md` because they bind before a file
+Doctrines 34, 44, 85 and 92 are in `HANDBOOK.md` because they bind before a file
 is fetched. These bind while you are reading what you fetched.
 
 38. **A writing system can postdate the provenance cutoff, and that is a
@@ -1306,7 +1306,7 @@ a round.
 
 ## § Time layer — the standing record behind doctrine 4
 
-**Not a doctrine definition.** Doctrine 4 is defined in `CLAUDE.md`, where the
+**Not a doctrine definition.** Doctrine 4 is defined in `HANDBOOK.md`, where the
 four layers are named and the time layer is described as built, powered, null,
 and still without a beat grid. What follows is the evidentiary narrative that
 item carried inside a parenthesis — the largest single block of auditing that
@@ -1345,13 +1345,13 @@ to it does not.
 
 ## § The sonnet battery, and what its numbers mean
 
-Moved from `CLAUDE.md`'s test-discipline section for the same reason. The
+Moved from `CLAUDE.md`'s (now `HANDBOOK.md`'s) test-discipline section for the same reason. The
 command, the current figures, the three counts and the triage rule stay there;
 this is the record of how those figures were wrong and what fixed them.
 Doctrines 71 and 79 are the generalisations, and doctrine 58 is the one this
 file caught itself breaking. Dedented, otherwise unchanged — which means the
 deictics still point at the list they were written beside, so "the triage
-discipline three lines below this one" is now `CLAUDE.md` § Test discipline.
+discipline three lines below this one" is now `HANDBOOK.md` § Test discipline.
 
 This line said 7.2% for a day after the calibration shipped, which is
 doctrine 58's own disease inside the doctrine file, found by the mutation
