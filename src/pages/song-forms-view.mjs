@@ -132,6 +132,10 @@ function writerDescription({ arrangement, contract }) {
     );
   if (requirements.some((line) => line.wordLetters))
     statements.push('It checks the selected letter counts for each sung word.');
+  if (requirements.some((line) => line.stresses !== undefined && line.syllables === undefined))
+    statements.push(
+      'Count the stressed syllables on each marked line. The number of unstressed syllables can vary.'
+    );
   if (requirements.some((line) => line.stress !== undefined || line.stresses !== undefined))
     statements.push(
       'Stress marks follow spoken pronunciation. The beat grid controls musical timing.'

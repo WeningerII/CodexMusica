@@ -200,9 +200,9 @@ def _validate_line_requirements(rows, total):
                 raise plan.PlanRefused("declared syllables disagree with the stress sequence length")
             if values.setdefault("stresses", mask.count("/")) != mask.count("/"):
                 raise plan.PlanRefused("declared stress count disagrees with the stress sequence")
-        if "stresses" in values and (type(values["stresses"]) is not int or "syllables" not in values
-                or not 0 <= values["stresses"] <= values["syllables"]):
-            raise plan.PlanRefused("the stress count needs a compatible exact syllable length")
+        if "stresses" in values and (type(values["stresses"]) is not int or values["stresses"] < 0
+                or "syllables" in values and values["stresses"] > values["syllables"]):
+            raise plan.PlanRefused("stress count must be nonnegative and fit any stated syllable count")
         if values.get("words", 0) > values.get("syllables", values.get("words", 0)):
             raise plan.PlanRefused("English words require at least one syllable each")
         previous = row["line"]
@@ -266,10 +266,11 @@ def line_fit_conflicts(native, requirements):
             conflicts.append({"line": first, "code": "CATALOG_WORD_BINDINGS",
                               "detail": f"Native placements and the free-word reserve need {minimum_words} words."})
         minimum_syllables = max(minimum_words, counts.get("words", 0)) + extra
+        minimum_syllables = max(minimum_syllables, counts.get("stresses", 0))
         exact = counts.get("syllables")
         if exact is not None and exact < minimum_syllables:
             conflicts.append({"line": first, "code": "CATALOG_SYLLABLE_BINDINGS",
-                              "detail": f"Word and sound constraints need at least {minimum_syllables} syllables."})
+                              "detail": f"Line constraints need at least {minimum_syllables} syllables."})
         required_slots = max(minimum_syllables, exact or 0)
         for i in members:
             if required_slots > ceilings[i]:

@@ -958,3 +958,65 @@ test(
     assert.deepEqual(checks(revised, 'returns'), ['fail', 'pass']);
   }
 );
+
+test(
+  'a stress-count setting accepts different syllable totals and regrades each line after reconnect',
+  { timeout: 180_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        catalog_form: 'tumbling-verse',
+        catalog_variant: 0,
+        seed_from: 11,
+        count: 1,
+        draw: ['lines', 'functions', 'melody', 'relation'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [11], sweep.report);
+    const [seed] = sweep.accepted_shown;
+    const op = await host.run('lyric_plan', { seed });
+    const { plan } = measured(await host.read(op.operation_id, 'full'));
+    assert.deepEqual(plan.request.song_form.lineRequirements, [
+      { line: 1, stresses: 4 },
+      { line: 2, stresses: 4 },
+    ]);
+    const screen = measured(
+      await host.run('lyric_screen', {
+        words: ['one', 'none'],
+        relation: 'class:RHYME',
+      })
+    );
+    assert.equal(screen.exit_code, 0);
+    async function inspect(tool, args) {
+      const result = await host.run(tool, args);
+      const catalog = measured(await host.read(result.operation_id, 'full')).coverage.catalog_form;
+      assert.equal(
+        catalog.checks.some((c) => c.kind === 'syllables' || c.kind === 'stress'),
+        false
+      );
+      return [
+        catalog.verdict,
+        ...catalog.checks.filter((c) => c.kind === 'stresses').map((c) => c.outcome),
+      ];
+    }
+    const first = ['two', 'six', 'ten', 'one'].join(' ');
+    const second = ['of', 'two', 'ten', 'six', 'none'].join(' ');
+    assert.deepEqual(await inspect('lyric_grade', { seed, draft: [first, second] }), [
+      'pass',
+      'pass',
+      'pass',
+    ]);
+    const wrong = await inspect('lyric_grade', {
+      seed,
+      draft: [first, second.replace('six ', 'of ')],
+    });
+    assert.deepEqual(wrong, ['fail', 'pass', 'fail']);
+    await host.reconnect();
+    assert.deepEqual(
+      await inspect('lyric_revise', { seed, attempts: 0, max_rounds: 1, backtrack: 0 }),
+      wrong
+    );
+  }
+);

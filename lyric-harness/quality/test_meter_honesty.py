@@ -156,8 +156,8 @@ class MeterHonesty(unittest.TestCase):
         def observe(text):
             return lh._form_reading(self.lex, text)
 
-        self.assertEqual(observe("record"), {"syllables": 2})
-        self.assertEqual(observe("hour"), {})
+        self.assertEqual(observe("record"), {"syllables": 2, "stresses": 1})
+        self.assertEqual(observe("hour"), {"stresses": 1})
         self.assertEqual(observe("read"), {"syllables": 1, "stress": "/"})
         self.assertEqual(observe("the read"), {"syllables": 2, "stress": "./"})
         self.assertEqual(observe("read zorbleflax"), {})

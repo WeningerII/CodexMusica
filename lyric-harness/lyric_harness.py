@@ -5376,8 +5376,7 @@ def _form_reading(lex, line, *, words=None):
     if any(letters_outside_repertoire(run.text) for run in cut.runs):
         return {}
     token_count = len(cut.tokens)
-    stresses = []
-    count = 0
+    streams_by_word = []
     for word in words:
         if word["source"] not in ("declared", "dictionary", "rule"):
             return {}
@@ -5395,13 +5394,18 @@ def _form_reading(lex, line, *, words=None):
             if not base or len(reader.pronunciation_variants(base)) != 1:
                 return {}
             streams = {"".join("." if digit == "0" else "/" for digit in word["stream"])}
-        lengths = {len(stream) for stream in streams}
-        if len(lengths) != 1 or 0 in lengths:
+        if not streams or "" in streams:
             return {}
-        count += lengths.pop()
-        stresses.append(next(iter(streams)) if len(streams) == 1 else None)
-    return ({"syllables": count, "stress": "".join(stresses)} if None not in stresses
-            else {"syllables": count})
+        streams_by_word.append(streams)
+    if all(len(choices) == 1 for choices in streams_by_word):
+        mask = "".join(next(iter(choices)) for choices in streams_by_word)
+        return {"syllables": len(mask), "stress": mask}
+    result = {}
+    for key, count_in_mask in (("syllables", len), ("stresses", lambda mask: mask.count("/"))):
+        counts = [{count_in_mask(mask) for mask in choices} for choices in streams_by_word]
+        if all(len(options) == 1 for options in counts):
+            result[key] = sum(next(iter(options)) for options in counts)
+    return result
 
 
 def _meter_honesty(entry, words, template):
