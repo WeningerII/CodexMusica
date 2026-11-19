@@ -5593,7 +5593,6 @@ await check('validation: actionable errors', () => {
         'the revise-loop redesign at the connector (seal, fold, cursor_stripped), executed by CI (test:connector:live)',
       'mcp/test_resume_stopped.mjs':
         'shared test helper: resumes a safe-point stop (exit 5) for test.mjs, test_run_continuation.mjs and test_loop_redesign.mjs',
-      'mcp/qualify_session_workflow.mjs': 'operator-run session qualification and evidence writer',
       'mcp/IMAGE_RELEASE.md': 'immutable image promotion operator documentation',
       'mcp/LYRICS_RUNTIME.md': 'operator documentation',
       'mcp/READER_RUNTIME.md': 'Library reader operator documentation',

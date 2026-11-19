@@ -100,7 +100,9 @@ pipeline plans and grades songs whose every line you write; no connector call re
   A new song: `begin_lyrics` → `lyric_sweep` → `lyric_plan` → `lyric_screen` → write the draft →
   `lyric_grade` → `lyric_revise` (answer each question it asks until it stops). A sweep without
   a form declaration chooses a compatible catalog setting and draws omitted dimensions.
-  Carry the recorded catalog selection forward. An explicit form sweep states length
+  Carry the recorded catalog selection forward. A new song's form is a catalog form: a sweep
+  that sends `form` is refused before anything runs (`CREATION_FORM`); `form` remains for raw,
+  low-level callers and for songs planned before. A sweep that names `catalog_form` states length
   (`lines`), sections (`functions`), rhyme (`relation`) and time (`melody`) with a value or
   its field in `draw`. A `want` on `lines`, on `sections`, `sections.F`, `uses` or `before`,
   or on `beats_per_line`, `bars_per_line` or `slots_per_line` also states that thing.
