@@ -111,7 +111,8 @@ def _validate_shape(contract):
             raise plan.PlanRefused("invalid catalog division path")
         if "textualFunction" in part:
             claim = part["textualFunction"]
-            role = next((m["role"] for m in reversed(part.get("divisionPath", ())) if "role" in m), None)
+            path = part.get("divisionPath") or []
+            role = next((m["role"] for m in reversed(path) if "role" in m), path[-1]["unit"] if path else None)
             if (not isinstance(claim, dict) or set(claim) - {"answersSection"} != {"role", "criterion"}
                     or not role or claim["role"] != role
                     or not isinstance(claim["criterion"], str) or not claim["criterion"].strip()

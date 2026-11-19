@@ -64,11 +64,18 @@ function measureFunctionReadings(plan, rows, lines, sections) {
   const binding = complete
     ? createHash('sha256')
         .update(
-          JSON.stringify([plan.id, plan.variant, rows.map((r) => r.divisionPath), spans, text])
+          JSON.stringify([
+            plan.id,
+            plan.variant,
+            rows.map((r) => [r.divisionPath, r.textualFunction]),
+            spans,
+            text,
+          ])
         )
         .digest('hex')
     : undefined;
-  return rows.map((row, i) => {
+  return rows.flatMap((row, i) => {
+    if (!row.textualFunction) return [];
     const { role } = row.textualFunction;
     const check = {
       kind: 'declared-textual-function',
@@ -76,7 +83,11 @@ function measureFunctionReadings(plan, rows, lines, sections) {
       ...row.textualFunction,
       basis: 'attributed editorial reading',
       outcome: 'unknown',
-      ...(binding && { draft_sha256: binding }),
+      ...(binding && {
+        draft_sha256: binding,
+        lines: Array.from({ length: spans[i][1] - spans[i][0] }, (_, n) => spans[i][0] + n + 1),
+      }),
+      ...(binding && plan.id === 'epigram' && { focusLine: spans[i][1] }),
     };
     const reading = sections?.[i]?.functionReading;
     if (!check.criterion || !binding || !reading || typeof reading !== 'object') return check;

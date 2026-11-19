@@ -2,7 +2,11 @@
 // assignment is a declaration; acoustic identity cannot be inferred from text.
 import { pindaricTriads } from './song-forms.mjs';
 
-import { functionCriterion, usesFunctionReadings } from './song-form-function-readings.mjs';
+import {
+  countedTextualLayout,
+  functionCriterion,
+  usesFunctionReadings,
+} from './song-form-function-readings.mjs';
 
 const roots = new Set(['song', 'poem']);
 const groups = new Set([
@@ -83,6 +87,8 @@ export function projectNestedDivisions(
   nativeRoles,
   { fixedReturns = false, endingWords = null } = {}
 ) {
+  const counted = countedTextualLayout(plan, mark, plain);
+  if (counted) return counted;
   const triads = pindaricTriads(plan);
   if (
     triads &&
@@ -255,8 +261,17 @@ export function projectNestedDivisions(
       refrain || (node.unit === 'section' && nativeRoles.has(node.role?.replaceAll('-', '_')));
     let vocalDuty =
       node.unit === 'section' && !node.children.length ? vocalRoles.get(node.role) : undefined;
+    if (
+      plan.id === 'nonsense-refrain-song' &&
+      node.role === 'vocables-refrain' &&
+      node.unit === 'section' &&
+      !node.children.length
+    )
+      carrier = 'refrain';
     const declaredFunction =
-      node.unit === 'section' && !node.children.length && functionCriterion(plan.id, node.role);
+      node.unit === 'section' &&
+      functionCriterion(plan.id, node.role) &&
+      node.children.every((n) => n.unit === 'line' && !n.role && plain(n) && !n.children.length);
     if (declaredFunction) distinct = true;
     if (
       node.role &&

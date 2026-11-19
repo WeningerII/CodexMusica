@@ -2565,3 +2565,69 @@ test(
     assert.deepEqual(carried, accepted);
   }
 );
+
+test(
+  'changing the Bop refrain fails independently of editorial readings',
+  { timeout: 300_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const seed = 11,
+      lines = 23,
+      relation = 'class:RHYME';
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        catalog_form: 'bop',
+        catalog_variant: 0,
+        seed_from: seed,
+        count: 1,
+        lines,
+        relation,
+        draw: ['functions', 'melody'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
+    const planned = await host.run('lyric_plan', { seed, lines, relation });
+    const { plan } = measured(await host.read(planned.operation_id, 'full'));
+    assert.deepEqual(plan.request.song_form.returnGroups, [[7, 16, 23]]);
+    measured(await host.run('lyric_screen', { words: ['one', 'two'], relation }));
+    const draft = Array.from(
+      { length: lines },
+      (_, i) => ['one two', 'three four', 'five six'][i % 3]
+    );
+    draft[15] = draft[22] = draft[6];
+    const grade = async (args) => {
+      const op = await host.run('lyric_grade', { seed, draft, ...args });
+      const full = measured(await host.read(op.operation_id, 'full'));
+      assert.ok(full.coverage?.catalog_form, full.stderr || full.report);
+      return full.coverage.catalog_form;
+    };
+    const first = await grade({});
+    assert.equal(first.verdict, 'unknown');
+    assert.ok(first.checks.some((c) => c.kind === 'returns' && c.outcome === 'pass'));
+    const readings = first.checks
+      .filter((c) => c.kind === 'declared-textual-function')
+      .map(({ section, role, draft_sha256 }) => ({
+        section,
+        role,
+        draft_sha256,
+        judgment: 'affirmed',
+        source: 'test reviewer',
+        reason: 'fixture reading',
+      }));
+    assert.deepEqual(
+      readings.map((c) => c.role),
+      ['problem', 'exploration', 'resolution-or-attempt']
+    );
+    assert.equal((await grade({ catalog_function_readings: readings })).verdict, 'pass');
+    draft[22] = 'changed ending';
+    const changed = await grade({ catalog_function_readings: readings });
+    assert.equal(changed.verdict, 'fail');
+    assert.ok(changed.checks.some((c) => c.kind === 'returns' && c.outcome === 'fail'));
+    assert.ok(
+      changed.checks
+        .filter((c) => c.kind === 'declared-textual-function')
+        .every((c) => c.outcome === 'unknown')
+    );
+  }
+);
