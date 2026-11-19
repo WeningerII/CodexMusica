@@ -308,6 +308,109 @@ class StatedCountDisclosureTests(unittest.TestCase):
                 P._recurrence_policy([P.parse_sweep_want('sections.' + f + '=2')])
 
 
+class PlanReceiptTests(unittest.TestCase):
+    """#902: the plan says where its line total came from (it had no
+    receipt), and the type receipt says what a rejection does."""
+
+    def test_the_length_receipt_names_its_source(self):
+        for form in ('open', 'verse-chorus'):
+            with self.subTest(form=form):
+                drawn = P.make_plan(5, form=form)
+                self.assertEqual(drawn['choices']['total_lines'], {
+                    'value': drawn['total_lines'],
+                    'chosen_from': f'equal odds over the {len(P.fillable_line_counts(form))} '
+                                   'line totals this request allows'})
+                self.assertEqual(P.make_plan(5, form=form, lines=24)['choices']['total_lines'],
+                                 {'value': 24, 'chosen_from': 'declared'})
+        section = lambda role, lines=None: {'unit': 'section', 'role': role, 'lines': lines}
+        catalog = lambda *parts: {'version': 1, 'id': 'probe', 'scope': 'rule', 'variant': 0,
+                                  'counts': {}, 'rhymeGroups': [], 'returnGroups': [],
+                                  'sections': list(parts)}
+        # A fixed four-line section and a free one: every total of five or more.
+        free = P.make_plan(2, song_form=catalog(section('verse', 4), section('chorus')))
+        allowed = [n for n in P.fillable_line_counts('open') if n >= 5]
+        self.assertEqual(free['choices']['total_lines'], {
+            'value': free['total_lines'],
+            'chosen_from': f'equal odds over the {len(allowed)} line totals the catalog form can fill'})
+        fixed = P.make_plan(2, song_form=catalog(section('verse', 4), section('chorus', 4)))
+        self.assertEqual(fixed['choices']['total_lines'],
+                         {'value': 8, 'chosen_from': 'the only line total the catalog form can fill'})
+        # Verses of stated, unequal lengths fix the total on a path of their own.
+        verses = P.make_plan(0, song_form=catalog(*(section('verse', n) for n in (1, 2, 3))))
+        self.assertEqual(verses['choices']['total_lines'],
+                         {'value': 6, 'chosen_from': 'the only line total the catalog form can fill'})
+
+    def test_the_split_phrase_and_order_receipts_say_what_was_drawn(self):
+        # #902: the per-kind receipt printed the envelope [1, 463]; the
+        # wordless sections' phrase draw and the order's redraw were unsaid.
+        seen = set()
+        for seed in range(12):
+            built = P.make_plan(seed)
+            sung = [f for f in dict.fromkeys(s['function'] for s in built['sections'])
+                    if f not in P.WORDLESS_FUNCTIONS]
+            for row in built['choices']['schemes'].values():
+                self.assertTrue(row['lines_chosen_from'].startswith(
+                    f"equal odds over every split of the {built['total_lines']} lines "
+                    f"among the {len(sung)} sung kinds, at least 1 line each"))
+            self.assertIn('an order the placement rules or a leading reprise refuse is drawn again',
+                          built['choices']['pattern']['chosen_from'])
+            longest = max(r['lines'] for r in built['choices']['schemes'].values())
+            for fn, row in built['choices'].get('wordless_phrases', {}).items():
+                seen.add(fn)
+                self.assertEqual(row['chosen_from'], [1, longest])
+                self.assertLessEqual(1, row['value'])
+                self.assertLessEqual(row['value'], longest)
+                for section in built['sections']:
+                    if section['function'] == fn:
+                        self.assertEqual(section['bars'],
+                                         row['value'] * built['choices']['bars_per_line'])
+        self.assertTrue(seen)
+        section = lambda role, lines=None: {'unit': 'section', 'role': role, 'lines': lines}
+        catalog = {'version': 1, 'id': 'probe', 'scope': 'rule', 'variant': 0, 'counts': {},
+                   'rhymeGroups': [], 'returnGroups': [],
+                   'sections': [section('verse', 4), section('chorus')]}
+        built = P.make_plan(2, song_form=catalog)
+        for row in built['choices']['schemes'].values():
+            self.assertEqual(row['lines_chosen_from'], "the catalog form's section lengths; "
+                                                       "any it leaves open are split with equal odds")
+
+    def test_the_hook_receipt_names_the_rule_that_chose_the_line(self):
+        # #902: the comment said the chorus wins; the rule takes a returning
+        # hook section, else the earliest recurring section whose row returns
+        # word for word, in song order.
+        rules = set()
+        for seed in range(30):
+            built = P.make_plan(seed, form='verse-chorus')
+            count = {}
+            for section in built['sections']:
+                count[section['function']] = count.get(section['function'], 0) + 1
+            returning = {f for f, n in count.items() if n > 1 and f not in P.WORDLESS_FUNCTIONS
+                         and G.SECTION_FUNCTIONS[f].returns_as == 'verbatim'}
+            pool = ({'hook'} & returning) or returning
+            want = next(s['line'] for s in built['line_slots'] if s['function'] in pool)
+            self.assertEqual(built['hook_slot'], want)
+            receipt = built['choices']['hook']
+            self.assertEqual(receipt['value'], want)
+            self.assertEqual(receipt['chosen_from'], (
+                'the first line of the first returning hook section' if 'hook' in pool else
+                'the first line of the earliest sung section whose row returns word for word '
+                'and that recurs'))
+            fn = next(s['function'] for s in built['line_slots'] if s['line'] == want)
+            rules.add(fn == 'chorus')
+        self.assertEqual(rules, {True, False})
+        self.assertNotIn('hook', P.make_plan(3, form='open')['choices'])
+
+    def test_the_type_receipt_says_a_rejected_type_is_tried_first(self):
+        # #902: a group tries a type an earlier group rejected before it
+        # draws (`_assign_types`); the receipt said only that it redraws.
+        built = P.make_plan(2)
+        records = built['choices']['relations']['groups']
+        self.assertTrue(any(r['chosen_from'].startswith('carried from an earlier group')
+                            for r in records))
+        self.assertIn('the group redraws, trying a type an earlier group rejected first',
+                      built['choices']['relations']['chosen_from'])
+
+
 def _song(*functions):
     return G.Song(sections=[G.Section(f'S{i}', 8, function=f)
                             for i, f in enumerate(functions)])

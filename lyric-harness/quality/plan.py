@@ -1771,7 +1771,8 @@ def _carve(sch, block, free, trng, max_token, head_cap, reserve_end=False):
 
 
 def _assign_types(section_blocks, trng, max_token, declared=None,
-                  language="eng", per_group=None, head_cap=None, reserve_end=False):
+                  language="eng", per_group=None, head_cap=None, reserve_end=False,
+                  pool=None, whole=False):
     """-> (groups as member lists, {label: 'schema:name'}, records, unplaced).
 
     `section_blocks` is one (section lines, drawn blocks) per sung section.
@@ -1791,8 +1792,14 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
 
     An explicit choice (`declared` for the whole song, `per_group` by label,
     in group order) is kept, never redrawn: a group it cannot bind refuses
-    the candidate (`JointRefused`, redrawn by seed)."""
-    pool = list(eligible_types(language))
+    the candidate (`JointRefused`, redrawn by seed).
+
+    `pool` narrows the draw (a catalog form's prescribed groups draw only
+    types that rhyme at both line endings), and `whole` rejects a type that
+    binds only part of a block, so a prescribed group is never split."""
+    pool = list(eligible_types(language) if pool is None else pool)
+    pool_words = (f"{len(pool)} eligible types" if not whole else
+                  f"{len(pool)} eligible types that rhyme at both line endings")
     per_group = dict(per_group or {})
     groups, rels, records = [], {}, []
     carried = []
@@ -1833,9 +1840,14 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
             else:
                 name = None
                 unbound = sorted(set(free).union(*queue))
-                for cand in list(carried):
+                def carve(cand):
                     members, took = _carve(_RL.REGISTRY[cand], block, unbound,
                                            trng, max_token, head_cap, reserve_end)
+                    if members is not None and whole and set(took) != set(block):
+                        return None, "binds only part of the prescribed group"
+                    return members, took
+                for cand in list(carried):
+                    members, took = carve(cand)
                     if members is not None:
                         carried.remove(cand)
                         name, chosen_from = cand, ("carried from an earlier "
@@ -1845,14 +1857,13 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
                 while name is None and left:
                     cand = left.pop(trng.randrange(len(left)))
                     proposed.append(cand)
-                    members, took = _carve(_RL.REGISTRY[cand], block, unbound,
-                                           trng, max_token, head_cap, reserve_end)
+                    members, took = carve(cand)
                     if members is None:
                         rejected.append({"type": cand, "reason": took})
                         carried.append(cand)
                         continue
                     name = cand
-                    chosen_from = f"equal odds over {len(pool)} eligible types"
+                    chosen_from = f"equal odds over {pool_words}"
                 if name is None:
                     raise JointRefused(
                         f"no eligible type can bind group {label} (lines "
@@ -5169,6 +5180,14 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         total = _total
     else:
         total = rng.choice(sorted(_GRADEABLE))
+    # WHERE THE LENGTH CAME FROM, SAID IN THE PLAN (#902): it had no receipt.
+    _length_from = (
+        "declared" if lines is not None else
+        "the length the first candidate drew, kept by the seed redraw" if _total is not None else
+        ("the only line total the catalog form can fill" if catalog["total_from"] == 1 else
+         f"equal odds over the {catalog['total_from']} line totals the catalog form can fill")
+        if catalog is not None else
+        f"equal odds over the {len(_GRADEABLE)} line totals this request allows")
     if _drawn is not None:
         _drawn["total"] = total
     _pattern_refused, _pattern_reason = 0, ""
@@ -5193,12 +5212,14 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         if catalog is not None:
             funcs = tuple(section["function"] for section in catalog["sections"])
             ks = {section["function"]: section["lines"] for section in catalog["sections"]}
-            phrases = dict(ks)
+            phrases, _phrase_from = dict(ks), {}
             for fn in dict.fromkeys(funcs):
                 if fn in catalog.get("wordless_phrases", {}):
                     phrases[fn] = catalog["wordless_phrases"][fn]
+                    _phrase_from[fn] = "the catalog section's bars"
                 elif fn in WORDLESS_FUNCTIONS:
-                    phrases[fn] = rng.randint(k_lo, max(k_lo, max(ks.values())))
+                    _phrase_from[fn] = [k_lo, max(k_lo, max(ks.values()))]
+                    phrases[fn] = rng.randint(*_phrase_from[fn])
             _cells_hi = len(funcs)
             break
         # A BUILT DRAW STOPS WHEN IT HAS NOTHING LEFT TO TRY AT THIS TOTAL:
@@ -5308,6 +5329,11 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         s_lo, s_hi = ENVELOPE["sections"]
         if not s_lo <= len(funcs) <= min(s_hi, _max_sections):
             continue
+        # A REPRISE BRINGS BACK EARLIER SUNG WORDS (#902): an order whose
+        # first sung section is a reprise has none to bring back, so it is
+        # drawn again.
+        if next((f for f in funcs if f not in WORDLESS_FUNCTIONS), None) == "reprise":
+            continue
         shape_view = {"sections": [{"function": f} for f in funcs]}
         if any(not sweep_holds(shape_view, w) for w in _wants
                if w[0] in ("sections", "uses", "before")):
@@ -5379,9 +5405,11 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # rather than a number chosen for it.
         _scale = max([v for f, v in ks.items()
                       if f not in WORDLESS_FUNCTIONS] or [k_lo])
+        _phrase_from = {}
         for fn in dict.fromkeys(funcs):
             if fn in WORDLESS_FUNCTIONS:
-                phrases[fn] = rng.randint(k_lo, max(k_lo, _scale))
+                _phrase_from[fn] = [k_lo, max(k_lo, _scale)]
+                phrases[fn] = rng.randint(*_phrase_from[fn])
         # verbatim returners: later instances are copies, so they carry the
         # SAME line count already (ks is per kind) — the drawn total stands.
         assert total == sum(ks[f] for f in funcs), (
@@ -5552,6 +5580,17 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # Schemes per function kind (one tune per kind — new words, same
     # shape), and a per-section anacrusis in beats.
     by_func, scheme_meta = {}, {}
+    # WHAT THE LINE COUNTS WERE DRAWN FROM (#902): the receipt printed the
+    # per-section envelope, which no count is drawn from.
+    _sung_kinds = [f for f in dict.fromkeys(funcs) if f not in WORDLESS_FUNCTIONS]
+    _lines_from = (
+        "the catalog form's section lengths; any it leaves open are split with equal odds"
+        if catalog is not None else
+        f"equal odds over every split of the {total} lines among the "
+        f"{len(_sung_kinds)} sung kinds, at least {_min_section} "
+        f"{'line' if _min_section == 1 else 'lines'} each"
+        + ("; a split that makes the tag longer than another part is drawn again"
+           if "tag" in _sung_kinds else ""))
     terminal_groups = song_form["rhymeGroups"] if song_form else []
     if any(len(g) > _max_group for g in terminal_groups):
         raise PlanRefused("the prescribed rhyme group exceeds the requested group size")
@@ -5614,8 +5653,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         by_func[fn] = code
         scheme_meta[fn] = {"rgs": list(code), "chosen_from": pool,
                            "lines": size,
-                           "lines_chosen_from": list(ENVELOPE[
-                               "lines_per_section"])}
+                           "lines_chosen_from": _lines_from}
 
     # Anacrusis is PER FUNCTION KIND, like the scheme: the pickup is part
     # of the tune, and a kind whose instances differed would hand the
@@ -5712,8 +5750,11 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     bar, line_no = 1, 1
     counts = {}
     first_seen = {}
-    sung_first = {}
     groups, returns = [], []
+    # The first line of each sung section with new words, in order: the
+    # spans a reprise may bring back (#902).
+    fresh_heads, reprise_draws = [], []
+    reprise_rng = random.Random(f"{seed}/reprise")
     # Singleton classes establish differences in final sound but have no pair to bind.
     paired_groups = [group for group in terminal_groups if len(group) > 1]
     from quality.catalog_shape import rhyme_source_groups
@@ -5759,17 +5800,32 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # Both chat sessions of the 2026-11-14 retests ran under `open` and
         # delivered two choruses with no word in common.
         # A REPRISE IS "a declared return of earlier material, later and
-        # changed" (its row): its first line comes back from the first
-        # chorus, or from the song's opening line where no chorus precedes
-        # it. That is the function's own definition, not the form's, so it
+        # changed" (its row): its first line comes back from earlier in the
+        # song. That is the function's own definition, not the form's, so it
         # is planned IN EVERY FORM (#671 A7): ~~`REPRISE_BRINGS_NOTHING_BACK`
         # grades a reprise under `open` too~~, and a plan that gave it no
         # return pair drew that note on a draft written to its brief.
         # (2026-11-18: since stage 5 that note is not given under a plan; the
         # pair planned here is judged as RETURN_NOT_VERBATIM.)
-        if fn == "reprise" and first > 1:
-            returns.append([sung_first.get("chorus", 1), first])
-        sung_first.setdefault(fn, first)
+        # WHICH LINE COMES BACK (#902): the row names no source, so the
+        # source is drawn with equal odds over the first lines of the earlier
+        # sung sections with new words. ~~It was always the first chorus
+        # line, else line 1.~~ A line the catalog already copies here is
+        # its own declared return and is kept. A drawn order never puts a
+        # reprise before every sung section (see the pattern draw); a catalog
+        # order that does has nothing to bring back on any seed.
+        copied = any(first in g[1:] for g in prescribed_returns) or (
+            fn in VERBATIM_RETURNERS and fn in first_seen)
+        if fn == "reprise" and not copied:
+            if not fresh_heads:
+                raise PlanRefused("the catalog form places a reprise before any sung "
+                                  "section, so it has nothing to bring back")
+            source = reprise_rng.choice(fresh_heads)
+            returns.append([source, first])
+            reprise_draws.append({"line": first, "source": source,
+                                  "sources": list(fresh_heads)})
+        elif not copied:
+            fresh_heads.append(first)
         if fn in VERBATIM_RETURNERS and fn in first_seen:
             returns.extend([first_seen[fn] + i, first + i]
                            for i in range(k))
@@ -5841,11 +5897,13 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # slot is legal and the one-chorus pattern is legal; their CONJUNCTION is
     # unwritable, which is `joint_findings`' subject one layer out.
     #
-    # THE PREFERENCE IS THE VOCABULARY'S, NOT A LITERAL. `chorus` wins when a
-    # recurring one is present because `FunctionSpec.returns_as` says it
-    # returns VERBATIM — its gloss is *"the returning section; the one place
-    # where REPEAT is the requirement rather than the violation"* — and any
-    # other actually-recurring sung function is taken over declaring nothing.
+    # THE PREFERENCE IS THE VOCABULARY'S, NOT A LITERAL. ~~`chorus` wins when
+    # a recurring one is present~~ (#902: true only while chorus and tag were
+    # the verbatim returners). A returning `hook` section wins, since it IS
+    # the hook; then the earliest sung section whose row returns VERBATIM
+    # (`FunctionSpec.returns_as`) and that recurs, in song order, whatever its
+    # function; then, for a native form only, any recurring sung section.
+    # `choices.hook` says which rule chose the line.
     # Reading the drawn `sections` costs no entropy, so every seed's groups,
     # meter and schemes are byte-identical either side of this repair.
     from quality import grid as _GR   # lazy, as everywhere else in this file
@@ -5863,15 +5921,31 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # declared, and the plan says why.
     # A `hook` section "IS the hook" (its row): when one returns, the hook
     # line is in it.
-    for pool in (({"hook"} & verbatim, verbatim, recurs)
-                 if form_asks_return(form) else ()):
+    # A CATALOG FORM ASKS FOR A RETURN BY ITS OWN SECTIONS (#902): it asks
+    # when it places a sung section whose row returns word for word more than
+    # once. A line it repeats inside new-words sections is not a hook.
+    if song_form is not None:
+        asks, pools = bool(verbatim), ({"hook"} & verbatim, verbatim)
+    else:
+        asks = form_asks_return(form)
+        pools = ({"hook"} & verbatim, verbatim, recurs)
+    _hook_rules = ("the first line of the first returning hook section",
+                   "the first line of the earliest sung section whose row "
+                   "returns word for word and that recurs",
+                   "the first line of the earliest sung section that recurs")
+    hook_rule = None
+    for rule, pool in zip(_hook_rules, pools if asks else ()):
         for s in line_slots:
             if s["function"] in pool:
-                hook_slot = s["line"]
+                hook_slot, hook_rule = s["line"], rule
                 break
         if hook_slot:
             break
-    if hook_slot is None and not form_asks_return(form):
+    if hook_slot is None and song_form is not None:
+        hook_refused = (
+            f"the catalog form {song_form['id']!r} places no sung section that "
+            f"returns word for word more than once, so no line is the hook")
+    elif hook_slot is None and not asks:
         hook_refused = (
             f"the form {form!r} asks for no section to return, and a hook is "
             f"planned only when the request asks for a returning form")
@@ -5915,9 +5989,14 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         "anaphora_max", _aprof, _atok) * total + 1e-9))
     binding_overrides = relations
     additional_bindings = []
+    terminal_pool = None
     if terminal_groups:
         from quality.catalog_shape import terminal_rhyme_relation
         binding_overrides = dict(relations or {})
+        # A prescribed group with no stated type DRAWS one (#902), equal odds
+        # over the eligible types that rhyme at both line endings, as every
+        # other group draws over the whole eligible set.
+        terminal_pool = [name for name in eligible_types() if terminal_rhyme_relation(name)]
         # These are absolute catalog classes, possibly spanning several stanzas.
         # Binding one exact block at a time prevents carving into a different class.
         _section_blocks = [(group, [group]) for group in source_groups]
@@ -5925,19 +6004,20 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             label = SC.label((i,))
             requested = binding_overrides.get(label)
             if str(requested or "").strip().lower() in ("", "draw", "any"):
-                requested = relation or "class:RHYME"
-            if not terminal_rhyme_relation(requested):
+                requested = relation or "draw"
+            if requested != "draw" and not terminal_rhyme_relation(requested):
                 # A positioned registry relation can coexist with the form's
                 # terminal obligation. Keep both as native mandate groups.
                 if _schema_of(requested)[1] is None:
                     raise PlanRefused("the catalog requires rhyme at every selected line ending")
                 additional_bindings.append((i, requested))
-                requested = "class:RHYME"
+                requested = "draw"
             binding_overrides[label] = requested
     groups, _type_rels, _type_records, _unplaced = _assign_types(
         _section_blocks, random.Random(f"{seed}/types"), _max_token,
-        declared=relation, per_group=binding_overrides,
-        head_cap=_head_cap, reserve_end=bool(song_form and song_form.get("endingWords")))
+        declared=None if terminal_groups else relation, per_group=binding_overrides,
+        head_cap=_head_cap, reserve_end=bool(song_form and song_form.get("endingWords")),
+        pool=terminal_pool, whole=bool(terminal_groups))
     if terminal_groups and [record["lines"] for record in _type_records] != source_groups:
         raise PlanRefused("the selected rhyme type cannot bind the whole prescribed terminal group")
 
@@ -5977,7 +6057,12 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                                         f"1..{_cells_hi} cells under the drawn total and declared brief, "
                                         f"optional intro/outro/coda, "
                                         f"roster {len(GENERATOR_ROSTER)} "
-                                        f"of {_vocab_size()} functions"
+                                        f"of {_vocab_size()} functions; "
+                                        # CONDITIONED, SAID SO (#902): the
+                                        # delivered order is the draw that
+                                        # passed placement, not the proposal.
+                                        f"an order the placement rules or a "
+                                        f"leading reprise refuse is drawn again"
                                         + ("; stated counts built into the draw: "
                                            + recurrence["requested"]
                                            if recurrence.stated else "")
@@ -6106,13 +6191,32 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         if "bars_per_line" in catalog and melody is None:
             plan["choices"]["meter"]["chosen_from"] = (
                 f"native meter draw conditioned on {bars} bars per line from the catalog section lengths")
+    plan["choices"]["total_lines"] = {"value": total, "chosen_from": _length_from}
+    if hook_rule:
+        plan["choices"]["hook"] = {"value": hook_slot, "chosen_from": hook_rule}
+    if _phrase_from:
+        plan["choices"]["wordless_phrases"] = {
+            fn: {"value": phrases[fn], "chosen_from": src} for fn, src in _phrase_from.items()}
+    if reprise_draws:
+        plan["choices"]["reprise"] = {
+            "value": [[d["source"], d["line"]] for d in reprise_draws],
+            "chosen_from": "for each reprise, equal odds over the first lines "
+                           "of the earlier sung sections with new words",
+            "sources": [d["sources"] for d in reprise_draws]}
     plan["relations"] = dict(_type_rels)
     plan["choices"]["relations"] = {
         "chosen_from": (
             f"one type per group, equal odds over the "
             f"{len(eligible_types())} eligible types (`type_eligibility`); "
             f"a type with no valid placement for its group is rejected and "
-            f"the group redraws; an explicit choice is kept"),
+            f"the group redraws, trying a type an earlier group rejected "
+            f"first; an explicit choice is kept"
+            if terminal_pool is None else
+            f"one type per prescribed group, equal odds over the "
+            f"{len(terminal_pool)} eligible types that rhyme at both line "
+            f"endings (`terminal_rhyme_relation`); a type that cannot bind the "
+            f"whole group is rejected and the group redraws, trying a type an "
+            f"earlier group rejected first; an explicit choice is kept"),
         "value": dict(_type_rels),
         "groups": _type_records,
         "unplaced": list(_unplaced)}

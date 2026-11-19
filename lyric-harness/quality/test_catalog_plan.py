@@ -10,6 +10,16 @@ def catalog(form_id, sections, rhymes=(), returns=()):
             "sections": sections, "rhymeGroups": list(rhymes), "returnGroups": list(returns)}
 
 
+def terminal_types():
+    """-> the relations a prescribed group with no stated type can draw (#902)."""
+    from quality.catalog_shape import terminal_rhyme_relation
+    return {f"schema:{name}" for name in plan.eligible_types() if terminal_rhyme_relation(name)}
+
+
+def ends(*lines):
+    return ",".join(f"{line}.endword" for line in lines)
+
+
 class CatalogPlannerTests(unittest.TestCase):
     def test_repeated_riff_and_break_are_measured_in_the_filled_score(self):
         import json
@@ -371,12 +381,23 @@ class CatalogPlannerTests(unittest.TestCase):
 
     def test_prescribed_pair_uses_the_native_terminal_binder_and_retains_requested_relation(self):
         data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 2}], rhymes=[[1, 2]])
+        drawn = set()
         for seed in range(5):
             native = plan.make_plan(seed, song_form=data)
-            self.assertEqual(native["groups"], "1,2")
-            self.assertEqual(native["relations"], {"A": "class:RHYME"})
+            self.assertEqual(native["groups"], ends(1, 2))
+            self.assertEqual(set(native["relations"]), {"A"})
+            self.assertIn(native["relations"]["A"], terminal_types())
+            drawn.add(native["relations"]["A"])
+            record, = native["choices"]["relations"]["groups"]
+            self.assertEqual(record["chosen_from"], f"equal odds over {len(terminal_types())} "
+                             "eligible types that rhyme at both line endings")
+            self.assertIn(f"the {len(terminal_types())} eligible types that rhyme",
+                          native["choices"]["relations"]["chosen_from"])
             self.assertEqual(native["request"]["relations"], {})
             self.assertEqual(plan.fill_plan(native, ["1", "2"])["song_form"], data)
+        self.assertGreater(len(drawn), 1)
+        coarse = plan.make_plan(11, song_form=data, relation="class:RHYME")
+        self.assertEqual((coarse["groups"], coarse["relations"]), ("1,2", {"A": "class:RHYME"}))
         chosen = plan.make_plan(11, song_form=data, relations={"A": "schema:perfect rhyme"})
         self.assertEqual(chosen["groups"], "1.endword,2.endword")
         self.assertEqual(chosen["relations"], {"A": "schema:perfect rhyme"})
@@ -388,10 +409,11 @@ class CatalogPlannerTests(unittest.TestCase):
                        rhymes=[[1, 3], [2, 4]])
         for seed in (0, 11):
             native = plan.make_plan(seed, song_form=data, relations={"B": "schema:internal rhyme"})
-            self.assertEqual(native["relations"], {"A": "class:RHYME", "B": "class:RHYME",
-                                                   "C": "schema:internal rhyme"})
+            self.assertEqual(set(native["relations"]), {"A", "B", "C"})
+            self.assertLessEqual({native["relations"]["A"], native["relations"]["B"]}, terminal_types())
+            self.assertEqual(native["relations"]["C"], "schema:internal rhyme")
             a, b, extra = native["groups"].split(";")
-            self.assertEqual((a, b), ("1,3", "2,4"))
+            self.assertEqual((a, b), (ends(1, 3), ends(2, 4)))
             self.assertRegex(extra, r"^2\.(?:T[0-9]+|head),4\.(?:T[0-9]+|head)$")
             self.assertEqual(plan.fill_plan(native, ["1", "2", "3", "4"])["song_form"], data)
         with self.assertRaises(plan.PlanRefused):
@@ -422,8 +444,8 @@ class CatalogPlannerTests(unittest.TestCase):
             data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": count}], rhymes=[lines])
             for seed in range(5):
                 native = plan.make_plan(seed, song_form=data)
-                self.assertEqual(native["groups"], ",".join(map(str, lines)))
-                self.assertEqual(native["relations"], {"A": "class:RHYME"})
+                self.assertEqual(native["groups"], ends(*lines))
+                self.assertIn(native["relations"]["A"], terminal_types())
             chosen = plan.make_plan(11, song_form=data, relations={"A": "schema:perfect rhyme"})
             self.assertEqual(chosen["groups"], ",".join(f"{line}.endword" for line in lines))
             with self.assertRaisesRegex(plan.PlanRefused, "whole prescribed terminal group"):
@@ -435,8 +457,9 @@ class CatalogPlannerTests(unittest.TestCase):
         data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 8}],
                        rhymes=[[1, 3], [2, 5, 7], [4, 6, 8]])
         native = plan.make_plan(11, song_form=data, relations={"B": "schema:perfect rhyme"})
-        self.assertEqual(native["groups"], "1,3;2.endword,5.endword,7.endword;4,6,8")
-        self.assertEqual(native["relations"], {"A": "class:RHYME", "B": "schema:perfect rhyme", "C": "class:RHYME"})
+        self.assertEqual(native["groups"], f"{ends(1, 3)};{ends(2, 5, 7)};{ends(4, 6, 8)}")
+        self.assertEqual(native["relations"]["B"], "schema:perfect rhyme")
+        self.assertLessEqual({native["relations"]["A"], native["relations"]["C"]}, terminal_types())
         for invalid in ([[1, 3], [2, 3, 5], [4, 6, 8]], [[2, 5, 7], [1, 3], [4, 6, 8]], [[i] for i in range(1, 9)]):
             with self.subTest(groups=invalid), self.assertRaises(plan.PlanRefused):
                 plan.make_plan(11, song_form={**data, "rhymeGroups": invalid})
@@ -447,7 +470,7 @@ class CatalogPlannerTests(unittest.TestCase):
         classes = [[1, 7], [2, 4], [3, 5], [6], [8]]
         data = catalog("fixture", sections, rhymes=classes)
         native = plan.make_plan(11, song_form=data, relations={"C": "schema:perfect rhyme"})
-        self.assertEqual(native["groups"], "1,7;2,4;3.endword,5.endword")
+        self.assertEqual(native["groups"], f"{ends(1, 7)};{ends(2, 4)};{ends(3, 5)}")
         self.assertEqual(plan._sweep_coords(native).n_sounds, 5)
         self.assertEqual([s["section"] for s in native["line_slots"]], ["VERSE1"] * 4 + ["VERSE2"] * 4)
         self.assertEqual([s["rgs"] for s in native["choices"]["schemes"].values()],
@@ -458,7 +481,7 @@ class CatalogPlannerTests(unittest.TestCase):
         data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 6}],
                        rhymes=[[1, 2, 3, 4], [5, 6]], returns=[[1, 2, 4]])
         native = plan.make_plan(11, song_form=data)
-        self.assertEqual(native["groups"], "1,3;5,6")
+        self.assertEqual(native["groups"], f"{ends(1, 3)};{ends(5, 6)}")
         self.assertEqual(native["returns"], "1,2,4")
         for classes in ([[1, 5]], [[1, 2], [2, 3]], [[1, 2, 3, 4]], [[True, 2]]):
             with self.subTest(classes=classes), self.assertRaises(plan.PlanRefused):
@@ -559,6 +582,85 @@ class CatalogPlannerTests(unittest.TestCase):
                 self.assertEqual(score["verdict"], expected, score)
                 self.assertEqual([c["outcome"] for c in score["checks"]], [expected, "pass"])
         self.assertNotIn("caesuralRhyme", _reading(lex, lines[0]))
+
+    def test_hook_follows_the_form_own_returning_section(self):
+        """Every setting the automatic draw can choose: the plan names a hook
+        line exactly when the form places a sung section whose row returns
+        word for word more than once, and that line is in such a section."""
+        import json
+        import subprocess
+        from collections import Counter
+        from pathlib import Path
+        from quality import grid
+        root = Path(__file__).resolve().parents[2]
+        source = ("import { automaticFormCandidates } from './mcp/lyric_form.js';"
+                  "process.stdout.write(JSON.stringify("
+                  "await automaticFormCandidates({ lines: null })));")
+        drawn = json.loads(subprocess.check_output(
+            ["node", "--input-type=module", "-e", source], cwd=root, text=True))
+        rows = sorted({json.dumps([c["id"], c["variant"], c["counts"]], sort_keys=True): c
+                       for c in drawn}.items())
+        seen = Counter()
+        for index, (key, contract) in enumerate(rows):
+            built = None
+            for seed in range(10 * index + 1, 10 * index + 11):
+                try:
+                    built = plan.make_plan(seed, song_form=contract)
+                    break
+                except plan.PlanRefused:
+                    pass
+            if built is None:
+                seen["unplanned"] += 1
+                continue
+            count = Counter(s["function"] for s in built["sections"])
+            returning = {fn for fn, n in count.items() if n > 1 and getattr(
+                grid.SECTION_FUNCTIONS.get(fn), "returns_as", "") == "verbatim"}
+            with self.subTest(setting=key):
+                if returning:
+                    seen["hook"] += 1
+                    slot = [s for s in built["line_slots"] if s["line"] == built["hook_slot"]]
+                    self.assertEqual(len(slot), 1, built["hook_slot_refused"])
+                    self.assertIn(slot[0]["function"], returning)
+                    self.assertEqual(built["choices"]["hook"]["value"], built["hook_slot"])
+                else:
+                    seen["none"] += 1
+                    self.assertFalse(built["hook_slot"])
+                    self.assertIn(repr(contract["id"]), built["hook_slot_refused"])
+                    self.assertNotIn("hook", built["choices"])
+        self.assertTrue(seen["hook"] and seen["none"], seen)
+        self.assertLess(seen["unplanned"], len(rows) / 10, seen)
+
+    def test_reprise_source_is_drawn_kept_as_declared_or_refused(self):
+        """A reprise's first line comes back from the first line of an
+        earlier sung section, drawn with equal odds; a copy the form declares
+        there is kept; a reprise with nothing sung before it is refused
+        (#902). It used to copy line 1 whatever came before."""
+        section = lambda role, lines=None: {"unit": "section", "role": role, "lines": lines}
+        three = catalog("probe", [section("verse"), section("bridge"), section("reprise")])
+        drawn = set()
+        for seed in range(1, 9):
+            built = plan.make_plan(seed, lines=12, song_form=three)
+            firsts = {}
+            for slot in built["line_slots"]:
+                firsts.setdefault(slot["section"], slot["line"])
+            heads = [firsts[s["name"]] for s in built["sections"] if s["function"] != "reprise"]
+            target = next(firsts[s["name"]] for s in built["sections"] if s["function"] == "reprise")
+            (source, line), = built["choices"]["reprise"]["value"]
+            self.assertEqual((line, built["choices"]["reprise"]["sources"]), (target, [heads]))
+            self.assertIn(source, heads)
+            self.assertIn(f"{source},{target}", built["returns"].split(";"))
+            self.assertIn(f"Line {target} opens the reprise by repeating line {source} word for word.",
+                          built["writer_brief"])
+            self.assertEqual(plan.make_plan(seed, lines=12, song_form=three)["returns"], built["returns"])
+            drawn.add(heads.index(source))
+        self.assertEqual(drawn, {0, 1})
+        declared = catalog("probe", [section("verse", 4), section("reprise", 4)], returns=[[2, 5]])
+        built = plan.make_plan(1, lines=8, song_form=declared)
+        self.assertEqual(built["returns"], "2,5")
+        self.assertNotIn("reprise", built["choices"])
+        wordless_first = catalog("probe", [section("solo"), section("reprise"), section("verse")])
+        with self.assertRaisesRegex(plan.PlanRefused, "nothing to bring back"):
+            plan.make_plan(1, lines=8, song_form=wordless_first)
 
     def test_conflicting_declaration_and_unknown_fields_refuse(self):
         base = catalog("hookless-rap-track", [{"unit": "section", "role": "verse", "lines": 2}])

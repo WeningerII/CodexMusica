@@ -366,7 +366,8 @@ def resolve_catalog_shape(contract, rng, *, totals, lines=None, functions=None,
                 or not plan.ENVELOPE["total_lines"][0] <= total <= plan.ENVELOPE["total_lines"][1]
                 or lines is not None and lines != total):
             raise plan.PlanRefused("catalog sections cannot fill the requested gradeable line total")
-        return {"total": total, "sections": [{"function": "verse", "lines": k} for k in sizes],
+        return {"total": total, "total_from": 1,
+                "sections": [{"function": "verse", "lines": k} for k in sizes],
                 "instance_lengths": True}
     fixed = {f: 0 for f in funcs if f in plan.ZERO_LINE_FUNCTIONS}
     for fn, part in zip(funcs, parts):
@@ -408,14 +409,15 @@ def resolve_catalog_shape(contract, rng, *, totals, lines=None, functions=None,
         if by_role:
             raise plan.PlanRefused("catalog section bars cannot fit the declared lines, melody, and native section partition")
         raise plan.PlanRefused("catalog sections cannot fill the requested gradeable line total")
-    total = rng.choice(sorted({n for *_, lengths in options for n in lengths}))
+    feasible = sorted({n for *_, lengths in options for n in lengths})
+    total = rng.choice(feasible)
     fitting = [option for option in options if total in option[-1]]
     bars, fixed, free, weights, base, _ = fitting[0] if len(fitting) == 1 else rng.choice(fitting)
     shares = plan._partition_uniform(weights, total - base, rng)
     counts = {**fixed, **{f: k + minimum - 1 for f, k in zip(free, shares)}}
     if counts.get("tag") and any(0 < k < counts["tag"] for f, k in counts.items() if f != "tag"):
         raise plan.SeedRefused("this catalog partition has a tag longer than an earlier section")
-    result = {"total": total, "sections": [
+    result = {"total": total, "total_from": len(feasible), "sections": [
         {"function": fn, "lines": counts[fn]} for fn in funcs]}
     if bars is not None:
         result["bars_per_line"] = bars

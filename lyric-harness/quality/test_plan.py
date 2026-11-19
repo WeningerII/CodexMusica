@@ -5507,23 +5507,34 @@ def test_the_type_draw():
     vcs = [make_plan(seed, lines=104, form="verse-chorus")
            for seed in range(1, 9)]
     # REPINNED 2026-11-14 (#671 A7): a REPRISE's return pair is planned in
-    # every form -- its first line comes back from the first chorus before
-    # it, else from line 1.
+    # every form -- ~~its first line comes back from the first chorus before
+    # it, else from line 1~~ (#902) its first line comes back from the first
+    # line of an earlier sung section with new words, the one the receipt
+    # `choices.reprise` says was drawn from exactly those lines.
     # REPINNED 2026-11-15 (owner's ruling): a section whose ROW returns
     # verbatim comes back word for word in every form too, so an open
     # plan's returns are exactly the reprises' pairs and those sections'
     # line-for-line pairs, in section order. ~~No chorus returns under
     # `open`~~; the hook stays undeclared, which is the form's half of D7.
     def _expected_returns(p):
-        want, first_of, verbatim = [], {}, False
+        want, first_of, verbatim, heads = [], {}, False, []
+        drawn = (p["choices"].get("reprise") or {})
+        value = iter(drawn.get("value", ()))
+        sources = iter(drawn.get("sources", ()))
         for sec in p["sections"]:
             ls = [sl["line"] for sl in p["line_slots"]
                   if sl["section"] == sec["name"]]
             if not ls:
                 continue
             fn = sec["function"]
-            if fn == "reprise" and ls[0] > 1:
-                want.append(f"{first_of.get('chorus', 1)},{ls[0]}")
+            copy = fn in PLN.VERBATIM_RETURNERS and fn in first_of
+            if fn == "reprise":
+                src, line = next(value, (None, None))
+                if line != ls[0] or src not in heads or next(sources, None) != heads:
+                    src = "not a drawn source"
+                want.append(f"{src},{ls[0]}")
+            elif not copy:
+                heads.append(ls[0])
             if fn in PLN.VERBATIM_RETURNERS and fn in first_of:
                 want.extend(f"{first_of[fn] + i},{ln}"
                             for i, ln in enumerate(ls))
@@ -5549,6 +5560,45 @@ def test_the_type_draw():
           and any(not _expected_returns(p)[1] for p in opens_40),
           [(p["returns"][:20], _expected_returns(p)[0][:20], p["hook_slot"])
            for p in opens + opens_40][:4])
+    # NO FIXED REPRISE SOURCE (#902): where a chorus precedes the reprise,
+    # the draw still takes another section's first line on some seeds, and
+    # the chorus's on others. ~~The first chorus line always came back.~~
+    _rep = [(src, line, srcs, p)
+            for p in [make_plan(seed, form="verse-chorus") for seed in range(40)]
+            for (src, line), srcs in zip(
+                (p["choices"].get("reprise") or {}).get("value", ()),
+                (p["choices"].get("reprise") or {}).get("sources", ()))]
+    def _chorus_head(p, line):
+        """-> the first chorus line before `line`, or None."""
+        firsts = {}
+        for sl in p["line_slots"]:
+            firsts.setdefault(sl["section"], sl["line"])
+        return min((firsts[sec["name"]] for sec in p["sections"]
+                    if sec["function"] == "chorus" and sec["name"] in firsts
+                    and firsts[sec["name"]] < line), default=None)
+    _after_chorus = [(src, _chorus_head(p, line)) for src, line, srcs, p in _rep
+                     if _chorus_head(p, line) is not None]
+    check("a reprise after a chorus brings back the chorus's first line on "
+          "some seeds and another section's first line on others",
+          any(src == ch for src, ch in _after_chorus)
+          and any(src != ch for src, ch in _after_chorus),
+          _after_chorus[:8])
+    # A DRAWN ORDER NEVER LEADS WITH A REPRISE (#902): a reprise sung before
+    # any other sung section has nothing to bring back, so that order is
+    # drawn again. ~~It was planned with no return pair.~~
+    _lead = [make_plan(seed, functions=["solo", "reprise", "verse"], lines=12)
+             for seed in range(12)]
+    def _first_sung(p):
+        named = {sl["section"] for sl in p["line_slots"]}
+        return next((sec["function"] for sec in p["sections"] if sec["name"] in named), None)
+    check("no drawn order sings a reprise before every other sung section, and "
+          "every reprise drawn has its return pair",
+          all(_first_sung(p) != "reprise" for p in _lead)
+          and any(sec["function"] == "reprise" for p in _lead for sec in p["sections"])
+          and all(len((p["choices"].get("reprise") or {}).get("value", ()))
+                  == sum(sec["function"] == "reprise" for sec in p["sections"])
+                  for p in _lead),
+          [(_first_sung(p), p["returns"]) for p in _lead])
     # A BRIDGE NEEDS A SECTION BEFORE IT (owner's ruling, 2026-11-15): both
     # live retests of 2026-11-14 planned one as the song's first section.
     _all = opens + opens_40 + vcs
