@@ -38,7 +38,8 @@
     "Native pronunciation, function disclosure identity and review mandate now each use2 registrar groups. All original callback argument/options/assertion ASTs and review before/after hooks are preserved; default commands retain whole-file registration order. New group weights take max(actual cold local group wall, sum of owned per-case maxima from all completed hosted/local cases plus5seconds). Existing optional released-runtime baseline skip/options are unchanged and are not claimed as executed-body evidence.",
     "The evidence orchestration contract leaf now executes both actual workflow coordinates and required report verification, plus8 Python weighted-process and receipt controls. Its changed body is weighted at the actual9.190-second local wall, replacing its prior2.0-second body observation; numerical children are stubbed in these orchestration controls and complete canon equivalence is measured separately.",
     "The brief gate file (node --test mcp/test_brief_gate.mjs) has no hosted observation yet. Its weight is the largest complete local cold-process wall measured on the PR #875 branch: 162, 192 and 207 seconds at 06cbe1fce8 (review runs), 160.5 seconds at e57846a963, 165.9 seconds with its 29 cases, and 219.7 and 225.5 seconds with the 33 cases it has after the second round of review fixes; it replaces an unsourced 116.0.",
-    "The song-form creation file (node --test mcp/test_catalog_form_creation.mjs) had no weight, so the scheduler estimated it at 120 seconds and packed other leaves beside it; one shard then ran past its 45-minute limit. Its weight is its complete hosted wall on main at 5b9d690918, 1838.6 seconds (verify shard 4/8 of run 44553023519)."
+    "The song-form creation file (node --test mcp/test_catalog_form_creation.mjs) had no weight, so the scheduler estimated it at 120 seconds and packed other leaves beside it; one shard then ran past its 45-minute limit. Its weight is its complete hosted wall on main at 5b9d690918, 1838.6 seconds (verify shard 4/8 of run 44553023519).",
+    "mcp/test_statements.mjs runs as its own command with a 300-second file limit. Its whole-file wall is 84.3 seconds hosted on main and 86.5 to 98.4 seconds locally; under shard load it reached the old 120-second limit (120.1 seconds, verify shard 6/8 of run 44569237738, and shard 4/8 of run 44555299756). Its weight is that censored 120.1 seconds."
   ],
   "seconds": {
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=1/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 21.533,
@@ -101,7 +102,7 @@
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_revise_repeat_guard.mjs": 0.6,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_runtime_assets.mjs": 5.9,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_state_codec.mjs": 1.9,
-    "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_statements.mjs": 56.5,
+    "node --test --test-concurrency=1 --test-timeout=300000 mcp/test_statements.mjs": 120.1,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_status_census.mjs": 6.0,
     "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_verdict_view.mjs": 2.7,
     "node --test --test-concurrency=1 mcp/test_battery_archive.mjs": 1.0,
