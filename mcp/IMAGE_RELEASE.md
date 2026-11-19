@@ -60,9 +60,14 @@ workflow at the exact main commit and verified run attempt to succeed. Dispatch 
 after the commit's CI has finished; its completion re-enters the deploy workflow,
 which promotes the image by itself. The deploy run that CI's own completion starts
 stands down (green) until that qualification exists. It intentionally
-executes all four mutation shards, full song and short-song band comparisons
+executes ~~all four~~ all sixteen mutation shards (`MUTATION_SHARDS` in
+`scripts/production_qualification.py`), full song and short-song band comparisons
 (200 seeds, 2,000 draws), and the five adopted lyric curves. Each command has its
-existing bound: mutation 200 minutes, each band 150 minutes, curves 40 minutes.
+own bound in that script: ~~mutation 200 minutes, each band 150 minutes, curves 40
+minutes~~ each mutation shard 120 minutes; the song band, the short band and the
+curves 240 minutes each; and the workflow's component job 300 minutes
+(`.github/workflows/production-qualification.yml`). Read the script for the
+current figures (repinned 2026-11-19).
 Its artifact binds source, input/runtime fingerprints, command scope, commit and
 attempt. The image manifest separately records the full repository source
 fingerprint captured before Docker build and rechecked unchanged after testing;
@@ -114,13 +119,18 @@ including 10 minutes for checkout, dependencies, staging and upload. These are
 explicit allowances; actual CI Python 3.11 completion remains required.
 
 The image build has 55 minutes: the 45-minute proof allowance plus 10 minutes for
-runtime assembly and dependency work. The image job has 145 minutes: 2 audit +
-55 build + 5 image checks + 65 capacity = 127 minutes, with 18 minutes reserved for
+runtime assembly and dependency work. The image job has ~~145 minutes: 2 audit +
+55 build + 5 image checks + 65 capacity = 127 minutes~~ 130 minutes (`lyrics-image`
+in `.github/workflows/ci.yml`): 2 audit + 55 build + 5 image checks + 50 matrix =
+112 minutes in the budget that job's comment states, with 18 minutes reserved for
 checkout/setup, cheap oracles, artifact uploads and publishing the tested image.
+The capacity matrix itself no longer runs in that job: it moved to
+`.github/workflows/capacity-matrix.yml`, which Production qualification calls,
+with a 50-minute bound per shard (repinned 2026-11-19).
 Actual Docker Python 3.11 build and total-job completion are still required before
 claiming these budgets fit.
 
-The 65-minute capacity step is also unproven. Its full denominator is 18 instrument
+The ~~65-minute~~ capacity matrix (now `capacity-matrix.yml`, 50 minutes per shard) is also unproven. Its full denominator is 18 instrument
 executions (three lengths × three seeds × cold/worker), containing 72 measured verb
 calls: 36 grade and 36 revise. Each size/seed has one cold call and three worker calls
 per verb, plus plan/setup, resident-server recovery and queue-pressure work. Local

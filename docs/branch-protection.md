@@ -326,9 +326,15 @@ checks and add the eighth after.
 
 ## What this still does not cover
 
-- **`render.yaml` sets `autoDeploy: true`.** The MCP connector deploys on push to
-  `main`, independent of CI. A ruleset gates what reaches `main`; it does not gate
-  what Render does once something is there. (`AUDIT.md` F079, untouched.)
+- ~~**`render.yaml` sets `autoDeploy: true`.** The MCP connector deploys on push to
+  `main`, independent of CI.~~ Superseded: `autoDeploy` has been `false` since
+  2026-08-27, and `render.yaml` is now kept only as a legacy reference. The
+  connector deploys through `.github/workflows/deploy-connector.yml`. It runs
+  when a CI or Production qualification run on `main` completes, deploys only
+  after a successful run, and promotes the tested image digest (see
+  `mcp/IMAGE_RELEASE.md`). A ruleset still gates only what reaches `main`; that
+  workflow is what gates the deploy. (`AUDIT.md` F079, addressed by that
+  workflow.)
 - **A green `freshness` proves less than it looks on some diffs.** The scope step
   skips the rebuild when no changed path is in the artifact build closure, and
   `.github/workflows/ci.yml` and `scripts/faults.js` are both classified *inert*

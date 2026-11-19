@@ -1,8 +1,8 @@
 # Native Library tab: design (consolidated, for owner review)
 
-**Status:** Proposed, not implemented. Author R2; verifier 3PO. Consolidates review rounds: red-team (Revision 1), 3PO verdicts on 774435ca1 and 44577289c (Revisions 2–3).
+**Status:** ~~Proposed, not implemented.~~ Implemented: the native Library tab shipped at the cutover (#659) and is on by default (a build without it needs `CODEX_LIBRARY=0`; the `/library/v1` viewer routes mount unless `LIBRARY_PUBLIC=0`). The rows marked Status (#659) or (#661) below say where the build differs from this design. Author R2; verifier 3PO. Consolidates review rounds: red-team (Revision 1), 3PO verdicts on 774435ca1 and 44577289c (Revisions 2–3).
 
-Nothing in this document is approved. After R2 and 3PO agree, it goes to John, who makes the decisions listed under "Owner decisions". No implementation starts before then. This text states only the final contract. Earlier wording that a review round replaced has been removed, and "Review history" at the end traces each change to its finding.
+~~Nothing in this document is approved. After R2 and 3PO agree, it goes to John, who makes the decisions listed under "Owner decisions". No implementation starts before then.~~ That review gate is past: the design was built and cut over. This text states only the final contract. Earlier wording that a review round replaced has been removed, and "Review history" at the end traces each change to its finding.
 
 Tool names written without a directory are planned files under scripts/. Many have since been built, some under another name (the data gate is `scripts/check_library_data.py`), and some were never written; 'Gates and files' gives each one's status (#661). Line references are to `main` at `031b7de`.
 

@@ -271,6 +271,9 @@ function isSubsetClaim(content, start, end) {
 const N = '((?:\\d{1,3}(?:,\\d{3})+|\\d+))';
 
 const GLOBAL_FAMILY_COUNT = C.TRADITIONS.filter((t) => t.family === 'global').length;
+const TRADITIONS_WITH = (key) =>
+  C.TRADITIONS.filter((t) => Object.prototype.hasOwnProperty.call(t, key)).length;
+const TRADITION_FAMILY_COUNT = new Set(C.TRADITIONS.map((t) => t.family)).size;
 const DOTTED_NODE_COUNT = C.TREE_NODES.filter((n) => n.id.includes('.')).length;
 
 const COUNT_CHECKS = [
@@ -374,6 +377,55 @@ const COUNT_CHECKS = [
     phrase: /\d+ of (\d+) ids contain dots/g,
     expected: C.TREE_NODES.length,
     kind: 'dotted_node_total',
+  },
+  // SKILL.md's tradition field coverage and vocabularies. These went stale for
+  // months (2588/1204/78 against 6640/6655/583; 12 families against 17) because
+  // nothing recomputed them — added 2026-11-19 after the stale-markdown audit.
+  {
+    phrase: /counted \d{4}-\d{2}-\d{2} over (\d+)/g,
+    expected: C.TRADITIONS.length,
+    kind: 'field_coverage_total',
+  },
+  {
+    phrase: /chain_status on (\d+)/g,
+    expected: TRADITIONS_WITH('chain_status'),
+    kind: 'chain_status_coverage',
+  },
+  { phrase: /\bparts on (\d+)/g, expected: TRADITIONS_WITH('parts'), kind: 'parts_coverage' },
+  {
+    phrase: /pin_parts:true, on (\d+)/g,
+    expected: C.TRADITIONS.filter((t) => t.pin_parts === true).length,
+    kind: 'pin_parts_coverage',
+  },
+  {
+    phrase: /chain_fx on (\d+)/g,
+    expected: TRADITIONS_WITH('chain_fx'),
+    kind: 'chain_fx_coverage',
+  },
+  {
+    phrase: /\((\d+) of them an empty list\)/g,
+    expected: C.TRADITIONS.filter((t) => Array.isArray(t.chain_fx) && !t.chain_fx.length).length,
+    kind: 'chain_fx_empty',
+  },
+  {
+    phrase: /arrangement on (\d+)/g,
+    expected: TRADITIONS_WITH('arrangement'),
+    kind: 'arrangement_coverage',
+  },
+  {
+    phrase: /\*different\* (\d+)-value vocabulary/g,
+    expected: TRADITION_FAMILY_COUNT,
+    kind: 'tradition_families',
+  },
+  {
+    phrase: /tradition\.family buckets (\d+)/g,
+    expected: TRADITION_FAMILY_COUNT,
+    kind: 'tradition_family_buckets',
+  },
+  {
+    phrase: /`PREFACE_LEXICON` has (\d+) distinct tokens/g,
+    expected: new Set(C.PREFACE_LEXICON.flatMap((p) => p.tokens)).size,
+    kind: 'preface_tokens',
   },
 ];
 
