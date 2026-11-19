@@ -291,7 +291,6 @@ test('a creation sweep refuses deferred forms and unselected alternatives withou
     [{ catalog_form: 'acrostic' }, /deferred/i],
     [{ catalog_form: 'verse-chorus-bridge', catalog_variant: 1 }, /unsupported-section-role/i],
     [{ catalog_form: 'pantoum', catalog_variant: 1 }, /unsupported-line-structure/i],
-    [{ catalog_form: 'echo-song' }, /no-inspectable-native-pair/i],
     [{ catalog_form: 'monostich' }, /native-line-limit|no-inspectable-native-pair/],
     [{ catalog_form: 'zeno' }, /native-free-word-reserve/i],
     [{ catalog_form: 'strophic' }, /needs-input/],
@@ -2481,3 +2480,50 @@ test(
     assert.equal(revised.checks.find((c) => c.kind === 'english-epode-contrast').outcome, 'fail');
   }
 );
+
+for (const id of ['echo-song', 'lined-out-hymn']) {
+  test(
+    'verbatim exchange survives grade and revision for ' + id,
+    { timeout: 120_000 },
+    async (t) => {
+      const host = await sessionHost(t);
+      await host.begin();
+      const seed = 11;
+      const sweep = measured(
+        await host.run('lyric_sweep', {
+          catalog_form: id,
+          seed_from: seed,
+          count: 1,
+          lines: 2,
+          draw: ['relation', 'melody'],
+        })
+      );
+      assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
+      const planned = await host.run('lyric_plan', { seed, lines: 2 });
+      const { plan } = measured(await host.read(planned.operation_id, 'full'));
+      assert.equal(plan.groups, '');
+      assert.equal(plan.returns, '1,2');
+      const screen = measured(
+        await host.run('lyric_screen', { words: ['one', 'none'], relation: 'class:RHYME' })
+      );
+      assert.equal(screen.exit_code, 0);
+
+      async function grade(tool, args) {
+        const operation = await host.run(tool, { seed, lines: 2, ...args });
+        const result = measured(await host.read(operation.operation_id, 'full'));
+        assert.ok(result.coverage?.catalog_form, JSON.stringify(result));
+        return result.coverage.catalog_form;
+      }
+      assert.equal((await grade('lyric_grade', { draft: ['one two', 'one two'] })).verdict, 'pass');
+      assert.equal(
+        (await grade('lyric_grade', { draft: ['one two', 'one three'] })).verdict,
+        'fail'
+      );
+      await host.reconnect();
+      assert.equal(
+        (await grade('lyric_revise', { attempts: 0, max_rounds: 1, backtrack: 0 })).verdict,
+        'fail'
+      );
+    }
+  );
+}
