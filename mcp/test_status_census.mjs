@@ -31,6 +31,7 @@ import { _verdictInternals } from './lyric_tools.js';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { legacySession, legacyStated, legacySweep, stated } from './statement_fixture.mjs';
+import { automaticFormCandidates } from './lyric_form.js';
 import {
   CREATION_FORM,
   DEFAULT_FORM,
@@ -38,6 +39,7 @@ import {
   OUTCOME_ACTORS,
   OUTCOME_KINDS,
   STATEABLE,
+  catalogSelection,
   creationRefusal,
   noneKeptDeclared,
   noneKeptMeaning,
@@ -1643,7 +1645,36 @@ test('a call refused in a new-song session names the call its gate admits', asyn
 // ── A plan reaches the caller at any length ─────────────────────────────────
 // Stage 0's agents drew plans whose results were 100,520, 114,773 and 167,847
 // characters; their client delivered none of them. Real sessions over the
-// first seeds, undeclared so the planner draws the length.
+// first seeds, undeclared so the planner draws the length. Each seed is a new
+// song, whose sweep chooses a catalog setting at random (#902), and a job
+// saved with the native default form, whose plans reach the longest lengths.
+// One more new song names, by property, the automatic draw's setting with the
+// longest verified contract that plans: its plan's request is the longest a
+// new song's plan carries, so the bound is met there on every run.
+const settingKey = (c) => JSON.stringify([c.id, c.variant, c.counts]);
+async function longestSetting() {
+  const { client, close } = await rawClient();
+  try {
+    const size = (c) => JSON.stringify(c).length;
+    const all = (await automaticFormCandidates({})).sort(
+      (x, y) =>
+        size(y) - size(x) ||
+        (settingKey(x) < settingKey(y) ? -1 : settingKey(x) > settingKey(y) ? 1 : 0)
+    );
+    for (const contract of all) {
+      const selection = catalogSelection({ song_form: contract });
+      const r = await client.callTool({
+        name: 'lyric_sweep',
+        arguments: stated({ seed_from: 1, count: 6, ...selection }),
+      });
+      const seed = r.isError ? undefined : JSON.parse(r.content[0].text).accepted_shown?.[0];
+      if (Number.isInteger(seed)) return { selection, seed, size: size(contract) };
+    }
+  } finally {
+    await close();
+  }
+  assert.fail('no setting of the automatic draw plans seeds 1 to 6');
+}
 test(
   'a session publishes a plan as its brief and a verdict that does not grow with it',
   { timeout: 900_000 },
@@ -1657,16 +1688,47 @@ test(
     // The smallest plan result a client is known to have dropped.
     const DROPPED = 100_520;
     let longest = 0;
-    for (let seed = 1; seed <= 6; seed++) {
-      // A job saved with the native default form, whose long plans are this
-      // bound's case: a new-song sweep refuses `form` now (#902).
+    const newSong = async (seed) => {
+      let at = await send(client, 'begin_lyrics', {});
+      at = await settled(
+        await send(
+          client,
+          'lyric_sweep',
+          stated({ session_id: at.session_id, seed_from: seed, count: 1 })
+        )
+      );
+      assert.equal(at.tool_error, undefined, at.tool_result.content[0].text.slice(0, 300));
+      return at.session_id;
+    };
+    const savedJob = async (seed) => {
       const job = await legacySweep(legacyStated({ seed_from: seed, count: 1 }));
       assert.equal(job.result.isError, undefined, job.result.content[0].text.slice(0, 300));
+      return legacySession(sessions, job.task);
+    };
+    const longest_ = await longestSetting();
+    assert.ok(longest_.size > 2000, `the longest contract has ${longest_.size} characters`);
+    const named = async () => {
+      let at = await send(client, 'begin_lyrics', {});
+      at = await settled(
+        await send(
+          client,
+          'lyric_sweep',
+          stated({
+            session_id: at.session_id,
+            seed_from: longest_.seed,
+            count: 1,
+            ...longest_.selection,
+          })
+        )
+      );
+      assert.equal(at.tool_error, undefined, at.tool_result.content[0].text.slice(0, 300));
+      return at.session_id;
+    };
+    const jobs = [[longest_.seed, named]];
+    for (let seed = 1; seed <= 6; seed++) jobs.push([seed, newSong], [seed, savedJob]);
+    for (const [seed, open] of jobs) {
       const plan = await settled(
-        await send(client, 'lyric_plan', {
-          session_id: await legacySession(sessions, job.task),
-          seed,
-        })
+        await send(client, 'lyric_plan', { session_id: await open(seed), seed })
       );
       assert.equal(plan.status, 'completed');
       const [brief, verdictBlock] = plan.tool_result.content;
