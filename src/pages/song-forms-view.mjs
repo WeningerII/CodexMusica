@@ -157,7 +157,9 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
     );
   }
   if (contract.lineProfile === 'linked-couplet-echoes')
-    statements.push('Across each couplet boundary, change one word in a line of at least three words. Echo the opening in the final line. This setting checks wording.');
+    statements.push(
+      'Across each couplet boundary, change one word in a line of at least three words. Echo the opening in the final line. This setting checks wording.'
+    );
   if (contract.lineProfile === 'caesural-rhyme')
     statements.push(
       'Use this pattern on each line of the verse. Mark the pause with / or | so the word before it can be compared with the line ending.'

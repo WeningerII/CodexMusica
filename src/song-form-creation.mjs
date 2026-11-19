@@ -1,7 +1,11 @@
 import { imitativeSetting } from './song-form-imitative-score.mjs';
 // Translate only obligations that the native seeded writer can enforce.
 // The writer still judges placement, recurrence, envelope and seed feasibility.
-import { lexicalLineProfile, refrainAddresses, relativeLinePairs } from './song-form-line-roles.mjs';
+import {
+  lexicalLineProfile,
+  refrainAddresses,
+  relativeLinePairs,
+} from './song-form-line-roles.mjs';
 import { endingWordDeclaration, printedPhraseSetting } from './song-form-mandate.mjs';
 import { projectNestedDivisions } from './song-form-divisions.mjs';
 import { printedSteps, paragraphCount } from './song-form-printing.mjs';

@@ -21,7 +21,8 @@ export function projectLineRequirement(
         !meterFields.has(key) &&
         !(
           key === 'role' &&
-          (lexicalProfile || lengthPair ||
+          (lexicalProfile ||
+            lengthPair ||
             stressEndingFor(line.role) ||
             line.role === 'alexandrine' ||
             (fixedReturns && refrain && line.role === 'refrain'))
