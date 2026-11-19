@@ -61,6 +61,12 @@ async function sessionHost(t) {
   };
 }
 
+// These drafts are written for the coarse rhyme class, so the tests state
+// it. A sweep that draws the relation gives each catalog rhyme group a drawn
+// end-rhyme type instead (#902); the two internal-rhyme tests below grade
+// those drawn types.
+const CLASS_RHYME = { relation: 'class:RHYME' };
+
 function measured(operation) {
   assert.ok(!operation.tool_error, JSON.stringify(operation.tool_result.content));
   const value = verdictOf(operation.tool_result);
@@ -904,12 +910,13 @@ for (const [form, variant, good] of [
       const sweep = measured(
         await host.run('lyric_sweep', {
           ...selection,
-          draw: ['lines', 'functions', 'melody', 'relation'],
+          ...CLASS_RHYME,
+          draw: ['lines', 'functions', 'melody'],
         })
       );
       assert.deepEqual(sweep.accepted_shown, [11], sweep.report);
       const [seed] = sweep.accepted_shown;
-      const planned = await host.run('lyric_plan', { seed });
+      const planned = await host.run('lyric_plan', { seed, ...CLASS_RHYME });
       const { plan } = measured(await host.read(planned.operation_id, 'full'));
       const positions = good.map((_, i) => i + 1);
       assert.deepEqual(plan.request.song_form.rhymeGroups, [positions]);
@@ -956,12 +963,13 @@ test(
         catalog_variant: 1,
         seed_from: 11,
         count: 1,
-        draw: ['lines', 'functions', 'melody', 'relation'],
+        ...CLASS_RHYME,
+        draw: ['lines', 'functions', 'melody'],
       })
     );
     assert.deepEqual(sweep.accepted_shown, [11]);
     const [seed] = sweep.accepted_shown;
-    const planned = await host.run('lyric_plan', { seed });
+    const planned = await host.run('lyric_plan', { seed, ...CLASS_RHYME });
     const { plan } = measured(await host.read(planned.operation_id, 'full'));
     assert.deepEqual(plan.request.song_form.rhymeGroups, [
       [1, 3],
@@ -1020,12 +1028,13 @@ test(
         catalog_form: 'triolet',
         seed_from: 11,
         count: 1,
-        draw: ['lines', 'functions', 'melody', 'relation'],
+        ...CLASS_RHYME,
+        draw: ['lines', 'functions', 'melody'],
       })
     );
     assert.deepEqual(sweep.accepted_shown, [11]);
     const [seed] = sweep.accepted_shown;
-    const planned = await host.run('lyric_plan', { seed });
+    const planned = await host.run('lyric_plan', { seed, ...CLASS_RHYME });
     const { plan } = measured(await host.read(planned.operation_id, 'full'));
     assert.deepEqual(plan.request.song_form.returnGroups, [
       [1, 4, 7],
@@ -1088,12 +1097,13 @@ test(
         catalog_variant: 0,
         seed_from: 11,
         count: 1,
-        draw: ['lines', 'functions', 'melody', 'relation'],
+        ...CLASS_RHYME,
+        draw: ['lines', 'functions', 'melody'],
       })
     );
     assert.deepEqual(sweep.accepted_shown, [11], sweep.report);
     const [seed] = sweep.accepted_shown;
-    const op = await host.run('lyric_plan', { seed });
+    const op = await host.run('lyric_plan', { seed, ...CLASS_RHYME });
     const { plan } = measured(await host.read(op.operation_id, 'full'));
     assert.deepEqual(plan.request.song_form.lineRequirements, [
       { line: 1, stresses: 4 },
@@ -1164,7 +1174,10 @@ test(
     const op = await host.run('lyric_plan', request);
     assert.ok(!op.tool_error, JSON.stringify(op.tool_result.content));
     const { plan } = measured(await host.read(op.operation_id, 'full'));
-    assert.deepEqual(plan.relations, { A: 'class:RHYME', B: 'schema:internal rhyme' });
+    // The stated relation is internal, so the line endings draw an end-rhyme
+    // type (#902): syllabic rhyme at this seed, which the endings below are
+    // written for.
+    assert.deepEqual(plan.relations, { A: 'schema:syllabic rhyme', B: 'schema:internal rhyme' });
     const positions = plan.groups
       .split(';')[1]
       .split(',')
@@ -1187,7 +1200,7 @@ test(
         const draft = positions.map((position, i) => {
           const tokens = Array(position).fill('two');
           tokens[position - 1] = i === 0 ? 'one' : internal ? 'none' : 'three';
-          tokens.push(i === 0 ? 'eight' : ending ? 'weight' : 'six');
+          tokens.push(i === 0 ? 'hammer' : ending ? 'summer' : 'table');
           return tokens.join(' ');
         });
         const grade = await host.run('lyric_grade', { ...request, draft });
@@ -1240,7 +1253,16 @@ test(
       ]
     );
     const sources = [0, 1, 2, 0, 4, 5, 0, 1];
-    const endings = ['one', 'ten', 'none', '', 'ton', 'men'];
+    // The stated relation is internal, so the two ending groups draw end-rhyme
+    // types (#902): syllabic rhyme on lines 1, 3 and 5 and light rhyme on 2
+    // and 6 at this seed, which these endings are written for.
+    assert.deepEqual(plan.relations, {
+      A: 'schema:syllabic rhyme',
+      B: 'schema:light rhyme',
+      C: 'schema:internal rhyme',
+      D: 'schema:internal rhyme',
+    });
+    const endings = ['hammer', 'bee', 'summer', '', 'river', 'beauty'];
     const words = endings.map((end) => [...Array(7).fill('two'), end]);
     const vocabulary = [
       ['sun', 'run', 'done', 'fun', 'bun'],
@@ -1374,11 +1396,12 @@ for (const example of [
           catalog_variant: example.variant ?? 0,
           seed_from: 11,
           count: 1,
-          draw: ['lines', 'functions', 'melody', 'relation'],
+          ...CLASS_RHYME,
+          draw: ['lines', 'functions', 'melody'],
         })
       );
       assert.deepEqual(sweep.accepted_shown, [11]);
-      const op = await host.run('lyric_plan', { seed: 11 });
+      const op = await host.run('lyric_plan', { seed: 11, ...CLASS_RHYME });
       const { plan } = measured(await host.read(op.operation_id, 'full'));
       assert.equal(plan.groups, example.groups);
       const screen = measured(
@@ -1686,11 +1709,12 @@ test(
         catalog_variant: 0,
         seed_from: seed,
         count: 1,
-        draw: ['lines', 'functions', 'melody', 'relation'],
+        ...CLASS_RHYME,
+        draw: ['lines', 'functions', 'melody'],
       })
     );
     assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
-    const operation = await host.run('lyric_plan', { seed });
+    const operation = await host.run('lyric_plan', { seed, ...CLASS_RHYME });
     const { plan } = measured(await host.read(operation.operation_id, 'full'));
     const contract = plan.request.song_form;
     assert.deepEqual(
@@ -1809,19 +1833,13 @@ for (const [id, variant, partition, scheme] of [
           catalog_variant: variant,
           seed_from: seed,
           count: 1,
-          ...(scheme
-            ? {}
-            : { catalog_counts: [{ path: '1.1.1', count: 5 }], relation: 'class:RHYME' }),
-          draw: scheme
-            ? ['lines', 'functions', 'melody', 'relation']
-            : ['lines', 'functions', 'melody'],
+          ...(scheme ? {} : { catalog_counts: [{ path: '1.1.1', count: 5 }] }),
+          ...CLASS_RHYME,
+          draw: ['lines', 'functions', 'melody'],
         })
       );
       assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
-      const op = await host.run('lyric_plan', {
-        seed,
-        ...(scheme ? {} : { relation: 'class:RHYME' }),
-      });
+      const op = await host.run('lyric_plan', { seed, ...CLASS_RHYME });
       const { plan } = measured(await host.read(op.operation_id, 'full'));
       assert.deepEqual(
         plan.request.song_form.sections.map((s) => s.lines),
@@ -1884,11 +1902,12 @@ test(
         catalog_variant: 0,
         seed_from: seed,
         count: 1,
-        draw: ['lines', 'functions', 'melody', 'relation'],
+        ...CLASS_RHYME,
+        draw: ['lines', 'functions', 'melody'],
       })
     );
     assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
-    const op = await host.run('lyric_plan', { seed });
+    const op = await host.run('lyric_plan', { seed, ...CLASS_RHYME });
     const { plan } = measured(await host.read(op.operation_id, 'full'));
     assert.deepEqual(plan.request.song_form.lineRequirements, [
       { line: 2, shorterThan: 1 },

@@ -16,7 +16,15 @@ def terminal_types():
     return {f"schema:{name}" for name in plan.eligible_types() if terminal_rhyme_relation(name)}
 
 
-def ends(*lines):
+def ends(*lines, relation=None):
+    """-> a line-end group as the planner spells it: each line's last word
+    for a type the grader judges at a named word (`pair_bindable`), else the
+    bare lines, as for a type whose members may span words (#902)."""
+    if relation is not None:
+        from quality import relations
+        schema = plan._schema_of(relation)[1]
+        if schema is not None and not relations.pair_bindable(schema):
+            return ",".join(map(str, lines))
     return ",".join(f"{line}.endword" for line in lines)
 
 
@@ -384,7 +392,7 @@ class CatalogPlannerTests(unittest.TestCase):
         drawn = set()
         for seed in range(5):
             native = plan.make_plan(seed, song_form=data)
-            self.assertEqual(native["groups"], ends(1, 2))
+            self.assertEqual(native["groups"], ends(1, 2, relation=native["relations"]["A"]))
             self.assertEqual(set(native["relations"]), {"A"})
             self.assertIn(native["relations"]["A"], terminal_types())
             drawn.add(native["relations"]["A"])
@@ -404,6 +412,76 @@ class CatalogPlannerTests(unittest.TestCase):
         with self.assertRaisesRegex(plan.PlanRefused, "every selected line ending"):
             plan.make_plan(11, song_form=data, relation="class:ASSONANCE")
 
+    def test_each_catalog_rhyme_group_is_judged_by_its_own_type(self):
+        # A form with two rhyme groups (#902). The catalog reader also compares
+        # each group's last words from the last stressed vowel; that stands in
+        # for the coarse class only. A group given a rhyme type is judged by
+        # that type, so a pair the type accepts passes even where those
+        # sounds differ, and the coarse class still needs them to agree. The
+        # mandate is the planner's own, for every type a group can draw.
+        from quality import schemes
+        from quality.catalog_grading import _native_rhyme
+        groups = [[1, 3], [2, 4]]
+        data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 4}],
+                       rhymes=groups)
+        report = {"verdicts": [{"lines": g, "group": k, "satisfied_by": ["judged"]}
+                               for k, g in enumerate(groups)]}
+
+        def judged(**chosen):
+            for seed in range(20):
+                try:
+                    native = plan.make_plan(seed, song_form=data, **chosen)
+                    break
+                except plan.SeedRefused:
+                    continue
+            mandate = schemes.mandate([g.split(",") for g in native["groups"].split(";")], 4,
+                                      relations=native["relations"],
+                                      default_relation=native["relation"])
+            result = {"verdict": "fail", "checks": [
+                {"kind": "rhyme", "label": "A", "lines": [1, 3], "outcome": "fail"},
+                {"kind": "rhyme", "label": "B", "lines": [2, 4], "outcome": "pass"},
+                {"kind": "rhyme-distinct", "labels": ["A", "B"], "outcome": "pass"}]}
+            return _native_rhyme(result, ["a"] * 4, mandate, report, terminal_groups=groups)
+
+        for relation in sorted(terminal_types()):
+            with self.subTest(relation=relation):
+                graded = judged(relations={"A": relation, "B": relation})
+                self.assertEqual(graded["verdict"], "pass")
+                self.assertEqual([c["outcome"] for c in graded["checks"]], ["pass"] * 3)
+        coarse = judged(relation="class:RHYME")
+        self.assertEqual(coarse["verdict"], "fail")
+        self.assertEqual([(c["nativeOutcome"], c["identityOutcome"], c["outcome"])
+                          for c in coarse["checks"] if c["kind"] == "rhyme"],
+                         [("pass", "fail", "fail"), ("pass", "pass", "pass")])
+
+    def test_line_end_groups_draw_types_that_span_words_only_if_they_end_both_lines(self):
+        # Read from the registry (#902): a type a catalog group may draw is
+        # read at each line's last word, or its members may span words but
+        # must each end their line. A type that may sit inside a line, or run
+        # across its end, is not drawn.
+        from quality import relations
+        from quality.catalog_shape import terminal_rhyme_relation
+        spanning = [n for n in plan.eligible_types()
+                    if any(s.cross_word for s in plan._schema_of(n)[1].spans)]
+        self.assertTrue(spanning)
+        for name in spanning:
+            schema = plan._schema_of(name)[1]
+            ends = any(p.kind == "both_line_final" for p in schema.placement)
+            with self.subTest(name=name):
+                self.assertEqual(terminal_rhyme_relation(name), ends)
+        drawn = {f"schema:{n}" for n in spanning if terminal_rhyme_relation(n)}
+        self.assertTrue(drawn and drawn <= terminal_types())
+        data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 4}],
+                       rhymes=[[1, 3], [2, 4]])
+        seen = set()
+        for seed in range(60):
+            try:
+                seen |= set(plan.make_plan(seed, song_form=data)["relations"].values())
+            except plan.SeedRefused:
+                continue
+        self.assertTrue(drawn <= seen, (drawn, seen))
+        self.assertFalse(relations.audible_as_end_rhyme(plan._schema_of(sorted(drawn)[0][7:])[1]))
+
     def test_additional_relation_preserves_the_other_catalog_group(self):
         data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 4}],
                        rhymes=[[1, 3], [2, 4]])
@@ -413,7 +491,8 @@ class CatalogPlannerTests(unittest.TestCase):
             self.assertLessEqual({native["relations"]["A"], native["relations"]["B"]}, terminal_types())
             self.assertEqual(native["relations"]["C"], "schema:internal rhyme")
             a, b, extra = native["groups"].split(";")
-            self.assertEqual((a, b), (ends(1, 3), ends(2, 4)))
+            rel = native["relations"]
+            self.assertEqual((a, b), (ends(1, 3, relation=rel["A"]), ends(2, 4, relation=rel["B"])))
             self.assertRegex(extra, r"^2\.(?:T[0-9]+|head),4\.(?:T[0-9]+|head)$")
             self.assertEqual(plan.fill_plan(native, ["1", "2", "3", "4"])["song_form"], data)
         with self.assertRaises(plan.PlanRefused):
@@ -444,7 +523,7 @@ class CatalogPlannerTests(unittest.TestCase):
             data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": count}], rhymes=[lines])
             for seed in range(5):
                 native = plan.make_plan(seed, song_form=data)
-                self.assertEqual(native["groups"], ends(*lines))
+                self.assertEqual(native["groups"], ends(*lines, relation=native["relations"]["A"]))
                 self.assertIn(native["relations"]["A"], terminal_types())
             chosen = plan.make_plan(11, song_form=data, relations={"A": "schema:perfect rhyme"})
             self.assertEqual(chosen["groups"], ",".join(f"{line}.endword" for line in lines))
@@ -457,7 +536,9 @@ class CatalogPlannerTests(unittest.TestCase):
         data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 8}],
                        rhymes=[[1, 3], [2, 5, 7], [4, 6, 8]])
         native = plan.make_plan(11, song_form=data, relations={"B": "schema:perfect rhyme"})
-        self.assertEqual(native["groups"], f"{ends(1, 3)};{ends(2, 5, 7)};{ends(4, 6, 8)}")
+        rel = native["relations"]
+        self.assertEqual(native["groups"], f"{ends(1, 3, relation=rel['A'])};"
+                         f"{ends(2, 5, 7, relation=rel['B'])};{ends(4, 6, 8, relation=rel['C'])}")
         self.assertEqual(native["relations"]["B"], "schema:perfect rhyme")
         self.assertLessEqual({native["relations"]["A"], native["relations"]["C"]}, terminal_types())
         for invalid in ([[1, 3], [2, 3, 5], [4, 6, 8]], [[2, 5, 7], [1, 3], [4, 6, 8]], [[i] for i in range(1, 9)]):
@@ -470,7 +551,9 @@ class CatalogPlannerTests(unittest.TestCase):
         classes = [[1, 7], [2, 4], [3, 5], [6], [8]]
         data = catalog("fixture", sections, rhymes=classes)
         native = plan.make_plan(11, song_form=data, relations={"C": "schema:perfect rhyme"})
-        self.assertEqual(native["groups"], f"{ends(1, 7)};{ends(2, 4)};{ends(3, 5)}")
+        rel = native["relations"]
+        self.assertEqual(native["groups"], f"{ends(1, 7, relation=rel['A'])};"
+                         f"{ends(2, 4, relation=rel['B'])};{ends(3, 5, relation=rel['C'])}")
         self.assertEqual(plan._sweep_coords(native).n_sounds, 5)
         self.assertEqual([s["section"] for s in native["line_slots"]], ["VERSE1"] * 4 + ["VERSE2"] * 4)
         self.assertEqual([s["rgs"] for s in native["choices"]["schemes"].values()],
@@ -481,7 +564,8 @@ class CatalogPlannerTests(unittest.TestCase):
         data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 6}],
                        rhymes=[[1, 2, 3, 4], [5, 6]], returns=[[1, 2, 4]])
         native = plan.make_plan(11, song_form=data)
-        self.assertEqual(native["groups"], f"{ends(1, 3)};{ends(5, 6)}")
+        rel = native["relations"]
+        self.assertEqual(native["groups"], f"{ends(1, 3, relation=rel['A'])};{ends(5, 6, relation=rel['B'])}")
         self.assertEqual(native["returns"], "1,2,4")
         for classes in ([[1, 5]], [[1, 2], [2, 3]], [[1, 2, 3, 4]], [[True, 2]]):
             with self.subTest(classes=classes), self.assertRaises(plan.PlanRefused):

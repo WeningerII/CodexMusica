@@ -224,7 +224,9 @@ def _sections(bp, observed):
 
 
 def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None, return_groups=()):
-    """Combine native pair verdicts with the catalog's measured ending-sound classes."""
+    """Combine native pair verdicts with the catalog's measured ending-sound
+    classes: a group of the coarse class needs both, a group with a rhyme type
+    its type's verdict."""
     basis = mandate.default_relation
     if terminal_groups:
         from quality.catalog_shape import rhyme_source_groups, terminal_rhyme_relation
@@ -270,8 +272,12 @@ def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None, retur
             pairs = [(a, b) for pos, a in enumerate(sources_in_group) for b in sources_in_group[pos + 1:]]
             outcomes = [None if (*pair, k) in refused_groups else terminal_verdicts.get((*pair, k)) for pair in pairs]
             native = "fail" if False in outcomes else "unknown" if None in outcomes else "pass"
-            check["basis"] = mandate.relation_of(k)
-            if len(terminal_groups) == 1:
+            relation = check["basis"] = mandate.relation_of(k)
+            # The reader's own outcome compares the last words from the last
+            # stressed vowel. That stands in for the coarse class only; a group
+            # given a rhyme type is judged by that type (#902), which may let
+            # those sounds differ.
+            if len(terminal_groups) == 1 or not relation.startswith("class:"):
                 check["outcome"] = native
             else:
                 identity = check["outcome"]
