@@ -1872,11 +1872,20 @@ def test_grade_asks_the_mandate_before_the_switch():
     d_found = R.inspect(drifted, m)
     broken = [(ln, f) for ln, fs in d_found["per_line"].items()
              for f in fs if f.code == "RETURN_NOT_VERBATIM"]
-    check("a BROKEN return is flagged — one finding per pair the drifted "
-          "line was in (L18 vs its 3 A1 co-members)",
-          len(broken) == 3 and all(f.severity == "flag" for _, f in broken)
-          and all(ln == 18 for ln, _ in broken),
-          [f.message[:70] for _, f in broken])
+    # REPOINTED 2026-11-18 (stage 5, owner's call D of 16 Nov 2026: one
+    # changed line is one flag, pasted lyrics too): ~~one finding per pair
+    # the drifted line was in (L18 vs its 3 A1 co-members), `len(broken) ==
+    # 3`~~. The class is read whole: L18 is off the reading its three
+    # co-members hold, so it carries the one flag, which names the first of
+    # them and the next step.
+    check("a BROKEN return is flagged — one finding, on the drifted line "
+          "(L18, off the reading its 3 A1 co-members hold), naming the "
+          "next step",
+          len(broken) == 1 and all(f.severity == "flag" for _, f in broken)
+          and all(ln == 18 for ln, _ in broken)
+          and broken[0][1].message.endswith(
+              f"make L18 the same as L{min(broken[0][1].locations)}"),
+          [f.message[-110:] for _, f in broken])
 
     res = R.verify(VILLANELLE, drifted, m, targeted={18})
     check("verify()'s EXISTING net-negative diff — the same one meter "

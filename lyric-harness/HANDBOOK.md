@@ -4509,10 +4509,13 @@ rather than this paragraph — a roster copied into two files drifts in both.
    reporting to nobody.
    **A NOTE, and this is the one most likely to be promoted later** because it
    is about RHYME and rhyme is what the mandate flags. It must not be:
-   `return_findings` is never handed a mandate, so everything it says is
+   ~~`return_findings` is never handed a mandate, so~~ everything it says is
    measured against `POPULAR_SONG` and doctrine 96 applies — and **the flag for
    this already exists one layer down**, as `RETURN_NOT_VERBATIM` on a return
-   the writer DECLARED with `schemes.Return(verbatim=True)`. `reprise_findings`
+   the writer DECLARED with `schemes.Return(verbatim=True)`. (2026-11-18:
+   since stage 5 a planned song's mandate reaches this layer as `planned`, and
+   under a plan this note is not given at all: the plan dealt the returns.)
+   `reprise_findings`
    does NOT get it: a reprise's own gloss is "later and CHANGED" and names no
    channel it must hold. The triple is unmoved (a finding is not a refusal),
    verified either side. `quality/test_grid.py` §26.

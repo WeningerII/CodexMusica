@@ -15137,10 +15137,20 @@ def main():
                 _return_status = {row["id"]: row["status"]
                                   for row in found["coverage"]["obligations"]
                                   if row["layer"] == "return"}
+                # EACH PAIR IS ANSWERED BY THE MANDATE'S OWN CHECK
+                # (2026-11-18). ~~Read off the findings' locations alone~~:
+                # a class of three or more now carries one flag for each
+                # changed line, naming one pair, so that line's other pairs
+                # read SATISFIED. A placed return has no pair in
+                # `returns_check` and keeps the finding's own locations.
                 _return_failures = {tuple(f["locations"])
                                     for f in _machine_findings
                                     if f["code"] == "RETURN_NOT_VERBATIM"
                                     and f["severity"] == "flag"}
+                _return_failures |= {
+                    (_i, _j) for _l, _i, _j, _kind, _m
+                    in found["mandate"].returns_check(lines)
+                    if _i is not None and _kind != "OUT_OF_RANGE"}
                 print(f"  DECLARED RETURNS: {len(_return_pairs)} full-line obligation(s)")
                 for _i, _j, _ret in _return_pairs:
                     if _return_status.get(f"return:{_i}:{_j}") != "answered":
@@ -15997,10 +16007,12 @@ def main():
                     # WHAT THE ANSWER MOVES, asked of the loop's own
                     # definition: the line, PLUS every member of its
                     # declared verbatim return. A caller who edits one
-                    # member by hand earns `RETURN_NOT_VERBATIM` on its
-                    # mates — measured on this very case while building the
+                    # member by hand earns `RETURN_NOT_VERBATIM` ~~on its
+                    # mates~~ — measured on this very case while building the
                     # verb, editing L7 of the seed-1000 draft without its
-                    # return class put the finding on L10.
+                    # return class put the finding on L10. (2026-11-18: one
+                    # flag now, on the changed line where the rest of its
+                    # class agrees, on the later line of a class of two.)
                     # WHICH DRAFT THE QUESTION IS ASKED AGAINST (M-303).
                     # The loop's current draft lives in the deferred state
                     # and in no file: `finish` never writes the draft back,
