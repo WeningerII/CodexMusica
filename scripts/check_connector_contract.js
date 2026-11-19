@@ -233,11 +233,14 @@ function unboundedArrays(toolName, schema) {
   for (const t of tools) {
     const a = t.annotations || {};
     const revision = t.name === 'lyric_revise';
+    const draws = t.name === 'lyric_sweep';
     // No outside surface reaches a model provider (owner's rule, 2026-09-27):
     // lyric_revise mutates its run, but the caller writes every line.
     check(
       `${t.name}: annotations describe mutation and no external calls`,
-      a.readOnlyHint === !revision && a.idempotentHint === !revision && a.openWorldHint === false,
+      a.readOnlyHint === !revision &&
+        a.idempotentHint === (!revision && !draws) &&
+        a.openWorldHint === false,
       JSON.stringify(a)
     );
   }
@@ -598,10 +601,11 @@ function unboundedArrays(toolName, schema) {
   // operation, except where a call opens a new session, or (on /mcp) runs the
   // raw engine without one, whose lyric_revise advances its run.
   const effects = (surface, name) => {
-    if (!surface.session) return { read: name !== 'lyric_revise', same: name !== 'lyric_revise' };
+    const rawChanges = ['lyric_sweep', 'lyric_revise'].includes(name);
+    if (!surface.session) return { read: name !== 'lyric_revise', same: !rawChanges };
     if (LOOKUPS.has(name)) return { read: true, same: true };
     const opens = ['start_recipe', 'begin_lyrics'].includes(name);
-    return { read: false, same: !opens && !(surface.compatibility && name === 'lyric_revise') };
+    return { read: false, same: !opens && !(surface.compatibility && rawChanges) };
   };
   const leaksCarried = (declarations) =>
     declarations

@@ -679,6 +679,13 @@ repeat counts and writing declarations. Revisions and their final grading rechec
 against the candidate. A refused observation remains visible through the coverage report.
 
 For creation use the same selectors on the normal sweep, plan, grade and revision workflow.
+When a new-song sweep carries no form declaration, it draws a catalog form first, then a
+variant and repeat setting. Unspecified dimensions reach the ordinary planner draw.
+The native sweep tests the resulting form against the request and returns the accepted
+catalog selection with the accepted seeds. The session carries that selection into its
+plan, grade and revision. Automatic selection uses projected settings at the first few
+legal repeat counts and skips settings that require attributed readings. A raw automatic
+sweep draws again on a new call. Use the returned selection and seed to reproduce a plan.
 The native planner accepts named section sequences with supported lengths and placement.
 A selected section can declare a bar count. The planner must fit that count to the musical
 grid, and grading checks it against the section in the submitted blueprint.

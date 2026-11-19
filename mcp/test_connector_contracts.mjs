@@ -50,7 +50,7 @@ test('sweep applies advertised dotted predicates and leaves vocabulary refusal t
   const sweep = (want) =>
     c.client.callTool({
       name: 'lyric_sweep',
-      arguments: { seed_from: 31, count: 1, lines: 12, want },
+      arguments: { seed_from: 31, count: 1, form: 'open', lines: 12, want },
     });
   try {
     const accepted = await sweep(['sections.verse>=0', 'min_lines.verse>=0', 'max_lines.verse>=0']);
@@ -80,7 +80,10 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
   const { _agentInternals } = await import('./gemini_agent.js');
   const c = await local({ domain: 'lyrics' });
   const sweep = async (args) =>
-    JSON.parse((await c.client.callTool({ name: 'lyric_sweep', arguments: args })).content[0].text);
+    JSON.parse(
+      (await c.client.callTool({ name: 'lyric_sweep', arguments: { form: 'open', ...args } }))
+        .content[0].text
+    );
   try {
     // Measured on the verse-chorus form, which requires a verse and a
     // chorus; the default `open` form requires none (2026-10-27, D7).

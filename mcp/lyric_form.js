@@ -1,6 +1,7 @@
 // Connect the declared catalog pattern to the sung-line coordinates of the reader.
+import { randomInt } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
-import { checkReaderForm, pindaricTriads, realizeForm } from '../src/song-forms.mjs';
+import { checkReaderForm, describeForm, pindaricTriads, realizeForm } from '../src/song-forms.mjs';
 import { openCoupletEnding, projectSongFormCreation } from '../src/song-form-creation.mjs';
 import { gradeObservations } from '../src/song-form-grade.mjs';
 import { printedSteps, paragraphCount } from '../src/song-form-printing.mjs';
@@ -9,6 +10,55 @@ import { formMandate } from '../src/song-form-mandate.mjs';
 import { usesFunctionReadings } from '../src/song-form-function-readings.mjs';
 
 let catalog;
+async function formCatalog() {
+  return (catalog ??= JSON.parse(
+    await readFile(new URL('../data/song-forms.json', import.meta.url), 'utf8')
+  ));
+}
+
+function shuffled(values) {
+  const result = [...values];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = randomInt(i + 1);
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+let automaticForms;
+export async function automaticFormCandidates({ lines }) {
+  const forms = await formCatalog();
+  // Each form gets one place in the draw regardless of its number of variants.
+  automaticForms ??= forms.map(({ id }) =>
+    describeForm(forms, id).variants.map(({ index, counts }) => {
+      const settings = new Map();
+      for (const offset of [0, 1, 2]) {
+        const selected = Object.fromEntries(
+          counts.map(({ path, min, max }) => [path, Math.min(min + offset, max ?? Infinity)])
+        );
+        const realization = realizeForm(forms, id, { variant: index, counts: selected });
+        const { contract } = projectSongFormCreation(realization, selected);
+        if (contract && !contract.sections.some((section) => section.textualFunction))
+          settings.set(JSON.stringify(selected), contract);
+      }
+      return [...settings.values()];
+    })
+  );
+  return shuffled(automaticForms).flatMap((variants) =>
+    shuffled(variants).flatMap((settings) =>
+      shuffled(
+        settings.filter((contract) => {
+          if (lines == null) return true;
+          const known = contract.sections.reduce((sum, section) => sum + (section.lines ?? 0), 0);
+          return contract.sections.some((section) => section.lines === null)
+            ? known <= lines
+            : known === lines;
+        })
+      )
+    )
+  );
+}
+
 export function catalogReadingFlag(plan) {
   if (plan?.status !== 'ready') return null;
   if (paragraphCount(plan)) return '--form-reading=paragraphs';
@@ -32,11 +82,8 @@ export async function prepareFormReview(args) {
     if (Object.hasOwn(counts, entry.path)) throw new RangeError('Duplicate count at ' + entry.path);
     counts[entry.path] = entry.count;
   }
-  catalog ??= JSON.parse(
-    await readFile(new URL('../data/song-forms.json', import.meta.url), 'utf8')
-  );
   const options = { variant: args.catalog_variant, counts };
-  return { options, plan: realizeForm(catalog, args.catalog_form, options) };
+  return { options, plan: realizeForm(await formCatalog(), args.catalog_form, options) };
 }
 
 // The source reader retains the complete printed header. The page places its

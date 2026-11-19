@@ -98,10 +98,13 @@ pipeline plans and grades songs whose every line you write; no connector call re
 - **Recipe tools:** `start_recipe`, `edit_recipe`, `render_recipe`, `search_catalog`, `search_prefaces`, `get_instrument`, `get_tradition`, `list_traditions`, `list_options`.
 - **Lyric tools:** `lyric_sweep`, `lyric_screen`, `lyric_plan`, `lyric_grade`, `lyric_revise`, `lyric_recover`, `lyric_check`, `lyric_verify`, `lyric_types`.
   A new song: `begin_lyrics` → `lyric_sweep` → `lyric_plan` → `lyric_screen` → write the draft →
-  `lyric_grade` → `lyric_revise` (answer each question it asks until it stops). The sweep states
-  form, length (`lines`), sections (`functions`), rhyme (`relation`) and time (`melody`): each a
-  value, or for all but form its field in `draw` (a `want` on `lines`, on `sections`, `sections.F`, `uses` or `before`, or on `beats_per_line`, `bars_per_line` or `slots_per_line`
-  also states that thing); a sweep that leaves one out is refused with the list. A length is an exact `lines` count, a `want` on `lines`, or `lines` in `draw`, as the user chose. Lyrics the user pasted: `begin_lyrics {phase:"edit"}` → `lyric_recover` → `lyric_check` → `lyric_revise` without a seed.
+  `lyric_grade` → `lyric_revise` (answer each question it asks until it stops). A sweep without
+  a form declaration chooses a compatible catalog setting and draws omitted dimensions.
+  Carry the recorded catalog selection forward. An explicit form sweep states length
+  (`lines`), sections (`functions`), rhyme (`relation`) and time (`melody`) with a value or
+  its field in `draw`. A `want` on `lines`, on `sections`, `sections.F`, `uses` or `before`,
+  or on `beats_per_line`, `bars_per_line` or `slots_per_line` also states that thing.
+  A length is an exact `lines` count, a `want` on `lines`, or `lines` in `draw`, as the user chose. Lyrics the user pasted: `begin_lyrics {phase:"edit"}` → `lyric_recover` → `lyric_check` → `lyric_revise` without a seed.
 - **Session controls** (on `/mcp`): `begin_lyrics`, `get_operation`, `resume_operation`.
   A finished `lyric_grade` or `lyric_revise` read with `get_operation` is the song and a short
   verdict: status fields, `blocking` (what stands, and each line a requested obligation could not

@@ -136,12 +136,6 @@ const DEFAULT_FORM_ROW = FORM_ROWS.find((f) => f.form === DEFAULT_FORM);
 const rowName = (r) => (r.thing === r.field ? r.field : `${r.thing} (${r.field})`);
 const listed = (xs) =>
   xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`;
-// The form clause of a refusal, if it has one.
-const formClause = (text) => {
-  const at = text.indexOf(' takes one name: ');
-  return at < 0 ? null : text.slice(at, text.indexOf('. Cannot be stated yet', at));
-};
-
 // ── The gate, for every subset of the table ─────────────────────────────────
 test('a new-song sweep names exactly what it leaves out, for every subset of STATEABLE, and its NEXT is admitted', () => {
   const subsets = 2 ** STATEABLE.length;
@@ -154,7 +148,7 @@ test('a new-song sweep names exactly what it leaves out, for every subset of STA
       const task = fresh();
       const refusal = creationRefusal(task, 'lyric_sweep', structuredClone(args));
       const where = `mask ${mask} seed ${seed} ${JSON.stringify(args)}`;
-      if (!missing.length) {
+      if (args.form === undefined || !missing.length) {
         assert.equal(refusal, null, where);
         continue;
       }
@@ -164,31 +158,13 @@ test('a new-song sweep names exactly what it leaves out, for every subset of STA
         refusal.includes(` leaves out ${listed(missing.map(rowName))}. Nothing ran.`),
         `${where}: ${refusal}`
       );
-      // The form rows, only when form is missing; each rebuilt from its data.
-      const clause = formClause(refusal);
-      const formMissing = missing.some((r) => !r.draw);
-      assert.equal(clause !== null, formMissing, `${where}: ${refusal}`);
-      if (clause)
-        for (const f of FORM_ROWS) {
-          const at = clause.indexOf(`${f.form}, which requires `);
-          assert.ok(at >= 0, `${f.form}: ${clause}`);
-          const own = clause.slice(at).split(';')[0];
-          for (const fn of f.requires) assert.ok(own.includes(fn), own);
-          for (const fn of f.recurs) assert.ok(own.includes(`${fn} at least twice`), own);
-          assert.equal(own.includes(`at least ${f.min_lines} lines`), f.min_lines > LINES_FLOOR);
-          assert.equal(
-            own.endsWith('requires nothing'),
-            !f.requires.length && !f.recurs.length && f.min_lines <= LINES_FLOOR,
-            own
-          );
-        }
       // It ends with what cannot be stated yet.
       const tail = refusal.slice(refusal.lastIndexOf('Cannot be stated yet'));
       for (const r of NOT_STATEABLE_YET) assert.ok(tail.includes(`${r.thing} (${r.what})`), tail);
       assert.ok(tail.endsWith('.'), tail);
       // It suggests no value: outside the form rows, no number, and no
       // roster function, relation type or form name.
-      const rest = clause ? refusal.replace(clause, '') : refusal;
+      const rest = refusal;
       assert.doesNotMatch(rest, /\d/, rest);
       for (const word of [...P.roster, ...P.types, ...P.forms])
         assert.ok(!rest.includes(` ${word} `) && !rest.includes(` ${word},`), `${word}: ${rest}`);
@@ -622,6 +598,11 @@ test("every STATEABLE field's description says what a new-song session's sweep n
     for (const t of holders) {
       const d = t.inputSchema.properties[row.field].description;
       const at = d.indexOf("A new-song session's lyric_sweep needs ");
+      if (row.field === 'form') {
+        assert.match(d, /New writing uses catalog_form/, t.name);
+        assert.equal(t.inputSchema.properties.form.enum, undefined, t.name);
+        continue;
+      }
       assert.ok(at >= 0, `${t.name} ${row.field}: ${d}`);
       const clause = /^[^]*?\.(?= |$)/.exec(d.slice(at))[0];
       assert.match(clause, /this field's value/, `${t.name} ${row.field}`);
@@ -1136,7 +1117,7 @@ test(
 );
 
 // ── Every surface, through the real gate ─────────────────────────────────────
-const missingArgs = { seed_from: 3, count: 1 };
+const missingArgs = { seed_from: 3, count: 1, form: DEFAULT_FORM };
 const completeArgs = stated({ seed_from: 3, count: 1 });
 
 test(
@@ -1308,7 +1289,11 @@ for (const [surfaceName, build] of [
         kind: 'decision',
         by: 'person',
         call: { tool: 'lyric_sweep', args: {} },
-        missing: STATEABLE.map(({ thing, field, draw }) => ({ thing, field, draw })),
+        missing: STATEABLE.filter((row) => row.draw).map(({ thing, field, draw }) => ({
+          thing,
+          field,
+          draw,
+        })),
       });
       // Nothing ran: the session holds no sweep.
       const held = sessions.record(refused.session_id, 'lyrics').session.native.task;
@@ -1402,12 +1387,11 @@ test(
         () => [{ text: 'Which form, length, sections, rhyme and time do you want?' }],
         () => [{ text: 'unused' }],
       ];
-      const asked = await turn(fresh(), 'A new song.');
+      const asked = await turn(fresh(), 'A new song with the form specified.');
       assert.equal(step, 2, 'the turn ended on the question');
       assert.match(seen[0].error, /^CREATION_STATEMENT: .* NEXT: lyric_sweep stating /s);
       assert.ok(seen[0].error.includes(ASK_PERSON), seen[0].error);
-      assert.ok(prompts[0].includes("are the person's to choose"), 'the system prompt says so');
-      assert.ok(prompts[0].includes(STATEABLE.map((x) => x.thing).at(-1)), prompts[0]);
+      assert.match(prompts[0], /sweep selects a compatible catalog setting/);
       assert.deepEqual(dispatched, [], 'nothing ran');
       assert.deepEqual(asked.task.workflow?.sweeps ?? [], [], 'no sweep is recorded');
       assert.equal(asked.task.workflow?.plan ?? null, null, 'no plan');

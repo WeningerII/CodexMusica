@@ -1749,13 +1749,13 @@ test(
     try {
       const r = await client.callTool({
         name: 'lyric_sweep',
-        arguments: { seed_from: 0, count: 20, lines: 12, want: ['sections>=3'] },
+        arguments: { seed_from: 0, count: 20, form: 'open', lines: 12, want: ['sections>=3'] },
       });
       const { report, accepted_shown } = JSON.parse(r.content[0].text);
       assert.match(
         report,
         new RegExp(
-          `NEXT: lyric_plan with seed ${accepted_shown[0]}, lines 12, wants \\["sections>=3"\\]\\.`
+          `NEXT: lyric_plan with seed ${accepted_shown[0]}, form "open", lines 12, wants \\["sections>=3"\\]\\.`
         )
       );
     } finally {
@@ -1930,11 +1930,12 @@ test(
         const sweep = await call('lyric_sweep', {
           seed_from: 31,
           count: 1,
+          form: 'open',
           lines: 12,
           want: wants,
         });
         const seed = sweep.accepted_shown[0];
-        const plan = await call('lyric_plan', { seed, lines: 12, wants });
+        const plan = await call('lyric_plan', { seed, form: 'open', lines: 12, wants });
         assert.deepEqual(plan.plan_request.wants, wants);
         assert(task.workflow.plan, 'a successful plan must be recorded before grading');
         assert.equal(task.workflow.plan.sha256, plan.plan_sha256);

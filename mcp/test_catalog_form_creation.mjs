@@ -3263,3 +3263,61 @@ test(
     );
   }
 );
+
+test(
+  'automatic catalog selection is recorded before a generic song is planned',
+  { timeout: 120_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const sweep = measured(await host.run('lyric_sweep', { seed_from: 11, count: 4 }));
+    assert.equal(sweep.exit_code, 0, sweep.report);
+    const selection = sweep.catalog_selection;
+    assert.ok(selection.catalog_form);
+    assert.ok(Number.isInteger(selection.catalog_variant));
+    assert.ok(Array.isArray(selection.catalog_counts));
+    assert.ok(sweep.accepted_shown.length);
+
+    await host.reconnect();
+    const operation = await host.run('lyric_plan', { seed: sweep.accepted_shown[0] });
+    const { plan } = measured(await host.read(operation.operation_id, 'full'));
+    const form = plan.request.song_form;
+    assert.equal(form.id, selection.catalog_form);
+    assert.equal(form.variant, selection.catalog_variant);
+    assert.deepEqual(
+      Object.entries(form.counts).map(([path, count]) => ({ path, count })),
+      selection.catalog_counts
+    );
+  }
+);
+
+test(
+  'a catalog form drawn for a constrained request is still used at grading',
+  { timeout: 120_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        seed_from: 11,
+        count: 4,
+        lines: 2,
+        relation: 'class:RHYME',
+      })
+    );
+    assert.equal(sweep.exit_code, 0, sweep.report);
+    const seed = sweep.accepted_shown[0];
+    const planOp = await host.run('lyric_plan', { seed, lines: 2, relation: 'class:RHYME' });
+    const { plan } = measured(await host.read(planOp.operation_id, 'full'));
+    assert.equal(plan.total_lines, 2);
+    assert.equal(plan.request.song_form.id, sweep.catalog_selection.catalog_form);
+    measured(await host.run('lyric_screen', { words: ['one', 'none'], relation: 'class:RHYME' }));
+    const gradeOp = await host.run('lyric_grade', { seed, draft: ['one', 'none'] });
+    const grade = measured(await host.read(gradeOp.operation_id, 'full'));
+    assert.equal(
+      grade.coverage?.catalog_form?.id,
+      sweep.catalog_selection.catalog_form,
+      grade.report
+    );
+  }
+);

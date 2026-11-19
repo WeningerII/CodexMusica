@@ -12830,6 +12830,11 @@ def main():
         # No flag leaves the default: the planner draws the narrative.
         narrative_raw = _flag_value(rest, "--narrative")
         sweep_raw = _flag_value(rest, "--sweep")
+        candidates_path = _flag_value(rest, "--catalog-candidates")
+        rest = _strip_flag(rest, "--catalog-candidates")
+        if candidates_path is not None and (
+                sweep_raw is None or catalog_form is not None or _flag_value(rest, "--form") is not None):
+            _refuse("catalog candidates require an automatic sweep")
         want_raw = _flag_value(rest, "--want")
         rest = _strip_flag(rest, "--narrative")
         rest = _strip_flag(rest, "--sweep")
@@ -12911,7 +12916,33 @@ def main():
             try:
                 wants = [PLN.parse_sweep_want(w)
                          for w in str(want_raw or "").split(";") if w.strip()]
-                res = PLN.sweep(range(lo, hi), wants=wants, **plan_kw)
+                if candidates_path is None:
+                    res = PLN.sweep(range(lo, hi), wants=wants, **plan_kw)
+                else:
+                    # The connector compiles these settings from the same catalog
+                    # and projection used for a named form. Use the normal sweep
+                    # for each candidate, including its native feasibility gates.
+                    try:
+                        with open(candidates_path, encoding="utf-8") as source:
+                            candidates = json.load(source)
+                    except (OSError, ValueError):
+                        _refuse("The automatic catalog settings could not be loaded.")
+                    for candidate in candidates:
+                        candidate_kw = {**plan_kw, "form": None, "song_form": candidate}
+                        res = PLN.sweep((lo,), wants=wants, **candidate_kw)
+                        if not res["planned"] and all(
+                                item["scope"] == "request" for item in res["refusals"]):
+                            continue
+                        if hi > lo + 1:
+                            res = PLN.sweep(range(lo, hi), wants=wants, **candidate_kw)
+                        if res["accepted"]:
+                            catalog_form = candidate
+                            form_label = candidate["id"]
+                            break
+                    else:
+                        _refuse("No executable catalog setting matched the declared constraints "
+                                "in this seed window.",
+                                machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             except PLN.PlanRefused as e:
                 _refuse(str(e), machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             print(f"  SWEEP: seeds {lo}..{hi - 1} ({res['seeds']}), "
@@ -13063,7 +13094,9 @@ def main():
                       ("melody", melody_raw), ("want", want_raw))
                       if v is not None))
             _lyric_result(status="swept", exit=0,
-                          sweep={**record, "outcome": "accepted"})
+                          sweep={**record, "outcome": "accepted",
+                                 **({"catalog_selection": _contract_selector(catalog_form)}
+                                    if candidates_path is not None else {})})
             return 0
         try:
             # ONE SPELLING OF THE ARGUMENT LIST. This branch used to build its

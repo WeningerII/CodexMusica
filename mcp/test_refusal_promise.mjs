@@ -222,7 +222,12 @@ row({
   shape: 'receipt',
   phrases: ['NEXT: lyric_sweep stating', 'in `draw`'],
   reach: async (r) =>
-    r.call('lyric_sweep', { session_id: r.seed('lyrics'), seed_from: 0, count: 1 }),
+    r.call('lyric_sweep', {
+      session_id: r.seed('lyrics'),
+      seed_from: 0,
+      count: 1,
+      form: FORM_ROWS[0].form,
+    }),
 });
 row({
   code: 'CREATION_STATEMENT',

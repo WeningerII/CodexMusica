@@ -509,6 +509,20 @@ export function statementsOf(args, wantKey = 'want') {
 // STATEMENT_CONFLICT. The creation gate's own rule is statementsOf, where
 // any `lines` want states the length: there the question is whether the
 // person chose something about it, and a cap is that choice.
+export const isAutomaticForm = (args) => args.form === undefined && args.catalog_form === undefined;
+
+export function automaticSweepArgs(args) {
+  if (!isAutomaticForm(args)) return args;
+  const { missing } = statementsOf(args);
+  return {
+    ...args,
+    draw: drawList([
+      ...(args.draw ?? []),
+      ...missing.filter((row) => row.draw).map((row) => row.field),
+    ]),
+  };
+}
+
 const pinned = (want) => /(<=|>=|=)/.exec(String(want))?.[1] === '=';
 export const noneKeptDeclared = (args, wantKey = 'want') =>
   Object.fromEntries(
@@ -521,16 +535,6 @@ export const noneKeptDeclared = (args, wantKey = 'want') =>
   );
 const rowName = (r) => (r.thing === r.field ? r.field : `${r.thing} (${r.field})`);
 const wantLabel = (k) => (k.endsWith('.*') ? `${k.slice(0, -1)}F` : k);
-// `floor` false leaves out the form's fewest lines: published schema text
-// states no line count (test_prompt_provenance); a refusal states it.
-export const formRowText = (f, floor = true) => {
-  const needs = [
-    ...f.requires.map((fn) => (f.recurs.includes(fn) ? `${fn} at least twice` : fn)),
-    ...f.recurs.filter((fn) => !f.requires.includes(fn)).map((fn) => `${fn} at least twice`),
-    ...(floor && f.min_lines > LINES_FLOOR ? [`at least ${f.min_lines} lines`] : []),
-  ];
-  return `${f.form}, which requires ${needs.length ? joined(needs) : 'nothing'}`;
-};
 // -> what a STATEABLE field's own description says a new-song session's
 // lyric_sweep needs of it, read from its row.
 export const sweepNeeds = (field) => {
@@ -565,14 +569,10 @@ export const ASK_PERSON =
 export function statementRefusal(args) {
   const { missing, conflict } = statementsOf(args);
   if (conflict.length) return statementConflict(conflict);
-  if (!missing.length) return null;
-  const forms = missing.some((r) => !r.draw)
-    ? ` ${named.map((f) => f[0].toUpperCase() + f.slice(1)).join(', ')} takes one name: ${FORM_ROWS.map(formRowText).join('; ')}. A catalog form can be named with catalog_form instead.`
-    : '';
+  if (isAutomaticForm(args) || !missing.length) return null;
   return (
     `CREATION_STATEMENT: ${STATEMENT_RULE} This call leaves out ${joined(missing.map(rowName))}. Nothing ran.` +
     ` ${ASK_PERSON}` +
-    forms +
     ` Cannot be stated yet, so tell the person: ${NOT_YET_TEXT}.`
   );
 }
@@ -1130,6 +1130,8 @@ export function recordCreation(task, name, args, verdict, isError = false) {
   const w = workflowFor(task);
   if (!w || isError || !verdict) return;
   if (name === 'lyric_sweep') {
+    if (isAutomaticForm(args) && verdict.catalog_selection)
+      args = { ...automaticSweepArgs(args), ...verdict.catalog_selection };
     const request = sweepRequest(args);
     if (verdict.sweep_outcome === 'planner refused every seed' && Number.isInteger(verdict.swept))
       w.refused_sweep = {
@@ -1514,7 +1516,7 @@ export function outcomeOf(tool, v, args = {}) {
       ? v.next_call
       : null;
   if (tool === 'lyric_sweep') {
-    if (code === 0) return takeOn(callOf('lyric_plan'));
+    if (code === 0) return takeOn(named ?? callOf('lyric_plan'));
     // Nothing planned or kept. A cause in a seed's own draw is answered by
     // the next window; a cause in the request is answered by changing it.
     const reasons = Array.isArray(v.planner_refusals) ? v.planner_refusals : [];
@@ -1774,10 +1776,14 @@ export const withSessionOutcome = (task, name, result, carried, args = {}) =>
 export const SWEEP_NEXT = /NEXT: lyric_plan with seed -?\d+[^\n]*/;
 // A raw lyric_sweep's NEXT line: the plan call for its first accepted seed,
 // built exactly as a session builds it from a fresh sweep receipt (#671, C2).
-export function sweepNextLine(args, seed) {
+export function sweepNextCall(args, seed) {
   const task = { domain: 'lyrics', phase: 'create' };
   workflowFor(task).sweeps.push({ args: structuredClone(args), accepted: [seed] });
-  return formatNextCall(nextCreationCall(task, null, 'lyric_plan'));
+  return nextCreationCall(task, null, 'lyric_plan');
+}
+
+export function sweepNextLine(args, seed) {
+  return formatNextCall(sweepNextCall(args, seed));
 }
 // THE GRADE VERDICT'S NEXT STEP (#671, B9/C4). `next` is the sentence a
 // caller reads; `next_call` is its tool and the args the server sets (seed,
