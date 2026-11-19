@@ -87,15 +87,23 @@ def _sections(bp, observed):
     return rows
 
 
-def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None):
+def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None, return_groups=()):
     """Combine native pair verdicts with the catalog's measured ending-sound classes."""
     basis = mandate.default_relation
     if terminal_groups:
-        from quality.catalog_shape import terminal_rhyme_relation
-        if ([list(group) for group in mandate.groups] != terminal_groups
+        from quality.catalog_shape import rhyme_source_groups, terminal_rhyme_relation
+        sources = rhyme_source_groups(terminal_groups, return_groups)
+        if return_groups:
+            declared = [list(r.lines) for r in mandate.returns if r.verbatim is True and not r.placed]
+            if declared != return_groups:
+                result["checks"].append({"kind": "catalog-return-mandate", "outcome": "unknown"})
+                if result["verdict"] == "pass":
+                    result["verdict"] = "unknown"
+                return result
+        if ([list(group) for group in mandate.groups] != sources
                 or any(not terminal_rhyme_relation(mandate.relation_of(k))
                        or any(mandate.slot_of(k, i).locus != "line_final_token" for i in group)
-                       for k, group in enumerate(terminal_groups))):
+                       for k, group in enumerate(sources))):
             result["checks"].append({"kind": "catalog-rhyme-mandate", "outcome": "unknown"})
             if result["verdict"] == "pass":
                 result["verdict"] = "unknown"
@@ -118,7 +126,8 @@ def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None):
             if members not in terminal_groups:
                 continue
             k = terminal_groups.index(members)
-            pairs = [(a, b) for pos, a in enumerate(members) for b in members[pos + 1:]]
+            sources_in_group = sources[k]
+            pairs = [(a, b) for pos, a in enumerate(sources_in_group) for b in sources_in_group[pos + 1:]]
             outcomes = [None if pair in refused else verdicts.get(pair) for pair in pairs]
             native = "fail" if False in outcomes else "unknown" if None in outcomes else "pass"
             check["basis"] = mandate.relation_of(k)
@@ -174,7 +183,7 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
                              encoding="utf-8", timeout=20, check=True)
         groups = (bp.get("song_form") or {}).get("rhymeGroups")
         return _native_rhyme(json.loads(run.stdout), lines, mandate, report,
-                             terminal_groups=groups)
+                             terminal_groups=groups, return_groups=(bp.get("song_form") or {}).get("returnGroups", ()))
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         return {"id": form_id, "verdict": "unknown", "checks": [
             {"kind": "catalog-runtime", "outcome": "unknown", "reason": type(exc).__name__}]}

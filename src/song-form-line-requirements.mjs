@@ -3,11 +3,15 @@ const coordinates = new Set(['unit', 'path', 'address', 'span', 'children', 'lin
 
 const meterFields = new Set(['syllables', 'stress', 'stresses']);
 
-export function projectLineRequirement(line, endsRhyme = false) {
+export function projectLineRequirement(line, endsRhyme = false, fixedReturns = false) {
   if (
     line.unit !== 'line' ||
     Object.keys(line).some(
-      (key) => !coordinates.has(key) && !meterFields.has(key) && !(endsRhyme && key === 'rhyme')
+      (key) =>
+        !coordinates.has(key) &&
+        !meterFields.has(key) &&
+        !(endsRhyme && key === 'rhyme') &&
+        !(fixedReturns && key === 'returns')
     )
   )
     return null;

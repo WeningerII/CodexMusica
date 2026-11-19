@@ -79,8 +79,13 @@ export function projectSongFormCreation(plan, counts = {}) {
   const sections = [];
   const divisions = [];
   const lineRequirements = [];
+  const byReturn = new Map();
   const byRhyme = new Map();
   for (const line of plan.lines) {
+    if (line.returns !== undefined) {
+      if (!byReturn.has(line.returns)) byReturn.set(line.returns, []);
+      byReturn.get(line.returns).push(line.index);
+    }
     if (line.rhyme === undefined) continue;
     if (!byRhyme.has(line.rhyme)) byRhyme.set(line.rhyme, []);
     byRhyme.get(line.rhyme).push(line.index);
@@ -91,6 +96,17 @@ export function projectSongFormCreation(plan, counts = {}) {
     rhymeGroups.length > 0 &&
     rhymeGroups.every((group) => group.length >= 2) &&
     plan.lines.every((line) => line.positionKnown && line.rhyme !== undefined);
+  const returnGroups = [...byReturn.values()];
+  const copies = new Set(returnGroups.flatMap((group) => group.slice(1)));
+  const fixedReturns =
+    endsRhyme &&
+    returnGroups.length > 0 &&
+    returnGroups.every(
+      (group) =>
+        group.length >= 2 &&
+        rhymeGroups.some((rhymes) => group.every((line) => rhymes.includes(line)))
+    ) &&
+    rhymeGroups.every((group) => group.filter((n) => !copies.has(n)).length >= 2);
   const positions = new Map(plan.lines.map((line) => [line.address, line]));
   const reasonKeys = new Set();
   function refuse(code, node, field) {
@@ -147,7 +163,7 @@ export function projectSongFormCreation(plan, counts = {}) {
     const role = counted ? 'verse' : node.role.replaceAll('-', '_');
     if (!NATIVE_ROLES.has(role)) return refuse('unsupported-section-role', node, node.role);
     for (const child of node.children) {
-      const requirement = projectLineRequirement(child, endsRhyme);
+      const requirement = projectLineRequirement(child, endsRhyme, fixedReturns);
       if (requirement === null) {
         refuse('unsupported-line-structure', child);
       } else if (requirement) {
@@ -172,6 +188,18 @@ export function projectSongFormCreation(plan, counts = {}) {
   if (!sections.length && !reasons.length) refuse('empty-structure');
   if (endsRhyme && (sections.length !== 1 || sections[0].lines !== plan.lines.length))
     refuse('unsupported-rhyme-layout');
+  if (fixedReturns) {
+    const measures = new Map(
+      lineRequirements.map(({ line, ...rest }) => [line, JSON.stringify(rest)])
+    );
+    if (
+      sections[0]?.role !== 'verse' ||
+      returnGroups.some((group) =>
+        group.some((line) => measures.get(line) !== measures.get(group[0]))
+      )
+    )
+      refuse('unsupported-return-layout');
+  }
   if (sections.length > CREATION_LIMITS.maxSections) refuse('native-section-limit');
   if (lineRequirements.length && sections.some((part) => part.lines === null)) {
     refuse('incomplete-line-positions');
@@ -239,7 +267,7 @@ export function projectSongFormCreation(plan, counts = {}) {
       ...(lineRequirements.length && { lineRequirements }),
       sections,
       rhymeGroups: endsRhyme ? rhymeGroups : [],
-      returnGroups: [],
+      returnGroups: fixedReturns ? returnGroups : [],
     },
   };
 }
