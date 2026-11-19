@@ -5132,12 +5132,36 @@ class Reviser:
         _coverage_rows.extend(declaration_coverage(
             getattr(self.lex, "pronunciations", ()), lines,
             original_lines=self._pronunciation_origin))
+        catalog = None
+        if getattr(self.lex, "catalog_selection", None) or (isinstance(blueprint, dict) and blueprint.get("song_form")):
+            from quality.catalog_grading import inspect_catalog
+            catalog = inspect_catalog(self.lex, lines, blueprint, m, rep)
+        if catalog:
+            for index, check in enumerate(catalog["checks"]):
+                location = check.get("address") or check.get("label") or str(index)
+                obligation = f"catalog:{catalog['id']}:{check['kind']}:{location}"
+                _coverage_rows.append({"id": obligation, "layer": "catalog_form",
+                                       "status": "refused" if check["outcome"] == "unknown" else "answered"})
+                if check["outcome"] == "fail":
+                    affected = check.get("lines", [])
+                    finding = Finding("CATALOG_FORM_MISMATCH", "flag",
+                                      f"{catalog['id']}: {check['kind']} at {location}",
+                                      str(check.get("expected", check.get("labels", ""))),
+                                      affected, subject=(obligation,))
+                    if affected:
+                        for ln in affected:
+                            if ln <= len(lines):
+                                add(ln, finding)
+                    if not affected or max(affected) > len(lines):
+                        whole.append(finding)
         _refused_ids = [row["id"] for row in _coverage_rows if row["status"] == "refused"]
         _coverage = {k: rep[k] for k in ("pairs_mandated", "pairs_judged", "pairs_refused")}
         # The pairs a declared return excused from the collision set, listed
         # so a reader can audit them rather than find them simply gone.
         # Only when there is one: a run with none prints the coverage line
         # byte-identical to before, which recorded replays compare exactly.
+        if catalog:
+            _coverage["catalog_form"] = catalog
         if rep.get("required_echoes"):
             _coverage["required_echoes"] = [
                 {"lines": list(e["lines"]), "requirement": e["requirement"]}

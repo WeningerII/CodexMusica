@@ -1111,7 +1111,7 @@ def _beats_cumulative():
     return tuple(accumulate(beats_weights()))
 
 
-def _sample_meter(rng):
+def _sample_meter(rng, bars_per_line=None):
     """One meter draw under the DERIVATION measure (module docstring).
 
     BEATS PER LINE FIRST, then a factorisation of it, then the grouping.
@@ -1162,17 +1162,33 @@ def _sample_meter(rng):
     beats, groups, (n_beat_values, n_factorisations, beats_per_line)); the
     tail is the disclosure's raw material.
     """
-    vals = beats_values()
-    cum = _beats_cumulative()
-    # Both are cached; if `beats_values()` ever moves without the weights
-    # following, the draw would silently re-weight (its own docstring warns
-    # of this), so say so here rather than in the tests alone.
-    assert len(cum) == len(vals), (len(cum), len(vals))
-    # The `min` only guards float rounding at the top: `rng.random()` is
-    # below 1, but its product with the total can round up to it.
-    per_line = vals[min(bisect_right(cum, rng.random() * cum[-1]),
-                        len(vals) - 1)]
-    fact = meter_factorisations(per_line)
+    if bars_per_line is None:
+        vals = beats_values()
+        cum = _beats_cumulative()
+        # Both are cached; if `beats_values()` ever moves without the weights
+        # following, the draw would silently re-weight (its own docstring warns
+        # of this), so say so here rather than in the tests alone.
+        assert len(cum) == len(vals), (len(cum), len(vals))
+        # The `min` only guards float rounding at the top: `rng.random()` is
+        # below 1, but its product with the total can round up to it.
+        per_line = vals[min(bisect_right(cum, rng.random() * cum[-1]),
+                            len(vals) - 1)]
+        fact = meter_factorisations(per_line)
+    else:
+        # Condition the existing measure on the fixed bars coordinate. A beat
+        # count's surviving mass is the fraction of its factorizations admitted.
+        vals, weights, factors = [], [], {}
+        for k, weight in zip(beats_values(), beats_weights()):
+            all_factors = meter_factorisations(k)
+            keep = tuple(pair for pair in all_factors if pair[0] == bars_per_line)
+            if keep:
+                vals.append(k)
+                weights.append(weight * len(keep) / len(all_factors))
+                factors[k] = keep
+        if not vals:
+            raise PlanRefused("catalog section bars have no native meter realization")
+        per_line = rng.choices(vals, weights=weights)[0]
+        fact = factors[per_line]
     bars, sub = fact[rng.randrange(len(fact))]
     beats = per_line // bars
     groups = _composition_uniform(beats, rng)
@@ -3005,7 +3021,7 @@ class CountPolicy(dict):
         return bool(self["atoms"])
 
 
-def _recurrence_policy(wants, roster=None, form=None):
+def _recurrence_policy(wants, roster=None, form=None, *, generated=True):
     """-> `CountPolicy`: one interval per row and one for the total, from
     the stated `sections` and `sections.<row>` predicates.
 
@@ -3015,6 +3031,8 @@ def _recurrence_policy(wants, roster=None, form=None):
     a request the tables prove cannot fit is refused here, before any draw,
     and the refusal names the row, the field or the form and the numbers.
     The length proof needs the song's length and is `_count_length_proof`.
+    With `generated=False`, keep the stated intervals and roster checks;
+    the resolved catalog, not the generator grammar, proves feasibility.
     """
     from quality import grid as G
     inf = float("inf")
@@ -3045,6 +3063,10 @@ def _recurrence_policy(wants, roster=None, form=None):
             raise PlanRefused(
                 f"{requested} can't be met: {name} requires at least {lo} and "
                 f"at most {hi} after applying nonnegative counts and roster limits{absent}")
+    policy = CountPolicy(rows=intervals, total=total, atoms=count_atoms,
+                         requested=requested, named=frozenset(named))
+    if not generated:
+        return policy
     first, last = _edges()
     boundary = set(first) | set(last)
     for position, edge in (("first", first), ("last", last)):
@@ -3122,8 +3144,7 @@ def _recurrence_policy(wants, roster=None, form=None):
             f"{requested} can't be met: at least {total[0]} sections are required, "
             f"but this roster and these caps allow at most {capacity()} sections "
             "(upper capacity)")
-    return CountPolicy(rows=intervals, total=total, atoms=count_atoms,
-                       requested=requested, named=frozenset(named))
+    return policy
 
 
 def _folded_rows(policy, form, why=None):
@@ -4561,7 +4582,7 @@ def group_types_to_relations(group_types, relations=None):
 
 def make_plan(seed, form=None, lines=None, relation=None,
               functions=None, title=None, narrative=None, wants=(), melody=None,
-              relations=None, group_types=None, _recurrence_wants=None):
+              relations=None, group_types=None, _recurrence_wants=None, song_form=None):
     """Plan under explicit brief predicates; never supply aesthetic defaults.
 
     The existing closed sweep vocabulary is also accepted at the generation
@@ -4586,7 +4607,7 @@ def make_plan(seed, form=None, lines=None, relation=None,
         plan = make_plan(seed, form=form, lines=lines, relation=relation,
                          functions=functions, title=title,
                          narrative=narrative, wants=wants, melody=melody,
-                         _recurrence_wants=recurrence_wants,
+                         _recurrence_wants=recurrence_wants, song_form=song_form,
                          relations=group_types_to_relations(
                              group_types, relations) or None)
         plan["request"]["group_types"] = [
@@ -4596,6 +4617,8 @@ def make_plan(seed, form=None, lines=None, relation=None,
               title=title, narrative=narrative, _wants=parsed, melody=melody,
               _recurrence_wants=recurrence_wants,
               relations=relations)
+    if song_form is not None:
+        kw["song_form"] = song_form
     if not parsed:
         if melody is not None:
             return _make_plan_candidate(seed, **kw)
@@ -4613,7 +4636,7 @@ def make_plan(seed, form=None, lines=None, relation=None,
         base = make_plan(seed, form=form, lines=lines, relation=relation,
                          functions=functions, title=title,
                          narrative=narrative, melody=melody,
-                         _recurrence_wants=recurrence_wants, relations=relations)
+                         _recurrence_wants=recurrence_wants, relations=relations, song_form=song_form)
     except SeedRefused:
         base = None
     if base is not None and all(sweep_holds(base, w) for w in parsed):
@@ -4787,7 +4810,7 @@ def _redraw_past_joint_gate(seed, kw):
 
 def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                          functions=None, title=None, narrative=None, _wants=(), melody=None,
-                         relations=None, _total=None, _drawn=None, _recurrence_wants=None):
+                         relations=None, _total=None, _drawn=None, _recurrence_wants=None, song_form=None):
     """A request -> the plan dict. Refuses rather than guessing.
 
     `relation`, `functions` and `title` are THE WRITER'S DECLARATION
@@ -4949,7 +4972,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             *(c for c in _CELLS if all(f in roster for f in c)),
             (f for f in (*first_fns, *last_fns) if f in roster))
         need = set(FORM_REQUIRES.get(form, ())) | set(FORM_RECURS.get(form, ()))
-        if need - reachable:
+        if song_form is None and need - reachable:
             raise PlanRefused(
                 f"--form={form} requires {sorted(need)}, and the declared "
                 f"roster {sorted(roster)} can draw none of "
@@ -4958,7 +4981,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
 
     recurrence = _recurrence_policy(
         _wants if _recurrence_wants is None else _recurrence_wants, roster,
-        form=form)
+        form=form, generated=song_form is None)
     rng = random.Random(seed)
 
     # REJECTION SAMPLING over the generated grammar: uniform over the
@@ -4987,7 +5010,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # STATED COUNTS ARE BUILT, NOT FILTERED FOR (stage 4). The proofs run
     # first and name what cannot fit; the length is then drawn only from
     # totals that carry the sung sections the counts need.
-    if recurrence.stated:
+    if recurrence.stated and song_form is None:
         # The bound the proof reads, kept for a miss's text (2026-11-18,
         # stage 4 fix round): `_wordless_edges` reads the same one.
         _most = lines if lines is not None else max(_GRADEABLE)
@@ -5094,7 +5117,28 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # the length drawn here back to that caller. NOT the wants path: a
     # declared want conditions the draw (`_want_candidates`), and each of
     # its candidates still draws its own length, unchanged by this.
-    if lines is not None:
+    catalog = None
+    if song_form is not None:
+        from quality.catalog_shape import resolve_catalog_shape
+        catalog = resolve_catalog_shape(
+            song_form, rng, totals=_GRADEABLE, lines=lines if lines is not None else _total,
+            functions=roster, form=form, minimum=_min_section,
+            melody_bars=melody.get("bars") if isinstance(melody, dict) else None)
+        # A declared sequence can carry wordless sections beyond the drawn
+        # grammar's section-per-line ceiling. Its resolver validates the
+        # actual placement, form and lengths; counts must describe that
+        # sequence, not a hypothetical pattern the sampler could draw.
+        for atom in recurrence["atoms"]:
+            want = parse_sweep_want(atom)
+            if not sweep_holds(catalog, want):
+                observed = SWEEP_MEASURES[want[0]][1](catalog)
+                raise PlanRefused(
+                    f"{atom} can't be met: the declared catalog has "
+                    f"{want[0]}={observed}")
+        if len(catalog["sections"]) > _max_sections:
+            raise PlanRefused("requested section limit conflicts with the catalog form")
+        total = catalog["total"]
+    elif lines is not None:
         total = lines
     elif _total is not None:
         total = _total
@@ -5116,11 +5160,22 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # lines). The test is the one `_sample_pattern` makes, on the ceiling
     # this total starts from, so that draw is unbuilt exactly when this is
     # false.
-    _built = recurrence.stated and bool(_built_dims(
+    _built = catalog is None and recurrence.stated and bool(_built_dims(
         recurrence, form,
         min(_max_sections, max(1, total // max(_STANZA, _min_section))),
         total // _min_section)[0])
     for _attempt in range(500):
+        if catalog is not None:
+            funcs = tuple(section["function"] for section in catalog["sections"])
+            ks = {section["function"]: section["lines"] for section in catalog["sections"]}
+            phrases = dict(ks)
+            for fn in dict.fromkeys(funcs):
+                if fn in catalog.get("wordless_phrases", {}):
+                    phrases[fn] = catalog["wordless_phrases"][fn]
+                elif fn in WORDLESS_FUNCTIONS:
+                    phrases[fn] = rng.randint(k_lo, max(k_lo, max(ks.values())))
+            _cells_hi = len(funcs)
+            break
         # A BUILT DRAW STOPS WHEN IT HAS NOTHING LEFT TO TRY AT THIS TOTAL:
         # it refused at the fewest cells that carry the counts (below), or
         # no pattern carries them at all at this total.
@@ -5462,7 +5517,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         n_beats = n_fact = 1
     else:
         bars, sub, beats, groups_m, (n_beats, n_fact, beats_pl) = \
-            _sample_meter(rng)
+            _sample_meter(rng, (catalog or {}).get("bars_per_line"))
     # `unit` is drawn entropy-last (`_sample_unit`); None until then, so a
     # read before the draw fails loudly instead of seeing a placeholder.
     meter = {"beats": beats, "unit": None, "groups": list(groups_m)}
@@ -5472,15 +5527,22 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # Schemes per function kind (one tune per kind — new words, same
     # shape), and a per-section anacrusis in beats.
     by_func, scheme_meta = {}, {}
+    terminal_groups = song_form["rhymeGroups"] if song_form else []
     for fn in dict.fromkeys(funcs):
         if ks[fn] == 0:
             continue
-        for _scheme_attempt in range(500):
-            code, pool = _scheme_for(ks[fn], rng)
-            if max(code.count(x) for x in set(code)) <= _max_group:
-                break
+        if terminal_groups and ks[fn] > 2:
+            if any(len(g) > _max_group for g in terminal_groups):
+                raise PlanRefused("the prescribed rhyme group exceeds the requested group size")
+            group_of = {line: i for i, g in enumerate(terminal_groups) for line in g}
+            code, pool = tuple(group_of[line] for line in range(1, ks[fn] + 1)), 1
         else:
-            raise SeedRefused("declared group bound found no scheme in 500 draws")
+            for _scheme_attempt in range(500):
+                code, pool = _scheme_for(ks[fn], rng)
+                if max(code.count(x) for x in set(code)) <= _max_group:
+                    break
+            else:
+                raise SeedRefused("declared group bound found no scheme in 500 draws")
         by_func[fn] = code
         scheme_meta[fn] = {"rgs": list(code), "chosen_from": pool,
                            "lines": ks[fn],
@@ -5772,10 +5834,24 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                     _aprof.lo), _aprof.hi)
     _head_cap = max(1, int(_FL.FloorDeclaration().resolve(
         "anaphora_max", _aprof, _atok) * total + 1e-9))
+    binding_overrides = relations
+    if terminal_groups:
+        from quality.catalog_shape import terminal_rhyme_relation
+        binding_overrides = dict(relations or {})
+        for i in range(len(terminal_groups)):
+            label = SC.label((i,))
+            requested = binding_overrides.get(label)
+            if str(requested or "").strip().lower() in ("", "draw", "any"):
+                requested = relation or "class:RHYME"
+            if not terminal_rhyme_relation(requested):
+                raise PlanRefused("the catalog requires rhyme at every selected line ending")
+            binding_overrides[label] = requested
     groups, _type_rels, _type_records, _unplaced = _assign_types(
         _section_blocks, random.Random(f"{seed}/types"), _max_token,
-        declared=relation, per_group=relations,
+        declared=relation, per_group=binding_overrides,
         head_cap=_head_cap)
+    if terminal_groups and [record["lines"] for record in _type_records] != terminal_groups:
+        raise PlanRefused("the selected rhyme type cannot bind the whole prescribed terminal group")
 
     plan = {
         "plan_version": 3,
@@ -5892,6 +5968,12 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # EACH GROUP CARRIES ITS TYPE (D1), handed to the grader through the
     # mandate's per-group `relations`, spelled `schema:<registry name>` —
     # internal plan data; the writer is shown the generated rule (D5).
+    if catalog is not None:
+        plan["request"]["song_form"] = deepcopy(song_form)
+        plan["choices"]["pattern"]["chosen_from"] = "declared catalog section sequence"
+        if "bars_per_line" in catalog and melody is None:
+            plan["choices"]["meter"]["chosen_from"] = (
+                f"native meter draw conditioned on {bars} bars per line from the catalog section lengths")
     plan["relations"] = dict(_type_rels)
     plan["choices"]["relations"] = {
         "chosen_from": (
@@ -5911,6 +5993,15 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # writer reads, and handing one out is the moment the plan stops costing
     # a seed and starts costing a draft.
     #
+    # A fixed lexical length narrows the grid ceiling on this particular draw.
+    # Keep the draw's native placements intact and report a conflicting seed.
+    if song_form and song_form.get("lineRequirements"):
+        from quality.catalog_shape import line_fit_conflicts
+        conflicts = line_fit_conflicts(plan, song_form["lineRequirements"])
+        if conflicts:
+            raise SeedRefused("catalog line requirements conflict with the drawn plan: " +
+                              "; ".join(f"L{item['line']} {item['code']}: {item['detail']}"
+                                        for item in conflicts))
     joint = joint_findings(plan)
     if joint:
         codes = sorted({c for c, _, _ in joint})
@@ -6043,6 +6134,8 @@ def fill_plan(plan, lines):
         # writes `""` here, so the finding is unchanged for anyone who does
         # not declare one.
         **({"melody": deepcopy(plan["melody"])} if "melody" in plan else {}),
+        **({"song_form": deepcopy(plan["request"]["song_form"])}
+           if "song_form" in plan.get("request", {}) else {}),
         "title": plan.get("title") or "",
         "hooks": hooks,
         # THE HOOK IS A SLOT, AND THE TEXT ABOVE IS WHAT THE SLOT HOLDS NOW
@@ -6378,6 +6471,8 @@ WRITING_BAN_PARTNERS = 6
 #: reads the word a line opens on (its first space-split piece, with the
 #: `trimmed` marks cut from its ends); test_plan probes that reader too.
 STOP_RULES = {
+    "CATALOG_FORM_MISMATCH": {"applies": "catalog_form", "stop": "flag",
+                              "limit": "catalog_form"},
     "OUT_OF_CALIBRATED_LENGTH": {"applies": "always", "stop": "ungraded",
                                  "limit": "length_reach",
                                  "words": {"accented": True,
@@ -6557,6 +6652,7 @@ def _matched_openings(plan):
 
 
 _STOP_APPLIES = {
+    "catalog_form": lambda plan: bool(plan.get("request", {}).get("song_form")),
     "always": lambda plan: True,
     "never": lambda plan: False,
     "groups": lambda plan: bool(str(plan.get("groups") or "").strip()),
@@ -6891,6 +6987,9 @@ def _limit_common_partner(plan):
 
 
 _STOP_LIMITS = {
+    "catalog_form": lambda plan: (
+        f"the draft fails a measured requirement of catalog form {plan['request']['song_form']['id']!r}, "
+        f"variant {plan['request']['song_form']['variant']}"),
     "length_reach": _limit_length_reach,
     "openings": _limit_openings,
     "grammar_words": _limit_grammar_words,
@@ -6989,6 +7088,26 @@ def writer_brief(plan):
     m = plan["sections"][0]["meter"]
     out = [f"Write a song: {plan['total_lines']} lines, "
            f"{len(plan['sections'])} sections, in this order:"]
+    catalog = plan.get("request", {}).get("song_form")
+    if catalog is not None:
+        out.append(f"Catalog {catalog['scope']}: {catalog['id']} (variant {catalog['variant']}).")
+        groups = catalog["rhymeGroups"]
+        if len(groups) == 1:
+            out.append(f"  Lines {groups[0][0]}–{groups[0][-1]}: all line endings rhyme with each other.")
+        elif groups:
+            out.append("  Match the ending sound within each group of lines and keep it distinct across groups: "
+                       + "; ".join(", ".join(map(str, group)) for group in groups) + ".")
+        for row in catalog.get("lineRequirements", ()):
+            terms = []
+            for field, unit in (("words", "word"), ("syllables", "syllable"), ("stresses", "stress")):
+                if field in row:
+                    terms.append(f"{row[field]} {unit if row[field] == 1 else field}")
+            if "wordLetters" in row:
+                widths = ", ".join(str(n) if n is not None else "any" for n in row["wordLetters"])
+                terms.append(f"letters in each sung word, in order: {widths}")
+            if "stress" in row:
+                terms.append(f"stress pattern {row['stress']} (weak ., stressed /)")
+            out.append(f"  L{row['line']}: " + ", ".join(terms) + ".")
     for sec in plan["sections"]:
         slots = [s for s in plan["line_slots"]
                  if s["section"] == sec["name"]]

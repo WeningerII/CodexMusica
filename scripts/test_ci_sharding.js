@@ -109,6 +109,18 @@ function checkGates(w) {
 function checkBuildHandoff(w) {
   const producer = w.jobs['freshness-build'];
   const consumer = w.jobs.faults;
+  const producerNode = producer.steps.find((step) => step.uses?.startsWith('actions/setup-node@'));
+  const consumerNode = consumer.steps.find((step) => step.uses?.startsWith('actions/setup-node@'));
+  assert.ok(producerNode?.id, 'the builder must publish the Node version it actually installed');
+  assert.equal(
+    producer.outputs.node_version,
+    '${{ steps.' + producerNode.id + '.outputs.node-version }}'
+  );
+  assert.equal(
+    consumerNode?.with['node-version'],
+    '${{ needs.freshness-build.outputs.node_version }}',
+    'fault shards must use the exact producer runtime before admitting its build'
+  );
   const compare = command(producer, /scripts\/check_artifact_fresh\.js --prebuilt-api=/);
   const receipt = command(producer, /scripts\/artifact_build_cache\.js record /);
   const archive = command(producer, /tar -czf .*verified-fresh-build\.tar\.gz/);

@@ -4554,6 +4554,10 @@ function lyMountMarkup() {
     <div id="ly-relation-inspector" class="ly-relation-inspector" hidden></div>
     <div class="ly-main-scroll" id="ly-main-scroll">
       <div class="ly-section-nav" id="ly-section-nav"></div>
+      <details class="ly-adv ly-song-forms" id="ly-song-forms">
+        <summary>Song forms</summary>
+        <div id="ly-song-forms-view"></div>
+      </details>
       <div class="ly-toolbar" role="toolbar" aria-label="Document" id="ly-toolbar">
         ${lyBtn('ly-find-open', 'Find', 'search', { cls: 'cm-btn cm-btn-outline', extra: 'aria-controls="ly-find" aria-expanded="false"' })}
         ${lyBtn('ly-undo', 'Undo', 'undo-2', { cls: 'cm-btn cm-btn-outline' })}
@@ -6566,11 +6570,7 @@ const lyHasGuidance = () => {
   const meta = lyMeta();
   return !!meta.brief.trim() || Object.values(meta.notes || {}).some((n) => String(n).trim());
 };
-// A new song sends no declaration (stage 3): the page has no setting for its
-// form, length, sections, rhyme or time, so it cannot tell a thing the person
-// left open from one they asked for in their message. The writer states each
-// on the sweep, from the message or by asking the person. A `draw` sent here
-// read as an exact declaration over what the person typed.
+// Only an explicit catalog choice binds a new song. Edits use their document declarations.
 function lyContext(model, { document = true } = {}) {
   const meta = lyMeta();
   const guidance = document || LY.reuseBrief === true;
@@ -6585,7 +6585,7 @@ function lyContext(model, { document = true } = {}) {
   return {
     version: 1,
     document: document ? lyWriterText(model.text) : '',
-    declarations: document ? decl : {},
+    declarations: document ? decl : LY.forms?.declarations() || {},
     brief: brief.slice(0, 4000),
     notes,
     binding: {
@@ -6703,14 +6703,14 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
   return r.ok;
 }
 // A new conversation the person will type into: the same conflict rule.
-async function lyStartConversation(choice, prefill = '', { force = false } = {}) {
+async function lyStartConversation(choice, prefill = '', { force = false, onStart } = {}) {
   lyCloseMenus();
   if (chatState.busy) {
     showToast('Writer is working. You can keep editing.', 'error');
     return false;
   }
   if (lyLiveWork() && !force) {
-    LY.conflict = { kind: 'conversation', args: { choice, prefill } };
+    LY.conflict = { kind: 'conversation', args: { choice, prefill, onStart } };
     lyShowTab('writer');
     return false;
   }
@@ -6726,6 +6726,7 @@ async function lyStartConversation(choice, prefill = '', { force = false } = {})
   }
   LY.conflict = null;
   _chatReset();
+  onStart?.();
   lyShowTab('writer');
   uiChatOpen();
   // Opening the shared dock selects the lyrics domain; retain the requested phase.
@@ -7781,7 +7782,10 @@ const LY_ACTIONS = {
     LY.conflict = null;
     if (!c) return;
     if (c.kind === 'conversation')
-      return lyStartConversation(c.args.choice, c.args.prefill, { force: true });
+      return lyStartConversation(c.args.choice, c.args.prefill, {
+        force: true,
+        onStart: c.args.onStart,
+      });
     return lySubmitLyricsAction(c.kind, c.args, { force: true });
   },
   'ly-conflict-cancel'() {
@@ -8013,6 +8017,22 @@ function lySizeOf(width) {
 }
 function lyWire(surface) {
   lyInspectionWire(surface);
+  LY.forms = null;
+  const forms = surface.querySelector('#ly-song-forms');
+  const view = forms.querySelector('#ly-song-forms-view');
+  forms.addEventListener('toggle', async () => {
+    if (!forms.open || view.childElementCount || view.ariaBusy === 'true') return;
+    view.ariaBusy = 'true';
+    view.textContent = 'Loading song forms…';
+    try {
+      const { mountSongForms } = await import('./src/pages/song-forms-view.mjs');
+      LY.forms = await mountSongForms(view, lyStartConversation, chatState);
+    } catch {
+      view.textContent = 'Song forms could not load. Close and reopen to retry.';
+    } finally {
+      view.ariaBusy = 'false';
+    }
+  });
   const draft = lyDraft();
   // Every script write to the draft (Undo, a restored or imported session, a
   // writer's lyrics) must reach this view; none of them fires `input`.
@@ -8305,6 +8325,7 @@ function lyWire(surface) {
   });
   // New conversation clears the writer's state without a busy flip.
   document.addEventListener('chat-reset', () => {
+    LY.forms?.sync();
     if (LY.model) lyRefresh(true);
   });
   // The shell's busy state flips around a reply; re-render when it does.

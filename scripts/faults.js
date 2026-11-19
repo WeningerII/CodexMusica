@@ -215,6 +215,18 @@ function plantWrite(d, f, data) {
 function mkenv(items) {
   const d = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-fault-'));
   ENVS.push(d);
+  if (items.includes('mcp')) {
+    // Connector tools import the shared song-form engine from src/ and read
+    // these catalog and lexicon declarations alongside the MCP package.
+    items = [
+      ...new Set([
+        ...items,
+        'src',
+        'data/song-forms.json',
+        'lyric-harness/data/lexicon_supplement_versions.json',
+      ]),
+    ];
+  }
   for (const it of items) {
     // mcp/ carries its own dependency tree (the MCP SDK + zod, ~27MB). Copying
     // it per fault class would dominate this script's runtime, so stage the
@@ -227,13 +239,6 @@ function mkenv(items) {
         assertContained(d, path.join(d, 'mcp', f));
       }
       fs.symlinkSync(path.join(ROOT, 'mcp', 'node_modules'), path.join(d, 'mcp', 'node_modules'));
-      // The one file outside mcp/ the connector reads at import: the lexicon
-      // supplement manifest whose ids are the reading tools' published enum
-      // (mcp/lexicon_basis.js). Without it every mcp-staging class fails on
-      // ENOENT, never on its planted defect.
-      const manifest = 'lyric-harness/data/lexicon_supplement_versions.json';
-      fs.mkdirSync(path.dirname(path.join(d, manifest)), { recursive: true });
-      fs.copyFileSync(path.join(ROOT, manifest), path.join(d, manifest));
       continue;
     }
     // An item may be a nested path (api/engine.json): its parent is made first.
