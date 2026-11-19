@@ -394,17 +394,36 @@ def _final_unstressed_lines(plan):
 
 
 #: Findings that must NEVER stand on a planner-emitted shape: the two hard
-#: verbatim-return failures, and the three drift notes that would mean the
+#: verbatim-return failures, the three drift notes that would mean the
 #: planner contradicted its own returns mandate (instances of one function
 #: kind must share length, meter and pickup — the anacrusis is drawn per
-#: KIND for exactly this reason). ~~RETURN_NEVER_RETURNS (a single chorus is
-#: a real form; the note is a disclosure, and disclosure is not a ban) and~~
-#: RETURN_SCHEME_DRIFT (a fact about the DRAFT's words, not the plan) ~~are~~
-#: is deliberately absent from this set. Stage 4 fix round, 2026-11-18: the
-#: struck remark was removed from the grader in stage 4, so it is in no set.
+#: KIND for exactly this reason), and, since stage 5 (owner's ruling 16 Nov
+#: 2026), every return-layer answer about a shape the plan dealt. Under a
+#: plan the grader does not give those (`song_function_report(classes=)`),
+#: and the planner never repeats a single-use row (SINGLE_USE_RECURRED). So
+#: any of them standing here means the plan and the grader disagree about
+#: the song. ~~RETURN_SCHEME_DRIFT (a fact about the DRAFT's words, not the
+#: plan) is deliberately absent from this set~~: since stage 5 it is in it.
+#: RETURN_NEVER_RETURNS is in no set: stage 4 removed it from the grader
+#: (stage 4 fix round, 2026-11-18).
+#: CROSS_FUNCTION_REPRISE IS LEFT OUT ON PURPOSE; DO NOT ADD IT. The round
+#: trip's filler draft (`dummy_draft`) cycles a short line bank, so a
+#: reprising section (an outro) repeats lines of the section it reprises
+#: (an intro or chorus) that the plan never returned. Those repeats are
+#: undealt copies, and under the owner's call B (16 Nov 2026) an undealt
+#: copy keeps its CROSS_FUNCTION_REPRISE note. So the note stands on this
+#: filler whatever the planner does, and with the code in this set the round
+#: trip fails on the filler's own repeats, not on a plan. That the plan's
+#: own reprise rows never carry the note is checked in
+#: `quality/test_return_plan.py`, whose drafts repeat no line the plan did
+#: not return (its `PLAN_DEALT` set).
 FORBIDDEN = {"RETURN_NOT_VERBATIM", "RETURN_OUT_OF_RANGE",
              "RETURN_SLOT_DRIFT", "RETURN_LENGTH_DRIFT",
-             "RETURN_METER_DRIFT"}
+             "RETURN_METER_DRIFT",
+             "SINGLE_USE_RECURRED",
+             "RETURN_SCHEME_DRIFT", "RETURNS_WITH_NEW_WORDS",
+             "RETURN_LOCKED", "REPRISE_BRINGS_NOTHING_BACK",
+             "HOOK_CONFINED", "HOOK_DOES_NOT_RECUR"}
 
 
 #: THE ROUND TRIP'S SEEDS RUN IN PARALLEL, and the body lives here rather
@@ -625,6 +644,15 @@ def _round_trip_one(seed):
         bad.extend((seed, error) for error in _round_trip_grade_errors(g, m))
         if codes & FORBIDDEN:
             bad.append((seed, sorted(codes & FORBIDDEN)))
+        # The function layer must be answerable on the plan's own shape: a
+        # refused `function:draft` is a question no choice of words answers.
+        _fn = [row for row in found["coverage"]["obligations"]
+               if row["id"] == "function:draft"]
+        if not _fn or _fn[0]["status"] == "refused":
+            bad.append((seed, "function:draft refused: " + ", ".join(
+                row["id"] for row in found["coverage"]["obligations"]
+                if row.get("layer") == "function"
+                and row["status"] == "refused")))
         for s in plan["sections"]:
             n = sum(1 for ls in plan["line_slots"]
                     if ls["section"] == s["name"])
@@ -7833,7 +7861,6 @@ def test_the_stop_rules():
     from quality import revise as _RV
     from quality import sentencehood as _SH
     from quality.grid import song_from_blueprint, hook_occurrences
-    from quality import grid as _GRD
     census = _GC.census()
     gated = {c for c, r in census.items() if r["verdict"] == "GATED"}
     # An `unjudged` row is no census gate: it names the note the grader
@@ -8443,9 +8470,11 @@ def test_the_stop_rules():
     fit_never = {"ZERO_DURATION", "BEAT_OUTSIDE_CYCLE",
                  "START_BEFORE_SECTION", "OVERRUNS_SECTION", "START_OFF_GRID"}
     check("...and the rows marked never are the five placement codes, "
-          "HOOK_ABSENT, CLICHE_PAIR, MATTR_WINDOW_UNCALIBRATED and the meter "
-          "codes the grade cannot raise, each with a stated reason",
-          never == fit_never | {"HOOK_ABSENT", "CLICHE_PAIR",
+          "HOOK_ABSENT, HOOK_DOES_NOT_RECUR, CLICHE_PAIR, "
+          "MATTR_WINDOW_UNCALIBRATED and the meter codes the grade cannot "
+          "raise, each with a stated reason",
+          never == fit_never | {"HOOK_ABSENT", "HOOK_DOES_NOT_RECUR",
+                                "CLICHE_PAIR",
                                 "MATTR_WINDOW_UNCALIBRATED"} | never_meter
           and all(PLN.STOP_RULES[c].get("never") for c in never),
           sorted(never))
@@ -8457,47 +8486,96 @@ def test_the_stop_rules():
           decl.mattr_window == _F.CALIBRATION["mattr_window"]["value"],
           f"{decl.mattr_window}")
 
-    # ONE UNBROKEN RUN, read off `grid.hook_findings`: on a drawn plan's
-    # lines, a hook line whose words come back in order with one word put
-    # between them does not recur, and one that comes back as an unbroken
-    # run inside a longer line does; a title whose words sit in the hook
-    # line in order with one word between them is not in the hook, and one
-    # that sits there unbroken is. Both rows say one unbroken run.
+    # THE HOOK ROWS, READ OFF THE PLANNED GRADE (2026-11-18). A drawn plan's
+    # own draft, every returned line copied by the plan's rows, is put to
+    # `Reviser.inspect` as a seeded grade puts it: under the plan's mandate,
+    # returns and all, and the blueprint `fill_plan` writes. ~~The probe
+    # called `grid.hook_findings` itself, which knows of no plan~~, so the
+    # HOOK_DOES_NOT_RECUR row and the brief's hook line went on naming checks
+    # the planned grader had stopped giving, and this section stayed green.
+    #   once     every copy of the hook line takes a word between its words,
+    #            so the hook's words stand in one line only;
+    #   t_broke  the hook line and its copies alike take a word between the
+    #            title's words, so the class agrees and the title is not one
+    #            unbroken run in the hook;
+    #   whole    the draft as planned, the title an unbroken run in the hook.
     p_h = next(make_plan(s, form=f) for f in PLN.PLAN_FORMS for s in
                range(1, 9) if make_plan(s, form=f).get("hook_slot"))
     hs = p_h["hook_slot"]
     _wrd = lambda i: "".join("bcdfghjklm"[int(c)] + "a" for c in str(i))
-    base = [" ".join(_wrd(10 * ln + w) for w in range(4))
-            for ln in range(1, p_h["total_lines"] + 1)]
-    other = next(ln for ln in range(p_h["total_lines"]) if ln != hs - 1)
-    hw = base[hs - 1].split()
+    rets_h = {}
+    for row in p_h["returns"].split(";"):
+        a, b = (int(x) for x in row.split(","))
+        rets_h[b] = a
+    whole = []
+    for ln in range(1, p_h["total_lines"] + 1):
+        whole.append(whole[rets_h[ln] - 1] if ln in rets_h else
+                     " ".join(_wrd(10 * ln + w) for w in range(4)))
+    hw = whole[hs - 1].split()
     filler = _wrd(9999)
-
-    def _hook_codes(lines, title):
-        bp = fill_plan(p_h, lines)
-        song, hooks = song_from_blueprint(bp)
-        return {f.code for f in _GRD.hook_findings(song, hooks,
-                                                    title=title)[0]}
-    broke = list(base)
-    broke[other] = " ".join(hw[:1] + [filler] + hw[1:])
-    whole = list(base)
-    whole[other] = " ".join([filler] + hw + [filler])
-    t_broke = list(base)
-    t_broke[hs - 1] = " ".join(hw[:1] + [filler] + hw[1:])
-    t_broke[other] = t_broke[hs - 1]
-    t_whole = list(whole)
     title = " ".join(hw[:2])
-    run_ok = ("HOOK_DOES_NOT_RECUR" in _hook_codes(broke, title)
-              and "HOOK_DOES_NOT_RECUR" not in _hook_codes(whole, title)
-              and "TITLE_NOT_IN_HOOK" in _hook_codes(t_broke, title)
-              and "TITLE_NOT_IN_HOOK" not in _hook_codes(t_whole, title))
+    spread = " ".join(hw[:1] + [filler] + hw[1:])
+    copies = [ln for ln in range(1, p_h["total_lines"] + 1)
+              if ln != hs and whole[ln - 1] == whole[hs - 1]]
+    once = [spread if ln in copies else text
+            for ln, text in enumerate(whole, 1)]
+    t_broke = [spread if ln == hs or ln in copies else text
+               for ln, text in enumerate(whole, 1)]
+    m_h = SC.mandate([g.split(",") for g in p_h["groups"].split(";")],
+                     n_lines=p_h["total_lines"],
+                     returns=[[int(x) for x in r.split(",")]
+                              for r in p_h["returns"].split(";")],
+                     relations=p_h.get("relations"),
+                     default_relation=p_h.get("relation"))
+    sub_h = _FT.Subdivision(p_h["subdivision"], source="test_plan hook rows")
+
+    def _planned_codes(lines):
+        got = reviser.inspect(lines, m_h, subdivision=sub_h,
+                              blueprint=fill_plan(dict(p_h, title=title),
+                                                  lines))
+        return ({f.code for f in got["whole"]}
+                | {f.code for fs in got["per_line"].values() for f in fs})
+    probe = {"once": _planned_codes(once), "t_broke": _planned_codes(t_broke),
+             "whole": _planned_codes(whole)}
+    given = set().union(*probe.values())
+    grid_rows = {c for c, r in PLN.STOP_RULES.items() if r["stop"] == "grid"}
+    rows_bad = sorted(c for c in grid_rows
+                      if (PLN.STOP_RULES[c]["applies"] != "never")
+                      != (c in given))
+    check("...and each hook row that can stop a planned song is a code the "
+          "planned grade gives on a drawn plan's draft, and each one it "
+          "never gives there is a never row",
+          copies and not rows_bad,
+          (rows_bad, {k: sorted(v & grid_rows) for k, v in probe.items()}))
+    check("...HOOK_DOES_NOT_RECUR: with every copy of the hook line changed "
+          "the planned grade gives RETURN_NOT_VERBATIM and no "
+          "HOOK_DOES_NOT_RECUR, as its never row says",
+          "RETURN_NOT_VERBATIM" in probe["once"]
+          and "HOOK_DOES_NOT_RECUR" not in given
+          and "RETURN_NOT_VERBATIM" in PLN.STOP_RULES.get(
+              "HOOK_DOES_NOT_RECUR", {}).get("never", ""),
+          sorted(probe["once"] & (grid_rows | {"RETURN_NOT_VERBATIM"})))
     p_t = dict(p_h, title=title)
-    said = (PLN._limit_hook_recurs(p_t), PLN._limit_title_in_hook(p_t))
-    check("...and the hook and title rows say what grid.hook_findings "
-          "needs: the words as one unbroken run, in the same order (words "
-          "in order with one between them are flagged)",
-          run_ok and all("one unbroken run, in the same order" in s
-                         for s in said), (run_ok, said))
+    said = PLN._limit_title_in_hook(p_t)
+    check("...and the title row says what the planned grade needs: the "
+          "title's words as one unbroken run, in the same order (with one "
+          "word between them the draft is flagged)",
+          "TITLE_NOT_IN_HOOK" in probe["t_broke"]
+          and "TITLE_NOT_IN_HOOK" not in probe["whole"]
+          and "RETURN_NOT_VERBATIM" not in probe["t_broke"]
+          and "one unbroken run, in the same order" in said,
+          (sorted(probe["t_broke"] & grid_rows), said))
+    # THE BRIEF'S HOOK LINE names only checks the planned grade gives: each
+    # code on it is one a probe above drew, or a never row (whose reason is
+    # checked in this section).
+    named = set(re.findall(r"[A-Z][A-Z_]+(?= \()", next(
+        ln for ln in PLN.writer_brief(p_t).splitlines()
+        if ln.startswith(f"Line {hs} is the hook line. Graded by: "))))
+    not_given = sorted(c for c in named if c not in given
+                       and PLN.STOP_RULES.get(c, {}).get("applies") != "never")
+    check("...and the brief's hook line names no check the planned grade "
+          "does not give",
+          named and not not_given, (sorted(named), not_given))
 
     plans, refused, n_spread = _stop_rule_plans()
     tlo, thi = PLN.tokens_per_line_band()
@@ -8664,10 +8742,10 @@ def test_the_stop_rules():
                         if PLN.STOP_RULES[c]["layer"] == "meter")
         if p["returns"]:
             want.add("RETURN_NOT_VERBATIM")
-        if p.get("hook_slot"):
-            want.add("HOOK_DOES_NOT_RECUR")
-            if p.get("title"):
-                want.add("TITLE_NOT_IN_HOOK")
+        # ~~A hook slot asked for a HOOK_DOES_NOT_RECUR row~~ (2026-11-18):
+        # the planned grade gives no such flag, so the row is a never row.
+        if p.get("hook_slot") and p.get("title"):
+            want.add("TITLE_NOT_IN_HOOK")
         # A floor-pair flag needs a second pair (floor.py, "only one rhyme
         # pair here" is a note), so the row asks for two.
         if len(fpairs) >= 2:
@@ -8723,8 +8801,6 @@ def test_the_stop_rules():
                     hook_bad.append(tag)
             elif bp["hooks"]:
                 hook_bad.append(tag)
-        if "HOOK_DOES_NOT_RECUR" in want:
-            exp["HOOK_DOES_NOT_RECUR"] = [f"line {p['hook_slot']}"]
         if "TITLE_NOT_IN_HOOK" in want:
             exp["TITLE_NOT_IN_HOOK"] = [f"inside line {p['hook_slot']}"]
         if "REPEAT_IN_VERSE" in want:
@@ -8750,11 +8826,12 @@ def test_the_stop_rules():
           "states its own grader's word unit, on every drawn plan",
           not units_scoped, units_scoped[:3])
     check("...and every row the spread is meant to reach is reached: the "
-          "stacked-draft floor, returns, a hook, a titled hook and the "
-          "floor-pair row",
+          "stacked-draft floor, returns, a titled hook and the floor-pair "
+          "row; and a plan with a hook and no title is drawn",
           all(seen[c] for c in ("STACKED_DRAFT", "RETURN_NOT_VERBATIM",
-                                "HOOK_DOES_NOT_RECUR", "TITLE_NOT_IN_HOOK",
-                                "REPEAT_IN_VERSE"))
+                                "TITLE_NOT_IN_HOOK", "REPEAT_IN_VERSE"))
+          and any(p.get("hook_slot") and not p.get("title")
+                  for _k, _s, p in plans)
           and any(p["total_lines"] < _SH.ADOPTED["MIN_LINES"]
                   for _k, _s, p in plans)
           and any(not p["returns"] for _k, _s, p in plans), dict(seen))

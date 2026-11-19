@@ -1264,8 +1264,15 @@ def test_line_count_cannot_fire_through_the_reviser():
     ok("`Reviser.mandate` is still `SC.mandate(spec, n_lines=len(lines))`", s1)
     s2 = "m = self.mandate(lines, mandate)" in rsrc
     ok("`inspect()` still builds its mandate from the draft it is grading", s2)
-    s3 = "for label, i, j, kind, msg in m.returns_check(lines):" in rsrc
-    ok("...and still hands `returns_check` that same `lines`", s3)
+    # REPOINTED 2026-11-18 (stage 5): ~~`"for label, i, j, kind, msg in
+    # m.returns_check(lines):" in rsrc`~~. `inspect()` now asks once and
+    # keeps the answer, to read each class whole (one flag for each changed
+    # line), so the call site is spelled as an assignment. It is still the
+    # one call, on the same `m` and the same `lines`.
+    s3 = (rsrc.count("m.returns_check(lines)") == 1
+          and "_checked = m.returns_check(lines)" in rsrc)
+    ok("...and still hands `returns_check` that same `lines`, in its one "
+       "call", s3)
     # This carried `True` and a detail that SAID SO -- "nothing here asserts
     # it on its own" -- until 2026-08-23. An honest label on a vacuous check
     # is still a vacuous check: it printed PASS in the report either way, and

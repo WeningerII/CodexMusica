@@ -2405,8 +2405,12 @@ def test_a_returns_broken_rhyme_scheme_reaches_the_report():
           "measured against a labelled CONVENTION (doctrine 96)",
           SEVERITY["RETURN_SCHEME_DRIFT"] == "note"
           and GridFinding("RETURN_SCHEME_DRIFT", "m", "e").severity == "note",
-          f"{POPULAR_SONG.name!r} — `return_findings` is never handed a "
-          f"mandate, so nothing it says is a requirement the writer declared. "
+          # ~~"`return_findings` is never handed a mandate"~~ (2026-11-18):
+          # since stage 5 a planned song tells it so (`planned`), and it then
+          # gives no such note.
+          f"{POPULAR_SONG.name!r} — `return_findings` measures against this "
+          f"convention, so nothing it says is a requirement the writer "
+          f"declared; under a plan it does not give this note at all. "
           f"The flag for a REQUIRED return is RETURN_NOT_VERBATIM, from "
           f"`Mandate.returns_check`, one layer down.")
     # REPOINTED 2026-08-23 from ~~`== ["HOOK_ABSENT"]`~~ (`MISSING.md` M-84,
