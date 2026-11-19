@@ -850,11 +850,13 @@ test('a refused plan says what the recorded sweeps hold, bounded, and never prin
   const t = fresh();
   preplan(t);
   // A seed a sweep accepted: that sweep's coordinates and the fields this call differs in.
+  // These sweeps leave out both form fields and record no catalog selection,
+  // so a record with no form reads as the native default form (#902).
   const differs = creationRefusal(t, 'lyric_plan', { seed: 16, lines: 12 });
   assert.match(differs, /^CREATION_PLAN: plan a seed an accepted lyric_sweep returned, /);
   assert.ok(
     differs.includes(
-      `Recorded sweeps that accepted seed 16, newest first: (1) form ${sweepArgs.form}, lines none, ` +
+      `Recorded sweeps that accepted seed 16, newest first: (1) form ${DEFAULT_FORM}, lines none, ` +
         'functions none, relation none, melody none, want ["lines<=30"]; this call differs in lines, ' +
         "wants (the sweep's `want`)."
     ),
@@ -880,9 +882,9 @@ test('a refused plan says what the recorded sweeps hold, bounded, and never prin
   assert.ok(
     none.includes(
       'No recorded sweep accepted seed 99. Recorded sweeps, newest first: ' +
-        `(1) accepted seeds [21,22,23,24,25] and 2 more; form ${melodySweep.form}, lines 12, ` +
+        `(1) accepted seeds [21,22,23,24,25] and 2 more; form ${DEFAULT_FORM}, lines 12, ` +
         'functions ["chorus","verse"], relation none, melody declared, want ["a=b,c"]; ' +
-        `(2) accepted seeds [16,17]; form ${sweepArgs.form}, lines none, functions none, ` +
+        `(2) accepted seeds [16,17]; form ${DEFAULT_FORM}, lines none, functions none, ` +
         'relation none, melody none, want ["lines<=30"].'
     ),
     none

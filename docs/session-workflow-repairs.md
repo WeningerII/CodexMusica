@@ -105,16 +105,12 @@ host's integration.
 reordering, descriptor-loss disclosure, partial measurement status, blueprint
 headers, function-specific predicates, and meter fallback.
 
-`npm run qualify:session:workflow` replays a checked-in draft
-(`docs/session-repair-evidence/`) through the maintained client and real sweep,
-plan, screen, grade and interview revision tools. It uses no paid model and does
-not alter continuation state. Evidence is written beside the checked-in draft.
-The replay checks that every section header survives and that lower-bound meter
-refusals on names with no dictionary entry disappear under explicitly selected
-low fallback. It then declares the draft's homograph reading, regrades, resumes
-the draft's lyric repairs, and requires exit 0 with complete requested coverage.
-Its evidence uses the `moonshots-pronunciation-replay` prefix; an uncertified
-replay of the same draft is kept beside it as a counterexample.
+The draft replay (`npm run qualify:session:workflow`) was removed on purpose in
+#902, with its `moonshots-pronunciation-replay` evidence. It replayed a
+checked-in draft written to a native-form plan. A new song's form is now a
+catalog form, so the replay cannot run on the new-song path, and it was retired
+as a qualification. The checked-in draft and an uncertified replay of it remain
+in `docs/session-repair-evidence/` as records.
 
 See [pronunciation-choices.md](pronunciation-choices.md) for the occurrence-reading
 implementation, regression evidence, and certification limits.

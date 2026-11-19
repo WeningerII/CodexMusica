@@ -18,7 +18,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { createHash } from 'node:crypto';
-import { mkdtempSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { JobStore } from './job_store.js';
@@ -30,12 +30,16 @@ import { LEXICON_MANIFEST } from './lexicon_basis.js';
 import { _verdictInternals } from './lyric_tools.js';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { stated } from './statement_fixture.mjs';
+import { legacySession, legacyStated, legacySweep, stated } from './statement_fixture.mjs';
+import { automaticFormCandidates } from './lyric_form.js';
 import {
+  CREATION_FORM,
+  DEFAULT_FORM,
   FORM_ROWS,
   OUTCOME_ACTORS,
   OUTCOME_KINDS,
   STATEABLE,
+  catalogSelection,
   creationRefusal,
   noneKeptDeclared,
   noneKeptMeaning,
@@ -49,6 +53,10 @@ import {
 } from './lyric_workflow.js';
 
 const RUN = { run_id: '<run>', run_revision: 3 };
+// The Song Forms catalog's ids: a new song's form is one of them (#902).
+const CATALOG_IDS = JSON.parse(
+  readFileSync(new URL('../data/song-forms.json', import.meta.url), 'utf8')
+).map((f) => f.id);
 // A coverage record with one refused row. `row` decides whose choice it is:
 // a row about words (a line, a word, a pair) or a row that is a declaration.
 const coverage = (row) => ({
@@ -897,6 +905,10 @@ test(
         const other = roster[draw(roster.length)];
         const count = 2 + draw(4);
         const args = {
+          // The native default form, at the raw boundary that keeps `form`:
+          // with neither form field the sweep chooses a catalog setting
+          // instead (#902), and these are the native windows' counts.
+          form: DEFAULT_FORM,
           // ~~More instances of one function than a drawn pattern holds~~:
           // since stage 4 a stated section count is built into the draw, so
           // it no longer empties a window. A rhyme group deeper than drawn
@@ -1525,7 +1537,9 @@ test('a retired id is followed to its successor, or the workflow is opened again
 
 // Stage 3: a sweep that leaves a thing out waits on the person, with the rows
 // it leaves out as data; one that gives a field a value and a draw is the
-// writer's to settle. Each outcome, followed with what it lists, is admitted.
+// writer's to settle. A new song's form is a catalog form (#902): a sweep
+// that sends the legacy `form` is the writer's to send again without it.
+// Each outcome, followed with what it lists, is admitted.
 test('a new-song sweep refused for its statements is a decision, with the rows or fields as data', async (t) => {
   const sessions = new WorkflowSessions({ store: storeFor(t).store });
   const client = await sessionClient(t, sessions);
@@ -1534,19 +1548,40 @@ test('a new-song sweep refused for its statements is a decision, with the rows o
     return send(client, 'get_operation', { operation_id: receipt.operation_id });
   };
   const opened = await send(client, 'begin_lyrics', {});
+  // A catalog form named, picked by seed, and the rest left out. It states
+  // the form and the sections; every other row is listed.
   const left = await settled(
-    await send(client, 'lyric_sweep', { session_id: opened.session_id, seed_from: 0, count: 1 })
+    await send(client, 'lyric_sweep', {
+      session_id: opened.session_id,
+      seed_from: 0,
+      count: 1,
+      catalog_form: CATALOG_IDS[3 % CATALOG_IDS.length],
+    })
   );
   assert.equal(left.tool_error, true);
   assert.deepEqual(left.outcome, {
     kind: 'decision',
     by: 'person',
     call: { tool: 'lyric_sweep', args: {} },
-    missing: STATEABLE.map(({ thing, field, draw }) => ({ thing, field, draw })),
+    missing: STATEABLE.filter((r) => r.field !== 'form' && r.field !== 'functions').map(
+      ({ thing, field, draw }) => ({ thing, field, draw })
+    ),
   });
+  // The legacy `form`, with every other row stated: refused before it runs.
+  const legacyArgs = { ...stated({ seed_from: 0, count: 1 }), form: FORM_ROWS[0].form };
+  const legacy = await settled(
+    await send(client, 'lyric_sweep', { session_id: left.session_id, ...legacyArgs })
+  );
+  assert.equal(legacy.tool_error, true);
+  assert.deepEqual(legacy.outcome, {
+    kind: 'next_call',
+    by: 'writer',
+    call: { tool: 'lyric_sweep', args: {} },
+  });
+  assert.ok(legacy.tool_result.content[0].text.startsWith(CREATION_FORM), legacy.tool_result);
   const twice = await settled(
     await send(client, 'lyric_sweep', {
-      session_id: left.session_id,
+      session_id: legacy.session_id,
       ...stated({ seed_from: 0, count: 1 }),
       lines: FORM_ROWS[0].min_lines,
     })
@@ -1558,13 +1593,20 @@ test('a new-song sweep refused for its statements is a decision, with the rows o
     call: { tool: 'lyric_sweep', args: {} },
     conflict: ['lines'],
   });
-  for (const kind of [twice.outcome.kind, left.outcome.kind])
+  for (const kind of [twice.outcome.kind, left.outcome.kind, legacy.outcome.kind])
     assert.ok(OUTCOME_KINDS.includes(kind));
   // Followed with every listed row stated: the gate admits it (it queues).
   const next = await follow(client, twice, stated({ seed_from: 0, count: 1 }));
   assert.notEqual(next.isError, true);
   assert.equal(receiptOf(next).status, 'pending');
-  await sessions.wait(receiptOf(next).operation_id);
+  const swept = await settled(receiptOf(next));
+  // And the legacy sweep, followed without its `form` from the latest
+  // session: admitted too.
+  const { form: _legacy, ...without } = legacyArgs;
+  const again = await follow(client, { ...legacy, session_id: swept.session_id }, without);
+  assert.notEqual(again.isError, true);
+  assert.equal(receiptOf(again).status, 'pending');
+  await sessions.wait(receiptOf(again).operation_id);
 });
 
 test('a call refused in a new-song session names the call its gate admits', async (t) => {
@@ -1603,7 +1645,36 @@ test('a call refused in a new-song session names the call its gate admits', asyn
 // ── A plan reaches the caller at any length ─────────────────────────────────
 // Stage 0's agents drew plans whose results were 100,520, 114,773 and 167,847
 // characters; their client delivered none of them. Real sessions over the
-// first seeds, undeclared so the planner draws the length.
+// first seeds, undeclared so the planner draws the length. Each seed is a new
+// song, whose sweep chooses a catalog setting at random (#902), and a job
+// saved with the native default form, whose plans reach the longest lengths.
+// One more new song names, by property, the automatic draw's setting with the
+// longest verified contract that plans: its plan's request is the longest a
+// new song's plan carries, so the bound is met there on every run.
+const settingKey = (c) => JSON.stringify([c.id, c.variant, c.counts]);
+async function longestSetting() {
+  const { client, close } = await rawClient();
+  try {
+    const size = (c) => JSON.stringify(c).length;
+    const all = (await automaticFormCandidates({})).sort(
+      (x, y) =>
+        size(y) - size(x) ||
+        (settingKey(x) < settingKey(y) ? -1 : settingKey(x) > settingKey(y) ? 1 : 0)
+    );
+    for (const contract of all) {
+      const selection = catalogSelection({ song_form: contract });
+      const r = await client.callTool({
+        name: 'lyric_sweep',
+        arguments: stated({ seed_from: 1, count: 6, ...selection }),
+      });
+      const seed = r.isError ? undefined : JSON.parse(r.content[0].text).accepted_shown?.[0];
+      if (Number.isInteger(seed)) return { selection, seed, size: size(contract) };
+    }
+  } finally {
+    await close();
+  }
+  assert.fail('no setting of the automatic draw plans seeds 1 to 6');
+}
 test(
   'a session publishes a plan as its brief and a verdict that does not grow with it',
   { timeout: 900_000 },
@@ -1617,7 +1688,7 @@ test(
     // The smallest plan result a client is known to have dropped.
     const DROPPED = 100_520;
     let longest = 0;
-    for (let seed = 1; seed <= 6; seed++) {
+    const newSong = async (seed) => {
       let at = await send(client, 'begin_lyrics', {});
       at = await settled(
         await send(
@@ -1627,8 +1698,37 @@ test(
         )
       );
       assert.equal(at.tool_error, undefined, at.tool_result.content[0].text.slice(0, 300));
+      return at.session_id;
+    };
+    const savedJob = async (seed) => {
+      const job = await legacySweep(legacyStated({ seed_from: seed, count: 1 }));
+      assert.equal(job.result.isError, undefined, job.result.content[0].text.slice(0, 300));
+      return legacySession(sessions, job.task);
+    };
+    const longest_ = await longestSetting();
+    assert.ok(longest_.size > 2000, `the longest contract has ${longest_.size} characters`);
+    const named = async () => {
+      let at = await send(client, 'begin_lyrics', {});
+      at = await settled(
+        await send(
+          client,
+          'lyric_sweep',
+          stated({
+            session_id: at.session_id,
+            seed_from: longest_.seed,
+            count: 1,
+            ...longest_.selection,
+          })
+        )
+      );
+      assert.equal(at.tool_error, undefined, at.tool_result.content[0].text.slice(0, 300));
+      return at.session_id;
+    };
+    const jobs = [[longest_.seed, named]];
+    for (let seed = 1; seed <= 6; seed++) jobs.push([seed, newSong], [seed, savedJob]);
+    for (const [seed, open] of jobs) {
       const plan = await settled(
-        await send(client, 'lyric_plan', { session_id: at.session_id, seed })
+        await send(client, 'lyric_plan', { session_id: await open(seed), seed })
       );
       assert.equal(plan.status, 'completed');
       const [brief, verdictBlock] = plan.tool_result.content;
@@ -1710,7 +1810,19 @@ test(
         { cwd: fileURLToPath(new URL('../lyric-harness', import.meta.url)), encoding: 'utf8' }
       )
     );
-    const sessions = new WorkflowSessions({ store: storeFor(t).store });
+    // The native default form's windows, which a new-song sweep refuses now
+    // (#902): the session sweeps each as a saved job's sweep was run, on the
+    // raw engine, and publishes the result as its own.
+    const sessions = new WorkflowSessions({
+      store: storeFor(t).store,
+      execute: async (session, name, args) => {
+        assert.equal(name, 'lyric_sweep');
+        const job = await legacySweep({ ...args, form: DEFAULT_FORM });
+        const next = structuredClone(session);
+        next.native.task = job.task;
+        return { session: next, result: job.published };
+      },
+    });
     const client = await sessionClient(t, sessions);
     let read = null;
     for (const fn of roster) {

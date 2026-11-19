@@ -10,7 +10,7 @@ import { WorkflowSessions } from './workflow_sessions.js';
 import { JobStore } from './job_store.js';
 import { startRecipe, editRecipe, renderRecipe, ENV_FIELDS } from './engine.js';
 import { _verdictInternals } from './lyric_tools.js';
-import { stated } from './statement_fixture.mjs';
+import { legacySnapshot, legacyStated, legacySweep, stated } from './statement_fixture.mjs';
 const require = createRequire(import.meta.url);
 const W = require('../scripts/_workspace_ops.js');
 const { createRegistrar } = require('../scripts/ci_node_test_groups.js');
@@ -85,12 +85,16 @@ test('a redrawn seed keeps its 64-bit candidates exact through sweep, plan and g
   // ~~seed 21~~ — RE-MEASURED 2026-11-13: the planner draws from all 22 section functions
   // (refrain and burden are ordinary sections, owner ruling), so every stream re-deals. At 12
   // lines seeds 1 and 89 each need one redraw, and still no seed in 0..2999 needs two.
+  // These draws are the native default form's: each case is a job saved with
+  // its legacy-form sweep recorded (#902), planned and graded here for real.
   for (const { seed, want, grade } of [
     { seed: 1, grade: true },
     { seed: 89 },
     { seed: 1, want: 'group<=99' },
   ]) {
-    const c = await connect();
+    const wants = want ? { want: [want] } : {};
+    const job = await legacySweep(legacyStated({ seed_from: seed, count: 1, lines: 12, ...wants }));
+    const c = await connect(await legacySnapshot(job.task));
     try {
       const verdict = (result) =>
         result.content
@@ -102,10 +106,7 @@ test('a redrawn seed keeps its 64-bit candidates exact through sweep, plan and g
             }
           })
           .find((value) => Number.isInteger(value.exit_code));
-      const wants = want ? { want: [want] } : {};
-      const sw = verdict(
-        await c.call('lyric_sweep', stated({ seed_from: seed, count: 1, lines: 12, ...wants }))
-      );
+      const sw = job.verdict;
       assert.deepEqual(sw.accepted_shown, [seed]);
       const planned = await c.call('lyric_plan', {
         seed,

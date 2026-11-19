@@ -47,16 +47,20 @@ promising a diagnostic that was omitted.
 - Existing production revision suite: 26 passing tests.
 - Existing production relation suite: 23 passing tests.
 - Changed JavaScript passes ESLint; the diff passes whitespace checks.
-- `npm run qualify:session:workflow`: actual maintained MCP client, server, Python
-  harness and interview continuation. No mocked grader or paid writer. It runs
-  sweep → generated plan → screen → initial grade → pronunciation selection and
-  regrade → revision question → actual repair answers → finished assessment.
+- `npm run qualify:session:workflow` (removed on purpose in #902, see below):
+  actual maintained MCP client, server, Python harness and interview
+  continuation. No mocked grader or paid writer. It ran sweep → generated plan →
+  screen → initial grade → pronunciation selection and regrade → revision
+  question → actual repair answers → finished assessment.
 
-The checked-in replay script requires the final result to have exit 0, complete
-requested coverage, the exact pronunciation declaration, and all seven original
-section/meter headers. Raw receipts and rendered output are in
-`session-repair-evidence/moonshots-pronunciation-replay.json` and `.txt`.
-The original exit-2 evidence is retained separately.
+The replay script required the final result to have exit 0, complete requested
+coverage, the exact pronunciation declaration, and all seven original
+section/meter headers. Its raw receipts and rendered output were in
+`session-repair-evidence/moonshots-pronunciation-replay.json` and `.txt`. The
+script, its npm script and those two files were removed on purpose in #902: the
+replay was built on a native-form plan, and a new song's form is now a catalog
+form, so it cannot run on the new-song path. The original exit-2 evidence is
+retained separately.
 
 ## Limits
 

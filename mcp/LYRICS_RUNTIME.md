@@ -751,6 +751,14 @@ catalog selection with the accepted seeds. The session carries that selection in
 plan, grade and revision. Automatic selection uses projected settings at the first few
 legal repeat counts and skips settings that require attributed readings. A raw automatic
 sweep draws again on a new call. Use the returned selection and seed to reproduce a plan.
+
+A new song's form is a catalog form. In a new-song session (`/mcp`, `/mcp/chatgpt*` and the
+website chat) a sweep that sends the legacy `form` is refused before anything runs, with
+`CREATION_FORM`, and its NEXT is the same sweep without `form`. `form` remains for raw,
+low-level callers: the raw engine accepts it, and a raw seeded plan with neither form field
+plans the native default. A session whose recorded sweep already holds a legacy form keeps
+planning, grading and revising under it. There, a plan or grade that names another form or
+a catalog form is refused (`CREATION_PLAN`) and leaves the record as it was.
 The native planner accepts named section sequences with supported lengths and placement.
 A selected section can declare a bar count. The planner must fit that count to the musical
 grid, and grading checks it against the section in the submitted blueprint.

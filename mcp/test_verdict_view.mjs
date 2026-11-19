@@ -447,6 +447,50 @@ test('a finished plan publishes its brief whole and a verdict without the struct
   );
 });
 
+// A catalog plan's request holds the form's whole contract, one section per
+// entry with its division path. The short view names the form by its public
+// selector, so its size does not follow the setting's sections; the contract
+// stays in the structured plan (#902).
+test("a catalog plan's short verdict names its form by the selector, at a size that does not follow its sections", () => {
+  const section = (i) => ({
+    divisionPath: [{ address: `1[1].1[${i}]`, role: '<role>', unit: 'section' }],
+    lines: null,
+    role: '<role>',
+    unit: 'section',
+  });
+  const songForm = (n) => ({
+    id: '<form id>',
+    variant: 0,
+    scope: 'setting',
+    counts: { 1.1: n },
+    sections: Array.from({ length: n }, (_, i) => section(i + 1)),
+    rhymeGroups: Array.from({ length: n }, (_, i) => [i + 1]),
+    returnGroups: [],
+  });
+  const request = (n) => ({ seed: 1, form: '<placeholder>', lines: null, song_form: songForm(n) });
+  const view = (n) =>
+    sessionView(
+      'lyric_plan',
+      planBlocks(planVerdict({ plan_request: request(n), plan: { request: request(n) } }))
+    );
+  const short = JSON.parse(view(3)[1].text);
+  assert.deepEqual(short.plan_request, {
+    seed: 1,
+    lines: null,
+    catalog_form: '<form id>',
+    catalog_variant: 0,
+    catalog_counts: [{ path: '1.1', count: 3 }],
+  });
+  assert.equal(view(300)[1].text.length - view(3)[1].text.length, '300'.length - '3'.length);
+  // The whole contract is still read with `detail`.
+  const content = planBlocks(
+    planVerdict({ plan_request: request(3), plan: { request: request(3) } })
+  );
+  const part = JSON.parse(sessionView('lyric_plan', content, { detail: 'plan' })[0].text);
+  assert.deepEqual(part.plan.request.song_form, songForm(3));
+  assert.deepEqual(sessionView('lyric_plan', content, { detail: 'full' }), content);
+});
+
 test('plan detail returns the structured plan or the whole result; a refused plan keeps its shape', () => {
   const content = planBlocks();
   assert.deepEqual(sessionView('lyric_plan', content, { detail: 'full' }), content);
