@@ -196,6 +196,8 @@ jobs:
 
       - name: Bind complete qualification to the tested image source
         if: steps.evidence.outputs.qualified == 'yes'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: node scripts/verify_qualification.mjs verified-qualification/qualification.json verified-image/lyrics-image.json verified-ci.json
 
       - name: Require immutable image promotion configuration
