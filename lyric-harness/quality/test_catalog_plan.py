@@ -11,6 +11,53 @@ def catalog(form_id, sections, rhymes=(), returns=()):
 
 
 class CatalogPlannerTests(unittest.TestCase):
+    def test_whole_section_scores_survive_fill_and_observe_actual_events(self):
+        from quality.catalog_grading import _sections
+        from quality.melody import validate_melody
+        parts = [{"unit": "section", "role": "verse", "lines": None, "bars": 8,
+                  "sourceRole": group, "melodyGroup": group}
+                 for group in ("part-a", "part-b", "part-a")]
+        contract = catalog("ternary", parts)
+        built = plan.make_plan(11, song_form=contract, lines=6)
+        bp = plan.fill_plan(built, [str(n) for n in range(6)])
+        phrases = [s["section_melody"] for s in bp["sections"]]
+        self.assertEqual(phrases[0], phrases[2])
+        self.assertIsNot(phrases[0]["notes"][0], phrases[2]["notes"][0])
+        self.assertEqual(phrases[0]["notes"][0]["pitch_hz"], phrases[1]["notes"][0]["pitch_hz"])
+        self.assertNotEqual(phrases[0]["notes"][1]["pitch_hz"], phrases[1]["notes"][1]["pitch_hz"])
+        for phrase, sec in zip(phrases, bp["sections"]):
+            self.assertEqual(phrase, validate_melody(phrase))
+            self.assertEqual((phrase["meter"], phrase["bars"]), (sec["meter"], sec["bars"]))
+            self.assertIn(f"{phrase['notes'][0]['pitch_hz']} Hz", built["writer_brief"])
+        def read_score():
+            return _sections(bp, [{} for _ in range(6)])
+        self.assertEqual([row["sectionMelody"] for row in read_score()], phrases)
+        starts = [section["start_bar"] for section in bp["sections"]]
+        self.assertEqual([row["startBar"] for row in read_score()], starts)
+        self.assertTrue(all(row["slotsWithinSection"] for row in read_score()))
+        for positions in ([1, 1, 1], starts[::-1]):
+            for section, start in zip(bp["sections"], positions):
+                section["start_bar"] = start
+            rows = read_score()
+            self.assertEqual([row["startBar"] for row in rows], positions)
+            self.assertTrue(any(not row["slotsWithinSection"] for row in rows))
+        for section, start in zip(bp["sections"], starts):
+            section["start_bar"] = start
+        slot = bp["lines"][-1]
+        slot["duration"] += 1
+        self.assertFalse(read_score()[-1]["slotsWithinSection"])
+        slot["duration"] -= 1
+        phrases[-1]["notes"][0]["pitch_hz"] += 1
+        observed = read_score()
+        self.assertNotEqual(observed[0]["sectionMelody"], observed[2]["sectionMelody"])
+        self.assertEqual(built["sections"][0]["section_melody"], built["sections"][2]["section_melody"])
+        phrases[-1]["notes"][0]["ticks"] = 0
+        self.assertIsNone(read_score()[-1]["sectionMelody"])
+        del bp["sections"][-1]["section_melody"]
+        self.assertNotIn("sectionMelody", read_score()[-1])
+        with self.assertRaisesRegex(plan.PlanRefused, "line melody conflicts"):
+            plan.make_plan(11, song_form=contract, lines=6, melody=phrases[0])
+
     def test_verified_catalog_burden_can_open_only_its_complete_alternating_setting(self):
         from quality import grid
         from types import SimpleNamespace

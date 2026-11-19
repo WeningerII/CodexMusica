@@ -418,3 +418,23 @@ test('triadic printing measures the observed indents of each logical line indepe
   assert.equal(grade(['1','\t2','  3','4',' 5','  6']).verdict,'unknown');
   assert.throws(()=>grade(['1','  ','  3','4',' 5','  6']));
 });
+
+test('printed returns and sung end words cannot be certified by the selected class label', () => {
+  for (const field of ['returns', 'endWord']) {
+    const rule = form({unit:'stanza',children:[{unit:'line',times:2,[field]:'x'}]});
+    const read = (lines) => gradeObservations(rule,'symbol',{lines});
+    const labels = [{[field]:'x'}, {[field]:'x'}];
+    assert.equal(checkForm(rule,'symbol',{lines:labels}).verdict,'pass');
+    assert.equal(read(labels).verdict,'unknown');
+    assert.throws(() => read([{...labels[0],text:'   '},labels[1]]),/nonblank/);
+    const first = {text:'one two',[field]:'unused-a'};
+    const match = {text:field === 'returns' ? 'one two' : 'three two',[field]:'unused-b'};
+    assert.equal(read([first,match]).verdict,'pass');
+    assert.equal(read([first,{text:'one three',[field]:'unused-a'}]).verdict,'fail');
+    assert.equal(read([first,labels[1]]).verdict,'unknown');
+    if (field === 'endWord') {
+      assert.equal(read([first,{...match,sungWords:null}]).verdict,'unknown');
+      assert.equal(read([first,{...match,sungWords:['three','four']}]).verdict,'fail');
+    }
+  }
+});

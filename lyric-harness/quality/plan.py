@@ -6240,6 +6240,12 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         plan["choices"]["meter"]["chosen_from"] = "declared melody; no meter draw"
         plan["choices"]["melody"] = {"mode": "declared", "repeat": "each lyric line",
                                       "underlay_certified": False, "pitch_certified": False}
+    if song_form and any("melodyGroup" in p for p in song_form["sections"]):
+        from quality.melody import assign_section_melodies
+        try:
+            assign_section_melodies(rng, plan["sections"], song_form["sections"], sub)
+        except ValueError as exc:
+            raise PlanRefused(str(exc)) from exc
     plan["writer_brief"] = writer_brief(plan)
     return plan
 
@@ -7279,6 +7285,11 @@ def writer_brief(plan):
                 turn = slot["divisionPath"][-1]["role"]
                 out.append(f"  L{slot['line']} · {turn}")
         out.append("  " + section_header(sec, slots))
+        if "section_melody" in sec:
+            phrase = sec["section_melody"]
+            events = ", ".join(f"{note['pitch_hz']} Hz/{note['ticks']}" if note["pitch_hz"] is not None
+                               else f"rest/{note['ticks']}" for note in phrase["notes"])
+            out.append(f"    Whole-section score for {sec['source_role']} at {phrase['subdivision']} ticks per beat: {events}.")
         if "source_role" in sec:
             out.append(f"    Catalog section: {sec['source_role']}. Native writing function: {sec['function']}.")
         # THE NUMBER SLOTS_EXCEEDED GRADES AGAINST, where the writer reads

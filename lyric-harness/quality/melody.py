@@ -57,6 +57,34 @@ def validate_melody(value):
                 subdivision=value['subdivision'], notes=clean)
 
 
+def assign_section_melodies(rng, sections, declarations, subdivision):
+    """Draw one bounded monophonic score per identity, reusing its literal events."""
+    phrases = {}
+    base_hz = rng.randint(180, 360)
+    intervals = iter(rng.sample(range(12, 121), 4))
+    for section, declaration in zip(sections, declarations):
+        group = declaration.get('melodyGroup')
+        if group is None:
+            continue
+        meter, bars = section['meter'], section['bars']
+        if group not in phrases:
+            total = bars * meter['beats'] * subdivision
+            size = rng.randint(2, min(8, total))
+            bounds = [0, *sorted(rng.sample(range(1, total), size - 1)), total]
+            # A shared starting pitch and a distinct first interval rule out
+            # two contrasting groups that differ only by transposition.
+            pitches = [base_hz, base_hz + next(intervals)]
+            for _ in range(size - 2):
+                pitches.append(None if rng.randrange(5) == 0 else rng.randint(150, 500))
+            notes = [{'pitch_hz': pitch, 'ticks': right - left}
+                     for pitch, left, right in zip(pitches, bounds, bounds[1:])]
+            phrases[group] = dict(bars=bars, meter=meter, subdivision=subdivision, notes=notes)
+        phrase = phrases[group]
+        if phrase['bars'] != bars or phrase['meter'] != meter:
+            raise ValueError('a literal section melody requires identical bar and meter spans on each return')
+        section['section_melody'] = validate_melody(phrase)
+
+
 def melody_brief(melody):
     """Render every event without implying a syllable-to-note assignment."""
     events = '; '.join(f"{'rest' if n['pitch_hz'] is None else str(n['pitch_hz']) + ' Hz'} / {n['ticks']} ticks"

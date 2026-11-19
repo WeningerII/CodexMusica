@@ -102,7 +102,7 @@ def _validate_shape(contract):
             or contract["rhymeGroups"] or contract["returnGroups"]):
         raise plan.PlanRefused("the caesural rhyme profile needs a verse of independently measured lines")
     for part in parts:
-        if (not isinstance(part, dict) or set(part) - {"bars", "divisionPath", "sourceRole", "linePaths", "vocalDuty"} != {"unit", "role", "lines"}
+        if (not isinstance(part, dict) or set(part) - {"bars", "divisionPath", "sourceRole", "linePaths", "vocalDuty", "melodyGroup"} != {"unit", "role", "lines"}
                 or part["unit"] != "section"):
             raise plan.PlanRefused("seeded catalog creation supports named role sequences only")
         if "bars" in part and (type(part["bars"]) is not int or part["bars"] < 1):
@@ -135,7 +135,20 @@ def _validate_shape(contract):
         if (len(parts) < 2 or parts[-1].get("vocalDuty") != "reprise" or
                 any(p.get("vocalDuty") != "solo" for p in parts[:-1])):
             raise plan.PlanRefused("an ensemble reprise closes the preceding solo verses")
-    if any("sourceRole" in part for part in parts):
+    if any("melodyGroup" in p for p in parts):
+        groups = set()
+        for part in parts:
+            group = part.get("melodyGroup")
+            if "melodyGroup" in part:
+                if (group not in ("part-a", "part-b", "part-c", "part-d")
+                        or part.get("sourceRole") != group or part["role"] != "verse"):
+                    raise plan.PlanRefused("a melodic part needs its matching score group")
+                groups.add(group)
+            elif "sourceRole" in part or part["role"] not in ("tag", "solo"):
+                raise plan.PlanRefused("an ungrouped melodic setting section must be a tag or solo")
+        if len(groups) < 2:
+            raise plan.PlanRefused("a contrasting melodic setting needs distinct part groups")
+    elif any("sourceRole" in part for part in parts):
         first = parts[0]
         source, carrier, count = first.get("sourceRole"), first["role"], first["lines"]
         fixed_repeat = (source in ("chant", "call") and carrier == "chorus" and
@@ -225,6 +238,8 @@ def resolve_catalog_shape(contract, rng, *, totals, lines=None, functions=None,
                           form="open", minimum=1, melody_bars=None):
     """Place the declared roles in order and assign each its native line count."""
     parts = _validate_shape(contract)
+    if melody_bars is not None and any("melodyGroup" in part for part in parts):
+        raise plan.PlanRefused("a repeated line melody conflicts with the selected whole-section score")
     if type(minimum) is not int or minimum < 1:
         raise plan.PlanRefused("invalid minimum sung lines per section")
     if lines is not None and (type(lines) is not int or lines < 1):

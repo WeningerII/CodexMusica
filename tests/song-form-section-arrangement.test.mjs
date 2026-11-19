@@ -78,7 +78,7 @@ test('unrelated roles and unrepresented linkage remain ineligible', () => {
     ['playground-taunt', 0],
     ['dj-toasting', 0],
     ['modified-strophic', 0],
-    ['ternary', 0],
+    ['verse-chorus-bridge', 1],
   ]) {
     assert.equal(select(id, variant).status, 'unsupported', id + ' ' + variant);
   }
