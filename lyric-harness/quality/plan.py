@@ -5643,6 +5643,12 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     first_seen = {}
     sung_first = {}
     groups, returns = [], []
+    prescribed_returns = song_form["returnGroups"] if song_form else []
+    source_groups = terminal_groups
+    if prescribed_returns:
+        from quality.catalog_shape import rhyme_source_groups
+        source_groups = rhyme_source_groups(terminal_groups, prescribed_returns)
+        returns.extend(prescribed_returns)
     _section_blocks = []
     for fn in funcs:
         counts[fn] = counts.get(fn, 0) + 1
@@ -5694,9 +5700,8 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                 first_seen[fn] = first
             # Lines only: the TYPE decides the places (D3), and may take part
             # of a drawn block, in `_assign_types` below.
-            _section_blocks.append((list(range(first, first + k)),
-                                    [list(_g) for _g in
-                                     _abs_groups(by_func[fn], first)]))
+            blocks = source_groups if prescribed_returns else _abs_groups(by_func[fn], first)
+            _section_blocks.append((list(range(first, first + k)), [list(g) for g in blocks]))
             # OVERLAPPING GROUPS, DRAWN AND NOT ONLY DECLARABLE (2026-08-23).
             #
             # Doctrine 2's own sentence is that maximal cliques MAY OVERLAP —
@@ -5845,7 +5850,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         _section_blocks, random.Random(f"{seed}/types"), _max_token,
         declared=relation, per_group=binding_overrides,
         head_cap=_head_cap)
-    if terminal_groups and [record["lines"] for record in _type_records] != terminal_groups:
+    if terminal_groups and [record["lines"] for record in _type_records] != source_groups:
         raise PlanRefused("the selected rhyme type cannot bind the whole prescribed terminal group")
 
     plan = {
@@ -5953,7 +5958,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # first word. `--groups=` parses both, so a plan that drew all-ends
         # is byte-identical to what this line always emitted.
         "groups": ";".join(",".join(str(x) for x in g) for g in groups),
-        "returns": ";".join(f"{a},{b}" for a, b in returns),
+        "returns": ";".join(",".join(map(str, group)) for group in returns),
         "subdivision": sub,
     }
     # NO SECOND PASS ADDS END GROUPS (D3, 2026-10-27): `end_rhyme_groups`
@@ -7086,6 +7091,8 @@ def writer_brief(plan):
         elif groups:
             out.append("  Match the ending sound within each group of lines and keep it distinct across groups: "
                        + "; ".join(", ".join(map(str, group)) for group in groups) + ".")
+        for group in catalog["returnGroups"]:
+            out.append(f"  Repeat L{group[0]} verbatim at " + ", ".join(f"L{n}" for n in group[1:]) + ".")
         for row in catalog.get("lineRequirements", ()):
             terms = []
             for field, unit in (("words", "word"), ("syllables", "syllable"), ("stresses", "stress")):

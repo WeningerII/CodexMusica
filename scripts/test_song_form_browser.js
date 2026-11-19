@@ -99,6 +99,9 @@ async function checkViewport(browser, origin, viewport) {
     await view.getByRole('combobox', { name: 'Pattern to expand' }).selectOption('1');
     await view.getByRole('button', { name: 'Show expanded structure' }).click();
     await view.getByText(/distinct ending sound.*1, 3.*2, 4/).waitFor();
+    await picker.selectOption('triolet');
+    await view.getByRole('button', { name: 'Show expanded structure' }).click();
+    await view.getByText('Repeat line 1 verbatim at 4, 7.').waitFor();
     await picker.selectOption('quatrain');
     const expand = view.getByRole('button', { name: 'Show expanded structure' });
     await expand.focus();

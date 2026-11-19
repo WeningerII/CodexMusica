@@ -119,7 +119,9 @@ test('every published selection has an exact structural contract or an explicit 
           assert.ok(contract.rhymeGroups.every(group => group.length >= 2), where);
         }
         assert.deepEqual(contract.rhymeGroups, [...new Set(marked.map(line => line.rhyme))].map(label => marked.filter(line => line.rhyme === label).map(line => line.index)), where);
-        assert.deepEqual(contract.returnGroups, [], where);
+        const repeated = realization.lines.filter(line => line.returns !== undefined);
+        assert.deepEqual(contract.returnGroups, [...new Set(repeated.map(line => line.returns))].map(
+          label => repeated.filter(line => line.returns === label).map(line => line.index)), where);
       }
     }
     classified.add(form.id);
@@ -279,7 +281,7 @@ test('create CLI returns the same contract for positional and request-body selec
     assert.equal(result.status, 0, result.stderr);
     assert.deepEqual(JSON.parse(result.stdout), expected);
   }
-  for (const [id, status] of [['couplet','needs-input'], ['free-verse','deferred'], ['triolet','unsupported']]) {
+  for (const [id, status] of [['couplet','needs-input'], ['free-verse','deferred'], ['terzanelle','unsupported']]) {
     const result = run(['create', id], {});
     assert.equal(result.status, 3);
     assert.equal(JSON.parse(result.stdout).status, status);

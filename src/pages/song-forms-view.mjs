@@ -116,6 +116,9 @@ function writerDescription({ arrangement, contract }) {
       'Use a distinct ending sound for each group of lines: ' + groups.join(' / ') + '.'
     );
   }
+  for (const group of contract.returnGroups) {
+    statements.push('Repeat line ' + group[0] + ' verbatim at ' + group.slice(1).join(', ') + '.');
+  }
   const requirements = contract.lineRequirements || [];
   const measures = [
     ['words', 'word'],
