@@ -1,0 +1,16 @@
+{
+  "id": 44462290084,
+  "run_attempt": 2,
+  "head_sha": "4ce5735855f478e976b0d227da6df88a1c1fabeb",
+  "head_branch": "main",
+  "head_repository": {
+    "id": 1255164302,
+    "full_name": "WeningerII/CodexMusica"
+  },
+  "repository": {
+    "id": 1255164302,
+    "full_name": "WeningerII/CodexMusica"
+  },
+  "event": "workflow_dispatch",
+  "run_started_at": "2026-11-19T05:34:15Z"
+}

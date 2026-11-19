@@ -423,6 +423,9 @@ jobs:
     needs: [capacity-proof-result, capacity-matrix-result, component]
     if: always()
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
@@ -435,7 +438,7 @@ jobs:
           CAPACITY_RESULT: ${{ needs.capacity-proof-result.result }}
           MATRIX_RESULT: ${{ needs.capacity-matrix-result.result }}
         run: test "$RESULT" = success && test "$CAPACITY_RESULT" = success && test "$MATRIX_RESULT" = success
-      # RE-RUN ALL JOBS, NEVER "RE-RUN FAILED JOBS". Every artifact this
+      # Previously: RE-RUN ALL JOBS, NEVER "RE-RUN FAILED JOBS". Every artifact this
       # workflow hands on is keyed by `github.run_attempt`: each component's
       # evidence, the capacity proof and this aggregate's download pattern. A
       # failed-jobs-only re-run starts a new attempt in which the jobs that
@@ -443,12 +446,18 @@ jobs:
       # number, this pattern misses it, and the coverage check below refuses.
       # No qualification then exists for the deploy. One full re-run per
       # failure; #685's attempt 2 is the case on record (#665 6594264704).
-      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
-        with:
-          pattern: qualification-*-${{ github.run_attempt }}
-          path: evidence
+      # #883/run 44462290084 attempt 2 reproduced that refusal: nineteen
+      # successful inherited comparisons, zero *-2 artifacts. Resolve each
+      # actual execution and verify its archive digest instead. Do not relabel
+      # the receipts; deployment independently re-derives the same provenance.
+      - name: Resolve actual comparison executions and verify their artifacts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/qualification_provenance.mjs > provenance.json
+          python3 scripts/qualification_retry.py provenance.json --out-dir=evidence
       - name: Require exact complete source and attempt coverage
-        run: python3 scripts/production_qualification.py aggregate evidence --out=qualification.json
+        run: python3 scripts/production_qualification.py aggregate evidence --provenance=provenance.json --out=qualification.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: production-qualification-${{ github.run_attempt }}

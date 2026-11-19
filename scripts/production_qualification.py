@@ -9,6 +9,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import signal
 import subprocess
@@ -346,12 +347,31 @@ def shared_identity(identity):
     return {key: identity.get(key) for key in SHARED_IDENTITY}
 
 
-def aggregate(receipts, *, commit, repository, run_id, run_attempt, names):
+def validate_provenance(provenance, attempt):
+    if (not isinstance(provenance, list) or len(provenance) != len(COMPONENTS)
+            or [p.get("component") for p in provenance] != list(COMPONENTS)):
+        raise ValueError("Exactly one ordered provenance entry per comparison is required")
+    for p in provenance:
+        executed = p.get("executed_attempt")
+        if (type(executed) is not int or not 1 <= executed <= attempt
+                or type(p.get("lookup_attempt")) is not int or p["lookup_attempt"] != attempt
+                or any(type(p.get(k)) is not int or p[k] < 1 for k in ("artifact_id", "execution_job_id", "lookup_job_id"))
+                or p.get("artifact_name") != f'qualification-{p["component"]}-{executed}'
+                or not re.fullmatch(r"sha256:[a-f0-9]{64}", p.get("artifact_digest", ""))
+                or not p.get("started_at") or not p.get("completed_at")):
+            raise ValueError("Invalid comparison execution/artifact provenance")
+    return {p["component"]: p["executed_attempt"] for p in provenance}
+
+
+def aggregate(receipts, *, commit, repository, run_id, run_attempt, names, provenance=None):
     if len(receipts) != len(COMPONENTS) or sorted(r.get("component", "") for r in receipts) != sorted(COMPONENTS):
         raise ValueError(f"Every one of {MUTATION_SHARDS} unique mutation shards and all three full calibration comparisons is required")
     if not names or len(set(names)) != len(names):
         raise ValueError("Mutation inventory is missing or duplicated")
     common = shared_identity(receipts[0].get("identity"))
+    # Legacy aggregates remain exact-attempt only. Version 2 is emitted only
+    # with API-selected, digest-verified artifacts and retains original receipts.
+    attempts = validate_provenance(provenance, run_attempt) if provenance is not None else {}
     for r in receipts:
         command, budget = spec(r["component"])
         # Each failed condition is named with its receipt: the bare refusal
@@ -367,7 +387,7 @@ def aggregate(receipts, *, commit, repository, run_id, run_attempt, names):
             ("inventory", r.get("inventory") == names),
             ("repository", r.get("repository") == repository),
             ("run_id", type(r.get("run_id")) is int and r["run_id"] == run_id and run_id >= 1),
-            ("run_attempt", type(r.get("run_attempt")) is int and r["run_attempt"] == run_attempt and run_attempt >= 1),
+            ("run_attempt", type(r.get("run_attempt")) is int and r["run_attempt"] == attempts.get(r["component"], run_attempt) and run_attempt >= 1),
         )
         failed = [name for name, ok in checks if not ok]
         if failed:
@@ -379,7 +399,9 @@ def aggregate(receipts, *, commit, repository, run_id, run_attempt, names):
                 raise ValueError(f"Missing source/input fingerprint: {r.get('component')!r} {key}")
         if common.get("commit") != commit or len(commit) != 40 or any(c not in "0123456789abcdef" for c in commit):
             raise ValueError("Qualification commit mismatch")
-    return {"version": 1, "scope": "complete-maintained-mutation-and-calibration-comparisons",
+    return {"version": 2 if provenance is not None else 1,
+            **({"provenance": provenance} if provenance is not None else {}),
+            "scope": "complete-maintained-mutation-and-calibration-comparisons",
             "completed": True, "identity": common, "repository": repository,
             "run_id": run_id, "run_attempt": run_attempt, "components": list(COMPONENTS),
             "mutation_inventory": names, "receipts": receipts,
@@ -445,6 +467,7 @@ def main():
     check = sub.add_parser("aggregate")
     check.add_argument("directory")
     check.add_argument("--out", required=True)
+    check.add_argument("--provenance")
     for verb in ("capacity-record", "capacity-accept"):
         command = sub.add_parser(verb)
         command.add_argument("directory")
@@ -455,7 +478,8 @@ def main():
         return run_component(a.component, a.out)
     records = [json.loads(p.read_text()) for p in Path(a.directory).rglob("*.json")]
     result = aggregate(records, commit=os.environ["GITHUB_SHA"], repository=os.environ["GITHUB_REPOSITORY"],
-                       run_id=int(os.environ["GITHUB_RUN_ID"]), run_attempt=int(os.environ["GITHUB_RUN_ATTEMPT"]), names=inventory())
+                       run_id=int(os.environ["GITHUB_RUN_ID"]), run_attempt=int(os.environ["GITHUB_RUN_ATTEMPT"]), names=inventory(),
+                       provenance=json.loads(Path(a.provenance).read_text()) if a.provenance else None)
     save(a.out, result)
     return 0
 
