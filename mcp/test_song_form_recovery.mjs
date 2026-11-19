@@ -313,3 +313,31 @@ test('rondo recovery describes submitted words without certifying musical recurr
   const drift = await review(marked.map((v) => (v === '[PART C]' ? '[PART B]' : v)));
   assert.equal(drift.verdict, 'fail');
 });
+
+test('marked neutral stanzas are measured independently of their end rhymes', async () => {
+  for (const [id, variant, sizes] of [
+    ['rubaiyat-stanza', 1, [4, 4]],
+    ['terza-rima', 0, [3, 3, 3, 1]],
+    ['terza-rima', 1, [3, 3, 3, 2]],
+  ]) {
+    const measure = async (widths, prefix = []) => {
+      const lines = [
+        ...prefix,
+        ...widths.flatMap((n, i) => ['[Verse ' + (i + 1) + ']', ...Array(n).fill('x')]),
+      ];
+      const record = await recover({ catalog_form: id, catalog_variant: variant, lines });
+      return record.catalog_form.checks;
+    };
+    const complete = await measure(sizes);
+    const spans = (items) => items.filter((c) => c.kind === 'line-span');
+    assert.equal(spans(complete).length, sizes.length);
+    assert.ok(spans(complete).every((c) => c.outcome === 'pass'));
+    assert.ok(complete.some((c) => c.kind === 'rhyme' && c.outcome === 'unknown'));
+    const shifted = [...sizes];
+    shifted[0]--;
+    shifted[1]++;
+    assert.equal(spans(await measure(shifted)).filter((c) => c.outcome === 'fail').length, 2);
+    const missing = await measure(sizes.slice(1), Array(sizes[0]).fill('x'));
+    assert.ok(spans(missing).length && spans(missing).every((c) => c.outcome === 'unknown'));
+  }
+});
