@@ -77,7 +77,6 @@ test('unrelated roles and unrepresented linkage remain ineligible', () => {
     ['street-cry', 0],
     ['playground-taunt', 0],
     ['dj-toasting', 0],
-    ['modified-strophic', 0],
     ['verse-chorus-bridge', 1],
   ]) {
     assert.equal(select(id, variant).status, 'unsupported', id + ' ' + variant);
@@ -180,4 +179,28 @@ test('interlocking rhymes keep the measured boundary of each stanza and the fina
     assert.equal(wrong.verdict, 'fail');
     assert.equal(wrong.checks.filter((c) => c.kind === 'line-span' && c.outcome === 'fail').length, 2);
   }
+});
+
+test('Byr a thoddaid binds the closing line and leaves the other couplet ending open', () => {
+  const id = 'byr-a-thoddaid';
+  const { contract } = select(id);
+  assert.deepEqual(contract.openRhymeLines, [5]);
+  assert.deepEqual(contract.rhymeGroups, [[1,2,3,4,6]]);
+  const lines = Array.from({ length: 6 }, () => ({ text: 'x', syllables: 8, rhyme: 'A' }));
+  const sections = [{ role: 'verse', lineSpan: [0,4] }, { role: 'verse', lineSpan: [4,6] }];
+  const grade = (score) => gradeObservations(catalog, id, { variant: 0, lines, sections: score });
+  for (const end of ['A', 'B', undefined]) {
+    lines[4] = { text: 'x', syllables: 3, ...(end && {rhyme: end}) };
+    assert.equal(grade(sections).verdict, 'pass');
+  }
+  lines[5].rhyme = 'B';
+  assert.equal(grade(sections).verdict, 'fail');
+  delete lines[5].rhyme;
+  assert.equal(grade(sections).verdict, 'unknown');
+  lines[5].rhyme = 'A';
+  lines[2].syllables = 7;
+  assert.equal(grade(sections).verdict, 'fail');
+  lines[2].syllables = 8;
+  assert.equal(grade().verdict, 'unknown');
+  assert.equal(grade([{ role: 'verse', lineSpan:[0,3] }, {role: 'verse', lineSpan:[3,6]}]).verdict, 'fail');
 });

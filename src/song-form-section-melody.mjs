@@ -6,23 +6,54 @@ const contentFeatures = ['rhyme', 'returns', 'endWord', 'syllables', 'stress', '
 export function sectionMelodyLayout(plan) {
   if (plan.tree.length !== 1 || plan.coverage.sections !== 'complete') return false;
   const [song] = plan.tree;
-  if (song.unit !== 'song' || song.role || song.bars || contentFeatures.some((k) => k in song))
+  if (song.role || contentFeatures.some((k) => k in song)) return false;
+  const roles = song.children.map((s) => s.role);
+  if (
+    song.children.some(
+      (s) => s.unit !== 'section' || s.children.length || contentFeatures.some((k) => k in s)
+    )
+  )
     return false;
+  if (song.unit === 'stanza' && !song.bars && roles.join(' ') === 'stollen stollen abgesang')
+    return 'bar-form';
+  if (song.unit !== 'song') return false;
+  if (
+    !song.bars &&
+    roles.length >= 3 &&
+    roles[0] === 'head' &&
+    roles.at(-1) === 'head' &&
+    roles.slice(1, -1).every((role) => role === 'solo')
+  )
+    return 'head-solos-head';
+  if (
+    !song.bars &&
+    roles.includes('verse') &&
+    roles.filter((r) => r === 'altered-verse').length === 1 &&
+    roles.every((r) => r === 'verse' || r === 'altered-verse')
+  )
+    return 'modified-strophic';
   const groups = new Set();
   for (const section of song.children) {
-    if (
-      section.unit !== 'section' ||
-      section.children.length ||
-      contentFeatures.some((k) => k in section)
-    )
-      return false;
     if (partRole.test(section.role)) groups.add(section.role);
     else if (!['tag', 'solo'].includes(section.role)) return false;
   }
-  return groups.size >= 2;
+  if (groups.size < 2) return false;
+  if (!song.bars) return 'lettered';
+  if (!roles.every((r) => partRole.test(r))) return false;
+  const explicit = song.children.filter((s) => s.bars !== undefined);
+  if (
+    (explicit.length === song.children.length &&
+      explicit.reduce((n, s) => n + s.bars, 0) === song.bars) ||
+    (!explicit.length && Number.isInteger(song.bars / roles.length))
+  )
+    return 'fixed-total';
+  return false;
 }
 
-export function sectionMelodyGroup(role) {
+export function sectionMelodyGroup(role, layout) {
+  if (layout === 'modified-strophic') return { verse: 'part-a', 'altered-verse': 'part-b' }[role];
+  if (layout === 'head-solos-head') return role === 'head' ? 'part-a' : undefined;
+  if (layout === 'bar-form') return { stollen: 'part-a', abgesang: 'part-b' }[role];
   return partRole.test(role) ? role : undefined;
 }
 
@@ -119,7 +150,7 @@ function sameShape(a, b) {
   });
 }
 
-export function sectionMelodyChecks(parts, observed) {
+export function sectionMelodyChecks(parts, observed, layout) {
   const checks = [];
   let nextBar = 1;
   let order = 'pass';
@@ -145,9 +176,34 @@ export function sectionMelodyChecks(parts, observed) {
     outcome: order,
     basis: 'chronological whole-section bar spans in the submitted score',
   });
+  if (layout === 'head-solos-head') {
+    for (const [i, part] of parts.entries()) {
+      const span = observed[i]?.lineSpan;
+      const count =
+        Array.isArray(span) &&
+        span.length === 2 &&
+        span.every(Number.isSafeInteger) &&
+        span[0] >= 0 &&
+        span[1] >= span[0]
+          ? span[1] - span[0]
+          : undefined;
+      checks.push({
+        kind: 'head-solo-lines',
+        sections: [i + 1],
+        actual: count,
+        outcome:
+          count === undefined
+            ? 'unknown'
+            : (part.role === 'solo' ? count === 0 : count > 0)
+              ? 'pass'
+              : 'fail',
+        basis: 'sung head verses return around intervening instrumental solo sections',
+      });
+    }
+  }
   const groups = new Map();
   for (const [i, part] of parts.entries()) {
-    if (!sectionMelodyGroup(part.role)) continue;
+    if (!sectionMelodyGroup(part.role, layout)) continue;
     const score = sectionScore(observed[i]);
     if (!groups.has(part.role)) groups.set(part.role, []);
     groups.get(part.role).push({ index: i + 1, score });
@@ -183,15 +239,185 @@ export function sectionMelodyChecks(parts, observed) {
   for (let i = 0; i < knownGroups.length; i++) {
     for (const other of knownGroups.slice(0, i)) {
       collision ||= literal(knownGroups[i], other);
-      uncertain ||= sameShape(knownGroups[i], other);
+      if (layout !== 'modified-strophic') uncertain ||= sameShape(knownGroups[i], other);
     }
   }
-  checks.push({
-    kind: 'musical-contrast',
-    parts: [...groups.keys()],
-    outcome: collision ? 'fail' : uncertain ? 'unknown' : 'pass',
-    basis:
-      'distinct written pitch-interval or rhythmic material; transposition or uniform scaling alone is inconclusive',
-  });
+  if (groups.size > 1)
+    checks.push({
+      kind: 'musical-contrast',
+      parts: [...groups.keys()],
+      outcome: collision ? 'fail' : uncertain ? 'unknown' : 'pass',
+      basis:
+        layout === 'modified-strophic'
+          ? 'the altered verse changes the written pitches or rhythm, including transposition'
+          : 'distinct written pitch-interval or rhythmic material; transposition or uniform scaling alone is inconclusive',
+    });
+  if (layout === 'bar-form') {
+    const lengths = observed.map((s) => s?.bars);
+    checks.push({
+      kind: 'longer-abgesang',
+      sections: [1, 2, 3],
+      outcome: lengths.every(positive)
+        ? lengths[2] > Math.max(lengths[0], lengths[1])
+          ? 'pass'
+          : 'fail'
+        : 'unknown',
+      basis: 'the closing section spans more bars than either opening section',
+    });
+  }
   return checks;
+}
+
+// The refrain is a parent span in this tree. In a played score its child
+// sections occupy those bars; there is no extra section played for the parent.
+export function nestedRefrain(plan) {
+  const song = plan.tree.length === 1 && plan.tree[0];
+  if (
+    !song ||
+    song.unit !== 'song' ||
+    song.bars ||
+    song.role ||
+    contentFeatures.some((k) => k in song)
+  )
+    return null;
+  const items = song.children;
+  const refrain = items.at(-1);
+  if (
+    !refrain ||
+    refrain.unit !== 'section' ||
+    refrain.role !== 'refrain' ||
+    !positive(refrain.bars) ||
+    contentFeatures.some((k) => k in refrain) ||
+    items.length > 2
+  )
+    return null;
+  const intro = items.length === 2 ? items[0] : null;
+  if (
+    intro &&
+    (intro.unit !== 'section' ||
+      intro.role !== 'introductory-verse' ||
+      intro.children.length ||
+      intro.bars ||
+      contentFeatures.some((k) => k in intro))
+  )
+    return null;
+  const children = refrain.children;
+  if (
+    children.length < 2 ||
+    children.some(
+      (s) =>
+        s.unit !== 'section' ||
+        !partRole.test(s.role) ||
+        s.children.length ||
+        s.bars ||
+        contentFeatures.some((k) => k in s)
+    ) ||
+    new Set(children.map((s) => s.role)).size < 2 ||
+    refrain.bars % children.length
+  )
+    return null;
+  const parts = intro ? [intro, ...children] : children;
+  const sections = parts.map((s) => {
+    const inside = s !== intro;
+    const path = inside ? [song, refrain, s] : [song, s];
+    return {
+      unit: 'section',
+      role: inside ? 'verse' : 'intro',
+      sourceRole: s.role,
+      lines: null,
+      divisionPath: path.map(({ unit, role, address }) => ({
+        unit,
+        address,
+        ...(role && { role }),
+      })),
+      ...(inside && { melodyGroup: s.role, bars: refrain.bars / children.length }),
+    };
+  });
+  return { refrain, intro, parts, sections };
+}
+
+export function checkNestedRefrain(layout, options) {
+  const { refrain, intro, parts, sections } = layout;
+  let input = options.sections;
+  if (input !== undefined && !Array.isArray(input))
+    throw new TypeError('Expected ordered score sections');
+  const units = options.units ?? {};
+  const named = new Set(sections.flatMap((s) => s.divisionPath.map((p) => p.address)));
+  if (Object.keys(units).some((address) => !named.has(address)))
+    throw new TypeError('Unknown unit observation address');
+  // Raw catalog observations can include the explicit parent section as a
+  // tree node. A filled physical score has only the separately played leaves.
+  if (
+    input?.length === parts.length + 1 &&
+    units[refrain.address] &&
+    input.every((row) => row && typeof row === 'object' && Object.keys(row).length === 0)
+  )
+    input = input.filter((_, i) => i !== (intro ? 1 : 0));
+  const rows = parts.map((part, i) =>
+    input?.[i] || units[part.address] ? { ...input?.[i], ...units[part.address] } : undefined
+  );
+  const checks = [
+    {
+      kind: 'sections-count',
+      expected: parts.length,
+      actual: input?.length,
+      outcome: !input ? 'unknown' : parts.length === input.length ? 'pass' : 'fail',
+    },
+  ];
+  for (const [i, part] of parts.entries()) {
+    const row = rows[i],
+      path = row?.divisionPath;
+    const label =
+      row?.sourceRole ??
+      (part === intro && row?.role === 'intro' ? 'introductory-verse' : declaredPart(row));
+    if (label !== undefined)
+      checks.push({
+        kind: 'role',
+        address: part.address,
+        expected: part.role,
+        actual: label,
+        outcome: label === part.role ? 'pass' : 'fail',
+      });
+    const want = sections[i].divisionPath;
+    const correct =
+      Array.isArray(path) &&
+      path.length === want.length &&
+      want.every(
+        (p, k) =>
+          path[k]?.address === p.address && path[k]?.unit === p.unit && path[k]?.role === p.role
+      );
+    checks.push({
+      kind: 'refrain-boundary',
+      address: part.address,
+      outcome: path === undefined ? 'unknown' : correct ? 'pass' : 'fail',
+    });
+  }
+  const inner = rows.slice(intro ? 1 : 0);
+  const total = inner.every((s) => positive(s?.bars))
+    ? inner.reduce((a, s) => a + s.bars, 0)
+    : undefined;
+  const parent = options.units?.[refrain.address]?.bars;
+  checks.push({
+    kind: 'bars',
+    address: refrain.address,
+    expected: refrain.bars,
+    actual: total,
+    outcome:
+      parent !== undefined && parent !== refrain.bars
+        ? 'fail'
+        : total === undefined
+          ? 'unknown'
+          : total === refrain.bars
+            ? 'pass'
+            : 'fail',
+  });
+  checks.push(...sectionMelodyChecks(parts, rows, 'lettered'));
+  return {
+    checks,
+    verdict: checks.some((c) => c.outcome === 'fail')
+      ? 'fail'
+      : checks.some((c) => c.outcome === 'unknown')
+        ? 'unknown'
+        : 'pass',
+  };
 }

@@ -11,6 +11,33 @@ def catalog(form_id, sections, rhymes=(), returns=()):
 
 
 class CatalogPlannerTests(unittest.TestCase):
+    def test_nested_refrain_spans_and_pitch_survive_seeded_fill_and_grade(self):
+        import json
+        import subprocess
+        from pathlib import Path
+        from quality.catalog_grading import _sections
+        script = Path(__file__).resolve().parents[2] / "scripts" / "song_forms.mjs"
+        for variant in range(4):
+            for intro in (0, 1):
+                opts = {"variant": variant, "counts": {"1.1": intro}}
+                def call(command, **extra):
+                    proc = subprocess.run(["node", str(script), command, "verse-refrain-with-introductory-verse"],
+                                          input=json.dumps({**opts, **extra}), text=True,
+                                          capture_output=True, check=True)
+                    return json.loads(proc.stdout)
+                with self.subTest(variant=variant, intro=intro):
+                    contract = call("create")["contract"]
+                    built = plan.make_plan(11, song_form=contract)
+                    lines = [str(i + 1) for i in range(len(built["line_slots"]))]
+                    bp = plan.fill_plan(built, lines)
+                    rows = _sections(bp, [{} for _ in lines])
+                    self.assertEqual(sum(r["bars"] for r in rows[intro:]), 16 if variant < 2 else 32)
+                    self.assertEqual(call("grade-observations", sections=rows)["verdict"], "pass")
+                    del rows[-1]["sectionMelody"]
+                    self.assertEqual(call("grade-observations", sections=rows)["verdict"], "unknown")
+                    rows[-1]["divisionPath"] = rows[-1]["divisionPath"][:-1]
+                    self.assertEqual(call("grade-observations", sections=rows)["verdict"], "fail")
+
     def test_whole_section_scores_survive_fill_and_observe_actual_events(self):
         from quality.catalog_grading import _sections
         from quality.melody import validate_melody

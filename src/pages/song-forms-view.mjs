@@ -118,6 +118,14 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
     );
   if (contract.sections.at(-1)?.vocalDuty === 'reprise')
     statements.push('The ensemble repeats the closing lines of the last solo verse.');
+  if (contract.imitationRepeats)
+    statements.push(
+      'This setting assigns each voice a timed entrance and a literal unison phrase. The score checks overlapping entries and the selected number of repetitions.'
+    );
+  if (contract.printedParagraphs)
+    statements.push(
+      'Write each paragraph as one unbroken row with sentence-final punctuation. Leave a blank line between paragraphs.'
+    );
   if (contract.printedSteps)
     statements.push(
       'Each logical line is printed in successive, increasingly indented rows. The writer uses one verse for this setting.'
@@ -148,6 +156,10 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
       'Use a distinct ending sound for each group of lines: ' + groups.join(' / ') + '.'
     );
   }
+  if (contract.lineProfile === 'linked-couplet-echoes')
+    statements.push(
+      'Across each couplet boundary, change one word in a line of at least three words. Echo the opening in the final line. This setting checks wording.'
+    );
   if (contract.lineProfile === 'caesural-rhyme')
     statements.push(
       'Use this pattern on each line of the verse. Mark the pause with / or | so the word before it can be compared with the line ending.'
@@ -265,7 +277,8 @@ function variantView(description, index, catalog, target, startWriter) {
     if (startWriter) {
       const projection = projectSongFormCreation(plan, counts);
       if (projection.status === 'ready') {
-        const setting = projection.scope === 'setting';
+        const setting =
+          projection.scope === 'setting' || Boolean(projection.contract.printedParagraphs);
         const arrangement = projection.arrangement;
         const write = el(
           'button',

@@ -15,7 +15,8 @@ FIELDS = frozenset(("version", "id", "scope", "variant", "counts", "sections",
 
 def line_rhyme_contract(contract):
     """Known v1 shape: all positioned rhyme groups bind line endings."""
-    optional = {"lineRequirements", "endingWords", "phraseLines", "lineProfile", "printedSteps"}
+    optional = {"openRhymeLines", "lineRequirements", "endingWords", "phraseLines",
+                "lineProfile", "printedSteps", "imitationRepeats", "printedParagraphs"}
     return (isinstance(contract, dict) and set(contract) - optional == FIELDS
             and type(contract["version"]) is int and contract["version"] == 1)
 
@@ -88,6 +89,23 @@ def _validate_shape(contract):
     parts = contract["sections"]
     if not isinstance(parts, list) or not 1 <= len(parts) <= plan.ENVELOPE["sections"][1]:
         raise plan.PlanRefused("catalog section count is outside the native envelope")
+    if "imitationRepeats" in contract:
+        repeats = contract["imitationRepeats"]
+        if (set(contract) != FIELDS | {"imitationRepeats"} or contract["scope"] != "setting"
+                or contract["id"] not in ("round", "canon") or contract["variant"] != 0
+                or parts != [{"unit": "section", "role": "verse", "lines": None}]
+                or not isinstance(repeats, list) or not 2 <= len(repeats) <= 16
+                or any(type(n) is not int or (not 2 <= n <= 16 if contract["id"] == "round"
+                                              else n != 1) for n in repeats)
+                or contract["rhymeGroups"] or contract["returnGroups"]):
+            raise plan.PlanRefused("a literal imitative setting requires 2–16 independently scored voices")
+    if "printedParagraphs" in contract:
+        count = contract["printedParagraphs"]
+        if (set(contract) != FIELDS | {"printedParagraphs"} or type(count) is not int
+                or not plan.ENVELOPE["total_lines"][0] <= count <= plan.ENVELOPE["total_lines"][1]
+                or parts != [{"unit": "section", "role": "verse", "lines": count}]
+                or contract["rhymeGroups"] or contract["returnGroups"]):
+            raise plan.PlanRefused("a printed paragraph setting has one native slot per unbroken paragraph")
     if "printedSteps" in contract:
         steps = contract["printedSteps"]
         if (set(contract) != FIELDS | {"printedSteps"} or not isinstance(steps, list) or not steps
@@ -96,11 +114,23 @@ def _validate_shape(contract):
                 or parts != [{"unit": "section", "role": "verse", "lines": sum(steps)}]
                 or contract["rhymeGroups"] or contract["returnGroups"]):
             raise plan.PlanRefused("printed staircases need a verse with one sung row for each segment")
-    if "lineProfile" in contract and (
-            contract["lineProfile"] != "caesural-rhyme"
-            or parts != [{"unit": "section", "role": "verse", "lines": None}]
-            or contract["rhymeGroups"] or contract["returnGroups"]):
-        raise plan.PlanRefused("the caesural rhyme profile needs a verse of independently measured lines")
+    if "lineProfile" in contract:
+        profile = contract["lineProfile"]
+        if profile == "caesural-rhyme":
+            lengths = [None]
+        elif profile == "linked-couplet-echoes":
+            lengths = [2] * 7
+            rows = contract.get("lineRequirements")
+            if not isinstance(rows, list) or len(rows) != 14 or any(
+                    not isinstance(r, dict) or r.get("line") != i
+                    or type(r.get("syllables")) is not int or not 9 <= r["syllables"] <= 11
+                    for i, r in enumerate(rows, 1)):
+                raise plan.PlanRefused("each of the fourteen echo lines needs its selected syllable count")
+        else:
+            raise plan.PlanRefused("unknown catalog line profile")
+        if (parts != [{"unit": "section", "role": "verse", "lines": n} for n in lengths]
+                or contract["rhymeGroups"] or contract["returnGroups"]):
+            raise plan.PlanRefused("line profile requires its declared verse boundaries without sound groups")
     for part in parts:
         if (not isinstance(part, dict) or set(part) - {"bars", "divisionPath", "sourceRole", "linePaths", "vocalDuty", "melodyGroup"} != {"unit", "role", "lines"}
                 or part["unit"] != "section"):
@@ -141,12 +171,20 @@ def _validate_shape(contract):
             group = part.get("melodyGroup")
             if "melodyGroup" in part:
                 if (group not in ("part-a", "part-b", "part-c", "part-d")
-                        or part.get("sourceRole") != group or part["role"] != "verse"):
+                        or {"verse": "part-a", "altered-verse": "part-b",
+                            "stollen": "part-a", "abgesang": "part-b", "head": "part-a"}.get(
+                                part.get("sourceRole"), part.get("sourceRole")) != group
+                        or part["role"] != "verse"):
                     raise plan.PlanRefused("a melodic part needs its matching score group")
                 groups.add(group)
+            elif part is parts[0] and part["role"] == "intro" and part.get("sourceRole") == "introductory-verse":
+                continue
             elif "sourceRole" in part or part["role"] not in ("tag", "solo"):
                 raise plan.PlanRefused("an ungrouped melodic setting section must be a tag or solo")
-        if len(groups) < 2:
+        head_return = (len(parts) >= 3 and parts[0].get("sourceRole") == "head"
+                       and parts[-1].get("sourceRole") == "head"
+                       and all(p["role"] == "solo" for p in parts[1:-1]))
+        if len(groups) < 2 and not head_return:
             raise plan.PlanRefused("a contrasting melodic setting needs distinct part groups")
     elif any("sourceRole" in part for part in parts):
         first = parts[0]
@@ -180,15 +218,21 @@ def _validate_shape(contract):
                 or assigned.intersection(closing)):
             raise plan.PlanRefused("a gathering passage must close the selection")
     groups = contract["rhymeGroups"]
+    open_lines = contract.get("openRhymeLines", [])
+    if "openRhymeLines" in contract and (
+            not groups or not isinstance(open_lines, list) or not open_lines
+            or any(type(n) is not int for n in open_lines)
+            or open_lines != sorted(set(open_lines))):
+        raise plan.PlanRefused("open rhyme lines must list individually positioned free endings")
     if groups != []:
         if (not isinstance(groups, list) or any(p["lines"] is None for p in parts)
                 or len(parts) > 1 and any(p["role"] != "verse" for p in parts)
                 or any(not isinstance(g, list) or not g or any(type(n) is not int for n in g)
                        or g != sorted(g) for g in groups)
                 or not any(len(g) >= 2 for g in groups)
-                or sum(map(len, groups)) != sum(p["lines"] for p in parts)
+                or sum(map(len, groups)) + len(open_lines) != sum(p["lines"] for p in parts)
                 or [g[0] for g in groups] != sorted(g[0] for g in groups)
-                or sorted(n for g in groups for n in g) != list(range(1, sum(p["lines"] for p in parts) + 1))):
+                or sorted(open_lines + [n for g in groups for n in g]) != list(range(1, sum(p["lines"] for p in parts) + 1))):
             raise plan.PlanRefused("prescribed rhyme groups must partition complete positioned sections and include a rhyming pair")
     if "lineRequirements" in contract:
         if any(p["lines"] is None for p in parts):

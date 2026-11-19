@@ -8,11 +8,18 @@
  */
 import {
   declaredPart,
+  checkNestedRefrain,
+  nestedRefrain,
   sectionMelodyChecks,
   sectionMelodyGroup,
   sectionMelodyLayout,
 } from './song-form-section-melody.mjs';
-import { printedSteps, gradePrintedSteps } from './song-form-printing.mjs';
+import {
+  printedSteps,
+  gradePrintedSteps,
+  paragraphCount,
+  gradeParagraphs,
+} from './song-form-printing.mjs';
 
 const MAX_NODES = 8192;
 const MAX_DEPTH = 48;
@@ -466,6 +473,10 @@ export function checkForm(catalog, id, options = {}) {
   const plan = realizeForm(catalog, id, options);
   const checks = [];
   if (plan.status !== 'ready') return { ...plan, verdict: 'unknown', checks };
+  const paragraphs = paragraphCount(plan);
+  if (paragraphs) return { ...plan, ...gradeParagraphs(paragraphs, options.lines) };
+  const nested = nestedRefrain(plan);
+  if (nested) return { ...plan, ...checkNestedRefrain(nested, options) };
   const steps = printedSteps(plan);
   if (steps) {
     const rows = observations(options.lines, true)?.map((row, i) =>
@@ -566,15 +577,22 @@ export function checkForm(catalog, id, options = {}) {
         'Invalid observed line span'
       );
       const [a, b] = node.span.lines;
-      add(
-        'line-span',
-        plan.coverage.lines !== 'complete'
-          ? 'unknown'
-          : a === obs.lineSpan[0] && b === obs.lineSpan[1]
-            ? 'pass'
-            : 'fail',
-        { address: node.address, expected: [a, b] }
-      );
+      if (
+        !(
+          melodic === 'head-solos-head' &&
+          node.unit === 'section' &&
+          plan.coverage.lines === 'none'
+        )
+      )
+        add(
+          'line-span',
+          plan.coverage.lines !== 'complete'
+            ? 'unknown'
+            : a === obs.lineSpan[0] && b === obs.lineSpan[1]
+              ? 'pass'
+              : 'fail',
+          { address: node.address, expected: [a, b] }
+        );
     }
     if (needsSpan && !obs?.lineSpan)
       add('line-span', 'unknown', { address: node.address, expected: [start, end] });
@@ -590,10 +608,22 @@ export function checkForm(catalog, id, options = {}) {
         group.addresses.push(node.address);
         group.members.push(obs);
       } else {
-        const pitchedRole = melodic && key === 'role' && sectionMelodyGroup(node.role);
+        const pitchedRole = melodic && key === 'role' && sectionMelodyGroup(node.role, melodic);
         // Declared names can contradict the arrangement. Unlabelled score
         // sections may demonstrate the same relationships in their notes.
-        const actual = pitchedRole ? declaredPart(obs) : observedValue(obs, key);
+        let actual = pitchedRole ? declaredPart(obs) : observedValue(obs, key);
+        if (key === 'bars' && node === plan.tree[0] && melodic === 'fixed-total') {
+          const bars = plan.sections.map(
+            (part) => observationsByAddress.get(part.address)?.bars ?? extra[part.address]?.bars
+          );
+          actual = bars.every((n) => Number.isSafeInteger(n) && n > 0)
+            ? bars.reduce((n, k) => n + k, 0)
+            : undefined;
+          if (obs?.bars !== undefined && obs.bars !== node.bars)
+            add('bars', 'fail', { address: node.address, expected: node.bars, actual: obs.bars });
+          if (obs?.bars !== undefined && actual !== undefined && obs.bars !== actual)
+            add('bars-sum', 'fail', { address: node.address, declared: obs.bars, actual });
+        }
         if (pitchedRole && actual === undefined) continue;
         add(key, actual === undefined ? 'unknown' : actual === node[key] ? 'pass' : 'fail', {
           address: node.address,
@@ -671,7 +701,8 @@ export function checkForm(catalog, id, options = {}) {
     checks.push(
       ...sectionMelodyChecks(
         plan.sections,
-        plan.sections.map((part) => observationsByAddress.get(part.address) ?? extra[part.address])
+        plan.sections.map((part) => observationsByAddress.get(part.address) ?? extra[part.address]),
+        melodic
       )
     );
     if (plan.id === 'verse-chorus-bridge')

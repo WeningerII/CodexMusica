@@ -4337,6 +4337,9 @@ def _sweep_coords(plan):
     prescribed = (plan.get("request", {}).get("song_form") or {}).get("rhymeGroups")
     if prescribed:
         classes = {line: group for group, members in enumerate(prescribed) for line in members}
+        # Each open ending contributes a singleton for partition statistics.
+        for line in plan["request"]["song_form"].get("openRhymeLines", ()):
+            classes[line] = -line
         return SC.coordinates(tuple(classes[line] for line in sorted(classes)))
     schemes = (plan.get("choices") or {}).get("schemes") or {}
     per = {}
@@ -5550,6 +5553,8 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     if any(len(g) > _max_group for g in terminal_groups):
         raise PlanRefused("the prescribed rhyme group exceeds the requested group size")
     group_of = {line: i for i, g in enumerate(terminal_groups) for line in g}
+    if song_form:
+        group_of.update({line: -line for line in song_form.get("openRhymeLines", ())})
     prescribed_returns = song_form["returnGroups"] if song_form else []
     if song_form and song_form["sections"][-1].get("vocalDuty") == "reprise":
         width = catalog["sections"][-1]["lines"]
@@ -6240,6 +6245,12 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         plan["choices"]["meter"]["chosen_from"] = "declared melody; no meter draw"
         plan["choices"]["melody"] = {"mode": "declared", "repeat": "each lyric line",
                                       "underlay_certified": False, "pitch_certified": False}
+    if song_form and "imitationRepeats" in song_form:
+        from quality.melody import assign_imitative_score
+        if melody is not None:
+            raise PlanRefused("a repeated line melody conflicts with the selected multi-voice score")
+        if not assign_imitative_score(rng, plan, song_form["imitationRepeats"]):
+            raise SeedRefused("the selected voice entries and loops do not fit this score grid")
     if song_form and any("melodyGroup" in p for p in song_form["sections"]):
         from quality.melody import assign_section_melodies
         try:
@@ -6464,6 +6475,8 @@ def render_song(plan, lines):
     if len(got) != want:
         raise PlanRefused(f"the plan declares {want} line(s) and the draft "
                           f"carries {len(got)} — they must be the same song.")
+    if (plan.get("request", {}).get("song_form") or {}).get("printedParagraphs"):
+        return "\n\n".join(got).rstrip() + "\n"
     out = []
     for sec in plan["sections"]:
         slots = [s for s in plan["line_slots"]
@@ -7236,6 +7249,8 @@ def writer_brief(plan):
             out.append("  English line-aligned setting: in each triad, match the stress and syllable "
                        "patterns of corresponding strophe and antistrophe lines. Give the epode "
                        "a contrasting syllable count on at least one corresponding line.")
+        if catalog.get("printedParagraphs"):
+            out.append("  Write one unbroken paragraph per slot. End each with sentence punctuation and leave a blank line between paragraphs.")
         if catalog.get("printedSteps"):
             out.append("  Print each logical line as a staircase of sung rows. "
                        "Indent each successive row further than the previous row within that line. "
@@ -7243,7 +7258,12 @@ def writer_brief(plan):
         if catalog.get("phraseLines"):
             out.append("  In this arrangement, print each measured phrase on a separate sung line.")
         groups = catalog["rhymeGroups"]
-        if len(groups) == 1:
+        if catalog.get("openRhymeLines"):
+            out.append("  Rhyme the line endings within each class: " +
+                       "; ".join(", ".join(map(str, group)) for group in groups) + ".")
+            out.append("  Unconstrained line endings: " +
+                       ", ".join(map(str, catalog["openRhymeLines"])) + ".")
+        elif len(groups) == 1:
             out.append(f"  Lines {groups[0][0]}–{groups[0][-1]}: all line endings rhyme with each other.")
         elif groups:
             out.append("  Match the ending sound within each group of lines and keep it distinct across groups: "
@@ -7251,6 +7271,10 @@ def writer_brief(plan):
         if catalog.get("lineProfile") == "caesural-rhyme":
             out.append("  In each line mark the mid-line pause with / or |. "
                        "The word immediately before it must rhyme with a different word at the line ending.")
+        if catalog.get("lineProfile") == "linked-couplet-echoes":
+            out.append("  At each couplet boundary rewrite the previous line, retaining its words in order "
+                       "and replacing one word within a line of at least three words. Close by repeating the "
+                       "opening or changing one word. This measures printed echoes, not shifts of meaning.")
         if "endingWords" in catalog:
             ending = catalog["endingWords"]
             out.append("  Use one distinct final word per group; repeat that word at each listed line ending: "
@@ -7289,6 +7313,12 @@ def writer_brief(plan):
                 turn = slot["divisionPath"][-1]["role"]
                 out.append(f"  L{slot['line']} · {turn}")
         out.append("  " + section_header(sec, slots))
+        if "voice_score" in sec:
+            out.append("    Literal imitative score, four ticks per beat; each part enters while the preceding part sounds.")
+            for track in sec["voice_score"]["tracks"]:
+                events = ", ".join(f"{hz} Hz/{ticks} ticks" for hz, ticks in track["phrases"][0])
+                out.append(f"    {track['performer']}: enter at tick {track['start']}; play {events}, "
+                           f"{len(track['phrases'])} time(s).")
         if "section_melody" in sec:
             phrase = sec["section_melody"]
             events = ", ".join(f"{note['pitch_hz']} Hz/{note['ticks']}" if note["pitch_hz"] is not None

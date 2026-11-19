@@ -34,7 +34,7 @@ import { checkEvidenceInvocation } from './lyrics_evidence_binding.js';
 import { createPythonBridge } from './python_bridge.js';
 import { probeReaderScheme } from './reader_scheduler.js';
 import { requestContext } from './execution_context.js';
-import { draftFromText, normalizeDraftLines } from './lyric_text.js';
+import { draftFromText, normalizeDraftLines, serializeWritingDraft } from './lyric_text.js';
 import { admitRecognitionArgs, pastedRowsOf } from './meter_admission.js';
 import {
   declarationAdvice,
@@ -1565,6 +1565,8 @@ async function pastedFormMandate(a, lines) {
       throw refuse(
         `Catalog form ${mandate.id} is ${mandate.status}: ${JSON.stringify(mandate.needs)}`
       );
+    if (selection.plan.id === 'prose-poem')
+      mandate.minimumLines = mandate.lineCount = selection.plan.tree[0].children.length;
     const steps = printedSteps(selection.plan);
     if (steps) mandate.minimumLines = mandate.lineCount = steps.reduce((n, size) => n + size, 0);
     const count = lines.length;
@@ -2976,7 +2978,7 @@ export function registerLyricTools(server, tool) {
         const draftPath = path.join(dir, 'draft.txt');
         const bpPath = path.join(dir, 'bp.json');
         const planPath = path.join(dir, 'plan.json');
-        await writeFile(draftPath, a.draft.join('\n') + '\n', 'utf8');
+        await writeFile(draftPath, serializeWritingDraft(a.draft, a.catalog_form), 'utf8');
 
         // 1. The plan's own mandate halves, from the plan artifact itself.
         const creationArgs = [...planArgs(a), ...(await creationFormArgs(a))];
@@ -3355,7 +3357,7 @@ export function registerLyricTools(server, tool) {
               const draftPath = path.join(dir, 'draft.txt');
               const statePath = path.join(dir, 'state.json');
               const checkpointPath = path.join(dir, 'checkpoint.json');
-              await writeFile(draftPath, a.draft.join('\n') + '\n', 'utf8');
+              await writeFile(draftPath, serializeWritingDraft(a.draft, a.catalog_form), 'utf8');
               const checkpointInput = checkpoint ? JSON.stringify(checkpoint) + '\n' : null;
               if (checkpointInput) await writeFile(checkpointPath, checkpointInput, 'utf8');
               // The caller can carry the record independently of the run cache. The blob
@@ -4133,8 +4135,8 @@ export function registerLyricTools(server, tool) {
           );
         const bPath = path.join(dir, 'before.txt');
         const aPath = path.join(dir, 'after.txt');
-        await writeFile(bPath, a.before.join('\n') + '\n', 'utf8');
-        await writeFile(aPath, a.after.join('\n') + '\n', 'utf8');
+        await writeFile(bPath, serializeWritingDraft(a.before, a.catalog_form), 'utf8');
+        await writeFile(aPath, serializeWritingDraft(a.after, a.catalog_form), 'utf8');
         if (a.structures && !STRUCTURES_RE.test(a.structures))
           throw refuse("structures must be 'LABEL:name' pairs, comma-separated");
         const args = [...globalsFor(a), 'verify', bPath, aPath];
@@ -4237,6 +4239,13 @@ export function registerLyricTools(server, tool) {
               ? 'recovered — every coordinate obtained; none refused. Hand `lines` with `mandate` to lyric_check and lyric_revise.'
               : 'recovered with REFUSALS — each coordinate under `refusals` carries its reason and must be DECLARED by the caller before the graders can ask about it (the meter always: counting gives syllables, not a grid). Hand `lines` with `mandate` to lyric_check and lyric_revise.';
           v.lines = rec.lines;
+          if (rec.paragraph_starts?.length === rec.lines.length) {
+            v.paragraph_text = rec.lines
+              .map((line, i) => (i && rec.paragraph_starts[i] ? '\n' : '') + line)
+              .join('\n');
+            v.meaning =
+              'Recovered source paragraph layout. Use paragraph_text as lines_text for checking, or draft_text for revision.';
+          }
           if (rec.printed_lines) {
             v.printed_lines = rec.printed_lines;
             v.meaning += ' Use printed_lines for the stepped layout when checking or revising.';
@@ -4310,7 +4319,7 @@ export function registerLyricTools(server, tool) {
               'catalog row or world alias (an unknown name is refused with the catalog listed)'
           );
         const draftPath = path.join(dir, 'draft.txt');
-        await writeFile(draftPath, a.lines.join('\n') + '\n', 'utf8');
+        await writeFile(draftPath, serializeWritingDraft(a.lines, a.catalog_form), 'utf8');
         if (a.subdivision != null && a.blueprint == null)
           throw refuse(
             '`subdivision` needs `blueprint` — send `blueprint` too, or drop `subdivision`; without a blueprint nothing reads it'
