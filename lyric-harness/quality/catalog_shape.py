@@ -194,9 +194,15 @@ def _validate_shape(contract):
             raise plan.PlanRefused("an ensemble reprise closes the preceding solo verses")
     if any("melodyGroup" in p for p in parts):
         groups = set()
+        vamp_break = (contract["id"] == "vamp-riff-form" and
+                      [(p.get("sourceRole"), p["role"], p.get("melodyGroup")) for p in parts] ==
+                      [("vamp", "vamp", "part-a"), ("break", "solo", "part-b")])
         for index, part in enumerate(parts, 1):
             group = part.get("melodyGroup")
             if "melodyGroup" in part:
+                if vamp_break:
+                    groups.add(group)
+                    continue
                 if part.get("sourceRole") == "contrasting-part":
                     if part.get("vocalDuty") != "ensemble" or group != f"section-{index}":
                         raise plan.PlanRefused("a contrasting ensemble part needs its own written melody")

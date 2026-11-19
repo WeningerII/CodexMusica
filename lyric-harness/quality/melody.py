@@ -75,15 +75,28 @@ def assign_section_melodies(rng, sections, declarations, subdivision):
         meter, bars = section['meter'], section['bars']
         if group not in phrases:
             total = bars * meter['beats'] * subdivision
-            size = rng.randint(2, min(8, total))
-            bounds = [0, *sorted(rng.sample(range(1, total), size - 1)), total]
-            # A shared starting pitch and a distinct first interval rule out
-            # two contrasting groups that differ only by transposition.
-            pitches = [base_hz, base_hz + (rng.randint(12, 120) if solo else next(intervals))]
-            for _ in range(size - 2):
-                pitches.append(None if rng.randrange(5) == 0 else rng.randint(150, 500))
-            notes = [{'pitch_hz': pitch, 'ticks': right - left}
-                     for pitch, left, right in zip(pitches, bounds, bounds[1:])]
+            if declaration.get("sourceRole") == "vamp":
+                beat = subdivision
+                # Each selected bar has at least two beats. Repeat once per
+                # bar, preserving the second attack even in binary meters.
+                notes = [{"pitch_hz": pitch, "ticks": length}
+                         for _ in range(bars)
+                         for pitch, length in ((base_hz, beat),
+                                               (base_hz + 32, (meter["beats"] - 1) * beat))]
+                if bars < 2:
+                    raise ValueError("the selected vamp needs at least two complete riff cycles")
+            elif declaration.get("sourceRole") == "break":
+                notes = [{"pitch_hz": base_hz, "ticks": total}]
+            else:
+                size = rng.randint(2, min(8, total))
+                bounds = [0, *sorted(rng.sample(range(1, total), size - 1)), total]
+                # A shared starting pitch and a distinct first interval rule out
+                # two contrasting groups that differ only by transposition.
+                pitches = [base_hz, base_hz + (rng.randint(12, 120) if solo else next(intervals))]
+                for _ in range(size - 2):
+                    pitches.append(None if rng.randrange(5) == 0 else rng.randint(150, 500))
+                notes = [{'pitch_hz': pitch, 'ticks': right - left}
+                         for pitch, left, right in zip(pitches, bounds, bounds[1:])]
             phrases[group] = dict(bars=bars, meter=meter, subdivision=subdivision, notes=notes)
         phrase = phrases[group]
         if phrase['bars'] != bars or phrase['meter'] != meter:
