@@ -1537,6 +1537,8 @@ function globalsFor(a) {
   if (a && a.voices === true) out.push('--voices');
   if (a && (a.fallback === 'high' || a.fallback === 'low')) out.push(`--fallback=${a.fallback}`);
   if (a?.numbering !== undefined) out.push(`--numbering=${a.numbering}`);
+  if (a?.catalog_function_readings?.length)
+    out.push(`--catalog-function-readings=${JSON.stringify(a.catalog_function_readings)}`);
   if (a?.pronunciations !== undefined)
     out.push(`--pronunciations=${JSON.stringify(a.pronunciations)}`);
   return out;
@@ -2730,6 +2732,27 @@ Object.assign(LYRIC_TOOL_SCHEMAS.lyric_check, {
   catalog_variant: LYRIC_TOOL_SCHEMAS.lyric_recover.catalog_variant,
   catalog_counts: LYRIC_TOOL_SCHEMAS.lyric_recover.catalog_counts,
 });
+const catalogFunctionReadings = z
+  .array(
+    z
+      .object({
+        section: z.number().int().min(1).max(64),
+        role: z.string().min(1).max(80),
+        draft_sha256: z.string().regex(/^[0-9a-f]{64}$/),
+        judgment: z.enum(['affirmed', 'rejected']),
+        source: z.string().trim().min(1).max(128),
+        reason: z.string().trim().min(1).max(512),
+      })
+      .strict()
+  )
+  .min(1)
+  .max(64)
+  .optional()
+  .describe(
+    'Attributed readings of the actual submitted sections. Copy section, role and draft_sha256 from declared-textual-function checks, give the source and reasoning. Changed text or divisions require fresh readings.'
+  );
+for (const name of ['lyric_grade', 'lyric_revise', 'lyric_check'])
+  LYRIC_TOOL_SCHEMAS[name].catalog_function_readings = catalogFunctionReadings;
 for (const name of ['lyric_sweep', 'lyric_plan', 'lyric_grade', 'lyric_revise']) {
   Object.assign(LYRIC_TOOL_SCHEMAS[name], {
     catalog_form: LYRIC_TOOL_SCHEMAS.lyric_recover.catalog_form.describe(

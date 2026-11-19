@@ -157,14 +157,24 @@ def _validate_shape(contract):
         if (parts != [{"unit": "section", "role": "verse", "lines": n} for n in lengths]
                 or contract["rhymeGroups"] or contract["returnGroups"]):
             raise plan.PlanRefused("line profile requires its declared verse boundaries without sound groups")
-    for part in parts:
-        if (not isinstance(part, dict) or set(part) - {"bars", "divisionPath", "sourceRole", "linePaths", "vocalDuty", "melodyGroup"} != {"unit", "role", "lines"}
+    for index, part in enumerate(parts):
+        if (not isinstance(part, dict) or set(part) - {"bars", "divisionPath", "sourceRole", "linePaths", "vocalDuty", "melodyGroup", "textualFunction"} != {"unit", "role", "lines"}
                 or part["unit"] != "section"):
             raise plan.PlanRefused("seeded catalog creation supports named role sequences only")
         if "bars" in part and (type(part["bars"]) is not int or part["bars"] < 1):
             raise plan.PlanRefused("catalog section bars must be a positive integer")
         if "divisionPath" in part and not _valid_division_path(part["divisionPath"]):
             raise plan.PlanRefused("invalid catalog division path")
+        if "textualFunction" in part:
+            claim = part["textualFunction"]
+            path = part.get("divisionPath") or []
+            role = next((m["role"] for m in reversed(path) if "role" in m), path[-1]["unit"] if path else None)
+            if (not isinstance(claim, dict) or set(claim) - {"answersSection"} != {"role", "criterion"}
+                    or not role or claim["role"] != role
+                    or not isinstance(claim["criterion"], str) or not claim["criterion"].strip()
+                    or ("answersSection" in claim and (type(claim["answersSection"]) is not int
+                        or not 1 <= claim["answersSection"] <= index))):
+                raise plan.PlanRefused("a textual function needs a scored role, criterion and any earlier answer target")
         if "vocalDuty" in part:
             roles = {"solo-verse": "solo", "full-choir": "full", "choral-stanza": "ensemble",
                      "cantor-verse": "cantor", "ensemble-reprise": "reprise",

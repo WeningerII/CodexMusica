@@ -375,3 +375,16 @@ test('alliterative verse locates the head stave across the actual break', async 
     ['pass', 'pass', 'fail', 'fail', 'fail', 'fail', 'unknown', 'unknown']
   );
 });
+
+test('matching printed headings leave narrative readings unknown', async () => {
+  const recovered = await recover({
+    catalog_form: 'goodnight-ballad',
+    lines: ['[CONFESSION]', 'one two', '[FAREWELL]', 'three four'],
+  });
+  assert.equal(recovered.catalog_form.verdict, 'unknown');
+  assert.ok(
+    recovered.catalog_form.checks.some(
+      (check) => check.kind === 'declared-textual-function' && check.outcome === 'unknown'
+    )
+  );
+});

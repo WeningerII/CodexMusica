@@ -1,3 +1,5 @@
+import { createHash } from 'node:crypto';
+import { finalPunchline, usesFunctionReadings } from './song-form-function-readings.mjs';
 // Compare catalog requirements with measurements from the current candidate.
 // Blueprint coordinates describe the declared arrangement, including its bar grid.
 import { measureSpokenClose } from './song-form-spoken-close.mjs';
@@ -40,6 +42,76 @@ function simpleSectionLayout(node) {
         )
     )
   );
+}
+
+// Bind the attestation to the entire submitted text and to the ordered
+// division spans. A change outside the passage can change its meaning too.
+function measureFunctionReadings(plan, rows, lines, sections) {
+  const text = lines?.map((row) => (typeof row === 'string' ? row : row?.text));
+  const spans = sections?.map((row) => row?.lineSpan);
+  let cursor = 0;
+  const complete =
+    text?.length &&
+    text.every((line) => typeof line === 'string' && line.trim()) &&
+    spans?.length === rows.length &&
+    spans.every((span) => {
+      if (
+        !Array.isArray(span) ||
+        span.length !== 2 ||
+        span[0] !== cursor ||
+        !Number.isSafeInteger(span[1]) ||
+        span[1] <= cursor
+      )
+        return false;
+      cursor = span[1];
+      return true;
+    }) &&
+    cursor === text.length;
+  const binding = complete
+    ? createHash('sha256')
+        .update(
+          JSON.stringify([
+            plan.id,
+            plan.variant,
+            rows.map((r) => [r.divisionPath, r.textualFunction]),
+            spans,
+            text,
+          ])
+        )
+        .digest('hex')
+    : undefined;
+  return rows.flatMap((row, i) => {
+    if (!row.textualFunction) return [];
+    const { role } = row.textualFunction;
+    const check = {
+      kind: 'declared-textual-function',
+      section: i + 1,
+      ...row.textualFunction,
+      basis: 'attributed editorial reading',
+      outcome: 'unknown',
+      ...(binding && {
+        draft_sha256: binding,
+        lines: Array.from({ length: spans[i][1] - spans[i][0] }, (_, n) => spans[i][0] + n + 1),
+      }),
+      ...(binding && plan.id === 'epigram' && { focusLine: spans[i][1] }),
+    };
+    const reading = sections?.[i]?.functionReading;
+    if (!check.criterion || !binding || !reading || typeof reading !== 'object') return check;
+    if (
+      reading.draft_sha256 !== binding ||
+      reading.section !== i + 1 ||
+      reading.role !== role ||
+      !['affirmed', 'rejected'].includes(reading.judgment) ||
+      ![reading.source, reading.reason].every((s) => typeof s === 'string' && s.trim())
+    )
+      return check;
+    return {
+      ...check,
+      source: reading.source,
+      reason: reading.reason,
+      outcome: reading.judgment === 'affirmed' ? 'pass' : 'fail',
+    };
+  });
 }
 
 export function gradeObservations(catalog, id, { variant, counts, lines, sections, phraseLines }) {
@@ -196,6 +268,8 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
         checks.push({ ...check, lines: check.addresses.map((address) => numbers.get(address)) });
       }
     }
+    if (usesFunctionReadings(plan.id))
+      checks.push(...measureFunctionReadings(plan, creation.contract.sections, lines, sections));
     const score = gradeNestedDivisions(plan, creation.contract.sections, lines, sections, checks);
     const words = creation.contract.endingWords;
     if (!words) return score;
@@ -299,6 +373,32 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   }
   plan.tree.forEach(walk);
   const extras = measurement.checks;
+  const punchline = finalPunchline(plan);
+  const reading =
+    punchline &&
+    creation.contract &&
+    measureFunctionReadings(plan, creation.contract.sections, lines, sections)[0];
+  if (reading) {
+    extras.push({ ...reading, focusLine: 5 });
+    for (const { line, stress } of creation.contract.lineRequirements) {
+      const observed = lines?.[line - 1];
+      const actual =
+        typeof observed?.text === 'string' &&
+        observed.text.trim() &&
+        typeof observed.stress === 'string' &&
+        /^[./]+$/.test(observed.stress)
+          ? observed.stress
+          : undefined;
+      extras.push({
+        kind: 'regular-anapestic-line',
+        lines: [line],
+        expected: stress,
+        ...(actual && { actual }),
+        basis: 'regular-foot writing arrangement, agreed lexical stress',
+        outcome: actual === undefined ? 'unknown' : actual === stress ? 'pass' : 'fail',
+      });
+    }
+  }
   const spans = new Map();
   const hasInstrumental = plan.sections.some((section) => isWordlessWriterRole(section.role));
   const projection = stanzas.length || hasInstrumental ? creation : null;
@@ -474,6 +574,8 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     if (check.kind === 'role' && index) {
       if (creation.contract?.lineProfile === 'linked-couplet-echoes')
         return { ...check, ...measuredCoupletEcho(index, lines) };
+      if (reading && check.address === punchline.address)
+        return { ...check, basis: reading.basis, outcome: reading.outcome };
       const line = addresses.get(check.address);
       if (line.role === 'spoken-close' && creation.contract?.spokenClose) {
         return {
@@ -639,6 +741,10 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     scope: plan.scope,
     ...(creation.contract?.spokenClose && {
       unassessed: ['comic effect', 'acoustic timbre', 'performance'],
+    }),
+    ...(reading && {
+      basis:
+        'measured rhyme, lexical stress and complete anapestic feet; editorial reading of the closing line',
     }),
     ...(sourceArrangement && {
       sectionArrangement: {

@@ -9095,6 +9095,16 @@ def _line_lookup(ones, brief, attempt):
     return text
 
 
+def _catalog_run_basis(lex):
+    selection = getattr(lex, "catalog_selection", None)
+    readings = getattr(lex, "catalog_function_readings", ())
+    if selection and readings:
+        import hashlib
+        canonical = json.dumps(sorted(readings, key=lambda r: r["section"]), sort_keys=True, separators=(",", ":"))
+        return dict(selection, textual_reading_sha256=hashlib.sha256(canonical.encode()).hexdigest())
+    return selection
+
+
 def _check_run_catalog(record, selection):
     if record.get("catalog_selection") != selection:
         _refuse("CATALOG_SELECTION_MISMATCH: resume with the original catalog form, variant and counts")
@@ -11456,6 +11466,29 @@ def main():
     args = [a for a in args if not a.startswith('--numbering=')]
     if not args:
         _refuse("a pronunciation declaration requires a command")
+    readings_flag = "--catalog-function-readings"
+    readings_args = [a for a in args if a == readings_flag or a.startswith(readings_flag + "=")]
+    if readings_args:
+        if len(readings_args) != 1 or "=" not in readings_args[0]:
+            _refuse("supply a single catalog function readings declaration as JSON")
+        try:
+            readings = json.loads(readings_args[0].split("=", 1)[1])
+            keys = {"section", "role", "draft_sha256", "judgment", "source", "reason"}
+            if (not isinstance(readings, list) or not 1 <= len(readings) <= 64
+                    or any(not isinstance(r, dict) or set(r) != keys
+                           or type(r["section"]) is not int or not 1 <= r["section"] <= 64
+                           or not all(isinstance(r[k], str) and r[k].strip() for k in keys - {"section"})
+                           or not re.fullmatch(r"[0-9a-f]{64}", r["draft_sha256"])
+                           or r["judgment"] not in ("affirmed", "rejected")
+                           or len(r["source"]) > 128 or len(r["reason"]) > 512 for r in readings)
+                    or len({r["section"] for r in readings}) != len(readings)):
+                raise ValueError("expected unique sections with a role, draft_sha256, judgment, source and reason")
+        except (ValueError, RecursionError) as exc:
+            _refuse(f"invalid catalog function readings: {exc}")
+        lex.catalog_function_readings = readings
+        args = [a for a in args if a not in readings_args]
+        if not args or args[0] not in ("song", "finish", "revise", "tryline"):
+            _refuse("catalog function readings apply to grading and revision")
     args, catalog_form = _catalog_creation(args, lex)
     cmd = args[0]
     if pronunciation_json is not None and cmd not in {"song", "finish", "brief", "revise", "verify", "recover", "normalize-numbering"}:
@@ -16006,7 +16039,7 @@ def main():
                         # run recorded, on the resume's own rule and with
                         # its words (`_defer_scheme_check`, read-only).
                         _defer_scheme_check(_st_path, _st)
-                        _check_run_catalog(_st, getattr(lex, "catalog_selection", None))
+                        _check_run_catalog(_st, _catalog_run_basis(lex))
                         if not _st.get("input_draft"):
                             _refuse(
                                 f"--propose=defer:{_st_path} — the state "
@@ -16219,7 +16252,7 @@ def main():
                     propose, propose_group, say_proposer = _resolve_proposer(
                         propose_spec, lines=lines, checkpoint_key=_rm_key,
                         legacy_checkpoint_key=_legacy_checkpoint_key,
-                        catalog_selection=getattr(lex, "catalog_selection", None))
+                        catalog_selection=_catalog_run_basis(lex))
                 except _JournalCapacity as e:
                     _journal_stop(e, plan=finish_plan if cmd == "finish" else None)
                 except ProposerUnavailable as e:
@@ -16294,7 +16327,7 @@ def main():
                         propose, propose_group, say_proposer = _resolve_proposer(
                             propose_spec, lines=lines, checkpoint_key=_rm_key,
                             legacy_checkpoint_key=_legacy_checkpoint_key,
-                            catalog_selection=getattr(lex, "catalog_selection", None))
+                            catalog_selection=_catalog_run_basis(lex))
                         _b2 = getattr(say_proposer, "bind", None)
                         if _b2 is not None:
                             _b2(_rm_key, _scorer_identity(), use=False,

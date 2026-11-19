@@ -7298,6 +7298,14 @@ def writer_brief(plan):
                        "Rows per logical line, in order: " + ", ".join(map(str, catalog["printedSteps"])) + ".")
         if catalog.get("phraseLines"):
             out.append("  In this arrangement, print each measured phrase on a separate sung line.")
+        for i, part in enumerate(catalog["sections"], 1):
+            claim = part.get("textualFunction")
+            if claim:
+                target = f" The corresponding riddle is in section {claim['answersSection']}." if "answersSection" in claim else ""
+                out.append(f"  Section {i} · {claim['role']}: {claim['criterion']}{target}")
+        if any("textualFunction" in part for part in catalog["sections"]):
+            out.append("  These functions need an attributed reading of the submitted draft. "
+                       "The first grade supplies the passage identifiers for catalog_function_readings.")
         groups = catalog["rhymeGroups"]
         if catalog.get("openRhymeLines"):
             out.append("  Rhyme the line endings within each class: " +

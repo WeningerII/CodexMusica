@@ -2,6 +2,12 @@
 // assignment is a declaration; acoustic identity cannot be inferred from text.
 import { pindaricTriads } from './song-forms.mjs';
 
+import {
+  countedTextualLayout,
+  functionCriterion,
+  usesFunctionReadings,
+} from './song-form-function-readings.mjs';
+
 const roots = new Set(['song', 'poem']);
 const groups = new Set([
   'play',
@@ -81,6 +87,8 @@ export function projectNestedDivisions(
   nativeRoles,
   { fixedReturns = false, endingWords = null } = {}
 ) {
+  const counted = countedTextualLayout(plan, mark, plain);
+  if (counted) return counted;
   const triads = pindaricTriads(plan);
   if (
     triads &&
@@ -100,6 +108,40 @@ export function projectNestedDivisions(
         role: 'verse',
         lines: null,
         divisionPath: [mark(plan.tree[0]), mark(triad), mark(stanza)],
+      }))
+    );
+  }
+  // A question/answer pair has two separate source passages. More or fewer
+  // answer stanzas can be valid, but need a different correspondence.
+  if (plan.id === 'riddle-song' && plan.scope === 'setting' && plan.tree.length === 1) {
+    const [song] = plan.tree;
+    const [questions, answers] = song.children;
+    if (
+      song.unit !== 'song' ||
+      song.role ||
+      !plain(song) ||
+      song.children.length !== 2 ||
+      questions.role !== 'riddle-stanzas' ||
+      answers.role !== 'answer-stanzas' ||
+      questions.children.length !== answers.children.length ||
+      !questions.children.length ||
+      !song.children.every(
+        (part) =>
+          part.unit === 'section' &&
+          plain(part) &&
+          part.children.every(
+            (stanza) =>
+              stanza.unit === 'stanza' && !stanza.role && plain(stanza) && !stanza.children.length
+          )
+      )
+    )
+      return null;
+    return song.children.flatMap((part) =>
+      part.children.map((stanza) => ({
+        unit: 'section',
+        role: 'verse',
+        lines: null,
+        divisionPath: [mark(song), mark(part), mark(stanza)],
       }))
     );
   }
@@ -219,7 +261,26 @@ export function projectNestedDivisions(
       refrain || (node.unit === 'section' && nativeRoles.has(node.role?.replaceAll('-', '_')));
     let vocalDuty =
       node.unit === 'section' && !node.children.length ? vocalRoles.get(node.role) : undefined;
-    if (node.role && !native && !participants.has(node.role) && !carrier && !vocalDuty)
+    if (
+      plan.id === 'nonsense-refrain-song' &&
+      node.role === 'vocables-refrain' &&
+      node.unit === 'section' &&
+      !node.children.length
+    )
+      carrier = 'refrain';
+    const declaredFunction =
+      node.unit === 'section' &&
+      functionCriterion(plan.id, node.role) &&
+      node.children.every((n) => n.unit === 'line' && !n.role && plain(n) && !n.children.length);
+    if (declaredFunction) distinct = true;
+    if (
+      node.role &&
+      !native &&
+      !participants.has(node.role) &&
+      !carrier &&
+      !vocalDuty &&
+      !declaredFunction
+    )
       return false;
     if (native && ['solo', 'interlude'].includes(node.role)) return false;
     if (node.unit === 'stanza' && !node.role && !node.children.length && !carrier) return false;
@@ -664,7 +725,9 @@ export function gradeNestedDivisions(plan, rows, lines, sections, checks = []) {
     scope: plan.scope,
     basis: triads
       ? 'declared English line-aligned stanza profiles'
-      : 'declared score divisions and participant assignments',
+      : usesFunctionReadings(plan.id)
+        ? 'measured score divisions and attributed textual readings; semantic function is editor-assessed'
+        : 'declared score divisions and participant assignments',
     verdict,
     checks,
   };
