@@ -2074,14 +2074,17 @@ const seedField = z
     "REQUIRED declared seed — any integer. Same seed and same declarations, same plan, byte for byte; a different seed is a different song shape. A new song's seed comes from lyric_sweep's accepted list, which sweeps non-negative seeds; a creation session plans only such a seed."
   );
 
-// Built from FORM_ROWS (stage 3): each form with what it requires, and no
-// default offered. A new-song sweep must name one (creationRefusal); what it
-// needs, here and on lines, functions, relation and melody, is sweepNeeds.
+// The native form, read from FORM_ROWS, with no default offered. It is the
+// raw engine's low-level boundary and a saved job's own form: a new-song
+// session's lyric_sweep refuses it (CREATION_FORM, creationRefusal), since a
+// new song's form is a catalog form (#902).
 const formField = z
   .string()
   .refine((name) => PLAN_FORMS.includes(name), 'Unknown legacy song form')
   .optional()
-  .describe('Legacy form declaration for earlier callers. New writing uses catalog_form.');
+  .describe(
+    'Legacy native form, for raw, low-level callers and songs planned before. A new-song session refuses it on lyric_sweep (CREATION_FORM): name catalog_form, or leave out both and the sweep chooses.'
+  );
 
 const linesField = z
   .number()
@@ -4484,7 +4487,8 @@ export function registerLyricTools(server, tool) {
         'already passed, and an argmax over a swept parameter is biased toward whichever end has more freedom. Plan ' +
         `any seed in \`accepted_shown\` with the same ${joinedNames(SWEEP_COORDINATES)}; ` +
         "a creation session requires them and this `want` list as lyric_plan's `wants`. " +
-        'Omit catalog_form to select an executable setting from the catalog automatically. Unspecified dimensions are drawn on that path. FOUR COUNTS, NEVER ' +
+        'Name a form with catalog_form, or omit catalog_form and form to select an executable setting from the catalog automatically. Unspecified dimensions are drawn on that path. ' +
+        'A new-song session refuses `form` (CREATION_FORM); it remains for raw, low-level callers and songs planned before. FOUR COUNTS, NEVER ' +
         'SUMMED: swept, planned, planner_refused and accepted_count (accepted_shown lists the accepted seeds) — ' +
         'planner_refused is the planner turning a request down (an unbuildable roster, an unattainable length) and ' +
         'is NOT a predicate rejecting a shape, so with `planned 0` the predicates never ran; sweep_outcome names ' +
@@ -4946,6 +4950,7 @@ export function lyricInstructions({ kitchen = false } = {}) {
       ? "the service's writer answering every question, so ONE call returns the stop condition. "
       : 'the loop asking one question per suspended call (`answer`, or `answers` for a batch or group) until it stops. ') +
     'For a new song with no named form, omit the form fields. The sweep selects a compatible catalog setting and draws omitted dimensions. Carry forward the recorded selection. Preserve all explicit user choices. ' +
+    'A named form is a catalog_form. A new-song session refuses `form` on lyric_sweep (CREATION_FORM); it remains for raw, low-level callers and songs planned before. ' +
     "The sweep's NEXT line, a grade verdict's `next` and each CREATION_* refusal name the next call; a create " +
     'session refuses any other (CREATION_*). The first text block of a lyric_grade result, and of a lyric_revise ' +
     'result at a stop condition, is the deliverable: the song under its bracket headers ([NAME — N lines — B bars ' +
