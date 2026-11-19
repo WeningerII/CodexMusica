@@ -277,6 +277,13 @@ test('a second sweep refused for what it leaves out names that sweep again, not 
   const second = { seed_from: 1, count: 1, catalog_form: catalogForm(1) };
   const refusal = creationRefusal(task, 'lyric_sweep', structuredClone(second));
   assert.match(refusal, /^CREATION_STATEMENT: /);
+  // The rule says how a new song gets its form: named with `catalog_form`, or
+  // chosen by the sweep (#902). It once said there was no draw over forms.
+  assert.match(
+    refusal,
+    /form is named with `catalog_form`, or the sweep chooses one when `form` and `catalog_form` are both left out/
+  );
+  assert.doesNotMatch(refusal, /no draw over forms/);
   const next = nextCreationCall(task, null, 'lyric_sweep', second);
   assert.equal(next.tool, 'lyric_sweep');
   assert.deepEqual(

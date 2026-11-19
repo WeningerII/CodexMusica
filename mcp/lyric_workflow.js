@@ -11,8 +11,9 @@ export const DEFAULT_FORM = 'open';
 // STATE IT OR SAY DRAW (writer plan, stage 3). A new song's lyric_sweep states
 // each of these things: a value in its field, a sweep `want` on one of its
 // `wants` names (a name ending `.*` stands for that name with any section
-// function), or, where `draw` is true, its field named in `draw`. There is no
-// draw over forms, so form takes a name. The `wants` names are the planner's
+// function), or, where `draw` is true, its field named in `draw`. A form is
+// named with `catalog_form`, or the sweep chooses one when both form fields
+// are left out (#902); `draw` never names it. The `wants` names are the planner's
 // own (`quality/plan.py` SWEEP_MEASURES, SWEEP_SETS and SWEEP_ORDERS),
 // checked there by test_high_report. A want states sections when it bounds
 // how many there are or which functions appear: `uses` and `before` hold
@@ -572,7 +573,7 @@ const NOT_YET_TEXT = joined(NOT_STATEABLE_YET.map((r) => `${r.thing} (${r.what})
 const named = STATEABLE.filter((r) => !r.draw).map((r) => r.field);
 const STATEMENT_RULE =
   `a new song's lyric_sweep states each of ${joined(STATEABLE.map(rowName))}: a value, or the field named in \`draw\` ` +
-  `(${joined(named)} takes a name; there is no draw over ${joined(named.map((f) => `${f}s`))}). ` +
+  `(${joined(named)} is named with \`catalog_form\`, or the sweep chooses one when \`form\` and \`catalog_form\` are both left out). ` +
   `A \`want\` on ${joined(
     STATEABLE.filter((r) => r.wants.length).map(
       (r) => `${joined(r.wants.map(wantLabel), 'or')} states ${r.thing}`
