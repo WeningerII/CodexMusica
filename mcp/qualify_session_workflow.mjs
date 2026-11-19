@@ -6,12 +6,11 @@ import assert from 'node:assert/strict';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { connectConnector } from './client.js';
-import { legacySnapshot, legacyStated, legacySweep } from './statement_fixture.mjs';
+import { stated } from './statement_fixture.mjs';
 const server = buildServer({ task: { domain: 'lyrics' } });
 const [a, b] = InMemoryTransport.createLinkedPair();
 await server.connect(a);
-// Connected once the sweep is on record (below).
-let client = null;
+const client = await connectConnector({ task: 'lyrics', transport: b });
 const decl = {
   seed: 5691,
   lines: 30,
@@ -27,9 +26,9 @@ const decl = {
   ],
 };
 const receipts = [];
-async function call(name, args, send = () => client.call(name, args)) {
+async function call(name, args) {
   const start = Date.now();
-  const result = await send();
+  const result = await client.call(name, args);
   assert(!result.isError, JSON.stringify(result));
   let verdict;
   for (const block of result.content || []) {
@@ -56,28 +55,18 @@ async function call(name, args, send = () => client.call(name, args)) {
 try {
   // A new song's sweep states form, length, sections, rhyme and time (stage
   // 3): the relation is the plan's own, a `want` on beats_per_line states
-  // time, and the form is the one this plan has always planned. That form is
-  // the native default, which a new-song sweep refuses now (#902): this is a
-  // job saved before, so its sweep runs on the raw engine and is recorded,
-  // and the client continues that job.
-  const sweepArgs = legacyStated({
-    seed_from: 5691,
-    count: 1,
-    lines: 30,
-    functions: decl.functions,
-    relation: decl.relation,
-    want: decl.wants,
-  });
-  let job = null;
-  const { verdict: swept } = await call('lyric_sweep', sweepArgs, async () => {
-    job = await legacySweep(sweepArgs);
-    return job.published;
-  });
-  client = await connectConnector({
-    task: 'lyrics',
-    transport: b,
-    session: await legacySnapshot(job.task),
-  });
+  // time, and the form is the one this plan has always planned.
+  const { verdict: swept } = await call(
+    'lyric_sweep',
+    stated({
+      seed_from: 5691,
+      count: 1,
+      lines: 30,
+      functions: decl.functions,
+      relation: decl.relation,
+      want: decl.wants,
+    })
+  );
   // Stop at the sweep when it keeps nothing, not one call later at the plan.
   assert.equal(swept.exit_code, 0, JSON.stringify(swept));
   assert(swept.accepted_shown?.includes(5691), JSON.stringify(swept.accepted_shown));
@@ -152,6 +141,5 @@ try {
     text + '\n'
   );
 } finally {
-  await client?.close();
-  await server.close();
+  await client.close();
 }
