@@ -128,8 +128,40 @@ per-PR is silently outside it.~~ That was every job on 2026-09-02. As of
 2026-11-19 `ci.yml` also has `dup`, `capacity-proof`, `capacity-proof-result`,
 `lyrics-image`, `verify-shard`, `freshness-build`, `faults`, `suites-evidence`,
 `plan`, `plan-result`, `capacity`, `capacity-result`, `revision-loop` and
-`nightly-calibration`, and these tables have not been re-run over them, so the
-set is no longer known to be complete.
+`nightly-calibration`. ~~These tables have not been re-run over them, so the
+set is no longer known to be complete.~~ They are classified in the next table
+(2026-11-19).
+
+### Jobs added since 2026-09-02, classified by the same three rules (2026-11-19)
+
+Read from `.github/workflows/ci.yml` on 2026-11-19: each job's `if:`, whether it
+is a matrix, and which aggregator reads its `needs.<job>.result`. Every job below
+except `nightly-calibration` carries only the `dup` skip guard, so it runs on
+every pull request (rule 1 holds) unless `dup` finds the commit already covered.
+
+| job | outcome | rule | reason |
+|---|---|---|---|
+| `dup` | not required | 3 | The dedupe step. It has no content of its own; if it fails, `gate` does not run and the required `gate` check shows it. |
+| `lyrics-image` | **meets all three** | — | Fixed name, every PR, and it builds the image a release ships. `scripts/verify_ci.mjs` `REQUIRED_JOBS` already demands it before a release. |
+| `capacity-proof` | not required | 2 | A reusable-workflow call; its checks publish as `capacity-proof / <job>`, not a fixed name of this file's. Required through `capacity-proof-result`. |
+| `capacity-proof-result` | **meets all three** | — | The always-reporting aggregator over `capacity-proof`. In `REQUIRED_JOBS`. |
+| `verify-shard` | not required | 2 | Matrix (`verify (shard N/8)`). `verify` is now its aggregator and reads `needs.verify-shard.result`, so the required `verify` name still covers it. |
+| `freshness-build` | not required | 2 | Its result is read by `freshness`, which stays required. Requiring both would name the same content twice. |
+| `faults` | not required | 2 | Matrix (`faults (shard N/6)`). Read by `freshness`. |
+| `suites-evidence` | not required | 2 | Matrix (`suites-evidence (shard N/2)`). Read by `suites-result`. |
+| `plan` | not required | 2 | Matrix (`plan (N/5)`). Required through `plan-result`. |
+| `plan-result` | **meets all three** | — | The always-reporting aggregator over `plan`. In `REQUIRED_JOBS`. |
+| `capacity` | not required | 2 | Matrix (`capacity (N/3)`). Required through `capacity-result`. |
+| `capacity-result` | **meets all three** | — | The always-reporting aggregator over `capacity`. In `REQUIRED_JOBS`. |
+| `revision-loop` | not required | 2 | Matrix. Already covered above through `revision-loop-result`. |
+| `nightly-calibration` | not required | 1 | Same `workflow_dispatch` / `17 3 * * *` condition as `mutation`. |
+
+So the three rules now admit twelve checks: the eight in "The required set" above
+plus `lyrics-image`, `capacity-proof-result`, `plan-result` and
+`capacity-result`. That is exactly the release verifier's `REQUIRED_JOBS` list.
+This file does not record whether the live `main` ruleset has been updated to
+match; adding the four is a ruleset change for the owner (Route A or Route B
+below), not something this document does.
 
 ### Why the `-result` jobs, and not the obvious names
 
