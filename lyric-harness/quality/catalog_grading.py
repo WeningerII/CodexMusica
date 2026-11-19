@@ -1,41 +1,130 @@
 """Measure a selected symbolic catalog pattern against each candidate draft."""
+from dataclasses import replace
 import json
 import subprocess
 from pathlib import Path
 
 import lyric_harness as lh
+from quality.catalog_word_roles import measure_word_roles
 
 
-def _reading(lex, text):
+def _reading(lex, text, *, caesura=False, syllable_rimes=False, alliteration=False):
     words = lh._meter_words(lex, text) or []
-    # The number of sung word tokens does not require a known pronunciation.
-    # Meter rows are per word *piece*, so they cannot supply a compound's count.
     cut = lh.reader_line(text, lex.strip_parens, "v2")
-    scheme = lh._scheme_of(lex)
-    incomplete = any(lh.letters_outside_repertoire(run.text) or
-                     (scheme == "v1" and run.numeral) for run in cut.runs)
-    tokens = None if incomplete else lh.line_tokens(text, lex.strip_parens, scheme)
-    observed = {"text": text, "sungWords": tokens, **lh._form_reading(lex, text, words=words)}
+    tokens = lh._form_word_tokens(lex, text)
+    observed = {"text": text, "sungWords": tokens, **lh._form_reading(lex, text, words=words, syllable_rimes=syllable_rimes)}
+    if alliteration and tokens:
+        proof = alliterative_halves(lex, text, words, tokens)
+        if proof is not None:
+            observed["alliterativeHalves"] = proof
     if tokens == []:
         observed.update(syllables=0, stresses=0)
+    if caesura and tokens and text.count("/") + text.count("|") == 1:
+        proof = _caesural_endpoints(lex, text, words, tokens)
+        if proof:
+            observed["caesuralRhyme"] = proof
     if not words or lh.printed_endpoint(cut) or words[-1]["source"] not in ("dictionary", "declared"):
         return observed
-    last = words[-1]
-    reader = lex.for_line(text).for_token(last["token"] - 1)
-    keys = set()
-    for phones in reader.pronunciation_variants(last["word"]):
-        syllables = lh.anchor(lh.syllabify(phones))
-        if not syllables:
-            return observed
-        tail = [syllables[0]["nucleus"], *syllables[0]["coda"]]
-        for syllable in syllables[1:]:
-            tail.extend([*syllable["onset"], syllable["nucleus"], *syllable["coda"]])
-        keys.add(" ".join(tail))
+    keys = _rhyme_keys(lex.for_line(text), words[-1])
     if keys:
         observed["rhymeOptions"] = sorted(keys)
     if len(keys) == 1:
         observed["rhyme"] = keys.pop()
     return observed
+
+
+def _rhyme_keys(scoped, word):
+    reader = scoped.for_token(word["token"] - 1)
+    keys = set()
+    for phones in reader.pronunciation_variants(word["word"]):
+        syllables = lh.anchor(lh.syllabify(phones))
+        if not syllables:
+            return set()
+        tail = [syllables[0]["nucleus"], *syllables[0]["coda"]]
+        for syllable in syllables[1:]:
+            tail.extend([*syllable["onset"], syllable["nucleus"], *syllable["coda"]])
+        keys.add(" ".join(tail))
+    return keys
+
+
+def _marked_cut(lex, text, tokens):
+    from quality import relations
+    from quality.revise import relation_phonology_for
+    if text.count("/") + text.count("|") != 1:
+        return None
+    left, right = text.replace("|", "/").split("/")
+    scheme = lh._scheme_of(lex)
+    before = lh.line_tokens(left, lex.strip_parens, scheme)
+    after = lh.line_tokens(right, lex.strip_parens, scheme)
+    if not before or not after or before + after != tokens:
+        return None
+    stream = relations.build_stream([text], relation_phonology_for(lex), declaration={"language": "eng"})
+    if not relations.mark_printed_caesura(stream)["found"]:
+        return None
+    cut = len(before)
+    if stream.units[stream.frames.caesura[0]].token != cut:
+        return None
+    return cut
+
+
+def alliterative_halves(lex, text, words=None, tokens=None):
+    """Measure stressed syllable onsets on each side of a printed caesura."""
+    from quality.relations import REGISTRY
+    tokens = tokens if tokens is not None else lh._form_word_tokens(lex, text)
+    cut = _marked_cut(lex, text, tokens) if tokens else None
+    if cut is None:
+        return None
+    words = words if words is not None else lh._meter_words(lex, text)
+    if not words:
+        return None
+    halves = [[], []]
+    scoped = lex.for_line(text)
+    partition = REGISTRY["alliterative long line"].channels[0].predicate.partition
+    for word in words:
+        if word["source"] not in ("dictionary", "declared"):
+            return None
+        reader = scoped.for_token(word["token"] - 1)
+        readings = reader.pronunciation_variants(word["word"])
+        if not readings:
+            return None
+        if lh.weak_token(reader, word["word"], phrase_final=word["token"] == len(tokens)):
+            continue
+        alternatives = []
+        for phones in readings:
+            onsets = []
+            syllables = lh.syllabify(phones)
+            if not syllables:
+                return None
+            for syllable in syllables:
+                if syllable["stress"] not in (1, 2):
+                    continue
+                onset = tuple(p.lower() for p in syllable["onset"])
+                # Initial sk/sp/st remain special when followed by a liquid or glide.
+                if onset[:1] == ("s",) and onset[1:2] in (("k",), ("p",), ("t",)):
+                    onset = onset[:2]
+                onsets.append(partition(onset))
+            alternatives.append(onsets)
+        if len({len(onsets) for onsets in alternatives}) != 1:
+            return None
+        for readings_at_lift in zip(*alternatives):
+            keys = set(readings_at_lift)
+            halves[int(word["token"] > cut)].append(keys.pop() if len(keys) == 1 else None)
+    return halves
+
+
+def _caesural_endpoints(lex, text, words, tokens):
+    cut = _marked_cut(lex, text, tokens)
+    if cut is None:
+        return None
+    measured = []
+    scoped = lex.for_line(text)
+    for index in (cut, len(tokens)):
+        pieces = [w for w in words if w["token"] == index]
+        if (len(pieces) != 1 or pieces[0]["word"] != tokens[index - 1]
+                or pieces[0]["source"] not in ("dictionary", "declared")):
+            return None
+        measured.append(sorted(_rhyme_keys(scoped, pieces[0])))
+    return {"cut": cut, "words": [tokens[cut - 1], tokens[-1]], "keys": measured}
 
 
 def _sections(bp, observed):
@@ -53,13 +142,44 @@ def _sections(bp, observed):
     spans = []
     rows = []
     cursor = 1
+    has_section_score = any("section_melody" in section or "voice_score" in section or "closing_chord" in section or "accompaniment" in section for section in sections)
     for index, section in enumerate(sections):
         bars = exact_integer(section["bars"])
         start = exact_integer(section.get("start_bar", cursor))
         spans.append({"name": section["name"], "bars": bars, "start_bar": start, "index": index})
         row = {"bars": bars}
+        if has_section_score:
+            row["startBar"] = start
+            row["slotsWithinSection"] = True
+        if "accompaniment" in section:
+            row["accompaniment"] = section["accompaniment"]
+            row["sectionMeter"] = section.get("meter")
+        if "closing_chord" in section:
+            row["closingChord"] = section["closing_chord"]
+        if "voice_score" in section:
+            row["voiceScore"] = section["voice_score"]
+            row["sectionMeter"] = section.get("meter")
+        if "section_melody" in section:
+            from quality.melody import validate_melody
+            row["sectionMeter"] = section.get("meter")
+            try:
+                row["sectionMelody"] = validate_melody(section["section_melody"])
+            except ValueError:
+                row["sectionMelody"] = None
+        if "section_parts" in section:
+            row["sectionParts"] = section["section_parts"]
+        if "vocal_roster" in bp:
+            row["vocalRoster"] = bp["vocal_roster"]
+        if "choir_roster" in bp:
+            row["choirRoster"] = bp["choir_roster"]
+        if "performers" in section:
+            row["performers"] = section["performers"]
+        if "divisionPath" in section:
+            row["divisionPath"] = section["divisionPath"]
         if isinstance(section.get("function"), str) and section["function"]:
             row["role"] = section["function"]
+        if isinstance(section.get("source_role"), str):
+            row["sourceRole"] = section["source_role"]
         rows.append(row)
         cursor = start + bars
     lengths = [0] * len(sections)
@@ -74,6 +194,19 @@ def _sections(bp, observed):
         previous = position
         lengths[position] += 1
         meter = sections[position].get("meter") or {}
+        if has_section_score:
+            if "beats" in meter:
+                beats = exact_number(meter["beats"])
+                offset = (exact_integer(slot["bar"]) - owner["start_bar"]) * beats + exact_number(slot.get("beat", 1)) - 1
+                end = offset + exact_number(slot.get("duration", 4))
+                if "speech_event" in slot:
+                    observed[index]["speechEvent"] = slot["speech_event"]
+                if ("closing_chord" in sections[position] or "accompaniment" in sections[position]) and (offset * 4).denominator == 1 and (end * 4).denominator == 1:
+                    observed[index]["scoreTicks"] = [int(offset * 4), int(end * 4)]
+                if offset < 0 or end > owner["bars"] * beats:
+                    rows[position]["slotsWithinSection"] = False
+            elif rows[position].get("slotsWithinSection") is True:
+                del rows[position]["slotsWithinSection"]
         if "duration" in slot and "beats" in meter:
             width = exact_number(slot["duration"]) / exact_number(meter["beats"])
             if width.denominator == 1:
@@ -82,24 +215,39 @@ def _sections(bp, observed):
     for row, length in zip(rows, lengths):
         row["lineSpan"] = [start, start + length]
         start += length
+    for index, slot in enumerate(slots):
+        if "divisionPath" in slot:
+            observed[index]["divisionPath"] = slot["divisionPath"]
     for index, bars in line_bars.items():
         observed[index]["bars"] = bars
     return rows
 
 
-def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None):
+def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None, return_groups=()):
     """Combine native pair verdicts with the catalog's measured ending-sound classes."""
     basis = mandate.default_relation
     if terminal_groups:
-        from quality.catalog_shape import terminal_rhyme_relation
-        if ([list(group) for group in mandate.groups] != terminal_groups
+        from quality.catalog_shape import rhyme_source_groups, terminal_rhyme_relation
+        paired_groups = [group for group in terminal_groups if len(group) > 1]
+        sources = rhyme_source_groups(paired_groups, return_groups)
+        if return_groups:
+            declared = [list(r.lines) for r in mandate.returns if r.verbatim is True and not r.placed]
+            if declared != return_groups:
+                result["checks"].append({"kind": "catalog-return-mandate", "outcome": "unknown"})
+                if result["verdict"] == "pass":
+                    result["verdict"] = "unknown"
+                return result
+        if ([list(group) for group in mandate.groups[:len(sources)]] != sources
                 or any(not terminal_rhyme_relation(mandate.relation_of(k))
                        or any(mandate.slot_of(k, i).locus != "line_final_token" for i in group)
-                       for k, group in enumerate(terminal_groups))):
+                       for k, group in enumerate(sources))):
             result["checks"].append({"kind": "catalog-rhyme-mandate", "outcome": "unknown"})
             if result["verdict"] == "pass":
                 result["verdict"] = "unknown"
             return result
+        terminal_verdicts = {(*row["lines"], row["group"]): bool(row.get("satisfied_by"))
+                             for row in report["verdicts"]}
+        refused_groups = set(map(tuple, report.get("refused_obligations", ())))
     elif not basis.startswith("class:"):
         return result
     verdicts = {tuple(row["lines"]): bool(row.get("satisfied_by")) for row in report["verdicts"]}
@@ -115,11 +263,12 @@ def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None):
         if terminal_groups:
             # A truncated draft can project fewer line numbers. It cannot prove the complete group.
             members = check.get("lines")
-            if members not in terminal_groups:
+            if members not in paired_groups:
                 continue
-            k = terminal_groups.index(members)
-            pairs = [(a, b) for pos, a in enumerate(members) for b in members[pos + 1:]]
-            outcomes = [None if pair in refused else verdicts.get(pair) for pair in pairs]
+            k = paired_groups.index(members)
+            sources_in_group = sources[k]
+            pairs = [(a, b) for pos, a in enumerate(sources_in_group) for b in sources_in_group[pos + 1:]]
+            outcomes = [None if (*pair, k) in refused_groups else terminal_verdicts.get((*pair, k)) for pair in pairs]
             native = "fail" if False in outcomes else "unknown" if None in outcomes else "pass"
             check["basis"] = mandate.relation_of(k)
             if len(terminal_groups) == 1:
@@ -152,20 +301,48 @@ def _native_rhyme(result, lines, mandate, report, *, terminal_groups=None):
 
 def inspect_catalog(lex, lines, blueprint, mandate, report):
     selection = getattr(lex, "catalog_selection", None)
-    if not selection and not isinstance(blueprint, dict):
+    readings = getattr(lex, "catalog_function_readings", ())
+    if not selection and not isinstance(blueprint, dict) and not readings:
         return None
     bp = blueprint if isinstance(blueprint, dict) else {}
     if isinstance(blueprint, (str, Path)) and selection:
         bp = json.loads(Path(blueprint).read_text(encoding="utf-8"))
     selection = selection or bp.get("song_form")
     if not selection:
+        if readings:
+            lh._refuse("catalog function readings require a selected song form")
         return None
     form_id = selection["id"]
-    observed = [_reading(lex, line) for line in lines]
+    # A filled native plan carries the selected line profile. In the lookup-only
+    # path a marked line still needs its measured endpoints for the catalog reader.
+    stored = bp.get("song_form") or {}
+    measure_caesura = form_id != "alliterative-verse" and (not stored or stored.get("lineProfile") == "caesural-rhyme")
+    # V1 creation contracts bind rhyme groups to line endings. No member
+    # can carry a line-relative syllable ordinal. A bare selector, including
+    # one attached to a pasted score, makes no such structural promise.
+    from quality.catalog_shape import line_rhyme_contract
+    stored_line_contract = (line_rhyme_contract(stored) and
+                            all(stored[k] == selection.get(k) for k in ("id", "variant", "counts")))
+    observed = [_reading(lex, line, caesura=measure_caesura, syllable_rimes=not stored_line_contract,
+                         alliteration=form_id == "alliterative-verse")
+                for line in lines]
     request = {k: selection[k] for k in ("variant", "counts") if k in selection}
+    if (bp.get("song_form") or {}).get("phraseLines"):
+        request["phraseLines"] = True
+    if form_id == "triadic-line" and getattr(lex, "catalog_printing", False):
+        for row, text in zip(observed, lines):
+            row["printedText"] = text
+    starts = getattr(lex, "catalog_paragraph_starts", None)
+    if form_id == "prose-poem" and starts is not None and len(starts) == len(observed):
+        for row, start in zip(observed, starts):
+            row["paragraphStart"] = start
     request["lines"] = observed
     sections = _sections(bp, observed)
     if sections is not None:
+        for reading in readings:
+            index = reading["section"] - 1
+            if index < len(sections):
+                sections[index]["functionReading"] = reading
         request["sections"] = sections
     script = Path(__file__).resolve().parents[2] / "scripts" / "song_forms.mjs"
     try:
@@ -173,8 +350,50 @@ def inspect_catalog(lex, lines, blueprint, mandate, report):
                              input=json.dumps(request), capture_output=True, text=True,
                              encoding="utf-8", timeout=20, check=True)
         groups = (bp.get("song_form") or {}).get("rhymeGroups")
-        return _native_rhyme(json.loads(run.stdout), lines, mandate, report,
-                             terminal_groups=groups)
+        result = json.loads(run.stdout)
+        if readings:
+            criteria = {r.get("section"): r.get("role") for r in result["checks"]
+                        if r["kind"] == "declared-textual-function"}
+            if any(criteria.get(r["section"]) != r["role"] for r in readings):
+                lh._refuse("catalog function reading names a section or role outside the selected setting")
+        if form_id == "rondo":
+            from quality.catalog_rondo import lyrical_returns
+            result["lyricalReturns"] = lyrical_returns(lines, sections)
+        # A collection entry can leave internal section widths open. The
+        # selected writer arrangement still fixes the bars of its actual parts.
+        if stored_line_contract and form_id in ("abac-32-bar", "verse-refrain-with-introductory-verse"):
+            for i, part in enumerate(stored.get("sections", ())):
+                if not isinstance(part, dict) or "melodyGroup" not in part or "bars" not in part:
+                    continue
+                actual = sections[i]["bars"] if sections is not None and i < len(sections) else None
+                outcome = "unknown" if actual is None else "pass" if actual == part["bars"] else "fail"
+                result["checks"].append({"kind": "selected-part-bars", "sections": [i + 1],
+                    "address": f"section[{i + 1}]", "expected": part["bars"], "actual": actual, "outcome": outcome,
+                    "basis": "bar span fixed by the selected writing arrangement"})
+                if outcome == "fail" or result["verdict"] == "pass":
+                    result["verdict"] = outcome
+        measure_word_roles(result, observed)
+        if result.get("phraseRhymeGroups") and groups is None:
+            groups = result["phraseRhymeGroups"]
+        # The native placed-return judge reads a word, not an entire repeated
+        # line. Its classes stay separate from the ordinary writing mandate:
+        # repeating an ending never licenses repetition elsewhere on the line.
+        from quality import schemes
+        classes = [row["lines"] for row in result["checks"] if row["kind"] == "endWord" and "lines" in row]
+        groups_to_read = [g for g in classes if len(g) > 1 and max(g) <= len(lines)
+                          and all(observed[n - 1].get("sungWords") for n in g)]
+        if groups_to_read:
+            positioned = schemes._normalise_returns([[f"{n}.endword" for n in g] for g in groups_to_read],
+                                                   len(lines), schemes.ReturnRule())
+            findings = replace(mandate, returns=positioned).placed_returns_check(lines, lex)
+            outcome = ("fail" if any(row[3] == "NOT_RETURNED_AT" for row in findings)
+                       else "unknown" if findings or len(groups_to_read) < len(classes) else "pass")
+            result["checks"].append({"kind": "positioned-ending-identity", "outcome": outcome,
+                                     "lines": sorted(n for group in classes for n in group)})
+            if outcome == "fail" or result["verdict"] == "pass":
+                result["verdict"] = outcome
+        return _native_rhyme(result, lines, mandate, report,
+                             terminal_groups=groups, return_groups=(bp.get("song_form") or {}).get("returnGroups", ()))
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         return {"id": form_id, "verdict": "unknown", "checks": [
             {"kind": "catalog-runtime", "outcome": "unknown", "reason": type(exc).__name__}]}

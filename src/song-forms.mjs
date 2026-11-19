@@ -1,3 +1,4 @@
+import { scoredEnsemble, checkScoredEnsemble } from './song-form-ensemble.mjs';
 /** Shared, offline interpretation of the versioned symbolic Song Forms catalog.
  * patterns are alternatives, indexed from zero. Count keys are one-based dotted
  * template paths, rooted at "1". A default applies to every copy. An occurrence
@@ -6,6 +7,21 @@
  * Spans are half-open offsets into the explicit preorder node, line, and section
  * projections. A partial projection is not an absolute transcript coordinate.
  */
+import {
+  declaredPart,
+  checkNestedRefrain,
+  nestedRefrain,
+  sectionMelodyChecks,
+  sectionMelodyGroup,
+  sectionMelodyLayout,
+} from './song-form-section-melody.mjs';
+import {
+  printedSteps,
+  gradePrintedSteps,
+  paragraphCount,
+  gradeParagraphs,
+} from './song-form-printing.mjs';
+
 const MAX_NODES = 8192;
 const MAX_DEPTH = 48;
 const SCOPES = new Set(['rule', 'setting', 'deferred']);
@@ -316,16 +332,42 @@ function wordTokens(text) {
 // This symbol never crosses the raw check JSON interface. Only the native
 // reader supplies a separate token stream for asides, compounds and voices.
 const readerWords = Symbol('sung word tokens');
+const readerRimes = Symbol('measured syllable rimes');
 function observedWords(obs) {
   if (obs && has(obs, readerWords)) return obs[readerWords] ?? undefined;
   return typeof obs?.text === 'string' ? wordTokens(obs.text) : undefined;
 }
 
 export function checkReaderForm(catalog, id, options) {
-  if (!options.lines) return checkForm(catalog, id, options);
-  const lines = options.lines.map((line) => {
-    if (!isRecord(line) || !has(line, 'sungWords')) return line;
-    const { sungWords, ...obs } = line;
+  // Only the raw declaration checker accepts class labels as identity evidence.
+  // Measured returns use printed text and measured endings use its sung words.
+  function measuredIdentity(row) {
+    if (!isRecord(row)) return row;
+    const observed = { ...row };
+    delete observed.returns;
+    delete observed.endWord;
+    return observed;
+  }
+  const sections = options.sections?.map(measuredIdentity);
+  const lines = options.lines?.map((line) => {
+    const observed = measuredIdentity(line);
+    if (!isRecord(observed)) return observed;
+    if (has(observed, 'syllableRimes')) {
+      const keys = observed.syllableRimes;
+      requireValue(
+        typeof observed.text === 'string' &&
+          Array.isArray(keys) &&
+          keys.length === observedValue(observed, 'syllables') &&
+          keys.every(
+            (key) =>
+              key === null || (typeof key === 'string' && /^[A-Z]{2}(?: [A-Z]{1,2})*$/.test(key))
+          ),
+        'Invalid aligned syllable rimes'
+      );
+      observed[readerRimes] = keys;
+    }
+    if (!has(observed, 'sungWords')) return observed;
+    const { sungWords, ...obs } = observed;
     requireValue(
       sungWords === null ||
         (Array.isArray(sungWords) &&
@@ -340,7 +382,7 @@ export function checkReaderForm(catalog, id, options) {
         sungWords?.map((token) => token.normalize('NFC').toLowerCase().replace(/’/g, "'")) ?? null,
     };
   });
-  return checkForm(catalog, id, { ...options, lines });
+  return checkForm(catalog, id, { ...options, lines, sections, [readerRimes]: true });
 }
 
 function identity(obs, key) {
@@ -411,10 +453,41 @@ function observedValue(obs, key) {
   return undefined;
 }
 
+// The selected regular-ode model can contain several strophe/antistrophe/epode triads.
+export function pindaricTriads(plan) {
+  if (plan.id !== 'pindaric-ode' || plan.tree.length !== 1) return null;
+  const root = plan.tree[0];
+  const order = ['strophe', 'antistrophe', 'epode'];
+  return root.unit === 'poem' &&
+    root.children.length &&
+    root.children.every(
+      (triad) =>
+        triad.unit === 'triad' &&
+        triad.children.length === 3 &&
+        triad.children.every((stanza, i) => stanza.unit === 'stanza' && stanza.role === order[i])
+    )
+    ? root.children
+    : null;
+}
+
 export function checkForm(catalog, id, options = {}) {
   const plan = realizeForm(catalog, id, options);
   const checks = [];
   if (plan.status !== 'ready') return { ...plan, verdict: 'unknown', checks };
+  const paragraphs = paragraphCount(plan);
+  if (paragraphs) return { ...plan, ...gradeParagraphs(paragraphs, options.lines) };
+  const ensemble = scoredEnsemble(plan);
+  if (ensemble) return { ...plan, ...checkScoredEnsemble(ensemble, options) };
+  const nested = nestedRefrain(plan);
+  if (nested) return { ...plan, ...checkNestedRefrain(nested, options) };
+  const steps = printedSteps(plan);
+  if (steps) {
+    const rows = observations(options.lines, true)?.map((row, i) =>
+      typeof options.lines[i] === 'string' ? { ...row, printedText: row.text } : row
+    );
+    return { ...plan, ...gradePrintedSteps(steps, rows) };
+  }
+  const melodic = sectionMelodyLayout(plan);
   const observationsByAddress = new Map(),
     classSets = new Map();
   function add(kind, outcome, detail = {}) {
@@ -472,6 +545,7 @@ export function checkForm(catalog, id, options = {}) {
           );
       }
       obs = { ...obs, ...value };
+      if (node.unit === 'section') observationsByAddress.set(node.address, obs);
       used.add(node.address);
     }
     // A named event outside the line/section projections needs its own observation.
@@ -506,15 +580,22 @@ export function checkForm(catalog, id, options = {}) {
         'Invalid observed line span'
       );
       const [a, b] = node.span.lines;
-      add(
-        'line-span',
-        plan.coverage.lines !== 'complete'
-          ? 'unknown'
-          : a === obs.lineSpan[0] && b === obs.lineSpan[1]
-            ? 'pass'
-            : 'fail',
-        { address: node.address, expected: [a, b] }
-      );
+      if (
+        !(
+          melodic === 'head-solos-head' &&
+          node.unit === 'section' &&
+          plan.coverage.lines === 'none'
+        )
+      )
+        add(
+          'line-span',
+          plan.coverage.lines !== 'complete'
+            ? 'unknown'
+            : a === obs.lineSpan[0] && b === obs.lineSpan[1]
+              ? 'pass'
+              : 'fail',
+          { address: node.address, expected: [a, b] }
+        );
     }
     if (needsSpan && !obs?.lineSpan)
       add('line-span', 'unknown', { address: node.address, expected: [start, end] });
@@ -525,10 +606,28 @@ export function checkForm(catalog, id, options = {}) {
         if (!classSets.has(groupKey))
           classSets.set(groupKey, { key, label: node[key], addresses: [], members: [] });
         const group = classSets.get(groupKey);
+        if (options[readerRimes] && key === 'rhyme' && node.unit === 'syllable')
+          group.subline = true;
         group.addresses.push(node.address);
         group.members.push(obs);
       } else {
-        const actual = observedValue(obs, key);
+        const pitchedRole = melodic && key === 'role' && sectionMelodyGroup(node.role, melodic);
+        // Declared names can contradict the arrangement. Unlabelled score
+        // sections may demonstrate the same relationships in their notes.
+        let actual = pitchedRole ? declaredPart(obs) : observedValue(obs, key);
+        if (key === 'bars' && node === plan.tree[0] && melodic === 'fixed-total') {
+          const bars = plan.sections.map(
+            (part) => observationsByAddress.get(part.address)?.bars ?? extra[part.address]?.bars
+          );
+          actual = bars.every((n) => Number.isSafeInteger(n) && n > 0)
+            ? bars.reduce((n, k) => n + k, 0)
+            : undefined;
+          if (obs?.bars !== undefined && obs.bars !== node.bars)
+            add('bars', 'fail', { address: node.address, expected: node.bars, actual: obs.bars });
+          if (obs?.bars !== undefined && actual !== undefined && obs.bars !== actual)
+            add('bars-sum', 'fail', { address: node.address, declared: obs.bars, actual });
+        }
+        if (pitchedRole && actual === undefined) continue;
         add(key, actual === undefined ? 'unknown' : actual === node[key] ? 'pass' : 'fail', {
           address: node.address,
           expected: node[key],
@@ -591,6 +690,8 @@ export function checkForm(catalog, id, options = {}) {
         inferredCount !== undefined && i < inferredCount
           ? { unit: part, ...(tokens && { text: tokens[i] }) }
           : undefined;
+      if (observation && part === 'syllable' && obs?.[readerRimes]?.[i])
+        observation.rhyme = obs[readerRimes][i];
       inspect(child, node, inLine || node.unit === 'line', observation);
     });
   }
@@ -599,13 +700,65 @@ export function checkForm(catalog, id, options = {}) {
     Object.keys(extra).every((key) => used.has(key)),
     'Unknown unit observation address'
   );
+  if (melodic) {
+    checks.push(
+      ...sectionMelodyChecks(
+        plan.sections,
+        plan.sections.map((part) => observationsByAddress.get(part.address) ?? extra[part.address]),
+        melodic
+      )
+    );
+    if (plan.id === 'verse-chorus-bridge')
+      add('section-function', 'unknown', {
+        basis: 'pitches do not identify the verse, chorus and bridge functions',
+      });
+  }
+  const triads = pindaricTriads(plan);
+  if (triads) {
+    const divisions = triads.flatMap((triad) => triad.children);
+    // Read the printed divisions when the named boundaries cover the submitted
+    // text exactly. Editorial line breaks do not identify metrical periods.
+    const rows = divisions.map((division, i) => extra[division.address] ?? options.sections?.[i]);
+    let offset = 0;
+    const complete =
+      Array.isArray(options.lines) &&
+      (!options.sections || options.sections.length === divisions.length) &&
+      rows.every((row, i) => {
+        const span = row?.lineSpan;
+        if (
+          (row?.sourceRole ?? row?.role) !== divisions[i].role ||
+          !Array.isArray(span) ||
+          span.length !== 2 ||
+          span[0] !== offset ||
+          !integer(span[1]) ||
+          span[1] <= offset
+        )
+          return false;
+        offset = span[1];
+        return true;
+      }) &&
+      offset === options.lines.length;
+    for (const [i, triad] of triads.entries()) {
+      const [strophe, antistrophe, epode] = triad.children;
+      const lengths =
+        complete && rows.slice(i * 3, i * 3 + 3).map(({ lineSpan: [start, end] }) => end - start);
+      add('metrical-responsion', 'unknown', {
+        addresses: [strophe.address, antistrophe.address],
+        ...(lengths && { printedLineCounts: lengths.slice(0, 2) }),
+      });
+      add('epode-meter-contrast', 'unknown', {
+        address: epode.address,
+        ...(lengths && { printedLineCount: lengths[2] }),
+      });
+    }
+  }
   const families = new Map();
   for (const group of classSets.values()) {
     const family = group.key;
     if (!families.has(family)) families.set(family, []);
     families.get(family).push(group);
     if (group.members.length > 1)
-      add(group.key, compareClass(group.members, group.key), {
+      add(group.subline ? 'syllable-rhyme' : group.key, compareClass(group.members, group.key), {
         label: group.label,
         addresses: group.addresses,
       });
@@ -613,7 +766,11 @@ export function checkForm(catalog, id, options = {}) {
   for (const groups of families.values()) {
     const key = groups[0].key;
     if (groups.length > 1 && (key === 'rhyme' || key === 'endWord')) {
-      add(key + '-distinct', distinguish(groups), { labels: groups.map((g) => g.label) });
+      add(
+        groups.some((g) => g.subline) ? 'syllable-rhyme-distinct' : key + '-distinct',
+        distinguish(groups),
+        { labels: groups.map((g) => g.label) }
+      );
     } else {
       for (const group of groups) {
         if (group.members.length === 1)

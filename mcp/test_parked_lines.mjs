@@ -25,6 +25,21 @@ function rng(seed) {
 }
 const pick = (r, n) => 1 + Math.floor(r() * n);
 
+test('parked printed indentation is part of both the accepted and submitted draft', () => {
+  const draft = ['a', ' b', '  c'];
+  const lyr = parked({
+    decl: { catalog_form: 'triadic-line' },
+    draft,
+    input_draft: draft,
+    open: [2],
+    whole: [],
+  });
+  const edit = ['a', '  b', '  c'];
+  assert.equal(_agentInternals.parkedRefusal(lyr, 'lyric_revise', { draft: edit }), null);
+  assert.equal(refusal(lyr, edit), null);
+  assert.match(refusal(lyr, ['a', ' b', ' c']), /changes line\(s\) 3/);
+});
+
 test('the open line alone may change; any other line is refused, named', () => {
   const draft = draftOf(6);
   const lyr = parked({ draft, open: [3], whole: [] });

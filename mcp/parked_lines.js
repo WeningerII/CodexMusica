@@ -79,7 +79,7 @@ export function parkedChangeable(lyr) {
   const groups = linesOf(lyr.groups);
   const returns = linesOf(lyr.returns);
   if (!returns.length && Array.isArray(lyr.draft)) {
-    const sung = normalizeDraftLines(lyr.draft);
+    const sung = normalizeDraftLines(lyr.draft, lyr.decl?.catalog_form);
     const byText = new Map();
     sung.forEach((t, i) => {
       if (!byText.has(t)) byText.set(t, []);

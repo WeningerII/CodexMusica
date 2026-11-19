@@ -1,6 +1,7 @@
+import { printedSteps } from '../src/song-form-printing.mjs';
 import { projectSongFormCreation } from '../src/song-form-creation.mjs';
-import { formMandate } from '../src/song-form-mandate.mjs';
-import { prepareFormReview, reviewRecoveredForm } from './lyric_form.js';
+import { formMandate, printedPhraseSetting } from '../src/song-form-mandate.mjs';
+import { catalogReadingFlag, prepareFormReview, reviewRecoveredForm } from './lyric_form.js';
 import { checkEvidenceInvocation } from './lyrics_evidence_binding.js';
 // lyric_tools.js — the lyric harness as MCP tools: a DISJOINT family.
 //
@@ -33,7 +34,7 @@ import { checkEvidenceInvocation } from './lyrics_evidence_binding.js';
 import { createPythonBridge } from './python_bridge.js';
 import { probeReaderScheme } from './reader_scheduler.js';
 import { requestContext } from './execution_context.js';
-import { draftFromText, normalizeDraftLines } from './lyric_text.js';
+import { draftFromText, normalizeDraftLines, serializeWritingDraft } from './lyric_text.js';
 import { admitRecognitionArgs, pastedRowsOf } from './meter_admission.js';
 import {
   declarationAdvice,
@@ -1762,6 +1763,8 @@ function globalsFor(a) {
   if (a && a.voices === true) out.push('--voices');
   if (a && (a.fallback === 'high' || a.fallback === 'low')) out.push(`--fallback=${a.fallback}`);
   if (a?.numbering !== undefined) out.push(`--numbering=${a.numbering}`);
+  if (a?.catalog_function_readings?.length)
+    out.push(`--catalog-function-readings=${JSON.stringify(a.catalog_function_readings)}`);
   if (a?.pronunciations !== undefined)
     out.push(`--pronunciations=${JSON.stringify(a.pronunciations)}`);
   return out;
@@ -1781,11 +1784,19 @@ async function pastedFormMandate(a, lines) {
   }
   let catalogCheck;
   if (selection) {
-    const mandate = formMandate(selection.plan);
+    const printed = printedPhraseSetting(selection.plan);
+    const mandate = formMandate(
+      printed?.plan.lines.length === lines.length ? printed.plan : selection.plan
+    );
+    mandate.variant = selection.plan.variant;
     if (mandate.status !== 'ready')
       throw refuse(
         `Catalog form ${mandate.id} is ${mandate.status}: ${JSON.stringify(mandate.needs)}`
       );
+    if (selection.plan.id === 'prose-poem')
+      mandate.minimumLines = mandate.lineCount = selection.plan.tree[0].children.length;
+    const steps = printedSteps(selection.plan);
+    if (steps) mandate.minimumLines = mandate.lineCount = steps.reduce((n, size) => n + size, 0);
     const count = lines.length;
     if (mandate.lineCount != null && count !== mandate.lineCount)
       throw refuse(
@@ -2133,7 +2144,7 @@ const relationField = z
   .max(64)
   .optional()
   .describe(
-    "Declare ONE relation every mandated group must stand in, written NAMESPACE:NAME. Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is a coarse relation (a pair stands in every class its sound supports), type: is the named-cell engine, and schema: is a registry schema, which requires the complete declared figure and its placement. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. A plan gives every group one type, declared or drawn with equal odds, and lyric_grade judges each group by its own type alone. A pasted song's group with no declaration (no relation and no group_types entry) is judged against EVERY relation — each coarse relation at its own cut and every registry schema — and is satisfied when, for each pair, the two words the group binds stand in at least one (another word in the line relating does not count); each pair's relations are all reported, and unresolved obligations are disclosed; an unsupported shape never counts as success. Declaring one narrows the requirement to that relation. An unknown name refuses and the refusal lists the declarable names by namespace; for one pair, lyric_types reports its type names, coarse relations and registry schemas. " +
+    "Declare ONE relation every mandated group must stand in, written NAMESPACE:NAME. Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is a coarse relation (a pair stands in every class its sound supports), type: is the named-cell engine, and schema: is a registry schema, which requires the complete declared figure and its placement. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. When planning a catalog form with prescribed line endings, requesting an eligible nonterminal schema adds a separate group on those lines and preserves the ending rhyme. A plan gives every group one type, declared or drawn with equal odds, and lyric_grade judges each group by its own type alone. A pasted song's group with no declaration (no relation and no group_types entry) is judged against EVERY relation — each coarse relation at its own cut and every registry schema — and is satisfied when, for each pair, the two words the group binds stand in at least one (another word in the line relating does not count); each pair's relations are all reported, and unresolved obligations are disclosed; an unsupported shape never counts as success. Declaring one narrows the requirement to that relation. An unknown name refuses and the refusal lists the declarable names by namespace; for one pair, lyric_types reports its type names, coarse relations and registry schemas. " +
       sweepNeeds('relation')
   );
 
@@ -2325,7 +2336,7 @@ const blueprintField = z
     });
   })
   .describe(
-    'For a PASTED song only (a seeded run takes its blueprint off the plan and refuses this field): a DECLARED blueprint as JSON text — the bar grid the graders read: {"sections":[{"name","function","bars","start_bar","meter":{"beats","unit","groups":[…]}}],"lines":[{"text","bar","beat","duration"}], optional "title", "hooks"}. With it the meter, song-function, hook and title layers are ASKED of the paste; without it only rhyme and the slop floor are (blueprint_declared says which). A meter written as a signature STRING ("4/4") is refused, not parsed. Pass `subdivision` with it.'
+    'For a PASTED song only (a seeded run takes its blueprint off the plan and refuses this field): a DECLARED blueprint as JSON text — the bar grid the graders read: {"sections":[{"name","function","bars","start_bar","meter":{"beats","unit","groups":[…]}}],"lines":[{"text","bar","beat","duration"}], optional "title", "hooks"}. For a catalog vocal assignment, declare the score’s participant IDs in the top-level vocal_roster array and each section’s singing IDs in its performers array. Choral sections also use the top-level choir_roster array. With it the meter, song-function, hook and title layers are ASKED of the paste; without it only rhyme and the slop floor are (blueprint_declared says which). A meter written as a signature STRING ("4/4") is refused, not parsed. Pass `subdivision` with it.'
   );
 const subdivisionField = z
   .number()
@@ -2375,12 +2386,17 @@ const textTwinOf = (arrayName) =>
     .describe(
       `The same lines as \`${arrayName}\` as ONE newline-separated string, one line per row, performance order, read the same way — for a caller whose array calls break. Send one of the two.`
     );
-export function takeLines(a, arrayName, textName, { preserveStructure = false } = {}) {
+export function takeLines(
+  a,
+  arrayName,
+  textName,
+  { preserveStructure = false, form = a.catalog_form } = {}
+) {
   if (!preserveStructure && Array.isArray(a[arrayName]))
-    a[arrayName] = normalizeDraftLines(a[arrayName]);
+    a[arrayName] = normalizeDraftLines(a[arrayName], form);
   if (typeof a[textName] === 'string') {
     // A final break ends the last pasted row; it opens no blank row after it.
-    const lines = preserveStructure ? pastedRowsOf(a[textName]) : draftFromText(a[textName]);
+    const lines = preserveStructure ? pastedRowsOf(a[textName]) : draftFromText(a[textName], form);
     if (Array.isArray(a[arrayName]) && JSON.stringify(a[arrayName]) !== JSON.stringify(lines))
       throw refuse(
         `Conflicting ${arrayName} and ${textName}: send one exact draft representation.`
@@ -2942,6 +2958,27 @@ Object.assign(LYRIC_TOOL_SCHEMAS.lyric_check, {
   catalog_variant: LYRIC_TOOL_SCHEMAS.lyric_recover.catalog_variant,
   catalog_counts: LYRIC_TOOL_SCHEMAS.lyric_recover.catalog_counts,
 });
+const catalogFunctionReadings = z
+  .array(
+    z
+      .object({
+        section: z.number().int().min(1).max(64),
+        role: z.string().min(1).max(80),
+        draft_sha256: z.string().regex(/^[0-9a-f]{64}$/),
+        judgment: z.enum(['affirmed', 'rejected']),
+        source: z.string().trim().min(1).max(128),
+        reason: z.string().trim().min(1).max(512),
+      })
+      .strict()
+  )
+  .min(1)
+  .max(64)
+  .optional()
+  .describe(
+    'Attributed readings of the actual submitted sections. Copy section, role and draft_sha256 from declared-textual-function checks, give the source and reasoning. Changed text or divisions require fresh readings.'
+  );
+for (const name of ['lyric_grade', 'lyric_revise', 'lyric_check'])
+  LYRIC_TOOL_SCHEMAS[name].catalog_function_readings = catalogFunctionReadings;
 for (const name of ['lyric_sweep', 'lyric_plan', 'lyric_grade', 'lyric_revise']) {
   Object.assign(LYRIC_TOOL_SCHEMAS[name], {
     catalog_form: LYRIC_TOOL_SCHEMAS.lyric_recover.catalog_form.describe(
@@ -3200,7 +3237,7 @@ export function registerLyricTools(server, tool) {
         const draftPath = path.join(dir, 'draft.txt');
         const bpPath = path.join(dir, 'bp.json');
         const planPath = path.join(dir, 'plan.json');
-        await writeFile(draftPath, a.draft.join('\n') + '\n', 'utf8');
+        await writeFile(draftPath, serializeWritingDraft(a.draft, a.catalog_form), 'utf8');
 
         // 1. The plan's own mandate halves, from the plan artifact itself.
         const creationArgs = [...planArgs(a), ...(await creationFormArgs(a))];
@@ -3346,8 +3383,25 @@ export function registerLyricTools(server, tool) {
         ? recoverContinuationOnly(a)
         : withRunLock(a, () =>
             withTempDir(async (dir) => {
-              // M-234: the draft may arrive as one string.
-              if (a.draft_text != null || a.draft != null) takeLines(a, 'draft', 'draft_text');
+              // A seed is a musical declaration, never an ownership key. Knowing
+              // another caller's seed cannot discover, modify, or erase their run.
+              if (
+                a.new_run &&
+                (a.state != null || a.checkpoint != null || a.answer != null || a.answers != null)
+              )
+                throw refuse(
+                  '`new_run` starts on a draft: omit state, checkpoint, answer and answers'
+                );
+              let runKey = runKeyOf(a);
+              const runRec = a.new_run ? null : a.run_id ? RUNS.byId(a.run_id) : null;
+              if (a.draft_text != null || a.draft != null) {
+                const wire = a.state || a.checkpoint;
+                const form =
+                  a.catalog_form ??
+                  runRec?.decl?.catalog_form ??
+                  (wire ? decodeState(wire).connector_declarations?.catalog_form : undefined);
+                takeLines(a, 'draft', 'draft_text', { form });
+              }
               // A host that restores a run's draft into the call (a session,
               // a resume) says so: that draft is not the caller's own.
               const sentDraft = a.draft != null && requestContext().hostDraft !== true;
@@ -3368,17 +3422,6 @@ export function registerLyricTools(server, tool) {
                 if (!Array.isArray(song) && Array.isArray(left?.draft)) song = left.draft;
                 if (Array.isArray(song)) a.draft = [...song];
               }
-              // A seed is a musical declaration, never an ownership key. Knowing
-              // another caller's seed cannot discover, modify, or erase their run.
-              if (
-                a.new_run &&
-                (a.state != null || a.checkpoint != null || a.answer != null || a.answers != null)
-              )
-                throw refuse(
-                  '`new_run` starts on a draft: omit state, checkpoint, answer and answers'
-                );
-              let runKey = runKeyOf(a);
-              const runRec = a.new_run ? null : a.run_id ? RUNS.byId(a.run_id) : null;
               // Minted before the verb runs so every state this call encodes
               // names the run it belongs to (see RUNS.byState).
               // A run the record cache lost (a restart, an eviction) but the
@@ -3595,7 +3638,7 @@ export function registerLyricTools(server, tool) {
               const draftPath = path.join(dir, 'draft.txt');
               const statePath = path.join(dir, 'state.json');
               const checkpointPath = path.join(dir, 'checkpoint.json');
-              await writeFile(draftPath, a.draft.join('\n') + '\n', 'utf8');
+              await writeFile(draftPath, serializeWritingDraft(a.draft, a.catalog_form), 'utf8');
               const checkpointInput = checkpoint ? JSON.stringify(checkpoint) + '\n' : null;
               if (checkpointInput) await writeFile(checkpointPath, checkpointInput, 'utf8');
               // The caller can carry the record independently of the run cache. The blob
@@ -4537,8 +4580,8 @@ export function registerLyricTools(server, tool) {
           );
         const bPath = path.join(dir, 'before.txt');
         const aPath = path.join(dir, 'after.txt');
-        await writeFile(bPath, a.before.join('\n') + '\n', 'utf8');
-        await writeFile(aPath, a.after.join('\n') + '\n', 'utf8');
+        await writeFile(bPath, serializeWritingDraft(a.before, a.catalog_form), 'utf8');
+        await writeFile(aPath, serializeWritingDraft(a.after, a.catalog_form), 'utf8');
         if (a.structures && !STRUCTURES_RE.test(a.structures))
           throw refuse("structures must be 'LABEL:name' pairs, comma-separated");
         const args = [...globalsFor(a), 'verify', bPath, aPath];
@@ -4626,7 +4669,8 @@ export function registerLyricTools(server, tool) {
         // row a line), under which the markers were counted as lines and the
         // mandate handed to check/revise named the wrong lines.
         const args = [...globalsFor(a), '--input-format=source', 'recover', draftPath];
-        if (selection?.plan.status === 'ready') args.push('--form-reading');
+        const reading = catalogReadingFlag(selection?.plan);
+        if (reading) args.push(reading);
         if (a.placements) args.push(`--placements=${a.placements}`);
         const r = await runVerb(args);
         const v = verdictOf(r);
@@ -4640,6 +4684,17 @@ export function registerLyricTools(server, tool) {
               ? 'recovered — every coordinate obtained; none refused. Hand `lines` with `mandate` to lyric_check and lyric_revise.'
               : 'recovered with REFUSALS — each coordinate under `refusals` carries its reason and must be DECLARED by the caller before the graders can ask about it (the meter always: counting gives syllables, not a grid). Hand `lines` with `mandate` to lyric_check and lyric_revise.';
           v.lines = rec.lines;
+          if (rec.paragraph_starts?.length === rec.lines.length) {
+            v.paragraph_text = rec.lines
+              .map((line, i) => (i && rec.paragraph_starts[i] ? '\n' : '') + line)
+              .join('\n');
+            v.meaning =
+              'Recovered source paragraph layout. Use paragraph_text as lines_text for checking, or draft_text for revision.';
+          }
+          if (rec.printed_lines) {
+            v.printed_lines = rec.printed_lines;
+            v.meaning += ' Use printed_lines for the stepped layout when checking or revising.';
+          }
           v.set_aside = rec.set_aside;
           v.sections = rec.sections;
           v.mandate = rec.mandate;
@@ -4709,7 +4764,7 @@ export function registerLyricTools(server, tool) {
               'catalog row or world alias (an unknown name is refused with the catalog listed)'
           );
         const draftPath = path.join(dir, 'draft.txt');
-        await writeFile(draftPath, a.lines.join('\n') + '\n', 'utf8');
+        await writeFile(draftPath, serializeWritingDraft(a.lines, a.catalog_form), 'utf8');
         if (a.subdivision != null && a.blueprint == null)
           throw refuse(
             '`subdivision` needs `blueprint` — send `blueprint` too, or drop `subdivision`; without a blueprint nothing reads it'
