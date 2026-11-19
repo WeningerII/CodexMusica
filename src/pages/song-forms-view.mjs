@@ -98,14 +98,66 @@ function branchList(nodes, depth = 0) {
   return list;
 }
 
-function writerDescription({ arrangement, contract }) {
+function writerDescription({ arrangement, contract, nestedDivisions }) {
   const statements = [];
-  if (arrangement) {
+  if (arrangement?.scansion === 'regular-anapestic-feet')
+    statements.push('This setting uses complete weak–weak–strong feet.');
+  if (contract.sections.some((section) => section.textualFunction))
+    statements.push('The literary function requires an attributed reading of the submitted words.');
+  if (nestedDivisions)
+    statements.push(
+      'The writer preserves the nested divisions and any participant assignments in the score.'
+    );
+  if (contract.sections.some((s) => s.divisionPath?.at(-1)?.unit === 'metrical-stanza'))
+    statements.push(
+      'This setting compares the syllable counts and stress patterns of corresponding stanza lines.'
+    );
+  if (contract.id === 'pindaric-ode')
+    statements.push(
+      'Each triad compares the first two stanzas line by line for syllables and stress. The closing stanza needs a contrasting syllable count.'
+    );
+  if (contract.sections.some((s) => s.vocalDuty))
+    statements.push(
+      'The vocal check compares the singers assigned to each section with the score’s roster.'
+    );
+  if (contract.sections.at(-1)?.vocalDuty === 'reprise')
+    statements.push('The ensemble repeats the closing lines of the last solo verse.');
+  if (contract.spokenClose)
+    statements.push(
+      'A timed guitar figure repeats under the verse. The score checks the final spoken line and any required rhyme. Comic effect and acoustic performance are outside this check.'
+    );
+  if (contract.closingChord)
+    statements.push(
+      'This setting closes with four voices sustaining a close-position major triad through the end of the final line.'
+    );
+  if (contract.imitationRepeats)
+    statements.push(
+      'This setting assigns each voice a timed entrance and a literal unison phrase. The score checks overlapping entries and the selected number of repetitions.'
+    );
+  if (contract.printedParagraphs)
+    statements.push(
+      'Write each paragraph as one unbroken row with sentence-final punctuation. Leave a blank line between paragraphs.'
+    );
+  if (contract.printedSteps)
+    statements.push(
+      'Each logical line is printed in successive, increasingly indented rows. The writer uses one verse for this setting.'
+    );
+  if (contract.phraseLines)
+    statements.push('This arrangement prints each measured phrase on a separate line.');
+  else if (arrangement) {
     const { divisions } = arrangement;
     statements.push(
       divisions.length === 1
         ? 'The writer uses one ' + divisions[0].lines + '-line verse for this pattern.'
         : 'The writer uses a verse for each division and keeps the displayed line counts.'
+    );
+  }
+  const first = contract.sections[0];
+  if (first?.sourceRole) {
+    statements.push(
+      first.role === 'chorus'
+        ? 'Each labeled block is sung as a chorus. Repeat its lines verbatim.'
+        : 'Each labeled sonnet occupies a separate 14-line verse.'
     );
   }
   if (contract.rhymeGroups.length === 1)
@@ -115,6 +167,50 @@ function writerDescription({ arrangement, contract }) {
     statements.push(
       'Use a distinct ending sound for each group of lines: ' + groups.join(' / ') + '.'
     );
+  }
+  if (contract.lineProfile === 'linked-couplet-echoes')
+    statements.push(
+      'Across each couplet boundary, change one word in a line of at least three words. Echo the opening in the final line. This setting checks wording.'
+    );
+  if (contract.lineProfile === 'english-short-long-five')
+    statements.push(
+      'One English setting uses up to 31 syllables total. Lines 1 and 3 are shorter than each of lines 2, 4 and 5.'
+    );
+  if (contract.lineProfile === 'single-phrase-lines')
+    statements.push(
+      'Write each line as a noun phrase with a determiner and up to two adjectives before the noun. This setting checks phrasing.'
+    );
+  if (['pivot-synonym', 'pivot-antonym'].includes(contract.lineProfile))
+    statements.push(
+      'Use adjectives on lines 2 and 6, and -ing verbs on 3 and 5. The middle four nouns move from the opening noun’s sense to the closing noun’s sense. The endpoints use the selected ' +
+        contract.lineProfile.slice(6) +
+        ' relation.'
+    );
+  if (contract.lineProfile === 'didactic-word-roles')
+    statements.push(
+      'Use a noun, two adjectives, three -ing verbs, a four-word noun phrase and a synonym of the opening. The measured phrase uses a determiner, two adjectives and a noun.'
+    );
+  if (contract.lineProfile === 'caesural-rhyme')
+    statements.push(
+      'Use this pattern on each line of the verse. Mark the pause with / or | so the word before it can be compared with the line ending.'
+    );
+  if (contract.endingWords) {
+    const { groups, gathered } = contract.endingWords;
+    statements.push(
+      'Keep the same final word within each group and use a different word for each group: ' +
+        groups.map((lines) => lines.join(', ')).join(' / ') +
+        '.'
+    );
+    if (gathered?.length)
+      statements.push(
+        'Use all of those words in the closing passage on ' +
+          (gathered.length === 1 ? 'line ' : 'lines ') +
+          gathered.join(', ') +
+          '.'
+      );
+  }
+  for (const group of contract.returnGroups) {
+    statements.push('Repeat line ' + group[0] + ' verbatim at ' + group.slice(1).join(', ') + '.');
   }
   const requirements = contract.lineRequirements || [];
   const measures = [
@@ -127,8 +223,14 @@ function writerDescription({ arrangement, contract }) {
         measures.map(([, label]) => label).join(' and ') +
         ' counts per line.'
     );
+  if (requirements.some((line) => line.stressEnding))
+    statements.push('It checks the stress of the final syllables on the marked lines.');
   if (requirements.some((line) => line.wordLetters))
     statements.push('It checks the selected letter counts for each sung word.');
+  if (requirements.some((line) => line.stresses !== undefined && line.syllables === undefined))
+    statements.push(
+      'Count the stressed syllables on each marked line. The number of unstressed syllables can vary.'
+    );
   if (requirements.some((line) => line.stress !== undefined || line.stresses !== undefined))
     statements.push(
       'Stress marks follow spoken pronunciation. The beat grid controls musical timing.'
@@ -205,7 +307,8 @@ function variantView(description, index, catalog, target, startWriter) {
     if (startWriter) {
       const projection = projectSongFormCreation(plan, counts);
       if (projection.status === 'ready') {
-        const setting = projection.scope === 'setting';
+        const setting =
+          projection.scope === 'setting' || Boolean(projection.contract.printedParagraphs);
         const arrangement = projection.arrangement;
         const write = el(
           'button',

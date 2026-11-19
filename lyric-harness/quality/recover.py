@@ -484,7 +484,7 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
     return r
 
 
-def recover_file(path, input_format="source", **kw):
+def recover_file(path, input_format="source", preserve_printing=False, **kw):
     """Use the grader's normalized reader and retain physical row positions.
 
     The result also carries WHICH TEXT its coordinates are numbered over:
@@ -501,6 +501,8 @@ def recover_file(path, input_format="source", **kw):
         rec = recover(lines, raw_lines=raw,
                       lyric_indices={i for i, line in enumerate(raw) if line.strip()}, **kw)
         rec.sung_lines, rec.set_aside = list(lines), []
+        if preserve_printing:
+            rec.printed_lines = [line.rstrip() for line in raw if line.strip()]
         return rec
     if input_format != "source":
         raise ValueError("input format must be literal or source")
@@ -511,6 +513,9 @@ def recover_file(path, input_format="source", **kw):
     rec = recover(lines, raw_lines=[row.text for row in rows],
                   lyric_indices=indices, **kw)
     rec.sung_lines = lines
+    if preserve_printing:
+        from lyric_harness import printed_source_lines
+        rec.printed_lines = printed_source_lines(path, rows)
     rec.set_aside = [{"row": row.lineno, "kind": row.kind, "text": row.text}
                      for row in rows if row.kind in ("apparatus", "title")]
     return rec

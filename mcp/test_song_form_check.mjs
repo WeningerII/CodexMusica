@@ -160,3 +160,126 @@ test('native writing and revision retain per-line catalog meter and refusals', a
   );
   assert.equal(unread.certified, false);
 });
+
+test('a submitted word-count stanza retains observed lexical roles on revision', async () => {
+  const rows = [
+    ['addition'],
+    ['positive', 'negative'],
+    ['computing', 'multiplying', 'dividing'],
+    ['one', 'two', 'three', 'four'],
+    ['four', 'four', 'four'],
+    ['positive', 'negative'],
+    ['subtraction'],
+  ];
+  const lines = rows.map((row) => row.join(' '));
+  const checked = verdict(
+    await call('lyric_check', {
+      lines,
+      catalog_form: 'diamante',
+      catalog_variant: 1,
+      groups: '2,6',
+      relation: 'class:RHYME',
+    })
+  );
+  function confirm(report) {
+    const roles = report.checks.filter((c) => c.kind === 'role');
+    assert.equal(roles.find((c) => c.expected === 'antonym').outcome, 'pass');
+    assert.equal(roles.find((c) => c.expected === 'middle-phrase').outcome, 'unknown');
+    assert.deepEqual(
+      roles.filter((c) => c.expected === 'ing-verbs').map((c) => c.outcome),
+      ['pass', 'fail']
+    );
+    assert.equal(report.verdict, 'fail');
+  }
+  confirm(checked.catalog_form.measurement);
+  const revised = verdict(
+    await call('lyric_revise', {
+      draft: lines,
+      ...checked.catalog_form.revision_mandate,
+      attempts: 0,
+      max_rounds: 1,
+      backtrack: 0,
+    })
+  );
+  confirm(revised.coverage.catalog_form);
+});
+
+test('pasted measured phrases retain their terminal bindings and distinguish missing parent spans', async () => {
+  for (const [id, variant, parts, ends, lengths] of [
+    ['cyhydedd-hir', 0, [4], ['one', 'none', 'ton', 'two'], [5, 5, 5, 4]],
+    ['rhupunt', 0, [3, 3], ['one', 'none', 'two', 'pen', 'ten', 'blue'], Array(6).fill(4)],
+    [
+      'rhupunt',
+      1,
+      [4, 4],
+      ['one', 'none', 'ton', 'two', 'pen', 'ten', 'hen', 'blue'],
+      Array(8).fill(4),
+    ],
+  ]) {
+    const lines = ends.map((word, i) => [...Array(lengths[i] - 1).fill('six'), word].join(' '));
+    const req = { catalog_form: id, catalog_variant: variant, relation: 'class:RHYME', lines };
+    const inspect = async (opts) =>
+      verdict(await call('lyric_check', { ...req, ...opts })).catalog_form;
+    const unscored = await inspect({});
+    assert.equal(unscored.selector.variant, variant);
+    assert.equal(unscored.expected_lines, lines.length);
+    assert.equal(
+      unscored.measurement.verdict,
+      parts.length === 1 ? 'pass' : 'unknown',
+      JSON.stringify(unscored.measurement)
+    );
+    let cursor = 0;
+    const sections = parts.map((bars, i) => {
+      const start_bar = cursor + 1;
+      cursor += bars;
+      return {
+        name: 'VERSE' + (i + 1),
+        function: 'verse',
+        start_bar,
+        bars,
+        meter: { beats: 4, unit: 4, groups: [4] },
+      };
+    });
+    const bp = {
+      sections,
+      lines: lines.map((text, i) => ({
+        text,
+        bar: i + 1,
+        beat: 1,
+        duration: 4,
+        section: sections.find((s) => i + 1 >= s.start_bar && i + 1 < s.start_bar + s.bars).name,
+      })),
+    };
+    const result = await inspect({ blueprint: JSON.stringify(bp), subdivision: 2 });
+    assert.equal(
+      result.measurement.verdict,
+      'pass',
+      JSON.stringify(result.measurement.checks.filter((c) => c.outcome !== 'pass'))
+    );
+  }
+});
+
+test('stepped printing is measured again during pasted revision', async () => {
+  const form = {
+    catalog_form: 'triadic-line',
+    catalog_counts: [{ path: '1.1', count: 1 }],
+    groups: '1,3',
+  };
+  const rows = ['one', '  two', '    three'];
+  const checked = verdict(await call('lyric_check', { ...form, lines_text: rows.join('\r\n') }));
+  assert.equal(checked.catalog_form.expected_lines, 3);
+  assert.equal(checked.coverage.catalog_form.verdict, 'pass');
+  const flat = verdict(await call('lyric_check', { ...form, lines: rows.map((r) => r.trim()) }));
+  assert.equal(flat.coverage.catalog_form.verdict, 'fail');
+  const revised = verdict(
+    await call('lyric_revise', {
+      ...checked.catalog_form.revision_mandate,
+      draft: rows,
+      attempts: 0,
+      max_rounds: 1,
+      backtrack: 0,
+      new_run: true,
+    })
+  );
+  assert.equal(revised.coverage.catalog_form.verdict, 'pass');
+});

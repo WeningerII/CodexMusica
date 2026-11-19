@@ -288,6 +288,51 @@ class ProductionRelations(unittest.TestCase):
         st = stream(['cat cow']); R.search_lifts(st)
         self.assertEqual(R.realise(sch, st), [])
 
+    def test_refrain_fraction_and_suffix_keep_unread_word_positions(self):
+        for third in ('qzxv', 'z x y qzxv', 'z x qzxv y'):
+            with self.subTest(third=third):
+                st = stream(['b x y', 'c x y', third])
+                partial = R.mark_refrain_tail(st, min_fraction=0.6)
+                self.assertEqual((partial['run'], partial['lines']), (('x', 'y'), [0, 1]))
+                strict = R.mark_refrain_tail(st, min_fraction=1, lines=iter([0, 1, 2]))
+                self.assertEqual(strict['candidates'], 3)
+                if third.endswith(' y'):
+                    self.assertEqual(strict['run'], ('y',))
+                    self.assertEqual(strict['lines'], [0, 1, 2])
+                else:
+                    self.assertEqual(strict['found'], 0)
+                    self.assertEqual(st.frames.refrain_tail, {})
+                subset = R.mark_refrain_tail(st, min_fraction=1, lines=[0, 1])
+                self.assertEqual((subset['run'], subset['candidates']), (('x', 'y'), 2))
+                self.assertEqual(set(st.frames.refrain_tail), {0, 1})
+        # Blank separators only enter the denominator if explicitly selected.
+        st = stream(['b x', '', 'c x'])
+        self.assertEqual(R.mark_refrain_tail(st, min_fraction=1)['found'], 2)
+        self.assertEqual(R.mark_refrain_tail(st, min_fraction=1, lines=[0, 1, 2])['found'], 0)
+
+    def test_full_refrain_length_locates_the_preceding_rhyme(self):
+        schema = R.REGISTRY['qafiya (before the radif)']
+        for width in (7, 8, 24):
+            suffix = (['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] * 3)[:width]
+            tail = ' '.join(suffix)
+            st = stream(['b ' + tail, 'c ' + tail, 'z ' + suffix[-1]])
+            for population, fraction in (([0, 1], 1), ([0, 1, 2], 2 / 3)):
+                result = R.mark_refrain_tail(st, lines=population, min_fraction=fraction)
+                self.assertEqual((result['depth'], result['run'], result['lines']),
+                                 (width, tuple(suffix), [0, 1]))
+                self.assertEqual(set(R.line_pairs_for(schema, st)), {(1, 2)})
+            whole = R.mark_refrain_tail(st, min_fraction=1)
+            self.assertEqual((whole['depth'], whole['lines']), (1, [0, 1, 2]))
+
+    def test_unread_word_immediately_before_refrain_does_not_shift_qafiya(self):
+        schema = R.REGISTRY['qafiya (before the radif)']
+        for first, expected in [('b x y', {(1, 2)}), ('b qzxv x y', set())]:
+            st = stream([first, 'c x y'])
+            self.assertEqual(R.mark_refrain_tail(st, min_fraction=1)['run'], ('x', 'y'))
+            found = R.line_pairs_for(schema, st)
+            self.assertFalse(isinstance(found, R.Refusal))
+            self.assertEqual(set(found), expected)
+
     def test_undecided_survives_cold_and_warm_bridge(self):
         st = stream(['دل جان', 'گل جان'], get('fas'))
         R.mark_refrain_tail(st, lines=[0,1])

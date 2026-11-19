@@ -307,7 +307,7 @@
         "lyric_check input.properties.blueprint.description"
       ],
       "contexts": [
-        "{\"sections\":[{\"name\",\"function\",\"bars\",\"start_bar\",\"meter\":{\"beats\",\"unit\",\"groups\":[…]}}],\"lines\":[{\"text\",\"bar\",\"beat\",\"duration\"}], optional \"title\", \"hooks\"}. With it the meter, song-function, hook"
+        "{\"sections\":[{\"name\",\"function\",\"bars\",\"start_bar\",\"meter\":{\"beats\",\"unit\",\"groups\":[…]}}],\"lines\":[{\"text\",\"bar\",\"beat\",\"duration\"}], optional \"title\", \"hooks\"}. For a catalog vocal assignment, declare"
       ],
       "declared_in": [
         {

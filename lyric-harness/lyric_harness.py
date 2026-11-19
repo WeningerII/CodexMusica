@@ -2651,19 +2651,51 @@ def indent_agreement(groups, indents):
 _PATH_SHAPED = re.compile(r"[/\\]|\.[A-Za-z0-9]{1,5}$")
 
 
-def load_draft_lines(path, with_indent=False, input_format="literal"):
+def printed_source_lines(path, rows):
+    """Restore physical leading whitespace to the normalized sung coordinates."""
+    physical = read_lyric_text(path).splitlines()
+    printed = []
+    for row in rows:
+        if row.kind == "lyric":
+            raw = physical[row.lineno - 1]
+            printed.append(raw[:len(raw) - len(raw.lstrip())] + row.text)
+    return printed
+
+
+def load_draft_lines(path, with_indent=False, input_format="literal", preserve_indent=False):
     """Read caller-owned lines without interpreting lyric text as apparatus.
 
     Source normalization is an explicit opt-in; its line coordinates refer to
     the extracted lyrics. Library corpus readers retain load_lyric_lines.
     """
     if input_format == "source":
+        if preserve_indent and not with_indent:
+            from quality.lyric_reader import normalized_rows
+            return printed_source_lines(path, normalized_rows(path))
         return load_lyric_lines(path, with_indent=with_indent)
     if input_format != "literal":
         raise ValueError("input format must be literal or source")
-    rows = [(line_indent(raw), raw.strip())
+    rows = [(line_indent(raw), raw.rstrip() if preserve_indent and not with_indent else raw.strip())
             for raw in read_lyric_text(path).splitlines() if raw.strip()]
     return rows if with_indent else [text for _, text in rows]
+
+
+def _printed_paragraph_starts(path, input_format):
+    """Locate blank-separated blocks in the submitted physical rows."""
+    if input_format == "source":
+        from quality.lyric_reader import normalized_rows
+        kinds = [row.kind for row in normalized_rows(path)]
+    else:
+        kinds = ["lyric" if row.strip() else "blank" for row in read_lyric_text(path).splitlines()]
+    starts = []
+    boundary = True
+    for kind in kinds:
+        if kind == "lyric":
+            starts.append(boundary)
+            boundary = False
+        elif kind == "blank":
+            boundary = True
+    return starts
 
 
 def _lyric_source(src, verb, input_format="literal"):
@@ -5365,7 +5397,17 @@ def _meter_words(lex, text):
     return rows if joined == list(phones) else None
 
 
-def _form_reading(lex, line, *, words=None):
+def _form_word_tokens(lex, text):
+    # The number of sung word tokens does not require a known pronunciation.
+    # Meter rows are per word *piece*, so they cannot supply a compound's count.
+    cut = reader_line(text, lex.strip_parens, "v2")
+    scheme = _scheme_of(lex)
+    incomplete = any(letters_outside_repertoire(run.text) or
+                     (scheme == "v1" and run.numeral) for run in cut.runs)
+    return None if incomplete else line_tokens(text, lex.strip_parens, scheme)
+
+
+def _form_reading(lex, line, *, words=None, syllable_rimes=False):
     """Keep only coordinates that all reliable readings of this sung line share."""
     if words is None:
         words = _meter_words(lex, line)
@@ -5376,13 +5418,24 @@ def _form_reading(lex, line, *, words=None):
     if any(letters_outside_repertoire(run.text) for run in cut.runs):
         return {}
     token_count = len(cut.tokens)
-    stresses = []
-    count = 0
+    streams_by_word = []
+    rimes = [] if syllable_rimes else None
     for word in words:
         if word["source"] not in ("declared", "dictionary", "rule"):
             return {}
         reader = scoped.for_token(word["token"] - 1)
         readings = reader.pronunciation_variants(word["word"])
+        if rimes is not None:
+            # A position is stable only if every listed reading agrees on
+            # syllable boundaries by count. Keep ambiguous sounds unknown.
+            alternatives = [syllabify(phones) for phones in readings]
+            if (word["source"] not in ("dictionary", "declared") or not alternatives
+                    or not alternatives[0] or len({len(row) for row in alternatives}) != 1):
+                rimes = None
+            else:
+                for position in zip(*alternatives):
+                    keys = {" ".join([s["nucleus"], *s["coda"]]) for s in position}
+                    rimes.append(keys.pop() if len(keys) == 1 else None)
         if readings:
             weak = weak_token(reader, word["word"],
                               phrase_final=word["token"] == token_count)
@@ -5395,13 +5448,18 @@ def _form_reading(lex, line, *, words=None):
             if not base or len(reader.pronunciation_variants(base)) != 1:
                 return {}
             streams = {"".join("." if digit == "0" else "/" for digit in word["stream"])}
-        lengths = {len(stream) for stream in streams}
-        if len(lengths) != 1 or 0 in lengths:
+        if not streams or "" in streams:
             return {}
-        count += lengths.pop()
-        stresses.append(next(iter(streams)) if len(streams) == 1 else None)
-    return ({"syllables": count, "stress": "".join(stresses)} if None not in stresses
-            else {"syllables": count})
+        streams_by_word.append(streams)
+    result = {"syllableRimes": rimes} if rimes is not None else {}
+    if all(len(choices) == 1 for choices in streams_by_word):
+        mask = "".join(next(iter(choices)) for choices in streams_by_word)
+        return {**result, "syllables": len(mask), "stress": mask}
+    for key, count_in_mask in (("syllables", len), ("stresses", lambda mask: mask.count("/"))):
+        counts = [{count_in_mask(mask) for mask in choices} for choices in streams_by_word]
+        if all(len(options) == 1 for options in counts):
+            result[key] = sum(next(iter(options)) for options in counts)
+    return result
 
 
 def _meter_honesty(entry, words, template):
@@ -7903,7 +7961,7 @@ the quality layer (each says which module answered):
   types  W1 -- W2 [--lang=] [--preset=] [--position=]
                           full rhyme-type coordinate: 9 axes, per-member
                           anchor, traditional names
-  recover LYRIC.txt [--placements=end,head,T4] [--form-reading]
+  recover LYRIC.txt [--placements=end,head,T4] [--form-reading[=lines]]
                           STRUCTURE A PASTED SONG — the second door into
                           the pipeline (M-72, M-195): counts the lines
                           and the syllables per line, reads [SECTION]
@@ -8346,6 +8404,7 @@ def _catalog_creation(args, lex):
             _refuse(f"{flag[2:].replace('-', ' ')} requires exactly one value")
         else:
             selected[flag] = value
+    lex.catalog_placement_roles = ()
     if not selected:
         return args, None
     if not rest:
@@ -8382,7 +8441,9 @@ def _catalog_creation(args, lex):
     except (ValueError, RecursionError) as error:
         _refuse(f"invalid catalog selection: {error}")
     lex.catalog_selection, contract = _resolve_catalog(selection, seeded=seeded, supplied=supplied)
-    return rest, contract
+    from quality.grid import setting_roles
+    lex.catalog_placement_roles = setting_roles(contract)
+    return rest, contract if seeded else None
 
 
 def _contract_selector(contract):
@@ -8406,7 +8467,10 @@ def _resolve_catalog(selection, *, seeded, supplied=None):
         _refuse("catalog form unavailable for this operation",
                 detail=[json.dumps(diagnostic, ensure_ascii=False)], machine={"catalog_selection": diagnostic})
     if not seeded:
-        return {"id": result["id"], "variant": result["variant"], "counts": selection.get("counts", {})}, None
+        # Pasted scores can declare a form without carrying a seeded plan. Only
+        # a completely positioned catalog section sequence may qualify placement.
+        placement = result if result["coverage"]["sections"] == "complete" else None
+        return {"id": result["id"], "variant": result["variant"], "counts": selection.get("counts", {})}, placement
     contract = result["contract"]
     # Numeric equality in Python equates True and 1. Compare canonical JSON to
     # reject changes to types as well as changes to the actual song obligations.
@@ -8424,6 +8488,8 @@ def _bind_blueprint_catalog(lex, blueprint):
     if previous is not None and previous != selection:
         _refuse("the blueprint and command line select different catalog forms, variants or counts")
     lex.catalog_selection = selection
+    from quality.grid import setting_roles
+    lex.catalog_placement_roles = setting_roles(contract)
 
 
 def _catalog_selection_args(contract):
@@ -9027,6 +9093,16 @@ def _line_lookup(ones, brief, attempt):
     if text is None:
         text = ones.get((brief.line_no, attempt, None))
     return text
+
+
+def _catalog_run_basis(lex):
+    selection = getattr(lex, "catalog_selection", None)
+    readings = getattr(lex, "catalog_function_readings", ())
+    if selection and readings:
+        import hashlib
+        canonical = json.dumps(sorted(readings, key=lambda r: r["section"]), sort_keys=True, separators=(",", ":"))
+        return dict(selection, textual_reading_sha256=hashlib.sha256(canonical.encode()).hexdigest())
+    return selection
 
 
 def _check_run_catalog(record, selection):
@@ -11230,8 +11306,17 @@ def main():
     if input_format not in ("literal", "source"):
         _refuse("--input-format wants literal or source")
     args = _strip_flag(args, "--input-format")
-    from functools import partial
-    read_input = partial(load_draft_lines, input_format=input_format)
+    def read_input(path, with_indent=False):
+        # The song verb learns its form from the filled blueprint, after
+        # parsing command-line selectors. Read with the current selection.
+        selected = (getattr(lex, "catalog_selection", None) or {}).get("id")
+        printing = selected == "triadic-line"
+        if selected == "prose-poem":
+            lex.catalog_paragraph_starts = _printed_paragraph_starts(path, input_format)
+        if printing:
+            lex.catalog_printing = True
+        return load_draft_lines(path, with_indent=with_indent, input_format=input_format,
+                                preserve_indent=printing)
 
     # --fallback=high|low is a GLOBAL declared coordinate: `Lexicon()` is
     # built once here, before any verb dispatches, so it cannot live inside
@@ -11381,6 +11466,29 @@ def main():
     args = [a for a in args if not a.startswith('--numbering=')]
     if not args:
         _refuse("a pronunciation declaration requires a command")
+    readings_flag = "--catalog-function-readings"
+    readings_args = [a for a in args if a == readings_flag or a.startswith(readings_flag + "=")]
+    if readings_args:
+        if len(readings_args) != 1 or "=" not in readings_args[0]:
+            _refuse("supply a single catalog function readings declaration as JSON")
+        try:
+            readings = json.loads(readings_args[0].split("=", 1)[1])
+            keys = {"section", "role", "draft_sha256", "judgment", "source", "reason"}
+            if (not isinstance(readings, list) or not 1 <= len(readings) <= 64
+                    or any(not isinstance(r, dict) or set(r) != keys
+                           or type(r["section"]) is not int or not 1 <= r["section"] <= 64
+                           or not all(isinstance(r[k], str) and r[k].strip() for k in keys - {"section"})
+                           or not re.fullmatch(r"[0-9a-f]{64}", r["draft_sha256"])
+                           or r["judgment"] not in ("affirmed", "rejected")
+                           or len(r["source"]) > 128 or len(r["reason"]) > 512 for r in readings)
+                    or len({r["section"] for r in readings}) != len(readings)):
+                raise ValueError("expected unique sections with a role, draft_sha256, judgment, source and reason")
+        except (ValueError, RecursionError) as exc:
+            _refuse(f"invalid catalog function readings: {exc}")
+        lex.catalog_function_readings = readings
+        args = [a for a in args if a not in readings_args]
+        if not args or args[0] not in ("song", "finish", "revise", "tryline"):
+            _refuse("catalog function readings apply to grading and revision")
     args, catalog_form = _catalog_creation(args, lex)
     cmd = args[0]
     if pronunciation_json is not None and cmd not in {"song", "finish", "brief", "revise", "verify", "recover", "normalize-numbering"}:
@@ -12291,26 +12399,33 @@ def main():
         from quality import recover as RC
         from quality import slots as _SLr
         rest = args[1:]
-        form_reading = "--form-reading" in rest
-        rest = [item for item in rest if item != "--form-reading"]
+        # The legacy flag requests the full reader record. A realized form
+        # with no positioned syllable rhyme needs only the line measurements.
+        full_form_reading = "--form-reading" in rest
+        paragraph_reading = "--form-reading=paragraphs" in rest
+        alliterative_reading = "--form-reading=alliteration" in rest
+        printed_reading = "--form-reading=printing" in rest
+        rondo_reading = "--form-reading=rondo" in rest
+        form_reading = full_form_reading or rondo_reading or alliterative_reading or "--form-reading=lines" in rest
+        rest = [item for item in rest if item not in ("--form-reading", "--form-reading=lines", "--form-reading=rondo", "--form-reading=printing", "--form-reading=alliteration", "--form-reading=paragraphs")]
         spec = _flag_value(rest, "--placements", eq_only=True)
         rest = _strip_flag(rest, "--placements")
         bad_flag = [a for a in rest if a.startswith("--")]
         if bad_flag:
             _refuse(f"recover does not take {bad_flag[0]!r}",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading]",
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines|rondo|printing|alliteration]]",
                             "an unrecognised flag is refused rather than "
                             "ignored (doctrine 20)"])
         if len(rest) != 1:
             _refuse("recover takes exactly one LYRIC.txt",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading]"])
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines|rondo|printing|alliteration]]"])
         try:
             declared = RC.parse_placements(spec) if spec is not None else None
         except _SLr.SlotUnsupported as exc:
             _refuse(f"recover `placements` {spec!r}: {exc}")
         try:
             rec = RC.recover_file(rest[0], lex=lex, decl=decl,
-                                  placements=declared, input_format=input_format)
+                                  placements=declared, input_format=input_format, preserve_printing=printed_reading)
         except OSError as e:
             _refuse(f"recover {rest[0]!r} — {e.strerror or e}")
         print(RC.render(rec))
@@ -12344,10 +12459,23 @@ def main():
         # its reason. The render above names two refused keys only in its
         # closing list, so a reader of the report alone gets no reason for
         # them; the record carries all of them, read off `rec.how`.
-        form_observations = {}
+        form_observations = {"printed_lines": rec.printed_lines} if printed_reading else {}
+        if paragraph_reading:
+            form_observations["paragraph_starts"] = _printed_paragraph_starts(rest[0], input_format)
+        if rondo_reading:
+            from quality.catalog_rondo import lyrical_returns, printed_spans
+            form_observations["rondo_text_returns"] = lyrical_returns(
+                rec.sung_lines, printed_spans(rec.get("sections") or []))
         if form_reading:
-            form_observations["form_reading"] = [_form_reading(lex, line)
-                                                 for line in rec.sung_lines]
+            form_observations["form_reading"] = [
+                {**_form_reading(lex, line, syllable_rimes=full_form_reading), "sungWords": _form_word_tokens(lex, line)}
+                for line in rec.sung_lines]
+            if alliterative_reading:
+                from quality.catalog_grading import alliterative_halves
+                for line, obs in zip(rec.sung_lines, form_observations["form_reading"]):
+                    proof = alliterative_halves(lex, line)
+                    if proof is not None:
+                        obs["alliterativeHalves"] = proof
         _lyric_result(**_lexicon_kw(), **form_observations, status="recovered", exit=3 if _refs else 0,
                       **_numbering_kw(),
                       input_format=input_format,
@@ -13031,8 +13159,9 @@ def main():
               f"subdivision {the_plan['subdivision']}, "
               f"{the_plan['choices']['bars_per_line']} bar(s) per line")
         for func, sch in the_plan["choices"]["schemes"].items():
-            note = ("with a mandated pair" if sch["lines"] > 1
-                    else "(a one-line section mandates no pair)")
+            note = ("with a mandated pair" if len(set(sch["rgs"])) < sch["lines"]
+                    else "(a one-line section mandates no pair)" if sch["lines"] == 1
+                    else "(no pair within this section)")
             print(f"  SCHEME {func}: {sch['lines']} line(s), rgs "
                   f"{tuple(sch['rgs'])} -- one of {sch['chosen_from']} "
                   f"{note}")
@@ -13636,7 +13765,9 @@ def main():
         song = _blueprint_or_refuse(_grid_song, GR, bp,
                                    _reraise=(GR.UnknownFunction,))
         key = GR.rime_cmudict(lex) if "--rhyme-key=cmudict" in args else None
-        rep = GR.song_function_report(song, hooks=hooks, rhyme_key=key)
+        _bind_blueprint_catalog(lex, bp)
+        rep = GR.song_function_report(song, hooks=hooks, rhyme_key=key,
+                                      selected_roles=getattr(lex, "catalog_placement_roles", ()))
         p = rep["profile"]
         print("  module: quality/grid.py — Section.function, the returns, "
               "the hook")
@@ -15908,7 +16039,7 @@ def main():
                         # run recorded, on the resume's own rule and with
                         # its words (`_defer_scheme_check`, read-only).
                         _defer_scheme_check(_st_path, _st)
-                        _check_run_catalog(_st, getattr(lex, "catalog_selection", None))
+                        _check_run_catalog(_st, _catalog_run_basis(lex))
                         if not _st.get("input_draft"):
                             _refuse(
                                 f"--propose=defer:{_st_path} — the state "
@@ -16121,7 +16252,7 @@ def main():
                     propose, propose_group, say_proposer = _resolve_proposer(
                         propose_spec, lines=lines, checkpoint_key=_rm_key,
                         legacy_checkpoint_key=_legacy_checkpoint_key,
-                        catalog_selection=getattr(lex, "catalog_selection", None))
+                        catalog_selection=_catalog_run_basis(lex))
                 except _JournalCapacity as e:
                     _journal_stop(e, plan=finish_plan if cmd == "finish" else None)
                 except ProposerUnavailable as e:
@@ -16196,7 +16327,7 @@ def main():
                         propose, propose_group, say_proposer = _resolve_proposer(
                             propose_spec, lines=lines, checkpoint_key=_rm_key,
                             legacy_checkpoint_key=_legacy_checkpoint_key,
-                            catalog_selection=getattr(lex, "catalog_selection", None))
+                            catalog_selection=_catalog_run_basis(lex))
                         _b2 = getattr(say_proposer, "bind", None)
                         if _b2 is not None:
                             _b2(_rm_key, _scorer_identity(), use=False,
