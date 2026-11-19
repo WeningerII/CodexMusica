@@ -13731,7 +13731,7 @@ screened by TWO runs REFUSES as ambiguous rather than resolving to whichever
 came first (`test_songs_log.py` §6 plants exactly that log and requires the
 refusal).
 
-### M-101 · a CONVENTION asks about four function names nobody derived `OPEN`
+### M-101 · a CONVENTION asks about four function names nobody derived ~~`OPEN`~~ `CLOSED` 2026-09-18 — the ruling is built: `grid.profile_functions()` derives the membership (commit `8325f85dd5`)
 
 **RULED 2026-09-18 UNDER THE OWNER'S DELEGATION (RULINGS WANTED #4): DERIVE
 THE MEMBERSHIP FROM THE VOCABULARY'S OWN DECLARED KIND.** The convention profile
@@ -13757,8 +13757,10 @@ hand-written four-name tuple quoted below is gone. Since the owner's 2026-11-13
 ruling (M-56) there is no `kind` label, so the membership is the whole table,
 22 functions today; the "twenty" above and "twenty-one" below are the counts of
 their dates. The body below, including "The tuple is UNTOUCHED", is the
-2026-08-24 filing. The heading's `OPEN` has not been re-ruled because the
-`BACKLOG.md` M-101 row carries the same status.
+2026-08-24 filing. ~~The heading's `OPEN` has not been re-ruled because the
+`BACKLOG.md` M-101 row carries the same status.~~ The heading and the
+`BACKLOG.md` M-101 row were both closed on 2026-11-19, dated to the build
+(2026-09-18), on the owner's say-so.
 Filed 2026-08-24, by the owner catching a sweep predicate and asking what
 stood behind it.
 
