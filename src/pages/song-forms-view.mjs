@@ -122,6 +122,22 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
     );
   if (contract.sections.at(-1)?.vocalDuty === 'reprise')
     statements.push('The ensemble repeats the closing lines of the last solo verse.');
+  if (contract.spokenClose)
+    statements.push(
+      'A timed guitar figure repeats under the verse. The score checks the final spoken line and any required rhyme. Comic effect and acoustic performance are outside this check.'
+    );
+  if (contract.closingChord)
+    statements.push(
+      'This setting closes with four voices sustaining a close-position major triad through the end of the final line.'
+    );
+  if (contract.imitationRepeats)
+    statements.push(
+      'This setting assigns each voice a timed entrance and a literal unison phrase. The score checks overlapping entries and the selected number of repetitions.'
+    );
+  if (contract.printedParagraphs)
+    statements.push(
+      'Write each paragraph as one unbroken row with sentence-final punctuation. Leave a blank line between paragraphs.'
+    );
   if (contract.printedSteps)
     statements.push(
       'Each logical line is printed in successive, increasingly indented rows. The writer uses one verse for this setting.'
@@ -152,6 +168,28 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
       'Use a distinct ending sound for each group of lines: ' + groups.join(' / ') + '.'
     );
   }
+  if (contract.lineProfile === 'linked-couplet-echoes')
+    statements.push(
+      'Across each couplet boundary, change one word in a line of at least three words. Echo the opening in the final line. This setting checks wording.'
+    );
+  if (contract.lineProfile === 'english-short-long-five')
+    statements.push(
+      'One English setting uses up to 31 syllables total. Lines 1 and 3 are shorter than each of lines 2, 4 and 5.'
+    );
+  if (contract.lineProfile === 'single-phrase-lines')
+    statements.push(
+      'Write each line as a noun phrase with a determiner and up to two adjectives before the noun. This setting checks phrasing.'
+    );
+  if (['pivot-synonym', 'pivot-antonym'].includes(contract.lineProfile))
+    statements.push(
+      'Use adjectives on lines 2 and 6, and -ing verbs on 3 and 5. The middle four nouns move from the opening noun’s sense to the closing noun’s sense. The endpoints use the selected ' +
+        contract.lineProfile.slice(6) +
+        ' relation.'
+    );
+  if (contract.lineProfile === 'didactic-word-roles')
+    statements.push(
+      'Use a noun, two adjectives, three -ing verbs, a four-word noun phrase and a synonym of the opening. The measured phrase uses a determiner, two adjectives and a noun.'
+    );
   if (contract.lineProfile === 'caesural-rhyme')
     statements.push(
       'Use this pattern on each line of the verse. Mark the pause with / or | so the word before it can be compared with the line ending.'
@@ -269,7 +307,8 @@ function variantView(description, index, catalog, target, startWriter) {
     if (startWriter) {
       const projection = projectSongFormCreation(plan, counts);
       if (projection.status === 'ready') {
-        const setting = projection.scope === 'setting';
+        const setting =
+          projection.scope === 'setting' || Boolean(projection.contract.printedParagraphs);
         const arrangement = projection.arrangement;
         const write = el(
           'button',

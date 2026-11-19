@@ -10,7 +10,8 @@ export function projectLineRequirement(
   endsRhyme = false,
   fixedReturns = false,
   refrain = false,
-  lengthPair
+  lengthPair,
+  lexicalProfile
 ) {
   if (
     line.unit !== 'line' ||
@@ -20,7 +21,8 @@ export function projectLineRequirement(
         !meterFields.has(key) &&
         !(
           key === 'role' &&
-          (lengthPair ||
+          (lexicalProfile ||
+            lengthPair ||
             stressEndingFor(line.role) ||
             line.role === 'alexandrine' ||
             (fixedReturns && refrain && line.role === 'refrain'))
@@ -70,6 +72,14 @@ export function projectLineRequirement(
       return null;
     constraints.syllables = line.children.length;
     if (constraints.stresses > constraints.syllables) return null;
+  } else if (
+    lexicalProfile === 'single-phrase-lines' &&
+    line.children.length === 1 &&
+    line.children[0].unit === 'phrase' &&
+    !line.children[0].children.length &&
+    Object.keys(line.children[0]).every((key) => coordinates.has(key))
+  ) {
+    // The lexical reader separately checks this phrase from the sung text.
   } else if (line.children.length) {
     if (
       !line.children.every(

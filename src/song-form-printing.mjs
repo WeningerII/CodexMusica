@@ -85,3 +85,73 @@ export function gradePrintedSteps(sizes, rows) {
       : 'pass';
   return { verdict, checks };
 }
+
+// Native paragraphs are explicit, unwrapped source blocks. This measures
+// the chosen printed setting, without classifying prose as literary poetry.
+export function paragraphCount(plan) {
+  const root = plan.tree?.[0];
+  const plain = (node) =>
+    ['role', 'rhyme', 'returns', 'endWord', 'syllables', 'stresses', 'stress', 'bars'].every(
+      (key) => node[key] === undefined
+    );
+  if (
+    plan.status !== 'ready' ||
+    plan.tree.length !== 1 ||
+    root.unit !== 'poem' ||
+    !plain(root) ||
+    !root.children.length ||
+    !root.children.every((p) => p.unit === 'paragraph' && plain(p) && !p.children.length)
+  )
+    return null;
+  return root.children.length;
+}
+
+export function gradeParagraphs(count, rows) {
+  const starts = rows?.map((r) => r?.paragraphStart);
+  const known = Array.isArray(starts) && starts.every((b) => typeof b === 'boolean');
+  const actual = known ? starts.filter(Boolean).length : null;
+  const checks = [
+    {
+      kind: 'printed-paragraph-count',
+      expected: count,
+      actual,
+      outcome: !known ? 'unknown' : actual === count ? 'pass' : 'fail',
+    },
+  ];
+  for (const [i, row] of (rows ?? []).entries()) {
+    const text = row?.text;
+    checks.push({
+      kind: 'unbroken-paragraph',
+      lines: [i + 1],
+      outcome:
+        typeof row?.paragraphStart !== 'boolean'
+          ? 'unknown'
+          : row.paragraphStart &&
+              typeof text === 'string' &&
+              text.trim() &&
+              !/[\r\n\u2028\u2029]/u.test(text)
+            ? 'pass'
+            : 'fail',
+    });
+    const punctuation = typeof text === 'string' && /[.!?…][”’"'»)\]]*$/u.test(text.trim());
+    checks.push({
+      kind: 'sentence-ending',
+      lines: [i + 1],
+      outcome:
+        typeof text !== 'string' || !text.trim()
+          ? 'unknown'
+          : punctuation && /\p{L}/u.test(text)
+            ? 'pass'
+            : 'fail',
+    });
+  }
+  return {
+    basis: 'printed unwrapped, blank-separated paragraphs with sentence-final punctuation',
+    checks,
+    verdict: checks.some((c) => c.outcome === 'fail')
+      ? 'fail'
+      : checks.every((c) => c.outcome === 'pass')
+        ? 'pass'
+        : 'unknown',
+  };
+}

@@ -2,8 +2,13 @@ import { createHash } from 'node:crypto';
 import { finalPunchline, usesFunctionReadings } from './song-form-function-readings.mjs';
 // Compare catalog requirements with measurements from the current candidate.
 // Blueprint coordinates describe the declared arrangement, including its bar grid.
+import { measureSpokenClose } from './song-form-spoken-close.mjs';
+import { gradeHeldTag } from './song-form-closing-chord.mjs';
+import { checkImitativeScore } from './song-form-imitative-score.mjs';
+import { paragraphCount } from './song-form-printing.mjs';
 import { printedPhraseSetting } from './song-form-mandate.mjs';
 import {
+  measuredCoupletEcho,
   refrainAddresses,
   relativeLinePairs,
   regularAlexandrine,
@@ -16,6 +21,7 @@ import {
   isVerseDivision,
   isCountedDescent,
   linesOfDivision,
+  openCoupletEnding,
   measuredStanzaRole,
   isWordlessWriterRole,
   projectSongFormCreation,
@@ -117,6 +123,18 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       verdict: 'unknown',
       checks: [{ kind: 'realization', outcome: 'unknown' }],
     };
+  if (paragraphCount(plan)) {
+    const { verdict, checks, basis } = checkReaderForm(catalog, id, { variant, counts, lines });
+    return {
+      id,
+      variant: plan.variant,
+      scope: 'setting',
+      catalogScope: plan.scope,
+      verdict,
+      checks,
+      basis,
+    };
+  }
   const printed = printedPhraseSetting(plan);
   if (printed && (phraseLines === true || lines?.length === printed.plan.lines.length)) {
     const observed = gradeObservations(printed.catalog, id, { variant: 0, lines, sections });
@@ -128,6 +146,66 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     };
   }
   const creation = projectSongFormCreation(plan, counts);
+  if (creation.contract?.closingChord) {
+    const verdict = gradeHeldTag(creation.contract.sections[0].lines, lines, sections);
+    return {
+      id,
+      variant: plan.variant,
+      scope: plan.scope,
+      verdict,
+      checks: [{ kind: 'held-closing-chord', outcome: verdict }],
+      basis: 'declared four-part close-position major-triad setting',
+    };
+  }
+  if (creation.contract?.imitationRepeats) {
+    const verdict = checkImitativeScore(creation.contract.imitationRepeats, lines, sections);
+    return {
+      id,
+      variant: plan.variant,
+      scope: plan.scope,
+      verdict,
+      checks: [{ kind: 'timed-unison-imitation', outcome: verdict }],
+      basis: 'declared overlapping voice scores',
+    };
+  }
+  if (creation.contract?.lineProfile === 'alliterative-long-line') {
+    const checks = (lines ?? []).map((row, i) => {
+      const proof = row?.alliterativeHalves;
+      let outcome = 'unknown';
+      if (
+        typeof row?.text === 'string' &&
+        /^[^/|]+[/|][^/|]+$/u.test(row.text) &&
+        Array.isArray(proof) &&
+        proof.length === 2 &&
+        proof.every(
+          (half) =>
+            Array.isArray(half) &&
+            half.every((onset) => onset === null || (typeof onset === 'string' && onset.length))
+        )
+      ) {
+        const [left, right] = proof;
+        if (left.length !== 2 || right.length !== 2) outcome = 'fail';
+        else if (right[0] !== null) {
+          const match = left.includes(right[0]);
+          if (right[0] === right[1] || (!match && !left.includes(null))) outcome = 'fail';
+          else if (match && right[1] !== null) outcome = 'pass';
+        }
+      }
+      return { kind: 'alliterative-long-line', lines: [i + 1], outcome };
+    });
+    if (!checks.length) checks.push({ kind: 'alliterative-long-line', outcome: 'unknown' });
+    return {
+      id,
+      variant: plan.variant,
+      scope: plan.scope,
+      checks,
+      verdict: checks.some((c) => c.outcome === 'fail')
+        ? 'fail'
+        : checks.every((c) => c.outcome === 'pass')
+          ? 'pass'
+          : 'unknown',
+    };
+  }
   if (creation.contract?.lineProfile === 'caesural-rhyme') {
     const checks = (lines || []).map((row, i) => {
       const proof = row?.caesuralRhyme;
@@ -164,6 +242,10 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       : checks.every((c) => c.outcome === 'pass')
         ? 'pass'
         : 'unknown';
+    return { id, variant: plan.variant, scope: plan.scope, verdict, checks };
+  }
+  if (creation.nestedRefrain || creation.scoredEnsemble) {
+    const { verdict, checks } = checkReaderForm(catalog, id, { variant, counts, sections });
     return { id, variant: plan.variant, scope: plan.scope, verdict, checks };
   }
   // Existing printed headers can identify the historical sections but do not
@@ -274,7 +356,11 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   }
   if (plan.coverage.sections !== 'none' && sections)
     input.sections = sections.map(({ lineSpan, ...section }) =>
-      plan.coverage.lines === 'complete' && lineSpan ? { ...section, lineSpan } : section
+      (plan.coverage.lines === 'complete' ||
+        creation.contract?.sections.some((s) => s.sourceRole === 'head')) &&
+      lineSpan
+        ? { ...section, lineSpan }
+        : section
     );
   // Musical verse is only the carrier for a neutral stanza. Its boundary
   // can be compared with the catalog division without adding a role check.
@@ -326,6 +412,8 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   const divisions = arranged
     ? stanzas.filter((node) => linesOfDivision(node).every((child) => child.unit === 'line'))
     : stanzas.filter((node) => node.unit === 'stanza');
+  const closingRun = arranged && openCoupletEnding(plan);
+  if (closingRun) divisions.unshift({ span: { lines: [0, closingRun.opening.length] } });
   if (arranged?.divisions.at(-1)?.unit === 'line') divisions.push(plan.tree[0].children.at(-1));
   const completePartition =
     plan.coverage.lines === 'complete' &&
@@ -347,6 +435,15 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
           if (!lineSpan) return [];
           const aligned =
             lineSpan[0] === stanza.span.lines[0] && lineSpan[1] === stanza.span.lines[1];
+          if (!stanza.address) {
+            extras.push({
+              kind: 'opening-line-span',
+              expected: stanza.span.lines,
+              actual: lineSpan,
+              outcome: aligned ? 'pass' : 'fail',
+            });
+            return [];
+          }
           return [[stanza.address, { lineSpan, ...(aligned && bars !== undefined && { bars }) }]];
         })
       );
@@ -475,9 +572,18 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   function refine(check) {
     const index = linePositions.get(check.address);
     if (check.kind === 'role' && index) {
+      if (creation.contract?.lineProfile === 'linked-couplet-echoes')
+        return { ...check, ...measuredCoupletEcho(index, lines) };
       if (reading && check.address === punchline.address)
         return { ...check, basis: reading.basis, outcome: reading.outcome };
       const line = addresses.get(check.address);
+      if (line.role === 'spoken-close' && creation.contract?.spokenClose) {
+        return {
+          ...check,
+          outcome: measureSpokenClose(creation.contract.sections[0].lines, lines, sections),
+          basis: 'timed speech over independently scored repetitions of a guitar figure',
+        };
+      }
       const pair = relative.get(check.address);
       if (pair) {
         const lengths = [pair.long, pair.short].map((n) => {
@@ -536,6 +642,37 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
       if (node?.unit === 'stanza' && node.children.every((child) => child.unit === 'line')) {
         const start = node.span.lines[0];
         const end = node.span.lines[1];
+        if (
+          creation.contract?.lineProfile === 'english-short-long-five' &&
+          node.role === 'english-short-lines'
+        ) {
+          // The Tanka Society of America records a common English reading of
+          // at most 31 syllables in short–long–short–long–long lines. Select
+          // this sufficient profile without requiring it of every English tanka.
+          const observed = lines.slice(start, end).map((row) => {
+            if (typeof row?.text !== 'string' || !row.text.trim()) return;
+            if (
+              row.stress !== undefined &&
+              (typeof row.stress !== 'string' ||
+                !/^[./]+$/.test(row.stress) ||
+                (row.syllables !== undefined && row.stress.length !== row.syllables))
+            )
+              return;
+            const n = row.syllables ?? row.stress?.length;
+            if (Number.isSafeInteger(n) && n > 0) return n;
+          });
+          const within =
+            observed.length === 5 &&
+            observed.every(Number.isInteger) &&
+            observed.reduce((a, b) => a + b, 0) <= 31 &&
+            Math.max(observed[0], observed[2]) < Math.min(observed[1], observed[3], observed[4]);
+          return {
+            ...check,
+            outcome: within ? 'pass' : 'unknown',
+            basis:
+              'English five-line short–long–short–long–long setting within 31 measured syllables',
+          };
+        }
         const observed = measuredStanzaRole(node.role, lines.slice(start, end));
         if (observed !== undefined)
           return { ...check, outcome: observed ? 'pass' : 'fail', basis: 'measured-stanza' };
@@ -602,6 +739,9 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     id,
     variant: plan.variant,
     scope: plan.scope,
+    ...(creation.contract?.spokenClose && {
+      unassessed: ['comic effect', 'acoustic timbre', 'performance'],
+    }),
     ...(reading && {
       basis:
         'measured rhyme, lexical stress and complete anapestic feet; editorial reading of the closing line',

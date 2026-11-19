@@ -2680,6 +2680,24 @@ def load_draft_lines(path, with_indent=False, input_format="literal", preserve_i
     return rows if with_indent else [text for _, text in rows]
 
 
+def _printed_paragraph_starts(path, input_format):
+    """Locate blank-separated blocks in the submitted physical rows."""
+    if input_format == "source":
+        from quality.lyric_reader import normalized_rows
+        kinds = [row.kind for row in normalized_rows(path)]
+    else:
+        kinds = ["lyric" if row.strip() else "blank" for row in read_lyric_text(path).splitlines()]
+    starts = []
+    boundary = True
+    for kind in kinds:
+        if kind == "lyric":
+            starts.append(boundary)
+            boundary = False
+        elif kind == "blank":
+            boundary = True
+    return starts
+
+
 def _lyric_source(src, verb, input_format="literal"):
     """-> list[str] | None. The `FILE|L...` argument shape, decided ONCE.
 
@@ -11291,7 +11309,10 @@ def main():
     def read_input(path, with_indent=False):
         # The song verb learns its form from the filled blueprint, after
         # parsing command-line selectors. Read with the current selection.
-        printing = (getattr(lex, "catalog_selection", None) or {}).get("id") == "triadic-line"
+        selected = (getattr(lex, "catalog_selection", None) or {}).get("id")
+        printing = selected == "triadic-line"
+        if selected == "prose-poem":
+            lex.catalog_paragraph_starts = _printed_paragraph_starts(path, input_format)
         if printing:
             lex.catalog_printing = True
         return load_draft_lines(path, with_indent=with_indent, input_format=input_format,
@@ -12381,21 +12402,23 @@ def main():
         # The legacy flag requests the full reader record. A realized form
         # with no positioned syllable rhyme needs only the line measurements.
         full_form_reading = "--form-reading" in rest
+        paragraph_reading = "--form-reading=paragraphs" in rest
+        alliterative_reading = "--form-reading=alliteration" in rest
         printed_reading = "--form-reading=printing" in rest
         rondo_reading = "--form-reading=rondo" in rest
-        form_reading = full_form_reading or rondo_reading or "--form-reading=lines" in rest
-        rest = [item for item in rest if item not in ("--form-reading", "--form-reading=lines", "--form-reading=rondo", "--form-reading=printing")]
+        form_reading = full_form_reading or rondo_reading or alliterative_reading or "--form-reading=lines" in rest
+        rest = [item for item in rest if item not in ("--form-reading", "--form-reading=lines", "--form-reading=rondo", "--form-reading=printing", "--form-reading=alliteration", "--form-reading=paragraphs")]
         spec = _flag_value(rest, "--placements", eq_only=True)
         rest = _strip_flag(rest, "--placements")
         bad_flag = [a for a in rest if a.startswith("--")]
         if bad_flag:
             _refuse(f"recover does not take {bad_flag[0]!r}",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines|rondo|printing]]",
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines|rondo|printing|alliteration]]",
                             "an unrecognised flag is refused rather than "
                             "ignored (doctrine 20)"])
         if len(rest) != 1:
             _refuse("recover takes exactly one LYRIC.txt",
-                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines|rondo|printing]]"])
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c] [--form-reading[=lines|rondo|printing|alliteration]]"])
         try:
             declared = RC.parse_placements(spec) if spec is not None else None
         except _SLr.SlotUnsupported as exc:
@@ -12437,6 +12460,8 @@ def main():
         # closing list, so a reader of the report alone gets no reason for
         # them; the record carries all of them, read off `rec.how`.
         form_observations = {"printed_lines": rec.printed_lines} if printed_reading else {}
+        if paragraph_reading:
+            form_observations["paragraph_starts"] = _printed_paragraph_starts(rest[0], input_format)
         if rondo_reading:
             from quality.catalog_rondo import lyrical_returns, printed_spans
             form_observations["rondo_text_returns"] = lyrical_returns(
@@ -12445,6 +12470,12 @@ def main():
             form_observations["form_reading"] = [
                 {**_form_reading(lex, line, syllable_rimes=full_form_reading), "sungWords": _form_word_tokens(lex, line)}
                 for line in rec.sung_lines]
+            if alliterative_reading:
+                from quality.catalog_grading import alliterative_halves
+                for line, obs in zip(rec.sung_lines, form_observations["form_reading"]):
+                    proof = alliterative_halves(lex, line)
+                    if proof is not None:
+                        obs["alliterativeHalves"] = proof
         _lyric_result(**_lexicon_kw(), **form_observations, status="recovered", exit=3 if _refs else 0,
                       **_numbering_kw(),
                       input_format=input_format,

@@ -24,6 +24,23 @@ class WordRoles(unittest.TestCase):
         self.assertEqual([r["outcome"] for r in result["checks"] if r["kind"] == "role"], ["unknown"] * 3)
         self.assertEqual(result["verdict"], "unknown")
 
+    def test_phrase_needs_one_unbroken_grammatical_unit(self):
+        lex = lh.Lexicon()
+        lex.catalog_selection = {"id": "gogyohka", "variant": 0, "counts": {}}
+        lines = ["the large red integer"] * 5
+
+        def read():
+            return inspect_catalog(lex, lines, None, Mandate(n_lines=5), {})
+
+        self.assertEqual(read()["verdict"], "pass")
+        for wrong in ("the large. red integer", "one two three four", "the / large red integer"):
+            with self.subTest(wrong=wrong):
+                lines[2] = wrong
+                checked = read()
+                self.assertEqual(checked["verdict"], "unknown")
+                self.assertTrue(any(c.get("lines") == [3] and c["outcome"] == "unknown"
+                                    and c["kind"] == "unit" for c in checked["checks"]))
+
     def test_alternative_tag_in_a_fragment_keeps_the_reading_open(self):
         with patch("quality.catalog_word_roles._tagger", return_value=lambda words: [(word, "NN") for word in words]):
             observed = _pos_reading(["x"], "adjectives")
@@ -91,6 +108,19 @@ class WordRoles(unittest.TestCase):
                 selected = next(r for r in roles if r["expected"] == relation)
                 self.assertEqual(selected["comparedLines"], [1, len(lines)])
                 self.assertEqual(checked["verdict"], "unknown")
+                if source == "didactic-cinquain":
+                    lines[3] = "the large red integer"
+                    verified = read()
+                    self.assertEqual(verified["verdict"], "pass", verified["checks"])
+                    lines[3] = "one two three four"
+                    self.assertEqual(read()["verdict"], "unknown")
+                if source == "diamante":
+                    lines[3] = ("sum amount total amount" if relation == "synonym"
+                                else "addition addition deduction subtraction")
+                    verified = read()
+                    self.assertEqual(verified["verdict"], "pass", verified["checks"])
+                    lines[3] = "subtraction deduction addition addition"
+                    self.assertEqual(read()["verdict"], "unknown")
                 lines[2] = " ".join(["four"] * 3)
                 lines[-1] = first
                 broken = read()

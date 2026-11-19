@@ -316,6 +316,7 @@ test('rondo recovery describes submitted words without certifying musical recurr
 
 test('marked neutral stanzas are measured independently of their end rhymes', async () => {
   for (const [id, variant, sizes] of [
+    ['byr-a-thoddaid', 0, [4, 2]],
     ['rubaiyat-stanza', 1, [4, 4]],
     ['terza-rima', 0, [3, 3, 3, 1]],
     ['terza-rima', 1, [3, 3, 3, 2]],
@@ -329,7 +330,8 @@ test('marked neutral stanzas are measured independently of their end rhymes', as
       return record.catalog_form.checks;
     };
     const complete = await measure(sizes);
-    const spans = (items) => items.filter((c) => c.kind === 'line-span');
+    const spans = (items) =>
+      items.filter((c) => ['line-span', 'opening-line-span'].includes(c.kind));
     assert.equal(spans(complete).length, sizes.length);
     assert.ok(spans(complete).every((c) => c.outcome === 'pass'));
     assert.ok(complete.some((c) => c.kind === 'rhyme' && c.outcome === 'unknown'));
@@ -340,6 +342,38 @@ test('marked neutral stanzas are measured independently of their end rhymes', as
     const missing = await measure(sizes.slice(1), Array(sizes[0]).fill('x'));
     assert.ok(spans(missing).length && spans(missing).every((c) => c.outcome === 'unknown'));
   }
+});
+
+test('source prose distinguishes hard line breaks from paragraph boundaries', async () => {
+  const form = { catalog_form: 'prose-poem', catalog_counts: [{ path: '1.1', count: 2 }] };
+  const raw = async (lines) => (await recover({ ...form, lines })).catalog_form;
+  assert.equal((await raw(['One.', '', 'Two?'])).verdict, 'pass');
+  const wrong = await raw(['One.', 'Two?']);
+  assert.equal(wrong.verdict, 'fail');
+  assert.deepEqual(
+    wrong.checks.filter((c) => c.outcome === 'fail').map((c) => c.kind),
+    ['printed-paragraph-count', 'unbroken-paragraph']
+  );
+});
+
+test('alliterative verse locates the head stave across the actual break', async () => {
+  const lines = [
+    'bright red / black drums',
+    'eels hide | oak bends',
+    'bright red / soft stones',
+    'sky stone / spade drum',
+    'bright red / black bells',
+    'bright swift red / black drums',
+    'bright red black drums',
+    'qzxvv red / black drums',
+  ];
+  const result = await recover({ catalog_form: 'alliterative-verse', lines });
+  assert.equal(result.catalog_form.mandate.lineCount, null);
+  assert.equal(result.catalog_form.mandate.minimumLines, 1);
+  assert.deepEqual(
+    result.catalog_form.checks.map((row) => row.outcome),
+    ['pass', 'pass', 'fail', 'fail', 'fail', 'fail', 'unknown', 'unknown']
+  );
 });
 
 test('matching printed headings leave narrative readings unknown', async () => {

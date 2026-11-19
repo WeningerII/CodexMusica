@@ -64,6 +64,31 @@ export function formMandateWire({ rhymeGroups, returnGroups, endWordGroups }) {
   };
 }
 
+// The catalog describes one long line. A writer can repeat it for a verse;
+// the generic draft and recovery routes must agree on that cardinality.
+export function alliterativeLineTemplate(plan) {
+  const [root] = plan.tree;
+  const [left, pause, right] = root?.children ?? [];
+  return (
+    plan.id === 'alliterative-verse' &&
+    plan.tree.length === 1 &&
+    root.unit === 'line' &&
+    root.children.length === 3 &&
+    left.unit === 'half-line' &&
+    right.unit === 'half-line' &&
+    pause.unit === 'caesura' &&
+    left.stresses === 2 &&
+    right.stresses === 2 &&
+    [root, left, pause, right].every((node) =>
+      evidenceFields.every(
+        (field) =>
+          node[field] === undefined || (field === 'stresses' && (node === left || node === right))
+      )
+    ) &&
+    root.children.every((node) => !node.children.length)
+  );
+}
+
 /** Only a ready projection can impose requirements. Counts and indices are
  * different: later explicit lines can contribute to a minimum without having
  * a known absolute transcript position after an opaque passage.
@@ -94,7 +119,8 @@ export function formMandate(plan) {
       else result.unpositioned.push(line.address);
     }
     if (plan.coverage.lines !== 'none') result.minimumLines = plan.minimum.lines;
-    if (plan.coverage.lines === 'complete') result.lineCount = plan.lines.length;
+    if (plan.coverage.lines === 'complete' && !alliterativeLineTemplate(plan))
+      result.lineCount = plan.lines.length;
     result.returnGroups = classes(known, 'returns').filter(repeated);
     result.endWordGroups = classes(known, 'endWord').filter(repeated);
     const terminalClass = distinctEndings([...result.returnGroups, ...result.endWordGroups]);

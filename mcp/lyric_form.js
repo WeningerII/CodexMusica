@@ -1,9 +1,9 @@
 // Connect the declared catalog pattern to the sung-line coordinates of the reader.
 import { readFile } from 'node:fs/promises';
 import { checkReaderForm, pindaricTriads, realizeForm } from '../src/song-forms.mjs';
-import { projectSongFormCreation } from '../src/song-form-creation.mjs';
+import { openCoupletEnding, projectSongFormCreation } from '../src/song-form-creation.mjs';
 import { gradeObservations } from '../src/song-form-grade.mjs';
-import { printedSteps } from '../src/song-form-printing.mjs';
+import { printedSteps, paragraphCount } from '../src/song-form-printing.mjs';
 import { formMandate } from '../src/song-form-mandate.mjs';
 
 import { usesFunctionReadings } from '../src/song-form-function-readings.mjs';
@@ -11,7 +11,9 @@ import { usesFunctionReadings } from '../src/song-form-function-readings.mjs';
 let catalog;
 export function catalogReadingFlag(plan) {
   if (plan?.status !== 'ready') return null;
+  if (paragraphCount(plan)) return '--form-reading=paragraphs';
   if (printedSteps(plan)) return '--form-reading=printing';
+  if (plan.id === 'alliterative-verse') return '--form-reading=alliteration';
   if (plan.id === 'rondo') return '--form-reading=rondo';
   function needsRimes(node) {
     return (node.unit === 'syllable' && node.rhyme !== undefined) || node.children.some(needsRimes);
@@ -43,6 +45,7 @@ export async function prepareFormReview(args) {
 function sectionObservations(sections, plan) {
   if (!sections?.length || !sections.every((section) => section.classified === true)) return;
   const roles = new Set(plan.sections.map((section) => section.role).filter(Boolean));
+  if (plan.id === 'alliterative-verse') return '--form-reading=alliteration';
   if (plan.id === 'rondo') for (const role of [...roles]) roles.add(role.slice('part-'.length));
   const triads = pindaricTriads(plan);
   if (triads) {
@@ -94,6 +97,7 @@ export function reviewRecoveredForm({ options, plan }, record) {
     sungWords: null,
     ...record.form_reading?.[i],
     ...(record.printed_lines && { printedText: record.printed_lines[i] }),
+    ...(record.paragraph_starts && { paragraphStart: record.paragraph_starts[i] }),
   }));
   const sections = sectionObservations(record.sections, plan);
   // A printed header can locate a neutral stanza even though it has no song
@@ -101,12 +105,14 @@ export function reviewRecoveredForm({ options, plan }, record) {
   const root = plan.tree[0];
   const markedSequence =
     plan.tree.length === 1 &&
-    ['verse-sequence', 'stanza-group'].includes(root.unit) &&
-    sections?.length === root.children.length &&
+    (['verse-sequence', 'stanza-group'].includes(root.unit)
+      ? sections?.length === root.children.length
+      : openCoupletEnding(plan) && sections?.length === 2) &&
     sections.every(({ lineSpan }) => lineSpan && lineSpan[1] > lineSpan[0]) &&
     sections.at(-1).lineSpan[1] === observations.length &&
     projectSongFormCreation(plan, options.counts).arrangement?.divisions.length === sections.length;
-  const check = markedSequence ? gradeObservations : checkReaderForm;
+  const check =
+    markedSequence || plan.id === 'alliterative-verse' ? gradeObservations : checkReaderForm;
   const measurement = check(catalog, plan.id, {
     ...options,
     lines: observations,
@@ -126,6 +132,11 @@ export function reviewRecoveredForm({ options, plan }, record) {
     verdict: measurement.verdict,
     checks: measurement.checks,
     ...(plan.id === 'rondo' && { lyricalReturns: record.rondo_text_returns ?? [] }),
+    ...(paragraphCount(plan) && {
+      scope: 'setting',
+      catalogScope: plan.scope,
+      basis: 'printed unwrapped, blank-separated paragraphs with sentence-final punctuation',
+    }),
     coverage: plan.coverage,
     mandate: formMandate(plan),
     ...(printedSteps(plan) && {

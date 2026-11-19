@@ -137,7 +137,7 @@ print(json.dumps(out))`;
 });
 
 test('linear layout cannot certify simultaneity, contingent speech, or unmeasured lexical roles', () => {
-  for (const id of ['round','catch','canon','quodlibet','short-drag-shanty','echo-song','military-cadence','lined-out-hymn','battle-rap','alliterative-verse']) {
+  for (const id of ['catch','quodlibet','short-drag-shanty','battle-rap']) {
     assert.equal(project(id).status,'unsupported',id);
   }
   const selected = project('skeltonic-verse');
