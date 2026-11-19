@@ -6558,6 +6558,19 @@ def audible_share(plan):
     return out
 
 
+def section_label(sec):
+    """The name a section's bracket prints: its function, or for a few
+    catalog roles the role, in capitals."""
+    if (sec.get("source_role"), sec["function"]) in (("chant", "chorus"), ("call", "chorus"), ("sonnet", "verse"), ("master-sonnet", "verse")):
+        return sec["source_role"].upper()
+    return sec["function"].upper()
+
+
+def _ordinal(n):
+    """-> 1st, 2nd, 3rd, 4th, 11th, 21st."""
+    return f"{n}{'th' if 10 <= n % 100 <= 20 else {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')}"
+
+
 def section_header(sec, slots):
     """The bracket header for one section — measurements SURFACED from the
     section's own dict and its own line slots, the same numbers the grid
@@ -6569,9 +6582,7 @@ def section_header(sec, slots):
     im = sec["meter"]
     size = (f"{sec['bars']} bar{'s' if sec['bars'] != 1 else ''} "
             f"of {im['beats']}/{im['unit']}")
-    label = sec["function"].upper()
-    if (sec.get("source_role"), sec["function"]) in (("chant", "chorus"), ("call", "chorus"), ("sonnet", "verse"), ("master-sonnet", "verse")):
-        label = sec["source_role"].upper()
+    label = section_label(sec)
     if not slots:
         return f"[{label} — instrumental — {size}, no words]"
     pickup = (_pickup_phrase(slots[0]["beat"] - 1)
@@ -7483,6 +7494,15 @@ def writer_brief(plan):
             if "stress" in row:
                 terms.append(f"stress pattern {row['stress']} (weak ., stressed /)")
             out.append(f"  L{row['line']}: " + ", ".join(terms) + ".")
+    # SAID ONCE (#902, John: "say repeated lines once"): a section whose
+    # rows under its bracket are the same as an earlier section's names
+    # that section in one row instead of printing them again, counted among
+    # the brackets of its own name ("the 3rd VERSE above"); the bracket
+    # itself stays as it is (M-97). Where only the beats and strong beats
+    # repeat, those rows alone are named. Songs of 68 to 115 sections
+    # printed the same rows once a section, and their plans grew past what
+    # a client was seen to drop.
+    body_first, timing_first, label_seen = {}, {}, {}
     for sec in plan["sections"]:
         slots = [s for s in plan["line_slots"]
                  if s["section"] == sec["name"]]
@@ -7497,41 +7517,41 @@ def writer_brief(plan):
                 turn = slot["divisionPath"][-1]["role"]
                 out.append(f"  L{slot['line']} · {turn}")
         out.append("  " + section_header(sec, slots))
+        label = section_label(sec)
+        label_seen[label] = label_seen.get(label, 0) + 1
+        here = (label, label_seen[label])
+        body = []
         if "accompaniment" in sec:
             figure = sec["accompaniment"]["figures"][0]
-            out.append("    Repeat the guitar figure twice from the opening (four ticks per beat): " +
-                       ", ".join(f"{e['pitch_hz']} Hz for {e['ticks']} ticks" for e in figure) + ".")
+            body.append("    Repeat the guitar figure twice from the opening (four ticks per beat): " +
+                        ", ".join(f"{e['pitch_hz']} Hz for {e['ticks']} ticks" for e in figure) + ".")
             speech = slots[-1]["speech_event"]
-            out.append(f"    Speak the closing line at section tick {speech['start']} for {speech['ticks']} ticks.")
+            body.append(f"    Speak the closing line at section tick {speech['start']} for {speech['ticks']} ticks.")
         if "closing_chord" in sec:
-            out.append("    Hold the closing chord to the end of the final line (four ticks per beat).")
+            body.append("    Hold the closing chord to the end of the final line (four ticks per beat).")
             for note in sec["closing_chord"]:
-                out.append(f"    {note['performer']}: {note['pitch_hz']} Hz at section tick "
-                           f"{note['start']} for {note['ticks']} ticks.")
+                body.append(f"    {note['performer']}: {note['pitch_hz']} Hz at section tick "
+                            f"{note['start']} for {note['ticks']} ticks.")
         if "voice_score" in sec:
-            out.append("    Literal imitative score, four ticks per beat; each part enters while the preceding part sounds.")
+            body.append("    Literal imitative score, four ticks per beat; each part enters while the preceding part sounds.")
             for track in sec["voice_score"]["tracks"]:
                 events = ", ".join(f"{hz} Hz/{ticks} ticks" for hz, ticks in track["phrases"][0])
-                out.append(f"    {track['performer']}: enter at tick {track['start']}; play {events}, "
-                           f"{len(track['phrases'])} time(s).")
+                body.append(f"    {track['performer']}: enter at tick {track['start']}; play {events}, "
+                            f"{len(track['phrases'])} time(s).")
         if "section_melody" in sec:
             phrase = sec["section_melody"]
             events = ", ".join(f"{note['pitch_hz']} Hz/{note['ticks']}" if note["pitch_hz"] is not None
                                else f"rest/{note['ticks']}" for note in phrase["notes"])
-            out.append(f"    Whole-section score for {sec.get('source_role', sec['function'])} at {phrase['subdivision']} ticks per beat: {events}.")
+            body.append(f"    Whole-section score for {sec.get('source_role', sec['function'])} at {phrase['subdivision']} ticks per beat: {events}.")
         for part in sec.get("section_parts", ()):
             phrase = part["melody"]
             values = [f"{n['pitch_hz']} Hz/{n['ticks']}" if n['pitch_hz'] is not None else f"rest/{n['ticks']}"
                       for n in phrase['notes']]
-            out.append(f"    Scored {part['kind']} {part['performer']} at {phrase['subdivision']} ticks per beat: "
-                       + ", ".join(values) + ".")
+            body.append(f"    Scored {part['kind']} {part['performer']} at {phrase['subdivision']} ticks per beat: "
+                        + ", ".join(values) + ".")
         if "source_role" in sec:
-            out.append(f"    Catalog section: {sec['source_role']}. Native writing function: {sec['function']}.")
-        # THE NUMBER SLOTS_EXCEEDED GRADES AGAINST, where the writer reads
-        # (`MISSING.md` M-192): the METER row says 8, the line holds 5 after
-        # its pickup, and the flag is hard. Printed UNDER the bracket, never
-        # inside it — the bracket is the measurement carrier every gate
-        # reads byte for byte (M-97, check_render_form).
+            body.append(f"    Catalog section: {sec['source_role']}. Native writing function: {sec['function']}.")
+        rows, ceiling = [], []
         if slots:
             # THE TWO NUMBERS THE DENSITY AND PROMINENCE NOTES COUNT
             # AGAINST, read FIRST (2026-10-18): four songs written to the
@@ -7542,11 +7562,29 @@ def writer_brief(plan):
             # ceiling follows, so the writer meets the beat before the room
             # (Jony's review of #587). Computed as fit's Placement computes
             # them, and held equal to it by test_plan.
-            out.extend(_pulse_rows(sec, slots[0]))
+            rows = _pulse_rows(sec, slots[0])
+            # THE NUMBER SLOTS_EXCEEDED GRADES AGAINST, where the writer reads
+            # (`MISSING.md` M-192): the METER row says 8, the line holds 5 after
+            # its pickup, and the flag is hard. Printed UNDER the bracket, never
+            # inside it — the bracket is the measurement carrier every gate
+            # reads byte for byte (M-97, check_render_form) — or under the
+            # earlier bracket a section with the same rows names.
             _cap = int(line_syllable_ceiling(
                 slots[0]["duration"] * plan["subdivision"]))
-            out.append(f"      up to {_cap} syllables a line after the "
-                       f"pickup")
+            ceiling = [f"      up to {_cap} syllables a line after the pickup"]
+        whole = tuple(body + rows + ceiling)
+        first = body_first.setdefault(whole, here)
+        if whole and first != here:
+            out.append(f"    as in the {_ordinal(first[1])} {first[0]} above")
+            continue
+        out.extend(body)
+        first = timing_first.setdefault(tuple(rows), here)
+        if not rows or first == here:
+            out.extend(rows)
+        else:
+            out.append(f"      each line: as in the {_ordinal(first[1])} "
+                       f"{first[0]} above")
+        out.extend(ceiling)
     # Report the request after the drawn song, without changing its roster,
     # sampling or stored declarations. Blank inputs remain in request only.
     from quality.function_disclosure import disclose_functions

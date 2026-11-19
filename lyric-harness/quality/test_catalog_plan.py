@@ -64,6 +64,86 @@ class CatalogPlannerTests(unittest.TestCase):
         unmeasured_break[1]["sectionMelody"]["notes"].append({"ticks": 1, "pitch_hz": 333})
         self.assertEqual(verdict(unmeasured_break), "unknown")
 
+    def test_a_section_with_rows_printed_above_names_the_section_that_printed_them(self):
+        """#902 (John: "say repeated lines once"; R2's case): a section whose
+        rows under its bracket an earlier section printed names that section,
+        by its bracket's name and its count among those brackets, and the one
+        it names is the right one when an earlier section of the same name
+        has other rows. Only the beats and strong beats repeating names the
+        section for those rows alone. Over every catalog form at seed 1, the
+        rows each section should get are read from the plan's own fields."""
+        import json
+        import re
+        import subprocess
+        from pathlib import Path
+        script = Path(__file__).resolve().parents[2] / "scripts" / "song_forms.mjs"
+        forms = json.loads(subprocess.check_output(["node", str(script), "list"],
+                                                   stdin=subprocess.DEVNULL, text=True))
+        fields = ("accompaniment", "closing_chord", "voice_score", "section_melody",
+                  "section_parts", "source_role")
+        def create(form_id, counts):
+            return json.loads(subprocess.run(
+                ["node", str(script), "create", form_id], input=json.dumps({"counts": counts}),
+                capture_output=True, text=True).stdout)
+
+        named_later = pulses_named = whole_named = 0
+        for form in forms:
+            # A form that needs repeat counts gets each at its least.
+            made = create(form["id"], {})
+            if made["status"] == "needs-input" and all(n["kind"] == "count" for n in made["needs"]):
+                made = create(form["id"], {n["path"]: n["min"] for n in made["needs"]})
+            if made["contract"] is None:
+                continue
+            try:
+                built = plan.make_plan(1, song_form=made["contract"])
+            except plan.SeedRefused:
+                continue
+            lines = built["writer_brief"].splitlines()
+            brackets = [i for i, line in enumerate(lines)
+                        if re.match(r"^  \[[A-Z]", line) and line.endswith("]")]
+            self.assertEqual(len(brackets), len(built["sections"]), form["id"])
+            seen, rows_of, beats_of = {}, {}, {}
+            for i, sec in zip(brackets, built["sections"]):
+                label = plan.section_label(sec)
+                seen[label] = seen.get(label, 0) + 1
+                here = (label, seen[label])
+                slots = [s for s in built["line_slots"] if s["section"] == sec["name"]]
+                own = {k: sec.get(k) for k in fields}
+                if "accompaniment" in sec:
+                    own["speech"] = slots[-1]["speech_event"]
+                if "source_role" in sec or "section_melody" in sec:
+                    own["function"] = sec["function"]
+                beats = (plan.line_pulses_and_heads(sec, slots[0]) if slots else None)
+                ceiling = (int(plan.line_syllable_ceiling(slots[0]["duration"] * built["subdivision"]))
+                           if slots else None)
+                key = (json.dumps(own, sort_keys=True), repr(beats), ceiling)
+                if not slots and not any(own.values()):
+                    continue
+                first = rows_of.setdefault(key, here)
+                under = lines[i + 1:i + 2]
+                with self.subTest(form=form["id"], section=sec["name"]):
+                    if first != here:
+                        self.assertEqual(under, [f"    as in the {plan._ordinal(first[1])} {first[0]} above"])
+                        whole_named += 1
+                        named_later += first[0] == label and first[1] > 1
+                        continue
+                    self.assertFalse(under[0].startswith("    as in the "), under)
+                    if beats is None:
+                        continue
+                    seen_beats = beats_of.setdefault(repr(beats), here)
+                    expect = (f"      each line: as in the {plan._ordinal(seen_beats[1])} "
+                              f"{seen_beats[0]} above")
+                    shown = lines[i + 1:brackets[brackets.index(i) + 1]
+                                  if i != brackets[-1] else len(lines)]
+                    self.assertEqual(expect in shown, seen_beats != here, shown[:6])
+                    pulses_named += seen_beats != here
+        # The two cases this test is for are present: a section names a later
+        # one of its own name over the first, and a section with other rows
+        # names an earlier one for its beats and strong beats alone.
+        self.assertGreater(named_later, 0)
+        self.assertGreater(pulses_named, 0)
+        self.assertGreater(whole_named, named_later)
+
     def test_multi_voice_scores_use_actual_written_parts(self):
         import json
         import subprocess

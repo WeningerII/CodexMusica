@@ -4561,7 +4561,10 @@ def test_the_delegated_rulings(FAILURES=None):
         hdr = [i for i, l in enumerate(lines_b)
                if _re.match(r"^  \[[A-Z]", l) and l.rstrip().endswith("]")]
         headers_ok = headers_ok and len(hdr) == len(p["sections"])
+        ceiling_of, seen_label = {}, {}
         for i, sec in zip(hdr, p["sections"]):
+            lab = _PL.section_label(sec)
+            seen_label[lab] = seen_label.get(lab, 0) + 1
             slots = [s for s in p["line_slots"] if s["section"] == sec["name"]]
             headers_ok = headers_ok and "syllable" not in lines_b[i]
             if not slots:
@@ -4569,21 +4572,36 @@ def test_the_delegated_rulings(FAILURES=None):
             capn = int(_PL.line_syllable_ceiling(
                 slots[0]["duration"] * p["subdivision"]))
             exp = f"      up to {capn} syllables a line after the pickup"
+            # REPINNED #902 (John: "say repeated lines once"): a section
+            # whose rows an earlier section printed names it in one row, and
+            # the ceiling the writer finds there is this section's own.
+            named = _re.match(r"^    as in the (\d+)\w\w (\S+) above$",
+                              lines_b[i + 1])
+            ceiling_of[(lab, seen_label[lab])] = exp
+            if named:
+                key = (named.group(2), int(named.group(1)))
+                cap_ok = (cap_ok and key != (lab, seen_label[lab])
+                          and ceiling_of.get(key) == exp)
+                continue
             # REPINNED 2026-10-18 from ~~lines_b[i + 1]~~: the beat and
             # strong-beat rows lead and the ceiling follows them (Jony's
-            # review of #587), so the ceiling is the row after those.
-            cap_ok = cap_ok and lines_b[
-                i + 1 + len(_PL._pulse_rows(sec, slots[0]))] == exp
+            # review of #587), so the ceiling is the row after those, or
+            # after the one row naming an earlier section's (#902).
+            rows = _PL._pulse_rows(sec, slots[0])
+            shown = (1 if lines_b[i + 1].startswith("      each line: as in the ")
+                     else len(rows))
+            cap_ok = cap_ok and lines_b[i + 1 + shown] == exp
     check("...the brief states every group's RULE: each group cites one, every "
           "cited rule is stated, generated from the type's fields, and no "
           "type name is printed (2026-10-27, D5; it once printed `T5`, "
           "`headrime` and type names with no gloss a writer could reach)",
           legend_ok)
     check("...and the number SLOTS_EXCEEDED grades against is printed UNDER "
-          "every sung section's bracket — the ceiling of syllables a line "
-          "after the pickup beside the band's floor — and never INSIDE it: "
-          "the bracket is the measurement carrier every gate reads byte for "
-          "byte (M-97)",
+          "every sung section's bracket, or under the earlier bracket a "
+          "section with the same rows names (#902) — the ceiling of "
+          "syllables a line after the pickup beside the band's floor — and "
+          "never INSIDE it: the bracket is the measurement carrier every "
+          "gate reads byte for byte (M-97)",
           cap_ok and headers_ok)
 
     # ── 2026-10-18: the pulses and heads the density notes count against ──
@@ -4608,16 +4626,48 @@ def test_the_delegated_rulings(FAILURES=None):
     _hdr = [i for i, l in enumerate(_bl)
             if re.match(r"^  \[[A-Z]", l) and l.rstrip().endswith("]")]
     _rows_ok = len(_hdr) == len(_pp["sections"])
+    _first, _once, _seen = {}, 0, {}
     for i, sec in zip(_hdr, _pp["sections"]):
+        _lab = _PL.section_label(sec)
+        _seen[_lab] = _seen.get(_lab, 0) + 1
         s0 = next(s for s in _pp["line_slots"] if s["section"] == sec["name"])
         d, h = _PL.line_pulses_and_heads(sec, s0)
         rows = _PL._pulse_rows(sec, s0)
+        # SAID ONCE (#902, John: "say repeated lines once"): the first
+        # section with these rows prints them and its ceiling; a later one
+        # names that section in one row, and the next bracket follows.
+        here = (_lab, _seen[_lab])
+        first = _first.setdefault(tuple(rows), here)
+        _once += first != here
+        if first != here:
+            _rows_ok = (_rows_ok and _bl[i + 1] ==
+                        f"    as in the {_PL._ordinal(first[1])} {first[0]} "
+                        f"above"
+                        and (_bl[i + 2].startswith("  [")
+                             or not _bl[i + 2].startswith("    ")))
+            continue
         _rows_ok = (_rows_ok and len(rows) == 3
                     and _bl[i + 1:i + 4] == rows
                     and _bl[i + 4].startswith("      up to ")
                     and f"{h} of them strong" in rows[0]
                     and rows[1].endswith("the ceiling below is room, not a "
                                          "target"))
+    check("...and a section whose rows an earlier section printed names "
+          "that section in one row instead of printing them again, counted "
+          "among the brackets that print its name (#902: songs of 68 to 115 "
+          "sections printed the same rows once a section and outgrew what a "
+          "client was seen to receive)",
+          _rows_ok and _once == 2
+          and "\n    as in the 1st VERSE above\n" in _pp["writer_brief"]
+          and "\n    as in the 1st CHORUS above\n" in _pp["writer_brief"]
+          and [_PL._ordinal(n) for n in (1, 2, 3, 4, 11, 12, 13, 21, 102, 111)]
+          == ["1st", "2nd", "3rd", "4th", "11th", "12th", "13th", "21st",
+              "102nd", "111th"]
+          and _pp["writer_brief"].count("each line: 7½ beats (pulses)") == 1
+          and _pp["writer_brief"].count("each line: 8 beats (pulses)") == 1
+          and _pp["writer_brief"].count("syllables a line after the pickup")
+          == 2,
+          _pp["writer_brief"][:900])
     check("...and UNDER the bracket, BEFORE the ceiling, the beats (pulses) "
           "and strong beats (group heads) the density and prominence notes "
           "count against, in a writer's words (seed 1822: 7½ beats and 2 "
