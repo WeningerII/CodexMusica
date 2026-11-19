@@ -2,7 +2,7 @@
 // The writer still judges placement, recurrence, envelope and seed feasibility.
 import { refrainAddresses, relativeLinePairs } from './song-form-line-roles.mjs';
 import { endingWordDeclaration, printedPhraseSetting } from './song-form-mandate.mjs';
-import { withFunctionCriteria } from './song-form-function-readings.mjs';
+import { finalPunchline, withFunctionCriteria } from './song-form-function-readings.mjs';
 import { projectNestedDivisions } from './song-form-divisions.mjs';
 import { printedSteps } from './song-form-printing.mjs';
 import { sectionMelodyGroup, sectionMelodyLayout } from './song-form-section-melody.mjs';
@@ -177,6 +177,7 @@ export function projectSongFormCreation(plan, counts = {}) {
   const sections = [];
   const divisions = [];
   const lineRequirements = [];
+  const punchline = finalPunchline(plan);
   const byReturn = new Map();
   const byRhyme = new Map();
   for (const line of plan.lines) {
@@ -367,8 +368,17 @@ export function projectSongFormCreation(plan, counts = {}) {
       // the native writing plan (WORDS_LEFT_FREE). One syllable cannot hold both.
       if (child.unit === 'line' && child.syllables === 1 && byRhyme.get(child.rhyme)?.length >= 2)
         refuse('native-free-word-reserve', child, 'rhyme');
+      // A closing punchline is evaluated by the attributed reading of this
+      // stanza. Keep every acoustic constraint on that same final line.
+      let measuredChild = child;
+      if (child === punchline) {
+        measuredChild = { ...child };
+        delete measuredChild.role;
+      }
+      if (punchline && Number.isSafeInteger(child.stresses) && child.stresses > 0)
+        measuredChild = { ...measuredChild, stress: '../'.repeat(child.stresses) };
       const requirement = projectLineRequirement(
-        child,
+        measuredChild,
         endsRhyme,
         fixedReturns || roleArrangement?.repeatText,
         refrains.has(child.address),
@@ -541,7 +551,13 @@ export function projectSongFormCreation(plan, counts = {}) {
   return {
     ...result,
     ...(nestedDivisions && { nestedDivisions: true }),
-    ...(divisions.length && { arrangement: { role: 'verse', divisions } }),
+    ...(divisions.length && {
+      arrangement: {
+        role: 'verse',
+        divisions,
+        ...(punchline && { scansion: 'regular-anapestic-feet' }),
+      },
+    }),
     contract: {
       version: 1,
       scope: plan.scope,
@@ -551,7 +567,15 @@ export function projectSongFormCreation(plan, counts = {}) {
       ...(caesuralRhyme && { lineProfile: 'caesural-rhyme' }),
       ...(lineRequirements.length && { lineRequirements }),
       ...(nestedDivisions && endingWords && { endingWords }),
-      sections,
+      sections: punchline
+        ? withFunctionCriteria(
+            plan.id,
+            sections.map((section) => ({
+              ...section,
+              divisionPath: [{ unit: 'stanza', address: plan.tree[0].address }],
+            }))
+          )
+        : sections,
       rhymeGroups: endsRhyme ? rhymeGroups : [],
       returnGroups: fixedReturns || roleArrangement?.repeatText ? returnGroups : [],
     },

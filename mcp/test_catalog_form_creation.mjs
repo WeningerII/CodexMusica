@@ -2631,3 +2631,102 @@ test(
     );
   }
 );
+
+test(
+  'Limerick keeps its audible rhyme and stress tests when a closing-line reading is supplied',
+  { timeout: 300_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const seed = 11,
+      lines = 5,
+      relation = 'class:RHYME';
+    const sweep = measured(
+      await host.run('lyric_sweep', {
+        catalog_form: 'limerick',
+        seed_from: seed,
+        count: 1,
+        lines,
+        relation,
+        draw: ['functions', 'melody'],
+      })
+    );
+    assert.deepEqual(sweep.accepted_shown, [seed], sweep.report);
+    const planned = await host.run('lyric_plan', { seed, lines, relation });
+    const { plan } = measured(await host.read(planned.operation_id, 'full'));
+    assert.deepEqual(plan.request.song_form.rhymeGroups, [
+      [1, 2, 5],
+      [3, 4],
+    ]);
+    assert.deepEqual(
+      plan.request.song_form.lineRequirements.map((r) => r.stresses),
+      [3, 3, 2, 2, 3]
+    );
+    measured(await host.run('lyric_screen', { words: ['weight', 'eight'], relation }));
+    const get = async (draft, readings) => {
+      const op = await host.run('lyric_grade', {
+        seed,
+        draft,
+        ...(readings && { catalog_function_readings: readings }),
+      });
+      const result = measured(await host.read(op.operation_id, 'full'));
+      assert.ok(result.coverage?.catalog_form, result.stderr || result.report);
+      return result.coverage.catalog_form;
+    };
+    const feet = (...words) => words.map((word) => 'of the ' + word).join(' ');
+    const draft = [
+      feet('red', 'green', 'three'),
+      feet('six', 'five', 'tree'),
+      feet('red', 'two'),
+      feet('green', 'blue'),
+      feet('red', 'blue', 'bee'),
+    ];
+    const first = await get(draft);
+    const checks = (form, kind) => form.checks.filter((c) => c.kind === kind);
+    assert.ok(
+      checks(first, 'rhyme').every((c) => c.outcome === 'pass'),
+      JSON.stringify(first.checks)
+    );
+    assert.equal(checks(first, 'stresses').length, 5);
+    assert.deepEqual(
+      checks(first, 'regular-anapestic-line').map((c) => c.outcome),
+      Array(5).fill('pass')
+    );
+    assert.ok(
+      checks(first, 'stresses').every((c) => c.outcome === 'pass'),
+      JSON.stringify(first.checks)
+    );
+    assert.equal(first.verdict, 'unknown');
+    const { section, role, draft_sha256, focusLine } = checks(
+      first,
+      'declared-textual-function'
+    )[0];
+    assert.equal(focusLine, 5);
+    const readings = [
+      {
+        section,
+        role,
+        draft_sha256,
+        source: 'test reviewer',
+        reason: 'fixture judgment',
+        judgment: 'affirmed',
+      },
+    ];
+    assert.equal((await get(draft, readings)).verdict, 'pass');
+    const sameCount = await get(
+      ['red of the of the green of the three', ...draft.slice(1)],
+      readings
+    );
+    assert.equal(sameCount.verdict, 'fail');
+    assert.ok(checks(sameCount, 'stresses').every((c) => c.outcome === 'pass'));
+    assert.ok(checks(sameCount, 'rhyme').every((c) => c.outcome === 'pass'));
+    assert.ok(checks(sameCount, 'regular-anapestic-line').some((c) => c.outcome === 'fail'));
+    const nonmatching = await get([...draft.slice(0, 4), 'green four'], readings);
+    assert.equal(nonmatching.verdict, 'fail');
+    assert.ok(checks(nonmatching, 'stresses').some((c) => c.outcome === 'fail'));
+    assert.ok(checks(nonmatching, 'rhyme').some((c) => c.outcome === 'fail'));
+    assert.ok(
+      checks(nonmatching, 'declared-textual-function').every((c) => c.outcome === 'unknown')
+    );
+  }
+);

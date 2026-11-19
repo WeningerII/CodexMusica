@@ -11,6 +11,10 @@ const functions = new Map(
       'viewpoint-shift': 'The middle shifts the perspective established in the opening.',
       'closing-turn': 'The ending turns from the preceding perspective.',
     },
+    limerick: {
+      stanza:
+        'The fifth line delivers the punchline to the preceding four lines. This writing setting uses fully realized anapestic feet.',
+    },
     epigram: { poem: 'The last line gives a pointed, witty turn to the preceding text.' },
     'gnomic-verse': { maxim: 'This unit expresses a compact, generally applicable maxim.' },
     sevenling: {
@@ -59,6 +63,37 @@ export const usesFunctionReadings = (id) => functions.has(id);
 export function functionCriterion(id, role) {
   const profile = functions.get(id);
   return profile && Object.hasOwn(profile, role) ? profile[role] : undefined;
+}
+
+// Keep the acoustic measurements on their ordinary independent grading path.
+export function finalPunchline(plan) {
+  const [stanza] = plan.tree;
+  if (
+    plan.id !== 'limerick' ||
+    plan.scope !== 'setting' ||
+    plan.tree.length !== 1 ||
+    stanza.unit !== 'stanza' ||
+    stanza.role ||
+    stanza.children.length !== 5
+  )
+    return null;
+  const counts = [3, 3, 2, 2, 3];
+  const [a, , b] = stanza.children.map((line) => line.rhyme);
+  if (
+    !a ||
+    !b ||
+    a === b ||
+    !stanza.children.every(
+      (line, i) =>
+        line.unit === 'line' &&
+        !line.children.length &&
+        line.stresses === counts[i] &&
+        line.rhyme === (i === 2 || i === 3 ? b : a) &&
+        line.role === (i === 4 ? 'punchline' : undefined)
+    )
+  )
+    return null;
+  return stanza.children[4];
 }
 
 // Admit only the precise realized, countable source tree. A position locates

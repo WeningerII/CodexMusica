@@ -100,6 +100,10 @@ function branchList(nodes, depth = 0) {
 
 function writerDescription({ arrangement, contract, nestedDivisions }) {
   const statements = [];
+  if (arrangement?.scansion === 'regular-anapestic-feet')
+    statements.push('This setting uses complete weak–weak–strong feet.');
+  if (contract.sections.some((section) => section.textualFunction))
+    statements.push('The literary function requires an attributed reading of the submitted words.');
   if (nestedDivisions)
     statements.push(
       'The writer preserves the nested divisions and any participant assignments in the score.'

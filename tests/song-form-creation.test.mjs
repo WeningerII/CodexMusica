@@ -164,6 +164,12 @@ test('every published selection has an exact structural contract or an explicit 
               measures.stress = node.stress;
             }
             if (node.stresses !== undefined) measures.stresses = node.stresses;
+            if (projected.arrangement?.scansion === 'regular-anapestic-feet') {
+              assert.equal(form.id, 'limerick', where);
+              assert.equal(node.stresses, [3,3,2,2,3][position-1], where);
+              measures.stress = '../'.repeat(node.stresses);
+              measures.syllables = measures.stress.length;
+            }
             if (node.role === 'alexandrine') {
               measures.stress = './'.repeat(6);
               measures.syllables = measures.stress.length;

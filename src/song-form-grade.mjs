@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { usesFunctionReadings } from './song-form-function-readings.mjs';
+import { finalPunchline, usesFunctionReadings } from './song-form-function-readings.mjs';
 // Compare catalog requirements with measurements from the current candidate.
 // Blueprint coordinates describe the declared arrangement, including its bar grid.
 import { printedPhraseSetting } from './song-form-mandate.mjs';
@@ -287,6 +287,32 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   }
   plan.tree.forEach(walk);
   const extras = measurement.checks;
+  const punchline = finalPunchline(plan);
+  const reading =
+    punchline &&
+    creation.contract &&
+    measureFunctionReadings(plan, creation.contract.sections, lines, sections)[0];
+  if (reading) {
+    extras.push({ ...reading, focusLine: 5 });
+    for (const { line, stress } of creation.contract.lineRequirements) {
+      const observed = lines?.[line - 1];
+      const actual =
+        typeof observed?.text === 'string' &&
+        observed.text.trim() &&
+        typeof observed.stress === 'string' &&
+        /^[./]+$/.test(observed.stress)
+          ? observed.stress
+          : undefined;
+      extras.push({
+        kind: 'regular-anapestic-line',
+        lines: [line],
+        expected: stress,
+        ...(actual && { actual }),
+        basis: 'regular-foot writing arrangement, agreed lexical stress',
+        outcome: actual === undefined ? 'unknown' : actual === stress ? 'pass' : 'fail',
+      });
+    }
+  }
   const spans = new Map();
   const hasInstrumental = plan.sections.some((section) => isWordlessWriterRole(section.role));
   const projection = stanzas.length || hasInstrumental ? creation : null;
@@ -449,6 +475,8 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
   function refine(check) {
     const index = linePositions.get(check.address);
     if (check.kind === 'role' && index) {
+      if (reading && check.address === punchline.address)
+        return { ...check, basis: reading.basis, outcome: reading.outcome };
       const line = addresses.get(check.address);
       const pair = relative.get(check.address);
       if (pair) {
@@ -574,6 +602,10 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
     id,
     variant: plan.variant,
     scope: plan.scope,
+    ...(reading && {
+      basis:
+        'measured rhyme, lexical stress and complete anapestic feet; editorial reading of the closing line',
+    }),
     ...(sourceArrangement && {
       sectionArrangement: {
         sourceRole: sourceArrangement.sourceRole,
