@@ -108,6 +108,10 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
     statements.push(
       'This setting compares the syllable counts and stress patterns of corresponding stanza lines.'
     );
+  if (contract.id === 'pindaric-ode')
+    statements.push(
+      'Each triad compares the first two stanzas line by line for syllables and stress. The closing stanza needs a contrasting syllable count.'
+    );
   if (contract.sections.some((s) => s.vocalDuty))
     statements.push(
       'The vocal check compares the singers assigned to each section with the score’s roster.'

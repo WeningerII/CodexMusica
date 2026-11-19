@@ -1,5 +1,7 @@
 // Ordered divisions describe the arrangement printed in a score. A speaker
 // assignment is a declaration; acoustic identity cannot be inferred from text.
+import { pindaricTriads } from './song-forms.mjs';
+
 const roots = new Set(['song', 'poem']);
 const groups = new Set([
   'play',
@@ -79,6 +81,28 @@ export function projectNestedDivisions(
   nativeRoles,
   { fixedReturns = false, endingWords = null } = {}
 ) {
+  const triads = pindaricTriads(plan);
+  if (
+    triads &&
+    plan.scope === 'setting' &&
+    plain(plan.tree[0]) &&
+    !plan.tree[0].role &&
+    triads.every(
+      (triad) =>
+        plain(triad) &&
+        !triad.role &&
+        triad.children.every((stanza) => plain(stanza) && !stanza.children.length)
+    )
+  ) {
+    return triads.flatMap((triad) =>
+      triad.children.map((stanza) => ({
+        unit: 'section',
+        role: 'verse',
+        lines: null,
+        divisionPath: [mark(plan.tree[0]), mark(triad), mark(stanza)],
+      }))
+    );
+  }
   const rows = [];
   let distinct = false;
   function endWordLine(n) {
@@ -275,6 +299,14 @@ function pathAgreement(expected, path) {
   return agreement;
 }
 
+function conflictingStressCounts(row) {
+  if (typeof row.stress !== 'string' || !/^[./]+$/.test(row.stress)) return false;
+  return (
+    (row.syllables !== undefined && row.syllables !== row.stress.length) ||
+    (row.stresses !== undefined && row.stresses !== row.stress.split('/').length - 1)
+  );
+}
+
 function recurringStanzaMeter(metrical, lines, sections) {
   const counts = [];
   const masks = [];
@@ -282,6 +314,7 @@ function recurringStanzaMeter(metrical, lines, sections) {
   let missing = false;
   let incompatible = false;
   let uncertainStress = false;
+  let contradictory = false;
   const positions = [];
   for (const i of metrical) {
     const span = sections?.[i]?.lineSpan;
@@ -307,19 +340,19 @@ function recurringStanzaMeter(metrical, lines, sections) {
         missing = true;
         continue;
       }
+      if (conflictingStressCounts(row)) {
+        contradictory = true;
+        continue;
+      }
       const mask = row.stress;
-      const count = row.syllables ?? mask?.length;
+      const validMask = typeof mask === 'string' && /^[./]+$/.test(mask);
+      const count = row.syllables ?? (validMask ? mask.length : undefined);
       if (!Number.isSafeInteger(count) || count <= 0) missing = true;
       else if (counts[j] === undefined) counts[j] = count;
       else if (count !== counts[j]) incompatible = true;
       // Agreed stress is a sufficient witness for this regular setting.
       // A lexical substitution can still scan, so it is inconclusive.
-      if (
-        typeof mask !== 'string' ||
-        !/^[./]+$/.test(mask) ||
-        !mask.includes('/') ||
-        mask.length !== count
-      ) {
+      if (!validMask || !mask.includes('/') || mask.length !== count) {
         uncertainStress = true;
       } else if (masks[j] === undefined) masks[j] = mask;
       else if (masks[j] !== mask) uncertainStress = true;
@@ -329,12 +362,68 @@ function recurringStanzaMeter(metrical, lines, sections) {
     kind: 'recurring-stanza-meter',
     basis: 'corresponding printed body lines and their agreed syllable and stress readings',
     lines: positions,
-    outcome: incompatible
-      ? 'fail'
-      : missing || uncertainStress || metrical.length < 2
-        ? 'unknown'
-        : 'pass',
+    outcome: contradictory
+      ? 'unknown'
+      : incompatible
+        ? 'fail'
+        : missing || uncertainStress || metrical.length < 2
+          ? 'unknown'
+          : 'pass',
   };
+}
+
+// A longer stanza has extra lines, but those lines have no counterparts.
+// Compare only paired positions. Missing readings or stress-only differences
+// cannot demonstrate the selected English syllable-count contrast.
+function epodeContrast(strophe, epode, lines) {
+  const spans = [strophe?.lineSpan, epode?.lineSpan];
+  const observed = [];
+  if (
+    !Array.isArray(lines) ||
+    !spans.every(
+      (span) =>
+        Array.isArray(span) &&
+        span.length === 2 &&
+        span.every(Number.isSafeInteger) &&
+        span[0] >= 0 &&
+        span[0] < span[1] &&
+        span[1] <= lines.length
+    )
+  )
+    return { lines: observed, outcome: 'unknown' };
+
+  const width = Math.min(...spans.map(([start, end]) => end - start));
+  let missing = false,
+    differentCounts = false,
+    differentStress = false;
+  for (let offset = 0; offset < width; offset++) {
+    const masks = spans.map(([start]) => {
+      const index = start + offset;
+      observed.push(index + 1);
+      const row = lines[index];
+      return typeof row?.text === 'string' &&
+        row.text.trim() &&
+        typeof row.stress === 'string' &&
+        /^[./]+$/.test(row.stress) &&
+        row.stress.includes('/') &&
+        !conflictingStressCounts(row)
+        ? row.stress
+        : undefined;
+    });
+    if (masks.includes(undefined)) missing = true;
+    else {
+      differentCounts ||= masks[0].length !== masks[1].length;
+      differentStress ||= masks[0] !== masks[1];
+    }
+  }
+  const outcome = missing
+    ? 'unknown'
+    : differentCounts
+      ? 'pass'
+      : differentStress
+        ? 'unknown'
+        : 'fail';
+  return { lines: observed.sort((a, b) => a - b), outcome };
 }
 
 export function gradeNestedDivisions(plan, rows, lines, sections, checks = []) {
@@ -507,6 +596,18 @@ export function gradeNestedDivisions(plan, rows, lines, sections, checks = []) {
     }
     cursor = valid ? span[1] : undefined;
   }
+  const triads = pindaricTriads(plan);
+  if (triads) {
+    const basis =
+      'English line-aligned setting: corresponding printed lines within this triad, syllable counts and lexical stress';
+    for (const [i] of triads.entries()) {
+      const start = i * 3;
+      const paired = recurringStanzaMeter([start, start + 1], lines, sections);
+      checks.push({ ...paired, kind: 'english-strophe-antistrophe', basis });
+      const epode = epodeContrast(sections?.[start], sections?.[start + 2], lines);
+      checks.push({ ...epode, kind: 'english-epode-contrast', basis });
+    }
+  }
   const metrical = rows.flatMap((row, i) =>
     row.divisionPath.at(-1)?.unit === 'metrical-stanza' ? [i] : []
   );
@@ -561,7 +662,9 @@ export function gradeNestedDivisions(plan, rows, lines, sections, checks = []) {
     id: plan.id,
     variant: plan.variant,
     scope: plan.scope,
-    basis: 'declared score divisions and participant assignments',
+    basis: triads
+      ? 'declared English line-aligned stanza profiles'
+      : 'declared score divisions and participant assignments',
     verdict,
     checks,
   };

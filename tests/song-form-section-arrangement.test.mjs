@@ -151,7 +151,7 @@ test('Pindaric labels and line totals cannot certify metrical responsion', () =>
     [{ ...sections[0], lineSpan: [1, 2] }, ...sections.slice(1)],
     [{ ...sections[0], role: 'verse' }, ...sections.slice(1)],
   ]) assert.deepEqual(lengths(measured(score)), [undefined, undefined]);
-  assert.equal(projectSongFormCreation(plan, counts).status, 'unsupported');
+  assert.equal(projectSongFormCreation(plan, counts).status, 'ready');
 });
 
 

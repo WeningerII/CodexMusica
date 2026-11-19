@@ -7232,6 +7232,10 @@ def writer_brief(plan):
         if any(part.get("divisionPath") and part["divisionPath"][-1]["unit"] == "metrical-stanza"
                for part in catalog["sections"]):
             out.append("  In each body stanza, match the syllable count and stress pattern of each corresponding line.")
+        if catalog["id"] == "pindaric-ode":
+            out.append("  English line-aligned setting: in each triad, match the stress and syllable "
+                       "patterns of corresponding strophe and antistrophe lines. Give the epode "
+                       "a contrasting syllable count on at least one corresponding line.")
         if catalog.get("printedSteps"):
             out.append("  Print each logical line as a staircase of sung rows. "
                        "Indent each successive row further than the previous row within that line. "

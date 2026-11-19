@@ -94,7 +94,12 @@ export function gradeObservations(catalog, id, { variant, counts, lines, section
         : 'unknown';
     return { id, variant: plan.variant, scope: plan.scope, verdict, checks };
   }
-  if (creation.nestedDivisions) {
+  // Existing printed headers can identify the historical sections but do not
+  // declare the writer's English line-aligned realization of metrical periods.
+  if (
+    creation.nestedDivisions &&
+    (!pindaricTriads(plan) || sections?.some((s) => s?.divisionPath))
+  ) {
     const checks = [];
     if (creation.contract.returnGroups.length) {
       // The score can identify a respondent, but only the submitted words
