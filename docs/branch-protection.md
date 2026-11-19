@@ -166,6 +166,12 @@ This file does not record whether the live `main` ruleset has been updated to
 match; adding the four is a ruleset change for the owner (Route A or Route B
 below), not something this document does.
 
+**Owner's decision, 2026-11-19: keep the required set at the eight for now.**
+The four stay outside the ruleset, so a PR can still merge with one of them
+red and the release verifier catches it afterwards. That is a known cost,
+chosen, not an oversight; revisit it if a post-merge red on one of the four
+recurs.
+
 ### Why the `-result` jobs, and not the obvious names
 
 `catalog-result` is a summary job added for this purpose. The `catalog` job
