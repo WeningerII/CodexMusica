@@ -144,3 +144,14 @@ test('a nested pair is judged by both observed boundaries and every line measure
   assert.equal(grade([8]).verdict,'fail');
   assert.equal(grade([4,8],[...lines.slice(0,7),{syllables:2}]).verdict,'fail');
 });
+
+test('letter counts use the supplied sung tokens and preserve uncertainty for unreadable text', () => {
+  const pattern={unit:'stanza', children:[{unit:'line', times:2, children:[
+    {unit:'word',children:[{unit:'letter',times:2}]},
+  ]}]};
+  const grade = row => gradeObservations(form(pattern), 'symbol', {lines:[row,row],sections:[{lineSpan:[0,2]}]});
+  const known=grade({text:"(x) a-b",sungWords:["a-b"]});
+  assert.equal(known.verdict,'pass');
+  assert.deepEqual(known.checks.filter(c=>c.kind==='letter-count').map(c=>c.lines),[[1],[2]]);
+  assert.equal(grade({text:'ab',sungWords:null}).verdict,'unknown');
+});

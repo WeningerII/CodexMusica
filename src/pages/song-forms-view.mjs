@@ -119,6 +119,8 @@ function writerDescription({ arrangement, contract }) {
         measures.map(([, label]) => label).join(' and ') +
         ' counts per line.'
     );
+  if (requirements.some((line) => line.wordLetters))
+    statements.push('It checks the selected letter counts for each sung word.');
   if (requirements.some((line) => line.stress !== undefined || line.stresses !== undefined))
     statements.push(
       'Stress marks follow spoken pronunciation. The beat grid controls musical timing.'

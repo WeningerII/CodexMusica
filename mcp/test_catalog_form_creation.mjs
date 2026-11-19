@@ -695,3 +695,80 @@ test(
     verify(measured(await host.read(revised.operation_id, 'full')));
   }
 );
+
+test(
+  'selected word lengths are remeasured on the submitted draft and on revision',
+  { timeout: 180_000 },
+  async (t) => {
+    const host = await sessionHost(t);
+    await host.begin();
+    const relation = 'class:RHYME';
+    const selection = {
+      catalog_form: 'kwansaba',
+      catalog_counts: [
+        { path: '1.1.1.1', count: 3 },
+        { path: '1[1].1[4].1[3].1', count: 4 },
+      ],
+    };
+    const swept = measured(
+      await host.run('lyric_sweep', {
+        seed_from: 11,
+        count: 1,
+        relation,
+        ...selection,
+        draw: ['lines', 'functions', 'melody'],
+      })
+    );
+    assert.deepEqual(swept.accepted_shown, [11], swept.report);
+    const [seed] = swept.accepted_shown;
+    const planned = await host.run('lyric_plan', { seed, relation });
+    const { plan } = measured(await host.read(planned.operation_id, 'full'));
+    assert.deepEqual(
+      plan.request.song_form.lineRequirements,
+      Array.from({ length: 7 }, (_, i) => ({
+        line: i + 1,
+        words: 7,
+        wordLetters: Array.from({ length: 7 }, (_, j) => (i === 3 && j === 2 ? 4 : 3)),
+      }))
+    );
+    const screened = measured(await host.run('lyric_screen', { words: ['one', 'two'], relation }));
+    assert.equal(screened.exit_code, 0, screened.report);
+    const draft = Array.from({ length: 7 }, () => Array(7).fill('one').join(' '));
+    draft[3] = 'one one four one one one one';
+    const matching = await host.run('lyric_grade', { seed, draft });
+    const accepted = measured(await host.read(matching.operation_id, 'full')).coverage.catalog_form;
+    assert.equal(accepted.verdict, 'pass');
+    assert.equal(
+      accepted.checks.filter((c) => c.kind === 'letter-count' && c.outcome === 'pass').length,
+      49
+    );
+    draft[3] = 'one one three one one one one';
+    const grade = await host.run('lyric_grade', { seed, draft });
+    function verify(receipt) {
+      const form = receipt.coverage.catalog_form;
+      assert.equal(form.id, 'kwansaba');
+      assert.equal(form.verdict, 'fail');
+      assert.equal(
+        form.checks.filter((c) => c.kind === 'word-count' && c.outcome === 'pass').length,
+        7
+      );
+      const widths = form.checks.filter((c) => c.kind === 'letter-count');
+      assert.equal(widths.length, 49);
+      assert.deepEqual(
+        widths
+          .filter((c) => c.outcome !== 'pass')
+          .map((c) => [c.address, c.lines, c.expected, c.actual]),
+        [['1[1].1[4].1[3]', [4], 4, 5]]
+      );
+    }
+    verify(measured(await host.read(grade.operation_id, 'full')));
+    await host.reconnect();
+    const revised = await host.run('lyric_revise', {
+      seed,
+      attempts: 0,
+      max_rounds: 1,
+      backtrack: 0,
+    });
+    verify(measured(await host.read(revised.operation_id, 'full')));
+  }
+);

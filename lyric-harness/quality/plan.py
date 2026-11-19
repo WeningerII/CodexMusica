@@ -7064,6 +7064,9 @@ def writer_brief(plan):
             for field, unit in (("words", "word"), ("syllables", "syllable"), ("stresses", "stress")):
                 if field in row:
                     terms.append(f"{row[field]} {unit if row[field] == 1 else field}")
+            if "wordLetters" in row:
+                widths = ", ".join(str(n) if n is not None else "any" for n in row["wordLetters"])
+                terms.append(f"letters in each sung word, in order: {widths}")
             if "stress" in row:
                 terms.append(f"stress pattern {row['stress']} (weak ., stressed /)")
             out.append(f"  L{row['line']}: " + ", ".join(terms) + ".")
