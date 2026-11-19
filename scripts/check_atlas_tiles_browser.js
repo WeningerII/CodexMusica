@@ -139,36 +139,120 @@ const server = http.createServer((req, res) => {
       });
       await context.close();
     }
-    // Tile failures must not disable search/zoom or cause an unbounded retry loop.
-    const page = await browser.newPage();
-    const failed = [];
-    await page.route('https://**/*', (route) => route.abort());
-    await page.route(/earth-tiles\/.*\/[0-6]\/\d+\/\d+\.webp$/, (route) => {
-      failed.push(route.request().url());
-      return route.fulfill({ status: 404 });
-    });
-    await page.goto(url, { waitUntil: 'networkidle' });
-    for (let i = 0; i < 5; i++) await page.locator('#zoom-in').click({ force: true });
-    await delay(200);
-    await page.waitForLoadState('networkidle');
-    // The loader runs MAX_ACTIVE (6) fetches at a time and never retries a
-    // failed tile, so the failures arrive in batches and then stop. Count them
-    // once a 400 ms window passes with none new: a count taken between two
-    // batches (6 of 12, seen on a loaded CI runner) is not a retry. A real
-    // retry loop never settles, so after 20 s the check below still fails.
-    let count = -1;
-    for (let tries = 0; tries < 50 && failed.length !== count; tries++) {
-      count = failed.length;
-      await delay(400);
+    // Tile failures must not disable search/zoom or cause a retry loop.
+    //
+    // A retry is a second request for a tile URL that has already had its 404
+    // delivered. A second batch of NEW tiles is not one: the loader fetches
+    // MAX_ACTIVE (6) tiles at a time, so a zoom that needs 12 sends them in
+    // two batches, and on a loaded runner the second can come late. So the
+    // check compares URLs, never a count over a quiet interval, and it waits
+    // for the loader's own queue to drain (a script injected before the page
+    // loads keeps a reference to the loader; no production code changes):
+    // no timer pending, nothing in flight, every wanted tile cached or failed.
+    //
+    // The controls run every time, so the check is shown to tell the two
+    // apart: 'late-batch' holds the first six 404s for 600 ms (the second
+    // batch of new URLs arrives late) and must pass; 'repeat-once' requests
+    // each failed tile once more 250 ms after its 404 and then stops, and
+    // 'retry-always' disables the loader's failed-tile guard; both must fail.
+    const failureRun = async (control) => {
+      const page = await browser.newPage();
+      await page.addInitScript((mode) => {
+        let wrapped;
+        Object.defineProperty(globalThis, 'AtlasTiles', {
+          configurable: true,
+          get: () => wrapped,
+          set: (Loader) => {
+            wrapped = function (...args) {
+              const tiles = new Loader(...args);
+              globalThis.__atlasTiles = tiles;
+              if (mode === 'retry-always') tiles.failed.has = () => false;
+              return tiles;
+            };
+            wrapped.prototype = Loader.prototype;
+          },
+        });
+        if (mode === 'repeat-once') {
+          const original = globalThis.fetch;
+          globalThis.fetch = function (input, init) {
+            const pending = original.call(this, input, init);
+            const href = String(input);
+            if (/earth-tiles\/.*\.webp$/.test(href))
+              pending.then(
+                (response) => {
+                  if (!response.ok) setTimeout(() => original(href).catch(() => {}), 250);
+                },
+                () => {}
+              );
+            return pending;
+          };
+        }
+      }, control);
+      const delivered = new Set();
+      const requested = new Set();
+      const repeats = [];
+      let stationary = false;
+      await page.route('https://**/*', (route) => route.abort());
+      await page.route(/earth-tiles\/.*\/[0-6]\/\d+\/\d+\.webp$/, async (route) => {
+        const href = route.request().url();
+        if (stationary && delivered.has(href)) repeats.push(href);
+        requested.add(href);
+        if (control === 'late-batch' && requested.size <= 6) await delay(600);
+        try {
+          await route.fulfill({ status: 404 });
+          delivered.add(href);
+        } catch {
+          /* the page abandoned the request; it was never a delivered 404 */
+        }
+      });
+      await page.goto(url, { waitUntil: 'networkidle' });
+      for (let i = 0; i < 5; i++) await page.locator('#zoom-in').click({ force: true });
+      stationary = true;
+      const drainedNow = () =>
+        page.evaluate(() => {
+          const tiles = globalThis.__atlasTiles;
+          return Boolean(
+            tiles &&
+            tiles.manifest &&
+            tiles.timer === null &&
+            tiles.active.size === 0 &&
+            tiles.wanted.length > 0 &&
+            tiles.wanted.every(
+              (t) => tiles.cache.has(t.key) || Map.prototype.has.call(tiles.failed, t.key)
+            )
+          );
+        });
+      let drained = false;
+      // Bounded: 20 s, and a repeat already seen ends the wait (it fails anyway).
+      for (let waited = 0; waited < 20000 && !drained && !repeats.length; waited += 100) {
+        drained = await drainedNow();
+        if (!drained) await delay(100);
+      }
+      // A retry scheduled from a 404 would arrive within this window.
+      await delay(1000);
+      drained = drained && (await drainedNow());
+      await page.locator('#zoom-reset').click({ force: true });
+      await page.locator('#search').fill('blues');
+      assert.equal(await page.locator('#search').inputValue(), 'blues');
+      await delay(300);
+      if (control === 'none') await page.screenshot({ path: '/tmp/atlas-fallback.png' });
+      await page.close();
+      return { control, drained, requested: requested.size, repeats: repeats.length };
+    };
+    const real = await failureRun('none');
+    assert(real.requested > 0, 'Failure route did not intercept tiles');
+    assert(real.drained, `Tile queue did not drain after failures: ${JSON.stringify(real)}`);
+    assert.equal(real.repeats, 0, 'Failed tiles were requested again');
+    const late = await failureRun('late-batch');
+    assert(
+      late.drained && late.repeats === 0 && late.requested === real.requested,
+      `Control: a late batch of new tiles was taken for a retry: ${JSON.stringify(late)}`
+    );
+    for (const control of ['repeat-once', 'retry-always']) {
+      const run = await failureRun(control);
+      assert(run.repeats > 0, `Control: ${control} was not detected: ${JSON.stringify(run)}`);
     }
-    await delay(800);
-    assert.equal(failed.length, count, 'Failed tiles were requested again');
-    assert(count > 0, 'Failure route did not intercept tiles');
-    await page.locator('#zoom-reset').click({ force: true });
-    await page.locator('#search').fill('blues');
-    await delay(300);
-    await page.screenshot({ path: '/tmp/atlas-fallback.png' });
-    report.push({ failureFallback: 'passed', failedRequests: count });
+    report.push({ failureFallback: 'passed', failedRequests: real.requested });
     console.log(JSON.stringify(report, null, 2));
   } finally {
     await browser.close();
