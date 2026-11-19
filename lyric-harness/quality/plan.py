@@ -6086,6 +6086,8 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         duties = [part.get("vocalDuty") for part in song_form["sections"]]
         if any(duties):
             size = max(duties.count("distinct-solo"), 2 if {"ensemble", "full", "reprise"}.intersection(duties) else 1)
+            if any(p.get("sourceRole") == "contrasting-part" for p in song_form["sections"]):
+                size = max(size, 3)
             roster = [f"v{i + 1}" for i in range(size)]
             plan["vocal_roster"] = roster
             if {"ensemble", "full"}.intersection(duties):
@@ -6120,9 +6122,12 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     #
     # A fixed lexical length narrows the grid ceiling on this particular draw.
     # Keep the draw's native placements intact and report a conflicting seed.
-    if song_form and (song_form.get("lineRequirements") or bound_copy_lines):
+    catalog_measures = song_form.get("lineRequirements", []) if song_form else []
+    if song_form and song_form.get("lineProfile") == "alliterative-long-line":
+        catalog_measures = [{"line": n, "stresses": 4} for n in range(1, total + 1)]
+    if catalog_measures or bound_copy_lines:
         from quality.catalog_shape import line_fit_conflicts
-        conflicts = line_fit_conflicts(plan, song_form.get("lineRequirements", []), bound_copy_lines)
+        conflicts = line_fit_conflicts(plan, catalog_measures, bound_copy_lines)
         if conflicts:
             raise SeedRefused("catalog line requirements conflict with the drawn plan: " +
                               "; ".join(f"L{item['line']} {item['code']}: {item['detail']}"
@@ -6245,6 +6250,37 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         plan["choices"]["meter"]["chosen_from"] = "declared melody; no meter draw"
         plan["choices"]["melody"] = {"mode": "declared", "repeat": "each lyric line",
                                       "underlay_certified": False, "pitch_certified": False}
+    if song_form and song_form.get("spokenClose"):
+        if melody is not None:
+            raise PlanRefused("the selected closing line is spoken")
+        sec, last = plan["sections"][0], plan["line_slots"][-1]
+        beats = sec["meter"]["beats"]
+        half = sec["bars"] * beats * 2
+        cut = rng.randint(1, half - 1)
+        pitches = rng.sample(range(105, 290), 2)
+        sec["accompaniment"] = {"instrument": "guitar", "figures": [
+            [{"start": start, "ticks": cut, "pitch_hz": pitches[0]},
+             {"start": start + cut, "ticks": half - cut, "pitch_hz": pitches[1]}]
+            for start in (0, half)]}
+        start = ((last["bar"] - sec["start_bar"]) * beats + last["beat"] - 1) * 4
+        width = last["duration"] * 4
+        if start != int(start) or width != int(width):
+            raise SeedRefused("the spoken close needs quarter-pulse event boundaries")
+        last["speech_event"] = {"start": int(start), "ticks": int(width), "articulation": "speech"}
+    if song_form and "closingChord" in song_form:
+        if melody is not None:
+            raise PlanRefused("the monophonic line melody cannot declare the four-voice closing setting")
+        sec, last = plan["sections"][0], plan["line_slots"][-1]
+        start = ((last["bar"] - sec["start_bar"]) * sec["meter"]["beats"] + last["beat"] - 1) * 4
+        width = last["duration"] * 4
+        if width < 4 or int(start) != start or int(width) != width:
+            raise SeedRefused("the closing chord needs one full pulse on the final line")
+        duration = rng.randint(4, int(width))
+        root = rng.randint(120, 240)
+        plan["vocal_roster"] = [f"v{n}" for n in (1, 2, 3, 4)]
+        sec["closing_chord"] = [
+            dict(performer=part, start=int(start + width) - duration, ticks=duration, pitch_hz=root * ratio)
+            for part, ratio in zip(plan["vocal_roster"], (1, 5/4, 3/2, 2))]
     if song_form and "imitationRepeats" in song_form:
         from quality.melody import assign_imitative_score
         if melody is not None:
@@ -6311,6 +6347,7 @@ def fill_plan(plan, lines):
         "lines": [{"text": got[s["line"] - 1], "bar": s["bar"],
                    "beat": s["beat"], "duration": s["duration"],
                    "section": s["section"],
+                   **({"speech_event": deepcopy(s["speech_event"])} if "speech_event" in s else {}),
                    **({"divisionPath": deepcopy(s["divisionPath"])} if "divisionPath" in s else {})}
                   for s in plan["line_slots"]],
     }
@@ -7242,6 +7279,10 @@ def writer_brief(plan):
     catalog = plan.get("request", {}).get("song_form")
     if catalog is not None:
         out.append(f"Catalog {catalog['scope']}: {catalog['id']} (variant {catalog['variant']}).")
+        if catalog["id"] in ("abac-32-bar", "verse-refrain-with-introductory-verse"):
+            widths = [str(s["bars"]) for s in catalog["sections"] if "melodyGroup" in s and "bars" in s]
+            out.append("Selected writing arrangement fixes these part lengths in bars: " + ", ".join(widths)
+                       + ". The catalog reading compares the total span and allows other subdivisions.")
         if any(part.get("divisionPath") and part["divisionPath"][-1]["unit"] == "metrical-stanza"
                for part in catalog["sections"]):
             out.append("  In each body stanza, match the syllable count and stress pattern of each corresponding line.")
@@ -7268,6 +7309,10 @@ def writer_brief(plan):
         elif groups:
             out.append("  Match the ending sound within each group of lines and keep it distinct across groups: "
                        + "; ".join(", ".join(map(str, group)) for group in groups) + ".")
+        if catalog.get("lineProfile") == "alliterative-long-line":
+            out.append("  Mark the pause in each line with / or |. Use two stresses per half. "
+                       "The first stressed onset after the pause alliterates with at least one "
+                       "before it. The final stress takes a different onset.")
         if catalog.get("lineProfile") == "caesural-rhyme":
             out.append("  In each line mark the mid-line pause with / or |. "
                        "The word immediately before it must rhyme with a different word at the line ending.")
@@ -7275,6 +7320,22 @@ def writer_brief(plan):
             out.append("  At each couplet boundary rewrite the previous line, retaining its words in order "
                        "and replacing one word within a line of at least three words. Close by repeating the "
                        "opening or changing one word. This measures printed echoes, not shifts of meaning.")
+        if catalog.get("lineProfile") == "english-short-long-five":
+            out.append("  Use the English short–long–short–long–long setting within 31 syllables total. "
+                       "Each short line has fewer syllables than each long line. This measures an "
+                       "English arrangement, with no fixed per-line count or Japanese mora reading.")
+        if catalog.get("lineProfile") == "single-phrase-lines":
+            out.append("  Write each line as one compact English noun phrase beginning with a determiner, "
+                       "with up to two adjectives before its noun. This setting measures linguistic phrasing.")
+        if catalog.get("lineProfile") in ("pivot-synonym", "pivot-antonym"):
+            ending = catalog["lineProfile"].split("-")[1]
+            out.append("  The endpoints must be nouns in the selected " + ending + " relation. Use adjectives "
+                       "on lines 2/6 and -ing verbs on 3/5. Place four related nouns on line 4: "
+                       "two sharing a noun sense with the opening, then two sharing a noun sense with the closing.")
+        if catalog.get("lineProfile") == "didactic-word-roles":
+            out.append("  Write a noun, two adjectives, three -ing verbs, one four-word noun phrase, "
+                       "and a distinct noun synonymous with the opening. Use a determiner, two adjectives, "
+                       "and a noun for the measured phrase setting.")
         if "endingWords" in catalog:
             ending = catalog["endingWords"]
             out.append("  Use one distinct final word per group; repeat that word at each listed line ending: "
@@ -7313,6 +7374,17 @@ def writer_brief(plan):
                 turn = slot["divisionPath"][-1]["role"]
                 out.append(f"  L{slot['line']} · {turn}")
         out.append("  " + section_header(sec, slots))
+        if "accompaniment" in sec:
+            figure = sec["accompaniment"]["figures"][0]
+            out.append("    Repeat the guitar figure twice from the opening (four ticks per beat): " +
+                       ", ".join(f"{e['pitch_hz']} Hz for {e['ticks']} ticks" for e in figure) + ".")
+            speech = slots[-1]["speech_event"]
+            out.append(f"    Speak the closing line at section tick {speech['start']} for {speech['ticks']} ticks.")
+        if "closing_chord" in sec:
+            out.append("    Hold the closing chord to the end of the final line (four ticks per beat).")
+            for note in sec["closing_chord"]:
+                out.append(f"    {note['performer']}: {note['pitch_hz']} Hz at section tick "
+                           f"{note['start']} for {note['ticks']} ticks.")
         if "voice_score" in sec:
             out.append("    Literal imitative score, four ticks per beat; each part enters while the preceding part sounds.")
             for track in sec["voice_score"]["tracks"]:
@@ -7323,7 +7395,13 @@ def writer_brief(plan):
             phrase = sec["section_melody"]
             events = ", ".join(f"{note['pitch_hz']} Hz/{note['ticks']}" if note["pitch_hz"] is not None
                                else f"rest/{note['ticks']}" for note in phrase["notes"])
-            out.append(f"    Whole-section score for {sec['source_role']} at {phrase['subdivision']} ticks per beat: {events}.")
+            out.append(f"    Whole-section score for {sec.get('source_role', sec['function'])} at {phrase['subdivision']} ticks per beat: {events}.")
+        for part in sec.get("section_parts", ()):
+            phrase = part["melody"]
+            values = [f"{n['pitch_hz']} Hz/{n['ticks']}" if n['pitch_hz'] is not None else f"rest/{n['ticks']}"
+                      for n in phrase['notes']]
+            out.append(f"    Scored {part['kind']} {part['performer']} at {phrase['subdivision']} ticks per beat: "
+                       + ", ".join(values) + ".")
         if "source_role" in sec:
             out.append(f"    Catalog section: {sec['source_role']}. Native writing function: {sec['function']}.")
         # THE NUMBER SLOTS_EXCEEDED GRADES AGAINST, where the writer reads

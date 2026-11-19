@@ -72,13 +72,81 @@ export function relativeLinePairs(plan) {
 export function lexicalLineProfile(plan) {
   const root = plan.tree[0];
   if (plan.tree.length !== 1 || plan.coverage.lines !== 'complete') return;
+  if (
+    root.unit === 'stanza' &&
+    root.children.length === 5 &&
+    root.children.every(
+      (line) =>
+        line.unit === 'line' &&
+        !line.role &&
+        line.children.length === 1 &&
+        line.children[0].unit === 'phrase' &&
+        line.children[0].children.length === 0
+    )
+  )
+    return 'single-phrase-lines';
+  if (root.unit === 'stanza' && root.children.length === 7) {
+    const ending = root.children[6].role;
+    const roles = [
+      'first-noun',
+      'adjectives',
+      'ing-verbs',
+      'middle-phrase',
+      'ing-verbs',
+      'adjectives',
+      ending,
+    ];
+    const widths = [1, 2, 3, 4, 3, 2, 1];
+    if (
+      ['synonym', 'antonym'].includes(ending) &&
+      root.children.every(
+        (line, i) =>
+          line.unit === 'line' &&
+          line.role === roles[i] &&
+          line.children.length === widths[i] &&
+          line.children.every((word) => word.unit === 'word')
+      )
+    )
+      return 'pivot-' + ending;
+  }
+  if (root.unit === 'stanza' && root.children.length === 5) {
+    const roles = ['noun', 'adjectives', 'ing-verbs', 'phrase', 'synonym'];
+    const widths = [1, 2, 3, 4, 1];
+    if (
+      root.children.every(
+        (line, i) =>
+          line.unit === 'line' &&
+          line.role === roles[i] &&
+          line.children.length === widths[i] &&
+          line.children.every((c) => c.unit === 'word')
+      )
+    )
+      return 'didactic-word-roles';
+  }
   if (root.unit !== 'poem' || root.children.length !== 7) return;
-  if (root.children.every((stanza, pair) =>
-    stanza.unit === 'stanza' && stanza.children.length === 2 && stanza.children.every((line, i) =>
-      line.unit === 'line' && line.role === (i ? (pair === 6 ? 'echo-of-opening' : 'echo-source')
-        : (pair ? 'echo-of-previous-close' : 'opening')) &&
-      line.children.length >= 9 && line.children.length <= 11 &&
-      line.children.every(c => c.unit === 'syllable')))) return 'linked-couplet-echoes';
+  if (
+    root.children.every(
+      (stanza, pair) =>
+        stanza.unit === 'stanza' &&
+        stanza.children.length === 2 &&
+        stanza.children.every(
+          (line, i) =>
+            line.unit === 'line' &&
+            line.role ===
+              (i
+                ? pair === 6
+                  ? 'echo-of-opening'
+                  : 'echo-source'
+                : pair
+                  ? 'echo-of-previous-close'
+                  : 'opening') &&
+            line.children.length >= 9 &&
+            line.children.length <= 11 &&
+            line.children.every((c) => c.unit === 'syllable')
+        )
+    )
+  )
+    return 'linked-couplet-echoes';
 }
 
 // This bounded writing setting compares normalized sung tokens, excluding
@@ -89,16 +157,30 @@ export function measuredCoupletEcho(index, lines) {
   const source = target === 14 ? 1 : target - 1;
   function tokens(position) {
     const row = lines?.[position - 1];
-    if (typeof row?.text !== 'string' || !row.text.trim() || !Array.isArray(row.sungWords) ||
-        !row.sungWords.length || !row.sungWords.every(word => typeof word === 'string' && /^\p{L}[\p{L}\p{M}’'-]*$/u.test(word)))
+    if (
+      typeof row?.text !== 'string' ||
+      !row.text.trim() ||
+      !Array.isArray(row.sungWords) ||
+      !row.sungWords.length ||
+      !row.sungWords.every(
+        (word) => typeof word === 'string' && /^\p{L}[\p{L}\p{M}’'-]*$/u.test(word)
+      )
+    )
       return;
-    return row.sungWords.map(word => word.normalize('NFC').toLowerCase().replaceAll('’', "'"));
+    return row.sungWords.map((word) => word.normalize('NFC').toLowerCase().replaceAll('’', "'"));
   }
-  const before = tokens(source), after = tokens(target);
+  const before = tokens(source),
+    after = tokens(target);
   let outcome = 'unknown';
   if (before && after && before.length === after.length) {
     const differences = before.filter((word, i) => word !== after[i]).length;
-    if ((target === 14 && differences === 0) || (differences === 1 && before.length >= 3)) outcome = 'pass';
+    if ((target === 14 && differences === 0) || (differences === 1 && before.length >= 3))
+      outcome = 'pass';
   }
-  return {outcome, comparedLines:[source,target], basis:'a single word substitution in an otherwise repeated sung line, or a verbatim closing echo'};
+  return {
+    outcome,
+    comparedLines: [source, target],
+    basis:
+      'a single word substitution in an otherwise repeated sung line, or a verbatim closing echo',
+  };
 }

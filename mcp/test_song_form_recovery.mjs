@@ -355,3 +355,23 @@ test('source prose distinguishes hard line breaks from paragraph boundaries', as
     ['printed-paragraph-count', 'unbroken-paragraph']
   );
 });
+
+test('alliterative verse locates the head stave across the actual break', async () => {
+  const lines = [
+    'bright red / black drums',
+    'eels hide | oak bends',
+    'bright red / soft stones',
+    'sky stone / spade drum',
+    'bright red / black bells',
+    'bright swift red / black drums',
+    'bright red black drums',
+    'qzxvv red / black drums',
+  ];
+  const result = await recover({ catalog_form: 'alliterative-verse', lines });
+  assert.equal(result.catalog_form.mandate.lineCount, null);
+  assert.equal(result.catalog_form.mandate.minimumLines, 1);
+  assert.deepEqual(
+    result.catalog_form.checks.map((row) => row.outcome),
+    ['pass', 'pass', 'fail', 'fail', 'fail', 'fail', 'unknown', 'unknown']
+  );
+});

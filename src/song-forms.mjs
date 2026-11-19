@@ -1,3 +1,4 @@
+import { scoredEnsemble, checkScoredEnsemble } from './song-form-ensemble.mjs';
 /** Shared, offline interpretation of the versioned symbolic Song Forms catalog.
  * patterns are alternatives, indexed from zero. Count keys are one-based dotted
  * template paths, rooted at "1". A default applies to every copy. An occurrence
@@ -475,6 +476,8 @@ export function checkForm(catalog, id, options = {}) {
   if (plan.status !== 'ready') return { ...plan, verdict: 'unknown', checks };
   const paragraphs = paragraphCount(plan);
   if (paragraphs) return { ...plan, ...gradeParagraphs(paragraphs, options.lines) };
+  const ensemble = scoredEnsemble(plan);
+  if (ensemble) return { ...plan, ...checkScoredEnsemble(ensemble, options) };
   const nested = nestedRefrain(plan);
   if (nested) return { ...plan, ...checkNestedRefrain(nested, options) };
   const steps = printedSteps(plan);

@@ -76,7 +76,7 @@ const groupsMatch = (a, b) =>
   a.length === b.length &&
   a.every((value, i) => value === b[i]);
 
-function sectionScore(section) {
+export function sectionScore(section) {
   if (!section || !Object.hasOwn(section, 'sectionMelody')) return { outcome: 'unknown' };
   const phrase = section.sectionMelody;
   const meter = phrase?.meter;
@@ -127,7 +127,7 @@ function sectionScore(section) {
   return { outcome: 'pass', events, firstPitch };
 }
 
-function literal(a, b) {
+export function literal(a, b) {
   return (
     a.events.length === b.events.length &&
     a.events.every(
@@ -178,6 +178,15 @@ export function sectionMelodyChecks(parts, observed, layout) {
   });
   if (layout === 'head-solos-head') {
     for (const [i, part] of parts.entries()) {
+      if (part.role === 'solo') {
+        checks.push({
+          kind: 'instrumental-solo-score',
+          sections: [i + 1],
+          outcome: sectionScore(observed[i]).outcome,
+          basis:
+            'an independently notated instrumental phrase with pitched events filling the actual solo bars',
+        });
+      }
       const span = observed[i]?.lineSpan;
       const count =
         Array.isArray(span) &&
