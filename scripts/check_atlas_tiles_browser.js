@@ -151,9 +151,18 @@ const server = http.createServer((req, res) => {
     for (let i = 0; i < 5; i++) await page.locator('#zoom-in').click({ force: true });
     await delay(200);
     await page.waitForLoadState('networkidle');
-    const count = failed.length;
+    // The loader runs MAX_ACTIVE (6) fetches at a time and never retries a
+    // failed tile, so the failures arrive in batches and then stop. Count them
+    // once a 400 ms window passes with none new: a count taken between two
+    // batches (6 of 12, seen on a loaded CI runner) is not a retry. A real
+    // retry loop never settles, so after 20 s the check below still fails.
+    let count = -1;
+    for (let tries = 0; tries < 50 && failed.length !== count; tries++) {
+      count = failed.length;
+      await delay(400);
+    }
     await delay(800);
-    assert.equal(failed.length, count);
+    assert.equal(failed.length, count, 'Failed tiles were requested again');
     assert(count > 0, 'Failure route did not intercept tiles');
     await page.locator('#zoom-reset').click({ force: true });
     await page.locator('#search').fill('blues');
