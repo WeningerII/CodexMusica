@@ -845,7 +845,7 @@ New rows in scripts/check_payload_budget.js, gzip-6; the existing five are not r
 | library-reader | <=20,480 |
 | library-analysis | ~~<=24,576~~ <=30,720 (2026-11-19) |
 | library-compare | <=6,144 |
-| library-shelves-path (codex.html + core + catalog.json) | ~~<=393,216~~ <=402,080 (owner-approved raises; 2026-11-19) |
+| library-shelves-path (codex.html + core + catalog.json) | ~~<=393,216~~ <=403,104 (owner-approved raises; 2026-11-20) |
 | library-reader-path (codex.html + core + reader + largest r/ head file) | <=425,984 |
 | page (existing) | 389,120 |
 
