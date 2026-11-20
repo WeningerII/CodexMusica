@@ -59,6 +59,11 @@ WALL = 108
 FLOOR = 5
 #: and the walk fails, naming the short mechanism, past this seed per form
 SEED_CAP = 1000
+#: the merge-note search's own bound. Under the 150-line writing cap the
+#: first plan that offers that case is open seed 1586 (97 lines; measured
+#: 2026-11-20, about four minutes on one process); before the cap it was
+#: verse-chorus seed 245
+MERGE_SEED_CAP = 2000
 
 #: the answers the grader does not give about a shape the plan dealt
 PLAN_DEALT = frozenset({
@@ -331,7 +336,10 @@ def build_draft(seed, form, p, body_words=3):
                 if c:
                     e = c[0]
                     break
-        room = budget[i] - _syl(e)
+        # a returned line is sung again in its copies' slots too, and a
+        # reprise may bring a line back in a shorter slot than its first
+        room = min(budget[x] for x in range(i, n + 1)
+                   if root(x) == i) - _syl(e)
         out.append(" ".join([next(body) for _ in
                              range(max(0, min(body_words, room)))] + [e]))
     return out
@@ -521,8 +529,13 @@ def copies_the_first(kind):
     `returns_as` is `kind` copies the first instance, line for line."""
     def change(p, L, cls, rng, spare):
         sl = section_lines(p)
+        # An instance a later line returns (a reprise may bring back the
+        # first line of any earlier section with new words, #902) cannot be
+        # copied without changing that planned return as well: the stale
+        # return is the reprise row's own question, not this one's.
+        sources = set(returns_map(p).values())
         eq = [(a, b) for a, b in _later_instances(p, kind)
-              if len(sl[a]) == len(sl[b])]
+              if len(sl[a]) == len(sl[b]) and not set(sl[b]) & sources]
         if not eq:
             return None
         a, b = rng.choice(eq)
@@ -1410,10 +1423,11 @@ def test_recover_writes_no_plan_key():
 
 def _merge_notes_saying_more(k):
     """-> each (seed, form, plan, changed lines, copied line, note), seed by
-    seed with the forms in turn up to `SEED_CAP`: mechanism `k`'s change
-    gives a MANDATE_GROUPS_INDISTINGUISHABLE note, graded without the plan's
-    key, that lists a pair with the copied line and a pair without it."""
-    for seed in range(1, SEED_CAP + 1):
+    seed with the forms in turn up to `MERGE_SEED_CAP`: mechanism `k`'s
+    change gives a MANDATE_GROUPS_INDISTINGUISHABLE note, graded without the
+    plan's key, that lists a pair with the copied line and a pair without
+    it."""
+    for seed in range(1, MERGE_SEED_CAP + 1):
         for form in FORMS:
             p = draw_plan(seed, form)
             if p["total_lines"] > WALL:
@@ -1437,7 +1451,8 @@ def test_a_merge_note_that_says_more_stands():
              if m[2] is _copy_keeps_its_flag)
     case = next(_merge_notes_saying_more(k), None)
     check(f"the walk finds a copy ({MECHANISMS[k][0]}) whose merge note also "
-          f"lists a pair without the copied line, by seed {SEED_CAP} per form",
+          f"lists a pair without the copied line, by seed {MERGE_SEED_CAP} "
+          f"per form",
           case is not None)
     if case is None:
         return
