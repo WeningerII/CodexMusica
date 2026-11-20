@@ -155,6 +155,10 @@ ENV LIBRARY_CORPUS_DIR=/app/library-data/corpus
 # reader-jobs-v1/store-format.json min_reader. "A" reads plain and gzip
 # objects. Keep it equal to the last entry of READER_FORMATS in that script.
 LABEL com.codexmusica.reader-format="A"
+# Node heap cap. Without it Node 22 picks about 1,048 MiB in a 2 GiB box and
+# the qualification's memory peak swings past its limit. 768 cut the peak by
+# about 125 MiB with no slowdown. scripts/check_deploy_memory.js requires it.
+ENV NODE_OPTIONS=--max-old-space-size=768
 ENV PORT=8080
 EXPOSE 8080
 WORKDIR /app/mcp

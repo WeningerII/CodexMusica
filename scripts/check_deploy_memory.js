@@ -85,6 +85,34 @@ if (planMb == null) {
   process.exit(1);
 }
 
+// THE HEAP CAP (2026-11-20). In a 2 GiB container Node 22 picks a heap limit
+// of about 1,048 MiB, so the garbage the server makes waits that long to be
+// collected. In the production qualification (2 GiB, one CPU) that pushed the
+// whole-runtime peak past its 1,792 MiB limit in 2 of 14 runs on unchanged
+// code. Measured locally on the same cell (31 lines, seed 20260910, one CPU,
+// 2 GiB): no cap 1,675 and 1,676 MiB; cap 768 1,543 to 1,557 MiB; no slowdown.
+// The production image must set the cap, and the cap plus the harness child's
+// measured peak must fit the plan, since the two processes share the box.
+const dockerfile = fs.readFileSync(path.join(__dirname, '..', 'mcp', 'Dockerfile'), 'utf8');
+const finalStage = dockerfile.slice(dockerfile.lastIndexOf('\nFROM '));
+const heapMatch = /^ENV NODE_OPTIONS=["']?[^\n]*--max-old-space-size=(\d+)/m.exec(finalStage);
+if (!heapMatch) {
+  console.error(
+    'DEPLOY MEMORY: FAIL — the final stage of mcp/Dockerfile sets no ' +
+      '`ENV NODE_OPTIONS=--max-old-space-size=N`. Without it Node picks a heap limit of about ' +
+      'half the box and the qualification memory peak swings across its limit.'
+  );
+  process.exit(1);
+}
+const heapMb = Number(heapMatch[1]);
+if (heapMb + MEASURED_PEAK_MB > planMb) {
+  console.error(
+    `DEPLOY MEMORY: FAIL — the Node heap cap (${heapMb} MB) plus the harness's measured peak ` +
+      `(${MEASURED_PEAK_MB} MB) is more than plan '${plan}' provides (${planMb} MB).`
+  );
+  process.exit(1);
+}
+
 const requiredMb = Math.ceil(MEASURED_PEAK_MB * MARGIN);
 if (planMb < requiredMb) {
   console.error(
@@ -97,6 +125,6 @@ if (planMb < requiredMb) {
 }
 console.log(
   `DEPLOY MEMORY: PASS — plan '${plan}' provides ${planMb} MB against ${requiredMb} MB required ` +
-    `(measured peak ${MEASURED_PEAK_MB} MB x ${MARGIN}).`
+    `(measured peak ${MEASURED_PEAK_MB} MB x ${MARGIN}); Node heap capped at ${heapMb} MB.`
 );
 process.exit(0);
