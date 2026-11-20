@@ -75,6 +75,39 @@ BIN_SIGMAS = 4.0
 #: passed; this one catches a spread preference such as +5 at each of the
 #: three.
 MAX_ROUND_NUMBERS_TOGETHER = 12
+#: RE-DERIVED 2026-11-19 (#902), WITH THE REASON STATED AS THE NOTE ABOVE
+#: ASKS: the owner capped a new song at 150 lines, so the domain is no longer
+#: ~460 values but 149 (open) and 139 (verse-chorus). At 600 draws a value
+#: then expects ~4 draws, not ~1.3, and the fixed 8 above would fail by
+#: chance (CI drew three values 9 times each). The two numbers above are
+#: kept as the pre-registration's own record; the checks now use the same
+#: rules computed for the live domain:
+#:   per value: the smallest count k whose chance of being exceeded under
+#:     uniform is at most WHOLE_DOMAIN_FALSE_ALARM / |domain| (the ~0.005
+#:     over the whole domain stated above);
+#:   together: 4 binomial standard deviations above the three values' mean,
+#:     rounded up.
+#: At the pre-registration's own domains (462 open, 452 verse-chorus) both
+#: rules give exactly 8 and 12 (`test_the_rules_give_the_pre_registered_values`),
+#: so no tolerance was moved; only the domain they are applied to did.
+WHOLE_DOMAIN_FALSE_ALARM = 0.005
+
+
+def _binomial_above(n, p, k):
+    """P(X > k) for X ~ Binomial(n, p)."""
+    return 1 - sum(math.comb(n, i) * p ** i * (1 - p) ** (n - i) for i in range(k + 1))
+
+
+def max_per_value(domain_size, n=len(SEEDS)):
+    k = 0
+    while _binomial_above(n, 1 / domain_size, k) > WHOLE_DOMAIN_FALSE_ALARM / domain_size:
+        k += 1
+    return k
+
+
+def max_round_numbers_together(domain_size, n=len(SEEDS), m=len(ROUND_NUMBERS)):
+    p = m / domain_size
+    return math.ceil(n * p + 4 * math.sqrt(n * p * (1 - p)))
 
 
 def _draws(form):
@@ -179,21 +212,29 @@ class LengthDraws(unittest.TestCase):
             dom = P.fillable_line_counts(form)
             self.assertFalse([d for d in ds if d not in dom], form)
 
+    def test_the_rules_give_the_pre_registered_values(self):
+        for size in (462, 452):
+            self.assertEqual(max_per_value(size), MAX_PER_VALUE, size)
+            self.assertEqual(max_round_numbers_together(size),
+                             MAX_ROUND_NUMBERS_TOGETHER, size)
+
     def test_no_value_carries_unexplained_mass(self):
         for form, ds in self.draws.items():
             c = collections.Counter(ds)
-            heavy = {v: n for v, n in c.items() if n > MAX_PER_VALUE}
-            self.assertEqual(heavy, {}, form)
+            limit = max_per_value(len(P.fillable_line_counts(form)))
+            heavy = {v: n for v, n in c.items() if n > limit}
+            self.assertEqual(heavy, {}, (form, limit))
 
     def test_round_numbers_are_not_favoured(self):
         for form, ds in self.draws.items():
             c = collections.Counter(ds)
+            size = len(P.fillable_line_counts(form))
             for r in ROUND_NUMBERS:
                 if r in P.fillable_line_counts(form):
-                    self.assertLessEqual(c[r], MAX_PER_VALUE, (form, r))
+                    self.assertLessEqual(c[r], max_per_value(size), (form, r))
             # Together: see MAX_ROUND_NUMBERS_TOGETHER (added after review).
             self.assertLessEqual(sum(c[r] for r in ROUND_NUMBERS),
-                                 MAX_ROUND_NUMBERS_TOGETHER, form)
+                                 max_round_numbers_together(size), form)
 
     def test_no_band_of_the_domain_is_favoured(self):
         for form, ds in self.draws.items():
