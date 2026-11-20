@@ -22,10 +22,15 @@ def run_cli(*args):
 
 class HighReportTests(unittest.TestCase):
     def test_connector_line_admission_matches_current_planner(self):
+        # Since 2026-11-19 (#902) the connector has two line limits. The
+        # `lines` a new song is planned with is MAX_WRITE_LINES, which is the
+        # planner's own top. MAX_LINES is the reading limit, and every song
+        # the planner can plan must be readable, so it is at least that top.
         from quality.plan import ENVELOPE
         source = (ROOT.parent / "mcp/lyric_tools.js").read_text()
-        self.assertEqual(int(re.search(r"const MAX_LINES = (\d+)", source)[1]),
-                         ENVELOPE["total_lines"][1])
+        top = ENVELOPE["total_lines"][1]
+        self.assertEqual(int(re.search(r"const MAX_WRITE_LINES = (\d+)", source)[1]), top)
+        self.assertGreaterEqual(int(re.search(r"const MAX_LINES = (\d+)", source)[1]), top)
 
     def test_space_form_declarations_have_the_same_public_result(self):
         cases = [
