@@ -116,7 +116,7 @@
 //                        connection views' visual system, measured 3,670 B
 //                        with #640's factory minifier). A chunk with no row
 //                        here fails: a new chunk cannot ship unbudgeted
-//   library-shelves-path codex.html + core + library/data/catalog.json  <= 400,640
+//   library-shelves-path codex.html + core + library/data/catalog.json  <= 403,104
 //                        — what the Library's first view waits for. Reported
 //                        absent, not failed, while library/data/ is not
 //                        beside the page (PR 2 publishes it)
@@ -223,7 +223,12 @@ const LIBRARY_BUDGETS = {
   // 401,259 B before #732 (+369 B) and the baseline fix (+13 B). Approved by
   // John to R2 on 2026-11-05 and recorded by R2 on #665 (comment
   // 6661728058). Owner-approved exception; no performance certification.
-  'library-shelves-path': 402080,
+  // ~~402080~~ raised 2026-11-20 to 403,104 (+1,024 B) for #907's model
+  // picker, which adds 460 B: main cfea6a84e3 measured 402,071 B (9 B under), the
+  // picker 402,531 B. John approved the raise without a Lighthouse run on
+  // 2026-11-20, recorded in #907's description. Owner-approved exception; no
+  // performance certification.
+  'library-shelves-path': 403104,
   'library-growth': 6144,
 };
 

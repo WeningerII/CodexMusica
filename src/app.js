@@ -20048,6 +20048,12 @@ async function _chatSend(message, { choice, context = null, clearInput = false }
   choice = choice || _chatEl('chat-domain')?.value || 'recipe';
   const domain = chatState.task?.domain || (choice === 'recipe-browse' ? 'recipe' : choice === 'lyrics-edit' ? 'lyrics' : choice);
   const body = {message,request_id,task:{domain,phase:choice === 'recipe-browse' ? 'browse' : choice === 'lyrics-edit' ? 'edit' : 'create'}};
+  // The model picker (uiFillModels in src/workbench.js): every request says
+  // which chat and writer model it runs; an empty choice is the service's own.
+  const pickedModel = _chatEl('chat-model')?.value;
+  const pickedWriter = _chatEl('chat-writer-model')?.value;
+  if (pickedModel) body.model = pickedModel;
+  if (pickedWriter) body.writer_model = pickedWriter;
   if (chatState.continuationId) { body.continuation_id = chatState.continuationId; delete body.task; }
   else if (chatState.sig) {
     Object.assign(body,{history:chatState.history,workspace:chatState.workspace,sig:chatState.sig});

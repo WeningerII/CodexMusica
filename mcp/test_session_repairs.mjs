@@ -40,7 +40,9 @@ test('native creation blocks bypass, records real sweep/plan/screen, survives re
     const session = c.snapshot();
     assert(session.task.workflow.plan, JSON.stringify(session.task.workflow));
     const lines = Array(12).fill('The kettle whistles by the stove');
-    const assessed = await c.call('lyric_grade', { seed, draft_text: lines.join('\n') });
+    // A blank line between rows: the sweep draws its form, a paragraph form
+    // needs one between paragraphs, and a line form skips blank rows.
+    const assessed = await c.call('lyric_grade', { seed, draft_text: lines.join('\n\n') });
     assert(!assessed.isError, JSON.stringify(assessed));
     const grade = assessed.content
       .flatMap((block) => {

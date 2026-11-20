@@ -48,6 +48,9 @@ import {
   LIMITS,
   turnBudget,
   priceFor,
+  PRICING,
+  PICKER_MODELS,
+  pickableModel,
   RETRY_TRANSIENT,
   RATE_LIMIT_RETRY,
 } from './gemini_agent.js';
@@ -286,6 +289,8 @@ export async function createChatRouter({
   // model this process runs. Set before any harness worker spawns (they
   // spawn lazily on the first lyric call).
   if (!process.env.LYRIC_PROPOSER_MODEL) process.env.LYRIC_PROPOSER_MODEL = model;
+  // The writer a request runs when it picks none (the model picker, below).
+  const writerModel = process.env.LYRIC_PROPOSER_MODEL;
 
   if (!apiKey) {
     router.readiness = () => ({
@@ -539,6 +544,10 @@ export async function createChatRouter({
       // Published list price, so the page can be honest about what it is
       // spending rather than describing itself as free and hoping.
       pricePer1M: price || null,
+      // The model picker: the writer a request runs when it picks none, and
+      // every model a request may pick for either, with its price.
+      writerModel,
+      models: PICKER_MODELS.map((id) => ({ id, pricePer1M: PRICING[id] })),
       // Say so out loud. A chat bar that is off because its price is unknown
       // should not look identical to one that is merely quiet.
       enabled: !!price,
@@ -680,6 +689,23 @@ export async function createChatRouter({
     if (message.length > limits.maxMessageChars) {
       return res.status(400).json({ error: `Keep it under ${limits.maxMessageChars} characters.` });
     }
+    // THE MODEL PICKER (owner ruling 2026-11-20). A request may name the chat
+    // model (`model`) and the lyric writer's model (`writer_model`), each one
+    // of PICKER_MODELS. A field left out runs the deployment's own model. It
+    // is read off this request, never off a stored continuation, so every
+    // request says what it runs. Anything else is refused and never sent.
+    const picks = { model, writer_model: writerModel };
+    for (const field of Object.keys(picks)) {
+      const value = req.body?.[field];
+      if (value == null) continue;
+      if (!pickableModel(value))
+        return res.status(400).json({
+          error: `${field} must be one of: ${PICKER_MODELS.join(', ')}.`,
+          code: 'UNKNOWN_MODEL',
+          models: PICKER_MODELS,
+        });
+      picks[field] = value;
+    }
 
     // An envelope is either absent (a new conversation) or signed by us.
     let priorHistory = [];
@@ -816,11 +842,19 @@ export async function createChatRouter({
         task: priorTask,
       });
       const run = await withExecutionContext(
-        { ...requestContext(), signal: controller.signal, budget, task: priorTask },
+        {
+          ...requestContext(),
+          signal: controller.signal,
+          budget,
+          task: priorTask,
+          // Reaches the Python writer as LYRIC_PROPOSER_MODEL for this
+          // request only (python_bridge.js requestEnv).
+          proposerModel: picks.writer_model,
+        },
         () =>
           runTurn({
             apiKey,
-            model,
+            model: picks.model,
             surface,
             callTool,
             history: priorHistory,
@@ -887,6 +921,9 @@ export async function createChatRouter({
           : [...run.calls].reverse().find((c) => c.recipe && !c.isError);
       res.json({
         reply: run.reply,
+        // The models this request ran (the picker's choice or the default).
+        model: picks.model,
+        writer_model: picks.writer_model,
         completion: run.completion ?? null,
         assessment: run.assessment ?? null,
         artifact: run.artifact ?? null,

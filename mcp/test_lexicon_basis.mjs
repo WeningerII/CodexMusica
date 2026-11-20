@@ -427,7 +427,11 @@ test(
       await c.call('lyric_plan', { seed, lines: 12 });
       await c.call('lyric_screen', { words: ['stove', 'coat'] });
       const lines = Array(12).fill('The kettle whistles by the stove');
-      const graded = verdictOf(await c.call('lyric_grade', { seed, draft_text: lines.join('\n') }));
+      // A blank line between rows: the sweep draws its form, a paragraph form
+      // needs one between paragraphs, and a line form skips blank rows.
+      const graded = verdictOf(
+        await c.call('lyric_grade', { seed, draft_text: lines.join('\n\n') })
+      );
       assert.deepEqual(graded.lexicon, { supplement_id: DEFAULT.id, sha256: DEFAULT.sha256 });
       const session = c.snapshot();
       assert.equal(session.task.workflow.grade.readings.lexicon_supplement, DEFAULT.id);

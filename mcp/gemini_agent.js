@@ -40,10 +40,35 @@ export const API_BASE = 'https://generativelanguage.googleapis.com/v1beta';
 // Published list price, USD per 1M tokens, so a run can report what it cost
 // instead of how many tokens it moved. `thoughts` bills as output — that is the
 // whole reason thinking is pinned off below.
+//
+// Every model here is also one the website chat's model picker offers
+// (PICKER_MODELS below), so a model is listed only with a price read off
+// Google's own page: https://ai.google.dev/gemini-api/docs/pricing, Standard
+// paid tier, read 2026-11-20. Where the page gives a dated rise or a higher
+// long-prompt tier, the entry holds the HIGHER price (owner ruling
+// 2026-11-20): the caps then never undercount, and until a rise the spend
+// they report is up to twice the bill. The lower price is in the comment.
 export const PRICING = {
-  'gemini-3.1-flash-lite': { input: 0.25, output: 1.5 },
+  'gemini-4-carbon': { input: 4.0, output: 20.0 }, // $2 / $10 through 2026-11-30
+  'gemini-4-argon': { input: 4.0, output: 20.0 }, // $2 / $10 through 2026-11-30
+  'gemini-4-neon': { input: 3.0, output: 15.0 },
+  'gemini-4-hydrogen': { input: 1.5, output: 7.5 },
+  'gemini-3.8-flash': { input: 1.5, output: 7.5 }, // $0.75 / $3.75 through 2026-12-31
+  'gemini-3.6-flash': { input: 1.5, output: 7.5 }, // $0.75 / $3.75 through 2026-12-31
   'gemini-3.5-flash-lite': { input: 0.3, output: 2.5 },
+  'gemini-3.1-flash-lite': { input: 0.25, output: 1.5 },
+  'gemini-2.5-flash-lite': { input: 0.1, output: 0.4 },
+  'gemini-3.1-pro-preview': { input: 4.0, output: 18.0 }, // $2 / $12 for prompts up to 200k tokens
+  'gemini-3-flash-preview': { input: 0.5, output: 3.0 },
 };
+
+// The models a website visitor may pick, for the chat and for the lyric
+// writer separately: exactly the priced ones, since the caps cannot meter a
+// model with no price. A pick outside this list is refused, never sent.
+export const PICKER_MODELS = Object.freeze(Object.keys(PRICING));
+export function pickableModel(id) {
+  return typeof id === 'string' && Object.hasOwn(PRICING, id);
+}
 
 export const DEFAULT_MODEL = 'gemini-3.1-flash-lite';
 // KITCHEN COOKS (owner ruling 2026-09-06, M-254): who answers a revise

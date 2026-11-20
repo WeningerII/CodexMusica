@@ -6,6 +6,15 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — the website chat lets a visitor pick the chat model and the lyric writer's model
+
+The chat panel has two model lists, one for the chat and one for the lyric writer. Each
+lists the Gemini text models with a price on Google's pricing page, and each request sends
+the visitor's choice. The server refuses any model not on its priced list, and the daily and
+per-turn spend caps apply to every model. The pricing table now holds eleven models. Where
+Google lists a dated price rise or a higher long-prompt price, the table holds the higher
+price, so the caps never undercount.
+
 ### Changed — a new song's word-check comes after its plan; a session saved before this release screens once more
 
 A new-song session now runs `lyric_sweep`, `lyric_plan`, `lyric_screen`, and the screen's

@@ -552,6 +552,94 @@ test('a lyrics task carries the page context: validated, signed into the task, s
   assert.deepEqual([kitchen.stage, kitchen.round, kitchen.accepted_lines], ['revising', 2, 2]);
 });
 
+// THE MODEL PICKER (owner ruling 2026-11-20). Any visitor may pick the chat
+// model and the lyric writer's model, each from the priced list. The status
+// publishes that list with prices; a pick reaches Google's URL (chat) or the
+// request's execution context (writer, read by python_bridge.js); a request
+// with no pick runs the deployment's own; anything else is refused before a
+// model is called.
+test('the model picker: priced list on status, picks reach the turn, unknown picks never sent', async () => {
+  const { PRICING, PICKER_MODELS, DEFAULT_MODEL } = await import('./gemini_agent.js');
+  const { requestContext } = await import('./execution_context.js');
+  const router = await createChatRouter({
+    buildServer: buildRealServer,
+    Client,
+    InMemoryTransport,
+    apiKey: 'offline',
+    model: DEFAULT_MODEL,
+    limits: { ...CHAT_LIMITS, perIpPerMinute: 1000, perIpPerHour: 1000 },
+    turnLimits: { ...LIMITS, maxSteps: 2 },
+  });
+  const app = express();
+  app.use(express.json({ limit: '2mb' }));
+  app.use(router);
+  const server = app.listen(0, '127.0.0.1');
+  await once(server, 'listening');
+  const base = `http://127.0.0.1:${server.address().port}`;
+  const sent = [];
+  globalThis.fetch = async (url) => {
+    sent.push({ url: String(url), writer: requestContext()?.proposerModel ?? null });
+    return response([{ text: 'Here you go.' }]);
+  };
+  const post = (extra) =>
+    nativeFetch(base + '/chat', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        message: 'Show me a stock recipe.',
+        task: { domain: 'recipe', phase: 'browse' },
+        ...extra,
+      }),
+    });
+  try {
+    const status = await (await nativeFetch(base + '/chat/status')).json();
+    assert.equal(status.model, DEFAULT_MODEL);
+    assert.equal(status.writerModel, process.env.LYRIC_PROPOSER_MODEL);
+    assert.deepEqual(
+      status.models,
+      PICKER_MODELS.map((id) => ({ id, pricePer1M: PRICING[id] }))
+    );
+    assert.deepEqual(PICKER_MODELS, Object.keys(PRICING), 'every priced model, and only those');
+
+    const plain = await post({});
+    const plainBody = await plain.json();
+    assert.equal(plain.status, 200, JSON.stringify(plainBody).slice(0, 300));
+    assert.equal(plainBody.model, DEFAULT_MODEL);
+    assert.equal(plainBody.writer_model, status.writerModel);
+    assert.match(sent.at(-1).url, new RegExp(`/models/${DEFAULT_MODEL}:generateContent$`));
+    assert.equal(sent.at(-1).writer, status.writerModel);
+
+    const picked = await post({ model: 'gemini-4-neon', writer_model: 'gemini-2.5-flash-lite' });
+    const pickedBody = await picked.json();
+    assert.equal(picked.status, 200, JSON.stringify(pickedBody).slice(0, 300));
+    assert.equal(pickedBody.model, 'gemini-4-neon');
+    assert.equal(pickedBody.writer_model, 'gemini-2.5-flash-lite');
+    assert.ok(sent.length > 1);
+    assert.match(sent.at(-1).url, /\/models\/gemini-4-neon:generateContent$/);
+    assert.equal(sent.at(-1).writer, 'gemini-2.5-flash-lite');
+
+    const calls = sent.length;
+    for (const bad of [
+      { model: 'gemini-9-imaginary' },
+      { writer_model: 'gemini-2.5-pro' },
+      { model: '../../models/gemini-4-neon' },
+      { model: 'toString' },
+      { writer_model: 7 },
+    ]) {
+      const refused = await post(bad);
+      const refusal = await refused.json();
+      assert.equal(refused.status, 400, JSON.stringify(bad));
+      assert.equal(refusal.code, 'UNKNOWN_MODEL');
+      assert.deepEqual(refusal.models, PICKER_MODELS);
+    }
+    assert.equal(sent.length, calls, 'a refused pick never reaches a model');
+  } finally {
+    globalThis.fetch = nativeFetch;
+    server.close();
+    server.closeAllConnections();
+  }
+});
+
 // THE STAGES OF A NEW SONG, IN THE ORDER THE SESSION ENFORCES: sweep, plan,
 // word-check, grade, revise. The page shows the stage the last lyric tool on
 // record names. The word-check follows the plan, while the lines are being
@@ -1318,6 +1406,100 @@ function browser(
   );
   return { ui: context.ui, nodes, saved, context, copied };
 }
+
+// THE MODEL PICKER ON THE PAGE. The two selects are filled from the status
+// reply (uiFillModels in src/workbench.js), with the service's own model as
+// an unsent default; a send carries whatever the visitor picked.
+test('shipped UI fills the model picker from status and sends the picked models', async () => {
+  for (const [model, writer] of [
+    ['gemini-4-neon', 'gemini-2.5-flash-lite'],
+    ['', ''],
+  ]) {
+    let body;
+    const b = browser(new Map(), async (_url, req) => {
+      body = JSON.parse(req.body);
+      return {
+        json: async () => ({
+          reply: 'ok',
+          history: [],
+          workspace: null,
+          sig: 'signed',
+          task: task('recipe'),
+        }),
+        headers: { get: () => null },
+      };
+    });
+    b.nodes.set('chat-model', { value: model });
+    b.nodes.set('chat-writer-model', { value: writer });
+    b.nodes.get('chat-domain').value = 'recipe';
+    b.nodes.get('chat-input').value = 'A stock recipe, please';
+    await b.ui._chatSubmit({ preventDefault() {} });
+    assert.equal(body.model, model || undefined);
+    assert.equal(body.writer_model, writer || undefined);
+  }
+
+  const src = fs.readFileSync(new URL('../src/workbench.js', import.meta.url), 'utf8');
+  const fill = src.slice(
+    src.indexOf('const UI_MODEL_STORAGE'),
+    src.indexOf('async function uiCheckAI')
+  );
+  const nodes = new Map();
+  const select = () => ({
+    options: [],
+    value: '',
+    replaceChildren(...options) {
+      this.options = options;
+    },
+  });
+  nodes.set('chat-models', { hidden: true });
+  nodes.set('chat-model', select());
+  nodes.set('chat-writer-model', select());
+  const saved = new Map([
+    [
+      'codex-chat-models-v1',
+      JSON.stringify({ model: 'gemini-4-neon', writer_model: 'gone-model' }),
+    ],
+  ]);
+  const context = vm.createContext({
+    $ui: (id) => nodes.get(id),
+    document: { createElement: () => ({}) },
+    localStorage: { getItem: (k) => saved.get(k) ?? null, setItem: (k, v) => saved.set(k, v) },
+  });
+  vm.runInContext(fill + '\nglobalThis.fill = uiFillModels;', context);
+  const models = [
+    { id: 'gemini-4-neon', pricePer1M: { input: 3, output: 15 } },
+    { id: 'gemini-2.5-flash-lite', pricePer1M: { input: 0.1, output: 0.4 } },
+  ];
+  context.fill({ model: 'gemini-3.1-flash-lite', writerModel: 'gemini-3.5-flash-lite', models });
+  const chat = nodes.get('chat-model');
+  const writerSelect = nodes.get('chat-writer-model');
+  assert.equal(nodes.get('chat-models').hidden, false);
+  assert.deepEqual(
+    chat.options.map((o) => [o.value, o.textContent]),
+    [
+      ['', 'Default (gemini-3.1-flash-lite)'],
+      ['gemini-4-neon', 'gemini-4-neon ($3 / $15)'],
+      ['gemini-2.5-flash-lite', 'gemini-2.5-flash-lite ($0.1 / $0.4)'],
+    ]
+  );
+  assert.equal(writerSelect.options[0].textContent, 'Default (gemini-3.5-flash-lite)');
+  assert.equal(chat.value, 'gemini-4-neon', 'a remembered model that is still offered');
+  assert.equal(
+    writerSelect.value,
+    '',
+    'a remembered model no longer offered falls back to the default'
+  );
+  writerSelect.value = 'gemini-2.5-flash-lite';
+  writerSelect.onchange();
+  assert.deepEqual(JSON.parse(saved.get('codex-chat-models-v1')), {
+    model: 'gemini-4-neon',
+    writer_model: 'gemini-2.5-flash-lite',
+  });
+  // No list (an older service): the picker stays hidden.
+  nodes.get('chat-models').hidden = true;
+  context.fill({ model: 'gemini-3.1-flash-lite' });
+  assert.equal(nodes.get('chat-models').hidden, true);
+});
 
 test('shipped UI exposes explicit lyric creation and pasted-edit task phases', async () => {
   for (const [choice, phase] of [
