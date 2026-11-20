@@ -218,7 +218,13 @@ or the separate lyrics pipeline.
   cross-conversation deduplication. Old receipts already removed before this
   retention was introduced cannot be reconstructed.
 - `GET /chat/status` reports model availability, declared pricing, usage and
-  outstanding reservations against the shared daily allowance.
+  outstanding reservations against the shared daily allowance. Its `models` lists
+  every model a request may pick, with its price per 1M tokens (`PRICING` in
+  `gemini_agent.js`), and `writerModel` names the default lyric writer.
+- `POST /chat` takes an optional `model` (the chat model) and `writer_model` (the
+  lyric writer's model), each one of `models`. A field left out runs the
+  deployment's own model. Any other value is refused with `UNKNOWN_MODEL` before a
+  model is called. The same spend caps apply to every model.
 
 The durable deployment retains request content and lyric progress; it is not
 stateless. See [LYRICS_RUNTIME.md](./LYRICS_RUNTIME.md) for receipt retention and

@@ -1360,6 +1360,13 @@ button.part-options-cell { background: none; border: 0; padding: 0; margin: 0; m
    that check exists rather than being a lint preference. 11px is not a step on
    the ramp at all; it maps to --fs-micro, the nearest one the floor lifts. */
 .chat-reset { padding: 4px 8px; font-size: var(--fs-micro); }
+/* The model picker shares the head row and wraps under the buttons when the
+   panel is narrow, so no phone width scrolls sideways. */
+.chat-panel-head { flex-wrap: wrap; }
+.chat-models { display: flex; flex-wrap: wrap; gap: 4px; margin-left: auto; padding: 2px 4px; }
+.chat-models[hidden] { display: none; }
+.chat-model-label { display: flex; align-items: center; gap: 4px; font-size: var(--fs-micro); color: var(--text-3); }
+.chat-model { padding: 2px 4px; font-size: var(--fs-micro); max-width: 100%; }
 .chat-log {
   overflow-y: auto;
   display: flex;
@@ -1628,6 +1635,14 @@ button.part-options-cell { background: none; border: 0; padding: 0; margin: 0; m
     <div class="chat-panel-head">
       <button class="btn btn-ghost chat-reset" id="chat-reset" type="button"><span class="btn-label">New conversation</span></button>
       <button class="btn btn-ghost chat-reset" id="chat-recover" type="button">Saved runs</button>
+      <!-- Model picker: filled from /chat/status `models` by uiCheckAI in
+           src/workbench.js, and hidden until it is. Each request sends the
+           two choices (_chatSend in src/app.js); the server refuses any model
+           not on its priced list. -->
+      <span class="chat-models" id="chat-models" hidden>
+        <label class="chat-model-label">Chat <select id="chat-model" class="btn btn-secondary chat-model"></select></label>
+        <label class="chat-model-label">Writer <select id="chat-writer-model" class="btn btn-secondary chat-model"></select></label>
+      </span>
     </div>
     <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions"></div>
   </div>

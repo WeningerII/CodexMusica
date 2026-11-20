@@ -100,6 +100,8 @@ def cli():
         print('é' * int(args[1]), flush=True)
     elif mode == 'echo':
         print(args[1], flush=True)
+    elif mode == 'writer-model':
+        print(os.environ.get('LYRIC_PROPOSER_MODEL') or 'unset', flush=True)
     elif mode == 'checkpoint':
         for i in range(20):
             print('  lyric checkpoint: '+json.dumps({'transport_token':os.environ.get('LYRIC_CONTROL_TOKEN'),'version':1,'accepted_lines':['é' * 10000],'round':i}), flush=True)
@@ -160,6 +162,35 @@ if __name__ == '__main__':
     },
   };
 }
+
+// The website chat's model picker chooses the lyric writer's model per
+// request. It reaches the writer as LYRIC_PROPOSER_MODEL for that request
+// only, on the warm worker and the cold path alike, and a request that picks
+// none runs the harness's own model.
+test('a picked writer model reaches that request only, warm and cold', async () => {
+  for (const workerEnabled of [true, false]) {
+    let picked;
+    const f = await fixture({
+      workerEnabled,
+      extraEnv: { LYRIC_PROPOSER_MODEL: 'gemini-3.5-flash-lite' },
+      getContext: () => (picked ? { proposerModel: picked } : {}),
+    });
+    try {
+      const run = async (model) => {
+        picked = model;
+        const result = await f.runVerb(['writer-model']);
+        assert.equal(result.code, 0);
+        return result.stdout.trim();
+      };
+      assert.equal(await run(undefined), 'gemini-3.5-flash-lite');
+      assert.equal(await run('gemini-4-neon'), 'gemini-4-neon');
+      assert.equal(await run(undefined), 'gemini-3.5-flash-lite', 'the pick ends with its request');
+      assert.equal(await run('gemini-2.5-flash-lite'), 'gemini-2.5-flash-lite');
+    } finally {
+      await f.close();
+    }
+  }
+});
 
 test('queue deadline includes waiting and expired work never starts', async () => {
   const f = await fixture({ timeoutMs: 700 });

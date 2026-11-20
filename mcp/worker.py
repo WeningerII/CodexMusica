@@ -87,8 +87,11 @@ class ProtocolStream(io.TextIOBase):
 _LONE_SURROGATE = re.compile("[\ud800-\udfff]")
 
 
+# LYRIC_PROPOSER_MODEL is per request because the website chat's model picker
+# chooses the writer's model for each request (python_bridge.js requestEnv).
 REQUEST_ENV = ("LYRIC_CONTROL_TOKEN", "LYRIC_REQUEST_DEADLINE_MS", "LYRIC_CHECKPOINT_PATH",
-               "LYRIC_PROPOSER_BUDGET_USD", "LYRIC_BUDGET_URL", "LYRIC_BUDGET_TOKEN")
+               "LYRIC_PROPOSER_BUDGET_USD", "LYRIC_BUDGET_URL", "LYRIC_BUDGET_TOKEN",
+               "LYRIC_PROPOSER_MODEL")
 
 
 READER_OBJECT_BYTES = 2 * 1024 * 1024  # READER_LIMITS.objectBytes in reader_job_store.js

@@ -527,8 +527,17 @@ export function createPythonBridge({
         }
       );
   };
+  // The writer's model for this request: the chat's model picker sets
+  // `proposerModel` on the context; otherwise it is the harness's own. Sent
+  // every time, because the warm worker clears a per-request key a request
+  // leaves out (worker.py REQUEST_ENV).
+  const writerModelOf = (options) => {
+    const model = options.context.proposerModel ?? harnessEnv().LYRIC_PROPOSER_MODEL;
+    return typeof model === 'string' ? { LYRIC_PROPOSER_MODEL: model } : {};
+  };
   const requestEnv = (options) => ({
     ...options.budgetEnv,
+    ...writerModelOf(options),
     LYRIC_CONTROL_TOKEN: options.controlToken,
     LYRIC_REQUEST_DEADLINE_MS: String(Date.now() + options.deadlineAt - performance.now()),
     ...(options.checkpointPath ? { LYRIC_CHECKPOINT_PATH: options.checkpointPath } : {}),

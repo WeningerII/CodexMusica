@@ -2696,6 +2696,57 @@ function uiAfterPaint(fn) {
   if (typeof document !== 'undefined' && typeof document.addEventListener === 'function')
     document.addEventListener('visibilitychange', () => hidden() && idle(), { once: true });
 }
+// THE MODEL PICKER (owner ruling 2026-11-20). The service lists the models a
+// visitor may pick, each with its price per 1M tokens. The page offers them
+// for the chat and for the lyric writer apart, with the service's own model
+// first as the default, and remembers this viewer's choice in this browser.
+// A remembered model the service no longer offers falls back to the default.
+const UI_MODEL_STORAGE = 'codex-chat-models-v1';
+function uiFillModels(info) {
+  const wrap = $ui('chat-models');
+  const models = Array.isArray(info?.models) ? info.models : [];
+  if (!wrap || !models.length) return;
+  let saved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem(UI_MODEL_STORAGE) || '{}') || {};
+  } catch {
+    saved = {};
+  }
+  const option = (value, text) => {
+    const el = document.createElement('option');
+    el.value = value;
+    el.textContent = text;
+    return el;
+  };
+  const ids = models.map((m) => m.id);
+  for (const [id, key, fallback] of [
+    ['chat-model', 'model', info.model],
+    ['chat-writer-model', 'writer_model', info.writerModel],
+  ]) {
+    const select = $ui(id);
+    if (!select) continue;
+    select.replaceChildren(
+      option('', `Default (${fallback || 'service'})`),
+      ...models.map((m) =>
+        option(
+          m.id,
+          m.pricePer1M ? `${m.id} ($${m.pricePer1M.input} / $${m.pricePer1M.output})` : m.id
+        )
+      )
+    );
+    select.value = ids.includes(saved[key]) ? saved[key] : '';
+    select.title = 'USD per 1M input / output tokens';
+    select.onchange = () => {
+      saved = { ...saved, [key]: select.value };
+      try {
+        localStorage.setItem(UI_MODEL_STORAGE, JSON.stringify(saved));
+      } catch {
+        // A private window may refuse storage; the choice still holds for this page.
+      }
+    };
+  }
+  wrap.hidden = false;
+}
 async function uiCheckAI() {
   const status = $ui('ai-status');
   if (!status) return;
@@ -2714,6 +2765,7 @@ async function uiCheckAI() {
     if (!info.ok || info.enabled === false)
       throw Error('The AI service is temporarily unavailable.');
     status.textContent = '';
+    uiFillModels(info);
   } catch (e) {
     status.textContent =
       e.name === 'TypeError'
