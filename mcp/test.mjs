@@ -8514,8 +8514,9 @@ if (!runs('offline') || PART === null) {
           passed++;
 
           // EACH GROUP DRAWS ONE TYPE (owner-approved plan, 2026-10-27, D1). The
-          // brief states each group's rule with no type name ("must satisfy rule
-          // R<n>"), and the grade — with `--relations=` off the plan — judges each
+          // brief states each group's rule ("must satisfy rule R<n> (<type>)";
+          // the type's name since 2026-11-20), and the grade — with
+          // `--relations=` off the plan — judges each
           // group under the type it drew, so it announces one RELATION row per
           // group. Pinned as an equality between the harness's own two reports.
           const groupsInBrief = (planReport.match(/must satisfy rule R\d+/g) || []).length;

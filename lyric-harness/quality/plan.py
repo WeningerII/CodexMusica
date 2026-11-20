@@ -1937,8 +1937,10 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
 # D5. Each group's line in the brief states only a rule GENERATED from its
 # type's formal fields (`spans`, `align`, `channels`, `unmatched`,
 # `placement`, `identity`, `figure`, `requires`), written with variables:
-# P is the bound span on line N, Q the bound span on line M. No type name,
-# alias or example word is printed.
+# P is the bound span on line N, Q the bound span on line M. ~~No type name,
+# alias or example word is printed.~~ Since 2026-11-20 (owner's request) the
+# type's name stands beside its rule (`group_rules`); no alias or example
+# word is printed.
 
 _CHANNEL_WORDS = {
     "onset": "consonant sound(s) before the vowel",
@@ -7828,9 +7830,18 @@ def group_rules(plan):
 
     Each group is stated as a rule GENERATED from its type's formal fields
     (`type_rule`), with variables: N and M are two lines of the group, P the
-    bound span on line N, Q the bound span on line M. No type name, alias or
-    example word is printed. Rules are numbered in order of first use; two
-    groups of one type cite one rule."""
+    bound span on line N, Q the bound span on line M. Rules are numbered in
+    order of first use; two groups of one type cite one rule.
+
+    NAMED BESIDE ITS RULE (owner's request, 2026-11-20, amending D5): each
+    group line and each rule names the type it states, so a reply can say
+    which kind of sound match each group is, not only what it asks. A
+    writer reading a numbered rule alone called an assonance group and a
+    rhyme across the line break "rhyme pairs" chosen as "a perfect rhyme
+    word". D5 dropped names because the brief once printed a bare id
+    (`T5`, `headrime`) with nothing a writer could act on; the name now
+    stands beside its whole generated rule, never in its place. No alias
+    or example word is printed."""
     groups = [g for g in str(plan.get("groups") or "").split(";") if g.strip()]
     if not groups:
         return []
@@ -7846,25 +7857,26 @@ def group_rules(plan):
         members = [m.strip() for m in g.split(",") if m.strip()]
         if sch is None:
             key = name or "any"
+            shown = name or "any relation"
             if key not in rule_no:
                 rule_no[key] = len(rule_no) + 1
-                rules.append((rule_no[key], [
+                rules.append((rule_no[key], shown, [
                     f"P and Q stand in the declared relation {name}"
                     if name else "P and Q stand in any one relation the "
                                  "grader judges"]))
         else:
-            key = bare
+            key = shown = bare
             if key not in rule_no:
                 rule_no[key] = len(rule_no) + 1
-                rules.append((rule_no[key], type_rule(sch)))
+                rules.append((rule_no[key], shown, type_rule(sch)))
         token = sch is None or all(r.locus in _TOKEN_LOCI
                                    for r in (sch.spans[0], sch.spans[-1]))
         lines.append(f"  group {SC.label((gi,))}: "
                      + ", ".join(_member_words(m, token) for m in members)
-                     + f" must satisfy rule R{rule_no[key]}")
+                     + f" must satisfy rule R{rule_no[key]} ({shown})")
     lines.append("Rules:")
-    for n, clauses in rules:
-        lines.append(f"  R{n}: " + "; ".join(clauses) + ".")
+    for n, shown, clauses in rules:
+        lines.append(f"  R{n} ({shown}): " + "; ".join(clauses) + ".")
     return lines
 
 

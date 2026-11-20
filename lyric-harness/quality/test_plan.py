@@ -3749,10 +3749,15 @@ def test_the_relation_draw():
           "--relations=" in PLN.grading_command(pl)
           and "--relation=" not in PLN.grading_command(pl),
           PLN.grading_command(pl)[-80:])
-    check("...and the brief states a RULE per group, with no type name and "
-          "no 'at least one relation' wording",
-          PLN.writer_brief(pl).count("must satisfy rule R") == n_groups
-          and "must stand in at least one relation" not in PLN.writer_brief(pl))
+    # REPINNED 2026-11-20 (owner's request): ~~with no type name~~ — each
+    # group's rule now names the type the group drew, beside the rule.
+    brief7 = PLN.writer_brief(pl)
+    named7 = all(f"({v.split(':', 1)[1] if v.startswith('schema:') else v})"
+                 in brief7 for v in (pl.get("relations") or {}).values())
+    check("...and the brief states a RULE per group, names the type each "
+          "group drew beside it, and has no 'at least one relation' wording",
+          brief7.count("must satisfy rule R") == n_groups and named7
+          and "must stand in at least one relation" not in brief7)
     pl2 = PLN.make_plan(7, relation="class:ASSONANCE")
     check("a writer's own --relation is CARRIED to the grade (M-55), on "
           "every group, and nothing is drawn over it",
@@ -4601,15 +4606,22 @@ def test_the_delegated_rulings(FAILURES=None):
                 for g in p["groups"].split(";") for m in g.split(",")
                 if "." in m}
         # 2026-10-27 (D5): ~~a legend naming each place and relation~~ — each
-        # group cites a rule, every cited rule is stated, and no type name is
-        # printed.
-        names = {v.split(":", 1)[1] for v in (p.get("relations") or {}).values()}
-        cited = set(_re.findall(r"must satisfy rule (R\d+)", brief))
-        stated = set(_re.findall(r"^  (R\d+): ", brief, _re.M))
+        # group cites a rule and every cited rule is stated. ~~No type name
+        # is printed.~~ REPINNED 2026-11-20 (owner's request): the group line
+        # and the rule both name the type, so a group cites `R<n> (<type>)`
+        # and that rule is stated as `R<n> (<type>): ...`.
+        # A name may hold brackets of its own ("chain rhyme (rap)"), so the
+        # name is read to the line's end on a group line, and to the first
+        # "): " on a rule line (the rule's own text may hold another).
+        names = {v.split(":", 1)[1] if v.startswith("schema:") else v
+                 for v in (p.get("relations") or {}).values()}
+        cited = set(_re.findall(r"must satisfy rule (R\d+) \((.*)\)$",
+                                brief, _re.M))
+        stated = set(_re.findall(r"^  (R\d+) \((.+?)\): ", brief, _re.M))
         legend_ok = (legend_ok and cited and cited == stated
                      and brief.count("must satisfy rule R")
                      == len(p["groups"].split(";"))
-                     and not any(nm in brief for nm in names))
+                     and {nm for _r, nm in cited} == names)
         lines_b = brief.splitlines()
         hdr = [i for i, l in enumerate(lines_b)
                if _re.match(r"^  \[[A-Z]", l) and l.rstrip().endswith("]")]
@@ -4857,19 +4869,24 @@ def test_the_legend_states_the_whole_schema():
           "differ on prominence" in asks["light rhyme"], asks["light rhyme"])
     # ~~THE LEGEND ITSELF CARRIES THEM, through `brief_legend`~~ — since
     # 2026-10-27 (D5) the brief states each group's RULE (`group_rules`,
-    # from `type_rule`), with no type name: the same whole declaration —
-    # overhang and present/absent included — written with variables.
+    # from `type_rule`): the same whole declaration — overhang and
+    # present/absent included — written with variables. ~~With no type
+    # name~~: since 2026-11-20 (owner's request) each rule is headed by the
+    # name of the type it states, beside the rule and never in its place.
     fake = {"groups": "1,2;3.T2,4", "relations": {"A": "schema:semirhyme",
                                                   "B": "schema:subtractive rhyme"}}
     leg = "\n".join(PLN.group_rules(fake))
-    check("the brief's rules carry the whole declaration with no name: the "
-          "overhang (Q runs on past the lined-up part, P does not) and the "
-          "present/absent coda",
+    check("the brief's rules carry the whole declaration, each under its "
+          "type's name: the overhang (Q runs on past the lined-up part, P "
+          "does not) and the present/absent coda",
           PLN.brief_legend(fake) == []
           and "Q runs on with one or more syllables past the lined-up part, "
               "and P does not" in leg
           and "is present in P and absent in Q" in leg
-          and "semirhyme" not in leg and "subtractive" not in leg, leg)
+          and "must satisfy rule R1 (semirhyme)" in leg
+          and "must satisfy rule R2 (subtractive rhyme)" in leg
+          and "\n  R1 (semirhyme): " in leg
+          and "\n  R2 (subtractive rhyme): " in leg, leg)
 
 
 #: THE SECTIONS, IN COST ORDER, SLOWEST FIRST — every section except §3,
@@ -5555,11 +5572,25 @@ def test_the_type_draw():
     # skips exact code tokens the gate census lists, and nothing else.
     from quality import gate_census as _GC
     _codes = set(_GC.census())
+    # A TYPE'S OWN NAME, WHERE IT STANDS BESIDE ITS RULE (owner's request,
+    # 2026-11-20): `group_rules` names each group's type at the end of its
+    # group line and at the head of its rule. Only those two places are
+    # skipped, and only for the type that group drew; the name anywhere
+    # else, an alias anywhere, and every other banned word still leak.
+    named_at = (r"(must satisfy rule R\d+ )\((.*)\)$",
+                r"^(  R\d+ )\((.+?)\)(?=: )")
     for seed in range(1, 31):
         p = make_plan(seed)
+        drawn = {v[7:] for v in p["relations"].values()
+                 if v.startswith("schema:")}
+        text = p["writer_brief"]
+        for pat in named_at:
+            text = re.sub(pat, lambda mo: mo.group(1) + (
+                "" if mo.group(2) in drawn else f"({mo.group(2)})"),
+                text, flags=re.M)
         brief = re.sub(r"\b[A-Z][A-Z0-9_]+\b",
                        lambda mo: "" if mo.group(0) in _codes
-                       else mo.group(0), p["writer_brief"]).lower()
+                       else mo.group(0), text).lower()
         leaks += [(seed, w) for w in banned if w in brief]
         leaks += [(seed, n) for n in names if len(n) > 4 and n.lower() in brief]
         groups = p["groups"].split(";")
@@ -5576,8 +5607,9 @@ def test_the_type_draw():
                     unplaced.append((seed, m))
                 if place.startswith("T") and "any_token" not in loci:
                     unplaced.append((seed, m))
-    check("the brief names no type, alias or example marker and never says "
-          "'rhyme' for the basic types", not leaks, leaks[:5])
+    check("the brief names no type outside the name beside its own rule, no "
+          "alias or example marker, and never says 'rhyme' anywhere else",
+          not leaks, leaks[:5])
     check("every group carries one eligible type, handed to the grader as "
           "schema:<name> in plan['relations']", not unlabeled, unlabeled)
     check("each member's place is one its type's spans allow", not unplaced,
